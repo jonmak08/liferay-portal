@@ -3,9 +3,14 @@
 /**
  * Prints the Hello Soy portlet navigation example page.
  *
+<<<<<<< HEAD
  * @param backURL
  * @param formURL
  * @param id
+=======
+ * @param id
+ * @param navigationURL
+>>>>>>> compatible
  */
 {template .render}
 	<div id="{$id}">
@@ -13,6 +18,7 @@
 
 		<p>{msg desc=""}this-is-another-view{/msg}</p>
 
+<<<<<<< HEAD
 		<form action="{$formURL}" enctype="multipart/form-data" method="post">
 			<label class="control-label" for="submittedData">{msg desc=""}what-is-your-name{/msg}</label>
 
@@ -24,6 +30,9 @@
 		</form>
 
 		<a href="{$backURL}">{msg desc=""}click-here-to-navigate-back{/msg}</a>
+=======
+		<a href="{$navigationURL}">{msg desc=""}click-here-to-navigate-back{/msg}</a>
+>>>>>>> compatible
 
 		{call Footer.render data="all"}{/call}
 	</div>

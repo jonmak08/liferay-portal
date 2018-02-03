@@ -17,7 +17,10 @@ package com.liferay.portal.kernel.trash;
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.portal.kernel.exception.PortalException;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.ClassedModel;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.ContainerModel;
 import com.liferay.portal.kernel.model.SystemEvent;
 import com.liferay.portal.kernel.model.TrashedModel;
@@ -29,8 +32,11 @@ import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.trash.kernel.model.TrashEntry;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.Collections;
+=======
+>>>>>>> compatible
 import java.util.List;
 
 import javax.portlet.PortletRequest;
@@ -403,6 +409,7 @@ public interface TrashHandler {
 	 * result set.
 	 * </p>
 	 *
+<<<<<<< HEAD
 	 * @param      classPK the primary key of a container model
 	 * @param      start the lower bound of the range of results
 	 * @param      end the upper bound of the range of results (not inclusive)
@@ -412,6 +419,15 @@ public interface TrashHandler {
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+	 * @param  classPK the primary key of a container model
+	 * @param  start the lower bound of the range of results
+	 * @param  end the upper bound of the range of results (not inclusive)
+	 * @return the range of trash renderers of model entities (excluding
+	 *         container models) that are children of the parent container model
+	 *         identified by the primary key
+	 */
+>>>>>>> compatible
 	public List<TrashRenderer> getTrashContainedModelTrashRenderers(
 			long classPK, int start, int end)
 		throws PortalException;
@@ -464,6 +480,7 @@ public interface TrashHandler {
 	 * result set.
 	 * </p>
 	 *
+<<<<<<< HEAD
 	 * @param      classPK the primary key of a container model
 	 * @param      start the lower bound of the range of results
 	 * @param      end the upper bound of the range of results (not inclusive)
@@ -471,10 +488,18 @@ public interface TrashHandler {
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+	 * @param  classPK the primary key of a container model
+	 * @param  start the lower bound of the range of results
+	 * @param  end the upper bound of the range of results (not inclusive)
+	 * @return the range of matching trash renderers of model entities
+	 */
+>>>>>>> compatible
 	public List<TrashRenderer> getTrashContainerModelTrashRenderers(
 			long classPK, int start, int end)
 		throws PortalException;
 
+<<<<<<< HEAD
 	public TrashedModel getTrashedModel(long classPK);
 
 	public default TrashEntry getTrashEntry(long classPK)
@@ -528,6 +553,15 @@ public interface TrashHandler {
 
 		return trashRenderers;
 	}
+=======
+	public TrashEntry getTrashEntry(long classPK) throws PortalException;
+
+	public int getTrashModelsCount(long classPK) throws PortalException;
+
+	public List<TrashRenderer> getTrashModelTrashRenderers(
+			long classPK, int start, int end, OrderByComparator<?> obc)
+		throws PortalException;
+>>>>>>> compatible
 
 	/**
 	 * Returns the trash renderer associated to the model entity with the
@@ -585,6 +619,7 @@ public interface TrashHandler {
 	 * @return <code>true</code> if the model entity is in the Recycle Bin;
 	 *         <code>false</code> otherwise
 	 */
+<<<<<<< HEAD
 	public default boolean isInTrash(long classPK) throws PortalException {
 		TrashedModel trashedModel = getTrashedModel(classPK);
 
@@ -594,6 +629,9 @@ public interface TrashHandler {
 
 		return false;
 	}
+=======
+	public boolean isInTrash(long classPK) throws PortalException;
+>>>>>>> compatible
 
 	/**
 	 * Returns <code>true</code> if the model entity with the primary key is in
@@ -604,6 +642,7 @@ public interface TrashHandler {
 	 *         a container that is in the Recycle Bin; <code>false</code>
 	 *         otherwise
 	 */
+<<<<<<< HEAD
 	public default boolean isInTrashContainer(long classPK)
 		throws PortalException {
 
@@ -615,6 +654,9 @@ public interface TrashHandler {
 
 		return false;
 	}
+=======
+	public boolean isInTrashContainer(long classPK) throws PortalException;
+>>>>>>> compatible
 
 	/**
 	 * Returns <code>true</code> if the entity can be moved from one container

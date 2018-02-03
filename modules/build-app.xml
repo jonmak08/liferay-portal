@@ -4,9 +4,12 @@
 <project name="build-app">
 	<extension-point name="release-tool-dependencies" />
 
+<<<<<<< HEAD
 	<property location="${modules.dir}/../bundles" name="liferay.home" />
 	<property location="${modules.dir}/.." name="project.dir" />
 
+=======
+>>>>>>> compatible
 	<property file="../app.server.${user.name}.properties" />
 	<property file="../app.server.${env.COMPUTERNAME}.properties" />
 	<property file="../app.server.${env.HOST}.properties" />
@@ -15,6 +18,12 @@
 
 	<property file="../build.properties" />
 
+<<<<<<< HEAD
+=======
+	<property location="${modules.dir}/../bundles" name="liferay.home" />
+	<property location="${modules.dir}/.." name="project.dir" />
+
+>>>>>>> compatible
 	<property name="build.modules.excludes" value="**/adaptive-media/**" />
 
 	<property name="portal.lib.dir" value="${app.server.tomcat.lib.portal.dir}" />
@@ -70,11 +79,15 @@
 		<pathconvert pathsep="," property="app.names">
 			<globmapper from="${modules.dir}${file.separator}apps${file.separator}*" to="*" />
 			<path>
+<<<<<<< HEAD
 				<dirset dir="${modules.dir}" includes="apps/*">
 					<present targetdir="${modules.dir}">
 						<mapper from="*" to="*/app.bnd" type="glob" />
 					</present>
 				</dirset>
+=======
+				<dirset dir="${modules.dir}" includes="apps/*" />
+>>>>>>> compatible
 			</path>
 		</pathconvert>
 
@@ -103,9 +116,15 @@
 	</target>
 
 	<target depends="get-app-version,init-build-app" name="check-stale-artifacts" unless="check.stale.artifacts.skip">
+<<<<<<< HEAD
 		<property location="${gradle.wrapper.path}" name="gradle.wrapper.path" />
 
 		<exec dir="${app.dir}" executable="${gradle.wrapper.path}" outputproperty="stale.artifacts.output">
+=======
+		<property location="${gradle.wrapper.path}" name="gradle.wrapper.path.absolute" />
+
+		<exec dir="${app.dir}" executable="${gradle.wrapper.path.absolute}" outputproperty="stale.artifacts.output">
+>>>>>>> compatible
 			<arg value="printStaleArtifact" />
 			<arg value="-q" />
 		</exec>
@@ -135,6 +154,14 @@
 
 		<echo message="Checking out ${app.name} public releng info from commit ID: ${git.commit.portal.public}" />
 
+<<<<<<< HEAD
+=======
+		<exec dir="${project.dir}" executable="git">
+			<arg value="fetch" />
+			<arg value="upstream" />
+		</exec>
+
+>>>>>>> compatible
 		<exec dir="${project.dir}/modules" executable="git">
 			<arg value="checkout" />
 			<arg value="${git.commit.portal.public}" />
@@ -520,11 +547,18 @@
 		<echo message="app.version = ${app.version}" />
 
 		<replaceregexp
+<<<<<<< HEAD
 			byline="true"
+=======
+>>>>>>> compatible
 			file="${releng.app.dir}/app.properties"
 			flags="m"
 			match="app.marketplace.version=.*$"
 			replace="app.marketplace.version=${app.version}"
+<<<<<<< HEAD
+=======
+			byline="true"
+>>>>>>> compatible
 		/>
 	</target>
 

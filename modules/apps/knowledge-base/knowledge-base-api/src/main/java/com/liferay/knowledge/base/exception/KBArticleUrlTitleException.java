@@ -17,7 +17,10 @@ package com.liferay.knowledge.base.exception;
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.portal.kernel.exception.PortalException;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 
 /**
  * @author Brian Wing Shun Chan
@@ -53,10 +56,16 @@ public class KBArticleUrlTitleException extends PortalException {
 
 		public MustNotContainInvalidCharacters(String urlTitle) {
 			super(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"URL title ", urlTitle, " must start with a '/' and ",
 					"contain only alphanumeric characters, dashes, and ",
 					"underscores"));
+=======
+				"URL title " + urlTitle + " must start with a '/' and " +
+					"contain only alphanumeric characters, dashes, and " +
+						"underscores");
+>>>>>>> compatible
 		}
 
 	}
@@ -66,9 +75,14 @@ public class KBArticleUrlTitleException extends PortalException {
 
 		public MustNotExceedMaximumSize(String urlTitle, int urlTitleMaxSize) {
 			super(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"URL title ", urlTitle, " must have fewer than ",
 					String.valueOf(urlTitleMaxSize), " characters"));
+=======
+				"URL title " + urlTitle + " must have fewer than " +
+					urlTitleMaxSize + " characters");
+>>>>>>> compatible
 		}
 
 	}

@@ -13,7 +13,11 @@ To use the plugin, include it in your build script:
 ```gradle
 buildscript {
 	dependencies {
+<<<<<<< HEAD
 		classpath group: "com.liferay", name: "com.liferay.gradle.plugins.source.formatter", version: "2.3.67"
+=======
+		classpath group: "com.liferay", name: "com.liferay.gradle.plugins.source.formatter", version: "2.1.8"
+>>>>>>> compatible
 	}
 
 	repositories {
@@ -93,7 +97,10 @@ Property Name | Type | Default Value | Description
 `autoFix` | `boolean` | `false` | Whether to automatically fix source formatting errors. It sets the `source.auto.fix` argument.
 `baseDir` | `File` |  | The Source Formatter base directory. It sets the `source.base.dir` argument. *(Read-only)*
 `baseDirName` | `String` | `"./"` | The name of the Source Formatter base directory, relative to the project directory.
+<<<<<<< HEAD
 `fileExtensions` | `List<String>` | `[]` | The file extensions to format. If empty, all file extensions will be formatted. It sets the `source.file.extensions` argument.
+=======
+>>>>>>> compatible
 `files` | `List<File>` | | The list of files to format. It sets the `source.files` argument. *(Read-only)*
 `fileNames` | `List<String>` | `null` | The file names to format, relative to the project directory. If `null`, all files contained in `baseDir` will be formatted.
 `formatCurrentBranch` | `boolean` | `false` | Whether to format only the files contained in `baseDir` that are added or modified in the current Git branch. It sets the `format.current.branch` argument.
@@ -104,7 +111,10 @@ Property Name | Type | Default Value | Description
 `maxLineLength` | `int` | `80` | The maximum number of characters allowed in Java files. It sets the `max.line.length` argument.
 `printErrors` | `boolean` | `true` | Whether to print formatting errors on the Standard Output stream. It sets the `source.print.errors` argument.
 `processorThreadCount` | `int` | `5` | The number of threads used by Source Formatter. It sets the `processor.thread.count` argument.
+<<<<<<< HEAD
 `showDebugInformation` | `boolean` | `false` | Whether to show debug information, if present. It sets the `show.debug.information` argument.
+=======
+>>>>>>> compatible
 `showDocumentation` | `boolean` | `false` | Whether to show the documentation for the source formatting issues, if present. It sets the `show.documentation` argument.
 `showStatusUpdates` | `boolean` | `false` | Whether to show status updates during source formatting, if present. It sets the `show.status.updates` argument.
 `throwException` | `boolean` | `false` | Whether to fail the build if formatting errors are found. It sets the `source.throw.exception` argument.
@@ -122,18 +132,29 @@ manually adding a dependency to the `sourceFormatter` configuration:
 
 ```gradle
 dependencies {
+<<<<<<< HEAD
 	sourceFormatter group: "com.liferay", name: "com.liferay.source.formatter", version: "1.0.538"
+=======
+	sourceFormatter group: "com.liferay", name: "com.liferay.source.formatter", version: "1.0.453"
+>>>>>>> compatible
 }
 ```
 
 ### System Properties
 
+<<<<<<< HEAD
 It is possible to set the default values of the `fileExtensions`, `fileNames`,
 `formatCurrentBranch`, `formatLatestAuthor`, and `formatLocalChanges`
 properties for a `FormatSourceTask` task via system properties:
 
 - `-D${task.name}.file.extensions=java,xml`
 - `-D${task.name}.file.names=README.markdown,src/main/resources/hello.txt`
+=======
+It is possible to set the default values of the `formatCurrentBranch`,
+`formatLatestAuthor`, and `formatLocalChanges` properties for a
+`FormatSourceTask` task via system properties:
+
+>>>>>>> compatible
 - `-D${task.name}.format.current.branch=true`
 - `-D${task.name}.format.latest.author=true`
 - `-D${task.name}.format.local.changes=true`

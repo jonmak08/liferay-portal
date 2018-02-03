@@ -14,7 +14,10 @@
 
 package com.liferay.portal.search.elasticsearch.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.dao.search.SearchPaginationUtil;
@@ -23,7 +26,10 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.search.BaseIndexSearcher;
 import com.liferay.portal.kernel.search.Document;
 import com.liferay.portal.kernel.search.DocumentImpl;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.search.Field;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.search.GeoDistanceSort;
 import com.liferay.portal.kernel.search.GroupBy;
 import com.liferay.portal.kernel.search.Hits;
@@ -49,7 +55,11 @@ import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.kernel.util.Props;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringUtil;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.search.elasticsearch.configuration.ElasticsearchConfiguration;
 import com.liferay.portal.search.elasticsearch.connection.ElasticsearchConnectionManager;
 import com.liferay.portal.search.elasticsearch.facet.FacetProcessor;
@@ -66,7 +76,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+<<<<<<< HEAD
 import java.util.Objects;
+=======
+>>>>>>> compatible
 import java.util.Set;
 
 import org.apache.commons.lang.time.StopWatch;
@@ -75,6 +88,10 @@ import org.elasticsearch.action.search.SearchRequestBuilder;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.common.geo.GeoDistance;
+<<<<<<< HEAD
+=======
+import org.elasticsearch.common.text.Text;
+>>>>>>> compatible
 import org.elasticsearch.common.unit.TimeValue;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
@@ -181,9 +198,14 @@ public class ElasticsearchIndexSearcher extends BaseIndexSearcher {
 				stopWatch.stop();
 
 				_log.info(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Searching ", query.toString(), " took ",
 						String.valueOf(stopWatch.getTime()), " ms"));
+=======
+					"Searching " + query.toString() + " took " +
+						stopWatch.getTime() + " ms");
+>>>>>>> compatible
 			}
 		}
 	}
@@ -215,9 +237,14 @@ public class ElasticsearchIndexSearcher extends BaseIndexSearcher {
 				stopWatch.stop();
 
 				_log.info(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Searching ", query.toString(), " took ",
 						String.valueOf(stopWatch.getTime()), " ms"));
+=======
+					"Searching " + query.toString() + " took " +
+						stopWatch.getTime() + " ms");
+>>>>>>> compatible
 			}
 		}
 	}
@@ -283,8 +310,12 @@ public class ElasticsearchIndexSearcher extends BaseIndexSearcher {
 	}
 
 	protected void addHighlights(
+<<<<<<< HEAD
 		SearchRequestBuilder searchRequestBuilder, SearchContext searchContext,
 		QueryConfig queryConfig) {
+=======
+		SearchRequestBuilder searchRequestBuilder, QueryConfig queryConfig) {
+>>>>>>> compatible
 
 		if (!queryConfig.isHighlightEnabled()) {
 			return;
@@ -299,6 +330,7 @@ public class ElasticsearchIndexSearcher extends BaseIndexSearcher {
 			HighlightUtil.HIGHLIGHT_TAG_CLOSE);
 		searchRequestBuilder.setHighlighterPreTags(
 			HighlightUtil.HIGHLIGHT_TAG_OPEN);
+<<<<<<< HEAD
 
 		boolean highlighterRequireFieldMatch =
 			queryConfig.isHighlightRequireFieldMatch();
@@ -312,6 +344,10 @@ public class ElasticsearchIndexSearcher extends BaseIndexSearcher {
 
 		searchRequestBuilder.setHighlighterRequireFieldMatch(
 			highlighterRequireFieldMatch);
+=======
+		searchRequestBuilder.setHighlighterRequireFieldMatch(
+			queryConfig.isHighlightRequireFieldMatch());
+>>>>>>> compatible
 	}
 
 	protected void addPagination(
@@ -335,6 +371,7 @@ public class ElasticsearchIndexSearcher extends BaseIndexSearcher {
 	}
 
 	protected void addSnippets(
+<<<<<<< HEAD
 		Document document, Map<String, HighlightField> highlightFields,
 		String fieldName, Locale locale) {
 
@@ -342,6 +379,21 @@ public class ElasticsearchIndexSearcher extends BaseIndexSearcher {
 			locale, fieldName);
 
 		HighlightField highlightField = highlightFields.get(snippetFieldName);
+=======
+		Document document, Set<String> queryTerms,
+		Map<String, HighlightField> highlightFields, String fieldName,
+		Locale locale) {
+
+		String snippet = StringPool.BLANK;
+
+		String localizedContentName = DocumentImpl.getLocalizedName(
+			locale, fieldName);
+
+		String snippetFieldName = localizedContentName;
+
+		HighlightField highlightField = highlightFields.get(
+			localizedContentName);
+>>>>>>> compatible
 
 		if (highlightField == null) {
 			highlightField = highlightFields.get(fieldName);
@@ -349,6 +401,7 @@ public class ElasticsearchIndexSearcher extends BaseIndexSearcher {
 			snippetFieldName = fieldName;
 		}
 
+<<<<<<< HEAD
 		if (highlightField == null) {
 			return;
 		}
@@ -362,6 +415,30 @@ public class ElasticsearchIndexSearcher extends BaseIndexSearcher {
 
 	protected void addSnippets(
 		SearchHit hit, Document document, QueryConfig queryConfig) {
+=======
+		if (highlightField != null) {
+			Text[] texts = highlightField.fragments();
+
+			StringBundler sb = new StringBundler(texts.length * 2);
+
+			for (Text text : texts) {
+				sb.append(text);
+				sb.append(StringPool.TRIPLE_PERIOD);
+			}
+
+			sb.setIndex(sb.index() - 1);
+
+			snippet = sb.toString();
+		}
+
+		HighlightUtil.addSnippet(
+			document, queryTerms, snippet, snippetFieldName);
+	}
+
+	protected void addSnippets(
+		SearchHit hit, Document document, QueryConfig queryConfig,
+		Set<String> queryTerms) {
+>>>>>>> compatible
 
 		Map<String, HighlightField> highlightFields = hit.getHighlightFields();
 
@@ -371,7 +448,11 @@ public class ElasticsearchIndexSearcher extends BaseIndexSearcher {
 
 		for (String highlightFieldName : queryConfig.getHighlightFieldNames()) {
 			addSnippets(
+<<<<<<< HEAD
 				document, highlightFields, highlightFieldName,
+=======
+				document, queryTerms, highlightFields, highlightFieldName,
+>>>>>>> compatible
 				queryConfig.getLocale());
 		}
 	}
@@ -390,7 +471,12 @@ public class ElasticsearchIndexSearcher extends BaseIndexSearcher {
 				continue;
 			}
 
+<<<<<<< HEAD
 			String sortFieldName = getSortFieldName(sort, "_score");
+=======
+			String sortFieldName = DocumentImpl.getSortFieldName(
+				sort, "_score");
+>>>>>>> compatible
 
 			if (sortFieldNames.contains(sortFieldName)) {
 				continue;
@@ -479,7 +565,11 @@ public class ElasticsearchIndexSearcher extends BaseIndexSearcher {
 		if (!count) {
 			addFacets(searchRequestBuilder, searchContext);
 			addGroupBy(searchRequestBuilder, searchContext, start, end);
+<<<<<<< HEAD
 			addHighlights(searchRequestBuilder, searchContext, queryConfig);
+=======
+			addHighlights(searchRequestBuilder, queryConfig);
+>>>>>>> compatible
 			addPagination(searchRequestBuilder, start, end);
 			addSelectedFields(searchRequestBuilder, queryConfig);
 			addSort(searchRequestBuilder, searchContext.getSorts());
@@ -526,9 +616,14 @@ public class ElasticsearchIndexSearcher extends BaseIndexSearcher {
 
 		if (_log.isInfoEnabled()) {
 			_log.info(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"The search engine processed ", searchRequestBuilderString,
 					" in ", String.valueOf(searchResponse.getTook())));
+=======
+				"The search engine processed " + searchRequestBuilderString +
+					" in " + searchResponse.getTook());
+>>>>>>> compatible
 		}
 
 		return searchResponse;
@@ -581,6 +676,7 @@ public class ElasticsearchIndexSearcher extends BaseIndexSearcher {
 		return new String[] {DocumentTypes.LIFERAY};
 	}
 
+<<<<<<< HEAD
 	protected String getSortFieldName(Sort sort, String scoreFieldName) {
 		String sortFieldName = sort.getFieldName();
 
@@ -591,6 +687,8 @@ public class ElasticsearchIndexSearcher extends BaseIndexSearcher {
 		return DocumentImpl.getSortFieldName(sort, scoreFieldName);
 	}
 
+=======
+>>>>>>> compatible
 	protected Hits processResponse(
 		SearchResponse searchResponse, SearchContext searchContext,
 		Query query) {
@@ -624,6 +722,10 @@ public class ElasticsearchIndexSearcher extends BaseIndexSearcher {
 		SearchHits searchHits, Query query, Hits hits) {
 
 		List<Document> documents = new ArrayList<>();
+<<<<<<< HEAD
+=======
+		Set<String> queryTerms = new HashSet<>();
+>>>>>>> compatible
 		List<Float> scores = new ArrayList<>();
 
 		if (searchHits.totalHits() > 0) {
@@ -637,14 +739,23 @@ public class ElasticsearchIndexSearcher extends BaseIndexSearcher {
 
 				scores.add(searchHit.getScore());
 
+<<<<<<< HEAD
 				addSnippets(searchHit, document, query.getQueryConfig());
+=======
+				addSnippets(
+					searchHit, document, query.getQueryConfig(), queryTerms);
+>>>>>>> compatible
 			}
 		}
 
 		hits.setDocs(documents.toArray(new Document[documents.size()]));
 		hits.setLength((int)searchHits.getTotalHits());
 		hits.setQuery(query);
+<<<<<<< HEAD
 		hits.setQueryTerms(new String[0]);
+=======
+		hits.setQueryTerms(queryTerms.toArray(new String[queryTerms.size()]));
+>>>>>>> compatible
 		hits.setScores(ArrayUtil.toFloatArray(scores));
 
 		return hits;

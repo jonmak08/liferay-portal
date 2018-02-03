@@ -14,12 +14,18 @@
 
 package com.liferay.portal.workflow.kaleo.runtime.internal;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.service.WorkflowDefinitionLinkLocalService;
+=======
+>>>>>>> compatible
 import com.liferay.portal.spring.extender.service.ServiceReference;
 import com.liferay.portal.workflow.kaleo.service.KaleoActionLocalService;
 import com.liferay.portal.workflow.kaleo.service.KaleoConditionLocalService;
 import com.liferay.portal.workflow.kaleo.service.KaleoDefinitionLocalService;
+<<<<<<< HEAD
 import com.liferay.portal.workflow.kaleo.service.KaleoDefinitionVersionLocalService;
+=======
+>>>>>>> compatible
 import com.liferay.portal.workflow.kaleo.service.KaleoInstanceLocalService;
 import com.liferay.portal.workflow.kaleo.service.KaleoInstanceTokenLocalService;
 import com.liferay.portal.workflow.kaleo.service.KaleoLogLocalService;
@@ -27,8 +33,11 @@ import com.liferay.portal.workflow.kaleo.service.KaleoNodeLocalService;
 import com.liferay.portal.workflow.kaleo.service.KaleoNotificationLocalService;
 import com.liferay.portal.workflow.kaleo.service.KaleoNotificationRecipientLocalService;
 import com.liferay.portal.workflow.kaleo.service.KaleoTaskAssignmentLocalService;
+<<<<<<< HEAD
 import com.liferay.portal.workflow.kaleo.service.KaleoTaskFormInstanceLocalService;
 import com.liferay.portal.workflow.kaleo.service.KaleoTaskFormLocalService;
+=======
+>>>>>>> compatible
 import com.liferay.portal.workflow.kaleo.service.KaleoTaskInstanceTokenLocalService;
 import com.liferay.portal.workflow.kaleo.service.KaleoTaskLocalService;
 import com.liferay.portal.workflow.kaleo.service.KaleoTimerInstanceTokenLocalService;
@@ -49,10 +58,13 @@ public class BaseKaleoBean {
 	@ServiceReference(type = KaleoDefinitionLocalService.class)
 	protected KaleoDefinitionLocalService kaleoDefinitionLocalService;
 
+<<<<<<< HEAD
 	@ServiceReference(type = KaleoDefinitionVersionLocalService.class)
 	protected KaleoDefinitionVersionLocalService
 		kaleoDefinitionVersionLocalService;
 
+=======
+>>>>>>> compatible
 	@ServiceReference(type = KaleoInstanceLocalService.class)
 	protected KaleoInstanceLocalService kaleoInstanceLocalService;
 
@@ -75,6 +87,7 @@ public class BaseKaleoBean {
 	@ServiceReference(type = KaleoTaskAssignmentLocalService.class)
 	protected KaleoTaskAssignmentLocalService kaleoTaskAssignmentLocalService;
 
+<<<<<<< HEAD
 	@ServiceReference(type = KaleoTaskFormInstanceLocalService.class)
 	protected KaleoTaskFormInstanceLocalService
 		kaleoTaskFormInstanceLocalService;
@@ -82,6 +95,8 @@ public class BaseKaleoBean {
 	@ServiceReference(type = KaleoTaskFormLocalService.class)
 	protected KaleoTaskFormLocalService kaleoTaskFormLocalService;
 
+=======
+>>>>>>> compatible
 	@ServiceReference(type = KaleoTaskInstanceTokenLocalService.class)
 	protected KaleoTaskInstanceTokenLocalService
 		kaleoTaskInstanceTokenLocalService;
@@ -99,8 +114,11 @@ public class BaseKaleoBean {
 	@ServiceReference(type = KaleoTransitionLocalService.class)
 	protected KaleoTransitionLocalService kaleoTransitionLocalService;
 
+<<<<<<< HEAD
 	@ServiceReference(type = WorkflowDefinitionLinkLocalService.class)
 	protected WorkflowDefinitionLinkLocalService
 		workflowDefinitionLinkLocalService;
 
+=======
+>>>>>>> compatible
 }

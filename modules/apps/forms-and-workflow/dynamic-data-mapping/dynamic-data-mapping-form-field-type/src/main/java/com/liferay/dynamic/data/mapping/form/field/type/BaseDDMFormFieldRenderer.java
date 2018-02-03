@@ -17,7 +17,10 @@ package com.liferay.dynamic.data.mapping.form.field.type;
 import com.liferay.dynamic.data.mapping.model.DDMFormField;
 import com.liferay.dynamic.data.mapping.model.Value;
 import com.liferay.dynamic.data.mapping.render.DDMFormFieldRenderingContext;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringWriter;
 import com.liferay.portal.kernel.language.LanguageConstants;
@@ -27,6 +30,10 @@ import com.liferay.portal.kernel.template.TemplateConstants;
 import com.liferay.portal.kernel.template.TemplateManagerUtil;
 import com.liferay.portal.kernel.template.TemplateResource;
 import com.liferay.portal.kernel.template.URLTemplateResource;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 
 import java.io.Writer;

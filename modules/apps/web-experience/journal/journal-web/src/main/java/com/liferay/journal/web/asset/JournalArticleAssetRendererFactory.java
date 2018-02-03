@@ -136,8 +136,14 @@ public class JournalArticleAssetRendererFactory
 			long groupId, String urlTitle)
 		throws PortalException {
 
+<<<<<<< HEAD
 		JournalArticle article = _journalArticleService.getArticleByUrlTitle(
 			groupId, urlTitle);
+=======
+		JournalArticle article =
+			_journalArticleService.getDisplayArticleByUrlTitle(
+				groupId, urlTitle);
+>>>>>>> compatible
 
 		return getJournalArticleAssetRenderer(article);
 	}
@@ -189,8 +195,11 @@ public class JournalArticleAssetRendererFactory
 			liferayPortletRequest, getGroup(liferayPortletRequest),
 			JournalPortletKeys.JOURNAL, 0, 0, PortletRequest.RENDER_PHASE);
 
+<<<<<<< HEAD
 		portletURL.setParameter(
 			"hideDefaultSuccessMessage", Boolean.TRUE.toString());
+=======
+>>>>>>> compatible
 		portletURL.setParameter("mvcPath", "/edit_article.jsp");
 
 		if (classTypeId > 0) {

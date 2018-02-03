@@ -106,19 +106,25 @@ public class UserSearchFixture {
 	}
 
 	public void setUp() throws Exception {
+<<<<<<< HEAD
 		_companyId = TestPropsValues.getCompanyId();
 
+=======
+>>>>>>> compatible
 		_permissionChecker = PermissionThreadLocal.getPermissionChecker();
 
 		PermissionThreadLocal.setPermissionChecker(
 			new DummyPermissionChecker() {
 
 				@Override
+<<<<<<< HEAD
 				public long getCompanyId() {
 					return _companyId;
 				}
 
 				@Override
+=======
+>>>>>>> compatible
 				public boolean hasPermission(
 					Group group, String name, long primKey, String actionId) {
 
@@ -132,11 +138,14 @@ public class UserSearchFixture {
 					return true;
 				}
 
+<<<<<<< HEAD
 				@Override
 				public boolean isCompanyAdmin(long companyId) {
 					return true;
 				}
 
+=======
+>>>>>>> compatible
 			});
 
 		_principal = PrincipalThreadLocal.getName();
@@ -202,17 +211,28 @@ public class UserSearchFixture {
 		throws Exception {
 
 		return UserTestUtil.addUser(
+<<<<<<< HEAD
 			_companyId, TestPropsValues.getUserId(), screenName,
 			LocaleUtil.getDefault(), RandomTestUtil.randomString(),
+=======
+			TestPropsValues.getCompanyId(), TestPropsValues.getUserId(),
+			screenName, LocaleUtil.getDefault(), RandomTestUtil.randomString(),
+>>>>>>> compatible
 			RandomTestUtil.randomString(), groupIds, serviceContext);
 	}
 
 	private void _filterByGroups(SearchContext searchContext) {
 		BooleanQuery booleanQuery = new BooleanQueryImpl();
 
+<<<<<<< HEAD
 		Stream<Group> groupsStream = _groups.stream();
 
 		groupsStream.map(
+=======
+		Stream<Group> groupStream = _groups.stream();
+
+		groupStream.map(
+>>>>>>> compatible
 			this::_getGroupIdQuery
 		).forEach(
 			query -> _addShouldClause(booleanQuery, query)
@@ -230,7 +250,10 @@ public class UserSearchFixture {
 	}
 
 	private final List<AssetTag> _assetTags = new ArrayList<>();
+<<<<<<< HEAD
 	private long _companyId;
+=======
+>>>>>>> compatible
 	private final List<Group> _groups = new ArrayList<>();
 	private PermissionChecker _permissionChecker;
 	private String _principal;

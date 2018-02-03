@@ -31,6 +31,10 @@ import com.liferay.portal.kernel.util.DateUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import com.liferay.shopping.model.ShoppingOrder;
 import com.liferay.shopping.model.ShoppingOrderModel;
@@ -178,7 +182,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 		TABLE_COLUMNS_MAP.put("sendShippingEmail", Types.BOOLEAN);
 	}
 
+<<<<<<< HEAD
 	public static final String TABLE_SQL_CREATE = "create table ShoppingOrder (orderId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,number_ VARCHAR(75) null,tax DOUBLE,shipping DOUBLE,altShipping VARCHAR(75) null,requiresShipping BOOLEAN,insure BOOLEAN,insurance DOUBLE,couponCodes VARCHAR(75) null,couponDiscount DOUBLE,billingFirstName VARCHAR(75) null,billingLastName VARCHAR(75) null,billingEmailAddress VARCHAR(254) null,billingCompany VARCHAR(75) null,billingStreet VARCHAR(75) null,billingCity VARCHAR(75) null,billingState VARCHAR(75) null,billingZip VARCHAR(75) null,billingCountry VARCHAR(75) null,billingPhone VARCHAR(75) null,shipToBilling BOOLEAN,shippingFirstName VARCHAR(75) null,shippingLastName VARCHAR(75) null,shippingEmailAddress VARCHAR(254) null,shippingCompany VARCHAR(75) null,shippingStreet VARCHAR(75) null,shippingCity VARCHAR(75) null,shippingState VARCHAR(75) null,shippingZip VARCHAR(75) null,shippingCountry VARCHAR(75) null,shippingPhone VARCHAR(75) null,ccName VARCHAR(75) null,ccType VARCHAR(75) null,ccNumber VARCHAR(75) null,ccExpMonth INTEGER,ccExpYear INTEGER,ccVerNumber VARCHAR(75) null,comments TEXT null,ppTxnId VARCHAR(75) null,ppPaymentStatus VARCHAR(75) null,ppPaymentGross DOUBLE,ppReceiverEmail VARCHAR(254) null,ppPayerEmail VARCHAR(254) null,sendOrderEmail BOOLEAN,sendShippingEmail BOOLEAN)";
+=======
+	public static final String TABLE_SQL_CREATE = "create table ShoppingOrder (orderId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,number_ VARCHAR(75) null,tax DOUBLE,shipping DOUBLE,altShipping VARCHAR(75) null,requiresShipping BOOLEAN,insure BOOLEAN,insurance DOUBLE,couponCodes VARCHAR(75) null,couponDiscount DOUBLE,billingFirstName VARCHAR(75) null,billingLastName VARCHAR(75) null,billingEmailAddress VARCHAR(75) null,billingCompany VARCHAR(75) null,billingStreet VARCHAR(75) null,billingCity VARCHAR(75) null,billingState VARCHAR(75) null,billingZip VARCHAR(75) null,billingCountry VARCHAR(75) null,billingPhone VARCHAR(75) null,shipToBilling BOOLEAN,shippingFirstName VARCHAR(75) null,shippingLastName VARCHAR(75) null,shippingEmailAddress VARCHAR(75) null,shippingCompany VARCHAR(75) null,shippingStreet VARCHAR(75) null,shippingCity VARCHAR(75) null,shippingState VARCHAR(75) null,shippingZip VARCHAR(75) null,shippingCountry VARCHAR(75) null,shippingPhone VARCHAR(75) null,ccName VARCHAR(75) null,ccType VARCHAR(75) null,ccNumber VARCHAR(75) null,ccExpMonth INTEGER,ccExpYear INTEGER,ccVerNumber VARCHAR(75) null,comments TEXT null,ppTxnId VARCHAR(75) null,ppPaymentStatus VARCHAR(75) null,ppPaymentGross DOUBLE,ppReceiverEmail VARCHAR(75) null,ppPayerEmail VARCHAR(75) null,sendOrderEmail BOOLEAN,sendShippingEmail BOOLEAN)";
+>>>>>>> compatible
 	public static final String TABLE_SQL_DROP = "drop table ShoppingOrder";
 	public static final String ORDER_BY_JPQL = " ORDER BY shoppingOrder.createDate DESC";
 	public static final String ORDER_BY_SQL = " ORDER BY ShoppingOrder.createDate DESC";
@@ -770,7 +778,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -786,7 +798,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getUserName() {
 		if (_userName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _userName;
@@ -832,7 +848,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getNumber() {
 		if (_number == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _number;
@@ -880,7 +900,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getAltShipping() {
 		if (_altShipping == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _altShipping;
@@ -941,7 +965,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getCouponCodes() {
 		if (_couponCodes == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _couponCodes;
@@ -968,7 +996,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getBillingFirstName() {
 		if (_billingFirstName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _billingFirstName;
@@ -984,7 +1016,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getBillingLastName() {
 		if (_billingLastName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _billingLastName;
@@ -1000,7 +1036,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getBillingEmailAddress() {
 		if (_billingEmailAddress == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _billingEmailAddress;
@@ -1016,7 +1056,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getBillingCompany() {
 		if (_billingCompany == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _billingCompany;
@@ -1032,7 +1076,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getBillingStreet() {
 		if (_billingStreet == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _billingStreet;
@@ -1048,7 +1096,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getBillingCity() {
 		if (_billingCity == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _billingCity;
@@ -1064,7 +1116,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getBillingState() {
 		if (_billingState == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _billingState;
@@ -1080,7 +1136,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getBillingZip() {
 		if (_billingZip == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _billingZip;
@@ -1096,7 +1156,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getBillingCountry() {
 		if (_billingCountry == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _billingCountry;
@@ -1112,7 +1176,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getBillingPhone() {
 		if (_billingPhone == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _billingPhone;
@@ -1145,7 +1213,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getShippingFirstName() {
 		if (_shippingFirstName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _shippingFirstName;
@@ -1161,7 +1233,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getShippingLastName() {
 		if (_shippingLastName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _shippingLastName;
@@ -1177,7 +1253,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getShippingEmailAddress() {
 		if (_shippingEmailAddress == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _shippingEmailAddress;
@@ -1193,7 +1273,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getShippingCompany() {
 		if (_shippingCompany == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _shippingCompany;
@@ -1209,7 +1293,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getShippingStreet() {
 		if (_shippingStreet == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _shippingStreet;
@@ -1225,7 +1313,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getShippingCity() {
 		if (_shippingCity == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _shippingCity;
@@ -1241,7 +1333,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getShippingState() {
 		if (_shippingState == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _shippingState;
@@ -1257,7 +1353,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getShippingZip() {
 		if (_shippingZip == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _shippingZip;
@@ -1273,7 +1373,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getShippingCountry() {
 		if (_shippingCountry == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _shippingCountry;
@@ -1289,7 +1393,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getShippingPhone() {
 		if (_shippingPhone == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _shippingPhone;
@@ -1305,7 +1413,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getCcName() {
 		if (_ccName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _ccName;
@@ -1321,7 +1433,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getCcType() {
 		if (_ccType == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _ccType;
@@ -1337,7 +1453,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getCcNumber() {
 		if (_ccNumber == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _ccNumber;
@@ -1375,7 +1495,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getCcVerNumber() {
 		if (_ccVerNumber == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _ccVerNumber;
@@ -1391,7 +1515,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getComments() {
 		if (_comments == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _comments;
@@ -1407,7 +1535,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getPpTxnId() {
 		if (_ppTxnId == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _ppTxnId;
@@ -1433,7 +1565,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getPpPaymentStatus() {
 		if (_ppPaymentStatus == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _ppPaymentStatus;
@@ -1470,7 +1606,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getPpReceiverEmail() {
 		if (_ppReceiverEmail == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _ppReceiverEmail;
@@ -1486,7 +1626,11 @@ public class ShoppingOrderModelImpl extends BaseModelImpl<ShoppingOrder>
 	@Override
 	public String getPpPayerEmail() {
 		if (_ppPayerEmail == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _ppPayerEmail;

@@ -14,8 +14,13 @@
 
 package com.liferay.configuration.admin.web.internal.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
+=======
+import com.liferay.portal.kernel.test.util.RandomTestUtil;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.util.Arrays;
 import java.util.Dictionary;

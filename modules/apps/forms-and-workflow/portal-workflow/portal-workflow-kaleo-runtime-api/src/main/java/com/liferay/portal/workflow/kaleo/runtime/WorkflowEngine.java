@@ -14,8 +14,11 @@
 
 package com.liferay.portal.workflow.kaleo.runtime;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.workflow.WorkflowDefinition;
@@ -32,7 +35,10 @@ import java.util.Map;
  * @author Michael C. Han
  * @author Marcellus Tavares
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public interface WorkflowEngine {
 
 	public void deleteWorkflowDefinition(
@@ -43,6 +49,7 @@ public interface WorkflowEngine {
 			long workflowInstanceId, ServiceContext serviceContext)
 		throws WorkflowException;
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 1.0.0, replaced by {@link
 	 *             #deployWorkflowDefinition(String, String, InputStream,
@@ -50,11 +57,14 @@ public interface WorkflowEngine {
 	 * @review
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public WorkflowDefinition deployWorkflowDefinition(
 			String title, InputStream inputStream,
 			ServiceContext serviceContext)
 		throws WorkflowException;
 
+<<<<<<< HEAD
 	public default WorkflowDefinition deployWorkflowDefinition(
 			String title, String name, InputStream inputStream,
 			ServiceContext serviceContext)
@@ -63,6 +73,8 @@ public interface WorkflowEngine {
 		throw new UnsupportedOperationException();
 	}
 
+=======
+>>>>>>> compatible
 	public ExecutionContext executeTimerWorkflowInstance(
 			long kaleoTimerInstanceTokenId, ServiceContext serviceContext,
 			Map<String, Serializable> workflowContext)

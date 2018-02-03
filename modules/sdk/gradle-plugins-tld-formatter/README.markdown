@@ -13,7 +13,11 @@ To use the plugin, include it in your build script:
 ```gradle
 buildscript {
 	dependencies {
+<<<<<<< HEAD
 		classpath group: "com.liferay", name: "com.liferay.gradle.plugins.tld.formatter", version: "1.0.7"
+=======
+		classpath group: "com.liferay", name: "com.liferay.gradle.plugins.tld.formatter", version: "1.0.5"
+>>>>>>> compatible
 	}
 
 	repositories {
@@ -78,6 +82,10 @@ manually adding a dependency to the `tldFormatter` configuration:
 
 ```gradle
 dependencies {
+<<<<<<< HEAD
 	tldFormatter group: "com.liferay", name: "com.liferay.tld.formatter", version: "1.0.5"
+=======
+	tldFormatter group: "com.liferay", name: "com.liferay.tld.formatter", version: "1.0.3"
+>>>>>>> compatible
 }
 ```

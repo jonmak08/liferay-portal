@@ -14,8 +14,13 @@
 
 package com.liferay.portal.osgi.web.servlet.jsp.compiler.test;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
+=======
+import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;

@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Staging Security
 Bundle-SymbolicName: com.liferay.staging.security
+<<<<<<< HEAD
 Bundle-Version: 2.0.29
+=======
+Bundle-Version: 2.0.28
+>>>>>>> compatible
 Import-Package:\
 	com.liferay.portal.kernel.security.permission;version="[1.0.0,2)",\
 	\

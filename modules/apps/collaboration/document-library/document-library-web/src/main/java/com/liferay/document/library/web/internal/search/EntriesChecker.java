@@ -18,7 +18,10 @@ import com.liferay.document.library.kernel.exception.NoSuchFileEntryException;
 import com.liferay.document.library.kernel.exception.NoSuchFileShortcutException;
 import com.liferay.document.library.kernel.model.DLFileShortcut;
 import com.liferay.document.library.kernel.service.DLAppServiceUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.search.EmptyOnClickRowChecker;
 import com.liferay.portal.kernel.dao.search.RowChecker;
 import com.liferay.portal.kernel.exception.NoSuchRepositoryEntryException;
@@ -27,11 +30,23 @@ import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.FileShortcut;
 import com.liferay.portal.kernel.repository.model.Folder;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.security.permission.ActionKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.WebKeys;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.portlet.documentlibrary.service.permission.DLFileEntryPermission;
+import com.liferay.portlet.documentlibrary.service.permission.DLFileShortcutPermission;
+import com.liferay.portlet.documentlibrary.service.permission.DLFolderPermission;
+>>>>>>> compatible
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -105,16 +120,70 @@ public class EntriesChecker extends EmptyOnClickRowChecker {
 			}
 		}
 
+<<<<<<< HEAD
+=======
+		boolean showInput = false;
+
+>>>>>>> compatible
 		String name = null;
 
 		if (fileEntry != null) {
 			name = FileEntry.class.getSimpleName();
+<<<<<<< HEAD
 		}
 		else if (fileShortcut != null) {
 			name = DLFileShortcut.class.getSimpleName();
 		}
 		else if (folder != null) {
 			name = Folder.class.getSimpleName();
+=======
+
+			try {
+				if (DLFileEntryPermission.contains(
+						_permissionChecker, fileEntry, ActionKeys.DELETE) ||
+					DLFileEntryPermission.contains(
+						_permissionChecker, fileEntry, ActionKeys.UPDATE)) {
+
+					showInput = true;
+				}
+			}
+			catch (Exception e) {
+			}
+		}
+		else if (fileShortcut != null) {
+			name = DLFileShortcut.class.getSimpleName();
+
+			try {
+				if (DLFileShortcutPermission.contains(
+						_permissionChecker, fileShortcut, ActionKeys.DELETE) ||
+					DLFileShortcutPermission.contains(
+						_permissionChecker, fileShortcut, ActionKeys.UPDATE)) {
+
+					showInput = true;
+				}
+			}
+			catch (Exception e) {
+			}
+		}
+		else if (folder != null) {
+			name = Folder.class.getSimpleName();
+
+			try {
+				if (DLFolderPermission.contains(
+						_permissionChecker, folder, ActionKeys.DELETE) ||
+					DLFolderPermission.contains(
+						_permissionChecker, folder, ActionKeys.UPDATE)) {
+
+					showInput = true;
+				}
+			}
+			catch (Exception e) {
+			}
+		}
+
+		if (!showInput) {
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 
 		String checkBoxRowIds = getEntryRowIds();

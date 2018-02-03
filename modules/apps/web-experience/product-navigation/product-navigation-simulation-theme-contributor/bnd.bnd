@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Product Navigation Simulation Theme Contributor
 Bundle-SymbolicName: com.liferay.product.navigation.simulation.theme.contributor
+<<<<<<< HEAD
 Bundle-Version: 2.0.5
+=======
+Bundle-Version: 2.0.4
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Product Navigation
 Liferay-Theme-Contributor-Type: simulation-panel

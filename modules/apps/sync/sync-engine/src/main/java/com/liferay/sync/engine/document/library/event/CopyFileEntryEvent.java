@@ -19,9 +19,12 @@ import com.liferay.sync.engine.document.library.handler.CopyFileEntryHandler;
 import com.liferay.sync.engine.document.library.handler.Handler;
 import com.liferay.sync.engine.model.SyncFile;
 import com.liferay.sync.engine.service.SyncFileService;
+<<<<<<< HEAD
 import com.liferay.sync.engine.util.FileUtil;
 
 import java.nio.file.Paths;
+=======
+>>>>>>> compatible
 
 import java.util.Map;
 
@@ -47,9 +50,12 @@ public class CopyFileEntryEvent extends BaseEvent {
 	protected void processRequest() throws Exception {
 		SyncFile syncFile = (SyncFile)getParameterValue("syncFile");
 
+<<<<<<< HEAD
 		syncFile.setPreviousModifiedTime(
 			FileUtil.getLastModifiedTime(
 				Paths.get(syncFile.getFilePathName())));
+=======
+>>>>>>> compatible
 		syncFile.setState(SyncFile.STATE_IN_PROGRESS);
 		syncFile.setUiEvent(SyncFile.UI_EVENT_UPLOADING);
 

@@ -14,7 +14,11 @@
 
 package com.liferay.portal.kernel.servlet;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
+=======
+import com.liferay.portal.kernel.util.InitialThreadLocal;
+>>>>>>> compatible
 
 /**
  * @author Tina Tian
@@ -38,6 +42,7 @@ public class PluginContextLifecycleThreadLocal {
 	}
 
 	private static final ThreadLocal<Boolean> _destroying =
+<<<<<<< HEAD
 		new CentralizedThreadLocal<>(
 			PluginContextLifecycleThreadLocal.class + "._destroying",
 			() -> Boolean.FALSE, false);
@@ -45,5 +50,14 @@ public class PluginContextLifecycleThreadLocal {
 		new CentralizedThreadLocal<>(
 			PluginContextLifecycleThreadLocal.class + "._initializing",
 			() -> Boolean.FALSE, false);
+=======
+		new InitialThreadLocal<>(
+			PluginContextLifecycleThreadLocal.class + "._destroying",
+			() -> Boolean.FALSE);
+	private static final ThreadLocal<Boolean> _initializing =
+		new InitialThreadLocal<>(
+			PluginContextLifecycleThreadLocal.class + "._initializing",
+			() -> Boolean.FALSE);
+>>>>>>> compatible
 
 }

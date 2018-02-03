@@ -25,9 +25,13 @@ import org.junit.runner.Description;
 
 /**
  * @author Michael C. Han
+<<<<<<< HEAD
  * @deprecated As of 3.3.0, with no direct replacement
  */
 @Deprecated
+=======
+ */
+>>>>>>> compatible
 public class PortalExecutorManagerTestCallback
 	extends BaseTestCallback<Object, Object> {
 

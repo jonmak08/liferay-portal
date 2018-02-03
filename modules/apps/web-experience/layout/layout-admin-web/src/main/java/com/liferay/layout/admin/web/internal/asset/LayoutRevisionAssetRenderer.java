@@ -15,7 +15,10 @@
 package com.liferay.layout.admin.web.internal.asset;
 
 import com.liferay.asset.kernel.model.BaseJSPAssetRenderer;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.model.Layout;
 import com.liferay.portal.kernel.model.LayoutBranch;
@@ -29,6 +32,10 @@ import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.WebKeys;
 
 import java.util.Locale;
@@ -101,7 +108,11 @@ public class LayoutRevisionAssetRenderer
 
 		Locale locale = getLocale(portletRequest);
 
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(15);
+=======
+		StringBundler sb = new StringBundler(16);
+>>>>>>> compatible
 
 		sb.append(LanguageUtil.get(locale, "page"));
 		sb.append(": ");

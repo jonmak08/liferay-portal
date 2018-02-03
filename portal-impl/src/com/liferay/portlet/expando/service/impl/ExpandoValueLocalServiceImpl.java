@@ -14,14 +14,20 @@
 
 package com.liferay.portlet.expando.service.impl;
 
+<<<<<<< HEAD
 import com.liferay.expando.kernel.exception.NoSuchRowException;
+=======
+>>>>>>> compatible
 import com.liferay.expando.kernel.model.ExpandoColumn;
 import com.liferay.expando.kernel.model.ExpandoColumnConstants;
 import com.liferay.expando.kernel.model.ExpandoRow;
 import com.liferay.expando.kernel.model.ExpandoTable;
 import com.liferay.expando.kernel.model.ExpandoTableConstants;
 import com.liferay.expando.kernel.model.ExpandoValue;
+<<<<<<< HEAD
 import com.liferay.expando.kernel.util.ExpandoValueDeleteHandler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;

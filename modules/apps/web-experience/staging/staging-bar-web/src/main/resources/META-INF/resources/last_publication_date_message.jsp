@@ -82,13 +82,22 @@ if (Validator.isNotNull(lastImportUserUuid)) {
 if (Validator.isNull(publisherName)) {
 	publisherName = typeSettingsProperties.getProperty("last-import-user-name");
 }
+<<<<<<< HEAD
+=======
+
+String lastImportLayoutSetBranchDisplayName = HtmlUtil.escape(layoutSetBranchDisplayContext.getLayoutSetBranchDisplayName(lastImportLayoutSetBranchName));
+>>>>>>> compatible
 %>
 
 <c:choose>
 	<c:when test="<%= lastImportDate > 0 %>">
 		<c:if test="<%= Validator.isNotNull(lastImportLayoutSetBranchName) && Validator.isNotNull(publisherName) %>">
 			<span class="last-publication-branch">
+<<<<<<< HEAD
 				<liferay-ui:message arguments='<%= new String[] {"<strong>" + HtmlUtil.escape(layout.getName(locale)) + "</strong>", "<em>" + HtmlUtil.escape(layoutSetBranchDisplayContext.getLayoutSetBranchDisplayName(lastImportLayoutSetBranchName)) + "</em>"} %>' key='<%= (group.isStagingGroup() || group.isStagedRemotely()) ? "page-x-was-last-published-to-live" : "page-x-was-last-published-from-x" %>' translateArguments="<%= false %>" />
+=======
+				<liferay-ui:message arguments='<%= new String[] {"<strong>" + HtmlUtil.escape(layout.getName(locale)) + "</strong>", "<em>" + lastImportLayoutSetBranchDisplayName + "</em>"} %>' key='<%= (group.isStagingGroup() || group.isStagedRemotely()) ? "page-x-was-last-published-to-live" : "page-x-was-last-published-from-x" %>' translateArguments="<%= false %>" />
+>>>>>>> compatible
 
 				<c:if test="<%= (Validator.isNotNull(lastImportLayoutBranchName) && (layoutRevisions.size() > 1)) || Validator.isNotNull(lastImportLayoutRevisionId) %>">
 					<span class="last-publication-variation-details">(
@@ -107,7 +116,11 @@ if (Validator.isNull(publisherName)) {
 				</c:if>
 			</span>
 			<span class="last-publication-user">
+<<<<<<< HEAD
 				<liferay-ui:message arguments="<%= new String[] {HtmlUtil.escape(StringUtil.toLowerCase(LanguageUtil.getTimeDescription(request, (System.currentTimeMillis() - lastImportDate), true))), HtmlUtil.escape(publisherName)} %>" key="x-ago-by-x" translateArguments="<%= false %>" />
+=======
+				<liferay-ui:message arguments="<%= new String[] {LanguageUtil.getTimeDescription(request, (System.currentTimeMillis() - lastImportDate), true), HtmlUtil.escape(publisherName)} %>" key="x-ago-by-x" translateArguments="<%= false %>" />
+>>>>>>> compatible
 			</span>
 		</c:if>
 	</c:when>

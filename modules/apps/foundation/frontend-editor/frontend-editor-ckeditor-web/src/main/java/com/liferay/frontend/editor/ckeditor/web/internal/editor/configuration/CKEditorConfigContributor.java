@@ -25,10 +25,17 @@ import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.AggregateResourceBundleLoader;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HtmlUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ResourceBundleLoader;
 import com.liferay.portal.kernel.util.ResourceBundleLoaderUtil;
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.LocaleUtil;
+import com.liferay.portal.kernel.util.ResourceBundleLoader;
+import com.liferay.portal.kernel.util.ResourceBundleLoaderUtil;
+import com.liferay.portal.kernel.util.ResourceBundleUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xuggler.XugglerUtil;
 
@@ -68,9 +75,14 @@ public class CKEditorConfigContributor extends BaseCKEditorConfigContributor {
 
 		jsonObject.put(
 			"bodyClass",
+<<<<<<< HEAD
 			StringBundler.concat(
 				"html-editor ", HtmlUtil.escape(colorScheme.getCssClass()), " ",
 				HtmlUtil.escape(cssClasses)));
+=======
+			"html-editor " + HtmlUtil.escape(colorScheme.getCssClass()) + " " +
+				HtmlUtil.escape(cssClasses));
+>>>>>>> compatible
 
 		jsonObject.put("closeNoticeTimeout", 8000);
 		jsonObject.put("entities", Boolean.FALSE);
@@ -143,7 +155,12 @@ public class CKEditorConfigContributor extends BaseCKEditorConfigContributor {
 		ResourceBundle resourceBundle = null;
 
 		try {
+<<<<<<< HEAD
 			resourceBundle = _resourceBundleLoader.loadResourceBundle(locale);
+=======
+			resourceBundle = _resourceBundleLoader.loadResourceBundle(
+				LocaleUtil.toLanguageId(locale));
+>>>>>>> compatible
 		}
 		catch (MissingResourceException mre) {
 			resourceBundle = ResourceBundleUtil.EMPTY_RESOURCE_BUNDLE;

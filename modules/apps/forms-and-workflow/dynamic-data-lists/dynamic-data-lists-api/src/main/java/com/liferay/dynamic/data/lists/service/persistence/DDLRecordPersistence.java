@@ -775,6 +775,7 @@ public interface DDLRecordPersistence extends BasePersistence<DDLRecord> {
 	public int countByR_U(long recordSetId, long userId);
 
 	/**
+<<<<<<< HEAD
 	* Returns all the ddl records where recordSetId = &#63; and recordSetVersion = &#63;.
 	*
 	* @param recordSetId the record set ID
@@ -923,6 +924,8 @@ public interface DDLRecordPersistence extends BasePersistence<DDLRecord> {
 	public int countByR_R(long recordSetId, java.lang.String recordSetVersion);
 
 	/**
+=======
+>>>>>>> compatible
 	* Caches the ddl record in the entity cache if it is enabled.
 	*
 	* @param ddlRecord the ddl record

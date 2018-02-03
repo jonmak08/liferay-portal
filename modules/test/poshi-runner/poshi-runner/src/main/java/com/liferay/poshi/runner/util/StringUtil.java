@@ -73,6 +73,7 @@ public class StringUtil {
 		return s;
 	}
 
+<<<<<<< HEAD
 	public static String combine(String...strings) {
 		if ((strings == null) || (strings.length == 0)) {
 			return "";
@@ -87,6 +88,8 @@ public class StringUtil {
 		return sb.toString();
 	}
 
+=======
+>>>>>>> compatible
 	public static boolean contains(String s, String text) {
 		return contains(s, text, StringPool.COMMA);
 	}

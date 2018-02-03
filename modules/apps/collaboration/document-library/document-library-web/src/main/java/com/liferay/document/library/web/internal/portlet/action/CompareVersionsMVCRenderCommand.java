@@ -14,13 +14,20 @@
 
 package com.liferay.document.library.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.document.library.constants.DLPortletKeys;
 import com.liferay.document.library.kernel.document.conversion.DocumentConversionUtil;
+=======
+>>>>>>> compatible
 import com.liferay.document.library.kernel.exception.NoSuchFileEntryException;
 import com.liferay.document.library.kernel.service.DLAppLocalService;
 import com.liferay.document.library.kernel.service.DLAppService;
 import com.liferay.document.library.kernel.util.DLUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.document.library.web.constants.DLPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.diff.DiffResult;
 import com.liferay.portal.kernel.diff.DiffUtil;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
@@ -30,8 +37,15 @@ import com.liferay.portal.kernel.security.auth.PrincipalException;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.WebKeys;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.portlet.documentlibrary.util.DocumentConversionUtil;
+>>>>>>> compatible
 
 import java.io.FileInputStream;
 import java.io.InputStream;

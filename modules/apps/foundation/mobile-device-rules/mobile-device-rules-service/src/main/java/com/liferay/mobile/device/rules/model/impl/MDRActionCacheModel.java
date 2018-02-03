@@ -21,6 +21,10 @@ import com.liferay.mobile.device.rules.model.MDRAction;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -109,7 +113,11 @@ public class MDRActionCacheModel implements CacheModel<MDRAction>,
 		MDRActionImpl mdrActionImpl = new MDRActionImpl();
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			mdrActionImpl.setUuid("");
+=======
+			mdrActionImpl.setUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			mdrActionImpl.setUuid(uuid);
@@ -121,7 +129,11 @@ public class MDRActionCacheModel implements CacheModel<MDRAction>,
 		mdrActionImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			mdrActionImpl.setUserName("");
+=======
+			mdrActionImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			mdrActionImpl.setUserName(userName);
@@ -146,28 +158,44 @@ public class MDRActionCacheModel implements CacheModel<MDRAction>,
 		mdrActionImpl.setRuleGroupInstanceId(ruleGroupInstanceId);
 
 		if (name == null) {
+<<<<<<< HEAD
 			mdrActionImpl.setName("");
+=======
+			mdrActionImpl.setName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			mdrActionImpl.setName(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			mdrActionImpl.setDescription("");
+=======
+			mdrActionImpl.setDescription(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			mdrActionImpl.setDescription(description);
 		}
 
 		if (type == null) {
+<<<<<<< HEAD
 			mdrActionImpl.setType("");
+=======
+			mdrActionImpl.setType(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			mdrActionImpl.setType(type);
 		}
 
 		if (typeSettings == null) {
+<<<<<<< HEAD
 			mdrActionImpl.setTypeSettings("");
+=======
+			mdrActionImpl.setTypeSettings(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			mdrActionImpl.setTypeSettings(typeSettings);
@@ -216,7 +244,11 @@ public class MDRActionCacheModel implements CacheModel<MDRAction>,
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		if (uuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(uuid);
@@ -231,7 +263,11 @@ public class MDRActionCacheModel implements CacheModel<MDRAction>,
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -247,28 +283,44 @@ public class MDRActionCacheModel implements CacheModel<MDRAction>,
 		objectOutput.writeLong(ruleGroupInstanceId);
 
 		if (name == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(description);
 		}
 
 		if (type == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(type);
 		}
 
 		if (typeSettings == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(typeSettings);

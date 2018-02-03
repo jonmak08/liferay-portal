@@ -33,11 +33,15 @@ import org.osgi.service.component.annotations.Deactivate;
 public class DDMDataProviderTracker {
 
 	public DDMDataProvider getDDMDataProvider(String type) {
+<<<<<<< HEAD
 		return _ddmDataProviderTypeTrackerMap.getService(type);
 	}
 
 	public DDMDataProvider getDDMDataProviderByInstanceId(String instanceId) {
 		return _ddmDataProviderInstanceIdTrackerMap.getService(instanceId);
+=======
+		return _ddmDataProviderTrackerMap.getService(type);
+>>>>>>> compatible
 	}
 
 	public List<DDMDataProviderContextContributor>
@@ -55,7 +59,11 @@ public class DDMDataProviderTracker {
 	}
 
 	public Set<String> getDDMDataProviderTypes() {
+<<<<<<< HEAD
 		return _ddmDataProviderTypeTrackerMap.keySet();
+=======
+		return _ddmDataProviderTrackerMap.keySet();
+>>>>>>> compatible
 	}
 
 	@Activate
@@ -67,6 +75,7 @@ public class DDMDataProviderTracker {
 
 		_ddmDataProviderContextContributorTrackerMap.open();
 
+<<<<<<< HEAD
 		_ddmDataProviderInstanceIdTrackerMap =
 			ServiceTrackerMapFactory.singleValueMap(
 				bundleContext, DDMDataProvider.class,
@@ -79,22 +88,36 @@ public class DDMDataProviderTracker {
 				bundleContext, DDMDataProvider.class, "ddm.data.provider.type");
 
 		_ddmDataProviderTypeTrackerMap.open();
+=======
+		_ddmDataProviderTrackerMap = ServiceTrackerMapFactory.singleValueMap(
+			bundleContext, DDMDataProvider.class, "ddm.data.provider.type");
+
+		_ddmDataProviderTrackerMap.open();
+>>>>>>> compatible
 	}
 
 	@Deactivate
 	protected void deactivate() {
 		_ddmDataProviderContextContributorTrackerMap.close();
 
+<<<<<<< HEAD
 		_ddmDataProviderInstanceIdTrackerMap.close();
 
 		_ddmDataProviderTypeTrackerMap.close();
+=======
+		_ddmDataProviderTrackerMap.close();
+>>>>>>> compatible
 	}
 
 	private ServiceTrackerMap<String, List<DDMDataProviderContextContributor>>
 		_ddmDataProviderContextContributorTrackerMap;
 	private ServiceTrackerMap<String, DDMDataProvider>
+<<<<<<< HEAD
 		_ddmDataProviderInstanceIdTrackerMap;
 	private ServiceTrackerMap<String, DDMDataProvider>
 		_ddmDataProviderTypeTrackerMap;
+=======
+		_ddmDataProviderTrackerMap;
+>>>>>>> compatible
 
 }

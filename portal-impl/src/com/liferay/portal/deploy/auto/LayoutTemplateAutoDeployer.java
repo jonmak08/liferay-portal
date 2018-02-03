@@ -40,9 +40,21 @@ public class LayoutTemplateAutoDeployer
 			appServerType = ServerDetector.getServerId();
 			unpackWar = PropsValues.AUTO_DEPLOY_UNPACK_WAR;
 			filePattern = StringPool.BLANK;
+<<<<<<< HEAD
 			jbossPrefix = PropsValues.AUTO_DEPLOY_JBOSS_PREFIX;
 			unpackWar = PropsValues.AUTO_DEPLOY_UNPACK_WAR;
 			wildflyPrefix = PropsValues.AUTO_DEPLOY_WILDFLY_PREFIX;
+=======
+			jbossPrefix = PrefsPropsUtil.getString(
+				PropsKeys.AUTO_DEPLOY_JBOSS_PREFIX,
+				PropsValues.AUTO_DEPLOY_JBOSS_PREFIX);
+			unpackWar = PrefsPropsUtil.getBoolean(
+				PropsKeys.AUTO_DEPLOY_UNPACK_WAR,
+				PropsValues.AUTO_DEPLOY_UNPACK_WAR);
+			wildflyPrefix = PrefsPropsUtil.getString(
+				PropsKeys.AUTO_DEPLOY_WILDFLY_PREFIX,
+				PropsValues.AUTO_DEPLOY_WILDFLY_PREFIX);
+>>>>>>> compatible
 
 			List<String> jars = new ArrayList<>();
 

@@ -23,7 +23,10 @@ import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.PortletKeys;
 import com.liferay.portal.kernel.util.PredicateFilter;
 import com.liferay.portal.kernel.util.SetUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.model.impl.PortletAppImpl;
 import com.liferay.portal.model.impl.PortletImpl;
 import com.liferay.portal.util.HtmlImpl;
@@ -333,9 +336,14 @@ public class ComboServletStaticURLGeneratorTest {
 
 		assertURLs(
 			urls,
+<<<<<<< HEAD
 			StringBundler.concat(
 				_URL_PREFIX, "&", PortletKeys.PORTAL, ":%2Fcss%2Fmain.css&",
 				PortletKeys.PORTAL, ":%2Fcss%2Fmore.css&t=0"));
+=======
+			_URL_PREFIX + "&" + PortletKeys.PORTAL + ":%2Fcss%2Fmain.css&" +
+				PortletKeys.PORTAL + ":%2Fcss%2Fmore.css&t=0");
+>>>>>>> compatible
 	}
 
 	@Test

@@ -4,9 +4,13 @@
 	<set-up>
 		<execute macro="Portlet#shutdownServer" />
 
+<<<<<<< HEAD
 		<execute macro="Portlet#startServer">
 			<var name="deleteLiferayHome" value="false" />
 		</execute>
+=======
+		<execute macro="Portlet#startServer" />
+>>>>>>> compatible
 
 		<execute macro="User#firstLoginPG" />
 	</set-up>
@@ -14,9 +18,13 @@
 	<command name="MarketplacePortletContentTargetingSmoke" priority="4">
 		<property name="extraapps.plugins.includes" value="content-targeting" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Audience Targeting" />
 		</execute>
 	</command>

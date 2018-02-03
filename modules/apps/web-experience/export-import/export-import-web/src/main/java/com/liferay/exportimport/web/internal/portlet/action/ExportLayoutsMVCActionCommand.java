@@ -25,6 +25,10 @@ import com.liferay.exportimport.kernel.service.ExportImportService;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.model.Layout;
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.bridges.mvc.BaseMVCActionCommand;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCActionCommand;
 import com.liferay.portal.kernel.service.LayoutLocalService;
@@ -32,6 +36,10 @@ import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.Constants;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.GetterUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.Validator;
@@ -40,7 +48,14 @@ import com.liferay.taglib.ui.util.SessionTreeJSClicks;
 
 import java.io.Serializable;
 
+<<<<<<< HEAD
 import java.util.Map;
+=======
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.Set;
+>>>>>>> compatible
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
@@ -166,7 +181,31 @@ public class ExportLayoutsMVCActionCommand extends BaseMVCActionCommand {
 	protected long[] getLayoutIds(PortletRequest portletRequest)
 		throws Exception {
 
+<<<<<<< HEAD
 		return _exportImportHelper.getLayoutIds(portletRequest);
+=======
+		Set<Layout> layouts = new LinkedHashSet<>();
+
+		Map<Long, Boolean> layoutIdMap = _exportImportHelper.getLayoutIdMap(
+			portletRequest);
+
+		for (Map.Entry<Long, Boolean> entry : layoutIdMap.entrySet()) {
+			long plid = GetterUtil.getLong(String.valueOf(entry.getKey()));
+			boolean includeChildren = entry.getValue();
+
+			Layout layout = _layoutLocalService.getLayout(plid);
+
+			if (!layouts.contains(layout)) {
+				layouts.add(layout);
+			}
+
+			if (includeChildren) {
+				layouts.addAll(layout.getAllChildren());
+			}
+		}
+
+		return _exportImportHelper.getLayoutIds(new ArrayList<Layout>(layouts));
+>>>>>>> compatible
 	}
 
 	@Reference(unbind = "-")

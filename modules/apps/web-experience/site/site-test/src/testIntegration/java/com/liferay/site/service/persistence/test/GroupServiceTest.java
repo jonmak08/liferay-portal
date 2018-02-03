@@ -16,9 +16,13 @@ package com.liferay.site.service.persistence.test;
 
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
 import com.liferay.asset.kernel.service.AssetTagLocalServiceUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.GroupFriendlyURLException;
+=======
+import com.liferay.portal.kernel.dao.orm.QueryUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.GroupParentException;
 import com.liferay.portal.kernel.exception.LocaleException;
 import com.liferay.portal.kernel.exception.NoSuchResourcePermissionException;
@@ -47,6 +51,10 @@ import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
 import com.liferay.portal.kernel.test.rule.Sync;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.CompanyTestUtil;
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
@@ -55,9 +63,15 @@ import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.test.util.UserTestUtil;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.FriendlyURLNormalizerUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
+=======
+import com.liferay.portal.kernel.util.LocaleUtil;
+import com.liferay.portal.kernel.util.PortalUtil;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.PermissionCheckerTestRule;
 import com.liferay.portal.util.test.LayoutTestUtil;
@@ -94,7 +108,12 @@ public class GroupServiceTest {
 	public static final AggregateTestRule aggregateTestRule =
 		new AggregateTestRule(
 			new LiferayIntegrationTestRule(),
+<<<<<<< HEAD
 			PermissionCheckerTestRule.INSTANCE);
+=======
+			PermissionCheckerTestRule.INSTANCE,
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Before
 	public void setUp() throws Exception {
@@ -120,6 +139,7 @@ public class GroupServiceTest {
 			companyGroup.getFriendlyURL(), false, companyGroup.isActive(),
 			serviceContext);
 
+<<<<<<< HEAD
 		try {
 			Assert.assertTrue(companyStagingGroup.isCompanyStagingGroup());
 
@@ -191,6 +211,12 @@ public class GroupServiceTest {
 
 			GroupLocalServiceUtil.deleteGroup(parentGroup);
 		}
+=======
+		Assert.assertTrue(companyStagingGroup.isCompanyStagingGroup());
+
+		Assert.assertEquals(
+			companyGroup.getGroupId(), companyStagingGroup.getLiveGroupId());
+>>>>>>> compatible
 	}
 
 	@Test(expected = NoSuchResourcePermissionException.class)
@@ -475,6 +501,7 @@ public class GroupServiceTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testFriendlyURLDefaults() throws Exception {
 		long companyId = _group.getCompanyId();
 
@@ -613,6 +640,8 @@ public class GroupServiceTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testGroupHasCurrentPageScopeDescriptiveName() throws Exception {
 		ThemeDisplay themeDisplay = new ThemeDisplay();
 
@@ -627,9 +656,13 @@ public class GroupServiceTest {
 		String scopeDescriptiveName = scopeGroup.getScopeDescriptiveName(
 			themeDisplay);
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			scopeDescriptiveName,
 			scopeDescriptiveName.contains("current-page"));
+=======
+		Assert.assertTrue(scopeDescriptiveName.contains("current-page"));
+>>>>>>> compatible
 
 		GroupLocalServiceUtil.deleteGroup(scopeGroup);
 
@@ -647,9 +680,13 @@ public class GroupServiceTest {
 		String scopeDescriptiveName = group.getScopeDescriptiveName(
 			themeDisplay);
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			scopeDescriptiveName,
 			scopeDescriptiveName.contains("current-site"));
+=======
+		Assert.assertTrue(scopeDescriptiveName.contains("current-site"));
+>>>>>>> compatible
 
 		GroupLocalServiceUtil.deleteGroup(group);
 	}
@@ -667,8 +704,12 @@ public class GroupServiceTest {
 		String scopeDescriptiveName = group.getScopeDescriptiveName(
 			themeDisplay);
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			scopeDescriptiveName, scopeDescriptiveName.contains("default"));
+=======
+		Assert.assertTrue(scopeDescriptiveName.contains("default"));
+>>>>>>> compatible
 
 		GroupLocalServiceUtil.deleteGroup(group);
 	}
@@ -837,6 +878,7 @@ public class GroupServiceTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testRemoveParentFromStagedGroup() throws Exception {
 		Group parentGroup = GroupTestUtil.addGroup();
 
@@ -915,6 +957,8 @@ public class GroupServiceTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testScopes() throws Exception {
 		Group group = GroupTestUtil.addGroup();
 
@@ -1071,6 +1115,7 @@ public class GroupServiceTest {
 	public void testUpdateAvailableLocales() throws Exception {
 		Group group = GroupTestUtil.addGroup();
 
+<<<<<<< HEAD
 		try {
 			List<Locale> availableLocales = Arrays.asList(
 				LocaleUtil.GERMANY, LocaleUtil.SPAIN, LocaleUtil.US);
@@ -1085,12 +1130,26 @@ public class GroupServiceTest {
 		finally {
 			GroupLocalServiceUtil.deleteGroup(group);
 		}
+=======
+		List<Locale> availableLocales = Arrays.asList(
+			LocaleUtil.GERMANY, LocaleUtil.SPAIN, LocaleUtil.US);
+
+		group = GroupTestUtil.updateDisplaySettings(
+			group.getGroupId(), availableLocales, null);
+
+		Assert.assertEquals(
+			new HashSet<>(availableLocales),
+			LanguageUtil.getAvailableLocales(group.getGroupId()));
+
+		GroupLocalServiceUtil.deleteGroup(group);
+>>>>>>> compatible
 	}
 
 	@Test
 	public void testUpdateDefaultLocale() throws Exception {
 		Group group = GroupTestUtil.addGroup();
 
+<<<<<<< HEAD
 		try {
 			group = GroupTestUtil.updateDisplaySettings(
 				group.getGroupId(), null, LocaleUtil.SPAIN);
@@ -1144,6 +1203,14 @@ public class GroupServiceTest {
 			GroupLocalServiceUtil.deleteGroup(parentGroup1);
 			GroupLocalServiceUtil.deleteGroup(parentGroup2);
 		}
+=======
+		group = GroupTestUtil.updateDisplaySettings(
+			group.getGroupId(), null, LocaleUtil.SPAIN);
+
+		Assert.assertEquals(
+			LocaleUtil.SPAIN,
+			PortalUtil.getSiteDefaultLocale(group.getGroupId()));
+>>>>>>> compatible
 	}
 
 	@Test

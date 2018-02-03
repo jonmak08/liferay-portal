@@ -15,6 +15,10 @@
 package com.liferay.portal.verify;
 
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.concurrent.ThrowableAwareRunnable;
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.jdbc.AutoBatchPreparedStatementUtil;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
 import com.liferay.portal.kernel.util.LoggingTimer;
@@ -89,10 +93,16 @@ public class VerifyUUID extends VerifyProcess {
 				verifiableUUIDModel.getTableName());
 			Connection con = DataAccess.getUpgradeOptimizedConnection();
 			PreparedStatement ps1 = con.prepareStatement(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"select ", verifiableUUIDModel.getPrimaryKeyColumnName(),
 					" from ", verifiableUUIDModel.getTableName(),
 					" where uuid_ is null or uuid_ = ''"));
+=======
+				"select " + verifiableUUIDModel.getPrimaryKeyColumnName() +
+					" from " + verifiableUUIDModel.getTableName() +
+						" where uuid_ is null or uuid_ = ''");
+>>>>>>> compatible
 			ResultSet rs = ps1.executeQuery();
 			PreparedStatement ps2 = AutoBatchPreparedStatementUtil.autoBatch(
 				con.prepareStatement(sb.toString()))) {

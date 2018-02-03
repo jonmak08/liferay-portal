@@ -81,6 +81,7 @@
 <tr>
 	<td>CONTENT_CHOOSE_CONTENT_CONTENT_CHECKBOX</td>
 	<td>//label[contains(.,'${key_contentName}')]/input</td>
+<<<<<<< HEAD
 	<td></td>
 </tr>
 <tr>
@@ -106,6 +107,8 @@
 <tr>
 	<td>PAGES_THEME_SETTINGS_CHECKBOX</td>
 	<td>//input[contains(@id,'THEME_REFERENCE')]</td>
+=======
+>>>>>>> compatible
 	<td></td>
 </tr>
 </tbody>

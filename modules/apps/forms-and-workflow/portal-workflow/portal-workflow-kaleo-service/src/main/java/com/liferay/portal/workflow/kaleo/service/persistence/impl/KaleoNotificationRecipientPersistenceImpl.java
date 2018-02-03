@@ -32,6 +32,10 @@ import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.spring.extender.service.ServiceReference;
 import com.liferay.portal.workflow.kaleo.exception.NoSuchNotificationRecipientException;
 import com.liferay.portal.workflow.kaleo.model.KaleoNotificationRecipient;
@@ -305,7 +309,11 @@ public class KaleoNotificationRecipientPersistenceImpl
 		msg.append("companyId=");
 		msg.append(companyId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchNotificationRecipientException(msg.toString());
 	}
@@ -356,7 +364,11 @@ public class KaleoNotificationRecipientPersistenceImpl
 		msg.append("companyId=");
 		msg.append(companyId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchNotificationRecipientException(msg.toString());
 	}
@@ -603,23 +615,36 @@ public class KaleoNotificationRecipientPersistenceImpl
 	}
 
 	private static final String _FINDER_COLUMN_COMPANYID_COMPANYID_2 = "kaleoNotificationRecipient.companyId = ?";
+<<<<<<< HEAD
 	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_KALEODEFINITIONVERSIONID =
 		new FinderPath(KaleoNotificationRecipientModelImpl.ENTITY_CACHE_ENABLED,
 			KaleoNotificationRecipientModelImpl.FINDER_CACHE_ENABLED,
 			KaleoNotificationRecipientImpl.class,
 			FINDER_CLASS_NAME_LIST_WITH_PAGINATION,
 			"findByKaleoDefinitionVersionId",
+=======
+	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_KALEODEFINITIONID =
+		new FinderPath(KaleoNotificationRecipientModelImpl.ENTITY_CACHE_ENABLED,
+			KaleoNotificationRecipientModelImpl.FINDER_CACHE_ENABLED,
+			KaleoNotificationRecipientImpl.class,
+			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findByKaleoDefinitionId",
+>>>>>>> compatible
 			new String[] {
 				Long.class.getName(),
 				
 			Integer.class.getName(), Integer.class.getName(),
 				OrderByComparator.class.getName()
 			});
+<<<<<<< HEAD
 	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_KALEODEFINITIONVERSIONID =
+=======
+	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_KALEODEFINITIONID =
+>>>>>>> compatible
 		new FinderPath(KaleoNotificationRecipientModelImpl.ENTITY_CACHE_ENABLED,
 			KaleoNotificationRecipientModelImpl.FINDER_CACHE_ENABLED,
 			KaleoNotificationRecipientImpl.class,
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
+<<<<<<< HEAD
 			"findByKaleoDefinitionVersionId",
 			new String[] { Long.class.getName() },
 			KaleoNotificationRecipientModelImpl.KALEODEFINITIONVERSIONID_COLUMN_BITMASK);
@@ -645,17 +670,46 @@ public class KaleoNotificationRecipientPersistenceImpl
 
 	/**
 	 * Returns a range of all the kaleo notification recipients where kaleoDefinitionVersionId = &#63;.
+=======
+			"findByKaleoDefinitionId", new String[] { Long.class.getName() },
+			KaleoNotificationRecipientModelImpl.KALEODEFINITIONID_COLUMN_BITMASK);
+	public static final FinderPath FINDER_PATH_COUNT_BY_KALEODEFINITIONID = new FinderPath(KaleoNotificationRecipientModelImpl.ENTITY_CACHE_ENABLED,
+			KaleoNotificationRecipientModelImpl.FINDER_CACHE_ENABLED,
+			Long.class, FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
+			"countByKaleoDefinitionId", new String[] { Long.class.getName() });
+
+	/**
+	 * Returns all the kaleo notification recipients where kaleoDefinitionId = &#63;.
+	 *
+	 * @param kaleoDefinitionId the kaleo definition ID
+	 * @return the matching kaleo notification recipients
+	 */
+	@Override
+	public List<KaleoNotificationRecipient> findByKaleoDefinitionId(
+		long kaleoDefinitionId) {
+		return findByKaleoDefinitionId(kaleoDefinitionId, QueryUtil.ALL_POS,
+			QueryUtil.ALL_POS, null);
+	}
+
+	/**
+	 * Returns a range of all the kaleo notification recipients where kaleoDefinitionId = &#63;.
+>>>>>>> compatible
 	 *
 	 * <p>
 	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link KaleoNotificationRecipientModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	 * </p>
 	 *
+<<<<<<< HEAD
 	 * @param kaleoDefinitionVersionId the kaleo definition version ID
+=======
+	 * @param kaleoDefinitionId the kaleo definition ID
+>>>>>>> compatible
 	 * @param start the lower bound of the range of kaleo notification recipients
 	 * @param end the upper bound of the range of kaleo notification recipients (not inclusive)
 	 * @return the range of matching kaleo notification recipients
 	 */
 	@Override
+<<<<<<< HEAD
 	public List<KaleoNotificationRecipient> findByKaleoDefinitionVersionId(
 		long kaleoDefinitionVersionId, int start, int end) {
 		return findByKaleoDefinitionVersionId(kaleoDefinitionVersionId, start,
@@ -664,18 +718,32 @@ public class KaleoNotificationRecipientPersistenceImpl
 
 	/**
 	 * Returns an ordered range of all the kaleo notification recipients where kaleoDefinitionVersionId = &#63;.
+=======
+	public List<KaleoNotificationRecipient> findByKaleoDefinitionId(
+		long kaleoDefinitionId, int start, int end) {
+		return findByKaleoDefinitionId(kaleoDefinitionId, start, end, null);
+	}
+
+	/**
+	 * Returns an ordered range of all the kaleo notification recipients where kaleoDefinitionId = &#63;.
+>>>>>>> compatible
 	 *
 	 * <p>
 	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link KaleoNotificationRecipientModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	 * </p>
 	 *
+<<<<<<< HEAD
 	 * @param kaleoDefinitionVersionId the kaleo definition version ID
+=======
+	 * @param kaleoDefinitionId the kaleo definition ID
+>>>>>>> compatible
 	 * @param start the lower bound of the range of kaleo notification recipients
 	 * @param end the upper bound of the range of kaleo notification recipients (not inclusive)
 	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	 * @return the ordered range of matching kaleo notification recipients
 	 */
 	@Override
+<<<<<<< HEAD
 	public List<KaleoNotificationRecipient> findByKaleoDefinitionVersionId(
 		long kaleoDefinitionVersionId, int start, int end,
 		OrderByComparator<KaleoNotificationRecipient> orderByComparator) {
@@ -685,12 +753,27 @@ public class KaleoNotificationRecipientPersistenceImpl
 
 	/**
 	 * Returns an ordered range of all the kaleo notification recipients where kaleoDefinitionVersionId = &#63;.
+=======
+	public List<KaleoNotificationRecipient> findByKaleoDefinitionId(
+		long kaleoDefinitionId, int start, int end,
+		OrderByComparator<KaleoNotificationRecipient> orderByComparator) {
+		return findByKaleoDefinitionId(kaleoDefinitionId, start, end,
+			orderByComparator, true);
+	}
+
+	/**
+	 * Returns an ordered range of all the kaleo notification recipients where kaleoDefinitionId = &#63;.
+>>>>>>> compatible
 	 *
 	 * <p>
 	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link KaleoNotificationRecipientModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	 * </p>
 	 *
+<<<<<<< HEAD
 	 * @param kaleoDefinitionVersionId the kaleo definition version ID
+=======
+	 * @param kaleoDefinitionId the kaleo definition ID
+>>>>>>> compatible
 	 * @param start the lower bound of the range of kaleo notification recipients
 	 * @param end the upper bound of the range of kaleo notification recipients (not inclusive)
 	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
@@ -698,8 +781,13 @@ public class KaleoNotificationRecipientPersistenceImpl
 	 * @return the ordered range of matching kaleo notification recipients
 	 */
 	@Override
+<<<<<<< HEAD
 	public List<KaleoNotificationRecipient> findByKaleoDefinitionVersionId(
 		long kaleoDefinitionVersionId, int start, int end,
+=======
+	public List<KaleoNotificationRecipient> findByKaleoDefinitionId(
+		long kaleoDefinitionId, int start, int end,
+>>>>>>> compatible
 		OrderByComparator<KaleoNotificationRecipient> orderByComparator,
 		boolean retrieveFromCache) {
 		boolean pagination = true;
@@ -709,6 +797,7 @@ public class KaleoNotificationRecipientPersistenceImpl
 		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS) &&
 				(orderByComparator == null)) {
 			pagination = false;
+<<<<<<< HEAD
 			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_KALEODEFINITIONVERSIONID;
 			finderArgs = new Object[] { kaleoDefinitionVersionId };
 		}
@@ -716,6 +805,15 @@ public class KaleoNotificationRecipientPersistenceImpl
 			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_KALEODEFINITIONVERSIONID;
 			finderArgs = new Object[] {
 					kaleoDefinitionVersionId,
+=======
+			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_KALEODEFINITIONID;
+			finderArgs = new Object[] { kaleoDefinitionId };
+		}
+		else {
+			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_KALEODEFINITIONID;
+			finderArgs = new Object[] {
+					kaleoDefinitionId,
+>>>>>>> compatible
 					
 					start, end, orderByComparator
 				};
@@ -729,7 +827,11 @@ public class KaleoNotificationRecipientPersistenceImpl
 
 			if ((list != null) && !list.isEmpty()) {
 				for (KaleoNotificationRecipient kaleoNotificationRecipient : list) {
+<<<<<<< HEAD
 					if ((kaleoDefinitionVersionId != kaleoNotificationRecipient.getKaleoDefinitionVersionId())) {
+=======
+					if ((kaleoDefinitionId != kaleoNotificationRecipient.getKaleoDefinitionId())) {
+>>>>>>> compatible
 						list = null;
 
 						break;
@@ -751,7 +853,11 @@ public class KaleoNotificationRecipientPersistenceImpl
 
 			query.append(_SQL_SELECT_KALEONOTIFICATIONRECIPIENT_WHERE);
 
+<<<<<<< HEAD
 			query.append(_FINDER_COLUMN_KALEODEFINITIONVERSIONID_KALEODEFINITIONVERSIONID_2);
+=======
+			query.append(_FINDER_COLUMN_KALEODEFINITIONID_KALEODEFINITIONID_2);
+>>>>>>> compatible
 
 			if (orderByComparator != null) {
 				appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
@@ -773,7 +879,11 @@ public class KaleoNotificationRecipientPersistenceImpl
 
 				QueryPos qPos = QueryPos.getInstance(q);
 
+<<<<<<< HEAD
 				qPos.add(kaleoDefinitionVersionId);
+=======
+				qPos.add(kaleoDefinitionId);
+>>>>>>> compatible
 
 				if (!pagination) {
 					list = (List<KaleoNotificationRecipient>)QueryUtil.list(q,
@@ -806,19 +916,33 @@ public class KaleoNotificationRecipientPersistenceImpl
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Returns the first kaleo notification recipient in the ordered set where kaleoDefinitionVersionId = &#63;.
 	 *
 	 * @param kaleoDefinitionVersionId the kaleo definition version ID
+=======
+	 * Returns the first kaleo notification recipient in the ordered set where kaleoDefinitionId = &#63;.
+	 *
+	 * @param kaleoDefinitionId the kaleo definition ID
+>>>>>>> compatible
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the first matching kaleo notification recipient
 	 * @throws NoSuchNotificationRecipientException if a matching kaleo notification recipient could not be found
 	 */
 	@Override
+<<<<<<< HEAD
 	public KaleoNotificationRecipient findByKaleoDefinitionVersionId_First(
 		long kaleoDefinitionVersionId,
 		OrderByComparator<KaleoNotificationRecipient> orderByComparator)
 		throws NoSuchNotificationRecipientException {
 		KaleoNotificationRecipient kaleoNotificationRecipient = fetchByKaleoDefinitionVersionId_First(kaleoDefinitionVersionId,
+=======
+	public KaleoNotificationRecipient findByKaleoDefinitionId_First(
+		long kaleoDefinitionId,
+		OrderByComparator<KaleoNotificationRecipient> orderByComparator)
+		throws NoSuchNotificationRecipientException {
+		KaleoNotificationRecipient kaleoNotificationRecipient = fetchByKaleoDefinitionId_First(kaleoDefinitionId,
+>>>>>>> compatible
 				orderByComparator);
 
 		if (kaleoNotificationRecipient != null) {
@@ -829,26 +953,46 @@ public class KaleoNotificationRecipientPersistenceImpl
 
 		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
 
+<<<<<<< HEAD
 		msg.append("kaleoDefinitionVersionId=");
 		msg.append(kaleoDefinitionVersionId);
 
 		msg.append("}");
+=======
+		msg.append("kaleoDefinitionId=");
+		msg.append(kaleoDefinitionId);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchNotificationRecipientException(msg.toString());
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Returns the first kaleo notification recipient in the ordered set where kaleoDefinitionVersionId = &#63;.
 	 *
 	 * @param kaleoDefinitionVersionId the kaleo definition version ID
+=======
+	 * Returns the first kaleo notification recipient in the ordered set where kaleoDefinitionId = &#63;.
+	 *
+	 * @param kaleoDefinitionId the kaleo definition ID
+>>>>>>> compatible
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the first matching kaleo notification recipient, or <code>null</code> if a matching kaleo notification recipient could not be found
 	 */
 	@Override
+<<<<<<< HEAD
 	public KaleoNotificationRecipient fetchByKaleoDefinitionVersionId_First(
 		long kaleoDefinitionVersionId,
 		OrderByComparator<KaleoNotificationRecipient> orderByComparator) {
 		List<KaleoNotificationRecipient> list = findByKaleoDefinitionVersionId(kaleoDefinitionVersionId,
+=======
+	public KaleoNotificationRecipient fetchByKaleoDefinitionId_First(
+		long kaleoDefinitionId,
+		OrderByComparator<KaleoNotificationRecipient> orderByComparator) {
+		List<KaleoNotificationRecipient> list = findByKaleoDefinitionId(kaleoDefinitionId,
+>>>>>>> compatible
 				0, 1, orderByComparator);
 
 		if (!list.isEmpty()) {
@@ -859,19 +1003,33 @@ public class KaleoNotificationRecipientPersistenceImpl
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Returns the last kaleo notification recipient in the ordered set where kaleoDefinitionVersionId = &#63;.
 	 *
 	 * @param kaleoDefinitionVersionId the kaleo definition version ID
+=======
+	 * Returns the last kaleo notification recipient in the ordered set where kaleoDefinitionId = &#63;.
+	 *
+	 * @param kaleoDefinitionId the kaleo definition ID
+>>>>>>> compatible
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the last matching kaleo notification recipient
 	 * @throws NoSuchNotificationRecipientException if a matching kaleo notification recipient could not be found
 	 */
 	@Override
+<<<<<<< HEAD
 	public KaleoNotificationRecipient findByKaleoDefinitionVersionId_Last(
 		long kaleoDefinitionVersionId,
 		OrderByComparator<KaleoNotificationRecipient> orderByComparator)
 		throws NoSuchNotificationRecipientException {
 		KaleoNotificationRecipient kaleoNotificationRecipient = fetchByKaleoDefinitionVersionId_Last(kaleoDefinitionVersionId,
+=======
+	public KaleoNotificationRecipient findByKaleoDefinitionId_Last(
+		long kaleoDefinitionId,
+		OrderByComparator<KaleoNotificationRecipient> orderByComparator)
+		throws NoSuchNotificationRecipientException {
+		KaleoNotificationRecipient kaleoNotificationRecipient = fetchByKaleoDefinitionId_Last(kaleoDefinitionId,
+>>>>>>> compatible
 				orderByComparator);
 
 		if (kaleoNotificationRecipient != null) {
@@ -882,32 +1040,56 @@ public class KaleoNotificationRecipientPersistenceImpl
 
 		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
 
+<<<<<<< HEAD
 		msg.append("kaleoDefinitionVersionId=");
 		msg.append(kaleoDefinitionVersionId);
 
 		msg.append("}");
+=======
+		msg.append("kaleoDefinitionId=");
+		msg.append(kaleoDefinitionId);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchNotificationRecipientException(msg.toString());
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Returns the last kaleo notification recipient in the ordered set where kaleoDefinitionVersionId = &#63;.
 	 *
 	 * @param kaleoDefinitionVersionId the kaleo definition version ID
+=======
+	 * Returns the last kaleo notification recipient in the ordered set where kaleoDefinitionId = &#63;.
+	 *
+	 * @param kaleoDefinitionId the kaleo definition ID
+>>>>>>> compatible
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the last matching kaleo notification recipient, or <code>null</code> if a matching kaleo notification recipient could not be found
 	 */
 	@Override
+<<<<<<< HEAD
 	public KaleoNotificationRecipient fetchByKaleoDefinitionVersionId_Last(
 		long kaleoDefinitionVersionId,
 		OrderByComparator<KaleoNotificationRecipient> orderByComparator) {
 		int count = countByKaleoDefinitionVersionId(kaleoDefinitionVersionId);
+=======
+	public KaleoNotificationRecipient fetchByKaleoDefinitionId_Last(
+		long kaleoDefinitionId,
+		OrderByComparator<KaleoNotificationRecipient> orderByComparator) {
+		int count = countByKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 
 		if (count == 0) {
 			return null;
 		}
 
+<<<<<<< HEAD
 		List<KaleoNotificationRecipient> list = findByKaleoDefinitionVersionId(kaleoDefinitionVersionId,
+=======
+		List<KaleoNotificationRecipient> list = findByKaleoDefinitionId(kaleoDefinitionId,
+>>>>>>> compatible
 				count - 1, count, orderByComparator);
 
 		if (!list.isEmpty()) {
@@ -918,17 +1100,29 @@ public class KaleoNotificationRecipientPersistenceImpl
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Returns the kaleo notification recipients before and after the current kaleo notification recipient in the ordered set where kaleoDefinitionVersionId = &#63;.
 	 *
 	 * @param kaleoNotificationRecipientId the primary key of the current kaleo notification recipient
 	 * @param kaleoDefinitionVersionId the kaleo definition version ID
+=======
+	 * Returns the kaleo notification recipients before and after the current kaleo notification recipient in the ordered set where kaleoDefinitionId = &#63;.
+	 *
+	 * @param kaleoNotificationRecipientId the primary key of the current kaleo notification recipient
+	 * @param kaleoDefinitionId the kaleo definition ID
+>>>>>>> compatible
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the previous, current, and next kaleo notification recipient
 	 * @throws NoSuchNotificationRecipientException if a kaleo notification recipient with the primary key could not be found
 	 */
 	@Override
+<<<<<<< HEAD
 	public KaleoNotificationRecipient[] findByKaleoDefinitionVersionId_PrevAndNext(
 		long kaleoNotificationRecipientId, long kaleoDefinitionVersionId,
+=======
+	public KaleoNotificationRecipient[] findByKaleoDefinitionId_PrevAndNext(
+		long kaleoNotificationRecipientId, long kaleoDefinitionId,
+>>>>>>> compatible
 		OrderByComparator<KaleoNotificationRecipient> orderByComparator)
 		throws NoSuchNotificationRecipientException {
 		KaleoNotificationRecipient kaleoNotificationRecipient = findByPrimaryKey(kaleoNotificationRecipientId);
@@ -940,14 +1134,24 @@ public class KaleoNotificationRecipientPersistenceImpl
 
 			KaleoNotificationRecipient[] array = new KaleoNotificationRecipientImpl[3];
 
+<<<<<<< HEAD
 			array[0] = getByKaleoDefinitionVersionId_PrevAndNext(session,
 					kaleoNotificationRecipient, kaleoDefinitionVersionId,
+=======
+			array[0] = getByKaleoDefinitionId_PrevAndNext(session,
+					kaleoNotificationRecipient, kaleoDefinitionId,
+>>>>>>> compatible
 					orderByComparator, true);
 
 			array[1] = kaleoNotificationRecipient;
 
+<<<<<<< HEAD
 			array[2] = getByKaleoDefinitionVersionId_PrevAndNext(session,
 					kaleoNotificationRecipient, kaleoDefinitionVersionId,
+=======
+			array[2] = getByKaleoDefinitionId_PrevAndNext(session,
+					kaleoNotificationRecipient, kaleoDefinitionId,
+>>>>>>> compatible
 					orderByComparator, false);
 
 			return array;
@@ -960,9 +1164,15 @@ public class KaleoNotificationRecipientPersistenceImpl
 		}
 	}
 
+<<<<<<< HEAD
 	protected KaleoNotificationRecipient getByKaleoDefinitionVersionId_PrevAndNext(
 		Session session, KaleoNotificationRecipient kaleoNotificationRecipient,
 		long kaleoDefinitionVersionId,
+=======
+	protected KaleoNotificationRecipient getByKaleoDefinitionId_PrevAndNext(
+		Session session, KaleoNotificationRecipient kaleoNotificationRecipient,
+		long kaleoDefinitionId,
+>>>>>>> compatible
 		OrderByComparator<KaleoNotificationRecipient> orderByComparator,
 		boolean previous) {
 		StringBundler query = null;
@@ -978,7 +1188,11 @@ public class KaleoNotificationRecipientPersistenceImpl
 
 		query.append(_SQL_SELECT_KALEONOTIFICATIONRECIPIENT_WHERE);
 
+<<<<<<< HEAD
 		query.append(_FINDER_COLUMN_KALEODEFINITIONVERSIONID_KALEODEFINITIONVERSIONID_2);
+=======
+		query.append(_FINDER_COLUMN_KALEODEFINITIONID_KALEODEFINITIONID_2);
+>>>>>>> compatible
 
 		if (orderByComparator != null) {
 			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
@@ -1048,7 +1262,11 @@ public class KaleoNotificationRecipientPersistenceImpl
 
 		QueryPos qPos = QueryPos.getInstance(q);
 
+<<<<<<< HEAD
 		qPos.add(kaleoDefinitionVersionId);
+=======
+		qPos.add(kaleoDefinitionId);
+>>>>>>> compatible
 
 		if (orderByComparator != null) {
 			Object[] values = orderByComparator.getOrderByConditionValues(kaleoNotificationRecipient);
@@ -1069,6 +1287,7 @@ public class KaleoNotificationRecipientPersistenceImpl
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Removes all the kaleo notification recipients where kaleoDefinitionVersionId = &#63; from the database.
 	 *
 	 * @param kaleoDefinitionVersionId the kaleo definition version ID
@@ -1078,11 +1297,22 @@ public class KaleoNotificationRecipientPersistenceImpl
 		for (KaleoNotificationRecipient kaleoNotificationRecipient : findByKaleoDefinitionVersionId(
 				kaleoDefinitionVersionId, QueryUtil.ALL_POS, QueryUtil.ALL_POS,
 				null)) {
+=======
+	 * Removes all the kaleo notification recipients where kaleoDefinitionId = &#63; from the database.
+	 *
+	 * @param kaleoDefinitionId the kaleo definition ID
+	 */
+	@Override
+	public void removeByKaleoDefinitionId(long kaleoDefinitionId) {
+		for (KaleoNotificationRecipient kaleoNotificationRecipient : findByKaleoDefinitionId(
+				kaleoDefinitionId, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null)) {
+>>>>>>> compatible
 			remove(kaleoNotificationRecipient);
 		}
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Returns the number of kaleo notification recipients where kaleoDefinitionVersionId = &#63;.
 	 *
 	 * @param kaleoDefinitionVersionId the kaleo definition version ID
@@ -1093,6 +1323,18 @@ public class KaleoNotificationRecipientPersistenceImpl
 		FinderPath finderPath = FINDER_PATH_COUNT_BY_KALEODEFINITIONVERSIONID;
 
 		Object[] finderArgs = new Object[] { kaleoDefinitionVersionId };
+=======
+	 * Returns the number of kaleo notification recipients where kaleoDefinitionId = &#63;.
+	 *
+	 * @param kaleoDefinitionId the kaleo definition ID
+	 * @return the number of matching kaleo notification recipients
+	 */
+	@Override
+	public int countByKaleoDefinitionId(long kaleoDefinitionId) {
+		FinderPath finderPath = FINDER_PATH_COUNT_BY_KALEODEFINITIONID;
+
+		Object[] finderArgs = new Object[] { kaleoDefinitionId };
+>>>>>>> compatible
 
 		Long count = (Long)finderCache.getResult(finderPath, finderArgs, this);
 
@@ -1101,7 +1343,11 @@ public class KaleoNotificationRecipientPersistenceImpl
 
 			query.append(_SQL_COUNT_KALEONOTIFICATIONRECIPIENT_WHERE);
 
+<<<<<<< HEAD
 			query.append(_FINDER_COLUMN_KALEODEFINITIONVERSIONID_KALEODEFINITIONVERSIONID_2);
+=======
+			query.append(_FINDER_COLUMN_KALEODEFINITIONID_KALEODEFINITIONID_2);
+>>>>>>> compatible
 
 			String sql = query.toString();
 
@@ -1114,7 +1360,11 @@ public class KaleoNotificationRecipientPersistenceImpl
 
 				QueryPos qPos = QueryPos.getInstance(q);
 
+<<<<<<< HEAD
 				qPos.add(kaleoDefinitionVersionId);
+=======
+				qPos.add(kaleoDefinitionId);
+>>>>>>> compatible
 
 				count = (Long)q.uniqueResult();
 
@@ -1133,8 +1383,13 @@ public class KaleoNotificationRecipientPersistenceImpl
 		return count.intValue();
 	}
 
+<<<<<<< HEAD
 	private static final String _FINDER_COLUMN_KALEODEFINITIONVERSIONID_KALEODEFINITIONVERSIONID_2 =
 		"kaleoNotificationRecipient.kaleoDefinitionVersionId = ?";
+=======
+	private static final String _FINDER_COLUMN_KALEODEFINITIONID_KALEODEFINITIONID_2 =
+		"kaleoNotificationRecipient.kaleoDefinitionId = ?";
+>>>>>>> compatible
 	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_KALEONOTIFICATIONID =
 		new FinderPath(KaleoNotificationRecipientModelImpl.ENTITY_CACHE_ENABLED,
 			KaleoNotificationRecipientModelImpl.FINDER_CACHE_ENABLED,
@@ -1360,7 +1615,11 @@ public class KaleoNotificationRecipientPersistenceImpl
 		msg.append("kaleoNotificationId=");
 		msg.append(kaleoNotificationId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchNotificationRecipientException(msg.toString());
 	}
@@ -1413,7 +1672,11 @@ public class KaleoNotificationRecipientPersistenceImpl
 		msg.append("kaleoNotificationId=");
 		msg.append(kaleoNotificationId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchNotificationRecipientException(msg.toString());
 	}
@@ -1925,12 +2188,21 @@ public class KaleoNotificationRecipientPersistenceImpl
 				args);
 
 			args = new Object[] {
+<<<<<<< HEAD
 					kaleoNotificationRecipientModelImpl.getKaleoDefinitionVersionId()
 				};
 
 			finderCache.removeResult(FINDER_PATH_COUNT_BY_KALEODEFINITIONVERSIONID,
 				args);
 			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_KALEODEFINITIONVERSIONID,
+=======
+					kaleoNotificationRecipientModelImpl.getKaleoDefinitionId()
+				};
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_KALEODEFINITIONID,
+				args);
+			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_KALEODEFINITIONID,
+>>>>>>> compatible
 				args);
 
 			args = new Object[] {
@@ -1968,6 +2240,7 @@ public class KaleoNotificationRecipientPersistenceImpl
 			}
 
 			if ((kaleoNotificationRecipientModelImpl.getColumnBitmask() &
+<<<<<<< HEAD
 					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_KALEODEFINITIONVERSIONID.getColumnBitmask()) != 0) {
 				Object[] args = new Object[] {
 						kaleoNotificationRecipientModelImpl.getOriginalKaleoDefinitionVersionId()
@@ -1985,6 +2258,25 @@ public class KaleoNotificationRecipientPersistenceImpl
 				finderCache.removeResult(FINDER_PATH_COUNT_BY_KALEODEFINITIONVERSIONID,
 					args);
 				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_KALEODEFINITIONVERSIONID,
+=======
+					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_KALEODEFINITIONID.getColumnBitmask()) != 0) {
+				Object[] args = new Object[] {
+						kaleoNotificationRecipientModelImpl.getOriginalKaleoDefinitionId()
+					};
+
+				finderCache.removeResult(FINDER_PATH_COUNT_BY_KALEODEFINITIONID,
+					args);
+				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_KALEODEFINITIONID,
+					args);
+
+				args = new Object[] {
+						kaleoNotificationRecipientModelImpl.getKaleoDefinitionId()
+					};
+
+				finderCache.removeResult(FINDER_PATH_COUNT_BY_KALEODEFINITIONID,
+					args);
+				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_KALEODEFINITIONID,
+>>>>>>> compatible
 					args);
 			}
 
@@ -2038,7 +2330,11 @@ public class KaleoNotificationRecipientPersistenceImpl
 		kaleoNotificationRecipientImpl.setUserName(kaleoNotificationRecipient.getUserName());
 		kaleoNotificationRecipientImpl.setCreateDate(kaleoNotificationRecipient.getCreateDate());
 		kaleoNotificationRecipientImpl.setModifiedDate(kaleoNotificationRecipient.getModifiedDate());
+<<<<<<< HEAD
 		kaleoNotificationRecipientImpl.setKaleoDefinitionVersionId(kaleoNotificationRecipient.getKaleoDefinitionVersionId());
+=======
+		kaleoNotificationRecipientImpl.setKaleoDefinitionId(kaleoNotificationRecipient.getKaleoDefinitionId());
+>>>>>>> compatible
 		kaleoNotificationRecipientImpl.setKaleoNotificationId(kaleoNotificationRecipient.getKaleoNotificationId());
 		kaleoNotificationRecipientImpl.setRecipientClassName(kaleoNotificationRecipient.getRecipientClassName());
 		kaleoNotificationRecipientImpl.setRecipientClassPK(kaleoNotificationRecipient.getRecipientClassPK());
@@ -2206,12 +2502,20 @@ public class KaleoNotificationRecipientPersistenceImpl
 		for (Serializable primaryKey : uncachedPrimaryKeys) {
 			query.append((long)primaryKey);
 
+<<<<<<< HEAD
 			query.append(",");
+=======
+			query.append(StringPool.COMMA);
+>>>>>>> compatible
 		}
 
 		query.setIndex(query.index() - 1);
 
+<<<<<<< HEAD
 		query.append(")");
+=======
+		query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 		String sql = query.toString();
 

@@ -30,6 +30,7 @@ public interface CMISStoreConfiguration {
 
 	@Meta.AD(
 		deflt = "http://localhost:8080/alfresco/service/api/cmis",
+<<<<<<< HEAD
 		name = "repository-url", required = true
 	)
 	public String repositoryUrl();
@@ -41,6 +42,19 @@ public interface CMISStoreConfiguration {
 	public String credentialsPassword();
 
 	@Meta.AD(deflt = "Liferay Home", name = "system-root-dir", required = true)
+=======
+		required = true
+	)
+	public String repositoryUrl();
+
+	@Meta.AD(deflt = "none", required = true)
+	public String credentialsUsername();
+
+	@Meta.AD(deflt = "none", required = true)
+	public String credentialsPassword();
+
+	@Meta.AD(deflt = "Liferay Home", required = true)
+>>>>>>> compatible
 	public String systemRootDir();
 
 }

@@ -14,15 +14,22 @@
 
 package com.liferay.portal.kernel.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
+=======
+import com.liferay.portal.kernel.memory.SoftReferenceThreadLocal;
+>>>>>>> compatible
 
 import java.io.IOException;
 import java.io.Serializable;
 import java.io.Writer;
 
+<<<<<<< HEAD
 import java.lang.ref.Reference;
 import java.lang.ref.SoftReference;
 
+=======
+>>>>>>> compatible
 /**
  * <p>
  * See https://issues.liferay.com/browse/LPS-6072.
@@ -34,6 +41,7 @@ import java.lang.ref.SoftReference;
  */
 public class StringBundler implements Serializable {
 
+<<<<<<< HEAD
 	public static String concat(String... strings) {
 		for (int i = 0; i < strings.length; i++) {
 			if (strings[i] == null) {
@@ -44,6 +52,8 @@ public class StringBundler implements Serializable {
 		return _toString(strings, strings.length);
 	}
 
+=======
+>>>>>>> compatible
 	public StringBundler() {
 		_array = new String[_DEFAULT_ARRAY_CAPACITY];
 	}
@@ -240,6 +250,7 @@ public class StringBundler implements Serializable {
 
 	@Override
 	public String toString() {
+<<<<<<< HEAD
 		return _toString(_array, _arrayIndex);
 	}
 
@@ -272,28 +283,57 @@ public class StringBundler implements Serializable {
 
 		if (arrayIndex == 3) {
 			return array[0].concat(array[1]).concat(array[2]);
+=======
+		if (_arrayIndex == 0) {
+			return StringPool.BLANK;
+		}
+
+		if (_arrayIndex == 1) {
+			return _array[0];
+		}
+
+		if (_arrayIndex == 2) {
+			return _array[0].concat(_array[1]);
+		}
+
+		if (_arrayIndex == 3) {
+			return _array[0].concat(_array[1]).concat(_array[2]);
+>>>>>>> compatible
 		}
 
 		int length = 0;
 
+<<<<<<< HEAD
 		for (int i = 0; i < arrayIndex; i++) {
 			length += array[i].length();
+=======
+		for (int i = 0; i < _arrayIndex; i++) {
+			length += _array[i].length();
+>>>>>>> compatible
 		}
 
 		UnsafeStringBuilder usb = null;
 
 		if (length > _THREAD_LOCAL_BUFFER_LIMIT) {
+<<<<<<< HEAD
 			Reference<UnsafeStringBuilder> reference =
 				_unsafeStringBuilderThreadLocal.get();
 
 			if (reference != null) {
 				usb = reference.get();
 			}
+=======
+			usb = _unsafeStringBuilderThreadLocal.get();
+>>>>>>> compatible
 
 			if (usb == null) {
 				usb = new UnsafeStringBuilder(length);
 
+<<<<<<< HEAD
 				_unsafeStringBuilderThreadLocal.set(new SoftReference<>(usb));
+=======
+				_unsafeStringBuilderThreadLocal.set(usb);
+>>>>>>> compatible
 			}
 			else {
 				usb.resetAndEnsureCapacity(length);
@@ -303,18 +343,44 @@ public class StringBundler implements Serializable {
 			usb = new UnsafeStringBuilder(length);
 		}
 
+<<<<<<< HEAD
 		for (int i = 0; i < arrayIndex; i++) {
 			usb.append(array[i]);
+=======
+		for (int i = 0; i < _arrayIndex; i++) {
+			usb.append(_array[i]);
+>>>>>>> compatible
 		}
 
 		return usb.toString();
 	}
 
+<<<<<<< HEAD
+=======
+	public void writeTo(Writer writer) throws IOException {
+		for (int i = 0; i < _arrayIndex; i++) {
+			writer.write(_array[i]);
+		}
+	}
+
+	protected void expandCapacity(int newCapacity) {
+		String[] newArray = new String[newCapacity];
+
+		System.arraycopy(_array, 0, newArray, 0, _arrayIndex);
+
+		_array = newArray;
+	}
+
+>>>>>>> compatible
 	private static final int _DEFAULT_ARRAY_CAPACITY = 16;
 
 	private static final int _THREAD_LOCAL_BUFFER_LIMIT;
 
+<<<<<<< HEAD
 	private static final ThreadLocal<Reference<UnsafeStringBuilder>>
+=======
+	private static final ThreadLocal<UnsafeStringBuilder>
+>>>>>>> compatible
 		_unsafeStringBuilderThreadLocal;
 	private static final long serialVersionUID = 1L;
 
@@ -329,8 +395,12 @@ public class StringBundler implements Serializable {
 
 			_THREAD_LOCAL_BUFFER_LIMIT = threadLocalBufferLimit;
 
+<<<<<<< HEAD
 			_unsafeStringBuilderThreadLocal = new CentralizedThreadLocal<>(
 				false);
+=======
+			_unsafeStringBuilderThreadLocal = new SoftReferenceThreadLocal<>();
+>>>>>>> compatible
 		}
 		else {
 			_THREAD_LOCAL_BUFFER_LIMIT = Integer.MAX_VALUE;

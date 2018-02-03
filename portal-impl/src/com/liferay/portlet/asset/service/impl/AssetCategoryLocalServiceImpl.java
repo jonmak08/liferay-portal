@@ -18,6 +18,10 @@ import com.liferay.asset.kernel.exception.AssetCategoryNameException;
 import com.liferay.asset.kernel.exception.DuplicateCategoryException;
 import com.liferay.asset.kernel.model.AssetCategory;
 import com.liferay.asset.kernel.model.AssetCategoryConstants;
+<<<<<<< HEAD
+=======
+import com.liferay.asset.kernel.model.AssetCategoryProperty;
+>>>>>>> compatible
 import com.liferay.asset.kernel.model.AssetEntry;
 import com.liferay.portal.kernel.cache.thread.local.ThreadLocalCachable;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
@@ -38,14 +42,21 @@ import com.liferay.portal.kernel.search.QueryConfig;
 import com.liferay.portal.kernel.search.SearchContext;
 import com.liferay.portal.kernel.search.SearchException;
 import com.liferay.portal.kernel.search.Sort;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.security.permission.PermissionThreadLocal;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.permission.ModelPermissions;
 import com.liferay.portal.kernel.systemevent.SystemEvent;
 import com.liferay.portal.kernel.transaction.TransactionCommitCallbackUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ArrayUtil;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
@@ -138,6 +149,35 @@ public class AssetCategoryLocalServiceImpl
 		else {
 			addCategoryResources(
 				category, serviceContext.getModelPermissions());
+<<<<<<< HEAD
+=======
+		}
+
+		// Properties
+
+		for (int i = 0; i < categoryProperties.length; i++) {
+			String[] categoryProperty = StringUtil.split(
+				categoryProperties[i],
+				AssetCategoryConstants.PROPERTY_KEY_VALUE_SEPARATOR);
+
+			if (categoryProperty.length <= 1) {
+				categoryProperty = StringUtil.split(
+					categoryProperties[i], CharPool.COLON);
+			}
+
+			String key = StringPool.BLANK;
+			String value = StringPool.BLANK;
+
+			if (categoryProperty.length > 1) {
+				key = GetterUtil.getString(categoryProperty[0]);
+				value = GetterUtil.getString(categoryProperty[1]);
+			}
+
+			if (Validator.isNotNull(key)) {
+				assetCategoryPropertyLocalService.addCategoryProperty(
+					userId, categoryId, key, value);
+			}
+>>>>>>> compatible
 		}
 
 		return category;

@@ -14,7 +14,10 @@
 
 package com.liferay.portal.kernel.model.impl;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.Layout;
 import com.liferay.portal.kernel.model.LayoutTypeAccessPolicy;
@@ -65,6 +68,7 @@ public class DefaultLayoutTypeAccessPolicyImpl
 			}
 		}
 
+<<<<<<< HEAD
 		String resourceName = portlet.getDisplayName();
 
 		resourceName = resourceName.concat(StringPool.SPACE);
@@ -73,6 +77,11 @@ public class DefaultLayoutTypeAccessPolicyImpl
 
 		throw new PrincipalException.MustHavePermission(
 			PortalUtil.getUserId(request), resourceName, 0, ActionKeys.ACCESS);
+=======
+		throw new PrincipalException.MustHavePermission(
+			PortalUtil.getUserId(request), portlet.getDisplayName(),
+			portlet.getPortletId(), ActionKeys.ACCESS);
+>>>>>>> compatible
 	}
 
 	@Override

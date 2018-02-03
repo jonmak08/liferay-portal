@@ -14,15 +14,24 @@
 
 package com.liferay.document.library.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.document.library.constants.DLPortletKeys;
+=======
+>>>>>>> compatible
 import com.liferay.document.library.kernel.model.DLFolder;
 import com.liferay.document.library.kernel.model.DLFolderConstants;
 import com.liferay.document.library.kernel.service.DLAppService;
 import com.liferay.document.library.kernel.service.DLFolderLocalService;
 import com.liferay.document.library.repository.authorization.capability.AuthorizationCapability;
+<<<<<<< HEAD
 import com.liferay.document.library.web.internal.constants.DLWebKeys;
 import com.liferay.document.library.web.internal.portlet.toolbar.contributor.DLPortletToolbarContributor;
 import com.liferay.document.library.web.internal.util.DLTrashUtil;
+=======
+import com.liferay.document.library.web.constants.DLPortletKeys;
+import com.liferay.document.library.web.constants.DLWebKeys;
+import com.liferay.document.library.web.internal.portlet.toolbar.contributor.DLPortletToolbarContributor;
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCRenderCommand;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCRenderConstants;
 import com.liferay.portal.kernel.repository.Repository;
@@ -74,9 +83,22 @@ public class DLViewMVCRenderCommand extends GetFolderMVCRenderCommand {
 		return super.render(renderRequest, renderResponse);
 	}
 
+<<<<<<< HEAD
 	@Override
 	protected DLTrashUtil getDLTrashUtil() {
 		return _dlTrashUtil;
+=======
+	@Reference(unbind = "-")
+	public void setDLAppService(DLAppService dlAppService) {
+		_dlAppService = dlAppService;
+	}
+
+	@Reference(unbind = "-")
+	public void setDLFolderLocalService(
+		DLFolderLocalService dlFolderLocalService) {
+
+		_dlFolderLocalService = dlFolderLocalService;
+>>>>>>> compatible
 	}
 
 	@Override
@@ -127,6 +149,7 @@ public class DLViewMVCRenderCommand extends GetFolderMVCRenderCommand {
 		}
 	}
 
+<<<<<<< HEAD
 	@Reference
 	private DLAppService _dlAppService;
 
@@ -139,4 +162,17 @@ public class DLViewMVCRenderCommand extends GetFolderMVCRenderCommand {
 	@Reference
 	private DLTrashUtil _dlTrashUtil;
 
+=======
+	@Reference(unbind = "-")
+	protected void setDLPortletToolbarContributor(
+		DLPortletToolbarContributor dlPortletToolbarContributor) {
+
+		_dlPortletToolbarContributor = dlPortletToolbarContributor;
+	}
+
+	private DLAppService _dlAppService;
+	private DLFolderLocalService _dlFolderLocalService;
+	private DLPortletToolbarContributor _dlPortletToolbarContributor;
+
+>>>>>>> compatible
 }

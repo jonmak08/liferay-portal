@@ -2,7 +2,11 @@
 	<command name="assertTextNotPresent">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.AssertTextNotPresent#assertTextNotPresent" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 

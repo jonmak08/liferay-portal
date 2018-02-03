@@ -55,6 +55,7 @@ public class StagingServiceWrapper implements StagingService,
 	}
 
 	@Override
+<<<<<<< HEAD
 	public boolean hasRemoteLayout(java.lang.String uuid, long groupId,
 		boolean privateLayout)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -62,6 +63,8 @@ public class StagingServiceWrapper implements StagingService,
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public void propagateExportImportLifecycleEvent(int code, int processFlag,
 		java.lang.String processId,
 		java.util.List<java.io.Serializable> arguments)

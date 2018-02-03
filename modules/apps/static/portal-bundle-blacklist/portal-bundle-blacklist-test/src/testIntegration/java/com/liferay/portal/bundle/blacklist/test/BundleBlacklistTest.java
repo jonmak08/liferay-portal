@@ -15,15 +15,22 @@
 package com.liferay.portal.bundle.blacklist.test;
 
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
+<<<<<<< HEAD
 import com.liferay.osgi.util.service.OSGiServiceUtil;
 import com.liferay.portal.bundle.blacklist.BundleBlacklistManager;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HashMapDictionary;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.lpkg.deployer.test.util.LPKGTestUtil;
+<<<<<<< HEAD
 import com.liferay.portal.test.rule.Inject;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+=======
+import com.liferay.portal.osgi.util.test.OSGiServiceUtil;
+>>>>>>> compatible
 import com.liferay.portal.util.PropsValues;
 
 import java.io.File;
@@ -32,15 +39,21 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+<<<<<<< HEAD
 import java.util.Collection;
+=======
+>>>>>>> compatible
 import java.util.Dictionary;
 import java.util.concurrent.CountDownLatch;
 
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
+<<<<<<< HEAD
 import org.junit.ClassRule;
 import org.junit.Rule;
+=======
+>>>>>>> compatible
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -61,11 +74,14 @@ import org.osgi.util.tracker.BundleTracker;
 @RunWith(Arquillian.class)
 public class BundleBlacklistTest {
 
+<<<<<<< HEAD
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
 		new LiferayIntegrationTestRule();
 
+=======
+>>>>>>> compatible
 	@Before
 	public void setUp() throws Exception {
 		Bundle bundle = FrameworkUtil.getBundle(BundleBlacklistTest.class);
@@ -152,6 +168,7 @@ public class BundleBlacklistTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testAddToAndRemoveFromBlacklist() throws Exception {
 		Bundle bundle = _findBundle(_SYMBOLIC_NAME);
 
@@ -194,6 +211,8 @@ public class BundleBlacklistTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testBundleBlacklist() throws Exception {
 		Bundle jarBundle = null;
 		Bundle lpkgBundle = null;
@@ -229,7 +248,12 @@ public class BundleBlacklistTest {
 
 		// Blacklist WAR wrapper
 
+<<<<<<< HEAD
 		properties.put(_PROP_KEY, warWrapperBundle.getSymbolicName());
+=======
+		properties.put(
+			_PROP_KEY, new String[] {warWrapperBundle.getSymbolicName()});
+>>>>>>> compatible
 
 		_updateConfiguration(properties);
 
@@ -258,7 +282,11 @@ public class BundleBlacklistTest {
 
 		// Blacklist WAR
 
+<<<<<<< HEAD
 		properties.put(_PROP_KEY, warBundle.getSymbolicName());
+=======
+		properties.put(_PROP_KEY, new String[] {warBundle.getSymbolicName()});
+>>>>>>> compatible
 
 		_updateConfiguration(properties);
 
@@ -277,7 +305,11 @@ public class BundleBlacklistTest {
 
 		// Blacklist JAR
 
+<<<<<<< HEAD
 		properties.put(_PROP_KEY, jarBundle.getSymbolicName());
+=======
+		properties.put(_PROP_KEY, new String[] {jarBundle.getSymbolicName()});
+>>>>>>> compatible
 
 		_updateConfiguration(properties);
 
@@ -296,7 +328,11 @@ public class BundleBlacklistTest {
 
 		// Blacklist LPKG
 
+<<<<<<< HEAD
 		properties.put(_PROP_KEY, lpkgBundle.getSymbolicName());
+=======
+		properties.put(_PROP_KEY, new String[] {lpkgBundle.getSymbolicName()});
+>>>>>>> compatible
 
 		_updateConfiguration(properties);
 
@@ -382,12 +418,16 @@ public class BundleBlacklistTest {
 		_bundleContext.addServiceListener(serviceListener);
 
 		try {
+<<<<<<< HEAD
 			if (dictionary == null) {
 				_bundleBlacklistConfiguration.delete();
 			}
 			else {
 				_bundleBlacklistConfiguration.update(dictionary);
 			}
+=======
+			_bundleBlacklistConfiguration.update(dictionary);
+>>>>>>> compatible
 
 			countDownLatch.await();
 		}
@@ -410,9 +450,12 @@ public class BundleBlacklistTest {
 	private static final String _SYMBOLIC_NAME =
 		"com.liferay.portal.bundle.blacklist.test.bundle";
 
+<<<<<<< HEAD
 	@Inject
 	private static BundleBlacklistManager _bundleBlacklistManager;
 
+=======
+>>>>>>> compatible
 	private Configuration _bundleBlacklistConfiguration;
 	private BundleContext _bundleContext;
 	private Path _lpkgPath;

@@ -44,7 +44,11 @@ public class FindEntryAction extends BaseStrutsAction {
 	}
 
 	@Reference(
+<<<<<<< HEAD
 		target = "(model.class.name=com.liferay.blogs.model.BlogsEntry)",
+=======
+		target = "(model.class.name=com.liferay.blogs.kernel.model.BlogsEntry)",
+>>>>>>> compatible
 		unbind = "-"
 	)
 	protected void setFindActionHelper(FindActionHelper findActionHelper) {

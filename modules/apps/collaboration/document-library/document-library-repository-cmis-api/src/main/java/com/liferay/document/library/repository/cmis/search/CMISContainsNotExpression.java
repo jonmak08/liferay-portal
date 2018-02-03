@@ -14,7 +14,7 @@
 
 package com.liferay.document.library.repository.cmis.search;
 
-import com.liferay.petra.string.StringPool;
+import com.liferay.portal.kernel.util.StringPool;
 
 /**
  * @author Mika Koivisto

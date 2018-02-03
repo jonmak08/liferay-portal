@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 <definition component-name="portal-legacy">
 	<property name="portal.release" value="true" />
 	<property name="portal.upstream" value="true" />
 	<property name="portlet.plugins.includes" value="wsrp-portlet" />
+=======
+<definition component-name="portal-legacy" ignore="true">
+	<property name="portal.release" value="true" />
+	<property name="portal.upstream" value="true" />
+>>>>>>> compatible
 	<property name="test.run.environment" value="EE" />
 	<property name="testray.main.component.name" value="WSRP" />
 
@@ -20,7 +26,11 @@
 				<execute macro="PortalInstances#tearDownCP" />
 			</then>
 			<else>
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP" />
+=======
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 
 				<execute macro="WSRP#tearDownCP" />
 			</else>
@@ -28,9 +38,13 @@
 	</tear-down>
 
 	<command name="AddWSRPUnitConverter" priority="4">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Apps" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="WSRP Admin" />
 		</execute>
 
@@ -39,9 +53,13 @@
 			<var name="producerName" value="Producer Demo" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Apps" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="WSRP Admin" />
 		</execute>
 
@@ -50,9 +68,13 @@
 			<var name="producerName" value="Producer Demo" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Apps" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="WSRP Admin" />
 		</execute>
 
@@ -68,6 +90,7 @@
 		<execute function="AssertTextEquals" locator1="WSRPAdminManagePortlets#PORTLET_TABLE_REMOTE_PORTLET" value1="Unit Converter" />
 		<execute function="AssertElementPresent" locator1="WSRPAdminManagePortlets#PORTLET_TABLE_DELETE" value1="Delete" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -75,6 +98,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="WSRP Page" />
 		</execute>
 

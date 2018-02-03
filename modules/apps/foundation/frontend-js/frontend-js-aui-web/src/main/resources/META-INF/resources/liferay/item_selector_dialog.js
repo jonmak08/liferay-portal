@@ -78,7 +78,11 @@ AUI.add(
 									},
 									'toolbars.footer': [
 										{
+<<<<<<< HEAD
 											cssClass: 'btn-primary',
+=======
+											cssClass: 'btn-lg btn-primary',
+>>>>>>> compatible
 											disabled: true,
 											id: 'addButton',
 											label: strings.add,
@@ -90,7 +94,11 @@ AUI.add(
 											}
 										},
 										{
+<<<<<<< HEAD
 											cssClass: 'btn-link close-modal',
+=======
+											cssClass: 'btn-lg btn-link close-modal',
+>>>>>>> compatible
 											id: 'cancelButton',
 											label: strings.cancel,
 											on: {

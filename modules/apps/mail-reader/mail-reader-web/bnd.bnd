@@ -1,4 +1,8 @@
 Bundle-Name: Liferay Mail Reader Web
 Bundle-SymbolicName: com.liferay.mail.reader.web
+<<<<<<< HEAD
 Bundle-Version: 1.0.19
+=======
+Bundle-Version: 1.0.14
+>>>>>>> compatible
 Web-ContextPath: /mail-reader-web

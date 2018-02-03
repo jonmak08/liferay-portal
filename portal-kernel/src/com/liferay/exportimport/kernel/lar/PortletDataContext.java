@@ -133,6 +133,7 @@ public interface PortletDataContext extends Serializable {
 
 	public void addLocks(String className, String key, Lock lock);
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 3.0.0, replaced by {@link #addPermissions(Class,
 	 *             Serializable)}
@@ -144,6 +145,11 @@ public interface PortletDataContext extends Serializable {
 	public void addPermissions(Class<?> clazz, Serializable classPK)
 		throws PortalException;
 
+=======
+	public void addPermissions(Class<?> clazz, long classPK)
+		throws PortalException;
+
+>>>>>>> compatible
 	public void addPermissions(String resourceName, long resourcePK)
 		throws PortalException;
 
@@ -228,6 +234,7 @@ public interface PortletDataContext extends Serializable {
 
 	public Object fromXML(String xml);
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 3.0.0, replaced by {@link #getAssetCategoryIds(Class,
 	 *             Serializable)}
@@ -237,6 +244,10 @@ public interface PortletDataContext extends Serializable {
 
 	public long[] getAssetCategoryIds(Class<?> clazz, Serializable classPK);
 
+=======
+	public long[] getAssetCategoryIds(Class<?> clazz, long classPK);
+
+>>>>>>> compatible
 	/**
 	 * @deprecated As of 7.0.0
 	 */
@@ -257,6 +268,7 @@ public interface PortletDataContext extends Serializable {
 	@Deprecated
 	public Map<String, List<AssetLink>> getAssetLinksMap();
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 3.0.0, replaced by {@link #getAssetTagNames(Class,
 	 *             Serializable)}
@@ -275,6 +287,12 @@ public interface PortletDataContext extends Serializable {
 
 	public String[] getAssetTagNames(String className, Serializable classPK);
 
+=======
+	public String[] getAssetTagNames(Class<?> clazz, long classPK);
+
+	public String[] getAssetTagNames(String className, long classPK);
+
+>>>>>>> compatible
 	public Map<String, String[]> getAssetTagNamesMap();
 
 	public boolean getBooleanParameter(String namespace, String name);
@@ -340,16 +358,22 @@ public interface PortletDataContext extends Serializable {
 
 	public Element getImportDataStagedModelElement(StagedModel stagedModel);
 
+<<<<<<< HEAD
 	public long[] getLayoutIds();
 
 	public String getLayoutSetPrototypeUuid();
 
+=======
+>>>>>>> compatible
 	public Map<String, Lock> getLocks();
 
 	public ManifestSummary getManifestSummary();
 
+<<<<<<< HEAD
 	public Element getMissingReferenceElement(ClassedModel classedModel);
 
+=======
+>>>>>>> compatible
 	public Element getMissingReferencesElement();
 
 	/**
@@ -416,6 +440,7 @@ public interface PortletDataContext extends Serializable {
 	public List<Element> getReferenceDataElements(
 		StagedModel parentStagedModel, Class<?> clazz, String referenceType);
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 3.0.0, replaced by {@link #getReferenceElement(Class,
 	 *             Serializable)}
@@ -425,19 +450,27 @@ public interface PortletDataContext extends Serializable {
 
 	public Element getReferenceElement(Class<?> clazz, Serializable classPK);
 
+=======
+	public Element getReferenceElement(Class<?> clazz, long classPK);
+
+>>>>>>> compatible
 	public Element getReferenceElement(
 		Element parentElement, Class<?> clazz, long groupId, String uuid,
 		String referenceType);
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 3.0.0, replaced by {@link
 	 *             #getReferenceElement(StagedModel, Class, Serializable)}
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public Element getReferenceElement(
 		StagedModel parentStagedModel, Class<?> clazz, long classPK);
 
 	public Element getReferenceElement(
+<<<<<<< HEAD
 		StagedModel parentStagedModel, Class<?> clazz, Serializable classPK);
 
 	/**
@@ -460,6 +493,12 @@ public interface PortletDataContext extends Serializable {
 
 	public Element getReferenceElement(String className, Serializable classPK);
 
+=======
+		StagedModel parentStagedModel, String className, long classPK);
+
+	public Element getReferenceElement(String className, long classPK);
+
+>>>>>>> compatible
 	public List<Element> getReferenceElements(
 		StagedModel parentStagedModel, Class<?> clazz);
 
@@ -487,8 +526,11 @@ public interface PortletDataContext extends Serializable {
 
 	public Date getStartDate();
 
+<<<<<<< HEAD
 	public String getType();
 
+=======
+>>>>>>> compatible
 	public long getUserId(String userUuid);
 
 	public UserIdStrategy getUserIdStrategy();
@@ -553,19 +595,25 @@ public interface PortletDataContext extends Serializable {
 	public void importLocks(Class<?> clazz, String key, String newKey)
 		throws PortalException;
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 3.0.0, replaced by {@link #importPermissions(Class,
 	 *             Serializable, Serializable)}
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public void importPermissions(Class<?> clazz, long classPK, long newClassPK)
 		throws PortalException;
 
 	public void importPermissions(
+<<<<<<< HEAD
 			Class<?> clazz, Serializable classPK, Serializable newClassPK)
 		throws PortalException;
 
 	public void importPermissions(
+=======
+>>>>>>> compatible
 			String resourceName, long resourcePK, long newResourcePK)
 		throws PortalException;
 
@@ -595,6 +643,7 @@ public interface PortletDataContext extends Serializable {
 
 	public boolean isMissingReference(Element referenceElement);
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 3.0.0, replaced by {@link #isModelCounted(String,
 	 *             Serializable)}
@@ -604,6 +653,10 @@ public interface PortletDataContext extends Serializable {
 
 	public boolean isModelCounted(String className, Serializable classPK);
 
+=======
+	public boolean isModelCounted(String className, long classPK);
+
+>>>>>>> compatible
 	public boolean isPathExportedInScope(String path);
 
 	/**
@@ -644,10 +697,13 @@ public interface PortletDataContext extends Serializable {
 
 	public void setImportDataRootElement(Element importDataRootElement);
 
+<<<<<<< HEAD
 	public void setLayoutIds(long[] layoutIds);
 
 	public void setLayoutSetPrototypeUuid(String layoutSetPrototypeUuid);
 
+=======
+>>>>>>> compatible
 	public void setManifestSummary(ManifestSummary manifestSummary);
 
 	public void setMissingReferencesElement(Element missingReferencesElement);
@@ -688,8 +744,11 @@ public interface PortletDataContext extends Serializable {
 
 	public void setStartDate(Date startDate);
 
+<<<<<<< HEAD
 	public void setType(String type);
 
+=======
+>>>>>>> compatible
 	public void setUserIdStrategy(UserIdStrategy userIdStrategy);
 
 	public void setUserPersonalSiteGroupId(long userPersonalSiteGroupId);

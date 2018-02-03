@@ -4,7 +4,11 @@
 
 ### Changed
 - [LPS-66853]: Update the [Liferay Gradle Plugins] dependency to version 2.0.41.
+<<<<<<< HEAD
 - [LPS-67656]: Use Liferay 7.0.2 GA3 as the default bundle in a workspace.
+=======
+- [LPS-67656]: Use Liferay 7.0.2 GA3 by default.
+>>>>>>> compatible
 
 ## 1.1.0 - 2016-09-28
 
@@ -114,7 +118,11 @@ behavior can be enabled by setting the `liferay.workspace.bundle.token.download`
 property to `true` in `gradle.properties`.
 
 ### Changed
+<<<<<<< HEAD
 - [LPS-73248]: Use Liferay 7.0.3 GA4 as the default bundle in a workspace.
+=======
+- [LPS-73248]: Use Liferay 7.0.3 GA4 by default.
+>>>>>>> compatible
 - [LPS-73383]: Update the [Liferay Gradle Plugins] dependency to version 3.3.35.
 
 ## 1.5.1 - 2017-07-21
@@ -140,14 +148,21 @@ password from a file by setting the
 - [LPS-73913]: Update the [Liferay Portal Tools Bundle Support] dependency to
 version 3.1.0.
 
+<<<<<<< HEAD
 ## 1.7.0 - 2017-08-11
 
 ### Added
 - [LPS-73967]: Update the [Liferay Gradle Plugins] dependency to version 3.4.26.
+=======
+## 1.7.0 - *(Unreleased)*
+
+### Added
+>>>>>>> compatible
 - [LPS-74124]: Add the ability to configure the cache directory for downloaded
 Liferay bundles by setting the `liferay.workspace.bundle.cache.dir` property in
 `gradle.properties`.
 
+<<<<<<< HEAD
 ## 1.7.1 - 2017-10-29
 
 ### Fixed
@@ -172,6 +187,11 @@ version 3.2.1.
 [Liferay Gradle Plugins]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins
 [Liferay Portal Tools Bundle Support]: https://github.com/liferay/liferay-portal/tree/master/modules/util/portal-tools-bundle-support
 [Liferay Portal Tools Theme Builder]: https://github.com/liferay/liferay-portal/tree/master/modules/util/portal-tools-theme-builder
+=======
+[Gradle Download Task]: https://github.com/michel-kraemer/gradle-download-task/
+[Liferay Gradle Plugins]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins
+[Liferay Portal Tools Bundle Support]: https://github.com/liferay/liferay-portal/tree/master/modules/util/portal-tools-bundle-support
+>>>>>>> compatible
 [LPS-66853]: https://issues.liferay.com/browse/LPS-66853
 [LPS-66906]: https://issues.liferay.com/browse/LPS-66906
 [LPS-67352]: https://issues.liferay.com/browse/LPS-67352
@@ -199,6 +219,7 @@ version 3.2.1.
 [LPS-73746]: https://issues.liferay.com/browse/LPS-73746
 [LPS-73855]: https://issues.liferay.com/browse/LPS-73855
 [LPS-73913]: https://issues.liferay.com/browse/LPS-73913
+<<<<<<< HEAD
 [LPS-73967]: https://issues.liferay.com/browse/LPS-73967
 [LPS-74124]: https://issues.liferay.com/browse/LPS-74124
 [LPS-74818]: https://issues.liferay.com/browse/LPS-74818
@@ -206,3 +227,6 @@ version 3.2.1.
 [LPS-75479]: https://issues.liferay.com/browse/LPS-75479
 [LPS-76221]: https://issues.liferay.com/browse/LPS-76221
 [LPS-76271]: https://issues.liferay.com/browse/LPS-76271
+=======
+[LPS-74124]: https://issues.liferay.com/browse/LPS-74124
+>>>>>>> compatible

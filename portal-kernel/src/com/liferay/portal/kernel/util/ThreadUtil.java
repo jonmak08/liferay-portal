@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.concurrent.NoticeableFuture;
 import com.liferay.petra.process.CollectorOutputProcessor;
 import com.liferay.petra.process.ProcessUtil;
@@ -23,6 +24,15 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import java.util.Date;
 import java.util.Map;
 import java.util.Map.Entry;
+=======
+import com.liferay.portal.kernel.concurrent.NoticeableFuture;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.process.ProcessUtil;
+
+import java.util.Date;
+import java.util.Map;
+>>>>>>> compatible
 
 /**
  * @author Tina Tian
@@ -77,6 +87,7 @@ public class ThreadUtil {
 		}
 
 		try {
+<<<<<<< HEAD
 			NoticeableFuture<Entry<byte[], byte[]>> noticeableFuture =
 				ProcessUtil.execute(
 					CollectorOutputProcessor.INSTANCE, "jstack", "-l",
@@ -85,6 +96,17 @@ public class ThreadUtil {
 			Entry<byte[], byte[]> entry = noticeableFuture.get();
 
 			return new String(entry.getKey());
+=======
+			NoticeableFuture<ObjectValuePair<byte[], byte[]>> noticeableFuture =
+				ProcessUtil.execute(
+					ProcessUtil.COLLECTOR_OUTPUT_PROCESSOR, "jstack", "-l",
+					String.valueOf(HeapUtil.getProcessId()));
+
+			ObjectValuePair<byte[], byte[]> objectValuePair =
+				noticeableFuture.get();
+
+			return new String(objectValuePair.getKey());
+>>>>>>> compatible
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
@@ -104,9 +126,14 @@ public class ThreadUtil {
 				System.getProperty("java.vm.version");
 
 		StringBundler sb = new StringBundler(
+<<<<<<< HEAD
 			StringBundler.concat(
 				"Full thread dump of ", jvm, " on ", String.valueOf(new Date()),
 				"\n\n"));
+=======
+			"Full thread dump of " + jvm + " on " + String.valueOf(new Date()) +
+				"\n\n");
+>>>>>>> compatible
 
 		Map<Thread, StackTraceElement[]> stackTraces =
 			Thread.getAllStackTraces();
@@ -124,11 +151,15 @@ public class ThreadUtil {
 			if (thread.getThreadGroup() != null) {
 				sb.append(StringPool.SPACE);
 				sb.append(StringPool.OPEN_PARENTHESIS);
+<<<<<<< HEAD
 
 				ThreadGroup threadGroup = thread.getThreadGroup();
 
 				sb.append(threadGroup.getName());
 
+=======
+				sb.append(thread.getThreadGroup().getName());
+>>>>>>> compatible
 				sb.append(StringPool.CLOSE_PARENTHESIS);
 			}
 

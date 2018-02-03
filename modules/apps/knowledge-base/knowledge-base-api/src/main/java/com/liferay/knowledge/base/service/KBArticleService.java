@@ -102,11 +102,14 @@ public interface KBArticleService extends BaseService {
 	public KBArticle fetchLatestKBArticle(long resourcePrimKey, int status)
 		throws PortalException;
 
+<<<<<<< HEAD
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public KBArticle fetchLatestKBArticleByUrlTitle(long groupId,
 		long kbFolderId, java.lang.String urlTitle, int status)
 		throws PortalException;
 
+=======
+>>>>>>> compatible
 	/**
 	* @deprecated As of 1.1.0, replaced by {@link
 	#getAllDescendantKBArticles(long, long, int,

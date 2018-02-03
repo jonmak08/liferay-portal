@@ -19,6 +19,10 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import com.liferay.powwow.model.PowwowServer;
 
@@ -105,7 +109,11 @@ public class PowwowServerCacheModel implements CacheModel<PowwowServer>,
 		powwowServerImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			powwowServerImpl.setUserName("");
+=======
+			powwowServerImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			powwowServerImpl.setUserName(userName);
@@ -126,35 +134,55 @@ public class PowwowServerCacheModel implements CacheModel<PowwowServer>,
 		}
 
 		if (name == null) {
+<<<<<<< HEAD
 			powwowServerImpl.setName("");
+=======
+			powwowServerImpl.setName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			powwowServerImpl.setName(name);
 		}
 
 		if (providerType == null) {
+<<<<<<< HEAD
 			powwowServerImpl.setProviderType("");
+=======
+			powwowServerImpl.setProviderType(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			powwowServerImpl.setProviderType(providerType);
 		}
 
 		if (url == null) {
+<<<<<<< HEAD
 			powwowServerImpl.setUrl("");
+=======
+			powwowServerImpl.setUrl(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			powwowServerImpl.setUrl(url);
 		}
 
 		if (apiKey == null) {
+<<<<<<< HEAD
 			powwowServerImpl.setApiKey("");
+=======
+			powwowServerImpl.setApiKey(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			powwowServerImpl.setApiKey(apiKey);
 		}
 
 		if (secret == null) {
+<<<<<<< HEAD
 			powwowServerImpl.setSecret("");
+=======
+			powwowServerImpl.setSecret(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			powwowServerImpl.setSecret(secret);
@@ -196,7 +224,11 @@ public class PowwowServerCacheModel implements CacheModel<PowwowServer>,
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -206,35 +238,55 @@ public class PowwowServerCacheModel implements CacheModel<PowwowServer>,
 		objectOutput.writeLong(modifiedDate);
 
 		if (name == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(name);
 		}
 
 		if (providerType == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(providerType);
 		}
 
 		if (url == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(url);
 		}
 
 		if (apiKey == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(apiKey);
 		}
 
 		if (secret == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(secret);

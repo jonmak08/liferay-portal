@@ -193,6 +193,7 @@ public interface KaleoConditionModel extends BaseModel<KaleoCondition>,
 	public void setModifiedDate(Date modifiedDate);
 
 	/**
+<<<<<<< HEAD
 	 * Returns the kaleo definition version ID of this kaleo condition.
 	 *
 	 * @return the kaleo definition version ID of this kaleo condition
@@ -205,6 +206,20 @@ public interface KaleoConditionModel extends BaseModel<KaleoCondition>,
 	 * @param kaleoDefinitionVersionId the kaleo definition version ID of this kaleo condition
 	 */
 	public void setKaleoDefinitionVersionId(long kaleoDefinitionVersionId);
+=======
+	 * Returns the kaleo definition ID of this kaleo condition.
+	 *
+	 * @return the kaleo definition ID of this kaleo condition
+	 */
+	public long getKaleoDefinitionId();
+
+	/**
+	 * Sets the kaleo definition ID of this kaleo condition.
+	 *
+	 * @param kaleoDefinitionId the kaleo definition ID of this kaleo condition
+	 */
+	public void setKaleoDefinitionId(long kaleoDefinitionId);
+>>>>>>> compatible
 
 	/**
 	 * Returns the kaleo node ID of this kaleo condition.

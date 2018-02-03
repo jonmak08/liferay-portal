@@ -14,7 +14,11 @@
 
 package com.liferay.portal.cluster.multiple.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.portal.cluster.multiple.internal.constants.ClusterPropsKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.cluster.Address;
 import com.liferay.portal.kernel.cluster.Priority;
 import com.liferay.portal.kernel.configuration.Filter;
@@ -26,6 +30,10 @@ import com.liferay.portal.kernel.test.rule.NewEnv;
 import com.liferay.portal.kernel.util.ObjectValuePair;
 import com.liferay.portal.kernel.util.Props;
 import com.liferay.portal.kernel.util.PropsKeys;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.test.rule.AspectJNewEnvTestRule;
 
 import java.io.Serializable;
@@ -83,8 +91,12 @@ public class ClusterLinkImplTest extends BaseClusterTestCase {
 		List<TestClusterChannel> clusterChannels =
 			TestClusterChannel.getClusterChannels();
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			clusterChannels.toString(), clusterChannels.isEmpty());
+=======
+		Assert.assertTrue(clusterChannels.isEmpty());
+>>>>>>> compatible
 
 		Assert.assertNull(clusterLinkImpl.getExecutorService());
 
@@ -100,19 +112,29 @@ public class ClusterLinkImplTest extends BaseClusterTestCase {
 
 		clusterLinkImpl.sendUnicastMessage(address, message, Priority.LEVEL1);
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			multicastMessages.toString(), multicastMessages.isEmpty());
 		Assert.assertTrue(
 			unicastMessages.toString(), unicastMessages.isEmpty());
+=======
+		Assert.assertTrue(multicastMessages.isEmpty());
+		Assert.assertTrue(unicastMessages.isEmpty());
+>>>>>>> compatible
 
 		// Test 3, send multicast message
 
 		clusterLinkImpl.sendMulticastMessage(message, Priority.LEVEL1);
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			multicastMessages.toString(), multicastMessages.isEmpty());
 		Assert.assertTrue(
 			unicastMessages.toString(), unicastMessages.isEmpty());
+=======
+		Assert.assertTrue(multicastMessages.isEmpty());
+		Assert.assertTrue(unicastMessages.isEmpty());
+>>>>>>> compatible
 
 		// Test 4, destroy
 
@@ -154,12 +176,17 @@ public class ClusterLinkImplTest extends BaseClusterTestCase {
 			clusterChannels.toString(), 2, clusterChannels.size());
 
 		Assert.assertNotEquals(clusterChannel1, clusterChannel2);
+<<<<<<< HEAD
 		Assert.assertTrue(
 			clusterChannels.toString(),
 			clusterChannels.contains(clusterChannel1));
 		Assert.assertTrue(
 			clusterChannels.toString(),
 			clusterChannels.contains(clusterChannel2));
+=======
+		Assert.assertTrue(clusterChannels.contains(clusterChannel1));
+		Assert.assertTrue(clusterChannels.contains(clusterChannel2));
+>>>>>>> compatible
 	}
 
 	@Test
@@ -246,10 +273,15 @@ public class ClusterLinkImplTest extends BaseClusterTestCase {
 		List<ObjectValuePair<Serializable, Address>> unicastMessages =
 			TestClusterChannel.getUnicastMessages();
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			multicastMessages.toString(), multicastMessages.isEmpty());
 		Assert.assertTrue(
 			unicastMessages.toString(), unicastMessages.isEmpty());
+=======
+		Assert.assertTrue(multicastMessages.isEmpty());
+		Assert.assertTrue(unicastMessages.isEmpty());
+>>>>>>> compatible
 
 		Message message = new Message();
 
@@ -257,10 +289,15 @@ public class ClusterLinkImplTest extends BaseClusterTestCase {
 
 		Assert.assertEquals(
 			multicastMessages.toString(), 1, multicastMessages.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			multicastMessages.toString(), multicastMessages.contains(message));
 		Assert.assertTrue(
 			unicastMessages.toString(), unicastMessages.isEmpty());
+=======
+		Assert.assertTrue(multicastMessages.contains(message));
+		Assert.assertTrue(unicastMessages.isEmpty());
+>>>>>>> compatible
 	}
 
 	@Test
@@ -272,18 +309,27 @@ public class ClusterLinkImplTest extends BaseClusterTestCase {
 		List<ObjectValuePair<Serializable, Address>> unicastMessages =
 			TestClusterChannel.getUnicastMessages();
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			multicastMessages.toString(), multicastMessages.isEmpty());
 		Assert.assertTrue(
 			unicastMessages.toString(), unicastMessages.isEmpty());
+=======
+		Assert.assertTrue(multicastMessages.isEmpty());
+		Assert.assertTrue(unicastMessages.isEmpty());
+>>>>>>> compatible
 
 		Message message = new Message();
 		Address address = new TestAddress(-1);
 
 		clusterLinkImpl.sendUnicastMessage(address, message, Priority.LEVEL1);
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			multicastMessages.toString(), multicastMessages.isEmpty());
+=======
+		Assert.assertTrue(multicastMessages.isEmpty());
+>>>>>>> compatible
 		Assert.assertEquals(
 			unicastMessages.toString(), 1, unicastMessages.size());
 
@@ -299,6 +345,7 @@ public class ClusterLinkImplTest extends BaseClusterTestCase {
 		AspectJNewEnvTestRule.INSTANCE;
 
 	protected ClusterLinkImpl getClusterLinkImpl(
+<<<<<<< HEAD
 		final boolean enabled, final int channels) {
 
 		ClusterLinkImpl clusterLinkImpl = new ClusterLinkImpl();
@@ -323,6 +370,12 @@ public class ClusterLinkImplTest extends BaseClusterTestCase {
 			PropsKeys.CLUSTER_LINK_CHANNEL_PROPERTIES_TRANSPORT,
 			channelPropertiesProperties);
 
+=======
+		final boolean enabled, int channels) {
+
+		ClusterLinkImpl clusterLinkImpl = new ClusterLinkImpl();
+
+>>>>>>> compatible
 		clusterLinkImpl.setProps(
 			new Props() {
 
@@ -364,17 +417,42 @@ public class ClusterLinkImplTest extends BaseClusterTestCase {
 				public Properties getProperties(
 					String prefix, boolean removePrefix) {
 
+<<<<<<< HEAD
 					return properties.getOrDefault(prefix, new Properties());
+=======
+					return new Properties();
+>>>>>>> compatible
 				}
 
 			});
 
 		clusterLinkImpl.setClusterChannelFactory(
 			new TestClusterChannelFactory());
+<<<<<<< HEAD
 		clusterLinkImpl.setPortalExecutorManager(
 			new MockPortalExecutorManager());
 
 		clusterLinkImpl.activate();
+=======
+
+		clusterLinkImpl.setPortalExecutorManager(
+			new MockPortalExecutorManager());
+
+		Map<String, Object> properties = new HashMap<>();
+
+		for (int i = 0; i < channels; i++) {
+			properties.put(
+				ClusterPropsKeys.CHANNEL_NAME_TRANSPORT_PREFIX +
+					StringPool.PERIOD + i,
+				"test-channel-name-transport-" + i);
+			properties.put(
+				ClusterPropsKeys.CHANNEL_PROPERTIES_TRANSPORT_PREFIX +
+					StringPool.PERIOD + i,
+				"test-channel-properties-transport-" + i);
+		}
+
+		clusterLinkImpl.activate(properties);
+>>>>>>> compatible
 
 		return clusterLinkImpl;
 	}

@@ -1,8 +1,15 @@
 Bundle-Name: Liferay Portal Workflow Kaleo Service
 Bundle-SymbolicName: com.liferay.portal.workflow.kaleo.service
+<<<<<<< HEAD
 Bundle-Version: 2.0.35
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Kaleo Workflow Engine
 Liferay-Require-SchemaVersion: 1.4.1
+=======
+Bundle-Version: 2.0.27
+Liferay-Releng-Module-Group-Description:
+Liferay-Releng-Module-Group-Title: Kaleo Workflow Engine
+Liferay-Require-SchemaVersion: 1.3.2
+>>>>>>> compatible
 Liferay-Service: true
 -dsannotations-options: inherit

@@ -9,11 +9,14 @@
 </thead>
 <tbody>
 <tr>
+<<<<<<< HEAD
 	<td>HEADER</td>
 	<td>//div[normalize-space()='Select a file']</td>
 	<td></td>
 </tr>
 <tr>
+=======
+>>>>>>> compatible
 	<td>GOOGLE_DRIVE_IFRAME</td>
 	<td>//div[contains(@class,'picker-dialog')]//iframe[contains(@src,'https://docs.google.com/picker')]</td>
 	<td></td>
@@ -67,7 +70,11 @@
 <!--LIST_VIEW-->
 <tr>
 	<td>LIST_VIEW_DOCUMENT</td>
+<<<<<<< HEAD
 	<td>//div[contains(@aria-label,'Files and folders list view.')]//div[contains(@aria-label,'${key_googleDocName}')]</td>
+=======
+	<td>//div[contains(@aria-label,'Files and folders list view.')]//span[contains(.,'${key_googleDocName}')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>

@@ -274,6 +274,15 @@ svn://svn.liferay.com/repos/public/alloy/trunk/sandbox/taglibs.
 		</antcall>
 	</target>
 
+<<<<<<< HEAD
+=======
+	<target name="build-service-portlet-blogs">
+		<antcall target="build-service">
+			<param name="service.file" value="${basedir}/src/com/liferay/portlet/blogs/service.xml" />
+		</antcall>
+	</target>
+
+>>>>>>> compatible
 	<target name="build-service-portlet-documentlibrary">
 		<antcall target="build-service">
 			<param name="service.file" value="${basedir}/src/com/liferay/portlet/documentlibrary/service.xml" />
@@ -310,15 +319,32 @@ svn://svn.liferay.com/repos/public/alloy/trunk/sandbox/taglibs.
 		</antcall>
 	</target>
 
+<<<<<<< HEAD
 	<target name="build-service-portlets">
 		<antcall target="build-service-portlet-announcements" />
 		<antcall target="build-service-portlet-asset" />
+=======
+	<target name="build-service-portlet-trash">
+		<antcall target="build-service">
+			<param name="service.file" value="${basedir}/src/com/liferay/portlet/trash/service.xml" />
+		</antcall>
+	</target>
+
+	<target name="build-service-portlets">
+		<antcall target="build-service-portlet-announcements" />
+		<antcall target="build-service-portlet-asset" />
+		<antcall target="build-service-portlet-blogs" />
+>>>>>>> compatible
 		<antcall target="build-service-portlet-documentlibrary" />
 		<antcall target="build-service-portlet-expando" />
 		<antcall target="build-service-portlet-exportimport" />
 		<antcall target="build-service-portlet-messageboards" />
 		<antcall target="build-service-portlet-ratings" />
 		<antcall target="build-service-portlet-social" />
+<<<<<<< HEAD
+=======
+		<antcall target="build-service-portlet-trash" />
+>>>>>>> compatible
 	</target>
 
 	<target name="build-services">
@@ -456,6 +482,15 @@ svn://svn.liferay.com/repos/public/alloy/trunk/sandbox/taglibs.
 		</antcall>
 	</target>
 
+<<<<<<< HEAD
+=======
+	<target name="build-wsdd-portlet-trash">
+		<antcall target="build-wsdd">
+			<param name="service.file" value="${basedir}/src/com/liferay/portlet/trash/service.xml" />
+		</antcall>
+	</target>
+
+>>>>>>> compatible
 	<target name="build-wsdd-portlets">
 		<antcall target="build-wsdd-portlet-announcements" />
 		<antcall target="build-wsdd-portlet-asset" />
@@ -466,6 +501,10 @@ svn://svn.liferay.com/repos/public/alloy/trunk/sandbox/taglibs.
 		<antcall target="build-wsdd-portlet-messageboards" />
 		<antcall target="build-wsdd-portlet-ratings" />
 		<antcall target="build-wsdd-portlet-social" />
+<<<<<<< HEAD
+=======
+		<antcall target="build-wsdd-portlet-trash" />
+>>>>>>> compatible
 	</target>
 
 	<target name="build-wsdds">
@@ -686,7 +725,10 @@ Please run the following command from ${source.formatter.modules.dir.absolute.pa
 			<arg value="include.subrepositories=${source.formatter.include.subrepositories}" />
 			<arg value="max.line.length=${source.formatter.max.line.length}" />
 			<arg value="processor.thread.count=${source.formatter.processor.thread.count}" />
+<<<<<<< HEAD
 			<arg value="show.debug.information=${source.formatter.show.debug.information}" />
+=======
+>>>>>>> compatible
 			<arg value="show.documentation=${source.formatter.show.documentation}" />
 			<arg value="source.auto.fix=${source.auto.fix}" />
 			<arg value="source.base.dir=${source.base.dir}" />
@@ -792,6 +834,30 @@ This target does not format .es.js files. Please run the following command from 
 	<target name="format-source-local-changes-debug">
 		<antcall target="format-source-local-changes">
 			<param name="source.formatter.show.debug.information" value="true" />
+		</antcall>
+	</target>
+
+	<target name="format-source-bnd">
+		<antcall target="format-source">
+			<param name="source.file.extensions" value="bnd,gradle" />
+		</antcall>
+	</target>
+
+	<target name="format-source-current-branch">
+		<antcall target="format-source">
+			<param name="format.current.branch" value="true" />
+		</antcall>
+	</target>
+
+	<target name="format-source-latest-author">
+		<antcall target="format-source">
+			<param name="format.latest.author" value="true" />
+		</antcall>
+	</target>
+
+	<target name="format-source-local-changes">
+		<antcall target="format-source">
+			<param name="format.local.changes" value="true" />
 		</antcall>
 	</target>
 
@@ -1123,7 +1189,10 @@ security-manager-awt-operations=\
 
 		<replaceregexp
 			file="test/integration/com/liferay/portal/security/pacl/test/dependencies/WEB-INF/liferay-plugin-package.properties"
+<<<<<<< HEAD
 			flags="g"
+=======
+>>>>>>> compatible
 			match="(security-manager-get-bean-property=)([\s\S]*?)(,\\\n[ ]{4})(?=com.liferay.portal.kernel.util.PortalUtil)"
 			replace="\1\2\3com.liferay.portal.kernel.util.InfrastructureUtil\3"
 		/>
@@ -1141,7 +1210,10 @@ security-manager-hook-custom-jsp-dir-enabled=false</replacevalue>
 
 		<replaceregexp
 			file="test/integration/com/liferay/portal/security/pacl/test/dependencies/WEB-INF/liferay-plugin-package.properties"
+<<<<<<< HEAD
 			flags="g"
+=======
+>>>>>>> compatible
 			match="(security-manager-services\[portal\]=)([\s\S]*?)(,\\\n[ ]{4})(?=com.liferay.portal.kernel.service.ResourceLocalService)"
 			replace="\1\2\3com.liferay.portal.kernel.service.PortletPreferencesLocalService#getStrictPreferences\3com.liferay.portal.kernel.service.UserLocalService#getDefaultUser\3"
 		/>

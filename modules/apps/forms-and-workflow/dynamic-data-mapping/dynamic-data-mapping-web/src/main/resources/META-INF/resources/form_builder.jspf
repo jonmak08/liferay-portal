@@ -170,6 +170,7 @@ for (Locale availableLocale : LanguageUtil.getAvailableLocales(themeDisplay.getS
 	};
 
 	var isViewTabActive = function() {
+<<<<<<< HEAD
 		var formBuilderTab = A.one('#<portlet:namespace />formBuilderTab');
 
 		if (!formBuilderTab) {
@@ -179,6 +180,9 @@ for (Locale availableLocale : LanguageUtil.getAvailableLocales(themeDisplay.getS
 		var ancestor = formBuilderTab.ancestor();
 
 		return !ancestor.hasClass('hide');
+=======
+		return !A.one('#<portlet:namespace />formBuilderTab').ancestor().hasClass('hide');
+>>>>>>> compatible
 	};
 
 	var reloadFormBuilderData = function(content) {

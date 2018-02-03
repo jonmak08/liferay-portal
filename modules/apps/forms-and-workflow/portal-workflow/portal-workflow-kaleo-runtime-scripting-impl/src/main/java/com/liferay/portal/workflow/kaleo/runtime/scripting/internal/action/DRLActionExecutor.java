@@ -38,7 +38,11 @@ import org.osgi.service.component.annotations.Reference;
  * @author Michael C. Han
  */
 @Component(
+<<<<<<< HEAD
 	enabled = false, immediate = true,
+=======
+	immediate = true,
+>>>>>>> compatible
 	property = {"com.liferay.portal.workflow.kaleo.runtime.action.executor.language=drl"},
 	service = ActionExecutor.class
 )

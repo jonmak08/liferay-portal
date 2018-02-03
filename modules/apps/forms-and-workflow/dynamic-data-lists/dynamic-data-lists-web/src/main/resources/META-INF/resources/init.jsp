@@ -18,8 +18,12 @@
 
 <%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
 
+<<<<<<< HEAD
 <%@ taglib uri="http://liferay.com/tld/asset" prefix="liferay-asset" %><%@
 taglib uri="http://liferay.com/tld/aui" prefix="aui" %><%@
+=======
+<%@ taglib uri="http://liferay.com/tld/aui" prefix="aui" %><%@
+>>>>>>> compatible
 taglib uri="http://liferay.com/tld/ddm" prefix="liferay-ddm" %><%@
 taglib uri="http://liferay.com/tld/frontend" prefix="liferay-frontend" %><%@
 taglib uri="http://liferay.com/tld/portlet" prefix="liferay-portlet" %><%@
@@ -30,7 +34,10 @@ taglib uri="http://liferay.com/tld/util" prefix="liferay-util" %>
 
 <%@ page import="com.liferay.document.library.kernel.exception.DuplicateFileEntryException" %><%@
 page import="com.liferay.document.library.kernel.exception.FileSizeException" %><%@
+<<<<<<< HEAD
 page import="com.liferay.document.library.kernel.util.DLValidatorUtil" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.dynamic.data.lists.constants.DDLActionKeys" %><%@
 page import="com.liferay.dynamic.data.lists.constants.DDLPortletKeys" %><%@
 page import="com.liferay.dynamic.data.lists.constants.DDLWebKeys" %><%@
@@ -46,6 +53,11 @@ page import="com.liferay.dynamic.data.lists.model.DDLRecordVersion" %><%@
 page import="com.liferay.dynamic.data.lists.service.DDLRecordLocalServiceUtil" %><%@
 page import="com.liferay.dynamic.data.lists.service.DDLRecordSetServiceUtil" %><%@
 page import="com.liferay.dynamic.data.lists.service.DDLRecordVersionServiceUtil" %><%@
+<<<<<<< HEAD
+=======
+page import="com.liferay.dynamic.data.lists.service.permission.DDLPermission" %><%@
+page import="com.liferay.dynamic.data.lists.service.permission.DDLRecordSetPermission" %><%@
+>>>>>>> compatible
 page import="com.liferay.dynamic.data.lists.util.comparator.DDLRecordSetCreateDateComparator" %><%@
 page import="com.liferay.dynamic.data.lists.util.comparator.DDLRecordSetModifiedDateComparator" %><%@
 page import="com.liferay.dynamic.data.lists.util.comparator.DDLRecordSetNameComparator" %><%@
@@ -54,8 +66,11 @@ page import="com.liferay.dynamic.data.lists.web.internal.display.context.DDLView
 page import="com.liferay.dynamic.data.lists.web.internal.search.RecordSetDisplayTerms" %><%@
 page import="com.liferay.dynamic.data.lists.web.internal.search.RecordSetSearch" %><%@
 page import="com.liferay.dynamic.data.lists.web.internal.search.RecordSetSearchTerms" %><%@
+<<<<<<< HEAD
 page import="com.liferay.dynamic.data.lists.web.internal.security.permission.resource.DDLPermission" %><%@
 page import="com.liferay.dynamic.data.lists.web.internal.security.permission.resource.DDLRecordSetPermission" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.dynamic.data.lists.web.internal.template.DDLDisplayTemplateTransformer" %><%@
 page import="com.liferay.dynamic.data.mapping.exception.NoSuchStructureException" %><%@
 page import="com.liferay.dynamic.data.mapping.exception.StorageFieldRequiredException" %><%@
@@ -106,6 +121,10 @@ page import="com.liferay.portal.kernel.util.ParamUtil" %><%@
 page import="com.liferay.portal.kernel.util.PortalUtil" %><%@
 page import="com.liferay.portal.kernel.util.PortletKeys" %><%@
 page import="com.liferay.portal.kernel.util.PrefsParamUtil" %><%@
+<<<<<<< HEAD
+=======
+page import="com.liferay.portal.kernel.util.PropsKeys" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.util.StringBundler" %><%@
 page import="com.liferay.portal.kernel.util.StringPool" %><%@
 page import="com.liferay.portal.kernel.util.StringUtil" %><%@
@@ -120,6 +139,10 @@ page import="com.liferay.portal.kernel.workflow.WorkflowEngineManagerUtil" %><%@
 page import="com.liferay.portal.kernel.workflow.WorkflowHandlerRegistryUtil" %><%@
 page import="com.liferay.portal.model.impl.*" %><%@
 page import="com.liferay.portal.service.*" %><%@
+<<<<<<< HEAD
+=======
+page import="com.liferay.portal.util.PrefsPropsUtil" %><%@
+>>>>>>> compatible
 page import="com.liferay.taglib.search.DateSearchEntry" %><%@
 page import="com.liferay.taglib.search.ResultRow" %>
 

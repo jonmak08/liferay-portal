@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {namespace DDMValidation}
 
 /**
@@ -14,10 +15,22 @@
 	{@param option: [label: string, status: string, value: string]}
 
 	<option {if $option.status == 'selected'}selected{/if} value="{$option.value}">{$option.label}</option>
+=======
+{namespace ddm}
+
+/**
+ * Prints an option.
+ *
+ * @param option
+ */
+{template .validationOption}
+	<option {$option.status} value="{$option.value}">{$option.label}</option>
+>>>>>>> compatible
 {/template}
 
 /**
  * Prints the DDM form validation field.
+<<<<<<< HEAD
  */
 {template .render}
 	{@param? enableValidationValue: bool}
@@ -46,11 +59,36 @@
 				</span>
 
 				<span class="toggle-switch-text toggle-switch-text-right">{$validationMessage}</span>
+=======
+ *
+ * @param disableValidationMessage
+ * @param enableValidationMessage
+ * @param enableValidationValue
+ * @param errorMessagePlaceholder
+ * @param errorMessageValue
+ * @param name
+ * @param parameterMessagePlaceholder
+ * @param parameterValue
+ * @param typesOptions
+ * @param validationsOptions
+ * @param value
+ */
+{template .validation}
+	<div class="form-group lfr-ddm-form-field-validation" data-fieldname="{$name}">
+		<div class="form-group">
+			<label class="control-label" for="{$name}EnableValidation">
+				<input class="enable-validation toggle-switch" {$enableValidationValue ? 'checked' : ''} id="{$name}EnableValidation" type="checkbox" value="true" />
+
+				<span aria-hidden="true" class="toggle-switch-bar">
+					<span class="toggle-switch-handle" data-label-off="{$enableValidationMessage}" data-label-on="{$disableValidationMessage}"></span>
+				</span>
+>>>>>>> compatible
 			</label>
 		</div>
 
 		<div class="{$enableValidationValue ? '' : 'hide'} row">
 			<div class="col-md-6">
+<<<<<<< HEAD
 				<select class="form-control validations-select">
 					{if $validationsOptions}
 						{foreach $option in $validationsOptions}
@@ -59,20 +97,39 @@
 							{/call}
 						{/foreach}
 					{/if}
+=======
+				<select class="form-control types-select">
+					{foreach $option in $typesOptions}
+						{call ddm.validationOption data="all"}
+							{param option: $option /}
+						{/call}
+					{/foreach}
+>>>>>>> compatible
 				</select>
 			</div>
 
 			<div class="col-md-6">
+<<<<<<< HEAD
 				<input
 					class="field form-control {$parameterMessagePlaceholder ? '' : ' hide'} parameter-input"
 					placeholder="{$parameterMessagePlaceholder}"
 					type="text"
 					value="{$parameterValue}"
 				/>
+=======
+				<select class="form-control validations-select">
+					{foreach $option in $validationsOptions}
+						{call ddm.validationOption data="all"}
+							{param option: $option /}
+						{/call}
+					{/foreach}
+				</select>
+>>>>>>> compatible
 			</div>
 		</div>
 
 		<div class="{$enableValidationValue ? '' : 'hide'} row">
+<<<<<<< HEAD
 			<div class="col-md-12">
 				<input
 					class="field form-control message-input"
@@ -88,5 +145,17 @@
 			type="hidden"
 			value="{$value}"
 		/>
+=======
+			<div class="col-md-6">
+				<input class="field form-control {$parameterMessagePlaceholder ? '' : ' hide'} parameter-input" placeholder="{$parameterMessagePlaceholder}" type="text" value="{$parameterValue}" />
+			</div>
+
+			<div class="col-md-6">
+				<input class="field form-control message-input" placeholder="{$errorMessagePlaceholder}" type="text" value="{$errorMessageValue}" />
+			</div>
+		</div>
+
+		<input name="{$name}" type="hidden" value="{$value}" />
+>>>>>>> compatible
 	</div>
 {/template}

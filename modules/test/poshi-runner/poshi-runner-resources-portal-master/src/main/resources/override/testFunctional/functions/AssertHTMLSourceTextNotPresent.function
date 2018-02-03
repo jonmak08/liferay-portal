@@ -2,6 +2,10 @@
 	<command name="assertHTMLSourceTextNotPresent">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.AssertHTMLSourceTextNotPresent#assertHTMLSourceTextNotPresent" />
+=======
+		<super />
+>>>>>>> compatible
 	</command>
 </definition>

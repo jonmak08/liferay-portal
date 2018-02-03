@@ -29,6 +29,10 @@ import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import com.liferay.powwow.model.PowwowServer;
 import com.liferay.powwow.model.PowwowServerModel;
@@ -285,7 +289,11 @@ public class PowwowServerModelImpl extends BaseModelImpl<PowwowServer>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -296,7 +304,11 @@ public class PowwowServerModelImpl extends BaseModelImpl<PowwowServer>
 	@Override
 	public String getUserName() {
 		if (_userName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _userName;
@@ -337,7 +349,11 @@ public class PowwowServerModelImpl extends BaseModelImpl<PowwowServer>
 	@Override
 	public String getName() {
 		if (_name == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _name;
@@ -354,7 +370,11 @@ public class PowwowServerModelImpl extends BaseModelImpl<PowwowServer>
 	@Override
 	public String getProviderType() {
 		if (_providerType == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _providerType;
@@ -379,7 +399,11 @@ public class PowwowServerModelImpl extends BaseModelImpl<PowwowServer>
 	@Override
 	public String getUrl() {
 		if (_url == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _url;
@@ -394,7 +418,11 @@ public class PowwowServerModelImpl extends BaseModelImpl<PowwowServer>
 	@Override
 	public String getApiKey() {
 		if (_apiKey == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _apiKey;
@@ -409,7 +437,11 @@ public class PowwowServerModelImpl extends BaseModelImpl<PowwowServer>
 	@Override
 	public String getSecret() {
 		if (_secret == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _secret;

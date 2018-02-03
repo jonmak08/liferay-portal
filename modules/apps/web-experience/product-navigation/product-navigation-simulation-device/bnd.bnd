@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Product Navigation Simulation Device
 Bundle-SymbolicName: com.liferay.product.navigation.simulation.device
+<<<<<<< HEAD
 Bundle-Version: 2.0.13
+=======
+Bundle-Version: 2.0.8
+>>>>>>> compatible
 Liferay-JS-Config: /META-INF/resources/js/config.js
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title:

@@ -260,9 +260,15 @@ response.setHeader("Ajax-ID", request.getHeader("Ajax-ID"));
 			</div>
 
 			<aui:button-row>
+<<<<<<< HEAD
 				<aui:button id="addButton" onClick='<%= renderResponse.getNamespace() + "schedulePublishEvent();" %>' value="add-event" />
 
 				<aui:button id="publishButton" type="submit" value="<%= LanguageUtil.get(request, publishMessageKey) %>" />
+=======
+				<aui:button cssClass="btn-lg" id="addButton" onClick='<%= renderResponse.getNamespace() + "schedulePublishEvent();" %>' value="add-event" />
+
+				<aui:button cssClass="btn-lg" id="publishButton" type="submit" value="<%= LanguageUtil.get(request, publishMessageKey) %>" />
+>>>>>>> compatible
 
 				<c:if test="<%= configuredPublish %>">
 					<aui:button cssClass="btn btn-link" href="<%= redirectURL.toString() %>" id="cancelButton" value="cancel" />
@@ -304,7 +310,11 @@ response.setHeader("Ajax-ID", request.getHeader("Ajax-ID"));
 	Liferay.Util.toggleRadio('<portlet:namespace />rangeLast', '<portlet:namespace />rangeLastInputs', ['<portlet:namespace />startEndDate']);
 </aui:script>
 
+<<<<<<< HEAD
 <aui:script use="liferay-export-import-export-import">
+=======
+<aui:script use="liferay-export-import">
+>>>>>>> compatible
 	var exportImport = new Liferay.ExportImport(
 		{
 			commentsNode: '#<%= PortletDataHandlerKeys.COMMENTS %>',

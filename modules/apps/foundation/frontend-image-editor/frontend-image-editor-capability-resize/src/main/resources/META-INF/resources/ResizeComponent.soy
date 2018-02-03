@@ -5,6 +5,7 @@
  *
  * @param? imageHeight
  * @param? imageWidth
+<<<<<<< HEAD
  * @param? lockProportions
  * @param? pathThemeImages
  * @param ref
@@ -13,6 +14,16 @@
 	<div id="{$ref}">
 		<div class="input-group">
 			<input class="form-control" data-oninput="syncDimensions" id="{$ref}Width" type="number" value="{$imageWidth}"></input>
+=======
+ * @param key
+ * @param? lockProportions
+ * @param? pathThemeImages
+ */
+{template .render}
+	<div id="{$key}">
+		<div class="input-group">
+			<input class="form-control" data-oninput="syncDimensions" id="{$key}Width" type="number" value="{$imageWidth}"></input>
+>>>>>>> compatible
 
 			<a class="btn btn-link" data-onclick="toggleLockProportions" href="javascript:;">
 				<svg class="lexicon-icon" style="width: 14px;">
@@ -20,7 +31,11 @@
 				</svg>
 			</a>
 
+<<<<<<< HEAD
 			<input class="form-control" data-oninput="syncDimensions" id="{$ref}Height" type="number" value="{$imageHeight}"></input>
+=======
+			<input class="form-control" data-oninput="syncDimensions" id="{$key}Height" type="number" value="{$imageHeight}"></input>
+>>>>>>> compatible
 		</div>
 	</div>
 {/template}

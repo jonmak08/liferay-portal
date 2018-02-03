@@ -14,7 +14,11 @@
 
 package com.liferay.blogs.web.internal.portlet;
 
+<<<<<<< HEAD
 import com.liferay.blogs.constants.BlogsPortletKeys;
+=======
+import com.liferay.blogs.web.constants.BlogsPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.BasePortletProvider;
 import com.liferay.portal.kernel.portlet.EditPortletProvider;
 import com.liferay.portal.kernel.portlet.ManagePortletProvider;
@@ -27,7 +31,11 @@ import org.osgi.service.component.annotations.Component;
  */
 @Component(
 	immediate = true,
+<<<<<<< HEAD
 	property = {"model.class.name=com.liferay.blogs.model.BlogsEntry"},
+=======
+	property = {"model.class.name=com.liferay.blogs.kernel.model.BlogsEntry"},
+>>>>>>> compatible
 	service = {
 		EditPortletProvider.class, ManagePortletProvider.class,
 		ViewPortletProvider.class

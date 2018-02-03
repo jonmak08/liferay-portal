@@ -202,6 +202,18 @@
 							'aui-base'
 						]
 					},
+<<<<<<< HEAD
+=======
+					'liferay-editor-image-uploader': {
+						path: 'editor_image_uploader.js',
+						requires: [
+							'aui-alert',
+							'aui-base',
+							'aui-progressbar',
+							'uploader'
+						]
+					},
+>>>>>>> compatible
 					'liferay-form': {
 						path: 'form.js',
 						requires: [

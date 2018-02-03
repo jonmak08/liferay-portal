@@ -127,7 +127,11 @@
 			<#if stringUtil.equals(fieldName, "author")>
 				<@liferay.language key="by" /> ${portalUtil.getUserName(assetRenderer.getUserId(), assetRenderer.getUserName())}
 			<#elseif stringUtil.equals(fieldName, "categories")>
+<<<<<<< HEAD
 				<@liferay_asset["asset-categories-summary"]
+=======
+				<@liferay_ui["asset-categories-summary"]
+>>>>>>> compatible
 					className=entry.getClassName()
 					classPK=entry.getClassPK()
 					portletURL=renderResponse.createRenderURL()
@@ -143,7 +147,11 @@
 			<#elseif stringUtil.equals(fieldName, "publish-date")>
 				${dateUtil.getDate(entry.getPublishDate(), dateFormat, locale)}
 			<#elseif stringUtil.equals(fieldName, "tags")>
+<<<<<<< HEAD
 				<@liferay_asset["asset-tags-summary"]
+=======
+				<@liferay_ui["asset-tags-summary"]
+>>>>>>> compatible
 					className=entry.getClassName()
 					classPK=entry.getClassPK()
 					portletURL=renderResponse.createRenderURL()
@@ -195,10 +203,14 @@
 
 <#macro getRelatedAssets>
 	<#if getterUtil.getBoolean(enableRelatedAssets)>
+<<<<<<< HEAD
 		<@liferay_asset["asset-links"]
 			assetEntryId=entry.getEntryId()
 			viewInContext=!stringUtil.equals(assetLinkBehavior, "showFullContent")
 		/>
+=======
+		<@liferay_ui["asset-links"] assetEntryId=entry.getEntryId() />
+>>>>>>> compatible
 	</#if>
 </#macro>
 

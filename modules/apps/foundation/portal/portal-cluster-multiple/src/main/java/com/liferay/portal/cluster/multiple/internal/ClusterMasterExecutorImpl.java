@@ -32,7 +32,10 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.resiliency.spi.SPIUtil;
 import com.liferay.portal.kernel.util.MethodHandler;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 
 import java.util.HashSet;
@@ -208,10 +211,15 @@ public class ClusterMasterExecutorImpl implements ClusterMasterExecutor {
 
 			if (_log.isInfoEnabled()) {
 				_log.info(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Unable to get cluster node information for ",
 						"coordinator address ",
 						String.valueOf(coordinatorAddress), ". Trying again."));
+=======
+					"Unable to get cluster node information for coordinator " +
+						"address " + coordinatorAddress + ". Trying again.");
+>>>>>>> compatible
 			}
 		}
 

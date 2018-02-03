@@ -40,9 +40,13 @@
 	<command name="DeletePortletExportProcess" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Documents and Media" />
 		</execute>
 
@@ -66,8 +70,11 @@
 
 		<execute function="AssertClick" locator1="SitePagesExport#EXPORT_BUTTON" value1="Export" />
 
+<<<<<<< HEAD
 		<execute function="AssertTextEquals#assertPartialText" locator1="SitePagesExport#CURRENT_AND_PREVIOUS_STATUS" value1="Successful" />
 
+=======
+>>>>>>> compatible
 		<execute macro="LAR#viewProcessesInListView" />
 
 		<execute macro="LAR#filterCompletedProcesses" />

@@ -12,6 +12,7 @@
 
 		<execute macro="User#firstLoginPG" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -19,6 +20,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
@@ -34,6 +38,7 @@
 
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Documents and Media Page" />
+<<<<<<< HEAD
 		</execute>
 
 		<execute macro="Portlet#changeDisplayStyle">
@@ -43,6 +48,13 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		</execute>
+
+		<execute function="Click" locator1="Icon#DISPLAY_STYLE_DESCRIPTIVE" />
+
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -53,9 +65,13 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -65,9 +81,13 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -88,7 +108,11 @@
 			<else>
 				<execute macro="DMDocument#tearDownCP" />
 
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP" />
+=======
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 
 				<execute macro="NotificationsPortlet#tearDownUserDeliveries" />
 
@@ -123,9 +147,13 @@
 			<var name="dmFolderName" value="DM Folder Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Portlet#changeDisplayStyle">
 			<var name="displayStyle" value="descriptive" />
 		</execute>
+=======
+		<execute macro="DMPortlet#setDescriptiveView" />
+>>>>>>> compatible
 
 		<execute macro="DMNavigator#gotoFolder">
 			<var name="dmFolderName" value="DM Folder Name" />
@@ -146,12 +174,19 @@
 
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Documents and Media Page" />
+<<<<<<< HEAD
 		</execute>
 
 		<execute macro="Portlet#changeDisplayStyle">
 			<var name="displayStyle" value="descriptive" />
 		</execute>
 
+=======
+		</execute>
+
+		<execute macro="DMPortlet#setDescriptiveView" />
+
+>>>>>>> compatible
 		<execute macro="DMNavigator#gotoFolder">
 			<var name="dmFolderName" value="DM Folder Name" />
 		</execute>
@@ -204,9 +239,13 @@
 			<var name="dmFolderName" value="DM Folder Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Portlet#changeDisplayStyle">
 			<var name="displayStyle" value="descriptive" />
 		</execute>
+=======
+		<execute macro="DMPortlet#setDescriptiveView" />
+>>>>>>> compatible
 
 		<execute macro="DMNavigator#gotoFolder">
 			<var name="dmFolderName" value="DM Folder Name" />
@@ -235,9 +274,13 @@
 			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Portlet#changeDisplayStyle">
 			<var name="displayStyle" value="descriptive" />
 		</execute>
+=======
+		<execute macro="DMPortlet#setDescriptiveView" />
+>>>>>>> compatible
 
 		<execute macro="DMNavigator#gotoFolder">
 			<var name="dmFolderName" value="DM Folder Name" />
@@ -274,9 +317,13 @@
 			<var name="dmFolderName" value="DM Folder Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Portlet#changeDisplayStyle">
 			<var name="displayStyle" value="descriptive" />
 		</execute>
+=======
+		<execute macro="DMPortlet#setDescriptiveView" />
+>>>>>>> compatible
 
 		<execute macro="DMNavigator#gotoFolder">
 			<var name="dmFolderName" value="DM Folder Name" />
@@ -299,9 +346,13 @@
 			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Portlet#changeDisplayStyle">
 			<var name="displayStyle" value="descriptive" />
 		</execute>
+=======
+		<execute macro="DMPortlet#setDescriptiveView" />
+>>>>>>> compatible
 
 		<execute macro="DMNavigator#gotoFolder">
 			<var name="dmFolderName" value="DM Folder Name" />
@@ -359,9 +410,13 @@
 			<var name="dmFolderName" value="DM Folder Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Portlet#changeDisplayStyle">
 			<var name="displayStyle" value="descriptive" />
 		</execute>
+=======
+		<execute macro="DMPortlet#setDescriptiveView" />
+>>>>>>> compatible
 
 		<execute macro="DMNavigator#gotoFolder">
 			<var name="dmFolderName" value="DM Folder Name" />
@@ -388,12 +443,19 @@
 
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Documents and Media Page" />
+<<<<<<< HEAD
 		</execute>
 
 		<execute macro="Portlet#changeDisplayStyle">
 			<var name="displayStyle" value="descriptive" />
 		</execute>
 
+=======
+		</execute>
+
+		<execute macro="DMPortlet#setDescriptiveView" />
+
+>>>>>>> compatible
 		<execute macro="DMNavigator#gotoFolder">
 			<var name="dmFolderName" value="DM Folder Name" />
 		</execute>

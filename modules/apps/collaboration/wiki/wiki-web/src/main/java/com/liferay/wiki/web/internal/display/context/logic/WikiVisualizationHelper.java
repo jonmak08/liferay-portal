@@ -47,6 +47,7 @@ public class WikiVisualizationHelper {
 
 		String frontPageName = _wikiGroupServiceConfiguration.frontPageName();
 
+<<<<<<< HEAD
 		if (Validator.isNull(mvcRenderCommandName) ||
 			mvcRenderCommandName.equals("/wiki/view") ||
 			mvcRenderCommandName.equals("/wiki/view_page_activities") ||
@@ -55,6 +56,10 @@ public class WikiVisualizationHelper {
 			mvcRenderCommandName.equals("/wiki/view_page_incoming_links") ||
 			mvcRenderCommandName.equals("/wiki/view_page_outgoing_links") ||
 			(wikiPage != null) && frontPageName.equals(wikiPage.getTitle())) {
+=======
+		if (Validator.isNull(mvcRenderCommandName) || (wikiPage != null) &&
+			frontPageName.equals(wikiPage.getTitle())) {
+>>>>>>> compatible
 
 			return true;
 		}

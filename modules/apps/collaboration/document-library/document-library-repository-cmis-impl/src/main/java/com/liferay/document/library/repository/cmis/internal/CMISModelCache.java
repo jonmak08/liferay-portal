@@ -14,9 +14,15 @@
 
 package com.liferay.document.library.repository.cmis.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.Folder;
+=======
+import com.liferay.portal.kernel.repository.model.FileEntry;
+import com.liferay.portal.kernel.repository.model.Folder;
+import com.liferay.portal.kernel.util.AutoResetThreadLocal;
+>>>>>>> compatible
 
 import java.util.HashMap;
 import java.util.List;
@@ -100,6 +106,7 @@ public class CMISModelCache {
 	}
 
 	private final ThreadLocal<Map<Long, List<FileEntry>>> _fileEntriesMaps =
+<<<<<<< HEAD
 		new CentralizedThreadLocal<>(
 			CMISRepository.class + "._fileEntriesMaps", HashMap::new);
 	private final ThreadLocal<Map<Long, FileEntry>> _fileEntryMaps =
@@ -113,6 +120,21 @@ public class CMISModelCache {
 			CMISRepository.class + "._foldersAndFileEntriesMaps", HashMap::new);
 	private final ThreadLocal<Map<Long, List<Folder>>> _foldersMap =
 		new CentralizedThreadLocal<>(
+=======
+		new AutoResetThreadLocal<>(
+			CMISRepository.class + "._fileEntriesMaps", HashMap::new);
+	private final ThreadLocal<Map<Long, FileEntry>> _fileEntryMaps =
+		new AutoResetThreadLocal<>(
+			CMISRepository.class + "._fileEntryMaps", HashMap::new);
+	private final ThreadLocal<Map<Long, Folder>> _folderMaps =
+		new AutoResetThreadLocal<>(
+			CMISRepository.class + "._folderMaps", HashMap::new);
+	private final ThreadLocal<Map<Long, List<Object>>>
+		_foldersAndFileEntriesMaps = new AutoResetThreadLocal<>(
+			CMISRepository.class + "._foldersAndFileEntriesMaps", HashMap::new);
+	private final ThreadLocal<Map<Long, List<Folder>>> _foldersMap =
+		new AutoResetThreadLocal<>(
+>>>>>>> compatible
 			CMISRepository.class + "._foldersMap", HashMap::new);
 
 }

@@ -32,6 +32,10 @@ import org.osgi.service.component.annotations.Component;
 		"com.liferay.portlet.display-category=category.shopping",
 		"com.liferay.portlet.icon=/icons/shopping.png",
 		"com.liferay.portlet.preferences-owned-by-group=true",
+<<<<<<< HEAD
+=======
+		"com.liferay.portlet.preferences-unique-per-layout=false",
+>>>>>>> compatible
 		"com.liferay.portlet.private-request-attributes=false",
 		"com.liferay.portlet.private-session-attributes=false",
 		"com.liferay.portlet.render-weight=50",

@@ -606,9 +606,14 @@ public class JSONWebServiceActionsManagerImpl
 		if (_log.isDebugEnabled()) {
 			if (matchedJSONWebServiceActionConfig == null) {
 				_log.debug(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Unable to match parameters to a JSON web service ",
 						"action with path ", path, " for ", contextName));
+=======
+					"Unable to match parameters to a JSON web service action " +
+						"with path " + path + " for " + contextName);
+>>>>>>> compatible
 			}
 			else {
 				_log.debug(

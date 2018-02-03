@@ -44,8 +44,12 @@ import org.osgi.service.component.annotations.Reference;
  */
 @Component(
 	configurationPid = "com.liferay.portal.security.audit.configuration.AuditConfiguration",
+<<<<<<< HEAD
 	enabled = false, immediate = true,
 	service = AuditMessagingConfigurator.class
+=======
+	immediate = true, service = AuditMessagingConfigurator.class
+>>>>>>> compatible
 )
 public class AuditMessagingConfigurator {
 

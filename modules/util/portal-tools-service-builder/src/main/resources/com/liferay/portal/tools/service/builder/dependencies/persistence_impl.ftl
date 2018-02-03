@@ -58,14 +58,25 @@ import com.liferay.portal.kernel.service.persistence.impl.PersistenceNestedSetsT
 import com.liferay.portal.kernel.service.persistence.impl.TableMapper;
 import com.liferay.portal.kernel.service.persistence.impl.TableMapperFactory;
 import com.liferay.portal.kernel.util.ArrayUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.ReflectionUtil;
+import com.liferay.portal.kernel.util.SetUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
@@ -209,9 +220,13 @@ public class ${entity.name}PersistenceImpl extends BasePersistenceImpl<${entity.
 
 		<#if entity.badNamedColumnsList?size != 0>
 			try {
+<<<<<<< HEAD
 				Field field = BasePersistenceImpl.class.getDeclaredField("_dbColumnNames");
 
 				field.setAccessible(true);
+=======
+				Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class, "_dbColumnNames");
+>>>>>>> compatible
 
 				Map<String, String> dbColumnNames = new HashMap<String, String>();
 
@@ -951,21 +966,35 @@ public class ${entity.name}PersistenceImpl extends BasePersistenceImpl<${entity.
 
 			<#if stringUtil.equals(entity.PKClassName, "String")>
 				for (int i = 0; i < uncachedPrimaryKeys.size(); i++) {
+<<<<<<< HEAD
 					query.append("?");
 
 					query.append(",");
+=======
+					query.append(StringPool.QUESTION);
+
+					query.append(StringPool.COMMA);
+>>>>>>> compatible
 				}
 			<#else>
 				for (Serializable primaryKey : uncachedPrimaryKeys) {
 					query.append((${entity.PKClassName})primaryKey);
 
+<<<<<<< HEAD
 					query.append(",");
+=======
+					query.append(StringPool.COMMA);
+>>>>>>> compatible
 				}
 			</#if>
 
 			query.setIndex(query.index() - 1);
 
+<<<<<<< HEAD
 			query.append(")");
+=======
+			query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 			String sql = query.toString();
 
@@ -1483,6 +1512,7 @@ public class ${entity.name}PersistenceImpl extends BasePersistenceImpl<${entity.
 		}
 	</#if>
 
+<<<<<<< HEAD
 	<#if entity.hasCompoundPK()>
 		@Override
 		public Set<String> getCompoundPKColumnNames() {
@@ -1490,6 +1520,8 @@ public class ${entity.name}PersistenceImpl extends BasePersistenceImpl<${entity.
 		}
 	</#if>
 
+=======
+>>>>>>> compatible
 	@Override
 	protected Map<String, Integer> getTableColumnsMap() {
 		return ${entity.name}ModelImpl.TABLE_COLUMNS_MAP;
@@ -1858,6 +1890,7 @@ public class ${entity.name}PersistenceImpl extends BasePersistenceImpl<${entity.
 			});
 	</#if>
 
+<<<<<<< HEAD
 	<#if entity.hasCompoundPK()>
 		private static final Set<String> _compoundPKColumnNames = SetUtil.fromArray(
 			new String[] {
@@ -1871,6 +1904,8 @@ public class ${entity.name}PersistenceImpl extends BasePersistenceImpl<${entity.
 			});
 	</#if>
 
+=======
+>>>>>>> compatible
 }
 
 <#function bindParameter finderColsList>

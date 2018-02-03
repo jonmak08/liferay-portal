@@ -14,9 +14,15 @@
  */
 --%>
 
+<<<<<<< HEAD
 <%@ taglib uri="http://liferay.com/tld/asset" prefix="liferay-asset" %><%@
 taglib uri="http://liferay.com/tld/frontend" prefix="liferay-frontend" %><%@
 taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %>
+=======
+<%@ taglib uri="http://liferay.com/tld/frontend" prefix="liferay-frontend" %><%@
+taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %><%@
+taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
+>>>>>>> compatible
 
 <%@ page import="com.liferay.asset.display.web.internal.display.context.AssetDisplayDisplayContext" %>
 

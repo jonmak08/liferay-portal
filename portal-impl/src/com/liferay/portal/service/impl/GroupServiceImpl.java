@@ -51,7 +51,10 @@ import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.PortalUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.UnicodeProperties;
 import com.liferay.portal.service.base.GroupServiceBaseImpl;
 import com.liferay.portal.util.PropsValues;

@@ -45,7 +45,11 @@ public class DDMFormLayoutJSONSerializerImpl
 
 		addDefaultLanguageId(jsonObject, ddmFormLayout.getDefaultLocale());
 		addPages(jsonObject, ddmFormLayout.getDDMFormLayoutPages());
+<<<<<<< HEAD
 		addPaginationMode(jsonObject, ddmFormLayout.getPaginationMode());
+=======
+		_addPaginationMode(jsonObject, ddmFormLayout.getPaginationMode());
+>>>>>>> compatible
 
 		return jsonObject.toString();
 	}
@@ -113,12 +117,15 @@ public class DDMFormLayoutJSONSerializerImpl
 		jsonObject.put("pages", jsonArray);
 	}
 
+<<<<<<< HEAD
 	protected void addPaginationMode(
 		JSONObject jsonObject, String paginationMode) {
 
 		jsonObject.put("paginationMode", paginationMode);
 	}
 
+=======
+>>>>>>> compatible
 	protected void addRows(
 		JSONObject jsonObject, List<DDMFormLayoutRow> ddmFormLayoutRows) {
 
@@ -182,6 +189,15 @@ public class DDMFormLayoutJSONSerializerImpl
 		return jsonObject;
 	}
 
+<<<<<<< HEAD
+=======
+	private void _addPaginationMode(
+		JSONObject jsonObject, String paginationMode) {
+
+		jsonObject.put("paginationMode", paginationMode);
+	}
+
+>>>>>>> compatible
 	private JSONFactory _jsonFactory;
 
 }

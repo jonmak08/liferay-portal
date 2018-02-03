@@ -50,7 +50,11 @@ public class DDMStructurePermission extends BaseResourcePermissionChecker {
 		if (!contains(permissionChecker, structure, actionId)) {
 			throw new PrincipalException.MustHavePermission(
 				permissionChecker,
+<<<<<<< HEAD
 				getStructureModelResourceName(structure.getClassName()),
+=======
+				getStructureModelResourceName(structure.getClassNameId()),
+>>>>>>> compatible
 				structure.getStructureId(), actionId);
 		}
 	}
@@ -113,7 +117,11 @@ public class DDMStructurePermission extends BaseResourcePermissionChecker {
 		throws PortalException {
 
 		String structureModelResourceName = getStructureModelResourceName(
+<<<<<<< HEAD
 			structure.getClassName());
+=======
+			structure.getClassNameId());
+>>>>>>> compatible
 
 		if (Validator.isNotNull(portletId)) {
 			Boolean hasPermission = StagingPermissionUtil.hasPermission(
@@ -186,6 +194,7 @@ public class DDMStructurePermission extends BaseResourcePermissionChecker {
 	public static String getStructureModelResourceName(long classNameId)
 		throws PortalException {
 
+<<<<<<< HEAD
 		return getStructureModelResourceName(
 			PortalUtil.getClassName(classNameId));
 	}
@@ -197,6 +206,12 @@ public class DDMStructurePermission extends BaseResourcePermissionChecker {
 			structurePermissionSupportServiceWrapper =
 				_ddmPermissionSupportTracker.
 					getDDMStructurePermissionSupportServiceWrapper(className);
+=======
+		ServiceWrapper<DDMStructurePermissionSupport>
+			structurePermissionSupportServiceWrapper =
+				_ddmPermissionSupportTracker.
+					getDDMStructurePermissionSupportServiceWrapper(classNameId);
+>>>>>>> compatible
 
 		Map<String, Object> properties =
 			structurePermissionSupportServiceWrapper.getProperties();
@@ -209,7 +224,11 @@ public class DDMStructurePermission extends BaseResourcePermissionChecker {
 		}
 
 		return ResourceActionsUtil.getCompositeModelName(
+<<<<<<< HEAD
 			className, DDMStructure.class.getName());
+=======
+			PortalUtil.getClassName(classNameId), DDMStructure.class.getName());
+>>>>>>> compatible
 	}
 
 	@Override

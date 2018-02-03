@@ -14,6 +14,7 @@
 
 package com.liferay.document.library.internal.upgrade;
 
+<<<<<<< HEAD
 import com.liferay.document.library.internal.upgrade.v1_0_1.UpgradeDLConfiguration;
 import com.liferay.document.library.internal.upgrade.v1_0_1.UpgradeDLFileEntryConfiguration;
 import com.liferay.document.library.internal.upgrade.v1_0_2.UpgradeDLFileShortcut;
@@ -24,6 +25,12 @@ import com.liferay.portal.upgrade.registry.UpgradeStepRegistrator;
 import org.osgi.service.cm.ConfigurationAdmin;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+=======
+import com.liferay.portal.kernel.upgrade.DummyUpgradeStep;
+import com.liferay.portal.upgrade.registry.UpgradeStepRegistrator;
+
+import org.osgi.service.component.annotations.Component;
+>>>>>>> compatible
 
 /**
  * @author Miguel Pastor
@@ -40,6 +47,7 @@ public class DLServiceUpgradeProcess implements UpgradeStepRegistrator {
 		registry.register(
 			"com.liferay.document.library.service", "0.0.1", "1.0.0",
 			new DummyUpgradeStep());
+<<<<<<< HEAD
 
 		registry.register(
 			"com.liferay.document.library.service", "1.0.0", "1.0.1",
@@ -58,4 +66,8 @@ public class DLServiceUpgradeProcess implements UpgradeStepRegistrator {
 	@Reference
 	private PrefsProps _prefsProps;
 
+=======
+	}
+
+>>>>>>> compatible
 }

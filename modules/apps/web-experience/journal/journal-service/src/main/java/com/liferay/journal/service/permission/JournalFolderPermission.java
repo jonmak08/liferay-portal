@@ -15,13 +15,20 @@
 package com.liferay.journal.service.permission;
 
 import com.liferay.exportimport.kernel.staging.permission.StagingPermissionUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.journal.exception.NoSuchFolderException;
+>>>>>>> compatible
 import com.liferay.journal.model.JournalArticle;
 import com.liferay.journal.model.JournalFolder;
 import com.liferay.journal.model.JournalFolderConstants;
 import com.liferay.journal.service.JournalFolderLocalService;
 import com.liferay.portal.kernel.exception.PortalException;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.PortletProvider;
 import com.liferay.portal.kernel.portlet.PortletProviderUtil;
 import com.liferay.portal.kernel.security.auth.PrincipalException;
@@ -68,8 +75,14 @@ public class JournalFolderPermission implements BaseModelPermissionChecker {
 	}
 
 	public static boolean contains(
+<<<<<<< HEAD
 		PermissionChecker permissionChecker, JournalFolder folder,
 		String actionId) {
+=======
+			PermissionChecker permissionChecker, JournalFolder folder,
+			String actionId)
+		throws PortalException {
+>>>>>>> compatible
 
 		String portletId = PortletProviderUtil.getPortletId(
 			JournalArticle.class.getName(), PortletProvider.Action.EDIT);
@@ -90,6 +103,7 @@ public class JournalFolderPermission implements BaseModelPermissionChecker {
 		if (actionId.equals(ActionKeys.VIEW) &&
 			PropsValues.PERMISSIONS_VIEW_DYNAMIC_INHERITANCE) {
 
+<<<<<<< HEAD
 			long folderId = folder.getFolderId();
 
 			while (folderId !=
@@ -118,6 +132,27 @@ public class JournalFolderPermission implements BaseModelPermissionChecker {
 				}
 
 				folderId = folder.getParentFolderId();
+=======
+			try {
+				long folderId = folder.getFolderId();
+
+				while (folderId !=
+							JournalFolderConstants.DEFAULT_PARENT_FOLDER_ID) {
+
+					folder = _journalFolderLocalService.getFolder(folderId);
+
+					if (!_hasPermission(permissionChecker, folder, actionId)) {
+						return false;
+					}
+
+					folderId = folder.getParentFolderId();
+				}
+			}
+			catch (NoSuchFolderException nsfe) {
+				if (!folder.isInTrash()) {
+					throw nsfe;
+				}
+>>>>>>> compatible
 			}
 
 			return JournalPermission.contains(
@@ -128,14 +163,21 @@ public class JournalFolderPermission implements BaseModelPermissionChecker {
 	}
 
 	public static boolean contains(
+<<<<<<< HEAD
 		PermissionChecker permissionChecker, long groupId, long folderId,
 		String actionId) {
+=======
+			PermissionChecker permissionChecker, long groupId, long folderId,
+			String actionId)
+		throws PortalException {
+>>>>>>> compatible
 
 		if (folderId == JournalFolderConstants.DEFAULT_PARENT_FOLDER_ID) {
 			return JournalPermission.contains(
 				permissionChecker, groupId, actionId);
 		}
 		else {
+<<<<<<< HEAD
 			JournalFolder folder = _journalFolderLocalService.fetchFolder(
 				folderId);
 
@@ -145,6 +187,11 @@ public class JournalFolderPermission implements BaseModelPermissionChecker {
 				return false;
 			}
 
+=======
+			JournalFolder folder = _journalFolderLocalService.getJournalFolder(
+				folderId);
+
+>>>>>>> compatible
 			return contains(permissionChecker, folder, actionId);
 		}
 	}
@@ -182,9 +229,12 @@ public class JournalFolderPermission implements BaseModelPermissionChecker {
 		return false;
 	}
 
+<<<<<<< HEAD
 	private static final Log _log = LogFactoryUtil.getLog(
 		JournalFolderPermission.class);
 
+=======
+>>>>>>> compatible
 	private static JournalFolderLocalService _journalFolderLocalService;
 
 }

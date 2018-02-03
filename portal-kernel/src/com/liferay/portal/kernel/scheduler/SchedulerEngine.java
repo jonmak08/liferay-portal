@@ -85,9 +85,12 @@ public interface SchedulerEngine {
 
 	public static final String SCHEDULER = "SCHEDULER";
 
+<<<<<<< HEAD
 	public static final String SCHEDULER_CLUSTER_INVOKING =
 		"scheduler.cluster.invoking";
 
+=======
+>>>>>>> compatible
 	public static final String SCRIPT = "SCRIPT";
 
 	public static final String START_TIME = "START_TIME";
@@ -158,8 +161,11 @@ public interface SchedulerEngine {
 	public void update(Trigger trigger, StorageType storageType)
 		throws SchedulerException;
 
+<<<<<<< HEAD
 	@MessagingProxy(mode = ProxyMode.SYNC)
 	public void validateTrigger(Trigger trigger, StorageType storageType)
 		throws SchedulerException;
 
+=======
+>>>>>>> compatible
 }

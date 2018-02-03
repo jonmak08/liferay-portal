@@ -20,10 +20,14 @@ import com.liferay.portal.kernel.util.OrderByComparator;
 
 /**
  * @author Brian Wing Shun Chan
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, replaced by {@link
  *            com.liferay.document.library.file.rank.util.comparator.FileRankCreateDateComparator}
  */
 @Deprecated
+=======
+ */
+>>>>>>> compatible
 public class FileRankCreateDateComparator
 	extends OrderByComparator<DLFileRank> {
 

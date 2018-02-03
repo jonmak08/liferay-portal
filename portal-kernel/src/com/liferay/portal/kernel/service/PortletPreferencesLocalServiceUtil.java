@@ -204,12 +204,15 @@ public class PortletPreferencesLocalServiceUtil {
 		return getService().fetchPortletPreferences(portletPreferencesId);
 	}
 
+<<<<<<< HEAD
 	public static com.liferay.portal.kernel.model.PortletPreferences fetchPortletPreferences(
 		long ownerId, int ownerType, long plid, java.lang.String portletId) {
 		return getService()
 				   .fetchPortletPreferences(ownerId, ownerType, plid, portletId);
 	}
 
+=======
+>>>>>>> compatible
 	public static javax.portlet.PortletPreferences fetchPreferences(
 		long companyId, long ownerId, int ownerType, long plid,
 		java.lang.String portletId) {
@@ -251,6 +254,7 @@ public class PortletPreferencesLocalServiceUtil {
 		return getService().getPersistedModel(primaryKeyObj);
 	}
 
+<<<<<<< HEAD
 	public static com.liferay.portal.kernel.settings.Settings getPortletInstanceSettings(
 		long companyId, long groupId, java.lang.String portletId,
 		com.liferay.portal.kernel.settings.PortletInstanceSettingsLocator portletInstanceSettingsLocator,
@@ -260,6 +264,8 @@ public class PortletPreferencesLocalServiceUtil {
 			portletInstanceSettingsLocator, portalPreferencesSettings);
 	}
 
+=======
+>>>>>>> compatible
 	public static java.util.List<com.liferay.portal.kernel.model.PortletPreferences> getPortletPreferences() {
 		return getService().getPortletPreferences();
 	}

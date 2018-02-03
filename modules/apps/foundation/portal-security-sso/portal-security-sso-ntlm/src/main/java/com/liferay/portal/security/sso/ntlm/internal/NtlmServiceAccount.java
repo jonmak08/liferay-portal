@@ -14,8 +14,13 @@
 
 package com.liferay.portal.security.sso.ntlm.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 /**
  * @author Marcellus Tavares

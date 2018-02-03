@@ -23,15 +23,23 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
  */
 @ExtendedObjectClassDefinition(category = "forms-and-workflow")
 @Meta.OCD(
+<<<<<<< HEAD
 	id = "com.liferay.portal.workflow.task.web.configuration.WorkflowTaskWebConfiguration",
 	localization = "content/Language",
 	name = "workflow-task-web-configuration-name"
+=======
+	id = "com.liferay.portal.workflow.task.web.configuration.WorkflowTaskWebConfiguration"
+>>>>>>> compatible
 )
 public interface WorkflowTaskWebConfiguration {
 
 	@Meta.AD(
+<<<<<<< HEAD
 		deflt = "list", name = "default-display-view",
 		optionLabels = {"Descriptive", "List"},
+=======
+		deflt = "list", optionLabels = {"Descriptive", "List"},
+>>>>>>> compatible
 		optionValues = {"descriptive", "list"}, required = false
 	)
 	public String defaultDisplayView();

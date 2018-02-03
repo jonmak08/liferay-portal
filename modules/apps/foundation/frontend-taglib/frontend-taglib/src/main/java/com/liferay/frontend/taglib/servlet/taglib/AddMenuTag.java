@@ -15,13 +15,19 @@
 package com.liferay.frontend.taglib.servlet.taglib;
 
 import com.liferay.frontend.taglib.internal.servlet.ServletContextUtil;
+<<<<<<< HEAD
 import com.liferay.frontend.taglib.servlet.taglib.util.AddMenuKeys;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.taglib.util.IncludeTag;
 
 import java.util.ArrayList;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Objects;
+=======
+>>>>>>> compatible
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
@@ -42,6 +48,7 @@ public class AddMenuTag extends IncludeTag {
 			return SKIP_BODY;
 		}
 
+<<<<<<< HEAD
 		_menuItemsCount = addMenuItems.size();
 
 		List<MenuItemGroup> menuItemGroups = new ArrayList<>();
@@ -134,6 +141,8 @@ public class AddMenuTag extends IncludeTag {
 			}
 		}
 
+=======
+>>>>>>> compatible
 		return super.doEndTag();
 	}
 
@@ -149,6 +158,7 @@ public class AddMenuTag extends IncludeTag {
 		_addMenuItems = addMenuItems;
 	}
 
+<<<<<<< HEAD
 	public void setInline(boolean inline) {
 		_inline = inline;
 	}
@@ -157,6 +167,8 @@ public class AddMenuTag extends IncludeTag {
 		_maxItems = maxItems;
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	public void setPageContext(PageContext pageContext) {
 		super.setPageContext(pageContext);
@@ -164,6 +176,7 @@ public class AddMenuTag extends IncludeTag {
 		servletContext = ServletContextUtil.getServletContext();
 	}
 
+<<<<<<< HEAD
 	public void setViewMoreURL(String viewMoreURL) {
 		_viewMoreURL = viewMoreURL;
 	}
@@ -186,6 +199,11 @@ public class AddMenuTag extends IncludeTag {
 				"liferay-frontend:add-menu:addMenuItems");
 
 		return addMenuItems;
+=======
+	@Override
+	protected void cleanUp() {
+		_addMenuItems = new ArrayList<>();
+>>>>>>> compatible
 	}
 
 	@Override
@@ -193,6 +211,7 @@ public class AddMenuTag extends IncludeTag {
 		return "/add_menu/page.jsp";
 	}
 
+<<<<<<< HEAD
 	protected int getTotal() {
 		List<AddMenuItem> addMenuItems = getAddMenuItems();
 
@@ -222,5 +241,18 @@ public class AddMenuTag extends IncludeTag {
 	private int _numMenuItems;
 	private int _total;
 	private String _viewMoreURL;
+=======
+	@Override
+	protected void setAttributes(HttpServletRequest request) {
+		List<AddMenuItem> addMenuItems =
+			(List<AddMenuItem>)request.getAttribute(
+				"liferay-frontend:add-menu:addMenuItems");
+
+		request.setAttribute(
+			"liferay-frontend:add-menu:addMenuItems", addMenuItems);
+	}
+
+	private List<AddMenuItem> _addMenuItems = new ArrayList<>();
+>>>>>>> compatible
 
 }

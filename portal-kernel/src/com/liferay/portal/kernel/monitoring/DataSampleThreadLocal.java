@@ -14,13 +14,20 @@
 
 package com.liferay.portal.kernel.monitoring;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
+=======
+import com.liferay.portal.kernel.util.AutoResetThreadLocal;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ListUtil;
 
 import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
+<<<<<<< HEAD
 import java.util.function.Function;
+=======
+>>>>>>> compatible
 
 /**
  * @author Michael C. Han
@@ -67,9 +74,29 @@ public class DataSampleThreadLocal {
 	}
 
 	private static final ThreadLocal<DataSampleThreadLocal>
+<<<<<<< HEAD
 		_dataSampleThreadLocal = new CentralizedThreadLocal<>(
 			DataSampleThreadLocal.class + "._dataSampleThreadLocal",
 			DataSampleThreadLocal::new, Function.identity(), true);
+=======
+		_dataSampleThreadLocal =
+			new AutoResetThreadLocal<DataSampleThreadLocal>(
+				DataSampleThreadLocal.class + "._dataSampleThreadLocal") {
+
+				@Override
+				protected DataSampleThreadLocal copy(
+					DataSampleThreadLocal dataSampleThreadLocal) {
+
+					return dataSampleThreadLocal;
+				}
+
+				@Override
+				protected DataSampleThreadLocal initialValue() {
+					return new DataSampleThreadLocal();
+				}
+
+			};
+>>>>>>> compatible
 
 	private final Queue<DataSample> _dataSamples =
 		new ConcurrentLinkedQueue<>();

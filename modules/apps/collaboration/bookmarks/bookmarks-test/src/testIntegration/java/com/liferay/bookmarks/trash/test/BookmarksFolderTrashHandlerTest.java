@@ -20,12 +20,16 @@ import com.liferay.bookmarks.model.BookmarksFolder;
 import com.liferay.bookmarks.model.BookmarksFolderConstants;
 import com.liferay.bookmarks.service.BookmarksFolderLocalServiceUtil;
 import com.liferay.bookmarks.service.BookmarksFolderServiceUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.BaseModel;
 import com.liferay.portal.kernel.model.ClassedModel;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
@@ -33,6 +37,16 @@ import com.liferay.portal.service.test.ServiceTestUtil;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.trash.exception.RestoreEntryException;
 import com.liferay.trash.exception.TrashEntryException;
+=======
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+import com.liferay.portal.kernel.test.util.RandomTestUtil;
+import com.liferay.portal.kernel.test.util.TestPropsValues;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.portal.service.test.ServiceTestUtil;
+import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+>>>>>>> compatible
 import com.liferay.trash.test.util.BaseTrashHandlerTestCase;
 import com.liferay.trash.test.util.DefaultWhenIsAssetable;
 import com.liferay.trash.test.util.DefaultWhenIsIndexableBaseModel;
@@ -49,13 +63,20 @@ import com.liferay.trash.test.util.WhenParentModelIsSameType;
 import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Rule;
+<<<<<<< HEAD
 import org.junit.Test;
+=======
+>>>>>>> compatible
 import org.junit.runner.RunWith;
 
 /**
  * @author Eudaldo Alonso
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class BookmarksFolderTrashHandlerTest
 	extends BaseTrashHandlerTestCase
 	implements WhenHasGrandParent, WhenIsAssetableBaseModel,
@@ -66,7 +87,13 @@ public class BookmarksFolderTrashHandlerTest
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Override
 	public AssetEntry fetchAssetEntry(ClassedModel classedModel)
@@ -140,6 +167,7 @@ public class BookmarksFolderTrashHandlerTest
 	}
 
 	@Override
+<<<<<<< HEAD
 	@Test(expected = TrashEntryException.class)
 	public void testTrashParentAndBaseModel() throws Exception {
 		super.testTrashParentAndBaseModel();
@@ -152,6 +180,8 @@ public class BookmarksFolderTrashHandlerTest
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public BaseModel<?> updateBaseModel(
 			long primaryKey, ServiceContext serviceContext)
 		throws Exception {

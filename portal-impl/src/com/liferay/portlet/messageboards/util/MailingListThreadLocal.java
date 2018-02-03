@@ -33,8 +33,14 @@ public class MailingListThreadLocal {
 	}
 
 	private static final ThreadLocal<Boolean> _sourceMailingList =
+<<<<<<< HEAD
 		new CentralizedThreadLocal<>(
 			MailingListThreadLocal.class + "._sourceMailingList",
 			() -> Boolean.FALSE, false);
+=======
+		new InitialThreadLocal<>(
+			MailingListThreadLocal.class + "._sourceMailingList",
+			() -> Boolean.FALSE);
+>>>>>>> compatible
 
 }

@@ -119,9 +119,13 @@ public class BasePersistenceImpl<T extends BaseModel<T>>
 			return 0;
 		}
 		else {
+<<<<<<< HEAD
 			Long firstResult = results.get(0);
 
 			return firstResult.longValue();
+=======
+			return (results.get(0)).longValue();
+>>>>>>> compatible
 		}
 	}
 
@@ -215,10 +219,13 @@ public class BasePersistenceImpl<T extends BaseModel<T>>
 		return Collections.emptySet();
 	}
 
+<<<<<<< HEAD
 	public Set<String> getCompoundPKColumnNames() {
 		return Collections.emptySet();
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	public Session getCurrentSession() throws ORMException {
 		return _sessionFactory.getCurrentSession();
@@ -388,6 +395,7 @@ public class BasePersistenceImpl<T extends BaseModel<T>>
 	}
 
 	protected void appendOrderByComparator(
+<<<<<<< HEAD
 		StringBundler sb, String entityAlias,
 		OrderByComparator<T> orderByComparator) {
 
@@ -399,6 +407,19 @@ public class BasePersistenceImpl<T extends BaseModel<T>>
 		OrderByComparator<T> orderByComparator, boolean sqlQuery) {
 
 		sb.append(ORDER_BY_CLAUSE);
+=======
+		StringBundler query, String entityAlias,
+		OrderByComparator<T> orderByComparator) {
+
+		appendOrderByComparator(query, entityAlias, orderByComparator, false);
+	}
+
+	protected void appendOrderByComparator(
+		StringBundler query, String entityAlias,
+		OrderByComparator<T> orderByComparator, boolean sqlQuery) {
+
+		query.append(ORDER_BY_CLAUSE);
+>>>>>>> compatible
 
 		String[] orderByFields = orderByComparator.getOrderByFields();
 
@@ -411,6 +432,7 @@ public class BasePersistenceImpl<T extends BaseModel<T>>
 		}
 
 		for (int i = 0; i < length; i++) {
+<<<<<<< HEAD
 			sb.append(getColumnName(entityAlias, orderByFields[i], sqlQuery));
 
 			if ((i + 1) < length) {
@@ -419,14 +441,32 @@ public class BasePersistenceImpl<T extends BaseModel<T>>
 				}
 				else {
 					sb.append(ORDER_BY_DESC_HAS_NEXT);
+=======
+			query.append(
+				getColumnName(entityAlias, orderByFields[i], sqlQuery));
+
+			if ((i + 1) < length) {
+				if (orderByComparator.isAscending(orderByFields[i])) {
+					query.append(ORDER_BY_ASC_HAS_NEXT);
+				}
+				else {
+					query.append(ORDER_BY_DESC_HAS_NEXT);
+>>>>>>> compatible
 				}
 			}
 			else {
 				if (orderByComparator.isAscending(orderByFields[i])) {
+<<<<<<< HEAD
 					sb.append(ORDER_BY_ASC);
 				}
 				else {
 					sb.append(ORDER_BY_DESC);
+=======
+					query.append(ORDER_BY_ASC);
+				}
+				else {
+					query.append(ORDER_BY_DESC);
+>>>>>>> compatible
 				}
 			}
 		}
@@ -446,6 +486,7 @@ public class BasePersistenceImpl<T extends BaseModel<T>>
 		if (sqlQuery) {
 			fieldName = columnName;
 		}
+<<<<<<< HEAD
 		else {
 			Set<String> compoundPKColumnNames = getCompoundPKColumnNames();
 
@@ -453,6 +494,8 @@ public class BasePersistenceImpl<T extends BaseModel<T>>
 				fieldName = "id.".concat(fieldName);
 			}
 		}
+=======
+>>>>>>> compatible
 
 		fieldName = entityAlias.concat(fieldName);
 

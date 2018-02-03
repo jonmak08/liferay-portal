@@ -27,7 +27,10 @@
 
 		<column name="DDMStorageId" type="long" />
 		<column name="recordSetId" type="long" />
+<<<<<<< HEAD
 		<column name="recordSetVersion" type="String" />
+=======
+>>>>>>> compatible
 		<column name="version" type="String" />
 		<column name="displayIndex" type="int" />
 		<column name="lastPublishDate" type="Date" />
@@ -44,10 +47,13 @@
 			<finder-column name="recordSetId" />
 			<finder-column name="userId" />
 		</finder>
+<<<<<<< HEAD
 		<finder name="R_R" return-type="Collection">
 			<finder-column name="recordSetId" />
 			<finder-column name="recordSetVersion" />
 		</finder>
+=======
+>>>>>>> compatible
 
 		<!-- References -->
 
@@ -73,8 +79,11 @@
 		<column name="companyId" type="long" />
 		<column name="userId" type="long" />
 		<column name="userName" type="String" />
+<<<<<<< HEAD
 		<column name="versionUserId" type="long" />
 		<column name="versionUserName" type="String" />
+=======
+>>>>>>> compatible
 		<column name="createDate" type="Date" />
 		<column name="modifiedDate" type="Date" />
 
@@ -82,7 +91,10 @@
 
 		<column name="DDMStructureId" type="long" />
 		<column name="recordSetKey" type="String" />
+<<<<<<< HEAD
 		<column name="version" type="String" />
+=======
+>>>>>>> compatible
 		<column localized="true" name="name" type="String" />
 		<column localized="true" name="description" type="String" />
 		<column name="minDisplayRows" type="int" />
@@ -103,12 +115,16 @@
 		<!-- References -->
 
 		<reference entity="DDLRecord" package-path="com.liferay.dynamic.data.lists" />
+<<<<<<< HEAD
 		<reference entity="DDLRecordSetVersion" package-path="com.liferay.dynamic.data.lists" />
+=======
+>>>>>>> compatible
 		<reference entity="ClassName" package-path="com.liferay.portal" />
 		<reference entity="Resource" package-path="com.liferay.portal" />
 		<reference entity="User" package-path="com.liferay.portal" />
 		<reference entity="WorkflowDefinitionLink" package-path="com.liferay.portal" />
 	</entity>
+<<<<<<< HEAD
 	<entity local-service="true" name="DDLRecordSetVersion" remote-service="true">
 
 		<!-- PK fields -->
@@ -153,6 +169,8 @@
 			<finder-column name="status" />
 		</finder>
 	</entity>
+=======
+>>>>>>> compatible
 	<entity local-service="true" name="DDLRecordVersion" remote-service="true">
 
 		<!-- PK fields -->
@@ -174,7 +192,10 @@
 
 		<column name="DDMStorageId" type="long" />
 		<column name="recordSetId" type="long" />
+<<<<<<< HEAD
 		<column name="recordSetVersion" type="String" />
+=======
+>>>>>>> compatible
 		<column name="recordId" type="long" />
 		<column name="version" type="String" />
 		<column name="displayIndex" type="int" />
@@ -188,10 +209,13 @@
 		<finder name="RecordId" return-type="Collection">
 			<finder-column name="recordId" />
 		</finder>
+<<<<<<< HEAD
 		<finder name="R_R" return-type="Collection">
 			<finder-column name="recordSetId" />
 			<finder-column name="recordSetVersion" />
 		</finder>
+=======
+>>>>>>> compatible
 		<finder name="R_V" return-type="DDLRecordVersion" unique="true">
 			<finder-column name="recordId" />
 			<finder-column name="version" />
@@ -200,6 +224,7 @@
 			<finder-column name="recordId" />
 			<finder-column name="status" />
 		</finder>
+<<<<<<< HEAD
 		<finder name="U_R_R_S" return-type="Collection">
 			<finder-column name="userId" />
 			<finder-column name="recordSetId" />
@@ -217,5 +242,12 @@
 		<exception>RecordSetDuplicateRecordSetKey</exception>
 		<exception>RecordSetName</exception>
 		<exception>RecordSetSettingsRedirectURL</exception>
+=======
+	</entity>
+	<exceptions>
+		<exception>RecordSetDDMStructureId</exception>
+		<exception>RecordSetDuplicateRecordSetKey</exception>
+		<exception>RecordSetName</exception>
+>>>>>>> compatible
 	</exceptions>
 </service-builder>

@@ -33,8 +33,11 @@ import com.liferay.portal.kernel.dao.orm.Property;
 import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.ServiceContext;
 
 import java.util.HashSet;
@@ -71,9 +74,12 @@ public class DDLRecordSetStagedModelRepository
 		if (portletDataContext.isDataStrategyMirror()) {
 			serviceContext.setUuid(ddlRecordSet.getUuid());
 		}
+<<<<<<< HEAD
 		else {
 			ddlRecordSet.setRecordSetKey(null);
 		}
+=======
+>>>>>>> compatible
 
 		return _ddlRecordSetLocalService.addRecordSet(
 			userId, ddlRecordSet.getGroupId(), ddlRecordSet.getDDMStructureId(),
@@ -242,9 +248,12 @@ public class DDLRecordSetStagedModelRepository
 		}
 	}
 
+<<<<<<< HEAD
 	private static final Log _log = LogFactoryUtil.getLog(
 		DDLRecordSetStagedModelRepository.class);
 
+=======
+>>>>>>> compatible
 	@Reference
 	private DDLRecordSetLocalService _ddlRecordSetLocalService;
 

@@ -5,6 +5,7 @@
 		<execute function="AssertTextEquals" locator1="Notifications#NOTIFICATIONS_TITLE" value1="${requestsTitle}" />
 
 		<execute function="AssertClick" locator1="Button#CONFIRM" value1="Confirm" />
+<<<<<<< HEAD
 	</command>
 
 	<command name="deleteNotification">
@@ -25,6 +26,20 @@
 		<execute function="Click" locator1="Dropdown#FILTER" />
 
 		<execute function="AssertClick" locator1="Dropdown#FILTER_VALUES" value1="${filterValue}" />
+=======
+	</command>
+
+	<command name="deleteNotification">
+		<var name="key_contentBody" value="${contentBody}" />
+
+		<execute function="Click" locator1="Notifications#NOTIFICATIONS_VERTICAL_ELLIPSIS" />
+
+		<execute function="AssertClickNoError" locator1="MenuItem#ANY_MENU_ITEM" value1="Delete">
+			<var name="key_menuItem" value="Delete" />
+		</execute>
+
+		<execute function="AssertElementNotPresent" locator1="Notifications#NOTIFICATIONS_CONTENT" value1="${contentBody}" />
+>>>>>>> compatible
 	</command>
 
 	<command name="gotoNotifications">
@@ -62,6 +77,25 @@
 				<execute function="Click" locator1="Notifications#USER_NAVIGATION_BAR_BADGE_COUNT" />
 			</then>
 		</if>
+<<<<<<< HEAD
+=======
+	</command>
+
+	<command name="goToReadFilter">
+		<execute function="Click" locator1="Dropdown#FILTER" />
+
+		<var name="key_filterValue" value="Read" />
+
+		<execute function="AssertClick" locator1="Dropdown#FILTER_VALUES" value1="Read" />
+	</command>
+
+	<command name="goToUnreadFilter">
+		<execute function="Click" locator1="Dropdown#FILTER" />
+
+		<var name="key_filterValue" value="Unread" />
+
+		<execute function="AssertClick" locator1="Dropdown#FILTER_VALUES" value1="Unread" />
+>>>>>>> compatible
 	</command>
 
 	<command name="markAllAsRead">
@@ -75,6 +109,7 @@
 	<command name="navigateToContent">
 		<var name="key_contentBody" value="${contentBody}" />
 
+<<<<<<< HEAD
 		<execute function="AssertClick#assertPartialTextClickAt" locator1="Notifications#NOTIFICATIONS_CONTENT" value1="${contentBody}" />
 	</command>
 
@@ -82,6 +117,13 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
+=======
+		<execute function="Click#partialTextClickAt" locator1="Notifications#NOTIFICATIONS_CONTENT" value1="${contentBody}" />
+	</command>
+
+	<command name="tearDownUnreadNotifications">
+		<execute macro="ProductMenu#gotoUserMyAccount">
+>>>>>>> compatible
 			<var name="portlet" value="Notifications" />
 		</execute>
 
@@ -174,6 +216,7 @@
 				<execute function="AssertElementNotPresent" locator1="Notifications#PROFILE_BADGE_COUNT" />
 			</then>
 		</if>
+<<<<<<< HEAD
 
 		<if>
 			<equals arg1="${activePanel}" arg2="My Account" />
@@ -195,6 +238,29 @@
 		<execute function="AssertElementNotPresent" locator1="Button#IGNORE" />
 	</command>
 
+=======
+
+		<if>
+			<equals arg1="${activePanel}" arg2="My Account" />
+			<then>
+				<execute function="AssertElementNotPresent" locator1="Notifications#MY_ACCOUNT_BADGE_COUNT" />
+			</then>
+		</if>
+
+		<if>
+			<equals arg1="${activePanel}" arg2="Notifications" />
+			<then>
+				<execute function="AssertElementNotPresent" locator1="Notifications#NOTIFICATIONS_BADGE_COUNT" />
+			</then>
+		</if>
+	</command>
+
+	<command name="viewNoRequest">
+		<execute function="AssertElementNotPresent" locator1="Button#CONFIRM" />
+		<execute function="AssertElementNotPresent" locator1="Button#IGNORE" />
+	</command>
+
+>>>>>>> compatible
 	<command name="viewRequest">
 		<execute function="Click" locator1="Notifications#REQUESTS_LIST_TAB" />
 

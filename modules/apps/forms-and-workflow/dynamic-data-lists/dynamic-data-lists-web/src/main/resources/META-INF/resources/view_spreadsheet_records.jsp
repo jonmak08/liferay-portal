@@ -131,7 +131,11 @@ DDMStructure ddmStructure = recordSet.getDDMStructure();
 		}
 	);
 
+<<<<<<< HEAD
 	var data = Liferay.SpreadSheet.buildEmptyRecords(<%= Math.max(recordSet.getMinDisplayRows() - records.size(), 0) %>, keys);
+=======
+	var data = Liferay.SpreadSheet.buildEmptyRecords(<%= Math.max(recordSet.getMinDisplayRows(), records.size()) %>, keys);
+>>>>>>> compatible
 
 	records.forEach(
 		function(item, index) {
@@ -188,6 +192,10 @@ DDMStructure ddmStructure = recordSet.getDDMStructure();
 
 	window.<portlet:namespace />spreadSheet = spreadSheet;
 	window.<portlet:namespace />structure = structure;
+<<<<<<< HEAD
 </aui:script>
 
 <%@ include file="/export_record_set.jspf" %>
+=======
+</aui:script>
+>>>>>>> compatible

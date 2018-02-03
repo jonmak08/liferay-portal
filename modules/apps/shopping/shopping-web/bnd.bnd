@@ -1,4 +1,8 @@
 Bundle-Name: Liferay Shopping Web
 Bundle-SymbolicName: com.liferay.shopping.web
+<<<<<<< HEAD
 Bundle-Version: 1.0.19
+=======
+Bundle-Version: 1.0.15
+>>>>>>> compatible
 Web-ContextPath: /shopping-web

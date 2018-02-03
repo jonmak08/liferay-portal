@@ -21,6 +21,7 @@ long categoryId = GetterUtil.getLong(request.getAttribute("view.jsp-categoryId")
 %>
 
 <liferay-frontend:add-menu>
+<<<<<<< HEAD
 	<c:if test="<%= MBCategoryPermission.contains(permissionChecker, scopeGroupId, categoryId, ActionKeys.ADD_CATEGORY) %>">
 		<portlet:renderURL var="addCategoryURL">
 			<portlet:param name="mvcRenderCommandName" value="/message_boards/edit_category" />
@@ -31,6 +32,8 @@ long categoryId = GetterUtil.getLong(request.getAttribute("view.jsp-categoryId")
 		<liferay-frontend:add-menu-item title='<%= LanguageUtil.get(request, (categoryId == MBCategoryConstants.DEFAULT_PARENT_CATEGORY_ID) ? "category[message-board]" : "subcategory[message-board]") %>' url="<%= addCategoryURL.toString() %>" />
 	</c:if>
 
+=======
+>>>>>>> compatible
 	<c:if test="<%= MBCategoryPermission.contains(permissionChecker, scopeGroupId, categoryId, ActionKeys.ADD_MESSAGE) %>">
 		<portlet:renderURL var="addMessageURL">
 			<portlet:param name="mvcRenderCommandName" value="/message_boards/edit_message" />
@@ -40,4 +43,17 @@ long categoryId = GetterUtil.getLong(request.getAttribute("view.jsp-categoryId")
 
 		<liferay-frontend:add-menu-item title='<%= LanguageUtil.get(request, "thread") %>' url="<%= addMessageURL.toString() %>" />
 	</c:if>
+<<<<<<< HEAD
+=======
+
+	<c:if test="<%= MBCategoryPermission.contains(permissionChecker, scopeGroupId, categoryId, ActionKeys.ADD_CATEGORY) %>">
+		<portlet:renderURL var="addCategoryURL">
+			<portlet:param name="mvcRenderCommandName" value="/message_boards/edit_category" />
+			<portlet:param name="redirect" value="<%= currentURL %>" />
+			<portlet:param name="parentCategoryId" value="<%= String.valueOf(categoryId) %>" />
+		</portlet:renderURL>
+
+		<liferay-frontend:add-menu-item title='<%= LanguageUtil.get(request, (categoryId == MBCategoryConstants.DEFAULT_PARENT_CATEGORY_ID) ? "category[message-board]" : "subcategory[message-board]") %>' url="<%= addCategoryURL.toString() %>" />
+	</c:if>
+>>>>>>> compatible
 </liferay-frontend:add-menu>

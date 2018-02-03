@@ -33,7 +33,11 @@ MBTreeWalker treeWalker = messageDisplay.getTreeWalker();
 
 int[] range = treeWalker.getChildrenRange(treeWalker.getRoot());
 
+<<<<<<< HEAD
 MBMessageIterator mbMessageIterator = new MBMessageIterator(treeWalker.getMessages(), rootIndexPage, range[1]);
+=======
+MBMessageIterator mbMessageIterator = new MBMessageIteratorImpl(treeWalker.getMessages(), rootIndexPage, range[1]);
+>>>>>>> compatible
 
 if (mbMessageIterator != null) {
 	while (mbMessageIterator.hasNext()) {

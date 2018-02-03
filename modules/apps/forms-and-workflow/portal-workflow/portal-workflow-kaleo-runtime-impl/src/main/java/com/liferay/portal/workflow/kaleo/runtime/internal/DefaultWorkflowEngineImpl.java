@@ -16,7 +16,10 @@ package com.liferay.portal.workflow.kaleo.runtime.internal;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.Group;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.WorkflowDefinitionLink;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.GroupLocalService;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.transaction.Isolation;
@@ -24,11 +27,15 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.TransactionCommitCallbackUtil;
 import com.liferay.portal.kernel.transaction.Transactional;
 import com.liferay.portal.kernel.util.OrderByComparator;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.uuid.PortalUUID;
+=======
+import com.liferay.portal.kernel.util.Validator;
+>>>>>>> compatible
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.kernel.workflow.WorkflowDefinition;
 import com.liferay.portal.kernel.workflow.WorkflowException;
@@ -40,7 +47,10 @@ import com.liferay.portal.workflow.kaleo.definition.deployment.WorkflowDeployer;
 import com.liferay.portal.workflow.kaleo.definition.parser.WorkflowModelParser;
 import com.liferay.portal.workflow.kaleo.definition.parser.WorkflowValidator;
 import com.liferay.portal.workflow.kaleo.model.KaleoDefinition;
+<<<<<<< HEAD
 import com.liferay.portal.workflow.kaleo.model.KaleoDefinitionVersion;
+=======
+>>>>>>> compatible
 import com.liferay.portal.workflow.kaleo.model.KaleoInstance;
 import com.liferay.portal.workflow.kaleo.model.KaleoInstanceToken;
 import com.liferay.portal.workflow.kaleo.model.KaleoNode;
@@ -79,7 +89,11 @@ public class DefaultWorkflowEngineImpl
 
 		try {
 			kaleoDefinitionLocalService.deleteKaleoDefinition(
+<<<<<<< HEAD
 				name, serviceContext);
+=======
+				name, version, serviceContext);
+>>>>>>> compatible
 		}
 		catch (Exception e) {
 			throw new WorkflowException(e);
@@ -99,6 +113,7 @@ public class DefaultWorkflowEngineImpl
 		}
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 1.0.0, replaced by {@link
 	 *             #deployWorkflowDefinition(String, String, InputStream,
@@ -106,12 +121,15 @@ public class DefaultWorkflowEngineImpl
 	 * @review
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	@Override
 	public WorkflowDefinition deployWorkflowDefinition(
 			String title, InputStream inputStream,
 			ServiceContext serviceContext)
 		throws WorkflowException {
 
+<<<<<<< HEAD
 		Definition definition = _workflowModelParser.parse(inputStream);
 
 		return deployWorkflowDefinition(
@@ -124,6 +142,8 @@ public class DefaultWorkflowEngineImpl
 			ServiceContext serviceContext)
 		throws WorkflowException {
 
+=======
+>>>>>>> compatible
 		try {
 			Definition definition = _workflowModelParser.parse(inputStream);
 
@@ -131,6 +151,7 @@ public class DefaultWorkflowEngineImpl
 				_workflowValidator.validate(definition);
 			}
 
+<<<<<<< HEAD
 			String definitionName = getDefinitionName(definition, name);
 
 			KaleoDefinition kaleoDefinition =
@@ -158,6 +179,10 @@ public class DefaultWorkflowEngineImpl
 						updateWorkflowDefinitionLink(workflowDefinitionLink);
 				}
 			}
+=======
+			WorkflowDefinition workflowDefinition = _workflowDeployer.deploy(
+				title, definition, serviceContext);
+>>>>>>> compatible
 
 			return workflowDefinition;
 		}
@@ -496,6 +521,7 @@ public class DefaultWorkflowEngineImpl
 		try {
 			KaleoDefinition kaleoDefinition =
 				kaleoDefinitionLocalService.getKaleoDefinition(
+<<<<<<< HEAD
 					workflowDefinitionName, serviceContext);
 
 			if (!kaleoDefinition.isActive()) {
@@ -513,6 +539,19 @@ public class DefaultWorkflowEngineImpl
 
 			KaleoNode kaleoStartNode =
 				kaleoDefinitionVersion.getKaleoStartNode();
+=======
+					workflowDefinitionName, workflowDefinitionVersion,
+					serviceContext);
+
+			if (!kaleoDefinition.isActive()) {
+				throw new WorkflowException(
+					"Inactive workflow definition with name " +
+						workflowDefinitionName + " and version " +
+							workflowDefinitionVersion);
+			}
+
+			KaleoNode kaleoStartNode = kaleoDefinition.getKaleoStartNode();
+>>>>>>> compatible
 
 			if (Validator.isNotNull(transitionName)) {
 
@@ -537,9 +576,14 @@ public class DefaultWorkflowEngineImpl
 
 			KaleoInstance kaleoInstance =
 				kaleoInstanceLocalService.addKaleoInstance(
+<<<<<<< HEAD
 					kaleoDefinitionVersion.getKaleoDefinitionVersionId(),
 					kaleoDefinitionVersion.getName(),
 					getVersion(kaleoDefinitionVersion.getVersion()),
+=======
+					kaleoDefinition.getKaleoDefinitionId(),
+					kaleoDefinition.getName(), kaleoDefinition.getVersion(),
+>>>>>>> compatible
 					workflowContext, serviceContext);
 
 			KaleoInstanceToken rootKaleoInstanceToken =
@@ -627,6 +671,7 @@ public class DefaultWorkflowEngineImpl
 			workflowInstanceId, workflowContext, serviceContext);
 	}
 
+<<<<<<< HEAD
 	protected String getDefinitionName(Definition definition, String name) {
 		if (Validator.isNotNull(name)) {
 			return name;
@@ -639,6 +684,8 @@ public class DefaultWorkflowEngineImpl
 		return portalUUID.generate();
 	}
 
+=======
+>>>>>>> compatible
 	protected void getNextTransitionNames(
 			KaleoInstanceToken kaleoInstanceToken, List<String> transitionNames)
 		throws Exception {
@@ -666,6 +713,7 @@ public class DefaultWorkflowEngineImpl
 		}
 	}
 
+<<<<<<< HEAD
 	protected String getVersion(int version) {
 		return version + StringPool.PERIOD + 0;
 	}
@@ -676,6 +724,8 @@ public class DefaultWorkflowEngineImpl
 		return versionParts[0];
 	}
 
+=======
+>>>>>>> compatible
 	protected List<WorkflowInstance> toWorkflowInstances(
 			List<KaleoInstance> kaleoInstances, ServiceContext serviceContext)
 		throws PortalException {
@@ -695,9 +745,12 @@ public class DefaultWorkflowEngineImpl
 		return workflowInstances;
 	}
 
+<<<<<<< HEAD
 	@ServiceReference(type = PortalUUID.class)
 	protected PortalUUID portalUUID;
 
+=======
+>>>>>>> compatible
 	@ServiceReference(type = GroupLocalService.class)
 	private GroupLocalService _groupLocalService;
 

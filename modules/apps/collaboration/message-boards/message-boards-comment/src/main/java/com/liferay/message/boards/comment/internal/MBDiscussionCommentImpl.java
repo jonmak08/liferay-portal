@@ -23,10 +23,17 @@ import com.liferay.portal.kernel.comment.WorkflowableComment;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.ratings.kernel.model.RatingsEntry;
 import com.liferay.ratings.kernel.model.RatingsStats;
+<<<<<<< HEAD
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+=======
+import com.liferay.ratings.kernel.service.persistence.RatingsStatsUtil;
+
+import java.util.ArrayList;
+import java.util.List;
+>>>>>>> compatible
 
 /**
  * @author Adolfo Pérez
@@ -36,8 +43,12 @@ public class MBDiscussionCommentImpl
 
 	public MBDiscussionCommentImpl(
 		MBMessage message, MBTreeWalker treeWalker,
+<<<<<<< HEAD
 		Map<Long, RatingsEntry> ratingsEntries,
 		Map<Long, RatingsStats> ratingsStats) {
+=======
+		List<RatingsEntry> ratingsEntries, List<RatingsStats> ratingsStats) {
+>>>>>>> compatible
 
 		super(message);
 
@@ -47,6 +58,7 @@ public class MBDiscussionCommentImpl
 	}
 
 	@Override
+<<<<<<< HEAD
 	public List<DiscussionComment> getDescendantComments() {
 		List<DiscussionComment> discussionComments = new ArrayList<>();
 
@@ -68,6 +80,8 @@ public class MBDiscussionCommentImpl
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public DiscussionComment getParentComment() throws PortalException {
 		MBMessage message = getMessage();
 
@@ -86,11 +100,24 @@ public class MBDiscussionCommentImpl
 
 	@Override
 	public RatingsEntry getRatingsEntry() {
+<<<<<<< HEAD
 		return _ratingsEntries.get(getCommentId());
+=======
+		long classPK = getCommentId();
+
+		for (RatingsEntry ratingsEntry : _ratingsEntries) {
+			if (ratingsEntry.getClassPK() == classPK) {
+				return ratingsEntry;
+			}
+		}
+
+		return null;
+>>>>>>> compatible
 	}
 
 	@Override
 	public RatingsStats getRatingsStats() {
+<<<<<<< HEAD
 		return _ratingsStats.get(getCommentId());
 	}
 
@@ -110,6 +137,38 @@ public class MBDiscussionCommentImpl
 	@Override
 	public int getThreadCommentsCount() {
 		return getDescendantCommentsCount();
+=======
+		long classPK = getCommentId();
+
+		for (RatingsStats ratingsStats : _ratingsStats) {
+			if (ratingsStats.getClassPK() == classPK) {
+				return ratingsStats;
+			}
+		}
+
+		return RatingsStatsUtil.create(0);
+	}
+
+	@Override
+	public List<DiscussionComment> getThreadComments() {
+		List<DiscussionComment> discussionComments = new ArrayList<>();
+
+		DiscussionCommentIterator discussionCommentIterator =
+			getThreadDiscussionCommentIterator();
+
+		while (discussionCommentIterator.hasNext()) {
+			discussionComments.add(discussionCommentIterator.next());
+		}
+
+		return discussionComments;
+	}
+
+	@Override
+	public int getThreadCommentsCount() {
+		List<MBMessage> messages = _treeWalker.getMessages();
+
+		return messages.size();
+>>>>>>> compatible
 	}
 
 	@Override
@@ -148,8 +207,13 @@ public class MBDiscussionCommentImpl
 		return message.isRoot();
 	}
 
+<<<<<<< HEAD
 	private final Map<Long, RatingsEntry> _ratingsEntries;
 	private final Map<Long, RatingsStats> _ratingsStats;
+=======
+	private final List<RatingsEntry> _ratingsEntries;
+	private final List<RatingsStats> _ratingsStats;
+>>>>>>> compatible
 	private final MBTreeWalker _treeWalker;
 
 	private class MBDiscussionCommentIterator

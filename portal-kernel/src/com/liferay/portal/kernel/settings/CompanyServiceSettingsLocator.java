@@ -17,12 +17,22 @@ package com.liferay.portal.kernel.settings;
 /**
  * @author Ivan Zaera
  * @author Jorge Ferrer
+<<<<<<< HEAD
  * @author Drew Brokke
+=======
+>>>>>>> compatible
  */
 public class CompanyServiceSettingsLocator implements SettingsLocator {
 
 	public CompanyServiceSettingsLocator(long companyId, String settingsId) {
+<<<<<<< HEAD
 		this(companyId, settingsId, settingsId);
+=======
+		_companyId = companyId;
+		_settingsId = settingsId;
+
+		_configurationPid = settingsId;
+>>>>>>> compatible
 	}
 
 	public CompanyServiceSettingsLocator(
@@ -34,6 +44,7 @@ public class CompanyServiceSettingsLocator implements SettingsLocator {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public Settings getSettings() throws SettingsException {
 		SystemSettingsLocator systemSettingsLocator = new SystemSettingsLocator(
 			_configurationPid);
@@ -48,6 +59,19 @@ public class CompanyServiceSettingsLocator implements SettingsLocator {
 
 		return _settingsLocatorHelper.getCompanyPortletPreferencesSettings(
 			_companyId, _settingsId, companyConfigurationBeanSettings);
+=======
+	public Settings getSettings() {
+		Settings configurationBeanSettings =
+			_settingsLocatorHelper.getConfigurationBeanSettings(
+				_configurationPid);
+
+		Settings portalPreferencesSettings =
+			_settingsLocatorHelper.getPortalPreferencesSettings(
+				_companyId, configurationBeanSettings);
+
+		return _settingsLocatorHelper.getCompanyPortletPreferencesSettings(
+			_companyId, _settingsId, portalPreferencesSettings);
+>>>>>>> compatible
 	}
 
 	@Override

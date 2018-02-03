@@ -18,11 +18,16 @@ import com.liferay.portal.kernel.model.Subscription;
 import com.liferay.portal.kernel.util.OrderByComparator;
 
 /**
+<<<<<<< HEAD
  * @author     Peter Shin
  * @deprecated As of 7.0.0, replaced by {@link
  *             com.liferay.subscription.util.comparator.SubscriptionClassNameIdComparator}
  */
 @Deprecated
+=======
+ * @author Peter Shin
+ */
+>>>>>>> compatible
 public class SubscriptionClassNameIdComparator
 	extends OrderByComparator<Subscription> {
 

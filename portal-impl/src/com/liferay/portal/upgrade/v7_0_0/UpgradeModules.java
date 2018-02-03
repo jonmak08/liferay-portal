@@ -17,7 +17,10 @@ package com.liferay.portal.upgrade.v7_0_0;
 import com.liferay.portal.kernel.model.dao.ReleaseDAO;
 import com.liferay.portal.kernel.upgrade.UpgradeProcess;
 import com.liferay.portal.kernel.util.LoggingTimer;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 
 import java.io.IOException;
 
@@ -116,10 +119,16 @@ public class UpgradeModules extends UpgradeProcess {
 		throws IOException, SQLException {
 
 		runSQL(
+<<<<<<< HEAD
 			StringBundler.concat(
 				"update Release_ set servletContextName = '",
 				newServletContextName, "' where servletContextName = '",
 				oldServletContextName, "'"));
+=======
+			"update Release_ set servletContextName = '" +
+				newServletContextName + "' where servletContextName = '" +
+					oldServletContextName + "'");
+>>>>>>> compatible
 	}
 
 	private static final String[] _BUNDLE_SYMBOLIC_NAMES = {

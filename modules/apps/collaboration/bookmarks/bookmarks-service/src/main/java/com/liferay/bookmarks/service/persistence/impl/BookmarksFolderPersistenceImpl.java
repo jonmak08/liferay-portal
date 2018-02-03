@@ -28,7 +28,10 @@ import com.liferay.portal.kernel.dao.orm.FinderPath;
 import com.liferay.portal.kernel.dao.orm.Query;
 import com.liferay.portal.kernel.dao.orm.QueryPos;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.dao.orm.SQLQuery;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.Session;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -39,8 +42,15 @@ import com.liferay.portal.kernel.service.persistence.CompanyProvider;
 import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.ReflectionUtil;
+import com.liferay.portal.kernel.util.SetUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
 import com.liferay.portal.spring.extender.service.ServiceReference;
@@ -95,6 +105,527 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 	public static final FinderPath FINDER_PATH_COUNT_ALL = new FinderPath(BookmarksFolderModelImpl.ENTITY_CACHE_ENABLED,
 			BookmarksFolderModelImpl.FINDER_CACHE_ENABLED, Long.class,
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countAll", new String[0]);
+<<<<<<< HEAD
+=======
+	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_RESOURCEBLOCKID =
+		new FinderPath(BookmarksFolderModelImpl.ENTITY_CACHE_ENABLED,
+			BookmarksFolderModelImpl.FINDER_CACHE_ENABLED,
+			BookmarksFolderImpl.class, FINDER_CLASS_NAME_LIST_WITH_PAGINATION,
+			"findByResourceBlockId",
+			new String[] {
+				Long.class.getName(),
+				
+			Integer.class.getName(), Integer.class.getName(),
+				OrderByComparator.class.getName()
+			});
+	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_RESOURCEBLOCKID =
+		new FinderPath(BookmarksFolderModelImpl.ENTITY_CACHE_ENABLED,
+			BookmarksFolderModelImpl.FINDER_CACHE_ENABLED,
+			BookmarksFolderImpl.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByResourceBlockId",
+			new String[] { Long.class.getName() },
+			BookmarksFolderModelImpl.RESOURCEBLOCKID_COLUMN_BITMASK |
+			BookmarksFolderModelImpl.PARENTFOLDERID_COLUMN_BITMASK |
+			BookmarksFolderModelImpl.NAME_COLUMN_BITMASK);
+	public static final FinderPath FINDER_PATH_COUNT_BY_RESOURCEBLOCKID = new FinderPath(BookmarksFolderModelImpl.ENTITY_CACHE_ENABLED,
+			BookmarksFolderModelImpl.FINDER_CACHE_ENABLED, Long.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
+			"countByResourceBlockId", new String[] { Long.class.getName() });
+
+	/**
+	 * Returns all the bookmarks folders where resourceBlockId = &#63;.
+	 *
+	 * @param resourceBlockId the resource block ID
+	 * @return the matching bookmarks folders
+	 */
+	@Override
+	public List<BookmarksFolder> findByResourceBlockId(long resourceBlockId) {
+		return findByResourceBlockId(resourceBlockId, QueryUtil.ALL_POS,
+			QueryUtil.ALL_POS, null);
+	}
+
+	/**
+	 * Returns a range of all the bookmarks folders where resourceBlockId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link BookmarksFolderModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param resourceBlockId the resource block ID
+	 * @param start the lower bound of the range of bookmarks folders
+	 * @param end the upper bound of the range of bookmarks folders (not inclusive)
+	 * @return the range of matching bookmarks folders
+	 */
+	@Override
+	public List<BookmarksFolder> findByResourceBlockId(long resourceBlockId,
+		int start, int end) {
+		return findByResourceBlockId(resourceBlockId, start, end, null);
+	}
+
+	/**
+	 * Returns an ordered range of all the bookmarks folders where resourceBlockId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link BookmarksFolderModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param resourceBlockId the resource block ID
+	 * @param start the lower bound of the range of bookmarks folders
+	 * @param end the upper bound of the range of bookmarks folders (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @return the ordered range of matching bookmarks folders
+	 */
+	@Override
+	public List<BookmarksFolder> findByResourceBlockId(long resourceBlockId,
+		int start, int end, OrderByComparator<BookmarksFolder> orderByComparator) {
+		return findByResourceBlockId(resourceBlockId, start, end,
+			orderByComparator, true);
+	}
+
+	/**
+	 * Returns an ordered range of all the bookmarks folders where resourceBlockId = &#63;.
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link BookmarksFolderModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+	 * @param resourceBlockId the resource block ID
+	 * @param start the lower bound of the range of bookmarks folders
+	 * @param end the upper bound of the range of bookmarks folders (not inclusive)
+	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	 * @param retrieveFromCache whether to retrieve from the finder cache
+	 * @return the ordered range of matching bookmarks folders
+	 */
+	@Override
+	public List<BookmarksFolder> findByResourceBlockId(long resourceBlockId,
+		int start, int end,
+		OrderByComparator<BookmarksFolder> orderByComparator,
+		boolean retrieveFromCache) {
+		boolean pagination = true;
+		FinderPath finderPath = null;
+		Object[] finderArgs = null;
+
+		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS) &&
+				(orderByComparator == null)) {
+			pagination = false;
+			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_RESOURCEBLOCKID;
+			finderArgs = new Object[] { resourceBlockId };
+		}
+		else {
+			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_RESOURCEBLOCKID;
+			finderArgs = new Object[] {
+					resourceBlockId,
+					
+					start, end, orderByComparator
+				};
+		}
+
+		List<BookmarksFolder> list = null;
+
+		if (retrieveFromCache) {
+			list = (List<BookmarksFolder>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (BookmarksFolder bookmarksFolder : list) {
+					if ((resourceBlockId != bookmarksFolder.getResourceBlockId())) {
+						list = null;
+
+						break;
+					}
+				}
+			}
+		}
+
+		if (list == null) {
+			StringBundler query = null;
+
+			if (orderByComparator != null) {
+				query = new StringBundler(3 +
+						(orderByComparator.getOrderByFields().length * 2));
+			}
+			else {
+				query = new StringBundler(3);
+			}
+
+			query.append(_SQL_SELECT_BOOKMARKSFOLDER_WHERE);
+
+			query.append(_FINDER_COLUMN_RESOURCEBLOCKID_RESOURCEBLOCKID_2);
+
+			if (orderByComparator != null) {
+				appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
+					orderByComparator);
+			}
+			else
+			 if (pagination) {
+				query.append(BookmarksFolderModelImpl.ORDER_BY_JPQL);
+			}
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(resourceBlockId);
+
+				if (!pagination) {
+					list = (List<BookmarksFolder>)QueryUtil.list(q,
+							getDialect(), start, end, false);
+
+					Collections.sort(list);
+
+					list = Collections.unmodifiableList(list);
+				}
+				else {
+					list = (List<BookmarksFolder>)QueryUtil.list(q,
+							getDialect(), start, end);
+				}
+
+				cacheResult(list);
+
+				finderCache.putResult(finderPath, finderArgs, list);
+			}
+			catch (Exception e) {
+				finderCache.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return list;
+	}
+
+	/**
+	 * Returns the first bookmarks folder in the ordered set where resourceBlockId = &#63;.
+	 *
+	 * @param resourceBlockId the resource block ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching bookmarks folder
+	 * @throws NoSuchFolderException if a matching bookmarks folder could not be found
+	 */
+	@Override
+	public BookmarksFolder findByResourceBlockId_First(long resourceBlockId,
+		OrderByComparator<BookmarksFolder> orderByComparator)
+		throws NoSuchFolderException {
+		BookmarksFolder bookmarksFolder = fetchByResourceBlockId_First(resourceBlockId,
+				orderByComparator);
+
+		if (bookmarksFolder != null) {
+			return bookmarksFolder;
+		}
+
+		StringBundler msg = new StringBundler(4);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("resourceBlockId=");
+		msg.append(resourceBlockId);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchFolderException(msg.toString());
+	}
+
+	/**
+	 * Returns the first bookmarks folder in the ordered set where resourceBlockId = &#63;.
+	 *
+	 * @param resourceBlockId the resource block ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the first matching bookmarks folder, or <code>null</code> if a matching bookmarks folder could not be found
+	 */
+	@Override
+	public BookmarksFolder fetchByResourceBlockId_First(long resourceBlockId,
+		OrderByComparator<BookmarksFolder> orderByComparator) {
+		List<BookmarksFolder> list = findByResourceBlockId(resourceBlockId, 0,
+				1, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the last bookmarks folder in the ordered set where resourceBlockId = &#63;.
+	 *
+	 * @param resourceBlockId the resource block ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching bookmarks folder
+	 * @throws NoSuchFolderException if a matching bookmarks folder could not be found
+	 */
+	@Override
+	public BookmarksFolder findByResourceBlockId_Last(long resourceBlockId,
+		OrderByComparator<BookmarksFolder> orderByComparator)
+		throws NoSuchFolderException {
+		BookmarksFolder bookmarksFolder = fetchByResourceBlockId_Last(resourceBlockId,
+				orderByComparator);
+
+		if (bookmarksFolder != null) {
+			return bookmarksFolder;
+		}
+
+		StringBundler msg = new StringBundler(4);
+
+		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
+
+		msg.append("resourceBlockId=");
+		msg.append(resourceBlockId);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+
+		throw new NoSuchFolderException(msg.toString());
+	}
+
+	/**
+	 * Returns the last bookmarks folder in the ordered set where resourceBlockId = &#63;.
+	 *
+	 * @param resourceBlockId the resource block ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the last matching bookmarks folder, or <code>null</code> if a matching bookmarks folder could not be found
+	 */
+	@Override
+	public BookmarksFolder fetchByResourceBlockId_Last(long resourceBlockId,
+		OrderByComparator<BookmarksFolder> orderByComparator) {
+		int count = countByResourceBlockId(resourceBlockId);
+
+		if (count == 0) {
+			return null;
+		}
+
+		List<BookmarksFolder> list = findByResourceBlockId(resourceBlockId,
+				count - 1, count, orderByComparator);
+
+		if (!list.isEmpty()) {
+			return list.get(0);
+		}
+
+		return null;
+	}
+
+	/**
+	 * Returns the bookmarks folders before and after the current bookmarks folder in the ordered set where resourceBlockId = &#63;.
+	 *
+	 * @param folderId the primary key of the current bookmarks folder
+	 * @param resourceBlockId the resource block ID
+	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	 * @return the previous, current, and next bookmarks folder
+	 * @throws NoSuchFolderException if a bookmarks folder with the primary key could not be found
+	 */
+	@Override
+	public BookmarksFolder[] findByResourceBlockId_PrevAndNext(long folderId,
+		long resourceBlockId,
+		OrderByComparator<BookmarksFolder> orderByComparator)
+		throws NoSuchFolderException {
+		BookmarksFolder bookmarksFolder = findByPrimaryKey(folderId);
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			BookmarksFolder[] array = new BookmarksFolderImpl[3];
+
+			array[0] = getByResourceBlockId_PrevAndNext(session,
+					bookmarksFolder, resourceBlockId, orderByComparator, true);
+
+			array[1] = bookmarksFolder;
+
+			array[2] = getByResourceBlockId_PrevAndNext(session,
+					bookmarksFolder, resourceBlockId, orderByComparator, false);
+
+			return array;
+		}
+		catch (Exception e) {
+			throw processException(e);
+		}
+		finally {
+			closeSession(session);
+		}
+	}
+
+	protected BookmarksFolder getByResourceBlockId_PrevAndNext(
+		Session session, BookmarksFolder bookmarksFolder, long resourceBlockId,
+		OrderByComparator<BookmarksFolder> orderByComparator, boolean previous) {
+		StringBundler query = null;
+
+		if (orderByComparator != null) {
+			query = new StringBundler(4 +
+					(orderByComparator.getOrderByConditionFields().length * 3) +
+					(orderByComparator.getOrderByFields().length * 3));
+		}
+		else {
+			query = new StringBundler(3);
+		}
+
+		query.append(_SQL_SELECT_BOOKMARKSFOLDER_WHERE);
+
+		query.append(_FINDER_COLUMN_RESOURCEBLOCKID_RESOURCEBLOCKID_2);
+
+		if (orderByComparator != null) {
+			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
+
+			if (orderByConditionFields.length > 0) {
+				query.append(WHERE_AND);
+			}
+
+			for (int i = 0; i < orderByConditionFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByConditionFields[i]);
+
+				if ((i + 1) < orderByConditionFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN_HAS_NEXT);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(WHERE_GREATER_THAN);
+					}
+					else {
+						query.append(WHERE_LESSER_THAN);
+					}
+				}
+			}
+
+			query.append(ORDER_BY_CLAUSE);
+
+			String[] orderByFields = orderByComparator.getOrderByFields();
+
+			for (int i = 0; i < orderByFields.length; i++) {
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+				query.append(orderByFields[i]);
+
+				if ((i + 1) < orderByFields.length) {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC_HAS_NEXT);
+					}
+					else {
+						query.append(ORDER_BY_DESC_HAS_NEXT);
+					}
+				}
+				else {
+					if (orderByComparator.isAscending() ^ previous) {
+						query.append(ORDER_BY_ASC);
+					}
+					else {
+						query.append(ORDER_BY_DESC);
+					}
+				}
+			}
+		}
+		else {
+			query.append(BookmarksFolderModelImpl.ORDER_BY_JPQL);
+		}
+
+		String sql = query.toString();
+
+		Query q = session.createQuery(sql);
+
+		q.setFirstResult(0);
+		q.setMaxResults(2);
+
+		QueryPos qPos = QueryPos.getInstance(q);
+
+		qPos.add(resourceBlockId);
+
+		if (orderByComparator != null) {
+			Object[] values = orderByComparator.getOrderByConditionValues(bookmarksFolder);
+
+			for (Object value : values) {
+				qPos.add(value);
+			}
+		}
+
+		List<BookmarksFolder> list = q.list();
+
+		if (list.size() == 2) {
+			return list.get(1);
+		}
+		else {
+			return null;
+		}
+	}
+
+	/**
+	 * Removes all the bookmarks folders where resourceBlockId = &#63; from the database.
+	 *
+	 * @param resourceBlockId the resource block ID
+	 */
+	@Override
+	public void removeByResourceBlockId(long resourceBlockId) {
+		for (BookmarksFolder bookmarksFolder : findByResourceBlockId(
+				resourceBlockId, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null)) {
+			remove(bookmarksFolder);
+		}
+	}
+
+	/**
+	 * Returns the number of bookmarks folders where resourceBlockId = &#63;.
+	 *
+	 * @param resourceBlockId the resource block ID
+	 * @return the number of matching bookmarks folders
+	 */
+	@Override
+	public int countByResourceBlockId(long resourceBlockId) {
+		FinderPath finderPath = FINDER_PATH_COUNT_BY_RESOURCEBLOCKID;
+
+		Object[] finderArgs = new Object[] { resourceBlockId };
+
+		Long count = (Long)finderCache.getResult(finderPath, finderArgs, this);
+
+		if (count == null) {
+			StringBundler query = new StringBundler(2);
+
+			query.append(_SQL_COUNT_BOOKMARKSFOLDER_WHERE);
+
+			query.append(_FINDER_COLUMN_RESOURCEBLOCKID_RESOURCEBLOCKID_2);
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				qPos.add(resourceBlockId);
+
+				count = (Long)q.uniqueResult();
+
+				finderCache.putResult(finderPath, finderArgs, count);
+			}
+			catch (Exception e) {
+				finderCache.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return count.intValue();
+	}
+
+	private static final String _FINDER_COLUMN_RESOURCEBLOCKID_RESOURCEBLOCKID_2 =
+		"bookmarksFolder.resourceBlockId = ?";
+>>>>>>> compatible
 	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_UUID = new FinderPath(BookmarksFolderModelImpl.ENTITY_CACHE_ENABLED,
 			BookmarksFolderModelImpl.FINDER_CACHE_ENABLED,
 			BookmarksFolderImpl.class, FINDER_CLASS_NAME_LIST_WITH_PAGINATION,
@@ -233,7 +764,11 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_UUID_3);
 			}
 			else {
@@ -322,7 +857,11 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		msg.append("uuid=");
 		msg.append(uuid);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchFolderException(msg.toString());
 	}
@@ -372,7 +911,11 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		msg.append("uuid=");
 		msg.append(uuid);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchFolderException(msg.toString());
 	}
@@ -464,7 +1007,11 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		if (uuid == null) {
 			query.append(_FINDER_COLUMN_UUID_UUID_1);
 		}
+<<<<<<< HEAD
 		else if (uuid.equals("")) {
+=======
+		else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_UUID_UUID_3);
 		}
 		else {
@@ -600,7 +1147,11 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_UUID_3);
 			}
 			else {
@@ -680,7 +1231,11 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			msg.append(", groupId=");
 			msg.append(groupId);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -743,7 +1298,11 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_G_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_G_UUID_3);
 			}
 			else {
@@ -850,7 +1409,11 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_G_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_G_UUID_3);
 			}
 			else {
@@ -1051,7 +1614,11 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_C_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_C_UUID_3);
 			}
 			else {
@@ -1148,7 +1715,11 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		msg.append(", companyId=");
 		msg.append(companyId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchFolderException(msg.toString());
 	}
@@ -1204,7 +1775,11 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		msg.append(", companyId=");
 		msg.append(companyId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchFolderException(msg.toString());
 	}
@@ -1299,7 +1874,11 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		if (uuid == null) {
 			query.append(_FINDER_COLUMN_UUID_C_UUID_1);
 		}
+<<<<<<< HEAD
 		else if (uuid.equals("")) {
+=======
+		else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_UUID_C_UUID_3);
 		}
 		else {
@@ -1441,7 +2020,11 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_C_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_C_UUID_3);
 			}
 			else {
@@ -1704,7 +2287,11 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		msg.append("groupId=");
 		msg.append(groupId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchFolderException(msg.toString());
 	}
@@ -1755,7 +2342,11 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		msg.append("groupId=");
 		msg.append(groupId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchFolderException(msg.toString());
 	}
@@ -1989,6 +2580,7 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 					(orderByComparator.getOrderByFields().length * 2));
 		}
 		else {
+<<<<<<< HEAD
 			query = new StringBundler(4);
 		}
 
@@ -2022,17 +2614,38 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			else {
 				query.append(BookmarksFolderModelImpl.ORDER_BY_SQL);
 			}
+=======
+			query = new StringBundler(3);
+		}
+
+		query.append(_SQL_SELECT_BOOKMARKSFOLDER_WHERE);
+
+		query.append(_FINDER_COLUMN_GROUPID_GROUPID_2);
+
+		if (orderByComparator != null) {
+			appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
+				orderByComparator);
+		}
+		else {
+			query.append(BookmarksFolderModelImpl.ORDER_BY_JPQL);
+>>>>>>> compatible
 		}
 
 		String sql = InlineSQLHelperUtil.replacePermissionCheck(query.toString(),
 				BookmarksFolder.class.getName(),
+<<<<<<< HEAD
 				_FILTER_ENTITY_TABLE_FILTER_PK_COLUMN, groupId);
+=======
+				_FILTER_ENTITY_TABLE_FILTER_PK_COLUMN,
+				_FILTER_ENTITY_TABLE_FILTER_USERID_COLUMN, groupId);
+>>>>>>> compatible
 
 		Session session = null;
 
 		try {
 			session = openSession();
 
+<<<<<<< HEAD
 			SQLQuery q = session.createSynchronizedSQLQuery(sql);
 
 			if (getDB().isSupportsInlineDistinct()) {
@@ -2041,6 +2654,9 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			else {
 				q.addEntity(_FILTER_ENTITY_TABLE, BookmarksFolderImpl.class);
 			}
+=======
+			Query q = session.createQuery(sql);
+>>>>>>> compatible
 
 			QueryPos qPos = QueryPos.getInstance(q);
 
@@ -2108,11 +2724,16 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		StringBundler query = null;
 
 		if (orderByComparator != null) {
+<<<<<<< HEAD
 			query = new StringBundler(5 +
+=======
+			query = new StringBundler(4 +
+>>>>>>> compatible
 					(orderByComparator.getOrderByConditionFields().length * 3) +
 					(orderByComparator.getOrderByFields().length * 3));
 		}
 		else {
+<<<<<<< HEAD
 			query = new StringBundler(4);
 		}
 
@@ -2129,6 +2750,15 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			query.append(_FILTER_SQL_SELECT_BOOKMARKSFOLDER_NO_INLINE_DISTINCT_WHERE_2);
 		}
 
+=======
+			query = new StringBundler(3);
+		}
+
+		query.append(_SQL_SELECT_BOOKMARKSFOLDER_WHERE);
+
+		query.append(_FINDER_COLUMN_GROUPID_GROUPID_2);
+
+>>>>>>> compatible
 		if (orderByComparator != null) {
 			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
 
@@ -2137,6 +2767,7 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			}
 
 			for (int i = 0; i < orderByConditionFields.length; i++) {
+<<<<<<< HEAD
 				if (getDB().isSupportsInlineDistinct()) {
 					query.append(_ORDER_BY_ENTITY_ALIAS);
 				}
@@ -2144,6 +2775,9 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 					query.append(_ORDER_BY_ENTITY_TABLE);
 				}
 
+=======
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+>>>>>>> compatible
 				query.append(orderByConditionFields[i]);
 
 				if ((i + 1) < orderByConditionFields.length) {
@@ -2169,6 +2803,7 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			String[] orderByFields = orderByComparator.getOrderByFields();
 
 			for (int i = 0; i < orderByFields.length; i++) {
+<<<<<<< HEAD
 				if (getDB().isSupportsInlineDistinct()) {
 					query.append(_ORDER_BY_ENTITY_ALIAS);
 				}
@@ -2176,6 +2811,9 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 					query.append(_ORDER_BY_ENTITY_TABLE);
 				}
 
+=======
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+>>>>>>> compatible
 				query.append(orderByFields[i]);
 
 				if ((i + 1) < orderByFields.length) {
@@ -2197,23 +2835,35 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			}
 		}
 		else {
+<<<<<<< HEAD
 			if (getDB().isSupportsInlineDistinct()) {
 				query.append(BookmarksFolderModelImpl.ORDER_BY_JPQL);
 			}
 			else {
 				query.append(BookmarksFolderModelImpl.ORDER_BY_SQL);
 			}
+=======
+			query.append(BookmarksFolderModelImpl.ORDER_BY_JPQL);
+>>>>>>> compatible
 		}
 
 		String sql = InlineSQLHelperUtil.replacePermissionCheck(query.toString(),
 				BookmarksFolder.class.getName(),
+<<<<<<< HEAD
 				_FILTER_ENTITY_TABLE_FILTER_PK_COLUMN, groupId);
 
 		SQLQuery q = session.createSynchronizedSQLQuery(sql);
+=======
+				_FILTER_ENTITY_TABLE_FILTER_PK_COLUMN,
+				_FILTER_ENTITY_TABLE_FILTER_USERID_COLUMN, groupId);
+
+		Query q = session.createQuery(sql);
+>>>>>>> compatible
 
 		q.setFirstResult(0);
 		q.setMaxResults(2);
 
+<<<<<<< HEAD
 		if (getDB().isSupportsInlineDistinct()) {
 			q.addEntity(_FILTER_ENTITY_ALIAS, BookmarksFolderImpl.class);
 		}
@@ -2221,6 +2871,8 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			q.addEntity(_FILTER_ENTITY_TABLE, BookmarksFolderImpl.class);
 		}
 
+=======
+>>>>>>> compatible
 		QueryPos qPos = QueryPos.getInstance(q);
 
 		qPos.add(groupId);
@@ -2321,23 +2973,36 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 
 		StringBundler query = new StringBundler(2);
 
+<<<<<<< HEAD
 		query.append(_FILTER_SQL_COUNT_BOOKMARKSFOLDER_WHERE);
+=======
+		query.append(_SQL_COUNT_BOOKMARKSFOLDER_WHERE);
+>>>>>>> compatible
 
 		query.append(_FINDER_COLUMN_GROUPID_GROUPID_2);
 
 		String sql = InlineSQLHelperUtil.replacePermissionCheck(query.toString(),
 				BookmarksFolder.class.getName(),
+<<<<<<< HEAD
 				_FILTER_ENTITY_TABLE_FILTER_PK_COLUMN, groupId);
+=======
+				_FILTER_ENTITY_TABLE_FILTER_PK_COLUMN,
+				_FILTER_ENTITY_TABLE_FILTER_USERID_COLUMN, groupId);
+>>>>>>> compatible
 
 		Session session = null;
 
 		try {
 			session = openSession();
 
+<<<<<<< HEAD
 			SQLQuery q = session.createSynchronizedSQLQuery(sql);
 
 			q.addScalar(COUNT_COLUMN_NAME,
 				com.liferay.portal.kernel.dao.orm.Type.LONG);
+=======
+			Query q = session.createQuery(sql);
+>>>>>>> compatible
 
 			QueryPos qPos = QueryPos.getInstance(q);
 
@@ -2573,7 +3238,11 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		msg.append("companyId=");
 		msg.append(companyId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchFolderException(msg.toString());
 	}
@@ -2624,7 +3293,11 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		msg.append("companyId=");
 		msg.append(companyId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchFolderException(msg.toString());
 	}
@@ -3100,7 +3773,11 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		msg.append(", parentFolderId=");
 		msg.append(parentFolderId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchFolderException(msg.toString());
 	}
@@ -3156,7 +3833,11 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		msg.append(", parentFolderId=");
 		msg.append(parentFolderId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchFolderException(msg.toString());
 	}
@@ -3403,6 +4084,7 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 					(orderByComparator.getOrderByFields().length * 2));
 		}
 		else {
+<<<<<<< HEAD
 			query = new StringBundler(5);
 		}
 
@@ -3412,11 +4094,18 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		else {
 			query.append(_FILTER_SQL_SELECT_BOOKMARKSFOLDER_NO_INLINE_DISTINCT_WHERE_1);
 		}
+=======
+			query = new StringBundler(4);
+		}
+
+		query.append(_SQL_SELECT_BOOKMARKSFOLDER_WHERE);
+>>>>>>> compatible
 
 		query.append(_FINDER_COLUMN_G_P_GROUPID_2);
 
 		query.append(_FINDER_COLUMN_G_P_PARENTFOLDERID_2);
 
+<<<<<<< HEAD
 		if (!getDB().isSupportsInlineDistinct()) {
 			query.append(_FILTER_SQL_SELECT_BOOKMARKSFOLDER_NO_INLINE_DISTINCT_WHERE_2);
 		}
@@ -3438,17 +4127,31 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			else {
 				query.append(BookmarksFolderModelImpl.ORDER_BY_SQL);
 			}
+=======
+		if (orderByComparator != null) {
+			appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
+				orderByComparator);
+		}
+		else {
+			query.append(BookmarksFolderModelImpl.ORDER_BY_JPQL);
+>>>>>>> compatible
 		}
 
 		String sql = InlineSQLHelperUtil.replacePermissionCheck(query.toString(),
 				BookmarksFolder.class.getName(),
+<<<<<<< HEAD
 				_FILTER_ENTITY_TABLE_FILTER_PK_COLUMN, groupId);
+=======
+				_FILTER_ENTITY_TABLE_FILTER_PK_COLUMN,
+				_FILTER_ENTITY_TABLE_FILTER_USERID_COLUMN, groupId);
+>>>>>>> compatible
 
 		Session session = null;
 
 		try {
 			session = openSession();
 
+<<<<<<< HEAD
 			SQLQuery q = session.createSynchronizedSQLQuery(sql);
 
 			if (getDB().isSupportsInlineDistinct()) {
@@ -3457,6 +4160,9 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			else {
 				q.addEntity(_FILTER_ENTITY_TABLE, BookmarksFolderImpl.class);
 			}
+=======
+			Query q = session.createQuery(sql);
+>>>>>>> compatible
 
 			QueryPos qPos = QueryPos.getInstance(q);
 
@@ -3528,11 +4234,16 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		StringBundler query = null;
 
 		if (orderByComparator != null) {
+<<<<<<< HEAD
 			query = new StringBundler(6 +
+=======
+			query = new StringBundler(5 +
+>>>>>>> compatible
 					(orderByComparator.getOrderByConditionFields().length * 3) +
 					(orderByComparator.getOrderByFields().length * 3));
 		}
 		else {
+<<<<<<< HEAD
 			query = new StringBundler(5);
 		}
 
@@ -3542,15 +4253,24 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		else {
 			query.append(_FILTER_SQL_SELECT_BOOKMARKSFOLDER_NO_INLINE_DISTINCT_WHERE_1);
 		}
+=======
+			query = new StringBundler(4);
+		}
+
+		query.append(_SQL_SELECT_BOOKMARKSFOLDER_WHERE);
+>>>>>>> compatible
 
 		query.append(_FINDER_COLUMN_G_P_GROUPID_2);
 
 		query.append(_FINDER_COLUMN_G_P_PARENTFOLDERID_2);
 
+<<<<<<< HEAD
 		if (!getDB().isSupportsInlineDistinct()) {
 			query.append(_FILTER_SQL_SELECT_BOOKMARKSFOLDER_NO_INLINE_DISTINCT_WHERE_2);
 		}
 
+=======
+>>>>>>> compatible
 		if (orderByComparator != null) {
 			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
 
@@ -3559,6 +4279,7 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			}
 
 			for (int i = 0; i < orderByConditionFields.length; i++) {
+<<<<<<< HEAD
 				if (getDB().isSupportsInlineDistinct()) {
 					query.append(_ORDER_BY_ENTITY_ALIAS);
 				}
@@ -3566,6 +4287,9 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 					query.append(_ORDER_BY_ENTITY_TABLE);
 				}
 
+=======
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+>>>>>>> compatible
 				query.append(orderByConditionFields[i]);
 
 				if ((i + 1) < orderByConditionFields.length) {
@@ -3591,6 +4315,7 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			String[] orderByFields = orderByComparator.getOrderByFields();
 
 			for (int i = 0; i < orderByFields.length; i++) {
+<<<<<<< HEAD
 				if (getDB().isSupportsInlineDistinct()) {
 					query.append(_ORDER_BY_ENTITY_ALIAS);
 				}
@@ -3598,6 +4323,9 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 					query.append(_ORDER_BY_ENTITY_TABLE);
 				}
 
+=======
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+>>>>>>> compatible
 				query.append(orderByFields[i]);
 
 				if ((i + 1) < orderByFields.length) {
@@ -3619,23 +4347,35 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			}
 		}
 		else {
+<<<<<<< HEAD
 			if (getDB().isSupportsInlineDistinct()) {
 				query.append(BookmarksFolderModelImpl.ORDER_BY_JPQL);
 			}
 			else {
 				query.append(BookmarksFolderModelImpl.ORDER_BY_SQL);
 			}
+=======
+			query.append(BookmarksFolderModelImpl.ORDER_BY_JPQL);
+>>>>>>> compatible
 		}
 
 		String sql = InlineSQLHelperUtil.replacePermissionCheck(query.toString(),
 				BookmarksFolder.class.getName(),
+<<<<<<< HEAD
 				_FILTER_ENTITY_TABLE_FILTER_PK_COLUMN, groupId);
 
 		SQLQuery q = session.createSynchronizedSQLQuery(sql);
+=======
+				_FILTER_ENTITY_TABLE_FILTER_PK_COLUMN,
+				_FILTER_ENTITY_TABLE_FILTER_USERID_COLUMN, groupId);
+
+		Query q = session.createQuery(sql);
+>>>>>>> compatible
 
 		q.setFirstResult(0);
 		q.setMaxResults(2);
 
+<<<<<<< HEAD
 		if (getDB().isSupportsInlineDistinct()) {
 			q.addEntity(_FILTER_ENTITY_ALIAS, BookmarksFolderImpl.class);
 		}
@@ -3643,6 +4383,8 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			q.addEntity(_FILTER_ENTITY_TABLE, BookmarksFolderImpl.class);
 		}
 
+=======
+>>>>>>> compatible
 		QueryPos qPos = QueryPos.getInstance(q);
 
 		qPos.add(groupId);
@@ -3752,7 +4494,11 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 
 		StringBundler query = new StringBundler(3);
 
+<<<<<<< HEAD
 		query.append(_FILTER_SQL_COUNT_BOOKMARKSFOLDER_WHERE);
+=======
+		query.append(_SQL_COUNT_BOOKMARKSFOLDER_WHERE);
+>>>>>>> compatible
 
 		query.append(_FINDER_COLUMN_G_P_GROUPID_2);
 
@@ -3760,17 +4506,26 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 
 		String sql = InlineSQLHelperUtil.replacePermissionCheck(query.toString(),
 				BookmarksFolder.class.getName(),
+<<<<<<< HEAD
 				_FILTER_ENTITY_TABLE_FILTER_PK_COLUMN, groupId);
+=======
+				_FILTER_ENTITY_TABLE_FILTER_PK_COLUMN,
+				_FILTER_ENTITY_TABLE_FILTER_USERID_COLUMN, groupId);
+>>>>>>> compatible
 
 		Session session = null;
 
 		try {
 			session = openSession();
 
+<<<<<<< HEAD
 			SQLQuery q = session.createSynchronizedSQLQuery(sql);
 
 			q.addScalar(COUNT_COLUMN_NAME,
 				com.liferay.portal.kernel.dao.orm.Type.LONG);
+=======
+			Query q = session.createQuery(sql);
+>>>>>>> compatible
 
 			QueryPos qPos = QueryPos.getInstance(q);
 
@@ -4010,7 +4765,11 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchFolderException(msg.toString());
 	}
@@ -4066,7 +4825,11 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchFolderException(msg.toString());
 	}
@@ -4579,7 +5342,11 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchFolderException(msg.toString());
 	}
@@ -4641,7 +5408,11 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchFolderException(msg.toString());
 	}
@@ -4899,6 +5670,7 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 					(orderByComparator.getOrderByFields().length * 2));
 		}
 		else {
+<<<<<<< HEAD
 			query = new StringBundler(6);
 		}
 
@@ -4908,6 +5680,12 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		else {
 			query.append(_FILTER_SQL_SELECT_BOOKMARKSFOLDER_NO_INLINE_DISTINCT_WHERE_1);
 		}
+=======
+			query = new StringBundler(5);
+		}
+
+		query.append(_SQL_SELECT_BOOKMARKSFOLDER_WHERE);
+>>>>>>> compatible
 
 		query.append(_FINDER_COLUMN_G_P_S_GROUPID_2);
 
@@ -4915,6 +5693,7 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 
 		query.append(_FINDER_COLUMN_G_P_S_STATUS_2);
 
+<<<<<<< HEAD
 		if (!getDB().isSupportsInlineDistinct()) {
 			query.append(_FILTER_SQL_SELECT_BOOKMARKSFOLDER_NO_INLINE_DISTINCT_WHERE_2);
 		}
@@ -4936,17 +5715,31 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			else {
 				query.append(BookmarksFolderModelImpl.ORDER_BY_SQL);
 			}
+=======
+		if (orderByComparator != null) {
+			appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
+				orderByComparator);
+		}
+		else {
+			query.append(BookmarksFolderModelImpl.ORDER_BY_JPQL);
+>>>>>>> compatible
 		}
 
 		String sql = InlineSQLHelperUtil.replacePermissionCheck(query.toString(),
 				BookmarksFolder.class.getName(),
+<<<<<<< HEAD
 				_FILTER_ENTITY_TABLE_FILTER_PK_COLUMN, groupId);
+=======
+				_FILTER_ENTITY_TABLE_FILTER_PK_COLUMN,
+				_FILTER_ENTITY_TABLE_FILTER_USERID_COLUMN, groupId);
+>>>>>>> compatible
 
 		Session session = null;
 
 		try {
 			session = openSession();
 
+<<<<<<< HEAD
 			SQLQuery q = session.createSynchronizedSQLQuery(sql);
 
 			if (getDB().isSupportsInlineDistinct()) {
@@ -4955,6 +5748,9 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			else {
 				q.addEntity(_FILTER_ENTITY_TABLE, BookmarksFolderImpl.class);
 			}
+=======
+			Query q = session.createQuery(sql);
+>>>>>>> compatible
 
 			QueryPos qPos = QueryPos.getInstance(q);
 
@@ -5030,11 +5826,16 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		StringBundler query = null;
 
 		if (orderByComparator != null) {
+<<<<<<< HEAD
 			query = new StringBundler(7 +
+=======
+			query = new StringBundler(6 +
+>>>>>>> compatible
 					(orderByComparator.getOrderByConditionFields().length * 3) +
 					(orderByComparator.getOrderByFields().length * 3));
 		}
 		else {
+<<<<<<< HEAD
 			query = new StringBundler(6);
 		}
 
@@ -5044,6 +5845,12 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		else {
 			query.append(_FILTER_SQL_SELECT_BOOKMARKSFOLDER_NO_INLINE_DISTINCT_WHERE_1);
 		}
+=======
+			query = new StringBundler(5);
+		}
+
+		query.append(_SQL_SELECT_BOOKMARKSFOLDER_WHERE);
+>>>>>>> compatible
 
 		query.append(_FINDER_COLUMN_G_P_S_GROUPID_2);
 
@@ -5051,10 +5858,13 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 
 		query.append(_FINDER_COLUMN_G_P_S_STATUS_2);
 
+<<<<<<< HEAD
 		if (!getDB().isSupportsInlineDistinct()) {
 			query.append(_FILTER_SQL_SELECT_BOOKMARKSFOLDER_NO_INLINE_DISTINCT_WHERE_2);
 		}
 
+=======
+>>>>>>> compatible
 		if (orderByComparator != null) {
 			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
 
@@ -5063,6 +5873,7 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			}
 
 			for (int i = 0; i < orderByConditionFields.length; i++) {
+<<<<<<< HEAD
 				if (getDB().isSupportsInlineDistinct()) {
 					query.append(_ORDER_BY_ENTITY_ALIAS);
 				}
@@ -5070,6 +5881,9 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 					query.append(_ORDER_BY_ENTITY_TABLE);
 				}
 
+=======
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+>>>>>>> compatible
 				query.append(orderByConditionFields[i]);
 
 				if ((i + 1) < orderByConditionFields.length) {
@@ -5095,6 +5909,7 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			String[] orderByFields = orderByComparator.getOrderByFields();
 
 			for (int i = 0; i < orderByFields.length; i++) {
+<<<<<<< HEAD
 				if (getDB().isSupportsInlineDistinct()) {
 					query.append(_ORDER_BY_ENTITY_ALIAS);
 				}
@@ -5102,6 +5917,9 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 					query.append(_ORDER_BY_ENTITY_TABLE);
 				}
 
+=======
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+>>>>>>> compatible
 				query.append(orderByFields[i]);
 
 				if ((i + 1) < orderByFields.length) {
@@ -5123,23 +5941,35 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			}
 		}
 		else {
+<<<<<<< HEAD
 			if (getDB().isSupportsInlineDistinct()) {
 				query.append(BookmarksFolderModelImpl.ORDER_BY_JPQL);
 			}
 			else {
 				query.append(BookmarksFolderModelImpl.ORDER_BY_SQL);
 			}
+=======
+			query.append(BookmarksFolderModelImpl.ORDER_BY_JPQL);
+>>>>>>> compatible
 		}
 
 		String sql = InlineSQLHelperUtil.replacePermissionCheck(query.toString(),
 				BookmarksFolder.class.getName(),
+<<<<<<< HEAD
 				_FILTER_ENTITY_TABLE_FILTER_PK_COLUMN, groupId);
 
 		SQLQuery q = session.createSynchronizedSQLQuery(sql);
+=======
+				_FILTER_ENTITY_TABLE_FILTER_PK_COLUMN,
+				_FILTER_ENTITY_TABLE_FILTER_USERID_COLUMN, groupId);
+
+		Query q = session.createQuery(sql);
+>>>>>>> compatible
 
 		q.setFirstResult(0);
 		q.setMaxResults(2);
 
+<<<<<<< HEAD
 		if (getDB().isSupportsInlineDistinct()) {
 			q.addEntity(_FILTER_ENTITY_ALIAS, BookmarksFolderImpl.class);
 		}
@@ -5147,6 +5977,8 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			q.addEntity(_FILTER_ENTITY_TABLE, BookmarksFolderImpl.class);
 		}
 
+=======
+>>>>>>> compatible
 		QueryPos qPos = QueryPos.getInstance(q);
 
 		qPos.add(groupId);
@@ -5266,7 +6098,11 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 
 		StringBundler query = new StringBundler(4);
 
+<<<<<<< HEAD
 		query.append(_FILTER_SQL_COUNT_BOOKMARKSFOLDER_WHERE);
+=======
+		query.append(_SQL_COUNT_BOOKMARKSFOLDER_WHERE);
+>>>>>>> compatible
 
 		query.append(_FINDER_COLUMN_G_P_S_GROUPID_2);
 
@@ -5276,17 +6112,26 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 
 		String sql = InlineSQLHelperUtil.replacePermissionCheck(query.toString(),
 				BookmarksFolder.class.getName(),
+<<<<<<< HEAD
 				_FILTER_ENTITY_TABLE_FILTER_PK_COLUMN, groupId);
+=======
+				_FILTER_ENTITY_TABLE_FILTER_PK_COLUMN,
+				_FILTER_ENTITY_TABLE_FILTER_USERID_COLUMN, groupId);
+>>>>>>> compatible
 
 		Session session = null;
 
 		try {
 			session = openSession();
 
+<<<<<<< HEAD
 			SQLQuery q = session.createSynchronizedSQLQuery(sql);
 
 			q.addScalar(COUNT_COLUMN_NAME,
 				com.liferay.portal.kernel.dao.orm.Type.LONG);
+=======
+			Query q = session.createQuery(sql);
+>>>>>>> compatible
 
 			QueryPos qPos = QueryPos.getInstance(q);
 
@@ -5550,7 +6395,11 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchFolderException(msg.toString());
 	}
@@ -5613,7 +6462,11 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchFolderException(msg.toString());
 	}
@@ -5872,6 +6725,7 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 					(orderByComparator.getOrderByFields().length * 2));
 		}
 		else {
+<<<<<<< HEAD
 			query = new StringBundler(6);
 		}
 
@@ -5881,6 +6735,12 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		else {
 			query.append(_FILTER_SQL_SELECT_BOOKMARKSFOLDER_NO_INLINE_DISTINCT_WHERE_1);
 		}
+=======
+			query = new StringBundler(5);
+		}
+
+		query.append(_SQL_SELECT_BOOKMARKSFOLDER_WHERE);
+>>>>>>> compatible
 
 		query.append(_FINDER_COLUMN_G_P_NOTS_GROUPID_2);
 
@@ -5888,6 +6748,7 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 
 		query.append(_FINDER_COLUMN_G_P_NOTS_STATUS_2);
 
+<<<<<<< HEAD
 		if (!getDB().isSupportsInlineDistinct()) {
 			query.append(_FILTER_SQL_SELECT_BOOKMARKSFOLDER_NO_INLINE_DISTINCT_WHERE_2);
 		}
@@ -5909,17 +6770,31 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			else {
 				query.append(BookmarksFolderModelImpl.ORDER_BY_SQL);
 			}
+=======
+		if (orderByComparator != null) {
+			appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
+				orderByComparator);
+		}
+		else {
+			query.append(BookmarksFolderModelImpl.ORDER_BY_JPQL);
+>>>>>>> compatible
 		}
 
 		String sql = InlineSQLHelperUtil.replacePermissionCheck(query.toString(),
 				BookmarksFolder.class.getName(),
+<<<<<<< HEAD
 				_FILTER_ENTITY_TABLE_FILTER_PK_COLUMN, groupId);
+=======
+				_FILTER_ENTITY_TABLE_FILTER_PK_COLUMN,
+				_FILTER_ENTITY_TABLE_FILTER_USERID_COLUMN, groupId);
+>>>>>>> compatible
 
 		Session session = null;
 
 		try {
 			session = openSession();
 
+<<<<<<< HEAD
 			SQLQuery q = session.createSynchronizedSQLQuery(sql);
 
 			if (getDB().isSupportsInlineDistinct()) {
@@ -5928,6 +6803,9 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			else {
 				q.addEntity(_FILTER_ENTITY_TABLE, BookmarksFolderImpl.class);
 			}
+=======
+			Query q = session.createQuery(sql);
+>>>>>>> compatible
 
 			QueryPos qPos = QueryPos.getInstance(q);
 
@@ -6005,11 +6883,16 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		StringBundler query = null;
 
 		if (orderByComparator != null) {
+<<<<<<< HEAD
 			query = new StringBundler(7 +
+=======
+			query = new StringBundler(6 +
+>>>>>>> compatible
 					(orderByComparator.getOrderByConditionFields().length * 3) +
 					(orderByComparator.getOrderByFields().length * 3));
 		}
 		else {
+<<<<<<< HEAD
 			query = new StringBundler(6);
 		}
 
@@ -6019,6 +6902,12 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		else {
 			query.append(_FILTER_SQL_SELECT_BOOKMARKSFOLDER_NO_INLINE_DISTINCT_WHERE_1);
 		}
+=======
+			query = new StringBundler(5);
+		}
+
+		query.append(_SQL_SELECT_BOOKMARKSFOLDER_WHERE);
+>>>>>>> compatible
 
 		query.append(_FINDER_COLUMN_G_P_NOTS_GROUPID_2);
 
@@ -6026,10 +6915,13 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 
 		query.append(_FINDER_COLUMN_G_P_NOTS_STATUS_2);
 
+<<<<<<< HEAD
 		if (!getDB().isSupportsInlineDistinct()) {
 			query.append(_FILTER_SQL_SELECT_BOOKMARKSFOLDER_NO_INLINE_DISTINCT_WHERE_2);
 		}
 
+=======
+>>>>>>> compatible
 		if (orderByComparator != null) {
 			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
 
@@ -6038,6 +6930,7 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			}
 
 			for (int i = 0; i < orderByConditionFields.length; i++) {
+<<<<<<< HEAD
 				if (getDB().isSupportsInlineDistinct()) {
 					query.append(_ORDER_BY_ENTITY_ALIAS);
 				}
@@ -6045,6 +6938,9 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 					query.append(_ORDER_BY_ENTITY_TABLE);
 				}
 
+=======
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+>>>>>>> compatible
 				query.append(orderByConditionFields[i]);
 
 				if ((i + 1) < orderByConditionFields.length) {
@@ -6070,6 +6966,7 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			String[] orderByFields = orderByComparator.getOrderByFields();
 
 			for (int i = 0; i < orderByFields.length; i++) {
+<<<<<<< HEAD
 				if (getDB().isSupportsInlineDistinct()) {
 					query.append(_ORDER_BY_ENTITY_ALIAS);
 				}
@@ -6077,6 +6974,9 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 					query.append(_ORDER_BY_ENTITY_TABLE);
 				}
 
+=======
+				query.append(_ORDER_BY_ENTITY_ALIAS);
+>>>>>>> compatible
 				query.append(orderByFields[i]);
 
 				if ((i + 1) < orderByFields.length) {
@@ -6098,23 +6998,35 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			}
 		}
 		else {
+<<<<<<< HEAD
 			if (getDB().isSupportsInlineDistinct()) {
 				query.append(BookmarksFolderModelImpl.ORDER_BY_JPQL);
 			}
 			else {
 				query.append(BookmarksFolderModelImpl.ORDER_BY_SQL);
 			}
+=======
+			query.append(BookmarksFolderModelImpl.ORDER_BY_JPQL);
+>>>>>>> compatible
 		}
 
 		String sql = InlineSQLHelperUtil.replacePermissionCheck(query.toString(),
 				BookmarksFolder.class.getName(),
+<<<<<<< HEAD
 				_FILTER_ENTITY_TABLE_FILTER_PK_COLUMN, groupId);
 
 		SQLQuery q = session.createSynchronizedSQLQuery(sql);
+=======
+				_FILTER_ENTITY_TABLE_FILTER_PK_COLUMN,
+				_FILTER_ENTITY_TABLE_FILTER_USERID_COLUMN, groupId);
+
+		Query q = session.createQuery(sql);
+>>>>>>> compatible
 
 		q.setFirstResult(0);
 		q.setMaxResults(2);
 
+<<<<<<< HEAD
 		if (getDB().isSupportsInlineDistinct()) {
 			q.addEntity(_FILTER_ENTITY_ALIAS, BookmarksFolderImpl.class);
 		}
@@ -6122,6 +7034,8 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 			q.addEntity(_FILTER_ENTITY_TABLE, BookmarksFolderImpl.class);
 		}
 
+=======
+>>>>>>> compatible
 		QueryPos qPos = QueryPos.getInstance(q);
 
 		qPos.add(groupId);
@@ -6242,7 +7156,11 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 
 		StringBundler query = new StringBundler(4);
 
+<<<<<<< HEAD
 		query.append(_FILTER_SQL_COUNT_BOOKMARKSFOLDER_WHERE);
+=======
+		query.append(_SQL_COUNT_BOOKMARKSFOLDER_WHERE);
+>>>>>>> compatible
 
 		query.append(_FINDER_COLUMN_G_P_NOTS_GROUPID_2);
 
@@ -6252,17 +7170,26 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 
 		String sql = InlineSQLHelperUtil.replacePermissionCheck(query.toString(),
 				BookmarksFolder.class.getName(),
+<<<<<<< HEAD
 				_FILTER_ENTITY_TABLE_FILTER_PK_COLUMN, groupId);
+=======
+				_FILTER_ENTITY_TABLE_FILTER_PK_COLUMN,
+				_FILTER_ENTITY_TABLE_FILTER_USERID_COLUMN, groupId);
+>>>>>>> compatible
 
 		Session session = null;
 
 		try {
 			session = openSession();
 
+<<<<<<< HEAD
 			SQLQuery q = session.createSynchronizedSQLQuery(sql);
 
 			q.addScalar(COUNT_COLUMN_NAME,
 				com.liferay.portal.kernel.dao.orm.Type.LONG);
+=======
+			Query q = session.createQuery(sql);
+>>>>>>> compatible
 
 			QueryPos qPos = QueryPos.getInstance(q);
 
@@ -6541,7 +7468,11 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchFolderException(msg.toString());
 	}
@@ -6609,7 +7540,11 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchFolderException(msg.toString());
 	}
@@ -6741,11 +7676,17 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		setModelClass(BookmarksFolder.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("uuid", "uuid_");
@@ -7053,7 +7994,19 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		}
 		else
 		 if (isNew) {
+<<<<<<< HEAD
 			Object[] args = new Object[] { bookmarksFolderModelImpl.getUuid() };
+=======
+			Object[] args = new Object[] {
+					bookmarksFolderModelImpl.getResourceBlockId()
+				};
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_RESOURCEBLOCKID, args);
+			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_RESOURCEBLOCKID,
+				args);
+
+			args = new Object[] { bookmarksFolderModelImpl.getUuid() };
+>>>>>>> compatible
 
 			finderCache.removeResult(FINDER_PATH_COUNT_BY_UUID, args);
 			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_UUID,
@@ -7106,6 +8059,30 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 
 		else {
 			if ((bookmarksFolderModelImpl.getColumnBitmask() &
+<<<<<<< HEAD
+=======
+					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_RESOURCEBLOCKID.getColumnBitmask()) != 0) {
+				Object[] args = new Object[] {
+						bookmarksFolderModelImpl.getOriginalResourceBlockId()
+					};
+
+				finderCache.removeResult(FINDER_PATH_COUNT_BY_RESOURCEBLOCKID,
+					args);
+				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_RESOURCEBLOCKID,
+					args);
+
+				args = new Object[] {
+						bookmarksFolderModelImpl.getResourceBlockId()
+					};
+
+				finderCache.removeResult(FINDER_PATH_COUNT_BY_RESOURCEBLOCKID,
+					args);
+				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_RESOURCEBLOCKID,
+					args);
+			}
+
+			if ((bookmarksFolderModelImpl.getColumnBitmask() &
+>>>>>>> compatible
 					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_UUID.getColumnBitmask()) != 0) {
 				Object[] args = new Object[] {
 						bookmarksFolderModelImpl.getOriginalUuid()
@@ -7252,6 +8229,10 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		bookmarksFolderImpl.setUserName(bookmarksFolder.getUserName());
 		bookmarksFolderImpl.setCreateDate(bookmarksFolder.getCreateDate());
 		bookmarksFolderImpl.setModifiedDate(bookmarksFolder.getModifiedDate());
+<<<<<<< HEAD
+=======
+		bookmarksFolderImpl.setResourceBlockId(bookmarksFolder.getResourceBlockId());
+>>>>>>> compatible
 		bookmarksFolderImpl.setParentFolderId(bookmarksFolder.getParentFolderId());
 		bookmarksFolderImpl.setTreePath(bookmarksFolder.getTreePath());
 		bookmarksFolderImpl.setName(bookmarksFolder.getName());
@@ -7416,12 +8397,20 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 		for (Serializable primaryKey : uncachedPrimaryKeys) {
 			query.append((long)primaryKey);
 
+<<<<<<< HEAD
 			query.append(",");
+=======
+			query.append(StringPool.COMMA);
+>>>>>>> compatible
 		}
 
 		query.setIndex(query.index() - 1);
 
+<<<<<<< HEAD
 		query.append(")");
+=======
+		query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 		String sql = query.toString();
 
@@ -7681,6 +8670,7 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 	private static final String _SQL_COUNT_BOOKMARKSFOLDER = "SELECT COUNT(bookmarksFolder) FROM BookmarksFolder bookmarksFolder";
 	private static final String _SQL_COUNT_BOOKMARKSFOLDER_WHERE = "SELECT COUNT(bookmarksFolder) FROM BookmarksFolder bookmarksFolder WHERE ";
 	private static final String _FILTER_ENTITY_TABLE_FILTER_PK_COLUMN = "bookmarksFolder.folderId";
+<<<<<<< HEAD
 	private static final String _FILTER_SQL_SELECT_BOOKMARKSFOLDER_WHERE = "SELECT DISTINCT {bookmarksFolder.*} FROM BookmarksFolder bookmarksFolder WHERE ";
 	private static final String _FILTER_SQL_SELECT_BOOKMARKSFOLDER_NO_INLINE_DISTINCT_WHERE_1 =
 		"SELECT {BookmarksFolder.*} FROM (SELECT DISTINCT bookmarksFolder.folderId FROM BookmarksFolder bookmarksFolder WHERE ";
@@ -7691,6 +8681,10 @@ public class BookmarksFolderPersistenceImpl extends BasePersistenceImpl<Bookmark
 	private static final String _FILTER_ENTITY_TABLE = "BookmarksFolder";
 	private static final String _ORDER_BY_ENTITY_ALIAS = "bookmarksFolder.";
 	private static final String _ORDER_BY_ENTITY_TABLE = "BookmarksFolder.";
+=======
+	private static final String _FILTER_ENTITY_TABLE_FILTER_USERID_COLUMN = "bookmarksFolder.userId";
+	private static final String _ORDER_BY_ENTITY_ALIAS = "bookmarksFolder.";
+>>>>>>> compatible
 	private static final String _NO_SUCH_ENTITY_WITH_PRIMARY_KEY = "No BookmarksFolder exists with the primary key ";
 	private static final String _NO_SUCH_ENTITY_WITH_KEY = "No BookmarksFolder exists with the key {";
 	private static final Log _log = LogFactoryUtil.getLog(BookmarksFolderPersistenceImpl.class);

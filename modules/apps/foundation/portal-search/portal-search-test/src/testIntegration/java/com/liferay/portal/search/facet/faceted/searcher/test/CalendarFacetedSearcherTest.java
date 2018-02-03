@@ -22,7 +22,10 @@ import com.liferay.calendar.model.CalendarResource;
 import com.liferay.calendar.service.CalendarBookingLocalService;
 import com.liferay.calendar.service.CalendarLocalService;
 import com.liferay.calendar.util.CalendarResourceUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.search.Field;
@@ -34,9 +37,18 @@ import com.liferay.portal.kernel.security.permission.PermissionCheckerFactory;
 import com.liferay.portal.kernel.security.permission.PermissionThreadLocal;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.util.DateUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
+=======
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+import com.liferay.portal.kernel.test.util.RandomTestUtil;
+import com.liferay.portal.kernel.util.DateUtil;
+import com.liferay.portal.kernel.util.LocaleUtil;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.test.rule.Inject;
@@ -58,12 +70,22 @@ import org.junit.runner.RunWith;
  * @author André de Oliveira
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class CalendarFacetedSearcherTest extends BaseFacetedSearcherTestCase {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Before
 	@Override
@@ -143,7 +165,11 @@ public class CalendarFacetedSearcherTest extends BaseFacetedSearcherTestCase {
 
 		calendarBookingLocalService.addCalendarBooking(
 			user.getUserId(), calendar.getCalendarId(), new long[0],
+<<<<<<< HEAD
 			CalendarBookingConstants.PARENT_CALENDAR_BOOKING_ID_DEFAULT, 0,
+=======
+			CalendarBookingConstants.PARENT_CALENDAR_BOOKING_ID_DEFAULT,
+>>>>>>> compatible
 			Collections.singletonMap(LocaleUtil.US, title), hashMap, null,
 			startTime, endTime, false, null, 0, "email", 0, "email",
 			serviceContext);

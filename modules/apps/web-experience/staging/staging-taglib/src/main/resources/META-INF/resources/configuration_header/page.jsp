@@ -17,6 +17,7 @@
 <%@ include file="/configuration_header/init.jsp" %>
 
 <aui:fieldset cssClass="options-group" label="<%= label %>" markupView="lexicon">
+<<<<<<< HEAD
 	<aui:model-context bean="<%= exportImportConfiguration %>" model="<%= ExportImportConfiguration.class %>" />
 
 	<aui:input name="nameRequired" type="hidden" value="1" />
@@ -30,4 +31,31 @@
 	</aui:input>
 
 	<aui:input label="description" name="description" />
+=======
+	<c:choose>
+		<c:when test='<%= SessionMessages.contains(liferayPortletRequest, portletDisplay.getId() + "name") %>'>
+			<aui:model-context bean="<%= null %>" model="<%= ExportImportConfiguration.class %>" />
+
+			<%
+			String name = (String)SessionMessages.get(liferayPortletRequest, portletDisplay.getId() + "name");
+			String description = (String)SessionMessages.get(liferayPortletRequest, portletDisplay.getId() + "description");
+			%>
+
+			<aui:input label="title" name="name" showRequiredLabel="<%= true %>" value="<%= HtmlUtil.escape(name) %>">
+				<aui:validator name="required" />
+			</aui:input>
+
+			<aui:input label="description" name="description" value="<%= HtmlUtil.escape(description) %>" />
+		</c:when>
+		<c:otherwise>
+			<aui:model-context bean="<%= exportImportConfiguration %>" model="<%= ExportImportConfiguration.class %>" />
+
+			<aui:input label="title" name="name" showRequiredLabel="<%= true %>">
+				<aui:validator name="required" />
+			</aui:input>
+
+			<aui:input label="description" name="description" />
+		</c:otherwise>
+	</c:choose>
+>>>>>>> compatible
 </aui:fieldset>

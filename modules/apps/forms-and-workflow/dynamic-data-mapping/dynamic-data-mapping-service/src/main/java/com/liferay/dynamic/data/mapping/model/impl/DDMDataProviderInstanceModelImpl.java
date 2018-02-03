@@ -40,6 +40,10 @@ import com.liferay.portal.kernel.util.LocalizationUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 
 import java.io.Serializable;
@@ -320,7 +324,11 @@ public class DDMDataProviderInstanceModelImpl extends BaseModelImpl<DDMDataProvi
 	@Override
 	public String getUuid() {
 		if (_uuid == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _uuid;
@@ -416,7 +424,11 @@ public class DDMDataProviderInstanceModelImpl extends BaseModelImpl<DDMDataProvi
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -428,7 +440,11 @@ public class DDMDataProviderInstanceModelImpl extends BaseModelImpl<DDMDataProvi
 	@Override
 	public String getUserName() {
 		if (_userName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _userName;
@@ -472,7 +488,11 @@ public class DDMDataProviderInstanceModelImpl extends BaseModelImpl<DDMDataProvi
 	@Override
 	public String getName() {
 		if (_name == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _name;
@@ -571,7 +591,11 @@ public class DDMDataProviderInstanceModelImpl extends BaseModelImpl<DDMDataProvi
 	@Override
 	public String getDescription() {
 		if (_description == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _description;
@@ -674,7 +698,11 @@ public class DDMDataProviderInstanceModelImpl extends BaseModelImpl<DDMDataProvi
 	@Override
 	public String getDefinition() {
 		if (_definition == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _definition;
@@ -690,7 +718,11 @@ public class DDMDataProviderInstanceModelImpl extends BaseModelImpl<DDMDataProvi
 	@Override
 	public String getType() {
 		if (_type == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _type;
@@ -759,7 +791,11 @@ public class DDMDataProviderInstanceModelImpl extends BaseModelImpl<DDMDataProvi
 		String xml = getName();
 
 		if (xml == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 
 		Locale defaultLocale = LocaleUtil.getSiteDefault();

@@ -14,12 +14,16 @@
 
 package com.liferay.portal.lar.test;
 
+<<<<<<< HEAD
 import com.liferay.exportimport.kernel.lar.DataLevel;
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.lar.ManifestSummary;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.exportimport.kernel.lar.PortletDataContextFactoryUtil;
 import com.liferay.exportimport.kernel.lar.PortletDataHandler;
 import com.liferay.exportimport.kernel.lar.PortletDataHandlerBoolean;
+<<<<<<< HEAD
 import com.liferay.exportimport.kernel.lar.PortletDataHandlerControl;
 import com.liferay.exportimport.kernel.lar.PortletDataHandlerKeys;
 import com.liferay.exportimport.kernel.lar.StagedModelType;
@@ -41,12 +45,24 @@ import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.Node;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
 import com.liferay.portal.kernel.zip.ZipReaderFactoryUtil;
+=======
+import com.liferay.exportimport.kernel.lar.StagedModelType;
+import com.liferay.portal.kernel.model.Group;
+import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+import com.liferay.portal.kernel.test.util.GroupTestUtil;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.util.Time;
+import com.liferay.portal.kernel.xml.Element;
+import com.liferay.portal.kernel.xml.SAXReaderUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.zip.ZipWriter;
 import com.liferay.portal.kernel.zip.ZipWriterFactoryUtil;
 import com.liferay.portlet.PortletPreferencesImpl;
 import com.liferay.registry.Registry;
 import com.liferay.registry.RegistryUtil;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -59,6 +75,13 @@ import java.util.Objects;
 import java.util.Set;
 
 import javax.portlet.PortletPreferences;
+=======
+import java.util.Collection;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+>>>>>>> compatible
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -66,7 +89,10 @@ import org.junit.Test;
 
 /**
  * @author Zsolt Berentey
+<<<<<<< HEAD
  * @author Zoltan Csaszi
+=======
+>>>>>>> compatible
  */
 public abstract class BasePortletDataHandlerTestCase {
 
@@ -80,6 +106,7 @@ public abstract class BasePortletDataHandlerTestCase {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testAddDefaultData() throws Exception {
 		initContext();
 
@@ -422,6 +449,10 @@ public abstract class BasePortletDataHandlerTestCase {
 	@Test
 	public void testPrepareManifestSummary() throws Exception {
 		initContext();
+=======
+	public void testPrepareManifestSummary() throws Exception {
+		initExport();
+>>>>>>> compatible
 
 		addStagedModels();
 
@@ -443,12 +474,15 @@ public abstract class BasePortletDataHandlerTestCase {
 		checkManifestSummary(expectedManifestSummary);
 	}
 
+<<<<<<< HEAD
 	@Test
 	public void testValidateSchemaVersion() throws Exception {
 		Assert.assertTrue(
 			portletDataHandler.validateSchemaVersion(getSchemaVersion()));
 	}
 
+=======
+>>>>>>> compatible
 	protected void addBooleanParameter(
 		Map<String, String[]> parameterMap, String namespace, String name,
 		boolean value) {
@@ -472,7 +506,20 @@ public abstract class BasePortletDataHandlerTestCase {
 		ManifestSummary manifestSummary =
 			portletDataContext.getManifestSummary();
 
+<<<<<<< HEAD
 		checkManifestSummaryReferrerClassNames(manifestSummary);
+=======
+		for (String manifestSummaryKey :
+				manifestSummary.getManifestSummaryKeys()) {
+
+			Assert.assertFalse(
+				manifestSummaryKey.endsWith(
+					StagedModelType.REFERRER_CLASS_NAME_ALL));
+			Assert.assertFalse(
+				manifestSummaryKey.endsWith(
+					StagedModelType.REFERRER_CLASS_NAME_ANY));
+		}
+>>>>>>> compatible
 
 		for (String manifestSummaryKey :
 				expectedManifestSummary.getManifestSummaryKeys()) {
@@ -503,6 +550,7 @@ public abstract class BasePortletDataHandlerTestCase {
 		}
 	}
 
+<<<<<<< HEAD
 	protected void checkManifestSummaryReferrerClassNames(
 		ManifestSummary manifestSummary) {
 
@@ -526,10 +574,13 @@ public abstract class BasePortletDataHandlerTestCase {
 		return StringPool.EMPTY_ARRAY;
 	}
 
+=======
+>>>>>>> compatible
 	protected Date getEndDate() {
 		return new Date();
 	}
 
+<<<<<<< HEAD
 	protected PortletDataHandlerControl[] getExportConfigurationControls(
 		long companyId, long groupId,
 		PortletDataHandlerControl[] portletDataHandlerControls, long plid,
@@ -569,6 +620,8 @@ public abstract class BasePortletDataHandlerTestCase {
 		return new PortletDataHandlerControl[0];
 	}
 
+=======
+>>>>>>> compatible
 	protected PortletDataHandler getPortletDataHandler(String portletId) {
 		try {
 			Registry registry = RegistryUtil.getRegistry();
@@ -590,6 +643,7 @@ public abstract class BasePortletDataHandlerTestCase {
 
 	protected abstract String getPortletId();
 
+<<<<<<< HEAD
 	protected String getSchemaVersion() {
 		return "1.0.0";
 	}
@@ -602,11 +656,17 @@ public abstract class BasePortletDataHandlerTestCase {
 		return new PortletDataHandlerControl[0];
 	}
 
+=======
+>>>>>>> compatible
 	protected Date getStartDate() {
 		return new Date(System.currentTimeMillis() - Time.HOUR);
 	}
 
+<<<<<<< HEAD
 	protected void initContext() throws Exception {
+=======
+	protected void initExport() throws Exception {
+>>>>>>> compatible
 		Map<String, String[]> parameterMap = new LinkedHashMap<>();
 
 		addParameters(parameterMap);
@@ -629,6 +689,7 @@ public abstract class BasePortletDataHandlerTestCase {
 			missingReferencesElement);
 	}
 
+<<<<<<< HEAD
 	protected boolean isDataPortalLevel() {
 		DataLevel dataLevel = getDataLevel();
 
@@ -678,6 +739,8 @@ public abstract class BasePortletDataHandlerTestCase {
 		throws Exception {
 	}
 
+=======
+>>>>>>> compatible
 	protected Element missingReferencesElement;
 	protected PortletDataContext portletDataContext;
 	protected PortletDataHandler portletDataHandler;
@@ -689,6 +752,7 @@ public abstract class BasePortletDataHandlerTestCase {
 
 	protected ZipWriter zipWriter;
 
+<<<<<<< HEAD
 	private void _assertControls(
 			PortletDataHandlerControl[] expectedControls,
 			PortletDataHandlerControl[] actualControls)
@@ -717,4 +781,6 @@ public abstract class BasePortletDataHandlerTestCase {
 		}
 	}
 
+=======
+>>>>>>> compatible
 }

@@ -14,7 +14,10 @@
 
 package com.liferay.dynamic.data.mapping.util;
 
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.internal.util.DDMFormValuesMergerImpl;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.model.DDMForm;
 import com.liferay.dynamic.data.mapping.model.DDMFormField;
 import com.liferay.dynamic.data.mapping.model.LocalizedValue;
@@ -23,6 +26,10 @@ import com.liferay.dynamic.data.mapping.storage.DDMFormFieldValue;
 import com.liferay.dynamic.data.mapping.storage.DDMFormValues;
 import com.liferay.dynamic.data.mapping.test.util.DDMFormTestUtil;
 import com.liferay.dynamic.data.mapping.test.util.DDMFormValuesTestUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.dynamic.data.mapping.util.impl.DDMFormValuesMergerImpl;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 
@@ -202,10 +209,15 @@ public class DDMFormValuesMergerTest {
 			mergedDDMFormFieldValues.size());
 
 		Assert.assertTrue(
+<<<<<<< HEAD
 			mergedDDMFormFieldValues.toString(),
 			mergedDDMFormFieldValues.contains(text1DDMFormFieldValue));
 		Assert.assertTrue(
 			mergedDDMFormFieldValues.toString(),
+=======
+			mergedDDMFormFieldValues.contains(text1DDMFormFieldValue));
+		Assert.assertTrue(
+>>>>>>> compatible
 			mergedDDMFormFieldValues.contains(text2DDMFormFieldValue));
 	}
 

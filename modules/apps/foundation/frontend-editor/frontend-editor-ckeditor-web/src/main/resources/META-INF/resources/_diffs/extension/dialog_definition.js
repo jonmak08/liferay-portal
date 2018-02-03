@@ -18,8 +18,13 @@ CKEDITOR.on(
 
 					var dialogSize = this.getSize();
 
+<<<<<<< HEAD
 					var x = documentPosition.x + ((editorElement.getSize('width', true) - dialogSize.width) / 2 - window.scrollX);
 					var y = documentPosition.y + ((editorElement.getSize('height', true) - dialogSize.height) / 2 - window.scrollY);
+=======
+					var x = documentPosition.x + ((editorElement.getSize('width', true) - dialogSize.width) / 2);
+					var y = documentPosition.y + ((editorElement.getSize('height', true) - dialogSize.height) / 2);
+>>>>>>> compatible
 
 					this.move(x, y, false);
 				}

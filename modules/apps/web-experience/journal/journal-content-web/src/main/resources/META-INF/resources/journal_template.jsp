@@ -34,14 +34,21 @@ String refererPortletName = ParamUtil.getString(request, "refererPortletName");
 	<aui:script use="aui-io-request,aui-parse-content,liferay-alert">
 		var templatePreview = A.one('.template-preview-content');
 		var form = A.one('#<%= refererPortletName %>fm');
+<<<<<<< HEAD
 		var templateKeyInput = A.one('#<%= refererPortletName + "ddmTemplateKey" %>');
+=======
+>>>>>>> compatible
 
 		var templateId = <%= ddmTemplate.getTemplateId() %>;
 
 		var updateTemplate = function(ddmTemplateKey, ddmTemplateId) {
 			templateId = ddmTemplateId;
 
+<<<<<<< HEAD
 			templateKeyInput.setAttribute('value', ddmTemplateKey);
+=======
+			form.attr('<%= HtmlUtil.escape(refererPortletName) %>ddmTemplateKey').val(ddmTemplateKey);
+>>>>>>> compatible
 
 			templatePreview.html('<div class="loading-animation"></div>');
 

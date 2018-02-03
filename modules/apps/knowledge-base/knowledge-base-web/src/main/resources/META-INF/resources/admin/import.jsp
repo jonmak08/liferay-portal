@@ -48,7 +48,11 @@ renderResponse.setTitle(LanguageUtil.get(resourceBundle, "import"));
 		</liferay-ui:error>
 
 		<liferay-ui:error exception="<%= UploadRequestSizeException.class %>">
+<<<<<<< HEAD
 			<liferay-ui:message arguments="<%= TextFormatter.formatStorageSize(UploadServletRequestConfigurationHelperUtil.getMaxSize(), locale) %>" key="request-is-larger-than-x-and-could-not-be-processed" translateArguments="<%= false %>" />
+=======
+			<liferay-ui:message arguments="<%= TextFormatter.formatStorageSize(PrefsPropsUtil.getLong(PropsKeys.UPLOAD_SERVLET_REQUEST_IMPL_MAX_SIZE), locale) %>" key="request-is-larger-than-x-and-could-not-be-processed" translateArguments="<%= false %>" />
+>>>>>>> compatible
 		</liferay-ui:error>
 
 		<aui:fieldset-group markupView="lexicon">
@@ -64,14 +68,26 @@ renderResponse.setTitle(LanguageUtil.get(resourceBundle, "import"));
 
 				<aui:input id="file" label="upload-your-zip-file" name="file" type="file" />
 
+<<<<<<< HEAD
 				<aui:input helpMessage="apply-numerical-prefixes-of-article-files-as-priorities-help" label="apply-numerical-prefixes-of-article-files-as-priorities" name="prioritizeByNumericalPrefix" type="checkbox" value="true" />
+=======
+				<aui:field-wrapper label="prioritization-strategy">
+					<aui:input helpMessage="apply-numerical-prefixes-of-article-files-as-priorities-help" label="apply-numerical-prefixes-of-article-files-as-priorities" name="prioritizeByNumericalPrefix" type="checkbox" value="true" />
+				</aui:field-wrapper>
+>>>>>>> compatible
 			</aui:fieldset>
 		</aui:fieldset-group>
 
 		<aui:button-row>
+<<<<<<< HEAD
 			<aui:button name="submit" type="submit" />
 
 			<aui:button href="<%= redirect %>" type="cancel" />
+=======
+			<aui:button cssClass="btn-lg" name="submit" type="submit" />
+
+			<aui:button cssClass="btn-lg" href="<%= redirect %>" type="cancel" />
+>>>>>>> compatible
 		</aui:button-row>
 	</aui:form>
 </div>

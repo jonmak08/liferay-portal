@@ -21,10 +21,15 @@ import com.liferay.portal.kernel.util.ReferenceRegistry;
 
 /**
  * @author Brian Wing Shun Chan
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, with no direct replacement
  * @generated
  */
 @Deprecated
+=======
+ * @generated
+ */
+>>>>>>> compatible
 @ProviderType
 public class ResourceBlockFinderUtil {
 	public static com.liferay.portal.kernel.security.permission.ResourceBlockIdsBag findByC_G_N_R(

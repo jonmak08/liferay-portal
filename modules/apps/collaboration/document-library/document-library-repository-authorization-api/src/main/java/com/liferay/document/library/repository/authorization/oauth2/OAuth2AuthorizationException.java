@@ -149,8 +149,13 @@ public class OAuth2AuthorizationException extends AuthorizationException {
 		super(cause);
 	}
 
+<<<<<<< HEAD
 	private static final Map
 		<String, Function<String, OAuth2AuthorizationException>>
+=======
+	private static final Map<
+		String, Function<String, OAuth2AuthorizationException>>
+>>>>>>> compatible
 			_functions = new HashMap<>(7);
 
 	static {

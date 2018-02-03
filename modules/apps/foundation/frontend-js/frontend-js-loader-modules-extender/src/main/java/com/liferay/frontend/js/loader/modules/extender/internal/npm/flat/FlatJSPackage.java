@@ -16,8 +16,13 @@ package com.liferay.frontend.js.loader.modules.extender.internal.npm.flat;
 
 import com.liferay.frontend.js.loader.modules.extender.npm.JSBundle;
 import com.liferay.frontend.js.loader.modules.extender.npm.model.JSPackageAdapter;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.net.URL;
 
@@ -51,6 +56,7 @@ public class FlatJSPackage extends JSPackageAdapter {
 			_basePath = "META-INF/resources/";
 		}
 		else {
+<<<<<<< HEAD
 			StringBundler sb = new StringBundler(5);
 
 			sb.append("META-INF/resources/node_modules/");
@@ -67,6 +73,24 @@ public class FlatJSPackage extends JSPackageAdapter {
 			sb.append(StringPool.SLASH);
 
 			_basePath = sb.toString();
+=======
+			StringBundler basePath = new StringBundler(5);
+
+			basePath.append("META-INF/resources/node_modules/");
+
+			if (name.startsWith(StringPool.AT)) {
+				basePath.append(name.replace(StringPool.SLASH, "%2F"));
+			}
+			else {
+				basePath.append(name);
+			}
+
+			basePath.append(StringPool.AT);
+			basePath.append(getVersion());
+			basePath.append(StringPool.SLASH);
+
+			_basePath = basePath.toString();
+>>>>>>> compatible
 		}
 	}
 

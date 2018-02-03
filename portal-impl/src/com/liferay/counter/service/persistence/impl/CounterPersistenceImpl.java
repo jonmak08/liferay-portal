@@ -36,6 +36,10 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Serializable;
 
@@ -465,7 +469,11 @@ public class CounterPersistenceImpl extends BasePersistenceImpl<Counter>
 		query.append(_SQL_SELECT_COUNTER_WHERE_PKS_IN);
 
 		for (int i = 0; i < uncachedPrimaryKeys.size(); i++) {
+<<<<<<< HEAD
 			query.append("?");
+=======
+			query.append(StringPool.QUESTION);
+>>>>>>> compatible
 
 			query.append(",");
 		}

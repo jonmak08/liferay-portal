@@ -172,12 +172,15 @@ public class DLFileShortcutLocalServiceWrapper
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void deleteRepositoryFileShortcuts(long repositoryId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		_dlFileShortcutLocalService.deleteRepositoryFileShortcuts(repositoryId);
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public void disableFileShortcuts(long toFileEntryId) {
 		_dlFileShortcutLocalService.disableFileShortcuts(toFileEntryId);
 	}

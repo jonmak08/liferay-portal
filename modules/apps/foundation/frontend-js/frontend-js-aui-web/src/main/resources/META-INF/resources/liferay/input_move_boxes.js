@@ -118,8 +118,11 @@ AUI.add(
 					},
 
 					_afterOrderClick: function(event, box) {
+<<<<<<< HEAD
 						var instance = this;
 
+=======
+>>>>>>> compatible
 						var target = event.domEvent.target;
 						var targetBtn = target.ancestor('.btn', true);
 
@@ -132,7 +135,11 @@ AUI.add(
 								direction = 0;
 							}
 
+<<<<<<< HEAD
 							instance._orderItem(box, direction);
+=======
+							Util.reorder(box, direction);
+>>>>>>> compatible
 						}
 					},
 
@@ -179,6 +186,7 @@ AUI.add(
 						box.attr('selectedIndex', '-1');
 					},
 
+<<<<<<< HEAD
 					_orderItem: function(box, direction) {
 						Util.reorder(box, direction);
 
@@ -191,6 +199,8 @@ AUI.add(
 						);
 					},
 
+=======
+>>>>>>> compatible
 					_renderBoxes: function() {
 						var instance = this;
 

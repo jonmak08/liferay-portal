@@ -14,7 +14,10 @@
 
 package com.liferay.portal.template.soy.utils;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.template.TemplateConstants;
@@ -22,6 +25,10 @@ import com.liferay.portal.kernel.template.TemplateException;
 import com.liferay.portal.kernel.template.TemplateResource;
 import com.liferay.portal.kernel.template.TemplateResourceLoaderUtil;
 import com.liferay.portal.kernel.template.URLTemplateResource;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.net.URL;
 
@@ -29,8 +36,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
+<<<<<<< HEAD
 
 import org.osgi.framework.Bundle;
+=======
+import java.util.Map;
+
+import org.osgi.framework.Bundle;
+import org.osgi.framework.wiring.BundleCapability;
+>>>>>>> compatible
 import org.osgi.framework.wiring.BundleRevision;
 import org.osgi.framework.wiring.BundleWire;
 import org.osgi.framework.wiring.BundleWiring;
@@ -45,6 +59,22 @@ public class SoyTemplateResourcesCollector {
 		_templatePath = templatePath;
 	}
 
+<<<<<<< HEAD
+=======
+	/**
+	 * @deprecated As of 2.4.0, with no direct replacement
+	 */
+	@Deprecated
+	public List<TemplateResource> getAllTemplateResources()
+		throws TemplateException {
+
+		List<TemplateResource> templateResources =
+			SoyTemplateResourcesProvider.getAllTemplateResources();
+
+		return Collections.unmodifiableList(templateResources);
+	}
+
+>>>>>>> compatible
 	public List<TemplateResource> getTemplateResources()
 		throws TemplateException {
 
@@ -120,6 +150,20 @@ public class SoyTemplateResourcesCollector {
 		}
 	}
 
+<<<<<<< HEAD
+=======
+	/**
+	 * @deprecated As of 2.2.0, with no direct replacement
+	 */
+	@Deprecated
+	protected String getCapabilityPrefix(BundleCapability bundleCapability) {
+		Map<String, Object> attributes = bundleCapability.getAttributes();
+
+		return attributes.get("type") + StringPool.UNDERLINE +
+			attributes.get("version");
+	}
+
+>>>>>>> compatible
 	protected Bundle getProviderBundle(BundleWire bundleWire) {
 		BundleRevision bundleRevision = bundleWire.getProvider();
 
@@ -148,6 +192,18 @@ public class SoyTemplateResourcesCollector {
 			TemplateConstants.BUNDLE_SEPARATOR).concat(url.getPath());
 	}
 
+<<<<<<< HEAD
+=======
+	/**
+	 * @deprecated As of 2.2.0, with no direct replacement
+	 */
+	@Deprecated
+	protected String getTemplateId(String capabilityPrefix, URL url) {
+		return capabilityPrefix.concat(
+			TemplateConstants.BUNDLE_SEPARATOR).concat(url.getPath());
+	}
+
+>>>>>>> compatible
 	private TemplateResource _getTemplateResource(String templateId, URL url)
 		throws TemplateException {
 

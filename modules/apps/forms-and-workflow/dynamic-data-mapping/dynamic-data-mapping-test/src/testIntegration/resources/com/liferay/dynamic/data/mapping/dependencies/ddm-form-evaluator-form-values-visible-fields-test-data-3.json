@@ -6,7 +6,11 @@
 			"instanceId": "gfkm",
 			"name": "Gender",
 			"value": {
+<<<<<<< HEAD
 				"en_US": "Male"
+=======
+				"en_US": "[\"Male\"]"
+>>>>>>> compatible
 			}
 		},
 		{

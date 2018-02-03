@@ -12,7 +12,11 @@
 		<property name="portal.context" value="liferay" />
 		<property name="skip.clean-app-server-deploy-dir" value="true" />
 		<property name="test.assert.warning.exceptions" value="true" />
+<<<<<<< HEAD
 		<property name="test.name.skip.portal.instance" value="PortalContext#Smoke" />
+=======
+		<property name="test.name.skip.portal.instance" value="PortalContexPatht#Smoke" />
+>>>>>>> compatible
 
 		<execute macro="Smoke#viewWelcomePage" />
 

@@ -16,7 +16,10 @@ package com.liferay.portlet.documentlibrary.util;
 
 import com.liferay.document.library.kernel.model.DLFolder;
 import com.liferay.document.library.kernel.service.DLFolderLocalServiceUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.dao.orm.IndexableActionableDynamicQuery;

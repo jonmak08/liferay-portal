@@ -14,6 +14,7 @@
 
 package com.liferay.rss.web.internal.display.context;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.module.configuration.ConfigurationException;
 import com.liferay.portal.kernel.theme.PortletDisplay;
@@ -22,6 +23,16 @@ import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.rss.web.internal.configuration.RSSPortletInstanceConfiguration;
 import com.liferay.rss.web.internal.configuration.RSSWebCacheConfiguration;
 import com.liferay.rss.web.internal.util.RSSFeed;
+=======
+import com.liferay.portal.kernel.module.configuration.ConfigurationException;
+import com.liferay.portal.kernel.theme.PortletDisplay;
+import com.liferay.portal.kernel.theme.ThemeDisplay;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.rss.web.configuration.RSSPortletInstanceConfiguration;
+import com.liferay.rss.web.configuration.RSSWebCacheConfiguration;
+import com.liferay.rss.web.util.RSSFeed;
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.List;

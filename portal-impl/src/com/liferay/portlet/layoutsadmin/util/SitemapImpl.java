@@ -195,6 +195,7 @@ public class SitemapImpl implements Sitemap {
 		else {
 			rootElement = document.addElement(
 				"urlset", "http://www.sitemaps.org/schemas/sitemap/0.9");
+<<<<<<< HEAD
 
 			rootElement.addAttribute(
 				"xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
@@ -202,6 +203,8 @@ public class SitemapImpl implements Sitemap {
 				"xsi:schemaLocation",
 				"http://www.w3.org/1999/xhtml " +
 					"http://www.w3.org/2002/08/xhtml/xhtml1-strict.xsd");
+=======
+>>>>>>> compatible
 		}
 
 		rootElement.addAttribute("xmlns:xhtml", "http://www.w3.org/1999/xhtml");
@@ -242,6 +245,7 @@ public class SitemapImpl implements Sitemap {
 		}
 
 		String portalURL = themeDisplay.getPortalURL();
+<<<<<<< HEAD
 
 		Map<String, LayoutTypeController> layoutTypeControllers =
 			LayoutTypeControllerTracker.getLayoutTypeControllers();
@@ -251,6 +255,17 @@ public class SitemapImpl implements Sitemap {
 
 			LayoutTypeController layoutTypeController = entry.getValue();
 
+=======
+
+		Map<String, LayoutTypeController> layoutTypeControllers =
+			LayoutTypeControllerTracker.getLayoutTypeControllers();
+
+		for (Map.Entry<String, LayoutTypeController> entry :
+				layoutTypeControllers.entrySet()) {
+
+			LayoutTypeController layoutTypeController = entry.getValue();
+
+>>>>>>> compatible
 			if (!layoutTypeController.isSitemapable()) {
 				continue;
 			}

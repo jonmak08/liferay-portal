@@ -14,8 +14,11 @@
 
 package com.liferay.exportimport.kernel.controller;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.model.ExportImportConfiguration;
 
 import java.io.File;
@@ -23,7 +26,10 @@ import java.io.File;
 /**
  * @author Daniel Kocsis
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public interface ExportController extends ExportImportController {
 
 	public File export(ExportImportConfiguration exportImportConfiguration)

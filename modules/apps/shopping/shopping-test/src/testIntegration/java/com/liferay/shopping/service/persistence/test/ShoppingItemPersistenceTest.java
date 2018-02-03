@@ -30,6 +30,10 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.util.IntegerWrapper;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.OrderByComparatorFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.PersistenceTestRule;
@@ -298,9 +302,15 @@ public class ShoppingItemPersistenceTest {
 
 	@Test
 	public void testCountByC_S() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByC_S(RandomTestUtil.nextLong(), "");
 
 		_persistence.countByC_S(0L, "null");
+=======
+		_persistence.countByC_S(RandomTestUtil.nextLong(), StringPool.BLANK);
+
+		_persistence.countByC_S(0L, StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByC_S(0L, (String)null);
 	}

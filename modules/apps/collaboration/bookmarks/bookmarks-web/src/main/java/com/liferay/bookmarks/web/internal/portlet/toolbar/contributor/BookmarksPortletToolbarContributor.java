@@ -34,9 +34,14 @@ import com.liferay.portal.kernel.portlet.PortletURLFactoryUtil;
 import com.liferay.portal.kernel.portlet.toolbar.contributor.BasePortletToolbarContributor;
 import com.liferay.portal.kernel.portlet.toolbar.contributor.PortletToolbarContributor;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermission;
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermissionHelper;
+=======
+import com.liferay.portal.kernel.security.permission.BaseModelPermissionChecker;
+import com.liferay.portal.kernel.security.permission.PermissionChecker;
+>>>>>>> compatible
 import com.liferay.portal.kernel.servlet.taglib.ui.MenuItem;
 import com.liferay.portal.kernel.servlet.taglib.ui.URLMenuItem;
 import com.liferay.portal.kernel.settings.GroupServiceSettingsLocator;
@@ -155,9 +160,14 @@ public class BookmarksPortletToolbarContributor
 		String actionId) {
 
 		try {
+<<<<<<< HEAD
 			return ModelResourcePermissionHelper.contains(
 				_bookmarksFolderModelResourcePermission, permissionChecker,
 				groupId, folderId, actionId);
+=======
+			_baseModelPermissionChecker.checkBaseModel(
+				permissionChecker, groupId, folderId, actionId);
+>>>>>>> compatible
 		}
 		catch (PortalException pe) {
 
@@ -169,6 +179,11 @@ public class BookmarksPortletToolbarContributor
 
 			return false;
 		}
+<<<<<<< HEAD
+=======
+
+		return true;
+>>>>>>> compatible
 	}
 
 	@Override
@@ -201,6 +216,19 @@ public class BookmarksPortletToolbarContributor
 		return menuItems;
 	}
 
+<<<<<<< HEAD
+=======
+	@Reference(
+		target = "(model.class.name=com.liferay.bookmarks.model.BookmarksFolder)",
+		unbind = "-"
+	)
+	protected void setBaseModelPermissionChecker(
+		BaseModelPermissionChecker baseModelPermissionChecker) {
+
+		_baseModelPermissionChecker = baseModelPermissionChecker;
+	}
+
+>>>>>>> compatible
 	@Reference(unbind = "-")
 	protected void setBookmarksFolderService(
 		BookmarksFolderService bookmarksFolderService) {
@@ -270,12 +298,16 @@ public class BookmarksPortletToolbarContributor
 	private static final Log _log = LogFactoryUtil.getLog(
 		BookmarksPortletToolbarContributor.class);
 
+<<<<<<< HEAD
 	@Reference(
 		target = "(model.class.name=com.liferay.bookmarks.model.BookmarksFolder)"
 	)
 	private ModelResourcePermission<BookmarksFolder>
 		_bookmarksFolderModelResourcePermission;
 
+=======
+	private BaseModelPermissionChecker _baseModelPermissionChecker;
+>>>>>>> compatible
 	private BookmarksFolderService _bookmarksFolderService;
 
 	@Reference

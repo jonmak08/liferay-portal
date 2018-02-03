@@ -19,6 +19,10 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import com.liferay.shopping.model.ShoppingOrderItem;
 
@@ -103,35 +107,55 @@ public class ShoppingOrderItemCacheModel implements CacheModel<ShoppingOrderItem
 		shoppingOrderItemImpl.setOrderId(orderId);
 
 		if (itemId == null) {
+<<<<<<< HEAD
 			shoppingOrderItemImpl.setItemId("");
+=======
+			shoppingOrderItemImpl.setItemId(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			shoppingOrderItemImpl.setItemId(itemId);
 		}
 
 		if (sku == null) {
+<<<<<<< HEAD
 			shoppingOrderItemImpl.setSku("");
+=======
+			shoppingOrderItemImpl.setSku(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			shoppingOrderItemImpl.setSku(sku);
 		}
 
 		if (name == null) {
+<<<<<<< HEAD
 			shoppingOrderItemImpl.setName("");
+=======
+			shoppingOrderItemImpl.setName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			shoppingOrderItemImpl.setName(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			shoppingOrderItemImpl.setDescription("");
+=======
+			shoppingOrderItemImpl.setDescription(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			shoppingOrderItemImpl.setDescription(description);
 		}
 
 		if (properties == null) {
+<<<<<<< HEAD
 			shoppingOrderItemImpl.setProperties("");
+=======
+			shoppingOrderItemImpl.setProperties(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			shoppingOrderItemImpl.setProperties(properties);
@@ -181,35 +205,55 @@ public class ShoppingOrderItemCacheModel implements CacheModel<ShoppingOrderItem
 		objectOutput.writeLong(orderId);
 
 		if (itemId == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(itemId);
 		}
 
 		if (sku == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(sku);
 		}
 
 		if (name == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(description);
 		}
 
 		if (properties == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(properties);

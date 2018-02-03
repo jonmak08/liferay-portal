@@ -14,20 +14,32 @@
 
 package com.liferay.portal.cache.ehcache.multiple.internal.bootstrap;
 
+<<<<<<< HEAD
 import com.liferay.petra.executor.PortalExecutorManager;
+=======
+>>>>>>> compatible
 import com.liferay.portal.cache.PortalCacheBootstrapLoader;
 import com.liferay.portal.cache.PortalCacheBootstrapLoaderFactory;
 import com.liferay.portal.cache.ehcache.multiple.configuration.EhcacheMultipleConfiguration;
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
 import com.liferay.portal.kernel.cluster.ClusterExecutor;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.exception.SystemException;
+=======
+import com.liferay.portal.kernel.concurrent.ThreadPoolExecutor;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.executor.PortalExecutorManager;
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.InstanceFactory;
 
 import java.util.Properties;
+<<<<<<< HEAD
 import java.util.concurrent.ExecutorService;
+=======
+>>>>>>> compatible
 
 import net.sf.ehcache.bootstrap.BootstrapCacheLoaderFactory;
 
@@ -73,7 +85,11 @@ public class EhcachePortalCacheBootstrapLoaderFactory
 			return new EhcachePortalCacheBootstrapLoaderAdapter(
 				bootstrapCacheLoaderFactory.createBootstrapCacheLoader(
 					newProperties),
+<<<<<<< HEAD
 				bootstrapAsynchronously, _executorService, _clusterExecutor);
+=======
+				bootstrapAsynchronously, _threadPoolExecutor, _clusterExecutor);
+>>>>>>> compatible
 		}
 		catch (Exception e) {
 			throw new SystemException(
@@ -90,14 +106,23 @@ public class EhcachePortalCacheBootstrapLoaderFactory
 			EhcacheMultipleConfiguration.class,
 			componentContext.getProperties());
 
+<<<<<<< HEAD
 		_executorService = _portalExecutorManager.getPortalExecutor(
+=======
+		_threadPoolExecutor = _portalExecutorManager.getPortalExecutor(
+>>>>>>> compatible
 			EhcachePortalCacheBootstrapLoaderFactory.class.getName());
 	}
 
 	@Deactivate
 	protected void deactivate() {
+<<<<<<< HEAD
 		if (_executorService != null) {
 			_executorService.shutdown();
+=======
+		if (_threadPoolExecutor != null) {
+			_threadPoolExecutor.shutdown();
+>>>>>>> compatible
 		}
 	}
 
@@ -114,9 +139,17 @@ public class EhcachePortalCacheBootstrapLoaderFactory
 	private ClusterExecutor _clusterExecutor;
 
 	private volatile EhcacheMultipleConfiguration _ehcacheMultipleConfiguration;
+<<<<<<< HEAD
 	private ExecutorService _executorService;
+=======
+>>>>>>> compatible
 
 	@Reference
 	private PortalExecutorManager _portalExecutorManager;
 
+<<<<<<< HEAD
+=======
+	private ThreadPoolExecutor _threadPoolExecutor;
+
+>>>>>>> compatible
 }

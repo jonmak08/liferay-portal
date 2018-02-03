@@ -42,7 +42,11 @@ public class KaleoNotificationSoap implements Serializable {
 		soapModel.setModifiedDate(model.getModifiedDate());
 		soapModel.setKaleoClassName(model.getKaleoClassName());
 		soapModel.setKaleoClassPK(model.getKaleoClassPK());
+<<<<<<< HEAD
 		soapModel.setKaleoDefinitionVersionId(model.getKaleoDefinitionVersionId());
+=======
+		soapModel.setKaleoDefinitionId(model.getKaleoDefinitionId());
+>>>>>>> compatible
 		soapModel.setKaleoNodeName(model.getKaleoNodeName());
 		soapModel.setName(model.getName());
 		soapModel.setDescription(model.getDescription());
@@ -177,12 +181,21 @@ public class KaleoNotificationSoap implements Serializable {
 		_kaleoClassPK = kaleoClassPK;
 	}
 
+<<<<<<< HEAD
 	public long getKaleoDefinitionVersionId() {
 		return _kaleoDefinitionVersionId;
 	}
 
 	public void setKaleoDefinitionVersionId(long kaleoDefinitionVersionId) {
 		_kaleoDefinitionVersionId = kaleoDefinitionVersionId;
+=======
+	public long getKaleoDefinitionId() {
+		return _kaleoDefinitionId;
+	}
+
+	public void setKaleoDefinitionId(long kaleoDefinitionId) {
+		_kaleoDefinitionId = kaleoDefinitionId;
+>>>>>>> compatible
 	}
 
 	public String getKaleoNodeName() {
@@ -250,7 +263,11 @@ public class KaleoNotificationSoap implements Serializable {
 	private Date _modifiedDate;
 	private String _kaleoClassName;
 	private long _kaleoClassPK;
+<<<<<<< HEAD
 	private long _kaleoDefinitionVersionId;
+=======
+	private long _kaleoDefinitionId;
+>>>>>>> compatible
 	private String _kaleoNodeName;
 	private String _name;
 	private String _description;

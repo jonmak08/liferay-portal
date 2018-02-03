@@ -385,6 +385,7 @@ public class AssetLinkLocalServiceWrapper implements AssetLinkLocalService,
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns all the asset links of an AssetEntry.
 	*
 	* @param classNameId AssetEntry's classNameId
@@ -398,6 +399,8 @@ public class AssetLinkLocalServiceWrapper implements AssetLinkLocalService,
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	* Returns the OSGi service identifier.
 	*
 	* @return the OSGi service identifier

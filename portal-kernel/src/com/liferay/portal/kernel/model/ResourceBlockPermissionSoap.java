@@ -25,10 +25,15 @@ import java.util.List;
  * This class is used by SOAP remote services.
  *
  * @author Brian Wing Shun Chan
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, with no direct replacement
  * @generated
  */
 @Deprecated
+=======
+ * @generated
+ */
+>>>>>>> compatible
 @ProviderType
 public class ResourceBlockPermissionSoap implements Serializable {
 	public static ResourceBlockPermissionSoap toSoapModel(

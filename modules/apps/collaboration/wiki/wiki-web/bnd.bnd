@@ -1,6 +1,13 @@
 Bundle-Name: Liferay Wiki Web
 Bundle-SymbolicName: com.liferay.wiki.web
+<<<<<<< HEAD
 Bundle-Version: 3.0.8
+=======
+Bundle-Version: 2.1.36
+Export-Package:\
+	com.liferay.wiki.web.exportimport.data.handler,\
+	com.liferay.wiki.web.util
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Wiki
 Web-ContextPath: /wiki-web

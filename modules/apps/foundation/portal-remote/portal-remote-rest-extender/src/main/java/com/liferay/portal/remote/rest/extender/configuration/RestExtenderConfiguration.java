@@ -31,6 +31,7 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
 )
 public interface RestExtenderConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(name = "context-paths", required = false)
 	public String[] contextPaths();
 
@@ -41,6 +42,18 @@ public interface RestExtenderConfiguration {
 	public String[] jaxRsProviderFilterStrings();
 
 	@Meta.AD(name = "jax-rs-service-filters", required = false)
+=======
+	@Meta.AD(required = false)
+	public String[] contextPaths();
+
+	@Meta.AD(name = "jaxrs.applications.filters", required = false)
+	public String[] jaxRsApplicationFilterStrings();
+
+	@Meta.AD(name = "jax.rs.provider.filters", required = false)
+	public String[] jaxRsProviderFilterStrings();
+
+	@Meta.AD(name = "jax.rs.service.filters", required = false)
+>>>>>>> compatible
 	public String[] jaxRsServiceFilterStrings();
 
 }

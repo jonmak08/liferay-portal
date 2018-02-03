@@ -20,7 +20,10 @@ import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.dao.db.DBManagerUtil;
 import com.liferay.portal.kernel.dao.db.DBType;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ReflectionUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.verify.model.VerifiableUUIDModel;
 import com.liferay.portal.test.rule.ExpectedDBType;
 import com.liferay.portal.test.rule.ExpectedLog;
@@ -60,16 +63,25 @@ public class VerifyUUIDTest extends BaseVerifyProcessTestCase {
 		expectedLogs = {
 			@ExpectedLog(
 				expectedDBType = ExpectedDBType.DB2,
+<<<<<<< HEAD
 				expectedLog = "DB2 SQL Error: SQLCODE=",
+=======
+				expectedLog = "Unable to process runnable:",
+>>>>>>> compatible
 				expectedType = ExpectedType.PREFIX
 			),
 			@ExpectedLog(
 				expectedDBType = ExpectedDBType.HYPERSONIC,
+<<<<<<< HEAD
 				expectedLog = "user lacks privilege or object not found:",
+=======
+				expectedLog = "Unable to process runnable: user lacks privilege or object not found:",
+>>>>>>> compatible
 				expectedType = ExpectedType.PREFIX
 			),
 			@ExpectedLog(
 				expectedDBType = ExpectedDBType.MARIADB,
+<<<<<<< HEAD
 				expectedLog = "Unknown column 'Unknown' in 'field list'",
 				expectedType = ExpectedType.EXACT
 			),
@@ -81,16 +93,37 @@ public class VerifyUUIDTest extends BaseVerifyProcessTestCase {
 			@ExpectedLog(
 				expectedDBType = ExpectedDBType.ORACLE,
 				expectedLog = "ORA-00904: \"UNKNOWN\": invalid identifier",
+=======
+				expectedLog = "Unable to process runnable: Unknown column 'Unknown' in 'field list'",
+				expectedType = ExpectedType.EXACT
+			),
+			@ExpectedLog(
+				expectedDBType = ExpectedDBType.MYSQL,
+				expectedLog = "Unable to process runnable: Unknown column 'Unknown' in 'field list'",
+				expectedType = ExpectedType.EXACT
+			),
+			@ExpectedLog(
+				expectedDBType = ExpectedDBType.ORACLE,
+				expectedLog = "Unable to process runnable: ORA-00904: \"UNKNOWN\": invalid identifier",
+>>>>>>> compatible
 				expectedType = ExpectedType.PREFIX
 			),
 			@ExpectedLog(
 				expectedDBType = ExpectedDBType.POSTGRESQL,
+<<<<<<< HEAD
 				expectedLog = "ERROR: column \"unknown\" does not exist",
+=======
+				expectedLog = "Unable to process runnable: ERROR: column \"unknown\" does not exist",
+>>>>>>> compatible
 				expectedType = ExpectedType.PREFIX
 			),
 			@ExpectedLog(
 				expectedDBType = ExpectedDBType.SYBASE,
+<<<<<<< HEAD
 				expectedLog = "Invalid column name 'Unknown'.",
+=======
+				expectedLog = "Unable to process runnable: Invalid column name 'Unknown'.",
+>>>>>>> compatible
 				expectedType = ExpectedType.PREFIX
 			)
 		},
@@ -123,11 +156,16 @@ public class VerifyUUIDTest extends BaseVerifyProcessTestCase {
 		expectedLogs = {
 			@ExpectedLog(
 				expectedDBType = ExpectedDBType.DB2,
+<<<<<<< HEAD
 				expectedLog = "DB2 SQL Error: SQLCODE=",
+=======
+				expectedLog = "Unable to process runnable:",
+>>>>>>> compatible
 				expectedType = ExpectedType.PREFIX
 			),
 			@ExpectedLog(
 				expectedDBType = ExpectedDBType.HYPERSONIC,
+<<<<<<< HEAD
 				expectedLog = "user lacks privilege or object not found:",
 				expectedType = ExpectedType.PREFIX
 			),
@@ -152,6 +190,34 @@ public class VerifyUUIDTest extends BaseVerifyProcessTestCase {
 			@ExpectedLog(
 				expectedDBType = ExpectedDBType.SYBASE,
 				expectedLog = "Unknown not found.",
+=======
+				expectedLog = "Unable to process runnable: user lacks privilege or object not found:",
+				expectedType = ExpectedType.PREFIX
+			),
+			@ExpectedLog(
+				expectedDBType = ExpectedDBType.MARIADB,
+				expectedLog = "Unable to process runnable: Table ",
+>>>>>>> compatible
+				expectedType = ExpectedType.PREFIX
+			),
+			@ExpectedLog(
+				expectedDBType = ExpectedDBType.MYSQL,
+				expectedLog = "Unable to process runnable: Table ",
+				expectedType = ExpectedType.PREFIX
+			),
+			@ExpectedLog(
+				expectedDBType = ExpectedDBType.ORACLE,
+				expectedLog = "Unable to process runnable: ORA-00942: table or view does not exist",
+				expectedType = ExpectedType.PREFIX
+			),
+			@ExpectedLog(
+				expectedDBType = ExpectedDBType.POSTGRESQL,
+				expectedLog = "Unable to process runnable: ERROR: relation \"unknown\" does not exist",
+				expectedType = ExpectedType.PREFIX
+			),
+			@ExpectedLog(
+				expectedDBType = ExpectedDBType.SYBASE,
+				expectedLog = "Unable to process runnable: Unknown not found.",
 				expectedType = ExpectedType.PREFIX
 			)
 		},
@@ -194,11 +260,16 @@ public class VerifyUUIDTest extends BaseVerifyProcessTestCase {
 		expectedLogs = {
 			@ExpectedLog(
 				expectedDBType = ExpectedDBType.DB2,
+<<<<<<< HEAD
 				expectedLog = "DB2 SQL Error: SQLCODE=",
+=======
+				expectedLog = "Unable to process runnable:",
+>>>>>>> compatible
 				expectedType = ExpectedType.PREFIX
 			),
 			@ExpectedLog(
 				expectedDBType = ExpectedDBType.HYPERSONIC,
+<<<<<<< HEAD
 				expectedLog = "user lacks privilege or object not found:",
 				expectedType = ExpectedType.PREFIX
 			),
@@ -208,21 +279,46 @@ public class VerifyUUIDTest extends BaseVerifyProcessTestCase {
 			),
 			@ExpectedLog(
 				expectedDBType = ExpectedDBType.MYSQL, expectedLog = "Table ",
+=======
+				expectedLog = "Unable to process runnable: user lacks privilege or object not found:",
+				expectedType = ExpectedType.PREFIX
+			),
+			@ExpectedLog(
+				expectedDBType = ExpectedDBType.MARIADB,
+				expectedLog = "Unable to process runnable: Table ",
+				expectedType = ExpectedType.PREFIX
+			),
+			@ExpectedLog(
+				expectedDBType = ExpectedDBType.MYSQL,
+				expectedLog = "Unable to process runnable: Table ",
+>>>>>>> compatible
 				expectedType = ExpectedType.PREFIX
 			),
 			@ExpectedLog(
 				expectedDBType = ExpectedDBType.ORACLE,
+<<<<<<< HEAD
 				expectedLog = "ORA-00942: table or view does not exist",
+=======
+				expectedLog = "Unable to process runnable: ORA-00942: table or view does not exist",
+>>>>>>> compatible
 				expectedType = ExpectedType.PREFIX
 			),
 			@ExpectedLog(
 				expectedDBType = ExpectedDBType.POSTGRESQL,
+<<<<<<< HEAD
 				expectedLog = "ERROR: relation \"unknown\" does not exist",
+=======
+				expectedLog = "Unable to process runnable: ERROR: relation \"unknown\" does not exist",
+>>>>>>> compatible
 				expectedType = ExpectedType.PREFIX
 			),
 			@ExpectedLog(
 				expectedDBType = ExpectedDBType.SYBASE,
+<<<<<<< HEAD
 				expectedLog = "Unknown not found.",
+=======
+				expectedLog = "Unable to process runnable: Unknown not found.",
+>>>>>>> compatible
 				expectedType = ExpectedType.PREFIX
 			)
 		},

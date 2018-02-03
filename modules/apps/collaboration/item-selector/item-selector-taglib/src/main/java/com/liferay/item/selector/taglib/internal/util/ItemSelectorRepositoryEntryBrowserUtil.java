@@ -42,7 +42,10 @@ import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.util.WebKeys;
 
 import java.util.Collections;
+<<<<<<< HEAD
 import java.util.Date;
+=======
+>>>>>>> compatible
 import java.util.List;
 import java.util.Locale;
 
@@ -122,9 +125,12 @@ public class ItemSelectorRepositoryEntryBrowserUtil {
 			_createJSONObject(
 				LanguageUtil.get(locale, "name"),
 				HtmlUtil.escape(DLUtil.getTitleWithExtension(fileEntry))));
+<<<<<<< HEAD
 
 		Date modifiedDate = fileEntry.getModifiedDate();
 
+=======
+>>>>>>> compatible
 		firstTabDataJSONArray.put(
 			_createJSONObject(
 				LanguageUtil.get(locale, "modified"),
@@ -133,7 +139,12 @@ public class ItemSelectorRepositoryEntryBrowserUtil {
 					new Object[] {
 						LanguageUtil.getTimeDescription(
 							locale,
+<<<<<<< HEAD
 							System.currentTimeMillis() - modifiedDate.getTime(),
+=======
+							System.currentTimeMillis() -
+								fileEntry.getModifiedDate().getTime(),
+>>>>>>> compatible
 							true),
 						HtmlUtil.escape(fileEntry.getUserName())
 					})));

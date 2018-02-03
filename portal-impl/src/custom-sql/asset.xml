@@ -56,6 +56,7 @@
 				(lower(AssetCategory.name) = ?)
 		]]>
 	</sql>
+<<<<<<< HEAD
 	<sql id="com.liferay.asset.kernel.service.persistence.AssetCategoryFinder.findByC_C">
 		<![CDATA[
 			SELECT
@@ -73,6 +74,8 @@
 				(AssetEntry.classPK =  ?)
 		]]>
 	</sql>
+=======
+>>>>>>> compatible
 	<sql id="com.liferay.asset.kernel.service.persistence.AssetCategoryFinder.findByG_N_P">
 		<![CDATA[
 			SELECT
@@ -126,6 +129,7 @@
 				(AssetEntry.classNameId = ?)
 		]]>
 	</sql>
+<<<<<<< HEAD
 	<sql id="com.liferay.asset.kernel.service.persistence.AssetEntryFinder.findPriorityByC_C">
 		<![CDATA[
 			SELECT
@@ -165,6 +169,20 @@
 			)
 	]]>
 	</sql>
+=======
+	<sql id="com.liferay.asset.kernel.service.persistence.AssetEntryFinder.findByClassNameId">
+		<![CDATA[
+			SELECT
+				{AssetEntry.*}
+			FROM
+				AssetEntry
+			[$JOIN$]
+			WHERE
+				[$WHERE$]
+				(AssetEntry.classNameId = ?)
+		]]>
+	</sql>
+>>>>>>> compatible
 	<sql id="com.liferay.asset.kernel.service.persistence.AssetTagFinder.countByG_N">
 		<![CDATA[
 			SELECT
@@ -219,6 +237,7 @@
 				)
 		]]>
 	</sql>
+<<<<<<< HEAD
 	<sql id="com.liferay.asset.kernel.service.persistence.AssetTagFinder.findByC_C">
 		<![CDATA[
 			SELECT
@@ -236,6 +255,8 @@
 				(AssetEntry.classPK =  ?)
 		]]>
 	</sql>
+=======
+>>>>>>> compatible
 	<sql id="com.liferay.asset.kernel.service.persistence.AssetTagFinder.findByG_C_N">
 		<![CDATA[
 			SELECT
@@ -323,11 +344,17 @@
 				AssetVocabulary.name ASC
 		]]>
 	</sql>
+<<<<<<< HEAD
 	<sql id="com.liferay.portlet.asset.service.impl.AssetLinkLocalServiceImpl.findByAssetEntryGroupId">
 		<![CDATA[
 			SELECT
 				AssetLink.*
 			FROM
+=======
+	<sql id="com.liferay.portlet.asset.service.impl.AssetLinkLocalServiceImpl.deleteByAssetEntryGroupId">
+		<![CDATA[
+			DELETE FROM
+>>>>>>> compatible
 				AssetLink
 			WHERE
 				EXISTS

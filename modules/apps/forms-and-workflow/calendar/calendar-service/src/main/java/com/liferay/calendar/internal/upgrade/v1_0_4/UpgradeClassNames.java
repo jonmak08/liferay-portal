@@ -17,12 +17,18 @@ package com.liferay.calendar.internal.upgrade.v1_0_4;
 import com.liferay.portal.kernel.upgrade.UpgradeException;
 import com.liferay.portal.kernel.util.LoggingTimer;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.upgrade.v7_0_0.UpgradeKernelPackage;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+<<<<<<< HEAD
 import java.sql.SQLException;
+=======
+>>>>>>> compatible
 
 /**
  * @author Cristina González
@@ -31,8 +37,11 @@ public class UpgradeClassNames extends UpgradeKernelPackage {
 
 	@Override
 	public void doUpgrade() throws UpgradeException {
+<<<<<<< HEAD
 		updateCalEventClassName();
 
+=======
+>>>>>>> compatible
 		deleteCalEventClassName();
 		deleteDuplicateResourcePermissions();
 		deleteDuplicateResources();
@@ -44,6 +53,7 @@ public class UpgradeClassNames extends UpgradeKernelPackage {
 		try (LoggingTimer loggingTimer = new LoggingTimer()) {
 			runSQL(
 				"delete from Counter where name like '" +
+<<<<<<< HEAD
 					_CLASS_NAME_CAL_EVENT + "%'");
 
 			runSQL(
@@ -61,6 +71,25 @@ public class UpgradeClassNames extends UpgradeKernelPackage {
 			runSQL(
 				"delete from ResourcePermission where name like '" +
 					_CLASS_NAME_CAL_EVENT + "%'");
+=======
+					_CAL_EVENT_CLASS_NAME + "%'");
+
+			runSQL(
+				"delete from ClassName_ where value like '" +
+					_CAL_EVENT_CLASS_NAME + "%'");
+
+			runSQL(
+				"delete from ResourceAction where name like '" +
+					_CAL_EVENT_CLASS_NAME + "%'");
+
+			runSQL(
+				"delete from ResourceBlock where name like '" +
+					_CAL_EVENT_CLASS_NAME + "%'");
+
+			runSQL(
+				"delete from ResourcePermission where name like '" +
+					_CAL_EVENT_CLASS_NAME + "%'");
+>>>>>>> compatible
 		}
 		catch (Exception e) {
 			throw new UpgradeException(e);
@@ -116,9 +145,14 @@ public class UpgradeClassNames extends UpgradeKernelPackage {
 
 				while (rs.next()) {
 					runSQL(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"delete from ResourceAction where actionId = '",
 							rs.getString(1), "' and name= '", oldName, "'"));
+=======
+						"delete from ResourceAction where actionId = '" +
+							rs.getString(1) + "' and name= '" + oldName + "'");
+>>>>>>> compatible
 				}
 			}
 			catch (Exception e) {
@@ -137,6 +171,7 @@ public class UpgradeClassNames extends UpgradeKernelPackage {
 		return _RESOURCE_NAMES;
 	}
 
+<<<<<<< HEAD
 	protected void updateCalEventClassName() throws UpgradeException {
 		try (LoggingTimer loggingTimer = new LoggingTimer();
 			PreparedStatement ps1 = connection.prepareStatement(
@@ -205,6 +240,11 @@ public class UpgradeClassNames extends UpgradeKernelPackage {
 	private static final String _CLASS_NAME_CALENDAR_BOOKING =
 		"com.liferay.calendar.model.CalendarBooking";
 
+=======
+	private static final String _CAL_EVENT_CLASS_NAME =
+		"com.liferay.portlet.calendar.model.CalEvent";
+
+>>>>>>> compatible
 	private static final String[][] _RESOURCE_NAMES = {
 		{"com.liferay.portlet.calendar", "com.liferay.calendar"}
 	};

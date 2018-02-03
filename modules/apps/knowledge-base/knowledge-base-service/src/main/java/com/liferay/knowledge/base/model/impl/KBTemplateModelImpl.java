@@ -38,6 +38,10 @@ import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Serializable;
 
@@ -301,7 +305,11 @@ public class KBTemplateModelImpl extends BaseModelImpl<KBTemplate>
 	@Override
 	public String getUuid() {
 		if (_uuid == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _uuid;
@@ -397,7 +405,11 @@ public class KBTemplateModelImpl extends BaseModelImpl<KBTemplate>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -409,7 +421,11 @@ public class KBTemplateModelImpl extends BaseModelImpl<KBTemplate>
 	@Override
 	public String getUserName() {
 		if (_userName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _userName;
@@ -455,7 +471,11 @@ public class KBTemplateModelImpl extends BaseModelImpl<KBTemplate>
 	@Override
 	public String getTitle() {
 		if (_title == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _title;
@@ -471,7 +491,11 @@ public class KBTemplateModelImpl extends BaseModelImpl<KBTemplate>
 	@Override
 	public String getContent() {
 		if (_content == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _content;

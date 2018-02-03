@@ -60,7 +60,11 @@ EntriesChecker entriesChecker = new EntriesChecker(liferayPortletRequest, lifera
 entriesChecker.setCssClass("entry-selector");
 entriesChecker.setRememberCheckBoxStateURLRegex("^(?!.*" + liferayPortletResponse.getNamespace() + "redirect).*(folderId=" + String.valueOf(folderId) + ")");
 
+<<<<<<< HEAD
 EntriesMover entriesMover = new EntriesMover(dlTrashUtil.isTrashEnabled(scopeGroupId, repositoryId));
+=======
+EntriesMover entriesMover = new EntriesMover(scopeGroupId, repositoryId);
+>>>>>>> compatible
 
 String[] entryColumns = dlPortletInstanceSettingsHelper.getEntryColumns();
 
@@ -259,15 +263,25 @@ if (portletTitleBasedNavigation && (folderId != DLFolderConstants.DEFAULT_PARENT
 					if (DLFileEntryPermission.contains(permissionChecker, fileEntry, ActionKeys.DELETE) || DLFileEntryPermission.contains(permissionChecker, fileEntry, ActionKeys.UPDATE)) {
 						draggable = true;
 
+<<<<<<< HEAD
+=======
+						if (dlSearchContainer.getRowChecker() == null) {
+							dlSearchContainer.setRowChecker(entriesChecker);
+						}
+
+>>>>>>> compatible
 						if (dlSearchContainer.getRowMover() == null) {
 							dlSearchContainer.setRowMover(entriesMover);
 						}
 					}
 
+<<<<<<< HEAD
 					if (dlSearchContainer.getRowChecker() == null) {
 						dlSearchContainer.setRowChecker(entriesChecker);
 					}
 
+=======
+>>>>>>> compatible
 					Map<String, Object> rowData = new HashMap<String, Object>();
 
 					rowData.put("draggable", draggable);
@@ -396,6 +410,7 @@ if (portletTitleBasedNavigation && (folderId != DLFolderConstants.DEFAULT_PARENT
 								</liferay-ui:search-container-column-text>
 							</c:if>
 
+<<<<<<< HEAD
 							<c:if test='<%= ArrayUtil.contains(entryColumns, "document-type") %>'>
 								<c:choose>
 									<c:when test="<%= latestFileVersion.getModel() instanceof DLFileVersion %>">
@@ -420,6 +435,8 @@ if (portletTitleBasedNavigation && (folderId != DLFolderConstants.DEFAULT_PARENT
 								</c:choose>
 							</c:if>
 
+=======
+>>>>>>> compatible
 							<c:if test='<%= ArrayUtil.contains(entryColumns, "size") %>'>
 								<liferay-ui:search-container-column-text
 									name="size"
@@ -466,10 +483,13 @@ if (portletTitleBasedNavigation && (folderId != DLFolderConstants.DEFAULT_PARENT
 				<c:otherwise>
 
 					<%
+<<<<<<< HEAD
 					if (dlSearchContainer.getRowChecker() == null) {
 						dlSearchContainer.setRowChecker(entriesChecker);
 					}
 
+=======
+>>>>>>> compatible
 					Map<String, Object> rowData = new HashMap<String, Object>();
 
 					boolean draggable = false;
@@ -477,6 +497,13 @@ if (portletTitleBasedNavigation && (folderId != DLFolderConstants.DEFAULT_PARENT
 					if (DLFolderPermission.contains(permissionChecker, curFolder, ActionKeys.DELETE) || DLFolderPermission.contains(permissionChecker, curFolder, ActionKeys.UPDATE)) {
 						draggable = true;
 
+<<<<<<< HEAD
+=======
+						if (dlSearchContainer.getRowChecker() == null) {
+							dlSearchContainer.setRowChecker(entriesChecker);
+						}
+
+>>>>>>> compatible
 						if (dlSearchContainer.getRowMover() == null) {
 							dlSearchContainer.setRowMover(entriesMover);
 						}
@@ -557,6 +584,7 @@ if (portletTitleBasedNavigation && (folderId != DLFolderConstants.DEFAULT_PARENT
 								/>
 							</c:if>
 
+<<<<<<< HEAD
 							<c:if test='<%= ArrayUtil.contains(entryColumns, "document-type") %>'>
 								<liferay-ui:search-container-column-text
 									name="document-type"
@@ -564,6 +592,8 @@ if (portletTitleBasedNavigation && (folderId != DLFolderConstants.DEFAULT_PARENT
 								/>
 							</c:if>
 
+=======
+>>>>>>> compatible
 							<c:if test='<%= ArrayUtil.contains(entryColumns, "size") %>'>
 								<liferay-ui:search-container-column-text
 									name="size"

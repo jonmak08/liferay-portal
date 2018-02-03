@@ -19,6 +19,10 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.workflow.kaleo.model.KaleoTaskInstanceToken;
 
 import java.io.Externalizable;
@@ -80,8 +84,13 @@ public class KaleoTaskInstanceTokenCacheModel implements CacheModel<KaleoTaskIns
 		sb.append(createDate);
 		sb.append(", modifiedDate=");
 		sb.append(modifiedDate);
+<<<<<<< HEAD
 		sb.append(", kaleoDefinitionVersionId=");
 		sb.append(kaleoDefinitionVersionId);
+=======
+		sb.append(", kaleoDefinitionId=");
+		sb.append(kaleoDefinitionId);
+>>>>>>> compatible
 		sb.append(", kaleoInstanceId=");
 		sb.append(kaleoInstanceId);
 		sb.append(", kaleoInstanceTokenId=");
@@ -119,7 +128,11 @@ public class KaleoTaskInstanceTokenCacheModel implements CacheModel<KaleoTaskIns
 		kaleoTaskInstanceTokenImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			kaleoTaskInstanceTokenImpl.setUserName("");
+=======
+			kaleoTaskInstanceTokenImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoTaskInstanceTokenImpl.setUserName(userName);
@@ -139,20 +152,32 @@ public class KaleoTaskInstanceTokenCacheModel implements CacheModel<KaleoTaskIns
 			kaleoTaskInstanceTokenImpl.setModifiedDate(new Date(modifiedDate));
 		}
 
+<<<<<<< HEAD
 		kaleoTaskInstanceTokenImpl.setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
+=======
+		kaleoTaskInstanceTokenImpl.setKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 		kaleoTaskInstanceTokenImpl.setKaleoInstanceId(kaleoInstanceId);
 		kaleoTaskInstanceTokenImpl.setKaleoInstanceTokenId(kaleoInstanceTokenId);
 		kaleoTaskInstanceTokenImpl.setKaleoTaskId(kaleoTaskId);
 
 		if (kaleoTaskName == null) {
+<<<<<<< HEAD
 			kaleoTaskInstanceTokenImpl.setKaleoTaskName("");
+=======
+			kaleoTaskInstanceTokenImpl.setKaleoTaskName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoTaskInstanceTokenImpl.setKaleoTaskName(kaleoTaskName);
 		}
 
 		if (className == null) {
+<<<<<<< HEAD
 			kaleoTaskInstanceTokenImpl.setClassName("");
+=======
+			kaleoTaskInstanceTokenImpl.setClassName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoTaskInstanceTokenImpl.setClassName(className);
@@ -178,7 +203,11 @@ public class KaleoTaskInstanceTokenCacheModel implements CacheModel<KaleoTaskIns
 		}
 
 		if (workflowContext == null) {
+<<<<<<< HEAD
 			kaleoTaskInstanceTokenImpl.setWorkflowContext("");
+=======
+			kaleoTaskInstanceTokenImpl.setWorkflowContext(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoTaskInstanceTokenImpl.setWorkflowContext(workflowContext);
@@ -202,7 +231,11 @@ public class KaleoTaskInstanceTokenCacheModel implements CacheModel<KaleoTaskIns
 		createDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
 
+<<<<<<< HEAD
 		kaleoDefinitionVersionId = objectInput.readLong();
+=======
+		kaleoDefinitionId = objectInput.readLong();
+>>>>>>> compatible
 
 		kaleoInstanceId = objectInput.readLong();
 
@@ -234,7 +267,11 @@ public class KaleoTaskInstanceTokenCacheModel implements CacheModel<KaleoTaskIns
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -243,7 +280,11 @@ public class KaleoTaskInstanceTokenCacheModel implements CacheModel<KaleoTaskIns
 		objectOutput.writeLong(createDate);
 		objectOutput.writeLong(modifiedDate);
 
+<<<<<<< HEAD
 		objectOutput.writeLong(kaleoDefinitionVersionId);
+=======
+		objectOutput.writeLong(kaleoDefinitionId);
+>>>>>>> compatible
 
 		objectOutput.writeLong(kaleoInstanceId);
 
@@ -252,14 +293,22 @@ public class KaleoTaskInstanceTokenCacheModel implements CacheModel<KaleoTaskIns
 		objectOutput.writeLong(kaleoTaskId);
 
 		if (kaleoTaskName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(kaleoTaskName);
 		}
 
 		if (className == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(className);
@@ -274,7 +323,11 @@ public class KaleoTaskInstanceTokenCacheModel implements CacheModel<KaleoTaskIns
 		objectOutput.writeLong(dueDate);
 
 		if (workflowContext == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(workflowContext);
@@ -288,7 +341,11 @@ public class KaleoTaskInstanceTokenCacheModel implements CacheModel<KaleoTaskIns
 	public String userName;
 	public long createDate;
 	public long modifiedDate;
+<<<<<<< HEAD
 	public long kaleoDefinitionVersionId;
+=======
+	public long kaleoDefinitionId;
+>>>>>>> compatible
 	public long kaleoInstanceId;
 	public long kaleoInstanceTokenId;
 	public long kaleoTaskId;

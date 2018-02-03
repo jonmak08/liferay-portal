@@ -1,8 +1,13 @@
 # JS Transpiler Gradle Plugin
 
 The JS Transpiler Gradle plugin lets you run [`metal-cli`](https://github.com/metal/metal-cli)
+<<<<<<< HEAD
 to build [Metal.js](http://metaljs.com/) code, compile Soy files, and transpile
 ES6 to ES5.
+=======
+in order to build [Metal.js](http://metaljs.com/) code, compile Soy files, and
+transpile ES6 to ES5.
+>>>>>>> compatible
 
 The plugin has been successfully tested with Gradle 2.5 up to 3.3.
 
@@ -13,7 +18,11 @@ To use the plugin, include it in your build script:
 ```gradle
 buildscript {
 	dependencies {
+<<<<<<< HEAD
 		classpath group: "com.liferay", name: "com.liferay.gradle.plugins.js.transpiler", version: "2.4.3"
+=======
+		classpath group: "com.liferay", name: "com.liferay.gradle.plugins.js.transpiler", version: "2.3.18"
+>>>>>>> compatible
 	}
 
 	repositories {
@@ -22,6 +31,7 @@ buildscript {
 		}
 	}
 }
+<<<<<<< HEAD
 ```
 
 There are two JS Transpiler Gradle plugins you can apply to your project:
@@ -45,13 +55,27 @@ in Node.js scripts:
 ## JS Transpiler Plugin
 
 The JS Transpiler plugin automatically applies the [*JS Transpiler Base Plugin*](#js-transpiler-base-plugin).
+=======
+
+apply plugin: "com.liferay.js.transpiler"
+```
+
+The JS Transpiler plugin automatically applies the [`com.liferay.node`](https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins-node)
+plugin.
+
+## Tasks
+>>>>>>> compatible
 
 The plugin adds two tasks to your project:
 
 Name | Depends On | Type | Description
 ---- | ---------- | ---- | -----------
 `downloadMetalCli` | `downloadNode` | `DownloadNodeModuleTask` | Downloads `metal-cli` in the project's `node_modules` directory.
+<<<<<<< HEAD
 `transpileJS` | `downloadMetalCli`, `expandJSCompileDependencies`, `npmInstall`, `processResources` | [`TranspileJSTask`](#transpilejstask) | Builds Metal.js code.
+=======
+`transpileJS` | `downloadMetalCli`, `npmInstall`, `processResources` | [`TranspileJSTask`](#transpilejstask) | Builds Metal.js code.
+>>>>>>> compatible
 
 By default, the `downloadMetalCli` task downloads the version 1.3.1 of
 `metal-cli`. If the project's `package.json` file, however, already lists the
@@ -74,6 +98,7 @@ Name | Depends On
 ---- | ----------
 `classes` | `transpileJS`
 
+<<<<<<< HEAD
 The plugin adds a new configuration to the project called `soyCompile`. If one
 or more dependencies are added to this configuration, they will be expanded into
 temporary directories and passed to the `transpileJS` task as additional
@@ -84,11 +109,14 @@ temporary directories and passed to the `transpileJS` task as additional
 The JS Transpiler Base plugin automatically applies the [`com.liferay.node`](https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins-node)
 plugin.
 
+=======
+>>>>>>> compatible
 The plugin adds a new configuration to the project called `jsCompile`. If one or
 more dependencies are added to this configuration, they will be expanded into
 sub-directories of the `node_modules` directory, with names equal to the names
 of the dependencies.
 
+<<<<<<< HEAD
 The plugin also adds one task to your project:
 
 Name | Depends On | Type | Description
@@ -102,6 +130,12 @@ running any [script](https://docs.npmjs.com/misc/scripts) declared in the
 expanded into the `node_modules` directory.
 
 ## Tasks
+=======
+The plugin also adds another configuration to the project called `soyCompile`.
+If one or more dependencies are added to this configuration, they will be
+expanded into temporary directories and passed to the `transpileJS` task as
+additional [`soyDependencies`](#soydependencies) values.
+>>>>>>> compatible
 
 ### TranspileJSTask
 
@@ -129,7 +163,11 @@ Property Name | Type | Default Value | Description
 <a name="sourcedir"></a>`sourceDir` | `File` | `null` | The directory that contains the files to build.
 <a name="sourcefiles"></a>`sourceFiles` | `FileCollection` | `[]` | The Soy and JS files to compile. *(Read-only)*
 `sourceMaps` | `SourceMaps` | `enabled` | Whether to generate source map files. Available values include `disabled`, `enabled`, and `enabled_inline`.
+<<<<<<< HEAD
 <a name="soydependencies"></a>`soyDependencies` | `Set<String>` | `["${npmInstall.workingDir}/node_modules/clay*/src/**/*.soy", "${npmInstall.workingDir}/node_modules/metal*/src/**/*.soy"]` | The path GLOBs of Soy files that the main source files depend on, but that should not be compiled. It sets the `--soyDeps` argument.
+=======
+<a name="soydependencies"></a>`soyDependencies` | `Set<String>` | `["${npmInstall.workingDir}/node_modules/lexicon*/src/**/*.soy", "${npmInstall.workingDir}/node_modules/metal*/src/**/*.soy"]` | The path GLOBs of Soy files that the main source files depend on, but that should not be compiled. It sets the `--soyDeps` argument.
+>>>>>>> compatible
 `soySkipMetalGeneration` | `boolean` | `false` | Whether to just compile Soy files, without adding Metal.js generated code, like the `component` class. It sets the `--soySkipMetalGeneration` argument.
 `soySrcIncludes` | `Set<String>` | `[]` | The path GLOBs of the Soy files to compile. It sets the `--soySrc` argument.
 `srcIncludes` | `Set<String>` | `[]` | The path GLOBs of the JS files to compile. It sets the `--src` argument.

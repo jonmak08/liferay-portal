@@ -14,8 +14,11 @@
 
 package com.liferay.dynamic.data.mapping.io;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.form.field.type.DDMFormFieldType;
 import com.liferay.portal.kernel.exception.PortalException;
 
@@ -24,7 +27,10 @@ import java.util.List;
 /**
  * @author Bruno Basto
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public interface DDMFormFieldTypesJSONSerializer {
 
 	public String serialize(List<DDMFormFieldType> ddmFormFieldTypes)

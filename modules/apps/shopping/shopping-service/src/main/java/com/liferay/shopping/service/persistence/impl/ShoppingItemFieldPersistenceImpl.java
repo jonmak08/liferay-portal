@@ -29,8 +29,15 @@ import com.liferay.portal.kernel.service.persistence.CompanyProvider;
 import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.ReflectionUtil;
+import com.liferay.portal.kernel.util.SetUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.spring.extender.service.ServiceReference;
 
 import com.liferay.shopping.exception.NoSuchItemFieldException;
@@ -300,7 +307,11 @@ public class ShoppingItemFieldPersistenceImpl extends BasePersistenceImpl<Shoppi
 		msg.append("itemId=");
 		msg.append(itemId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchItemFieldException(msg.toString());
 	}
@@ -351,7 +362,11 @@ public class ShoppingItemFieldPersistenceImpl extends BasePersistenceImpl<Shoppi
 		msg.append("itemId=");
 		msg.append(itemId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchItemFieldException(msg.toString());
 	}
@@ -598,11 +613,17 @@ public class ShoppingItemFieldPersistenceImpl extends BasePersistenceImpl<Shoppi
 		setModelClass(ShoppingItemField.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("values", "values_");
@@ -1043,12 +1064,20 @@ public class ShoppingItemFieldPersistenceImpl extends BasePersistenceImpl<Shoppi
 		for (Serializable primaryKey : uncachedPrimaryKeys) {
 			query.append((long)primaryKey);
 
+<<<<<<< HEAD
 			query.append(",");
+=======
+			query.append(StringPool.COMMA);
+>>>>>>> compatible
 		}
 
 		query.setIndex(query.index() - 1);
 
+<<<<<<< HEAD
 		query.append(")");
+=======
+		query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 		String sql = query.toString();
 

@@ -49,8 +49,13 @@ renderResponse.setTitle((ddmDataProviderInstance == null) ? LanguageUtil.get(req
 	<aui:input name="type" type="hidden" value="<%= type %>" />
 	<aui:input name="languageId" type="hidden" value="<%= String.valueOf(themeDisplay.getLanguageId()) %>" />
 
+<<<<<<< HEAD
 	<div class="container-fluid-1280">
 		<aui:fieldset-group markupView="lexicon">
+=======
+	<aui:fieldset-group markupView="lexicon">
+		<div class="container-fluid-1280">
+>>>>>>> compatible
 			<aui:fieldset>
 				<liferay-util:buffer var="requiredMark">
 					<span class="icon-asterisk text-warning">
@@ -70,6 +75,7 @@ renderResponse.setTitle((ddmDataProviderInstance == null) ? LanguageUtil.get(req
 			<aui:fieldset>
 				<%= ddmDataProviderDisplayContext.getDataProviderInstanceDDMFormHTML() %>
 			</aui:fieldset>
+<<<<<<< HEAD
 
 			<c:if test="<%= ddmDataProviderInstance == null %>">
 				<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="permissions">
@@ -80,13 +86,23 @@ renderResponse.setTitle((ddmDataProviderInstance == null) ? LanguageUtil.get(req
 			</c:if>
 		</aui:fieldset-group>
 	</div>
+=======
+		</div>
+	</aui:fieldset-group>
+>>>>>>> compatible
 
 	<c:if test="<%= !windowState.equals(LiferayWindowState.POP_UP) %>">
 		<div class="container-fluid-1280">
 			<aui:button-row>
+<<<<<<< HEAD
 				<aui:button id="submit" label="save" type="submit" />
 
 				<aui:button href="<%= redirect %>" name="cancelButton" type="cancel" />
+=======
+				<aui:button cssClass="btn-lg" id="submit" label="save" type="submit" />
+
+				<aui:button cssClass="btn-lg" href="<%= redirect %>" name="cancelButton" type="cancel" />
+>>>>>>> compatible
 			</aui:button-row>
 		</div>
 	</c:if>
@@ -106,7 +122,11 @@ renderResponse.setTitle((ddmDataProviderInstance == null) ? LanguageUtil.get(req
 			dialog.addToolbar(
 				[
 					{
+<<<<<<< HEAD
 						cssClass: 'btn-primary',
+=======
+						cssClass: 'btn-lg btn-primary',
+>>>>>>> compatible
 						label: '<liferay-ui:message key="save" />',
 						on: {
 							click: function() {
@@ -115,7 +135,11 @@ renderResponse.setTitle((ddmDataProviderInstance == null) ? LanguageUtil.get(req
 						}
 					},
 					{
+<<<<<<< HEAD
 						cssClass: 'btn-link',
+=======
+						cssClass: 'btn-lg btn-link',
+>>>>>>> compatible
 						label: '<liferay-ui:message key="cancel" />',
 						on: {
 							click: function() {

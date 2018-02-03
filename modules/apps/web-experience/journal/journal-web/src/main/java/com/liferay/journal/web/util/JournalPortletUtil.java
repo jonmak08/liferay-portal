@@ -25,23 +25,32 @@ import com.liferay.journal.util.comparator.ArticleModifiedDateComparator;
 import com.liferay.journal.util.comparator.ArticleReviewDateComparator;
 import com.liferay.journal.util.comparator.ArticleTitleComparator;
 import com.liferay.journal.util.comparator.ArticleVersionComparator;
+<<<<<<< HEAD
 import com.liferay.journal.util.impl.JournalUtil;
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.exception.PortalException;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.LiferayWindowState;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.WebKeys;
+=======
+>>>>>>> compatible
 
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+<<<<<<< HEAD
 import javax.portlet.PortletRequest;
 import javax.portlet.PortletResponse;
+=======
+>>>>>>> compatible
 import javax.portlet.PortletURL;
 
 import javax.servlet.http.HttpServletRequest;
@@ -87,7 +96,11 @@ public class JournalPortletUtil {
 		throws Exception {
 
 		ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
+<<<<<<< HEAD
 			WebKeys.THEME_DISPLAY);
+=======
+			com.liferay.portal.kernel.util.WebKeys.THEME_DISPLAY);
+>>>>>>> compatible
 
 		String mvcPath = ParamUtil.getString(request, "mvcPath");
 
@@ -167,6 +180,7 @@ public class JournalPortletUtil {
 		addPortletBreadcrumbEntries(folder, request, portletURL);
 	}
 
+<<<<<<< HEAD
 	public static String getAddMenuFavItemKey(
 			PortletRequest portletRequest, PortletResponse portletResponse)
 		throws PortalException {
@@ -188,6 +202,8 @@ public class JournalPortletUtil {
 		return key + StringPool.DASH + folderId;
 	}
 
+=======
+>>>>>>> compatible
 	public static OrderByComparator<JournalArticle> getArticleOrderByComparator(
 		String orderByCol, String orderByType) {
 
@@ -224,6 +240,7 @@ public class JournalPortletUtil {
 		return orderByComparator;
 	}
 
+<<<<<<< HEAD
 	protected static long getAddMenuFavItemFolderId(long folderId)
 		throws PortalException {
 
@@ -251,4 +268,6 @@ public class JournalPortletUtil {
 		return 0;
 	}
 
+=======
+>>>>>>> compatible
 }

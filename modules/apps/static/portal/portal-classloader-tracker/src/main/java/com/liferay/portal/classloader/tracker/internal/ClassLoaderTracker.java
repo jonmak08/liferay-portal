@@ -14,7 +14,11 @@
 
 package com.liferay.portal.classloader.tracker.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.ClassLoaderPool;
+=======
+import com.liferay.portal.kernel.util.ClassLoaderPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 
 import org.osgi.framework.Bundle;

@@ -15,8 +15,11 @@
 package com.liferay.dynamic.data.mapping.util;
 
 import com.liferay.dynamic.data.mapping.BaseDDMTestCase;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.internal.util.DDMFormValuesToFieldsConverterImpl;
 import com.liferay.dynamic.data.mapping.internal.util.DDMImpl;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.model.DDMForm;
 import com.liferay.dynamic.data.mapping.model.DDMFormField;
 import com.liferay.dynamic.data.mapping.model.DDMFormFieldType;
@@ -28,9 +31,16 @@ import com.liferay.dynamic.data.mapping.storage.DDMFormFieldValue;
 import com.liferay.dynamic.data.mapping.storage.DDMFormValues;
 import com.liferay.dynamic.data.mapping.storage.Field;
 import com.liferay.dynamic.data.mapping.storage.Fields;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.util.PropsValues;
+=======
+import com.liferay.dynamic.data.mapping.util.impl.DDMFormValuesToFieldsConverterImpl;
+import com.liferay.dynamic.data.mapping.util.impl.DDMImpl;
+import com.liferay.portal.kernel.util.LocaleUtil;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Serializable;
 
@@ -43,15 +53,22 @@ import java.util.Set;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+<<<<<<< HEAD
 import org.junit.runner.RunWith;
 
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.core.classloader.annotations.SuppressStaticInitializationFor;
 import org.powermock.modules.junit4.PowerMockRunner;
+=======
+
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.core.classloader.annotations.SuppressStaticInitializationFor;
+>>>>>>> compatible
 
 /**
  * @author Marcellus Tavares
  */
+<<<<<<< HEAD
 @PrepareForTest({DDMStructureLocalServiceUtil.class, PropsValues.class})
 @RunWith(PowerMockRunner.class)
 @SuppressStaticInitializationFor(
@@ -60,6 +77,11 @@ import org.powermock.modules.junit4.PowerMockRunner;
 		"com.liferay.portal.kernel.xml.SAXReaderUtil",
 		"com.liferay.portal.util.PropsValues"
 	}
+=======
+@PrepareForTest(DDMStructureLocalServiceUtil.class)
+@SuppressStaticInitializationFor(
+	"com.liferay.dynamic.data.mapping.service.DDMStructureLocalServiceUtil"
+>>>>>>> compatible
 )
 public class DDMFormValuesToFieldsConverterTest extends BaseDDMTestCase {
 
@@ -76,7 +98,11 @@ public class DDMFormValuesToFieldsConverterTest extends BaseDDMTestCase {
 		setUpHtmlUtil();
 		setUpJSONFactoryUtil();
 		setUpLanguageUtil();
+<<<<<<< HEAD
 		setUpPropsValues();
+=======
+		setUpPropsUtil();
+>>>>>>> compatible
 		setUpSAXReaderUtil();
 	}
 

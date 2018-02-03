@@ -15,7 +15,10 @@
 package com.liferay.portal.tools;
 
 import com.liferay.portal.kernel.util.GetterUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 
 import java.util.Map;

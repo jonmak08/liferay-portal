@@ -35,9 +35,7 @@ public class ReadOnlyBeanHandler implements InvocationHandler {
 	public Object invoke(Object proxy, Method method, Object[] arguments)
 		throws Throwable {
 
-		String methodName = method.getName();
-
-		if (methodName.startsWith("set")) {
+		if (method.getName().startsWith("set")) {
 			throw new IllegalAccessException(
 				"Setter methods cannot be called on a read only bean");
 		}

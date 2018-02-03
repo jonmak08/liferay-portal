@@ -14,14 +14,27 @@
 
 package com.liferay.portal.search.elasticsearch.internal.index;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
+=======
+import com.liferay.portal.kernel.test.util.RandomTestUtil;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.search.elasticsearch.internal.connection.ElasticsearchFixture;
+import com.liferay.portal.search.elasticsearch.internal.connection.Index;
+>>>>>>> compatible
 import com.liferay.portal.search.elasticsearch.internal.connection.IndexName;
 
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+<<<<<<< HEAD
+=======
+import org.elasticsearch.action.index.IndexRequestBuilder;
+import org.elasticsearch.client.Client;
+
+>>>>>>> compatible
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -41,6 +54,13 @@ public class LiferayTypeMappingsDDMKeywordEmptyStringTest {
 			clazz.getSimpleName(), new IndexName(testName.getMethodName()));
 
 		_liferayIndexFixture.setUp();
+<<<<<<< HEAD
+=======
+
+		_index = _liferayIndexFixture.getIndex();
+
+		_elasticsearchFixture = _liferayIndexFixture.getElasticsearchFixture();
+>>>>>>> compatible
 	}
 
 	@Test
@@ -119,6 +139,7 @@ public class LiferayTypeMappingsDDMKeywordEmptyStringTest {
 	}
 
 	protected void assertType(String field, String type) throws Exception {
+<<<<<<< HEAD
 		_liferayIndexFixture.assertType(field, type);
 	}
 
@@ -126,6 +147,33 @@ public class LiferayTypeMappingsDDMKeywordEmptyStringTest {
 		_liferayIndexFixture.index(map);
 	}
 
+=======
+		FieldMappingAssert.assertType(
+			type, field, LiferayTypeMappingsConstants.LIFERAY_DOCUMENT_TYPE,
+			_index.getName(), _elasticsearchFixture.getIndicesAdminClient());
+	}
+
+	protected IndexRequestBuilder getIndexRequestBuilder() {
+		Client client = _elasticsearchFixture.getClient();
+
+		IndexRequestBuilder indexRequestBuilder = client.prepareIndex(
+			_index.getName(),
+			LiferayTypeMappingsConstants.LIFERAY_DOCUMENT_TYPE);
+
+		return indexRequestBuilder;
+	}
+
+	protected void index(Map<String, Object> map) {
+		IndexRequestBuilder indexRequestBuilder = getIndexRequestBuilder();
+
+		indexRequestBuilder.setSource(map);
+
+		indexRequestBuilder.get();
+	}
+
+	private ElasticsearchFixture _elasticsearchFixture;
+	private Index _index;
+>>>>>>> compatible
 	private LiferayIndexFixture _liferayIndexFixture;
 
 }

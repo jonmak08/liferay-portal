@@ -103,9 +103,21 @@ OrderByComparator<BackgroundTask> orderByComparator = BackgroundTaskComparatorFa
 		>
 
 			<%
+<<<<<<< HEAD
 			BackgroundTaskDisplay backgroundTaskDisplay = BackgroundTaskDisplayFactoryUtil.getBackgroundTaskDisplay(backgroundTask);
 
 			String backgroundTaskName = backgroundTaskDisplay.getDisplayName(request);
+=======
+			String backgroundTaskName = backgroundTask.getName();
+
+			if (localPublishing && (backgroundTask.getGroupId() == liveGroupId)) {
+				backgroundTaskName = LanguageUtil.get(request, "initial-publication");
+			}
+
+			if (backgroundTaskName.equals(StringPool.BLANK)) {
+				backgroundTaskName = LanguageUtil.get(request, "untitled");
+			}
+>>>>>>> compatible
 
 			boolean processPrivateLayout = MapUtil.getBoolean(backgroundTask.getTaskContextMap(), "privateLayout");
 
@@ -267,7 +279,11 @@ OrderByComparator<BackgroundTask> orderByComparator = BackgroundTaskComparatorFa
 				align="right"
 			>
 				<liferay-ui:icon-menu direction="left-side" icon="<%= StringPool.BLANK %>" markupView="lexicon" message="<%= StringPool.BLANK %>" showWhenSingleIcon="<%= true %>">
+<<<<<<< HEAD
 					<c:if test="<%= !localPublishing || (backgroundTask.getGroupId() != liveGroupId) %>">
+=======
+					<c:if test="<%= backgroundTask.getGroupId() != liveGroupId %>">
+>>>>>>> compatible
 						<portlet:actionURL name="editPublishConfiguration" var="relaunchURL">
 							<portlet:param name="mvcRenderCommandName" value="editPublishConfiguration" />
 							<portlet:param name="<%= Constants.CMD %>" value="<%= Constants.RELAUNCH %>" />

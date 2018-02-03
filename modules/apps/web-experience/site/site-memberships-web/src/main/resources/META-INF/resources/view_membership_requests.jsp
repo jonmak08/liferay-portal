@@ -73,6 +73,7 @@ portletDisplay.setShowBackIcon(true);
 portletDisplay.setURLBack(backURL.toString());
 
 renderResponse.setTitle(LanguageUtil.get(request, "membership-requests"));
+<<<<<<< HEAD
 
 List<NavigationItem> navigationItems = new ArrayList<>();
 
@@ -124,6 +125,40 @@ navigationItems.add(deniedNavigationItem);
 />
 
 <liferay-ui:success key="membershipReplySent" message="your-reply-will-be-sent-to-the-user-by-email" />
+=======
+%>
+
+<liferay-ui:success key="membershipReplySent" message="your-reply-will-be-sent-to-the-user-by-email" />
+
+<aui:nav-bar markupView="lexicon">
+	<aui:nav cssClass="navbar-nav">
+
+		<%
+		PortletURL pendingURL = PortletURLUtil.clone(portletURL, renderResponse);
+
+		pendingURL.setParameter("tabs1", "pending");
+		%>
+
+		<aui:nav-item href="<%= pendingURL.toString() %>" label="pending" selected='<%= tabs1.equals("pending") %>' />
+
+		<%
+		PortletURL approvedURL = PortletURLUtil.clone(portletURL, renderResponse);
+
+		approvedURL.setParameter("tabs1", "approved");
+		%>
+
+		<aui:nav-item href="<%= approvedURL.toString() %>" label="approved" selected='<%= tabs1.equals("approved") %>' />
+
+		<%
+		PortletURL deniedURL = PortletURLUtil.clone(portletURL, renderResponse);
+
+		deniedURL.setParameter("tabs1", "denied");
+		%>
+
+		<aui:nav-item href="<%= deniedURL.toString() %>" label="denied" selected='<%= tabs1.equals("denied") %>' />
+	</aui:nav>
+</aui:nav-bar>
+>>>>>>> compatible
 
 <liferay-frontend:management-bar
 	disabled="<%= membershipRequestCount <= 0 %>"

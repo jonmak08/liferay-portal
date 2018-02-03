@@ -14,7 +14,10 @@
 
 package com.liferay.portal.kernel.util;
 
+<<<<<<< HEAD
 import java.io.FileInputStream;
+=======
+>>>>>>> compatible
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
@@ -153,7 +156,11 @@ public interface File {
 
 	public List<String> toList(String fileName);
 
+<<<<<<< HEAD
 	public Properties toProperties(FileInputStream fis);
+=======
+	public Properties toProperties(java.io.FileInputStream fis);
+>>>>>>> compatible
 
 	public Properties toProperties(String fileName);
 

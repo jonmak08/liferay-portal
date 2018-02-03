@@ -26,8 +26,12 @@ taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %><%@
 taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %><%@
 taglib uri="http://liferay.com/tld/util" prefix="liferay-util" %>
 
+<<<<<<< HEAD
 <%@ page import="com.liferay.petra.string.CharPool" %><%@
 page import="com.liferay.polls.constants.PollsPortletKeys" %><%@
+=======
+<%@ page import="com.liferay.polls.constants.PollsPortletKeys" %><%@
+>>>>>>> compatible
 page import="com.liferay.polls.constants.PollsWebKeys" %><%@
 page import="com.liferay.polls.exception.DuplicateVoteException" %><%@
 page import="com.liferay.polls.exception.NoSuchChoiceException" %><%@
@@ -59,6 +63,10 @@ page import="com.liferay.portal.kernel.security.permission.ResourceActionsUtil" 
 page import="com.liferay.portal.kernel.service.PortletLocalServiceUtil" %><%@
 page import="com.liferay.portal.kernel.service.UserLocalServiceUtil" %><%@
 page import="com.liferay.portal.kernel.service.permission.PortletPermissionUtil" %><%@
+<<<<<<< HEAD
+=======
+page import="com.liferay.portal.kernel.util.CharPool" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.util.Constants" %><%@
 page import="com.liferay.portal.kernel.util.FastDateFormatFactoryUtil" %><%@
 page import="com.liferay.portal.kernel.util.GetterUtil" %><%@
@@ -76,7 +84,10 @@ page import="com.liferay.taglib.search.ResultRow" %>
 page import="java.text.NumberFormat" %>
 
 <%@ page import="java.util.ArrayList" %><%@
+<<<<<<< HEAD
 page import="java.util.Date" %><%@
+=======
+>>>>>>> compatible
 page import="java.util.List" %>
 
 <%@ page import="javax.portlet.PortletRequest" %><%@

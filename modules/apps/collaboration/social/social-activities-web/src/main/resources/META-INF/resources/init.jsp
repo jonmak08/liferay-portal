@@ -25,7 +25,11 @@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 
 <%@ page import="com.liferay.portal.kernel.util.Constants" %><%@
 page import="com.liferay.portal.kernel.util.PortalUtil" %><%@
+<<<<<<< HEAD
 page import="com.liferay.social.activities.web.internal.constants.SocialActivitiesWebKeys" %><%@
+=======
+page import="com.liferay.social.activities.web.constants.SocialActivitiesWebKeys" %><%@
+>>>>>>> compatible
 page import="com.liferay.social.activities.web.internal.portlet.display.context.DefaultSocialActivitiesDisplayContext" %><%@
 page import="com.liferay.social.activities.web.internal.portlet.display.context.SocialActivitiesDisplayContext" %><%@
 page import="com.liferay.social.activities.web.internal.portlet.display.context.util.SocialActivitiesRequestHelper" %><%@

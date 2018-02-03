@@ -1,7 +1,10 @@
 <definition component-name="portal-categories">
 	<property name="portal.release" value="true" />
 	<property name="portal.upstream" value="true" />
+<<<<<<< HEAD
 	<property name="testray.component.names" value="Categories" />
+=======
+>>>>>>> compatible
 	<property name="testray.main.component.name" value="Categories" />
 
 	<set-up>
@@ -27,9 +30,13 @@
 	<command name="AddCategories" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -39,9 +46,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -52,9 +63,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -65,9 +80,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -78,9 +97,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -91,9 +114,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -104,9 +131,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -116,6 +147,7 @@
 		</execute>
 	</command>
 
+<<<<<<< HEAD
 	<command name="AddCategory" priority="4">
 		<description message="Ensure that a user can add a category." />
 
@@ -124,6 +156,16 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+	<command name="AddCategory" priority="5">
+		<description message="Ensure that a user can add a category." />
+
+		<property name="portal.acceptance" value="true" />
+
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -138,9 +180,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -153,9 +199,13 @@
 	<command name="AddCategoryProperties" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -177,9 +227,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -193,9 +247,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -211,9 +269,13 @@
 	<command name="AddCategoryProperty" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -235,9 +297,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -253,9 +319,13 @@
 	<command name="AddCategoryViewableByAnyone" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -271,9 +341,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -287,9 +361,13 @@
 	<command name="AddCategoryViewableByOwner" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -305,9 +383,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -321,9 +403,13 @@
 	<command name="AddCategoryViewableBySiteMembers" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -339,9 +425,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -355,9 +445,13 @@
 	<command name="AddSubcategories" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -372,9 +466,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -386,9 +484,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -400,9 +502,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -414,9 +520,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -428,9 +538,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -442,9 +556,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -458,9 +576,13 @@
 	<command name="AddSubcategory" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -475,9 +597,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -489,9 +615,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -505,9 +635,13 @@
 	<command name="AddVocabularies" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -525,9 +659,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -544,12 +682,35 @@
 		</execute>
 	</command>
 
+<<<<<<< HEAD
 	<command name="AddVocabularyAssetTypeAllAssetTypes" priority="3">
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+	<command name="AddVocabulary" priority="4">
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="ProductMenu#gotoSitesContent">
+			<var name="portlet" value="Categories" />
+		</execute>
+
+		<execute macro="Vocabulary#addCP">
+			<var name="vocabularyName" value="Vocabulary Name" />
+		</execute>
+
+		<execute macro="Vocabulary#viewCP">
+			<var name="vocabularyName" value="Vocabulary Name" />
+		</execute>
+	</command>
+
+	<command name="AddVocabularyAssetTypeAllAssetTypes" priority="3">
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -567,9 +728,13 @@
 	<command name="AddVocabularyAssetTypeBlogsEntry" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -587,9 +752,13 @@
 	<command name="AddVocabularyAssetTypeBookmarksEntry" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -607,9 +776,13 @@
 	<command name="AddVocabularyAssetTypeDocument" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -627,9 +800,13 @@
 	<command name="AddVocabularyAssetTypes" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -645,9 +822,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -665,9 +846,13 @@
 	<command name="AddVocabularyAssetTypeUser" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -685,9 +870,13 @@
 	<command name="AddVocabularyAssetTypeWebContent" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -705,9 +894,13 @@
 	<command name="AddVocabularyAssetTypeWikiPage" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -725,9 +918,13 @@
 	<command name="AddVocabularyDisallowMultipleCategories" priority="3" >
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -738,9 +935,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -753,9 +954,13 @@
 	<command name="AddVocabularyViewableByGuest" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -766,9 +971,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -781,9 +990,13 @@
 	<command name="AddVocabularyViewableByOwner" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -794,9 +1007,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -809,9 +1026,13 @@
 	<command name="AddVocabularyViewableBySiteMembers" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -822,9 +1043,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -837,9 +1062,13 @@
 	<command name="CannotAddCategoryWithNullTitle" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -855,9 +1084,13 @@
 	<command name="CannotAddVocabularyWithNullTitle" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -867,6 +1100,7 @@
 	<command name="DeleteAssociatedAssetTypeViaVocabulary" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
@@ -874,6 +1108,13 @@
 		</execute>
 
 		<execute macro="LexiconEntry#gotoAdd" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+			<var name="portlet" value="Categories" />
+		</execute>
+
+		<execute macro="VocabularyNavigator#gotoAdd" />
+>>>>>>> compatible
 
 		<execute macro="PortletEntry#inputName">
 			<var name="name" value="Vocabulary Name" />
@@ -882,6 +1123,7 @@
 		<execute macro="Vocabulary#addAssociatedAssetType">
 			<var name="assetType" value="Blogs Entry" />
 			<var name="required" value="true" />
+<<<<<<< HEAD
 		</execute>
 
 		<execute macro="Button#clickAddRow" />
@@ -892,6 +1134,18 @@
 			<var name="rowNumber" value="2" />
 		</execute>
 
+=======
+		</execute>
+
+		<execute macro="Button#clickAddRow" />
+
+		<execute macro="Vocabulary#addAssociatedAssetType">
+			<var name="assetType" value="Web Content Article" />
+			<var name="required" value="true" />
+			<var name="rowNumber" value="2" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="Button#clickSave" />
 
 		<execute macro="Vocabulary#deleteAssociatedAssetTypeViaVocabularyCP">
@@ -907,9 +1161,13 @@
 	<command name="DeleteCategories" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -919,9 +1177,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -932,9 +1194,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -945,9 +1211,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -958,9 +1228,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -970,11 +1244,19 @@
 	</command>
 
 	<command name="DeleteCategory" priority="5">
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<property name="portal.acceptance" value="true" />
+
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -989,9 +1271,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -1004,9 +1290,13 @@
 	<command name="DeleteCategoryByMenu" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -1021,9 +1311,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -1036,9 +1330,13 @@
 	<command name="DeleteCategoryProperty2" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -1060,9 +1358,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -1073,9 +1375,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -1087,18 +1393,27 @@
 			<var name="vocabularyName" value="Vocabulary Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<var name="key_pathNumber" value="1" />
 
 		<execute function="AssertElementNotPresent" locator1="Categories#CATEGORY_DETAILS_PROPERTY_KEY_2" />
 		<execute function="AssertElementNotPresent" locator1="Categories#CATEGORY_DETAILS_PROPERTY_VALUE_2" />
+=======
+		<execute function="AssertTextNotPresent" locator1="Categories#CATEGORY_DETAILS_PROPERTY_KEY" value1="Category Property 2 Key" />
+		<execute function="AssertTextNotPresent" locator1="Categories#CATEGORY_DETAILS_PROPERTY_VALUE" value1="Category Property 2 Value" />
+>>>>>>> compatible
 	</command>
 
 	<command name="DeleteSubcategoryViaIcon" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -1108,9 +1423,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -1121,9 +1440,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -1135,9 +1458,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -1149,11 +1476,19 @@
 	</command>
 
 	<command name="DeleteSubcategoryViaMenu" priority="5">
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<property name="portal.acceptance" value="true" />
+
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -1168,9 +1503,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -1182,9 +1521,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -1200,9 +1543,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -1218,9 +1565,13 @@
 	<command name="DeleteVocabularyByMenu" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -1234,6 +1585,7 @@
 	</command>
 
 	<command name="EditCategory" priority="5">
+<<<<<<< HEAD
 		<property name="portal.acceptance" value="quarantine" />
 
 		<execute macro="Navigator#openURL" />
@@ -1241,6 +1593,13 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<property name="portal.acceptance" value="true" />
+
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -1255,9 +1614,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -1269,9 +1632,15 @@
 	</command>
 
 	<command name="EditCategoryProperty" priority="4">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -1291,9 +1660,15 @@
 			<var name="propertyNumber" value="1" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -1305,9 +1680,15 @@
 			<var name="vocabularyName" value="Vocabulary Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -1330,9 +1711,15 @@
 			<var name="vocabularyName" value="Vocabulary Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -1346,14 +1733,22 @@
 	</command>
 
 	<command name="EditSubcategory" priority="5">
+<<<<<<< HEAD
 		<property name="portal.acceptance" value="quarantine" />
+=======
+		<property name="portal.acceptance" value="true" />
+>>>>>>> compatible
 		<property name="testray.component.names" value="Training" />
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -1368,9 +1763,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -1382,9 +1781,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -1401,9 +1804,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -1420,9 +1827,13 @@
 	<command name="MoveCategoryViaEdit" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -1432,9 +1843,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -1444,9 +1859,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -1457,9 +1876,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -1471,9 +1894,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -1486,6 +1913,7 @@
 	<command name="ValidateClickingCloseButtonDoesNotSaveVocabulary" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
@@ -1498,13 +1926,28 @@
 			<var name="name" value="Vocabulary Name" />
 		</execute>
 
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+			<var name="portlet" value="Categories" />
+		</execute>
+
+		<execute function="Click" locator1="Button#PLUS" />
+		<execute macro="PortletEntry#inputName">
+			<var name="name" value="Vocabulary Name" />
+		</execute>
+
+>>>>>>> compatible
 		<execute function="Click" locator1="Button#CANCEL" />
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 

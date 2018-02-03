@@ -14,8 +14,13 @@
 
 package com.liferay.portal.search.web.internal.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.util.GetterUtil;
+=======
+import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.util.Optional;
 

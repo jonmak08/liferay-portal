@@ -256,6 +256,7 @@ public class LayoutSetLocalServiceImpl extends LayoutSetLocalServiceBaseImpl {
 		if (Validator.isNull(layoutSetPrototypeUuid)) {
 			layoutSetPrototypeUuid =
 				layoutSetBranch.getLayoutSetPrototypeUuid();
+<<<<<<< HEAD
 		}
 
 		if (Validator.isNull(layoutSetPrototypeUuid) &&
@@ -266,6 +267,18 @@ public class LayoutSetLocalServiceImpl extends LayoutSetLocalServiceBaseImpl {
 					"layoutSetPrototypeUuid is null");
 		}
 
+=======
+		}
+
+		if (Validator.isNull(layoutSetPrototypeUuid) &&
+			layoutSetPrototypeLinkEnabled) {
+
+			throw new IllegalStateException(
+				"Cannot set layoutSetPrototypeLinkEnabled to true when " +
+					"layoutSetPrototypeUuid is null");
+		}
+
+>>>>>>> compatible
 		layoutSetBranch.setLayoutSetPrototypeLinkEnabled(
 			layoutSetPrototypeLinkEnabled);
 		layoutSetBranch.setLayoutSetPrototypeUuid(layoutSetPrototypeUuid);

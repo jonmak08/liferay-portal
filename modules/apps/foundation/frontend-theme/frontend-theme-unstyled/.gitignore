@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 /src/main/resources/META-INF/resources/_unstyled/css/clay
 /src/main/resources/META-INF/resources/_unstyled/css/font-awesome
 /src/main/resources/META-INF/resources/_unstyled/images/aui
 /src/main/resources/META-INF/resources/_unstyled/images/clay
+=======
+/src/main/resources/META-INF/resources/_unstyled/css/aui
+/src/main/resources/META-INF/resources/_unstyled/images/aui
+>>>>>>> compatible
 /src/main/resources/META-INF/resources/_unstyled/images/lexicon

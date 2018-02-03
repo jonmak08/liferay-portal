@@ -996,6 +996,7 @@ public class IntrabandProxyUtil {
 
 	}
 
+<<<<<<< HEAD
 	private static Set<Method> _getVisibleMethods(Class<?> clazz) {
 		Set<Method> visibleMethods = new HashSet<>(
 			Arrays.asList(clazz.getMethods()));
@@ -1017,6 +1018,8 @@ public class IntrabandProxyUtil {
 		return visibleMethods;
 	}
 
+=======
+>>>>>>> compatible
 	private static final Type _DATAGRAM_TYPE = Type.getType(Datagram.class);
 
 	private static final Type _DESERIALIZER_TYPE = Type.getType(

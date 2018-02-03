@@ -9,6 +9,7 @@
 				KaleoTaskInstanceToken
 			INNER JOIN
 				KaleoTaskAssignmentInstance ON
+<<<<<<< HEAD
 					KaleoTaskAssignmentInstance.kaleoTaskInstanceTokenId = KaleoTaskInstanceToken.kaleoTaskInstanceTokenId
 			LEFT JOIN
 				ClassName_ ON
@@ -19,6 +20,11 @@
 					(AssetEntry.classPK = KaleoTaskInstanceToken.classPK)
 			WHERE
 				KaleoTaskInstanceToken.companyId = ?
+=======
+					(KaleoTaskAssignmentInstance.kaleoTaskInstanceTokenId = KaleoTaskInstanceToken.kaleoTaskInstanceTokenId)
+			WHERE
+				(KaleoTaskInstanceToken.companyId = ?)
+>>>>>>> compatible
 		]]>
 	</sql>
 	<sql id="com.liferay.portal.workflow.kaleo.service.persistence.KaleoTaskInstanceTokenFinder.findByC_KTAI">
@@ -29,6 +35,7 @@
 				KaleoTaskInstanceToken
 			INNER JOIN
 				KaleoTaskAssignmentInstance ON
+<<<<<<< HEAD
 					KaleoTaskAssignmentInstance.kaleoTaskInstanceTokenId = KaleoTaskInstanceToken.kaleoTaskInstanceTokenId
 			LEFT JOIN
 				ClassName_ ON
@@ -39,6 +46,11 @@
 					(AssetEntry.classPK = KaleoTaskInstanceToken.classPK)
 			WHERE
 				KaleoTaskInstanceToken.companyId = ?
+=======
+					(KaleoTaskAssignmentInstance.kaleoTaskInstanceTokenId = KaleoTaskInstanceToken.kaleoTaskInstanceTokenId)
+			WHERE
+				(KaleoTaskInstanceToken.companyId = ?)
+>>>>>>> compatible
 		]]>
 	</sql>
 </custom-sql>

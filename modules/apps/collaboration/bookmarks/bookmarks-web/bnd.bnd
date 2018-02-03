@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Bookmarks Web
 Bundle-SymbolicName: com.liferay.bookmarks.web
+<<<<<<< HEAD
 Bundle-Version: 1.0.34
+=======
+Bundle-Version: 1.0.26
+>>>>>>> compatible
 Liferay-JS-Config: /META-INF/resources/bookmarks/js/config.js
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Bookmarks

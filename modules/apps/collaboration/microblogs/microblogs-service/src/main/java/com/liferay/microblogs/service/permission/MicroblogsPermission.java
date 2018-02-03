@@ -14,6 +14,7 @@
 
 package com.liferay.microblogs.service.permission;
 
+<<<<<<< HEAD
 import com.liferay.microblogs.constants.MicroblogsConstants;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.security.permission.BaseResourcePermissionChecker;
@@ -38,25 +39,60 @@ public class MicroblogsPermission extends BaseResourcePermissionChecker {
 
 	public static final String RESOURCE_NAME =
 		MicroblogsConstants.RESOURCE_NAME;
+=======
+import com.liferay.microblogs.constants.MicroblogsPortletKeys;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.security.auth.PrincipalException;
+import com.liferay.portal.kernel.security.permission.BaseResourcePermissionChecker;
+import com.liferay.portal.kernel.security.permission.PermissionChecker;
+import com.liferay.portal.kernel.security.permission.ResourcePermissionChecker;
+
+import org.osgi.service.component.annotations.Component;
+
+/**
+ * @author Jonathan Lee
+ */
+@Component(
+	immediate = true,
+	property = {"resource.name=" + MicroblogsPermission.RESOURCE_NAME},
+	service = ResourcePermissionChecker.class
+)
+public class MicroblogsPermission extends BaseResourcePermissionChecker {
+
+	public static final String RESOURCE_NAME = "com.liferay.microblogs";
+>>>>>>> compatible
 
 	public static void check(
 			PermissionChecker permissionChecker, long groupId, String actionId)
 		throws PortalException {
 
+<<<<<<< HEAD
 		_portletResourcePermission.check(permissionChecker, groupId, actionId);
+=======
+		if (!contains(permissionChecker, groupId, actionId)) {
+			throw new PrincipalException();
+		}
+>>>>>>> compatible
 	}
 
 	public static boolean contains(
 		PermissionChecker permissionChecker, long groupId, String actionId) {
 
+<<<<<<< HEAD
 		return _portletResourcePermission.contains(
 			permissionChecker, groupId, actionId);
+=======
+		return contains(
+			permissionChecker, RESOURCE_NAME, MicroblogsPortletKeys.MICROBLOGS,
+			groupId, actionId);
+>>>>>>> compatible
 	}
 
 	@Override
 	public Boolean checkResource(
 		PermissionChecker permissionChecker, long classPK, String actionId) {
 
+<<<<<<< HEAD
 		return _portletResourcePermission.contains(
 			permissionChecker, classPK, actionId);
 	}
@@ -73,4 +109,9 @@ public class MicroblogsPermission extends BaseResourcePermissionChecker {
 
 	private static PortletResourcePermission _portletResourcePermission;
 
+=======
+		return contains(permissionChecker, classPK, actionId);
+	}
+
+>>>>>>> compatible
 }

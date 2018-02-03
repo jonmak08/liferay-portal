@@ -473,6 +473,7 @@ public class IMAPAccessor {
 					MessageLocalServiceUtil.getMessage(
 						folderId, remoteMessageId);
 
+<<<<<<< HEAD
 				StringBundler bodyPlainSB = new StringBundler();
 				StringBundler bodyHtmlSB = new StringBundler();
 				List<MailFile> mailFiles = new ArrayList<>();
@@ -487,6 +488,22 @@ public class IMAPAccessor {
 					}
 					else {
 						bodyHtmlSB = bodyPlainSB;
+=======
+				StringBundler bodyPlain = new StringBundler();
+				StringBundler bodyHtml = new StringBundler();
+				List<MailFile> mailFiles = new ArrayList<>();
+
+				getParts(
+					_user.getUserId(), bodyPlain, bodyHtml, StringPool.BLANK,
+					jxMessage, mailFiles);
+
+				if (bodyHtml.length() == 0) {
+					if (bodyPlain.length() == 0) {
+						bodyHtml.append("&nbsp;");
+					}
+					else {
+						bodyHtml = bodyPlain;
+>>>>>>> compatible
 					}
 				}
 
@@ -505,7 +522,11 @@ public class IMAPAccessor {
 				}
 
 				MessageLocalServiceUtil.updateContent(
+<<<<<<< HEAD
 					message.getMessageId(), bodyHtmlSB.toString(), flags);
+=======
+					message.getMessageId(), bodyHtml.toString(), flags);
+>>>>>>> compatible
 			}
 		}
 		catch (MessagingException me) {
@@ -674,11 +695,17 @@ public class IMAPAccessor {
 			stopWatch.stop();
 
 			_log.debug(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Downloaded ", String.valueOf(jxMessages.length),
 					" messages from folder ", jxFolder.getFullName(),
 					" completed in ", String.valueOf(stopWatch.getTime()),
 					" ms"));
+=======
+				"Downloaded " + jxMessages.length + " messages from folder " +
+					jxFolder.getFullName() + " completed in " +
+						stopWatch.getTime() + " ms");
+>>>>>>> compatible
 		}
 	}
 
@@ -783,7 +810,11 @@ public class IMAPAccessor {
 	}
 
 	protected String getFlags(Message jxMessage) throws MessagingException {
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(4);
+=======
+		StringBundler sb = new StringBundler();
+>>>>>>> compatible
 
 		if (jxMessage.isSet(Flags.Flag.FLAGGED)) {
 			sb.append(MailConstants.FLAG_FLAGGED);
@@ -986,7 +1017,11 @@ public class IMAPAccessor {
 	}
 
 	protected void getParts(
+<<<<<<< HEAD
 			long userId, StringBundler bodyPlainSB, StringBundler bodyHtmlSB,
+=======
+			long userId, StringBundler bodyPlain, StringBundler bodyHtml,
+>>>>>>> compatible
 			String contentPath, Part part, List<MailFile> mailFiles)
 		throws IOException, MessagingException {
 
@@ -1000,13 +1035,18 @@ public class IMAPAccessor {
 				Part curPart = multipart.getBodyPart(i);
 
 				getParts(
+<<<<<<< HEAD
 					userId, bodyPlainSB, bodyHtmlSB,
+=======
+					userId, bodyPlain, bodyHtml,
+>>>>>>> compatible
 					contentPath.concat(StringPool.PERIOD).concat(
 						String.valueOf(i)),
 					curPart, mailFiles);
 			}
 		}
 		else if (Validator.isNull(fileName)) {
+<<<<<<< HEAD
 			String contentString = content.toString();
 			String contentType = StringUtil.toLowerCase(part.getContentType());
 
@@ -1015,6 +1055,17 @@ public class IMAPAccessor {
 			}
 			else if (contentType.startsWith(ContentTypes.TEXT_HTML)) {
 				bodyHtmlSB.append(HtmlContentUtil.getInlineHtml(contentString));
+=======
+			String contentType = StringUtil.toLowerCase(part.getContentType());
+
+			if (contentType.startsWith(ContentTypes.TEXT_PLAIN)) {
+				bodyPlain.append(
+					content.toString().replaceAll("\r\n", "<br />"));
+			}
+			else if (contentType.startsWith(ContentTypes.TEXT_HTML)) {
+				bodyHtml.append(
+					HtmlContentUtil.getInlineHtml(content.toString()));
+>>>>>>> compatible
 			}
 			//else if (contentType.startsWith(ContentTypes.MESSAGE_RFC822)) {
 			//}

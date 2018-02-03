@@ -142,6 +142,7 @@ public class SubscriptionWrapper implements Subscription,
 	}
 
 	@Override
+<<<<<<< HEAD
 	public CacheModel<Subscription> toCacheModel() {
 		return _subscription.toCacheModel();
 	}
@@ -174,6 +175,10 @@ public class SubscriptionWrapper implements Subscription,
 	@Override
 	public ExpandoBridge getExpandoBridge() {
 		return _subscription.getExpandoBridge();
+=======
+	public java.lang.Object clone() {
+		return new SubscriptionWrapper((Subscription)_subscription.clone());
+>>>>>>> compatible
 	}
 
 	@Override
@@ -181,6 +186,7 @@ public class SubscriptionWrapper implements Subscription,
 		return _subscription.compareTo(subscription);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public int hashCode() {
 		return _subscription.hashCode();
@@ -196,6 +202,8 @@ public class SubscriptionWrapper implements Subscription,
 		return new SubscriptionWrapper((Subscription)_subscription.clone());
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns the fully qualified class name of this subscription.
 	*
@@ -207,6 +215,7 @@ public class SubscriptionWrapper implements Subscription,
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns the frequency of this subscription.
 	*
 	* @return the frequency of this subscription
@@ -244,6 +253,35 @@ public class SubscriptionWrapper implements Subscription,
 	@Override
 	public java.lang.String toXmlString() {
 		return _subscription.toXmlString();
+=======
+	* Returns the class name ID of this subscription.
+	*
+	* @return the class name ID of this subscription
+	*/
+	@Override
+	public long getClassNameId() {
+		return _subscription.getClassNameId();
+	}
+
+	/**
+	* Returns the class pk of this subscription.
+	*
+	* @return the class pk of this subscription
+	*/
+	@Override
+	public long getClassPK() {
+		return _subscription.getClassPK();
+	}
+
+	/**
+	* Returns the company ID of this subscription.
+	*
+	* @return the company ID of this subscription
+	*/
+	@Override
+	public long getCompanyId() {
+		return _subscription.getCompanyId();
+>>>>>>> compatible
 	}
 
 	/**
@@ -256,6 +294,7 @@ public class SubscriptionWrapper implements Subscription,
 		return _subscription.getCreateDate();
 	}
 
+<<<<<<< HEAD
 	/**
 	* Returns the modified date of this subscription.
 	*
@@ -304,6 +343,41 @@ public class SubscriptionWrapper implements Subscription,
 	@Override
 	public long getGroupId() {
 		return _subscription.getGroupId();
+=======
+	@Override
+	public ExpandoBridge getExpandoBridge() {
+		return _subscription.getExpandoBridge();
+	}
+
+	/**
+	* Returns the frequency of this subscription.
+	*
+	* @return the frequency of this subscription
+	*/
+	@Override
+	public java.lang.String getFrequency() {
+		return _subscription.getFrequency();
+	}
+
+	/**
+	* Returns the group ID of this subscription.
+	*
+	* @return the group ID of this subscription
+	*/
+	@Override
+	public long getGroupId() {
+		return _subscription.getGroupId();
+	}
+
+	/**
+	* Returns the modified date of this subscription.
+	*
+	* @return the modified date of this subscription
+	*/
+	@Override
+	public Date getModifiedDate() {
+		return _subscription.getModifiedDate();
+>>>>>>> compatible
 	}
 
 	/**
@@ -326,6 +400,14 @@ public class SubscriptionWrapper implements Subscription,
 		return _subscription.getPrimaryKey();
 	}
 
+<<<<<<< HEAD
+=======
+	@Override
+	public Serializable getPrimaryKeyObj() {
+		return _subscription.getPrimaryKeyObj();
+	}
+
+>>>>>>> compatible
 	/**
 	* Returns the subscription ID of this subscription.
 	*
@@ -346,6 +428,49 @@ public class SubscriptionWrapper implements Subscription,
 		return _subscription.getUserId();
 	}
 
+<<<<<<< HEAD
+=======
+	/**
+	* Returns the user name of this subscription.
+	*
+	* @return the user name of this subscription
+	*/
+	@Override
+	public java.lang.String getUserName() {
+		return _subscription.getUserName();
+	}
+
+	/**
+	* Returns the user uuid of this subscription.
+	*
+	* @return the user uuid of this subscription
+	*/
+	@Override
+	public java.lang.String getUserUuid() {
+		return _subscription.getUserUuid();
+	}
+
+	@Override
+	public int hashCode() {
+		return _subscription.hashCode();
+	}
+
+	@Override
+	public boolean isCachedModel() {
+		return _subscription.isCachedModel();
+	}
+
+	@Override
+	public boolean isEscapedModel() {
+		return _subscription.isEscapedModel();
+	}
+
+	@Override
+	public boolean isNew() {
+		return _subscription.isNew();
+	}
+
+>>>>>>> compatible
 	@Override
 	public void persist() {
 		_subscription.persist();
@@ -517,6 +642,34 @@ public class SubscriptionWrapper implements Subscription,
 	}
 
 	@Override
+<<<<<<< HEAD
+=======
+	public CacheModel<Subscription> toCacheModel() {
+		return _subscription.toCacheModel();
+	}
+
+	@Override
+	public Subscription toEscapedModel() {
+		return new SubscriptionWrapper(_subscription.toEscapedModel());
+	}
+
+	@Override
+	public java.lang.String toString() {
+		return _subscription.toString();
+	}
+
+	@Override
+	public Subscription toUnescapedModel() {
+		return new SubscriptionWrapper(_subscription.toUnescapedModel());
+	}
+
+	@Override
+	public java.lang.String toXmlString() {
+		return _subscription.toXmlString();
+	}
+
+	@Override
+>>>>>>> compatible
 	public boolean equals(Object obj) {
 		if (this == obj) {
 			return true;

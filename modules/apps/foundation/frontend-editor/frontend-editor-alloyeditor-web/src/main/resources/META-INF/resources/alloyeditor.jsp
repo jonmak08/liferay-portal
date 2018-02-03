@@ -19,6 +19,15 @@
 <%
 String portletId = portletDisplay.getId();
 
+<<<<<<< HEAD
+=======
+String doAsUserId = themeDisplay.getDoAsUserId();
+
+if (Validator.isNull(doAsUserId)) {
+	doAsUserId = Encryptor.encrypt(company.getKeyObj(), String.valueOf(themeDisplay.getUserId()));
+}
+
+>>>>>>> compatible
 boolean autoCreate = GetterUtil.getBoolean((String)request.getAttribute("liferay-ui:input-editor:autoCreate"));
 String contents = GetterUtil.getString((String)request.getAttribute("liferay-ui:input-editor:contents"));
 String contentsLanguageId = (String)request.getAttribute("liferay-ui:input-editor:contentsLanguageId");
@@ -57,12 +66,17 @@ if (editorOptions != null) {
 
 <c:if test="<%= !skipEditorLoading %>">
 	<liferay-util:html-top outputKey="js_editor_alloyeditor_skip_editor_loading">
+<<<<<<< HEAD
 		<link data-senna-track="temporary" href="<%= PortalUtil.getStaticResourceURL(request, themeDisplay.getCDNHost() + PortalWebResourcesUtil.getContextPath(PortalWebResourceConstants.RESOURCE_TYPE_EDITOR_ALLOYEDITOR) + "/alloyeditor/assets/alloy-editor-atlas.css") %>" rel="stylesheet" type="text/css" />
+=======
+		<link href="<%= PortalUtil.getStaticResourceURL(request, themeDisplay.getCDNHost() + PortalWebResourcesUtil.getContextPath(PortalWebResourceConstants.RESOURCE_TYPE_EDITOR_ALLOYEDITOR) + "/alloyeditor/assets/alloy-editor-atlas.css") %>" rel="stylesheet" type="text/css" />
+>>>>>>> compatible
 
 		<%
 		long javaScriptLastModified = PortalWebResourcesUtil.getLastModified(PortalWebResourceConstants.RESOURCE_TYPE_EDITOR_ALLOYEDITOR);
 		%>
 
+<<<<<<< HEAD
 		<script data-senna-track="temporary" type="text/javascript">
 			window.ALLOYEDITOR_BASEPATH = '<%= PortalUtil.getPathProxy() + application.getContextPath() %>/alloyeditor/';
 		</script>
@@ -70,6 +84,15 @@ if (editorOptions != null) {
 		<script data-senna-track="temporary" id="<%= namespace %>ckEditorScript" src="<%= HtmlUtil.escapeAttribute(PortalUtil.getStaticResourceURL(request, themeDisplay.getCDNHost() + PortalWebResourcesUtil.getContextPath(PortalWebResourceConstants.RESOURCE_TYPE_EDITOR_CKEDITOR) + "/ckeditor/ckeditor.js", javaScriptLastModified)) %>" type="text/javascript"></script>
 
 		<script data-senna-track="temporary" id="<%= namespace %>alloyEditorScript" src="<%= HtmlUtil.escapeAttribute(PortalUtil.getStaticResourceURL(request, themeDisplay.getCDNHost() + PortalWebResourcesUtil.getContextPath(PortalWebResourceConstants.RESOURCE_TYPE_EDITOR_ALLOYEDITOR) + "/alloyeditor/liferay-alloy-editor-no-ckeditor-min.js", javaScriptLastModified)) %>" type="text/javascript"></script>
+=======
+		<script type="text/javascript">
+			window.ALLOYEDITOR_BASEPATH = '<%= PortalUtil.getPathProxy() + application.getContextPath() %>/alloyeditor/';
+		</script>
+
+		<script data-senna-track="temporary" src="<%= HtmlUtil.escapeAttribute(PortalUtil.getStaticResourceURL(request, themeDisplay.getCDNHost() + PortalWebResourcesUtil.getContextPath(PortalWebResourceConstants.RESOURCE_TYPE_EDITOR_CKEDITOR) + "/ckeditor/ckeditor.js", javaScriptLastModified)) %>" type="text/javascript"></script>
+
+		<script data-senna-track="temporary" src="<%= HtmlUtil.escapeAttribute(PortalUtil.getStaticResourceURL(request, themeDisplay.getCDNHost() + PortalWebResourcesUtil.getContextPath(PortalWebResourceConstants.RESOURCE_TYPE_EDITOR_ALLOYEDITOR) + "/alloyeditor/liferay-alloy-editor-no-ckeditor-min.js", javaScriptLastModified)) %>" type="text/javascript"></script>
+>>>>>>> compatible
 
 		<liferay-util:dynamic-include key='<%= "com.liferay.frontend.editor.alloyeditor.web#" + editorName + "#additionalResources" %>' />
 
@@ -107,7 +130,11 @@ if (editorOptions != null) {
 <liferay-util:buffer var="alloyEditor">
 	<div class="alloy-editor alloy-editor-placeholder <%= HtmlUtil.escapeAttribute(cssClass) %>" contenteditable="false" data-placeholder="<%= LanguageUtil.get(request, placeholder) %>" data-required="<%= required %>" id="<%= HtmlUtil.escapeAttribute(name) %>" name="<%= HtmlUtil.escapeAttribute(name) %>"></div>
 
+<<<<<<< HEAD
 	<aui:icon cssClass="alloy-editor-icon" image="text-editor" markupView="lexicon" />
+=======
+	<aui:icon cssClass="alloy-editor-icon" image="format" markupView="lexicon" />
+>>>>>>> compatible
 </liferay-util:buffer>
 
 <liferay-util:buffer var="editor">
@@ -124,6 +151,7 @@ if (editorOptions != null) {
 			</div>
 
 			<div class="alloy-editor-switch hide">
+<<<<<<< HEAD
 				<button class="btn btn-default btn-xs hide lfr-portal-tooltip" data-title="<%= LanguageUtil.get(resourceBundle, "fullscreen") %>" id="<%= HtmlUtil.escapeAttribute(name) %>Fullscreen" type="button">
 					<aui:icon cssClass="icon-monospaced" image="expand" markupView="lexicon" />
 				</button>
@@ -133,6 +161,17 @@ if (editorOptions != null) {
 				</button>
 
 				<button class="btn btn-default btn-xs editor-view lfr-portal-tooltip" data-title="<%= LanguageUtil.get(resourceBundle, "code-view") %>" id="<%= HtmlUtil.escapeAttribute(name) %>Switch" type="button">
+=======
+				<button class="btn btn-default btn-xs hide" id="<%= HtmlUtil.escapeAttribute(name) %>Fullscreen" type="button">
+					<aui:icon cssClass="icon-monospaced" image="expand" markupView="lexicon" />
+				</button>
+
+				<button class="btn btn-default btn-xs hide" id="<%= HtmlUtil.escapeAttribute(name) %>SwitchTheme" type="button">
+					<aui:icon cssClass="icon-monospaced" image="moon" markupView="lexicon" />
+				</button>
+
+				<button class="btn btn-default btn-xs" id="<%= HtmlUtil.escapeAttribute(name) %>Switch" type="button">
+>>>>>>> compatible
 					<aui:icon cssClass="icon-monospaced" image="code" markupView="lexicon" />
 				</button>
 			</div>
@@ -221,10 +260,16 @@ name = HtmlUtil.escapeJS(name);
 			plugins.push(
 				{
 					cfg: {
+<<<<<<< HEAD
 						uploadItemReturnType: '<%= editorOptions.getUploadItemReturnType() %>',
 						uploadUrl: '<%= uploadURL %>'
 					},
 					fn: A.Plugin.LiferayEditorImageUploader
+=======
+						uploadUrl: '<%= uploadURL %>'
+					},
+					fn: A.Plugin.LiferayBlogsUploader
+>>>>>>> compatible
 				}
 			);
 		</c:if>
@@ -256,6 +301,7 @@ name = HtmlUtil.escapeJS(name);
 				</c:if>
 
 				plugins: plugins,
+<<<<<<< HEAD
 				textMode: <%= (editorOptions != null) ? editorOptions.isTextMode() : Boolean.FALSE.toString() %>,
 
 				<%
@@ -266,6 +312,25 @@ name = HtmlUtil.escapeJS(name);
 			}
 		).render();
 
+=======
+				textMode: <%= (editorOptions != null) ? editorOptions.isTextMode() : Boolean.FALSE.toString() %>
+			}
+		).render();
+
+		<%
+		boolean useCustomDataProcessor = (editorOptionsDynamicAttributes != null) && GetterUtil.getBoolean(editorOptionsDynamicAttributes.get("useCustomDataProcessor"));
+		%>
+
+		<c:if test="<%= useCustomDataProcessor %>">
+			alloyEditor.getNativeEditor().on(
+				'customDataProcessorLoaded',
+				function() {
+					alloyEditor.setHTML(getInitialContent());
+				}
+			);
+		</c:if>
+
+>>>>>>> compatible
 		<liferay-util:dynamic-include key='<%= "com.liferay.frontend.editor.alloyeditor.web#" + editorName + "#onEditorCreate" %>' />
 	};
 
@@ -355,6 +420,10 @@ name = HtmlUtil.escapeJS(name);
 				alloyEditor.setHTML(value);
 			}
 		}
+<<<<<<< HEAD
+=======
+
+>>>>>>> compatible
 	};
 
 	Liferay.fire(
@@ -371,11 +440,15 @@ name = HtmlUtil.escapeJS(name);
 
 	var destroyInstance = function(event) {
 		if (event.portletId === '<%= portletId %>') {
+<<<<<<< HEAD
 			try {
 				window['<%= name %>'].destroy();
 			}
 			catch (e) {
 			}
+=======
+			window['<%= name %>'].destroy();
+>>>>>>> compatible
 
 			Liferay.detach('destroyPortlet', destroyInstance);
 		}

@@ -15,8 +15,11 @@
 package com.liferay.portal.search.test.util.indexing;
 
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.search.BooleanClauseOccur;
 import com.liferay.portal.kernel.search.BooleanQuery;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.search.Document;
 import com.liferay.portal.kernel.search.Field;
 import com.liferay.portal.kernel.search.Hits;
@@ -25,6 +28,7 @@ import com.liferay.portal.kernel.search.IndexWriter;
 import com.liferay.portal.kernel.search.Query;
 import com.liferay.portal.kernel.search.QueryConfig;
 import com.liferay.portal.kernel.search.SearchContext;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.search.SearchException;
 import com.liferay.portal.kernel.search.generic.BooleanQueryImpl;
 import com.liferay.portal.kernel.search.generic.TermQueryImpl;
@@ -36,6 +40,11 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
 import java.util.function.Function;
+=======
+import com.liferay.portal.kernel.search.generic.TermQueryImpl;
+import com.liferay.portal.kernel.test.util.RandomTestUtil;
+import com.liferay.portal.kernel.util.StringUtil;
+>>>>>>> compatible
 
 import org.junit.After;
 import org.junit.Assume;
@@ -72,6 +81,7 @@ public abstract class BaseIndexingTestCase {
 			return;
 		}
 
+<<<<<<< HEAD
 		try {
 			_indexWriter.deleteEntityDocuments(
 				createSearchContext(), _entryClassName);
@@ -81,6 +91,13 @@ public abstract class BaseIndexingTestCase {
 
 		_documentFixture.tearDown();
 
+=======
+		_documentFixture.tearDown();
+
+		_indexWriter.deleteEntityDocuments(
+			createSearchContext(), _entryClassName);
+
+>>>>>>> compatible
 		_indexingFixture.tearDown();
 	}
 
@@ -90,21 +107,33 @@ public abstract class BaseIndexingTestCase {
 		searchContext.setCompanyId(COMPANY_ID);
 		searchContext.setGroupIds(new long[] {GROUP_ID});
 
+<<<<<<< HEAD
 		QueryConfig queryConfig = searchContext.getQueryConfig();
+=======
+		QueryConfig queryConfig = new QueryConfig();
+>>>>>>> compatible
 
 		queryConfig.setHighlightEnabled(false);
 		queryConfig.setHitsProcessingEnabled(true);
 		queryConfig.setScoreEnabled(false);
 
+<<<<<<< HEAD
+=======
+		searchContext.setQueryConfig(queryConfig);
+
+>>>>>>> compatible
 		searchContext.setStart(QueryUtil.ALL_POS);
 
 		return searchContext;
 	}
 
+<<<<<<< HEAD
 	protected static <K, V> Map<K, V> toMap(K key, V value) {
 		return Collections.singletonMap(key, value);
 	}
 
+=======
+>>>>>>> compatible
 	protected void addDocument(DocumentCreationHelper documentCreationHelper)
 		throws Exception {
 
@@ -116,6 +145,7 @@ public abstract class BaseIndexingTestCase {
 		_indexWriter.addDocument(createSearchContext(), document);
 	}
 
+<<<<<<< HEAD
 	protected void addDocuments(
 			Function<String, DocumentCreationHelper> function,
 			Collection<String> values)
@@ -140,16 +170,25 @@ public abstract class BaseIndexingTestCase {
 				new TermQueryImpl(key, value), BooleanClauseOccur.MUST));
 
 		return booleanQueryImpl;
+=======
+	protected abstract IndexingFixture createIndexingFixture() throws Exception;
+
+	protected Query getDefaultQuery() {
+		return new TermQueryImpl(Field.ENTRY_CLASS_NAME, _entryClassName);
+>>>>>>> compatible
 	}
 
 	protected IndexSearcher getIndexSearcher() {
 		return _indexSearcher;
 	}
 
+<<<<<<< HEAD
 	protected IndexWriter getIndexWriter() {
 		return _indexWriter;
 	}
 
+=======
+>>>>>>> compatible
 	protected Hits search(SearchContext searchContext) throws Exception {
 		return search(searchContext, getDefaultQuery());
 	}
@@ -160,6 +199,7 @@ public abstract class BaseIndexingTestCase {
 		return _indexSearcher.search(searchContext, query);
 	}
 
+<<<<<<< HEAD
 	protected Hits search(
 			SearchContext searchContext, QueryContributor queryContributor)
 		throws Exception {
@@ -167,10 +207,13 @@ public abstract class BaseIndexingTestCase {
 		return search(searchContext, _getQuery(queryContributor));
 	}
 
+=======
+>>>>>>> compatible
 	protected static final long COMPANY_ID = RandomTestUtil.randomLong();
 
 	protected static final long GROUP_ID = RandomTestUtil.randomLong();
 
+<<<<<<< HEAD
 	private Query _getQuery(QueryContributor queryContributor)
 		throws Exception {
 
@@ -189,6 +232,8 @@ public abstract class BaseIndexingTestCase {
 		return booleanQuery;
 	}
 
+=======
+>>>>>>> compatible
 	private final DocumentFixture _documentFixture = new DocumentFixture();
 	private final String _entryClassName;
 	private IndexingFixture _indexingFixture;

@@ -20,6 +20,10 @@ import com.liferay.portal.kernel.monitoring.DataSampleThreadLocal;
 import com.liferay.portal.kernel.monitoring.MethodSignature;
 import com.liferay.portal.kernel.monitoring.RequestStatus;
 import com.liferay.portal.kernel.monitoring.ServiceMonitoringControl;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.AutoResetThreadLocal;
+>>>>>>> compatible
 import com.liferay.portal.spring.aop.ChainableMethodAdvice;
 
 import java.lang.reflect.Method;
@@ -171,7 +175,11 @@ public class ServiceMonitorAdvice
 	}
 
 	private static final ThreadLocal<DataSample> _dataSampleThreadLocal =
+<<<<<<< HEAD
 		new CentralizedThreadLocal<>(
+=======
+		new AutoResetThreadLocal<>(
+>>>>>>> compatible
 			ServiceMonitorAdvice.class + "._dataSampleThreadLocal");
 	private static boolean _inclusiveMode = true;
 	private static boolean _monitorServiceRequest;

@@ -5,6 +5,7 @@ copyLibs {
 dependencies {
 	provided project(":apps:static:portal-lpkg-deployer:portal-lpkg-deployer")
 
+<<<<<<< HEAD
 	testCompile group: "com.liferay", name: "com.liferay.petra.lang", version: "1.0.0"
 	testCompile group: "com.liferay.portal", name: "com.liferay.portal.impl", version: "2.6.0"
 	testCompile group: "com.liferay.portal", name: "com.liferay.portal.kernel", version: "2.6.0"
@@ -17,6 +18,13 @@ dependencies {
 	testCompile project(":apps:static:portal-lpkg-deployer:portal-lpkg-deployer-test-util")
 
 	testIntegrationCompile group: "com.liferay", name: "com.liferay.arquillian.extension.junit.bridge", version: "1.0.8"
+=======
+	testCompile group: "com.liferay.portal", name: "com.liferay.portal.impl", version: "2.6.0"
+	testCompile project(":apps:static:portal-lpkg-deployer:portal-lpkg-deployer-test-util")
+
+	testIntegrationCompile group: "com.liferay", name: "com.liferay.arquillian.extension.junit.bridge", version: "1.0.7"
+	testIntegrationCompile group: "com.liferay.portal", name: "com.liferay.portal.kernel", version: "2.6.0"
+>>>>>>> compatible
 }
 
 test {

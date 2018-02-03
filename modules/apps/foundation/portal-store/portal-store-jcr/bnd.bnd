@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Portal Store JCR
 Bundle-SymbolicName: com.liferay.portal.store.jcr
+<<<<<<< HEAD
 Bundle-Version: 2.0.18
+=======
+Bundle-Version: 2.0.9
+>>>>>>> compatible
 Import-Package:\
 	!org.apache.commons.dbcp,\
 	!org.apache.jackrabbit.test,\

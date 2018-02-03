@@ -14,15 +14,21 @@
 
 package com.liferay.source.formatter.checks;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.tools.ImportsFormatter;
 import com.liferay.source.formatter.GradleImportsFormatter;
 import com.liferay.source.formatter.parser.GradleFile;
+=======
+import com.liferay.portal.tools.ImportsFormatter;
+import com.liferay.source.formatter.GradleImportsFormatter;
+>>>>>>> compatible
 
 /**
  * @author Hugo Huijser
  */
+<<<<<<< HEAD
 public class GradleImportsCheck extends BaseGradleFileCheck {
 
 	@Override
@@ -42,6 +48,18 @@ public class GradleImportsCheck extends BaseGradleFileCheck {
 		return StringUtil.replaceFirst(
 			content, importsBlock,
 			importsFormatter.format(importsBlock, null, null));
+=======
+public class GradleImportsCheck extends BaseFileCheck {
+
+	@Override
+	protected String doProcess(
+			String fileName, String absolutePath, String content)
+		throws Exception {
+
+		ImportsFormatter importsFormatter = new GradleImportsFormatter();
+
+		return importsFormatter.format(content, null, null);
+>>>>>>> compatible
 	}
 
 }

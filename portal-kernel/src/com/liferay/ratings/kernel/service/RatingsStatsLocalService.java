@@ -37,7 +37,10 @@ import com.liferay.ratings.kernel.model.RatingsStats;
 import java.io.Serializable;
 
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Map;
+=======
+>>>>>>> compatible
 
 /**
  * Provides the local service interface for RatingsStats. Methods of this
@@ -228,21 +231,28 @@ public interface RatingsStatsLocalService extends BaseLocalService,
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public RatingsStats getStats(long statsId) throws PortalException;
 
+<<<<<<< HEAD
 	/**
 	* @deprecated As of 7.0.0, with no direct replacement
 	*/
 	@java.lang.Deprecated
+=======
+>>>>>>> compatible
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<RatingsStats> getStats(java.lang.String className,
 		List<java.lang.Long> classPKs);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+<<<<<<< HEAD
 	public RatingsStats getStats(java.lang.String className, long classPK)
 		throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public Map<java.lang.Long, RatingsStats> getStats(
 		java.lang.String className, long[] classPKs);
+=======
+	public RatingsStats getStats(java.lang.String className, long classPK);
+>>>>>>> compatible
 
 	/**
 	* Updates the ratings stats in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.

@@ -27,6 +27,7 @@ import groovy.lang.Closure;
 import java.io.File;
 
 import java.util.Collections;
+<<<<<<< HEAD
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -34,23 +35,36 @@ import java.util.concurrent.Callable;
 
 import org.apache.tools.ant.filters.FixCrLfFilter;
 
+=======
+import java.util.Set;
+import java.util.concurrent.Callable;
+
+>>>>>>> compatible
 import org.gradle.api.Action;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import org.gradle.api.artifacts.Configuration;
 import org.gradle.api.artifacts.Dependency;
 import org.gradle.api.artifacts.PublishArtifactSet;
+<<<<<<< HEAD
 import org.gradle.api.file.FileCopyDetails;
+=======
+>>>>>>> compatible
 import org.gradle.api.internal.ConventionMapping;
 import org.gradle.api.internal.plugins.DslObject;
 import org.gradle.api.invocation.Gradle;
 import org.gradle.api.logging.Logger;
 import org.gradle.api.plugins.BasePlugin;
+<<<<<<< HEAD
 import org.gradle.api.plugins.PluginContainer;
 import org.gradle.api.plugins.WarPlugin;
 import org.gradle.api.specs.Spec;
 import org.gradle.api.tasks.Sync;
 import org.gradle.api.tasks.bundling.War;
+=======
+import org.gradle.api.specs.Spec;
+import org.gradle.api.tasks.Sync;
+>>>>>>> compatible
 
 /**
  * @author Andrea Di Giorgi
@@ -166,6 +180,7 @@ public class AppDockerPlugin implements Plugin<Project> {
 		Sync sync = GradleUtil.addTask(
 			project, PREPARE_APP_DOCKER_IMAGE_INPUT_DIR_TASK_NAME, Sync.class);
 
+<<<<<<< HEAD
 		sync.filesMatching(
 			"**/*.sh",
 			new Action<FileCopyDetails>() {
@@ -177,6 +192,8 @@ public class AppDockerPlugin implements Plugin<Project> {
 
 			});
 
+=======
+>>>>>>> compatible
 		sync.from(
 			new Callable<File>() {
 
@@ -347,6 +364,7 @@ public class AppDockerPlugin implements Plugin<Project> {
 			return;
 		}
 
+<<<<<<< HEAD
 		PluginContainer pluginContainer = subproject.getPlugins();
 
 		if (pluginContainer.hasPlugin(WarPlugin.class)) {
@@ -365,6 +383,14 @@ public class AppDockerPlugin implements Plugin<Project> {
 			prepareAppDockerImageInputDirTask.from(
 				publishArtifactSet.getFiles());
 		}
+=======
+		Configuration configuration = GradleUtil.getConfiguration(
+			subproject, Dependency.DEFAULT_CONFIGURATION);
+
+		PublishArtifactSet publishArtifactSet = configuration.getAllArtifacts();
+
+		prepareAppDockerImageInputDirTask.from(publishArtifactSet.getFiles());
+>>>>>>> compatible
 	}
 
 	private String _getImageRepository(AppDockerExtension appDockerExtension) {
@@ -388,6 +414,7 @@ public class AppDockerPlugin implements Plugin<Project> {
 		return imageRepository + ":" + imageTag;
 	}
 
+<<<<<<< HEAD
 	private static final Map<String, Object> _fixCrLfArgs = new HashMap<>();
 
 	static {
@@ -397,4 +424,6 @@ public class AppDockerPlugin implements Plugin<Project> {
 		_fixCrLfArgs.put("fixlast", false);
 	}
 
+=======
+>>>>>>> compatible
 }

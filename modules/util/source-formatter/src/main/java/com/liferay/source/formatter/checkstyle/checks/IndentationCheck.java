@@ -14,13 +14,24 @@
 
 package com.liferay.source.formatter.checkstyle.checks;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.util.ArrayUtil;
+=======
+import com.liferay.portal.kernel.util.ArrayUtil;
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.source.formatter.checkstyle.util.DetailASTUtil;
 
+<<<<<<< HEAD
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
+=======
+import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
+import com.puppycrawl.tools.checkstyle.api.DetailAST;
+import com.puppycrawl.tools.checkstyle.api.FileContents;
+>>>>>>> compatible
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 
 import java.util.HashSet;
@@ -30,7 +41,11 @@ import java.util.Set;
 /**
  * @author Hugo Huijser
  */
+<<<<<<< HEAD
 public class IndentationCheck extends BaseCheck {
+=======
+public class IndentationCheck extends AbstractCheck {
+>>>>>>> compatible
 
 	@Override
 	public int[] getDefaultTokens() {
@@ -77,6 +92,7 @@ public class IndentationCheck extends BaseCheck {
 	}
 
 	@Override
+<<<<<<< HEAD
 	protected void doVisitToken(DetailAST detailAST) {
 
 		// Only check types at the beginning of the line. We can skip if/while
@@ -84,12 +100,23 @@ public class IndentationCheck extends BaseCheck {
 		// automatically fix incorrect indentations inside those. Indentations
 		// for method parameter declarations are automatically fixed by
 		// JavaSignatureStylingCheck.
+=======
+	public void visitToken(DetailAST detailAST) {
+
+		// Only check types at the beginning of the line. We can skip if/while
+		// statements since we have logic in BaseSourceProcessor in place to
+		// automatically fix incorrect indentations inside those.
+>>>>>>> compatible
 
 		if (!_isAtLineStart(detailAST) ||
 			_isCatchStatementParameter(detailAST) ||
 			_isInsideChainedConcatMethod(detailAST) ||
+<<<<<<< HEAD
 			_isInsideDoIfOrWhileStatementCriterium(detailAST) ||
 			_isInsideMethodParameterDeclaration(detailAST)) {
+=======
+			_isInsideDoIfOrWhileStatementCriterium(detailAST)) {
+>>>>>>> compatible
 
 			return;
 		}
@@ -413,12 +440,20 @@ public class IndentationCheck extends BaseCheck {
 			}
 
 			if (checkChaining) {
+<<<<<<< HEAD
 				String line = StringUtil.trim(
 					getLine(parentAST.getLineNo() - 1));
+=======
+				FileContents fileContents = getFileContents();
+
+				String line = StringUtil.trim(
+					fileContents.getLine(parentAST.getLineNo() - 1));
+>>>>>>> compatible
 
 				if (line.endsWith("(") &&
 					(parentAST.getLineNo() < methodCallLineCount)) {
 
+<<<<<<< HEAD
 					DetailAST rparenAST = null;
 
 					DetailAST methodCallAST = _findDetailAST(
@@ -454,14 +489,24 @@ public class IndentationCheck extends BaseCheck {
 
 						tabCount--;
 					}
+=======
+					tabCount--;
+>>>>>>> compatible
 
 					checkChaining = false;
 				}
 			}
 
 			if (parentAST.getType() == TokenTypes.METHOD_CALL) {
+<<<<<<< HEAD
 				String line = StringUtil.trim(
 					getLine(parentAST.getLineNo() - 1));
+=======
+				FileContents fileContents = getFileContents();
+
+				String line = StringUtil.trim(
+					fileContents.getLine(parentAST.getLineNo() - 1));
+>>>>>>> compatible
 
 				if (line.startsWith(").") &&
 					(parentAST.getLineNo() < detailAST.getLineNo())) {
@@ -498,7 +543,13 @@ public class IndentationCheck extends BaseCheck {
 
 				String text = parentAST.getText();
 
+<<<<<<< HEAD
 				String line = getLine(parentAST.getLineNo() - 1);
+=======
+				FileContents fileContents = getFileContents();
+
+				String line = fileContents.getLine(parentAST.getLineNo() - 1);
+>>>>>>> compatible
 
 				String trimmedLine = StringUtil.trim(line);
 
@@ -514,6 +565,7 @@ public class IndentationCheck extends BaseCheck {
 		}
 	}
 
+<<<<<<< HEAD
 	private DetailAST _findDetailAST(
 		DetailAST parentAST, int lineNo, int type) {
 
@@ -533,6 +585,8 @@ public class IndentationCheck extends BaseCheck {
 		return null;
 	}
 
+=======
+>>>>>>> compatible
 	private DetailAST _findParent(DetailAST detailAST, int type) {
 		DetailAST match = null;
 
@@ -610,7 +664,14 @@ public class IndentationCheck extends BaseCheck {
 	}
 
 	private int _getLeadingTabCount(DetailAST detailAST) {
+<<<<<<< HEAD
 		String line = getLine(DetailASTUtil.getStartLine(detailAST) - 1);
+=======
+		FileContents fileContents = getFileContents();
+
+		String line = fileContents.getLine(
+			DetailASTUtil.getStartLine(detailAST) - 1);
+>>>>>>> compatible
 
 		int leadingTabCount = 0;
 
@@ -849,7 +910,14 @@ public class IndentationCheck extends BaseCheck {
 	}
 
 	private boolean _isAtLineStart(DetailAST detailAST) {
+<<<<<<< HEAD
 		String line = getLine(DetailASTUtil.getStartLine(detailAST) - 1);
+=======
+		FileContents fileContents = getFileContents();
+
+		String line = fileContents.getLine(
+			DetailASTUtil.getStartLine(detailAST) - 1);
+>>>>>>> compatible
 
 		for (int i = 0; i < detailAST.getColumnNo(); i++) {
 			char c = line.charAt(i);
@@ -983,6 +1051,7 @@ public class IndentationCheck extends BaseCheck {
 		}
 	}
 
+<<<<<<< HEAD
 	private boolean _isInsideMethodParameterDeclaration(DetailAST detailAST) {
 		DetailAST parentAST = detailAST.getParent();
 
@@ -1015,6 +1084,8 @@ public class IndentationCheck extends BaseCheck {
 		return false;
 	}
 
+=======
+>>>>>>> compatible
 	private static final int[] _ARITHMETIC_OPERATORS = {
 		TokenTypes.DIV, TokenTypes.MINUS, TokenTypes.MOD, TokenTypes.PLUS,
 		TokenTypes.STAR

@@ -14,7 +14,11 @@
 
 package com.liferay.source.formatter.checks;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.source.formatter.checks.comparator.ElementComparator;
 import com.liferay.source.formatter.checks.util.SourceUtil;
@@ -96,7 +100,11 @@ public class XMLBuildFileCheck extends BaseFileCheck {
 			addMessage(fileName, "Macrodefs go before targets");
 		}
 
+<<<<<<< HEAD
 		if (!isModulesApp(absolutePath, true)) {
+=======
+		if (!absolutePath.contains("/modules/private/apps/")) {
+>>>>>>> compatible
 			_checkImportFiles(fileName, content);
 		}
 

@@ -137,6 +137,11 @@ renderResponse.setTitle(LanguageUtil.get(request, "organizations"));
 					data.put("entityid", organization.getOrganizationId());
 					data.put("entityname", organization.getName());
 					data.put("groupid", organization.getGroupId());
+<<<<<<< HEAD
+=======
+					data.put("name", organization.getName());
+					data.put("organizationid", organization.getOrganizationId());
+>>>>>>> compatible
 					data.put("type", LanguageUtil.get(request, organization.getType()));
 
 					boolean disabled = false;

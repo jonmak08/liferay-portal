@@ -32,10 +32,13 @@ public interface ProcessorCapability extends Capability {
 
 	public void generateNew(FileEntry fileEntry) throws PortalException;
 
+<<<<<<< HEAD
 	public enum ResourceGenerationStrategy {
 
 		ALWAYS_GENERATE, REUSE
 
 	}
 
+=======
+>>>>>>> compatible
 }

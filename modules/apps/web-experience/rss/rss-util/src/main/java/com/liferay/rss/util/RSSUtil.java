@@ -14,8 +14,13 @@
 
 package com.liferay.rss.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import com.sun.syndication.feed.synd.SyndContent;
 import com.sun.syndication.feed.synd.SyndEntry;

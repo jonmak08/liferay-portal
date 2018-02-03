@@ -41,13 +41,18 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "attachm
 <div class="container-fluid-1280">
 	<liferay-trash:undo portletURL="<%= undoTrashURL %>" />
 
+<<<<<<< HEAD
 	<c:if test="<%= WikiNodePermission.contains(permissionChecker, node, ActionKeys.ADD_ATTACHMENT) %>">
+=======
+	<c:if test="<%= WikiNodePermissionChecker.contains(permissionChecker, node.getNodeId(), ActionKeys.ADD_ATTACHMENT) %>">
+>>>>>>> compatible
 		<portlet:actionURL name="/wiki/edit_page_attachment" var="emptyTrashURL">
 			<portlet:param name="nodeId" value="<%= String.valueOf(wikiPage.getNodeId()) %>" />
 			<portlet:param name="title" value="<%= wikiPage.getTitle() %>" />
 			<portlet:param name="redirect" value="<%= currentURL %>" />
 		</portlet:actionURL>
 
+<<<<<<< HEAD
 		<%
 		String trashEntriesMaxAgeTimeDescription = LanguageUtil.getTimeDescription(locale, trashHelper.getMaxAge(themeDisplay.getScopeGroup()) * Time.MINUTE, true);
 		%>
@@ -56,6 +61,12 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "attachm
 			confirmMessage="are-you-sure-you-want-to-remove-the-attachments-for-this-page"
 			emptyMessage="remove-the-attachments-for-this-page"
 			infoMessage='<%= LanguageUtil.format(request, "attachments-that-have-been-removed-for-more-than-x-will-be-automatically-deleted", trashEntriesMaxAgeTimeDescription, false) %>'
+=======
+		<liferay-trash:empty
+			confirmMessage="are-you-sure-you-want-to-remove-the-attachments-for-this-page"
+			emptyMessage="remove-the-attachments-for-this-page"
+			infoMessage="attachments-that-have-been-removed-for-more-than-x-will-be-automatically-deleted"
+>>>>>>> compatible
 			portletURL="<%= emptyTrashURL.toString() %>"
 			totalEntries="<%= wikiPage.getDeletedAttachmentsFileEntriesCount() %>"
 		/>
@@ -80,4 +91,28 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "attachm
 	%>
 
 	<%@ include file="/wiki/attachments_list.jspf" %>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+
+<portlet:actionURL name="/wiki/edit_page_attachment" var="checkEntryURL">
+	<portlet:param name="<%= Constants.CMD %>" value="<%= Constants.CHECK %>" />
+	<portlet:param name="redirect" value="<%= currentURL %>" />
+</portlet:actionURL>
+
+<portlet:renderURL var="duplicateEntryURL" windowState="<%= LiferayWindowState.EXCLUSIVE.toString() %>">
+	<portlet:param name="mvcRenderCommandName" value="/wiki/restore_entry" />
+	<portlet:param name="redirect" value="<%= currentURL %>" />
+</portlet:renderURL>
+
+<aui:script use="liferay-restore-entry">
+	new Liferay.RestoreEntry(
+		{
+			checkEntryURL: '<%= checkEntryURL.toString() %>',
+			duplicateEntryURL: '<%= duplicateEntryURL.toString() %>',
+			namespace: '<portlet:namespace />'
+		}
+	);
+</aui:script>
+>>>>>>> compatible

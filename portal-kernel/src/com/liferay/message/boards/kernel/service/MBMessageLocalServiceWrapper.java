@@ -353,6 +353,7 @@ public class MBMessageLocalServiceWrapper implements MBMessageLocalService,
 	}
 
 	@Override
+<<<<<<< HEAD
 	public com.liferay.message.boards.kernel.model.MBMessage fetchFirstMessage(
 		long threadId, long parentMessageId)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -361,6 +362,8 @@ public class MBMessageLocalServiceWrapper implements MBMessageLocalService,
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public com.liferay.message.boards.kernel.model.MBMessage fetchMBMessage(
 		long messageId) {
 		return _mbMessageLocalService.fetchMBMessage(messageId);
@@ -486,6 +489,7 @@ public class MBMessageLocalServiceWrapper implements MBMessageLocalService,
 	}
 
 	@Override
+<<<<<<< HEAD
 	public com.liferay.message.boards.kernel.model.MBMessage getFirstMessage(
 		long threadId, long parentMessageId)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -493,6 +497,8 @@ public class MBMessageLocalServiceWrapper implements MBMessageLocalService,
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public java.util.List<com.liferay.message.boards.kernel.model.MBMessage> getGroupMessages(
 		long groupId, int status, int start, int end) {
 		return _mbMessageLocalService.getGroupMessages(groupId, status, start,

@@ -14,8 +14,11 @@
 
 package com.liferay.exportimport.lar;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.lar.ExportImportPathUtil;
 import com.liferay.exportimport.kernel.lar.ManifestSummary;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
@@ -44,7 +47,10 @@ import java.util.Set;
 /**
  * @author Zsolt Berentey
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class DeletionSystemEventExporter {
 
 	public static DeletionSystemEventExporter getInstance() {

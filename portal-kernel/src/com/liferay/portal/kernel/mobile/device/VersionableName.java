@@ -72,9 +72,13 @@ public class VersionableName
 
 	@Override
 	public int compareTo(VersionableName versionableName) {
+<<<<<<< HEAD
 		String upperCaseName = StringUtil.toUpperCase(_name);
 
 		return upperCaseName.compareTo(
+=======
+		return StringUtil.toUpperCase(_name).compareTo(
+>>>>>>> compatible
 			StringUtil.toUpperCase(versionableName.getName()));
 	}
 

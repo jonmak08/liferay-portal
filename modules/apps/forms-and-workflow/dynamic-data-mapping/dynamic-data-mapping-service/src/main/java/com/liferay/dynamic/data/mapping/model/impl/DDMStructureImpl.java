@@ -27,7 +27,10 @@ import com.liferay.dynamic.data.mapping.service.DDMStructureLayoutLocalServiceUt
 import com.liferay.dynamic.data.mapping.service.DDMStructureLocalServiceUtil;
 import com.liferay.dynamic.data.mapping.service.DDMStructureVersionLocalServiceUtil;
 import com.liferay.dynamic.data.mapping.service.DDMTemplateLocalServiceUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.bean.BeanPropertiesUtil;
 import com.liferay.portal.kernel.exception.LocaleException;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -43,6 +46,10 @@ import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.PredicateFilter;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.util.PropsValues;
 
@@ -96,6 +103,7 @@ public class DDMStructureImpl extends DDMStructureBaseImpl {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public String getClassName() {
 		if (_className == null) {
 			_className = PortalUtil.getClassName(getClassNameId());
@@ -105,6 +113,8 @@ public class DDMStructureImpl extends DDMStructureBaseImpl {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public DDMForm getDDMForm() {
 		if (_ddmForm == null) {
 			try {
@@ -430,11 +440,14 @@ public class DDMStructureImpl extends DDMStructureBaseImpl {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void setClassName(String className) {
 		_className = className;
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public void setDDMForm(DDMForm ddmForm) {
 		_ddmForm = ddmForm;
 	}
@@ -492,9 +505,12 @@ public class DDMStructureImpl extends DDMStructureBaseImpl {
 	private static final Log _log = LogFactoryUtil.getLog(
 		DDMStructureImpl.class);
 
+<<<<<<< HEAD
 	@CacheField
 	private String _className;
 
+=======
+>>>>>>> compatible
 	@CacheField(methodName = "DDMForm", propagateToInterface = true)
 	private DDMForm _ddmForm;
 

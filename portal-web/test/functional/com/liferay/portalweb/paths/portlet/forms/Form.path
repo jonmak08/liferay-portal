@@ -9,6 +9,7 @@
 </thead>
 <tbody>
 <tr>
+<<<<<<< HEAD
 	<td>SAVE_NOTIFICATION</td>
 	<td>//div[contains(@class,'autosave-bar')]//span</td>
 	<td></td>
@@ -21,16 +22,28 @@
 <tr>
 	<td>SAVE_FORM_BUTTON_LOCALIZED</td>
 	<td>//div[@class='button-holder']//button[contains(.,'${key_saveButton}') and not (contains(@class,'disabled'))]</td>
+=======
+	<td>SAVE_BUTTON</td>
+	<td>//div[@class='button-holder ddl-form-builder-buttons']//button[contains(.,'Save') and not (contains(@class,'disabled'))]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>SAVE_BUTTON_DISABLED</td>
+<<<<<<< HEAD
 	<td>//div[@class='button-holder']//button[contains(.,'Save') and contains(@class,'disabled')]</td>
+=======
+	<td>//div[@class='button-holder ddl-form-builder-buttons']//button[contains(.,'Save') and contains(@class,'disabled')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>SAVE_BUTTON_DROPDOWN</td>
+<<<<<<< HEAD
 	<td>//div[@class='button-holder']//button[contains(@id,'submitToggle')]</td>
+=======
+	<td>//div[@class='button-holder ddl-form-builder-buttons']//button[contains(@id,'submitToggle')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -54,6 +67,7 @@
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 	<td>FORM_PAGE</td>
 	<td>//ul[contains(@class,'multi-step-progress-bar')]//li/div[contains(.,'${key_formPageName}')]</td>
 	<td></td>
@@ -75,6 +89,8 @@
 	<td></td>
 </tr>
 <tr>
+=======
+>>>>>>> compatible
 	<td></td>
 	<td></td>
 	<td></td>
@@ -91,6 +107,7 @@
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 	<td>PAGE_CONTROLS_ADD_SUCCESS_PAGE</td>
 	<td>//li[@class='form-builder-page-manager-add-success-page' and contains(text(),'Add Success Page')]</td>
 	<td></td>
@@ -106,6 +123,8 @@
 	<td></td>
 </tr>
 <tr>
+=======
+>>>>>>> compatible
 	<td></td>
 	<td></td>
 	<td></td>
@@ -123,7 +142,11 @@
 </tr>
 <tr>
 	<td>ADD_COLUMN_LINE</td>
+<<<<<<< HEAD
 	<td>xpath=(//div[@class='layout-row-container-row'][${key_rowNumber}]//div[contains(@class,'layout-builder-resize-col-breakpoint-line')])[${key_columnLineNumber}]</td>
+=======
+	<td>xpath=(//div[@class='layout-row-container-row'][${key_rowNumber}]//div[contains(@class,'layout-builder-resize-col') and contains(@class,'dd-drop')])[${key_columnLineNumber}]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -134,11 +157,16 @@
 <!--ADD_FIELD-->
 <tr>
 	<td>ADD_FIELD</td>
+<<<<<<< HEAD
 	<td>//div[contains(@class,'col col-md-${key_columnSize}')]//button[contains(@class,'add-button-large')]/span | //div[contains(@class,'portlet-forms')]//button[contains(@class,'lfr-ddm-add-field')]</td>
+=======
+	<td>//div[contains(@class,'col col-md-${key_columnSize}')]//span[contains(@class,'add-button-plus-icon')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>ADD_FIELD_TYPE</td>
+<<<<<<< HEAD
 	<td>//a[contains(@class,'field-type')]/div/h4[contains(.,'${key_fieldType}')] | //li[contains(@class,'field-type')]/div/h4[contains(.,'${key_fieldType}')] | //div[contains(@class,'list-group-body')]//div/h4[contains(.,'${key_fieldType}')]</td>
 	<td></td>
 </tr>
@@ -161,6 +189,9 @@
 <tr>
 	<td>SUCCESS_PAGE_DESCRIPTION_FIELD</td>
 	<td>//div[@class='form-builder-success-page']//input[contains(@class,'success-page-content')]</td>
+=======
+	<td>//div[@class='field-type']/div[contains(.,'${key_fieldType}')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -185,6 +216,7 @@
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 	<td>PUBLISH_URL_FORM_PAGE</td>
 	<td>//div[contains(@class,'form-builder-app')]</td>
 	<td></td>
@@ -200,6 +232,8 @@
 	<td></td>
 </tr>
 <tr>
+=======
+>>>>>>> compatible
 	<td></td>
 	<td></td>
 	<td></td>
@@ -211,6 +245,7 @@
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 	<td>SETTINGS_TAB_WORKFLOW_CONFIGURATION_FIELD</td>
 	<td>//div[contains(@data-fieldname,'workflowDefinition')]//div[contains(@id,'workflowDefinition')]</td>
 	<td></td>
@@ -221,12 +256,15 @@
 	<td></td>
 </tr>
 <tr>
+=======
+>>>>>>> compatible
 	<td></td>
 	<td></td>
 	<td></td>
 </tr>
 <!--FIELD-->
 <tr>
+<<<<<<< HEAD
 	<td>FIELD_BODY</td>
 	<td>//div[contains(@data-fieldname,'${key_fieldName}')]</td>
 	<td></td>
@@ -237,10 +275,13 @@
 	<td></td>
 </tr>
 <tr>
+=======
+>>>>>>> compatible
 	<td>FIELD_LABEL</td>
 	<td>//div[contains(@data-fieldname,'${key_fieldName}')]//label</td>
 	<td></td>
 </tr>
+<<<<<<< HEAD
 <!--SIDEBAR -->
 <tr>
 	<td>SIDEBAR_HEADER</td>
@@ -342,6 +383,21 @@
 <tr>
 	<td>DATA_PROVIDER_PERMISSIONS_VIEWABLE_BY_SELECT</td>
 	<td>//div[contains(@id,'permissionsContent')]//select[contains(@id,'inputPermissionsViewRole')]</td>
+=======
+<tr>
+	<td>FIELD_ELLIPSIS</td>
+	<td>//div[contains(@data-fieldname,'${key_fieldName}')]//div[contains(@class,'toolbar')]//button[contains(@class,'toggle')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FIELD_DELETE_BUTTON</td>
+	<td>//div[contains(@data-fieldname,'${key_fieldName}')]//div[contains(@class,'toolbar')]//button[contains(@class,'item')][3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FIELD_EDIT_BUTTON</td>
+	<td>//div[contains(@data-fieldname,'${key_fieldName}')]//div[contains(@class,'toolbar')]//button[contains(@class,'item')][1]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 </tbody>

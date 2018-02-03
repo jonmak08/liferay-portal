@@ -144,13 +144,21 @@ MBThread thread = message.getThread();
 
 	<c:if test="<%= MBMessagePermission.contains(permissionChecker, message, ActionKeys.DELETE) && !thread.isLocked() %>">
 		<portlet:actionURL name="/message_boards/delete_thread" var="deleteURL">
+<<<<<<< HEAD
 			<portlet:param name="<%= Constants.CMD %>" value="<%= trashHelper.isTrashEnabled(themeDisplay.getScopeGroupId()) ? Constants.MOVE_TO_TRASH : Constants.DELETE %>" />
+=======
+			<portlet:param name="<%= Constants.CMD %>" value="<%= TrashUtil.isTrashEnabled(themeDisplay.getScopeGroupId()) ? Constants.MOVE_TO_TRASH : Constants.DELETE %>" />
+>>>>>>> compatible
 			<portlet:param name="redirect" value="<%= currentURL %>" />
 			<portlet:param name="threadId" value="<%= String.valueOf(message.getThreadId()) %>" />
 		</portlet:actionURL>
 
 		<liferay-ui:icon-delete
+<<<<<<< HEAD
 			trash="<%= trashHelper.isTrashEnabled(themeDisplay.getScopeGroupId()) %>"
+=======
+			trash="<%= TrashUtil.isTrashEnabled(themeDisplay.getScopeGroupId()) %>"
+>>>>>>> compatible
 			url="<%= deleteURL %>"
 		/>
 	</c:if>

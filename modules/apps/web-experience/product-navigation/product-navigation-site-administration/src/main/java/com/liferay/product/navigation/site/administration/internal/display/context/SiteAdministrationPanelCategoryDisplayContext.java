@@ -19,11 +19,16 @@ import com.liferay.application.list.PanelCategory;
 import com.liferay.application.list.constants.ApplicationListWebKeys;
 import com.liferay.application.list.constants.PanelCategoryKeys;
 import com.liferay.application.list.display.context.logic.PanelCategoryHelper;
+<<<<<<< HEAD
 import com.liferay.exportimport.kernel.exception.RemoteExportException;
 import com.liferay.exportimport.kernel.staging.StagingUtil;
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+=======
+import com.liferay.exportimport.kernel.staging.StagingUtil;
+import com.liferay.portal.kernel.exception.PortalException;
+>>>>>>> compatible
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -38,6 +43,10 @@ import com.liferay.portal.kernel.service.permission.GroupPermissionUtil;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.util.PropsValues;
@@ -47,8 +56,11 @@ import com.liferay.product.navigation.site.administration.internal.constants.Sit
 import com.liferay.site.util.GroupURLProvider;
 import com.liferay.site.util.RecentGroupManager;
 
+<<<<<<< HEAD
 import java.net.ConnectException;
 
+=======
+>>>>>>> compatible
 import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
@@ -168,7 +180,11 @@ public class SiteAdministrationPanelCategoryDisplayContext {
 		return "live";
 	}
 
+<<<<<<< HEAD
 	public String getLiveGroupURL() throws RemoteExportException {
+=======
+	public String getLiveGroupURL() {
+>>>>>>> compatible
 		if (_liveGroupURL != null) {
 			return _liveGroupURL;
 		}
@@ -191,6 +207,7 @@ public class SiteAdministrationPanelCategoryDisplayContext {
 
 				_log.error("Unable to get live group URL: " + pe.getMessage());
 			}
+<<<<<<< HEAD
 			catch (SystemException se) {
 				Throwable cause = se.getCause();
 
@@ -207,6 +224,8 @@ public class SiteAdministrationPanelCategoryDisplayContext {
 				throw new RemoteExportException(
 					RemoteExportException.BAD_CONNECTION);
 			}
+=======
+>>>>>>> compatible
 		}
 		else if (group.isStagingGroup()) {
 			Group liveGroup = StagingUtil.getLiveGroup(group.getGroupId());

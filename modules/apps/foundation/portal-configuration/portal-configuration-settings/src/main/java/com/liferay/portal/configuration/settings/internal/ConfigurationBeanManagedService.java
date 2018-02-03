@@ -22,7 +22,10 @@ import java.security.AccessController;
 import java.security.PrivilegedAction;
 
 import java.util.Dictionary;
+<<<<<<< HEAD
 import java.util.concurrent.atomic.AtomicMarkableReference;
+=======
+>>>>>>> compatible
 import java.util.function.Consumer;
 
 import org.osgi.framework.BundleContext;
@@ -63,6 +66,7 @@ public class ConfigurationBeanManagedService implements ManagedService {
 
 	public void unregister() {
 		_managedServiceServiceRegistration.unregister();
+<<<<<<< HEAD
 
 		while (true) {
 			ServiceRegistration<?> serviceRegistration =
@@ -76,6 +80,9 @@ public class ConfigurationBeanManagedService implements ManagedService {
 				return;
 			}
 		}
+=======
+		_configurationBeanServiceRegistration.unregister();
+>>>>>>> compatible
 	}
 
 	@Override
@@ -94,6 +101,7 @@ public class ConfigurationBeanManagedService implements ManagedService {
 			properties = new HashMapDictionary<>();
 		}
 
+<<<<<<< HEAD
 		Object configurationBean = ConfigurableUtil.createConfigurable(
 			_configurationBeanClass, properties);
 
@@ -125,6 +133,20 @@ public class ConfigurationBeanManagedService implements ManagedService {
 				break;
 			}
 		}
+=======
+		_configurationBean = ConfigurableUtil.createConfigurable(
+			_configurationBeanClass, properties);
+
+		_configurationBeanConsumer.accept(_configurationBean);
+
+		if (_configurationBeanServiceRegistration != null) {
+			_configurationBeanServiceRegistration.unregister();
+		}
+
+		_configurationBeanServiceRegistration = _bundleContext.registerService(
+			_configurationBeanClass.getName(), _configurationBean,
+			new HashMapDictionary<>());
+>>>>>>> compatible
 	}
 
 	protected class UpdatePrivilegedAction implements PrivilegedAction<Void> {
@@ -145,11 +167,18 @@ public class ConfigurationBeanManagedService implements ManagedService {
 	}
 
 	private final BundleContext _bundleContext;
+<<<<<<< HEAD
 	private final Class<?> _configurationBeanClass;
 	private final Consumer<Object> _configurationBeanConsumer;
 	private AtomicMarkableReference<ServiceRegistration<?>>
 		_configurationBeanServiceRegistrationReference =
 			new AtomicMarkableReference<>(null, false);
+=======
+	private volatile Object _configurationBean;
+	private final Class<?> _configurationBeanClass;
+	private final Consumer<Object> _configurationBeanConsumer;
+	private ServiceRegistration<?> _configurationBeanServiceRegistration;
+>>>>>>> compatible
 	private final String _configurationPid;
 	private ServiceRegistration<ManagedService>
 		_managedServiceServiceRegistration;

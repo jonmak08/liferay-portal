@@ -14,7 +14,11 @@
 
 package com.liferay.document.library.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.document.library.constants.DLPortletKeys;
+=======
+import com.liferay.document.library.web.constants.DLPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.ConfigurationAction;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.util.GetterUtil;

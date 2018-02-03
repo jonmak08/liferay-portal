@@ -18,7 +18,10 @@ import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
 import com.liferay.mobile.device.rules.model.MDRRuleGroup;
 import com.liferay.mobile.device.rules.service.MDRRuleGroupLocalServiceUtil;
 import com.liferay.mobile.device.rules.util.test.MDRTestUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.model.Group;
@@ -26,8 +29,16 @@ import com.liferay.portal.kernel.model.Layout;
 import com.liferay.portal.kernel.service.CompanyLocalServiceUtil;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
+=======
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+import com.liferay.portal.kernel.test.util.GroupTestUtil;
+import com.liferay.portal.kernel.test.util.TestPropsValues;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.util.test.LayoutTestUtil;
 
@@ -45,12 +56,22 @@ import org.junit.runner.RunWith;
  * @author Manuel de la Peña
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class MDRRuleGroupLocalServiceTest {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Before
 	public void setUp() throws Exception {
@@ -91,12 +112,19 @@ public class MDRRuleGroupLocalServiceTest {
 				QueryUtil.ALL_POS, QueryUtil.ALL_POS);
 
 		if (includeGlobalGroup) {
+<<<<<<< HEAD
 			Assert.assertTrue(
 				ruleGroups.toString(), ruleGroups.contains(_ruleGroup));
 		}
 		else {
 			Assert.assertFalse(
 				ruleGroups.toString(), ruleGroups.contains(_ruleGroup));
+=======
+			Assert.assertTrue(ruleGroups.contains(_ruleGroup));
+		}
+		else {
+			Assert.assertFalse(ruleGroups.contains(_ruleGroup));
+>>>>>>> compatible
 		}
 	}
 

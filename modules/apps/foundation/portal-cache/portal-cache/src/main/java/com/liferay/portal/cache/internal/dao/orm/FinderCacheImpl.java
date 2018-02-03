@@ -14,8 +14,11 @@
 
 package com.liferay.portal.cache.internal.dao.orm;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.cache.CacheRegistryItem;
 import com.liferay.portal.kernel.cache.CacheRegistryUtil;
 import com.liferay.portal.kernel.cache.MultiVMPool;
@@ -28,9 +31,17 @@ import com.liferay.portal.kernel.dao.orm.FinderCache;
 import com.liferay.portal.kernel.dao.orm.FinderPath;
 import com.liferay.portal.kernel.model.BaseModel;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.Props;
 import com.liferay.portal.kernel.util.PropsKeys;
+=======
+import com.liferay.portal.kernel.util.AutoResetThreadLocal;
+import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.Props;
+import com.liferay.portal.kernel.util.PropsKeys;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -183,6 +194,7 @@ public class FinderCacheImpl
 			return;
 		}
 
+<<<<<<< HEAD
 		Serializable primaryKey = _resultToPrimaryKey(
 			args, (Serializable)result);
 
@@ -225,6 +237,30 @@ public class FinderCacheImpl
 			else {
 				portalCache.put(cacheKey, primaryKey);
 			}
+=======
+		String encodedArguments = finderPath.encodeArguments(args);
+		Serializable primaryKey = _resultToPrimaryKey(
+			args, (Serializable)result);
+
+		if (_localCacheAvailable) {
+			Map<Serializable, Serializable> localCache = _localCache.get();
+
+			localCache.put(
+				finderPath.encodeLocalCacheKey(encodedArguments), primaryKey);
+		}
+
+		PortalCache<Serializable, Serializable> portalCache = _getPortalCache(
+			finderPath.getCacheName());
+
+		Serializable cacheKey = finderPath.encodeCacheKey(encodedArguments);
+
+		if (quiet) {
+			PortalCacheHelperUtil.putWithoutReplicator(
+				portalCache, cacheKey, primaryKey);
+		}
+		else {
+			portalCache.put(cacheKey, primaryKey);
+>>>>>>> compatible
 		}
 	}
 
@@ -267,12 +303,15 @@ public class FinderCacheImpl
 			_props.get(PropsKeys.VALUE_OBJECT_ENTITY_BLOCKING_CACHE));
 		_valueObjectFinderCacheEnabled = GetterUtil.getBoolean(
 			_props.get(PropsKeys.VALUE_OBJECT_FINDER_CACHE_ENABLED));
+<<<<<<< HEAD
 		_valueObjectFinderCacheListThreshold = GetterUtil.getInteger(
 			_props.get(PropsKeys.VALUE_OBJECT_FINDER_CACHE_LIST_THRESHOLD));
 
 		if (_valueObjectFinderCacheListThreshold == 0) {
 			_valueObjectFinderCacheEnabled = false;
 		}
+=======
+>>>>>>> compatible
 
 		int localCacheMaxSize = GetterUtil.getInteger(
 			_props.get(
@@ -281,7 +320,11 @@ public class FinderCacheImpl
 		if (localCacheMaxSize > 0) {
 			_localCacheAvailable = true;
 
+<<<<<<< HEAD
 			_localCache = new CentralizedThreadLocal<>(
+=======
+			_localCache = new AutoResetThreadLocal<>(
+>>>>>>> compatible
 				FinderCacheImpl.class + "._localCache",
 				() -> new LRUMap(localCacheMaxSize));
 		}
@@ -402,12 +445,15 @@ public class FinderCacheImpl
 				return new EmptyResult(args);
 			}
 
+<<<<<<< HEAD
 			if ((list.size() > _valueObjectFinderCacheListThreshold) &&
 				(_valueObjectFinderCacheListThreshold > 0)) {
 
 				return null;
 			}
 
+=======
+>>>>>>> compatible
 			ArrayList<Serializable> cachedList = new ArrayList<>(list.size());
 
 			for (Serializable curResult : list) {
@@ -434,7 +480,10 @@ public class FinderCacheImpl
 	private Props _props;
 	private boolean _valueObjectEntityBlockingCacheEnabled;
 	private boolean _valueObjectFinderCacheEnabled;
+<<<<<<< HEAD
 	private int _valueObjectFinderCacheListThreshold;
+=======
+>>>>>>> compatible
 
 	private static class EmptyResult implements Externalizable {
 

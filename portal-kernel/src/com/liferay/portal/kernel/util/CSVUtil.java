@@ -14,8 +14,11 @@
 
 package com.liferay.portal.kernel.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 
+=======
+>>>>>>> compatible
 /**
  * @author Samuel Kong
  */

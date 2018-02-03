@@ -81,9 +81,7 @@ public class UnsyncStringWriter extends Writer {
 			charSequence = StringPool.NULL;
 		}
 
-		charSequence = charSequence.subSequence(start, end);
-
-		write(charSequence.toString());
+		write(charSequence.subSequence(start, end).toString());
 
 		return this;
 	}

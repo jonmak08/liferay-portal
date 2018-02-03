@@ -32,7 +32,10 @@ import com.liferay.document.library.kernel.util.comparator.RepositoryModelModifi
 import com.liferay.document.library.kernel.util.comparator.RepositoryModelReadCountComparator;
 import com.liferay.document.library.kernel.util.comparator.RepositoryModelSizeComparator;
 import com.liferay.document.library.kernel.util.comparator.RepositoryModelTitleComparator;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.configuration.Filter;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.language.LanguageUtil;
@@ -59,6 +62,7 @@ import com.liferay.portal.kernel.service.WorkflowDefinitionLinkLocalServiceUtil;
 import com.liferay.portal.kernel.theme.PortletDisplay;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ArrayUtil;
+import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -514,11 +518,19 @@ public class DLImpl implements DL {
 
 		String previewQueryString = null;
 
+<<<<<<< HEAD
 		if (ImageProcessorUtil.isSupported(fileVersion.getMimeType())) {
 			previewQueryString = "&imagePreview=1";
 		}
 		else if (PropsValues.DL_FILE_ENTRY_PREVIEW_ENABLED) {
 			if (PDFProcessorUtil.hasImages(fileVersion)) {
+=======
+		if (PropsValues.DL_FILE_ENTRY_PREVIEW_ENABLED) {
+			if (ImageProcessorUtil.hasImages(fileVersion)) {
+				previewQueryString = "&imagePreview=1";
+			}
+			else if (PDFProcessorUtil.hasImages(fileVersion)) {
+>>>>>>> compatible
 				previewQueryString = "&previewFileIndex=1";
 			}
 			else if (VideoProcessorUtil.hasVideo(fileVersion)) {
@@ -876,7 +888,11 @@ public class DLImpl implements DL {
 			boolean manualCheckInRequired, boolean openDocumentUrl)
 		throws PortalException {
 
+<<<<<<< HEAD
 		StringBundler webDavURLSB = new StringBundler(7);
+=======
+		StringBundler webDavURL = new StringBundler(7);
+>>>>>>> compatible
 
 		boolean secure = false;
 
@@ -1149,11 +1165,19 @@ public class DLImpl implements DL {
 
 				portletId = result.getPortletId();
 				plid = result.getPlid();
+<<<<<<< HEAD
 
 				break;
 			}
 			catch (PortalException pe) {
 
+=======
+
+				break;
+			}
+			catch (PortalException pe) {
+
+>>>>>>> compatible
 				// LPS-52675
 
 				if (_log.isDebugEnabled()) {

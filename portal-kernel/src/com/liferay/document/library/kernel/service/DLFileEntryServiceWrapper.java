@@ -167,6 +167,7 @@ public class DLFileEntryServiceWrapper implements DLFileEntryService,
 
 	@Override
 	public java.util.List<com.liferay.document.library.kernel.model.DLFileEntry> getFileEntries(
+<<<<<<< HEAD
 		long groupId, long folderId, java.lang.String[] mimeTypes, int status,
 		int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator<com.liferay.document.library.kernel.model.DLFileEntry> obc)
@@ -177,6 +178,8 @@ public class DLFileEntryServiceWrapper implements DLFileEntryService,
 
 	@Override
 	public java.util.List<com.liferay.document.library.kernel.model.DLFileEntry> getFileEntries(
+=======
+>>>>>>> compatible
 		long groupId, long folderId, java.lang.String[] mimeTypes, int start,
 		int end,
 		com.liferay.portal.kernel.util.OrderByComparator<com.liferay.document.library.kernel.model.DLFileEntry> obc)
@@ -210,6 +213,7 @@ public class DLFileEntryServiceWrapper implements DLFileEntryService,
 	}
 
 	@Override
+<<<<<<< HEAD
 	public int getFileEntriesCount(long groupId, long folderId,
 		java.lang.String[] mimeTypes, int status) {
 		return _dlFileEntryService.getFileEntriesCount(groupId, folderId,
@@ -217,6 +221,8 @@ public class DLFileEntryServiceWrapper implements DLFileEntryService,
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public com.liferay.document.library.kernel.model.DLFileEntry getFileEntry(
 		long fileEntryId)
 		throws com.liferay.portal.kernel.exception.PortalException {

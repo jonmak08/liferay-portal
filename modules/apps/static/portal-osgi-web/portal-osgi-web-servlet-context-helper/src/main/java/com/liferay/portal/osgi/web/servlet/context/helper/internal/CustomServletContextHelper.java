@@ -15,9 +15,14 @@
 package com.liferay.portal.osgi.web.servlet.context.helper.internal;
 
 import com.liferay.osgi.util.BundleUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+import com.liferay.portal.kernel.util.ListUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.osgi.web.servlet.context.helper.definition.WebResourceCollectionDefinition;
@@ -32,6 +37,10 @@ import java.util.List;
 import java.util.Objects;
 
 import javax.servlet.DispatcherType;
+<<<<<<< HEAD
+=======
+import javax.servlet.RequestDispatcher;
+>>>>>>> compatible
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -113,9 +122,14 @@ public class CustomServletContextHelper
 			catch (IOException ioe) {
 				_logger.log(
 					Logger.LOG_ERROR,
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Unable to get resource name ", name, " on bundle ",
 						String.valueOf(_bundle)),
+=======
+					"Unable to get resource name " + name + " on bundle " +
+						_bundle,
+>>>>>>> compatible
 					ioe);
 			}
 		}
@@ -131,6 +145,7 @@ public class CustomServletContextHelper
 	public boolean handleSecurity(
 		HttpServletRequest request, HttpServletResponse response) {
 
+<<<<<<< HEAD
 		if ((request.getDispatcherType() != DispatcherType.ASYNC) &&
 			(request.getDispatcherType() != DispatcherType.REQUEST)) {
 
@@ -138,6 +153,19 @@ public class CustomServletContextHelper
 		}
 
 		String path = request.getPathInfo();
+=======
+		String path = null;
+
+		if (request.getDispatcherType() == DispatcherType.INCLUDE) {
+			String pathInfo = (String)request.getAttribute(
+				RequestDispatcher.INCLUDE_PATH_INFO);
+
+			path = pathInfo;
+		}
+		else {
+			path = request.getPathInfo();
+		}
+>>>>>>> compatible
 
 		if (path == null) {
 			return true;
@@ -157,8 +185,14 @@ public class CustomServletContextHelper
 			return true;
 		}
 
+<<<<<<< HEAD
 		for (WebResourceCollectionDefinition webResourceCollectionDefinition :
 				_webResourceCollectionDefinitions) {
+=======
+		for (WebResourceCollectionDefinition
+				webResourceCollectionDefinition :
+					_webResourceCollectionDefinitions) {
+>>>>>>> compatible
 
 			boolean forbidden = false;
 
@@ -262,9 +296,14 @@ public class CustomServletContextHelper
 			ServletContext servletContext = request.getServletContext();
 
 			servletContext.log(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"[WAB ERROR] Attempt to load illegal path ", path, " in ",
 					toString()));
+=======
+				"[WAB ERROR] Attempt to load illegal path " + path + " in " +
+					toString());
+>>>>>>> compatible
 
 			response.sendError(HttpServletResponse.SC_FORBIDDEN, path);
 		}

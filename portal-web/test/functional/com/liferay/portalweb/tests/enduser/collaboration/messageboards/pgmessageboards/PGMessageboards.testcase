@@ -12,6 +12,7 @@
 
 		<execute macro="User#firstLoginPG" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -27,6 +28,18 @@
 			<var name="pageName" value="Message Boards Page" />
 			<var name="privacy" value="Public" />
 			<var name="sitePageType" value="Empty Page" />
+=======
+		<execute macro="Page#add">
+			<var name="pageName" value="Message Boards Page" />
+		</execute>
+
+		<execute macro="SitePageNavigator#gotoEditPage">
+			<var name="page" value="Message Boards Page" />
+		</execute>
+
+		<execute macro="Page#editPageLayoutColumn">
+			<var name="columnName" value="1 Column" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Navigator#gotoPage">
@@ -44,6 +57,7 @@
 
 	<tear-down>
 		<var method="TestPropsUtil#get('test.portal.instance')" name="testPortalInstance" />
+<<<<<<< HEAD
 
 		<if>
 			<equals arg1="${testPortalInstance}" arg2="true" />
@@ -57,13 +71,32 @@
 
 				<execute macro="Page#tearDownCP" />
 
+=======
+
+		<if>
+			<equals arg1="${testPortalInstance}" arg2="true" />
+			<then>
+				<execute macro="PortalInstances#tearDownCP" />
+			</then>
+			<else>
+				<execute macro="MessageboardsCategory#tearDownCP" />
+
+				<execute macro="MessageboardsThread#tearDownCP" />
+
+				<execute macro="Page#tearDownPG" />
+
+>>>>>>> compatible
 				<execute macro="ServerAdministration#tearDownDMFileUploadSettings" />
 			</else>
 		</if>
 	</tear-down>
 
 	<command name="AddMBCategories" priority="5">
+<<<<<<< HEAD
 		<property name="portal.acceptance" value="false" />
+=======
+		<property name="portal.acceptance" value="true" />
+>>>>>>> compatible
 
 		<for list="MB Category1 Name,MB Category2 Name,MB Category3 Name" param="categoryName" >
 			<execute macro="Navigator#gotoPage">
@@ -188,7 +221,11 @@
 	</command>
 
 	<command name="AddMBCategorySubcategoryThread" priority="5">
+<<<<<<< HEAD
 		<property name="portal.acceptance" value="false" />
+=======
+		<property name="portal.acceptance" value="true" />
+>>>>>>> compatible
 		<property name="testray.component.names" value="Training" />
 
 		<execute macro="Navigator#gotoPage">
@@ -486,6 +523,7 @@
 			<var name="pageName" value="Message Boards Page" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
@@ -498,6 +536,10 @@
 
 		<execute macro="SystemSettings#editConfiguration">
 			<var name="configurationName" value="Upload Servlet Request" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+			<var name="portlet" value="Server Administration" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="ServerAdministration#configureFileUploadOverallMaximumFileSize">
@@ -879,11 +921,19 @@
 		</execute>
 
 		<execute macro="MessageboardsThread#downloadAttachmentPG" />
+<<<<<<< HEAD
 
 		<execute function="Pause" locator1="5000" />
 
 		<execute macro="MessageboardsThread#downloadAttachmentPG" />
 
+=======
+
+		<execute function="Pause" locator1="5000" />
+
+		<execute macro="MessageboardsThread#downloadAttachmentPG" />
+
+>>>>>>> compatible
 		<execute function="Click" locator1="MessageBoardsThread#THREAD_CONTROLS_BACK" />
 
 		<execute macro="MessageboardsThread#replyPG">
@@ -927,9 +977,13 @@
 			<var name="siteName" value="${siteName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -940,9 +994,13 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -951,9 +1009,13 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -1061,6 +1123,7 @@
 
 		<for list="1,2,3,4" param="replyCount">
 			<var name="key_threadBody" value="Message Boards Thread Reply ${replyCount}" />
+<<<<<<< HEAD
 
 			<execute function="AssertTextEquals" locator1="MessageBoardsThread#THREAD_BODY" value1="Message Boards Thread Reply ${replyCount}" />
 		</for>
@@ -1078,6 +1141,25 @@
 		<for list="1,2,3,4,5,6,7" param="replyCount">
 			<var name="key_threadBody" value="Message Boards Thread Reply ${replyCount}" />
 
+=======
+
+			<execute function="AssertTextEquals" locator1="MessageBoardsThread#THREAD_BODY" value1="Message Boards Thread Reply ${replyCount}" />
+		</for>
+
+		<execute function="AssertVisible" locator1="Button#MORE_MESSAGES" />
+
+		<for list="5,6,7" param="replyNotVisible">
+			<var name="key_threadBody" value="Message Boards Thread Reply ${replyNotVisible}" />
+
+			<execute function="AssertElementNotPresent" locator1="MessageBoardsThread#THREAD_BODY" value1="Message Boards Thread Reply ${replyNotVisible}" />
+		</for>
+
+		<execute function="AssertClick" locator1="Button#MORE_MESSAGES" value1="More Messages" />
+
+		<for list="1,2,3,4,5,6,7" param="replyCount">
+			<var name="key_threadBody" value="Message Boards Thread Reply ${replyCount}" />
+
+>>>>>>> compatible
 			<execute function="AssertTextEquals" locator1="MessageBoardsThread#THREAD_BODY" value1="Message Boards Thread Reply ${replyCount}" />
 		</for>
 	</command>

@@ -16,8 +16,6 @@ package com.liferay.portal.kernel.util;
 
 import java.io.Serializable;
 
-import java.util.Arrays;
-
 /**
  * @author Alexander Chow
  */
@@ -39,7 +37,22 @@ public class Tuple implements Serializable {
 
 		Tuple tuple = (Tuple)obj;
 
-		return Arrays.equals(_array, tuple._array);
+		if (tuple._array.length != _array.length) {
+			return false;
+		}
+
+		for (int i = 0; i < _array.length; i++) {
+			if ((tuple._array != null) && (_array[i] != null) &&
+				!_array[i].equals(tuple._array[i])) {
+
+				return false;
+			}
+			else if ((tuple._array[i] == null) || (_array[i] == null)) {
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 	public Object getObject(int i) {
@@ -52,12 +65,13 @@ public class Tuple implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Arrays.hashCode(_array);
-	}
+		int hashCode = 0;
 
-	@Override
-	public String toString() {
-		return Arrays.toString(_array);
+		for (int i = 0; i < _array.length; i++) {
+			hashCode = hashCode ^ _array[i].hashCode();
+		}
+
+		return hashCode;
 	}
 
 	private final Object[] _array;

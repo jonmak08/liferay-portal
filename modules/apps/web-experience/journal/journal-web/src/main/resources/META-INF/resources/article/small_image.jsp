@@ -28,6 +28,7 @@ boolean changeStructure = GetterUtil.getBoolean(request.getAttribute("edit_artic
 
 <aui:model-context bean="<%= article %>" model="<%= JournalArticle.class %>" />
 
+<<<<<<< HEAD
 <%
 JournalFileUploadsConfiguration journalFileUploadsConfiguration = (JournalFileUploadsConfiguration)request.getAttribute(JournalFileUploadsConfiguration.class.getName());
 %>
@@ -36,6 +37,12 @@ JournalFileUploadsConfiguration journalFileUploadsConfiguration = (JournalFileUp
 
 	<%
 	String[] imageExtensions = journalFileUploadsConfiguration.imageExtensions();
+=======
+<liferay-ui:error exception="<%= ArticleSmallImageNameException.class %>">
+
+	<%
+	String[] imageExtensions = PrefsPropsUtil.getStringArray(PropsKeys.JOURNAL_IMAGE_EXTENSIONS, StringPool.COMMA);
+>>>>>>> compatible
 	%>
 
 	<liferay-ui:message key="image-names-must-end-with-one-of-the-following-extensions" /> <%= HtmlUtil.escape(StringUtil.merge(imageExtensions, ", ")) %>.
@@ -44,7 +51,11 @@ JournalFileUploadsConfiguration journalFileUploadsConfiguration = (JournalFileUp
 <liferay-ui:error exception="<%= ArticleSmallImageSizeException.class %>">
 
 	<%
+<<<<<<< HEAD
 	long imageMaxSize = journalFileUploadsConfiguration.smallImageMaxSize();
+=======
+	long imageMaxSize = PrefsPropsUtil.getLong(PropsKeys.JOURNAL_IMAGE_SMALL_MAX_SIZE);
+>>>>>>> compatible
 	%>
 
 	<liferay-ui:message arguments="<%= TextFormatter.formatStorageSize(imageMaxSize, locale) %>" key="please-enter-a-small-image-with-a-valid-file-size-no-larger-than-x" translateArguments="<%= false %>" />

@@ -19,11 +19,16 @@ import com.liferay.asset.kernel.model.AssetEntry;
 import com.liferay.asset.kernel.model.AssetRenderer;
 import com.liferay.asset.kernel.model.AssetRendererFactory;
 import com.liferay.asset.kernel.service.AssetEntryLocalService;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.language.Language;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+=======
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.language.Language;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.search.Document;
 import com.liferay.portal.kernel.search.Field;
@@ -31,6 +36,10 @@ import com.liferay.portal.kernel.search.Indexer;
 import com.liferay.portal.kernel.search.IndexerRegistry;
 import com.liferay.portal.kernel.search.IndexerRegistryUtil;
 import com.liferay.portal.kernel.search.SearchException;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.search.Summary;
+>>>>>>> compatible
 import com.liferay.portal.kernel.security.permission.ResourceActions;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ArrayUtil;
@@ -38,18 +47,27 @@ import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.search.summary.Summary;
 import com.liferay.portal.search.summary.SummaryBuilder;
 import com.liferay.portal.search.summary.SummaryBuilderFactory;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.util.Validator;
+>>>>>>> compatible
 import com.liferay.portal.search.web.internal.display.context.PortletURLFactory;
 import com.liferay.portal.search.web.internal.display.context.SearchResultPreferences;
 import com.liferay.portal.search.web.internal.result.display.context.SearchResultFieldDisplayContext;
 import com.liferay.portal.search.web.internal.result.display.context.SearchResultSummaryDisplayContext;
 import com.liferay.portal.search.web.internal.util.SearchUtil;
+<<<<<<< HEAD
 import com.liferay.portal.search.web.search.result.SearchResultImage;
 import com.liferay.portal.search.web.search.result.SearchResultImageContributor;
+=======
+>>>>>>> compatible
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -62,7 +80,10 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
+<<<<<<< HEAD
 import java.util.stream.Stream;
+=======
+>>>>>>> compatible
 
 import javax.portlet.PortletException;
 import javax.portlet.RenderRequest;
@@ -76,6 +97,7 @@ import javax.servlet.http.HttpServletRequest;
 public class SearchResultSummaryDisplayBuilder {
 
 	public SearchResultSummaryDisplayContext build() throws Exception {
+<<<<<<< HEAD
 		try {
 			return build(
 				_document.get(Field.ENTRY_CLASS_NAME), getEntryClassPK());
@@ -85,6 +107,34 @@ public class SearchResultSummaryDisplayBuilder {
 
 			return buildTemporarilyUnavailable();
 		}
+=======
+		String className = _document.get(Field.ENTRY_CLASS_NAME);
+		long classPK = getEntryClassPK();
+
+		AssetRendererFactory<?> assetRendererFactory =
+			getAssetRendererFactoryByClassName(className);
+
+		AssetRenderer<?> assetRenderer = null;
+
+		if (assetRendererFactory != null) {
+			long resourcePrimKey = GetterUtil.getLong(
+				_document.get(Field.ROOT_ENTRY_CLASS_PK));
+
+			if (resourcePrimKey > 0) {
+				classPK = resourcePrimKey;
+			}
+
+			assetRenderer = assetRendererFactory.getAssetRenderer(classPK);
+		}
+
+		Summary summary = getSummary(className, assetRenderer);
+
+		if (summary == null) {
+			return null;
+		}
+
+		return build(summary, className, classPK, assetRenderer);
+>>>>>>> compatible
 	}
 
 	public void setAbridged(boolean abridged) {
@@ -115,10 +165,13 @@ public class SearchResultSummaryDisplayBuilder {
 		_highlightEnabled = highlightEnabled;
 	}
 
+<<<<<<< HEAD
 	public void setImageRequested(boolean imageRequested) {
 		_imageRequested = imageRequested;
 	}
 
+=======
+>>>>>>> compatible
 	public void setIndexerRegistry(IndexerRegistry indexerRegistry) {
 		_indexerRegistry = indexerRegistry;
 	}
@@ -135,6 +188,13 @@ public class SearchResultSummaryDisplayBuilder {
 		_portletURLFactory = portletURLFactory;
 	}
 
+<<<<<<< HEAD
+=======
+	public void setQueryTerms(String[] queryTerms) {
+		_queryTerms = queryTerms;
+	}
+
+>>>>>>> compatible
 	public void setRenderRequest(RenderRequest renderRequest) {
 		_renderRequest = renderRequest;
 	}
@@ -151,6 +211,7 @@ public class SearchResultSummaryDisplayBuilder {
 		_resourceActions = resourceActions;
 	}
 
+<<<<<<< HEAD
 	public void setSearchResultImageContributorsStream(
 		Stream<SearchResultImageContributor>
 			searchResultImageContributorsStream) {
@@ -159,6 +220,8 @@ public class SearchResultSummaryDisplayBuilder {
 			searchResultImageContributorsStream;
 	}
 
+=======
+>>>>>>> compatible
 	public void setSearchResultPreferences(
 		SearchResultPreferences searchResultPreferences) {
 
@@ -171,17 +234,21 @@ public class SearchResultSummaryDisplayBuilder {
 		_searchResultViewURLSupplier = searchResultViewURLSupplier;
 	}
 
+<<<<<<< HEAD
 	public void setSummaryBuilderFactory(
 		SummaryBuilderFactory summaryBuilderFactory) {
 
 		_summaryBuilderFactory = summaryBuilderFactory;
 	}
 
+=======
+>>>>>>> compatible
 	public void setThemeDisplay(ThemeDisplay themeDisplay) {
 		_themeDisplay = themeDisplay;
 	}
 
 	protected SearchResultSummaryDisplayContext build(
+<<<<<<< HEAD
 			String className, long classPK)
 		throws Exception {
 
@@ -212,6 +279,8 @@ public class SearchResultSummaryDisplayBuilder {
 	}
 
 	protected SearchResultSummaryDisplayContext build(
+=======
+>>>>>>> compatible
 			Summary summary, String className, long classPK,
 			AssetRenderer<?> assetRenderer)
 		throws PortalException, PortletException {
@@ -223,12 +292,21 @@ public class SearchResultSummaryDisplayBuilder {
 		searchResultSummaryDisplayContext.setClassPK(classPK);
 
 		if (Validator.isNotNull(summary.getContent())) {
+<<<<<<< HEAD
 			searchResultSummaryDisplayContext.setContent(summary.getContent());
+=======
+			searchResultSummaryDisplayContext.setContent(
+				summary.getHighlightedContent());
+>>>>>>> compatible
 			searchResultSummaryDisplayContext.setContentVisible(true);
 		}
 
 		searchResultSummaryDisplayContext.setHighlightedTitle(
+<<<<<<< HEAD
 			summary.getTitle());
+=======
+			summary.getHighlightedTitle());
+>>>>>>> compatible
 		searchResultSummaryDisplayContext.setPortletURL(
 			_portletURLFactory.getPortletURL());
 
@@ -247,7 +325,10 @@ public class SearchResultSummaryDisplayBuilder {
 		buildCreationDateString(searchResultSummaryDisplayContext);
 		buildCreatorUserName(searchResultSummaryDisplayContext);
 		buildDocumentForm(searchResultSummaryDisplayContext);
+<<<<<<< HEAD
 		buildImage(searchResultSummaryDisplayContext, className, classPK);
+=======
+>>>>>>> compatible
 		buildLocaleReminder(searchResultSummaryDisplayContext, summary);
 		buildModelResource(searchResultSummaryDisplayContext, className);
 		buildUserPortrait(
@@ -281,8 +362,12 @@ public class SearchResultSummaryDisplayBuilder {
 				assetRenderer.getURLDownload(_themeDisplay));
 			searchResultSummaryDisplayContext.
 				setAssetRendererURLDownloadVisible(true);
+<<<<<<< HEAD
 			searchResultSummaryDisplayContext.setTitle(
 				assetRenderer.getTitle(summary.getLocale()));
+=======
+			searchResultSummaryDisplayContext.setTitle(summary.getTitle());
+>>>>>>> compatible
 		}
 	}
 
@@ -325,6 +410,10 @@ public class SearchResultSummaryDisplayBuilder {
 			new SearchResultFieldDisplayContext();
 
 		searchResultFieldDisplayContext.setArray(isArray(field));
+<<<<<<< HEAD
+=======
+		searchResultFieldDisplayContext.setBoost(field.getBoost());
+>>>>>>> compatible
 		searchResultFieldDisplayContext.setName(field.getName());
 		searchResultFieldDisplayContext.setNumeric(field.isNumeric());
 		searchResultFieldDisplayContext.setTokenized(field.isTokenized());
@@ -374,6 +463,7 @@ public class SearchResultSummaryDisplayBuilder {
 		return searchResultFieldDisplayContexts;
 	}
 
+<<<<<<< HEAD
 	protected void buildImage(
 		SearchResultSummaryDisplayContext searchResultSummaryDisplayContext,
 		String className, long classPK) {
@@ -417,6 +507,8 @@ public class SearchResultSummaryDisplayBuilder {
 			});
 	}
 
+=======
+>>>>>>> compatible
 	protected void buildLocaleReminder(
 		SearchResultSummaryDisplayContext searchResultSummaryDisplayContext,
 		Summary summary) {
@@ -445,6 +537,7 @@ public class SearchResultSummaryDisplayBuilder {
 				_themeDisplay.getLocale(), className));
 	}
 
+<<<<<<< HEAD
 	protected SearchResultSummaryDisplayContext buildTemporarilyUnavailable() {
 		SearchResultSummaryDisplayContext searchResultSummaryDisplayContext =
 			new SearchResultSummaryDisplayContext();
@@ -454,6 +547,8 @@ public class SearchResultSummaryDisplayBuilder {
 		return searchResultSummaryDisplayContext;
 	}
 
+=======
+>>>>>>> compatible
 	protected void buildUserPortrait(
 		SearchResultSummaryDisplayContext searchResultSummaryDisplayContext,
 		AssetEntry assetEntry, String className) {
@@ -506,6 +601,7 @@ public class SearchResultSummaryDisplayBuilder {
 		return assetEntry.getUserId();
 	}
 
+<<<<<<< HEAD
 	protected AssetRenderer<?> getAssetRenderer(
 		String className, long classPK,
 		AssetRendererFactory<?> assetRendererFactory) {
@@ -522,6 +618,8 @@ public class SearchResultSummaryDisplayBuilder {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	protected AssetRendererFactory<?> getAssetRendererFactoryByClassName(
 		String className) {
 
@@ -560,15 +658,22 @@ public class SearchResultSummaryDisplayBuilder {
 			String className, AssetRenderer<?> assetRenderer)
 		throws SearchException {
 
+<<<<<<< HEAD
 		SummaryBuilder summaryBuilder = _summaryBuilderFactory.newInstance();
 
 		summaryBuilder.setHighlight(_highlightEnabled);
 
 		Indexer<?> indexer = getIndexer(className);
+=======
+		Summary summary = null;
+
+		Indexer indexer = getIndexer(className);
+>>>>>>> compatible
 
 		if (indexer != null) {
 			String snippet = _document.get(Field.SNIPPET);
 
+<<<<<<< HEAD
 			com.liferay.portal.kernel.search.Summary summary =
 				indexer.getSummary(
 					_document, snippet, _renderRequest, _renderResponse);
@@ -592,6 +697,23 @@ public class SearchResultSummaryDisplayBuilder {
 		}
 
 		return null;
+=======
+			summary = indexer.getSummary(
+				_document, snippet, _renderRequest, _renderResponse);
+		}
+		else if (assetRenderer != null) {
+			summary = new Summary(
+				_locale, assetRenderer.getTitle(_locale),
+				assetRenderer.getSearchSummary(_locale));
+		}
+
+		if (summary != null) {
+			summary.setHighlight(_highlightEnabled);
+			summary.setQueryTerms(_queryTerms);
+		}
+
+		return summary;
+>>>>>>> compatible
 	}
 
 	protected String getValuesToString(Field field) {
@@ -663,29 +785,44 @@ public class SearchResultSummaryDisplayBuilder {
 		return false;
 	}
 
+<<<<<<< HEAD
 	private static final Log _log = LogFactoryUtil.getLog(
 		SearchResultSummaryDisplayBuilder.class);
 
+=======
+>>>>>>> compatible
 	private boolean _abridged;
 	private AssetEntryLocalService _assetEntryLocalService;
 	private AssetRendererFactoryLookup _assetRendererFactoryLookup;
 	private String _currentURL;
 	private Document _document;
 	private boolean _highlightEnabled;
+<<<<<<< HEAD
 	private boolean _imageRequested;
+=======
+>>>>>>> compatible
 	private IndexerRegistry _indexerRegistry;
 	private Language _language;
 	private Locale _locale;
 	private PortletURLFactory _portletURLFactory;
+<<<<<<< HEAD
+=======
+	private String[] _queryTerms;
+>>>>>>> compatible
 	private RenderRequest _renderRequest;
 	private RenderResponse _renderResponse;
 	private HttpServletRequest _request;
 	private ResourceActions _resourceActions;
+<<<<<<< HEAD
 	private Stream<SearchResultImageContributor>
 		_searchResultImageContributorsStream = Stream.empty();
 	private SearchResultPreferences _searchResultPreferences;
 	private SearchResultViewURLSupplier _searchResultViewURLSupplier;
 	private SummaryBuilderFactory _summaryBuilderFactory;
+=======
+	private SearchResultPreferences _searchResultPreferences;
+	private SearchResultViewURLSupplier _searchResultViewURLSupplier;
+>>>>>>> compatible
 	private ThemeDisplay _themeDisplay;
 
 }

@@ -15,6 +15,11 @@
 package com.liferay.portlet.ratings.service.impl;
 
 import com.liferay.asset.kernel.model.AssetEntry;
+<<<<<<< HEAD
+=======
+import com.liferay.blogs.kernel.model.BlogsEntry;
+import com.liferay.blogs.kernel.model.BlogsStatsUser;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
@@ -76,6 +81,12 @@ public class RatingsEntryLocalServiceImpl
 			className, classPK);
 
 		int totalEntries = stats.getTotalEntries() - 1;
+<<<<<<< HEAD
+=======
+		double totalScore = stats.getTotalScore() - oldScore;
+
+		double averageScore = 0;
+>>>>>>> compatible
 
 		if (totalEntries == 0) {
 			ratingsStatsPersistence.remove(stats);

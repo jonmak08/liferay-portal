@@ -22,6 +22,10 @@ import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.portlet.RequestBackedPortletURLFactory;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.AggregateResourceBundleLoader;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.LocaleUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ResourceBundleLoader;
 import com.liferay.portal.kernel.util.ResourceBundleLoaderUtil;
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
@@ -56,8 +60,11 @@ public class AlloyEditorConfigContributor
 			jsonObject, inputEditorTaglibAttributes, themeDisplay,
 			requestBackedPortletURLFactory);
 
+<<<<<<< HEAD
 		jsonObject.put("entities", Boolean.FALSE);
 
+=======
+>>>>>>> compatible
 		String extraPlugins = jsonObject.getString("extraPlugins");
 
 		if (Validator.isNotNull(extraPlugins)) {
@@ -90,7 +97,12 @@ public class AlloyEditorConfigContributor
 		ResourceBundle resourceBundle = null;
 
 		try {
+<<<<<<< HEAD
 			resourceBundle = _resourceBundleLoader.loadResourceBundle(locale);
+=======
+			resourceBundle = _resourceBundleLoader.loadResourceBundle(
+				LocaleUtil.toLanguageId(locale));
+>>>>>>> compatible
 		}
 		catch (MissingResourceException mre) {
 			resourceBundle = ResourceBundleUtil.EMPTY_RESOURCE_BUNDLE;

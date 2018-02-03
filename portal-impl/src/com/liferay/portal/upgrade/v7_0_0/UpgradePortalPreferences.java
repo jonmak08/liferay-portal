@@ -14,13 +14,20 @@
 
 package com.liferay.portal.upgrade.v7_0_0;
 
+<<<<<<< HEAD
 import com.liferay.petra.xml.XMLUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.jdbc.AutoBatchPreparedStatementUtil;
 import com.liferay.portal.kernel.upgrade.UpgradeProcess;
 import com.liferay.portal.kernel.util.LoggingTimer;
 import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.util.xml.XMLUtil;
+>>>>>>> compatible
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

@@ -14,6 +14,7 @@
 
 package com.liferay.site.navigation.menu.web.internal.display.context;
 
+<<<<<<< HEAD
 import com.liferay.item.selector.ItemSelector;
 import com.liferay.item.selector.ItemSelectorReturnType;
 import com.liferay.item.selector.criteria.UUIDItemSelectorReturnType;
@@ -40,6 +41,21 @@ import java.util.List;
 import java.util.Locale;
 
 import javax.portlet.PortletURL;
+=======
+import com.liferay.portal.kernel.model.Layout;
+import com.liferay.portal.kernel.module.configuration.ConfigurationException;
+import com.liferay.portal.kernel.theme.PortletDisplay;
+import com.liferay.portal.kernel.theme.ThemeDisplay;
+import com.liferay.portal.kernel.util.ParamUtil;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.portal.util.LayoutDescription;
+import com.liferay.portal.util.LayoutListUtil;
+import com.liferay.portlet.display.template.PortletDisplayTemplate;
+import com.liferay.site.navigation.menu.web.configuration.SiteNavigationMenuPortletInstanceConfiguration;
+
+import java.util.List;
+>>>>>>> compatible
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -126,6 +142,7 @@ public class SiteNavigationMenuDisplayContext {
 		return _displayStyleGroupId;
 	}
 
+<<<<<<< HEAD
 	public String getEventName() {
 		ThemeDisplay themeDisplay = (ThemeDisplay)_request.getAttribute(
 			WebKeys.THEME_DISPLAY);
@@ -135,6 +152,8 @@ public class SiteNavigationMenuDisplayContext {
 		return portletDisplay.getNamespace() + "selectLayout";
 	}
 
+=======
+>>>>>>> compatible
 	public String getIncludedLayouts() {
 		if (_includedLayouts != null) {
 			return _includedLayouts;
@@ -147,6 +166,7 @@ public class SiteNavigationMenuDisplayContext {
 		return _includedLayouts;
 	}
 
+<<<<<<< HEAD
 	public String getItemSelectorURL() {
 		ThemeDisplay themeDisplay = (ThemeDisplay)_request.getAttribute(
 			WebKeys.THEME_DISPLAY);
@@ -215,6 +235,17 @@ public class SiteNavigationMenuDisplayContext {
 		sb.append(HtmlUtil.escape(layout.getName(locale)));
 
 		return sb.toString();
+=======
+	public List<LayoutDescription> getLayoutDescriptions() {
+		ThemeDisplay themeDisplay = (ThemeDisplay)_request.getAttribute(
+			WebKeys.THEME_DISPLAY);
+
+		Layout layout = themeDisplay.getLayout();
+
+		return LayoutListUtil.getLayoutDescriptions(
+			layout.getGroupId(), layout.isPrivateLayout(), StringPool.BLANK,
+			themeDisplay.getLocale());
+>>>>>>> compatible
 	}
 
 	public int getRootLayoutLevel() {
@@ -229,6 +260,7 @@ public class SiteNavigationMenuDisplayContext {
 		return _rootLayoutLevel;
 	}
 
+<<<<<<< HEAD
 	public String getRootLayoutName() throws Exception {
 		ThemeDisplay themeDisplay = (ThemeDisplay)_request.getAttribute(
 			WebKeys.THEME_DISPLAY);
@@ -246,6 +278,8 @@ public class SiteNavigationMenuDisplayContext {
 		return getLayoutBreadcrumb(rootLayout);
 	}
 
+=======
+>>>>>>> compatible
 	public String getRootLayoutType() {
 		if (_rootLayoutType != null) {
 			return _rootLayoutType;

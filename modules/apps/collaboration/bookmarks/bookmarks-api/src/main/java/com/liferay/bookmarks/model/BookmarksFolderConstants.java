@@ -14,7 +14,11 @@
 
 package com.liferay.bookmarks.model;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 /**
  * @author Alexander Chow

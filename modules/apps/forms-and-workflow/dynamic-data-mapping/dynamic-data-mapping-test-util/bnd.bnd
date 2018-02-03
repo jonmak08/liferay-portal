@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Dynamic Data Mapping Test Utilities
 Bundle-SymbolicName: com.liferay.dynamic.data.mapping.test.util
+<<<<<<< HEAD
 Bundle-Version: 2.2.0
+=======
+Bundle-Version: 2.1.3
+>>>>>>> compatible
 Export-Package:\
 	com.liferay.dynamic.data.mapping.test.util,\
 	com.liferay.dynamic.data.mapping.test.util.search,\

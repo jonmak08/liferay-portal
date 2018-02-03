@@ -201,8 +201,12 @@ public class NettyFabricAgentStubTest {
 			nettyFabricAgentStub.getFabricWorkers();
 
 		Assert.assertEquals(fabricWorkers.toString(), 1, fabricWorkers.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			fabricWorkers.toString(), fabricWorkers.contains(fabricWorker));
+=======
+		Assert.assertTrue(fabricWorkers.contains(fabricWorker));
+>>>>>>> compatible
 
 		NoticeableFuture<String> noticeableFuture =
 			fabricWorker.getProcessNoticeableFuture();

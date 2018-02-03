@@ -14,7 +14,10 @@
 
 package com.liferay.map.openstreetmap.internal;
 
+<<<<<<< HEAD
 import com.liferay.frontend.js.loader.modules.extender.npm.NPMResolver;
+=======
+>>>>>>> compatible
 import com.liferay.map.BaseJSPMapProvider;
 import com.liferay.map.MapProvider;
 import com.liferay.portal.kernel.language.LanguageUtil;
@@ -24,7 +27,10 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 import javax.servlet.ServletContext;
+<<<<<<< HEAD
 import javax.servlet.http.HttpServletRequest;
+=======
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -72,6 +78,7 @@ public class OpenStreetMapMapProvider extends BaseJSPMapProvider {
 		super.setServletContext(servletContext);
 	}
 
+<<<<<<< HEAD
 	@Override
 	protected void prepareRequest(HttpServletRequest request) {
 		String resolvedModuleName = _npmResolver.resolveModuleName(
@@ -85,4 +92,6 @@ public class OpenStreetMapMapProvider extends BaseJSPMapProvider {
 	@Reference
 	private NPMResolver _npmResolver;
 
+=======
+>>>>>>> compatible
 }

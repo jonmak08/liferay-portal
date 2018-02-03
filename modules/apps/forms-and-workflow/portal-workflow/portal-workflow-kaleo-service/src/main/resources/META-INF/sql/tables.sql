@@ -8,7 +8,11 @@ create table KaleoAction (
 	modifiedDate DATE null,
 	kaleoClassName VARCHAR(200) null,
 	kaleoClassPK LONG,
+<<<<<<< HEAD
 	kaleoDefinitionVersionId LONG,
+=======
+	kaleoDefinitionId LONG,
+>>>>>>> compatible
 	kaleoNodeName VARCHAR(200) null,
 	name VARCHAR(200) null,
 	description STRING null,
@@ -27,7 +31,11 @@ create table KaleoCondition (
 	userName VARCHAR(200) null,
 	createDate DATE null,
 	modifiedDate DATE null,
+<<<<<<< HEAD
 	kaleoDefinitionVersionId LONG,
+=======
+	kaleoDefinitionId LONG,
+>>>>>>> compatible
 	kaleoNodeId LONG,
 	script TEXT null,
 	scriptLanguage VARCHAR(75) null,
@@ -47,6 +55,7 @@ create table KaleoDefinition (
 	description STRING null,
 	content TEXT null,
 	version INTEGER,
+<<<<<<< HEAD
 	active_ BOOLEAN
 );
 
@@ -68,6 +77,10 @@ create table KaleoDefinitionVersion (
 	version VARCHAR(75) null,
 	startKaleoNodeId LONG,
 	status INTEGER
+=======
+	active_ BOOLEAN,
+	startKaleoNodeId LONG
+>>>>>>> compatible
 );
 
 create table KaleoInstance (
@@ -78,7 +91,11 @@ create table KaleoInstance (
 	userName VARCHAR(200) null,
 	createDate DATE null,
 	modifiedDate DATE null,
+<<<<<<< HEAD
 	kaleoDefinitionVersionId LONG,
+=======
+	kaleoDefinitionId LONG,
+>>>>>>> compatible
 	kaleoDefinitionName VARCHAR(200) null,
 	kaleoDefinitionVersion INTEGER,
 	rootKaleoInstanceTokenId LONG,
@@ -97,7 +114,11 @@ create table KaleoInstanceToken (
 	userName VARCHAR(200) null,
 	createDate DATE null,
 	modifiedDate DATE null,
+<<<<<<< HEAD
 	kaleoDefinitionVersionId LONG,
+=======
+	kaleoDefinitionId LONG,
+>>>>>>> compatible
 	kaleoInstanceId LONG,
 	parentKaleoInstanceTokenId LONG,
 	currentKaleoNodeId LONG,
@@ -118,7 +139,11 @@ create table KaleoLog (
 	modifiedDate DATE null,
 	kaleoClassName VARCHAR(200) null,
 	kaleoClassPK LONG,
+<<<<<<< HEAD
 	kaleoDefinitionVersionId LONG,
+=======
+	kaleoDefinitionId LONG,
+>>>>>>> compatible
 	kaleoInstanceId LONG,
 	kaleoInstanceTokenId LONG,
 	kaleoTaskInstanceTokenId LONG,
@@ -149,7 +174,11 @@ create table KaleoNode (
 	userName VARCHAR(200) null,
 	createDate DATE null,
 	modifiedDate DATE null,
+<<<<<<< HEAD
 	kaleoDefinitionVersionId LONG,
+=======
+	kaleoDefinitionId LONG,
+>>>>>>> compatible
 	name VARCHAR(200) null,
 	metadata STRING null,
 	description STRING null,
@@ -168,7 +197,11 @@ create table KaleoNotification (
 	modifiedDate DATE null,
 	kaleoClassName VARCHAR(200) null,
 	kaleoClassPK LONG,
+<<<<<<< HEAD
 	kaleoDefinitionVersionId LONG,
+=======
+	kaleoDefinitionId LONG,
+>>>>>>> compatible
 	kaleoNodeName VARCHAR(200) null,
 	name VARCHAR(200) null,
 	description STRING null,
@@ -186,7 +219,11 @@ create table KaleoNotificationRecipient (
 	userName VARCHAR(200) null,
 	createDate DATE null,
 	modifiedDate DATE null,
+<<<<<<< HEAD
 	kaleoDefinitionVersionId LONG,
+=======
+	kaleoDefinitionId LONG,
+>>>>>>> compatible
 	kaleoNotificationId LONG,
 	recipientClassName VARCHAR(200) null,
 	recipientClassPK LONG,
@@ -206,7 +243,11 @@ create table KaleoTask (
 	userName VARCHAR(200) null,
 	createDate DATE null,
 	modifiedDate DATE null,
+<<<<<<< HEAD
 	kaleoDefinitionVersionId LONG,
+=======
+	kaleoDefinitionId LONG,
+>>>>>>> compatible
 	kaleoNodeId LONG,
 	name VARCHAR(200) null,
 	description STRING null
@@ -222,7 +263,11 @@ create table KaleoTaskAssignment (
 	modifiedDate DATE null,
 	kaleoClassName VARCHAR(200) null,
 	kaleoClassPK LONG,
+<<<<<<< HEAD
 	kaleoDefinitionVersionId LONG,
+=======
+	kaleoDefinitionId LONG,
+>>>>>>> compatible
 	kaleoNodeId LONG,
 	assigneeClassName VARCHAR(200) null,
 	assigneeClassPK LONG,
@@ -240,7 +285,11 @@ create table KaleoTaskAssignmentInstance (
 	userName VARCHAR(200) null,
 	createDate DATE null,
 	modifiedDate DATE null,
+<<<<<<< HEAD
 	kaleoDefinitionVersionId LONG,
+=======
+	kaleoDefinitionId LONG,
+>>>>>>> compatible
 	kaleoInstanceId LONG,
 	kaleoInstanceTokenId LONG,
 	kaleoTaskInstanceTokenId LONG,
@@ -252,6 +301,7 @@ create table KaleoTaskAssignmentInstance (
 	completionDate DATE null
 );
 
+<<<<<<< HEAD
 create table KaleoTaskForm (
 	kaleoTaskFormId LONG not null primary key,
 	groupId LONG,
@@ -295,6 +345,8 @@ create table KaleoTaskFormInstance (
 	metadata STRING null
 );
 
+=======
+>>>>>>> compatible
 create table KaleoTaskInstanceToken (
 	kaleoTaskInstanceTokenId LONG not null primary key,
 	groupId LONG,
@@ -303,7 +355,11 @@ create table KaleoTaskInstanceToken (
 	userName VARCHAR(200) null,
 	createDate DATE null,
 	modifiedDate DATE null,
+<<<<<<< HEAD
 	kaleoDefinitionVersionId LONG,
+=======
+	kaleoDefinitionId LONG,
+>>>>>>> compatible
 	kaleoInstanceId LONG,
 	kaleoInstanceTokenId LONG,
 	kaleoTaskId LONG,
@@ -327,7 +383,11 @@ create table KaleoTimer (
 	modifiedDate DATE null,
 	kaleoClassName VARCHAR(200) null,
 	kaleoClassPK LONG,
+<<<<<<< HEAD
 	kaleoDefinitionVersionId LONG,
+=======
+	kaleoDefinitionId LONG,
+>>>>>>> compatible
 	name VARCHAR(75) null,
 	blocking BOOLEAN,
 	description STRING null,
@@ -347,7 +407,11 @@ create table KaleoTimerInstanceToken (
 	modifiedDate DATE null,
 	kaleoClassName VARCHAR(200) null,
 	kaleoClassPK LONG,
+<<<<<<< HEAD
 	kaleoDefinitionVersionId LONG,
+=======
+	kaleoDefinitionId LONG,
+>>>>>>> compatible
 	kaleoInstanceId LONG,
 	kaleoInstanceTokenId LONG,
 	kaleoTaskInstanceTokenId LONG,
@@ -368,7 +432,11 @@ create table KaleoTransition (
 	userName VARCHAR(200) null,
 	createDate DATE null,
 	modifiedDate DATE null,
+<<<<<<< HEAD
 	kaleoDefinitionVersionId LONG,
+=======
+	kaleoDefinitionId LONG,
+>>>>>>> compatible
 	kaleoNodeId LONG,
 	name VARCHAR(200) null,
 	description STRING null,

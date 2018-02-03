@@ -43,18 +43,30 @@ public class MapUtilTest {
 			Map<String, Object> map = MapUtil.toLinkedHashMap(
 				new String[] {"one"});
 
+<<<<<<< HEAD
 			Assert.assertTrue(map.toString(), map.isEmpty());
 
 			map = MapUtil.toLinkedHashMap(new String[] {"one:two:three:four"});
 
 			Assert.assertTrue(map.toString(), map.isEmpty());
+=======
+			Assert.assertTrue(map.isEmpty());
+
+			map = MapUtil.toLinkedHashMap(new String[] {"one:two:three:four"});
+
+			Assert.assertTrue(map.isEmpty());
+>>>>>>> compatible
 		}
 
 		@Test
 		public void shouldReturnEmptyMapWithParamsNull() {
 			Map<String, Object> map = MapUtil.toLinkedHashMap(null);
 
+<<<<<<< HEAD
 			Assert.assertTrue(map.toString(), map.isEmpty());
+=======
+			Assert.assertTrue(map.isEmpty());
+>>>>>>> compatible
 		}
 
 		@Test
@@ -66,7 +78,11 @@ public class MapUtilTest {
 				Map<String, Object> map = MapUtil.toLinkedHashMap(
 					new String[] {"one:1:" + Object.class.getName()});
 
+<<<<<<< HEAD
 				Assert.assertTrue(map.toString(), map.isEmpty());
+=======
+				Assert.assertTrue(map.isEmpty());
+>>>>>>> compatible
 
 				List<LogRecord> logRecords = captureHandler.getLogRecords();
 
@@ -90,7 +106,11 @@ public class MapUtilTest {
 		public void shouldReturnEmptyMapWithParamsZeroLength() {
 			Map<String, String> map = MapUtil.toLinkedHashMap(new String[0]);
 
+<<<<<<< HEAD
 			Assert.assertTrue(map.toString(), map.isEmpty());
+=======
+			Assert.assertTrue(map.isEmpty());
+>>>>>>> compatible
 		}
 
 		@Test
@@ -98,7 +118,11 @@ public class MapUtilTest {
 			Map<String, String> map = MapUtil.toLinkedHashMap(
 				new String[0], ",");
 
+<<<<<<< HEAD
 			Assert.assertTrue(map.toString(), map.isEmpty());
+=======
+			Assert.assertTrue(map.isEmpty());
+>>>>>>> compatible
 
 			map = MapUtil.toLinkedHashMap(new String[] {"one,1"}, ",");
 
@@ -115,7 +139,11 @@ public class MapUtilTest {
 		public void shouldReturnMapWithDelimiterDefault() {
 			Map<String, String> map = MapUtil.toLinkedHashMap(new String[0]);
 
+<<<<<<< HEAD
 			Assert.assertTrue(map.toString(), map.isEmpty());
+=======
+			Assert.assertTrue(map.isEmpty());
+>>>>>>> compatible
 
 			map = MapUtil.toLinkedHashMap(new String[] {"one:1"});
 
@@ -346,7 +374,11 @@ public class MapUtilTest {
 		public void shouldReturnEmptyMapWithZeroLength() {
 			Map<String, String> map = MapUtil.fromArray(new String[0]);
 
+<<<<<<< HEAD
 			Assert.assertTrue(map.toString(), map.isEmpty());
+=======
+			Assert.assertTrue(map.isEmpty());
+>>>>>>> compatible
 		}
 
 		@Test

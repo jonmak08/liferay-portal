@@ -9,6 +9,12 @@ Import-Package:\
 	!org.junit.experimental.theories,\
 	\
 	*
+<<<<<<< HEAD
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Site Management
 -includeresource: test-classes/integration
+=======
+Include-Resource: test-classes/integration
+Liferay-Releng-Module-Group-Description:
+Liferay-Releng-Module-Group-Title: Site Management
+>>>>>>> compatible

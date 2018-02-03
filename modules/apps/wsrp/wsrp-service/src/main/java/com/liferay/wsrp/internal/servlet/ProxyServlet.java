@@ -18,6 +18,10 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.servlet.HttpHeaders;
 import com.liferay.portal.kernel.servlet.ServletResponseUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
@@ -25,7 +29,10 @@ import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.wsrp.configuration.WSRPGroupServiceConfiguration;
 import com.liferay.wsrp.util.WSRPConfigurationUtil;
+<<<<<<< HEAD
 import com.liferay.wsrp.util.WSRPURLUtil;
+=======
+>>>>>>> compatible
 import com.liferay.wsrp.util.WebKeys;
 
 import java.io.IOException;
@@ -71,10 +78,17 @@ public class ProxyServlet extends HttpServlet {
 		throws IOException {
 
 		try {
+<<<<<<< HEAD
 			URL url = getAllowedURL(request);
 
 			if (url != null) {
 				proxyURL(request, response, url);
+=======
+			String url = ParamUtil.getString(request, "url");
+
+			if (isAllowedURL(url)) {
+				proxyURL(request, response, new URL(url));
+>>>>>>> compatible
 			}
 		}
 		catch (Exception e) {
@@ -85,6 +99,7 @@ public class ProxyServlet extends HttpServlet {
 		}
 	}
 
+<<<<<<< HEAD
 	protected URL getAllowedURL(HttpServletRequest request) throws Exception {
 		long companyId = _portal.getCompanyId(request);
 		String urlString = ParamUtil.getString(request, "url");
@@ -106,6 +121,9 @@ public class ProxyServlet extends HttpServlet {
 			return null;
 		}
 
+=======
+	protected boolean isAllowedURL(String url) throws Exception {
+>>>>>>> compatible
 		WSRPGroupServiceConfiguration wsrpGroupServiceConfiguration =
 			_wsrpConfigurationUtil.getWSRPConfiguration();
 
@@ -113,10 +131,23 @@ public class ProxyServlet extends HttpServlet {
 			wsrpGroupServiceConfiguration.proxyUrlIpsAllowed();
 
 		if (allowedIps.length == 0) {
+<<<<<<< HEAD
 			return url;
 		}
 
 		String domain = url.getHost();
+=======
+			return true;
+		}
+
+		String domain = _http.getDomain(url);
+
+		int pos = domain.indexOf(CharPool.COLON);
+
+		if (pos != -1) {
+			domain = domain.substring(0, pos);
+		}
+>>>>>>> compatible
 
 		InetAddress inetAddress = InetAddress.getByName(domain);
 
@@ -130,11 +161,19 @@ public class ProxyServlet extends HttpServlet {
 			if ((serverIpIsHostAddress && ip.equals("SERVER_IP")) ||
 				ip.equals(hostAddress)) {
 
+<<<<<<< HEAD
 				return url;
 			}
 		}
 
 		return null;
+=======
+				return true;
+			}
+		}
+
+		return false;
+>>>>>>> compatible
 	}
 
 	protected void proxyURL(
@@ -224,7 +263,10 @@ public class ProxyServlet extends HttpServlet {
 	@Reference
 	private WSRPConfigurationUtil _wsrpConfigurationUtil;
 
+<<<<<<< HEAD
 	@Reference
 	private WSRPURLUtil _wsrpUrlUtil;
 
+=======
+>>>>>>> compatible
 }

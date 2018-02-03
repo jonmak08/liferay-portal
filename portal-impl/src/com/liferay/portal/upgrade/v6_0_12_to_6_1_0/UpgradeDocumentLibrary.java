@@ -148,10 +148,16 @@ public class UpgradeDocumentLibrary extends UpgradeProcess {
 
 	protected void updateThumbnails(long fileEntryId) throws Exception {
 		try (PreparedStatement ps = connection.prepareStatement(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"select fileVersionId, userId, extension, mimeType, ",
 					"version from DLFileVersion where fileEntryId = ",
 					String.valueOf(fileEntryId), " order by version asc"));
+=======
+				"select fileVersionId, userId, extension, mimeType, version " +
+					"from DLFileVersion where fileEntryId = " + fileEntryId +
+						" order by version asc");
+>>>>>>> compatible
 			ResultSet rs = ps.executeQuery()) {
 
 			while (rs.next()) {

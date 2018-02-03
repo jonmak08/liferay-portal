@@ -1,5 +1,9 @@
 Bundle-Name: Liferay Roles Admin Implementation
 Bundle-SymbolicName: com.liferay.roles.admin.impl
+<<<<<<< HEAD
 Bundle-Version: 1.0.10
+=======
+Bundle-Version: 1.0.9
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title:

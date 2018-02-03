@@ -357,8 +357,12 @@ public class PortletBagFactory {
 		ServiceTrackerList<AtomCollectionAdapter<?>>
 			atomCollectionAdapterInstances = ServiceTrackerCollections.openList(
 				(Class<AtomCollectionAdapter<?>>)(Class<?>)
+<<<<<<< HEAD
 					AtomCollectionAdapter.class,
 				filter, properties);
+=======
+					AtomCollectionAdapter.class, filter, properties);
+>>>>>>> compatible
 
 		for (String atomCollectionAdapterClass :
 				portlet.getAtomCollectionAdapterClasses()) {

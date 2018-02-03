@@ -66,6 +66,7 @@ public abstract class BaseLocalServiceTreeTestCase {
 
 	protected void createTree() throws Exception {
 
+<<<<<<< HEAD
 		// Tree 1
 
 		// /A--->/A--->/A
@@ -79,6 +80,23 @@ public abstract class BaseLocalServiceTreeTestCase {
 		//  |
 		//  |--->/C--->/A
 		//        |--->/B
+=======
+		/**
+		 * Tree 1
+		 *
+		 * /A--->/A--->/A
+		 *  |     |--->/B
+		 *  |     |--->/C
+		 *  |     |--->/D
+		 *  |
+		 *  |--->/B--->/A
+		 *  |     |--->/B
+		 *  |     |--->/C
+		 *  |
+		 *  |--->/C--->/A
+		 *        |--->/B
+		 */
+>>>>>>> compatible
 
 		TreeModel treeModelA = addTreeModel(null);
 
@@ -132,6 +150,7 @@ public abstract class BaseLocalServiceTreeTestCase {
 
 		_treeModels.add(treeModelACB);
 
+<<<<<<< HEAD
 		// Tree 2
 
 		// /B--->/A--->/A
@@ -145,6 +164,23 @@ public abstract class BaseLocalServiceTreeTestCase {
 		//        |--->/B
 		//        |--->/C
 		//        |--->/D
+=======
+		/**
+		 * Tree 2
+		 *
+		 * /B--->/A--->/A
+		 *  |     |--->/B
+		 *  |
+		 *  |--->/B--->/A
+		 *  |     |--->/B
+		 *  |     |--->/C
+		 *  |
+		 *  |--->/C--->/A
+		 *        |--->/B
+		 *        |--->/C
+		 *        |--->/D
+		 */
+>>>>>>> compatible
 
 		TreeModel treeModelB = addTreeModel(null);
 

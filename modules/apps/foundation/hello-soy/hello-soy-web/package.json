@@ -8,5 +8,10 @@
 		"metal-cli": "^4.0.1"
 	},
 	"name": "hello-soy-web",
+<<<<<<< HEAD
 	"version": "1.0.15"
 }
+=======
+	"version": "1.0.12"
+}
+>>>>>>> compatible

@@ -14,8 +14,11 @@
 
 package com.liferay.source.formatter.checks;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 
 import java.io.Serializable;
@@ -37,6 +40,7 @@ public class YMLDefintionOrderCheck extends BaseFileCheck {
 	protected String doProcess(
 		String fileName, String absolutePath, String content) {
 
+<<<<<<< HEAD
 		return _sortDefinitions(fileName, content, StringPool.BLANK);
 	}
 
@@ -50,6 +54,15 @@ public class YMLDefintionOrderCheck extends BaseFileCheck {
 			Pattern.MULTILINE);
 
 		Matcher matcher = pattern.matcher(content);
+=======
+		return _sortDefinitions(fileName, content);
+	}
+
+	private List<String> _getDefinitions(String content) {
+		List<String> definitions = new ArrayList<>();
+
+		Matcher matcher = _definitionPattern.matcher(content);
+>>>>>>> compatible
 
 		while (matcher.find()) {
 			definitions.add(matcher.group());
@@ -58,10 +71,15 @@ public class YMLDefintionOrderCheck extends BaseFileCheck {
 		return definitions;
 	}
 
+<<<<<<< HEAD
 	private String _sortDefinitions(
 		String fileName, String content, String indent) {
 
 		List<String> definitions = _getDefinitions(content, indent);
+=======
+	private String _sortDefinitions(String fileName, String content) {
+		List<String> definitions = _getDefinitions(content);
+>>>>>>> compatible
 
 		DefinitionComparator definitionComparator = new DefinitionComparator(
 			fileName);
@@ -83,6 +101,7 @@ public class YMLDefintionOrderCheck extends BaseFileCheck {
 				return StringUtil.replaceLast(
 					content, definition, previousDefinition);
 			}
+<<<<<<< HEAD
 
 			String newDefinition = _sortDefinitions(
 				fileName, definition, indent + StringPool.FOUR_SPACES);
@@ -91,11 +110,19 @@ public class YMLDefintionOrderCheck extends BaseFileCheck {
 				return StringUtil.replaceFirst(
 					content, definition, newDefinition);
 			}
+=======
+>>>>>>> compatible
 		}
 
 		return content;
 	}
 
+<<<<<<< HEAD
+=======
+	private final Pattern _definitionPattern = Pattern.compile(
+		"^[a-z].*:.*(\n|\\Z)(([^a-z\n].*)?(\n|\\Z))*", Pattern.MULTILINE);
+
+>>>>>>> compatible
 	private static class DefinitionComparator
 		implements Comparator<String>, Serializable {
 

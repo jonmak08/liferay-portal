@@ -14,24 +14,40 @@
 
 package com.liferay.wiki.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.document.library.kernel.document.conversion.DocumentConversionUtil;
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.portlet.PortletURLFactoryUtil;
 import com.liferay.portal.kernel.portlet.bridges.mvc.BaseMVCActionCommand;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCActionCommand;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.auth.PrincipalThreadLocal;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.servlet.ServletResponseUtil;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.MimeTypesUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
+=======
+import com.liferay.portal.kernel.util.PropsKeys;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.portal.util.PrefsPropsUtil;
+import com.liferay.portlet.documentlibrary.util.DocumentConversionUtil;
+>>>>>>> compatible
 import com.liferay.wiki.constants.WikiPortletKeys;
 import com.liferay.wiki.engine.impl.WikiEngineRenderer;
 import com.liferay.wiki.model.WikiPage;
@@ -76,8 +92,11 @@ public class ExportPageMVCActionCommand extends BaseMVCActionCommand {
 			ActionRequest actionRequest, ActionResponse actionResponse)
 		throws Exception {
 
+<<<<<<< HEAD
 		hideDefaultSuccessMessage(actionRequest);
 
+=======
+>>>>>>> compatible
 		PortletConfig portletConfig = getPortletConfig(actionRequest);
 
 		try {
@@ -124,7 +143,24 @@ public class ExportPageMVCActionCommand extends BaseMVCActionCommand {
 			actionResponse.setRenderParameter("mvcPath", "/null.jsp");
 		}
 		catch (Exception e) {
+<<<<<<< HEAD
 			_log.error(e, e);
+=======
+			String host = PrefsPropsUtil.getString(
+				PropsKeys.OPENOFFICE_SERVER_HOST);
+
+			if (Validator.isNotNull(host) && !host.equals(_LOCALHOST_IP) &&
+				!host.startsWith(_LOCALHOST)) {
+
+				StringBundler sb = new StringBundler(3);
+
+				sb.append("Conversion using a remote OpenOffice instance is ");
+				sb.append("not fully supported. Please use a local instance ");
+				sb.append("to prevent any limitations and problems.");
+
+				_log.error(sb.toString());
+			}
+>>>>>>> compatible
 
 			_portal.sendError(e, actionRequest, actionResponse);
 		}
@@ -150,10 +186,15 @@ public class ExportPageMVCActionCommand extends BaseMVCActionCommand {
 		}
 		catch (Exception e) {
 			_log.error(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Error formatting the wiki page ",
 					String.valueOf(page.getPageId()), " with the format ",
 					page.getFormat()),
+=======
+				"Error formatting the wiki page " + page.getPageId() +
+					" with the format " + page.getFormat(),
+>>>>>>> compatible
 				e);
 		}
 
@@ -182,10 +223,15 @@ public class ExportPageMVCActionCommand extends BaseMVCActionCommand {
 		sb.append("</body>");
 		sb.append("</html>");
 
+<<<<<<< HEAD
 		String s = sb.toString();
 
 		InputStream is = new UnsyncByteArrayInputStream(
 			s.getBytes(StringPool.UTF8));
+=======
+		InputStream is = new UnsyncByteArrayInputStream(
+			sb.toString().getBytes(StringPool.UTF8));
+>>>>>>> compatible
 
 		String sourceExtension = "html";
 
@@ -193,9 +239,13 @@ public class ExportPageMVCActionCommand extends BaseMVCActionCommand {
 			sourceExtension);
 
 		if (Validator.isNotNull(targetExtension)) {
+<<<<<<< HEAD
 			String id =
 				PrincipalThreadLocal.getUserId() + StringPool.UNDERLINE +
 					page.getUuid();
+=======
+			String id = page.getUuid();
+>>>>>>> compatible
 
 			File convertedFile = DocumentConversionUtil.convert(
 				id, is, sourceExtension, targetExtension);
@@ -226,6 +276,13 @@ public class ExportPageMVCActionCommand extends BaseMVCActionCommand {
 		_wikiPageService = wikiPageService;
 	}
 
+<<<<<<< HEAD
+=======
+	private static final String _LOCALHOST = "localhost";
+
+	private static final String _LOCALHOST_IP = "127.0.0.1";
+
+>>>>>>> compatible
 	private static final Log _log = LogFactoryUtil.getLog(
 		ExportPageMVCActionCommand.class);
 

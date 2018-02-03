@@ -14,6 +14,7 @@
 
 package com.liferay.blogs.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.blogs.exception.NoSuchEntryException;
 import com.liferay.blogs.model.BlogsEntry;
 import com.liferay.blogs.service.BlogsEntryServiceUtil;
@@ -21,17 +22,32 @@ import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ParamUtil;
+=======
+import com.liferay.blogs.kernel.exception.NoSuchEntryException;
+import com.liferay.blogs.kernel.model.BlogsEntry;
+import com.liferay.blogs.kernel.service.BlogsEntryServiceUtil;
+import com.liferay.portal.kernel.theme.ThemeDisplay;
+import com.liferay.portal.kernel.util.CharPool;
+import com.liferay.portal.kernel.util.ParamUtil;
+import com.liferay.portal.kernel.util.PortalUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 
 import javax.portlet.PortletRequest;
 
+<<<<<<< HEAD
+=======
+import javax.servlet.http.HttpServletRequest;
+
+>>>>>>> compatible
 /**
  * @author Brian Wing Shun Chan
  */
 public class ActionUtil {
 
+<<<<<<< HEAD
 	public static BlogsEntry getEntry(PortletRequest portletRequest)
 		throws Exception {
 
@@ -41,15 +57,28 @@ public class ActionUtil {
 		long entryId = ParamUtil.getLong(portletRequest, "entryId");
 
 		String urlTitle = ParamUtil.getString(portletRequest, "urlTitle");
+=======
+	public static void getEntry(HttpServletRequest request) throws Exception {
+		ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
+			WebKeys.THEME_DISPLAY);
+
+		long entryId = ParamUtil.getLong(request, "entryId");
+
+		String urlTitle = ParamUtil.getString(request, "urlTitle");
+>>>>>>> compatible
 
 		BlogsEntry entry = null;
 
 		if (entryId > 0) {
 			entry = BlogsEntryServiceUtil.getEntry(entryId);
 		}
+<<<<<<< HEAD
 		else if (Validator.isNotNull(urlTitle) &&
 				 SessionErrors.isEmpty(portletRequest)) {
 
+=======
+		else if (Validator.isNotNull(urlTitle)) {
+>>>>>>> compatible
 			try {
 				entry = BlogsEntryServiceUtil.getEntry(
 					themeDisplay.getScopeGroupId(), urlTitle);
@@ -76,7 +105,20 @@ public class ActionUtil {
 			throw new NoSuchEntryException("{entryId=" + entryId + "}");
 		}
 
+<<<<<<< HEAD
 		return entry;
+=======
+		request.setAttribute(WebKeys.BLOGS_ENTRY, entry);
+	}
+
+	public static void getEntry(PortletRequest portletRequest)
+		throws Exception {
+
+		HttpServletRequest request = PortalUtil.getHttpServletRequest(
+			portletRequest);
+
+		getEntry(request);
+>>>>>>> compatible
 	}
 
 }

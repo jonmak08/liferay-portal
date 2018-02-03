@@ -14,8 +14,14 @@
 
 package com.liferay.dynamic.data.lists.util.comparator;
 
+<<<<<<< HEAD
 import com.liferay.document.library.kernel.util.comparator.VersionNumberComparator;
 import com.liferay.dynamic.data.lists.model.DDLRecordVersion;
+=======
+import com.liferay.dynamic.data.lists.model.DDLRecordVersion;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
+>>>>>>> compatible
 
 import java.util.Comparator;
 
@@ -34,13 +40,18 @@ public class DDLRecordVersionVersionComparator
 	}
 
 	public DDLRecordVersionVersionComparator(boolean ascending) {
+<<<<<<< HEAD
 		_versionNumberComparator = new VersionNumberComparator(ascending);
+=======
+		_ascending = ascending;
+>>>>>>> compatible
 	}
 
 	@Override
 	public int compare(
 		DDLRecordVersion recordVersion1, DDLRecordVersion recordVersion2) {
 
+<<<<<<< HEAD
 		return _versionNumberComparator.compare(
 			recordVersion1.getVersion(), recordVersion2.getVersion());
 	}
@@ -50,5 +61,50 @@ public class DDLRecordVersionVersionComparator
 	}
 
 	private final VersionNumberComparator _versionNumberComparator;
+=======
+		int value = 0;
+
+		String version1 = recordVersion1.getVersion();
+		String version2 = recordVersion2.getVersion();
+
+		int[] versionParts1 = StringUtil.split(version1, StringPool.PERIOD, 0);
+		int[] versionParts2 = StringUtil.split(version2, StringPool.PERIOD, 0);
+
+		if ((versionParts1.length != 2) && (versionParts2.length != 2)) {
+			value = 0;
+		}
+		else if (versionParts1.length != 2) {
+			value = -1;
+		}
+		else if (versionParts2.length != 2) {
+			value = 1;
+		}
+		else if (versionParts1[0] > versionParts2[0]) {
+			value = 1;
+		}
+		else if (versionParts1[0] < versionParts2[0]) {
+			value = -1;
+		}
+		else if (versionParts1[1] > versionParts2[1]) {
+			value = 1;
+		}
+		else if (versionParts1[1] < versionParts2[1]) {
+			value = -1;
+		}
+
+		if (_ascending) {
+			return value;
+		}
+		else {
+			return -value;
+		}
+	}
+
+	public boolean isAscending() {
+		return _ascending;
+	}
+
+	private final boolean _ascending;
+>>>>>>> compatible
 
 }

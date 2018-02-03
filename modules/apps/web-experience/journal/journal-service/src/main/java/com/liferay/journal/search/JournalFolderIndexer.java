@@ -17,7 +17,10 @@ package com.liferay.journal.search;
 import com.liferay.journal.model.JournalFolder;
 import com.liferay.journal.service.JournalFolderLocalService;
 import com.liferay.journal.service.permission.JournalFolderPermission;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.IndexableActionableDynamicQuery;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -34,9 +37,16 @@ import com.liferay.portal.kernel.search.Summary;
 import com.liferay.portal.kernel.search.filter.BooleanFilter;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.trash.TrashHelper;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.trash.kernel.util.TrashUtil;
+>>>>>>> compatible
 
 import java.util.Locale;
 
@@ -116,7 +126,11 @@ public class JournalFolderIndexer
 		String title = journalFolder.getName();
 
 		if (journalFolder.isInTrash()) {
+<<<<<<< HEAD
 			title = _trashHelper.getOriginalTitle(title);
+=======
+			title = TrashUtil.getOriginalTitle(title);
+>>>>>>> compatible
 		}
 
 		document.addText(Field.TITLE, title);
@@ -217,7 +231,10 @@ public class JournalFolderIndexer
 
 	private JournalFolderLocalService _journalFolderLocalService;
 
+<<<<<<< HEAD
 	@Reference
 	private TrashHelper _trashHelper;
 
+=======
+>>>>>>> compatible
 }

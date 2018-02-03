@@ -14,8 +14,13 @@
 
 package com.liferay.portal.kernel.io;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.ClassLoaderPool;
 import com.liferay.petra.lang.ClassResolverUtil;
+=======
+import com.liferay.portal.kernel.util.ClassLoaderPool;
+import com.liferay.portal.kernel.util.ClassResolverUtil;
+>>>>>>> compatible
 
 import java.io.IOException;
 import java.io.InputStream;

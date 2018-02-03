@@ -18,12 +18,16 @@
 	<liferay-ui:message key="use-the-form-below-to-rename-a-page,-moving-all-of-its-history-to-the-new-name" />
 </div>
 
+<<<<<<< HEAD
 <aui:form action="<%= movePageURL %>" method="post" name="renameFm" onSubmit='<%= renderResponse.getNamespace() + "renamePage();" %>'>
 	<aui:input name="<%= Constants.CMD %>" type="hidden" />
 	<aui:input name="nodeId" type="hidden" value="<%= node.getNodeId() %>" />
 	<aui:input name="title" type="hidden" value="<%= title %>" />
 	<aui:input name="workflowAction" type="hidden" value="<%= WorkflowConstants.ACTION_PUBLISH %>" />
 
+=======
+<aui:fieldset>
+>>>>>>> compatible
 	<aui:input name="redirect" type="hidden" value="<%= redirect %>" />
 
 	<aui:input name="currentTitle" type="resource" value="<%= wikiPage.getTitle() %>" />
@@ -37,6 +41,7 @@
 	</c:if>
 
 	<aui:button-row>
+<<<<<<< HEAD
 		<aui:button disabled="<%= pending %>" type="submit" value='<%= hasWorkflowDefinitionLink ? "submit-for-publication" : "rename" %>' />
 
 		<aui:button href="<%= redirect %>" type="cancel" />
@@ -48,5 +53,18 @@
 		document.<portlet:namespace />renameFm.<portlet:namespace /><%= Constants.CMD %>.value = '<%= Constants.RENAME %>';
 
 		submitForm(document.<portlet:namespace />renameFm);
+=======
+		<aui:button cssClass="btn-lg" disabled="<%= pending %>" onClick='<%= renderResponse.getNamespace() + "renamePage();" %>' value='<%= hasWorkflowDefinitionLink ? "submit-for-publication" : "rename" %>' />
+
+		<aui:button cssClass="btn-lg" href="<%= redirect %>" type="cancel" />
+	</aui:button-row>
+</aui:fieldset>
+
+<aui:script>
+	function <portlet:namespace />renamePage() {
+		document.<portlet:namespace />fm.<portlet:namespace /><%= Constants.CMD %>.value = '<%= Constants.RENAME %>';
+
+		submitForm(document.<portlet:namespace />fm);
+>>>>>>> compatible
 	}
 </aui:script>

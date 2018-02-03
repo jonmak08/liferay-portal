@@ -15,9 +15,15 @@
 package com.liferay.portal.cache.ehcache;
 
 /**
+<<<<<<< HEAD
  * @author     Tina Tian
  * @deprecated As of 2.1.0, replaced by {@link
  *             com.liferay.portal.cache.ehcache.internal.EhcacheConstants}
+=======
+ * @author Tina Tian
+ * @deprecated As of 2.1.0, replaced by {@link
+ *			com.liferay.portal.cache.ehcache.internal.EhcacheConstants}
+>>>>>>> compatible
  */
 @Deprecated
 public interface EhcacheConstants {

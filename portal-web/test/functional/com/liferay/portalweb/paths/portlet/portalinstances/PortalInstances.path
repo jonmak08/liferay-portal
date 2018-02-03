@@ -52,6 +52,14 @@
 <tr>
 	<td>INSTANCE_TABLE_ACTIONS_GENERIC</td>
 	<td>//tr/td[8]//div/a</td>
+<<<<<<< HEAD
+=======
+	<td></td>
+</tr>
+<tr>
+	<td>INSTANCE_TABLE_ACTIONS_GENERIC_2</td>
+	<td>xpath=(//tr/td[8]//div/a)[2]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 </tbody>

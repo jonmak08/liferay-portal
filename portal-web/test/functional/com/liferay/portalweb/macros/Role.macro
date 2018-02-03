@@ -1,4 +1,5 @@
 <definition>
+<<<<<<< HEAD
 	<command name="add">
 		<execute macro="LexiconEntry#gotoAdd" />
 
@@ -51,6 +52,8 @@
 		<execute macro="Alert#viewSuccessMessage" />
 	</command>
 
+=======
+>>>>>>> compatible
 	<command name="addCP">
 		<if>
 			<equals arg1="${roleType}" arg2="Organization" />
@@ -65,6 +68,7 @@
 			</elseif>
 			<else>
 				<execute function="AssertClick" locator1="NavBar#REGULAR_ROLES" value1="Regular Roles" />
+<<<<<<< HEAD
 			</else>
 		</if>
 
@@ -91,6 +95,34 @@
 
 		<execute macro="PortletEntry#inputTitle">
 			<var name="title" value="${roleTitle}" />
+=======
+			</else>
+		</if>
+
+		<if>
+			<or>
+				<equals arg1="${roleType}" arg2="Organization" />
+				<equals arg1="${roleType}" arg2="Site" />
+			</or>
+			<then>
+				<var name="key_roleType" value="${roleType}" />
+			</then>
+			<else>
+				<var name="key_roleType" value="Regular" />
+			</else>
+		</if>
+
+		<execute macro="Breadcrumb#viewEntry">
+			<var name="breadcrumbName" value="${key_roleType} Roles" />
+		</execute>
+
+		<execute function="Click" locator1="Button#PLUS" />
+
+		<execute function="AssertTextEquals" locator1="Portlet#HEADER" value1="New Role" />
+
+		<execute macro="PortletEntry#inputName">
+			<var name="name" value="${roleName}" />
+>>>>>>> compatible
 		</execute>
 
 		<if>
@@ -105,7 +137,13 @@
 		<if>
 			<isset var="roleKey" />
 			<then>
+<<<<<<< HEAD
 				<execute function="Type" locator1="TextInput#KEY" value1="${roleKey}" />
+=======
+				<execute macro="PortletEntry#inputTitle">
+					<var name="title" value="${roleTitle}" />
+				</execute>
+>>>>>>> compatible
 			</then>
 		</if>
 
@@ -118,15 +156,25 @@
 		<for list="${permissionDefinitionKeys}" param="permissionDefinitionKey">
 			<execute function="Check" locator1="RolesPermissions#${permissionDefinitionKey}" />
 		</for>
+<<<<<<< HEAD
 
 		<execute function="ScrollWebElementIntoView" locator1="RolesPermissions#SAVE_BUTTON" />
 
 		<execute macro="PortletEntry#save" />
+=======
+
+		<execute function="ScrollWebElementIntoView" locator1="RolesPermissions#SAVE_BUTTON" />
+
+		<execute function="AssertClick" locator1="RolesPermissions#SAVE_BUTTON" value1="Save" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 	</command>
 
 	<command name="addStagingAdminRole">
 		<var name="roleTitle" value="Staging Admin" />
 
+<<<<<<< HEAD
 		<execute macro="RoleNavigator#gotoRoleType">
 			<var name="roleType" value="Site" />
 		</execute>
@@ -140,12 +188,26 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="Role#addCP">
+			<var name="roleDescription" value="${roleDescription}" />
+			<var name="roleName" value="${roleName}" />
+			<var name="roleTitle" value="${roleTitle}" />
+			<var name="roleType" value="Site" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Roles" />
 		</execute>
 
 		<execute macro="Role#definePermissionsCP">
 			<var name="permissionDefinitionKeys" value="SITE_ADMIN_PAGES_SITE_PAGES_GENERAL_PERMISSIONS_ACTION_CHECKBOX,SITE_ADMIN_PAGES_SITE_PAGES_RESOURCE_PERMISSIONS_SITE_ACTION_CHECKBOX,SITE_ADMIN_PAGES_SITE_PAGES_RESOURCE_PERMISSIONS_PAGE_ACTION_CHECKBOX,SITE_ADMIN_PAGES_SITE_PAGES_RESOURCE_PERMISSIONS_PAGE_VARIATION_ACTION_CHECKBOX,SITE_ADMIN_PAGES_SITE_PAGES_RESOURCE_PERMISSIONS_SITE_PAGES_VARIATION_ACTION_CHECKBOX" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="${roleTitle}" />
+=======
+			<var name="roleName" value="${roleName}" />
+>>>>>>> compatible
 			<var name="roleType" value="Site" />
 		</execute>
 	</command>
@@ -162,15 +224,34 @@
 			<var name="rowEntry" value="${roleTitle}" />
 		</execute>
 
+<<<<<<< HEAD
+=======
+		<execute function="Type#sendKeys" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${roleName}" />
+
+		<execute function="AssertClick" locator1="Button#SEARCH" value1="Search" />
+
+		<execute function="Click" locator1="Roles#ROLE_TABLE_ACTIONS" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Assign Members">
+			<var name="key_menuItem" value="Assign Members" />
+		</execute>
+
+>>>>>>> compatible
 		<execute function="AssertClick" locator1="NavTab#ORGANIZATIONS" value1="Organizations" />
 
 		<var name="key_orgName" value="${orgName}" />
 
 		<execute function="AssertClick" locator1="NavTab#AVAILABLE" value1="Available" />
 
+<<<<<<< HEAD
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="${orgName}" />
 		</execute>
+=======
+		<execute function="Type" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${orgName}" />
+
+		<execute function="AssertClick" locator1="Button#SEARCH" value1="Search" />
+>>>>>>> compatible
 
 		<execute function="AssertTextEquals" locator1="RolesAssignMembers#ORGANIZATION_TABLE_NAME" value1="${orgName}" />
 
@@ -188,11 +269,22 @@
 			<var name="searchTerm" value="${roleTitle}" />
 		</execute>
 
+<<<<<<< HEAD
 		<var name="key_itemName" value="${roleTitle}" />
 
 		<execute macro="LexiconEntry#gotoEntryMenuItem">
 			<var name="menuItem" value="Assign Members" />
 			<var name="rowEntry" value="${roleTitle}" />
+=======
+		<execute function="Type#sendKeys" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${roleName}" />
+
+		<execute function="AssertClick" locator1="Button#SEARCH" value1="Search" />
+
+		<execute function="Click" locator1="Roles#ROLE_TABLE_ACTIONS" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Assign Members">
+			<var name="key_menuItem" value="Assign Members" />
+>>>>>>> compatible
 		</execute>
 
 		<execute function="AssertClick" locator1="NavTab#SITES" value1="Sites" />
@@ -201,9 +293,15 @@
 
 		<execute function="AssertClick" locator1="NavTab#AVAILABLE" value1="Available" />
 
+<<<<<<< HEAD
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="${siteName}" />
 		</execute>
+=======
+		<execute function="Type" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${siteName}" />
+
+		<execute function="AssertClick" locator1="Button#SEARCH" value1="Search" />
+>>>>>>> compatible
 
 		<execute function="AssertTextEquals" locator1="RolesAssignMembers#SITE_TABLE_NAME" value1="${siteName}" />
 
@@ -227,6 +325,7 @@
 
 		<execute function="AssertClick" locator1="NavBar#ASSIGNEES" value1="Assignees" />
 
+<<<<<<< HEAD
 		<execute function="AssertClick" locator1="NavTab#USER_GROUPS" value1="User Groups" />
 
 		<execute macro="LexiconEntry#gotoAdd" />
@@ -238,6 +337,25 @@
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="${userGroupName}" />
 		</execute>
+=======
+		<execute function="Type#sendKeys" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${roleName}" />
+
+		<execute function="Click" locator1="Button#SUBMIT" />
+
+		<execute function="AssertClick" locator1="Roles#ROLE_TABLE_TITLE_LINK" value1="${roleName}" />
+
+		<execute function="Click" locator1="Button#PLUS" />
+
+		<execute function="SelectFrame" locator1="IFrame#SELECT_ASSIGNEES" />
+
+		<execute function="AssertClick" locator1="NavBar#USER_GROUPS" value1="User Groups" />
+
+		<var name="key_userGroupName" value="${userGroupName}" />
+
+		<execute function="Type" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${userGroupName}" />
+
+		<execute function="Click" locator1="Button#SUBMIT" />
+>>>>>>> compatible
 
 		<execute function="AssertTextEquals" locator1="RolesAssignMembers#USER_GROUP_TABLE_NAME" value1="${userGroupName}" />
 
@@ -263,13 +381,30 @@
 
 		<execute macro="LexiconEntry#gotoAdd" />
 
+<<<<<<< HEAD
+=======
+		<execute function="Type#sendKeys" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${roleName}" />
+
+		<execute function="Click" locator1="Button#SUBMIT" />
+
+		<execute function="AssertClick" locator1="Roles#ROLE_TABLE_TITLE_LINK" value1="${roleName}" />
+
+		<execute function="Click" locator1="Button#PLUS" />
+
+>>>>>>> compatible
 		<execute function="SelectFrame" locator1="IFrame#SELECT_ASSIGNEES" />
 
 		<var name="key_userScreenName" value="${userScreenName}" />
 
+<<<<<<< HEAD
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="${userScreenName}" />
 		</execute>
+=======
+		<execute function="Type#sendKeys" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${userScreenName}" />
+
+		<execute function="Click" locator1="Button#SUBMIT" />
+>>>>>>> compatible
 
 		<execute function="AssertTextEquals" locator1="RolesAssignMembers#USER_TABLE_SCREEN_NAME" value1="${userScreenName}" />
 
@@ -294,7 +429,11 @@
 			<var name="permissionNavigationKey" value="${permissionNavigationKey}" />
 			<var name="permissionNavigationValue" value="${permissionNavigationValue}" />
 			<var name="remove" value="${remove}" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="${roleTitle}" />
+=======
+			<var name="roleName" value="${roleName}" />
+>>>>>>> compatible
 			<var name="roleType" value="${roleType}" />
 			<var name="roleUser" value="${roleUser}" />
 			<var name="siteNameScope" value="${siteNameScope}" />
@@ -304,7 +443,11 @@
 	<command name="definePermissionCP">
 		<execute macro="Role#definePermissionCmdCP">
 			<var name="permissionDefinitionKey" value="${permissionDefinitionKey}" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="${roleTitle}" />
+=======
+			<var name="roleName" value="${roleName}" />
+>>>>>>> compatible
 			<var name="roleType" value="${roleType}" />
 			<var name="roleUser" value="${roleUser}" />
 		</execute>
@@ -349,15 +492,32 @@
 	<command name="definePermissionsCP">
 		<execute macro="Role#definePermissionCmdCP">
 			<var name="permissionDefinitionKeys" value="${permissionDefinitionKeys}" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="${roleTitle}" />
+=======
+			<var name="roleName" value="${roleName}" />
+>>>>>>> compatible
 			<var name="roleType" value="${roleType}" />
 			<var name="roleUser" value="${roleUser}" />
 		</execute>
 	</command>
 
 	<command name="deleteCP">
+<<<<<<< HEAD
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="Name" />
+=======
+		<execute function="Type#sendKeys" locator1="NavBar#BASIC_SEARCH_FIELD" value1="Name" />
+
+		<execute function="Click" locator1="Button#SUBMIT" />
+
+		<var name="key_roleName" value="${roleName}" />
+
+		<execute function="Click" locator1="Roles#ROLE_TABLE_ACTIONS" />
+
+		<execute function="AssertClickNoError" locator1="MenuItem#ANY_MENU_ITEM" value1="Delete">
+			<var name="key_menuItem" value="Delete" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="LexiconEntry#delete">
@@ -370,11 +530,24 @@
 			<var name="searchTerm" value="${roleTitle}" />
 		</execute>
 
+<<<<<<< HEAD
 		<var name="key_itemName" value="${roleTitle}" />
 
 		<execute macro="LexiconEntry#gotoEntryMenuItem">
 			<var name="menuItem" value="Edit" />
 			<var name="rowEntry" value="${roleTitle}" />
+=======
+		<execute function="Type#sendKeys" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${roleName}" />
+
+		<execute function="AssertClick" locator1="Button#SEARCH" value1="Search" />
+
+		<execute function="AssertTextEquals" locator1="Roles#ROLE_TABLE_TITLE" value1="${roleName}" />
+
+		<execute function="AssertClick" locator1="Roles#ROLE_TABLE_ACTIONS" value1="Actions" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Edit">
+			<var name="key_menuItem" value="Edit" />
+>>>>>>> compatible
 		</execute>
 
 		<if>
@@ -384,7 +557,11 @@
 			</then>
 			<else>
 				<execute macro="PortletEntry#inputTitle">
+<<<<<<< HEAD
 					<var name="title" value="${roleTitle}" />
+=======
+					<var name="title" value="${roleName}" />
+>>>>>>> compatible
 				</execute>
 			</else>
 		</if>
@@ -426,13 +603,20 @@
 			</else>
 		</if>
 
+<<<<<<< HEAD
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="${roleTitle}" />
 		</execute>
+=======
+		<execute function="Type#sendKeys" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${roleName}" />
+
+		<execute function="Click" locator1="Button#SUBMIT" />
+>>>>>>> compatible
 
 		<if>
 			<isset var="roleUser" />
 			<then>
+<<<<<<< HEAD
 				<var name="key_itemName" value="${roleUser}" />
 
 				<execute function="AssertTextEquals" locator1="ListGroupItem#ITEM_NAME" value1="${roleUser}" />
@@ -449,6 +633,24 @@
 		</if>
 
 		<execute function="AssertClick" locator1="NavBar#DEFINE_PERMISSIONS" value1="Define Permissions" />
+=======
+				<var name="key_roleUser" value="${roleUser}" />
+
+				<execute function="AssertTextEquals" locator1="Roles#ROLE_TABLE_USER_TITLE" value1="${roleUser}" />
+
+				<execute function="Click" locator1="Roles#ROLE_TABLE_ACTIONS" />
+			</then>
+			<else>
+				<execute function="AssertTextEquals" locator1="Roles#ROLE_TABLE_TITLE" value1="${roleName}" />
+
+				<execute function="Click" locator1="Roles#ROLE_TABLE_ACTIONS" />
+			</else>
+		</if>
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Define Permissions">
+			<var name="key_menuItem" value="Define Permissions" />
+		</execute>
+>>>>>>> compatible
 
 		<if>
 			<and>
@@ -610,6 +812,7 @@
 					</then>
 				</elseif>
 				<elseif>
+<<<<<<< HEAD
 					<contains string="${permissionDefinitionKey}" substring="SITE_ADMIN_CONTENT_FORMS" />
 					<then>
 						<var name="permissionNavigationKey" value="SITE_ADMIN_CONTENT_FORMS" />
@@ -617,6 +820,8 @@
 					</then>
 				</elseif>
 				<elseif>
+=======
+>>>>>>> compatible
 					<contains string="${permissionDefinitionKey}" substring="SITE_ADMIN_CONTENT_KALEO_FORMS" />
 					<then>
 						<var name="permissionNavigationKey" value="SITE_ADMIN_CONTENT_KALEO_FORMS" />
@@ -690,6 +895,11 @@
 			<if>
 				<equals arg1="${define}" arg2="true" />
 				<then>
+<<<<<<< HEAD
+=======
+					<execute function="ScrollBy" value1="0, 400" />
+
+>>>>>>> compatible
 					<execute function="Check" locator1="RolesPermissions#${permissionDefinitionKey}" />
 				</then>
 				<elseif>
@@ -725,14 +935,24 @@
 
 		<execute function="ScrollWebElementIntoView" locator1="RolesPermissions#SAVE_BUTTON" />
 
+<<<<<<< HEAD
 		<execute macro="PortletEntry#save" />
+=======
+		<execute function="AssertClick" locator1="RolesPermissions#SAVE_BUTTON" value1="Save" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 	</command>
 
 	<command name="localizeRoleDescriptionCmd">
 		<execute function="Click" locator1="RolesEditRole#DESCRIPTION_FIELD_LOCALIZATION_FLAG_ENGLISH" />
 
 		<execute macro="PortletEntry#inputDescription">
+<<<<<<< HEAD
 			<var name="description" value="${roleTitle}" />
+=======
+			<var name="description" value="${roleName}" />
+>>>>>>> compatible
 		</execute>
 
 		<if>
@@ -841,7 +1061,11 @@
 		<execute function="Click" locator1="RolesEditRole#TITLE_FIELD_LOCALIZATION_FLAG_ENGLISH" />
 
 		<execute macro="PortletEntry#inputTitle">
+<<<<<<< HEAD
 			<var name="title" value="${roleTitle}" />
+=======
+			<var name="title" value="${roleName}" />
+>>>>>>> compatible
 		</execute>
 
 		<if>
@@ -850,7 +1074,11 @@
 				<execute function="Click" locator1="RolesEditRole#TITLE_FIELD_LOCALIZATION_FLAG_CATALAN" />
 
 				<execute macro="PortletEntry#inputTitle">
+<<<<<<< HEAD
 					<var name="title" value="${roleTitleLocalized}" />
+=======
+					<var name="title" value="${roleNameLocalized}" />
+>>>>>>> compatible
 				</execute>
 			</then>
 			<elseif>
@@ -859,7 +1087,11 @@
 					<execute function="Click" locator1="RolesEditRole#TITLE_FIELD_LOCALIZATION_FLAG_CHINESE" />
 
 					<execute macro="PortletEntry#inputTitle">
+<<<<<<< HEAD
 						<var name="title" value="${roleTitleLocalized}" />
+=======
+						<var name="title" value="${roleNameLocalized}" />
+>>>>>>> compatible
 					</execute>
 				</then>
 			</elseif>
@@ -869,7 +1101,11 @@
 					<execute function="Click" locator1="RolesEditRole#TITLE_FIELD_LOCALIZATION_FLAG_FINNISH" />
 
 					<execute macro="PortletEntry#inputTitle">
+<<<<<<< HEAD
 						<var name="title" value="${roleTitleLocalized}" />
+=======
+						<var name="title" value="${roleNameLocalized}" />
+>>>>>>> compatible
 					</execute>
 				</then>
 			</elseif>
@@ -879,7 +1115,11 @@
 					<execute function="Click" locator1="RolesEditRole#TITLE_FIELD_LOCALIZATION_FLAG_FRENCH" />
 
 					<execute macro="PortletEntry#inputTitle">
+<<<<<<< HEAD
 						<var name="title" value="${roleTitleLocalized}" />
+=======
+						<var name="title" value="${roleNameLocalized}" />
+>>>>>>> compatible
 					</execute>
 				</then>
 			</elseif>
@@ -889,7 +1129,11 @@
 					<execute function="Click" locator1="RolesEditRole#TITLE_FIELD_LOCALIZATION_FLAG_GERMAN" />
 
 					<execute macro="PortletEntry#inputTitle">
+<<<<<<< HEAD
 						<var name="title" value="${roleTitleLocalized}" />
+=======
+						<var name="title" value="${roleNameLocalized}" />
+>>>>>>> compatible
 					</execute>
 				</then>
 			</elseif>
@@ -899,7 +1143,11 @@
 					<execute function="Click" locator1="RolesEditRole#TITLE_FIELD_LOCALIZATION_FLAG_HEBREW" />
 
 					<execute macro="PortletEntry#inputTitle">
+<<<<<<< HEAD
 						<var name="title" value="${roleTitleLocalized}" />
+=======
+						<var name="title" value="${roleNameLocalized}" />
+>>>>>>> compatible
 					</execute>
 				</then>
 			</elseif>
@@ -909,7 +1157,11 @@
 					<execute function="Click" locator1="RolesEditRole#TITLE_FIELD_LOCALIZATION_FLAG_HUNGARIAN" />
 
 					<execute macro="PortletEntry#inputTitle">
+<<<<<<< HEAD
 						<var name="title" value="${roleTitleLocalized}" />
+=======
+						<var name="title" value="${roleNameLocalized}" />
+>>>>>>> compatible
 					</execute>
 				</then>
 			</elseif>
@@ -919,7 +1171,11 @@
 					<execute function="Click" locator1="RolesEditRole#TITLE_FIELD_LOCALIZATION_FLAG_JAPANESE" />
 
 					<execute macro="PortletEntry#inputTitle">
+<<<<<<< HEAD
 						<var name="title" value="${roleTitleLocalized}" />
+=======
+						<var name="title" value="${roleNameLocalized}" />
+>>>>>>> compatible
 					</execute>
 				</then>
 			</elseif>
@@ -929,7 +1185,11 @@
 					<execute function="Click" locator1="RolesEditRole#TITLE_FIELD_LOCALIZATION_FLAG_PORTUGUESE" />
 
 					<execute macro="PortletEntry#inputTitle">
+<<<<<<< HEAD
 						<var name="title" value="${roleTitleLocalized}" />
+=======
+						<var name="title" value="${roleNameLocalized}" />
+>>>>>>> compatible
 					</execute>
 				</then>
 			</elseif>
@@ -939,7 +1199,11 @@
 					<execute function="Click" locator1="RolesEditRole#TITLE_FIELD_LOCALIZATION_FLAG_SPANISH" />
 
 					<execute macro="PortletEntry#inputTitle">
+<<<<<<< HEAD
 						<var name="title" value="${roleTitleLocalized}" />
+=======
+						<var name="title" value="${roleNameLocalized}" />
+>>>>>>> compatible
 					</execute>
 				</then>
 			</elseif>
@@ -955,7 +1219,11 @@
 			<var name="permissionNavigationKey" value="${permissionNavigationKey}" />
 			<var name="permissionNavigationValue" value="${permissionNavigationValue}" />
 			<var name="remove" value="true" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="${roleTitle}" />
+=======
+			<var name="roleName" value="${roleName}" />
+>>>>>>> compatible
 			<var name="roleType" value="${roleType}" />
 			<var name="roleUser" value="${roleUser}" />
 			<var name="siteNameScope" value="${siteNameScope}" />
@@ -980,6 +1248,13 @@
 			</then>
 		</if>
 
+		<if>
+			<condition function="IsElementPresent#isElementPresentAfterWait" locator1="IFrame#DIALOG" />
+			<then>
+				<execute function="SelectFrame" locator1="IFrame#DIALOG" />
+			</then>
+		</if>
+
 		<execute function="Uncheck" locator1="Permissions#${permissionDefinitionKey}" />
 
 		<execute macro="Button#clickSave" />
@@ -996,7 +1271,11 @@
 			<var name="permissionNavigationKey" value="${permissionNavigationKey}" />
 			<var name="permissionNavigationValue" value="${permissionNavigationValue}" />
 			<var name="remove" value="true" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="${roleTitle}" />
+=======
+			<var name="roleName" value="${roleName}" />
+>>>>>>> compatible
 			<var name="roleUser" value="${roleUser}" />
 			<var name="siteNameScope" value="${siteNameScope}" />
 		</execute>
@@ -1032,6 +1311,7 @@
 	</command>
 
 	<command name="tearDownCP">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
@@ -1046,6 +1326,20 @@
 			<condition function="IsElementPresent#pauseIsElementPresent" locator1="ListGroupItem#ITEM_ACTIONS_DEFAULT" />
 			<then>
 				<execute function="Click" locator1="ListGroupItem#ITEM_ACTIONS_DEFAULT" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+			<var name="portlet" value="Roles" />
+		</execute>
+
+		<execute function="Type#sendKeys" locator1="NavBar#BASIC_SEARCH_FIELD" value1="Name" />
+
+		<execute function="Click" locator1="Roles#ROLE_SEARCH_BUTTON" />
+
+		<while>
+			<condition function="IsElementPresent#pauseIsElementPresent" locator1="Roles#ROLE_TABLE_ACTIONS_1" />
+			<then>
+				<execute function="Click" locator1="Roles#ROLE_TABLE_ACTIONS_1" />
+>>>>>>> compatible
 
 				<execute function="AssertClickNoError" locator1="MenuItem#ANY_MENU_ITEM" value1="Delete">
 					<var name="key_menuItem" value="Delete" />
@@ -1068,15 +1362,34 @@
 			<var name="rowEntry" value="${roleTitle}" />
 		</execute>
 
+<<<<<<< HEAD
+=======
+		<execute function="Type#sendKeys" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${roleName}" />
+
+		<execute function="AssertClick" locator1="Button#SEARCH" value1="Search" />
+
+		<execute function="Click" locator1="Roles#ROLE_TABLE_ACTIONS" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Assign Members">
+			<var name="key_menuItem" value="Assign Members" />
+		</execute>
+
+>>>>>>> compatible
 		<execute function="AssertClick" locator1="NavTab#ORGANIZATIONS" value1="Organizations" />
 
 		<var name="key_orgName" value="${orgName}" />
 
 		<execute function="AssertClick" locator1="NavTab#CURRENT" value1="Current" />
 
+<<<<<<< HEAD
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="${orgName}" />
 		</execute>
+=======
+		<execute function="Type" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${orgName}" />
+
+		<execute function="AssertClick" locator1="Button#SEARCH" value1="Search" />
+>>>>>>> compatible
 
 		<execute function="AssertTextEquals" locator1="RolesAssignMembers#ORGANIZATION_TABLE_NAME" value1="${orgName}" />
 
@@ -1099,15 +1412,34 @@
 			<var name="rowEntry" value="${roleTitle}" />
 		</execute>
 
+<<<<<<< HEAD
+=======
+		<execute function="Type#sendKeys" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${roleName}" />
+
+		<execute function="AssertClick" locator1="Button#SEARCH" value1="Search" />
+
+		<execute function="Click" locator1="Roles#ROLE_TABLE_ACTIONS" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Assign Members">
+			<var name="key_menuItem" value="Assign Members" />
+		</execute>
+
+>>>>>>> compatible
 		<execute function="AssertClick" locator1="NavTab#SITES" value1="Sites" />
 
 		<var name="key_siteName" value="${siteName}" />
 
 		<execute function="AssertClick" locator1="NavTab#CURRENT" value1="Current" />
 
+<<<<<<< HEAD
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="${siteName}" />
 		</execute>
+=======
+		<execute function="Type" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${siteName}" />
+
+		<execute function="AssertClick" locator1="Button#SEARCH" value1="Search" />
+>>>>>>> compatible
 
 		<execute function="AssertTextEquals" locator1="RolesAssignMembers#SITE_TABLE_NAME" value1="${siteName}" />
 
@@ -1125,11 +1457,22 @@
 			<var name="searchTerm" value="${roleTitle}" />
 		</execute>
 
+<<<<<<< HEAD
 		<var name="key_itemName" value="${roleTitle}" />
 
 		<execute macro="LexiconEntry#gotoEntryMenuItem">
 			<var name="menuItem" value="Assign Members" />
 			<var name="rowEntry" value="${roleTitle}" />
+=======
+		<execute function="Type#sendKeys" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${roleName}" />
+
+		<execute function="AssertClick" locator1="Button#SEARCH" value1="Search" />
+
+		<execute function="Click" locator1="Roles#ROLE_TABLE_ACTIONS" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Assign Members">
+			<var name="key_menuItem" value="Assign Members" />
+>>>>>>> compatible
 		</execute>
 
 		<execute function="AssertClick" locator1="NavTab#USER_GROUPS" value1="User Groups" />
@@ -1138,9 +1481,15 @@
 
 		<execute function="AssertClick" locator1="NavTab#CURRENT" value1="Current" />
 
+<<<<<<< HEAD
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="${userGroupName}" />
 		</execute>
+=======
+		<execute function="Type" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${userGroupName}" />
+
+		<execute function="AssertClick" locator1="Button#SEARCH" value1="Search" />
+>>>>>>> compatible
 
 		<execute function="AssertTextEquals" locator1="RolesAssignMembers#USER_GROUP_TABLE_NAME" value1="${userGroupName}" />
 
@@ -1158,16 +1507,33 @@
 
 		<var name="key_itemName" value="${roleTitle}" />
 
+<<<<<<< HEAD
 		<execute macro="LexiconEntry#gotoEntryMenuItem">
 			<var name="menuItem" value="Assign Members" />
 			<var name="rowEntry" value="${roleTitle}" />
+=======
+		<execute function="Type#sendKeys" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${roleName}" />
+
+		<execute function="AssertClick" locator1="Button#SEARCH" value1="Search" />
+
+		<execute function="Click" locator1="Roles#ROLE_TABLE_ACTIONS" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Assign Members">
+			<var name="key_menuItem" value="Assign Members" />
+>>>>>>> compatible
 		</execute>
 
 		<var name="key_userScreenName" value="${userScreenName}" />
 
+<<<<<<< HEAD
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="${userScreenName}" />
 		</execute>
+=======
+		<execute function="Type" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${userScreenName}" />
+
+		<execute function="AssertClick" locator1="Button#SEARCH" value1="Search" />
+>>>>>>> compatible
 
 		<execute function="AssertTextEquals" locator1="RolesAssignMembers#USER_TABLE_SCREEN_NAME" value1="${userScreenName}" />
 
@@ -1192,6 +1558,7 @@
 				</execute>
 			</else>
 		</if>
+<<<<<<< HEAD
 
 		<var name="key_itemName" value="${roleTitle}" />
 
@@ -1211,6 +1578,30 @@
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="Name" />
 		</execute>
+=======
+
+		<var name="key_roleName" value="${roleName}" />
+
+		<execute function="AssertTextEquals" locator1="Roles#ROLE_TABLE_TITLE" value1="${roleName}" />
+
+		<execute function="Click" locator1="Roles#ROLE_TABLE_ACTIONS" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Edit">
+			<var name="key_menuItem" value="Edit" />
+		</execute>
+
+		<execute macro="SiteAdmin#viewPortletTitle">
+			<var name="portletTitle" value="${roleName}" />
+		</execute>
+
+		<execute function="AssertTextEquals" locator1="TextInput#NAME" value1="${roleName}" />
+	</command>
+
+	<command name="viewDefaultCP">
+		<execute function="Type#sendKeys" locator1="NavBar#BASIC_SEARCH_FIELD" value1="Name" />
+
+		<execute function="Click" locator1="Button#SUBMIT" />
+>>>>>>> compatible
 
 		<execute function="AssertTextEquals" locator1="Message#EMPTY_INFO" value1="No roles were found." />
 	</command>

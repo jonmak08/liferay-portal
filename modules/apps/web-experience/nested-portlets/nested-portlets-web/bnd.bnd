@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Nested Portlets Web
 Bundle-SymbolicName: com.liferay.nested.portlets.web
+<<<<<<< HEAD
 Bundle-Version: 2.0.16
+=======
+Bundle-Version: 2.0.10
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title:
 Web-ContextPath: /nested-portlets-web

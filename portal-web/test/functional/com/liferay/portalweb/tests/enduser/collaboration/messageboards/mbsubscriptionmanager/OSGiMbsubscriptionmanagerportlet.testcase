@@ -15,9 +15,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Message Boards Subscription Manager" />
 		</execute>
 

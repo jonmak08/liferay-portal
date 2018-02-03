@@ -20,12 +20,20 @@ import com.liferay.portal.kernel.dao.jdbc.DataAccess;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Contact;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.model.Layout;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.ResourceConstants;
 import com.liferay.portal.kernel.model.ResourcePermission;
 import com.liferay.portal.kernel.model.Role;
 import com.liferay.portal.kernel.model.RoleConstants;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.service.ContactLocalServiceUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.service.LayoutLocalServiceUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.ResourceLocalServiceUtil;
 import com.liferay.portal.kernel.service.ResourcePermissionLocalServiceUtil;
 import com.liferay.portal.kernel.service.RoleLocalServiceUtil;
@@ -91,6 +99,7 @@ public class VerifyResourcePermissions extends VerifyProcess {
 					verifiableResourcedModels.size()]));
 	}
 
+<<<<<<< HEAD
 	private String _getVerifyResourcedModelSQL(
 		boolean count, VerifiableResourcedModel verifiableResourcedModel,
 		Role role) {
@@ -115,6 +124,22 @@ public class VerifyResourcePermissions extends VerifyProcess {
 			sb.append(verifiableResourcedModel.getTableName());
 			sb.append(" where companyId = ");
 			sb.append(role.getCompanyId());
+=======
+	protected void verifyLayout(Role role) throws Exception {
+		try (LoggingTimer loggingTimer = new LoggingTimer()) {
+			List<Layout> layouts =
+				LayoutLocalServiceUtil.getNoPermissionLayouts(role.getRoleId());
+
+			int total = layouts.size();
+
+			for (int i = 0; i < total; i++) {
+				Layout layout = layouts.get(i);
+
+				verifyResourcedModel(
+					role.getCompanyId(), Layout.class.getName(),
+					layout.getPlid(), role, 0, i, total);
+			}
+>>>>>>> compatible
 		}
 		else {
 			sb.append("select ");
@@ -163,7 +188,9 @@ public class VerifyResourcePermissions extends VerifyProcess {
 			long ownerId, int cur, int total)
 		throws Exception {
 
-		if (_log.isInfoEnabled() && ((cur % 100) == 0)) {
+		if (_log.isInfoEnabled() && (((cur + 1) % 100) == 0)) {
+			cur++;
+
 			_log.info(
 				StringBundler.concat(
 					"Processed ", String.valueOf(cur), " of ",
@@ -233,8 +260,14 @@ public class VerifyResourcePermissions extends VerifyProcess {
 				verifiableResourcedModel.getTableName());
 			Connection con = DataAccess.getUpgradeOptimizedConnection();
 			PreparedStatement ps = con.prepareStatement(
+<<<<<<< HEAD
 				_getVerifyResourcedModelSQL(
 					true, verifiableResourcedModel, role));
+=======
+				"select count(*) from " +
+					verifiableResourcedModel.getTableName() +
+						" where companyId = " + role.getCompanyId());
+>>>>>>> compatible
 			ResultSet rs = ps.executeQuery()) {
 
 			if (rs.next()) {
@@ -242,6 +275,7 @@ public class VerifyResourcePermissions extends VerifyProcess {
 			}
 		}
 
+<<<<<<< HEAD
 		try (LoggingTimer loggingTimer = new LoggingTimer(
 				verifiableResourcedModel.getTableName());
 			Connection con = DataAccess.getUpgradeOptimizedConnection();
@@ -251,6 +285,26 @@ public class VerifyResourcePermissions extends VerifyProcess {
 			ResultSet rs = ps.executeQuery()) {
 
 			for (int i = 1; rs.next(); i++) {
+=======
+		StringBundler sb = new StringBundler(8);
+
+		sb.append("select ");
+		sb.append(verifiableResourcedModel.getPrimaryKeyColumnName());
+		sb.append(", ");
+		sb.append(verifiableResourcedModel.getUserIdColumnName());
+		sb.append(" from ");
+		sb.append(verifiableResourcedModel.getTableName());
+		sb.append(" where companyId = ");
+		sb.append(role.getCompanyId());
+
+		try (LoggingTimer loggingTimer = new LoggingTimer(
+				verifiableResourcedModel.getTableName());
+			Connection con = DataAccess.getUpgradeOptimizedConnection();
+			PreparedStatement ps = con.prepareStatement(sb.toString());
+			ResultSet rs = ps.executeQuery()) {
+
+			for (int i = 0; rs.next(); i++) {
+>>>>>>> compatible
 				long primKey = rs.getLong(
 					verifiableResourcedModel.getPrimaryKeyColumnName());
 				long userId = rs.getLong(

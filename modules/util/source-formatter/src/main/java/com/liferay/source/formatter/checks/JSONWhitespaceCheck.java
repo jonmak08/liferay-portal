@@ -61,6 +61,7 @@ public class JSONWhitespaceCheck extends WhitespaceCheck {
 			}
 		}
 
+<<<<<<< HEAD
 		if (isAllowTrailingEmptyLines(fileName) && content.endsWith("\n")) {
 			content = sb.toString();
 		}
@@ -70,6 +71,12 @@ public class JSONWhitespaceCheck extends WhitespaceCheck {
 			if (content.endsWith("\n")) {
 				content = content.substring(0, content.length() - 1);
 			}
+=======
+		content = sb.toString();
+
+		if (content.endsWith("\n")) {
+			content = content.substring(0, content.length() - 1);
+>>>>>>> compatible
 		}
 
 		Matcher matcher = _missingWhitespacePattern.matcher(content);
@@ -84,6 +91,7 @@ public class JSONWhitespaceCheck extends WhitespaceCheck {
 		return super.doProcess(fileName, absolutePath, content);
 	}
 
+<<<<<<< HEAD
 	@Override
 	protected boolean isAllowTrailingEmptyLines(String fileName) {
 		if (fileName.endsWith("/package.json")) {
@@ -93,6 +101,8 @@ public class JSONWhitespaceCheck extends WhitespaceCheck {
 		return false;
 	}
 
+=======
+>>>>>>> compatible
 	private final Pattern _leadingSpacesPattern = Pattern.compile(
 		"(^[\t ]*)(  )([^ ])");
 	private final Pattern _missingWhitespacePattern = Pattern.compile(":\\S");

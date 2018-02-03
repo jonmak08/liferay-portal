@@ -7,6 +7,7 @@ buildService {
 }
 
 dependencies {
+<<<<<<< HEAD
 	compileInclude group: "org.apache.poi", name: "poi", version: "3.15"
 
 	provided group: "biz.aQute.bnd", name: "biz.aQute.bndlib", version: "3.1.0"
@@ -14,21 +15,36 @@ dependencies {
 	provided group: "com.liferay", name: "com.liferay.dynamic.data.mapping.form.field.type", version: "2.0.0"
 	provided group: "com.liferay", name: "com.liferay.dynamic.data.mapping.io", version: "2.0.0"
 	provided group: "com.liferay", name: "com.liferay.dynamic.data.mapping.service", version: "2.0.0"
+=======
+	provided group: "biz.aQute.bnd", name: "biz.aQute.bndlib", version: "3.1.0"
+	provided group: "com.liferay", name: "com.liferay.dynamic.data.lists.api", version: "2.1.0"
+	provided group: "com.liferay", name: "com.liferay.dynamic.data.mapping.api", version: "3.0.0"
+	provided group: "com.liferay", name: "com.liferay.dynamic.data.mapping.io", version: "2.0.0"
+	provided group: "com.liferay", name: "com.liferay.dynamic.data.mapping.service", version: "2.2.0"
+>>>>>>> compatible
 	provided group: "com.liferay", name: "com.liferay.dynamic.data.mapping.validator", version: "2.0.0"
 	provided group: "com.liferay", name: "com.liferay.exportimport.api", version: "2.0.0"
 	provided group: "com.liferay", name: "com.liferay.exportimport.service", version: "3.0.0"
 	provided group: "com.liferay", name: "com.liferay.osgi.util", version: "3.0.0"
+<<<<<<< HEAD
 	provided group: "com.liferay", name: "com.liferay.petra.function", version: "1.0.0"
 	provided group: "com.liferay", name: "com.liferay.petra.string", version: "1.0.0"
 	provided group: "com.liferay", name: "com.liferay.portal.configuration.metatype", version: "2.0.0"
 	provided group: "com.liferay", name: "com.liferay.portal.dao.orm.custom.sql", version: "1.0.0"
 	provided group: "com.liferay", name: "com.liferay.portal.instance.lifecycle", version: "3.0.0"
 	provided group: "com.liferay", name: "com.liferay.portal.search.api", version: "1.0.0"
+=======
+	provided group: "com.liferay", name: "com.liferay.portal.configuration.metatype", version: "2.0.0"
+	provided group: "com.liferay", name: "com.liferay.portal.dao.orm.custom.sql", version: "1.0.0"
+	provided group: "com.liferay", name: "com.liferay.portal.instance.lifecycle", version: "3.0.0"
+	provided group: "com.liferay", name: "com.liferay.portal.search", version: "3.7.0"
+>>>>>>> compatible
 	provided group: "com.liferay", name: "com.liferay.portal.spring.extender", version: "2.0.0"
 	provided group: "com.liferay", name: "com.liferay.portal.upgrade", version: "2.0.0"
 	provided group: "com.liferay", name: "com.liferay.registry.api", version: "1.0.0"
 	provided group: "com.liferay", name: "com.liferay.xstream.configurator.api", version: "2.0.0"
 	provided group: "com.liferay.portal", name: "com.liferay.portal.impl", version: "2.0.0"
+<<<<<<< HEAD
 	provided group: "com.liferay.portal", name: "com.liferay.portal.kernel", version: "default"
 	provided group: "com.liferay.portal", name: "com.liferay.util.java", version: "2.0.0"
 	provided group: "javax.portlet", name: "portlet-api", version: "2.0"
@@ -40,4 +56,11 @@ dependencies {
 
 liferayOSGi {
 	expandCompileInclude = true
+=======
+	provided group: "com.liferay.portal", name: "com.liferay.portal.kernel", version: "2.41.0"
+	provided group: "com.liferay.portal", name: "com.liferay.util.java", version: "2.0.0"
+	provided group: "javax.portlet", name: "portlet-api", version: "2.0"
+	provided group: "javax.servlet", name: "javax.servlet-api", version: "3.0.1"
+	provided group: "org.osgi", name: "org.osgi.service.component.annotations", version: "1.3.0"
+>>>>>>> compatible
 }

@@ -43,8 +43,17 @@
 			<bean class="java.util.concurrent.ThreadPoolExecutor.AbortPolicy" />
 		</constructor-arg>
 		<constructor-arg name="threadPoolHandler">
+<<<<<<< HEAD
 			<bean class="com.liferay.petra.concurrent.ThreadPoolHandlerAdapter" />
 		</constructor-arg>
+=======
+			<bean class="com.liferay.portal.kernel.concurrent.ThreadPoolHandlerAdapter" />
+		</constructor-arg>
+		<constructor-arg name="priority">
+			<util:constant static-field="java.lang.Thread.NORM_PRIORITY" />
+		</constructor-arg>
+		<constructor-arg name="contextClassLoader" value="#{T(com.liferay.portal.kernel.util.PortalClassLoaderUtil).classLoader}" />
+>>>>>>> compatible
 	</bean>
 
 	<!-- Intraband message bridging dispatching -->
@@ -81,8 +90,17 @@
 			<bean class="java.util.concurrent.ThreadPoolExecutor.AbortPolicy" />
 		</constructor-arg>
 		<constructor-arg name="threadPoolHandler">
+<<<<<<< HEAD
 			<bean class="com.liferay.petra.concurrent.ThreadPoolHandlerAdapter" />
 		</constructor-arg>
+=======
+			<bean class="com.liferay.portal.kernel.concurrent.ThreadPoolHandlerAdapter" />
+		</constructor-arg>
+		<constructor-arg name="priority">
+			<util:constant static-field="java.lang.Thread.NORM_PRIORITY" />
+		</constructor-arg>
+		<constructor-arg name="contextClassLoader" value="#{T(com.liferay.portal.kernel.util.PortalClassLoaderUtil).classLoader}" />
+>>>>>>> compatible
 	</bean>
 
 	<!-- Server side parallel rendering -->
@@ -109,6 +127,7 @@
 			<util:constant static-field="com.liferay.portal.util.PropsValues.LAYOUT_PARALLEL_RENDER_THREAD_POOL_MAX_QUEUE_SIZE" />
 		</constructor-arg>
 		<constructor-arg name="rejectedExecutionHandler">
+<<<<<<< HEAD
 			<bean class="com.liferay.portal.layoutconfiguration.util.DiscardWithCancelPolicy" />
 		</constructor-arg>
 		<constructor-arg name="threadFactory">
@@ -125,11 +144,25 @@
 			</bean>
 		</constructor-arg>
 		<constructor-arg name="threadPoolHandler" value="#{T(com.liferay.portal.layoutconfiguration.util.RuntimePageImpl).threadPoolHandler}" />
+=======
+			<bean class="com.liferay.portal.kernel.concurrent.DiscardWithCancelPolicy" />
+		</constructor-arg>
+		<constructor-arg name="threadPoolHandler">
+			<bean class="com.liferay.portal.kernel.concurrent.ClearThreadLocalThreadPoolHandler" />
+		</constructor-arg>
+		<constructor-arg name="priority">
+			<util:constant static-field="java.lang.Thread.NORM_PRIORITY" />
+		</constructor-arg>
+		<constructor-arg name="contextClassLoader" value="#{T(com.liferay.portal.kernel.util.PortalClassLoaderUtil).classLoader}" />
+>>>>>>> compatible
 	</bean>
 
 	<!-- Process executor -->
 
+<<<<<<< HEAD
 	<bean class="com.liferay.petra.process.local.LocalProcessExecutor" id="com.liferay.petra.process.local.LocalProcessExecutor" />
+=======
+>>>>>>> compatible
 	<bean class="com.liferay.portal.kernel.process.ProcessExecutorUtil" id="com.liferay.portal.kernel.process.ProcessExecutorUtil">
 		<property name="processExecutor" ref="com.liferay.portal.kernel.process.local.LocalProcessExecutor" />
 	</bean>

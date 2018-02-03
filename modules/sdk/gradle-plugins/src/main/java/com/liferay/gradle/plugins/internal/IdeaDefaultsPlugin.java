@@ -17,8 +17,11 @@ package com.liferay.gradle.plugins.internal;
 import com.liferay.gradle.plugins.BaseDefaultsPlugin;
 import com.liferay.gradle.plugins.internal.util.FileUtil;
 import com.liferay.gradle.plugins.internal.util.GradleUtil;
+<<<<<<< HEAD
 import com.liferay.gradle.plugins.node.NodePlugin;
 import com.liferay.gradle.plugins.node.tasks.NpmInstallTask;
+=======
+>>>>>>> compatible
 
 import groovy.lang.Closure;
 
@@ -79,10 +82,18 @@ public class IdeaDefaultsPlugin extends BaseDefaultsPlugin<IdeaPlugin> {
 	private void _configureIdeaModuleExcludeDirs(
 		Project project, IdeaPlugin ideaPlugin) {
 
+<<<<<<< HEAD
+=======
+		if (!GradleUtil.hasPlugin(project, JavaPlugin.class)) {
+			return;
+		}
+
+>>>>>>> compatible
 		IdeaModule ideaModule = _getIdeaModule(ideaPlugin);
 
 		Set<File> excludeDirs = ideaModule.getExcludeDirs();
 
+<<<<<<< HEAD
 		if (GradleUtil.hasPlugin(project, JavaPlugin.class)) {
 			SourceSet sourceSet = GradleUtil.getSourceSet(
 				project, SourceSet.MAIN_SOURCE_SET_NAME);
@@ -107,6 +118,23 @@ public class IdeaDefaultsPlugin extends BaseDefaultsPlugin<IdeaPlugin> {
 				project, NodePlugin.NPM_INSTALL_TASK_NAME);
 
 			excludeDirs.add(npmInstallTask.getNodeModulesDir());
+=======
+		SourceSet sourceSet = GradleUtil.getSourceSet(
+			project, SourceSet.MAIN_SOURCE_SET_NAME);
+
+		SourceSetOutput sourceSetOutput = sourceSet.getOutput();
+
+		File classesDir = sourceSetOutput.getClassesDir();
+
+		if (!FileUtil.isChild(classesDir, project.getBuildDir())) {
+			excludeDirs.add(classesDir);
+		}
+
+		File resourcesDir = sourceSetOutput.getResourcesDir();
+
+		if (!FileUtil.isChild(resourcesDir, project.getBuildDir())) {
+			excludeDirs.add(resourcesDir);
+>>>>>>> compatible
 		}
 
 		ideaModule.setExcludeDirs(excludeDirs);

@@ -44,10 +44,17 @@ import com.liferay.wiki.service.WikiNodeLocalServiceUtil;
 import com.liferay.wiki.service.WikiNodeServiceUtil;
 import com.liferay.wiki.service.WikiPageLocalServiceUtil;
 import com.liferay.wiki.service.WikiPageServiceUtil;
+<<<<<<< HEAD
 import com.liferay.wiki.util.WikiUtil;
 import com.liferay.wiki.web.configuration.WikiPortletInstanceConfiguration;
 import com.liferay.wiki.web.internal.security.permission.resource.WikiNodePermission;
 import com.liferay.wiki.web.internal.util.WikiWebComponentProvider;
+=======
+import com.liferay.wiki.service.permission.WikiNodePermissionChecker;
+import com.liferay.wiki.util.WikiUtil;
+import com.liferay.wiki.web.configuration.WikiPortletInstanceConfiguration;
+import com.liferay.wiki.web.util.WikiWebComponentProvider;
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -124,7 +131,11 @@ public class ActionUtil {
 
 		for (WikiNode node : nodes) {
 			if ((Arrays.binarySearch(hiddenNodes, node.getName()) < 0) &&
+<<<<<<< HEAD
 				WikiNodePermission.contains(
+=======
+				WikiNodePermissionChecker.contains(
+>>>>>>> compatible
 					permissionChecker, node, ActionKeys.VIEW)) {
 
 				return node;
@@ -414,9 +425,14 @@ public class ActionUtil {
 		}
 
 		long categoryId = ParamUtil.getLong(renderRequest, "categoryId");
+<<<<<<< HEAD
 		String tag = ParamUtil.getString(renderRequest, "tag");
 
 		if ((categoryId > 0) || Validator.isNotNull(tag)) {
+=======
+
+		if (categoryId > 0) {
+>>>>>>> compatible
 			return "/wiki/view_categorized_pages.jsp";
 		}
 		else {

@@ -39,6 +39,7 @@ JournalArticleDisplay articleDisplay = (JournalArticleDisplay)request.getAttribu
 </c:if>
 
 <%
+<<<<<<< HEAD
 String summary = articleDisplay.getDescription();
 
 if (Validator.isNull(summary)) {
@@ -47,3 +48,15 @@ if (Validator.isNull(summary)) {
 %>
 
 <%= HtmlUtil.replaceNewLine(StringUtil.shorten(HtmlUtil.stripHtml(summary), abstractLength)) %>
+=======
+String summary = HtmlUtil.escape(articleDisplay.getDescription());
+
+summary = HtmlUtil.replaceNewLine(summary);
+
+if (Validator.isNull(summary)) {
+	summary = HtmlUtil.stripHtml(articleDisplay.getContent());
+}
+%>
+
+<%= StringUtil.shorten(summary, abstractLength) %>
+>>>>>>> compatible

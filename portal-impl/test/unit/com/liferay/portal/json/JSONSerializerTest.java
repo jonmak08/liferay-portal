@@ -74,6 +74,7 @@ public class JSONSerializerTest extends PowerMockito {
 
 		json = json.replace(StringPool.SPACE, StringPool.BLANK);
 
+<<<<<<< HEAD
 		Assert.assertTrue(json, json.contains("\"docs\":[]"));
 		Assert.assertFalse(json, json.contains("\"query\""));
 		Assert.assertTrue(json, json.contains("\"queryTerms\":null"));
@@ -101,6 +102,35 @@ public class JSONSerializerTest extends PowerMockito {
 	}
 
 	@Test
+=======
+		Assert.assertTrue(json.contains("\"docs\":[]"));
+		Assert.assertFalse(json.contains("\"query\""));
+		Assert.assertTrue(json.contains("\"queryTerms\":null"));
+		Assert.assertTrue(json.contains("\"scores\":"));
+		Assert.assertTrue(json.contains("\"snippets\":["));
+		Assert.assertTrue(json.contains("\"start\":\"0\""));
+		Assert.assertTrue(json.contains("\"length\":0"));
+	}
+
+	@Test
+	public void testSerializeServiceContext() {
+		ServiceContext serviceContext = new ServiceContext();
+
+		String[] groupPermissions = {"VIEW"};
+
+		serviceContext.setAttribute("groupPermissions", groupPermissions);
+		serviceContext.setGroupPermissions(groupPermissions);
+
+		String json = JSONFactoryUtil.serialize(serviceContext);
+
+		ServiceContext deserializedServiceContext =
+			(ServiceContext)JSONFactoryUtil.deserialize(json);
+
+		Assert.assertNotNull(deserializedServiceContext.getGroupPermissions());
+	}
+
+	@Test
+>>>>>>> compatible
 	public void testSerializeTwice() {
 		ServiceContext serviceContext = new ServiceContext();
 

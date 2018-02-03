@@ -17,8 +17,13 @@ package com.liferay.message.boards.internal.xstream.configurator;
 import com.liferay.exportimport.kernel.xstream.XStreamAlias;
 import com.liferay.exportimport.kernel.xstream.XStreamConverter;
 import com.liferay.exportimport.kernel.xstream.XStreamType;
+<<<<<<< HEAD
 import com.liferay.message.boards.model.impl.MBBanImpl;
 import com.liferay.portal.kernel.util.ListUtil;
+=======
+import com.liferay.portal.kernel.util.ListUtil;
+import com.liferay.portlet.messageboards.model.impl.MBBanImpl;
+>>>>>>> compatible
 import com.liferay.portlet.messageboards.model.impl.MBCategoryImpl;
 import com.liferay.portlet.messageboards.model.impl.MBMessageImpl;
 import com.liferay.portlet.messageboards.model.impl.MBThreadFlagImpl;

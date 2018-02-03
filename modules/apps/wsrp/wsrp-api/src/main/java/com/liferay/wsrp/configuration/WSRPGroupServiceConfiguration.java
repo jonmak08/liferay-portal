@@ -30,11 +30,16 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
 )
 public interface WSRPGroupServiceConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(deflt = "", name = "consumer-request-extensions", required = false)
+=======
+	@Meta.AD(deflt = "", required = false)
+>>>>>>> compatible
 	public String[] consumerRequestExtensions();
 
 	@Meta.AD(
 		deflt = "com.liferay.wsrp.util.AttributeExtensionHelper",
+<<<<<<< HEAD
 		name = "extension-helper-impl", required = false
 	)
 	public String extensionHelperImpl();
@@ -61,6 +66,25 @@ public interface WSRPGroupServiceConfiguration {
 	public String secureResourceUrlsSalt();
 
 	@Meta.AD(deflt = "false", name = "soap-debug", required = false)
+=======
+		required = false
+	)
+	public String extensionHelperImpl();
+
+	@Meta.AD(deflt = "0", required = false)
+	public int failedConsumersCheckInterval();
+
+	@Meta.AD(deflt = "127.0.0.1|SERVER_IP", required = false)
+	public String[] proxyUrlIpsAllowed();
+
+	@Meta.AD(deflt = "false", required = false)
+	public boolean secureResourceUrlsEnabled();
+
+	@Meta.AD(deflt = "salt", required = false)
+	public String secureResourceUrlsSalt();
+
+	@Meta.AD(deflt = "false", required = false)
+>>>>>>> compatible
 	public boolean soapDebug();
 
 }

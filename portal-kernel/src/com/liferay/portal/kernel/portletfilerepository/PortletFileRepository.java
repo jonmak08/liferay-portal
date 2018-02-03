@@ -129,11 +129,14 @@ public interface PortletFileRepository {
 			long groupId, long folderId, OrderByComparator<FileEntry> obc)
 		throws PortalException;
 
+<<<<<<< HEAD
 	public List<FileEntry> getPortletFileEntries(
 			long groupId, long folderId, String[] mimeTypes, int status,
 			int start, int end, OrderByComparator<FileEntry> obc)
 		throws PortalException;
 
+=======
+>>>>>>> compatible
 	public int getPortletFileEntriesCount(long groupId, long folderId)
 		throws PortalException;
 
@@ -141,10 +144,13 @@ public interface PortletFileRepository {
 			long groupId, long folderId, int status)
 		throws PortalException;
 
+<<<<<<< HEAD
 	public int getPortletFileEntriesCount(
 			long groupId, long folderId, String[] mimeTypes, int status)
 		throws PortalException;
 
+=======
+>>>>>>> compatible
 	public FileEntry getPortletFileEntry(long fileEntryId)
 		throws PortalException;
 

@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Frontend Theme Styled
 Bundle-SymbolicName: com.liferay.frontend.theme.styled
+<<<<<<< HEAD
 Bundle-Version: 3.0.0
+=======
+Bundle-Version: 2.1.1
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Themes
 -donotcopy: (npm-debug\.log)

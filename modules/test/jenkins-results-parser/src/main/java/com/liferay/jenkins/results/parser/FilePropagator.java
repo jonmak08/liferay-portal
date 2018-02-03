@@ -20,7 +20,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+<<<<<<< HEAD
 import java.util.concurrent.TimeoutException;
+=======
+>>>>>>> compatible
 
 /**
  * @author Peter Yoo
@@ -175,7 +178,11 @@ public class FilePropagator {
 	}
 
 	private int _executeBashCommands(List<String> commands, String targetSlave)
+<<<<<<< HEAD
 		throws InterruptedException, IOException, TimeoutException {
+=======
+		throws InterruptedException, IOException {
+>>>>>>> compatible
 
 		StringBuffer sb = new StringBuffer("ssh -o NumberOfPasswordPrompts=0 ");
 

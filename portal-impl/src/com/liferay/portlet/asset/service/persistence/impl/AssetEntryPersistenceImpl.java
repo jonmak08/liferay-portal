@@ -3983,7 +3983,11 @@ public class AssetEntryPersistenceImpl extends BasePersistenceImpl<AssetEntry>
 		msg.append(", visible=");
 		msg.append(visible);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchEntryException(msg.toString());
 	}
@@ -4044,7 +4048,11 @@ public class AssetEntryPersistenceImpl extends BasePersistenceImpl<AssetEntry>
 		msg.append(", visible=");
 		msg.append(visible);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchEntryException(msg.toString());
 	}
@@ -4610,7 +4618,11 @@ public class AssetEntryPersistenceImpl extends BasePersistenceImpl<AssetEntry>
 		msg.append(", expirationDate=");
 		msg.append(expirationDate);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchEntryException(msg.toString());
 	}
@@ -4678,7 +4690,11 @@ public class AssetEntryPersistenceImpl extends BasePersistenceImpl<AssetEntry>
 		msg.append(", expirationDate=");
 		msg.append(expirationDate);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchEntryException(msg.toString());
 	}

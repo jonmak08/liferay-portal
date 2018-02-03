@@ -25,6 +25,10 @@ import com.liferay.portal.kernel.xml.Node;
 import com.liferay.portal.kernel.xml.QName;
 import com.liferay.portal.kernel.xml.Text;
 import com.liferay.portal.kernel.xml.Visitor;
+<<<<<<< HEAD
+=======
+import com.liferay.util.xml.Dom4jUtil;
+>>>>>>> compatible
 
 import java.io.IOException;
 

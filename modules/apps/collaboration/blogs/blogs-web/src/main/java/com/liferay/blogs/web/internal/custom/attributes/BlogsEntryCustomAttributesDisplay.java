@@ -14,8 +14,13 @@
 
 package com.liferay.blogs.web.internal.custom.attributes;
 
+<<<<<<< HEAD
 import com.liferay.blogs.constants.BlogsPortletKeys;
 import com.liferay.blogs.model.BlogsEntry;
+=======
+import com.liferay.blogs.kernel.model.BlogsEntry;
+import com.liferay.blogs.web.constants.BlogsPortletKeys;
+>>>>>>> compatible
 import com.liferay.expando.kernel.model.BaseCustomAttributesDisplay;
 import com.liferay.expando.kernel.model.CustomAttributesDisplay;
 

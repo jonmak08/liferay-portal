@@ -333,9 +333,14 @@ public class WebXMLDefinitionLoader extends DefaultHandler {
 
 			_logger.log(
 				Logger.LOG_WARNING,
+<<<<<<< HEAD
 				StringBundler.concat(
 					qName, " from web.xml in bundle ", String.valueOf(_bundle),
 					" is not supported"));
+=======
+				qName + " from web.xml in bundle " + _bundle +
+					" is not supported");
+>>>>>>> compatible
 		}
 		else if (qName.equals("servlet")) {
 			_webXMLDefinition.setServletDefinition(
@@ -716,9 +721,14 @@ public class WebXMLDefinitionLoader extends DefaultHandler {
 						// Servlet 3 spec 8.2.3
 
 						throw new Exception(
+<<<<<<< HEAD
 							StringBundler.concat(
 								"Init paramter name ", initParameterName,
 								" conflicts with filter name ", filterName));
+=======
+							"Init paramter name " + initParameterName +
+								" conflicts with filter name " + filterName);
+>>>>>>> compatible
 					}
 					else {
 						assembledInitParameters.put(
@@ -842,9 +852,14 @@ public class WebXMLDefinitionLoader extends DefaultHandler {
 						// Servlet 3 spec 8.2.3
 
 						throw new Exception(
+<<<<<<< HEAD
 							StringBundler.concat(
 								"Init paramter name ", initParameterName,
 								" conflicts with servlet name ", servletName));
+=======
+							"Init paramter name " + initParameterName +
+								" conflicts with servlet name " + servletName);
+>>>>>>> compatible
 					}
 					else {
 						assembledInitInitParameters.put(
@@ -1080,9 +1095,14 @@ public class WebXMLDefinitionLoader extends DefaultHandler {
 		catch (Exception e) {
 			_logger.log(
 				Logger.LOG_ERROR,
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Bundle ", String.valueOf(_bundle),
 					" is unable to load filter ", filterClassName));
+=======
+				"Bundle " + _bundle + " is unable to load filter " +
+					filterClassName);
+>>>>>>> compatible
 
 			return null;
 		}
@@ -1100,9 +1120,14 @@ public class WebXMLDefinitionLoader extends DefaultHandler {
 		catch (Exception e) {
 			_logger.log(
 				Logger.LOG_ERROR,
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Bundle ", String.valueOf(_bundle),
 					" is unable to load listener ", listenerClassName));
+=======
+				"Bundle " + _bundle + " is unable to load listener " +
+					listenerClassName);
+>>>>>>> compatible
 
 			return null;
 		}

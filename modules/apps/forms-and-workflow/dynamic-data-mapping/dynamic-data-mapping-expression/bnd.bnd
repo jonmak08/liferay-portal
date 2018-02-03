@@ -1,5 +1,6 @@
 Bundle-Name: Liferay Dynamic Data Mapping Expression
 Bundle-SymbolicName: com.liferay.dynamic.data.mapping.expression
+<<<<<<< HEAD
 Bundle-Version: 2.1.0
 Export-Package:\
 	com.liferay.dynamic.data.mapping.expression,\
@@ -12,5 +13,9 @@ Import-Package:\
 	!javax.swing.*,\
 	\
 	*
+=======
+Bundle-Version: 2.0.7
+Export-Package: com.liferay.dynamic.data.mapping.expression
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Runtime

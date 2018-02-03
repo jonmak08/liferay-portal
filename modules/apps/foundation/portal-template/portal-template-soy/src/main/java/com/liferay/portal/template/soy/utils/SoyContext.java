@@ -14,16 +14,21 @@
 
 package com.liferay.portal.template.soy.utils;
 
+<<<<<<< HEAD
 import com.liferay.portal.template.soy.constants.SoyTemplateConstants;
 
 import java.util.HashMap;
 import java.util.Map;
+=======
+import java.util.HashMap;
+>>>>>>> compatible
 
 /**
  * @author Bruno Basto
  */
 public class SoyContext extends HashMap<String, Object> {
 
+<<<<<<< HEAD
 	public SoyContext() {
 		_injectedData = new HashMap<>();
 
@@ -34,10 +39,13 @@ public class SoyContext extends HashMap<String, Object> {
 		_injectedData.clear();
 	}
 
+=======
+>>>>>>> compatible
 	public void putHTML(String key, String value) {
 		put(key, new SoyHTMLContextValue(value));
 	}
 
+<<<<<<< HEAD
 	public void putInjectedData(String key, Object value) {
 		_injectedData.put(key, value);
 	}
@@ -48,4 +56,6 @@ public class SoyContext extends HashMap<String, Object> {
 
 	private final Map<String, Object> _injectedData;
 
+=======
+>>>>>>> compatible
 }

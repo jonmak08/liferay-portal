@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.search;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.portal.kernel.search.geolocation.GeoLocationPoint;
@@ -21,6 +22,10 @@ import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.LocalizationUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.search.geolocation.GeoLocationPoint;
+import com.liferay.portal.kernel.util.ArrayUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 
 import java.io.Serializable;
@@ -38,7 +43,10 @@ import java.util.Map;
  * @author Allen Chiang
  * @author Alex Wallace
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class Field implements Serializable {
 
 	public static final String ANY = StringPool.STAR;
@@ -135,10 +143,13 @@ public class Field implements Serializable {
 
 	public static final String PUBLISH_DATE = "publishDate";
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static final String RATINGS = "ratings";
 
 	public static final String RELATED_ENTRY = "relatedEntry";
@@ -157,8 +168,11 @@ public class Field implements Serializable {
 
 	public static final String SNIPPET = "snippet";
 
+<<<<<<< HEAD
 	public static final String SORTABLE_FIELD_SUFFIX = "sortable";
 
+=======
+>>>>>>> compatible
 	public static final String SPELL_CHECK_WORD = "spellCheckWord";
 
 	public static final String STAGING_GROUP = "stagingGroup";
@@ -193,6 +207,7 @@ public class Field implements Serializable {
 
 	public static final String VIEW_ACTION_ID = "viewActionId";
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
@@ -254,6 +269,10 @@ public class Field implements Serializable {
 		return uid;
 	}
 
+=======
+	public static final String VIEW_COUNT = "viewCount";
+
+>>>>>>> compatible
 	public static boolean validateFieldName(String name) {
 		if (name.contains(StringPool.COMMA) ||
 			name.contains(StringPool.PERIOD) ||
@@ -410,10 +429,15 @@ public class Field implements Serializable {
 		}
 		else {
 			setValue(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"lat: ", String.valueOf(geoLocationPoint.getLatitude()),
 					", lon: ",
 					String.valueOf(geoLocationPoint.getLongitude())));
+=======
+				"lat: " + geoLocationPoint.getLatitude() + ", lon: " +
+					geoLocationPoint.getLongitude());
+>>>>>>> compatible
 		}
 	}
 
@@ -527,36 +551,57 @@ public class Field implements Serializable {
 	protected void validate(String name) {
 		if (name.contains(StringPool.COMMA)) {
 			throw new IllegalArgumentException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Name must not contain ", StringPool.COMMA, ": ", name));
+=======
+				"Name must not contain " + StringPool.COMMA + ": " + name);
+>>>>>>> compatible
 		}
 
 		if (name.contains(StringPool.PERIOD)) {
 			throw new IllegalArgumentException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Name must not contain ", StringPool.PERIOD, ": ", name));
+=======
+				"Name must not contain " + StringPool.PERIOD + ": " + name);
+>>>>>>> compatible
 		}
 
 		if (name.contains(StringPool.POUND)) {
 			throw new IllegalArgumentException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Name must not contain ", StringPool.POUND, ": ", name));
+=======
+				"Name must not contain " + StringPool.POUND + ": " + name);
+>>>>>>> compatible
 		}
 
 		if (name.contains(StringPool.SLASH)) {
 			throw new IllegalArgumentException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Name must not contain ", StringPool.SLASH, ": ", name));
+=======
+				"Name must not contain " + StringPool.SLASH + ": " + name);
+>>>>>>> compatible
 		}
 
 		if (name.contains(StringPool.STAR)) {
 			throw new IllegalArgumentException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Name must not contain ", StringPool.STAR, ": ", name));
+=======
+				"Name must not contain " + StringPool.STAR + ": " + name);
+>>>>>>> compatible
 		}
 
 		if (name.startsWith(StringPool.UNDERLINE)) {
 			throw new IllegalArgumentException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Name must not start with ", StringPool.UNDERLINE, ": ",
 					name));
@@ -567,6 +612,13 @@ public class Field implements Serializable {
 
 	private static final String _UID_PORTLET = "_PORTLET_";
 
+=======
+				"Name must not start with " + StringPool.UNDERLINE + ": " +
+					name);
+		}
+	}
+
+>>>>>>> compatible
 	private float _boost = 1;
 	private Date[] _dates;
 	private final List<Field> _fields = new ArrayList<>();

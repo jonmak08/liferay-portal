@@ -14,8 +14,17 @@
 
 package com.liferay.portlet.asset.service.impl;
 
+<<<<<<< HEAD
 import com.liferay.asset.kernel.model.AssetCategoryProperty;
 import com.liferay.portal.kernel.exception.PortalException;
+=======
+import com.liferay.asset.kernel.exception.CategoryPropertyKeyException;
+import com.liferay.asset.kernel.exception.CategoryPropertyValueException;
+import com.liferay.asset.kernel.exception.DuplicateCategoryPropertyException;
+import com.liferay.asset.kernel.model.AssetCategoryProperty;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.model.User;
+>>>>>>> compatible
 import com.liferay.portlet.asset.service.base.AssetCategoryPropertyLocalServiceBaseImpl;
 
 import java.util.List;
@@ -35,10 +44,37 @@ public class AssetCategoryPropertyLocalServiceImpl
 			long userId, long categoryId, String key, String value)
 		throws PortalException {
 
+<<<<<<< HEAD
 		throw new UnsupportedOperationException(
 			"This class is deprecate and replaced by " +
 				"com.liferay.asset.category.property.service.impl" +
 					"AssetCategoryPropertyLocalServiceImpl");
+=======
+		User user = userPersistence.findByPrimaryKey(userId);
+
+		validate(key, value);
+
+		if (hasCategoryProperty(categoryId, key)) {
+			throw new DuplicateCategoryPropertyException(
+				"A category property already exists with the key " + key);
+		}
+
+		long categoryPropertyId = counterLocalService.increment();
+
+		AssetCategoryProperty categoryProperty =
+			assetCategoryPropertyPersistence.create(categoryPropertyId);
+
+		categoryProperty.setCompanyId(user.getCompanyId());
+		categoryProperty.setUserId(user.getUserId());
+		categoryProperty.setUserName(user.getFullName());
+		categoryProperty.setCategoryId(categoryId);
+		categoryProperty.setKey(key);
+		categoryProperty.setValue(value);
+
+		assetCategoryPropertyPersistence.update(categoryProperty);
+
+		return categoryProperty;
+>>>>>>> compatible
 	}
 
 	@Override
@@ -119,10 +155,39 @@ public class AssetCategoryPropertyLocalServiceImpl
 			long userId, long categoryPropertyId, String key, String value)
 		throws PortalException {
 
+<<<<<<< HEAD
 		throw new UnsupportedOperationException(
 			"This class is deprecate and replaced by " +
 				"com.liferay.asset.category.property.service.impl" +
 					"AssetCategoryPropertyLocalServiceImpl");
+=======
+		AssetCategoryProperty categoryProperty =
+			assetCategoryPropertyPersistence.findByPrimaryKey(
+				categoryPropertyId);
+
+		if (!categoryProperty.getKey().equals(key) &&
+			hasCategoryProperty(categoryProperty.getCategoryId(), key)) {
+
+			throw new DuplicateCategoryPropertyException(
+				"A category property already exists with the key " + key);
+		}
+
+		validate(key, value);
+
+		if (userId != 0) {
+			User user = userPersistence.findByPrimaryKey(userId);
+
+			categoryProperty.setUserId(userId);
+			categoryProperty.setUserName(user.getFullName());
+		}
+
+		categoryProperty.setKey(key);
+		categoryProperty.setValue(value);
+
+		assetCategoryPropertyPersistence.update(categoryProperty);
+
+		return categoryProperty;
+>>>>>>> compatible
 	}
 
 	@Override
@@ -137,11 +202,28 @@ public class AssetCategoryPropertyLocalServiceImpl
 	}
 
 	protected boolean hasCategoryProperty(long categoryId, String key) {
+<<<<<<< HEAD
 		throw new UnsupportedOperationException(
 			"This class is deprecate and replaced by " +
 				"com.liferay.asset.category.property.service.impl" +
 					"AssetCategoryPropertyLocalServiceImpl");
 	}
+=======
+		AssetCategoryProperty categoryProperty =
+			assetCategoryPropertyPersistence.fetchByCA_K(categoryId, key);
+
+		if (categoryProperty != null) {
+			return true;
+		}
+
+		return false;
+	}
+
+	protected void validate(String key, String value) throws PortalException {
+		if (!AssetUtil.isValidWord(key)) {
+			throw new CategoryPropertyKeyException("Invalid key " + key);
+		}
+>>>>>>> compatible
 
 	protected void validate(String key, String value) throws PortalException {
 		throw new UnsupportedOperationException(

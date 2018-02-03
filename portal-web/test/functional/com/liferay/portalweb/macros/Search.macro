@@ -63,6 +63,7 @@
 	</command>
 
 	<command name="removeUserFacetDisplayPG">
+<<<<<<< HEAD
 		<execute function="MouseOver#mouseOverNotVisible" locator1="Search#SEARCH_PORTLET_OPTIONS_WRENCH" />
 
 		<execute function="Click" locator1="Search#SEARCH_PORTLET_OPTIONS_WRENCH" />
@@ -87,10 +88,42 @@
 		<execute function="Type" locator1="TextInput#SEARCH" value1="${searchTerm}" />
 
 		<execute function="KeyPress" locator1="TextInput#SEARCH" value1="\RETURN" />
+=======
+		<execute macro="ProductMenuHelper#closeProductMenu" />
+
+		<execute function="Click" locator1="Search#SEARCH_FIELD" />
+
+		<execute function="Click#makeVisibleClickAt" locator1="Search#SEARCH_PORTLET_OPTIONS_WRENCH" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Configuration">
+			<var name="key_menuItem" value="Configuration" />
+		</execute>
+
+		<execute function="SelectFrame" locator1="IFrame#CONFIGURATION" />
+
+		<execute function="Uncheck" locator1="SearchConfiguration#BASIC_DISPLAY_USER_FACET_CHECKBOX" />
+
+		<execute macro="Button#clickSave" />
+
+		<execute function="SelectFrame" value1="relative=top" />
+	</command>
+
+	<command name="searchCP">
+		<execute function="AssertElementPresent" locator1="NavBar#BASIC_SEARCH_FIELD" />
+		<execute function="AssertElementPresent" locator1="NavBar#SEARCH_BUTTON" />
+
+		<execute function="Type" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${searchTerm}" />
+
+		<execute function="KeyPress" locator1="NavBar#BASIC_SEARCH_FIELD" value1="\RETURN" />
+>>>>>>> compatible
 	</command>
 
 	<command name="searchPG">
 		<execute function="AssertElementPresent" locator1="Search#SEARCH_FIELD" />
+<<<<<<< HEAD
+=======
+		<execute function="AssertElementPresent" locator1="Search#SEARCH_PORTLET_SEARCH_BUTTON" />
+>>>>>>> compatible
 
 		<execute function="Type" locator1="Search#SEARCH_FIELD" value1="${searchTerm}" />
 
@@ -148,10 +181,13 @@
 		<execute function="AssertTextEquals" locator1="Search#INCREMENTAL_SEARCH_SUGGESTION" value1="${kbArticleTitle}" />
 
 		<execute function="AssertClick" locator1="Search#INCREMENTAL_SEARCH_SUGGESTION" value1="${kbArticleTitle}" />
+<<<<<<< HEAD
 	</command>
 
 	<command name="viewSearchAssetDetailPage">
 		<execute function="AssertTextEquals" locator1="Portlet#H3_HEADER" value1="${searchAssetTitle}" />
+=======
+>>>>>>> compatible
 	</command>
 
 	<command name="viewSearchAssetTitle">

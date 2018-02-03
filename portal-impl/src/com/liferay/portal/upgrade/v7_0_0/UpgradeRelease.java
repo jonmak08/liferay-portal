@@ -14,10 +14,16 @@
 
 package com.liferay.portal.upgrade.v7_0_0;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.upgrade.UpgradeProcess;
 import com.liferay.portal.kernel.util.LoggingTimer;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.upgrade.UpgradeProcess;
+import com.liferay.portal.kernel.util.CharPool;
+import com.liferay.portal.kernel.util.LoggingTimer;
+>>>>>>> compatible
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -60,10 +66,16 @@ public class UpgradeRelease extends UpgradeProcess {
 				String schemaVersion = toSchemaVersion(buildNumber);
 
 				runSQL(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"update Release_ set schemaVersion = '", schemaVersion,
 						"' where buildNumber = ", buildNumber,
 						" and schemaVersion is null"));
+=======
+					"update Release_ set schemaVersion = '" + schemaVersion +
+						"' where buildNumber = " + buildNumber +
+							" and schemaVersion is null");
+>>>>>>> compatible
 			}
 		}
 	}

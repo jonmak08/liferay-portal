@@ -77,7 +77,11 @@
 </tr>
 <tr>
 	<td>USER_GROUP_TABLE_ACTIONS</td>
+<<<<<<< HEAD
 	<td>//tr[contains(.,'${key_userGroupName}')]/td[5]//a[span/*[name()='svg'][contains(@class,'icon-ellipsis')]]</td>
+=======
+	<td>//tr[contains(.,'${key_userGroupName}')]/td[5]//span/*[name()='svg'][contains(@class,'icon-ellipsis')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 </tbody>

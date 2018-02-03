@@ -18,10 +18,14 @@ import com.liferay.message.boards.kernel.model.MBDiscussion;
 
 /**
  * @author Adolfo Pérez
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, replaced by {@link
  *             com.liferay.comment.constants.CommentConstants}
  */
 @Deprecated
+=======
+ */
+>>>>>>> compatible
 public class CommentConstants {
 
 	public static Class<?> getDiscussionClass() {

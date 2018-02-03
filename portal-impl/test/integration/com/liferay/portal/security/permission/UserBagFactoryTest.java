@@ -142,10 +142,15 @@ public class UserBagFactoryTest {
 		Collection<Group> userGroups = getUserGroups();
 
 		Assert.assertEquals(userGroups.toString(), 2, userGroups.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			userGroups.toString(), userGroups.contains(_childGroup));
 		Assert.assertFalse(
 			userGroups.toString(), userGroups.contains(_parentGroup));
+=======
+		Assert.assertTrue(userGroups.contains(_childGroup));
+		Assert.assertFalse(userGroups.contains(_parentGroup));
+>>>>>>> compatible
 	}
 
 	@Test
@@ -160,10 +165,15 @@ public class UserBagFactoryTest {
 		Collection<Group> groups = getUserOrgGroups();
 
 		Assert.assertEquals(groups.toString(), 2, groups.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			groups.toString(), groups.contains(_childOrganization.getGroup()));
 		Assert.assertTrue(
 			groups.toString(), groups.contains(_parentOrganization.getGroup()));
+=======
+		Assert.assertTrue(groups.contains(_childOrganization.getGroup()));
+		Assert.assertTrue(groups.contains(_parentOrganization.getGroup()));
+>>>>>>> compatible
 	}
 
 	@Test
@@ -171,20 +181,29 @@ public class UserBagFactoryTest {
 		Collection<Organization> organizations = getUserOrgs();
 
 		Assert.assertEquals(organizations.toString(), 2, organizations.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			organizations.toString(),
 			organizations.contains(_childOrganization));
 		Assert.assertTrue(
 			organizations.toString(),
 			organizations.contains(_parentOrganization));
+=======
+		Assert.assertTrue(organizations.contains(_childOrganization));
+		Assert.assertTrue(organizations.contains(_parentOrganization));
+>>>>>>> compatible
 	}
 
 	@Test
 	public void testGetUserUserGroupGroups() throws Exception {
 		Collection<Group> groups = getUserUserGroupGroups();
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			groups.toString(), groups.contains(_userGroup.getGroup()));
+=======
+		Assert.assertTrue(groups.contains(_userGroup.getGroup()));
+>>>>>>> compatible
 	}
 
 	protected Collection<Group> getGroups() throws Exception {
@@ -194,6 +213,11 @@ public class UserBagFactoryTest {
 	}
 
 	protected UserBag getUserBag() throws Exception {
+<<<<<<< HEAD
+=======
+		PermissionCacheUtil.removeUserBag(_user.getUserId());
+
+>>>>>>> compatible
 		return UserBagFactoryUtil.create(_user.getUserId());
 	}
 

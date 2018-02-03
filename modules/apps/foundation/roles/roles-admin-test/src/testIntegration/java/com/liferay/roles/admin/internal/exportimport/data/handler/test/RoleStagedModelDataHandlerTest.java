@@ -15,7 +15,10 @@
 package com.liferay.roles.admin.internal.exportimport.data.handler.test;
 
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
+<<<<<<< HEAD
 import com.liferay.exportimport.test.util.lar.BaseStagedModelDataHandlerTestCase;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.Role;
 import com.liferay.portal.kernel.model.RoleConstants;
@@ -23,7 +26,14 @@ import com.liferay.portal.kernel.model.StagedModel;
 import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
 import com.liferay.portal.kernel.service.RoleLocalServiceUtil;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.test.util.RoleTestUtil;
+=======
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+import com.liferay.portal.kernel.test.util.RoleTestUtil;
+import com.liferay.portal.lar.test.BaseStagedModelDataHandlerTestCase;
+>>>>>>> compatible
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 
 import java.util.List;
@@ -38,13 +48,23 @@ import org.junit.runner.RunWith;
  * @author David Mendez Gonzalez
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class RoleStagedModelDataHandlerTest
 	extends BaseStagedModelDataHandlerTestCase {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Override
 	protected StagedModel addStagedModel(
@@ -95,7 +115,11 @@ public class RoleStagedModelDataHandlerTest
 			StagedModel stagedModel, StagedModel importedStagedModel)
 		throws Exception {
 
+<<<<<<< HEAD
 		// super.validateImportedStagedModel(stagedModel, importedStagedModel);
+=======
+		super.validateImportedStagedModel(stagedModel, importedStagedModel);
+>>>>>>> compatible
 
 		Role role = (Role)stagedModel;
 		Role importedRole = (Role)importedStagedModel;

@@ -19,11 +19,17 @@ import com.liferay.journal.model.JournalArticle;
 import com.liferay.journal.model.JournalArticleDisplay;
 import com.liferay.journal.service.JournalArticleLocalService;
 import com.liferay.journal.util.JournalContent;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.portlet.PortletRequestModel;
 import com.liferay.portal.kernel.security.auth.PrincipalThreadLocal;
+=======
+import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
+import com.liferay.portal.kernel.language.LanguageUtil;
+import com.liferay.portal.kernel.portlet.PortletRequestModel;
+>>>>>>> compatible
 import com.liferay.portal.kernel.servlet.ServletResponseUtil;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ArrayUtil;
@@ -32,6 +38,10 @@ import com.liferay.portal.kernel.util.MimeTypesUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
@@ -143,10 +153,15 @@ public class ExportArticleUtil {
 		sb.append("</body>");
 		sb.append("</html>");
 
+<<<<<<< HEAD
 		String s = sb.toString();
 
 		InputStream is = new UnsyncByteArrayInputStream(
 			s.getBytes(StringPool.UTF8));
+=======
+		InputStream is = new UnsyncByteArrayInputStream(
+			sb.toString().getBytes(StringPool.UTF8));
+>>>>>>> compatible
 
 		String title = articleDisplay.getTitle();
 		String sourceExtension = "html";
@@ -156,6 +171,7 @@ public class ExportArticleUtil {
 
 		String contentType = ContentTypes.TEXT_HTML;
 
+<<<<<<< HEAD
 		sb = new StringBundler(3);
 
 		sb.append(PrincipalThreadLocal.getUserId());
@@ -169,6 +185,14 @@ public class ExportArticleUtil {
 
 		File convertedFile = DocumentConversionUtil.convert(
 			sb.toString(), is, sourceExtension, targetExtension);
+=======
+		String id = DLUtil.getTempFileId(
+			articleDisplay.getId(), String.valueOf(articleDisplay.getVersion()),
+			languageId);
+
+		File convertedFile = DocumentConversionUtil.convert(
+			id, is, sourceExtension, targetExtension);
+>>>>>>> compatible
 
 		if (convertedFile != null) {
 			targetExtension = StringUtil.toLowerCase(targetExtension);

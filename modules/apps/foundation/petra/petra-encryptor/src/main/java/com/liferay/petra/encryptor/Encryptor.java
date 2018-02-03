@@ -14,7 +14,10 @@
 
 package com.liferay.petra.encryptor;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.Base64;
@@ -23,6 +26,11 @@ import com.liferay.portal.kernel.util.DigesterUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.ServerDetector;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.SystemProperties;
 
@@ -85,6 +93,11 @@ public class Encryptor {
 
 		try {
 			if (cipher == null) {
+<<<<<<< HEAD
+=======
+				Security.addProvider(getProvider());
+
+>>>>>>> compatible
 				cipher = Cipher.getInstance(algorithm);
 
 				cipher.init(Cipher.DECRYPT_MODE, key);
@@ -122,19 +135,25 @@ public class Encryptor {
 		return new SecretKeySpec(bytes, Encryptor.KEY_ALGORITHM);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 1.0.0, replaced by {@link DigesterUtil#digest(String)}
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static String digest(String text) {
 		return DigesterUtil.digest(text);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 1.0.0, replaced by {@link
 	 *             DigesterUtil#digest(String, String...)}
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static String digest(String algorithm, String text) {
 		return DigesterUtil.digest(algorithm, text);
 	}
@@ -167,6 +186,11 @@ public class Encryptor {
 
 		try {
 			if (cipher == null) {
+<<<<<<< HEAD
+=======
+				Security.addProvider(getProvider());
+
+>>>>>>> compatible
 				cipher = Cipher.getInstance(algorithm);
 
 				cipher.init(Cipher.ENCRYPT_MODE, key);
@@ -202,6 +226,11 @@ public class Encryptor {
 
 	public static Key generateKey(String algorithm) throws EncryptorException {
 		try {
+<<<<<<< HEAD
+=======
+			Security.addProvider(getProvider());
+
+>>>>>>> compatible
 			KeyGenerator keyGenerator = KeyGenerator.getInstance(algorithm);
 
 			keyGenerator.init(KEY_SIZE, new SecureRandom());
@@ -215,12 +244,53 @@ public class Encryptor {
 		}
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 1.0.0, with no direct replacement
 	 */
 	@Deprecated
 	public static Provider getProvider() {
 		return _provider;
+=======
+	public static Provider getProvider()
+		throws ClassNotFoundException, IllegalAccessException,
+			   InstantiationException {
+
+		Class<?> providerClass = null;
+
+		try {
+			providerClass = Class.forName(PROVIDER_CLASS);
+		}
+		catch (ClassNotFoundException cnfe) {
+			if (ServerDetector.isWebSphere() &&
+				PROVIDER_CLASS.equals(SUN_PROVIDER_CLASS)) {
+
+				if (_log.isWarnEnabled()) {
+					_log.warn(
+						"WebSphere does not have " + SUN_PROVIDER_CLASS +
+							", using " + IBM_PROVIDER_CLASS + " instead");
+				}
+
+				providerClass = Class.forName(IBM_PROVIDER_CLASS);
+			}
+			else if (System.getProperty("java.vm.vendor").equals(
+						"IBM Corporation")) {
+
+				if (_log.isWarnEnabled()) {
+					_log.warn(
+						"IBM JVM does not have " + SUN_PROVIDER_CLASS +
+							", using " + IBM_PROVIDER_CLASS + " instead");
+				}
+
+				providerClass = Class.forName(IBM_PROVIDER_CLASS);
+			}
+			else {
+				throw cnfe;
+			}
+		}
+
+		return (Provider)providerClass.newInstance();
+>>>>>>> compatible
 	}
 
 	public static String serializeKey(Key key) {
@@ -233,6 +303,7 @@ public class Encryptor {
 		new ConcurrentHashMap<>(1, 1F, 1);
 	private static final Map<String, Cipher> _encryptCipherMap =
 		new ConcurrentHashMap<>(1, 1F, 1);
+<<<<<<< HEAD
 	private static final Provider _provider;
 
 	static {
@@ -267,5 +338,7 @@ public class Encryptor {
 			throw new ExceptionInInitializerError(roe);
 		}
 	}
+=======
+>>>>>>> compatible
 
 }

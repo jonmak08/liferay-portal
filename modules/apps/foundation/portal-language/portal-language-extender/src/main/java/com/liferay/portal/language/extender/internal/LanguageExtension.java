@@ -17,10 +17,15 @@ package com.liferay.portal.language.extender.internal;
 import com.liferay.portal.kernel.util.AggregateResourceBundle;
 import com.liferay.portal.kernel.util.CacheResourceBundleLoader;
 import com.liferay.portal.kernel.util.GetterUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.ResourceBundleLoader;
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.ResourceBundleLoader;
+import com.liferay.portal.kernel.util.ResourceBundleUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 
 import java.util.ArrayList;
@@ -28,7 +33,10 @@ import java.util.Collection;
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Locale;
+=======
+>>>>>>> compatible
 import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
@@ -118,9 +126,14 @@ public class LanguageExtension implements Extension {
 			else {
 				_logger.log(
 					Logger.LOG_WARNING,
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Unable to handle ", String.valueOf(bundleCapability),
 						" in ", _bundle.getSymbolicName()));
+=======
+					"Unable to handle " + bundleCapability + " in " +
+						_bundle.getSymbolicName());
+>>>>>>> compatible
 			}
 		}
 	}
@@ -137,9 +150,15 @@ public class LanguageExtension implements Extension {
 		for (String filterString : filterStrings) {
 			Filter filter = null;
 
+<<<<<<< HEAD
 			filterString = StringBundler.concat(
 				"(&(objectClass=", ResourceBundleLoader.class.getName(), ")",
 				filterString, ")");
+=======
+			filterString =
+				"(&(objectClass=" + ResourceBundleLoader.class.getName() + ")" +
+					filterString + ")";
+>>>>>>> compatible
 
 			try {
 				filter = _bundleContext.createFilter(filterString);
@@ -209,7 +228,11 @@ public class LanguageExtension implements Extension {
 		}
 
 		@Override
+<<<<<<< HEAD
 		public ResourceBundle loadResourceBundle(Locale locale) {
+=======
+		public ResourceBundle loadResourceBundle(String languageId) {
+>>>>>>> compatible
 			List<ResourceBundle> resourceBundles = new ArrayList<>();
 
 			for (ServiceTracker<ResourceBundleLoader, ResourceBundleLoader>
@@ -220,7 +243,11 @@ public class LanguageExtension implements Extension {
 
 				if (resourceBundleLoader != null) {
 					ResourceBundle resourceBundle =
+<<<<<<< HEAD
 						resourceBundleLoader.loadResourceBundle(locale);
+=======
+						resourceBundleLoader.loadResourceBundle(languageId);
+>>>>>>> compatible
 
 					if (resourceBundle != null) {
 						resourceBundles.add(resourceBundle);
@@ -241,6 +268,7 @@ public class LanguageExtension implements Extension {
 					new ResourceBundle[resourceBundles.size()]));
 		}
 
+<<<<<<< HEAD
 		/**
 		 * @deprecated As of 2.0.0, replaced by {@link
 		 *             #loadResourceBundle(Locale)}
@@ -250,6 +278,8 @@ public class LanguageExtension implements Extension {
 			return loadResourceBundle(LocaleUtil.fromLanguageId(languageId));
 		}
 
+=======
+>>>>>>> compatible
 		private final
 			List<ServiceTracker<ResourceBundleLoader, ResourceBundleLoader>>
 				_serviceTrackers;

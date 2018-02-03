@@ -70,7 +70,11 @@ public class ${entity.name}FinderUtil {
 	public static ${entity.name}Finder getFinder() {
 		if (_finder == null) {
 			<#if validator.isNotNull(pluginName)>
+<<<<<<< HEAD
 				_finder = (${entity.name}Finder)PortletBeanLocatorUtil.locate(${apiPackagePath}.service.ServletContextUtil.getServletContextName(), ${entity.name}Finder.class.getName());
+=======
+				_finder = (${entity.name}Finder)PortletBeanLocatorUtil.locate(${apiPackagePath}.service.ClpSerializer.getServletContextName(), ${entity.name}Finder.class.getName());
+>>>>>>> compatible
 			<#else>
 				_finder = (${entity.name}Finder)PortalBeanLocatorUtil.locate(${entity.name}Finder.class.getName());
 			</#if>

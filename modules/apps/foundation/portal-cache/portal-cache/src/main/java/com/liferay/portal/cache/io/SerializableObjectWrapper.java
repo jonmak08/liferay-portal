@@ -16,8 +16,12 @@ package com.liferay.portal.cache.io;
 
 import com.liferay.portal.kernel.io.Deserializer;
 import com.liferay.portal.kernel.io.Serializer;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+=======
+import com.liferay.portal.kernel.util.AggregateClassLoader;
+>>>>>>> compatible
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -27,8 +31,16 @@ import java.io.Serializable;
 import java.nio.ByteBuffer;
 
 /**
+<<<<<<< HEAD
  * @author Tina Tian
  */
+=======
+ * @author     Tina Tian
+ * @deprecated As of 2.2.0, replaced by {@link
+ *             com.liferay.portal.kernel.io.SerializableObjectWrapper}
+ */
+@Deprecated
+>>>>>>> compatible
 public class SerializableObjectWrapper implements Serializable {
 
 	public static <T> T unwrap(Object object) {
@@ -68,6 +80,7 @@ public class SerializableObjectWrapper implements Serializable {
 	}
 
 	private void readObject(ObjectInputStream objectInputStream)
+<<<<<<< HEAD
 		throws IOException {
 
 		byte[] data = new byte[objectInputStream.readInt()];
@@ -81,12 +94,36 @@ public class SerializableObjectWrapper implements Serializable {
 		}
 		catch (ClassNotFoundException cnfe) {
 			_log.error("Unable to deserialize object", cnfe);
+=======
+		throws ClassNotFoundException, IOException {
+
+		Thread currentThread = Thread.currentThread();
+
+		ClassLoader contextClassLoader = currentThread.getContextClassLoader();
+
+		currentThread.setContextClassLoader(_classLoader);
+
+		try {
+			int size = objectInputStream.readInt();
+
+			byte[] data = new byte[size];
+
+			objectInputStream.readFully(data);
+
+			Deserializer deserializer = new Deserializer(ByteBuffer.wrap(data));
+
+			_serializable = deserializer.readObject();
+		}
+		finally {
+			currentThread.setContextClassLoader(contextClassLoader);
+>>>>>>> compatible
 		}
 	}
 
 	private void writeObject(ObjectOutputStream objectOutputStream)
 		throws IOException {
 
+<<<<<<< HEAD
 		Serializer serializer = new Serializer();
 
 		serializer.writeObject(_serializable);
@@ -101,6 +138,40 @@ public class SerializableObjectWrapper implements Serializable {
 
 	private static final Log _log = LogFactoryUtil.getLog(
 		SerializableObjectWrapper.class);
+=======
+		Thread currentThread = Thread.currentThread();
+
+		ClassLoader contextClassLoader = currentThread.getContextClassLoader();
+
+		currentThread.setContextClassLoader(_classLoader);
+
+		try {
+			Serializer serializer = new Serializer();
+
+			serializer.writeObject(_serializable);
+
+			ByteBuffer byteBuffer = serializer.toByteBuffer();
+
+			objectOutputStream.writeInt(byteBuffer.remaining());
+			objectOutputStream.write(
+				byteBuffer.array(), byteBuffer.position(),
+				byteBuffer.remaining());
+		}
+		finally {
+			currentThread.setContextClassLoader(contextClassLoader);
+		}
+	}
+
+	private static final ClassLoader _classLoader;
+
+	static {
+		Thread currentThread = Thread.currentThread();
+
+		_classLoader = AggregateClassLoader.getAggregateClassLoader(
+			currentThread.getContextClassLoader(),
+			SerializableObjectWrapper.class.getClassLoader());
+	}
+>>>>>>> compatible
 
 	private Serializable _serializable;
 

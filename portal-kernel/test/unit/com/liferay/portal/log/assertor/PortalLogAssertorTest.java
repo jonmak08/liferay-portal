@@ -111,12 +111,15 @@ public class PortalLogAssertorTest {
 			new String(Files.readAllBytes(path), StringPool.UTF8), "log4j:",
 			"");
 
+<<<<<<< HEAD
 		int index = content.lastIndexOf("</event>");
 
 		if (index != -1) {
 			content = content.substring(0, index + "</event>".length());
 		}
 
+=======
+>>>>>>> compatible
 		content = "<log4j>" + content + "</log4j>";
 
 		DocumentBuilderFactory documentBuilderFactory =

@@ -14,7 +14,11 @@
 
 package com.liferay.document.library.web.internal.portlet.configuration.icon;
 
+<<<<<<< HEAD
 import com.liferay.document.library.constants.DLPortletKeys;
+=======
+import com.liferay.document.library.web.constants.DLPortletKeys;
+>>>>>>> compatible
 import com.liferay.document.library.web.internal.portlet.action.ActionUtil;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.portlet.configuration.icon.BasePortletConfigurationIcon;
@@ -66,7 +70,11 @@ public class DownloadFolderPortletConfigurationIcon
 			portletRequest, DLPortletKeys.DOCUMENT_LIBRARY_ADMIN,
 			PortletRequest.RESOURCE_PHASE);
 
+<<<<<<< HEAD
 		portletURL.setResourceID("/document_library/download_folder");
+=======
+		portletURL.setResourceID("/document_library/edit_folder");
+>>>>>>> compatible
 
 		Folder folder = null;
 
@@ -98,10 +106,13 @@ public class DownloadFolderPortletConfigurationIcon
 		try {
 			Folder folder = ActionUtil.getFolder(portletRequest);
 
+<<<<<<< HEAD
 			if (folder.isMountPoint()) {
 				return false;
 			}
 
+=======
+>>>>>>> compatible
 			return DLFolderPermission.contains(
 				themeDisplay.getPermissionChecker(),
 				themeDisplay.getScopeGroupId(), folder.getFolderId(),

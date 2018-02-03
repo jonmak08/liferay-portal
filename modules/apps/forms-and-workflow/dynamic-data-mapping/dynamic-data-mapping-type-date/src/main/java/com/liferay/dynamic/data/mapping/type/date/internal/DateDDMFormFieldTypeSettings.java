@@ -29,10 +29,17 @@ import com.liferay.dynamic.data.mapping.model.LocalizedValue;
  */
 @DDMForm
 @DDMFormLayout(
+<<<<<<< HEAD
 	paginationMode = com.liferay.dynamic.data.mapping.model.DDMFormLayout.TABBED_MODE,
 	value = {
 		@DDMFormLayoutPage(
 			title = "%basic",
+=======
+	paginationMode = com.liferay.dynamic.data.mapping.model.DDMFormLayout.SETTINGS_MODE,
+	value = {
+		@DDMFormLayoutPage(
+			title = "basic",
+>>>>>>> compatible
 			value = {
 				@DDMFormLayoutRow(
 					{
@@ -44,7 +51,11 @@ import com.liferay.dynamic.data.mapping.model.LocalizedValue;
 			}
 		),
 		@DDMFormLayoutPage(
+<<<<<<< HEAD
 			title = "%properties",
+=======
+			title = "advanced",
+>>>>>>> compatible
 			value = {
 				@DDMFormLayoutRow(
 					{
@@ -73,7 +84,12 @@ public interface DateDDMFormFieldTypeSettings
 	public LocalizedValue predefinedValue();
 
 	@DDMFormField(
+<<<<<<< HEAD
 		dataType = "date", type = "validation", visibilityExpression = "FALSE"
+=======
+		dataType = "ddm-validation", type = "validation",
+		visibilityExpression = "FALSE"
+>>>>>>> compatible
 	)
 	@Override
 	public DDMFormFieldValidation validation();

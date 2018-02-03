@@ -43,8 +43,13 @@ import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.service.persistence.impl.TableMapper;
 import com.liferay.portal.kernel.service.persistence.impl.TableMapperFactory;
 import com.liferay.portal.kernel.util.ArrayUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -4816,17 +4821,31 @@ public class OrganizationPersistenceImpl extends BasePersistenceImpl<Organizatio
 			};
 
 		List<Organization> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<Organization>)finderCache.getResult(finderPath,
 					finderArgs, this);
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<Organization>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+>>>>>>> compatible
 			if ((list != null) && !list.isEmpty()) {
 				for (Organization organization : list) {
 					if ((companyId != organization.getCompanyId()) ||
 							!StringUtil.wildcardMatches(
+<<<<<<< HEAD
 								organization.getTreePath(), treePath, '_', '%',
 								'\\', true)) {
+=======
+								organization.getTreePath(), treePath,
+								CharPool.UNDERLINE, CharPool.PERCENT,
+								CharPool.BACK_SLASH, true)) {
+>>>>>>> compatible
 						list = null;
 
 						break;
@@ -6073,11 +6092,19 @@ public class OrganizationPersistenceImpl extends BasePersistenceImpl<Organizatio
 			};
 
 		List<Organization> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<Organization>)finderCache.getResult(finderPath,
 					finderArgs, this);
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<Organization>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+>>>>>>> compatible
 			if ((list != null) && !list.isEmpty()) {
 				for (Organization organization : list) {
 					if ((organizationId >= organization.getOrganizationId()) ||
@@ -6588,11 +6615,17 @@ public class OrganizationPersistenceImpl extends BasePersistenceImpl<Organizatio
 		setModelClass(Organization.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("uuid", "uuid_");

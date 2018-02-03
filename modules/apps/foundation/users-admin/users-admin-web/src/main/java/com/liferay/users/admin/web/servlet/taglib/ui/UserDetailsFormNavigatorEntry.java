@@ -14,6 +14,7 @@
 
 package com.liferay.users.admin.web.servlet.taglib.ui;
 
+<<<<<<< HEAD
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
 import com.liferay.portal.kernel.servlet.taglib.ui.FormNavigatorConstants;
 import com.liferay.portal.kernel.servlet.taglib.ui.FormNavigatorEntry;
@@ -29,12 +30,21 @@ import javax.servlet.http.HttpServletResponse;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Modified;
+=======
+import com.liferay.portal.kernel.servlet.taglib.ui.FormNavigatorConstants;
+import com.liferay.portal.kernel.servlet.taglib.ui.FormNavigatorEntry;
+
+import org.osgi.service.component.annotations.Component;
+>>>>>>> compatible
 
 /**
  * @author Pei-Jung Lan
  */
 @Component(
+<<<<<<< HEAD
 	configurationPid = "com.liferay.users.admin.configuration.UserFileUploadsConfiguration",
+=======
+>>>>>>> compatible
 	property = {"form.navigator.entry.order:Integer=80"},
 	service = FormNavigatorEntry.class
 )
@@ -51,6 +61,7 @@ public class UserDetailsFormNavigatorEntry extends BaseUserFormNavigatorEntry {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void include(
 			HttpServletRequest request, HttpServletResponse response)
 		throws IOException {
@@ -70,10 +81,15 @@ public class UserDetailsFormNavigatorEntry extends BaseUserFormNavigatorEntry {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	protected String getJspPath() {
 		return "/user/details.jsp";
 	}
 
+<<<<<<< HEAD
 	private volatile UserFileUploadsConfiguration _userFileUploadsConfiguration;
 
+=======
+>>>>>>> compatible
 }

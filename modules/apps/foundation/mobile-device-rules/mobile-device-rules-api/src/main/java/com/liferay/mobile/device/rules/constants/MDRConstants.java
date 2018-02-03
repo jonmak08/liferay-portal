@@ -19,9 +19,12 @@ package com.liferay.mobile.device.rules.constants;
  */
 public class MDRConstants {
 
+<<<<<<< HEAD
 	public static final String RESOURCE_NAME =
 		"com.liferay.mobile.device.rules";
 
+=======
+>>>>>>> compatible
 	public static final String SERVICE_NAME = "com.liferay.mobile.device.rules";
 
 }

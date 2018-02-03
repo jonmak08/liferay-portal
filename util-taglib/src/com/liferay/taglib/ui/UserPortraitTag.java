@@ -14,9 +14,13 @@
 
 package com.liferay.taglib.ui;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.language.LanguageConstants;
+=======
+import com.liferay.portal.kernel.exception.PortalException;
+>>>>>>> compatible
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -24,8 +28,16 @@ import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.model.UserConstants;
 import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.ServiceProxyFactory;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.HtmlUtil;
+import com.liferay.portal.kernel.util.PropsKeys;
+import com.liferay.portal.kernel.util.PropsUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
@@ -33,7 +45,10 @@ import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.taglib.util.IncludeTag;
 import com.liferay.taglib.util.LexiconUtil;
 import com.liferay.taglib.util.TagResourceBundleUtil;
+<<<<<<< HEAD
 import com.liferay.users.admin.kernel.file.uploads.UserFileUploadsSettings;
+=======
+>>>>>>> compatible
 
 import java.util.ResourceBundle;
 
@@ -53,12 +68,16 @@ public class UserPortraitTag extends IncludeTag {
 
 		jspWriter.write("<div class=\"");
 
+<<<<<<< HEAD
 		boolean imageDefaultUseInitials =
 			_userFileUploadsSettings.isImageDefaultUseInitials();
+=======
+>>>>>>> compatible
 		long userPortraitId = 0;
 
 		if (user != null) {
 			userPortraitId = user.getPortraitId();
+<<<<<<< HEAD
 
 			if (LanguageConstants.VALUE_IMAGE.equals(
 					LanguageUtil.get(
@@ -71,6 +90,11 @@ public class UserPortraitTag extends IncludeTag {
 		}
 
 		if (imageDefaultUseInitials && (userPortraitId == 0)) {
+=======
+		}
+
+		if (_USERS_IMAGE_DEFAULT_USE_INITIALS && (userPortraitId == 0)) {
+>>>>>>> compatible
 			jspWriter.write(LexiconUtil.getUserColorCssClass(user));
 			jspWriter.write(" ");
 			jspWriter.write(_cssClass);
@@ -193,6 +217,7 @@ public class UserPortraitTag extends IncludeTag {
 	private static final String _PAGE =
 		"/html/taglib/ui/user_portrait/page.jsp";
 
+<<<<<<< HEAD
 	private static final Log _log = LogFactoryUtil.getLog(
 		UserPortraitTag.class);
 
@@ -201,6 +226,15 @@ public class UserPortraitTag extends IncludeTag {
 			UserFileUploadsSettings.class, UserPortraitTag.class,
 			"_userFileUploadsSettings", false);
 
+=======
+	private static final boolean _USERS_IMAGE_DEFAULT_USE_INITIALS =
+		GetterUtil.getBoolean(
+			PropsUtil.get(PropsKeys.USERS_IMAGE_DEFAULT_USE_INITIALS));
+
+	private static final Log _log = LogFactoryUtil.getLog(
+		UserPortraitTag.class);
+
+>>>>>>> compatible
 	private String _cssClass = StringPool.BLANK;
 	private User _user;
 	private String _userName = StringPool.BLANK;

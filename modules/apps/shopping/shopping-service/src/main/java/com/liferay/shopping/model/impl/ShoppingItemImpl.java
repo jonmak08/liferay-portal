@@ -18,7 +18,10 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.webserver.WebServerServletTokenUtil;
@@ -89,10 +92,16 @@ public class ShoppingItemImpl extends ShoppingItemBaseImpl {
 			return getSmallImageURL();
 		}
 
+<<<<<<< HEAD
 		return StringBundler.concat(
 			themeDisplay.getPathImage(), "/shopping/item?img_id=",
 			String.valueOf(getSmallImageId()), "&t=",
 			WebServerServletTokenUtil.getToken(getSmallImageId()));
+=======
+		return themeDisplay.getPathImage() + "/shopping/item?img_id=" +
+			getSmallImageId() + "&t=" +
+				WebServerServletTokenUtil.getToken(getSmallImageId());
+>>>>>>> compatible
 	}
 
 	@Override

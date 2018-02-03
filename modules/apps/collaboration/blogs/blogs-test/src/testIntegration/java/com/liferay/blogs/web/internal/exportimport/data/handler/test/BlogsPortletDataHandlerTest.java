@@ -15,9 +15,14 @@
 package com.liferay.blogs.web.internal.exportimport.data.handler.test;
 
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
+<<<<<<< HEAD
 import com.liferay.blogs.constants.BlogsPortletKeys;
 import com.liferay.blogs.service.BlogsEntryLocalServiceUtil;
 import com.liferay.exportimport.kernel.lar.DataLevel;
+=======
+import com.liferay.blogs.kernel.service.BlogsEntryLocalServiceUtil;
+import com.liferay.blogs.web.constants.BlogsPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
@@ -54,15 +59,19 @@ public class BlogsPortletDataHandlerTest
 	}
 
 	@Override
+<<<<<<< HEAD
 	protected DataLevel getDataLevel() {
 		return DataLevel.SITE;
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	protected String getPortletId() {
 		return BlogsPortletKeys.BLOGS;
 	}
 
+<<<<<<< HEAD
 	@Override
 	protected boolean isDataPortalLevel() {
 		return false;
@@ -78,4 +87,6 @@ public class BlogsPortletDataHandlerTest
 		return true;
 	}
 
+=======
+>>>>>>> compatible
 }

@@ -12,6 +12,10 @@ import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.model.MVCCModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -139,7 +143,11 @@ public class ${entity.name}CacheModel implements CacheModel<${entity.name}>, Ext
 				<#else>
 					<#if stringUtil.equals(column.type, "String")>
 						if (${column.name} == null) {
+<<<<<<< HEAD
 							${entity.varName}Impl.set${column.methodName}("");
+=======
+							${entity.varName}Impl.set${column.methodName}(StringPool.BLANK);
+>>>>>>> compatible
 						}
 						else {
 							${entity.varName}Impl.set${column.methodName}(${column.name});
@@ -229,7 +237,11 @@ public class ${entity.name}CacheModel implements CacheModel<${entity.name}>, Ext
 				objectOutput.writeLong(${column.name});
 			<#elseif stringUtil.equals(column.type, "String")>
 				if (${column.name} == null) {
+<<<<<<< HEAD
 					objectOutput.writeUTF("");
+=======
+					objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 				}
 				else {
 					objectOutput.writeUTF(${column.name});

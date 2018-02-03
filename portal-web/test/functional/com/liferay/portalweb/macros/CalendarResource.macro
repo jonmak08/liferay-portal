@@ -67,9 +67,13 @@
 		<execute function="AssertClick" locator1="CalendarResources#RESOURCE_MENULIST_EDIT" value1="Edit" />
 
 		<execute function="AssertTextEquals" locator1="CalendarEditResource#HEADER_TITLE" value1="${calendarResourceName}" />
+<<<<<<< HEAD
 		<execute macro="PortletEntry#inputName">
 			<var name="name" value="${calendarResourceNameEdit}" />
 		</execute>
+=======
+		<execute function="Type" locator1="CalendarEditResource#NAME_FIELD" value1="${calendarResourceNameEdit}" />
+>>>>>>> compatible
 
 		<execute macro="CalendarResource#save" />
 
@@ -93,9 +97,15 @@
 	</command>
 
 	<command name="search">
+<<<<<<< HEAD
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="${calendarResourceName}" />
 		</execute>
+=======
+		<execute function="Type" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${calendarResourceName}" />
+
+		<execute function="Click" locator1="Icon#BASIC_SEARCH" />
+>>>>>>> compatible
 	</command>
 
 	<command name="tearDown">

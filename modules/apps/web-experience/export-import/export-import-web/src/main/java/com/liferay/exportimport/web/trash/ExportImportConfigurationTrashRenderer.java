@@ -14,8 +14,11 @@
 
 package com.liferay.exportimport.web.trash;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.model.ExportImportConfiguration;
 import com.liferay.exportimport.web.constants.ExportImportWebKeys;
 import com.liferay.portal.kernel.trash.BaseJSPTrashRenderer;
@@ -32,7 +35,10 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author Levente Hudák
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class ExportImportConfigurationTrashRenderer
 	extends BaseJSPTrashRenderer {
 

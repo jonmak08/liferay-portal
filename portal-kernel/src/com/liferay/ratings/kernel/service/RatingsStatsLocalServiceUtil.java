@@ -260,16 +260,20 @@ public class RatingsStatsLocalServiceUtil {
 		return getService().getStats(statsId);
 	}
 
+<<<<<<< HEAD
 	/**
 	* @deprecated As of 7.0.0, with no direct replacement
 	*/
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static java.util.List<com.liferay.ratings.kernel.model.RatingsStats> getStats(
 		java.lang.String className, java.util.List<java.lang.Long> classPKs) {
 		return getService().getStats(className, classPKs);
 	}
 
 	public static com.liferay.ratings.kernel.model.RatingsStats getStats(
+<<<<<<< HEAD
 		java.lang.String className, long classPK)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService().getStats(className, classPK);
@@ -280,6 +284,12 @@ public class RatingsStatsLocalServiceUtil {
 		return getService().getStats(className, classPKs);
 	}
 
+=======
+		java.lang.String className, long classPK) {
+		return getService().getStats(className, classPK);
+	}
+
+>>>>>>> compatible
 	/**
 	* Updates the ratings stats in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	*

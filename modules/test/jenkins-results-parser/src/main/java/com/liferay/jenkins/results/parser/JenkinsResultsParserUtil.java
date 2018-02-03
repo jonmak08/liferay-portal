@@ -39,12 +39,17 @@ import java.net.UnknownHostException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+<<<<<<< HEAD
 import java.text.SimpleDateFormat;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
+=======
+import java.util.ArrayList;
+import java.util.Arrays;
+>>>>>>> compatible
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.LinkedHashMap;
@@ -54,11 +59,14 @@ import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.Random;
 import java.util.Set;
+<<<<<<< HEAD
 import java.util.TimeZone;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
+=======
+>>>>>>> compatible
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -87,7 +95,11 @@ public class JenkinsResultsParserUtil {
 
 	public static boolean debug;
 
+<<<<<<< HEAD
 	public static String combine(String... strings) {
+=======
+	public static String combine(String...strings) {
+>>>>>>> compatible
 		if ((strings == null) || (strings.length == 0)) {
 			return "";
 		}
@@ -122,12 +134,15 @@ public class JenkinsResultsParserUtil {
 				return;
 			}
 
+<<<<<<< HEAD
 			File parentFile = target.getParentFile();
 
 			if ((parentFile != null) && !parentFile.exists()) {
 				parentFile.mkdirs();
 			}
 
+=======
+>>>>>>> compatible
 			try (FileInputStream fileInputStream =
 					new FileInputStream(source)) {
 
@@ -234,7 +249,11 @@ public class JenkinsResultsParserUtil {
 	public static Process executeBashCommands(
 			boolean exitOnFirstFail, File basedir, long timeout,
 			String... commands)
+<<<<<<< HEAD
 		throws InterruptedException, IOException, TimeoutException {
+=======
+		throws InterruptedException, IOException {
+>>>>>>> compatible
 
 		System.out.print("Executing commands: ");
 
@@ -269,12 +288,17 @@ public class JenkinsResultsParserUtil {
 
 		processBuilder.directory(basedir.getAbsoluteFile());
 
+<<<<<<< HEAD
 		Process process = new BufferedProcess(1000000, processBuilder.start());
+=======
+		Process process = processBuilder.start();
+>>>>>>> compatible
 
 		long duration = 0;
 		long start = System.currentTimeMillis();
 		int returnCode = -1;
 
+<<<<<<< HEAD
 		while (true) {
 			try {
 				returnCode = process.exitValue();
@@ -294,12 +318,40 @@ public class JenkinsResultsParserUtil {
 
 				sleep(100);
 			}
+=======
+		sleep(25);
+
+		while ((returnCode == -1) && (duration < timeout)) {
+			duration = System.currentTimeMillis() - start;
+
+			try {
+				returnCode = process.exitValue();
+			}
+			catch (IllegalThreadStateException itse) {
+				returnCode = -1;
+			}
+
+			sleep(100);
+		}
+
+		if (returnCode == -1) {
+			process.destroy();
+
+			throw new RuntimeException(
+				combine(
+					"Timeout occurred while executing bash commands: ",
+					bashCommands[2]));
+>>>>>>> compatible
 		}
 
 		if (debug) {
 			InputStream inputStream = process.getInputStream();
 
+<<<<<<< HEAD
 			inputStream.mark(Integer.MAX_VALUE);
+=======
+			inputStream.mark(inputStream.available());
+>>>>>>> compatible
 
 			System.out.println(
 				"Output stream: " + readInputStream(inputStream));
@@ -310,7 +362,11 @@ public class JenkinsResultsParserUtil {
 		if (debug && (returnCode != 0)) {
 			InputStream inputStream = process.getErrorStream();
 
+<<<<<<< HEAD
 			inputStream.mark(Integer.MAX_VALUE);
+=======
+			inputStream.mark(inputStream.available());
+>>>>>>> compatible
 
 			System.out.println("Error stream: " + readInputStream(inputStream));
 
@@ -322,7 +378,11 @@ public class JenkinsResultsParserUtil {
 
 	public static Process executeBashCommands(
 			boolean exitOnFirstFail, String... commands)
+<<<<<<< HEAD
 		throws InterruptedException, IOException, TimeoutException {
+=======
+		throws InterruptedException, IOException {
+>>>>>>> compatible
 
 		return executeBashCommands(
 			exitOnFirstFail, new File("."), _BASH_COMMAND_TIMEOUT_DEFAULT,
@@ -330,12 +390,17 @@ public class JenkinsResultsParserUtil {
 	}
 
 	public static Process executeBashCommands(String... commands)
+<<<<<<< HEAD
 		throws InterruptedException, IOException, TimeoutException {
+=======
+		throws InterruptedException, IOException {
+>>>>>>> compatible
 
 		return executeBashCommands(
 			true, new File("."), _BASH_COMMAND_TIMEOUT_DEFAULT, commands);
 	}
 
+<<<<<<< HEAD
 	public static void executeJenkinsScript(
 		String jenkinsMasterName, String script) {
 
@@ -384,6 +449,8 @@ public class JenkinsResultsParserUtil {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	public static String expandSlaveRange(String value) {
 		StringBuilder sb = new StringBuilder();
 
@@ -478,7 +545,10 @@ public class JenkinsResultsParserUtil {
 	}
 
 	public static String fixURL(String url) {
+<<<<<<< HEAD
 		url = url.replace("#", "%23");
+=======
+>>>>>>> compatible
 		url = url.replace("(", "%28");
 		url = url.replace(")", "%29");
 		url = url.replace("[", "%5B");
@@ -544,6 +614,7 @@ public class JenkinsResultsParserUtil {
 		return "";
 	}
 
+<<<<<<< HEAD
 	public static String getAxisVariable(String axisBuildURL) {
 		String url = null;
 
@@ -553,6 +624,10 @@ public class JenkinsResultsParserUtil {
 		catch (UnsupportedEncodingException uee) {
 			throw new RuntimeException("Unable to encode " + axisBuildURL);
 		}
+=======
+	public static String getAxisVariable(String axisBuildURL) throws Exception {
+		String url = decode(axisBuildURL);
+>>>>>>> compatible
 
 		String label = "AXIS_VARIABLE=";
 
@@ -590,6 +665,7 @@ public class JenkinsResultsParserUtil {
 		return properties;
 	}
 
+<<<<<<< HEAD
 	public static List<String> getBuildPropertyAsList(String key)
 		throws IOException {
 
@@ -604,6 +680,8 @@ public class JenkinsResultsParserUtil {
 		return Arrays.asList(propertyContent.split(","));
 	}
 
+=======
+>>>>>>> compatible
 	public static String getHostName(String defaultHostName) {
 		try {
 			InetAddress inetAddress = InetAddress.getLocalHost();
@@ -761,6 +839,7 @@ public class JenkinsResultsParserUtil {
 			JenkinsMaster randomJenkinsMaster = availableJenkinsMasters.get(
 				random.nextInt(availableJenkinsMasters.size()));
 
+<<<<<<< HEAD
 			return "http://" + randomJenkinsMaster.getName();
 		}
 	}
@@ -780,6 +859,10 @@ public class JenkinsResultsParserUtil {
 		}
 
 		return threadPoolExecutor;
+=======
+			return "http://" + randomJenkinsMaster.getMasterName();
+		}
+>>>>>>> compatible
 	}
 
 	public static String getNounForm(
@@ -792,6 +875,7 @@ public class JenkinsResultsParserUtil {
 		return plural;
 	}
 
+<<<<<<< HEAD
 	public static String getPathRelativeTo(File file, File relativeToFile) {
 		try {
 			String filePath = file.getCanonicalPath();
@@ -804,6 +888,8 @@ public class JenkinsResultsParserUtil {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	public static List<String> getRandomList(List<String> list, int size) {
 		if (list.size() < size) {
 			throw new IllegalStateException(
@@ -863,6 +949,7 @@ public class JenkinsResultsParserUtil {
 		return sb.toString();
 	}
 
+<<<<<<< HEAD
 	public static String getResourceFileContent(String resourceName)
 		throws IOException {
 
@@ -874,6 +961,8 @@ public class JenkinsResultsParserUtil {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	public static List<String> getSlaves(
 		Properties buildProperties, String jenkinsMasterPatternString) {
 
@@ -985,7 +1074,11 @@ public class JenkinsResultsParserUtil {
 
 	public static void sendEmail(
 			String body, String from, String subject, String to)
+<<<<<<< HEAD
 		throws InterruptedException, IOException, TimeoutException {
+=======
+		throws InterruptedException, IOException {
+>>>>>>> compatible
 
 		File file = new File("/tmp/" + body.hashCode() + ".txt");
 
@@ -1033,6 +1126,7 @@ public class JenkinsResultsParserUtil {
 		}
 	}
 
+<<<<<<< HEAD
 	public static String toDateString(Date date, String timeZoneName) {
 		return toDateString(date, "MMM dd, yyyy h:mm:ss a z", timeZoneName);
 	}
@@ -1049,6 +1143,8 @@ public class JenkinsResultsParserUtil {
 		return sdf.format(date);
 	}
 
+=======
+>>>>>>> compatible
 	public static String toDurationString(long duration) {
 		StringBuilder sb = new StringBuilder();
 
@@ -1340,6 +1436,21 @@ public class JenkinsResultsParserUtil {
 			_RETRY_PERIOD_DEFAULT, _TIMEOUT_DEFAULT);
 	}
 
+<<<<<<< HEAD
+=======
+	public static void turnSlavesOff(
+		String jenkinsMasterName, String... slaveNames) {
+
+		_setSlaveStatus(jenkinsMasterName, true, slaveNames);
+	}
+
+	public static void turnSlavesOn(
+		String jenkinsMasterName, String... slaveNames) {
+
+		_setSlaveStatus(jenkinsMasterName, false, slaveNames);
+	}
+
+>>>>>>> compatible
 	public static void write(File file, String content) throws IOException {
 		if (debug) {
 			System.out.println(
@@ -1373,7 +1484,11 @@ public class JenkinsResultsParserUtil {
 
 	protected static final String DEPENDENCIES_URL_HTTP =
 		"http://mirrors-no-cache.lax.liferay.com/github.com/liferay" +
+<<<<<<< HEAD
 			"/liferay-jenkins-results-parser-samples-ee/1/";
+=======
+			"/liferay-jenkins-results-parser-samples-ee/2/";
+>>>>>>> compatible
 
 	static {
 		File dependenciesDir = new File("src/test/resources/dependencies/");
@@ -1414,10 +1529,87 @@ public class JenkinsResultsParserUtil {
 		return duration;
 	}
 
+<<<<<<< HEAD
+=======
+	private static void _executeJenkinsScript(
+		String jenkinsMasterName, String script) {
+
+		try {
+			URL urlObject = new URL(
+				fixURL(getLocalURL("http://" + jenkinsMasterName + "/script")));
+
+			HttpURLConnection httpURLConnection =
+				(HttpURLConnection)urlObject.openConnection();
+
+			httpURLConnection.setDoOutput(true);
+			httpURLConnection.setRequestMethod("POST");
+
+			Properties buildProperties = getBuildProperties();
+
+			String authorizationString =
+				buildProperties.getProperty("jenkins.admin.user.name") + ":" +
+					buildProperties.getProperty("jenkins.admin.user.token");
+
+			String encodedAuthorizationString = Base64.encodeBase64String(
+				authorizationString.getBytes());
+
+			httpURLConnection.setRequestProperty(
+				"Authorization", "Basic " + encodedAuthorizationString);
+
+			try (OutputStream outputStream =
+					httpURLConnection.getOutputStream()) {
+
+				outputStream.write(script.getBytes("UTF-8"));
+
+				outputStream.flush();
+			}
+
+			httpURLConnection.connect();
+
+			System.out.println(
+				"Response from " + urlObject + ": " +
+					httpURLConnection.getResponseCode() + " " +
+						httpURLConnection.getResponseMessage());
+		}
+		catch (IOException ioe) {
+			System.out.println("Unable to execute Jenkins script");
+		}
+	}
+
+>>>>>>> compatible
 	private static String _getRedactTokenKey(int index) {
 		return "github.message.redact.token[" + index + "]";
 	}
 
+<<<<<<< HEAD
+=======
+	private static void _setSlaveStatus(
+		String jenkinsMasterName, boolean offlineStatus, String... slaveNames) {
+
+		try {
+			String script = "script=";
+
+			Class<?> clazz = JenkinsResultsParserUtil.class;
+
+			script += readInputStream(
+				clazz.getResourceAsStream(
+					"dependencies/set-slave-status.groovy"));
+
+			script = script.replace("${slaves}", merge(slaveNames));
+			script = script.replace(
+				"${offline.status}", String.valueOf(offlineStatus));
+
+			_executeJenkinsScript(jenkinsMasterName, script);
+		}
+		catch (IOException ioe) {
+			System.out.println(
+				"Unable to set the status for slaves: " + slaveNames);
+
+			ioe.printStackTrace();
+		}
+	}
+
+>>>>>>> compatible
 	private static final long _BASH_COMMAND_TIMEOUT_DEFAULT = 1000 * 60 * 60;
 
 	private static final String _LOAD_BALANCER_SERVICE_URL_TEMPLATE = combine(
@@ -1464,8 +1656,13 @@ public class JenkinsResultsParserUtil {
 	static {
 		System.out.println("Securing standard error and out");
 
+<<<<<<< HEAD
 		System.setErr(new SecurePrintStream(System.err));
 		System.setOut(new SecurePrintStream(System.out));
+=======
+		System.setErr(SecurePrintStream.getInstance());
+		System.setOut(SecurePrintStream.getInstance());
+>>>>>>> compatible
 	}
 
 }

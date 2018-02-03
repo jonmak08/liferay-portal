@@ -17,6 +17,10 @@ package com.liferay.portal.comment.display.context;
 import com.liferay.portal.comment.display.context.util.DiscussionRequestHelper;
 import com.liferay.portal.comment.display.context.util.DiscussionTaglibHelper;
 import com.liferay.portal.kernel.comment.Discussion;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.comment.DiscussionComment;
+>>>>>>> compatible
 import com.liferay.portal.kernel.comment.DiscussionPermission;
 import com.liferay.portal.kernel.comment.display.context.CommentSectionDisplayContext;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -36,7 +40,17 @@ public class DefaultCommentSectionDisplayContext
 		_discussionRequestHelper = discussionRequestHelper;
 		_discussionTaglibHelper = discussionTaglibHelper;
 		_discussionPermission = discussionPermission;
+<<<<<<< HEAD
 		_discussion = discussion;
+=======
+
+		if (discussion == null) {
+			_rootDiscussionComment = null;
+		}
+		else {
+			_rootDiscussionComment = discussion.getRootDiscussionComment();
+		}
+>>>>>>> compatible
 	}
 
 	@Override
@@ -56,11 +70,19 @@ public class DefaultCommentSectionDisplayContext
 
 	@Override
 	public boolean isDiscussionVisible() throws PortalException {
+<<<<<<< HEAD
 		if (_discussion == null) {
 			return false;
 		}
 
 		if ((_discussion.getDiscussionCommentsCount() > 0) ||
+=======
+		if (_rootDiscussionComment == null) {
+			return false;
+		}
+
+		if ((_rootDiscussionComment.getThreadCommentsCount() > 0) ||
+>>>>>>> compatible
 			hasViewPermission()) {
 
 			return true;
@@ -71,8 +93,13 @@ public class DefaultCommentSectionDisplayContext
 
 	@Override
 	public boolean isMessageThreadVisible() {
+<<<<<<< HEAD
 		if ((_discussion != null) &&
 			(_discussion.getDiscussionCommentsCount() > 0)) {
+=======
+		if ((_rootDiscussionComment != null) &&
+			(_rootDiscussionComment.getThreadCommentsCount() > 0)) {
+>>>>>>> compatible
 
 			return true;
 		}
@@ -93,9 +120,16 @@ public class DefaultCommentSectionDisplayContext
 			_discussionTaglibHelper.getClassPK());
 	}
 
+<<<<<<< HEAD
 	private final Discussion _discussion;
 	private final DiscussionPermission _discussionPermission;
 	private final DiscussionRequestHelper _discussionRequestHelper;
 	private final DiscussionTaglibHelper _discussionTaglibHelper;
+=======
+	private final DiscussionPermission _discussionPermission;
+	private final DiscussionRequestHelper _discussionRequestHelper;
+	private final DiscussionTaglibHelper _discussionTaglibHelper;
+	private final DiscussionComment _rootDiscussionComment;
+>>>>>>> compatible
 
 }

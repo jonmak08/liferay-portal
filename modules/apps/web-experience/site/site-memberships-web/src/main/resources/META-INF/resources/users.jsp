@@ -74,10 +74,16 @@ List<User> users = UserLocalServiceUtil.search(company.getCompanyId(), searchTer
 userSearch.setResults(users);
 %>
 
+<<<<<<< HEAD
 <clay:navigation-bar
 	inverted="<%= true %>"
 	items="<%= siteMembershipsDisplayContext.getViewNavigationItems() %>"
 />
+=======
+<liferay-util:include page="/navigation_bar.jsp" servletContext="<%= application %>">
+	<liferay-util:param name="searchEnabled" value="<%= String.valueOf((usersCount > 0) || searchTerms.isSearch()) %>" />
+</liferay-util:include>
+>>>>>>> compatible
 
 <liferay-frontend:management-bar
 	disabled='<%= (usersCount <= 0) && Objects.equals(navigation, "all") %>'
@@ -133,6 +139,7 @@ userSearch.setResults(users);
 			orderColumns='<%= new String[] {"first-name", "screen-name"} %>'
 			portletURL="<%= PortletURLUtil.clone(viewUsersURL, renderResponse) %>"
 		/>
+<<<<<<< HEAD
 
 		<c:if test="<%= (usersCount > 0) || searchTerms.isSearch() %>">
 			<li>
@@ -141,6 +148,8 @@ userSearch.setResults(users);
 				</aui:form>
 			</li>
 		</c:if>
+=======
+>>>>>>> compatible
 	</liferay-frontend:management-bar-filters>
 
 	<liferay-frontend:management-bar-action-buttons>
@@ -346,7 +355,11 @@ userSearch.setResults(users);
 					},
 					eventName: '<portlet:namespace />selectSiteRole',
 					title: '<liferay-ui:message key="select-site-role" />',
+<<<<<<< HEAD
 					uri: '<portlet:renderURL windowState="<%= LiferayWindowState.POP_UP.toString() %>"><portlet:param name="mvcPath" value="/select_site_role.jsp" /><portlet:param name="groupId" value="<%= String.valueOf(siteMembershipsDisplayContext.getGroupId()) %>" /></portlet:renderURL>'
+=======
+					uri: '<portlet:renderURL windowState="<%= LiferayWindowState.POP_UP.toString() %>"><portlet:param name="mvcPath" value="/select_site_role.jsp" /></portlet:renderURL>'
+>>>>>>> compatible
 				},
 				function(event) {
 					var uri = '<%= viewRoleURL %>';

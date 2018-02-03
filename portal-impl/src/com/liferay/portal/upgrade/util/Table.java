@@ -81,9 +81,14 @@ public class Table {
 
 		if (value == null) {
 			throw new UpgradeException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Nulls should never be inserted into the database. ",
 					"Attempted to append column to ", sb.toString(), "."));
+=======
+				"Nulls should never be inserted into the database. Attempted " +
+					"to append column to " + sb.toString() + ".");
+>>>>>>> compatible
 		}
 		else if (value instanceof byte[]) {
 			sb.append(Base64.encode((byte[])value));
@@ -202,9 +207,14 @@ public class Table {
 
 			if (_log.isInfoEnabled()) {
 				_log.info(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Finished backup of ", _tableName, " to ", tempFileName,
 						" in ", String.valueOf(stopWatch.getTime()), " ms"));
+=======
+					"Finished backup of " + _tableName + " to " + tempFileName +
+						" in " + stopWatch.getTime() + " ms");
+>>>>>>> compatible
 			}
 		}
 		catch (Exception e) {
@@ -409,6 +419,7 @@ public class Table {
 							new UnsyncBufferedReader(reader)) {
 
 						StringBundler sb = new StringBundler();
+<<<<<<< HEAD
 
 						String line = null;
 
@@ -419,6 +430,18 @@ public class Table {
 								sb.append(_SAFE_TABLE_NEWLINE_CHARACTER);
 							}
 
+=======
+
+						String line = null;
+
+						while ((line =
+									unsyncBufferedReader.readLine()) != null) {
+
+							if (sb.length() != 0) {
+								sb.append(_SAFE_TABLE_NEWLINE_CHARACTER);
+							}
+
+>>>>>>> compatible
 							sb.append(line);
 						}
 
@@ -507,9 +530,14 @@ public class Table {
 
 				if (values.length != columns.length) {
 					throw new UpgradeException(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"Column lengths differ between temp file and ",
 							"schema. Attempted to insert row ", line, "."));
+=======
+						"Column lengths differ between temp file and schema. " +
+							"Attempted to insert row " + line + ".");
+>>>>>>> compatible
 				}
 
 				int[] order = getOrder();

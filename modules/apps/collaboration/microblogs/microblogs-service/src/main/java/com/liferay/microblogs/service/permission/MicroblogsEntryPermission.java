@@ -15,6 +15,7 @@
 package com.liferay.microblogs.service.permission;
 
 import com.liferay.microblogs.model.MicroblogsEntry;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermission;
@@ -28,6 +29,18 @@ import org.osgi.service.component.annotations.Reference;
  */
 @Component(immediate = true)
 @Deprecated
+=======
+import com.liferay.microblogs.service.MicroblogsEntryLocalServiceUtil;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.security.auth.PrincipalException;
+import com.liferay.portal.kernel.security.permission.ActionKeys;
+import com.liferay.portal.kernel.security.permission.PermissionChecker;
+import com.liferay.social.kernel.service.SocialRelationLocalServiceUtil;
+
+/**
+ * @author Jonathan Lee
+ */
+>>>>>>> compatible
 public class MicroblogsEntryPermission {
 
 	public static void check(
@@ -35,8 +48,14 @@ public class MicroblogsEntryPermission {
 			String actionId)
 		throws PortalException {
 
+<<<<<<< HEAD
 		_microblogsEntryModelResourcePermission.check(
 			permissionChecker, microblogsEntryId, actionId);
+=======
+		if (!contains(permissionChecker, microblogsEntryId, actionId)) {
+			throw new PrincipalException();
+		}
+>>>>>>> compatible
 	}
 
 	public static void check(
@@ -44,8 +63,14 @@ public class MicroblogsEntryPermission {
 			MicroblogsEntry microblogsEntry, String actionId)
 		throws PortalException {
 
+<<<<<<< HEAD
 		_microblogsEntryModelResourcePermission.check(
 			permissionChecker, microblogsEntry, actionId);
+=======
+		if (!contains(permissionChecker, microblogsEntry, actionId)) {
+			throw new PrincipalException();
+		}
+>>>>>>> compatible
 	}
 
 	public static boolean contains(
@@ -53,6 +78,7 @@ public class MicroblogsEntryPermission {
 			String actionId)
 		throws PortalException {
 
+<<<<<<< HEAD
 		return _microblogsEntryModelResourcePermission.contains(
 			permissionChecker, microblogsEntryId, actionId);
 	}
@@ -78,5 +104,55 @@ public class MicroblogsEntryPermission {
 
 	private static ModelResourcePermission<MicroblogsEntry>
 		_microblogsEntryModelResourcePermission;
+=======
+		MicroblogsEntry microblogsEntry =
+			MicroblogsEntryLocalServiceUtil.getMicroblogsEntry(
+				microblogsEntryId);
+
+		return contains(permissionChecker, microblogsEntry, actionId);
+	}
+
+	public static boolean contains(
+		PermissionChecker permissionChecker, MicroblogsEntry microblogsEntry,
+		String actionId) {
+
+		if (actionId.equals(ActionKeys.DELETE) ||
+			actionId.equals(ActionKeys.UPDATE)) {
+
+			if (permissionChecker.hasOwnerPermission(
+					microblogsEntry.getCompanyId(),
+					MicroblogsEntry.class.getName(),
+					microblogsEntry.getMicroblogsEntryId(),
+					microblogsEntry.getUserId(), actionId)) {
+
+				return true;
+			}
+
+			return false;
+		}
+
+		if (permissionChecker.hasOwnerPermission(
+				microblogsEntry.getCompanyId(), MicroblogsEntry.class.getName(),
+				microblogsEntry.getMicroblogsEntryId(),
+				microblogsEntry.getUserId(), actionId)) {
+
+			return true;
+		}
+
+		if (microblogsEntry.getSocialRelationType() == 0) {
+			return true;
+		}
+
+		if ((microblogsEntry.getUserId() != permissionChecker.getUserId()) &&
+			SocialRelationLocalServiceUtil.hasRelation(
+				permissionChecker.getUserId(), microblogsEntry.getUserId(),
+				microblogsEntry.getSocialRelationType())) {
+
+			return true;
+		}
+
+		return false;
+	}
+>>>>>>> compatible
 
 }

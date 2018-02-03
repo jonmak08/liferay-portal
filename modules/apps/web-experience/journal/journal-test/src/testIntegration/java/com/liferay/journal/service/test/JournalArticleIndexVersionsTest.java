@@ -34,6 +34,11 @@ import com.liferay.portal.kernel.service.PortalPreferencesLocalServiceUtil;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.SearchContextTestUtil;
 import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
@@ -57,12 +62,22 @@ import org.junit.runner.RunWith;
  * @author Eudaldo Alonso
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class JournalArticleIndexVersionsTest {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Before
 	public void setUp() throws Exception {
@@ -81,22 +96,38 @@ public class JournalArticleIndexVersionsTest {
 
 		ServiceTestUtil.setUser(user);
 
+<<<<<<< HEAD
 		PortalPreferences portalPreferences =
+=======
+		PortalPreferences portalPreferenceces =
+>>>>>>> compatible
 			PortletPreferencesFactoryUtil.getPortalPreferences(
 				TestPropsValues.getUserId(), true);
 
 		_originalPortalPreferencesXML = PortletPreferencesFactoryUtil.toXML(
+<<<<<<< HEAD
 			portalPreferences);
 
 		portalPreferences.setValue(
 			"", "expireAllArticleVersionsEnabled", "true");
 		portalPreferences.setValue(
+=======
+			portalPreferenceces);
+
+		portalPreferenceces.setValue(
+			"", "expireAllArticleVersionsEnabled", "true");
+		portalPreferenceces.setValue(
+>>>>>>> compatible
 			"", "indexAllArticleVersionsEnabled", "false");
 
 		PortalPreferencesLocalServiceUtil.updatePreferences(
 			TestPropsValues.getCompanyId(),
 			PortletKeys.PREFS_OWNER_TYPE_COMPANY,
+<<<<<<< HEAD
 			PortletPreferencesFactoryUtil.toXML(portalPreferences));
+=======
+			PortletPreferencesFactoryUtil.toXML(portalPreferenceces));
+>>>>>>> compatible
 	}
 
 	@After

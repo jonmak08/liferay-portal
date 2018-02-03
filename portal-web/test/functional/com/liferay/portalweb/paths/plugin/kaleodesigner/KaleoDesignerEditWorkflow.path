@@ -149,11 +149,14 @@
 <tr>
 	<td>SETTINGS_TYPE</td>
 	<td>//td[contains(@class,'table-col-name') and contains(.,'Type')]//following-sibling::td[contains(@class,'table-col-value')]</td>
+<<<<<<< HEAD
 	<td></td>
 </tr>
 <tr>
 	<td>SETTINGS_TIMERS</td>
 	<td>//td[contains(@class,'table-col-name') and contains(.,'Timers')]//following-sibling::td[contains(@class,'table-col-value')]</td>
+=======
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -264,7 +267,11 @@
 </tr>
 <tr>
 	<td>SETTINGS_CELL_EDITOR_NOTIFICATION_TYPE_SELECT</td>
+<<<<<<< HEAD
 	<td>//select[contains(@name,'notificationType')]</td>
+=======
+	<td>//select[@name='notificationType']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>

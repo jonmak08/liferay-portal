@@ -126,8 +126,12 @@ public interface KaleoLogLocalService extends BaseLocalService,
 
 	public void deleteCompanyKaleoLogs(long companyId);
 
+<<<<<<< HEAD
 	public void deleteKaleoDefinitionVersionKaleoLogs(
 		long kaleoDefinitionVersionId);
+=======
+	public void deleteKaleoDefinitionKaleoLogs(long kaleoDefinitionId);
+>>>>>>> compatible
 
 	public void deleteKaleoInstanceKaleoLogs(long kaleoInstanceId);
 

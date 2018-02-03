@@ -14,14 +14,21 @@
 
 package com.liferay.staging.security.internal.permission;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.staging.StagingUtil;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.security.permission.UserBag;
 import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.service.PersistedModelLocalServiceRegistry;
+>>>>>>> compatible
 
 import java.util.List;
 import java.util.Map;
@@ -29,16 +36,33 @@ import java.util.Map;
 /**
  * @author Tomas Polesovsky
  */
+<<<<<<< HEAD
 @ProviderType
 public class StagingPermissionChecker implements PermissionChecker {
 
 	public StagingPermissionChecker(PermissionChecker permissionChecker) {
 		_permissionChecker = permissionChecker;
+=======
+public class StagingPermissionChecker implements PermissionChecker {
+
+	public StagingPermissionChecker(
+		PermissionChecker permissionChecker,
+		PersistedModelLocalServiceRegistry persistedModelLocalServiceRegistry) {
+
+		_permissionChecker = permissionChecker;
+		_persistedModelLocalServiceRegistry =
+			persistedModelLocalServiceRegistry;
+>>>>>>> compatible
 	}
 
 	@Override
 	public PermissionChecker clone() {
+<<<<<<< HEAD
 		return new StagingPermissionChecker(_permissionChecker.clone());
+=======
+		return new StagingPermissionChecker(
+			_permissionChecker.clone(), _persistedModelLocalServiceRegistry);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -122,6 +146,17 @@ public class StagingPermissionChecker implements PermissionChecker {
 	public boolean hasPermission(
 		Group group, String name, long primKey, String actionId) {
 
+<<<<<<< HEAD
+=======
+		if ((group == null) ||
+			_persistedModelLocalServiceRegistry.isPermissionedModelLocalService(
+				name)) {
+
+			return _permissionChecker.hasPermission(
+				group, name, primKey, actionId);
+		}
+
+>>>>>>> compatible
 		Group liveGroup = StagingUtil.getLiveGroup(group);
 
 		if (liveGroup != group) {
@@ -138,6 +173,17 @@ public class StagingPermissionChecker implements PermissionChecker {
 	public boolean hasPermission(
 		Group group, String name, String primKey, String actionId) {
 
+<<<<<<< HEAD
+=======
+		if ((group == null) ||
+			_persistedModelLocalServiceRegistry.isPermissionedModelLocalService(
+				name)) {
+
+			return _permissionChecker.hasPermission(
+				group, name, primKey, actionId);
+		}
+
+>>>>>>> compatible
 		Group liveGroup = StagingUtil.getLiveGroup(group);
 
 		if (liveGroup != group) {
@@ -235,5 +281,10 @@ public class StagingPermissionChecker implements PermissionChecker {
 	}
 
 	private final PermissionChecker _permissionChecker;
+<<<<<<< HEAD
+=======
+	private final PersistedModelLocalServiceRegistry
+		_persistedModelLocalServiceRegistry;
+>>>>>>> compatible
 
 }

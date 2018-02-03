@@ -44,7 +44,11 @@ long[] classNameIdValues = StringUtil.split(ParamUtil.getString(request, "classN
 
 			// Left list
 
+<<<<<<< HEAD
 			MethodKey methodKey = new MethodKey(ClassResolverUtil.resolve("com.liferay.portal.kernel.security.permission.ResourceActionsUtil", PortalClassLoaderUtil.getClassLoader()), "getModelResource", HttpServletRequest.class, String.class);
+=======
+			MethodKey methodKey = new MethodKey(ClassResolverUtil.resolveByPortalClassLoader("com.liferay.portal.kernel.security.permission.ResourceActionsUtil"), "getModelResource", HttpServletRequest.class, String.class);
+>>>>>>> compatible
 
 			List<KeyValuePair> leftList = new ArrayList<KeyValuePair>();
 

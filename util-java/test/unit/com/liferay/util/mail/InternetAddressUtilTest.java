@@ -26,8 +26,11 @@ import org.junit.Test;
 /**
  * @author Miguel Pastor
  * @see    com.liferay.petra.mail.InternetAddressUtilTest
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, replaced by {@link
  *             com.liferay.petra.mail.InternetAddressUtilTest}
+=======
+>>>>>>> compatible
  */
 @Deprecated
 public class InternetAddressUtilTest {

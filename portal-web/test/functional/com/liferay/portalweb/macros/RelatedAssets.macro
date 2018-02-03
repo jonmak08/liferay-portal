@@ -1,6 +1,7 @@
 <definition>
 	<command name="_selectAssetType">
 		<var name="key_assetType" value="${assetType}" />
+<<<<<<< HEAD
 
 		<execute function="AssertClick" locator1="AssetRelatedAssets#RELATED_ASSETS_SELECT" value1="Select" />
 
@@ -11,6 +12,102 @@
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="${assetType}">
 			<var name="key_menuItem" value="${assetType}" />
 		</execute>
+	</command>
+
+	<command name="gotoBookmarksSelectionPG">
+		<execute macro="Portlet#clickPortletPlusIconPG">
+			<var name="portletName" value="Bookmarks" />
+		</execute>
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Bookmark">
+			<var name="key_menuItem" value="Bookmark" />
+		</execute>
+
+		<execute macro="Panel#expandPanel">
+			<var name="panelHeading" value="Related Assets" />
+		</execute>
+
+		<execute function="AssertClick" locator1="AssetRelatedAssets#RELATED_ASSETS_SELECT" value1="Select" />
+=======
+
+		<execute function="AssertClick" locator1="AssetRelatedAssets#RELATED_ASSETS_SELECT" value1="Select" />
+
+		<var method="StringUtil#replace('${assetType}', ' ', '_')" name="assetTypeLocator" />
+
+		<var method="StringUtil#upperCase('${assetTypeLocator}')" name="assetTypeLocator" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="${assetType}">
+			<var name="key_menuItem" value="${assetType}" />
+		</execute>
+	</command>
+
+	<command name="configureFilterByCategories">
+		<execute macro="Portlet#gotoPortletOptions">
+			<var name="portletName" value="Related Assets" />
+			<var name="portletName" value="${portletName}" />
+			<var name="portletOption" value="Configuration" />
+		</execute>
+
+		<execute function="SelectFrame" locator1="IFrame#DIALOG" />
+
+		<execute macro="Panel#expandPanel">
+			<var name="panelHeading" value="Filter" />
+		</execute>
+
+		<execute function="Select" locator1="RelatedassetsConfiguration#FILTER_SELECT" value1="Categories" />
+
+		<execute function="Click" locator1="Button#SELECT_CATEGORIES" />
+
+		<execute function="SelectFrameTop" />
+
+		<var name="key_categoryName" value="${categoryName}" />
+
+		<execute function="Click" locator1="RelatedassetsConfiguration#CATEGORIES_WINDOW_CATEGORY_CHECKBOX" />
+
+		<execute function="Click" locator1="Icon#CLOSE" />
+
+		<execute function="SelectFrameTop" />
+
+		<execute function="SelectFrame" locator1="IFrame#DIALOG" />
+>>>>>>> compatible
+
+		<execute function="AssertTextEquals" locator1="RelatedassetsConfiguration#CATEGORY" value1="${categoryName}" />
+
+<<<<<<< HEAD
+		<execute function="AssertClick" locator1="AssetRelatedAssets#RELATED_ASSETS_SELECT_MENULIST_ASSET" value1="${assetType}" />
+	</command>
+
+	<command name="gotoWebContentSelectionCP">
+		<execute macro="WebContentNavigator#gotoAddCP" />
+
+		<execute macro="Panel#expandPanel">
+			<var name="panelHeading" value="Related Assets" />
+		</execute>
+
+		<execute macro="RelatedAssets#_selectAssetType">
+			<var name="assetType" value="${assetType}" />
+		</execute>
+	</command>
+
+	<command name="selectAsset">
+		<execute macro="RelatedAssets#_selectAssetType">
+			<var name="assetType" value="${assetType}" />
+		</execute>
+
+		<execute function="SelectFrame" value1="relative=top" />
+
+		<execute function="SelectFrame" locator1="IFrame#DIALOG" />
+
+		<var name="key_assetTitle" value="${assetTitle}" />
+
+		<execute function="AssertClick" locator1="AssetRelatedAssets#ASSET_TABLE_CHOOSE" value1="${assetTitle}" />
+
+=======
+		<execute macro="Button#clickSave" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+
+		<execute function="SelectFrameTop" />
 	</command>
 
 	<command name="gotoBookmarksSelectionPG">
@@ -58,6 +155,7 @@
 
 		<execute function="AssertClick" locator1="AssetRelatedAssets#ASSET_TABLE_CHOOSE" value1="${assetTitle}" />
 
+>>>>>>> compatible
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
 
@@ -85,5 +183,9 @@
 		</if>
 
 		<execute function="AssertTextEquals" locator1="Relatedassets#ASSET_TITLE_1" value1="${assetTitle}" />
+<<<<<<< HEAD
+=======
+		<execute function="AssertElementPresent" locator1="Relatedassets#ASSET_EDIT_1" />
+>>>>>>> compatible
 	</command>
 </definition>

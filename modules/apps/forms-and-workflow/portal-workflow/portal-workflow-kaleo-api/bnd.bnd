@@ -1,12 +1,20 @@
 Bundle-Name: Liferay Portal Workflow Kaleo API
 Bundle-SymbolicName: com.liferay.portal.workflow.kaleo.api
+<<<<<<< HEAD
 Bundle-Version: 3.0.0
+=======
+Bundle-Version: 2.1.3
+>>>>>>> compatible
 Export-Package:\
 	com.liferay.portal.workflow.kaleo,\
 	com.liferay.portal.workflow.kaleo.exception,\
 	com.liferay.portal.workflow.kaleo.model,\
 	com.liferay.portal.workflow.kaleo.service,\
+<<<<<<< HEAD
 	com.liferay.portal.workflow.kaleo.service.persistence,\
 	com.liferay.portal.workflow.kaleo.util.comparator
+=======
+	com.liferay.portal.workflow.kaleo.service.persistence
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Kaleo Workflow Engine

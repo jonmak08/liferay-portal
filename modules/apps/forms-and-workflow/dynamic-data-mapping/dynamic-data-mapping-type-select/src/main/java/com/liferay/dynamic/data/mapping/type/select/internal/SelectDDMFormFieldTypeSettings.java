@@ -20,14 +20,21 @@ import com.liferay.dynamic.data.mapping.annotations.DDMFormLayout;
 import com.liferay.dynamic.data.mapping.annotations.DDMFormLayoutColumn;
 import com.liferay.dynamic.data.mapping.annotations.DDMFormLayoutPage;
 import com.liferay.dynamic.data.mapping.annotations.DDMFormLayoutRow;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.annotations.DDMFormRule;
 import com.liferay.dynamic.data.mapping.form.field.type.DefaultDDMFormFieldTypeSettings;
 import com.liferay.dynamic.data.mapping.model.DDMFormFieldOptions;
 import com.liferay.dynamic.data.mapping.model.LocalizedValue;
+=======
+import com.liferay.dynamic.data.mapping.form.field.type.DefaultDDMFormFieldTypeSettings;
+import com.liferay.dynamic.data.mapping.model.DDMFormFieldOptions;
+import com.liferay.dynamic.data.mapping.model.DDMFormFieldValidation;
+>>>>>>> compatible
 
 /**
  * @author Marcellus Tavares
  */
+<<<<<<< HEAD
 @DDMForm(
 	rules = {
 		@DDMFormRule(
@@ -56,6 +63,14 @@ import com.liferay.dynamic.data.mapping.model.LocalizedValue;
 	value = {
 		@DDMFormLayoutPage(
 			title = "%basic",
+=======
+@DDMForm
+@DDMFormLayout(
+	paginationMode = com.liferay.dynamic.data.mapping.model.DDMFormLayout.SETTINGS_MODE,
+	value = {
+		@DDMFormLayoutPage(
+			title = "basic",
+>>>>>>> compatible
 			value = {
 				@DDMFormLayoutRow(
 					{
@@ -63,8 +78,12 @@ import com.liferay.dynamic.data.mapping.model.LocalizedValue;
 							size = 12,
 							value = {
 								"label", "tip", "required", "dataSourceType",
+<<<<<<< HEAD
 								"options", "ddmDataProviderInstanceId",
 								"ddmDataProviderInstanceOutput"
+=======
+								"options", "ddmDataProviderInstanceId"
+>>>>>>> compatible
 							}
 						)
 					}
@@ -72,7 +91,11 @@ import com.liferay.dynamic.data.mapping.model.LocalizedValue;
 			}
 		),
 		@DDMFormLayoutPage(
+<<<<<<< HEAD
 			title = "%properties",
+=======
+			title = "advanced",
+>>>>>>> compatible
 			value = {
 				@DDMFormLayoutRow(
 					{
@@ -96,13 +119,20 @@ public interface SelectDDMFormFieldTypeSettings
 
 	@DDMFormField(
 		label = "%create-list",
+<<<<<<< HEAD
 		optionLabels = {"%manually", "%from-data-provider", "%from-autofill"},
 		optionValues = {"manual", "data-provider", "from-autofill"},
 		predefinedValue = "manual", type = "radio"
+=======
+		optionLabels = {"%manually", "%from-data-provider"},
+		optionValues = {"manual", "data-provider"}, predefinedValue = "manual",
+		type = "radio"
+>>>>>>> compatible
 	)
 	public String dataSourceType();
 
 	@DDMFormField(
+<<<<<<< HEAD
 		label = "%choose-a-data-provider",
 		properties = {
 			"dataSourceType=data-provider",
@@ -125,10 +155,19 @@ public interface SelectDDMFormFieldTypeSettings
 		label = "%allow-multiple-selections",
 		properties = {"showAsSwitcher=true"}
 	)
+=======
+		label = "%choose-a-data-provider", type = "select",
+		visibilityExpression = "equals(dataSourceType, \"data-provider\")"
+	)
+	public long ddmDataProviderInstanceId();
+
+	@DDMFormField(label = "%multiple", properties = {"showAsSwitcher=true"})
+>>>>>>> compatible
 	public boolean multiple();
 
 	@DDMFormField(
 		dataType = "ddm-options", label = "%options",
+<<<<<<< HEAD
 		properties = {"showLabel=false"}, type = "options"
 	)
 	public DDMFormFieldOptions options();
@@ -143,5 +182,15 @@ public interface SelectDDMFormFieldTypeSettings
 	)
 	@Override
 	public LocalizedValue predefinedValue();
+=======
+		properties = {"showLabel=false"}, required = true, type = "options",
+		visibilityExpression = "equals(dataSourceType, \"manual\")"
+	)
+	public DDMFormFieldOptions options();
+
+	@DDMFormField(visibilityExpression = "FALSE")
+	@Override
+	public DDMFormFieldValidation validation();
+>>>>>>> compatible
 
 }

@@ -23,8 +23,11 @@ long groupId = BeanParamUtil.getLong(article, request, "groupId", scopeGroupId);
 
 Group group = GroupLocalServiceUtil.fetchGroup(groupId);
 
+<<<<<<< HEAD
 long classNameId = ParamUtil.getLong(request, "classNameId");
 
+=======
+>>>>>>> compatible
 boolean changeStructure = GetterUtil.getBoolean(request.getAttribute("edit_article.jsp-changeStructure"));
 %>
 
@@ -53,7 +56,11 @@ boolean changeStructure = GetterUtil.getBoolean(request.getAttribute("edit_artic
 			}
 
 			if (selLayout != null) {
+<<<<<<< HEAD
 				layoutBreadcrumb = journalDisplayContext.getLayoutBreadcrumb(selLayout);
+=======
+				layoutBreadcrumb = _getLayoutBreadcrumb(request, selLayout, locale);
+>>>>>>> compatible
 			}
 		}
 		%>
@@ -100,7 +107,11 @@ boolean changeStructure = GetterUtil.getBoolean(request.getAttribute("edit_artic
 			String urlViewInContext = assetRenderer.getURLViewInContext(liferayPortletRequest, liferayPortletResponse, currentURL);
 			%>
 
+<<<<<<< HEAD
 			<c:if test="<%= !article.isNew() && (classNameId == JournalArticleConstants.CLASSNAME_ID_DEFAULT) && Validator.isNotNull(urlViewInContext) %>">
+=======
+			<c:if test="<%= Validator.isNotNull(urlViewInContext) %>">
+>>>>>>> compatible
 				<aui:a href="<%= urlViewInContext %>" target="blank">
 					<liferay-ui:message arguments="<%= HtmlUtil.escape(defaultDisplayLayout.getName(locale)) %>" key="view-content-in-x" translateArguments="<%= false %>" />
 				</aui:a>
@@ -123,8 +134,11 @@ boolean changeStructure = GetterUtil.getBoolean(request.getAttribute("edit_artic
 		layoutItemSelectorCriterion.setDesiredItemSelectorReturnTypes(desiredItemSelectorReturnTypes);
 
 		PortletURL itemSelectorURL = itemSelector.getItemSelectorURL(RequestBackedPortletURLFactoryUtil.create(liferayPortletRequest), eventName, layoutItemSelectorCriterion);
+<<<<<<< HEAD
 
 		itemSelectorURL.setParameter("layoutUuid", layoutUuid);
+=======
+>>>>>>> compatible
 		%>
 
 		<aui:script use="liferay-item-selector-dialog">
@@ -144,9 +158,15 @@ boolean changeStructure = GetterUtil.getBoolean(request.getAttribute("edit_artic
 									var selectedItem = event.newVal;
 
 									if (selectedItem) {
+<<<<<<< HEAD
 										pagesContainerInput.val(selectedItem.id);
 
 										displayPageNameInput.html(selectedItem.name);
+=======
+										pagesContainerInput.val(selectedItem.value);
+
+										displayPageNameInput.html(selectedItem.layoutpath);
+>>>>>>> compatible
 
 										displayPageItemRemove.removeClass('hide');
 									}
@@ -174,4 +194,40 @@ boolean changeStructure = GetterUtil.getBoolean(request.getAttribute("edit_artic
 			);
 		</aui:script>
 	</c:otherwise>
+<<<<<<< HEAD
 </c:choose>
+=======
+</c:choose>
+
+<%!
+private String _getLayoutBreadcrumb(HttpServletRequest request, Layout layout, Locale locale) throws Exception {
+	List<Layout> ancestors = layout.getAncestors();
+
+	StringBundler sb = new StringBundler(4 * ancestors.size() + 5);
+
+	if (layout.isPrivateLayout()) {
+		sb.append(LanguageUtil.get(request, "private-pages"));
+	}
+	else {
+		sb.append(LanguageUtil.get(request, "public-pages"));
+	}
+
+	sb.append(StringPool.SPACE);
+	sb.append(StringPool.GREATER_THAN);
+	sb.append(StringPool.SPACE);
+
+	Collections.reverse(ancestors);
+
+	for (Layout ancestor : ancestors) {
+		sb.append(HtmlUtil.escape(ancestor.getName(locale)));
+		sb.append(StringPool.SPACE);
+		sb.append(StringPool.GREATER_THAN);
+		sb.append(StringPool.SPACE);
+	}
+
+	sb.append(HtmlUtil.escape(layout.getName(locale)));
+
+	return sb.toString();
+}
+%>
+>>>>>>> compatible

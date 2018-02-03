@@ -19,6 +19,10 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.workflow.kaleo.model.KaleoTimer;
 
 import java.io.Externalizable;
@@ -84,8 +88,13 @@ public class KaleoTimerCacheModel implements CacheModel<KaleoTimer>,
 		sb.append(kaleoClassName);
 		sb.append(", kaleoClassPK=");
 		sb.append(kaleoClassPK);
+<<<<<<< HEAD
 		sb.append(", kaleoDefinitionVersionId=");
 		sb.append(kaleoDefinitionVersionId);
+=======
+		sb.append(", kaleoDefinitionId=");
+		sb.append(kaleoDefinitionId);
+>>>>>>> compatible
 		sb.append(", name=");
 		sb.append(name);
 		sb.append(", blocking=");
@@ -115,7 +124,11 @@ public class KaleoTimerCacheModel implements CacheModel<KaleoTimer>,
 		kaleoTimerImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			kaleoTimerImpl.setUserName("");
+=======
+			kaleoTimerImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoTimerImpl.setUserName(userName);
@@ -136,17 +149,28 @@ public class KaleoTimerCacheModel implements CacheModel<KaleoTimer>,
 		}
 
 		if (kaleoClassName == null) {
+<<<<<<< HEAD
 			kaleoTimerImpl.setKaleoClassName("");
+=======
+			kaleoTimerImpl.setKaleoClassName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoTimerImpl.setKaleoClassName(kaleoClassName);
 		}
 
 		kaleoTimerImpl.setKaleoClassPK(kaleoClassPK);
+<<<<<<< HEAD
 		kaleoTimerImpl.setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
 
 		if (name == null) {
 			kaleoTimerImpl.setName("");
+=======
+		kaleoTimerImpl.setKaleoDefinitionId(kaleoDefinitionId);
+
+		if (name == null) {
+			kaleoTimerImpl.setName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoTimerImpl.setName(name);
@@ -155,7 +179,11 @@ public class KaleoTimerCacheModel implements CacheModel<KaleoTimer>,
 		kaleoTimerImpl.setBlocking(blocking);
 
 		if (description == null) {
+<<<<<<< HEAD
 			kaleoTimerImpl.setDescription("");
+=======
+			kaleoTimerImpl.setDescription(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoTimerImpl.setDescription(description);
@@ -164,7 +192,11 @@ public class KaleoTimerCacheModel implements CacheModel<KaleoTimer>,
 		kaleoTimerImpl.setDuration(duration);
 
 		if (scale == null) {
+<<<<<<< HEAD
 			kaleoTimerImpl.setScale("");
+=======
+			kaleoTimerImpl.setScale(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoTimerImpl.setScale(scale);
@@ -173,7 +205,11 @@ public class KaleoTimerCacheModel implements CacheModel<KaleoTimer>,
 		kaleoTimerImpl.setRecurrenceDuration(recurrenceDuration);
 
 		if (recurrenceScale == null) {
+<<<<<<< HEAD
 			kaleoTimerImpl.setRecurrenceScale("");
+=======
+			kaleoTimerImpl.setRecurrenceScale(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoTimerImpl.setRecurrenceScale(recurrenceScale);
@@ -200,7 +236,11 @@ public class KaleoTimerCacheModel implements CacheModel<KaleoTimer>,
 
 		kaleoClassPK = objectInput.readLong();
 
+<<<<<<< HEAD
 		kaleoDefinitionVersionId = objectInput.readLong();
+=======
+		kaleoDefinitionId = objectInput.readLong();
+>>>>>>> compatible
 		name = objectInput.readUTF();
 
 		blocking = objectInput.readBoolean();
@@ -225,7 +265,11 @@ public class KaleoTimerCacheModel implements CacheModel<KaleoTimer>,
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -235,7 +279,11 @@ public class KaleoTimerCacheModel implements CacheModel<KaleoTimer>,
 		objectOutput.writeLong(modifiedDate);
 
 		if (kaleoClassName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(kaleoClassName);
@@ -243,10 +291,17 @@ public class KaleoTimerCacheModel implements CacheModel<KaleoTimer>,
 
 		objectOutput.writeLong(kaleoClassPK);
 
+<<<<<<< HEAD
 		objectOutput.writeLong(kaleoDefinitionVersionId);
 
 		if (name == null) {
 			objectOutput.writeUTF("");
+=======
+		objectOutput.writeLong(kaleoDefinitionId);
+
+		if (name == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(name);
@@ -255,7 +310,11 @@ public class KaleoTimerCacheModel implements CacheModel<KaleoTimer>,
 		objectOutput.writeBoolean(blocking);
 
 		if (description == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(description);
@@ -264,7 +323,11 @@ public class KaleoTimerCacheModel implements CacheModel<KaleoTimer>,
 		objectOutput.writeDouble(duration);
 
 		if (scale == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(scale);
@@ -273,7 +336,11 @@ public class KaleoTimerCacheModel implements CacheModel<KaleoTimer>,
 		objectOutput.writeDouble(recurrenceDuration);
 
 		if (recurrenceScale == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(recurrenceScale);
@@ -289,7 +356,11 @@ public class KaleoTimerCacheModel implements CacheModel<KaleoTimer>,
 	public long modifiedDate;
 	public String kaleoClassName;
 	public long kaleoClassPK;
+<<<<<<< HEAD
 	public long kaleoDefinitionVersionId;
+=======
+	public long kaleoDefinitionId;
+>>>>>>> compatible
 	public String name;
 	public boolean blocking;
 	public String description;

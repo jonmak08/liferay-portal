@@ -2,7 +2,11 @@
 	<command name="runScript">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.RunScript#runScript" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 

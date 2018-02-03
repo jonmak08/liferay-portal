@@ -33,7 +33,10 @@ import com.liferay.portal.kernel.transaction.Transactional;
 import com.liferay.portal.kernel.util.OrderByComparator;
 
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Locale;
+=======
+>>>>>>> compatible
 
 /**
  * Provides the remote service interface for JournalFolder. Methods of this
@@ -114,11 +117,14 @@ public interface JournalFolderService extends BaseService {
 		OrderByComparator<?> obc);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+<<<<<<< HEAD
 	public List<java.lang.Object> getFoldersAndArticles(long groupId,
 		long userId, long folderId, int status, Locale locale, int start,
 		int end, OrderByComparator<?> obc);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+=======
+>>>>>>> compatible
 	public int getFoldersAndArticlesCount(long groupId,
 		List<java.lang.Long> folderIds, int status);
 
@@ -147,7 +153,11 @@ public interface JournalFolderService extends BaseService {
 	public java.lang.String getOSGiServiceIdentifier();
 
 	/**
+<<<<<<< HEAD
 	* @deprecated As of 4.0.0, replaced by {@link #getSubfolderIds(List, long,
+=======
+	* @deprecated As of 3.3.0, replaced by {@link #getSubfolderIds(List, long,
+>>>>>>> compatible
 	long, boolean)}
 	*/
 	@java.lang.Deprecated
@@ -175,12 +185,15 @@ public interface JournalFolderService extends BaseService {
 
 	public void restoreFolderFromTrash(long folderId) throws PortalException;
 
+<<<<<<< HEAD
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<DDMStructure> searchDDMStructures(long companyId,
 		long[] groupIds, long folderId, int restrictionType,
 		java.lang.String keywords, int start, int end,
 		OrderByComparator<DDMStructure> obc) throws PortalException;
 
+=======
+>>>>>>> compatible
 	public void subscribe(long groupId, long folderId)
 		throws PortalException;
 

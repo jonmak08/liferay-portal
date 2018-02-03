@@ -23,7 +23,11 @@
 
 				<execute macro="BlogsEntry#tearDownCP" />
 
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP" />
+=======
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 
 				<execute macro="User#tearDownCP" />
 			</else>
@@ -31,9 +35,13 @@
 	</tear-down>
 
 	<command name="MarkNotificationAsReadAndAcceptRequest" priority="4">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -44,9 +52,13 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -56,9 +68,13 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -67,6 +83,7 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -74,6 +91,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Blogs Page" />
 		</execute>
 
@@ -89,9 +109,13 @@
 			<var name="pageName" value="Blogs Page" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -105,6 +129,7 @@
 			<var name="siteName" value="Community Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -116,6 +141,18 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+			<var name="pageName" value="Blank Page" />
+		</execute>
+
+		<execute macro="Navigator#gotoSitePage">
+			<var name="pageName" value="Home" />
+			<var name="siteName" value="Community Site Name" />
+		</execute>
+
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Invite Members Page" />
 		</execute>
 
@@ -208,12 +245,17 @@
 	</command>
 
 	<command name="ViewDefaultNotificationsPortletDeliveryOptions" priority="3">
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="Notifications" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="Notifications" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="NotificationsPortlet#gotoNotificationDelivery" />
@@ -228,9 +270,13 @@
 			<var name="activePanel" value="Profile" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
+=======
+		<execute macro="ProductMenu#gotoUserMyAccount">
+>>>>>>> compatible
 			<var name="portlet" value="Notifications" />
 		</execute>
 

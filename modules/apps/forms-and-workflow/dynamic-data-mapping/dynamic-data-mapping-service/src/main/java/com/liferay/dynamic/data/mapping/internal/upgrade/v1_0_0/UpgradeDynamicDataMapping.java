@@ -26,8 +26,11 @@ import com.liferay.document.library.kernel.service.DLFileEntryLocalService;
 import com.liferay.document.library.kernel.service.DLFileVersionLocalService;
 import com.liferay.document.library.kernel.service.DLFolderLocalService;
 import com.liferay.document.library.kernel.store.DLStoreUtil;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.internal.util.DDMFieldsCounter;
 import com.liferay.dynamic.data.mapping.internal.util.DDMImpl;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.io.DDMFormJSONDeserializer;
 import com.liferay.dynamic.data.mapping.io.DDMFormJSONSerializer;
 import com.liferay.dynamic.data.mapping.io.DDMFormLayoutJSONSerializer;
@@ -51,6 +54,11 @@ import com.liferay.dynamic.data.mapping.storage.DDMFormValues;
 import com.liferay.dynamic.data.mapping.util.DDM;
 import com.liferay.dynamic.data.mapping.util.DDMFormFieldValueTransformer;
 import com.liferay.dynamic.data.mapping.util.DDMFormValuesTransformer;
+<<<<<<< HEAD
+=======
+import com.liferay.dynamic.data.mapping.util.impl.DDMFieldsCounter;
+import com.liferay.dynamic.data.mapping.util.impl.DDMImpl;
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.validator.DDMFormValidationException.MustNotDuplicateFieldName;
 import com.liferay.expando.kernel.model.ExpandoColumn;
 import com.liferay.expando.kernel.model.ExpandoRow;
@@ -58,8 +66,11 @@ import com.liferay.expando.kernel.model.ExpandoValue;
 import com.liferay.expando.kernel.service.ExpandoRowLocalService;
 import com.liferay.expando.kernel.service.ExpandoTableLocalService;
 import com.liferay.expando.kernel.service.ExpandoValueLocalService;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
@@ -79,6 +90,10 @@ import com.liferay.portal.kernel.service.permission.ModelPermissionsFactory;
 import com.liferay.portal.kernel.upgrade.UpgradeException;
 import com.liferay.portal.kernel.upgrade.UpgradeProcess;
 import com.liferay.portal.kernel.upgrade.util.UpgradeProcessUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.DateFormatFactoryUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
@@ -88,8 +103,13 @@ import com.liferay.portal.kernel.util.MimeTypesUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.TimeZoneUtil;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
@@ -313,8 +333,13 @@ public class UpgradeDynamicDataMapping extends UpgradeProcess {
 					catch (MustNotDuplicateFieldName mndfn) {
 						throw new UpgradeException(
 							String.format(
+<<<<<<< HEAD
 								"The field name '%s' from structure ID %d is " +
 									"defined more than once",
+=======
+								"The field name '%s' from structure ID %d " +
+									"cannot be defined more than once.",
+>>>>>>> compatible
 								mndfn.getFieldName(), structureId));
 					}
 
@@ -471,9 +496,14 @@ public class UpgradeDynamicDataMapping extends UpgradeProcess {
 
 		if (structureModelResourceName == null) {
 			throw new UpgradeException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Model ", className, " does not support DDM structure ",
 					"permission checking"));
+=======
+				"Model " + className + " does not support DDM structure " +
+					"permission checking");
+>>>>>>> compatible
 		}
 
 		return structureModelResourceName;
@@ -489,9 +519,14 @@ public class UpgradeDynamicDataMapping extends UpgradeProcess {
 
 		if (templateModelResourceName == null) {
 			throw new UpgradeException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Model ", className, " does not support DDM template ",
 					"permission checking"));
+=======
+				"Model " + className + " does not support DDM template " +
+					"permission checking");
+>>>>>>> compatible
 		}
 
 		return templateModelResourceName;
@@ -739,8 +774,13 @@ public class UpgradeDynamicDataMapping extends UpgradeProcess {
 		if (language.equals("ftl")) {
 			oldTemplateScriptSB.append("<#assign\\s+");
 			oldTemplateScriptSB.append(dateFieldName);
+<<<<<<< HEAD
 			oldTemplateScriptSB.append("_Data\\s*=\\s*getterUtil\\s*.");
 			oldTemplateScriptSB.append("\\s*getLong\\s*\\(\\s*");
+=======
+			oldTemplateScriptSB.append("_Data\\s*=\\s*getterUtil\\s*");
+			oldTemplateScriptSB.append(".\\s*getLong\\s*\\(\\s*");
+>>>>>>> compatible
 			oldTemplateScriptSB.append(dateFieldName);
 			oldTemplateScriptSB.append(".\\s*getData\\s*\\(\\s*\\)");
 			oldTemplateScriptSB.append("\\s*\\)\\s*/?>");
@@ -757,10 +797,18 @@ public class UpgradeDynamicDataMapping extends UpgradeProcess {
 
 			oldTemplateScriptSB.append("#set\\s+\\(\\s*");
 			oldTemplateScriptSB.append(dateFieldName);
+<<<<<<< HEAD
 			oldTemplateScriptSB.append("_Data\\s*=\\s*\\$getterUtil.");
 			oldTemplateScriptSB.append("getLong\\(\\s*");
 			oldTemplateScriptSB.append(dateFieldName);
 			oldTemplateScriptSB.append(".getData\\(\\)\\s*\\)\\s*\\)");
+=======
+			oldTemplateScriptSB.append("_Data\\s*=\\s*\\$getterUtil");
+			oldTemplateScriptSB.append(".getLong\\(\\s*");
+			oldTemplateScriptSB.append(dateFieldName);
+			oldTemplateScriptSB.append(".getData\\(\\)\\s*\\)");
+			oldTemplateScriptSB.append("\\s*\\)");
+>>>>>>> compatible
 
 			newTemplateScriptSB.append("#set (");
 			newTemplateScriptSB.append(dateFieldName);
@@ -804,15 +852,19 @@ public class UpgradeDynamicDataMapping extends UpgradeProcess {
 
 				script = updateTemplateScriptDateParseStatement(
 					ddmDateFieldName, language, script);
+<<<<<<< HEAD
 
 				script = updateTemplateScriptDateGetDateStatement(
 					language, script);
+=======
+>>>>>>> compatible
 			}
 
 			updateTemplateScript(ddmTemplateId, script);
 		}
 	}
 
+<<<<<<< HEAD
 	protected String updateTemplateScriptDateGetDateStatement(
 		String language, String script) {
 
@@ -838,6 +890,8 @@ public class UpgradeDynamicDataMapping extends UpgradeProcess {
 			oldTemplateScriptSB.toString(), newTemplateScript);
 	}
 
+=======
+>>>>>>> compatible
 	protected String updateTemplateScriptDateIfStatement(
 		String dateFieldName, String language, String script) {
 
@@ -845,9 +899,15 @@ public class UpgradeDynamicDataMapping extends UpgradeProcess {
 		String newTemplateScript = StringPool.BLANK;
 
 		if (language.equals("ftl")) {
+<<<<<<< HEAD
 			oldTemplateScript = StringBundler.concat(
 				"<#if\\s*\\(?\\s*", dateFieldName, "_Data\\s*>\\s*0\\s*\\)?",
 				"\\s*>");
+=======
+			oldTemplateScript =
+				"<#if\\s*\\(?\\s*" + dateFieldName + "_Data\\s*>\\s*0\\s*\\)?" +
+					"\\s*>";
+>>>>>>> compatible
 
 			newTemplateScript =
 				"<#if validator.isNotNull(" + dateFieldName + "_Data)>";
@@ -875,8 +935,13 @@ public class UpgradeDynamicDataMapping extends UpgradeProcess {
 		if (language.equals("ftl")) {
 			oldTemplateScriptSB.append("<#assign\\s+");
 			oldTemplateScriptSB.append(dateFieldName);
+<<<<<<< HEAD
 			oldTemplateScriptSB.append("_DateObj\\s*=\\s*dateUtil\\s*.");
 			oldTemplateScriptSB.append("\\s*newDate\\(\\s*");
+=======
+			oldTemplateScriptSB.append("_DateObj\\s*=\\s*dateUtil\\s*");
+			oldTemplateScriptSB.append(".\\s*newDate\\(\\s*");
+>>>>>>> compatible
 			oldTemplateScriptSB.append(dateFieldName);
 			oldTemplateScriptSB.append("_Data\\s*\\)\\s*/?>");
 
@@ -893,8 +958,13 @@ public class UpgradeDynamicDataMapping extends UpgradeProcess {
 
 			oldTemplateScriptSB.append("#set\\s*\\(");
 			oldTemplateScriptSB.append(dateFieldName);
+<<<<<<< HEAD
 			oldTemplateScriptSB.append("_DateObj\\s*=\\s*\\$dateUtil.");
 			oldTemplateScriptSB.append("newDate\\(\\s*");
+=======
+			oldTemplateScriptSB.append("_DateObj\\s*=\\s*\\$dateUtil");
+			oldTemplateScriptSB.append(".newDate\\(\\s*");
+>>>>>>> compatible
 			oldTemplateScriptSB.append(dateFieldName);
 			oldTemplateScriptSB.append("_Data\\s*\\)\\s*\\)");
 
@@ -914,8 +984,13 @@ public class UpgradeDynamicDataMapping extends UpgradeProcess {
 		StringBundler sb = new StringBundler(7);
 
 		sb.append("select DDLRecordVersion.*, DDMContent.data_, ");
+<<<<<<< HEAD
 		sb.append("DDMStructure.structureId from DDLRecordVersion inner join ");
 		sb.append("DDLRecordSet on DDLRecordVersion.recordSetId = ");
+=======
+		sb.append("DDMStructure.structureId from DDLRecordVersion inner ");
+		sb.append("join DDLRecordSet on DDLRecordVersion.recordSetId = ");
+>>>>>>> compatible
 		sb.append("DDLRecordSet.recordSetId inner join DDMContent on  ");
 		sb.append("DDLRecordVersion.DDMStorageId = DDMContent.contentId ");
 		sb.append("inner join DDMStructure on DDLRecordSet.DDMStructureId = ");
@@ -1015,7 +1090,11 @@ public class UpgradeDynamicDataMapping extends UpgradeProcess {
 
 	protected void upgradeExpandoStorageAdapter() throws Exception {
 		try (LoggingTimer loggingTimer = new LoggingTimer()) {
+<<<<<<< HEAD
 			StringBundler sb1 = new StringBundler(5);
+=======
+			StringBundler sb1 = new StringBundler(6);
+>>>>>>> compatible
 
 			sb1.append("select DDMStructure.*, DDMStorageLink.* from ");
 			sb1.append("DDMStorageLink inner join DDMStructure on ");
@@ -1112,7 +1191,11 @@ public class UpgradeDynamicDataMapping extends UpgradeProcess {
 			_resourcePermissionLocalService.getResourcePermissions(
 				companyId, DDMStructure.class.getName(),
 				ResourceConstants.SCOPE_INDIVIDUAL,
+<<<<<<< HEAD
 				String.valueOf(structureId));
+=======
+				StringUtil.valueOf(structureId));
+>>>>>>> compatible
 
 		for (ResourcePermission resourcePermission : resourcePermissions) {
 			Long classNameId = _structureClassNameIds.get(
@@ -1140,6 +1223,7 @@ public class UpgradeDynamicDataMapping extends UpgradeProcess {
 		sb1.append("groupId, companyId, userId, userName, createDate, ");
 		sb1.append("structureId, version, parentStructureId, name, ");
 		sb1.append("description, definition, storageType, type_, status, ");
+<<<<<<< HEAD
 		sb1.append("statusByUserId, statusByUserName, statusDate) values (?, ");
 		sb1.append("?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
@@ -1149,6 +1233,18 @@ public class UpgradeDynamicDataMapping extends UpgradeProcess {
 		sb2.append("structureLayoutId, groupId, companyId, userId, userName, ");
 		sb2.append("createDate, modifiedDate, structureVersionId, ");
 		sb2.append("definition) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+=======
+		sb1.append("statusByUserId, statusByUserName, statusDate) values ");
+		sb1.append("(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+		StringBundler sb2 = new StringBundler(5);
+
+		sb2.append("insert into DDMStructureLayout (uuid_, ");
+		sb2.append("structureLayoutId, groupId, companyId, userId, ");
+		sb2.append("userName, createDate, modifiedDate, ");
+		sb2.append("structureVersionId, definition) values (?, ?, ?, ?, ");
+		sb2.append("?, ?, ?, ?, ?, ?)");
+>>>>>>> compatible
 
 		try (LoggingTimer loggingTimer = new LoggingTimer();
 			PreparedStatement ps1 = connection.prepareStatement(
@@ -1280,7 +1376,12 @@ public class UpgradeDynamicDataMapping extends UpgradeProcess {
 		List<ResourcePermission> resourcePermissions =
 			_resourcePermissionLocalService.getResourcePermissions(
 				companyId, DDMTemplate.class.getName(),
+<<<<<<< HEAD
 				ResourceConstants.SCOPE_INDIVIDUAL, String.valueOf(templateId));
+=======
+				ResourceConstants.SCOPE_INDIVIDUAL,
+				StringUtil.valueOf(templateId));
+>>>>>>> compatible
 
 		for (ResourcePermission resourcePermission : resourcePermissions) {
 			Long classNameId = _templateResourceClassNameIds.get(
@@ -1636,6 +1737,7 @@ public class UpgradeDynamicDataMapping extends UpgradeProcess {
 
 			Value value = ddmFormFieldValue.getValue();
 
+<<<<<<< HEAD
 			if (value != null) {
 				for (Locale locale : value.getAvailableLocales()) {
 					String valueString = value.getString(locale);
@@ -1650,12 +1752,30 @@ public class UpgradeDynamicDataMapping extends UpgradeProcess {
 
 					value.addString(locale, _dateFormat.format(dateValue));
 				}
+=======
+			for (Locale locale : value.getAvailableLocales()) {
+				String valueString = value.getString(locale);
+
+				if (Validator.isNull(valueString) ||
+					!Validator.isNumber(valueString)) {
+
+					continue;
+				}
+
+				Date dateValue = new Date(GetterUtil.getLong(valueString));
+
+				value.addString(locale, _dateFormat.format(dateValue));
+>>>>>>> compatible
 			}
 		}
 
 		private final DateFormat _dateFormat =
+<<<<<<< HEAD
 			DateFormatFactoryUtil.getSimpleDateFormat(
 				"yyyy-MM-dd", TimeZoneUtil.getTimeZone("UTC"));
+=======
+			DateFormatFactoryUtil.getSimpleDateFormat("yyyy-MM-dd");
+>>>>>>> compatible
 
 	}
 
@@ -1736,7 +1856,13 @@ public class UpgradeDynamicDataMapping extends UpgradeProcess {
 
 			int repetitions = 0;
 
+<<<<<<< HEAD
 			for (String fieldDisplayName : fieldsDisplayValues) {
+=======
+			for (int i = 0; i < fieldsDisplayValues.length; i++) {
+				String fieldDisplayName = fieldsDisplayValues[i];
+
+>>>>>>> compatible
 				if (offset > parentOffset) {
 					break;
 				}
@@ -1832,6 +1958,7 @@ public class UpgradeDynamicDataMapping extends UpgradeProcess {
 				Element fieldsDisplayDynamicContent =
 					fieldsDisplayElement.element("dynamic-content");
 
+<<<<<<< HEAD
 				if (fieldsDisplayDynamicContent != null) {
 					String fieldsDisplayText =
 						fieldsDisplayDynamicContent.getText();
@@ -1846,6 +1973,20 @@ public class UpgradeDynamicDataMapping extends UpgradeProcess {
 
 						ddmFieldsDisplayValues.add(fieldDisplayValue);
 					}
+=======
+				String fieldsDisplayText =
+					fieldsDisplayDynamicContent.getText();
+
+				for (String fieldDisplayValue :
+						StringUtil.split(fieldsDisplayText)) {
+
+					if (extractFieldName) {
+						fieldDisplayValue = StringUtil.extractFirst(
+							fieldDisplayValue, DDMImpl.INSTANCE_SEPARATOR);
+					}
+
+					ddmFieldsDisplayValues.add(fieldDisplayValue);
+>>>>>>> compatible
 				}
 			}
 
@@ -2185,6 +2326,7 @@ public class UpgradeDynamicDataMapping extends UpgradeProcess {
 
 			Value value = ddmFormFieldValue.getValue();
 
+<<<<<<< HEAD
 			if (value != null) {
 				for (Locale locale : value.getAvailableLocales()) {
 					String valueString = value.getString(locale);
@@ -2201,6 +2343,21 @@ public class UpgradeDynamicDataMapping extends UpgradeProcess {
 
 					value.addString(locale, toJSON(_groupId, fileEntryUuid));
 				}
+=======
+			for (Locale locale : value.getAvailableLocales()) {
+				String valueString = value.getString(locale);
+
+				if (Validator.isNull(valueString)) {
+					continue;
+				}
+
+				String fileEntryUuid = PortalUUIDUtil.generate();
+
+				upgradeFileUploadReference(
+					fileEntryUuid, ddmFormFieldValue.getName(), valueString);
+
+				value.addString(locale, toJSON(_groupId, fileEntryUuid));
+>>>>>>> compatible
 			}
 		}
 
@@ -2489,7 +2646,11 @@ public class UpgradeDynamicDataMapping extends UpgradeProcess {
 			int pos = fileName.lastIndexOf(CharPool.PERIOD);
 
 			if (pos > 0) {
+<<<<<<< HEAD
 				extension = fileName.substring(pos + 1);
+=======
+				extension = fileName.substring(pos + 1, fileName.length());
+>>>>>>> compatible
 			}
 
 			return StringUtil.toLowerCase(extension);

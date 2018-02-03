@@ -21,6 +21,10 @@ import com.liferay.dynamic.data.mapping.model.DDMContent;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -99,7 +103,11 @@ public class DDMContentCacheModel implements CacheModel<DDMContent>,
 		DDMContentImpl ddmContentImpl = new DDMContentImpl();
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			ddmContentImpl.setUuid("");
+=======
+			ddmContentImpl.setUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmContentImpl.setUuid(uuid);
@@ -111,7 +119,11 @@ public class DDMContentCacheModel implements CacheModel<DDMContent>,
 		ddmContentImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			ddmContentImpl.setUserName("");
+=======
+			ddmContentImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmContentImpl.setUserName(userName);
@@ -132,21 +144,33 @@ public class DDMContentCacheModel implements CacheModel<DDMContent>,
 		}
 
 		if (name == null) {
+<<<<<<< HEAD
 			ddmContentImpl.setName("");
+=======
+			ddmContentImpl.setName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmContentImpl.setName(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			ddmContentImpl.setDescription("");
+=======
+			ddmContentImpl.setDescription(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmContentImpl.setDescription(description);
 		}
 
 		if (data == null) {
+<<<<<<< HEAD
 			ddmContentImpl.setData("");
+=======
+			ddmContentImpl.setData(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmContentImpl.setData(data);
@@ -180,7 +204,11 @@ public class DDMContentCacheModel implements CacheModel<DDMContent>,
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		if (uuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(uuid);
@@ -195,7 +223,11 @@ public class DDMContentCacheModel implements CacheModel<DDMContent>,
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -205,21 +237,33 @@ public class DDMContentCacheModel implements CacheModel<DDMContent>,
 		objectOutput.writeLong(modifiedDate);
 
 		if (name == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(description);
 		}
 
 		if (data == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(data);

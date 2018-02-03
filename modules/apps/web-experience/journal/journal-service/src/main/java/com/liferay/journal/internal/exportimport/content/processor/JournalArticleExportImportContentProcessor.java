@@ -15,12 +15,17 @@
 package com.liferay.journal.internal.exportimport.content.processor;
 
 import com.liferay.document.library.kernel.exception.NoSuchFileEntryException;
+<<<<<<< HEAD
 import com.liferay.document.library.kernel.service.DLAppService;
 import com.liferay.dynamic.data.mapping.model.DDMStructure;
 import com.liferay.dynamic.data.mapping.storage.DDMFormValues;
 import com.liferay.dynamic.data.mapping.storage.Fields;
 import com.liferay.dynamic.data.mapping.util.DDMFormValuesTransformer;
 import com.liferay.exportimport.content.processor.ExportImportContentProcessor;
+=======
+import com.liferay.exportimport.content.processor.ExportImportContentProcessor;
+import com.liferay.exportimport.content.processor.base.BaseTextExportImportContentProcessor;
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.lar.ExportImportThreadLocal;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.exportimport.kernel.lar.StagedModelDataHandlerUtil;
@@ -28,9 +33,16 @@ import com.liferay.journal.constants.JournalPortletKeys;
 import com.liferay.journal.exception.NoSuchArticleException;
 import com.liferay.journal.model.JournalArticle;
 import com.liferay.journal.service.JournalArticleLocalService;
+<<<<<<< HEAD
 import com.liferay.journal.util.JournalConverter;
 import com.liferay.portal.kernel.exception.NoSuchLayoutException;
 import com.liferay.portal.kernel.exception.PortalException;
+=======
+import com.liferay.portal.kernel.exception.BulkException;
+import com.liferay.portal.kernel.exception.NoSuchLayoutException;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.json.JSONException;
+>>>>>>> compatible
 import com.liferay.portal.kernel.json.JSONFactory;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.log.Log;
@@ -41,6 +53,10 @@ import com.liferay.portal.kernel.service.GroupLocalService;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Document;
@@ -50,6 +66,10 @@ import com.liferay.portal.kernel.xml.Node;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
 import com.liferay.portal.kernel.xml.XPath;
 
+<<<<<<< HEAD
+=======
+import java.util.ArrayList;
+>>>>>>> compatible
 import java.util.List;
 import java.util.Map;
 
@@ -58,7 +78,10 @@ import org.osgi.service.component.annotations.Reference;
 
 /**
  * @author Gergely Mathe
+<<<<<<< HEAD
  * @author Mate Thurzo
+=======
+>>>>>>> compatible
  */
 @Component(
 	property = {"model.class.name=com.liferay.journal.model.JournalArticle"},
@@ -68,7 +91,11 @@ import org.osgi.service.component.annotations.Reference;
 	}
 )
 public class JournalArticleExportImportContentProcessor
+<<<<<<< HEAD
 	implements ExportImportContentProcessor<String> {
+=======
+	extends BaseTextExportImportContentProcessor {
+>>>>>>> compatible
 
 	@Override
 	public String replaceExportContentReferences(
@@ -77,6 +104,7 @@ public class JournalArticleExportImportContentProcessor
 			boolean escapeContent)
 		throws Exception {
 
+<<<<<<< HEAD
 		JournalArticle article = (JournalArticle)stagedModel;
 
 		DDMStructure ddmStructure = article.getDDMStructure();
@@ -110,6 +138,14 @@ public class JournalArticleExportImportContentProcessor
 				replaceExportContentReferences(
 					portletDataContext, stagedModel, content,
 					exportReferencedContent, escapeContent);
+=======
+		content = replaceExportJournalArticleReferences(
+			portletDataContext, stagedModel, content, exportReferencedContent);
+
+		content = super.replaceExportContentReferences(
+			portletDataContext, stagedModel, content, exportReferencedContent,
+			escapeContent);
+>>>>>>> compatible
 
 		return content;
 	}
@@ -120,6 +156,7 @@ public class JournalArticleExportImportContentProcessor
 			String content)
 		throws Exception {
 
+<<<<<<< HEAD
 		JournalArticle article = (JournalArticle)stagedModel;
 
 		DDMStructure ddmStructure = article.getDDMStructure();
@@ -154,6 +191,13 @@ public class JournalArticleExportImportContentProcessor
 			_defaultTextExportImportContentProcessor.
 				replaceImportContentReferences(
 					portletDataContext, stagedModel, content);
+=======
+		content = replaceImportJournalArticleReferences(
+			portletDataContext, stagedModel, content);
+
+		content = super.replaceImportContentReferences(
+			portletDataContext, stagedModel, content);
+>>>>>>> compatible
 
 		return content;
 	}
@@ -162,11 +206,18 @@ public class JournalArticleExportImportContentProcessor
 	public void validateContentReferences(long groupId, String content)
 		throws PortalException {
 
+<<<<<<< HEAD
 		validateJournalArticleReferences(content);
 
 		try {
 			_defaultTextExportImportContentProcessor.validateContentReferences(
 				groupId, content);
+=======
+		validateJournalArticleReferences(groupId, content);
+
+		try {
+			super.validateContentReferences(groupId, content);
+>>>>>>> compatible
 		}
 		catch (NoSuchFileEntryException | NoSuchLayoutException e) {
 			if (ExportImportThreadLocal.isImportInProcess()) {
@@ -184,7 +235,11 @@ public class JournalArticleExportImportContentProcessor
 					sb.append(type);
 
 					sb.append(" was detected during import when validating ");
+<<<<<<< HEAD
 					sb.append("the content below. This is not an error; it ");
+=======
+					sb.append("the content below. This is not an error, it ");
+>>>>>>> compatible
 					sb.append("typically means the ");
 					sb.append(type);
 					sb.append(" was deleted.\n");
@@ -245,6 +300,13 @@ public class JournalArticleExportImportContentProcessor
 			for (Element dynamicContentElement : dynamicContentElements) {
 				String jsonData = dynamicContentElement.getStringValue();
 
+<<<<<<< HEAD
+=======
+				if (jsonData.equals(StringPool.BLANK)) {
+					continue;
+				}
+
+>>>>>>> compatible
 				JSONObject jsonObject = _jsonFactory.createJSONObject(jsonData);
 
 				long classPK = GetterUtil.getLong(jsonObject.get("classPK"));
@@ -254,7 +316,11 @@ public class JournalArticleExportImportContentProcessor
 
 				if (journalArticle == null) {
 					if (_log.isInfoEnabled()) {
+<<<<<<< HEAD
 						StringBundler messageSB = new StringBundler(7);
+=======
+						StringBundler messageSB = new StringBundler();
+>>>>>>> compatible
 
 						messageSB.append("Staged model with class name ");
 						messageSB.append(stagedModel.getModelClassName());
@@ -276,9 +342,14 @@ public class JournalArticleExportImportContentProcessor
 
 				if (_log.isDebugEnabled()) {
 					_log.debug(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"Replacing ", jsonData, " with ",
 							journalArticleReference));
+=======
+						"Replacing " + jsonData + " with " +
+							journalArticleReference);
+>>>>>>> compatible
 				}
 
 				dynamicContentElement.clearContent();
@@ -286,6 +357,7 @@ public class JournalArticleExportImportContentProcessor
 				dynamicContentElement.addCDATA(journalArticleReference);
 
 				if (exportReferencedContent) {
+<<<<<<< HEAD
 					try {
 						StagedModelDataHandlerUtil.exportReferenceStagedModel(
 							portletDataContext, stagedModel, journalArticle,
@@ -316,6 +388,11 @@ public class JournalArticleExportImportContentProcessor
 							_log.debug(errorMessage, e);
 						}
 					}
+=======
+					StagedModelDataHandlerUtil.exportReferenceStagedModel(
+						portletDataContext, stagedModel, journalArticle,
+						PortletDataContext.REFERENCE_TYPE_DEPENDENCY);
+>>>>>>> compatible
 				}
 				else {
 					Element entityElement =
@@ -383,10 +460,18 @@ public class JournalArticleExportImportContentProcessor
 		return content;
 	}
 
+<<<<<<< HEAD
 	protected void validateJournalArticleReferences(String content)
 		throws PortalException {
 
 		Throwable throwable = null;
+=======
+	protected void validateJournalArticleReferences(
+			long groupId, String content)
+		throws PortalException {
+
+		List<Throwable> throwables = new ArrayList<>();
+>>>>>>> compatible
 
 		try {
 			Document document = SAXReaderUtil.read(content);
@@ -415,7 +500,24 @@ public class JournalArticleExportImportContentProcessor
 						continue;
 					}
 
+<<<<<<< HEAD
 					JSONObject jsonObject = _jsonFactory.createJSONObject(json);
+=======
+					JSONObject jsonObject = null;
+
+					try {
+						jsonObject = _jsonFactory.createJSONObject(json);
+					}
+					catch (JSONException jsone) {
+						_log.debug(jsone, jsone);
+
+						continue;
+					}
+
+					if (!jsonObject.has("classPK")) {
+						continue;
+					}
+>>>>>>> compatible
 
 					long classPK = GetterUtil.getLong(
 						jsonObject.get("classPK"));
@@ -424,6 +526,7 @@ public class JournalArticleExportImportContentProcessor
 						_journalArticleLocalService.fetchLatestArticle(classPK);
 
 					if (journalArticle == null) {
+<<<<<<< HEAD
 						if (ExportImportThreadLocal.isImportInProcess()) {
 							if (_log.isDebugEnabled()) {
 								StringBundler sb = new StringBundler(7);
@@ -455,6 +558,13 @@ public class JournalArticleExportImportContentProcessor
 						else {
 							throwable.addSuppressed(nsae);
 						}
+=======
+						Throwable throwable = new NoSuchArticleException(
+							"No JournalArticle exists with the key " +
+								"{resourcePrimKey=" + classPK + "}");
+
+						throwables.add(throwable);
+>>>>>>> compatible
 					}
 				}
 			}
@@ -465,6 +575,7 @@ public class JournalArticleExportImportContentProcessor
 			}
 		}
 
+<<<<<<< HEAD
 		if (throwable != null) {
 			throw new PortalException(
 				"Unable to validate journal article references", throwable);
@@ -486,12 +597,20 @@ public class JournalArticleExportImportContentProcessor
 		}
 		catch (Exception e) {
 			return null;
+=======
+		if (!throwables.isEmpty()) {
+			throw new PortalException(
+				new BulkException(
+					"Unable to validate journal article references",
+					throwables));
+>>>>>>> compatible
 		}
 	}
 
 	private static final Log _log = LogFactoryUtil.getLog(
 		JournalArticleExportImportContentProcessor.class);
 
+<<<<<<< HEAD
 	@Reference(target = "(model.class.name=java.lang.String)")
 	private ExportImportContentProcessor<String>
 		_defaultTextExportImportContentProcessor;
@@ -499,6 +618,8 @@ public class JournalArticleExportImportContentProcessor
 	@Reference
 	private DLAppService _dlAppService;
 
+=======
+>>>>>>> compatible
 	@Reference
 	private GroupLocalService _groupLocalService;
 
@@ -506,9 +627,12 @@ public class JournalArticleExportImportContentProcessor
 	private JournalArticleLocalService _journalArticleLocalService;
 
 	@Reference
+<<<<<<< HEAD
 	private JournalConverter _journalConverter;
 
 	@Reference
+=======
+>>>>>>> compatible
 	private JSONFactory _jsonFactory;
 
 }

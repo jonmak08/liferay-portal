@@ -170,7 +170,11 @@
 <!--DESCRIPTIVE_VIEW-->
 <tr>
 	<td>DESCRIPTIVE_VIEW_ARTICLE_OPTIONS_DROPDOWN</td>
+<<<<<<< HEAD
 	<td>//li[contains(.,'${key_kbArticleTitle}')]//a[span/*[name()='svg'][contains(@class,'icon-ellipsis-v')]]</td>
+=======
+	<td>//li[contains(.,'${key_kbArticleTitle}')]//span/*[name()='svg'][contains(@class,'icon-ellipsis-v')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>

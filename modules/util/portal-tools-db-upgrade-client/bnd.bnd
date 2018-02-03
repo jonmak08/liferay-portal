@@ -1,5 +1,9 @@
 Bundle-Name: Liferay Portal Tools DB Upgrade Client
 Bundle-SymbolicName: com.liferay.portal.tools.db.upgrade.client
+<<<<<<< HEAD
 Bundle-Version: 1.0.6
+=======
+Bundle-Version: 1.0.5
+>>>>>>> compatible
 JPM-Command: liferay-upgrade-db
 Main-Class: com.liferay.portal.tools.db.upgrade.client.UpgradeClient

@@ -146,9 +146,12 @@ public interface DLFileShortcutLocalService extends BaseLocalService,
 	public PersistedModel deletePersistedModel(PersistedModel persistedModel)
 		throws PortalException;
 
+<<<<<<< HEAD
 	public void deleteRepositoryFileShortcuts(long repositoryId)
 		throws PortalException;
 
+=======
+>>>>>>> compatible
 	public void disableFileShortcuts(long toFileEntryId);
 
 	public DynamicQuery dynamicQuery();

@@ -14,8 +14,11 @@
 
 package com.liferay.portal.kernel.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 
+=======
+>>>>>>> compatible
 import java.math.BigDecimal;
 
 import java.text.DateFormat;

@@ -14,8 +14,11 @@
 
 package com.liferay.exportimport.xstream;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.xstream.XStreamHierarchicalStreamWriter;
 
 import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
@@ -23,7 +26,10 @@ import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 /**
  * @author Daniel Kocsis
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class XStreamHierarchicalStreamWriterAdapter
 	implements XStreamHierarchicalStreamWriter {
 

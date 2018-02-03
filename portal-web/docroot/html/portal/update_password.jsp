@@ -44,7 +44,11 @@ if (referer.startsWith(themeDisplay.getPathMain() + "/portal/update_password") &
 			portletURL.setWindowState(WindowState.MAXIMIZED);
 			%>
 
+<<<<<<< HEAD
 			<div class="reset-link-contaner">
+=======
+			<div>
+>>>>>>> compatible
 				<aui:a href="<%= portletURL.toString() %>" label="request-a-new-password-reset-link"></aui:a>
 			</div>
 		</div>
@@ -135,7 +139,7 @@ if (referer.startsWith(themeDisplay.getPathMain() + "/portal/update_password") &
 			</aui:fieldset>
 
 			<aui:button-row>
-				<aui:button type="submit" />
+				<aui:button cssClass="btn-lg" type="submit" />
 			</aui:button-row>
 		</aui:form>
 	</c:otherwise>

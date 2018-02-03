@@ -50,10 +50,15 @@ import com.liferay.portal.workflow.kaleo.service.KaleoDefinitionServiceUtil;
  * @see KaleoDefinitionServiceSoap
  * @see HttpPrincipal
  * @see KaleoDefinitionServiceUtil
+<<<<<<< HEAD
  * @deprecated As of 2.0.0, with no direct replacement
  * @generated
  */
 @Deprecated
+=======
+ * @generated
+ */
+>>>>>>> compatible
 @ProviderType
 public class KaleoDefinitionServiceHttp {
 	public static java.util.List<com.liferay.portal.workflow.kaleo.model.KaleoDefinition> getKaleoDefinitions(

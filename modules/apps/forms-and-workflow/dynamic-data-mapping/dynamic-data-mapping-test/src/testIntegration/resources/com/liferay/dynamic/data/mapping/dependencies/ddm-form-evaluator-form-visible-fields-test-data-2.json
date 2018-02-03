@@ -61,7 +61,11 @@
 				"en_US": ""
 			},
 			"type": "text",
+<<<<<<< HEAD
 			"visibilityExpression": "equals(Gender, \"[\"Female\"]\")"
+=======
+			"visibilityExpression": "equals(Gender, \"Female\")"
+>>>>>>> compatible
 		}
 	]
 }

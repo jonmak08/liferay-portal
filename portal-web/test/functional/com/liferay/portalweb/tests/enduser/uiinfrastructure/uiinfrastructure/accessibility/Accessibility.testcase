@@ -22,6 +22,7 @@
 	</tear-down>
 
 	<command name="Smoke" priority="3">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -30,6 +31,14 @@
 
 		<execute macro="SitePages#addPublicPage">
 			<var name="pageName" value="Test Page1" />
+=======
+		<execute macro="Page#add">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
+			<var name="pageName" value="Test Page1" />
+			<var name="pageTemplateName" value="${pageTemplateName}" />
+			<var name="sitePageType" value="${pageType}" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Navigator#gotoPage">
@@ -53,6 +62,7 @@
 
 		<execute function="AssertAccessible" />
 	</command>
+<<<<<<< HEAD
 
 	<command name="ViewDefaultLandingPageAsGuestUser" priority="5">
 		<property name="portal.acceptance" value="true" />
@@ -61,4 +71,6 @@
 
 		<execute function="AssertAccessible" />
 	</command>
+=======
+>>>>>>> compatible
 </definition>

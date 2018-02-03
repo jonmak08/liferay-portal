@@ -47,7 +47,11 @@ public class UpgradeProcessTest {
 
 		String sql = alterColumnName.getSQL(_TABLE_NAME);
 
+<<<<<<< HEAD
 		Assert.assertTrue(sql, sql.contains(_NEW_COLUMN));
+=======
+		Assert.assertTrue(sql.contains(_NEW_COLUMN));
+>>>>>>> compatible
 	}
 
 	@Test

@@ -36,6 +36,10 @@ boolean enabled = openIdConfiguration.enabled();
 		String taglibOnClick = "if (confirm('" + UnicodeLanguageUtil.get(request, "are-you-sure-you-want-to-reset-the-configured-values") + "')) {submitForm(document.hrefFm, '" + resetValuesURL.toString() + "');}";
 		%>
 
+<<<<<<< HEAD
 		<aui:button onClick="<%= taglibOnClick %>" value="reset-values" />
+=======
+		<aui:button cssClass="btn-lg" onClick="<%= taglibOnClick %>" value="reset-values" />
+>>>>>>> compatible
 	</aui:button-row>
 </aui:fieldset>

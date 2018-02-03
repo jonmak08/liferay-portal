@@ -134,12 +134,20 @@ Parse.Simple.Base.Rule.prototype = {
                     if (best.index == 0) { break; }
                 }
             }
+<<<<<<< HEAD
 
+=======
+                
+>>>>>>> compatible
             var pos = best ? best.index : tail.length;
             if (pos > 0) {
                 this.fallback.apply(node, tail.substring(0, pos), options);
             }
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> compatible
             if (!best) { break; }
 
             if (!rule.build) { rule = new this.constructor(rule); }
@@ -170,7 +178,11 @@ Parse.Simple.Base.Rule.prototype = {
             }
             node.appendChild(document.createTextNode(data));
         }
+<<<<<<< HEAD
     }
+=======
+    }    
+>>>>>>> compatible
 };
 
 Parse.Simple.Base.Rule.prototype.constructor = Parse.Simple.Base.Rule;
@@ -185,7 +197,11 @@ Parse.Simple.Creole = function(options) {
     rx.interwikiPrefix = '[\\w.]+:';
     rx.interwikiLink = rx.interwikiPrefix + rx.link;
     rx.img = '\\{\\{((?!\\{)[^|}\\n]*(?:}(?!})[^|}\\n]*)*)' +
+<<<<<<< HEAD
              (options && options.strict ? '' : '(?:') +
+=======
+             (options && options.strict ? '' : '(?:') + 
+>>>>>>> compatible
              '\\|([^}~\\n]*((}(?!})|~.)[^}~\\n]*)*)' +
              (options && options.strict ? '' : ')?') +
              '}}';
@@ -204,7 +220,11 @@ Parse.Simple.Creole = function(options) {
         hr: { tag: 'hr', regex: /(^|\n)\s*----\s*(\n|$)/ },
 
         br: { tag: 'br', regex: /\\\\/ },
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> compatible
         preBlock: { tag: 'pre', capture: 2,
             regex: /(^|\n)\{\{\{\n((.*\n)*?)\}\}\}(\n|$)/,
             replaceRegex: /^ ([ \t]*\}\}\})/gm,
@@ -279,14 +299,22 @@ Parse.Simple.Creole = function(options) {
         namedLink: { regex: '\\[\\[(' + rx.link + ')\\|(' + rx.linkText + ')\\]\\]',
             build: function(node, r, options) {
                 var link = document.createElement('a');
+<<<<<<< HEAD
 
+=======
+                
+>>>>>>> compatible
                 link.href = options && options.linkFormat
                     ? formatLink(r[1].replace(/~(.)/g, '$1'), options.linkFormat)
                     : r[1].replace(/~(.)/g, '$1');
 link.setAttribute('data-cke-saved-href', link.href);
 
                 this.apply(link, r[2], options);
+<<<<<<< HEAD
 
+=======
+                
+>>>>>>> compatible
                 node.appendChild(link);
             } },
 
@@ -309,7 +337,10 @@ link.setAttribute('data-cke-saved-href', link.href);
         if (!options) { options = {}; }
         options.isPlainUri = true;
         g.namedUri.build.call(this, node, Array(r[0], r[1], r[1]), options);
+<<<<<<< HEAD
         options.isPlainUri = false;
+=======
+>>>>>>> compatible
     };
     g.unnamedLink.build = function(node, r, options) {
         g.namedLink.build.call(this, node, Array(r[0], r[1], r[1]), options);
@@ -317,13 +348,21 @@ link.setAttribute('data-cke-saved-href', link.href);
     g.namedInterwikiLink = { regex: '\\[\\[(' + rx.interwikiLink + ')\\|(' + rx.linkText + ')\\]\\]',
         build: function(node, r, options) {
                 var link = document.createElement('a');
+<<<<<<< HEAD
 
+=======
+                
+>>>>>>> compatible
                 var m, f;
                 if (options && options.interwiki) {
                 m = r[1].match(/(.*?):(.*)/);
                 f = options.interwiki[m[1]];
             }
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> compatible
             if (typeof f == 'undefined') {
                 if (!g.namedLink.apply) {
                     g.namedLink = new this.constructor(g.namedLink);
@@ -332,9 +371,15 @@ link.setAttribute('data-cke-saved-href', link.href);
             }
 
             link.href = formatLink(m[2].replace(/~(.)/g, '$1'), f);
+<<<<<<< HEAD
 
             this.apply(link, r[2], options);
 
+=======
+            
+            this.apply(link, r[2], options);
+            
+>>>>>>> compatible
             node.appendChild(link);
         }
     };

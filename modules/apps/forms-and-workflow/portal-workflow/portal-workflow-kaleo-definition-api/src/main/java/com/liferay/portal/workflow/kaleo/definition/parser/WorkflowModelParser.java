@@ -14,7 +14,10 @@
 
 package com.liferay.portal.workflow.kaleo.definition.parser;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.workflow.WorkflowException;
 import com.liferay.portal.workflow.kaleo.definition.Definition;
 
@@ -27,8 +30,11 @@ public interface WorkflowModelParser {
 
 	public Definition parse(InputStream inputStream) throws WorkflowException;
 
+<<<<<<< HEAD
 	public default Definition parse(String content) throws WorkflowException {
 		return parse(new UnsyncByteArrayInputStream(content.getBytes()));
 	}
 
+=======
+>>>>>>> compatible
 }

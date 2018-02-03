@@ -16,13 +16,11 @@ package com.liferay.portal.search.solr.filter;
 
 import com.liferay.portal.kernel.search.filter.QueryFilter;
 
-import org.apache.lucene.search.Query;
-
 /**
  * @author Michael C. Han
  */
 public interface QueryFilterTranslator {
 
-	public Query translate(QueryFilter queryFilter);
+	public org.apache.lucene.search.Query translate(QueryFilter queryFilter);
 
 }

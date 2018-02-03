@@ -28,7 +28,10 @@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %><%@
 taglib uri="http://liferay.com/tld/util" prefix="liferay-util" %>
 
 <%@ page import="com.liferay.background.task.kernel.util.comparator.BackgroundTaskComparatorFactoryUtil" %><%@
+<<<<<<< HEAD
 page import="com.liferay.document.library.configuration.DLConfiguration" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.dynamic.data.mapping.exception.StructureDuplicateStructureKeyException" %><%@
 page import="com.liferay.exportimport.constants.ExportImportPortletKeys" %><%@
 page import="com.liferay.exportimport.kernel.background.task.BackgroundTaskExecutorNames" %><%@
@@ -63,14 +66,20 @@ page import="com.liferay.exportimport.web.internal.dao.search.ExportImportResult
 page import="com.liferay.exportimport.web.internal.portlet.action.ExportImportMVCActionCommand" %><%@
 page import="com.liferay.exportimport.web.internal.search.ExportImportConfigurationDisplayTerms" %><%@
 page import="com.liferay.exportimport.web.internal.search.ExportImportConfigurationSearchTerms" %><%@
+<<<<<<< HEAD
 page import="com.liferay.petra.string.StringPool" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.backgroundtask.BackgroundTask" %><%@
 page import="com.liferay.portal.kernel.backgroundtask.BackgroundTaskConstants" %><%@
 page import="com.liferay.portal.kernel.backgroundtask.BackgroundTaskManagerUtil" %><%@
 page import="com.liferay.portal.kernel.backgroundtask.BackgroundTaskStatus" %><%@
 page import="com.liferay.portal.kernel.backgroundtask.BackgroundTaskStatusRegistryUtil" %><%@
+<<<<<<< HEAD
 page import="com.liferay.portal.kernel.backgroundtask.display.BackgroundTaskDisplay" %><%@
 page import="com.liferay.portal.kernel.backgroundtask.display.BackgroundTaskDisplayFactoryUtil" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.dao.search.EmptyOnClickRowChecker" %><%@
 page import="com.liferay.portal.kernel.dao.search.SearchContainer" %><%@
 page import="com.liferay.portal.kernel.exception.LayoutPrototypeException" %><%@
@@ -97,7 +106,10 @@ page import="com.liferay.portal.kernel.model.Portlet" %><%@
 page import="com.liferay.portal.kernel.model.Ticket" %><%@
 page import="com.liferay.portal.kernel.model.TicketConstants" %><%@
 page import="com.liferay.portal.kernel.model.User" %><%@
+<<<<<<< HEAD
 page import="com.liferay.portal.kernel.module.configuration.ConfigurationProviderUtil" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.portlet.LiferayWindowState" %><%@
 page import="com.liferay.portal.kernel.portlet.PortalPreferences" %><%@
 page import="com.liferay.portal.kernel.portlet.PortletBag" %><%@
@@ -120,7 +132,10 @@ page import="com.liferay.portal.kernel.service.TicketLocalServiceUtil" %><%@
 page import="com.liferay.portal.kernel.service.UserLocalServiceUtil" %><%@
 page import="com.liferay.portal.kernel.service.permission.GroupPermissionUtil" %><%@
 page import="com.liferay.portal.kernel.servlet.SessionMessages" %><%@
+<<<<<<< HEAD
 page import="com.liferay.portal.kernel.upload.UploadServletRequestConfigurationHelperUtil" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.util.AggregateResourceBundle" %><%@
 page import="com.liferay.portal.kernel.util.ArrayUtil" %><%@
 page import="com.liferay.portal.kernel.util.CalendarFactoryUtil" %><%@
@@ -135,7 +150,14 @@ page import="com.liferay.portal.kernel.util.OrderByComparator" %><%@
 page import="com.liferay.portal.kernel.util.ParamUtil" %><%@
 page import="com.liferay.portal.kernel.util.PortalUtil" %><%@
 page import="com.liferay.portal.kernel.util.PortletKeys" %><%@
+<<<<<<< HEAD
 page import="com.liferay.portal.kernel.util.StringBundler" %><%@
+=======
+page import="com.liferay.portal.kernel.util.PrefsPropsUtil" %><%@
+page import="com.liferay.portal.kernel.util.PropsKeys" %><%@
+page import="com.liferay.portal.kernel.util.StringBundler" %><%@
+page import="com.liferay.portal.kernel.util.StringPool" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.util.StringUtil" %><%@
 page import="com.liferay.portal.kernel.util.TextFormatter" %><%@
 page import="com.liferay.portal.kernel.util.Time" %><%@
@@ -146,7 +168,12 @@ page import="com.liferay.portal.kernel.util.WebKeys" %><%@
 page import="com.liferay.portal.kernel.util.comparator.PortletTitleComparator" %><%@
 page import="com.liferay.portal.util.PropsValues" %><%@
 page import="com.liferay.portlet.layoutsadmin.display.context.GroupDisplayContextHelper" %><%@
+<<<<<<< HEAD
 page import="com.liferay.taglib.search.ResultRow" %>
+=======
+page import="com.liferay.taglib.search.ResultRow" %><%@
+page import="com.liferay.trash.kernel.util.TrashUtil" %>
+>>>>>>> compatible
 
 <%@ page import="java.io.Serializable" %>
 
@@ -173,8 +200,11 @@ page import="javax.portlet.PortletURL" %>
 
 <liferay-theme:defineObjects />
 
+<<<<<<< HEAD
 <liferay-trash:defineObjects />
 
+=======
+>>>>>>> compatible
 <portlet:defineObjects />
 
 <%

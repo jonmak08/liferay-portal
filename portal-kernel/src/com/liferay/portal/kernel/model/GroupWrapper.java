@@ -250,7 +250,12 @@ public class GroupWrapper implements Group, ModelWrapper<Group> {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public java.util.List<Group> getAncestors() {
+=======
+	public java.util.List<Group> getAncestors()
+		throws com.liferay.portal.kernel.exception.PortalException {
+>>>>>>> compatible
 		return _group.getAncestors();
 	}
 
@@ -674,7 +679,12 @@ public class GroupWrapper implements Group, ModelWrapper<Group> {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public Group getParentGroup() {
+=======
+	public Group getParentGroup()
+		throws com.liferay.portal.kernel.exception.PortalException {
+>>>>>>> compatible
 		return _group.getParentGroup();
 	}
 

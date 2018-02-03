@@ -29,18 +29,30 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
 )
 public interface RequestHeaderAutoLoginConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(deflt = "false", name = "enabled", required = false)
 	public boolean enabled();
 
 	@Meta.AD(
 		deflt = "false", description = "import-from-ldap-help",
 		name = "import-from-ldap", required = false
+=======
+	@Meta.AD(deflt = "false", required = false)
+	public boolean enabled();
+
+	@Meta.AD(
+		deflt = "false", description = "import-from-ldap-help", required = false
+>>>>>>> compatible
 	)
 	public boolean importFromLDAP();
 
 	@Meta.AD(
 		deflt = "255.255.255.255", description = "auth-hosts-allowed-help",
+<<<<<<< HEAD
 		name = "auth-hosts-allowed", required = false
+=======
+		required = false
+>>>>>>> compatible
 	)
 	public String authHostsAllowed();
 

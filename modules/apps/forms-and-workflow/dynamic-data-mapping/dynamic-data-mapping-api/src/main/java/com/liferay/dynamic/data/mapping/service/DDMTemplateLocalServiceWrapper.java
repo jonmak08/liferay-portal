@@ -479,11 +479,20 @@ public class DDMTemplateLocalServiceWrapper implements DDMTemplateLocalService,
 	search in the search
 	* @return the matching template, or <code>null</code> if a matching
 	template could not be found
+<<<<<<< HEAD
+=======
+	* @throws PortalException if a portal exception occurred
+>>>>>>> compatible
 	*/
 	@Override
 	public com.liferay.dynamic.data.mapping.model.DDMTemplate fetchTemplate(
 		long groupId, long classNameId, java.lang.String templateKey,
+<<<<<<< HEAD
 		boolean includeAncestorTemplates) {
+=======
+		boolean includeAncestorTemplates)
+		throws com.liferay.portal.kernel.exception.PortalException {
+>>>>>>> compatible
 		return _ddmTemplateLocalService.fetchTemplate(groupId, classNameId,
 			templateKey, includeAncestorTemplates);
 	}
@@ -907,6 +916,7 @@ public class DDMTemplateLocalServiceWrapper implements DDMTemplateLocalService,
 			classPK);
 	}
 
+<<<<<<< HEAD
 	/**
 	* Returns the number of templates matching the group IDs, class name ID,
 	* and class PK.
@@ -923,6 +933,8 @@ public class DDMTemplateLocalServiceWrapper implements DDMTemplateLocalService,
 			classNameId, classPK);
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	public void revertTemplate(long userId, long templateId,
 		java.lang.String version,

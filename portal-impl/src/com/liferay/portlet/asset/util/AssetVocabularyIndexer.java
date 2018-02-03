@@ -33,6 +33,10 @@ import com.liferay.portal.kernel.search.filter.BooleanFilter;
 import com.liferay.portal.kernel.search.generic.BooleanQueryImpl;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.spring.osgi.OSGiBeanProperties;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.Validator;
@@ -48,7 +52,11 @@ import javax.portlet.PortletResponse;
  * @deprecated As of 7.0.0, moved to {@link
  *             com.liferay.asset.categories.internal.search.AssetVocabularyIndexer}
  */
+<<<<<<< HEAD
 @Deprecated
+=======
+@OSGiBeanProperties
+>>>>>>> compatible
 public class AssetVocabularyIndexer extends BaseIndexer<AssetVocabulary> {
 
 	public static final String CLASS_NAME = AssetVocabulary.class.getName();

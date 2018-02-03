@@ -21,6 +21,10 @@ import com.liferay.dynamic.data.mapping.model.DDMTemplate;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -129,7 +133,11 @@ public class DDMTemplateCacheModel implements CacheModel<DDMTemplate>,
 		DDMTemplateImpl ddmTemplateImpl = new DDMTemplateImpl();
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			ddmTemplateImpl.setUuid("");
+=======
+			ddmTemplateImpl.setUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmTemplateImpl.setUuid(uuid);
@@ -141,7 +149,11 @@ public class DDMTemplateCacheModel implements CacheModel<DDMTemplate>,
 		ddmTemplateImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			ddmTemplateImpl.setUserName("");
+=======
+			ddmTemplateImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmTemplateImpl.setUserName(userName);
@@ -150,7 +162,11 @@ public class DDMTemplateCacheModel implements CacheModel<DDMTemplate>,
 		ddmTemplateImpl.setVersionUserId(versionUserId);
 
 		if (versionUserName == null) {
+<<<<<<< HEAD
 			ddmTemplateImpl.setVersionUserName("");
+=======
+			ddmTemplateImpl.setVersionUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmTemplateImpl.setVersionUserName(versionUserName);
@@ -175,56 +191,88 @@ public class DDMTemplateCacheModel implements CacheModel<DDMTemplate>,
 		ddmTemplateImpl.setResourceClassNameId(resourceClassNameId);
 
 		if (templateKey == null) {
+<<<<<<< HEAD
 			ddmTemplateImpl.setTemplateKey("");
+=======
+			ddmTemplateImpl.setTemplateKey(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmTemplateImpl.setTemplateKey(templateKey);
 		}
 
 		if (version == null) {
+<<<<<<< HEAD
 			ddmTemplateImpl.setVersion("");
+=======
+			ddmTemplateImpl.setVersion(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmTemplateImpl.setVersion(version);
 		}
 
 		if (name == null) {
+<<<<<<< HEAD
 			ddmTemplateImpl.setName("");
+=======
+			ddmTemplateImpl.setName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmTemplateImpl.setName(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			ddmTemplateImpl.setDescription("");
+=======
+			ddmTemplateImpl.setDescription(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmTemplateImpl.setDescription(description);
 		}
 
 		if (type == null) {
+<<<<<<< HEAD
 			ddmTemplateImpl.setType("");
+=======
+			ddmTemplateImpl.setType(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmTemplateImpl.setType(type);
 		}
 
 		if (mode == null) {
+<<<<<<< HEAD
 			ddmTemplateImpl.setMode("");
+=======
+			ddmTemplateImpl.setMode(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmTemplateImpl.setMode(mode);
 		}
 
 		if (language == null) {
+<<<<<<< HEAD
 			ddmTemplateImpl.setLanguage("");
+=======
+			ddmTemplateImpl.setLanguage(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmTemplateImpl.setLanguage(language);
 		}
 
 		if (script == null) {
+<<<<<<< HEAD
 			ddmTemplateImpl.setScript("");
+=======
+			ddmTemplateImpl.setScript(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmTemplateImpl.setScript(script);
@@ -235,7 +283,11 @@ public class DDMTemplateCacheModel implements CacheModel<DDMTemplate>,
 		ddmTemplateImpl.setSmallImageId(smallImageId);
 
 		if (smallImageURL == null) {
+<<<<<<< HEAD
 			ddmTemplateImpl.setSmallImageURL("");
+=======
+			ddmTemplateImpl.setSmallImageURL(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmTemplateImpl.setSmallImageURL(smallImageURL);
@@ -250,14 +302,21 @@ public class DDMTemplateCacheModel implements CacheModel<DDMTemplate>,
 
 		ddmTemplateImpl.resetOriginalValues();
 
+<<<<<<< HEAD
 		ddmTemplateImpl.setResourceClassName(_resourceClassName);
 
+=======
+>>>>>>> compatible
 		return ddmTemplateImpl;
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void readExternal(ObjectInput objectInput)
 		throws ClassNotFoundException, IOException {
+=======
+	public void readExternal(ObjectInput objectInput) throws IOException {
+>>>>>>> compatible
 		uuid = objectInput.readUTF();
 
 		templateId = objectInput.readLong();
@@ -295,15 +354,22 @@ public class DDMTemplateCacheModel implements CacheModel<DDMTemplate>,
 		smallImageId = objectInput.readLong();
 		smallImageURL = objectInput.readUTF();
 		lastPublishDate = objectInput.readLong();
+<<<<<<< HEAD
 
 		_resourceClassName = (java.lang.String)objectInput.readObject();
+=======
+>>>>>>> compatible
 	}
 
 	@Override
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		if (uuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(uuid);
@@ -318,7 +384,11 @@ public class DDMTemplateCacheModel implements CacheModel<DDMTemplate>,
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -327,7 +397,11 @@ public class DDMTemplateCacheModel implements CacheModel<DDMTemplate>,
 		objectOutput.writeLong(versionUserId);
 
 		if (versionUserName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(versionUserName);
@@ -343,56 +417,88 @@ public class DDMTemplateCacheModel implements CacheModel<DDMTemplate>,
 		objectOutput.writeLong(resourceClassNameId);
 
 		if (templateKey == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(templateKey);
 		}
 
 		if (version == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(version);
 		}
 
 		if (name == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(description);
 		}
 
 		if (type == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(type);
 		}
 
 		if (mode == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(mode);
 		}
 
 		if (language == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(language);
 		}
 
 		if (script == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(script);
@@ -405,15 +511,22 @@ public class DDMTemplateCacheModel implements CacheModel<DDMTemplate>,
 		objectOutput.writeLong(smallImageId);
 
 		if (smallImageURL == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(smallImageURL);
 		}
 
 		objectOutput.writeLong(lastPublishDate);
+<<<<<<< HEAD
 
 		objectOutput.writeObject(_resourceClassName);
+=======
+>>>>>>> compatible
 	}
 
 	public String uuid;
@@ -442,5 +555,8 @@ public class DDMTemplateCacheModel implements CacheModel<DDMTemplate>,
 	public long smallImageId;
 	public String smallImageURL;
 	public long lastPublishDate;
+<<<<<<< HEAD
 	public java.lang.String _resourceClassName;
+=======
+>>>>>>> compatible
 }

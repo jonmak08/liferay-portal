@@ -14,7 +14,11 @@
 
 package com.liferay.configuration.admin.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.configuration.admin.constants.ConfigurationAdminPortletKeys;
+=======
+import com.liferay.configuration.admin.web.internal.constants.ConfigurationAdminPortletKeys;
+>>>>>>> compatible
 import com.liferay.configuration.admin.web.internal.util.ConfigurationModelRetriever;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;

@@ -34,6 +34,11 @@ import com.liferay.portal.kernel.service.UserGroupRoleLocalServiceUtil;
 import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.CompanyTestUtil;
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.RoleTestUtil;
@@ -58,12 +63,22 @@ import org.junit.Test;
  * @author Christopher Kian
  * @author Preston Crary
  */
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class InlineSQLHelperImplTest {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Before
 	public void setUp() throws Exception {
@@ -100,8 +115,12 @@ public class InlineSQLHelperImplTest {
 		_assertClauseOrdering(
 			_SQL_PLAIN + _SQL_GROUP_BY + _SQL_ORDER_BY, _ORDER_BY_CLAUSE);
 		_assertClauseOrdering(
+<<<<<<< HEAD
 			StringBundler.concat(
 				_SQL_PLAIN, _SQL_WHERE, _SQL_GROUP_BY, _SQL_ORDER_BY),
+=======
+			_SQL_PLAIN + _SQL_WHERE + _SQL_GROUP_BY + _SQL_ORDER_BY,
+>>>>>>> compatible
 			_ORDER_BY_CLAUSE);
 	}
 

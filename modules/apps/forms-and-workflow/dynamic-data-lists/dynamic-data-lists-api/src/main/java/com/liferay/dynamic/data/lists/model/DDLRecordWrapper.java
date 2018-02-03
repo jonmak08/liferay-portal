@@ -71,7 +71,10 @@ public class DDLRecordWrapper implements DDLRecord, ModelWrapper<DDLRecord> {
 		attributes.put("modifiedDate", getModifiedDate());
 		attributes.put("DDMStorageId", getDDMStorageId());
 		attributes.put("recordSetId", getRecordSetId());
+<<<<<<< HEAD
 		attributes.put("recordSetVersion", getRecordSetVersion());
+=======
+>>>>>>> compatible
 		attributes.put("version", getVersion());
 		attributes.put("displayIndex", getDisplayIndex());
 		attributes.put("lastPublishDate", getLastPublishDate());
@@ -153,12 +156,15 @@ public class DDLRecordWrapper implements DDLRecord, ModelWrapper<DDLRecord> {
 			setRecordSetId(recordSetId);
 		}
 
+<<<<<<< HEAD
 		String recordSetVersion = (String)attributes.get("recordSetVersion");
 
 		if (recordSetVersion != null) {
 			setRecordSetVersion(recordSetVersion);
 		}
 
+=======
+>>>>>>> compatible
 		String version = (String)attributes.get("version");
 
 		if (version != null) {
@@ -335,6 +341,7 @@ public class DDLRecordWrapper implements DDLRecord, ModelWrapper<DDLRecord> {
 		return _ddlRecord.getRecordSetId();
 	}
 
+<<<<<<< HEAD
 	/**
 	* Returns the record set version of this ddl record.
 	*
@@ -345,6 +352,8 @@ public class DDLRecordWrapper implements DDLRecord, ModelWrapper<DDLRecord> {
 		return _ddlRecord.getRecordSetVersion();
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	public DDLRecordVersion getRecordVersion()
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -600,6 +609,7 @@ public class DDLRecordWrapper implements DDLRecord, ModelWrapper<DDLRecord> {
 	}
 
 	/**
+<<<<<<< HEAD
 	* Sets the record set version of this ddl record.
 	*
 	* @param recordSetVersion the record set version of this ddl record
@@ -610,6 +620,8 @@ public class DDLRecordWrapper implements DDLRecord, ModelWrapper<DDLRecord> {
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	* Sets the user ID of this ddl record.
 	*
 	* @param userId the user ID of this ddl record

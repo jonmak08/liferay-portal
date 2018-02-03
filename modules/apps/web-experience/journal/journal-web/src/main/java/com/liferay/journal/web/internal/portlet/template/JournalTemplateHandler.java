@@ -25,7 +25,10 @@ import com.liferay.journal.model.JournalArticle;
 import com.liferay.journal.service.JournalArticleLocalService;
 import com.liferay.journal.service.JournalArticleService;
 import com.liferay.journal.util.JournalContent;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -34,8 +37,14 @@ import com.liferay.portal.kernel.template.TemplateHandler;
 import com.liferay.portal.kernel.template.TemplateVariableCodeHandler;
 import com.liferay.portal.kernel.template.TemplateVariableGroup;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ResourceBundleLoader;
 import com.liferay.portal.kernel.util.SetUtil;
+=======
+import com.liferay.portal.kernel.util.ResourceBundleUtil;
+import com.liferay.portal.kernel.util.SetUtil;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.util.HashMap;
 import java.util.Locale;
@@ -80,8 +89,13 @@ public class JournalTemplateHandler extends BaseDDMTemplateHandler {
 
 	@Override
 	public String getName(Locale locale) {
+<<<<<<< HEAD
 		ResourceBundle resourceBundle =
 			_resourceBundleLoader.loadResourceBundle(locale);
+=======
+		ResourceBundle resourceBundle = ResourceBundleUtil.getBundle(
+			"content.Language", locale, getClass());
+>>>>>>> compatible
 
 		String portletTitle = _portal.getPortletTitle(
 			JournalPortletKeys.JOURNAL, resourceBundle);
@@ -146,6 +160,7 @@ public class JournalTemplateHandler extends BaseDDMTemplateHandler {
 		_journalContent = journalContent;
 	}
 
+<<<<<<< HEAD
 	@Reference(
 		target = "(bundle.symbolic.name=com.liferay.journal.web)", unbind = "-"
 	)
@@ -155,6 +170,8 @@ public class JournalTemplateHandler extends BaseDDMTemplateHandler {
 		_resourceBundleLoader = resourceBundleLoader;
 	}
 
+=======
+>>>>>>> compatible
 	private static final Log _log = LogFactoryUtil.getLog(
 		JournalTemplateHandler.class);
 
@@ -186,11 +203,18 @@ public class JournalTemplateHandler extends BaseDDMTemplateHandler {
 	private Portal _portal;
 
 	@Reference(
+<<<<<<< HEAD
 		target = "(&(release.bundle.symbolic.name=com.liferay.journal.service)(release.schema.version=1.1.2))"
 	)
 	private Release _release;
 
 	private ResourceBundleLoader _resourceBundleLoader;
+=======
+		target = "(&(release.bundle.symbolic.name=com.liferay.journal.service)(release.schema.version=1.0.2))"
+	)
+	private Release _release;
+
+>>>>>>> compatible
 	private final TemplateVariableCodeHandler _templateVariableCodeHandler =
 		new DDMTemplateVariableCodeHandler(
 			JournalTemplateHandler.class.getClassLoader(),

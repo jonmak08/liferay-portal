@@ -14,13 +14,22 @@
 
 package com.liferay.message.boards.internal.exportimport.data.handler;
 
+<<<<<<< HEAD
 import com.liferay.exportimport.data.handler.base.BaseStagedModelDataHandler;
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.lar.ExportImportPathUtil;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.exportimport.kernel.lar.StagedModelDataHandler;
 import com.liferay.exportimport.kernel.lar.StagedModelModifiedDateComparator;
+<<<<<<< HEAD
 import com.liferay.message.boards.model.MBBan;
 import com.liferay.message.boards.service.MBBanLocalService;
+=======
+import com.liferay.exportimport.lar.BaseStagedModelDataHandler;
+import com.liferay.message.boards.kernel.model.MBBan;
+import com.liferay.message.boards.kernel.service.MBBanLocalService;
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;

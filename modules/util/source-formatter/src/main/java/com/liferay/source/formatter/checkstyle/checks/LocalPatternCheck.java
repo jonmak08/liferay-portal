@@ -16,6 +16,10 @@ package com.liferay.source.formatter.checkstyle.checks;
 
 import com.liferay.source.formatter.checkstyle.util.DetailASTUtil;
 
+<<<<<<< HEAD
+=======
+import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
+>>>>>>> compatible
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 import com.puppycrawl.tools.checkstyle.utils.ScopeUtils;
@@ -25,7 +29,11 @@ import java.util.List;
 /**
  * @author Hugo Huijser
  */
+<<<<<<< HEAD
 public class LocalPatternCheck extends BaseCheck {
+=======
+public class LocalPatternCheck extends AbstractCheck {
+>>>>>>> compatible
 
 	@Override
 	public int[] getDefaultTokens() {
@@ -33,7 +41,11 @@ public class LocalPatternCheck extends BaseCheck {
 	}
 
 	@Override
+<<<<<<< HEAD
 	protected void doVisitToken(DetailAST detailAST) {
+=======
+	public void visitToken(DetailAST detailAST) {
+>>>>>>> compatible
 		if (!ScopeUtils.isLocalVariableDef(detailAST)) {
 			return;
 		}

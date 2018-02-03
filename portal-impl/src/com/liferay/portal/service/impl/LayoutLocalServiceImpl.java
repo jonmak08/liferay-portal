@@ -17,7 +17,10 @@ package com.liferay.portal.service.impl;
 import com.liferay.exportimport.kernel.lar.MissingReferences;
 import com.liferay.exportimport.kernel.model.ExportImportConfiguration;
 import com.liferay.exportimport.kernel.staging.MergeLayoutPrototypesThreadLocal;
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.bean.BeanReference;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.dao.orm.Property;
@@ -55,6 +58,10 @@ import com.liferay.portal.kernel.systemevent.SystemEvent;
 import com.liferay.portal.kernel.systemevent.SystemEventHierarchyEntry;
 import com.liferay.portal.kernel.systemevent.SystemEventHierarchyEntryThreadLocal;
 import com.liferay.portal.kernel.util.ArrayUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.AutoResetThreadLocal;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HttpUtil;
@@ -169,7 +176,10 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	 *         activate propagation of changes made to the linked page in the
 	 *         prototype.
 	 * @return the layout
+<<<<<<< HEAD
 	 * @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	 */
 	@Override
 	public Layout addLayout(
@@ -392,7 +402,10 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	 *         be set to specify whether site administrators can modify this
 	 *         page within their site.
 	 * @return the layout
+<<<<<<< HEAD
 	 * @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	 */
 	@Override
 	public Layout addLayout(
@@ -430,11 +443,10 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	/**
 	 * Deletes the layout, its child layouts, and its associated resources.
 	 *
-	 * @param  layout the layout
-	 * @param  updateLayoutSet whether the layout set's page counter needs to be
-	 *         updated
-	 * @param  serviceContext the service context to be applied
-	 * @throws PortalException if a portal exception occurred
+	 * @param layout the layout
+	 * @param updateLayoutSet whether the layout set's page counter needs to be
+	 *        updated
+	 * @param serviceContext the service context to be applied
 	 */
 	@Override
 	@SystemEvent(
@@ -560,11 +572,18 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	 * Deletes the layout with the primary key, also deleting the layout's child
 	 * layouts, and associated resources.
 	 *
+<<<<<<< HEAD
 	 * @param  groupId the primary key of the group
 	 * @param  privateLayout whether the layout is private to the group
 	 * @param  layoutId the primary key of the layout
 	 * @param  serviceContext the service context to be applied
 	 * @throws PortalException if a portal exception occurred
+=======
+	 * @param groupId the primary key of the group
+	 * @param privateLayout whether the layout is private to the group
+	 * @param layoutId the primary key of the layout
+	 * @param serviceContext the service context to be applied
+>>>>>>> compatible
 	 */
 	@Override
 	public void deleteLayout(
@@ -582,9 +601,14 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	 * Deletes the layout with the plid, also deleting the layout's child
 	 * layouts, and associated resources.
 	 *
+<<<<<<< HEAD
 	 * @param  plid the primary key of the layout
 	 * @param  serviceContext the service context to be applied
 	 * @throws PortalException if a portal exception occurred
+=======
+	 * @param plid the primary key of the layout
+	 * @param serviceContext the service context to be applied
+>>>>>>> compatible
 	 */
 	@Override
 	public void deleteLayout(long plid, ServiceContext serviceContext)
@@ -599,6 +623,7 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	 * Deletes the group's private or non-private layouts, also deleting the
 	 * layouts' child layouts, and associated resources.
 	 *
+<<<<<<< HEAD
 	 * @param  groupId the primary key of the group
 	 * @param  privateLayout whether the layout is private to the group
 	 * @param  serviceContext the service context to be applied. The parent
@@ -606,6 +631,14 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	 *         attribute named <code>updatePageCount</code> is set to
 	 *         <code>false</code>.
 	 * @throws PortalException if a portal exception occurred
+=======
+	 * @param groupId the primary key of the group
+	 * @param privateLayout whether the layout is private to the group
+	 * @param serviceContext the service context to be applied. The parent
+	 *        layout set's page count will be updated by default, unless an
+	 *        attribute named <code>updatePageCount</code> is set to
+	 *        <code>false</code>.
+>>>>>>> compatible
 	 */
 	@Override
 	public void deleteLayouts(
@@ -1092,7 +1125,10 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	 * @param  privateLayout whether the layout is private to the group
 	 * @param  friendlyURL the friendly URL of the layout
 	 * @return the layout for the friendly URL
+<<<<<<< HEAD
 	 * @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	 */
 	@Override
 	public Layout getFriendlyURLLayout(
@@ -1173,7 +1209,10 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	 * @param  privateLayout whether the layout is private to the group
 	 * @param  layoutId the primary key of the layout
 	 * @return the matching layout
+<<<<<<< HEAD
 	 * @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	 */
 	@Override
 	public Layout getLayout(long groupId, boolean privateLayout, long layoutId)
@@ -1196,7 +1235,10 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	 *
 	 * @param  iconImageId the primary key of the icon image
 	 * @return Returns the layout for the icon image
+<<<<<<< HEAD
 	 * @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	 */
 	@Override
 	public Layout getLayoutByIconImageId(long iconImageId)
@@ -1219,7 +1261,11 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 			List<Layout> layoutChildLayoutsList =
 				layoutChildLayouts.computeIfAbsent(
 					childLayout.getParentLayoutId(),
+<<<<<<< HEAD
 					parentLayoutId -> new ArrayList<>());
+=======
+					(parentLayoutId) -> new ArrayList<>());
+>>>>>>> compatible
 
 			layoutChildLayoutsList.add(childLayout);
 		}
@@ -1286,9 +1332,40 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	public List<Layout> getLayouts(
 		long groupId, boolean privateLayout, long parentLayoutId) {
 
+<<<<<<< HEAD
 		return getLayouts(
 			groupId, privateLayout, parentLayoutId, false, QueryUtil.ALL_POS,
 			QueryUtil.ALL_POS, null);
+=======
+		if (MergeLayoutPrototypesThreadLocal.isInProgress()) {
+			return layoutPersistence.findByG_P_P(
+				groupId, privateLayout, parentLayoutId);
+		}
+
+		try {
+			Group group = groupLocalService.getGroup(groupId);
+
+			LayoutSet layoutSet = layoutSetLocalService.getLayoutSet(
+				groupId, privateLayout);
+
+			if (layoutSet.isLayoutSetPrototypeLinkActive() &&
+				!_mergeLayouts(
+					group, layoutSet, groupId, privateLayout, parentLayoutId)) {
+
+				return layoutPersistence.findByG_P_P(
+					groupId, privateLayout, parentLayoutId);
+			}
+
+			List<Layout> layouts = layoutPersistence.findByG_P_P(
+				groupId, privateLayout, parentLayoutId);
+
+			return _injectVirtualLayouts(
+				group, layoutSet, layouts, parentLayoutId);
+		}
+		catch (PortalException pe) {
+			throw new SystemException(pe);
+		}
+>>>>>>> compatible
 	}
 
 	/**
@@ -1318,6 +1395,7 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 		long groupId, boolean privateLayout, long parentLayoutId,
 		boolean incomplete, int start, int end) {
 
+<<<<<<< HEAD
 		return getLayouts(
 			groupId, privateLayout, parentLayoutId, incomplete, start, end,
 			null);
@@ -1353,6 +1431,11 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 		if (MergeLayoutPrototypesThreadLocal.isInProgress()) {
 			return layoutPersistence.findByG_P_P(
 				groupId, privateLayout, parentLayoutId, start, end, obc);
+=======
+		if (MergeLayoutPrototypesThreadLocal.isInProgress()) {
+			return layoutPersistence.findByG_P_P(
+				groupId, privateLayout, parentLayoutId, start, end);
+>>>>>>> compatible
 		}
 
 		try {
@@ -1361,6 +1444,7 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 			LayoutSet layoutSet = layoutSetLocalService.getLayoutSet(
 				groupId, privateLayout);
 
+<<<<<<< HEAD
 			if (layoutSet.isLayoutSetPrototypeLinkActive() &&
 				!_mergeLayouts(
 					group, layoutSet, groupId, privateLayout, parentLayoutId,
@@ -1372,6 +1456,18 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 
 			List<Layout> layouts = layoutPersistence.findByG_P_P(
 				groupId, privateLayout, parentLayoutId, start, end, obc);
+=======
+			if (!_mergeLayouts(
+					group, layoutSet, groupId, privateLayout, parentLayoutId,
+					start, end)) {
+
+				return layoutPersistence.findByG_P_P(
+					groupId, privateLayout, parentLayoutId);
+			}
+
+			List<Layout> layouts = layoutPersistence.findByG_P_P(
+				groupId, privateLayout, parentLayoutId);
+>>>>>>> compatible
 
 			return _injectVirtualLayouts(
 				group, layoutSet, layouts, parentLayoutId);
@@ -1389,7 +1485,10 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	 * @param  privateLayout whether the layout is private to the group
 	 * @param  layoutIds the primary keys of the layouts
 	 * @return the matching layouts, or an empty list if no matches were found
+<<<<<<< HEAD
 	 * @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	 */
 	@Override
 	public List<Layout> getLayouts(
@@ -1668,7 +1767,10 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	/**
 	 * Returns all the layouts within scope of the group.
 	 *
+<<<<<<< HEAD
 	 * @param  parentGroupId the primary key of the group's parent group
+=======
+>>>>>>> compatible
 	 * @param  privateLayout whether the layout is private to the group
 	 * @return the layouts within scope of the group
 	 * @throws PortalException if a portal exception occurred
@@ -1712,6 +1814,7 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 		return layouts;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Returns <code>true</code> if there is a matching layout with the UUID,
 	 * group, and privacy.
@@ -1744,6 +1847,8 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 		return false;
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	public boolean hasLayouts(Group group) throws PortalException {
 		List<LayoutSet> groupLayoutSets = layoutSetPersistence.findByGroupId(
@@ -1765,11 +1870,19 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 		if (userGroupIds.length != 0) {
 			long userGroupClassNameId = classNameLocalService.getClassNameId(
 				UserGroup.class);
+<<<<<<< HEAD
 
 			for (long userGroupId : userGroupIds) {
 				Group userGroupGroup = groupPersistence.findByC_C_C(
 					group.getCompanyId(), userGroupClassNameId, userGroupId);
 
+=======
+
+			for (long userGroupId : userGroupIds) {
+				Group userGroupGroup = groupPersistence.findByC_C_C(
+					group.getCompanyId(), userGroupClassNameId, userGroupId);
+
+>>>>>>> compatible
 				List<LayoutSet> userGroupGroupLayoutSets =
 					layoutSetPersistence.findByGroupId(
 						userGroupGroup.getGroupId());
@@ -2297,12 +2410,20 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	 * Sets the layouts for the group, replacing and prioritizing all layouts of
 	 * the parent layout.
 	 *
+<<<<<<< HEAD
 	 * @param  groupId the primary key of the group
 	 * @param  privateLayout whether the layout is private to the group
 	 * @param  parentLayoutId the primary key of the parent layout
 	 * @param  layoutIds the primary keys of the layouts
 	 * @param  serviceContext the service context to be applied
 	 * @throws PortalException if a portal exception occurred
+=======
+	 * @param groupId the primary key of the group
+	 * @param privateLayout whether the layout is private to the group
+	 * @param parentLayoutId the primary key of the parent layout
+	 * @param layoutIds the primary keys of the layouts
+	 * @param serviceContext the service context to be applied
+>>>>>>> compatible
 	 */
 	@Override
 	public void setLayouts(
@@ -2388,7 +2509,10 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	 * @param  friendlyURL the friendly URL to be assigned
 	 * @param  languageId the primary key of the language
 	 * @return the updated layout
+<<<<<<< HEAD
 	 * @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	 */
 	@Override
 	public Layout updateFriendlyURL(
@@ -2433,7 +2557,10 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	 * @param      friendlyURL the friendly URL to be assigned
 	 * @param      languageId the primary key of the language
 	 * @return     the updated layout
+<<<<<<< HEAD
 	 * @throws     PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	 * @deprecated As of 7.0.0, replaced by {@link #updateFriendlyURL(long,
 	 *             long, String, String)}
 	 */
@@ -2502,7 +2629,10 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	 *         activate propagation of changes made to the linked page in the
 	 *         prototype.
 	 * @return the updated layout
+<<<<<<< HEAD
 	 * @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	 */
 	@Override
 	public Layout updateLayout(
@@ -2616,7 +2746,10 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	 * @param  typeSettings the settings to load the unicode properties object.
 	 *         See {@link UnicodeProperties #fastLoad(String)}.
 	 * @return the updated layout
+<<<<<<< HEAD
 	 * @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	 */
 	@Override
 	public Layout updateLayout(
@@ -2653,7 +2786,10 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	 * @param  colorSchemeId the primary key of the layout's new color scheme
 	 * @param  css the layout's new CSS
 	 * @return the updated layout
+<<<<<<< HEAD
 	 * @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	 */
 	@Override
 	public Layout updateLookAndFeel(
@@ -2683,7 +2819,10 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	 * @param  languageId the primary key of the language. For more information
 	 *         see {@link Locale}.
 	 * @return the updated layout
+<<<<<<< HEAD
 	 * @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	 */
 	@Override
 	public Layout updateName(Layout layout, String name, String languageId)
@@ -2726,7 +2865,10 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	 * @param  languageId the primary key of the language. For more information
 	 *         see {@link Locale}.
 	 * @return the updated layout
+<<<<<<< HEAD
 	 * @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	 */
 	@Override
 	public Layout updateName(
@@ -2748,7 +2890,10 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	 * @param  languageId the primary key of the language. For more information
 	 *         see {@link Locale}.
 	 * @return the updated layout
+<<<<<<< HEAD
 	 * @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	 */
 	@Override
 	public Layout updateName(long plid, String name, String languageId)
@@ -2769,7 +2914,10 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	 * @param  parentLayoutId the primary key to be assigned to the parent
 	 *         layout
 	 * @return the matching layout
+<<<<<<< HEAD
 	 * @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	 */
 	@Override
 	public Layout updateParentLayoutId(
@@ -2811,7 +2959,10 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	 * @param  plid the primary key of the layout
 	 * @param  parentPlid the primary key of the parent layout
 	 * @return the layout matching the primary key
+<<<<<<< HEAD
 	 * @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	 */
 	@Override
 	public Layout updateParentLayoutId(long plid, long parentPlid)
@@ -2860,7 +3011,10 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	 * @param  parentPlid the primary key of the parent layout
 	 * @param  priority the layout's new priority
 	 * @return the layout matching the primary key
+<<<<<<< HEAD
 	 * @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	 */
 	@Override
 	public Layout updateParentLayoutIdAndPriority(
@@ -2904,7 +3058,6 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	 * @param  layout the layout to be updated
 	 * @param  priority the layout's new priority
 	 * @return the updated layout
-	 * @throws PortalException if a portal exception occurred
 	 */
 	@Override
 	public Layout updatePriority(Layout layout, int priority)
@@ -2985,7 +3138,10 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	 * @param  layoutId the primary key of the layout
 	 * @param  priority the layout's new priority
 	 * @return the updated layout
+<<<<<<< HEAD
 	 * @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	 */
 	@Override
 	public Layout updatePriority(
@@ -3009,7 +3165,10 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	 * @param  nextLayoutId the primary key of the next layout
 	 * @param  previousLayoutId the primary key of the previous layout
 	 * @return the updated layout
+<<<<<<< HEAD
 	 * @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	 */
 	@Override
 	public Layout updatePriority(
@@ -3052,7 +3211,10 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 	 * @param  plid the primary key of the layout
 	 * @param  priority the layout's new priority
 	 * @return the updated layout
+<<<<<<< HEAD
 	 * @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	 */
 	@Override
 	public Layout updatePriority(long plid, int priority)
@@ -3508,7 +3670,11 @@ public class LayoutLocalServiceImpl extends LayoutLocalServiceBaseImpl {
 		LayoutLocalServiceImpl.class);
 
 	private static final ThreadLocal<Long> _virtualLayoutTargetGroupId =
+<<<<<<< HEAD
 		new CentralizedThreadLocal<>(
+=======
+		new AutoResetThreadLocal<>(
+>>>>>>> compatible
 			LayoutLocalServiceImpl.class + "._virtualLayoutTargetGroupId",
 			() -> GroupConstants.DEFAULT_LIVE_GROUP_ID);
 

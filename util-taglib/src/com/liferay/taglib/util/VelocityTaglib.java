@@ -115,20 +115,26 @@ public interface VelocityTaglib {
 
 	public BreadcrumbTag getBreadcrumbTag() throws Exception;
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public DiscussionTag getDiscussionTag() throws Exception;
 
 	public IconTag getIconTag() throws Exception;
 
 	public JournalArticleTag getJournalArticleTag() throws Exception;
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public MySitesTag getMySitesTag() throws Exception;
 
 	public PageContext getPageContext();

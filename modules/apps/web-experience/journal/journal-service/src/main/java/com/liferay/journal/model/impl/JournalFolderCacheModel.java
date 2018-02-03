@@ -21,6 +21,10 @@ import com.liferay.journal.model.JournalFolder;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -113,7 +117,11 @@ public class JournalFolderCacheModel implements CacheModel<JournalFolder>,
 		JournalFolderImpl journalFolderImpl = new JournalFolderImpl();
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			journalFolderImpl.setUuid("");
+=======
+			journalFolderImpl.setUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalFolderImpl.setUuid(uuid);
@@ -125,7 +133,11 @@ public class JournalFolderCacheModel implements CacheModel<JournalFolder>,
 		journalFolderImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			journalFolderImpl.setUserName("");
+=======
+			journalFolderImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalFolderImpl.setUserName(userName);
@@ -148,21 +160,33 @@ public class JournalFolderCacheModel implements CacheModel<JournalFolder>,
 		journalFolderImpl.setParentFolderId(parentFolderId);
 
 		if (treePath == null) {
+<<<<<<< HEAD
 			journalFolderImpl.setTreePath("");
+=======
+			journalFolderImpl.setTreePath(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalFolderImpl.setTreePath(treePath);
 		}
 
 		if (name == null) {
+<<<<<<< HEAD
 			journalFolderImpl.setName("");
+=======
+			journalFolderImpl.setName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalFolderImpl.setName(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			journalFolderImpl.setDescription("");
+=======
+			journalFolderImpl.setDescription(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalFolderImpl.setDescription(description);
@@ -181,7 +205,11 @@ public class JournalFolderCacheModel implements CacheModel<JournalFolder>,
 		journalFolderImpl.setStatusByUserId(statusByUserId);
 
 		if (statusByUserName == null) {
+<<<<<<< HEAD
 			journalFolderImpl.setStatusByUserName("");
+=======
+			journalFolderImpl.setStatusByUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalFolderImpl.setStatusByUserName(statusByUserName);
@@ -233,7 +261,11 @@ public class JournalFolderCacheModel implements CacheModel<JournalFolder>,
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		if (uuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(uuid);
@@ -248,7 +280,11 @@ public class JournalFolderCacheModel implements CacheModel<JournalFolder>,
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -260,21 +296,33 @@ public class JournalFolderCacheModel implements CacheModel<JournalFolder>,
 		objectOutput.writeLong(parentFolderId);
 
 		if (treePath == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(treePath);
 		}
 
 		if (name == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(description);
@@ -288,7 +336,11 @@ public class JournalFolderCacheModel implements CacheModel<JournalFolder>,
 		objectOutput.writeLong(statusByUserId);
 
 		if (statusByUserName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(statusByUserName);

@@ -154,9 +154,12 @@ public class SocialAnalyzerPlugin implements AnalyzerPlugin {
 		_publicIds.put(
 			"-//Liferay//DTD Social 7.0.0//EN",
 			"com/liferay/portal/definitions/liferay-social_7_0_0.dtd");
+<<<<<<< HEAD
 		_publicIds.put(
 			"-//Liferay//DTD Social 7.1.0//EN",
 			"com/liferay/portal/definitions/liferay-social_7_1_0.dtd");
+=======
+>>>>>>> compatible
 	}
 
 }

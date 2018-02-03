@@ -1,10 +1,13 @@
 <definition>
 	<var name="validationErrorMessage" value="This field is required." />
 
+<<<<<<< HEAD
 	<command name="clickNextPage">
 		<execute function="AssertClick" locator1="Button#NEXT" value1="Next" />
 	</command>
 
+=======
+>>>>>>> compatible
 	<command name="clickSubmit">
 		<execute function="AssertClick" locator1="Button#SUBMIT" value1="Submit" />
 	</command>
@@ -27,6 +30,7 @@
 		<execute function="AssertTextEquals" locator1="FormPortlet#FORM_PAGE_ACTIVE" value1="${formPageNext}" />
 	</command>
 
+<<<<<<< HEAD
 	<command name="previousPage">
 		<execute function="Click" locator1="Button#PREVIOUS" />
 	</command>
@@ -42,6 +46,10 @@
 				<execute function="Click" locator1="Form#PUBLISH_URL_FORM_PAGE" />
 			</else>
 		</if>
+=======
+	<command name="submit">
+		<execute function="Click" locator1="FormPortlet#FORM_CONTENT" />
+>>>>>>> compatible
 
 		<execute macro="FormPortlet#clickSubmit" />
 	</command>
@@ -63,6 +71,7 @@
 
 		<execute function="AssertTextEquals" locator1="Message#ERROR_FORM_FIELD_REQUIRED" value1="${validationErrorMessage}" />
 	</command>
+<<<<<<< HEAD
 
 	<command name="viewSuccessPage">
 		<var name="key_successPageTitle" value="${successPageTitle}" />
@@ -73,4 +82,6 @@
 
 		<execute function="AssertTextEquals" locator1="FormPortlet#SUCCESS_PAGE_DESCRIPTION" value1="${successPageDescription}" />
 	</command>
+=======
+>>>>>>> compatible
 </definition>

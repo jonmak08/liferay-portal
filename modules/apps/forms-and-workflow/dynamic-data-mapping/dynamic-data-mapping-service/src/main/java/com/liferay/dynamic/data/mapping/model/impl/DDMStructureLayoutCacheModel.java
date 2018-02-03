@@ -21,6 +21,10 @@ import com.liferay.dynamic.data.mapping.model.DDMStructureLayout;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -97,7 +101,11 @@ public class DDMStructureLayoutCacheModel implements CacheModel<DDMStructureLayo
 		DDMStructureLayoutImpl ddmStructureLayoutImpl = new DDMStructureLayoutImpl();
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			ddmStructureLayoutImpl.setUuid("");
+=======
+			ddmStructureLayoutImpl.setUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmStructureLayoutImpl.setUuid(uuid);
@@ -109,7 +117,11 @@ public class DDMStructureLayoutCacheModel implements CacheModel<DDMStructureLayo
 		ddmStructureLayoutImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			ddmStructureLayoutImpl.setUserName("");
+=======
+			ddmStructureLayoutImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmStructureLayoutImpl.setUserName(userName);
@@ -132,7 +144,11 @@ public class DDMStructureLayoutCacheModel implements CacheModel<DDMStructureLayo
 		ddmStructureLayoutImpl.setStructureVersionId(structureVersionId);
 
 		if (definition == null) {
+<<<<<<< HEAD
 			ddmStructureLayoutImpl.setDefinition("");
+=======
+			ddmStructureLayoutImpl.setDefinition(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmStructureLayoutImpl.setDefinition(definition);
@@ -171,7 +187,11 @@ public class DDMStructureLayoutCacheModel implements CacheModel<DDMStructureLayo
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		if (uuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(uuid);
@@ -186,7 +206,11 @@ public class DDMStructureLayoutCacheModel implements CacheModel<DDMStructureLayo
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -198,7 +222,11 @@ public class DDMStructureLayoutCacheModel implements CacheModel<DDMStructureLayo
 		objectOutput.writeLong(structureVersionId);
 
 		if (definition == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(definition);

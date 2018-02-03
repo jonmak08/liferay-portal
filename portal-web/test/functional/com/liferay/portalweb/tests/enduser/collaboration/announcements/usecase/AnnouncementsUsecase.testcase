@@ -12,6 +12,7 @@
 
 		<execute macro="User#firstLoginPG" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -23,6 +24,9 @@
 		</execute>
 
 		<execute macro="Navigator#gotoPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Announcements Page" />
 		</execute>
 
@@ -46,7 +50,11 @@
 
 				<execute macro="AnnouncementsEntry#tearDownPG" />
 
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP" />
+=======
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 
 				<execute macro="User#tearDownCP" />
 
@@ -78,9 +86,13 @@
 			<var name="entryTitle" value="Announcements Entry Title" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -89,6 +101,7 @@
 			<var name="siteType" value="Community" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -97,6 +110,15 @@
 
 		<execute macro="SitePages#addPublicPage">
 			<var name="pageName" value="Site Page Name" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+			<var name="portlet" value="Sites" />
+		</execute>
+
+		<execute macro="Page#add">
+			<var name="pageName" value="Site Page Name" />
+			<var name="siteName" value="Community Site Name" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Navigator#gotoSitePage">
@@ -136,8 +158,14 @@
 			<var name="entryTitle" value="Announcements Entry2 Scoped Title" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Announcements Page" />
+=======
+		<execute macro="Navigator#gotoSitePage">
+			<var name="pageName" value="Announcements Page" />
+			<var name="siteName" value="${siteName}" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="AnnouncementsEntry#viewPG">
@@ -147,9 +175,13 @@
 			<var name="entryTitle" value="Announcements Entry2 Scoped Title" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -160,9 +192,13 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -178,8 +214,14 @@
 			<var name="userEmailAddress" value="userea@liferay.com" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Announcements Page" />
+=======
+		<execute macro="Navigator#gotoSitePage">
+			<var name="pageName" value="Announcements Page" />
+			<var name="siteName" value="${siteName}" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="AnnouncementsEntry#viewViaEntriesPG">
@@ -196,6 +238,7 @@
 	</command>
 
 	<command name="ViewAnnouncementsPagination" priority="3">
+<<<<<<< HEAD
 		<var name="entryCountList" value="1,2,3,4,5,6,7" />
 
 		<for list="${entryCountList}" param="entryCount">
@@ -211,6 +254,97 @@
 				<var name="entryURL" value="http://www.liferay.com" />
 			</execute>
 		</for>
+=======
+		<var name="announcementType" value="General" />
+		<var name="distributionScope" value="General" />
+		<var name="entryContent" value="Announcements Entry Content" />
+		<var name="entryTitle" value="Announcements Entry Title" />
+		<var name="entryURL" value="http://www.liferay.com" />
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Announcements Page" />
+		</execute>
+
+		<execute macro="AnnouncementsEntry#addPG">
+			<var name="announcementType" value="General" />
+			<var name="distributionScope" value="General" />
+			<var name="entryContent" value="Announcements Entry Content 1" />
+			<var name="entryTitle" value="Announcements Entry Title 1" />
+			<var name="entryURL" value="http://www.liferay.com" />
+		</execute>
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Announcements Page" />
+		</execute>
+
+		<execute macro="AnnouncementsEntry#addPG">
+			<var name="announcementType" value="General" />
+			<var name="distributionScope" value="General" />
+			<var name="entryContent" value="Announcements Entry Content 2" />
+			<var name="entryTitle" value="Announcements Entry Title 2" />
+			<var name="entryURL" value="http://www.liferay.com" />
+		</execute>
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Announcements Page" />
+		</execute>
+
+		<execute macro="AnnouncementsEntry#addPG">
+			<var name="announcementType" value="General" />
+			<var name="distributionScope" value="General" />
+			<var name="entryContent" value="Announcements Entry Content 3" />
+			<var name="entryTitle" value="Announcements Entry Title 3" />
+			<var name="entryURL" value="http://www.liferay.com" />
+		</execute>
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Announcements Page" />
+		</execute>
+
+		<execute macro="AnnouncementsEntry#addPG">
+			<var name="announcementType" value="General" />
+			<var name="distributionScope" value="General" />
+			<var name="entryContent" value="Announcements Entry Content 4" />
+			<var name="entryTitle" value="Announcements Entry Title 4" />
+			<var name="entryURL" value="http://www.liferay.com" />
+		</execute>
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Announcements Page" />
+		</execute>
+
+		<execute macro="AnnouncementsEntry#addPG">
+			<var name="announcementType" value="General" />
+			<var name="distributionScope" value="General" />
+			<var name="entryContent" value="Announcements Entry Content 5" />
+			<var name="entryTitle" value="Announcements Entry Title 5" />
+			<var name="entryURL" value="http://www.liferay.com" />
+		</execute>
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Announcements Page" />
+		</execute>
+
+		<execute macro="AnnouncementsEntry#addPG">
+			<var name="announcementType" value="General" />
+			<var name="distributionScope" value="General" />
+			<var name="entryContent" value="Announcements Entry Content 6" />
+			<var name="entryTitle" value="Announcements Entry Title 6" />
+			<var name="entryURL" value="http://www.liferay.com" />
+		</execute>
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Announcements Page" />
+		</execute>
+
+		<execute macro="AnnouncementsEntry#addPG">
+			<var name="announcementType" value="General" />
+			<var name="distributionScope" value="General" />
+			<var name="entryContent" value="Announcements Entry Content 7" />
+			<var name="entryTitle" value="Announcements Entry Title 7" />
+			<var name="entryURL" value="http://www.liferay.com" />
+		</execute>
+>>>>>>> compatible
 
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Announcements Page" />
@@ -222,6 +356,7 @@
 
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Announcements Page" />
+<<<<<<< HEAD
 		</execute>
 
 		<var name="viewEntryList" value="3,4,5,6,7" />
@@ -290,10 +425,126 @@
 		<execute function="AssertTextEquals#assertPartialText" locator1="Dropdown#FILTER" value1="General" />
 
 		<execute macro="AnnouncementsPortlet#configurePaginationCP">
+=======
+		</execute>
+
+		<execute macro="AnnouncementsEntry#viewViaEntriesPG">
+			<var name="distributionScope" value="General" />
+			<var name="entryContent" value="Announcements Entry Content 3" />
+			<var name="entryTitle" value="Announcements Entry Title 3" />
+			<var name="entryURL" value="http://www.liferay.com" />
+		</execute>
+
+		<execute macro="AnnouncementsEntry#viewViaEntriesPG">
+			<var name="distributionScope" value="General" />
+			<var name="entryContent" value="Announcements Entry Content 4" />
+			<var name="entryTitle" value="Announcements Entry Title 4" />
+			<var name="entryURL" value="http://www.liferay.com" />
+		</execute>
+
+		<execute macro="AnnouncementsEntry#viewViaEntriesPG">
+			<var name="distributionScope" value="General" />
+			<var name="entryContent" value="Announcements Entry Content 5" />
+			<var name="entryTitle" value="Announcements Entry Title 5" />
+			<var name="entryURL" value="http://www.liferay.com" />
+		</execute>
+
+		<execute macro="AnnouncementsEntry#viewViaEntriesPG">
+			<var name="distributionScope" value="General" />
+			<var name="entryContent" value="Announcements Entry Content 6" />
+			<var name="entryTitle" value="Announcements Entry Title 6" />
+			<var name="entryURL" value="http://www.liferay.com" />
+		</execute>
+
+		<execute macro="AnnouncementsEntry#viewViaEntriesPG">
+			<var name="distributionScope" value="General" />
+			<var name="entryContent" value="Announcements Entry Content 7" />
+			<var name="entryTitle" value="Announcements Entry Title 7" />
+			<var name="entryURL" value="http://www.liferay.com" />
+		</execute>
+
+		<var name="key_entryTitle" value="Announcements Entry Title" />
+
+		<execute function="AssertTextNotPresent" locator1="Announcements#CARD_VIEW_ENTRY_TITLE" value1="Announcements Entry Title 1" />
+		<execute function="AssertTextNotPresent" locator1="Announcements#CARD_VIEW_ENTRY_TITLE" value1="Announcements Entry Title 2" />
+		<execute function="AssertClick" locator1="Pagination#NEXT_LINK" value1="Next" />
+
+		<execute macro="AnnouncementsEntry#viewViaEntriesPG">
+			<var name="distributionScope" value="General" />
+			<var name="entryContent" value="Announcements Entry Content 1" />
+			<var name="entryTitle" value="Announcements Entry Title 1" />
+			<var name="entryURL" value="http://www.liferay.com" />
+		</execute>
+
+		<execute macro="AnnouncementsEntry#viewViaEntriesPG">
+			<var name="distributionScope" value="General" />
+			<var name="entryContent" value="Announcements Entry Content 2" />
+			<var name="entryTitle" value="Announcements Entry Title 2" />
+			<var name="entryURL" value="http://www.liferay.com" />
+		</execute>
+
+		<var name="key_entryTitle" value="Announcements Entry Title" />
+
+		<execute function="AssertTextNotPresent" locator1="Announcements#CARD_VIEW_ENTRY_TITLE" value1="Announcements Entry Title 3" />
+		<execute function="AssertTextNotPresent" locator1="Announcements#CARD_VIEW_ENTRY_TITLE" value1="Announcements Entry Title 4" />
+		<execute function="AssertTextNotPresent" locator1="Announcements#CARD_VIEW_ENTRY_TITLE" value1="Announcements Entry Title 5" />
+		<execute function="AssertTextNotPresent" locator1="Announcements#CARD_VIEW_ENTRY_TITLE" value1="Announcements Entry Title 6" />
+		<execute function="AssertTextNotPresent" locator1="Announcements#CARD_VIEW_ENTRY_TITLE" value1="Announcements Entry Title 7" />
+		<execute function="AssertClick" locator1="Pagination#PREVIOUS_LINK" value1="Previous" />
+
+		<execute macro="AnnouncementsEntry#viewViaEntriesPG">
+			<var name="distributionScope" value="General" />
+			<var name="entryContent" value="Announcements Entry Content 3" />
+			<var name="entryTitle" value="Announcements Entry Title 3" />
+			<var name="entryURL" value="http://www.liferay.com" />
+		</execute>
+
+		<execute macro="AnnouncementsEntry#viewViaEntriesPG">
+			<var name="distributionScope" value="General" />
+			<var name="entryContent" value="Announcements Entry Content 4" />
+			<var name="entryTitle" value="Announcements Entry Title 4" />
+			<var name="entryURL" value="http://www.liferay.com" />
+		</execute>
+
+		<execute macro="AnnouncementsEntry#viewViaEntriesPG">
+			<var name="distributionScope" value="General" />
+			<var name="entryContent" value="Announcements Entry Content 5" />
+			<var name="entryTitle" value="Announcements Entry Title 5" />
+			<var name="entryURL" value="http://www.liferay.com" />
+		</execute>
+
+		<execute macro="AnnouncementsEntry#viewViaEntriesPG">
+			<var name="distributionScope" value="General" />
+			<var name="entryContent" value="Announcements Entry Content 6" />
+			<var name="entryTitle" value="Announcements Entry Title 6" />
+			<var name="entryURL" value="http://www.liferay.com" />
+		</execute>
+
+		<execute macro="AnnouncementsEntry#viewViaEntriesPG">
+			<var name="distributionScope" value="General" />
+			<var name="entryContent" value="Announcements Entry Content 7" />
+			<var name="entryTitle" value="Announcements Entry Title 7" />
+			<var name="entryURL" value="http://www.liferay.com" />
+		</execute>
+
+		<var name="key_entryTitle" value="Announcements Entry Title" />
+
+		<execute function="AssertTextNotPresent" locator1="Announcements#CARD_VIEW_ENTRY_TITLE" value1="Announcements Entry Title 1" />
+		<execute function="AssertTextNotPresent" locator1="Announcements#CARD_VIEW_ENTRY_TITLE" value1="Announcements Entry Title 2" />
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Announcements Page" />
+		</execute>
+
+		<execute function="AssertClick" locator1="Announcements#NAVIGATION_MANAGE_ENTRIES" value1="Manage Entries" />
+
+		<execute macro="AnnouncementsPortlet#configurePaginationManageEntriesPG">
+>>>>>>> compatible
 			<var name="distributionScope" value="General" />
 			<var name="itemsPerPage" value="5" />
 		</execute>
 
+<<<<<<< HEAD
 		<var name="viewEntryList" value="1,2,3,4,5" />
 
 		<for list="${viewEntryList}" param="viewEntryCount">
@@ -344,5 +595,94 @@
 				<var name="key_entryTitle" value="Announcements Entry Title ${viewEntryCount}" />
 			</execute>
 		</for>
+=======
+		<execute macro="AnnouncementsEntry#viewViaManageEntriesPG">
+			<var name="announcementType" value="General" />
+			<var name="distributionScope" value="General" />
+			<var name="entryTitle" value="Announcements Entry Title 1" />
+		</execute>
+
+		<execute macro="AnnouncementsEntry#viewViaManageEntriesPG">
+			<var name="announcementType" value="General" />
+			<var name="distributionScope" value="General" />
+			<var name="entryTitle" value="Announcements Entry Title 2" />
+		</execute>
+
+		<execute macro="AnnouncementsEntry#viewViaManageEntriesPG">
+			<var name="announcementType" value="General" />
+			<var name="distributionScope" value="General" />
+			<var name="entryTitle" value="Announcements Entry Title 3" />
+		</execute>
+
+		<execute macro="AnnouncementsEntry#viewViaManageEntriesPG">
+			<var name="announcementType" value="General" />
+			<var name="distributionScope" value="General" />
+			<var name="entryTitle" value="Announcements Entry Title 4" />
+		</execute>
+
+		<execute macro="AnnouncementsEntry#viewViaManageEntriesPG">
+			<var name="announcementType" value="General" />
+			<var name="distributionScope" value="General" />
+			<var name="entryTitle" value="Announcements Entry Title 5" />
+		</execute>
+
+		<execute function="AssertTextNotPresent" locator1="AnnouncementsManageEntries#ENTRY_TABLE_TITLE" value1="Announcements Entry Title 6" />
+		<execute function="AssertTextNotPresent" locator1="AnnouncementsManageEntries#ENTRY_TABLE_TITLE" value1="Announcements Entry Title 7" />
+
+		<execute function="AssertClick" locator1="Pagination#NEXT_LINK" value1="Next" />
+
+		<execute macro="AnnouncementsEntry#viewViaManageEntriesPG">
+			<var name="announcementType" value="General" />
+			<var name="distributionScope" value="General" />
+			<var name="entryTitle" value="Announcements Entry Title 6" />
+		</execute>
+
+		<execute macro="AnnouncementsEntry#viewViaManageEntriesPG">
+			<var name="announcementType" value="General" />
+			<var name="distributionScope" value="General" />
+			<var name="entryTitle" value="Announcements Entry Title 7" />
+		</execute>
+
+		<execute function="AssertTextNotPresent" locator1="AnnouncementsManageEntries#ENTRY_TABLE_TITLE" value1="Announcements Entry Title 1" />
+		<execute function="AssertTextNotPresent" locator1="AnnouncementsManageEntries#ENTRY_TABLE_TITLE" value1="Announcements Entry Title 2" />
+		<execute function="AssertTextNotPresent" locator1="AnnouncementsManageEntries#ENTRY_TABLE_TITLE" value1="Announcements Entry Title 3" />
+		<execute function="AssertTextNotPresent" locator1="AnnouncementsManageEntries#ENTRY_TABLE_TITLE" value1="Announcements Entry Title 4" />
+		<execute function="AssertTextNotPresent" locator1="AnnouncementsManageEntries#ENTRY_TABLE_TITLE" value1="Announcements Entry Title 5" />
+
+		<execute function="AssertClick" locator1="Pagination#PREVIOUS_LINK" value1="Previous" />
+
+		<execute macro="AnnouncementsEntry#viewViaManageEntriesPG">
+			<var name="announcementType" value="General" />
+			<var name="distributionScope" value="General" />
+			<var name="entryTitle" value="Announcements Entry Title 1" />
+		</execute>
+
+		<execute macro="AnnouncementsEntry#viewViaManageEntriesPG">
+			<var name="announcementType" value="General" />
+			<var name="distributionScope" value="General" />
+			<var name="entryTitle" value="Announcements Entry Title 2" />
+		</execute>
+
+		<execute macro="AnnouncementsEntry#viewViaManageEntriesPG">
+			<var name="announcementType" value="General" />
+			<var name="distributionScope" value="General" />
+			<var name="entryTitle" value="Announcements Entry Title 3" />
+		</execute>
+
+		<execute macro="AnnouncementsEntry#viewViaManageEntriesPG">
+			<var name="announcementType" value="General" />
+			<var name="distributionScope" value="General" />
+			<var name="entryTitle" value="Announcements Entry Title 4" />
+		</execute>
+
+		<execute macro="AnnouncementsEntry#viewViaManageEntriesPG">
+			<var name="announcementType" value="General" />
+			<var name="distributionScope" value="General" />
+			<var name="entryTitle" value="Announcements Entry Title 5" />
+		</execute>
+
+		<execute function="AssertTextNotPresent" locator1="AnnouncementsManageEntries#ENTRY_TABLE_TITLE" value1="Announcements Entry Title 6" />
+		<execute function="AssertTextNotPresent" locator1="AnnouncementsManageEntries#ENTRY_TABLE_TITLE" value1="Announcements Entry Title 7" />
+>>>>>>> compatible
 	</command>
 </definition>

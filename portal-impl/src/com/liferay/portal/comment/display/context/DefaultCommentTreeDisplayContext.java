@@ -23,7 +23,10 @@ import com.liferay.portal.kernel.comment.WorkflowableComment;
 import com.liferay.portal.kernel.comment.display.context.CommentTreeDisplayContext;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.language.LanguageUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.Group;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
@@ -77,7 +80,11 @@ public class DefaultCommentTreeDisplayContext
 	@Override
 	public boolean isActionControlsVisible() throws PortalException {
 		if ((_discussionComment == null) ||
+<<<<<<< HEAD
 			_discussionTaglibHelper.isHideControls() || _isStagingGroup()) {
+=======
+			_discussionTaglibHelper.isHideControls()) {
+>>>>>>> compatible
 
 			return false;
 		}
@@ -87,7 +94,11 @@ public class DefaultCommentTreeDisplayContext
 
 	@Override
 	public boolean isDeleteActionControlVisible() throws PortalException {
+<<<<<<< HEAD
 		if ((_discussionPermission == null) || _isStagingGroup()) {
+=======
+		if (_discussionPermission == null) {
+>>>>>>> compatible
 			return false;
 		}
 
@@ -106,16 +117,24 @@ public class DefaultCommentTreeDisplayContext
 
 	@Override
 	public boolean isEditActionControlVisible() throws PortalException {
+<<<<<<< HEAD
 		if (!hasUpdatePermission() || _isStagingGroup()) {
 			return false;
 		}
 
 		return true;
+=======
+		return hasUpdatePermission();
+>>>>>>> compatible
 	}
 
 	@Override
 	public boolean isEditControlsVisible() throws PortalException {
+<<<<<<< HEAD
 		if (_discussionTaglibHelper.isHideControls() || _isStagingGroup()) {
+=======
+		if (_discussionTaglibHelper.isHideControls()) {
+>>>>>>> compatible
 			return false;
 		}
 
@@ -135,7 +154,11 @@ public class DefaultCommentTreeDisplayContext
 
 	@Override
 	public boolean isReplyActionControlVisible() throws PortalException {
+<<<<<<< HEAD
 		if ((_discussionPermission == null) || _isStagingGroup()) {
+=======
+		if (_discussionPermission == null) {
+>>>>>>> compatible
 			return false;
 		}
 
@@ -252,6 +275,7 @@ public class DefaultCommentTreeDisplayContext
 			_discussionRequestHelper.getScopeGroupId());
 	}
 
+<<<<<<< HEAD
 	private boolean _isStagingGroup() {
 		ThemeDisplay themeDisplay = getThemeDisplay();
 
@@ -260,6 +284,8 @@ public class DefaultCommentTreeDisplayContext
 		return siteGroup.isStagingGroup();
 	}
 
+=======
+>>>>>>> compatible
 	private final DiscussionComment _discussionComment;
 	private final DiscussionPermission _discussionPermission;
 	private final DiscussionRequestHelper _discussionRequestHelper;

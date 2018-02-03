@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Contacts API
 Bundle-SymbolicName: com.liferay.contacts.api
+<<<<<<< HEAD
 Bundle-Version: 3.0.0
+=======
+Bundle-Version: 2.0.7
+>>>>>>> compatible
 Export-Package:\
 	com.liferay.contacts.constants,\
 	com.liferay.contacts.exception,\

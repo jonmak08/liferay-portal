@@ -39,6 +39,7 @@ public class DDMPermissionSupportTracker {
 			getDDMStructurePermissionSupportServiceWrapper(long classNameId)
 		throws PortalException {
 
+<<<<<<< HEAD
 		return getDDMStructurePermissionSupportServiceWrapper(
 			_portal.getClassName(classNameId));
 	}
@@ -46,6 +47,9 @@ public class DDMPermissionSupportTracker {
 	public ServiceWrapper<DDMStructurePermissionSupport>
 			getDDMStructurePermissionSupportServiceWrapper(String className)
 		throws PortalException {
+=======
+		String className = _portal.getClassName(classNameId);
+>>>>>>> compatible
 
 		ServiceWrapper<DDMStructurePermissionSupport>
 			ddmStructurePermissionSupportServiceWrapper =

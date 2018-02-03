@@ -93,7 +93,11 @@ public class LPKGOverrideVerifyTest {
 
 				Assert.assertTrue(
 					"Static JAR not sucessfully overridden: " + symbolicName,
+<<<<<<< HEAD
 					location.contains("protocol=jar"));
+=======
+					location.contains("Static-Jar::"));
+>>>>>>> compatible
 			}
 			else {
 				String location = bundle.getLocation();

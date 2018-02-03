@@ -17,12 +17,18 @@ package com.liferay.dynamic.data.mapping.validator.internal;
 import com.liferay.dynamic.data.mapping.expression.DDMExpression;
 import com.liferay.dynamic.data.mapping.expression.DDMExpressionException;
 import com.liferay.dynamic.data.mapping.expression.DDMExpressionFactory;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.form.field.type.DDMFormFieldTypeServicesTracker;
 import com.liferay.dynamic.data.mapping.form.field.type.DDMFormFieldValueAccessor;
 import com.liferay.dynamic.data.mapping.form.field.type.DDMFormFieldValueValidator;
 import com.liferay.dynamic.data.mapping.form.field.type.DefaultDDMFormFieldValueAccessor;
 import com.liferay.dynamic.data.mapping.model.DDMForm;
 import com.liferay.dynamic.data.mapping.model.DDMFormField;
+=======
+import com.liferay.dynamic.data.mapping.model.DDMForm;
+import com.liferay.dynamic.data.mapping.model.DDMFormField;
+import com.liferay.dynamic.data.mapping.model.DDMFormFieldOptions;
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.model.DDMFormFieldValidation;
 import com.liferay.dynamic.data.mapping.model.Value;
 import com.liferay.dynamic.data.mapping.storage.DDMFormFieldValue;
@@ -37,15 +43,25 @@ import com.liferay.dynamic.data.mapping.validator.DDMFormValuesValidationExcepti
 import com.liferay.dynamic.data.mapping.validator.DDMFormValuesValidationException.MustSetValidValuesSize;
 import com.liferay.dynamic.data.mapping.validator.DDMFormValuesValidationException.RequiredValue;
 import com.liferay.dynamic.data.mapping.validator.DDMFormValuesValidator;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.json.JSONFactory;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.MapUtil;
+=======
+import com.liferay.portal.kernel.json.JSONArray;
+import com.liferay.portal.kernel.json.JSONException;
+import com.liferay.portal.kernel.json.JSONFactory;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.util.GetterUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+<<<<<<< HEAD
 import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -55,6 +71,12 @@ import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
 import org.osgi.service.component.annotations.ReferencePolicyOption;
+=======
+import java.util.Set;
+
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
+>>>>>>> compatible
 
 /**
  * @author Marcellus Tavares
@@ -81,6 +103,7 @@ public class DDMFormValuesValidatorImpl implements DDMFormValuesValidator {
 			ddmForm.getDDMFormFieldsMap(false));
 	}
 
+<<<<<<< HEAD
 	@Reference(
 		cardinality = ReferenceCardinality.MULTIPLE,
 		policy = ReferencePolicy.DYNAMIC,
@@ -98,6 +121,24 @@ public class DDMFormValuesValidatorImpl implements DDMFormValuesValidator {
 		}
 
 		_ddmFormFieldValueValidators.put(type, ddmFormFieldValueValidator);
+=======
+	protected JSONArray createJSONArray(String fieldName, String json)
+		throws DDMFormValuesValidationException {
+
+		try {
+			return _jsonFactory.createJSONArray(json);
+		}
+		catch (JSONException jsone) {
+
+			// LPS-52675
+
+			if (_log.isDebugEnabled()) {
+				_log.debug(jsone, jsone);
+			}
+
+			throw new MustSetValidValue(fieldName);
+		}
+>>>>>>> compatible
 	}
 
 	protected boolean evaluateValidationExpression(
@@ -134,6 +175,7 @@ public class DDMFormValuesValidatorImpl implements DDMFormValuesValidator {
 		}
 	}
 
+<<<<<<< HEAD
 	protected DDMFormFieldValueAccessor<?> getDDMFormFieldValueAccessor(
 		String type) {
 
@@ -147,6 +189,8 @@ public class DDMFormValuesValidatorImpl implements DDMFormValuesValidator {
 		return _defaultDDMFormFieldValueAccessor;
 	}
 
+=======
+>>>>>>> compatible
 	protected List<DDMFormFieldValue> getDDMFormFieldValuesByFieldName(
 		Map<String, List<DDMFormFieldValue>> ddmFormFieldValuesMap,
 		String fieldName) {
@@ -161,6 +205,7 @@ public class DDMFormValuesValidatorImpl implements DDMFormValuesValidator {
 		return ddmFormFieldValues;
 	}
 
+<<<<<<< HEAD
 	protected void invokeDDMFormFieldValueValidator(
 			DDMFormField ddmFormField, DDMFormFieldValue ddmFormFieldValue)
 		throws DDMFormValuesValidationException {
@@ -186,10 +231,14 @@ public class DDMFormValuesValidatorImpl implements DDMFormValuesValidator {
 
 		Value value = ddmFormFieldValue.getValue();
 
+=======
+	protected boolean isNull(Value value) {
+>>>>>>> compatible
 		if (value == null) {
 			return true;
 		}
 
+<<<<<<< HEAD
 		DDMFormFieldValueAccessor<?> ddmFormFieldValueAccessor =
 			getDDMFormFieldValueAccessor(ddmFormField.getType());
 
@@ -197,6 +246,10 @@ public class DDMFormValuesValidatorImpl implements DDMFormValuesValidator {
 			if (ddmFormFieldValueAccessor.isEmpty(
 					ddmFormFieldValue, availableLocale)) {
 
+=======
+		for (Locale availableLocale : value.getAvailableLocales()) {
+			if (Validator.isNull(value.getString(availableLocale))) {
+>>>>>>> compatible
 				return true;
 			}
 		}
@@ -204,6 +257,7 @@ public class DDMFormValuesValidatorImpl implements DDMFormValuesValidator {
 		return false;
 	}
 
+<<<<<<< HEAD
 	protected void removeDDMFormFieldValueValidator(
 		DDMFormFieldValueValidator ddmFormFieldValueValidator,
 		Map<String, Objects> properties) {
@@ -213,6 +267,8 @@ public class DDMFormValuesValidatorImpl implements DDMFormValuesValidator {
 		_ddmFormFieldValueValidators.remove(type);
 	}
 
+=======
+>>>>>>> compatible
 	@Reference(unbind = "-")
 	protected void setDDMExpressionFactory(
 		DDMExpressionFactory ddmExpressionFactory) {
@@ -221,6 +277,7 @@ public class DDMFormValuesValidatorImpl implements DDMFormValuesValidator {
 	}
 
 	@Reference(unbind = "-")
+<<<<<<< HEAD
 	protected void setDDMFormFieldTypeServicesTracker(
 		DDMFormFieldTypeServicesTracker ddmFormFieldTypeServicesTracker) {
 
@@ -228,6 +285,8 @@ public class DDMFormValuesValidatorImpl implements DDMFormValuesValidator {
 	}
 
 	@Reference(unbind = "-")
+=======
+>>>>>>> compatible
 	protected void setJSONFactory(JSONFactory jsonFactory) {
 		_jsonFactory = jsonFactory;
 	}
@@ -273,6 +332,46 @@ public class DDMFormValuesValidatorImpl implements DDMFormValuesValidator {
 		}
 	}
 
+<<<<<<< HEAD
+=======
+	protected void validateDDMFormFieldOptions(
+			DDMFormField ddmFormField, Value value)
+		throws DDMFormValuesValidationException {
+
+		DDMFormFieldOptions ddmFormFieldOptions =
+			ddmFormField.getDDMFormFieldOptions();
+
+		if (ddmFormFieldOptions == null) {
+			return;
+		}
+
+		Set<String> optionValues = ddmFormFieldOptions.getOptionsValues();
+
+		if (optionValues.isEmpty()) {
+			return;
+		}
+
+		Map<Locale, String> selectedValues = value.getValues();
+
+		for (String selectedValue : selectedValues.values()) {
+			JSONArray jsonArray = createJSONArray(
+				ddmFormField.getName(), selectedValue);
+
+			for (int i = 0; i < jsonArray.length(); i++) {
+				if (Validator.isNull(jsonArray.getString(i)) &&
+					!ddmFormField.isRequired()) {
+
+					continue;
+				}
+
+				if (!optionValues.contains(jsonArray.getString(i))) {
+					throw new MustSetValidValue(ddmFormField.getName());
+				}
+			}
+		}
+	}
+
+>>>>>>> compatible
 	protected void validateDDMFormFieldValidationExpression(
 			DDMFormField ddmFormField, Value value)
 		throws DDMFormValuesValidationException {
@@ -313,9 +412,13 @@ public class DDMFormValuesValidatorImpl implements DDMFormValuesValidator {
 
 		validateDDMFormFieldValue(
 			ddmFormField, ddmFormValues.getAvailableLocales(),
+<<<<<<< HEAD
 			ddmFormValues.getDefaultLocale(), ddmFormFieldValue);
 
 		invokeDDMFormFieldValueValidator(ddmFormField, ddmFormFieldValue);
+=======
+			ddmFormValues.getDefaultLocale(), ddmFormFieldValue.getValue());
+>>>>>>> compatible
 
 		traverseDDMFormFieldValues(
 			ddmFormFieldValue.getNestedDDMFormFieldValues(),
@@ -324,11 +427,17 @@ public class DDMFormValuesValidatorImpl implements DDMFormValuesValidator {
 
 	protected void validateDDMFormFieldValue(
 			DDMFormField ddmFormField, Set<Locale> availableLocales,
+<<<<<<< HEAD
 			Locale defaultLocale, DDMFormFieldValue ddmFormFieldValue)
 		throws DDMFormValuesValidationException {
 
 		Value value = ddmFormFieldValue.getValue();
 
+=======
+			Locale defaultLocale, Value value)
+		throws DDMFormValuesValidationException {
+
+>>>>>>> compatible
 		if (Validator.isNull(ddmFormField.getDataType())) {
 			if (value != null) {
 				throw new MustNotSetValue(ddmFormField.getName());
@@ -336,8 +445,12 @@ public class DDMFormValuesValidatorImpl implements DDMFormValuesValidator {
 		}
 		else {
 			if ((value == null) ||
+<<<<<<< HEAD
 				(ddmFormField.isRequired() &&
 				 isNull(ddmFormField, ddmFormFieldValue))) {
+=======
+				(ddmFormField.isRequired() && isNull(value))) {
+>>>>>>> compatible
 
 				throw new RequiredValue(ddmFormField.getName());
 			}
@@ -352,6 +465,11 @@ public class DDMFormValuesValidatorImpl implements DDMFormValuesValidator {
 				ddmFormField, availableLocales, defaultLocale, value);
 
 			validateDDMFormFieldValidationExpression(ddmFormField, value);
+<<<<<<< HEAD
+=======
+
+			validateDDMFormFieldOptions(ddmFormField, value);
+>>>>>>> compatible
 		}
 	}
 
@@ -387,6 +505,7 @@ public class DDMFormValuesValidatorImpl implements DDMFormValuesValidator {
 		}
 	}
 
+<<<<<<< HEAD
 	private DDMExpressionFactory _ddmExpressionFactory;
 	private DDMFormFieldTypeServicesTracker _ddmFormFieldTypeServicesTracker;
 	private final Map<String, DDMFormFieldValueValidator>
@@ -394,6 +513,12 @@ public class DDMFormValuesValidatorImpl implements DDMFormValuesValidator {
 	private final DDMFormFieldValueAccessor<String>
 		_defaultDDMFormFieldValueAccessor =
 			new DefaultDDMFormFieldValueAccessor();
+=======
+	private static final Log _log = LogFactoryUtil.getLog(
+		DDMFormValuesValidatorImpl.class);
+
+	private DDMExpressionFactory _ddmExpressionFactory;
+>>>>>>> compatible
 	private JSONFactory _jsonFactory;
 
 }

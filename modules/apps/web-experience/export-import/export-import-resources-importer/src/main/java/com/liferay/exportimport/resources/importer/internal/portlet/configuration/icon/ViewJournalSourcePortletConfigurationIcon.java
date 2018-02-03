@@ -18,7 +18,10 @@ import com.liferay.journal.constants.JournalPortletKeys;
 import com.liferay.journal.model.JournalArticle;
 import com.liferay.journal.model.JournalArticleConstants;
 import com.liferay.journal.service.JournalArticleLocalService;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.log.Log;
@@ -33,6 +36,10 @@ import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
@@ -189,7 +196,11 @@ public class ViewJournalSourcePortletConfigurationIcon
 	protected String getWindowJS(
 		PortletRequest portletRequest, JournalArticle article) {
 
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(14);
+=======
+		StringBundler sb = new StringBundler(13);
+>>>>>>> compatible
 
 		sb.append("Liferay.Util.Window.getWindow({bodyCssClass: ");
 		sb.append("'dialog-with-footer', destroyOnHide: true, dialog: ");

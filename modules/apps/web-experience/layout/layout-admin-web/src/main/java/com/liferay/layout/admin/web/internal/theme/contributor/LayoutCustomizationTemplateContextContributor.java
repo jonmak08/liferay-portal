@@ -15,12 +15,19 @@
 package com.liferay.layout.admin.web.internal.theme.contributor;
 
 import com.liferay.layout.admin.web.internal.control.menu.CustomizationSettingsProductNavigationControlMenuEntry;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.template.TemplateContextContributor;
 import com.liferay.portal.kernel.util.GetterUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.util.Map;
 

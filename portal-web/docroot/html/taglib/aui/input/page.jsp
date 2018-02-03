@@ -41,7 +41,11 @@ if (type.equals("textarea") && BrowserSnifferUtil.isIe(request) && ((BrowserSnif
 		</c:if>
 
 		<c:if test='<%= required && showRequiredLabel && !type.equals("radio") %>'>
+<<<<<<< HEAD
 			<aui:icon cssClass="reference-mark text-warning" image="asterisk" markupView="lexicon" />
+=======
+			<aui:icon cssClass="text-warning" image="asterisk" markupView="lexicon" />
+>>>>>>> compatible
 
 			<span class="hide-accessible"><liferay-ui:message key="required" /></span>
 		</c:if>

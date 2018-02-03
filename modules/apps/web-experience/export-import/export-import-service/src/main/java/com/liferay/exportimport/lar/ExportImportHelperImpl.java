@@ -14,8 +14,11 @@
 
 package com.liferay.exportimport.lar;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.document.library.kernel.service.DLFileEntryLocalService;
 import com.liferay.exportimport.kernel.lar.DefaultConfigurationPortletDataHandler;
 import com.liferay.exportimport.kernel.lar.ExportImportDateUtil;
@@ -27,14 +30,20 @@ import com.liferay.exportimport.kernel.lar.MissingReferences;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.exportimport.kernel.lar.PortletDataContextFactory;
 import com.liferay.exportimport.kernel.lar.PortletDataHandler;
+<<<<<<< HEAD
 import com.liferay.exportimport.kernel.lar.PortletDataHandlerControl;
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.lar.PortletDataHandlerKeys;
 import com.liferay.exportimport.kernel.lar.StagedModelDataHandler;
 import com.liferay.exportimport.kernel.lar.StagedModelDataHandlerRegistryUtil;
 import com.liferay.exportimport.kernel.lar.StagedModelType;
 import com.liferay.exportimport.kernel.lar.UserIdStrategy;
 import com.liferay.exportimport.portlet.data.handler.provider.PortletDataHandlerProvider;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.Disjunction;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
@@ -76,7 +85,13 @@ import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.MapUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.StreamUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.SystemProperties;
 import com.liferay.portal.kernel.util.TempFileEntryUtil;
@@ -90,7 +105,10 @@ import com.liferay.portal.kernel.zip.ZipReader;
 import com.liferay.portal.kernel.zip.ZipReaderFactoryUtil;
 import com.liferay.portal.kernel.zip.ZipWriter;
 import com.liferay.portal.kernel.zip.ZipWriterFactoryUtil;
+<<<<<<< HEAD
 import com.liferay.portal.model.impl.LayoutImpl;
+=======
+>>>>>>> compatible
 import com.liferay.portal.util.PropsValues;
 
 import java.io.File;
@@ -122,7 +140,10 @@ import org.xml.sax.XMLReader;
  * @author Mate Thurzo
  */
 @Component(immediate = true)
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class ExportImportHelperImpl implements ExportImportHelper {
 
 	@Override
@@ -456,6 +477,7 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 
 		for (Map.Entry<Long, Boolean> entry : layoutIdMap.entrySet()) {
 			long plid = GetterUtil.getLong(String.valueOf(entry.getKey()));
+<<<<<<< HEAD
 
 			Layout layout = new LayoutImpl();
 
@@ -468,15 +490,23 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 			else {
 				layout = _layoutLocalService.getLayout(plid);
 			}
+=======
+			boolean includeChildren = entry.getValue();
+
+			Layout layout = _layoutLocalService.getLayout(plid);
+>>>>>>> compatible
 
 			if (!layouts.contains(layout)) {
 				layouts.add(layout);
 			}
 
+<<<<<<< HEAD
 			if (layout.getPlid() == LayoutConstants.DEFAULT_PLID) {
 				continue;
 			}
 
+=======
+>>>>>>> compatible
 			List<Layout> parentLayouts = Collections.emptyList();
 
 			if (targetGroupId != GroupConstants.DEFAULT_LIVE_GROUP_ID) {
@@ -489,8 +519,11 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 				}
 			}
 
+<<<<<<< HEAD
 			boolean includeChildren = entry.getValue();
 
+=======
+>>>>>>> compatible
 			if (includeChildren) {
 				for (Layout childLayout : layout.getAllChildren()) {
 					if (!layouts.contains(childLayout)) {
@@ -568,14 +601,23 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 		throws Exception {
 
 		File file = FileUtil.createTempFile("lar");
+<<<<<<< HEAD
 
+=======
+		InputStream inputStream = _dlFileEntryLocalService.getFileAsStream(
+			fileEntry.getFileEntryId(), fileEntry.getVersion(), false);
+>>>>>>> compatible
 		ZipReader zipReader = null;
 
 		ManifestSummary manifestSummary = null;
 
+<<<<<<< HEAD
 		try (InputStream inputStream = _dlFileEntryLocalService.getFileAsStream(
 				fileEntry.getFileEntryId(), fileEntry.getVersion(), false)) {
 
+=======
+		try {
+>>>>>>> compatible
 			FileUtil.write(file, inputStream);
 
 			Group group = _groupLocalService.getGroup(groupId);
@@ -592,6 +634,11 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 			manifestSummary = getManifestSummary(portletDataContext);
 		}
 		finally {
+<<<<<<< HEAD
+=======
+			StreamUtil.cleanUp(inputStream);
+
+>>>>>>> compatible
 			if (zipReader != null) {
 				zipReader.close();
 			}
@@ -627,7 +674,11 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @see com.liferay.exportimport.kernel.backgroundtask.LayoutRemoteStagingBackgroundTaskExecutor#getMissingRemoteParentLayouts(
+=======
+	 * @see om.liferay.exportimport.kernel.backgroundtask.LayoutRemoteStagingBackgroundTaskExecutor#getMissingRemoteParentLayouts(
+>>>>>>> compatible
 	 *      com.liferay.portal.kernel.security.auth.HttpPrincipal, Layout, long)
 	 */
 	@Override
@@ -644,15 +695,33 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 			parentLayout = _layoutLocalService.getLayout(
 				layout.getGroupId(), layout.isPrivateLayout(), parentLayoutId);
 
+<<<<<<< HEAD
 			if (_layoutLocalService.hasLayout(
 					parentLayout.getUuid(), liveGroupId,
 					parentLayout.isPrivateLayout())) {
+=======
+			try {
+				_layoutLocalService.getLayoutByUuidAndGroupId(
+					parentLayout.getUuid(), liveGroupId,
+					parentLayout.isPrivateLayout());
+>>>>>>> compatible
 
 				// If one parent is found, all others are assumed to exist
 
 				break;
 			}
+<<<<<<< HEAD
 			else {
+=======
+			catch (NoSuchLayoutException nsle) {
+
+				// LPS-52675
+
+				if (_log.isDebugEnabled()) {
+					_log.debug(nsle, nsle);
+				}
+
+>>>>>>> compatible
 				missingParentLayouts.add(parentLayout);
 
 				parentLayoutId = parentLayout.getParentLayoutId();
@@ -687,6 +756,7 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public String getPortletExportFileName(Portlet portlet) {
 		return StringBundler.concat(
 			StringUtil.replace(portlet.getDisplayName(), ' ', '_'), "-",
@@ -694,6 +764,8 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public ZipWriter getPortletZipWriter(String portletId) {
 		StringBundler sb = new StringBundler(4);
 
@@ -714,6 +786,7 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 		List<Layout> layouts = _layoutLocalService.getLayouts(
 			groupId, privateLayout, LayoutConstants.DEFAULT_PARENT_LAYOUT_ID);
 
+<<<<<<< HEAD
 		long[] selectedPlids = StringUtil.split(selectedNodes, 0L);
 
 		for (Layout layout : layouts) {
@@ -727,6 +800,11 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 			layoutJSONObject.put("plid", 0);
 
 			jsonArray.put(layoutJSONObject);
+=======
+		for (Layout layout : layouts) {
+			populateLayoutsJSON(
+				jsonArray, layout, StringUtil.split(selectedNodes, 0L));
+>>>>>>> compatible
 		}
 
 		return jsonArray.toString();
@@ -764,6 +842,7 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public boolean isAlwaysIncludeReference(
 		PortletDataContext portletDataContext,
 		StagedModel referenceStagedModel) {
@@ -805,6 +884,8 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public boolean isReferenceWithinExportScope(
 		PortletDataContext portletDataContext, StagedModel stagedModel) {
 
@@ -1084,6 +1165,7 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 		return content;
 	}
 
+<<<<<<< HEAD
 	@Override
 	public void setPortletScope(
 		PortletDataContext portletDataContext, Element portletElement) {
@@ -1207,6 +1289,8 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	 * @deprecated As of 3.0.0, see {@link
 	 *             DefaultConfigurationPortletDataHandler#updateExportPortletPreferencesClassPKs(
@@ -1770,12 +1854,15 @@ public class ExportImportHelperImpl implements ExportImportHelper {
 	protected MissingReference validateMissingReference(
 		PortletDataContext portletDataContext, Element element) {
 
+<<<<<<< HEAD
 		// Missing reference is exported after added as missing
 
 		if (Validator.isNotNull(element.attributeValue("element-path"))) {
 			return null;
 		}
 
+=======
+>>>>>>> compatible
 		String className = element.attributeValue("class-name");
 
 		StagedModelDataHandler<?> stagedModelDataHandler =

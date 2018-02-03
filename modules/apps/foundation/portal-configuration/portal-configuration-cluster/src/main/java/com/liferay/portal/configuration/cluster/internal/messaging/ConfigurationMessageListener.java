@@ -14,8 +14,13 @@
 
 package com.liferay.portal.configuration.cluster.internal.messaging;
 
+<<<<<<< HEAD
 import com.liferay.portal.configuration.cluster.internal.ConfigurationThreadLocal;
 import com.liferay.portal.configuration.cluster.internal.constants.ConfigurationClusterDestinationNames;
+=======
+import com.liferay.portal.configuration.cluster.constants.ConfigurationClusterDestinationNames;
+import com.liferay.portal.configuration.cluster.internal.ConfigurationThreadLocal;
+>>>>>>> compatible
 import com.liferay.portal.configuration.persistence.ReloadablePersistenceManager;
 import com.liferay.portal.kernel.messaging.BaseMessageListener;
 import com.liferay.portal.kernel.messaging.Destination;

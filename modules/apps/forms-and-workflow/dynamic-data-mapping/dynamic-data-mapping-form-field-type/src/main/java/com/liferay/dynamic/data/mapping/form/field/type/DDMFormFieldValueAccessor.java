@@ -14,10 +14,14 @@
 
 package com.liferay.dynamic.data.mapping.form.field.type;
 
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.model.Value;
 import com.liferay.dynamic.data.mapping.storage.DDMFormFieldValue;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
+=======
+import com.liferay.dynamic.data.mapping.storage.DDMFormFieldValue;
+>>>>>>> compatible
 
 import java.util.Locale;
 
@@ -28,6 +32,7 @@ public interface DDMFormFieldValueAccessor<T> {
 
 	public T getValue(DDMFormFieldValue ddmFormFieldValue, Locale locale);
 
+<<<<<<< HEAD
 	public default boolean isEmpty(
 		DDMFormFieldValue ddmFormFieldValue, Locale locale) {
 
@@ -46,4 +51,6 @@ public interface DDMFormFieldValueAccessor<T> {
 		return value;
 	}
 
+=======
+>>>>>>> compatible
 }

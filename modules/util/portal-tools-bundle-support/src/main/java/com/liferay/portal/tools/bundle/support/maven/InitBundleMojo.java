@@ -42,6 +42,7 @@ public class InitBundleMojo extends AbstractLiferayMojo {
 			return;
 		}
 
+<<<<<<< HEAD
 		if ((environment == null) || environment.isEmpty()) {
 			environment = BundleSupportConstants.DEFAULT_ENVIRONMENT;
 		}
@@ -50,6 +51,8 @@ public class InitBundleMojo extends AbstractLiferayMojo {
 			url = BundleSupportConstants.DEFAULT_BUNDLE_URL_OBJECT;
 		}
 
+=======
+>>>>>>> compatible
 		Proxy proxy = MavenUtil.getProxy(_mavenSession);
 
 		String proxyProtocol = url.getProtocol();
@@ -115,7 +118,11 @@ public class InitBundleMojo extends AbstractLiferayMojo {
 	@Parameter(defaultValue = BundleSupportConstants.DEFAULT_CONFIGS_DIR_NAME)
 	protected String configs;
 
+<<<<<<< HEAD
 	@Parameter(defaultValue = "${liferay.workspace.environment}")
+=======
+	@Parameter(defaultValue = BundleSupportConstants.DEFAULT_ENVIRONMENT)
+>>>>>>> compatible
 	protected String environment;
 
 	@Parameter
@@ -134,7 +141,14 @@ public class InitBundleMojo extends AbstractLiferayMojo {
 	)
 	protected File tokenFile;
 
+<<<<<<< HEAD
 	@Parameter(defaultValue = "${liferay.workspace.bundle.url}")
+=======
+	@Parameter(
+		defaultValue = BundleSupportConstants.DEFAULT_BUNDLE_URL,
+		required = true
+	)
+>>>>>>> compatible
 	protected URL url;
 
 	@Parameter

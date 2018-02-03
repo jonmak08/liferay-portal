@@ -8,6 +8,7 @@
 
 	<set-up>
 		<execute macro="TestCase#setUpPortalInstance" />
+<<<<<<< HEAD
 
 		<execute macro="User#firstLoginPG" />
 
@@ -18,6 +19,12 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+
+		<execute macro="User#firstLoginPG" />
+
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Wiki Display Test Page" />
 		</execute>
 
@@ -43,7 +50,11 @@
 
 				<execute macro="WikiPage#tearDownCP" />
 
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP" />
+=======
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 			</else>
 		</if>
 	</tear-down>
@@ -51,9 +62,13 @@
 	<command name="AddWikiFrontPageChildPage" priority="5">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Wiki" />
 		</execute>
 
@@ -115,9 +130,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Wiki" />
 		</execute>
 
@@ -193,9 +212,13 @@
 	<command name="AddWikiFrontPageChildPageInvalidTitle" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Wiki" />
 		</execute>
 
@@ -335,9 +358,13 @@
 	<command name="DeleteWikiFrontPage" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Wiki" />
 		</execute>
 
@@ -388,9 +415,13 @@
 	<command name="ViewConfigurationSetupPageFrontPage" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Wiki" />
 		</execute>
 

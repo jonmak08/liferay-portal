@@ -14,6 +14,15 @@
 
 package com.liferay.portal.configuration.extender.internal;
 
+<<<<<<< HEAD
+=======
+import com.liferay.portal.configuration.extender.ConfigurationDescription;
+import com.liferay.portal.configuration.extender.ConfigurationDescriptionFactory;
+import com.liferay.portal.configuration.extender.FactoryConfigurationDescription;
+import com.liferay.portal.configuration.extender.NamedConfigurationContent;
+import com.liferay.portal.configuration.extender.PropertiesFileNamedConfigurationContent;
+import com.liferay.portal.configuration.extender.SingleConfigurationDescription;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.PropertiesUtil;
 import com.liferay.portal.kernel.util.Supplier;
 

@@ -33,7 +33,11 @@ import com.liferay.portal.security.ldap.configuration.CompanyScopedConfiguration
 )
 public interface LDAPImportConfiguration extends CompanyScopedConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(deflt = "0", name = "company-id", required = false)
+=======
+	@Meta.AD(deflt = "0", required = false)
+>>>>>>> compatible
 	@Override
 	public long companyId();
 
@@ -62,8 +66,13 @@ public interface LDAPImportConfiguration extends CompanyScopedConfiguration {
 	public long importLockExpirationTime();
 
 	@Meta.AD(
+<<<<<<< HEAD
 		deflt = "auth-type", name = "import-user-sync-strategy",
 		optionValues = {"auth-type", "uuid"}, required = false
+=======
+		deflt = "auth-type", optionValues = {"auth-type", "uuid"},
+		required = false
+>>>>>>> compatible
 	)
 	public String importUserSyncStrategy();
 

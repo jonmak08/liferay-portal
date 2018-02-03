@@ -14,12 +14,19 @@
 
 package com.liferay.portal.kernel.servlet;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.ClassLoaderPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.deploy.hot.HotDeployEvent;
 import com.liferay.portal.kernel.deploy.hot.HotDeployUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.BasePortalLifecycle;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.ClassLoaderPool;
+>>>>>>> compatible
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextAttributeEvent;
@@ -40,12 +47,15 @@ public class PluginContextListener
 	public void attributeAdded(
 		ServletContextAttributeEvent servletContextAttributeEvent) {
 
+<<<<<<< HEAD
 		if (servletContextAttributeEvent.getServletContext() !=
 				servletContext) {
 
 			return;
 		}
 
+=======
+>>>>>>> compatible
 		String name = servletContextAttributeEvent.getName();
 
 		if (_addedPluginClassLoader && name.equals(PLUGIN_CLASS_LOADER) &&
@@ -67,12 +77,15 @@ public class PluginContextListener
 	public void attributeRemoved(
 		ServletContextAttributeEvent servletContextAttributeEvent) {
 
+<<<<<<< HEAD
 		if (servletContextAttributeEvent.getServletContext() !=
 				servletContext) {
 
 			return;
 		}
 
+=======
+>>>>>>> compatible
 		String name = servletContextAttributeEvent.getName();
 
 		if (_addedPluginClassLoader && name.equals(PLUGIN_CLASS_LOADER)) {
@@ -88,12 +101,15 @@ public class PluginContextListener
 	public void attributeReplaced(
 		ServletContextAttributeEvent servletContextAttributeEvent) {
 
+<<<<<<< HEAD
 		if (servletContextAttributeEvent.getServletContext() !=
 				servletContext) {
 
 			return;
 		}
 
+=======
+>>>>>>> compatible
 		String name = servletContextAttributeEvent.getName();
 
 		if (_addedPluginClassLoader && name.equals(PLUGIN_CLASS_LOADER)) {

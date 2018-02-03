@@ -29,21 +29,32 @@ public class JSPTaglibVariableCheck extends BaseFileCheck {
 	protected String doProcess(
 		String fileName, String absolutePath, String content) {
 
+<<<<<<< HEAD
 		return _formatTaglibVariable(fileName, content);
+=======
+		content = _formatTaglibVariable(fileName, content);
+
+		return content;
+>>>>>>> compatible
 	}
 
 	private String _formatTaglibVariable(String fileName, String content) {
 		Matcher matcher = _taglibVariablePattern.matcher(content);
 
 		while (matcher.find()) {
+<<<<<<< HEAD
 			String nextTag = matcher.group(4);
 			String taglibValue = matcher.group(3);
 			String variableName = matcher.group(2);
+=======
+			String taglibValue = matcher.group(3);
+>>>>>>> compatible
 
 			if (taglibValue.contains("\\\"") ||
 				(taglibValue.contains(StringPool.APOSTROPHE) &&
 				 taglibValue.contains(StringPool.QUOTE))) {
 
+<<<<<<< HEAD
 				if (!variableName.startsWith("taglib") &&
 					(StringUtil.count(content, variableName) == 2) &&
 					nextTag.contains("=\"<%= " + variableName + " %>\"")) {
@@ -66,13 +77,29 @@ public class JSPTaglibVariableCheck extends BaseFileCheck {
 				addMessage(
 					fileName,
 					"No need to specify taglib variable '" + variableName + "'",
+=======
+				continue;
+			}
+
+			String taglibName = matcher.group(2);
+			String nextTag = matcher.group(4);
+
+			if (!nextTag.contains(taglibName)) {
+				addMessage(
+					fileName,
+					"No need to specify taglib variable '" + taglibName + "'",
+>>>>>>> compatible
 					getLineCount(content, matcher.start()));
 
 				continue;
 			}
 
 			content = StringUtil.replaceFirst(
+<<<<<<< HEAD
 				content, variableName, taglibValue, matcher.start(4));
+=======
+				content, taglibName, taglibValue, matcher.start(4));
+>>>>>>> compatible
 
 			return content = StringUtil.replaceFirst(
 				content, matcher.group(1), StringPool.BLANK, matcher.start());
@@ -82,6 +109,10 @@ public class JSPTaglibVariableCheck extends BaseFileCheck {
 	}
 
 	private final Pattern _taglibVariablePattern = Pattern.compile(
+<<<<<<< HEAD
 		"(\t*String (\\w+) = (.*);)\n\\s*%>\\s+(<[\\S\\s]*?>)\n");
+=======
+		"(\n\t*String (taglib\\w+) = (.*);)\n\\s*%>\\s+(<[\\S\\s]*?>)\n");
+>>>>>>> compatible
 
 }

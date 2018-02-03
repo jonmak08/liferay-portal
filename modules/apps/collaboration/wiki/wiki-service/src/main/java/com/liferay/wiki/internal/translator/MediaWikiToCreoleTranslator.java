@@ -14,9 +14,14 @@
 
 package com.liferay.wiki.internal.translator;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.wiki.importer.impl.mediawiki.MediaWikiImporter;
 
@@ -210,11 +215,18 @@ public class MediaWikiToCreoleTranslator extends BaseTranslator {
 			int imageStartPos = matcher.end(3) + offset;
 			int imageEndPos = matcher.start(2) + offset + originalLength - 4;
 
+<<<<<<< HEAD
 			String image = StringBundler.concat(
 				"{{", MediaWikiImporter.SHARED_IMAGES_TITLE, "/",
 				StringUtil.toLowerCase(
 					sb.substring(imageStartPos, imageEndPos)),
 				"}}");
+=======
+			String image =
+				"{{" + MediaWikiImporter.SHARED_IMAGES_TITLE + "/" +
+					StringUtil.toLowerCase(
+						sb.substring(imageStartPos, imageEndPos)) + "}}";
+>>>>>>> compatible
 
 			int imageLength = image.length();
 
@@ -293,9 +305,14 @@ public class MediaWikiToCreoleTranslator extends BaseTranslator {
 		sb = new StringBuffer(content);
 
 		while (matcher.find()) {
+<<<<<<< HEAD
 			String link = matcher.group(1);
 
 			link = link.replace(StringPool.UNDERLINE, StringPool.SPACE);
+=======
+			String link = matcher.group(1).replace(
+				StringPool.UNDERLINE, StringPool.SPACE);
+>>>>>>> compatible
 
 			sb.replace(matcher.start(1), matcher.end(1), link);
 		}

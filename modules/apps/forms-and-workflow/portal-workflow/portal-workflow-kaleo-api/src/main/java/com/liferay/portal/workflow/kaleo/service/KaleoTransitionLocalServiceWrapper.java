@@ -48,13 +48,21 @@ public class KaleoTransitionLocalServiceWrapper
 
 	@Override
 	public com.liferay.portal.workflow.kaleo.model.KaleoTransition addKaleoTransition(
+<<<<<<< HEAD
 		long kaleoDefinitionVersionId, long kaleoNodeId,
+=======
+		long kaleoDefinitionId, long kaleoNodeId,
+>>>>>>> compatible
 		com.liferay.portal.workflow.kaleo.definition.Transition transition,
 		com.liferay.portal.workflow.kaleo.model.KaleoNode sourceKaleoNode,
 		com.liferay.portal.workflow.kaleo.model.KaleoNode targetKaleoNode,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
+<<<<<<< HEAD
 		return _kaleoTransitionLocalService.addKaleoTransition(kaleoDefinitionVersionId,
+=======
+		return _kaleoTransitionLocalService.addKaleoTransition(kaleoDefinitionId,
+>>>>>>> compatible
 			kaleoNodeId, transition, sourceKaleoNode, targetKaleoNode,
 			serviceContext);
 	}
@@ -77,9 +85,14 @@ public class KaleoTransitionLocalServiceWrapper
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void deleteKaleoDefinitionVersionKaleoTransitions(
 		long kaleoDefinitionVersionId) {
 		_kaleoTransitionLocalService.deleteKaleoDefinitionVersionKaleoTransitions(kaleoDefinitionVersionId);
+=======
+	public void deleteKaleoDefinitionKaleoTransitions(long kaleoDefinitionId) {
+		_kaleoTransitionLocalService.deleteKaleoDefinitionKaleoTransitions(kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 	/**
@@ -228,9 +241,15 @@ public class KaleoTransitionLocalServiceWrapper
 	}
 
 	@Override
+<<<<<<< HEAD
 	public java.util.List<com.liferay.portal.workflow.kaleo.model.KaleoTransition> getKaleoDefinitionVersionKaleoTransitions(
 		long kaleoDefinitionVersionId) {
 		return _kaleoTransitionLocalService.getKaleoDefinitionVersionKaleoTransitions(kaleoDefinitionVersionId);
+=======
+	public java.util.List<com.liferay.portal.workflow.kaleo.model.KaleoTransition> getKaleoDefinitionKaleoTransitions(
+		long kaleoDefinitionId) {
+		return _kaleoTransitionLocalService.getKaleoDefinitionKaleoTransitions(kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 	/**

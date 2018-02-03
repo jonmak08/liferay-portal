@@ -31,11 +31,16 @@ import com.liferay.portal.kernel.util.ReferenceRegistry;
  * @see MBDiscussionLocalService
  * @see com.liferay.portlet.messageboards.service.base.MBDiscussionLocalServiceBaseImpl
  * @see com.liferay.portlet.messageboards.service.impl.MBDiscussionLocalServiceImpl
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, replaced by {@link
 com.liferay.message.boards.service.impl.MBDiscussionLocalServiceImpl}
  * @generated
  */
 @Deprecated
+=======
+ * @generated
+ */
+>>>>>>> compatible
 @ProviderType
 public class MBDiscussionLocalServiceUtil {
 	/*

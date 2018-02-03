@@ -15,7 +15,10 @@
 package com.liferay.portal.comment.display.context;
 
 import com.liferay.portal.kernel.comment.display.context.CommentDisplayContext;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.Group;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.security.sso.SSOUtil;
 
@@ -29,12 +32,15 @@ public abstract class BaseCommentDisplayContext
 	public boolean isReplyButtonVisible() {
 		ThemeDisplay themeDisplay = getThemeDisplay();
 
+<<<<<<< HEAD
 		Group group = themeDisplay.getSiteGroup();
 
 		if (group.isStagingGroup()) {
 			return false;
 		}
 
+=======
+>>>>>>> compatible
 		if (themeDisplay.isSignedIn() ||
 			!SSOUtil.isLoginRedirectRequired(themeDisplay.getCompanyId())) {
 

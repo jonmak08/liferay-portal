@@ -20,8 +20,13 @@ import com.liferay.document.library.kernel.exception.FileSizeException;
 import com.liferay.document.library.kernel.exception.FolderNameException;
 import com.liferay.document.library.kernel.exception.InvalidFileVersionException;
 import com.liferay.document.library.kernel.exception.SourceFileNameException;
+<<<<<<< HEAD
 import com.liferay.document.library.kernel.util.DLValidator;
 import com.liferay.document.library.kernel.util.DLValidatorUtil;
+=======
+import com.liferay.document.library.kernel.util.DLUtil;
+import com.liferay.document.library.kernel.util.DLValidator;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
@@ -29,6 +34,10 @@ import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.UnicodeFormatter;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.util.PropsValues;
+<<<<<<< HEAD
+=======
+import com.liferay.portlet.documentlibrary.webdav.DLWebDAVUtil;
+>>>>>>> compatible
 
 import java.io.File;
 import java.io.InputStream;
@@ -43,8 +52,53 @@ public final class DLValidatorImpl implements DLValidator {
 
 	@Override
 	public String fixName(String name) {
+<<<<<<< HEAD
 		return DLValidatorUtil.fixName(name);
 	}
+=======
+		if (Validator.isNull(name)) {
+			return StringPool.UNDERLINE;
+		}
+
+		for (String blacklistChar : PropsValues.DL_CHAR_BLACKLIST) {
+			name = StringUtil.replace(
+				name, blacklistChar, StringPool.UNDERLINE);
+		}
+
+		name = replaceDLCharLastBlacklist(name);
+
+		return replaceDLNameBlacklist(name);
+	}
+
+	@Override
+	public boolean isValidName(String name) {
+		if (Validator.isNull(name)) {
+			return false;
+		}
+
+		for (String blacklistChar : PropsValues.DL_CHAR_BLACKLIST) {
+			if (name.contains(blacklistChar)) {
+				return false;
+			}
+		}
+
+		for (String blacklistLastChar : PropsValues.DL_CHAR_LAST_BLACKLIST) {
+			if (blacklistLastChar.startsWith(UnicodeFormatter.UNICODE_PREFIX)) {
+				blacklistLastChar = UnicodeFormatter.parseString(
+					blacklistLastChar);
+			}
+
+			if (name.endsWith(blacklistLastChar)) {
+				return false;
+			}
+		}
+
+		String nameWithoutExtension = FileUtil.stripExtension(name);
+
+		for (String blacklistName : PropsValues.DL_NAME_BLACKLIST) {
+			if (StringUtil.equalsIgnoreCase(
+					nameWithoutExtension, blacklistName)) {
+>>>>>>> compatible
 
 	@Override
 	public long getMaxAllowableSize() {
@@ -72,7 +126,18 @@ public final class DLValidatorImpl implements DLValidator {
 
 	@Override
 	public void validateFileName(String fileName) throws FileNameException {
+<<<<<<< HEAD
 		DLValidatorUtil.validateFileName(fileName);
+=======
+		if (!isValidName(fileName)) {
+			throw new FileNameException(fileName);
+		}
+
+		if (!DLWebDAVUtil.isRepresentableTitle(fileName)) {
+			throw new FileNameException(
+				"Unrepresentable WebDAV title for file name " + fileName);
+		}
+>>>>>>> compatible
 	}
 
 	@Override
@@ -93,7 +158,20 @@ public final class DLValidatorImpl implements DLValidator {
 	public void validateFileSize(String fileName, InputStream is)
 		throws FileSizeException {
 
+<<<<<<< HEAD
 		DLValidatorUtil.validateFileSize(fileName, is);
+=======
+		try {
+			if (is == null) {
+				throw new FileSizeException(fileName);
+			}
+
+			validateFileSize(fileName, is.available());
+		}
+		catch (IOException ioe) {
+			throw new FileSizeException(ioe);
+		}
+>>>>>>> compatible
 	}
 
 	@Override
@@ -122,6 +200,40 @@ public final class DLValidatorImpl implements DLValidator {
 	protected String replaceDLCharLastBlacklist(String title) {
 		String previousTitle = null;
 
+<<<<<<< HEAD
+		while (!title.equals(previousTitle)) {
+			previousTitle = title;
+
+			for (String blacklistLastChar :
+					PropsValues.DL_CHAR_LAST_BLACKLIST) {
+
+				if (blacklistLastChar.startsWith(
+						UnicodeFormatter.UNICODE_PREFIX)) {
+
+					blacklistLastChar = UnicodeFormatter.parseString(
+						blacklistLastChar);
+				}
+
+				if (title.endsWith(blacklistLastChar)) {
+					title = StringUtil.replaceLast(
+						title, blacklistLastChar, StringPool.BLANK);
+				}
+			}
+=======
+		if (!DLUtil.isValidVersion(versionLabel)) {
+			throw new InvalidFileVersionException(
+				"Invalid version label " + versionLabel);
+>>>>>>> compatible
+		}
+
+		return title;
+	}
+
+<<<<<<< HEAD
+=======
+	protected String replaceDLCharLastBlacklist(String title) {
+		String previousTitle = null;
+
 		while (!title.equals(previousTitle)) {
 			previousTitle = title;
 
@@ -145,6 +257,7 @@ public final class DLValidatorImpl implements DLValidator {
 		return title;
 	}
 
+>>>>>>> compatible
 	protected String replaceDLNameBlacklist(String title) {
 		String extension = FileUtil.getExtension(title);
 		String nameWithoutExtension = FileUtil.stripExtension(title);
@@ -157,9 +270,14 @@ public final class DLValidatorImpl implements DLValidator {
 					return nameWithoutExtension + StringPool.UNDERLINE;
 				}
 
+<<<<<<< HEAD
 				return StringBundler.concat(
 					nameWithoutExtension, StringPool.UNDERLINE,
 					StringPool.PERIOD, extension);
+=======
+				return nameWithoutExtension + StringPool.UNDERLINE +
+					StringPool.PERIOD + extension;
+>>>>>>> compatible
 			}
 		}
 

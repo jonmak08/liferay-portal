@@ -346,7 +346,10 @@
 	var MAP_IMAGE_ATTRIBUTES = {
 		'alt': 1,
 		'class': 1,
+<<<<<<< HEAD
 		'data-image-id': 1,
+=======
+>>>>>>> compatible
 		'dir': 1,
 		'height': 1,
 		'id': 1,
@@ -380,7 +383,11 @@
 		square: 'list-style-type: square;'
 	};
 
+<<<<<<< HEAD
 	var REGEX_ATTRS = /\s*([^=]+)\s*=\s*"([^"]*)"\s*/g;
+=======
+	var REGEX_ATTRS = /\s*([^=]+)\s*=\s*"([^"]+)"\s*/g;
+>>>>>>> compatible
 
 	var REGEX_COLOR = /^(:?aqua|black|blue|fuchsia|gray|green|lime|maroon|navy|olive|purple|red|silver|teal|white|yellow|#(?:[0-9a-f]{3})?[0-9a-f]{3})$/i;
 
@@ -763,7 +770,11 @@
 
 			var cite = token.attribute;
 
+<<<<<<< HEAD
 			var result = '<blockquote>';
+=======
+			var result = '<blockquote><p>';
+>>>>>>> compatible
 
 			if (cite && cite.length) {
 				cite = BBCodeUtil.escape(cite);
@@ -773,7 +784,11 @@
 
 			instance._result.push(result);
 
+<<<<<<< HEAD
 			instance._stack.push('</blockquote>');
+=======
+			instance._stack.push('</p></blockquote>');
+>>>>>>> compatible
 		},
 
 		_handleSimpleTag: function(tagName) {

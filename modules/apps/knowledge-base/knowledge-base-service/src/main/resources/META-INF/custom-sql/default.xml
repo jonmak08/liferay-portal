@@ -9,6 +9,7 @@
 		INNER JOIN
 			KBFolder
 		ON
+<<<<<<< HEAD
 			(
 				(KBArticle.kbFolderId = KBFolder.kbFolderId) AND
 				(KBArticle.groupId = KBFolder.groupId)
@@ -18,6 +19,15 @@
 			(KBArticle.urlTitle = ?) AND
 			(KBFolder.urlTitle = ?) AND
 			(KBArticle.status IN ([$WORKFLOW_STATUS$]))
+=======
+			(KBArticle.kbFolderId = KBFolder.kbFolderId AND
+			KBArticle.groupId = KBFolder.groupId)
+		WHERE
+			KBArticle.groupId = ? AND
+			KBArticle.urlTitle = ? AND
+			KBFolder.urlTitle = ? AND
+			KBArticle.status IN ([$WORKFLOW_STATUS$])
+>>>>>>> compatible
 	</sql>
 	<sql id="com.liferay.knowledge.base.service.persistence.KBArticleFinder.findByUrlTitle">
 		SELECT
@@ -27,6 +37,7 @@
 		INNER JOIN
 			KBFolder
 		ON
+<<<<<<< HEAD
 			(
 				(KBArticle.kbFolderId = KBFolder.kbFolderId) AND
 				(KBArticle.groupId = KBFolder.groupId)
@@ -36,6 +47,15 @@
 			(KBArticle.urlTitle = ?) AND
 			(KBFolder.urlTitle = ?) AND
 			(KBArticle.status IN ([$WORKFLOW_STATUS$]))
+=======
+			(KBArticle.kbFolderId = KBFolder.kbFolderId AND
+			KBArticle.groupId = KBFolder.groupId)
+		WHERE
+			KBArticle.groupId = ? AND
+			KBArticle.urlTitle = ? AND
+			KBFolder.urlTitle = ? AND
+			KBArticle.status IN ([$WORKFLOW_STATUS$])
+>>>>>>> compatible
 	</sql>
 	<sql id="com.liferay.knowledge.base.service.persistence.KBFolderFinder.countA_ByG_P">
 		SELECT

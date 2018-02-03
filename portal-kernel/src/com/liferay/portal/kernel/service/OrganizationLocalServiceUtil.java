@@ -557,11 +557,14 @@ public class OrganizationLocalServiceUtil {
 				   .getOrganizations(companyId, parentOrganizationId, start, end);
 	}
 
+<<<<<<< HEAD
 	public static java.util.List<com.liferay.portal.kernel.model.Organization> getOrganizations(
 		long companyId, java.lang.String treePath) {
 		return getService().getOrganizations(companyId, treePath);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns the organizations with the primary keys.
 	*
@@ -575,6 +578,7 @@ public class OrganizationLocalServiceUtil {
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns all the organizations and users belonging to the parent
 	* organization.
 	*
@@ -617,6 +621,8 @@ public class OrganizationLocalServiceUtil {
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	* Returns the number of organizations.
 	*
 	* @return the number of organizations
@@ -1297,6 +1303,7 @@ public class OrganizationLocalServiceUtil {
 			end, sort);
 	}
 
+<<<<<<< HEAD
 	/**
 	* Returns the organizations and users that match the keywords specified for
 	* them and belong to the parent organization.
@@ -1351,6 +1358,8 @@ public class OrganizationLocalServiceUtil {
 			parentOrganizationId, keywords, status, params);
 	}
 
+=======
+>>>>>>> compatible
 	public static void setGroupOrganizations(long groupId,
 		long[] organizationIds) {
 		getService().setGroupOrganizations(groupId, organizationIds);

@@ -14,7 +14,7 @@
 
 package com.liferay.dynamic.data.mapping.form.renderer;
 
-import com.liferay.petra.string.StringPool;
+import com.liferay.portal.kernel.util.StringPool;
 
 /**
  * @author Marcellus Tavares

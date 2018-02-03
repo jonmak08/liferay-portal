@@ -38,6 +38,7 @@ by default.
 
 The logic that chooses the default deploy directory is as follows:
 
+<<<<<<< HEAD
 - For OSGi modules:
 	1. If the project directory contains a `.lfrbuild-app-server-lib` marker
 	file, the module is deployed to `${app.server.portal.dir}/WEB-INF/lib`.
@@ -53,6 +54,17 @@ The logic that chooses the default deploy directory is as follows:
   `src/WEB-INF/liferay-plugin-package.properties` file is `true`, the theme is
 	deployed to `${liferay home}/osgi/war`.
 	2. Otherwise, the theme is deployed to `${liferay home}/deploy`.
+=======
+1. If the project directory contains a `.lfrbuild-app-server-lib` marker file,
+the module is deployed to `${app.server.portal.dir}/WEB-INF/lib`.
+2. If the project directory contains a `.lfrbuild-tool` marker file, the module
+is deployed to `${liferay.home}/tools/${module.dir.name}`.
+3. If the project directory contains a `.lfrbuild-static` marker file, the
+module is deployed to `${liferay home}/osgi/static`.
+4. If the module symbolic name starts with `com.liferay.portal.`, the module is
+deployed to `${liferay home}/osgi/portal`.
+5. Otherwise, the module is deployed to `${liferay home}/osgi/modules`.
+>>>>>>> compatible
 
 If possible, you should always use these marker files to specify the deploy
 directory of your modules. If none of these cases apply to you, then add
@@ -81,7 +93,10 @@ File Name | Description
 `.lfrbuild-portal-private` | Deploys the module during the `ant all` execution in a private branch. `-test` modules never have this file.
 `.lfrbuild-portal-public` | Deploys the module during the `ant all` execution in a public branch. `-test` modules never have this file.
 `.lfrbuild-portal` | Deploys the module during the `ant all` execution. `-test` modules never have this file.
+<<<<<<< HEAD
 `.lfrbuild-poshi-runner-resources` | Publishes the directory as a Poshi Runner resources JAR file.
+=======
+>>>>>>> compatible
 `.lfrbuild-slim-private` | Deploys the module during the `ant all` execution if building a Liferay Slim Runtime in a private branch.
 `.lfrbuild-slim-public` | Deploys the module during the `ant all` execution if building a Liferay Slim Runtime in a public branch.
 `.lfrbuild-slim` | Deploys the module during the `ant all` execution if building a Liferay Slim Runtime.
@@ -108,6 +123,7 @@ File Name | Description
 `.lfrbuild-faro-connector` | Deploys the module to the Faro client portal directory.
 `.lfrbuild-faro-site` | Deploys the module to the Faro site portal directory.
 
+<<<<<<< HEAD
 ### LCS
 
 File Name | Description
@@ -115,12 +131,19 @@ File Name | Description
 `.lfrbuild-spark-job` | Configures the module as an Apache Spark job.
 `.lfrbuild-spring-boot` | Configures the module as a Spring Boot application.
 
+=======
+>>>>>>> compatible
 ### Release
 
 File Name | Description
 --------- | -----------
+<<<<<<< HEAD
 `.lfrbuild-release-src` | Includes the app's source code in the DXP release, when added to the root of an app.
 `.lfrbuild-releng-ignore` | Ignores checking the module for staleness, so the module is never publishable. A *stale* module has code that is different from the latest published release. If a `.lfrbuild-releng-ignore` file is added to a parent directory, the whole subtree is be ignored.
+=======
+`.lfrbuild-releng-ignore` | Ignores checking the module for staleness, so the module is never publishable. A *stale* module has code that is different from the latest published release.
+`.lfrrelease-src` | Includes the app's source code in the DXP release, when added to the root of an app.
+>>>>>>> compatible
 
 ### Themes
 
@@ -146,6 +169,7 @@ closure arguments.
 	* Always sort dependencies alphabetically.
 	* Separate dependencies of different configurations with an empty line.
 * Ordering inside Gradle files:
+<<<<<<< HEAD
 	1. Class imports, sorted and separated in groups (same logic used in Java).
 	2. `buildscript { ... }` block.
 	3. `apply plugin` logic, sorted alphabetically.
@@ -157,6 +181,19 @@ closure arguments.
 	8. Variables used globally by the whole script, like a URL or a relative
 	path.
 	9. Blocks `{ ... }` to configure tasks, extension objects, etc.
+=======
+	1. Class imports, sorted and separated in groups (same logic used in
+	Java).
+	2. `apply plugin` logic, sorted alphabetically.
+	3. `ext { ... }` block.
+	4. Task creation: `task taskName(type: TaskType)` or simply `task taskName`
+	for default tasks. Don't declare the task dependencies here.
+	5. Project property assignments (e.g., `sourceCompatibility`).
+	6. Variables used globally by the whole script, like a URL or a relative
+	path.
+	7. Blocks `{ ... }` to configure tasks, extension objects, etc. These must be
+	sorted alphabetically.
+>>>>>>> compatible
 * Inside a block `{ ... }`:
 	* If variables are needed, declare them inside the block at the beginning.
 	* If setting a property, use the `=` assignment, even if Gradle doesn't

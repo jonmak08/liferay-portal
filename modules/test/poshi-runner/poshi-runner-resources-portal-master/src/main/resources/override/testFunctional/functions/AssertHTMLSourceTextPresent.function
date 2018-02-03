@@ -2,6 +2,10 @@
 	<command name="assertHTMLSourceTextPresent">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.AssertHTMLSourceTextPresent#assertHTMLSourceTextPresent" />
+=======
+		<super />
+>>>>>>> compatible
 	</command>
 </definition>

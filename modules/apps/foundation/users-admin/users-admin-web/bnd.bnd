@@ -1,22 +1,36 @@
 Bundle-Name: Liferay Users Admin Web
 Bundle-SymbolicName: com.liferay.users.admin.web
+<<<<<<< HEAD
 Bundle-Version: 2.5.0
 Export-Package:\
 	com.liferay.users.admin.web.application.list,\
 	com.liferay.users.admin.web.constants,\
+=======
+Bundle-Version: 2.3.10
+Export-Package:\
+	com.liferay.users.admin.web.application.list,\
+>>>>>>> compatible
 	com.liferay.users.admin.web.custom.attributes,\
 	com.liferay.users.admin.web.portlet,\
 	com.liferay.users.admin.web.portlet.action,\
 	com.liferay.users.admin.web.portlet.configuration.icon,\
 	com.liferay.users.admin.web.search,\
 	com.liferay.users.admin.web.servlet.taglib.ui,\
+<<<<<<< HEAD
 	com.liferay.users.admin.web.theme.contributor,\
 	com.liferay.users.admin.web.util.comparator
+=======
+	com.liferay.users.admin.web.theme.contributor
+>>>>>>> compatible
 Import-Package:\
 	javax.net.ssl,\
 	\
 	*
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title:
+<<<<<<< HEAD
 Web-ContextPath: /users-admin-web
 -dsannotations-options: inherit
+=======
+Web-ContextPath: /users-admin-web
+>>>>>>> compatible

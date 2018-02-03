@@ -612,6 +612,7 @@ public class RatingsEntryUtil {
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns all the ratings entries where userId = &#63; and classNameId = &#63; and classPK = any &#63;.
 	*
 	* <p>
@@ -697,6 +698,8 @@ public class RatingsEntryUtil {
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	* Returns the ratings entry where userId = &#63; and classNameId = &#63; and classPK = &#63; or throws a {@link NoSuchEntryException} if it could not be found.
 	*
 	* @param userId the user ID
@@ -766,6 +769,7 @@ public class RatingsEntryUtil {
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns the number of ratings entries where userId = &#63; and classNameId = &#63; and classPK = any &#63;.
 	*
 	* @param userId the user ID
@@ -779,6 +783,8 @@ public class RatingsEntryUtil {
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	* Returns all the ratings entries where classNameId = &#63; and classPK = &#63; and score = &#63;.
 	*
 	* @param classNameId the class name ID

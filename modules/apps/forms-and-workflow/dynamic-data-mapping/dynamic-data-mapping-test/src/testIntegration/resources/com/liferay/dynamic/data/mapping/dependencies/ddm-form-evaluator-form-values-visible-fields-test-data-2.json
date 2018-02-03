@@ -4,16 +4,28 @@
 	"fieldValues": [
 		{
 			"instanceId": "gfkm",
+<<<<<<< HEAD
 			"name": "Gender",
 			"value": {
 				"en_US": "[\"Female\"]"
+=======
+			"name": "FirstName",
+			"value": {
+				"en_US": "Nina"
+>>>>>>> compatible
 			}
 		},
 		{
 			"instanceId": "hany",
+<<<<<<< HEAD
 			"name": "Phone",
 			"value": {
 				"en_US": ""
+=======
+			"name": "Confirmation",
+			"value": {
+				"en_US": false
+>>>>>>> compatible
 			}
 		}
 	]

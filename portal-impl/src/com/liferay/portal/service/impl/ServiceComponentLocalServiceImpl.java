@@ -74,10 +74,16 @@ public class ServiceComponentLocalServiceImpl
 		Registry registry = RegistryUtil.getRegistry();
 
 		Filter filter = registry.getFilter(
+<<<<<<< HEAD
 			StringBundler.concat(
 				"(&(objectClass=", UpgradeStep.class.getName(),
 				")(upgrade.from.schema.version=0.0.0)(upgrade.initial.",
 				"database.creation=true))"));
+=======
+			"(&(objectClass=" + UpgradeStep.class.getName() +
+				")(upgrade.from.schema.version=0.0.0)(upgrade.initial." +
+					"database.creation=true))");
+>>>>>>> compatible
 
 		_upgradeStepServiceTracker = registry.trackServices(
 			filter, new UpgradeStepServiceTrackerCustomizer());
@@ -213,6 +219,27 @@ public class ServiceComponentLocalServiceImpl
 
 			serviceComponentPersistence.update(serviceComponent);
 
+<<<<<<< HEAD
+=======
+			Release release = releaseLocalService.fetchRelease(
+				serviceComponentConfiguration.getServletContextName());
+
+			int previousBuildNumber = 0;
+
+			if (release == null) {
+				release = releaseLocalService.addRelease(
+					serviceComponentConfiguration.getServletContextName(),
+					(int)buildNumber);
+			}
+			else {
+				previousBuildNumber = release.getBuildNumber();
+
+				release.setBuildNumber((int)buildNumber);
+
+				releaseLocalService.updateRelease(release);
+			}
+
+>>>>>>> compatible
 			if (((serviceComponentConfiguration instanceof
 					ServletServiceContextComponentConfiguration) &&
 				 (previousServiceComponent == null)) ||
@@ -235,9 +262,15 @@ public class ServiceComponentLocalServiceImpl
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 7.0.0, replaced by {@link
 	 *             #initServiceComponent(ServiceComponentConfiguration,
 	 *             ClassLoader, String, long, long)}
+=======
+	 * @deprecated As of 7.0.0, replaced by {@link #initServiceComponent(
+	 *             ServiceComponentConfiguration, ClassLoader, String, long,
+	 *             long)}
+>>>>>>> compatible
 	 */
 	@Deprecated
 	@Override
@@ -290,6 +323,7 @@ public class ServiceComponentLocalServiceImpl
 	public void verifyDB() {
 		for (Object service : _upgradeStepServiceTracker.getServices()) {
 			UpgradeStepHolder upgradeStepHolder = (UpgradeStepHolder)service;
+<<<<<<< HEAD
 
 			String servletContextName = upgradeStepHolder._servletContextName;
 
@@ -299,6 +333,17 @@ public class ServiceComponentLocalServiceImpl
 			if ((release != null) &&
 				!Objects.equals(release.getSchemaVersion(), "0.0.0")) {
 
+=======
+
+			String servletContextName = upgradeStepHolder._servletContextName;
+
+			Release release = releaseLocalService.fetchRelease(
+				upgradeStepHolder._servletContextName);
+
+			if ((release != null) &&
+				!Objects.equals(release.getSchemaVersion(), "0.0.0")) {
+
+>>>>>>> compatible
 				continue;
 			}
 
@@ -604,7 +649,11 @@ public class ServiceComponentLocalServiceImpl
 		}
 		else if (PropsValues.SCHEMA_MODULE_BUILD_AUTO_UPGRADE) {
 			if (_log.isWarnEnabled()) {
+<<<<<<< HEAD
 				StringBundler sb = new StringBundler(7);
+=======
+				StringBundler sb = new StringBundler(6);
+>>>>>>> compatible
 
 				sb.append("Auto upgrading ");
 				sb.append(buildNamespace);

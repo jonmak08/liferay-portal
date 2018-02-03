@@ -14,8 +14,11 @@
 
 package com.liferay.portal.lpkg.deployer.internal.wrapper.bundle;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
 
+=======
+>>>>>>> compatible
 import java.net.URL;
 
 import java.util.Dictionary;
@@ -66,10 +69,16 @@ public class WARBundleWrapperBundleActivator implements BundleActivator {
 		_serviceTracker = new ServiceTracker<>(
 			bundleContext,
 			bundleContext.createFilter(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"(&(", URLConstants.URL_HANDLER_PROTOCOL,
 					"=webbundle)(objectClass=",
 					URLStreamHandlerService.class.getName(), "))")),
+=======
+				"(&(" + URLConstants.URL_HANDLER_PROTOCOL +
+					"=webbundle)(objectClass=" +
+						URLStreamHandlerService.class.getName() + "))"),
+>>>>>>> compatible
 			new URLStreamHandlerServiceServiceTrackerCustomizer(
 				bundleContext, contextName, new URL(lpkgURLString),
 				startLevel));

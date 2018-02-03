@@ -14,7 +14,7 @@
 
 package com.liferay.portal.kernel.io.unsync;
 
-import com.liferay.petra.nio.CharsetEncoderUtil;
+import com.liferay.portal.kernel.nio.charset.CharsetEncoderUtil;
 import com.liferay.portal.kernel.util.StringPool;
 
 import java.io.IOException;
@@ -68,9 +68,7 @@ public class UnsyncCharArrayWriter extends Writer {
 			string = StringPool.NULL;
 		}
 		else {
-			charSequence = charSequence.subSequence(start, end);
-
-			string = charSequence.toString();
+			string = charSequence.subSequence(start, end).toString();
 		}
 
 		write(string, 0, string.length());
@@ -198,7 +196,7 @@ public class UnsyncCharArrayWriter extends Writer {
 		throws IOException {
 
 		ByteBuffer byteBuffer = CharsetEncoderUtil.encode(
-			charsetName, CharBuffer.wrap(buffer, 0, index));
+			charsetName, buffer, 0, index);
 
 		int length = byteBuffer.limit();
 

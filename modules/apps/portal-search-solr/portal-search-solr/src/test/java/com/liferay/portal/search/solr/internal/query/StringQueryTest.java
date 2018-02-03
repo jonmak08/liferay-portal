@@ -18,16 +18,20 @@ import com.liferay.portal.search.solr.internal.SolrIndexingFixture;
 import com.liferay.portal.search.test.util.indexing.IndexingFixture;
 import com.liferay.portal.search.test.util.query.BaseStringQueryTestCase;
 
+<<<<<<< HEAD
 import java.util.Arrays;
 import java.util.Collections;
 
 import org.junit.Test;
 
+=======
+>>>>>>> compatible
 /**
  * @author André de Oliveira
  */
 public class StringQueryTest extends BaseStringQueryTestCase {
 
+<<<<<<< HEAD
 	@Test
 	public void testBooleanOperatorNotDeepSolr() throws Exception {
 		addDocuments("alpha bravo", "alpha charlie", "charlie delta");
@@ -48,6 +52,8 @@ public class StringQueryTest extends BaseStringQueryTestCase {
 			"(-bravo) OR alpha", Arrays.asList("alpha bravo", "alpha charlie"));
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	protected IndexingFixture createIndexingFixture() throws Exception {
 		return new SolrIndexingFixture();

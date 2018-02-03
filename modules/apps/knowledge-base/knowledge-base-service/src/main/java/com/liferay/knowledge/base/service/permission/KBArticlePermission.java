@@ -14,17 +14,26 @@
 
 package com.liferay.knowledge.base.service.permission;
 
+<<<<<<< HEAD
 import com.liferay.knowledge.base.constants.KBFolderConstants;
+=======
+>>>>>>> compatible
 import com.liferay.knowledge.base.model.KBArticle;
 import com.liferay.knowledge.base.service.KBArticleLocalServiceUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.security.auth.PrincipalException;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.BaseModelPermissionChecker;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.util.PropsValues;
+=======
+import com.liferay.portal.kernel.security.permission.BaseModelPermissionChecker;
+import com.liferay.portal.kernel.security.permission.PermissionChecker;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 
@@ -58,6 +67,7 @@ public class KBArticlePermission implements BaseModelPermissionChecker {
 	}
 
 	public static boolean contains(
+<<<<<<< HEAD
 			PermissionChecker permissionChecker, KBArticle kbArticle,
 			String actionId)
 		throws PortalException {
@@ -93,6 +103,10 @@ public class KBArticlePermission implements BaseModelPermissionChecker {
 				}
 			}
 		}
+=======
+		PermissionChecker permissionChecker, KBArticle kbArticle,
+		String actionId) {
+>>>>>>> compatible
 
 		if (permissionChecker.hasOwnerPermission(
 				kbArticle.getCompanyId(), KBArticle.class.getName(),

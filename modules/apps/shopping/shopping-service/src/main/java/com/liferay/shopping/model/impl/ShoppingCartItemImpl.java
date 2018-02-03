@@ -14,7 +14,12 @@
 
 package com.liferay.shopping.model.impl;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.HashUtil;
+=======
+import com.liferay.portal.kernel.util.HashCode;
+import com.liferay.portal.kernel.util.HashCodeFactoryUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.shopping.model.ShoppingCartItem;
@@ -100,9 +105,18 @@ public class ShoppingCartItemImpl implements ShoppingCartItem {
 
 	@Override
 	public int hashCode() {
+<<<<<<< HEAD
 		int hashCode = HashUtil.hash(0, _item.getItemId());
 
 		return HashUtil.hash(hashCode, _fields);
+=======
+		HashCode hashCode = HashCodeFactoryUtil.getHashCode();
+
+		hashCode.append(_item.getItemId());
+		hashCode.append(_fields);
+
+		return hashCode.toHashCode();
+>>>>>>> compatible
 	}
 
 	private final String _fields;

@@ -677,7 +677,11 @@ version 2.3.1.
 ## 3.0.44 - 2016-12-01
 
 ### Added
+<<<<<<< HEAD
 - [LPS-69488]: Set the default Node.js version to 6.6.0.
+=======
+- [LPS-69488]: Set default Node.js version to 6.6.0.
+>>>>>>> compatible
 
 ### Changed
 - [LPS-66853]: Update the [Liferay Gradle Plugins Source Formatter] dependency
@@ -1851,7 +1855,11 @@ version 2.3.15.
 - [LPS-73495]: Update the [Liferay Gradle Plugins CSS Builder] dependency to
 version 2.0.1.
 
+<<<<<<< HEAD
 ## 3.3.38 - 2017-07-10
+=======
+## 3.3.37 - 2017-07-10
+>>>>>>> compatible
 
 ### Changed
 - [LPS-72705]: Update the [Liferay Gradle Plugins Source Formatter] dependency
@@ -2039,7 +2047,11 @@ to version 2.0.44.
 - [LPS-73124]: Update the [Liferay Portal Tools DB Support] dependency to
 version 1.0.5.
 - [LPS-73855]: Update the [Liferay Gradle Plugins Javadoc Formatter] dependency
+<<<<<<< HEAD
 to version 1.0.15.
+=======
+to version 1.0.14.
+>>>>>>> compatible
 - [LPS-73855]: Update the [Liferay Javadoc Formatter] dependency to version
 1.0.21.
 
@@ -2306,6 +2318,7 @@ to version 2.1.6.
 - [LPS-72705]: Update the [Liferay Source Formatter] dependency to version
 1.0.452.
 
+<<<<<<< HEAD
 ## 3.4.48 - 2017-09-01
 
 ### Changed
@@ -3373,6 +3386,8 @@ to version 2.3.67.
 - [LPS-77305]: Update the [Liferay Source Formatter] dependency to version
 1.0.538.
 
+=======
+>>>>>>> compatible
 [Gradle Bundle Plugin]: https://github.com/TomDmitriev/gradle-bundle-plugin
 [Liferay Alloy Taglib]: https://github.com/liferay/alloy-taglibs
 [Liferay Ant BND]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/ant-bnd
@@ -3390,11 +3405,17 @@ to version 2.3.67.
 [Liferay Gradle Plugins Source Formatter]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins-source-formatter
 [Liferay Gradle Plugins Soy]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins-soy
 [Liferay Gradle Plugins TLD Formatter]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins-tld-formatter
+<<<<<<< HEAD
 [Liferay Gradle Plugins TLDDoc Builder]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins-tlddoc-builder
 [Liferay Gradle Plugins Test Integration]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins-test-integration
 [Liferay Gradle Plugins Theme Builder]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins-theme-builder
 [Liferay Gradle Plugins Upgrade Table Builder]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins-upgrade-table-builder
 [Liferay Gradle Plugins WSDD Builder]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins-wsdd-builder
+=======
+[Liferay Gradle Plugins Test Integration]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins-test-integration
+[Liferay Gradle Plugins Theme Builder]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins-theme-builder
+[Liferay Gradle Plugins Upgrade Table Builder]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins-upgrade-table-builder
+>>>>>>> compatible
 [Liferay Gradle Plugins WSDL Builder]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins-wsdl-builder
 [Liferay Gradle Plugins XML Formatter]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins-xml-formatter
 [Liferay Gradle Util]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-util
@@ -3407,7 +3428,10 @@ to version 2.3.67.
 [Liferay Portal Tools WSDD Builder]: https://github.com/liferay/liferay-portal/tree/master/modules/util/portal-tools-wsdd-builder
 [Liferay Source Formatter]: https://github.com/liferay/liferay-portal/tree/master/modules/util/source-formatter
 [Liferay TLD Formatter]: https://github.com/liferay/liferay-portal/tree/master/modules/util/tld-formatter
+<<<<<<< HEAD
 [Liferay Whip]: https://github.com/liferay/liferay-portal/tree/master/modules/test/whip
+=======
+>>>>>>> compatible
 [Liferay XML Formatter]: https://github.com/liferay/liferay-portal/tree/master/modules/util/xml-formatter
 [LPS-52675]: https://issues.liferay.com/browse/LPS-52675
 [LPS-53392]: https://issues.liferay.com/browse/LPS-53392
@@ -3445,7 +3469,10 @@ to version 2.3.67.
 [LPS-68504]: https://issues.liferay.com/browse/LPS-68504
 [LPS-68564]: https://issues.liferay.com/browse/LPS-68564
 [LPS-68598]: https://issues.liferay.com/browse/LPS-68598
+<<<<<<< HEAD
 [LPS-68611]: https://issues.liferay.com/browse/LPS-68611
+=======
+>>>>>>> compatible
 [LPS-68618]: https://issues.liferay.com/browse/LPS-68618
 [LPS-68666]: https://issues.liferay.com/browse/LPS-68666
 [LPS-68779]: https://issues.liferay.com/browse/LPS-68779
@@ -3503,7 +3530,10 @@ to version 2.3.67.
 [LPS-70941]: https://issues.liferay.com/browse/LPS-70941
 [LPS-71005]: https://issues.liferay.com/browse/LPS-71005
 [LPS-71048]: https://issues.liferay.com/browse/LPS-71048
+<<<<<<< HEAD
 [LPS-71117]: https://issues.liferay.com/browse/LPS-71117
+=======
+>>>>>>> compatible
 [LPS-71118]: https://issues.liferay.com/browse/LPS-71118
 [LPS-71164]: https://issues.liferay.com/browse/LPS-71164
 [LPS-71222]: https://issues.liferay.com/browse/LPS-71222
@@ -3538,10 +3568,15 @@ to version 2.3.67.
 [LPS-72851]: https://issues.liferay.com/browse/LPS-72851
 [LPS-72858]: https://issues.liferay.com/browse/LPS-72858
 [LPS-72868]: https://issues.liferay.com/browse/LPS-72868
+<<<<<<< HEAD
 [LPS-72912]: https://issues.liferay.com/browse/LPS-72912
 [LPS-72914]: https://issues.liferay.com/browse/LPS-72914
 [LPS-73058]: https://issues.liferay.com/browse/LPS-73058
 [LPS-73070]: https://issues.liferay.com/browse/LPS-73070
+=======
+[LPS-72914]: https://issues.liferay.com/browse/LPS-72914
+[LPS-73058]: https://issues.liferay.com/browse/LPS-73058
+>>>>>>> compatible
 [LPS-73124]: https://issues.liferay.com/browse/LPS-73124
 [LPS-73147]: https://issues.liferay.com/browse/LPS-73147
 [LPS-73148]: https://issues.liferay.com/browse/LPS-73148
@@ -3552,14 +3587,20 @@ to version 2.3.67.
 [LPS-73408]: https://issues.liferay.com/browse/LPS-73408
 [LPS-73470]: https://issues.liferay.com/browse/LPS-73470
 [LPS-73472]: https://issues.liferay.com/browse/LPS-73472
+<<<<<<< HEAD
 [LPS-73481]: https://issues.liferay.com/browse/LPS-73481
+=======
+>>>>>>> compatible
 [LPS-73489]: https://issues.liferay.com/browse/LPS-73489
 [LPS-73495]: https://issues.liferay.com/browse/LPS-73495
 [LPS-73525]: https://issues.liferay.com/browse/LPS-73525
 [LPS-73584]: https://issues.liferay.com/browse/LPS-73584
 [LPS-73600]: https://issues.liferay.com/browse/LPS-73600
 [LPS-73642]: https://issues.liferay.com/browse/LPS-73642
+<<<<<<< HEAD
 [LPS-73725]: https://issues.liferay.com/browse/LPS-73725
+=======
+>>>>>>> compatible
 [LPS-73818]: https://issues.liferay.com/browse/LPS-73818
 [LPS-73855]: https://issues.liferay.com/browse/LPS-73855
 [LPS-73935]: https://issues.liferay.com/browse/LPS-73935
@@ -3569,6 +3610,7 @@ to version 2.3.67.
 [LPS-74088]: https://issues.liferay.com/browse/LPS-74088
 [LPS-74092]: https://issues.liferay.com/browse/LPS-74092
 [LPS-74104]: https://issues.liferay.com/browse/LPS-74104
+<<<<<<< HEAD
 [LPS-74110]: https://issues.liferay.com/browse/LPS-74110
 [LPS-74126]: https://issues.liferay.com/browse/LPS-74126
 [LPS-74139]: https://issues.liferay.com/browse/LPS-74139
@@ -3576,11 +3618,17 @@ to version 2.3.67.
 [LPS-74155]: https://issues.liferay.com/browse/LPS-74155
 [LPS-74171]: https://issues.liferay.com/browse/LPS-74171
 [LPS-74207]: https://issues.liferay.com/browse/LPS-74207
+=======
+[LPS-74126]: https://issues.liferay.com/browse/LPS-74126
+[LPS-74139]: https://issues.liferay.com/browse/LPS-74139
+[LPS-74155]: https://issues.liferay.com/browse/LPS-74155
+>>>>>>> compatible
 [LPS-74222]: https://issues.liferay.com/browse/LPS-74222
 [LPS-74250]: https://issues.liferay.com/browse/LPS-74250
 [LPS-74269]: https://issues.liferay.com/browse/LPS-74269
 [LPS-74278]: https://issues.liferay.com/browse/LPS-74278
 [LPS-74314]: https://issues.liferay.com/browse/LPS-74314
+<<<<<<< HEAD
 [LPS-74315]: https://issues.liferay.com/browse/LPS-74315
 [LPS-74328]: https://issues.liferay.com/browse/LPS-74328
 [LPS-74343]: https://issues.liferay.com/browse/LPS-74343
@@ -3664,4 +3712,11 @@ to version 2.3.67.
 [LPS-77111]: https://issues.liferay.com/browse/LPS-77111
 [LPS-77250]: https://issues.liferay.com/browse/LPS-77250
 [LPS-77305]: https://issues.liferay.com/browse/LPS-77305
+=======
+[LPS-74328]: https://issues.liferay.com/browse/LPS-74328
+[LPS-74343]: https://issues.liferay.com/browse/LPS-74343
+[LPS-74345]: https://issues.liferay.com/browse/LPS-74345
+[LPS-74368]: https://issues.liferay.com/browse/LPS-74368
+[LPS-74433]: https://issues.liferay.com/browse/LPS-74433
+>>>>>>> compatible
 [LRDOCS-3023]: https://issues.liferay.com/browse/LRDOCS-3023

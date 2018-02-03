@@ -43,7 +43,10 @@ import org.gradle.api.plugins.PluginContainer;
 import org.gradle.api.specs.Spec;
 import org.gradle.api.tasks.Delete;
 import org.gradle.api.tasks.TaskContainer;
+<<<<<<< HEAD
 import org.gradle.language.base.plugins.LifecycleBasePlugin;
+=======
+>>>>>>> compatible
 import org.gradle.util.VersionNumber;
 
 /**
@@ -146,6 +149,19 @@ public class NodePlugin implements Plugin<Project> {
 
 			});
 
+<<<<<<< HEAD
+=======
+		downloadNodeTask.setNodeExeUrl(
+			new Callable<String>() {
+
+				@Override
+				public String call() throws Exception {
+					return nodeExtension.getNodeExeUrl();
+				}
+
+			});
+
+>>>>>>> compatible
 		downloadNodeTask.setNodeUrl(
 			new Callable<String>() {
 
@@ -225,6 +241,7 @@ public class NodePlugin implements Plugin<Project> {
 
 				});
 		}
+<<<<<<< HEAD
 		else if (taskName.equals(_NPM_RUN_TEST_TASK_NAME)) {
 			PluginContainer pluginContainer = project.getPlugins();
 
@@ -242,6 +259,8 @@ public class NodePlugin implements Plugin<Project> {
 
 				});
 		}
+=======
+>>>>>>> compatible
 
 		return executeNpmTask;
 	}
@@ -282,6 +301,7 @@ public class NodePlugin implements Plugin<Project> {
 	private void _configureTaskDownloadNodeGlobal(
 		DownloadNodeTask downloadNodeTask, NodeExtension nodeExtension) {
 
+<<<<<<< HEAD
 		Project project = downloadNodeTask.getProject();
 
 		if (!nodeExtension.isDownload() || !nodeExtension.isGlobal() ||
@@ -290,6 +310,14 @@ public class NodePlugin implements Plugin<Project> {
 			return;
 		}
 
+=======
+		if (!nodeExtension.isDownload() || !nodeExtension.isGlobal()) {
+			return;
+		}
+
+		Project project = downloadNodeTask.getProject();
+
+>>>>>>> compatible
 		Project rootProject = project.getRootProject();
 
 		DownloadNodeTask rootDownloadNodeTask = null;
@@ -300,10 +328,18 @@ public class NodePlugin implements Plugin<Project> {
 			DownloadNodeTask.class);
 
 		File nodeDir = downloadNodeTask.getNodeDir();
+<<<<<<< HEAD
+=======
+		String nodeExeUrl = downloadNodeTask.getNodeExeUrl();
+>>>>>>> compatible
 		String nodeUrl = downloadNodeTask.getNodeUrl();
 
 		for (DownloadNodeTask curRootDownloadNodeTask : rootDownloadNodeTasks) {
 			if (nodeDir.equals(curRootDownloadNodeTask.getNodeDir()) &&
+<<<<<<< HEAD
+=======
+				nodeExeUrl.equals(curRootDownloadNodeTask.getNodeExeUrl()) &&
+>>>>>>> compatible
 				nodeUrl.equals(curRootDownloadNodeTask.getNodeUrl())) {
 
 				rootDownloadNodeTask = curRootDownloadNodeTask;
@@ -466,6 +502,7 @@ public class NodePlugin implements Plugin<Project> {
 		classesTask.dependsOn(executeNpmTask);
 	}
 
+<<<<<<< HEAD
 	private void _configureTaskNpmRunTestForLifecycleBasePlugin(
 		ExecuteNpmTask executeNpmTask) {
 
@@ -475,6 +512,8 @@ public class NodePlugin implements Plugin<Project> {
 		checkTask.dependsOn(executeNpmTask);
 	}
 
+=======
+>>>>>>> compatible
 	private void _configureTaskPublishNodeModule(
 		PublishNodeModuleTask publishNodeModuleTask) {
 
@@ -613,8 +652,11 @@ public class NodePlugin implements Plugin<Project> {
 			});
 	}
 
+<<<<<<< HEAD
 	private static final String _NPM_RUN_TEST_TASK_NAME = "npmRunTest";
 
+=======
+>>>>>>> compatible
 	private static final VersionNumber _node8VersionNumber =
 		VersionNumber.version(8);
 	private static final VersionNumber _npm5VersionNumber =

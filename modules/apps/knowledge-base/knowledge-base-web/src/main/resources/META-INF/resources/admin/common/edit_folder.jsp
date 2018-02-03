@@ -85,9 +85,15 @@ renderResponse.setTitle((kbFolder == null) ? LanguageUtil.get(resourceBundle, "n
 		</aui:fieldset-group>
 
 		<aui:button-row>
+<<<<<<< HEAD
 			<aui:button type="submit" value="save" />
 
 			<aui:button href="<%= redirect %>" type="cancel" />
+=======
+			<aui:button cssClass="btn-lg" type="submit" value="save" />
+
+			<aui:button cssClass="btn-lg" href="<%= redirect %>" type="cancel" />
+>>>>>>> compatible
 		</aui:button-row>
 	</aui:form>
 </div>

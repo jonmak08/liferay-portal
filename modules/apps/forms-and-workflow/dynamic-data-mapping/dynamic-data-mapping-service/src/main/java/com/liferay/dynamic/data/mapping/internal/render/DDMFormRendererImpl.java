@@ -14,7 +14,10 @@
 
 package com.liferay.dynamic.data.mapping.internal.render;
 
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.internal.util.DDMFieldsCounter;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.model.DDMForm;
 import com.liferay.dynamic.data.mapping.model.DDMFormField;
 import com.liferay.dynamic.data.mapping.render.DDMFormFieldRenderer;
@@ -22,6 +25,10 @@ import com.liferay.dynamic.data.mapping.render.DDMFormFieldRendererRegistryUtil;
 import com.liferay.dynamic.data.mapping.render.DDMFormFieldRenderingContext;
 import com.liferay.dynamic.data.mapping.render.DDMFormRenderer;
 import com.liferay.dynamic.data.mapping.storage.Fields;
+<<<<<<< HEAD
+=======
+import com.liferay.dynamic.data.mapping.util.impl.DDMFieldsCounter;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.util.StringBundler;
 

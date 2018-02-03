@@ -49,9 +49,14 @@ public abstract class BaseConvertProcess implements ConvertProcess {
 				Class<?> clazz = getClass();
 
 				_log.info(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Finished conversion for ", clazz.getName(), " in ",
 						String.valueOf(stopWatch.getTime()), " ms"));
+=======
+					"Finished conversion for " + clazz.getName() + " in " +
+						stopWatch.getTime() + " ms");
+>>>>>>> compatible
 			}
 		}
 		catch (Exception e) {

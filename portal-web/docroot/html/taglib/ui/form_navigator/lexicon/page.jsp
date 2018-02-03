@@ -17,9 +17,13 @@
 <%@ include file="/html/taglib/ui/form_navigator/init.jsp" %>
 
 <%
+<<<<<<< HEAD
 String randomNamespace = PortalUtil.generateRandomKey(request, "taglib_ui_form_navigator_init") + StringPool.UNDERLINE;
 
 String tabs1Param = randomNamespace + "tabs1";
+=======
+String tabs1Param = "tabs1";
+>>>>>>> compatible
 String tabs1Value = GetterUtil.getString(SessionClicks.get(request, namespace + id, null));
 
 List<String> filterCategoryKeys = new ArrayList<String>();
@@ -88,6 +92,7 @@ for (String categoryKey : categoryKeys) {
 </c:if>
 
 <aui:script require="metal-dom/src/dom,metal-uri/src/Uri">
+<<<<<<< HEAD
 	AUI().use(
 		'liferay-store',
 		function(A) {
@@ -134,4 +139,47 @@ for (String categoryKey : categoryKeys) {
 			}
 		}
 	);
+=======
+	var dom = metalDomSrcDom.default;
+	var uri = metalUriSrcUri.default;
+
+	var redirectField = dom.toElement('input[name="<portlet:namespace />redirect"]');
+	var tabs1Param = '<portlet:namespace /><%= tabs1Param %>';
+
+	var updateRedirectField = function(event) {
+		var redirectURL = new uri(redirectField.value);
+
+		redirectURL.setParameterValue(tabs1Param, event.id);
+
+		redirectField.value = redirectURL.toString();
+
+		Liferay.Store('<portlet:namespace /><%= id %>', event.id);
+	};
+
+	var clearFormNavigatorHandles = function(event) {
+		if (event.portletId === '<%= portletDisplay.getRootPortletId() %>') {
+			Liferay.detach('showTab', updateRedirectField);
+			Liferay.detach('destroyPortlet', clearFormNavigatorHandles);
+
+			Liferay.Store('<portlet:namespace /><%= id %>', null);
+		}
+	};
+
+	if (redirectField) {
+		var currentURL = new uri(document.location.href);
+
+		var tabs1Value = currentURL.getParameterValue(tabs1Param);
+
+		if (tabs1Value) {
+			updateRedirectField(
+				{
+					id: tabs1Value
+				}
+			);
+		}
+
+		Liferay.on('showTab', updateRedirectField);
+		Liferay.on('destroyPortlet', clearFormNavigatorHandles);
+	}
+>>>>>>> compatible
 </aui:script>

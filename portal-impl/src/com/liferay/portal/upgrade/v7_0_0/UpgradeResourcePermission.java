@@ -139,6 +139,7 @@ public class UpgradeResourcePermission extends UpgradeProcess {
 		String inClause = sb.toString();
 
 		_updatePrimKeyIds(
+<<<<<<< HEAD
 			StringBundler.concat(
 				"update ResourcePermission set primKeyId = 0 where name = ? ",
 				"and (primKey like '%_LAYOUT_%' or primKey ", inClause, ")"),
@@ -149,6 +150,16 @@ public class UpgradeResourcePermission extends UpgradeProcess {
 				"update ResourcePermission set primKeyId = CAST_LONG(primKey",
 				") where name = ? and (primKey not like '%_LAYOUT_%' and ",
 				"primKey not ", inClause, ")"),
+=======
+			"update ResourcePermission set primKeyId = 0 where name = ? and " +
+				"(primKey like '%_LAYOUT_%' or primKey " + inClause + ")",
+			name, primKeys);
+
+		_updatePrimKeyIds(
+			"update ResourcePermission set primKeyId = CAST_LONG(primKey" +
+				") where name = ? and (primKey not like '%_LAYOUT_%' and " +
+					"primKey not " + inClause + ")",
+>>>>>>> compatible
 			name, primKeys);
 	}
 

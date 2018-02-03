@@ -51,6 +51,46 @@ public class NodeExtension {
 
 		};
 
+<<<<<<< HEAD
+=======
+		_nodeExeUrl = new Callable<String>() {
+
+			@Override
+			public String call() throws Exception {
+				String nodeVersion = getNodeVersion();
+
+				if (Validator.isNull(nodeVersion)) {
+					return null;
+				}
+
+				StringBuilder sb = new StringBuilder();
+
+				sb.append("http://nodejs.org/dist/v");
+				sb.append(nodeVersion);
+				sb.append('/');
+
+				String bitmode = OSDetector.getBitmode();
+
+				if (bitmode.equals("64")) {
+					if (nodeVersion.charAt(0) != '0') {
+						sb.append("win-x64");
+					}
+					else {
+						sb.append("x64");
+					}
+				}
+				else if (nodeVersion.charAt(0) != '0') {
+					sb.append("win-x86");
+				}
+
+				sb.append("/node.exe");
+
+				return sb.toString();
+			}
+
+		};
+
+>>>>>>> compatible
 		_nodeUrl = new Callable<String>() {
 
 			@Override
@@ -74,20 +114,28 @@ public class NodeExtension {
 				if (OSDetector.isApple()) {
 					os = "darwin";
 				}
+<<<<<<< HEAD
 				else if (OSDetector.isWindows()) {
 					os = "win";
 				}
+=======
+>>>>>>> compatible
 
 				sb.append(os);
 				sb.append("-x");
 
 				String bitmode = OSDetector.getBitmode();
 
+<<<<<<< HEAD
 				if (bitmode.equals("32")) {
+=======
+				if (bitmode.equals("32") || OSDetector.isWindows()) {
+>>>>>>> compatible
 					bitmode = "86";
 				}
 
 				sb.append(bitmode);
+<<<<<<< HEAD
 
 				if (OSDetector.isWindows()) {
 					sb.append(".zip");
@@ -95,6 +143,9 @@ public class NodeExtension {
 				else {
 					sb.append(".tar.gz");
 				}
+=======
+				sb.append(".tar.gz");
+>>>>>>> compatible
 
 				return sb.toString();
 			}
@@ -124,6 +175,13 @@ public class NodeExtension {
 		return GradleUtil.toFile(_project, _nodeDir);
 	}
 
+<<<<<<< HEAD
+=======
+	public String getNodeExeUrl() {
+		return GradleUtil.toString(_nodeExeUrl);
+	}
+
+>>>>>>> compatible
 	public String getNodeUrl() {
 		return GradleUtil.toString(_nodeUrl);
 	}
@@ -174,6 +232,13 @@ public class NodeExtension {
 		_nodeDir = nodeDir;
 	}
 
+<<<<<<< HEAD
+=======
+	public void setNodeExeUrl(Object nodeExeUrl) {
+		_nodeExeUrl = nodeExeUrl;
+	}
+
+>>>>>>> compatible
 	public void setNodeUrl(Object nodeUrl) {
 		_nodeUrl = nodeUrl;
 	}
@@ -203,6 +268,10 @@ public class NodeExtension {
 	private boolean _download;
 	private boolean _global;
 	private Object _nodeDir;
+<<<<<<< HEAD
+=======
+	private Object _nodeExeUrl;
+>>>>>>> compatible
 	private Object _nodeUrl;
 	private Object _nodeVersion = "5.5.0";
 	private final List<Object> _npmArgs = new ArrayList<>();

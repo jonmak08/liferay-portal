@@ -1,21 +1,37 @@
+<<<<<<< HEAD
 import Component from 'metal-component';
 import Slider from 'metal-slider';
 import Soy from 'metal-soy';
 import debounce from 'metal-debounce';
 import { CancellablePromise } from 'metal-promise';
 import { core } from 'metal';
+=======
+import Component from 'metal-component/src/Component';
+import Soy from 'metal-soy/src/Soy';
+
+import core from 'metal/src/core';
+import debounce from 'metal-debounce/src/debounce';
+import { CancellablePromise } from 'metal-promise/src/promise/Promise';
+import Slider from 'metal-slider/src/Slider';
+>>>>>>> compatible
 
 import componentTemplates from './ContrastComponent.soy';
 import controlsTemplates from './ContrastControls.soy';
 
 /**
  * Contrast Component
+<<<<<<< HEAD
  * @review
+=======
+>>>>>>> compatible
  */
 class ContrastComponent extends Component {
 	/**
 	 * @inheritDoc
+<<<<<<< HEAD
 	 * @review
+=======
+>>>>>>> compatible
 	 */
 	attached() {
 		// Debounced version of requestImageEditorPreview
@@ -26,7 +42,10 @@ class ContrastComponent extends Component {
 
 	/**
 	 * @inheritDoc
+<<<<<<< HEAD
 	 * @review
+=======
+>>>>>>> compatible
 	 */
 	detached() {
 		this.cache_ = {};
@@ -34,10 +53,17 @@ class ContrastComponent extends Component {
 
 	/**
 	 * Applies a contrast filter to the image.
+<<<<<<< HEAD
 	 * @param  {ImageData} imageData ImageData representation of the image.
 	 * @return {CancellablePromise} A promise that will resolve when the webworker
 	 * finishes processing the image.
 	 * @review
+=======
+	 *
+	 * @param  {ImageData} imageData ImageData representation of the image.
+	 * @return {CancellablePromise} A promise that will resolve when the webworker
+	 * finishes processing the image.
+>>>>>>> compatible
 	 */
 	preview(imageData) {
 		return this.process(imageData);
@@ -45,10 +71,17 @@ class ContrastComponent extends Component {
 
 	/**
 	 * Applies a contrast filter to the image.
+<<<<<<< HEAD
 	 * @param  {ImageData} imageData ImageData representation of the image.
 	 * @return {CancellablePromise} A promise that will resolve when the webworker
 	 * finishes processing the image.
 	 * @review
+=======
+	 *
+	 * @param  {ImageData} imageData ImageData representation of the image.
+	 * @return {CancellablePromise} A promise that will resolve when the webworker
+	 * finishes processing the image.
+>>>>>>> compatible
 	 */
 	process(imageData) {
 		let contrastValue = this.components.slider.value;
@@ -70,7 +103,10 @@ class ContrastComponent extends Component {
 	 * Notifies the editor that this component wants to generate
 	 * a different preview version of the current image. It debounces
 	 * the calls
+<<<<<<< HEAD
 	 * @review
+=======
+>>>>>>> compatible
 	 */
 	requestPreview() {
 		this.requestImageEditorPreview_();
@@ -78,10 +114,17 @@ class ContrastComponent extends Component {
 
 	/**
 	 * Spawns the a webworker to do the image processing in a different thread.
+<<<<<<< HEAD
 	 * @param  {Object} message An object with the image and contrast value.
 	 * @return {CancellablePromise} A promise that will resolve when the webworker
 	 * finishes processing the image.
 	 * @review
+=======
+	 *
+	 * @param  {Object} message An object with the image and contrast value.
+	 * @return {CancellablePromise} A promise that will resolve when the webworker
+	 * finishes processing the image.
+>>>>>>> compatible
 	 */
 	spawnWorker_(message) {
 		return new CancellablePromise((resolve, reject) => {
@@ -96,9 +139,14 @@ class ContrastComponent extends Component {
 
 /**
  * State definition.
+<<<<<<< HEAD
  * @review
  * @static
  * @type {!Object}
+=======
+ * @type {!Object}
+ * @static
+>>>>>>> compatible
  */
 ContrastComponent.STATE = {
 	/**
@@ -112,7 +160,10 @@ ContrastComponent.STATE = {
 	/**
 	 * Injected method to notify the editor this component
 	 * wants to generate a preview version of the image.
+<<<<<<< HEAD
 	 * @review
+=======
+>>>>>>> compatible
 	 * @type {Function}
 	 */
 	requestImageEditorPreview: {
@@ -120,6 +171,10 @@ ContrastComponent.STATE = {
 	}
 };
 
+<<<<<<< HEAD
+=======
+// Register component
+>>>>>>> compatible
 Soy.register(ContrastComponent, componentTemplates);
 
 export default ContrastComponent;

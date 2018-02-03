@@ -23,7 +23,10 @@ import org.apache.lucene.index.Term;
 import org.apache.lucene.queries.TermsQuery;
 import org.apache.lucene.search.BooleanClause;
 import org.apache.lucene.search.BooleanQuery;
+<<<<<<< HEAD
 import org.apache.lucene.search.Query;
+=======
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 
@@ -34,7 +37,11 @@ import org.osgi.service.component.annotations.Component;
 public class TermsFilterTranslatorImpl implements TermsFilterTranslator {
 
 	@Override
+<<<<<<< HEAD
 	public Query translate(TermsFilter termsFilter) {
+=======
+	public org.apache.lucene.search.Query translate(TermsFilter termsFilter) {
+>>>>>>> compatible
 		String field = termsFilter.getField();
 
 		ArrayList<Term> terms = new ArrayList<>();

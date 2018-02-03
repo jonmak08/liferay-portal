@@ -36,6 +36,10 @@ import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 
@@ -444,7 +448,11 @@ public class WikiPageModelImpl extends BaseModelImpl<WikiPage>
 	@Override
 	public String getUuid() {
 		if (_uuid == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _uuid;
@@ -576,7 +584,11 @@ public class WikiPageModelImpl extends BaseModelImpl<WikiPage>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -592,7 +604,11 @@ public class WikiPageModelImpl extends BaseModelImpl<WikiPage>
 	@Override
 	public String getUserName() {
 		if (_userName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _userName;
@@ -659,7 +675,11 @@ public class WikiPageModelImpl extends BaseModelImpl<WikiPage>
 	@Override
 	public String getTitle() {
 		if (_title == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _title;
@@ -725,7 +745,11 @@ public class WikiPageModelImpl extends BaseModelImpl<WikiPage>
 	@Override
 	public String getContent() {
 		if (_content == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _content;
@@ -741,7 +765,11 @@ public class WikiPageModelImpl extends BaseModelImpl<WikiPage>
 	@Override
 	public String getSummary() {
 		if (_summary == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _summary;
@@ -757,7 +785,11 @@ public class WikiPageModelImpl extends BaseModelImpl<WikiPage>
 	@Override
 	public String getFormat() {
 		if (_format == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _format;
@@ -812,7 +844,11 @@ public class WikiPageModelImpl extends BaseModelImpl<WikiPage>
 	@Override
 	public String getParentTitle() {
 		if (_parentTitle == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _parentTitle;
@@ -838,7 +874,11 @@ public class WikiPageModelImpl extends BaseModelImpl<WikiPage>
 	@Override
 	public String getRedirectTitle() {
 		if (_redirectTitle == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _redirectTitle;
@@ -913,7 +953,11 @@ public class WikiPageModelImpl extends BaseModelImpl<WikiPage>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -925,7 +969,11 @@ public class WikiPageModelImpl extends BaseModelImpl<WikiPage>
 	@Override
 	public String getStatusByUserName() {
 		if (_statusByUserName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _statusByUserName;

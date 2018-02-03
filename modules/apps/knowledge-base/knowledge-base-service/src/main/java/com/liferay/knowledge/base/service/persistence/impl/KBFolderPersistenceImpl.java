@@ -39,8 +39,15 @@ import com.liferay.portal.kernel.service.persistence.CompanyProvider;
 import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.ReflectionUtil;
+import com.liferay.portal.kernel.util.SetUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
@@ -227,7 +234,11 @@ public class KBFolderPersistenceImpl extends BasePersistenceImpl<KBFolder>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_UUID_3);
 			}
 			else {
@@ -315,7 +326,11 @@ public class KBFolderPersistenceImpl extends BasePersistenceImpl<KBFolder>
 		msg.append("uuid=");
 		msg.append(uuid);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchFolderException(msg.toString());
 	}
@@ -364,7 +379,11 @@ public class KBFolderPersistenceImpl extends BasePersistenceImpl<KBFolder>
 		msg.append("uuid=");
 		msg.append(uuid);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchFolderException(msg.toString());
 	}
@@ -456,7 +475,11 @@ public class KBFolderPersistenceImpl extends BasePersistenceImpl<KBFolder>
 		if (uuid == null) {
 			query.append(_FINDER_COLUMN_UUID_UUID_1);
 		}
+<<<<<<< HEAD
 		else if (uuid.equals("")) {
+=======
+		else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_UUID_UUID_3);
 		}
 		else {
@@ -592,7 +615,11 @@ public class KBFolderPersistenceImpl extends BasePersistenceImpl<KBFolder>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_UUID_3);
 			}
 			else {
@@ -671,7 +698,11 @@ public class KBFolderPersistenceImpl extends BasePersistenceImpl<KBFolder>
 			msg.append(", groupId=");
 			msg.append(groupId);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -734,7 +765,11 @@ public class KBFolderPersistenceImpl extends BasePersistenceImpl<KBFolder>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_G_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_G_UUID_3);
 			}
 			else {
@@ -841,7 +876,11 @@ public class KBFolderPersistenceImpl extends BasePersistenceImpl<KBFolder>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_G_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_G_UUID_3);
 			}
 			else {
@@ -1037,7 +1076,11 @@ public class KBFolderPersistenceImpl extends BasePersistenceImpl<KBFolder>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_C_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_C_UUID_3);
 			}
 			else {
@@ -1134,7 +1177,11 @@ public class KBFolderPersistenceImpl extends BasePersistenceImpl<KBFolder>
 		msg.append(", companyId=");
 		msg.append(companyId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchFolderException(msg.toString());
 	}
@@ -1190,7 +1237,11 @@ public class KBFolderPersistenceImpl extends BasePersistenceImpl<KBFolder>
 		msg.append(", companyId=");
 		msg.append(companyId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchFolderException(msg.toString());
 	}
@@ -1284,7 +1335,11 @@ public class KBFolderPersistenceImpl extends BasePersistenceImpl<KBFolder>
 		if (uuid == null) {
 			query.append(_FINDER_COLUMN_UUID_C_UUID_1);
 		}
+<<<<<<< HEAD
 		else if (uuid.equals("")) {
+=======
+		else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_UUID_C_UUID_3);
 		}
 		else {
@@ -1426,7 +1481,11 @@ public class KBFolderPersistenceImpl extends BasePersistenceImpl<KBFolder>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_C_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_C_UUID_3);
 			}
 			else {
@@ -1705,7 +1764,11 @@ public class KBFolderPersistenceImpl extends BasePersistenceImpl<KBFolder>
 		msg.append(", parentKBFolderId=");
 		msg.append(parentKBFolderId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchFolderException(msg.toString());
 	}
@@ -1761,7 +1824,11 @@ public class KBFolderPersistenceImpl extends BasePersistenceImpl<KBFolder>
 		msg.append(", parentKBFolderId=");
 		msg.append(parentKBFolderId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchFolderException(msg.toString());
 	}
@@ -2439,7 +2506,11 @@ public class KBFolderPersistenceImpl extends BasePersistenceImpl<KBFolder>
 			msg.append(", name=");
 			msg.append(name);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -2510,7 +2581,11 @@ public class KBFolderPersistenceImpl extends BasePersistenceImpl<KBFolder>
 			if (name == null) {
 				query.append(_FINDER_COLUMN_G_P_N_NAME_1);
 			}
+<<<<<<< HEAD
 			else if (name.equals("")) {
+=======
+			else if (name.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_P_N_NAME_3);
 			}
 			else {
@@ -2635,7 +2710,11 @@ public class KBFolderPersistenceImpl extends BasePersistenceImpl<KBFolder>
 			if (name == null) {
 				query.append(_FINDER_COLUMN_G_P_N_NAME_1);
 			}
+<<<<<<< HEAD
 			else if (name.equals("")) {
+=======
+			else if (name.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_P_N_NAME_3);
 			}
 			else {
@@ -2731,7 +2810,11 @@ public class KBFolderPersistenceImpl extends BasePersistenceImpl<KBFolder>
 			msg.append(", urlTitle=");
 			msg.append(urlTitle);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -2802,7 +2885,11 @@ public class KBFolderPersistenceImpl extends BasePersistenceImpl<KBFolder>
 			if (urlTitle == null) {
 				query.append(_FINDER_COLUMN_G_P_UT_URLTITLE_1);
 			}
+<<<<<<< HEAD
 			else if (urlTitle.equals("")) {
+=======
+			else if (urlTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_P_UT_URLTITLE_3);
 			}
 			else {
@@ -2928,7 +3015,11 @@ public class KBFolderPersistenceImpl extends BasePersistenceImpl<KBFolder>
 			if (urlTitle == null) {
 				query.append(_FINDER_COLUMN_G_P_UT_URLTITLE_1);
 			}
+<<<<<<< HEAD
 			else if (urlTitle.equals("")) {
+=======
+			else if (urlTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_P_UT_URLTITLE_3);
 			}
 			else {
@@ -2983,11 +3074,17 @@ public class KBFolderPersistenceImpl extends BasePersistenceImpl<KBFolder>
 		setModelClass(KBFolder.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("uuid", "uuid_");
@@ -3642,12 +3739,20 @@ public class KBFolderPersistenceImpl extends BasePersistenceImpl<KBFolder>
 		for (Serializable primaryKey : uncachedPrimaryKeys) {
 			query.append((long)primaryKey);
 
+<<<<<<< HEAD
 			query.append(",");
+=======
+			query.append(StringPool.COMMA);
+>>>>>>> compatible
 		}
 
 		query.setIndex(query.index() - 1);
 
+<<<<<<< HEAD
 		query.append(")");
+=======
+		query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 		String sql = query.toString();
 

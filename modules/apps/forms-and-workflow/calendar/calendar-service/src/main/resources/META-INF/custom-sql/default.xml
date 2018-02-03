@@ -19,6 +19,7 @@
 					(lower(location) LIKE ? [$AND_OR_NULL_CHECK$])
 				) AND
 				(
+<<<<<<< HEAD
 					(
 						(startTime >= ?) AND
 						(endTime <= ?)
@@ -37,6 +38,12 @@
 						(endTime >= ?) AND
 						(endTime <= ?)
 					)
+=======
+					(startTime >= ? AND endTime <= ?) OR
+					(startTime <= ? AND endTime >= ?) OR
+					(startTime >= ? AND startTime <= ? AND endTime >= ?) OR
+					(startTime <= ? AND endTime >= ? AND endTime <= ?)
+>>>>>>> compatible
 				)
 				[$STATUS$]
 		]]>
@@ -75,6 +82,7 @@
 				) AND
 				(
 					(
+<<<<<<< HEAD
 						(
 							(startTime >= ?) AND
 							(endTime <= ?)
@@ -93,6 +101,12 @@
 							(endTime >= ?) AND
 							(endTime <= ?)
 						)
+=======
+						(startTime >= ? AND endTime <= ?) OR
+						(startTime <= ? AND endTime >= ?) OR
+						(startTime >= ? AND startTime <= ? AND endTime >= ?) OR
+						(startTime <= ? AND endTime >= ? AND endTime <= ?)
+>>>>>>> compatible
 					)
 					[$RECURRENCE$]
 				)

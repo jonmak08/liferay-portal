@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <definition component-name="portal-upgrades">
+=======
+<definition component-name="portal-upgrades" ignore="true">
+>>>>>>> compatible
 	<property name="ignore.errors" value="Plugin security management is not enabled. Enable a security manager, then restart." />
 	<property name="portal.release" value="true" />
 	<property name="portal.upstream" value="true" />
@@ -14,7 +18,11 @@
 
 	<command name="ViewCalendarArchive6012" priority="5">
 		<property name="data.archive.type" value="data-archive-calendar" />
+<<<<<<< HEAD
 		<property name="osgi.modules.includes" value="calevent" />
+=======
+		<property name="osgi.app.includes" value="calevent" />
+>>>>>>> compatible
 		<property name="portal.version" value="6.0.12" />
 
 		<execute macro="Upgrade#viewCalendar" />
@@ -22,7 +30,11 @@
 
 	<command name="ViewCalendarArchive612" priority="5">
 		<property name="data.archive.type" value="data-archive-calendar" />
+<<<<<<< HEAD
 		<property name="osgi.modules.includes" value="calevent" />
+=======
+		<property name="osgi.app.includes" value="calevent" />
+>>>>>>> compatible
 		<property name="portal.version" value="6.1.2" />
 
 		<execute macro="Upgrade#viewCalendar" />
@@ -30,7 +42,11 @@
 
 	<command name="ViewCalendarArchive6130" priority="5">
 		<property name="data.archive.type" value="data-archive-calendar" />
+<<<<<<< HEAD
 		<property name="osgi.modules.includes" value="calevent" />
+=======
+		<property name="osgi.app.includes" value="calevent" />
+>>>>>>> compatible
 		<property name="portal.version" value="6.1.30" />
 
 		<execute macro="Upgrade#viewCalendar" />

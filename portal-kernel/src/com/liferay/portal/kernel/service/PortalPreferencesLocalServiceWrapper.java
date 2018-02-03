@@ -192,6 +192,7 @@ public class PortalPreferencesLocalServiceWrapper
 	}
 
 	@Override
+<<<<<<< HEAD
 	public com.liferay.portal.kernel.model.PortalPreferences fetchPortalPreferences(
 		long ownerId, int ownerType) {
 		return _portalPreferencesLocalService.fetchPortalPreferences(ownerId,
@@ -199,6 +200,8 @@ public class PortalPreferencesLocalServiceWrapper
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery getActionableDynamicQuery() {
 		return _portalPreferencesLocalService.getActionableDynamicQuery();
 	}

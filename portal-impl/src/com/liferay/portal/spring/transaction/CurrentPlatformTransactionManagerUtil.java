@@ -14,10 +14,17 @@
 
 package com.liferay.portal.spring.transaction;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
 import com.liferay.portal.kernel.transaction.TransactionAttribute;
 import com.liferay.portal.kernel.transaction.TransactionLifecycleListener;
 import com.liferay.portal.kernel.transaction.TransactionStatus;
+=======
+import com.liferay.portal.kernel.transaction.TransactionAttribute;
+import com.liferay.portal.kernel.transaction.TransactionLifecycleListener;
+import com.liferay.portal.kernel.transaction.TransactionStatus;
+import com.liferay.portal.kernel.util.InitialThreadLocal;
+>>>>>>> compatible
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -79,9 +86,16 @@ public class CurrentPlatformTransactionManagerUtil {
 	}
 
 	private static final ThreadLocal<Deque<PlatformTransactionManager>>
+<<<<<<< HEAD
 		_platformTransactionManagersThreadLocal = new CentralizedThreadLocal<>(
 			CurrentPlatformTransactionManagerUtil.class +
 				"._platformTransactionManagersThreadLocal",
 			ArrayDeque::new, false);
+=======
+		_platformTransactionManagersThreadLocal = new InitialThreadLocal<>(
+			CurrentPlatformTransactionManagerUtil.class +
+				"._platformTransactionManagersThreadLocal",
+			ArrayDeque::new);
+>>>>>>> compatible
 
 }

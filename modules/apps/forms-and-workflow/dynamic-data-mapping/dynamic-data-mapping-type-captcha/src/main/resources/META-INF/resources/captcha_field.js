@@ -1,6 +1,7 @@
 AUI.add(
 	'liferay-ddm-form-field-captcha',
 	function(A) {
+<<<<<<< HEAD
 		var Lang = A.Lang;
 
 		var CaptchaField = A.Component.create(
@@ -14,6 +15,11 @@ AUI.add(
 						value: ''
 					},
 
+=======
+		var CaptchaField = A.Component.create(
+			{
+				ATTRS: {
+>>>>>>> compatible
 					type: {
 						value: 'captcha'
 					}
@@ -32,6 +38,7 @@ AUI.add(
 						);
 					},
 
+<<<<<<< HEAD
 					getChangeEventName: function() {
 						return 'input';
 					},
@@ -81,6 +88,22 @@ AUI.add(
 							);
 						}
 						return context;
+=======
+					getTemplateRenderer: function() {
+						var instance = this;
+
+						return A.bind('renderTemplate', instance);
+					},
+
+					getValue: function() {
+						return '';
+					},
+
+					renderTemplate: function() {
+						var instance = this;
+
+						return instance._valueContainer().html();
+>>>>>>> compatible
 					},
 
 					_onClickRefresh: function() {
@@ -104,6 +127,10 @@ AUI.add(
 	},
 	'',
 	{
+<<<<<<< HEAD
 		requires: ['aui-parse-content', 'liferay-ddm-form-renderer-field']
+=======
+		requires: ['liferay-ddm-form-renderer-field']
+>>>>>>> compatible
 	}
 );

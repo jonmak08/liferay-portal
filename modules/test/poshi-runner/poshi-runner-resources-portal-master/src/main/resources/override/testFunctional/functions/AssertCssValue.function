@@ -2,7 +2,11 @@
 	<command name="assertCssValue">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.AssertCssValue#assertCssValue" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 

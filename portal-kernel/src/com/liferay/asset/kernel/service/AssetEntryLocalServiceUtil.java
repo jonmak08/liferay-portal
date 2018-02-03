@@ -473,6 +473,7 @@ public class AssetEntryLocalServiceUtil {
 		return getService().getEntry(className, classPK);
 	}
 
+<<<<<<< HEAD
 	public static double getEntryPriority(long classNameId, long classPK) {
 		return getService().getEntryPriority(classNameId, classPK);
 	}
@@ -482,6 +483,8 @@ public class AssetEntryLocalServiceUtil {
 		return getService().getEntryPriority(className, classPK);
 	}
 
+=======
+>>>>>>> compatible
 	public static java.util.List<com.liferay.asset.kernel.model.AssetEntry> getGroupEntries(
 		long groupId) {
 		return getService().getGroupEntries(groupId);
@@ -856,6 +859,14 @@ public class AssetEntryLocalServiceUtil {
 			tagNames);
 	}
 
+<<<<<<< HEAD
+=======
+	/**
+	* @deprecated As of 7.0.0, replaced by {@link #validate(long, String, long,
+	long, long[], String[])}
+	*/
+	@Deprecated
+>>>>>>> compatible
 	public static void validate(long groupId, java.lang.String className,
 		long classTypePK, long[] categoryIds, java.lang.String[] tagNames)
 		throws com.liferay.portal.kernel.exception.PortalException {

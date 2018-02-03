@@ -9,6 +9,14 @@
 </thead>
 <tbody>
 <tr>
+<<<<<<< HEAD
+=======
+	<td>ALERT</td>
+	<td>//div[contains(@class,'has-error')]</td>
+	<td></td>
+</tr>
+<tr>
+>>>>>>> compatible
 	<td>ANSWER</td>
 	<td>//div[label[contains(.,'Answer')]]/input[@type='text']</td>
 	<td></td>
@@ -49,11 +57,14 @@
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 	<td>CUSTOM_TITLE</td>
 	<td>//input[contains(@id,'customTitle')]</td>
 	<td></td>
 </tr>
 <tr>
+=======
+>>>>>>> compatible
 	<td>DATA_DEFINITION</td>
 	<td>//div[label[contains(.,'Data Definition')]]/input[@type='text']</td>
 	<td></td>
@@ -176,6 +187,7 @@
 <tr>
 	<td>GOOGLE_ANALYTICS_ID</td>
 	<td>//input[contains(@id,'googleAnalyticsId')]</td>
+<<<<<<< HEAD
 	<td></td>
 </tr>
 <tr>
@@ -184,6 +196,16 @@
 	<td></td>
 </tr>
 <tr>
+=======
+	<td></td>
+</tr>
+<tr>
+	<td>IMAGE_ID</td>
+	<td>//input[contains(@id,'newUuid')]</td>
+	<td></td>
+</tr>
+<tr>
+>>>>>>> compatible
 	<td>IMAGE_URL</td>
 	<td>//div[label[contains(.,'Image URL')]]//input[@type='text']</td>
 	<td></td>
@@ -225,7 +247,11 @@
 </tr>
 <tr>
 	<td>GOOGLE_CLIENT_ID</td>
+<<<<<<< HEAD
 	<td>//input[contains(@id,'googleClientId')]</td>
+=======
+	<td>//div[label[contains(.,'Google Client ID')]]/input[@type='text'] | //input[contains(@id,'google-client-id')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -310,7 +336,11 @@
 </tr>
 <tr>
 	<td>NAME</td>
+<<<<<<< HEAD
 	<td>//div[label[contains(.,'Name')]]//input[@type='text'] | //div[contains(@class,'form-group')]//input[contains(@id,'name')]</td>
+=======
+	<td>//div[label[contains(.,'Name')]]//input[@type='text'] | //input[contains(@id,'name')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -405,7 +435,11 @@
 </tr>
 <tr>
 	<td>SEARCH</td>
+<<<<<<< HEAD
 	<td>//input[contains(@title,'S') or contains(@title,'s')][contains(@title,'earch')]</td>
+=======
+	<td>//input[@title='Search'] | //*[@data-qa-id='searchInput']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -489,11 +523,14 @@
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 	<td>TRACKBACKS</td>
 	<td>//input[contains(@id,'trackbacks')]</td>
 	<td></td>
 </tr>
 <tr>
+=======
+>>>>>>> compatible
 	<td>TRASH_ENTRIES_MAX_AGE</td>
 	<td>//input[contains(@id,'trashEntriesMaxAge')]</td>
 	<td></td>
@@ -515,7 +552,11 @@
 </tr>
 <tr>
 	<td>URL_REQUIRED</td>
+<<<<<<< HEAD
 	<td>//div[contains(@id,'urlHelper')]/div[contains(@role,'alert')]</td>
+=======
+	<td>//div[contains(@class,'error')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>

@@ -28,6 +28,13 @@ import com.liferay.asset.kernel.validator.AssetEntryValidator;
 import com.liferay.asset.kernel.validator.AssetEntryValidatorExclusionRule;
 import com.liferay.exportimport.kernel.lar.ExportImportThreadLocal;
 import com.liferay.portal.kernel.bean.BeanReference;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.dao.orm.DynamicQuery;
+import com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil;
+import com.liferay.portal.kernel.dao.orm.Property;
+import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
@@ -391,7 +398,11 @@ public class AssetEntryLocalServiceImpl extends AssetEntryLocalServiceBaseImpl {
 	public void incrementViewCounter(long userId, AssetEntry assetEntry)
 		throws PortalException {
 
+<<<<<<< HEAD
 		User user = userLocalService.getUser(userId);
+=======
+		User user = userPersistence.findByPrimaryKey(userId);
+>>>>>>> compatible
 
 		assetEntryLocalService.incrementViewCounter(
 			user.getUserId(), assetEntry.getClassName(),
@@ -613,6 +624,7 @@ public class AssetEntryLocalServiceImpl extends AssetEntryLocalServiceBaseImpl {
 
 			assetEntryQuery.setAttribute("showInvisible", showInvisible);
 
+<<<<<<< HEAD
 			assetEntryQuery.setClassNameIds(
 				getClassNameIds(companyId, className));
 
@@ -623,6 +635,33 @@ public class AssetEntryLocalServiceImpl extends AssetEntryLocalServiceBaseImpl {
 				groupIds, StringUtil.split(assetTagNames), andSearch,
 				assetEntryQuery);
 
+=======
+			String[] assetTagNamesArray = StringUtil.split(assetTagNames);
+
+			if (andSearch) {
+				assetEntryQuery.setAnyCategoryIds(
+					StringUtil.split(assetCategoryIds, 0L));
+
+				for (String assetTagName : assetTagNamesArray) {
+					long[] allAssetTagIds = getTagIds(groupIds, assetTagName);
+
+					assetEntryQuery.addAllTagIdsArray(allAssetTagIds);
+				}
+			}
+			else {
+				assetEntryQuery.setAllCategoryIds(
+					StringUtil.split(assetCategoryIds, 0L));
+
+				if (ArrayUtil.isNotEmpty(assetTagNamesArray)) {
+					assetEntryQuery.setAnyTagIds(
+						getTagIds(groupIds, assetTagNames));
+				}
+			}
+
+			assetEntryQuery.setClassNameIds(
+				getClassNameIds(companyId, className));
+
+>>>>>>> compatible
 			SearchContext searchContext = buildSearchContext(
 				companyId, groupIds, userId, classTypeId, userName, title,
 				description, assetCategoryIds, assetTagNames, showNonindexable,
@@ -1039,6 +1078,14 @@ public class AssetEntryLocalServiceImpl extends AssetEntryLocalServiceBaseImpl {
 		}
 	}
 
+<<<<<<< HEAD
+=======
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link #validate(long, String, long,
+	 *             long, long[], String[])}
+	 */
+	@Deprecated
+>>>>>>> compatible
 	@Override
 	public void validate(
 			long groupId, String className, long classTypePK,
@@ -1194,6 +1241,7 @@ public class AssetEntryLocalServiceImpl extends AssetEntryLocalServiceBaseImpl {
 
 		assetEntryQuery.setClassNameIds(getClassNameIds(companyId, className));
 
+<<<<<<< HEAD
 		_setAssetCategoryIds(
 			searchContext.getAssetCategoryIds(), searchContext.isAndSearch(),
 			assetEntryQuery);
@@ -1201,6 +1249,8 @@ public class AssetEntryLocalServiceImpl extends AssetEntryLocalServiceBaseImpl {
 			searchContext.getGroupIds(), searchContext.getAssetTagNames(),
 			searchContext.isAndSearch(), assetEntryQuery);
 
+=======
+>>>>>>> compatible
 		QueryConfig queryConfig = searchContext.getQueryConfig();
 
 		queryConfig.setHighlightEnabled(false);
@@ -1268,6 +1318,7 @@ public class AssetEntryLocalServiceImpl extends AssetEntryLocalServiceBaseImpl {
 		if (groupIds != null) {
 			return assetTagLocalService.getTagIds(groupIds, tagName);
 		}
+<<<<<<< HEAD
 
 		return assetTagLocalService.getTagIds(tagName);
 	}
@@ -1276,10 +1327,12 @@ public class AssetEntryLocalServiceImpl extends AssetEntryLocalServiceBaseImpl {
 		String className = PortalUtil.getClassName(entry.getClassNameId());
 
 		Indexer<?> indexer = IndexerRegistryUtil.nullSafeGetIndexer(className);
+=======
+>>>>>>> compatible
 
-		indexer.reindex(className, entry.getClassPK());
-	}
+		List<Long> tagIds = new ArrayList<>();
 
+<<<<<<< HEAD
 	@BeanReference(type = AssetEntryValidatorRegistry.class)
 	protected AssetEntryValidatorRegistry assetEntryValidatorRegistry;
 
@@ -1320,6 +1373,36 @@ public class AssetEntryLocalServiceImpl extends AssetEntryLocalServiceBaseImpl {
 		}
 	}
 
+=======
+		DynamicQuery dynamicQuery = DynamicQueryFactoryUtil.forClass(
+			AssetTag.class);
+
+		Property property = PropertyFactoryUtil.forName("name");
+
+		dynamicQuery.add(property.eq(tagName));
+
+		List<AssetTag> assetTags = assetTagPersistence.findWithDynamicQuery(
+			dynamicQuery);
+
+		for (AssetTag assetTag : assetTags) {
+			tagIds.add(assetTag.getTagId());
+		}
+
+		return ArrayUtil.toLongArray(tagIds);
+	}
+
+	protected void reindex(AssetEntry entry) throws PortalException {
+		String className = PortalUtil.getClassName(entry.getClassNameId());
+
+		Indexer<?> indexer = IndexerRegistryUtil.nullSafeGetIndexer(className);
+
+		indexer.reindex(className, entry.getClassPK());
+	}
+
+	@BeanReference(type = AssetEntryValidatorRegistry.class)
+	protected AssetEntryValidatorRegistry assetEntryValidatorRegistry;
+
+>>>>>>> compatible
 	private final ServiceTrackerMap
 		<String, List<AssetEntryValidatorExclusionRule>>
 			_serviceTrackerMap = ServiceTrackerCollections.openMultiValueMap(

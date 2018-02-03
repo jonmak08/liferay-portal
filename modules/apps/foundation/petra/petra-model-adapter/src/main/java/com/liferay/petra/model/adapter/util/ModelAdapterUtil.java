@@ -42,6 +42,7 @@ public class ModelAdapterUtil {
 	}
 
 	public static <T> T adapt(Class<T> clazz, Object delegateObject) {
+<<<<<<< HEAD
 		if (delegateObject == null) {
 			return null;
 		}
@@ -49,6 +50,25 @@ public class ModelAdapterUtil {
 		return (T)ProxyUtil.newProxyInstance(
 			clazz.getClassLoader(), new Class<?>[] {clazz},
 			new DelegateInvocationHandler(delegateObject));
+=======
+		Class<?> delegateClass = delegateObject.getClass();
+
+		return (T)ProxyUtil.newProxyInstance(
+			clazz.getClassLoader(), new Class<?>[] {clazz},
+			new InvocationHandler() {
+
+				@Override
+				public Object invoke(Object proxy, Method method, Object[] args)
+					throws ReflectiveOperationException {
+
+					method = delegateClass.getMethod(
+						method.getName(), method.getParameterTypes());
+
+					return method.invoke(delegateObject, args);
+				}
+
+			});
+>>>>>>> compatible
 	}
 
 	public static <T> T[] adapt(Class<T> clazz, Object[] delegateObjects) {
@@ -65,10 +85,13 @@ public class ModelAdapterUtil {
 	public static <T, V> OrderByComparator<T> adapt(
 		Class<V> clazz, OrderByComparator<V> orderByComparator) {
 
+<<<<<<< HEAD
 		if (orderByComparator == null) {
 			return null;
 		}
 
+=======
+>>>>>>> compatible
 		return new OrderByComparatorAdapter<T, V>(orderByComparator) {
 
 			@Override
@@ -82,10 +105,13 @@ public class ModelAdapterUtil {
 	public static <T, V> QueryDefinition<T> adapt(
 		Class<V> clazz, QueryDefinition<V> queryDefinition) {
 
+<<<<<<< HEAD
 		if (queryDefinition == null) {
 			return null;
 		}
 
+=======
+>>>>>>> compatible
 		QueryDefinition<T> adaptedQueryDefinition = new QueryDefinition<>(
 			queryDefinition.getStatus(), queryDefinition.isExcludeStatus(),
 			queryDefinition.getOwnerUserId(), queryDefinition.isIncludeOwner(),
@@ -97,6 +123,7 @@ public class ModelAdapterUtil {
 		return adaptedQueryDefinition;
 	}
 
+<<<<<<< HEAD
 	private static class DelegateInvocationHandler
 		implements InvocationHandler {
 
@@ -140,4 +167,6 @@ public class ModelAdapterUtil {
 
 	}
 
+=======
+>>>>>>> compatible
 }

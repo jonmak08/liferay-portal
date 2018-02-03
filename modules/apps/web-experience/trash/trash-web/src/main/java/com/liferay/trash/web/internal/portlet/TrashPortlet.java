@@ -14,7 +14,10 @@
 
 package com.liferay.trash.web.internal.portlet;
 
+<<<<<<< HEAD
 import com.liferay.petra.model.adapter.util.ModelAdapterUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.TrashPermissionException;
 import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
 import com.liferay.portal.kernel.portlet.PortalPreferences;
@@ -32,6 +35,7 @@ import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
+<<<<<<< HEAD
 import com.liferay.trash.TrashHelper;
 import com.liferay.trash.kernel.exception.RestoreEntryException;
 import com.liferay.trash.model.TrashEntry;
@@ -44,6 +48,16 @@ import com.liferay.trash.web.internal.util.TrashUndoUtil;
 import com.liferay.trash.web.internal.util.TrashUtil;
 
 import java.io.IOException;
+=======
+import com.liferay.taglib.util.TrashUndoUtil;
+import com.liferay.trash.kernel.exception.RestoreEntryException;
+import com.liferay.trash.kernel.model.TrashEntry;
+import com.liferay.trash.kernel.model.TrashEntryConstants;
+import com.liferay.trash.kernel.service.TrashEntryLocalService;
+import com.liferay.trash.kernel.service.TrashEntryService;
+import com.liferay.trash.kernel.util.TrashUtil;
+import com.liferay.trash.web.internal.constants.TrashPortletKeys;
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,10 +65,14 @@ import java.util.List;
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.Portlet;
+<<<<<<< HEAD
 import javax.portlet.PortletException;
 import javax.portlet.PortletURL;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
+=======
+import javax.portlet.PortletURL;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -172,6 +190,7 @@ public class TrashPortlet extends MVCPortlet {
 		sendRedirect(actionRequest, actionResponse);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public void render(
 			RenderRequest renderRequest, RenderResponse renderResponse)
@@ -183,6 +202,8 @@ public class TrashPortlet extends MVCPortlet {
 		super.render(renderRequest, renderResponse);
 	}
 
+=======
+>>>>>>> compatible
 	public void restoreEntries(
 			ActionRequest actionRequest, ActionResponse actionResponse)
 		throws Exception {
@@ -267,7 +288,11 @@ public class TrashPortlet extends MVCPortlet {
 		if (Validator.isNull(newName)) {
 			String oldName = ParamUtil.getString(actionRequest, "oldName");
 
+<<<<<<< HEAD
 			newName = _trashHelper.getNewName(themeDisplay, null, 0, oldName);
+=======
+			newName = TrashUtil.getNewName(themeDisplay, null, 0, oldName);
+>>>>>>> compatible
 		}
 
 		TrashEntry entry = _trashEntryService.restoreEntry(
@@ -295,9 +320,13 @@ public class TrashPortlet extends MVCPortlet {
 
 		try {
 			trashHandler.checkRestorableEntry(
+<<<<<<< HEAD
 				ModelAdapterUtil.adapt(
 					com.liferay.trash.kernel.model.TrashEntry.class, entry),
 				TrashEntryConstants.DEFAULT_CONTAINER_ID, newName);
+=======
+				entry, TrashEntryConstants.DEFAULT_CONTAINER_ID, newName);
+>>>>>>> compatible
 		}
 		catch (RestoreEntryException ree) {
 			String redirect = ParamUtil.getString(actionRequest, "redirect");
@@ -323,16 +352,24 @@ public class TrashPortlet extends MVCPortlet {
 
 			sendRedirect(actionRequest, actionResponse);
 
+<<<<<<< HEAD
 			throw new com.liferay.trash.exception.RestoreEntryException(
 				ree.getType(), ree.getCause());
+=======
+			throw ree;
+>>>>>>> compatible
 		}
 	}
 
 	@Override
 	protected boolean isSessionErrorException(Throwable cause) {
+<<<<<<< HEAD
 		if (cause instanceof com.
 				liferay.trash.exception.RestoreEntryException ||
 			cause instanceof RestoreEntryException ||
+=======
+		if (cause instanceof RestoreEntryException ||
+>>>>>>> compatible
 			cause instanceof TrashPermissionException) {
 
 			return true;
@@ -359,10 +396,13 @@ public class TrashPortlet extends MVCPortlet {
 	private TrashEntryLocalService _trashEntryLocalService;
 	private TrashEntryService _trashEntryService;
 
+<<<<<<< HEAD
 	@Reference
 	private TrashHelper _trashHelper;
 
 	@Reference
 	private TrashUtil _trashUtil;
 
+=======
+>>>>>>> compatible
 }

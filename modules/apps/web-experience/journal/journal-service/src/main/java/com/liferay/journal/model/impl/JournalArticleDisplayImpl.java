@@ -16,7 +16,10 @@ package com.liferay.journal.model.impl;
 
 import com.liferay.journal.model.JournalArticleDisplay;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.webserver.WebServerServletTokenUtil;
 
@@ -68,10 +71,16 @@ public class JournalArticleDisplayImpl implements JournalArticleDisplay {
 			return getSmallImageURL();
 		}
 
+<<<<<<< HEAD
 		return StringBundler.concat(
 			themeDisplay.getPathImage(), "/journal/article?img_id=",
 			String.valueOf(getSmallImageId()), "&t=",
 			WebServerServletTokenUtil.getToken(getSmallImageId()));
+=======
+		return themeDisplay.getPathImage() + "/journal/article?img_id=" +
+			getSmallImageId() + "&t=" +
+				WebServerServletTokenUtil.getToken(getSmallImageId());
+>>>>>>> compatible
 	}
 
 	@Override

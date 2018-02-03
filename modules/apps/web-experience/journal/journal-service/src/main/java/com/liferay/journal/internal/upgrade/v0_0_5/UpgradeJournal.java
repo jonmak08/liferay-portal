@@ -21,7 +21,11 @@ import com.liferay.dynamic.data.mapping.service.DDMTemplateLinkLocalService;
 import com.liferay.dynamic.data.mapping.util.DefaultDDMStructureHelper;
 import com.liferay.journal.constants.JournalPortletKeys;
 import com.liferay.journal.model.JournalArticle;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.petra.content.ContentUtil;
+>>>>>>> compatible
 import com.liferay.petra.xml.XMLUtil;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.model.Company;
@@ -31,7 +35,10 @@ import com.liferay.portal.kernel.security.permission.ResourceActions;
 import com.liferay.portal.kernel.service.CompanyLocalService;
 import com.liferay.portal.kernel.service.GroupLocalService;
 import com.liferay.portal.kernel.service.ResourceActionLocalService;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.service.ResourceLocalService;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.UserLocalService;
 import com.liferay.portal.kernel.upgrade.UpgradeProcess;
@@ -43,6 +50,10 @@ import com.liferay.portal.kernel.util.LoggingTimer;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Document;
@@ -50,8 +61,11 @@ import com.liferay.portal.kernel.xml.DocumentException;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
 
+<<<<<<< HEAD
 import java.io.IOException;
 
+=======
+>>>>>>> compatible
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -82,9 +96,13 @@ public class UpgradeJournal extends UpgradeProcess {
 		DefaultDDMStructureHelper defaultDDMStructureHelper,
 		GroupLocalService groupLocalService,
 		ResourceActionLocalService resourceActionLocalService,
+<<<<<<< HEAD
 		ResourceActions resourceActions,
 		ResourceLocalService resourceLocalService,
 		UserLocalService userLocalService) {
+=======
+		ResourceActions resourceActions, UserLocalService userLocalService) {
+>>>>>>> compatible
 
 		_companyLocalService = companyLocalService;
 		_ddmStorageLinkLocalService = ddmStorageLinkLocalService;
@@ -94,7 +112,10 @@ public class UpgradeJournal extends UpgradeProcess {
 		_groupLocalService = groupLocalService;
 		_resourceActionLocalService = resourceActionLocalService;
 		_resourceActions = resourceActions;
+<<<<<<< HEAD
 		_resourceLocalService = resourceLocalService;
+=======
+>>>>>>> compatible
 		_userLocalService = userLocalService;
 	}
 
@@ -117,8 +138,11 @@ public class UpgradeJournal extends UpgradeProcess {
 				"/basic-web-content-structure.xml",
 			new ServiceContext());
 
+<<<<<<< HEAD
 		addDefaultResourcePermissions(group.getGroupId());
 
+=======
+>>>>>>> compatible
 		String defaultLanguageId = UpgradeProcessUtil.getDefaultLanguageId(
 			companyId);
 
@@ -228,6 +252,7 @@ public class UpgradeJournal extends UpgradeProcess {
 		}
 	}
 
+<<<<<<< HEAD
 	protected void addDefaultResourcePermissions(long groupId)
 		throws Exception {
 
@@ -243,6 +268,8 @@ public class UpgradeJournal extends UpgradeProcess {
 			ddmStructure.getStructureId(), false, false, true);
 	}
 
+=======
+>>>>>>> compatible
 	protected boolean containsDateFieldType(String content) {
 		if (content.indexOf(_TYPE_ATTRIBUTE_DDM_DATE) != -1) {
 			return true;
@@ -386,6 +413,18 @@ public class UpgradeJournal extends UpgradeProcess {
 		return ddmStructure2.getStructureId();
 	}
 
+<<<<<<< HEAD
+=======
+	protected String getContent(String fileName) {
+		Class<?> clazz = getClass();
+
+		return ContentUtil.get(
+			clazz.getClassLoader(),
+			"com/liferay/journal/internal/upgrade/v1_0_0/dependencies/" +
+				fileName);
+	}
+
+>>>>>>> compatible
 	protected long getDDMStructureId(long id, List<Long> ddmStructureIds)
 		throws Exception {
 
@@ -400,9 +439,15 @@ public class UpgradeJournal extends UpgradeProcess {
 	protected List<Element> getDDMStructures(Locale locale)
 		throws DocumentException {
 
+<<<<<<< HEAD
 		String xml = StringUtil.replace(
 			_BASIC_WEB_CONTENT_STRUCTURE, "[$LOCALE_DEFAULT$]",
 			locale.toString());
+=======
+		String xml = getContent("basic-web-content-structure.xml");
+
+		xml = StringUtil.replace(xml, "[$LOCALE_DEFAULT$]", locale.toString());
+>>>>>>> compatible
 
 		Document document = SAXReaderUtil.read(xml);
 
@@ -519,8 +564,12 @@ public class UpgradeJournal extends UpgradeProcess {
 				invalidDDMFormFieldNamesMap.entrySet()) {
 
 			content = StringUtil.replace(
+<<<<<<< HEAD
 				content, "name=\"" + entry.getKey() + "\"",
 				"name=\"" + entry.getValue() + "\"");
+=======
+				content, entry.getKey(), entry.getValue());
+>>>>>>> compatible
 		}
 
 		return content;
@@ -605,8 +654,11 @@ public class UpgradeJournal extends UpgradeProcess {
 		return LanguageUtil.getLanguageId(defaultLocale);
 	}
 
+<<<<<<< HEAD
 	private static final String _BASIC_WEB_CONTENT_STRUCTURE;
 
+=======
+>>>>>>> compatible
 	private static final String _INVALID_FIELD_NAME_CHARS_REGEX =
 		"([\\p{Punct}&&[^_]]|\\p{Space})+";
 
@@ -615,6 +667,7 @@ public class UpgradeJournal extends UpgradeProcess {
 	private static final DateFormat _dateFormat =
 		DateFormatFactoryUtil.getSimpleDateFormat("yyyy-MM-dd");
 
+<<<<<<< HEAD
 	static {
 		try {
 			_BASIC_WEB_CONTENT_STRUCTURE = StringUtil.read(
@@ -627,6 +680,8 @@ public class UpgradeJournal extends UpgradeProcess {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	private final CompanyLocalService _companyLocalService;
 	private final DDMStorageLinkLocalService _ddmStorageLinkLocalService;
 	private final DDMStructureLocalService _ddmStructureLocalService;
@@ -637,7 +692,10 @@ public class UpgradeJournal extends UpgradeProcess {
 		"name=\"([^\"]+)\"");
 	private final ResourceActionLocalService _resourceActionLocalService;
 	private final ResourceActions _resourceActions;
+<<<<<<< HEAD
 	private final ResourceLocalService _resourceLocalService;
+=======
+>>>>>>> compatible
 	private final UserLocalService _userLocalService;
 
 }

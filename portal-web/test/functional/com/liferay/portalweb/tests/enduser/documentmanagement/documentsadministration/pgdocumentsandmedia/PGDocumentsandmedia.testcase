@@ -12,6 +12,7 @@
 
 		<execute macro="User#firstLoginPG" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -19,6 +20,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
@@ -34,15 +38,21 @@
 
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Documents and Media Page" />
+<<<<<<< HEAD
 		</execute>
 
 		<execute macro="Portlet#changeDisplayStyle">
 			<var name="displayStyle" value="descriptive" />
+=======
+>>>>>>> compatible
 		</execute>
+
+		<execute macro="DMPortlet#setDescriptiveView" />
 	</set-up>
 
 	<tear-down>
 		<var method="TestPropsUtil#get('test.portal.instance')" name="testPortalInstance" />
+<<<<<<< HEAD
 
 		<if>
 			<equals arg1="${testPortalInstance}" arg2="true" />
@@ -57,12 +67,32 @@
 				<execute macro="DMDocumentType#tearDownCP" />
 
 				<execute macro="Page#tearDownCP" />
+=======
+
+		<if>
+			<equals arg1="${testPortalInstance}" arg2="true" />
+			<then>
+				<execute macro="PortalInstances#tearDownCP" />
+			</then>
+			<else>
+				<execute macro="DMDocument#tearDownCP" />
+
+				<execute macro="DMFolder#tearDownCP" />
+
+				<execute macro="DMDocumentType#tearDownCP" />
+
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 			</else>
 		</if>
 	</tear-down>
 
 	<command name="AddDocument" priority="5">
+<<<<<<< HEAD
 		<property name="portal.acceptance" value="false" />
+=======
+		<property name="portal.acceptance" value="true" />
+>>>>>>> compatible
 		<property name="testray.component.names" value="Training" />
 
 		<execute macro="Navigator#gotoPage">
@@ -217,7 +247,11 @@
 	</command>
 
 	<command name="AddDocuments" priority="5">
+<<<<<<< HEAD
 		<property name="portal.acceptance" value="false" />
+=======
+		<property name="portal.acceptance" value="true" />
+>>>>>>> compatible
 
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Documents and Media Page" />
@@ -245,9 +279,13 @@
 	</command>
 
 	<command name="AddDocumentTypes" priority="4">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Documents and Media" />
 		</execute>
 
@@ -259,9 +297,13 @@
 			<var name="dmDocumentTypeName" value="DM Document Type 1 Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Documents and Media" />
 		</execute>
 
@@ -269,9 +311,13 @@
 			<var name="dmDocumentTypeName" value="DM Document Type 1 Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Documents and Media" />
 		</execute>
 
@@ -283,9 +329,13 @@
 			<var name="dmDocumentTypeName" value="DM Document Type 2 Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Documents and Media" />
 		</execute>
 
@@ -293,9 +343,13 @@
 			<var name="dmDocumentTypeName" value="DM Document Type 2 Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Documents and Media" />
 		</execute>
 
@@ -307,9 +361,13 @@
 			<var name="dmDocumentTypeName" value="DM Document Type 3 Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Documents and Media" />
 		</execute>
 
@@ -347,7 +405,11 @@
 	</command>
 
 	<command name="AddFolderDocuments" priority="5">
+<<<<<<< HEAD
 		<property name="portal.acceptance" value="false" />
+=======
+		<property name="portal.acceptance" value="pending" />
+>>>>>>> compatible
 		<property name="testray.component.names" value="Training" />
 
 		<execute macro="Navigator#gotoPage">
@@ -783,9 +845,13 @@
 	</command>
 
 	<command name="DeleteDocumentType" priority="4">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Documents and Media" />
 		</execute>
 
@@ -797,9 +863,13 @@
 			<var name="dmDocumentTypeName" value="DM Document Type Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Documents and Media" />
 		</execute>
 
@@ -807,9 +877,13 @@
 			<var name="dmDocumentTypeName" value="DM Document Type Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Documents and Media" />
 		</execute>
 
@@ -848,9 +922,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Recycle Bin" />
 		</execute>
 
@@ -984,6 +1062,7 @@
 		</execute>
 	</command>
 
+<<<<<<< HEAD
 	<command name="EditAndDeleteGoogleDoc" priority="5">
 		<property name="test.name.skip.portal.instance" value="PGDocumentsandmedia#EditAndDeleteGoogleDoc" />
 
@@ -991,6 +1070,11 @@
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
 			<var name="portlet" value="Instance Settings" />
+=======
+	<command name="EditDocument" priority="5">
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Documents and Media Page" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Navigator#gotoNavTab">
@@ -1060,9 +1144,13 @@
 		<property name="portal.acceptance" value="true" />
 		<property name="testray.component.names" value="Training" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Documents and Media" />
 		</execute>
 
@@ -1074,9 +1162,13 @@
 			<var name="dmDocumentTypeName" value="DM Document Type Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Documents and Media" />
 		</execute>
 
@@ -1084,9 +1176,13 @@
 			<var name="dmDocumentTypeName" value="DM Document Type Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Documents and Media" />
 		</execute>
 
@@ -1098,9 +1194,13 @@
 			<var name="dmDocumentTypeNameEdit" value="DM Document Type Name Edit" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Documents and Media" />
 		</execute>
 
@@ -1836,6 +1936,7 @@
 	</command>
 
 	<command name="ViewSearchResultsForChildObjectRespectsParentFolderPermissions" priority="5">
+<<<<<<< HEAD
 		<property name="portal.acceptance" value="false" />
 		<property name="test.name.skip.portal.instance" value="PGDocumentsandmedia#ViewSearchResultsForChildObjectRespectsParentFolderPermissions" />
 		<property name="testray.component.names" value="Training" />
@@ -1843,6 +1944,13 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		<property name="portal.acceptance" value="pending" />
+		<property name="test.name.skip.portal.instance" value="PGDocumentsandmedia#ViewSearchResultsForChildObjectRespectsParentFolderPermissions" />
+		<property name="testray.component.names" value="Training" />
+
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Server Administration" />
 		</execute>
 
@@ -1852,9 +1960,13 @@
 			<var name="actionsDescription" value="Reindex all search indexes." />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="User Groups" />
 		</execute>
 
@@ -1862,9 +1974,13 @@
 			<var name="userGroupName" value="UG UserGroup Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -1872,9 +1988,17 @@
 			<var name="siteName" value="Site Name 1" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSite">
+			<var name="site" value="Site Name 1" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Memberships" />
 		</execute>
 
@@ -1886,9 +2010,13 @@
 			<var name="site" value="Site Name 1" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Teams" />
 		</execute>
 
@@ -1901,9 +2029,13 @@
 			<var name="site" value="Site Name 1" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Teams" />
 		</execute>
 
@@ -1916,9 +2048,13 @@
 			<var name="site" value="Site Name 1" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Memberships" />
 		</execute>
 
@@ -1928,12 +2064,19 @@
 
 		<execute macro="Site#assignSiteRoleCP">
 			<var name="resourceName" value="UG UserGroup Name" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="Site Administrator" />
 		</execute>
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+			<var name="roleName" value="Site Administrator" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -1944,9 +2087,13 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -1955,9 +2102,13 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="User Groups" />
 		</execute>
 
@@ -1966,9 +2117,13 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -1976,6 +2131,7 @@
 			<var name="siteName" value="Site Name 2" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -1984,6 +2140,11 @@
 
 		<execute macro="SitePages#addPublicPage">
 			<var name="pageName" value="Documents and Media Page" />
+=======
+		<execute macro="Page#add">
+			<var name="pageName" value="Documents and Media Page" />
+			<var name="siteName" value="Site Name 2" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Navigator#gotoSitePage">
@@ -2000,9 +2161,13 @@
 			<var name="siteName" value="Site Name 2" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Portlet#changeDisplayStyle">
 			<var name="displayStyle" value="descriptive" />
 		</execute>
+=======
+		<execute macro="DMPortlet#setDescriptiveView" />
+>>>>>>> compatible
 
 		<execute macro="DMFolder#addPG">
 			<var name="dmFolderDescription" value="DM Folder Description" />
@@ -2018,9 +2183,13 @@
 			<var name="dmSubFolderName" value="DM SubFolder Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Documents and Media" />
 		</execute>
 
@@ -2035,9 +2204,13 @@
 
 		<execute macro="IFrame#closeFrame" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Documents and Media" />
 		</execute>
 
@@ -2051,7 +2224,11 @@
 
 		<execute macro="PermissionsInline#viewPermissionsChecked">
 			<var name="permissionDefinitionKey" value="CONFIGURATION_PERMISSIONS_VIEW_CHECKBOX" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="Guest" />
+=======
+			<var name="roleName" value="Guest" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="IFrame#closeFrame" />
@@ -2075,9 +2252,13 @@
 			<var name="dmDocumentTitle" value="DM Document Title" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Documents and Media" />
 		</execute>
 
@@ -2095,13 +2276,18 @@
 
 		<execute macro="PermissionsInline#viewPermissionsChecked">
 			<var name="permissionDefinitionKey" value="CONFIGURATION_PERMISSIONS_VIEW_CHECKBOX" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="Guest" />
+=======
+			<var name="roleName" value="Guest" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="IFrame#closeFrame" />
 
 		<execute function="Pause" locator1="5000" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoSite">
 			<var name="site" value="Site Name 1" />
 		</execute>
@@ -2114,6 +2300,11 @@
 
 		<execute macro="SitePages#addPublicPage">
 			<var name="pageName" value="Search Page" />
+=======
+		<execute macro="Page#add">
+			<var name="pageName" value="Search Page" />
+			<var name="siteName" value="Site Name 1" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Navigator#gotoSitePage">

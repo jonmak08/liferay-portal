@@ -14,14 +14,23 @@
 
 package com.liferay.source.formatter.checkstyle.checks;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
+=======
+import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.source.formatter.checks.util.JavaSourceUtil;
 import com.liferay.source.formatter.checkstyle.util.DetailASTUtil;
 import com.liferay.source.formatter.util.ThreadSafeSortedClassLibraryBuilder;
 
+<<<<<<< HEAD
+=======
+import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
+>>>>>>> compatible
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.FileContents;
 import com.puppycrawl.tools.checkstyle.api.FileText;
@@ -35,14 +44,21 @@ import com.thoughtworks.qdox.parser.ParseException;
 
 import java.util.Collection;
 import java.util.HashSet;
+<<<<<<< HEAD
 import java.util.Iterator;
+=======
+>>>>>>> compatible
 import java.util.List;
 import java.util.Set;
 
 /**
  * @author Hugo Huijser
  */
+<<<<<<< HEAD
 public class UnprocessedExceptionCheck extends BaseCheck {
+=======
+public class UnprocessedExceptionCheck extends AbstractCheck {
+>>>>>>> compatible
 
 	@Override
 	public int[] getDefaultTokens() {
@@ -50,7 +66,11 @@ public class UnprocessedExceptionCheck extends BaseCheck {
 	}
 
 	@Override
+<<<<<<< HEAD
 	protected void doVisitToken(DetailAST detailAST) {
+=======
+	public void visitToken(DetailAST detailAST) {
+>>>>>>> compatible
 		FileContents fileContents = getFileContents();
 
 		String fileName = StringUtil.replace(
@@ -118,7 +138,11 @@ public class UnprocessedExceptionCheck extends BaseCheck {
 
 		if (!exceptionClassName.contains(StringPool.PERIOD)) {
 			exceptionClassName =
+<<<<<<< HEAD
 				JavaSourceUtil.getPackageName(content) + StringPool.PERIOD +
+=======
+				JavaSourceUtil.getPackagePath(content) + StringPool.PERIOD +
+>>>>>>> compatible
 					exceptionClassName;
 		}
 
@@ -240,9 +264,13 @@ public class UnprocessedExceptionCheck extends BaseCheck {
 
 		Collection<JavaSource> sources = javaProjectBuilder.getSources();
 
+<<<<<<< HEAD
 		Iterator<JavaSource> iterator = sources.iterator();
 
 		JavaSource javaSource = iterator.next();
+=======
+		JavaSource javaSource = sources.iterator().next();
+>>>>>>> compatible
 
 		for (String importClassName : javaSource.getImports()) {
 			if (importClassName.endsWith("Exception")) {

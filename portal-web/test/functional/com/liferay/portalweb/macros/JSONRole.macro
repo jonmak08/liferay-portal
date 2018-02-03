@@ -17,6 +17,7 @@
 		</if>
 
 		<if>
+<<<<<<< HEAD
 			<isset var="roleTitle" />
 			<then>
 				<execute class="java.net.URLEncoder" method="encode">
@@ -27,10 +28,23 @@
 			</then>
 			<else>
 				<fail message="Please set 'roleTitle'." />
+=======
+			<isset var="roleName" />
+			<then>
+				<execute class="java.net.URLEncoder" method="encode">
+					<arg value="${roleName}" />
+					<arg value="UTF-8" />
+					<return name="roleNameEncoded" />
+				</execute>
+			</then>
+			<else>
+				<fail message="Please set 'roleName'." />
+>>>>>>> compatible
 			</else>
 		</if>
 
 		<if>
+<<<<<<< HEAD
 			<isset var="roleKey" />
 			<then>
 				<execute class="java.net.URLEncoder" method="encode">
@@ -43,6 +57,20 @@
 			</then>
 			<else>
 				<var name="roleKeyMap" value="{}" />
+=======
+			<isset var="roleTitle" />
+			<then>
+				<execute class="java.net.URLEncoder" method="encode">
+					<arg value="${roleTitle}" />
+					<arg value="UTF-8" />
+					<return name="roleTitleEncoded" />
+				</execute>
+
+				<var name="roleTitleMap">{"en_US":"${roleTitleEncoded}"}</var>
+			</then>
+			<else>
+				<var name="roleTitleMap" value="{}" />
+>>>>>>> compatible
 			</else>
 		</if>
 
@@ -77,8 +105,13 @@
 				-u test@liferay.com:test \
 				-d className=com.liferay.portal.kernel.model.Role \
 				-d classPK=0 \
+<<<<<<< HEAD
 				-d name=${roleTitleEncoded} \
 				-d titleMap=${roleKeyMap} \
+=======
+				-d name=${roleNameEncoded} \
+				-d titleMap=${roleTitleMap} \
+>>>>>>> compatible
 				-d descriptionMap=${roleDescriptionMap} \
 				-d type=${roleTypeId} \
 				-d subtype=
@@ -93,12 +126,21 @@
 			</then>
 		</if>
 
+<<<<<<< HEAD
 		<echo>## * Role Name: ${roleTitle}</echo>
 
 		<if>
 			<isset var="roleKey" />
 			<then>
 				<echo>## * Role Title: ${roleKey}</echo>
+=======
+		<echo>## * Role Name: ${roleName}</echo>
+
+		<if>
+			<isset var="roleTitle" />
+			<then>
+				<echo>## * Role Title: ${roleTitle}</echo>
+>>>>>>> compatible
 			</then>
 		</if>
 
@@ -143,7 +185,11 @@
 
 		<execute macro="JSONRole#getRoleName">
 			<var name="roleId" value="${roleId}" />
+<<<<<<< HEAD
 			<return from="roleTitle" name="roleTitle" />
+=======
+			<return from="roleName" name="roleName" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="JSONUser#getUserEmailAddress">
@@ -153,7 +199,11 @@
 
 		<echo>## Assigning a 'User' to a 'Role' with the following info using JSONWS:</echo>
 
+<<<<<<< HEAD
 		<echo>## * Role Name: ${roleTitle}</echo>
+=======
+		<echo>## * Role Name: ${roleName}</echo>
+>>>>>>> compatible
 
 		<echo>## * User Email Address: ${userEmailAddress}</echo>
 
@@ -167,16 +217,27 @@
 	<command name="addOrganizationRole">
 		<if>
 			<not>
+<<<<<<< HEAD
 				<isset var="roleTitle" />
 			</not>
 			<then>
 				<fail message="Please set 'roleTitle'." />
+=======
+				<isset var="roleName" />
+			</not>
+			<then>
+				<fail message="Please set 'roleName'." />
+>>>>>>> compatible
 			</then>
 		</if>
 
 		<execute macro="JSONRole#_addRole">
 			<var name="roleDescription" value="${roleDescription}" />
+<<<<<<< HEAD
 			<var name="roleKey" value="${roleKey}" />
+=======
+			<var name="roleName" value="${roleName}" />
+>>>>>>> compatible
 			<var name="roleTitle" value="${roleTitle}" />
 			<var name="roleType" value="organization" />
 		</execute>
@@ -185,16 +246,27 @@
 	<command name="addRegularRole">
 		<if>
 			<not>
+<<<<<<< HEAD
 				<isset var="roleTitle" />
 			</not>
 			<then>
 				<fail message="Please set 'roleTitle'." />
+=======
+				<isset var="roleName" />
+			</not>
+			<then>
+				<fail message="Please set 'roleName'." />
+>>>>>>> compatible
 			</then>
 		</if>
 
 		<execute macro="JSONRole#_addRole">
 			<var name="roleDescription" value="${roleDescription}" />
+<<<<<<< HEAD
 			<var name="roleKey" value="${roleKey}" />
+=======
+			<var name="roleName" value="${roleName}" />
+>>>>>>> compatible
 			<var name="roleTitle" value="${roleTitle}" />
 			<var name="roleType" value="regular" />
 		</execute>
@@ -203,16 +275,27 @@
 	<command name="addSiteRole">
 		<if>
 			<not>
+<<<<<<< HEAD
 				<isset var="roleTitle" />
 			</not>
 			<then>
 				<fail message="Please set 'roleTitle'." />
+=======
+				<isset var="roleName" />
+			</not>
+			<then>
+				<fail message="Please set 'roleName'." />
+>>>>>>> compatible
 			</then>
 		</if>
 
 		<execute macro="JSONRole#_addRole">
 			<var name="roleDescription" value="${roleDescription}" />
+<<<<<<< HEAD
 			<var name="roleKey" value="${roleKey}" />
+=======
+			<var name="roleName" value="${roleName}" />
+>>>>>>> compatible
 			<var name="roleTitle" value="${roleTitle}" />
 			<var name="roleType" value="site" />
 		</execute>
@@ -221,10 +304,17 @@
 	<command name="assignRoleToUser">
 		<if>
 			<not>
+<<<<<<< HEAD
 				<isset var="roleTitle" />
 			</not>
 			<then>
 				<fail message="Please set 'roleTitle'." />
+=======
+				<isset var="roleName" />
+			</not>
+			<then>
+				<fail message="Please set 'roleName'." />
+>>>>>>> compatible
 			</then>
 		</if>
 
@@ -238,7 +328,11 @@
 		</if>
 
 		<execute macro="JSONRole#getRoleIdByName">
+<<<<<<< HEAD
 			<var name="roleTitle" value="${roleTitle}" />
+=======
+			<var name="roleName" value="${roleName}" />
+>>>>>>> compatible
 			<return from="roleId" name="roleId" />
 		</execute>
 
@@ -255,6 +349,7 @@
 
 	<command name="getRoleIdByName" returns="roleId">
 		<if>
+<<<<<<< HEAD
 			<isset var="roleTitle" />
 			<then>
 				<execute class="java.net.URLEncoder" method="encode">
@@ -265,6 +360,18 @@
 			</then>
 			<else>
 				<fail message="Please set 'roleTitle'." />
+=======
+			<isset var="roleName" />
+			<then>
+				<execute class="java.net.URLEncoder" method="encode">
+					<arg value="${roleName}" />
+					<arg value="UTF-8" />
+					<return name="roleNameEncoded" />
+				</execute>
+			</then>
+			<else>
+				<fail message="Please set 'roleName'." />
+>>>>>>> compatible
 			</else>
 		</if>
 
@@ -280,7 +387,11 @@
 			${portalURL}/api/jsonws/role/get-role \
 				-u test@liferay.com:test \
 				-d companyId=${companyId} \
+<<<<<<< HEAD
 				-d name=${roleTitleEncoded}
+=======
+				-d name=${roleNameEncoded}
+>>>>>>> compatible
 		</var>
 
 		<execute class="com.liferay.poshi.runner.util.JSONCurlUtil" method="get">
@@ -292,7 +403,11 @@
 		<return name="roleId" value="${roleId}" />
 	</command>
 
+<<<<<<< HEAD
 	<command name="getRoleName" returns="roleTitle">
+=======
+	<command name="getRoleName" returns="roleName">
+>>>>>>> compatible
 		<if>
 			<not>
 				<isset var="roleId" />
@@ -315,9 +430,16 @@
 		<execute class="com.liferay.poshi.runner.util.JSONCurlUtil" method="get">
 			<arg value="${curl}" />
 			<arg value="$['name']" />
+<<<<<<< HEAD
 			<return name="roleTitle" />
 		</execute>
 
 		<return name="roleTitle" value="${roleTitle}" />
+=======
+			<return name="roleName" />
+		</execute>
+
+		<return name="roleName" value="${roleName}" />
+>>>>>>> compatible
 	</command>
 </definition>

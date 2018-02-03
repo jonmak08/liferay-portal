@@ -14,9 +14,15 @@
 
 package com.liferay.portal.kernel.transaction;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+=======
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.util.AutoResetThreadLocal;
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -116,9 +122,23 @@ public class TransactionCommitCallbackUtil {
 		TransactionCommitCallbackUtil.class);
 
 	private static final ThreadLocal<List<List<Callable<?>>>>
+<<<<<<< HEAD
 		_callbackListListThreadLocal = new CentralizedThreadLocal<>(
 			TransactionCommitCallbackUtil.class +
 				"._callbackListListThreadLocal",
 			ArrayList::new);
+=======
+		_callbackListListThreadLocal =
+			new AutoResetThreadLocal<List<List<Callable<?>>>>(
+				TransactionCommitCallbackUtil.class +
+					"._callbackListListThreadLocal") {
+
+				@Override
+				protected List<List<Callable<?>>> initialValue() {
+					return new ArrayList<>();
+				}
+
+			};
+>>>>>>> compatible
 
 }

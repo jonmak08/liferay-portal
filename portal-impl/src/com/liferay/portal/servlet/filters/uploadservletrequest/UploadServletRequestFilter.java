@@ -43,14 +43,24 @@ public class UploadServletRequestFilter extends BasePortalFilter {
 			"#COPY_MULTIPART_STREAM_TO_FILE";
 
 	@Override
+<<<<<<< HEAD
 	public boolean isFilterEnabled(
 		HttpServletRequest request, HttpServletResponse response) {
+=======
+	public void processFilter(
+			HttpServletRequest request, HttpServletResponse response,
+			FilterChain filterChain)
+		throws Exception {
+
+		UploadServletRequest uploadServletRequest = null;
+>>>>>>> compatible
 
 		String contentType = request.getHeader(HttpHeaders.CONTENT_TYPE);
 
 		if ((contentType != null) &&
 			contentType.startsWith(ContentTypes.MULTIPART_FORM_DATA)) {
 
+<<<<<<< HEAD
 			return true;
 		}
 
@@ -103,6 +113,56 @@ public class UploadServletRequestFilter extends BasePortalFilter {
 		}
 		finally {
 			uploadServletRequest.cleanUp();
+=======
+			String portletId = ParamUtil.getString(request, "p_p_id");
+
+			if (Validator.isNotNull(portletId)) {
+				long companyId = PortalUtil.getCompanyId(request);
+
+				Portlet portlet = PortletLocalServiceUtil.getPortletById(
+					companyId, portletId);
+
+				if (portlet != null) {
+					ServletContext servletContext =
+						(ServletContext)request.getAttribute(WebKeys.CTX);
+
+					InvokerPortlet invokerPortlet =
+						PortletInstanceFactoryUtil.create(
+							portlet, servletContext);
+
+					LiferayPortletConfig liferayPortletConfig =
+						(LiferayPortletConfig)invokerPortlet.getPortletConfig();
+
+					if (invokerPortlet.isStrutsPortlet() ||
+						liferayPortletConfig.isCopyRequestParameters() ||
+						!liferayPortletConfig.isWARFile()) {
+
+						request.setAttribute(
+							UploadServletRequestFilter.
+								COPY_MULTIPART_STREAM_TO_FILE,
+							Boolean.FALSE);
+					}
+				}
+			}
+
+			uploadServletRequest = PortalUtil.getUploadServletRequest(request);
+		}
+
+		if (uploadServletRequest == null) {
+			processFilter(
+				UploadServletRequestFilter.class.getName(), request, response,
+				filterChain);
+		}
+		else {
+			try {
+				processFilter(
+					UploadServletRequestFilter.class.getName(),
+					uploadServletRequest, response, filterChain);
+			}
+			finally {
+				uploadServletRequest.cleanUp();
+			}
+>>>>>>> compatible
 		}
 	}
 

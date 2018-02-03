@@ -115,7 +115,11 @@ int yesTotal = MeetupsRegistrationLocalServiceUtil.getMeetupsRegistrationsCount(
 			<aui:input name="comments" />
 
 			<aui:button-row>
+<<<<<<< HEAD
 				<aui:button type="submit" value="register" />
+=======
+				<aui:button cssClass="btn-lg" type="submit" value="register" />
+>>>>>>> compatible
 			</aui:button-row>
 		</aui:form>
 

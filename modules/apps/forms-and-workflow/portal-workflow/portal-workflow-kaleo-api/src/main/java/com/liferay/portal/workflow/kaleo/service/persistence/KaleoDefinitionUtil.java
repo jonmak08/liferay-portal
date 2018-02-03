@@ -273,6 +273,7 @@ public class KaleoDefinitionUtil {
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns the kaleo definition where companyId = &#63; and name = &#63; or throws a {@link NoSuchDefinitionException} if it could not be found.
 	*
 	* @param companyId the company ID
@@ -283,10 +284,21 @@ public class KaleoDefinitionUtil {
 	public static KaleoDefinition findByC_N(long companyId,
 		java.lang.String name)
 		throws com.liferay.portal.workflow.kaleo.exception.NoSuchDefinitionException {
+=======
+	* Returns all the kaleo definitions where companyId = &#63; and name = &#63;.
+	*
+	* @param companyId the company ID
+	* @param name the name
+	* @return the matching kaleo definitions
+	*/
+	public static List<KaleoDefinition> findByC_N(long companyId,
+		java.lang.String name) {
+>>>>>>> compatible
 		return getPersistence().findByC_N(companyId, name);
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns the kaleo definition where companyId = &#63; and name = &#63; or returns <code>null</code> if it could not be found. Uses the finder cache.
 	*
 	* @param companyId the company ID
@@ -322,6 +334,161 @@ public class KaleoDefinitionUtil {
 		java.lang.String name)
 		throws com.liferay.portal.workflow.kaleo.exception.NoSuchDefinitionException {
 		return getPersistence().removeByC_N(companyId, name);
+=======
+	* Returns a range of all the kaleo definitions where companyId = &#63; and name = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link KaleoDefinitionModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param companyId the company ID
+	* @param name the name
+	* @param start the lower bound of the range of kaleo definitions
+	* @param end the upper bound of the range of kaleo definitions (not inclusive)
+	* @return the range of matching kaleo definitions
+	*/
+	public static List<KaleoDefinition> findByC_N(long companyId,
+		java.lang.String name, int start, int end) {
+		return getPersistence().findByC_N(companyId, name, start, end);
+	}
+
+	/**
+	* Returns an ordered range of all the kaleo definitions where companyId = &#63; and name = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link KaleoDefinitionModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param companyId the company ID
+	* @param name the name
+	* @param start the lower bound of the range of kaleo definitions
+	* @param end the upper bound of the range of kaleo definitions (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching kaleo definitions
+	*/
+	public static List<KaleoDefinition> findByC_N(long companyId,
+		java.lang.String name, int start, int end,
+		OrderByComparator<KaleoDefinition> orderByComparator) {
+		return getPersistence()
+				   .findByC_N(companyId, name, start, end, orderByComparator);
+	}
+
+	/**
+	* Returns an ordered range of all the kaleo definitions where companyId = &#63; and name = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link KaleoDefinitionModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param companyId the company ID
+	* @param name the name
+	* @param start the lower bound of the range of kaleo definitions
+	* @param end the upper bound of the range of kaleo definitions (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @param retrieveFromCache whether to retrieve from the finder cache
+	* @return the ordered range of matching kaleo definitions
+	*/
+	public static List<KaleoDefinition> findByC_N(long companyId,
+		java.lang.String name, int start, int end,
+		OrderByComparator<KaleoDefinition> orderByComparator,
+		boolean retrieveFromCache) {
+		return getPersistence()
+				   .findByC_N(companyId, name, start, end, orderByComparator,
+			retrieveFromCache);
+	}
+
+	/**
+	* Returns the first kaleo definition in the ordered set where companyId = &#63; and name = &#63;.
+	*
+	* @param companyId the company ID
+	* @param name the name
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching kaleo definition
+	* @throws NoSuchDefinitionException if a matching kaleo definition could not be found
+	*/
+	public static KaleoDefinition findByC_N_First(long companyId,
+		java.lang.String name,
+		OrderByComparator<KaleoDefinition> orderByComparator)
+		throws com.liferay.portal.workflow.kaleo.exception.NoSuchDefinitionException {
+		return getPersistence()
+				   .findByC_N_First(companyId, name, orderByComparator);
+	}
+
+	/**
+	* Returns the first kaleo definition in the ordered set where companyId = &#63; and name = &#63;.
+	*
+	* @param companyId the company ID
+	* @param name the name
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching kaleo definition, or <code>null</code> if a matching kaleo definition could not be found
+	*/
+	public static KaleoDefinition fetchByC_N_First(long companyId,
+		java.lang.String name,
+		OrderByComparator<KaleoDefinition> orderByComparator) {
+		return getPersistence()
+				   .fetchByC_N_First(companyId, name, orderByComparator);
+	}
+
+	/**
+	* Returns the last kaleo definition in the ordered set where companyId = &#63; and name = &#63;.
+	*
+	* @param companyId the company ID
+	* @param name the name
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching kaleo definition
+	* @throws NoSuchDefinitionException if a matching kaleo definition could not be found
+	*/
+	public static KaleoDefinition findByC_N_Last(long companyId,
+		java.lang.String name,
+		OrderByComparator<KaleoDefinition> orderByComparator)
+		throws com.liferay.portal.workflow.kaleo.exception.NoSuchDefinitionException {
+		return getPersistence()
+				   .findByC_N_Last(companyId, name, orderByComparator);
+	}
+
+	/**
+	* Returns the last kaleo definition in the ordered set where companyId = &#63; and name = &#63;.
+	*
+	* @param companyId the company ID
+	* @param name the name
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching kaleo definition, or <code>null</code> if a matching kaleo definition could not be found
+	*/
+	public static KaleoDefinition fetchByC_N_Last(long companyId,
+		java.lang.String name,
+		OrderByComparator<KaleoDefinition> orderByComparator) {
+		return getPersistence()
+				   .fetchByC_N_Last(companyId, name, orderByComparator);
+	}
+
+	/**
+	* Returns the kaleo definitions before and after the current kaleo definition in the ordered set where companyId = &#63; and name = &#63;.
+	*
+	* @param kaleoDefinitionId the primary key of the current kaleo definition
+	* @param companyId the company ID
+	* @param name the name
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next kaleo definition
+	* @throws NoSuchDefinitionException if a kaleo definition with the primary key could not be found
+	*/
+	public static KaleoDefinition[] findByC_N_PrevAndNext(
+		long kaleoDefinitionId, long companyId, java.lang.String name,
+		OrderByComparator<KaleoDefinition> orderByComparator)
+		throws com.liferay.portal.workflow.kaleo.exception.NoSuchDefinitionException {
+		return getPersistence()
+				   .findByC_N_PrevAndNext(kaleoDefinitionId, companyId, name,
+			orderByComparator);
+	}
+
+	/**
+	* Removes all the kaleo definitions where companyId = &#63; and name = &#63; from the database.
+	*
+	* @param companyId the company ID
+	* @param name the name
+	*/
+	public static void removeByC_N(long companyId, java.lang.String name) {
+		getPersistence().removeByC_N(companyId, name);
+>>>>>>> compatible
 	}
 
 	/**
@@ -580,26 +747,46 @@ public class KaleoDefinitionUtil {
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns the kaleo definition where companyId = &#63; and name = &#63; and active = &#63; or throws a {@link NoSuchDefinitionException} if it could not be found.
+=======
+	* Returns all the kaleo definitions where companyId = &#63; and name = &#63; and active = &#63;.
+>>>>>>> compatible
 	*
 	* @param companyId the company ID
 	* @param name the name
 	* @param active the active
+<<<<<<< HEAD
 	* @return the matching kaleo definition
 	* @throws NoSuchDefinitionException if a matching kaleo definition could not be found
 	*/
 	public static KaleoDefinition findByC_N_A(long companyId,
 		java.lang.String name, boolean active)
 		throws com.liferay.portal.workflow.kaleo.exception.NoSuchDefinitionException {
+=======
+	* @return the matching kaleo definitions
+	*/
+	public static List<KaleoDefinition> findByC_N_A(long companyId,
+		java.lang.String name, boolean active) {
+>>>>>>> compatible
 		return getPersistence().findByC_N_A(companyId, name, active);
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns the kaleo definition where companyId = &#63; and name = &#63; and active = &#63; or returns <code>null</code> if it could not be found. Uses the finder cache.
+=======
+	* Returns a range of all the kaleo definitions where companyId = &#63; and name = &#63; and active = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link KaleoDefinitionModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+>>>>>>> compatible
 	*
 	* @param companyId the company ID
 	* @param name the name
 	* @param active the active
+<<<<<<< HEAD
 	* @return the matching kaleo definition, or <code>null</code> if a matching kaleo definition could not be found
 	*/
 	public static KaleoDefinition fetchByC_N_A(long companyId,
@@ -609,10 +796,28 @@ public class KaleoDefinitionUtil {
 
 	/**
 	* Returns the kaleo definition where companyId = &#63; and name = &#63; and active = &#63; or returns <code>null</code> if it could not be found, optionally using the finder cache.
+=======
+	* @param start the lower bound of the range of kaleo definitions
+	* @param end the upper bound of the range of kaleo definitions (not inclusive)
+	* @return the range of matching kaleo definitions
+	*/
+	public static List<KaleoDefinition> findByC_N_A(long companyId,
+		java.lang.String name, boolean active, int start, int end) {
+		return getPersistence().findByC_N_A(companyId, name, active, start, end);
+	}
+
+	/**
+	* Returns an ordered range of all the kaleo definitions where companyId = &#63; and name = &#63; and active = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link KaleoDefinitionModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+>>>>>>> compatible
 	*
 	* @param companyId the company ID
 	* @param name the name
 	* @param active the active
+<<<<<<< HEAD
 	* @param retrieveFromCache whether to retrieve from the finder cache
 	* @return the matching kaleo definition, or <code>null</code> if a matching kaleo definition could not be found
 	*/
@@ -624,16 +829,154 @@ public class KaleoDefinitionUtil {
 
 	/**
 	* Removes the kaleo definition where companyId = &#63; and name = &#63; and active = &#63; from the database.
+=======
+	* @param start the lower bound of the range of kaleo definitions
+	* @param end the upper bound of the range of kaleo definitions (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching kaleo definitions
+	*/
+	public static List<KaleoDefinition> findByC_N_A(long companyId,
+		java.lang.String name, boolean active, int start, int end,
+		OrderByComparator<KaleoDefinition> orderByComparator) {
+		return getPersistence()
+				   .findByC_N_A(companyId, name, active, start, end,
+			orderByComparator);
+	}
+
+	/**
+	* Returns an ordered range of all the kaleo definitions where companyId = &#63; and name = &#63; and active = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link KaleoDefinitionModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
 	*
 	* @param companyId the company ID
 	* @param name the name
 	* @param active the active
+	* @param start the lower bound of the range of kaleo definitions
+	* @param end the upper bound of the range of kaleo definitions (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @param retrieveFromCache whether to retrieve from the finder cache
+	* @return the ordered range of matching kaleo definitions
+	*/
+	public static List<KaleoDefinition> findByC_N_A(long companyId,
+		java.lang.String name, boolean active, int start, int end,
+		OrderByComparator<KaleoDefinition> orderByComparator,
+		boolean retrieveFromCache) {
+		return getPersistence()
+				   .findByC_N_A(companyId, name, active, start, end,
+			orderByComparator, retrieveFromCache);
+	}
+
+	/**
+	* Returns the first kaleo definition in the ordered set where companyId = &#63; and name = &#63; and active = &#63;.
+>>>>>>> compatible
+	*
+	* @param companyId the company ID
+	* @param name the name
+	* @param active the active
+<<<<<<< HEAD
 	* @return the kaleo definition that was removed
 	*/
 	public static KaleoDefinition removeByC_N_A(long companyId,
 		java.lang.String name, boolean active)
 		throws com.liferay.portal.workflow.kaleo.exception.NoSuchDefinitionException {
 		return getPersistence().removeByC_N_A(companyId, name, active);
+=======
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching kaleo definition
+	* @throws NoSuchDefinitionException if a matching kaleo definition could not be found
+	*/
+	public static KaleoDefinition findByC_N_A_First(long companyId,
+		java.lang.String name, boolean active,
+		OrderByComparator<KaleoDefinition> orderByComparator)
+		throws com.liferay.portal.workflow.kaleo.exception.NoSuchDefinitionException {
+		return getPersistence()
+				   .findByC_N_A_First(companyId, name, active, orderByComparator);
+	}
+
+	/**
+	* Returns the first kaleo definition in the ordered set where companyId = &#63; and name = &#63; and active = &#63;.
+	*
+	* @param companyId the company ID
+	* @param name the name
+	* @param active the active
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching kaleo definition, or <code>null</code> if a matching kaleo definition could not be found
+	*/
+	public static KaleoDefinition fetchByC_N_A_First(long companyId,
+		java.lang.String name, boolean active,
+		OrderByComparator<KaleoDefinition> orderByComparator) {
+		return getPersistence()
+				   .fetchByC_N_A_First(companyId, name, active,
+			orderByComparator);
+	}
+
+	/**
+	* Returns the last kaleo definition in the ordered set where companyId = &#63; and name = &#63; and active = &#63;.
+	*
+	* @param companyId the company ID
+	* @param name the name
+	* @param active the active
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching kaleo definition
+	* @throws NoSuchDefinitionException if a matching kaleo definition could not be found
+	*/
+	public static KaleoDefinition findByC_N_A_Last(long companyId,
+		java.lang.String name, boolean active,
+		OrderByComparator<KaleoDefinition> orderByComparator)
+		throws com.liferay.portal.workflow.kaleo.exception.NoSuchDefinitionException {
+		return getPersistence()
+				   .findByC_N_A_Last(companyId, name, active, orderByComparator);
+	}
+
+	/**
+	* Returns the last kaleo definition in the ordered set where companyId = &#63; and name = &#63; and active = &#63;.
+	*
+	* @param companyId the company ID
+	* @param name the name
+	* @param active the active
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching kaleo definition, or <code>null</code> if a matching kaleo definition could not be found
+	*/
+	public static KaleoDefinition fetchByC_N_A_Last(long companyId,
+		java.lang.String name, boolean active,
+		OrderByComparator<KaleoDefinition> orderByComparator) {
+		return getPersistence()
+				   .fetchByC_N_A_Last(companyId, name, active, orderByComparator);
+	}
+
+	/**
+	* Returns the kaleo definitions before and after the current kaleo definition in the ordered set where companyId = &#63; and name = &#63; and active = &#63;.
+	*
+	* @param kaleoDefinitionId the primary key of the current kaleo definition
+	* @param companyId the company ID
+	* @param name the name
+	* @param active the active
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next kaleo definition
+	* @throws NoSuchDefinitionException if a kaleo definition with the primary key could not be found
+	*/
+	public static KaleoDefinition[] findByC_N_A_PrevAndNext(
+		long kaleoDefinitionId, long companyId, java.lang.String name,
+		boolean active, OrderByComparator<KaleoDefinition> orderByComparator)
+		throws com.liferay.portal.workflow.kaleo.exception.NoSuchDefinitionException {
+		return getPersistence()
+				   .findByC_N_A_PrevAndNext(kaleoDefinitionId, companyId, name,
+			active, orderByComparator);
+	}
+
+	/**
+	* Removes all the kaleo definitions where companyId = &#63; and name = &#63; and active = &#63; from the database.
+	*
+	* @param companyId the company ID
+	* @param name the name
+	* @param active the active
+	*/
+	public static void removeByC_N_A(long companyId, java.lang.String name,
+		boolean active) {
+		getPersistence().removeByC_N_A(companyId, name, active);
+>>>>>>> compatible
 	}
 
 	/**

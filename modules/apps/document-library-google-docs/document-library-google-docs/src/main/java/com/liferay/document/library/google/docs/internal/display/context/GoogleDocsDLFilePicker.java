@@ -15,6 +15,7 @@
 package com.liferay.document.library.google.docs.internal.display.context;
 
 import com.liferay.document.library.display.context.DLFilePicker;
+<<<<<<< HEAD
 import com.liferay.document.library.google.docs.internal.util.GoogleDocsConfigurationHelper;
 import com.liferay.document.library.google.docs.internal.util.GoogleDocsConstants;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -25,6 +26,18 @@ import com.liferay.portal.kernel.template.TemplateManagerUtil;
 import com.liferay.portal.kernel.template.URLTemplateResource;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 
+=======
+import com.liferay.document.library.google.docs.internal.util.FreeMarkerRenderer;
+import com.liferay.document.library.google.docs.internal.util.GoogleDocsConfigurationHelper;
+import com.liferay.document.library.google.docs.internal.util.GoogleDocsConstants;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.theme.ThemeDisplay;
+
+import freemarker.template.TemplateException;
+
+import java.io.IOException;
+
+>>>>>>> compatible
 /**
  * @author Iván Zaera
  * @author Sergio González
@@ -54,6 +67,7 @@ public class GoogleDocsDLFilePicker implements DLFilePicker {
 
 	@Override
 	public String getJavaScript() throws PortalException {
+<<<<<<< HEAD
 		String templateId =
 			"/com/liferay/document/library/google/docs/internal/display" +
 				"/context/dependencies/google_file_picker.ftl";
@@ -80,6 +94,31 @@ public class GoogleDocsDLFilePicker implements DLFilePicker {
 		template.processTemplate(unsyncStringWriter);
 
 		return unsyncStringWriter.toString();
+=======
+		try {
+			FreeMarkerRenderer freeMarkerRenderer = new FreeMarkerRenderer(
+				"com/liferay/document/library/google/docs/internal/display" +
+					"/context/dependencies/google_file_picker.ftl");
+
+			freeMarkerRenderer.setAttribute(
+				"googleAppsAPIKey",
+				_googleDocsConfigurationHelper.getGoogleAppsAPIKey());
+			freeMarkerRenderer.setAttribute(
+				"googleClientId",
+				_googleDocsConfigurationHelper.getGoogleClientId());
+			freeMarkerRenderer.setAttribute("namespace", _namespace);
+			freeMarkerRenderer.setAttribute(
+				"onFilePickCallback", _onFilePickCallback);
+
+			return freeMarkerRenderer.render();
+		}
+		catch (IOException ioe) {
+			throw new PortalException(ioe);
+		}
+		catch (TemplateException te) {
+			throw new PortalException(te);
+		}
+>>>>>>> compatible
 	}
 
 	@Override

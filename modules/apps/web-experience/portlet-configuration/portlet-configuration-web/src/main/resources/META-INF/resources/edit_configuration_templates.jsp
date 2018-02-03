@@ -71,6 +71,7 @@ archivedSettingsSearch.setResults(archivedSettingsList);
 
 	<aui:form action="<%= deleteArchivedSetupsURL %>" name="fm">
 		<div class="portlet-configuration-body-content">
+<<<<<<< HEAD
 
 			<%
 			List<NavigationItem> navigationItems = new ArrayList<>();
@@ -87,6 +88,13 @@ archivedSettingsSearch.setResults(archivedSettingsList);
 			<clay:navigation-bar
 				items="<%= navigationItems %>"
 			/>
+=======
+			<aui:nav-bar markupView="lexicon">
+				<aui:nav cssClass="navbar-nav">
+					<aui:nav-item label="configuration-templates" selected="<%= true %>" />
+				</aui:nav>
+			</aui:nav-bar>
+>>>>>>> compatible
 
 			<liferay-frontend:management-bar
 				disabled="<%= archivedSettingsCount <= 0 %>"

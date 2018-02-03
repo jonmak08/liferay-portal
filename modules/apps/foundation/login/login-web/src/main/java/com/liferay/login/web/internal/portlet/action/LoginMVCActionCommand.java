@@ -14,7 +14,11 @@
 
 package com.liferay.login.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.login.web.internal.constants.LoginPortletKeys;
+=======
+import com.liferay.login.web.constants.LoginPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.CompanyMaxUsersException;
 import com.liferay.portal.kernel.exception.CookieNotSupportedException;
 import com.liferay.portal.kernel.exception.NoSuchUserException;

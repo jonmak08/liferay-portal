@@ -31,10 +31,15 @@ import com.liferay.portal.kernel.util.ReferenceRegistry;
  * @see ResourceBlockPermissionLocalService
  * @see com.liferay.portal.service.base.ResourceBlockPermissionLocalServiceBaseImpl
  * @see com.liferay.portal.service.impl.ResourceBlockPermissionLocalServiceImpl
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, with no direct replacement
  * @generated
  */
 @Deprecated
+=======
+ * @generated
+ */
+>>>>>>> compatible
 @ProviderType
 public class ResourceBlockPermissionLocalServiceUtil {
 	/*

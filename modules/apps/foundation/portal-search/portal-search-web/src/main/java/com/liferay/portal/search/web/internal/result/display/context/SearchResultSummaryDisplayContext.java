@@ -139,10 +139,13 @@ public class SearchResultSummaryDisplayContext implements Serializable {
 		return _localeReminderVisible;
 	}
 
+<<<<<<< HEAD
 	public boolean isTemporarilyUnavailable() {
 		return _temporarilyUnavailable;
 	}
 
+=======
+>>>>>>> compatible
 	public boolean isThumbnailVisible() {
 		return _thumbnailVisible;
 	}
@@ -258,10 +261,13 @@ public class SearchResultSummaryDisplayContext implements Serializable {
 		_portletURL = portletURL;
 	}
 
+<<<<<<< HEAD
 	public void setTemporarilyUnavailable(boolean temporarilyUnavailable) {
 		_temporarilyUnavailable = temporarilyUnavailable;
 	}
 
+=======
+>>>>>>> compatible
 	public void setThumbnailURLString(String thumbnailURLString) {
 		_thumbnailURLString = thumbnailURLString;
 	}
@@ -308,7 +314,10 @@ public class SearchResultSummaryDisplayContext implements Serializable {
 	private String _modelResource;
 	private String _pathThemeImages;
 	private PortletURL _portletURL;
+<<<<<<< HEAD
 	private boolean _temporarilyUnavailable;
+=======
+>>>>>>> compatible
 	private String _thumbnailURLString;
 	private boolean _thumbnailVisible;
 	private String _title;

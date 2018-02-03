@@ -29,7 +29,10 @@ import java.util.concurrent.Callable;
 import org.gradle.api.Action;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
+<<<<<<< HEAD
 import org.gradle.api.Task;
+=======
+>>>>>>> compatible
 import org.gradle.api.artifacts.Configuration;
 import org.gradle.api.artifacts.ConfigurationContainer;
 import org.gradle.api.artifacts.DependencyResolveDetails;
@@ -37,7 +40,10 @@ import org.gradle.api.artifacts.DependencySet;
 import org.gradle.api.artifacts.ModuleVersionSelector;
 import org.gradle.api.artifacts.ResolutionStrategy;
 import org.gradle.api.file.FileTree;
+<<<<<<< HEAD
 import org.gradle.api.logging.Logger;
+=======
+>>>>>>> compatible
 import org.gradle.api.plugins.BasePlugin;
 import org.gradle.api.tasks.Copy;
 import org.gradle.api.tasks.TaskContainer;
@@ -151,6 +157,7 @@ public class LiferayBasePlugin implements Plugin<Project> {
 
 		Copy copy = GradleUtil.addTask(project, DEPLOY_TASK_NAME, Copy.class);
 
+<<<<<<< HEAD
 		copy.doLast(
 			new Action<Task>() {
 
@@ -169,6 +176,8 @@ public class LiferayBasePlugin implements Plugin<Project> {
 
 			});
 
+=======
+>>>>>>> compatible
 		copy.into(
 			new Callable<File>() {
 

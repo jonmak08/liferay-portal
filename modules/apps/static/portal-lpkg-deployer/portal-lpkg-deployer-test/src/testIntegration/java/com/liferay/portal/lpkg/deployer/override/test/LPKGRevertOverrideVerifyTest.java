@@ -101,7 +101,11 @@ public class LPKGRevertOverrideVerifyTest {
 
 				Assert.assertTrue(
 					"Static JAR not sucessfully reverted: " + symbolicName,
+<<<<<<< HEAD
 					location.contains("protocol=lpkg"));
+=======
+					!location.contains("Static-Jar::"));
+>>>>>>> compatible
 			}
 			else {
 				String location = bundle.getLocation();

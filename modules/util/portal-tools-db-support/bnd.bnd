@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Portal Tools DB Support
 Bundle-SymbolicName: com.liferay.portal.tools.db.support
+<<<<<<< HEAD
 Bundle-Version: 1.0.9
+=======
+Bundle-Version: 1.0.7
+>>>>>>> compatible
 Export-Package:\
 	com.liferay.portal.tools.db.support,\
 	com.liferay.portal.tools.db.support.ant,\

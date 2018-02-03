@@ -261,6 +261,7 @@ public class LiferayLocalRepository
 	}
 
 	@Override
+<<<<<<< HEAD
 	public List<FileEntry> getFileEntries(
 			long folderId, String[] mimeTypes, int status, int start, int end,
 			OrderByComparator<FileEntry> obc)
@@ -288,6 +289,8 @@ public class LiferayLocalRepository
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public List<RepositoryEntry> getFileEntriesAndFileShortcuts(
 		long folderId, int status, int start, int end) {
 

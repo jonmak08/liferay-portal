@@ -14,12 +14,20 @@
 
 package com.liferay.blogs.recent.bloggers.web.internal.exportimport.portlet.preferences.processor;
 
+<<<<<<< HEAD
 import com.liferay.blogs.recent.bloggers.constants.RecentBloggersPortletKeys;
+=======
+import com.liferay.blogs.recent.bloggers.web.constants.RecentBloggersPortletKeys;
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.exportimport.kernel.lar.PortletDataException;
 import com.liferay.exportimport.portlet.preferences.processor.Capability;
 import com.liferay.exportimport.portlet.preferences.processor.ExportImportPortletPreferencesProcessor;
+<<<<<<< HEAD
 import com.liferay.exportimport.portlet.preferences.processor.ExportImportPortletPreferencesProcessorHelper;
+=======
+import com.liferay.exportimport.portlet.preferences.processor.base.BaseExportImportPortletPreferencesProcessor;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.Organization;
@@ -30,10 +38,17 @@ import com.liferay.portal.kernel.service.PortletLocalService;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.kernel.util.Validator;
+<<<<<<< HEAD
 
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
+=======
+import com.liferay.portal.kernel.xml.Element;
+
+import java.util.List;
+import java.util.Map;
+>>>>>>> compatible
 
 import javax.portlet.PortletPreferences;
 
@@ -51,7 +66,11 @@ import org.osgi.service.component.annotations.Reference;
 	service = ExportImportPortletPreferencesProcessor.class
 )
 public class RecentBloggersExportImportPortletPreferencesProcessor
+<<<<<<< HEAD
 	implements ExportImportPortletPreferencesProcessor {
+=======
+	extends BaseExportImportPortletPreferencesProcessor {
+>>>>>>> compatible
 
 	@Override
 	public List<Capability> getExportCapabilities() {
@@ -96,6 +115,64 @@ public class RecentBloggersExportImportPortletPreferencesProcessor
 		}
 	}
 
+<<<<<<< HEAD
+=======
+	@Override
+	protected String getExportPortletPreferencesValue(
+			PortletDataContext portletDataContext, Portlet portlet,
+			String className, long primaryKeyLong)
+		throws Exception {
+
+		String uuid = null;
+
+		Element rootElement = portletDataContext.getExportDataRootElement();
+
+		if (className.equals(Organization.class.getName())) {
+			Organization organization =
+				_organizationLocalService.fetchOrganization(primaryKeyLong);
+
+			if (organization != null) {
+				uuid = organization.getUuid();
+
+				portletDataContext.addReferenceElement(
+					portlet, rootElement, organization,
+					PortletDataContext.REFERENCE_TYPE_DEPENDENCY, true);
+			}
+		}
+
+		return uuid;
+	}
+
+	@Override
+	protected Long getImportPortletPreferencesNewValue(
+			PortletDataContext portletDataContext, Class<?> clazz,
+			long companyGroupId, Map<Long, Long> primaryKeys,
+			String portletPreferencesOldValue)
+		throws Exception {
+
+		if (Validator.isNumber(portletPreferencesOldValue)) {
+			long oldPrimaryKey = GetterUtil.getLong(portletPreferencesOldValue);
+
+			return MapUtil.getLong(primaryKeys, oldPrimaryKey, oldPrimaryKey);
+		}
+
+		String className = clazz.getName();
+
+		if (className.equals(Organization.class.getName())) {
+			Organization organization =
+				_organizationLocalService.fetchOrganizationByUuidAndCompanyId(
+					portletPreferencesOldValue,
+					portletDataContext.getCompanyId());
+
+			if (organization != null) {
+				return organization.getOrganizationId();
+			}
+		}
+
+		return null;
+	}
+
+>>>>>>> compatible
 	@Reference(unbind = "-")
 	protected void setCompanyLocalService(
 		CompanyLocalService companyLocalService) {
@@ -129,6 +206,7 @@ public class RecentBloggersExportImportPortletPreferencesProcessor
 			Portlet portlet = _portletLocalService.getPortletById(
 				portletDataContext.getCompanyId(), portletId);
 
+<<<<<<< HEAD
 			Function<String, String> exportPortletPreferencesNewValueFunction =
 				primaryKey -> {
 					long primaryKeyLong = GetterUtil.getLong(primaryKey);
@@ -155,6 +233,11 @@ public class RecentBloggersExportImportPortletPreferencesProcessor
 					portletDataContext, portlet, portletPreferences,
 					"organizationId", Organization.class.getName(),
 					exportPortletPreferencesNewValueFunction);
+=======
+			updateExportPortletPreferencesClassPKs(
+				portletDataContext, portlet, portletPreferences,
+				"organizationId", Organization.class.getName());
+>>>>>>> compatible
 		}
 
 		return portletPreferences;
@@ -165,6 +248,7 @@ public class RecentBloggersExportImportPortletPreferencesProcessor
 			PortletPreferences portletPreferences)
 		throws Exception {
 
+<<<<<<< HEAD
 		Company company = _companyLocalService.getCompanyById(
 			portletDataContext.getCompanyId());
 
@@ -202,16 +286,34 @@ public class RecentBloggersExportImportPortletPreferencesProcessor
 				portletDataContext, portletPreferences, "organizationId",
 				companyGroup.getGroupId(),
 				importPortletPreferencesNewValueFunction);
+=======
+		long organizationId = GetterUtil.getLong(
+			portletPreferences.getValue("organizationId", null));
+
+		if (organizationId > 0) {
+			Company company = _companyLocalService.getCompanyById(
+				portletDataContext.getCompanyId());
+
+			Group companyGroup = company.getGroup();
+
+			updateImportPortletPreferencesClassPKs(
+				portletDataContext, portletPreferences, "organizationId",
+				Organization.class, companyGroup.getGroupId());
+		}
+>>>>>>> compatible
 
 		return portletPreferences;
 	}
 
 	private CompanyLocalService _companyLocalService;
+<<<<<<< HEAD
 
 	@Reference
 	private ExportImportPortletPreferencesProcessorHelper
 		_exportImportPortletPreferencesProcessorHelper;
 
+=======
+>>>>>>> compatible
 	private OrganizationLocalService _organizationLocalService;
 	private PortletLocalService _portletLocalService;
 

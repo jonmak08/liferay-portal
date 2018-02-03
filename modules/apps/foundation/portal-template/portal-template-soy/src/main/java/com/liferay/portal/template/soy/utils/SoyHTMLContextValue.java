@@ -14,6 +14,7 @@
 
 package com.liferay.portal.template.soy.utils;
 
+<<<<<<< HEAD
 import com.google.template.soy.data.SanitizedContent;
 import com.google.template.soy.data.UnsafeSanitizedContentOrdainer;
 
@@ -32,5 +33,37 @@ public class SoyHTMLContextValue {
 	}
 
 	private final Object _value;
+=======
+/**
+ * @author Bruno Basto
+ */
+public class SoyHTMLContextValue implements CharSequence {
+
+	public SoyHTMLContextValue(String value) {
+		_value = value;
+	}
+
+	@Override
+	public char charAt(int index) {
+		return _value.charAt(index);
+	}
+
+	@Override
+	public int length() {
+		return _value.length();
+	}
+
+	@Override
+	public CharSequence subSequence(int start, int end) {
+		return _value.subSequence(start, end);
+	}
+
+	@Override
+	public String toString() {
+		return _value;
+	}
+
+	private final String _value;
+>>>>>>> compatible
 
 }

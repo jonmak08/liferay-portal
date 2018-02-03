@@ -14,7 +14,11 @@
 
 package com.liferay.portal.search.elasticsearch.internal.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 
 import java.io.File;

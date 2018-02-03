@@ -52,7 +52,11 @@ public class KaleoInstanceLocalServiceImpl
 
 	@Override
 	public KaleoInstance addKaleoInstance(
+<<<<<<< HEAD
 			long kaleoDefinitionVersionId, String kaleoDefinitionName,
+=======
+			long kaleoDefinitionId, String kaleoDefinitionName,
+>>>>>>> compatible
 			int kaleoDefinitionVersion,
 			Map<String, Serializable> workflowContext,
 			ServiceContext serviceContext)
@@ -82,7 +86,11 @@ public class KaleoInstanceLocalServiceImpl
 		kaleoInstance.setUserName(user.getFullName());
 		kaleoInstance.setCreateDate(now);
 		kaleoInstance.setModifiedDate(now);
+<<<<<<< HEAD
 		kaleoInstance.setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
+=======
+		kaleoInstance.setKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 		kaleoInstance.setKaleoDefinitionName(kaleoDefinitionName);
 		kaleoInstance.setKaleoDefinitionVersion(kaleoDefinitionVersion);
 		kaleoInstance.setClassName(
@@ -131,11 +139,16 @@ public class KaleoInstanceLocalServiceImpl
 
 		// Kaleo instance tokens
 
+<<<<<<< HEAD
 		kaleoInstanceTokenLocalService.deleteCompanyKaleoInstanceTokens(
+=======
+		kaleoInstanceTokenLocalService.deleteKaleoDefinitionKaleoInstanceTokens(
+>>>>>>> compatible
 			companyId);
 
 		// Kaleo logs
 
+<<<<<<< HEAD
 		kaleoLogLocalService.deleteCompanyKaleoLogs(companyId);
 
 		// Kaleo task instance tokens
@@ -163,12 +176,41 @@ public class KaleoInstanceLocalServiceImpl
 
 		kaleoLogLocalService.deleteKaleoDefinitionVersionKaleoLogs(
 			kaleoDefinitionVersionId);
+=======
+		kaleoLogLocalService.deleteKaleoDefinitionKaleoLogs(companyId);
 
 		// Kaleo task instance tokens
 
 		kaleoTaskInstanceTokenLocalService.
+			deleteKaleoDefinitionKaleoTaskInstanceTokens(companyId);
+	}
+
+	@Override
+	public void deleteKaleoDefinitionKaleoInstances(long kaleoDefinitionId) {
+
+		// Kaleo instances
+
+		kaleoInstancePersistence.removeByKaleoDefinitionId(kaleoDefinitionId);
+
+		// Kaleo instance tokens
+
+		kaleoInstanceTokenLocalService.deleteKaleoDefinitionKaleoInstanceTokens(
+			kaleoDefinitionId);
+
+		// Kaleo logs
+
+		kaleoLogLocalService.deleteKaleoDefinitionKaleoLogs(kaleoDefinitionId);
+>>>>>>> compatible
+
+		// Kaleo task instance tokens
+
+		kaleoTaskInstanceTokenLocalService.
+<<<<<<< HEAD
 			deleteKaleoDefinitionVersionKaleoTaskInstanceTokens(
 				kaleoDefinitionVersionId);
+=======
+			deleteKaleoDefinitionKaleoTaskInstanceTokens(kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -245,10 +287,17 @@ public class KaleoInstanceLocalServiceImpl
 
 	@Override
 	public int getKaleoInstancesCount(
+<<<<<<< HEAD
 		long kaleoDefinitionVersionId, boolean completed) {
 
 		return kaleoInstancePersistence.countByKDVI_C(
 			kaleoDefinitionVersionId, completed);
+=======
+		long kaleoDefinitionId, boolean completed) {
+
+		return kaleoInstancePersistence.countByKDI_C(
+			kaleoDefinitionId, completed);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -403,10 +452,15 @@ public class KaleoInstanceLocalServiceImpl
 				"kaleoInstanceId");
 
 			DynamicQuery subdynamicQuery = DynamicQueryFactoryUtil.forClass(
+<<<<<<< HEAD
 				KaleoInstanceToken.class, getClassLoader());
 
 			subdynamicQuery = subdynamicQuery.setProjection(
 				kaleoInstanceIdProperty);
+=======
+				KaleoInstanceToken.class,
+				getClassLoader()).setProjection(kaleoInstanceIdProperty);
+>>>>>>> compatible
 
 			Property currentKaleoNodeNameProperty = PropertyFactoryUtil.forName(
 				"currentKaleoNodeName");

@@ -1,4 +1,8 @@
 Bundle-Name: Liferay Blogs Demo Data Creator API
 Bundle-SymbolicName: com.liferay.blogs.demo.data.creator.api
+<<<<<<< HEAD
 Bundle-Version: 2.0.0
+=======
+Bundle-Version: 1.0.3
+>>>>>>> compatible
 Export-Package: com.liferay.blogs.demo.data.creator

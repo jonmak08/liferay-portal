@@ -25,6 +25,10 @@ import com.liferay.message.boards.kernel.model.MBCategory;
 import com.liferay.message.boards.kernel.service.MBCategoryService;
 import com.liferay.message.boards.kernel.service.persistence.MBCategoryFinder;
 import com.liferay.message.boards.kernel.service.persistence.MBCategoryPersistence;
+<<<<<<< HEAD
+=======
+import com.liferay.message.boards.kernel.service.persistence.MBMailingListPersistence;
+>>>>>>> compatible
 import com.liferay.message.boards.kernel.service.persistence.MBMessageFinder;
 import com.liferay.message.boards.kernel.service.persistence.MBMessagePersistence;
 import com.liferay.message.boards.kernel.service.persistence.MBThreadFinder;
@@ -40,6 +44,10 @@ import com.liferay.portal.kernel.module.framework.service.IdentifiableOSGiServic
 import com.liferay.portal.kernel.service.BaseServiceImpl;
 import com.liferay.portal.kernel.service.persistence.GroupFinder;
 import com.liferay.portal.kernel.service.persistence.GroupPersistence;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.service.persistence.SubscriptionPersistence;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.persistence.SystemEventPersistence;
 import com.liferay.portal.kernel.service.persistence.UserFinder;
 import com.liferay.portal.kernel.service.persistence.UserPersistence;
@@ -260,6 +268,47 @@ public abstract class MBCategoryServiceBaseImpl extends BaseServiceImpl
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Returns the subscription local service.
+	 *
+	 * @return the subscription local service
+	 */
+	public com.liferay.portal.kernel.service.SubscriptionLocalService getSubscriptionLocalService() {
+		return subscriptionLocalService;
+	}
+
+	/**
+	 * Sets the subscription local service.
+	 *
+	 * @param subscriptionLocalService the subscription local service
+	 */
+	public void setSubscriptionLocalService(
+		com.liferay.portal.kernel.service.SubscriptionLocalService subscriptionLocalService) {
+		this.subscriptionLocalService = subscriptionLocalService;
+	}
+
+	/**
+	 * Returns the subscription persistence.
+	 *
+	 * @return the subscription persistence
+	 */
+	public SubscriptionPersistence getSubscriptionPersistence() {
+		return subscriptionPersistence;
+	}
+
+	/**
+	 * Sets the subscription persistence.
+	 *
+	 * @param subscriptionPersistence the subscription persistence
+	 */
+	public void setSubscriptionPersistence(
+		SubscriptionPersistence subscriptionPersistence) {
+		this.subscriptionPersistence = subscriptionPersistence;
+	}
+
+	/**
+>>>>>>> compatible
 	 * Returns the system event local service.
 	 *
 	 * @return the system event local service
@@ -710,6 +759,47 @@ public abstract class MBCategoryServiceBaseImpl extends BaseServiceImpl
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Returns the message boards mailing list local service.
+	 *
+	 * @return the message boards mailing list local service
+	 */
+	public com.liferay.message.boards.kernel.service.MBMailingListLocalService getMBMailingListLocalService() {
+		return mbMailingListLocalService;
+	}
+
+	/**
+	 * Sets the message boards mailing list local service.
+	 *
+	 * @param mbMailingListLocalService the message boards mailing list local service
+	 */
+	public void setMBMailingListLocalService(
+		com.liferay.message.boards.kernel.service.MBMailingListLocalService mbMailingListLocalService) {
+		this.mbMailingListLocalService = mbMailingListLocalService;
+	}
+
+	/**
+	 * Returns the message boards mailing list persistence.
+	 *
+	 * @return the message boards mailing list persistence
+	 */
+	public MBMailingListPersistence getMBMailingListPersistence() {
+		return mbMailingListPersistence;
+	}
+
+	/**
+	 * Sets the message boards mailing list persistence.
+	 *
+	 * @param mbMailingListPersistence the message boards mailing list persistence
+	 */
+	public void setMBMailingListPersistence(
+		MBMailingListPersistence mbMailingListPersistence) {
+		this.mbMailingListPersistence = mbMailingListPersistence;
+	}
+
+	/**
+>>>>>>> compatible
 	 * Returns the message-boards message local service.
 	 *
 	 * @return the message-boards message local service
@@ -926,6 +1016,13 @@ public abstract class MBCategoryServiceBaseImpl extends BaseServiceImpl
 	protected GroupFinder groupFinder;
 	@BeanReference(type = com.liferay.portal.kernel.service.ResourceLocalService.class)
 	protected com.liferay.portal.kernel.service.ResourceLocalService resourceLocalService;
+<<<<<<< HEAD
+=======
+	@BeanReference(type = com.liferay.portal.kernel.service.SubscriptionLocalService.class)
+	protected com.liferay.portal.kernel.service.SubscriptionLocalService subscriptionLocalService;
+	@BeanReference(type = SubscriptionPersistence.class)
+	protected SubscriptionPersistence subscriptionPersistence;
+>>>>>>> compatible
 	@BeanReference(type = com.liferay.portal.kernel.service.SystemEventLocalService.class)
 	protected com.liferay.portal.kernel.service.SystemEventLocalService systemEventLocalService;
 	@BeanReference(type = SystemEventPersistence.class)
@@ -974,6 +1071,13 @@ public abstract class MBCategoryServiceBaseImpl extends BaseServiceImpl
 	protected com.liferay.trash.kernel.service.TrashVersionLocalService trashVersionLocalService;
 	@BeanReference(type = TrashVersionPersistence.class)
 	protected TrashVersionPersistence trashVersionPersistence;
+<<<<<<< HEAD
+=======
+	@BeanReference(type = com.liferay.message.boards.kernel.service.MBMailingListLocalService.class)
+	protected com.liferay.message.boards.kernel.service.MBMailingListLocalService mbMailingListLocalService;
+	@BeanReference(type = MBMailingListPersistence.class)
+	protected MBMailingListPersistence mbMailingListPersistence;
+>>>>>>> compatible
 	@BeanReference(type = com.liferay.message.boards.kernel.service.MBMessageLocalService.class)
 	protected com.liferay.message.boards.kernel.service.MBMessageLocalService mbMessageLocalService;
 	@BeanReference(type = com.liferay.message.boards.kernel.service.MBMessageService.class)

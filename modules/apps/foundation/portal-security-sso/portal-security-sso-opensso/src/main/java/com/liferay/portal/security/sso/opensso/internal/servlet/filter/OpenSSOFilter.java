@@ -191,10 +191,15 @@ public class OpenSSOFilter extends BaseFilter {
 			session.invalidate();
 		}
 
+<<<<<<< HEAD
 		String loginURL = openSSOConfiguration.loginURL();
 
 		if (!PropsValues.AUTH_FORWARD_BY_LAST_PATH ||
 			!loginURL.contains("/portal/login")) {
+=======
+		if (!PropsValues.AUTH_FORWARD_BY_LAST_PATH ||
+			!openSSOConfiguration.loginURL().contains("/portal/login")) {
+>>>>>>> compatible
 
 			response.sendRedirect(openSSOConfiguration.loginURL());
 

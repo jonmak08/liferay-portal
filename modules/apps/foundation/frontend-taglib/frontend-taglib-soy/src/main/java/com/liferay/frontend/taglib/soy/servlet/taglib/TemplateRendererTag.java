@@ -14,7 +14,10 @@
 
 package com.liferay.frontend.taglib.soy.servlet.taglib;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.template.Template;
 import com.liferay.portal.kernel.template.TemplateConstants;
 import com.liferay.portal.kernel.template.TemplateException;
@@ -22,6 +25,11 @@ import com.liferay.portal.kernel.template.TemplateManagerUtil;
 import com.liferay.portal.kernel.template.TemplateResource;
 import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.ServerDetector;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.SetUtil;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.template.soy.utils.SoyContext;
@@ -32,10 +40,15 @@ import com.liferay.taglib.util.ParamAndPropertyAncestorTagImpl;
 
 import java.io.IOException;
 
+<<<<<<< HEAD
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+=======
+import java.util.List;
+import java.util.Map;
+>>>>>>> compatible
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
@@ -92,10 +105,13 @@ public class TemplateRendererTag extends ParamAndPropertyAncestorTagImpl {
 		return _componentId;
 	}
 
+<<<<<<< HEAD
 	public boolean getHydrate() {
 		return _hydrate;
 	}
 
+=======
+>>>>>>> compatible
 	public String getModule() {
 		return _module;
 	}
@@ -129,6 +145,7 @@ public class TemplateRendererTag extends ParamAndPropertyAncestorTagImpl {
 		_context = context;
 	}
 
+<<<<<<< HEAD
 	public void setDependencies(Set<String> dependencies) {
 		_dependencies = dependencies;
 	}
@@ -137,6 +154,8 @@ public class TemplateRendererTag extends ParamAndPropertyAncestorTagImpl {
 		_hydrate = hydrate;
 	}
 
+=======
+>>>>>>> compatible
 	public void setModule(String module) {
 		_module = module;
 	}
@@ -149,8 +168,11 @@ public class TemplateRendererTag extends ParamAndPropertyAncestorTagImpl {
 		if (!ServerDetector.isResin()) {
 			_componentId = null;
 			_context = null;
+<<<<<<< HEAD
 			_dependencies = null;
 			_hydrate = true;
+=======
+>>>>>>> compatible
 			_module = null;
 			_templateNamespace = null;
 		}
@@ -165,6 +187,7 @@ public class TemplateRendererTag extends ParamAndPropertyAncestorTagImpl {
 	}
 
 	protected String getElementSelector() {
+<<<<<<< HEAD
 		return StringPool.POUND.concat(
 			getComponentId()).concat(" > *:first-child");
 	}
@@ -175,6 +198,13 @@ public class TemplateRendererTag extends ParamAndPropertyAncestorTagImpl {
 		}
 
 		return false;
+=======
+		return StringPool.POUND.concat(getComponentId()).concat(" > div");
+	}
+
+	protected boolean isRenderJavaScript() {
+		return Validator.isNotNull(getModule());
+>>>>>>> compatible
 	}
 
 	protected boolean isRenderTemplate() {
@@ -195,6 +225,7 @@ public class TemplateRendererTag extends ParamAndPropertyAncestorTagImpl {
 			context.put("element", getElementSelector());
 		}
 
+<<<<<<< HEAD
 		Set<String> requiredModules = new LinkedHashSet<>();
 
 		requiredModules.add(getModule());
@@ -205,6 +236,10 @@ public class TemplateRendererTag extends ParamAndPropertyAncestorTagImpl {
 
 		String componentJavaScript = javaScriptComponentRenderer.getJavaScript(
 			context, getComponentId(), requiredModules);
+=======
+		String componentJavaScript = javaScriptComponentRenderer.getJavaScript(
+			context, getComponentId(), SetUtil.fromString(getModule()));
+>>>>>>> compatible
 
 		ScriptTag.doTag(
 			null, null, null, componentJavaScript, getBodyContent(),
@@ -221,6 +256,7 @@ public class TemplateRendererTag extends ParamAndPropertyAncestorTagImpl {
 
 		_template.prepare(request);
 
+<<<<<<< HEAD
 		boolean renderJavaScript = isRenderJavaScript();
 
 		if (renderJavaScript) {
@@ -234,6 +270,15 @@ public class TemplateRendererTag extends ParamAndPropertyAncestorTagImpl {
 		if (renderJavaScript) {
 			jspWriter.append("</div>");
 		}
+=======
+		jspWriter.append("<div id=\"");
+		jspWriter.append(HtmlUtil.escapeAttribute(getComponentId()));
+		jspWriter.append("\">");
+
+		_template.processTemplate(jspWriter);
+
+		jspWriter.append("</div>");
+>>>>>>> compatible
 	}
 
 	private SoyJavaScriptRenderer _getJavaScriptComponentRenderer()
@@ -260,8 +305,11 @@ public class TemplateRendererTag extends ParamAndPropertyAncestorTagImpl {
 
 	private String _componentId;
 	private Map<String, Object> _context;
+<<<<<<< HEAD
 	private Set<String> _dependencies;
 	private boolean _hydrate = true;
+=======
+>>>>>>> compatible
 	private String _module;
 	private Template _template;
 	private String _templateNamespace;

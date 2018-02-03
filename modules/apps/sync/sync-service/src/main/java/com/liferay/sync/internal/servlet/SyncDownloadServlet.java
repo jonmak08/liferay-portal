@@ -21,8 +21,11 @@ import com.liferay.document.library.kernel.model.DLFileVersion;
 import com.liferay.document.library.kernel.service.DLAppService;
 import com.liferay.document.library.kernel.service.DLFileEntryLocalService;
 import com.liferay.document.library.kernel.service.DLFileVersionLocalService;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.exception.NoSuchImageException;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
@@ -40,17 +43,29 @@ import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.security.permission.PermissionCheckerFactoryUtil;
 import com.liferay.portal.kernel.security.permission.PermissionThreadLocal;
 import com.liferay.portal.kernel.service.GroupLocalService;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.service.ImageLocalService;
+=======
+import com.liferay.portal.kernel.service.ImageService;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.UserLocalService;
 import com.liferay.portal.kernel.servlet.HttpHeaders;
 import com.liferay.portal.kernel.servlet.PortalSessionThreadLocal;
 import com.liferay.portal.kernel.servlet.ServletResponseUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.MimeTypesUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StreamUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
@@ -134,7 +149,11 @@ public class SyncDownloadServlet extends HttpServlet {
 			if (pathArray[0].equals("image")) {
 				long imageId = GetterUtil.getLong(pathArray[1]);
 
+<<<<<<< HEAD
 				sendImage(request, response, imageId);
+=======
+				sendImage(response, imageId);
+>>>>>>> compatible
 			}
 			else if (pathArray[0].equals("zip")) {
 				String zipFileIds = ParamUtil.get(
@@ -216,15 +235,30 @@ public class SyncDownloadServlet extends HttpServlet {
 			repositoryId, folderId);
 
 		for (FileEntry fileEntry : fileEntries) {
+<<<<<<< HEAD
 			try (InputStream inputStream =
 					_dlFileEntryLocalService.getFileAsStream(
 						userId, fileEntry.getFileEntryId(),
 						fileEntry.getVersion(), false)) {
+=======
+			InputStream inputStream = null;
+
+			try {
+				inputStream = _dlFileEntryLocalService.getFileAsStream(
+					userId, fileEntry.getFileEntryId(), fileEntry.getVersion(),
+					false);
+>>>>>>> compatible
 
 				String filePath = folderPath + fileEntry.getTitle();
 
 				zipWriter.addEntry(filePath, inputStream);
 			}
+<<<<<<< HEAD
+=======
+			finally {
+				StreamUtil.cleanUp(inputStream);
+			}
+>>>>>>> compatible
 		}
 
 		List<Folder> childFolders = _dlAppService.getFolders(
@@ -413,9 +447,13 @@ public class SyncDownloadServlet extends HttpServlet {
 		}
 	}
 
+<<<<<<< HEAD
 	protected void sendImage(
 			HttpServletRequest request, HttpServletResponse response,
 			long imageId)
+=======
+	protected void sendImage(HttpServletResponse response, long imageId)
+>>>>>>> compatible
 		throws Exception {
 
 		User user = _userLocalService.fetchUser(imageId);
@@ -424,6 +462,7 @@ public class SyncDownloadServlet extends HttpServlet {
 			imageId = user.getPortraitId();
 		}
 
+<<<<<<< HEAD
 		Image image = _imageLocalService.fetchImage(imageId);
 
 		if (image == null) {
@@ -433,6 +472,9 @@ public class SyncDownloadServlet extends HttpServlet {
 
 			return;
 		}
+=======
+		Image image = _imageService.getImage(imageId);
+>>>>>>> compatible
 
 		String type = image.getType();
 
@@ -488,16 +530,50 @@ public class SyncDownloadServlet extends HttpServlet {
 				continue;
 			}
 
+<<<<<<< HEAD
 			try (InputStream inputStream = _getZipFileInputStream(
 					zipObjectJSONObject, userId, groupId)) {
 
 				zipWriter.addEntry(zipFileId, inputStream);
+=======
+			InputStream inputStream = null;
+
+			try {
+				String uuid = zipObjectJSONObject.getString("uuid");
+
+				if (zipObjectJSONObject.getBoolean("patch")) {
+					long sourceVersionId = zipObjectJSONObject.getLong(
+						"sourceVersionId", 0);
+					long targetVersionId = zipObjectJSONObject.getLong(
+						"targetVersionId", 0);
+
+					inputStream = getPatchDownloadServletInputStream(
+						userId, groupId, uuid, sourceVersionId,
+						targetVersionId);
+
+					zipWriter.addEntry(zipFileId, inputStream);
+				}
+				else {
+					inputStream = getFileDownloadServletInputStream(
+						userId, groupId, uuid,
+						zipObjectJSONObject.getString("version"),
+						zipObjectJSONObject.getLong("versionId"));
+
+					zipWriter.addEntry(zipFileId, inputStream);
+				}
+>>>>>>> compatible
 			}
 			catch (Exception e) {
 				Class<?> clazz = e.getClass();
 
 				processException(zipFileId, clazz.getName(), errorsJSONObject);
 			}
+<<<<<<< HEAD
+=======
+			finally {
+				StreamUtil.cleanUp(inputStream);
+			}
+>>>>>>> compatible
 		}
 
 		zipWriter.addEntry("errors.json", errorsJSONObject.toString());
@@ -549,8 +625,13 @@ public class SyncDownloadServlet extends HttpServlet {
 	}
 
 	@Reference(unbind = "-")
+<<<<<<< HEAD
 	protected void setImageLocalService(ImageLocalService imageLocalService) {
 		_imageLocalService = imageLocalService;
+=======
+	protected void setImageService(ImageService imageService) {
+		_imageService = imageService;
+>>>>>>> compatible
 	}
 
 	@Reference(unbind = "-")
@@ -558,6 +639,7 @@ public class SyncDownloadServlet extends HttpServlet {
 		_userLocalService = userLocalService;
 	}
 
+<<<<<<< HEAD
 	private InputStream _getZipFileInputStream(
 			JSONObject zipObjectJSONObject, long userId, long groupId)
 		throws Exception {
@@ -579,6 +661,8 @@ public class SyncDownloadServlet extends HttpServlet {
 			zipObjectJSONObject.getLong("versionId"));
 	}
 
+=======
+>>>>>>> compatible
 	private static final String _ERROR_HEADER = "Sync-Error";
 
 	private static final Log _log = LogFactoryUtil.getLog(
@@ -592,7 +676,11 @@ public class SyncDownloadServlet extends HttpServlet {
 	@Reference
 	private Http _http;
 
+<<<<<<< HEAD
 	private ImageLocalService _imageLocalService;
+=======
+	private ImageService _imageService;
+>>>>>>> compatible
 
 	@Reference
 	private Portal _portal;

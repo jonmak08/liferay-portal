@@ -28,7 +28,11 @@ boolean hasAddUserPermission = PortalPermissionUtil.contains(permissionChecker, 
 				<portlet:param name="organizationsSearchContainerPrimaryKeys" value="<%= String.valueOf(organizationId) %>" />
 			</portlet:renderURL>
 
+<<<<<<< HEAD
 			<liferay-frontend:add-menu-item title='<%= LanguageUtil.get(request, "new-user") %>' url="<%= addUserURL.toString() %>" />
+=======
+			<liferay-frontend:add-menu-item title='<%= LanguageUtil.get(request, "user") %>' url="<%= addUserURL.toString() %>" />
+>>>>>>> compatible
 		</c:if>
 
 		<c:if test="<%= hasAddOrganizationPermission %>">
@@ -44,16 +48,23 @@ boolean hasAddUserPermission = PortalPermissionUtil.contains(permissionChecker, 
 					<portlet:param name="type" value="<%= organizationType %>" />
 				</portlet:renderURL>
 
+<<<<<<< HEAD
 				<liferay-frontend:add-menu-item title='<%= LanguageUtil.format(request, "new-x", organizationType) %>' url="<%= addOrganizationURL.toString() %>" />
+=======
+				<liferay-frontend:add-menu-item title="<%= LanguageUtil.get(request, organizationType) %>" url="<%= addOrganizationURL.toString() %>" />
+>>>>>>> compatible
 
 			<%
 			}
 			%>
 
 		</c:if>
+<<<<<<< HEAD
 
 		<c:if test="<%= OrganizationPermissionUtil.contains(permissionChecker, organization, ActionKeys.ASSIGN_MEMBERS) %>">
 			<liferay-frontend:add-menu-item id="assignUsers" title='<%= LanguageUtil.get(request, "assign-users") %>' url="javascript:;" />
 		</c:if>
+=======
+>>>>>>> compatible
 	</liferay-frontend:add-menu>
 </c:if>

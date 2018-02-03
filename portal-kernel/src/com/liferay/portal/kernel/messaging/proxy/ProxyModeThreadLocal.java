@@ -14,7 +14,11 @@
 
 package com.liferay.portal.kernel.messaging.proxy;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
+=======
+import com.liferay.portal.kernel.util.AutoResetThreadLocal;
+>>>>>>> compatible
 
 /**
  * @author Shuyang Zhou
@@ -30,7 +34,11 @@ public class ProxyModeThreadLocal {
 	}
 
 	private static final ThreadLocal<Boolean> _forceSync =
+<<<<<<< HEAD
 		new CentralizedThreadLocal<>(
+=======
+		new AutoResetThreadLocal<>(
+>>>>>>> compatible
 			ProxyModeThreadLocal.class + "_forceSync", () -> Boolean.FALSE);
 
 }

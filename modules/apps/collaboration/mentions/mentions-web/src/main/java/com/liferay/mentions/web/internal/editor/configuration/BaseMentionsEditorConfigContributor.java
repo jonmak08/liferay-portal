@@ -14,8 +14,13 @@
 
 package com.liferay.mentions.web.internal.editor.configuration;
 
+<<<<<<< HEAD
 import com.liferay.mentions.constants.MentionsPortletKeys;
 import com.liferay.mentions.matcher.MentionsMatcherUtil;
+=======
+import com.liferay.mentions.matcher.MentionsMatcherUtil;
+import com.liferay.mentions.web.constants.MentionsPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.editor.configuration.BaseEditorConfigContributor;
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;

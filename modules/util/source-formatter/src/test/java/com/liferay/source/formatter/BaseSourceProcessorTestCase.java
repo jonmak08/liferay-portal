@@ -14,7 +14,11 @@
 
 package com.liferay.source.formatter;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;

@@ -117,10 +117,18 @@ public class JSModuleConfigGeneratorPlugin implements Plugin<Project> {
 		return configJSModulesTask;
 	}
 
+<<<<<<< HEAD
 	private DownloadNodeModuleTask _addTaskDownloadLiferayModuleConfigGenerator(
 		Project project,
 		final JSModuleConfigGeneratorExtension
 			jsModuleConfigGeneratorExtension) {
+=======
+	private DownloadNodeModuleTask
+		_addTaskDownloadLiferayModuleConfigGenerator(
+			Project project,
+			final JSModuleConfigGeneratorExtension
+				jsModuleConfigGeneratorExtension) {
+>>>>>>> compatible
 
 		DownloadNodeModuleTask downloadLiferayModuleConfigGeneratorTask =
 			GradleUtil.addTask(

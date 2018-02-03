@@ -21,10 +21,15 @@ import aQute.bnd.annotation.ProviderType;
  *
  * @author Brian Wing Shun Chan
  * @see ResourceBlockService
+<<<<<<< HEAD
  * @deprecated
  * @generated
  */
 @Deprecated
+=======
+ * @generated
+ */
+>>>>>>> compatible
 @ProviderType
 public class ResourceBlockServiceWrapper implements ResourceBlockService,
 	ServiceWrapper<ResourceBlockService> {

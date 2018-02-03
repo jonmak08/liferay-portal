@@ -14,7 +14,11 @@
 				<condition function="IsElementNotPresent" locator1="Home#PAGE_ACTIVE" />
 			</and>
 			<then>
+<<<<<<< HEAD
 				<execute function="AssertClick#assertPartialTextClickAt" locator1="Home#PAGE" value1="${pageName}" />
+=======
+				<execute function="AssertClick" locator1="Home#PAGE" value1="${pageName}" />
+>>>>>>> compatible
 
 				<var method="MathUtil#sum('${count}', '1')" name="count" />
 			</then>
@@ -69,6 +73,7 @@
 		<execute function="AssertElementPresent" locator1="NavBar#ACTIVE_NAV_ITEM_LINK" />
 	</command>
 
+<<<<<<< HEAD
 	<command name="gotoNavNested">
 		<var name="key_navNested" value="${navNested}" />
 
@@ -81,10 +86,17 @@
 		<var name="key_tab" value="${navTab}" />
 
 		<execute function="AssertClick#assertPartialTextClickAt" locator1="NavTab#TAB_LINK" value1="${navTab}" />
+=======
+	<command name="gotoNavTab">
+		<var name="key_tab" value="${navTab}" />
+
+		<execute function="AssertClick" locator1="NavTab#TAB_LINK" value1="${navTab}" />
+>>>>>>> compatible
 
 		<execute function="AssertElementPresent" locator1="NavTab#ACTIVE_TAB_LINK" />
 	</command>
 
+<<<<<<< HEAD
 	<command name="gotoNavUnderline">
 		<var name="key_navUnderline" value="${navUnderline}" />
 
@@ -93,6 +105,8 @@
 		<execute function="AssertElementPresent" locator1="NavUnderline#ACTIVE_NAV_UNDERLINE_LINK" />
 	</command>
 
+=======
+>>>>>>> compatible
 	<command name="gotoPage" summary="Navigate to the page named '${pageName}'">
 		<execute macro="Navigator#openURL" />
 
@@ -125,6 +139,11 @@
 			<var name="siteNameURL" value="${siteName}" />
 		</execute>
 
+<<<<<<< HEAD
+=======
+		<execute macro="ProductMenu#gotoPrivatePages" />
+
+>>>>>>> compatible
 		<execute macro="Navigator#_gotoPage">
 			<var name="pageName" value="${pageName}" />
 		</execute>
@@ -190,9 +209,13 @@
 					</and>
 				</not>
 				<then>
+<<<<<<< HEAD
 					<execute macro="ProductMenuHelper#expandPanel">
 						<var name="panel" value="Site Administration" />
 					</execute>
+=======
+					<execute macro="ProductMenuHelper#expandPanelSites" />
+>>>>>>> compatible
 
 					<execute macro="ProductMenuHelper#expandCategory">
 						<var name="category" value="Navigation" />

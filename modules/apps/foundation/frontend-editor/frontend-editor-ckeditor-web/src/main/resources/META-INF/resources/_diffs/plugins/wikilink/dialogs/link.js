@@ -78,6 +78,7 @@ CKEDITOR.dialog.add(
 
 										return func.apply(instance);
 									}
+<<<<<<< HEAD
 								},
 								{
 									id: 'linkBrowse',
@@ -103,6 +104,8 @@ CKEDITOR.dialog.add(
 											}
 										);
 									}
+=======
+>>>>>>> compatible
 								}
 							],
 							id: 'linkOptions',

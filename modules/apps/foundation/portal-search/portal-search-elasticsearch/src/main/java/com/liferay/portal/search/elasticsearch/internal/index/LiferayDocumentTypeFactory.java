@@ -14,10 +14,13 @@
 
 package com.liferay.portal.search.elasticsearch.internal.index;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONException;
 import com.liferay.portal.kernel.json.JSONFactory;
 import com.liferay.portal.kernel.json.JSONObject;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -27,6 +30,7 @@ import com.liferay.portal.search.elasticsearch.settings.TypeMappingsHelper;
 
 import java.io.IOException;
 
+<<<<<<< HEAD
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -39,6 +43,12 @@ import org.elasticsearch.client.IndicesAdminClient;
 import org.elasticsearch.cluster.metadata.MappingMetaData;
 import org.elasticsearch.common.collect.ImmutableOpenMap;
 import org.elasticsearch.common.compress.CompressedXContent;
+=======
+import org.elasticsearch.action.admin.indices.create.CreateIndexRequestBuilder;
+import org.elasticsearch.action.admin.indices.mapping.put.PutMappingRequestBuilder;
+import org.elasticsearch.action.admin.indices.mapping.put.PutMappingResponse;
+import org.elasticsearch.client.IndicesAdminClient;
+>>>>>>> compatible
 import org.elasticsearch.common.settings.Settings;
 
 /**
@@ -46,11 +56,16 @@ import org.elasticsearch.common.settings.Settings;
  */
 public class LiferayDocumentTypeFactory implements TypeMappingsHelper {
 
+<<<<<<< HEAD
 	public LiferayDocumentTypeFactory(
 		IndicesAdminClient indicesAdminClient, JSONFactory jsonFactory) {
 
 		_indicesAdminClient = indicesAdminClient;
 		_jsonFactory = jsonFactory;
+=======
+	public LiferayDocumentTypeFactory(IndicesAdminClient indicesAdminClient) {
+		_indicesAdminClient = indicesAdminClient;
+>>>>>>> compatible
 	}
 
 	@Override
@@ -58,10 +73,14 @@ public class LiferayDocumentTypeFactory implements TypeMappingsHelper {
 		PutMappingRequestBuilder putMappingRequestBuilder =
 			_indicesAdminClient.preparePutMapping(indexName);
 
+<<<<<<< HEAD
 		putMappingRequestBuilder.setSource(
 			mergeDynamicTemplates(
 				source, indexName,
 				LiferayTypeMappingsConstants.LIFERAY_DOCUMENT_TYPE));
+=======
+		putMappingRequestBuilder.setSource(source);
+>>>>>>> compatible
 		putMappingRequestBuilder.setType(
 			LiferayTypeMappingsConstants.LIFERAY_DOCUMENT_TYPE);
 
@@ -113,6 +132,7 @@ public class LiferayDocumentTypeFactory implements TypeMappingsHelper {
 			createIndexRequestBuilder, requiredDefaultMappings);
 	}
 
+<<<<<<< HEAD
 	protected JSONObject createJSONObject(String mappings) {
 		try {
 			return _jsonFactory.createJSONObject(mappings);
@@ -197,10 +217,15 @@ public class LiferayDocumentTypeFactory implements TypeMappingsHelper {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	private static final Log _log = LogFactoryUtil.getLog(
 		LiferayDocumentTypeFactory.class);
 
 	private final IndicesAdminClient _indicesAdminClient;
+<<<<<<< HEAD
 	private final JSONFactory _jsonFactory;
+=======
+>>>>>>> compatible
 
 }

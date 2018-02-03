@@ -19,6 +19,10 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import com.liferay.shopping.model.ShoppingCart;
 
@@ -104,7 +108,11 @@ public class ShoppingCartCacheModel implements CacheModel<ShoppingCart>,
 		shoppingCartImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			shoppingCartImpl.setUserName("");
+=======
+			shoppingCartImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			shoppingCartImpl.setUserName(userName);
@@ -125,14 +133,22 @@ public class ShoppingCartCacheModel implements CacheModel<ShoppingCart>,
 		}
 
 		if (itemIds == null) {
+<<<<<<< HEAD
 			shoppingCartImpl.setItemIds("");
+=======
+			shoppingCartImpl.setItemIds(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			shoppingCartImpl.setItemIds(itemIds);
 		}
 
 		if (couponCodes == null) {
+<<<<<<< HEAD
 			shoppingCartImpl.setCouponCodes("");
+=======
+			shoppingCartImpl.setCouponCodes(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			shoppingCartImpl.setCouponCodes(couponCodes);
@@ -178,7 +194,11 @@ public class ShoppingCartCacheModel implements CacheModel<ShoppingCart>,
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -188,14 +208,22 @@ public class ShoppingCartCacheModel implements CacheModel<ShoppingCart>,
 		objectOutput.writeLong(modifiedDate);
 
 		if (itemIds == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(itemIds);
 		}
 
 		if (couponCodes == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(couponCodes);

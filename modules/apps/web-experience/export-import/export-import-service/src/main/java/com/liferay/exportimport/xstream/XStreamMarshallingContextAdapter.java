@@ -14,8 +14,11 @@
 
 package com.liferay.exportimport.xstream;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.xstream.XStreamConverter;
 import com.liferay.exportimport.kernel.xstream.XStreamMarshallingContext;
 
@@ -26,7 +29,10 @@ import java.util.Iterator;
 /**
  * @author Daniel Kocsis
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class XStreamMarshallingContextAdapter
 	implements XStreamMarshallingContext {
 

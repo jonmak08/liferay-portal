@@ -14,8 +14,11 @@
 
 package com.liferay.portal.kernel.util;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.RandomUtil;
 
+=======
+>>>>>>> compatible
 /**
  * @author Brian Wing Shun Chan
  */
@@ -108,10 +111,13 @@ public class StringUtil_IW {
 		return StringUtil.equalsIgnoreCase(s1, s2);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public java.lang.String extract(java.lang.String s, char[] chars) {
 		return StringUtil.extract(s, chars);
 	}
@@ -344,7 +350,11 @@ public class StringUtil_IW {
 	}
 
 	public java.lang.String randomize(java.lang.String s) {
+<<<<<<< HEAD
 		return RandomUtil.shuffle(s);
+=======
+		return StringUtil.randomize(s);
+>>>>>>> compatible
 	}
 
 	public java.lang.String randomString() {
@@ -524,14 +534,18 @@ public class StringUtil_IW {
 		return StringUtil.replaceWithStringBundler(s, begin, end, values);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public java.lang.String reverse(java.lang.String s) {
 		return StringUtil.reverse(s);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
@@ -539,6 +553,10 @@ public class StringUtil_IW {
 	public java.lang.String safePath(java.lang.String path) {
 		return StringUtil.replace(
 			path, StringPool.DOUBLE_SLASH, StringPool.SLASH);
+=======
+	public java.lang.String safePath(java.lang.String path) {
+		return StringUtil.safePath(path);
+>>>>>>> compatible
 	}
 
 	public java.lang.String shorten(java.lang.String s) {
@@ -637,6 +655,7 @@ public class StringUtil_IW {
 		return StringUtil.startsWithWeight(s1, s2);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, replaced by {@link #removeChar(String, char)}
 	 */
@@ -652,6 +671,14 @@ public class StringUtil_IW {
 	@Deprecated
 	public java.lang.String strip(java.lang.String s, char[] remove) {
 		return StringUtil.removeChars(s, remove);
+=======
+	public java.lang.String strip(java.lang.String s, char remove) {
+		return StringUtil.strip(s, remove);
+	}
+
+	public java.lang.String strip(java.lang.String s, char[] remove) {
+		return StringUtil.strip(s, remove);
+>>>>>>> compatible
 	}
 
 	public java.lang.String stripBetween(java.lang.String s,
@@ -749,12 +776,17 @@ public class StringUtil_IW {
 		return StringUtil.upperCaseFirstLetter(s);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
 	public java.lang.String valueOf(java.lang.Object obj) {
 		return String.valueOf(obj);
+=======
+	public java.lang.String valueOf(java.lang.Object obj) {
+		return StringUtil.valueOf(obj);
+>>>>>>> compatible
 	}
 
 	public boolean wildcardMatches(java.lang.String s,

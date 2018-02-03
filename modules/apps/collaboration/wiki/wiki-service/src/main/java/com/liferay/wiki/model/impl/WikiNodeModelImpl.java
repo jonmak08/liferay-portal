@@ -36,6 +36,10 @@ import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 
@@ -356,7 +360,11 @@ public class WikiNodeModelImpl extends BaseModelImpl<WikiNode>
 	@Override
 	public String getUuid() {
 		if (_uuid == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _uuid;
@@ -452,7 +460,11 @@ public class WikiNodeModelImpl extends BaseModelImpl<WikiNode>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -464,7 +476,11 @@ public class WikiNodeModelImpl extends BaseModelImpl<WikiNode>
 	@Override
 	public String getUserName() {
 		if (_userName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _userName;
@@ -508,7 +524,11 @@ public class WikiNodeModelImpl extends BaseModelImpl<WikiNode>
 	@Override
 	public String getName() {
 		if (_name == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _name;
@@ -534,7 +554,11 @@ public class WikiNodeModelImpl extends BaseModelImpl<WikiNode>
 	@Override
 	public String getDescription() {
 		if (_description == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _description;
@@ -610,7 +634,11 @@ public class WikiNodeModelImpl extends BaseModelImpl<WikiNode>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -622,7 +650,11 @@ public class WikiNodeModelImpl extends BaseModelImpl<WikiNode>
 	@Override
 	public String getStatusByUserName() {
 		if (_statusByUserName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _statusByUserName;

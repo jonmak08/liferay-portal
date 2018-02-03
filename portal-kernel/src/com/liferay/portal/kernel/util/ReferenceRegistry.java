@@ -14,14 +14,13 @@
 
 package com.liferay.portal.kernel.util;
 
+import com.liferay.portal.kernel.concurrent.ConcurrentHashSet;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 
 import java.lang.reflect.Field;
 
-import java.util.Collections;
 import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author Shuyang Zhou
@@ -40,16 +39,11 @@ public class ReferenceRegistry {
 		catch (SecurityException se) {
 			if (_log.isWarnEnabled()) {
 				_log.warn(
-					StringBundler.concat(
-						"Not allowed to get field ", fieldName, " for ",
-						String.valueOf(clazz)));
+					"Not allowed to get field " + fieldName + " for " + clazz);
 			}
 		}
 		catch (Exception e) {
-			_log.error(
-				StringBundler.concat(
-					"Unable to get field ", fieldName, " for ",
-					String.valueOf(clazz)));
+			_log.error("Unable to get field " + fieldName + " for " + clazz);
 		}
 	}
 
@@ -96,7 +90,7 @@ public class ReferenceRegistry {
 
 	private static final PACL _pacl = new NoPACL();
 	private static final Set<ReferenceEntry> _referenceEntries =
-		Collections.newSetFromMap(new ConcurrentHashMap<>());
+		new ConcurrentHashSet<>();
 
 	private static class NoPACL implements PACL {
 

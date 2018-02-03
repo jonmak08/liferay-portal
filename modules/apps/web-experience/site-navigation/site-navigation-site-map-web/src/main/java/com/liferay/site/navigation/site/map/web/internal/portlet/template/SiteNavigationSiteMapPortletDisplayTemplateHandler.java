@@ -14,7 +14,10 @@
 
 package com.liferay.site.navigation.site.map.web.internal.portlet.template;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.model.Layout;
 import com.liferay.portal.kernel.model.LayoutSet;
@@ -23,7 +26,13 @@ import com.liferay.portal.kernel.template.TemplateHandler;
 import com.liferay.portal.kernel.template.TemplateVariableGroup;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
+<<<<<<< HEAD
 import com.liferay.portlet.display.template.PortletDisplayTemplateConstants;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portlet.display.template.PortletDisplayTemplateConstants;
+import com.liferay.site.navigation.site.map.web.configuration.SiteNavigationSiteMapWebConfigurationValues;
+>>>>>>> compatible
 import com.liferay.site.navigation.site.map.web.internal.constants.SiteNavigationSiteMapPortletKeys;
 import com.liferay.site.navigation.site.map.web.internal.display.context.SiteNavigationSiteMapDisplayContext;
 
@@ -94,8 +103,13 @@ public class SiteNavigationSiteMapPortletDisplayTemplateHandler
 
 	@Override
 	protected String getTemplatesConfigPath() {
+<<<<<<< HEAD
 		return "com/liferay/site/navigation/site/map/web/portlet/template" +
 			"/dependencies/portlet-display-templates.xml";
+=======
+		return SiteNavigationSiteMapWebConfigurationValues.
+			DISPLAY_TEMPLATES_CONFIG;
+>>>>>>> compatible
 	}
 
 	@Reference

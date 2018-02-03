@@ -24,6 +24,7 @@ Layout selLayout = layoutsAdminDisplayContext.getSelLayout();
 
 <aui:model-context bean="<%= selLayout %>" model="<%= Layout.class %>" />
 
+<<<<<<< HEAD
 <liferay-asset:asset-categories-error />
 
 <liferay-asset:asset-tags-error />
@@ -31,3 +32,12 @@ Layout selLayout = layoutsAdminDisplayContext.getSelLayout();
 <liferay-asset:asset-categories-selector className="<%= Layout.class.getName() %>" classPK="<%= (selLayout != null) ? selLayout.getPrimaryKey() : 0 %>" />
 
 <liferay-asset:asset-tags-selector className="<%= Layout.class.getName() %>" classPK="<%= (selLayout != null) ? selLayout.getPrimaryKey() : 0 %>" />
+=======
+<liferay-ui:asset-categories-error />
+
+<liferay-ui:asset-tags-error />
+
+<aui:input name="categories" type="assetCategories" />
+
+<aui:input name="tags" type="assetTags" />
+>>>>>>> compatible

@@ -21,21 +21,36 @@ taglib uri="http://liferay.com/tld/frontend" prefix="liferay-frontend" %><%@
 taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %><%@
 taglib uri="http://liferay.com/tld/util" prefix="liferay-util" %>
 
+<<<<<<< HEAD
 <%@ page import="com.liferay.petra.string.StringPool" %><%@
+=======
+<%@ page import="com.liferay.frontend.editor.lang.FrontEndEditorResourceBundleUtil" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.servlet.BrowserSnifferUtil" %><%@
 page import="com.liferay.portal.kernel.util.GetterUtil" %><%@
 page import="com.liferay.portal.kernel.util.HtmlUtil" %><%@
 page import="com.liferay.portal.kernel.util.JavaConstants" %><%@
+<<<<<<< HEAD
+=======
+page import="com.liferay.portal.kernel.util.StringPool" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.util.Validator" %><%@
 page import="com.liferay.taglib.aui.AUIUtil" %>
 
 <%@ page import="javax.portlet.PortletRequest" %><%@
 page import="javax.portlet.PortletResponse" %>
 
+<<<<<<< HEAD
 <liferay-frontend:defineObjects />
 
 <liferay-theme:defineObjects />
 
+=======
+<liferay-theme:defineObjects />
+
+<liferay-frontend:defineObjects overrideResourceBundle="<%= FrontEndEditorResourceBundleUtil.getResourceBundle(locale) %>" />
+
+>>>>>>> compatible
 <%
 PortletRequest portletRequest = (PortletRequest)request.getAttribute(JavaConstants.JAVAX_PORTLET_REQUEST);
 

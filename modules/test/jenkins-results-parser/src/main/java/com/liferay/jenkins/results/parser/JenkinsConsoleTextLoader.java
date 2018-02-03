@@ -25,15 +25,19 @@ import java.net.URL;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+<<<<<<< HEAD
 import org.json.JSONException;
 import org.json.JSONObject;
 
+=======
+>>>>>>> compatible
 /**
  * @author Peter Yoo
  */
 public class JenkinsConsoleTextLoader {
 
 	public JenkinsConsoleTextLoader(String buildURL) {
+<<<<<<< HEAD
 		this(buildURL, false);
 	}
 
@@ -62,11 +66,16 @@ public class JenkinsConsoleTextLoader {
 			}
 		}
 
+=======
+		this.buildURL = JenkinsResultsParserUtil.getLocalURL(buildURL);
+
+>>>>>>> compatible
 		logStringBuilder = new StringBuilder();
 		serverLogSize = 0;
 	}
 
 	public String getConsoleText() {
+<<<<<<< HEAD
 		if (buildURL.startsWith("file:") || buildURL.contains("mirrors") ||
 			buildComplete) {
 
@@ -80,6 +89,12 @@ public class JenkinsConsoleTextLoader {
 
 					return consoleText;
 				}
+=======
+		if (buildURL.startsWith("file:") || buildURL.contains("mirrors")) {
+			try {
+				return JenkinsResultsParserUtil.toString(
+					buildURL + "/consoleText");
+>>>>>>> compatible
 			}
 			catch (IOException ioe) {
 				throw new RuntimeException(ioe);
@@ -168,7 +183,10 @@ public class JenkinsConsoleTextLoader {
 		}
 	}
 
+<<<<<<< HEAD
 	protected boolean buildComplete;
+=======
+>>>>>>> compatible
 	protected String buildURL;
 	protected boolean hasMoreData = true;
 	protected StringBuilder logStringBuilder;

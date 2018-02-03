@@ -14,12 +14,18 @@
 
 package com.liferay.exportimport.kernel.lar;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
 /**
  * @author Julio Camarero
  */
 @ProviderType
+=======
+/**
+ * @author Julio Camarero
+ */
+>>>>>>> compatible
 public enum DataLevel {
 
 	PORTAL, SITE, PORTLET_INSTANCE

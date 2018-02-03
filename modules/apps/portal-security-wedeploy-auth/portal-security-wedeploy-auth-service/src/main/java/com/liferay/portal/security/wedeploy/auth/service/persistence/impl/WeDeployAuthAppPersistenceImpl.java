@@ -32,6 +32,10 @@ import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.security.wedeploy.auth.exception.NoSuchAppException;
 import com.liferay.portal.security.wedeploy.auth.model.WeDeployAuthApp;
@@ -124,7 +128,11 @@ public class WeDeployAuthAppPersistenceImpl extends BasePersistenceImpl<WeDeploy
 			msg.append(", clientId=");
 			msg.append(clientId);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -187,7 +195,11 @@ public class WeDeployAuthAppPersistenceImpl extends BasePersistenceImpl<WeDeploy
 			if (redirectURI == null) {
 				query.append(_FINDER_COLUMN_RU_CI_REDIRECTURI_1);
 			}
+<<<<<<< HEAD
 			else if (redirectURI.equals("")) {
+=======
+			else if (redirectURI.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_RU_CI_REDIRECTURI_3);
 			}
 			else {
@@ -201,7 +213,11 @@ public class WeDeployAuthAppPersistenceImpl extends BasePersistenceImpl<WeDeploy
 			if (clientId == null) {
 				query.append(_FINDER_COLUMN_RU_CI_CLIENTID_1);
 			}
+<<<<<<< HEAD
 			else if (clientId.equals("")) {
+=======
+			else if (clientId.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_RU_CI_CLIENTID_3);
 			}
 			else {
@@ -320,7 +336,11 @@ public class WeDeployAuthAppPersistenceImpl extends BasePersistenceImpl<WeDeploy
 			if (redirectURI == null) {
 				query.append(_FINDER_COLUMN_RU_CI_REDIRECTURI_1);
 			}
+<<<<<<< HEAD
 			else if (redirectURI.equals("")) {
+=======
+			else if (redirectURI.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_RU_CI_REDIRECTURI_3);
 			}
 			else {
@@ -334,7 +354,11 @@ public class WeDeployAuthAppPersistenceImpl extends BasePersistenceImpl<WeDeploy
 			if (clientId == null) {
 				query.append(_FINDER_COLUMN_RU_CI_CLIENTID_1);
 			}
+<<<<<<< HEAD
 			else if (clientId.equals("")) {
+=======
+			else if (clientId.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_RU_CI_CLIENTID_3);
 			}
 			else {
@@ -421,7 +445,11 @@ public class WeDeployAuthAppPersistenceImpl extends BasePersistenceImpl<WeDeploy
 			msg.append(", clientSecret=");
 			msg.append(clientSecret);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -485,7 +513,11 @@ public class WeDeployAuthAppPersistenceImpl extends BasePersistenceImpl<WeDeploy
 			if (clientId == null) {
 				query.append(_FINDER_COLUMN_CI_CS_CLIENTID_1);
 			}
+<<<<<<< HEAD
 			else if (clientId.equals("")) {
+=======
+			else if (clientId.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_CI_CS_CLIENTID_3);
 			}
 			else {
@@ -499,7 +531,11 @@ public class WeDeployAuthAppPersistenceImpl extends BasePersistenceImpl<WeDeploy
 			if (clientSecret == null) {
 				query.append(_FINDER_COLUMN_CI_CS_CLIENTSECRET_1);
 			}
+<<<<<<< HEAD
 			else if (clientSecret.equals("")) {
+=======
+			else if (clientSecret.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_CI_CS_CLIENTSECRET_3);
 			}
 			else {
@@ -619,7 +655,11 @@ public class WeDeployAuthAppPersistenceImpl extends BasePersistenceImpl<WeDeploy
 			if (clientId == null) {
 				query.append(_FINDER_COLUMN_CI_CS_CLIENTID_1);
 			}
+<<<<<<< HEAD
 			else if (clientId.equals("")) {
+=======
+			else if (clientId.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_CI_CS_CLIENTID_3);
 			}
 			else {
@@ -633,7 +673,11 @@ public class WeDeployAuthAppPersistenceImpl extends BasePersistenceImpl<WeDeploy
 			if (clientSecret == null) {
 				query.append(_FINDER_COLUMN_CI_CS_CLIENTSECRET_1);
 			}
+<<<<<<< HEAD
 			else if (clientSecret.equals("")) {
+=======
+			else if (clientSecret.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_CI_CS_CLIENTSECRET_3);
 			}
 			else {
@@ -1203,12 +1247,20 @@ public class WeDeployAuthAppPersistenceImpl extends BasePersistenceImpl<WeDeploy
 		for (Serializable primaryKey : uncachedPrimaryKeys) {
 			query.append((long)primaryKey);
 
+<<<<<<< HEAD
 			query.append(",");
+=======
+			query.append(StringPool.COMMA);
+>>>>>>> compatible
 		}
 
 		query.setIndex(query.index() - 1);
 
+<<<<<<< HEAD
 		query.append(")");
+=======
+		query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 		String sql = query.toString();
 

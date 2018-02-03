@@ -14,8 +14,13 @@
 
 package com.liferay.portal.kernel.servlet;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.internal.servlet.RestrictedByteArrayCacheOutputStream;
 import com.liferay.portal.kernel.internal.servlet.RestrictedByteArrayCacheOutputStream.FlushPreAction;
+=======
+import com.liferay.portal.kernel.io.RestrictedByteArrayCacheOutputStream;
+import com.liferay.portal.kernel.io.RestrictedByteArrayCacheOutputStream.FlushPreAction;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.UnsyncPrintWriterPool;
 
 import java.io.IOException;

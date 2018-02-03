@@ -14,11 +14,18 @@
 
 package com.liferay.portal.upgrade.v7_0_1;
 
+<<<<<<< HEAD
 import com.liferay.petra.encryptor.Encryptor;
 import com.liferay.portal.kernel.upgrade.UpgradeProcess;
 import com.liferay.portal.kernel.util.Base64;
 import com.liferay.portal.kernel.util.LoggingTimer;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.upgrade.UpgradeProcess;
+import com.liferay.portal.kernel.util.Base64;
+import com.liferay.portal.kernel.util.LoggingTimer;
+import com.liferay.util.Encryptor;
+>>>>>>> compatible
 
 import java.security.Key;
 
@@ -50,9 +57,14 @@ public class UpgradeCompany extends UpgradeProcess {
 				keyString = Encryptor.serializeKey(key);
 
 				runSQL(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"update Company set key_ = '", keyString,
 						"' where companyId = ", companyId));
+=======
+					"update Company set key_ = '" + keyString +
+						"' where companyId = " + companyId);
+>>>>>>> compatible
 			}
 		}
 	}

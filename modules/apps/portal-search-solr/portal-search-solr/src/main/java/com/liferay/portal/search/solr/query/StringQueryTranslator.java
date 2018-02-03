@@ -16,13 +16,11 @@ package com.liferay.portal.search.solr.query;
 
 import com.liferay.portal.kernel.search.generic.StringQuery;
 
-import org.apache.lucene.search.Query;
-
 /**
  * @author Michael C. Han
  */
 public interface StringQueryTranslator {
 
-	public Query translate(StringQuery stringQuery);
+	public org.apache.lucene.search.Query translate(StringQuery stringQuery);
 
 }

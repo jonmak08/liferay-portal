@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Site Navigation Menu Web
 Bundle-SymbolicName: com.liferay.site.navigation.menu.web
+<<<<<<< HEAD
 Bundle-Version: 2.0.20
+=======
+Bundle-Version: 2.0.15
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Site Navigation
 Web-ContextPath: /site-navigation-menu-web

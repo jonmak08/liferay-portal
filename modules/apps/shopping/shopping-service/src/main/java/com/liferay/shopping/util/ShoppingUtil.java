@@ -14,7 +14,10 @@
 
 package com.liferay.shopping.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.model.Company;
@@ -24,6 +27,10 @@ import com.liferay.portal.kernel.portlet.LiferayWindowState;
 import com.liferay.portal.kernel.settings.GroupServiceSettingsLocator;
 import com.liferay.portal.kernel.theme.PortletDisplay;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HtmlUtil;
@@ -628,9 +635,15 @@ public class ShoppingUtil {
 		HttpServletRequest request = PortalUtil.getHttpServletRequest(
 			renderRequest);
 
+<<<<<<< HEAD
 		String categoriesLink = StringBundler.concat(
 			"<a href=\"", categoriesURL.toString(), "\">",
 			LanguageUtil.get(request, "categories"), "</a>");
+=======
+		String categoriesLink =
+			"<a href=\"" + categoriesURL.toString() + "\">" +
+				LanguageUtil.get(request, "categories") + "</a>";
+>>>>>>> compatible
 
 		if (category == null) {
 			return "<span class=\"first last\">" + categoriesLink + "</span>";
@@ -659,9 +672,15 @@ public class ShoppingUtil {
 					//portletURL.setWindowState(WindowState.MAXIMIZED);
 				}
 
+<<<<<<< HEAD
 				String categoryLink = StringBundler.concat(
 					"<a href=\"", portletURL.toString(), "\">",
 					category.getName(), "</a>");
+=======
+				String categoryLink =
+					"<a href=\"" + portletURL.toString() + "\">" +
+						category.getName() + "</a>";
+>>>>>>> compatible
 
 				if (i == 0) {
 					breadcrumbs =
@@ -680,9 +699,15 @@ public class ShoppingUtil {
 			}
 		}
 
+<<<<<<< HEAD
 		breadcrumbs = StringBundler.concat(
 			"<span class=\"first\">", categoriesLink, " &raquo; </span>",
 			breadcrumbs);
+=======
+		breadcrumbs =
+			"<span class=\"first\">" + categoriesLink + " &raquo; </span>" +
+				breadcrumbs;
+>>>>>>> compatible
 
 		return breadcrumbs;
 	}
@@ -819,7 +844,11 @@ public class ShoppingUtil {
 		for (String fields : fieldsArray) {
 			int pos = fields.indexOf("=");
 
+<<<<<<< HEAD
 			String fieldValue = fields.substring(pos + 1);
+=======
+			String fieldValue = fields.substring(pos + 1, fields.length());
+>>>>>>> compatible
 
 			fieldsValues.add(fieldValue.trim());
 		}

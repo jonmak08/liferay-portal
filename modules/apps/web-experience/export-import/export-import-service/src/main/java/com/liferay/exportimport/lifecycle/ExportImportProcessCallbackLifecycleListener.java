@@ -28,7 +28,11 @@ import java.util.concurrent.Callable;
 
 /**
  * @author     Daniel Kocsis
+<<<<<<< HEAD
  * @deprecated As of 4.0.0
+=======
+ * @deprecated As of 3.6.0
+>>>>>>> compatible
  */
 @Deprecated
 @ProviderType
@@ -75,4 +79,8 @@ public class ExportImportProcessCallbackLifecycleListener
 	private static final Log _log = LogFactoryUtil.getLog(
 		ExportImportProcessCallbackLifecycleListener.class);
 
+<<<<<<< HEAD
 }
+=======
+};
+>>>>>>> compatible

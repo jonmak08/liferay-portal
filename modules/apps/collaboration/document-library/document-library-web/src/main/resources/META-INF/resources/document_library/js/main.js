@@ -10,10 +10,13 @@ AUI.add(
 		var DocumentLibrary = A.Component.create(
 			{
 				ATTRS: {
+<<<<<<< HEAD
 					downloadEntryUrl: {
 						validator: Lang.isString
 					},
 
+=======
+>>>>>>> compatible
 					editEntryUrl: {
 						validator: Lang.isString
 					},
@@ -70,7 +73,11 @@ AUI.add(
 
 						var hasPermission = themeDisplay.isSignedIn() && instance.one('#addButtonContainer');
 
+<<<<<<< HEAD
 						if (config.uploadable && HTML5_UPLOAD && hasPermission && instance._entriesContainer.inDoc()) {
+=======
+						if (HTML5_UPLOAD && hasPermission && instance._entriesContainer.inDoc()) {
+>>>>>>> compatible
 							config.appViewEntryTemplates = instance.byId('appViewEntryTemplates');
 
 							eventHandles.push(A.getDoc().once('dragenter', instance._plugUpload, instance, config));
@@ -104,10 +111,13 @@ AUI.add(
 							url = instance.get('moveEntryUrl');
 						}
 
+<<<<<<< HEAD
 						if (action === 'download') {
 							url = instance.get('downloadEntryUrl');
 						}
 
+=======
+>>>>>>> compatible
 						instance._processAction(action, url);
 					},
 
@@ -206,7 +216,11 @@ AUI.add(
 
 						form.get(namespace + 'redirect').val(redirectUrl);
 
+<<<<<<< HEAD
 						submitForm(form, url, false);
+=======
+						submitForm(form, url);
+>>>>>>> compatible
 					}
 				}
 			}

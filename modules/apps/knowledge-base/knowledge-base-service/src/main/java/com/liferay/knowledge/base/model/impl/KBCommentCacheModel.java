@@ -21,6 +21,10 @@ import com.liferay.knowledge.base.model.KBComment;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -105,7 +109,11 @@ public class KBCommentCacheModel implements CacheModel<KBComment>,
 		KBCommentImpl kbCommentImpl = new KBCommentImpl();
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			kbCommentImpl.setUuid("");
+=======
+			kbCommentImpl.setUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kbCommentImpl.setUuid(uuid);
@@ -117,7 +125,11 @@ public class KBCommentCacheModel implements CacheModel<KBComment>,
 		kbCommentImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			kbCommentImpl.setUserName("");
+=======
+			kbCommentImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kbCommentImpl.setUserName(userName);
@@ -141,7 +153,11 @@ public class KBCommentCacheModel implements CacheModel<KBComment>,
 		kbCommentImpl.setClassPK(classPK);
 
 		if (content == null) {
+<<<<<<< HEAD
 			kbCommentImpl.setContent("");
+=======
+			kbCommentImpl.setContent(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kbCommentImpl.setContent(content);
@@ -193,7 +209,11 @@ public class KBCommentCacheModel implements CacheModel<KBComment>,
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		if (uuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(uuid);
@@ -208,7 +228,11 @@ public class KBCommentCacheModel implements CacheModel<KBComment>,
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -222,7 +246,11 @@ public class KBCommentCacheModel implements CacheModel<KBComment>,
 		objectOutput.writeLong(classPK);
 
 		if (content == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(content);

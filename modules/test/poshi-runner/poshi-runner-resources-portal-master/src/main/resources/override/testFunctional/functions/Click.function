@@ -2,7 +2,11 @@
 	<command name="click">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Click#click" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 
@@ -12,7 +16,11 @@
 	<command name="clickAt">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Click#clickAt" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 
@@ -40,7 +48,11 @@
 	<command name="clickNoMouseOver">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Click#clickNoMouseOver" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 
@@ -50,7 +62,11 @@
 	<command name="clickNoWaitForVisible">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Click#clickNoWaitForVisible" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 
@@ -79,7 +95,10 @@
 
 		<if>
 			<condition argument1="//div[contains(@class,'cke_editable_inline')]" selenium="isElementPresent" />
+<<<<<<< HEAD
 
+=======
+>>>>>>> compatible
 			<then>
 				<execute argument1="//script[contains(@src,'http://localhost:8080/o/frontend-editors-web/ckeditor/plugins/wsc/lang/en.js')]" selenium="waitForElementPresent" />
 			</then>
@@ -93,7 +112,11 @@
 	<command name="makeVisibleClickAt">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Click#makeVisibleClickAt" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 
@@ -103,7 +126,11 @@
 	<command name="mouseOverClick">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Click#mouseOverClick" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 
@@ -115,7 +142,11 @@
 
 		<execute argument1="1000" selenium="pause" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Click#pauseClickAt" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 
@@ -127,7 +158,11 @@
 
 		<execute argument1="1000" selenium="pause" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Click#pauseMakeVisibleClickAt" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 

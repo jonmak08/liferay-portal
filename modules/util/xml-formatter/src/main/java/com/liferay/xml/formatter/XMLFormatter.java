@@ -14,7 +14,10 @@
 
 package com.liferay.xml.formatter;
 
+<<<<<<< HEAD
 import com.liferay.petra.xml.Dom4jUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -57,7 +60,11 @@ public class XMLFormatter {
 			xml = _stripComments(xml);
 		}
 
+<<<<<<< HEAD
 		xml = Dom4jUtil.toString(xml);
+=======
+		xml = com.liferay.util.xml.Dom4jUtil.toString(xml);
+>>>>>>> compatible
 
 		Files.write(path, xml.getBytes(StringPool.UTF8));
 	}

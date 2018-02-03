@@ -2,12 +2,16 @@
 	<property name="portal.release" value="true" />
 	<property name="portal.upstream" value="true" />
 	<property name="plugins.deployment.type" value="osgi" />
+<<<<<<< HEAD
 	<property name="testray.component.names" value="Google" />
+=======
+>>>>>>> compatible
 	<property name="testray.main.component.name" value="Google" />
 
 	<set-up>
 		<execute macro="User#firstLoginPG" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -15,12 +19,19 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Test Page" />
 		</execute>
 	</set-up>
 
 	<tear-down>
+<<<<<<< HEAD
 		<execute macro="Page#tearDownCP" />
+=======
+		<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 	</tear-down>
 
 	<command name="GoogleAdSensePortletSmoke" priority="4">

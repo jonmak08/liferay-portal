@@ -14,7 +14,11 @@
 
 package com.liferay.source.formatter.checks;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -48,14 +52,37 @@ import java.util.regex.Pattern;
 public class JavaOSGiReferenceCheck extends BaseFileCheck {
 
 	@Override
+<<<<<<< HEAD
+=======
+	public void init() throws Exception {
+		_moduleFileNamesMap = _getModuleFileNamesMap();
+		_serviceProxyFactoryUtilClassNames =
+			_getServiceProxyFactoryUtilClassNames();
+	}
+
+	@Override
+>>>>>>> compatible
 	public boolean isModulesCheck() {
 		return true;
 	}
 
+<<<<<<< HEAD
 	public void setServiceReferenceUtilClassName(
 		String serviceReferenceUtilClassName) {
 
 		_serviceReferenceUtilClassNames.add(serviceReferenceUtilClassName);
+=======
+	public void setServiceReferenceUtilClassNames(
+		String serviceReferenceUtilClassNames) {
+
+		_serviceReferenceUtilClassNames = StringUtil.split(
+			serviceReferenceUtilClassNames);
+
+		for (int i = 0; i < _serviceReferenceUtilClassNames.length; i++) {
+			_serviceReferenceUtilClassNames[i] = StringUtil.trim(
+				_serviceReferenceUtilClassNames[i]);
+		}
+>>>>>>> compatible
 	}
 
 	@Override
@@ -67,9 +94,15 @@ public class JavaOSGiReferenceCheck extends BaseFileCheck {
 			return content;
 		}
 
+<<<<<<< HEAD
 		String packageName = JavaSourceUtil.getPackageName(content);
 
 		if (!packageName.startsWith("com.liferay")) {
+=======
+		String packagePath = JavaSourceUtil.getPackagePath(content);
+
+		if (!packagePath.startsWith("com.liferay")) {
+>>>>>>> compatible
 			return content;
 		}
 
@@ -78,14 +111,22 @@ public class JavaOSGiReferenceCheck extends BaseFileCheck {
 		String className = JavaSourceUtil.getClassName(fileName);
 
 		String moduleSuperClassContent = _getModuleSuperClassContent(
+<<<<<<< HEAD
 			content, className, packageName);
+=======
+			content, className, packagePath);
+>>>>>>> compatible
 
 		content = _formatDuplicateReferenceMethods(
 			fileName, content, moduleSuperClassContent);
 
 		if (!isExcludedPath("service.reference.util.excludes", absolutePath)) {
 			for (String serviceProxyFactoryUtilClassName :
+<<<<<<< HEAD
 					_getServiceProxyFactoryUtilClassNames()) {
+=======
+					_serviceProxyFactoryUtilClassNames) {
+>>>>>>> compatible
 
 				_checkUtilUsage(
 					fileName, content, serviceProxyFactoryUtilClassName,
@@ -127,13 +168,18 @@ public class JavaOSGiReferenceCheck extends BaseFileCheck {
 	}
 
 	private void _checkMissingReference(String fileName, String content) {
+<<<<<<< HEAD
 		String moduleServicePackageName = null;
+=======
+		String moduleServicePackagePath = null;
+>>>>>>> compatible
 
 		Matcher matcher = _serviceUtilImportPattern.matcher(content);
 
 		while (matcher.find()) {
 			String serviceUtilClassName = matcher.group(2);
 
+<<<<<<< HEAD
 			if (moduleServicePackageName == null) {
 				moduleServicePackageName = _getModuleServicePackageName(
 					fileName);
@@ -144,6 +190,18 @@ public class JavaOSGiReferenceCheck extends BaseFileCheck {
 
 				if (serviceUtilClassPackageName.startsWith(
 						moduleServicePackageName)) {
+=======
+			if (moduleServicePackagePath == null) {
+				moduleServicePackagePath = _getModuleServicePackagePath(
+					fileName);
+			}
+
+			if (Validator.isNotNull(moduleServicePackagePath)) {
+				String serviceUtilClassPackagePath = matcher.group(1);
+
+				if (serviceUtilClassPackagePath.startsWith(
+						moduleServicePackagePath)) {
+>>>>>>> compatible
 
 					continue;
 				}
@@ -152,8 +210,12 @@ public class JavaOSGiReferenceCheck extends BaseFileCheck {
 			addMessage(
 				fileName,
 				"Use @Reference instead of calling " + serviceUtilClassName +
+<<<<<<< HEAD
 					" directly",
 				"osgi_components.markdown");
+=======
+					" directly, see LPS-59076");
+>>>>>>> compatible
 		}
 	}
 
@@ -191,8 +253,13 @@ public class JavaOSGiReferenceCheck extends BaseFileCheck {
 					addMessage(
 						fileName,
 						"Use portal service reference instead of '" +
+<<<<<<< HEAD
 							serviceReferenceUtilClassName + "' in modules",
 						"osgi_components.markdown");
+=======
+							serviceReferenceUtilClassName +
+								"' in modules, see LPS-69661");
+>>>>>>> compatible
 
 					return;
 				}
@@ -294,8 +361,12 @@ public class JavaOSGiReferenceCheck extends BaseFileCheck {
 				addMessage(
 					fileName,
 					"Add '-dsannotations-options: inherit' to '" +
+<<<<<<< HEAD
 						bndSettings.getFileName(),
 					"osgi_components_inheritance.markdown");
+=======
+						bndSettings.getFileName());
+>>>>>>> compatible
 			}
 		}
 
@@ -387,9 +458,13 @@ public class JavaOSGiReferenceCheck extends BaseFileCheck {
 			return classContent;
 		}
 
+<<<<<<< HEAD
 		Map<String, String> moduleFileNamesMap = _getModuleFileNamesMap();
 
 		String moduleFileName = moduleFileNamesMap.get(fullClassName);
+=======
+		String moduleFileName = _moduleFileNamesMap.get(fullClassName);
+>>>>>>> compatible
 
 		if (moduleFileName == null) {
 			_moduleFileContentsMap.put(fullClassName, StringPool.BLANK);
@@ -408,6 +483,7 @@ public class JavaOSGiReferenceCheck extends BaseFileCheck {
 		return classContent;
 	}
 
+<<<<<<< HEAD
 	private synchronized Map<String, String> _getModuleFileNamesMap()
 		throws Exception {
 
@@ -416,6 +492,10 @@ public class JavaOSGiReferenceCheck extends BaseFileCheck {
 		}
 
 		_moduleFileNamesMap = new HashMap<>();
+=======
+	private Map<String, String> _getModuleFileNamesMap() throws Exception {
+		Map<String, String> moduleFileNamesMap = new HashMap<>();
+>>>>>>> compatible
 
 		List<String> fileNames = new ArrayList<>();
 
@@ -446,6 +526,7 @@ public class JavaOSGiReferenceCheck extends BaseFileCheck {
 
 			className = className.substring(pos + 1, fileName.length() - 5);
 
+<<<<<<< HEAD
 			_moduleFileNamesMap.put(className, fileName);
 		}
 
@@ -453,6 +534,15 @@ public class JavaOSGiReferenceCheck extends BaseFileCheck {
 	}
 
 	private String _getModuleServicePackageName(String fileName) {
+=======
+			moduleFileNamesMap.put(className, fileName);
+		}
+
+		return moduleFileNamesMap;
+	}
+
+	private String _getModuleServicePackagePath(String fileName) {
+>>>>>>> compatible
 		String serviceDirLocation = fileName;
 
 		while (true) {
@@ -491,7 +581,11 @@ public class JavaOSGiReferenceCheck extends BaseFileCheck {
 	}
 
 	private String _getModuleSuperClassContent(
+<<<<<<< HEAD
 			String content, String className, String packageName)
+=======
+			String content, String className, String packagePath)
+>>>>>>> compatible
 		throws Exception {
 
 		Pattern pattern = Pattern.compile(
@@ -513,26 +607,42 @@ public class JavaOSGiReferenceCheck extends BaseFileCheck {
 			return _getModuleClassContent(superClassName);
 		}
 
+<<<<<<< HEAD
 		String superClassPackageName = packageName;
+=======
+		String superClassPackagePath = packagePath;
+>>>>>>> compatible
 
 		pattern = Pattern.compile("\nimport (.+?)\\." + superClassName + ";");
 
 		matcher = pattern.matcher(content);
 
 		if (matcher.find()) {
+<<<<<<< HEAD
 			superClassPackageName = matcher.group(1);
 		}
 
 		if (!superClassPackageName.startsWith("com.liferay")) {
+=======
+			superClassPackagePath = matcher.group(1);
+		}
+
+		if (!superClassPackagePath.startsWith("com.liferay")) {
+>>>>>>> compatible
 			return null;
 		}
 
 		String superClassFullClassName =
+<<<<<<< HEAD
 			superClassPackageName + StringPool.PERIOD + superClassName;
+=======
+			superClassPackagePath + StringPool.PERIOD + superClassName;
+>>>>>>> compatible
 
 		return _getModuleClassContent(superClassFullClassName);
 	}
 
+<<<<<<< HEAD
 	private synchronized List<String> _getServiceProxyFactoryUtilClassNames()
 		throws Exception {
 
@@ -544,6 +654,13 @@ public class JavaOSGiReferenceCheck extends BaseFileCheck {
 			_serviceProxyFactoryUtilClassNames = Collections.emptyList();
 
 			return _serviceProxyFactoryUtilClassNames;
+=======
+	private List<String> _getServiceProxyFactoryUtilClassNames()
+		throws Exception {
+
+		if (!isPortalSource()) {
+			return Collections.emptyList();
+>>>>>>> compatible
 		}
 
 		String portalKernelLocation = "portal-kernel/";
@@ -557,7 +674,11 @@ public class JavaOSGiReferenceCheck extends BaseFileCheck {
 				continue;
 			}
 
+<<<<<<< HEAD
 			_serviceProxyFactoryUtilClassNames = new ArrayList<>();
+=======
+			List<String> serviceProxyFactoryUtilClassNames = new ArrayList<>();
+>>>>>>> compatible
 
 			List<String> utilFileNames = getFileNames(
 				getBaseDirName() + portalKernelLocation, new String[0],
@@ -572,18 +693,30 @@ public class JavaOSGiReferenceCheck extends BaseFileCheck {
 				if (content.contains(
 						"com.liferay.portal.kernel.util.ServiceProxyFactory")) {
 
+<<<<<<< HEAD
 					_serviceProxyFactoryUtilClassNames.add(
 						JavaSourceUtil.getPackageName(content) + "." +
+=======
+					serviceProxyFactoryUtilClassNames.add(
+						JavaSourceUtil.getPackagePath(content) + "." +
+>>>>>>> compatible
 							JavaSourceUtil.getClassName(fileName));
 				}
 			}
 
+<<<<<<< HEAD
 			return _serviceProxyFactoryUtilClassNames;
 		}
 
 		_serviceProxyFactoryUtilClassNames = Collections.emptyList();
 
 		return _serviceProxyFactoryUtilClassNames;
+=======
+			return serviceProxyFactoryUtilClassNames;
+		}
+
+		return Collections.emptyList();
+>>>>>>> compatible
 	}
 
 	private final Set<String> _bndFileNames = new CopyOnWriteArraySet<>();
@@ -596,8 +729,12 @@ public class JavaOSGiReferenceCheck extends BaseFileCheck {
 		"\n\t@Reference([\\s\\S]*?)\\s+((protected|public) void (\\w+?))\\(" +
 			"\\s*([ ,<>\\w]+)\\s+\\w+\\) \\{\\s+([\\s\\S]*?)\\s*?\n\t\\}\n");
 	private List<String> _serviceProxyFactoryUtilClassNames;
+<<<<<<< HEAD
 	private final List<String> _serviceReferenceUtilClassNames =
 		new ArrayList<>();
+=======
+	private String[] _serviceReferenceUtilClassNames = new String[0];
+>>>>>>> compatible
 	private final Pattern _serviceUtilImportPattern = Pattern.compile(
 		"\nimport ([A-Za-z1-9\\.]*)\\.([A-Za-z1-9]*ServiceUtil);");
 

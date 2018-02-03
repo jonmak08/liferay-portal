@@ -35,6 +35,10 @@ import com.liferay.portal.kernel.webdav.methods.Method;
 import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.util.xml.Dom4jUtil;
+>>>>>>> compatible
 
 import java.util.List;
 

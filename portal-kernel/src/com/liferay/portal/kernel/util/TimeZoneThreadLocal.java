@@ -14,8 +14,6 @@
 
 package com.liferay.portal.kernel.util;
 
-import com.liferay.petra.lang.CentralizedThreadLocal;
-
 import java.util.TimeZone;
 
 /**
@@ -40,10 +38,10 @@ public class TimeZoneThreadLocal {
 	}
 
 	private static final ThreadLocal<TimeZone> _defaultTimeZone =
-		new CentralizedThreadLocal<>(
+		new AutoResetThreadLocal<>(
 			TimeZoneThreadLocal.class + "._defaultTimeZone");
 	private static final ThreadLocal<TimeZone> _themeDisplayTimeZone =
-		new CentralizedThreadLocal<>(
+		new AutoResetThreadLocal<>(
 			TimeZoneThreadLocal.class + "._themeDisplayTimeZone");
 
 }

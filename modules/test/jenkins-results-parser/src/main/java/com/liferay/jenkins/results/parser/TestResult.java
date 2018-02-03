@@ -33,7 +33,11 @@ import org.json.JSONObject;
 public class TestResult {
 
 	public static List<TestResult> getTestResults(
+<<<<<<< HEAD
 		Build build, JSONArray suitesJSONArray, String testStatus) {
+=======
+		AxisBuild axisBuild, JSONArray suitesJSONArray, String testStatus) {
+>>>>>>> compatible
 
 		List<TestResult> testResults = new ArrayList<>();
 
@@ -44,7 +48,11 @@ public class TestResult {
 
 			for (int j = 0; j < casesJSONArray.length(); j++) {
 				TestResult testResult = new TestResult(
+<<<<<<< HEAD
 					build, casesJSONArray.getJSONObject(j));
+=======
+					axisBuild, casesJSONArray.getJSONObject(j));
+>>>>>>> compatible
 
 				if ((testStatus == null) ||
 					testStatus.equals(testResult.getStatus())) {
@@ -57,12 +65,21 @@ public class TestResult {
 		return testResults;
 	}
 
+<<<<<<< HEAD
 	public TestResult(Build build, JSONObject caseJSONObject) {
 		if (build == null) {
 			throw new IllegalArgumentException("Build may not be null");
 		}
 
 		this.build = build;
+=======
+	public TestResult(AxisBuild axisBuild, JSONObject caseJSONObject) {
+		if (axisBuild == null) {
+			throw new IllegalArgumentException("Axis build may not be null");
+		}
+
+		this.axisBuild = axisBuild;
+>>>>>>> compatible
 
 		className = caseJSONObject.getString("className");
 
@@ -81,7 +98,11 @@ public class TestResult {
 
 			System.out.println(
 				"Invalid test class name \"" + className + "\" in build " +
+<<<<<<< HEAD
 					build.getBuildURL());
+=======
+					axisBuild.getBuildURL());
+>>>>>>> compatible
 		}
 
 		testName = caseJSONObject.getString("name");
@@ -96,8 +117,13 @@ public class TestResult {
 		}
 	}
 
+<<<<<<< HEAD
 	public Build getBuild() {
 		return build;
+=======
+	public AxisBuild getAxisBuild() {
+		return axisBuild;
+>>>>>>> compatible
 	}
 
 	public String getClassName() {
@@ -125,10 +151,13 @@ public class TestResult {
 		return duration;
 	}
 
+<<<<<<< HEAD
 	public Element getGitHubElement() {
 		return getGitHubElement(null);
 	}
 
+=======
+>>>>>>> compatible
 	public Element getGitHubElement(String testrayLogsURL) {
 		String testReportURL = getTestReportURL();
 
@@ -138,9 +167,13 @@ public class TestResult {
 		downstreamBuildListItemElement.add(
 			Dom4JUtil.getNewAnchorElement(testReportURL, getDisplayName()));
 
+<<<<<<< HEAD
 		if ((testrayLogsURL != null) &&
 			testReportURL.contains("com.liferay.poshi.runner/PoshiRunner")) {
 
+=======
+		if (testReportURL.contains("com.liferay.poshi.runner/PoshiRunner")) {
+>>>>>>> compatible
 			Dom4JUtil.addToElement(
 				downstreamBuildListItemElement, " - ",
 				Dom4JUtil.getNewAnchorElement(
@@ -188,10 +221,13 @@ public class TestResult {
 		return sb.toString();
 	}
 
+<<<<<<< HEAD
 	public String getPackageName() {
 		return packageName;
 	}
 
+=======
+>>>>>>> compatible
 	public String getPoshiReportURL(String testrayLogsURL) {
 		StringBuilder sb = new StringBuilder();
 
@@ -229,7 +265,11 @@ public class TestResult {
 	public String getTestReportURL() {
 		StringBuilder sb = new StringBuilder();
 
+<<<<<<< HEAD
 		sb.append(build.getBuildURL());
+=======
+		sb.append(axisBuild.getBuildURL());
+>>>>>>> compatible
 		sb.append("/testReport/");
 		sb.append(packageName);
 		sb.append("/");
@@ -265,7 +305,11 @@ public class TestResult {
 		return !liferayLog.isEmpty();
 	}
 
+<<<<<<< HEAD
 	protected Build build;
+=======
+	protected AxisBuild axisBuild;
+>>>>>>> compatible
 	protected String className;
 	protected long duration;
 	protected String errorDetails;

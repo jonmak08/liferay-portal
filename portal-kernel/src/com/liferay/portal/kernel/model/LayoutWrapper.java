@@ -593,7 +593,12 @@ public class LayoutWrapper implements Layout, ModelWrapper<Layout> {
 	* @return the current layout's group
 	*/
 	@Override
+<<<<<<< HEAD
 	public Group getGroup() {
+=======
+	public Group getGroup()
+		throws com.liferay.portal.kernel.exception.PortalException {
+>>>>>>> compatible
 		return _layout.getGroup();
 	}
 
@@ -791,7 +796,12 @@ public class LayoutWrapper implements Layout, ModelWrapper<Layout> {
 	* @return the current layout's layout set
 	*/
 	@Override
+<<<<<<< HEAD
 	public LayoutSet getLayoutSet() {
+=======
+	public LayoutSet getLayoutSet()
+		throws com.liferay.portal.kernel.exception.PortalException {
+>>>>>>> compatible
 		return _layout.getLayoutSet();
 	}
 
@@ -1552,10 +1562,13 @@ public class LayoutWrapper implements Layout, ModelWrapper<Layout> {
 		return _layout.isTypePortlet();
 	}
 
+<<<<<<< HEAD
 	/**
 	* @deprecated As of 7.0.0, with no direct replacement
 	*/
 	@Deprecated
+=======
+>>>>>>> compatible
 	@Override
 	public boolean isTypeSharedPortlet() {
 		return _layout.isTypeSharedPortlet();

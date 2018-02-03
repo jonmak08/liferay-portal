@@ -9,6 +9,7 @@ import Uri from 'metal-uri/src/Uri';
 import utils from 'senna/src/utils/utils';
 import {match} from 'metal-dom';
 
+<<<<<<< HEAD
 /**
  * Initializes a Senna App with routes that match both ActionURLs and RenderURLs.
  * It also overrides Liferay's default Liferay.Util.submitForm to makes sure
@@ -17,6 +18,9 @@ import {match} from 'metal-dom';
  * @review
  */
 var initSPA = function() {
+=======
+var initSPA = function(callback) {
+>>>>>>> compatible
 	let app = new App();
 
 	app.addRoutes(
@@ -40,7 +44,11 @@ var initSPA = function() {
 			{
 				handler: RenderURLScreen,
 				path: function(url) {
+<<<<<<< HEAD
 					if ((url + '/').indexOf(themeDisplay.getPathMain() + '/') === 0) {
+=======
+					if (url.indexOf(themeDisplay.getPathMain()) === 0) {
+>>>>>>> compatible
 						return false;
 					}
 

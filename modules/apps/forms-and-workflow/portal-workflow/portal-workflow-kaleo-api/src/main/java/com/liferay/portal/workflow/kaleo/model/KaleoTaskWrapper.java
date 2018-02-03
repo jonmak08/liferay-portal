@@ -64,7 +64,11 @@ public class KaleoTaskWrapper implements KaleoTask, ModelWrapper<KaleoTask> {
 		attributes.put("userName", getUserName());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
+<<<<<<< HEAD
 		attributes.put("kaleoDefinitionVersionId", getKaleoDefinitionVersionId());
+=======
+		attributes.put("kaleoDefinitionId", getKaleoDefinitionId());
+>>>>>>> compatible
 		attributes.put("kaleoNodeId", getKaleoNodeId());
 		attributes.put("name", getName());
 		attributes.put("description", getDescription());
@@ -116,11 +120,18 @@ public class KaleoTaskWrapper implements KaleoTask, ModelWrapper<KaleoTask> {
 			setModifiedDate(modifiedDate);
 		}
 
+<<<<<<< HEAD
 		Long kaleoDefinitionVersionId = (Long)attributes.get(
 				"kaleoDefinitionVersionId");
 
 		if (kaleoDefinitionVersionId != null) {
 			setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
+=======
+		Long kaleoDefinitionId = (Long)attributes.get("kaleoDefinitionId");
+
+		if (kaleoDefinitionId != null) {
+			setKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 		}
 
 		Long kaleoNodeId = (Long)attributes.get("kaleoNodeId");
@@ -198,6 +209,7 @@ public class KaleoTaskWrapper implements KaleoTask, ModelWrapper<KaleoTask> {
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns the kaleo definition version ID of this kaleo task.
 	*
 	* @return the kaleo definition version ID of this kaleo task
@@ -205,6 +217,15 @@ public class KaleoTaskWrapper implements KaleoTask, ModelWrapper<KaleoTask> {
 	@Override
 	public long getKaleoDefinitionVersionId() {
 		return _kaleoTask.getKaleoDefinitionVersionId();
+=======
+	* Returns the kaleo definition ID of this kaleo task.
+	*
+	* @return the kaleo definition ID of this kaleo task
+	*/
+	@Override
+	public long getKaleoDefinitionId() {
+		return _kaleoTask.getKaleoDefinitionId();
+>>>>>>> compatible
 	}
 
 	@Override
@@ -390,6 +411,7 @@ public class KaleoTaskWrapper implements KaleoTask, ModelWrapper<KaleoTask> {
 	}
 
 	/**
+<<<<<<< HEAD
 	* Sets the kaleo definition version ID of this kaleo task.
 	*
 	* @param kaleoDefinitionVersionId the kaleo definition version ID of this kaleo task
@@ -397,6 +419,15 @@ public class KaleoTaskWrapper implements KaleoTask, ModelWrapper<KaleoTask> {
 	@Override
 	public void setKaleoDefinitionVersionId(long kaleoDefinitionVersionId) {
 		_kaleoTask.setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
+=======
+	* Sets the kaleo definition ID of this kaleo task.
+	*
+	* @param kaleoDefinitionId the kaleo definition ID of this kaleo task
+	*/
+	@Override
+	public void setKaleoDefinitionId(long kaleoDefinitionId) {
+		_kaleoTask.setKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 	/**

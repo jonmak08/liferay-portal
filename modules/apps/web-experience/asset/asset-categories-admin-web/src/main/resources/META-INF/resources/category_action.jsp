@@ -50,10 +50,22 @@ AssetCategory category = (AssetCategory)row.getObject();
 	</c:if>
 
 	<c:if test="<%= assetCategoriesDisplayContext.hasPermission(category, ActionKeys.UPDATE) %>">
+<<<<<<< HEAD
 		<liferay-ui:icon
 			id='<%= row.getRowId() + "moveCategory" %>'
 			message="move"
 			url="javascript:;"
+=======
+		<portlet:renderURL var="moveCategoryURL">
+			<portlet:param name="mvcPath" value="/move_category.jsp" />
+			<portlet:param name="categoryId" value="<%= String.valueOf(category.getCategoryId()) %>" />
+			<portlet:param name="vocabularyId" value="<%= String.valueOf(category.getVocabularyId()) %>" />
+		</portlet:renderURL>
+
+		<liferay-ui:icon
+			message="move"
+			url="<%= moveCategoryURL %>"
+>>>>>>> compatible
 		/>
 	</c:if>
 
@@ -84,6 +96,7 @@ AssetCategory category = (AssetCategory)row.getObject();
 			url="<%= deleteCategoryURL %>"
 		/>
 	</c:if>
+<<<<<<< HEAD
 </liferay-ui:icon-menu>
 
 <c:if test="<%= assetCategoriesDisplayContext.hasPermission(category, ActionKeys.UPDATE) %>">
@@ -134,3 +147,6 @@ AssetCategory category = (AssetCategory)row.getObject();
 		);
 	</aui:script>
 </c:if>
+=======
+</liferay-ui:icon-menu>
+>>>>>>> compatible

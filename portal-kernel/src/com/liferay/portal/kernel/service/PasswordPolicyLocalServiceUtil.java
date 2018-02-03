@@ -297,12 +297,15 @@ public class PasswordPolicyLocalServiceUtil {
 	}
 
 	public static com.liferay.portal.kernel.model.PasswordPolicy getPasswordPolicy(
+<<<<<<< HEAD
 		long companyId, boolean defaultPolicy)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService().getPasswordPolicy(companyId, defaultPolicy);
 	}
 
 	public static com.liferay.portal.kernel.model.PasswordPolicy getPasswordPolicy(
+=======
+>>>>>>> compatible
 		long companyId, long[] organizationIds)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService().getPasswordPolicy(companyId, organizationIds);

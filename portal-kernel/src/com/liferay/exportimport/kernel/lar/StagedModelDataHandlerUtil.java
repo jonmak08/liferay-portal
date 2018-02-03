@@ -25,6 +25,7 @@ import com.liferay.portal.kernel.service.PortletLocalServiceUtil;
 import com.liferay.portal.kernel.spring.orm.LastSessionRecorderHelperUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringPool;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Attribute;
 import com.liferay.portal.kernel.xml.Document;
@@ -33,6 +34,9 @@ import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
 
 import java.io.Serializable;
+=======
+import com.liferay.portal.kernel.xml.Element;
+>>>>>>> compatible
 
 import java.util.Collections;
 import java.util.List;
@@ -72,9 +76,13 @@ public class StagedModelDataHandlerUtil {
 		Portlet referrerPortlet = PortletLocalServiceUtil.getPortletById(
 			referrerPortletId);
 
+<<<<<<< HEAD
 		if (!ExportImportHelperUtil.isAlwaysIncludeReference(
 				portletDataContext, stagedModel) ||
 			!ExportImportHelperUtil.isReferenceWithinExportScope(
+=======
+		if (!ExportImportHelperUtil.isReferenceWithinExportScope(
+>>>>>>> compatible
 				portletDataContext, stagedModel)) {
 
 			return portletDataContext.addReferenceElement(
@@ -135,9 +143,13 @@ public class StagedModelDataHandlerUtil {
 		Element referrerStagedModelElement =
 			portletDataContext.getExportDataElement(referrerStagedModel);
 
+<<<<<<< HEAD
 		if (!ExportImportHelperUtil.isAlwaysIncludeReference(
 				portletDataContext, stagedModel) ||
 			!ExportImportHelperUtil.isReferenceWithinExportScope(
+=======
+		if (!ExportImportHelperUtil.isReferenceWithinExportScope(
+>>>>>>> compatible
 				portletDataContext, stagedModel)) {
 
 			return portletDataContext.addReferenceElement(
@@ -156,12 +168,15 @@ public class StagedModelDataHandlerUtil {
 			PortletDataContext portletDataContext, T stagedModel)
 		throws PortletDataException {
 
+<<<<<<< HEAD
 		if (!ExportImportHelperUtil.isReferenceWithinExportScope(
 				portletDataContext, stagedModel)) {
 
 			return;
 		}
 
+=======
+>>>>>>> compatible
 		StagedModelDataHandler<T> stagedModelDataHandler =
 			_getStagedModelDataHandler(stagedModel);
 
@@ -199,6 +214,7 @@ public class StagedModelDataHandlerUtil {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 7.0.0, replaced by {@link
 	 *             #importReferenceStagedModel(PortletDataContext, Class,
 	 *             Serializable)}
@@ -214,6 +230,8 @@ public class StagedModelDataHandlerUtil {
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	 * Imports the staged model that is referenced by a portlet. To import a
 	 * staged model referenced by another staged model, use {@link
 	 * #importReferenceStagedModel(PortletDataContext, StagedModel, Class,
@@ -229,6 +247,7 @@ public class StagedModelDataHandlerUtil {
 	 */
 	public static void importReferenceStagedModel(
 			PortletDataContext portletDataContext, Class<?> stagedModelClass,
+<<<<<<< HEAD
 			Serializable classPK)
 		throws PortletDataException {
 
@@ -244,11 +263,17 @@ public class StagedModelDataHandlerUtil {
 	@Deprecated
 	public static void importReferenceStagedModel(
 			PortletDataContext portletDataContext, String stagedModelClassName,
+=======
+>>>>>>> compatible
 			long classPK)
 		throws PortletDataException {
 
 		importReferenceStagedModel(
+<<<<<<< HEAD
 			portletDataContext, stagedModelClassName, Long.valueOf(classPK));
+=======
+			portletDataContext, stagedModelClass.getName(), classPK);
+>>>>>>> compatible
 	}
 
 	/**
@@ -267,7 +292,11 @@ public class StagedModelDataHandlerUtil {
 	 */
 	public static void importReferenceStagedModel(
 			PortletDataContext portletDataContext, String stagedModelClassName,
+<<<<<<< HEAD
 			Serializable classPK)
+=======
+			long classPK)
+>>>>>>> compatible
 		throws PortletDataException {
 
 		Element referenceElement = portletDataContext.getReferenceElement(
@@ -278,6 +307,7 @@ public class StagedModelDataHandlerUtil {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 7.0.0, replaced by {@link
 	 *             #importReferenceStagedModel(PortletDataContext, StagedModel,
 	 *             Class, Serializable)}
@@ -294,6 +324,8 @@ public class StagedModelDataHandlerUtil {
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	 * Imports the staged model that is referenced by another staged model. To
 	 * import a staged model referenced by a portlet, use {@link
 	 * #importReferenceStagedModel(PortletDataContext, Class, long)}.
@@ -310,7 +342,11 @@ public class StagedModelDataHandlerUtil {
 	 */
 	public static <T extends StagedModel> void importReferenceStagedModel(
 			PortletDataContext portletDataContext, T referrerStagedModel,
+<<<<<<< HEAD
 			Class<?> stagedModelClass, Serializable classPK)
+=======
+			Class<?> stagedModelClass, long classPK)
+>>>>>>> compatible
 		throws PortletDataException {
 
 		importReferenceStagedModel(
@@ -319,6 +355,7 @@ public class StagedModelDataHandlerUtil {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 7.0.0, replaced by {@link
 	 *             #importReferenceStagedModel(PortletDataContext, StagedModel,
 	 *             String, Serializable)}
@@ -335,6 +372,8 @@ public class StagedModelDataHandlerUtil {
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	 * Imports the staged model that is referenced by another staged model. To
 	 * import a staged model referenced by a portlet, use {@link
 	 * #importReferenceStagedModel(PortletDataContext, String, long)}.
@@ -351,7 +390,11 @@ public class StagedModelDataHandlerUtil {
 	 */
 	public static <T extends StagedModel> void importReferenceStagedModel(
 			PortletDataContext portletDataContext, T referrerStagedModel,
+<<<<<<< HEAD
 			String stagedModelClassName, Serializable classPK)
+=======
+			String stagedModelClassName, long classPK)
+>>>>>>> compatible
 		throws PortletDataException {
 
 		Element referenceElement = portletDataContext.getReferenceElement(
@@ -416,7 +459,11 @@ public class StagedModelDataHandlerUtil {
 				referrerStagedModel, stagedModelClass);
 
 		for (Element referenceElement : referenceElements) {
+<<<<<<< HEAD
 			Serializable classPK = GetterUtil.getString(
+=======
+			long classPK = GetterUtil.getLong(
+>>>>>>> compatible
 				referenceElement.attributeValue("class-pk"));
 
 			importReferenceStagedModel(
@@ -478,6 +525,7 @@ public class StagedModelDataHandlerUtil {
 			return;
 		}
 
+<<<<<<< HEAD
 		Attribute missingAttribute = referenceElement.attribute("missing");
 
 		if ((missingAttribute != null) &&
@@ -520,6 +568,8 @@ public class StagedModelDataHandlerUtil {
 			}
 		}
 
+=======
+>>>>>>> compatible
 		importStagedModel(portletDataContext, referenceElement);
 	}
 
@@ -528,8 +578,12 @@ public class StagedModelDataHandlerUtil {
 
 		long groupId = GetterUtil.getLong(element.attributeValue("group-id"));
 		String className = element.attributeValue("class-name");
+<<<<<<< HEAD
 		Serializable classPK = GetterUtil.getString(
 			element.attributeValue("class-pk"));
+=======
+		long classPK = GetterUtil.getLong(element.attributeValue("class-pk"));
+>>>>>>> compatible
 
 		String path = ExportImportPathUtil.getModelPath(
 			groupId, className, classPK);

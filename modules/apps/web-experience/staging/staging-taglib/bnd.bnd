@@ -1,8 +1,13 @@
 Bundle-Name: Liferay Staging Taglib
 Bundle-SymbolicName: com.liferay.staging.taglib
+<<<<<<< HEAD
 Bundle-Version: 3.2.0
 Export-Package: com.liferay.staging.taglib.servlet.taglib
 Liferay-JS-Config: /META-INF/resources/js/config.js
+=======
+Bundle-Version: 3.1.14
+Export-Package: com.liferay.staging.taglib.servlet.taglib
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Data Management
 Provide-Capability:\

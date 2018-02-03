@@ -14,9 +14,15 @@
 
 package com.liferay.portal.search.internal.analysis;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.search.Query;
 import com.liferay.portal.kernel.search.generic.MatchQuery;
+=======
+import com.liferay.portal.kernel.search.Query;
+import com.liferay.portal.kernel.search.generic.MatchQuery;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 /**
  * @author André de Oliveira

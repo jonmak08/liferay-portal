@@ -14,7 +14,11 @@
 
 package com.liferay.announcements.web.internal.portlet;
 
+<<<<<<< HEAD
 import com.liferay.announcements.constants.AnnouncementsPortletKeys;
+=======
+import com.liferay.announcements.web.constants.AnnouncementsPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.BasePortletProvider;
 import com.liferay.portal.kernel.portlet.EditPortletProvider;
 import com.liferay.portal.kernel.portlet.ManagePortletProvider;
@@ -28,7 +32,14 @@ import org.osgi.service.component.annotations.Component;
 @Component(
 	immediate = true,
 	property = {"model.class.name=com.liferay.announcements.kernel.model.AnnouncementsEntry"},
+<<<<<<< HEAD
 	service = {EditPortletProvider.class, ViewPortletProvider.class}
+=======
+	service = {
+		EditPortletProvider.class, ManagePortletProvider.class,
+		ViewPortletProvider.class
+	}
+>>>>>>> compatible
 )
 public class AnnouncementsEditPortletProvider
 	extends BasePortletProvider

@@ -1,5 +1,6 @@
 <definition>
 	<command name="addEntryWithFutureDate">
+<<<<<<< HEAD
 		<execute function="AssertClick" locator1="Button#ADD_ANNOUNCEMENT" value1="Add Announcement" />
 
 		<execute function="AssertElementPresent" locator1="AlloyEditor#EDITOR">
@@ -24,6 +25,24 @@
 		<execute function="Uncheck" locator1="Checkbox#DISPLAY_IMMEDIATELY" />
 
 		<var method="selenium#getAttribute('//input[contains(@id,\'displayDateHour\')]@value')" name="displayDateHour" />
+=======
+		<execute function="Click" locator1="Announcements#NAVIGATION_MANAGE_ENTRIES" />
+
+		<execute function="Select" locator1="AnnouncementsManageEntries#DISTRIBUTION_SCOPE_SELECT" value1="${distributionScope}" />
+
+		<execute function="Click" locator1="Button#ADD_ENTRY" />
+
+		<execute macro="PortletEntry#inputTitle">
+			<var name="title" value="${entryTitle}" />
+		</execute>
+
+		<execute function="Type" locator1="TextInput#URL" value1="${entryURL}" />
+		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="CKEditor#BODY_FIELD" value1="${entryContent}" />
+
+		<execute function="Uncheck" locator1="Checkbox#DISPLAY_IMMEDIATELY" />
+
+		<var attribute="value" locator="//input[contains(@id,'displayDateHour')]" name="displayDateHour" />
+>>>>>>> compatible
 		<var name="displayDateHourLength" value="${displayDateHour?length()}" />
 
 		<if>
@@ -33,11 +52,19 @@
 			</then>
 		</if>
 
+<<<<<<< HEAD
 		<var method="selenium#getAttribute('//input[contains(@id,\'displayDateAmPm\')]@value')" name="displayDateAMPM" />
 		<var method="StringUtil#replace('${displayDateAMPM}', '0', 'AM')" name="displayDateAMPM" />
 		<var method="StringUtil#replace('${displayDateAMPM}', '1', 'PM')" name="displayDateAMPM" />
 
 		<var method="selenium#getAttribute('//input[contains(@id,\'displayDateMinute\')]@value')" name="displayDateMinute" />
+=======
+		<var attribute="value" locator="//input[contains(@id,'displayDateAmPm')]" name="displayDateAMPM" />
+		<var method="StringUtil#replace('${displayDateAMPM}', '0', 'AM')" name="displayDateAMPM" />
+		<var method="StringUtil#replace('${displayDateAMPM}', '1', 'PM')" name="displayDateAMPM" />
+
+		<var attribute="value" locator="//input[contains(@id,'displayDateMinute')]" name="displayDateMinute" />
+>>>>>>> compatible
 		<var method="MathUtil#sum('${displayDateMinute}', '2')" name="displayDateMinuteFuture" />
 		<var name="displayDateMinuteFutureLength" value="${displayDateMinuteFuture?length()}" />
 
@@ -56,6 +83,7 @@
 	</command>
 
 	<command name="addPG">
+<<<<<<< HEAD
 		<execute function="AssertClick" locator1="Button#ADD_ANNOUNCEMENT" value1="Add Announcement" />
 
 		<execute function="AssertElementPresent" locator1="AlloyEditor#EDITOR">
@@ -74,6 +102,20 @@
 		<execute function="Select" locator1="AnnouncementsManageEntries#DISTRIBUTION_SCOPE_SELECT" value1="${distributionScope}" />
 
 		<execute function="Type" locator1="TextInput#URL" value1="${entryURL}" />
+=======
+		<execute function="Click" locator1="Announcements#NAVIGATION_MANAGE_ENTRIES" />
+
+		<execute function="Select" locator1="AnnouncementsManageEntries#DISTRIBUTION_SCOPE_SELECT" value1="${distributionScope}" />
+
+		<execute function="AssertClick" locator1="Button#ADD_ENTRY" value1="Add Entry" />
+
+		<execute macro="PortletEntry#inputTitle">
+			<var name="title" value="${entryTitle}" />
+		</execute>
+
+		<execute function="Type" locator1="TextInput#URL" value1="${entryURL}" />
+		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="CKEditor#BODY_FIELD" value1="${entryContent}" />
+>>>>>>> compatible
 
 		<if>
 			<isset var="priority" />
@@ -85,16 +127,25 @@
 		<if>
 			<isset var="expirationDate" />
 			<then>
+<<<<<<< HEAD
 				<execute function="ScrollWebElementIntoView" locator1="Button#SAVE" />
 
 				<execute function="Type" locator1="TextInput#EXPIRATION_DATE" value1="${expirationDate}" />
 				<execute macro="Button#clickSave" />
+=======
+				<execute function="Type" locator1="TextInput#EXPIRATION_DATE" value1="${expirationDate}" />
+>>>>>>> compatible
 			</then>
 		</if>
 
 		<if>
 			<isset var="pastDate" />
 			<then>
+<<<<<<< HEAD
+=======
+				<execute macro="Button#clickSave" />
+
+>>>>>>> compatible
 				<execute macro="Alert#viewRequestFailedToComplete" />
 			</then>
 			<else>
@@ -142,6 +193,7 @@
 			<var name="key_menuItem" value="Edit" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute function="AssertTextEquals" locator1="AlloyEditor#EDITOR" value1="${entryTitle}">
 			<var name="key_editor" value="title" />
 		</execute>
@@ -157,6 +209,17 @@
 
 		<execute function="Type" locator1="TextInput#URL" value1="${entryURLEdit}" />
 
+=======
+		<execute function="AssertTextEquals#assertValue" locator1="TextInput#TITLE" value1="${entryTitle}" />
+
+		<execute macro="PortletEntry#inputTitle">
+			<var name="title" value="${entryTitleEdit}" />
+		</execute>
+
+		<execute function="Type" locator1="TextInput#URL" value1="${entryURLEdit}" />
+		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="CKEditor#BODY_FIELD" value1="${entryContentEdit}" />
+
+>>>>>>> compatible
 		<execute macro="Button#clickSave" />
 	</command>
 
@@ -204,6 +267,7 @@
 		<var name="key_entryTitle" value="${entryTitle}" />
 
 		<execute function="Click#waitForMenuToggleJSClick" locator1="Icon#BODY_VERTICAL_ELLIPSIS" />
+<<<<<<< HEAD
 
 		<execute function="AssertTextEquals" locator1="MenuItem#ANY_MENU_ITEM" value1="Show">
 			<var name="key_menuItem" value="Show" />
@@ -223,6 +287,19 @@
 		<execute function="AssertTextEquals" locator1="AnnouncementsManageEntries#ENTRY_TABLE_TITLE" value1="${entryTitle}" />
 
 		<execute function="AssertTextEquals" locator1="AnnouncementsManageEntries#ENTRY_TABLE_TYPE" value1="${distributionScope}" />
+=======
+
+		<execute function="AssertTextEquals" locator1="MenuItem#ANY_MENU_ITEM" value1="Show">
+			<var name="key_menuItem" value="Show" />
+		</execute>
+
+		<execute function="SelectFrameTop" value1="relative=top" />
+
+		<var name="key_entryContent" value="${entryContent}" />
+
+		<execute function="AssertNotVisible" locator1="Announcements#CARD_VIEW_ENTRY_CONTENT" value1="${entryContent}" />
+		<execute function="AssertNotVisible" locator1="Announcements#CARD_VIEW_ENTRY_SCOPE" value1="${distributionScope}" />
+>>>>>>> compatible
 	</command>
 
 	<command name="viewNoPG">
@@ -242,11 +319,26 @@
 		<var name="key_entryContent" value="${entryContent}" />
 
 		<execute function="AssertTextEquals" locator1="Announcements#CARD_VIEW_ENTRY_CONTENT" value1="${entryContent}" />
+<<<<<<< HEAD
 	</command>
 
 	<command name="viewReadPG">
 		<execute function="Click" locator1="Announcements#NAVIGATION_ENTRIES_READ" value1="Read" />
 
+=======
+
+		<execute function="Click" locator1="Announcements#NAVIGATION_MANAGE_ENTRIES" />
+
+		<execute function="Select" locator1="AnnouncementsManageEntries#DISTRIBUTION_SCOPE_SELECT" value1="${distributionScope}" />
+
+		<execute function="AssertTextEquals" locator1="AnnouncementsManageEntries#ENTRY_TABLE_TITLE" value1="${entryTitle}" />
+		<execute function="AssertTextEquals" locator1="AnnouncementsManageEntries#ENTRY_TABLE_TYPE" value1="${announcementType}" />
+	</command>
+
+	<command name="viewPreviousPG">
+		<execute function="Click" locator1="Announcements#NAVIGATION_ENTRIES_PREVIOUS" value1="Previous" />
+
+>>>>>>> compatible
 		<execute macro="AnnouncementsEntry#viewPG">
 			<var name="announcementType" value="${announcementType}" />
 			<var name="distributionScope" value="${distributionScope}" />

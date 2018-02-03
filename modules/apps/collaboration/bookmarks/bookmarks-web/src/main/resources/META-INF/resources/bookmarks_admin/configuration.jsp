@@ -126,7 +126,11 @@ catch (NoSuchFolderException nsfe) {
 						</aui:fieldset>
 
 						<aui:fieldset collapsible="<%= true %>" id="bookmarksListingPanel" label="bookmarks-listing">
+<<<<<<< HEAD
 							<aui:input label="show-related-assets" name="preferences--enableRelatedAssets--" type="checkbox" value="<%= bookmarksGroupServiceOverriddenConfiguration.enableRelatedAssets() %>" />
+=======
+							<aui:input name="preferences--enableRelatedAssets--" type="checkbox" value="<%= bookmarksGroupServiceOverriddenConfiguration.enableRelatedAssets() %>" />
+>>>>>>> compatible
 
 							<aui:input label="documents-per-page" name="preferences--entriesPerPage--" size="2" type="text" value="<%= bookmarksGroupServiceOverriddenConfiguration.entriesPerPage() %>" />
 
@@ -253,7 +257,11 @@ catch (NoSuchFolderException nsfe) {
 	</div>
 
 	<aui:button-row>
+<<<<<<< HEAD
 		<aui:button type="submit" />
+=======
+		<aui:button cssClass="btn-lg" type="submit" />
+>>>>>>> compatible
 	</aui:button-row>
 </aui:form>
 

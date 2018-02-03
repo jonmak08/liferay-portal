@@ -17,6 +17,7 @@ package com.liferay.dynamic.data.mapping.expression.internal;
 import com.liferay.dynamic.data.mapping.expression.DDMExpression;
 import com.liferay.dynamic.data.mapping.expression.DDMExpressionException;
 import com.liferay.dynamic.data.mapping.expression.DDMExpressionFactory;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.expression.DDMExpressionFunction;
 import com.liferay.portal.kernel.util.MapUtil;
 
@@ -28,6 +29,10 @@ import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
 import org.osgi.service.component.annotations.ReferencePolicyOption;
+=======
+
+import org.osgi.service.component.annotations.Component;
+>>>>>>> compatible
 
 /**
  * @author Marcellus Tavares
@@ -40,7 +45,11 @@ public class DDMExpressionFactoryImpl implements DDMExpressionFactory {
 			String expressionString)
 		throws DDMExpressionException {
 
+<<<<<<< HEAD
 		return createDDMExpression(expressionString, Boolean.class);
+=======
+		return new DDMExpressionImpl<>(expressionString, Boolean.class);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -48,7 +57,11 @@ public class DDMExpressionFactoryImpl implements DDMExpressionFactory {
 			String expressionString)
 		throws DDMExpressionException {
 
+<<<<<<< HEAD
 		return createDDMExpression(expressionString, Double.class);
+=======
+		return new DDMExpressionImpl<>(expressionString, Double.class);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -56,7 +69,11 @@ public class DDMExpressionFactoryImpl implements DDMExpressionFactory {
 			String expressionString)
 		throws DDMExpressionException {
 
+<<<<<<< HEAD
 		return createDDMExpression(expressionString, Float.class);
+=======
+		return new DDMExpressionImpl<>(expressionString, Float.class);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -64,13 +81,18 @@ public class DDMExpressionFactoryImpl implements DDMExpressionFactory {
 			String expressionString)
 		throws DDMExpressionException {
 
+<<<<<<< HEAD
 		return createDDMExpression(expressionString, Integer.class);
+=======
+		return new DDMExpressionImpl<>(expressionString, Integer.class);
+>>>>>>> compatible
 	}
 
 	@Override
 	public DDMExpression<Long> createLongDDMExpression(String expressionString)
 		throws DDMExpressionException {
 
+<<<<<<< HEAD
 		return createDDMExpression(expressionString, Long.class);
 	}
 
@@ -80,6 +102,9 @@ public class DDMExpressionFactoryImpl implements DDMExpressionFactory {
 		throws DDMExpressionException {
 
 		return createDDMExpression(expressionString, Number.class);
+=======
+		return new DDMExpressionImpl<>(expressionString, Long.class);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -87,6 +112,7 @@ public class DDMExpressionFactoryImpl implements DDMExpressionFactory {
 			String expressionString)
 		throws DDMExpressionException {
 
+<<<<<<< HEAD
 		return createDDMExpression(expressionString, String.class);
 	}
 
@@ -145,4 +171,9 @@ public class DDMExpressionFactoryImpl implements DDMExpressionFactory {
 	private final Map<String, DDMExpressionFunction> _ddmExpressionFunctionMap =
 		new ConcurrentHashMap<>();
 
+=======
+		return new DDMExpressionImpl<>(expressionString, String.class);
+	}
+
+>>>>>>> compatible
 }

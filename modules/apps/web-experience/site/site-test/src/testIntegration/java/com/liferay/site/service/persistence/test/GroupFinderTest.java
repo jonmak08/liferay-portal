@@ -23,6 +23,10 @@ import com.liferay.portal.kernel.model.Organization;
 import com.liferay.portal.kernel.model.ResourceAction;
 import com.liferay.portal.kernel.model.ResourceConstants;
 import com.liferay.portal.kernel.model.ResourcePermission;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.model.ResourceTypePermission;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.model.UserGroup;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
@@ -31,6 +35,10 @@ import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
 import com.liferay.portal.kernel.service.OrganizationLocalServiceUtil;
 import com.liferay.portal.kernel.service.ResourceActionLocalServiceUtil;
 import com.liferay.portal.kernel.service.ResourcePermissionLocalServiceUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.service.ResourceTypePermissionLocalServiceUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.UserGroupLocalServiceUtil;
 import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.service.persistence.GroupFinderUtil;
@@ -39,11 +47,19 @@ import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.OrganizationTestUtil;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.test.util.ResourcePermissionTestUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
+=======
+import com.liferay.portal.kernel.test.util.ResourceTypePermissionTestUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.test.util.UserGroupTestUtil;
 import com.liferay.portal.kernel.test.util.UserTestUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.comparator.GroupNameComparator;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.TransactionalTestRule;
@@ -87,6 +103,7 @@ public class GroupFinderTest {
 		_resourcePermission = ResourcePermissionTestUtil.addResourcePermission(
 			_arbitraryResourceAction.getBitwiseValue(),
 			_arbitraryResourceAction.getName(),
+<<<<<<< HEAD
 			String.valueOf(_group.getGroupId()), ResourceConstants.SCOPE_GROUP);
 
 		_modelResourceAction = getModelResourceAction();
@@ -95,6 +112,23 @@ public class GroupFinderTest {
 			_modelResourceAction.getBitwiseValue(),
 			_modelResourceAction.getName(), String.valueOf(_group.getGroupId()),
 			RandomTestUtil.nextLong(), ResourceConstants.SCOPE_GROUP);
+=======
+			StringUtil.valueOf(_group.getGroupId()),
+			ResourceConstants.SCOPE_GROUP);
+
+		_modelResourceAction = getModelResourceAction();
+
+		_resourceTypePermission =
+			ResourceTypePermissionTestUtil.addResourceTypePermission(
+				_modelResourceAction.getBitwiseValue(), _group.getGroupId(),
+				_modelResourceAction.getName());
+
+		ResourcePermissionTestUtil.addResourcePermission(
+			_modelResourceAction.getBitwiseValue(),
+			_modelResourceAction.getName(),
+			StringUtil.valueOf(_group.getGroupId()),
+			_resourceTypePermission.getRoleId(), ResourceConstants.SCOPE_GROUP);
+>>>>>>> compatible
 	}
 
 	@AfterClass
@@ -107,12 +141,19 @@ public class GroupFinderTest {
 		ResourcePermissionLocalServiceUtil.deleteResourcePermission(
 			_resourcePermission);
 
+<<<<<<< HEAD
+=======
+		ResourceTypePermissionLocalServiceUtil.deleteResourceTypePermission(
+			_resourceTypePermission);
+
+>>>>>>> compatible
 		UserLocalServiceUtil.deleteUser(_userGroupUser);
 
 		UserGroupLocalServiceUtil.deleteUserGroup(_userGroup);
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testFindByActiveGroupIds() throws Exception {
 		List<Long> groups = GroupFinderUtil.findByActiveGroupIds(
 			TestPropsValues.getUserId());
@@ -121,6 +162,8 @@ public class GroupFinderTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testFindByC_C_N_DJoinByRoleResourcePermissions()
 		throws Exception {
 
@@ -145,6 +188,34 @@ public class GroupFinderTest {
 	}
 
 	@Test
+<<<<<<< HEAD
+=======
+	public void testFindByC_C_N_DJoinByRoleResourceTypePermissions()
+		throws Exception {
+
+		List<Group> groups = findByC_C_N_D(
+			_modelResourceAction.getActionId(),
+			_resourceTypePermission.getName(),
+			_resourceTypePermission.getRoleId());
+
+		boolean exists = false;
+
+		for (Group group : groups) {
+			if (group.getGroupId() == _group.getGroupId()) {
+				exists = true;
+
+				break;
+			}
+		}
+
+		Assert.assertTrue(
+			"The method findByC_C_N_D should have returned the group " +
+				_group.getGroupId(),
+			exists);
+	}
+
+	@Test
+>>>>>>> compatible
 	public void testFindByC_C_PG_N_D() throws Exception {
 		_userGroup = UserGroupTestUtil.addUserGroup();
 		_userGroupUser = UserTestUtil.addUser();
@@ -167,7 +238,11 @@ public class GroupFinderTest {
 			GroupConstants.DEFAULT_PARENT_GROUP_ID, null, null, params, true,
 			QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
 
+<<<<<<< HEAD
 		Assert.assertTrue(groups.toString(), groups.contains(group));
+=======
+		Assert.assertTrue(groups.contains(group));
+>>>>>>> compatible
 	}
 
 	@Test
@@ -182,7 +257,11 @@ public class GroupFinderTest {
 			TestPropsValues.getCompanyId(), groupParams, QueryUtil.ALL_POS,
 			QueryUtil.ALL_POS, new GroupNameComparator(true));
 
+<<<<<<< HEAD
 		Assert.assertFalse(groups.toString(), groups.isEmpty());
+=======
+		Assert.assertFalse(groups.isEmpty());
+>>>>>>> compatible
 	}
 
 	@Test
@@ -224,7 +303,11 @@ public class GroupFinderTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testFindByLayouts1() throws Exception {
+=======
+	public void testFindByLayouts() throws Exception {
+>>>>>>> compatible
 		List<Group> groups = findByLayouts(
 			GroupConstants.DEFAULT_PARENT_GROUP_ID);
 
@@ -255,6 +338,7 @@ public class GroupFinderTest {
 
 		groups = findByLayouts(childGroup1.getGroupId());
 
+<<<<<<< HEAD
 		Assert.assertTrue(groups.toString(), groups.isEmpty());
 	}
 
@@ -301,6 +385,9 @@ public class GroupFinderTest {
 			new GroupNameComparator(true));
 
 		Assert.assertEquals(groups.toString(), 2, groups.size());
+=======
+		Assert.assertTrue(groups.isEmpty());
+>>>>>>> compatible
 	}
 
 	protected static ResourceAction getModelResourceAction()
@@ -358,6 +445,10 @@ public class GroupFinderTest {
 	private static ResourceAction _modelResourceAction;
 	private static Organization _organization;
 	private static ResourcePermission _resourcePermission;
+<<<<<<< HEAD
+=======
+	private static ResourceTypePermission _resourceTypePermission;
+>>>>>>> compatible
 	private static UserGroup _userGroup;
 	private static Group _userGroupGroup;
 	private static User _userGroupUser;

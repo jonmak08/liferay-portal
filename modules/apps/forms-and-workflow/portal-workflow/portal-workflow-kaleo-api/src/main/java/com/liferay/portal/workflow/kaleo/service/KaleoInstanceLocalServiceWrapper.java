@@ -48,12 +48,20 @@ public class KaleoInstanceLocalServiceWrapper
 
 	@Override
 	public com.liferay.portal.workflow.kaleo.model.KaleoInstance addKaleoInstance(
+<<<<<<< HEAD
 		long kaleoDefinitionVersionId, java.lang.String kaleoDefinitionName,
+=======
+		long kaleoDefinitionId, java.lang.String kaleoDefinitionName,
+>>>>>>> compatible
 		int kaleoDefinitionVersion,
 		java.util.Map<java.lang.String, java.io.Serializable> workflowContext,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
+<<<<<<< HEAD
 		return _kaleoInstanceLocalService.addKaleoInstance(kaleoDefinitionVersionId,
+=======
+		return _kaleoInstanceLocalService.addKaleoInstance(kaleoDefinitionId,
+>>>>>>> compatible
 			kaleoDefinitionName, kaleoDefinitionVersion, workflowContext,
 			serviceContext);
 	}
@@ -83,9 +91,14 @@ public class KaleoInstanceLocalServiceWrapper
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void deleteKaleoDefinitionVersionKaleoInstances(
 		long kaleoDefinitionVersionId) {
 		_kaleoInstanceLocalService.deleteKaleoDefinitionVersionKaleoInstances(kaleoDefinitionVersionId);
+=======
+	public void deleteKaleoDefinitionKaleoInstances(long kaleoDefinitionId) {
+		_kaleoInstanceLocalService.deleteKaleoDefinitionKaleoInstances(kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 	/**
@@ -301,9 +314,14 @@ public class KaleoInstanceLocalServiceWrapper
 	}
 
 	@Override
+<<<<<<< HEAD
 	public int getKaleoInstancesCount(long kaleoDefinitionVersionId,
 		boolean completed) {
 		return _kaleoInstanceLocalService.getKaleoInstancesCount(kaleoDefinitionVersionId,
+=======
+	public int getKaleoInstancesCount(long kaleoDefinitionId, boolean completed) {
+		return _kaleoInstanceLocalService.getKaleoInstancesCount(kaleoDefinitionId,
+>>>>>>> compatible
 			completed);
 	}
 

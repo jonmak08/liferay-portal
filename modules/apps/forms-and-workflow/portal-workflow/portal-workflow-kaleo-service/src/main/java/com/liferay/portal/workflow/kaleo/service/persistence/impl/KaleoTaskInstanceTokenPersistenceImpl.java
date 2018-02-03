@@ -32,6 +32,10 @@ import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.spring.extender.service.ServiceReference;
 import com.liferay.portal.workflow.kaleo.exception.NoSuchTaskInstanceTokenException;
@@ -305,7 +309,11 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 		msg.append("companyId=");
 		msg.append(companyId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchTaskInstanceTokenException(msg.toString());
 	}
@@ -356,7 +364,11 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 		msg.append("companyId=");
 		msg.append(companyId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchTaskInstanceTokenException(msg.toString());
 	}
@@ -601,23 +613,36 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 	}
 
 	private static final String _FINDER_COLUMN_COMPANYID_COMPANYID_2 = "kaleoTaskInstanceToken.companyId = ?";
+<<<<<<< HEAD
 	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_KALEODEFINITIONVERSIONID =
 		new FinderPath(KaleoTaskInstanceTokenModelImpl.ENTITY_CACHE_ENABLED,
 			KaleoTaskInstanceTokenModelImpl.FINDER_CACHE_ENABLED,
 			KaleoTaskInstanceTokenImpl.class,
 			FINDER_CLASS_NAME_LIST_WITH_PAGINATION,
 			"findByKaleoDefinitionVersionId",
+=======
+	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_KALEODEFINITIONID =
+		new FinderPath(KaleoTaskInstanceTokenModelImpl.ENTITY_CACHE_ENABLED,
+			KaleoTaskInstanceTokenModelImpl.FINDER_CACHE_ENABLED,
+			KaleoTaskInstanceTokenImpl.class,
+			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findByKaleoDefinitionId",
+>>>>>>> compatible
 			new String[] {
 				Long.class.getName(),
 				
 			Integer.class.getName(), Integer.class.getName(),
 				OrderByComparator.class.getName()
 			});
+<<<<<<< HEAD
 	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_KALEODEFINITIONVERSIONID =
+=======
+	public static final FinderPath FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_KALEODEFINITIONID =
+>>>>>>> compatible
 		new FinderPath(KaleoTaskInstanceTokenModelImpl.ENTITY_CACHE_ENABLED,
 			KaleoTaskInstanceTokenModelImpl.FINDER_CACHE_ENABLED,
 			KaleoTaskInstanceTokenImpl.class,
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
+<<<<<<< HEAD
 			"findByKaleoDefinitionVersionId",
 			new String[] { Long.class.getName() },
 			KaleoTaskInstanceTokenModelImpl.KALEODEFINITIONVERSIONID_COLUMN_BITMASK);
@@ -643,17 +668,46 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 
 	/**
 	 * Returns a range of all the kaleo task instance tokens where kaleoDefinitionVersionId = &#63;.
+=======
+			"findByKaleoDefinitionId", new String[] { Long.class.getName() },
+			KaleoTaskInstanceTokenModelImpl.KALEODEFINITIONID_COLUMN_BITMASK);
+	public static final FinderPath FINDER_PATH_COUNT_BY_KALEODEFINITIONID = new FinderPath(KaleoTaskInstanceTokenModelImpl.ENTITY_CACHE_ENABLED,
+			KaleoTaskInstanceTokenModelImpl.FINDER_CACHE_ENABLED, Long.class,
+			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION,
+			"countByKaleoDefinitionId", new String[] { Long.class.getName() });
+
+	/**
+	 * Returns all the kaleo task instance tokens where kaleoDefinitionId = &#63;.
+	 *
+	 * @param kaleoDefinitionId the kaleo definition ID
+	 * @return the matching kaleo task instance tokens
+	 */
+	@Override
+	public List<KaleoTaskInstanceToken> findByKaleoDefinitionId(
+		long kaleoDefinitionId) {
+		return findByKaleoDefinitionId(kaleoDefinitionId, QueryUtil.ALL_POS,
+			QueryUtil.ALL_POS, null);
+	}
+
+	/**
+	 * Returns a range of all the kaleo task instance tokens where kaleoDefinitionId = &#63;.
+>>>>>>> compatible
 	 *
 	 * <p>
 	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link KaleoTaskInstanceTokenModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	 * </p>
 	 *
+<<<<<<< HEAD
 	 * @param kaleoDefinitionVersionId the kaleo definition version ID
+=======
+	 * @param kaleoDefinitionId the kaleo definition ID
+>>>>>>> compatible
 	 * @param start the lower bound of the range of kaleo task instance tokens
 	 * @param end the upper bound of the range of kaleo task instance tokens (not inclusive)
 	 * @return the range of matching kaleo task instance tokens
 	 */
 	@Override
+<<<<<<< HEAD
 	public List<KaleoTaskInstanceToken> findByKaleoDefinitionVersionId(
 		long kaleoDefinitionVersionId, int start, int end) {
 		return findByKaleoDefinitionVersionId(kaleoDefinitionVersionId, start,
@@ -662,18 +716,32 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 
 	/**
 	 * Returns an ordered range of all the kaleo task instance tokens where kaleoDefinitionVersionId = &#63;.
+=======
+	public List<KaleoTaskInstanceToken> findByKaleoDefinitionId(
+		long kaleoDefinitionId, int start, int end) {
+		return findByKaleoDefinitionId(kaleoDefinitionId, start, end, null);
+	}
+
+	/**
+	 * Returns an ordered range of all the kaleo task instance tokens where kaleoDefinitionId = &#63;.
+>>>>>>> compatible
 	 *
 	 * <p>
 	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link KaleoTaskInstanceTokenModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	 * </p>
 	 *
+<<<<<<< HEAD
 	 * @param kaleoDefinitionVersionId the kaleo definition version ID
+=======
+	 * @param kaleoDefinitionId the kaleo definition ID
+>>>>>>> compatible
 	 * @param start the lower bound of the range of kaleo task instance tokens
 	 * @param end the upper bound of the range of kaleo task instance tokens (not inclusive)
 	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	 * @return the ordered range of matching kaleo task instance tokens
 	 */
 	@Override
+<<<<<<< HEAD
 	public List<KaleoTaskInstanceToken> findByKaleoDefinitionVersionId(
 		long kaleoDefinitionVersionId, int start, int end,
 		OrderByComparator<KaleoTaskInstanceToken> orderByComparator) {
@@ -683,12 +751,27 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 
 	/**
 	 * Returns an ordered range of all the kaleo task instance tokens where kaleoDefinitionVersionId = &#63;.
+=======
+	public List<KaleoTaskInstanceToken> findByKaleoDefinitionId(
+		long kaleoDefinitionId, int start, int end,
+		OrderByComparator<KaleoTaskInstanceToken> orderByComparator) {
+		return findByKaleoDefinitionId(kaleoDefinitionId, start, end,
+			orderByComparator, true);
+	}
+
+	/**
+	 * Returns an ordered range of all the kaleo task instance tokens where kaleoDefinitionId = &#63;.
+>>>>>>> compatible
 	 *
 	 * <p>
 	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link KaleoTaskInstanceTokenModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	 * </p>
 	 *
+<<<<<<< HEAD
 	 * @param kaleoDefinitionVersionId the kaleo definition version ID
+=======
+	 * @param kaleoDefinitionId the kaleo definition ID
+>>>>>>> compatible
 	 * @param start the lower bound of the range of kaleo task instance tokens
 	 * @param end the upper bound of the range of kaleo task instance tokens (not inclusive)
 	 * @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
@@ -696,8 +779,13 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 	 * @return the ordered range of matching kaleo task instance tokens
 	 */
 	@Override
+<<<<<<< HEAD
 	public List<KaleoTaskInstanceToken> findByKaleoDefinitionVersionId(
 		long kaleoDefinitionVersionId, int start, int end,
+=======
+	public List<KaleoTaskInstanceToken> findByKaleoDefinitionId(
+		long kaleoDefinitionId, int start, int end,
+>>>>>>> compatible
 		OrderByComparator<KaleoTaskInstanceToken> orderByComparator,
 		boolean retrieveFromCache) {
 		boolean pagination = true;
@@ -707,6 +795,7 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 		if ((start == QueryUtil.ALL_POS) && (end == QueryUtil.ALL_POS) &&
 				(orderByComparator == null)) {
 			pagination = false;
+<<<<<<< HEAD
 			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_KALEODEFINITIONVERSIONID;
 			finderArgs = new Object[] { kaleoDefinitionVersionId };
 		}
@@ -714,6 +803,15 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_KALEODEFINITIONVERSIONID;
 			finderArgs = new Object[] {
 					kaleoDefinitionVersionId,
+=======
+			finderPath = FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_KALEODEFINITIONID;
+			finderArgs = new Object[] { kaleoDefinitionId };
+		}
+		else {
+			finderPath = FINDER_PATH_WITH_PAGINATION_FIND_BY_KALEODEFINITIONID;
+			finderArgs = new Object[] {
+					kaleoDefinitionId,
+>>>>>>> compatible
 					
 					start, end, orderByComparator
 				};
@@ -727,7 +825,11 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 
 			if ((list != null) && !list.isEmpty()) {
 				for (KaleoTaskInstanceToken kaleoTaskInstanceToken : list) {
+<<<<<<< HEAD
 					if ((kaleoDefinitionVersionId != kaleoTaskInstanceToken.getKaleoDefinitionVersionId())) {
+=======
+					if ((kaleoDefinitionId != kaleoTaskInstanceToken.getKaleoDefinitionId())) {
+>>>>>>> compatible
 						list = null;
 
 						break;
@@ -749,7 +851,11 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 
 			query.append(_SQL_SELECT_KALEOTASKINSTANCETOKEN_WHERE);
 
+<<<<<<< HEAD
 			query.append(_FINDER_COLUMN_KALEODEFINITIONVERSIONID_KALEODEFINITIONVERSIONID_2);
+=======
+			query.append(_FINDER_COLUMN_KALEODEFINITIONID_KALEODEFINITIONID_2);
+>>>>>>> compatible
 
 			if (orderByComparator != null) {
 				appendOrderByComparator(query, _ORDER_BY_ENTITY_ALIAS,
@@ -771,7 +877,11 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 
 				QueryPos qPos = QueryPos.getInstance(q);
 
+<<<<<<< HEAD
 				qPos.add(kaleoDefinitionVersionId);
+=======
+				qPos.add(kaleoDefinitionId);
+>>>>>>> compatible
 
 				if (!pagination) {
 					list = (List<KaleoTaskInstanceToken>)QueryUtil.list(q,
@@ -804,19 +914,33 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Returns the first kaleo task instance token in the ordered set where kaleoDefinitionVersionId = &#63;.
 	 *
 	 * @param kaleoDefinitionVersionId the kaleo definition version ID
+=======
+	 * Returns the first kaleo task instance token in the ordered set where kaleoDefinitionId = &#63;.
+	 *
+	 * @param kaleoDefinitionId the kaleo definition ID
+>>>>>>> compatible
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the first matching kaleo task instance token
 	 * @throws NoSuchTaskInstanceTokenException if a matching kaleo task instance token could not be found
 	 */
 	@Override
+<<<<<<< HEAD
 	public KaleoTaskInstanceToken findByKaleoDefinitionVersionId_First(
 		long kaleoDefinitionVersionId,
 		OrderByComparator<KaleoTaskInstanceToken> orderByComparator)
 		throws NoSuchTaskInstanceTokenException {
 		KaleoTaskInstanceToken kaleoTaskInstanceToken = fetchByKaleoDefinitionVersionId_First(kaleoDefinitionVersionId,
+=======
+	public KaleoTaskInstanceToken findByKaleoDefinitionId_First(
+		long kaleoDefinitionId,
+		OrderByComparator<KaleoTaskInstanceToken> orderByComparator)
+		throws NoSuchTaskInstanceTokenException {
+		KaleoTaskInstanceToken kaleoTaskInstanceToken = fetchByKaleoDefinitionId_First(kaleoDefinitionId,
+>>>>>>> compatible
 				orderByComparator);
 
 		if (kaleoTaskInstanceToken != null) {
@@ -827,26 +951,46 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 
 		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
 
+<<<<<<< HEAD
 		msg.append("kaleoDefinitionVersionId=");
 		msg.append(kaleoDefinitionVersionId);
 
 		msg.append("}");
+=======
+		msg.append("kaleoDefinitionId=");
+		msg.append(kaleoDefinitionId);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchTaskInstanceTokenException(msg.toString());
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Returns the first kaleo task instance token in the ordered set where kaleoDefinitionVersionId = &#63;.
 	 *
 	 * @param kaleoDefinitionVersionId the kaleo definition version ID
+=======
+	 * Returns the first kaleo task instance token in the ordered set where kaleoDefinitionId = &#63;.
+	 *
+	 * @param kaleoDefinitionId the kaleo definition ID
+>>>>>>> compatible
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the first matching kaleo task instance token, or <code>null</code> if a matching kaleo task instance token could not be found
 	 */
 	@Override
+<<<<<<< HEAD
 	public KaleoTaskInstanceToken fetchByKaleoDefinitionVersionId_First(
 		long kaleoDefinitionVersionId,
 		OrderByComparator<KaleoTaskInstanceToken> orderByComparator) {
 		List<KaleoTaskInstanceToken> list = findByKaleoDefinitionVersionId(kaleoDefinitionVersionId,
+=======
+	public KaleoTaskInstanceToken fetchByKaleoDefinitionId_First(
+		long kaleoDefinitionId,
+		OrderByComparator<KaleoTaskInstanceToken> orderByComparator) {
+		List<KaleoTaskInstanceToken> list = findByKaleoDefinitionId(kaleoDefinitionId,
+>>>>>>> compatible
 				0, 1, orderByComparator);
 
 		if (!list.isEmpty()) {
@@ -857,19 +1001,33 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Returns the last kaleo task instance token in the ordered set where kaleoDefinitionVersionId = &#63;.
 	 *
 	 * @param kaleoDefinitionVersionId the kaleo definition version ID
+=======
+	 * Returns the last kaleo task instance token in the ordered set where kaleoDefinitionId = &#63;.
+	 *
+	 * @param kaleoDefinitionId the kaleo definition ID
+>>>>>>> compatible
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the last matching kaleo task instance token
 	 * @throws NoSuchTaskInstanceTokenException if a matching kaleo task instance token could not be found
 	 */
 	@Override
+<<<<<<< HEAD
 	public KaleoTaskInstanceToken findByKaleoDefinitionVersionId_Last(
 		long kaleoDefinitionVersionId,
 		OrderByComparator<KaleoTaskInstanceToken> orderByComparator)
 		throws NoSuchTaskInstanceTokenException {
 		KaleoTaskInstanceToken kaleoTaskInstanceToken = fetchByKaleoDefinitionVersionId_Last(kaleoDefinitionVersionId,
+=======
+	public KaleoTaskInstanceToken findByKaleoDefinitionId_Last(
+		long kaleoDefinitionId,
+		OrderByComparator<KaleoTaskInstanceToken> orderByComparator)
+		throws NoSuchTaskInstanceTokenException {
+		KaleoTaskInstanceToken kaleoTaskInstanceToken = fetchByKaleoDefinitionId_Last(kaleoDefinitionId,
+>>>>>>> compatible
 				orderByComparator);
 
 		if (kaleoTaskInstanceToken != null) {
@@ -880,32 +1038,56 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 
 		msg.append(_NO_SUCH_ENTITY_WITH_KEY);
 
+<<<<<<< HEAD
 		msg.append("kaleoDefinitionVersionId=");
 		msg.append(kaleoDefinitionVersionId);
 
 		msg.append("}");
+=======
+		msg.append("kaleoDefinitionId=");
+		msg.append(kaleoDefinitionId);
+
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchTaskInstanceTokenException(msg.toString());
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Returns the last kaleo task instance token in the ordered set where kaleoDefinitionVersionId = &#63;.
 	 *
 	 * @param kaleoDefinitionVersionId the kaleo definition version ID
+=======
+	 * Returns the last kaleo task instance token in the ordered set where kaleoDefinitionId = &#63;.
+	 *
+	 * @param kaleoDefinitionId the kaleo definition ID
+>>>>>>> compatible
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the last matching kaleo task instance token, or <code>null</code> if a matching kaleo task instance token could not be found
 	 */
 	@Override
+<<<<<<< HEAD
 	public KaleoTaskInstanceToken fetchByKaleoDefinitionVersionId_Last(
 		long kaleoDefinitionVersionId,
 		OrderByComparator<KaleoTaskInstanceToken> orderByComparator) {
 		int count = countByKaleoDefinitionVersionId(kaleoDefinitionVersionId);
+=======
+	public KaleoTaskInstanceToken fetchByKaleoDefinitionId_Last(
+		long kaleoDefinitionId,
+		OrderByComparator<KaleoTaskInstanceToken> orderByComparator) {
+		int count = countByKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 
 		if (count == 0) {
 			return null;
 		}
 
+<<<<<<< HEAD
 		List<KaleoTaskInstanceToken> list = findByKaleoDefinitionVersionId(kaleoDefinitionVersionId,
+=======
+		List<KaleoTaskInstanceToken> list = findByKaleoDefinitionId(kaleoDefinitionId,
+>>>>>>> compatible
 				count - 1, count, orderByComparator);
 
 		if (!list.isEmpty()) {
@@ -916,17 +1098,29 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Returns the kaleo task instance tokens before and after the current kaleo task instance token in the ordered set where kaleoDefinitionVersionId = &#63;.
 	 *
 	 * @param kaleoTaskInstanceTokenId the primary key of the current kaleo task instance token
 	 * @param kaleoDefinitionVersionId the kaleo definition version ID
+=======
+	 * Returns the kaleo task instance tokens before and after the current kaleo task instance token in the ordered set where kaleoDefinitionId = &#63;.
+	 *
+	 * @param kaleoTaskInstanceTokenId the primary key of the current kaleo task instance token
+	 * @param kaleoDefinitionId the kaleo definition ID
+>>>>>>> compatible
 	 * @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	 * @return the previous, current, and next kaleo task instance token
 	 * @throws NoSuchTaskInstanceTokenException if a kaleo task instance token with the primary key could not be found
 	 */
 	@Override
+<<<<<<< HEAD
 	public KaleoTaskInstanceToken[] findByKaleoDefinitionVersionId_PrevAndNext(
 		long kaleoTaskInstanceTokenId, long kaleoDefinitionVersionId,
+=======
+	public KaleoTaskInstanceToken[] findByKaleoDefinitionId_PrevAndNext(
+		long kaleoTaskInstanceTokenId, long kaleoDefinitionId,
+>>>>>>> compatible
 		OrderByComparator<KaleoTaskInstanceToken> orderByComparator)
 		throws NoSuchTaskInstanceTokenException {
 		KaleoTaskInstanceToken kaleoTaskInstanceToken = findByPrimaryKey(kaleoTaskInstanceTokenId);
@@ -938,14 +1132,24 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 
 			KaleoTaskInstanceToken[] array = new KaleoTaskInstanceTokenImpl[3];
 
+<<<<<<< HEAD
 			array[0] = getByKaleoDefinitionVersionId_PrevAndNext(session,
 					kaleoTaskInstanceToken, kaleoDefinitionVersionId,
+=======
+			array[0] = getByKaleoDefinitionId_PrevAndNext(session,
+					kaleoTaskInstanceToken, kaleoDefinitionId,
+>>>>>>> compatible
 					orderByComparator, true);
 
 			array[1] = kaleoTaskInstanceToken;
 
+<<<<<<< HEAD
 			array[2] = getByKaleoDefinitionVersionId_PrevAndNext(session,
 					kaleoTaskInstanceToken, kaleoDefinitionVersionId,
+=======
+			array[2] = getByKaleoDefinitionId_PrevAndNext(session,
+					kaleoTaskInstanceToken, kaleoDefinitionId,
+>>>>>>> compatible
 					orderByComparator, false);
 
 			return array;
@@ -958,9 +1162,15 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 		}
 	}
 
+<<<<<<< HEAD
 	protected KaleoTaskInstanceToken getByKaleoDefinitionVersionId_PrevAndNext(
 		Session session, KaleoTaskInstanceToken kaleoTaskInstanceToken,
 		long kaleoDefinitionVersionId,
+=======
+	protected KaleoTaskInstanceToken getByKaleoDefinitionId_PrevAndNext(
+		Session session, KaleoTaskInstanceToken kaleoTaskInstanceToken,
+		long kaleoDefinitionId,
+>>>>>>> compatible
 		OrderByComparator<KaleoTaskInstanceToken> orderByComparator,
 		boolean previous) {
 		StringBundler query = null;
@@ -976,7 +1186,11 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 
 		query.append(_SQL_SELECT_KALEOTASKINSTANCETOKEN_WHERE);
 
+<<<<<<< HEAD
 		query.append(_FINDER_COLUMN_KALEODEFINITIONVERSIONID_KALEODEFINITIONVERSIONID_2);
+=======
+		query.append(_FINDER_COLUMN_KALEODEFINITIONID_KALEODEFINITIONID_2);
+>>>>>>> compatible
 
 		if (orderByComparator != null) {
 			String[] orderByConditionFields = orderByComparator.getOrderByConditionFields();
@@ -1046,7 +1260,11 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 
 		QueryPos qPos = QueryPos.getInstance(q);
 
+<<<<<<< HEAD
 		qPos.add(kaleoDefinitionVersionId);
+=======
+		qPos.add(kaleoDefinitionId);
+>>>>>>> compatible
 
 		if (orderByComparator != null) {
 			Object[] values = orderByComparator.getOrderByConditionValues(kaleoTaskInstanceToken);
@@ -1067,6 +1285,7 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Removes all the kaleo task instance tokens where kaleoDefinitionVersionId = &#63; from the database.
 	 *
 	 * @param kaleoDefinitionVersionId the kaleo definition version ID
@@ -1076,11 +1295,22 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 		for (KaleoTaskInstanceToken kaleoTaskInstanceToken : findByKaleoDefinitionVersionId(
 				kaleoDefinitionVersionId, QueryUtil.ALL_POS, QueryUtil.ALL_POS,
 				null)) {
+=======
+	 * Removes all the kaleo task instance tokens where kaleoDefinitionId = &#63; from the database.
+	 *
+	 * @param kaleoDefinitionId the kaleo definition ID
+	 */
+	@Override
+	public void removeByKaleoDefinitionId(long kaleoDefinitionId) {
+		for (KaleoTaskInstanceToken kaleoTaskInstanceToken : findByKaleoDefinitionId(
+				kaleoDefinitionId, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null)) {
+>>>>>>> compatible
 			remove(kaleoTaskInstanceToken);
 		}
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Returns the number of kaleo task instance tokens where kaleoDefinitionVersionId = &#63;.
 	 *
 	 * @param kaleoDefinitionVersionId the kaleo definition version ID
@@ -1091,6 +1321,18 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 		FinderPath finderPath = FINDER_PATH_COUNT_BY_KALEODEFINITIONVERSIONID;
 
 		Object[] finderArgs = new Object[] { kaleoDefinitionVersionId };
+=======
+	 * Returns the number of kaleo task instance tokens where kaleoDefinitionId = &#63;.
+	 *
+	 * @param kaleoDefinitionId the kaleo definition ID
+	 * @return the number of matching kaleo task instance tokens
+	 */
+	@Override
+	public int countByKaleoDefinitionId(long kaleoDefinitionId) {
+		FinderPath finderPath = FINDER_PATH_COUNT_BY_KALEODEFINITIONID;
+
+		Object[] finderArgs = new Object[] { kaleoDefinitionId };
+>>>>>>> compatible
 
 		Long count = (Long)finderCache.getResult(finderPath, finderArgs, this);
 
@@ -1099,7 +1341,11 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 
 			query.append(_SQL_COUNT_KALEOTASKINSTANCETOKEN_WHERE);
 
+<<<<<<< HEAD
 			query.append(_FINDER_COLUMN_KALEODEFINITIONVERSIONID_KALEODEFINITIONVERSIONID_2);
+=======
+			query.append(_FINDER_COLUMN_KALEODEFINITIONID_KALEODEFINITIONID_2);
+>>>>>>> compatible
 
 			String sql = query.toString();
 
@@ -1112,7 +1358,11 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 
 				QueryPos qPos = QueryPos.getInstance(q);
 
+<<<<<<< HEAD
 				qPos.add(kaleoDefinitionVersionId);
+=======
+				qPos.add(kaleoDefinitionId);
+>>>>>>> compatible
 
 				count = (Long)q.uniqueResult();
 
@@ -1131,8 +1381,13 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 		return count.intValue();
 	}
 
+<<<<<<< HEAD
 	private static final String _FINDER_COLUMN_KALEODEFINITIONVERSIONID_KALEODEFINITIONVERSIONID_2 =
 		"kaleoTaskInstanceToken.kaleoDefinitionVersionId = ?";
+=======
+	private static final String _FINDER_COLUMN_KALEODEFINITIONID_KALEODEFINITIONID_2 =
+		"kaleoTaskInstanceToken.kaleoDefinitionId = ?";
+>>>>>>> compatible
 	public static final FinderPath FINDER_PATH_WITH_PAGINATION_FIND_BY_KALEOINSTANCEID =
 		new FinderPath(KaleoTaskInstanceTokenModelImpl.ENTITY_CACHE_ENABLED,
 			KaleoTaskInstanceTokenModelImpl.FINDER_CACHE_ENABLED,
@@ -1357,7 +1612,11 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 		msg.append("kaleoInstanceId=");
 		msg.append(kaleoInstanceId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchTaskInstanceTokenException(msg.toString());
 	}
@@ -1410,7 +1669,11 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 		msg.append("kaleoInstanceId=");
 		msg.append(kaleoInstanceId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchTaskInstanceTokenException(msg.toString());
 	}
@@ -1696,7 +1959,11 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 			msg.append(", kaleoTaskId=");
 			msg.append(kaleoTaskId);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -2052,7 +2319,11 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 			if (className == null) {
 				query.append(_FINDER_COLUMN_CN_CPK_CLASSNAME_1);
 			}
+<<<<<<< HEAD
 			else if (className.equals("")) {
+=======
+			else if (className.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_CN_CPK_CLASSNAME_3);
 			}
 			else {
@@ -2150,7 +2421,11 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 		msg.append(", classPK=");
 		msg.append(classPK);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchTaskInstanceTokenException(msg.toString());
 	}
@@ -2208,7 +2483,11 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 		msg.append(", classPK=");
 		msg.append(classPK);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchTaskInstanceTokenException(msg.toString());
 	}
@@ -2306,7 +2585,11 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 		if (className == null) {
 			query.append(_FINDER_COLUMN_CN_CPK_CLASSNAME_1);
 		}
+<<<<<<< HEAD
 		else if (className.equals("")) {
+=======
+		else if (className.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_CN_CPK_CLASSNAME_3);
 		}
 		else {
@@ -2448,7 +2731,11 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 			if (className == null) {
 				query.append(_FINDER_COLUMN_CN_CPK_CLASSNAME_1);
 			}
+<<<<<<< HEAD
 			else if (className.equals("")) {
+=======
+			else if (className.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_CN_CPK_CLASSNAME_3);
 			}
 			else {
@@ -2806,12 +3093,21 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 				args);
 
 			args = new Object[] {
+<<<<<<< HEAD
 					kaleoTaskInstanceTokenModelImpl.getKaleoDefinitionVersionId()
 				};
 
 			finderCache.removeResult(FINDER_PATH_COUNT_BY_KALEODEFINITIONVERSIONID,
 				args);
 			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_KALEODEFINITIONVERSIONID,
+=======
+					kaleoTaskInstanceTokenModelImpl.getKaleoDefinitionId()
+				};
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_KALEODEFINITIONID,
+				args);
+			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_KALEODEFINITIONID,
+>>>>>>> compatible
 				args);
 
 			args = new Object[] {
@@ -2857,6 +3153,7 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 			}
 
 			if ((kaleoTaskInstanceTokenModelImpl.getColumnBitmask() &
+<<<<<<< HEAD
 					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_KALEODEFINITIONVERSIONID.getColumnBitmask()) != 0) {
 				Object[] args = new Object[] {
 						kaleoTaskInstanceTokenModelImpl.getOriginalKaleoDefinitionVersionId()
@@ -2874,6 +3171,25 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 				finderCache.removeResult(FINDER_PATH_COUNT_BY_KALEODEFINITIONVERSIONID,
 					args);
 				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_KALEODEFINITIONVERSIONID,
+=======
+					FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_KALEODEFINITIONID.getColumnBitmask()) != 0) {
+				Object[] args = new Object[] {
+						kaleoTaskInstanceTokenModelImpl.getOriginalKaleoDefinitionId()
+					};
+
+				finderCache.removeResult(FINDER_PATH_COUNT_BY_KALEODEFINITIONID,
+					args);
+				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_KALEODEFINITIONID,
+					args);
+
+				args = new Object[] {
+						kaleoTaskInstanceTokenModelImpl.getKaleoDefinitionId()
+					};
+
+				finderCache.removeResult(FINDER_PATH_COUNT_BY_KALEODEFINITIONID,
+					args);
+				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_KALEODEFINITIONID,
+>>>>>>> compatible
 					args);
 			}
 
@@ -2951,7 +3267,11 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 		kaleoTaskInstanceTokenImpl.setUserName(kaleoTaskInstanceToken.getUserName());
 		kaleoTaskInstanceTokenImpl.setCreateDate(kaleoTaskInstanceToken.getCreateDate());
 		kaleoTaskInstanceTokenImpl.setModifiedDate(kaleoTaskInstanceToken.getModifiedDate());
+<<<<<<< HEAD
 		kaleoTaskInstanceTokenImpl.setKaleoDefinitionVersionId(kaleoTaskInstanceToken.getKaleoDefinitionVersionId());
+=======
+		kaleoTaskInstanceTokenImpl.setKaleoDefinitionId(kaleoTaskInstanceToken.getKaleoDefinitionId());
+>>>>>>> compatible
 		kaleoTaskInstanceTokenImpl.setKaleoInstanceId(kaleoTaskInstanceToken.getKaleoInstanceId());
 		kaleoTaskInstanceTokenImpl.setKaleoInstanceTokenId(kaleoTaskInstanceToken.getKaleoInstanceTokenId());
 		kaleoTaskInstanceTokenImpl.setKaleoTaskId(kaleoTaskInstanceToken.getKaleoTaskId());
@@ -3119,12 +3439,20 @@ public class KaleoTaskInstanceTokenPersistenceImpl extends BasePersistenceImpl<K
 		for (Serializable primaryKey : uncachedPrimaryKeys) {
 			query.append((long)primaryKey);
 
+<<<<<<< HEAD
 			query.append(",");
+=======
+			query.append(StringPool.COMMA);
+>>>>>>> compatible
 		}
 
 		query.setIndex(query.index() - 1);
 
+<<<<<<< HEAD
 		query.append(")");
+=======
+		query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 		String sql = query.toString();
 

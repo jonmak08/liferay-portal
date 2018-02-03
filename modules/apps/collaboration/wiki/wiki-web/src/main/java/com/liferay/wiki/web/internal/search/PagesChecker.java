@@ -14,7 +14,10 @@
 
 package com.liferay.wiki.web.internal.search;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.search.EmptyOnClickRowChecker;
 import com.liferay.portal.kernel.dao.search.RowChecker;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -27,10 +30,18 @@ import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.wiki.model.WikiPage;
 import com.liferay.wiki.service.WikiPageLocalServiceUtil;
 import com.liferay.wiki.web.internal.security.permission.resource.WikiPagePermission;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.wiki.model.WikiPage;
+import com.liferay.wiki.service.WikiPageLocalServiceUtil;
+import com.liferay.wiki.service.permission.WikiPagePermissionChecker;
+>>>>>>> compatible
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -90,6 +101,7 @@ public class PagesChecker extends EmptyOnClickRowChecker {
 		String name = WikiPage.class.getSimpleName();
 		boolean showInput = false;
 
+<<<<<<< HEAD
 		try {
 			if (WikiPagePermission.contains(
 					_permissionChecker, page, ActionKeys.DELETE)) {
@@ -101,6 +113,12 @@ public class PagesChecker extends EmptyOnClickRowChecker {
 			if (_log.isWarnEnabled()) {
 				_log.warn(pe, pe);
 			}
+=======
+		if (WikiPagePermissionChecker.contains(
+				_permissionChecker, page, ActionKeys.DELETE)) {
+
+			showInput = true;
+>>>>>>> compatible
 		}
 
 		if (!showInput) {
@@ -119,9 +137,14 @@ public class PagesChecker extends EmptyOnClickRowChecker {
 
 		return getRowCheckBox(
 			request, checked, disabled,
+<<<<<<< HEAD
 			StringBundler.concat(
 				_liferayPortletResponse.getNamespace(), RowChecker.ROW_IDS,
 				name, ""),
+=======
+			_liferayPortletResponse.getNamespace() + RowChecker.ROW_IDS + name +
+				"",
+>>>>>>> compatible
 			page.getTitle(), checkBoxRowIds, "'#" + getAllRowIds() + "'",
 			StringPool.BLANK);
 	}

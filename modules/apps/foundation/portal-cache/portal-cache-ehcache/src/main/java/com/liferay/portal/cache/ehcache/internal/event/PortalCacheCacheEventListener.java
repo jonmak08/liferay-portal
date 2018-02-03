@@ -14,6 +14,7 @@
 
 package com.liferay.portal.cache.ehcache.internal.event;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.cache.AggregatedPortalCacheListener;
 import com.liferay.portal.cache.ehcache.internal.SerializableEhcachePortalCache;
@@ -23,6 +24,16 @@ import com.liferay.portal.kernel.cache.PortalCacheListener;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.cache.AggregatedPortalCacheListener;
+import com.liferay.portal.cache.ehcache.internal.SerializableEhcachePortalCache;
+import com.liferay.portal.kernel.cache.PortalCache;
+import com.liferay.portal.kernel.cache.PortalCacheListener;
+import com.liferay.portal.kernel.io.SerializableObjectWrapper;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Serializable;
 
@@ -85,9 +96,13 @@ public class PortalCacheCacheEventListener<K extends Serializable, V>
 	public void notifyElementEvicted(Ehcache ehcache, Element element) {
 		if (_log.isDebugEnabled()) {
 			_log.debug(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Evicted ", String.valueOf(getKey(element)), " from ",
 					ehcache.getName()));
+=======
+				"Evicted " + getKey(element) + " from " + ehcache.getName());
+>>>>>>> compatible
 		}
 
 		if (_aggregatedPortalCacheListener.isEmpty()) {
@@ -106,9 +121,13 @@ public class PortalCacheCacheEventListener<K extends Serializable, V>
 	public void notifyElementExpired(Ehcache ehcache, Element element) {
 		if (_log.isDebugEnabled()) {
 			_log.debug(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Expired ", String.valueOf(getKey(element)), " from ",
 					ehcache.getName()));
+=======
+				"Expired " + getKey(element) + " from " + ehcache.getName());
+>>>>>>> compatible
 		}
 
 		if (_aggregatedPortalCacheListener.isEmpty()) {
@@ -128,10 +147,14 @@ public class PortalCacheCacheEventListener<K extends Serializable, V>
 		throws CacheException {
 
 		if (_log.isDebugEnabled()) {
+<<<<<<< HEAD
 			_log.debug(
 				StringBundler.concat(
 					"Put ", String.valueOf(getKey(element)), " into ",
 					ehcache.getName()));
+=======
+			_log.debug("Put " + getKey(element) + " into " + ehcache.getName());
+>>>>>>> compatible
 		}
 
 		if (_aggregatedPortalCacheListener.isEmpty()) {
@@ -152,9 +175,13 @@ public class PortalCacheCacheEventListener<K extends Serializable, V>
 
 		if (_log.isDebugEnabled()) {
 			_log.debug(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Removed ", String.valueOf(getKey(element)), " from ",
 					ehcache.getName()));
+=======
+				"Removed " + getKey(element) + " from " + ehcache.getName());
+>>>>>>> compatible
 		}
 
 		if (_aggregatedPortalCacheListener.isEmpty()) {
@@ -175,9 +202,13 @@ public class PortalCacheCacheEventListener<K extends Serializable, V>
 
 		if (_log.isDebugEnabled()) {
 			_log.debug(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Updated ", String.valueOf(getKey(element)), " in ",
 					ehcache.getName()));
+=======
+				"Updated " + getKey(element) + " in " + ehcache.getName());
+>>>>>>> compatible
 		}
 
 		if (_aggregatedPortalCacheListener.isEmpty()) {

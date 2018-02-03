@@ -21,7 +21,10 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.registry.Registry;
 import com.liferay.registry.RegistryUtil;
 import com.liferay.registry.ServiceReference;
@@ -122,8 +125,12 @@ public class AssetRendererFactoryRegistryUtil {
 		ServiceRegistration<AssetRendererFactory<?>> serviceRegistration =
 			registry.registerService(
 				(Class<AssetRendererFactory<?>>)(Class<?>)
+<<<<<<< HEAD
 					AssetRendererFactory.class,
 				assetRendererFactory);
+=======
+					AssetRendererFactory.class, assetRendererFactory);
+>>>>>>> compatible
 
 		_serviceRegistrations.put(assetRendererFactory, serviceRegistration);
 	}
@@ -223,11 +230,17 @@ public class AssetRendererFactoryRegistryUtil {
 				(classNameAssetRendererFactory != null)) {
 
 				_log.warn(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Replacing ",
 						String.valueOf(classNameAssetRendererFactory),
 						" for class name ", className, " with ",
 						String.valueOf(assetRendererFactory)));
+=======
+					"Replacing " + classNameAssetRendererFactory +
+						" for class name " + className + " with " +
+							assetRendererFactory);
+>>>>>>> compatible
 			}
 
 			String type = assetRendererFactory.getType();
@@ -238,10 +251,15 @@ public class AssetRendererFactoryRegistryUtil {
 
 			if (_log.isWarnEnabled() && (typeAssetRendererFactory != null)) {
 				_log.warn(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Replacing ", String.valueOf(typeAssetRendererFactory),
 						" for type ", type, " with ",
 						String.valueOf(assetRendererFactory)));
+=======
+					"Replacing " + typeAssetRendererFactory + " for type " +
+						type + " with " + assetRendererFactory);
+>>>>>>> compatible
 			}
 
 			return assetRendererFactory;

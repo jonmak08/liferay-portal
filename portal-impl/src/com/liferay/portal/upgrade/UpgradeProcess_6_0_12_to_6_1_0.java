@@ -16,7 +16,10 @@ package com.liferay.portal.upgrade;
 
 import com.liferay.portal.kernel.util.ReleaseInfo;
 import com.liferay.portal.upgrade.v6_0_12_to_6_1_0.UpgradeAsset;
+<<<<<<< HEAD
 import com.liferay.portal.upgrade.v6_0_12_to_6_1_0.UpgradeBreadcrumb;
+=======
+>>>>>>> compatible
 import com.liferay.portal.upgrade.v6_0_12_to_6_1_0.UpgradeCompanyId;
 import com.liferay.portal.upgrade.v6_0_12_to_6_1_0.UpgradeDocumentLibrary;
 import com.liferay.portal.upgrade.v6_0_12_to_6_1_0.UpgradeDynamicDataMapping;

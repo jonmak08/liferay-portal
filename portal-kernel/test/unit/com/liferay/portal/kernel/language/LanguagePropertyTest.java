@@ -15,7 +15,10 @@
 package com.liferay.portal.kernel.language;
 
 import com.liferay.portal.kernel.util.ArrayUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 
 import java.io.FileInputStream;
@@ -76,6 +79,7 @@ public class LanguagePropertyTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testSpecialKeyUserDefaultPortrait() {
 		_testSpecialKey(LanguageConstants.KEY_USER_DEFAULT_PORTRAIT);
 	}
@@ -86,6 +90,8 @@ public class LanguagePropertyTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testSpecialKeyUserNameFieldNames() {
 		_testSpecialKey(LanguageConstants.KEY_USER_NAME_FIELD_NAMES);
 	}
@@ -164,6 +170,7 @@ public class LanguagePropertyTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testValidKeyUserDefaultPortrait() {
 		_testValidKey(LanguageConstants.KEY_USER_DEFAULT_PORTRAIT);
 	}
@@ -174,6 +181,8 @@ public class LanguagePropertyTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testValidKeyUserNameFieldNames() {
 		_testValidKey(LanguageConstants.KEY_USER_NAME_FIELD_NAMES);
 	}
@@ -266,9 +275,13 @@ public class LanguagePropertyTest {
 
 		if (!invalidFileNames.isEmpty()) {
 			Assert.fail(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Special key \"", key, "\" is found in: ",
 					String.valueOf(invalidFileNames)));
+=======
+				"Special key \"" + key + "\" is found in: " + invalidFileNames);
+>>>>>>> compatible
 		}
 	}
 
@@ -289,9 +302,14 @@ public class LanguagePropertyTest {
 
 		if (!invalidFileNames.isEmpty()) {
 			Assert.fail(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Invalid values for key \"", key, "\" are found in: ",
 					String.valueOf(invalidFileNames)));
+=======
+				"Invalid values for key \"" + key + "\" are found in: " +
+					invalidFileNames);
+>>>>>>> compatible
 		}
 	}
 

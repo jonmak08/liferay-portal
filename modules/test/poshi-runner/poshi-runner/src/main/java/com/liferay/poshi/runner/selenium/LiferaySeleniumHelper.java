@@ -21,6 +21,10 @@ import com.liferay.poshi.runner.util.FileUtil;
 import com.liferay.poshi.runner.util.GetterUtil;
 import com.liferay.poshi.runner.util.OSDetector;
 import com.liferay.poshi.runner.util.PropsValues;
+<<<<<<< HEAD
+=======
+import com.liferay.poshi.runner.util.StringUtil;
+>>>>>>> compatible
 import com.liferay.poshi.runner.util.Validator;
 
 import java.awt.Rectangle;
@@ -255,7 +259,13 @@ public class LiferaySeleniumHelper {
 			sb.append("##\n");
 			sb.append("\n");
 
+<<<<<<< HEAD
 			for (Exception exception : _javaScriptExceptions) {
+=======
+			for (int i = 0; i < _javaScriptExceptions.size(); i++) {
+				Exception exception = _javaScriptExceptions.get(i);
+
+>>>>>>> compatible
 				sb.append(exception.getMessage());
 
 				sb.append("\n");
@@ -284,7 +294,13 @@ public class LiferaySeleniumHelper {
 			sb.append("##\n");
 			sb.append("\n");
 
+<<<<<<< HEAD
 			for (Exception exception : _liferayExceptions) {
+=======
+			for (int i = 0; i < _liferayExceptions.size(); i++) {
+				Exception exception = _liferayExceptions.get(i);
+
+>>>>>>> compatible
 				sb.append(exception.getMessage());
 
 				sb.append("\n");
@@ -359,11 +375,19 @@ public class LiferaySeleniumHelper {
 	}
 
 	public static String getNumberDecrement(String value) {
+<<<<<<< HEAD
 		return String.valueOf(GetterUtil.getInteger(value) - 1);
 	}
 
 	public static String getNumberIncrement(String value) {
 		return String.valueOf(GetterUtil.getInteger(value) + 1);
+=======
+		return StringUtil.valueOf(GetterUtil.getInteger(value) - 1);
+	}
+
+	public static String getNumberIncrement(String value) {
+		return StringUtil.valueOf(GetterUtil.getInteger(value) + 1);
+>>>>>>> compatible
 	}
 
 	public static String getSourceDirFilePath(String fileName)
@@ -413,10 +437,13 @@ public class LiferaySeleniumHelper {
 	}
 
 	public static String getTestConsoleLogFileContent() throws Exception {
+<<<<<<< HEAD
 		if (Validator.isNull(PropsValues.TEST_CONSOLE_LOG_FILE_NAME)) {
 			return "";
 		}
 
+=======
+>>>>>>> compatible
 		Map<String, File> consoleLogFiles = new TreeMap<>();
 
 		String baseDirName = PropsValues.TEST_CONSOLE_LOG_FILE_NAME;
@@ -650,7 +677,13 @@ public class LiferaySeleniumHelper {
 		StringBuilder sb = new StringBuilder();
 
 		if (!_javaScriptExceptions.isEmpty()) {
+<<<<<<< HEAD
 			for (Exception exception : _javaScriptExceptions) {
+=======
+			for (int i = 0; i < _javaScriptExceptions.size(); i++) {
+				Exception exception = _javaScriptExceptions.get(i);
+
+>>>>>>> compatible
 				sb.append("<value><![CDATA[");
 				sb.append(exception.getMessage());
 				sb.append("]]></value>\n");
@@ -658,7 +691,13 @@ public class LiferaySeleniumHelper {
 		}
 
 		if (!_liferayExceptions.isEmpty()) {
+<<<<<<< HEAD
 			for (Exception exception : _liferayExceptions) {
+=======
+			for (int i = 0; i < _liferayExceptions.size(); i++) {
+				Exception exception = _liferayExceptions.get(i);
+
+>>>>>>> compatible
 				sb.append("<value><![CDATA[");
 				sb.append(exception.getMessage());
 				sb.append("]]></value>\n");

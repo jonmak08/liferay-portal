@@ -13,6 +13,7 @@
 
 		<execute macro="User#firstLoginPG" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -20,6 +21,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Friends Directory Page" />
 		</execute>
 
@@ -43,9 +47,15 @@
 			<else>
 				<execute macro="User#tearDownCP" />
 
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP" />
 
 				<execute macro="Page#tearDownCP">
+=======
+				<execute macro="Page#tearDownPG" />
+
+				<execute macro="Page#tearDownPG">
+>>>>>>> compatible
 					<var name="site" value="test" />
 					<var name="siteURL" value="true" />
 				</execute>
@@ -61,9 +71,13 @@
 		<var name="userMiddleName" value="usermn" />
 		<var name="userScreenName" value="usersn" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -75,9 +89,13 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -90,6 +108,7 @@
 
 		<execute macro="ProductMenu#gotoPersonalSite" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -97,6 +116,15 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="ProductMenuHelper#expandPanelSites" />
+
+		<execute macro="ProductMenuHelper#expandCategory">
+			<var name="category" value="Navigation" />
+		</execute>
+
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Friends Request Page" />
 		</execute>
 

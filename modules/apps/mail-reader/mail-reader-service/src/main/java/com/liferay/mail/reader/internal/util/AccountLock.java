@@ -53,7 +53,11 @@ public class AccountLock {
 	}
 
 	public static String getKey(long userId, long accountEntryId) {
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(3);
+=======
+		StringBundler sb = new StringBundler(7);
+>>>>>>> compatible
 
 		sb.append(userId);
 		sb.append(StringPool.UNDERLINE);

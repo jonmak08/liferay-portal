@@ -15,6 +15,7 @@
 package com.liferay.knowledge.base.internal.exportimport.content.processor;
 
 import com.liferay.exportimport.content.processor.ExportImportContentProcessor;
+<<<<<<< HEAD
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.StagedModel;
@@ -28,6 +29,14 @@ import org.osgi.service.component.annotations.Reference;
  * @author Adolfo Pérez
  * @author Daniel Kocsis
  * @author Gergely Mathe
+=======
+import com.liferay.exportimport.content.processor.base.BaseTextExportImportContentProcessor;
+
+import org.osgi.service.component.annotations.Component;
+
+/**
+ * @author Adolfo Pérez
+>>>>>>> compatible
  */
 @Component(
 	property = {"model.class.name=com.liferay.knowledge.base.model.KBArticle"},
@@ -37,6 +46,7 @@ import org.osgi.service.component.annotations.Reference;
 	}
 )
 public class KBArticleExportImportContentProcessor
+<<<<<<< HEAD
 	implements ExportImportContentProcessor<String> {
 
 	@Override
@@ -103,4 +113,7 @@ public class KBArticleExportImportContentProcessor
 	private ExportImportContentProcessor<String>
 		_layoutReferencesExportImportContentProcessor;
 
+=======
+	extends BaseTextExportImportContentProcessor {
+>>>>>>> compatible
 }

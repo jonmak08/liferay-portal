@@ -36,7 +36,11 @@ public class MembersActivitiesConfigurationAction
 
 	@Override
 	public String getJspPath(HttpServletRequest request) {
+<<<<<<< HEAD
 		return "/members_activities/configuration.jsp";
+=======
+		return "/configuration.jsp";
+>>>>>>> compatible
 	}
 
 	@Override

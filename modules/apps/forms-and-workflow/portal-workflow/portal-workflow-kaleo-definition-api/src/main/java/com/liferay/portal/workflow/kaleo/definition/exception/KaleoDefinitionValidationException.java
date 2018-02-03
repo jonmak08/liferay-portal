@@ -36,6 +36,7 @@ public class KaleoDefinitionValidationException extends WorkflowException {
 		super(cause);
 	}
 
+<<<<<<< HEAD
 	public static class EmptyNotificationTemplate
 		extends KaleoDefinitionValidationException {
 
@@ -55,6 +56,8 @@ public class KaleoDefinitionValidationException extends WorkflowException {
 
 	}
 
+=======
+>>>>>>> compatible
 	public static class MultipleInitialStateNodes
 		extends KaleoDefinitionValidationException {
 

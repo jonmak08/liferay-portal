@@ -1,5 +1,6 @@
 {
 	"dependencies": {
+<<<<<<< HEAD
 		"clay": "2.0.0-alpha.7",
 		"liferay-amd-loader": "2.3.0",
 		"metal-modal": "^2.0.5",
@@ -11,12 +12,24 @@
 		"eslint-config-liferay": "^2.0.7",
 		"jest": "^20.0.4",
 		"liferay-jest-junit-reporter": "0.0.3",
+=======
+		"liferay-amd-loader": "2.1.0",
+		"svg4everybody": "^2.1.8"
+	},
+	"devDependencies": {
+		"gulp": "^3.9.1",
+		"gulp-metal": "^1.9.8",
+		"karma": "^1.3.0",
+		"karma-html2js-preprocessor": "^1.1.0",
+		"liferay-karma-config": "0.0.4",
+>>>>>>> compatible
 		"liferay-module-config-generator": "^1.2.1",
 		"metal": "^2.5.12",
 		"metal-cli": "^4.0.1",
 		"metal-component": "^2.5.13",
 		"metal-dom": "^2.5.13",
 		"metal-events": "^2.5.16",
+<<<<<<< HEAD
 		"prettier-eslint-cli": "4.4.0"
 	},
 	"jest": {
@@ -41,3 +54,13 @@
 	},
 	"version": "1.0.69"
 }
+=======
+		"metal-karma-config": "^2.1.1"
+	},
+	"name": "frontend-js-web",
+	"scripts": {
+		"test": "gulp test"
+	},
+	"version": "1.0.61"
+}
+>>>>>>> compatible

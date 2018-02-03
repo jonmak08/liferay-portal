@@ -56,7 +56,25 @@ public class LayoutSetPrototypeLayoutModelListener
 
 		Group group = layout.getGroup();
 
+<<<<<<< HEAD
 		if ((group == null) || !group.isLayoutSetPrototype()) {
+=======
+		try {
+			group = layout.getGroup();
+
+			if (!group.isLayoutSetPrototype()) {
+				return;
+			}
+		}
+		catch (PortalException pe) {
+
+			// LPS-52675
+
+			if (_log.isDebugEnabled()) {
+				_log.debug(pe, pe);
+			}
+
+>>>>>>> compatible
 			return;
 		}
 

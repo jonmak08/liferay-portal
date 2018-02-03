@@ -14,7 +14,11 @@
 
 package com.liferay.blogs.recent.bloggers.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.blogs.recent.bloggers.constants.RecentBloggersPortletKeys;
+=======
+import com.liferay.blogs.recent.bloggers.web.constants.RecentBloggersPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCRenderCommand;
 
 import javax.portlet.RenderRequest;

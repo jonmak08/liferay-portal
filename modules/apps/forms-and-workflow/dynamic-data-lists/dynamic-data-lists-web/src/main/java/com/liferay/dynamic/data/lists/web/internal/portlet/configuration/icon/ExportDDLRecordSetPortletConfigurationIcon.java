@@ -15,7 +15,11 @@
 package com.liferay.dynamic.data.lists.web.internal.portlet.configuration.icon;
 
 import com.liferay.dynamic.data.lists.constants.DDLPortletKeys;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.lists.web.internal.security.permission.resource.DDLRecordSetPermission;
+=======
+import com.liferay.dynamic.data.lists.service.permission.DDLRecordSetPermission;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.log.Log;

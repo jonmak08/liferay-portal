@@ -20,10 +20,26 @@
 SiteTeamsDisplayContext siteTeamsDisplayContext = new SiteTeamsDisplayContext(renderRequest, renderResponse, request);
 %>
 
+<<<<<<< HEAD
 <clay:navigation-bar
 	inverted="<%= true %>"
 	items="<%= siteTeamsDisplayContext.getNavigationItems() %>"
 />
+=======
+<aui:nav-bar cssClass="collapse-basic-search" markupView="lexicon">
+	<aui:nav cssClass="navbar-nav">
+		<aui:nav-item href="<%= siteTeamsDisplayContext.getPortletURL().toString() %>" label="teams" selected="<%= true %>" />
+	</aui:nav>
+
+	<c:if test="<%= siteTeamsDisplayContext.isSearchEnabled() %>">
+		<aui:nav-bar-search>
+			<aui:form action="<%= siteTeamsDisplayContext.getPortletURL().toString() %>" name="searchFm">
+				<liferay-ui:input-search autoFocus="<%= windowState.equals(WindowState.MAXIMIZED) %>" markupView="lexicon" />
+			</aui:form>
+		</aui:nav-bar-search>
+	</c:if>
+</aui:nav-bar>
+>>>>>>> compatible
 
 <liferay-frontend:management-bar
 	disabled="<%= siteTeamsDisplayContext.isDisabledManagementBar() %>"
@@ -54,6 +70,7 @@ SiteTeamsDisplayContext siteTeamsDisplayContext = new SiteTeamsDisplayContext(re
 			orderColumns='<%= new String[] {"name"} %>'
 			portletURL="<%= siteTeamsDisplayContext.getPortletURL() %>"
 		/>
+<<<<<<< HEAD
 
 		<c:if test="<%= siteTeamsDisplayContext.isSearchEnabled() %>">
 			<li>
@@ -62,6 +79,8 @@ SiteTeamsDisplayContext siteTeamsDisplayContext = new SiteTeamsDisplayContext(re
 				</aui:form>
 			</li>
 		</c:if>
+=======
+>>>>>>> compatible
 	</liferay-frontend:management-bar-filters>
 
 	<liferay-frontend:management-bar-action-buttons>

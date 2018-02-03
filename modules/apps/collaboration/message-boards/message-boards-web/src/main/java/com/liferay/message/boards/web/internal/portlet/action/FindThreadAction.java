@@ -14,7 +14,11 @@
 
 package com.liferay.message.boards.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.message.boards.constants.MBPortletKeys;
+=======
+import com.liferay.message.boards.web.constants.MBPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.struts.BaseStrutsAction;
 import com.liferay.portal.kernel.struts.StrutsAction;
 import com.liferay.portal.struts.FindActionHelper;

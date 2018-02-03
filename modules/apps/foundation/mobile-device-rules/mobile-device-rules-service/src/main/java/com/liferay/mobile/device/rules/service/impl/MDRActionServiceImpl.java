@@ -15,12 +15,19 @@
 package com.liferay.mobile.device.rules.service.impl;
 
 import com.liferay.mobile.device.rules.model.MDRAction;
+<<<<<<< HEAD
 import com.liferay.mobile.device.rules.model.MDRRuleGroupInstance;
 import com.liferay.mobile.device.rules.service.base.MDRActionServiceBaseImpl;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermission;
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermissionFactory;
+=======
+import com.liferay.mobile.device.rules.service.base.MDRActionServiceBaseImpl;
+import com.liferay.mobile.device.rules.service.permission.MDRRuleGroupInstancePermission;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.security.permission.ActionKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.util.UnicodeProperties;
 
@@ -39,7 +46,11 @@ public class MDRActionServiceImpl extends MDRActionServiceBaseImpl {
 			String typeSettings, ServiceContext serviceContext)
 		throws PortalException {
 
+<<<<<<< HEAD
 		_mdrRuleGroupInstanceModelResourcePermission.check(
+=======
+		MDRRuleGroupInstancePermission.check(
+>>>>>>> compatible
 			getPermissionChecker(), ruleGroupInstanceId, ActionKeys.UPDATE);
 
 		return mdrActionLocalService.addAction(
@@ -55,7 +66,11 @@ public class MDRActionServiceImpl extends MDRActionServiceBaseImpl {
 			ServiceContext serviceContext)
 		throws PortalException {
 
+<<<<<<< HEAD
 		_mdrRuleGroupInstanceModelResourcePermission.check(
+=======
+		MDRRuleGroupInstancePermission.check(
+>>>>>>> compatible
 			getPermissionChecker(), ruleGroupInstanceId, ActionKeys.UPDATE);
 
 		return mdrActionLocalService.addAction(
@@ -67,7 +82,11 @@ public class MDRActionServiceImpl extends MDRActionServiceBaseImpl {
 	public void deleteAction(long actionId) throws PortalException {
 		MDRAction action = mdrActionPersistence.findByPrimaryKey(actionId);
 
+<<<<<<< HEAD
 		_mdrRuleGroupInstanceModelResourcePermission.check(
+=======
+		MDRRuleGroupInstancePermission.check(
+>>>>>>> compatible
 			getPermissionChecker(), action.getRuleGroupInstanceId(),
 			ActionKeys.UPDATE);
 
@@ -79,7 +98,11 @@ public class MDRActionServiceImpl extends MDRActionServiceBaseImpl {
 		MDRAction action = mdrActionLocalService.fetchAction(actionId);
 
 		if (action != null) {
+<<<<<<< HEAD
 			_mdrRuleGroupInstanceModelResourcePermission.check(
+=======
+			MDRRuleGroupInstancePermission.check(
+>>>>>>> compatible
 				getPermissionChecker(), action.getRuleGroupInstanceId(),
 				ActionKeys.VIEW);
 		}
@@ -91,7 +114,11 @@ public class MDRActionServiceImpl extends MDRActionServiceBaseImpl {
 	public MDRAction getAction(long actionId) throws PortalException {
 		MDRAction action = mdrActionPersistence.findByPrimaryKey(actionId);
 
+<<<<<<< HEAD
 		_mdrRuleGroupInstanceModelResourcePermission.check(
+=======
+		MDRRuleGroupInstancePermission.check(
+>>>>>>> compatible
 			getPermissionChecker(), action.getRuleGroupInstanceId(),
 			ActionKeys.VIEW);
 
@@ -107,7 +134,11 @@ public class MDRActionServiceImpl extends MDRActionServiceBaseImpl {
 
 		MDRAction action = mdrActionPersistence.findByPrimaryKey(actionId);
 
+<<<<<<< HEAD
 		_mdrRuleGroupInstanceModelResourcePermission.check(
+=======
+		MDRRuleGroupInstancePermission.check(
+>>>>>>> compatible
 			getPermissionChecker(), action.getRuleGroupInstanceId(),
 			ActionKeys.UPDATE);
 
@@ -126,7 +157,11 @@ public class MDRActionServiceImpl extends MDRActionServiceBaseImpl {
 
 		MDRAction action = mdrActionPersistence.findByPrimaryKey(actionId);
 
+<<<<<<< HEAD
 		_mdrRuleGroupInstanceModelResourcePermission.check(
+=======
+		MDRRuleGroupInstancePermission.check(
+>>>>>>> compatible
 			getPermissionChecker(), action.getRuleGroupInstanceId(),
 			ActionKeys.UPDATE);
 
@@ -135,6 +170,7 @@ public class MDRActionServiceImpl extends MDRActionServiceBaseImpl {
 			serviceContext);
 	}
 
+<<<<<<< HEAD
 	private static volatile ModelResourcePermission<MDRRuleGroupInstance>
 		_mdrRuleGroupInstanceModelResourcePermission =
 			ModelResourcePermissionFactory.getInstance(
@@ -142,4 +178,6 @@ public class MDRActionServiceImpl extends MDRActionServiceBaseImpl {
 				"_mdrRuleGroupInstanceModelResourcePermission",
 				MDRRuleGroupInstance.class);
 
+=======
+>>>>>>> compatible
 }

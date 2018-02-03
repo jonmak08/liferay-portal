@@ -17,10 +17,17 @@
 <%@ include file="/init.jsp" %>
 
 <%
+<<<<<<< HEAD
 BaseWikiEngine baseWikiEngine = BaseWikiEngine.getBaseWikiEngine(request);
 
 WikiNode node = BaseWikiEngine.getWikiNode(request);
 WikiPage wikiPage = BaseWikiEngine.getWikiPage(request);
+=======
+BaseInputEditorWikiEngine baseInputEditorWikiEngine = BaseInputEditorWikiEngine.getBaseInputEditorWikiEngine(request);
+
+WikiNode node = BaseInputEditorWikiEngine.getWikiNode(request);
+WikiPage wikiPage = BaseInputEditorWikiEngine.getWikiPage(request);
+>>>>>>> compatible
 
 String content = BeanParamUtil.getString(wikiPage, request, "content");
 %>
@@ -31,22 +38,38 @@ String content = BeanParamUtil.getString(wikiPage, request, "content");
 	<liferay-ui:input-editor
 		configParams="<%= configParams %>"
 		contents="<%= content %>"
+<<<<<<< HEAD
 		editorName="<%= baseWikiEngine.getEditorName() %>"
 		fileBrowserParams="<%= fileBrowserParams %>"
 		name="contentEditor"
 		toolbarSet="<%= baseWikiEngine.getToolbarSet() %>"
+=======
+		editorName="<%= baseInputEditorWikiEngine.getEditorName() %>"
+		fileBrowserParams="<%= fileBrowserParams %>"
+		name="contentEditor"
+		toolbarSet="<%= baseInputEditorWikiEngine.getToolbarSet() %>"
+>>>>>>> compatible
 	/>
 
 	<aui:input name="content" type="hidden" />
 
+<<<<<<< HEAD
 	<c:if test="<%= baseWikiEngine.isHelpPageDefined() %>">
+=======
+	<c:if test="<%= baseInputEditorWikiEngine.isHelpPageDefined() %>">
+>>>>>>> compatible
 		<div align="right">
 			<a href="javascript:;" id="<%= renderResponse.getNamespace() + "toggle_id_wiki_editor_help" %>"><liferay-ui:message key="show-syntax-help" /> &raquo;</a>
 		</div>
 
 		<%
+<<<<<<< HEAD
 		String helpPageHTML = baseWikiEngine.getHelpPageHTML(pageContext);
 		String helpPageTitle = baseWikiEngine.getHelpPageTitle(request);
+=======
+		String helpPageHTML = baseInputEditorWikiEngine.getHelpPageHTML(pageContext);
+		String helpPageTitle = baseInputEditorWikiEngine.getHelpPageTitle(request);
+>>>>>>> compatible
 		%>
 
 		<aui:script use="liferay-util-window">

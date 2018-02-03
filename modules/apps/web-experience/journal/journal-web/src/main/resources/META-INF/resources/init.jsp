@@ -18,6 +18,7 @@
 
 <%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
 
+<<<<<<< HEAD
 <%@ taglib uri="http://liferay.com/tld/asset" prefix="liferay-asset" %><%@
 taglib uri="http://liferay.com/tld/aui" prefix="aui" %><%@
 taglib uri="http://liferay.com/tld/ddm" prefix="liferay-ddm" %><%@
@@ -26,6 +27,13 @@ taglib uri="http://liferay.com/tld/frontend" prefix="liferay-frontend" %><%@
 taglib uri="http://liferay.com/tld/portlet" prefix="liferay-portlet" %><%@
 taglib uri="http://liferay.com/tld/security" prefix="liferay-security" %><%@
 taglib uri="http://liferay.com/tld/soy" prefix="soy" %><%@
+=======
+<%@ taglib uri="http://liferay.com/tld/aui" prefix="aui" %><%@
+taglib uri="http://liferay.com/tld/ddm" prefix="liferay-ddm" %><%@
+taglib uri="http://liferay.com/tld/frontend" prefix="liferay-frontend" %><%@
+taglib uri="http://liferay.com/tld/portlet" prefix="liferay-portlet" %><%@
+taglib uri="http://liferay.com/tld/security" prefix="liferay-security" %><%@
+>>>>>>> compatible
 taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %><%@
 taglib uri="http://liferay.com/tld/trash" prefix="liferay-trash" %><%@
 taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %><%@
@@ -40,7 +48,10 @@ page import="com.liferay.document.library.kernel.exception.DuplicateFileEntryExc
 page import="com.liferay.document.library.kernel.exception.FileSizeException" %><%@
 page import="com.liferay.document.library.kernel.exception.NoSuchFileEntryException" %><%@
 page import="com.liferay.document.library.kernel.model.DLFileEntry" %><%@
+<<<<<<< HEAD
 page import="com.liferay.document.library.kernel.util.DLValidatorUtil" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.dynamic.data.mapping.exception.NoSuchStructureException" %><%@
 page import="com.liferay.dynamic.data.mapping.exception.NoSuchTemplateException" %><%@
 page import="com.liferay.dynamic.data.mapping.exception.StorageFieldRequiredException" %><%@
@@ -57,12 +68,18 @@ page import="com.liferay.dynamic.data.mapping.service.permission.DDMStructurePer
 page import="com.liferay.dynamic.data.mapping.service.permission.DDMTemplatePermission" %><%@
 page import="com.liferay.dynamic.data.mapping.storage.DDMFormValues" %><%@
 page import="com.liferay.dynamic.data.mapping.util.DDMNavigationHelper" %><%@
+<<<<<<< HEAD
 page import="com.liferay.dynamic.data.mapping.util.comparator.StructureModifiedDateComparator" %><%@
 page import="com.liferay.frontend.taglib.servlet.taglib.util.AddMenuKeys" %><%@
 page import="com.liferay.item.selector.ItemSelector" %><%@
 page import="com.liferay.item.selector.ItemSelectorReturnType" %><%@
 page import="com.liferay.item.selector.criteria.UUIDItemSelectorReturnType" %><%@
 page import="com.liferay.journal.configuration.JournalFileUploadsConfiguration" %><%@
+=======
+page import="com.liferay.item.selector.ItemSelector" %><%@
+page import="com.liferay.item.selector.ItemSelectorReturnType" %><%@
+page import="com.liferay.item.selector.criteria.UUIDItemSelectorReturnType" %><%@
+>>>>>>> compatible
 page import="com.liferay.journal.configuration.JournalGroupServiceConfiguration" %><%@
 page import="com.liferay.journal.constants.JournalConstants" %><%@
 page import="com.liferay.journal.constants.JournalPortletKeys" %><%@
@@ -71,7 +88,10 @@ page import="com.liferay.journal.exception.ArticleContentException" %><%@
 page import="com.liferay.journal.exception.ArticleContentSizeException" %><%@
 page import="com.liferay.journal.exception.ArticleDisplayDateException" %><%@
 page import="com.liferay.journal.exception.ArticleExpirationDateException" %><%@
+<<<<<<< HEAD
 page import="com.liferay.journal.exception.ArticleFriendlyURLException" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.journal.exception.ArticleIdException" %><%@
 page import="com.liferay.journal.exception.ArticleSmallImageNameException" %><%@
 page import="com.liferay.journal.exception.ArticleSmallImageSizeException" %><%@
@@ -87,13 +107,19 @@ page import="com.liferay.journal.exception.FeedTargetLayoutFriendlyUrlException"
 page import="com.liferay.journal.exception.FeedTargetPortletIdException" %><%@
 page import="com.liferay.journal.exception.FolderNameException" %><%@
 page import="com.liferay.journal.exception.InvalidDDMStructureException" %><%@
+<<<<<<< HEAD
 page import="com.liferay.journal.exception.MaxAddMenuFavItemsException" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.journal.exception.NoSuchArticleException" %><%@
 page import="com.liferay.journal.exception.NoSuchFolderException" %><%@
 page import="com.liferay.journal.model.JournalArticle" %><%@
 page import="com.liferay.journal.model.JournalArticleConstants" %><%@
 page import="com.liferay.journal.model.JournalArticleDisplay" %><%@
+<<<<<<< HEAD
 page import="com.liferay.journal.model.JournalArticleLocalization" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.journal.model.JournalFeed" %><%@
 page import="com.liferay.journal.model.JournalFeedConstants" %><%@
 page import="com.liferay.journal.model.JournalFolder" %><%@
@@ -122,7 +148,10 @@ page import="com.liferay.journal.web.internal.search.FeedSearch" %><%@
 page import="com.liferay.journal.web.internal.search.FeedSearchTerms" %><%@
 page import="com.liferay.journal.web.util.JournalPortletUtil" %><%@
 page import="com.liferay.layout.item.selector.criterion.LayoutItemSelectorCriterion" %><%@
+<<<<<<< HEAD
 page import="com.liferay.petra.string.StringPool" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.bean.BeanParamUtil" %><%@
 page import="com.liferay.portal.kernel.dao.orm.QueryUtil" %><%@
 page import="com.liferay.portal.kernel.dao.search.EmptyOnClickRowChecker" %><%@
@@ -151,13 +180,22 @@ page import="com.liferay.portal.kernel.util.Constants" %><%@
 page import="com.liferay.portal.kernel.util.FastDateFormatFactoryUtil" %><%@
 page import="com.liferay.portal.kernel.util.GetterUtil" %><%@
 page import="com.liferay.portal.kernel.util.HtmlUtil" %><%@
+<<<<<<< HEAD
 page import="com.liferay.portal.kernel.util.HttpUtil" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.util.ListUtil" %><%@
 page import="com.liferay.portal.kernel.util.LocaleUtil" %><%@
 page import="com.liferay.portal.kernel.util.LocalizationUtil" %><%@
 page import="com.liferay.portal.kernel.util.OrderByComparator" %><%@
 page import="com.liferay.portal.kernel.util.ParamUtil" %><%@
 page import="com.liferay.portal.kernel.util.PortalUtil" %><%@
+<<<<<<< HEAD
+=======
+page import="com.liferay.portal.kernel.util.PropsKeys" %><%@
+page import="com.liferay.portal.kernel.util.StringBundler" %><%@
+page import="com.liferay.portal.kernel.util.StringPool" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.util.StringUtil" %><%@
 page import="com.liferay.portal.kernel.util.TextFormatter" %><%@
 page import="com.liferay.portal.kernel.util.UnicodeFormatter" %><%@
@@ -172,13 +210,26 @@ page import="com.liferay.portal.kernel.workflow.WorkflowHandlerRegistryUtil" %><
 page import="com.liferay.portal.model.impl.*" %><%@
 page import="com.liferay.portal.service.*" %><%@
 page import="com.liferay.portal.upload.LiferayFileItem" %><%@
+<<<<<<< HEAD
 page import="com.liferay.rss.util.RSSUtil" %><%@
 page import="com.liferay.taglib.search.ResultRow" %><%@
 page import="com.liferay.taglib.util.CustomAttributesUtil" %>
+=======
+page import="com.liferay.portal.util.PrefsPropsUtil" %><%@
+page import="com.liferay.rss.util.RSSUtil" %><%@
+page import="com.liferay.taglib.search.ResultRow" %><%@
+page import="com.liferay.taglib.util.CustomAttributesUtil" %><%@
+page import="com.liferay.trash.kernel.util.TrashUtil" %>
+>>>>>>> compatible
 
 <%@ page import="java.text.Format" %>
 
 <%@ page import="java.util.ArrayList" %><%@
+<<<<<<< HEAD
+=======
+page import="java.util.Arrays" %><%@
+page import="java.util.Collections" %><%@
+>>>>>>> compatible
 page import="java.util.Date" %><%@
 page import="java.util.HashMap" %><%@
 page import="java.util.HashSet" %><%@
@@ -198,14 +249,21 @@ page import="javax.portlet.WindowState" %>
 
 <liferay-theme:defineObjects />
 
+<<<<<<< HEAD
 <liferay-trash:defineObjects />
 
+=======
+>>>>>>> compatible
 <portlet:defineObjects />
 
 <%
 JournalWebConfiguration journalWebConfiguration = (JournalWebConfiguration)request.getAttribute(JournalWebConfiguration.class.getName());
 
+<<<<<<< HEAD
 JournalDisplayContext journalDisplayContext = new JournalDisplayContext(request, liferayPortletRequest, liferayPortletResponse, portletPreferences, trashHelper);
+=======
+JournalDisplayContext journalDisplayContext = new JournalDisplayContext(request, liferayPortletRequest, liferayPortletResponse, portletPreferences);
+>>>>>>> compatible
 
 JournalWebRequestHelper journalWebRequestHelper = new JournalWebRequestHelper(request);
 

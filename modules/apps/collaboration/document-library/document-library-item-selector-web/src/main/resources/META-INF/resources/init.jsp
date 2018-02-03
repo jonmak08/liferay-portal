@@ -19,8 +19,12 @@
 <%@ taglib uri="http://liferay.com/tld/item-selector" prefix="liferay-item-selector" %><%@
 taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %>
 
+<<<<<<< HEAD
 <%@ page import="com.liferay.document.library.display.context.DLMimeTypeDisplayContext" %><%@
 page import="com.liferay.document.library.item.selector.web.internal.constants.DLItemSelectorWebKeys" %><%@
+=======
+<%@ page import="com.liferay.document.library.item.selector.web.internal.DLItemSelectorView" %><%@
+>>>>>>> compatible
 page import="com.liferay.document.library.item.selector.web.internal.display.context.DLItemSelectorViewDisplayContext" %><%@
 page import="com.liferay.document.library.kernel.model.DLFileEntryConstants" %><%@
 page import="com.liferay.document.library.kernel.model.DLFileShortcutConstants" %><%@
@@ -37,7 +41,10 @@ page import="com.liferay.portal.kernel.search.SearchContext" %><%@
 page import="com.liferay.portal.kernel.search.SearchContextFactory" %><%@
 page import="com.liferay.portal.kernel.search.SearchResult" %><%@
 page import="com.liferay.portal.kernel.search.SearchResultUtil" %><%@
+<<<<<<< HEAD
 page import="com.liferay.portal.kernel.util.ListUtil" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.util.ParamUtil" %><%@
 page import="com.liferay.portal.kernel.workflow.WorkflowConstants" %>
 

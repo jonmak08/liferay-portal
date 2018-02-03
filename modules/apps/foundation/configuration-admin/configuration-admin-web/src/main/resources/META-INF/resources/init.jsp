@@ -19,7 +19,10 @@
 <%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
 
 <%@ taglib uri="http://liferay.com/tld/aui" prefix="aui" %><%@
+<<<<<<< HEAD
 taglib uri="http://liferay.com/tld/clay" prefix="clay" %><%@
+=======
+>>>>>>> compatible
 taglib uri="http://liferay.com/tld/frontend" prefix="liferay-frontend" %><%@
 taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %><%@
 taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
@@ -28,17 +31,27 @@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 page import="com.liferay.configuration.admin.web.internal.model.ConfigurationModel" %><%@
 page import="com.liferay.configuration.admin.web.internal.util.ConfigurationModelIterator" %><%@
 page import="com.liferay.configuration.admin.web.internal.util.ResourceBundleLoaderProvider" %><%@
+<<<<<<< HEAD
 page import="com.liferay.frontend.taglib.clay.servlet.taglib.util.NavigationItem" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClassDefinition" %><%@
 page import="com.liferay.portal.configuration.persistence.listener.ConfigurationModelListenerException" %><%@
 page import="com.liferay.portal.kernel.language.LanguageUtil" %><%@
 page import="com.liferay.portal.kernel.util.ParamUtil" %><%@
+<<<<<<< HEAD
 page import="com.liferay.portal.kernel.util.PortalUtil" %><%@
 page import="com.liferay.portal.kernel.util.ResourceBundleLoader" %><%@
 page import="com.liferay.portal.kernel.util.Validator" %>
 
 <%@ page import="java.util.ArrayList" %><%@
 page import="java.util.List" %><%@
+=======
+page import="com.liferay.portal.kernel.util.ResourceBundleLoader" %><%@
+page import="com.liferay.portal.kernel.util.Validator" %>
+
+<%@ page import="java.util.List" %><%@
+>>>>>>> compatible
 page import="java.util.ResourceBundle" %>
 
 <%@ page import="javax.portlet.PortletURL" %>

@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Portal Spring Extender
 Bundle-SymbolicName: com.liferay.portal.spring.extender
+<<<<<<< HEAD
 Bundle-Version: 2.1.6
+=======
+Bundle-Version: 2.1.1
+>>>>>>> compatible
 Export-Package:\
 	com.liferay.portal.spring.extender.loader,\
 	com.liferay.portal.spring.extender.service
@@ -31,7 +35,10 @@ Import-Package:\
 	com.liferay.portal.spring.bean,\
 	com.liferay.portal.spring.context,\
 	com.liferay.portal.spring.hibernate,\
+<<<<<<< HEAD
 	com.liferay.portal.spring.jndi,\
+=======
+>>>>>>> compatible
 	com.liferay.portal.spring.transaction,\
 	com.liferay.portal.systemevent,\
 	\
@@ -62,7 +69,10 @@ Import-Package:\
 	org.springframework.ejb.config,\
 	org.springframework.jdbc.config,\
 	org.springframework.jms.config,\
+<<<<<<< HEAD
 	org.springframework.jndi,\
+=======
+>>>>>>> compatible
 	org.springframework.oxm.config,\
 	org.springframework.scheduling.config,\
 	org.springframework.scripting.config,\

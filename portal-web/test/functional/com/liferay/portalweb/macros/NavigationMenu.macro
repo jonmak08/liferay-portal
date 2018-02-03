@@ -8,6 +8,7 @@
 			<var name="key_menuItem" value="Add Page" />
 		</execute>
 	</command>
+<<<<<<< HEAD
 
 	<command name="selectAndSaveConfiguration">
 		<execute function="SelectFrame" locator1="IFrame#CONFIGURATION" />
@@ -18,4 +19,6 @@
 
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
+=======
+>>>>>>> compatible
 </definition>

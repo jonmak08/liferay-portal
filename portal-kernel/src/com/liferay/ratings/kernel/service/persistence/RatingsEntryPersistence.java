@@ -465,6 +465,7 @@ public interface RatingsEntryPersistence extends BasePersistence<RatingsEntry> {
 	public int countByC_C(long classNameId, long classPK);
 
 	/**
+<<<<<<< HEAD
 	* Returns all the ratings entries where userId = &#63; and classNameId = &#63; and classPK = any &#63;.
 	*
 	* <p>
@@ -537,6 +538,8 @@ public interface RatingsEntryPersistence extends BasePersistence<RatingsEntry> {
 		boolean retrieveFromCache);
 
 	/**
+=======
+>>>>>>> compatible
 	* Returns the ratings entry where userId = &#63; and classNameId = &#63; and classPK = &#63; or throws a {@link NoSuchEntryException} if it could not be found.
 	*
 	* @param userId the user ID
@@ -592,6 +595,7 @@ public interface RatingsEntryPersistence extends BasePersistence<RatingsEntry> {
 	public int countByU_C_C(long userId, long classNameId, long classPK);
 
 	/**
+<<<<<<< HEAD
 	* Returns the number of ratings entries where userId = &#63; and classNameId = &#63; and classPK = any &#63;.
 	*
 	* @param userId the user ID
@@ -602,6 +606,8 @@ public interface RatingsEntryPersistence extends BasePersistence<RatingsEntry> {
 	public int countByU_C_C(long userId, long classNameId, long[] classPKs);
 
 	/**
+=======
+>>>>>>> compatible
 	* Returns all the ratings entries where classNameId = &#63; and classPK = &#63; and score = &#63;.
 	*
 	* @param classNameId the class name ID

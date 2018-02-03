@@ -20,7 +20,11 @@
 			<else>
 				<execute macro="PortalSettings#tearDownAuthenticationCP" />
 
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP" />
+=======
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 			</else>
 		</if>
 	</tear-down>
@@ -32,9 +36,13 @@
 		<property name="apacheds.enabled" value="true" />
 		<property name="test.name.skip.portal.instance" value="AuthenticationUsecase#ImportLDAPUserWithBlankPassword" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Server Administration" />
 		</execute>
 
@@ -42,9 +50,13 @@
 			<var name="actionsDescription" value="Reindex all search indexes." />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Instance Settings" />
 		</execute>
 
@@ -72,9 +84,13 @@
 			<var name="LDAPServerName" value="ApacheDS Server" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="System Settings" />
 		</execute>
 
@@ -102,9 +118,13 @@
 
 		<execute macro="User#firstLoginPG" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -117,6 +137,7 @@
 
 		<execute function="AssertConsoleTextNotPresent" value1="Unable to encrypt blank password" />
 	</command>
+<<<<<<< HEAD
 
 	<command name="ViewHiddenSecurityCredential" priority="4">
 		<property name="test.name.skip.portal.instance" value="AuthenticationUsecase#ViewHiddenSecurityCredential" />
@@ -140,4 +161,6 @@
 			<var name="securityCredential" value="123456" />
 		</execute>
 	</command>
+=======
+>>>>>>> compatible
 </definition>

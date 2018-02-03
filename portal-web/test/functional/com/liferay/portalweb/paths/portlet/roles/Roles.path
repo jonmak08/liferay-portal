@@ -11,17 +11,34 @@
 <!--ROLE_TABLE-->
 <tr>
 	<td>ROLE_TABLE_TITLE</td>
+<<<<<<< HEAD
 	<td>//tr[contains(.,'${key_roleTitle}')]/td[2]</td>
+=======
+	<td>//tr[contains(.,'${key_roleName}')]/td[2]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>ROLE_TABLE_TITLE_LINK</td>
+<<<<<<< HEAD
 	<td>//tr[contains(.,'${key_roleTitle}')]/td[2]//a</td>
+=======
+	<td>//tr[contains(.,'${key_roleName}')]/td[2]//a</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>ROLE_TABLE_DESCRIPTION</td>
+<<<<<<< HEAD
 	<td>//tr[contains(.,'${key_roleTitle}')]/td[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ROLE_TABLE_USER_TITLE</td>
+	<td>//tr[@data-qa-id='row']//td[contains(.,'${key_roleUser}')]</td>
+=======
+	<td>//tr[contains(.,'${key_roleName}')]/td[3]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -30,11 +47,7 @@
 	<td></td>
 </tr>
 <tr>
-	<td>PERMISSION_TABLE_PERMISSIONS</td>
-	<td>//tr[contains(.,'${key_permissionNavigationValue}') and contains(.,'${key_permissionDefinitionValue}')]/td</td>
-	<td></td>
-</tr>
-<tr>
+<<<<<<< HEAD
 	<td>ROLE_TABLE_ACTIONS</td>
 	<td>//tr[contains(.,'${key_roleTitle}')]//a[span/*[name()='svg'][contains(@class,'icon-ellipsis-v')]]</td>
 	<td></td>
@@ -42,13 +55,44 @@
 <tr>
 	<td>ROLE_TABLE_ACTIONS_DEFAULT</td>
 	<td>//tr//a[span/*[name()='svg'][contains(@class,'icon-ellipsis-v')]]</td>
+=======
+	<td>PERMISSION_TABLE_PERMISSIONS</td>
+	<td>//tr[contains(.,'${key_permissionNavigationValue}') and contains(.,'${key_permissionDefinitionValue}')]/td</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ROLE_TABLE_ACTIONS_1</td>
+	<td>//tr/td[4]//span</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <!---->
 <!--SEARCH-->
 <tr>
+<<<<<<< HEAD
 	<td>ROLE_SEARCH_BUTTON</td>
 	<td>//*[@data-qa-id='searchButton']</td>
+=======
+	<td>ROLE_TABLE_ACTIONS</td>
+	<td>//tr[contains(.,'${key_roleName}')]/td[4]//span</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ROLE_TABLE_DEFINE_PERMISSIONS</td>
+	<td>//tr[contains(.,'${key_roleName}')]/td[4]//span[contains(.,'Define Permissions')]</td>
+	<td></td>
+</tr>
+<!--SEARCH-->
+<tr>
+	<td>ROLE_SEARCH_BUTTON</td>
+	<td>//*[@data-qa-id='searchButton']</td>
+	<td></td>
+</tr>
+<!--BREADCRUMB-->
+<tr>
+	<td>BREADCRUMB</td>
+	<td>//ul[contains(@class,'breadcrumb-horizontal')]/li/a[contains(.,'${key_roleType} Roles')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 </tbody>

@@ -16,7 +16,10 @@ package com.liferay.portal.remote.soap.extender.internal;
 
 import com.liferay.osgi.util.ServiceTrackerFactory;
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.remote.soap.extender.configuration.JaxWsApiConfiguration;
 
 import java.util.Dictionary;
@@ -61,10 +64,16 @@ public class JaxWsApiEnabler {
 
 		_serviceTracker = ServiceTrackerFactory.open(
 			bundleContext,
+<<<<<<< HEAD
 			StringBundler.concat(
 				"(&(objectClass=org.apache.cxf.Bus)(",
 				HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_PATH, "=",
 				contextPath, "))"));
+=======
+			"(&(objectClass=org.apache.cxf.Bus)(" +
+				HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_PATH + "=" +
+					contextPath + "))");
+>>>>>>> compatible
 
 		_bus = _serviceTracker.waitForService(jaxWsApiConfiguration.timeout());
 

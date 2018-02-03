@@ -16,6 +16,7 @@ package com.liferay.wiki.service.impl;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermission;
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermissionFactory;
 import com.liferay.portal.kernel.security.permission.resource.PortletResourcePermission;
@@ -26,6 +27,15 @@ import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.wiki.constants.WikiConstants;
 import com.liferay.wiki.model.WikiNode;
 import com.liferay.wiki.service.base.WikiNodeServiceBaseImpl;
+=======
+import com.liferay.portal.kernel.service.ServiceContext;
+import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.wiki.model.WikiNode;
+import com.liferay.wiki.service.base.WikiNodeServiceBaseImpl;
+import com.liferay.wiki.service.permission.WikiNodePermissionChecker;
+import com.liferay.wiki.service.permission.WikiResourcePermissionChecker;
+>>>>>>> compatible
 
 import java.io.InputStream;
 
@@ -48,7 +58,11 @@ public class WikiNodeServiceImpl extends WikiNodeServiceBaseImpl {
 			String name, String description, ServiceContext serviceContext)
 		throws PortalException {
 
+<<<<<<< HEAD
 		_portletResourcePermission.check(
+=======
+		WikiResourcePermissionChecker.check(
+>>>>>>> compatible
 			getPermissionChecker(), serviceContext.getScopeGroupId(),
 			ActionKeys.ADD_NODE);
 
@@ -58,32 +72,53 @@ public class WikiNodeServiceImpl extends WikiNodeServiceBaseImpl {
 
 	@Override
 	public void deleteNode(long nodeId) throws PortalException {
+<<<<<<< HEAD
 		WikiNode node = wikiNodeLocalService.getNode(nodeId);
 
 		_wikiNodeModelResourcePermission.check(
 			getPermissionChecker(), node, ActionKeys.DELETE);
 
 		wikiNodeLocalService.deleteNode(node);
+=======
+		WikiNodePermissionChecker.check(
+			getPermissionChecker(), nodeId, ActionKeys.DELETE);
+
+		wikiNodeLocalService.deleteNode(nodeId);
+>>>>>>> compatible
 	}
 
 	@Override
 	public WikiNode getNode(long nodeId) throws PortalException {
+<<<<<<< HEAD
 		WikiNode node = wikiNodeLocalService.getNode(nodeId);
 
 		_wikiNodeModelResourcePermission.check(
 			getPermissionChecker(), node, ActionKeys.VIEW);
 
 		return node;
+=======
+		WikiNodePermissionChecker.check(
+			getPermissionChecker(), nodeId, ActionKeys.VIEW);
+
+		return wikiNodeLocalService.getNode(nodeId);
+>>>>>>> compatible
 	}
 
 	@Override
 	public WikiNode getNode(long groupId, String name) throws PortalException {
+<<<<<<< HEAD
 		WikiNode node = wikiNodeLocalService.getNode(groupId, name);
 
 		_wikiNodeModelResourcePermission.check(
 			getPermissionChecker(), node, ActionKeys.VIEW);
 
 		return node;
+=======
+		WikiNodePermissionChecker.check(
+			getPermissionChecker(), groupId, name, ActionKeys.VIEW);
+
+		return wikiNodeLocalService.getNode(groupId, name);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -105,7 +140,11 @@ public class WikiNodeServiceImpl extends WikiNodeServiceBaseImpl {
 				groupId, status);
 
 			for (WikiNode node : allNodes) {
+<<<<<<< HEAD
 				if (_wikiNodeModelResourcePermission.contains(
+=======
+				if (WikiNodePermissionChecker.contains(
+>>>>>>> compatible
 						getPermissionChecker(), node, ActionKeys.VIEW)) {
 
 					nodes.add(node);
@@ -153,7 +192,11 @@ public class WikiNodeServiceImpl extends WikiNodeServiceBaseImpl {
 			Map<String, String[]> options)
 		throws PortalException {
 
+<<<<<<< HEAD
 		_wikiNodeModelResourcePermission.check(
+=======
+		WikiNodePermissionChecker.check(
+>>>>>>> compatible
 			getPermissionChecker(), nodeId, ActionKeys.IMPORT);
 
 		wikiNodeLocalService.importPages(
@@ -162,7 +205,11 @@ public class WikiNodeServiceImpl extends WikiNodeServiceBaseImpl {
 
 	@Override
 	public WikiNode moveNodeToTrash(long nodeId) throws PortalException {
+<<<<<<< HEAD
 		_wikiNodeModelResourcePermission.check(
+=======
+		WikiNodePermissionChecker.check(
+>>>>>>> compatible
 			getPermissionChecker(), nodeId, ActionKeys.DELETE);
 
 		return wikiNodeLocalService.moveNodeToTrash(getUserId(), nodeId);
@@ -172,7 +219,11 @@ public class WikiNodeServiceImpl extends WikiNodeServiceBaseImpl {
 	public void restoreNodeFromTrash(long nodeId) throws PortalException {
 		WikiNode node = wikiNodeLocalService.getNode(nodeId);
 
+<<<<<<< HEAD
 		_wikiNodeModelResourcePermission.check(
+=======
+		WikiNodePermissionChecker.check(
+>>>>>>> compatible
 			getPermissionChecker(), nodeId, ActionKeys.DELETE);
 
 		wikiNodeLocalService.restoreNodeFromTrash(getUserId(), node);
@@ -180,7 +231,11 @@ public class WikiNodeServiceImpl extends WikiNodeServiceBaseImpl {
 
 	@Override
 	public void subscribeNode(long nodeId) throws PortalException {
+<<<<<<< HEAD
 		_wikiNodeModelResourcePermission.check(
+=======
+		WikiNodePermissionChecker.check(
+>>>>>>> compatible
 			getPermissionChecker(), nodeId, ActionKeys.SUBSCRIBE);
 
 		wikiNodeLocalService.subscribeNode(getUserId(), nodeId);
@@ -188,7 +243,11 @@ public class WikiNodeServiceImpl extends WikiNodeServiceBaseImpl {
 
 	@Override
 	public void unsubscribeNode(long nodeId) throws PortalException {
+<<<<<<< HEAD
 		_wikiNodeModelResourcePermission.check(
+=======
+		WikiNodePermissionChecker.check(
+>>>>>>> compatible
 			getPermissionChecker(), nodeId, ActionKeys.SUBSCRIBE);
 
 		wikiNodeLocalService.unsubscribeNode(getUserId(), nodeId);
@@ -200,13 +259,18 @@ public class WikiNodeServiceImpl extends WikiNodeServiceBaseImpl {
 			ServiceContext serviceContext)
 		throws PortalException {
 
+<<<<<<< HEAD
 		_wikiNodeModelResourcePermission.check(
+=======
+		WikiNodePermissionChecker.check(
+>>>>>>> compatible
 			getPermissionChecker(), nodeId, ActionKeys.UPDATE);
 
 		return wikiNodeLocalService.updateNode(
 			nodeId, name, description, serviceContext);
 	}
 
+<<<<<<< HEAD
 	private static volatile PortletResourcePermission
 		_portletResourcePermission =
 			PortletResourcePermissionFactory.getInstance(
@@ -218,4 +282,6 @@ public class WikiNodeServiceImpl extends WikiNodeServiceBaseImpl {
 				WikiNodeServiceImpl.class, "_wikiNodeModelResourcePermission",
 				WikiNode.class);
 
+=======
+>>>>>>> compatible
 }

@@ -21,10 +21,13 @@ public class DDMFormFieldType {
 
 	public static final String CHECKBOX = "checkbox";
 
+<<<<<<< HEAD
 	public static final String CHECKBOX_MULTIPLE = "checkbox_multiple";
 
 	public static final String COLOR = "ddm-color";
 
+=======
+>>>>>>> compatible
 	public static final String DATE = "ddm-date";
 
 	public static final String DECIMAL = "ddm-decimal";
@@ -45,10 +48,13 @@ public class DDMFormFieldType {
 
 	public static final String NUMBER = "ddm-number";
 
+<<<<<<< HEAD
 	public static final String NUMERIC = "numeric";
 
 	public static final String PASSWORD = "password";
 
+=======
+>>>>>>> compatible
 	public static final String RADIO = "radio";
 
 	public static final String SELECT = "select";

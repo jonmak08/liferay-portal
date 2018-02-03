@@ -20,6 +20,10 @@ import com.liferay.asset.kernel.service.persistence.AssetEntryFinder;
 import com.liferay.asset.kernel.service.persistence.AssetEntryPersistence;
 import com.liferay.asset.kernel.service.persistence.AssetTagFinder;
 import com.liferay.asset.kernel.service.persistence.AssetTagPersistence;
+<<<<<<< HEAD
+=======
+import com.liferay.asset.kernel.service.persistence.AssetTagStatsPersistence;
+>>>>>>> compatible
 
 import com.liferay.portal.kernel.bean.BeanReference;
 import com.liferay.portal.kernel.dao.db.DB;
@@ -449,6 +453,47 @@ public abstract class AssetTagServiceBaseImpl extends BaseServiceImpl
 		this.assetEntryFinder = assetEntryFinder;
 	}
 
+<<<<<<< HEAD
+=======
+	/**
+	 * Returns the asset tag stats local service.
+	 *
+	 * @return the asset tag stats local service
+	 */
+	public com.liferay.asset.kernel.service.AssetTagStatsLocalService getAssetTagStatsLocalService() {
+		return assetTagStatsLocalService;
+	}
+
+	/**
+	 * Sets the asset tag stats local service.
+	 *
+	 * @param assetTagStatsLocalService the asset tag stats local service
+	 */
+	public void setAssetTagStatsLocalService(
+		com.liferay.asset.kernel.service.AssetTagStatsLocalService assetTagStatsLocalService) {
+		this.assetTagStatsLocalService = assetTagStatsLocalService;
+	}
+
+	/**
+	 * Returns the asset tag stats persistence.
+	 *
+	 * @return the asset tag stats persistence
+	 */
+	public AssetTagStatsPersistence getAssetTagStatsPersistence() {
+		return assetTagStatsPersistence;
+	}
+
+	/**
+	 * Sets the asset tag stats persistence.
+	 *
+	 * @param assetTagStatsPersistence the asset tag stats persistence
+	 */
+	public void setAssetTagStatsPersistence(
+		AssetTagStatsPersistence assetTagStatsPersistence) {
+		this.assetTagStatsPersistence = assetTagStatsPersistence;
+	}
+
+>>>>>>> compatible
 	public void afterPropertiesSet() {
 	}
 
@@ -539,4 +584,11 @@ public abstract class AssetTagServiceBaseImpl extends BaseServiceImpl
 	protected AssetEntryPersistence assetEntryPersistence;
 	@BeanReference(type = AssetEntryFinder.class)
 	protected AssetEntryFinder assetEntryFinder;
+<<<<<<< HEAD
+=======
+	@BeanReference(type = com.liferay.asset.kernel.service.AssetTagStatsLocalService.class)
+	protected com.liferay.asset.kernel.service.AssetTagStatsLocalService assetTagStatsLocalService;
+	@BeanReference(type = AssetTagStatsPersistence.class)
+	protected AssetTagStatsPersistence assetTagStatsPersistence;
+>>>>>>> compatible
 }

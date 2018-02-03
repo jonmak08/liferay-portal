@@ -271,10 +271,17 @@ public class PortalInstances {
 			String principalName = null;
 
 			long userId = PrincipalThreadLocal.getUserId();
+<<<<<<< HEAD
 
 			if (userId > 0) {
 				User user = UserLocalServiceUtil.fetchUser(userId);
 
+=======
+
+			if (userId > 0) {
+				User user = UserLocalServiceUtil.fetchUser(userId);
+
+>>>>>>> compatible
 				if ((user != null) && (user.getCompanyId() == companyId)) {
 					principalName = currentThreadPrincipalName;
 				}
@@ -447,11 +454,17 @@ public class PortalInstances {
 
 				if (_log.isDebugEnabled()) {
 					_log.debug(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"Company ",
 							String.valueOf(virtualHost.getCompanyId()),
 							" is associated with layout set ",
 							String.valueOf(virtualHost.getLayoutSetId())));
+=======
+						"Company " + virtualHost.getCompanyId() +
+							" is associated with layout set " +
+								virtualHost.getLayoutSetId());
+>>>>>>> compatible
 				}
 
 				request.setAttribute(

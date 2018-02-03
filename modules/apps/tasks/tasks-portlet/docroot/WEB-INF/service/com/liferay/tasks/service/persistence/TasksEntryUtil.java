@@ -3155,7 +3155,11 @@ public class TasksEntryUtil {
 
 	public static TasksEntryPersistence getPersistence() {
 		if (_persistence == null) {
+<<<<<<< HEAD
 			_persistence = (TasksEntryPersistence)PortletBeanLocatorUtil.locate(com.liferay.tasks.service.ServletContextUtil.getServletContextName(),
+=======
+			_persistence = (TasksEntryPersistence)PortletBeanLocatorUtil.locate(com.liferay.tasks.service.ClpSerializer.getServletContextName(),
+>>>>>>> compatible
 					TasksEntryPersistence.class.getName());
 
 			ReferenceRegistry.registerReference(TasksEntryUtil.class,

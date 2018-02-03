@@ -15,6 +15,12 @@
 package com.liferay.journal.util.test;
 
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
+<<<<<<< HEAD
+=======
+import com.liferay.document.library.kernel.model.DLFolderConstants;
+import com.liferay.document.library.kernel.service.DLAppLocalServiceUtil;
+import com.liferay.document.library.kernel.util.DLUtil;
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.io.DDMFormJSONDeserializer;
 import com.liferay.dynamic.data.mapping.io.DDMFormXSDDeserializer;
 import com.liferay.dynamic.data.mapping.model.DDMForm;
@@ -27,8 +33,14 @@ import com.liferay.dynamic.data.mapping.storage.Field;
 import com.liferay.dynamic.data.mapping.storage.Fields;
 import com.liferay.dynamic.data.mapping.storage.StorageType;
 import com.liferay.dynamic.data.mapping.test.util.DDMStructureTestHelper;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.util.DDM;
 import com.liferay.dynamic.data.mapping.util.DDMXML;
+=======
+import com.liferay.dynamic.data.mapping.util.DDMXML;
+import com.liferay.dynamic.data.mapping.util.impl.DDMImpl;
+import com.liferay.dynamic.data.mapping.util.impl.DDMXMLImpl;
+>>>>>>> compatible
 import com.liferay.journal.model.JournalArticle;
 import com.liferay.journal.test.util.JournalTestUtil;
 import com.liferay.journal.util.JournalConverter;
@@ -38,6 +50,7 @@ import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.Layout;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.repository.model.FileEntry;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
@@ -51,6 +64,33 @@ import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.UnsecureSAXReaderUtil;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.util.test.LayoutTestUtil;
+=======
+import com.liferay.portal.kernel.service.ServiceContext;
+import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+import com.liferay.portal.kernel.test.util.GroupTestUtil;
+import com.liferay.portal.kernel.test.util.RandomTestUtil;
+import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
+import com.liferay.portal.kernel.test.util.TestPropsValues;
+import com.liferay.portal.kernel.util.ContentTypes;
+import com.liferay.portal.kernel.util.LocaleUtil;
+import com.liferay.portal.kernel.util.PortalUtil;
+import com.liferay.portal.kernel.util.ReflectionUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.xml.Document;
+import com.liferay.portal.kernel.xml.Element;
+import com.liferay.portal.kernel.xml.SAXReaderUtil;
+import com.liferay.portal.kernel.xml.UnsecureSAXReaderUtil;
+import com.liferay.portal.kernel.xml.XPath;
+import com.liferay.portal.test.randomizerbumpers.TikaSafeRandomizerBumper;
+import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+import com.liferay.portal.util.test.LayoutTestUtil;
+import com.liferay.portal.xml.XMLSchemaImpl;
+>>>>>>> compatible
 import com.liferay.registry.Registry;
 import com.liferay.registry.RegistryUtil;
 
@@ -67,6 +107,10 @@ import java.util.Set;
 
 import org.junit.Assert;
 import org.junit.Before;
+<<<<<<< HEAD
+=======
+import org.junit.BeforeClass;
+>>>>>>> compatible
 import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
@@ -77,12 +121,28 @@ import org.junit.runner.RunWith;
  * @author Marcellus Tavares
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class JournalConverterUtilTest {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+
+	@BeforeClass
+	public static void setUpClass() {
+		_enLocale = LocaleUtil.fromLanguageId("en_US");
+		_ptLocale = LocaleUtil.fromLanguageId("pt_BR");
+	}
+>>>>>>> compatible
 
 	@Before
 	public void setUp() throws Exception {
@@ -90,9 +150,12 @@ public class JournalConverterUtilTest {
 		setUpDDMFormXSDDeserializer();
 		setUpDDMXML();
 
+<<<<<<< HEAD
 		_enLocale = LocaleUtil.fromLanguageId("en_US");
 		_ptLocale = LocaleUtil.fromLanguageId("pt_BR");
 
+=======
+>>>>>>> compatible
 		_group = GroupTestUtil.addGroup();
 
 		_ddmStructureTestHelper = new DDMStructureTestHelper(
@@ -337,6 +400,64 @@ public class JournalConverterUtilTest {
 	}
 
 	@Test
+<<<<<<< HEAD
+=======
+	public void testGetFieldsFromContentWithDocumentLibraryElement()
+		throws Exception {
+
+		Fields expectedFields = new Fields();
+
+		ServiceContext serviceContext =
+			ServiceContextTestUtil.getServiceContext(
+				_group.getGroupId(), TestPropsValues.getUserId());
+
+		FileEntry fileEntry = DLAppLocalServiceUtil.addFileEntry(
+			TestPropsValues.getUserId(), _group.getGroupId(),
+			DLFolderConstants.DEFAULT_PARENT_FOLDER_ID, "Test 1.txt",
+			ContentTypes.TEXT_PLAIN,
+			RandomTestUtil.randomBytes(TikaSafeRandomizerBumper.INSTANCE),
+			serviceContext);
+
+		Field documentLibraryField = getDocumentLibraryField(
+			fileEntry, _ddmStructure.getStructureId());
+
+		expectedFields.put(documentLibraryField);
+
+		Field fieldsDisplayField = getFieldsDisplayField(
+			_ddmStructure.getStructureId(),
+			"document_library_INSTANCE_4aGOvP3N");
+
+		expectedFields.put(fieldsDisplayField);
+
+		String content = read("test-journal-content-doc-library-field.xml");
+
+		XPath xPathSelector = SAXReaderUtil.createXPath("//dynamic-content");
+
+		Document document = UnsecureSAXReaderUtil.read(content);
+
+		Element element = (Element)xPathSelector.selectSingleNode(document);
+
+		String[] previewURLs = new String[2];
+
+		previewURLs[0] = DLUtil.getPreviewURL(
+			fileEntry, fileEntry.getFileVersion(), null, StringPool.BLANK, true,
+			true);
+		previewURLs[1] = DLUtil.getPreviewURL(
+			fileEntry, fileEntry.getFileVersion(), null, StringPool.BLANK,
+			false, false);
+
+		for (int i = 0; i < previewURLs.length; i++) {
+			element.addCDATA(previewURLs[i]);
+
+			Fields actualFields = _journalConverter.getDDMFields(
+				_ddmStructure, document.asXML());
+
+			Assert.assertEquals(expectedFields, actualFields);
+		}
+	}
+
+	@Test
+>>>>>>> compatible
 	public void testGetFieldsFromContentWithLinkToLayoutElement()
 		throws Exception {
 
@@ -611,7 +732,11 @@ public class JournalConverterUtilTest {
 		Field fieldsDisplayField = new Field();
 
 		fieldsDisplayField.setDDMStructureId(ddmStructureId);
+<<<<<<< HEAD
 		fieldsDisplayField.setName(DDM.FIELDS_DISPLAY_NAME);
+=======
+		fieldsDisplayField.setName(DDMImpl.FIELDS_DISPLAY_NAME);
+>>>>>>> compatible
 		fieldsDisplayField.setValue(value);
 
 		return fieldsDisplayField;
@@ -660,14 +785,22 @@ public class JournalConverterUtilTest {
 		Field field = new Field();
 
 		field.setDDMStructureId(ddmStructureId);
+<<<<<<< HEAD
 		field.setDefaultLocale(_enLocale);
+=======
+>>>>>>> compatible
 		field.setName("link_to_layout");
 
 		List<Serializable> enValues = new ArrayList<>();
 
 		for (Layout layout : layoutsMap.values()) {
+<<<<<<< HEAD
 			enValues.add(getLinkToLayoutFieldValue(layout, _enLocale, false));
 			enValues.add(getLinkToLayoutFieldValue(layout, _enLocale, true));
+=======
+			enValues.add(getLinkToLayoutFieldValue(layout, false));
+			enValues.add(getLinkToLayoutFieldValue(layout, true));
+>>>>>>> compatible
 		}
 
 		field.addValues(_enLocale, enValues);
@@ -676,13 +809,20 @@ public class JournalConverterUtilTest {
 	}
 
 	protected String getLinkToLayoutFieldValue(
+<<<<<<< HEAD
 		Layout layout, Locale locale, boolean includeGroupId) {
+=======
+		Layout layout, boolean includeGroupId) {
+>>>>>>> compatible
 
 		JSONObject jsonObject = JSONFactoryUtil.createJSONObject();
 
 		if (includeGroupId) {
 			jsonObject.put("groupId", layout.getGroupId());
+<<<<<<< HEAD
 			jsonObject.put("label", layout.getName(locale));
+=======
+>>>>>>> compatible
 		}
 
 		jsonObject.put("layoutId", layout.getLayoutId());
@@ -785,7 +925,11 @@ public class JournalConverterUtilTest {
 		sb.append("ext_INSTANCE_HDrK2Um5");
 
 		Field fieldsDisplayField = new Field(
+<<<<<<< HEAD
 			ddmStructureId, DDM.FIELDS_DISPLAY_NAME, sb.toString());
+=======
+			ddmStructureId, DDMImpl.FIELDS_DISPLAY_NAME, sb.toString());
+>>>>>>> compatible
 
 		fields.put(fieldsDisplayField);
 
@@ -909,6 +1053,20 @@ public class JournalConverterUtilTest {
 		Registry registry = RegistryUtil.getRegistry();
 
 		_ddmXML = registry.getService(DDMXML.class);
+<<<<<<< HEAD
+=======
+
+		XMLSchemaImpl xmlSchema = new XMLSchemaImpl();
+
+		xmlSchema.setSchemaLanguage("http://www.w3.org/2001/XMLSchema");
+		xmlSchema.setSystemId(
+			"http://www.liferay.com/dtd/liferay-ddm-structure_6_2_0.xsd");
+
+		java.lang.reflect.Field field = ReflectionUtil.getDeclaredField(
+			DDMXMLImpl.class, "_xmlSchema");
+
+		field.set(_ddmXML, xmlSchema);
+>>>>>>> compatible
 	}
 
 	protected void udpateFieldsMap(
@@ -969,18 +1127,30 @@ public class JournalConverterUtilTest {
 
 	private static final String _PUBLIC_USER_LAYOUT = "publicUserLayout";
 
+<<<<<<< HEAD
+=======
+	private static Locale _enLocale;
+	private static Locale _ptLocale;
+
+>>>>>>> compatible
 	private long _classNameId;
 	private DDMFormJSONDeserializer _ddmFormJSONDeserializer;
 	private DDMFormXSDDeserializer _ddmFormXSDDeserializer;
 	private DDMStructure _ddmStructure;
 	private DDMStructureTestHelper _ddmStructureTestHelper;
 	private DDMXML _ddmXML;
+<<<<<<< HEAD
 	private Locale _enLocale;
+=======
+>>>>>>> compatible
 
 	@DeleteAfterTestRun
 	private Group _group;
 
 	private JournalConverter _journalConverter;
+<<<<<<< HEAD
 	private Locale _ptLocale;
+=======
+>>>>>>> compatible
 
 }

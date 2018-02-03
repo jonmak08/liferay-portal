@@ -1,7 +1,13 @@
 Bundle-Name: Liferay Frontend Theme Unstyled
 Bundle-SymbolicName: com.liferay.frontend.theme.unstyled
+<<<<<<< HEAD
 Bundle-Version: 3.0.0
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Themes
 Web-ContextPath: /frontend-theme-unstyled
+=======
+Bundle-Version: 2.2.2
+Liferay-Releng-Module-Group-Description:
+Liferay-Releng-Module-Group-Title: Themes
+>>>>>>> compatible
 -donotcopy: (npm-debug\.log)

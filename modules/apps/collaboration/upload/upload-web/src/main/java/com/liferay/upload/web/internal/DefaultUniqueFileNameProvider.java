@@ -14,14 +14,20 @@
 
 package com.liferay.upload.web.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.upload.UniqueFileNameProvider;
 
 import java.util.function.Predicate;
+<<<<<<< HEAD
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+=======
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 
@@ -35,11 +41,17 @@ public class DefaultUniqueFileNameProvider implements UniqueFileNameProvider {
 	public String provide(String fileName, Predicate<String> predicate)
 		throws PortalException {
 
+<<<<<<< HEAD
 		fileName = _removeParentheticalSuffix(fileName);
 
 		String uniqueFileName = fileName;
 
 		int tries = 0;
+=======
+		String uniqueFileName = fileName;
+
+		int tries = 1;
+>>>>>>> compatible
 
 		while (predicate.test(uniqueFileName)) {
 			if (tries >= _UNIQUE_FILE_NAME_TRIES) {
@@ -56,6 +68,7 @@ public class DefaultUniqueFileNameProvider implements UniqueFileNameProvider {
 		return uniqueFileName;
 	}
 
+<<<<<<< HEAD
 	private String _removeParentheticalSuffix(String fileName) {
 		Matcher matcher = _pattern.matcher(fileName);
 
@@ -78,4 +91,8 @@ public class DefaultUniqueFileNameProvider implements UniqueFileNameProvider {
 	private static final Pattern _pattern = Pattern.compile(
 		"(?<name>.+) \\(\\d+\\)(\\.(?<extension>[^.]+))?");
 
+=======
+	private static final int _UNIQUE_FILE_NAME_TRIES = 50;
+
+>>>>>>> compatible
 }

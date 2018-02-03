@@ -19,7 +19,10 @@ import com.liferay.document.library.kernel.service.DLFileShortcutLocalService;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.trash.TrashRenderer;
 import com.liferay.portal.kernel.trash.TrashRendererFactory;
+<<<<<<< HEAD
 import com.liferay.trash.TrashHelper;
+=======
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -40,7 +43,11 @@ public class DLFileShortcutTrashRendererFactory
 		DLFileShortcut dlFileShortcut =
 			_dlFileShortcutLocalService.getFileShortcut(classPK);
 
+<<<<<<< HEAD
 		return new DLFileShortcutTrashRenderer(dlFileShortcut, _trashHelper);
+=======
+		return new DLFileShortcutTrashRenderer(dlFileShortcut);
+>>>>>>> compatible
 	}
 
 	@Reference(unbind = "-")
@@ -52,7 +59,10 @@ public class DLFileShortcutTrashRendererFactory
 
 	private DLFileShortcutLocalService _dlFileShortcutLocalService;
 
+<<<<<<< HEAD
 	@Reference
 	private TrashHelper _trashHelper;
 
+=======
+>>>>>>> compatible
 }

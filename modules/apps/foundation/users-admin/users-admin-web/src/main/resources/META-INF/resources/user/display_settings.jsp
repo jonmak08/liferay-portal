@@ -17,13 +17,24 @@
 <%@ include file="/init.jsp" %>
 
 <%
+<<<<<<< HEAD
 User selUser = (User)request.getAttribute(UsersAdminWebKeys.SELECTED_USER);
+=======
+User selUser = (User)request.getAttribute("user.selUser");
+
+String languageId = BeanParamUtil.getString(selUser, request, "languageId", user.getLanguageId());
+String timeZoneId = BeanParamUtil.getString(selUser, request, "timeZoneId", user.getTimeZoneId());
+>>>>>>> compatible
 %>
 
 <aui:model-context bean="<%= selUser %>" model="<%= User.class %>" />
 
 <aui:fieldset>
+<<<<<<< HEAD
 	<aui:input label="time-zone" name="timeZoneId" type="timeZone" />
+=======
+	<aui:input label="time-zone" name="timeZoneId" type="timeZone" value="<%= timeZoneId %>" />
+>>>>>>> compatible
 
 	<aui:input name="greeting" />
 </aui:fieldset>

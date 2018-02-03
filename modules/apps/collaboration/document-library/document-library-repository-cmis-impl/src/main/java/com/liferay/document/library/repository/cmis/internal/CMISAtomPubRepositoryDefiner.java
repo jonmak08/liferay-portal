@@ -18,7 +18,10 @@ import com.liferay.document.library.repository.cmis.internal.constants.CMISRepos
 import com.liferay.portal.kernel.repository.RepositoryConfiguration;
 import com.liferay.portal.kernel.repository.RepositoryConfigurationBuilder;
 import com.liferay.portal.kernel.repository.RepositoryFactory;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.repository.capabilities.PortalCapabilityLocator;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.repository.registry.RepositoryDefiner;
 import com.liferay.portal.kernel.repository.registry.RepositoryFactoryRegistry;
 
@@ -63,11 +66,14 @@ public class CMISAtomPubRepositoryDefiner extends BaseCMISRepositoryDefiner {
 		repositoryFactoryRegistry.setRepositoryFactory(_repositoryFactory);
 	}
 
+<<<<<<< HEAD
 	@Override
 	protected PortalCapabilityLocator getPortalCapabilityLocator() {
 		return _portalCapabilityLocator;
 	}
 
+=======
+>>>>>>> compatible
 	@Reference(
 		target = "(repository.target.class.name=" + CMISRepositoryConstants.CMIS_ATOMPUB_REPOSITORY_CLASSNAME + ")",
 		unbind = "-"
@@ -76,9 +82,12 @@ public class CMISAtomPubRepositoryDefiner extends BaseCMISRepositoryDefiner {
 		_repositoryFactory = repositoryFactory;
 	}
 
+<<<<<<< HEAD
 	@Reference
 	private PortalCapabilityLocator _portalCapabilityLocator;
 
+=======
+>>>>>>> compatible
 	private final RepositoryConfiguration _repositoryConfiguration;
 	private RepositoryFactory _repositoryFactory;
 

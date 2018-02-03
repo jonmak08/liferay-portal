@@ -84,9 +84,15 @@ if (portletTitleBasedNavigation) {
 			<liferay-ui:error exception="<%= EntryURLException.class %>" message="please-enter-a-valid-url" />
 			<liferay-ui:error exception="<%= NoSuchFolderException.class %>" message="please-enter-a-valid-folder" />
 
+<<<<<<< HEAD
 			<liferay-asset:asset-categories-error />
 
 			<liferay-asset:asset-tags-error />
+=======
+			<liferay-ui:asset-categories-error />
+
+			<liferay-ui:asset-tags-error />
+>>>>>>> compatible
 
 			<aui:model-context bean="<%= entry %>" model="<%= BookmarksEntry.class %>" />
 
@@ -168,6 +174,7 @@ if (portletTitleBasedNavigation) {
 				</liferay-expando:custom-attributes-available>
 
 				<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="categorization">
+<<<<<<< HEAD
 					<liferay-asset:asset-categories-selector className="<%= BookmarksEntry.class.getName() %>" classPK="<%= entryId %>" />
 
 					<liferay-asset:asset-tags-selector className="<%= BookmarksEntry.class.getName() %>" classPK="<%= entryId %>" />
@@ -175,6 +182,15 @@ if (portletTitleBasedNavigation) {
 
 				<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="related-assets">
 					<liferay-asset:input-asset-links
+=======
+					<aui:input name="categories" type="assetCategories" />
+
+					<aui:input name="tags" type="assetTags" />
+				</aui:fieldset>
+
+				<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="related-assets">
+					<liferay-ui:input-asset-links
+>>>>>>> compatible
 						className="<%= BookmarksEntry.class.getName() %>"
 						classPK="<%= entryId %>"
 					/>
@@ -191,9 +207,15 @@ if (portletTitleBasedNavigation) {
 		</div>
 
 		<aui:button-row>
+<<<<<<< HEAD
 			<aui:button type="submit" />
 
 			<aui:button href="<%= redirect %>" type="cancel" />
+=======
+			<aui:button cssClass="btn-lg" type="submit" />
+
+			<aui:button cssClass="btn-lg" href="<%= redirect %>" type="cancel" />
+>>>>>>> compatible
 		</aui:button-row>
 	</aui:form>
 </div>

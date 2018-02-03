@@ -16,18 +16,34 @@ package com.liferay.bookmarks.social.test;
 
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
 import com.liferay.bookmarks.model.BookmarksEntry;
+<<<<<<< HEAD
 import com.liferay.bookmarks.service.BookmarksEntryLocalService;
 import com.liferay.bookmarks.service.BookmarksEntryService;
 import com.liferay.bookmarks.social.BookmarksActivityKeys;
 import com.liferay.bookmarks.util.test.BookmarksTestUtil;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+=======
+import com.liferay.bookmarks.service.BookmarksEntryLocalServiceUtil;
+import com.liferay.bookmarks.service.BookmarksEntryServiceUtil;
+import com.liferay.bookmarks.social.BookmarksActivityKeys;
+import com.liferay.bookmarks.social.BookmarksEntryActivityInterpreter;
+import com.liferay.bookmarks.util.test.BookmarksTestUtil;
+import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.service.test.ServiceTestUtil;
+<<<<<<< HEAD
 import com.liferay.portal.test.rule.Inject;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.social.activity.test.util.BaseSocialActivityInterpreterTestCase;
+=======
+import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+import com.liferay.portlet.social.test.BaseSocialActivityInterpreterTestCase;
+>>>>>>> compatible
 import com.liferay.social.kernel.model.SocialActivityConstants;
 import com.liferay.social.kernel.model.SocialActivityInterpreter;
 
@@ -40,13 +56,23 @@ import org.junit.runner.RunWith;
  * @author Zsolt Berentey
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class BookmarksEntryActivityInterpreterTest
 	extends BaseSocialActivityInterpreterTestCase {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Before
 	@Override
@@ -63,7 +89,11 @@ public class BookmarksEntryActivityInterpreterTest
 
 	@Override
 	protected SocialActivityInterpreter getActivityInterpreter() {
+<<<<<<< HEAD
 		return _socialActivityInterpreter;
+=======
+		return new BookmarksEntryActivityInterpreter();
+>>>>>>> compatible
 	}
 
 	@Override
@@ -77,7 +107,11 @@ public class BookmarksEntryActivityInterpreterTest
 
 	@Override
 	protected void moveModelsToTrash() throws Exception {
+<<<<<<< HEAD
 		_bookmarksEntryLocalService.moveEntryToTrash(
+=======
+		BookmarksEntryLocalServiceUtil.moveEntryToTrash(
+>>>>>>> compatible
 			TestPropsValues.getUserId(), _entry.getEntryId());
 	}
 
@@ -87,7 +121,11 @@ public class BookmarksEntryActivityInterpreterTest
 
 		serviceContext.setCommand(Constants.UPDATE);
 
+<<<<<<< HEAD
 		_bookmarksEntryService.updateEntry(
+=======
+		BookmarksEntryServiceUtil.updateEntry(
+>>>>>>> compatible
 			_entry.getEntryId(), serviceContext.getScopeGroupId(),
 			_entry.getFolderId(), _entry.getName(), _entry.getUrl(),
 			_entry.getUrl(), serviceContext);
@@ -95,6 +133,7 @@ public class BookmarksEntryActivityInterpreterTest
 
 	@Override
 	protected void restoreModelsFromTrash() throws Exception {
+<<<<<<< HEAD
 		_bookmarksEntryLocalService.restoreEntryFromTrash(
 			TestPropsValues.getUserId(), _entry.getEntryId());
 	}
@@ -110,6 +149,12 @@ public class BookmarksEntryActivityInterpreterTest
 	)
 	private static SocialActivityInterpreter _socialActivityInterpreter;
 
+=======
+		BookmarksEntryLocalServiceUtil.restoreEntryFromTrash(
+			TestPropsValues.getUserId(), _entry.getEntryId());
+	}
+
+>>>>>>> compatible
 	private BookmarksEntry _entry;
 
 }

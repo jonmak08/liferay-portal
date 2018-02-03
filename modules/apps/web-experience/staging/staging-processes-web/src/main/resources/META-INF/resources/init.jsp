@@ -38,14 +38,20 @@ page import="com.liferay.exportimport.kernel.model.ExportImportConfiguration" %>
 page import="com.liferay.exportimport.kernel.service.ExportImportConfigurationLocalServiceUtil" %><%@
 page import="com.liferay.exportimport.kernel.staging.StagingUtil" %><%@
 page import="com.liferay.exportimport.util.comparator.ExportImportConfigurationNameComparator" %><%@
+<<<<<<< HEAD
 page import="com.liferay.petra.string.StringPool" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.backgroundtask.BackgroundTask" %><%@
 page import="com.liferay.portal.kernel.backgroundtask.BackgroundTaskConstants" %><%@
 page import="com.liferay.portal.kernel.backgroundtask.BackgroundTaskManagerUtil" %><%@
 page import="com.liferay.portal.kernel.backgroundtask.BackgroundTaskStatus" %><%@
 page import="com.liferay.portal.kernel.backgroundtask.BackgroundTaskStatusRegistryUtil" %><%@
+<<<<<<< HEAD
 page import="com.liferay.portal.kernel.backgroundtask.display.BackgroundTaskDisplay" %><%@
 page import="com.liferay.portal.kernel.backgroundtask.display.BackgroundTaskDisplayFactoryUtil" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.dao.search.EmptyOnClickRowChecker" %><%@
 page import="com.liferay.portal.kernel.dao.search.SearchContainer" %><%@
 page import="com.liferay.portal.kernel.exception.LayoutPrototypeException" %><%@
@@ -91,6 +97,10 @@ page import="com.liferay.portal.kernel.util.OrderByComparator" %><%@
 page import="com.liferay.portal.kernel.util.ParamUtil" %><%@
 page import="com.liferay.portal.kernel.util.PortalUtil" %><%@
 page import="com.liferay.portal.kernel.util.PortletKeys" %><%@
+<<<<<<< HEAD
+=======
+page import="com.liferay.portal.kernel.util.StringPool" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.util.StringUtil" %><%@
 page import="com.liferay.portal.kernel.util.Tuple" %><%@
 page import="com.liferay.portal.kernel.util.Validator" %><%@
@@ -102,7 +112,12 @@ page import="com.liferay.staging.processes.web.internal.dao.search.PublishResult
 page import="com.liferay.staging.processes.web.internal.search.PublishConfigurationDisplayTerms" %><%@
 page import="com.liferay.staging.processes.web.internal.search.PublishConfigurationSearchTerms" %><%@
 page import="com.liferay.taglib.search.ResultRow" %><%@
+<<<<<<< HEAD
 page import="com.liferay.taglib.ui.util.SessionTreeJSClicks" %>
+=======
+page import="com.liferay.taglib.ui.util.SessionTreeJSClicks" %><%@
+page import="com.liferay.trash.kernel.util.TrashUtil" %>
+>>>>>>> compatible
 
 <%@ page import="java.io.Serializable" %>
 
@@ -124,8 +139,11 @@ page import="javax.portlet.PortletURL" %>
 
 <liferay-theme:defineObjects />
 
+<<<<<<< HEAD
 <liferay-trash:defineObjects />
 
+=======
+>>>>>>> compatible
 <portlet:defineObjects />
 
 <%

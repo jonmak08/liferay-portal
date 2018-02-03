@@ -16,7 +16,10 @@ package com.liferay.document.library.web.internal.portlet.action;
 
 import com.liferay.asset.kernel.exception.AssetCategoryException;
 import com.liferay.asset.kernel.exception.AssetTagException;
+<<<<<<< HEAD
 import com.liferay.document.library.constants.DLPortletKeys;
+=======
+>>>>>>> compatible
 import com.liferay.document.library.kernel.exception.DuplicateFileEntryException;
 import com.liferay.document.library.kernel.exception.DuplicateFolderNameException;
 import com.liferay.document.library.kernel.exception.InvalidFolderException;
@@ -26,7 +29,11 @@ import com.liferay.document.library.kernel.exception.SourceFileNameException;
 import com.liferay.document.library.kernel.model.DLFileEntry;
 import com.liferay.document.library.kernel.service.DLAppService;
 import com.liferay.document.library.kernel.service.DLTrashService;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.document.library.web.constants.DLPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.lock.DuplicateLockException;
 import com.liferay.portal.kernel.model.TrashedModel;
 import com.liferay.portal.kernel.portlet.LiferayWindowState;
@@ -43,6 +50,7 @@ import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.trash.service.TrashEntryService;
@@ -51,6 +59,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.util.Validator;
+import com.liferay.trash.kernel.service.TrashEntryService;
+import com.liferay.trash.kernel.util.TrashUtil;
+
+import java.util.ArrayList;
+import java.util.List;
+>>>>>>> compatible
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
@@ -129,7 +147,13 @@ public class EditEntryMVCActionCommand extends BaseMVCActionCommand {
 
 		List<TrashedModel> trashedModels = new ArrayList<>();
 
+<<<<<<< HEAD
 		for (long deleteFolderId : deleteFolderIds) {
+=======
+		for (int i = 0; i < deleteFolderIds.length; i++) {
+			long deleteFolderId = deleteFolderIds[i];
+
+>>>>>>> compatible
 			if (moveToTrash) {
 				Folder folder = _dlTrashService.moveFolderToTrash(
 					deleteFolderId);
@@ -148,7 +172,13 @@ public class EditEntryMVCActionCommand extends BaseMVCActionCommand {
 		long[] deleteFileShortcutIds = ParamUtil.getLongValues(
 			actionRequest, "rowIdsDLFileShortcut");
 
+<<<<<<< HEAD
 		for (long deleteFileShortcutId : deleteFileShortcutIds) {
+=======
+		for (int i = 0; i < deleteFileShortcutIds.length; i++) {
+			long deleteFileShortcutId = deleteFileShortcutIds[i];
+
+>>>>>>> compatible
 			if (moveToTrash) {
 				FileShortcut fileShortcut =
 					_dlTrashService.moveFileShortcutToTrash(
@@ -181,11 +211,17 @@ public class EditEntryMVCActionCommand extends BaseMVCActionCommand {
 		}
 
 		if (moveToTrash && !trashedModels.isEmpty()) {
+<<<<<<< HEAD
 			Map<String, Object> data = new HashMap<>();
 
 			data.put("trashedModels", trashedModels);
 
 			addDeleteSuccessData(actionRequest, data);
+=======
+			TrashUtil.addTrashSessionMessages(actionRequest, trashedModels);
+
+			hideDefaultSuccessMessage(actionRequest);
+>>>>>>> compatible
 		}
 	}
 

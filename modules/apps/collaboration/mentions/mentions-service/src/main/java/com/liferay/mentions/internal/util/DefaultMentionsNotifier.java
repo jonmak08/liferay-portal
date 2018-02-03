@@ -17,25 +17,45 @@ package com.liferay.mentions.internal.util;
 import com.liferay.asset.kernel.AssetRendererFactoryRegistryUtil;
 import com.liferay.asset.kernel.model.AssetRendererFactory;
 import com.liferay.mentions.constants.MentionsConstants;
+<<<<<<< HEAD
 import com.liferay.mentions.constants.MentionsPortletKeys;
 import com.liferay.mentions.matcher.MentionsMatcher;
 import com.liferay.mentions.util.MentionsNotifier;
 import com.liferay.mentions.util.MentionsUserFinder;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.mentions.matcher.MentionsMatcher;
+import com.liferay.mentions.util.MentionsNotifier;
+import com.liferay.mentions.util.MentionsUserFinder;
+import com.liferay.mentions.web.constants.MentionsPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.UserLocalService;
 import com.liferay.portal.kernel.settings.LocalizedValuesMap;
 import com.liferay.portal.kernel.util.ArrayUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.Function;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.LocalizationUtil;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.PrefsPropsUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.SubscriptionSender;
 import com.liferay.social.kernel.util.SocialInteractionsConfiguration;
 import com.liferay.social.kernel.util.SocialInteractionsConfigurationUtil;
 
+<<<<<<< HEAD
+=======
+import java.io.Serializable;
+
+>>>>>>> compatible
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
@@ -94,9 +114,12 @@ public class DefaultMentionsNotifier implements MentionsNotifier {
 		subscriptionSender.setEntryURL(contentURL);
 		subscriptionSender.setFrom(fromAddress, fromName);
 		subscriptionSender.setHtmlFormat(true);
+<<<<<<< HEAD
 		subscriptionSender.setLocalizedContextAttributeWithFunction(
 			"[$ASSET_ENTRY_NAME$]",
 			locale -> getAssetEntryName(className, locale));
+=======
+>>>>>>> compatible
 		subscriptionSender.setMailId("mb_discussion", classPK);
 		subscriptionSender.setNotificationType(
 			MentionsConstants.NOTIFICATION_TYPE_MENTION);
@@ -106,7 +129,13 @@ public class DefaultMentionsNotifier implements MentionsNotifier {
 		subscriptionSender.setLocalizedSubjectMap(
 			LocalizationUtil.getMap(subjectLocalizedValuesMap));
 
+<<<<<<< HEAD
 		for (String mentionedUserScreenName : mentionedUsersScreenNames) {
+=======
+		for (int i = 0; i < mentionedUsersScreenNames.length; i++) {
+			String mentionedUserScreenName = mentionedUsersScreenNames[i];
+
+>>>>>>> compatible
 			User mentionedUser = _userLocalService.fetchUserByScreenName(
 				user.getCompanyId(), mentionedUserScreenName);
 
@@ -118,6 +147,7 @@ public class DefaultMentionsNotifier implements MentionsNotifier {
 				mentionedUser.getEmailAddress(), mentionedUser.getFullName());
 		}
 
+<<<<<<< HEAD
 		subscriptionSender.flushNotificationsAsync();
 	}
 
@@ -131,6 +161,15 @@ public class DefaultMentionsNotifier implements MentionsNotifier {
 		}
 
 		return StringPool.BLANK;
+=======
+		AssetEntryNameSerializableFunction assetEntryNameSerializableFunction =
+			new AssetEntryNameSerializableFunction(className);
+
+		subscriptionSender.setLocalizedContextAttribute(
+			"[$ASSET_ENTRY_NAME$]", assetEntryNameSerializableFunction);
+
+		subscriptionSender.flushNotificationsAsync();
+>>>>>>> compatible
 	}
 
 	protected String[] getMentionedUsersScreenNames(
@@ -194,4 +233,31 @@ public class DefaultMentionsNotifier implements MentionsNotifier {
 
 	private UserLocalService _userLocalService;
 
+<<<<<<< HEAD
+=======
+	private static class AssetEntryNameSerializableFunction
+		implements Function<Locale, String>, Serializable {
+
+		public AssetEntryNameSerializableFunction(String className) {
+			_className = className;
+		}
+
+		@Override
+		public String apply(Locale locale) {
+			AssetRendererFactory<?> assetRendererFactory =
+				AssetRendererFactoryRegistryUtil.
+					getAssetRendererFactoryByClassName(_className);
+
+			if (assetRendererFactory != null) {
+				return assetRendererFactory.getTypeName(locale);
+			}
+
+			return StringPool.BLANK;
+		}
+
+		private final String _className;
+
+	}
+
+>>>>>>> compatible
 }

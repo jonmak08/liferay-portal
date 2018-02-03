@@ -55,7 +55,10 @@ DDMDataProviderInstance ddmDataProviderInstance = (DDMDataProviderInstance)row.g
 
 	<c:if test="<%= ddmDataProviderDisplayContext.isShowDeleteDataProviderIcon(ddmDataProviderInstance) %>">
 		<portlet:actionURL name="deleteDataProvider" var="deleteURL">
+<<<<<<< HEAD
 			<portlet:param name="redirect" value="<%= currentURL %>" />
+=======
+>>>>>>> compatible
 			<portlet:param name="dataProviderInstanceId" value="<%= String.valueOf(ddmDataProviderInstance.getDataProviderInstanceId()) %>" />
 		</portlet:actionURL>
 

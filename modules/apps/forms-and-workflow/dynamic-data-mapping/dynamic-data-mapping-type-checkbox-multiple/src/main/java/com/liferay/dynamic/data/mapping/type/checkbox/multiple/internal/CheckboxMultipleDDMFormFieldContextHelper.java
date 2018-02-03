@@ -23,6 +23,10 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 
@@ -39,10 +43,19 @@ public class CheckboxMultipleDDMFormFieldContextHelper {
 
 	public CheckboxMultipleDDMFormFieldContextHelper(
 		JSONFactory jsonFactory, DDMFormFieldOptions ddmFormFieldOptions,
+<<<<<<< HEAD
 		Locale locale) {
 
 		_jsonFactory = jsonFactory;
 		_ddmFormFieldOptions = ddmFormFieldOptions;
+=======
+		String value, LocalizedValue predefinedValue, Locale locale) {
+
+		_jsonFactory = jsonFactory;
+		_ddmFormFieldOptions = ddmFormFieldOptions;
+		_values = toStringArray(value);
+		_predefinedValues = toStringArray(predefinedValue.getString(locale));
+>>>>>>> compatible
 		_locale = locale;
 	}
 
@@ -57,6 +70,12 @@ public class CheckboxMultipleDDMFormFieldContextHelper {
 
 			optionMap.put("label", optionLabel.getString(_locale));
 
+<<<<<<< HEAD
+=======
+			optionMap.put(
+				"status",
+				isChecked(optionValue) ? "checked" : StringPool.BLANK);
+>>>>>>> compatible
 			optionMap.put("value", optionValue);
 
 			options.add(optionMap);
@@ -65,6 +84,21 @@ public class CheckboxMultipleDDMFormFieldContextHelper {
 		return options;
 	}
 
+<<<<<<< HEAD
+=======
+	protected boolean isChecked(String optionValue) {
+		if (ArrayUtil.isEmpty(_values)) {
+			return ArrayUtil.contains(_predefinedValues, optionValue);
+		}
+
+		if (ArrayUtil.contains(_values, optionValue)) {
+			return true;
+		}
+
+		return false;
+	}
+
+>>>>>>> compatible
 	protected String[] toStringArray(String value) {
 		if (Validator.isNull(value)) {
 			return GetterUtil.DEFAULT_STRING_VALUES;
@@ -93,5 +127,10 @@ public class CheckboxMultipleDDMFormFieldContextHelper {
 	private final DDMFormFieldOptions _ddmFormFieldOptions;
 	private final JSONFactory _jsonFactory;
 	private final Locale _locale;
+<<<<<<< HEAD
+=======
+	private final String[] _predefinedValues;
+	private final String[] _values;
+>>>>>>> compatible
 
 }

@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Weather Web
 Bundle-SymbolicName: com.liferay.weather.web
+<<<<<<< HEAD
 Bundle-Version: 1.0.10
+=======
+Bundle-Version: 1.0.5
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title:
 Web-ContextPath: /weather-web

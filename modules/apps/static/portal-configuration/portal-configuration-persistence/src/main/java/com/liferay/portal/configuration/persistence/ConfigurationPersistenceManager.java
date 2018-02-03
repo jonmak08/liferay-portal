@@ -18,6 +18,7 @@ import com.liferay.portal.configuration.persistence.listener.ConfigurationModelL
 import com.liferay.portal.configuration.persistence.listener.ConfigurationModelListenerProvider;
 import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.dao.db.DBManagerUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
 import com.liferay.portal.kernel.util.HashMapDictionary;
@@ -26,6 +27,17 @@ import com.liferay.portal.kernel.util.StringPool;
 
 import java.io.IOException;
 import java.io.OutputStream;
+=======
+import com.liferay.portal.kernel.io.ReaderInputStream;
+import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
+import com.liferay.portal.kernel.util.HashMapDictionary;
+import com.liferay.portal.kernel.util.ReflectionUtil;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.StringReader;
+>>>>>>> compatible
 
 import java.security.AccessController;
 import java.security.PrivilegedActionException;
@@ -352,6 +364,7 @@ public class ConfigurationPersistenceManager
 
 		ConfigurationModelListener configurationModelListener = null;
 
+<<<<<<< HEAD
 		if (!pid.endsWith("factory") &&
 			(dictionary.get("_felix_.cm.newConfiguration") == null)) {
 
@@ -365,6 +378,12 @@ public class ConfigurationPersistenceManager
 			configurationModelListener =
 				ConfigurationModelListenerProvider.
 					getConfigurationModelListener(pidKey);
+=======
+		if (hasPid(pid)) {
+			configurationModelListener =
+				ConfigurationModelListenerProvider.
+					getConfigurationModelListener(pid);
+>>>>>>> compatible
 		}
 
 		if (configurationModelListener != null) {
@@ -590,9 +609,16 @@ public class ConfigurationPersistenceManager
 	protected Dictionary<?, ?> toDictionary(String dictionaryString)
 		throws IOException {
 
+<<<<<<< HEAD
 		return ConfigurationHandler.read(
 			new UnsyncByteArrayInputStream(
 				dictionaryString.getBytes(StringPool.UTF8)));
+=======
+		InputStream inputStream = new ReaderInputStream(
+			new StringReader(dictionaryString));
+
+		return ConfigurationHandler.read(inputStream);
+>>>>>>> compatible
 	}
 
 	private Dictionary<?, ?> _copyDictionary(Dictionary<?, ?> dictionary) {

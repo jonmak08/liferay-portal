@@ -69,12 +69,17 @@ public class GetterUtilCheck extends BaseFileCheck {
 
 			String defaultValue = String.valueOf(defaultValuefield.get(null));
 
+<<<<<<< HEAD
 			defaultValue = defaultValue.replaceFirst("\\.0", StringPool.BLANK);
 
 			String value = parametersList.get(1);
 
 			value = value.replaceFirst("0(\\.0)?[dDfFlL]?", "0");
 
+=======
+			String value = parametersList.get(1);
+
+>>>>>>> compatible
 			if (value.equals("StringPool.BLANK")) {
 				value = StringPool.BLANK;
 			}
@@ -90,8 +95,13 @@ public class GetterUtilCheck extends BaseFileCheck {
 	}
 
 	private final Pattern _getterUtilGetPattern = Pattern.compile(
+<<<<<<< HEAD
 		"GetterUtil\\.get(Boolean|Double|Float|Integer|Long|Number|Object|" +
 			"Short|String)\\((.*?)\\);\n",
+=======
+		"GetterUtil\\.get(Boolean|Double|Float|Integer|Number|Object|Short|" +
+			"String)\\((.*?)\\);\n",
+>>>>>>> compatible
 		Pattern.DOTALL);
 
 }

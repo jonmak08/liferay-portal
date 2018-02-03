@@ -21,7 +21,10 @@ import com.liferay.invitation.invite.members.model.MemberRequest;
 import com.liferay.invitation.invite.members.service.base.MemberRequestLocalServiceBaseImpl;
 import com.liferay.mail.kernel.model.MailMessage;
 import com.liferay.mail.kernel.service.MailService;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.bean.BeanReference;
 import com.liferay.portal.kernel.exception.NoSuchUserException;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -46,6 +49,10 @@ import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.PrefsPropsUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
@@ -304,8 +311,11 @@ public class MemberRequestLocalServiceImpl
 			String redirectURL = getRedirectURL(serviceContext);
 
 			redirectURL = addParameterWithPortletNamespace(
+<<<<<<< HEAD
 				redirectURL, "actionRequired", StringPool.TRUE);
 			redirectURL = addParameterWithPortletNamespace(
+=======
+>>>>>>> compatible
 				redirectURL, "key", memberRequest.getKey());
 
 			createAccountURL = addParameterWithPortletNamespace(
@@ -327,8 +337,11 @@ public class MemberRequestLocalServiceImpl
 		String redirectURL = getRedirectURL(serviceContext);
 
 		redirectURL = addParameterWithPortletNamespace(
+<<<<<<< HEAD
 			redirectURL, "actionRequired", StringPool.TRUE);
 		redirectURL = addParameterWithPortletNamespace(
+=======
+>>>>>>> compatible
 			redirectURL, "key", memberRequest.getKey());
 
 		return HttpUtil.addParameter(loginURL, "redirect", redirectURL);

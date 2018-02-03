@@ -41,11 +41,14 @@ public class AssetCategoryFinderUtil {
 		return getFinder().findByG_N(groupId, name);
 	}
 
+<<<<<<< HEAD
 	public static java.util.List<com.liferay.asset.kernel.model.AssetCategory> findByC_C(
 		long classNameId, long classPK) {
 		return getFinder().findByC_C(classNameId, classPK);
 	}
 
+=======
+>>>>>>> compatible
 	public static java.util.List<com.liferay.asset.kernel.model.AssetCategory> findByG_N_P(
 		long groupId, java.lang.String name,
 		java.lang.String[] categoryProperties) {

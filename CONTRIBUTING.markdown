@@ -126,4 +126,11 @@ Install the following tools to aid in development:
 * [Liferay Community Slack Chat](https://communitychat.liferay.com/)
 * [Contributor License Agreement](https://www.liferay.com/legal/contributors-agreement)
 * [General GitHub documentation](http://help.github.com/)
+<<<<<<< HEAD
 * [GitHub pull request documentation](http://help.github.com/send-pull-requests/)
+=======
+* [GitHub pull request
+documentation](http://help.github.com/send-pull-requests/)
+* [Liferay's IRC channel on
+freenode.org](http://webchat.freenode.net/?channels=liferay&uio=d4)
+>>>>>>> compatible

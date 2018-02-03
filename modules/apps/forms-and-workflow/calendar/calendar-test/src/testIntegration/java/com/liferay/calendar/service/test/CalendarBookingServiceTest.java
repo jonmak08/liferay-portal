@@ -20,6 +20,7 @@ import com.liferay.calendar.model.CalendarBooking;
 import com.liferay.calendar.service.CalendarBookingLocalServiceUtil;
 import com.liferay.calendar.service.CalendarBookingServiceUtil;
 import com.liferay.calendar.test.util.CalendarBookingTestUtil;
+<<<<<<< HEAD
 import com.liferay.calendar.test.util.CalendarStagingTestUtil;
 import com.liferay.calendar.test.util.CalendarTestUtil;
 import com.liferay.portal.kernel.model.Group;
@@ -44,11 +45,25 @@ import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.PermissionCheckerTestRule;
 import com.liferay.portal.test.rule.SynchronousMailTestRule;
+=======
+import com.liferay.calendar.test.util.CalendarTestUtil;
+import com.liferay.portal.kernel.model.User;
+import com.liferay.portal.kernel.service.ServiceContext;
+import com.liferay.portal.kernel.test.context.ContextUserReplace;
+import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.util.UserTestUtil;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+>>>>>>> compatible
 
 import java.util.Collections;
 import java.util.List;
 
+<<<<<<< HEAD
 import org.junit.After;
+=======
+>>>>>>> compatible
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.ClassRule;
@@ -60,21 +75,31 @@ import org.junit.runner.RunWith;
  * @author Lino Alves
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class CalendarBookingServiceTest {
 
 	@ClassRule
 	@Rule
+<<<<<<< HEAD
 	public static final AggregateTestRule aggregateTestRule =
 		new AggregateTestRule(
 			new LiferayIntegrationTestRule(),
 			PermissionCheckerTestRule.INSTANCE,
 			SynchronousMailTestRule.INSTANCE);
+=======
+	public static final LiferayIntegrationTestRule liferayIntegrationTestRule =
+		new LiferayIntegrationTestRule();
+>>>>>>> compatible
 
 	@Before
 	public void setUp() throws Exception {
 		_omnidminUser = UserTestUtil.addOmniAdminUser();
 		_user1 = UserTestUtil.addUser();
 		_user2 = UserTestUtil.addUser();
+<<<<<<< HEAD
 
 		_permissionChecker = PermissionThreadLocal.getPermissionChecker();
 	}
@@ -84,6 +109,8 @@ public class CalendarBookingServiceTest {
 		CalendarStagingTestUtil.cleanUp();
 
 		PermissionThreadLocal.setPermissionChecker(_permissionChecker);
+=======
+>>>>>>> compatible
 	}
 
 	@Test
@@ -154,6 +181,7 @@ public class CalendarBookingServiceTest {
 				calendar.getCalendarId(), statuses);
 		}
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			calendarBookings.toString(), calendarBookings.isEmpty());
 	}
@@ -209,6 +237,9 @@ public class CalendarBookingServiceTest {
 
 		CalendarBookingServiceUtil.getCalendarBooking(
 			calendarBooking.getCalendarBookingId());
+=======
+		Assert.assertTrue(calendarBookings.isEmpty());
+>>>>>>> compatible
 	}
 
 	protected ServiceContext createServiceContext() {
@@ -220,6 +251,7 @@ public class CalendarBookingServiceTest {
 		return serviceContext;
 	}
 
+<<<<<<< HEAD
 	protected void deleteGuestAndUserPermission(Calendar calendar)
 		throws Exception {
 
@@ -250,6 +282,11 @@ public class CalendarBookingServiceTest {
 
 	private PermissionChecker _permissionChecker;
 
+=======
+	@DeleteAfterTestRun
+	private User _omnidminUser;
+
+>>>>>>> compatible
 	@DeleteAfterTestRun
 	private User _user1;
 

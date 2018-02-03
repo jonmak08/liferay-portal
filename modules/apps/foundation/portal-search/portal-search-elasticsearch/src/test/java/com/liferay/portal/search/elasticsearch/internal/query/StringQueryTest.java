@@ -21,15 +21,19 @@ import com.liferay.portal.search.test.util.indexing.BaseIndexingTestCase;
 import com.liferay.portal.search.test.util.indexing.IndexingFixture;
 import com.liferay.portal.search.test.util.query.BaseStringQueryTestCase;
 
+<<<<<<< HEAD
 import java.util.Arrays;
 
 import org.junit.Test;
 
+=======
+>>>>>>> compatible
 /**
  * @author André de Oliveira
  */
 public class StringQueryTest extends BaseStringQueryTestCase {
 
+<<<<<<< HEAD
 	@Test
 	public void testBooleanOperatorNotDeepElasticsearch() throws Exception {
 		addDocuments("alpha bravo", "alpha charlie", "charlie delta");
@@ -51,6 +55,8 @@ public class StringQueryTest extends BaseStringQueryTestCase {
 			Arrays.asList("alpha charlie", "charlie delta", "alpha bravo"));
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	protected IndexingFixture createIndexingFixture() {
 		ElasticsearchFixture elasticsearchFixture = new ElasticsearchFixture(

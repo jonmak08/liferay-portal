@@ -16,6 +16,7 @@ package com.liferay.bookmarks.social.test;
 
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
 import com.liferay.bookmarks.model.BookmarksFolder;
+<<<<<<< HEAD
 import com.liferay.bookmarks.service.BookmarksFolderLocalService;
 import com.liferay.bookmarks.util.test.BookmarksTestUtil;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
@@ -24,6 +25,18 @@ import com.liferay.portal.service.test.ServiceTestUtil;
 import com.liferay.portal.test.rule.Inject;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.social.activity.test.util.BaseSocialActivityInterpreterTestCase;
+=======
+import com.liferay.bookmarks.service.BookmarksFolderLocalServiceUtil;
+import com.liferay.bookmarks.social.BookmarksFolderActivityInterpreter;
+import com.liferay.bookmarks.util.test.BookmarksTestUtil;
+import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+import com.liferay.portal.kernel.test.util.TestPropsValues;
+import com.liferay.portal.service.test.ServiceTestUtil;
+import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+import com.liferay.portlet.social.test.BaseSocialActivityInterpreterTestCase;
+>>>>>>> compatible
 import com.liferay.social.kernel.model.SocialActivityConstants;
 import com.liferay.social.kernel.model.SocialActivityInterpreter;
 
@@ -36,13 +49,23 @@ import org.junit.runner.RunWith;
  * @author Zsolt Berentey
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class BookmarksFolderActivityInterpreterTest
 	extends BaseSocialActivityInterpreterTestCase {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Before
 	@Override
@@ -59,7 +82,11 @@ public class BookmarksFolderActivityInterpreterTest
 
 	@Override
 	protected SocialActivityInterpreter getActivityInterpreter() {
+<<<<<<< HEAD
 		return _socialActivityInterpreter;
+=======
+		return new BookmarksFolderActivityInterpreter();
+>>>>>>> compatible
 	}
 
 	@Override
@@ -77,7 +104,11 @@ public class BookmarksFolderActivityInterpreterTest
 
 	@Override
 	protected void moveModelsToTrash() throws Exception {
+<<<<<<< HEAD
 		_bookmarksFolderLocalService.moveFolderToTrash(
+=======
+		BookmarksFolderLocalServiceUtil.moveFolderToTrash(
+>>>>>>> compatible
 			TestPropsValues.getUserId(), _folder.getFolderId());
 	}
 
@@ -87,6 +118,7 @@ public class BookmarksFolderActivityInterpreterTest
 
 	@Override
 	protected void restoreModelsFromTrash() throws Exception {
+<<<<<<< HEAD
 		_bookmarksFolderLocalService.restoreFolderFromTrash(
 			TestPropsValues.getUserId(), _folder.getFolderId());
 	}
@@ -99,6 +131,12 @@ public class BookmarksFolderActivityInterpreterTest
 	)
 	private static SocialActivityInterpreter _socialActivityInterpreter;
 
+=======
+		BookmarksFolderLocalServiceUtil.restoreFolderFromTrash(
+			TestPropsValues.getUserId(), _folder.getFolderId());
+	}
+
+>>>>>>> compatible
 	private BookmarksFolder _folder;
 
 }

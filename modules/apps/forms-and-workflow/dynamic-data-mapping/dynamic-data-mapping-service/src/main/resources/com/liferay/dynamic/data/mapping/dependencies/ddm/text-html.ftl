@@ -2,6 +2,10 @@
 
 <#assign
 	cssClass = ""
+<<<<<<< HEAD
+=======
+	editorName = propsUtil.get("editor.wysiwyg.portal-impl.portlet.ddm.text_html.ftl")
+>>>>>>> compatible
 
 	inputEditorName = "${namespacedFieldName}Editor"
 

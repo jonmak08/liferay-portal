@@ -15,18 +15,30 @@
 package com.liferay.portal.search.elasticsearch.internal;
 
 import com.liferay.portal.kernel.search.Document;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.search.DocumentImpl;
+>>>>>>> compatible
 import com.liferay.portal.kernel.search.Field;
 import com.liferay.portal.kernel.search.IndexWriter;
 import com.liferay.portal.kernel.search.SearchContext;
 import com.liferay.portal.kernel.search.SearchException;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.search.suggest.SpellCheckIndexWriter;
 import com.liferay.portal.kernel.util.Localization;
 import com.liferay.portal.kernel.util.LocalizationUtil;
+=======
+import com.liferay.portal.kernel.search.suggest.BaseGenericSpellCheckIndexWriter;
+import com.liferay.portal.kernel.search.suggest.SpellCheckIndexWriter;
+>>>>>>> compatible
 import com.liferay.portal.search.elasticsearch.connection.ElasticsearchConnectionManager;
 import com.liferay.portal.search.elasticsearch.document.ElasticsearchUpdateDocumentCommand;
 import com.liferay.portal.search.elasticsearch.index.IndexNameBuilder;
 import com.liferay.portal.search.elasticsearch.internal.util.DocumentTypes;
+<<<<<<< HEAD
 import com.liferay.portal.search.suggest.BaseGenericSpellCheckIndexWriter;
+=======
+>>>>>>> compatible
 
 import java.util.Collection;
 
@@ -106,10 +118,15 @@ public class ElasticsearchSpellCheckIndexWriter
 		document.addKeyword(Field.COMPANY_ID, companyId);
 		document.addKeyword(Field.GROUP_ID, groupId);
 
+<<<<<<< HEAD
 		Localization localization = getLocalization();
 
 		String localizedName = localization.getLocalizedName(
 			keywordFieldName, languageId);
+=======
+		String localizedName = DocumentImpl.getLocalizedName(
+			languageId, keywordFieldName);
+>>>>>>> compatible
 
 		document.addKeyword(localizedName, keywords);
 
@@ -150,6 +167,7 @@ public class ElasticsearchSpellCheckIndexWriter
 		}
 	}
 
+<<<<<<< HEAD
 	protected Localization getLocalization() {
 
 		// See LPS-72507 and LPS-76500
@@ -161,6 +179,8 @@ public class ElasticsearchSpellCheckIndexWriter
 		return LocalizationUtil.getLocalization();
 	}
 
+=======
+>>>>>>> compatible
 	@Reference(
 		cardinality = ReferenceCardinality.OPTIONAL,
 		policy = ReferencePolicy.DYNAMIC,
@@ -186,8 +206,11 @@ public class ElasticsearchSpellCheckIndexWriter
 	@Reference(unbind = "-")
 	protected IndexNameBuilder indexNameBuilder;
 
+<<<<<<< HEAD
 	protected Localization localization;
 
+=======
+>>>>>>> compatible
 	private volatile SearchHitsProcessor _searchHitsProcessor;
 
 }

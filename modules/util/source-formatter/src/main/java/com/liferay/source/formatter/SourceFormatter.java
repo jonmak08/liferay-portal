@@ -14,8 +14,13 @@
 
 package com.liferay.source.formatter;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.util.ArrayUtil;
+=======
+import com.liferay.portal.kernel.util.ArrayUtil;
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.SetUtil;
@@ -26,6 +31,7 @@ import com.liferay.portal.tools.ArgumentsUtil;
 import com.liferay.portal.tools.GitException;
 import com.liferay.portal.tools.GitUtil;
 import com.liferay.portal.tools.ToolsUtil;
+<<<<<<< HEAD
 import com.liferay.source.formatter.checks.configuration.ConfigurationLoader;
 import com.liferay.source.formatter.checks.configuration.SourceCheckConfiguration;
 import com.liferay.source.formatter.checks.configuration.SourceChecksSuppressions;
@@ -34,6 +40,9 @@ import com.liferay.source.formatter.checks.configuration.SuppressionsLoader;
 import com.liferay.source.formatter.checks.util.SourceUtil;
 import com.liferay.source.formatter.util.CheckType;
 import com.liferay.source.formatter.util.DebugUtil;
+=======
+import com.liferay.source.formatter.checks.util.SourceUtil;
+>>>>>>> compatible
 import com.liferay.source.formatter.util.FileUtil;
 import com.liferay.source.formatter.util.SourceFormatterUtil;
 
@@ -185,12 +194,15 @@ public class SourceFormatter {
 
 			sourceFormatterArgs.setProcessorThreadCount(processorThreadCount);
 
+<<<<<<< HEAD
 			boolean showDebugInformation = ArgumentsUtil.getBoolean(
 				arguments, "show.debug.information",
 				SourceFormatterArgs.SHOW_DEBUG_INFORMATION);
 
 			sourceFormatterArgs.setShowDebugInformation(showDebugInformation);
 
+=======
+>>>>>>> compatible
 			boolean showDocumentation = ArgumentsUtil.getBoolean(
 				arguments, "show.documentation",
 				SourceFormatterArgs.SHOW_DOCUMENTATION);
@@ -256,18 +268,27 @@ public class SourceFormatter {
 		_sourceProcessors.add(new FTLSourceProcessor());
 		_sourceProcessors.add(new GradleSourceProcessor());
 		_sourceProcessors.add(new GroovySourceProcessor());
+<<<<<<< HEAD
 		_sourceProcessors.add(new HTMLSourceProcessor());
+=======
+>>>>>>> compatible
 		_sourceProcessors.add(new JavaSourceProcessor());
 		_sourceProcessors.add(new JSONSourceProcessor());
 		_sourceProcessors.add(new JSPSourceProcessor());
 		_sourceProcessors.add(new JSSourceProcessor());
 		_sourceProcessors.add(new MarkdownSourceProcessor());
+<<<<<<< HEAD
 		_sourceProcessors.add(new PackageinfoSourceProcessor());
+=======
+>>>>>>> compatible
 		_sourceProcessors.add(new PropertiesSourceProcessor());
 		_sourceProcessors.add(new SHSourceProcessor());
 		_sourceProcessors.add(new SoySourceProcessor());
 		_sourceProcessors.add(new SQLSourceProcessor());
+<<<<<<< HEAD
 		_sourceProcessors.add(new TSSourceProcessor());
+=======
+>>>>>>> compatible
 		_sourceProcessors.add(new TLDSourceProcessor());
 		_sourceProcessors.add(new XMLSourceProcessor());
 		_sourceProcessors.add(new YMLSourceProcessor());
@@ -315,10 +336,13 @@ public class SourceFormatter {
 			Thread.sleep(20);
 		}
 
+<<<<<<< HEAD
 		if (_sourceFormatterArgs.isShowDebugInformation()) {
 			DebugUtil.printSourceFormatterInformation();
 		}
 
+=======
+>>>>>>> compatible
 		_progressStatusQueue.put(
 			new ProgressStatusUpdate(ProgressStatus.SOURCE_FORMAT_COMPLETED));
 
@@ -363,6 +387,7 @@ public class SourceFormatter {
 		return _firstSourceMismatchException;
 	}
 
+<<<<<<< HEAD
 	private List<String> _getCheckNames() {
 		List<String> checkNames = new ArrayList<>();
 
@@ -380,6 +405,8 @@ public class SourceFormatter {
 		return checkNames;
 	}
 
+=======
+>>>>>>> compatible
 	private List<ExcludeSyntaxPattern> _getExcludeSyntaxPatterns(
 		String sourceFormatterExcludes) {
 
@@ -408,6 +435,7 @@ public class SourceFormatter {
 		return excludeSyntaxPatterns;
 	}
 
+<<<<<<< HEAD
 	private List<String> _getPluginsInsideModulesDirectoryNames()
 		throws Exception {
 
@@ -461,6 +489,18 @@ public class SourceFormatter {
 		properties.load(new FileInputStream(file));
 
 		return properties.getProperty("project.path.prefix");
+=======
+	private int _getMaxDirLevel() {
+		File portalImplDir = SourceFormatterUtil.getFile(
+			_sourceFormatterArgs.getBaseDirName(), "portal-impl",
+			ToolsUtil.PORTAL_MAX_DIR_LEVEL);
+
+		if (portalImplDir != null) {
+			return ToolsUtil.PORTAL_MAX_DIR_LEVEL;
+		}
+
+		return ToolsUtil.PLUGINS_MAX_DIR_LEVEL;
+>>>>>>> compatible
 	}
 
 	private Properties _getProperties(File file) throws Exception {
@@ -473,6 +513,7 @@ public class SourceFormatter {
 		return properties;
 	}
 
+<<<<<<< HEAD
 	private SourceChecksSuppressions _getSourceChecksSuppressions()
 		throws Exception {
 
@@ -484,6 +525,8 @@ public class SourceFormatter {
 		return SuppressionsLoader.loadSuppressions(suppressionsFiles);
 	}
 
+=======
+>>>>>>> compatible
 	private void _init() throws Exception {
 		_sourceFormatterExcludes = new SourceFormatterExcludes(
 			SetUtil.fromArray(DEFAULT_EXCLUDE_SYNTAX_PATTERNS));
@@ -492,7 +535,11 @@ public class SourceFormatter {
 
 		String parentDirName = _sourceFormatterArgs.getBaseDirName();
 
+<<<<<<< HEAD
 		for (int i = 0; i < ToolsUtil.PORTAL_MAX_DIR_LEVEL; i++) {
+=======
+		for (int i = 0; i < _getMaxDirLevel(); i++) {
+>>>>>>> compatible
 			_readProperties(new File(parentDirName + _PROPERTIES_FILE_NAME));
 
 			parentDirName += "../";
@@ -500,9 +547,13 @@ public class SourceFormatter {
 
 		_allFileNames = SourceFormatterUtil.scanForFiles(
 			_sourceFormatterArgs.getBaseDirName(), new String[0],
+<<<<<<< HEAD
 			new String[] {
 				"**/*.*", "**/CODEOWNERS", "**/Dockerfile", "**/packageinfo"
 			},
+=======
+			new String[] {"**/*.*", "**/CODEOWNERS", "**/Dockerfile"},
+>>>>>>> compatible
 			_sourceFormatterExcludes,
 			_sourceFormatterArgs.isIncludeSubrepositories());
 
@@ -517,6 +568,7 @@ public class SourceFormatter {
 		for (String modulePropertiesFileName : modulePropertiesFileNames) {
 			_readProperties(new File(modulePropertiesFileName));
 		}
+<<<<<<< HEAD
 
 		_pluginsInsideModulesDirectoryNames =
 			_getPluginsInsideModulesDirectoryNames();
@@ -569,6 +621,8 @@ public class SourceFormatter {
 		}
 
 		return false;
+=======
+>>>>>>> compatible
 	}
 
 	private void _printProgressStatusMessage(String message) {
@@ -623,6 +677,7 @@ public class SourceFormatter {
 		throws Exception {
 
 		sourceProcessor.setAllFileNames(_allFileNames);
+<<<<<<< HEAD
 		sourceProcessor.setPluginsInsideModulesDirectoryNames(
 			_pluginsInsideModulesDirectoryNames);
 		sourceProcessor.setPortalSource(_portalSource);
@@ -635,6 +690,12 @@ public class SourceFormatter {
 			_sourceFormatterConfiguration);
 		sourceProcessor.setSourceFormatterExcludes(_sourceFormatterExcludes);
 		sourceProcessor.setSubrepository(_subrepository);
+=======
+		sourceProcessor.setProgressStatusQueue(_progressStatusQueue);
+		sourceProcessor.setPropertiesMap(_propertiesMap);
+		sourceProcessor.setSourceFormatterArgs(_sourceFormatterArgs);
+		sourceProcessor.setSourceFormatterExcludes(_sourceFormatterExcludes);
+>>>>>>> compatible
 
 		sourceProcessor.format();
 
@@ -651,15 +712,21 @@ public class SourceFormatter {
 	private static final String _PROPERTIES_FILE_NAME =
 		"source-formatter.properties";
 
+<<<<<<< HEAD
 	private static final int _SUBREPOSITORY_MAX_DIR_LEVEL = 3;
 
+=======
+>>>>>>> compatible
 	private List<String> _allFileNames;
 	private volatile SourceMismatchException _firstSourceMismatchException;
 	private int _maxStatusMessageLength = -1;
 	private final List<String> _modifiedFileNames =
 		new CopyOnWriteArrayList<>();
+<<<<<<< HEAD
 	private List<String> _pluginsInsideModulesDirectoryNames;
 	private boolean _portalSource;
+=======
+>>>>>>> compatible
 	private final BlockingQueue<ProgressStatusUpdate> _progressStatusQueue =
 		new LinkedBlockingQueue<>();
 
@@ -669,10 +736,20 @@ public class SourceFormatter {
 		public void run() {
 			int fileScansCompletedCount = 0;
 			int percentage = 0;
+<<<<<<< HEAD
 			int processedChecksFileCount = 0;
 			int totalChecksFileCount = 0;
 
 			boolean checksInitialized = false;
+=======
+			int processedCheckStyleFileCount = 0;
+			int processedSourceChecksFileCount = 0;
+			int totalCheckStyleFileCount = 0;
+			int totalSourceChecksFileCount = 0;
+
+			boolean sourceChecksInitialized = false;
+			boolean sourceChecksCompleted = false;
+>>>>>>> compatible
 
 			while (true) {
 				try {
@@ -683,15 +760,50 @@ public class SourceFormatter {
 						progressStatusUpdate.getProgressStatus();
 
 					if (progressStatus.equals(
+<<<<<<< HEAD
 							ProgressStatus.CHECKS_INITIALIZED)) {
 
 						fileScansCompletedCount++;
 						totalChecksFileCount += progressStatusUpdate.getCount();
+=======
+							ProgressStatus.CHECK_STYLE_FILE_COMPLETED)) {
+
+						processedCheckStyleFileCount++;
+
+						if (!sourceChecksCompleted) {
+
+							// Do not show progress for CheckStyle when there
+							// are still source checks that are not done yet.
+
+							continue;
+						}
+
+						percentage = _processCompletedPercentage(
+							percentage, processedCheckStyleFileCount,
+							totalCheckStyleFileCount, "CheckStyle checks");
+					}
+					else if (progressStatus.equals(
+								ProgressStatus.CHECK_STYLE_STARTING)) {
+
+						totalCheckStyleFileCount =
+							progressStatusUpdate.getCount();
+					}
+					else if (progressStatus.equals(
+								ProgressStatus.SOURCE_CHECKS_INITIALIZED)) {
+
+						fileScansCompletedCount++;
+						totalSourceChecksFileCount +=
+							progressStatusUpdate.getCount();
+>>>>>>> compatible
 
 						if (fileScansCompletedCount ==
 								_sourceProcessors.size()) {
 
+<<<<<<< HEAD
 							checksInitialized = true;
+=======
+							sourceChecksInitialized = true;
+>>>>>>> compatible
 
 							// Some SourceProcessors might already have
 							// processed files before other SourceProcessors
@@ -700,6 +812,7 @@ public class SourceFormatter {
 							// processed files from the total count and reset
 							// the processed files count.
 
+<<<<<<< HEAD
 							totalChecksFileCount -= processedChecksFileCount;
 
 							processedChecksFileCount = 0;
@@ -714,13 +827,52 @@ public class SourceFormatter {
 
 							// Do not show progress when there are still other
 							// checks that are still being finalized.
+=======
+							totalSourceChecksFileCount -=
+								processedSourceChecksFileCount;
+
+							processedSourceChecksFileCount = 0;
+						}
+					}
+					else if (progressStatus.equals(
+								ProgressStatus.SOURCE_CHECK_FILE_COMPLETED)) {
+
+						processedSourceChecksFileCount++;
+
+						if (!sourceChecksInitialized) {
+
+							// Do not show progress when there are still other
+							// source checks that are still being finalized.
+>>>>>>> compatible
 
 							continue;
 						}
 
 						percentage = _processCompletedPercentage(
+<<<<<<< HEAD
 							percentage, processedChecksFileCount,
 							totalChecksFileCount);
+=======
+							percentage, processedSourceChecksFileCount,
+							totalSourceChecksFileCount, "source checks");
+
+						if (percentage == 100) {
+							sourceChecksCompleted = true;
+
+							// Checkstyle might already have processed files
+							// before all the source checks finished. In order
+							// to show the status for the remaining files, we
+							// deduct the processed files from the total count
+							// and reset the processed files count.
+
+							totalCheckStyleFileCount -=
+								processedCheckStyleFileCount;
+
+							processedCheckStyleFileCount = 0;
+
+							percentage = 0;
+						}
+>>>>>>> compatible
 					}
 					else if (progressStatus.equals(
 								ProgressStatus.SOURCE_FORMAT_COMPLETED)) {
@@ -750,13 +902,29 @@ public class SourceFormatter {
 		}
 
 		private int _processCompletedPercentage(
+<<<<<<< HEAD
 			int percentage, int count, int total) {
+=======
+			int percentage, int count, int total, String checkType) {
+>>>>>>> compatible
 
 			int newPercentage = (count * 100) / total;
 
 			if (newPercentage > percentage) {
+<<<<<<< HEAD
 				_printProgressStatusMessage(
 					"Processing checks: " + newPercentage + "% completed");
+=======
+				StringBundler sb = new StringBundler();
+
+				sb.append("Processing ");
+				sb.append(checkType);
+				sb.append(": ");
+				sb.append(newPercentage);
+				sb.append("% completed");
+
+				_printProgressStatusMessage(sb.toString());
+>>>>>>> compatible
 			}
 
 			return newPercentage;
@@ -764,15 +932,23 @@ public class SourceFormatter {
 
 	};
 
+<<<<<<< HEAD
 	private String _projectPathPrefix;
 	private Map<String, Properties> _propertiesMap = new HashMap<>();
 	private SourceChecksSuppressions _sourceChecksSuppressions;
 	private final SourceFormatterArgs _sourceFormatterArgs;
 	private SourceFormatterConfiguration _sourceFormatterConfiguration;
+=======
+	private Map<String, Properties> _propertiesMap = new HashMap<>();
+	private final SourceFormatterArgs _sourceFormatterArgs;
+>>>>>>> compatible
 	private SourceFormatterExcludes _sourceFormatterExcludes;
 	private final Set<SourceFormatterMessage> _sourceFormatterMessages =
 		new ConcurrentSkipListSet<>();
 	private List<SourceProcessor> _sourceProcessors = new ArrayList<>();
+<<<<<<< HEAD
 	private boolean _subrepository;
+=======
+>>>>>>> compatible
 
 }

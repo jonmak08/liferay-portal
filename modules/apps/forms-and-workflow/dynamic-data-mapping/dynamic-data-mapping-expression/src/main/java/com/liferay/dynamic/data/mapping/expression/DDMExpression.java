@@ -14,10 +14,13 @@
 
 package com.liferay.dynamic.data.mapping.expression;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.dynamic.data.mapping.expression.model.Expression;
 
+=======
+>>>>>>> compatible
 import java.math.MathContext;
 
 import java.util.Map;
@@ -25,22 +28,31 @@ import java.util.Map;
 /**
  * @author Miguel Angelo Caldas Gallindo
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public interface DDMExpression<T> {
 
 	public T evaluate() throws DDMExpressionException;
 
+<<<<<<< HEAD
 	public Expression getModel();
 
+=======
+>>>>>>> compatible
 	public Map<String, VariableDependencies> getVariableDependenciesMap()
 		throws DDMExpressionException;
 
 	public void setBooleanVariableValue(
 		String variableName, Boolean variableValue);
 
+<<<<<<< HEAD
 	public void setDDMExpressionFunction(
 		String functionName, DDMExpressionFunction ddmExpressionFunction);
 
+=======
+>>>>>>> compatible
 	public void setDoubleVariableValue(
 		String variableName, Double variableValue);
 
@@ -54,6 +66,7 @@ public interface DDMExpression<T> {
 
 	public void setLongVariableValue(String variableName, Long variableValue);
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 2.1.0, with no direct replacement
 	 */
@@ -66,6 +79,10 @@ public interface DDMExpression<T> {
 	public void setObjectVariableValue(
 		String variableName, Object variableValue);
 
+=======
+	public void setMathContext(MathContext mathContext);
+
+>>>>>>> compatible
 	public void setStringVariableValue(
 			String variableName, String variableValue)
 		throws DDMExpressionException;

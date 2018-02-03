@@ -35,6 +35,7 @@ import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.TicketPersistence;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -995,21 +996,34 @@ public class TicketPersistenceImpl extends BasePersistenceImpl<Ticket>
 	 * @return the ordered range of matching tickets
 	 */
 	@Override
+<<<<<<< HEAD
 	public List<Ticket> findByC_C_C_T(long companyId, long classNameId,
 		long classPK, int type, int start, int end,
 		OrderByComparator<Ticket> orderByComparator) {
 		return findByC_C_C_T(companyId, classNameId, classPK, type, start, end,
+=======
+	public List<Ticket> findByC_C_T(long classNameId, long classPK, int type,
+		int start, int end, OrderByComparator<Ticket> orderByComparator) {
+		return findByC_C_T(classNameId, classPK, type, start, end,
+>>>>>>> compatible
 			orderByComparator, true);
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Returns an ordered range of all the tickets where companyId = &#63; and classNameId = &#63; and classPK = &#63; and type = &#63;.
+=======
+	 * Returns an ordered range of all the tickets where classNameId = &#63; and classPK = &#63; and type = &#63;.
+>>>>>>> compatible
 	 *
 	 * <p>
 	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link TicketModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	 * </p>
 	 *
+<<<<<<< HEAD
 	 * @param companyId the company ID
+=======
+>>>>>>> compatible
 	 * @param classNameId the class name ID
 	 * @param classPK the class pk
 	 * @param type the type
@@ -1020,9 +1034,15 @@ public class TicketPersistenceImpl extends BasePersistenceImpl<Ticket>
 	 * @return the ordered range of matching tickets
 	 */
 	@Override
+<<<<<<< HEAD
 	public List<Ticket> findByC_C_C_T(long companyId, long classNameId,
 		long classPK, int type, int start, int end,
 		OrderByComparator<Ticket> orderByComparator, boolean retrieveFromCache) {
+=======
+	public List<Ticket> findByC_C_T(long classNameId, long classPK, int type,
+		int start, int end, OrderByComparator<Ticket> orderByComparator,
+		boolean retrieveFromCache) {
+>>>>>>> compatible
 		boolean pagination = true;
 		FinderPath finderPath = null;
 		Object[] finderArgs = null;
@@ -1043,6 +1063,7 @@ public class TicketPersistenceImpl extends BasePersistenceImpl<Ticket>
 		}
 
 		List<Ticket> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<Ticket>)finderCache.getResult(finderPath, finderArgs,
@@ -1056,6 +1077,20 @@ public class TicketPersistenceImpl extends BasePersistenceImpl<Ticket>
 							(type != ticket.getType())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<Ticket>)finderCache.getResult(finderPath, finderArgs,
+					this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (Ticket ticket : list) {
+					if ((classNameId != ticket.getClassNameId()) ||
+							(classPK != ticket.getClassPK()) ||
+							(type != ticket.getType())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -1066,7 +1101,11 @@ public class TicketPersistenceImpl extends BasePersistenceImpl<Ticket>
 			StringBundler query = null;
 
 			if (orderByComparator != null) {
+<<<<<<< HEAD
 				query = new StringBundler(6 +
+=======
+				query = new StringBundler(5 +
+>>>>>>> compatible
 						(orderByComparator.getOrderByFields().length * 2));
 			}
 			else {
@@ -1329,12 +1368,20 @@ public class TicketPersistenceImpl extends BasePersistenceImpl<Ticket>
 		StringBundler query = null;
 
 		if (orderByComparator != null) {
+<<<<<<< HEAD
 			query = new StringBundler(7 +
+=======
+			query = new StringBundler(6 +
+>>>>>>> compatible
 					(orderByComparator.getOrderByConditionFields().length * 3) +
 					(orderByComparator.getOrderByFields().length * 3));
 		}
 		else {
+<<<<<<< HEAD
 			query = new StringBundler(6);
+=======
+			query = new StringBundler(5);
+>>>>>>> compatible
 		}
 
 		query.append(_SQL_SELECT_TICKET_WHERE);
@@ -1534,11 +1581,17 @@ public class TicketPersistenceImpl extends BasePersistenceImpl<Ticket>
 		setModelClass(Ticket.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("key", "key_");
@@ -1791,6 +1844,7 @@ public class TicketPersistenceImpl extends BasePersistenceImpl<Ticket>
 		}
 
 		finderCache.clearCache(FINDER_CLASS_NAME_LIST_WITH_PAGINATION);
+<<<<<<< HEAD
 
 		if (!TicketModelImpl.COLUMN_BITMASK_ENABLED) {
 			finderCache.clearCache(FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION);
@@ -1816,6 +1870,23 @@ public class TicketPersistenceImpl extends BasePersistenceImpl<Ticket>
 			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_C_C_C_T,
 				args);
 
+=======
+
+		if (!TicketModelImpl.COLUMN_BITMASK_ENABLED) {
+			finderCache.clearCache(FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION);
+		}
+		else
+		 if (isNew) {
+			Object[] args = new Object[] {
+					ticketModelImpl.getClassNameId(),
+					ticketModelImpl.getClassPK(), ticketModelImpl.getType()
+				};
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_C_C_T, args);
+			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_C_C_T,
+				args);
+
+>>>>>>> compatible
 			finderCache.removeResult(FINDER_PATH_COUNT_ALL, FINDER_ARGS_EMPTY);
 			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_ALL,
 				FINDER_ARGS_EMPTY);
@@ -1832,6 +1903,7 @@ public class TicketPersistenceImpl extends BasePersistenceImpl<Ticket>
 
 				finderCache.removeResult(FINDER_PATH_COUNT_BY_C_C_T, args);
 				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_C_C_T,
+<<<<<<< HEAD
 					args);
 
 				args = new Object[] {
@@ -1855,6 +1927,8 @@ public class TicketPersistenceImpl extends BasePersistenceImpl<Ticket>
 
 				finderCache.removeResult(FINDER_PATH_COUNT_BY_C_C_C_T, args);
 				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_C_C_C_T,
+=======
+>>>>>>> compatible
 					args);
 
 				args = new Object[] {
@@ -1863,8 +1937,13 @@ public class TicketPersistenceImpl extends BasePersistenceImpl<Ticket>
 						ticketModelImpl.getClassPK(), ticketModelImpl.getType()
 					};
 
+<<<<<<< HEAD
 				finderCache.removeResult(FINDER_PATH_COUNT_BY_C_C_C_T, args);
 				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_C_C_C_T,
+=======
+				finderCache.removeResult(FINDER_PATH_COUNT_BY_C_C_T, args);
+				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_C_C_T,
+>>>>>>> compatible
 					args);
 			}
 		}

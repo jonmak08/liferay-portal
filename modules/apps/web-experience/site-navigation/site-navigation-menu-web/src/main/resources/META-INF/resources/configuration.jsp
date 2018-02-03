@@ -33,7 +33,11 @@ String rootLayoutType = siteNavigationMenuDisplayContext.getRootLayoutType();
 			<aui:row>
 				<aui:col width="<%= 50 %>">
 					<aui:fieldset-group markupView="lexicon">
+<<<<<<< HEAD
 						<aui:fieldset cssClass="ml-3">
+=======
+						<aui:fieldset>
+>>>>>>> compatible
 							<div class="display-template">
 								<liferay-ddm:template-selector
 									className="<%= NavItem.class.getName() %>"
@@ -42,6 +46,7 @@ String rootLayoutType = siteNavigationMenuDisplayContext.getRootLayoutType();
 									refreshURL="<%= configurationRenderURL %>"
 								/>
 							</div>
+<<<<<<< HEAD
 						</aui:fieldset>
 
 						<aui:fieldset cssClass="p-3" label="menu-items-to-show">
@@ -110,6 +115,84 @@ String rootLayoutType = siteNavigationMenuDisplayContext.getRootLayoutType();
 										</aui:select>
 									</aui:col>
 								</aui:row>
+=======
+
+							<div id="<portlet:namespace />customDisplayOptions">
+								<aui:select id="rootLayoutType" label="root-layout" name="preferences--rootLayoutType--" value="<%= rootLayoutType %>">
+									<aui:option label="parent-at-level" value="absolute" />
+									<aui:option label="relative-parent-up-by" value="relative" />
+									<aui:option label="select" value="select" />
+								</aui:select>
+
+								<div class="<%= rootLayoutType.equals("parent-at-level") || rootLayoutType.equals("relative-parent-up-by") ? "" : "hide" %>" id="<portlet:namespace />rootLayoutLevel">
+									<aui:select name="preferences--rootLayoutLevel--">
+
+										<%
+										for (int i = 0; i <= 4; i++) {
+										%>
+
+											<aui:option label="<%= i %>" selected="<%= siteNavigationMenuDisplayContext.getRootLayoutLevel() == i %>" />
+
+										<%
+										}
+										%>
+
+									</aui:select>
+								</div>
+
+								<div class="<%= rootLayoutType.equals("select") ? "" : "hide" %>" id="<portlet:namespace />rootLayoutUuid">
+									<aui:select label="" name="preferences--rootLayoutUuid--">
+										<aui:option value="" />
+
+										<%
+										for (LayoutDescription layoutDescription : siteNavigationMenuDisplayContext.getLayoutDescriptions()) {
+											Layout layoutDescriptionLayout = LayoutLocalServiceUtil.fetchLayout(layoutDescription.getPlid());
+
+											if (layoutDescriptionLayout != null) {
+										%>
+
+												<aui:option label="<%= layoutDescription.getDisplayName() %>" selected="<%= Objects.equals(layoutDescriptionLayout.getUuid(), siteNavigationMenuDisplayContext.getRootLayoutUuid()) %>" value="<%= layoutDescriptionLayout.getUuid() %>" />
+
+										<%
+											}
+										}
+										%>
+
+									</aui:select>
+								</div>
+
+								<aui:select name="preferences--displayDepth--">
+									<aui:option label="unlimited" value="0" />
+
+									<%
+									for (int i = 1; i <= 20; i++) {
+									%>
+
+										<aui:option label="<%= i %>" selected="<%= siteNavigationMenuDisplayContext.getDisplayDepth() == i %>" />
+
+									<%
+									}
+									%>
+
+								</aui:select>
+
+								<aui:script>
+									Liferay.Util.toggleSelectBox('<portlet:namespace />rootLayoutType', 'select', '<portlet:namespace />rootLayoutUuid');
+
+									Liferay.Util.toggleSelectBox(
+										'<portlet:namespace />rootLayoutType',
+										function(currentValue, value) {
+											return currentValue === 'absolute' || currentValue === 'relative';
+										},
+										'<portlet:namespace />rootLayoutLevel'
+									);
+								</aui:script>
+
+								<aui:select name="preferences--includedLayouts--" value="<%= siteNavigationMenuDisplayContext.getIncludedLayouts() %>">
+									<aui:option label="auto" />
+									<aui:option label="all" />
+								</aui:select>
+>>>>>>> compatible
 							</div>
 						</aui:fieldset>
 					</aui:fieldset-group>
@@ -126,7 +209,11 @@ String rootLayoutType = siteNavigationMenuDisplayContext.getRootLayoutType();
 	</div>
 
 	<aui:button-row>
+<<<<<<< HEAD
 		<aui:button type="submit" />
+=======
+		<aui:button cssClass="btn-lg" type="submit" />
+>>>>>>> compatible
 	</aui:button-row>
 </aui:form>
 
@@ -162,6 +249,7 @@ String rootLayoutType = siteNavigationMenuDisplayContext.getRootLayoutType();
 			Liferay.Portlet.refresh(curPortletBoundaryId, data);
 		}
 	);
+<<<<<<< HEAD
 </aui:script>
 
 <aui:script use="liferay-item-selector-dialog">
@@ -205,4 +293,6 @@ String rootLayoutType = siteNavigationMenuDisplayContext.getRootLayoutType();
 		},
 		'<portlet:namespace />rootLayoutLevel'
 	);
+=======
+>>>>>>> compatible
 </aui:script>

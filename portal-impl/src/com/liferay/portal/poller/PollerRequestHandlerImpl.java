@@ -37,6 +37,10 @@ import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.util.Encryptor;
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.HashMap;

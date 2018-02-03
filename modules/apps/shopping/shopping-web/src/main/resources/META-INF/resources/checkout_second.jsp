@@ -302,14 +302,22 @@ ShoppingOrder order = ShoppingOrderLocalServiceUtil.getLatestOrder(user.getUserI
 	</div>
 
 	<aui:button-row>
+<<<<<<< HEAD
 		<aui:button type="submit" value='<%= shoppingGroupServiceOverriddenConfiguration.usePayPal() ? "continue" : "finished" %>' />
+=======
+		<aui:button cssClass="btn-lg" type="submit" value='<%= shoppingGroupServiceOverriddenConfiguration.usePayPal() ? "continue" : "finished" %>' />
+>>>>>>> compatible
 
 		<portlet:actionURL name="/shopping/checkout" var="checkoutURL">
 			<portlet:param name="mvcActionCommand" value="/shopping/checkout" />
 			<portlet:param name="<%= Constants.CMD %>" value="<%= Constants.CHECKOUT %>" />
 		</portlet:actionURL>
 
+<<<<<<< HEAD
 		<aui:button href="<%= checkoutURL.toString() %>" value="back" />
+=======
+		<aui:button cssClass="btn-lg" href="<%= checkoutURL.toString() %>" value="back" />
+>>>>>>> compatible
 	</aui:button-row>
 </aui:form>
 

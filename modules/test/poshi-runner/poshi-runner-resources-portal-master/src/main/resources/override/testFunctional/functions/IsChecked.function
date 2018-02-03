@@ -2,6 +2,10 @@
 	<command name="isChecked">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.IsChecked#isChecked" />
+=======
+		<super />
+>>>>>>> compatible
 	</command>
 </definition>

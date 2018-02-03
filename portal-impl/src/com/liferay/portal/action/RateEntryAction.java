@@ -65,10 +65,17 @@ public class RateEntryAction extends JSONAction {
 
 		JSONObject jsonObject = JSONFactoryUtil.createJSONObject();
 
+<<<<<<< HEAD
 		jsonObject.put("averageScore", averageScore);
 		jsonObject.put("score", score);
 		jsonObject.put("totalEntries", totalEntries);
 		jsonObject.put("totalScore", totalScore);
+=======
+		jsonObj.put("averageScore", averageScore);
+		jsonObj.put("score", score);
+		jsonObj.put("totalEntries", stats.getTotalEntries());
+		jsonObj.put("totalScore", stats.getTotalScore());
+>>>>>>> compatible
 
 		return jsonObject.toString();
 	}

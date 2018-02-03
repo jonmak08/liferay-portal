@@ -176,8 +176,12 @@ public class LangBuilder {
 		}
 
 		File propertiesFile = new File(
+<<<<<<< HEAD
 			StringBundler.concat(
 				_langDirName, "/", _langFileName, ".properties"));
+=======
+			_langDirName + "/" + _langFileName + ".properties");
+>>>>>>> compatible
 
 		String content = _orderProperties(propertiesFile);
 
@@ -189,6 +193,7 @@ public class LangBuilder {
 		// rewritten to use the right line separator
 
 		_orderProperties(
+<<<<<<< HEAD
 			new File(
 				StringBundler.concat(
 					_langDirName, "/", _langFileName, "_en_AU.properties")));
@@ -200,6 +205,13 @@ public class LangBuilder {
 			new File(
 				StringBundler.concat(
 					_langDirName, "/", _langFileName, "_fr_CA.properties")));
+=======
+			new File(_langDirName + "/" + _langFileName + "_en_AU.properties"));
+		_orderProperties(
+			new File(_langDirName + "/" + _langFileName + "_en_GB.properties"));
+		_orderProperties(
+			new File(_langDirName + "/" + _langFileName + "_fr_CA.properties"));
+>>>>>>> compatible
 
 		_copyProperties(propertiesFile, "en");
 
@@ -299,9 +311,13 @@ public class LangBuilder {
 		throws IOException {
 
 		Path path = Paths.get(
+<<<<<<< HEAD
 			_langDirName,
 			StringBundler.concat(
 				_langFileName, "_", languageId, ".properties"));
+=======
+			_langDirName, _langFileName + "_" + languageId + ".properties");
+>>>>>>> compatible
 
 		Files.copy(file.toPath(), path, StandardCopyOption.REPLACE_EXISTING);
 	}
@@ -317,9 +333,14 @@ public class LangBuilder {
 		throws IOException {
 
 		File propertiesFile = new File(
+<<<<<<< HEAD
 			StringBundler.concat(
 				_langDirName, "/", _langFileName, "_", languageId,
 				".properties"));
+=======
+			_langDirName + "/" + _langFileName + "_" + languageId +
+				".properties");
+>>>>>>> compatible
 
 		Properties properties = new Properties();
 
@@ -331,9 +352,14 @@ public class LangBuilder {
 
 		if (parentLanguageId != null) {
 			File parentPropertiesFile = new File(
+<<<<<<< HEAD
 				StringBundler.concat(
 					_langDirName, "/", _langFileName, "_", parentLanguageId,
 					".properties"));
+=======
+				_langDirName + "/" + _langFileName + "_" + parentLanguageId +
+					".properties");
+>>>>>>> compatible
 
 			if (parentPropertiesFile.exists()) {
 				parentProperties = _readProperties(parentPropertiesFile);
@@ -373,9 +399,14 @@ public class LangBuilder {
 						((state != 9) && key.startsWith("language."))) {
 
 						throw new RuntimeException(
+<<<<<<< HEAD
 							StringBundler.concat(
 								"File ", languageId, " with state ",
 								String.valueOf(state), " has key ", key));
+=======
+							"File " + languageId + " with state " + state +
+								" has key " + key);
+>>>>>>> compatible
 					}
 
 					String translatedText = properties.getProperty(key);
@@ -640,8 +671,12 @@ public class LangBuilder {
 
 	private void _initKeysWithUpdatedValues() throws Exception {
 		File backupLanguageFile = new File(
+<<<<<<< HEAD
 			StringBundler.concat(
 				_langDirName, "/", _langFileName, "_en.properties"));
+=======
+			_langDirName + "/" + _langFileName + "_en.properties");
+>>>>>>> compatible
 
 		if (!backupLanguageFile.exists()) {
 			return;
@@ -651,8 +686,12 @@ public class LangBuilder {
 			backupLanguageFile);
 
 		File languageFile = new File(
+<<<<<<< HEAD
 			StringBundler.concat(
 				_langDirName, "/", _langFileName, ".properties"));
+=======
+			_langDirName + "/" + _langFileName + ".properties");
+>>>>>>> compatible
 
 		Properties languageProperties = _readProperties(languageFile);
 

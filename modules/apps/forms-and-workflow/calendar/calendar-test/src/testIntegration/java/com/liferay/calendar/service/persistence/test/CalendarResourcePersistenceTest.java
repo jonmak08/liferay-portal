@@ -35,6 +35,10 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.util.IntegerWrapper;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.OrderByComparatorFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.PersistenceTestRule;
@@ -138,6 +142,11 @@ public class CalendarResourcePersistenceTest {
 
 		newCalendarResource.setModifiedDate(RandomTestUtil.nextDate());
 
+<<<<<<< HEAD
+=======
+		newCalendarResource.setResourceBlockId(RandomTestUtil.nextLong());
+
+>>>>>>> compatible
 		newCalendarResource.setClassNameId(RandomTestUtil.nextLong());
 
 		newCalendarResource.setClassPK(RandomTestUtil.nextLong());
@@ -176,6 +185,11 @@ public class CalendarResourcePersistenceTest {
 		Assert.assertEquals(Time.getShortTimestamp(
 				existingCalendarResource.getModifiedDate()),
 			Time.getShortTimestamp(newCalendarResource.getModifiedDate()));
+<<<<<<< HEAD
+=======
+		Assert.assertEquals(existingCalendarResource.getResourceBlockId(),
+			newCalendarResource.getResourceBlockId());
+>>>>>>> compatible
 		Assert.assertEquals(existingCalendarResource.getClassNameId(),
 			newCalendarResource.getClassNameId());
 		Assert.assertEquals(existingCalendarResource.getClassPK(),
@@ -196,28 +210,54 @@ public class CalendarResourcePersistenceTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testCountByUuid() throws Exception {
 		_persistence.countByUuid("");
 
 		_persistence.countByUuid("null");
+=======
+	public void testCountByResourceBlockId() throws Exception {
+		_persistence.countByResourceBlockId(RandomTestUtil.nextLong());
+
+		_persistence.countByResourceBlockId(0L);
+	}
+
+	@Test
+	public void testCountByUuid() throws Exception {
+		_persistence.countByUuid(StringPool.BLANK);
+
+		_persistence.countByUuid(StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByUuid((String)null);
 	}
 
 	@Test
 	public void testCountByUUID_G() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByUUID_G("", RandomTestUtil.nextLong());
 
 		_persistence.countByUUID_G("null", 0L);
+=======
+		_persistence.countByUUID_G(StringPool.BLANK, RandomTestUtil.nextLong());
+
+		_persistence.countByUUID_G(StringPool.NULL, 0L);
+>>>>>>> compatible
 
 		_persistence.countByUUID_G((String)null, 0L);
 	}
 
 	@Test
 	public void testCountByUuid_C() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByUuid_C("", RandomTestUtil.nextLong());
 
 		_persistence.countByUuid_C("null", 0L);
+=======
+		_persistence.countByUuid_C(StringPool.BLANK, RandomTestUtil.nextLong());
+
+		_persistence.countByUuid_C(StringPool.NULL, 0L);
+>>>>>>> compatible
 
 		_persistence.countByUuid_C((String)null, 0L);
 	}
@@ -238,9 +278,15 @@ public class CalendarResourcePersistenceTest {
 
 	@Test
 	public void testCountByG_C() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByG_C(RandomTestUtil.nextLong(), "");
 
 		_persistence.countByG_C(0L, "null");
+=======
+		_persistence.countByG_C(RandomTestUtil.nextLong(), StringPool.BLANK);
+
+		_persistence.countByG_C(0L, StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByG_C(0L, (String)null);
 	}
@@ -269,10 +315,18 @@ public class CalendarResourcePersistenceTest {
 
 	@Test
 	public void testCountByC_C_A() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByC_C_A(RandomTestUtil.nextLong(), "",
 			RandomTestUtil.randomBoolean());
 
 		_persistence.countByC_C_A(0L, "null", RandomTestUtil.randomBoolean());
+=======
+		_persistence.countByC_C_A(RandomTestUtil.nextLong(), StringPool.BLANK,
+			RandomTestUtil.randomBoolean());
+
+		_persistence.countByC_C_A(0L, StringPool.NULL,
+			RandomTestUtil.randomBoolean());
+>>>>>>> compatible
 
 		_persistence.countByC_C_A(0L, (String)null,
 			RandomTestUtil.randomBoolean());
@@ -310,9 +364,15 @@ public class CalendarResourcePersistenceTest {
 		return OrderByComparatorFactoryUtil.create("CalendarResource", "uuid",
 			true, "calendarResourceId", true, "groupId", true, "companyId",
 			true, "userId", true, "userName", true, "createDate", true,
+<<<<<<< HEAD
 			"modifiedDate", true, "classNameId", true, "classPK", true,
 			"classUuid", true, "code", true, "name", true, "description", true,
 			"active", true, "lastPublishDate", true);
+=======
+			"modifiedDate", true, "resourceBlockId", true, "classNameId", true,
+			"classPK", true, "classUuid", true, "code", true, "name", true,
+			"description", true, "active", true, "lastPublishDate", true);
+>>>>>>> compatible
 	}
 
 	@Test
@@ -552,6 +612,11 @@ public class CalendarResourcePersistenceTest {
 
 		calendarResource.setModifiedDate(RandomTestUtil.nextDate());
 
+<<<<<<< HEAD
+=======
+		calendarResource.setResourceBlockId(RandomTestUtil.nextLong());
+
+>>>>>>> compatible
 		calendarResource.setClassNameId(RandomTestUtil.nextLong());
 
 		calendarResource.setClassPK(RandomTestUtil.nextLong());

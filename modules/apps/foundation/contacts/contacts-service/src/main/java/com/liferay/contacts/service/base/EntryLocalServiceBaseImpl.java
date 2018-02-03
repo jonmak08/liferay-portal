@@ -41,8 +41,11 @@ import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.service.BaseLocalServiceImpl;
 import com.liferay.portal.kernel.service.PersistedModelLocalServiceRegistry;
 import com.liferay.portal.kernel.service.persistence.ClassNamePersistence;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.service.persistence.GroupPersistence;
 import com.liferay.portal.kernel.service.persistence.UserGroupPersistence;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.persistence.UserPersistence;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.PortalUtil;
@@ -423,6 +426,7 @@ public abstract class EntryLocalServiceBaseImpl extends BaseLocalServiceImpl
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Returns the group local service.
 	 *
 	 * @return the group local service
@@ -460,6 +464,8 @@ public abstract class EntryLocalServiceBaseImpl extends BaseLocalServiceImpl
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	 * Returns the resource local service.
 	 *
 	 * @return the resource local service
@@ -515,6 +521,7 @@ public abstract class EntryLocalServiceBaseImpl extends BaseLocalServiceImpl
 		this.userPersistence = userPersistence;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Returns the user group local service.
 	 *
@@ -553,6 +560,8 @@ public abstract class EntryLocalServiceBaseImpl extends BaseLocalServiceImpl
 		this.userGroupPersistence = userGroupPersistence;
 	}
 
+=======
+>>>>>>> compatible
 	public void afterPropertiesSet() {
 		persistedModelLocalServiceRegistry.register("com.liferay.contacts.model.Entry",
 			entryLocalService);
@@ -617,20 +626,26 @@ public abstract class EntryLocalServiceBaseImpl extends BaseLocalServiceImpl
 	protected com.liferay.portal.kernel.service.ClassNameLocalService classNameLocalService;
 	@ServiceReference(type = ClassNamePersistence.class)
 	protected ClassNamePersistence classNamePersistence;
+<<<<<<< HEAD
 	@ServiceReference(type = com.liferay.portal.kernel.service.GroupLocalService.class)
 	protected com.liferay.portal.kernel.service.GroupLocalService groupLocalService;
 	@ServiceReference(type = GroupPersistence.class)
 	protected GroupPersistence groupPersistence;
+=======
+>>>>>>> compatible
 	@ServiceReference(type = com.liferay.portal.kernel.service.ResourceLocalService.class)
 	protected com.liferay.portal.kernel.service.ResourceLocalService resourceLocalService;
 	@ServiceReference(type = com.liferay.portal.kernel.service.UserLocalService.class)
 	protected com.liferay.portal.kernel.service.UserLocalService userLocalService;
 	@ServiceReference(type = UserPersistence.class)
 	protected UserPersistence userPersistence;
+<<<<<<< HEAD
 	@ServiceReference(type = com.liferay.portal.kernel.service.UserGroupLocalService.class)
 	protected com.liferay.portal.kernel.service.UserGroupLocalService userGroupLocalService;
 	@ServiceReference(type = UserGroupPersistence.class)
 	protected UserGroupPersistence userGroupPersistence;
+=======
+>>>>>>> compatible
 	@ServiceReference(type = PersistedModelLocalServiceRegistry.class)
 	protected PersistedModelLocalServiceRegistry persistedModelLocalServiceRegistry;
 }

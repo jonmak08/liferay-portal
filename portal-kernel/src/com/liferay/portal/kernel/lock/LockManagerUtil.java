@@ -84,6 +84,7 @@ public class LockManagerUtil {
 	}
 
 	public static Lock lock(
+<<<<<<< HEAD
 			long userId, String className, long key, String owner,
 			boolean inheritable, long expirationTime, boolean renew)
 		throws PortalException {
@@ -93,6 +94,8 @@ public class LockManagerUtil {
 	}
 
 	public static Lock lock(
+=======
+>>>>>>> compatible
 			long userId, String className, String key, String owner,
 			boolean inheritable, long expirationTime)
 		throws PortalException {
@@ -101,6 +104,7 @@ public class LockManagerUtil {
 			userId, className, key, owner, inheritable, expirationTime);
 	}
 
+<<<<<<< HEAD
 	public static Lock lock(
 			long userId, String className, String key, String owner,
 			boolean inheritable, long expirationTime, boolean renew)
@@ -110,6 +114,8 @@ public class LockManagerUtil {
 			userId, className, key, owner, inheritable, expirationTime, renew);
 	}
 
+=======
+>>>>>>> compatible
 	public static Lock lock(String className, String key, String owner) {
 		return _lockManager.lock(className, key, owner);
 	}

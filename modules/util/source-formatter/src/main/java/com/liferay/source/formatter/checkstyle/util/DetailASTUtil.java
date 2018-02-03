@@ -15,17 +15,24 @@
 package com.liferay.source.formatter.checkstyle.util;
 
 import com.liferay.portal.kernel.util.ArrayUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
+=======
+>>>>>>> compatible
 
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.FullIdent;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+=======
+import java.util.List;
+>>>>>>> compatible
 
 /**
  * @author Hugo Huijser
@@ -202,6 +209,7 @@ public class DetailASTUtil {
 	public static String getTypeName(DetailAST detailAST) {
 		DetailAST typeAST = detailAST.findFirstToken(TokenTypes.TYPE);
 
+<<<<<<< HEAD
 		DetailAST childAST = typeAST.getFirstChild();
 
 		if (childAST == null) {
@@ -271,6 +279,11 @@ public class DetailASTUtil {
 		}
 
 		return variableTypeNames;
+=======
+		FullIdent typeIdent = FullIdent.createFullIdentBelow(typeAST);
+
+		return typeIdent.getText();
+>>>>>>> compatible
 	}
 
 	public static boolean hasParentWithTokenType(
@@ -371,6 +384,7 @@ public class DetailASTUtil {
 		return list;
 	}
 
+<<<<<<< HEAD
 	private static DetailAST _getClassAST(DetailAST detailAST) {
 		DetailAST parentAST = detailAST.getParent();
 
@@ -385,4 +399,6 @@ public class DetailASTUtil {
 		return null;
 	}
 
+=======
+>>>>>>> compatible
 }

@@ -15,9 +15,18 @@
 package com.liferay.portal.search.elasticsearch.internal.index;
 
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
+<<<<<<< HEAD
 import com.liferay.portal.search.elasticsearch.internal.connection.IndexName;
 
 import java.util.HashMap;
+=======
+import com.liferay.portal.search.elasticsearch.internal.connection.ElasticsearchFixture;
+import com.liferay.portal.search.elasticsearch.internal.connection.Index;
+import com.liferay.portal.search.elasticsearch.internal.connection.IndexName;
+
+import org.elasticsearch.action.index.IndexRequestBuilder;
+import org.elasticsearch.client.Client;
+>>>>>>> compatible
 
 import org.junit.After;
 import org.junit.Before;
@@ -38,6 +47,13 @@ public class LiferayTypeMappingsPortugueseTest {
 			clazz.getSimpleName(), new IndexName(testName.getMethodName()));
 
 		_liferayIndexFixture.setUp();
+<<<<<<< HEAD
+=======
+
+		_index = _liferayIndexFixture.getIndex();
+
+		_elasticsearchFixture = _liferayIndexFixture.getElasticsearchFixture();
+>>>>>>> compatible
 	}
 
 	@After
@@ -49,10 +65,20 @@ public class LiferayTypeMappingsPortugueseTest {
 	public void testPortugueseDynamicTemplatesMatchAnalyzers()
 		throws Exception {
 
+<<<<<<< HEAD
+=======
+		Client client = _elasticsearchFixture.getClient();
+
+		IndexRequestBuilder indexRequestBuilder = client.prepareIndex(
+			_index.getName(),
+			LiferayTypeMappingsConstants.LIFERAY_DOCUMENT_TYPE);
+
+>>>>>>> compatible
 		String field_pt = RandomTestUtil.randomString() + "_pt";
 		String field_pt_BR = RandomTestUtil.randomString() + "_pt_BR";
 		String field_pt_PT = RandomTestUtil.randomString() + "_pt_PT";
 
+<<<<<<< HEAD
 		_liferayIndexFixture.index(
 			new HashMap<String, Object>() {
 				{
@@ -61,6 +87,14 @@ public class LiferayTypeMappingsPortugueseTest {
 					put(field_pt_PT, RandomTestUtil.randomString());
 				}
 			});
+=======
+		indexRequestBuilder.setSource(
+			field_pt, RandomTestUtil.randomString(), field_pt_BR,
+			RandomTestUtil.randomString(), field_pt_PT,
+			RandomTestUtil.randomString());
+
+		indexRequestBuilder.get();
+>>>>>>> compatible
 
 		assertAnalyzer(field_pt, "portuguese");
 		assertAnalyzer(field_pt_BR, "brazilian");
@@ -73,9 +107,19 @@ public class LiferayTypeMappingsPortugueseTest {
 	protected void assertAnalyzer(String field, String analyzer)
 		throws Exception {
 
+<<<<<<< HEAD
 		_liferayIndexFixture.assertAnalyzer(field, analyzer);
 	}
 
+=======
+		FieldMappingAssert.assertAnalyzer(
+			analyzer, field, LiferayTypeMappingsConstants.LIFERAY_DOCUMENT_TYPE,
+			_index.getName(), _elasticsearchFixture.getIndicesAdminClient());
+	}
+
+	private ElasticsearchFixture _elasticsearchFixture;
+	private Index _index;
+>>>>>>> compatible
 	private LiferayIndexFixture _liferayIndexFixture;
 
 }

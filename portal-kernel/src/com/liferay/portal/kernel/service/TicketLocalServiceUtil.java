@@ -259,11 +259,14 @@ public class TicketLocalServiceUtil {
 		return getService().getTickets(start, end);
 	}
 
+<<<<<<< HEAD
 	public static java.util.List<com.liferay.portal.kernel.model.Ticket> getTickets(
 		long companyId, java.lang.String className, long classPK, int type) {
 		return getService().getTickets(companyId, className, classPK, type);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns the number of tickets.
 	*
@@ -273,6 +276,7 @@ public class TicketLocalServiceUtil {
 		return getService().getTicketsCount();
 	}
 
+<<<<<<< HEAD
 	public static com.liferay.portal.kernel.model.Ticket updateTicket(
 		long ticketId, java.lang.String className, long classPK, int type,
 		java.lang.String extraInfo, java.util.Date expirationDate)
@@ -282,6 +286,8 @@ public class TicketLocalServiceUtil {
 			expirationDate);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Updates the ticket in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	*

@@ -15,7 +15,10 @@
 package com.liferay.dynamic.data.mapping.util;
 
 import com.liferay.dynamic.data.mapping.BaseDDMTestCase;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.internal.util.DDMImpl;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.io.DDMFormValuesJSONDeserializer;
 import com.liferay.dynamic.data.mapping.io.DDMFormValuesJSONSerializer;
 import com.liferay.dynamic.data.mapping.io.internal.DDMFormValuesJSONDeserializerImpl;
@@ -29,11 +32,18 @@ import com.liferay.dynamic.data.mapping.model.DDMFormLayoutRow;
 import com.liferay.dynamic.data.mapping.model.DDMStructure;
 import com.liferay.dynamic.data.mapping.storage.Field;
 import com.liferay.dynamic.data.mapping.storage.Fields;
+<<<<<<< HEAD
+=======
+import com.liferay.dynamic.data.mapping.util.impl.DDMImpl;
+>>>>>>> compatible
 import com.liferay.portal.json.JSONFactoryImpl;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.StringUtil;
+<<<<<<< HEAD
 import com.liferay.portal.util.PropsValues;
+=======
+>>>>>>> compatible
 
 import java.io.Serializable;
 
@@ -43,17 +53,21 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+<<<<<<< HEAD
 import org.junit.runner.RunWith;
 
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.core.classloader.annotations.SuppressStaticInitializationFor;
 import org.powermock.modules.junit4.PowerMockRunner;
+=======
+>>>>>>> compatible
 
 import org.skyscreamer.jsonassert.JSONAssert;
 
 /**
  * @author Marcellus Tavares
  */
+<<<<<<< HEAD
 @PrepareForTest(PropsValues.class)
 @RunWith(PowerMockRunner.class)
 @SuppressStaticInitializationFor(
@@ -62,6 +76,8 @@ import org.skyscreamer.jsonassert.JSONAssert;
 		"com.liferay.portal.util.PropsValues"
 	}
 )
+=======
+>>>>>>> compatible
 public class DDMImplTest extends BaseDDMTestCase {
 
 	@Before
@@ -80,7 +96,11 @@ public class DDMImplTest extends BaseDDMTestCase {
 		setUpHtmlUtil();
 		setUpLanguageUtil();
 		setUpLocaleUtil();
+<<<<<<< HEAD
 		setUpPropsValues();
+=======
+		setUpPropsUtil();
+>>>>>>> compatible
 		setUpSAXReaderUtil();
 	}
 

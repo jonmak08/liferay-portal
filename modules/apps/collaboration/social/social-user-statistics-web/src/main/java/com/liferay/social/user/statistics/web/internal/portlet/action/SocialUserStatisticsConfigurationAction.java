@@ -18,7 +18,11 @@ import com.liferay.portal.kernel.portlet.BaseJSPSettingsConfigurationAction;
 import com.liferay.portal.kernel.portlet.ConfigurationAction;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Validator;
+<<<<<<< HEAD
 import com.liferay.social.user.statistics.constants.SocialUserStatisticsPortletKeys;
+=======
+import com.liferay.social.user.statistics.web.constants.SocialUserStatisticsPortletKeys;
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,6 +68,7 @@ public class SocialUserStatisticsConfigurationAction
 	}
 
 	private void _setPreference(ActionRequest actionRequest, String key) {
+<<<<<<< HEAD
 		String[] displayActivityCounterNameIndexes = ParamUtil.getStringValues(
 			actionRequest, "displayActivityCounterNameIndexes");
 
@@ -76,6 +81,19 @@ public class SocialUserStatisticsConfigurationAction
 			if (Validator.isNotNull(value)) {
 				values.add(value);
 			}
+=======
+		List<String> values = new ArrayList<>();
+
+		for (int i = 0;; i++) {
+			String value = ParamUtil.getString(
+				actionRequest, "preferences--" + key + i + "--");
+
+			if (Validator.isNull(value)) {
+				break;
+			}
+
+			values.add(value);
+>>>>>>> compatible
 		}
 
 		setPreference(

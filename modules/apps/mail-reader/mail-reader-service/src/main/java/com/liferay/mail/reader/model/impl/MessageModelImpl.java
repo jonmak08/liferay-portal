@@ -33,6 +33,10 @@ import com.liferay.portal.kernel.util.DateUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Serializable;
 
@@ -371,7 +375,11 @@ public class MessageModelImpl extends BaseModelImpl<Message>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -382,7 +390,11 @@ public class MessageModelImpl extends BaseModelImpl<Message>
 	@Override
 	public String getUserName() {
 		if (_userName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _userName;
@@ -455,7 +467,11 @@ public class MessageModelImpl extends BaseModelImpl<Message>
 	@Override
 	public String getSender() {
 		if (_sender == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _sender;
@@ -470,7 +486,11 @@ public class MessageModelImpl extends BaseModelImpl<Message>
 	@Override
 	public String getTo() {
 		if (_to == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _to;
@@ -485,7 +505,11 @@ public class MessageModelImpl extends BaseModelImpl<Message>
 	@Override
 	public String getCc() {
 		if (_cc == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _cc;
@@ -500,7 +524,11 @@ public class MessageModelImpl extends BaseModelImpl<Message>
 	@Override
 	public String getBcc() {
 		if (_bcc == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _bcc;
@@ -527,7 +555,11 @@ public class MessageModelImpl extends BaseModelImpl<Message>
 	@Override
 	public String getSubject() {
 		if (_subject == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _subject;
@@ -542,7 +574,11 @@ public class MessageModelImpl extends BaseModelImpl<Message>
 	@Override
 	public String getPreview() {
 		if (_preview == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _preview;
@@ -557,7 +593,11 @@ public class MessageModelImpl extends BaseModelImpl<Message>
 	@Override
 	public String getBody() {
 		if (_body == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _body;
@@ -572,7 +612,11 @@ public class MessageModelImpl extends BaseModelImpl<Message>
 	@Override
 	public String getFlags() {
 		if (_flags == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _flags;
@@ -619,7 +663,11 @@ public class MessageModelImpl extends BaseModelImpl<Message>
 	@Override
 	public String getContentType() {
 		if (_contentType == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _contentType;

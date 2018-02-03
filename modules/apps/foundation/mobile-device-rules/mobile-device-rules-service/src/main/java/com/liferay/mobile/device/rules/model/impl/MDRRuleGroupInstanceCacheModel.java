@@ -21,6 +21,10 @@ import com.liferay.mobile.device.rules.model.MDRRuleGroupInstance;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -103,7 +107,11 @@ public class MDRRuleGroupInstanceCacheModel implements CacheModel<MDRRuleGroupIn
 		MDRRuleGroupInstanceImpl mdrRuleGroupInstanceImpl = new MDRRuleGroupInstanceImpl();
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			mdrRuleGroupInstanceImpl.setUuid("");
+=======
+			mdrRuleGroupInstanceImpl.setUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			mdrRuleGroupInstanceImpl.setUuid(uuid);
@@ -115,7 +123,11 @@ public class MDRRuleGroupInstanceCacheModel implements CacheModel<MDRRuleGroupIn
 		mdrRuleGroupInstanceImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			mdrRuleGroupInstanceImpl.setUserName("");
+=======
+			mdrRuleGroupInstanceImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			mdrRuleGroupInstanceImpl.setUserName(userName);
@@ -182,7 +194,11 @@ public class MDRRuleGroupInstanceCacheModel implements CacheModel<MDRRuleGroupIn
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		if (uuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(uuid);
@@ -197,7 +213,11 @@ public class MDRRuleGroupInstanceCacheModel implements CacheModel<MDRRuleGroupIn
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);

@@ -15,7 +15,10 @@
 package com.liferay.wiki.service.impl;
 
 import com.liferay.document.library.kernel.model.DLFolderConstants;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
@@ -29,18 +32,29 @@ import com.liferay.portal.kernel.search.Indexer;
 import com.liferay.portal.kernel.search.IndexerRegistryUtil;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.systemevent.SystemEvent;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.UnicodeProperties;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.spring.extender.service.ServiceReference;
+<<<<<<< HEAD
 import com.liferay.subscription.service.SubscriptionLocalService;
 import com.liferay.trash.TrashHelper;
 import com.liferay.trash.exception.RestoreEntryException;
 import com.liferay.trash.exception.TrashEntryException;
 import com.liferay.trash.model.TrashEntry;
 import com.liferay.trash.service.TrashEntryLocalService;
+=======
+import com.liferay.trash.kernel.exception.RestoreEntryException;
+import com.liferay.trash.kernel.exception.TrashEntryException;
+import com.liferay.trash.kernel.model.TrashEntry;
+import com.liferay.trash.kernel.util.TrashUtil;
+>>>>>>> compatible
 import com.liferay.wiki.configuration.WikiGroupServiceConfiguration;
 import com.liferay.wiki.constants.WikiConstants;
 import com.liferay.wiki.exception.DuplicateNodeNameException;
@@ -108,9 +122,14 @@ public class WikiNodeLocalServiceImpl extends WikiNodeLocalServiceBaseImpl {
 		catch (SystemException se) {
 			if (_log.isWarnEnabled()) {
 				_log.warn(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Add failed, fetch {groupId=", String.valueOf(groupId),
 						", name=", name, "}"));
+=======
+					"Add failed, fetch {groupId=" + groupId + ", name=" + name +
+						"}");
+>>>>>>> compatible
 			}
 
 			node = wikiNodePersistence.fetchByG_N(groupId, name, false);
@@ -226,7 +245,11 @@ public class WikiNodeLocalServiceImpl extends WikiNodeLocalServiceBaseImpl {
 			node.getCompanyId(), WikiNode.class.getName(), node.getNodeId());
 
 		if (node.isInTrash()) {
+<<<<<<< HEAD
 			node.setName(trashHelper.getOriginalTitle(node.getName()));
+=======
+			node.setName(TrashUtil.getOriginalTitle(node.getName()));
+>>>>>>> compatible
 
 			// Trash
 
@@ -405,7 +428,11 @@ public class WikiNodeLocalServiceImpl extends WikiNodeLocalServiceBaseImpl {
 			node.getNodeId(), node.getUuid(), null, oldStatus, null,
 			typeSettingsProperties);
 
+<<<<<<< HEAD
 		node.setName(trashHelper.getTrashTitle(trashEntry.getEntryId()));
+=======
+		node.setName(TrashUtil.getTrashTitle(trashEntry.getEntryId()));
+>>>>>>> compatible
 
 		wikiNodePersistence.update(node);
 
@@ -427,7 +454,11 @@ public class WikiNodeLocalServiceImpl extends WikiNodeLocalServiceBaseImpl {
 				RestoreEntryException.INVALID_STATUS);
 		}
 
+<<<<<<< HEAD
 		node.setName(trashHelper.getOriginalTitle(node.getName()));
+=======
+		node.setName(TrashUtil.getOriginalTitle(node.getName()));
+>>>>>>> compatible
 
 		wikiNodePersistence.update(node);
 
@@ -577,6 +608,7 @@ public class WikiNodeLocalServiceImpl extends WikiNodeLocalServiceBaseImpl {
 		validate(0, groupId, name);
 	}
 
+<<<<<<< HEAD
 	@ServiceReference(type = SubscriptionLocalService.class)
 	protected SubscriptionLocalService subscriptionLocalService;
 
@@ -586,6 +618,8 @@ public class WikiNodeLocalServiceImpl extends WikiNodeLocalServiceBaseImpl {
 	@ServiceReference(type = TrashHelper.class)
 	protected TrashHelper trashHelper;
 
+=======
+>>>>>>> compatible
 	@ServiceReference(type = WikiGroupServiceConfiguration.class)
 	protected WikiGroupServiceConfiguration wikiGroupServiceConfiguration;
 

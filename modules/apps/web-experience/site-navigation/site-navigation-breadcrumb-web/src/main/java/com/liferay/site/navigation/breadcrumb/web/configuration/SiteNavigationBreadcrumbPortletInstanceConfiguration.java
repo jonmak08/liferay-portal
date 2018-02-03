@@ -36,6 +36,7 @@ public interface SiteNavigationBreadcrumbPortletInstanceConfiguration {
 	 * Set a DDM template ID that starts with the prefix "ddmTemplate_" (i.e.
 	 * ddmTemplate_BREADCRUMB-HORIZONTAL-FTL) to use as the display style.
 	 */
+<<<<<<< HEAD
 	@Meta.AD(name = "display-style", required = false)
 	public String displayStyle();
 
@@ -55,6 +56,27 @@ public interface SiteNavigationBreadcrumbPortletInstanceConfiguration {
 	public boolean showParentGroups();
 
 	@Meta.AD(deflt = "true", name = "show-portlet-breadcrumb", required = false)
+=======
+	@Meta.AD(required = false)
+	public String displayStyle();
+
+	@Meta.AD(deflt = "0", required = false)
+	public long displayStyleGroupId();
+
+	@Meta.AD(deflt = "true", required = false)
+	public boolean showCurrentGroup();
+
+	@Meta.AD(deflt = "false", required = false)
+	public boolean showGuestGroup();
+
+	@Meta.AD(deflt = "true", required = false)
+	public boolean showLayout();
+
+	@Meta.AD(deflt = "true", required = false)
+	public boolean showParentGroups();
+
+	@Meta.AD(deflt = "true", required = false)
+>>>>>>> compatible
 	public boolean showPortletBreadcrumb();
 
 }

@@ -16,6 +16,7 @@
 
 <%@ include file="/init.jsp" %>
 
+<<<<<<< HEAD
 <%
 String referer = request.getHeader(HttpHeaders.REFERER);
 
@@ -27,6 +28,9 @@ String redirect = GetterUtil.getString(request.getAttribute(WebKeys.REDIRECT), r
 	title="error"
 />
 
+=======
+<liferay-ui:error-header />
+>>>>>>> compatible
 <liferay-ui:error exception="<%= NoSuchGroupException.class %>" message="the-site-could-not-be-found" />
 <liferay-ui:error exception="<%= NoSuchLayoutException.class %>" message="the-page-could-not-be-found" />
 <liferay-ui:error exception="<%= NoSuchRoleException.class %>" message="the-role-could-not-be-found" />

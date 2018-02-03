@@ -14,8 +14,11 @@
 
 package com.liferay.portal.security.auth.tunnel;
 
+<<<<<<< HEAD
 import com.liferay.petra.encryptor.Encryptor;
 import com.liferay.petra.encryptor.EncryptorException;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.User;
@@ -32,6 +35,11 @@ import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.util.PortalInstances;
 import com.liferay.portal.util.PropsValues;
+<<<<<<< HEAD
+=======
+import com.liferay.util.Encryptor;
+import com.liferay.util.EncryptorException;
+>>>>>>> compatible
 
 import java.net.HttpURLConnection;
 

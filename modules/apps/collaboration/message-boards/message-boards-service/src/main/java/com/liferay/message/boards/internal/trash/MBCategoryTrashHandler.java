@@ -21,7 +21,10 @@ import com.liferay.message.boards.kernel.service.MBThreadLocalService;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.ContainerModel;
 import com.liferay.portal.kernel.model.LayoutConstants;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.TrashedModel;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.PortletProvider;
 import com.liferay.portal.kernel.portlet.PortletProviderUtil;
 import com.liferay.portal.kernel.portlet.PortletURLFactoryUtil;
@@ -34,11 +37,18 @@ import com.liferay.portal.kernel.trash.TrashHandler;
 import com.liferay.portal.kernel.trash.TrashHandlerRegistryUtil;
 import com.liferay.portal.kernel.trash.TrashRenderer;
 import com.liferay.portal.kernel.trash.TrashRendererFactory;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.OrderByComparator;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portlet.messageboards.service.permission.MBCategoryPermission;
 import com.liferay.portlet.messageboards.util.MBUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.trash.kernel.model.TrashEntry;
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.List;
@@ -214,6 +224,36 @@ public class MBCategoryTrashHandler extends BaseTrashHandler {
 	}
 
 	@Override
+<<<<<<< HEAD
+=======
+	public List<TrashRenderer> getTrashContainedModelTrashRenderers(
+			long classPK, int start, int end)
+		throws PortalException {
+
+		List<TrashRenderer> trashRenderers = new ArrayList<>();
+
+		MBCategory category = _mbCategoryLocalService.getCategory(classPK);
+
+		List<MBThread> threads = _mbThreadLocalService.getThreads(
+			category.getGroupId(), classPK, WorkflowConstants.STATUS_IN_TRASH,
+			start, end);
+
+		for (MBThread thread : threads) {
+			TrashHandler trashHandler =
+				TrashHandlerRegistryUtil.getTrashHandler(
+					MBThread.class.getName());
+
+			TrashRenderer trashRenderer = trashHandler.getTrashRenderer(
+				thread.getPrimaryKey());
+
+			trashRenderers.add(trashRenderer);
+		}
+
+		return trashRenderers;
+	}
+
+	@Override
+>>>>>>> compatible
 	public String getTrashContainerModelName() {
 		return "categories";
 	}
@@ -256,6 +296,7 @@ public class MBCategoryTrashHandler extends BaseTrashHandler {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public TrashedModel getTrashedModel(long classPK) {
 		return _mbCategoryLocalService.fetchMBCategory(classPK);
 	}
@@ -302,6 +343,12 @@ public class MBCategoryTrashHandler extends BaseTrashHandler {
 		}
 
 		return trashedModels;
+=======
+	public TrashEntry getTrashEntry(long classPK) throws PortalException {
+		MBCategory category = _mbCategoryLocalService.getCategory(classPK);
+
+		return category.getTrashEntry();
+>>>>>>> compatible
 	}
 
 	@Override
@@ -330,6 +377,23 @@ public class MBCategoryTrashHandler extends BaseTrashHandler {
 	}
 
 	@Override
+<<<<<<< HEAD
+=======
+	public boolean isInTrash(long classPK) throws PortalException {
+		MBCategory category = _mbCategoryLocalService.getCategory(classPK);
+
+		return category.isInTrash();
+	}
+
+	@Override
+	public boolean isInTrashContainer(long classPK) throws PortalException {
+		MBCategory category = _mbCategoryLocalService.getCategory(classPK);
+
+		return category.isInTrashContainer();
+	}
+
+	@Override
+>>>>>>> compatible
 	public boolean isMovable() {
 		return true;
 	}

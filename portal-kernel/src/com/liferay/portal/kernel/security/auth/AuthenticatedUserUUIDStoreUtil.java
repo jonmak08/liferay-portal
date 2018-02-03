@@ -17,11 +17,17 @@ package com.liferay.portal.kernel.security.auth;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 /**
+<<<<<<< HEAD
  * @author     Michael C. Han
  * @author     Raymond Augé
  * @deprecated As of 7.0.0, with no direct replacement
  */
 @Deprecated
+=======
+ * @author Michael C. Han
+ * @author Raymond Augé
+ */
+>>>>>>> compatible
 public class AuthenticatedUserUUIDStoreUtil {
 
 	public static boolean exists(String userUUID) {

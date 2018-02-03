@@ -32,6 +32,10 @@ import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.spring.extender.service.ServiceReference;
 
@@ -311,7 +315,11 @@ public class MeetupsRegistrationPersistenceImpl extends BasePersistenceImpl<Meet
 		msg.append("meetupsEntryId=");
 		msg.append(meetupsEntryId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchMeetupsRegistrationException(msg.toString());
 	}
@@ -363,7 +371,11 @@ public class MeetupsRegistrationPersistenceImpl extends BasePersistenceImpl<Meet
 		msg.append("meetupsEntryId=");
 		msg.append(meetupsEntryId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchMeetupsRegistrationException(msg.toString());
 	}
@@ -646,7 +658,11 @@ public class MeetupsRegistrationPersistenceImpl extends BasePersistenceImpl<Meet
 			msg.append(", meetupsEntryId=");
 			msg.append(meetupsEntryId);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -1081,7 +1097,11 @@ public class MeetupsRegistrationPersistenceImpl extends BasePersistenceImpl<Meet
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchMeetupsRegistrationException(msg.toString());
 	}
@@ -1137,7 +1157,11 @@ public class MeetupsRegistrationPersistenceImpl extends BasePersistenceImpl<Meet
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchMeetupsRegistrationException(msg.toString());
 	}
@@ -1946,12 +1970,20 @@ public class MeetupsRegistrationPersistenceImpl extends BasePersistenceImpl<Meet
 		for (Serializable primaryKey : uncachedPrimaryKeys) {
 			query.append((long)primaryKey);
 
+<<<<<<< HEAD
 			query.append(",");
+=======
+			query.append(StringPool.COMMA);
+>>>>>>> compatible
 		}
 
 		query.setIndex(query.index() - 1);
 
+<<<<<<< HEAD
 		query.append(")");
+=======
+		query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 		String sql = query.toString();
 

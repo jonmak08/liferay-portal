@@ -14,6 +14,7 @@
 
 package com.liferay.portal.portlet.bridge.soy.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
@@ -42,12 +43,32 @@ import javax.portlet.PortletException;
 
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
+=======
+import com.liferay.portal.kernel.json.JSONFactoryUtil;
+import com.liferay.portal.kernel.json.JSONObject;
+import com.liferay.portal.kernel.template.Template;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.template.soy.utils.SoyJavaScriptRenderer;
+
+import java.net.URL;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedHashSet;
+import java.util.Map;
+import java.util.Set;
+
+import org.osgi.framework.Bundle;
+>>>>>>> compatible
 
 /**
  * @author Bruno Basto
  */
 public class SoyPortletHelper {
 
+<<<<<<< HEAD
 	public SoyPortletHelper(
 			Bundle bundle, MVCCommandCache mvcRenderCommandCache,
 			FriendlyURLMapper friendlyURLMapper)
@@ -164,11 +185,41 @@ public class SoyPortletHelper {
 		throws PortletException {
 
 		String controllerName = _javaScriptLoaderModulesMap.get(mvcCommandName);
+=======
+	public SoyPortletHelper(Bundle bundle) throws Exception {
+		_bundle = bundle;
+		_moduleName = getModuleName();
+		_soyJavaScriptRenderer = new SoyJavaScriptRenderer();
+	}
+
+	public String getPortletJavaScript(
+		Template template, String path, String portletNamespace,
+		Set<String> additionalRequiredModules) {
+
+		if (_moduleName == null) {
+			return StringPool.BLANK;
+		}
+
+		Set<String> requiredModules = getRequiredModules(
+			path, additionalRequiredModules);
+
+		return _soyJavaScriptRenderer.getJavaScript(
+			template, portletNamespace, requiredModules);
+	}
+
+	public String getTemplateNamespace(String path) {
+		return path.concat(".render");
+	}
+
+	protected String getControllerName(String path) {
+		String controllerName = _controllersMap.get(path);
+>>>>>>> compatible
 
 		if (controllerName != null) {
 			return controllerName;
 		}
 
+<<<<<<< HEAD
 		Bundle bundle = getMVCCommandBundle(mvcCommandName);
 
 		String filePath = getJavaScriptFilePath(bundle, mvcCommandName);
@@ -181,10 +232,24 @@ public class SoyPortletHelper {
 			filePath, _RESOURCES_PATH, StringPool.BLANK);
 
 		_javaScriptLoaderModulesMap.put(mvcCommandName, controllerName);
+=======
+		URL url = _bundle.getEntry(
+			"/META-INF/resources/".concat(path).concat(".es.js"));
+
+		if (url != null) {
+			controllerName = path.concat(".es");
+		}
+		else {
+			controllerName = path.concat(".soy");
+		}
+
+		_controllersMap.put(path, controllerName);
+>>>>>>> compatible
 
 		return controllerName;
 	}
 
+<<<<<<< HEAD
 	protected String getJavaScriptFilePath(Bundle bundle, String mvcCommandName)
 		throws PortletException {
 
@@ -222,6 +287,18 @@ public class SoyPortletHelper {
 		if (jsonObject == null) {
 			return null;
 		}
+=======
+	protected String getModuleName() throws Exception {
+		URL url = _bundle.getEntry("package.json");
+
+		if (url == null) {
+			return null;
+		}
+
+		String json = StringUtil.read(url.openStream());
+
+		JSONObject jsonObject = JSONFactoryUtil.createJSONObject(json);
+>>>>>>> compatible
 
 		String moduleName = jsonObject.getString("name");
 
@@ -229,6 +306,7 @@ public class SoyPortletHelper {
 			return null;
 		}
 
+<<<<<<< HEAD
 		String moduleVersion = jsonObject.getString("version");
 
 		if (Validator.isNull(moduleVersion)) {
@@ -304,5 +382,33 @@ public class SoyPortletHelper {
 	private final JSONSerializer _jsonSerializer;
 	private final MVCCommandCache _mvcRenderCommandCache;
 	private final String _routerJavaScriptTPL;
+=======
+		return moduleName;
+	}
+
+	protected Set<String> getRequiredModules(
+		String path, Set<String> additionalRequiredModules) {
+
+		if (_moduleName == null) {
+			return Collections.emptySet();
+		}
+
+		Set<String> requiredModules = new LinkedHashSet<>();
+
+		String controllerName = getControllerName(path);
+
+		requiredModules.add(
+			_moduleName.concat(StringPool.SLASH).concat(controllerName));
+
+		requiredModules.addAll(additionalRequiredModules);
+
+		return requiredModules;
+	}
+
+	private final Bundle _bundle;
+	private final Map<String, String> _controllersMap = new HashMap<>();
+	private final String _moduleName;
+	private final SoyJavaScriptRenderer _soyJavaScriptRenderer;
+>>>>>>> compatible
 
 }

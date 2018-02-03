@@ -37,8 +37,15 @@ import com.liferay.portal.kernel.service.persistence.CompanyProvider;
 import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.ReflectionUtil;
+import com.liferay.portal.kernel.util.SetUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
@@ -236,7 +243,11 @@ public class CalendarNotificationTemplatePersistenceImpl
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_UUID_3);
 			}
 			else {
@@ -325,7 +336,11 @@ public class CalendarNotificationTemplatePersistenceImpl
 		msg.append("uuid=");
 		msg.append(uuid);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchNotificationTemplateException(msg.toString());
 	}
@@ -376,7 +391,11 @@ public class CalendarNotificationTemplatePersistenceImpl
 		msg.append("uuid=");
 		msg.append(uuid);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchNotificationTemplateException(msg.toString());
 	}
@@ -471,7 +490,11 @@ public class CalendarNotificationTemplatePersistenceImpl
 		if (uuid == null) {
 			query.append(_FINDER_COLUMN_UUID_UUID_1);
 		}
+<<<<<<< HEAD
 		else if (uuid.equals("")) {
+=======
+		else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_UUID_UUID_3);
 		}
 		else {
@@ -607,7 +630,11 @@ public class CalendarNotificationTemplatePersistenceImpl
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_UUID_3);
 			}
 			else {
@@ -689,7 +716,11 @@ public class CalendarNotificationTemplatePersistenceImpl
 			msg.append(", groupId=");
 			msg.append(groupId);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -752,7 +783,11 @@ public class CalendarNotificationTemplatePersistenceImpl
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_G_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_G_UUID_3);
 			}
 			else {
@@ -860,7 +895,11 @@ public class CalendarNotificationTemplatePersistenceImpl
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_G_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_G_UUID_3);
 			}
 			else {
@@ -1063,7 +1102,11 @@ public class CalendarNotificationTemplatePersistenceImpl
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_C_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_C_UUID_3);
 			}
 			else {
@@ -1161,7 +1204,11 @@ public class CalendarNotificationTemplatePersistenceImpl
 		msg.append(", companyId=");
 		msg.append(companyId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchNotificationTemplateException(msg.toString());
 	}
@@ -1219,7 +1266,11 @@ public class CalendarNotificationTemplatePersistenceImpl
 		msg.append(", companyId=");
 		msg.append(companyId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchNotificationTemplateException(msg.toString());
 	}
@@ -1320,7 +1371,11 @@ public class CalendarNotificationTemplatePersistenceImpl
 		if (uuid == null) {
 			query.append(_FINDER_COLUMN_UUID_C_UUID_1);
 		}
+<<<<<<< HEAD
 		else if (uuid.equals("")) {
+=======
+		else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_UUID_C_UUID_3);
 		}
 		else {
@@ -1462,7 +1517,11 @@ public class CalendarNotificationTemplatePersistenceImpl
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_C_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_C_UUID_3);
 			}
 			else {
@@ -1729,7 +1788,11 @@ public class CalendarNotificationTemplatePersistenceImpl
 		msg.append("calendarId=");
 		msg.append(calendarId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchNotificationTemplateException(msg.toString());
 	}
@@ -1781,7 +1844,11 @@ public class CalendarNotificationTemplatePersistenceImpl
 		msg.append("calendarId=");
 		msg.append(calendarId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchNotificationTemplateException(msg.toString());
 	}
@@ -2080,7 +2147,11 @@ public class CalendarNotificationTemplatePersistenceImpl
 			msg.append(", notificationTemplateType=");
 			msg.append(notificationTemplateType);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -2155,7 +2226,11 @@ public class CalendarNotificationTemplatePersistenceImpl
 			if (notificationType == null) {
 				query.append(_FINDER_COLUMN_C_NT_NTT_NOTIFICATIONTYPE_1);
 			}
+<<<<<<< HEAD
 			else if (notificationType.equals("")) {
+=======
+			else if (notificationType.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_C_NT_NTT_NOTIFICATIONTYPE_3);
 			}
 			else {
@@ -2169,7 +2244,11 @@ public class CalendarNotificationTemplatePersistenceImpl
 			if (notificationTemplateType == null) {
 				query.append(_FINDER_COLUMN_C_NT_NTT_NOTIFICATIONTEMPLATETYPE_1);
 			}
+<<<<<<< HEAD
 			else if (notificationTemplateType.equals("")) {
+=======
+			else if (notificationTemplateType.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_C_NT_NTT_NOTIFICATIONTEMPLATETYPE_3);
 			}
 			else {
@@ -2303,7 +2382,11 @@ public class CalendarNotificationTemplatePersistenceImpl
 			if (notificationType == null) {
 				query.append(_FINDER_COLUMN_C_NT_NTT_NOTIFICATIONTYPE_1);
 			}
+<<<<<<< HEAD
 			else if (notificationType.equals("")) {
+=======
+			else if (notificationType.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_C_NT_NTT_NOTIFICATIONTYPE_3);
 			}
 			else {
@@ -2317,7 +2400,11 @@ public class CalendarNotificationTemplatePersistenceImpl
 			if (notificationTemplateType == null) {
 				query.append(_FINDER_COLUMN_C_NT_NTT_NOTIFICATIONTEMPLATETYPE_1);
 			}
+<<<<<<< HEAD
 			else if (notificationTemplateType.equals("")) {
+=======
+			else if (notificationTemplateType.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_C_NT_NTT_NOTIFICATIONTEMPLATETYPE_3);
 			}
 			else {
@@ -2379,11 +2466,17 @@ public class CalendarNotificationTemplatePersistenceImpl
 		setModelClass(CalendarNotificationTemplate.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("uuid", "uuid_");
@@ -3040,12 +3133,20 @@ public class CalendarNotificationTemplatePersistenceImpl
 		for (Serializable primaryKey : uncachedPrimaryKeys) {
 			query.append((long)primaryKey);
 
+<<<<<<< HEAD
 			query.append(",");
+=======
+			query.append(StringPool.COMMA);
+>>>>>>> compatible
 		}
 
 		query.setIndex(query.index() - 1);
 
+<<<<<<< HEAD
 		query.append(")");
+=======
+		query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 		String sql = query.toString();
 

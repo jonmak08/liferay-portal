@@ -272,18 +272,24 @@ public interface LockLocalService extends BaseLocalService,
 		java.lang.String owner, boolean inheritable, long expirationTime)
 		throws PortalException;
 
+<<<<<<< HEAD
 	public Lock lock(long userId, java.lang.String className, long key,
 		java.lang.String owner, boolean inheritable, long expirationTime,
 		boolean renew) throws PortalException;
 
+=======
+>>>>>>> compatible
 	public Lock lock(long userId, java.lang.String className,
 		java.lang.String key, java.lang.String owner, boolean inheritable,
 		long expirationTime) throws PortalException;
 
+<<<<<<< HEAD
 	public Lock lock(long userId, java.lang.String className,
 		java.lang.String key, java.lang.String owner, boolean inheritable,
 		long expirationTime, boolean renew) throws PortalException;
 
+=======
+>>>>>>> compatible
 	@MasterDataSource
 	public Lock lock(java.lang.String className, java.lang.String key,
 		java.lang.String owner);

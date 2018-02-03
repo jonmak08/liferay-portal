@@ -42,12 +42,20 @@ import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.taglib.ui.util.SessionTreeJSClicks;
+<<<<<<< HEAD
 import com.liferay.trash.service.TrashEntryService;
+=======
+import com.liferay.trash.kernel.service.TrashEntryService;
+import com.liferay.trash.kernel.util.TrashUtil;
+>>>>>>> compatible
 
 import java.io.Serializable;
 
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.HashMap;
+=======
+>>>>>>> compatible
 import java.util.List;
 import java.util.Map;
 
@@ -143,11 +151,17 @@ public class EditExportConfigurationMVCActionCommand
 		}
 
 		if (moveToTrash && !trashedModels.isEmpty()) {
+<<<<<<< HEAD
 			Map<String, Object> data = new HashMap<>();
 
 			data.put("trashedModels", trashedModels);
 
 			addDeleteSuccessData(actionRequest, data);
+=======
+			TrashUtil.addTrashSessionMessages(actionRequest, trashedModels);
+
+			hideDefaultSuccessMessage(actionRequest);
+>>>>>>> compatible
 		}
 	}
 

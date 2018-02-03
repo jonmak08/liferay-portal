@@ -70,6 +70,10 @@ import com.liferay.portal.kernel.service.persistence.PortletPreferencesFinder;
 import com.liferay.portal.kernel.service.persistence.PortletPreferencesPersistence;
 import com.liferay.portal.kernel.service.persistence.ResourcePermissionFinder;
 import com.liferay.portal.kernel.service.persistence.ResourcePermissionPersistence;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.service.persistence.SubscriptionPersistence;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.persistence.UserFinder;
 import com.liferay.portal.kernel.service.persistence.UserGroupFinder;
 import com.liferay.portal.kernel.service.persistence.UserGroupPersistence;
@@ -1304,8 +1308,13 @@ public abstract class LayoutLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 *
 	 * @return the user local service
 	 */
+<<<<<<< HEAD
 	public com.liferay.portal.kernel.service.UserLocalService getUserLocalService() {
 		return userLocalService;
+=======
+	public com.liferay.portal.kernel.service.SubscriptionLocalService getSubscriptionLocalService() {
+		return subscriptionLocalService;
+>>>>>>> compatible
 	}
 
 	/**
@@ -1313,9 +1322,15 @@ public abstract class LayoutLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 *
 	 * @param userLocalService the user local service
 	 */
+<<<<<<< HEAD
 	public void setUserLocalService(
 		com.liferay.portal.kernel.service.UserLocalService userLocalService) {
 		this.userLocalService = userLocalService;
+=======
+	public void setSubscriptionLocalService(
+		com.liferay.portal.kernel.service.SubscriptionLocalService subscriptionLocalService) {
+		this.subscriptionLocalService = subscriptionLocalService;
+>>>>>>> compatible
 	}
 
 	/**
@@ -1341,8 +1356,13 @@ public abstract class LayoutLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 *
 	 * @return the user finder
 	 */
+<<<<<<< HEAD
 	public UserFinder getUserFinder() {
 		return userFinder;
+=======
+	public com.liferay.portal.kernel.service.UserLocalService getUserLocalService() {
+		return userLocalService;
+>>>>>>> compatible
 	}
 
 	/**
@@ -1350,10 +1370,83 @@ public abstract class LayoutLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 *
 	 * @param userFinder the user finder
 	 */
+<<<<<<< HEAD
 	public void setUserFinder(UserFinder userFinder) {
 		this.userFinder = userFinder;
 	}
 
+	/**
+	 * Returns the user group local service.
+	 *
+	 * @return the user group local service
+	 */
+	public com.liferay.portal.kernel.service.UserGroupLocalService getUserGroupLocalService() {
+		return userGroupLocalService;
+	}
+
+	/**
+	 * Sets the user group local service.
+	 *
+	 * @param userGroupLocalService the user group local service
+	 */
+	public void setUserGroupLocalService(
+		com.liferay.portal.kernel.service.UserGroupLocalService userGroupLocalService) {
+		this.userGroupLocalService = userGroupLocalService;
+	}
+
+	/**
+	 * Returns the user group persistence.
+=======
+	public void setUserLocalService(
+		com.liferay.portal.kernel.service.UserLocalService userLocalService) {
+		this.userLocalService = userLocalService;
+	}
+
+	/**
+	 * Returns the user persistence.
+>>>>>>> compatible
+	 *
+	 * @return the user group persistence
+	 */
+	public UserGroupPersistence getUserGroupPersistence() {
+		return userGroupPersistence;
+	}
+
+	/**
+	 * Sets the user group persistence.
+	 *
+	 * @param userGroupPersistence the user group persistence
+	 */
+	public void setUserGroupPersistence(
+		UserGroupPersistence userGroupPersistence) {
+		this.userGroupPersistence = userGroupPersistence;
+	}
+
+	/**
+	 * Returns the user group finder.
+	 *
+	 * @return the user group finder
+	 */
+	public UserGroupFinder getUserGroupFinder() {
+		return userGroupFinder;
+	}
+
+	/**
+	 * Sets the user group finder.
+	 *
+	 * @param userGroupFinder the user group finder
+	 */
+	public void setUserGroupFinder(UserGroupFinder userGroupFinder) {
+		this.userGroupFinder = userGroupFinder;
+	}
+
+<<<<<<< HEAD
+	public void afterPropertiesSet() {
+		persistedModelLocalServiceRegistry.register("com.liferay.portal.kernel.model.Layout",
+			layoutLocalService);
+	}
+
+=======
 	/**
 	 * Returns the user group local service.
 	 *
@@ -1415,6 +1508,7 @@ public abstract class LayoutLocalServiceBaseImpl extends BaseLocalServiceImpl
 			layoutLocalService);
 	}
 
+>>>>>>> compatible
 	public void destroy() {
 		persistedModelLocalServiceRegistry.unregister(
 			"com.liferay.portal.kernel.model.Layout");
@@ -1552,6 +1646,13 @@ public abstract class LayoutLocalServiceBaseImpl extends BaseLocalServiceImpl
 	protected ResourcePermissionPersistence resourcePermissionPersistence;
 	@BeanReference(type = ResourcePermissionFinder.class)
 	protected ResourcePermissionFinder resourcePermissionFinder;
+<<<<<<< HEAD
+=======
+	@BeanReference(type = com.liferay.portal.kernel.service.SubscriptionLocalService.class)
+	protected com.liferay.portal.kernel.service.SubscriptionLocalService subscriptionLocalService;
+	@BeanReference(type = SubscriptionPersistence.class)
+	protected SubscriptionPersistence subscriptionPersistence;
+>>>>>>> compatible
 	@BeanReference(type = com.liferay.portal.kernel.service.UserLocalService.class)
 	protected com.liferay.portal.kernel.service.UserLocalService userLocalService;
 	@BeanReference(type = UserPersistence.class)

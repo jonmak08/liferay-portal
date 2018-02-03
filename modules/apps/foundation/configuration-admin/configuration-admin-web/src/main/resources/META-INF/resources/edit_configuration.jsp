@@ -29,7 +29,11 @@ ResourceBundleLoaderProvider resourceBundleLoaderProvider = (ResourceBundleLoade
 
 ResourceBundleLoader resourceBundleLoader = resourceBundleLoaderProvider.getResourceBundleLoader(configurationModel.getBundleSymbolicName());
 
+<<<<<<< HEAD
 ResourceBundle componentResourceBundle = resourceBundleLoader.loadResourceBundle(PortalUtil.getLocale(request));
+=======
+ResourceBundle componentResourceBundle = resourceBundleLoader.loadResourceBundle(LanguageUtil.getLanguageId(request));
+>>>>>>> compatible
 
 String configurationModelName = (componentResourceBundle != null) ? LanguageUtil.get(componentResourceBundle, configurationModel.getName()) : configurationModel.getName();
 
@@ -53,6 +57,11 @@ renderResponse.setTitle(configurationModelName);
 		<aui:input name="redirect" type="hidden" value="<%= redirect %>" />
 		<aui:input name="factoryPid" type="hidden" value="<%= configurationModel.getFactoryPid() %>" />
 		<aui:input name="pid" type="hidden" value="<%= configurationModel.getID() %>" />
+<<<<<<< HEAD
+=======
+		<aui:input name="availableLanguageIds" type="hidden" value="<%= themeDisplay.getLanguageId() %>" />
+		<aui:input name="defaultLanguageId" type="hidden" value="<%= themeDisplay.getLanguageId() %>" />
+>>>>>>> compatible
 
 		<div class="lfr-ddm-container" id="lfr-ddm-container">
 			<aui:fieldset-group>
@@ -79,6 +88,7 @@ renderResponse.setTitle(configurationModelName);
 		<aui:button-row>
 			<c:choose>
 				<c:when test="<%= configurationModel.hasConfiguration() %>">
+<<<<<<< HEAD
 					<aui:button name="update" type="submit" value="update" />
 				</c:when>
 				<c:otherwise>
@@ -87,6 +97,16 @@ renderResponse.setTitle(configurationModelName);
 			</c:choose>
 
 			<aui:button href="<%= redirect %>" name="cancel" type="cancel" />
+=======
+					<aui:button cssClass="btn-lg" name="update" type="submit" value="update" />
+				</c:when>
+				<c:otherwise>
+					<aui:button cssClass="btn-lg" name="save" type="submit" value="save" />
+				</c:otherwise>
+			</c:choose>
+
+			<aui:button cssClass="btn-lg" href="<%= redirect %>" name="cancel" type="cancel" />
+>>>>>>> compatible
 		</aui:button-row>
 	</aui:form>
 </div>

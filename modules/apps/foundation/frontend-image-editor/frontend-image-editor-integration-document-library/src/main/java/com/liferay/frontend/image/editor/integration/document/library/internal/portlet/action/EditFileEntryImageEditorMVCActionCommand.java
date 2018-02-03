@@ -14,12 +14,19 @@
 
 package com.liferay.frontend.image.editor.integration.document.library.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.document.library.constants.DLPortletKeys;
+=======
+>>>>>>> compatible
 import com.liferay.document.library.kernel.exception.FileSizeException;
 import com.liferay.document.library.kernel.model.DLFileEntry;
 import com.liferay.document.library.kernel.service.DLAppLocalService;
 import com.liferay.document.library.kernel.service.DLAppService;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.document.library.web.constants.DLPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
@@ -42,6 +49,10 @@ import com.liferay.portal.kernel.upload.UploadRequestSizeException;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.ResourceBundleLoader;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.WebKeys;
 
 import java.io.IOException;
@@ -171,7 +182,12 @@ public class EditFileEntryImageEditorMVCActionCommand
 		jsonObject.put("success", Boolean.TRUE);
 
 		ResourceBundle resourceBundle =
+<<<<<<< HEAD
 			_resourceBundleLoader.loadResourceBundle(themeDisplay.getLocale());
+=======
+			_resourceBundleLoader.loadResourceBundle(
+				LanguageUtil.getLanguageId(themeDisplay.getLocale()));
+>>>>>>> compatible
 
 		SessionMessages.add(
 			actionRequest, "requestProcessed",

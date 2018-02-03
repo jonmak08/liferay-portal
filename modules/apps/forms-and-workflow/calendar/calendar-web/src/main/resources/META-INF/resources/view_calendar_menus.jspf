@@ -19,10 +19,13 @@ String backURL = PortalUtil.getCurrentURL(request);
 %>
 
 <aui:script use="aui-toggler,calendar,liferay-calendar-simple-menu,liferay-calendar-simple-color-picker,liferay-calendar-util,liferay-store">
+<<<<<<< HEAD
 	var calendarContainer = Liferay.component('<portlet:namespace />calendarContainer');
 
 	var remoteServices = Liferay.component('<portlet:namespace />remoteServices');
 
+=======
+>>>>>>> compatible
 	window.<portlet:namespace />calendarListsMenu = new Liferay.SimpleMenu(
 		{
 			align: {
@@ -43,7 +46,11 @@ String backURL = PortalUtil.getCurrentURL(request);
 									dialog: {
 										after: {
 											destroy: function(event) {
+<<<<<<< HEAD
 												remoteServices.getResourceCalendars(
+=======
+												Liferay.CalendarUtil.getResourceCalendars(
+>>>>>>> compatible
 													calendarResourceId,
 													function(calendars) {
 														var calendarList = window.<portlet:namespace />calendarLists[calendarResourceId];
@@ -112,7 +119,11 @@ String backURL = PortalUtil.getCurrentURL(request);
 						var instance = this;
 
 						<liferay-security:permissionsURL
+<<<<<<< HEAD
 							modelResource="<%= CalendarConstants.RESOURCE_NAME %>"
+=======
+							modelResource="<%= CalendarPortletPermission.RESOURCE_NAME %>"
+>>>>>>> compatible
 							modelResourceDescription=""
 							resourcePrimKey="<%= String.valueOf(scopeGroupId) %>"
 							var="permissionsURL"
@@ -144,7 +155,11 @@ String backURL = PortalUtil.getCurrentURL(request);
 
 					var hiddenItems = [];
 
+<<<<<<< HEAD
 					if (!(instance.calendarResourceId === '<%= groupCalendarResource.getCalendarResourceId() %>') || !<%= CalendarPortletPermission.contains(permissionChecker, scopeGroupId, ActionKeys.PERMISSIONS) %>) {
+=======
+					if (instance.calendarResourceId !== '<%= groupCalendarResource.getCalendarResourceId() %>') {
+>>>>>>> compatible
 						hiddenItems.push('permissions');
 					}
 
@@ -229,7 +244,11 @@ String backURL = PortalUtil.getCurrentURL(request);
 							dialog: {
 								after: {
 									destroy: function(event) {
+<<<<<<< HEAD
 										remoteServices.getCalendar(
+=======
+										Liferay.CalendarUtil.getCalendar(
+>>>>>>> compatible
 											activeCalendar.get('calendarId'),
 											function(calendar) {
 												var activeCalendarId = activeCalendar.get('calendarId');
@@ -336,12 +355,19 @@ String backURL = PortalUtil.getCurrentURL(request);
 					var activeCalendar = calendarList.activeItem;
 
 					if (confirm('<liferay-ui:message key="are-you-sure-you-want-to-delete-this" />')) {
+<<<<<<< HEAD
 						var remoteServices = Liferay.component('<portlet:namespace />remoteServices');
 
 						remoteServices.deleteCalendar(
 							activeCalendar.get('calendarId'),
 							function() {
 								remoteServices.getResourceCalendars(
+=======
+						Liferay.CalendarUtil.deleteCalendar(
+							activeCalendar.get('calendarId'),
+							function() {
+								Liferay.CalendarUtil.getResourceCalendars(
+>>>>>>> compatible
 									activeCalendar.get('calendarResourceId'),
 									function(calendars) {
 										calendarList.set('calendars', calendars);
@@ -516,7 +542,11 @@ String backURL = PortalUtil.getCurrentURL(request);
 
 		<liferay-portlet:resourceURL copyCurrentRenderParameters="<%= false %>" id="calendarResources" var="calendarResourcesURL" />
 
+<<<<<<< HEAD
 		calendarContainer.createCalendarsAutoComplete(
+=======
+		Liferay.CalendarUtil.createCalendarsAutoComplete(
+>>>>>>> compatible
 			'<%= calendarResourcesURL %>',
 			addOtherCalendarInput,
 			function(event) {
@@ -585,8 +615,13 @@ String backURL = PortalUtil.getCurrentURL(request);
 
 		miniCalendarEndDate.setHours(23, 59, 59, 999);
 
+<<<<<<< HEAD
 		remoteServices.getCalendarRenderingRules(
 			A.Object.keys(calendarContainer.get('visibleCalendars')),
+=======
+		Liferay.CalendarUtil.getCalendarRenderingRules(
+			A.Object.keys(Liferay.CalendarUtil.visibleCalendars),
+>>>>>>> compatible
 			Liferay.CalendarUtil.toUTC(miniCalendarStartDate),
 			Liferay.CalendarUtil.toUTC(miniCalendarEndDate),
 			'busy',
@@ -632,8 +667,12 @@ String backURL = PortalUtil.getCurrentURL(request);
 				}
 			},
 			date: new Date(<%= String.valueOf(date) %>),
+<<<<<<< HEAD
 			headerRenderer: '<%= HtmlUtil.escapeJS(LanguageUtil.get(request, "b-y")) %>',
 			locale: '<%= themeDisplay.getLocale() %>',
+=======
+			locale: 'en',
+>>>>>>> compatible
 			'strings.first_weekday': <%= weekStartsOn %>
 		}
 	).render('#<portlet:namespace />miniCalendarContainer');

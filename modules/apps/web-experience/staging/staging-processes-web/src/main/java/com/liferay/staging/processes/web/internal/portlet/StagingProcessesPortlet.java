@@ -16,6 +16,7 @@ package com.liferay.staging.processes.web.internal.portlet;
 
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 import com.liferay.staging.constants.StagingProcessesPortletKeys;
+<<<<<<< HEAD
 import com.liferay.trash.TrashHelper;
 import com.liferay.trash.util.TrashWebKeys;
 
@@ -28,6 +29,12 @@ import javax.portlet.RenderResponse;
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+=======
+
+import javax.portlet.Portlet;
+
+import org.osgi.service.component.annotations.Component;
+>>>>>>> compatible
 
 /**
  * @author Levente Hudák
@@ -37,6 +44,10 @@ import org.osgi.service.component.annotations.Reference;
 	property = {
 		"com.liferay.portlet.add-default-resource=true",
 		"com.liferay.portlet.css-class-wrapper=portlet-staging-processes",
+<<<<<<< HEAD
+=======
+		"com.liferay.portlet.footer-portlet-javascript=/js/main.js",
+>>>>>>> compatible
 		"com.liferay.portlet.header-portlet-css=/css/main.css",
 		"com.liferay.portlet.private-request-attributes=false",
 		"com.liferay.portlet.private-session-attributes=false",
@@ -58,6 +69,7 @@ import org.osgi.service.component.annotations.Reference;
 	service = Portlet.class
 )
 public class StagingProcessesPortlet extends MVCPortlet {
+<<<<<<< HEAD
 
 	@Override
 	public void render(
@@ -72,4 +84,6 @@ public class StagingProcessesPortlet extends MVCPortlet {
 	@Reference
 	private TrashHelper _trashHelper;
 
+=======
+>>>>>>> compatible
 }

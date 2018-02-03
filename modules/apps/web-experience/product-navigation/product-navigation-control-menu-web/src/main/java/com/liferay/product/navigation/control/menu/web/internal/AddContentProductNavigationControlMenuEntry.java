@@ -14,7 +14,10 @@
 
 package com.liferay.product.navigation.control.menu.web.internal;
 
+<<<<<<< HEAD
 import com.liferay.exportimport.kernel.staging.Staging;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.Layout;
 import com.liferay.portal.kernel.model.LayoutTypeController;
@@ -73,10 +76,13 @@ public class AddContentProductNavigationControlMenuEntry
 			return false;
 		}
 
+<<<<<<< HEAD
 		if (_staging.isIncomplete(layout)) {
 			return false;
 		}
 
+=======
+>>>>>>> compatible
 		LayoutTypePortlet layoutTypePortlet =
 			themeDisplay.getLayoutTypePortlet();
 
@@ -156,7 +162,10 @@ public class AddContentProductNavigationControlMenuEntry
 			ActionKeys.UPDATE);
 	}
 
+<<<<<<< HEAD
 	@Reference
 	private Staging _staging;
 
+=======
+>>>>>>> compatible
 }

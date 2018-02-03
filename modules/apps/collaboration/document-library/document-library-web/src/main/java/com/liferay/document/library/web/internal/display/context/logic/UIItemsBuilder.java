@@ -15,13 +15,20 @@
 package com.liferay.document.library.web.internal.display.context.logic;
 
 import com.liferay.document.library.display.context.DLUIItemKeys;
+<<<<<<< HEAD
 import com.liferay.document.library.kernel.document.conversion.DocumentConversionUtil;
 import com.liferay.document.library.kernel.model.DLFileEntry;
+=======
+>>>>>>> compatible
 import com.liferay.document.library.kernel.model.DLFileEntryConstants;
 import com.liferay.document.library.kernel.model.DLFolderConstants;
 import com.liferay.document.library.kernel.util.DLUtil;
 import com.liferay.document.library.web.internal.util.DLTrashUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.portal.kernel.bean.BeanParamUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringWriter;
@@ -53,6 +60,7 @@ import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.JavaConstants;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -68,12 +76,26 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
+=======
+import com.liferay.portal.kernel.util.PortalUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.TextFormatter;
+import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.portal.util.PropsValues;
+import com.liferay.taglib.security.PermissionsURLTag;
+
+import java.util.List;
+>>>>>>> compatible
 
 import javax.portlet.ActionRequest;
 import javax.portlet.PortletRequest;
 import javax.portlet.PortletResponse;
 import javax.portlet.PortletURL;
+<<<<<<< HEAD
 import javax.portlet.WindowStateException;
+=======
+>>>>>>> compatible
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -82,6 +104,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class UIItemsBuilder {
 
+<<<<<<< HEAD
 	public UIItemsBuilder(
 			HttpServletRequest request, FileShortcut fileShortcut,
 			ResourceBundle resourceBundle, DLTrashUtil dlTrashUtil)
@@ -97,6 +120,16 @@ public class UIItemsBuilder {
 		ResourceBundle resourceBundle, DLTrashUtil dlTrashUtil) {
 
 		this(request, fileVersion, null, resourceBundle, dlTrashUtil);
+=======
+	public UIItemsBuilder(HttpServletRequest request, FileShortcut fileShortcut)
+		throws PortalException {
+
+		this(request, fileShortcut.getFileVersion(), fileShortcut);
+	}
+
+	public UIItemsBuilder(HttpServletRequest request, FileVersion fileVersion) {
+		this(request, fileVersion, null);
+>>>>>>> compatible
 	}
 
 	public void addCancelCheckoutMenuItem(List<MenuItem> menuItems)
@@ -131,7 +164,11 @@ public class UIItemsBuilder {
 		_addJavaScriptUIItem(
 			new JavaScriptToolbarItem(), toolbarItems,
 			DLUIItemKeys.CANCEL_CHECKOUT,
+<<<<<<< HEAD
 			LanguageUtil.get(_resourceBundle, "cancel-checkout[document]"),
+=======
+			LanguageUtil.get(_request, "cancel-checkout[document]"),
+>>>>>>> compatible
 			getSubmitFormJavaScript(Constants.CANCEL_CHECKOUT, null));
 	}
 
@@ -160,10 +197,15 @@ public class UIItemsBuilder {
 
 		JavaScriptToolbarItem javaScriptToolbarItem = _addJavaScriptUIItem(
 			new JavaScriptToolbarItem(), toolbarItems, DLUIItemKeys.CHECKIN,
+<<<<<<< HEAD
 			LanguageUtil.get(_resourceBundle, "checkin"),
 			StringBundler.concat(
 				getNamespace(), "showVersionDetailsDialog('",
 				String.valueOf(portletURL), "');"));
+=======
+			LanguageUtil.get(_request, "checkin"),
+			getNamespace() + "showVersionDetailsDialog('" + portletURL + "');");
+>>>>>>> compatible
 
 		String javaScript =
 			"/com/liferay/document/library/web/display/context/dependencies" +
@@ -178,6 +220,7 @@ public class UIItemsBuilder {
 			TemplateConstants.LANG_TYPE_FTL, urlTemplateResource, false);
 
 		template.put(
+<<<<<<< HEAD
 			"dialogCancelButtonLabel",
 			LanguageUtil.get(_resourceBundle, "cancel"));
 		template.put(
@@ -185,6 +228,10 @@ public class UIItemsBuilder {
 		template.put(
 			"dialogTitle",
 			UnicodeLanguageUtil.get(_resourceBundle, "describe-your-changes"));
+=======
+			"dialogTitle",
+			UnicodeLanguageUtil.get(_request, "describe-your-changes"));
+>>>>>>> compatible
 		template.put("namespace", getNamespace());
 
 		UnsyncStringWriter unsyncStringWriter = new UnsyncStringWriter();
@@ -225,6 +272,7 @@ public class UIItemsBuilder {
 
 		_addJavaScriptUIItem(
 			new JavaScriptToolbarItem(), toolbarItems, DLUIItemKeys.CHECKOUT,
+<<<<<<< HEAD
 			LanguageUtil.get(_resourceBundle, "checkout[document]"),
 			getSubmitFormJavaScript(Constants.CHECKOUT, null));
 	}
@@ -305,6 +353,12 @@ public class UIItemsBuilder {
 		javascriptMenuItem.setJavaScript(unsyncStringWriter.toString());
 	}
 
+=======
+			LanguageUtil.get(_request, "checkout[document]"),
+			getSubmitFormJavaScript(Constants.CHECKOUT, null));
+	}
+
+>>>>>>> compatible
 	public void addDeleteMenuItem(List<MenuItem> menuItems)
 		throws PortalException {
 
@@ -381,7 +435,11 @@ public class UIItemsBuilder {
 		sb.append("if (confirm('");
 		sb.append(
 			UnicodeLanguageUtil.get(
+<<<<<<< HEAD
 				_resourceBundle, "are-you-sure-you-want-to-delete-this"));
+=======
+				_request, "are-you-sure-you-want-to-delete-this"));
+>>>>>>> compatible
 		sb.append("')) {");
 		sb.append(
 			getSubmitFormJavaScript(Constants.DELETE, portletURL.toString()));
@@ -389,6 +447,7 @@ public class UIItemsBuilder {
 
 		_addJavaScriptUIItem(
 			new JavaScriptToolbarItem(), toolbarItems, DLUIItemKeys.DELETE,
+<<<<<<< HEAD
 			LanguageUtil.get(_resourceBundle, "delete"), sb.toString());
 	}
 
@@ -424,6 +483,9 @@ public class UIItemsBuilder {
 		deleteMenuItem.setURL(portletURL.toString());
 
 		menuItems.add(deleteMenuItem);
+=======
+			LanguageUtil.get(_request, "delete"), sb.toString());
+>>>>>>> compatible
 	}
 
 	public void addDownloadMenuItem(List<MenuItem> menuItems)
@@ -436,6 +498,7 @@ public class UIItemsBuilder {
 		String label = TextFormatter.formatStorageSize(
 			_fileEntry.getSize(), _themeDisplay.getLocale());
 
+<<<<<<< HEAD
 		label = StringBundler.concat(
 			_themeDisplay.translate("download"), " (", label, ")");
 
@@ -453,16 +516,26 @@ public class UIItemsBuilder {
 		String url = DLUtil.getDownloadURL(
 			_fileEntry, _fileVersion, _themeDisplay, StringPool.BLANK,
 			appendVersion, true);
+=======
+		label = _themeDisplay.translate("download") + " (" + label + ")";
+
+		String url = DLUtil.getDownloadURL(
+			_fileEntry, _fileVersion, _themeDisplay, StringPool.BLANK, false,
+			true);
+>>>>>>> compatible
 
 		URLMenuItem urlMenuItem = _addURLUIItem(
 			new URLMenuItem(), menuItems, DLUIItemKeys.DOWNLOAD, label, url);
 
+<<<<<<< HEAD
 		Map<String, Object> data = new HashMap<>();
 
 		data.put("senna-off", "true");
 
 		urlMenuItem.setData(data);
 
+=======
+>>>>>>> compatible
 		urlMenuItem.setMethod("get");
 		urlMenuItem.setTarget("_blank");
 	}
@@ -476,7 +549,11 @@ public class UIItemsBuilder {
 
 		_addURLUIItem(
 			new URLToolbarItem(), toolbarItems, DLUIItemKeys.DOWNLOAD,
+<<<<<<< HEAD
 			LanguageUtil.get(_resourceBundle, "download"),
+=======
+			LanguageUtil.get(_request, "download"),
+>>>>>>> compatible
 			DLUtil.getDownloadURL(
 				_fileEntry, _fileVersion, _themeDisplay, StringPool.BLANK));
 	}
@@ -516,7 +593,11 @@ public class UIItemsBuilder {
 
 		_addURLUIItem(
 			new URLToolbarItem(), toolbarItems, DLUIItemKeys.EDIT,
+<<<<<<< HEAD
 			LanguageUtil.get(_resourceBundle, "edit"), portletURL.toString());
+=======
+			LanguageUtil.get(_request, "edit"), portletURL.toString());
+>>>>>>> compatible
 	}
 
 	public void addMoveMenuItem(List<MenuItem> menuItems)
@@ -584,7 +665,11 @@ public class UIItemsBuilder {
 
 		_addURLUIItem(
 			new URLToolbarItem(), toolbarItems, DLUIItemKeys.MOVE,
+<<<<<<< HEAD
 			LanguageUtil.get(_resourceBundle, "move"), portletURL.toString());
+=======
+			LanguageUtil.get(_request, "move"), portletURL.toString());
+>>>>>>> compatible
 	}
 
 	public void addMoveToTheRecycleBinToolbarItem(
@@ -618,7 +703,11 @@ public class UIItemsBuilder {
 		_addJavaScriptUIItem(
 			new JavaScriptToolbarItem(), toolbarItems,
 			DLUIItemKeys.MOVE_TO_THE_RECYCLE_BIN,
+<<<<<<< HEAD
 			LanguageUtil.get(_resourceBundle, "move-to-the-recycle-bin"),
+=======
+			LanguageUtil.get(_request, "move-to-the-recycle-bin"),
+>>>>>>> compatible
 			getSubmitFormJavaScript(
 				Constants.MOVE_TO_TRASH, portletURL.toString()));
 	}
@@ -636,8 +725,12 @@ public class UIItemsBuilder {
 				DL_FILE_ENTRY_OPEN_IN_MS_OFFICE_MANUAL_CHECK_IN_REQUIRED,
 			true);
 
+<<<<<<< HEAD
 		String onClick = StringBundler.concat(
 			getNamespace(), "openDocument('", webDavURL, "');");
+=======
+		String onClick = getNamespace() + "openDocument('" + webDavURL + "');";
+>>>>>>> compatible
 
 		JavaScriptMenuItem javascriptMenuItem = _addJavaScriptUIItem(
 			new JavaScriptMenuItem(), menuItems, DLUIItemKeys.OPEN_IN_MS_OFFICE,
@@ -658,7 +751,11 @@ public class UIItemsBuilder {
 		template.put(
 			"errorMessage",
 			UnicodeLanguageUtil.get(
+<<<<<<< HEAD
 				_resourceBundle,
+=======
+				_request,
+>>>>>>> compatible
 				"cannot-open-the-requested-document-due-to-the-following-" +
 					"reason"));
 		template.put("namespace", getNamespace());
@@ -692,8 +789,12 @@ public class UIItemsBuilder {
 		_addJavaScriptUIItem(
 			new JavaScriptToolbarItem(), toolbarItems,
 			DLUIItemKeys.OPEN_IN_MS_OFFICE,
+<<<<<<< HEAD
 			LanguageUtil.get(_resourceBundle, "open-in-ms-office"),
 			sb.toString());
+=======
+			LanguageUtil.get(_request, "open-in-ms-office"), sb.toString());
+>>>>>>> compatible
 	}
 
 	public void addPermissionsMenuItem(List<MenuItem> menuItems)
@@ -747,13 +848,18 @@ public class UIItemsBuilder {
 		StringBundler sb = new StringBundler(5);
 
 		sb.append("Liferay.Util.openWindow({title: '");
+<<<<<<< HEAD
 		sb.append(UnicodeLanguageUtil.get(_resourceBundle, "permissions"));
+=======
+		sb.append(UnicodeLanguageUtil.get(_request, "permissions"));
+>>>>>>> compatible
 		sb.append("', uri: '");
 		sb.append(permissionsURL);
 		sb.append("'});");
 
 		_addJavaScriptUIItem(
 			new JavaScriptToolbarItem(), toolbarItems, DLUIItemKeys.PERMISSIONS,
+<<<<<<< HEAD
 			LanguageUtil.get(_resourceBundle, "permissions"), sb.toString());
 	}
 
@@ -788,6 +894,9 @@ public class UIItemsBuilder {
 		_addURLUIItem(
 			new URLMenuItem(), menuItems, DLUIItemKeys.REVERT, "revert",
 			portletURL.toString());
+=======
+			LanguageUtil.get(_request, "permissions"), sb.toString());
+>>>>>>> compatible
 	}
 
 	public void addViewOriginalFileMenuItem(List<MenuItem> menuItems) {
@@ -798,6 +907,10 @@ public class UIItemsBuilder {
 		PortletURL portletURL = _getRenderURL(
 			"/document_library/view_file_entry");
 
+<<<<<<< HEAD
+=======
+		portletURL.setParameter("redirect", _getCurrentURL());
+>>>>>>> compatible
 		portletURL.setParameter(
 			"fileEntryId", String.valueOf(_fileShortcut.getToFileEntryId()));
 
@@ -806,6 +919,7 @@ public class UIItemsBuilder {
 			"view-original-file", portletURL.toString());
 	}
 
+<<<<<<< HEAD
 	public void addViewVersionMenuItem(List<MenuItem> menuItems) {
 		if (_fileShortcut != null) {
 			return;
@@ -821,6 +935,8 @@ public class UIItemsBuilder {
 			"view[action]", portletURL.toString());
 	}
 
+=======
+>>>>>>> compatible
 	public JavaScriptMenuItem getJavacriptCheckinMenuItem()
 		throws PortalException {
 
@@ -835,9 +951,13 @@ public class UIItemsBuilder {
 		javascriptMenuItem.setKey(DLUIItemKeys.CHECKIN);
 		javascriptMenuItem.setLabel("checkin");
 		javascriptMenuItem.setOnClick(
+<<<<<<< HEAD
 			StringBundler.concat(
 				getNamespace(), "showVersionDetailsDialog('",
 				String.valueOf(portletURL), "');"));
+=======
+			getNamespace() + "showVersionDetailsDialog('" + portletURL + "');");
+>>>>>>> compatible
 
 		String javaScript =
 			"/com/liferay/document/library/web/display/context/dependencies" +
@@ -852,6 +972,7 @@ public class UIItemsBuilder {
 			TemplateConstants.LANG_TYPE_FTL, urlTemplateResource, false);
 
 		template.put(
+<<<<<<< HEAD
 			"dialogCancelButtonLabel",
 			LanguageUtil.get(_resourceBundle, "cancel"));
 		template.put(
@@ -859,6 +980,10 @@ public class UIItemsBuilder {
 		template.put(
 			"dialogTitle",
 			UnicodeLanguageUtil.get(_resourceBundle, "describe-your-changes"));
+=======
+			"dialogTitle",
+			UnicodeLanguageUtil.get(_request, "describe-your-changes"));
+>>>>>>> compatible
 		template.put("namespace", getNamespace());
 		template.put(
 			"randomNamespace", _request.getAttribute("randomNamespace"));
@@ -943,15 +1068,22 @@ public class UIItemsBuilder {
 
 	private UIItemsBuilder(
 		HttpServletRequest request, FileVersion fileVersion,
+<<<<<<< HEAD
 		FileShortcut fileShortcut, ResourceBundle resourceBundle,
 		DLTrashUtil dlTrashUtil) {
+=======
+		FileShortcut fileShortcut) {
+>>>>>>> compatible
 
 		try {
 			_request = request;
 			_fileVersion = fileVersion;
 			_fileShortcut = fileShortcut;
+<<<<<<< HEAD
 			_resourceBundle = resourceBundle;
 			_dlTrashUtil = dlTrashUtil;
+=======
+>>>>>>> compatible
 
 			FileEntry fileEntry = null;
 
@@ -961,6 +1093,11 @@ public class UIItemsBuilder {
 
 			_fileEntry = fileEntry;
 
+<<<<<<< HEAD
+=======
+			_folderId = BeanParamUtil.getLong(_fileEntry, request, "folderId");
+
+>>>>>>> compatible
 			_themeDisplay = (ThemeDisplay)request.getAttribute(
 				WebKeys.THEME_DISPLAY);
 
@@ -1003,12 +1140,15 @@ public class UIItemsBuilder {
 	}
 
 	private PortletURL _getActionURL(String mvcActionCommandName, String cmd) {
+<<<<<<< HEAD
 		return _getActionURL(mvcActionCommandName, cmd, _getCurrentURL());
 	}
 
 	private PortletURL _getActionURL(
 		String mvcActionCommandName, String cmd, String redirect) {
 
+=======
+>>>>>>> compatible
 		LiferayPortletResponse liferayPortletResponse =
 			_getLiferayPortletResponse();
 
@@ -1017,7 +1157,11 @@ public class UIItemsBuilder {
 		portletURL.setParameter(
 			ActionRequest.ACTION_NAME, mvcActionCommandName);
 		portletURL.setParameter(Constants.CMD, cmd);
+<<<<<<< HEAD
 		portletURL.setParameter("redirect", redirect);
+=======
+		portletURL.setParameter("redirect", _getCurrentURL());
+>>>>>>> compatible
 
 		return portletURL;
 	}
@@ -1056,6 +1200,7 @@ public class UIItemsBuilder {
 		return PortalUtil.getLiferayPortletResponse(portletResponse);
 	}
 
+<<<<<<< HEAD
 	private String _getRedirect() {
 		if (_redirect == null) {
 			_redirect = ParamUtil.getString(_request, "redirect");
@@ -1071,16 +1216,23 @@ public class UIItemsBuilder {
 	private PortletURL _getRenderURL(
 		String mvcRenderCommandName, String redirect) {
 
+=======
+	private PortletURL _getRenderURL(String mvcRenderCommandName) {
+>>>>>>> compatible
 		LiferayPortletResponse liferayPortletResponse =
 			_getLiferayPortletResponse();
 
 		PortletURL portletURL = liferayPortletResponse.createRenderURL();
 
 		portletURL.setParameter("mvcRenderCommandName", mvcRenderCommandName);
+<<<<<<< HEAD
 
 		if (Validator.isNotNull(redirect)) {
 			portletURL.setParameter("redirect", redirect);
 		}
+=======
+		portletURL.setParameter("redirect", _getCurrentURL());
+>>>>>>> compatible
 
 		if (_fileShortcut != null) {
 			portletURL.setParameter(
@@ -1114,6 +1266,7 @@ public class UIItemsBuilder {
 	}
 
 	private boolean _isTrashEnabled() throws PortalException {
+<<<<<<< HEAD
 		if (_trashEnabled != null) {
 			return _trashEnabled;
 		}
@@ -1127,6 +1280,13 @@ public class UIItemsBuilder {
 		_trashEnabled = _dlTrashUtil.isTrashEnabled(
 			_themeDisplay.getScopeGroupId(), _fileEntry.getRepositoryId());
 
+=======
+		if (_trashEnabled == null) {
+			_trashEnabled = DLTrashUtil.isTrashEnabled(
+				_themeDisplay.getScopeGroupId(), _fileEntry.getRepositoryId());
+		}
+
+>>>>>>> compatible
 		return _trashEnabled;
 	}
 
@@ -1137,17 +1297,26 @@ public class UIItemsBuilder {
 	}
 
 	private String _currentURL;
+<<<<<<< HEAD
 	private final DLTrashUtil _dlTrashUtil;
+=======
+>>>>>>> compatible
 	private final FileEntry _fileEntry;
 	private final FileEntryDisplayContextHelper _fileEntryDisplayContextHelper;
 	private FileShortcut _fileShortcut;
 	private final FileVersion _fileVersion;
 	private final FileVersionDisplayContextHelper
 		_fileVersionDisplayContextHelper;
+<<<<<<< HEAD
 	private Boolean _ieOnWin32;
 	private String _redirect;
 	private final HttpServletRequest _request;
 	private final ResourceBundle _resourceBundle;
+=======
+	private final long _folderId;
+	private Boolean _ieOnWin32;
+	private final HttpServletRequest _request;
+>>>>>>> compatible
 	private final ThemeDisplay _themeDisplay;
 	private Boolean _trashEnabled;
 

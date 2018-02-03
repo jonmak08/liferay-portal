@@ -192,11 +192,14 @@ public class LayoutSetLocalServiceUtil {
 	}
 
 	public static com.liferay.portal.kernel.model.LayoutSet fetchLayoutSet(
+<<<<<<< HEAD
 		long groupId, boolean privateLayout) {
 		return getService().fetchLayoutSet(groupId, privateLayout);
 	}
 
 	public static com.liferay.portal.kernel.model.LayoutSet fetchLayoutSet(
+=======
+>>>>>>> compatible
 		java.lang.String virtualHostname) {
 		return getService().fetchLayoutSet(virtualHostname);
 	}

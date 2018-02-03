@@ -20,7 +20,11 @@ Here are some of the types of changes documented in this file:
   replaces an old API, in spite of the old API being kept in Liferay Portal for
   backwards compatibility.
 
+<<<<<<< HEAD
 *This document has been reviewed through commit `0a476ab26e9f`.*
+=======
+*This document has been reviewed through commit `16080bf`.*
+>>>>>>> compatible
 
 ## Breaking Changes Contribution Guidelines
 
@@ -4307,6 +4311,7 @@ Portal by means of an OSGi container.
 
 ---------------------------------------
 
+<<<<<<< HEAD
 ### Moved Journal File Uploads Portlet Properties to OSGi Configuration
 - **Date:** 2017-Jan-04
 - **JIRA Ticket:** LPS-69209
@@ -4342,6 +4347,8 @@ configuration changes.
 
 ---------------------------------------
 
+=======
+>>>>>>> compatible
 ### Deprecated the aui:tool Tag with No Direct Replacement
 - **Date:** 2017-Feb-02
 - **JIRA Ticket:** LPS-70422
@@ -4382,8 +4389,13 @@ This change reintroduces Build Auto Upgrade in a new global property
 `schema.module.build.auto.upgrade` in the
 `[Liferay_Home]/portal-developer.properties` file.
 
+<<<<<<< HEAD
 Setting the global property `schema.module.build.auto.upgrade` to `true` applies
 module schema changes for redeployed modules whose service build numbers have
+=======
+Setting global property `schema.module.build.auto.upgrade` to `true` applies
+module schema changes  for redeployed modules whose service build numbers have
+>>>>>>> compatible
 incremented. The `build.number` property in the module's `service.properties`
 file indicates the service build number.
 
@@ -4396,7 +4408,11 @@ DOES NOT support Build Auto Upgrade in production.
 
 #### How should I update my code?
 
+<<<<<<< HEAD
 To use this feature in development, set the global property
+=======
+To use this feature in development, set  global property
+>>>>>>> compatible
 `schema.module.build.auto.upgrade` in
 `[Liferay_Home]/portal-developer.properties` to `true`, increment your module's
 `build.number` in the `service.properties` file, and deploy the module.
@@ -4406,6 +4422,7 @@ To use this feature in development, set the global property
 This change was made so that 7.0 developers could test database schema changes
 on the fly, without having to write upgrade processes.
 
+<<<<<<< HEAD
 ---------------------------------------
 
 ### Removed Exports from Dynamic Data Lists Web
@@ -4436,4 +4453,6 @@ you can no longer cast the returned `AssetRenderer` to `DDLRecordAssetRenderer`.
 
 This change was made to clean up LPKG dependencies.
 
+=======
+>>>>>>> compatible
 ---------------------------------------

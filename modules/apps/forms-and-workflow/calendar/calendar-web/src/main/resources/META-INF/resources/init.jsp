@@ -18,9 +18,13 @@
 
 <%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
 
+<<<<<<< HEAD
 <%@ taglib uri="http://liferay.com/tld/asset" prefix="liferay-asset" %><%@
 taglib uri="http://liferay.com/tld/aui" prefix="aui" %><%@
 taglib uri="http://liferay.com/tld/comment" prefix="liferay-comment" %><%@
+=======
+<%@ taglib uri="http://liferay.com/tld/aui" prefix="aui" %><%@
+>>>>>>> compatible
 taglib uri="http://liferay.com/tld/expando" prefix="liferay-expando" %><%@
 taglib uri="http://liferay.com/tld/frontend" prefix="liferay-frontend" %><%@
 taglib uri="http://liferay.com/tld/portlet" prefix="liferay-portlet" %><%@
@@ -32,7 +36,10 @@ taglib uri="http://liferay.com/tld/util" prefix="liferay-util" %>
 <%@ page import="com.liferay.asset.kernel.model.AssetEntry" %><%@
 page import="com.liferay.asset.kernel.service.AssetEntryLocalServiceUtil" %><%@
 page import="com.liferay.calendar.constants.CalendarActionKeys" %><%@
+<<<<<<< HEAD
 page import="com.liferay.calendar.constants.CalendarConstants" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.calendar.exception.CalendarBookingDurationException" %><%@
 page import="com.liferay.calendar.exception.CalendarBookingRecurrenceException" %><%@
 page import="com.liferay.calendar.exception.CalendarNameException" %><%@
@@ -59,6 +66,12 @@ page import="com.liferay.calendar.service.CalendarNotificationTemplateLocalServi
 page import="com.liferay.calendar.service.CalendarResourceServiceUtil" %><%@
 page import="com.liferay.calendar.service.CalendarServiceUtil" %><%@
 page import="com.liferay.calendar.service.configuration.CalendarServiceConfigurationValues" %><%@
+<<<<<<< HEAD
+=======
+page import="com.liferay.calendar.service.permission.CalendarPermission" %><%@
+page import="com.liferay.calendar.service.permission.CalendarPortletPermission" %><%@
+page import="com.liferay.calendar.service.permission.CalendarResourcePermission" %><%@
+>>>>>>> compatible
 page import="com.liferay.calendar.util.CalendarResourceUtil" %><%@
 page import="com.liferay.calendar.util.CalendarUtil" %><%@
 page import="com.liferay.calendar.util.ColorUtil" %><%@
@@ -69,9 +82,12 @@ page import="com.liferay.calendar.web.internal.constants.CalendarWebKeys" %><%@
 page import="com.liferay.calendar.web.internal.display.context.CalendarDisplayContext" %><%@
 page import="com.liferay.calendar.web.internal.search.CalendarResourceDisplayTerms" %><%@
 page import="com.liferay.calendar.web.internal.search.CalendarResourceSearch" %><%@
+<<<<<<< HEAD
 page import="com.liferay.calendar.web.internal.security.permission.resource.CalendarPermission" %><%@
 page import="com.liferay.calendar.web.internal.security.permission.resource.CalendarPortletPermission" %><%@
 page import="com.liferay.calendar.web.internal.security.permission.resource.CalendarResourcePermission" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.calendar.workflow.CalendarBookingWorkflowConstants" %><%@
 page import="com.liferay.portal.kernel.bean.BeanParamUtil" %><%@
 page import="com.liferay.portal.kernel.bean.BeanPropertiesUtil" %><%@
@@ -87,7 +103,10 @@ page import="com.liferay.portal.kernel.model.User" %><%@
 page import="com.liferay.portal.kernel.portlet.LiferayWindowState" %><%@
 page import="com.liferay.portal.kernel.security.permission.ActionKeys" %><%@
 page import="com.liferay.portal.kernel.security.permission.ResourceActionsUtil" %><%@
+<<<<<<< HEAD
 page import="com.liferay.portal.kernel.service.ClassNameLocalServiceUtil" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.service.GroupServiceUtil" %><%@
 page import="com.liferay.portal.kernel.service.UserLocalServiceUtil" %><%@
 page import="com.liferay.portal.kernel.service.WorkflowDefinitionLinkLocalServiceUtil" %><%@
@@ -151,17 +170,25 @@ if (usePortalTimeZone) {
 	timeZoneId = user.getTimeZoneId();
 }
 
+<<<<<<< HEAD
 boolean displaySchedulerHeader = GetterUtil.getBoolean(portletPreferences.getValue("displaySchedulerHeader", null), true);
+=======
+>>>>>>> compatible
 boolean displaySchedulerOnly = GetterUtil.getBoolean(portletPreferences.getValue("displaySchedulerOnly", null));
 boolean showUserEvents = GetterUtil.getBoolean(portletPreferences.getValue("showUserEvents", null), true);
 
 boolean showAgendaView = GetterUtil.getBoolean(portletPreferences.getValue("showAgendaView", null), true);
 boolean showDayView = GetterUtil.getBoolean(portletPreferences.getValue("showDayView", null), true);
+<<<<<<< HEAD
 boolean showMonthView = GetterUtil.getBoolean(portletPreferences.getValue("showMonthView", null), true);
 boolean showWeekView = GetterUtil.getBoolean(portletPreferences.getValue("showWeekView", null), true);
 
 int eventsPerPage = GetterUtil.getInteger(portletPreferences.getValue("eventsPerPage", null), 10);
 int maxDaysDisplayed = GetterUtil.getInteger(portletPreferences.getValue("maxDaysDisplayed", null), 1);
+=======
+boolean showWeekView = GetterUtil.getBoolean(portletPreferences.getValue("showWeekView", null), true);
+boolean showMonthView = GetterUtil.getBoolean(portletPreferences.getValue("showMonthView", null), true);
+>>>>>>> compatible
 
 boolean enableRSS = !PortalUtil.isRSSFeedsEnabled() ? false : GetterUtil.getBoolean(portletPreferences.getValue("enableRss", null), true);
 int rssDelta = GetterUtil.getInteger(portletPreferences.getValue("rssDelta", StringPool.BLANK), SearchContainer.DEFAULT_DELTA);

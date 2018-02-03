@@ -21,6 +21,10 @@ import com.liferay.calendar.model.CalendarBooking;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -83,14 +87,22 @@ public class CalendarBookingCacheModel implements CacheModel<CalendarBooking>,
 		sb.append(createDate);
 		sb.append(", modifiedDate=");
 		sb.append(modifiedDate);
+<<<<<<< HEAD
+=======
+		sb.append(", resourceBlockId=");
+		sb.append(resourceBlockId);
+>>>>>>> compatible
 		sb.append(", calendarId=");
 		sb.append(calendarId);
 		sb.append(", calendarResourceId=");
 		sb.append(calendarResourceId);
 		sb.append(", parentCalendarBookingId=");
 		sb.append(parentCalendarBookingId);
+<<<<<<< HEAD
 		sb.append(", recurringCalendarBookingId=");
 		sb.append(recurringCalendarBookingId);
+=======
+>>>>>>> compatible
 		sb.append(", vEventUid=");
 		sb.append(vEventUid);
 		sb.append(", title=");
@@ -135,7 +147,11 @@ public class CalendarBookingCacheModel implements CacheModel<CalendarBooking>,
 		CalendarBookingImpl calendarBookingImpl = new CalendarBookingImpl();
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			calendarBookingImpl.setUuid("");
+=======
+			calendarBookingImpl.setUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			calendarBookingImpl.setUuid(uuid);
@@ -147,7 +163,11 @@ public class CalendarBookingCacheModel implements CacheModel<CalendarBooking>,
 		calendarBookingImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			calendarBookingImpl.setUserName("");
+=======
+			calendarBookingImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			calendarBookingImpl.setUserName(userName);
@@ -167,6 +187,7 @@ public class CalendarBookingCacheModel implements CacheModel<CalendarBooking>,
 			calendarBookingImpl.setModifiedDate(new Date(modifiedDate));
 		}
 
+<<<<<<< HEAD
 		calendarBookingImpl.setCalendarId(calendarId);
 		calendarBookingImpl.setCalendarResourceId(calendarResourceId);
 		calendarBookingImpl.setParentCalendarBookingId(parentCalendarBookingId);
@@ -174,27 +195,48 @@ public class CalendarBookingCacheModel implements CacheModel<CalendarBooking>,
 
 		if (vEventUid == null) {
 			calendarBookingImpl.setVEventUid("");
+=======
+		calendarBookingImpl.setResourceBlockId(resourceBlockId);
+		calendarBookingImpl.setCalendarId(calendarId);
+		calendarBookingImpl.setCalendarResourceId(calendarResourceId);
+		calendarBookingImpl.setParentCalendarBookingId(parentCalendarBookingId);
+
+		if (vEventUid == null) {
+			calendarBookingImpl.setVEventUid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			calendarBookingImpl.setVEventUid(vEventUid);
 		}
 
 		if (title == null) {
+<<<<<<< HEAD
 			calendarBookingImpl.setTitle("");
+=======
+			calendarBookingImpl.setTitle(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			calendarBookingImpl.setTitle(title);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			calendarBookingImpl.setDescription("");
+=======
+			calendarBookingImpl.setDescription(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			calendarBookingImpl.setDescription(description);
 		}
 
 		if (location == null) {
+<<<<<<< HEAD
 			calendarBookingImpl.setLocation("");
+=======
+			calendarBookingImpl.setLocation(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			calendarBookingImpl.setLocation(location);
@@ -205,7 +247,11 @@ public class CalendarBookingCacheModel implements CacheModel<CalendarBooking>,
 		calendarBookingImpl.setAllDay(allDay);
 
 		if (recurrence == null) {
+<<<<<<< HEAD
 			calendarBookingImpl.setRecurrence("");
+=======
+			calendarBookingImpl.setRecurrence(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			calendarBookingImpl.setRecurrence(recurrence);
@@ -214,7 +260,11 @@ public class CalendarBookingCacheModel implements CacheModel<CalendarBooking>,
 		calendarBookingImpl.setFirstReminder(firstReminder);
 
 		if (firstReminderType == null) {
+<<<<<<< HEAD
 			calendarBookingImpl.setFirstReminderType("");
+=======
+			calendarBookingImpl.setFirstReminderType(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			calendarBookingImpl.setFirstReminderType(firstReminderType);
@@ -223,7 +273,11 @@ public class CalendarBookingCacheModel implements CacheModel<CalendarBooking>,
 		calendarBookingImpl.setSecondReminder(secondReminder);
 
 		if (secondReminderType == null) {
+<<<<<<< HEAD
 			calendarBookingImpl.setSecondReminderType("");
+=======
+			calendarBookingImpl.setSecondReminderType(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			calendarBookingImpl.setSecondReminderType(secondReminderType);
@@ -240,7 +294,11 @@ public class CalendarBookingCacheModel implements CacheModel<CalendarBooking>,
 		calendarBookingImpl.setStatusByUserId(statusByUserId);
 
 		if (statusByUserName == null) {
+<<<<<<< HEAD
 			calendarBookingImpl.setStatusByUserName("");
+=======
+			calendarBookingImpl.setStatusByUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			calendarBookingImpl.setStatusByUserName(statusByUserName);
@@ -273,13 +331,21 @@ public class CalendarBookingCacheModel implements CacheModel<CalendarBooking>,
 		createDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
 
+<<<<<<< HEAD
+=======
+		resourceBlockId = objectInput.readLong();
+
+>>>>>>> compatible
 		calendarId = objectInput.readLong();
 
 		calendarResourceId = objectInput.readLong();
 
 		parentCalendarBookingId = objectInput.readLong();
+<<<<<<< HEAD
 
 		recurringCalendarBookingId = objectInput.readLong();
+=======
+>>>>>>> compatible
 		vEventUid = objectInput.readUTF();
 		title = objectInput.readUTF();
 		description = objectInput.readUTF();
@@ -310,7 +376,11 @@ public class CalendarBookingCacheModel implements CacheModel<CalendarBooking>,
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		if (uuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(uuid);
@@ -325,7 +395,11 @@ public class CalendarBookingCacheModel implements CacheModel<CalendarBooking>,
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -334,37 +408,59 @@ public class CalendarBookingCacheModel implements CacheModel<CalendarBooking>,
 		objectOutput.writeLong(createDate);
 		objectOutput.writeLong(modifiedDate);
 
+<<<<<<< HEAD
+=======
+		objectOutput.writeLong(resourceBlockId);
+
+>>>>>>> compatible
 		objectOutput.writeLong(calendarId);
 
 		objectOutput.writeLong(calendarResourceId);
 
 		objectOutput.writeLong(parentCalendarBookingId);
 
+<<<<<<< HEAD
 		objectOutput.writeLong(recurringCalendarBookingId);
 
 		if (vEventUid == null) {
 			objectOutput.writeUTF("");
+=======
+		if (vEventUid == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(vEventUid);
 		}
 
 		if (title == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(title);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(description);
 		}
 
 		if (location == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(location);
@@ -377,7 +473,11 @@ public class CalendarBookingCacheModel implements CacheModel<CalendarBooking>,
 		objectOutput.writeBoolean(allDay);
 
 		if (recurrence == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(recurrence);
@@ -386,7 +486,11 @@ public class CalendarBookingCacheModel implements CacheModel<CalendarBooking>,
 		objectOutput.writeLong(firstReminder);
 
 		if (firstReminderType == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(firstReminderType);
@@ -395,7 +499,11 @@ public class CalendarBookingCacheModel implements CacheModel<CalendarBooking>,
 		objectOutput.writeLong(secondReminder);
 
 		if (secondReminderType == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(secondReminderType);
@@ -408,7 +516,11 @@ public class CalendarBookingCacheModel implements CacheModel<CalendarBooking>,
 		objectOutput.writeLong(statusByUserId);
 
 		if (statusByUserName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(statusByUserName);
@@ -425,10 +537,17 @@ public class CalendarBookingCacheModel implements CacheModel<CalendarBooking>,
 	public String userName;
 	public long createDate;
 	public long modifiedDate;
+<<<<<<< HEAD
 	public long calendarId;
 	public long calendarResourceId;
 	public long parentCalendarBookingId;
 	public long recurringCalendarBookingId;
+=======
+	public long resourceBlockId;
+	public long calendarId;
+	public long calendarResourceId;
+	public long parentCalendarBookingId;
+>>>>>>> compatible
 	public String vEventUid;
 	public String title;
 	public String description;

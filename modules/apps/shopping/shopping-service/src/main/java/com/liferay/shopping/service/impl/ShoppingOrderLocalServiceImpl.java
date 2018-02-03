@@ -68,7 +68,10 @@ import com.liferay.shopping.service.base.ShoppingOrderLocalServiceBaseImpl;
 import com.liferay.shopping.util.CreditCard;
 import com.liferay.shopping.util.ShoppingUtil;
 import com.liferay.shopping.util.comparator.OrderDateComparator;
+<<<<<<< HEAD
 import com.liferay.subscription.service.SubscriptionLocalService;
+=======
+>>>>>>> compatible
 
 import java.util.Currency;
 import java.util.List;
@@ -810,9 +813,12 @@ public class ShoppingOrderLocalServiceImpl
 	@ServiceReference(type = ConfigurationProvider.class)
 	protected ConfigurationProvider configurationProvider;
 
+<<<<<<< HEAD
 	@ServiceReference(type = SubscriptionLocalService.class)
 	protected SubscriptionLocalService subscriptionLocalService;
 
+=======
+>>>>>>> compatible
 	private ShoppingGroupServiceOverriddenConfiguration
 			_getShoppingGroupServiceOverriddenConfiguration(long groupId)
 		throws ConfigurationException {

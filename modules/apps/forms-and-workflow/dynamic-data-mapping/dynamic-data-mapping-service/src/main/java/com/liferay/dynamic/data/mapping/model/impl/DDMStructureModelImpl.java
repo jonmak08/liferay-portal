@@ -40,6 +40,10 @@ import com.liferay.portal.kernel.util.LocalizationUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 
 import java.io.Serializable;
@@ -402,7 +406,11 @@ public class DDMStructureModelImpl extends BaseModelImpl<DDMStructure>
 	@Override
 	public String getUuid() {
 		if (_uuid == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _uuid;
@@ -498,7 +506,11 @@ public class DDMStructureModelImpl extends BaseModelImpl<DDMStructure>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -510,7 +522,11 @@ public class DDMStructureModelImpl extends BaseModelImpl<DDMStructure>
 	@Override
 	public String getUserName() {
 		if (_userName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _userName;
@@ -541,7 +557,11 @@ public class DDMStructureModelImpl extends BaseModelImpl<DDMStructure>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -553,7 +573,11 @@ public class DDMStructureModelImpl extends BaseModelImpl<DDMStructure>
 	@Override
 	public String getVersionUserName() {
 		if (_versionUserName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _versionUserName;
@@ -616,6 +640,29 @@ public class DDMStructureModelImpl extends BaseModelImpl<DDMStructure>
 		return _originalParentStructureId;
 	}
 
+<<<<<<< HEAD
+=======
+	@Override
+	public String getClassName() {
+		if (getClassNameId() <= 0) {
+			return StringPool.BLANK;
+		}
+
+		return PortalUtil.getClassName(getClassNameId());
+	}
+
+	@Override
+	public void setClassName(String className) {
+		long classNameId = 0;
+
+		if (Validator.isNotNull(className)) {
+			classNameId = PortalUtil.getClassNameId(className);
+		}
+
+		setClassNameId(classNameId);
+	}
+
+>>>>>>> compatible
 	@JSON
 	@Override
 	public long getClassNameId() {
@@ -643,7 +690,11 @@ public class DDMStructureModelImpl extends BaseModelImpl<DDMStructure>
 	@Override
 	public String getStructureKey() {
 		if (_structureKey == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _structureKey;
@@ -669,7 +720,11 @@ public class DDMStructureModelImpl extends BaseModelImpl<DDMStructure>
 	@Override
 	public String getVersion() {
 		if (_version == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _version;
@@ -685,7 +740,11 @@ public class DDMStructureModelImpl extends BaseModelImpl<DDMStructure>
 	@Override
 	public String getName() {
 		if (_name == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _name;
@@ -794,7 +853,11 @@ public class DDMStructureModelImpl extends BaseModelImpl<DDMStructure>
 	@Override
 	public String getDescription() {
 		if (_description == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _description;
@@ -907,7 +970,11 @@ public class DDMStructureModelImpl extends BaseModelImpl<DDMStructure>
 	@Override
 	public String getDefinition() {
 		if (_definition == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _definition;
@@ -923,7 +990,11 @@ public class DDMStructureModelImpl extends BaseModelImpl<DDMStructure>
 	@Override
 	public String getStorageType() {
 		if (_storageType == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _storageType;
@@ -957,6 +1028,7 @@ public class DDMStructureModelImpl extends BaseModelImpl<DDMStructure>
 		_lastPublishDate = lastPublishDate;
 	}
 
+<<<<<<< HEAD
 	public java.lang.String getClassName() {
 		return null;
 	}
@@ -964,6 +1036,8 @@ public class DDMStructureModelImpl extends BaseModelImpl<DDMStructure>
 	public void setClassName(java.lang.String className) {
 	}
 
+=======
+>>>>>>> compatible
 	public com.liferay.dynamic.data.mapping.model.DDMForm getDDMForm() {
 		return null;
 	}
@@ -1029,7 +1103,11 @@ public class DDMStructureModelImpl extends BaseModelImpl<DDMStructure>
 		String xml = getName();
 
 		if (xml == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 
 		Locale defaultLocale = LocaleUtil.getSiteDefault();
@@ -1199,8 +1277,11 @@ public class DDMStructureModelImpl extends BaseModelImpl<DDMStructure>
 
 		ddmStructureModelImpl._originalDescription = ddmStructureModelImpl._description;
 
+<<<<<<< HEAD
 		setClassName(null);
 
+=======
+>>>>>>> compatible
 		setDDMForm(null);
 
 		ddmStructureModelImpl._columnBitmask = 0;
@@ -1325,8 +1406,11 @@ public class DDMStructureModelImpl extends BaseModelImpl<DDMStructure>
 			ddmStructureCacheModel.lastPublishDate = Long.MIN_VALUE;
 		}
 
+<<<<<<< HEAD
 		ddmStructureCacheModel._className = getClassName();
 
+=======
+>>>>>>> compatible
 		ddmStructureCacheModel._ddmForm = getDDMForm();
 
 		return ddmStructureCacheModel;

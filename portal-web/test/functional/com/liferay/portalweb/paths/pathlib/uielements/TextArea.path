@@ -14,11 +14,14 @@
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 	<td>ANY</td>
 	<td>//textarea[contains(@id,'${key_text}')]</td>
 	<td></td>
 </tr>
 <tr>
+=======
+>>>>>>> compatible
 	<td>CHANGE_LOG</td>
 	<td>//textarea[contains(@id,'ChangeLog')]</td>
 	<td></td>

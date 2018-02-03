@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Portal Upgrade
 Bundle-SymbolicName: com.liferay.portal.upgrade
+<<<<<<< HEAD
 Bundle-Version: 2.8.9
+=======
+Bundle-Version: 2.8.2
+>>>>>>> compatible
 Export-Package:\
 	com.liferay.portal.upgrade.registry,\
 	com.liferay.portal.upgrade.release

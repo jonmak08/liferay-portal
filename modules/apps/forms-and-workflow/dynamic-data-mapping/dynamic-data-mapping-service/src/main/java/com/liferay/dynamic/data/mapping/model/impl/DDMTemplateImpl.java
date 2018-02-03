@@ -16,16 +16,26 @@ package com.liferay.dynamic.data.mapping.model.impl;
 
 import com.liferay.dynamic.data.mapping.model.DDMTemplateVersion;
 import com.liferay.dynamic.data.mapping.service.DDMTemplateVersionLocalServiceUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.Image;
 import com.liferay.portal.kernel.model.cache.CacheField;
+=======
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.model.Group;
+import com.liferay.portal.kernel.model.Image;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.ImageLocalServiceUtil;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.webserver.WebServerServletTokenUtil;
 import com.liferay.portal.kernel.xml.Document;
@@ -70,6 +80,7 @@ public class DDMTemplateImpl extends DDMTemplateBaseImpl {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public String getResourceClassName() {
 		if (_resourceClassName == null) {
 			_resourceClassName = PortalUtil.getClassName(
@@ -80,6 +91,8 @@ public class DDMTemplateImpl extends DDMTemplateBaseImpl {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public String getSmallImageType() throws PortalException {
 		if ((_smallImageType == null) && isSmallImage()) {
 			Image smallImage = ImageLocalServiceUtil.getImage(
@@ -101,10 +114,16 @@ public class DDMTemplateImpl extends DDMTemplateBaseImpl {
 			return getSmallImageURL();
 		}
 
+<<<<<<< HEAD
 		return StringBundler.concat(
 			themeDisplay.getPathImage(), "/template?img_id=",
 			String.valueOf(getSmallImageId()), "&t=",
 			WebServerServletTokenUtil.getToken(getSmallImageId()));
+=======
+		return themeDisplay.getPathImage() + "/template?img_id=" +
+			getSmallImageId() + "&t=" +
+				WebServerServletTokenUtil.getToken(getSmallImageId());
+>>>>>>> compatible
 	}
 
 	@Override
@@ -158,6 +177,7 @@ public class DDMTemplateImpl extends DDMTemplateBaseImpl {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void setResourceClassName(String resourceClassName) {
 		_resourceClassName = resourceClassName;
 	}
@@ -170,13 +190,18 @@ public class DDMTemplateImpl extends DDMTemplateBaseImpl {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public void setSmallImageType(String smallImageType) {
 		_smallImageType = smallImageType;
 	}
 
+<<<<<<< HEAD
 	@CacheField(propagateToInterface = true)
 	private String _resourceClassName;
 
+=======
+>>>>>>> compatible
 	private String _smallImageType;
 
 }

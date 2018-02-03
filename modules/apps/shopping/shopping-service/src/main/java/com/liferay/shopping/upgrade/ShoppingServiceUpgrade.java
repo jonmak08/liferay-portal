@@ -14,19 +14,27 @@
 
 package com.liferay.shopping.upgrade;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.PrefsProps;
+=======
+>>>>>>> compatible
 import com.liferay.portal.upgrade.registry.UpgradeStepRegistrator;
 import com.liferay.shopping.upgrade.v1_0_0.UpgradeCompanyId;
 import com.liferay.shopping.upgrade.v1_0_0.UpgradeKernelPackage;
 import com.liferay.shopping.upgrade.v1_0_0.UpgradePortletId;
 import com.liferay.shopping.upgrade.v1_0_0.UpgradeShopping;
 import com.liferay.shopping.upgrade.v1_0_0.UpgradeShoppingPreferences;
+<<<<<<< HEAD
 import com.liferay.shopping.upgrade.v1_0_1.UpgradeShoppingConfiguration;
 import com.liferay.shopping.upgrade.v1_0_2.UpgradeShoppingEmailAddress;
 
 import org.osgi.service.cm.ConfigurationAdmin;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+=======
+
+import org.osgi.service.component.annotations.Component;
+>>>>>>> compatible
 
 /**
  * @author Peter Fellwock
@@ -45,6 +53,7 @@ public class ShoppingServiceUpgrade implements UpgradeStepRegistrator {
 			"com.liferay.shopping.service", "0.0.2", "1.0.0",
 			new UpgradeCompanyId(), new UpgradeShopping(),
 			new UpgradeShoppingPreferences());
+<<<<<<< HEAD
 
 		registry.register(
 			"com.liferay.shopping.service", "1.0.0", "1.0.1",
@@ -61,4 +70,8 @@ public class ShoppingServiceUpgrade implements UpgradeStepRegistrator {
 	@Reference
 	private PrefsProps _prefsProps;
 
+=======
+	}
+
+>>>>>>> compatible
 }

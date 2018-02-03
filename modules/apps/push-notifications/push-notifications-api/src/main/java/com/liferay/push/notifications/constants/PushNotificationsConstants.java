@@ -38,6 +38,9 @@ public class PushNotificationsConstants {
 
 	public static final String KEY_TO_USER_IDS = "toUserIds";
 
+<<<<<<< HEAD
 	public static final String KEY_USER_ID = "userId";
 
+=======
+>>>>>>> compatible
 }

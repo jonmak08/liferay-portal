@@ -14,15 +14,26 @@
 
 package com.liferay.document.library.web.internal.trash;
 
+<<<<<<< HEAD
 import com.liferay.document.library.constants.DLPortletKeys;
 import com.liferay.document.library.kernel.model.DLFileEntryConstants;
 import com.liferay.document.library.kernel.model.DLFileShortcut;
 import com.liferay.document.library.kernel.model.DLFileShortcutConstants;
+=======
+import com.liferay.document.library.kernel.model.DLFileEntryConstants;
+import com.liferay.document.library.kernel.model.DLFileShortcut;
+import com.liferay.document.library.kernel.model.DLFileShortcutConstants;
+import com.liferay.document.library.web.constants.DLPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.trash.BaseTrashRenderer;
 import com.liferay.portal.kernel.trash.TrashHandler;
 import com.liferay.portal.kernel.trash.TrashHandlerRegistryUtil;
 import com.liferay.portal.kernel.trash.TrashRenderer;
+<<<<<<< HEAD
 import com.liferay.trash.TrashHelper;
+=======
+import com.liferay.trash.kernel.util.TrashUtil;
+>>>>>>> compatible
 
 import java.util.Locale;
 
@@ -37,6 +48,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class DLFileShortcutTrashRenderer extends BaseTrashRenderer {
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 1.4.0
 	 */
@@ -50,6 +62,10 @@ public class DLFileShortcutTrashRenderer extends BaseTrashRenderer {
 
 		_dlFileShortcut = dlFileShortcut;
 		_trashHelper = trashHelper;
+=======
+	public DLFileShortcutTrashRenderer(DLFileShortcut dlFileShortcut) {
+		_dlFileShortcut = dlFileShortcut;
+>>>>>>> compatible
 	}
 
 	@Override
@@ -76,7 +92,11 @@ public class DLFileShortcutTrashRenderer extends BaseTrashRenderer {
 
 	@Override
 	public String getTitle(Locale locale) {
+<<<<<<< HEAD
 		return _trashHelper.getOriginalTitle(_dlFileShortcut.getToTitle());
+=======
+		return TrashUtil.getOriginalTitle(_dlFileShortcut.getToTitle());
+>>>>>>> compatible
 	}
 
 	@Override
@@ -100,6 +120,9 @@ public class DLFileShortcutTrashRenderer extends BaseTrashRenderer {
 	}
 
 	private final DLFileShortcut _dlFileShortcut;
+<<<<<<< HEAD
 	private final TrashHelper _trashHelper;
+=======
+>>>>>>> compatible
 
 }

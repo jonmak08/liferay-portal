@@ -94,9 +94,13 @@ public class WSDLServlet extends HttpServlet {
 			return replaceLocations(request, content);
 		}
 
+<<<<<<< HEAD
 		StringBuffer sb = request.getRequestURL();
 
 		String url = sb.toString();
+=======
+		String url = request.getRequestURL().toString();
+>>>>>>> compatible
 
 		int pos = url.lastIndexOf(StringPool.SLASH);
 

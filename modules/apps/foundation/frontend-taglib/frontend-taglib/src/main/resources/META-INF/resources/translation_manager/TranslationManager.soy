@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {namespace liferay.frontend.TranslationManager}
 
 /**
@@ -15,6 +16,28 @@
 	 {@param? id: string}
 	 {@param? removeAvailableLocale: any}
 
+=======
+{namespace TranslationManager}
+
+/**
+ * Translation Manager Component
+ *
+ * @param editingLocale
+ * @param availableLocales
+ * @param changeableDefaultLanguage
+ * @param defaultLocale
+ * @param? elementClasses
+ * @param? id
+ * @param locales
+ *
+ * Function References
+ *
+ * @param? addLocale
+ * @param? changeDefaultLocale
+ * @param? removeAvailableLocale
+ **/
+{template .render}
+>>>>>>> compatible
 	<div class="lfr-translationmanager{$elementClasses ? ' ' + $elementClasses : ''}" id="{$id}">
 		<ul class="nav nav-tabs nav-tabs-default">
 			{call .defaultLocale data="all" /}
@@ -33,6 +56,7 @@
 
 /**
  * Renders the default locale element
+<<<<<<< HEAD
  */
 {template .defaultLocale}
 	{@param changeableDefaultLanguage: any}
@@ -40,6 +64,18 @@
 	{@param locales: ?}
 	{@param? changeDefaultLocale: any}
 
+=======
+ *
+ * @param changeableDefaultLanguage
+ * @param defaultLocale
+ * @param locales
+ *
+ * Function References
+ *
+ * @param? changeDefaultLocale
+ */
+{template .defaultLocale}
+>>>>>>> compatible
 	{let $defaultLocaleObject: $locales[$defaultLocale] /}
 
 	{let $optionIcon kind="html"}
@@ -61,6 +97,7 @@
 
 /**
  * Renders the required list of available locale elements
+<<<<<<< HEAD
  */
 {template .availableLocales}
 	{@param availableLocales: list<string>}
@@ -69,6 +106,19 @@
 	{@param pathThemeImages: string}
 	{@param? removeAvailableLocale: any}
 
+=======
+ *
+ * @param availableLocales
+ * @param defaultLocale
+ * @param locales
+ * @param pathThemeImages
+ *
+ * Function References
+ *
+ * @param? removeAvailableLocale
+ */
+{template .availableLocales}
+>>>>>>> compatible
 	{foreach $availableLocale in $availableLocales}
 		{if $availableLocale != $defaultLocale}
 			{let $locale: $locales[$availableLocale] /}
@@ -79,7 +129,10 @@
 					<span class="icon-monospaced" data-onclick="{$removeAvailableLocale}" data-locale-id="{$locale.id}" href="javascript:;">
 						<svg class="lexicon-icon">
 							<use xlink:href="{$pathThemeImages}/lexicon/icons.svg#times"></use>
+<<<<<<< HEAD
 							<title>{$locale.close ?: $locale.id}</title>
+=======
+>>>>>>> compatible
 						</svg>
 					</span>
 				{/param}
@@ -90,12 +143,23 @@
 
 /**
  * Renders the required locale element
+<<<<<<< HEAD
  */
 {template .locale}
 	{@param locale: ?}
 	{@param optionIcon: html}
 	{@param pathThemeImages: string}
 	{@param? editingLocale: string}
+=======
+ *
+ * @param editingLocale
+ * @param locale
+ * @param pathThemeImages
+ *
+ */
+{template .locale}
+	{@param optionIcon: html}
+>>>>>>> compatible
 
 	<li class="{$editingLocale == $locale.id ? 'active' : ''}">
 		<a href="javascript:;">
@@ -103,7 +167,10 @@
 				<span class="icon-monospaced">
 					<svg class="lexicon-icon">
 						<use xlink:href="{$pathThemeImages}/lexicon/icons.svg#{$locale.icon}"></use>
+<<<<<<< HEAD
 						<title>{$locale.icon}</title>
+=======
+>>>>>>> compatible
 					</svg>
 				</span>
 
@@ -117,6 +184,7 @@
 
 /**
  * Renders a dropdown with require locale elements
+<<<<<<< HEAD
  */
 {template .localesDropdown}
 	{@param icon: string}
@@ -124,12 +192,27 @@
 	{@param pathThemeImages: string}
 	{@param? onClickDropdownElement: any}
 
+=======
+ *
+ * @param icon
+ * @param locales
+ * @param pathThemeImages
+ *
+ * Function References
+ *
+ * @param? onClickDropdownElement
+ */
+{template .localesDropdown}
+>>>>>>> compatible
 	{call Dropdown.render}
 		{param header kind="html"}
 			<a class="icon-monospaced" data-onclick="toggle" href="javascript:;">
 				<svg class="lexicon-icon">
 					<use xlink:href="{$pathThemeImages}/lexicon/icons.svg#{$icon}"></use>
+<<<<<<< HEAD
 					<title>{$icon}</title>
+=======
+>>>>>>> compatible
 				</svg>
 			</a>
 		{/param}
@@ -142,7 +225,10 @@
 						<span class="icon-monospaced">
 							<svg class="lexicon-icon">
 								<use xlink:href="{$pathThemeImages}/lexicon/icons.svg#{$locale.icon}"></use>
+<<<<<<< HEAD
 								<title>{$locale.icon}</title>
+=======
+>>>>>>> compatible
 							</svg>
 						</span>
 						{$locale.name}

@@ -17,7 +17,11 @@ package com.liferay.gradle.plugins.node.tasks;
 import com.liferay.gradle.plugins.node.internal.NodeExecutor;
 import com.liferay.gradle.plugins.node.internal.util.FileUtil;
 import com.liferay.gradle.plugins.node.internal.util.GradleUtil;
+<<<<<<< HEAD
 import com.liferay.gradle.plugins.node.internal.util.NodePluginUtil;
+=======
+import com.liferay.gradle.util.OSDetector;
+>>>>>>> compatible
 import com.liferay.gradle.util.Validator;
 import com.liferay.gradle.util.copy.StripPathSegmentsAction;
 
@@ -79,6 +83,7 @@ public class DownloadNodeTask extends DefaultTask {
 				@Override
 				public void execute(CopySpec copySpec) {
 					copySpec.eachFile(new StripPathSegmentsAction(1));
+<<<<<<< HEAD
 
 					String nodeFileName = nodeFile.getName();
 
@@ -89,18 +94,34 @@ public class DownloadNodeTask extends DefaultTask {
 						copySpec.from(project.tarTree(nodeFile));
 					}
 
+=======
+					copySpec.from(project.tarTree(nodeFile));
+>>>>>>> compatible
 					copySpec.into(nodeDir);
 					copySpec.setIncludeEmptyDirs(false);
 				}
 
 			});
 
+<<<<<<< HEAD
+=======
+		if (OSDetector.isWindows()) {
+			File nodeBinDir = new File(getNodeDir(), "bin");
+
+			_download(getNodeExeUrl(), nodeBinDir);
+		}
+
+>>>>>>> compatible
 		String npmUrl = getNpmUrl();
 
 		if (Validator.isNotNull(npmUrl)) {
 			final File npmFile = _download(npmUrl, null);
 
+<<<<<<< HEAD
 			final File npmDir = NodePluginUtil.getNpmDir(nodeDir);
+=======
+			final File npmDir = new File(nodeDir, "lib/node_modules/npm");
+>>>>>>> compatible
 
 			project.delete(npmDir);
 
@@ -125,6 +146,14 @@ public class DownloadNodeTask extends DefaultTask {
 	}
 
 	@Input
+<<<<<<< HEAD
+=======
+	public String getNodeExeUrl() {
+		return GradleUtil.toString(_nodeExeUrl);
+	}
+
+	@Input
+>>>>>>> compatible
 	public String getNodeUrl() {
 		return GradleUtil.toString(_nodeUrl);
 	}
@@ -139,6 +168,13 @@ public class DownloadNodeTask extends DefaultTask {
 		_nodeExecutor.setNodeDir(nodeDir);
 	}
 
+<<<<<<< HEAD
+=======
+	public void setNodeExeUrl(Object nodeExeUrl) {
+		_nodeExeUrl = nodeExeUrl;
+	}
+
+>>>>>>> compatible
 	public void setNodeUrl(Object nodeUrl) {
 		_nodeUrl = nodeUrl;
 	}
@@ -182,6 +218,10 @@ public class DownloadNodeTask extends DefaultTask {
 	}
 
 	private final NodeExecutor _nodeExecutor;
+<<<<<<< HEAD
+=======
+	private Object _nodeExeUrl;
+>>>>>>> compatible
 	private Object _nodeUrl;
 	private Object _npmUrl;
 

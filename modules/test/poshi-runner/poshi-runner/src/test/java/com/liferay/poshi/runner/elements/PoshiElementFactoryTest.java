@@ -40,6 +40,7 @@ public class PoshiElementFactoryTest {
 		String readableSyntax = poshiElement.toReadableSyntax();
 
 		if (!readableSyntax.equals(baselineReadableSyntax)) {
+<<<<<<< HEAD
 			StringBuilder sb = new StringBuilder();
 
 			sb.append("\n\nBaseline readable syntax:");
@@ -50,6 +51,10 @@ public class PoshiElementFactoryTest {
 			throw new Exception(
 				"Poshi syntax does not translate to readable syntax" +
 					sb.toString());
+=======
+			throw new Exception(
+				"Poshi syntax does not translate to readable syntax");
+>>>>>>> compatible
 		}
 	}
 
@@ -61,11 +66,16 @@ public class PoshiElementFactoryTest {
 		String readableSyntax = poshiElement.toReadableSyntax();
 
 		PoshiElement elementFromReadableSyntax =
+<<<<<<< HEAD
 			PoshiElementFactory.newPoshiElement(null, readableSyntax);
+=======
+			PoshiElementFactory.newPoshiElement(readableSyntax);
+>>>>>>> compatible
 
 		Element baselineElement = _getBaselineElement();
 
 		if (!_areElementsEqual(baselineElement, elementFromReadableSyntax)) {
+<<<<<<< HEAD
 			StringBuilder sb = new StringBuilder();
 
 			sb.append("\n\nBaseline XML:");
@@ -75,6 +85,9 @@ public class PoshiElementFactoryTest {
 
 			throw new Exception(
 				"Readable syntax does not translate to XML" + sb.toString());
+=======
+			throw new Exception("Readable syntax does not translate to XML");
+>>>>>>> compatible
 		}
 	}
 
@@ -85,6 +98,7 @@ public class PoshiElementFactoryTest {
 			_POSHI_TEST_FILE_PATH);
 
 		if (!_areElementsEqual(baselineElement, poshiElement)) {
+<<<<<<< HEAD
 			StringBuilder sb = new StringBuilder();
 
 			sb.append("\n\nBaseline XML:");
@@ -94,6 +108,9 @@ public class PoshiElementFactoryTest {
 
 			throw new Exception(
 				"Poshi syntax does not translate to XML" + sb.toString());
+=======
+			throw new Exception("Poshi syntax does not translate to XML.");
+>>>>>>> compatible
 		}
 	}
 

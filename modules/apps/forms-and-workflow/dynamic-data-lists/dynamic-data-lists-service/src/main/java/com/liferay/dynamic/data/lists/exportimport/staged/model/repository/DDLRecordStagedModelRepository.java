@@ -19,7 +19,10 @@ import com.liferay.dynamic.data.lists.model.DDLRecordSet;
 import com.liferay.dynamic.data.lists.model.DDLRecordSetConstants;
 import com.liferay.dynamic.data.lists.model.DDLRecordVersion;
 import com.liferay.dynamic.data.lists.service.DDLRecordLocalService;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.lists.service.DDLRecordVersionLocalService;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.storage.DDMFormValues;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.exportimport.kernel.lar.StagedModelDataHandler;
@@ -37,12 +40,18 @@ import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.service.ServiceContext;
 
 import java.util.List;
 import java.util.Objects;
+=======
+import com.liferay.portal.kernel.service.ServiceContext;
+
+import java.util.List;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -83,6 +92,7 @@ public class DDLRecordStagedModelRepository
 			serviceContext.setUuid(ddlRecord.getUuid());
 		}
 
+<<<<<<< HEAD
 		DDLRecord importedRecord = _ddlRecordLocalService.addRecord(
 			userId, ddlRecord.getGroupId(), ddlRecord.getRecordSetId(),
 			ddlRecord.getDisplayIndex(), ddmFormValues, serviceContext);
@@ -90,6 +100,11 @@ public class DDLRecordStagedModelRepository
 		updateVersions(importedRecord, ddlRecord.getVersion());
 
 		return importedRecord;
+=======
+		return _ddlRecordLocalService.addRecord(
+			userId, ddlRecord.getGroupId(), ddlRecord.getRecordSetId(),
+			ddlRecord.getDisplayIndex(), ddmFormValues, serviceContext);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -205,6 +220,7 @@ public class DDLRecordStagedModelRepository
 		ServiceContext serviceContext = portletDataContext.createServiceContext(
 			ddlRecord);
 
+<<<<<<< HEAD
 		DDLRecord importedRecord = _ddlRecordLocalService.updateRecord(
 			userId, ddlRecord.getRecordId(), false, ddlRecord.getDisplayIndex(),
 			ddmFormValues, serviceContext);
@@ -212,6 +228,11 @@ public class DDLRecordStagedModelRepository
 		updateVersions(importedRecord, ddlRecord.getVersion());
 
 		return importedRecord;
+=======
+		return _ddlRecordLocalService.updateRecord(
+			userId, ddlRecord.getRecordId(), false, ddlRecord.getDisplayIndex(),
+			ddmFormValues, serviceContext);
+>>>>>>> compatible
 	}
 
 	protected DynamicQuery getRecordSetDynamicQuery(int scope) {
@@ -268,6 +289,7 @@ public class DDLRecordStagedModelRepository
 		return recordVersionDynamicQuery;
 	}
 
+<<<<<<< HEAD
 	protected void updateVersions(DDLRecord importedRecord, String version)
 		throws PortalException {
 
@@ -297,4 +319,9 @@ public class DDLRecordStagedModelRepository
 	@Reference
 	private DDLRecordVersionLocalService _ddlRecordVersionLocalService;
 
+=======
+	@Reference
+	private DDLRecordLocalService _ddlRecordLocalService;
+
+>>>>>>> compatible
 }

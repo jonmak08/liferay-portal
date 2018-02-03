@@ -1,8 +1,14 @@
 <definition component-name="portal-upgrades">
+<<<<<<< HEAD
 	<property name="ignore.errors" value="Plugin security management is not enabled. Enable a security manager, then restart." />
 	<property name="portal.release" value="true" />
 	<property name="portal.upstream" value="true" />
 	<property name="testray.component.names" value="Upgrades WEM,Web Content Administration" />
+=======
+	<property name="portal.release" value="true" />
+	<property name="portal.upstream" value="true" />
+	<property name="ignore.errors" value="Plugin security management is not enabled. Enable a security manager, then restart." />
+>>>>>>> compatible
 	<property name="testray.main.component.name" value="Upgrades WEM" />
 
 	<set-up>
@@ -13,6 +19,7 @@
 		<execute macro="Upgrade#reindexSearches" />
 	</set-up>
 
+<<<<<<< HEAD
 	<command name="ViewLayoutArchive621015" priority="5">
 		<description message="This is a use case for LPS-75561." />
 
@@ -43,6 +50,8 @@
 		<execute function="AssertTextNotPresent" value1="There was an unexpected error. Please refresh the current page." />
 	</command>
 
+=======
+>>>>>>> compatible
 	<command name="ViewWebContentArchive6012" priority="5">
 		<property name="data.archive.type" value="data-archive-web-content-draft" />
 		<property name="portal.version" value="6.0.12" />

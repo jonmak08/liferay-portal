@@ -48,7 +48,11 @@
 		</select>
 
 		<c:if test="<%= changeableDefaultLanguage %>">
+<<<<<<< HEAD
 			<a class="label label-default label-lg lfr-translation-manager-change-default-locale" href="javascript:;"><liferay-ui:message key="change" /></a>
+=======
+			<a class="lfr-translation-manager-change-default-locale" href="javascript:;"><liferay-ui:message key="change" /></a>
+>>>>>>> compatible
 		</c:if>
 
 		<c:if test="<%= !readOnly %>">

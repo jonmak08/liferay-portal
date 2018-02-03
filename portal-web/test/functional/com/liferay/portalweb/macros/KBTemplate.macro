@@ -6,7 +6,11 @@
 			<var name="key_menuItem" value="Templates" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="LexiconEntry#gotoAdd" />
+=======
+		<execute function="Click" locator1="Button#PLUS" />
+>>>>>>> compatible
 
 		<execute macro="AlloyEditor#addTitleAndContent">
 			<var name="content" value="${kbTemplateContent}" />
@@ -35,9 +39,13 @@
 	<command name="tearDownCP">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Knowledge Base" />
 		</execute>
 
@@ -74,6 +82,7 @@
 		<execute macro="KBArticle#_gotoAddArticleViaTemplate">
 			<var name="kbTemplateTitle" value="${kbTemplateTitle}" />
 		</execute>
+<<<<<<< HEAD
 
 		<execute function="AssertTextEquals" locator1="AlloyEditor#EDITOR" value1="${kbTemplateTitle}">
 			<var name="key_editor" value="title" />
@@ -82,5 +91,10 @@
 		<execute function="AssertTextEquals" locator1="AlloyEditor#EDITOR" value1="${kbTemplateContent}">
 			<var name="key_editor" value="content" />
 		</execute>
+=======
+
+		<execute function="AssertTextEquals" locator1="AlloyEditor#TITLE_FIELD" value1="${kbTemplateTitle}" />
+		<execute function="AssertTextEquals" locator1="AlloyEditor#CONTENT_FIELD" value1="${kbTemplateContent}" />
+>>>>>>> compatible
 	</command>
 </definition>

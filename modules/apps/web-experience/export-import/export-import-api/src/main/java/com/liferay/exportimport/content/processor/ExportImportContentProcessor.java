@@ -22,7 +22,10 @@ import java.io.Serializable;
 
 /**
  * @author Gergely Mathe
+<<<<<<< HEAD
  * @author Mate Thurzo
+=======
+>>>>>>> compatible
  */
 public interface ExportImportContentProcessor<T extends Serializable> {
 

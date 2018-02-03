@@ -2,9 +2,13 @@
 	<command name="downloadAndInstallApp">
 		<var name="key_appName" value="${appName}" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Apps" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelApps">
+>>>>>>> compatible
 			<var name="portlet" value="Store" />
 		</execute>
 
@@ -14,9 +18,13 @@
 
 		<execute macro="Portlet#startServer" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Apps" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelApps">
+>>>>>>> compatible
 			<var name="portlet" value="Store" />
 		</execute>
 
@@ -24,9 +32,13 @@
 			<var name="appName" value="${appName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Apps" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelApps">
+>>>>>>> compatible
 			<var name="portlet" value="Purchased" />
 		</execute>
 
@@ -76,10 +88,17 @@
 
 	<command name="signIn">
 		<execute function="SelectFrame" locator1="Store#MARKETPLACE_IFRAME" />
+<<<<<<< HEAD
 
 		<execute function="Type" locator1="Store#EMAIL_ADDRESS_FIELD" value1="${userEmailAddress}" />
 		<execute function="Type" locator1="Store#PASSWORD_FIELD" value1="${userEmailPassword}" />
 
+=======
+
+		<execute function="Type" locator1="Store#EMAIL_ADDRESS_FIELD" value1="${userEmailAddress}" />
+		<execute function="Type" locator1="Store#PASSWORD_FIELD" value1="${userEmailPassword}" />
+
+>>>>>>> compatible
 		<execute function="Click" locator1="Store#SIGN_IN_BUTTON" />
 
 		<if>
@@ -91,6 +110,7 @@
 	</command>
 
 	<command name="smoke">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoSite">
 			<var name="site" value="${siteName}" />
 		</execute>
@@ -108,6 +128,10 @@
 		<execute macro="Navigator#gotoSitePage">
 			<var name="pageName" value="Blogs Test Page" />
 			<var name="siteName" value="${siteName}" />
+=======
+		<execute macro="Page#add">
+			<var name="pageName" value="Blogs Test Page" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Portlet#addPG">
@@ -119,6 +143,7 @@
 
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Blogs Test Page" />
+<<<<<<< HEAD
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
 		</execute>
@@ -502,6 +527,13 @@
 			<var name="entryTitle" value="Blogs Entry 1 Title" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
+=======
+		</execute>
+
+		<execute macro="Blogs#addEntry">
+			<var name="entryContent" value="Blogs Entry 1 Content" />
+			<var name="entryTitle" value="Blogs Entry 1 Title" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="BlogsEntry#viewPG">
@@ -509,6 +541,7 @@
 			<var name="entryAuthorLastName" value="Test" />
 			<var name="entryContent" value="Blogs Entry 1 Content" />
 			<var name="entryTitle" value="Blogs Entry 1 Title" />
+<<<<<<< HEAD
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
 		</execute>
@@ -761,6 +794,76 @@
 			<var name="siteName" value="${siteName}" />
 		</execute>
 
+=======
+		</execute>
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Blogs Test Page" />
+		</execute>
+
+		<execute macro="BlogsNavigator#gotoEntryPG">
+			<var name="entryContent" value="Blogs Entry 1 Content" />
+			<var name="entryTitle" value="Blogs Entry 1 Title" />
+		</execute>
+
+		<execute macro="BlogsEntryComment#add">
+			<var name="entryComment" value="Blogs Entry 1 Comment" />
+		</execute>
+
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="Page#add">
+			<var name="columnName" value="1 Column" />
+			<var name="pageName" value="Documents and Media Test Page" />
+			<var name="sitePageType" value="Empty Page" />
+		</execute>
+
+		<execute macro="Portlet#addPG">
+			<var name="pageName" value="Documents and Media Test Page" />
+			<var name="portletName" value="Documents and Media" />
+		</execute>
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Documents and Media Test Page" />
+		</execute>
+
+		<execute macro="DMDocument#addPG">
+			<var name="dmDocumentDescription" value="DM Document Description" />
+			<var name="dmDocumentFile" value="Document_1.txt" />
+			<var name="dmDocumentSize" value="0.3k" />
+			<var name="dmDocumentTitle" value="DM Document Title" />
+		</execute>
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Documents and Media Test Page" />
+		</execute>
+
+		<execute macro="DMFolder#addPG">
+			<var name="dmFolderName" value="DM Folder 1 Name" />
+		</execute>
+
+		<execute macro="DMNavigator#gotoFolder">
+			<var name="dmFolderName" value="DM Folder 1 Name" />
+		</execute>
+
+		<execute macro="DMDocument#addPG">
+			<var name="dmDocumentDescription" value="DM Folder Image 1 Description" />
+			<var name="dmDocumentFile" value="Document_1.jpg" />
+			<var name="dmDocumentTitle" value="DM Folder Image 1 Title" />
+		</execute>
+
+		<execute macro="DMDocument#viewPG">
+			<var name="dmDocumentDescription" value="DM Folder Image 1 Description" />
+			<var name="dmDocumentTitle" value="DM Folder Image 1 Title" />
+		</execute>
+
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="Page#add">
+			<var name="pageName" value="Wiki Test Page" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="Portlet#addPG">
 			<var name="pageName" value="Wiki Test Page" />
 			<var name="portletName" value="Wiki" />
@@ -769,6 +872,7 @@
 		</execute>
 
 		<execute macro="WikiPage#addFrontPagePG">
+<<<<<<< HEAD
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
 			<var name="wikiPageContent" value="Wiki FrontPage Content" />
@@ -786,10 +890,13 @@
 			<var name="siteURL" value="${siteURL}" />
 			<var name="wikiChildPageContent" value="Wiki Front Page Child Page Content 1" />
 			<var name="wikiChildPageTitle" value="Wiki Front Page Child Page Title 1" />
+=======
+>>>>>>> compatible
 			<var name="wikiPageContent" value="Wiki FrontPage Content" />
 			<var name="wikiPageTitle" value="FrontPage" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#gotoSitePage">
 			<var name="pageName" value="Wiki Test Page" />
 			<var name="siteName" value="${siteName}" />
@@ -977,10 +1084,60 @@
 			<var name="pageName" value="Bookmarks Test Page" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
+=======
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Wiki Test Page" />
+		</execute>
+
+		<execute macro="WikiPage#addChildPagePG">
+			<var name="wikiChildPageContent" value="Wiki Front Page Child Page Content 1" />
+			<var name="wikiChildPageTitle" value="Wiki Front Page Child Page Title 1" />
+			<var name="wikiPageContent" value="Wiki FrontPage Content" />
+			<var name="wikiPageTitle" value="FrontPage" />
+		</execute>
+
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="Page#add">
+			<var name="pageName" value="Bookmarks Test Page" />
+		</execute>
+
+		<execute macro="Portlet#addPG">
+			<var name="pageName" value="Bookmarks Test Page" />
+			<var name="portletName" value="Bookmarks" />
+		</execute>
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Bookmarks Test Page" />
+		</execute>
+
+		<execute macro="BookmarksFolder#addPG">
+			<var name="folderDescription" value="Test Folder Description" />
+			<var name="folderName" value="Test Folder" />
+		</execute>
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Bookmarks Test Page" />
 		</execute>
 
 		<execute macro="BookmarksFolder#gotoPG">
 			<var name="folderName" value="Test Folder" />
+		</execute>
+
+		<execute macro="Bookmark#addPG">
+			<var name="bookmarkDescription" value="Test Folder Entry 1 Description" />
+			<var name="bookmarkName" value="Test Folder Entry 1" />
+			<var name="bookmarkURL" value="http://iscaliforniaonfire.com" />
+		</execute>
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Bookmarks Test Page" />
+>>>>>>> compatible
+		</execute>
+
+		<execute macro="BookmarksFolder#gotoPG">
+			<var name="folderName" value="Test Folder" />
+<<<<<<< HEAD
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
 		</execute>
@@ -1049,6 +1206,17 @@
 			<var name="bookmarkURL" value="https://www.google.com" />
 			<var name="siteName" value="${siteName}" />
 			<var name="siteURL" value="${siteURL}" />
+=======
+		</execute>
+
+		<execute macro="Bookmark#viewBookmark">
+			<var name="bookmarkName" value="Test Folder Entry 1" />
+			<var name="bookmarkURL" value="http://iscaliforniaonfire.com" />
+		</execute>
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Bookmarks Test Page" />
+>>>>>>> compatible
 		</execute>
 	</command>
 </definition>

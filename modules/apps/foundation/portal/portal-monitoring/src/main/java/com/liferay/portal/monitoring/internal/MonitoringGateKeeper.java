@@ -15,7 +15,11 @@
 package com.liferay.portal.monitoring.internal;
 
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
+<<<<<<< HEAD
 import com.liferay.portal.monitoring.internal.configuration.MonitoringConfiguration;
+=======
+import com.liferay.portal.monitoring.configuration.MonitoringConfiguration;
+>>>>>>> compatible
 
 import java.io.InputStream;
 
@@ -43,7 +47,11 @@ import org.w3c.dom.Element;
  * @author Shuyang Zhou
  */
 @Component(
+<<<<<<< HEAD
 	configurationPid = "com.liferay.portal.monitoring.internal.configuration.MonitoringConfiguration",
+=======
+	configurationPid = "com.liferay.portal.monitoring.configuration.MonitoringConfiguration",
+>>>>>>> compatible
 	immediate = true
 )
 public class MonitoringGateKeeper {

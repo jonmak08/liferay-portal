@@ -14,6 +14,7 @@
 
 package com.liferay.exportimport.lar;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.exportimport.internal.util.ExportImportPermissionUtil;
@@ -21,16 +22,28 @@ import com.liferay.exportimport.kernel.lar.ExportImportPathUtil;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.petra.string.CharPool;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.exportimport.internal.util.ExportImportPermissionUtil;
+import com.liferay.exportimport.kernel.lar.ExportImportPathUtil;
+import com.liferay.exportimport.kernel.lar.PortletDataContext;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Layout;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.LayoutConstants;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Role;
 import com.liferay.portal.kernel.portlet.PortletIdCodec;
 import com.liferay.portal.kernel.security.permission.ResourceActionsUtil;
 import com.liferay.portal.kernel.service.RoleLocalServiceUtil;
 import com.liferay.portal.kernel.service.permission.PortletPermissionUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.KeyValuePair;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -52,7 +65,10 @@ import java.util.Set;
  * @author Zsigmond Rab
  * @author Douglas Wong
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class PermissionExporter {
 
 	public static PermissionExporter getInstance() {
@@ -111,6 +127,7 @@ public class PermissionExporter {
 		throws Exception {
 
 		String resourceName = PortletIdCodec.decodePortletName(portletId);
+<<<<<<< HEAD
 		String resourcePrimKey = StringPool.BLANK;
 
 		if (layout != null) {
@@ -121,6 +138,10 @@ public class PermissionExporter {
 			resourcePrimKey = PortletPermissionUtil.getPrimaryKey(
 				LayoutConstants.DEFAULT_PLID, portletId);
 		}
+=======
+		String resourcePrimKey = PortletPermissionUtil.getPrimaryKey(
+			layout.getPlid(), portletId);
+>>>>>>> compatible
 
 		Element permissionsElement = portletElement.addElement("permissions");
 

@@ -1,6 +1,9 @@
 include "sample-api"
 include "sample-service"
 include "sample-test"
+<<<<<<< HEAD
 include "sample-war"
+=======
+>>>>>>> compatible
 
 rootProject.name = "sample"

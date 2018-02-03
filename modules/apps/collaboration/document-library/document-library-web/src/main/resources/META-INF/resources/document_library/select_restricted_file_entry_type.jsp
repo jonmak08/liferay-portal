@@ -20,14 +20,25 @@
 String eventName = ParamUtil.getString(request, "eventName", liferayPortletResponse.getNamespace() + "selectFileEntryType");
 %>
 
+<<<<<<< HEAD
 <liferay-util:include page="/document_library/file_entry_type_toolbar.jsp" servletContext="<%= application %>" />
+=======
+<liferay-util:include page="/document_library/file_entry_type_toolbar.jsp" servletContext="<%= application %>">
+	<liferay-util:param name="mvcPath" value="/document_library/select_restricted_file_entry_type.jsp" />
+	<liferay-util:param name="includeBasicFileEntryType" value="<%= Boolean.TRUE.toString() %>" />
+</liferay-util:include>
+>>>>>>> compatible
 
 <liferay-portlet:renderURL varImpl="portletURL">
 	<portlet:param name="mvcPath" value="/document_library/select_restricted_file_entry_type.jsp" />
 	<portlet:param name="includeBasicFileEntryType" value="<%= Boolean.TRUE.toString() %>" />
 </liferay-portlet:renderURL>
 
+<<<<<<< HEAD
 <aui:form action="<%= portletURL.toString() %>" cssClass="container-fluid-1280" method="post" name="selectFileEntryTypeFm">
+=======
+<aui:form action="<%= portletURL.toString() %>" method="post" name="selectFileEntryTypeFm">
+>>>>>>> compatible
 	<liferay-ui:search-container
 		searchContainer='<%= new SearchContainer(renderRequest, new DisplayTerms(request), new DisplayTerms(request), SearchContainer.DEFAULT_CUR_PARAM, SearchContainer.DEFAULT_DELTA, portletURL, null, LanguageUtil.get(request, "there-are-no-results")) %>'
 	>
@@ -52,13 +63,22 @@ String eventName = ParamUtil.getString(request, "eventName", liferayPortletRespo
 
 				data.put("entityid", fileEntryType.getFileEntryTypeId());
 				data.put("entityname", fileEntryType.getName(locale));
+<<<<<<< HEAD
+=======
+				data.put("fileentrytypeid", fileEntryType.getFileEntryTypeId());
+				data.put("fileentrytypename", fileEntryType.getName(locale));
+>>>>>>> compatible
 				%>
 
 				<aui:button cssClass="selector-button" data="<%= data %>" value="choose" />
 			</liferay-ui:search-container-column-text>
 		</liferay-ui:search-container-row>
 
+<<<<<<< HEAD
 		<liferay-ui:search-iterator markupView="lexicon" />
+=======
+		<liferay-ui:search-iterator />
+>>>>>>> compatible
 	</liferay-ui:search-container>
 </aui:form>
 

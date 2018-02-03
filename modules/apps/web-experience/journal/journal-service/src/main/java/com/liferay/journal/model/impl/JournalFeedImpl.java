@@ -20,7 +20,11 @@ package com.liferay.journal.model.impl;
 public class JournalFeedImpl extends JournalFeedBaseImpl {
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 4.0.0, replaced by {@link #getDDMRendererTemplateKey()}
+=======
+	 * @deprecated As of 3.3.0, replaced by {@link #getDDMRendererTemplateKey()}
+>>>>>>> compatible
 	 */
 	@Deprecated
 	@Override
@@ -29,7 +33,11 @@ public class JournalFeedImpl extends JournalFeedBaseImpl {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 4.0.0, replaced by {@link #getDDMStructureKey()}
+=======
+	 * @deprecated As of 3.3.0, replaced by {@link #getDDMStructureKey()}
+>>>>>>> compatible
 	 */
 	@Deprecated
 	@Override
@@ -38,7 +46,11 @@ public class JournalFeedImpl extends JournalFeedBaseImpl {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 4.0.0, replaced by {@link #getDDMTemplateKey()}
+=======
+	 * @deprecated As of 3.3.0, replaced by {@link #getDDMTemplateKey()}
+>>>>>>> compatible
 	 */
 	@Deprecated
 	@Override
@@ -47,7 +59,11 @@ public class JournalFeedImpl extends JournalFeedBaseImpl {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 4.0.0, replaced by {@link
+=======
+	 * @deprecated As of 3.3.0, replaced by {@link
+>>>>>>> compatible
 	 *             #setDDMRendererTemplateKey(String)}
 	 */
 	@Deprecated
@@ -57,7 +73,11 @@ public class JournalFeedImpl extends JournalFeedBaseImpl {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 4.0.0, replaced by {@link #setDDMStructureKey(String)}
+=======
+	 * @deprecated As of 3.3.0, replaced by {@link #setDDMStructureKey(String)}
+>>>>>>> compatible
 	 */
 	@Deprecated
 	@Override
@@ -66,7 +86,11 @@ public class JournalFeedImpl extends JournalFeedBaseImpl {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 4.0.0, replaced by {@link #setDDMTemplateKey(String)}
+=======
+	 * @deprecated As of 3.3.0, replaced by {@link #setDDMTemplateKey(String)}
+>>>>>>> compatible
 	 */
 	@Deprecated
 	@Override

@@ -21,8 +21,11 @@ import com.liferay.portal.kernel.module.configuration.ConfigurationProviderUtil;
 import com.liferay.portal.kernel.portlet.configuration.icon.PortletConfigurationIconMenu;
 import com.liferay.portal.kernel.portlet.toolbar.PortletToolbar;
 import com.liferay.portal.kernel.util.HtmlUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.HttpUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
@@ -66,7 +69,11 @@ public class PortletDisplay implements Cloneable, Serializable {
 		_columnCount = master.getColumnCount();
 		_columnId = master.getColumnId();
 		_columnPos = master.getColumnPos();
+<<<<<<< HEAD
 		_contentSB = master.getContent();
+=======
+		_content = master.getContent();
+>>>>>>> compatible
 		_customCSSClassName = master.getCustomCSSClassName();
 		_description = master.getDescription();
 		_id = master.getId();
@@ -138,7 +145,11 @@ public class PortletDisplay implements Cloneable, Serializable {
 		slave.setColumnCount(_columnCount);
 		slave.setColumnId(_columnId);
 		slave.setColumnPos(_columnPos);
+<<<<<<< HEAD
 		slave.setContent(_contentSB);
+=======
+		slave.setContent(_content);
+>>>>>>> compatible
 		slave.setCustomCSSClassName(_customCSSClassName);
 		slave.setDescription(_description);
 		slave.setId(_id);
@@ -218,7 +229,11 @@ public class PortletDisplay implements Cloneable, Serializable {
 	}
 
 	public StringBundler getContent() {
+<<<<<<< HEAD
 		return _contentSB;
+=======
+		return _content;
+>>>>>>> compatible
 	}
 
 	public String getCustomCSSClassName() {
@@ -514,7 +529,11 @@ public class PortletDisplay implements Cloneable, Serializable {
 		_columnCount = 0;
 		_columnId = StringPool.BLANK;
 		_columnPos = 0;
+<<<<<<< HEAD
 		_contentSB.setIndex(0);
+=======
+		_content.setIndex(0);
+>>>>>>> compatible
 		_customCSSClassName = StringPool.BLANK;
 		_description = StringPool.BLANK;
 		_id = StringPool.BLANK;
@@ -595,12 +614,21 @@ public class PortletDisplay implements Cloneable, Serializable {
 		_columnPos = columnPos;
 	}
 
+<<<<<<< HEAD
 	public void setContent(StringBundler contentSB) {
 		if (contentSB == null) {
 			_contentSB = _blankSB;
 		}
 		else {
 			_contentSB = contentSB;
+=======
+	public void setContent(StringBundler content) {
+		if (content == null) {
+			_content = _blankStringBundler;
+		}
+		else {
+			_content = content;
+>>>>>>> compatible
 		}
 	}
 
@@ -804,6 +832,7 @@ public class PortletDisplay implements Cloneable, Serializable {
 		if (_urlBack == null) {
 			_urlBack = StringPool.BLANK;
 		}
+<<<<<<< HEAD
 		else if (_urlBack.length() > Http.URL_MAXIMUM_LENGTH) {
 			_urlBack = HttpUtil.shortenURL(_urlBack);
 
@@ -811,6 +840,8 @@ public class PortletDisplay implements Cloneable, Serializable {
 				_urlBack = StringPool.BLANK;
 			}
 		}
+=======
+>>>>>>> compatible
 	}
 
 	public void setURLClose(String urlClose) {
@@ -878,19 +909,31 @@ public class PortletDisplay implements Cloneable, Serializable {
 	}
 
 	public void writeContent(Writer writer) throws IOException {
+<<<<<<< HEAD
 		_contentSB.writeTo(writer);
+=======
+		_content.writeTo(writer);
+>>>>>>> compatible
 	}
 
 	private static final Log _log = LogFactoryUtil.getLog(PortletDisplay.class);
 
+<<<<<<< HEAD
 	private static final StringBundler _blankSB = new StringBundler(
+=======
+	private static final StringBundler _blankStringBundler = new StringBundler(
+>>>>>>> compatible
 		StringPool.BLANK);
 
 	private boolean _active;
 	private int _columnCount;
 	private String _columnId = StringPool.BLANK;
 	private int _columnPos;
+<<<<<<< HEAD
 	private StringBundler _contentSB = _blankSB;
+=======
+	private StringBundler _content = _blankStringBundler;
+>>>>>>> compatible
 	private String _customCSSClassName = StringPool.BLANK;
 	private String _description = StringPool.BLANK;
 	private String _id = StringPool.BLANK;

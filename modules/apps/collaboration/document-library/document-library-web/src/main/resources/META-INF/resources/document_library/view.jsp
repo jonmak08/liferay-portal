@@ -103,9 +103,17 @@ request.setAttribute("view.jsp-orderByType", orderByType);
 
 <liferay-util:include page="/document_library/navigation.jsp" servletContext="<%= application %>" />
 
+<<<<<<< HEAD
 <liferay-util:include page="/document_library/toolbar.jsp" servletContext="<%= application %>">
 	<liferay-util:param name="searchContainerId" value="entries" />
 </liferay-util:include>
+=======
+<c:if test='<%= !mvcRenderCommandName.equals("/document_library/search") %>'>
+	<liferay-util:include page="/document_library/toolbar.jsp" servletContext="<%= application %>">
+		<liferay-util:param name="searchContainerId" value="entries" />
+	</liferay-util:include>
+</c:if>
+>>>>>>> compatible
 
 <div id="<portlet:namespace />documentLibraryContainer">
 
@@ -153,9 +161,13 @@ request.setAttribute("view.jsp-orderByType", orderByType);
 				<div class="document-container">
 					<c:choose>
 						<c:when test='<%= mvcRenderCommandName.equals("/document_library/search") %>'>
+<<<<<<< HEAD
 							<liferay-util:include page="/document_library/search_resources.jsp" servletContext="<%= application %>">
 								<liferay-util:param name="searchContainerId" value="entries" />
 							</liferay-util:include>
+=======
+							<liferay-util:include page="/document_library/search_resources.jsp" servletContext="<%= application %>" />
+>>>>>>> compatible
 						</c:when>
 						<c:otherwise>
 							<liferay-util:include page="/document_library/view_entries.jsp" servletContext="<%= application %>">
@@ -180,6 +192,7 @@ if (!defaultFolderView && (folder != null) && (portletName.equals(DLPortletKeys.
 	PortalUtil.setPageSubtitle(folder.getName(), request);
 	PortalUtil.setPageDescription(folder.getDescription(), request);
 }
+<<<<<<< HEAD
 
 boolean uploadable = true;
 
@@ -196,6 +209,8 @@ if (!assetVocabularies.isEmpty()) {
 		}
 	}
 }
+=======
+>>>>>>> compatible
 %>
 
 <aui:script>
@@ -238,7 +253,10 @@ if (!assetVocabularies.isEmpty()) {
 			decimalSeparator: '<%= decimalFormatSymbols.getDecimalSeparator() %>',
 			displayStyle: '<%= HtmlUtil.escapeJS(displayStyle) %>',
 			editEntryUrl: '<portlet:actionURL name="/document_library/edit_entry" />',
+<<<<<<< HEAD
 			downloadEntryUrl: '<portlet:resourceURL id="/document_library/download_entry"><portlet:param name="folderId" value="<%= String.valueOf(folderId) %>" /></portlet:resourceURL>',
+=======
+>>>>>>> compatible
 			folders: {
 				defaultParentFolderId: '<%= folderId %>',
 				dimensions: {
@@ -250,8 +268,13 @@ if (!assetVocabularies.isEmpty()) {
 				method: 'POST',
 				node: A.one(document.<portlet:namespace />fm2)
 			},
+<<<<<<< HEAD
 			maxFileSize: <%= dlConfiguration.fileMaxSize() %>,
 			moveEntryUrl: '<portlet:renderURL><portlet:param name="mvcRenderCommandName" value="/document_library/move_entry" /><portlet:param name="redirect" value="<%= currentURL %>" /><portlet:param name="newFolderId" value="<%= String.valueOf(folderId) %>" /></portlet:renderURL>',
+=======
+			maxFileSize: <%= PrefsPropsUtil.getLong(PropsKeys.DL_FILE_MAX_SIZE) %>,
+			moveEntryUrl: '<portlet:renderURL><portlet:param name="mvcRenderCommandName" value="/document_library/move_entry" /><portlet:param name="redirect" value="<%= currentURL %>" /></portlet:renderURL>',
+>>>>>>> compatible
 			namespace: '<portlet:namespace />',
 			portletId: '<%= HtmlUtil.escapeJS(portletId) %>',
 			redirect: encodeURIComponent('<%= currentURL %>'),
@@ -279,8 +302,13 @@ if (!assetVocabularies.isEmpty()) {
 			],
 			scopeGroupId: <%= scopeGroupId %>,
 			searchContainerId: 'entries',
+<<<<<<< HEAD
 			trashEnabled: <%= (scopeGroupId == repositoryId) && dlTrashUtil.isTrashEnabled(scopeGroupId, repositoryId) %>,
 			uploadable: <%= uploadable %>,
+=======
+			trashEnabled: <%= (scopeGroupId == repositoryId) && DLTrashUtil.isTrashEnabled(scopeGroupId, repositoryId) %>,
+			updateable: <%= DLFolderPermission.contains(permissionChecker, scopeGroupId, folderId, ActionKeys.UPDATE) %>,
+>>>>>>> compatible
 			uploadURL: '<%= uploadURL %>',
 			viewFileEntryURL: '<portlet:renderURL><portlet:param name="mvcRenderCommandName" value="/document_library/view_file_entry" /><portlet:param name="redirect" value="<%= currentURL %>" /></portlet:renderURL>'
 		}

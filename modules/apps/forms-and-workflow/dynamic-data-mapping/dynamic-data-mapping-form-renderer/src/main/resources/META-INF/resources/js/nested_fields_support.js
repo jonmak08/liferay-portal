@@ -38,9 +38,13 @@ AUI.add(
 					item.getRepeatedSiblings().forEach(addToQueue);
 				};
 
+<<<<<<< HEAD
 				var fields = instance.get('fields') || [];
 
 				fields.forEach(addSiblingsToQueue);
+=======
+				instance.get('fields').forEach(addSiblingsToQueue);
+>>>>>>> compatible
 
 				while (queue.size() > 0) {
 					var field = queue.next();
@@ -83,13 +87,18 @@ AUI.add(
 				);
 			},
 
+<<<<<<< HEAD
 			getField: function(name, instanceId) {
+=======
+			getField: function(name) {
+>>>>>>> compatible
 				var instance = this;
 
 				var field;
 
 				instance.eachField(
 					function(item) {
+<<<<<<< HEAD
 						if (item.get('fieldName') === name) {
 							field = item;
 						}
@@ -100,6 +109,12 @@ AUI.add(
 							field = undefined;
 						}
 
+=======
+						if (item.get('name') === name) {
+							field = item;
+						}
+
+>>>>>>> compatible
 						return field !== undefined;
 					}
 				);

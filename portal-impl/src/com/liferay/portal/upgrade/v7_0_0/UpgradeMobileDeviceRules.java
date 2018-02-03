@@ -84,7 +84,11 @@ public class UpgradeMobileDeviceRules extends UpgradeProcess {
 	}
 
 	public void populateCompanyIds() throws Exception {
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(6);
+=======
+		StringBundler sb = new StringBundler();
+>>>>>>> compatible
 
 		sb.append("select MDRRuleGroup.companyId, ");
 		sb.append("MDRRuleGroupInstance.ruleGroupInstanceId from ");
@@ -116,13 +120,18 @@ public class UpgradeMobileDeviceRules extends UpgradeProcess {
 	}
 
 	public void populateResourcePermissions() throws Exception {
+<<<<<<< HEAD
 		StringBundler sb1 = new StringBundler(12);
+=======
+		StringBundler sb1 = new StringBundler();
+>>>>>>> compatible
 
 		sb1.append("select MDRRuleGroupInstance.companyId, ");
 		sb1.append("MDRRuleGroupInstance.ruleGroupInstanceId, ");
 		sb1.append("MDRRuleGroupInstance.userId from MDRRuleGroupInstance ");
 		sb1.append("where not exists (select 1 from ResourcePermission where ");
 		sb1.append("(MDRRuleGroupInstance.companyId = ResourcePermission.");
+<<<<<<< HEAD
 		sb1.append("companyId) and (MDRRuleGroupInstance.ruleGroupInstanceId ");
 		sb1.append("= ResourcePermission.primKeyId) and ");
 		sb1.append("(MDRRuleGroupInstance.userId = ");
@@ -132,6 +141,17 @@ public class UpgradeMobileDeviceRules extends UpgradeProcess {
 		sb1.append("'))");
 
 		StringBundler sb2 = new StringBundler(4);
+=======
+		sb1.append(
+			"companyId) and (MDRRuleGroupInstance.ruleGroupInstanceId = ");
+		sb1.append("ResourcePermission.primKeyId) and (MDRRuleGroupInstance.");
+		sb1.append("userId = ResourcePermission.ownerId) and ");
+		sb1.append("(ResourcePermission.name = '");
+		sb1.append(_CLASS_NAME);
+		sb1.append("'))");
+
+		StringBundler sb2 = new StringBundler();
+>>>>>>> compatible
 
 		sb2.append("insert into ResourcePermission (resourcePermissionId, ");
 		sb2.append("companyId, name, scope, primKey, primKeyId, roleId, ");

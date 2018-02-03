@@ -18,12 +18,20 @@ import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.contacts.model.Entry;
 import com.liferay.contacts.model.EntryModel;
+<<<<<<< HEAD
+=======
+import com.liferay.contacts.model.EntrySoap;
+>>>>>>> compatible
 
 import com.liferay.expando.kernel.model.ExpandoBridge;
 import com.liferay.expando.kernel.util.ExpandoBridgeFactoryUtil;
 
 import com.liferay.portal.kernel.bean.AutoEscapeBeanHandler;
 import com.liferay.portal.kernel.exception.PortalException;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.json.JSON;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.model.impl.BaseModelImpl;
@@ -32,13 +40,24 @@ import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Serializable;
 
 import java.sql.Types;
 
+<<<<<<< HEAD
 import java.util.Date;
 import java.util.HashMap;
+=======
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+>>>>>>> compatible
 import java.util.Map;
 
 /**
@@ -54,6 +73,10 @@ import java.util.Map;
  * @see EntryModel
  * @generated
  */
+<<<<<<< HEAD
+=======
+@JSON(strict = true)
+>>>>>>> compatible
 @ProviderType
 public class EntryModelImpl extends BaseModelImpl<Entry> implements EntryModel {
 	/*
@@ -89,7 +112,11 @@ public class EntryModelImpl extends BaseModelImpl<Entry> implements EntryModel {
 		TABLE_COLUMNS_MAP.put("comments", Types.VARCHAR);
 	}
 
+<<<<<<< HEAD
 	public static final String TABLE_SQL_CREATE = "create table Contacts_Entry (entryId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,fullName VARCHAR(75) null,emailAddress VARCHAR(254) null,comments STRING null)";
+=======
+	public static final String TABLE_SQL_CREATE = "create table Contacts_Entry (entryId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,fullName VARCHAR(75) null,emailAddress VARCHAR(75) null,comments STRING null)";
+>>>>>>> compatible
 	public static final String TABLE_SQL_DROP = "drop table Contacts_Entry";
 	public static final String ORDER_BY_JPQL = " ORDER BY entry.fullName ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY Contacts_Entry.fullName ASC";
@@ -108,6 +135,57 @@ public class EntryModelImpl extends BaseModelImpl<Entry> implements EntryModel {
 	public static final long EMAILADDRESS_COLUMN_BITMASK = 1L;
 	public static final long USERID_COLUMN_BITMASK = 2L;
 	public static final long FULLNAME_COLUMN_BITMASK = 4L;
+<<<<<<< HEAD
+=======
+
+	/**
+	 * Converts the soap model instance into a normal model instance.
+	 *
+	 * @param soapModel the soap model instance to convert
+	 * @return the normal model instance
+	 */
+	public static Entry toModel(EntrySoap soapModel) {
+		if (soapModel == null) {
+			return null;
+		}
+
+		Entry model = new EntryImpl();
+
+		model.setEntryId(soapModel.getEntryId());
+		model.setGroupId(soapModel.getGroupId());
+		model.setCompanyId(soapModel.getCompanyId());
+		model.setUserId(soapModel.getUserId());
+		model.setUserName(soapModel.getUserName());
+		model.setCreateDate(soapModel.getCreateDate());
+		model.setModifiedDate(soapModel.getModifiedDate());
+		model.setFullName(soapModel.getFullName());
+		model.setEmailAddress(soapModel.getEmailAddress());
+		model.setComments(soapModel.getComments());
+
+		return model;
+	}
+
+	/**
+	 * Converts the soap model instances into normal model instances.
+	 *
+	 * @param soapModels the soap model instances to convert
+	 * @return the normal model instances
+	 */
+	public static List<Entry> toModels(EntrySoap[] soapModels) {
+		if (soapModels == null) {
+			return null;
+		}
+
+		List<Entry> models = new ArrayList<Entry>(soapModels.length);
+
+		for (EntrySoap soapModel : soapModels) {
+			models.add(toModel(soapModel));
+		}
+
+		return models;
+	}
+
+>>>>>>> compatible
 	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.liferay.contacts.service.util.ServiceProps.get(
 				"lock.expiration.time.com.liferay.contacts.model.Entry"));
 
@@ -228,6 +306,10 @@ public class EntryModelImpl extends BaseModelImpl<Entry> implements EntryModel {
 		}
 	}
 
+<<<<<<< HEAD
+=======
+	@JSON
+>>>>>>> compatible
 	@Override
 	public long getEntryId() {
 		return _entryId;
@@ -238,6 +320,10 @@ public class EntryModelImpl extends BaseModelImpl<Entry> implements EntryModel {
 		_entryId = entryId;
 	}
 
+<<<<<<< HEAD
+=======
+	@JSON
+>>>>>>> compatible
 	@Override
 	public long getGroupId() {
 		return _groupId;
@@ -248,6 +334,10 @@ public class EntryModelImpl extends BaseModelImpl<Entry> implements EntryModel {
 		_groupId = groupId;
 	}
 
+<<<<<<< HEAD
+=======
+	@JSON
+>>>>>>> compatible
 	@Override
 	public long getCompanyId() {
 		return _companyId;
@@ -258,6 +348,10 @@ public class EntryModelImpl extends BaseModelImpl<Entry> implements EntryModel {
 		_companyId = companyId;
 	}
 
+<<<<<<< HEAD
+=======
+	@JSON
+>>>>>>> compatible
 	@Override
 	public long getUserId() {
 		return _userId;
@@ -284,7 +378,11 @@ public class EntryModelImpl extends BaseModelImpl<Entry> implements EntryModel {
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -296,10 +394,18 @@ public class EntryModelImpl extends BaseModelImpl<Entry> implements EntryModel {
 		return _originalUserId;
 	}
 
+<<<<<<< HEAD
 	@Override
 	public String getUserName() {
 		if (_userName == null) {
 			return "";
+=======
+	@JSON
+	@Override
+	public String getUserName() {
+		if (_userName == null) {
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _userName;
@@ -311,6 +417,10 @@ public class EntryModelImpl extends BaseModelImpl<Entry> implements EntryModel {
 		_userName = userName;
 	}
 
+<<<<<<< HEAD
+=======
+	@JSON
+>>>>>>> compatible
 	@Override
 	public Date getCreateDate() {
 		return _createDate;
@@ -321,6 +431,10 @@ public class EntryModelImpl extends BaseModelImpl<Entry> implements EntryModel {
 		_createDate = createDate;
 	}
 
+<<<<<<< HEAD
+=======
+	@JSON
+>>>>>>> compatible
 	@Override
 	public Date getModifiedDate() {
 		return _modifiedDate;
@@ -337,10 +451,18 @@ public class EntryModelImpl extends BaseModelImpl<Entry> implements EntryModel {
 		_modifiedDate = modifiedDate;
 	}
 
+<<<<<<< HEAD
 	@Override
 	public String getFullName() {
 		if (_fullName == null) {
 			return "";
+=======
+	@JSON
+	@Override
+	public String getFullName() {
+		if (_fullName == null) {
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _fullName;
@@ -354,10 +476,18 @@ public class EntryModelImpl extends BaseModelImpl<Entry> implements EntryModel {
 		_fullName = fullName;
 	}
 
+<<<<<<< HEAD
 	@Override
 	public String getEmailAddress() {
 		if (_emailAddress == null) {
 			return "";
+=======
+	@JSON
+	@Override
+	public String getEmailAddress() {
+		if (_emailAddress == null) {
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _emailAddress;
@@ -379,10 +509,18 @@ public class EntryModelImpl extends BaseModelImpl<Entry> implements EntryModel {
 		return GetterUtil.getString(_originalEmailAddress);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public String getComments() {
 		if (_comments == null) {
 			return "";
+=======
+	@JSON
+	@Override
+	public String getComments() {
+		if (_comments == null) {
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _comments;

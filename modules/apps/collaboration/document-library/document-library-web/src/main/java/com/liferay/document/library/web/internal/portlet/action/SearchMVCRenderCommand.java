@@ -14,10 +14,16 @@
 
 package com.liferay.document.library.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.document.library.constants.DLPortletKeys;
 import com.liferay.document.library.web.internal.constants.DLWebKeys;
 import com.liferay.document.library.web.internal.portlet.toolbar.contributor.DLPortletToolbarContributor;
 import com.liferay.document.library.web.internal.util.DLTrashUtil;
+=======
+import com.liferay.document.library.web.constants.DLPortletKeys;
+import com.liferay.document.library.web.constants.DLWebKeys;
+import com.liferay.document.library.web.internal.portlet.toolbar.contributor.DLPortletToolbarContributor;
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCRenderCommand;
 
 import javax.portlet.RenderRequest;
@@ -33,6 +39,10 @@ import org.osgi.service.component.annotations.Reference;
 	property = {
 		"javax.portlet.name=" + DLPortletKeys.DOCUMENT_LIBRARY,
 		"javax.portlet.name=" + DLPortletKeys.DOCUMENT_LIBRARY_ADMIN,
+<<<<<<< HEAD
+=======
+		"javax.portlet.name=" + DLPortletKeys.MEDIA_GALLERY_DISPLAY,
+>>>>>>> compatible
 		"mvc.command.name=/document_library/search"
 	},
 	service = MVCRenderCommand.class
@@ -46,16 +56,30 @@ public class SearchMVCRenderCommand implements MVCRenderCommand {
 		renderRequest.setAttribute(
 			DLWebKeys.DOCUMENT_LIBRARY_PORTLET_TOOLBAR_CONTRIBUTOR,
 			_dlPortletToolbarContributor);
+<<<<<<< HEAD
 		renderRequest.setAttribute(
 			DLWebKeys.DOCUMENT_LIBRARY_TRASH_UTIL, _dlTrashUtil);
+=======
+>>>>>>> compatible
 
 		return "/document_library/view.jsp";
 	}
 
+<<<<<<< HEAD
 	@Reference
 	private DLPortletToolbarContributor _dlPortletToolbarContributor;
 
 	@Reference
 	private DLTrashUtil _dlTrashUtil;
+=======
+	@Reference(unbind = "-")
+	protected void setDLPortletToolbarContributor(
+		DLPortletToolbarContributor dlPortletToolbarContributor) {
+
+		_dlPortletToolbarContributor = dlPortletToolbarContributor;
+	}
+
+	private DLPortletToolbarContributor _dlPortletToolbarContributor;
+>>>>>>> compatible
 
 }

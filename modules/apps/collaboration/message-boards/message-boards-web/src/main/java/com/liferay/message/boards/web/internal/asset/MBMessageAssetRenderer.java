@@ -16,9 +16,14 @@ package com.liferay.message.boards.web.internal.asset;
 
 import com.liferay.asset.kernel.model.AssetRendererFactory;
 import com.liferay.asset.kernel.model.BaseJSPAssetRenderer;
+<<<<<<< HEAD
 import com.liferay.message.boards.constants.MBPortletKeys;
 import com.liferay.message.boards.kernel.model.MBMessage;
 import com.liferay.message.boards.service.permission.MBDiscussionPermission;
+=======
+import com.liferay.message.boards.kernel.model.MBMessage;
+import com.liferay.message.boards.web.constants.MBPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.parsers.bbcode.BBCodeTranslatorUtil;
@@ -31,6 +36,10 @@ import com.liferay.portal.kernel.trash.TrashRenderer;
 import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.WebKeys;
+<<<<<<< HEAD
+=======
+import com.liferay.portlet.messageboards.service.permission.MBDiscussionPermission;
+>>>>>>> compatible
 import com.liferay.portlet.messageboards.service.permission.MBMessagePermission;
 
 import java.util.Date;

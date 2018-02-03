@@ -560,11 +560,14 @@ public class DDMTemplateWrapper implements DDMTemplate,
 		return _ddmTemplate.getPrimaryKeyObj();
 	}
 
+<<<<<<< HEAD
 	@Override
 	public java.lang.String getResourceClassName() {
 		return _ddmTemplate.getResourceClassName();
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns the resource class name ID of this ddm template.
 	*
@@ -1088,11 +1091,14 @@ public class DDMTemplateWrapper implements DDMTemplate,
 		_ddmTemplate.setPrimaryKeyObj(primaryKeyObj);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public void setResourceClassName(java.lang.String resourceClassName) {
 		_ddmTemplate.setResourceClassName(resourceClassName);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Sets the resource class name ID of this ddm template.
 	*

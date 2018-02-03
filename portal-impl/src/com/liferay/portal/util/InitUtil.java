@@ -37,7 +37,10 @@ import com.liferay.portal.kernel.util.OSDetector;
 import com.liferay.portal.kernel.util.PortalClassLoaderUtil;
 import com.liferay.portal.kernel.util.PortalLifecycle;
 import com.liferay.portal.kernel.util.PortalLifecycleUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.PropsKeys;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.ReleaseInfo;
 import com.liferay.portal.kernel.util.StringPool;
@@ -52,6 +55,10 @@ import com.liferay.portal.upgrade.dao.orm.UpgradeOptimizedConnectionProviderRegi
 import com.liferay.registry.Registry;
 import com.liferay.registry.RegistryUtil;
 import com.liferay.registry.ServiceRegistration;
+<<<<<<< HEAD
+=======
+import com.liferay.util.log4j.Log4JUtil;
+>>>>>>> compatible
 
 import com.sun.syndication.io.XmlReader;
 

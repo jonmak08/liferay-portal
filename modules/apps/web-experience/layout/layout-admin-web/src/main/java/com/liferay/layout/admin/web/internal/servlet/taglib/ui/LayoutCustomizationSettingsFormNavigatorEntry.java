@@ -14,6 +14,10 @@
 
 package com.liferay.layout.admin.web.internal.servlet.taglib.ui;
 
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.exception.PortalException;
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Group;
@@ -49,6 +53,7 @@ public class LayoutCustomizationSettingsFormNavigatorEntry
 
 	@Override
 	public boolean isVisible(User user, Layout layout) {
+<<<<<<< HEAD
 		Group group = layout.getGroup();
 
 		if (group == null) {
@@ -57,6 +62,17 @@ public class LayoutCustomizationSettingsFormNavigatorEntry
 
 		if (!group.isUser() && layout.isTypePortlet()) {
 			return true;
+=======
+		try {
+			Group group = layout.getGroup();
+
+			if (!group.isUser() && layout.isTypePortlet()) {
+				return true;
+			}
+		}
+		catch (PortalException pe) {
+			_log.error("Unable to display form for customization settings", pe);
+>>>>>>> compatible
 		}
 
 		return false;

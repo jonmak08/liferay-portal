@@ -95,10 +95,13 @@ public class DLFileEntryFinderImpl
 	public static final String FIND_BY_G_U_F =
 		DLFileEntryFinder.class.getName() + ".findByG_U_F";
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static final String JOIN_AE_BY_DL_FILE_ENTRY =
 		DLFileEntryFinder.class.getName() + ".joinAE_ByDLFileEntry";
 

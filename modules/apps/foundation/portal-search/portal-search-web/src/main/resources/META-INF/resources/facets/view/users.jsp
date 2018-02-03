@@ -16,6 +16,7 @@
 
 <%@ include file="/facets/init.jsp" %>
 
+<<<<<<< HEAD
 <%
 com.liferay.portal.search.web.internal.facet.display.builder.UserSearchFacetDisplayBuilder userSearchFacetDisplayBuilder = new com.liferay.portal.search.web.internal.facet.display.builder.UserSearchFacetDisplayBuilder();
 
@@ -77,3 +78,61 @@ com.liferay.portal.search.web.internal.facet.display.context.UserSearchFacetDisp
 		</div>
 	</c:otherwise>
 </c:choose>
+=======
+<c:if test="<%= !termCollectors.isEmpty() %>">
+
+	<%
+	int frequencyThreshold = dataJSONObject.getInt("frequencyThreshold");
+	int maxTerms = dataJSONObject.getInt("maxTerms", 10);
+	boolean showAssetCount = dataJSONObject.getBoolean("showAssetCount", true);
+	%>
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="panel-title">
+				<liferay-ui:message key="users" />
+			</div>
+		</div>
+
+		<div class="panel-body">
+			<div class="<%= cssClass %>" data-facetFieldName="<%= HtmlUtil.escapeAttribute(facet.getFieldId()) %>" id="<%= randomNamespace %>facet">
+				<aui:input autocomplete="off" name="<%= HtmlUtil.escapeAttribute(facet.getFieldId()) %>" type="hidden" value="<%= fieldParam %>" />
+
+				<ul class="list-unstyled users">
+					<li class="default facet-value">
+						<a class="<%= Validator.isNull(fieldParam) ? "text-primary" : "text-default" %>" data-value="" href="javascript:;"><liferay-ui:message key="<%= HtmlUtil.escape(facetConfiguration.getLabel()) %>" /></a>
+					</li>
+
+					<%
+					String userName = GetterUtil.getString(fieldParam);
+
+					for (int i = 0; i < termCollectors.size(); i++) {
+						TermCollector termCollector = termCollectors.get(i);
+
+						String curUserName = GetterUtil.getString(termCollector.getTerm());
+
+						if (((maxTerms > 0) && (i >= maxTerms)) || ((frequencyThreshold > 0) && (frequencyThreshold > termCollector.getFrequency()))) {
+							break;
+						}
+					%>
+
+						<li class="facet-value">
+							<a class="<%= userName.equals(curUserName) ? "text-primary" : "text-default" %>" data-value="<%= HtmlUtil.escapeAttribute(curUserName) %>" href="javascript:;">
+								<%= HtmlUtil.escape(curUserName) %>
+
+								<c:if test="<%= showAssetCount %>">
+									<span class="frequency">(<%= termCollector.getFrequency() %>)</span>
+								</c:if>
+							</a>
+						</li>
+
+					<%
+					}
+					%>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+</c:if>
+>>>>>>> compatible

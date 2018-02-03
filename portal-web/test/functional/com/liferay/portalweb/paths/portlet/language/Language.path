@@ -16,7 +16,11 @@
 </tr>
 <tr>
 	<td>SELECT_LANGUAGE</td>
+<<<<<<< HEAD
 	<td>xpath=(//a | //span)[*[name()='svg'][@message='${key_language}']]</td>
+=======
+	<td>//*[name()='svg'][@message='${key_language}']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -26,52 +30,92 @@
 </tr>
 <tr>
 	<td>LANGUAGE_MENU_CHINESE</td>
+<<<<<<< HEAD
 	<td>xpath=(//a | //span)[*[name()='svg'][@message='中文']]</td>
+=======
+	<td>//*[name()='svg'][@message='中文']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>LANGUAGE_MENU_ENGLISH</td>
+<<<<<<< HEAD
 	<td>xpath=(//a | //span)[*[name()='svg'][@message='English']]</td>
+=======
+	<td>//*[name()='svg'][@message='English']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>LANGUAGE_MENU_FINNISH</td>
+<<<<<<< HEAD
 	<td>xpath=(//a | //span)[*[name()='svg'][@message='suomi']]</td>
+=======
+	<td>//*[name()='svg'][@message='suomi']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>LANGUAGE_MENU_FRENCH</td>
+<<<<<<< HEAD
 	<td>xpath=(//a | //span)[*[name()='svg'][@message='français']]</td>
+=======
+	<td>//*[name()='svg'][@message='français']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>LANGUAGE_MENU_GERMAN</td>
+<<<<<<< HEAD
 	<td>xpath=(//a | //span)[*[name()='svg'][@message='Deutsch']]</td>
+=======
+	<td>//*[name()='svg'][@message='Deutsch']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>LANGUAGE_MENU_HEBREW</td>
+<<<<<<< HEAD
 	<td>xpath=(//a | //span)[*[name()='svg'][@message='עברית']]</td>
+=======
+	<td>//*[name()='svg'][@message='עברית']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>LANGUAGE_MENU_HUNGARIAN</td>
+<<<<<<< HEAD
 	<td>xpath=(//a | //span)[*[name()='svg'][@message='magyar']]</td>
+=======
+	<td>//*[name()='svg'][@message='magyar']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>LANGUAGE_MENU_JAPANESE</td>
+<<<<<<< HEAD
 	<td>xpath=(//a | //span)[*[name()='svg'][@message='日本語']]</td>
+=======
+	<td>//*[name()='svg'][@message='日本語']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>LANGUAGE_MENU_PORTUGUESE</td>
+<<<<<<< HEAD
 	<td>xpath=(//a | //span)[*[name()='svg'][@message='português']]</td>
+=======
+	<td>//*[name()='svg'][@message='português']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>LANGUAGE_MENU_SPANISH</td>
+<<<<<<< HEAD
 	<td>xpath=(//a | //span)[*[name()='svg'][@message='español']]</td>
+=======
+	<td>//*[name()='svg'][@message='español']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>

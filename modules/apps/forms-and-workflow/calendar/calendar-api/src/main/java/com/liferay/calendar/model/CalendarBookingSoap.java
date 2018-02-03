@@ -42,10 +42,17 @@ public class CalendarBookingSoap implements Serializable {
 		soapModel.setUserName(model.getUserName());
 		soapModel.setCreateDate(model.getCreateDate());
 		soapModel.setModifiedDate(model.getModifiedDate());
+<<<<<<< HEAD
 		soapModel.setCalendarId(model.getCalendarId());
 		soapModel.setCalendarResourceId(model.getCalendarResourceId());
 		soapModel.setParentCalendarBookingId(model.getParentCalendarBookingId());
 		soapModel.setRecurringCalendarBookingId(model.getRecurringCalendarBookingId());
+=======
+		soapModel.setResourceBlockId(model.getResourceBlockId());
+		soapModel.setCalendarId(model.getCalendarId());
+		soapModel.setCalendarResourceId(model.getCalendarResourceId());
+		soapModel.setParentCalendarBookingId(model.getParentCalendarBookingId());
+>>>>>>> compatible
 		soapModel.setVEventUid(model.getVEventUid());
 		soapModel.setTitle(model.getTitle());
 		soapModel.setDescription(model.getDescription());
@@ -181,6 +188,17 @@ public class CalendarBookingSoap implements Serializable {
 		_modifiedDate = modifiedDate;
 	}
 
+<<<<<<< HEAD
+=======
+	public long getResourceBlockId() {
+		return _resourceBlockId;
+	}
+
+	public void setResourceBlockId(long resourceBlockId) {
+		_resourceBlockId = resourceBlockId;
+	}
+
+>>>>>>> compatible
 	public long getCalendarId() {
 		return _calendarId;
 	}
@@ -205,6 +223,7 @@ public class CalendarBookingSoap implements Serializable {
 		_parentCalendarBookingId = parentCalendarBookingId;
 	}
 
+<<<<<<< HEAD
 	public long getRecurringCalendarBookingId() {
 		return _recurringCalendarBookingId;
 	}
@@ -213,6 +232,8 @@ public class CalendarBookingSoap implements Serializable {
 		_recurringCalendarBookingId = recurringCalendarBookingId;
 	}
 
+=======
+>>>>>>> compatible
 	public String getVEventUid() {
 		return _vEventUid;
 	}
@@ -361,10 +382,17 @@ public class CalendarBookingSoap implements Serializable {
 	private String _userName;
 	private Date _createDate;
 	private Date _modifiedDate;
+<<<<<<< HEAD
 	private long _calendarId;
 	private long _calendarResourceId;
 	private long _parentCalendarBookingId;
 	private long _recurringCalendarBookingId;
+=======
+	private long _resourceBlockId;
+	private long _calendarId;
+	private long _calendarResourceId;
+	private long _parentCalendarBookingId;
+>>>>>>> compatible
 	private String _vEventUid;
 	private String _title;
 	private String _description;

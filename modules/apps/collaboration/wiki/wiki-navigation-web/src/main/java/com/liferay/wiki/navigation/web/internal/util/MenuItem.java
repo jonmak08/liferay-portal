@@ -14,9 +14,14 @@
 
 package com.liferay.wiki.navigation.web.internal.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.Http;
+=======
+import com.liferay.portal.kernel.util.Http;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.wiki.model.WikiNode;
 import com.liferay.wiki.model.WikiPage;
 import com.liferay.wiki.service.WikiPageServiceUtil;
@@ -149,6 +154,7 @@ public class MenuItem implements Serializable {
 
 		Matcher matcher = _pattern.matcher(wikiPage.getContent());
 
+<<<<<<< HEAD
 		while (matcher.find()) {
 			String title = GetterUtil.getString(matcher.group(1));
 
@@ -159,6 +165,30 @@ public class MenuItem implements Serializable {
 			menuItems.add(menuItem);
 
 			String s = matcher.group(2);
+=======
+		MenuItem menuItem = null;
+
+		while (matcher.find()) {
+			String title = matcher.group(3);
+
+			if (title != null) {
+				menuItem = new MenuItem();
+
+				menuItem.setLabel(title);
+
+				menuItems.add(menuItem);
+			}
+
+			if (menuItem == null) {
+				menuItem = new MenuItem();
+
+				menuItem.setLabel(StringPool.BLANK);
+
+				menuItems.add(menuItem);
+			}
+
+			String s = matcher.group(6);
+>>>>>>> compatible
 
 			if (s != null) {
 				MenuItem childMenuItem = new MenuItem();
@@ -171,10 +201,27 @@ public class MenuItem implements Serializable {
 				if (index != -1) {
 					label = s.substring(index + 1);
 					url = s.substring(0, index);
+<<<<<<< HEAD
+=======
+
+					if (!url.startsWith(Http.HTTP)) {
+						long nodeId = wikiPage.getNodeId();
+
+						portletURL.setParameter("title", url);
+						portletURL.setParameter(
+							"nodeId", String.valueOf(nodeId));
+
+						url = portletURL.toString();
+					}
+					else {
+						childMenuItem.setExternalURL(true);
+					}
+>>>>>>> compatible
 				}
 				else {
 					label = s;
 					url = s;
+<<<<<<< HEAD
 				}
 
 				if (!url.startsWith(Http.HTTP)) {
@@ -187,6 +234,18 @@ public class MenuItem implements Serializable {
 				}
 				else {
 					childMenuItem.setExternalURL(true);
+=======
+
+					if (!url.startsWith(Http.HTTP)) {
+						long nodeId = wikiPage.getNodeId();
+
+						portletURL.setParameter("title", url);
+						portletURL.setParameter(
+							"nodeId", String.valueOf(nodeId));
+
+						url = portletURL.toString();
+					}
+>>>>>>> compatible
 				}
 
 				childMenuItem.setLabel(label);
@@ -200,7 +259,11 @@ public class MenuItem implements Serializable {
 	}
 
 	private static final Pattern _pattern = Pattern.compile(
+<<<<<<< HEAD
 		"(?:(?:==\\s(.*?)\\s==)*(?:\\Q[[\\E(.*?)\\Q]]\\E)*)*");
+=======
+		"((==\\s((.)*)\\s==)*(\\Q[[\\E((.)*)\\Q]]\\E)*)*");
+>>>>>>> compatible
 
 	private List<MenuItem> _children;
 	private boolean _externalURL;

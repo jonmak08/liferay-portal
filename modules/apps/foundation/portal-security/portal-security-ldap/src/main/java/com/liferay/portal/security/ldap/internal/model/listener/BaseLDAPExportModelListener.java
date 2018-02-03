@@ -14,11 +14,17 @@
 
 package com.liferay.portal.security.ldap.internal.model.listener;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
 import com.liferay.portal.kernel.model.BaseModel;
 import com.liferay.portal.kernel.model.BaseModelListener;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.security.auth.PasswordModificationThreadLocal;
+=======
+import com.liferay.portal.kernel.model.BaseModel;
+import com.liferay.portal.kernel.model.BaseModelListener;
+import com.liferay.portal.kernel.model.User;
+>>>>>>> compatible
 import com.liferay.portal.kernel.security.ldap.LDAPSettings;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.ServiceContextThreadLocal;
@@ -29,7 +35,10 @@ import com.liferay.portal.security.ldap.internal.UserImportTransactionThreadLoca
 import java.io.Serializable;
 
 import java.util.Map;
+<<<<<<< HEAD
 import java.util.Objects;
+=======
+>>>>>>> compatible
 import java.util.concurrent.Callable;
 
 /**
@@ -49,6 +58,7 @@ public abstract class BaseLDAPExportModelListener<T extends BaseModel<T>>
 			return;
 		}
 
+<<<<<<< HEAD
 		Callable<Void> callable = () -> {
 			ServiceContext serviceContext =
 				ServiceContextThreadLocal.getServiceContext();
@@ -90,6 +100,31 @@ public abstract class BaseLDAPExportModelListener<T extends BaseModel<T>>
 
 		if (ldapSettings.isPasswordPolicyEnabled(user.getCompanyId()) &&
 			PasswordModificationThreadLocal.isPasswordModified()) {
+=======
+		Callable<Void> callable = new Callable<Void>() {
+
+			@Override
+			public Void call() throws Exception {
+				ServiceContext serviceContext =
+					ServiceContextThreadLocal.getServiceContext();
+
+				Map<String, Serializable> expandoBridgeAttributes = null;
+
+				if (serviceContext != null) {
+					expandoBridgeAttributes =
+						serviceContext.getExpandoBridgeAttributes();
+				}
+
+				userExporter.exportUser(user, expandoBridgeAttributes);
+
+				return null;
+			}
+
+		};
+
+		if (ldapSettings.isPasswordPolicyEnabled(user.getCompanyId()) &&
+			user.isPasswordModified()) {
+>>>>>>> compatible
 
 			callable.call();
 		}
@@ -98,9 +133,12 @@ public abstract class BaseLDAPExportModelListener<T extends BaseModel<T>>
 		}
 	}
 
+<<<<<<< HEAD
 	private static final CentralizedThreadLocal<String>
 		_lastPasswordUnencrypted = new CentralizedThreadLocal<>(
 			BaseLDAPExportModelListener.class.getName() +
 				"._lastPasswordUnencrypted");
 
+=======
+>>>>>>> compatible
 }

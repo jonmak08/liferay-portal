@@ -14,6 +14,7 @@
 
 package com.liferay.portlet.announcements.service;
 
+<<<<<<< HEAD
 import com.liferay.announcements.kernel.exception.EntryDisplayDateException;
 import com.liferay.announcements.kernel.exception.EntryExpirationDateException;
 import com.liferay.announcements.kernel.model.AnnouncementsEntry;
@@ -21,11 +22,18 @@ import com.liferay.announcements.kernel.model.AnnouncementsFlagConstants;
 import com.liferay.announcements.kernel.service.AnnouncementsEntryLocalServiceUtil;
 import com.liferay.announcements.kernel.service.AnnouncementsFlagLocalServiceUtil;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
+=======
+import com.liferay.announcements.kernel.model.AnnouncementsEntry;
+import com.liferay.announcements.kernel.service.AnnouncementsEntryLocalServiceUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.Organization;
 import com.liferay.portal.kernel.model.Role;
 import com.liferay.portal.kernel.model.RoleConstants;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.User;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.UserGroup;
 import com.liferay.portal.kernel.service.ClassNameLocalServiceUtil;
 import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
@@ -33,11 +41,17 @@ import com.liferay.portal.kernel.service.OrganizationLocalServiceUtil;
 import com.liferay.portal.kernel.service.RoleLocalServiceUtil;
 import com.liferay.portal.kernel.service.UserGroupLocalServiceUtil;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.OrganizationTestUtil;
 import com.liferay.portal.kernel.test.util.RoleTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.test.util.UserGroupTestUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
@@ -46,6 +60,11 @@ import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+=======
+import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+
+>>>>>>> compatible
 import org.junit.Assert;
 import org.junit.ClassRule;
 import org.junit.Rule;
@@ -53,14 +72,25 @@ import org.junit.Test;
 
 /**
  * @author Christopher Kian
+<<<<<<< HEAD
  * @author Hugo Huijser
  */
+=======
+ */
+@Sync
+>>>>>>> compatible
 public class AnnouncementsEntryLocalServiceTest {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Test
 	public void testDeleteGroupAnnouncements() throws Exception {
@@ -151,6 +181,7 @@ public class AnnouncementsEntryLocalServiceTest {
 				entry.getEntryId()));
 	}
 
+<<<<<<< HEAD
 	@Test
 	public void testGetEntries() throws Exception {
 		Group group = GroupTestUtil.addGroup();
@@ -214,6 +245,16 @@ public class AnnouncementsEntryLocalServiceTest {
 			StringUtil.randomString(), StringUtil.randomString(),
 			"http://localhost", "general", displayDate, expirationDate, 1,
 			false);
+=======
+	protected AnnouncementsEntry addEntry(long classNameId, long classPK)
+		throws Exception {
+
+		return AnnouncementsEntryLocalServiceUtil.addEntry(
+			TestPropsValues.getUserId(), classNameId, classPK,
+			StringUtil.randomString(), StringUtil.randomString(),
+			"http://localhost", "general", 1, 1, 1990, 1, 1, false, 1, 1, 3000,
+			1, 1, 1, false);
+>>>>>>> compatible
 	}
 
 	protected void deleteRoleAnnouncements(int roleType) throws Exception {

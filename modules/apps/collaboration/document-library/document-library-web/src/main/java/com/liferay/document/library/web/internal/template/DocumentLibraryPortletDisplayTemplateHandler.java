@@ -15,13 +15,20 @@
 package com.liferay.document.library.web.internal.template;
 
 import com.liferay.document.library.configuration.DLConfiguration;
+<<<<<<< HEAD
 import com.liferay.document.library.constants.DLPortletKeys;
+=======
+>>>>>>> compatible
 import com.liferay.document.library.kernel.service.DLAppLocalService;
 import com.liferay.document.library.kernel.service.DLAppService;
 import com.liferay.document.library.kernel.service.DLFileEntryTypeLocalService;
 import com.liferay.document.library.kernel.service.DLFileEntryTypeService;
 import com.liferay.document.library.kernel.util.DLUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.document.library.web.constants.DLPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.log.Log;
@@ -32,6 +39,10 @@ import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.template.TemplateHandler;
 import com.liferay.portal.kernel.template.TemplateVariableGroup;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.util.HashMap;
 import java.util.List;
@@ -77,7 +88,11 @@ public class DocumentLibraryPortletDisplayTemplateHandler
 	@Override
 	public String getName(Locale locale) {
 		String portletTitle = _portal.getPortletTitle(
+<<<<<<< HEAD
 			DLPortletKeys.MEDIA_GALLERY_DISPLAY, locale);
+=======
+			DLPortletKeys.DOCUMENT_LIBRARY, locale);
+>>>>>>> compatible
 
 		return portletTitle.concat(StringPool.SPACE).concat(
 			LanguageUtil.get(locale, "template"));

@@ -3,6 +3,7 @@ AUI.add(
 	function(A) {
 		var FormRendererFieldType = A.Component.create(
 			{
+<<<<<<< HEAD
 				ATTRS: {
 					description: {
 						value: ''
@@ -12,6 +13,8 @@ AUI.add(
 					}
 				},
 
+=======
+>>>>>>> compatible
 				EXTENDS: A.FormBuilderFieldType,
 
 				NAME: 'liferay-ddm-form-renderer-type',

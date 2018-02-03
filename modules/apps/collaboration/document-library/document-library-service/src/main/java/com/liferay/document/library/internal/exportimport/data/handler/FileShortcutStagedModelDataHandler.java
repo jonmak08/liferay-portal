@@ -16,17 +16,27 @@ package com.liferay.document.library.internal.exportimport.data.handler;
 
 import com.liferay.document.library.kernel.model.DLFileShortcut;
 import com.liferay.document.library.kernel.model.DLFileShortcutConstants;
+<<<<<<< HEAD
 import com.liferay.document.library.kernel.model.DLFolder;
 import com.liferay.document.library.kernel.model.DLFolderConstants;
 import com.liferay.document.library.kernel.service.DLAppLocalService;
 import com.liferay.document.library.kernel.service.DLFileShortcutLocalService;
 import com.liferay.document.library.kernel.service.DLFolderLocalService;
 import com.liferay.exportimport.data.handler.base.BaseStagedModelDataHandler;
+=======
+import com.liferay.document.library.kernel.model.DLFolderConstants;
+import com.liferay.document.library.kernel.service.DLAppLocalService;
+import com.liferay.document.library.kernel.service.DLFileShortcutLocalService;
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.lar.ExportImportPathUtil;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.exportimport.kernel.lar.StagedModelDataHandler;
 import com.liferay.exportimport.kernel.lar.StagedModelDataHandlerUtil;
 import com.liferay.exportimport.kernel.lar.StagedModelModifiedDateComparator;
+<<<<<<< HEAD
+=======
+import com.liferay.exportimport.lar.BaseStagedModelDataHandler;
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
@@ -154,8 +164,12 @@ public class FileShortcutStagedModelDataHandler
 
 		portletDataContext.addClassedModel(
 			fileShortcutElement,
+<<<<<<< HEAD
 			ExportImportPathUtil.getModelPath(fileShortcut), fileShortcut,
 			DLFileShortcut.class);
+=======
+			ExportImportPathUtil.getModelPath(fileShortcut), fileShortcut);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -175,9 +189,15 @@ public class FileShortcutStagedModelDataHandler
 		long groupId = portletDataContext.getScopeGroupId();
 
 		if (folderId != DLFolderConstants.DEFAULT_PARENT_FOLDER_ID) {
+<<<<<<< HEAD
 			DLFolder dlFolder = _dlFolderLocalService.getFolder(folderId);
 
 			groupId = dlFolder.getRepositoryId();
+=======
+			Folder folder = FolderUtil.findByPrimaryKey(folderId);
+
+			groupId = folder.getRepositoryId();
+>>>>>>> compatible
 		}
 
 		Map<Long, Long> fileEntryIds =
@@ -202,7 +222,11 @@ public class FileShortcutStagedModelDataHandler
 		}
 
 		ServiceContext serviceContext = portletDataContext.createServiceContext(
+<<<<<<< HEAD
 			fileShortcut, DLFileShortcut.class);
+=======
+			fileShortcut);
+>>>>>>> compatible
 
 		FileShortcut importedFileShortcut = null;
 
@@ -232,7 +256,11 @@ public class FileShortcutStagedModelDataHandler
 		}
 
 		portletDataContext.importClassedModel(
+<<<<<<< HEAD
 			fileShortcut, importedFileShortcut, DLFileShortcut.class);
+=======
+			fileShortcut, importedFileShortcut);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -287,7 +315,10 @@ public class FileShortcutStagedModelDataHandler
 	private DLAppLocalService _dlAppLocalService;
 	private DLFileShortcutLocalService _dlFileShortcutLocalService;
 
+<<<<<<< HEAD
 	@Reference
 	private DLFolderLocalService _dlFolderLocalService;
 
+=======
+>>>>>>> compatible
 }

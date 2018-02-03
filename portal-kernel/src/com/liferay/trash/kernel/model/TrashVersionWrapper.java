@@ -34,11 +34,16 @@ import java.util.Objects;
  *
  * @author Brian Wing Shun Chan
  * @see TrashVersion
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, replaced by {@link
 com.liferay.trash.model.impl.TrashVersionImpl}
  * @generated
  */
 @Deprecated
+=======
+ * @generated
+ */
+>>>>>>> compatible
 @ProviderType
 public class TrashVersionWrapper implements TrashVersion,
 	ModelWrapper<TrashVersion> {
@@ -117,6 +122,7 @@ public class TrashVersionWrapper implements TrashVersion,
 	}
 
 	@Override
+<<<<<<< HEAD
 	public TrashVersion toEscapedModel() {
 		return new TrashVersionWrapper(_trashVersion.toEscapedModel());
 	}
@@ -174,16 +180,14 @@ public class TrashVersionWrapper implements TrashVersion,
 	@Override
 	public int hashCode() {
 		return _trashVersion.hashCode();
-	}
-
-	@Override
-	public Serializable getPrimaryKeyObj() {
-		return _trashVersion.getPrimaryKeyObj();
-	}
-
-	@Override
+=======
 	public java.lang.Object clone() {
 		return new TrashVersionWrapper((TrashVersion)_trashVersion.clone());
+	}
+
+	@Override
+	public int compareTo(TrashVersion trashVersion) {
+		return _trashVersion.compareTo(trashVersion);
 	}
 
 	/**
@@ -197,6 +201,93 @@ public class TrashVersionWrapper implements TrashVersion,
 	}
 
 	/**
+	* Returns the class name ID of this trash version.
+	*
+	* @return the class name ID of this trash version
+	*/
+	@Override
+	public long getClassNameId() {
+		return _trashVersion.getClassNameId();
+	}
+
+	/**
+	* Returns the class pk of this trash version.
+	*
+	* @return the class pk of this trash version
+	*/
+	@Override
+	public long getClassPK() {
+		return _trashVersion.getClassPK();
+	}
+
+	/**
+	* Returns the company ID of this trash version.
+	*
+	* @return the company ID of this trash version
+	*/
+	@Override
+	public long getCompanyId() {
+		return _trashVersion.getCompanyId();
+	}
+
+	/**
+	* Returns the entry ID of this trash version.
+	*
+	* @return the entry ID of this trash version
+	*/
+	@Override
+	public long getEntryId() {
+		return _trashVersion.getEntryId();
+	}
+
+	@Override
+	public ExpandoBridge getExpandoBridge() {
+		return _trashVersion.getExpandoBridge();
+	}
+
+	/**
+	* Returns the primary key of this trash version.
+	*
+	* @return the primary key of this trash version
+	*/
+	@Override
+	public long getPrimaryKey() {
+		return _trashVersion.getPrimaryKey();
+>>>>>>> compatible
+	}
+
+	@Override
+	public Serializable getPrimaryKeyObj() {
+		return _trashVersion.getPrimaryKeyObj();
+	}
+
+<<<<<<< HEAD
+	@Override
+	public java.lang.Object clone() {
+		return new TrashVersionWrapper((TrashVersion)_trashVersion.clone());
+	}
+
+	/**
+	* Returns the fully qualified class name of this trash version.
+	*
+	* @return the fully qualified class name of this trash version
+	*/
+	@Override
+	public java.lang.String getClassName() {
+		return _trashVersion.getClassName();
+=======
+	/**
+	* Returns the status of this trash version.
+	*
+	* @return the status of this trash version
+	*/
+	@Override
+	public int getStatus() {
+		return _trashVersion.getStatus();
+>>>>>>> compatible
+	}
+
+	/**
 	* Returns the type settings of this trash version.
 	*
 	* @return the type settings of this trash version
@@ -207,6 +298,14 @@ public class TrashVersionWrapper implements TrashVersion,
 	}
 
 	@Override
+<<<<<<< HEAD
+=======
+	public com.liferay.portal.kernel.util.UnicodeProperties getTypeSettingsProperties() {
+		return _trashVersion.getTypeSettingsProperties();
+	}
+
+	@Override
+>>>>>>> compatible
 	public java.lang.String getTypeSettingsProperty(java.lang.String key) {
 		return _trashVersion.getTypeSettingsProperty(key);
 	}
@@ -217,6 +316,7 @@ public class TrashVersionWrapper implements TrashVersion,
 		return _trashVersion.getTypeSettingsProperty(key, defaultValue);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public java.lang.String toString() {
 		return _trashVersion.toString();
@@ -285,6 +385,36 @@ public class TrashVersionWrapper implements TrashVersion,
 	@Override
 	public long getVersionId() {
 		return _trashVersion.getVersionId();
+=======
+	/**
+	* Returns the version ID of this trash version.
+	*
+	* @return the version ID of this trash version
+	*/
+	@Override
+	public long getVersionId() {
+		return _trashVersion.getVersionId();
+	}
+
+	@Override
+	public int hashCode() {
+		return _trashVersion.hashCode();
+	}
+
+	@Override
+	public boolean isCachedModel() {
+		return _trashVersion.isCachedModel();
+	}
+
+	@Override
+	public boolean isEscapedModel() {
+		return _trashVersion.isEscapedModel();
+	}
+
+	@Override
+	public boolean isNew() {
+		return _trashVersion.isNew();
+>>>>>>> compatible
 	}
 
 	@Override
@@ -343,17 +473,28 @@ public class TrashVersionWrapper implements TrashVersion,
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge) {
 		_trashVersion.setExpandoBridgeAttributes(expandoBridge);
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public void setExpandoBridgeAttributes(
 		com.liferay.portal.kernel.model.BaseModel<?> baseModel) {
 		_trashVersion.setExpandoBridgeAttributes(baseModel);
 	}
 
 	@Override
+<<<<<<< HEAD
+=======
+	public void setExpandoBridgeAttributes(ExpandoBridge expandoBridge) {
+		_trashVersion.setExpandoBridgeAttributes(expandoBridge);
+	}
+
+	@Override
+>>>>>>> compatible
 	public void setExpandoBridgeAttributes(ServiceContext serviceContext) {
 		_trashVersion.setExpandoBridgeAttributes(serviceContext);
 	}
@@ -415,6 +556,34 @@ public class TrashVersionWrapper implements TrashVersion,
 	}
 
 	@Override
+<<<<<<< HEAD
+=======
+	public com.liferay.portal.kernel.model.CacheModel<TrashVersion> toCacheModel() {
+		return _trashVersion.toCacheModel();
+	}
+
+	@Override
+	public TrashVersion toEscapedModel() {
+		return new TrashVersionWrapper(_trashVersion.toEscapedModel());
+	}
+
+	@Override
+	public java.lang.String toString() {
+		return _trashVersion.toString();
+	}
+
+	@Override
+	public TrashVersion toUnescapedModel() {
+		return new TrashVersionWrapper(_trashVersion.toUnescapedModel());
+	}
+
+	@Override
+	public java.lang.String toXmlString() {
+		return _trashVersion.toXmlString();
+	}
+
+	@Override
+>>>>>>> compatible
 	public boolean equals(Object obj) {
 		if (this == obj) {
 			return true;

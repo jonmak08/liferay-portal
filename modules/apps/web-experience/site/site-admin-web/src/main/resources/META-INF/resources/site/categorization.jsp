@@ -24,6 +24,7 @@ Group liveGroup = (Group)request.getAttribute("site.liveGroup");
 
 <aui:model-context bean="<%= liveGroup %>" model="<%= Group.class %>" />
 
+<<<<<<< HEAD
 <liferay-asset:asset-categories-error />
 
 <liferay-asset:asset-tags-error />
@@ -31,3 +32,12 @@ Group liveGroup = (Group)request.getAttribute("site.liveGroup");
 <liferay-asset:asset-categories-selector className="<%= Group.class.getName() %>" classPK="<%= (liveGroup != null) ? liveGroup.getGroupId() : 0 %>" />
 
 <liferay-asset:asset-tags-selector className="<%= Group.class.getName() %>" classPK="<%= (liveGroup != null) ? liveGroup.getGroupId() : 0 %>" />
+=======
+<liferay-ui:asset-categories-error />
+
+<liferay-ui:asset-tags-error />
+
+<aui:input name="categories" type="assetCategories" />
+
+<aui:input name="tags" type="assetTags" />
+>>>>>>> compatible

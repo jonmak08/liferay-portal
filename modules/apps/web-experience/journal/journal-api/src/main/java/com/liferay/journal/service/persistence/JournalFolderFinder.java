@@ -32,10 +32,13 @@ public interface JournalFolderFinder {
 		long folderId,
 		com.liferay.portal.kernel.dao.orm.QueryDefinition<?> queryDefinition);
 
+<<<<<<< HEAD
 	public java.util.List<java.lang.Object> filterFindF_A_ByG_F_L(
 		long groupId, long folderId, java.util.Locale locale,
 		com.liferay.portal.kernel.dao.orm.QueryDefinition<?> queryDefinition);
 
+=======
+>>>>>>> compatible
 	public java.util.List<java.lang.Object> findF_A_ByG_F(long groupId,
 		long folderId,
 		com.liferay.portal.kernel.dao.orm.QueryDefinition<?> queryDefinition);

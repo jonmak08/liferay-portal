@@ -62,6 +62,10 @@ import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.PortalUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StreamUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
@@ -114,8 +118,15 @@ public abstract class BaseKBPortlet extends MVCPortlet {
 			actionRequest, "resourcePrimKey");
 		String sourceFileName = uploadPortletRequest.getFileName("file");
 
+<<<<<<< HEAD
 		try (InputStream inputStream =
 				uploadPortletRequest.getFileAsStream("file")) {
+=======
+		InputStream inputStream = null;
+
+		try {
+			inputStream = uploadPortletRequest.getFileAsStream("file");
+>>>>>>> compatible
 
 			String mimeType = uploadPortletRequest.getContentType("file");
 
@@ -123,6 +134,12 @@ public abstract class BaseKBPortlet extends MVCPortlet {
 				themeDisplay.getScopeGroupId(), resourcePrimKey, sourceFileName,
 				KnowledgeBaseConstants.TEMP_FOLDER_NAME, inputStream, mimeType);
 		}
+<<<<<<< HEAD
+=======
+		finally {
+			StreamUtil.cleanUp(inputStream);
+		}
+>>>>>>> compatible
 	}
 
 	public void deleteKBArticle(

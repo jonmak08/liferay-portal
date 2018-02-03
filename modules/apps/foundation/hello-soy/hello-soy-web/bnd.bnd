@@ -1,10 +1,14 @@
 Bundle-Name: Liferay Hello Soy Web
 Bundle-SymbolicName: com.liferay.hello.soy.web
+<<<<<<< HEAD
 Bundle-Version: 1.0.15
 Provide-Capability:\
 	soy;\
 		type="hello-soy";\
 		version:Version="1.0.10"
+=======
+Bundle-Version: 1.0.12
+>>>>>>> compatible
 Require-Capability:\
 	soy;\
 		filter:="(type=metal)"

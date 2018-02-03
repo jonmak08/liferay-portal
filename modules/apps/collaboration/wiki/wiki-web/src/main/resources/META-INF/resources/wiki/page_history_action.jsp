@@ -30,7 +30,11 @@ else {
 %>
 
 <liferay-ui:icon-menu direction="left-side" icon="<%= StringPool.BLANK %>" markupView="lexicon" message="<%= StringPool.BLANK %>" showWhenSingleIcon="<%= true %>">
+<<<<<<< HEAD
 	<c:if test="<%= (wikiPage.getStatus() == WorkflowConstants.STATUS_APPROVED) && WikiPagePermission.contains(permissionChecker, wikiPage, ActionKeys.UPDATE) %>">
+=======
+	<c:if test="<%= (wikiPage.getStatus() == WorkflowConstants.STATUS_APPROVED) && WikiPagePermissionChecker.contains(permissionChecker, wikiPage, ActionKeys.UPDATE) %>">
+>>>>>>> compatible
 		<portlet:actionURL name="/wiki/edit_page" var="revertURL">
 			<portlet:param name="<%= Constants.CMD %>" value="<%= Constants.REVERT %>" />
 			<portlet:param name="redirect" value="<%= currentURL %>" />

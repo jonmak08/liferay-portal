@@ -15,20 +15,35 @@
 package com.liferay.message.boards.lar.test;
 
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
+<<<<<<< HEAD
 import com.liferay.exportimport.kernel.lar.DataLevel;
 import com.liferay.exportimport.kernel.lar.ManifestSummary;
 import com.liferay.exportimport.kernel.lar.StagedModelType;
 import com.liferay.message.boards.constants.MBPortletKeys;
+=======
+import com.liferay.exportimport.kernel.lar.ManifestSummary;
+import com.liferay.exportimport.kernel.lar.StagedModelType;
+>>>>>>> compatible
 import com.liferay.message.boards.kernel.model.MBCategory;
 import com.liferay.message.boards.kernel.model.MBCategoryConstants;
 import com.liferay.message.boards.kernel.model.MBMessage;
 import com.liferay.message.boards.kernel.model.MBThread;
+<<<<<<< HEAD
 import com.liferay.message.boards.kernel.service.MBCategoryLocalServiceUtil;
 import com.liferay.message.boards.kernel.service.MBCategoryServiceUtil;
 import com.liferay.message.boards.kernel.service.MBMessageLocalServiceUtil;
 import com.liferay.message.boards.service.MBBanLocalServiceUtil;
 import com.liferay.message.boards.service.MBThreadFlagLocalServiceUtil;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.message.boards.kernel.service.MBBanLocalServiceUtil;
+import com.liferay.message.boards.kernel.service.MBCategoryLocalServiceUtil;
+import com.liferay.message.boards.kernel.service.MBCategoryServiceUtil;
+import com.liferay.message.boards.kernel.service.MBMessageLocalServiceUtil;
+import com.liferay.message.boards.kernel.service.MBThreadFlagLocalServiceUtil;
+import com.liferay.message.boards.web.constants.MBPortletKeys;
+import com.liferay.message.boards.web.exportimport.data.handler.MBPortletDataHandler;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
@@ -40,6 +55,10 @@ import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.test.util.UserTestUtil;
 import com.liferay.portal.kernel.util.LongWrapper;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.lar.test.BasePortletDataHandlerTestCase;
 import com.liferay.portal.service.test.ServiceTestUtil;
@@ -110,10 +129,19 @@ public class MBPortletDataHandlerTest extends BasePortletDataHandlerTestCase {
 
 	@Override
 	protected void addParameters(Map<String, String[]> parameterMap) {
+<<<<<<< HEAD
 		addBooleanParameter(parameterMap, "message_boards", "messages", true);
 		addBooleanParameter(
 			parameterMap, "message_boards", "thread-flags", true);
 		addBooleanParameter(parameterMap, "message_boards", "user-bans", true);
+=======
+		addBooleanParameter(
+			parameterMap, MBPortletDataHandler.NAMESPACE, "messages", true);
+		addBooleanParameter(
+			parameterMap, MBPortletDataHandler.NAMESPACE, "thread-flags", true);
+		addBooleanParameter(
+			parameterMap, MBPortletDataHandler.NAMESPACE, "user-bans", true);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -170,15 +198,19 @@ public class MBPortletDataHandlerTest extends BasePortletDataHandlerTestCase {
 	}
 
 	@Override
+<<<<<<< HEAD
 	protected DataLevel getDataLevel() {
 		return DataLevel.SITE;
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	protected String getPortletId() {
 		return MBPortletKeys.MESSAGE_BOARDS;
 	}
 
+<<<<<<< HEAD
 	@Override
 	protected boolean isDataPortalLevel() {
 		return false;
@@ -194,4 +226,6 @@ public class MBPortletDataHandlerTest extends BasePortletDataHandlerTestCase {
 		return true;
 	}
 
+=======
+>>>>>>> compatible
 }

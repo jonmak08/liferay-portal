@@ -19,6 +19,7 @@ support the Translator Text Translation API on Microsoft Cognitive Services.
 - [LPS-74250]: Add the property `excludedLanguageIds` in `BuildLangTask` to
 configure which language IDs to exclude in the automatic translation.
 
+<<<<<<< HEAD
 ## 2.1.1 - 2017-11-08
 
 ### Changed
@@ -65,3 +66,8 @@ configure which language IDs to exclude in the automatic translation.
 [LPS-73725]: https://issues.liferay.com/browse/LPS-73725
 [LPS-74250]: https://issues.liferay.com/browse/LPS-74250
 [LPS-76221]: https://issues.liferay.com/browse/LPS-76221
+=======
+[LPS-67573]: https://issues.liferay.com/browse/LPS-67573
+[LPS-71375]: https://issues.liferay.com/browse/LPS-71375
+[LPS-74250]: https://issues.liferay.com/browse/LPS-74250
+>>>>>>> compatible

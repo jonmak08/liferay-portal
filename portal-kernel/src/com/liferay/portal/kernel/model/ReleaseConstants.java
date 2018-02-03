@@ -14,8 +14,11 @@
 
 package com.liferay.portal.kernel.model;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
 
+=======
+>>>>>>> compatible
 /**
  * @author Alexander Chow
  */
@@ -31,9 +34,17 @@ public class ReleaseConstants {
 
 	public static final int STATE_VERIFY_FAILURE = 2;
 
+<<<<<<< HEAD
 	public static final String TEST_STRING = StringBundler.concat(
 		"You take the blue pill, the story ends, you wake up in your bed and ",
 		"believe whatever you want to believe. You take the red pill, you ",
 		"stay in Wonderland, and I show you how deep the rabbit hole goes.");
+=======
+	public static final String TEST_STRING =
+		"You take the blue pill, the story ends, you wake up in your bed and " +
+			"believe whatever you want to believe. You take the red pill, " +
+				"you stay in Wonderland, and I show you how deep the rabbit " +
+					"hole goes.";
+>>>>>>> compatible
 
 }

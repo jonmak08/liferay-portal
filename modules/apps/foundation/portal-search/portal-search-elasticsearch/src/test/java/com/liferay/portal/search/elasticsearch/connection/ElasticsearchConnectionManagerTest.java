@@ -136,7 +136,10 @@ public class ElasticsearchConnectionManagerTest {
 			String message = mome.getMessage();
 
 			Assert.assertTrue(
+<<<<<<< HEAD
 				message,
+=======
+>>>>>>> compatible
 				message.contains(String.valueOf(OperationMode.REMOTE)));
 		}
 

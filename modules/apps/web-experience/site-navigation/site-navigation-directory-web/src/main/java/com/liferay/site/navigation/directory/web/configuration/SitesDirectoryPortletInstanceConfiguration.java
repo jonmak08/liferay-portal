@@ -32,10 +32,17 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
 )
 public interface SitesDirectoryPortletInstanceConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(deflt = "descriptive", name = "display-style", required = false)
 	public String displayStyle();
 
 	@Meta.AD(deflt = "top-level", name = "sites", required = false)
+=======
+	@Meta.AD(deflt = "descriptive", required = false)
+	public String displayStyle();
+
+	@Meta.AD(deflt = "top-level", required = false)
+>>>>>>> compatible
 	public String sites();
 
 }

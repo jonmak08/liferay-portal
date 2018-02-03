@@ -6,12 +6,15 @@
 	<short-name>liferay-trash</short-name>
 	<uri>http://liferay.com/tld/trash</uri>
 	<tag>
+<<<<<<< HEAD
 		<name>defineObjects</name>
 		<tag-class>com.liferay.trash.taglib.servlet.taglib.DefineObjectsTag</tag-class>
 		<tei-class>com.liferay.trash.taglib.servlet.taglib.DefineObjectsTei</tei-class>
 		<body-content>empty</body-content>
 	</tag>
 	<tag>
+=======
+>>>>>>> compatible
 		<description>Creates a component for users to permanently delete items such as images, articles, etc. from the recycle bin.</description>
 		<name>empty</name>
 		<tag-class>com.liferay.trash.taglib.servlet.taglib.EmptyTag</tag-class>

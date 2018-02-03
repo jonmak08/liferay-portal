@@ -16,13 +16,12 @@ package com.liferay.portal.search.solr.filter;
 
 import com.liferay.portal.kernel.search.filter.MissingFilter;
 
-import org.apache.lucene.search.Query;
-
 /**
  * @author Michael C. Han
  */
 public interface MissingFilterTranslator {
 
-	public Query translate(MissingFilter missingFilter);
+	public org.apache.lucene.search.Query translate(
+		MissingFilter missingFilter);
 
 }

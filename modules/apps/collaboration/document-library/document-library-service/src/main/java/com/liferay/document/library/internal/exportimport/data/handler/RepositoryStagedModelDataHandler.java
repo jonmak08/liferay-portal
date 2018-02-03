@@ -17,12 +17,19 @@ package com.liferay.document.library.internal.exportimport.data.handler;
 import com.liferay.document.library.kernel.model.DLFolder;
 import com.liferay.document.library.kernel.model.DLFolderConstants;
 import com.liferay.document.library.kernel.service.DLAppLocalService;
+<<<<<<< HEAD
 import com.liferay.exportimport.data.handler.base.BaseStagedModelDataHandler;
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.lar.ExportImportPathUtil;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.exportimport.kernel.lar.StagedModelDataHandler;
 import com.liferay.exportimport.kernel.lar.StagedModelDataHandlerUtil;
 import com.liferay.exportimport.kernel.lar.StagedModelModifiedDateComparator;
+<<<<<<< HEAD
+=======
+import com.liferay.exportimport.lar.BaseStagedModelDataHandler;
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
@@ -30,13 +37,19 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Repository;
 import com.liferay.portal.kernel.model.RepositoryEntry;
 import com.liferay.portal.kernel.repository.model.Folder;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.service.ClassNameLocalService;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.RepositoryEntryLocalService;
 import com.liferay.portal.kernel.service.RepositoryLocalService;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.util.GetterUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.Validator;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.xml.Element;
 
 import java.util.List;
@@ -117,9 +130,12 @@ public class RepositoryStagedModelDataHandler
 				"hidden", String.valueOf(dlFolder.isHidden()));
 		}
 
+<<<<<<< HEAD
 		repositoryElement.addAttribute(
 			"repositoryClassName", repository.getClassName());
 
+=======
+>>>>>>> compatible
 		portletDataContext.addClassedModel(
 			repositoryElement, ExportImportPathUtil.getModelPath(repository),
 			repository);
@@ -154,6 +170,7 @@ public class RepositoryStagedModelDataHandler
 			boolean hidden = GetterUtil.getBoolean(
 				repositoryElement.attributeValue("hidden"));
 
+<<<<<<< HEAD
 			Repository existingRepository = fetchStagedModelByUuidAndGroupId(
 				repository.getUuid(), portletDataContext.getScopeGroupId());
 
@@ -172,6 +189,27 @@ public class RepositoryStagedModelDataHandler
 					importedRepository = _repositoryLocalService.addRepository(
 						userId, portletDataContext.getScopeGroupId(),
 						repositoryClassNameId,
+=======
+			if (portletDataContext.isDataStrategyMirror()) {
+				Repository existingRepository =
+					fetchStagedModelByUuidAndGroupId(
+						repository.getUuid(),
+						portletDataContext.getScopeGroupId());
+
+				if (existingRepository == null) {
+					existingRepository =
+						_repositoryLocalService.fetchRepository(
+							portletDataContext.getScopeGroupId(),
+							repository.getName());
+				}
+
+				if (existingRepository == null) {
+					serviceContext.setUuid(repository.getUuid());
+
+					importedRepository = _repositoryLocalService.addRepository(
+						userId, portletDataContext.getScopeGroupId(),
+						repository.getClassNameId(),
+>>>>>>> compatible
 						DLFolderConstants.DEFAULT_PARENT_FOLDER_ID,
 						repository.getName(), repository.getDescription(),
 						repository.getPortletId(),
@@ -186,6 +224,7 @@ public class RepositoryStagedModelDataHandler
 					importedRepository = existingRepository;
 				}
 			}
+<<<<<<< HEAD
 			else if (existingRepository == null) {
 				long repositoryClassNameId = _getRepositoryClassNameId(
 					repositoryElement, repository.getClassNameId());
@@ -193,24 +232,39 @@ public class RepositoryStagedModelDataHandler
 				importedRepository = _repositoryLocalService.addRepository(
 					userId, portletDataContext.getScopeGroupId(),
 					repositoryClassNameId,
+=======
+			else {
+				importedRepository = _repositoryLocalService.addRepository(
+					userId, portletDataContext.getScopeGroupId(),
+					repository.getClassNameId(),
+>>>>>>> compatible
 					DLFolderConstants.DEFAULT_PARENT_FOLDER_ID,
 					repository.getName(), repository.getDescription(),
 					repository.getPortletId(),
 					repository.getTypeSettingsProperties(), hidden,
 					serviceContext);
 			}
+<<<<<<< HEAD
 			else {
 				importedRepository = existingRepository;
 			}
+=======
+>>>>>>> compatible
 		}
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
 				_log.warn(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Unable to connect to repository {name=",
 						repository.getName(), ", typeSettings=",
 						String.valueOf(repository.getTypeSettingsProperties()),
 						"}"),
+=======
+					"Unable to connect to repository {name=" +
+						repository.getName() + ", typeSettings=" +
+							repository.getTypeSettingsProperties() + "}",
+>>>>>>> compatible
 					e);
 			}
 		}
@@ -226,6 +280,7 @@ public class RepositoryStagedModelDataHandler
 		PortletDataContext portletDataContext, Repository stagedModel) {
 	}
 
+<<<<<<< HEAD
 	private long _getRepositoryClassNameId(
 		Element repositoryElement, long defaultValue) {
 
@@ -237,11 +292,31 @@ public class RepositoryStagedModelDataHandler
 		}
 
 		return _classNameLocalService.getClassNameId(repositoryClassName);
+=======
+	@Reference(unbind = "-")
+	protected void setDLAppLocalService(DLAppLocalService dlAppLocalService) {
+		_dlAppLocalService = dlAppLocalService;
+	}
+
+	@Reference(unbind = "-")
+	protected void setRepositoryEntryLocalService(
+		RepositoryEntryLocalService repositoryEntryLocalService) {
+
+		_repositoryEntryLocalService = repositoryEntryLocalService;
+	}
+
+	@Reference(unbind = "-")
+	protected void setRepositoryLocalService(
+		RepositoryLocalService repositoryLocalService) {
+
+		_repositoryLocalService = repositoryLocalService;
+>>>>>>> compatible
 	}
 
 	private static final Log _log = LogFactoryUtil.getLog(
 		RepositoryStagedModelDataHandler.class);
 
+<<<<<<< HEAD
 	@Reference
 	private ClassNameLocalService _classNameLocalService;
 
@@ -252,6 +327,10 @@ public class RepositoryStagedModelDataHandler
 	private RepositoryEntryLocalService _repositoryEntryLocalService;
 
 	@Reference
+=======
+	private DLAppLocalService _dlAppLocalService;
+	private RepositoryEntryLocalService _repositoryEntryLocalService;
+>>>>>>> compatible
 	private RepositoryLocalService _repositoryLocalService;
 
 }

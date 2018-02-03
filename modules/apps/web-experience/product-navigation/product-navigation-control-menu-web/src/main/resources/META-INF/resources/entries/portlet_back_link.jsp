@@ -21,7 +21,11 @@ String portletBackURL = (String)request.getAttribute(ProductNavigationControlMen
 %>
 
 <li class="control-menu-nav-item">
+<<<<<<< HEAD
 	<a class="back-url-link control-menu-icon" href="<%= HtmlUtil.escapeHREF(portletBackURL) %>">
+=======
+	<a class="control-menu-icon" href="<%= HtmlUtil.escapeHREF(portletBackURL) %>">
+>>>>>>> compatible
 		<aui:icon cssClass="icon-monospaced" image="angle-left" markupView="lexicon" />
 	</a>
 </li>

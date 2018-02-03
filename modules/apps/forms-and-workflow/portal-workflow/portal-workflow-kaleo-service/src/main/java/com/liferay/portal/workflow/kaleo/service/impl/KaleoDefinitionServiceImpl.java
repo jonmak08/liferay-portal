@@ -20,6 +20,7 @@ import com.liferay.portal.workflow.kaleo.service.base.KaleoDefinitionServiceBase
 import java.util.List;
 
 /**
+<<<<<<< HEAD
  * @author     Brian Wing Shun Chan
  * @deprecated As of 2.0.0, with no direct replacement
  */
@@ -30,15 +31,24 @@ public class KaleoDefinitionServiceImpl extends KaleoDefinitionServiceBaseImpl {
 	 * @deprecated As of 2.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+ * @author Brian Wing Shun Chan
+ */
+public class KaleoDefinitionServiceImpl extends KaleoDefinitionServiceBaseImpl {
+
+>>>>>>> compatible
 	@Override
 	public List<KaleoDefinition> getKaleoDefinitions(int start, int end) {
 		return kaleoDefinitionPersistence.findAll(start, end);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 2.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	@Override
 	public List<KaleoDefinition> getKaleoDefinitions(
 		long companyId, int start, int end) {

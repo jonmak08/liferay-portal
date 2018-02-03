@@ -85,9 +85,13 @@ public class PortletStatistics
 			PortletRequestDataSample portletRequestDataSample)
 		throws MonitoringException {
 
+<<<<<<< HEAD
 		String portletId = portletRequestDataSample.getPortletId();
 
 		if (!portletId.equals(_portletId)) {
+=======
+		if (!portletRequestDataSample.getPortletId().equals(_portletId)) {
+>>>>>>> compatible
 			return;
 		}
 

@@ -1,10 +1,19 @@
 Bundle-Name: ${manifest.bundle.name}
 Bundle-SymbolicName: ${manifest.bundle.symbolic.name}
+<<<<<<< HEAD
 Bundle-Version: 2.27.2
+=======
+Bundle-Version: 2.21.0
+>>>>>>> compatible
 Export-Package:\
 	com.liferay.portal.bean,\
 	com.liferay.portal.cache.thread.local,\
 	com.liferay.portal.cluster,\
+<<<<<<< HEAD
+=======
+	com.liferay.portal.convert.database,\
+	com.liferay.portal.convert.util,\
+>>>>>>> compatible
 	com.liferay.portal.dao.jdbc.aop,\
 	com.liferay.portal.dao.orm.hibernate,\
 	com.liferay.portal.deploy.hot,\
@@ -21,7 +30,10 @@ Export-Package:\
 	com.liferay.portal.security.lang,\
 	com.liferay.portal.service.http,\
 	com.liferay.portal.service.permission,\
+<<<<<<< HEAD
 	com.liferay.portal.service.persistence.constants,\
+=======
+>>>>>>> compatible
 	com.liferay.portal.servlet,\
 	com.liferay.portal.servlet.filters.authverifier,\
 	com.liferay.portal.spring.aop,\
@@ -83,5 +95,9 @@ Include-Resource:\
 	@../tmp/lib-pre/com.liferay.portal.impl.message.boards.compat.jar,\
 	@../tmp/lib-pre/com.liferay.portal.impl.trash.compat.jar
 Private-Package: com.liferay.*.dependencies
+<<<<<<< HEAD
 -baseline: *;file=${project.dir}/.bnd/ant-baseline-cache/com.liferay.portal.impl-2.27.0.jar
+=======
+-baseline: *;file=${project.dir}/.bnd/ant-baseline-cache/com.liferay.portal.impl-2.20.0.jar
+>>>>>>> compatible
 -donotcopy: (log4j\.properties|logging\.properties|portal-.*\.properties|system-.*\.properties|\.touch)

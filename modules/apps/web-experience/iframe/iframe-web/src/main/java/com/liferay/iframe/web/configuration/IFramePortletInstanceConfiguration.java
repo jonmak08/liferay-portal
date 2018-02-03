@@ -86,6 +86,7 @@ public interface IFramePortletInstanceConfiguration {
 	@Meta.AD(deflt = "100%", name = "width", required = false)
 	public String width();
 
+<<<<<<< HEAD
 	@Meta.AD(name = "alt", required = false)
 	public String alt();
 
@@ -111,6 +112,33 @@ public interface IFramePortletInstanceConfiguration {
 	public String title();
 
 	@Meta.AD(deflt = "0", name = "vspace", required = false)
+=======
+	@Meta.AD(required = false)
+	public String alt();
+
+	@Meta.AD(deflt = "0", required = false)
+	public String border();
+
+	@Meta.AD(deflt = "#000000", required = false)
+	public String bordercolor();
+
+	@Meta.AD(deflt = "0", required = false)
+	public String frameborder();
+
+	@Meta.AD(deflt = "0", required = false)
+	public String hspace();
+
+	@Meta.AD(required = false)
+	public String longdesc();
+
+	@Meta.AD(deflt = "auto", required = false)
+	public String scrolling();
+
+	@Meta.AD(required = false)
+	public String title();
+
+	@Meta.AD(deflt = "0", required = false)
+>>>>>>> compatible
 	public String vspace();
 
 }

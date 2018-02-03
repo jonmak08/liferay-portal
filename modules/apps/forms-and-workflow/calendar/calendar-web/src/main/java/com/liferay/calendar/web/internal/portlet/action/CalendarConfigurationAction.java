@@ -75,6 +75,7 @@ public class CalendarConfigurationAction extends DefaultConfigurationAction {
 
 		PortletPreferences portletPreferences = actionRequest.getPreferences();
 
+<<<<<<< HEAD
 		boolean displaySchedulerHeader = ParamUtil.getBoolean(
 			actionRequest, "displaySchedulerHeader");
 		boolean displaySchedulerOnly = ParamUtil.getBoolean(
@@ -85,6 +86,18 @@ public class CalendarConfigurationAction extends DefaultConfigurationAction {
 			actionRequest, "maxDaysDisplayed");
 		boolean showUserEvents = ParamUtil.getBoolean(
 			actionRequest, "showUserEvents");
+=======
+		boolean displaySchedulerOnly = ParamUtil.getBoolean(
+			actionRequest, "displaySchedulerOnly");
+		boolean showUserEvents = ParamUtil.getBoolean(
+			actionRequest, "showUserEvents");
+
+		portletPreferences.setValue(
+			"displaySchedulerOnly", String.valueOf(displaySchedulerOnly));
+		portletPreferences.setValue(
+			"showUserEvents", String.valueOf(showUserEvents));
+
+>>>>>>> compatible
 		boolean showAgendaView = ParamUtil.getBoolean(
 			actionRequest, "showAgendaView");
 		boolean showDayView = ParamUtil.getBoolean(
@@ -95,6 +108,7 @@ public class CalendarConfigurationAction extends DefaultConfigurationAction {
 			actionRequest, "showMonthView");
 
 		portletPreferences.setValue(
+<<<<<<< HEAD
 			"displaySchedulerHeader", String.valueOf(displaySchedulerHeader));
 		portletPreferences.setValue(
 			"displaySchedulerOnly", String.valueOf(displaySchedulerOnly));
@@ -103,14 +117,19 @@ public class CalendarConfigurationAction extends DefaultConfigurationAction {
 		portletPreferences.setValue(
 			"maxDaysDisplayed", String.valueOf(maxDaysDisplayed));
 		portletPreferences.setValue(
+=======
+>>>>>>> compatible
 			"showAgendaView", String.valueOf(showAgendaView));
 		portletPreferences.setValue("showDayView", String.valueOf(showDayView));
 		portletPreferences.setValue(
 			"showWeekView", String.valueOf(showWeekView));
 		portletPreferences.setValue(
 			"showMonthView", String.valueOf(showMonthView));
+<<<<<<< HEAD
 		portletPreferences.setValue(
 			"showUserEvents", String.valueOf(showUserEvents));
+=======
+>>>>>>> compatible
 
 		portletPreferences.store();
 	}

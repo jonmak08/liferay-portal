@@ -45,7 +45,11 @@ renderResponse.setTitle(assetTagsDisplayContext.getAssetTitle());
 		%>
 
 		<c:if test="<%= ate.getType() == AssetTagException.INVALID_CHARACTER %>">
+<<<<<<< HEAD
 			<liferay-ui:message arguments='<%= new String[] {"tag-name", StringUtil.merge(AssetHelper.INVALID_CHARACTERS, StringPool.SPACE)} %>' key="the-x-cannot-contain-the-following-invalid-characters-x" />
+=======
+			<liferay-ui:message arguments='<%= new String[] {"tag-name", StringUtil.merge(AssetUtil.INVALID_CHARACTERS, StringPool.SPACE)} %>' key="the-x-cannot-contain-the-following-invalid-characters-x" />
+>>>>>>> compatible
 		</c:if>
 	</liferay-ui:error>
 
@@ -62,8 +66,14 @@ renderResponse.setTitle(assetTagsDisplayContext.getAssetTitle());
 	</aui:fieldset-group>
 
 	<aui:button-row>
+<<<<<<< HEAD
 		<aui:button type="submit" />
 
 		<aui:button href="<%= redirect %>" type="cancel" />
+=======
+		<aui:button cssClass="btn-lg" type="submit" />
+
+		<aui:button cssClass="btn-lg" href="<%= redirect %>" type="cancel" />
+>>>>>>> compatible
 	</aui:button-row>
 </aui:form>

@@ -18,6 +18,7 @@ import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
 import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.dao.db.DBManagerUtil;
 import com.liferay.portal.kernel.dao.db.DBType;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.BaseModelListener;
 import com.liferay.portal.kernel.model.ModelListener;
@@ -25,6 +26,8 @@ import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.lock.exception.DuplicateLockException;
+=======
+>>>>>>> compatible
 import com.liferay.portal.lock.model.Lock;
 import com.liferay.portal.lock.service.LockLocalServiceUtil;
 import com.liferay.portal.test.rule.ExpectedDBType;
@@ -36,6 +39,7 @@ import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import java.sql.BatchUpdateException;
 
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -48,6 +52,15 @@ import java.util.concurrent.FutureTask;
 import java.util.concurrent.TimeUnit;
 
 import org.hibernate.exception.ConstraintViolationException;
+=======
+import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+
+>>>>>>> compatible
 import org.hibernate.exception.GenericJDBCException;
 import org.hibernate.util.JDBCExceptionReporter;
 
@@ -58,11 +71,14 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+<<<<<<< HEAD
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.FrameworkUtil;
 import org.osgi.framework.ServiceRegistration;
 
+=======
+>>>>>>> compatible
 /**
  * @author Shuyang Zhou
  */
@@ -140,6 +156,7 @@ public class LockLocalServiceTest {
 		level = "ERROR", loggerClass = JDBCExceptionReporter.class
 	)
 	@Test
+<<<<<<< HEAD
 	public void testLock() throws Exception {
 		final long userId = TestPropsValues.getUserId();
 
@@ -335,6 +352,8 @@ public class LockLocalServiceTest {
 		level = "ERROR", loggerClass = JDBCExceptionReporter.class
 	)
 	@Test
+=======
+>>>>>>> compatible
 	public void testMutualExcludeLockingParallel() throws Exception {
 		ExecutorService executorService = Executors.newFixedThreadPool(10);
 

@@ -14,7 +14,11 @@
 
 package com.liferay.portal.kernel.backgroundtask;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
+=======
+import com.liferay.portal.kernel.util.AutoResetThreadLocal;
+>>>>>>> compatible
 
 /**
  * @author Michael C. Han
@@ -42,7 +46,11 @@ public class BackgroundTaskThreadLocal {
 	}
 
 	private static final ThreadLocal<Long> _backgroundTaskId =
+<<<<<<< HEAD
 		new CentralizedThreadLocal<>(
+=======
+		new AutoResetThreadLocal<>(
+>>>>>>> compatible
 			BackgroundTaskThreadLocal.class + "._backgroundTaskId", () -> 0L);
 
 }

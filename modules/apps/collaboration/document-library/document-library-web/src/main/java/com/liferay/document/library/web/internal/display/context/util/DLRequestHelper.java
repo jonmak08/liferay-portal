@@ -14,7 +14,11 @@
 
 package com.liferay.document.library.web.internal.display.context.util;
 
+<<<<<<< HEAD
 import com.liferay.document.library.web.internal.constants.DLWebKeys;
+=======
+import com.liferay.document.library.web.constants.DLWebKeys;
+>>>>>>> compatible
 import com.liferay.document.library.web.internal.settings.DLPortletInstanceSettings;
 import com.liferay.portal.kernel.display.context.util.BaseRequestHelper;
 import com.liferay.portal.kernel.exception.PortalException;

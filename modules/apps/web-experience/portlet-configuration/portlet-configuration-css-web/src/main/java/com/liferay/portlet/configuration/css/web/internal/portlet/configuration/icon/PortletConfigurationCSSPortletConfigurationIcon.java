@@ -14,15 +14,23 @@
 
 package com.liferay.portlet.configuration.css.web.internal.portlet.configuration.icon;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.portlet.LiferayWindowState;
+=======
+import com.liferay.portal.kernel.language.LanguageUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.PortletURLFactoryUtil;
 import com.liferay.portal.kernel.portlet.configuration.icon.BasePortletConfigurationIcon;
 import com.liferay.portal.kernel.portlet.configuration.icon.PortletConfigurationIcon;
 import com.liferay.portal.kernel.theme.PortletDisplay;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringBundler;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portlet.configuration.css.web.internal.constants.PortletConfigurationCSSPortletKeys;
 
@@ -42,6 +50,14 @@ public class PortletConfigurationCSSPortletConfigurationIcon
 	extends BasePortletConfigurationIcon {
 
 	@Override
+<<<<<<< HEAD
+=======
+	public String getCssClass() {
+		return "lfr-js-required portlet-css portlet-css-icon";
+	}
+
+	@Override
+>>>>>>> compatible
 	public String getMessage(PortletRequest portletRequest) {
 		ResourceBundle resourceBundle = ResourceBundleUtil.getBundle(
 			"content.Language", getLocale(portletRequest), getClass());
@@ -50,6 +66,7 @@ public class PortletConfigurationCSSPortletConfigurationIcon
 	}
 
 	@Override
+<<<<<<< HEAD
 	public String getURL(
 		PortletRequest portletRequest, PortletResponse portletResponse) {
 
@@ -77,6 +94,58 @@ public class PortletConfigurationCSSPortletConfigurationIcon
 		}
 
 		return StringPool.BLANK;
+=======
+	public String getOnClick(
+		PortletRequest portletRequest, PortletResponse portletResponse) {
+
+		ThemeDisplay themeDisplay = (ThemeDisplay)portletRequest.getAttribute(
+			WebKeys.THEME_DISPLAY);
+
+		PortletURL baseActionURL = PortletURLFactoryUtil.create(
+			portletRequest,
+			PortletConfigurationCSSPortletKeys.PORTLET_CONFIGURATION_CSS,
+			PortletRequest.ACTION_PHASE);
+
+		PortletURL baseRenderURL = PortletURLFactoryUtil.create(
+			portletRequest,
+			PortletConfigurationCSSPortletKeys.PORTLET_CONFIGURATION_CSS,
+			PortletRequest.RENDER_PHASE);
+
+		PortletURL baseResourceURL = PortletURLFactoryUtil.create(
+			portletRequest,
+			PortletConfigurationCSSPortletKeys.PORTLET_CONFIGURATION_CSS,
+			PortletRequest.RESOURCE_PHASE);
+
+		StringBundler sb = new StringBundler(9);
+
+		sb.append("Liferay.Portlet.loadCSSEditor('");
+
+		PortletDisplay portletDisplay = themeDisplay.getPortletDisplay();
+
+		sb.append(portletDisplay.getId());
+
+		sb.append("', '");
+		sb.append(baseActionURL);
+		sb.append("', '");
+		sb.append(baseRenderURL);
+		sb.append("', '");
+		sb.append(baseResourceURL);
+		sb.append("'); return false;");
+
+		return sb.toString();
+	}
+
+	@Override
+	public String getURL(
+		PortletRequest portletRequest, PortletResponse portletResponse) {
+
+		ThemeDisplay themeDisplay = (ThemeDisplay)portletRequest.getAttribute(
+			WebKeys.THEME_DISPLAY);
+
+		PortletDisplay portletDisplay = themeDisplay.getPortletDisplay();
+
+		return portletDisplay.getURLPortletCss();
+>>>>>>> compatible
 	}
 
 	@Override
@@ -99,9 +168,12 @@ public class PortletConfigurationCSSPortletConfigurationIcon
 		return false;
 	}
 
+<<<<<<< HEAD
 	@Override
 	public boolean isUseDialog() {
 		return true;
 	}
 
+=======
+>>>>>>> compatible
 }

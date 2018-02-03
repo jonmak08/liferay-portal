@@ -75,8 +75,11 @@ public class SyncFile extends StateAwareModel {
 
 	public static final int UI_EVENT_DELETED_REMOTE = 4;
 
+<<<<<<< HEAD
 	public static final int UI_EVENT_DOWNLOAD_EXCEPTION = 29;
 
+=======
+>>>>>>> compatible
 	public static final int UI_EVENT_DOWNLOADED_NEW = 5;
 
 	public static final int UI_EVENT_DOWNLOADED_UPDATE = 6;

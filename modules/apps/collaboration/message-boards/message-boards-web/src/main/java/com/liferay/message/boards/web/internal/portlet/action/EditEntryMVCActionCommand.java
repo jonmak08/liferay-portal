@@ -14,12 +14,19 @@
 
 package com.liferay.message.boards.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.message.boards.constants.MBPortletKeys;
+=======
+>>>>>>> compatible
 import com.liferay.message.boards.kernel.exception.LockedThreadException;
 import com.liferay.message.boards.kernel.model.MBCategory;
 import com.liferay.message.boards.kernel.model.MBThread;
 import com.liferay.message.boards.kernel.service.MBCategoryService;
 import com.liferay.message.boards.kernel.service.MBThreadService;
+<<<<<<< HEAD
+=======
+import com.liferay.message.boards.web.constants.MBPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.TrashedModel;
 import com.liferay.portal.kernel.portlet.bridges.mvc.BaseMVCActionCommand;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCActionCommand;
@@ -29,11 +36,18 @@ import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.WebKeys;
+<<<<<<< HEAD
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+=======
+import com.liferay.trash.kernel.util.TrashUtil;
+
+import java.util.ArrayList;
+import java.util.List;
+>>>>>>> compatible
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
@@ -93,11 +107,17 @@ public class EditEntryMVCActionCommand extends BaseMVCActionCommand {
 		}
 
 		if (moveToTrash && !trashedModels.isEmpty()) {
+<<<<<<< HEAD
 			Map<String, Object> data = new HashMap<>();
 
 			data.put("trashedModels", trashedModels);
 
 			addDeleteSuccessData(actionRequest, data);
+=======
+			TrashUtil.addTrashSessionMessages(actionRequest, trashedModels);
+
+			hideDefaultSuccessMessage(actionRequest);
+>>>>>>> compatible
 		}
 	}
 

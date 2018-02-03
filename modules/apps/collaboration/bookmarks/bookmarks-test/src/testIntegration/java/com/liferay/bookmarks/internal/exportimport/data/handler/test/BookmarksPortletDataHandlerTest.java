@@ -20,11 +20,19 @@ import com.liferay.bookmarks.model.BookmarksFolder;
 import com.liferay.bookmarks.service.BookmarksFolderLocalServiceUtil;
 import com.liferay.bookmarks.service.BookmarksFolderServiceUtil;
 import com.liferay.bookmarks.util.test.BookmarksTestUtil;
+<<<<<<< HEAD
 import com.liferay.exportimport.kernel.lar.DataLevel;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
@@ -46,13 +54,23 @@ import org.junit.runner.RunWith;
  * @author Zsolt Berentey
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class BookmarksPortletDataHandlerTest
 	extends BasePortletDataHandlerTestCase {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Before
 	@Override
@@ -100,6 +118,7 @@ public class BookmarksPortletDataHandlerTest
 	}
 
 	@Override
+<<<<<<< HEAD
 	protected DataLevel getDataLevel() {
 		return DataLevel.SITE;
 	}
@@ -110,10 +129,13 @@ public class BookmarksPortletDataHandlerTest
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	protected String getPortletId() {
 		return BookmarksPortletKeys.BOOKMARKS;
 	}
 
+<<<<<<< HEAD
 	@Override
 	protected boolean isDataPortalLevel() {
 		return false;
@@ -129,4 +151,6 @@ public class BookmarksPortletDataHandlerTest
 		return true;
 	}
 
+=======
+>>>>>>> compatible
 }

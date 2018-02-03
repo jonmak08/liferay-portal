@@ -34,10 +34,14 @@ import com.liferay.portal.security.auth.verifier.module.configuration.BaseAuthVe
 public interface TunnelAuthVerifierConfiguration
 	extends BaseAuthVerifierConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(
 		deflt = "SYSTEM_USER_PASSWORD", name = "service-access-policy-name",
 		required = false
 	)
+=======
+	@Meta.AD(deflt = "SYSTEM_USER_PASSWORD", required = false)
+>>>>>>> compatible
 	public String serviceAccessPolicyName();
 
 }

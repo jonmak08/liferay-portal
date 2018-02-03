@@ -34,9 +34,12 @@ page import="com.liferay.application.list.PanelCategoryRegistry" %><%@
 page import="com.liferay.application.list.constants.ApplicationListWebKeys" %><%@
 page import="com.liferay.application.list.constants.PanelCategoryKeys" %><%@
 page import="com.liferay.application.list.display.context.logic.PanelCategoryHelper" %><%@
+<<<<<<< HEAD
 page import="com.liferay.expando.kernel.model.ExpandoBridge" %><%@
 page import="com.liferay.expando.kernel.util.ExpandoBridgeFactoryUtil" %><%@
 page import="com.liferay.petra.string.StringPool" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.bean.BeanParamUtil" %><%@
 page import="com.liferay.portal.kernel.dao.orm.QueryUtil" %><%@
 page import="com.liferay.portal.kernel.dao.search.EmptyOnClickRowChecker" %><%@
@@ -67,12 +70,16 @@ page import="com.liferay.portal.kernel.model.RoleConstants" %><%@
 page import="com.liferay.portal.kernel.model.User" %><%@
 page import="com.liferay.portal.kernel.model.UserGroupRole" %><%@
 page import="com.liferay.portal.kernel.model.UserPersonalSite" %><%@
+<<<<<<< HEAD
 page import="com.liferay.portal.kernel.portlet.AdministratorControlPanelEntry" %><%@
 page import="com.liferay.portal.kernel.portlet.ControlPanelEntry" %><%@
 page import="com.liferay.portal.kernel.portlet.LiferayWindowState" %><%@
 page import="com.liferay.portal.kernel.portlet.OmniadminControlPanelEntry" %><%@
 page import="com.liferay.portal.kernel.portlet.PortalPreferences" %><%@
 page import="com.liferay.portal.kernel.portlet.PortletPreferencesFactoryUtil" %><%@
+=======
+page import="com.liferay.portal.kernel.portlet.LiferayWindowState" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.portlet.PortletProvider" %><%@
 page import="com.liferay.portal.kernel.portlet.PortletProviderUtil" %><%@
 page import="com.liferay.portal.kernel.portlet.PortletURLUtil" %><%@
@@ -90,7 +97,13 @@ page import="com.liferay.portal.kernel.service.GroupServiceUtil" %><%@
 page import="com.liferay.portal.kernel.service.OrganizationLocalServiceUtil" %><%@
 page import="com.liferay.portal.kernel.service.OrganizationServiceUtil" %><%@
 page import="com.liferay.portal.kernel.service.PortletLocalServiceUtil" %><%@
+<<<<<<< HEAD
 page import="com.liferay.portal.kernel.service.ResourcePermissionLocalServiceUtil" %><%@
+=======
+page import="com.liferay.portal.kernel.service.ResourceBlockLocalServiceUtil" %><%@
+page import="com.liferay.portal.kernel.service.ResourcePermissionLocalServiceUtil" %><%@
+page import="com.liferay.portal.kernel.service.ResourceTypePermissionLocalServiceUtil" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.service.RoleLocalServiceUtil" %><%@
 page import="com.liferay.portal.kernel.service.RoleServiceUtil" %><%@
 page import="com.liferay.portal.kernel.service.UserGroupRoleLocalServiceUtil" %><%@
@@ -107,12 +120,19 @@ page import="com.liferay.portal.kernel.util.ParamUtil" %><%@
 page import="com.liferay.portal.kernel.util.PortalUtil" %><%@
 page import="com.liferay.portal.kernel.util.PortletKeys" %><%@
 page import="com.liferay.portal.kernel.util.StringBundler" %><%@
+<<<<<<< HEAD
+=======
+page import="com.liferay.portal.kernel.util.StringPool" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.util.StringUtil" %><%@
 page import="com.liferay.portal.kernel.util.Validator" %><%@
 page import="com.liferay.portal.kernel.util.WebKeys" %><%@
 page import="com.liferay.portal.kernel.util.comparator.PortletTitleComparator" %><%@
 page import="com.liferay.portal.model.impl.ResourceImpl" %><%@
+<<<<<<< HEAD
 page import="com.liferay.portal.service.persistence.constants.UserGroupFinderConstants" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.portal.util.PropsValues" %><%@
 page import="com.liferay.portal.util.WebAppPool" %><%@
 page import="com.liferay.portlet.display.template.PortletDisplayTemplateUtil" %><%@
@@ -132,15 +152,21 @@ page import="com.liferay.portlet.usersadmin.search.OrganizationSearch" %><%@
 page import="com.liferay.portlet.usersadmin.search.OrganizationSearchTerms" %><%@
 page import="com.liferay.portlet.usersadmin.search.UserSearch" %><%@
 page import="com.liferay.portlet.usersadmin.search.UserSearchTerms" %><%@
+<<<<<<< HEAD
 page import="com.liferay.roles.admin.constants.RolesAdminPortletKeys" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.roles.admin.kernel.util.RolesAdminUtil" %><%@
 page import="com.liferay.roles.admin.web.internal.search.RoleChecker" %><%@
 page import="com.liferay.taglib.search.ResultRow" %><%@
 page import="com.liferay.users.admin.kernel.util.UsersAdmin" %><%@
 page import="com.liferay.users.admin.kernel.util.UsersAdminUtil" %>
 
+<<<<<<< HEAD
 <%@ page import="java.io.Serializable" %>
 
+=======
+>>>>>>> compatible
 <%@ page import="java.util.ArrayList" %><%@
 page import="java.util.Collections" %><%@
 page import="java.util.HashMap" %><%@
@@ -162,8 +188,11 @@ page import="javax.portlet.WindowState" %>
 <portlet:defineObjects />
 
 <%
+<<<<<<< HEAD
 PortalPreferences portalPreferences = PortletPreferencesFactoryUtil.getPortalPreferences(liferayPortletRequest);
 
+=======
+>>>>>>> compatible
 boolean filterManageableGroups = true;
 boolean filterManageableOrganizations = true;
 boolean filterManageableRoles = true;
@@ -200,6 +229,7 @@ private String _getActionLabel(HttpServletRequest request, ThemeDisplay themeDis
 	return actionLabel;
 }
 
+<<<<<<< HEAD
 private String _getAssigneesMessage(HttpServletRequest request, Role role) throws Exception {
 	if (_isImpliedRole(role)) {
 		return LanguageUtil.get(request, "this-role-is-automatically-assigned");
@@ -214,6 +244,8 @@ private String _getAssigneesMessage(HttpServletRequest request, Role role) throw
 	return LanguageUtil.format(request, "x-assignees", count);
 }
 
+=======
+>>>>>>> compatible
 private StringBundler _getResourceHtmlId(String resource) {
 	StringBundler sb = new StringBundler(2);
 
@@ -223,6 +255,7 @@ private StringBundler _getResourceHtmlId(String resource) {
 	return sb;
 }
 
+<<<<<<< HEAD
 private boolean _isImpliedRole(Role role) {
 	String name = role.getName();
 
@@ -233,6 +266,8 @@ private boolean _isImpliedRole(Role role) {
 	return false;
 }
 
+=======
+>>>>>>> compatible
 private boolean _isShowScope(HttpServletRequest request, Role role, String curModelResource, String curPortletResource) throws SystemException {
 	boolean showScope = true;
 

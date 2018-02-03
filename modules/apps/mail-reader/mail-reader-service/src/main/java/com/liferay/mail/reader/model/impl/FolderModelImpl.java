@@ -32,6 +32,10 @@ import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Serializable;
 
@@ -267,7 +271,11 @@ public class FolderModelImpl extends BaseModelImpl<Folder>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -278,7 +286,11 @@ public class FolderModelImpl extends BaseModelImpl<Folder>
 	@Override
 	public String getUserName() {
 		if (_userName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _userName;
@@ -341,7 +353,11 @@ public class FolderModelImpl extends BaseModelImpl<Folder>
 	@Override
 	public String getFullName() {
 		if (_fullName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _fullName;
@@ -366,7 +382,11 @@ public class FolderModelImpl extends BaseModelImpl<Folder>
 	@Override
 	public String getDisplayName() {
 		if (_displayName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _displayName;

@@ -228,7 +228,10 @@ public class ElasticsearchFixture implements IndicesAdminClientSupplier {
 			elasticsearchConfigurationProperties);
 
 		map.put("configurationPid", ElasticsearchConfiguration.class.getName());
+<<<<<<< HEAD
 		map.put("httpCORSAllowOrigin", "*");
+=======
+>>>>>>> compatible
 		map.put("logExceptionsOnly", false);
 
 		return map;
@@ -265,11 +268,19 @@ public class ElasticsearchFixture implements IndicesAdminClientSupplier {
 
 		Mockito.when(
 			bundleContext.getDataFile(
+<<<<<<< HEAD
 				EmbeddedElasticsearchConnection.JNA_TMP_DIR)
 		).thenReturn(
 			new File(
 				SystemProperties.get(SystemProperties.TMP_DIR) + "/" +
 					EmbeddedElasticsearchConnection.JNA_TMP_DIR)
+=======
+				embeddedElasticsearchConnection.JNA_TMP_DIR)
+		).thenReturn(
+			new File(
+				SystemProperties.get(SystemProperties.TMP_DIR) + "/" +
+					embeddedElasticsearchConnection.JNA_TMP_DIR)
+>>>>>>> compatible
 		);
 
 		embeddedElasticsearchConnection.activate(

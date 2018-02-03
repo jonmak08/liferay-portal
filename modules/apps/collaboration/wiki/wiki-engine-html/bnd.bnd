@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Wiki Engine HTML
 Bundle-SymbolicName: com.liferay.wiki.engine.html
+<<<<<<< HEAD
 Bundle-Version: 2.0.7
+=======
+Bundle-Version: 2.0.5
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Wiki
 Web-ContextPath: /wiki-engine-html

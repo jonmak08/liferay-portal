@@ -14,7 +14,10 @@
 		<field name="modifiedDate" type="Date" />
 		<field name="DDMStorageId" type="long" />
 		<field name="recordSetId" type="long" />
+<<<<<<< HEAD
 		<field name="recordSetVersion" type="String" />
+=======
+>>>>>>> compatible
 		<field name="version" type="String" />
 		<field name="displayIndex" type="int" />
 		<field name="lastPublishDate" type="Date" />
@@ -26,8 +29,11 @@
 		<field name="companyId" type="long" />
 		<field name="userId" type="long" />
 		<field name="userName" type="String" />
+<<<<<<< HEAD
 		<field name="versionUserId" type="long" />
 		<field name="versionUserName" type="String" />
+=======
+>>>>>>> compatible
 		<field name="createDate" type="Date" />
 		<field name="modifiedDate" type="Date" />
 		<field name="DDMStructureId" type="long" />
@@ -35,7 +41,10 @@
 			<hint name="upper-case">true</hint>
 			<hint name="auto-escape">false</hint>
 		</field>
+<<<<<<< HEAD
 		<field name="version" type="String" />
+=======
+>>>>>>> compatible
 		<field localized="true" name="name" type="String">
 			<validator name="required" />
 		</field>
@@ -49,6 +58,7 @@
 		</field>
 		<field name="lastPublishDate" type="Date" />
 	</model>
+<<<<<<< HEAD
 	<model name="com.liferay.dynamic.data.lists.model.DDLRecordSetVersion">
 		<field name="recordSetVersionId" type="long" />
 		<field name="groupId" type="long" />
@@ -69,6 +79,8 @@
 		<field name="statusByUserName" type="String" />
 		<field name="statusDate" type="Date" />
 	</model>
+=======
+>>>>>>> compatible
 	<model name="com.liferay.dynamic.data.lists.model.DDLRecordVersion">
 		<field name="recordVersionId" type="long" />
 		<field name="groupId" type="long" />
@@ -78,7 +90,10 @@
 		<field name="createDate" type="Date" />
 		<field name="DDMStorageId" type="long" />
 		<field name="recordSetId" type="long" />
+<<<<<<< HEAD
 		<field name="recordSetVersion" type="String" />
+=======
+>>>>>>> compatible
 		<field name="recordId" type="long" />
 		<field name="version" type="String" />
 		<field name="displayIndex" type="int" />

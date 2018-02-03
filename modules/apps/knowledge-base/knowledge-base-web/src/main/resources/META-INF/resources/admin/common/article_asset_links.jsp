@@ -21,7 +21,11 @@ KBArticle kbArticle = (KBArticle)request.getAttribute(KBWebKeys.KNOWLEDGE_BASE_K
 %>
 
 <c:if test="<%= enableKBArticleAssetLinks %>">
+<<<<<<< HEAD
 	<liferay-asset:asset-links
+=======
+	<liferay-ui:asset-links
+>>>>>>> compatible
 		className="<%= KBArticle.class.getName() %>"
 		classPK="<%= kbArticle.getClassPK() %>"
 	/>

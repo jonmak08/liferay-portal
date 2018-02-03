@@ -14,12 +14,18 @@
 
 package com.liferay.portal.search.test.util.indexing;
 
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.search.Document;
+
+>>>>>>> compatible
 /**
  * @author André de Oliveira
  */
 public class DocumentCreationHelpers {
 
 	public static DocumentCreationHelper singleGeoLocation(
+<<<<<<< HEAD
 		String fieldName, double latitude, double longitude) {
 
 		return document -> document.addGeoLocation(
@@ -48,6 +54,57 @@ public class DocumentCreationHelpers {
 		String fieldName, String... values) {
 
 		return document -> document.addText(fieldName, values);
+=======
+		final String fieldName, final double latitude, final double longitude) {
+
+		return new DocumentCreationHelper() {
+
+			@Override
+			public void populate(Document document) {
+				document.addGeoLocation(fieldName, latitude, longitude);
+			}
+
+		};
+	}
+
+	public static DocumentCreationHelper singleKeyword(
+		final String field, final String value) {
+
+		return new DocumentCreationHelper() {
+
+			@Override
+			public void populate(Document document) {
+				document.addKeyword(field, value);
+			}
+
+		};
+	}
+
+	public static DocumentCreationHelper singleNumberSortable(
+		final String field, final int value) {
+
+		return new DocumentCreationHelper() {
+
+			@Override
+			public void populate(Document document) {
+				document.addNumberSortable(field, value);
+			}
+
+		};
+	}
+
+	public static DocumentCreationHelper singleText(
+		final String field, final String... values) {
+
+		return new DocumentCreationHelper() {
+
+			@Override
+			public void populate(Document document) {
+				document.addText(field, values);
+			}
+
+		};
+>>>>>>> compatible
 	}
 
 }

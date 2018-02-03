@@ -27,6 +27,7 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
 	id = "com.liferay.frontend.js.spa.web.configuration.SPAConfiguration",
 	localization = "content/Language", name = "spa-configuration-name"
 )
+<<<<<<< HEAD
 public @interface SPAConfiguration {
 
 	@Meta.AD(
@@ -53,5 +54,27 @@ public @interface SPAConfiguration {
 		name = "user-notification-timeout-name", required = false
 	)
 	public int userNotificationTimeout();
+=======
+public interface SPAConfiguration {
+
+	@Meta.AD(
+		deflt = "-1", description = "cache-expiration-time-description",
+		name = "cache-expiration-time-name", required = true
+	)
+	public String cacheExpirationTime();
+
+	@Meta.AD(
+		deflt = "${server-property://com.liferay.portal/javascript.single.page.application.timeout}",
+		description = "request-timeout-description",
+		name = "request-timeout-name", required = true
+	)
+	public String requestTimeout();
+
+	@Meta.AD(
+		deflt = "30000", description = "user-notification-timeout-description",
+		name = "user-notification-timeout-name", required = true
+	)
+	public String userNotificationTimeout();
+>>>>>>> compatible
 
 }

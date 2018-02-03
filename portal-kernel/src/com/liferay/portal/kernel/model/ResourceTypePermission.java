@@ -26,10 +26,15 @@ import com.liferay.portal.kernel.util.Accessor;
  * @see ResourceTypePermissionModel
  * @see com.liferay.portal.model.impl.ResourceTypePermissionImpl
  * @see com.liferay.portal.model.impl.ResourceTypePermissionModelImpl
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, with no direct replacement
  * @generated
  */
 @Deprecated
+=======
+ * @generated
+ */
+>>>>>>> compatible
 @ImplementationClassName("com.liferay.portal.model.impl.ResourceTypePermissionImpl")
 @ProviderType
 public interface ResourceTypePermission extends ResourceTypePermissionModel,

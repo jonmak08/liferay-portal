@@ -21,6 +21,7 @@ import com.liferay.announcements.kernel.exception.EntryTitleException;
 import com.liferay.announcements.kernel.exception.EntryURLException;
 import com.liferay.announcements.kernel.model.AnnouncementsDelivery;
 import com.liferay.announcements.kernel.model.AnnouncementsEntry;
+<<<<<<< HEAD
 import com.liferay.mail.kernel.model.MailMessage;
 import com.liferay.mail.kernel.service.MailService;
 import com.liferay.mail.kernel.template.MailTemplate;
@@ -29,6 +30,8 @@ import com.liferay.mail.kernel.template.MailTemplateContextBuilder;
 import com.liferay.mail.kernel.template.MailTemplateFactoryUtil;
 import com.liferay.petra.content.ContentUtil;
 import com.liferay.portal.kernel.bean.BeanReference;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.interval.IntervalActionProcessor;
@@ -36,7 +39,10 @@ import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Company;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.Contact;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.Organization;
 import com.liferay.portal.kernel.model.ResourceConstants;
@@ -44,12 +50,19 @@ import com.liferay.portal.kernel.model.Role;
 import com.liferay.portal.kernel.model.RoleConstants;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.model.UserGroup;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.EscapableLocalizableFunction;
+=======
+import com.liferay.portal.kernel.portlet.PortletProvider;
+import com.liferay.portal.kernel.portlet.PortletProviderUtil;
+import com.liferay.portal.kernel.util.Function;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
+import com.liferay.portal.kernel.util.SubscriptionSender;
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
@@ -58,6 +71,8 @@ import com.liferay.portal.util.PropsValues;
 import com.liferay.portlet.announcements.service.base.AnnouncementsEntryLocalServiceBaseImpl;
 
 import java.io.IOException;
+
+import java.io.Serializable;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -586,6 +601,7 @@ public class AnnouncementsEntryLocalServiceImpl
 			entry.getCompanyId(), PropsKeys.ANNOUNCEMENTS_EMAIL_FROM_NAME,
 			PropsKeys.ADMIN_EMAIL_FROM_NAME);
 		String subject = ContentUtil.get(
+<<<<<<< HEAD
 			clazz.getClassLoader(), PropsValues.ANNOUNCEMENTS_EMAIL_SUBJECT);
 
 		Company company = companyLocalService.getCompany(entry.getCompanyId());
@@ -601,6 +617,45 @@ public class AnnouncementsEntryLocalServiceImpl
 				fromAddress, fromName, curToAddress, curToName, subject, body,
 				company, entry);
 		}
+=======
+			PropsValues.ANNOUNCEMENTS_EMAIL_SUBJECT);
+
+		subscriptionSender.setBody(body);
+		subscriptionSender.setCompanyId(entry.getCompanyId());
+		subscriptionSender.setContextAttribute(
+			"[$ENTRY_CONTENT$]", entry.getContent(), false);
+		subscriptionSender.setContextAttributes(
+			"[$ENTRY_ID$]", entry.getEntryId(), "[$ENTRY_TITLE$]",
+			entry.getTitle(), "[$ENTRY_URL$]", entry.getUrl());
+		subscriptionSender.setFrom(fromAddress, fromName);
+		subscriptionSender.setHtmlFormat(true);
+
+		EntryTypeSerializableFunction entryTypeSerializableFunction =
+			new EntryTypeSerializableFunction(entry);
+
+		subscriptionSender.setLocalizedContextAttribute(
+			"[$ENTRY_TYPE$]", entryTypeSerializableFunction);
+
+		PortletNameSerializableFunction portletNameSerializableFunction =
+			new PortletNameSerializableFunction(entry);
+
+		subscriptionSender.setLocalizedContextAttribute(
+			"[$PORTLET_NAME$]", portletNameSerializableFunction);
+
+		subscriptionSender.setMailId("announcements_entry", entry.getEntryId());
+
+		String portletId = PortletProviderUtil.getPortletId(
+			AnnouncementsEntry.class.getName(), PortletProvider.Action.VIEW);
+
+		subscriptionSender.setPortletId(portletId);
+
+		subscriptionSender.setScopeGroupId(entry.getGroupId());
+		subscriptionSender.setSubject(subject);
+
+		subscriptionSender.addRuntimeSubscribers(toAddress, toName);
+
+		subscriptionSender.flushNotificationsAsync();
+>>>>>>> compatible
 	}
 
 	protected void validate(
@@ -627,6 +682,7 @@ public class AnnouncementsEntryLocalServiceImpl
 			throw new EntryExpirationDateException(
 				"Expiration date " + expirationDate + " is in the past");
 		}
+<<<<<<< HEAD
 	}
 
 	@BeanReference(type = MailService.class)
@@ -710,6 +766,8 @@ public class AnnouncementsEntryLocalServiceImpl
 		catch (IOException ioe) {
 			throw new SystemException(ioe);
 		}
+=======
+>>>>>>> compatible
 	}
 
 	private static final long _ANNOUNCEMENTS_ENTRY_CHECK_INTERVAL =
@@ -719,5 +777,38 @@ public class AnnouncementsEntryLocalServiceImpl
 		AnnouncementsEntryLocalServiceImpl.class);
 
 	private Date _previousCheckDate;
+
+	private static class EntryTypeSerializableFunction
+		implements Function<Locale, String>, Serializable {
+
+		public EntryTypeSerializableFunction(AnnouncementsEntry entry) {
+			_entry = entry;
+		}
+
+		@Override
+		public String apply(Locale locale) {
+			return LanguageUtil.get(locale, _entry.getType());
+		}
+
+		private final AnnouncementsEntry _entry;
+
+	}
+
+	private static class PortletNameSerializableFunction
+		implements Function<Locale, String>, Serializable {
+
+		public PortletNameSerializableFunction(AnnouncementsEntry entry) {
+			_entry = entry;
+		}
+
+		@Override
+		public String apply(Locale locale) {
+			return LanguageUtil.get(
+				locale, _entry.isAlert() ? "alert" : "announcement");
+		}
+
+		private final AnnouncementsEntry _entry;
+
+	}
 
 }

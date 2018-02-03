@@ -21,6 +21,10 @@ import com.liferay.calendar.model.CalendarResource;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -65,7 +69,11 @@ public class CalendarResourceCacheModel implements CacheModel<CalendarResource>,
 
 	@Override
 	public String toString() {
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(33);
+=======
+		StringBundler sb = new StringBundler(35);
+>>>>>>> compatible
 
 		sb.append("{uuid=");
 		sb.append(uuid);
@@ -83,6 +91,11 @@ public class CalendarResourceCacheModel implements CacheModel<CalendarResource>,
 		sb.append(createDate);
 		sb.append(", modifiedDate=");
 		sb.append(modifiedDate);
+<<<<<<< HEAD
+=======
+		sb.append(", resourceBlockId=");
+		sb.append(resourceBlockId);
+>>>>>>> compatible
 		sb.append(", classNameId=");
 		sb.append(classNameId);
 		sb.append(", classPK=");
@@ -109,7 +122,11 @@ public class CalendarResourceCacheModel implements CacheModel<CalendarResource>,
 		CalendarResourceImpl calendarResourceImpl = new CalendarResourceImpl();
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			calendarResourceImpl.setUuid("");
+=======
+			calendarResourceImpl.setUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			calendarResourceImpl.setUuid(uuid);
@@ -121,7 +138,11 @@ public class CalendarResourceCacheModel implements CacheModel<CalendarResource>,
 		calendarResourceImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			calendarResourceImpl.setUserName("");
+=======
+			calendarResourceImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			calendarResourceImpl.setUserName(userName);
@@ -141,32 +162,52 @@ public class CalendarResourceCacheModel implements CacheModel<CalendarResource>,
 			calendarResourceImpl.setModifiedDate(new Date(modifiedDate));
 		}
 
+<<<<<<< HEAD
+=======
+		calendarResourceImpl.setResourceBlockId(resourceBlockId);
+>>>>>>> compatible
 		calendarResourceImpl.setClassNameId(classNameId);
 		calendarResourceImpl.setClassPK(classPK);
 
 		if (classUuid == null) {
+<<<<<<< HEAD
 			calendarResourceImpl.setClassUuid("");
+=======
+			calendarResourceImpl.setClassUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			calendarResourceImpl.setClassUuid(classUuid);
 		}
 
 		if (code == null) {
+<<<<<<< HEAD
 			calendarResourceImpl.setCode("");
+=======
+			calendarResourceImpl.setCode(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			calendarResourceImpl.setCode(code);
 		}
 
 		if (name == null) {
+<<<<<<< HEAD
 			calendarResourceImpl.setName("");
+=======
+			calendarResourceImpl.setName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			calendarResourceImpl.setName(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			calendarResourceImpl.setDescription("");
+=======
+			calendarResourceImpl.setDescription(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			calendarResourceImpl.setDescription(description);
@@ -201,6 +242,11 @@ public class CalendarResourceCacheModel implements CacheModel<CalendarResource>,
 		createDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
 
+<<<<<<< HEAD
+=======
+		resourceBlockId = objectInput.readLong();
+
+>>>>>>> compatible
 		classNameId = objectInput.readLong();
 
 		classPK = objectInput.readLong();
@@ -217,7 +263,11 @@ public class CalendarResourceCacheModel implements CacheModel<CalendarResource>,
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		if (uuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(uuid);
@@ -232,7 +282,11 @@ public class CalendarResourceCacheModel implements CacheModel<CalendarResource>,
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -241,33 +295,54 @@ public class CalendarResourceCacheModel implements CacheModel<CalendarResource>,
 		objectOutput.writeLong(createDate);
 		objectOutput.writeLong(modifiedDate);
 
+<<<<<<< HEAD
+=======
+		objectOutput.writeLong(resourceBlockId);
+
+>>>>>>> compatible
 		objectOutput.writeLong(classNameId);
 
 		objectOutput.writeLong(classPK);
 
 		if (classUuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(classUuid);
 		}
 
 		if (code == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(code);
 		}
 
 		if (name == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(description);
@@ -285,6 +360,10 @@ public class CalendarResourceCacheModel implements CacheModel<CalendarResource>,
 	public String userName;
 	public long createDate;
 	public long modifiedDate;
+<<<<<<< HEAD
+=======
+	public long resourceBlockId;
+>>>>>>> compatible
 	public long classNameId;
 	public long classPK;
 	public String classUuid;

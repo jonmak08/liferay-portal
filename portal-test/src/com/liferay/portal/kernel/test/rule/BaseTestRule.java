@@ -14,8 +14,13 @@
 
 package com.liferay.portal.kernel.test.rule;
 
+<<<<<<< HEAD
 import com.liferay.petra.concurrent.ConcurrentReferenceKeyHashMap;
 import com.liferay.petra.memory.FinalizeManager;
+=======
+import com.liferay.portal.kernel.concurrent.ConcurrentReferenceKeyHashMap;
+import com.liferay.portal.kernel.memory.FinalizeManager;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.ReflectionTestUtil;
 import com.liferay.portal.kernel.test.rule.callback.TestCallback;
 

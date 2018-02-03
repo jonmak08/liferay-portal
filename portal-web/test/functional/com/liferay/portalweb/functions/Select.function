@@ -28,6 +28,7 @@
 	<command name="selectByClick">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute selenium="waitForVisible" />
 
 		<execute argument1="${locator1}" selenium="click" />
@@ -42,11 +43,17 @@
 	<command name="selectPartialText">
 		<execute function="WaitForSPARefresh" />
 
+=======
+>>>>>>> compatible
 		<execute selenium="waitForVisible" />
 
-		<execute selenium="mouseOver" />
+		<execute argument1="${locator1}" selenium="click" />
 
+<<<<<<< HEAD
 		<execute argument1="${locator1}" argument2="label=regexp:.*${value1}.*" selenium="select" />
+=======
+		<execute argument1="//option[contains(.,'${value1}')]" selenium="click" />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 

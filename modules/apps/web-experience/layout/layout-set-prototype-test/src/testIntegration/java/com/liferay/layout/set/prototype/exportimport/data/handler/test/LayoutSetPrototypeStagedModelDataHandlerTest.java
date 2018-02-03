@@ -16,7 +16,10 @@ package com.liferay.layout.set.prototype.exportimport.data.handler.test;
 
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
 import com.liferay.exportimport.kernel.lar.ExportImportPathUtil;
+<<<<<<< HEAD
 import com.liferay.exportimport.test.util.lar.BaseStagedModelDataHandlerTestCase;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.Layout;
 import com.liferay.portal.kernel.model.LayoutConstants;
@@ -29,7 +32,14 @@ import com.liferay.portal.kernel.service.LayoutLocalServiceUtil;
 import com.liferay.portal.kernel.service.LayoutPrototypeLocalServiceUtil;
 import com.liferay.portal.kernel.service.LayoutSetPrototypeLocalServiceUtil;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
+=======
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+import com.liferay.portal.kernel.test.util.RandomTestUtil;
+import com.liferay.portal.kernel.util.StreamUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.UnicodeProperties;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Document;
@@ -38,6 +48,10 @@ import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.UnsecureSAXReaderUtil;
 import com.liferay.portal.kernel.zip.ZipReader;
 import com.liferay.portal.kernel.zip.ZipReaderFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.lar.test.BaseStagedModelDataHandlerTestCase;
+>>>>>>> compatible
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.util.test.LayoutTestUtil;
 
@@ -59,13 +73,23 @@ import org.junit.runner.RunWith;
  * @author Daniela Zapata Riesco
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class LayoutSetPrototypeStagedModelDataHandlerTest
 	extends BaseStagedModelDataHandlerTestCase {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@After
 	@Override
@@ -279,6 +303,7 @@ public class LayoutSetPrototypeStagedModelDataHandlerTest
 		String modelPath = ExportImportPathUtil.getModelPath(
 			stagedModel, fileName);
 
+<<<<<<< HEAD
 		try (InputStream inputStream =
 				portletDataContext.getZipEntryAsInputStream(modelPath)) {
 
@@ -313,10 +338,51 @@ public class LayoutSetPrototypeStagedModelDataHandlerTest
 			Assert.assertEquals(
 				importedLayouts.toString(), 1, importedLayouts.size());
 
+=======
+		InputStream inputStream = portletDataContext.getZipEntryAsInputStream(
+			modelPath);
+
+		ZipReader zipReader = ZipReaderFactoryUtil.getZipReader(inputStream);
+
+		Document document = UnsecureSAXReaderUtil.read(
+			zipReader.getEntryAsString("manifest.xml"));
+
+		Element rootElement = document.getRootElement();
+
+		Element layoutElement = rootElement.element("Layout");
+
+		List<Element> elements = layoutElement.elements();
+
+		List<Layout> importedLayouts = new ArrayList<>(elements.size());
+
+		for (Element element : elements) {
+			String layoutPrototypeUuid = element.attributeValue(
+				"layout-prototype-uuid");
+
+			if (Validator.isNotNull(layoutPrototypeUuid)) {
+				String path = element.attributeValue("path");
+
+				Layout layout = (Layout)portletDataContext.fromXML(
+					zipReader.getEntryAsString(path));
+
+				importedLayouts.add(layout);
+			}
+		}
+
+		Assert.assertEquals(
+			importedLayouts.toString(), 1, importedLayouts.size());
+
+		try {
+>>>>>>> compatible
 			return importedLayouts.get(0);
 		}
 		finally {
 			zipReader.close();
+<<<<<<< HEAD
+=======
+
+			StreamUtil.cleanUp(inputStream);
+>>>>>>> compatible
 		}
 	}
 

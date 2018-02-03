@@ -1,6 +1,10 @@
 <definition default="open" summary="Open browser to '${locator1}'">
 	<command name="open">
+<<<<<<< HEAD
 		<execute function="Poshi.Open#open" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 
@@ -10,7 +14,11 @@
 	</command>
 
 	<command name="openNoError">
+<<<<<<< HEAD
 		<execute function="Poshi.Open#openNoError" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute function="WaitForSPARefresh" />
 	</command>
@@ -18,7 +26,11 @@
 	<command name="openWindow">
 		<execute argument1="15000" selenium="pause" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Open#openWindow" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 

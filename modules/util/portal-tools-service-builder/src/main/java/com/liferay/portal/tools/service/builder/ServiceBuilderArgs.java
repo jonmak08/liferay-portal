@@ -49,10 +49,13 @@ public class ServiceBuilderArgs {
 		return _buildNumber;
 	}
 
+<<<<<<< HEAD
 	public int getDatabaseNameMaxLength() {
 		return _databaseNameMaxLength;
 	}
 
+=======
+>>>>>>> compatible
 	public String getHbmFileName() {
 		return _hbmFileName;
 	}
@@ -167,10 +170,13 @@ public class ServiceBuilderArgs {
 		_buildNumberIncrement = buildNumberIncrement;
 	}
 
+<<<<<<< HEAD
 	public void setDatabaseNameMaxLength(int databaseNameMaxLength) {
 		_databaseNameMaxLength = databaseNameMaxLength;
 	}
 
+=======
+>>>>>>> compatible
 	public void setHbmFileName(String hbmFileName) {
 		_hbmFileName = hbmFileName;
 	}
@@ -350,7 +356,10 @@ public class ServiceBuilderArgs {
 		"com.liferay.portal.kernel.bean.PortalBeanLocatorUtil";
 	private long _buildNumber = 1;
 	private boolean _buildNumberIncrement = true;
+<<<<<<< HEAD
 	private int _databaseNameMaxLength = 30;
+=======
+>>>>>>> compatible
 	private String _hbmFileName = "src/META-INF/portal-hbm.xml";
 	private String _implDirName = "src";
 	private String _inputFileName = "service.xml";

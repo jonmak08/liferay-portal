@@ -14,10 +14,14 @@
 
 package com.liferay.portlet;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.io.Deserializer;
 import com.liferay.portal.kernel.io.Serializer;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+=======
+import com.liferay.portal.kernel.io.SerializableObjectWrapper;
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.LiferayPortletSession;
 import com.liferay.portal.kernel.servlet.HttpSessionWrapper;
 import com.liferay.portal.kernel.util.PortalClassLoaderUtil;
@@ -25,6 +29,7 @@ import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.util.PropsValues;
 
+<<<<<<< HEAD
 import java.io.Externalizable;
 import java.io.IOException;
 import java.io.ObjectInput;
@@ -32,6 +37,9 @@ import java.io.ObjectOutput;
 import java.io.Serializable;
 
 import java.nio.ByteBuffer;
+=======
+import java.io.Serializable;
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -241,6 +249,7 @@ public class PortletSessionImpl implements LiferayPortletSession {
 		return session;
 	}
 
+<<<<<<< HEAD
 	private boolean _invalidated;
 
 	private static class LazySerializable implements Serializable {
@@ -346,11 +355,14 @@ public class PortletSessionImpl implements LiferayPortletSession {
 
 	}
 
+=======
+>>>>>>> compatible
 	private static class SerializableHttpSessionWrapper
 		extends HttpSessionWrapper {
 
 		@Override
 		public Object getAttribute(String name) {
+<<<<<<< HEAD
 			Object value = super.getAttribute(name);
 
 			if (value instanceof LazySerializableObjectWrapper) {
@@ -361,6 +373,9 @@ public class PortletSessionImpl implements LiferayPortletSession {
 			}
 
 			return value;
+=======
+			return SerializableObjectWrapper.unwrap(super.getAttribute(name));
+>>>>>>> compatible
 		}
 
 		@Override
@@ -376,7 +391,11 @@ public class PortletSessionImpl implements LiferayPortletSession {
 			if (!PortalClassLoaderUtil.isPortalClassLoader(
 					clazz.getClassLoader())) {
 
+<<<<<<< HEAD
 				value = new LazySerializableObjectWrapper((Serializable)value);
+=======
+				value = new SerializableObjectWrapper((Serializable)value);
+>>>>>>> compatible
 			}
 
 			super.setAttribute(name, value);

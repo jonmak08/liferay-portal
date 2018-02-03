@@ -18,12 +18,20 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.model.PermissionedModel;
 import com.liferay.portal.kernel.model.ResourceAction;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.ResourceConstants;
+=======
+import com.liferay.portal.kernel.model.ResourceBlockConstants;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Role;
 import com.liferay.portal.kernel.model.RoleConstants;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.service.ResourceActionLocalService;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.service.ResourcePermissionLocalService;
+=======
+import com.liferay.portal.kernel.service.ResourceBlockLocalService;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.RoleLocalService;
 import com.liferay.portal.kernel.upgrade.UpgradeException;
 import com.liferay.portal.kernel.upgrade.UpgradeProcess;
@@ -35,7 +43,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+>>>>>>> compatible
 import java.util.List;
 
 /**
@@ -46,11 +57,19 @@ public class UpgradeResourcePermission extends UpgradeProcess {
 
 	public UpgradeResourcePermission(
 		ResourceActionLocalService resourceActionLocalService,
+<<<<<<< HEAD
 		ResourcePermissionLocalService resourcePermissionLocalService,
 		RoleLocalService roleLocalService) {
 
 		_resourceActionLocalService = resourceActionLocalService;
 		_resourcePermissionLocalService = resourcePermissionLocalService;
+=======
+		ResourceBlockLocalService resourceBlockLocalService,
+		RoleLocalService roleLocalService) {
+
+		_resourceActionLocalService = resourceActionLocalService;
+		_resourceBlockLocalService = resourceBlockLocalService;
+>>>>>>> compatible
 		_roleLocalService = roleLocalService;
 	}
 
@@ -59,10 +78,17 @@ public class UpgradeResourcePermission extends UpgradeProcess {
 		upgradeGuestResourceBlockPermissions();
 	}
 
+<<<<<<< HEAD
 	protected List<String> getCalendarResourceUnsupportedActionIds()
 		throws PortalException {
 
 		List<String> actionIds = new ArrayList<>();
+=======
+	protected long getCalendarResourceUnsupportedActionsBitwiseValue()
+		throws PortalException {
+
+		int unsupportedBitwiseValue = 0;
+>>>>>>> compatible
 
 		List<String> guestUnsupportedActions =
 			getModelResourceGuestUnsupportedActions();
@@ -73,11 +99,19 @@ public class UpgradeResourcePermission extends UpgradeProcess {
 					_resourceActionLocalService.getResourceAction(
 						_CALENDAR_RESOURCE_NAME, resourceActionId);
 
+<<<<<<< HEAD
 				actionIds.add(resourceAction.getActionId());
 			}
 		}
 
 		return actionIds;
+=======
+				unsupportedBitwiseValue |= resourceAction.getBitwiseValue();
+			}
+		}
+
+		return unsupportedBitwiseValue;
+>>>>>>> compatible
 	}
 
 	protected List<String> getModelResourceGuestUnsupportedActions()
@@ -103,10 +137,17 @@ public class UpgradeResourcePermission extends UpgradeProcess {
 	}
 
 	protected void upgradeGuestResourceBlockPermissions() throws Exception {
+<<<<<<< HEAD
 		List<String> unsupportedActionIds =
 			getCalendarResourceUnsupportedActionIds();
 
 		if (unsupportedActionIds.isEmpty()) {
+=======
+		long unsupportedBitwiseValue =
+			getCalendarResourceUnsupportedActionsBitwiseValue();
+
+		if (unsupportedBitwiseValue == 0) {
+>>>>>>> compatible
 			return;
 		}
 
@@ -120,6 +161,10 @@ public class UpgradeResourcePermission extends UpgradeProcess {
 
 			while (rs.next()) {
 				long companyId = rs.getLong(1);
+<<<<<<< HEAD
+=======
+				long groupId = rs.getLong(2);
+>>>>>>> compatible
 				final long calendarResourceId = rs.getLong(3);
 				final long resourceBlockId = rs.getLong(4);
 
@@ -139,6 +184,7 @@ public class UpgradeResourcePermission extends UpgradeProcess {
 							return;
 						}
 
+<<<<<<< HEAD
 						StringBundler updateSB = new StringBundler(3);
 
 						updateSB.append("update CalendarResource set ");
@@ -147,6 +193,16 @@ public class UpgradeResourcePermission extends UpgradeProcess {
 
 						try (PreparedStatement ps = connection.prepareStatement(
 								updateSB.toString())) {
+=======
+						StringBundler sbUpdate = new StringBundler(3);
+
+						sbUpdate.append("update CalendarResource set ");
+						sbUpdate.append("resourceBlockId = ? where ");
+						sbUpdate.append("calendarResourceId = ?");
+
+						try (PreparedStatement ps = connection.prepareStatement(
+								sbUpdate.toString())) {
+>>>>>>> compatible
 
 							ps.setLong(1, _newResourceBlockId);
 							ps.setLong(2, calendarResourceId);
@@ -167,6 +223,7 @@ public class UpgradeResourcePermission extends UpgradeProcess {
 
 				};
 
+<<<<<<< HEAD
 				for (String unsupportedActionId : unsupportedActionIds) {
 					_resourcePermissionLocalService.removeResourcePermission(
 						companyId, _CALENDAR_RESOURCE_NAME,
@@ -174,6 +231,13 @@ public class UpgradeResourcePermission extends UpgradeProcess {
 						String.valueOf(permissionedModel),
 						guestRole.getRoleId(), unsupportedActionId);
 				}
+=======
+				_resourceBlockLocalService.updateIndividualScopePermissions(
+					companyId, groupId, _CALENDAR_RESOURCE_NAME,
+					permissionedModel, guestRole.getRoleId(),
+					unsupportedBitwiseValue,
+					ResourceBlockConstants.OPERATOR_REMOVE);
+>>>>>>> compatible
 			}
 		}
 	}
@@ -185,8 +249,12 @@ public class UpgradeResourcePermission extends UpgradeProcess {
 		{ActionKeys.PERMISSIONS, ActionKeys.VIEW};
 
 	private final ResourceActionLocalService _resourceActionLocalService;
+<<<<<<< HEAD
 	private final ResourcePermissionLocalService
 		_resourcePermissionLocalService;
+=======
+	private final ResourceBlockLocalService _resourceBlockLocalService;
+>>>>>>> compatible
 	private final RoleLocalService _roleLocalService;
 
 }

@@ -22,7 +22,10 @@ import java.net.URL;
 
 import java.util.Collection;
 import java.util.Iterator;
+<<<<<<< HEAD
 import java.util.Map;
+=======
+>>>>>>> compatible
 import java.util.Properties;
 import java.util.SortedMap;
 
@@ -109,6 +112,7 @@ public class AppResolverHook implements ResolverHook {
 		SortedMap<ServiceReference<AppLicenseVerifier>, AppLicenseVerifier>
 			serviceReferences = _serviceTracker.getTracked();
 
+<<<<<<< HEAD
 		for (Map.Entry
 				<ServiceReference<AppLicenseVerifier>, AppLicenseVerifier>
 					entry :
@@ -116,12 +120,21 @@ public class AppResolverHook implements ResolverHook {
 
 			ServiceReference<AppLicenseVerifier> serviceReference =
 				entry.getKey();
+=======
+		for (ServiceReference<AppLicenseVerifier> serviceReference :
+				serviceReferences.keySet()) {
+>>>>>>> compatible
 
 			if (!filter.match(serviceReference)) {
 				continue;
 			}
 
+<<<<<<< HEAD
 			AppLicenseVerifier appLicenseVerifier = entry.getValue();
+=======
+			AppLicenseVerifier appLicenseVerifier = serviceReferences.get(
+				serviceReference);
+>>>>>>> compatible
 
 			String productType = (String)properties.get("product-type");
 			String productVersionId = (String)properties.get(

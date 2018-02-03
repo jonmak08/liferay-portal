@@ -162,7 +162,11 @@ public class DDMTemplateServiceImpl extends DDMTemplateServiceBaseImpl {
 
 		DDMTemplatePermission.checkAddTemplatePermission(
 			getPermissionChecker(), serviceContext.getScopeGroupId(),
+<<<<<<< HEAD
 			template.getClassNameId(), template.getResourceClassName());
+=======
+			template.getClassNameId(), template.getResourceClassNameId());
+>>>>>>> compatible
 
 		return ddmTemplateLocalService.copyTemplate(
 			getUserId(), templateId, nameMap, descriptionMap, serviceContext);
@@ -178,7 +182,11 @@ public class DDMTemplateServiceImpl extends DDMTemplateServiceBaseImpl {
 
 		DDMTemplatePermission.checkAddTemplatePermission(
 			getPermissionChecker(), serviceContext.getScopeGroupId(),
+<<<<<<< HEAD
 			template.getClassNameId(), template.getResourceClassName());
+=======
+			template.getClassNameId(), template.getResourceClassNameId());
+>>>>>>> compatible
 
 		return ddmTemplateLocalService.copyTemplate(
 			getUserId(), templateId, serviceContext);

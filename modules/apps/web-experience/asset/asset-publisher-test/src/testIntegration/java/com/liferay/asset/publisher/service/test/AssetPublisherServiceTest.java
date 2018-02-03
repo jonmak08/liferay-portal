@@ -22,7 +22,11 @@ import com.liferay.asset.kernel.service.AssetCategoryLocalServiceUtil;
 import com.liferay.asset.kernel.service.AssetEntryLocalServiceUtil;
 import com.liferay.asset.kernel.service.AssetVocabularyLocalServiceUtil;
 import com.liferay.asset.publisher.test.util.AssetPublisherTestUtil;
+<<<<<<< HEAD
 import com.liferay.asset.publisher.util.AssetPublisherHelper;
+=======
+import com.liferay.asset.publisher.web.util.AssetPublisherUtil;
+>>>>>>> compatible
 import com.liferay.journal.model.JournalArticle;
 import com.liferay.journal.service.JournalArticleLocalServiceUtil;
 import com.liferay.journal.test.util.JournalTestUtil;
@@ -37,7 +41,10 @@ import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.util.ArrayUtil;
+<<<<<<< HEAD
 import com.liferay.portal.test.rule.Inject;
+=======
+>>>>>>> compatible
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 
 import java.util.ArrayList;
@@ -96,7 +103,11 @@ public class AssetPublisherServiceTest {
 		PortletPreferences portletPreferences =
 			getAssetPublisherPortletPreferences();
 
+<<<<<<< HEAD
 		List<AssetEntry> assetEntries = _assetPublisherHelper.getAssetEntries(
+=======
+		List<AssetEntry> assetEntries = AssetPublisherUtil.getAssetEntries(
+>>>>>>> compatible
 			new MockPortletRequest(), portletPreferences, _permissionChecker,
 			new long[] {_group.getGroupId()}, false, false);
 
@@ -118,7 +129,11 @@ public class AssetPublisherServiceTest {
 		PortletPreferences portletPreferences =
 			getAssetPublisherPortletPreferences();
 
+<<<<<<< HEAD
 		List<AssetEntry> assetEntries = _assetPublisherHelper.getAssetEntries(
+=======
+		List<AssetEntry> assetEntries = AssetPublisherUtil.getAssetEntries(
+>>>>>>> compatible
 			new MockPortletRequest(), portletPreferences, _permissionChecker,
 			new long[] {_group.getGroupId()}, false, false);
 
@@ -128,7 +143,11 @@ public class AssetPublisherServiceTest {
 			assetEntries.size());
 
 		List<AssetEntry> filteredAsssetEntries =
+<<<<<<< HEAD
 			_assetPublisherHelper.getAssetEntries(
+=======
+			AssetPublisherUtil.getAssetEntries(
+>>>>>>> compatible
 				new MockPortletRequest(), portletPreferences,
 				_permissionChecker, new long[] {_group.getGroupId()},
 				allAssetCategoryIds, _NO_ASSET_TAG_NAMES, false, false);
@@ -155,7 +174,11 @@ public class AssetPublisherServiceTest {
 		PortletPreferences portletPreferences =
 			getAssetPublisherPortletPreferences();
 
+<<<<<<< HEAD
 		List<AssetEntry> assetEntries = _assetPublisherHelper.getAssetEntries(
+=======
+		List<AssetEntry> assetEntries = AssetPublisherUtil.getAssetEntries(
+>>>>>>> compatible
 			new MockPortletRequest(), portletPreferences, _permissionChecker,
 			new long[] {_group.getGroupId()}, false, false);
 
@@ -165,7 +188,11 @@ public class AssetPublisherServiceTest {
 			assetEntries.size());
 
 		List<AssetEntry> filteredAssetEntries =
+<<<<<<< HEAD
 			_assetPublisherHelper.getAssetEntries(
+=======
+			AssetPublisherUtil.getAssetEntries(
+>>>>>>> compatible
 				new MockPortletRequest(), portletPreferences,
 				_permissionChecker, new long[] {_group.getGroupId()},
 				allCategoyIds, allAssetTagNames, false, false);
@@ -183,7 +210,11 @@ public class AssetPublisherServiceTest {
 		PortletPreferences portletPreferences =
 			getAssetPublisherPortletPreferences();
 
+<<<<<<< HEAD
 		List<AssetEntry> assetEntries = _assetPublisherHelper.getAssetEntries(
+=======
+		List<AssetEntry> assetEntries = AssetPublisherUtil.getAssetEntries(
+>>>>>>> compatible
 			new MockPortletRequest(), portletPreferences, _permissionChecker,
 			new long[] {_group.getGroupId()}, false, false);
 
@@ -193,7 +224,11 @@ public class AssetPublisherServiceTest {
 			assetEntries.size());
 
 		List<AssetEntry> filteredAssetEntries =
+<<<<<<< HEAD
 			_assetPublisherHelper.getAssetEntries(
+=======
+			AssetPublisherUtil.getAssetEntries(
+>>>>>>> compatible
 				new MockPortletRequest(), portletPreferences,
 				_permissionChecker, new long[] {_group.getGroupId()},
 				_NO_ASSET_CATEGORY_IDS, allAssetTagNames, false, false);
@@ -287,9 +322,12 @@ public class AssetPublisherServiceTest {
 	private List<AssetEntry> _assetEntries = new ArrayList<>();
 	private String[] _assetEntryXmls = new String[0];
 
+<<<<<<< HEAD
 	@Inject
 	private AssetPublisherHelper _assetPublisherHelper;
 
+=======
+>>>>>>> compatible
 	@DeleteAfterTestRun
 	private Group _group;
 

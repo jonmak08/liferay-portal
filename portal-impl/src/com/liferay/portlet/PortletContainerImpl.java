@@ -50,14 +50,20 @@ import com.liferay.portal.kernel.service.permission.PortletPermissionUtil;
 import com.liferay.portal.kernel.servlet.BufferCacheServletResponse;
 import com.liferay.portal.kernel.servlet.DirectRequestDispatcherFactoryUtil;
 import com.liferay.portal.kernel.servlet.HttpHeaders;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.servlet.TransferHeadersHelperUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.theme.PortletDisplay;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.JavaConstants;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.kernel.util.comparator.PortletConfigurationIconComparator;
@@ -142,6 +148,7 @@ public class PortletContainerImpl implements PortletContainer {
 	public void processPublicRenderParameters(
 		HttpServletRequest request, Layout layout) {
 
+<<<<<<< HEAD
 		processPublicRenderParameters(request, layout, null);
 	}
 
@@ -162,6 +169,18 @@ public class PortletContainerImpl implements PortletContainer {
 		portlets.remove(portlet);
 
 		_processPublicRenderParameters(request, layout, portlets, false);
+=======
+		LayoutTypePortlet layoutTypePortlet = null;
+
+		LayoutType layoutType = layout.getLayoutType();
+
+		if (layoutType instanceof LayoutTypePortlet) {
+			layoutTypePortlet = (LayoutTypePortlet)layoutType;
+
+			_processPublicRenderParameters(
+				request, layout, layoutTypePortlet.getPortlets());
+		}
+>>>>>>> compatible
 	}
 
 	@Override
@@ -226,6 +245,15 @@ public class PortletContainerImpl implements PortletContainer {
 		return scopeGroupId;
 	}
 
+<<<<<<< HEAD
+=======
+	protected void processPublicRenderParameters(
+		HttpServletRequest request, Layout layout, Portlet portlet) {
+
+		_processPublicRenderParameters(request, layout, Arrays.asList(portlet));
+	}
+
+>>>>>>> compatible
 	protected Event serializeEvent(
 		Event event, ClassLoader portletClassLoader) {
 
@@ -534,8 +562,11 @@ public class PortletContainerImpl implements PortletContainer {
 		try {
 			invokerPortlet.processEvent(eventRequestImpl, eventResponseImpl);
 
+<<<<<<< HEAD
 			eventResponseImpl.transferHeaders(response);
 
+=======
+>>>>>>> compatible
 			if (eventResponseImpl.isCalledSetRenderParameter()) {
 				Map<String, String[]> renderParameterMap =
 					eventResponseImpl.getRenderParameterMap();
@@ -556,11 +587,20 @@ public class PortletContainerImpl implements PortletContainer {
 	}
 
 	private void _processPublicRenderParameters(
+<<<<<<< HEAD
 		HttpServletRequest request, Layout layout, List<Portlet> portlets,
 		boolean lifecycleAction) {
 
 		PortletQName portletQName = PortletQNameUtil.getPortletQName();
 		Map<String, String[]> publicRenderParameters = null;
+=======
+		HttpServletRequest request, Layout layout, List<Portlet> portlets) {
+
+		PortletQName portletQName = PortletQNameUtil.getPortletQName();
+		Map<String, String[]> publicRenderParameters = null;
+		ThemeDisplay themeDisplay = null;
+
+>>>>>>> compatible
 		Map<String, String[]> parameters = request.getParameterMap();
 
 		for (Map.Entry<String, String[]> entry : parameters.entrySet()) {
@@ -592,9 +632,20 @@ public class PortletContainerImpl implements PortletContainer {
 				if (name.startsWith(
 						PortletQName.PUBLIC_RENDER_PARAMETER_NAMESPACE)) {
 
+<<<<<<< HEAD
 					String[] values = entry.getValue();
 
 					if (lifecycleAction) {
+=======
+					if (themeDisplay == null) {
+						themeDisplay = (ThemeDisplay)request.getAttribute(
+							WebKeys.THEME_DISPLAY);
+					}
+
+					String[] values = entry.getValue();
+
+					if (themeDisplay.isLifecycleAction()) {
+>>>>>>> compatible
 						String[] oldValues = publicRenderParameters.get(
 							publicRenderParameterName);
 

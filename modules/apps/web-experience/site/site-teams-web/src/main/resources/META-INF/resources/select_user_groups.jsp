@@ -47,7 +47,11 @@ if (group != null) {
 	group = StagingUtil.getLiveGroup(group.getGroupId());
 }
 
+<<<<<<< HEAD
 userGroupParams.put(UserGroupFinderConstants.PARAM_KEY_USER_GROUPS_GROUPS, Long.valueOf(group.getGroupId()));
+=======
+userGroupParams.put("userGroupsGroups", Long.valueOf(group.getGroupId()));
+>>>>>>> compatible
 
 int userGroupsCount = UserGroupLocalServiceUtil.searchCount(company.getCompanyId(), searchTerms.getKeywords(), userGroupParams);
 
@@ -58,6 +62,7 @@ List<UserGroup> userGroups = UserGroupLocalServiceUtil.search(company.getCompany
 userGroupSearchContainer.setResults(userGroups);
 
 RowChecker rowChecker = new UserGroupTeamChecker(renderResponse, team);
+<<<<<<< HEAD
 
 List<NavigationItem> navigationItems = new ArrayList<>();
 
@@ -73,6 +78,23 @@ navigationItems.add(navigationItem);
 <clay:navigation-bar
 	items="<%= navigationItems %>"
 />
+=======
+%>
+
+<aui:nav-bar cssClass="collapse-basic-search" markupView="lexicon">
+	<aui:nav cssClass="navbar-nav">
+		<aui:nav-item label="user-groups" selected="<%= true %>" />
+	</aui:nav>
+
+	<c:if test="<%= (userGroupsCount > 0) || searchTerms.isSearch() %>">
+		<aui:nav-bar-search>
+			<aui:form action="<%= portletURL.toString() %>" name="searchFm">
+				<liferay-ui:input-search markupView="lexicon" />
+			</aui:form>
+		</aui:nav-bar-search>
+	</c:if>
+</aui:nav-bar>
+>>>>>>> compatible
 
 <liferay-frontend:management-bar
 	disabled="<%= userGroupsCount <= 0 %>"
@@ -91,6 +113,7 @@ navigationItems.add(navigationItem);
 			orderColumns='<%= new String[] {"name", "description"} %>'
 			portletURL="<%= PortletURLUtil.clone(portletURL, renderResponse) %>"
 		/>
+<<<<<<< HEAD
 
 		<c:if test="<%= (userGroupsCount > 0) || searchTerms.isSearch() %>">
 			<li>
@@ -99,6 +122,8 @@ navigationItems.add(navigationItem);
 				</aui:form>
 			</li>
 		</c:if>
+=======
+>>>>>>> compatible
 	</liferay-frontend:management-bar-filters>
 
 	<liferay-frontend:management-bar-buttons>

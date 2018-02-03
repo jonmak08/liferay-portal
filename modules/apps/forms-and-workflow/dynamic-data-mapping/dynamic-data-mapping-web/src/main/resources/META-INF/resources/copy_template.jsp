@@ -66,8 +66,14 @@ boolean showBackURL = ParamUtil.getBoolean(request, "showBackURL", true);
 	</aui:fieldset-group>
 
 	<aui:button-row>
+<<<<<<< HEAD
 		<aui:button type="submit" value="copy" />
 
 		<aui:button href="<%= ddmDisplay.getEditTemplateBackURL(liferayPortletRequest, liferayPortletResponse, classNameId, classPK, resourceClassNameId, portletResource) %>" type="cancel" />
+=======
+		<aui:button cssClass="btn-lg" type="submit" value="copy" />
+
+		<aui:button cssClass="btn-lg" href="<%= ddmDisplay.getEditTemplateBackURL(liferayPortletRequest, liferayPortletResponse, classNameId, classPK, resourceClassNameId, portletResource) %>" type="cancel" />
+>>>>>>> compatible
 	</aui:button-row>
 </aui:form>

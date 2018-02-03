@@ -138,7 +138,11 @@ public class KaleoTimerInstanceTokenPersistenceTest {
 
 		newKaleoTimerInstanceToken.setKaleoClassPK(RandomTestUtil.nextLong());
 
+<<<<<<< HEAD
 		newKaleoTimerInstanceToken.setKaleoDefinitionVersionId(RandomTestUtil.nextLong());
+=======
+		newKaleoTimerInstanceToken.setKaleoDefinitionId(RandomTestUtil.nextLong());
+>>>>>>> compatible
 
 		newKaleoTimerInstanceToken.setKaleoInstanceId(RandomTestUtil.nextLong());
 
@@ -185,8 +189,13 @@ public class KaleoTimerInstanceTokenPersistenceTest {
 			newKaleoTimerInstanceToken.getKaleoClassName());
 		Assert.assertEquals(existingKaleoTimerInstanceToken.getKaleoClassPK(),
 			newKaleoTimerInstanceToken.getKaleoClassPK());
+<<<<<<< HEAD
 		Assert.assertEquals(existingKaleoTimerInstanceToken.getKaleoDefinitionVersionId(),
 			newKaleoTimerInstanceToken.getKaleoDefinitionVersionId());
+=======
+		Assert.assertEquals(existingKaleoTimerInstanceToken.getKaleoDefinitionId(),
+			newKaleoTimerInstanceToken.getKaleoDefinitionId());
+>>>>>>> compatible
 		Assert.assertEquals(existingKaleoTimerInstanceToken.getKaleoInstanceId(),
 			newKaleoTimerInstanceToken.getKaleoInstanceId());
 		Assert.assertEquals(existingKaleoTimerInstanceToken.getKaleoInstanceTokenId(),
@@ -235,11 +244,19 @@ public class KaleoTimerInstanceTokenPersistenceTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testCountByKITI_B_C() throws Exception {
 		_persistence.countByKITI_B_C(RandomTestUtil.nextLong(),
 			RandomTestUtil.randomBoolean(), RandomTestUtil.randomBoolean());
 
 		_persistence.countByKITI_B_C(0L, RandomTestUtil.randomBoolean(),
+=======
+	public void testCountByKITI_C_B() throws Exception {
+		_persistence.countByKITI_C_B(RandomTestUtil.nextLong(),
+			RandomTestUtil.randomBoolean(), RandomTestUtil.randomBoolean());
+
+		_persistence.countByKITI_C_B(0L, RandomTestUtil.randomBoolean(),
+>>>>>>> compatible
 			RandomTestUtil.randomBoolean());
 	}
 
@@ -271,7 +288,11 @@ public class KaleoTimerInstanceTokenPersistenceTest {
 			"kaleoTimerInstanceTokenId", true, "groupId", true, "companyId",
 			true, "userId", true, "userName", true, "createDate", true,
 			"modifiedDate", true, "kaleoClassName", true, "kaleoClassPK", true,
+<<<<<<< HEAD
 			"kaleoDefinitionVersionId", true, "kaleoInstanceId", true,
+=======
+			"kaleoDefinitionId", true, "kaleoInstanceId", true,
+>>>>>>> compatible
 			"kaleoInstanceTokenId", true, "kaleoTaskInstanceTokenId", true,
 			"kaleoTimerId", true, "kaleoTimerName", true, "blocking", true,
 			"completionUserId", true, "completed", true, "completionDate", true);
@@ -522,7 +543,11 @@ public class KaleoTimerInstanceTokenPersistenceTest {
 
 		kaleoTimerInstanceToken.setKaleoClassPK(RandomTestUtil.nextLong());
 
+<<<<<<< HEAD
 		kaleoTimerInstanceToken.setKaleoDefinitionVersionId(RandomTestUtil.nextLong());
+=======
+		kaleoTimerInstanceToken.setKaleoDefinitionId(RandomTestUtil.nextLong());
+>>>>>>> compatible
 
 		kaleoTimerInstanceToken.setKaleoInstanceId(RandomTestUtil.nextLong());
 

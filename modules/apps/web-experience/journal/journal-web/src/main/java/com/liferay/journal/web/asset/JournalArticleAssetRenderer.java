@@ -160,7 +160,11 @@ public class JournalArticleAssetRenderer
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 1.4.0, with no direct replacement
+=======
+	 * @deprecated As of 1.3.0, with no direct replacement
+>>>>>>> compatible
 	 */
 	@Deprecated
 	@Override
@@ -207,7 +211,11 @@ public class JournalArticleAssetRenderer
 		String summary = _article.getDescription(locale);
 
 		if (Validator.isNotNull(summary)) {
+<<<<<<< HEAD
 			return HtmlUtil.stripHtml(summary);
+=======
+			return summary;
+>>>>>>> compatible
 		}
 
 		try {

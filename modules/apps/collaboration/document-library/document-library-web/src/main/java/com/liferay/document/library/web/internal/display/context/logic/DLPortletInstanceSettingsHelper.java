@@ -14,8 +14,13 @@
 
 package com.liferay.document.library.web.internal.display.context.logic;
 
+<<<<<<< HEAD
 import com.liferay.document.library.constants.DLPortletKeys;
 import com.liferay.document.library.kernel.util.DLUtil;
+=======
+import com.liferay.document.library.kernel.util.DLUtil;
+import com.liferay.document.library.web.constants.DLPortletKeys;
+>>>>>>> compatible
 import com.liferay.document.library.web.internal.display.context.util.DLRequestHelper;
 import com.liferay.document.library.web.internal.settings.DLPortletInstanceSettings;
 import com.liferay.portal.kernel.language.LanguageUtil;
@@ -24,7 +29,10 @@ import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.KeyValuePair;
 import com.liferay.portal.kernel.util.KeyValuePairComparator;
 import com.liferay.portal.kernel.util.ListUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.PortletKeys;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.util.PropsValues;
@@ -176,9 +184,13 @@ public class DLPortletInstanceSettingsHelper {
 		String portletResource = _dlRequestHelper.getPortletResource();
 
 		if (portletName.equals(DLPortletKeys.DOCUMENT_LIBRARY_ADMIN) ||
+<<<<<<< HEAD
 			portletName.equals(PortletKeys.MY_WORKFLOW_TASK) ||
 			portletResource.equals(DLPortletKeys.DOCUMENT_LIBRARY_ADMIN) ||
 			portletResource.equals(PortletKeys.MY_WORKFLOW_TASK)) {
+=======
+			portletResource.equals(DLPortletKeys.DOCUMENT_LIBRARY_ADMIN)) {
+>>>>>>> compatible
 
 			return true;
 		}
@@ -413,8 +425,11 @@ public class DLPortletInstanceSettingsHelper {
 		String[] mediaGalleryMimeTypes =
 			dlPortletInstanceSettings.getMimeTypes();
 
+<<<<<<< HEAD
 		Arrays.sort(mediaGalleryMimeTypes);
 
+=======
+>>>>>>> compatible
 		ThemeDisplay themeDisplay = _dlRequestHelper.getThemeDisplay();
 
 		_currentMimeTypes = new ArrayList<>();

@@ -1,3 +1,7 @@
 Bundle-Name: Liferay CalEvent Importer
 Bundle-SymbolicName: com.liferay.calevent.importer
+<<<<<<< HEAD
 Bundle-Version: 1.0.12
+=======
+Bundle-Version: 1.0.9
+>>>>>>> compatible

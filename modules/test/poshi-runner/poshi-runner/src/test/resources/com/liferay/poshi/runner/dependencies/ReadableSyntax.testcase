@@ -20,20 +20,27 @@ definition {
 
 	@priority = "5"
 	testAddUser {
+<<<<<<< HEAD
 		var specialCharacters = "&quot;\&quot;";
+=======
+>>>>>>> compatible
 		var userEmailAddress = "userea@liferay.com";
 		var userFirstName = "userfn";
 		var userLastName = "userln";
 
+<<<<<<< HEAD
 		FormFields.editText(
 			fieldName = "label",
 			fieldValue = ",-+!@#$%^*()=_.?/;:{}[]\|"
 		);
 
+=======
+>>>>>>> compatible
 		ProductMenu.gotoControlPanelUsers(
 			portlet = "Users and Organizations"
 		);
 
+<<<<<<< HEAD
 		echo("This is a message.");
 
 		for (breadcrumbName : "${breadcrumbListVisible}") {
@@ -53,6 +60,13 @@ definition {
 			else {
 				Alert.viewSuccessMessage();
 			}
+=======
+		for (breadcrumbName : "${breadcrumbListVisible}") {
+			var key_breadcrumbName = "${breadcrumbName}";
+			var breadcrumbNameUppercase = "StringUtil.upperCase('${breadcrumbName}')";
+
+			AssertTextEquals(locator1 = "Breadcrumb#BREADCRUMB_ENTRY", value1 = "${breadcrumbNameUppercase}");
+>>>>>>> compatible
 		}
 
 		User.addCP(
@@ -70,6 +84,7 @@ definition {
 		property portal.smoke = "true";
 		property test.assert.warning.exceptions = "true";
 
+<<<<<<< HEAD
 		if (isSet(duplicate)) {
 			Alert.viewErrorMessage(
 				errorMessage = "A configuration with this ID already exists. Please enter a unique ID."
@@ -95,6 +110,15 @@ definition {
 			else {
 				Alert.viewSuccessMessage();
 			}
+=======
+		if (isset(duplicate)) {
+			Alert.viewErrorMessage(
+				errorMessage = "A configuration with this ID already exists. Please enter a unique ID."
+			);
+		}
+		else {
+			Alert.viewSuccessMessage();
+>>>>>>> compatible
 		}
 
 		if ("${check}" == "true") {
@@ -105,6 +129,7 @@ definition {
 			Alert.viewSuccessMessage();
 		}
 
+<<<<<<< HEAD
 		if (IsElementPresent(locator1 = "Blogs#ADD_BLOGS_ENTRY")) {
 			Alert.viewSuccessMessage();
 		}
@@ -127,12 +152,15 @@ definition {
 			Alert.viewErrorMessage();
 		}
 
+=======
+>>>>>>> compatible
 		var siteName = return(
 			TestCase.getSiteName(
 				siteName = "${siteName}"
 			),
 			siteName
 		);
+<<<<<<< HEAD
 		var testCDATA = escapeText("'alert(0)'"alert(0)"><img src=x onerror=alert(0)><script>alert(0)</script>");
 		var wikiPageContent = escapeText("<p id='demo'>PASS</p>
 
@@ -167,12 +195,25 @@ definition {
 			Click(locator1 = "AssetCategorization#TAGS_REMOVE_ICON_GENERIC");
 		}
 
+=======
+		var wikiPageContent = "<p id='demo'>PASS</p>
+
+<script type='text/javascript'>
+document.getElementById('demo').innerHTML = 'FAIL';
+</script>";
+
+		Smoke.viewWelcomePage();
+
+>>>>>>> compatible
 		Smoke.runSmoke();
 
 		AssertElementPresent(locator1 = "Home#PAGE", value1 = "Welcome");
 
+<<<<<<< HEAD
 		Type(locator1 = "DDMField#INTEGER", value1 = "5", key_fieldName = "Integer");
 
+=======
+>>>>>>> compatible
 		Click(locator1 = "Home#PAGE");
 
 		Refresh();
@@ -181,6 +222,7 @@ definition {
 
 		AssertElementPresent.assertElementPresent(locator1 = "Home#PAGE", value1 = "Welcome");
 	}
+<<<<<<< HEAD
 
 	@description = "Ensure that a user can add multiple Blogs Entries."
 	@priority = "4"
@@ -232,4 +274,6 @@ definition {
 			}
 		}
 	}
+=======
+>>>>>>> compatible
 }

@@ -14,11 +14,17 @@
 
 package com.liferay.portal.kernel.dao.jdbc;
 
+<<<<<<< HEAD
 import com.liferay.petra.concurrent.NoticeableThreadPoolExecutor;
 import com.liferay.petra.concurrent.ThreadPoolHandlerAdapter;
 import com.liferay.petra.executor.PortalExecutorManager;
 import com.liferay.portal.kernel.concurrent.DefaultNoticeableFuture;
 import com.liferay.portal.kernel.nio.intraband.PortalExecutorManagerInvocationHandler;
+=======
+import com.liferay.portal.kernel.concurrent.DefaultNoticeableFuture;
+import com.liferay.portal.kernel.nio.intraband.CancelingPortalExecutorManagerUtilAdvice;
+import com.liferay.portal.kernel.nio.intraband.PortalExecutorManagerUtilAdvice;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.ReflectionTestUtil;
 import com.liferay.portal.kernel.test.SwappableSecurityManager;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
@@ -32,7 +38,10 @@ import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.test.rule.AdviseWith;
 import com.liferay.portal.test.rule.AspectJNewEnvTestRule;
 import com.liferay.registry.BasicRegistryImpl;
+<<<<<<< HEAD
 import com.liferay.registry.Registry;
+=======
+>>>>>>> compatible
 import com.liferay.registry.RegistryUtil;
 
 import java.lang.reflect.Constructor;
@@ -52,11 +61,15 @@ import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CancellationException;
+<<<<<<< HEAD
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+=======
+import java.util.concurrent.Future;
+>>>>>>> compatible
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.junit.Assert;
@@ -81,6 +94,7 @@ public class AutoBatchPreparedStatementUtilTest {
 	@Before
 	public void setUp() {
 		RegistryUtil.setRegistry(new BasicRegistryImpl());
+<<<<<<< HEAD
 
 		Registry registry = RegistryUtil.getRegistry();
 
@@ -90,6 +104,8 @@ public class AutoBatchPreparedStatementUtilTest {
 				AutoBatchPreparedStatementUtilTest.class.getClassLoader(),
 				new Class<?>[] {PortalExecutorManager.class},
 				new PortalExecutorManagerInvocationHandler()));
+=======
+>>>>>>> compatible
 	}
 
 	@AdviseWith(adviceClasses = {PropsUtilAdvice.class})
@@ -123,6 +139,7 @@ public class AutoBatchPreparedStatementUtilTest {
 		}
 	}
 
+<<<<<<< HEAD
 	@AdviseWith(adviceClasses = {PropsUtilAdvice.class})
 	@Test
 	public void testConcurrentCancellationException() {
@@ -156,13 +173,30 @@ public class AutoBatchPreparedStatementUtilTest {
 				}),
 			Collections.singletonMap("service.ranking", Integer.MAX_VALUE));
 
+=======
+	@AdviseWith(
+		adviceClasses = {
+			CancelingPortalExecutorManagerUtilAdvice.class,
+			PropsUtilAdvice.class
+		}
+	)
+	@Test
+	public void testConcurrentCancellationException() {
+>>>>>>> compatible
 		PropsUtilAdvice.setProps(PropsKeys.HIBERNATE_JDBC_BATCH_SIZE, "0");
 
 		doTestConcurrentCancellationException(true);
 		doTestConcurrentCancellationException(false);
 	}
 
+<<<<<<< HEAD
 	@AdviseWith(adviceClasses = {PropsUtilAdvice.class})
+=======
+	@AdviseWith(
+		adviceClasses =
+			{PortalExecutorManagerUtilAdvice.class, PropsUtilAdvice.class}
+	)
+>>>>>>> compatible
 	@Test
 	public void testConcurrentExecutionException() {
 		PropsUtilAdvice.setProps(PropsKeys.HIBERNATE_JDBC_BATCH_SIZE, "0");
@@ -171,7 +205,14 @@ public class AutoBatchPreparedStatementUtilTest {
 		doTestConcurrentExecutionExceptions(false);
 	}
 
+<<<<<<< HEAD
 	@AdviseWith(adviceClasses = {PropsUtilAdvice.class})
+=======
+	@AdviseWith(
+		adviceClasses =
+			{PortalExecutorManagerUtilAdvice.class, PropsUtilAdvice.class}
+	)
+>>>>>>> compatible
 	@Test
 	public void testConcurrentWaitingForFutures() throws SQLException {
 		PropsUtilAdvice.setProps(PropsKeys.HIBERNATE_JDBC_BATCH_SIZE, "0");
@@ -180,7 +221,12 @@ public class AutoBatchPreparedStatementUtilTest {
 		doTestConcurrentWaitingForFutures(false);
 	}
 
+<<<<<<< HEAD
 	@AdviseWith(adviceClasses = {PropsUtilAdvice.class})
+=======
+	@AdviseWith(adviceClasses = {PropsUtilAdvice.class}
+	)
+>>>>>>> compatible
 	@Test
 	public void testConstructor() throws ReflectiveOperationException {
 		PropsUtilAdvice.setProps(PropsKeys.HIBERNATE_JDBC_BATCH_SIZE, "0");
@@ -195,7 +241,14 @@ public class AutoBatchPreparedStatementUtilTest {
 		constructor.newInstance();
 	}
 
+<<<<<<< HEAD
 	@AdviseWith(adviceClasses = {PropsUtilAdvice.class})
+=======
+	@AdviseWith(
+		adviceClasses =
+			{PortalExecutorManagerUtilAdvice.class, PropsUtilAdvice.class}
+	)
+>>>>>>> compatible
 	@Test
 	public void testNotSupportBatchUpdates() throws Exception {
 		PropsUtilAdvice.setProps(PropsKeys.HIBERNATE_JDBC_BATCH_SIZE, "0");
@@ -204,7 +257,14 @@ public class AutoBatchPreparedStatementUtilTest {
 		doTestNotSupportBatchUpdatesConcurrent();
 	}
 
+<<<<<<< HEAD
 	@AdviseWith(adviceClasses = {PropsUtilAdvice.class})
+=======
+	@AdviseWith(
+		adviceClasses =
+			{PortalExecutorManagerUtilAdvice.class, PropsUtilAdvice.class}
+	)
+>>>>>>> compatible
 	@Test
 	public void testSupportBatchUpdates() throws Exception {
 		PropsUtilAdvice.setProps(PropsKeys.HIBERNATE_JDBC_BATCH_SIZE, "2");
@@ -260,7 +320,11 @@ public class AutoBatchPreparedStatementUtilTest {
 			new PreparedStatementInvocationHandler(supportBatchUpdates);
 
 		Set<Throwable> throwables = Collections.newSetFromMap(
+<<<<<<< HEAD
 			new IdentityHashMap<>());
+=======
+			new IdentityHashMap<Throwable, Boolean>());
+>>>>>>> compatible
 
 		try (PreparedStatement preparedStatement =
 				AutoBatchPreparedStatementUtil.concurrentAutoBatch(
@@ -294,16 +358,24 @@ public class AutoBatchPreparedStatementUtilTest {
 			preparedStatement.executeBatch();
 		}
 		catch (Throwable t) {
+<<<<<<< HEAD
 			Assert.assertTrue(throwables.toString(), throwables.contains(t));
+=======
+			Assert.assertTrue(throwables.contains(t));
+>>>>>>> compatible
 
 			Throwable[] suppressedThrowables = t.getSuppressed();
 
 			Assert.assertEquals(
 				Arrays.toString(suppressedThrowables), 1,
 				suppressedThrowables.length);
+<<<<<<< HEAD
 			Assert.assertTrue(
 				throwables.toString(),
 				throwables.contains(suppressedThrowables[0]));
+=======
+			Assert.assertTrue(throwables.contains(suppressedThrowables[0]));
+>>>>>>> compatible
 
 			return;
 		}

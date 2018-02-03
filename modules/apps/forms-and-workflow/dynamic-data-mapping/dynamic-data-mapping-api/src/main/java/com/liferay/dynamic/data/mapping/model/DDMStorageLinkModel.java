@@ -164,6 +164,7 @@ public interface DDMStorageLinkModel extends AttachedModel,
 	 */
 	public void setStructureId(long structureId);
 
+<<<<<<< HEAD
 	/**
 	 * Returns the structure version ID of this ddm storage link.
 	 *
@@ -178,6 +179,8 @@ public interface DDMStorageLinkModel extends AttachedModel,
 	 */
 	public void setStructureVersionId(long structureVersionId);
 
+=======
+>>>>>>> compatible
 	@Override
 	public boolean isNew();
 

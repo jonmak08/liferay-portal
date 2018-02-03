@@ -14,7 +14,11 @@
 
 package com.liferay.configuration.admin.web.internal.portlet;
 
+<<<<<<< HEAD
 import com.liferay.configuration.admin.constants.ConfigurationAdminPortletKeys;
+=======
+import com.liferay.configuration.admin.web.internal.constants.ConfigurationAdminPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 
 import javax.portlet.Portlet;

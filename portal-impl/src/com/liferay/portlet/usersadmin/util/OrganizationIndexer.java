@@ -45,7 +45,10 @@ import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+>>>>>>> compatible
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
@@ -165,6 +168,7 @@ public class OrganizationIndexer extends BaseIndexer<Organization> {
 		}
 	}
 
+<<<<<<< HEAD
 	protected String buildNameTreePath(Organization organization)
 		throws PortalException {
 
@@ -197,6 +201,8 @@ public class OrganizationIndexer extends BaseIndexer<Organization> {
 		return sb.toString();
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	protected void doDelete(Organization organization) throws Exception {
 		deleteDocument(

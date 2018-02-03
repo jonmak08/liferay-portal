@@ -18,6 +18,7 @@ import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
@@ -27,6 +28,13 @@ import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Before;
+=======
+import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+
+import java.util.List;
+
+import org.junit.Assert;
+>>>>>>> compatible
 import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
@@ -43,6 +51,7 @@ public class GroupLocalServiceTest {
 	public static final AggregateTestRule aggregateTestRule =
 		new LiferayIntegrationTestRule();
 
+<<<<<<< HEAD
 	@Before
 	public void setUp() throws Exception {
 		_group1 = GroupTestUtil.addGroup();
@@ -68,10 +77,13 @@ public class GroupLocalServiceTest {
 		_assertDescendantGroups(_group4);
 	}
 
+=======
+>>>>>>> compatible
 	@Test
 	public void testGetStagedSites() {
 		List<Group> groups = GroupLocalServiceUtil.getStagedSites();
 
+<<<<<<< HEAD
 		Assert.assertTrue(groups.toString(), groups.isEmpty());
 	}
 
@@ -99,4 +111,9 @@ public class GroupLocalServiceTest {
 	@DeleteAfterTestRun
 	private final List<Group> _groups = new ArrayList<>();
 
+=======
+		Assert.assertTrue(groups.isEmpty());
+	}
+
+>>>>>>> compatible
 }

@@ -14,6 +14,7 @@
 
 package com.liferay.frontend.js.loader.modules.extender.internal;
 
+<<<<<<< HEAD
 import com.liferay.frontend.js.loader.modules.extender.npm.JSModule;
 import com.liferay.frontend.js.loader.modules.extender.npm.JSModuleAlias;
 import com.liferay.frontend.js.loader.modules.extender.npm.JSPackage;
@@ -23,14 +24,27 @@ import com.liferay.petra.string.StringPool;
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.frontend.js.loader.modules.extender.internal.npm.NPMRegistry;
+import com.liferay.frontend.js.loader.modules.extender.npm.JSModule;
+import com.liferay.frontend.js.loader.modules.extender.npm.JSPackage;
+import com.liferay.frontend.js.loader.modules.extender.npm.JSPackageDependency;
+import com.liferay.portal.kernel.util.Portal;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.IOException;
 import java.io.PrintWriter;
 
+<<<<<<< HEAD
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Map;
+=======
+import java.util.Collection;
+import java.util.HashSet;
+>>>>>>> compatible
 import java.util.Set;
 
 import javax.servlet.Servlet;
@@ -48,6 +62,10 @@ import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Modified;
 import org.osgi.service.component.annotations.Reference;
+<<<<<<< HEAD
+=======
+import org.osgi.service.metatype.annotations.Designate;
+>>>>>>> compatible
 
 /**
  * @author Raymond Augé
@@ -62,6 +80,10 @@ import org.osgi.service.component.annotations.Reference;
 	},
 	service = {JSLoaderModulesServlet.class, Servlet.class}
 )
+<<<<<<< HEAD
+=======
+@Designate(ocd = Details.class)
+>>>>>>> compatible
 public class JSLoaderModulesServlet extends HttpServlet {
 
 	@Override
@@ -74,12 +96,19 @@ public class JSLoaderModulesServlet extends HttpServlet {
 
 	@Activate
 	@Modified
+<<<<<<< HEAD
 	protected void activate(
 			ComponentContext componentContext, Map<String, Object> properties)
 		throws Exception {
 
 		_details = ConfigurableUtil.createConfigurable(
 			Details.class, properties);
+=======
+	protected void activate(ComponentContext componentContext, Details details)
+		throws Exception {
+
+		_details = details;
+>>>>>>> compatible
 
 		_logger = new Logger(componentContext.getBundleContext());
 
@@ -214,6 +243,7 @@ public class JSLoaderModulesServlet extends HttpServlet {
 			for (String dependencyPackageName :
 					resolvedJSModule.getDependencyPackageNames()) {
 
+<<<<<<< HEAD
 				if (dependencyPackageName == null) {
 					continue;
 				}
@@ -276,6 +306,39 @@ public class JSLoaderModulesServlet extends HttpServlet {
 				printWriter.write("\"");
 
 				delimiter2 = ", ";
+=======
+				JSPackageDependency jsPackageDependency =
+					jsPackage.getJSPackageDependency(dependencyPackageName);
+
+				if (jsPackageDependency != null) {
+					JSPackage jsDependencyPackage =
+						_npmRegistry.resolveJSPackageDependency(
+							jsPackageDependency);
+
+					printWriter.write(delimiter2);
+
+					if (jsDependencyPackage == null) {
+						printWriter.write("\"");
+						printWriter.write(dependencyPackageName);
+						printWriter.write("\": \"[NOT-DEPLOYED:");
+						printWriter.write(dependencyPackageName);
+						printWriter.write("]\"");
+					}
+					else {
+						printWriter.write("\"");
+						printWriter.write(jsDependencyPackage.getName());
+						printWriter.write("\": ");
+
+						printWriter.write("\"");
+						printWriter.write(jsDependencyPackage.getName());
+						printWriter.write(StringPool.AT);
+						printWriter.write(jsDependencyPackage.getVersion());
+						printWriter.write("\"");
+					}
+
+					delimiter2 = ", ";
+				}
+>>>>>>> compatible
 			}
 
 			printWriter.write("}\n");
@@ -318,17 +381,31 @@ public class JSLoaderModulesServlet extends HttpServlet {
 			}
 		}
 
+<<<<<<< HEAD
 		for (JSPackage jsPackage : _npmRegistry.getResolvedJSPackages()) {
 			printWriter.write(delimiter);
 			printWriter.write("\"");
 			printWriter.write(jsPackage.getResolvedId());
 			printWriter.write("\": {exactMatch: true, value: \"");
 			printWriter.write(jsPackage.getResolvedId());
+=======
+		for (JSPackage jsPackage : _npmRegistry.getJSPackages()) {
+			printWriter.write(delimiter);
+			printWriter.write("\"");
+			printWriter.write(jsPackage.getName());
+			printWriter.write(StringPool.AT);
+			printWriter.write(jsPackage.getVersion());
+			printWriter.write("\": {exactMatch: true, value: \"");
+			printWriter.write(jsPackage.getName());
+			printWriter.write(StringPool.AT);
+			printWriter.write(jsPackage.getVersion());
+>>>>>>> compatible
 			printWriter.write(StringPool.SLASH);
 			printWriter.write(jsPackage.getMainModuleName());
 			printWriter.write("\"}");
 
 			delimiter = ",\n";
+<<<<<<< HEAD
 
 			for (JSModuleAlias jsModuleAlias : jsPackage.getJSModuleAliases()) {
 				printWriter.write(delimiter);
@@ -342,15 +419,20 @@ public class JSLoaderModulesServlet extends HttpServlet {
 				printWriter.write(jsModuleAlias.getModuleName());
 				printWriter.write("\"}");
 			}
+=======
+>>>>>>> compatible
 		}
 
 		printWriter.println("\n};");
 
 		printWriter.println(
+<<<<<<< HEAD
 			"Liferay.EXPLAIN_RESOLUTIONS = " + _details.explainResolutions() +
 				";\n");
 
 		printWriter.println(
+=======
+>>>>>>> compatible
 			"Liferay.EXPOSE_GLOBAL = " + _details.exposeGlobal() + ";\n");
 
 		printWriter.println("}());");
@@ -374,9 +456,12 @@ public class JSLoaderModulesServlet extends HttpServlet {
 		_npmRegistry = npmRegistry;
 	}
 
+<<<<<<< HEAD
 	private static final Set<String> _legacyPackageNames = new HashSet<>(
 		Arrays.asList("map-common"));
 
+=======
+>>>>>>> compatible
 	private ComponentContext _componentContext;
 	private volatile Details _details;
 	private JSLoaderModulesTracker _jsLoaderModulesTracker;

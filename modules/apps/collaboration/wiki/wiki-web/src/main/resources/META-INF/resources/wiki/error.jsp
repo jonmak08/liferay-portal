@@ -88,13 +88,21 @@ if (portletTitleBasedNavigation) {
 					String taglibEditPage = "location.href = '" + editPageURL.toString() + "';";
 					%>
 
+<<<<<<< HEAD
 					<aui:button onClick="<%= taglibEditPage %>" primary="<%= true %>" value='<%= LanguageUtil.format(request, "create-page-x", HtmlUtil.escapeAttribute(title), false) %>' />
+=======
+					<aui:button cssClass="btn-lg" onClick="<%= taglibEditPage %>" primary="<%= true %>" value='<%= LanguageUtil.format(request, "create-page-x", HtmlUtil.escapeAttribute(title), false) %>' />
+>>>>>>> compatible
 
 					<%
 					String taglibSearch = "location.href = '" + searchURL.toString() + "';";
 					%>
 
+<<<<<<< HEAD
 					<aui:button cssClass="btn-secondary" onClick="<%= taglibSearch %>" value='<%= LanguageUtil.format(request, "search-for-x", HtmlUtil.escapeAttribute(title), false) %>' />
+=======
+					<aui:button cssClass="btn-default btn-lg" onClick="<%= taglibSearch %>" value='<%= LanguageUtil.format(request, "search-for-x", HtmlUtil.escapeAttribute(title), false) %>' />
+>>>>>>> compatible
 				</div>
 			</div>
 		</div>

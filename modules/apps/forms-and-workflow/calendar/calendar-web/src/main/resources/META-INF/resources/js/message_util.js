@@ -126,6 +126,7 @@ AUI.add(
 				).render(container);
 			},
 
+<<<<<<< HEAD
 			showErrorMessage: function(container, errorMessage) {
 				var instance = this;
 
@@ -192,6 +193,8 @@ AUI.add(
 				instance._alert = alert;
 			},
 
+=======
+>>>>>>> compatible
 			_queueableQuestionUpdateAllInvited: function(data) {
 				var instance = this;
 

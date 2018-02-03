@@ -50,8 +50,12 @@
 					mode: '<%= mode %>',
 					p_l_id: <%= themeDisplay.getPlid() %>,
 					portletNamespace: '<portlet:namespace />',
+<<<<<<< HEAD
 					repeatable: <%= repeatable %>,
 					requestedLocale: '<%= requestedLocale %>'
+=======
+					repeatable: <%= repeatable %>
+>>>>>>> compatible
 
 					<c:if test="<%= ddmFormValues != null %>">
 						, values: <%= DDMUtil.getDDMFormValuesJSONString(ddmFormValues) %>

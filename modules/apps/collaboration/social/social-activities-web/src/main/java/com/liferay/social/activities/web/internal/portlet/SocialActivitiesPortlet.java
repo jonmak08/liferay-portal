@@ -16,7 +16,11 @@ package com.liferay.social.activities.web.internal.portlet;
 
 import com.liferay.portal.kernel.model.Release;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
+<<<<<<< HEAD
 import com.liferay.social.activities.constants.SocialActivitiesPortletKeys;
+=======
+import com.liferay.social.activities.web.constants.SocialActivitiesPortletKeys;
+>>>>>>> compatible
 
 import javax.portlet.Portlet;
 

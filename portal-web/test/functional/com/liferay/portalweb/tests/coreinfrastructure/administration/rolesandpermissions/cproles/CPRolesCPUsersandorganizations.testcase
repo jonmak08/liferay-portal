@@ -36,7 +36,11 @@
 
 	<command name="AddOrganizationRegRole" priority="4">
 		<execute macro="Permissions#setUpRegRoleLoginUserCP">
+<<<<<<< HEAD
 			<var name="roleTitle" value="Regrole Name" />
+=======
+			<var name="roleName" value="Regrole Name" />
+>>>>>>> compatible
 			<var name="userEmailAddress" value="userea@liferay.com" />
 			<var name="userFirstName" value="userfn" />
 			<var name="userLastName" value="userln" />
@@ -46,6 +50,7 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Permissions#definePermissionViaJSONAPI">
 			<var name="resourceAction" value="VIEW_CONTROL_PANEL" />
 			<var name="resourceName" value="90" />
@@ -59,10 +64,17 @@
 		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
+=======
+		<execute macro="Permissions#definePermissionLoginUserCP">
+			<var name="permissionDefinitionKey" value="CONTROL_PANEL_USERS_USERS_AND_ORGANIZATIONS_GENERAL_PERMISSIONS_ACCESS_IN_CONTROL_PANEL_CHECKBOX" />
+			<var name="permissionDefinitionValue" value="Access in Control Panel" />
+			<var name="roleName" value="Regrole Name" />
+>>>>>>> compatible
 			<var name="userLoginEmailAddress" value="userea@liferay.com" />
 			<var name="userLoginFullName" value="userfn userln" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Permissions#definePermissionViaJSONAPI">
 			<var name="resourceAction" value="VIEW" />
 			<var name="resourceName" value="com.liferay.portal.kernel.model.UserGroup" />
@@ -77,6 +89,9 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -85,6 +100,7 @@
 		<execute function="AssertElementNotPresent" locator1="UsersAndOrganizations#ADD" />
 		<execute function="AssertTextEquals" locator1="Message#INFO" value1="You do not belong to an organization and are not allowed to view other organizations." />
 
+<<<<<<< HEAD
 		<execute macro="Permissions#definePermissionViaJSONAPI">
 			<var name="resourceAction" value="ADD_ORGANIZATION" />
 			<var name="resourceName" value="90" />
@@ -92,13 +108,23 @@
 		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
+=======
+		<execute macro="Permissions#definePermissionLoginUserCP">
+			<var name="permissionDefinitionKey" value="CONTROL_PANEL_GENERAL_PERMISSIONS_ADD_ORGANIZATION_CHECKBOX" />
+			<var name="permissionDefinitionValue" value="Add Organization" />
+			<var name="roleName" value="Regrole Name" />
+>>>>>>> compatible
 			<var name="userLoginEmailAddress" value="userea@liferay.com" />
 			<var name="userLoginFullName" value="userfn userln" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -107,6 +133,7 @@
 			<var name="orgType" value="Organization" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Permissions#removePermissionViaAPI">
 			<var name="resourceAction" value="ADD_ORGANIZATION" />
 			<var name="resourceName" value="90" />
@@ -114,13 +141,23 @@
 		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
+=======
+		<execute macro="Permissions#removePermissionLoginUserCP">
+			<var name="permissionDefinitionKey" value="CONTROL_PANEL_GENERAL_PERMISSIONS_ADD_ORGANIZATION_CHECKBOX" />
+			<var name="permissionDefinitionValue" value="Add Organization" />
+			<var name="roleName" value="Regrole Name" />
+>>>>>>> compatible
 			<var name="userLoginEmailAddress" value="userea@liferay.com" />
 			<var name="userLoginFullName" value="userfn userln" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -129,7 +166,11 @@
 
 	<command name="AddUserRegRole" priority="4">
 		<execute macro="Permissions#setUpRegRoleLoginUserCP">
+<<<<<<< HEAD
 			<var name="roleTitle" value="Regrole Name" />
+=======
+			<var name="roleName" value="Regrole Name" />
+>>>>>>> compatible
 			<var name="userEmailAddress" value="userea@liferay.com" />
 			<var name="userFirstName" value="userfn" />
 			<var name="userLastName" value="userln" />
@@ -139,6 +180,7 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Permissions#definePermissionViaJSONAPI">
 			<var name="resourceAction" value="VIEW_CONTROL_PANEL" />
 			<var name="resourceName" value="90" />
@@ -152,13 +194,23 @@
 		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
+=======
+		<execute macro="Permissions#definePermissionLoginUserCP">
+			<var name="permissionDefinitionKey" value="CONTROL_PANEL_USERS_USERS_AND_ORGANIZATIONS_GENERAL_PERMISSIONS_ACCESS_IN_CONTROL_PANEL_CHECKBOX" />
+			<var name="permissionDefinitionValue" value="Access in Control Panel" />
+			<var name="roleName" value="Regrole Name" />
+>>>>>>> compatible
 			<var name="userLoginEmailAddress" value="userea@liferay.com" />
 			<var name="userLoginFullName" value="userfn userln" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -167,6 +219,7 @@
 		<execute function="AssertTextEquals" locator1="Message#INFO" value1="You do not belong to an organization and are not allowed to view other organizations." />
 		<execute function="AssertElementNotPresent" locator1="UsersAndOrganizations#ADD" />
 
+<<<<<<< HEAD
 		<execute macro="Permissions#definePermissionViaJSONAPI">
 			<var name="resourceAction" value="ADD_USER" />
 			<var name="resourceName" value="90" />
@@ -174,13 +227,23 @@
 		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
+=======
+		<execute macro="Permissions#definePermissionLoginUserCP">
+			<var name="permissionDefinitionKey" value="CONTROL_PANEL_GENERAL_PERMISSIONS_ADD_USER_CHECKBOX" />
+			<var name="permissionDefinitionValue" value="Add User" />
+			<var name="roleName" value="Regrole Name" />
+>>>>>>> compatible
 			<var name="userLoginEmailAddress" value="userea@liferay.com" />
 			<var name="userLoginFullName" value="userfn userln" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -191,6 +254,7 @@
 			<var name="userScreenName" value="usersn1" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Permissions#removePermissionViaAPI">
 			<var name="resourceAction" value="ADD_USER" />
 			<var name="resourceName" value="90" />
@@ -198,13 +262,23 @@
 		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
+=======
+		<execute macro="Permissions#removePermissionLoginUserCP">
+			<var name="permissionDefinitionKey" value="CONTROL_PANEL_GENERAL_PERMISSIONS_ADD_USER_CHECKBOX" />
+			<var name="permissionDefinitionValue" value="Add User" />
+			<var name="roleName" value="Regrole Name" />
+>>>>>>> compatible
 			<var name="userLoginEmailAddress" value="userea@liferay.com" />
 			<var name="userLoginFullName" value="userfn userln" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 

@@ -17,10 +17,16 @@ package com.liferay.trash.web.internal.dao.search;
 import com.liferay.portal.kernel.dao.search.ResultRow;
 import com.liferay.portal.kernel.dao.search.ResultRowSplitter;
 import com.liferay.portal.kernel.dao.search.ResultRowSplitterEntry;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.ClassedModel;
 import com.liferay.portal.kernel.model.TrashedModel;
 import com.liferay.portal.kernel.trash.TrashHandler;
 import com.liferay.portal.kernel.trash.TrashHandlerRegistryUtil;
+=======
+import com.liferay.portal.kernel.trash.TrashHandler;
+import com.liferay.portal.kernel.trash.TrashHandlerRegistryUtil;
+import com.liferay.portal.kernel.trash.TrashRenderer;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 
 import java.util.ArrayList;
@@ -51,6 +57,7 @@ public class TrashResultRowSplitter implements ResultRowSplitter {
 		String containedModelName = null;
 
 		for (ResultRow resultRow : resultRows) {
+<<<<<<< HEAD
 			TrashedModel trashedModel = (TrashedModel)resultRow.getObject();
 
 			ClassedModel classedModel = (ClassedModel)trashedModel;
@@ -58,6 +65,13 @@ public class TrashResultRowSplitter implements ResultRowSplitter {
 			TrashHandler trashHandler =
 				TrashHandlerRegistryUtil.getTrashHandler(
 					classedModel.getModelClassName());
+=======
+			TrashRenderer trashRenderer = (TrashRenderer)resultRow.getObject();
+
+			TrashHandler trashHandler =
+				TrashHandlerRegistryUtil.getTrashHandler(
+					trashRenderer.getClassName());
+>>>>>>> compatible
 
 			if (Validator.isNull(containerModelName) &&
 				Validator.isNull(containedModelName)) {

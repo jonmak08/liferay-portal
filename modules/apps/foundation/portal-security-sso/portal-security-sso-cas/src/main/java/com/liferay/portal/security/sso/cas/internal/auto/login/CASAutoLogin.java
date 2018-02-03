@@ -14,7 +14,10 @@
 
 package com.liferay.portal.security.sso.cas.internal.auto.login;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.NoSuchUserException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
@@ -29,11 +32,19 @@ import com.liferay.portal.kernel.settings.CompanyServiceSettingsLocator;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.PrefsPropsUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.security.exportimport.UserImporter;
 import com.liferay.portal.security.sso.cas.configuration.CASConfiguration;
 import com.liferay.portal.security.sso.cas.constants.CASConstants;
+<<<<<<< HEAD
 import com.liferay.portal.security.sso.cas.internal.constants.CASWebKeys;
+=======
+import com.liferay.portal.security.sso.cas.constants.CASWebKeys;
+>>>>>>> compatible
 import com.liferay.portal.util.PropsValues;
 
 import javax.servlet.http.HttpServletRequest;

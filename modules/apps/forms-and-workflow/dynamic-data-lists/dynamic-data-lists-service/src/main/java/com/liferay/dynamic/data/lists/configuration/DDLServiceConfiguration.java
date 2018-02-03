@@ -28,7 +28,11 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
 )
 public interface DDLServiceConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(deflt = "true", name = "add-default-structures", required = false)
+=======
+	@Meta.AD(deflt = "true", required = false)
+>>>>>>> compatible
 	public boolean addDefaultStructures();
 
 }

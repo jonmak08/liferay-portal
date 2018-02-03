@@ -51,6 +51,10 @@ import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StreamUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.WebKeys;
 
 import java.io.InputStream;
@@ -95,11 +99,21 @@ public class ImportLayoutsMVCActionCommand extends BaseMVCActionCommand {
 
 		deleteTempFileEntry(groupId, folderName);
 
+<<<<<<< HEAD
 		try (InputStream inputStream =
 				uploadPortletRequest.getFileAsStream("file")) {
 
 			String sourceFileName = uploadPortletRequest.getFileName("file");
 
+=======
+		InputStream inputStream = null;
+
+		try {
+			String sourceFileName = uploadPortletRequest.getFileName("file");
+
+			inputStream = uploadPortletRequest.getFileAsStream("file");
+
+>>>>>>> compatible
 			String contentType = uploadPortletRequest.getContentType("file");
 
 			_layoutService.addTempFileEntry(
@@ -131,6 +145,12 @@ public class ImportLayoutsMVCActionCommand extends BaseMVCActionCommand {
 				throw e;
 			}
 		}
+<<<<<<< HEAD
+=======
+		finally {
+			StreamUtil.cleanUp(inputStream);
+		}
+>>>>>>> compatible
 	}
 
 	protected void checkExceededSizeLimit(HttpServletRequest request)
@@ -296,13 +316,27 @@ public class ImportLayoutsMVCActionCommand extends BaseMVCActionCommand {
 		FileEntry fileEntry = _exportImportHelper.getTempFileEntry(
 			groupId, themeDisplay.getUserId(), folderName);
 
+<<<<<<< HEAD
 		try (InputStream inputStream = _dlFileEntryLocalService.getFileAsStream(
 				fileEntry.getFileEntryId(), fileEntry.getVersion(), false)) {
+=======
+		InputStream inputStream = null;
+
+		try {
+			inputStream = _dlFileEntryLocalService.getFileAsStream(
+				fileEntry.getFileEntryId(), fileEntry.getVersion(), false);
+>>>>>>> compatible
 
 			importData(actionRequest, fileEntry.getTitle(), inputStream);
 
 			deleteTempFileEntry(groupId, folderName);
 		}
+<<<<<<< HEAD
+=======
+		finally {
+			StreamUtil.cleanUp(inputStream);
+		}
+>>>>>>> compatible
 	}
 
 	protected void importData(
@@ -376,8 +410,16 @@ public class ImportLayoutsMVCActionCommand extends BaseMVCActionCommand {
 		FileEntry fileEntry = _exportImportHelper.getTempFileEntry(
 			groupId, themeDisplay.getUserId(), folderName);
 
+<<<<<<< HEAD
 		try (InputStream inputStream = _dlFileEntryLocalService.getFileAsStream(
 				fileEntry.getFileEntryId(), fileEntry.getVersion(), false)) {
+=======
+		InputStream inputStream = null;
+
+		try {
+			inputStream = _dlFileEntryLocalService.getFileAsStream(
+				fileEntry.getFileEntryId(), fileEntry.getVersion(), false);
+>>>>>>> compatible
 
 			MissingReferences missingReferences = validateFile(
 				actionRequest, inputStream);
@@ -403,6 +445,12 @@ public class ImportLayoutsMVCActionCommand extends BaseMVCActionCommand {
 			JSONPortletResponseUtil.writeJSON(
 				actionRequest, actionResponse, jsonObject);
 		}
+<<<<<<< HEAD
+=======
+		finally {
+			StreamUtil.cleanUp(inputStream);
+		}
+>>>>>>> compatible
 	}
 
 	protected MissingReferences validateFile(

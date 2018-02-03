@@ -35,7 +35,10 @@ import com.liferay.journal.util.JournalConverter;
 import com.liferay.journal.util.comparator.FolderArticleArticleIdComparator;
 import com.liferay.journal.util.comparator.FolderArticleDisplayDateComparator;
 import com.liferay.journal.util.comparator.FolderArticleModifiedDateComparator;
+<<<<<<< HEAD
 import com.liferay.journal.util.comparator.FolderArticleTitleComparator;
+=======
+>>>>>>> compatible
 import com.liferay.journal.web.configuration.JournalWebConfiguration;
 import com.liferay.journal.web.internal.portlet.action.ActionUtil;
 import com.liferay.journal.web.internal.search.EntriesChecker;
@@ -44,6 +47,7 @@ import com.liferay.journal.web.internal.search.JournalSearcher;
 import com.liferay.journal.web.util.JournalPortletUtil;
 import com.liferay.message.boards.kernel.model.MBMessage;
 import com.liferay.message.boards.kernel.service.MBMessageLocalServiceUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.bean.BeanParamUtil;
 import com.liferay.portal.kernel.dao.search.SearchContainer;
@@ -55,6 +59,14 @@ import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Layout;
+=======
+import com.liferay.portal.kernel.bean.BeanParamUtil;
+import com.liferay.portal.kernel.dao.search.SearchContainer;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.language.LanguageUtil;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.module.configuration.ConfigurationProviderUtil;
 import com.liferay.portal.kernel.portlet.LiferayPortletRequest;
 import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
@@ -83,12 +95,19 @@ import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.PrefsParamUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
+<<<<<<< HEAD
 import com.liferay.trash.TrashHelper;
+=======
+>>>>>>> compatible
 
 import java.io.Serializable;
 
@@ -115,21 +134,30 @@ public class JournalDisplayContext {
 	public JournalDisplayContext(
 		HttpServletRequest request, LiferayPortletRequest liferayPortletRequest,
 		LiferayPortletResponse liferayPortletResponse,
+<<<<<<< HEAD
 		PortletPreferences portletPreferences, TrashHelper trashHelper) {
+=======
+		PortletPreferences portletPreferences) {
+>>>>>>> compatible
 
 		_request = request;
 		_liferayPortletRequest = liferayPortletRequest;
 		_liferayPortletResponse = liferayPortletResponse;
 		_portletPreferences = portletPreferences;
+<<<<<<< HEAD
 		_trashHelper = trashHelper;
 
 		_journalWebConfiguration =
 			(JournalWebConfiguration)_request.getAttribute(
 				JournalWebConfiguration.class.getName());
+=======
+
+>>>>>>> compatible
 		_portalPreferences = PortletPreferencesFactoryUtil.getPortalPreferences(
 			_request);
 	}
 
+<<<<<<< HEAD
 	public String[] getAddMenuFavItems() throws PortalException {
 		if (_addMenuFavItems != null) {
 			return _addMenuFavItems;
@@ -153,6 +181,8 @@ public class JournalDisplayContext {
 		return addMenuFavItems.length;
 	}
 
+=======
+>>>>>>> compatible
 	public JournalArticle getArticle() throws PortalException {
 		if (_article != null) {
 			return _article;
@@ -176,6 +206,7 @@ public class JournalDisplayContext {
 		double version = ParamUtil.getDouble(_request, "version");
 		int page = ParamUtil.getInteger(_request, "page");
 
+<<<<<<< HEAD
 		JournalArticle article = JournalArticleLocalServiceUtil.fetchArticle(
 			groupId, articleId, version);
 
@@ -185,6 +216,11 @@ public class JournalDisplayContext {
 
 		_articleDisplay = JournalArticleLocalServiceUtil.getArticleDisplay(
 			article, null, null, themeDisplay.getLanguageId(), page,
+=======
+		_articleDisplay = JournalArticleLocalServiceUtil.getArticleDisplay(
+			groupId, articleId, version, null, null,
+			themeDisplay.getLanguageId(), page,
+>>>>>>> compatible
 			new PortletRequestModel(
 				_liferayPortletRequest, _liferayPortletResponse),
 			themeDisplay);
@@ -356,6 +392,7 @@ public class JournalDisplayContext {
 		return ddmStructure.getPrimaryKey();
 	}
 
+<<<<<<< HEAD
 	public List<DDMStructure> getDDMStructures() throws PortalException {
 		Integer restrictionType = getRestrictionType();
 
@@ -396,6 +433,8 @@ public class JournalDisplayContext {
 		return _ddmStructures;
 	}
 
+=======
+>>>>>>> compatible
 	public String getDDMTemplateKey() {
 		if (_ddmTemplateKey != null) {
 			return _ddmTemplateKey;
@@ -419,9 +458,19 @@ public class JournalDisplayContext {
 		_displayStyle = ParamUtil.getString(_request, "displayStyle");
 
 		if (Validator.isNull(_displayStyle)) {
+<<<<<<< HEAD
 			_displayStyle = portalPreferences.getValue(
 				JournalPortletKeys.JOURNAL, "display-style",
 				_journalWebConfiguration.defaultDisplayView());
+=======
+			JournalWebConfiguration journalWebConfiguration =
+				(JournalWebConfiguration)_request.getAttribute(
+					JournalWebConfiguration.class.getName());
+
+			_displayStyle = portalPreferences.getValue(
+				JournalPortletKeys.JOURNAL, "display-style",
+				journalWebConfiguration.defaultDisplayView());
+>>>>>>> compatible
 		}
 		else if (ArrayUtil.contains(displayViews, _displayStyle)) {
 			portalPreferences.setValue(
@@ -440,10 +489,21 @@ public class JournalDisplayContext {
 
 	public String[] getDisplayViews() {
 		if (_displayViews == null) {
+<<<<<<< HEAD
 			_displayViews = StringUtil.split(
 				PrefsParamUtil.getString(
 					_portletPreferences, _request, "displayViews",
 					StringUtil.merge(_journalWebConfiguration.displayViews())));
+=======
+			JournalWebConfiguration journalWebConfiguration =
+				(JournalWebConfiguration)_request.getAttribute(
+					JournalWebConfiguration.class.getName());
+
+			_displayViews = StringUtil.split(
+				PrefsParamUtil.getString(
+					_portletPreferences, _request, "displayViews",
+					StringUtil.merge(journalWebConfiguration.displayViews())));
+>>>>>>> compatible
 		}
 
 		return _displayViews;
@@ -479,6 +539,7 @@ public class JournalDisplayContext {
 		return _folderId;
 	}
 
+<<<<<<< HEAD
 	public JSONArray getFoldersJSONArray() throws Exception {
 		ThemeDisplay themeDisplay = (ThemeDisplay)_request.getAttribute(
 			WebKeys.THEME_DISPLAY);
@@ -502,6 +563,8 @@ public class JournalDisplayContext {
 		return rootJSONArray;
 	}
 
+=======
+>>>>>>> compatible
 	public String getFolderTitle() throws PortalException {
 		JournalFolder folder = getFolder();
 
@@ -527,6 +590,7 @@ public class JournalDisplayContext {
 		return _keywords;
 	}
 
+<<<<<<< HEAD
 	public String getLayoutBreadcrumb(Layout layout) throws Exception {
 		ThemeDisplay themeDisplay = (ThemeDisplay)_request.getAttribute(
 			WebKeys.THEME_DISPLAY);
@@ -562,6 +626,8 @@ public class JournalDisplayContext {
 		return sb.toString();
 	}
 
+=======
+>>>>>>> compatible
 	public List<ManagementBarFilterItem> getManagementBarStatusFilterItems()
 		throws PortalException, PortletException {
 
@@ -603,6 +669,7 @@ public class JournalDisplayContext {
 		return WorkflowConstants.getStatusLabel(getStatus());
 	}
 
+<<<<<<< HEAD
 	public int getMaxAddMenuItems() {
 		if (_maxAddMenuItems != null) {
 			return _maxAddMenuItems;
@@ -613,6 +680,8 @@ public class JournalDisplayContext {
 		return _maxAddMenuItems;
 	}
 
+=======
+>>>>>>> compatible
 	public String getNavigation() {
 		if (_navigation != null) {
 			return _navigation;
@@ -670,9 +739,19 @@ public class JournalDisplayContext {
 	}
 
 	public String[] getOrderColumns() {
+<<<<<<< HEAD
 		String[] orderColumns = {"display-date", "modified-date", "title"};
 
 		if (!_journalWebConfiguration.journalArticleForceAutogenerateId()) {
+=======
+		JournalWebConfiguration journalWebConfiguration =
+			(JournalWebConfiguration)_request.getAttribute(
+				JournalWebConfiguration.class.getName());
+
+		String[] orderColumns = {"display-date", "modified-date"};
+
+		if (!journalWebConfiguration.journalArticleForceAutogenerateId()) {
+>>>>>>> compatible
 			orderColumns = ArrayUtil.append(orderColumns, "id");
 		}
 
@@ -795,6 +874,7 @@ public class JournalDisplayContext {
 		articleSearchContainer.setOrderByComparator(orderByComparator);
 		articleSearchContainer.setOrderByType(getOrderByType());
 
+<<<<<<< HEAD
 		if (!showVersions) {
 			EntriesChecker entriesChecker = new EntriesChecker(
 				_liferayPortletRequest, _liferayPortletResponse, _trashHelper);
@@ -813,6 +893,22 @@ public class JournalDisplayContext {
 
 			articleSearchContainer.setRowMover(entriesMover);
 		}
+=======
+		EntriesChecker entriesChecker = new EntriesChecker(
+			_liferayPortletRequest, _liferayPortletResponse);
+
+		entriesChecker.setCssClass("entry-selector");
+		entriesChecker.setRememberCheckBoxStateURLRegex(
+			"^(?!.*" + _liferayPortletResponse.getNamespace() +
+				"redirect).*(folderId=" + getFolderId() + ")");
+
+		articleSearchContainer.setRowChecker(entriesChecker);
+
+		EntriesMover entriesMover = new EntriesMover(
+			themeDisplay.getScopeGroupId());
+
+		articleSearchContainer.setRowMover(entriesMover);
+>>>>>>> compatible
 
 		if (isNavigationMine() || isNavigationRecent()) {
 			boolean includeOwner = true;
@@ -893,7 +989,15 @@ public class JournalDisplayContext {
 				folderIds.add(getFolderId());
 			}
 
+<<<<<<< HEAD
 			if (_journalWebConfiguration.journalArticlesSearchWithIndex()) {
+=======
+			JournalWebConfiguration journalWebConfiguration =
+				(JournalWebConfiguration)_request.getAttribute(
+					JournalWebConfiguration.class.getName());
+
+			if (journalWebConfiguration.journalArticlesSearchWithIndex()) {
+>>>>>>> compatible
 				boolean orderByAsc = false;
 
 				if (Objects.equals(getOrderByType(), "asc")) {
@@ -914,9 +1018,12 @@ public class JournalDisplayContext {
 					sort = new Sort(
 						Field.MODIFIED_DATE, Sort.LONG_TYPE, orderByAsc);
 				}
+<<<<<<< HEAD
 				else if (Objects.equals(getOrderByCol(), "title")) {
 					sort = new Sort("title", Sort.STRING_TYPE, !orderByAsc);
 				}
+=======
+>>>>>>> compatible
 
 				LinkedHashMap<String, Object> params = new LinkedHashMap<>();
 
@@ -949,7 +1056,13 @@ public class JournalDisplayContext {
 
 				Document[] documents = hits.getDocs();
 
+<<<<<<< HEAD
 				for (Document document : documents) {
+=======
+				for (int i = 0; i < documents.length; i++) {
+					Document document = documents[i];
+
+>>>>>>> compatible
 					JournalArticle article = null;
 					JournalFolder folder = null;
 
@@ -1036,6 +1149,7 @@ public class JournalDisplayContext {
 				folderOrderByComparator =
 					new FolderArticleModifiedDateComparator(orderByAsc);
 			}
+<<<<<<< HEAD
 			else if (Objects.equals(getOrderByCol(), "title")) {
 				folderOrderByComparator = new FolderArticleTitleComparator(
 					orderByAsc);
@@ -1044,6 +1158,12 @@ public class JournalDisplayContext {
 			List results = JournalFolderServiceUtil.getFoldersAndArticles(
 				themeDisplay.getScopeGroupId(), 0, getFolderId(), getStatus(),
 				themeDisplay.getLocale(), articleSearchContainer.getStart(),
+=======
+
+			List results = JournalFolderServiceUtil.getFoldersAndArticles(
+				themeDisplay.getScopeGroupId(), 0, getFolderId(), getStatus(),
+				articleSearchContainer.getStart(),
+>>>>>>> compatible
 				articleSearchContainer.getEnd(), folderOrderByComparator);
 
 			articleSearchContainer.setResults(results);
@@ -1249,10 +1369,17 @@ public class JournalDisplayContext {
 	}
 
 	protected SearchContext buildSearchContext(
+<<<<<<< HEAD
 		long companyId, long groupId, List<Long> folderIds, long classNameId,
 		String ddmStructureKey, String ddmTemplateKey, String keywords,
 		LinkedHashMap<String, Object> params, int start, int end, Sort sort,
 		boolean showVersions) {
+=======
+		long companyId, long groupId, List<java.lang.Long> folderIds,
+		long classNameId, String ddmStructureKey, String ddmTemplateKey,
+		String keywords, LinkedHashMap<String, Object> params, int start,
+		int end, Sort sort, boolean showVersions) {
+>>>>>>> compatible
 
 		String articleId = null;
 		String title = null;
@@ -1308,6 +1435,7 @@ public class JournalDisplayContext {
 		}
 
 		searchContext.setAttribute("head", !showVersions);
+<<<<<<< HEAD
 		searchContext.setAttribute("latest", !showVersions);
 		searchContext.setAttribute("params", params);
 
@@ -1315,15 +1443,27 @@ public class JournalDisplayContext {
 			searchContext.setAttribute("showNonindexable", Boolean.TRUE);
 		}
 
+=======
+		searchContext.setAttribute("params", params);
+>>>>>>> compatible
 		searchContext.setEnd(end);
 		searchContext.setFolderIds(folderIds);
 		searchContext.setStart(start);
 
+<<<<<<< HEAD
 		QueryConfig queryConfig = searchContext.getQueryConfig();
+=======
+		QueryConfig queryConfig = new QueryConfig();
+>>>>>>> compatible
 
 		queryConfig.setHighlightEnabled(false);
 		queryConfig.setScoreEnabled(false);
 
+<<<<<<< HEAD
+=======
+		searchContext.setQueryConfig(queryConfig);
+
+>>>>>>> compatible
 		if (sort != null) {
 			searchContext.setSorts(sort);
 		}
@@ -1352,6 +1492,7 @@ public class JournalDisplayContext {
 			portletURL.toString());
 	}
 
+<<<<<<< HEAD
 	private JSONArray _getFoldersJSONArray(long groupId, long folderId)
 		throws Exception {
 
@@ -1388,22 +1529,36 @@ public class JournalDisplayContext {
 		JournalDisplayContext.class);
 
 	private String[] _addMenuFavItems;
+=======
+	private static final Log _log = LogFactoryUtil.getLog(
+		JournalDisplayContext.class);
+
+>>>>>>> compatible
 	private JournalArticle _article;
 	private JournalArticleDisplay _articleDisplay;
 	private DDMFormValues _ddmFormValues;
 	private String _ddmStructureKey;
 	private String _ddmStructureName;
+<<<<<<< HEAD
 	private List<DDMStructure> _ddmStructures;
+=======
+>>>>>>> compatible
 	private String _ddmTemplateKey;
 	private String _displayStyle;
 	private String[] _displayViews;
 	private JournalFolder _folder;
 	private Long _folderId;
+<<<<<<< HEAD
 	private final JournalWebConfiguration _journalWebConfiguration;
 	private String _keywords;
 	private final LiferayPortletRequest _liferayPortletRequest;
 	private final LiferayPortletResponse _liferayPortletResponse;
 	private Integer _maxAddMenuItems;
+=======
+	private String _keywords;
+	private final LiferayPortletRequest _liferayPortletRequest;
+	private final LiferayPortletResponse _liferayPortletResponse;
+>>>>>>> compatible
 	private String _navigation;
 	private String _orderByCol;
 	private String _orderByType;
@@ -1414,6 +1569,9 @@ public class JournalDisplayContext {
 	private Boolean _showEditActions;
 	private Integer _status;
 	private String _tabs1;
+<<<<<<< HEAD
 	private final TrashHelper _trashHelper;
+=======
+>>>>>>> compatible
 
 }

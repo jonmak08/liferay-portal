@@ -222,6 +222,7 @@ public interface KaleoLogModel extends BaseModel<KaleoLog>, GroupedModel,
 	public void setKaleoClassPK(long kaleoClassPK);
 
 	/**
+<<<<<<< HEAD
 	 * Returns the kaleo definition version ID of this kaleo log.
 	 *
 	 * @return the kaleo definition version ID of this kaleo log
@@ -234,6 +235,20 @@ public interface KaleoLogModel extends BaseModel<KaleoLog>, GroupedModel,
 	 * @param kaleoDefinitionVersionId the kaleo definition version ID of this kaleo log
 	 */
 	public void setKaleoDefinitionVersionId(long kaleoDefinitionVersionId);
+=======
+	 * Returns the kaleo definition ID of this kaleo log.
+	 *
+	 * @return the kaleo definition ID of this kaleo log
+	 */
+	public long getKaleoDefinitionId();
+
+	/**
+	 * Sets the kaleo definition ID of this kaleo log.
+	 *
+	 * @param kaleoDefinitionId the kaleo definition ID of this kaleo log
+	 */
+	public void setKaleoDefinitionId(long kaleoDefinitionId);
+>>>>>>> compatible
 
 	/**
 	 * Returns the kaleo instance ID of this kaleo log.

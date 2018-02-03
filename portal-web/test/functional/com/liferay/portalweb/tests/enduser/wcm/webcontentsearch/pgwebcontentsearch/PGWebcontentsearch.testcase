@@ -11,6 +11,7 @@
 
 		<execute macro="User#firstLoginPG" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -18,6 +19,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Web Content Search Page" />
 		</execute>
 
@@ -45,12 +49,17 @@
 
 				<execute macro="Tag#tearDownCP" />
 
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP" />
+=======
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 			</else>
 		</if>
 	</tear-down>
 
 	<command name="SearchWebContent" priority="4">
+<<<<<<< HEAD
 		<property name="testray.component.names" value="Categories,Web Content Search" />
 
 		<execute macro="ProductMenu#gotoPortlet">
@@ -60,6 +69,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Web Content Display Page" />
 		</execute>
 
@@ -172,6 +184,7 @@
 	</command>
 
 	<command name="SearchWebContentCategory" priority="4">
+<<<<<<< HEAD
 		<property name="testray.component.names" value="Categories,Web Content Search" />
 
 		<execute macro="Navigator#openURL" />
@@ -179,6 +192,11 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -191,6 +209,7 @@
 			<var name="vocabularyName" value="Vocabulary Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -198,6 +217,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Web Content Display Page" />
 		</execute>
 
@@ -222,10 +244,14 @@
 			<var name="pageName" value="Web Content Display Page" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="WebContentNavigator#gotoEditPGViaWCD">
 			<var name="menuItem" value="Edit Web Content" />
 			<var name="webContentTitle" value="WC WebContent Title" />
 		</execute>
+=======
+		<execute macro="WebContentNavigator#gotoEditPGViaWCD" />
+>>>>>>> compatible
 
 		<execute macro="WebContent#selectCategory">
 			<var name="categoryName" value="Category Name" />
@@ -283,6 +309,7 @@
 	</command>
 
 	<command name="SearchWebContentCategoryQuotes" priority="3">
+<<<<<<< HEAD
 		<property name="testray.component.names" value="Categories,Web Content Search" />
 
 		<execute macro="Navigator#openURL" />
@@ -290,6 +317,11 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -302,6 +334,7 @@
 			<var name="vocabularyName" value="Vocabulary Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -309,6 +342,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Web Content Display Page" />
 		</execute>
 
@@ -333,10 +369,14 @@
 			<var name="pageName" value="Web Content Display Page" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="WebContentNavigator#gotoEditPGViaWCD">
 			<var name="menuItem" value="Edit Web Content" />
 			<var name="webContentTitle" value="WC WebContent Title" />
 		</execute>
+=======
+		<execute macro="WebContentNavigator#gotoEditPGViaWCD" />
+>>>>>>> compatible
 
 		<execute macro="WebContent#selectCategory">
 			<var name="categoryName" value="Category Name" />
@@ -377,6 +417,17 @@
 		</execute>
 
 		<execute macro="WebContentSearchPortlet#search">
+<<<<<<< HEAD
+=======
+			<var name="webContentSearchTerm" value="&quot;Category Name1&quot;" />
+		</execute>
+
+		<execute macro="WebContentSearchPortlet#viewNoResults">
+			<var name="webContentSearchTerm" value="&quot;Category Name1&quot;" />
+		</execute>
+
+		<execute macro="WebContentSearchPortlet#search">
+>>>>>>> compatible
 			<var name="webContentSearchTerm" value="&quot;Category1&quot;" />
 		</execute>
 
@@ -394,6 +445,7 @@
 	</command>
 
 	<command name="SearchWebContentQuotes" priority="3">
+<<<<<<< HEAD
 		<property name="testray.component.names" value="Web Content Search" />
 
 		<execute macro="ProductMenu#gotoPortlet">
@@ -403,6 +455,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Web Content Display Page" />
 		</execute>
 
@@ -539,6 +594,7 @@
 		<execute macro="WebContentSearchPortlet#viewNoResults">
 			<var name="webContentSearchTerm" value="&quot;Content1&quot;" />
 		</execute>
+<<<<<<< HEAD
 	</command>
 
 	<command name="SearchWebContentTag" priority="5">
@@ -551,6 +607,31 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+
+		<execute macro="WebContentSearchPortlet#search">
+			<var name="webContentSearchTerm" value="&quot;WC WebContent Title1&quot;" />
+		</execute>
+
+		<execute macro="WebContentSearchPortlet#viewNoResults">
+			<var name="webContentSearchTerm" value="&quot;WC WebContent Title1&quot;" />
+		</execute>
+
+		<execute macro="WebContentSearchPortlet#search">
+			<var name="webContentSearchTerm" value="&quot;WC WebContent Content1&quot;" />
+		</execute>
+
+		<execute macro="WebContentSearchPortlet#viewNoResults">
+			<var name="webContentSearchTerm" value="&quot;WC WebContent Content1&quot;" />
+		</execute>
+	</command>
+
+	<command name="SearchWebContentTag" priority="5">
+		<property name="portal.acceptance" value="pending" />
+		<property name="testray.component.names" value="Training" />
+
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Web Content Display Page" />
 		</execute>
 
@@ -575,10 +656,14 @@
 			<var name="pageName" value="Web Content Display Page" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="WebContentNavigator#gotoEditPGViaWCD">
 			<var name="menuItem" value="Edit Web Content" />
 			<var name="webContentTitle" value="WC WebContent Title" />
 		</execute>
+=======
+		<execute macro="WebContentNavigator#gotoEditPGViaWCD" />
+>>>>>>> compatible
 
 		<execute macro="WebContent#addTagPGViaWCD">
 			<var name="tagName" value="tag name" />
@@ -633,6 +718,7 @@
 	</command>
 
 	<command name="SearchWebContentTagQuotes" priority="3">
+<<<<<<< HEAD
 		<property name="testray.component.names" value="Web Content Search" />
 
 		<execute macro="ProductMenu#gotoPortlet">
@@ -642,6 +728,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Web Content Display Page" />
 		</execute>
 
@@ -666,10 +755,14 @@
 			<var name="pageName" value="Web Content Display Page" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="WebContentNavigator#gotoEditPGViaWCD">
 			<var name="menuItem" value="Edit Web Content" />
 			<var name="webContentTitle" value="WC WebContent Title" />
 		</execute>
+=======
+		<execute macro="WebContentNavigator#gotoEditPGViaWCD" />
+>>>>>>> compatible
 
 		<execute macro="WebContent#addTagPGViaWCD">
 			<var name="tagName" value="tag name" />
@@ -707,6 +800,17 @@
 		</execute>
 
 		<execute macro="WebContentSearchPortlet#search">
+<<<<<<< HEAD
+=======
+			<var name="webContentSearchTerm" value="&quot;tag name1&quot;" />
+		</execute>
+
+		<execute macro="WebContentSearchPortlet#viewNoResults">
+			<var name="webContentSearchTerm" value="&quot;tag name1&quot;" />
+		</execute>
+
+		<execute macro="WebContentSearchPortlet#search">
+>>>>>>> compatible
 			<var name="webContentSearchTerm" value="&quot;tag1&quot;" />
 		</execute>
 

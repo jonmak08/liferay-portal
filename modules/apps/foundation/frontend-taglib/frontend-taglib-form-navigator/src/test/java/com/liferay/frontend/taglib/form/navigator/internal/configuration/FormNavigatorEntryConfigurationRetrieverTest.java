@@ -14,8 +14,13 @@
 
 package com.liferay.frontend.taglib.form.navigator.internal.configuration;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.util.Iterator;
 import java.util.List;
@@ -39,6 +44,7 @@ public class FormNavigatorEntryConfigurationRetrieverTest {
 		public void setUp() throws Exception {
 			super.setUp();
 
+<<<<<<< HEAD
 			StringBundler sb = new StringBundler(6);
 
 			sb.append("add.general");
@@ -47,6 +53,20 @@ public class FormNavigatorEntryConfigurationRetrieverTest {
 			sb.append("formNavigatorEntryKey2,formNavigatorEntryKey1,");
 			sb.append("formNavigatorEntryKey1,formNavigatorEntryKey2,");
 			sb.append("formNavigatorEntryKey3,formNavigatorEntryKey4");
+=======
+			StringBundler sb = new StringBundler(5);
+
+			sb.append("add.general");
+			sb.append(StringPool.EQUAL);
+			sb.append("formNavigatorEntryKey4,");
+			sb.append("formNavigatorEntryKey3,");
+			sb.append("formNavigatorEntryKey2,");
+			sb.append("formNavigatorEntryKey1,");
+			sb.append("formNavigatorEntryKey1,");
+			sb.append("formNavigatorEntryKey2,");
+			sb.append("formNavigatorEntryKey3,");
+			sb.append("formNavigatorEntryKey4");
+>>>>>>> compatible
 
 			createConfiguration("form1", new String[] {sb.toString()});
 		}
@@ -87,9 +107,13 @@ public class FormNavigatorEntryConfigurationRetrieverTest {
 				formNavigatorEntryConfigurationRetriever.
 					getFormNavigatorEntryKeys("form1", "general", "add").get();
 
+<<<<<<< HEAD
 			Assert.assertTrue(
 				formNavigatorEntryKeys.toString(),
 				formNavigatorEntryKeys.isEmpty());
+=======
+			Assert.assertTrue(formNavigatorEntryKeys.isEmpty());
+>>>>>>> compatible
 		}
 
 	}
@@ -101,6 +125,7 @@ public class FormNavigatorEntryConfigurationRetrieverTest {
 		public void setUp() throws Exception {
 			super.setUp();
 
+<<<<<<< HEAD
 			StringBundler sb1 = new StringBundler(4);
 
 			sb1.append("add.general");
@@ -113,6 +138,22 @@ public class FormNavigatorEntryConfigurationRetrieverTest {
 			sb2.append("update.general");
 			sb2.append(StringPool.EQUAL);
 			sb2.append("formNavigatorEntryKey1,formNavigatorEntryKey4,");
+=======
+			StringBundler sb1 = new StringBundler(5);
+
+			sb1.append("add.general");
+			sb1.append(StringPool.EQUAL);
+			sb1.append("formNavigatorEntryKey1,");
+			sb1.append("formNavigatorEntryKey2,");
+			sb1.append("formNavigatorEntryKey3");
+
+			StringBundler sb2 = new StringBundler(5);
+
+			sb2.append("update.general");
+			sb2.append(StringPool.EQUAL);
+			sb2.append("formNavigatorEntryKey1,");
+			sb2.append("formNavigatorEntryKey4,");
+>>>>>>> compatible
 			sb2.append("formNavigatorEntryKey5");
 
 			String config = sb1.toString() + "\n" + sb2.toString();
@@ -164,11 +205,20 @@ public class FormNavigatorEntryConfigurationRetrieverTest {
 		public void setUp() throws Exception {
 			super.setUp();
 
+<<<<<<< HEAD
 			StringBundler sb = new StringBundler(3);
 
 			sb.append("add.general");
 			sb.append(StringPool.EQUAL);
 			sb.append("  formNavigatorEntryKey1,   formNavigatorEntryKey2  ");
+=======
+			StringBundler sb = new StringBundler(4);
+
+			sb.append("add.general");
+			sb.append(StringPool.EQUAL);
+			sb.append("  formNavigatorEntryKey1,   ");
+			sb.append("formNavigatorEntryKey2  ");
+>>>>>>> compatible
 
 			createConfiguration("form1", new String[] {sb.toString()});
 		}
@@ -198,9 +248,18 @@ public class FormNavigatorEntryConfigurationRetrieverTest {
 		public void setUp() throws Exception {
 			super.setUp();
 
+<<<<<<< HEAD
 			createConfiguration(
 				"form1",
 				new String[] {"formNavigatorEntryKey1,formNavigatorEntryKey2"});
+=======
+			StringBundler sb = new StringBundler(4);
+
+			sb.append("formNavigatorEntryKey1,");
+			sb.append("formNavigatorEntryKey2");
+
+			createConfiguration("form1", new String[] {sb.toString()});
+>>>>>>> compatible
 		}
 
 		@Test
@@ -253,11 +312,20 @@ public class FormNavigatorEntryConfigurationRetrieverTest {
 		public void setUp() throws Exception {
 			super.setUp();
 
+<<<<<<< HEAD
 			StringBundler sb = new StringBundler(3);
 
 			sb.append("general");
 			sb.append(StringPool.EQUAL);
 			sb.append("formNavigatorEntryKey1,formNavigatorEntryKey2");
+=======
+			StringBundler sb = new StringBundler(4);
+
+			sb.append("general");
+			sb.append(StringPool.EQUAL);
+			sb.append("formNavigatorEntryKey1,");
+			sb.append("formNavigatorEntryKey2");
+>>>>>>> compatible
 
 			createConfiguration("form1", new String[] {sb.toString()});
 		}
@@ -303,11 +371,20 @@ public class FormNavigatorEntryConfigurationRetrieverTest {
 		public void setUp() throws Exception {
 			super.setUp();
 
+<<<<<<< HEAD
 			StringBundler sb = new StringBundler(3);
 
 			sb.append("add");
 			sb.append(StringPool.EQUAL);
 			sb.append("formNavigatorEntryKey1,formNavigatorEntryKey2");
+=======
+			StringBundler sb = new StringBundler(4);
+
+			sb.append("add");
+			sb.append(StringPool.EQUAL);
+			sb.append("formNavigatorEntryKey1,");
+			sb.append("formNavigatorEntryKey2");
+>>>>>>> compatible
 
 			createConfiguration("form1", new String[] {sb.toString()});
 		}
@@ -337,6 +414,7 @@ public class FormNavigatorEntryConfigurationRetrieverTest {
 		public void setUp() throws Exception {
 			super.setUp();
 
+<<<<<<< HEAD
 			StringBundler sb1 = new StringBundler(4);
 
 			sb1.append("general");
@@ -349,6 +427,22 @@ public class FormNavigatorEntryConfigurationRetrieverTest {
 			sb2.append("general");
 			sb2.append(StringPool.EQUAL);
 			sb2.append("formNavigatorEntryKey4,formNavigatorEntryKey5,");
+=======
+			StringBundler sb1 = new StringBundler(5);
+
+			sb1.append("general");
+			sb1.append(StringPool.EQUAL);
+			sb1.append("formNavigatorEntryKey1,");
+			sb1.append("formNavigatorEntryKey2,");
+			sb1.append("formNavigatorEntryKey3");
+
+			StringBundler sb2 = new StringBundler(5);
+
+			sb2.append("general");
+			sb2.append(StringPool.EQUAL);
+			sb2.append("formNavigatorEntryKey4,");
+			sb2.append("formNavigatorEntryKey5,");
+>>>>>>> compatible
 			sb2.append("formNavigatorEntryKey6");
 
 			createConfiguration("form1", new String[] {sb1.toString()});
@@ -409,6 +503,7 @@ public class FormNavigatorEntryConfigurationRetrieverTest {
 		public void setUp() throws Exception {
 			super.setUp();
 
+<<<<<<< HEAD
 			StringBundler sb1 = new StringBundler(4);
 
 			sb1.append("add.general");
@@ -421,6 +516,22 @@ public class FormNavigatorEntryConfigurationRetrieverTest {
 			sb2.append("update.general");
 			sb2.append(StringPool.EQUAL);
 			sb2.append("formNavigatorEntryKey1,formNavigatorEntryKey4,");
+=======
+			StringBundler sb1 = new StringBundler(5);
+
+			sb1.append("add.general");
+			sb1.append(StringPool.EQUAL);
+			sb1.append("formNavigatorEntryKey1,");
+			sb1.append("formNavigatorEntryKey2,");
+			sb1.append("formNavigatorEntryKey3");
+
+			StringBundler sb2 = new StringBundler(5);
+
+			sb2.append("update.general");
+			sb2.append(StringPool.EQUAL);
+			sb2.append("formNavigatorEntryKey1,");
+			sb2.append("formNavigatorEntryKey4,");
+>>>>>>> compatible
 			sb2.append("formNavigatorEntryKey5");
 
 			createConfiguration("form1", new String[] {sb1.toString()});
@@ -514,6 +625,7 @@ public class FormNavigatorEntryConfigurationRetrieverTest {
 		public void setUp() throws Exception {
 			super.setUp();
 
+<<<<<<< HEAD
 			StringBundler sb1 = new StringBundler(4);
 
 			sb1.append("add.general");
@@ -526,6 +638,22 @@ public class FormNavigatorEntryConfigurationRetrieverTest {
 			sb2.append("add.general");
 			sb2.append(StringPool.EQUAL);
 			sb2.append("formNavigatorEntryKey1,formNavigatorEntryKey4,");
+=======
+			StringBundler sb1 = new StringBundler(5);
+
+			sb1.append("add.general");
+			sb1.append(StringPool.EQUAL);
+			sb1.append("formNavigatorEntryKey1,");
+			sb1.append("formNavigatorEntryKey2,");
+			sb1.append("formNavigatorEntryKey3");
+
+			StringBundler sb2 = new StringBundler(5);
+
+			sb2.append("add.general");
+			sb2.append(StringPool.EQUAL);
+			sb2.append("formNavigatorEntryKey1,");
+			sb2.append("formNavigatorEntryKey4,");
+>>>>>>> compatible
 			sb2.append("formNavigatorEntryKey5");
 
 			createConfiguration(

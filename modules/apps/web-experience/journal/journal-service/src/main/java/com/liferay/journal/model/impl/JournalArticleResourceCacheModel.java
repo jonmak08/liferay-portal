@@ -21,6 +21,10 @@ import com.liferay.journal.model.JournalArticleResource;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -85,7 +89,11 @@ public class JournalArticleResourceCacheModel implements CacheModel<JournalArtic
 		JournalArticleResourceImpl journalArticleResourceImpl = new JournalArticleResourceImpl();
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			journalArticleResourceImpl.setUuid("");
+=======
+			journalArticleResourceImpl.setUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalArticleResourceImpl.setUuid(uuid);
@@ -96,7 +104,11 @@ public class JournalArticleResourceCacheModel implements CacheModel<JournalArtic
 		journalArticleResourceImpl.setCompanyId(companyId);
 
 		if (articleId == null) {
+<<<<<<< HEAD
 			journalArticleResourceImpl.setArticleId("");
+=======
+			journalArticleResourceImpl.setArticleId(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalArticleResourceImpl.setArticleId(articleId);
@@ -123,7 +135,11 @@ public class JournalArticleResourceCacheModel implements CacheModel<JournalArtic
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		if (uuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(uuid);
@@ -136,7 +152,11 @@ public class JournalArticleResourceCacheModel implements CacheModel<JournalArtic
 		objectOutput.writeLong(companyId);
 
 		if (articleId == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(articleId);

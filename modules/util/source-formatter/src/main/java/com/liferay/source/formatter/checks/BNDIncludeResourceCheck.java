@@ -37,12 +37,17 @@ public class BNDIncludeResourceCheck extends BaseFileCheck {
 		String fileName, String absolutePath, String content) {
 
 		if (!fileName.endsWith("test-bnd.bnd")) {
+<<<<<<< HEAD
 			content = _formatIncludeResource(fileName, content);
+=======
+			content = _formatIncludeResource(content);
+>>>>>>> compatible
 		}
 
 		return content;
 	}
 
+<<<<<<< HEAD
 	private String _formatIncludeResource(String fileName, String content) {
 		if (fileName.endsWith("/bnd.bnd") &&
 			!fileName.endsWith("-test/bnd.bnd")) {
@@ -58,6 +63,9 @@ public class BNDIncludeResourceCheck extends BaseFileCheck {
 			}
 		}
 
+=======
+	private String _formatIncludeResource(String content) {
+>>>>>>> compatible
 		Matcher matcher = _includeResourcePattern.matcher(content);
 
 		if (!matcher.find()) {
@@ -164,8 +172,11 @@ public class BNDIncludeResourceCheck extends BaseFileCheck {
 		"WEB-INF=src/main/resources/WEB-INF"
 	};
 
+<<<<<<< HEAD
 	private final Pattern _includeDashResourcePattern = Pattern.compile(
 		"^Include-Resource:.+", Pattern.MULTILINE);
+=======
+>>>>>>> compatible
 	private final Pattern _includeResourceJarPattern = Pattern.compile(
 		"-[0-9\\.]+\\.jar");
 	private final Pattern _includeResourcePattern = Pattern.compile(

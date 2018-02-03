@@ -17,10 +17,15 @@ package com.liferay.blogs.service.test;
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
 import com.liferay.asset.kernel.model.AssetEntry;
 import com.liferay.asset.kernel.service.AssetEntryLocalServiceUtil;
+<<<<<<< HEAD
 import com.liferay.blogs.exception.EntryTitleException;
 import com.liferay.blogs.model.BlogsEntry;
 import com.liferay.blogs.service.BlogsEntryLocalServiceUtil;
 import com.liferay.blogs.social.BlogsActivityKeys;
+=======
+import com.liferay.blogs.kernel.model.BlogsEntry;
+import com.liferay.blogs.kernel.service.BlogsEntryLocalServiceUtil;
+>>>>>>> compatible
 import com.liferay.blogs.test.util.BlogsTestUtil;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.model.Group;
@@ -34,6 +39,11 @@ import com.liferay.portal.kernel.search.SearchContext;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.test.util.SearchContextTestUtil;
@@ -44,8 +54,14 @@ import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
+<<<<<<< HEAD
 import com.liferay.portal.service.test.ServiceTestUtil;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+=======
+import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+import com.liferay.portal.test.rule.PermissionCheckerTestRule;
+import com.liferay.portlet.blogs.social.BlogsActivityKeys;
+>>>>>>> compatible
 import com.liferay.social.kernel.model.SocialActivity;
 import com.liferay.social.kernel.service.SocialActivityLocalServiceUtil;
 
@@ -67,12 +83,23 @@ import org.junit.runner.RunWith;
  * @author Zsolt Berentey
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class BlogsEntryStatusTransitionTest {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			PermissionCheckerTestRule.INSTANCE,
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Before
 	public void setUp() throws Exception {
@@ -80,8 +107,11 @@ public class BlogsEntryStatusTransitionTest {
 
 		user = UserTestUtil.addUser(group.getGroupId());
 
+<<<<<<< HEAD
 		ServiceTestUtil.setUser(TestPropsValues.getUser());
 
+=======
+>>>>>>> compatible
 		ServiceContext serviceContext =
 			ServiceContextTestUtil.getServiceContext(
 				group.getGroupId(), user.getUserId());
@@ -159,6 +189,7 @@ public class BlogsEntryStatusTransitionTest {
 		checkSocialActivity(BlogsActivityKeys.UPDATE_ENTRY, 1);
 	}
 
+<<<<<<< HEAD
 	@Test(expected = EntryTitleException.class)
 	public void testDraftToApprovedWithoutTitle() throws Exception {
 		ServiceContext serviceContext = getServiceContext(entry);
@@ -174,6 +205,8 @@ public class BlogsEntryStatusTransitionTest {
 			new HashMap<String, Serializable>());
 	}
 
+=======
+>>>>>>> compatible
 	@Test
 	public void testDraftToScheduledByAdd() throws Exception {
 		Calendar displayDate = new GregorianCalendar();
@@ -276,7 +309,11 @@ public class BlogsEntryStatusTransitionTest {
 
 	@Test
 	public void testScheduledByUpdateToApproved() throws Exception {
+<<<<<<< HEAD
 		entry = BlogsEntryLocalServiceUtil.updateStatus(
+=======
+		BlogsEntryLocalServiceUtil.updateStatus(
+>>>>>>> compatible
 			TestPropsValues.getUserId(), entry.getEntryId(),
 			WorkflowConstants.STATUS_APPROVED, getServiceContext(entry),
 			new HashMap<String, Serializable>());

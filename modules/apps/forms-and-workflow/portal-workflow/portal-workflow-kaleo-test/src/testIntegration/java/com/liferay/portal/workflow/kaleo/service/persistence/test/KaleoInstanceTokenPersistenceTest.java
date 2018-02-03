@@ -133,7 +133,11 @@ public class KaleoInstanceTokenPersistenceTest {
 
 		newKaleoInstanceToken.setModifiedDate(RandomTestUtil.nextDate());
 
+<<<<<<< HEAD
 		newKaleoInstanceToken.setKaleoDefinitionVersionId(RandomTestUtil.nextLong());
+=======
+		newKaleoInstanceToken.setKaleoDefinitionId(RandomTestUtil.nextLong());
+>>>>>>> compatible
 
 		newKaleoInstanceToken.setKaleoInstanceId(RandomTestUtil.nextLong());
 
@@ -171,8 +175,13 @@ public class KaleoInstanceTokenPersistenceTest {
 		Assert.assertEquals(Time.getShortTimestamp(
 				existingKaleoInstanceToken.getModifiedDate()),
 			Time.getShortTimestamp(newKaleoInstanceToken.getModifiedDate()));
+<<<<<<< HEAD
 		Assert.assertEquals(existingKaleoInstanceToken.getKaleoDefinitionVersionId(),
 			newKaleoInstanceToken.getKaleoDefinitionVersionId());
+=======
+		Assert.assertEquals(existingKaleoInstanceToken.getKaleoDefinitionId(),
+			newKaleoInstanceToken.getKaleoDefinitionId());
+>>>>>>> compatible
 		Assert.assertEquals(existingKaleoInstanceToken.getKaleoInstanceId(),
 			newKaleoInstanceToken.getKaleoInstanceId());
 		Assert.assertEquals(existingKaleoInstanceToken.getParentKaleoInstanceTokenId(),
@@ -200,10 +209,17 @@ public class KaleoInstanceTokenPersistenceTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testCountByKaleoDefinitionVersionId() throws Exception {
 		_persistence.countByKaleoDefinitionVersionId(RandomTestUtil.nextLong());
 
 		_persistence.countByKaleoDefinitionVersionId(0L);
+=======
+	public void testCountByKaleoDefinitionId() throws Exception {
+		_persistence.countByKaleoDefinitionId(RandomTestUtil.nextLong());
+
+		_persistence.countByKaleoDefinitionId(0L);
+>>>>>>> compatible
 	}
 
 	@Test
@@ -255,11 +271,18 @@ public class KaleoInstanceTokenPersistenceTest {
 		return OrderByComparatorFactoryUtil.create("KaleoInstanceToken",
 			"kaleoInstanceTokenId", true, "groupId", true, "companyId", true,
 			"userId", true, "userName", true, "createDate", true,
+<<<<<<< HEAD
 			"modifiedDate", true, "kaleoDefinitionVersionId", true,
 			"kaleoInstanceId", true, "parentKaleoInstanceTokenId", true,
 			"currentKaleoNodeId", true, "currentKaleoNodeName", true,
 			"className", true, "classPK", true, "completed", true,
 			"completionDate", true);
+=======
+			"modifiedDate", true, "kaleoDefinitionId", true, "kaleoInstanceId",
+			true, "parentKaleoInstanceTokenId", true, "currentKaleoNodeId",
+			true, "currentKaleoNodeName", true, "className", true, "classPK",
+			true, "completed", true, "completionDate", true);
+>>>>>>> compatible
 	}
 
 	@Test
@@ -475,7 +498,11 @@ public class KaleoInstanceTokenPersistenceTest {
 
 		kaleoInstanceToken.setModifiedDate(RandomTestUtil.nextDate());
 
+<<<<<<< HEAD
 		kaleoInstanceToken.setKaleoDefinitionVersionId(RandomTestUtil.nextLong());
+=======
+		kaleoInstanceToken.setKaleoDefinitionId(RandomTestUtil.nextLong());
+>>>>>>> compatible
 
 		kaleoInstanceToken.setKaleoInstanceId(RandomTestUtil.nextLong());
 

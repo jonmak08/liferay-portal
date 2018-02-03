@@ -81,8 +81,12 @@ public class FabricAgentRegistryTest {
 		List<FabricAgent> fabricAgents = fabricAgentRegistry.getFabricAgents();
 
 		Assert.assertEquals(fabricAgents.toString(), 1, fabricAgents.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			fabricAgents.toString(), fabricAgents.contains(fabricAgent1));
+=======
+		Assert.assertTrue(fabricAgents.contains(fabricAgent1));
+>>>>>>> compatible
 
 		FabricAgent fabricAgent2 = new LocalFabricAgent(
 			new EmbeddedProcessExecutor());
@@ -100,10 +104,15 @@ public class FabricAgentRegistryTest {
 		fabricAgents = fabricAgentRegistry.getFabricAgents();
 
 		Assert.assertEquals(fabricAgents.toString(), 2, fabricAgents.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			fabricAgents.toString(), fabricAgents.contains(fabricAgent1));
 		Assert.assertTrue(
 			fabricAgents.toString(), fabricAgents.contains(fabricAgent2));
+=======
+		Assert.assertTrue(fabricAgents.contains(fabricAgent1));
+		Assert.assertTrue(fabricAgents.contains(fabricAgent2));
+>>>>>>> compatible
 
 		Assert.assertTrue(
 			fabricAgentRegistry.unregisterFabricAgent(fabricAgent1, recorder));
@@ -118,8 +127,12 @@ public class FabricAgentRegistryTest {
 		fabricAgents = fabricAgentRegistry.getFabricAgents();
 
 		Assert.assertEquals(fabricAgents.toString(), 1, fabricAgents.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			fabricAgents.toString(), fabricAgents.contains(fabricAgent2));
+=======
+		Assert.assertTrue(fabricAgents.contains(fabricAgent2));
+>>>>>>> compatible
 
 		Assert.assertTrue(
 			fabricAgentRegistry.unregisterFabricAgent(fabricAgent2, null));
@@ -153,9 +166,13 @@ public class FabricAgentRegistryTest {
 
 		Assert.assertEquals(
 			fabricAgentListeners.toString(), 1, fabricAgentListeners.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			fabricAgentListeners.toString(),
 			fabricAgentListeners.contains(recorder1));
+=======
+		Assert.assertTrue(fabricAgentListeners.contains(recorder1));
+>>>>>>> compatible
 
 		Recorder recorder2 = new Recorder();
 
@@ -168,12 +185,17 @@ public class FabricAgentRegistryTest {
 
 		Assert.assertEquals(
 			fabricAgentListeners.toString(), 2, fabricAgentListeners.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			fabricAgentListeners.toString(),
 			fabricAgentListeners.contains(recorder1));
 		Assert.assertTrue(
 			fabricAgentListeners.toString(),
 			fabricAgentListeners.contains(recorder2));
+=======
+		Assert.assertTrue(fabricAgentListeners.contains(recorder1));
+		Assert.assertTrue(fabricAgentListeners.contains(recorder2));
+>>>>>>> compatible
 
 		Assert.assertTrue(
 			fabricAgentRegistry.unregisterFabricAgentListener(recorder1));
@@ -184,9 +206,13 @@ public class FabricAgentRegistryTest {
 
 		Assert.assertEquals(
 			fabricAgentListeners.toString(), 1, fabricAgentListeners.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			fabricAgentListeners.toString(),
 			fabricAgentListeners.contains(recorder2));
+=======
+		Assert.assertTrue(fabricAgentListeners.contains(recorder2));
+>>>>>>> compatible
 
 		Assert.assertTrue(
 			fabricAgentRegistry.unregisterFabricAgentListener(recorder2));

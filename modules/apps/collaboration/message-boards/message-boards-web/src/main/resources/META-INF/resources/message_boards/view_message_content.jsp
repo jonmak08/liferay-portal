@@ -209,14 +209,22 @@ if (portletTitleBasedNavigation) {
 					</portlet:renderURL>
 
 					<portlet:actionURL name="/message_boards/delete_thread" var="deleteURL">
+<<<<<<< HEAD
 						<portlet:param name="<%= Constants.CMD %>" value="<%= trashHelper.isTrashEnabled(themeDisplay.getScopeGroupId()) ? Constants.MOVE_TO_TRASH : Constants.DELETE %>" />
+=======
+						<portlet:param name="<%= Constants.CMD %>" value="<%= TrashUtil.isTrashEnabled(themeDisplay.getScopeGroupId()) ? Constants.MOVE_TO_TRASH : Constants.DELETE %>" />
+>>>>>>> compatible
 						<portlet:param name="redirect" value="<%= parentCategoryURL %>" />
 						<portlet:param name="threadId" value="<%= String.valueOf(message.getThreadId()) %>" />
 					</portlet:actionURL>
 
 					<liferay-ui:icon-delete
+<<<<<<< HEAD
 						showIcon="<%= true %>"
 						trash="<%= trashHelper.isTrashEnabled(themeDisplay.getScopeGroupId()) %>"
+=======
+						trash="<%= TrashUtil.isTrashEnabled(themeDisplay.getScopeGroupId()) %>"
+>>>>>>> compatible
 						url="<%= deleteURL %>"
 					/>
 				</c:if>
@@ -232,7 +240,11 @@ if (portletTitleBasedNavigation) {
 	<%
 	MBTreeWalker treeWalker = messageDisplay.getTreeWalker();
 
+<<<<<<< HEAD
 	assetHelper.addLayoutTags(request, AssetTagLocalServiceUtil.getTags(MBMessage.class.getName(), thread.getRootMessageId()));
+=======
+	AssetUtil.addLayoutTags(request, AssetTagLocalServiceUtil.getTags(MBMessage.class.getName(), thread.getRootMessageId()));
+>>>>>>> compatible
 	%>
 
 	<div class="message-scroll" id="<portlet:namespace />message_0"></div>
@@ -263,7 +275,11 @@ if (portletTitleBasedNavigation) {
 
 		int[] range = treeWalker.getChildrenRange(treeWalker.getRoot());
 
+<<<<<<< HEAD
 		MBMessageIterator mbMessageIterator = new MBMessageIterator(messages, range[0], range[1]);
+=======
+		MBMessageIterator mbMessageIterator = new MBMessageIteratorImpl(messages, range[0], range[1]);
+>>>>>>> compatible
 
 		while (mbMessageIterator.hasNext()) {
 			boolean messageFound = GetterUtil.getBoolean(request.getAttribute("view_thread_tree.jsp-messageFound"));
@@ -296,6 +312,7 @@ if (portletTitleBasedNavigation) {
 		}
 		%>
 
+<<<<<<< HEAD
 		<c:if test="<%= MBCategoryPermission.contains(permissionChecker, scopeGroupId, message.getCategoryId(), ActionKeys.REPLY_TO_MESSAGE) && !thread.isLocked() %>">
 
 			<%
@@ -304,6 +321,8 @@ if (portletTitleBasedNavigation) {
 
 			<%@ include file="/message_boards/edit_message_quick.jspf" %>
 		</c:if>
+=======
+>>>>>>> compatible
 	</div>
 
 	<%
@@ -311,12 +330,25 @@ if (portletTitleBasedNavigation) {
 	%>
 
 	<c:if test="<%= MBCategoryPermission.contains(permissionChecker, scopeGroupId, rootMessage.getCategoryId(), ActionKeys.REPLY_TO_MESSAGE) && !thread.isLocked() %>">
+<<<<<<< HEAD
 
 		<%
 		String taglibReplyToMessageURL = "javascript:" + liferayPortletResponse.getNamespace() + "addReplyToMessage('" + rootMessage.getMessageId() + "', false);";
 		%>
 
 		<aui:button onclick="<%= taglibReplyToMessageURL %>" primary="<%= true %>" value="reply-to-main-thread" />
+=======
+		<portlet:renderURL var="replyURL">
+			<portlet:param name="mvcRenderCommandName" value="/message_boards/edit_message" />
+			<portlet:param name="redirect" value="<%= currentURL %>" />
+			<portlet:param name="mbCategoryId" value="<%= String.valueOf(rootMessage.getCategoryId()) %>" />
+			<portlet:param name="threadId" value="<%= String.valueOf(rootMessage.getThreadId()) %>" />
+			<portlet:param name="parentMessageId" value="<%= String.valueOf(rootMessage.getMessageId()) %>" />
+			<portlet:param name="priority" value="<%= String.valueOf(rootMessage.getPriority()) %>" />
+		</portlet:renderURL>
+
+		<aui:button cssClass="btn-lg" href="<%= replyURL.toString() %>" primary="<%= true %>" value="reply-to-main-thread" />
+>>>>>>> compatible
 	</c:if>
 
 	<c:if test="<%= moreMessagesPagination %>">
@@ -324,10 +356,15 @@ if (portletTitleBasedNavigation) {
 			<a class="btn btn-default" href="javascript:;" id="<portlet:namespace />moreMessages"><liferay-ui:message key="more-messages" /></a>
 		</div>
 
+<<<<<<< HEAD
 		<aui:form name="fm">
 			<aui:input name="rootIndexPage" type="hidden" value="<%= String.valueOf(rootIndexPage) %>" />
 			<aui:input name="index" type="hidden" value="<%= String.valueOf(index) %>" />
 		</aui:form>
+=======
+		<aui:input name="rootIndexPage" type="hidden" value="<%= String.valueOf(rootIndexPage) %>" />
+		<aui:input name="index" type="hidden" value="<%= String.valueOf(index) %>" />
+>>>>>>> compatible
 	</c:if>
 
 	<%

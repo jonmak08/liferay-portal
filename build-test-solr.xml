@@ -48,7 +48,11 @@ clientType=CLOUD</echo>
 	<macrodef name="configure-liferay-solr-ssl-adapter-properties">
 		<sequential>
 			<replace file="${liferay.home}/osgi/configs/com.liferay.portal.search.solr.configuration.SolrConfiguration.cfg" value="https://">
+<<<<<<< HEAD
 				<replacetoken>http://</replacetoken>
+=======
+			 	<replacetoken>http://</replacetoken>
+>>>>>>> compatible
 			</replace>
 
 			<echo append="true" file="${liferay.home}/osgi/configs/com.liferay.portal.search.solr.configuration.SolrConfiguration.cfg">
@@ -173,6 +177,68 @@ trustStorePath=${solr.dir}/server/etc/solr-ssl.keystore.jks</echo>
 				<replacetoken><![CDATA[<maxWarmingSearchers>2</maxWarmingSearchers>]]></replacetoken>
 				<replacevalue><![CDATA[<maxWarmingSearchers>5</maxWarmingSearchers>]]></replacevalue>
 			</replace>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="prepare-solr-solrcloud-configurations">
+		<sequential>
+			<copy todir="${solr.dir}/server/solr/configsets/liferay_configs/conf">
+				<fileset dir="${solr.dir}/server/solr/liferay/conf" />
+			</copy>
+
+			<if>
+				<os family="unix" />
+				<then>
+					<replace file="${solr.dir}/bin/solr">
+						<replacetoken><![CDATA[CLOUD_COLLECTION='gettingstarted']]></replacetoken>
+						<replacevalue><![CDATA[CLOUD_COLLECTION='liferay']]></replacevalue>
+					</replace>
+
+					<replace file="${solr.dir}/bin/solr">
+						<replacetoken><![CDATA[CLOUD_CONFIG='data_driven_schema_configs']]></replacetoken>
+						<replacevalue><![CDATA[CLOUD_CONFIG='liferay_configs']]></replacevalue>
+					</replace>
+				</then>
+				<elseif>
+					<os family="windows" />
+					<then>
+						<replace file="${solr.dir}/bin/solr.cmd">
+							<replacetoken><![CDATA[CLOUD_COLLECTION='gettingstarted']]></replacetoken>
+							<replacevalue><![CDATA[CLOUD_COLLECTION='liferay']]></replacevalue>
+						</replace>
+
+						<replace file="${solr.dir}/bin/solr.cmd">
+							<replacetoken><![CDATA[CLOUD_CONFIG='data_driven_schema_configs']]></replacetoken>
+							<replacevalue><![CDATA[CLOUD_CONFIG='liferay_configs']]></replacevalue>
+						</replace>
+					</then>
+				</elseif>
+			</if>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="start-solr-solrcloud-interactive-startup-no-prompt">
+		<sequential>
+			<if>
+				<os family="unix" />
+				<then>
+					<chmod file="${solr.dir}/bin/solr" perm="a+x" />
+
+					<exec dir="${solr.dir}/bin" executable="/bin/bash">
+						<arg value="-c" />
+						<arg value="./solr -e cloud -noprompt" />
+					</exec>
+				</then>
+				<elseif>
+					<os family="windows" />
+					<then>
+						<exec dir="${solr.dir}/bin" executable="cmd" spawn="true">
+							<arg value="/c" />
+							<arg value="solr -e cloud -noprompt" />
+						</exec>
+					</then>
+				</elseif>
+			</if>
 		</sequential>
 	</macrodef>
 
@@ -389,7 +455,11 @@ trustStorePath=${solr.dir}/server/etc/solr-ssl.keystore.jks</echo>
 				<then>
 					<exec dir="${solr.dir}/bin" executable="cmd" spawn="true">
 						<arg value="/c" />
+<<<<<<< HEAD
 						<arg value="solr stop -p 8983" />
+=======
+						<arg value="solr -p 8983" />
+>>>>>>> compatible
 					</exec>
 
 					<if>
@@ -397,7 +467,11 @@ trustStorePath=${solr.dir}/server/etc/solr-ssl.keystore.jks</echo>
 						<then>
 							<exec dir="${solr.dir}/bin" executable="cmd" spawn="true">
 								<arg value="/c" />
+<<<<<<< HEAD
 								<arg value="solr stop -p 7574" />
+=======
+								<arg value="solr -p 7574" />
+>>>>>>> compatible
 							</exec>
 						</then>
 					</if>

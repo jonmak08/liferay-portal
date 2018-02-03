@@ -17,6 +17,7 @@
 <%@ include file="/init.jsp" %>
 
 <%
+<<<<<<< HEAD
 String refererPortletName = ParamUtil.getString(request, "refererPortletName");
 
 JournalArticle article = journalContentDisplayContext.getArticle();
@@ -24,6 +25,11 @@ JournalArticle article = journalContentDisplayContext.getArticle();
 
 <aui:input id='<%= refererPortletName + "ddmTemplateKey" %>' name='<%= refererPortletName + "preferences--ddmTemplateKey--" %>' type="hidden" useNamespace="<%= false %>" value="<%= journalContentDisplayContext.getDDMTemplateKey() %>" />
 
+=======
+JournalArticle article = journalContentDisplayContext.getArticle();
+%>
+
+>>>>>>> compatible
 <div class="article-preview row">
 	<div class="col-md-3 col-sm-6 col-xs-12">
 		<p class="text-muted"><liferay-ui:message key="layout.types.article" /></p>
@@ -36,10 +42,13 @@ JournalArticle article = journalContentDisplayContext.getArticle();
 
 		<div class="button-holder">
 			<aui:button cssClass="web-content-selector" name="webContentSelector" value='<%= Validator.isNull(article) ? "select" : "change" %>' />
+<<<<<<< HEAD
 
 			<c:if test="<%= article != null %>">
 				<aui:button cssClass="selector-button" name="removeWebContent" value="remove" />
 			</c:if>
+=======
+>>>>>>> compatible
 		</div>
 	</div>
 </div>
@@ -55,7 +64,11 @@ JournalArticle article = journalContentDisplayContext.getArticle();
 		<div class="col-md-6 col-sm-6 col-xs-12">
 			<aui:fieldset>
 				<aui:field-wrapper label="user-tools">
+<<<<<<< HEAD
 					<liferay-asset:asset-addon-entry-selector
+=======
+					<liferay-ui:asset-addon-entry-selector
+>>>>>>> compatible
 						assetAddonEntries="<%= (List<AssetAddonEntry>)(List<?>)journalContentDisplayContext.getEnabledUserToolAssetAddonEntries() %>"
 						hiddenInput="preferences--userToolAssetAddonEntryKeys--"
 						id="userToolsAssetAddonEntriesSelector"
@@ -65,7 +78,11 @@ JournalArticle article = journalContentDisplayContext.getArticle();
 				</aui:field-wrapper>
 
 				<aui:field-wrapper label="content-metadata">
+<<<<<<< HEAD
 					<liferay-asset:asset-addon-entry-selector
+=======
+					<liferay-ui:asset-addon-entry-selector
+>>>>>>> compatible
 						assetAddonEntries="<%= (List<AssetAddonEntry>)(List<?>)journalContentDisplayContext.getEnabledContentMetadataAssetAddonEntries() %>"
 						hiddenInput="preferences--contentMetadataAssetAddonEntryKeys--"
 						id="contentMetadataAssetAddonEntriesSelector"

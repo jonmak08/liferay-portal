@@ -30,7 +30,10 @@ import com.liferay.document.library.web.internal.display.context.logic.FileVersi
 import com.liferay.document.library.web.internal.display.context.logic.UIItemsBuilder;
 import com.liferay.document.library.web.internal.display.context.util.DLRequestHelper;
 import com.liferay.document.library.web.internal.display.context.util.JSPRenderer;
+<<<<<<< HEAD
 import com.liferay.document.library.web.internal.util.DLTrashUtil;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.exception.StorageException;
 import com.liferay.dynamic.data.mapping.kernel.DDMStructure;
 import com.liferay.dynamic.data.mapping.storage.DDMFormValues;
@@ -44,6 +47,10 @@ import com.liferay.portal.kernel.repository.model.FileVersion;
 import com.liferay.portal.kernel.servlet.taglib.ui.Menu;
 import com.liferay.portal.kernel.servlet.taglib.ui.MenuItem;
 import com.liferay.portal.kernel.servlet.taglib.ui.ToolbarItem;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.ResourceBundleLoader;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.WebKeys;
 
 import java.io.IOException;
@@ -69,26 +76,44 @@ public class DefaultDLViewFileVersionDisplayContext
 			HttpServletRequest request, HttpServletResponse response,
 			FileShortcut fileShortcut,
 			DLMimeTypeDisplayContext dlMimeTypeDisplayContext,
+<<<<<<< HEAD
 			ResourceBundle resourceBundle, StorageEngine storageEngine,
 			DLTrashUtil dlTrashUtil)
+=======
+			ResourceBundleLoader resourceBundleLoader,
+			StorageEngine storageEngine)
+>>>>>>> compatible
 		throws PortalException {
 
 		this(
 			request, fileShortcut.getFileVersion(), fileShortcut,
+<<<<<<< HEAD
 			dlMimeTypeDisplayContext, resourceBundle, storageEngine,
 			dlTrashUtil);
+=======
+			dlMimeTypeDisplayContext, resourceBundleLoader, storageEngine);
+>>>>>>> compatible
 	}
 
 	public DefaultDLViewFileVersionDisplayContext(
 		HttpServletRequest request, HttpServletResponse response,
 		FileVersion fileVersion,
 		DLMimeTypeDisplayContext dlMimeTypeDisplayContext,
+<<<<<<< HEAD
 		ResourceBundle resourceBundle, StorageEngine storageEngine,
 		DLTrashUtil dlTrashUtil) {
 
 		this(
 			request, fileVersion, null, dlMimeTypeDisplayContext,
 			resourceBundle, storageEngine, dlTrashUtil);
+=======
+		ResourceBundleLoader resourceBundleLoader,
+		StorageEngine storageEngine) {
+
+		this(
+			request, fileVersion, null, dlMimeTypeDisplayContext,
+			resourceBundleLoader, storageEngine);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -158,7 +183,15 @@ public class DefaultDLViewFileVersionDisplayContext
 
 	@Override
 	public String getDiscussionLabel(Locale locale) {
+<<<<<<< HEAD
 		return LanguageUtil.get(_resourceBundle, "comments");
+=======
+		ResourceBundle resourceBundle =
+			_resourceBundleLoader.loadResourceBundle(
+				LanguageUtil.getLanguageId(locale));
+
+		return LanguageUtil.get(resourceBundle, "comments");
+>>>>>>> compatible
 	}
 
 	@Override
@@ -247,13 +280,22 @@ public class DefaultDLViewFileVersionDisplayContext
 		HttpServletRequest request, FileVersion fileVersion,
 		FileShortcut fileShortcut,
 		DLMimeTypeDisplayContext dlMimeTypeDisplayContext,
+<<<<<<< HEAD
 		ResourceBundle resourceBundle, StorageEngine storageEngine,
 		DLTrashUtil dlTrashUtil) {
+=======
+		ResourceBundleLoader resourceBundleLoader,
+		StorageEngine storageEngine) {
+>>>>>>> compatible
 
 		try {
 			_fileVersion = fileVersion;
 			_dlMimeTypeDisplayContext = dlMimeTypeDisplayContext;
+<<<<<<< HEAD
 			_resourceBundle = resourceBundle;
+=======
+			_resourceBundleLoader = resourceBundleLoader;
+>>>>>>> compatible
 			_storageEngine = storageEngine;
 
 			DLRequestHelper dlRequestHelper = new DLRequestHelper(request);
@@ -269,12 +311,19 @@ public class DefaultDLViewFileVersionDisplayContext
 				new FileVersionDisplayContextHelper(fileVersion);
 
 			if (fileShortcut == null) {
+<<<<<<< HEAD
 				_uiItemsBuilder = new UIItemsBuilder(
 					request, fileVersion, _resourceBundle, dlTrashUtil);
 			}
 			else {
 				_uiItemsBuilder = new UIItemsBuilder(
 					request, fileShortcut, _resourceBundle, dlTrashUtil);
+=======
+				_uiItemsBuilder = new UIItemsBuilder(request, fileVersion);
+			}
+			else {
+				_uiItemsBuilder = new UIItemsBuilder(request, fileShortcut);
+>>>>>>> compatible
 			}
 		}
 		catch (PortalException pe) {
@@ -334,7 +383,11 @@ public class DefaultDLViewFileVersionDisplayContext
 	private final FileVersion _fileVersion;
 	private final FileVersionDisplayContextHelper
 		_fileVersionDisplayContextHelper;
+<<<<<<< HEAD
 	private final ResourceBundle _resourceBundle;
+=======
+	private final ResourceBundleLoader _resourceBundleLoader;
+>>>>>>> compatible
 	private final StorageEngine _storageEngine;
 	private final UIItemsBuilder _uiItemsBuilder;
 

@@ -16,6 +16,10 @@ package com.liferay.portal.security.pwd.bundle.pwdtoolkitutil;
 
 import com.liferay.portal.kernel.model.PasswordPolicy;
 import com.liferay.portal.kernel.security.pwd.Toolkit;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StackTraceUtil;
+>>>>>>> compatible
 
 import java.util.concurrent.atomic.AtomicBoolean;
 

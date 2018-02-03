@@ -17,6 +17,7 @@
 <%@ include file="/add_menu/init.jsp" %>
 
 <%
+<<<<<<< HEAD
 boolean inline = GetterUtil.getBoolean(request.getAttribute("liferay-frontend:add-menu:inline"));
 int menuItemsCount = GetterUtil.getInteger(request.getAttribute("liferay-frontend:add-menu:menuItemsCount"));
 int maxItems = GetterUtil.getInteger(request.getAttribute("liferay-frontend:add-menu:maxItems"));
@@ -37,19 +38,39 @@ String viewMoreURL = (String)request.getAttribute("liferay-frontend:add-menu:vie
 		MenuItem menuItem = menuItems.get(0);
 
 		String id = menuItem.getId();
+=======
+List<AddMenuItem> addMenuItems = (List<AddMenuItem>)request.getAttribute("liferay-frontend:add-menu:addMenuItems");
+%>
+
+<c:choose>
+	<c:when test="<%= addMenuItems.size() == 1 %>">
+
+		<%
+		AddMenuItem addMenuItem = addMenuItems.get(0);
+
+		String id = addMenuItem.getId();
+>>>>>>> compatible
 
 		if (Validator.isNull(id)) {
 			id = "menuItem";
 		}
 
+<<<<<<< HEAD
 		String title = menuItem.getLabel();
+=======
+		String title = addMenuItem.getLabel();
+>>>>>>> compatible
 
 		if (Validator.isNull(title)) {
 			title = LanguageUtil.get(request, "new-item");
 		}
 		%>
 
+<<<<<<< HEAD
 		<a <%= AUIUtil.buildData(menuItem.getAnchorData()) %> class="btn btn-action <%= inline ? StringPool.BLANK : "btn-bottom-right" %> btn-primary" data-placement="left" data-qa-id="addButton" data-toggle="tooltip" href="<%= HtmlUtil.escapeAttribute(menuItem.getUrl()) %>" id="<%= namespace + id %>" title="<%= HtmlUtil.escapeAttribute(title) %>">
+=======
+		<a <%= AUIUtil.buildData(addMenuItem.getAnchorData()) %> class="btn btn-action btn-bottom-right btn-primary" data-placement="left" data-qa-id="addButton" data-toggle="tooltip" href="<%= HtmlUtil.escapeAttribute(addMenuItem.getUrl()) %>" id="<%= namespace + id %>" title="<%= HtmlUtil.escapeAttribute(title) %>">
+>>>>>>> compatible
 			<aui:icon image="plus" markupView="lexicon" />
 		</a>
 
@@ -57,6 +78,7 @@ String viewMoreURL = (String)request.getAttribute("liferay-frontend:add-menu:vie
 			$(document).ready(
 				function() {
 					$('[data-toggle="tooltip"]').tooltip();
+<<<<<<< HEAD
 
 					Liferay.once(
 						'startNavigate',
@@ -64,12 +86,18 @@ String viewMoreURL = (String)request.getAttribute("liferay-frontend:add-menu:vie
 							$('[data-toggle="tooltip"]').tooltip('dispose');
 						}
 					);
+=======
+>>>>>>> compatible
 				}
 			);
 		</aui:script>
 	</c:when>
 	<c:otherwise>
+<<<<<<< HEAD
 		<div class="add-menu btn-action-secondary <%= inline ? StringPool.BLANK : "btn-bottom-right" %> dropdown">
+=======
+		<div class="btn-action-secondary btn-bottom-right dropdown">
+>>>>>>> compatible
 			<button aria-expanded="false" class="btn btn-primary" data-qa-id="addButton" data-toggle="dropdown" type="button">
 				<aui:icon image="plus" markupView="lexicon" />
 			</button>
@@ -77,6 +105,7 @@ String viewMoreURL = (String)request.getAttribute("liferay-frontend:add-menu:vie
 			<ul class="dropdown-menu dropdown-menu-left-side-bottom">
 
 				<%
+<<<<<<< HEAD
 				boolean customizeAddMenuAdviceMessage = GetterUtil.getBoolean(SessionClicks.get(request, "com.liferay.addmenu_customizeAddMenuAdviceMessage", null));
 				%>
 
@@ -172,6 +201,26 @@ String viewMoreURL = (String)request.getAttribute("liferay-frontend:add-menu:vie
 						</aui:script>
 					</c:if>
 				</c:if>
+=======
+				for (int i = 0; i < addMenuItems.size(); i++) {
+					AddMenuItem addMenuItem = addMenuItems.get(i);
+
+					String id = addMenuItem.getId();
+
+					if (Validator.isNull(id)) {
+						id = "menuItem" + i;
+					}
+				%>
+
+					<li>
+						<a <%= AUIUtil.buildData(addMenuItem.getAnchorData()) %> href="<%= HtmlUtil.escapeAttribute(addMenuItem.getUrl()) %>" id="<%= namespace + id %>"><%= HtmlUtil.escape(addMenuItem.getLabel()) %></a>
+					</li>
+
+				<%
+				}
+				%>
+
+>>>>>>> compatible
 			</ul>
 		</div>
 	</c:otherwise>

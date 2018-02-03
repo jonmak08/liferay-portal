@@ -27,7 +27,13 @@ DLPortletInstanceSettingsHelper dlPortletInstanceSettingsHelper = new DLPortletI
 <c:if test="<%= dlPortletInstanceSettingsHelper.isShowTabs() || dlPortletInstanceSettingsHelper.isShowSearch() %>">
 	<aui:nav-bar cssClass='<%= dlPortletInstanceSettingsHelper.isShowSearch() ? "collapse-basic-search" : StringPool.BLANK %>' markupView="lexicon">
 		<c:if test="<%= dlPortletInstanceSettingsHelper.isShowTabs() %>">
+<<<<<<< HEAD
 			<liferay-util:include page="/document_library/navigation_tabs.jsp" servletContext="<%= application %>" />
+=======
+			<aui:nav cssClass="navbar-nav">
+				<aui:nav-item label="documents-and-media" selected="<%= true %>" />
+			</aui:nav>
+>>>>>>> compatible
 		</c:if>
 
 		<c:if test="<%= dlPortletInstanceSettingsHelper.isShowSearch() %>">
@@ -42,7 +48,11 @@ DLPortletInstanceSettingsHelper dlPortletInstanceSettingsHelper = new DLPortletI
 					<portlet:param name="showSearchInfo" value="<%= Boolean.TRUE.toString() %>" />
 				</liferay-portlet:renderURL>
 
+<<<<<<< HEAD
 				<aui:form action="<%= searchURL.toString() %>" method="get" name="searchFm">
+=======
+				<aui:form action="<%= searchURL.toString() %>" name="searchFm">
+>>>>>>> compatible
 					<liferay-portlet:renderURLParams varImpl="searchURL" />
 					<aui:input name="redirect" type="hidden" value="<%= currentURL %>" />
 

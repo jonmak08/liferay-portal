@@ -24,6 +24,7 @@ import java.util.Locale;
  */
 public interface DDMFormEvaluator {
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 2.1.0, replaced by {@link #evaluate(
 	 *             DDMFormEvaluatorContext)}
@@ -41,6 +42,10 @@ public interface DDMFormEvaluator {
 
 	public DDMFormEvaluationResult evaluate(
 			DDMFormEvaluatorContext ddmFormEvaluatorContext)
+=======
+	public DDMFormEvaluationResult evaluate(
+			DDMForm ddmForm, DDMFormValues ddmFormValues, Locale locale)
+>>>>>>> compatible
 		throws DDMFormEvaluationException;
 
 }

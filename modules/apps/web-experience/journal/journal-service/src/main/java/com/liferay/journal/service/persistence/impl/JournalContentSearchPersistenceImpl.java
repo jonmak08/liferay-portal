@@ -36,6 +36,10 @@ import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.spring.extender.service.ServiceReference;
 
 import java.io.Serializable;
@@ -228,7 +232,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 			if (portletId == null) {
 				query.append(_FINDER_COLUMN_PORTLETID_PORTLETID_1);
 			}
+<<<<<<< HEAD
 			else if (portletId.equals("")) {
+=======
+			else if (portletId.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_PORTLETID_PORTLETID_3);
 			}
 			else {
@@ -317,7 +325,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 		msg.append("portletId=");
 		msg.append(portletId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchContentSearchException(msg.toString());
 	}
@@ -368,7 +380,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 		msg.append("portletId=");
 		msg.append(portletId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchContentSearchException(msg.toString());
 	}
@@ -462,7 +478,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 		if (portletId == null) {
 			query.append(_FINDER_COLUMN_PORTLETID_PORTLETID_1);
 		}
+<<<<<<< HEAD
 		else if (portletId.equals("")) {
+=======
+		else if (portletId.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_PORTLETID_PORTLETID_3);
 		}
 		else {
@@ -598,7 +618,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 			if (portletId == null) {
 				query.append(_FINDER_COLUMN_PORTLETID_PORTLETID_1);
 			}
+<<<<<<< HEAD
 			else if (portletId.equals("")) {
+=======
+			else if (portletId.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_PORTLETID_PORTLETID_3);
 			}
 			else {
@@ -785,7 +809,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 			if (articleId == null) {
 				query.append(_FINDER_COLUMN_ARTICLEID_ARTICLEID_1);
 			}
+<<<<<<< HEAD
 			else if (articleId.equals("")) {
+=======
+			else if (articleId.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_ARTICLEID_ARTICLEID_3);
 			}
 			else {
@@ -874,7 +902,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 		msg.append("articleId=");
 		msg.append(articleId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchContentSearchException(msg.toString());
 	}
@@ -925,7 +957,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 		msg.append("articleId=");
 		msg.append(articleId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchContentSearchException(msg.toString());
 	}
@@ -1019,7 +1055,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 		if (articleId == null) {
 			query.append(_FINDER_COLUMN_ARTICLEID_ARTICLEID_1);
 		}
+<<<<<<< HEAD
 		else if (articleId.equals("")) {
+=======
+		else if (articleId.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_ARTICLEID_ARTICLEID_3);
 		}
 		else {
@@ -1155,7 +1195,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 			if (articleId == null) {
 				query.append(_FINDER_COLUMN_ARTICLEID_ARTICLEID_1);
 			}
+<<<<<<< HEAD
 			else if (articleId.equals("")) {
+=======
+			else if (articleId.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_ARTICLEID_ARTICLEID_3);
 			}
 			else {
@@ -1435,7 +1479,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 		msg.append(", privateLayout=");
 		msg.append(privateLayout);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchContentSearchException(msg.toString());
 	}
@@ -1493,7 +1541,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 		msg.append(", privateLayout=");
 		msg.append(privateLayout);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchContentSearchException(msg.toString());
 	}
@@ -1905,7 +1957,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 			if (articleId == null) {
 				query.append(_FINDER_COLUMN_G_A_ARTICLEID_1);
 			}
+<<<<<<< HEAD
 			else if (articleId.equals("")) {
+=======
+			else if (articleId.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_A_ARTICLEID_3);
 			}
 			else {
@@ -2000,7 +2056,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 		msg.append(", articleId=");
 		msg.append(articleId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchContentSearchException(msg.toString());
 	}
@@ -2057,7 +2117,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 		msg.append(", articleId=");
 		msg.append(articleId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchContentSearchException(msg.toString());
 	}
@@ -2156,7 +2220,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 		if (articleId == null) {
 			query.append(_FINDER_COLUMN_G_A_ARTICLEID_1);
 		}
+<<<<<<< HEAD
 		else if (articleId.equals("")) {
+=======
+		else if (articleId.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_A_ARTICLEID_3);
 		}
 		else {
@@ -2298,7 +2366,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 			if (articleId == null) {
 				query.append(_FINDER_COLUMN_G_A_ARTICLEID_1);
 			}
+<<<<<<< HEAD
 			else if (articleId.equals("")) {
+=======
+			else if (articleId.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_A_ARTICLEID_3);
 			}
 			else {
@@ -2602,7 +2674,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 		msg.append(", layoutId=");
 		msg.append(layoutId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchContentSearchException(msg.toString());
 	}
@@ -2665,7 +2741,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 		msg.append(", layoutId=");
 		msg.append(layoutId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchContentSearchException(msg.toString());
 	}
@@ -3108,7 +3188,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 			if (articleId == null) {
 				query.append(_FINDER_COLUMN_G_P_A_ARTICLEID_1);
 			}
+<<<<<<< HEAD
 			else if (articleId.equals("")) {
+=======
+			else if (articleId.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_P_A_ARTICLEID_3);
 			}
 			else {
@@ -3210,7 +3294,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 		msg.append(", articleId=");
 		msg.append(articleId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchContentSearchException(msg.toString());
 	}
@@ -3273,7 +3361,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 		msg.append(", articleId=");
 		msg.append(articleId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchContentSearchException(msg.toString());
 	}
@@ -3378,7 +3470,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 		if (articleId == null) {
 			query.append(_FINDER_COLUMN_G_P_A_ARTICLEID_1);
 		}
+<<<<<<< HEAD
 		else if (articleId.equals("")) {
+=======
+		else if (articleId.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_P_A_ARTICLEID_3);
 		}
 		else {
@@ -3529,7 +3625,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 			if (articleId == null) {
 				query.append(_FINDER_COLUMN_G_P_A_ARTICLEID_1);
 			}
+<<<<<<< HEAD
 			else if (articleId.equals("")) {
+=======
+			else if (articleId.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_P_A_ARTICLEID_3);
 			}
 			else {
@@ -3762,7 +3862,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 			if (portletId == null) {
 				query.append(_FINDER_COLUMN_G_P_L_P_PORTLETID_1);
 			}
+<<<<<<< HEAD
 			else if (portletId.equals("")) {
+=======
+			else if (portletId.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_P_L_P_PORTLETID_3);
 			}
 			else {
@@ -3870,7 +3974,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 		msg.append(", portletId=");
 		msg.append(portletId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchContentSearchException(msg.toString());
 	}
@@ -3938,7 +4046,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 		msg.append(", portletId=");
 		msg.append(portletId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchContentSearchException(msg.toString());
 	}
@@ -4049,7 +4161,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 		if (portletId == null) {
 			query.append(_FINDER_COLUMN_G_P_L_P_PORTLETID_1);
 		}
+<<<<<<< HEAD
 		else if (portletId.equals("")) {
+=======
+		else if (portletId.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_P_L_P_PORTLETID_3);
 		}
 		else {
@@ -4208,7 +4324,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 			if (portletId == null) {
 				query.append(_FINDER_COLUMN_G_P_L_P_PORTLETID_1);
 			}
+<<<<<<< HEAD
 			else if (portletId.equals("")) {
+=======
+			else if (portletId.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_P_L_P_PORTLETID_3);
 			}
 			else {
@@ -4322,7 +4442,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 			msg.append(", articleId=");
 			msg.append(articleId);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -4407,7 +4531,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 			if (portletId == null) {
 				query.append(_FINDER_COLUMN_G_P_L_P_A_PORTLETID_1);
 			}
+<<<<<<< HEAD
 			else if (portletId.equals("")) {
+=======
+			else if (portletId.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_P_L_P_A_PORTLETID_3);
 			}
 			else {
@@ -4421,7 +4549,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 			if (articleId == null) {
 				query.append(_FINDER_COLUMN_G_P_L_P_A_ARTICLEID_1);
 			}
+<<<<<<< HEAD
 			else if (articleId.equals("")) {
+=======
+			else if (articleId.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_P_L_P_A_ARTICLEID_3);
 			}
 			else {
@@ -4558,7 +4690,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 			if (portletId == null) {
 				query.append(_FINDER_COLUMN_G_P_L_P_A_PORTLETID_1);
 			}
+<<<<<<< HEAD
 			else if (portletId.equals("")) {
+=======
+			else if (portletId.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_P_L_P_A_PORTLETID_3);
 			}
 			else {
@@ -4572,7 +4708,11 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 			if (articleId == null) {
 				query.append(_FINDER_COLUMN_G_P_L_P_A_ARTICLEID_1);
 			}
+<<<<<<< HEAD
 			else if (articleId.equals("")) {
+=======
+			else if (articleId.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_P_L_P_A_ARTICLEID_3);
 			}
 			else {
@@ -5320,12 +5460,20 @@ public class JournalContentSearchPersistenceImpl extends BasePersistenceImpl<Jou
 		for (Serializable primaryKey : uncachedPrimaryKeys) {
 			query.append((long)primaryKey);
 
+<<<<<<< HEAD
 			query.append(",");
+=======
+			query.append(StringPool.COMMA);
+>>>>>>> compatible
 		}
 
 		query.setIndex(query.index() - 1);
 
+<<<<<<< HEAD
 		query.append(")");
+=======
+		query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 		String sql = query.toString();
 

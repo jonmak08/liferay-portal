@@ -8,9 +8,13 @@
 
 		<execute macro="User#firstLoginPG" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -18,6 +22,7 @@
 			<var name="siteName" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -26,15 +31,28 @@
 
 		<execute macro="SitePages#addPublicPage">
 			<var name="pageName" value="Staging Test Page" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+			<var name="portlet" value="Sites" />
+		</execute>
+
+		<execute macro="Page#add">
+			<var name="pageName" value="Staging Test Page" />
+			<var name="siteName" value="Site Name" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Navigator#openSiteURL">
 			<var name="siteName" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Publishing" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesPublishing">
+>>>>>>> compatible
 			<var name="portlet" value="Staging" />
 		</execute>
 
@@ -63,6 +81,7 @@
 		</if>
 	</tear-down>
 
+<<<<<<< HEAD
 	<command name="DeleteChildPageFromVariationWhereNotEnabled" priority="4">
 		<execute macro="Staging#addSitePagesVariationPG">
 			<var name="copySitePagesVariationName" value="Main Variation" />
@@ -107,12 +126,15 @@
 		</execute>
 	</command>
 
+=======
+>>>>>>> compatible
 	<command name="EnableAndDeleteSitePageVariationPage" priority="4">
 		<execute macro="Staging#addSitePagesVariationPG">
 			<var name="copySitePagesVariationName" value="Main Variation" />
 			<var name="sitePagesVariationName" value="Test Site Pages Variation" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoSite">
 			<var name="site" value="Site Name" />
 		</execute>
@@ -127,6 +149,16 @@
 
 		<execute macro="SitePages#addPublicPage">
 			<var name="pageName" value="Test Page Name" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+			<var name="portlet" value="Sites" />
+		</execute>
+
+		<execute macro="Page#add">
+			<var name="pageName" value="Test Page Name" />
+			<var name="pageStaging" value="true" />
+			<var name="siteName" value="Site Name" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Navigator#gotoStagedSitePage">
@@ -143,7 +175,10 @@
 
 		<execute macro="Staging#enablePageInSitePagesVariation">
 			<var name="pageName" value="Test Page Name" />
+<<<<<<< HEAD
 			<var name="privacy" value="Public" />
+=======
+>>>>>>> compatible
 			<var name="sitePagesVariationName" value="Main Variation" />
 		</execute>
 
@@ -152,6 +187,7 @@
 			<var name="siteName" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -159,10 +195,14 @@
 		</execute>
 
 		<execute macro="SitePages#deletePage">
+=======
+		<execute macro="Page#deletePG">
+>>>>>>> compatible
 			<var name="pageName" value="Test Page Name" />
 		</execute>
 	</command>
 
+<<<<<<< HEAD
 	<command name="PublicationWithoutReadyForPublication" priority="4">
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
@@ -205,6 +245,8 @@
 		</execute>
 	</command>
 
+=======
+>>>>>>> compatible
 	<command name="PublishCustomPortletTitle" priority="3">
 		<execute macro="Staging#addSitePagesVariationPG">
 			<var name="sitePagesVariationName" value="Site Pages Variation Name" />
@@ -246,12 +288,16 @@
 			<var name="portletOption" value="Look and Feel Configuration" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="IFrame#selectConfigurationFrame" />
 
+=======
+>>>>>>> compatible
 		<execute macro="Portlet#configureCustomTitleViaLookandfeelPG">
 			<var name="portletName" value="Sites Directory" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="PortletEntry#save" />
 
 		<execute macro="Portlet#configureApplicationDecoratorViaLookandfeelPG">
@@ -260,6 +306,8 @@
 
 		<execute macro="PortletEntry#save" />
 
+=======
+>>>>>>> compatible
 		<execute macro="Navigator#gotoStagedSitePage">
 			<var name="pageName" value="Staging Test Page" />
 			<var name="siteName" value="Site Name" />
@@ -312,6 +360,7 @@
 		</execute>
 	</command>
 
+<<<<<<< HEAD
 	<command name="StagingBlogsCP" priority="5">
 		<property name="portal.acceptance" value="pending" />
 		<property name="testray.component.names" value="Training" />
@@ -320,6 +369,12 @@
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
 			<var name="portlet" value="Blogs" />
+=======
+	<command name="StagingBlogsCP" priority="3">
+		<execute macro="ProductMenu#gotoSitesContent">
+			<var name="portlet" value="Blogs" />
+			<var name="siteScopeName" value="Site Name" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Blogs#addEntry">
@@ -339,6 +394,12 @@
 	</command>
 
 	<command name="StagingDeletePageVariation" priority="4">
+<<<<<<< HEAD
+=======
+		<property name="osgi.app.includes" value="youtube" />
+		<property name="plugins.deployment.type" value="osgi" />
+
+>>>>>>> compatible
 		<execute macro="Navigator#openSiteURL">
 			<var name="siteName" value="Site Name" />
 		</execute>
@@ -401,11 +462,14 @@
 			<var name="historyVersionName" value="Wednesday" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#gotoStagedSitePage">
 			<var name="pageName" value="Staging Test Page" />
 			<var name="siteName" value="Site Name" />
 		</execute>
 
+=======
+>>>>>>> compatible
 		<execute macro="Staging#markAsReadyForPublication" />
 
 		<execute macro="Staging#gotoPublishToLive" />
@@ -414,6 +478,7 @@
 
 		<execute macro="ProductMenu#gotoLiveSite" />
 
+<<<<<<< HEAD
 		<var name="key_portletName" value="Web Content Display" />
 
 		<execute function="AssertElementPresent" locator1="Home#PORTLET" />
@@ -424,6 +489,18 @@
 	</command>
 
 	<command name="StagingDeleteSitePagesVariation" priority="4">
+=======
+		<execute function="IsElementPresent" locator1="Home#PORTLET" >
+			<var name="portletTypeKey" value="YouTube" />
+			<var name="portletTypeKey" value="Web Content Display" />
+		</execute>
+	</command>
+
+	<command name="StagingDeleteSitePagesVariation" priority="4">
+		<property name="osgi.app.includes" value="youtube" />
+		<property name="plugins.deployment.type" value="osgi" />
+
+>>>>>>> compatible
 		<execute macro="Navigator#openSiteURL">
 			<var name="siteName" value="Site Name" />
 		</execute>
@@ -496,10 +573,23 @@
 			<var name="siteName" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
+=======
+		<execute macro="ProductMenu#gotoPublicPages" />
+
+		<execute macro="Navigator#openSiteURL">
+			<var name="siteName" value="Site Name" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="Navigator#gotoStagedView" />
 
 		<execute macro="Page#changeLogoViaPageCP">
 			<var name="logoFile" value="Document_2.png" />
+<<<<<<< HEAD
+=======
+			<var name="page" value="Public Pages" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Navigator#gotoStagedSitePage">
@@ -571,6 +661,7 @@
 			<var name="sitePagesVariationName" value="Summer" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -584,6 +675,10 @@
 		<execute macro="Navigator#gotoStagedSitePage">
 			<var name="pageName" value="Page 2" />
 			<var name="siteName" value="Site Name" />
+=======
+		<execute macro="Page#add">
+			<var name="pageName" value="Page 2" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Staging#mergeSitePagesVariation">
@@ -647,6 +742,7 @@
 			<var name="sitePagesVariationName" value="Summer" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -662,6 +758,12 @@
 			<var name="siteName" value="Site Name" />
 		</execute>
 
+=======
+		<execute macro="Page#add">
+			<var name="pageName" value="Page 2" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="Staging#mergeSitePagesVariation">
 			<var name="sitePagesVariationMergeName" value="Main Variation" />
 			<var name="sitePagesVariationName" value="Summer" />
@@ -691,7 +793,10 @@
 
 		<execute macro="Staging#enablePageInSitePagesVariation">
 			<var name="pageName" value="Page 2" />
+<<<<<<< HEAD
 			<var name="privacy" value="Public" />
+=======
+>>>>>>> compatible
 			<var name="sitePagesVariationName" value="Summer" />
 		</execute>
 
@@ -729,9 +834,13 @@
 	</command>
 
 	<command name="StagingPortletPublishContentCount" priority="4">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Web Content" />
 		</execute>
 
@@ -754,9 +863,13 @@
 
 		<execute macro="Navigator#gotoStagedView" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Web Content" />
 		</execute>
 
@@ -772,9 +885,13 @@
 
 		<execute macro="Navigator#gotoStagedView" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Web Content" />
 		</execute>
 
@@ -786,9 +903,13 @@
 
 		<execute macro="Navigator#gotoStagedView" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Web Content" />
 		</execute>
 
@@ -797,6 +918,7 @@
 		</execute>
 	</command>
 
+<<<<<<< HEAD
 	<command name="StagingPublishLast" priority="4">
 		<execute macro="Navigator#openSiteURL">
 			<var name="siteName" value="Site Name" />
@@ -860,11 +982,14 @@
 		</execute>
 	</command>
 
+=======
+>>>>>>> compatible
 	<command name="StagingSiteVariationIncompletePage" priority="5">
 		<execute macro="Staging#addSitePagesVariationPG">
 			<var name="sitePagesVariationName" value="Site Pages Variation Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoSite">
 			<var name="site" value="Site Name" />
 		</execute>
@@ -884,6 +1009,21 @@
 		<execute macro="Navigator#gotoStagedSitePage">
 			<var name="pageName" value="Test Page Name" />
 			<var name="siteName" value="Site Name" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+			<var name="portlet" value="Sites" />
+		</execute>
+
+		<execute macro="Page#add">
+			<var name="pageName" value="Test Page Name" />
+			<var name="pageStaging" value="true" />
+			<var name="siteName" value="Site Name" />
+		</execute>
+
+		<execute macro="SitePageNavigator#gotoPages">
+			<var name="page" value="Public Pages" />
+			<var name="site" value="Site Name" />
+>>>>>>> compatible
 		</execute>
 
 		<execute function="AssertElementPresent" locator1="Staging#STAGING_PUBLISH_TO_LIVE_BUTTON" />
@@ -892,6 +1032,7 @@
 			<var name="sitePagesVariationName" value="Main Variation" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -901,6 +1042,10 @@
 		<execute macro="LexiconEntry#gotoEntryMenuItem">
 			<var name="menuItem" value="Configure" />
 			<var name="rowEntry" value="Test Page Name" />
+=======
+		<execute macro="SitePageNavigator#gotoEditPage" >
+			<var name="page" value="Test Page Name" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Staging#viewIncompletePageViaStagingPageVariation">
@@ -916,7 +1061,11 @@
 
 		<execute function="SelectFrame" locator1="IFrame#METADATA_SETS_IFRAME" />
 
+<<<<<<< HEAD
 		<var method="selenium#getText(Staging#HISTORY_VERSION)" name="historyVersion" />
+=======
+		<var locator="Staging#HISTORY_VERSION" name="historyVersion" />
+>>>>>>> compatible
 
 		<execute macro="Navigator#gotoStagedSitePage">
 			<var name="pageName" value="Staging Test Page" />

@@ -27,6 +27,11 @@ Object bean = request.getAttribute("liferay-ui:user-name-fields:bean");
 Contact selContact = (Contact)request.getAttribute("liferay-ui:user-name-fields:contact");
 User selUser = (User)request.getAttribute("liferay-ui:user-name-fields:user");
 
+<<<<<<< HEAD
+=======
+Locale userLocale = null;
+
+>>>>>>> compatible
 String languageId = request.getParameter("languageId");
 
 if (Validator.isNull(languageId)) {
@@ -34,9 +39,19 @@ if (Validator.isNull(languageId)) {
 		languageId = selUser.getLanguageId();
 	}
 	else {
+<<<<<<< HEAD
 		languageId = themeDisplay.getLanguageId();
 	}
 }
 
 Locale userLocale = LocaleUtil.fromLanguageId(languageId);
+=======
+		User defaultUser = company.getDefaultUser();
+
+		languageId = defaultUser.getLanguageId();
+	}
+}
+
+userLocale = LocaleUtil.fromLanguageId(languageId);
+>>>>>>> compatible
 %>

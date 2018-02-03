@@ -56,6 +56,7 @@ public class AssetTagFinderImpl
 
 	@Override
 	public int countByG_N(long groupId, String name) {
+<<<<<<< HEAD
 		Session session = null;
 
 		try {
@@ -97,12 +98,18 @@ public class AssetTagFinderImpl
 
 	@Override
 	public int countByG_C_N(long groupId, long classNameId, String name) {
+=======
+>>>>>>> compatible
 		Session session = null;
 
 		try {
 			session = openSession();
 
+<<<<<<< HEAD
 			String sql = CustomSQLUtil.get(COUNT_BY_G_C_N);
+=======
+			String sql = CustomSQLUtil.get(COUNT_BY_G_N);
+>>>>>>> compatible
 
 			SQLQuery q = session.createSynchronizedSQLQuery(sql);
 
@@ -139,13 +146,21 @@ public class AssetTagFinderImpl
 	}
 
 	@Override
+<<<<<<< HEAD
 	public List<AssetTag> findByC_C(long classNameId, long classPK) {
+=======
+	public int countByG_C_N(long groupId, long classNameId, String name) {
+>>>>>>> compatible
 		Session session = null;
 
 		try {
 			session = openSession();
 
+<<<<<<< HEAD
 			String sql = CustomSQLUtil.get(FIND_BY_C_C);
+=======
+			String sql = CustomSQLUtil.get(COUNT_BY_G_C_N);
+>>>>>>> compatible
 
 			SQLQuery q = session.createSynchronizedSQLQuery(sql);
 
@@ -208,6 +223,7 @@ public class AssetTagFinderImpl
 	public List<AssetTag> findByG_N_S_E(
 		long groupId, String name, int startPeriod, int endPeriod,
 		int periodLength) {
+<<<<<<< HEAD
 
 		Session session = null;
 
@@ -234,6 +250,34 @@ public class AssetTagFinderImpl
 			while (itr.hasNext()) {
 				Object[] array = itr.next();
 
+=======
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			String sql = CustomSQLUtil.get(FIND_BY_G_N_S_E);
+
+			SQLQuery q = session.createSynchronizedSQLQuery(sql);
+
+			QueryPos qPos = QueryPos.getInstance(q);
+
+			qPos.add(groupId);
+			qPos.add(name);
+			qPos.add(startPeriod);
+			qPos.add(endPeriod);
+			qPos.add(periodLength);
+			qPos.add(endPeriod);
+
+			List<AssetTag> assetTags = new ArrayList<>();
+
+			Iterator<Object[]> itr = q.iterate();
+
+			while (itr.hasNext()) {
+				Object[] array = itr.next();
+
+>>>>>>> compatible
 				AssetTag assetTag = new AssetTagImpl();
 
 				assetTag.setTagId(GetterUtil.getLong(array[0]));

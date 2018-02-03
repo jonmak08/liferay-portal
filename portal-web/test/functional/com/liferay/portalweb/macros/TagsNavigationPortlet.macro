@@ -28,7 +28,12 @@
 			</then>
 		</if>
 
+<<<<<<< HEAD
 		<execute macro="PortletEntry#save" />
+=======
+		<execute macro="Button#clickSave" />
+		<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 	</command>
 
 	<command name="configureFlaggableSettingsPG">
@@ -54,7 +59,12 @@
 			</then>
 		</if>
 
+<<<<<<< HEAD
 		<execute macro="PortletEntry#save" />
+=======
+		<execute macro="Button#clickSave" />
+		<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 	</command>
 
 	<command name="viewADTColorByPopularityPG">

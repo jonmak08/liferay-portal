@@ -97,8 +97,11 @@ if (article != null) {
 
 boolean showHeader = ParamUtil.getBoolean(request, "showHeader", true);
 
+<<<<<<< HEAD
 boolean hideDefaultSuccessMessage = ParamUtil.getBoolean(request, "hideDefaultSuccessMessage", false);
 
+=======
+>>>>>>> compatible
 request.setAttribute("edit_article.jsp-redirect", redirect);
 
 request.setAttribute("edit_article.jsp-structure", ddmStructure);
@@ -156,7 +159,11 @@ request.setAttribute("edit_article.jsp-changeStructure", changeStructure);
 
 <aui:form action="<%= editArticleActionURL %>" cssClass="container-fluid-1280" enctype="multipart/form-data" method="post" name="fm1" onSubmit="event.preventDefault();">
 	<aui:input name="<%= ActionRequest.ACTION_NAME %>" type="hidden" />
+<<<<<<< HEAD
 	<aui:input name="hideDefaultSuccessMessage" type="hidden" value="<%= hideDefaultSuccessMessage || (classNameId == PortalUtil.getClassNameId(DDMStructure.class)) %>" />
+=======
+	<aui:input name="hideDefaultSuccessMessage" type="hidden" value="<%= classNameId == PortalUtil.getClassNameId(DDMStructure.class) %>" />
+>>>>>>> compatible
 	<aui:input name="redirect" type="hidden" value="<%= redirect %>" />
 	<aui:input name="portletResource" type="hidden" value="<%= portletResource %>" />
 	<aui:input name="referringPlid" type="hidden" value="<%= referringPlid %>" />
@@ -192,13 +199,24 @@ request.setAttribute("edit_article.jsp-changeStructure", changeStructure);
 
 	<div class="lfr-form-content">
 		<liferay-ui:error exception="<%= ArticleContentSizeException.class %>" message="you-have-exceeded-the-maximum-web-content-size-allowed" />
+<<<<<<< HEAD
 		<liferay-ui:error exception="<%= ArticleFriendlyURLException.class %>" message="you-must-define-a-friendly-url-for-default-language" />
+=======
+>>>>>>> compatible
 		<liferay-ui:error exception="<%= DuplicateFileEntryException.class %>" message="a-file-with-that-name-already-exists" />
 
 		<liferay-ui:error exception="<%= FileSizeException.class %>">
 
 			<%
+<<<<<<< HEAD
 			long fileMaxSize = DLValidatorUtil.getMaxAllowableSize();
+=======
+			long fileMaxSize = PrefsPropsUtil.getLong(PropsKeys.DL_FILE_MAX_SIZE);
+
+			if (fileMaxSize == 0) {
+				fileMaxSize = PrefsPropsUtil.getLong(PropsKeys.UPLOAD_SERVLET_REQUEST_IMPL_MAX_SIZE);
+			}
+>>>>>>> compatible
 			%>
 
 			<liferay-ui:message arguments="<%= TextFormatter.formatStorageSize(fileMaxSize, locale) %>" key="please-enter-a-file-with-a-valid-file-size-no-larger-than-x" translateArguments="<%= false %>" />
@@ -214,10 +232,16 @@ request.setAttribute("edit_article.jsp-changeStructure", changeStructure);
 			</liferay-frontend:info-bar>
 		</c:if>
 
+<<<<<<< HEAD
 		<liferay-frontend:translation-manager
 			availableLocales="<%= availableLocales %>"
 			changeableDefaultLanguage="<%= changeableDefaultLanguage %>"
 			componentId='<%= renderResponse.getNamespace() + "translationManager" %>'
+=======
+		<aui:translation-manager
+			availableLocales="<%= availableLocales %>"
+			changeableDefaultLanguage="<%= changeableDefaultLanguage %>"
+>>>>>>> compatible
 			defaultLanguageId="<%= defaultLanguageId %>"
 			id="translationManager"
 		/>
@@ -292,6 +316,7 @@ request.setAttribute("edit_article.jsp-changeStructure", changeStructure);
 		%>
 
 		<c:if test="<%= hasSavePermission %>">
+<<<<<<< HEAD
 			<aui:button data-actionname="<%= Constants.PUBLISH %>" disabled="<%= pending %>" name="publishButton" type="submit" value="<%= publishButtonLabel %>" />
 
 			<c:if test="<%= classNameId == JournalArticleConstants.CLASSNAME_ID_DEFAULT %>">
@@ -300,6 +325,16 @@ request.setAttribute("edit_article.jsp-changeStructure", changeStructure);
 		</c:if>
 
 		<aui:button href="<%= redirect %>" type="cancel" />
+=======
+			<aui:button cssClass="btn-lg" data-actionname="<%= Constants.PUBLISH %>" disabled="<%= pending %>" name="publishButton" type="submit" value="<%= publishButtonLabel %>" />
+
+			<c:if test="<%= classNameId == JournalArticleConstants.CLASSNAME_ID_DEFAULT %>">
+				<aui:button cssClass="btn-lg" data-actionname='<%= ((article == null) || Validator.isNull(article.getArticleId())) ? "addArticle" : "updateArticle" %>' name="saveButton" primary="<%= false %>" type="submit" value="<%= saveButtonLabel %>" />
+			</c:if>
+		</c:if>
+
+		<aui:button cssClass="btn-lg" href="<%= redirect %>" type="cancel" />
+>>>>>>> compatible
 	</aui:button-row>
 </aui:form>
 

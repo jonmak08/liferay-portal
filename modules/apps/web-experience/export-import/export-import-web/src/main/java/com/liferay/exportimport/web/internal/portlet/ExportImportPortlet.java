@@ -17,6 +17,7 @@ package com.liferay.exportimport.web.internal.portlet;
 import com.liferay.exportimport.constants.ExportImportPortletKeys;
 import com.liferay.portal.kernel.model.Release;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
+<<<<<<< HEAD
 import com.liferay.trash.TrashHelper;
 import com.liferay.trash.util.TrashWebKeys;
 
@@ -26,6 +27,10 @@ import javax.portlet.Portlet;
 import javax.portlet.PortletException;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
+=======
+
+import javax.portlet.Portlet;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -39,6 +44,10 @@ import org.osgi.service.component.annotations.Reference;
 		"com.liferay.portlet.add-default-resource=true",
 		"com.liferay.portlet.css-class-wrapper=portlet-export-import",
 		"com.liferay.portlet.display-category=category.hidden",
+<<<<<<< HEAD
+=======
+		"com.liferay.portlet.footer-portlet-javascript=/js/main.js",
+>>>>>>> compatible
 		"com.liferay.portlet.header-portlet-css=/css/main.css",
 		"com.liferay.portlet.icon=/icons/export_import.png",
 		"com.liferay.portlet.preferences-owned-by-group=true",
@@ -61,6 +70,7 @@ import org.osgi.service.component.annotations.Reference;
 )
 public class ExportImportPortlet extends MVCPortlet {
 
+<<<<<<< HEAD
 	@Override
 	public void render(
 			RenderRequest renderRequest, RenderResponse renderResponse)
@@ -71,6 +81,8 @@ public class ExportImportPortlet extends MVCPortlet {
 		super.render(renderRequest, renderResponse);
 	}
 
+=======
+>>>>>>> compatible
 	@Reference(
 		target = "(&(release.bundle.symbolic.name=com.liferay.exportimport.web)(release.schema.version=1.0.0))",
 		unbind = "-"
@@ -78,7 +90,10 @@ public class ExportImportPortlet extends MVCPortlet {
 	protected void setRelease(Release release) {
 	}
 
+<<<<<<< HEAD
 	@Reference
 	private TrashHelper _trashHelper;
 
+=======
+>>>>>>> compatible
 }

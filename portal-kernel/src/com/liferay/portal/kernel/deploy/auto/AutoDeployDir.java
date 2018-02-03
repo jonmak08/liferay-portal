@@ -21,7 +21,10 @@ import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.registry.Registry;
 import com.liferay.registry.RegistryUtil;
@@ -35,8 +38,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
+<<<<<<< HEAD
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+=======
+>>>>>>> compatible
 
 /**
  * @author Ivica Cardic
@@ -107,12 +113,15 @@ public class AutoDeployDir {
 					break;
 				}
 			}
+<<<<<<< HEAD
 
 			Matcher matcher = _versionPattern.matcher(fileName);
 
 			if (matcher.find()) {
 				fileName = matcher.replaceFirst(".war");
 			}
+=======
+>>>>>>> compatible
 		}
 		else {
 			for (String curDirName : dirNames) {
@@ -250,9 +259,14 @@ public class AutoDeployDir {
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Skip processing of ", fileName, " because it is ",
 						"blacklisted"));
+=======
+					"Skip processing of " + fileName + " because it is " +
+						"blacklisted");
+>>>>>>> compatible
 			}
 
 			return;
@@ -336,8 +350,11 @@ public class AutoDeployDir {
 	private static AutoDeployScanner _autoDeployScanner;
 	private static final ServiceTracker<AutoDeployListener, AutoDeployListener>
 		_serviceTracker;
+<<<<<<< HEAD
 	private static final Pattern _versionPattern = Pattern.compile(
 		"-[\\d]+((\\.[\\d]+)+(-SNAPSHOT)?)\\.war$");
+=======
+>>>>>>> compatible
 
 	static {
 		Registry registry = RegistryUtil.getRegistry();

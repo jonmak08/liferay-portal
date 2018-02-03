@@ -17,12 +17,27 @@
 
 				<execute function="AssertTextEquals" locator1="NavBar#ASSET_TITLE" value1="Data Definitions" />
 			</then>
+<<<<<<< HEAD
 			<else>
 				<execute function="AssertTextEquals" locator1="Portlet#HEADER" value1="Data Definitions" />
 			</else>
 		</if>
 
 		<execute macro="LexiconEntry#gotoAdd" />
+=======
+			<elseif>
+				<condition function="IsTextEqual" locator1="Portlet#HEADER" value1="Data Definitions" />
+				<then>
+					<execute function="AssertTextEquals" locator1="Portlet#HEADER" value1="Data Definitions" />
+				</then>
+			</elseif>
+			<else>
+				<execute function="AssertTextEquals" locator1="Portlet#HEADER" value1="Structures" />
+			</else>
+		</if>
+
+		<execute function="Click" locator1="Button#PLUS" />
+>>>>>>> compatible
 
 		<execute macro="DDLDataDefinition#editName">
 			<var name="ddlDataDefinitionName" value="${ddlDataDefinitionName}" />
@@ -94,11 +109,19 @@
 		<var name="key_ddlDataDefinitionName" value="${ddlDataDefinitionName}" />
 
 		<execute function="Click#waitForMenuToggleJSClick" locator1="DDMSelectStructure#DDM_STRUCTURE_ELLIPSIS" />
+<<<<<<< HEAD
 
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Copy">
 			<var name="key_menuItem" value="Copy" />
 		</execute>
 
+=======
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Copy">
+			<var name="key_menuItem" value="Copy" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="PortletEntry#inputName">
 			<var name="name" value="${ddlDataDefinitionCopyName}" />
 		</execute>
@@ -130,14 +153,21 @@
 		<execute macro="DDLNavigator#gotoManageDataDefinitions" />
 
 		<var name="key_ddlDataDefinitionName" value="${ddlDataDefinitionName}" />
+<<<<<<< HEAD
 
 		<execute function="Click#waitForMenuToggleJSClick" locator1="DDMSelectStructure#DDM_STRUCTURE_ELLIPSIS" />
 
+=======
+
+		<execute function="Click#waitForMenuToggleJSClick" locator1="DDMSelectStructure#DDM_STRUCTURE_ELLIPSIS" />
+
+>>>>>>> compatible
 		<execute function="AssertClickNoError" locator1="MenuItem#ANY_MENU_ITEM" value1="Delete">
 			<var name="key_menuItem" value="Delete" />
 		</execute>
 
 		<execute function="Confirm" value1="Are you sure you want to delete this? It will be deleted immediately." />
+<<<<<<< HEAD
 
 		<execute macro="Alert#viewSuccessMessage" />
 
@@ -146,6 +176,14 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+
+		<execute macro="Alert#viewSuccessMessage" />
+
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -159,9 +197,15 @@
 	<command name="deleteNoCP">
 		<execute macro="DDLNavigator#gotoManageDataDefinitions" />
 
+<<<<<<< HEAD
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="${ddlDataDefinitionName}" />
 		</execute>
+=======
+		<execute function="Type" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${ddlDataDefinitionName}" />
+
+		<execute function="Click" locator1="Icon#BASIC_SEARCH" />
+>>>>>>> compatible
 
 		<execute function="Click#waitForMenuToggleJSClick" locator1="DDMSelectStructure#DDM_STRUCTURE_ELLIPSIS_1" />
 
@@ -178,10 +222,17 @@
 
 	<command name="editCP">
 		<execute macro="DDLNavigator#gotoManageDataDefinitions" />
+<<<<<<< HEAD
 
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="${ddlDataDefinitionName}" />
 		</execute>
+=======
+
+		<execute function="Type" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${ddlDataDefinitionName}" />
+
+		<execute function="Click" locator1="Icon#BASIC_SEARCH" />
+>>>>>>> compatible
 
 		<execute function="Click#waitForMenuToggleJSClick" locator1="DDMSelectStructure#DDM_STRUCTURE_ELLIPSIS_1" />
 
@@ -229,6 +280,7 @@
 		</execute>
 
 		<execute function="SelectFrameTop" />
+<<<<<<< HEAD
 
 		<execute function="AssertTextEquals" locator1="TextInput#DATA_DEFINITION" value1="${ddlDataDefinitionName}" />
 	</command>
@@ -271,6 +323,48 @@
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="${ddlDataDefinitionName}" />
 		</execute>
+=======
+
+		<execute function="AssertTextEquals" locator1="TextInput#DATA_DEFINITION" value1="${ddlDataDefinitionName}" />
+	</command>
+
+	<command name="selectFrame">
+		<execute function="SelectFrame" locator1="IFrame#DIALOG" />
+	</command>
+
+	<command name="selectViaDDLDisplayPG">
+		<execute macro="DDLDataDefinition#_select">
+			<var name="ddlDataDefinitionName" value="${ddlDataDefinitionName}" />
+		</execute>
+
+		<execute function="SelectFrameTop" />
+
+		<execute function="SelectFrame" locator1="IFrame#DIALOG" />
+
+		<execute function="AssertTextEquals#assertValue" locator1="TextInput#DATA_DEFINITION" value1="${ddlDataDefinitionName}" />
+	</command>
+
+	<command name="setInputFieldLocalization">
+		<var name="key_languageValue" value="${languageValue}" />
+
+		<execute function="Click" locator1="FieldLocalization#OPTION" />
+	</command>
+
+	<command name="tearDownCP">
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="ProductMenu#gotoSitesContent">
+			<var name="portlet" value="Dynamic Data Lists" />
+		</execute>
+
+		<execute macro="DDLNavigator#gotoManageDataDefinitions" />
+
+		<var name="ddlDataDefinitionName" value="Data Definition" />
+
+		<execute function="Type" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${ddlDataDefinitionName}" />
+
+		<execute function="Click" locator1="Icon#BASIC_SEARCH" />
+>>>>>>> compatible
 
 		<execute function="AssertTextNotEquals" locator1="DDMSelectStructure#DDM_STRUCTURE_TABLE_NAME_1" value1="Contacts" />
 

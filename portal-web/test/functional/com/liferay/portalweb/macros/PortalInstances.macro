@@ -1,6 +1,10 @@
 <definition>
 	<command name="addCP">
+<<<<<<< HEAD
 		<execute macro="LexiconEntry#gotoAdd" />
+=======
+		<execute function="Click" locator1="Button#PLUS" />
+>>>>>>> compatible
 
 		<execute function="Type" locator1="TextInput#WEB_ID" value1="${webId}" />
 		<execute function="Type" locator1="TextInput#VIRTUAL_HOST" value1="${virtualHost}" />
@@ -33,9 +37,15 @@
 		</execute>
 
 		<execute function="Uncheck#uncheckToggleSwitch" locator1="Checkbox#ACTIVE" />
+<<<<<<< HEAD
 
 		<execute macro="Button#clickSave" />
 
+=======
+
+		<execute macro="Button#clickSave" />
+
+>>>>>>> compatible
 		<execute function="AssertTextEquals" locator1="PortalInstances#INSTANCE_TABLE_ACTIVE" value1="No" />
 	</command>
 
@@ -62,11 +72,19 @@
 		<execute function="AssertTextEquals" locator1="PortalInstances#INSTANCE_TABLE_VIRTUAL_HOST" value1="${virtualHost}" />
 
 		<execute macro="PortletEntry#clickEditFromEllipsis" />
+<<<<<<< HEAD
 
 		<execute function="Type" locator1="TextInput#MAIL_DOMAIN" value1="${mailDomain}" />
 
 		<execute function="AssertClick" locator1="Button#SAVE" value1="Save" />
 
+=======
+
+		<execute function="Type" locator1="TextInput#MAIL_DOMAIN" value1="${mailDomain}" />
+
+		<execute function="AssertClick" locator1="Button#SAVE" value1="Save" />
+
+>>>>>>> compatible
 		<execute macro="Alert#viewSuccessMessage" />
 	</command>
 
@@ -79,13 +97,18 @@
 			<var name="url" value="http://localhost:8080/" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Virtual Instances" />
 		</execute>
 
 		<while>
+<<<<<<< HEAD
 			<condition function="IsElementPresent" locator1="ContentRow#ENTRY_CONTENT_ROW_NUMBER_ELLIPSIS">
 				<var name="key_rowNumber" value="2" />
 			</condition>
@@ -94,6 +117,11 @@
 				<execute function="Click#waitForMenuToggleJSClick" locator1="ContentRow#ENTRY_CONTENT_ROW_NUMBER_ELLIPSIS">
 					<var name="key_rowNumber" value="2" />
 				</execute>
+=======
+			<condition function="IsElementPresent" locator1="PortalInstances#INSTANCE_TABLE_ACTIONS_GENERIC_2" />
+			<then>
+				<execute function="Click#waitForMenuToggleJSClick" locator1="PortalInstances#INSTANCE_TABLE_ACTIONS_GENERIC_2" />
+>>>>>>> compatible
 
 				<execute function="AssertClickNoError" locator1="MenuItem#ANY_MENU_ITEM" value1="Delete">
 					<var name="key_menuItem" value="Delete" />
@@ -101,7 +129,11 @@
 
 				<execute function="Confirm" value1="Are you sure you want to delete this? It will be deleted immediately." />
 
+<<<<<<< HEAD
 				<execute macro="Alert#waitForSuccessMessageHide" />
+=======
+				<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 			</then>
 		</while>
 	</command>

@@ -17,9 +17,13 @@
 		<if>
 			<condition function="IsElementNotPresent" locator1="ContentTargeting#PREVIEW_BUTTON_EXPANDED" />
 			<then>
+<<<<<<< HEAD
 				<execute function="MouseOver#mouseOverNotVisible" locator1="Portlet#SPECIFIC_BORDERLESS_BAR" />
 
 				<execute function="Click" locator1="Portlet#SPECIFIC_BORDERLESS_BAR" />
+=======
+				<execute function="Click#makeVisibleClickAt" locator1="Portlet#SPECIFIC_BORDERLESS_BAR" />
+>>>>>>> compatible
 
 				<execute function="Click" locator1="ContentTargeting#PREVIEW_BUTTON" />
 

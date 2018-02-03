@@ -565,7 +565,12 @@ public class DDMStructureLocalServiceWrapper implements DDMStructureLocalService
 	@Override
 	public com.liferay.dynamic.data.mapping.model.DDMStructure fetchStructure(
 		long groupId, long classNameId, java.lang.String structureKey,
+<<<<<<< HEAD
 		boolean includeAncestorStructures) {
+=======
+		boolean includeAncestorStructures)
+		throws com.liferay.portal.kernel.exception.PortalException {
+>>>>>>> compatible
 		return _ddmStructureLocalService.fetchStructure(groupId, classNameId,
 			structureKey, includeAncestorStructures);
 	}
@@ -1023,6 +1028,7 @@ public class DDMStructureLocalServiceWrapper implements DDMStructureLocalService
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns an ordered range of all the structures matching the group, class
 	* name ID, name, and description.
 	*
@@ -1057,6 +1063,8 @@ public class DDMStructureLocalServiceWrapper implements DDMStructureLocalService
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	* Returns the number of structures belonging to the group.
 	*
 	* @param groupId the primary key of the group
@@ -1112,6 +1120,7 @@ public class DDMStructureLocalServiceWrapper implements DDMStructureLocalService
 			serviceContext);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public java.util.List<com.liferay.dynamic.data.mapping.model.DDMStructure> search(
 		long companyId, long[] groupIds, long classNameId, long classPK,
@@ -1122,6 +1131,8 @@ public class DDMStructureLocalServiceWrapper implements DDMStructureLocalService
 			classNameId, classPK, keywords, start, end, orderByComparator);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns an ordered range of all the structures matching the groups and
 	* class name IDs, and matching the keywords in the structure names and
@@ -1202,6 +1213,7 @@ public class DDMStructureLocalServiceWrapper implements DDMStructureLocalService
 			andOperator, start, end, orderByComparator);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public int searchCount(long companyId, long[] groupIds, long classNameId,
 		long classPK, java.lang.String keywords)
@@ -1210,6 +1222,8 @@ public class DDMStructureLocalServiceWrapper implements DDMStructureLocalService
 			classNameId, classPK, keywords);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns the number of structures matching the groups and class name IDs,
 	* and matching the keywords in the structure names and descriptions.

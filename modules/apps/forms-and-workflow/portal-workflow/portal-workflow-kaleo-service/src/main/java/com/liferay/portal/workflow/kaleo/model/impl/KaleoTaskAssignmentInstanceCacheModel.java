@@ -19,6 +19,10 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.workflow.kaleo.model.KaleoTaskAssignmentInstance;
 
 import java.io.Externalizable;
@@ -81,8 +85,13 @@ public class KaleoTaskAssignmentInstanceCacheModel implements CacheModel<KaleoTa
 		sb.append(createDate);
 		sb.append(", modifiedDate=");
 		sb.append(modifiedDate);
+<<<<<<< HEAD
 		sb.append(", kaleoDefinitionVersionId=");
 		sb.append(kaleoDefinitionVersionId);
+=======
+		sb.append(", kaleoDefinitionId=");
+		sb.append(kaleoDefinitionId);
+>>>>>>> compatible
 		sb.append(", kaleoInstanceId=");
 		sb.append(kaleoInstanceId);
 		sb.append(", kaleoInstanceTokenId=");
@@ -116,7 +125,11 @@ public class KaleoTaskAssignmentInstanceCacheModel implements CacheModel<KaleoTa
 		kaleoTaskAssignmentInstanceImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			kaleoTaskAssignmentInstanceImpl.setUserName("");
+=======
+			kaleoTaskAssignmentInstanceImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoTaskAssignmentInstanceImpl.setUserName(userName);
@@ -137,21 +150,33 @@ public class KaleoTaskAssignmentInstanceCacheModel implements CacheModel<KaleoTa
 					modifiedDate));
 		}
 
+<<<<<<< HEAD
 		kaleoTaskAssignmentInstanceImpl.setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
+=======
+		kaleoTaskAssignmentInstanceImpl.setKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 		kaleoTaskAssignmentInstanceImpl.setKaleoInstanceId(kaleoInstanceId);
 		kaleoTaskAssignmentInstanceImpl.setKaleoInstanceTokenId(kaleoInstanceTokenId);
 		kaleoTaskAssignmentInstanceImpl.setKaleoTaskInstanceTokenId(kaleoTaskInstanceTokenId);
 		kaleoTaskAssignmentInstanceImpl.setKaleoTaskId(kaleoTaskId);
 
 		if (kaleoTaskName == null) {
+<<<<<<< HEAD
 			kaleoTaskAssignmentInstanceImpl.setKaleoTaskName("");
+=======
+			kaleoTaskAssignmentInstanceImpl.setKaleoTaskName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoTaskAssignmentInstanceImpl.setKaleoTaskName(kaleoTaskName);
 		}
 
 		if (assigneeClassName == null) {
+<<<<<<< HEAD
 			kaleoTaskAssignmentInstanceImpl.setAssigneeClassName("");
+=======
+			kaleoTaskAssignmentInstanceImpl.setAssigneeClassName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoTaskAssignmentInstanceImpl.setAssigneeClassName(assigneeClassName);
@@ -186,7 +211,11 @@ public class KaleoTaskAssignmentInstanceCacheModel implements CacheModel<KaleoTa
 		createDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
 
+<<<<<<< HEAD
 		kaleoDefinitionVersionId = objectInput.readLong();
+=======
+		kaleoDefinitionId = objectInput.readLong();
+>>>>>>> compatible
 
 		kaleoInstanceId = objectInput.readLong();
 
@@ -216,7 +245,11 @@ public class KaleoTaskAssignmentInstanceCacheModel implements CacheModel<KaleoTa
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -225,7 +258,11 @@ public class KaleoTaskAssignmentInstanceCacheModel implements CacheModel<KaleoTa
 		objectOutput.writeLong(createDate);
 		objectOutput.writeLong(modifiedDate);
 
+<<<<<<< HEAD
 		objectOutput.writeLong(kaleoDefinitionVersionId);
+=======
+		objectOutput.writeLong(kaleoDefinitionId);
+>>>>>>> compatible
 
 		objectOutput.writeLong(kaleoInstanceId);
 
@@ -236,14 +273,22 @@ public class KaleoTaskAssignmentInstanceCacheModel implements CacheModel<KaleoTa
 		objectOutput.writeLong(kaleoTaskId);
 
 		if (kaleoTaskName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(kaleoTaskName);
 		}
 
 		if (assigneeClassName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(assigneeClassName);
@@ -262,7 +307,11 @@ public class KaleoTaskAssignmentInstanceCacheModel implements CacheModel<KaleoTa
 	public String userName;
 	public long createDate;
 	public long modifiedDate;
+<<<<<<< HEAD
 	public long kaleoDefinitionVersionId;
+=======
+	public long kaleoDefinitionId;
+>>>>>>> compatible
 	public long kaleoInstanceId;
 	public long kaleoInstanceTokenId;
 	public long kaleoTaskInstanceTokenId;

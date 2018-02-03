@@ -62,6 +62,8 @@ public abstract class ClientDataRequestImpl
 	public BufferedReader getReader()
 		throws IOException, UnsupportedEncodingException {
 
+		_checkContentType();
+
 		_calledGetReader = true;
 
 		_checkContentType();

@@ -53,6 +53,7 @@ public class DocumentFixture {
 		return document;
 	}
 
+<<<<<<< HEAD
 	public void mockProperty(String property, String value) {
 		Mockito.when(
 			props.get(property)
@@ -61,6 +62,8 @@ public class DocumentFixture {
 		);
 	}
 
+=======
+>>>>>>> compatible
 	public void setUp() {
 		setUpFastDateFormatFactoryUtil();
 		setUpPropsUtil();
@@ -71,6 +74,17 @@ public class DocumentFixture {
 		tearDownPropsUtil();
 	}
 
+<<<<<<< HEAD
+=======
+	protected void mockProperty(String property, String value) {
+		Mockito.when(
+			props.get(property)
+		).thenReturn(
+			value
+		);
+	}
+
+>>>>>>> compatible
 	protected void setUpFastDateFormatFactoryUtil() {
 		_fastDateFormatFactory =
 			FastDateFormatFactoryUtil.getFastDateFormatFactory();
@@ -114,8 +128,11 @@ public class DocumentFixture {
 		mockProperty(
 			PropsKeys.INDEX_SEARCH_QUERY_SUGGESTION_SCORES_THRESHOLD, "0");
 		mockProperty(PropsKeys.INDEX_SEARCH_SCORING_ENABLED, "true");
+<<<<<<< HEAD
 		mockProperty(
 			PropsKeys.INDEX_SORTABLE_TEXT_FIELDS_TRUNCATED_LENGTH, "255");
+=======
+>>>>>>> compatible
 
 		PropsUtil.setProps(props);
 	}

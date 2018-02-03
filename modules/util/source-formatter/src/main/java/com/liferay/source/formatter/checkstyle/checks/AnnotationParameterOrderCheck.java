@@ -16,6 +16,10 @@ package com.liferay.source.formatter.checkstyle.checks;
 
 import com.liferay.source.formatter.checkstyle.util.DetailASTUtil;
 
+<<<<<<< HEAD
+=======
+import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
+>>>>>>> compatible
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 
@@ -24,7 +28,11 @@ import java.util.List;
 /**
  * @author Hugo Huijser
  */
+<<<<<<< HEAD
 public class AnnotationParameterOrderCheck extends BaseCheck {
+=======
+public class AnnotationParameterOrderCheck extends AbstractCheck {
+>>>>>>> compatible
 
 	@Override
 	public int[] getDefaultTokens() {
@@ -32,7 +40,11 @@ public class AnnotationParameterOrderCheck extends BaseCheck {
 	}
 
 	@Override
+<<<<<<< HEAD
 	protected void doVisitToken(DetailAST detailAST) {
+=======
+	public void visitToken(DetailAST detailAST) {
+>>>>>>> compatible
 		List<DetailAST> annotationMemberValuePairASTList =
 			DetailASTUtil.getAllChildTokens(
 				detailAST, false, TokenTypes.ANNOTATION_MEMBER_VALUE_PAIR);

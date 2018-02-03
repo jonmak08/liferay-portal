@@ -45,7 +45,10 @@ import com.liferay.portal.util.PropsValues;
 import java.io.IOException;
 
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.Arrays;
+=======
+>>>>>>> compatible
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -385,9 +388,13 @@ public class LayoutTemplateLocalServiceImpl
 
 				layoutTemplateModel.setContent(content);
 				layoutTemplateModel.setColumns(
+<<<<<<< HEAD
 					_getColumns(
 						velocityTemplateId, content,
 						_getSupportedLangType(layoutTemplateModel)));
+=======
+					_getColumns(velocityTemplateId, content));
+>>>>>>> compatible
 			}
 
 			Element rolesElement = layoutTemplateElement.element("roles");
@@ -523,6 +530,7 @@ public class LayoutTemplateLocalServiceImpl
 		}
 	}
 
+<<<<<<< HEAD
 	private String _getSupportedLangType(LayoutTemplate layoutTemplate) {
 		String templatePath = layoutTemplate.getTemplatePath();
 
@@ -539,6 +547,8 @@ public class LayoutTemplateLocalServiceImpl
 		return TemplateConstants.LANG_TYPE_VM;
 	}
 
+=======
+>>>>>>> compatible
 	private Map<String, LayoutTemplate> _getThemesCustom(String themeId) {
 		Map<String, LayoutTemplate> layoutTemplates = _customThemes.get(
 			themeId);

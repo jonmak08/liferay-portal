@@ -14,6 +14,7 @@
 
 package com.liferay.dynamic.data.mapping.util;
 
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.annotations.DDMFormField;
 import com.liferay.dynamic.data.mapping.model.DDMFormFieldType;
 import com.liferay.dynamic.data.mapping.model.LocalizedValue;
@@ -38,6 +39,14 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
+=======
+import com.liferay.dynamic.data.mapping.model.DDMForm;
+import com.liferay.dynamic.data.mapping.storage.DDMFormValues;
+import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
+
+import java.util.Locale;
+import java.util.Map;
+>>>>>>> compatible
 
 /**
  * @author Marcellus Tavares
@@ -51,6 +60,7 @@ public class DDMFormInstanceFactory {
 	public static <T> T create(
 		Class<T> clazz, DDMFormValues ddmFormValues, Locale locale) {
 
+<<<<<<< HEAD
 		Object proxy = ProxyUtil.newProxyInstance(
 			clazz.getClassLoader(), new Class<?>[] {clazz},
 			new DDMFormInstanceInvocationHandler<>(
@@ -304,6 +314,22 @@ public class DDMFormInstanceFactory {
 		private final DDMFormValues _ddmFormValues;
 		private final Locale _locale;
 
+=======
+		DDMForm ddmForm = DDMFormFactory.create(clazz);
+
+		if (!ddmForm.equals(ddmFormValues.getDDMForm())) {
+			throw new IllegalArgumentException(
+				"DDM form values does not match with the given class " + clazz);
+		}
+
+		DDMFormInstanceFactoryHelper ddmFormInstanceFactoryHelper =
+			new DDMFormInstanceFactoryHelper(clazz, ddmFormValues, locale);
+
+		Map<String, Object> properties =
+			ddmFormInstanceFactoryHelper.getProperties();
+
+		return ConfigurableUtil.createConfigurable(clazz, properties);
+>>>>>>> compatible
 	}
 
 }

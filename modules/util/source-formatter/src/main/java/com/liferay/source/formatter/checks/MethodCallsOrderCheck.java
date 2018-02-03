@@ -47,6 +47,7 @@ public class MethodCallsOrderCheck extends BaseFileCheck {
 		for (String variableTypeRegex : variableTypeRegexStrings) {
 			StringBundler sb = new StringBundler(5);
 
+<<<<<<< HEAD
 			sb.append("\\W");
 			sb.append(variableTypeRegex);
 			sb.append("\\s+");
@@ -73,6 +74,27 @@ public class MethodCallsOrderCheck extends BaseFileCheck {
 			matcher = pattern.matcher(content);
 
 			if (matcher.find()) {
+=======
+			sb.append("[\\s\\S]*\\W");
+			sb.append(variableTypeRegex);
+			sb.append("\\s+");
+			sb.append(variableName);
+			sb.append("\\W[\\s\\S]*");
+
+			if (content.matches(sb.toString())) {
+				return true;
+			}
+
+			sb = new StringBundler(5);
+
+			sb.append("[\\s\\S]*\\W");
+			sb.append(variableName);
+			sb.append(" =\\s+new ");
+			sb.append(variableTypeRegex);
+			sb.append("[\\s\\S]*");
+
+			if (content.matches(sb.toString())) {
+>>>>>>> compatible
 				return true;
 			}
 		}
@@ -83,10 +105,13 @@ public class MethodCallsOrderCheck extends BaseFileCheck {
 	private String _sortMethodCall(
 		String content, String methodName, String... variableTypeRegexStrings) {
 
+<<<<<<< HEAD
 		if (!content.contains("." + methodName + "(")) {
 			return content;
 		}
 
+=======
+>>>>>>> compatible
 		Pattern codeBlockPattern = Pattern.compile(
 			"(\t+(\\w*)\\." + methodName + "\\(\\s*\".*?\\);\n)+",
 			Pattern.DOTALL);

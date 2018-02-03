@@ -45,7 +45,11 @@ public class DateDDMFormFieldRenderer extends BaseDDMFormFieldRenderer {
 
 	@Override
 	public String getTemplateNamespace() {
+<<<<<<< HEAD
 		return "DDMDate.render";
+=======
+		return "ddm.date";
+>>>>>>> compatible
 	}
 
 	@Override
@@ -68,6 +72,7 @@ public class DateDDMFormFieldRenderer extends BaseDDMFormFieldRenderer {
 		Template template, DDMFormField ddmFormField,
 		DDMFormFieldRenderingContext ddmFormFieldRenderingContext) {
 
+<<<<<<< HEAD
 		Map<String, Object> parameters =
 			dateDDMFormFieldTemplateContextContributor.getParameters(
 				ddmFormField, ddmFormFieldRenderingContext);
@@ -78,6 +83,17 @@ public class DateDDMFormFieldRenderer extends BaseDDMFormFieldRenderer {
 	@Reference
 	protected DateDDMFormFieldTemplateContextContributor
 		dateDDMFormFieldTemplateContextContributor;
+=======
+		String displayValue = dateDDMFormFieldValueRenderer.render(
+			ddmFormFieldRenderingContext.getValue(),
+			ddmFormFieldRenderingContext.getLocale());
+
+		template.put("displayValue", displayValue);
+	}
+
+	@Reference
+	protected DateDDMFormFieldValueRenderer dateDDMFormFieldValueRenderer;
+>>>>>>> compatible
 
 	private TemplateResource _templateResource;
 

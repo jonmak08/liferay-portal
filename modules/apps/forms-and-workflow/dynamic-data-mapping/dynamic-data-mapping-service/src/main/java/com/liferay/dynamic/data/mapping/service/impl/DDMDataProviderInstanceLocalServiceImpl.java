@@ -15,7 +15,10 @@
 package com.liferay.dynamic.data.mapping.service.impl;
 
 import com.liferay.dynamic.data.mapping.exception.DataProviderInstanceNameException;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.exception.NoSuchDataProviderInstanceException;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.exception.RequiredDataProviderInstanceException;
 import com.liferay.dynamic.data.mapping.io.DDMFormValuesJSONSerializer;
 import com.liferay.dynamic.data.mapping.model.DDMDataProviderInstance;
@@ -183,6 +186,7 @@ public class DDMDataProviderInstanceLocalServiceImpl
 	}
 
 	@Override
+<<<<<<< HEAD
 	public DDMDataProviderInstance fetchDataProviderInstanceByUuid(
 		String uuid) {
 
@@ -197,6 +201,8 @@ public class DDMDataProviderInstanceLocalServiceImpl
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public DDMDataProviderInstance getDataProviderInstance(
 			long dataProviderInstanceId)
 		throws PortalException {
@@ -206,6 +212,7 @@ public class DDMDataProviderInstanceLocalServiceImpl
 	}
 
 	@Override
+<<<<<<< HEAD
 	public DDMDataProviderInstance getDataProviderInstanceByUuid(String uuid)
 		throws PortalException {
 
@@ -221,6 +228,8 @@ public class DDMDataProviderInstanceLocalServiceImpl
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public List<DDMDataProviderInstance> getDataProviderInstances(
 		long[] groupIds) {
 
@@ -228,6 +237,7 @@ public class DDMDataProviderInstanceLocalServiceImpl
 	}
 
 	@Override
+<<<<<<< HEAD
 	public List<DDMDataProviderInstance> getDataProviderInstances(
 		long[] groupIds, int start, int end) {
 
@@ -245,6 +255,8 @@ public class DDMDataProviderInstanceLocalServiceImpl
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public List<DDMDataProviderInstance> search(
 		long companyId, long[] groupIds, String keywords, int start, int end,
 		OrderByComparator<DDMDataProviderInstance> orderByComparator) {

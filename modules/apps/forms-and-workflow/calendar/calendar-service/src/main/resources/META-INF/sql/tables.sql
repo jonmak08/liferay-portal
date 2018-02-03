@@ -7,6 +7,10 @@ create table Calendar (
 	userName VARCHAR(75) null,
 	createDate DATE null,
 	modifiedDate DATE null,
+<<<<<<< HEAD
+=======
+	resourceBlockId LONG,
+>>>>>>> compatible
 	calendarResourceId LONG,
 	name STRING null,
 	description STRING null,
@@ -27,10 +31,17 @@ create table CalendarBooking (
 	userName VARCHAR(75) null,
 	createDate DATE null,
 	modifiedDate DATE null,
+<<<<<<< HEAD
 	calendarId LONG,
 	calendarResourceId LONG,
 	parentCalendarBookingId LONG,
 	recurringCalendarBookingId LONG,
+=======
+	resourceBlockId LONG,
+	calendarId LONG,
+	calendarResourceId LONG,
+	parentCalendarBookingId LONG,
+>>>>>>> compatible
 	vEventUid VARCHAR(255) null,
 	title STRING null,
 	description TEXT null,
@@ -77,6 +88,10 @@ create table CalendarResource (
 	userName VARCHAR(75) null,
 	createDate DATE null,
 	modifiedDate DATE null,
+<<<<<<< HEAD
+=======
+	resourceBlockId LONG,
+>>>>>>> compatible
 	classNameId LONG,
 	classPK LONG,
 	classUuid VARCHAR(75) null,

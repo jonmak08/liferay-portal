@@ -17,6 +17,10 @@
 		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="createDate" type="org.hibernate.type.TimestampType" />
 		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+<<<<<<< HEAD
+=======
+		<property name="resourceBlockId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+>>>>>>> compatible
 		<property name="calendarResourceId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="description" type="com.liferay.portal.dao.orm.hibernate.StringType" />
@@ -38,10 +42,17 @@
 		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="createDate" type="org.hibernate.type.TimestampType" />
 		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+<<<<<<< HEAD
 		<property name="calendarId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="calendarResourceId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="parentCalendarBookingId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="recurringCalendarBookingId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+=======
+		<property name="resourceBlockId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="calendarId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="calendarResourceId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="parentCalendarBookingId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+>>>>>>> compatible
 		<property access="com.liferay.portal.dao.orm.hibernate.CamelCasePropertyAccessor" name="vEventUid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="title" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="description" type="com.liferay.portal.dao.orm.hibernate.StringClobType" />
@@ -90,6 +101,10 @@
 		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="createDate" type="org.hibernate.type.TimestampType" />
 		<property name="modifiedDate" type="org.hibernate.type.TimestampType" />
+<<<<<<< HEAD
+=======
+		<property name="resourceBlockId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+>>>>>>> compatible
 		<property name="classNameId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="classPK" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="classUuid" type="com.liferay.portal.dao.orm.hibernate.StringType" />

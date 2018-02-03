@@ -2,24 +2,40 @@
 	<command name="isNotPartialText">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.IsTextNotEqual#isNotPartialText" />
+=======
+		<super />
+>>>>>>> compatible
 	</command>
 
 	<command name="isNotText">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.IsTextNotEqual#isNotText" />
+=======
+		<super />
+>>>>>>> compatible
 	</command>
 
 	<command name="isNotValue">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.IsTextNotEqual#isNotValue" />
+=======
+		<super />
+>>>>>>> compatible
 	</command>
 
 	<command name="isTextNotEqual">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.IsTextNotEqual#isTextNotEqual" />
+=======
+		<super />
+>>>>>>> compatible
 	</command>
 </definition>

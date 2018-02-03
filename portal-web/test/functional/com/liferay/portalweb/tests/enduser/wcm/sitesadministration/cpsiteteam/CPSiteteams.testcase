@@ -30,11 +30,15 @@
 	</tear-down>
 
 	<command name="AddSiteTeam" priority="4">
+<<<<<<< HEAD
 		<property name="testray.component.names" value="Site Administration" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -42,9 +46,17 @@
 			<var name="siteName" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSite">
+			<var name="site" value="Site Name" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Teams" />
 		</execute>
 
@@ -60,11 +72,15 @@
 	</command>
 
 	<command name="AddSiteTeamAssignUser" priority="4">
+<<<<<<< HEAD
 		<property name="testray.component.names" value="Site Administration,Users and Organizations" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -75,9 +91,13 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -85,9 +105,17 @@
 			<var name="siteName" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSite">
+			<var name="site" value="Site Name" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Memberships" />
 		</execute>
 
@@ -101,9 +129,13 @@
 			<var name="site" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Teams" />
 		</execute>
 
@@ -121,9 +153,13 @@
 			<var name="site" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Teams" />
 		</execute>
 
@@ -136,11 +172,15 @@
 	</command>
 
 	<command name="AddSiteTeamAssignUserGroup" priority="4">
+<<<<<<< HEAD
 		<property name="testray.component.names" value="Site Administration,User Groups" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -148,9 +188,17 @@
 			<var name="siteName" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSite">
+			<var name="site" value="Site Name" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Teams" />
 		</execute>
 
@@ -164,9 +212,13 @@
 			<var name="teamName" value="Site Team Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="User Groups" />
 		</execute>
 
@@ -174,9 +226,13 @@
 			<var name="userGroupName" value="User Group Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Memberships" />
 		</execute>
 
@@ -188,9 +244,13 @@
 			<var name="site" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Teams" />
 		</execute>
 
@@ -203,9 +263,13 @@
 			<var name="site" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Teams" />
 		</execute>
 
@@ -217,11 +281,17 @@
 	</command>
 
 	<command name="AddSiteTeamMultiple" priority="5">
+<<<<<<< HEAD
 		<property name="testray.component.names" value="Site Administration" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<property name="portal.acceptance" value="true" />
+
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -229,6 +299,7 @@
 			<var name="siteName" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -237,15 +308,28 @@
 
 		<execute macro="SitePages#addPublicPage">
 			<var name="pageName" value="Site Page" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+			<var name="portlet" value="Sites" />
+		</execute>
+
+		<execute macro="Page#add">
+			<var name="pageName" value="Site Page" />
+			<var name="siteName" value="Site Name" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="ProductMenu#gotoSite">
 			<var name="site" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Teams" />
 		</execute>
 
@@ -282,11 +366,16 @@
 
 	<command name="AddSiteTeamRemoveUser" priority="5">
 		<property name="portal.acceptance" value="true" />
+<<<<<<< HEAD
 		<property name="testray.component.names" value="Site Administration,Users and Organizations" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -297,9 +386,13 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -307,9 +400,17 @@
 			<var name="siteName" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSite">
+			<var name="site" value="Site Name" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Memberships" />
 		</execute>
 
@@ -323,9 +424,13 @@
 			<var name="site" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Teams" />
 		</execute>
 
@@ -343,9 +448,13 @@
 			<var name="site" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Teams" />
 		</execute>
 
@@ -356,9 +465,13 @@
 			<var name="userLastName" value="userln" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Teams" />
 		</execute>
 
@@ -369,9 +482,13 @@
 			<var name="userLastName" value="userln" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Teams" />
 		</execute>
 
@@ -381,11 +498,15 @@
 	</command>
 
 	<command name="AddSiteTeamRemoveUserGroup" priority="4">
+<<<<<<< HEAD
 		<property name="testray.component.names" value="Site Administration,User Groups" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -393,9 +514,17 @@
 			<var name="siteName" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSite">
+			<var name="site" value="Site Name" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Teams" />
 		</execute>
 
@@ -409,9 +538,13 @@
 			<var name="teamName" value="Site Team Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="User Groups" />
 		</execute>
 
@@ -419,9 +552,13 @@
 			<var name="userGroupName" value="User Group Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Memberships" />
 		</execute>
 
@@ -433,9 +570,13 @@
 			<var name="site" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Teams" />
 		</execute>
 
@@ -448,9 +589,13 @@
 			<var name="site" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Teams" />
 		</execute>
 
@@ -460,9 +605,13 @@
 			<var name="userGroupName" value="User Group Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Teams" />
 		</execute>
 
@@ -472,9 +621,13 @@
 			<var name="userGroupName" value="User Group Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Teams" />
 		</execute>
 
@@ -484,11 +637,15 @@
 	</command>
 
 	<command name="AddSiteTeamSearchUserGroups">
+<<<<<<< HEAD
 		<property name="testray.component.names" value="Site Administration,User Groups" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -497,9 +654,13 @@
 		</execute>
 
 		<for list="1,2" param="n">
+<<<<<<< HEAD
 			<execute macro="ProductMenu#gotoPortlet">
 				<var name="category" value="Users" />
 				<var name="panel" value="Control Panel" />
+=======
+			<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 				<var name="portlet" value="User Groups" />
 			</execute>
 
@@ -511,9 +672,13 @@
 				<var name="site" value="Site Name" />
 			</execute>
 
+<<<<<<< HEAD
 			<execute macro="ProductMenu#gotoPortlet">
 				<var name="category" value="Members" />
 				<var name="panel" value="Site Administration" />
+=======
+			<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 				<var name="portlet" value="Site Memberships" />
 			</execute>
 
@@ -526,9 +691,13 @@
 			<var name="site" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Teams" />
 		</execute>
 
@@ -537,9 +706,13 @@
 			<var name="teamName" value="Site Team Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Teams" />
 		</execute>
 
@@ -548,9 +721,13 @@
 			<var name="userGroupName" value="User Group Name 1" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Teams" />
 		</execute>
 
@@ -571,11 +748,15 @@
 	</command>
 
 	<command name="AddSiteTeamSearchUsers">
+<<<<<<< HEAD
 		<property name="testray.component.names" value="Site Administration,Users and Organizations" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -584,9 +765,13 @@
 		</execute>
 
 		<for list="1,2" param="n">
+<<<<<<< HEAD
 			<execute macro="ProductMenu#gotoPortlet">
 				<var name="category" value="Users" />
 				<var name="panel" value="Control Panel" />
+=======
+			<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 				<var name="portlet" value="Users and Organizations" />
 			</execute>
 
@@ -601,9 +786,13 @@
 				<var name="site" value="Site Name" />
 			</execute>
 
+<<<<<<< HEAD
 			<execute macro="ProductMenu#gotoPortlet">
 				<var name="category" value="Members" />
 				<var name="panel" value="Site Administration" />
+=======
+			<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 				<var name="portlet" value="Site Memberships" />
 			</execute>
 
@@ -618,9 +807,13 @@
 			<var name="site" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Teams" />
 		</execute>
 
@@ -638,9 +831,13 @@
 			<var name="site" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Teams" />
 		</execute>
 
@@ -665,11 +862,17 @@
 	</command>
 
 	<command name="DeleteSiteTeam" priority="5">
+<<<<<<< HEAD
 		<property name="testray.component.names" value="Site Administration" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<property name="portal.acceptance" value="true" />
+
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -677,9 +880,17 @@
 			<var name="siteName" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSite">
+			<var name="site" value="Site Name" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Teams" />
 		</execute>
 
@@ -700,11 +911,16 @@
 
 	<command name="EditSiteTeam" priority="5">
 		<property name="portal.acceptance" value="true" />
+<<<<<<< HEAD
 		<property name="testray.component.names" value="Site Administration" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -712,9 +928,13 @@
 			<var name="siteName" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Teams" />
 		</execute>
 

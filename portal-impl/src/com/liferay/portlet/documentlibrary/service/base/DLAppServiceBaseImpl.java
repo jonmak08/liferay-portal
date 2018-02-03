@@ -17,6 +17,11 @@ package com.liferay.portlet.documentlibrary.service.base;
 import com.liferay.document.library.kernel.service.DLAppService;
 import com.liferay.document.library.kernel.service.persistence.DLFileEntryMetadataFinder;
 import com.liferay.document.library.kernel.service.persistence.DLFileEntryMetadataPersistence;
+<<<<<<< HEAD
+=======
+import com.liferay.document.library.kernel.service.persistence.DLFileRankFinder;
+import com.liferay.document.library.kernel.service.persistence.DLFileRankPersistence;
+>>>>>>> compatible
 import com.liferay.document.library.kernel.service.persistence.DLFolderFinder;
 import com.liferay.document.library.kernel.service.persistence.DLFolderPersistence;
 
@@ -30,6 +35,10 @@ import com.liferay.portal.kernel.module.framework.service.IdentifiableOSGiServic
 import com.liferay.portal.kernel.service.BaseServiceImpl;
 import com.liferay.portal.kernel.service.persistence.RepositoryEntryPersistence;
 import com.liferay.portal.kernel.service.persistence.RepositoryPersistence;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.service.persistence.SubscriptionPersistence;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.InfrastructureUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 
@@ -232,6 +241,80 @@ public abstract class DLAppServiceBaseImpl extends BaseServiceImpl
 	 *
 	 * @return the trash entry remote service
 	 */
+<<<<<<< HEAD
+	public com.liferay.trash.kernel.service.TrashEntryService getTrashEntryService() {
+		return trashEntryService;
+=======
+	public com.liferay.portal.kernel.service.SubscriptionLocalService getSubscriptionLocalService() {
+		return subscriptionLocalService;
+>>>>>>> compatible
+	}
+
+	/**
+	 * Sets the trash entry remote service.
+	 *
+	 * @param trashEntryService the trash entry remote service
+	 */
+<<<<<<< HEAD
+	public void setTrashEntryService(
+		com.liferay.trash.kernel.service.TrashEntryService trashEntryService) {
+		this.trashEntryService = trashEntryService;
+=======
+	public void setSubscriptionLocalService(
+		com.liferay.portal.kernel.service.SubscriptionLocalService subscriptionLocalService) {
+		this.subscriptionLocalService = subscriptionLocalService;
+>>>>>>> compatible
+	}
+
+	/**
+	 * Returns the trash entry persistence.
+	 *
+	 * @return the trash entry persistence
+	 */
+	public TrashEntryPersistence getTrashEntryPersistence() {
+		return trashEntryPersistence;
+	}
+
+	/**
+	 * Sets the trash entry persistence.
+	 *
+	 * @param trashEntryPersistence the trash entry persistence
+	 */
+	public void setTrashEntryPersistence(
+		TrashEntryPersistence trashEntryPersistence) {
+		this.trashEntryPersistence = trashEntryPersistence;
+	}
+
+	/**
+<<<<<<< HEAD
+	 * Returns the dl app helper local service.
+	 *
+	 * @return the dl app helper local service
+	 */
+=======
+	 * Returns the trash entry local service.
+	 *
+	 * @return the trash entry local service
+	 */
+	public com.liferay.trash.kernel.service.TrashEntryLocalService getTrashEntryLocalService() {
+		return trashEntryLocalService;
+	}
+
+	/**
+	 * Sets the trash entry local service.
+	 *
+	 * @param trashEntryLocalService the trash entry local service
+	 */
+	public void setTrashEntryLocalService(
+		com.liferay.trash.kernel.service.TrashEntryLocalService trashEntryLocalService) {
+		this.trashEntryLocalService = trashEntryLocalService;
+	}
+
+	/**
+	 * Returns the trash entry remote service.
+	 *
+	 * @return the trash entry remote service
+	 */
 	public com.liferay.trash.kernel.service.TrashEntryService getTrashEntryService() {
 		return trashEntryService;
 	}
@@ -270,6 +353,7 @@ public abstract class DLAppServiceBaseImpl extends BaseServiceImpl
 	 *
 	 * @return the dl app helper local service
 	 */
+>>>>>>> compatible
 	public com.liferay.document.library.kernel.service.DLAppHelperLocalService getDLAppHelperLocalService() {
 		return dlAppHelperLocalService;
 	}
@@ -342,6 +426,65 @@ public abstract class DLAppServiceBaseImpl extends BaseServiceImpl
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Returns the document library file rank local service.
+	 *
+	 * @return the document library file rank local service
+	 */
+	public com.liferay.document.library.kernel.service.DLFileRankLocalService getDLFileRankLocalService() {
+		return dlFileRankLocalService;
+	}
+
+	/**
+	 * Sets the document library file rank local service.
+	 *
+	 * @param dlFileRankLocalService the document library file rank local service
+	 */
+	public void setDLFileRankLocalService(
+		com.liferay.document.library.kernel.service.DLFileRankLocalService dlFileRankLocalService) {
+		this.dlFileRankLocalService = dlFileRankLocalService;
+	}
+
+	/**
+	 * Returns the document library file rank persistence.
+	 *
+	 * @return the document library file rank persistence
+	 */
+	public DLFileRankPersistence getDLFileRankPersistence() {
+		return dlFileRankPersistence;
+	}
+
+	/**
+	 * Sets the document library file rank persistence.
+	 *
+	 * @param dlFileRankPersistence the document library file rank persistence
+	 */
+	public void setDLFileRankPersistence(
+		DLFileRankPersistence dlFileRankPersistence) {
+		this.dlFileRankPersistence = dlFileRankPersistence;
+	}
+
+	/**
+	 * Returns the document library file rank finder.
+	 *
+	 * @return the document library file rank finder
+	 */
+	public DLFileRankFinder getDLFileRankFinder() {
+		return dlFileRankFinder;
+	}
+
+	/**
+	 * Sets the document library file rank finder.
+	 *
+	 * @param dlFileRankFinder the document library file rank finder
+	 */
+	public void setDLFileRankFinder(DLFileRankFinder dlFileRankFinder) {
+		this.dlFileRankFinder = dlFileRankFinder;
+	}
+
+	/**
+>>>>>>> compatible
 	 * Returns the document library folder local service.
 	 *
 	 * @return the document library folder local service
@@ -471,6 +614,13 @@ public abstract class DLAppServiceBaseImpl extends BaseServiceImpl
 	protected com.liferay.portal.kernel.service.RepositoryEntryLocalService repositoryEntryLocalService;
 	@BeanReference(type = RepositoryEntryPersistence.class)
 	protected RepositoryEntryPersistence repositoryEntryPersistence;
+<<<<<<< HEAD
+=======
+	@BeanReference(type = com.liferay.portal.kernel.service.SubscriptionLocalService.class)
+	protected com.liferay.portal.kernel.service.SubscriptionLocalService subscriptionLocalService;
+	@BeanReference(type = SubscriptionPersistence.class)
+	protected SubscriptionPersistence subscriptionPersistence;
+>>>>>>> compatible
 	@BeanReference(type = com.liferay.trash.kernel.service.TrashEntryLocalService.class)
 	protected com.liferay.trash.kernel.service.TrashEntryLocalService trashEntryLocalService;
 	@BeanReference(type = com.liferay.trash.kernel.service.TrashEntryService.class)
@@ -485,6 +635,15 @@ public abstract class DLAppServiceBaseImpl extends BaseServiceImpl
 	protected DLFileEntryMetadataPersistence dlFileEntryMetadataPersistence;
 	@BeanReference(type = DLFileEntryMetadataFinder.class)
 	protected DLFileEntryMetadataFinder dlFileEntryMetadataFinder;
+<<<<<<< HEAD
+=======
+	@BeanReference(type = com.liferay.document.library.kernel.service.DLFileRankLocalService.class)
+	protected com.liferay.document.library.kernel.service.DLFileRankLocalService dlFileRankLocalService;
+	@BeanReference(type = DLFileRankPersistence.class)
+	protected DLFileRankPersistence dlFileRankPersistence;
+	@BeanReference(type = DLFileRankFinder.class)
+	protected DLFileRankFinder dlFileRankFinder;
+>>>>>>> compatible
 	@BeanReference(type = com.liferay.document.library.kernel.service.DLFolderLocalService.class)
 	protected com.liferay.document.library.kernel.service.DLFolderLocalService dlFolderLocalService;
 	@BeanReference(type = com.liferay.document.library.kernel.service.DLFolderService.class)

@@ -18,10 +18,18 @@ import com.liferay.dynamic.data.mapping.form.field.type.BaseDDMFormFieldRenderer
 import com.liferay.dynamic.data.mapping.form.field.type.DDMFormFieldRenderer;
 import com.liferay.dynamic.data.mapping.model.DDMFormField;
 import com.liferay.dynamic.data.mapping.render.DDMFormFieldRenderingContext;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.json.JSONFactory;
+>>>>>>> compatible
 import com.liferay.portal.kernel.template.Template;
 import com.liferay.portal.kernel.template.TemplateConstants;
 import com.liferay.portal.kernel.template.TemplateResource;
 
+<<<<<<< HEAD
+=======
+import java.util.List;
+>>>>>>> compatible
 import java.util.Map;
 
 import org.osgi.service.component.annotations.Activate;
@@ -44,7 +52,11 @@ public class OptionsDDMFormFieldRenderer extends BaseDDMFormFieldRenderer {
 
 	@Override
 	public String getTemplateNamespace() {
+<<<<<<< HEAD
 		return "DDMOptions.render";
+=======
+		return "ddm.options";
+>>>>>>> compatible
 	}
 
 	@Override
@@ -58,6 +70,23 @@ public class OptionsDDMFormFieldRenderer extends BaseDDMFormFieldRenderer {
 			"/META-INF/resources/options.soy");
 	}
 
+<<<<<<< HEAD
+=======
+	protected List<Object> getOptions(
+		DDMFormField ddmFormField,
+		DDMFormFieldRenderingContext ddmFormFieldRenderingContext) {
+
+		OptionsDDMFormFieldContextHelper optionsDDMFormFieldContextHelper =
+			new OptionsDDMFormFieldContextHelper(
+				jsonFactory, ddmFormField.getDDMFormFieldOptions(),
+				ddmFormFieldRenderingContext.getValue(),
+				ddmFormField.getPredefinedValue(),
+				ddmFormFieldRenderingContext.getLocale());
+
+		return optionsDDMFormFieldContextHelper.getOptions();
+	}
+
+>>>>>>> compatible
 	@Override
 	protected void populateRequiredContext(
 		Template template, DDMFormField ddmFormField,
@@ -66,6 +95,7 @@ public class OptionsDDMFormFieldRenderer extends BaseDDMFormFieldRenderer {
 		super.populateRequiredContext(
 			template, ddmFormField, ddmFormFieldRenderingContext);
 
+<<<<<<< HEAD
 		Map<String, Object> parameters =
 			optionsDDMFormFieldTemplateContextContributor.getParameters(
 				ddmFormField, ddmFormFieldRenderingContext);
@@ -76,6 +106,14 @@ public class OptionsDDMFormFieldRenderer extends BaseDDMFormFieldRenderer {
 	@Reference
 	protected OptionsDDMFormFieldTemplateContextContributor
 		optionsDDMFormFieldTemplateContextContributor;
+=======
+		template.put(
+			"options", getOptions(ddmFormField, ddmFormFieldRenderingContext));
+	}
+
+	@Reference
+	protected JSONFactory jsonFactory;
+>>>>>>> compatible
 
 	private TemplateResource _templateResource;
 

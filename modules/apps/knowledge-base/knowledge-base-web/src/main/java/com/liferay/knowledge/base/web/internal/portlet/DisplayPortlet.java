@@ -410,13 +410,40 @@ public class DisplayPortlet extends BaseKBPortlet {
 			portalPreferences, contentRootPrefix);
 	}
 
+<<<<<<< HEAD
 	@Reference(
 		target = "(&(release.bundle.symbolic.name=com.liferay.knowledge.base.web)(release.schema.version=1.1.0))",
+=======
+	@Reference(unbind = "-")
+	protected void setClassNameLocalService(
+		ClassNameLocalService classNameLocalService) {
+
+		_classNameLocalService = classNameLocalService;
+	}
+
+	@Reference(unbind = "-")
+	protected void setKBArticleLocalService(
+		KBArticleLocalService kbArticleLocalService) {
+
+		_kbArticleLocalService = kbArticleLocalService;
+	}
+
+	@Reference(unbind = "-")
+	protected void setKBArticleSelectorFactory(
+		KBArticleSelectorFactory kbArticleSelectorFactory) {
+
+		_kbArticleSelectorFactory = kbArticleSelectorFactory;
+	}
+
+	@Reference(
+		target = "(&(release.bundle.symbolic.name=com.liferay.knowledge.base.web)(release.schema.version=1.0.0))",
+>>>>>>> compatible
 		unbind = "-"
 	)
 	protected void setRelease(Release release) {
 	}
 
+<<<<<<< HEAD
 	@Reference
 	private ClassNameLocalService _classNameLocalService;
 
@@ -424,6 +451,10 @@ public class DisplayPortlet extends BaseKBPortlet {
 	private KBArticleLocalService _kbArticleLocalService;
 
 	@Reference
+=======
+	private ClassNameLocalService _classNameLocalService;
+	private KBArticleLocalService _kbArticleLocalService;
+>>>>>>> compatible
 	private KBArticleSelectorFactory _kbArticleSelectorFactory;
 
 	@Reference

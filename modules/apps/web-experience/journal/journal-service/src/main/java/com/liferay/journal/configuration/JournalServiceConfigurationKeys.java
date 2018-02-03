@@ -16,7 +16,11 @@ package com.liferay.journal.configuration;
 
 /**
  * @author     Eduardo Garcia
+<<<<<<< HEAD
  * @deprecated As of 4.0.0, see {@link JournalServiceConfiguration}
+=======
+ * @deprecated As of 3.6.0, see {@link JournalServiceConfiguration}
+>>>>>>> compatible
  */
 @Deprecated
 public class JournalServiceConfigurationKeys {
@@ -25,6 +29,12 @@ public class JournalServiceConfigurationKeys {
 
 	public static final String ERROR_TEMPLATE = "error.template";
 
+<<<<<<< HEAD
+=======
+	public static final String FETCH_LATEST_ARTICLE_WITH_PAGINATION =
+		"fetch.latest.article.with.pagination";
+
+>>>>>>> compatible
 	public static final String JOURNAL_ARTICLE_CHECK_INTERVAL =
 		"journal.article.check.interval";
 
@@ -59,7 +69,11 @@ public class JournalServiceConfigurationKeys {
 		"journal.folder.icon.check.count";
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 4.0.0, with no direct replacement
+=======
+	 * @deprecated As of 3.6.0, with no direct replacement
+>>>>>>> compatible
 	 */
 	@Deprecated
 	public static final String LAR_CREATION_STRATEGY = "lar.creation.strategy";
@@ -80,7 +94,11 @@ public class JournalServiceConfigurationKeys {
 		"terms.of.use.journal.article.id";
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 4.0.0, with no direct replacement
+=======
+	 * @deprecated As of 3.6.0, with no direct replacement
+>>>>>>> compatible
 	 */
 	@Deprecated
 	public static final String TRANSFORMER_LISTENER = "transformer.listener";

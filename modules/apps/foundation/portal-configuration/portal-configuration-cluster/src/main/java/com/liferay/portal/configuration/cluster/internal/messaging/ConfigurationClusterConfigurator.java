@@ -14,7 +14,11 @@
 
 package com.liferay.portal.configuration.cluster.internal.messaging;
 
+<<<<<<< HEAD
 import com.liferay.portal.configuration.cluster.internal.constants.ConfigurationClusterDestinationNames;
+=======
+import com.liferay.portal.configuration.cluster.constants.ConfigurationClusterDestinationNames;
+>>>>>>> compatible
 import com.liferay.portal.kernel.messaging.Destination;
 import com.liferay.portal.kernel.messaging.DestinationConfiguration;
 import com.liferay.portal.kernel.messaging.DestinationFactory;

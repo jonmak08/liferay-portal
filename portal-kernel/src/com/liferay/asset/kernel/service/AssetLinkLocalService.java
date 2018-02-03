@@ -321,6 +321,7 @@ public interface AssetLinkLocalService extends BaseLocalService,
 	public List<AssetLink> getLinks(long entryId, int typeId);
 
 	/**
+<<<<<<< HEAD
 	* Returns all the asset links of an AssetEntry.
 	*
 	* @param classNameId AssetEntry's classNameId
@@ -331,6 +332,8 @@ public interface AssetLinkLocalService extends BaseLocalService,
 	public List<AssetLink> getLinks(long classNameId, long classPK);
 
 	/**
+=======
+>>>>>>> compatible
 	* Returns the OSGi service identifier.
 	*
 	* @return the OSGi service identifier

@@ -20,6 +20,7 @@
 
 <@liferay.control_menu />
 
+<<<<<<< HEAD
 <div class="pt-0" id="wrapper">
 	<header id="banner">
 		<div class="navbar navbar-top navigation-bar-secondary">
@@ -51,6 +52,43 @@
 
 	<section class="container" id="content">
 		<h1 class="sr-only">${the_title}</h1>
+=======
+<div id="wrapper">
+	<header class="container-fluid-1280" id="banner" role="banner">
+		<div class="row">
+			<div class="navbar-header" id="heading">
+				<a class="${logo_css_class}" href="${site_default_url}" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
+					<img alt="${logo_description}" height="64" src="${site_logo}" />
+				</a>
+
+				<#if show_site_name>
+					<span class="site-name" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
+						${site_name}
+					</span>
+				</#if>
+
+				<#if is_setup_complete>
+					<button aria-controls="navigation" aria-expanded="false" class="collapsed navbar-toggle" data-target="#navigationCollapse" data-toggle="collapse" type="button">
+						<span class="icon-bar"></span>
+
+						<span class="icon-bar"></span>
+
+						<span class="icon-bar"></span>
+					</button>
+
+					<div class="pull-right user-personal-bar">
+						<@liferay.user_personal_bar />
+					</div>
+				</#if>
+			</div>
+
+			<#include "${full_templates_path}/navigation.ftl" />
+		</div>
+	</header>
+
+	<section class="container-fluid-1280" id="content">
+		<h1 class="hide-accessible">${the_title}</h1>
+>>>>>>> compatible
 
 		<#if selectable>
 			<@liferay_util["include"] page=content_include />
@@ -65,6 +103,7 @@
 		</#if>
 	</section>
 
+<<<<<<< HEAD
 	<footer class="mt-3 navigation-bar-secondary" id="footer" role="contentinfo">
 		<div class="container py-5">
 			<div class="row">
@@ -78,6 +117,11 @@
 					2017
 				</div>
 			</div>
+=======
+	<footer class="container-fluid-1280" id="footer" role="contentinfo">
+		<div class="row">
+			<@liferay.language key="powered-by" /> <a href="http://www.liferay.com" rel="external">Liferay</a>
+>>>>>>> compatible
 		</div>
 	</footer>
 </div>

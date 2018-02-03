@@ -14,13 +14,20 @@
 
 package com.liferay.portal.security.ldap.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.CompanyConstants;
 import com.liferay.portal.kernel.security.ldap.LDAPSettings;
 import com.liferay.portal.kernel.util.ArrayUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.MapUtil;
@@ -29,6 +36,10 @@ import com.liferay.portal.kernel.util.PropertiesUtil;
 import com.liferay.portal.kernel.util.Props;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.security.ldap.PortalLDAP;
@@ -39,7 +50,10 @@ import com.liferay.portal.security.ldap.configuration.SystemLDAPConfiguration;
 import com.liferay.portal.security.ldap.validator.LDAPFilterValidator;
 
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.Collection;
+=======
+>>>>>>> compatible
 import java.util.List;
 import java.util.Properties;
 
@@ -523,10 +537,16 @@ public class DefaultPortalLDAP implements PortalLDAP {
 			if (ldapContext == null) {
 				if (_log.isDebugEnabled()) {
 					_log.debug(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"No LDAP server configuration available for LDAP ",
 							"server ", String.valueOf(ldapServerId),
 							" and company ", String.valueOf(companyId)));
+=======
+						"No LDAP server configuration available for LDAP " +
+							"server " + ldapServerId + " and company " +
+								companyId);
+>>>>>>> compatible
 				}
 
 				return null;
@@ -612,11 +632,17 @@ public class DefaultPortalLDAP implements PortalLDAP {
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Unable to retrieve user with LDAP server ",
 						String.valueOf(ldapServerId), ", company ",
 						String.valueOf(companyId), ", loginMapping ",
 						loginMapping, ", and login ", login));
+=======
+					"Unable to retrieve user with LDAP server " + ldapServerId +
+						", company " + companyId + ", loginMapping " +
+							loginMapping + ", and login " + login);
+>>>>>>> compatible
 			}
 
 			return null;
@@ -654,10 +680,15 @@ public class DefaultPortalLDAP implements PortalLDAP {
 
 		PropertiesUtil.merge(userMappings, contactMappings);
 
+<<<<<<< HEAD
 		Collection<Object> values = userMappings.values();
 
 		String[] mappedUserAttributeIds = ArrayUtil.toStringArray(
 			values.toArray(new Object[userMappings.size()]));
+=======
+		String[] mappedUserAttributeIds = ArrayUtil.toStringArray(
+			userMappings.values().toArray(new Object[userMappings.size()]));
+>>>>>>> compatible
 
 		Attributes attributes = _getAttributes(
 			ldapContext, fullDistinguishedName, mappedUserAttributeIds);
@@ -807,6 +838,7 @@ public class DefaultPortalLDAP implements PortalLDAP {
 			Properties groupMappings = _ldapSettings.getGroupMappings(
 				ldapServerId, companyId);
 
+<<<<<<< HEAD
 			StringBundler sb = new StringBundler(5);
 
 			sb.append(StringPool.OPEN_PARENTHESIS);
@@ -814,11 +846,25 @@ public class DefaultPortalLDAP implements PortalLDAP {
 			sb.append(StringPool.EQUAL);
 			sb.append(userDN);
 			sb.append(StringPool.CLOSE_PARENTHESIS);
+=======
+			StringBundler filter = new StringBundler(5);
+
+			filter.append(StringPool.OPEN_PARENTHESIS);
+			filter.append(groupMappings.getProperty("user"));
+			filter.append(StringPool.EQUAL);
+			filter.append(userDN);
+			filter.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 			SearchControls searchControls = new SearchControls(
 				SearchControls.SUBTREE_SCOPE, 1, 0, null, false, false);
 
+<<<<<<< HEAD
 			enu = ldapContext.search(groupDN, sb.toString(), searchControls);
+=======
+			enu = ldapContext.search(
+				groupDN, filter.toString(), searchControls);
+>>>>>>> compatible
 
 			if (enu.hasMoreElements()) {
 				return true;
@@ -827,9 +873,14 @@ public class DefaultPortalLDAP implements PortalLDAP {
 		catch (NameNotFoundException nnfe) {
 			if (_log.isWarnEnabled()) {
 				_log.warn(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Unable to determine if user DN ", userDN,
 						" is a member of group DN ", groupDN),
+=======
+					"Unable to determine if user DN " + userDN +
+						" is a member of group DN " + groupDN,
+>>>>>>> compatible
 					nnfe);
 			}
 		}
@@ -863,6 +914,7 @@ public class DefaultPortalLDAP implements PortalLDAP {
 			Properties userMappings = _ldapSettings.getUserMappings(
 				ldapServerId, companyId);
 
+<<<<<<< HEAD
 			StringBundler sb = new StringBundler(5);
 
 			sb.append(StringPool.OPEN_PARENTHESIS);
@@ -870,11 +922,24 @@ public class DefaultPortalLDAP implements PortalLDAP {
 			sb.append(StringPool.EQUAL);
 			sb.append(groupDN);
 			sb.append(StringPool.CLOSE_PARENTHESIS);
+=======
+			StringBundler filter = new StringBundler(5);
+
+			filter.append(StringPool.OPEN_PARENTHESIS);
+			filter.append(userMappings.getProperty(UserConverterKeys.GROUP));
+			filter.append(StringPool.EQUAL);
+			filter.append(groupDN);
+			filter.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 			SearchControls searchControls = new SearchControls(
 				SearchControls.SUBTREE_SCOPE, 1, 0, null, false, false);
 
+<<<<<<< HEAD
 			enu = ldapContext.search(userDN, sb.toString(), searchControls);
+=======
+			enu = ldapContext.search(userDN, filter.toString(), searchControls);
+>>>>>>> compatible
 
 			if (enu.hasMoreElements()) {
 				return true;
@@ -883,9 +948,14 @@ public class DefaultPortalLDAP implements PortalLDAP {
 		catch (NameNotFoundException nnfe) {
 			if (_log.isWarnEnabled()) {
 				_log.warn(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Unable to determine if group DN ", groupDN,
 						" is a member of user DN ", userDN),
+=======
+					"Unable to determine if group DN " + groupDN +
+						" is a member of user DN " + userDN,
+>>>>>>> compatible
 					nnfe);
 			}
 		}

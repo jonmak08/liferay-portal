@@ -47,10 +47,13 @@ public class LayoutConstants {
 
 	public static final String TYPE_PORTLET = "portlet";
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static final String TYPE_SHARED_PORTLET = "shared_portlet";
 
 	public static final String TYPE_URL = "url";

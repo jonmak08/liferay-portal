@@ -14,8 +14,11 @@
 
 package com.liferay.portal.kernel.comment;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.User;
 
@@ -24,7 +27,10 @@ import java.util.Date;
 /**
  * @author Adolfo Pérez
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public interface Comment {
 
 	public String getBody();
@@ -37,8 +43,11 @@ public interface Comment {
 
 	public Date getCreateDate();
 
+<<<<<<< HEAD
 	public long getGroupId();
 
+=======
+>>>>>>> compatible
 	public Class<?> getModelClass();
 
 	public String getModelClassName();

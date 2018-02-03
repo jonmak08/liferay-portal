@@ -22,12 +22,17 @@
 
 				<execute macro="Site#tearDownCP" />
 
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP" />
+=======
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 			</else>
 		</if>
 	</tear-down>
 
 	<command name="IFrameDemo" priority="4">
+<<<<<<< HEAD
 		<property name="testray.component.names" value="IFrame Portlet" />
 
 		<execute macro="ProductMenu#gotoPortlet">
@@ -111,6 +116,69 @@
 			<var name="pageName" value="Welcome" />
 		</execute>
 
+=======
+		<execute macro="Page#add">
+			<var name="columnName" value="1 Column" />
+			<var name="pageName" value="IFrame Page" />
+			<var name="sitePageType" value="Empty Page" />
+		</execute>
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="IFrame Page" />
+		</execute>
+
+		<execute macro="Portlet#addPG">
+			<var name="portletName" value="IFrame" />
+		</execute>
+
+		<execute macro="Portlet#gotoPortletOptions">
+			<var name="portletOption" value="Configuration" />
+		</execute>
+
+		<execute macro="IFrame#addCP">
+			<var name="sourceURL" value="http://iscaliforniaonfire.com" />
+		</execute>
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="IFrame Page" />
+		</execute>
+
+		<execute function="SelectFrame" locator1="IFrame#IFRAME_PORTLET" />
+
+		<execute function="AssertTextEquals#assertPartialText" locator1="Embedded#EMBEDDED_TEXT_UPDATED" value1="updated" />
+	</command>
+
+	<command name="SalesDemo" priority="4">
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="ProductMenu#gotoSitesContent">
+			<var name="portlet" value="Web Content" />
+		</execute>
+
+		<execute macro="WebContentNavigator#gotoAddCP" />
+
+		<execute macro="WebContent#addCP">
+			<var name="webContentContent" value="DHS Content" />
+			<var name="webContentTitle" value="DHS Title" />
+		</execute>
+
+		<execute macro="PortletEntry#publish" />
+
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="SitePageNavigator#gotoEditPage">
+			<var name="page" value="Welcome" />
+		</execute>
+
+		<execute macro="Page#editPageLayoutColumn">
+			<var name="columnName" value="2 Columns (50/50)" />
+		</execute>
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Welcome" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="Content#addPG">
 			<var name="assetTitle" value="DHS Title" />
 			<var name="webContentContent" value="DHS Content" />
@@ -121,9 +189,13 @@
 			<var name="webContentTitle" value="DHS Title" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -134,9 +206,13 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -156,6 +232,7 @@
 			<var name="userLoginEmailAddress" value="test@liferay.com" />
 			<var name="userLoginFullName" value="Test Test" />
 			<var name="webContentContent" value="DHS Content" />
+<<<<<<< HEAD
 		</execute>
 
 		<execute macro="ProductMenu#gotoPortlet">
@@ -165,6 +242,11 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		</execute>
+
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Sales Page" />
 		</execute>
 

@@ -68,6 +68,16 @@ public class TasksEntryServiceWrapper implements TasksEntryService,
 	}
 
 	@Override
+<<<<<<< HEAD
+=======
+	public java.lang.Object invokeMethod(java.lang.String name,
+		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
+		throws java.lang.Throwable {
+		return _tasksEntryService.invokeMethod(name, parameterTypes, arguments);
+	}
+
+	@Override
+>>>>>>> compatible
 	public com.liferay.tasks.model.TasksEntry updateTasksEntry(
 		long tasksEntryId, java.lang.String title, int priority,
 		long assigneeUserId, long resolverUserId, int dueDateMonth,

@@ -14,14 +14,18 @@
 
 package com.liferay.portal.configuration.settings.internal;
 
+<<<<<<< HEAD
 import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClassDefinition.Scope;
 import com.liferay.portal.configuration.settings.internal.scoped.configuration.ScopeKey;
 import com.liferay.portal.configuration.settings.internal.scoped.configuration.ScopedConfigurationBeanConfigurationListener;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Group;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.Layout;
 import com.liferay.portal.kernel.model.LayoutConstants;
 import com.liferay.portal.kernel.portlet.PortletIdCodec;
@@ -30,6 +34,12 @@ import com.liferay.portal.kernel.resource.manager.ClassLoaderResourceManager;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.service.GroupLocalService;
 import com.liferay.portal.kernel.service.LayoutLocalService;
+=======
+import com.liferay.portal.kernel.portlet.PortletIdCodec;
+import com.liferay.portal.kernel.resource.manager.ClassLoaderResourceManager;
+import com.liferay.portal.kernel.security.pacl.DoPrivileged;
+import com.liferay.portal.kernel.service.GroupLocalService;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.PortletLocalService;
 import com.liferay.portal.kernel.service.PortletPreferencesLocalService;
 import com.liferay.portal.kernel.settings.ConfigurationBeanSettings;
@@ -71,6 +81,7 @@ import org.osgi.util.tracker.ServiceTracker;
 @DoPrivileged
 public class SettingsLocatorHelperImpl implements SettingsLocatorHelper {
 
+<<<<<<< HEAD
 	@Override
 	public Settings getCompanyConfigurationBeanSettings(
 		long companyId, String configurationPid, Settings parentSettings) {
@@ -80,6 +91,8 @@ public class SettingsLocatorHelperImpl implements SettingsLocatorHelper {
 			parentSettings);
 	}
 
+=======
+>>>>>>> compatible
 	public PortletPreferences getCompanyPortletPreferences(
 		long companyId, String settingsId) {
 
@@ -128,6 +141,7 @@ public class SettingsLocatorHelperImpl implements SettingsLocatorHelper {
 		return getConfigurationBeanSettings(configurationPid);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public Settings getGroupConfigurationBeanSettings(
 		long groupId, String configurationPid, Settings parentSettings) {
@@ -137,6 +151,8 @@ public class SettingsLocatorHelperImpl implements SettingsLocatorHelper {
 			parentSettings);
 	}
 
+=======
+>>>>>>> compatible
 	public PortletPreferences getGroupPortletPreferences(
 		long groupId, String settingsId) {
 
@@ -177,6 +193,7 @@ public class SettingsLocatorHelperImpl implements SettingsLocatorHelper {
 		return _portalPropertiesSettings;
 	}
 
+<<<<<<< HEAD
 	@Override
 	public Settings getPortletInstanceConfigurationBeanSettings(
 		String portletId, String configurationPid, Settings parentSettings) {
@@ -186,10 +203,13 @@ public class SettingsLocatorHelperImpl implements SettingsLocatorHelper {
 			parentSettings);
 	}
 
+=======
+>>>>>>> compatible
 	public PortletPreferences getPortletInstancePortletPreferences(
 		long companyId, long ownerId, int ownerType, long plid,
 		String portletId) {
 
+<<<<<<< HEAD
 		if (plid != LayoutConstants.DEFAULT_PLID) {
 			Layout layout = _layoutLocalService.fetchLayout(plid);
 
@@ -199,6 +219,8 @@ public class SettingsLocatorHelperImpl implements SettingsLocatorHelper {
 			}
 		}
 
+=======
+>>>>>>> compatible
 		if (PortletIdCodec.hasUserId(portletId)) {
 			ownerId = PortletIdCodec.decodeUserId(portletId);
 			ownerType = PortletKeys.PREFS_OWNER_TYPE_USER;
@@ -272,6 +294,7 @@ public class SettingsLocatorHelperImpl implements SettingsLocatorHelper {
 	}
 
 	@Reference(unbind = "-")
+<<<<<<< HEAD
 	protected void setLayoutLocalService(
 		LayoutLocalService layoutLocalService) {
 
@@ -279,6 +302,8 @@ public class SettingsLocatorHelperImpl implements SettingsLocatorHelper {
 	}
 
 	@Reference(unbind = "-")
+=======
+>>>>>>> compatible
 	protected void setPortal(Portal portal) {
 	}
 
@@ -288,6 +313,7 @@ public class SettingsLocatorHelperImpl implements SettingsLocatorHelper {
 	}
 
 	@Reference(unbind = "-")
+<<<<<<< HEAD
 	protected void setPortletPreferencesFactory(
 		PortletPreferencesFactory portletPreferencesFactory) {
 
@@ -295,6 +321,8 @@ public class SettingsLocatorHelperImpl implements SettingsLocatorHelper {
 	}
 
 	@Reference(unbind = "-")
+=======
+>>>>>>> compatible
 	protected void setPortletPreferencesLocalService(
 		PortletPreferencesLocalService portletPreferencesLocalService) {
 
@@ -318,6 +346,7 @@ public class SettingsLocatorHelperImpl implements SettingsLocatorHelper {
 			configurationPidMapping.getConfigurationPid());
 	}
 
+<<<<<<< HEAD
 	private Settings _getScopedConfigurationBeanSettings(
 		Scope scope, String scopePrimKey, String configurationPid,
 		Settings parentSettings) {
@@ -343,6 +372,8 @@ public class SettingsLocatorHelperImpl implements SettingsLocatorHelper {
 			configuration, parentSettings);
 	}
 
+=======
+>>>>>>> compatible
 	private static final Log _log = LogFactoryUtil.getLog(
 		SettingsLocatorHelperImpl.class);
 
@@ -351,6 +382,7 @@ public class SettingsLocatorHelperImpl implements SettingsLocatorHelper {
 	private ServiceTracker
 		<ConfigurationBeanDeclaration, ConfigurationBeanManagedService>
 			_configurationBeanDeclarationServiceTracker;
+<<<<<<< HEAD
 	private final Map<Class<?>, LocationVariableResolver>
 		_configurationBeanLocationVariableResolvers = new ConcurrentHashMap<>();
 	private final Map<Class<?>, Settings> _configurationBeanSettings =
@@ -365,6 +397,14 @@ public class SettingsLocatorHelperImpl implements SettingsLocatorHelper {
 	private ScopedConfigurationBeanConfigurationListener
 		_scopedConfigurationBeanConfigurationListener;
 
+=======
+	private final Map<Class<?>, Settings> _configurationBeanSettings =
+		new ConcurrentHashMap<>();
+	private GroupLocalService _groupLocalService;
+	private Settings _portalPropertiesSettings;
+	private PortletPreferencesLocalService _portletPreferencesLocalService;
+
+>>>>>>> compatible
 	private class ConfigurationBeanDeclarationServiceTracker
 		extends ServiceTracker
 			<ConfigurationBeanDeclaration, ConfigurationBeanManagedService> {
@@ -382,7 +422,11 @@ public class SettingsLocatorHelperImpl implements SettingsLocatorHelper {
 			ConfigurationBeanManagedService configurationBeanManagedService =
 				new ConfigurationBeanManagedService(
 					context, configurationBeanClass,
+<<<<<<< HEAD
 					configurationBean -> {
+=======
+					(configurationBean) -> {
+>>>>>>> compatible
 						ClassLoader classLoader =
 							configurationBeanClass.getClassLoader();
 
@@ -391,9 +435,12 @@ public class SettingsLocatorHelperImpl implements SettingsLocatorHelper {
 								new ClassLoaderResourceManager(classLoader),
 								SettingsLocatorHelperImpl.this);
 
+<<<<<<< HEAD
 						_configurationBeanLocationVariableResolvers.put(
 							configurationBeanClass, locationVariableResolver);
 
+=======
+>>>>>>> compatible
 						_configurationBeanSettings.put(
 							configurationBeanClass,
 							new ConfigurationBeanSettings(
@@ -419,12 +466,18 @@ public class SettingsLocatorHelperImpl implements SettingsLocatorHelper {
 
 			configurationBeanManagedService.unregister();
 
+<<<<<<< HEAD
 			Class<?> configurationBeanClass = _configurationBeanClasses.remove(
 				configurationBeanManagedService.getConfigurationPid());
 
 			_configurationBeanLocationVariableResolvers.remove(
 				configurationBeanClass);
 
+=======
+			_configurationBeanClasses.remove(
+				configurationBeanManagedService.getConfigurationPid());
+
+>>>>>>> compatible
 			_configurationBeanSettings.remove(
 				configurationBeanManagedService.getConfigurationPid());
 		}

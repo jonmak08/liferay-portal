@@ -123,8 +123,12 @@ public class PrefsPropsUtil {
 			return value;
 		}
 
+<<<<<<< HEAD
 		return ContentUtil.get(
 			PrefsPropsUtil.class.getClassLoader(), PropsUtil.get(name));
+=======
+		return ContentUtil.get(PropsUtil.get(name));
+>>>>>>> compatible
 	}
 
 	public static String getContent(String name) {

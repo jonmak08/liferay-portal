@@ -30,6 +30,7 @@ import com.liferay.journal.util.comparator.ArticleDisplayDateComparator;
 import com.liferay.journal.util.comparator.ArticleIDComparator;
 import com.liferay.journal.util.comparator.ArticleModifiedDateComparator;
 import com.liferay.journal.util.comparator.ArticleReviewDateComparator;
+<<<<<<< HEAD
 import com.liferay.journal.util.comparator.ArticleVersionComparator;
 import com.liferay.portal.kernel.dao.orm.QueryDefinition;
 import com.liferay.portal.kernel.model.Group;
@@ -38,6 +39,17 @@ import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
+=======
+import com.liferay.journal.util.comparator.ArticleTitleComparator;
+import com.liferay.journal.util.comparator.ArticleVersionComparator;
+import com.liferay.portal.kernel.dao.orm.QueryDefinition;
+import com.liferay.portal.kernel.model.Group;
+import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+import com.liferay.portal.kernel.test.util.GroupTestUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
@@ -52,10 +64,14 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.GregorianCalendar;
+<<<<<<< HEAD
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+=======
+import java.util.List;
+>>>>>>> compatible
 
 import org.junit.After;
 import org.junit.Assert;
@@ -75,6 +91,10 @@ import org.osgi.framework.ServiceReference;
  * @author Laszlo Csontos
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class JournalArticleFinderTest {
 
 	@ClassRule
@@ -82,6 +102,10 @@ public class JournalArticleFinderTest {
 	public static final AggregateTestRule aggregateTestRule =
 		new AggregateTestRule(
 			new LiferayIntegrationTestRule(),
+<<<<<<< HEAD
+=======
+			SynchronousDestinationTestRule.INSTANCE,
+>>>>>>> compatible
 			new TransactionalTestRule(
 				Propagation.SUPPORTS, "com.liferay.journal.service"));
 
@@ -293,6 +317,7 @@ public class JournalArticleFinderTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testLocalizedQueryByC_G_F_C_A_V_T_D_C_T_S_T_D_R()
 		throws Exception {
 
@@ -335,6 +360,8 @@ public class JournalArticleFinderTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testQueryByC_G_F_C_A_V_T_D_C_T_S_T_D_R() throws Exception {
 
 		// Status any
@@ -452,6 +479,11 @@ public class JournalArticleFinderTest {
 		testQueryByG_F(new ArticleModifiedDateComparator(false));
 		testQueryByG_F(new ArticleReviewDateComparator(true));
 		testQueryByG_F(new ArticleReviewDateComparator(false));
+<<<<<<< HEAD
+=======
+		testQueryByG_F(new ArticleTitleComparator(true));
+		testQueryByG_F(new ArticleTitleComparator(false));
+>>>>>>> compatible
 		testQueryByG_F(new ArticleVersionComparator(true));
 		testQueryByG_F(new ArticleVersionComparator(false));
 	}
@@ -514,6 +546,10 @@ public class JournalArticleFinderTest {
 			article.setModifiedDate(calendar.getTime());
 			article.setArticleId("a" + i);
 			article.setVersion(i);
+<<<<<<< HEAD
+=======
+			article.setTitle("a" + i);
+>>>>>>> compatible
 			article.setDisplayDate(calendar.getTime());
 			article.setReviewDate(calendar.getTime());
 

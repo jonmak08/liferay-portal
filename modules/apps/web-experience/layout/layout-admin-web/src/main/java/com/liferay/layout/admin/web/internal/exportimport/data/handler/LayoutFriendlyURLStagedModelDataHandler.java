@@ -14,11 +14,18 @@
 
 package com.liferay.layout.admin.web.internal.exportimport.data.handler;
 
+<<<<<<< HEAD
 import com.liferay.exportimport.data.handler.base.BaseStagedModelDataHandler;
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.lar.ExportImportPathUtil;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.exportimport.kernel.lar.StagedModelDataHandler;
 import com.liferay.exportimport.kernel.lar.StagedModelModifiedDateComparator;
+<<<<<<< HEAD
+=======
+import com.liferay.exportimport.lar.BaseStagedModelDataHandler;
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.model.Layout;
 import com.liferay.portal.kernel.model.LayoutFriendlyURL;
@@ -26,6 +33,11 @@ import com.liferay.portal.kernel.service.LayoutFriendlyURLLocalService;
 import com.liferay.portal.kernel.service.LayoutLocalService;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.util.MapUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.Validator;
+>>>>>>> compatible
 import com.liferay.portal.kernel.xml.Element;
 
 import java.util.List;
@@ -129,12 +141,27 @@ public class LayoutFriendlyURLStagedModelDataHandler
 		if (existingLayoutFriendlyURL == null) {
 			serviceContext.setUuid(layoutFriendlyURL.getUuid());
 
+<<<<<<< HEAD
+=======
+			String friendlyURL = layoutFriendlyURL.getFriendlyURL();
+
+			if (Validator.isNumber(friendlyURL.substring(1))) {
+				Layout layout = _layoutLocalService.fetchLayout(plid);
+
+				friendlyURL = StringPool.SLASH + layout.getLayoutId();
+			}
+
+>>>>>>> compatible
 			importedLayoutFriendlyURL =
 				_layoutFriendlyURLLocalService.addLayoutFriendlyURL(
 					userId, portletDataContext.getCompanyId(),
 					portletDataContext.getScopeGroupId(), plid,
+<<<<<<< HEAD
 					portletDataContext.isPrivateLayout(),
 					layoutFriendlyURL.getFriendlyURL(),
+=======
+					portletDataContext.isPrivateLayout(), friendlyURL,
+>>>>>>> compatible
 					layoutFriendlyURL.getLanguageId(), serviceContext);
 		}
 		else {

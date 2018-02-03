@@ -15,8 +15,13 @@
 package com.liferay.social.user.statistics.web.configuration.definition;
 
 import com.liferay.portal.kernel.settings.definition.ConfigurationPidMapping;
+<<<<<<< HEAD
 import com.liferay.social.user.statistics.constants.SocialUserStatisticsPortletKeys;
 import com.liferay.social.user.statistics.web.configuration.SocialUserStatisticsPortletInstanceConfiguration;
+=======
+import com.liferay.social.user.statistics.web.configuration.SocialUserStatisticsPortletInstanceConfiguration;
+import com.liferay.social.user.statistics.web.constants.SocialUserStatisticsPortletKeys;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 

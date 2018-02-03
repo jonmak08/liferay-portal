@@ -14,7 +14,11 @@
 
 package com.liferay.portal.kernel.cluster;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
+=======
+import com.liferay.portal.kernel.util.AutoResetThreadLocal;
+>>>>>>> compatible
 
 /**
  * @author Shuyang Zhou
@@ -30,7 +34,11 @@ public class ClusterInvokeThreadLocal {
 	}
 
 	private static final ThreadLocal<Boolean> _enabled =
+<<<<<<< HEAD
 		new CentralizedThreadLocal<>(
+=======
+		new AutoResetThreadLocal<>(
+>>>>>>> compatible
 			ClusterInvokeThreadLocal.class + "._enabled", () -> Boolean.TRUE);
 
 }

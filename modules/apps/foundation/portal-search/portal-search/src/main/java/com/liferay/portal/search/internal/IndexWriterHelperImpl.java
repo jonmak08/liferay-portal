@@ -68,7 +68,11 @@ public class IndexWriterHelperImpl implements IndexWriterHelper {
 			boolean commitImmediately)
 		throws SearchException {
 
+<<<<<<< HEAD
 		if (_indexStatusManager.isIndexReadOnly() || (document == null)) {
+=======
+		if (isIndexReadOnly() || (document == null)) {
+>>>>>>> compatible
 			return;
 		}
 
@@ -99,9 +103,13 @@ public class IndexWriterHelperImpl implements IndexWriterHelper {
 			Collection<Document> documents, boolean commitImmediately)
 		throws SearchException {
 
+<<<<<<< HEAD
 		if (_indexStatusManager.isIndexReadOnly() || (documents == null) ||
 			documents.isEmpty()) {
 
+=======
+		if (isIndexReadOnly() || (documents == null) || documents.isEmpty()) {
+>>>>>>> compatible
 			return;
 		}
 
@@ -158,7 +166,11 @@ public class IndexWriterHelperImpl implements IndexWriterHelper {
 			boolean commitImmediately)
 		throws SearchException {
 
+<<<<<<< HEAD
 		if (_indexStatusManager.isIndexReadOnly()) {
+=======
+		if (isIndexReadOnly()) {
+>>>>>>> compatible
 			return;
 		}
 
@@ -183,9 +195,13 @@ public class IndexWriterHelperImpl implements IndexWriterHelper {
 			boolean commitImmediately)
 		throws SearchException {
 
+<<<<<<< HEAD
 		if (_indexStatusManager.isIndexReadOnly() || (uids == null) ||
 			uids.isEmpty()) {
 
+=======
+		if (isIndexReadOnly() || (uids == null) || uids.isEmpty()) {
+>>>>>>> compatible
 			return;
 		}
 
@@ -210,7 +226,11 @@ public class IndexWriterHelperImpl implements IndexWriterHelper {
 			boolean commitImmediately)
 		throws SearchException {
 
+<<<<<<< HEAD
 		if (_indexStatusManager.isIndexReadOnly()) {
+=======
+		if (isIndexReadOnly()) {
+>>>>>>> compatible
 			return;
 		}
 
@@ -394,7 +414,11 @@ public class IndexWriterHelperImpl implements IndexWriterHelper {
 
 	/**
 	 * @deprecated As of 3.3.0, replaced by {@link IndexStatusManager#
+<<<<<<< HEAD
 	 *             isIndexReadWrite}
+=======
+	 *             isIndexReadOnly}
+>>>>>>> compatible
 	 */
 	@Deprecated
 	@Override
@@ -402,6 +426,7 @@ public class IndexWriterHelperImpl implements IndexWriterHelper {
 		return _indexStatusManager.isIndexReadOnly();
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 3.3.0, replaced by {@link IndexStatusManager#
 	 *             isIndexReadWrite(String)}
@@ -412,13 +437,19 @@ public class IndexWriterHelperImpl implements IndexWriterHelper {
 		return _indexStatusManager.isIndexReadOnly(className);
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	public void partiallyUpdateDocument(
 			String searchEngineId, long companyId, Document document,
 			boolean commitImmediately)
 		throws SearchException {
 
+<<<<<<< HEAD
 		if (_indexStatusManager.isIndexReadOnly() || (document == null)) {
+=======
+		if (isIndexReadOnly() || (document == null)) {
+>>>>>>> compatible
 			return;
 		}
 
@@ -449,9 +480,13 @@ public class IndexWriterHelperImpl implements IndexWriterHelper {
 			Collection<Document> documents, boolean commitImmediately)
 		throws SearchException {
 
+<<<<<<< HEAD
 		if (_indexStatusManager.isIndexReadOnly() || (documents == null) ||
 			documents.isEmpty()) {
 
+=======
+		if (isIndexReadOnly() || (documents == null) || documents.isEmpty()) {
+>>>>>>> compatible
 			return;
 		}
 
@@ -546,6 +581,7 @@ public class IndexWriterHelperImpl implements IndexWriterHelper {
 		_indexStatusManager.setIndexReadOnly(indexReadOnly);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 3.3.0, replaced by {@link IndexStatusManager.
 	 *             setIndexReadOnly(String, boolean)}
@@ -556,13 +592,19 @@ public class IndexWriterHelperImpl implements IndexWriterHelper {
 		_indexStatusManager.setIndexReadOnly(className, indexReadOnly);
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	public void updateDocument(
 			String searchEngineId, long companyId, Document document,
 			boolean commitImmediately)
 		throws SearchException {
 
+<<<<<<< HEAD
 		if (_indexStatusManager.isIndexReadOnly() || (document == null)) {
+=======
+		if (isIndexReadOnly() || (document == null)) {
+>>>>>>> compatible
 			return;
 		}
 
@@ -595,9 +637,13 @@ public class IndexWriterHelperImpl implements IndexWriterHelper {
 			Collection<Document> documents, boolean commitImmediately)
 		throws SearchException {
 
+<<<<<<< HEAD
 		if (_indexStatusManager.isIndexReadOnly() || (documents == null) ||
 			documents.isEmpty()) {
 
+=======
+		if (isIndexReadOnly() || (documents == null) || documents.isEmpty()) {
+>>>>>>> compatible
 			return;
 		}
 
@@ -626,7 +672,11 @@ public class IndexWriterHelperImpl implements IndexWriterHelper {
 
 	@Override
 	public void updatePermissionFields(String name, String primKey) {
+<<<<<<< HEAD
 		if (_indexStatusManager.isIndexReadOnly()) {
+=======
+		if (isIndexReadOnly()) {
+>>>>>>> compatible
 			return;
 		}
 

@@ -28,6 +28,10 @@ import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.test.rule.BaseTestRule.StatementWrapper;
 import com.liferay.portal.kernel.test.rule.NewEnv.Environment;
 import com.liferay.portal.kernel.test.rule.NewEnv.JVMArgsLine;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.MethodCache;
 import com.liferay.portal.kernel.util.MethodKey;
@@ -239,10 +243,15 @@ public class NewEnvTestRule implements TestRule {
 
 			if (parts.length != 2) {
 				throw new IllegalArgumentException(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Wrong environment variable ", variable,
 						" resolved as ", resolvedVariable,
 						". Need to be \"key=value\" format"));
+=======
+					"Wrong environment variable " + variable + " resolved as " +
+						resolvedVariable + ". Need to be \"key=value\" format");
+>>>>>>> compatible
 			}
 
 			environmentMap.put(parts[0], parts[1]);

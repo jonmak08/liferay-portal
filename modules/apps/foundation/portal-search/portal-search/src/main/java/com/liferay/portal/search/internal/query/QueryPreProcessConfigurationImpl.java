@@ -57,8 +57,12 @@ public class QueryPreProcessConfigurationImpl
 		com.liferay.portal.search.configuration.QueryPreProcessConfiguration
 			queryPreProcessConfiguration = ConfigurableUtil.createConfigurable(
 				com.liferay.portal.search.configuration.
+<<<<<<< HEAD
 					QueryPreProcessConfiguration.class,
 				properties);
+=======
+					QueryPreProcessConfiguration.class, properties);
+>>>>>>> compatible
 
 		String[] fieldNamePatterns =
 			queryPreProcessConfiguration.fieldNamePatterns();

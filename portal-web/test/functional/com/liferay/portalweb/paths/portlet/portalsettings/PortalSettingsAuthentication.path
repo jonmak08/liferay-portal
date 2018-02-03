@@ -169,7 +169,25 @@
 </tr>
 <tr>
 	<td>AUTHENTICATION_FACEBOOK_APPLICATION_SECRET</td>
+<<<<<<< HEAD
 	<td>//input[contains(@name,'facebook_appSecret')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>AUTHENTICATION_FACEBOOK_GRAPH_URL</td>
+	<td>//input[contains(@name,'facebook_graphURL')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>AUTHENTICATION_FACEBOOK_OAUTH_AUTHENTICATION_URL</td>
+	<td>//input[contains(@name,'facebook_oauthAuthURL')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>AUTHENTICATION_FACEBOOK_OAUTH_TOKEN_URL</td>
+	<td>//input[contains(@name,'facebook_oauthTokenURL')]</td>
+=======
+	<td>//input[contains(@name,'facebook_appSecre')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -195,10 +213,33 @@
 <tr>
 	<td></td>
 	<td></td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <!--AUTHENTICATION_LDAP-->
 <tr>
+<<<<<<< HEAD
+	<td>AUTHENTICATION_FACEBOOK_REDIRECT_URL</td>
+	<td>//input[contains(@name,'facebook_oauthRedirectURL')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+=======
+	<td>AUTHENTICATION_LDAP_ENABLED_CHECKBOX</td>
+	<td>//input[contains(@name,'ldap--enabled')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>AUTHENTICATION_LDAP_REQUIRED_CHECKBOX</td>
+	<td>//input[contains(@name,'ldap--required')]</td>
+>>>>>>> compatible
+	<td></td>
+</tr>
+<!--AUTHENTICATION_LDAP-->
+<tr>
+<<<<<<< HEAD
 	<td>AUTHENTICATION_LDAP_ENABLED_CHECKBOX</td>
 	<td>//input[contains(@name,'ldap--enabled')]</td>
 	<td></td>
@@ -226,6 +267,24 @@
 <tr>
 	<td>AUTHENTICATION_LDAP_USE_LDAP_PASSWORD_POLICY_CHECKBOX</td>
 	<td>//input[contains(@name,'ldap--passwordPolicyEnabled')]</td>
+=======
+	<td>AUTHENTICATION_LDAP_IMPORT_ENABLED_CHECKBOX</td>
+	<td>//input[contains(@id,'ldapImportEnabled')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>AUTHENTICATION_LDAP_IMPORT_ON_STARTUP_ENABLED_CHECKBOX</td>
+	<td>//input[contains(@id,'importOnStartup')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>AUTHENTICATION_LDAP_EXPORT_ENABLED_CHECKBOX</td>
+	<td>//input[contains(@id,'ldapExportEnabled')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>AUTHENTICATION_LDAP_USE_LDAP_PASSWORD_POLICY_CHECKBOX</td>
+	<td>//input[contains(@name,'ldap--passwordPolicyEnabled')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -236,12 +295,39 @@
 <tr>
 	<td></td>
 	<td></td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <!--LDAP_SERVERS_TABLE-->
 <tr>
+<<<<<<< HEAD
+	<td>AUTHENTICATION_LDAP_ADD_BUTTON</td>
+	<td>//a[contains(@id,'addButton')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+=======
 	<td>LDAP_SERVERS_TABLE_LDAP_SERVER_ID</td>
 	<td>//tr[contains(.,'${key_LDAPServerName}')]/td[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>LDAP_SERVERS_TABLE_NAME</td>
+	<td>//tr[contains(.,'${key_LDAPServerName}')]/td[2]</td>
+>>>>>>> compatible
+	<td></td>
+</tr>
+<!--LDAP_SERVERS_TABLE-->
+<tr>
+<<<<<<< HEAD
+	<td>LDAP_SERVERS_TABLE_LDAP_SERVER_ID</td>
+	<td>//tr[contains(.,'${key_LDAPServerName}')]/td[1]</td>
+=======
+	<td>LDAP_SERVERS_TABLE_EDIT</td>
+	<td>//tr[contains(.,'${key_LDAPServerName}')]/td[3]//span[.='Edit']/preceding-sibling::i</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -254,13 +340,21 @@
 	<td>//tr[contains(.,'${key_LDAPServerName}')]/td[3]//span[.='Edit']/preceding-sibling::i</td>
 	<td></td>
 </tr>
+<<<<<<< HEAD
 <tr>
 	<td></td>
 	<td></td>
+=======
+<!--LDAP_SERVER-->
+<tr>
+	<td>LDAP_SERVER_SERVER_NAME</td>
+	<td>//input[contains(@name,'ldap--serverName')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <!--LDAP_SERVER-->
 <tr>
+<<<<<<< HEAD
 	<td>LDAP_SERVER_SERVER_NAME</td>
 	<td>//input[contains(@name,'ldap--serverName')]</td>
 	<td></td>
@@ -273,6 +367,20 @@
 <tr>
 	<td>LDAP_SERVER_DEFAULT_VALUES_MICROSOFT_ACTIVE_DIRECTORY_SERVER_RADIO</td>
 	<td>//input[@value='microsoft']</td>
+=======
+	<td>LDAP_SERVER_DEFAULT_VALUES_APACHE_DIRECTORY_SERVER_RADIO</td>
+	<td>//input[@value='apache']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>LDAP_SERVER_DEFAULT_VALUES_MICROSOFT_ACTIVE_DIRECTORY_SERVER_RADIO</td>
+	<td>//input[@value='microsoft']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>LDAP_SERVER_RESET_VALUES_BUTTON</td>
+	<td>//button[contains(.,'Reset Values')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>

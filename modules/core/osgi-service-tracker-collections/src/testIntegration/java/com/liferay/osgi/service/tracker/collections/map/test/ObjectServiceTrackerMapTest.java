@@ -359,6 +359,7 @@ public class ObjectServiceTrackerMapTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testGetServiceWithNullClassAndFilter() {
 		_serviceTrackerMap = ServiceTrackerMapFactory.openSingleValueMap(
 			_bundleContext, null, "target");
@@ -376,6 +377,8 @@ public class ObjectServiceTrackerMapTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testGetServiceWithServiceTrackerCustomizer() {
 		ServiceTrackerMap<String, TrackedTwo> serviceTrackerMap =
 			ServiceTrackerMapFactory.openSingleValueMap(
@@ -501,6 +504,7 @@ public class ObjectServiceTrackerMapTest {
 	public void testGetServiceWithServiceTrackerCustomizerReturningNull() {
 		ServiceTrackerMap<String, TrackedTwo> serviceTrackerMap =
 			ServiceTrackerMapFactory.openSingleValueMap(
+<<<<<<< HEAD
 				_bundleContext, TrackedOne.class, "(target=*)",
 				new ServiceReferenceMapper<String, TrackedOne>() {
 
@@ -516,6 +520,9 @@ public class ObjectServiceTrackerMapTest {
 					}
 
 				},
+=======
+				_bundleContext, TrackedOne.class, "target",
+>>>>>>> compatible
 				new ServiceTrackerCustomizer<TrackedOne, TrackedTwo>() {
 
 					@Override
@@ -688,10 +695,15 @@ public class ObjectServiceTrackerMapTest {
 	protected ServiceTrackerMap<String, TrackedOne> createServiceTrackerMap(
 		BundleContext bundleContext) {
 
+<<<<<<< HEAD
 		_serviceTrackerMap = ServiceTrackerMapFactory.openSingleValueMap(
 			bundleContext, TrackedOne.class, "target");
 
 		return _serviceTrackerMap;
+=======
+		return ServiceTrackerMapFactory.openSingleValueMap(
+			bundleContext, TrackedOne.class, "target");
+>>>>>>> compatible
 	}
 
 	protected ServiceRegistration<TrackedOne> registerService(

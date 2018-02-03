@@ -28,12 +28,19 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
 )
 public interface AuditConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(deflt = "true", name = "enabled", required = false)
 	public boolean enabled();
 
 	@Meta.AD(
 		deflt = "200", name = "audit-message-max-queue-size", required = false
 	)
+=======
+	@Meta.AD(deflt = "true", required = false)
+	public boolean enabled();
+
+	@Meta.AD(deflt = "200", required = false)
+>>>>>>> compatible
 	public int auditMessageMaxQueueSize();
 
 }

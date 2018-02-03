@@ -18,11 +18,15 @@ import com.liferay.application.list.BasePanelApp;
 import com.liferay.application.list.PanelApp;
 import com.liferay.application.list.constants.PanelCategoryKeys;
 import com.liferay.marketplace.store.web.constants.MarketplaceStorePortletKeys;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.Portlet;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.util.Portal;
+=======
+import com.liferay.portal.kernel.model.Portlet;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -47,6 +51,7 @@ public class MarketplacePurchasedPanelApp extends BasePanelApp {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public boolean isShow(PermissionChecker permissionChecker, Group group)
 		throws PortalException {
 
@@ -58,6 +63,8 @@ public class MarketplacePurchasedPanelApp extends BasePanelApp {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	@Reference(
 		target = "(javax.portlet.name=" + MarketplaceStorePortletKeys.MARKETPLACE_PURCHASED + ")",
 		unbind = "-"
@@ -66,7 +73,10 @@ public class MarketplacePurchasedPanelApp extends BasePanelApp {
 		super.setPortlet(portlet);
 	}
 
+<<<<<<< HEAD
 	@Reference
 	private Portal _portal;
 
+=======
+>>>>>>> compatible
 }

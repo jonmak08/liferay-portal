@@ -14,6 +14,7 @@
 
 package com.liferay.announcements.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.announcements.constants.AnnouncementsPortletKeys;
 import com.liferay.portal.kernel.portlet.ConfigurationAction;
 import com.liferay.portal.kernel.portlet.DefaultConfigurationAction;
@@ -23,6 +24,13 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+=======
+import com.liferay.announcements.web.constants.AnnouncementsPortletKeys;
+import com.liferay.portal.kernel.portlet.ConfigurationAction;
+import com.liferay.portal.kernel.portlet.DefaultConfigurationAction;
+
+import org.osgi.service.component.annotations.Component;
+>>>>>>> compatible
 
 /**
  * @author Adolfo Pérez
@@ -34,6 +42,7 @@ import org.osgi.service.component.annotations.Reference;
 )
 public class AnnouncementsConfigurationAction
 	extends DefaultConfigurationAction {
+<<<<<<< HEAD
 
 	@Override
 	public String getJspPath(HttpServletRequest request) {
@@ -49,4 +58,6 @@ public class AnnouncementsConfigurationAction
 		super.setServletContext(servletContext);
 	}
 
+=======
+>>>>>>> compatible
 }

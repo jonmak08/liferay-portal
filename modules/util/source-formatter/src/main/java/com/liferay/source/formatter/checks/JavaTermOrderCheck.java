@@ -15,14 +15,28 @@
 package com.liferay.source.formatter.checks;
 
 import com.liferay.portal.kernel.util.StringUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.tools.ToolsUtil;
+>>>>>>> compatible
 import com.liferay.source.formatter.parser.JavaClass;
 import com.liferay.source.formatter.parser.JavaStaticBlock;
 import com.liferay.source.formatter.parser.JavaTerm;
 import com.liferay.source.formatter.parser.comparator.JavaTermComparator;
+<<<<<<< HEAD
 
 import java.util.List;
 
 import org.dom4j.Document;
+=======
+import com.liferay.source.formatter.util.FileUtil;
+
+import java.io.File;
+
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+>>>>>>> compatible
 
 /**
  * @author Hugo Huijser
@@ -31,7 +45,11 @@ public class JavaTermOrderCheck extends BaseJavaTermCheck {
 
 	@Override
 	public void init() throws Exception {
+<<<<<<< HEAD
 		_portalCustomSQLDocument = getPortalCustomSQLDocument();
+=======
+		_portalCustomSQLContent = _getPortalCustomSQLContent();
+>>>>>>> compatible
 	}
 
 	@Override
@@ -53,12 +71,16 @@ public class JavaTermOrderCheck extends BaseJavaTermCheck {
 		if (absolutePath.contains("/persistence/") &&
 			className.endsWith("FinderImpl")) {
 
+<<<<<<< HEAD
 			Document customSQLDocument = getCustomSQLDocument(
 				fileName, absolutePath, _portalCustomSQLDocument);
 
 			if (customSQLDocument != null) {
 				customSQLContent = customSQLDocument.asXML();
 			}
+=======
+			customSQLContent = _getCustomSQLContent(fileName, absolutePath);
+>>>>>>> compatible
 		}
 
 		return _sortJavaTerms(
@@ -70,6 +92,74 @@ public class JavaTermOrderCheck extends BaseJavaTermCheck {
 		return new String[] {JAVA_CLASS};
 	}
 
+<<<<<<< HEAD
+=======
+	private String _getPortalCustomSQLContent() throws Exception {
+		if (!isPortalSource()) {
+			return null;
+		}
+
+		File portalCustomSQLFile = getFile(
+			"portal-impl/src/custom-sql/default.xml",
+			ToolsUtil.PORTAL_MAX_DIR_LEVEL);
+
+		if (portalCustomSQLFile == null) {
+			return null;
+		}
+
+		String portalCustomSQLContent = FileUtil.read(portalCustomSQLFile);
+
+		Matcher matcher = _customSQLFilePattern.matcher(portalCustomSQLContent);
+
+		while (matcher.find()) {
+			File customSQLFile = getFile(
+				"portal-impl/src/" + matcher.group(1),
+				ToolsUtil.PORTAL_MAX_DIR_LEVEL);
+
+			if (customSQLFile != null) {
+				portalCustomSQLContent += FileUtil.read(customSQLFile);
+			}
+		}
+
+		return portalCustomSQLContent;
+	}
+
+	private String _getCustomSQLContent(String fileName, String absolutePath)
+		throws Exception {
+
+		if (isPortalSource() && !isModulesFile(absolutePath)) {
+			return _portalCustomSQLContent;
+		}
+
+		int i = fileName.lastIndexOf("/src/");
+
+		if (i == -1) {
+			return null;
+		}
+
+		File customSQLFile = new File(
+			fileName.substring(0, i) + "/src/custom-sql/default.xml");
+
+		if (!customSQLFile.exists()) {
+			customSQLFile = new File(
+				fileName.substring(0, i) +
+					"/src/main/resources/META-INF/custom-sql/default.xml");
+		}
+
+		if (!customSQLFile.exists()) {
+			customSQLFile = new File(
+				fileName.substring(0, i) +
+					"/src/main/resources/custom-sql/default.xml");
+		}
+
+		if (!customSQLFile.exists()) {
+			return null;
+		}
+
+		return FileUtil.read(customSQLFile);
+	}
+
+>>>>>>> compatible
 	private String _sortJavaTerms(
 		String fileName, String absolutePath, JavaClass javaClass,
 		String customSQLContent) {
@@ -129,6 +219,12 @@ public class JavaTermOrderCheck extends BaseJavaTermCheck {
 		return javaClass.getContent();
 	}
 
+<<<<<<< HEAD
 	private Document _portalCustomSQLDocument;
+=======
+	private final Pattern _customSQLFilePattern = Pattern.compile(
+		"<sql file=\"(.*)\" \\/>");
+	private String _portalCustomSQLContent;
+>>>>>>> compatible
 
 }

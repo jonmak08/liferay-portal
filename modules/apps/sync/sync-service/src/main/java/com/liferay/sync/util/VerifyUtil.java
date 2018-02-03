@@ -28,7 +28,10 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.service.GroupLocalService;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.sync.constants.SyncDLObjectConstants;
@@ -55,7 +58,11 @@ public class VerifyUtil {
 		verifyUtil.doVerify();
 	}
 
+<<<<<<< HEAD
 	public void doVerify() throws Exception {
+=======
+	protected void doVerify() throws Exception {
+>>>>>>> compatible
 		List<Group> groups = _groupLocalService.getGroups(
 			QueryUtil.ALL_POS, QueryUtil.ALL_POS);
 
@@ -80,10 +87,14 @@ public class VerifyUtil {
 	protected void logCount(long count, long totalCount, String name) {
 		if (_log.isDebugEnabled()) {
 			if ((count % 1000) == 0) {
+<<<<<<< HEAD
 				_log.debug(
 					StringBundler.concat(
 						"Verified ", String.valueOf(count), "/",
 						String.valueOf(totalCount), " ", name));
+=======
+				_log.debug("Verified " + count + "/" + totalCount + " " + name);
+>>>>>>> compatible
 			}
 		}
 	}

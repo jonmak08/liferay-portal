@@ -91,6 +91,7 @@ public class DLFileEntryLocalServiceUtil {
 	}
 
 	public static com.liferay.document.library.kernel.model.DLFileEntry checkOutFileEntry(
+<<<<<<< HEAD
 		long userId, long fileEntryId, long fileEntryTypeId,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -110,6 +111,8 @@ public class DLFileEntryLocalServiceUtil {
 	}
 
 	public static com.liferay.document.library.kernel.model.DLFileEntry checkOutFileEntry(
+=======
+>>>>>>> compatible
 		long userId, long fileEntryId,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -231,11 +234,14 @@ public class DLFileEntryLocalServiceUtil {
 		return getService().deletePersistedModel(persistedModel);
 	}
 
+<<<<<<< HEAD
 	public static void deleteRepositoryFileEntries(long repositoryId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		getService().deleteRepositoryFileEntries(repositoryId);
 	}
 
+=======
+>>>>>>> compatible
 	public static void deleteRepositoryFileEntries(long repositoryId,
 		long folderId)
 		throws com.liferay.portal.kernel.exception.PortalException {

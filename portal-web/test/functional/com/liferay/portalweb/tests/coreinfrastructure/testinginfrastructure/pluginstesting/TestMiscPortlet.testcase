@@ -9,12 +9,17 @@
 	</set-up>
 
 	<tear-down>
+<<<<<<< HEAD
 		<execute macro="Page#tearDownCP" />
+=======
+		<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 	</tear-down>
 
 	<command name="ViewTestMiscPortlet" priority="5">
 		<property name="portal.acceptance" value="true" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -26,6 +31,9 @@
 		</execute>
 
 		<execute macro="Navigator#gotoPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Test Misc Localized Title Page" />
 		</execute>
 

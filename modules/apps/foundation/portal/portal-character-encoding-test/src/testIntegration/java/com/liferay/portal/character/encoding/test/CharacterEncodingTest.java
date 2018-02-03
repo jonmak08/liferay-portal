@@ -15,9 +15,15 @@
 package com.liferay.portal.character.encoding.test;
 
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.character.encoding.test.servlet.filter.CharacterEncodingFilter;
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
+=======
+import com.liferay.portal.character.encoding.test.servlet.filter.CharacterEncodingFilter;
+import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.IOException;
 import java.io.InputStreamReader;

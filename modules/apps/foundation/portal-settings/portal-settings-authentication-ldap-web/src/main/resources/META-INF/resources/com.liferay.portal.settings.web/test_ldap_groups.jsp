@@ -42,7 +42,12 @@ if (ldapContext == null) {
 	return;
 }
 
+<<<<<<< HEAD
 if (Validator.isNull(ParamUtil.getString(request, "groupMappingGroupName")) || Validator.isNull(ParamUtil.getString(request, "groupMappingUser"))) {
+=======
+if (Validator.isNull(ParamUtil.getString(request, "groupMappingGroupName")) ||
+	Validator.isNull(ParamUtil.getString(request, "groupMappingUser"))) {
+>>>>>>> compatible
 %>
 
 	<liferay-ui:message key="please-map-each-of-the-group-properties-group-name-and-user-to-an-ldap-attribute" />

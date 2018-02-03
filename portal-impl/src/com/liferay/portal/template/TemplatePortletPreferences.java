@@ -20,8 +20,16 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.PortletConstants;
 import com.liferay.portal.kernel.portlet.PortletPreferencesFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.AutoResetThreadLocal;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portlet.PortletPreferencesImpl;
+import com.liferay.util.xml.XMLUtil;
+
+import java.util.Collections;
+import java.util.Map;
 
 import java.util.Collections;
 import java.util.Map;
@@ -134,7 +142,11 @@ public class TemplatePortletPreferences {
 		TemplatePortletPreferences.class);
 
 	private final ThreadLocal<PortletPreferencesImpl>
+<<<<<<< HEAD
 		_portletPreferencesImplThreadLocal = new CentralizedThreadLocal<>(
+=======
+		_portletPreferencesImplThreadLocal = new AutoResetThreadLocal<>(
+>>>>>>> compatible
 			TemplatePortletPreferences.class.getName(),
 			PortletPreferencesImpl::new);
 

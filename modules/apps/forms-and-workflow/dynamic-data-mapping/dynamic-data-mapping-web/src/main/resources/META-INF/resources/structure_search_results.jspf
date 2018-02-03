@@ -15,9 +15,12 @@
 --%>
 
 <%
+<<<<<<< HEAD
 long searchRestrictionClassNameId = ParamUtil.getLong(request, "searchRestrictionClassNameId");
 long searchRestrictionClassPK = ParamUtil.getLong(request, "searchRestrictionClassPK");
 
+=======
+>>>>>>> compatible
 StructureSearchTerms searchTerms = (StructureSearchTerms)searchContainer.getSearchTerms();
 
 long[] groupIds = {groupId};
@@ -26,6 +29,7 @@ if (showAncestorScopes) {
 	groupIds = PortalUtil.getCurrentAndAncestorSiteGroupIds(groupId);
 }
 
+<<<<<<< HEAD
 if (searchTerms.isSearchRestriction()) {
 	total = DDMStructureLinkLocalServiceUtil.getStructureLinksCount(searchRestrictionClassNameId, searchRestrictionClassPK);
 
@@ -34,6 +38,9 @@ if (searchTerms.isSearchRestriction()) {
 	results = DDMStructureLinkLocalServiceUtil.getStructureLinkStructures(searchRestrictionClassNameId, searchRestrictionClassPK, searchContainer.getStart(), searchContainer.getEnd());
 }
 else if (searchTerms.isAdvancedSearch()) {
+=======
+if (searchTerms.isAdvancedSearch()) {
+>>>>>>> compatible
 	total = DDMStructureServiceUtil.searchCount(company.getCompanyId(), groupIds, scopeClassNameId, searchTerms.getName(), searchTerms.getDescription(), searchTerms.getStorageType(), DDMStructureConstants.TYPE_DEFAULT, searchTerms.getStatus(), searchTerms.isAndOperator());
 
 	searchContainer.setTotal(total);

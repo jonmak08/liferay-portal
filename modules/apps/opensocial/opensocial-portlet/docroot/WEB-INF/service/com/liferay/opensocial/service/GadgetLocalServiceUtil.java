@@ -17,6 +17,10 @@ package com.liferay.opensocial.service;
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.portal.kernel.bean.PortletBeanLocatorUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.service.InvokableLocalService;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ReferenceRegistry;
 
 /**
@@ -333,6 +337,15 @@ public class GadgetLocalServiceUtil {
 		getService().initGadgets();
 	}
 
+<<<<<<< HEAD
+=======
+	public static java.lang.Object invokeMethod(java.lang.String name,
+		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
+		throws java.lang.Throwable {
+		return getService().invokeMethod(name, parameterTypes, arguments);
+	}
+
+>>>>>>> compatible
 	/**
 	* Updates the gadget in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	*
@@ -356,9 +369,22 @@ public class GadgetLocalServiceUtil {
 
 	public static GadgetLocalService getService() {
 		if (_service == null) {
+<<<<<<< HEAD
 			_service = (GadgetLocalService)PortletBeanLocatorUtil.locate(ServletContextUtil.getServletContextName(),
 					GadgetLocalService.class.getName());
 
+=======
+			InvokableLocalService invokableLocalService = (InvokableLocalService)PortletBeanLocatorUtil.locate(ClpSerializer.getServletContextName(),
+					GadgetLocalService.class.getName());
+
+			if (invokableLocalService instanceof GadgetLocalService) {
+				_service = (GadgetLocalService)invokableLocalService;
+			}
+			else {
+				_service = new GadgetLocalServiceClp(invokableLocalService);
+			}
+
+>>>>>>> compatible
 			ReferenceRegistry.registerReference(GadgetLocalServiceUtil.class,
 				"_service");
 		}

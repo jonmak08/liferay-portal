@@ -12,7 +12,10 @@
 							},
 							path: 'captcha_field.js',
 							requires: [
+<<<<<<< HEAD
 								'aui-parse-content',
+=======
+>>>>>>> compatible
 								'liferay-ddm-form-renderer-field'
 							]
 						}

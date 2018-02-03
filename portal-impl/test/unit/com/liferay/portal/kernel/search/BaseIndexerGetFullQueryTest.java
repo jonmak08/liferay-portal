@@ -15,15 +15,25 @@
 package com.liferay.portal.kernel.search;
 
 import com.liferay.document.library.kernel.model.DLFileEntry;
+<<<<<<< HEAD
+=======
+import com.liferay.message.boards.kernel.model.MBMessage;
+>>>>>>> compatible
 import com.liferay.portal.kernel.json.JSONFactory;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.util.Props;
 import com.liferay.portal.kernel.util.PropsUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.search.test.TestIndexerRegistry;
 import com.liferay.portlet.documentlibrary.util.DLFileEntryIndexer;
+=======
+import com.liferay.portal.search.test.TestIndexerRegistry;
+import com.liferay.portlet.documentlibrary.util.DLFileEntryIndexer;
+import com.liferay.portlet.messageboards.util.MBMessageIndexer;
+>>>>>>> compatible
 import com.liferay.registry.BasicRegistryImpl;
 import com.liferay.registry.Registry;
 import com.liferay.registry.RegistryUtil;
@@ -115,9 +125,12 @@ public class BaseIndexerGetFullQueryTest extends PowerMockito {
 
 		registry.registerService(
 			IndexerRegistry.class, new TestIndexerRegistry());
+<<<<<<< HEAD
 		registry.registerService(
 			RelatedEntryIndexerRegistry.class,
 			new TestRelatedEntryIndexerRegistry());
+=======
+>>>>>>> compatible
 	}
 
 	protected void setUpJSONFactoryUtil() {

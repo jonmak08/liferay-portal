@@ -40,7 +40,10 @@ public class DefaultJournalTransformerListenerRegistryImpl
 		return _transformerListeners.get(className);
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public List<TransformerListener> getTransformerListeners() {
 		return new ArrayList(_transformerListeners.values());
 	}
@@ -62,9 +65,13 @@ public class DefaultJournalTransformerListenerRegistryImpl
 	public void unregisterTransformerListener(
 		TransformerListener transformerListener) {
 
+<<<<<<< HEAD
 		Class<?> clazz = transformerListener.getClass();
 
 		_transformerListeners.remove(clazz.getName());
+=======
+		_transformerListeners.remove(transformerListener);
+>>>>>>> compatible
 	}
 
 	private final Map<String, TransformerListener> _transformerListeners =

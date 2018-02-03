@@ -48,10 +48,13 @@ AUI.add(
 					uploadItemURL: {
 						validator: Lang.isString,
 						value: ''
+<<<<<<< HEAD
 					},
 					validExtensions: {
 						validator: Lang.isString,
 						value: '*'
+=======
+>>>>>>> compatible
 					}
 				},
 
@@ -125,6 +128,7 @@ AUI.add(
 							itemViewer.get(STR_LINKS).on('click', A.bind(STR_ITEM_SELECTED, instance, itemViewer)),
 							itemViewer.after('currentIndexChange', A.bind(STR_ITEM_SELECTED, instance, itemViewer)),
 							itemViewer.after(STR_VISIBLE_CHANGE, instance._afterVisibleChange, instance),
+<<<<<<< HEAD
 						];
 
 						var uploadItemURL = instance.get('uploadItemURL')
@@ -141,6 +145,17 @@ AUI.add(
 							);
 						}
 
+=======
+							uploadItemViewer.after(STR_VISIBLE_CHANGE, instance._afterVisibleChange, instance),
+							itemSelectorUploader.after('itemUploadCancel', instance._onItemUploadCancel, instance),
+							itemSelectorUploader.after('itemUploadComplete', instance._onItemUploadComplete, instance),
+							itemSelectorUploader.after('itemUploadError', A.bind(STR_ITEM_UPLOAD_ERROR, instance)),
+							rootNode.on(STR_DRAG_OVER, instance._ddEventHandler, instance),
+							rootNode.on(STR_DRAG_LEAVE, instance._ddEventHandler, instance),
+							rootNode.on(STR_DROP, instance._ddEventHandler, instance)
+						];
+
+>>>>>>> compatible
 						var inputFileNode = instance.one('input[type="file"]');
 
 						if (inputFileNode) {
@@ -174,6 +189,7 @@ AUI.add(
 									rootNode.removeClass(CSS_DROP_ACTIVE);
 
 									if (eventDrop) {
+<<<<<<< HEAD
 										var fileExtension = dataTransfer.files[0].name.split('.').pop().toLowerCase();
 
 										var validExtensions = instance.get('validExtensions');
@@ -186,6 +202,9 @@ AUI.add(
 
 											instance._showError(message);
 										}
+=======
+										instance._previewFile(dataTransfer.files[0]);
+>>>>>>> compatible
 									}
 								}
 							}
@@ -195,6 +214,7 @@ AUI.add(
 					_getUploadErrorMessage: function(error) {
 						var instance = this;
 
+<<<<<<< HEAD
 						var message = Liferay.Language.get('an-unexpected-error-occurred-while-uploading-your-file');
 
 						if (error && error.errorType) {
@@ -224,6 +244,28 @@ AUI.add(
 
 								message = Lang.sub(Liferay.Language.get('request-is-larger-than-x-and-could-not-be-processed'), [instance.formatStorage(maxUploadRequestSize)]);
 							}
+=======
+						var errorType = error.errorType;
+
+						var message = Liferay.Language.get('an-unexpected-error-occurred-while-uploading-your-file');
+
+						if (errorType === STATUS_CODE.SC_FILE_ANTIVIRUS_EXCEPTION) {
+							message = error.message;
+						}
+						else if (errorType === STATUS_CODE.SC_FILE_EXTENSION_EXCEPTION) {
+							message = Lang.sub(Liferay.Language.get('please-enter-a-file-with-a-valid-extension-x'), [error.message]);
+						}
+						else if (errorType === STATUS_CODE.SC_FILE_NAME_EXCEPTION) {
+							message = Liferay.Language.get('please-enter-a-file-with-a-valid-file-name');
+						}
+						else if (errorType === STATUS_CODE.SC_FILE_SIZE_EXCEPTION || errorType === STATUS_CODE.SC_UPLOAD_REQUEST_CONTENT_LENGTH_EXCEPTION) {
+							message = Lang.sub(Liferay.Language.get('please-enter-a-file-with-a-valid-file-size-no-larger-than-x'), [instance.formatStorage(instance.get('maxFileSize'))]);
+						}
+						else if (errorType === STATUS_CODE.SC_UPLOAD_REQUEST_SIZE_EXCEPTION) {
+							var maxUploadRequestSize = Liferay.PropsValues.UPLOAD_SERVLET_REQUEST_IMPL_MAX_SIZE;
+
+							message = Lang.sub(Liferay.Language.get('request-is-larger-than-x-and-could-not-be-processed'), [instance.formatStorage(maxUploadRequestSize)]);
+>>>>>>> compatible
 						}
 
 						return message;

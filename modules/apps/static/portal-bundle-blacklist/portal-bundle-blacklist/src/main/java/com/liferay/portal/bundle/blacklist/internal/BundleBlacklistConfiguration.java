@@ -29,9 +29,13 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
 )
 public interface BundleBlacklistConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(
 		deflt = "", name = "blacklist-bundle-symbolic-names", required = false
 	)
+=======
+	@Meta.AD(deflt = "", required = false)
+>>>>>>> compatible
 	public String[] blacklistBundleSymbolicNames();
 
 }

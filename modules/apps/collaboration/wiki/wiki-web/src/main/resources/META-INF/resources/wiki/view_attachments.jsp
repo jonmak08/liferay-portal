@@ -49,7 +49,11 @@ if (wikiPage != null) {
 }
 %>
 
+<<<<<<< HEAD
 <c:if test="<%= trashHelper.isTrashEnabled(scopeGroupId) && (deletedAttachmentsCount > 0) %>">
+=======
+<c:if test="<%= TrashUtil.isTrashEnabled(scopeGroupId) && (deletedAttachmentsCount > 0) %>">
+>>>>>>> compatible
 	<portlet:renderURL var="viewTrashAttachmentsURL" windowState="<%= LiferayWindowState.POP_UP.toString() %>">
 		<portlet:param name="mvcRenderCommandName" value="/wiki/view_trash_page_attachments" />
 		<portlet:param name="redirect" value="<%= currentURL %>" />

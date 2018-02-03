@@ -4,6 +4,7 @@ import core from 'metal/src/core';
 import dom from 'metal-dom/src/dom';
 import Surface from 'senna/src/surface/Surface';
 
+<<<<<<< HEAD
 /**
  * LiferaySurface
  *
@@ -16,6 +17,9 @@ class LiferaySurface extends Surface {
 	 * @inheritDoc
 	 * @review
 	 */
+=======
+class LiferaySurface extends Surface {
+>>>>>>> compatible
 	addContent(screenId, content) {
 		if (core.isString(content)) {
 			content = dom.buildFragment(content);

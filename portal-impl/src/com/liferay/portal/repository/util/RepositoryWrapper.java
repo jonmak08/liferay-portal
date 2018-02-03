@@ -157,8 +157,14 @@ public class RepositoryWrapper implements Repository {
 		throws PortalException {
 
 		_repository.checkInFileEntry(
+<<<<<<< HEAD
 			RepositoryUserUtil.getUserId(), fileEntryId, majorVersion,
 			changeLog, serviceContext);
+=======
+			com.liferay.portal.kernel.repository.util.RepositoryUserUtil.
+				getUserId(),
+			fileEntryId, majorVersion, changeLog, serviceContext);
+>>>>>>> compatible
 	}
 
 	@Override

@@ -14,7 +14,11 @@
 
 package com.liferay.layout.admin.web.internal.portlet;
 
+<<<<<<< HEAD
 import com.liferay.layout.admin.constants.LayoutAdminPortletKeys;
+=======
+import com.liferay.layout.admin.web.internal.constants.LayoutAdminPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.BasePortletProvider;
 import com.liferay.portal.kernel.portlet.EditPortletProvider;
 

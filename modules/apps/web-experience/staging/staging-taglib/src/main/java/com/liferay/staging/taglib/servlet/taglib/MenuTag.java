@@ -14,8 +14,11 @@
 
 package com.liferay.staging.taglib.servlet.taglib;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.staging.taglib.internal.servlet.ServletContextUtil;
 import com.liferay.taglib.util.IncludeTag;
 
@@ -25,7 +28,10 @@ import javax.servlet.jsp.PageContext;
 /**
  * @author Brian Wing Shun Chan
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class MenuTag extends IncludeTag {
 
 	public void setCssClass(String cssClass) {

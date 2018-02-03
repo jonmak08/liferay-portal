@@ -35,8 +35,15 @@ import com.liferay.portal.kernel.service.persistence.CompanyProvider;
 import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.ReflectionUtil;
+import com.liferay.portal.kernel.util.SetUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
@@ -222,7 +229,11 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_UUID_3);
 			}
 			else {
@@ -310,7 +321,11 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 		msg.append("uuid=");
 		msg.append(uuid);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchModuleException(msg.toString());
 	}
@@ -359,7 +374,11 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 		msg.append("uuid=");
 		msg.append(uuid);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchModuleException(msg.toString());
 	}
@@ -450,7 +469,11 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 		if (uuid == null) {
 			query.append(_FINDER_COLUMN_UUID_UUID_1);
 		}
+<<<<<<< HEAD
 		else if (uuid.equals("")) {
+=======
+		else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_UUID_UUID_3);
 		}
 		else {
@@ -586,7 +609,11 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_UUID_3);
 			}
 			else {
@@ -777,7 +804,11 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_C_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_C_UUID_3);
 			}
 			else {
@@ -873,7 +904,11 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 		msg.append(", companyId=");
 		msg.append(companyId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchModuleException(msg.toString());
 	}
@@ -928,7 +963,11 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 		msg.append(", companyId=");
 		msg.append(companyId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchModuleException(msg.toString());
 	}
@@ -1022,7 +1061,11 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 		if (uuid == null) {
 			query.append(_FINDER_COLUMN_UUID_C_UUID_1);
 		}
+<<<<<<< HEAD
 		else if (uuid.equals("")) {
+=======
+		else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_UUID_C_UUID_3);
 		}
 		else {
@@ -1164,7 +1207,11 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_C_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_C_UUID_3);
 			}
 			else {
@@ -1420,7 +1467,11 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 		msg.append("appId=");
 		msg.append(appId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchModuleException(msg.toString());
 	}
@@ -1469,7 +1520,11 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 		msg.append("appId=");
 		msg.append(appId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchModuleException(msg.toString());
 	}
@@ -1856,7 +1911,11 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 			if (bundleSymbolicName == null) {
 				query.append(_FINDER_COLUMN_BUNDLESYMBOLICNAME_BUNDLESYMBOLICNAME_1);
 			}
+<<<<<<< HEAD
 			else if (bundleSymbolicName.equals("")) {
+=======
+			else if (bundleSymbolicName.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_BUNDLESYMBOLICNAME_BUNDLESYMBOLICNAME_3);
 			}
 			else {
@@ -1945,7 +2004,11 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 		msg.append("bundleSymbolicName=");
 		msg.append(bundleSymbolicName);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchModuleException(msg.toString());
 	}
@@ -1996,7 +2059,11 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 		msg.append("bundleSymbolicName=");
 		msg.append(bundleSymbolicName);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchModuleException(msg.toString());
 	}
@@ -2088,7 +2155,11 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 		if (bundleSymbolicName == null) {
 			query.append(_FINDER_COLUMN_BUNDLESYMBOLICNAME_BUNDLESYMBOLICNAME_1);
 		}
+<<<<<<< HEAD
 		else if (bundleSymbolicName.equals("")) {
+=======
+		else if (bundleSymbolicName.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_BUNDLESYMBOLICNAME_BUNDLESYMBOLICNAME_3);
 		}
 		else {
@@ -2224,7 +2295,11 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 			if (bundleSymbolicName == null) {
 				query.append(_FINDER_COLUMN_BUNDLESYMBOLICNAME_BUNDLESYMBOLICNAME_1);
 			}
+<<<<<<< HEAD
 			else if (bundleSymbolicName.equals("")) {
+=======
+			else if (bundleSymbolicName.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_BUNDLESYMBOLICNAME_BUNDLESYMBOLICNAME_3);
 			}
 			else {
@@ -2409,7 +2484,11 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 			if (contextName == null) {
 				query.append(_FINDER_COLUMN_CONTEXTNAME_CONTEXTNAME_1);
 			}
+<<<<<<< HEAD
 			else if (contextName.equals("")) {
+=======
+			else if (contextName.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_CONTEXTNAME_CONTEXTNAME_3);
 			}
 			else {
@@ -2497,7 +2576,11 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 		msg.append("contextName=");
 		msg.append(contextName);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchModuleException(msg.toString());
 	}
@@ -2547,7 +2630,11 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 		msg.append("contextName=");
 		msg.append(contextName);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchModuleException(msg.toString());
 	}
@@ -2639,7 +2726,11 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 		if (contextName == null) {
 			query.append(_FINDER_COLUMN_CONTEXTNAME_CONTEXTNAME_1);
 		}
+<<<<<<< HEAD
 		else if (contextName.equals("")) {
+=======
+		else if (contextName.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_CONTEXTNAME_CONTEXTNAME_3);
 		}
 		else {
@@ -2775,7 +2866,11 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 			if (contextName == null) {
 				query.append(_FINDER_COLUMN_CONTEXTNAME_CONTEXTNAME_1);
 			}
+<<<<<<< HEAD
 			else if (contextName.equals("")) {
+=======
+			else if (contextName.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_CONTEXTNAME_CONTEXTNAME_3);
 			}
 			else {
@@ -2854,7 +2949,11 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 			msg.append(", contextName=");
 			msg.append(contextName);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -2919,7 +3018,11 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 			if (contextName == null) {
 				query.append(_FINDER_COLUMN_A_CN_CONTEXTNAME_1);
 			}
+<<<<<<< HEAD
 			else if (contextName.equals("")) {
+=======
+			else if (contextName.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_A_CN_CONTEXTNAME_3);
 			}
 			else {
@@ -3037,7 +3140,11 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 			if (contextName == null) {
 				query.append(_FINDER_COLUMN_A_CN_CONTEXTNAME_1);
 			}
+<<<<<<< HEAD
 			else if (contextName.equals("")) {
+=======
+			else if (contextName.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_A_CN_CONTEXTNAME_3);
 			}
 			else {
@@ -3130,7 +3237,11 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 			msg.append(", bundleVersion=");
 			msg.append(bundleVersion);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -3202,7 +3313,11 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 			if (bundleSymbolicName == null) {
 				query.append(_FINDER_COLUMN_A_BSN_BV_BUNDLESYMBOLICNAME_1);
 			}
+<<<<<<< HEAD
 			else if (bundleSymbolicName.equals("")) {
+=======
+			else if (bundleSymbolicName.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_A_BSN_BV_BUNDLESYMBOLICNAME_3);
 			}
 			else {
@@ -3216,7 +3331,11 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 			if (bundleVersion == null) {
 				query.append(_FINDER_COLUMN_A_BSN_BV_BUNDLEVERSION_1);
 			}
+<<<<<<< HEAD
 			else if (bundleVersion.equals("")) {
+=======
+			else if (bundleVersion.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_A_BSN_BV_BUNDLEVERSION_3);
 			}
 			else {
@@ -3347,7 +3466,11 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 			if (bundleSymbolicName == null) {
 				query.append(_FINDER_COLUMN_A_BSN_BV_BUNDLESYMBOLICNAME_1);
 			}
+<<<<<<< HEAD
 			else if (bundleSymbolicName.equals("")) {
+=======
+			else if (bundleSymbolicName.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_A_BSN_BV_BUNDLESYMBOLICNAME_3);
 			}
 			else {
@@ -3361,7 +3484,11 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 			if (bundleVersion == null) {
 				query.append(_FINDER_COLUMN_A_BSN_BV_BUNDLEVERSION_1);
 			}
+<<<<<<< HEAD
 			else if (bundleVersion.equals("")) {
+=======
+			else if (bundleVersion.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_A_BSN_BV_BUNDLEVERSION_3);
 			}
 			else {
@@ -3420,11 +3547,17 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 		setModelClass(Module.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("uuid", "uuid_");
@@ -4047,12 +4180,20 @@ public class ModulePersistenceImpl extends BasePersistenceImpl<Module>
 		for (Serializable primaryKey : uncachedPrimaryKeys) {
 			query.append((long)primaryKey);
 
+<<<<<<< HEAD
 			query.append(",");
+=======
+			query.append(StringPool.COMMA);
+>>>>>>> compatible
 		}
 
 		query.setIndex(query.index() - 1);
 
+<<<<<<< HEAD
 		query.append(")");
+=======
+		query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 		String sql = query.toString();
 

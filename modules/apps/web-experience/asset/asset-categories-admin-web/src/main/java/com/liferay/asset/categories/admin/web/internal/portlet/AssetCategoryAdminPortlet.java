@@ -14,11 +14,15 @@
 
 package com.liferay.asset.categories.admin.web.internal.portlet;
 
+<<<<<<< HEAD
 import com.liferay.asset.categories.admin.web.configuration.AssetCategoriesAdminWebConfiguration;
 import com.liferay.asset.categories.admin.web.internal.constants.AssetCategoriesAdminPortletKeys;
 import com.liferay.asset.categories.admin.web.internal.constants.AssetCategoriesAdminWebKeys;
 import com.liferay.asset.category.property.model.AssetCategoryProperty;
 import com.liferay.asset.category.property.service.AssetCategoryPropertyLocalService;
+=======
+import com.liferay.asset.categories.admin.web.internal.constants.AssetCategoriesAdminPortletKeys;
+>>>>>>> compatible
 import com.liferay.asset.kernel.AssetRendererFactoryRegistryUtil;
 import com.liferay.asset.kernel.NoSuchClassTypeException;
 import com.liferay.asset.kernel.exception.AssetCategoryNameException;
@@ -28,7 +32,10 @@ import com.liferay.asset.kernel.exception.DuplicateCategoryException;
 import com.liferay.asset.kernel.exception.DuplicateCategoryPropertyException;
 import com.liferay.asset.kernel.exception.DuplicateVocabularyException;
 import com.liferay.asset.kernel.exception.NoSuchCategoryException;
+<<<<<<< HEAD
 import com.liferay.asset.kernel.exception.NoSuchEntryException;
+=======
+>>>>>>> compatible
 import com.liferay.asset.kernel.exception.NoSuchVocabularyException;
 import com.liferay.asset.kernel.exception.VocabularyNameException;
 import com.liferay.asset.kernel.model.AssetCategory;
@@ -38,8 +45,11 @@ import com.liferay.asset.kernel.model.AssetVocabulary;
 import com.liferay.asset.kernel.model.ClassTypeReader;
 import com.liferay.asset.kernel.service.AssetCategoryService;
 import com.liferay.asset.kernel.service.AssetVocabularyService;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.NoSuchModelException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.portlet.PortalPreferences;
@@ -52,7 +62,11 @@ import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.LocalizationUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
@@ -60,7 +74,10 @@ import com.liferay.portlet.asset.util.AssetVocabularySettingsHelper;
 
 import java.io.IOException;
 
+<<<<<<< HEAD
 import java.util.List;
+=======
+>>>>>>> compatible
 import java.util.Locale;
 import java.util.Map;
 
@@ -71,16 +88,23 @@ import javax.portlet.PortletException;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Modified;
+=======
+import org.osgi.service.component.annotations.Component;
+>>>>>>> compatible
 import org.osgi.service.component.annotations.Reference;
 
 /**
  * @author Eudaldo Alonso
  */
 @Component(
+<<<<<<< HEAD
 	configurationPid = "com.liferay.asset.categories.admin.web.configuration.AssetCategoriesAdminWebConfiguration",
+=======
+>>>>>>> compatible
 	immediate = true,
 	property = {
 		"com.liferay.portlet.css-class-wrapper=portlet-asset-category-admin",
@@ -172,6 +196,10 @@ public class AssetCategoryAdminPortlet extends MVCPortlet {
 		Map<Locale, String> descriptionMap =
 			LocalizationUtil.getLocalizationMap(actionRequest, "description");
 		long vocabularyId = ParamUtil.getLong(actionRequest, "vocabularyId");
+<<<<<<< HEAD
+=======
+		String[] categoryProperties = getCategoryProperties(actionRequest);
+>>>>>>> compatible
 
 		ServiceContext serviceContext = ServiceContextFactory.getInstance(
 			AssetCategory.class.getName(), actionRequest);
@@ -182,12 +210,18 @@ public class AssetCategoryAdminPortlet extends MVCPortlet {
 
 			_assetCategoryService.addCategory(
 				serviceContext.getScopeGroupId(), parentCategoryId, titleMap,
+<<<<<<< HEAD
 				descriptionMap, vocabularyId, null, serviceContext);
+=======
+				descriptionMap, vocabularyId, categoryProperties,
+				serviceContext);
+>>>>>>> compatible
 		}
 		else {
 
 			// Update category
 
+<<<<<<< HEAD
 			List<AssetCategoryProperty> categoryProperties =
 				_assetCategoryPropertyLocalService.getCategoryProperties(
 					categoryId);
@@ -221,6 +255,14 @@ public class AssetCategoryAdminPortlet extends MVCPortlet {
 			categoryProperties, serviceContext);
 	}
 
+=======
+			_assetCategoryService.updateCategory(
+				categoryId, parentCategoryId, titleMap, descriptionMap,
+				vocabularyId, categoryProperties, serviceContext);
+		}
+	}
+
+>>>>>>> compatible
 	public void editVocabulary(
 			ActionRequest actionRequest, ActionResponse actionResponse)
 		throws Exception {
@@ -263,6 +305,7 @@ public class AssetCategoryAdminPortlet extends MVCPortlet {
 			actionRequest, "parentCategoryId");
 		long vocabularyId = ParamUtil.getLong(actionRequest, "vocabularyId");
 
+<<<<<<< HEAD
 		if ((vocabularyId <= 0) && (parentCategoryId <= 0)) {
 			throw new NoSuchVocabularyException();
 		}
@@ -274,6 +317,8 @@ public class AssetCategoryAdminPortlet extends MVCPortlet {
 			vocabularyId = parentCategory.getVocabularyId();
 		}
 
+=======
+>>>>>>> compatible
 		ServiceContext serviceContext = ServiceContextFactory.getInstance(
 			AssetCategory.class.getName(), actionRequest);
 
@@ -281,6 +326,7 @@ public class AssetCategoryAdminPortlet extends MVCPortlet {
 			categoryId, parentCategoryId, vocabularyId, serviceContext);
 	}
 
+<<<<<<< HEAD
 	@Activate
 	@Modified
 	protected void activate(Map<String, Object> properties) {
@@ -289,6 +335,8 @@ public class AssetCategoryAdminPortlet extends MVCPortlet {
 				AssetCategoriesAdminWebConfiguration.class, properties);
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	protected void doDispatch(
 			RenderRequest renderRequest, RenderResponse renderResponse)
@@ -302,6 +350,7 @@ public class AssetCategoryAdminPortlet extends MVCPortlet {
 				renderRequest, PrincipalException.getNestedClasses())) {
 
 			include("/error.jsp", renderRequest, renderResponse);
+<<<<<<< HEAD
 
 			return;
 		}
@@ -311,6 +360,12 @@ public class AssetCategoryAdminPortlet extends MVCPortlet {
 			_assetCategoriesAdminWebConfiguration);
 
 		super.doDispatch(renderRequest, renderResponse);
+=======
+		}
+		else {
+			super.doDispatch(renderRequest, renderResponse);
+		}
+>>>>>>> compatible
 	}
 
 	protected String[] getCategoryProperties(ActionRequest actionRequest) {
@@ -341,6 +396,7 @@ public class AssetCategoryAdminPortlet extends MVCPortlet {
 		return categoryProperties;
 	}
 
+<<<<<<< HEAD
 	protected String[] getCategoryProperties(
 		List<AssetCategoryProperty> categoryProperties) {
 
@@ -359,6 +415,8 @@ public class AssetCategoryAdminPortlet extends MVCPortlet {
 		return categoryPropertiesArray;
 	}
 
+=======
+>>>>>>> compatible
 	protected String getSettings(ActionRequest actionRequest)
 		throws PortalException {
 
@@ -383,9 +441,13 @@ public class AssetCategoryAdminPortlet extends MVCPortlet {
 
 			classTypePKs[i] = ParamUtil.getLong(
 				actionRequest,
+<<<<<<< HEAD
 				StringBundler.concat(
 					"subtype", String.valueOf(classNameIds[i]), "-classNameId",
 					String.valueOf(index)),
+=======
+				"subtype" + classNameIds[i] + "-classNameId" + index,
+>>>>>>> compatible
 				AssetCategoryConstants.ALL_CLASS_TYPE_PK);
 
 			if (classTypePKs[i] != -1) {
@@ -430,7 +492,10 @@ public class AssetCategoryAdminPortlet extends MVCPortlet {
 			cause instanceof DuplicateVocabularyException ||
 			cause instanceof NoSuchCategoryException ||
 			cause instanceof NoSuchClassTypeException ||
+<<<<<<< HEAD
 			cause instanceof NoSuchEntryException ||
+=======
+>>>>>>> compatible
 			cause instanceof NoSuchVocabularyException ||
 			cause instanceof PrincipalException ||
 			cause instanceof VocabularyNameException) {
@@ -455,6 +520,7 @@ public class AssetCategoryAdminPortlet extends MVCPortlet {
 		_assetVocabularyService = assetVocabularyService;
 	}
 
+<<<<<<< HEAD
 	private AssetCategoriesAdminWebConfiguration
 		_assetCategoriesAdminWebConfiguration;
 
@@ -462,6 +528,8 @@ public class AssetCategoryAdminPortlet extends MVCPortlet {
 	private AssetCategoryPropertyLocalService
 		_assetCategoryPropertyLocalService;
 
+=======
+>>>>>>> compatible
 	private AssetCategoryService _assetCategoryService;
 	private AssetVocabularyService _assetVocabularyService;
 

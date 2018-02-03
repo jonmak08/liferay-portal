@@ -56,9 +56,7 @@ public class IPDetector {
 			InetAddress[] inetAddresses = InetAddress.getAllByName("localhost");
 
 			for (InetAddress inetAddress : inetAddresses) {
-				String hostAddress = inetAddress.getHostAddress();
-
-				if (hostAddress.contains(":")) {
+				if (inetAddress.getHostAddress().contains(":")) {
 					_suppportsV6 = Boolean.TRUE;
 
 					break;

@@ -18,12 +18,19 @@ import com.ecyrd.jspwiki.WikiContext;
 import com.ecyrd.jspwiki.WikiException;
 import com.ecyrd.jspwiki.WikiPage;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.AggregateResourceBundleLoader;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ResourceBundleLoader;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
@@ -31,8 +38,13 @@ import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.language.LanguageResources;
 import com.liferay.wiki.configuration.WikiGroupServiceConfiguration;
+<<<<<<< HEAD
 import com.liferay.wiki.engine.BaseWikiEngine;
 import com.liferay.wiki.engine.WikiEngine;
+=======
+import com.liferay.wiki.engine.WikiEngine;
+import com.liferay.wiki.engine.input.editor.common.BaseInputEditorWikiEngine;
+>>>>>>> compatible
 import com.liferay.wiki.exception.PageContentException;
 import com.liferay.wiki.service.WikiPageLocalService;
 
@@ -62,7 +74,11 @@ import org.osgi.service.component.annotations.Reference;
 @Component(
 	property = {"service.ranking:Integer=-1000"}, service = WikiEngine.class
 )
+<<<<<<< HEAD
 public class JSPWikiEngine extends BaseWikiEngine {
+=======
+public class JSPWikiEngine extends BaseInputEditorWikiEngine {
+>>>>>>> compatible
 
 	public static String decodeJSPWikiName(String jspWikiName) {
 		return StringUtil.replace(
@@ -195,11 +211,14 @@ public class JSPWikiEngine extends BaseWikiEngine {
 		return _decodeJSPWikiContent(engine.textToHTML(wikiContext, content));
 	}
 
+<<<<<<< HEAD
 	@Override
 	protected ServletContext getEditPageServletContext() {
 		return _wikiEngineInputEditorServletContext;
 	}
 
+=======
+>>>>>>> compatible
 	protected LiferayJSPWikiEngine getEngine(long nodeId) throws WikiException {
 		LiferayJSPWikiEngine engine = _engines.get(nodeId);
 
@@ -301,7 +320,11 @@ public class JSPWikiEngine extends BaseWikiEngine {
 	}
 
 	private static String _encodeJSPWikiContent(String content) {
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler();
+=======
+		StringBundler encodedContent = new StringBundler();
+>>>>>>> compatible
 
 		Matcher commentMatcher = _wikiCommentPattern.matcher(content);
 
@@ -315,9 +338,15 @@ public class JSPWikiEngine extends BaseWikiEngine {
 
 			Matcher wikiLinkMatcher = _wikiLinkPattern.matcher(oldContent);
 
+<<<<<<< HEAD
 			sb.append(_encodeLink(oldContent, wikiLinkMatcher));
 
 			sb.append(
+=======
+			encodedContent.append(_encodeLink(oldContent, wikiLinkMatcher));
+
+			encodedContent.append(
+>>>>>>> compatible
 				content.substring(
 					commentMatcher.start(), commentMatcher.end()));
 
@@ -329,10 +358,17 @@ public class JSPWikiEngine extends BaseWikiEngine {
 
 			Matcher wikiLinkMatcher = _wikiLinkPattern.matcher(content);
 
+<<<<<<< HEAD
 			sb.append(_encodeLink(content, wikiLinkMatcher));
 		}
 
 		return sb.toString();
+=======
+			encodedContent.append(_encodeLink(content, wikiLinkMatcher));
+		}
+
+		return encodedContent.toString();
+>>>>>>> compatible
 	}
 
 	private static String _encodeJSPWikiName(String name) {
@@ -358,9 +394,15 @@ public class JSPWikiEngine extends BaseWikiEngine {
 				url = linkValues.substring(0, pos);
 			}
 
+<<<<<<< HEAD
 			String newLink = StringBundler.concat(
 				"[[", _encodeJSPWikiName(url), "|", _encodeJSPWikiName(name),
 				"]]");
+=======
+			String newLink =
+				"[[" + _encodeJSPWikiName(url) + "|" +
+					_encodeJSPWikiName(name) + "]]";
+>>>>>>> compatible
 
 			content = StringUtil.replace(content, link, newLink);
 		}
@@ -392,12 +434,15 @@ public class JSPWikiEngine extends BaseWikiEngine {
 	private Properties _properties = new Properties();
 	private ResourceBundleLoader _resourceBundleLoader;
 	private ServletContext _servletContext;
+<<<<<<< HEAD
 
 	@Reference(
 		target = "(osgi.web.symbolicname=com.liferay.wiki.engine.input.editor.common)"
 	)
 	private ServletContext _wikiEngineInputEditorServletContext;
 
+=======
+>>>>>>> compatible
 	private WikiGroupServiceConfiguration _wikiGroupServiceConfiguration;
 	private WikiPageLocalService _wikiPageLocalService;
 

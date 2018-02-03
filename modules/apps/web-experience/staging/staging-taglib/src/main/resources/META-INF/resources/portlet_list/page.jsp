@@ -42,11 +42,14 @@
 
 		PortletDataHandlerControl[] exportControls = portletDataHandler.getExportControls();
 		PortletDataHandlerControl[] metadataControls = portletDataHandler.getExportMetadataControls();
+<<<<<<< HEAD
 		PortletDataHandlerControl[] stagingControls = portletDataHandler.getStagingControls();
 
 		if (!type.equals(Constants.EXPORT) && liveGroup.isStagedPortlet(portlet.getRootPortletId())) {
 			exportControls = stagingControls;
 		}
+=======
+>>>>>>> compatible
 
 		if (ArrayUtil.isEmpty(exportControls) && ArrayUtil.isEmpty(metadataControls)) {
 			continue;

@@ -51,10 +51,17 @@ public class SchedulerClusterInvokeAcceptor implements ClusterInvokeAcceptor {
 			return false;
 		}
 
+<<<<<<< HEAD
 		Boolean schedulerClusterInvoking = (Boolean)context.get(
 			SchedulerEngine.SCHEDULER_CLUSTER_INVOKING);
 
 		if ((schedulerClusterInvoking != null) && !schedulerClusterInvoking) {
+=======
+		boolean schedulerClusterInvoking = (Boolean)context.get(
+			ClusterSchedulerEngine.SCHEDULER_CLUSTER_INVOKING);
+
+		if (!schedulerClusterInvoking) {
+>>>>>>> compatible
 			return false;
 		}
 

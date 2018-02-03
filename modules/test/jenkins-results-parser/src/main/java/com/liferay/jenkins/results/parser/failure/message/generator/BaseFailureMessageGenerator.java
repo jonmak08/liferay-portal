@@ -18,6 +18,10 @@ import com.liferay.jenkins.results.parser.Build;
 import com.liferay.jenkins.results.parser.Dom4JUtil;
 import com.liferay.jenkins.results.parser.TopLevelBuild;
 
+<<<<<<< HEAD
+=======
+import java.util.Hashtable;
+>>>>>>> compatible
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -31,6 +35,13 @@ public abstract class BaseFailureMessageGenerator
 	implements FailureMessageGenerator {
 
 	@Override
+<<<<<<< HEAD
+=======
+	public abstract String getMessage(
+		String buildURL, String consoleOutput, Hashtable<?, ?> properties);
+
+	@Override
+>>>>>>> compatible
 	public abstract Element getMessageElement(Build build);
 
 	protected Element getBaseBranchAnchorElement(TopLevelBuild topLevelBuild) {
@@ -63,6 +74,7 @@ public abstract class BaseFailureMessageGenerator
 		return Dom4JUtil.getNewAnchorElement(url, sb.toString());
 	}
 
+<<<<<<< HEAD
 	protected String getConsoleTextSnippet(
 		String consoleText, boolean truncateTop, int end) {
 
@@ -101,6 +113,46 @@ public abstract class BaseFailureMessageGenerator
 
 		return Dom4JUtil.toCodeSnippetElement(
 			_getConsoleTextSnippet(consoleText, truncateTop, start, end));
+=======
+	protected String getConsoleOutputSnippet(
+		String consoleOutput, boolean truncateTop, int end) {
+
+		if (end == -1) {
+			end = consoleOutput.length();
+		}
+
+		int start = getSnippetStart(consoleOutput, end);
+
+		return getConsoleOutputSnippet(consoleOutput, truncateTop, start, end);
+	}
+
+	protected String getConsoleOutputSnippet(
+		String consoleOutput, boolean truncateTop, int start, int end) {
+
+		return "<pre><code>" +
+			_getConsoleOutputSnippet(consoleOutput, truncateTop, start, end) +
+				"</code></pre>";
+	}
+
+	protected Element getConsoleOutputSnippetElement(
+		String consoleOutput, boolean truncateTop, int end) {
+
+		if (end == -1) {
+			end = consoleOutput.length();
+		}
+
+		int start = getSnippetStart(consoleOutput, end);
+
+		return getConsoleOutputSnippetElement(
+			consoleOutput, truncateTop, start, end);
+	}
+
+	protected Element getConsoleOutputSnippetElement(
+		String consoleOutput, boolean truncateTop, int start, int end) {
+
+		return Dom4JUtil.toCodeSnippetElement(
+			_getConsoleOutputSnippet(consoleOutput, truncateTop, start, end));
+>>>>>>> compatible
 	}
 
 	protected Element getGitCommitPluginsAnchorElement(
@@ -131,10 +183,17 @@ public abstract class BaseFailureMessageGenerator
 		return gitCommitPluginsAnchorElement;
 	}
 
+<<<<<<< HEAD
 	protected int getSnippetStart(String consoleText, int end) {
 		int start = 0;
 
 		Matcher matcher = _pattern.matcher(consoleText);
+=======
+	protected int getSnippetStart(String consoleOutput, int end) {
+		int start = 0;
+
+		Matcher matcher = _pattern.matcher(consoleOutput);
+>>>>>>> compatible
 
 		while (matcher.find()) {
 			int x = matcher.start() + 1;
@@ -149,18 +208,28 @@ public abstract class BaseFailureMessageGenerator
 		return start;
 	}
 
+<<<<<<< HEAD
 	private String _getConsoleTextSnippet(
 		String consoleText, boolean truncateTop, int start, int end) {
+=======
+	private String _getConsoleOutputSnippet(
+		String consoleOutput, boolean truncateTop, int start, int end) {
+>>>>>>> compatible
 
 		if ((end - start) > 2500) {
 			if (truncateTop) {
 				start = end - 2500;
 
+<<<<<<< HEAD
 				start = consoleText.indexOf("\n", start);
+=======
+				start = consoleOutput.indexOf("\n", start);
+>>>>>>> compatible
 			}
 			else {
 				end = start + 2500;
 
+<<<<<<< HEAD
 				end = consoleText.lastIndexOf("\n", end);
 			}
 		}
@@ -171,6 +240,18 @@ public abstract class BaseFailureMessageGenerator
 		consoleText = consoleText.replaceFirst("\\n\\s*$", "");
 
 		return consoleText;
+=======
+				end = consoleOutput.lastIndexOf("\n", end);
+			}
+		}
+
+		consoleOutput = consoleOutput.substring(start, end);
+
+		consoleOutput = consoleOutput.replaceFirst("^\\s*\\n", "");
+		consoleOutput = consoleOutput.replaceFirst("\\n\\s*$", "");
+
+		return consoleOutput;
+>>>>>>> compatible
 	}
 
 	private static final Pattern _pattern = Pattern.compile(

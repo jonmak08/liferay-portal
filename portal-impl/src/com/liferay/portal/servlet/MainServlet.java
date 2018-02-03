@@ -56,9 +56,14 @@ import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.servlet.DynamicServletRequest;
 import com.liferay.portal.kernel.servlet.InactiveRequestHandler;
 import com.liferay.portal.kernel.servlet.PortalSessionThreadLocal;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.template.TemplateConstants;
+>>>>>>> compatible
 import com.liferay.portal.kernel.template.TemplateManager;
 import com.liferay.portal.kernel.util.ClassLoaderUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.InstanceFactory;
 import com.liferay.portal.kernel.util.ParamUtil;
@@ -66,7 +71,10 @@ import com.liferay.portal.kernel.util.PortalLifecycleUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.ReleaseInfo;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ServiceProxyFactory;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -77,7 +85,10 @@ import com.liferay.portal.kernel.xml.DocumentException;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.UnsecureSAXReaderUtil;
 import com.liferay.portal.plugin.PluginPackageUtil;
+<<<<<<< HEAD
 import com.liferay.portal.service.impl.LayoutTemplateLocalServiceImpl;
+=======
+>>>>>>> compatible
 import com.liferay.portal.servlet.filters.absoluteredirects.AbsoluteRedirectsResponse;
 import com.liferay.portal.servlet.filters.i18n.I18nFilter;
 import com.liferay.portal.setup.SetupWizardSampleDataUtil;
@@ -99,6 +110,10 @@ import com.liferay.registry.ServiceRegistration;
 import com.liferay.registry.dependency.ServiceDependencyListener;
 import com.liferay.registry.dependency.ServiceDependencyManager;
 import com.liferay.social.kernel.util.SocialConfigurationUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.util.ContentUtil;
+>>>>>>> compatible
 import com.liferay.util.servlet.EncryptedServletRequest;
 
 import java.io.IOException;
@@ -1070,10 +1085,17 @@ public class MainServlet extends ActionServlet {
 			EventsProcessorUtil.process(
 				PropsKeys.LOGIN_EVENTS_PRE, PropsValues.LOGIN_EVENTS_PRE,
 				request, response);
+<<<<<<< HEAD
 
 			if (PropsValues.USERS_UPDATE_LAST_LOGIN ||
 				(user.getLastLoginDate() == null)) {
 
+=======
+
+			if (PropsValues.USERS_UPDATE_LAST_LOGIN ||
+				(user.getLastLoginDate() == null)) {
+
+>>>>>>> compatible
 				user = UserLocalServiceUtil.updateLastLogin(
 					userId, request.getRemoteAddr());
 			}
@@ -1163,6 +1185,31 @@ public class MainServlet extends ActionServlet {
 			HttpServletRequest request, HttpServletResponse response,
 			String messageKey)
 		throws IOException {
+<<<<<<< HEAD
+=======
+
+		response.setContentType(ContentTypes.TEXT_HTML_UTF8);
+
+		Locale locale = PortalUtil.getLocale(request);
+
+		String message = null;
+
+		if (LanguageUtil.isValidLanguageKey(locale, messageKey)) {
+			message = LanguageUtil.get(locale, messageKey);
+		}
+		else {
+			message = HtmlUtil.escape(messageKey);
+		}
+
+		String html = ContentUtil.get(
+			"com/liferay/portal/dependencies/inactive.html");
+
+		html = StringUtil.replace(html, "[$MESSAGE$]", message);
+
+		PrintWriter printWriter = response.getWriter();
+
+		printWriter.print(html);
+>>>>>>> compatible
 	}
 
 	protected boolean processMaintenanceRequest(
@@ -1406,11 +1453,14 @@ public class MainServlet extends ActionServlet {
 
 	private static final Log _log = LogFactoryUtil.getLog(MainServlet.class);
 
+<<<<<<< HEAD
 	private static volatile InactiveRequestHandler _inactiveRequesthandler =
 		ServiceProxyFactory.newServiceTrackedInstance(
 			InactiveRequestHandler.class, MainServlet.class,
 			"_inactiveRequesthandler", false);
 
+=======
+>>>>>>> compatible
 	private ServiceRegistration<ModuleServiceLifecycle>
 		_moduleServiceLifecycleServiceRegistration;
 	private ServiceRegistration<ServletContext>

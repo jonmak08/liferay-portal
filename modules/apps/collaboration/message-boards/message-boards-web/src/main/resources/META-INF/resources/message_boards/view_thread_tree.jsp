@@ -33,8 +33,11 @@ request.setAttribute(WebKeys.MESSAGE_BOARDS_TREE_INDEX, Integer.valueOf(index));
 if (message.getMessageId() == selMessage.getMessageId()) {
 	request.setAttribute("view_thread_tree.jsp-messageFound", true);
 }
+<<<<<<< HEAD
 
 MBMessageDisplay messageDisplay = (MBMessageDisplay)request.getAttribute(WebKeys.MESSAGE_BOARDS_MESSAGE_DISPLAY);
+=======
+>>>>>>> compatible
 %>
 
 <c:if test="<%= (message.getMessageId() != selMessage.getMessageId()) || MBUtil.isViewableMessage(themeDisplay, message) %>">
@@ -65,7 +68,11 @@ MBMessageDisplay messageDisplay = (MBMessageDisplay)request.getAttribute(WebKeys
 
 	depth++;
 
+<<<<<<< HEAD
 	MBMessageIterator mbMessageIterator = new MBMessageIterator(messages, range[0], range[1]);
+=======
+	MBMessageIterator mbMessageIterator = new MBMessageIteratorImpl(messages, range[0], range[1]);
+>>>>>>> compatible
 
 	while (mbMessageIterator.hasNext()) {
 		MBMessage curMessage = mbMessageIterator.next();
@@ -97,6 +104,7 @@ MBMessageDisplay messageDisplay = (MBMessageDisplay)request.getAttribute(WebKeys
 	}
 	%>
 
+<<<<<<< HEAD
 	<c:if test="<%= MBCategoryPermission.contains(permissionChecker, scopeGroupId, message.getCategoryId(), ActionKeys.REPLY_TO_MESSAGE) && !thread.isLocked() %>">
 
 		<%
@@ -106,4 +114,6 @@ MBMessageDisplay messageDisplay = (MBMessageDisplay)request.getAttribute(WebKeys
 
 		<%@ include file="/message_boards/edit_message_quick.jspf" %>
 	</c:if>
+=======
+>>>>>>> compatible
 </c:if>

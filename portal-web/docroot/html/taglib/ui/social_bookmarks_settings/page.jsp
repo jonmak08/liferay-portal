@@ -26,6 +26,7 @@ if (Validator.isNull(displayStyle)) {
 	displayStyle = displayStyles[0];
 }
 
+<<<<<<< HEAD
 // Left list
 
 List leftList = new ArrayList();
@@ -39,6 +40,10 @@ for (int i = 0; i < typesArray.length; i++) {
 }
 
 // Right list
+=======
+<aui:fieldset>
+	<aui:input name="preferences--enableSocialBookmarks--" type="toggle-switch" value="<%= enabled %>" />
+>>>>>>> compatible
 
 List rightList = new ArrayList();
 
@@ -57,6 +62,7 @@ rightList = ListUtil.sort(rightList, new KeyValuePairComparator(false, true));
 
 <aui:input name="preferences--socialBookmarksTypes--" type="hidden" value="<%= types %>" />
 
+<<<<<<< HEAD
 <liferay-ui:input-move-boxes
 	leftBoxName="currentTypes"
 	leftList="<%= leftList %>"
@@ -66,6 +72,9 @@ rightList = ListUtil.sort(rightList, new KeyValuePairComparator(false, true));
 	rightList="<%= rightList %>"
 	rightTitle="available"
 />
+=======
+				<aui:option label="<%= curDisplayStyle %>" selected="<%= displayStyle.equals(curDisplayStyle) %>" />
+>>>>>>> compatible
 
 <h5>
 	<liferay-ui:message key="display-style" />

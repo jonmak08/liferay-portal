@@ -10,7 +10,11 @@
 	</set-up>
 
 	<tear-down>
+<<<<<<< HEAD
 		<execute macro="Page#tearDownCP" />
+=======
+		<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 	</tear-down>
 
 	<command name="PrivateMessagingSmoke" priority="4">

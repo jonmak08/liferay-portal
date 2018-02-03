@@ -14,14 +14,21 @@
 
 package com.liferay.portal.template.freemarker.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
 import com.liferay.portal.kernel.model.Theme;
 import com.liferay.portal.kernel.template.TemplateContextContributor;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.SetUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.template.TemplateContextHelper;
@@ -84,6 +91,7 @@ public class FreeMarkerTemplateContextHelper extends TemplateContextHelper {
 
 			contextObjects.put(
 				"fullCssPath",
+<<<<<<< HEAD
 				StringBundler.concat(
 					StringPool.SLASH, servletContextName,
 					theme.getFreeMarkerTemplateLoader(), theme.getCssPath()));
@@ -91,6 +99,15 @@ public class FreeMarkerTemplateContextHelper extends TemplateContextHelper {
 			String fullTemplatesPath = StringBundler.concat(
 				StringPool.SLASH, servletContextName,
 				theme.getFreeMarkerTemplateLoader(), theme.getTemplatesPath());
+=======
+				StringPool.SLASH + servletContextName +
+					theme.getFreeMarkerTemplateLoader() + theme.getCssPath());
+
+			String fullTemplatesPath =
+				StringPool.SLASH + servletContextName +
+					theme.getFreeMarkerTemplateLoader() +
+						theme.getTemplatesPath();
+>>>>>>> compatible
 
 			contextObjects.put("fullTemplatesPath", fullTemplatesPath);
 

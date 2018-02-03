@@ -33,6 +33,10 @@ import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
 import com.liferay.portal.kernel.test.rule.Sync;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.CompanyTestUtil;
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
@@ -47,6 +51,7 @@ import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.kernel.util.UnicodeProperties;
 import com.liferay.portal.test.randomizerbumpers.TikaSafeRandomizerBumper;
+<<<<<<< HEAD
 import com.liferay.portal.test.rule.Inject;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.util.test.LayoutTestUtil;
@@ -54,6 +59,13 @@ import com.liferay.trash.TrashHelper;
 import com.liferay.trash.model.TrashEntry;
 import com.liferay.trash.service.TrashEntryLocalServiceUtil;
 import com.liferay.trash.test.util.TrashTestUtil;
+=======
+import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+import com.liferay.portal.util.test.LayoutTestUtil;
+import com.liferay.trash.kernel.model.TrashEntry;
+import com.liferay.trash.kernel.service.TrashEntryLocalServiceUtil;
+import com.liferay.trash.kernel.util.TrashUtil;
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -81,7 +93,13 @@ public class TrashEntryLocalServiceCheckEntriesTest {
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Before
 	public void setUp() throws Exception {
@@ -147,7 +165,11 @@ public class TrashEntryLocalServiceCheckEntriesTest {
 
 		createFileEntryTrashEntry(group, false);
 
+<<<<<<< HEAD
 		TrashTestUtil.disableTrash(group);
+=======
+		TrashUtil.disableTrash(group);
+>>>>>>> compatible
 
 		TrashEntryLocalServiceUtil.checkEntries();
 
@@ -204,7 +226,11 @@ public class TrashEntryLocalServiceCheckEntriesTest {
 	public void testStagingTrashDisabled() throws Exception {
 		long companyId = TestPropsValues.getCompanyId();
 
+<<<<<<< HEAD
 		Group group = TrashTestUtil.disableTrash(createGroup(companyId));
+=======
+		Group group = TrashUtil.disableTrash(createGroup(companyId));
+>>>>>>> compatible
 		User user = UserTestUtil.getAdminUser(companyId);
 
 		ServiceContext serviceContext =
@@ -253,7 +279,11 @@ public class TrashEntryLocalServiceCheckEntriesTest {
 			fileEntry.getFileEntryId());
 
 		if (expired) {
+<<<<<<< HEAD
 			int maxAge = _trashHelper.getMaxAge(group);
+=======
+			int maxAge = TrashUtil.getMaxAge(group);
+>>>>>>> compatible
 
 			TrashEntry trashEntry = TrashEntryLocalServiceUtil.getEntry(
 				DLFileEntry.class.getName(), fileEntry.getFileEntryId());
@@ -374,7 +404,10 @@ public class TrashEntryLocalServiceCheckEntriesTest {
 	@DeleteAfterTestRun
 	private final List<Group> _groups = new ArrayList<>();
 
+<<<<<<< HEAD
 	@Inject
 	private TrashHelper _trashHelper;
 
+=======
+>>>>>>> compatible
 }

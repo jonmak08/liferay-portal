@@ -5,7 +5,10 @@
 	<property name="portal.release" value="true" />
 	<property name="portal.upstream" value="false" />
 	<property name="test.run.environment" value="EE" />
+<<<<<<< HEAD
 	<property name="testray.component.names" value="Content Targeting" />
+=======
+>>>>>>> compatible
 	<property name="testray.main.component.name" value="Content Targeting" />
 
 	<set-up>
@@ -13,6 +16,7 @@
 
 		<execute macro="Portlet#shutdownServer" />
 
+<<<<<<< HEAD
 		<execute macro="Portlet#startServer">
 			<var name="deleteLiferayHome" value="false" />
 		</execute>
@@ -22,6 +26,13 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="Portlet#startServer" />
+
+		<execute macro="User#firstLoginPG" />
+
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -29,6 +40,7 @@
 			<var name="siteName" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -37,6 +49,15 @@
 
 		<execute macro="SitePages#addPublicPage">
 			<var name="pageName" value="Test Page Name" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+			<var name="portlet" value="Sites" />
+		</execute>
+
+		<execute macro="Page#add">
+			<var name="pageName" value="Test Page Name" />
+			<var name="siteName" value="Site Name" />
+>>>>>>> compatible
 		</execute>
 	</set-up>
 
@@ -66,9 +87,13 @@
 			<var name="site" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Audience Targeting" />
 		</execute>
 
@@ -83,9 +108,13 @@
 
 		<execute macro="PortletEntry#save" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Audience Targeting" />
 		</execute>
 
@@ -102,9 +131,13 @@
 
 		<execute macro="PortletEntry#save" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Audience Targeting" />
 		</execute>
 
@@ -115,9 +148,13 @@
 			<var name="campaignStatus" value="Started" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Web Content" />
 		</execute>
 
@@ -147,9 +184,13 @@
 			<var name="webContentTitle" value="WC User Segment Title" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Audience Targeting" />
 		</execute>
 
@@ -255,9 +296,13 @@
 			<var name="viewEntryContentList" value="WC Campaign Content,WC User Segment Content" />
 		</execute>
 
+<<<<<<< HEAD
 		<!-- <execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Audience Targeting" />
 		</execute>
 
@@ -269,6 +314,10 @@
 		<execute macro="ContentTargetingCampaign#viewContentReportCP">
 			<var name="reportsContentTableList" value="Content Metric Name,View,3" />
 			<var name="reportTitle" value="Content Metric Name" />
+<<<<<<< HEAD
 		</execute> -->
+=======
+		</execute>
+>>>>>>> compatible
 	</command>
 </definition>

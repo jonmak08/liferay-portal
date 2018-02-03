@@ -14,12 +14,25 @@
 
 package com.liferay.source.formatter.checks;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.source.formatter.PropertiesSourceProcessor;
+=======
+import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
+import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
+import com.liferay.portal.kernel.util.CharPool;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.tools.ToolsUtil;
+import com.liferay.source.formatter.PropertiesSourceProcessor;
+import com.liferay.source.formatter.util.FileUtil;
+
+import java.io.File;
+>>>>>>> compatible
 
 import java.net.URL;
 
@@ -96,6 +109,7 @@ public class PropertiesPortalFileCheck extends BaseFileCheck {
 	private String _getPortalPortalPropertiesContent() throws Exception {
 		String portalPortalPropertiesContent = null;
 
+<<<<<<< HEAD
 		if (isPortalSource() || isSubrepository()) {
 			portalPortalPropertiesContent = getPortalContent(
 				"portal-impl/src/portal.properties");
@@ -105,6 +119,16 @@ public class PropertiesPortalFileCheck extends BaseFileCheck {
 			}
 
 			return portalPortalPropertiesContent;
+=======
+		if (isPortalSource()) {
+			File file = getFile(
+				"portal-impl/src/portal.properties",
+				ToolsUtil.PORTAL_MAX_DIR_LEVEL);
+
+			if (file != null) {
+				return FileUtil.read(file);
+			}
+>>>>>>> compatible
 		}
 
 		ClassLoader classLoader =

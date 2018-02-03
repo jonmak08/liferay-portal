@@ -37,6 +37,10 @@ import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Serializable;
 
@@ -349,7 +353,11 @@ public class CalendarNotificationTemplateModelImpl extends BaseModelImpl<Calenda
 	@Override
 	public String getUuid() {
 		if (_uuid == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _uuid;
@@ -446,7 +454,11 @@ public class CalendarNotificationTemplateModelImpl extends BaseModelImpl<Calenda
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -458,7 +470,11 @@ public class CalendarNotificationTemplateModelImpl extends BaseModelImpl<Calenda
 	@Override
 	public String getUserName() {
 		if (_userName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _userName;
@@ -525,7 +541,11 @@ public class CalendarNotificationTemplateModelImpl extends BaseModelImpl<Calenda
 	@Override
 	public String getNotificationType() {
 		if (_notificationType == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _notificationType;
@@ -551,7 +571,11 @@ public class CalendarNotificationTemplateModelImpl extends BaseModelImpl<Calenda
 	@Override
 	public String getNotificationTypeSettings() {
 		if (_notificationTypeSettings == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _notificationTypeSettings;
@@ -567,7 +591,11 @@ public class CalendarNotificationTemplateModelImpl extends BaseModelImpl<Calenda
 	@Override
 	public String getNotificationTemplateType() {
 		if (_notificationTemplateType == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _notificationTemplateType;
@@ -593,7 +621,11 @@ public class CalendarNotificationTemplateModelImpl extends BaseModelImpl<Calenda
 	@Override
 	public String getSubject() {
 		if (_subject == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _subject;
@@ -609,7 +641,11 @@ public class CalendarNotificationTemplateModelImpl extends BaseModelImpl<Calenda
 	@Override
 	public String getBody() {
 		if (_body == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _body;

@@ -14,9 +14,15 @@
 
 package com.liferay.wiki.engine.text.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.util.AggregateResourceBundleLoader;
 import com.liferay.portal.kernel.util.ResourceBundleLoader;
+=======
+import com.liferay.portal.kernel.util.AggregateResourceBundleLoader;
+import com.liferay.portal.kernel.util.ResourceBundleLoader;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.language.LanguageResources;
 import com.liferay.wiki.engine.BaseWikiEngine;
 import com.liferay.wiki.engine.WikiEngine;
@@ -52,21 +58,27 @@ public class TextEngine extends BaseWikiEngine {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public String getEditorName() {
 		return null;
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public String getFormat() {
 		return "plain_text";
 	}
 
 	@Override
+<<<<<<< HEAD
 	public String getHelpURL() {
 		return null;
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public Map<String, Boolean> getOutgoingLinks(WikiPage page) {
 		return Collections.emptyMap();
 	}
@@ -77,11 +89,14 @@ public class TextEngine extends BaseWikiEngine {
 	}
 
 	@Override
+<<<<<<< HEAD
 	protected ServletContext getHelpPageServletContext() {
 		return null;
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	protected ResourceBundleLoader getResourceBundleLoader() {
 		return _resourceBundleLoader;
 	}

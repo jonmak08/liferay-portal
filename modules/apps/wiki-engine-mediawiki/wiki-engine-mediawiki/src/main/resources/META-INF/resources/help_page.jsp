@@ -79,8 +79,15 @@
 	</pre>
 
 	<%
+<<<<<<< HEAD
 	BaseWikiEngine baseWikiEngine = BaseWikiEngine.getBaseWikiEngine(request);
 	%>
 
 	<aui:a href="<%= baseWikiEngine.getHelpURL() %>" target="_blank"><liferay-ui:message key="learn-more" /> &raquo;</aui:a>
+=======
+	BaseInputEditorWikiEngine baseInputEditorWikiEngine = BaseInputEditorWikiEngine.getBaseInputEditorWikiEngine(request);
+	%>
+
+	<aui:a href="<%= baseInputEditorWikiEngine.getHelpURL() %>" target="_blank"><liferay-ui:message key="learn-more" /> &raquo;</aui:a>
+>>>>>>> compatible
 </div>

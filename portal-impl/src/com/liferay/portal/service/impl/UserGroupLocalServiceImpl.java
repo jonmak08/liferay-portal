@@ -20,7 +20,10 @@ import com.liferay.exportimport.kernel.lar.ExportImportHelperUtil;
 import com.liferay.exportimport.kernel.lar.PortletDataHandlerKeys;
 import com.liferay.exportimport.kernel.lar.UserIdStrategy;
 import com.liferay.exportimport.kernel.model.ExportImportConfiguration;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.DuplicateUserGroupException;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -43,18 +46,24 @@ import com.liferay.portal.kernel.search.QueryConfig;
 import com.liferay.portal.kernel.search.SearchContext;
 import com.liferay.portal.kernel.search.SearchException;
 import com.liferay.portal.kernel.search.Sort;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.search.SortFactoryUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.security.auth.CompanyThreadLocal;
 import com.liferay.portal.kernel.security.auth.PrincipalThreadLocal;
 import com.liferay.portal.kernel.security.exportimport.UserGroupImportTransactionThreadLocal;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.systemevent.SystemEvent;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ArrayUtil;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.SetUtil;
-import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.service.base.UserGroupLocalServiceBaseImpl;
@@ -303,11 +312,19 @@ public class UserGroupLocalServiceImpl extends UserGroupLocalServiceBaseImpl {
 
 			params.put(
 				"usersUserGroups", Long.valueOf(userGroup.getUserGroupId()));
+<<<<<<< HEAD
 
 			int count = userFinder.countByKeywords(
 				userGroup.getCompanyId(), null,
 				WorkflowConstants.STATUS_APPROVED, params);
 
+=======
+
+			int count = userFinder.countByKeywords(
+				userGroup.getCompanyId(), null,
+				WorkflowConstants.STATUS_APPROVED, params);
+
+>>>>>>> compatible
 			if (count > 0) {
 				throw new RequiredUserGroupException();
 			}
@@ -467,6 +484,7 @@ public class UserGroupLocalServiceImpl extends UserGroupLocalServiceBaseImpl {
 		long companyId, String keywords, LinkedHashMap<String, Object> params,
 		int start, int end, OrderByComparator<UserGroup> obc) {
 
+<<<<<<< HEAD
 		if (isUseCustomSQL(params)) {
 			return userGroupFinder.filterFindByKeywords(
 				companyId, keywords, params, start, end, obc);
@@ -488,6 +506,10 @@ public class UserGroupLocalServiceImpl extends UserGroupLocalServiceBaseImpl {
 		catch (Exception e) {
 			throw new SystemException(e);
 		}
+=======
+		return userGroupFinder.filterFindByKeywords(
+			companyId, keywords, params, start, end, obc);
+>>>>>>> compatible
 	}
 
 	/**
@@ -580,6 +602,7 @@ public class UserGroupLocalServiceImpl extends UserGroupLocalServiceBaseImpl {
 		LinkedHashMap<String, Object> params, boolean andOperator, int start,
 		int end, OrderByComparator<UserGroup> obc) {
 
+<<<<<<< HEAD
 		if (isUseCustomSQL(params)) {
 			return userGroupFinder.filterFindByC_N_D(
 				companyId, name, description, params, andOperator, start, end,
@@ -604,6 +627,10 @@ public class UserGroupLocalServiceImpl extends UserGroupLocalServiceBaseImpl {
 		catch (Exception e) {
 			throw new SystemException(e);
 		}
+=======
+		return userGroupFinder.filterFindByC_N_D(
+			companyId, name, description, params, andOperator, start, end, obc);
+>>>>>>> compatible
 	}
 
 	/**
@@ -674,7 +701,17 @@ public class UserGroupLocalServiceImpl extends UserGroupLocalServiceBaseImpl {
 	public int searchCount(
 		long companyId, String keywords, LinkedHashMap<String, Object> params) {
 
+<<<<<<< HEAD
 		if (isUseCustomSQL(params)) {
+=======
+		Indexer<?> indexer = IndexerRegistryUtil.nullSafeGetIndexer(
+			UserGroup.class);
+
+		if (!indexer.isIndexerEnabled() ||
+			!PropsValues.USER_GROUPS_SEARCH_WITH_INDEX ||
+			isUseCustomSQL(params)) {
+
+>>>>>>> compatible
 			return userGroupFinder.filterCountByKeywords(
 				companyId, keywords, params);
 		}
@@ -730,7 +767,17 @@ public class UserGroupLocalServiceImpl extends UserGroupLocalServiceBaseImpl {
 		long companyId, String name, String description,
 		LinkedHashMap<String, Object> params, boolean andOperator) {
 
+<<<<<<< HEAD
 		if (isUseCustomSQL(params)) {
+=======
+		Indexer<?> indexer = IndexerRegistryUtil.nullSafeGetIndexer(
+			UserGroup.class);
+
+		if (!indexer.isIndexerEnabled() ||
+			!PropsValues.USER_GROUPS_SEARCH_WITH_INDEX ||
+			isUseCustomSQL(params)) {
+
+>>>>>>> compatible
 			return userGroupFinder.filterCountByC_N_D(
 				companyId, name, description, params, andOperator);
 		}

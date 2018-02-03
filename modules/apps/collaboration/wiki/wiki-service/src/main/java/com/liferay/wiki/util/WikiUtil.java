@@ -14,6 +14,7 @@
 
 package com.liferay.wiki.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.diff.DiffVersion;
@@ -26,11 +27,28 @@ import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermi
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.dao.orm.QueryUtil;
+import com.liferay.portal.kernel.diff.DiffVersion;
+import com.liferay.portal.kernel.diff.DiffVersionsInfo;
+import com.liferay.portal.kernel.language.LanguageUtil;
+import com.liferay.portal.kernel.security.permission.ActionKeys;
+import com.liferay.portal.kernel.security.permission.PermissionChecker;
+import com.liferay.portal.kernel.util.ArrayUtil;
+import com.liferay.portal.kernel.util.ListUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.URLCodec;
 import com.liferay.wiki.model.WikiNode;
 import com.liferay.wiki.model.WikiPage;
+<<<<<<< HEAD
 import com.liferay.wiki.service.WikiPageLocalService;
+=======
+import com.liferay.wiki.service.WikiPageLocalServiceUtil;
+import com.liferay.wiki.service.permission.WikiNodePermissionChecker;
+>>>>>>> compatible
 import com.liferay.wiki.util.comparator.PageVersionComparator;
 
 import java.util.ArrayList;
@@ -40,14 +58,20 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
+=======
+>>>>>>> compatible
 /**
  * @author Brian Wing Shun Chan
  * @author Jorge Ferrer
  */
+<<<<<<< HEAD
 @Component(immediate = true)
+=======
+>>>>>>> compatible
 public class WikiUtil {
 
 	public static String getAttachmentURLPrefix(
@@ -74,7 +98,11 @@ public class WikiUtil {
 		double previousVersion = 0;
 		double nextVersion = 0;
 
+<<<<<<< HEAD
 		List<WikiPage> pages = _wikiPageLocalService.getPages(
+=======
+		List<WikiPage> pages = WikiPageLocalServiceUtil.getPages(
+>>>>>>> compatible
 			nodeId, title, QueryUtil.ALL_POS, QueryUtil.ALL_POS,
 			new PageVersionComparator(true));
 
@@ -122,9 +150,14 @@ public class WikiUtil {
 	}
 
 	public static List<WikiNode> getNodes(
+<<<<<<< HEAD
 			List<WikiNode> nodes, String[] hiddenNodes,
 			PermissionChecker permissionChecker)
 		throws PortalException {
+=======
+		List<WikiNode> nodes, String[] hiddenNodes,
+		PermissionChecker permissionChecker) {
+>>>>>>> compatible
 
 		nodes = ListUtil.copy(nodes);
 
@@ -136,7 +169,11 @@ public class WikiUtil {
 			WikiNode node = itr.next();
 
 			if (!(Arrays.binarySearch(hiddenNodes, node.getName()) < 0) ||
+<<<<<<< HEAD
 				!_wikiNodeModelResourcePermission.contains(
+=======
+				!WikiNodePermissionChecker.contains(
+>>>>>>> compatible
 					permissionChecker, node, ActionKeys.VIEW)) {
 
 				itr.remove();
@@ -159,9 +196,13 @@ public class WikiUtil {
 
 		for (String visibleNodeName : visibleNodeNames) {
 			for (WikiNode node : nodes) {
+<<<<<<< HEAD
 				String name = node.getName();
 
 				if (name.equals(visibleNodeName)) {
+=======
+				if (node.getName().equals(visibleNodeName)) {
+>>>>>>> compatible
 					orderedNodes.add(node);
 
 					nodes.remove(node);
@@ -184,6 +225,7 @@ public class WikiUtil {
 		return content;
 	}
 
+<<<<<<< HEAD
 	@Reference(
 		target = "(model.class.name=com.liferay.wiki.model.WikiNode)",
 		unbind = "-"
@@ -205,4 +247,6 @@ public class WikiUtil {
 		_wikiNodeModelResourcePermission;
 	private static WikiPageLocalService _wikiPageLocalService;
 
+=======
+>>>>>>> compatible
 }

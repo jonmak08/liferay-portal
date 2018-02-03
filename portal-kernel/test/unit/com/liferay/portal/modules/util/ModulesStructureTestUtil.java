@@ -16,11 +16,18 @@ package com.liferay.portal.modules.util;
 
 import aQute.bnd.osgi.Constants;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 
@@ -47,9 +54,13 @@ import org.junit.Assert;
  */
 public class ModulesStructureTestUtil {
 
+<<<<<<< HEAD
 	public static boolean contains(Path path, String... strings)
 		throws IOException {
 
+=======
+	public static boolean contains(Path path, String s) throws IOException {
+>>>>>>> compatible
 		try (FileReader fileReader = new FileReader(path.toFile());
 			UnsyncBufferedReader unsyncBufferedReader =
 				new UnsyncBufferedReader(fileReader)) {
@@ -57,10 +68,15 @@ public class ModulesStructureTestUtil {
 			String line = null;
 
 			while ((line = unsyncBufferedReader.readLine()) != null) {
+<<<<<<< HEAD
 				for (String s : strings) {
 					if (line.contains(s)) {
 						return true;
 					}
+=======
+				if (line.contains(s)) {
+					return true;
+>>>>>>> compatible
 				}
 			}
 		}
@@ -115,10 +131,16 @@ public class ModulesStructureTestUtil {
 			catch (IllegalArgumentException iae) {
 				if (_log.isDebugEnabled()) {
 					_log.debug(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"Ignoring dependency in ",
 							String.valueOf(gradlePath), " since version ",
 							moduleVersion, " cannot be parsed: ", dependency),
+=======
+						"Ignoring dependency in " + gradlePath +
+							" since version " + moduleVersion +
+								" cannot be parsed: " + dependency,
+>>>>>>> compatible
 						iae);
 				}
 			}
@@ -145,10 +167,16 @@ public class ModulesStructureTestUtil {
 			Path projectDirPath = rootDirPath.resolve(projectDirName);
 
 			Assert.assertTrue(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Dependency in ", String.valueOf(gradlePath),
 					" points to non-existent project directory ",
 					String.valueOf(projectDirPath), ": ", matcher.group()),
+=======
+				"Dependency in " + gradlePath +
+					" points to non-existent project directory " +
+						projectDirPath + ": " + matcher.group(),
+>>>>>>> compatible
 				Files.exists(projectDirPath));
 
 			Path bndBndPath = projectDirPath.resolve("bnd.bnd");
@@ -161,11 +189,17 @@ public class ModulesStructureTestUtil {
 			catch (NoSuchFileException nsfe) {
 				if (_log.isDebugEnabled()) {
 					_log.debug(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"Ignoring dependency in ",
 							String.valueOf(gradlePath),
 							" since it points to a non-OSGi project: ",
 							matcher.group()),
+=======
+						"Ignoring dependency in " + gradlePath +
+							" since it points to a non-OSGi project: " +
+								matcher.group(),
+>>>>>>> compatible
 						nsfe);
 				}
 

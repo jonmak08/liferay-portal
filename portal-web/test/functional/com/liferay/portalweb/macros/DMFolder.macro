@@ -4,7 +4,11 @@
 	<command name="addCP">
 		<var name="key_dmFolderName" value="${dmFolderName}" />
 
+<<<<<<< HEAD
 		<execute macro="LexiconEntry#gotoAdd" />
+=======
+		<execute function="Click" locator1="Button#PLUS" />
+>>>>>>> compatible
 
 		<execute function="AssertClick#assertTextClickAt" locator1="MenuItem#ANY_MENU_ITEM" value1="Folder">
 			<var name="key_menuItem" value="Folder" />
@@ -12,21 +16,34 @@
 
 		<execute function="Pause" locator1="1000" />
 
+<<<<<<< HEAD
 		<execute macro="PortletEntry#inputName">
 			<var name="name" value="${dmFolderName}" />
 		</execute>
+=======
+		<execute function="Type" locator1="DocumentsAndMediaEditFolder#NAME_FIELD" value1="${dmFolderName}" />
+>>>>>>> compatible
 
 		<if>
 			<isset var="dmFolderDescription" />
 			<then>
+<<<<<<< HEAD
 				<execute macro="PortletEntry#inputDescription">
 					<var name="description" value="${dmFolderDescription}" />
 				</execute>
+=======
+				<execute function="Type" locator1="DocumentsAndMediaEditFolder#DESCRIPTION_FIELD" value1="${dmFolderDescription}" />
+>>>>>>> compatible
 			</then>
 		</if>
 
 		<execute macro="PortletEntry#save" />
 		<execute function="AssertElementPresent" locator1="DocumentsAndMedia#ICON_FOLDER_THUMBNAIL" />
+<<<<<<< HEAD
+=======
+
+		<execute function="MakeVisible" locator1="DocumentsAndMedia#ICON_FOLDER_THUMBNAIL_GENERIC" />
+>>>>>>> compatible
 
 		<execute function="AssertTextEquals" locator1="DocumentsAndMedia#ICON_FOLDER_TITLE" value1="${dmFolderName}" />
 	</command>
@@ -39,6 +56,7 @@
 		<execute function="AssertClick#assertTextClickAt" locator1="MenuItem#ANY_MENU_ITEM" value1="Folder">
 			<var name="key_menuItem" value="Folder" />
 		</execute>
+<<<<<<< HEAD
 
 		<execute function="Pause" locator1="1000" />
 
@@ -49,6 +67,13 @@
 		<execute macro="PortletEntry#inputDescription">
 			<var name="description" value="${dmFolderDescription}" />
 		</execute>
+=======
+
+		<execute function="Pause" locator1="1000" />
+
+		<execute function="Type" locator1="DocumentsAndMediaEditFolder#NAME_FIELD" value1="${dmFolderName}" />
+		<execute function="Type" locator1="DocumentsAndMediaEditFolder#DESCRIPTION_FIELD" value1="${dmFolderDescription}" />
+>>>>>>> compatible
 
 		<if>
 			<isset var="viewableBy" />
@@ -88,6 +113,7 @@
 		<execute macro="Portlet#clickPortletPlusIconPG">
 			<var name="portletName" value="Media Gallery" />
 		</execute>
+<<<<<<< HEAD
 
 		<execute function="AssertClick#assertTextClickAt" locator1="MenuItem#ANY_MENU_ITEM" value1="Folder">
 			<var name="key_menuItem" value="Folder" />
@@ -99,6 +125,19 @@
 			<var name="name" value="${mgFolderName}" />
 		</execute>
 
+=======
+
+		<execute function="AssertClick#assertTextClickAt" locator1="MenuItem#ANY_MENU_ITEM" value1="Folder">
+			<var name="key_menuItem" value="Folder" />
+		</execute>
+
+		<execute function="Pause" locator1="1000" />
+
+		<execute macro="PortletEntry#inputName">
+			<var name="name" value="${mgFolderName}" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="PortletEntry#inputDescription">
 			<var name="description" value="${mgFolderDescription}" />
 		</execute>
@@ -111,9 +150,13 @@
 	</command>
 
 	<command name="addSubfolderCP">
+<<<<<<< HEAD
 		<execute function="MouseOver#mouseOverNotVisible" locator1="Button#PLUS" />
 
 		<execute macro="LexiconEntry#gotoAdd" />
+=======
+		<execute function="Click#makeVisibleClickAt" locator1="Button#PLUS" />
+>>>>>>> compatible
 
 		<execute function="AssertClick#assertTextClickAt" locator1="MenuItem#ANY_MENU_ITEM" value1="Subfolder">
 			<var name="key_menuItem" value="Subfolder" />
@@ -121,16 +164,24 @@
 
 		<execute function="Pause" locator1="1000" />
 
+<<<<<<< HEAD
 		<execute macro="PortletEntry#inputName">
 			<var name="name" value="${dmSubFolderName}" />
 		</execute>
+=======
+		<execute function="Type" locator1="DocumentsAndMediaEditFolder#NAME_FIELD" value1="${dmSubFolderName}" />
+>>>>>>> compatible
 
 		<if>
 			<isset var="dmSubFolderDescription" />
 			<then>
+<<<<<<< HEAD
 				<execute macro="PortletEntry#inputDescription">
 					<var name="description" value="${dmSubFolderDescription}" />
 				</execute>
+=======
+				<execute function="Type" locator1="DocumentsAndMediaEditFolder#DESCRIPTION_FIELD" value1="${dmSubFolderDescription}" />
+>>>>>>> compatible
 			</then>
 		</if>
 
@@ -165,19 +216,30 @@
 		<execute function="AssertClick#assertTextClickAt" locator1="MenuItem#ANY_MENU_ITEM" value1="Subfolder">
 			<var name="key_menuItem" value="Subfolder" />
 		</execute>
+<<<<<<< HEAD
 
 		<execute function="Pause" locator1="1000" />
 
 		<execute macro="PortletEntry#inputName">
 			<var name="name" value="${dmSubFolderName}" />
 		</execute>
+=======
+
+		<execute function="Pause" locator1="1000" />
+
+		<execute function="Type" locator1="DocumentsAndMediaEditFolder#NAME_FIELD" value1="${dmSubFolderName}" />
+>>>>>>> compatible
 
 		<if>
 			<isset var="dmSubFolderDescription" />
 			<then>
+<<<<<<< HEAD
 				<execute macro="PortletEntry#inputDescription">
 					<var name="description" value="${dmSubFolderDescription}" />
 				</execute>
+=======
+				<execute function="Type" locator1="DocumentsAndMediaEditFolder#DESCRIPTION_FIELD" value1="${dmSubFolderDescription}" />
+>>>>>>> compatible
 			</then>
 		</if>
 
@@ -332,6 +394,7 @@
 
 		<execute function="AssertElementPresent" locator1="DocumentsAndMedia#ICON_FOLDER_THUMBNAIL" />
 		<execute function="AssertTextEquals" locator1="DocumentsAndMedia#ICON_FOLDER_THUMBNAIL" value1="${dmFolderName}" />
+<<<<<<< HEAD
 
 		<execute function="AssertElementPresent" locator1="DocumentsAndMedia#DESCRIPTIVE_LIST_VERTICAL_ELLIPSIS" />
 
@@ -351,6 +414,24 @@
 
 		<execute macro="PortletEntry#save" />
 
+=======
+
+		<execute function="MouseOver" locator1="DocumentsAndMedia#ICON_FOLDER_THUMBNAIL" />
+
+		<execute function="AssertElementPresent" locator1="DocumentsAndMedia#DESCRIPTIVE_LIST_VERTICAL_ELLIPSIS" />
+
+		<execute function="Click" locator1="DocumentsAndMedia#DESCRIPTIVE_LIST_VERTICAL_ELLIPSIS" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Edit">
+			<var name="key_menuItem" value="Edit" />
+		</execute>
+
+		<execute function="Type" locator1="DocumentsAndMediaEditFolder#NAME_FIELD" value1="${dmFolderNameEdit}" />
+		<execute function="Type" locator1="DocumentsAndMediaEditFolder#DESCRIPTION_FIELD" value1="${dmFolderDescriptionEdit}" />
+
+		<execute macro="PortletEntry#save" />
+
+>>>>>>> compatible
 		<execute function="AssertElementPresent" locator1="DocumentsAndMedia#ICON_FOLDER_THUMBNAIL" />
 		<execute function="AssertTextEquals" locator1="DocumentsAndMedia#ICON_FOLDER_THUMBNAIL" value1="${dmFolderNameEdit}" />
 	</command>
@@ -365,6 +446,20 @@
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Edit">
 			<var name="key_menuItem" value="Edit" />
 		</execute>
+<<<<<<< HEAD
+
+		<execute macro="PortletEntry#inputName">
+			<var name="name" value="${dmFolderNameEdit}" />
+		</execute>
+
+		<execute macro="PortletEntry#inputDescription">
+			<var name="description" value="${dmFolderDescriptionEdit}" />
+		</execute>
+
+		<execute macro="Button#clickSave" />
+
+		<var name="key_dmFolderNameEdit" value="${dmFolderNameEdit}" />
+=======
 
 		<execute macro="PortletEntry#inputName">
 			<var name="name" value="${dmFolderNameEdit}" />
@@ -395,10 +490,41 @@
 		</execute>
 
 		<execute macro="PortletEntry#save" />
+>>>>>>> compatible
+
+		<execute macro="Alert#viewSuccessMessage" />
+
+<<<<<<< HEAD
+		<execute function="AssertTextEquals#assertPartialText" locator1="DocumentsAndMedia#DESCRIPTIVE_LIST_FOLDER_EDITED_TITLE" value1="${dmFolderNameEdit}" />
+=======
+		<execute function="AssertTextEquals" locator1="MediaGallery#FOLDER_NAME" value1="${mgFolderNameEdit}" />
+>>>>>>> compatible
+	</command>
+
+	<command name="editPGViaMG">
+		<execute macro="PortletEntry#clickEditFromEllipsis" />
+
+		<execute macro="PortletEntry#inputName">
+			<var name="name" value="${mgFolderNameEdit}" />
+		</execute>
+
+		<execute macro="PortletEntry#inputDescription">
+			<var name="description" value="${mgFolderDescriptionEdit}" />
+		</execute>
+
+		<execute macro="PortletEntry#save" />
 
 		<var name="key_mgFolderName" value="${mgFolderName}" />
 
+<<<<<<< HEAD
 		<execute function="AssertTextEquals" locator1="MediaGallery#FOLDER_NAME" value1="${mgFolderNameEdit}" />
+=======
+		<execute function="MakeVisible" locator1="DocumentsAndMedia#ICON_FOLDER_THUMBNAIL_GENERIC" />
+
+		<execute function="AssertClick#assertTextClickAt" locator1="DocumentsAndMedia#ICON_FOLDER_TITLE" value1="${dmFolderName}" />
+
+		<execute function="AssertVisible" locator1="DocumentsAndMedia#BREADCRUMB_FOLDER_NAME" />
+>>>>>>> compatible
 	</command>
 
 	<command name="gotoEditCP">
@@ -414,6 +540,8 @@
 	</command>
 
 	<command name="gotoPGViaMG">
+		<execute function="MakeVisible" locator1="MediaGallery#FOLDER_GENERIC" />
+
 		<var name="key_mgFolderName" value="${mgFolderName}" />
 
 		<execute function="Click" locator1="MediaGallery#FOLDER_NAME" />
@@ -422,9 +550,13 @@
 	</command>
 
 	<command name="moveToFolderCP">
+<<<<<<< HEAD
 		<execute macro="Portlet#changeDisplayStyle">
 			<var name="displayStyle" value="descriptive" />
 		</execute>
+=======
+		<execute function="Click" locator1="Icon#DISPLAY_STYLE_DESCRIPTIVE" />
+>>>>>>> compatible
 
 		<var name="key_dmFolderName" value="${dmFolderName}" />
 
@@ -432,11 +564,19 @@
 		<execute function="AssertElementPresent" locator1="DocumentsAndMedia#DESCRIPTIVE_LIST_FOLDER_TITLE" value1="${dmFolderName2}" />
 
 		<execute function="Click" locator1="DocumentsAndMedia#DESCRIPTIVE_LIST_VERTICAL_ELLIPSIS" value1="${dmFolderName2}" />
+<<<<<<< HEAD
 
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Move">
 			<var name="key_menuItem" value="Move" />
 		</execute>
 
+=======
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Move">
+			<var name="key_menuItem" value="Move" />
+		</execute>
+
+>>>>>>> compatible
 		<execute function="AssertClick" locator1="Button#SELECT" value1="Select" />
 
 		<execute function="SelectFrame" locator1="DocumentsAndMediaSelectFolder#SELECT_FOLDER_IFRAME" />
@@ -483,7 +623,11 @@
 
 	<command name="removeFolderViewPermissionsPG">
 		<var name="key_dmFolderName" value="${dmFolderName}" />
+<<<<<<< HEAD
 		<var method="StringUtil#lowerCase('${key_roleTitle}')" name="key_roleTitle" />
+=======
+		<var method="StringUtil#lowerCase('${key_roleName}')" name="key_roleName" />
+>>>>>>> compatible
 
 		<execute function="Check" locator1="DocumentsAndMedia#ICON_FOLDER_CHECKBOX" />
 
@@ -507,16 +651,29 @@
 	<command name="removePermissions">
 		<execute macro="DMFolder#viewFolderPermissionsPG">
 			<var name="dmFolder" value="${dmFolder}" />
+<<<<<<< HEAD
 			<var name="key_roleTitle" value="${roleTitle}" />
 		</execute>
 
 		<var name="key_roleTitle" value="${roleTitle}" />
+=======
+			<var name="key_roleName" value="${roleName}" />
+		</execute>
+
+		<var name="key_roleName" value="${roleName}" />
+>>>>>>> compatible
 
 		<for list="${permissionNameList}" param="permissionName">
 			<execute function="Uncheck" locator1="Permissions#CONTENT_PERMISSIONS_${permissionName}_CHECKBOX" />
 		</for>
 
+<<<<<<< HEAD
 		<execute macro="PortletEntry#save" />
+=======
+		<execute macro="Button#clickSave" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 	</command>
 
 	<command name="subscribePG">
@@ -530,9 +687,13 @@
 	<command name="tearDownCP">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Documents and Media" />
 		</execute>
 
@@ -553,9 +714,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Recycle Bin" />
 		</execute>
 
@@ -580,9 +745,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Recycle Bin" />
 		</execute>
 
@@ -593,6 +762,7 @@
 		<var name="key_dmFolderName" value="${dmFolderName}" />
 
 		<if>
+<<<<<<< HEAD
 			<condition function="IsElementPresent" locator1="Icon#DISPLAY_STYLE_ACTIVE">
 				<var name="key_displayStyle" value="descriptive" />
 			</condition>
@@ -600,10 +770,19 @@
 			<then>
 				<execute function="AssertElementPresent" locator1="DocumentsAndMedia#DESCRIPTIVE_LIST_FOLDER_ICON" />
 				<execute function="AssertTextEquals" locator1="DocumentsAndMedia#DESCRIPTIVE_LIST_FOLDER_TITLE" value1="${dmFolderName}" />
+=======
+			<condition function="IsElementPresent" locator1="Icon#DISPLAY_STYLE_DESCRIPTIVE_ACTIVE" />
+			<then>
+				<execute function="AssertElementPresent" locator1="DocumentsAndMedia#DESCRIPTIVE_LIST_FOLDER_ICON" />
+				<execute function="AssertTextEquals" locator1="DocumentsAndMedia#DESCRIPTIVE_LIST_FOLDER_TITLE" value1="${dmFolderName}" />
+
+				<execute function="AssertClick" locator1="DocumentsAndMedia#DESCRIPTIVE_LIST_FOLDER_TITLE" value1="${dmFolderName}" />
+>>>>>>> compatible
 			</then>
 			<else>
 				<execute function="AssertElementPresent" locator1="DocumentsAndMedia#ICON_FOLDER_THUMBNAIL" />
 				<execute function="AssertTextEquals" locator1="DocumentsAndMedia#ICON_FOLDER_THUMBNAIL" value1="${dmFolderName}" />
+<<<<<<< HEAD
 			</else>
 		</if>
 
@@ -614,6 +793,15 @@
 
 		<var method="StringUtil#upperCase('${dmFolderName}')" name="dmFolderNameUpperCase" />
 
+=======
+
+				<execute function="AssertClick" locator1="DocumentsAndMedia#ICON_FOLDER_TITLE" value1="${dmFolderName}" />
+			</else>
+		</if>
+
+		<var method="StringUtil#upperCase('${dmFolderName}')" name="dmFolderNameUpperCase" />
+
+>>>>>>> compatible
 		<execute function="AssertTextEquals" locator1="DocumentsAndMedia#BREADCRUMB_LAST" value1="${dmFolderNameUpperCase}" />
 	</command>
 
@@ -625,6 +813,7 @@
 	<command name="viewFolderPermissionsPG">
 		<var name="key_dmFolderName" value="${dmFolder}" />
 
+<<<<<<< HEAD
 		<var method="StringUtil#lowerCase('${key_roleTitle}')" name="key_roleTitle" />
 
 		<execute function="Check" locator1="DocumentsAndMedia#ICON_FOLDER_CHECKBOX" />
@@ -635,13 +824,43 @@
 			<var name="key_menuItem" value="Permissions" />
 		</execute>
 
+=======
+		<execute function="AssertElementPresent" locator1="DocumentsAndMedia#ICON_FOLDER_THUMBNAIL" />
+
+		<execute function="MakeVisible" locator1="DocumentsAndMedia#ICON_FOLDER_THUMBNAIL_GENERIC" />
+
+		<execute function="AssertClick" locator1="DocumentsAndMedia#ICON_FOLDER_TITLE" value1="${dmFolderNameEdit}" />
+
+		<var method="StringUtil#upperCase('${dmFolderNameEdit}')" name="dmFolderNameEditUpperCase" />
+
+		<execute function="AssertTextEquals" locator1="DocumentsAndMedia#BREADCRUMB_LAST" value1="${dmFolderNameEditUpperCase}" />
+	</command>
+
+	<command name="viewFolderPermissionsPG">
+		<var name="key_dmFolderName" value="${dmFolder}" />
+
+		<var method="StringUtil#lowerCase('${key_roleName}')" name="key_roleName" />
+
+		<execute function="Check" locator1="DocumentsAndMedia#ICON_FOLDER_CHECKBOX" />
+
+		<execute function="Click" locator1="DocumentsAndMedia#DESCRIPTIVE_LIST_VERTICAL_ELLIPSIS" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Permissions">
+			<var name="key_menuItem" value="Permissions" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="IFrame#selectPermissionsFrame" />
 	</command>
 
 	<command name="viewFolderViewPermissionsPG">
 		<execute macro="DMFolder#viewFolderPermissionsPG">
 			<var name="dmFolder" value="${dmFolder}" />
+<<<<<<< HEAD
 			<var name="key_roleTitle" value="${roleTitle}" />
+=======
+			<var name="key_roleName" value="${roleName}" />
+>>>>>>> compatible
 		</execute>
 
 		<if>
@@ -672,6 +891,8 @@
 	</command>
 
 	<command name="viewPGViaMG">
+		<execute function="MakeVisible" locator1="MediaGallery#FOLDER_GENERIC" />
+
 		<var name="key_mgFolderName" value="${mgFolderName}" />
 
 		<execute function="Click" locator1="MediaGallery#FOLDER_NAME" />

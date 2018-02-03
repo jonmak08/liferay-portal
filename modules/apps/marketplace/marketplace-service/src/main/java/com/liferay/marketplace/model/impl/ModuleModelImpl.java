@@ -29,6 +29,10 @@ import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Serializable;
 
@@ -205,7 +209,11 @@ public class ModuleModelImpl extends BaseModelImpl<Module>
 	@Override
 	public String getUuid() {
 		if (_uuid == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _uuid;
@@ -282,7 +290,11 @@ public class ModuleModelImpl extends BaseModelImpl<Module>
 	@Override
 	public String getBundleSymbolicName() {
 		if (_bundleSymbolicName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _bundleSymbolicName;
@@ -307,7 +319,11 @@ public class ModuleModelImpl extends BaseModelImpl<Module>
 	@Override
 	public String getBundleVersion() {
 		if (_bundleVersion == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _bundleVersion;
@@ -332,7 +348,11 @@ public class ModuleModelImpl extends BaseModelImpl<Module>
 	@Override
 	public String getContextName() {
 		if (_contextName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _contextName;

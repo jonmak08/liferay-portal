@@ -14,7 +14,11 @@
 
 package com.liferay.portal.search.elasticsearch.internal.cluster;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.search.elasticsearch.internal.connection.ElasticsearchFixture;
 
 import java.net.InetAddress;

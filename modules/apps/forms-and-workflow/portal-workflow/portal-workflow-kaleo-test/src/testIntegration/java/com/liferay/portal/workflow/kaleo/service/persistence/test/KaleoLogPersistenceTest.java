@@ -28,6 +28,10 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.util.IntegerWrapper;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.OrderByComparatorFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.PersistenceTestRule;
@@ -137,7 +141,11 @@ public class KaleoLogPersistenceTest {
 
 		newKaleoLog.setKaleoClassPK(RandomTestUtil.nextLong());
 
+<<<<<<< HEAD
 		newKaleoLog.setKaleoDefinitionVersionId(RandomTestUtil.nextLong());
+=======
+		newKaleoLog.setKaleoDefinitionId(RandomTestUtil.nextLong());
+>>>>>>> compatible
 
 		newKaleoLog.setKaleoInstanceId(RandomTestUtil.nextLong());
 
@@ -203,8 +211,13 @@ public class KaleoLogPersistenceTest {
 			newKaleoLog.getKaleoClassName());
 		Assert.assertEquals(existingKaleoLog.getKaleoClassPK(),
 			newKaleoLog.getKaleoClassPK());
+<<<<<<< HEAD
 		Assert.assertEquals(existingKaleoLog.getKaleoDefinitionVersionId(),
 			newKaleoLog.getKaleoDefinitionVersionId());
+=======
+		Assert.assertEquals(existingKaleoLog.getKaleoDefinitionId(),
+			newKaleoLog.getKaleoDefinitionId());
+>>>>>>> compatible
 		Assert.assertEquals(existingKaleoLog.getKaleoInstanceId(),
 			newKaleoLog.getKaleoInstanceId());
 		Assert.assertEquals(existingKaleoLog.getKaleoInstanceTokenId(),
@@ -256,10 +269,17 @@ public class KaleoLogPersistenceTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testCountByKaleoDefinitionVersionId() throws Exception {
 		_persistence.countByKaleoDefinitionVersionId(RandomTestUtil.nextLong());
 
 		_persistence.countByKaleoDefinitionVersionId(0L);
+=======
+	public void testCountByKaleoDefinitionId() throws Exception {
+		_persistence.countByKaleoDefinitionId(RandomTestUtil.nextLong());
+
+		_persistence.countByKaleoDefinitionId(0L);
+>>>>>>> compatible
 	}
 
 	@Test
@@ -278,19 +298,34 @@ public class KaleoLogPersistenceTest {
 
 	@Test
 	public void testCountByKITI_T() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByKITI_T(RandomTestUtil.nextLong(), "");
 
 		_persistence.countByKITI_T(0L, "null");
+=======
+		_persistence.countByKITI_T(RandomTestUtil.nextLong(), StringPool.BLANK);
+
+		_persistence.countByKITI_T(0L, StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByKITI_T(0L, (String)null);
 	}
 
 	@Test
 	public void testCountByKCN_KCPK_KITI_T() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByKCN_KCPK_KITI_T("", RandomTestUtil.nextLong(),
 			RandomTestUtil.nextLong(), "");
 
 		_persistence.countByKCN_KCPK_KITI_T("null", 0L, 0L, "null");
+=======
+		_persistence.countByKCN_KCPK_KITI_T(StringPool.BLANK,
+			RandomTestUtil.nextLong(), RandomTestUtil.nextLong(),
+			StringPool.BLANK);
+
+		_persistence.countByKCN_KCPK_KITI_T(StringPool.NULL, 0L, 0L,
+			StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByKCN_KCPK_KITI_T((String)null, 0L, 0L, (String)null);
 	}
@@ -321,11 +356,19 @@ public class KaleoLogPersistenceTest {
 		return OrderByComparatorFactoryUtil.create("KaleoLog", "kaleoLogId",
 			true, "groupId", true, "companyId", true, "userId", true,
 			"userName", true, "createDate", true, "modifiedDate", true,
+<<<<<<< HEAD
 			"kaleoClassName", true, "kaleoClassPK", true,
 			"kaleoDefinitionVersionId", true, "kaleoInstanceId", true,
 			"kaleoInstanceTokenId", true, "kaleoTaskInstanceTokenId", true,
 			"kaleoNodeName", true, "terminalKaleoNode", true, "kaleoActionId",
 			true, "kaleoActionName", true, "kaleoActionDescription", true,
+=======
+			"kaleoClassName", true, "kaleoClassPK", true, "kaleoDefinitionId",
+			true, "kaleoInstanceId", true, "kaleoInstanceTokenId", true,
+			"kaleoTaskInstanceTokenId", true, "kaleoNodeName", true,
+			"terminalKaleoNode", true, "kaleoActionId", true,
+			"kaleoActionName", true, "kaleoActionDescription", true,
+>>>>>>> compatible
 			"previousKaleoNodeId", true, "previousKaleoNodeName", true,
 			"previousAssigneeClassName", true, "previousAssigneeClassPK", true,
 			"currentAssigneeClassName", true, "currentAssigneeClassPK", true,
@@ -545,7 +588,11 @@ public class KaleoLogPersistenceTest {
 
 		kaleoLog.setKaleoClassPK(RandomTestUtil.nextLong());
 
+<<<<<<< HEAD
 		kaleoLog.setKaleoDefinitionVersionId(RandomTestUtil.nextLong());
+=======
+		kaleoLog.setKaleoDefinitionId(RandomTestUtil.nextLong());
+>>>>>>> compatible
 
 		kaleoLog.setKaleoInstanceId(RandomTestUtil.nextLong());
 

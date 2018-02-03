@@ -1,5 +1,9 @@
 Bundle-Name: Liferay Portal Security WeDeploy Auth Web
 Bundle-SymbolicName: com.liferay.portal.security.wedeploy.auth.web
+<<<<<<< HEAD
 Bundle-Version: 1.0.6
+=======
+Bundle-Version: 1.0.3
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title:

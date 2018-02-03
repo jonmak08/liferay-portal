@@ -14,8 +14,11 @@
 
 package com.liferay.exportimport.xstream;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.xstream.XStreamConverter;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -29,7 +32,10 @@ import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 /**
  * @author Daniel Kocsis
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class ConverterAdapter implements Converter {
 
 	public ConverterAdapter(XStreamConverter xStreamConverter) {

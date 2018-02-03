@@ -31,12 +31,18 @@ public class UpgradeKBArticle extends UpgradeProcess {
 			"com.liferay.knowledgebase.model.KBArticle");
 
 		runSQL(
+<<<<<<< HEAD
 			StringBundler.concat(
 				"update KBArticle set parentResourceClassNameId = ",
 				String.valueOf(kbArticleClassNameId),
 				" where parentResourcePrimKey != ",
 				String.valueOf(
 					KBArticleConstants.DEFAULT_PARENT_RESOURCE_PRIM_KEY)));
+=======
+			"update KBArticle set parentResourceClassNameId = " +
+				kbArticleClassNameId + " where parentResourcePrimKey != " +
+					KBArticleConstants.DEFAULT_PARENT_RESOURCE_PRIM_KEY);
+>>>>>>> compatible
 
 		StringBundler sb = new StringBundler(6);
 

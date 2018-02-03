@@ -42,6 +42,10 @@ import com.liferay.portal.kernel.trash.TrashRenderer;
 import com.liferay.portal.kernel.trash.TrashRendererFactory;
 import com.liferay.portlet.documentlibrary.service.permission.DLFileShortcutPermission;
 import com.liferay.portlet.documentlibrary.service.permission.DLFolderPermission;
+<<<<<<< HEAD
+=======
+import com.liferay.trash.kernel.model.TrashEntry;
+>>>>>>> compatible
 
 import javax.portlet.PortletRequest;
 
@@ -128,6 +132,7 @@ public class DLFileShortcutTrashHandler extends DLBaseTrashHandler {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public TrashedModel getTrashedModel(long classPK) {
 		try {
 			return getDLFileShortcut(classPK);
@@ -139,6 +144,12 @@ public class DLFileShortcutTrashHandler extends DLBaseTrashHandler {
 
 			return null;
 		}
+=======
+	public TrashEntry getTrashEntry(long classPK) throws PortalException {
+		DLFileShortcut dlFileShortcut = getDLFileShortcut(classPK);
+
+		return dlFileShortcut.getTrashEntry();
+>>>>>>> compatible
 	}
 
 	@Override
@@ -162,6 +173,41 @@ public class DLFileShortcutTrashHandler extends DLBaseTrashHandler {
 	}
 
 	@Override
+<<<<<<< HEAD
+=======
+	public boolean isInTrash(long classPK) throws PortalException {
+		try {
+			DLFileShortcut dlFileShortcut = getDLFileShortcut(classPK);
+
+			return dlFileShortcut.isInTrash();
+		}
+		catch (UnsupportedCapabilityException uce) {
+			if (_log.isDebugEnabled()) {
+				_log.debug(uce, uce);
+			}
+
+			return false;
+		}
+	}
+
+	@Override
+	public boolean isInTrashContainer(long classPK) throws PortalException {
+		try {
+			DLFileShortcut dlFileShortcut = getDLFileShortcut(classPK);
+
+			return dlFileShortcut.isInTrashContainer();
+		}
+		catch (UnsupportedCapabilityException uce) {
+			if (_log.isDebugEnabled()) {
+				_log.debug(uce, uce);
+			}
+
+			return false;
+		}
+	}
+
+	@Override
+>>>>>>> compatible
 	public boolean isRestorable(long classPK) throws PortalException {
 		DLFileShortcut dlFileShortcut = getDLFileShortcut(classPK);
 

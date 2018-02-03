@@ -117,6 +117,7 @@ public class JournalArticleSitemapURLProvider implements SitemapURLProvider {
 				continue;
 			}
 
+<<<<<<< HEAD
 			Layout layout = _layoutLocalService.fetchLayoutByUuidAndGroupId(
 				journalArticle.getLayoutUuid(), layoutSet.getGroupId(),
 				layoutSet.getPrivateLayout());
@@ -125,6 +126,8 @@ public class JournalArticleSitemapURLProvider implements SitemapURLProvider {
 				continue;
 			}
 
+=======
+>>>>>>> compatible
 			String groupFriendlyURL = _portal.getGroupFriendlyURL(
 				_layoutSetLocalService.getLayoutSet(
 					journalArticle.getGroupId(), false),
@@ -140,6 +143,13 @@ public class JournalArticleSitemapURLProvider implements SitemapURLProvider {
 			sb.append(JournalArticleConstants.CANONICAL_URL_SEPARATOR);
 			sb.append(journalArticle.getUrlTitle());
 
+<<<<<<< HEAD
+=======
+			Layout layout = _layoutLocalService.getLayoutByUuidAndGroupId(
+				journalArticle.getLayoutUuid(), layoutSet.getGroupId(),
+				layoutSet.getPrivateLayout());
+
+>>>>>>> compatible
 			String articleURL = _portal.getCanonicalURL(
 				sb.toString(), themeDisplay, layout);
 

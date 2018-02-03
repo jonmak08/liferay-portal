@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
 	"dependencies": {
 		"metal": "^2.13.2",
 		"metal-component": "^2.13.2",
@@ -14,3 +15,13 @@
 	"name": "frontend-image-editor-capability-crop",
 	"version": "1.0.15"
 }
+=======
+	"devDependencies": {
+		"liferay-module-config-generator": "^1.2.1",
+		"metal-cli": "^4.0.1",
+		"metal-components": "1.0.0-rc.19"
+	},
+	"name": "frontend-image-editor-capability-crop",
+	"version": "1.0.12"
+}
+>>>>>>> compatible

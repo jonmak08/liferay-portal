@@ -20,7 +20,10 @@ import com.liferay.portal.kernel.model.LayoutConstants;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.LoggingTimer;
 import com.liferay.portal.kernel.util.PortletKeys;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.UnicodeProperties;
 import com.liferay.portal.kernel.util.Validator;
 
@@ -169,9 +172,14 @@ public abstract class BaseUpgradeLastPublishDate extends UpgradeProcess {
 		throws Exception {
 
 		try (PreparedStatement ps = connection.prepareStatement(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"update ", tableName, " set lastPublishDate = ? where ",
 					"groupId = ?"))) {
+=======
+				"update " + tableName + " set lastPublishDate = ? where " +
+					"groupId = ?")) {
+>>>>>>> compatible
 
 			ps.setDate(1, new java.sql.Date(lastPublishDate.getTime()));
 			ps.setLong(2, groupId);

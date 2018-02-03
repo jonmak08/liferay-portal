@@ -32,6 +32,7 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
 )
 public interface SiteNavigationMenuPortletInstanceConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(name = "bullet-style", required = false)
 	public String bulletStyle();
 
@@ -57,6 +58,33 @@ public interface SiteNavigationMenuPortletInstanceConfiguration {
 	public String rootLayoutType();
 
 	@Meta.AD(name = "root-layout-uuid", required = false)
+=======
+	@Meta.AD(required = false)
+	public String bulletStyle();
+
+	@Meta.AD(deflt = "0", required = false)
+	public int displayDepth();
+
+	@Meta.AD(required = false)
+	public String displayStyle();
+
+	@Meta.AD(deflt = "0", required = false)
+	public long displayStyleGroupId();
+
+	@Meta.AD(deflt = "current", required = false)
+	public String includedLayouts();
+
+	@Meta.AD(deflt = "preview", required = false)
+	public boolean preview();
+
+	@Meta.AD(deflt = "0", required = false)
+	public int rootLayoutLevel();
+
+	@Meta.AD(deflt = "absolute", required = false)
+	public String rootLayoutType();
+
+	@Meta.AD(required = false)
+>>>>>>> compatible
 	public String rootLayoutUuid();
 
 }

@@ -130,7 +130,11 @@ public class ReleaseGraphManagerTest {
 
 		List<String> sinkNodes = releaseGraphManager.getEndVertices();
 
+<<<<<<< HEAD
 		Assert.assertTrue(sinkNodes.toString(), sinkNodes.contains("2.0.0"));
+=======
+		Assert.assertTrue(sinkNodes.contains("2.0.0"));
+>>>>>>> compatible
 	}
 
 	@Test
@@ -148,8 +152,13 @@ public class ReleaseGraphManagerTest {
 
 		List<String> sinkNodes = releaseGraphManager.getEndVertices();
 
+<<<<<<< HEAD
 		Assert.assertTrue(sinkNodes.toString(), sinkNodes.contains("2.0.0"));
 		Assert.assertTrue(sinkNodes.toString(), sinkNodes.contains("2.2.0"));
+=======
+		Assert.assertTrue(sinkNodes.contains("2.0.0"));
+		Assert.assertTrue(sinkNodes.contains("2.2.0"));
+>>>>>>> compatible
 	}
 
 	@Test

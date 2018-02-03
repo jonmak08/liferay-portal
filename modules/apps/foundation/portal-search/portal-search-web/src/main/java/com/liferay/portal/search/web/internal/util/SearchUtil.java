@@ -19,12 +19,18 @@ import com.liferay.asset.kernel.model.AssetEntry;
 import com.liferay.asset.kernel.model.AssetRenderer;
 import com.liferay.asset.kernel.model.AssetRendererFactory;
 import com.liferay.asset.kernel.service.AssetEntryLocalServiceUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.petra.xml.XMLUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Group;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.Layout;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.search.OpenSearch;
 import com.liferay.portal.kernel.search.OpenSearchRegistryUtil;
 import com.liferay.portal.kernel.search.OpenSearchUtil;
@@ -32,17 +38,27 @@ import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
 import com.liferay.portal.kernel.service.GroupServiceUtil;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.GetterUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.PredicateFilter;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.ListUtil;
+import com.liferay.portal.kernel.util.PortalUtil;
+import com.liferay.portal.kernel.util.PredicateFilter;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Tuple;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portlet.asset.util.AssetUtil;
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.List;
@@ -188,6 +204,7 @@ public class SearchUtil {
 				"assetEntryId", String.valueOf(assetEntry.getEntryId()));
 			viewContentURL.setParameter("type", assetRendererFactory.getType());
 
+<<<<<<< HEAD
 			if (!viewInContext) {
 				return viewContentURL.toString();
 			}
@@ -231,6 +248,35 @@ public class SearchUtil {
 				e);
 
 			return StringPool.BLANK;
+=======
+			if (viewInContext) {
+				AssetRenderer<?> assetRenderer =
+					assetRendererFactory.getAssetRenderer(classPK);
+
+				String viewURL = assetRenderer.getURLViewInContext(
+					PortalUtil.getLiferayPortletRequest(renderRequest),
+					PortalUtil.getLiferayPortletResponse(renderResponse),
+					viewContentURL.toString());
+
+				ThemeDisplay themeDisplay =
+					(ThemeDisplay)renderRequest.getAttribute(
+						WebKeys.THEME_DISPLAY);
+
+				return AssetUtil.checkViewURL(
+					assetEntry, viewInContext, viewURL, currentURL,
+					themeDisplay);
+			}
+
+			return viewContentURL.toString();
+		}
+		catch (Exception e) {
+			_log.error(
+				"Unable to get search result  view URL for class " + className +
+					" with primary key " + classPK,
+				e);
+
+			return "";
+>>>>>>> compatible
 		}
 	}
 

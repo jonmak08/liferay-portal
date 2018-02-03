@@ -14,14 +14,20 @@
 
 package com.liferay.portal.servlet;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.NoSuchLayoutException;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HashUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.JavaConstants;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.StringPool;
@@ -264,6 +270,7 @@ public class I18nServlet extends HttpServlet {
 		private final String _languageId;
 		private final String _path;
 
+<<<<<<< HEAD
 	}
 
 	private String _appendQueryString(HttpServletRequest request, String path) {
@@ -279,6 +286,8 @@ public class I18nServlet extends HttpServlet {
 		}
 
 		return path;
+=======
+>>>>>>> compatible
 	}
 
 	private static final Log _log = LogFactoryUtil.getLog(I18nServlet.class);

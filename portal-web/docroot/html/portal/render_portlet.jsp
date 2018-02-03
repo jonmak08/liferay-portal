@@ -199,6 +199,7 @@ if ((portletParallelRender != null) && (portletParallelRender.booleanValue() == 
 
 Layout curLayout = PortletConfigurationLayoutUtil.getLayout(themeDisplay);
 
+<<<<<<< HEAD
 if ((!group.hasStagingGroup() || !PropsValues.STAGING_LIVE_GROUP_LOCKING_ENABLED) && PortletPermissionUtil.contains(permissionChecker, themeDisplay.getScopeGroupId(), curLayout, portlet, ActionKeys.CONFIGURATION)) {
 	showConfigurationIcon = true;
 
@@ -229,6 +230,50 @@ if (!columnDisabled && customizable && !portlet.isPreferencesCompanyWide() && po
 
 	if (PropsValues.PORTLET_CSS_ENABLED) {
 		showPortletCssIcon = true;
+=======
+if ((!group.hasStagingGroup() || !PropsValues.STAGING_LIVE_GROUP_LOCKING_ENABLED) &&
+	(PortletPermissionUtil.contains(permissionChecker, themeDisplay.getScopeGroupId(), curLayout, portlet, ActionKeys.CONFIGURATION))) {
+
+	showConfigurationIcon = true;
+
+	boolean supportsConfigurationLAR = portlet.getConfigurationActionInstance() != null;
+	boolean supportsDataLAR = !(portlet.getPortletDataHandlerInstance() instanceof DefaultConfigurationPortletDataHandler);
+
+	if (supportsConfigurationLAR || supportsDataLAR || !group.isControlPanel()) {
+		showExportImportIcon = true;
+	}
+
+	if (PropsValues.PORTLET_CSS_ENABLED) {
+		showPortletCssIcon = true;
+	}
+
+	Group checkingStagingGroup = group;
+
+	if (checkingStagingGroup.isControlPanel()) {
+		checkingStagingGroup = themeDisplay.getSiteGroup();
+>>>>>>> compatible
+	}
+
+<<<<<<< HEAD
+if (group.isLayoutPrototype()) {
+	showExportImportIcon = false;
+	showStagingIcon = false;
+}
+
+if (portlet.hasPortletMode(responseContentType, PortletMode.EDIT) && PortletPermissionUtil.contains(permissionChecker, layout, portletId, ActionKeys.PREFERENCES)) {
+	showEditIcon = true;
+
+=======
+	if ((checkingStagingGroup.isStaged() || checkingStagingGroup.isStagedRemotely()) && !checkingStagingGroup.hasLocalOrRemoteStagingGroup() && checkingStagingGroup.isStagedPortlet(portletId)) {
+		showStagingIcon = true;
+	}
+}
+
+if (!columnDisabled && customizable && !portlet.isPreferencesCompanyWide() && portlet.isPreferencesUniquePerLayout() && LayoutPermissionUtil.contains(permissionChecker, layout, ActionKeys.CUSTOMIZE)) {
+	showConfigurationIcon = true;
+
+	if (PropsValues.PORTLET_CSS_ENABLED) {
+		showPortletCssIcon = true;
 	}
 }
 
@@ -240,6 +285,7 @@ if (group.isLayoutPrototype()) {
 if (portlet.hasPortletMode(responseContentType, PortletMode.EDIT) && PortletPermissionUtil.contains(permissionChecker, layout, portletId, ActionKeys.PREFERENCES)) {
 	showEditIcon = true;
 
+>>>>>>> compatible
 	if (portlet.hasPortletMode(responseContentType, LiferayPortletMode.EDIT_DEFAULTS)) {
 		showEditDefaultsIcon = true;
 	}
@@ -264,7 +310,14 @@ if (responseContentType.equals(ContentTypes.XHTML_MP) && portlet.hasMultipleMime
 // Only authenticated with the correct permissions can update a layout. If
 // staging is activated, only staging layouts can be updated.
 
+<<<<<<< HEAD
 if (!themeDisplay.isSignedIn() || (group.hasStagingGroup() && PropsValues.STAGING_LIVE_GROUP_LOCKING_ENABLED) || !LayoutPermissionUtil.contains(permissionChecker, layout, ActionKeys.UPDATE)) {
+=======
+if ((!themeDisplay.isSignedIn()) ||
+	(group.hasStagingGroup() && PropsValues.STAGING_LIVE_GROUP_LOCKING_ENABLED) ||
+	(!LayoutPermissionUtil.contains(permissionChecker, layout, ActionKeys.UPDATE))) {
+
+>>>>>>> compatible
 	if (!(!columnDisabled && customizable && LayoutPermissionUtil.contains(permissionChecker, layout, ActionKeys.CUSTOMIZE))) {
 		showCloseIcon = false;
 		showMoveIcon = false;
@@ -705,6 +758,7 @@ sb.append("&p_p_restore=");
 sb.append(portletDisplay.isStateMin());
 sb.append("&p_v_l_s_g_id=");
 sb.append(themeDisplay.getSiteGroupId());
+<<<<<<< HEAD
 
 if (doAsUserId != null) {
 	sb.append("&doAsUserId=");
@@ -717,11 +771,39 @@ sb.append("=minimize&referer=");
 
 innerSB = new StringBundler(7);
 
+=======
+
+if (doAsUserId != null) {
+	sb.append("&doAsUserId=");
+	sb.append(URLCodec.encodeURL(doAsUserId));
+}
+
+sb.append("&");
+sb.append(Constants.CMD);
+sb.append("=minimize&referer=");
+
+innerSB = new StringBundler(7);
+
+>>>>>>> compatible
 innerSB.append(themeDisplay.getPathMain());
 innerSB.append("/portal/layout?p_auth=");
 innerSB.append(AuthTokenUtil.getToken(request));
 innerSB.append("&p_l_id=");
 innerSB.append(plid);
+<<<<<<< HEAD
+=======
+
+if (doAsUserId != null) {
+	innerSB.append("&doAsUserId=");
+	innerSB.append(doAsUserId);
+}
+
+sb.append(URLCodec.encodeURL(innerSB.toString()));
+
+sb.append("&refresh=1");
+
+portletDisplay.setURLMin(sb.toString());
+>>>>>>> compatible
 
 if (doAsUserId != null) {
 	innerSB.append("&doAsUserId=");
@@ -897,7 +979,11 @@ if ((layout.isTypePanel() || layout.isTypeControlPanel()) && !portletDisplay.get
 	PortalUtil.setPageTitle(portletDisplay.getTitle(), request);
 }
 
+<<<<<<< HEAD
 Boolean renderPortletBoundary = GetterUtil.getBoolean(request.getAttribute(WebKeys.RENDER_PORTLET_BOUNDARY), true) && !themeDisplay.isStateExclusive();
+=======
+Boolean renderPortletBoundary = GetterUtil.getBoolean(request.getAttribute(WebKeys.RENDER_PORTLET_BOUNDARY), true) && !themeDisplay.isFacebook() && !themeDisplay.isStateExclusive();
+>>>>>>> compatible
 %>
 
 <c:if test="<%= renderPortletBoundary %>">
@@ -1116,8 +1202,12 @@ else {
 			isStatic: '<%= staticVar %>',
 			namespacedId: 'p_p_id<%= HtmlUtil.escapeJS(renderResponseImpl.getNamespace()) %>',
 			portletId: '<%= HtmlUtil.escapeJS(portletDisplay.getId()) %>',
+<<<<<<< HEAD
 			refreshURL: '<%= HtmlUtil.escapeJS(PortletURLUtil.getRefreshURL(request, themeDisplay, false)) %>',
 			refreshURLData: <%= JSONFactoryUtil.looseSerializeDeep(PortletURLUtil.getRefreshURLParameters(request)) %>
+=======
+			refreshURL: '<%= HtmlUtil.escapeJS(PortletURLUtil.getRefreshURL(request, themeDisplay)) %>'
+>>>>>>> compatible
 		}
 	);
 </aui:script>

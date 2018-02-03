@@ -14,9 +14,12 @@
 
 package com.liferay.exportimport.kernel.staging;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.Layout;
 import com.liferay.portal.kernel.model.LayoutRevision;
@@ -29,7 +32,10 @@ import com.liferay.portal.kernel.util.ServiceProxyFactory;
 /**
  * @author Raymond Augé
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class LayoutStagingUtil {
 
 	public static LayoutRevision getLayoutRevision(Layout layout) {
@@ -60,6 +66,7 @@ public class LayoutStagingUtil {
 		return _layoutStaging.isBranchingLayoutSet(group, privateLayout);
 	}
 
+<<<<<<< HEAD
 	public static Layout mergeLayoutRevisionIntoLayout(Layout layout) {
 		return _layoutStaging.mergeLayoutRevisionIntoLayout(layout);
 	}
@@ -77,6 +84,8 @@ public class LayoutStagingUtil {
 			portletDataContext, layout);
 	}
 
+=======
+>>>>>>> compatible
 	private static volatile LayoutStaging _layoutStaging =
 		ServiceProxyFactory.newServiceTrackedInstance(
 			LayoutStaging.class, LayoutStagingUtil.class, "_layoutStaging",

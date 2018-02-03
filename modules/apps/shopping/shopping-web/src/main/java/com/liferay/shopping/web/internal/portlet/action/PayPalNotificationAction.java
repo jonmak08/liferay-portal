@@ -25,7 +25,10 @@ import com.liferay.portal.kernel.struts.BaseStrutsAction;
 import com.liferay.portal.kernel.struts.StrutsAction;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.URLCodec;
 import com.liferay.portal.kernel.util.UnsyncPrintWriterPool;
 import com.liferay.shopping.configuration.ShoppingGroupServiceOverriddenConfiguration;
@@ -85,8 +88,12 @@ public class PayPalNotificationAction extends BaseStrutsAction {
 
 				String value = request.getParameter(name);
 
+<<<<<<< HEAD
 				query = StringBundler.concat(
 					query, "&", name, "=", URLCodec.encodeURL(value));
+=======
+				query = query + "&" + name + "=" + URLCodec.encodeURL(value);
+>>>>>>> compatible
 			}
 
 			if (_log.isDebugEnabled()) {

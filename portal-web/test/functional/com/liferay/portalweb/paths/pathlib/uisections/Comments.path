@@ -25,7 +25,11 @@
 </tr>
 <tr>
 	<td>COMMENT_ACTIONS</td>
+<<<<<<< HEAD
 	<td>//div[contains(@class,'card-row') and contains(.,'${key_entryComment}')]//div[contains(@class,'card-col-field')]//a[span/*[name()='svg'][contains(@class,'icon-ellipsis-v')]]</td>
+=======
+	<td>//div[contains(@class,'card-row') and contains(.,'${key_entryComment}')]//div[contains(@class,'card-col-field')]//span/*[name()='svg'][contains(@class,'icon-ellipsis-v')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -80,7 +84,11 @@
 </tr>
 <tr>
 	<td>ENTRY_COUNT_PANEL</td>
+<<<<<<< HEAD
 	<td>//h2[contains(.,'Comment')]</td>
+=======
+	<td>//h2[contains(.,'Comments')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -91,6 +99,11 @@
 <tr>
 	<td>THUMBS_DOWN</td>
 	<td>//a[contains(@class,'thumbs-down')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SIGN_IN_TO_COMMENTS_LINK</td>
+	<td>//span//a[contains(@id,'portlet_BlogsPortlet')]//span[contains(.,'Please sign in to ${key_entryType}.')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -130,7 +143,11 @@
 </tr>
 <tr>
 	<td>USER_NAME</td>
+<<<<<<< HEAD
 	<td>//header[@class='lfr-discussion-message-author']/a | //header[@class='lfr-discussion-message-author']//span[contains(.,'${key_userFullName}')]</td>
+=======
+	<td>//header[@class='lfr-discussion-message-author']/a[contains(.,'${key_userFullName}')] | //header[@class='lfr-discussion-message-author']//span[contains(.,'${key_userFullName}')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>

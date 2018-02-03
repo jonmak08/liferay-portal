@@ -46,6 +46,7 @@ public class AutoCloseRule {
 	public List<Build> evaluate(List<Build> downstreamBuilds) {
 		downstreamBuilds = getMatchingBuilds(downstreamBuilds);
 
+<<<<<<< HEAD
 		List<Build> failingInUpstreamJobDownstreamBuilds = new ArrayList<>(
 			downstreamBuilds.size());
 
@@ -87,6 +88,8 @@ public class AutoCloseRule {
 
 		downstreamBuilds.removeAll(failingInUpstreamJobDownstreamBuilds);
 
+=======
+>>>>>>> compatible
 		if (downstreamBuilds.isEmpty()) {
 			return Collections.emptyList();
 		}

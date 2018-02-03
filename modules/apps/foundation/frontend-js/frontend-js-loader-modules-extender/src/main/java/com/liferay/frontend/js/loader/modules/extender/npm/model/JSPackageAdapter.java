@@ -19,7 +19,12 @@ import com.liferay.frontend.js.loader.modules.extender.npm.JSModule;
 import com.liferay.frontend.js.loader.modules.extender.npm.JSModuleAlias;
 import com.liferay.frontend.js.loader.modules.extender.npm.JSPackage;
 import com.liferay.frontend.js.loader.modules.extender.npm.JSPackageDependency;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -52,9 +57,21 @@ public abstract class JSPackageAdapter implements JSPackage {
 		_version = version;
 		_mainModuleName = mainModuleName;
 
+<<<<<<< HEAD
 		_resolvedId = name + StringPool.AT + version;
 
 		_id = jsBundle.getId() + StringPool.SLASH + _resolvedId;
+=======
+		StringBundler id = new StringBundler(5);
+
+		id.append(jsBundle.getId());
+		id.append(StringPool.SLASH);
+		id.append(_name);
+		id.append(StringPool.AT);
+		id.append(_version);
+
+		_id = id.toString();
+>>>>>>> compatible
 	}
 
 	/**
@@ -123,11 +140,14 @@ public abstract class JSPackageAdapter implements JSPackage {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public String getResolvedId() {
 		return _resolvedId;
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public String getVersion() {
 		return _version;
 	}
@@ -140,7 +160,10 @@ public abstract class JSPackageAdapter implements JSPackage {
 		new HashMap<>();
 	private final String _mainModuleName;
 	private final String _name;
+<<<<<<< HEAD
 	private final String _resolvedId;
+=======
+>>>>>>> compatible
 	private final String _version;
 
 }

@@ -18,9 +18,13 @@ import com.liferay.portal.kernel.exception.PortalException;
 
 /**
  * @author Drew Brokke
+<<<<<<< HEAD
  * @deprecated As of 1.1.0, with no direct replacement
  */
 @Deprecated
+=======
+ */
+>>>>>>> compatible
 public class ConfigurationTemporarySwapperException extends PortalException {
 
 	public ConfigurationTemporarySwapperException(String msg) {

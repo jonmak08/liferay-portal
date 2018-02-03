@@ -8,9 +8,13 @@
 
 		<execute macro="User#firstLoginPG" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Web Content" />
 		</execute>
 
@@ -31,9 +35,13 @@
 			<var name="structureName" value="WC Structure Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Web Content" />
 		</execute>
 
@@ -53,9 +61,13 @@
 
 		<execute macro="WebContentTemplates#save" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Web Content" />
 		</execute>
 	</set-up>
@@ -104,6 +116,7 @@
 			<var name="fieldValue" value="English (United States) Image Description" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="WebContent#addLocale">
 			<var name="language" value="Spanish (Spain)" />
 			<var name="locale" value="es-ES" />
@@ -175,5 +188,38 @@
 			<var name="fieldName" value="image" />
 			<var name="fieldValue" value="Portuguese (Brazil) Image Description" />
 		</execute>
+=======
+		<for list="Spanish (Spain),Portuguese (Brazil)" param="language">
+			<execute macro="DDLRecord#addTranslation">
+				<var name="localizedLanguage" value="${language}" />
+			</execute>
+
+			<execute macro="FormFields#editText">
+				<var name="fieldName" value="title" />
+				<var name="fieldValue" value="${language} Title" />
+			</execute>
+
+			<execute macro="FormFields#editTextAlt">
+				<var name="fieldName" value="image" />
+				<var name="fieldValue" value="${language} Image Description" />
+			</execute>
+		</for>
+
+		<for list="English (United States),Spanish (Spain),Portuguese (Brazil)" param="language">
+			<execute macro="DDLRecord#selectTranslation">
+				<var name="localizedLanguage" value="${language}" />
+			</execute>
+
+			<execute macro="FormFields#viewTextValue">
+				<var name="fieldName" value="title" />
+				<var name="fieldValue" value="${language} Title" />
+			</execute>
+
+			<execute macro="FormFields#viewTextValueAlt">
+				<var name="fieldName" value="image" />
+				<var name="fieldValue" value="${language} Image Description" />
+			</execute>
+		</for>
+>>>>>>> compatible
 	</command>
 </definition>

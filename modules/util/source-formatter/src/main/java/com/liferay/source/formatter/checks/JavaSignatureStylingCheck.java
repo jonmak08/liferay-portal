@@ -14,8 +14,12 @@
 
 package com.liferay.source.formatter.checks;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.source.formatter.checks.util.SourceUtil;
@@ -39,9 +43,14 @@ public class JavaSignatureStylingCheck extends BaseJavaTermCheck {
 		String indent = SourceUtil.getIndent(javaTermContent);
 
 		Pattern pattern = Pattern.compile(
+<<<<<<< HEAD
 			StringBundler.concat(
 				"(", indent, javaTerm.getAccessModifier(),
 				" .*?[;{]\\s*?\n)((\n*)([^\n]+)\n)?"),
+=======
+			"(" + indent + javaTerm.getAccessModifier() +
+				" .*?[;{]\n)((\n*)([^\n]+)\n)?",
+>>>>>>> compatible
 			Pattern.DOTALL);
 
 		Matcher matcher = pattern.matcher(javaTermContent);
@@ -108,7 +117,11 @@ public class JavaSignatureStylingCheck extends BaseJavaTermCheck {
 				javaTermContent, signature, signature + "\n");
 		}
 
+<<<<<<< HEAD
 		int throwsPos = signature.indexOf("\tthrows ");
+=======
+		boolean throwsException = signature.contains(indent + "throws ");
+>>>>>>> compatible
 
 		String newSignature = signature;
 
@@ -129,7 +142,11 @@ public class JavaSignatureStylingCheck extends BaseJavaTermCheck {
 					expectedTabCount = Math.max(
 						getLeadingTabCount(line), indent.length()) + 1;
 
+<<<<<<< HEAD
 					if ((throwsPos != -1) &&
+=======
+					if (throwsException &&
+>>>>>>> compatible
 						(expectedTabCount == (indent.length() + 1))) {
 
 						expectedTabCount += 1;
@@ -154,6 +171,7 @@ public class JavaSignatureStylingCheck extends BaseJavaTermCheck {
 			}
 		}
 
+<<<<<<< HEAD
 		if (throwsPos != -1) {
 			String throwsExceptions = newSignature.substring(throwsPos + 1);
 
@@ -164,6 +182,8 @@ public class JavaSignatureStylingCheck extends BaseJavaTermCheck {
 				newSignature, throwsExceptions, newThrowsExceptions);
 		}
 
+=======
+>>>>>>> compatible
 		return StringUtil.replace(javaTermContent, signature, newSignature);
 	}
 

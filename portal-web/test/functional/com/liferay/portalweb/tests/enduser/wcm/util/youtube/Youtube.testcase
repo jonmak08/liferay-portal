@@ -1,7 +1,10 @@
 <definition component-name="portal-wcm">
 	<property name="portal.release" value="false" />
 	<property name="portal.upstream" value="true" />
+<<<<<<< HEAD
 	<property name="testray.component.names" value="YouTube" />
+=======
+>>>>>>> compatible
 	<property name="testray.main.component.name" value="YouTube" />
 
 	<set-up>
@@ -9,6 +12,7 @@
 
 		<execute macro="User#firstLoginPG" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -16,6 +20,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Test Page Name" />
 		</execute>
 	</set-up>
@@ -29,20 +36,34 @@
 				<execute macro="PortalInstances#tearDownCP" />
 			</then>
 			<else>
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP" />
+=======
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 			</else>
 		</if>
 	</tear-down>
 
 	<command name="AddYoutubeVideo" priority="4">
+<<<<<<< HEAD
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Test Page Name" />
 		</execute>
 
+=======
+>>>>>>> compatible
 		<execute macro="Portlet#addPG">
 			<var name="portletName" value="YouTube" />
 		</execute>
 
+<<<<<<< HEAD
+=======
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Test Page Name" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="Portlet#gotoPortletOptions">
 			<var name="portletName" value="YouTube" />
 			<var name="portletOption" value="Configuration" />
@@ -75,10 +96,13 @@
 	</command>
 
 	<command name="YoutubePortletSmoke" priority="4">
+<<<<<<< HEAD
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Test Page Name" />
 		</execute>
 
+=======
+>>>>>>> compatible
 		<execute macro="Portlet#addPG">
 			<var name="portletName" value="YouTube" />
 		</execute>

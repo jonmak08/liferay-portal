@@ -16,7 +16,10 @@ package com.liferay.flags.internal.messaging;
 
 import com.liferay.flags.configuration.FlagsGroupServiceConfiguration;
 import com.liferay.petra.content.ContentUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.log.Log;
@@ -41,11 +44,22 @@ import com.liferay.portal.kernel.service.RoleLocalService;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.UserGroupRoleLocalService;
 import com.liferay.portal.kernel.service.UserLocalService;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.PortletKeys;
 import com.liferay.portal.kernel.util.SubscriptionSender;
 
 import java.io.IOException;
+=======
+import com.liferay.portal.kernel.util.Function;
+import com.liferay.portal.kernel.util.LocaleUtil;
+import com.liferay.portal.kernel.util.PortletKeys;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.SubscriptionSender;
+
+import java.io.IOException;
+import java.io.Serializable;
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -251,13 +265,26 @@ public class FlagsRequestMessageListener extends BaseMessageListener {
 		subscriptionSender.setCreatorUserId(reporterUserId);
 		subscriptionSender.setFrom(fromAddress, fromName);
 		subscriptionSender.setHtmlFormat(true);
+<<<<<<< HEAD
 		subscriptionSender.setLocalizedContextAttributeWithFunction(
 			"[$SITE_NAME$]", locale -> _getGroupDescriptiveName(group, locale));
+=======
+>>>>>>> compatible
 		subscriptionSender.setMailId("flags_request", contentId);
 		subscriptionSender.setPortletId(PortletKeys.FLAGS);
 		subscriptionSender.setServiceContext(serviceContext);
 		subscriptionSender.setSubject(subject);
 
+<<<<<<< HEAD
+=======
+		GroupDescriptiveNameSerializableFunction
+			groupDescriptiveNameSerializableFunction =
+				new GroupDescriptiveNameSerializableFunction(group);
+
+		subscriptionSender.setLocalizedContextAttribute(
+			"[$SITE_NAME$]", groupDescriptiveNameSerializableFunction);
+
+>>>>>>> compatible
 		subscriptionSender.addRuntimeSubscribers(toAddress, toName);
 
 		subscriptionSender.flushNotificationsAsync();
@@ -299,6 +326,7 @@ public class FlagsRequestMessageListener extends BaseMessageListener {
 		_userLocalService = userLocalService;
 	}
 
+<<<<<<< HEAD
 	private String _getGroupDescriptiveName(Group group, Locale locale) {
 		try {
 			return group.getDescriptiveName(locale);
@@ -313,6 +341,8 @@ public class FlagsRequestMessageListener extends BaseMessageListener {
 		return StringPool.BLANK;
 	}
 
+=======
+>>>>>>> compatible
 	private static final Log _log = LogFactoryUtil.getLog(
 		FlagsRequestMessageListener.class);
 
@@ -323,4 +353,33 @@ public class FlagsRequestMessageListener extends BaseMessageListener {
 	private UserGroupRoleLocalService _userGroupRoleLocalService;
 	private UserLocalService _userLocalService;
 
+<<<<<<< HEAD
+=======
+	private static class GroupDescriptiveNameSerializableFunction
+		implements Function<Locale, String>, Serializable {
+
+		public GroupDescriptiveNameSerializableFunction(Group group) {
+			_group = group;
+		}
+
+		@Override
+		public String apply(Locale locale) {
+			try {
+				return _group.getDescriptiveName(locale);
+			}
+			catch (PortalException pe) {
+				_log.error(
+					"Unable to get descriptive name for group " +
+						_group.getGroupId(),
+					pe);
+			}
+
+			return StringPool.BLANK;
+		}
+
+		private final Group _group;
+
+	}
+
+>>>>>>> compatible
 }

@@ -155,7 +155,13 @@ public class PropertiesUtil {
 		List<String> propertyNames = Collections.list(
 			(Enumeration<String>)properties.propertyNames());
 
+<<<<<<< HEAD
 		for (String key : propertyNames) {
+=======
+		for (int i = 0; i < propertyNames.size(); i++) {
+			String key = propertyNames.get(i);
+
+>>>>>>> compatible
 			String value = properties.getProperty(key);
 
 			// Trim values because it may leave a trailing \r in certain Windows

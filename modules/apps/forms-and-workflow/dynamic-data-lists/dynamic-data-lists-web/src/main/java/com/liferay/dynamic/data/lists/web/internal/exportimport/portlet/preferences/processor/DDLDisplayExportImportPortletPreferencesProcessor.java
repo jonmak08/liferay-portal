@@ -14,11 +14,18 @@
 
 package com.liferay.dynamic.data.lists.web.internal.exportimport.portlet.preferences.processor;
 
+<<<<<<< HEAD
 import com.liferay.dynamic.data.lists.constants.DDLConstants;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.lists.constants.DDLPortletKeys;
 import com.liferay.dynamic.data.lists.model.DDLRecord;
 import com.liferay.dynamic.data.lists.model.DDLRecordSet;
 import com.liferay.dynamic.data.lists.service.DDLRecordSetLocalService;
+<<<<<<< HEAD
+=======
+import com.liferay.dynamic.data.lists.service.permission.DDLPermission;
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.model.DDMTemplate;
 import com.liferay.dynamic.data.mapping.service.DDMTemplateLocalService;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
@@ -80,7 +87,11 @@ public class DDLDisplayExportImportPortletPreferencesProcessor
 
 		try {
 			portletDataContext.addPortletPermissions(
+<<<<<<< HEAD
 				DDLConstants.RESOURCE_NAME);
+=======
+				DDLPermission.RESOURCE_NAME);
+>>>>>>> compatible
 		}
 		catch (PortalException pe) {
 			throw new PortletDataException(
@@ -89,7 +100,11 @@ public class DDLDisplayExportImportPortletPreferencesProcessor
 
 		String portletId = portletDataContext.getPortletId();
 
+<<<<<<< HEAD
 		long recordSetId = GetterUtil.getLong(
+=======
+		final long recordSetId = GetterUtil.getLong(
+>>>>>>> compatible
 			portletPreferences.getValue("recordSetId", null));
 
 		if (recordSetId == 0) {
@@ -110,8 +125,31 @@ public class DDLDisplayExportImportPortletPreferencesProcessor
 				portletDataContext, portletId, recordSet);
 
 			ActionableDynamicQuery recordActionableDynamicQuery =
+<<<<<<< HEAD
 				getRecordActionableDynamicQuery(
 					portletDataContext, recordSet, portletId);
+=======
+				_ddlRecordStagedModelRepository.getExportActionableDynamicQuery(
+					portletDataContext);
+
+			final ActionableDynamicQuery.AddCriteriaMethod addCriteriaMethod =
+				recordActionableDynamicQuery.getAddCriteriaMethod();
+
+			recordActionableDynamicQuery.setAddCriteriaMethod(
+				new ActionableDynamicQuery.AddCriteriaMethod() {
+
+					@Override
+					public void addCriteria(DynamicQuery dynamicQuery) {
+						addCriteriaMethod.addCriteria(dynamicQuery);
+
+						Property property = PropertyFactoryUtil.forName(
+							"recordSetId");
+
+						dynamicQuery.add(property.eq(recordSetId));
+					}
+
+				});
+>>>>>>> compatible
 
 			try {
 				recordActionableDynamicQuery.performActions();
@@ -145,7 +183,11 @@ public class DDLDisplayExportImportPortletPreferencesProcessor
 
 		try {
 			portletDataContext.importPortletPermissions(
+<<<<<<< HEAD
 				DDLConstants.RESOURCE_NAME);
+=======
+				DDLPermission.RESOURCE_NAME);
+>>>>>>> compatible
 		}
 		catch (PortalException pe) {
 			throw new PortletDataException(
@@ -195,6 +237,7 @@ public class DDLDisplayExportImportPortletPreferencesProcessor
 		return portletPreferences;
 	}
 
+<<<<<<< HEAD
 	protected ActionableDynamicQuery getRecordActionableDynamicQuery(
 		final PortletDataContext portletDataContext,
 		final DDLRecordSet recordSet, final String portletId) {
@@ -238,6 +281,8 @@ public class DDLDisplayExportImportPortletPreferencesProcessor
 		return recordActionableDynamicQuery;
 	}
 
+=======
+>>>>>>> compatible
 	@Reference(unbind = "-")
 	protected void setDDLRecordSetLocalService(
 		DDLRecordSetLocalService ddlRecordSetLocalService) {

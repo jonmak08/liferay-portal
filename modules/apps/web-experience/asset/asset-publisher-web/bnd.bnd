@@ -1,14 +1,23 @@
 Bundle-Name: Liferay Asset Publisher Web
 Bundle-SymbolicName: com.liferay.asset.publisher.web
+<<<<<<< HEAD
 Bundle-Version: 2.0.0
 Export-Package:\
 	com.liferay.asset.publisher.web,\
 	com.liferay.asset.publisher.web.configuration,\
+=======
+Bundle-Version: 1.6.11
+Export-Package:\
+	com.liferay.asset.publisher.web,\
+>>>>>>> compatible
 	com.liferay.asset.publisher.web.constants,\
 	com.liferay.asset.publisher.web.display.context,\
 	com.liferay.asset.publisher.web.portlet,\
 	com.liferay.asset.publisher.web.portlet.action,\
+<<<<<<< HEAD
 	com.liferay.asset.publisher.web.servlet.taglib.ui,\
+=======
+>>>>>>> compatible
 	com.liferay.asset.publisher.web.upgrade.v1_0_0,\
 	com.liferay.asset.publisher.web.util
 Import-Package:\
@@ -17,9 +26,12 @@ Import-Package:\
 	*
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Asset
+<<<<<<< HEAD
 Provide-Capability:\
 	soy;\
 		type="asset-publisher-web";\
 		version:Version="${Bundle-Version}"
+=======
+>>>>>>> compatible
 Web-ContextPath: /asset-publisher-web
 -dsannotations-options: inherit

@@ -661,6 +661,7 @@ public class DDMStorageLinkUtil {
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns all the ddm storage links where structureVersionId = &#63;.
 	*
 	* @param structureVersionId the structure version ID
@@ -922,6 +923,8 @@ public class DDMStorageLinkUtil {
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	* Caches the ddm storage link in the entity cache if it is enabled.
 	*
 	* @param ddmStorageLink the ddm storage link

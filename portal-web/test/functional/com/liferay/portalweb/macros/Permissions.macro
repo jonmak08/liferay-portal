@@ -70,9 +70,13 @@
 	</command>
 
 	<command name="definePermissionCP">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Roles" />
 		</execute>
 
@@ -80,7 +84,11 @@
 			<var name="permissionDefinitionKey" value="${permissionDefinitionKey}" />
 			<var name="permissionDefinitionValue" value="${permissionDefinitionValue}" />
 			<var name="permissionNavigationValue" value="${permissionNavigationValue}" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="${roleTitle}" />
+=======
+			<var name="roleName" value="${roleName}" />
+>>>>>>> compatible
 			<var name="roleType" value="${roleType}" />
 		</execute>
 	</command>
@@ -95,7 +103,11 @@
 			<var name="permissionDefinitionKey" value="${permissionDefinitionKey}" />
 			<var name="permissionDefinitionValue" value="${permissionDefinitionValue}" />
 			<var name="permissionNavigationValue" value="${permissionNavigationValue}" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="${roleTitle}" />
+=======
+			<var name="roleName" value="${roleName}" />
+>>>>>>> compatible
 			<var name="roleType" value="${roleType}" />
 		</execute>
 
@@ -106,6 +118,7 @@
 	</command>
 
 	<command name="definePermissionViaJSONAPI">
+<<<<<<< HEAD
 		<if>
 			<not>
 				<isset var="groupName" />
@@ -131,13 +144,25 @@
 			<var name="resourceName" value="${resourceName}" />
 			<var name="roleTitle" value="${roleTitle}" />
 			<var name="roleType" value="${roleType}" />
+=======
+		<execute macro="JSONPermission#editPermission">
+			<var name="groupName" value="Global" />
+			<var name="method" value="add-resource-permission" />
+			<var name="resourceAction" value="${resourceAction}" />
+			<var name="resourceName" value="${resourceName}" />
+			<var name="roleName" value="${roleName}" />
+>>>>>>> compatible
 		</execute>
 	</command>
 
 	<command name="removePermissionCP">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Roles" />
 		</execute>
 
@@ -145,7 +170,11 @@
 			<var name="permissionDefinitionKey" value="${permissionDefinitionKey}" />
 			<var name="permissionDefinitionValue" value="${permissionDefinitionValue}" />
 			<var name="permissionNavigationValue" value="${permissionNavigationValue}" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="${roleTitle}" />
+=======
+			<var name="roleName" value="${roleName}" />
+>>>>>>> compatible
 			<var name="roleType" value="${roleType}" />
 		</execute>
 	</command>
@@ -160,7 +189,11 @@
 			<var name="permissionDefinitionKey" value="${permissionDefinitionKey}" />
 			<var name="permissionDefinitionValue" value="${permissionDefinitionValue}" />
 			<var name="permissionNavigationValue" value="${permissionNavigationValue}" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="${roleTitle}" />
+=======
+			<var name="roleName" value="${roleName}" />
+>>>>>>> compatible
 			<var name="roleType" value="${roleType}" />
 		</execute>
 
@@ -171,6 +204,7 @@
 	</command>
 
 	<command name="removePermissionViaAPI">
+<<<<<<< HEAD
 		<if>
 			<not>
 				<isset var="groupName" />
@@ -196,6 +230,14 @@
 			<var name="resourceName" value="${resourceName}" />
 			<var name="roleTitle" value="${roleTitle}" />
 			<var name="roleType" value="${roleType}" />
+=======
+		<execute macro="JSONPermission#editPermission">
+			<var name="groupName" value="Global" />
+			<var name="method" value="remove-resource-permission" />
+			<var name="resourceAction" value="${resourceAction}" />
+			<var name="resourceName" value="${resourceName}" />
+			<var name="roleName" value="${roleName}" />
+>>>>>>> compatible
 		</execute>
 	</command>
 
@@ -207,9 +249,13 @@
 			<var name="userScreenName" value="${userScreenName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -249,12 +295,20 @@
 		</execute>
 
 		<execute macro="JSONRole#addOrganizationRole">
+<<<<<<< HEAD
 			<var name="roleTitle" value="${roleTitle}" />
+=======
+			<var name="roleName" value="${roleName}" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="JSONGroup#assignGroupRoleToUser">
 			<var name="groupName" value="${orgName}" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="${roleTitle}" />
+=======
+			<var name="roleName" value="${roleName}" />
+>>>>>>> compatible
 			<var name="userEmailAddress" value="${userEmailAddress}" />
 		</execute>
 
@@ -265,9 +319,13 @@
 	</command>
 
 	<command name="setUpRegRoleLoginUserCP">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Instance Settings" />
 		</execute>
 
@@ -282,9 +340,13 @@
 			<var name="userScreenName" value="${userScreenName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -296,11 +358,19 @@
 		</execute>
 
 		<execute macro="JSONRole#addRegularRole">
+<<<<<<< HEAD
 			<var name="roleTitle" value="${roleTitle}" />
 		</execute>
 
 		<execute macro="JSONRole#assignRoleToUser">
 			<var name="roleTitle" value="${roleTitle}" />
+=======
+			<var name="roleName" value="${roleName}" />
+		</execute>
+
+		<execute macro="JSONRole#assignRoleToUser">
+			<var name="roleName" value="${roleName}" />
+>>>>>>> compatible
 			<var name="userEmailAddress" value="${userEmailAddress}" />
 		</execute>
 
@@ -314,7 +384,11 @@
 		<execute macro="Permissions#setUpRegRolePG">
 			<var name="pageName" value="${pageName}" />
 			<var name="portletName" value="${portletName}" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="${roleTitle}" />
+=======
+			<var name="roleName" value="${roleName}" />
+>>>>>>> compatible
 			<var name="userEmailAddress" value="${userEmailAddress}" />
 			<var name="userFirstName" value="${userFirstName}" />
 			<var name="userLastName" value="${userLastName}" />
@@ -350,9 +424,13 @@
 			<var name="userScreenName" value="${userScreenName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -364,19 +442,31 @@
 		</execute>
 
 		<execute macro="JSONRole#addRegularRole">
+<<<<<<< HEAD
 			<var name="roleTitle" value="${roleTitle}" />
 		</execute>
 
 		<execute macro="JSONRole#assignRoleToUser">
 			<var name="roleTitle" value="${roleTitle}" />
+=======
+			<var name="roleName" value="${roleName}" />
+		</execute>
+
+		<execute macro="JSONRole#assignRoleToUser">
+			<var name="roleName" value="${roleName}" />
+>>>>>>> compatible
 			<var name="userEmailAddress" value="${userEmailAddress}" />
 		</execute>
 	</command>
 
 	<command name="setUpSiteMemberRoleLoginUserPG">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -392,9 +482,13 @@
 			<var name="userScreenNameVariation" value="${userScreenNameVariation}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -405,9 +499,13 @@
 			<var name="userScreenName" value="${userScreenName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -419,9 +517,13 @@
 			<var name="site" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Memberships" />
 		</execute>
 
@@ -432,6 +534,7 @@
 			<var name="userScreenName" value="${userScreenName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -440,6 +543,18 @@
 
 		<execute macro="SitePages#addPublicPage">
 			<var name="pageName" value="${pageName}" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+			<var name="portlet" value="Sites" />
+		</execute>
+
+		<execute macro="Page#add">
+			<var name="pageName" value="${pageName}" />
+			<var name="pageTemplateName" value="${pageTemplateName}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="sitePagePrivacy" value="${sitePagePrivacy}" />
+			<var name="sitePageType" value="${sitePageType}" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Navigator#gotoSitePage">
@@ -462,14 +577,22 @@
 	</command>
 
 	<command name="setUpSiteRoleCP">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Instance Settings" />
 		</execute>
 
 		<execute macro="PortalSettings#editConfigurationUsersDefaultUserAssociationsRolesCP">
+<<<<<<< HEAD
 			<var name="roleTitle" value="" />
+=======
+			<var name="roleName" value="" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="JSONUser#addUser">
@@ -479,9 +602,13 @@
 			<var name="userScreenName" value="${userScreenName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -507,12 +634,20 @@
 		</execute>
 
 		<execute macro="JSONRole#addSiteRole">
+<<<<<<< HEAD
 			<var name="roleTitle" value="${roleTitle}" />
+=======
+			<var name="roleName" value="${roleName}" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="JSONGroup#assignGroupRoleToUser">
 			<var name="groupName" value="${siteName}" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="${roleTitle}" />
+=======
+			<var name="roleName" value="${roleName}" />
+>>>>>>> compatible
 			<var name="userEmailAddress" value="${userEmailAddress}" />
 		</execute>
 
@@ -526,7 +661,11 @@
 		<execute macro="Permissions#setUpSiteRoleCP">
 			<var name="newPassword" value="${newPassword}" />
 			<var name="pageName" value="${pageName}" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="${roleTitle}" />
+=======
+			<var name="roleName" value="${roleName}" />
+>>>>>>> compatible
 			<var name="siteName" value="${siteName}" />
 			<var name="syntaxCheckingEnabled" value="${syntaxCheckingEnabled}" />
 			<var name="userEmailAddress" value="${userEmailAddress}" />
@@ -542,9 +681,13 @@
 	</command>
 
 	<command name="setUpSiteRoleLoginUserPG">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -560,9 +703,13 @@
 			<var name="userScreenNameVariation" value="${userScreenNameVariation}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -573,9 +720,13 @@
 			<var name="userScreenName" value="${userScreenName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -583,12 +734,23 @@
 			<var name="siteName" value="${siteName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
 			<var name="portlet" value="Site Memberships" />
 		</execute>
 
+=======
+		<execute macro="ProductMenu#gotoSite">
+			<var name="site" value="Site Name" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoSitesMembers">
+			<var name="portlet" value="Site Memberships" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="Site#assignUserAsMemberCP">
 			<var name="userFirstName" value="${userFirstName}" />
 			<var name="userLastName" value="${userLastName}" />
@@ -596,6 +758,7 @@
 			<var name="userScreenName" value="${userScreenName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -604,6 +767,19 @@
 
 		<execute macro="SitePages#addPublicPage">
 			<var name="pageName" value="${pageName}" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+			<var name="portlet" value="Sites" />
+		</execute>
+
+		<execute macro="Page#add">
+			<var name="page" value="${page}" />
+			<var name="pageName" value="${pageName}" />
+			<var name="pageTemplateName" value="${pageTemplateName}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="sitePagePrivacy" value="${sitePagePrivacy}" />
+			<var name="sitePageType" value="${sitePageType}" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Navigator#gotoSitePage">
@@ -619,6 +795,7 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
@@ -642,12 +819,34 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+			<var name="portlet" value="Roles" />
+		</execute>
+
+		<execute macro="Role#addCP">
+			<var name="roleDescription" value="${roleDescription}" />
+			<var name="roleName" value="${roleName}" />
+			<var name="roleTitle" value="${roleTitle}" />
+			<var name="roleType" value="${roleType}" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoSite">
+			<var name="site" value="Site Name" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Memberships" />
 		</execute>
 
 		<execute macro="Site#assignSiteRoleCP">
 			<var name="resourceName" value="${userFirstName} ${userLastName}" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="${roleTitle}" />
+=======
+			<var name="roleName" value="${roleName}" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
@@ -657,9 +856,13 @@
 	</command>
 
 	<command name="setUpSiteTeamRoleLoginUserPG">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -675,9 +878,13 @@
 			<var name="userScreenNameVariation" value="${userScreenNameVariation}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -688,9 +895,13 @@
 			<var name="userScreenName" value="${userScreenName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -698,12 +909,23 @@
 			<var name="siteName" value="${siteName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
 			<var name="portlet" value="Site Memberships" />
 		</execute>
 
+=======
+		<execute macro="ProductMenu#gotoSite">
+			<var name="site" value="${siteName}" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoSitesMembers">
+			<var name="portlet" value="Site Memberships" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="Site#assignUserAsMemberCP">
 			<var name="userFirstName" value="${userFirstName}" />
 			<var name="userLastName" value="${userLastName}" />
@@ -715,9 +937,13 @@
 			<var name="site" value="${siteName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Teams" />
 		</execute>
 
@@ -735,6 +961,7 @@
 			<var name="userScreenName" value="${userScreenName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -743,6 +970,18 @@
 
 		<execute macro="SitePages#addPublicPage">
 			<var name="pageName" value="${pageName}" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+			<var name="portlet" value="Sites" />
+		</execute>
+
+		<execute macro="Page#add">
+			<var name="pageName" value="${pageName}" />
+			<var name="pageTemplateName" value="${pageTemplateName}" />
+			<var name="siteName" value="${siteName}" />
+			<var name="sitePagePrivacy" value="${sitePagePrivacy}" />
+			<var name="sitePageType" value="${sitePageType}" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Navigator#gotoSitePage">
@@ -758,9 +997,13 @@
 			<var name="siteURL" value="true" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Roles" />
 		</execute>
 

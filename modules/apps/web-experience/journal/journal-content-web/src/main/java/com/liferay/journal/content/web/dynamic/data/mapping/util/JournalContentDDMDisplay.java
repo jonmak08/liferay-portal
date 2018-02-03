@@ -15,7 +15,11 @@
 package com.liferay.journal.content.web.dynamic.data.mapping.util;
 
 import com.liferay.dynamic.data.mapping.util.DDMDisplay;
+<<<<<<< HEAD
 import com.liferay.journal.constants.JournalContentPortletKeys;
+=======
+import com.liferay.journal.content.web.constants.JournalContentPortletKeys;
+>>>>>>> compatible
 import com.liferay.journal.web.dynamic.data.mapping.util.JournalDDMDisplay;
 
 import org.osgi.service.component.annotations.Component;

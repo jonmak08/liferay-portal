@@ -4,6 +4,7 @@
 	<set-up>
 		<execute macro="User#firstLoginPG" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -11,6 +12,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Test Page" />
 		</execute>
 	</set-up>
@@ -34,6 +38,7 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
@@ -49,6 +54,17 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Apps" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+			<var name="portlet" value="OpenSocial Gadget Editor" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoControlPanelApps">
+			<var name="portlet" value="OpenSocial Gadget Publisher" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoControlPanelApps">
+>>>>>>> compatible
 			<var name="portlet" value="App Manager" />
 		</execute>
 
@@ -56,9 +72,13 @@
 			<var name="appName" value="${appName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Apps" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelApps">
+>>>>>>> compatible
 			<var name="portlet" value="App Manager" />
 		</execute>
 

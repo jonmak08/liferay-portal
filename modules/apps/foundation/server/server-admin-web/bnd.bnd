@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Server Admin Web
 Bundle-SymbolicName: com.liferay.server.admin.web
+<<<<<<< HEAD
 Bundle-Version: 1.0.31
+=======
+Bundle-Version: 1.0.22
+>>>>>>> compatible
 DynamicImport-Package: *
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title:

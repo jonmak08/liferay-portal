@@ -32,6 +32,7 @@ import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.service.persistence.CompanyPersistence;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -1273,11 +1274,17 @@ public class CompanyPersistenceImpl extends BasePersistenceImpl<Company>
 		setModelClass(Company.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("key", "key_");
@@ -1381,6 +1388,7 @@ public class CompanyPersistenceImpl extends BasePersistenceImpl<Company>
 
 	protected void cacheUniqueFindersCache(CompanyModelImpl companyModelImpl) {
 		Object[] args = new Object[] { companyModelImpl.getWebId() };
+<<<<<<< HEAD
 
 		finderCache.putResult(FINDER_PATH_COUNT_BY_WEBID, args,
 			Long.valueOf(1), false);
@@ -1396,6 +1404,23 @@ public class CompanyPersistenceImpl extends BasePersistenceImpl<Company>
 
 		args = new Object[] { companyModelImpl.getLogoId() };
 
+=======
+
+		finderCache.putResult(FINDER_PATH_COUNT_BY_WEBID, args,
+			Long.valueOf(1), false);
+		finderCache.putResult(FINDER_PATH_FETCH_BY_WEBID, args,
+			companyModelImpl, false);
+
+		args = new Object[] { companyModelImpl.getMx() };
+
+		finderCache.putResult(FINDER_PATH_COUNT_BY_MX, args, Long.valueOf(1),
+			false);
+		finderCache.putResult(FINDER_PATH_FETCH_BY_MX, args, companyModelImpl,
+			false);
+
+		args = new Object[] { companyModelImpl.getLogoId() };
+
+>>>>>>> compatible
 		finderCache.putResult(FINDER_PATH_COUNT_BY_LOGOID, args,
 			Long.valueOf(1), false);
 		finderCache.putResult(FINDER_PATH_FETCH_BY_LOGOID, args,

@@ -46,8 +46,13 @@ import com.liferay.portal.kernel.service.persistence.impl.TableMapperFactory;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
@@ -203,11 +208,19 @@ public class UserGroupPersistenceImpl extends BasePersistenceImpl<UserGroup>
 		}
 
 		List<UserGroup> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<UserGroup>)finderCache.getResult(finderPath,
 					finderArgs, this);
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<UserGroup>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+>>>>>>> compatible
 			if ((list != null) && !list.isEmpty()) {
 				for (UserGroup userGroup : list) {
 					if (!Objects.equals(uuid, userGroup.getUuid())) {
@@ -2151,6 +2164,7 @@ public class UserGroupPersistenceImpl extends BasePersistenceImpl<UserGroup>
 		}
 
 		List<UserGroup> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<UserGroup>)finderCache.getResult(finderPath,
@@ -2161,6 +2175,18 @@ public class UserGroupPersistenceImpl extends BasePersistenceImpl<UserGroup>
 					if ((companyId != userGroup.getCompanyId())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<UserGroup>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (UserGroup userGroup : list) {
+					if ((companyId != userGroup.getCompanyId())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -4084,11 +4110,17 @@ public class UserGroupPersistenceImpl extends BasePersistenceImpl<UserGroup>
 		setModelClass(UserGroup.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("uuid", "uuid_");

@@ -32,8 +32,11 @@ public class ManagementBarTag extends BaseBarTag implements BodyTag {
 
 	@Override
 	public int doStartTag() {
+<<<<<<< HEAD
 		callSetAttributes();
 
+=======
+>>>>>>> compatible
 		return EVAL_BODY_INCLUDE;
 	}
 

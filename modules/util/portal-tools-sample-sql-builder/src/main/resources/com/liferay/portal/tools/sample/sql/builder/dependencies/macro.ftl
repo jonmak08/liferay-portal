@@ -36,7 +36,10 @@
 	</#if>
 
 	${dataFactory.toInsertSQL(ddmContentModel)}
+<<<<<<< HEAD
 
+=======
+>>>>>>> compatible
 	${dataFactory.toInsertSQL(dataFactory.newDDMStorageLinkModel(_ddmStorageLinkId, ddmContentModel, _ddmStructureId))}
 </#macro>
 
@@ -133,6 +136,11 @@
 >
 	${dataFactory.toInsertSQL(_layoutModel)}
 
+<<<<<<< HEAD
+=======
+	<#local layoutFriendlyURLModel = dataFactory.newLayoutFriendlyURLModel(_layoutModel)>
+
+>>>>>>> compatible
 	${dataFactory.toInsertSQL(dataFactory.newLayoutFriendlyURLModel(_layoutModel))}
 </#macro>
 

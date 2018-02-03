@@ -1,9 +1,12 @@
 import com.liferay.gradle.plugins.defaults.internal.util.GradleUtil
 import com.liferay.gradle.util.FileUtil
 
+<<<<<<< HEAD
 import groovy.io.FileType
 import groovy.io.FileVisitResult
 
+=======
+>>>>>>> compatible
 import groovy.json.JsonSlurper
 
 import java.nio.file.Path
@@ -14,11 +17,16 @@ import org.ajoberstar.grgit.Commit
 import org.ajoberstar.grgit.CommitDiff
 import org.ajoberstar.grgit.Grgit
 import org.ajoberstar.grgit.Repository
+<<<<<<< HEAD
 import org.ajoberstar.grgit.Status
 import org.ajoberstar.grgit.operation.ResetOp
 import org.ajoberstar.grgit.util.JGitUtil
 
 import org.eclipse.jgit.api.CheckoutCommand
+=======
+import org.ajoberstar.grgit.util.JGitUtil
+
+>>>>>>> compatible
 import org.eclipse.jgit.lib.ObjectId
 import org.eclipse.jgit.lib.ObjectLoader
 import org.eclipse.jgit.revwalk.RevCommit
@@ -65,10 +73,14 @@ cherryPickArtifacts {
 		commits.reverseEach {
 			Commit commit ->
 
+<<<<<<< HEAD
 			if (commit.shortMessage.endsWith(" apply")) {
 				_cherryPickApply(commit)
 			}
 			else if (commit.shortMessage.contains("prep next")) {
+=======
+			if (commit.shortMessage.contains("prep next")) {
+>>>>>>> compatible
 				_cherryPickPrepNext(commit)
 			}
 		}
@@ -95,7 +107,11 @@ lockDependencyVersion {
 
 		dependencyProjectName = dependencyProjectName.replace('.' as char, '-' as char)
 
+<<<<<<< HEAD
 		if (dependencyName.startsWith("com.liferay.portal.") || dependencyName.startsWith("com.liferay.util.")) {
+=======
+		if (dependencyName.startsWith("com.liferay.portal.")) {
+>>>>>>> compatible
 			dependencyGroup = "com.liferay.portal"
 			dependencyPattern = ~/provided\s+group:\s*"${dependencyGroup}",\s*name:\s*"${dependencyName}",\s*version:\s*"default"/
 		}
@@ -105,6 +121,7 @@ lockDependencyVersion {
 
 		String dependencyReplacement = "provided group: \"${dependencyGroup}\", name: \"${dependencyName}\", version: \"${dependencyVersion}\""
 
+<<<<<<< HEAD
 		boolean commitChanges = false
 
 		List<String> buildGradleExcludes = ["**/build/", "**/classes/", "**/node_modules/"]
@@ -114,16 +131,26 @@ lockDependencyVersion {
 		}
 
 		FileTree buildGradleFileTree = fileTree(dir: projectDir, excludes: buildGradleExcludes, includes: ["apps/**/build.gradle", "core/**/build.gradle"])
+=======
+		NestedBuildFactory nestedBuildFactory = gradle.services.get(NestedBuildFactory)
+
+		boolean commitChanges = false
+
+		FileTree buildGradleFileTree = fileTree(dir: projectDir, includes: ["apps/**/build.gradle", "core/**/build.gradle"])
+>>>>>>> compatible
 
 		buildGradleFileTree.each {
 			File buildGradleFile ->
 
 			File moduleDir = buildGradleFile.parentFile
 
+<<<<<<< HEAD
 			if (_isGitRepoReadOnly(moduleDir)) {
 				return
 			}
 
+=======
+>>>>>>> compatible
 			String buildGradle = buildGradleFile.text
 
 			String newBuildGradle = buildGradle.replaceFirst(dependencyPattern, dependencyReplacement)
@@ -134,6 +161,7 @@ lockDependencyVersion {
 
 			buildGradleFile.text = newBuildGradle
 
+<<<<<<< HEAD
 			String buildGradleRelativePath = String.valueOf(repositoryRootDirPath.relativize(buildGradleFile.toPath()))
 
 			buildGradleRelativePath = buildGradleRelativePath.replace(File.separatorChar, '/' as char)
@@ -145,6 +173,35 @@ lockDependencyVersion {
 
 				return
 			}
+=======
+			String moduleTaskPrefix = _getModuleTaskPrefix(moduleDir)
+
+			StartParameter startParameter = gradle.startParameter.newBuild()
+
+			startParameter.taskNames = [moduleTaskPrefix + "compileJava", moduleTaskPrefix + "compileJSP", moduleTaskPrefix + "formatSource"]
+
+			GradleLauncher gradleLauncher = nestedBuildFactory.nestedInstance(startParameter)
+
+			try {
+				gradleLauncher.run()
+			}
+			catch (Exception e) {
+				println "Unable to lock dependency '${dependencyName}' version to ${dependencyVersion} in ${relativePath(moduleDir)}"
+
+				e.printStackTrace()
+
+				buildGradleFile.text = buildGradle
+
+				return
+			}
+			finally {
+				gradleLauncher.stop()
+			}
+
+			String buildGradleRelativePath = String.valueOf(repositoryRootDirPath.relativize(buildGradleFile.toPath()))
+
+			buildGradleRelativePath = buildGradleRelativePath.replace(File.separatorChar, '/' as char)
+>>>>>>> compatible
 
 			grgit.add patterns: [buildGradleRelativePath]
 
@@ -218,6 +275,7 @@ syncGitRepoReleases {
 	}
 }
 
+<<<<<<< HEAD
 private void _cherryPickApply(Commit commit) {
 	int start = commit.shortMessage.indexOf(' ')
 
@@ -278,6 +336,8 @@ private void _cherryPickApply(Commit commit) {
 	}
 }
 
+=======
+>>>>>>> compatible
 private void _cherryPickPrepNext(Commit commit) {
 	Closure<String> antVersionClosure = {
 		liferayPluginPackageProperties ->
@@ -329,6 +389,7 @@ private void _cherryPickPrepNext(Commit commit) {
 	assert moduleDirName : "Unable to parse commit ${commit.id}"
 
 	File moduleDir = new File(projectDir.parentFile, moduleDirName)
+<<<<<<< HEAD
 
 	if (!moduleDir.exists()) {
 		println "Commit ${commit.id} NOT cherry-picked: ${relativePath(moduleDir)} does not exist"
@@ -336,6 +397,8 @@ private void _cherryPickPrepNext(Commit commit) {
 		return
 	}
 
+=======
+>>>>>>> compatible
 	boolean moduleOSGi = true
 
 	String moduleTaskPrefix = _getModuleTaskPrefix(moduleDir)
@@ -448,6 +511,7 @@ private boolean _contains(File dir, String fileName, String s) {
 	return false
 }
 
+<<<<<<< HEAD
 private boolean _executeGradle(File moduleDir, List<String> taskNames, Map<String, String> projectProperties, boolean rethrowException) {
 	Map<String, String> oldSystemProperties = projectProperties.collectEntries {
 		String key, String value ->
@@ -498,6 +562,8 @@ private boolean _executeGradle(File moduleDir, List<String> taskNames, Map<Strin
 	}
 }
 
+=======
+>>>>>>> compatible
 private boolean _exists(File dir, String fileName) {
 	File file = new File(dir, fileName)
 
@@ -532,6 +598,7 @@ private InputStream _getCommitFileStream(String commitId, String fileName) {
 	}
 }
 
+<<<<<<< HEAD
 private File _getModuleDir(String name) {
 	File moduleDir = null
 
@@ -561,6 +628,8 @@ private File _getModuleDir(String name) {
 	moduleDir
 }
 
+=======
+>>>>>>> compatible
 private String _getModuleTaskPrefix(File moduleDir) {
 	String moduleTaskPrefix = relativePath(moduleDir)
 
@@ -590,6 +659,7 @@ private boolean _isGitRepoReadOnly(File dir) {
 	return _contains(gitRepoDir, ".gitrepo", "mode = pull")
 }
 
+<<<<<<< HEAD
 private void _resetFileChanges(String fileName) {
 	CheckoutCommand checkoutCommand = grgit.repository.jgit.checkout()
 
@@ -598,6 +668,8 @@ private void _resetFileChanges(String fileName) {
 	checkoutCommand.call()
 }
 
+=======
+>>>>>>> compatible
 private String _setSystemProperty(String key, String value) {
 	String oldValue
 

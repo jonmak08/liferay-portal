@@ -14,7 +14,11 @@
 
 package com.liferay.source.formatter.checks;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -26,7 +30,10 @@ import com.liferay.source.formatter.util.FileUtil;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+<<<<<<< HEAD
 import java.io.StringReader;
+=======
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -44,7 +51,11 @@ public class LanguageKeysCheck extends BaseFileCheck {
 
 	@Override
 	public void init() throws Exception {
+<<<<<<< HEAD
 		_portalLanguageProperties = _getPortalLanguageProperties();
+=======
+		_portalLanguageProperties = getPortalLanguageProperties();
+>>>>>>> compatible
 	}
 
 	@Override
@@ -57,7 +68,13 @@ public class LanguageKeysCheck extends BaseFileCheck {
 			String fileName, String absolutePath, String content)
 		throws Exception {
 
+<<<<<<< HEAD
 		if (_portalLanguageProperties != null) {
+=======
+		if (!isSubrepository() &&
+			!absolutePath.contains("/modules/private/apps/")) {
+
+>>>>>>> compatible
 			_checkLanguageKeys(fileName, absolutePath, content, getPatterns());
 		}
 
@@ -182,6 +199,7 @@ public class LanguageKeysCheck extends BaseFileCheck {
 		for (int i = 0; i < match.length(); i++) {
 			char c = match.charAt(i);
 
+<<<<<<< HEAD
 			if (c == CharPool.CLOSE_PARENTHESIS) {
 				if (count <= 1) {
 					return new String[0];
@@ -209,6 +227,44 @@ public class LanguageKeysCheck extends BaseFileCheck {
 
 					sb.append(match.charAt(i));
 				}
+=======
+			switch (c) {
+				case CharPool.CLOSE_PARENTHESIS:
+					if (count <= 1) {
+						return new String[0];
+					}
+
+					count--;
+
+					break;
+
+				case CharPool.OPEN_PARENTHESIS:
+					count++;
+
+					break;
+
+				case CharPool.QUOTE:
+					if (count > 1) {
+						break;
+					}
+
+					while (i < match.length()) {
+						i++;
+
+						if (match.charAt(i) == CharPool.QUOTE) {
+							String languageKey = sb.toString();
+
+							if (match.startsWith("names")) {
+								return StringUtil.split(languageKey);
+							}
+							else {
+								return new String[] {languageKey};
+							}
+						}
+
+						sb.append(match.charAt(i));
+					}
+>>>>>>> compatible
 			}
 		}
 
@@ -242,7 +298,12 @@ public class LanguageKeysCheck extends BaseFileCheck {
 
 		int y = baseModuleName.lastIndexOf(StringPool.SLASH);
 
+<<<<<<< HEAD
 		baseModuleName = baseModuleName.substring(y + 1);
+=======
+		baseModuleName = baseModuleName.substring(
+			y + 1, baseModuleName.length());
+>>>>>>> compatible
 
 		String moduleLangDirName =
 			moduleLocation.substring(0, x + 1) + baseModuleName +
@@ -380,6 +441,7 @@ public class LanguageKeysCheck extends BaseFileCheck {
 		return null;
 	}
 
+<<<<<<< HEAD
 	private Properties _getPortalLanguageProperties() throws Exception {
 		String portalLanguagePropertiesContent = getPortalContent(
 			"portal-impl/src/content/Language.properties");
@@ -396,6 +458,8 @@ public class LanguageKeysCheck extends BaseFileCheck {
 		return portalLanguageProperties;
 	}
 
+=======
+>>>>>>> compatible
 	private final Pattern _applyLangMergerPluginPattern = Pattern.compile(
 		"^apply[ \t]+plugin[ \t]*:[ \t]+\"com.liferay.lang.merger\"$",
 		Pattern.MULTILINE);

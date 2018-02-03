@@ -59,6 +59,16 @@ public class GadgetServiceWrapper implements GadgetService,
 	}
 
 	@Override
+<<<<<<< HEAD
+=======
+	public java.lang.Object invokeMethod(java.lang.String name,
+		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
+		throws java.lang.Throwable {
+		return _gadgetService.invokeMethod(name, parameterTypes, arguments);
+	}
+
+	@Override
+>>>>>>> compatible
 	public void updateGadget(long gadgetId,
 		java.lang.String portletCategoryNames,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)

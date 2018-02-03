@@ -27,13 +27,18 @@ kbGroupServiceConfiguration = ParameterMapUtil.setParameterMap(KBGroupServiceCon
 %>
 
 <liferay-portlet:actionURL portletConfiguration="<%= true %>" var="configurationActionURL">
+<<<<<<< HEAD
 	<portlet:param name="serviceName" value="<%= KBConstants.SERVICE_NAME %>" />
+=======
+	<portlet:param name="serviceName" value="<%= KBGroupServiceConfiguration.class.getName() %>" />
+>>>>>>> compatible
 	<portlet:param name="settingsScope" value="group" />
 </liferay-portlet:actionURL>
 
 <aui:form action="<%= configurationActionURL %>" method="post" name="fm">
 	<aui:input name="<%= Constants.CMD %>" type="hidden" value="<%= Constants.UPDATE %>" />
 
+<<<<<<< HEAD
 	<div class="container-fluid-1280">
 		<liferay-ui:error key="emailKBArticleAddedBody" message="please-enter-a-valid-body" />
 		<liferay-ui:error key="emailKBArticleAddedSubject" message="please-enter-a-valid-subject" />
@@ -42,6 +47,14 @@ kbGroupServiceConfiguration = ParameterMapUtil.setParameterMap(KBGroupServiceCon
 		<liferay-ui:error key="emailFromAddress" message="please-enter-a-valid-email-address" />
 		<liferay-ui:error key="emailFromName" message="please-enter-a-valid-name" />
 	</div>
+=======
+	<liferay-ui:error key="emailKBArticleAddedBody" message="please-enter-a-valid-body" />
+	<liferay-ui:error key="emailKBArticleAddedSubject" message="please-enter-a-valid-subject" />
+	<liferay-ui:error key="emailKBArticleUpdatedBody" message="please-enter-a-valid-body" />
+	<liferay-ui:error key="emailKBArticleUpdatedSubject" message="please-enter-a-valid-subject" />
+	<liferay-ui:error key="emailFromAddress" message="please-enter-a-valid-email-address" />
+	<liferay-ui:error key="emailFromName" message="please-enter-a-valid-name" />
+>>>>>>> compatible
 
 	<div class="portlet-configuration-body-content">
 		<liferay-ui:tabs
@@ -50,6 +63,7 @@ kbGroupServiceConfiguration = ParameterMapUtil.setParameterMap(KBGroupServiceCon
 			type="tabs nav-tabs-default"
 		>
 			<liferay-ui:section>
+<<<<<<< HEAD
 				<div class="container-fluid-1280">
 					<aui:fieldset-group markupView="lexicon">
 						<aui:fieldset>
@@ -106,6 +120,62 @@ kbGroupServiceConfiguration = ParameterMapUtil.setParameterMap(KBGroupServiceCon
 						</aui:fieldset>
 					</aui:fieldset-group>
 				</div>
+=======
+				<aui:fieldset-group markupView="lexicon">
+					<aui:fieldset>
+						<aui:input label="name" name="preferences--emailFromName--" value="<%= kbGroupServiceConfiguration.emailFromName() %>" wrapperCssClass="lfr-input-text-container" />
+
+						<aui:input label="address" name="preferences--emailFromAddress--" value="<%= kbGroupServiceConfiguration.emailFromAddress() %>" wrapperCssClass="lfr-input-text-container" />
+					</aui:fieldset>
+
+					<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="definition-of-terms">
+						<dl>
+							<dt>
+								[$ARTICLE_USER_ADDRESS$]
+							</dt>
+							<dd>
+								<liferay-ui:message key="the-email-address-of-the-user-who-added-the-article" />
+							</dd>
+							<dt>
+								[$ARTICLE_USER_NAME$]
+							</dt>
+							<dd>
+								<liferay-ui:message key="the-user-who-added-the-article" />
+							</dd>
+							<dt>
+								[$CATEGORY_TITLE$]
+							</dt>
+							<dd>
+								<liferay-ui:message key="category.kb" />
+							</dd>
+							<dt>
+								[$COMPANY_ID$]
+							</dt>
+							<dd>
+								<liferay-ui:message key="the-company-id-associated-with-the-article" />
+							</dd>
+							<dt>
+								[$COMPANY_MX$]
+							</dt>
+							<dd>
+								<liferay-ui:message key="the-company-mx-associated-with-the-article" />
+							</dd>
+							<dt>
+								[$COMPANY_NAME$]
+							</dt>
+							<dd>
+								<liferay-ui:message key="the-company-name-associated-with-the-article" />
+							</dd>
+							<dt>
+								[$SITE_NAME$]
+							</dt>
+							<dd>
+								<liferay-ui:message key="the-site-name-associated-with-the-article" />
+							</dd>
+						</dl>
+					</aui:fieldset>
+				</aui:fieldset-group>
+>>>>>>> compatible
 			</liferay-ui:section>
 
 			<%
@@ -133,6 +203,7 @@ kbGroupServiceConfiguration = ParameterMapUtil.setParameterMap(KBGroupServiceCon
 			%>
 
 			<liferay-ui:section>
+<<<<<<< HEAD
 				<div class="container-fluid-1280">
 					<aui:fieldset-group markupView="lexicon">
 						<liferay-frontend:email-notification-settings
@@ -158,6 +229,29 @@ kbGroupServiceConfiguration = ParameterMapUtil.setParameterMap(KBGroupServiceCon
 						/>
 					</aui:fieldset-group>
 				</div>
+=======
+				<aui:fieldset-group markupView="lexicon">
+					<liferay-frontend:email-notification-settings
+						emailBody="<%= kbGroupServiceConfiguration.emailKBArticleAddedBody() %>"
+						emailDefinitionTerms="<%= emailDefinitionTerms %>"
+						emailEnabled="<%= kbGroupServiceConfiguration.emailKBArticleAddedEnabled() %>"
+						emailParam="emailKBArticleAdded"
+						emailSubject="<%= kbGroupServiceConfiguration.emailKBArticleAddedSubject() %>"
+					/>
+				</aui:fieldset-group>
+			</liferay-ui:section>
+
+			<liferay-ui:section>
+				<aui:fieldset-group markupView="lexicon">
+					<liferay-frontend:email-notification-settings
+						emailBody="<%= kbGroupServiceConfiguration.emailKBArticleUpdatedBody() %>"
+						emailDefinitionTerms="<%= emailDefinitionTerms %>"
+						emailEnabled="<%= kbGroupServiceConfiguration.emailKBArticleUpdatedEnabled() %>"
+						emailParam="emailKBArticleUpdated"
+						emailSubject="<%= kbGroupServiceConfiguration.emailKBArticleUpdatedSubject() %>"
+					/>
+				</aui:fieldset-group>
+>>>>>>> compatible
 			</liferay-ui:section>
 
 			<%
@@ -173,6 +267,7 @@ kbGroupServiceConfiguration = ParameterMapUtil.setParameterMap(KBGroupServiceCon
 			%>
 
 			<liferay-ui:section>
+<<<<<<< HEAD
 				<div class="container-fluid-1280">
 					<aui:fieldset-group markupView="lexicon">
 						<liferay-frontend:email-notification-settings
@@ -212,10 +307,46 @@ kbGroupServiceConfiguration = ParameterMapUtil.setParameterMap(KBGroupServiceCon
 						/>
 					</aui:fieldset-group>
 				</div>
+=======
+				<aui:fieldset-group markupView="lexicon">
+					<liferay-frontend:email-notification-settings
+						emailBody="<%= kbGroupServiceConfiguration.emailKBArticleSuggestionReceivedBody() %>"
+						emailDefinitionTerms="<%= emailDefinitionTerms %>"
+						emailEnabled="<%= kbGroupServiceConfiguration.emailKBArticleSuggestionReceivedEnabled() %>"
+						emailParam="emailKBArticleSuggestionReceived"
+						emailSubject="<%= kbGroupServiceConfiguration.emailKBArticleSuggestionReceivedSubject() %>"
+					/>
+				</aui:fieldset-group>
+			</liferay-ui:section>
+
+			<liferay-ui:section>
+				<aui:fieldset-group markupView="lexicon">
+					<liferay-frontend:email-notification-settings
+						emailBody="<%= kbGroupServiceConfiguration.emailKBArticleSuggestionInProgressBody() %>"
+						emailDefinitionTerms="<%= emailDefinitionTerms %>"
+						emailEnabled="<%= kbGroupServiceConfiguration.emailKBArticleSuggestionInProgressEnabled() %>"
+						emailParam="emailKBArticleSuggestionInProgress"
+						emailSubject="<%= kbGroupServiceConfiguration.emailKBArticleSuggestionInProgressSubject() %>"
+					/>
+				</aui:fieldset-group>
+			</liferay-ui:section>
+
+			<liferay-ui:section>
+				<aui:fieldset-group markupView="lexicon">
+					<liferay-frontend:email-notification-settings
+						emailBody="<%= kbGroupServiceConfiguration.emailKBArticleSuggestionResolvedBody() %>"
+						emailDefinitionTerms="<%= emailDefinitionTerms %>"
+						emailEnabled="<%= kbGroupServiceConfiguration.emailKBArticleSuggestionResolvedEnabled() %>"
+						emailParam="emailKBArticleSuggestionResolved"
+						emailSubject="<%= kbGroupServiceConfiguration.emailKBArticleSuggestionResolvedSubject() %>"
+					/>
+				</aui:fieldset-group>
+>>>>>>> compatible
 			</liferay-ui:section>
 
 			<c:if test="<%= PortalUtil.isRSSFeedsEnabled() %>">
 				<liferay-ui:section>
+<<<<<<< HEAD
 					<div class="container-fluid-1280">
 						<aui:fieldset-group markupView="lexicon">
 							<aui:fieldset>
@@ -228,13 +359,27 @@ kbGroupServiceConfiguration = ParameterMapUtil.setParameterMap(KBGroupServiceCon
 							</aui:fieldset>
 						</aui:fieldset-group>
 					</div>
+=======
+					<aui:fieldset-group markupView="lexicon">
+						<liferay-ui:rss-settings
+							delta="<%= kbGroupServiceConfiguration.rssDelta() %>"
+							displayStyle="<%= kbGroupServiceConfiguration.rssDisplayStyle() %>"
+							enabled="<%= kbGroupServiceConfiguration.enableRSS() %>"
+							feedType="<%= kbGroupServiceConfiguration.rssFeedType() %>"
+						/>
+					</aui:fieldset-group>
+>>>>>>> compatible
 				</liferay-ui:section>
 			</c:if>
 		</liferay-ui:tabs>
 	</div>
 
 	<aui:button-row>
+<<<<<<< HEAD
 		<aui:button onClick='<%= renderResponse.getNamespace() + "save();" %>' value="save" />
+=======
+		<aui:button cssClass="btn btn-lg btn-primary" onClick='<%= renderResponse.getNamespace() + "save();" %>' value="save" />
+>>>>>>> compatible
 	</aui:button-row>
 </aui:form>
 

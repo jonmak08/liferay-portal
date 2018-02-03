@@ -17,6 +17,10 @@ package com.liferay.source.formatter.checkstyle.checks;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.source.formatter.checkstyle.util.DetailASTUtil;
 
+<<<<<<< HEAD
+=======
+import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
+>>>>>>> compatible
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 
@@ -25,6 +29,7 @@ import java.util.List;
 /**
  * @author Hugo Huijser
  */
+<<<<<<< HEAD
 public class SelfReferenceCheck extends BaseCheck {
 
 	@Override
@@ -36,6 +41,17 @@ public class SelfReferenceCheck extends BaseCheck {
 
 	@Override
 	protected void doVisitToken(DetailAST detailAST) {
+=======
+public class SelfReferenceCheck extends AbstractCheck {
+
+	@Override
+	public int[] getDefaultTokens() {
+		return new int[] {TokenTypes.CLASS_DEF};
+	}
+
+	@Override
+	public void visitToken(DetailAST detailAST) {
+>>>>>>> compatible
 		DetailAST nameAST = detailAST.findFirstToken(TokenTypes.IDENT);
 
 		String className = nameAST.getText();
@@ -113,10 +129,14 @@ public class SelfReferenceCheck extends BaseCheck {
 		DetailAST parentAST = methodCallAST.getParent();
 
 		while (true) {
+<<<<<<< HEAD
 			if ((parentAST.getType() == TokenTypes.CLASS_DEF) ||
 				(parentAST.getType() == TokenTypes.ENUM_DEF) ||
 				(parentAST.getType() == TokenTypes.INTERFACE_DEF)) {
 
+=======
+			if (parentAST.getType() == TokenTypes.CLASS_DEF) {
+>>>>>>> compatible
 				DetailAST nameAST = parentAST.findFirstToken(TokenTypes.IDENT);
 
 				if (className.equals(nameAST.getText())) {

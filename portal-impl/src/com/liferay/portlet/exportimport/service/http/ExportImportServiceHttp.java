@@ -685,8 +685,14 @@ public class ExportImportServiceHttp {
 	private static final Class<?>[] _exportLayoutsAsFileParameterTypes0 = new Class[] {
 			com.liferay.exportimport.kernel.model.ExportImportConfiguration.class
 		};
+<<<<<<< HEAD
 	private static final Class<?>[] _exportLayoutsAsFileParameterTypes1 = new Class[] {
 			long.class, long.class, boolean.class, java.util.Map.class
+=======
+	private static final Class<?>[] _exportLayoutsAsFileInBackgroundParameterTypes1 =
+		new Class[] {
+			com.liferay.exportimport.kernel.model.ExportImportConfiguration.class
+>>>>>>> compatible
 		};
 	private static final Class<?>[] _exportLayoutsAsFileInBackgroundParameterTypes2 =
 		new Class[] {
@@ -694,13 +700,18 @@ public class ExportImportServiceHttp {
 		};
 	private static final Class<?>[] _exportLayoutsAsFileInBackgroundParameterTypes3 =
 		new Class[] { long.class };
+<<<<<<< HEAD
 	private static final Class<?>[] _exportPortletInfoAsFileParameterTypes4 = new Class[] {
+=======
+	private static final Class<?>[] _exportPortletInfoAsFileParameterTypes3 = new Class[] {
+>>>>>>> compatible
 			com.liferay.exportimport.kernel.model.ExportImportConfiguration.class
 		};
 	private static final Class<?>[] _exportPortletInfoAsFileInBackgroundParameterTypes5 =
 		new Class[] {
 			com.liferay.exportimport.kernel.model.ExportImportConfiguration.class
 		};
+<<<<<<< HEAD
 	private static final Class<?>[] _importLayoutsParameterTypes6 = new Class[] {
 			com.liferay.exportimport.kernel.model.ExportImportConfiguration.class,
 			java.io.File.class
@@ -726,6 +737,29 @@ public class ExportImportServiceHttp {
 			java.io.File.class
 		};
 	private static final Class<?>[] _importPortletInfoParameterTypes12 = new Class[] {
+=======
+	private static final Class<?>[] _importLayoutsParameterTypes5 = new Class[] {
+			com.liferay.exportimport.kernel.model.ExportImportConfiguration.class,
+			java.io.File.class
+		};
+	private static final Class<?>[] _importLayoutsParameterTypes6 = new Class[] {
+			com.liferay.exportimport.kernel.model.ExportImportConfiguration.class,
+			java.io.InputStream.class
+		};
+	private static final Class<?>[] _importLayoutsInBackgroundParameterTypes7 = new Class[] {
+			com.liferay.exportimport.kernel.model.ExportImportConfiguration.class,
+			java.io.File.class
+		};
+	private static final Class<?>[] _importLayoutsInBackgroundParameterTypes8 = new Class[] {
+			com.liferay.exportimport.kernel.model.ExportImportConfiguration.class,
+			java.io.InputStream.class
+		};
+	private static final Class<?>[] _importPortletInfoParameterTypes9 = new Class[] {
+			com.liferay.exportimport.kernel.model.ExportImportConfiguration.class,
+			java.io.File.class
+		};
+	private static final Class<?>[] _importPortletInfoParameterTypes10 = new Class[] {
+>>>>>>> compatible
 			com.liferay.exportimport.kernel.model.ExportImportConfiguration.class,
 			java.io.InputStream.class
 		};
@@ -739,6 +773,7 @@ public class ExportImportServiceHttp {
 			com.liferay.exportimport.kernel.model.ExportImportConfiguration.class,
 			java.io.InputStream.class
 		};
+<<<<<<< HEAD
 	private static final Class<?>[] _validateImportLayoutsFileParameterTypes15 = new Class[] {
 			com.liferay.exportimport.kernel.model.ExportImportConfiguration.class,
 			java.io.File.class
@@ -752,6 +787,21 @@ public class ExportImportServiceHttp {
 			java.io.File.class
 		};
 	private static final Class<?>[] _validateImportPortletInfoParameterTypes18 = new Class[] {
+=======
+	private static final Class<?>[] _validateImportLayoutsFileParameterTypes13 = new Class[] {
+			com.liferay.exportimport.kernel.model.ExportImportConfiguration.class,
+			java.io.File.class
+		};
+	private static final Class<?>[] _validateImportLayoutsFileParameterTypes14 = new Class[] {
+			com.liferay.exportimport.kernel.model.ExportImportConfiguration.class,
+			java.io.InputStream.class
+		};
+	private static final Class<?>[] _validateImportPortletInfoParameterTypes15 = new Class[] {
+			com.liferay.exportimport.kernel.model.ExportImportConfiguration.class,
+			java.io.File.class
+		};
+	private static final Class<?>[] _validateImportPortletInfoParameterTypes16 = new Class[] {
+>>>>>>> compatible
 			com.liferay.exportimport.kernel.model.ExportImportConfiguration.class,
 			java.io.InputStream.class
 		};

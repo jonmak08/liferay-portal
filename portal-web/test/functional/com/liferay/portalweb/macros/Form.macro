@@ -10,7 +10,11 @@
 
 		<execute function="MouseOver#mouseOverNotVisible" locator1="Form#ADD_COLUMN_RIGHT" />
 
+<<<<<<< HEAD
 		<execute function="DragAndDrop#dragAndDropToObjectNotVisible" locator1="Form#ADD_COLUMN_RIGHT" locator2="Form#ADD_COLUMN_LINE" value1="horizontal-scroll" />
+=======
+		<execute function="DragAndDrop#dragAndDropToObjectNotVisible" locator1="Form#ADD_COLUMN_RIGHT" locator2="Form#ADD_COLUMN_LINE" value1="" />
+>>>>>>> compatible
 	</command>
 
 	<command name="addPage">
@@ -19,16 +23,20 @@
 		<execute function="AssertClick" locator1="Form#PAGE_CONTROLS_ADD_NEW_PAGE" value1="Add New Page" />
 	</command>
 
+<<<<<<< HEAD
 	<command name="addSuccessPage">
 		<execute function="Click" locator1="Form#PAGE_CONTROLS_ELLIPSIS_ICON" />
 
 		<execute function="AssertClick" locator1="Form#PAGE_CONTROLS_ADD_SUCCESS_PAGE" value1="Add Success Page" />
 	</command>
 
+=======
+>>>>>>> compatible
 	<command name="clickPublishSwitcher">
 		<execute function="Click" locator1="Form#PUBLISH_FORM_SWITCHER" />
 	</command>
 
+<<<<<<< HEAD
 	<command name="clickSaveButton">
 		<execute function="AssertClick" locator1="Form#SAVE_FORM_BUTTON" value1="Save Form" />
 	</command>
@@ -43,6 +51,8 @@
 		<execute function="AssertNotVisible" locator1="Form#SIDEBAR_CLOSE" />
 	</command>
 
+=======
+>>>>>>> compatible
 	<command name="configureEmailNotifications">
 		<execute function="AssertClick" locator1="Form#SETTINGS_TAB_EMAIL_NOTIFICATIONS" value1="Email Notifications" />
 
@@ -82,15 +92,20 @@
 	</command>
 
 	<command name="configureWorkflow">
+<<<<<<< HEAD
 		<execute function="Click" locator1="Form#SETTINGS_TAB_WORKFLOW_CONFIGURATION_FIELD" />
 
 		<var name="key_workflowDefinition" value="${workflowDefinition}" />
 
 		<execute function="AssertClick" locator1="Form#SETTINGS_TAB_WORKFLOW_CONFIGURATION" value1="${workflowDefinition}" />
+=======
+		<execute function="Select" locator1="AssetWorkflow#ALL_STRUCTURES_WORKFLOW_SELECT" value1="${workflowDefinition}" />
+>>>>>>> compatible
 
 		<execute macro="Button#clickDone" />
 	</command>
 
+<<<<<<< HEAD
 	<command name="deleteCurrentPage">
 		<var name="key_formPageName" value="${formPageName}" />
 
@@ -113,6 +128,9 @@
 	<command name="editDescription">
 		<execute function="Click" locator1="Form#DESCRIPTION_FIELD" />
 
+=======
+	<command name="editDescription">
+>>>>>>> compatible
 		<execute function="Type#typeAceEditor" locator1="Form#DESCRIPTION_FIELD" value1="${formDescription}" />
 	</command>
 
@@ -126,11 +144,14 @@
 			<var name="fieldName" value="ddmDataProviderInstanceId" />
 			<var name="selectOption" value="${dataProvider}" />
 		</execute>
+<<<<<<< HEAD
 
 		<execute macro="FormFields#selectSelectOption">
 			<var name="fieldName" value="ddmDataProviderInstanceOutput" />
 			<var name="selectOption" value="${dataProviderOutput}" />
 		</execute>
+=======
+>>>>>>> compatible
 	</command>
 
 	<command name="editFieldLabel">
@@ -139,6 +160,7 @@
 			<var name="fieldValue" value="${fieldValue}" />
 		</execute>
 
+<<<<<<< HEAD
 		<if>
 			<not>
 				<isset var="fieldName" />
@@ -147,14 +169,20 @@
 				<var method="StringUtil#replace('${fieldValue}', ' ', '')" name="fieldName" />
 			</then>
 		</if>
+=======
+		<var method="StringUtil#replace('${fieldValue}', ' ', '')" name="fieldName" />
+>>>>>>> compatible
 
 		<execute macro="FormFields#viewFieldName">
 			<var name="fieldName" value="${fieldName}" />
 		</execute>
+<<<<<<< HEAD
 
 		<var name="key_fieldName" value="${fieldName}" />
 
 		<execute function="AssertTextEquals" locator1="Form#FIELD_LABEL" value1="${fieldValue}" />
+=======
+>>>>>>> compatible
 	</command>
 
 	<command name="editName">
@@ -164,6 +192,7 @@
 		<execute function="AssertVisible" locator1="Form#NAME_FIELD" />
 		<execute function="AssertVisible" locator1="Form#DESCRIPTION_FIELD" />
 
+<<<<<<< HEAD
 		<execute function="Click" locator1="Form#NAME_FIELD" />
 
 		<execute macro="AlloyEditor#typeEditor">
@@ -185,6 +214,13 @@
 			<var name="content" value="${formName}" />
 			<var name="editor" value="name" />
 		</execute>
+=======
+		<execute function="Pause" locator1="5000" />
+
+		<execute function="Click" locator1="Form#NAME_FIELD" />
+
+		<execute function="Type#typeEditor" locator1="AlloyEditor#NAME_FIELD" value1="${formName}" />
+>>>>>>> compatible
 	</command>
 
 	<command name="editPageDescription">
@@ -195,6 +231,7 @@
 		<execute function="Type" locator1="Form#PAGE_TITLE_FIELD" value1="${formPageName}" />
 	</command>
 
+<<<<<<< HEAD
 	<command name="editSuccessPage">
 		<execute function="Type" locator1="Form#SUCCESS_PAGE_TITLE_FIELD" value1="${successPageTitle}" />
 		<execute function="Type" locator1="Form#SUCCESS_PAGE_DESCRIPTION_FIELD" value1="${successPageDescription}" />
@@ -260,6 +297,16 @@
 		<var name="key_page" value="${page}" />
 
 		<execute function="Click" locator1="Form#ALT_PAGINATION_PAGE" />
+=======
+	<command name="gotoAddField">
+		<var name="key_columnSize" value="${columnSize}" />
+
+		<execute function="Click#makeVisibleClickAt" locator1="Form#ADD_FIELD" />
+
+		<var name="key_fieldType" value="${fieldType}" />
+
+		<execute function="AssertClick" locator1="Form#ADD_FIELD_TYPE" value1="${fieldType}" />
+>>>>>>> compatible
 	</command>
 
 	<command name="previewForm">
@@ -289,6 +336,7 @@
 		<execute function="AssertElementNotPresent" locator1="Button#SUBMIT" value1="Submit" />
 	</command>
 
+<<<<<<< HEAD
 	<command name="publishForm">
 		<execute function="AssertElementPresent" locator1="Form#NAME_FIELD" />
 
@@ -299,6 +347,10 @@
 
 	<command name="save">
 		<execute function="AssertClick" locator1="Form#SAVE_FORM_BUTTON" value1="Save Form" />
+=======
+	<command name="save">
+		<execute function="AssertClick" locator1="Form#SAVE_BUTTON" value1="Save" />
+>>>>>>> compatible
 
 		<execute macro="Alert#viewSuccessMessage" />
 	</command>
@@ -313,6 +365,7 @@
 		<execute macro="Alert#viewSuccessMessage" />
 	</command>
 
+<<<<<<< HEAD
 	<command name="saveLocalized">
 		<var name="key_saveButton" value="${saveButton}" />
 
@@ -321,6 +374,8 @@
 		<execute macro="Alert#viewSuccessMessage" />
 	</command>
 
+=======
+>>>>>>> compatible
 	<command name="submitFormPublish">
 		<execute macro="Form#viewFormPublish">
 			<var name="fieldLabel" value="${fieldLabel}" />
@@ -338,6 +393,7 @@
 		<execute macro="Alert#viewSuccessMessage" />
 	</command>
 
+<<<<<<< HEAD
 	<command name="switchPaginationMode">
 		<execute function="Click" locator1="Form#PAGE_CONTROLS_ELLIPSIS_ICON" />
 
@@ -364,11 +420,14 @@
 		<execute function="AssertElementPresent" locator1="Form#ALT_PAGINATION_SUCCESS_PAGE" />
 	</command>
 
+=======
+>>>>>>> compatible
 	<command name="viewFormName">
 		<execute function="AssertTextEquals" locator1="Form#NAME_FIELD" value1="${formName}" />
 	</command>
 
 	<command name="viewFormNotPublished">
+<<<<<<< HEAD
 		<execute function="Click" locator1="Form#PUBLISH_ICON" />
 
 		<var method="selenium#getElementValue(Form#PUBLISH_FORM_PUBLIC_URL)" name="publishFormURL" />
@@ -378,6 +437,9 @@
 		<execute macro="Navigator#openSpecificURL">
 			<var name="url" value="${publishFormURL}" />
 		</execute>
+=======
+		<execute macro="FormsAdminNavigator#openPublishURL" />
+>>>>>>> compatible
 
 		<execute function="AssertTextEquals" locator1="Message#ERROR_3_ALT" value1="This form is not available or it was not published." />
 	</command>
@@ -394,6 +456,7 @@
 			<var name="fieldName" value="${fieldName}" />
 		</execute>
 	</command>
+<<<<<<< HEAD
 
 	<command name="viewPublishFormSuccessMessage">
 		<var name="key_alertMessage" value="The form was published successfully! Access it with this URL" />
@@ -404,4 +467,6 @@
 	<command name="viewSaveNotification">
 		<execute function="AssertTextEquals#assertPartialText" locator1="Form#SAVE_NOTIFICATION" value1="Draft saved on" />
 	</command>
+=======
+>>>>>>> compatible
 </definition>

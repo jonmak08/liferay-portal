@@ -113,6 +113,10 @@
 /portal/commons-dbcp.jar
 /portal/commons-digester.jar
 /portal/commons-discovery.jar
+<<<<<<< HEAD
+=======
+/portal/commons-email.jar
+>>>>>>> compatible
 /portal/commons-exec.jar
 /portal/commons-fileupload.jar
 /portal/commons-httpclient.jar

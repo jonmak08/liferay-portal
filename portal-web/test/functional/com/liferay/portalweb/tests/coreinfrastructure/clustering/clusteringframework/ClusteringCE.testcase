@@ -1,9 +1,17 @@
 <definition component-name="portal-performance-and-fault-tolerance-ce">
+<<<<<<< HEAD
 	<property name="portal.release" value="true" />
 	<property name="portal.upstream" value="true" />
 	<property name="app.server.bundles.size" value="1" />
 	<property name="cluster.enabled" value="true" />
 	<property name="osgi.modules.includes" value="portal-cluster-multiple,portal-cache-ehcache-multiple,portal-scheduler-multiple" />
+=======
+	<property name="app.server.bundles.size" value="1" />
+	<property name="cluster.enabled" value="true" />
+	<property name="deploy.cluster.ce.plugins" value="true" />
+	<property name="portal.release" value="true" />
+	<property name="portal.upstream" value="true" />
+>>>>>>> compatible
 	<property name="remote.elasticsearch.enabled" value="true" />
 	<property name="test.run.environment" value="CE" />
 	<property name="testray.main.component.name" value="Clustering" />
@@ -23,15 +31,23 @@
 				<execute macro="PortalInstances#tearDownCP" />
 			</then>
 			<else>
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP" />
+=======
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 
 				<execute macro="BlogsEntry#tearDownCP" />
 			</else>
 		</if>
 	</tear-down>
 
+<<<<<<< HEAD
 	<command name="AddAndDeleteBlogEntriesOnSeparateNodes" priority="5">
 		<property name="portal.acceptance" value="quarantine" />
+=======
+	<command name="AddAndDeleteBlogEntriesOnSeparateNodes" priority="4">
+>>>>>>> compatible
 		<property name="test.name.skip.portal.instance" value="ClusteringCE#AddAndDeleteBlogEntriesOnSeparateNodes" />
 
 		<execute macro="Clustering#viewClusterStatusInConsole" />
@@ -40,6 +56,7 @@
 			<var name="nodePort" value="8080" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -47,6 +64,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Test Page1" />
 		</execute>
 
@@ -101,6 +121,7 @@
 			<var name="nodePort" value="9080" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -108,6 +129,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Test Page2" />
 		</execute>
 
@@ -161,9 +185,13 @@
 			<var name="url" value="http://localhost:9080" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Recycle Bin" />
 		</execute>
 
@@ -217,6 +245,7 @@
 			<var name="nodePort" value="8080" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -224,6 +253,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 

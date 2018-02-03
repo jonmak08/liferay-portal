@@ -17,10 +17,13 @@
 <%@ include file="/init.jsp" %>
 
 <%
+<<<<<<< HEAD
 String redirect = ParamUtil.getString(request, "redirect");
 
 String backURL = ParamUtil.getString(request, "backURL", redirect);
 
+=======
+>>>>>>> compatible
 String portletResource = ParamUtil.getString(request, "portletResource");
 
 Layout selLayout = layoutsAdminDisplayContext.getSelLayout();
@@ -42,13 +45,18 @@ if (layout.isTypeControlPanel()) {
 else {
 	selLayout = layout;
 
+<<<<<<< HEAD
 	privateLayout = layout.isPrivateLayout();
+=======
+	privateLayout = selLayout.isPrivateLayout();
+>>>>>>> compatible
 	parentPlid = layout.getParentPlid();
 	parentLayoutId = layout.getParentLayoutId();
 }
 
 String[] types = LayoutTypeControllerTracker.getTypes();
 
+<<<<<<< HEAD
 if (Validator.isNotNull(backURL)) {
 	portletDisplay.setShowBackIcon(true);
 	portletDisplay.setURLBack(backURL);
@@ -63,6 +71,16 @@ renderResponse.setTitle(LanguageUtil.get(request, "add-new-page"));
 
 <aui:form action="<%= addLayoutURL %>" cssClass="container-fluid-1280" enctype="multipart/form-data" method="post" name="addPageFm">
 	<aui:input name="redirect" type="hidden" value="<%= redirect %>" />
+=======
+renderResponse.setTitle(LanguageUtil.get(request, "add-new-page"));
+%>
+
+<portlet:actionURL name="addLayout" var="addLayoutURL">
+	<portlet:param name="mvcPath" value="/add_layout.jsp" />
+</portlet:actionURL>
+
+<aui:form action="<%= addLayoutURL %>" cssClass="container-fluid-1280" data-senna-off="true" enctype="multipart/form-data" method="post" name="addPageFm">
+>>>>>>> compatible
 	<aui:input name="groupId" type="hidden" value="<%= String.valueOf(groupId) %>" />
 	<aui:input name="privateLayout" type="hidden" value="<%= privateLayout %>" />
 	<aui:input name="parentPlid" type="hidden" value="<%= parentPlid %>" />
@@ -190,6 +208,7 @@ renderResponse.setTitle(LanguageUtil.get(request, "add-new-page"));
 		</aui:fieldset>
 
 		<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="categorization">
+<<<<<<< HEAD
 			<liferay-asset:asset-categories-error />
 
 			<liferay-asset:asset-tags-error />
@@ -197,15 +216,28 @@ renderResponse.setTitle(LanguageUtil.get(request, "add-new-page"));
 			<liferay-asset:asset-categories-selector className="<%= Layout.class.getName() %>" classPK="<%= selLayout != null ? selLayout.getPrimaryKey() : 0 %>" />
 
 			<liferay-asset:asset-tags-selector className="<%= Layout.class.getName() %>" classPK="<%= selLayout != null ? selLayout.getPrimaryKey() : 0 %>" />
+=======
+			<liferay-ui:asset-categories-error />
+
+			<liferay-ui:asset-tags-error />
+
+			<aui:input name="categories" type="assetCategories" />
+
+			<aui:input name="tags" type="assetTags" />
+>>>>>>> compatible
 		</aui:fieldset>
 	</aui:fieldset-group>
 
 	<aui:button-row>
+<<<<<<< HEAD
 		<aui:button type="submit" value="add-page" />
 
 		<c:if test="<%= Validator.isNotNull(backURL) %>">
 			<aui:button href="<%= backURL %>" type="cancel" />
 		</c:if>
+=======
+		<aui:button cssClass="btn-lg" type="submit" value="add-page" />
+>>>>>>> compatible
 	</aui:button-row>
 </aui:form>
 

@@ -124,6 +124,7 @@ public class DDMDataProviderInstanceServiceSoap {
 		}
 	}
 
+<<<<<<< HEAD
 	public static com.liferay.dynamic.data.mapping.model.DDMDataProviderInstanceSoap fetchDataProviderInstanceByUuid(
 		java.lang.String uuid) throws RemoteException {
 		try {
@@ -139,6 +140,8 @@ public class DDMDataProviderInstanceServiceSoap {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	public static com.liferay.dynamic.data.mapping.model.DDMDataProviderInstanceSoap getDataProviderInstance(
 		long dataProviderInstanceId) throws RemoteException {
 		try {
@@ -154,6 +157,7 @@ public class DDMDataProviderInstanceServiceSoap {
 		}
 	}
 
+<<<<<<< HEAD
 	public static com.liferay.dynamic.data.mapping.model.DDMDataProviderInstanceSoap getDataProviderInstanceByUuid(
 		java.lang.String uuid) throws RemoteException {
 		try {
@@ -169,6 +173,8 @@ public class DDMDataProviderInstanceServiceSoap {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	public static com.liferay.dynamic.data.mapping.model.DDMDataProviderInstanceSoap[] search(
 		long companyId, long[] groupIds, java.lang.String keywords, int start,
 		int end,

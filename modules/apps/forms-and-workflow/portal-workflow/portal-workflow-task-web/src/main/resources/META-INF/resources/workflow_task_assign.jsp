@@ -28,6 +28,7 @@ String redirect = ParamUtil.getString(request, "redirect");
 
 <liferay-portlet:resourceURL copyCurrentRenderParameters="<%= false %>" id="assignWorkflowTask" var="assignURL" />
 
+<<<<<<< HEAD
 <div class="task-action">
 	<aui:form action="<%= assignURL %>" method="post" name="assignFm">
 		<div class="task-action-content">
@@ -61,19 +62,61 @@ String redirect = ParamUtil.getString(request, "redirect");
 			<aui:button disabled="<%= !hasOtherAssignees && assigneeUserId <= 0 %>" name="done" primary="<%= true %>" value="done" />
 
 			<aui:button name="close" type="cancel" />
+=======
+<div class="container-fluid-1280">
+	<aui:form action="<%= assignURL %>" method="post" name="assignFm">
+		<aui:input name="workflowTaskId" type="hidden" value="<%= String.valueOf(workflowTask.getWorkflowTaskId()) %>" />
+
+		<c:choose>
+			<c:when test="<%= assigneeUserId > 0 %>">
+				<aui:input name="assigneeUserId" type="hidden" value="<%= String.valueOf(assigneeUserId) %>" />
+			</c:when>
+			<c:otherwise>
+				<aui:select disabled="<%= !hasOtherAssignees %>" label="assign-to" name="assigneeUserId">
+
+					<%
+					for (long pooledActorId : workflowTaskDisplayContext.getActorsIds(workflowTask)) {
+					%>
+
+						<aui:option label="<%= workflowTaskDisplayContext.getActorName(pooledActorId) %>" selected="<%= workflowTask.getAssigneeUserId() == pooledActorId %>" value="<%= String.valueOf(pooledActorId) %>" />
+
+					<%
+					}
+					%>
+
+				</aui:select>
+			</c:otherwise>
+		</c:choose>
+
+		<aui:input cols="55" disabled="<%= !hasOtherAssignees && assigneeUserId <= 0 %>" name="comment" placeholder="comment" rows="1" type="textarea" />
+
+		<aui:button-row>
+			<aui:button cssClass="btn-lg" disabled="<%= !hasOtherAssignees && assigneeUserId <= 0 %>" name="done" primary="<%= true %>" value="done" />
+
+			<aui:button cssClass="btn-lg" name="close" type="cancel" />
+>>>>>>> compatible
 		</aui:button-row>
 	</aui:form>
 </div>
 
 <aui:script use="aui-base,aui-io-request">
+<<<<<<< HEAD
 	A.one('#<portlet:namespace />done').on(
+=======
+	A.one('#<portlet:namespace/>done').on(
+>>>>>>> compatible
 		'click',
 		function(event) {
 			A.io.request(
 				'<%= assignURL.toString() %>',
 				{
+<<<<<<< HEAD
 					form: {id: '<portlet:namespace />assignFm'},
 					method: 'POST',
+=======
+					method: 'POST',
+					form: {id: '<portlet:namespace/>assignFm'},
+>>>>>>> compatible
 					on: {
 						success: function() {
 							Liferay.Util.getOpener().<portlet:namespace />refreshPortlet('<%= redirect.toString() %>');

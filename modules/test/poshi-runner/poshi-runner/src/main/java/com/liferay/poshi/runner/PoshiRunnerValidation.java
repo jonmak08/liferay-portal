@@ -597,8 +597,12 @@ public class PoshiRunnerValidation {
 		}
 		else if (primaryAttributeName.equals("selenium")) {
 			List<String> possibleAttributeNames = Arrays.asList(
+<<<<<<< HEAD
 				"argument1", "argument2", "argument3", "line-number",
 				"selenium");
+=======
+				"argument1", "argument2", "line-number", "selenium");
+>>>>>>> compatible
 
 			validatePossibleAttributeNames(
 				element, possibleAttributeNames, filePath);

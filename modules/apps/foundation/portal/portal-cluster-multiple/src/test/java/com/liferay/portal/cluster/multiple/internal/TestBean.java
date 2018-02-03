@@ -14,11 +14,18 @@
 
 package com.liferay.portal.cluster.multiple.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.cache.thread.local.Lifecycle;
 import com.liferay.portal.kernel.cache.thread.local.ThreadLocalCache;
 import com.liferay.portal.kernel.cache.thread.local.ThreadLocalCacheManager;
 import com.liferay.portal.kernel.cluster.ClusterInvokeThreadLocal;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CentralizedThreadLocal;
+>>>>>>> compatible
 
 /**
  * @author Tina Tian

@@ -16,7 +16,10 @@ package com.liferay.document.library.internal.exportimport.data.handler;
 
 import com.liferay.document.library.exportimport.data.handler.DLPluggableContentDataHandler;
 import com.liferay.document.library.kernel.model.DLFileEntry;
+<<<<<<< HEAD
 import com.liferay.document.library.kernel.model.DLFileEntryConstants;
+=======
+>>>>>>> compatible
 import com.liferay.document.library.kernel.model.DLFileEntryMetadata;
 import com.liferay.document.library.kernel.model.DLFileEntryType;
 import com.liferay.document.library.kernel.model.DLFileVersion;
@@ -37,7 +40,10 @@ import com.liferay.dynamic.data.mapping.kernel.DDMFormValues;
 import com.liferay.dynamic.data.mapping.kernel.DDMStructure;
 import com.liferay.dynamic.data.mapping.storage.StorageEngine;
 import com.liferay.dynamic.data.mapping.util.DDMBeanTranslatorUtil;
+<<<<<<< HEAD
 import com.liferay.exportimport.data.handler.base.BaseStagedModelDataHandler;
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.lar.ExportImportPathUtil;
 import com.liferay.exportimport.kernel.lar.ExportImportThreadLocal;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
@@ -45,9 +51,15 @@ import com.liferay.exportimport.kernel.lar.PortletDataException;
 import com.liferay.exportimport.kernel.lar.StagedModelDataHandler;
 import com.liferay.exportimport.kernel.lar.StagedModelDataHandlerUtil;
 import com.liferay.exportimport.kernel.lar.StagedModelModifiedDateComparator;
+<<<<<<< HEAD
 import com.liferay.osgi.service.tracker.collections.list.ServiceTrackerList;
 import com.liferay.osgi.service.tracker.collections.list.ServiceTrackerListFactory;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.exportimport.lar.BaseStagedModelDataHandler;
+import com.liferay.osgi.service.tracker.collections.list.ServiceTrackerList;
+import com.liferay.osgi.service.tracker.collections.list.ServiceTrackerListFactory;
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
@@ -74,9 +86,15 @@ import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.repository.liferayrepository.model.LiferayFileEntry;
 import com.liferay.portal.repository.portletrepository.PortletRepository;
+<<<<<<< HEAD
 import com.liferay.portal.util.RepositoryUtil;
 import com.liferay.portlet.documentlibrary.lar.FileEntryUtil;
 import com.liferay.trash.TrashHelper;
+=======
+import com.liferay.portal.verify.extender.marker.VerifyProcessCompletionMarker;
+import com.liferay.portlet.documentlibrary.lar.FileEntryUtil;
+import com.liferay.trash.kernel.util.TrashUtil;
+>>>>>>> compatible
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -165,7 +183,11 @@ public class FileEntryStagedModelDataHandler
 	@Override
 	public String getDisplayName(FileEntry fileEntry) {
 		if (fileEntry.isInTrash()) {
+<<<<<<< HEAD
 			return _trashHelper.getOriginalTitle(fileEntry.getTitle());
+=======
+			return TrashUtil.getOriginalTitle(fileEntry.getTitle());
+>>>>>>> compatible
 		}
 
 		return fileEntry.getTitle();
@@ -253,12 +275,15 @@ public class FileEntryStagedModelDataHandler
 				PortletDataContext.REFERENCE_TYPE_PARENT);
 		}
 
+<<<<<<< HEAD
 		FileVersion fileVersion = fileEntry.getFileVersion();
 
 		fileEntryElement.addAttribute("fileVersionUuid", fileVersion.getUuid());
 
 		fileEntryElement.addAttribute("version", fileEntry.getVersion());
 
+=======
+>>>>>>> compatible
 		LiferayFileEntry liferayFileEntry = (LiferayFileEntry)fileEntry;
 
 		liferayFileEntry.setCachedFileVersion(fileEntry.getFileVersion());
@@ -344,13 +369,18 @@ public class FileEntryStagedModelDataHandler
 
 		long userId = portletDataContext.getUserId(fileEntry.getUserUuid());
 
+<<<<<<< HEAD
 		if (RepositoryUtil.isExternalRepository(fileEntry.getRepositoryId())) {
+=======
+		if (!fileEntry.isDefaultRepository()) {
+>>>>>>> compatible
 
 			// References has been automatically imported, nothing to do here
 
 			return;
 		}
 
+<<<<<<< HEAD
 		Map<Long, Long> repositoryIds =
 			(Map<Long, Long>)portletDataContext.getNewPrimaryKeysMap(
 				Repository.class);
@@ -359,6 +389,8 @@ public class FileEntryStagedModelDataHandler
 			repositoryIds, fileEntry.getRepositoryId(),
 			portletDataContext.getScopeGroupId());
 
+=======
+>>>>>>> compatible
 		Map<Long, Long> folderIds =
 			(Map<Long, Long>)portletDataContext.getNewPrimaryKeysMap(
 				Folder.class);
@@ -382,9 +414,12 @@ public class FileEntryStagedModelDataHandler
 			fileEntry);
 
 		String binPath = fileEntryElement.attributeValue("bin-path");
+<<<<<<< HEAD
 		String fileVersionUuid = fileEntryElement.attributeValue(
 			"fileVersionUuid");
 		String version = fileEntryElement.attributeValue("version");
+=======
+>>>>>>> compatible
 
 		InputStream is = null;
 
@@ -430,19 +465,34 @@ public class FileEntryStagedModelDataHandler
 				FileEntry existingFileEntry = fetchStagedModelByUuidAndGroupId(
 					fileEntry.getUuid(), portletDataContext.getScopeGroupId());
 
+<<<<<<< HEAD
+=======
+				FileVersion fileVersion = fileEntry.getFileVersion();
+
+>>>>>>> compatible
 				if (existingFileEntry == null) {
 					if (portletDataContext.
 							isDataStrategyMirrorWithOverwriting()) {
 
 						FileEntry existingTitleFileEntry =
 							FileEntryUtil.fetchByR_F_T(
+<<<<<<< HEAD
 								repositoryId, folderId, fileEntry.getTitle());
+=======
+								portletDataContext.getScopeGroupId(), folderId,
+								fileEntry.getTitle());
+>>>>>>> compatible
 
 						if (existingTitleFileEntry == null) {
 							existingTitleFileEntry =
 								FileEntryUtil.fetchByR_F_FN(
+<<<<<<< HEAD
 									repositoryId, folderId,
 									fileEntry.getFileName());
+=======
+									portletDataContext.getScopeGroupId(),
+									folderId, fileEntry.getFileName());
+>>>>>>> compatible
 						}
 
 						if (existingTitleFileEntry != null) {
@@ -452,7 +502,11 @@ public class FileEntryStagedModelDataHandler
 					}
 
 					serviceContext.setAttribute(
+<<<<<<< HEAD
 						"fileVersionUuid", fileVersionUuid);
+=======
+						"fileVersionUuid", fileVersion.getUuid());
+>>>>>>> compatible
 					serviceContext.setUuid(fileEntry.getUuid());
 
 					String fileEntryTitle =
@@ -461,9 +515,15 @@ public class FileEntryStagedModelDataHandler
 							fileEntry.getTitle(), fileEntry.getExtension());
 
 					importedFileEntry = _dlAppLocalService.addFileEntry(
+<<<<<<< HEAD
 						userId, repositoryId, folderId, fileEntry.getFileName(),
 						fileEntry.getMimeType(), fileEntryTitle,
 						fileEntry.getDescription(), null, is,
+=======
+						userId, portletDataContext.getScopeGroupId(), folderId,
+						fileEntry.getFileName(), fileEntry.getMimeType(),
+						fileEntryTitle, fileEntry.getDescription(), null, is,
+>>>>>>> compatible
 						fileEntry.getSize(), serviceContext);
 
 					if (fileEntry.isInTrash()) {
@@ -482,7 +542,11 @@ public class FileEntryStagedModelDataHandler
 					boolean updateFileEntry = false;
 
 					if (!Objects.equals(
+<<<<<<< HEAD
 							fileVersionUuid,
+=======
+							fileVersion.getUuid(),
+>>>>>>> compatible
 							latestExistingFileVersion.getUuid())) {
 
 						deleteFileEntry = true;
@@ -519,7 +583,11 @@ public class FileEntryStagedModelDataHandler
 							DLFileVersion alreadyExistingFileVersion =
 								_dlFileVersionLocalService.
 									getFileVersionByUuidAndGroupId(
+<<<<<<< HEAD
 										fileVersionUuid,
+=======
+										fileVersion.getUuid(),
+>>>>>>> compatible
 										existingFileEntry.getGroupId());
 
 							if (alreadyExistingFileVersion != null) {
@@ -529,7 +597,11 @@ public class FileEntryStagedModelDataHandler
 										getFileVersionId());
 							}
 
+<<<<<<< HEAD
 							serviceContext.setUuid(fileVersionUuid);
+=======
+							serviceContext.setUuid(fileVersion.getUuid());
+>>>>>>> compatible
 
 							String fileEntryTitle =
 								_dlFileEntryLocalService.getUniqueTitle(
@@ -582,10 +654,14 @@ public class FileEntryStagedModelDataHandler
 								latestExistingFileVersion.getVersion();
 
 							if (!latestExistingVersion.equals(
+<<<<<<< HEAD
 									importedFileEntry.getVersion()) &&
 								!latestExistingVersion.equals(
 									DLFileEntryConstants.
 										PRIVATE_WORKING_COPY_VERSION)) {
+=======
+									importedFileEntry.getVersion())) {
+>>>>>>> compatible
 
 								_dlAppService.deleteFileVersion(
 									latestExistingFileVersion.getFileEntryId(),
@@ -599,7 +675,12 @@ public class FileEntryStagedModelDataHandler
 				}
 
 				if (ExportImportThreadLocal.isStagingInProcess()) {
+<<<<<<< HEAD
 					_overrideFileVersion(importedFileEntry, version);
+=======
+					_overrideFileVersion(
+						importedFileEntry, fileVersion.getVersion());
+>>>>>>> compatible
 				}
 			}
 			else {
@@ -608,10 +689,17 @@ public class FileEntryStagedModelDataHandler
 					fileEntry.getTitle(), fileEntry.getExtension());
 
 				importedFileEntry = _dlAppLocalService.addFileEntry(
+<<<<<<< HEAD
 					userId, repositoryId, folderId, fileEntry.getFileName(),
 					fileEntry.getMimeType(), fileEntryTitle,
 					fileEntry.getDescription(), null, is, fileEntry.getSize(),
 					serviceContext);
+=======
+					userId, portletDataContext.getScopeGroupId(), folderId,
+					fileEntry.getFileName(), fileEntry.getMimeType(),
+					fileEntryTitle, fileEntry.getDescription(), null, is,
+					fileEntry.getSize(), serviceContext);
+>>>>>>> compatible
 			}
 
 			for (DLPluggableContentDataHandler dlPluggableContentDataHandler :
@@ -634,9 +722,13 @@ public class FileEntryStagedModelDataHandler
 		}
 		finally {
 			try {
+<<<<<<< HEAD
 				if (is != null) {
 					is.close();
 				}
+=======
+				is.close();
+>>>>>>> compatible
 			}
 			catch (IOException ioe) {
 				_log.error(ioe, ioe);
@@ -808,17 +900,24 @@ public class FileEntryStagedModelDataHandler
 				portletDataContext, structureFieldsElement, ddmStructure);
 
 			serviceContext.setAttribute(
+<<<<<<< HEAD
 				DDMFormValues.class.getName() + StringPool.POUND +
 					ddmStructure.getStructureId(),
+=======
+				DDMFormValues.class.getName() + ddmStructure.getStructureId(),
+>>>>>>> compatible
 				ddmFormValues);
 		}
 	}
 
+<<<<<<< HEAD
 	@Override
 	protected boolean isStagedModelInTrash(FileEntry fileEntry) {
 		return fileEntry.isInTrash();
 	}
 
+=======
+>>>>>>> compatible
 	@Reference(unbind = "-")
 	protected void setDDMFormValuesExportImportContentProcessor(
 		DDMFormValuesExportImportContentProcessor
@@ -901,7 +1000,12 @@ public class FileEntryStagedModelDataHandler
 		target = "(&(verify.process.name=com.liferay.document.library.service))",
 		unbind = "-"
 	)
+<<<<<<< HEAD
 	protected void setVerifyProcessCompletionMarker(Object object) {
+=======
+	protected void setVerifyProcessCompletionMarker(
+		VerifyProcessCompletionMarker verifyProcessCompletionMarker) {
+>>>>>>> compatible
 	}
 
 	@Override
@@ -959,7 +1063,14 @@ public class FileEntryStagedModelDataHandler
 			PortletDataException pde = new PortletDataException(
 				PortletDataException.STATUS_IN_TRASH);
 
+<<<<<<< HEAD
 			pde.setStagedModel(fileEntry);
+=======
+			pde.setStagedModelDisplayName(getDisplayName(fileEntry));
+			pde.setStagedModelClassName(fileEntry.getModelClassName());
+			pde.setStagedModelClassPK(
+				GetterUtil.getString(fileEntry.getFileEntryId()));
+>>>>>>> compatible
 
 			throw pde;
 		}
@@ -1049,7 +1160,10 @@ public class FileEntryStagedModelDataHandler
 			_serviceTrackerList;
 	private StorageEngine _storageEngine;
 
+<<<<<<< HEAD
 	@Reference
 	private TrashHelper _trashHelper;
 
+=======
+>>>>>>> compatible
 }

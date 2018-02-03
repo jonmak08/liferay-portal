@@ -1,6 +1,10 @@
 # XSD Builder Gradle Plugin
 
+<<<<<<< HEAD
 The XSD Builder Gradle plugin lets you generate [Apache XMLBeans](https://xmlbeans.apache.org/)
+=======
+The XSD Builder Gradle plugin allows you to generate [Apache XMLBeans](https://xmlbeans.apache.org/)
+>>>>>>> compatible
 bindings from XML Schema (XSD) files.
 
 The plugin has been successfully tested with Gradle 2.5 up to 3.3.

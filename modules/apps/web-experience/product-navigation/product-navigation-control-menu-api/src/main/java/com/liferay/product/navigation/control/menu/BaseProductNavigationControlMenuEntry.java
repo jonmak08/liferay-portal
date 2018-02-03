@@ -14,9 +14,15 @@
 
 package com.liferay.product.navigation.control.menu;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.util.HashUtil;
+=======
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.util.HashUtil;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.IOException;
 

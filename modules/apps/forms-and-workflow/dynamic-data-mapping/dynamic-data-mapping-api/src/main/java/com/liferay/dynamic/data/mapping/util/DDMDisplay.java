@@ -23,7 +23,10 @@ import com.liferay.portal.kernel.portlet.LiferayPortletRequest;
 import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 
+<<<<<<< HEAD
 import java.util.List;
+=======
+>>>>>>> compatible
 import java.util.Locale;
 import java.util.Set;
 
@@ -41,12 +44,17 @@ public interface DDMDisplay {
 
 	public DDMNavigationHelper getDDMNavigationHelper();
 
+<<<<<<< HEAD
 	public DDMDisplayTabItem getDefaultTabItem();
 
 	public String getDefaultTemplateLanguage();
 
 	public String getDescription(Locale locale);
 
+=======
+	public String getDefaultTemplateLanguage();
+
+>>>>>>> compatible
 	public String getEditStructureDefaultValuesURL(
 			LiferayPortletRequest liferayPortletRequest,
 			LiferayPortletResponse liferayPortletResponse,
@@ -72,8 +80,11 @@ public interface DDMDisplay {
 
 	public String getStructureType();
 
+<<<<<<< HEAD
 	public List<DDMDisplayTabItem> getTabItems();
 
+=======
+>>>>>>> compatible
 	public long[] getTemplateClassNameIds(long classNameId);
 
 	public long[] getTemplateClassPKs(

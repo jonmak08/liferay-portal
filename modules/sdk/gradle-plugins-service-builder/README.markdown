@@ -1,7 +1,12 @@
 # Service Builder Gradle Plugin
 
+<<<<<<< HEAD
 The Service Builder Gradle plugin lets you generate a service layer defined in a
 [Service Builder](https://dev.liferay.com/develop/tutorials/-/knowledge_base/7-0/what-is-service-builder)
+=======
+The Service Builder Gradle plugin allows you to generate a service layer
+defined in a [Service Builder](https://dev.liferay.com/develop/tutorials/-/knowledge_base/7-0/what-is-service-builder)
+>>>>>>> compatible
 `service.xml` file.
 
 The plugin has been successfully tested with Gradle 2.5 up to 3.3.
@@ -13,7 +18,11 @@ To use the plugin, include it in your build script:
 ```gradle
 buildscript {
 	dependencies {
+<<<<<<< HEAD
 		classpath group: "com.liferay", name: "com.liferay.gradle.plugins.service.builder", version: "2.0.0"
+=======
+		classpath group: "com.liferay", name: "com.liferay.gradle.plugins.service.builder", version: "1.0.50"
+>>>>>>> compatible
 	}
 
 	repositories {
@@ -108,7 +117,10 @@ Property Name | Type | Default Value | Description
 `beanLocatorUtil` | `String` | `"com.liferay.util.bean.PortletBeanLocatorUtil"` | The fully qualified class name of a bean locator class to use in the generated service classes. It sets the `service.bean.locator.util` argument.
 `buildNumber` | `long` | `1` | A specific value to assign the `build.number` property in the `service.properties` file. It sets the `service.build.number` argument.
 `buildNumberIncrement` | `boolean` | `true` | Whether to automatically increment the `build.number` property in the `service.properties` file by one at every service generation. It sets the `service.build.number.increment` argument.
+<<<<<<< HEAD
 `databaseNameMaxLength` | `int` | `30` | Upper bound for database table and column name lengths to ensure it works on all databases. It sets the `service.database.name.max.length` argument.
+=======
+>>>>>>> compatible
 <a name="hbmfile"></a>`hbmFile` | `File` | `null` | A Hibernate Mapping file to generate. It sets the `service.hbm.file` argument.
 <a name="impldir"></a>`implDir` | `File` | `null` | A directory where the service Java source files are generated. It sets the `service.impl.dir` argument.
 <a name="inputfile"></a>`inputFile` | `File` | `null` | The project's `service.xml` file. It sets the `service.input.file` argument.
@@ -146,6 +158,10 @@ manually adding a dependency to the `serviceBuilder` configuration:
 
 ```gradle
 dependencies {
+<<<<<<< HEAD
 	serviceBuilder group: "com.liferay", name: "com.liferay.portal.tools.service.builder", version: "1.0.182"
+=======
+	serviceBuilder group: "com.liferay", name: "com.liferay.portal.tools.service.builder", version: "1.0.166"
+>>>>>>> compatible
 }
 ```

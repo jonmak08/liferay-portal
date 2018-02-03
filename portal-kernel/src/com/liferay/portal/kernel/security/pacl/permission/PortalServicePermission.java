@@ -107,9 +107,8 @@ public class PortalServicePermission extends BasicPermission {
 
 		if (nameParts.length != 3) {
 			throw new IllegalArgumentException(
-				StringBundler.concat(
-					"Name ", getName(), " does not follow the format ",
-					"[name]#[servletContextName]#[subject]"));
+				"Name " + getName() + " does not follow the format " +
+					"[name]#[servletContextName]#[subject]");
 		}
 
 		_shortName = nameParts[0];

@@ -19,10 +19,15 @@ import com.liferay.knowledge.base.model.KBFolder;
 import com.liferay.knowledge.base.service.KBFolderLocalServiceUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.security.auth.PrincipalException;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.BaseModelPermissionChecker;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.util.PropsValues;
+=======
+import com.liferay.portal.kernel.security.permission.BaseModelPermissionChecker;
+import com.liferay.portal.kernel.security.permission.PermissionChecker;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 
@@ -67,6 +72,7 @@ public class KBFolderPermission implements BaseModelPermissionChecker {
 	}
 
 	public static boolean contains(
+<<<<<<< HEAD
 			PermissionChecker permissionChecker, KBFolder kbFolder,
 			String actionId)
 		throws PortalException {
@@ -81,6 +87,10 @@ public class KBFolderPermission implements BaseModelPermissionChecker {
 				return false;
 			}
 		}
+=======
+		PermissionChecker permissionChecker, KBFolder kbFolder,
+		String actionId) {
+>>>>>>> compatible
 
 		if (permissionChecker.hasOwnerPermission(
 				kbFolder.getCompanyId(), KBFolder.class.getName(),
@@ -100,10 +110,13 @@ public class KBFolderPermission implements BaseModelPermissionChecker {
 		throws PortalException {
 
 		if (kbFolderId == KBFolderConstants.DEFAULT_PARENT_FOLDER_ID) {
+<<<<<<< HEAD
 			if (actionId.equals(ActionKeys.VIEW)) {
 				return true;
 			}
 
+=======
+>>>>>>> compatible
 			return AdminPermission.contains(
 				permissionChecker, groupId, actionId);
 		}

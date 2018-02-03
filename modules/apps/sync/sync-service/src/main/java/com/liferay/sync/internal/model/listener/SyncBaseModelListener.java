@@ -16,6 +16,7 @@ package com.liferay.sync.internal.model.listener;
 
 import com.liferay.document.library.kernel.model.DLFileEntry;
 import com.liferay.document.library.kernel.model.DLFolder;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.Disjunction;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
@@ -23,6 +24,8 @@ import com.liferay.portal.kernel.dao.orm.Property;
 import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
 import com.liferay.portal.kernel.exception.ModelListenerException;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.BaseModel;
 import com.liferay.portal.kernel.model.BaseModelListener;
 import com.liferay.portal.kernel.model.ResourcePermission;
@@ -32,7 +35,10 @@ import com.liferay.sync.constants.SyncDLObjectConstants;
 import com.liferay.sync.model.SyncDLObject;
 import com.liferay.sync.service.SyncDLObjectLocalService;
 
+<<<<<<< HEAD
 import java.util.Date;
+=======
+>>>>>>> compatible
 import java.util.List;
 
 import org.osgi.service.component.annotations.Reference;
@@ -62,6 +68,7 @@ public abstract class SyncBaseModelListener<T extends BaseModel<T>>
 		return null;
 	}
 
+<<<<<<< HEAD
 	protected void onAddRoleAssociation(Object roleId)
 		throws ModelListenerException {
 
@@ -133,6 +140,8 @@ public abstract class SyncBaseModelListener<T extends BaseModel<T>>
 		}
 	}
 
+=======
+>>>>>>> compatible
 	protected void updateSyncDLObject(SyncDLObject syncDLObject) {
 		syncDLObject.setModifiedTime(System.currentTimeMillis());
 
@@ -159,6 +168,7 @@ public abstract class SyncBaseModelListener<T extends BaseModel<T>>
 	@Reference
 	protected SyncDLObjectLocalService syncDLObjectLocalService;
 
+<<<<<<< HEAD
 	private ActionableDynamicQuery _getActionableDynamicQuery(
 		final Object roleId) {
 
@@ -197,4 +207,6 @@ public abstract class SyncBaseModelListener<T extends BaseModel<T>>
 		return actionableDynamicQuery;
 	}
 
+=======
+>>>>>>> compatible
 }

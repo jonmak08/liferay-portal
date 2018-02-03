@@ -100,15 +100,24 @@ public class JavaVariableTypeCheck extends BaseJavaTermCheck {
 		}
 
 		if (isFinal) {
+<<<<<<< HEAD
 			JavaClass parentJavaClass = javaClass.getParentJavaClass();
 
 			if ((parentJavaClass == null) && !javaVariable.isStatic() &&
 				(_isImmutableField(fieldType) ||
+=======
+			if (!javaVariable.isStatic() &&
+				(_immutableFieldTypes.contains(fieldType) ||
+>>>>>>> compatible
 				 (fieldType.equals("Log") &&
 				  !isExcludedPath(_STATIC_LOG_EXCLUDES, absolutePath)))) {
 
 				classContent = _formatStaticableFieldType(
+<<<<<<< HEAD
 					classContent, javaVariable.getContent(), fieldType);
+=======
+					classContent, javaVariable.getContent());
+>>>>>>> compatible
 			}
 		}
 		else if (!_containsNonAccessModifier(javaVariable, "volatile")) {
@@ -214,6 +223,7 @@ public class JavaVariableTypeCheck extends BaseJavaTermCheck {
 	}
 
 	private String _formatStaticableFieldType(
+<<<<<<< HEAD
 		String classContent, String javaVariableContent, String fieldType) {
 
 		if (!javaVariableContent.contains(StringPool.EQUAL) ||
@@ -221,6 +231,11 @@ public class JavaVariableTypeCheck extends BaseJavaTermCheck {
 			 (javaVariableContent.contains(" new ") ||
 			  javaVariableContent.contains("\tnew ")))) {
 
+=======
+		String classContent, String javaVariableContent) {
+
+		if (!javaVariableContent.contains(StringPool.EQUAL)) {
+>>>>>>> compatible
 			return classContent;
 		}
 
@@ -287,25 +302,32 @@ public class JavaVariableTypeCheck extends BaseJavaTermCheck {
 		JavaClass javaClass, Pattern pattern,
 		List<JavaTerm> allChildJavaTerms) {
 
+<<<<<<< HEAD
 		int assignmentCount = 0;
 
+=======
+>>>>>>> compatible
 		for (JavaTerm childJavaTerm : allChildJavaTerms) {
 			String content = childJavaTerm.getContent();
 
 			Matcher matcher = pattern.matcher(content);
 
+<<<<<<< HEAD
 			boolean found = matcher.find();
 
 			if (found) {
 				assignmentCount++;
 			}
 
+=======
+>>>>>>> compatible
 			if (childJavaTerm instanceof JavaConstructor) {
 				JavaClass constructorClass = childJavaTerm.getParentJavaClass();
 
 				String constructorClassName = constructorClass.getName();
 
 				if (constructorClassName.equals(javaClass.getName())) {
+<<<<<<< HEAD
 					if (!found) {
 						return false;
 					}
@@ -343,6 +365,26 @@ public class JavaVariableTypeCheck extends BaseJavaTermCheck {
 		}
 
 		return false;
+=======
+					if (!matcher.find()) {
+						return false;
+					}
+				}
+				else if (matcher.find()) {
+					return false;
+				}
+			}
+			else if (matcher.find() &&
+					 ((childJavaTerm instanceof JavaMethod) ||
+					  ((childJavaTerm instanceof JavaVariable) &&
+					   content.contains("{\n\n")))) {
+
+				return false;
+			}
+		}
+
+		return true;
+>>>>>>> compatible
 	}
 
 	private static final String _STATIC_LOG_EXCLUDES = "static.log.excludes";

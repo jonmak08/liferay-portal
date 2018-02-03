@@ -25,7 +25,10 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
+<<<<<<< HEAD
 import java.util.function.Consumer;
+=======
+>>>>>>> compatible
 
 /**
  * @author Brian Wing Shun Chan
@@ -43,7 +46,11 @@ public class ReflectionUtil {
 		}
 
 		try {
+<<<<<<< HEAD
 			return _cloneMethod.invoke(array);
+=======
+			return _CLONE_METHOD.invoke(array);
+>>>>>>> compatible
 		}
 		catch (Exception e) {
 			return throwException(e);
@@ -55,7 +62,13 @@ public class ReflectionUtil {
 
 		Field field = clazz.getDeclaredField(name);
 
+<<<<<<< HEAD
 		field.setAccessible(true);
+=======
+		if (!field.isAccessible()) {
+			field.setAccessible(true);
+		}
+>>>>>>> compatible
 
 		return unfinalField(field);
 	}
@@ -64,7 +77,13 @@ public class ReflectionUtil {
 		Field[] fields = clazz.getDeclaredFields();
 
 		for (Field field : fields) {
+<<<<<<< HEAD
 			field.setAccessible(true);
+=======
+			if (!field.isAccessible()) {
+				field.setAccessible(true);
+			}
+>>>>>>> compatible
 
 			unfinalField(field);
 		}
@@ -78,15 +97,24 @@ public class ReflectionUtil {
 
 		Method method = clazz.getDeclaredMethod(name, parameterTypes);
 
+<<<<<<< HEAD
 		method.setAccessible(true);
+=======
+		if (!method.isAccessible()) {
+			method.setAccessible(true);
+		}
+>>>>>>> compatible
 
 		return method;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static Type getGenericInterface(
 		Object object, Class<?> interfaceClass) {
 
@@ -113,10 +141,13 @@ public class ReflectionUtil {
 		return null;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static Class<?> getGenericSuperType(Class<?> clazz) {
 		try {
 			ParameterizedType parameterizedType =
@@ -141,6 +172,7 @@ public class ReflectionUtil {
 	public static Class<?>[] getInterfaces(
 		Object object, ClassLoader classLoader) {
 
+<<<<<<< HEAD
 		return getInterfaces(
 			object, classLoader,
 			cnfe -> {
@@ -170,6 +202,18 @@ public class ReflectionUtil {
 					classNotFoundHandler.accept(cnfe);
 				}
 			}
+=======
+		Set<Class<?>> interfaceClasses = new LinkedHashSet<>();
+
+		Class<?> clazz = object.getClass();
+
+		_getInterfaces(interfaceClasses, clazz, classLoader);
+
+		Class<?> superClass = clazz.getSuperclass();
+
+		while (superClass != null) {
+			_getInterfaces(interfaceClasses, superClass, classLoader);
+>>>>>>> compatible
 
 			superClass = superClass.getSuperclass();
 		}
@@ -177,10 +221,13 @@ public class ReflectionUtil {
 		return interfaceClasses.toArray(new Class<?>[interfaceClasses.size()]);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static Class<?>[] getParameterTypes(Object[] arguments) {
 		if (arguments == null) {
 			return null;
@@ -224,10 +271,13 @@ public class ReflectionUtil {
 		return parameterTypes;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static Set<Method> getVisibleMethods(Class<?> clazz) {
 		Set<Method> visibleMethods = new HashSet<>(
 			Arrays.asList(clazz.getMethods()));
@@ -257,7 +307,13 @@ public class ReflectionUtil {
 		int modifiers = field.getModifiers();
 
 		if ((modifiers & Modifier.FINAL) == Modifier.FINAL) {
+<<<<<<< HEAD
 			_modifiersField.setInt(field, modifiers & ~Modifier.FINAL);
+=======
+			Field modifiersField = getDeclaredField(Field.class, "modifiers");
+
+			modifiersField.setInt(field, modifiers & ~Modifier.FINAL);
+>>>>>>> compatible
 		}
 
 		return field;
@@ -286,6 +342,28 @@ public class ReflectionUtil {
 		return null;
 	}
 
+<<<<<<< HEAD
+=======
+	private static void _getInterfaces(
+		Set<Class<?>> interfaceClasses, Class<?> clazz,
+		ClassLoader classLoader) {
+
+		for (Class<?> interfaceClass : clazz.getInterfaces()) {
+			try {
+				if (classLoader != null) {
+					interfaceClasses.add(
+						classLoader.loadClass(interfaceClass.getName()));
+				}
+				else {
+					interfaceClasses.add(interfaceClass);
+				}
+			}
+			catch (ClassNotFoundException cnfe) {
+			}
+		}
+	}
+
+>>>>>>> compatible
 	@SuppressWarnings("unchecked")
 	private static <T, E extends Throwable> T _throwException(
 			Throwable throwable)
@@ -294,6 +372,7 @@ public class ReflectionUtil {
 		throw (E)throwable;
 	}
 
+<<<<<<< HEAD
 	private static final Method _cloneMethod;
 	private static final Field _modifiersField;
 
@@ -306,6 +385,13 @@ public class ReflectionUtil {
 			_modifiersField = Field.class.getDeclaredField("modifiers");
 
 			_modifiersField.setAccessible(true);
+=======
+	private static final Method _CLONE_METHOD;
+
+	static {
+		try {
+			_CLONE_METHOD = getDeclaredMethod(Object.class, "clone");
+>>>>>>> compatible
 		}
 		catch (Exception e) {
 			throw new ExceptionInInitializerError(e);

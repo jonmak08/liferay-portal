@@ -56,8 +56,14 @@ public class MessageDatagramReceiveHandlerTest {
 
 	@ClassRule
 	@Rule
+<<<<<<< HEAD
 	public static final CodeCoverageAssertor codeCoverageAssertor =
 		CodeCoverageAssertor.INSTANCE;
+=======
+	public static final AggregateTestRule aggregateTestRule =
+		new AggregateTestRule(
+			AspectJNewEnvTestRule.INSTANCE, CodeCoverageAssertor.INSTANCE);
+>>>>>>> compatible
 
 	@Before
 	public void setUp() {
@@ -78,6 +84,13 @@ public class MessageDatagramReceiveHandlerTest {
 		new MessageDatagramReceiveHandler(null);
 	}
 
+	@Test
+	public void testDeprecatedConstructor() {
+		new MessageDatagramReceiveHandler(null);
+	}
+
+	@AdviseWith(adviceClasses = {PortalExecutorManagerUtilAdvice.class})
+	@NewEnv(type = NewEnv.Type.CLASSLOADER)
 	@Test
 	public void testDoReceive1() throws Exception {
 

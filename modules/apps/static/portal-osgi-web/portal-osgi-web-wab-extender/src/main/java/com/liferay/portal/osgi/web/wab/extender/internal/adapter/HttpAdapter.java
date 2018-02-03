@@ -185,10 +185,15 @@ public class HttpAdapter {
 		public Object invoke(Object proxy, Method method, Object[] args)
 			throws Throwable {
 
+<<<<<<< HEAD
 			String methodName = method.getName();
 
 			if (methodName.equals("getInitParameter") && (args != null) &&
 				(args.length == 1)) {
+=======
+			if (method.getName().equals("getInitParameter") &&
+				(args != null) && (args.length == 1)) {
+>>>>>>> compatible
 
 				if ("osgi.http.endpoint".equals(args[0])) {
 					return _servletContext.getInitParameter((String)args[0]);
@@ -196,13 +201,21 @@ public class HttpAdapter {
 
 				return null;
 			}
+<<<<<<< HEAD
 			else if (methodName.equals("getInitParameterNames") &&
+=======
+			else if (method.getName().equals("getInitParameterNames") &&
+>>>>>>> compatible
 					 (args == null)) {
 
 				return Collections.enumeration(
 					Collections.singleton("osgi.http.endpoint"));
 			}
+<<<<<<< HEAD
 			else if (methodName.equals("getJspConfigDescriptor") &&
+=======
+			else if (method.getName().equals("getJspConfigDescriptor") &&
+>>>>>>> compatible
 					 JspConfigDescriptor.class.isAssignableFrom(
 						 method.getReturnType())) {
 

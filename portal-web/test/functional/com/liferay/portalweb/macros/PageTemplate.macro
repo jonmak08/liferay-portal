@@ -1,6 +1,10 @@
 <definition>
 	<command name="addCP">
+<<<<<<< HEAD
 		<execute macro="LexiconEntry#gotoAdd" />
+=======
+		<execute function="Click" locator1="Button#PLUS" />
+>>>>>>> compatible
 
 		<execute macro="PortletEntry#inputName">
 			<var name="name" value="${pageTemplateName}" />
@@ -122,9 +126,13 @@
 	</command>
 
 	<command name="tearDownCP">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Page Templates" />
 		</execute>
 

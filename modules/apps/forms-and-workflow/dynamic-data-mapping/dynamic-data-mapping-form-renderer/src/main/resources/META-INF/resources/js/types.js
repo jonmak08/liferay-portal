@@ -26,10 +26,13 @@ AUI.add(
 			register: function(fieldTypes) {
 				var instance = this;
 
+<<<<<<< HEAD
 				if (A.Lang.isString(fieldTypes)) {
 					fieldTypes = JSON.parse(fieldTypes);
 				}
 
+=======
+>>>>>>> compatible
 				_fieldTypes = AArray(fieldTypes).map(instance._getFieldType);
 			},
 
@@ -41,9 +44,13 @@ AUI.add(
 						defaultConfig: {
 							type: config.name
 						},
+<<<<<<< HEAD
 						description: config.description,
 						fieldClass: Liferay.DDM.Renderer.Field,
 						group: config.group,
+=======
+						fieldClass: Liferay.DDM.Renderer.Field,
+>>>>>>> compatible
 						icon: config.icon,
 						label: config.label
 					}
@@ -51,6 +58,11 @@ AUI.add(
 
 				fieldType.set('className', config.javaScriptClass);
 				fieldType.set('name', config.name);
+<<<<<<< HEAD
+=======
+				fieldType.set('settings', config.settings);
+				fieldType.set('settingsLayout', config.settingsLayout);
+>>>>>>> compatible
 				fieldType.set('system', config.system);
 
 				if (config.templateNamespace) {

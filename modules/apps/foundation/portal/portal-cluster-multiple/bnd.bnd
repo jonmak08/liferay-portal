@@ -1,6 +1,11 @@
 Bundle-Name: Liferay Portal Cluster Multiple
 Bundle-SymbolicName: com.liferay.portal.cluster.multiple
+<<<<<<< HEAD
 Bundle-Version: 1.0.28
+=======
+Bundle-Version: 1.0.16
+DynamicImport-Package: *
+>>>>>>> compatible
 Import-Package:\
 	!COM.ibm.netrexx.*,\
 	\
@@ -14,6 +19,7 @@ Import-Package:\
 	\
 	!org.mozilla.javascript.*,\
 	\
+<<<<<<< HEAD
 	com.ibm.db2.jcc;resolution:=optional,\
 	\
 	com.microsoft.sqlserver.jdbc;resolution:=optional,\
@@ -32,6 +38,8 @@ Import-Package:\
 	\
 	org.postgresql;resolution:=optional,\
 	\
+=======
+>>>>>>> compatible
 	*
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Clustering

@@ -228,7 +228,11 @@ AUI.add(
 					_getTimestamp: function(value) {
 						var instance = this;
 
+<<<<<<< HEAD
 						return A.Cookie.get(instance._cookieKey, instance._cookieOptions) || instance._initTimestamp;
+=======
+						return A.Cookie.get(instance._cookieKey, instance._cookieOptions) || 0;
+>>>>>>> compatible
 					},
 
 					_getWarningTime: function() {
@@ -295,11 +299,15 @@ AUI.add(
 
 						value = String(value || Date.now());
 
+<<<<<<< HEAD
 						instance._initTimestamp = value;
 
 						if (navigator.cookieEnabled) {
 							A.Cookie.set(instance._cookieKey, value, instance._cookieOptions);
 						}
+=======
+						return A.Cookie.set(instance._cookieKey, value, instance._cookieOptions);
+>>>>>>> compatible
 					},
 
 					_setWarningLength: function(value) {

@@ -604,6 +604,7 @@ public class DDMStructureServiceSoap {
 	structure is related to
 	* @param keywords the keywords (space separated), which may occur in the
 	structure's name or description (optionally <code>null</code>)
+<<<<<<< HEAD
 	* @param type the structure's type. For more information, see {@link
 	com.liferay.dynamic.data.mapping.model.DDMStructureConstants}.
 	* @param status the workflow's status.
@@ -655,6 +656,8 @@ public class DDMStructureServiceSoap {
 	* @param keywords the keywords (space separated), which may occur in the
 	structure's name or description (optionally <code>null</code>)
 	* @param status the workflow's status.
+=======
+>>>>>>> compatible
 	* @param start the lower bound of the range of structures to return
 	* @param end the upper bound of the range of structures to return (not
 	inclusive)
@@ -705,7 +708,10 @@ public class DDMStructureServiceSoap {
 	com.liferay.dynamic.data.mapping.storage.StorageType}.
 	* @param type the structure's type. For more information, see {@link
 	com.liferay.dynamic.data.mapping.model.DDMStructureConstants}.
+<<<<<<< HEAD
 	* @param status the workflow's status.
+=======
+>>>>>>> compatible
 	* @param andOperator whether every field must match its keywords, or just
 	one field
 	* @param start the lower bound of the range of structures to return
@@ -747,7 +753,10 @@ public class DDMStructureServiceSoap {
 	structure is related to
 	* @param keywords the keywords (space separated), which may occur in the
 	structure's name or description (optionally <code>null</code>)
+<<<<<<< HEAD
 	* @param status the workflow's status.
+=======
+>>>>>>> compatible
 	* @return the number of matching structures
 	*/
 	public static int searchCount(long companyId, long[] groupIds,
@@ -767,6 +776,7 @@ public class DDMStructureServiceSoap {
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns the number of structures matching the groups and class name IDs,
 	* and matching the keywords in the structure names and descriptions.
 	*
@@ -798,6 +808,8 @@ public class DDMStructureServiceSoap {
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	* Returns the number of structures matching the groups, class name IDs,
 	* name keyword, description keyword, storage type, and type
 	*

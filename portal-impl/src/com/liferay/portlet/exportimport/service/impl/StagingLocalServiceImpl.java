@@ -45,7 +45,10 @@ import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.portletfilerepository.PortletFileRepositoryUtil;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.Folder;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.search.IndexStatusManagerThreadLocal;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.security.auth.HttpPrincipal;
 import com.liferay.portal.kernel.security.auth.PrincipalException;
 import com.liferay.portal.kernel.security.auth.RemoteAuthException;
@@ -509,8 +512,11 @@ public class StagingLocalServiceImpl extends StagingLocalServiceBaseImpl {
 			ExportImportThreadLocal.setLayoutStagingInProcess(false);
 
 			LocaleThreadLocal.setSiteDefaultLocale(siteDefaultLocale);
+<<<<<<< HEAD
 
 			FileUtil.delete(file);
+=======
+>>>>>>> compatible
 		}
 	}
 
@@ -937,8 +943,13 @@ public class StagingLocalServiceImpl extends StagingLocalServiceBaseImpl {
 
 			if (!checksum.equals(folder.getName())) {
 				throw new SystemException(
+<<<<<<< HEAD
 					"Unable to process LAR file pieces for remote staging " +
 						"publication because LAR file checksum is not " +
+=======
+					"Unable to process LAR file pieces for remote " +
+						"publication: LAR file checksum is invalid " +
+>>>>>>> compatible
 							checksum);
 			}
 
@@ -954,8 +965,13 @@ public class StagingLocalServiceImpl extends StagingLocalServiceBaseImpl {
 
 			if (stagingRequestFileEntry == null) {
 				throw new SystemException(
+<<<<<<< HEAD
 					"Unable to assemble LAR file for remote staging " +
 						"publication request " + stagingRequestId);
+=======
+					"Unable to assemble LAR file for remote publication " +
+						"request " + stagingRequestId);
+>>>>>>> compatible
 			}
 
 			return stagingRequestFileEntry;

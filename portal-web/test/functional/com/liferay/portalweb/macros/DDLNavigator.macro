@@ -3,7 +3,11 @@
 	<var name="ddlListName" value="List Name" />
 
 	<command name="gotoAddDisplayTemplate">
+<<<<<<< HEAD
 		<execute macro="LexiconEntry#gotoAdd" />
+=======
+		<execute function="Click" locator1="Button#PLUS" />
+>>>>>>> compatible
 
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Add Display Template">
 			<var name="key_menuItem" value="Add Display Template" />
@@ -11,7 +15,11 @@
 	</command>
 
 	<command name="gotoAddListRecord">
+<<<<<<< HEAD
 		<execute macro="LexiconEntry#gotoAdd" />
+=======
+		<execute function="Click" locator1="Button#PLUS" />
+>>>>>>> compatible
 
 		<execute macro="SiteAdmin#viewPortletTitle">
 			<var name="portletTitle" value="New ${ddlDataDefinitionName}" />
@@ -21,9 +29,15 @@
 	<command name="gotoDataDefinitionPermissions">
 		<execute macro="DDLNavigator#gotoManageDataDefinitions" />
 
+<<<<<<< HEAD
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="${ddlDataDefinitionName}" />
 		</execute>
+=======
+		<execute function="Type" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${ddlDataDefinitionName}" />
+
+		<execute function="Click" locator1="Icon#BASIC_SEARCH" />
+>>>>>>> compatible
 
 		<execute function="Click#waitForMenuToggleJSClick" locator1="DDMSelectStructure#DDM_STRUCTURE_ELLIPSIS_1" />
 
@@ -74,7 +88,19 @@
 			<var name="key_menuItem" value="Manage Data Definitions" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute function="AssertTextEquals" locator1="Portlet#HEADER" value1="Data Definitions" />
+=======
+		<if>
+			<condition function="IsTextEqual" locator1="Portlet#HEADER" value1="Data Definitions" />
+			<then>
+				<execute function="AssertTextEquals" locator1="Portlet#HEADER" value1="Data Definitions" />
+			</then>
+			<else>
+				<execute function="AssertTextEquals" locator1="Portlet#HEADER" value1="Structures" />
+			</else>
+		</if>
+>>>>>>> compatible
 	</command>
 
 	<command name="gotoManageTemplates">

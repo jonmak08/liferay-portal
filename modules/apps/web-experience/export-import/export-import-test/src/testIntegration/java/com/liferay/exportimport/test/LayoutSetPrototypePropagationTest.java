@@ -17,11 +17,18 @@ package com.liferay.exportimport.test;
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
 import com.liferay.dynamic.data.mapping.test.util.DDMStructureTestUtil;
 import com.liferay.exportimport.kernel.staging.MergeLayoutPrototypesThreadLocal;
+<<<<<<< HEAD
 import com.liferay.journal.constants.JournalContentPortletKeys;
 import com.liferay.journal.model.JournalArticle;
 import com.liferay.journal.service.JournalArticleLocalServiceUtil;
 import com.liferay.journal.test.util.JournalTestUtil;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.journal.content.web.constants.JournalContentPortletKeys;
+import com.liferay.journal.model.JournalArticle;
+import com.liferay.journal.service.JournalArticleLocalServiceUtil;
+import com.liferay.journal.test.util.JournalTestUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.LayoutParentLayoutIdException;
 import com.liferay.portal.kernel.model.Group;
@@ -51,12 +58,21 @@ import com.liferay.portal.kernel.service.ResourcePermissionServiceUtil;
 import com.liferay.portal.kernel.service.RoleLocalServiceUtil;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.test.util.RoleTestUtil;
 import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.test.util.UserTestUtil;
 import com.liferay.portal.kernel.util.LocalizationUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.kernel.util.UnicodeProperties;
 import com.liferay.portal.servlet.filters.cache.CacheUtil;
@@ -74,7 +90,10 @@ import javax.portlet.PortletPreferences;
 
 import org.junit.Assert;
 import org.junit.ClassRule;
+<<<<<<< HEAD
 import org.junit.Ignore;
+=======
+>>>>>>> compatible
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -84,13 +103,23 @@ import org.junit.runner.RunWith;
  * @author Eduardo Garcia
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class LayoutSetPrototypePropagationTest
 	extends BasePrototypePropagationTestCase {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Test
 	public void testAddChildLayoutWithLinkDisabled() throws Exception {
@@ -130,7 +159,10 @@ public class LayoutSetPrototypePropagationTest
 		doTestIsLayoutUpdateable();
 	}
 
+<<<<<<< HEAD
 	@Ignore
+=======
+>>>>>>> compatible
 	@Test
 	public void testLayoutPermissionPropagationWithLinkEnabled()
 		throws Exception {
@@ -231,7 +263,10 @@ public class LayoutSetPrototypePropagationTest
 		doTestLayoutPropagation(false);
 	}
 
+<<<<<<< HEAD
 	@Ignore
+=======
+>>>>>>> compatible
 	@Test
 	public void testLayoutPropagationWithLinkEnabled() throws Exception {
 		doTestLayoutPropagation(true);
@@ -254,7 +289,10 @@ public class LayoutSetPrototypePropagationTest
 		doTestPortletPreferencesPropagation(false, true);
 	}
 
+<<<<<<< HEAD
 	@Ignore
+=======
+>>>>>>> compatible
 	@Test
 	public void testPortletPreferencesPropagationWithGlobalScopeLinkEnabled()
 		throws Exception {

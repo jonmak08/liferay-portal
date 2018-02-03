@@ -253,7 +253,13 @@ public class ListUtil {
 			return true;
 		}
 
+<<<<<<< HEAD
 		for (Object bean : list) {
+=======
+		for (int i = 0; i < list.size(); i++) {
+			Object bean = list.get(i);
+
+>>>>>>> compatible
 			if (Validator.isNotNull(bean)) {
 				return false;
 			}
@@ -263,7 +269,11 @@ public class ListUtil {
 	}
 
 	public static boolean isUnmodifiableList(List<?> list) {
+<<<<<<< HEAD
 		return _UNMODIFIABLE_LIST_CLASS.isInstance(list);
+=======
+		return _unmodifiableListClass.isInstance(list);
+>>>>>>> compatible
 	}
 
 	public static <E> List<E> remove(List<E> list, List<? extends E> remove) {
@@ -617,13 +627,21 @@ public class ListUtil {
 
 	private static final long[] _EMPTY_LONG_ARRAY = {};
 
+<<<<<<< HEAD
 	private static final Class<? extends List<?>> _UNMODIFIABLE_LIST_CLASS;
+=======
+	private static final Class<? extends List<?>> _unmodifiableListClass;
+>>>>>>> compatible
 
 	static {
 		List<Object> unmodifiableList = Collections.<Object>unmodifiableList(
 			new LinkedList<Object>());
 
+<<<<<<< HEAD
 		_UNMODIFIABLE_LIST_CLASS =
+=======
+		_unmodifiableListClass =
+>>>>>>> compatible
 			(Class<? extends List<?>>)unmodifiableList.getClass();
 	}
 

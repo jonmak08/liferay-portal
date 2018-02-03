@@ -14,12 +14,18 @@
 
 package com.liferay.portal.workflow.kaleo.definition.internal.parser;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.workflow.kaleo.definition.Assignment;
 import com.liferay.portal.workflow.kaleo.definition.Definition;
 import com.liferay.portal.workflow.kaleo.definition.Task;
 import com.liferay.portal.workflow.kaleo.definition.TaskForm;
 import com.liferay.portal.workflow.kaleo.definition.TaskFormReference;
+=======
+import com.liferay.portal.workflow.kaleo.definition.Assignment;
+import com.liferay.portal.workflow.kaleo.definition.Definition;
+import com.liferay.portal.workflow.kaleo.definition.Task;
+>>>>>>> compatible
 import com.liferay.portal.workflow.kaleo.definition.exception.KaleoDefinitionValidationException;
 import com.liferay.portal.workflow.kaleo.definition.parser.NodeValidator;
 
@@ -57,6 +63,7 @@ public class TaskNodeValidator extends BaseNodeValidator<Task> {
 			throw new KaleoDefinitionValidationException.MustSetAssignments(
 				task.getName());
 		}
+<<<<<<< HEAD
 
 		Set<TaskForm> taskForms = task.getTaskForms();
 
@@ -74,6 +81,8 @@ public class TaskNodeValidator extends BaseNodeValidator<Task> {
 						task.getName(), taskForm.getName());
 			}
 		}
+=======
+>>>>>>> compatible
 	}
 
 }

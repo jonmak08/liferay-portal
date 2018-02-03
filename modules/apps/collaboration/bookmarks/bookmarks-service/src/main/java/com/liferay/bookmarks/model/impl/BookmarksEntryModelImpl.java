@@ -40,6 +40,10 @@ import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 
@@ -85,6 +89,10 @@ public class BookmarksEntryModelImpl extends BaseModelImpl<BookmarksEntry>
 			{ "userName", Types.VARCHAR },
 			{ "createDate", Types.TIMESTAMP },
 			{ "modifiedDate", Types.TIMESTAMP },
+<<<<<<< HEAD
+=======
+			{ "resourceBlockId", Types.BIGINT },
+>>>>>>> compatible
 			{ "folderId", Types.BIGINT },
 			{ "treePath", Types.VARCHAR },
 			{ "name", Types.VARCHAR },
@@ -109,6 +117,10 @@ public class BookmarksEntryModelImpl extends BaseModelImpl<BookmarksEntry>
 		TABLE_COLUMNS_MAP.put("userName", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("createDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("modifiedDate", Types.TIMESTAMP);
+<<<<<<< HEAD
+=======
+		TABLE_COLUMNS_MAP.put("resourceBlockId", Types.BIGINT);
+>>>>>>> compatible
 		TABLE_COLUMNS_MAP.put("folderId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("treePath", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("name", Types.VARCHAR);
@@ -123,7 +135,11 @@ public class BookmarksEntryModelImpl extends BaseModelImpl<BookmarksEntry>
 		TABLE_COLUMNS_MAP.put("statusDate", Types.TIMESTAMP);
 	}
 
+<<<<<<< HEAD
 	public static final String TABLE_SQL_CREATE = "create table BookmarksEntry (uuid_ VARCHAR(75) null,entryId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,folderId LONG,treePath STRING null,name VARCHAR(255) null,url STRING null,description STRING null,visits INTEGER,priority INTEGER,lastPublishDate DATE null,status INTEGER,statusByUserId LONG,statusByUserName VARCHAR(75) null,statusDate DATE null)";
+=======
+	public static final String TABLE_SQL_CREATE = "create table BookmarksEntry (uuid_ VARCHAR(75) null,entryId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,resourceBlockId LONG,folderId LONG,treePath STRING null,name VARCHAR(255) null,url STRING null,description STRING null,visits INTEGER,priority INTEGER,lastPublishDate DATE null,status INTEGER,statusByUserId LONG,statusByUserName VARCHAR(75) null,statusDate DATE null)";
+>>>>>>> compatible
 	public static final String TABLE_SQL_DROP = "drop table BookmarksEntry";
 	public static final String ORDER_BY_JPQL = " ORDER BY bookmarksEntry.folderId ASC, bookmarksEntry.name ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY BookmarksEntry.folderId ASC, BookmarksEntry.name ASC";
@@ -142,10 +158,18 @@ public class BookmarksEntryModelImpl extends BaseModelImpl<BookmarksEntry>
 	public static final long COMPANYID_COLUMN_BITMASK = 1L;
 	public static final long FOLDERID_COLUMN_BITMASK = 2L;
 	public static final long GROUPID_COLUMN_BITMASK = 4L;
+<<<<<<< HEAD
 	public static final long STATUS_COLUMN_BITMASK = 8L;
 	public static final long USERID_COLUMN_BITMASK = 16L;
 	public static final long UUID_COLUMN_BITMASK = 32L;
 	public static final long NAME_COLUMN_BITMASK = 64L;
+=======
+	public static final long RESOURCEBLOCKID_COLUMN_BITMASK = 8L;
+	public static final long STATUS_COLUMN_BITMASK = 16L;
+	public static final long USERID_COLUMN_BITMASK = 32L;
+	public static final long UUID_COLUMN_BITMASK = 64L;
+	public static final long NAME_COLUMN_BITMASK = 128L;
+>>>>>>> compatible
 
 	/**
 	 * Converts the soap model instance into a normal model instance.
@@ -168,6 +192,10 @@ public class BookmarksEntryModelImpl extends BaseModelImpl<BookmarksEntry>
 		model.setUserName(soapModel.getUserName());
 		model.setCreateDate(soapModel.getCreateDate());
 		model.setModifiedDate(soapModel.getModifiedDate());
+<<<<<<< HEAD
+=======
+		model.setResourceBlockId(soapModel.getResourceBlockId());
+>>>>>>> compatible
 		model.setFolderId(soapModel.getFolderId());
 		model.setTreePath(soapModel.getTreePath());
 		model.setName(soapModel.getName());
@@ -252,6 +280,10 @@ public class BookmarksEntryModelImpl extends BaseModelImpl<BookmarksEntry>
 		attributes.put("userName", getUserName());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
+<<<<<<< HEAD
+=======
+		attributes.put("resourceBlockId", getResourceBlockId());
+>>>>>>> compatible
 		attributes.put("folderId", getFolderId());
 		attributes.put("treePath", getTreePath());
 		attributes.put("name", getName());
@@ -321,6 +353,15 @@ public class BookmarksEntryModelImpl extends BaseModelImpl<BookmarksEntry>
 			setModifiedDate(modifiedDate);
 		}
 
+<<<<<<< HEAD
+=======
+		Long resourceBlockId = (Long)attributes.get("resourceBlockId");
+
+		if (resourceBlockId != null) {
+			setResourceBlockId(resourceBlockId);
+		}
+
+>>>>>>> compatible
 		Long folderId = (Long)attributes.get("folderId");
 
 		if (folderId != null) {
@@ -398,7 +439,11 @@ public class BookmarksEntryModelImpl extends BaseModelImpl<BookmarksEntry>
 	@Override
 	public String getUuid() {
 		if (_uuid == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _uuid;
@@ -502,7 +547,11 @@ public class BookmarksEntryModelImpl extends BaseModelImpl<BookmarksEntry>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -518,7 +567,11 @@ public class BookmarksEntryModelImpl extends BaseModelImpl<BookmarksEntry>
 	@Override
 	public String getUserName() {
 		if (_userName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _userName;
@@ -560,6 +613,32 @@ public class BookmarksEntryModelImpl extends BaseModelImpl<BookmarksEntry>
 
 	@JSON
 	@Override
+<<<<<<< HEAD
+=======
+	public long getResourceBlockId() {
+		return _resourceBlockId;
+	}
+
+	@Override
+	public void setResourceBlockId(long resourceBlockId) {
+		_columnBitmask |= RESOURCEBLOCKID_COLUMN_BITMASK;
+
+		if (!_setOriginalResourceBlockId) {
+			_setOriginalResourceBlockId = true;
+
+			_originalResourceBlockId = _resourceBlockId;
+		}
+
+		_resourceBlockId = resourceBlockId;
+	}
+
+	public long getOriginalResourceBlockId() {
+		return _originalResourceBlockId;
+	}
+
+	@JSON
+	@Override
+>>>>>>> compatible
 	public long getFolderId() {
 		return _folderId;
 	}
@@ -585,7 +664,11 @@ public class BookmarksEntryModelImpl extends BaseModelImpl<BookmarksEntry>
 	@Override
 	public String getTreePath() {
 		if (_treePath == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _treePath;
@@ -601,7 +684,11 @@ public class BookmarksEntryModelImpl extends BaseModelImpl<BookmarksEntry>
 	@Override
 	public String getName() {
 		if (_name == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _name;
@@ -619,7 +706,11 @@ public class BookmarksEntryModelImpl extends BaseModelImpl<BookmarksEntry>
 	@Override
 	public String getUrl() {
 		if (_url == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _url;
@@ -635,7 +726,11 @@ public class BookmarksEntryModelImpl extends BaseModelImpl<BookmarksEntry>
 	@Override
 	public String getDescription() {
 		if (_description == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _description;
@@ -722,7 +817,11 @@ public class BookmarksEntryModelImpl extends BaseModelImpl<BookmarksEntry>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -734,7 +833,11 @@ public class BookmarksEntryModelImpl extends BaseModelImpl<BookmarksEntry>
 	@Override
 	public String getStatusByUserName() {
 		if (_statusByUserName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _statusByUserName;
@@ -1013,6 +1116,10 @@ public class BookmarksEntryModelImpl extends BaseModelImpl<BookmarksEntry>
 		bookmarksEntryImpl.setUserName(getUserName());
 		bookmarksEntryImpl.setCreateDate(getCreateDate());
 		bookmarksEntryImpl.setModifiedDate(getModifiedDate());
+<<<<<<< HEAD
+=======
+		bookmarksEntryImpl.setResourceBlockId(getResourceBlockId());
+>>>>>>> compatible
 		bookmarksEntryImpl.setFolderId(getFolderId());
 		bookmarksEntryImpl.setTreePath(getTreePath());
 		bookmarksEntryImpl.setName(getName());
@@ -1115,6 +1222,13 @@ public class BookmarksEntryModelImpl extends BaseModelImpl<BookmarksEntry>
 
 		bookmarksEntryModelImpl._setModifiedDate = false;
 
+<<<<<<< HEAD
+=======
+		bookmarksEntryModelImpl._originalResourceBlockId = bookmarksEntryModelImpl._resourceBlockId;
+
+		bookmarksEntryModelImpl._setOriginalResourceBlockId = false;
+
+>>>>>>> compatible
 		bookmarksEntryModelImpl._originalFolderId = bookmarksEntryModelImpl._folderId;
 
 		bookmarksEntryModelImpl._setOriginalFolderId = false;
@@ -1172,6 +1286,11 @@ public class BookmarksEntryModelImpl extends BaseModelImpl<BookmarksEntry>
 			bookmarksEntryCacheModel.modifiedDate = Long.MIN_VALUE;
 		}
 
+<<<<<<< HEAD
+=======
+		bookmarksEntryCacheModel.resourceBlockId = getResourceBlockId();
+
+>>>>>>> compatible
 		bookmarksEntryCacheModel.folderId = getFolderId();
 
 		bookmarksEntryCacheModel.treePath = getTreePath();
@@ -1245,7 +1364,11 @@ public class BookmarksEntryModelImpl extends BaseModelImpl<BookmarksEntry>
 
 	@Override
 	public String toString() {
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(41);
+=======
+		StringBundler sb = new StringBundler(43);
+>>>>>>> compatible
 
 		sb.append("{uuid=");
 		sb.append(getUuid());
@@ -1263,6 +1386,11 @@ public class BookmarksEntryModelImpl extends BaseModelImpl<BookmarksEntry>
 		sb.append(getCreateDate());
 		sb.append(", modifiedDate=");
 		sb.append(getModifiedDate());
+<<<<<<< HEAD
+=======
+		sb.append(", resourceBlockId=");
+		sb.append(getResourceBlockId());
+>>>>>>> compatible
 		sb.append(", folderId=");
 		sb.append(getFolderId());
 		sb.append(", treePath=");
@@ -1294,7 +1422,11 @@ public class BookmarksEntryModelImpl extends BaseModelImpl<BookmarksEntry>
 
 	@Override
 	public String toXmlString() {
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(64);
+=======
+		StringBundler sb = new StringBundler(67);
+>>>>>>> compatible
 
 		sb.append("<model><model-name>");
 		sb.append("com.liferay.bookmarks.model.BookmarksEntry");
@@ -1333,6 +1465,13 @@ public class BookmarksEntryModelImpl extends BaseModelImpl<BookmarksEntry>
 		sb.append(getModifiedDate());
 		sb.append("]]></column-value></column>");
 		sb.append(
+<<<<<<< HEAD
+=======
+			"<column><column-name>resourceBlockId</column-name><column-value><![CDATA[");
+		sb.append(getResourceBlockId());
+		sb.append("]]></column-value></column>");
+		sb.append(
+>>>>>>> compatible
 			"<column><column-name>folderId</column-name><column-value><![CDATA[");
 		sb.append(getFolderId());
 		sb.append("]]></column-value></column>");
@@ -1406,6 +1545,12 @@ public class BookmarksEntryModelImpl extends BaseModelImpl<BookmarksEntry>
 	private Date _createDate;
 	private Date _modifiedDate;
 	private boolean _setModifiedDate;
+<<<<<<< HEAD
+=======
+	private long _resourceBlockId;
+	private long _originalResourceBlockId;
+	private boolean _setOriginalResourceBlockId;
+>>>>>>> compatible
 	private long _folderId;
 	private long _originalFolderId;
 	private boolean _setOriginalFolderId;

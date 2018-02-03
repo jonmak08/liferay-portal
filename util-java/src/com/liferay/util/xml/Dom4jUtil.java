@@ -35,9 +35,13 @@ import org.xml.sax.XMLReader;
  * @author Brian Wing Shun Chan
  * @author Alan Zimmerman
  * @see    com.liferay.petra.xml.Dom4jUtil
+<<<<<<< HEAD
  * @deprecated As of 7.0.0
  */
 @Deprecated
+=======
+ */
+>>>>>>> compatible
 public class Dom4jUtil {
 
 	public static String toString(Node node) throws IOException {

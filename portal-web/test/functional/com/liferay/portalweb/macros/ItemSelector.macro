@@ -20,7 +20,11 @@
 	</command>
 
 	<command name="gotoItemSelectorViaAlloyEditor">
+<<<<<<< HEAD
 		<execute macro="AlloyEditor#clickContentField" />
+=======
+		<execute function="Click" locator1="AlloyEditor#CONTENT_FIELD" />
+>>>>>>> compatible
 
 		<execute function="Click" locator1="AlloyEditor#CONTENT_ADD_BUTTON" />
 

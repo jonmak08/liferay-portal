@@ -68,9 +68,15 @@ else if (orderByCol.equals("title")) {
 }
 
 request.setAttribute("view.jsp-categoryId", categoryId);
+<<<<<<< HEAD
 request.setAttribute("view.jsp-categorySubscriptionClassPKs", MBSubscriptionUtil.getCategorySubscriptionClassPKs(user.getUserId()));
 request.setAttribute("view.jsp-portletURL", portletURL);
 request.setAttribute("view.jsp-threadSubscriptionClassPKs", MBSubscriptionUtil.getThreadSubscriptionClassPKs(user.getUserId()));
+=======
+request.setAttribute("view.jsp-categorySubscriptionClassPKs", MBUtil.getCategorySubscriptionClassPKs(user.getUserId()));
+request.setAttribute("view.jsp-portletURL", portletURL);
+request.setAttribute("view.jsp-threadSubscriptionClassPKs", MBUtil.getThreadSubscriptionClassPKs(user.getUserId()));
+>>>>>>> compatible
 request.setAttribute("view.jsp-viewCategory", Boolean.TRUE.toString());
 %>
 
@@ -155,7 +161,11 @@ mbListDisplayContext.populateResultsAndTotal(searchContainer);
 	</liferay-frontend:management-bar-filters>
 
 	<liferay-frontend:management-bar-action-buttons>
+<<<<<<< HEAD
 		<liferay-frontend:management-bar-button href='<%= "javascript:" + renderResponse.getNamespace() + "deleteEntries();" %>' icon='<%= trashHelper.isTrashEnabled(scopeGroupId) ? "trash" : "times" %>' label='<%= trashHelper.isTrashEnabled(scopeGroupId) ? "recycle-bin" : "delete" %>' />
+=======
+		<liferay-frontend:management-bar-button href='<%= "javascript:" + renderResponse.getNamespace() + "deleteEntries();" %>' icon='<%= TrashUtil.isTrashEnabled(scopeGroupId) ? "trash" : "times" %>' label='<%= TrashUtil.isTrashEnabled(scopeGroupId) ? "recycle-bin" : "delete" %>' />
+>>>>>>> compatible
 
 		<liferay-frontend:management-bar-button href='<%= "javascript:" + renderResponse.getNamespace() + "lockEntries();" %>' icon="lock" label="lock" />
 
@@ -191,7 +201,11 @@ request.setAttribute("view.jsp-entriesSearchContainer", searchContainer);
 					delta="<%= rssDelta %>"
 					displayStyle="<%= rssDisplayStyle %>"
 					feedType="<%= rssFeedType %>"
+<<<<<<< HEAD
 					message="rss"
+=======
+					message="subscribe-to-recent-posts"
+>>>>>>> compatible
 					url="<%= MBUtil.getRSSURL(plid, 0, 0, groupThreadsUserId, themeDisplay) %>"
 				/>
 			</c:if>
@@ -230,11 +244,19 @@ request.setAttribute("view.jsp-entriesSearchContainer", searchContainer);
 
 <aui:script>
 	function <portlet:namespace />deleteEntries() {
+<<<<<<< HEAD
 		if (<%= trashHelper.isTrashEnabled(scopeGroupId) %> || confirm('<%= UnicodeLanguageUtil.get(request, trashHelper.isTrashEnabled(scopeGroupId) ? "are-you-sure-you-want-to-move-the-selected-entries-to-the-recycle-bin" : "are-you-sure-you-want-to-delete-the-selected-entries") %>')) {
 			var form = AUI.$(document.<portlet:namespace />fm);
 
 			form.attr('method', 'post');
 			form.fm('<%= Constants.CMD %>').val('<%= trashHelper.isTrashEnabled(scopeGroupId) ? Constants.MOVE_TO_TRASH : Constants.DELETE %>');
+=======
+		if (<%= TrashUtil.isTrashEnabled(scopeGroupId) %> || confirm('<%= UnicodeLanguageUtil.get(request, TrashUtil.isTrashEnabled(scopeGroupId) ? "are-you-sure-you-want-to-move-the-selected-entries-to-the-recycle-bin" : "are-you-sure-you-want-to-delete-the-selected-entries") %>')) {
+			var form = AUI.$(document.<portlet:namespace />fm);
+
+			form.attr('method', 'post');
+			form.fm('<%= Constants.CMD %>').val('<%= TrashUtil.isTrashEnabled(scopeGroupId) ? Constants.MOVE_TO_TRASH : Constants.DELETE %>');
+>>>>>>> compatible
 
 			submitForm(form, '<portlet:actionURL name="/message_boards/edit_entry" />');
 		}

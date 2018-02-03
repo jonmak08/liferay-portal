@@ -19,6 +19,7 @@ PanelAppRegistry panelAppRegistry = (PanelAppRegistry)request.getAttribute(Appli
 PanelCategoryRegistry panelCategoryRegistry = (PanelCategoryRegistry)request.getAttribute(ApplicationListWebKeys.PANEL_CATEGORY_REGISTRY);
 %>
 
+<<<<<<< HEAD
 <liferay-portlet:resourceURL copyCurrentRenderParameters="<%= false %>" varImpl="editPermissionsResourceURL">
 	<portlet:param name="mvcPath" value="/view_resources.jsp" />
 	<portlet:param name="<%= Constants.CMD %>" value="<%= Constants.EDIT %>" />
@@ -36,6 +37,8 @@ PanelCategoryRegistry panelCategoryRegistry = (PanelCategoryRegistry)request.get
 	<portlet:param name="roleId" value="<%= String.valueOf(role.getRoleId()) %>" />
 </liferay-portlet:renderURL>
 
+=======
+>>>>>>> compatible
 <div class="lfr-permission-navigation-container" id="<portlet:namespace />permissionNavigationContainer">
 	<div class="search" id="<portlet:namespace />permissionNavigationSearchContainer">
 		<input class="field form-control search-query" id="<portlet:namespace />permissionNavigationSearch" placeholder="<%= LanguageUtil.get(request, "search") %>" type="text" />
@@ -145,10 +148,14 @@ PanelCategoryRegistry panelCategoryRegistry = (PanelCategoryRegistry)request.get
 											for (PanelApp panelApp : panelApps) {
 												Portlet panelAppPortlet = PortletLocalServiceUtil.getPortletById(company.getCompanyId(), panelApp.getPortletId());
 
+<<<<<<< HEAD
 												String controlPanelEntryClassName = panelAppPortlet.getControlPanelEntryClass();
 												ControlPanelEntry controlPanelEntry = panelAppPortlet.getControlPanelEntryInstance();
 
 												if (Objects.equals(controlPanelEntryClassName, AdministratorControlPanelEntry.class.getName()) || Objects.equals(controlPanelEntryClassName, OmniadminControlPanelEntry.class.getName()) || AdministratorControlPanelEntry.class.isAssignableFrom(controlPanelEntry.getClass()) || OmniadminControlPanelEntry.class.isAssignableFrom(controlPanelEntry.getClass())) {
+=======
+												if (Objects.equals(panelAppPortlet.getControlPanelEntryClass(), com.liferay.portal.kernel.portlet.OmniadminControlPanelEntry.class.getName())) {
+>>>>>>> compatible
 													continue;
 												}
 

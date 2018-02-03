@@ -20,11 +20,16 @@ import com.liferay.portal.asm.ASMWrapperUtil;
 import com.liferay.portal.dao.orm.hibernate.event.MVCCSynchronizerPostUpdateEventListener;
 import com.liferay.portal.dao.orm.hibernate.event.NestableAutoFlushEventListener;
 import com.liferay.portal.dao.orm.hibernate.event.NestableFlushEventListener;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.concurrent.ConcurrentReferenceKeyHashMap;
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.db.DBManagerUtil;
 import com.liferay.portal.kernel.dao.db.DBType;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.memory.FinalizeManager;
 import com.liferay.portal.kernel.util.ClassLoaderUtil;
 import com.liferay.portal.kernel.util.Converter;
 import com.liferay.portal.kernel.util.PreloadClassLoader;
@@ -45,8 +50,11 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+<<<<<<< HEAD
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+=======
+>>>>>>> compatible
 
 import javassist.util.proxy.ProxyFactory;
 
@@ -142,11 +150,19 @@ public class PortalHibernateConfiguration extends LocalSessionFactoryBean {
 		}
 
 		Dialect dialect = DialectDetector.getDialect(getDataSource());
+<<<<<<< HEAD
 
 		if (DBManagerUtil.getDBType(dialect) == DBType.SYBASE) {
 			properties.setProperty(PropsKeys.HIBERNATE_JDBC_BATCH_SIZE, "0");
 		}
 
+=======
+
+		if (DBManagerUtil.getDBType(dialect) == DBType.SYBASE) {
+			properties.setProperty(PropsKeys.HIBERNATE_JDBC_BATCH_SIZE, "0");
+		}
+
+>>>>>>> compatible
 		if (Validator.isNull(PropsValues.HIBERNATE_DIALECT)) {
 			DBManagerUtil.setDB(dialect, getDataSource());
 
@@ -311,6 +327,7 @@ public class PortalHibernateConfiguration extends LocalSessionFactoryBean {
 		}
 	}
 
+<<<<<<< HEAD
 	private SessionFactoryImplementor _wrapSessionFactoryImplementor(
 		SessionFactoryImplementor sessionFactoryImplementor,
 		Map<String, String> imports) {
@@ -338,6 +355,8 @@ public class PortalHibernateConfiguration extends LocalSessionFactoryBean {
 			sessionFactoryImplementor);
 	}
 
+=======
+>>>>>>> compatible
 	private static final String[] _PRELOAD_CLASS_NAMES =
 		PropsValues.SPRING_HIBERNATE_CONFIGURATION_PROXY_FACTORY_PRELOAD_CLASSLOADER_CLASSES;
 
@@ -359,6 +378,7 @@ public class PortalHibernateConfiguration extends LocalSessionFactoryBean {
 						(ProxyFactory pf) -> {
 							ClassLoader classLoader =
 								ClassLoaderUtil.getPortalClassLoader();
+<<<<<<< HEAD
 
 							ClassLoader contextClassLoader =
 								ClassLoaderUtil.getContextClassLoader();
@@ -369,6 +389,18 @@ public class PortalHibernateConfiguration extends LocalSessionFactoryBean {
 									getPreloadClassLoaderClasses());
 							}
 
+=======
+
+							ClassLoader contextClassLoader =
+								ClassLoaderUtil.getContextClassLoader();
+
+							if (classLoader != contextClassLoader) {
+								classLoader = new PreloadClassLoader(
+									contextClassLoader,
+									getPreloadClassLoaderClasses());
+							}
+
+>>>>>>> compatible
 							return classLoader;
 						});
 				}
@@ -378,6 +410,7 @@ public class PortalHibernateConfiguration extends LocalSessionFactoryBean {
 
 	private Converter<String> _hibernateConfigurationConverter;
 	private boolean _mvccEnabled = true;
+<<<<<<< HEAD
 
 	private static class NoPatternSessionFactoryDelegate {
 
@@ -429,5 +462,7 @@ public class PortalHibernateConfiguration extends LocalSessionFactoryBean {
 		private final SessionFactoryImplementor _sessionFactoryImplementor;
 
 	}
+=======
+>>>>>>> compatible
 
 }

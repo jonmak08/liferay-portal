@@ -19,6 +19,10 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import com.liferay.powwow.model.PowwowParticipant;
 
@@ -108,7 +112,11 @@ public class PowwowParticipantCacheModel implements CacheModel<PowwowParticipant
 		powwowParticipantImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			powwowParticipantImpl.setUserName("");
+=======
+			powwowParticipantImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			powwowParticipantImpl.setUserName(userName);
@@ -131,7 +139,11 @@ public class PowwowParticipantCacheModel implements CacheModel<PowwowParticipant
 		powwowParticipantImpl.setPowwowMeetingId(powwowMeetingId);
 
 		if (name == null) {
+<<<<<<< HEAD
 			powwowParticipantImpl.setName("");
+=======
+			powwowParticipantImpl.setName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			powwowParticipantImpl.setName(name);
@@ -140,7 +152,11 @@ public class PowwowParticipantCacheModel implements CacheModel<PowwowParticipant
 		powwowParticipantImpl.setParticipantUserId(participantUserId);
 
 		if (emailAddress == null) {
+<<<<<<< HEAD
 			powwowParticipantImpl.setEmailAddress("");
+=======
+			powwowParticipantImpl.setEmailAddress(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			powwowParticipantImpl.setEmailAddress(emailAddress);
@@ -190,7 +206,11 @@ public class PowwowParticipantCacheModel implements CacheModel<PowwowParticipant
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -202,7 +222,11 @@ public class PowwowParticipantCacheModel implements CacheModel<PowwowParticipant
 		objectOutput.writeLong(powwowMeetingId);
 
 		if (name == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(name);
@@ -211,7 +235,11 @@ public class PowwowParticipantCacheModel implements CacheModel<PowwowParticipant
 		objectOutput.writeLong(participantUserId);
 
 		if (emailAddress == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(emailAddress);

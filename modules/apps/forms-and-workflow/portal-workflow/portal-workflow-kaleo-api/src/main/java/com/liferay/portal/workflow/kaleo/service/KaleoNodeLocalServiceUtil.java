@@ -54,12 +54,20 @@ public class KaleoNodeLocalServiceUtil {
 	}
 
 	public static com.liferay.portal.workflow.kaleo.model.KaleoNode addKaleoNode(
+<<<<<<< HEAD
 		long kaleoDefinitionVersionId,
 		com.liferay.portal.workflow.kaleo.definition.Node node,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService()
 				   .addKaleoNode(kaleoDefinitionVersionId, node, serviceContext);
+=======
+		long kaleoDefinitionId,
+		com.liferay.portal.workflow.kaleo.definition.Node node,
+		com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+		return getService().addKaleoNode(kaleoDefinitionId, node, serviceContext);
+>>>>>>> compatible
 	}
 
 	/**
@@ -77,10 +85,15 @@ public class KaleoNodeLocalServiceUtil {
 		getService().deleteCompanyKaleoNodes(companyId);
 	}
 
+<<<<<<< HEAD
 	public static void deleteKaleoDefinitionVersionKaleoNodes(
 		long kaleoDefinitionVersionId) {
 		getService()
 			.deleteKaleoDefinitionVersionKaleoNodes(kaleoDefinitionVersionId);
+=======
+	public static void deleteKaleoDefinitionKaleoNodes(long kaleoDefinitionId) {
+		getService().deleteKaleoDefinitionKaleoNodes(kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 	/**
@@ -207,10 +220,16 @@ public class KaleoNodeLocalServiceUtil {
 		return getService().getIndexableActionableDynamicQuery();
 	}
 
+<<<<<<< HEAD
 	public static java.util.List<com.liferay.portal.workflow.kaleo.model.KaleoNode> getKaleoDefinitionVersionKaleoNodes(
 		long kaleoDefinitionVersionId) {
 		return getService()
 				   .getKaleoDefinitionVersionKaleoNodes(kaleoDefinitionVersionId);
+=======
+	public static java.util.List<com.liferay.portal.workflow.kaleo.model.KaleoNode> getKaleoDefinitionKaleoNodes(
+		long kaleoDefinitionId) {
+		return getService().getKaleoDefinitionKaleoNodes(kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 	/**

@@ -21,7 +21,10 @@ import com.liferay.dynamic.data.mapping.model.DDMFormLayout;
 import com.liferay.dynamic.data.mapping.model.DDMStorageLink;
 import com.liferay.dynamic.data.mapping.model.DDMStructure;
 import com.liferay.dynamic.data.mapping.model.DDMStructureLink;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.model.DDMStructureVersion;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.model.DDMTemplate;
 import com.liferay.dynamic.data.mapping.model.DDMTemplateLink;
 import com.liferay.dynamic.data.mapping.service.DDMContentLocalService;
@@ -66,6 +69,7 @@ public class DDMServiceVerifyProcess extends VerifyProcess {
 	}
 
 	protected DDMFormValues getDDMFormValues(
+<<<<<<< HEAD
 			DDMForm ddmForm, DDMContent ddmContent)
 		throws PortalException {
 
@@ -78,6 +82,13 @@ public class DDMServiceVerifyProcess extends VerifyProcess {
 		throws PortalException {
 
 		return getDDMFormValues(ddmStructure.getDDMForm(), ddmContent);
+=======
+			DDMStructure structure, DDMContent content)
+		throws PortalException {
+
+		return _ddmFormValuesJSONDeserializer.deserialize(
+			structure.getDDMForm(), content.getData());
+>>>>>>> compatible
 	}
 
 	@Reference(unbind = "-")
@@ -137,8 +148,11 @@ public class DDMServiceVerifyProcess extends VerifyProcess {
 	@Reference(unbind = "-")
 	protected void setDDMStructureVersionLocalService(
 		DDMStructureVersionLocalService ddmStructureVersionLocalService) {
+<<<<<<< HEAD
 
 		_ddmStructureVersionLocalService = ddmStructureVersionLocalService;
+=======
+>>>>>>> compatible
 	}
 
 	@Reference(unbind = "-")
@@ -155,6 +169,7 @@ public class DDMServiceVerifyProcess extends VerifyProcess {
 		_ddmTemplateLocalService = ddmTemplateLocalService;
 	}
 
+<<<<<<< HEAD
 	protected void verifyContent(DDMContent ddmContent) throws PortalException {
 		DDMStorageLink ddmStorageLink =
 			_ddmStorageLinkLocalService.getClassStorageLink(
@@ -167,6 +182,18 @@ public class DDMServiceVerifyProcess extends VerifyProcess {
 		try {
 			DDMFormValues ddmFormValues = getDDMFormValues(
 				ddmStructureVersion.getDDMForm(), ddmContent);
+=======
+	protected void verifyContent(DDMContent content) throws PortalException {
+		DDMStorageLink ddmStorageLink =
+			_ddmStorageLinkLocalService.getClassStorageLink(
+				content.getContentId());
+
+		DDMStructure structure = _ddmStructureLocalService.getStructure(
+			ddmStorageLink.getStructureId());
+
+		try {
+			DDMFormValues ddmFormValues = getDDMFormValues(structure, content);
+>>>>>>> compatible
 
 			_ddmFormValuesValidator.validate(ddmFormValues);
 		}
@@ -175,9 +202,15 @@ public class DDMServiceVerifyProcess extends VerifyProcess {
 				_log.warn(
 					String.format(
 						"Stale or invalid data for DDM content %d  and " +
+<<<<<<< HEAD
 							"structure version %d causes: {%s}",
 						ddmContent.getContentId(),
 						ddmStructureVersion.getStructureId(), e.getMessage()),
+=======
+							"structure %d causes: {%s}",
+						content.getContentId(), structure.getStructureId(),
+						e.getMessage()),
+>>>>>>> compatible
 					e);
 			}
 		}
@@ -195,9 +228,15 @@ public class DDMServiceVerifyProcess extends VerifyProcess {
 					public void performAction(Object object)
 						throws PortalException {
 
+<<<<<<< HEAD
 						DDMContent ddmContent = (DDMContent)object;
 
 						verifyContent(ddmContent);
+=======
+						DDMContent content = (DDMContent)object;
+
+						verifyContent(content);
+>>>>>>> compatible
 					}
 
 				});
@@ -216,6 +255,7 @@ public class DDMServiceVerifyProcess extends VerifyProcess {
 		_ddmFormLayoutValidator.validate(ddmFormLayout);
 	}
 
+<<<<<<< HEAD
 	protected void verifyStructure(DDMStructure ddmStructure)
 		throws PortalException {
 
@@ -232,6 +272,24 @@ public class DDMServiceVerifyProcess extends VerifyProcess {
 		if (ddmStructure == null) {
 			_ddmStructureLinkLocalService.deleteStructureLink(
 				ddmStructureLink.getStructureLinkId());
+=======
+	protected void verifyStructure(DDMStructure structure)
+		throws PortalException {
+
+		verifyDDMForm(structure.getDDMForm());
+		verifyDDMFormLayout(structure.getDDMFormLayout());
+	}
+
+	protected void verifyStructureLink(DDMStructureLink structureLink)
+		throws PortalException {
+
+		DDMStructure structure = _ddmStructureLocalService.fetchStructure(
+			structureLink.getStructureId());
+
+		if (structure == null) {
+			_ddmStructureLinkLocalService.deleteStructureLink(
+				structureLink.getStructureLinkId());
+>>>>>>> compatible
 		}
 	}
 
@@ -247,10 +305,17 @@ public class DDMServiceVerifyProcess extends VerifyProcess {
 					public void performAction(Object object)
 						throws PortalException {
 
+<<<<<<< HEAD
 						DDMStructureLink ddmStructureLink =
 							(DDMStructureLink)object;
 
 						verifyStructureLink(ddmStructureLink);
+=======
+						DDMStructureLink structureLink =
+							(DDMStructureLink)object;
+
+						verifyStructureLink(structureLink);
+>>>>>>> compatible
 					}
 
 				});
@@ -269,17 +334,28 @@ public class DDMServiceVerifyProcess extends VerifyProcess {
 					public void performAction(Object object)
 						throws PortalException {
 
+<<<<<<< HEAD
 						DDMStructure ddmStructure = (DDMStructure)object;
 
 						try {
 							verifyStructure(ddmStructure);
+=======
+						DDMStructure structure = (DDMStructure)object;
+
+						try {
+							verifyStructure(structure);
+>>>>>>> compatible
 						}
 						catch (PortalException pe) {
 							_log.error(
 								String.format(
 									"Invalid data for DDM structure %d " +
 										"causes: {%s}",
+<<<<<<< HEAD
 									ddmStructure.getStructureId(),
+=======
+									structure.getStructureId(),
+>>>>>>> compatible
 									pe.getMessage()),
 								pe);
 						}
@@ -291,6 +367,7 @@ public class DDMServiceVerifyProcess extends VerifyProcess {
 		}
 	}
 
+<<<<<<< HEAD
 	protected void verifyTemplateLink(DDMTemplateLink ddmTemplateLink)
 		throws PortalException {
 
@@ -300,6 +377,17 @@ public class DDMServiceVerifyProcess extends VerifyProcess {
 		if (ddmTemplate == null) {
 			_ddmTemplateLinkLocalService.deleteTemplateLink(
 				ddmTemplateLink.getTemplateId());
+=======
+	protected void verifyTemplateLink(DDMTemplateLink templateLink)
+		throws PortalException {
+
+		DDMTemplate template = _ddmTemplateLocalService.fetchTemplate(
+			templateLink.getTemplateId());
+
+		if (template == null) {
+			_ddmTemplateLinkLocalService.deleteTemplateLink(
+				templateLink.getTemplateId());
+>>>>>>> compatible
 		}
 	}
 
@@ -315,10 +403,16 @@ public class DDMServiceVerifyProcess extends VerifyProcess {
 					public void performAction(Object object)
 						throws PortalException {
 
+<<<<<<< HEAD
 						DDMTemplateLink ddmTemplateLink =
 							(DDMTemplateLink)object;
 
 						verifyTemplateLink(ddmTemplateLink);
+=======
+						DDMTemplateLink templateLink = (DDMTemplateLink)object;
+
+						verifyTemplateLink(templateLink);
+>>>>>>> compatible
 					}
 
 				});
@@ -336,7 +430,10 @@ public class DDMServiceVerifyProcess extends VerifyProcess {
 	private DDMStorageLinkLocalService _ddmStorageLinkLocalService;
 	private DDMStructureLinkLocalService _ddmStructureLinkLocalService;
 	private DDMStructureLocalService _ddmStructureLocalService;
+<<<<<<< HEAD
 	private DDMStructureVersionLocalService _ddmStructureVersionLocalService;
+=======
+>>>>>>> compatible
 	private DDMTemplateLinkLocalService _ddmTemplateLinkLocalService;
 	private DDMTemplateLocalService _ddmTemplateLocalService;
 

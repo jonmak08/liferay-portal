@@ -67,6 +67,7 @@ String searchContainerId = ParamUtil.getString(request, "searchContainerId");
 
 				row.setPrimaryKey(HtmlUtil.escape(curArticle.getArticleId()));
 
+<<<<<<< HEAD
 				String editURL = StringPool.BLANK;
 
 				if (JournalArticlePermission.contains(permissionChecker, curArticle, ActionKeys.UPDATE)) {
@@ -81,6 +82,20 @@ String searchContainerId = ParamUtil.getString(request, "searchContainerId");
 					editArticleURL.setParameter("version", String.valueOf(curArticle.getVersion()));
 
 					editURL = editArticleURL.toString();
+=======
+				PortletURL rowURL = null;
+
+				if (journalDisplayContext.isShowEditActions() && JournalArticlePermission.contains(permissionChecker, curArticle, ActionKeys.UPDATE)) {
+					rowURL = liferayPortletResponse.createRenderURL();
+
+					rowURL.setParameter("mvcPath", "/edit_article.jsp");
+					rowURL.setParameter("redirect", currentURL);
+					rowURL.setParameter("referringPortletResource", referringPortletResource);
+					rowURL.setParameter("groupId", String.valueOf(curArticle.getGroupId()));
+					rowURL.setParameter("folderId", String.valueOf(curArticle.getFolderId()));
+					rowURL.setParameter("articleId", curArticle.getArticleId());
+					rowURL.setParameter("version", String.valueOf(curArticle.getVersion()));
+>>>>>>> compatible
 				}
 				%>
 
@@ -108,7 +123,11 @@ String searchContainerId = ParamUtil.getString(request, "searchContainerId");
 							</h6>
 
 							<h5>
+<<<<<<< HEAD
 								<aui:a href="<%= editURL %>">
+=======
+								<aui:a href="<%= rowURL != null ? rowURL.toString() : null %>">
+>>>>>>> compatible
 									<%= HtmlUtil.escape(curArticle.getTitle(locale)) %>
 								</aui:a>
 							</h5>
@@ -145,7 +164,11 @@ String searchContainerId = ParamUtil.getString(request, "searchContainerId");
 										resultRow="<%= row %>"
 										rowChecker="<%= articleSearchContainer.getRowChecker() %>"
 										title="<%= curArticle.getTitle(locale) %>"
+<<<<<<< HEAD
 										url="<%= editURL %>"
+=======
+										url="<%= rowURL != null ? rowURL.toString() : null %>"
+>>>>>>> compatible
 									>
 										<%@ include file="/article_vertical_card.jspf" %>
 									</liferay-frontend:vertical-card>
@@ -158,7 +181,11 @@ String searchContainerId = ParamUtil.getString(request, "searchContainerId");
 										resultRow="<%= row %>"
 										rowChecker="<%= articleSearchContainer.getRowChecker() %>"
 										title="<%= curArticle.getTitle(locale) %>"
+<<<<<<< HEAD
 										url="<%= editURL %>"
+=======
+										url="<%= rowURL != null ? rowURL.toString() : null %>"
+>>>>>>> compatible
 									>
 										<%@ include file="/article_vertical_card.jspf" %>
 									</liferay-frontend:icon-vertical-card>
@@ -176,7 +203,11 @@ String searchContainerId = ParamUtil.getString(request, "searchContainerId");
 
 						<liferay-ui:search-container-column-jsp
 							cssClass="table-cell-content"
+<<<<<<< HEAD
 							href="<%= editURL %>"
+=======
+							href="<%= rowURL %>"
+>>>>>>> compatible
 							name="title"
 							path="/article_title.jsp"
 						/>
@@ -184,7 +215,11 @@ String searchContainerId = ParamUtil.getString(request, "searchContainerId");
 						<liferay-ui:search-container-column-text
 							cssClass="table-cell-content"
 							name="description"
+<<<<<<< HEAD
 							value="<%= StringUtil.shorten(HtmlUtil.stripHtml(curArticle.getDescription(locale)), 200) %>"
+=======
+							value="<%= HtmlUtil.escape(curArticle.getDescription(locale)) %>"
+>>>>>>> compatible
 						/>
 
 						<liferay-ui:search-container-column-text

@@ -1,5 +1,9 @@
 Bundle-Name: Liferay License Manager Web
 Bundle-SymbolicName: com.liferay.license.manager.web
+<<<<<<< HEAD
 Bundle-Version: 2.0.8
+=======
+Bundle-Version: 2.0.4
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title:

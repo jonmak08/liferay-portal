@@ -14,12 +14,19 @@
 
 package com.liferay.configuration.admin.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.configuration.admin.constants.ConfigurationAdminPortletKeys;
+=======
+import com.liferay.configuration.admin.web.internal.constants.ConfigurationAdminPortletKeys;
+>>>>>>> compatible
 import com.liferay.configuration.admin.web.internal.exporter.ConfigurationExporter;
 import com.liferay.configuration.admin.web.internal.model.ConfigurationModel;
 import com.liferay.configuration.admin.web.internal.util.AttributeDefinitionUtil;
 import com.liferay.configuration.admin.web.internal.util.ConfigurationModelRetriever;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.configuration.metatype.definitions.ExtendedAttributeDefinition;
 import com.liferay.portal.configuration.metatype.definitions.ExtendedObjectClassDefinition;
 import com.liferay.portal.kernel.portlet.PortletResponseUtil;
@@ -27,6 +34,10 @@ import com.liferay.portal.kernel.portlet.bridges.mvc.MVCResourceCommand;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.ParamUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.kernel.zip.ZipWriter;
@@ -179,7 +190,11 @@ public class ExportConfigurationMVCResourceCommand
 		for (ConfigurationModel factoryInstance : factoryInstances) {
 			String curPid = factoryInstance.getID();
 
+<<<<<<< HEAD
 			String curFileName = getFileName(factoryPid, curPid);
+=======
+			String curFileName = getFileName(null, curPid);
+>>>>>>> compatible
 
 			zipWriter.addEntry(
 				curFileName,

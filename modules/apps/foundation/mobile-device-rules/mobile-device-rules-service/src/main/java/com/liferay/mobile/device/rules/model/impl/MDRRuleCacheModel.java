@@ -21,6 +21,10 @@ import com.liferay.mobile.device.rules.model.MDRRule;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -104,7 +108,11 @@ public class MDRRuleCacheModel implements CacheModel<MDRRule>, Externalizable {
 		MDRRuleImpl mdrRuleImpl = new MDRRuleImpl();
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			mdrRuleImpl.setUuid("");
+=======
+			mdrRuleImpl.setUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			mdrRuleImpl.setUuid(uuid);
@@ -116,7 +124,11 @@ public class MDRRuleCacheModel implements CacheModel<MDRRule>, Externalizable {
 		mdrRuleImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			mdrRuleImpl.setUserName("");
+=======
+			mdrRuleImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			mdrRuleImpl.setUserName(userName);
@@ -139,28 +151,44 @@ public class MDRRuleCacheModel implements CacheModel<MDRRule>, Externalizable {
 		mdrRuleImpl.setRuleGroupId(ruleGroupId);
 
 		if (name == null) {
+<<<<<<< HEAD
 			mdrRuleImpl.setName("");
+=======
+			mdrRuleImpl.setName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			mdrRuleImpl.setName(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			mdrRuleImpl.setDescription("");
+=======
+			mdrRuleImpl.setDescription(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			mdrRuleImpl.setDescription(description);
 		}
 
 		if (type == null) {
+<<<<<<< HEAD
 			mdrRuleImpl.setType("");
+=======
+			mdrRuleImpl.setType(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			mdrRuleImpl.setType(type);
 		}
 
 		if (typeSettings == null) {
+<<<<<<< HEAD
 			mdrRuleImpl.setTypeSettings("");
+=======
+			mdrRuleImpl.setTypeSettings(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			mdrRuleImpl.setTypeSettings(typeSettings);
@@ -205,7 +233,11 @@ public class MDRRuleCacheModel implements CacheModel<MDRRule>, Externalizable {
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		if (uuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(uuid);
@@ -220,7 +252,11 @@ public class MDRRuleCacheModel implements CacheModel<MDRRule>, Externalizable {
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -232,28 +268,44 @@ public class MDRRuleCacheModel implements CacheModel<MDRRule>, Externalizable {
 		objectOutput.writeLong(ruleGroupId);
 
 		if (name == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(description);
 		}
 
 		if (type == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(type);
 		}
 
 		if (typeSettings == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(typeSettings);

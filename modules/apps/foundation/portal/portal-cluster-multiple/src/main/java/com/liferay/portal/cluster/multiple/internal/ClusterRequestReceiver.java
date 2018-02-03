@@ -14,7 +14,10 @@
 
 package com.liferay.portal.cluster.multiple.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.cache.thread.local.Lifecycle;
 import com.liferay.portal.kernel.cache.thread.local.ThreadLocalCacheManager;
 import com.liferay.portal.kernel.cluster.Address;
@@ -24,6 +27,10 @@ import com.liferay.portal.kernel.cluster.ClusterNodeResponse;
 import com.liferay.portal.kernel.cluster.ClusterRequest;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CentralizedThreadLocal;
+>>>>>>> compatible
 
 import java.io.Serializable;
 

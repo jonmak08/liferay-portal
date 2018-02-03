@@ -36,8 +36,13 @@ import com.liferay.portal.kernel.service.persistence.CompanyProvider;
 import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import com.liferay.portlet.asset.model.impl.AssetLinkImpl;
 import com.liferay.portlet.asset.model.impl.AssetLinkModelImpl;
@@ -693,12 +698,21 @@ public class AssetLinkPersistenceImpl extends BasePersistenceImpl<AssetLink>
 		if (retrieveFromCache) {
 			list = (List<AssetLink>)finderCache.getResult(finderPath,
 					finderArgs, this);
+<<<<<<< HEAD
 
 			if ((list != null) && !list.isEmpty()) {
 				for (AssetLink assetLink : list) {
 					if ((entryId2 != assetLink.getEntryId2())) {
 						list = null;
 
+=======
+
+			if ((list != null) && !list.isEmpty()) {
+				for (AssetLink assetLink : list) {
+					if ((entryId2 != assetLink.getEntryId2())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -1200,6 +1214,7 @@ public class AssetLinkPersistenceImpl extends BasePersistenceImpl<AssetLink>
 		}
 
 		List<AssetLink> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<AssetLink>)finderCache.getResult(finderPath,
@@ -1211,6 +1226,19 @@ public class AssetLinkPersistenceImpl extends BasePersistenceImpl<AssetLink>
 							(entryId2 != assetLink.getEntryId2())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<AssetLink>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (AssetLink assetLink : list) {
+					if ((entryId1 != assetLink.getEntryId1()) ||
+							(entryId2 != assetLink.getEntryId2())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -2963,11 +2991,17 @@ public class AssetLinkPersistenceImpl extends BasePersistenceImpl<AssetLink>
 		setModelClass(AssetLink.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("type", "type_");

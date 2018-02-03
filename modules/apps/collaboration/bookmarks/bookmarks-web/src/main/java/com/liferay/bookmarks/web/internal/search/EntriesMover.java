@@ -20,15 +20,24 @@ import com.liferay.portal.kernel.dao.search.RowMoverDropTarget;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.portlet.PortletProvider;
 import com.liferay.portal.kernel.portlet.PortletProviderUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.trash.model.TrashEntry;
+=======
+import com.liferay.trash.kernel.model.TrashEntry;
+import com.liferay.trash.kernel.util.TrashUtil;
+>>>>>>> compatible
 
 /**
  * @author Sergio González
  */
 public class EntriesMover extends RowMover {
 
+<<<<<<< HEAD
 	public EntriesMover(boolean trashEnabled) throws PortalException {
+=======
+	public EntriesMover(long scopeGroupId) throws PortalException {
+>>>>>>> compatible
 		RowMoverDropTarget moveToFolderRowMoverDropTarget =
 			new RowMoverDropTarget();
 
@@ -38,7 +47,11 @@ public class EntriesMover extends RowMover {
 
 		addRowMoverDropTarget(moveToFolderRowMoverDropTarget);
 
+<<<<<<< HEAD
 		if (trashEnabled) {
+=======
+		if (TrashUtil.isTrashEnabled(scopeGroupId)) {
+>>>>>>> compatible
 			RowMoverDropTarget moveToTrashRowMoverDropTarget =
 				new RowMoverDropTarget();
 
@@ -55,8 +68,12 @@ public class EntriesMover extends RowMover {
 				TrashEntry.class.getName(), PortletProvider.Action.VIEW);
 
 			moveToTrashRowMoverDropTarget.setSelector(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"#_", productMenuPortletId, "_portlet_", trashPortletId));
+=======
+				"#_" + productMenuPortletId + "_portlet_" + trashPortletId);
+>>>>>>> compatible
 
 			addRowMoverDropTarget(moveToTrashRowMoverDropTarget);
 		}

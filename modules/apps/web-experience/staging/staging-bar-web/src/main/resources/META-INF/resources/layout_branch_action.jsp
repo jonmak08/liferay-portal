@@ -40,7 +40,11 @@ long currentLayoutBranchId = GetterUtil.getLong((String)request.getAttribute("vi
 			url="<%= editLayoutBranchURL %>"
 		/>
 
+<<<<<<< HEAD
 		<c:if test="<%= !rootLayoutRevision.isPending() && !layoutBranch.isMaster() && LayoutBranchPermissionUtil.contains(permissionChecker, layoutBranch, ActionKeys.DELETE) %>">
+=======
+		<c:if test="<%= !rootLayoutRevision.isPending() && !layoutBranch.isMaster() && !rootLayoutRevision.isHead() && LayoutBranchPermissionUtil.contains(permissionChecker, layoutBranch, ActionKeys.DELETE) %>">
+>>>>>>> compatible
 			<portlet:actionURL name="deleteLayoutBranch" var="deleteLayoutBranchURL">
 				<portlet:param name="redirect" value="<%= currentURL %>" />
 				<portlet:param name="groupId" value="<%= String.valueOf(layoutBranch.getGroupId()) %>" />

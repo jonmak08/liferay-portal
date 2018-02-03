@@ -318,6 +318,7 @@ public class AnnouncementsDeliveryLocalServiceWrapper
 
 	@Override
 	public com.liferay.announcements.kernel.model.AnnouncementsDelivery updateDelivery(
+<<<<<<< HEAD
 		long userId, java.lang.String type, boolean email, boolean sms)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return _announcementsDeliveryLocalService.updateDelivery(userId, type,
@@ -331,6 +332,8 @@ public class AnnouncementsDeliveryLocalServiceWrapper
 	@Deprecated
 	@Override
 	public com.liferay.announcements.kernel.model.AnnouncementsDelivery updateDelivery(
+=======
+>>>>>>> compatible
 		long userId, java.lang.String type, boolean email, boolean sms,
 		boolean website)
 		throws com.liferay.portal.kernel.exception.PortalException {

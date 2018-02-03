@@ -15,14 +15,20 @@
 package com.liferay.dynamic.data.mapping.service.impl;
 
 import com.liferay.dynamic.data.mapping.model.DDMStorageLink;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.model.DDMStructureVersion;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.service.base.DDMStorageLinkLocalServiceBaseImpl;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.service.ServiceContext;
 
 import java.util.List;
+<<<<<<< HEAD
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
+=======
+>>>>>>> compatible
 
 /**
  * @author Brian Wing Shun Chan
@@ -33,7 +39,11 @@ public class DDMStorageLinkLocalServiceImpl
 
 	@Override
 	public DDMStorageLink addStorageLink(
+<<<<<<< HEAD
 		long classNameId, long classPK, long structureVersionId,
+=======
+		long classNameId, long classPK, long structureId,
+>>>>>>> compatible
 		ServiceContext serviceContext) {
 
 		long storageLinkId = counterLocalService.increment();
@@ -43,7 +53,11 @@ public class DDMStorageLinkLocalServiceImpl
 
 		storageLink.setClassNameId(classNameId);
 		storageLink.setClassPK(classPK);
+<<<<<<< HEAD
 		storageLink.setStructureVersionId(structureVersionId);
+=======
+		storageLink.setStructureId(structureId);
+>>>>>>> compatible
 
 		ddmStorageLinkPersistence.update(storageLink);
 
@@ -101,6 +115,7 @@ public class DDMStorageLinkLocalServiceImpl
 
 	@Override
 	public List<DDMStorageLink> getStructureStorageLinks(long structureId) {
+<<<<<<< HEAD
 		List<DDMStructureVersion> structureVersions =
 			ddmStructureVersionLocalService.getStructureVersions(structureId);
 
@@ -111,10 +126,14 @@ public class DDMStorageLinkLocalServiceImpl
 
 		return ddmStorageLinkPersistence.findByStructureVersionId(
 			structureVersionIdStream.toArray());
+=======
+		return ddmStorageLinkPersistence.findByStructureId(structureId);
+>>>>>>> compatible
 	}
 
 	@Override
 	public int getStructureStorageLinksCount(long structureId) {
+<<<<<<< HEAD
 		List<DDMStructureVersion> structureVersions =
 			ddmStructureVersionLocalService.getStructureVersions(structureId);
 
@@ -139,6 +158,9 @@ public class DDMStorageLinkLocalServiceImpl
 	public int getStructureVersionStorageLinksCount(long structureVersionId) {
 		return ddmStorageLinkPersistence.countByStructureVersionId(
 			structureVersionId);
+=======
+		return ddmStorageLinkPersistence.countByStructureId(structureId);
+>>>>>>> compatible
 	}
 
 	@Override

@@ -14,7 +14,11 @@
 
 package com.liferay.asset.categories.navigation.web.internal.exportimport.data.handler;
 
+<<<<<<< HEAD
 import com.liferay.asset.categories.navigation.constants.AssetCategoriesNavigationPortletKeys;
+=======
+import com.liferay.asset.categories.navigation.web.constants.AssetCategoriesNavigationPortletKeys;
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.lar.DataLevel;
 import com.liferay.exportimport.kernel.lar.DefaultConfigurationPortletDataHandler;
 import com.liferay.exportimport.kernel.lar.PortletDataHandler;

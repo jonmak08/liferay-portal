@@ -30,7 +30,10 @@ import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.util.FriendlyURLNormalizerUtil;
 import com.liferay.portal.kernel.util.HashMapDictionary;
 import com.liferay.portal.kernel.util.StringPool;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.UnicodeProperties;
+=======
+>>>>>>> compatible
 import com.liferay.portal.test.randomizerbumpers.FriendlyURLRandomizerBumper;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.util.test.PortletContainerTestUtil;
@@ -126,6 +129,7 @@ public class PublicRenderParameterTest extends BasePortletContainerTestCase {
 			StringPool.SLASH + FriendlyURLNormalizerUtil.normalize(name),
 			ServiceContextTestUtil.getServiceContext());
 
+<<<<<<< HEAD
 		UnicodeProperties typeSettingsProperties =
 			layout.getTypeSettingsProperties();
 
@@ -134,6 +138,8 @@ public class PublicRenderParameterTest extends BasePortletContainerTestCase {
 
 		LayoutLocalServiceUtil.updateLayout(layout);
 
+=======
+>>>>>>> compatible
 		HttpServletRequest httpServletRequest =
 			PortletContainerTestUtil.getHttpServletRequest(group, layout);
 
@@ -146,7 +152,10 @@ public class PublicRenderParameterTest extends BasePortletContainerTestCase {
 		String portletURLString = portletURL.toString();
 
 		Assert.assertTrue(
+<<<<<<< HEAD
 			portletURLString,
+=======
+>>>>>>> compatible
 			portletURLString.contains(
 				PortletQName.PUBLIC_RENDER_PARAMETER_NAMESPACE));
 
@@ -205,7 +214,10 @@ public class PublicRenderParameterTest extends BasePortletContainerTestCase {
 		String portletURLString = portletURL.toString();
 
 		Assert.assertTrue(
+<<<<<<< HEAD
 			portletURLString,
+=======
+>>>>>>> compatible
 			portletURLString.contains(
 				PortletQName.PUBLIC_RENDER_PARAMETER_NAMESPACE));
 

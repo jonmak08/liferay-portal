@@ -23,19 +23,26 @@ int total = GetterUtil.getInteger((String)request.getAttribute("view.jsp-total")
 
 PortletURL portletURL = renderResponse.createRenderURL();
 
+<<<<<<< HEAD
 int deltaEntry = ParamUtil.getInteger(request, "deltaEntry");
 
 if (deltaEntry > 0) {
 	portletURL.setParameter("deltaEntry", String.valueOf(deltaEntry));
 }
 
+=======
+>>>>>>> compatible
 portletURL.setParameter("categoryId", StringPool.BLANK);
 portletURL.setParameter("tag", StringPool.BLANK);
 %>
 
 <liferay-frontend:management-bar
 	disabled="<%= total == 0 %>"
+<<<<<<< HEAD
 	includeCheckBox="<%= true %>"
+=======
+	includeCheckBox="<%= !user.isDefaultUser() %>"
+>>>>>>> compatible
 	searchContainerId="<%= searchContainerId %>"
 >
 	<liferay-frontend:management-bar-buttons>
@@ -72,19 +79,31 @@ portletURL.setParameter("tag", StringPool.BLANK);
 			label="info"
 		/>
 
+<<<<<<< HEAD
 		<c:if test="<%= !user.isDefaultUser() %>">
 			<liferay-frontend:management-bar-button href='<%= "javascript:" + renderResponse.getNamespace() + "deleteEntries();" %>' icon='<%= trashHelper.isTrashEnabled(scopeGroupId) ? "trash" : "times" %>' label='<%= trashHelper.isTrashEnabled(scopeGroupId) ? "recycle-bin" : "delete" %>' />
 		</c:if>
+=======
+		<liferay-frontend:management-bar-button href='<%= "javascript:" + renderResponse.getNamespace() + "deleteEntries();" %>' icon='<%= TrashUtil.isTrashEnabled(scopeGroupId) ? "trash" : "times" %>' label='<%= TrashUtil.isTrashEnabled(scopeGroupId) ? "recycle-bin" : "delete" %>' />
+>>>>>>> compatible
 	</liferay-frontend:management-bar-action-buttons>
 </liferay-frontend:management-bar>
 
 <aui:script>
 	function <portlet:namespace />deleteEntries() {
+<<<<<<< HEAD
 		if (<%= trashHelper.isTrashEnabled(scopeGroupId) %> || confirm(' <%= UnicodeLanguageUtil.get(request, "are-you-sure-you-want-to-delete-the-selected-entries") %>')) {
 			var form = AUI.$(document.<portlet:namespace />fm);
 
 			form.attr('method', 'post');
 			form.fm('<%= Constants.CMD %>').val('<%= trashHelper.isTrashEnabled(scopeGroupId) ? Constants.MOVE_TO_TRASH : Constants.DELETE %>');
+=======
+		if (<%= TrashUtil.isTrashEnabled(scopeGroupId) %> || confirm(' <%= UnicodeLanguageUtil.get(request, "are-you-sure-you-want-to-delete-the-selected-entries") %>')) {
+			var form = AUI.$(document.<portlet:namespace />fm);
+
+			form.attr('method', 'post');
+			form.fm('<%= Constants.CMD %>').val('<%= TrashUtil.isTrashEnabled(scopeGroupId) ? Constants.MOVE_TO_TRASH : Constants.DELETE %>');
+>>>>>>> compatible
 
 			submitForm(form, '<portlet:actionURL name="/bookmarks/edit_entry" />');
 		}

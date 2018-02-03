@@ -209,11 +209,14 @@ public class DDMDataProviderInstanceLocalServiceUtil {
 		return getService().fetchDataProviderInstance(dataProviderInstanceId);
 	}
 
+<<<<<<< HEAD
 	public static com.liferay.dynamic.data.mapping.model.DDMDataProviderInstance fetchDataProviderInstanceByUuid(
 		java.lang.String uuid) {
 		return getService().fetchDataProviderInstanceByUuid(uuid);
 	}
 
+=======
+>>>>>>> compatible
 	public static com.liferay.dynamic.data.mapping.model.DDMDataProviderInstance fetchDDMDataProviderInstance(
 		long dataProviderInstanceId) {
 		return getService().fetchDDMDataProviderInstance(dataProviderInstanceId);
@@ -242,17 +245,21 @@ public class DDMDataProviderInstanceLocalServiceUtil {
 		return getService().getDataProviderInstance(dataProviderInstanceId);
 	}
 
+<<<<<<< HEAD
 	public static com.liferay.dynamic.data.mapping.model.DDMDataProviderInstance getDataProviderInstanceByUuid(
 		java.lang.String uuid)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService().getDataProviderInstanceByUuid(uuid);
 	}
 
+=======
+>>>>>>> compatible
 	public static java.util.List<com.liferay.dynamic.data.mapping.model.DDMDataProviderInstance> getDataProviderInstances(
 		long[] groupIds) {
 		return getService().getDataProviderInstances(groupIds);
 	}
 
+<<<<<<< HEAD
 	public static java.util.List<com.liferay.dynamic.data.mapping.model.DDMDataProviderInstance> getDataProviderInstances(
 		long[] groupIds, int start, int end) {
 		return getService().getDataProviderInstances(groupIds, start, end);
@@ -266,6 +273,8 @@ public class DDMDataProviderInstanceLocalServiceUtil {
 			orderByComparator);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns the ddm data provider instance with the primary key.
 	*

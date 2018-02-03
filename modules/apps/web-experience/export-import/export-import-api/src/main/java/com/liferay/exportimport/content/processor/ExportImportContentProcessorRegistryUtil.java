@@ -39,8 +39,13 @@ import org.osgi.util.tracker.ServiceTrackerCustomizer;
 @ProviderType
 public class ExportImportContentProcessorRegistryUtil {
 
+<<<<<<< HEAD
 	public static ExportImportContentProcessor getExportImportContentProcessor(
 		String className) {
+=======
+	public static ExportImportContentProcessor
+		getExportImportContentProcessor(String className) {
+>>>>>>> compatible
 
 		return _instance._getExportImportContentProcessor(className);
 	}

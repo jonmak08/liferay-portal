@@ -37,6 +37,12 @@ import com.liferay.portal.repository.InitializedLocalRepository;
 import com.liferay.portal.repository.InitializedRepository;
 import com.liferay.portal.repository.capabilities.CapabilityLocalRepository;
 import com.liferay.portal.repository.capabilities.CapabilityRepository;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.repository.capabilities.ConfigurationCapabilityImpl;
+import com.liferay.portal.repository.capabilities.LiferayRepositoryEventTriggerCapability;
+import com.liferay.portal.repository.capabilities.util.RepositoryServiceAdapter;
+>>>>>>> compatible
 
 import java.util.Locale;
 import java.util.Map;
@@ -162,12 +168,21 @@ public class RepositoryClassDefinition
 
 	public RepositoryConfiguration getRepositoryConfiguration() {
 		return _repositoryDefiner.getRepositoryConfiguration();
+<<<<<<< HEAD
 	}
 
 	public String getRepositoryTypeLabel(Locale locale) {
 		return _repositoryDefiner.getRepositoryTypeLabel(locale);
 	}
 
+=======
+	}
+
+	public String getRepositoryTypeLabel(Locale locale) {
+		return _repositoryDefiner.getRepositoryTypeLabel(locale);
+	}
+
+>>>>>>> compatible
 	public void invalidateCache() {
 		_localRepositories.clear();
 		_repositories.clear();
@@ -206,8 +221,14 @@ public class RepositoryClassDefinition
 
 			capabilityRegistry.addExportedCapability(
 				ConfigurationCapability.class,
+<<<<<<< HEAD
 				_portalCapabilityLocator.getConfigurationCapability(
 					documentRepository));
+=======
+				new ConfigurationCapabilityImpl(
+					documentRepository,
+					RepositoryServiceAdapter.create(documentRepository)));
+>>>>>>> compatible
 		}
 
 		if (!capabilityRegistry.isCapabilityProvided(
@@ -223,11 +244,14 @@ public class RepositoryClassDefinition
 			CacheCapability.class, new CacheCapability());
 	}
 
+<<<<<<< HEAD
 	private static volatile PortalCapabilityLocator _portalCapabilityLocator =
 		ServiceProxyFactory.newServiceTrackedInstance(
 			PortalCapabilityLocator.class, RepositoryClassDefinition.class,
 			"_portalCapabilityLocator", false);
 
+=======
+>>>>>>> compatible
 	private final Map<Long, LocalRepository> _localRepositories =
 		new ConcurrentHashMap<>();
 	private final Map<Long, Repository> _repositories =

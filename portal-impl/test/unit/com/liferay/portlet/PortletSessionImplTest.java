@@ -17,6 +17,7 @@ package com.liferay.portlet;
 import static com.liferay.portal.kernel.portlet.LiferayPortletSession.LAYOUT_SEPARATOR;
 import static com.liferay.portal.kernel.portlet.LiferayPortletSession.PORTLET_SCOPE_NAMESPACE;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.ClassLoaderPool;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
@@ -24,6 +25,10 @@ import com.liferay.portal.kernel.servlet.HttpSessionWrapper;
 import com.liferay.portal.kernel.test.CaptureHandler;
 import com.liferay.portal.kernel.test.JDKLoggerTestUtil;
 import com.liferay.portal.kernel.test.ReflectionTestUtil;
+=======
+import com.liferay.portal.kernel.io.SerializableObjectWrapper;
+import com.liferay.portal.kernel.servlet.HttpSessionWrapper;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.CodeCoverageAssertor;
 import com.liferay.portal.kernel.test.rule.NewEnv;
@@ -44,7 +49,10 @@ import java.lang.reflect.Method;
 
 import java.util.Enumeration;
 import java.util.HashMap;
+<<<<<<< HEAD
 import java.util.List;
+=======
+>>>>>>> compatible
 import java.util.Map;
 import java.util.Objects;
 import java.util.logging.Level;
@@ -59,7 +67,6 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
@@ -77,6 +84,7 @@ public class PortletSessionImplTest {
 	public static final AggregateTestRule aggregateTestRule =
 		new AggregateTestRule(
 			AspectJNewEnvTestRule.INSTANCE, CodeCoverageAssertor.INSTANCE);
+<<<<<<< HEAD
 
 	@Before
 	public void setUp() throws ClassNotFoundException {
@@ -89,6 +97,8 @@ public class PortletSessionImplTest {
 			PortletSessionImpl.class.getName() +
 				"$LazySerializableObjectWrapper");
 	}
+=======
+>>>>>>> compatible
 
 	@AdviseWith(adviceClasses = PropsUtilAdvice.class)
 	@Test
@@ -276,6 +286,7 @@ public class PortletSessionImplTest {
 		Assert.assertFalse(enumeration.hasMoreElements());
 	}
 
+	@AdviseWith(adviceClasses = PropsUtilAdvice.class)
 	@Test
 	public void testInvalidate() {
 		PortletSessionImpl portletSessionImpl = new PortletSessionImpl(
@@ -494,8 +505,13 @@ public class PortletSessionImplTest {
 
 		Assert.assertSame(value, portletSessionImpl.getAttribute(key));
 		Assert.assertTrue(
+<<<<<<< HEAD
 			_lazySerializableObjectWrapperClass.isInstance(
 				_mockHttpSession.getAttribute(scopePrefix.concat(key))));
+=======
+			_mockHttpSession.getAttribute(scopePrefix.concat(key)) instanceof
+				SerializableObjectWrapper);
+>>>>>>> compatible
 
 		// Set/get non-serializable attribute when value class is not loaded by
 		// PortalClassLoader
@@ -594,6 +610,7 @@ public class PortletSessionImplTest {
 
 	}
 
+<<<<<<< HEAD
 	private Object _getDeserializedObject(Object object) throws Exception {
 		try (UnsyncByteArrayOutputStream ubaos =
 				new UnsyncByteArrayOutputStream()) {
@@ -612,6 +629,8 @@ public class PortletSessionImplTest {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	private PortletSessionImpl _getPortletSessionImpl() {
 		PortletSessionImpl portletSessionImpl = new PortletSessionImpl(
 			_mockHttpSession, _portletContext, _PORTLET_NAME, _PLID);

@@ -18,6 +18,10 @@ import com.liferay.portal.kernel.bean.BeanReference;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.ReflectionUtil;
+>>>>>>> compatible
 
 import com.liferay.shopping.model.ShoppingCoupon;
 import com.liferay.shopping.service.persistence.ShoppingCouponPersistence;
@@ -37,11 +41,17 @@ public class ShoppingCouponFinderBaseImpl extends BasePersistenceImpl<ShoppingCo
 		setModelClass(ShoppingCoupon.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("code", "code_");

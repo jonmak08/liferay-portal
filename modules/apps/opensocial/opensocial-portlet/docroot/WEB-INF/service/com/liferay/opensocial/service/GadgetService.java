@@ -23,6 +23,10 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.jsonwebservice.JSONWebService;
 import com.liferay.portal.kernel.security.access.control.AccessControlled;
 import com.liferay.portal.kernel.service.BaseService;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.service.InvokableService;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Transactional;
@@ -43,7 +47,11 @@ import com.liferay.portal.kernel.transaction.Transactional;
 @ProviderType
 @Transactional(isolation = Isolation.PORTAL, rollbackFor =  {
 	PortalException.class, SystemException.class})
+<<<<<<< HEAD
 public interface GadgetService extends BaseService {
+=======
+public interface GadgetService extends BaseService, InvokableService {
+>>>>>>> compatible
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
@@ -63,6 +71,14 @@ public interface GadgetService extends BaseService {
 	*/
 	public java.lang.String getOSGiServiceIdentifier();
 
+<<<<<<< HEAD
+=======
+	@Override
+	public java.lang.Object invokeMethod(java.lang.String name,
+		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
+		throws java.lang.Throwable;
+
+>>>>>>> compatible
 	public void updateGadget(long gadgetId,
 		java.lang.String portletCategoryNames, ServiceContext serviceContext)
 		throws PortalException;

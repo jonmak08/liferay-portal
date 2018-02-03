@@ -18,10 +18,15 @@
 
 <%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
 
+<<<<<<< HEAD
 <%@ taglib uri="http://liferay.com/tld/asset" prefix="liferay-asset" %><%@
 taglib uri="http://liferay.com/tld/aui" prefix="aui" %><%@
 taglib uri="http://liferay.com/tld/expando" prefix="liferay-expando" %><%@
 taglib uri="http://liferay.com/tld/export-import-changeset" prefix="liferay-export-import-changeset" %><%@
+=======
+<%@ taglib uri="http://liferay.com/tld/aui" prefix="aui" %><%@
+taglib uri="http://liferay.com/tld/expando" prefix="liferay-expando" %><%@
+>>>>>>> compatible
 taglib uri="http://liferay.com/tld/frontend" prefix="liferay-frontend" %><%@
 taglib uri="http://liferay.com/tld/portlet" prefix="liferay-portlet" %><%@
 taglib uri="http://liferay.com/tld/security" prefix="liferay-security" %><%@
@@ -52,16 +57,25 @@ page import="com.liferay.bookmarks.search.BookmarksSearcher" %><%@
 page import="com.liferay.bookmarks.service.BookmarksEntryServiceUtil" %><%@
 page import="com.liferay.bookmarks.service.BookmarksFolderLocalServiceUtil" %><%@
 page import="com.liferay.bookmarks.service.BookmarksFolderServiceUtil" %><%@
+<<<<<<< HEAD
+=======
+page import="com.liferay.bookmarks.service.permission.BookmarksEntryPermissionChecker" %><%@
+page import="com.liferay.bookmarks.service.permission.BookmarksFolderPermissionChecker" %><%@
+>>>>>>> compatible
 page import="com.liferay.bookmarks.web.internal.dao.search.BookmarksResultRowSplitter" %><%@
 page import="com.liferay.bookmarks.web.internal.portlet.toolbar.contributor.BookmarksPortletToolbarContributor" %><%@
 page import="com.liferay.bookmarks.web.internal.portlet.util.BookmarksUtil" %><%@
 page import="com.liferay.bookmarks.web.internal.search.EntriesChecker" %><%@
 page import="com.liferay.bookmarks.web.internal.search.EntriesMover" %><%@
+<<<<<<< HEAD
 page import="com.liferay.bookmarks.web.internal.security.permission.resource.BookmarksEntryPermission" %><%@
 page import="com.liferay.bookmarks.web.internal.security.permission.resource.BookmarksFolderPermission" %><%@
 page import="com.liferay.frontend.taglib.servlet.taglib.AddMenuItem" %><%@
 page import="com.liferay.petra.string.CharPool" %><%@
 page import="com.liferay.petra.string.StringPool" %><%@
+=======
+page import="com.liferay.frontend.taglib.servlet.taglib.AddMenuItem" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.bean.BeanParamUtil" %><%@
 page import="com.liferay.portal.kernel.dao.search.ResultRow" %><%@
 page import="com.liferay.portal.kernel.dao.search.SearchContainer" %><%@
@@ -78,11 +92,19 @@ page import="com.liferay.portal.kernel.search.Indexer" %><%@
 page import="com.liferay.portal.kernel.search.SearchContext" %><%@
 page import="com.liferay.portal.kernel.search.SearchContextFactory" %><%@
 page import="com.liferay.portal.kernel.security.permission.ActionKeys" %><%@
+<<<<<<< HEAD
+=======
+page import="com.liferay.portal.kernel.service.SubscriptionLocalServiceUtil" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.service.permission.GroupPermissionUtil" %><%@
 page import="com.liferay.portal.kernel.servlet.taglib.ui.Menu" %><%@
 page import="com.liferay.portal.kernel.servlet.taglib.ui.URLMenuItem" %><%@
 page import="com.liferay.portal.kernel.settings.GroupServiceSettingsLocator" %><%@
 page import="com.liferay.portal.kernel.util.ArrayUtil" %><%@
+<<<<<<< HEAD
+=======
+page import="com.liferay.portal.kernel.util.CharPool" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.util.Constants" %><%@
 page import="com.liferay.portal.kernel.util.FastDateFormatFactoryUtil" %><%@
 page import="com.liferay.portal.kernel.util.GetterUtil" %><%@
@@ -93,11 +115,19 @@ page import="com.liferay.portal.kernel.util.ListUtil" %><%@
 page import="com.liferay.portal.kernel.util.ParamUtil" %><%@
 page import="com.liferay.portal.kernel.util.PortalUtil" %><%@
 page import="com.liferay.portal.kernel.util.SetUtil" %><%@
+<<<<<<< HEAD
+=======
+page import="com.liferay.portal.kernel.util.StringPool" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.util.StringUtil" %><%@
 page import="com.liferay.portal.kernel.util.Validator" %><%@
 page import="com.liferay.portal.kernel.util.WebKeys" %><%@
 page import="com.liferay.portal.kernel.workflow.WorkflowConstants" %><%@
+<<<<<<< HEAD
 page import="com.liferay.subscription.service.SubscriptionLocalServiceUtil" %>
+=======
+page import="com.liferay.trash.kernel.util.TrashUtil" %>
+>>>>>>> compatible
 
 <%@ page import="java.text.Format" %>
 
@@ -116,6 +146,9 @@ page import="javax.portlet.WindowState" %>
 
 <liferay-theme:defineObjects />
 
+<<<<<<< HEAD
 <liferay-trash:defineObjects />
 
+=======
+>>>>>>> compatible
 <portlet:defineObjects />

@@ -37,7 +37,10 @@ import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.service.BaseLocalServiceImpl;
 import com.liferay.portal.kernel.service.MembershipRequestLocalService;
 import com.liferay.portal.kernel.service.PersistedModelLocalServiceRegistry;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.service.persistence.CompanyPersistence;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.persistence.GroupFinder;
 import com.liferay.portal.kernel.service.persistence.GroupPersistence;
 import com.liferay.portal.kernel.service.persistence.MembershipRequestPersistence;
@@ -382,6 +385,7 @@ public abstract class MembershipRequestLocalServiceBaseImpl
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Returns the company local service.
 	 *
 	 * @return the company local service
@@ -402,11 +406,19 @@ public abstract class MembershipRequestLocalServiceBaseImpl
 
 	/**
 	 * Returns the company persistence.
+=======
+	 * Returns the group local service.
+>>>>>>> compatible
 	 *
 	 * @return the company persistence
 	 */
+<<<<<<< HEAD
 	public CompanyPersistence getCompanyPersistence() {
 		return companyPersistence;
+=======
+	public com.liferay.portal.kernel.service.GroupLocalService getGroupLocalService() {
+		return groupLocalService;
+>>>>>>> compatible
 	}
 
 	/**
@@ -414,6 +426,7 @@ public abstract class MembershipRequestLocalServiceBaseImpl
 	 *
 	 * @param companyPersistence the company persistence
 	 */
+<<<<<<< HEAD
 	public void setCompanyPersistence(CompanyPersistence companyPersistence) {
 		this.companyPersistence = companyPersistence;
 	}
@@ -438,6 +451,14 @@ public abstract class MembershipRequestLocalServiceBaseImpl
 	}
 
 	/**
+=======
+	public void setGroupLocalService(
+		com.liferay.portal.kernel.service.GroupLocalService groupLocalService) {
+		this.groupLocalService = groupLocalService;
+	}
+
+	/**
+>>>>>>> compatible
 	 * Returns the group persistence.
 	 *
 	 * @return the group persistence
@@ -772,10 +793,13 @@ public abstract class MembershipRequestLocalServiceBaseImpl
 	protected MembershipRequestPersistence membershipRequestPersistence;
 	@BeanReference(type = com.liferay.counter.kernel.service.CounterLocalService.class)
 	protected com.liferay.counter.kernel.service.CounterLocalService counterLocalService;
+<<<<<<< HEAD
 	@BeanReference(type = com.liferay.portal.kernel.service.CompanyLocalService.class)
 	protected com.liferay.portal.kernel.service.CompanyLocalService companyLocalService;
 	@BeanReference(type = CompanyPersistence.class)
 	protected CompanyPersistence companyPersistence;
+=======
+>>>>>>> compatible
 	@BeanReference(type = com.liferay.portal.kernel.service.GroupLocalService.class)
 	protected com.liferay.portal.kernel.service.GroupLocalService groupLocalService;
 	@BeanReference(type = GroupPersistence.class)

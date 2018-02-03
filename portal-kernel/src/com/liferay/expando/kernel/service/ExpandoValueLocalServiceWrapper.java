@@ -147,6 +147,7 @@ public class ExpandoValueLocalServiceWrapper implements ExpandoValueLocalService
 	@Override
 	public com.liferay.expando.kernel.model.ExpandoValue addValue(
 		long companyId, java.lang.String className, java.lang.String tableName,
+<<<<<<< HEAD
 		java.lang.String columnName, long classPK,
 		com.liferay.portal.kernel.json.JSONObject data)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -157,6 +158,8 @@ public class ExpandoValueLocalServiceWrapper implements ExpandoValueLocalService
 	@Override
 	public com.liferay.expando.kernel.model.ExpandoValue addValue(
 		long companyId, java.lang.String className, java.lang.String tableName,
+=======
+>>>>>>> compatible
 		java.lang.String columnName, long classPK, long data)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return _expandoValueLocalService.addValue(companyId, className,
@@ -657,6 +660,7 @@ public class ExpandoValueLocalServiceWrapper implements ExpandoValueLocalService
 	}
 
 	@Override
+<<<<<<< HEAD
 	public com.liferay.portal.kernel.json.JSONObject getData(long companyId,
 		java.lang.String className, java.lang.String tableName,
 		java.lang.String columnName, long classPK,
@@ -667,6 +671,8 @@ public class ExpandoValueLocalServiceWrapper implements ExpandoValueLocalService
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public long getData(long companyId, java.lang.String className,
 		java.lang.String tableName, java.lang.String columnName, long classPK,
 		long defaultData)

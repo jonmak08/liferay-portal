@@ -17,11 +17,17 @@
 <%@ include file="/init.jsp" %>
 
 <%
+<<<<<<< HEAD
 UserDisplayContext userDisplayContext = new UserDisplayContext(request, initDisplayContext);
 
 User selUser = userDisplayContext.getSelectedUser();
 List<Group> groups = userDisplayContext.getGroups();
 List<Group> inheritedSites = userDisplayContext.getInheritedSites();
+=======
+User selUser = (User)request.getAttribute("user.selUser");
+List<Group> groups = (List<Group>)request.getAttribute("user.groups");
+List<Group> inheritedSites = (List<Group>)request.getAttribute("user.inheritedSites");
+>>>>>>> compatible
 
 currentURLObj.setParameter("historyKey", renderResponse.getNamespace() + "sites");
 %>
@@ -62,11 +68,16 @@ currentURLObj.setParameter("historyKey", renderResponse.getNamespace() + "sites"
 		<liferay-ui:search-container-column-text
 			cssClass="table-cell-content"
 			name="name"
+<<<<<<< HEAD
 		>
 			<liferay-staging:descriptive-name
 				group="<%= group %>"
 			/>
 		</liferay-ui:search-container-column-text>
+=======
+			value="<%= HtmlUtil.escape(group.getDescriptiveName(locale)) %>"
+		/>
+>>>>>>> compatible
 
 		<%
 		List<UserGroupRole> userGroupRoles = new ArrayList<UserGroupRole>();
@@ -101,7 +112,11 @@ currentURLObj.setParameter("historyKey", renderResponse.getNamespace() + "sites"
 		cssClass="modify-link"
 		id="selectSiteLink"
 		label="<%= true %>"
+<<<<<<< HEAD
 		linkCssClass="btn btn-primary"
+=======
+		linkCssClass="btn btn-default btn-lg"
+>>>>>>> compatible
 		message="select"
 		url="javascript:;"
 	/>

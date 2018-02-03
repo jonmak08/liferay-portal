@@ -14,7 +14,11 @@
 
 package com.liferay.chat.internal.events;
 
+<<<<<<< HEAD
 import com.liferay.chat.internal.jabber.JabberUtil;
+=======
+import com.liferay.chat.jabber.JabberUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.events.LifecycleAction;
 import com.liferay.portal.kernel.events.SessionAction;
 import com.liferay.portal.kernel.util.WebKeys;

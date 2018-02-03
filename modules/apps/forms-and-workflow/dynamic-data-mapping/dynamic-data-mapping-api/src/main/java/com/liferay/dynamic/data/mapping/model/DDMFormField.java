@@ -82,10 +82,13 @@ public class DDMFormField implements Serializable {
 		setTip(new LocalizedValue());
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 3.5.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public void addDDMFormFieldRule(DDMFormFieldRule ddmFormFieldRule) {
 		_ddmFormFieldRules.add(ddmFormFieldRule);
 	}
@@ -130,10 +133,13 @@ public class DDMFormField implements Serializable {
 		return (DDMFormFieldOptions)_properties.get("options");
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 3.5.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public List<DDMFormFieldRule> getDDMFormFieldRules() {
 		return _ddmFormFieldRules;
 	}
@@ -239,7 +245,11 @@ public class DDMFormField implements Serializable {
 	}
 
 	public boolean isShowLabel() {
+<<<<<<< HEAD
 		return MapUtil.getBoolean(_properties, "showLabel", true);
+=======
+		return MapUtil.getBoolean(_properties, "showLabel");
+>>>>>>> compatible
 	}
 
 	public boolean isTransient() {
@@ -268,10 +278,13 @@ public class DDMFormField implements Serializable {
 		_properties.put("options", ddmFormFieldOptions);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 3.5.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public void setDDMFormFieldRules(List<DDMFormFieldRule> ddmFormFieldRules) {
 		_ddmFormFieldRules = ddmFormFieldRules;
 	}

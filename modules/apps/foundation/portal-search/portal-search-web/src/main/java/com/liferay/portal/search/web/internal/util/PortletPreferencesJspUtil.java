@@ -14,8 +14,13 @@
 
 package com.liferay.portal.search.web.internal.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.settings.ParameterMapSettings;
+=======
+import com.liferay.portal.kernel.settings.ParameterMapSettings;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 /**
  * @author André de Oliveira

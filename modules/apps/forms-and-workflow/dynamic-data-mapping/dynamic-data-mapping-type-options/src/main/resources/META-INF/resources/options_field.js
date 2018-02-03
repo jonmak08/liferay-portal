@@ -1,9 +1,13 @@
 AUI.add(
 	'liferay-ddm-form-field-options',
 	function(A) {
+<<<<<<< HEAD
 		var Renderer = Liferay.DDM.Renderer;
 
 		var Util = Renderer.Util;
+=======
+		var AArray = A.Array;
+>>>>>>> compatible
 
 		var TPL_DRAG_HANDLE = '<div class="drag-handle icon-reorder"><span aria-hidden="true"></span></div>';
 
@@ -16,6 +20,7 @@ AUI.add(
 		var OptionsField = A.Component.create(
 			{
 				ATTRS: {
+<<<<<<< HEAD
 					allowEmptyOptions: {
 						value: false
 					},
@@ -28,6 +33,8 @@ AUI.add(
 						value: true
 					},
 
+=======
+>>>>>>> compatible
 					sortableList: {
 						valueFn: '_valueSortableList'
 					},
@@ -40,9 +47,12 @@ AUI.add(
 
 					type: {
 						value: 'options'
+<<<<<<< HEAD
 					},
 
 					value: {
+=======
+>>>>>>> compatible
 					}
 				},
 
@@ -57,15 +67,19 @@ AUI.add(
 						var sortableList = instance.get('sortableList');
 
 						instance._eventHandlers.push(
+<<<<<<< HEAD
 							instance.on('liferay-ddm-form-field-key-value:destroy', instance._onDestroyOption),
 							instance.after('liferay-ddm-form-field-key-value:render', instance._afterRenderOption),
 							instance.after('liferay-ddm-form-field-key-value:blur', instance._afterBlur),
 							instance.after('liferay-ddm-form-field-key-value:valueChange', instance._afterOptionValueChange),
 							instance.after('editableChange', instance._afterEditableChange),
+=======
+>>>>>>> compatible
 							sortableList.after('drag:end', A.bind('_afterSortableListDragEnd', instance)),
 							sortableList.after('drag:start', A.bind('_afterSortableListDragStart', instance))
 						);
 
+<<<<<<< HEAD
 						instance._createMainOption();
 					},
 
@@ -91,20 +105,47 @@ AUI.add(
 						);
 
 						return repeatedOption;
+=======
+						instance._createMainField();
+					},
+
+					addField: function() {
+						var instance = this;
+
+						var lastField = instance.getLastField();
+
+						var repeatedField = lastField.repeat();
+
+						instance._bindFieldUI(repeatedField);
+						instance._renderFieldUI(repeatedField);
+						instance._syncFieldUI(repeatedField);
+						instance._syncFieldUI(lastField);
+
+						instance.fire('addField');
+
+						return repeatedField;
+>>>>>>> compatible
 					},
 
 					clearValidationStatus: function() {
 						var instance = this;
 
+<<<<<<< HEAD
 						instance.eachOption(
 							function(option) {
 								option.clearValidationStatus();
+=======
+						instance.eachRepetition(
+							function(field) {
+								field.clearValidationStatus();
+>>>>>>> compatible
 							}
 						);
 
 						OptionsField.superclass.clearValidationStatus.apply(instance, arguments);
 					},
 
+<<<<<<< HEAD
 					eachOption: function(fn) {
 						var instance = this;
 
@@ -155,6 +196,44 @@ AUI.add(
 						var instance = this;
 
 						return instance._mainOption.getRepeatedSiblings();
+=======
+					eachRepetition: function(fn) {
+						var instance = this;
+
+						var field = instance._mainField;
+
+						field.get('repetitions').forEach(fn, instance);
+					},
+
+					getContextValue: function() {
+						var instance = this;
+
+						return instance.getOptionsValues();
+					},
+
+					getLastField: function() {
+						var instance = this;
+
+						var repetitions = instance._mainField.get('repetitions');
+
+						return repetitions[repetitions.length - 1];
+					},
+
+					getOptionsValues: function() {
+						var instance = this;
+
+						return A.map(
+							instance.get('value'),
+							function(item) {
+								var label = instance.getLocalizedValue(item.label) || '';
+
+								return {
+									label: label,
+									value: item.value
+								};
+							}
+						);
+>>>>>>> compatible
 					},
 
 					getValue: function() {
@@ -162,6 +241,7 @@ AUI.add(
 
 						var values = [];
 
+<<<<<<< HEAD
 						instance.eachOption(
 							function(item) {
 								var key = item.get('key');
@@ -170,6 +250,20 @@ AUI.add(
 									values.push(
 										{
 											label: item.get('value'),
+=======
+						instance.eachRepetition(
+							function(item) {
+								var key = item.get('key');
+
+								var label = {};
+
+								if (key) {
+									label[instance.get('locale')] = item.getValue();
+
+									values.push(
+										{
+											label: label,
+>>>>>>> compatible
 											value: key
 										}
 									);
@@ -185,6 +279,7 @@ AUI.add(
 
 						var hasErrors = false;
 
+<<<<<<< HEAD
 						if (instance.get('visible')) {
 							instance.eachOption(
 								function(option) {
@@ -194,6 +289,15 @@ AUI.add(
 								}
 							);
 						}
+=======
+						instance.eachRepetition(
+							function(field) {
+								if (field.hasErrors()) {
+									hasErrors = true;
+								}
+							}
+						);
+>>>>>>> compatible
 
 						return hasErrors;
 					},
@@ -201,13 +305,20 @@ AUI.add(
 					hideErrorMessage: function() {
 						var instance = this;
 
+<<<<<<< HEAD
 						instance.eachOption(
 							function(option) {
 								option.hideErrorMessage();
+=======
+						instance.eachRepetition(
+							function(field) {
+								field.hideErrorMessage();
+>>>>>>> compatible
 							}
 						);
 					},
 
+<<<<<<< HEAD
 					moveOption: function(oldIndex, newIndex) {
 						var instance = this;
 
@@ -221,11 +332,25 @@ AUI.add(
 					},
 
 					processEvaluationContext: function(context) {
+=======
+					moveField: function(field, oldIndex, newIndex) {
+						var instance = this;
+
+						var repetitions = field.get('repetitions');
+
+						repetitions.splice(newIndex, 0, repetitions.splice(oldIndex, 1)[0]);
+
+						repetitions.forEach(A.bind('_syncRepeatableField', field));
+					},
+
+					processValidation: function() {
+>>>>>>> compatible
 						var instance = this;
 
 						var value = instance.getValue();
 
 						if (value.length === 0 && instance.get('required')) {
+<<<<<<< HEAD
 							context.errorMessage = Liferay.Language.get('please-add-at-least-one-option');
 							context.valid = false;
 						}
@@ -255,6 +380,16 @@ AUI.add(
 						}
 						else {
 							instance.getLastOption().focus();
+=======
+							instance.showErrorMessage(Liferay.Language.get('please-add-at-least-one-option'));
+
+							instance.showValidationStatus();
+
+							instance._mainField.focus();
+						}
+						else {
+							OptionsField.superclass.processValidation.apply(instance, arguments);
+>>>>>>> compatible
 						}
 					},
 
@@ -263,6 +398,7 @@ AUI.add(
 
 						OptionsField.superclass.render.apply(instance, arguments);
 
+<<<<<<< HEAD
 						instance._renderOptions();
 
 						return instance;
@@ -322,10 +458,53 @@ AUI.add(
 								if (option.getValue()) {
 									option.set('generationLocked', !editable);
 								}
+=======
+						instance._clearRepetitions();
+
+						instance._renderFields(instance.getOptionsValues());
+
+						return instance;
+					},
+
+					setValue: function(optionsValues) {
+						var instance = this;
+
+						instance._clearRepetitions();
+						instance._renderFields(optionsValues);
+					},
+
+					showErrorMessage: function(errorMessage) {
+						var instance = this;
+
+						var mainField = instance._mainField;
+
+						mainField.showErrorMessage(errorMessage);
+					},
+
+					showValidationStatus: function() {
+						var instance = this;
+
+						var hasErrors = instance.hasErrors();
+
+						var mainField = instance._mainField;
+
+						mainField.get('container').toggleClass('has-error', hasErrors);
+					},
+
+					updateContainer: function() {
+						var instance = this;
+
+						OptionsField.superclass.updateContainer.apply(instance, arguments);
+
+						instance.eachRepetition(
+							function(field) {
+								field.updateContainer();
+>>>>>>> compatible
 							}
 						);
 					},
 
+<<<<<<< HEAD
 					_afterErrorMessageChange: function(event) {
 						var instance = this;
 
@@ -393,21 +572,47 @@ AUI.add(
 
 						instance._bindListEvents();
 						instance._renderOptionUI(option);
+=======
+					_afterRender: function(field) {
+						var instance = this;
+
+						instance._bindListEvents();
+						instance._renderFieldUI(field);
+>>>>>>> compatible
 					},
 
 					_afterSortableListDragEnd: function(event) {
 						var instance = this;
 
+<<<<<<< HEAD
 						var dragEndIndex = instance._getNodeIndex(event.target.get('node'));
+=======
+						var dragNode = event.target.get('node');
+
+						var dragEndIndex = instance._getNodeIndex(dragNode);
+>>>>>>> compatible
 
 						var dragStartIndex = instance._dragStartIndex;
 
 						if (dragEndIndex !== dragStartIndex) {
+<<<<<<< HEAD
 
 							// Drag doesn't like that we are removing the node right after
 							// drag:end. So we postpone it to the next clock cycle.
 
 							A.later(0, instance, instance.moveOption, [dragStartIndex, dragEndIndex]);
+=======
+							var mainField = instance._mainField;
+
+							var field = AArray.find(
+								mainField.get('repetitions'),
+								function(item) {
+									return item.get('container') === dragNode;
+								}
+							);
+
+							instance.moveField(field, dragStartIndex, dragEndIndex);
+>>>>>>> compatible
 						}
 					},
 
@@ -425,17 +630,28 @@ AUI.add(
 						placeholderNode.setContent(dragNode.clone().show());
 					},
 
+<<<<<<< HEAD
 					_afterValidChange: function(event) {
 						var instance = this;
 
 						var mainOption = instance._mainOption;
 
 						mainOption.set('valid', event.newVal);
+=======
+					_bindFieldUI: function(field) {
+						var instance = this;
+
+						field.after('render', A.bind('_afterRender', instance, field));
+
+						field.bindContainerEvent('click', A.bind('_onFieldClickClose', instance, field), '.close');
+						field.bindInputEvent('valuechange', A.bind('_onFieldValueChange', instance, field));
+>>>>>>> compatible
 					},
 
 					_bindListEvents: function() {
 						var instance = this;
 
+<<<<<<< HEAD
 						var optionsNode = instance._getOptionsNode();
 
 						instance._eventHandlers.push(
@@ -554,12 +770,111 @@ AUI.add(
 						var option = event.target;
 
 						A.DD.DDM.getDrag(option.get('container')).destroy();
+=======
+						var options = instance._getOptionsNode();
+
+						instance._eventHandlers.push(
+							options.delegate('focus', A.bind('_onFocusOption', instance), '.last-option .field')
+						);
+					},
+
+					_canSortNode: function(event) {
+						var instance = this;
+
+						var dragNode = event.drag.get('node');
+						var dropNode = event.drop.get('node');
+
+						var lastField = instance.getLastField();
+						var lastFieldContainer = lastField.get('container');
+
+						return lastFieldContainer !== dropNode && lastFieldContainer !== dragNode;
+					},
+
+					_clearRepetitions: function() {
+						var instance = this;
+
+						var mainField = instance._mainField;
+
+						mainField.get('repetitions').forEach(
+							function(field) {
+								if (field !== mainField) {
+									field.remove();
+								}
+							}
+						);
+
+						mainField.set('repetitions', [mainField]);
+					},
+
+					_createMainField: function() {
+						var instance = this;
+
+						var strings = instance.get('strings');
+
+						instance._mainField = new Liferay.DDM.Field.KeyValue(
+							{
+								enableEvaluations: false,
+								locale: instance.get('locale'),
+								placeholder: strings.addOptionMessage,
+								repeatable: true,
+								showLabel: false,
+								visibilityExpression: 'true'
+							}
+						);
+
+						instance._bindFieldUI(instance._mainField);
+					},
+
+					_getNodeIndex: function(node) {
+						var instance = this;
+
+						var options = instance._getOptionsNode();
+
+						var siblings = options.all('> .lfr-ddm-form-field-container');
+
+						return siblings.indexOf(node);
+					},
+
+					_getOptionsNode: function() {
+						var instance = this;
+
+						var container = instance.get('container');
+
+						return container.one('.options');
+					},
+
+					_onFieldClickClose: function(field) {
+						var instance = this;
+
+						if (field === instance._mainField) {
+							var repetitions = field.get('repetitions');
+
+							var index = repetitions.indexOf(field);
+
+							instance._mainField = repetitions[index + 1];
+						}
+
+						field.remove();
+
+						instance.fire('removeField');
+					},
+
+					_onFieldValueChange: function(field) {
+						var instance = this;
+
+						var repetitions = field.get('repetitions');
+
+						if (field.get('repeatedIndex') === repetitions.length - 1) {
+							instance.addField();
+						}
+>>>>>>> compatible
 					},
 
 					_onFocusOption: function(event) {
 						event.target.scrollIntoView();
 					},
 
+<<<<<<< HEAD
 					_onOptionClickClose: function(option) {
 						var instance = this;
 
@@ -567,10 +882,14 @@ AUI.add(
 					},
 
 					_renderOptions: function() {
+=======
+					_renderFields: function(optionsValues) {
+>>>>>>> compatible
 						var instance = this;
 
 						var container = instance.get('container');
 
+<<<<<<< HEAD
 						var optionsValues = instance._getCurrentLocaleOptionsValues();
 
 						var mainOption = instance._mainOption;
@@ -603,10 +922,44 @@ AUI.add(
 						var instance = this;
 
 						var container = option.get('container');
+=======
+						var mainField = instance._mainField;
+
+						mainField.render(container.one('.options'));
+
+						instance._syncFieldUI(mainField);
+
+						var hasOptionValues = !!optionsValues.length;
+
+						if (hasOptionValues) {
+							var optionValue = optionsValues.shift();
+
+							instance._restoreField(mainField, optionValue);
+						}
+
+						optionsValues.forEach(
+							function(optionValue) {
+								var newField = instance.addField();
+
+								instance._restoreField(newField, optionValue);
+							}
+						);
+
+						if (hasOptionValues) {
+							instance.addField();
+						}
+					},
+
+					_renderFieldUI: function(field) {
+						var instance = this;
+
+						var container = field.get('container');
+>>>>>>> compatible
 
 						container.append(TPL_DRAG_HANDLE + TPL_REMOVE_BUTTON);
 					},
 
+<<<<<<< HEAD
 					_restoreOption: function(option, contextValue) {
 						var instance = this;
 
@@ -663,6 +1016,21 @@ AUI.add(
 						var container = option.get('container');
 
 						container.toggleClass('last-option', addLastOptionClass);
+=======
+					_restoreField: function(field, contextValue) {
+						field.set('value', contextValue.label);
+						field.set('key', contextValue.value);
+					},
+
+					_syncFieldUI: function(field) {
+						var instance = this;
+
+						var addLastFieldClass = instance.getLastField() === field;
+
+						var container = field.get('container');
+
+						container.toggleClass('last-option', addLastFieldClass);
+>>>>>>> compatible
 
 						var sortableList = instance.get('sortableList');
 

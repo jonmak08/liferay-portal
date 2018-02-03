@@ -1,5 +1,6 @@
 Bundle-Name: Liferay Frontend Editor TinyMCE Web
 Bundle-SymbolicName: com.liferay.frontend.editor.tinymce.web
+<<<<<<< HEAD
 Bundle-Version: 1.0.22
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Rich Text Editors
@@ -13,3 +14,13 @@ Require-Capability:\
 Web-ContextPath: /frontend-editor-tinymce-web
 -donotcopy: (\.touch|.*_diffs.*|.*.properties)
 -includeresource: META-INF/resources=tmp/META-INF/resources
+=======
+Bundle-Version: 1.0.17
+Liferay-Releng-Module-Group-Description:
+Liferay-Releng-Module-Group-Title: Rich Text Editors
+Web-ContextPath: /frontend-editor-tinymce-web
+-donotcopy: (\.touch|.*_diffs.*|.*.properties)
+-includeresource:\
+	content=../frontend-editor-lang/src/main/resources/content,\
+	META-INF/resources=tmp/META-INF/resources
+>>>>>>> compatible

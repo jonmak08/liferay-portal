@@ -20,7 +20,10 @@ import com.liferay.portal.kernel.search.facet.collector.FacetCollector;
 import com.liferay.portal.kernel.search.facet.collector.TermCollector;
 import com.liferay.portal.kernel.service.GroupLocalService;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
+<<<<<<< HEAD
 import com.liferay.portal.search.web.internal.facet.display.builder.ScopeSearchFacetDisplayBuilder;
+=======
+>>>>>>> compatible
 
 import java.util.Collections;
 import java.util.List;
@@ -52,10 +55,17 @@ public class ScopeSearchFacetDisplayContextTest {
 
 	@Test
 	public void testEmptySearchResults() throws Exception {
+<<<<<<< HEAD
 		String parameterValue = "0";
 
 		ScopeSearchFacetDisplayContext scopeSearchFacetDisplayContext =
 			createDisplayContext(parameterValue);
+=======
+		String facetParam = "0";
+
+		ScopeSearchFacetDisplayContext scopeSearchFacetDisplayContext =
+			createDisplayContext(facetParam);
+>>>>>>> compatible
 
 		List<ScopeSearchFacetTermDisplayContext>
 			scopeSearchFacetTermDisplayContexts =
@@ -66,7 +76,12 @@ public class ScopeSearchFacetDisplayContextTest {
 			scopeSearchFacetTermDisplayContexts.size());
 
 		Assert.assertEquals(
+<<<<<<< HEAD
 			parameterValue, scopeSearchFacetDisplayContext.getParameterValue());
+=======
+			facetParam,
+			scopeSearchFacetDisplayContext.getFieldParamInputValue());
+>>>>>>> compatible
 		Assert.assertTrue(scopeSearchFacetDisplayContext.isNothingSelected());
 		Assert.assertTrue(scopeSearchFacetDisplayContext.isRenderNothing());
 	}
@@ -78,10 +93,17 @@ public class ScopeSearchFacetDisplayContextTest {
 
 		addGroup(groupId, name);
 
+<<<<<<< HEAD
 		String parameterValue = String.valueOf(groupId);
 
 		ScopeSearchFacetDisplayContext scopeSearchFacetDisplayContext =
 			createDisplayContext(parameterValue);
+=======
+		String facetParam = String.valueOf(groupId);
+
+		ScopeSearchFacetDisplayContext scopeSearchFacetDisplayContext =
+			createDisplayContext(facetParam);
+>>>>>>> compatible
 
 		List<ScopeSearchFacetTermDisplayContext>
 			scopeSearchFacetTermDisplayContexts =
@@ -103,7 +125,12 @@ public class ScopeSearchFacetDisplayContextTest {
 		Assert.assertTrue(scopeSearchFacetTermDisplayContext.isShowCount());
 
 		Assert.assertEquals(
+<<<<<<< HEAD
 			parameterValue, scopeSearchFacetDisplayContext.getParameterValue());
+=======
+			facetParam,
+			scopeSearchFacetDisplayContext.getFieldParamInputValue());
+>>>>>>> compatible
 		Assert.assertFalse(scopeSearchFacetDisplayContext.isNothingSelected());
 		Assert.assertFalse(scopeSearchFacetDisplayContext.isRenderNothing());
 	}
@@ -119,10 +146,17 @@ public class ScopeSearchFacetDisplayContextTest {
 
 		setUpOneTermCollector(groupId, count);
 
+<<<<<<< HEAD
 		String parameterValue = "0";
 
 		ScopeSearchFacetDisplayContext scopeSearchFacetDisplayContext =
 			createDisplayContext(parameterValue);
+=======
+		String facetParam = "0";
+
+		ScopeSearchFacetDisplayContext scopeSearchFacetDisplayContext =
+			createDisplayContext(facetParam);
+>>>>>>> compatible
 
 		List<ScopeSearchFacetTermDisplayContext>
 			scopeSearchFacetTermDisplayContexts =
@@ -145,7 +179,12 @@ public class ScopeSearchFacetDisplayContextTest {
 		Assert.assertTrue(scopeSearchFacetTermDisplayContext.isShowCount());
 
 		Assert.assertEquals(
+<<<<<<< HEAD
 			parameterValue, scopeSearchFacetDisplayContext.getParameterValue());
+=======
+			facetParam,
+			scopeSearchFacetDisplayContext.getFieldParamInputValue());
+>>>>>>> compatible
 		Assert.assertTrue(scopeSearchFacetDisplayContext.isNothingSelected());
 		Assert.assertFalse(scopeSearchFacetDisplayContext.isRenderNothing());
 	}
@@ -161,10 +200,17 @@ public class ScopeSearchFacetDisplayContextTest {
 
 		setUpOneTermCollector(groupId, count);
 
+<<<<<<< HEAD
 		String parameterValue = String.valueOf(groupId);
 
 		ScopeSearchFacetDisplayContext scopeSearchFacetDisplayContext =
 			createDisplayContext(parameterValue);
+=======
+		String facetParam = String.valueOf(groupId);
+
+		ScopeSearchFacetDisplayContext scopeSearchFacetDisplayContext =
+			createDisplayContext(facetParam);
+>>>>>>> compatible
 
 		List<ScopeSearchFacetTermDisplayContext>
 			scopeSearchFacetTermDisplayContexts =
@@ -187,7 +233,12 @@ public class ScopeSearchFacetDisplayContextTest {
 		Assert.assertTrue(scopeSearchFacetTermDisplayContext.isShowCount());
 
 		Assert.assertEquals(
+<<<<<<< HEAD
 			parameterValue, scopeSearchFacetDisplayContext.getParameterValue());
+=======
+			facetParam,
+			scopeSearchFacetDisplayContext.getFieldParamInputValue());
+>>>>>>> compatible
 		Assert.assertFalse(scopeSearchFacetDisplayContext.isNothingSelected());
 		Assert.assertFalse(scopeSearchFacetDisplayContext.isRenderNothing());
 	}
@@ -203,6 +254,7 @@ public class ScopeSearchFacetDisplayContextTest {
 	}
 
 	protected ScopeSearchFacetDisplayContext createDisplayContext(
+<<<<<<< HEAD
 		String parameterValue) {
 
 		ScopeSearchFacetDisplayBuilder scopeSearchFacetDisplayBuilder =
@@ -214,6 +266,12 @@ public class ScopeSearchFacetDisplayContextTest {
 		scopeSearchFacetDisplayBuilder.setParameterValue(parameterValue);
 
 		return scopeSearchFacetDisplayBuilder.build();
+=======
+		String facetParam) {
+
+		return new ScopeSearchFacetDisplayContext(
+			_facet, facetParam, null, 0, 0, true, _groupLocalService);
+>>>>>>> compatible
 	}
 
 	protected Group createGroup(long groupId, String name) throws Exception {

@@ -18,9 +18,13 @@ import com.liferay.mail.kernel.model.MailMessage;
 import com.liferay.mail.kernel.service.MailService;
 import com.liferay.message.boards.kernel.model.MBMessage;
 import com.liferay.message.boards.kernel.model.MBMessageConstants;
+<<<<<<< HEAD
 import com.liferay.message.boards.kernel.service.MBMessageLocalService;
 import com.liferay.petra.content.ContentUtil;
 import com.liferay.petra.string.CharPool;
+=======
+import com.liferay.petra.content.ContentUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.bean.BeanReference;
 import com.liferay.portal.kernel.exception.NoSuchUserException;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -41,6 +45,10 @@ import com.liferay.portal.kernel.security.auth.PrincipalException;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.settings.CompanyServiceSettingsLocator;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.FastDateFormatConstants;
 import com.liferay.portal.kernel.util.FastDateFormatFactoryUtil;
 import com.liferay.portal.kernel.util.ObjectValuePair;
@@ -51,7 +59,10 @@ import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.webserver.WebServerServletTokenUtil;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
+<<<<<<< HEAD
 import com.liferay.portal.spring.extender.service.ServiceReference;
+=======
+>>>>>>> compatible
 import com.liferay.social.privatemessaging.configuration.PrivateMessagingConfiguration;
 import com.liferay.social.privatemessaging.constants.PrivateMessagingPortletKeys;
 import com.liferay.social.privatemessaging.model.PrivateMessagingConstants;
@@ -102,10 +113,15 @@ public class UserThreadLocalServiceImpl extends UserThreadLocalServiceBaseImpl {
 				}
 
 				throw new PrincipalException(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"User ", String.valueOf(userId),
 						" cannot access thread ", String.valueOf(mbThreadId),
 						" through the Private Messaging portlet"));
+=======
+					"User " + userId + " cannot access thread " + mbThreadId +
+						" through the Private Messaging portlet");
+>>>>>>> compatible
 			}
 
 			List<MBMessage> mbMessages =
@@ -485,10 +501,17 @@ public class UserThreadLocalServiceImpl extends UserThreadLocalServiceBaseImpl {
 		String tokenId = WebServerServletTokenUtil.getToken(
 			sender.getPortraitId());
 
+<<<<<<< HEAD
 		String portraitURL = StringBundler.concat(
 			themeDisplay.getPortalURL(), themeDisplay.getPathImage(), "/user_",
 			String.valueOf(sender.isFemale() ? "female" : "male"),
 			"_portrait?img_id=", String.valueOf(portraitId), "&t=", tokenId);
+=======
+		String portraitURL =
+			themeDisplay.getPortalURL() + themeDisplay.getPathImage() +
+				"/user_" + (sender.isFemale() ? "female" : "male") +
+					"_portrait?img_id=" + portraitId + "&t=" + tokenId;
+>>>>>>> compatible
 
 		body = StringUtil.replace(
 			body,
@@ -579,9 +602,12 @@ public class UserThreadLocalServiceImpl extends UserThreadLocalServiceBaseImpl {
 		}
 	}
 
+<<<<<<< HEAD
 	@ServiceReference(type = MBMessageLocalService.class)
 	protected MBMessageLocalService mbMessageLocalService;
 
+=======
+>>>>>>> compatible
 	private static final Log _log = LogFactoryUtil.getLog(
 		UserThreadLocalServiceImpl.class);
 

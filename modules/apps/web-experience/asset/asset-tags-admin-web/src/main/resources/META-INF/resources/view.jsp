@@ -16,6 +16,7 @@
 
 <%@ include file="/init.jsp" %>
 
+<<<<<<< HEAD
 <liferay-portlet:renderURL varImpl="portletURL">
 	<liferay-portlet:param name="keywords" value="<%= assetTagsDisplayContext.getKeywords() %>" />
 </liferay-portlet:renderURL>
@@ -24,6 +25,25 @@
 	inverted="<%= true %>"
 	items="<%= assetTagsDisplayContext.getNavigationItems() %>"
 />
+=======
+<liferay-portlet:renderURL varImpl="portletURL" />
+
+<aui:nav-bar cssClass="collapse-basic-search" markupView="lexicon">
+	<portlet:renderURL var="mainURL" />
+
+	<aui:nav cssClass="navbar-nav">
+		<aui:nav-item href="<%= mainURL.toString() %>" label="tags" selected="<%= true %>" />
+	</aui:nav>
+
+	<c:if test="<%= assetTagsDisplayContext.isShowTagsSearch() %>">
+		<aui:nav-bar-search>
+			<aui:form action="<%= portletURL %>" name="searchFm">
+				<liferay-ui:input-search markupView="lexicon" />
+			</aui:form>
+		</aui:nav-bar-search>
+	</c:if>
+</aui:nav-bar>
+>>>>>>> compatible
 
 <liferay-frontend:management-bar
 	disabled="<%= assetTagsDisplayContext.isDisabledTagsManagementBar() %>"
@@ -40,6 +60,7 @@
 			orderByCol="<%= assetTagsDisplayContext.getOrderByCol() %>"
 			orderByType="<%= assetTagsDisplayContext.getOrderByType() %>"
 			orderColumns='<%= new String[] {"name", "usages"} %>'
+<<<<<<< HEAD
 			portletURL="<%= portletURL %>"
 		/>
 
@@ -50,6 +71,10 @@
 				</aui:form>
 			</li>
 		</c:if>
+=======
+			portletURL="<%= renderResponse.createRenderURL() %>"
+		/>
+>>>>>>> compatible
 	</liferay-frontend:management-bar-filters>
 
 	<liferay-frontend:management-bar-buttons>

@@ -21,11 +21,19 @@ import com.liferay.portal.kernel.model.ClassedModel;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.service.test.ServiceTestUtil;
 import com.liferay.portal.test.rule.Inject;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.trash.TrashHelper;
+=======
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+import com.liferay.portal.kernel.test.util.TestPropsValues;
+import com.liferay.portal.service.test.ServiceTestUtil;
+import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+>>>>>>> compatible
 import com.liferay.trash.test.util.BaseTrashHandlerTestCase;
 import com.liferay.trash.test.util.DefaultWhenIsAssetable;
 import com.liferay.trash.test.util.DefaultWhenIsIndexableBaseModel;
@@ -35,6 +43,10 @@ import com.liferay.trash.test.util.WhenIsAssetable;
 import com.liferay.trash.test.util.WhenIsAssetableBaseModel;
 import com.liferay.trash.test.util.WhenIsIndexableBaseModel;
 import com.liferay.trash.test.util.WhenIsUpdatableBaseModel;
+<<<<<<< HEAD
+=======
+import com.liferay.wiki.asset.WikiPageAssetRenderer;
+>>>>>>> compatible
 import com.liferay.wiki.model.WikiNode;
 import com.liferay.wiki.model.WikiPage;
 import com.liferay.wiki.util.test.WikiPageTrashHandlerTestUtil;
@@ -50,6 +62,10 @@ import org.junit.runner.RunWith;
  * @author Roberto Díaz
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class WikiPageTrashHandlerTest
 	extends BaseTrashHandlerTestCase
 	implements WhenCanBeDuplicatedInTrash, WhenHasParent,
@@ -59,7 +75,13 @@ public class WikiPageTrashHandlerTest
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Override
 	public AssetEntry fetchAssetEntry(ClassedModel classedModel)
@@ -146,9 +168,13 @@ public class WikiPageTrashHandlerTest
 
 	@Override
 	protected Long getAssetClassPK(ClassedModel classedModel) {
+<<<<<<< HEAD
 		WikiPage page = (WikiPage)classedModel;
 
 		return page.getResourcePrimKey();
+=======
+		return WikiPageAssetRenderer.getClassPK((WikiPage)classedModel);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -185,11 +211,15 @@ public class WikiPageTrashHandlerTest
 
 	@Override
 	protected String getUniqueTitle(BaseModel<?> baseModel) {
+<<<<<<< HEAD
 		WikiPage page = (WikiPage)baseModel;
 
 		String title = page.getTitle();
 
 		return _trashHelper.getOriginalTitle(title);
+=======
+		return WikiPageTrashHandlerTestUtil.getUniqueTitle(baseModel);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -197,9 +227,12 @@ public class WikiPageTrashHandlerTest
 		WikiPageTrashHandlerTestUtil.moveBaseModelToTrash(primaryKey);
 	}
 
+<<<<<<< HEAD
 	@Inject
 	private TrashHelper _trashHelper;
 
+=======
+>>>>>>> compatible
 	private final WhenIsAssetable _whenIsAssetable =
 		new DefaultWhenIsAssetable();
 	private final WhenIsIndexableBaseModel _whenIsIndexableBaseModel =

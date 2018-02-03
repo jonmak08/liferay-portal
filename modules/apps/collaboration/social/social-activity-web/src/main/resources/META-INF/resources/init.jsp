@@ -41,8 +41,11 @@ page import="java.util.Map" %>
 
 <liferay-theme:defineObjects />
 
+<<<<<<< HEAD
 <%
 portletDisplay.setShowStagingIcon(false);
 %>
 
+=======
+>>>>>>> compatible
 <%@ include file="/init-ext.jsp" %>

@@ -38,11 +38,16 @@ import java.io.Serializable;
  * @see TrashVersion
  * @see com.liferay.portlet.trash.model.impl.TrashVersionImpl
  * @see com.liferay.portlet.trash.model.impl.TrashVersionModelImpl
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, replaced by {@link
            com.liferay.trash.model.impl.TrashVersionImpl}
  * @generated
  */
 @Deprecated
+=======
+ * @generated
+ */
+>>>>>>> compatible
 @ProviderType
 public interface TrashVersionModel extends AttachedModel, BaseModel<TrashVersion>,
 	ShardedModel {

@@ -7,6 +7,7 @@ import LiferaySurface from '../surface/Surface.es';
 import Utils from '../util/Utils.es';
 import {CancellablePromise} from 'metal-promise/src/promise/Promise';
 
+<<<<<<< HEAD
 /**
  * LiferayApp
  *
@@ -25,18 +26,32 @@ class LiferayApp extends App {
 	 * @inheritDoc
 	 * @review
 	 */
+=======
+class LiferayApp extends App {
+>>>>>>> compatible
 	constructor() {
 		super();
 
 		this.portletsBlacklist = {};
 		this.validStatusCodes = [];
 
+<<<<<<< HEAD
 		this.setShouldUseFacade(true);
 
 		this.timeout = Math.max(Liferay.SPA.requestTimeout, 0) || Utils.getMaxTimeout();
 		this.timeoutAlert = null;
 
 		var exceptionsSelector = Liferay.SPA.navigationExceptionSelectors;
+=======
+		this.timeout = Math.max(Liferay.SPA.requestTimeout, 0) || Utils.getMaxTimeout();
+		this.timeoutAlert = null;
+
+		this.setShouldUseFacade(true);
+
+		var exceptionsSelector = ':not([target="_blank"]):not([data-senna-off]):not([data-resource-href])';
+
+		Liferay.SPA.navigationExceptionSelectors = exceptionsSelector;
+>>>>>>> compatible
 
 		this.setFormSelector('form' + exceptionsSelector);
 		this.setLinkSelector('a' + exceptionsSelector);
@@ -61,6 +76,7 @@ class LiferayApp extends App {
 		dom.append(body, '<div class="lfr-spa-loading-bar"></div>');
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Returns the cache expiration time configuration. This configuration
 	 * is set uppon App initialization (See init.tmpl) and the value comes
@@ -68,30 +84,39 @@ class LiferayApp extends App {
 	 * @return {!Number} The cacheExpirationTime value
 	 * @review
 	 */
+=======
+>>>>>>> compatible
 	getCacheExpirationTime() {
 		return Liferay.SPA.cacheExpirationTime;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Returns the valid status codes accepted by Liferay. This values
 	 * come from ServletResponseConstants.java.
 	 * @return {!Array} The property validStatusCodes.
 	 * @review
 	 */
+=======
+>>>>>>> compatible
 	getValidStatusCodes() {
 		return this.validStatusCodes;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Returns wether or not cache is enabled. Cache is considered
 	 * enabled whenever {this.getCacheExpirationTime} is greater than zero.
 	 * @return {!Boolean} True if cache is enabled.
 	 * @review
 	 */
+=======
+>>>>>>> compatible
 	isCacheEnabled() {
 		return this.getCacheExpirationTime() > -1;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Returns wether or not a given portlet element is in the black list
 	 * of portlets that should not behave like an SPA.
@@ -99,6 +124,8 @@ class LiferayApp extends App {
 	 * @return {!Boolean} True if portlet element is blacklisted.
 	 * @review
 	 */
+=======
+>>>>>>> compatible
 	isInPortletBlacklist(element) {
 		return Object.keys(this.portletsBlacklist).some(
 			(portletId) => {
@@ -111,6 +138,7 @@ class LiferayApp extends App {
 		);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Returns wether or not a given Screen has its cache expired at the
 	 * moment this method is called. The expiration timeframe is based on
@@ -119,6 +147,8 @@ class LiferayApp extends App {
 	 * @return {!Boolean} True cache has expired.
 	 * @review
 	 */
+=======
+>>>>>>> compatible
 	isScreenCacheExpired(screen) {
 		if (this.getCacheExpirationTime() === 0) {
 			return false;
@@ -129,6 +159,7 @@ class LiferayApp extends App {
 		return lastModifiedInterval > this.getCacheExpirationTime();
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Callback for Senna's beforeNavigate event. For Lifray we clear
 	 * the all screens cache whenever the flag Liferay.SPA.clearScreensCache
@@ -139,6 +170,8 @@ class LiferayApp extends App {
 	 * @param  {!Event} event The event object.
 	 * @review
 	 */
+=======
+>>>>>>> compatible
 	onBeforeNavigate(data, event) {
 		if (Liferay.SPA.clearScreensCache || data.form) {
 			this.clearScreensCache();
@@ -156,6 +189,7 @@ class LiferayApp extends App {
 		);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Private event handler function called when the "dataLayoutConfigReady"
 	 * is fired on the Liferay object. This is when we make sure to
@@ -177,6 +211,14 @@ class LiferayApp extends App {
 	 * @param  {!Event} event The event object.
 	 * @review
 	 */
+=======
+	onDataLayoutConfigReady_(event) {
+		if (Liferay.Layout) {
+			Liferay.Layout.init(Liferay.Data.layoutConfig)
+		}
+	}
+
+>>>>>>> compatible
 	onDocClickDelegate_(event) {
 		if (this.isInPortletBlacklist(event.delegateTarget)) {
 			return;
@@ -185,6 +227,7 @@ class LiferayApp extends App {
 		super.onDocClickDelegate_(event);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @inheritDoc
 	 * Overrides Senna's default onDocSubmitDelegate_ handler and
@@ -193,6 +236,8 @@ class LiferayApp extends App {
 	 * @param  {!Event} event The event object.
 	 * @review
 	 */
+=======
+>>>>>>> compatible
 	onDocSubmitDelegate_(event) {
 		if (this.isInPortletBlacklist(event.delegateTarget)) {
 			return;
@@ -201,12 +246,15 @@ class LiferayApp extends App {
 		super.onDocSubmitDelegate_(event);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Callback for Senna's "endNavigate" event. Exposes the "endNavigate"
 	 * event to the Liferay global object.
 	 * @param  {!Event} event The event object.
 	 * @review
 	 */
+=======
+>>>>>>> compatible
 	onEndNavigate(event) {
 		Liferay.fire(
 			'endNavigate',
@@ -231,26 +279,33 @@ class LiferayApp extends App {
 		Liferay.DOMTaskRunner.reset();
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Callback for Liferay's "io:complete" event. Clears screens cache when
 	 * an async request happens.
 	 * @review
 	 */
+=======
+>>>>>>> compatible
 	onLiferayIOComplete() {
 		this.clearScreensCache();
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Callback for Senna's "navigationError" event. Shows an appropriate
 	 * alert message to the user with information about the error.
 	 * @param  {!Event} event The event object.
 	 * @review
 	 */
+=======
+>>>>>>> compatible
 	onNavigationError(event) {
 		if (event.error.requestPrematureTermination) {
 			window.location.href = event.path;
 		}
 		else if (event.error.invalidStatus || event.error.requestError || event.error.timeout) {
+<<<<<<< HEAD
 			let message = Liferay.Language.get('there-was-an-unexpected-error.-please-refresh-the-current-page');
 
 			if (Liferay.SPA.debugEnabled) {
@@ -272,6 +327,11 @@ class LiferayApp extends App {
 			this._createNotification(
 				{
 					message: message,
+=======
+			this._createNotification(
+				{
+					message: Liferay.Language.get('there-was-an-unexpected-error.-please-refresh-the-current-page'),
+>>>>>>> compatible
 					title: Liferay.Language.get('error'),
 					type: 'danger'
 				}
@@ -279,12 +339,15 @@ class LiferayApp extends App {
 		}
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Callback for Senna's "startNavigate" event. Exposes the "startNavigate"
 	 * event to the Liferay global object.
 	 * @param  {!Event} event The event object.
 	 * @review
 	 */
+=======
+>>>>>>> compatible
 	onStartNavigate(event) {
 		Liferay.fire(
 			'startNavigate',
@@ -297,29 +360,38 @@ class LiferayApp extends App {
 		this._startRequestTimer(event.path);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Setter for the portletsBlacklist property.
 	 * @param  {!Object} portletsBlacklist
 	 * @review
 	 */
+=======
+>>>>>>> compatible
 	setPortletsBlacklist(portletsBlacklist) {
 		this.portletsBlacklist = portletsBlacklist;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Setter for the validStatusCodes property.
 	 * @param  {!Array} validStatusCodes
 	 * @review
 	 */
+=======
+>>>>>>> compatible
 	setValidStatusCodes(validStatusCodes) {
 		this.validStatusCodes = validStatusCodes;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Clears and detaches event handlers for Liferay's "dataLayoutConfigReady"
 	 * event.
 	 * @review
 	 */
+=======
+>>>>>>> compatible
 	_clearLayoutData() {
 		this.dataLayoutConfig_ = Liferay.Data.layoutConfig;
 
@@ -331,18 +403,22 @@ class LiferayApp extends App {
 		}
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Clears the timer that will show the user a notification when the SPA
 	 * request takes longer than the thresshold time configured in
 	 * System Settings (Liferay.SPA.userNotification.timeout).
 	 * @review
 	 */
+=======
+>>>>>>> compatible
 	_clearRequestTimer() {
 		if (this.requestTimer) {
 			clearTimeout(this.requestTimer);
 		}
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Creates an user notification
 	 * @param  {!Object} configuration object that's passed to Liferay.Notification
@@ -350,6 +426,8 @@ class LiferayApp extends App {
 	 * on the screen when resolved.
 	 * @review
 	 */
+=======
+>>>>>>> compatible
 	_createNotification(config) {
 		return new CancellablePromise(
 			(resolve) => {
@@ -378,16 +456,20 @@ class LiferayApp extends App {
 		);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Hides the request timeout alert.
 	 * @review
 	 */
+=======
+>>>>>>> compatible
 	_hideTimeoutAlert() {
 		if (this.timeoutAlert) {
 			this.timeoutAlert.hide();
 		}
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Starts the timer that will show the user a notification when the SPA
 	 * request takes longer than the threshold time configured in
@@ -395,6 +477,8 @@ class LiferayApp extends App {
 	 * @param  {!String} path The path that may time out.
 	 * @review
 	 */
+=======
+>>>>>>> compatible
 	_startRequestTimer(path) {
 		this._clearRequestTimer();
 
@@ -429,6 +513,7 @@ class LiferayApp extends App {
 			);
 		}
 	}
+<<<<<<< HEAD
 
 	/**
 	 * @inheritDoc
@@ -441,6 +526,8 @@ class LiferayApp extends App {
 
 		super.updateHistory_(title, path, state, opt_replaceHistory);
 	}
+=======
+>>>>>>> compatible
 }
 
 export default LiferayApp;

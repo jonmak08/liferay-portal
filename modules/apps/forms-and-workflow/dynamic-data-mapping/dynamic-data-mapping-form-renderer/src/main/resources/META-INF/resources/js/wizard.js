@@ -67,7 +67,11 @@ AUI.add(
 				UI_ATTRS: ['items'],
 
 				prototype: {
+<<<<<<< HEAD
 					CONTENT_TEMPLATE: '<ul class="multi-step-progress-bar multi-step-progress-bar-collapse"></ul>',
+=======
+					CONTENT_TEMPLATE: '<ul class="multi-step-progress-bar"></ul>',
+>>>>>>> compatible
 
 					renderUI: function() {
 						var instance = this;

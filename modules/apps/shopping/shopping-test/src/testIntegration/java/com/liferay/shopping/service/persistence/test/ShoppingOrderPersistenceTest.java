@@ -30,6 +30,10 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.util.IntegerWrapper;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.OrderByComparatorFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.PersistenceTestRule;
@@ -344,18 +348,30 @@ public class ShoppingOrderPersistenceTest {
 
 	@Test
 	public void testCountByNumber() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByNumber("");
 
 		_persistence.countByNumber("null");
+=======
+		_persistence.countByNumber(StringPool.BLANK);
+
+		_persistence.countByNumber(StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByNumber((String)null);
 	}
 
 	@Test
 	public void testCountByPPTxnId() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByPPTxnId("");
 
 		_persistence.countByPPTxnId("null");
+=======
+		_persistence.countByPPTxnId(StringPool.BLANK);
+
+		_persistence.countByPPTxnId(StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByPPTxnId((String)null);
 	}
@@ -363,9 +379,15 @@ public class ShoppingOrderPersistenceTest {
 	@Test
 	public void testCountByG_U_PPPS() throws Exception {
 		_persistence.countByG_U_PPPS(RandomTestUtil.nextLong(),
+<<<<<<< HEAD
 			RandomTestUtil.nextLong(), "");
 
 		_persistence.countByG_U_PPPS(0L, 0L, "null");
+=======
+			RandomTestUtil.nextLong(), StringPool.BLANK);
+
+		_persistence.countByG_U_PPPS(0L, 0L, StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByG_U_PPPS(0L, 0L, (String)null);
 	}

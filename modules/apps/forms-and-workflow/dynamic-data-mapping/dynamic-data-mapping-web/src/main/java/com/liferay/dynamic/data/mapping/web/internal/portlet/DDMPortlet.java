@@ -145,7 +145,10 @@ public class DDMPortlet extends MVCPortlet {
 					 e instanceof StructureDuplicateElementException ||
 					 e instanceof StructureNameException ||
 					 e instanceof TemplateNameException ||
+<<<<<<< HEAD
 					 e instanceof TemplateNameException ||
+=======
+>>>>>>> compatible
 					 e instanceof TemplateScriptException ||
 					 e instanceof TemplateSmallImageNameException ||
 					 e instanceof TemplateSmallImageSizeException) {

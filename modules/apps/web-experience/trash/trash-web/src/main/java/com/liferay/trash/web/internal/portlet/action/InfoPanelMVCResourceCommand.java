@@ -16,11 +16,17 @@ package com.liferay.trash.web.internal.portlet.action;
 
 import com.liferay.portal.kernel.portlet.bridges.mvc.BaseMVCResourceCommand;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCResourceCommand;
+<<<<<<< HEAD
 import com.liferay.trash.TrashHelper;
 import com.liferay.trash.model.TrashEntry;
 import com.liferay.trash.web.internal.constants.TrashPortletKeys;
 import com.liferay.trash.web.internal.constants.TrashWebKeys;
 import com.liferay.trash.web.internal.util.TrashUtil;
+=======
+import com.liferay.trash.kernel.model.TrashEntry;
+import com.liferay.trash.web.internal.constants.TrashPortletKeys;
+import com.liferay.trash.web.internal.constants.TrashWebKeys;
+>>>>>>> compatible
 
 import java.util.List;
 
@@ -28,7 +34,10 @@ import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
 
 import org.osgi.service.component.annotations.Component;
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.Reference;
+=======
+>>>>>>> compatible
 
 /**
  * Provides an implementation of <code>MVCResourceCommand</code> (in
@@ -57,6 +66,7 @@ public class InfoPanelMVCResourceCommand extends BaseMVCResourceCommand {
 
 		resourceRequest.setAttribute(TrashWebKeys.TRASH_ENTRIES, trashEntries);
 
+<<<<<<< HEAD
 		resourceRequest.setAttribute(TrashWebKeys.TRASH_HELPER, _trashHelper);
 		resourceRequest.setAttribute(TrashWebKeys.TRASH_UTIL, _trashUtil);
 
@@ -69,4 +79,9 @@ public class InfoPanelMVCResourceCommand extends BaseMVCResourceCommand {
 	@Reference
 	private TrashUtil _trashUtil;
 
+=======
+		include(resourceRequest, resourceResponse, "/info_panel.jsp");
+	}
+
+>>>>>>> compatible
 }

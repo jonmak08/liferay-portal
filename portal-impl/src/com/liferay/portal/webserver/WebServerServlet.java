@@ -14,7 +14,10 @@
 
 package com.liferay.portal.webserver;
 
+<<<<<<< HEAD
 import com.liferay.document.library.kernel.document.conversion.DocumentConversionUtil;
+=======
+>>>>>>> compatible
 import com.liferay.document.library.kernel.exception.NoSuchFileEntryException;
 import com.liferay.document.library.kernel.exception.NoSuchFileException;
 import com.liferay.document.library.kernel.exception.NoSuchFolderException;
@@ -28,7 +31,10 @@ import com.liferay.document.library.kernel.util.PDFProcessor;
 import com.liferay.document.library.kernel.util.PDFProcessorUtil;
 import com.liferay.document.library.kernel.util.VideoProcessor;
 import com.liferay.document.library.kernel.util.VideoProcessorUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.flash.FlashMagicBytesUtil;
@@ -37,7 +43,10 @@ import com.liferay.portal.kernel.image.ImageToolUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Company;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.CompanyConstants;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.Image;
 import com.liferay.portal.kernel.model.ImageConstants;
@@ -81,8 +90,12 @@ import com.liferay.portal.kernel.template.TemplateManagerUtil;
 import com.liferay.portal.kernel.template.TemplateResource;
 import com.liferay.portal.kernel.template.URLTemplateResource;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.transaction.TransactionConfig;
 import com.liferay.portal.kernel.transaction.TransactionInvokerUtil;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.DigesterUtil;
 import com.liferay.portal.kernel.util.FastDateFormatFactoryUtil;
@@ -105,11 +118,18 @@ import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.kernel.webdav.WebDAVUtil;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.model.impl.ImageImpl;
+<<<<<<< HEAD
 import com.liferay.portal.util.PortalInstances;
 import com.liferay.portal.util.PropsValues;
 import com.liferay.trash.kernel.model.TrashEntry;
 import com.liferay.trash.kernel.util.TrashUtil;
 import com.liferay.users.admin.kernel.file.uploads.UserFileUploadsSettings;
+=======
+import com.liferay.portal.util.PropsValues;
+import com.liferay.portlet.documentlibrary.util.DocumentConversionUtil;
+import com.liferay.trash.kernel.model.TrashEntry;
+import com.liferay.trash.kernel.util.TrashUtil;
+>>>>>>> compatible
 
 import java.awt.image.RenderedImage;
 
@@ -296,7 +316,32 @@ public class WebServerServlet extends HttpServlet {
 				}
 			}
 
+<<<<<<< HEAD
 			TransactionConfig.Builder builder = new TransactionConfig.Builder();
+=======
+			String path = HttpUtil.fixPath(request.getPathInfo());
+
+			String[] pathArray = StringUtil.split(path, CharPool.SLASH);
+
+			if (pathArray.length == 0) {
+				sendGroups(
+					response, user,
+					request.getServletPath() + StringPool.SLASH + path);
+			}
+			else {
+				if (Validator.isNumber(pathArray[0])) {
+					sendFile(request, response, user, pathArray);
+				}
+				else if (PATH_PORTLET_FILE_ENTRY.equals(pathArray[0])) {
+					sendPortletFileEntry(request, response, pathArray);
+				}
+				else {
+					if (PropsValues.WEB_SERVER_SERVLET_CHECK_IMAGE_GALLERY) {
+						if (isLegacyImageGalleryImageId(request, response)) {
+							return;
+						}
+					}
+>>>>>>> compatible
 
 			builder.setReadOnly(true);
 			builder.setRollbackForClasses(Exception.class);
@@ -1464,6 +1509,7 @@ public class WebServerServlet extends HttpServlet {
 			PropsValues.WEB_SERVER_SERVLET_DIRECTORY_INDEXING_ENABLED);
 	}
 
+<<<<<<< HEAD
 	private Callable<Void> _createFileServingCallable(
 		final HttpServletRequest request, final HttpServletResponse response,
 		final User user) {
@@ -1549,6 +1595,8 @@ public class WebServerServlet extends HttpServlet {
 		return true;
 	}
 
+=======
+>>>>>>> compatible
 	private static final boolean _WEB_SERVER_SERVLET_VERSION_VERBOSITY_DEFAULT =
 		StringUtil.equalsIgnoreCase(
 			PropsValues.WEB_SERVER_SERVLET_VERSION_VERBOSITY,
@@ -1563,6 +1611,7 @@ public class WebServerServlet extends HttpServlet {
 
 	private static final Set<String> _acceptRangesMimeTypes = SetUtil.fromArray(
 		PropsValues.WEB_SERVER_SERVLET_ACCEPT_RANGES_MIME_TYPES);
+<<<<<<< HEAD
 	private static volatile InactiveRequestHandler _inactiveRequesthandler =
 		ServiceProxyFactory.newServiceTrackedInstance(
 			InactiveRequestHandler.class, WebServerServlet.class,
@@ -1571,6 +1620,8 @@ public class WebServerServlet extends HttpServlet {
 		ServiceProxyFactory.newServiceTrackedInstance(
 			UserFileUploadsSettings.class, WebServerServlet.class,
 			"_userFileUploadsSettings", false);
+=======
+>>>>>>> compatible
 
 	private final Format _dateFormat =
 		FastDateFormatFactoryUtil.getSimpleDateFormat("d MMM yyyy HH:mm z");

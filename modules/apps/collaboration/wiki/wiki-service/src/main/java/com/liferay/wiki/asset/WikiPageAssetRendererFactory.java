@@ -15,12 +15,19 @@
 package com.liferay.wiki.asset;
 
 import com.liferay.asset.kernel.model.AssetRenderer;
+<<<<<<< HEAD
+=======
+import com.liferay.asset.kernel.model.AssetRendererFactory;
+>>>>>>> compatible
 import com.liferay.asset.kernel.model.BaseAssetRendererFactory;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
 import com.liferay.portal.kernel.portlet.LiferayPortletURL;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
+<<<<<<< HEAD
 import com.liferay.trash.TrashHelper;
+=======
+>>>>>>> compatible
 import com.liferay.wiki.constants.WikiPortletKeys;
 import com.liferay.wiki.engine.impl.WikiEngineRenderer;
 import com.liferay.wiki.exception.NoSuchPageException;
@@ -36,6 +43,10 @@ import javax.portlet.WindowStateException;
 
 import javax.servlet.ServletContext;
 
+<<<<<<< HEAD
+=======
+import org.osgi.service.component.annotations.Component;
+>>>>>>> compatible
 import org.osgi.service.component.annotations.Reference;
 
 /**
@@ -44,9 +55,17 @@ import org.osgi.service.component.annotations.Reference;
  * @author Jorge Ferrer
  * @author Raymond Augé
  * @author Sergio González
+<<<<<<< HEAD
  * @deprecated As of 1.7.0, with no direct replacement
  */
 @Deprecated
+=======
+ */
+@Component(
+	immediate = true, property = {"javax.portlet.name=" + WikiPortletKeys.WIKI},
+	service = AssetRendererFactory.class
+)
+>>>>>>> compatible
 public class WikiPageAssetRendererFactory
 	extends BaseAssetRendererFactory<WikiPage> {
 
@@ -85,7 +104,11 @@ public class WikiPageAssetRendererFactory
 		}
 
 		WikiPageAssetRenderer wikiPageAssetRenderer = new WikiPageAssetRenderer(
+<<<<<<< HEAD
 			page, _wikiEngineRenderer, _trashHelper);
+=======
+			page, _wikiEngineRenderer);
+>>>>>>> compatible
 
 		wikiPageAssetRenderer.setAssetRendererType(type);
 		wikiPageAssetRenderer.setServletContext(_servletContext);
@@ -164,10 +187,13 @@ public class WikiPageAssetRendererFactory
 	}
 
 	private ServletContext _servletContext;
+<<<<<<< HEAD
 
 	@Reference
 	private TrashHelper _trashHelper;
 
+=======
+>>>>>>> compatible
 	private WikiEngineRenderer _wikiEngineRenderer;
 	private WikiPageLocalService _wikiPageLocalService;
 	private WikiPageResourceLocalService _wikiPageResourceLocalService;

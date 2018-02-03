@@ -40,6 +40,10 @@ import com.liferay.portal.kernel.util.LocalizationUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 
 import java.io.Serializable;
@@ -318,7 +322,11 @@ public class PollsChoiceModelImpl extends BaseModelImpl<PollsChoice>
 	@Override
 	public String getUuid() {
 		if (_uuid == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _uuid;
@@ -414,7 +422,11 @@ public class PollsChoiceModelImpl extends BaseModelImpl<PollsChoice>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -426,7 +438,11 @@ public class PollsChoiceModelImpl extends BaseModelImpl<PollsChoice>
 	@Override
 	public String getUserName() {
 		if (_userName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _userName;
@@ -493,7 +509,11 @@ public class PollsChoiceModelImpl extends BaseModelImpl<PollsChoice>
 	@Override
 	public String getName() {
 		if (_name == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _name;
@@ -519,7 +539,11 @@ public class PollsChoiceModelImpl extends BaseModelImpl<PollsChoice>
 	@Override
 	public String getDescription() {
 		if (_description == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _description;
@@ -675,7 +699,11 @@ public class PollsChoiceModelImpl extends BaseModelImpl<PollsChoice>
 		String xml = getDescription();
 
 		if (xml == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 
 		Locale defaultLocale = LocaleUtil.getSiteDefault();

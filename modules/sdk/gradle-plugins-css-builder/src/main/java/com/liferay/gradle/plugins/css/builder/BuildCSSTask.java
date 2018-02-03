@@ -55,7 +55,10 @@ public class BuildCSSTask extends JavaExec {
 		setDefaultCharacterEncoding(StandardCharsets.UTF_8.toString());
 		setDirNames("/");
 		setMain("com.liferay.css.builder.CSSBuilder");
+<<<<<<< HEAD
 		systemProperty("sass.compiler.jni.clean.temp.dir", true);
+=======
+>>>>>>> compatible
 	}
 
 	public BuildCSSTask dirNames(Iterable<Object> dirNames) {
@@ -75,10 +78,13 @@ public class BuildCSSTask extends JavaExec {
 		super.exec();
 	}
 
+<<<<<<< HEAD
 	public File getBaseDir() {
 		return GradleUtil.toFile(getProject(), _baseDir);
 	}
 
+=======
+>>>>>>> compatible
 	@InputFiles
 	@SkipWhenEmpty
 	public FileCollection getCSSFiles() {
@@ -124,6 +130,7 @@ public class BuildCSSTask extends JavaExec {
 		return GradleUtil.toStringList(_dirNames);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 2.2.0, replaced by {@link #getBaseDir()}
 	 */
@@ -153,6 +160,10 @@ public class BuildCSSTask extends JavaExec {
 		}
 
 		return importPath;
+=======
+	public File getDocrootDir() {
+		return GradleUtil.toFile(getProject(), _docrootDir);
+>>>>>>> compatible
 	}
 
 	@Input
@@ -179,6 +190,7 @@ public class BuildCSSTask extends JavaExec {
 		return project.files(outputDirs);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 2.2.0, replaced by {@link #getImportDir()}
 	 */
@@ -201,6 +213,29 @@ public class BuildCSSTask extends JavaExec {
 	@Deprecated
 	public File getPortalCommonPath() {
 		return getImportPath();
+=======
+	@InputDirectory
+	@Optional
+	public File getPortalCommonDir() {
+		return GradleUtil.toFile(getProject(), _portalCommonDir);
+	}
+
+	@InputFile
+	@Optional
+	public File getPortalCommonFile() {
+		return GradleUtil.toFile(getProject(), _portalCommonFile);
+	}
+
+	@Input
+	public File getPortalCommonPath() {
+		File portalCommonPath = getPortalCommonDir();
+
+		if (portalCommonPath == null) {
+			portalCommonPath = getPortalCommonFile();
+		}
+
+		return portalCommonPath;
+>>>>>>> compatible
 	}
 
 	@Input
@@ -268,10 +303,13 @@ public class BuildCSSTask extends JavaExec {
 		_appendCssImportTimestamps = appendCssImportTimestamps;
 	}
 
+<<<<<<< HEAD
 	public void setBaseDir(Object baseDir) {
 		_baseDir = baseDir;
 	}
 
+=======
+>>>>>>> compatible
 	public void setDirNames(Iterable<Object> dirNames) {
 		_dirNames.clear();
 
@@ -282,18 +320,24 @@ public class BuildCSSTask extends JavaExec {
 		setDirNames(Arrays.asList(dirNames));
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 2.2.0, replaced by {@link #setBaseDir(Object)}
 	 */
 	@Deprecated
 	public void setDocrootDir(Object docrootDir) {
 		setBaseDir(docrootDir);
+=======
+	public void setDocrootDir(Object docrootDir) {
+		_docrootDir = docrootDir;
+>>>>>>> compatible
 	}
 
 	public void setGenerateSourceMap(boolean generateSourceMap) {
 		_generateSourceMap = generateSourceMap;
 	}
 
+<<<<<<< HEAD
 	public void setImportDir(Object importDir) {
 		_importDir = importDir;
 	}
@@ -302,10 +346,13 @@ public class BuildCSSTask extends JavaExec {
 		_importFile = importFile;
 	}
 
+=======
+>>>>>>> compatible
 	public void setOutputDirName(Object outputDirName) {
 		_outputDirName = outputDirName;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 2.2.0, replaced by {@link #setImportDir(Object)}
 	 */
@@ -320,6 +367,14 @@ public class BuildCSSTask extends JavaExec {
 	@Deprecated
 	public void setPortalCommonFile(Object portalCommonFile) {
 		setImportFile(portalCommonFile);
+=======
+	public void setPortalCommonDir(Object portalCommonDir) {
+		_portalCommonDir = portalCommonDir;
+	}
+
+	public void setPortalCommonFile(Object portalCommonFile) {
+		_portalCommonFile = portalCommonFile;
+>>>>>>> compatible
 	}
 
 	public void setPrecision(Object precision) {
@@ -363,9 +418,26 @@ public class BuildCSSTask extends JavaExec {
 			"sass.append.css.import.timestamps=" +
 				isAppendCssImportTimestamps());
 
+<<<<<<< HEAD
 		args.add("sass.dir=" + _getDirNamesArg());
 
 		String docrootDirName = FileUtil.getAbsolutePath(getBaseDir());
+=======
+		List<String> dirNames = getDirNames();
+
+		if (dirNames.size() == 1) {
+			args.add("sass.dir=/" + _removeLeadingSlash(dirNames.get(0)));
+		}
+		else {
+			for (int i = 0; i < dirNames.size(); i++) {
+				String dirName = dirNames.get(i);
+
+				args.add("sass.dir." + i + "=/" + _removeLeadingSlash(dirName));
+			}
+		}
+
+		String docrootDirName = FileUtil.getAbsolutePath(getDocrootDir());
+>>>>>>> compatible
 
 		args.add("sass.docroot.dir=" + _removeTrailingSlash(docrootDirName));
 
@@ -373,9 +445,16 @@ public class BuildCSSTask extends JavaExec {
 
 		args.add("sass.output.dir=" + _addTrailingSlash(getOutputDirName()));
 
+<<<<<<< HEAD
 		String importPath = FileUtil.getAbsolutePath(getImportPath());
 
 		args.add("sass.portal.common.path=" + importPath);
+=======
+		String portalCommonPath = FileUtil.getAbsolutePath(
+			getPortalCommonPath());
+
+		args.add("sass.portal.common.path=" + portalCommonPath);
+>>>>>>> compatible
 
 		args.add("sass.precision=" + getPrecision());
 
@@ -393,6 +472,7 @@ public class BuildCSSTask extends JavaExec {
 		return args;
 	}
 
+<<<<<<< HEAD
 	private String _getDirNamesArg() {
 		StringBuilder sb = new StringBuilder();
 
@@ -412,6 +492,8 @@ public class BuildCSSTask extends JavaExec {
 		return sb.toString();
 	}
 
+=======
+>>>>>>> compatible
 	private String _removeLeadingSlash(String path) {
 		if (Validator.isNull(path)) {
 			return path;
@@ -442,12 +524,21 @@ public class BuildCSSTask extends JavaExec {
 
 	private boolean _appendCssImportTimestamps =
 		CSSBuilderArgs.APPEND_CSS_IMPORT_TIMESTAMPS;
+<<<<<<< HEAD
 	private Object _baseDir;
 	private final Set<Object> _dirNames = new LinkedHashSet<>();
 	private boolean _generateSourceMap;
 	private Object _importDir;
 	private Object _importFile;
 	private Object _outputDirName = CSSBuilderArgs.OUTPUT_DIR_NAME;
+=======
+	private final Set<Object> _dirNames = new LinkedHashSet<>();
+	private Object _docrootDir;
+	private boolean _generateSourceMap;
+	private Object _outputDirName = CSSBuilderArgs.OUTPUT_DIR_NAME;
+	private Object _portalCommonDir;
+	private Object _portalCommonFile;
+>>>>>>> compatible
 	private Object _precision = CSSBuilderArgs.PRECISION;
 	private final Set<Object> _rtlExcludedPathRegexps = new LinkedHashSet<>();
 	private Object _sassCompilerClassName;

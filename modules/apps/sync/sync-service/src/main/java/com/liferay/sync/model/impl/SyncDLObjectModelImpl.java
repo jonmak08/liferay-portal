@@ -30,6 +30,10 @@ import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import com.liferay.sync.model.SyncDLObject;
 import com.liferay.sync.model.SyncDLObjectModel;
@@ -509,7 +513,11 @@ public class SyncDLObjectModelImpl extends BaseModelImpl<SyncDLObject>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -521,7 +529,11 @@ public class SyncDLObjectModelImpl extends BaseModelImpl<SyncDLObject>
 	@Override
 	public String getUserName() {
 		if (_userName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _userName;
@@ -617,7 +629,11 @@ public class SyncDLObjectModelImpl extends BaseModelImpl<SyncDLObject>
 	@Override
 	public String getTreePath() {
 		if (_treePath == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _treePath;
@@ -643,7 +659,11 @@ public class SyncDLObjectModelImpl extends BaseModelImpl<SyncDLObject>
 	@Override
 	public String getName() {
 		if (_name == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _name;
@@ -659,7 +679,11 @@ public class SyncDLObjectModelImpl extends BaseModelImpl<SyncDLObject>
 	@Override
 	public String getExtension() {
 		if (_extension == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _extension;
@@ -675,7 +699,11 @@ public class SyncDLObjectModelImpl extends BaseModelImpl<SyncDLObject>
 	@Override
 	public String getMimeType() {
 		if (_mimeType == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _mimeType;
@@ -691,7 +719,11 @@ public class SyncDLObjectModelImpl extends BaseModelImpl<SyncDLObject>
 	@Override
 	public String getDescription() {
 		if (_description == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _description;
@@ -707,7 +739,11 @@ public class SyncDLObjectModelImpl extends BaseModelImpl<SyncDLObject>
 	@Override
 	public String getChangeLog() {
 		if (_changeLog == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _changeLog;
@@ -723,7 +759,11 @@ public class SyncDLObjectModelImpl extends BaseModelImpl<SyncDLObject>
 	@Override
 	public String getExtraSettings() {
 		if (_extraSettings == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _extraSettings;
@@ -739,7 +779,11 @@ public class SyncDLObjectModelImpl extends BaseModelImpl<SyncDLObject>
 	@Override
 	public String getVersion() {
 		if (_version == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _version;
@@ -787,7 +831,11 @@ public class SyncDLObjectModelImpl extends BaseModelImpl<SyncDLObject>
 	@Override
 	public String getChecksum() {
 		if (_checksum == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _checksum;
@@ -803,7 +851,11 @@ public class SyncDLObjectModelImpl extends BaseModelImpl<SyncDLObject>
 	@Override
 	public String getEvent() {
 		if (_event == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _event;
@@ -829,7 +881,11 @@ public class SyncDLObjectModelImpl extends BaseModelImpl<SyncDLObject>
 	@Override
 	public String getLanTokenKey() {
 		if (_lanTokenKey == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _lanTokenKey;
@@ -882,7 +938,11 @@ public class SyncDLObjectModelImpl extends BaseModelImpl<SyncDLObject>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -894,7 +954,11 @@ public class SyncDLObjectModelImpl extends BaseModelImpl<SyncDLObject>
 	@Override
 	public String getLockUserName() {
 		if (_lockUserName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _lockUserName;
@@ -910,7 +974,11 @@ public class SyncDLObjectModelImpl extends BaseModelImpl<SyncDLObject>
 	@Override
 	public String getType() {
 		if (_type == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _type;
@@ -959,7 +1027,11 @@ public class SyncDLObjectModelImpl extends BaseModelImpl<SyncDLObject>
 	@Override
 	public String getTypeUuid() {
 		if (_typeUuid == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _typeUuid;

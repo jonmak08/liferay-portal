@@ -1,3 +1,7 @@
 Bundle-Name: Liferay Currency Converter Web
 Bundle-SymbolicName: com.liferay.currency.converter.web
+<<<<<<< HEAD
 Bundle-Version: 1.0.16
+=======
+Bundle-Version: 1.0.11
+>>>>>>> compatible

@@ -48,6 +48,7 @@ import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -10861,7 +10862,11 @@ public class MBMessagePersistenceImpl extends BasePersistenceImpl<MBMessage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchMessageException(msg.toString());
 	}
@@ -10917,7 +10922,11 @@ public class MBMessagePersistenceImpl extends BasePersistenceImpl<MBMessage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchMessageException(msg.toString());
 	}
@@ -11284,6 +11293,7 @@ public class MBMessagePersistenceImpl extends BasePersistenceImpl<MBMessage>
 		}
 
 		List<MBMessage> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<MBMessage>)finderCache.getResult(finderPath,
@@ -11295,6 +11305,19 @@ public class MBMessagePersistenceImpl extends BasePersistenceImpl<MBMessage>
 							(status != mbMessage.getStatus())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<MBMessage>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (MBMessage mbMessage : list) {
+					if ((threadId != mbMessage.getThreadId()) ||
+							(status != mbMessage.getStatus())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -15858,6 +15881,7 @@ public class MBMessagePersistenceImpl extends BasePersistenceImpl<MBMessage>
 		}
 
 		List<MBMessage> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<MBMessage>)finderCache.getResult(FINDER_PATH_WITH_PAGINATION_FIND_BY_U_C_S,
@@ -15871,6 +15895,21 @@ public class MBMessagePersistenceImpl extends BasePersistenceImpl<MBMessage>
 							(status != mbMessage.getStatus())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<MBMessage>)finderCache.getResult(FINDER_PATH_WITH_PAGINATION_FIND_BY_U_C_S,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (MBMessage mbMessage : list) {
+					if ((userId != mbMessage.getUserId()) ||
+							!ArrayUtil.contains(classNameIds,
+								mbMessage.getClassNameId()) ||
+							(status != mbMessage.getStatus())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -16253,6 +16292,7 @@ public class MBMessagePersistenceImpl extends BasePersistenceImpl<MBMessage>
 		}
 
 		List<MBMessage> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<MBMessage>)finderCache.getResult(finderPath,
@@ -16265,6 +16305,20 @@ public class MBMessagePersistenceImpl extends BasePersistenceImpl<MBMessage>
 							(status != mbMessage.getStatus())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<MBMessage>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (MBMessage mbMessage : list) {
+					if ((classNameId != mbMessage.getClassNameId()) ||
+							(classPK != mbMessage.getClassPK()) ||
+							(status != mbMessage.getStatus())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -17889,6 +17943,7 @@ public class MBMessagePersistenceImpl extends BasePersistenceImpl<MBMessage>
 		}
 
 		List<MBMessage> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<MBMessage>)finderCache.getResult(finderPath,
@@ -17902,6 +17957,21 @@ public class MBMessagePersistenceImpl extends BasePersistenceImpl<MBMessage>
 							(status != mbMessage.getStatus())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<MBMessage>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (MBMessage mbMessage : list) {
+					if ((groupId != mbMessage.getGroupId()) ||
+							(categoryId != mbMessage.getCategoryId()) ||
+							(threadId != mbMessage.getThreadId()) ||
+							(status != mbMessage.getStatus())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -18933,6 +19003,7 @@ public class MBMessagePersistenceImpl extends BasePersistenceImpl<MBMessage>
 		}
 
 		List<MBMessage> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<MBMessage>)finderCache.getResult(finderPath,
@@ -18946,6 +19017,21 @@ public class MBMessagePersistenceImpl extends BasePersistenceImpl<MBMessage>
 							(status != mbMessage.getStatus())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<MBMessage>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (MBMessage mbMessage : list) {
+					if ((userId != mbMessage.getUserId()) ||
+							(classNameId != mbMessage.getClassNameId()) ||
+							(classPK != mbMessage.getClassPK()) ||
+							(status != mbMessage.getStatus())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -19425,11 +19511,17 @@ public class MBMessagePersistenceImpl extends BasePersistenceImpl<MBMessage>
 		setModelClass(MBMessage.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("uuid", "uuid_");

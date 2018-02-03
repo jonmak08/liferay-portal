@@ -15,7 +15,10 @@
 package com.liferay.exportimport.kernel.lar;
 
 import com.liferay.portal.kernel.model.Portlet;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringPool;
+=======
+>>>>>>> compatible
 
 import javax.portlet.PortletPreferences;
 
@@ -171,10 +174,13 @@ public interface PortletDataHandler {
 	public PortletDataHandlerControl[] getImportMetadataControls()
 		throws PortletDataException;
 
+<<<<<<< HEAD
 	public default String getNamespace() {
 		return StringPool.BLANK;
 	}
 
+=======
+>>>>>>> compatible
 	public String getPortletId();
 
 	public int getRank();
@@ -184,6 +190,7 @@ public interface PortletDataHandler {
 	public String getServiceName();
 
 	/**
+<<<<<<< HEAD
 	 * Returns an array of the controls defined for this data handler. These
 	 * controls enable the developer to create fine grained controls over
 	 * staging publication behavior. The controls are rendered in the publish
@@ -196,6 +203,8 @@ public interface PortletDataHandler {
 	};
 
 	/**
+=======
+>>>>>>> compatible
 	 * Handles any special processing of the data when the portlet is imported
 	 * into a new layout. Can optionally return a modified version of
 	 * <code>preferences</code> to be saved in the new portlet.

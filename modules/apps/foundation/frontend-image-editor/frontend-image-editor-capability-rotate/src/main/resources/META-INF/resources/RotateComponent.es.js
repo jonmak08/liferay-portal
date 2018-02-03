@@ -1,19 +1,33 @@
+<<<<<<< HEAD
 import Component from 'metal-component';
 import Soy from 'metal-soy';
 import { CancellablePromise } from 'metal-promise';
 import { core } from 'metal';
+=======
+import Component from 'metal-component/src/Component';
+import Soy from 'metal-soy/src/Soy';
+
+import core from 'metal/src/core';
+import { CancellablePromise } from 'metal-promise/src/promise/Promise';
+>>>>>>> compatible
 
 import componentTemplates from './RotateComponent.soy';
 import controlsTemplates from './RotateControls.soy';
 
 /**
  * Rotate Component
+<<<<<<< HEAD
  * @review
+=======
+>>>>>>> compatible
  */
 class RotateComponent extends Component {
 	/**
 	 * @inheritDoc
+<<<<<<< HEAD
 	 * @review
+=======
+>>>>>>> compatible
 	 */
 	attached() {
 		this.cache_ = {};
@@ -22,7 +36,10 @@ class RotateComponent extends Component {
 
 	/**
 	 * @inheritDoc
+<<<<<<< HEAD
 	 * @review
+=======
+>>>>>>> compatible
 	 */
 	detached() {
 		this.cache_ = {};
@@ -30,9 +47,15 @@ class RotateComponent extends Component {
 
 	/**
 	 * Rotates the image to the current selected rotation angle.
+<<<<<<< HEAD
 	 * @param  {ImageData} imageData ImageData representation of the image.
 	 * @return {CancellablePromise} A promise that will resolve when the processing is complete.
 	 * @review
+=======
+	 *
+	 * @param  {ImageData} imageData ImageData representation of the image.
+	 * @return {CancellablePromise} A promise that will resolve when the processing is complete.
+>>>>>>> compatible
 	 */
 	preview(imageData) {
 		return this.process(imageData);
@@ -40,9 +63,15 @@ class RotateComponent extends Component {
 
 	/**
 	 * Rotates the image to the current selected rotation angle.
+<<<<<<< HEAD
 	 * @param  {ImageData} imageData ImageData representation of the image.
 	 * @return {CancellablePromise} A promise that will resolve when the processing is complete.
 	 * @review
+=======
+	 *
+	 * @param  {ImageData} imageData ImageData representation of the image.
+	 * @return {CancellablePromise} A promise that will resolve when the processing is complete.
+>>>>>>> compatible
 	 */
 	process(imageData) {
 		let promise = this.cache_[this.rotationAngle_];
@@ -58,11 +87,19 @@ class RotateComponent extends Component {
 
 	/**
 	 * Rotates the passed ImageData to the current rotation angle.
+<<<<<<< HEAD
 	 * @param  {ImageData} imageData The ImageData to rotate
 	 * @param  {number} rotationAngle Normalized rotation angle in degrees in the range [0-360)
 	 * @protected
 	 * @return {CancellablePromise} A promise to be fullfilled when the image has been rotated.
 	 * @review
+=======
+	 *
+	 * @protected
+	 * @param  {ImageData} imageData The ImageData to rotate
+	 * @param  {number} rotationAngle Normalized rotation angle in degrees in the range [0-360)
+	 * @return {CancellablePromise} A promise to be fullfilled when the image has been rotated.
+>>>>>>> compatible
 	 */
 	rotate_(imageData, rotationAngle) {
 		let cancellablePromise = new CancellablePromise((resolve, reject) => {
@@ -95,7 +132,10 @@ class RotateComponent extends Component {
 
 	/**
 	 * Rotates the image 90º counter-clockwise.
+<<<<<<< HEAD
 	 * @review
+=======
+>>>>>>> compatible
 	 */
 	rotateLeft() {
 		this.rotationAngle_ = (this.rotationAngle_ - 90) % 360;
@@ -104,7 +144,10 @@ class RotateComponent extends Component {
 
 	/**
 	 * Rotates the image 90º clockwise.
+<<<<<<< HEAD
 	 * @review
+=======
+>>>>>>> compatible
 	 */
 	rotateRight() {
 		this.rotationAngle_ = (this.rotationAngle_ + 90) % 360;
@@ -114,14 +157,22 @@ class RotateComponent extends Component {
 
 /**
  * State definition.
+<<<<<<< HEAD
  * @review
  * @static
  * @type {!Object}
+=======
+ * @type {!Object}
+ * @static
+>>>>>>> compatible
  */
 RotateComponent.STATE = {
 	/**
 	 * Path of this module
+<<<<<<< HEAD
 	 * @review
+=======
+>>>>>>> compatible
 	 * @type {Function}
 	 */
 	modulePath: {
@@ -131,7 +182,10 @@ RotateComponent.STATE = {
 	/**
 	 * Injected method to notify the editor this component
 	 * wants to generate a preview version of the image.
+<<<<<<< HEAD
 	 * @review
+=======
+>>>>>>> compatible
 	 * @type {Function}
 	 */
 	requestImageEditorPreview: {
@@ -139,6 +193,10 @@ RotateComponent.STATE = {
 	}
 };
 
+<<<<<<< HEAD
+=======
+// Register component
+>>>>>>> compatible
 Soy.register(RotateComponent, componentTemplates);
 
 export default RotateComponent;

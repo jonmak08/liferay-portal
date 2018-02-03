@@ -113,10 +113,13 @@ public class FormatSourceTask extends Task {
 		_sourceFormatterArgs.setProcessorThreadCount(processorThreadCount);
 	}
 
+<<<<<<< HEAD
 	public void setShowDebugInformation(boolean showDebugInformation) {
 		_sourceFormatterArgs.setShowDebugInformation(showDebugInformation);
 	}
 
+=======
+>>>>>>> compatible
 	public void setShowDocumentation(boolean showDocumentation) {
 		_sourceFormatterArgs.setShowDocumentation(showDocumentation);
 	}

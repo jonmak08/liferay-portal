@@ -14,14 +14,22 @@
 
 package com.liferay.frontend.css.rtl.servlet.internal;
 
+<<<<<<< HEAD
 import com.liferay.frontend.css.rtl.servlet.internal.converter.CSSRTLConverter;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.frontend.css.rtl.converter.CSSRTLConverter;
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.servlet.RequestDispatcherUtil;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.StreamUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 
 import java.io.ByteArrayInputStream;
@@ -123,6 +131,7 @@ public class RTLServlet extends HttpServlet {
 
 		File dataFile = _bundle.getDataFile(rtlPath);
 
+<<<<<<< HEAD
 		if (dataFile.exists()) {
 			URLConnection urlConnection = url.openConnection();
 
@@ -131,6 +140,15 @@ public class RTLServlet extends HttpServlet {
 
 				return uri.toURL();
 			}
+=======
+		if (dataFile.exists() &&
+			(dataFile.lastModified() >
+				url.openConnection().getLastModified())) {
+
+			URI uri = dataFile.toURI();
+
+			return uri.toURL();
+>>>>>>> compatible
 		}
 
 		CSSRTLConverter cssRTLConverter = new CSSRTLConverter(false);
@@ -143,9 +161,13 @@ public class RTLServlet extends HttpServlet {
 		OutputStream outputStream = null;
 
 		try {
+<<<<<<< HEAD
 			File parentFile = dataFile.getParentFile();
 
 			parentFile.mkdirs();
+=======
+			dataFile.getParentFile().mkdirs();
+>>>>>>> compatible
 
 			dataFile.createNewFile();
 

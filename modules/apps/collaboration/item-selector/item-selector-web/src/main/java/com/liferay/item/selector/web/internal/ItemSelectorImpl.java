@@ -17,13 +17,20 @@ package com.liferay.item.selector.web.internal;
 import com.liferay.item.selector.ItemSelector;
 import com.liferay.item.selector.ItemSelectorCriterion;
 import com.liferay.item.selector.ItemSelectorCriterionHandler;
+<<<<<<< HEAD
 import com.liferay.item.selector.ItemSelectorCriterionSerializer;
+=======
+>>>>>>> compatible
 import com.liferay.item.selector.ItemSelectorRendering;
 import com.liferay.item.selector.ItemSelectorReturnType;
 import com.liferay.item.selector.ItemSelectorView;
 import com.liferay.item.selector.ItemSelectorViewRenderer;
 import com.liferay.item.selector.constants.ItemSelectorPortletKeys;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.item.selector.web.ItemSelectorCriterionSerializer;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.portlet.LiferayWindowState;
@@ -33,6 +40,10 @@ import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 
@@ -116,14 +127,23 @@ public class ItemSelectorImpl implements ItemSelector {
 		String namespace = _portal.getPortletNamespace(
 			ItemSelectorPortletKeys.ITEM_SELECTOR);
 
+<<<<<<< HEAD
 		for (Map.Entry<String, String[]> entry : parameters.entrySet()) {
 			String parameterName = entry.getKey();
 
+=======
+		for (String parameterName : parameters.keySet()) {
+>>>>>>> compatible
 			if (parameterName.contains(namespace)) {
 				String key = StringUtil.removeSubstring(
 					parameterName, namespace);
 
+<<<<<<< HEAD
 				itemSelectorURLParameterMap.put(key, entry.getValue());
+=======
+				itemSelectorURLParameterMap.put(
+					key, parameters.get(parameterName));
+>>>>>>> compatible
 			}
 		}
 
@@ -149,8 +169,14 @@ public class ItemSelectorImpl implements ItemSelector {
 			itemSelectorCriteria.toArray(
 				new ItemSelectorCriterion[itemSelectorCriteria.size()]);
 
+<<<<<<< HEAD
 		for (ItemSelectorCriterion itemSelectorCriterion :
 				itemSelectorCriteria) {
+=======
+		for (int i = 0; i < itemSelectorCriteria.size(); i++) {
+			ItemSelectorCriterion itemSelectorCriterion =
+				itemSelectorCriteria.get(i);
+>>>>>>> compatible
 
 			Class<? extends ItemSelectorCriterion> itemSelectorCriterionClass =
 				itemSelectorCriterion.getClass();

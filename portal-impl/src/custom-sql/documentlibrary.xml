@@ -78,6 +78,21 @@
 				[$FOLDER_ID$]
 		]]>
 	</sql>
+<<<<<<< HEAD
+=======
+	<sql id="com.liferay.document.library.kernel.service.persistence.DLFileEntryFinder.countByG_F_S">
+		<![CDATA[
+			SELECT
+				COUNT(DISTINCT DLFileVersion.fileEntryId) AS COUNT_VALUE
+			FROM
+				DLFileVersion
+			WHERE
+				(DLFileVersion.groupId = ?) AND
+				([$STATUS$])
+				[$FOLDER_ID$]
+		]]>
+	</sql>
+>>>>>>> compatible
 	<sql id="com.liferay.document.library.kernel.service.persistence.DLFileEntryFinder.findByAnyImageId">
 		<![CDATA[
 			SELECT
@@ -121,6 +136,7 @@
 				DLFileEntry
 			WHERE
 				(DLFileEntry.groupId = ?) AND
+<<<<<<< HEAD
 				(
 					DLFileEntry.fileEntryTypeId IN
 						(
@@ -132,6 +148,16 @@
 								[$DDM_STRUCTURE_ID$]
 						)
 				)
+=======
+				(DLFileEntry.fileEntryTypeId IN (
+					SELECT
+						DDMStructureLink.classPK
+					FROM
+						DDMStructureLink
+					WHERE
+						[$DDM_STRUCTURE_ID$]
+				))
+>>>>>>> compatible
 		]]>
 	</sql>
 	<sql id="com.liferay.document.library.kernel.service.persistence.DLFileEntryFinder.findByMisversioned">
@@ -257,7 +283,11 @@
 		<![CDATA[
 			INNER JOIN
 				DLFileEntry ON
+<<<<<<< HEAD
 					DLFileEntry.fileEntryId = AssetEntry.classPK
+=======
+					(DLFileEntry.fileEntryId = AssetEntry.classPK)
+>>>>>>> compatible
 		]]>
 	</sql>
 	<sql id="com.liferay.document.library.kernel.service.persistence.DLFileEntryMetadataFinder.findByMismatchedCompanyId">
@@ -303,8 +333,17 @@
 				(DLFileEntryType.companyId = ?) AND
 				[$GROUP_ID$]
 				(
+<<<<<<< HEAD
 					(lower(DLFileEntryType.name) LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
 					(DLFileEntryType.description LIKE ? [$AND_OR_NULL_CHECK$])
+=======
+					(DLFileEntryType.companyId = ?) AND
+					[$GROUP_ID$]
+					(
+						(lower(DLFileEntryType.name) LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
+						(DLFileEntryType.description LIKE ? [$AND_OR_NULL_CHECK$])
+					)
+>>>>>>> compatible
 				)
 		]]>
 	</sql>
@@ -319,8 +358,17 @@
 				(DLFileEntryType.companyId = ?) AND
 				[$GROUP_ID$]
 				(
+<<<<<<< HEAD
 					(lower(DLFileEntryType.name) LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
 					(DLFileEntryType.description LIKE ? [$AND_OR_NULL_CHECK$])
+=======
+					(DLFileEntryType.companyId = ?) AND
+					[$GROUP_ID$]
+					(
+						(lower(DLFileEntryType.name) LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
+						(DLFileEntryType.description LIKE ? [$AND_OR_NULL_CHECK$])
+					)
+>>>>>>> compatible
 				)
 		]]>
 	</sql>
@@ -402,6 +450,7 @@
 				AssetEntry.classPK IS NULL
 		]]>
 	</sql>
+<<<<<<< HEAD
 	<sql id="com.liferay.document.library.kernel.service.persistence.DLFolderFinder.findF_ByC_T">
 		<![CDATA[
 			SELECT
@@ -416,6 +465,8 @@
 				(AssetEntry.classNameId = ?)
 		]]>
 	</sql>
+=======
+>>>>>>> compatible
 	<sql id="com.liferay.document.library.kernel.service.persistence.DLFolderFinder.findF_ByG_M_F">
 		<![CDATA[
 			SELECT
@@ -462,7 +513,11 @@
 		<![CDATA[
 			INNER JOIN
 				DLFolder ON
+<<<<<<< HEAD
 					DLFolder.folderId = AssetEntry.classPK
+=======
+					(DLFolder.folderId = AssetEntry.classPK)
+>>>>>>> compatible
 		]]>
 	</sql>
 	<sql id="com.liferay.document.library.kernel.service.persistence.DLFolderFinder.joinFE_ByDLFileVersion">

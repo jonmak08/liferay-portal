@@ -40,6 +40,7 @@ import com.liferay.portal.kernel.service.persistence.CompanyProvider;
 import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.Validator;
@@ -2625,11 +2626,19 @@ public class DLFileShortcutPersistenceImpl extends BasePersistenceImpl<DLFileSho
 		}
 
 		List<DLFileShortcut> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<DLFileShortcut>)finderCache.getResult(finderPath,
 					finderArgs, this);
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<DLFileShortcut>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+>>>>>>> compatible
 			if ((list != null) && !list.isEmpty()) {
 				for (DLFileShortcut dlFileShortcut : list) {
 					if ((groupId != dlFileShortcut.getGroupId()) ||
@@ -3532,6 +3541,7 @@ public class DLFileShortcutPersistenceImpl extends BasePersistenceImpl<DLFileSho
 			};
 
 		List<DLFileShortcut> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<DLFileShortcut>)finderCache.getResult(finderPath,
@@ -3543,6 +3553,19 @@ public class DLFileShortcutPersistenceImpl extends BasePersistenceImpl<DLFileSho
 							(status == dlFileShortcut.getStatus())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<DLFileShortcut>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (DLFileShortcut dlFileShortcut : list) {
+					if ((companyId != dlFileShortcut.getCompanyId()) ||
+							(status == dlFileShortcut.getStatus())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -4091,11 +4114,19 @@ public class DLFileShortcutPersistenceImpl extends BasePersistenceImpl<DLFileSho
 		}
 
 		List<DLFileShortcut> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<DLFileShortcut>)finderCache.getResult(finderPath,
 					finderArgs, this);
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<DLFileShortcut>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+>>>>>>> compatible
 			if ((list != null) && !list.isEmpty()) {
 				for (DLFileShortcut dlFileShortcut : list) {
 					if ((groupId != dlFileShortcut.getGroupId()) ||
@@ -5083,11 +5114,19 @@ public class DLFileShortcutPersistenceImpl extends BasePersistenceImpl<DLFileSho
 		}
 
 		List<DLFileShortcut> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<DLFileShortcut>)finderCache.getResult(finderPath,
 					finderArgs, this);
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<DLFileShortcut>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+>>>>>>> compatible
 			if ((list != null) && !list.isEmpty()) {
 				for (DLFileShortcut dlFileShortcut : list) {
 					if ((groupId != dlFileShortcut.getGroupId()) ||
@@ -5997,11 +6036,17 @@ public class DLFileShortcutPersistenceImpl extends BasePersistenceImpl<DLFileSho
 		setModelClass(DLFileShortcut.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("uuid", "uuid_");

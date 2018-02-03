@@ -44,6 +44,7 @@ if (!ParamUtil.getBoolean(renderRequest, "advancedSearch")) {
 	currentURLObj.setParameter("status", String.valueOf(status));
 }
 
+<<<<<<< HEAD
 String displayStyle = ParamUtil.getString(request, "displayStyle");
 
 if (Validator.isNull(displayStyle)) {
@@ -55,6 +56,9 @@ else {
 	request.setAttribute(WebKeys.SINGLE_PAGE_APPLICATION_CLEAR_CACHE, Boolean.TRUE);
 }
 
+=======
+String displayStyle = ParamUtil.getString(request, "displayStyle", "list");
+>>>>>>> compatible
 String navigation = ParamUtil.getString(request, "navigation", "active");
 String toolbarItem = ParamUtil.getString(request, "toolbarItem", "view-all-users");
 
@@ -67,9 +71,12 @@ else if (navigation.equals("inactive")) {
 	searchTerms.setStatus(WorkflowConstants.STATUS_INACTIVE);
 }
 
+<<<<<<< HEAD
 request.setAttribute(UsersAdminWebKeys.STATUS, status);
 
 portletURL.setParameter("displayStyle", displayStyle);
+=======
+>>>>>>> compatible
 portletURL.setParameter("navigation", navigation);
 portletURL.setParameter("status", String.valueOf(status));
 
@@ -84,21 +91,34 @@ boolean showRestoreButton = (searchTerms.getStatus() != WorkflowConstants.STATUS
 	<liferay-frontend:management-bar-filters>
 		<liferay-frontend:management-bar-navigation
 			navigationKeys='<%= new String[] {"active", "inactive"} %>'
+<<<<<<< HEAD
 			portletURL="<%= PortletURLUtil.clone(portletURL, renderResponse) %>"
+=======
+			portletURL="<%= renderResponse.createRenderURL() %>"
+>>>>>>> compatible
 		/>
 
 		<liferay-frontend:management-bar-sort
 			orderByCol="<%= searchContainer.getOrderByCol() %>"
 			orderByType="<%= searchContainer.getOrderByType() %>"
 			orderColumns='<%= new String[] {"first-name", "last-name", "screen-name"} %>'
+<<<<<<< HEAD
 			portletURL="<%= PortletURLUtil.clone(portletURL, renderResponse) %>"
+=======
+			portletURL="<%= portletURL %>"
+>>>>>>> compatible
 		/>
 	</liferay-frontend:management-bar-filters>
 
 	<liferay-frontend:management-bar-buttons>
 		<liferay-frontend:management-bar-display-buttons
+<<<<<<< HEAD
 			displayViews='<%= new String[] {"icon", "descriptive", "list"} %>'
 			portletURL="<%= PortletURLUtil.clone(portletURL, renderResponse) %>"
+=======
+			displayViews='<%= new String[] {"list"} %>'
+			portletURL="<%= renderResponse.createRenderURL() %>"
+>>>>>>> compatible
 			selectedDisplayStyle="<%= displayStyle %>"
 		/>
 	</liferay-frontend:management-bar-buttons>
@@ -323,6 +343,14 @@ boolean showRestoreButton = (searchTerms.getStatus() != WorkflowConstants.STATUS
 			%>
 
 			<%@ include file="/user/search_columns.jspf" %>
+<<<<<<< HEAD
+=======
+
+			<liferay-ui:search-container-column-jsp
+				cssClass="entry-action-column"
+				path="/user_action.jsp"
+			/>
+>>>>>>> compatible
 		</liferay-ui:search-container-row>
 
 		<%
@@ -338,7 +366,11 @@ boolean showRestoreButton = (searchTerms.getStatus() != WorkflowConstants.STATUS
 		}
 		%>
 
+<<<<<<< HEAD
 		<liferay-ui:search-iterator displayStyle="<%= displayStyle %>" markupView="lexicon" />
+=======
+		<liferay-ui:search-iterator markupView="lexicon" />
+>>>>>>> compatible
 	</liferay-ui:search-container>
 </aui:form>
 

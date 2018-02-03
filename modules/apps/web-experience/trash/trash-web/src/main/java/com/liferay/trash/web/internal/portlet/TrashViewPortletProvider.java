@@ -14,6 +14,7 @@
 
 package com.liferay.trash.web.internal.portlet;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.portlet.BasePortletProvider;
 import com.liferay.portal.kernel.portlet.PortletProvider;
@@ -34,6 +35,13 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+=======
+import com.liferay.portal.kernel.portlet.BasePortletProvider;
+import com.liferay.portal.kernel.portlet.ViewPortletProvider;
+import com.liferay.trash.web.internal.constants.TrashPortletKeys;
+
+import org.osgi.service.component.annotations.Component;
+>>>>>>> compatible
 
 /**
  * Provides an implementation of <code>ViewPortletProvider</code> (in
@@ -46,10 +54,14 @@ import org.osgi.service.component.annotations.Reference;
  */
 @Component(
 	immediate = true,
+<<<<<<< HEAD
 	property = {
 		"model.class.name=com.liferay.trash.kernel.model.TrashEntry",
 		"model.class.name=com.liferay.trash.model.TrashEntry"
 	},
+=======
+	property = {"model.class.name=com.liferay.trash.kernel.model.TrashEntry"},
+>>>>>>> compatible
 	service = ViewPortletProvider.class
 )
 public class TrashViewPortletProvider
@@ -60,6 +72,7 @@ public class TrashViewPortletProvider
 		return TrashPortletKeys.TRASH;
 	}
 
+<<<<<<< HEAD
 	@Override
 	public PortletURL getPortletURL(HttpServletRequest request)
 		throws PortalException {
@@ -93,4 +106,6 @@ public class TrashViewPortletProvider
 	@Reference
 	private TrashHelper _trashHelper;
 
+=======
+>>>>>>> compatible
 }

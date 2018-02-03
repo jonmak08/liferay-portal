@@ -14,18 +14,26 @@
 
 package com.liferay.calendar.util;
 
+<<<<<<< HEAD
 import com.liferay.calendar.model.CalendarBooking;
 import com.liferay.calendar.model.impl.CalendarBookingImpl;
 import com.liferay.calendar.model.impl.CalendarBookingModelImpl;
+=======
+>>>>>>> compatible
 import com.liferay.calendar.recurrence.Recurrence;
 import com.liferay.calendar.recurrence.RecurrenceSerializer;
 import com.liferay.calendar.recurrence.Weekday;
 import com.liferay.portal.kernel.util.CalendarFactoryUtil;
 import com.liferay.portal.kernel.util.StringPool;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.util.CalendarFactoryImpl;
 
 import java.util.ArrayList;
+=======
+import com.liferay.portal.util.CalendarFactoryImpl;
+
+>>>>>>> compatible
 import java.util.Calendar;
 import java.util.List;
 import java.util.TimeZone;
@@ -33,6 +41,7 @@ import java.util.TimeZone;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
+<<<<<<< HEAD
 import org.junit.runner.RunWith;
 
 import org.mockito.Mockito;
@@ -40,10 +49,13 @@ import org.mockito.Mockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.core.classloader.annotations.SuppressStaticInitializationFor;
 import org.powermock.modules.junit4.PowerMockRunner;
+=======
+>>>>>>> compatible
 
 /**
  * @author Adam Brandizzi
  */
+<<<<<<< HEAD
 @PrepareForTest(
 	{
 		CalendarBooking.class, CalendarBookingImpl.class,
@@ -58,6 +70,8 @@ import org.powermock.modules.junit4.PowerMockRunner;
 		"com.liferay.calendar.model.impl.CalendarBookingModelImpl"
 	}
 )
+=======
+>>>>>>> compatible
 public class RecurrenceUtilTest {
 
 	@BeforeClass
@@ -68,6 +82,7 @@ public class RecurrenceUtilTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testGetLastCalendarBookingInstance() {
 		Calendar lastInstanceStartTimeJCalendar = getJan2016Calendar(23);
 
@@ -166,6 +181,8 @@ public class RecurrenceUtilTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testInTimeZoneDoesNotUpdateExceptionJCalendarsInSameDay() {
 		Recurrence recurrence = RecurrenceSerializer.deserialize(
 			"RRULE:FREQ=DAILY;INTERVAL=1\n" +
@@ -329,12 +346,18 @@ public class RecurrenceUtilTest {
 
 		List<Weekday> weekdays = recurrence.getWeekdays();
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			weekdays.toString(), weekdays.contains(Weekday.MONDAY));
 		Assert.assertTrue(
 			weekdays.toString(), weekdays.contains(Weekday.WEDNESDAY));
 		Assert.assertTrue(
 			weekdays.toString(), weekdays.contains(Weekday.FRIDAY));
+=======
+		Assert.assertTrue(weekdays.contains(Weekday.MONDAY));
+		Assert.assertTrue(weekdays.contains(Weekday.WEDNESDAY));
+		Assert.assertTrue(weekdays.contains(Weekday.FRIDAY));
+>>>>>>> compatible
 
 		Calendar startTimeJCalendar = JCalendarUtil.getJCalendar(
 			2015, Calendar.DECEMBER, 11, 1, 0, 0, 0, _utcTimeZone);
@@ -344,6 +367,7 @@ public class RecurrenceUtilTest {
 
 		weekdays = recurrence.getWeekdays();
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			weekdays.toString(), weekdays.contains(Weekday.SUNDAY));
 		Assert.assertTrue(
@@ -411,6 +435,11 @@ public class RecurrenceUtilTest {
 		).getTimeZone();
 
 		return calendarBooking;
+=======
+		Assert.assertTrue(weekdays.contains(Weekday.SUNDAY));
+		Assert.assertTrue(weekdays.contains(Weekday.TUESDAY));
+		Assert.assertTrue(weekdays.contains(Weekday.THURSDAY));
+>>>>>>> compatible
 	}
 
 	private static final TimeZone _losAngelesTimeZone = TimeZone.getTimeZone(

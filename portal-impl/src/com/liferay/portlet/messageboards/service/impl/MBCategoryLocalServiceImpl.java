@@ -17,6 +17,10 @@ package com.liferay.portlet.messageboards.service.impl;
 import com.liferay.message.boards.kernel.exception.CategoryNameException;
 import com.liferay.message.boards.kernel.model.MBCategory;
 import com.liferay.message.boards.kernel.model.MBCategoryConstants;
+<<<<<<< HEAD
+=======
+import com.liferay.message.boards.kernel.model.MBMailingList;
+>>>>>>> compatible
 import com.liferay.message.boards.kernel.model.MBMessage;
 import com.liferay.message.boards.kernel.model.MBThread;
 import com.liferay.portal.kernel.dao.orm.QueryDefinition;
@@ -349,6 +353,16 @@ public class MBCategoryLocalServiceImpl extends MBCategoryLocalServiceBaseImpl {
 		return mbCategoryFinder.findC_T_ByG_C(
 			groupId, categoryId, queryDefinition);
 	}
+<<<<<<< HEAD
+
+	@Override
+	public List<Object> getCategoriesAndThreads(
+		long groupId, long categoryId, int status) {
+
+		QueryDefinition<?> queryDefinition = new QueryDefinition<>(status);
+
+		return mbCategoryFinder.findC_T_ByG_C(
+=======
 
 	@Override
 	public List<Object> getCategoriesAndThreads(
@@ -377,6 +391,28 @@ public class MBCategoryLocalServiceImpl extends MBCategoryLocalServiceBaseImpl {
 			WorkflowConstants.STATUS_ANY);
 
 		return mbCategoryFinder.countC_T_ByG_C(
+>>>>>>> compatible
+			groupId, categoryId, queryDefinition);
+	}
+
+	@Override
+<<<<<<< HEAD
+	public List<Object> getCategoriesAndThreads(
+		long groupId, long categoryId, int status, int start, int end) {
+
+		QueryDefinition<?> queryDefinition = new QueryDefinition<>(
+			status, start, end, null);
+
+		return mbCategoryFinder.findC_T_ByG_C(
+			groupId, categoryId, queryDefinition);
+	}
+
+	@Override
+	public int getCategoriesAndThreadsCount(long groupId, long categoryId) {
+		QueryDefinition<?> queryDefinition = new QueryDefinition<>(
+			WorkflowConstants.STATUS_ANY);
+
+		return mbCategoryFinder.countC_T_ByG_C(
 			groupId, categoryId, queryDefinition);
 	}
 
@@ -386,6 +422,13 @@ public class MBCategoryLocalServiceImpl extends MBCategoryLocalServiceBaseImpl {
 
 		QueryDefinition<?> queryDefinition = new QueryDefinition<>(status);
 
+=======
+	public int getCategoriesAndThreadsCount(
+		long groupId, long categoryId, int status) {
+
+		QueryDefinition<?> queryDefinition = new QueryDefinition<>(status);
+
+>>>>>>> compatible
 		return mbCategoryFinder.countC_T_ByG_C(
 			groupId, categoryId, queryDefinition);
 	}
@@ -755,6 +798,48 @@ public class MBCategoryLocalServiceImpl extends MBCategoryLocalServiceBaseImpl {
 		mbCategoryPersistence.update(category);
 
 		return category;
+	}
+
+	@Override
+	public MBCategory updateMessageCount(long categoryId) {
+		MBCategory mbCategory = mbCategoryPersistence.fetchByPrimaryKey(
+			categoryId);
+
+		if (mbCategory == null) {
+			return null;
+		}
+
+		int messageCount = mbMessageLocalService.getCategoryMessagesCount(
+			mbCategory.getGroupId(), mbCategory.getCategoryId(),
+			WorkflowConstants.STATUS_APPROVED);
+
+		mbCategory.setMessageCount(messageCount);
+
+		return mbCategoryPersistence.update(mbCategory);
+	}
+
+	@Override
+	public MBCategory updateStatistics(long categoryId) {
+		MBCategory mbCategory = mbCategoryPersistence.fetchByPrimaryKey(
+			categoryId);
+
+		if (mbCategory == null) {
+			return null;
+		}
+
+		int messageCount = mbMessageLocalService.getCategoryMessagesCount(
+			mbCategory.getGroupId(), mbCategory.getCategoryId(),
+			WorkflowConstants.STATUS_APPROVED);
+
+		mbCategory.setMessageCount(messageCount);
+
+		int threadCount = mbThreadLocalService.getCategoryThreadsCount(
+			mbCategory.getGroupId(), mbCategory.getCategoryId(),
+			WorkflowConstants.STATUS_APPROVED);
+
+		mbCategory.setThreadCount(threadCount);
+
+		return mbCategoryPersistence.update(mbCategory);
 	}
 
 	@Override

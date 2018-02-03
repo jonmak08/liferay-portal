@@ -16,9 +16,20 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<<<<<<< HEAD
+=======
+<%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
+
+>>>>>>> compatible
 <%@ taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %>
 
 <%@ page import="com.liferay.journal.model.JournalArticleDisplay" %><%@
 page import="com.liferay.portal.kernel.util.GetterUtil" %>
 
+<<<<<<< HEAD
 <liferay-theme:defineObjects />
+=======
+<liferay-theme:defineObjects />
+
+<portlet:defineObjects />
+>>>>>>> compatible

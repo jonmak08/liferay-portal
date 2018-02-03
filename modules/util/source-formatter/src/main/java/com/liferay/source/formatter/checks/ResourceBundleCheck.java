@@ -38,8 +38,13 @@ public class ResourceBundleCheck extends BaseFileCheck {
 			addMessage(
 				fileName,
 				"Use ResourceBundleUtil.getBundle instead of " +
+<<<<<<< HEAD
 					"ResourceBundle.getBundle",
 				"resource_bundle.markdown", getLineCount(content, pos));
+=======
+					"ResourceBundle.getBundle, see LPS-58529",
+				getLineCount(content, pos));
+>>>>>>> compatible
 		}
 
 		pos = content.indexOf("resourceBundle.getString(");
@@ -48,8 +53,13 @@ public class ResourceBundleCheck extends BaseFileCheck {
 			addMessage(
 				fileName,
 				"Use ResourceBundleUtil.getString instead of " +
+<<<<<<< HEAD
 					"resourceBundle.getString",
 				"resource_bundle.markdown", getLineCount(content, pos));
+=======
+					"resourceBundle.getString, see LPS-58529",
+				getLineCount(content, pos));
+>>>>>>> compatible
 		}
 
 		return content;

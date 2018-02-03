@@ -14,17 +14,25 @@
 
 package com.liferay.alloy.mvc;
 
+<<<<<<< HEAD
 import com.liferay.alloy.mvc.internal.json.web.service.AlloyControllerInvokerManager;
 import com.liferay.alloy.mvc.internal.json.web.service.AlloyMockUtil;
 import com.liferay.counter.kernel.service.CounterLocalServiceUtil;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.alloy.mvc.internal.json.web.service.AlloyMockUtil;
+import com.liferay.counter.kernel.service.CounterLocalServiceUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.bean.BeanPropertiesUtil;
 import com.liferay.portal.kernel.bean.ConstantsBeanFactoryUtil;
 import com.liferay.portal.kernel.dao.search.SearchContainer;
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.json.JSONSerializable;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -44,8 +52,11 @@ import com.liferay.portal.kernel.model.ModelHintsUtil;
 import com.liferay.portal.kernel.model.PersistedModel;
 import com.liferay.portal.kernel.model.Portlet;
 import com.liferay.portal.kernel.model.User;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.module.framework.service.IdentifiableOSGiService;
 import com.liferay.portal.kernel.module.framework.service.IdentifiableOSGiServiceUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.LiferayPortletConfig;
 import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
 import com.liferay.portal.kernel.portlet.PortletBag;
@@ -81,6 +92,10 @@ import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.ServiceBeanMethodInvocationFactoryUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.TextFormatter;
 import com.liferay.portal.kernel.util.Validator;
@@ -320,6 +335,7 @@ public abstract class BaseAlloyControllerImpl implements AlloyController {
 		}
 	}
 
+<<<<<<< HEAD
 	@SuppressWarnings("unused")
 	@Transactional(
 		isolation = Isolation.PORTAL, propagation = Propagation.REQUIRES_NEW,
@@ -329,6 +345,8 @@ public abstract class BaseAlloyControllerImpl implements AlloyController {
 		method.invoke(this);
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	public void persistModel(BaseModel<?> baseModel) throws Exception {
 		if (!(baseModel instanceof PersistedModel)) {
@@ -444,7 +462,11 @@ public abstract class BaseAlloyControllerImpl implements AlloyController {
 	protected String buildIncludePath(String viewPath) {
 		StringBundler sb = new StringBundler(5);
 
+<<<<<<< HEAD
 		sb.append("/alloy_mvc/jsp/");
+=======
+		sb.append("/WEB-INF/jsp/");
+>>>>>>> compatible
 		sb.append(portlet.getFriendlyURLMapping());
 		sb.append("/views/");
 
@@ -545,12 +567,23 @@ public abstract class BaseAlloyControllerImpl implements AlloyController {
 	protected void executeResource(Method method) throws Exception {
 		try {
 			if (method != null) {
+<<<<<<< HEAD
 				Method invokeMethod = clazz.getMethod(
 					"invoke", new Class<?>[] {Method.class});
 
 				ServiceBeanMethodInvocationFactoryUtil.proceed(
 					this, clazz, invokeMethod, new Object[] {method},
 					new String[] {"transactionAdvice"});
+=======
+				Class<?> superClass = clazz.getSuperclass();
+
+				Method invokeMethod = superClass.getDeclaredMethod(
+					"invoke", new Class<?>[] {Method.class});
+
+				ServiceBeanMethodInvocationFactoryUtil.proceed(
+					this, BaseAlloyControllerImpl.class, invokeMethod,
+					new Object[] {method}, new String[] {"transactionAdvice"});
+>>>>>>> compatible
 			}
 		}
 		catch (Exception e) {
@@ -709,10 +742,13 @@ public abstract class BaseAlloyControllerImpl implements AlloyController {
 		return getMessageListenerGroupName();
 	}
 
+<<<<<<< HEAD
 	protected StorageType getSchedulerStorageType() {
 		return StorageType.MEMORY_CLUSTERED;
 	}
 
+=======
+>>>>>>> compatible
 	protected Trigger getSchedulerTrigger() {
 		Calendar calendar = CalendarFactoryUtil.getCalendar();
 
@@ -874,7 +910,11 @@ public abstract class BaseAlloyControllerImpl implements AlloyController {
 						SchedulerEngineHelperUtil.unschedule(
 							getSchedulerJobName(),
 							getMessageListenerGroupName(),
+<<<<<<< HEAD
 							getSchedulerStorageType());
+=======
+							StorageType.MEMORY_CLUSTERED);
+>>>>>>> compatible
 					}
 
 					MessageBusUtil.unregisterMessageListener(
@@ -905,7 +945,11 @@ public abstract class BaseAlloyControllerImpl implements AlloyController {
 
 			if (enableScheduler) {
 				SchedulerEngineHelperUtil.schedule(
+<<<<<<< HEAD
 					getSchedulerTrigger(), getSchedulerStorageType(), null,
+=======
+					getSchedulerTrigger(), StorageType.MEMORY_CLUSTERED, null,
+>>>>>>> compatible
 					destinationName, null, 0);
 			}
 		}
@@ -1071,6 +1115,7 @@ public abstract class BaseAlloyControllerImpl implements AlloyController {
 		user = themeDisplay.getUser();
 	}
 
+<<<<<<< HEAD
 	protected JSONSerializable invokeAlloyController(
 			String controller, String lifecycle, String action,
 			Object[] parameters)
@@ -1081,6 +1126,15 @@ public abstract class BaseAlloyControllerImpl implements AlloyController {
 
 		return alloyControllerInvokerManager.invokeAlloyController(
 			controller, lifecycle, action, parameters);
+=======
+	@SuppressWarnings("unused")
+	@Transactional(
+		isolation = Isolation.PORTAL, propagation = Propagation.REQUIRES_NEW,
+		rollbackFor = {Exception.class}
+	)
+	protected void invoke(Method method) throws Exception {
+		method.invoke(this);
+>>>>>>> compatible
 	}
 
 	protected boolean isRespondingTo() {
@@ -1285,6 +1339,7 @@ public abstract class BaseAlloyControllerImpl implements AlloyController {
 
 		searchContext.setEnd(end);
 
+<<<<<<< HEAD
 		String modelClassName = indexer.getClassNames()[0];
 
 		int pos = modelClassName.indexOf(".model.");
@@ -1305,6 +1360,9 @@ public abstract class BaseAlloyControllerImpl implements AlloyController {
 			"create" + simpleClassName, new Class<?>[] {long.class});
 
 		Class<?> indexerClass = createModelMethod.getReturnType();
+=======
+		Class<?> indexerClass = Class.forName(indexer.getClassNames()[0]);
+>>>>>>> compatible
 
 		if (!GroupedModel.class.isAssignableFrom(indexerClass)) {
 			searchContext.setGroupIds(null);
@@ -1498,9 +1556,14 @@ public abstract class BaseAlloyControllerImpl implements AlloyController {
 
 		Map<String, Object> modelAttributes = baseModel.getModelAttributes();
 
+<<<<<<< HEAD
 		for (Map.Entry<String, Object> entry : modelAttributes.entrySet()) {
 			String key = entry.getKey();
 			Object value = entry.getValue();
+=======
+		for (String key : modelAttributes.keySet()) {
+			Object value = modelAttributes.get(key);
+>>>>>>> compatible
 
 			if (value instanceof Boolean) {
 				jsonObject.put(String.valueOf(key), (Boolean)value);
@@ -1533,8 +1596,13 @@ public abstract class BaseAlloyControllerImpl implements AlloyController {
 
 		Map<String, Field> fields = document.getFields();
 
+<<<<<<< HEAD
 		for (Map.Entry<String, Field> entry : fields.entrySet()) {
 			Field field = entry.getValue();
+=======
+		for (String key : fields.keySet()) {
+			Field field = fields.get(key);
+>>>>>>> compatible
 
 			jsonObject.put(field.getName(), field.getValue());
 		}
@@ -1566,14 +1634,23 @@ public abstract class BaseAlloyControllerImpl implements AlloyController {
 		}
 
 		String touchPath =
+<<<<<<< HEAD
 			"/alloy_mvc/jsp/" + portlet.getFriendlyURLMapping() +
+=======
+			"/WEB-INF/jsp/" + portlet.getFriendlyURLMapping() +
+>>>>>>> compatible
 				"/views/touch.jsp";
 
 		if (log.isDebugEnabled()) {
 			log.debug(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Touch ", portlet.getRootPortletId(), " by including ",
 					touchPath));
+=======
+				"Touch " + portlet.getRootPortletId() + " by including " +
+					touchPath);
+>>>>>>> compatible
 		}
 
 		portletContext.setAttribute(
@@ -1601,7 +1678,11 @@ public abstract class BaseAlloyControllerImpl implements AlloyController {
 
 	protected static final String VIEW_PATH_ERROR = "VIEW_PATH_ERROR";
 
+<<<<<<< HEAD
 	protected static final Log log = LogFactoryUtil.getLog(
+=======
+	protected static Log log = LogFactoryUtil.getLog(
+>>>>>>> compatible
 		BaseAlloyControllerImpl.class);
 
 	protected String actionPath;

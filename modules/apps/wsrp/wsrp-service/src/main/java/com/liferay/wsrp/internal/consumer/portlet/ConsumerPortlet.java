@@ -14,6 +14,7 @@
 
 package com.liferay.wsrp.internal.consumer.portlet;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Address;
@@ -22,6 +23,16 @@ import com.liferay.portal.kernel.model.EmailAddress;
 import com.liferay.portal.kernel.model.ListType;
 import com.liferay.portal.kernel.model.Phone;
 import com.liferay.portal.kernel.model.Region;
+=======
+import com.liferay.petra.encryptor.Encryptor;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.model.Address;
+import com.liferay.portal.kernel.model.Company;
+import com.liferay.portal.kernel.model.EmailAddress;
+import com.liferay.portal.kernel.model.ListType;
+import com.liferay.portal.kernel.model.Phone;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.model.Website;
 import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
@@ -48,6 +59,10 @@ import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.PortalUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StreamUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -70,7 +85,10 @@ import com.liferay.wsrp.util.MarkupCharacterSetsUtil;
 import com.liferay.wsrp.util.WSRPConfigurationUtil;
 import com.liferay.wsrp.util.WSRPConsumerManager;
 import com.liferay.wsrp.util.WSRPConsumerManagerFactory;
+<<<<<<< HEAD
 import com.liferay.wsrp.util.WSRPURLUtil;
+=======
+>>>>>>> compatible
 import com.liferay.wsrp.util.WebKeys;
 
 import java.io.IOException;
@@ -305,14 +323,21 @@ public class ConsumerPortlet extends MVCPortlet {
 		String url = GetterUtil.getString(
 			resourceRequest.getParameter("wsrp-url"));
 		String wsrpAuth = GetterUtil.getString(
+<<<<<<< HEAD
 			resourceRequest.getParameter(WebKeys.WSRP_AUTH));
 
 		StringBundler sb = new StringBundler(4);
+=======
+			resourceRequest.getParameter("wsrp-auth"));
+
+		StringBundler sb = new StringBundler(3);
+>>>>>>> compatible
 
 		sb.append(resourceID);
 		sb.append(url);
 		sb.append(wsrpGroupServiceConfiguration.soapDebug());
 
+<<<<<<< HEAD
 		ThemeDisplay themeDisplay = (ThemeDisplay)resourceRequest.getAttribute(
 			WebKeys.THEME_DISPLAY);
 
@@ -320,15 +345,27 @@ public class ConsumerPortlet extends MVCPortlet {
 			themeDisplay.getCompanyId(), sb.toString());
 
 		if (wsrpAuth.equals(expectedWSRPAuth)) {
+=======
+		String expectedWsrpAuth = encodeWSRPAuth(
+			resourceRequest, sb.toString());
+
+		if (wsrpAuth.equals(expectedWsrpAuth)) {
+>>>>>>> compatible
 			return true;
 		}
 
 		sb.append(AuthTokenUtil.getToken(request));
 
+<<<<<<< HEAD
 		expectedWSRPAuth = _wsrpURLUtil.encodeWSRPAuth(
 			themeDisplay.getCompanyId(), sb.toString());
 
 		if (wsrpAuth.equals(expectedWSRPAuth)) {
+=======
+		expectedWsrpAuth = encodeWSRPAuth(resourceRequest, sb.toString());
+
+		if (wsrpAuth.equals(expectedWsrpAuth)) {
+>>>>>>> compatible
 			return true;
 		}
 
@@ -487,6 +524,25 @@ public class ConsumerPortlet extends MVCPortlet {
 		}
 	}
 
+<<<<<<< HEAD
+=======
+	protected String encodeWSRPAuth(
+			PortletRequest portletRequest, String wsrpAuth)
+		throws Exception {
+
+		ThemeDisplay themeDisplay = (ThemeDisplay)portletRequest.getAttribute(
+			WebKeys.THEME_DISPLAY);
+
+		Company company = themeDisplay.getCompany();
+
+		wsrpAuth = String.valueOf(wsrpAuth.hashCode());
+		wsrpAuth = Encryptor.encrypt(company.getKeyObj(), wsrpAuth);
+		wsrpAuth = Base64.toURLSafe(wsrpAuth);
+
+		return wsrpAuth;
+	}
+
+>>>>>>> compatible
 	protected Calendar getBdate(User user) throws Exception {
 		Calendar birthday = Calendar.getInstance();
 
@@ -500,7 +556,11 @@ public class ConsumerPortlet extends MVCPortlet {
 			int x = contentType.lastIndexOf("charset=");
 
 			if (x >= 0) {
+<<<<<<< HEAD
 				return StringUtil.trim(contentType.substring(x + 8));
+=======
+				return contentType.substring(x + 8).trim();
+>>>>>>> compatible
 			}
 		}
 
@@ -735,6 +795,7 @@ public class ConsumerPortlet extends MVCPortlet {
 			Postal postal = new Postal();
 
 			postal.setCity(address.getCity());
+<<<<<<< HEAD
 
 			Country country = address.getCountry();
 
@@ -746,6 +807,12 @@ public class ConsumerPortlet extends MVCPortlet {
 			Region region = address.getRegion();
 
 			postal.setStateprov(region.getName());
+=======
+			postal.setCountry(address.getCountry().getName());
+			postal.setName(address.getUserName());
+			postal.setPostalcode(address.getZip());
+			postal.setStateprov(address.getRegion().getName());
+>>>>>>> compatible
 
 			String street =
 				address.getStreet1() + address.getStreet2() +
@@ -893,7 +960,11 @@ public class ConsumerPortlet extends MVCPortlet {
 		ThemeDisplay themeDisplay = (ThemeDisplay)portletRequest.getAttribute(
 			WebKeys.THEME_DISPLAY);
 
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(7);
+=======
+		StringBundler sb = new StringBundler();
+>>>>>>> compatible
 
 		sb.append(baseKey);
 		sb.append(StringPool.UNDERLINE);
@@ -991,7 +1062,12 @@ public class ConsumerPortlet extends MVCPortlet {
 		String wsrpConsumerPortletUuid = portletName;
 
 		if (portletName.startsWith("WSRP_")) {
+<<<<<<< HEAD
 			wsrpConsumerPortletUuid = portletName.substring(5);
+=======
+			wsrpConsumerPortletUuid = portletName.substring(
+				5, portletName.length());
+>>>>>>> compatible
 		}
 
 		wsrpConsumerPortletUuid = PortalUUIDUtil.fromJsSafeUuid(
@@ -1198,7 +1274,12 @@ public class ConsumerPortlet extends MVCPortlet {
 
 		if (Validator.isNotNull(navigationalState)) {
 			navigationalState = new String(
+<<<<<<< HEAD
 				Base64.decodeFromURL(navigationalState), StringPool.UTF8);
+=======
+				Base64.decode(Base64.fromURLSafe(navigationalState)),
+				StringPool.UTF8);
+>>>>>>> compatible
 
 			navigationalContext.setOpaqueValue(navigationalState);
 		}
@@ -1603,8 +1684,15 @@ public class ConsumerPortlet extends MVCPortlet {
 				uploadContext.setMimeAttributes(
 					new NamedString[] {mimeAttribute});
 
+<<<<<<< HEAD
 				try (InputStream inputStream =
 						uploadPortletRequest.getFileAsStream(name)) {
+=======
+				InputStream inputStream = null;
+
+				try {
+					inputStream = uploadPortletRequest.getFileAsStream(name);
+>>>>>>> compatible
 
 					if (inputStream == null) {
 						continue;
@@ -1618,6 +1706,12 @@ public class ConsumerPortlet extends MVCPortlet {
 
 					uploadContext.setUploadData(bytes);
 				}
+<<<<<<< HEAD
+=======
+				finally {
+					StreamUtil.cleanUp(inputStream);
+				}
+>>>>>>> compatible
 
 				uploadContexts.add(uploadContext);
 			}
@@ -1740,7 +1834,11 @@ public class ConsumerPortlet extends MVCPortlet {
 			if (Validator.isNotNull(opaqueValue)) {
 				byte[] opaqueValueBytes = opaqueValue.getBytes(StringPool.UTF8);
 
+<<<<<<< HEAD
 				opaqueValue = Base64.encodeToURL(opaqueValueBytes);
+=======
+				opaqueValue = Base64.toURLSafe(Base64.encode(opaqueValueBytes));
+>>>>>>> compatible
 
 				stateAwareResponse.setRenderParameter(
 					"wsrp-navigationalState", opaqueValue);
@@ -1916,7 +2014,11 @@ public class ConsumerPortlet extends MVCPortlet {
 				if (Validator.isNotNull(value)) {
 					byte[] valueBytes = value.getBytes(StringPool.UTF8);
 
+<<<<<<< HEAD
 					value = Base64.encodeToURL(valueBytes);
+=======
+					value = Base64.toURLSafe(Base64.encode(valueBytes));
+>>>>>>> compatible
 
 					liferayPortletURL.setParameter(name, value);
 				}
@@ -2065,10 +2167,16 @@ public class ConsumerPortlet extends MVCPortlet {
 			sb.append(AuthTokenUtil.getToken(request));
 		}
 
+<<<<<<< HEAD
 		String wsrpAuth = _wsrpURLUtil.encodeWSRPAuth(
 			themeDisplay.getCompanyId(), sb.toString());
 
 		parameterMap.put(WebKeys.WSRP_AUTH, wsrpAuth);
+=======
+		String wsrpAuth = encodeWSRPAuth(portletRequest, sb.toString());
+
+		parameterMap.put("wsrp-auth", wsrpAuth);
+>>>>>>> compatible
 	}
 
 	protected void sendRedirect(
@@ -2172,7 +2280,10 @@ public class ConsumerPortlet extends MVCPortlet {
 	private WSRPConsumerLocalService _wsrpConsumerLocalService;
 	private WSRPConsumerPortletLocalService _wsrpConsumerPortletLocalService;
 
+<<<<<<< HEAD
 	@ServiceReference(type = WSRPURLUtil.class)
 	private WSRPURLUtil _wsrpURLUtil;
 
+=======
+>>>>>>> compatible
 }

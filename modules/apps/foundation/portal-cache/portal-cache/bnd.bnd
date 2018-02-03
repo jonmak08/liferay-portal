@@ -1,6 +1,11 @@
 Bundle-Name: Liferay Portal Cache
 Bundle-SymbolicName: com.liferay.portal.cache
+<<<<<<< HEAD
 Bundle-Version: 2.4.10
+=======
+Bundle-Version: 2.4.2
+DynamicImport-Package: *
+>>>>>>> compatible
 Export-Package:\
 	com.liferay.portal.cache,\
 	com.liferay.portal.cache.configuration,\

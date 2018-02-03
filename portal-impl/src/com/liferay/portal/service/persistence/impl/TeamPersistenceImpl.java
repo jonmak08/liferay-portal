@@ -45,6 +45,7 @@ import com.liferay.portal.kernel.service.persistence.impl.TableMapperFactory;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.Validator;
@@ -234,7 +235,11 @@ public class TeamPersistenceImpl extends BasePersistenceImpl<Team>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_UUID_3);
 			}
 			else {
@@ -321,7 +326,11 @@ public class TeamPersistenceImpl extends BasePersistenceImpl<Team>
 		msg.append("uuid=");
 		msg.append(uuid);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchTeamException(msg.toString());
 	}
@@ -369,7 +378,11 @@ public class TeamPersistenceImpl extends BasePersistenceImpl<Team>
 		msg.append("uuid=");
 		msg.append(uuid);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchTeamException(msg.toString());
 	}
@@ -458,7 +471,11 @@ public class TeamPersistenceImpl extends BasePersistenceImpl<Team>
 		if (uuid == null) {
 			query.append(_FINDER_COLUMN_UUID_UUID_1);
 		}
+<<<<<<< HEAD
 		else if (uuid.equals("")) {
+=======
+		else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_UUID_UUID_3);
 		}
 		else {
@@ -594,7 +611,11 @@ public class TeamPersistenceImpl extends BasePersistenceImpl<Team>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_UUID_3);
 			}
 			else {
@@ -673,7 +694,11 @@ public class TeamPersistenceImpl extends BasePersistenceImpl<Team>
 			msg.append(", groupId=");
 			msg.append(groupId);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -736,7 +761,11 @@ public class TeamPersistenceImpl extends BasePersistenceImpl<Team>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_G_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_G_UUID_3);
 			}
 			else {
@@ -843,7 +872,11 @@ public class TeamPersistenceImpl extends BasePersistenceImpl<Team>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_G_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_G_UUID_3);
 			}
 			else {
@@ -1040,7 +1073,11 @@ public class TeamPersistenceImpl extends BasePersistenceImpl<Team>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_C_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_C_UUID_3);
 			}
 			else {
@@ -1135,7 +1172,11 @@ public class TeamPersistenceImpl extends BasePersistenceImpl<Team>
 		msg.append(", companyId=");
 		msg.append(companyId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchTeamException(msg.toString());
 	}
@@ -1188,7 +1229,11 @@ public class TeamPersistenceImpl extends BasePersistenceImpl<Team>
 		msg.append(", companyId=");
 		msg.append(companyId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchTeamException(msg.toString());
 	}
@@ -1282,7 +1327,11 @@ public class TeamPersistenceImpl extends BasePersistenceImpl<Team>
 		if (uuid == null) {
 			query.append(_FINDER_COLUMN_UUID_C_UUID_1);
 		}
+<<<<<<< HEAD
 		else if (uuid.equals("")) {
+=======
+		else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_UUID_C_UUID_3);
 		}
 		else {
@@ -1424,7 +1473,11 @@ public class TeamPersistenceImpl extends BasePersistenceImpl<Team>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_C_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_C_UUID_3);
 			}
 			else {
@@ -2582,11 +2635,17 @@ public class TeamPersistenceImpl extends BasePersistenceImpl<Team>
 		setModelClass(Team.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("uuid", "uuid_");

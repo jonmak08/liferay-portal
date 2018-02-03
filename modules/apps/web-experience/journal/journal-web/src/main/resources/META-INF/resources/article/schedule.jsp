@@ -22,7 +22,11 @@ JournalArticle article = journalDisplayContext.getArticle();
 boolean neverExpire = ParamUtil.getBoolean(request, "neverExpire", true);
 
 if (article != null) {
+<<<<<<< HEAD
 	if (article.getExpirationDate() != null) {
+=======
+	if ((article.getExpirationDate() != null) && !article.isExpired()) {
+>>>>>>> compatible
 		neverExpire = false;
 	}
 }

@@ -27,7 +27,11 @@ page import="com.liferay.application.list.PanelCategory" %><%@
 page import="com.liferay.application.list.PanelCategoryRegistry" %><%@
 page import="com.liferay.application.list.constants.ApplicationListWebKeys" %><%@
 page import="com.liferay.application.list.display.context.logic.PanelCategoryHelper" %><%@
+<<<<<<< HEAD
 page import="com.liferay.product.navigation.simulation.constants.ProductNavigationSimulationConstants" %><%@
+=======
+page import="com.liferay.product.navigation.simulation.application.list.SimulationPanelCategory" %><%@
+>>>>>>> compatible
 page import="com.liferay.taglib.aui.AUIUtil" %>
 
 <liferay-frontend:defineObjects />

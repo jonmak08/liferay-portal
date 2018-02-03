@@ -18,7 +18,10 @@ import com.liferay.dynamic.data.mapping.form.field.type.DDMFormFieldRenderer;
 import com.liferay.dynamic.data.mapping.form.field.type.DDMFormFieldType;
 import com.liferay.dynamic.data.mapping.form.field.type.DDMFormFieldTypeServicesTracker;
 import com.liferay.dynamic.data.mapping.form.field.type.DDMFormFieldTypeSettings;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.internal.util.DDMImpl;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.io.DDMFormJSONDeserializer;
 import com.liferay.dynamic.data.mapping.io.DDMFormJSONSerializer;
 import com.liferay.dynamic.data.mapping.io.internal.DDMFormJSONDeserializerImpl;
@@ -40,9 +43,15 @@ import com.liferay.dynamic.data.mapping.storage.DDMFormValues;
 import com.liferay.dynamic.data.mapping.storage.Field;
 import com.liferay.dynamic.data.mapping.storage.Fields;
 import com.liferay.dynamic.data.mapping.test.util.DDMFormFieldTypeSettingsTestUtil;
+<<<<<<< HEAD
 import com.liferay.portal.json.JSONFactoryImpl;
 import com.liferay.portal.kernel.configuration.Configuration;
 import com.liferay.portal.kernel.configuration.ConfigurationFactory;
+=======
+import com.liferay.dynamic.data.mapping.util.impl.DDMImpl;
+import com.liferay.portal.configuration.ConfigurationFactoryImpl;
+import com.liferay.portal.json.JSONFactoryImpl;
+>>>>>>> compatible
 import com.liferay.portal.kernel.configuration.ConfigurationFactoryUtil;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.language.Language;
@@ -52,6 +61,12 @@ import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.LocalizationUtil;
 import com.liferay.portal.kernel.util.PortalClassLoaderUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.Props;
+import com.liferay.portal.kernel.util.PropsKeys;
+import com.liferay.portal.kernel.util.PropsUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
 import com.liferay.portal.kernel.util.SetUtil;
@@ -62,7 +77,10 @@ import com.liferay.portal.kernel.xml.SAXReaderUtil;
 import com.liferay.portal.kernel.xml.UnsecureSAXReaderUtil;
 import com.liferay.portal.util.HtmlImpl;
 import com.liferay.portal.util.LocalizationImpl;
+<<<<<<< HEAD
 import com.liferay.portal.util.PropsValues;
+=======
+>>>>>>> compatible
 import com.liferay.portal.xml.SAXReaderImpl;
 
 import java.io.IOException;
@@ -546,6 +564,7 @@ public abstract class BaseDDMTestCase extends PowerMockito {
 	}
 
 	protected void setUpConfigurationFactoryUtil() {
+<<<<<<< HEAD
 		mockStatic(ConfigurationFactoryUtil.class);
 
 		when(
@@ -556,6 +575,10 @@ public abstract class BaseDDMTestCase extends PowerMockito {
 		);
 
 		ConfigurationFactoryUtil.setConfigurationFactory(_configurationFactory);
+=======
+		ConfigurationFactoryUtil.setConfigurationFactory(
+			new ConfigurationFactoryImpl());
+>>>>>>> compatible
 	}
 
 	protected void setUpDDMFormJSONDeserializer() throws Exception {
@@ -804,8 +827,27 @@ public abstract class BaseDDMTestCase extends PowerMockito {
 		);
 	}
 
+<<<<<<< HEAD
 	protected void setUpPropsValues() {
 		mockStatic(PropsValues.class);
+=======
+	protected void setUpPropsUtil() throws Exception {
+		Props props = mock(Props.class);
+
+		when(
+			props.get(PropsKeys.INDEX_DATE_FORMAT_PATTERN)
+		).thenReturn(
+			"yyyyMMddHHmmss"
+		);
+
+		when(
+			props.get(PropsKeys.XML_SECURITY_ENABLED)
+		).thenReturn(
+			Boolean.TRUE.toString()
+		);
+
+		PropsUtil.setProps(props);
+>>>>>>> compatible
 	}
 
 	protected void setUpResourceBundleUtil() {
@@ -927,12 +969,15 @@ public abstract class BaseDDMTestCase extends PowerMockito {
 	private ClassLoader _classLoader;
 
 	@Mock
+<<<<<<< HEAD
 	private Configuration _configuration;
 
 	@Mock
 	private ConfigurationFactory _configurationFactory;
 
 	@Mock
+=======
+>>>>>>> compatible
 	private DDMFormFieldType _defaultDDMFormFieldType;
 
 	@Mock

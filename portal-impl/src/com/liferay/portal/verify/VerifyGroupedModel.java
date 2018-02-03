@@ -15,6 +15,10 @@
 package com.liferay.portal.verify;
 
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.concurrent.ThrowableAwareRunnable;
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.jdbc.AutoBatchPreparedStatementUtil;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
 import com.liferay.portal.kernel.log.Log;
@@ -105,9 +109,14 @@ public class VerifyGroupedModel extends VerifyProcess {
 		throws Exception {
 
 		try (PreparedStatement ps = con.prepareStatement(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"select groupId from ", tableName, " where ",
 					primaryKeColumnName, " = ?"))) {
+=======
+				"select groupId from " + tableName + " where " +
+					primaryKeColumnName + " = ?")) {
+>>>>>>> compatible
 
 			ps.setLong(1, primKey);
 
@@ -117,10 +126,14 @@ public class VerifyGroupedModel extends VerifyProcess {
 				}
 
 				if (_log.isDebugEnabled()) {
+<<<<<<< HEAD
 					_log.debug(
 						StringBundler.concat(
 							"Unable to find ", tableName, " ",
 							String.valueOf(primKey)));
+=======
+					_log.debug("Unable to find " + tableName + " " + primKey);
+>>>>>>> compatible
 				}
 
 				return 0;
@@ -130,7 +143,11 @@ public class VerifyGroupedModel extends VerifyProcess {
 
 	@Override
 	protected boolean isForceConcurrent(
+<<<<<<< HEAD
 		Collection<? extends Callable<Void>> callables) {
+=======
+		Collection<? extends ThrowableAwareRunnable> throwableAwareRunnables) {
+>>>>>>> compatible
 
 		return true;
 	}

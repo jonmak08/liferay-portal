@@ -17,6 +17,10 @@ package com.liferay.tasks.service;
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.portal.kernel.bean.PortletBeanLocatorUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.service.InvokableService;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ReferenceRegistry;
 
 /**
@@ -73,6 +77,15 @@ public class TasksEntryServiceUtil {
 		return getService().getTasksEntry(tasksEntryId);
 	}
 
+<<<<<<< HEAD
+=======
+	public static java.lang.Object invokeMethod(java.lang.String name,
+		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
+		throws java.lang.Throwable {
+		return getService().invokeMethod(name, parameterTypes, arguments);
+	}
+
+>>>>>>> compatible
 	public static com.liferay.tasks.model.TasksEntry updateTasksEntry(
 		long tasksEntryId, java.lang.String title, int priority,
 		long assigneeUserId, long resolverUserId, int dueDateMonth,
@@ -102,9 +115,22 @@ public class TasksEntryServiceUtil {
 
 	public static TasksEntryService getService() {
 		if (_service == null) {
+<<<<<<< HEAD
 			_service = (TasksEntryService)PortletBeanLocatorUtil.locate(ServletContextUtil.getServletContextName(),
 					TasksEntryService.class.getName());
 
+=======
+			InvokableService invokableService = (InvokableService)PortletBeanLocatorUtil.locate(ClpSerializer.getServletContextName(),
+					TasksEntryService.class.getName());
+
+			if (invokableService instanceof TasksEntryService) {
+				_service = (TasksEntryService)invokableService;
+			}
+			else {
+				_service = new TasksEntryServiceClp(invokableService);
+			}
+
+>>>>>>> compatible
 			ReferenceRegistry.registerReference(TasksEntryServiceUtil.class,
 				"_service");
 		}

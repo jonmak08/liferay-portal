@@ -545,6 +545,7 @@ public class KaleoTimerInstanceTokenUtil {
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns all the kaleo timer instance tokens where kaleoInstanceTokenId = &#63; and blocking = &#63; and completed = &#63;.
 	*
 	* @param kaleoInstanceTokenId the kaleo instance token ID
@@ -560,86 +561,161 @@ public class KaleoTimerInstanceTokenUtil {
 
 	/**
 	* Returns a range of all the kaleo timer instance tokens where kaleoInstanceTokenId = &#63; and blocking = &#63; and completed = &#63;.
+=======
+	* Returns all the kaleo timer instance tokens where kaleoInstanceTokenId = &#63; and completed = &#63; and blocking = &#63;.
+	*
+	* @param kaleoInstanceTokenId the kaleo instance token ID
+	* @param completed the completed
+	* @param blocking the blocking
+	* @return the matching kaleo timer instance tokens
+	*/
+	public static List<KaleoTimerInstanceToken> findByKITI_C_B(
+		long kaleoInstanceTokenId, boolean completed, boolean blocking) {
+		return getPersistence()
+				   .findByKITI_C_B(kaleoInstanceTokenId, completed, blocking);
+	}
+
+	/**
+	* Returns a range of all the kaleo timer instance tokens where kaleoInstanceTokenId = &#63; and completed = &#63; and blocking = &#63;.
+>>>>>>> compatible
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link KaleoTimerInstanceTokenModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
 	* @param kaleoInstanceTokenId the kaleo instance token ID
+<<<<<<< HEAD
 	* @param blocking the blocking
 	* @param completed the completed
+=======
+	* @param completed the completed
+	* @param blocking the blocking
+>>>>>>> compatible
 	* @param start the lower bound of the range of kaleo timer instance tokens
 	* @param end the upper bound of the range of kaleo timer instance tokens (not inclusive)
 	* @return the range of matching kaleo timer instance tokens
 	*/
+<<<<<<< HEAD
 	public static List<KaleoTimerInstanceToken> findByKITI_B_C(
 		long kaleoInstanceTokenId, boolean blocking, boolean completed,
 		int start, int end) {
 		return getPersistence()
 				   .findByKITI_B_C(kaleoInstanceTokenId, blocking, completed,
+=======
+	public static List<KaleoTimerInstanceToken> findByKITI_C_B(
+		long kaleoInstanceTokenId, boolean completed, boolean blocking,
+		int start, int end) {
+		return getPersistence()
+				   .findByKITI_C_B(kaleoInstanceTokenId, completed, blocking,
+>>>>>>> compatible
 			start, end);
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns an ordered range of all the kaleo timer instance tokens where kaleoInstanceTokenId = &#63; and blocking = &#63; and completed = &#63;.
+=======
+	* Returns an ordered range of all the kaleo timer instance tokens where kaleoInstanceTokenId = &#63; and completed = &#63; and blocking = &#63;.
+>>>>>>> compatible
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link KaleoTimerInstanceTokenModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
 	* @param kaleoInstanceTokenId the kaleo instance token ID
+<<<<<<< HEAD
 	* @param blocking the blocking
 	* @param completed the completed
+=======
+	* @param completed the completed
+	* @param blocking the blocking
+>>>>>>> compatible
 	* @param start the lower bound of the range of kaleo timer instance tokens
 	* @param end the upper bound of the range of kaleo timer instance tokens (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching kaleo timer instance tokens
 	*/
+<<<<<<< HEAD
 	public static List<KaleoTimerInstanceToken> findByKITI_B_C(
 		long kaleoInstanceTokenId, boolean blocking, boolean completed,
 		int start, int end,
 		OrderByComparator<KaleoTimerInstanceToken> orderByComparator) {
 		return getPersistence()
 				   .findByKITI_B_C(kaleoInstanceTokenId, blocking, completed,
+=======
+	public static List<KaleoTimerInstanceToken> findByKITI_C_B(
+		long kaleoInstanceTokenId, boolean completed, boolean blocking,
+		int start, int end,
+		OrderByComparator<KaleoTimerInstanceToken> orderByComparator) {
+		return getPersistence()
+				   .findByKITI_C_B(kaleoInstanceTokenId, completed, blocking,
+>>>>>>> compatible
 			start, end, orderByComparator);
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns an ordered range of all the kaleo timer instance tokens where kaleoInstanceTokenId = &#63; and blocking = &#63; and completed = &#63;.
+=======
+	* Returns an ordered range of all the kaleo timer instance tokens where kaleoInstanceTokenId = &#63; and completed = &#63; and blocking = &#63;.
+>>>>>>> compatible
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link KaleoTimerInstanceTokenModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
 	* @param kaleoInstanceTokenId the kaleo instance token ID
+<<<<<<< HEAD
 	* @param blocking the blocking
 	* @param completed the completed
+=======
+	* @param completed the completed
+	* @param blocking the blocking
+>>>>>>> compatible
 	* @param start the lower bound of the range of kaleo timer instance tokens
 	* @param end the upper bound of the range of kaleo timer instance tokens (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @param retrieveFromCache whether to retrieve from the finder cache
 	* @return the ordered range of matching kaleo timer instance tokens
 	*/
+<<<<<<< HEAD
 	public static List<KaleoTimerInstanceToken> findByKITI_B_C(
 		long kaleoInstanceTokenId, boolean blocking, boolean completed,
+=======
+	public static List<KaleoTimerInstanceToken> findByKITI_C_B(
+		long kaleoInstanceTokenId, boolean completed, boolean blocking,
+>>>>>>> compatible
 		int start, int end,
 		OrderByComparator<KaleoTimerInstanceToken> orderByComparator,
 		boolean retrieveFromCache) {
 		return getPersistence()
+<<<<<<< HEAD
 				   .findByKITI_B_C(kaleoInstanceTokenId, blocking, completed,
+=======
+				   .findByKITI_C_B(kaleoInstanceTokenId, completed, blocking,
+>>>>>>> compatible
 			start, end, orderByComparator, retrieveFromCache);
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns the first kaleo timer instance token in the ordered set where kaleoInstanceTokenId = &#63; and blocking = &#63; and completed = &#63;.
 	*
 	* @param kaleoInstanceTokenId the kaleo instance token ID
 	* @param blocking the blocking
 	* @param completed the completed
+=======
+	* Returns the first kaleo timer instance token in the ordered set where kaleoInstanceTokenId = &#63; and completed = &#63; and blocking = &#63;.
+	*
+	* @param kaleoInstanceTokenId the kaleo instance token ID
+	* @param completed the completed
+	* @param blocking the blocking
+>>>>>>> compatible
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching kaleo timer instance token
 	* @throws NoSuchTimerInstanceTokenException if a matching kaleo timer instance token could not be found
 	*/
+<<<<<<< HEAD
 	public static KaleoTimerInstanceToken findByKITI_B_C_First(
 		long kaleoInstanceTokenId, boolean blocking, boolean completed,
 		OrderByComparator<KaleoTimerInstanceToken> orderByComparator)
@@ -672,10 +748,45 @@ public class KaleoTimerInstanceTokenUtil {
 	* @param kaleoInstanceTokenId the kaleo instance token ID
 	* @param blocking the blocking
 	* @param completed the completed
+=======
+	public static KaleoTimerInstanceToken findByKITI_C_B_First(
+		long kaleoInstanceTokenId, boolean completed, boolean blocking,
+		OrderByComparator<KaleoTimerInstanceToken> orderByComparator)
+		throws com.liferay.portal.workflow.kaleo.exception.NoSuchTimerInstanceTokenException {
+		return getPersistence()
+				   .findByKITI_C_B_First(kaleoInstanceTokenId, completed,
+			blocking, orderByComparator);
+	}
+
+	/**
+	* Returns the first kaleo timer instance token in the ordered set where kaleoInstanceTokenId = &#63; and completed = &#63; and blocking = &#63;.
+	*
+	* @param kaleoInstanceTokenId the kaleo instance token ID
+	* @param completed the completed
+	* @param blocking the blocking
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching kaleo timer instance token, or <code>null</code> if a matching kaleo timer instance token could not be found
+	*/
+	public static KaleoTimerInstanceToken fetchByKITI_C_B_First(
+		long kaleoInstanceTokenId, boolean completed, boolean blocking,
+		OrderByComparator<KaleoTimerInstanceToken> orderByComparator) {
+		return getPersistence()
+				   .fetchByKITI_C_B_First(kaleoInstanceTokenId, completed,
+			blocking, orderByComparator);
+	}
+
+	/**
+	* Returns the last kaleo timer instance token in the ordered set where kaleoInstanceTokenId = &#63; and completed = &#63; and blocking = &#63;.
+	*
+	* @param kaleoInstanceTokenId the kaleo instance token ID
+	* @param completed the completed
+	* @param blocking the blocking
+>>>>>>> compatible
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching kaleo timer instance token
 	* @throws NoSuchTimerInstanceTokenException if a matching kaleo timer instance token could not be found
 	*/
+<<<<<<< HEAD
 	public static KaleoTimerInstanceToken findByKITI_B_C_Last(
 		long kaleoInstanceTokenId, boolean blocking, boolean completed,
 		OrderByComparator<KaleoTimerInstanceToken> orderByComparator)
@@ -709,10 +820,46 @@ public class KaleoTimerInstanceTokenUtil {
 	* @param kaleoInstanceTokenId the kaleo instance token ID
 	* @param blocking the blocking
 	* @param completed the completed
+=======
+	public static KaleoTimerInstanceToken findByKITI_C_B_Last(
+		long kaleoInstanceTokenId, boolean completed, boolean blocking,
+		OrderByComparator<KaleoTimerInstanceToken> orderByComparator)
+		throws com.liferay.portal.workflow.kaleo.exception.NoSuchTimerInstanceTokenException {
+		return getPersistence()
+				   .findByKITI_C_B_Last(kaleoInstanceTokenId, completed,
+			blocking, orderByComparator);
+	}
+
+	/**
+	* Returns the last kaleo timer instance token in the ordered set where kaleoInstanceTokenId = &#63; and completed = &#63; and blocking = &#63;.
+	*
+	* @param kaleoInstanceTokenId the kaleo instance token ID
+	* @param completed the completed
+	* @param blocking the blocking
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching kaleo timer instance token, or <code>null</code> if a matching kaleo timer instance token could not be found
+	*/
+	public static KaleoTimerInstanceToken fetchByKITI_C_B_Last(
+		long kaleoInstanceTokenId, boolean completed, boolean blocking,
+		OrderByComparator<KaleoTimerInstanceToken> orderByComparator) {
+		return getPersistence()
+				   .fetchByKITI_C_B_Last(kaleoInstanceTokenId, completed,
+			blocking, orderByComparator);
+	}
+
+	/**
+	* Returns the kaleo timer instance tokens before and after the current kaleo timer instance token in the ordered set where kaleoInstanceTokenId = &#63; and completed = &#63; and blocking = &#63;.
+	*
+	* @param kaleoTimerInstanceTokenId the primary key of the current kaleo timer instance token
+	* @param kaleoInstanceTokenId the kaleo instance token ID
+	* @param completed the completed
+	* @param blocking the blocking
+>>>>>>> compatible
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next kaleo timer instance token
 	* @throws NoSuchTimerInstanceTokenException if a kaleo timer instance token with the primary key could not be found
 	*/
+<<<<<<< HEAD
 	public static KaleoTimerInstanceToken[] findByKITI_B_C_PrevAndNext(
 		long kaleoTimerInstanceTokenId, long kaleoInstanceTokenId,
 		boolean blocking, boolean completed,
@@ -748,6 +895,43 @@ public class KaleoTimerInstanceTokenUtil {
 		boolean blocking, boolean completed) {
 		return getPersistence()
 				   .countByKITI_B_C(kaleoInstanceTokenId, blocking, completed);
+=======
+	public static KaleoTimerInstanceToken[] findByKITI_C_B_PrevAndNext(
+		long kaleoTimerInstanceTokenId, long kaleoInstanceTokenId,
+		boolean completed, boolean blocking,
+		OrderByComparator<KaleoTimerInstanceToken> orderByComparator)
+		throws com.liferay.portal.workflow.kaleo.exception.NoSuchTimerInstanceTokenException {
+		return getPersistence()
+				   .findByKITI_C_B_PrevAndNext(kaleoTimerInstanceTokenId,
+			kaleoInstanceTokenId, completed, blocking, orderByComparator);
+	}
+
+	/**
+	* Removes all the kaleo timer instance tokens where kaleoInstanceTokenId = &#63; and completed = &#63; and blocking = &#63; from the database.
+	*
+	* @param kaleoInstanceTokenId the kaleo instance token ID
+	* @param completed the completed
+	* @param blocking the blocking
+	*/
+	public static void removeByKITI_C_B(long kaleoInstanceTokenId,
+		boolean completed, boolean blocking) {
+		getPersistence()
+			.removeByKITI_C_B(kaleoInstanceTokenId, completed, blocking);
+	}
+
+	/**
+	* Returns the number of kaleo timer instance tokens where kaleoInstanceTokenId = &#63; and completed = &#63; and blocking = &#63;.
+	*
+	* @param kaleoInstanceTokenId the kaleo instance token ID
+	* @param completed the completed
+	* @param blocking the blocking
+	* @return the number of matching kaleo timer instance tokens
+	*/
+	public static int countByKITI_C_B(long kaleoInstanceTokenId,
+		boolean completed, boolean blocking) {
+		return getPersistence()
+				   .countByKITI_C_B(kaleoInstanceTokenId, completed, blocking);
+>>>>>>> compatible
 	}
 
 	/**

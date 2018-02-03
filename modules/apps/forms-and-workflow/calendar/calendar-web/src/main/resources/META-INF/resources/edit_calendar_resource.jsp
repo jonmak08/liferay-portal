@@ -50,9 +50,15 @@ String code = BeanParamUtil.getString(calendarResource, request, "code");
 	<liferay-ui:error exception="<%= CalendarResourceNameException.class %>" message="please-enter-a-valid-name" />
 	<liferay-ui:error exception="<%= DuplicateCalendarResourceException.class %>" message="please-enter-a-unique-resource-code" />
 
+<<<<<<< HEAD
 	<liferay-asset:asset-categories-error />
 
 	<liferay-asset:asset-tags-error />
+=======
+	<liferay-ui:asset-categories-error />
+
+	<liferay-ui:asset-tags-error />
+>>>>>>> compatible
 
 	<aui:model-context bean="<%= calendarResource %>" model="<%= CalendarResource.class %>" />
 
@@ -94,9 +100,15 @@ String code = BeanParamUtil.getString(calendarResource, request, "code");
 			</liferay-ui:panel>
 
 			<liferay-ui:panel defaultState="closed" extended="<%= false %>" id="calendarResourceCategorizationPanel" persistState="<%= true %>" title="categorization">
+<<<<<<< HEAD
 				<liferay-asset:asset-categories-selector className="<%= CalendarResource.class.getName() %>" classPK="<%= calendarResourceId %>" />
 
 				<liferay-asset:asset-tags-selector className="<%= CalendarResource.class.getName() %>" classPK="<%= calendarResourceId %>" />
+=======
+				<aui:input classPK="<%= calendarResourceId %>" name="categories" type="assetCategories" />
+
+				<aui:input classPK="<%= calendarResourceId %>" name="tags" type="assetTags" />
+>>>>>>> compatible
 			</liferay-ui:panel>
 		</liferay-ui:panel-container>
 

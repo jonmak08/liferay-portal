@@ -16,8 +16,11 @@ package com.liferay.portal.search.elasticsearch.internal.groupby;
 
 import com.liferay.portal.search.elasticsearch.internal.ElasticsearchIndexingFixture;
 import com.liferay.portal.search.elasticsearch.internal.connection.ElasticsearchFixture;
+<<<<<<< HEAD
 import com.liferay.portal.search.elasticsearch.internal.connection.LiferayIndexCreator;
 import com.liferay.portal.search.elasticsearch.internal.count.ElasticsearchCountTest;
+=======
+>>>>>>> compatible
 import com.liferay.portal.search.test.util.groupby.BaseGroupByTestCase;
 import com.liferay.portal.search.test.util.indexing.BaseIndexingTestCase;
 import com.liferay.portal.search.test.util.indexing.IndexingFixture;
@@ -49,12 +52,18 @@ public class GroupByTest extends BaseGroupByTestCase {
 
 	@Override
 	protected IndexingFixture createIndexingFixture() {
+<<<<<<< HEAD
 		ElasticsearchFixture elasticsearchFixture = new ElasticsearchFixture(
 			ElasticsearchCountTest.class.getSimpleName());
 
 		return new ElasticsearchIndexingFixture(
 			elasticsearchFixture, BaseIndexingTestCase.COMPANY_ID,
 			new LiferayIndexCreator(elasticsearchFixture));
+=======
+		return new ElasticsearchIndexingFixture(
+			new ElasticsearchFixture(GroupByTest.class.getSimpleName()),
+			BaseIndexingTestCase.COMPANY_ID);
+>>>>>>> compatible
 	}
 
 }

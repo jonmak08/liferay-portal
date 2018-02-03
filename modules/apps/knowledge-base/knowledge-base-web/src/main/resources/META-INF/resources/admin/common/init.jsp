@@ -16,9 +16,12 @@
 
 <%@ include file="/init.jsp" %>
 
+<<<<<<< HEAD
 <%@ page import="com.liferay.document.library.configuration.DLConfiguration" %><%@
 page import="com.liferay.document.library.kernel.util.DLValidatorUtil" %>
 
+=======
+>>>>>>> compatible
 <%
 long kbFolderClassNameId = PortalUtil.getClassNameId(KBFolderConstants.getClassName());
 
@@ -39,7 +42,13 @@ boolean enableKBArticleViewCountIncrement = GetterUtil.getBoolean(request.getAtt
 boolean enableKBArticleSubscriptions = GetterUtil.getBoolean(request.getAttribute("init.jsp-enableKBArticleSubscriptions"));
 boolean enableKBArticleHistory = GetterUtil.getBoolean(request.getAttribute("init.jsp-enableKBArticleHistory"));
 boolean enableKBArticlePrint = GetterUtil.getBoolean(request.getAttribute("init.jsp-enableKBArticlePrint"));
+<<<<<<< HEAD
 String socialBookmarksDisplayStyle = GetterUtil.getString(request.getAttribute("init.jsp-socialBookmarksDisplayStyle"));
+=======
+boolean enableSocialBookmarks = GetterUtil.getBoolean(request.getAttribute("init.jsp-enableSocialBookmarks"));
+String socialBookmarksDisplayStyle = GetterUtil.getString(request.getAttribute("init.jsp-socialBookmarksDisplayStyle"));
+String socialBookmarksDisplayPosition = GetterUtil.getString(request.getAttribute("init.jsp-socialBookmarksDisplayPosition"));
+>>>>>>> compatible
 String socialBookmarksTypes = GetterUtil.getString(request.getAttribute("init.jsp-socialBookmarksTypes"));
 
 boolean enableRSS = kbGroupServiceConfiguration.enableRSS();

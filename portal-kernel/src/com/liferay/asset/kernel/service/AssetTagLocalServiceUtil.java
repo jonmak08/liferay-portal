@@ -614,6 +614,7 @@ public class AssetTagLocalServiceUtil {
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns the primary keys of the asset tags with the names.
 	*
 	* @param name the name of the asset tags
@@ -624,6 +625,8 @@ public class AssetTagLocalServiceUtil {
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	* Returns the names of all the asset tags.
 	*
 	* @return the names of all the asset tags
@@ -704,10 +707,13 @@ public class AssetTagLocalServiceUtil {
 		return getService().getTagsSize(groupId, classNameId, name);
 	}
 
+<<<<<<< HEAD
 	public static int getTagsSize(long groupId, java.lang.String name) {
 		return getService().getTagsSize(groupId, name);
 	}
 
+=======
+>>>>>>> compatible
 	public static boolean hasAssetEntryAssetTag(long entryId, long tagId) {
 		return getService().hasAssetEntryAssetTag(entryId, tagId);
 	}
@@ -784,6 +790,7 @@ public class AssetTagLocalServiceUtil {
 		return getService().search(groupIds, name, start, end);
 	}
 
+<<<<<<< HEAD
 	public static com.liferay.portal.kernel.search.BaseModelSearchResult<com.liferay.asset.kernel.model.AssetTag> searchTags(
 		long[] groupIds, java.lang.String name, int start, int end,
 		com.liferay.portal.kernel.search.Sort sort)
@@ -791,6 +798,8 @@ public class AssetTagLocalServiceUtil {
 		return getService().searchTags(groupIds, name, start, end, sort);
 	}
 
+=======
+>>>>>>> compatible
 	public static void setAssetEntryAssetTags(long entryId, long[] tagIds) {
 		getService().setAssetEntryAssetTags(entryId, tagIds);
 	}

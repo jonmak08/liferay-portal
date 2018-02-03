@@ -87,8 +87,12 @@ public class LiferayAntDefaultsPlugin implements Plugin<Project> {
 
 				@Override
 				public void execute(Project project) {
+<<<<<<< HEAD
 					GradlePluginsDefaultsUtil.setProjectSnapshotVersion(
 						project);
+=======
+					GradleUtil.setProjectSnapshotVersion(project);
+>>>>>>> compatible
 
 					// setProjectSnapshotVersion must be called before
 					// configureTaskUploadArchives, because the latter one needs
@@ -205,7 +209,11 @@ public class LiferayAntDefaultsPlugin implements Plugin<Project> {
 	private void _configureTaskUploadArchives(
 		Project project, Task updatePluginVersionTask) {
 
+<<<<<<< HEAD
 		if (GradlePluginsDefaultsUtil.isSnapshot(project)) {
+=======
+		if (GradleUtil.isSnapshot(project)) {
+>>>>>>> compatible
 			return;
 		}
 

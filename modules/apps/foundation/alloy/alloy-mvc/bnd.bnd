@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Alloy MVC
 Bundle-SymbolicName: com.liferay.alloy.mvc
+<<<<<<< HEAD
 Bundle-Version: 2.3.2
+=======
+Bundle-Version: 1.0.10
+>>>>>>> compatible
 Export-Package:\
 	com.liferay.alloy.mvc,\
 	com.liferay.alloy.mvc.json.web.service

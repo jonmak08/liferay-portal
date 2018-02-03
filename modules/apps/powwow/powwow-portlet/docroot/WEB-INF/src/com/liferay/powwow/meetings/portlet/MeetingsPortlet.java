@@ -63,7 +63,10 @@ import java.io.OutputStream;
 import java.io.Serializable;
 
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.Calendar;
+=======
+>>>>>>> compatible
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -613,7 +616,11 @@ public class MeetingsPortlet extends MVCPortlet {
 
 		int amPm = ParamUtil.getInteger(portletRequest, name + "AmPm");
 
+<<<<<<< HEAD
 		if (amPm == Calendar.PM) {
+=======
+		if (amPm == java.util.Calendar.PM) {
+>>>>>>> compatible
 			hour += 12;
 		}
 

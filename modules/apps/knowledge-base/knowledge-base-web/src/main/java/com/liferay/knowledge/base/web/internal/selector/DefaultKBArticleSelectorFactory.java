@@ -53,9 +53,20 @@ public class DefaultKBArticleSelectorFactory
 		_serviceTrackerMap.close();
 	}
 
+<<<<<<< HEAD
 	@Reference
 	private ClassNameLocalService _classNameLocalService;
 
+=======
+	@Reference(unbind = "-")
+	protected void setClassNameLocalService(
+		ClassNameLocalService classNameLocalService) {
+
+		_classNameLocalService = classNameLocalService;
+	}
+
+	private ClassNameLocalService _classNameLocalService;
+>>>>>>> compatible
 	private ServiceTrackerMap<String, KBArticleSelector> _serviceTrackerMap;
 
 }

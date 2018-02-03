@@ -14,7 +14,11 @@
 
 package com.liferay.portal.kernel.servlet;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 
@@ -27,7 +31,10 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+<<<<<<< HEAD
 import java.util.Iterator;
+=======
+>>>>>>> compatible
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -264,9 +271,13 @@ public class MetaInfoCacheServletResponse extends HttpServletResponseWrapper {
 			return null;
 		}
 
+<<<<<<< HEAD
 		Iterator<Header> iterator = values.iterator();
 
 		Header header = iterator.next();
+=======
+		Header header = values.iterator().next();
+>>>>>>> compatible
 
 		return header.toString();
 	}

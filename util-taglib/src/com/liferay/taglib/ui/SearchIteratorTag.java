@@ -15,7 +15,10 @@
 package com.liferay.taglib.ui;
 
 import com.liferay.portal.kernel.dao.search.ResultRowSplitter;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 
 import javax.servlet.http.HttpServletRequest;
@@ -71,9 +74,14 @@ public class SearchIteratorTag<R> extends SearchPaginatorTag<R> {
 		}
 
 		if (Validator.isNotNull(_markupView)) {
+<<<<<<< HEAD
 			return StringBundler.concat(
 				"/html/taglib/ui/search_iterator/", _markupView, "/",
 				displayStyle, ".jsp");
+=======
+			return "/html/taglib/ui/search_iterator/" + _markupView + "/" +
+				displayStyle + ".jsp";
+>>>>>>> compatible
 		}
 
 		return "/html/taglib/ui/search_iterator/" + displayStyle + ".jsp";

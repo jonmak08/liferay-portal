@@ -17,6 +17,7 @@ package com.liferay.dynamic.data.lists.service.test;
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
 import com.liferay.dynamic.data.lists.helper.DDLRecordSetTestHelper;
 import com.liferay.dynamic.data.lists.model.DDLRecordSet;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.lists.model.DDLRecordSetConstants;
 import com.liferay.dynamic.data.lists.model.DDLRecordSetVersion;
 import com.liferay.dynamic.data.lists.service.DDLRecordSetLocalServiceUtil;
@@ -25,10 +26,16 @@ import com.liferay.dynamic.data.mapping.model.DDMForm;
 import com.liferay.dynamic.data.mapping.model.DDMStructure;
 import com.liferay.dynamic.data.mapping.storage.StorageAdapter;
 import com.liferay.dynamic.data.mapping.storage.StorageType;
+=======
+import com.liferay.dynamic.data.mapping.model.DDMForm;
+import com.liferay.dynamic.data.mapping.model.DDMStructure;
+import com.liferay.dynamic.data.mapping.storage.StorageAdapter;
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.test.util.DDMFormTestUtil;
 import com.liferay.dynamic.data.mapping.test.util.DDMStructureTestHelper;
 import com.liferay.dynamic.data.mapping.test.util.storage.FailStorageAdapter;
 import com.liferay.portal.kernel.model.Group;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
@@ -39,15 +46,25 @@ import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
+=======
+import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+import com.liferay.portal.kernel.test.util.GroupTestUtil;
+import com.liferay.portal.kernel.util.PortalUtil;
+>>>>>>> compatible
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.registry.Registry;
 import com.liferay.registry.RegistryUtil;
 import com.liferay.registry.ServiceRegistration;
 
+<<<<<<< HEAD
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+=======
+import java.util.Locale;
+>>>>>>> compatible
 import java.util.Set;
 
 import org.junit.AfterClass;
@@ -97,6 +114,7 @@ public class DDLRecordSetServiceTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testAddRecordSetCreatesRecordSetVersion() throws Exception {
 		DDMForm ddmStructureDDMForm = DDMFormTestUtil.createDDMForm("Field");
 
@@ -115,6 +133,8 @@ public class DDLRecordSetServiceTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testAddRecordSetWithFailStorage() throws Exception {
 		DDMForm ddmStructureDDMForm = DDMFormTestUtil.createDDMForm("Field");
 
@@ -128,6 +148,7 @@ public class DDLRecordSetServiceTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testDeleteRecordSetDeletesRecordSetVersions() throws Exception {
 		DDMForm ddmStructureDDMForm = DDMFormTestUtil.createDDMForm("Field");
 
@@ -314,6 +335,8 @@ public class DDLRecordSetServiceTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testUpdateRecordSetWithFailStorage() throws Exception {
 		DDMForm ddmStructureDDMForm = DDMFormTestUtil.createDDMForm("Field");
 

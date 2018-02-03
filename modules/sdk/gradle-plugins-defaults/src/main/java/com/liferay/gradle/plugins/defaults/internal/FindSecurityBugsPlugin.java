@@ -349,7 +349,11 @@ public class FindSecurityBugsPlugin implements Plugin<Project> {
 			project, WRITE_FIND_BUGS_PROJECT_TASK_NAME,
 			WriteFindBugsProjectTask.class);
 
+<<<<<<< HEAD
 		final JavaCompile compileJSPTask = (JavaCompile)GradleUtil.getTask(
+=======
+		JavaCompile compileJSPTask = (JavaCompile)GradleUtil.getTask(
+>>>>>>> compatible
 			project, JspCPlugin.COMPILE_JSP_TASK_NAME);
 
 		writeFindBugsProjectTask.dependsOn(
@@ -364,6 +368,7 @@ public class FindSecurityBugsPlugin implements Plugin<Project> {
 		writeFindBugsProjectTask.setAuxClasspath(auxClasspath);
 
 		FileCollection classpath = project.files(
+<<<<<<< HEAD
 			new Callable<File>() {
 
 				@Override
@@ -372,6 +377,9 @@ public class FindSecurityBugsPlugin implements Plugin<Project> {
 				}
 
 			},
+=======
+			compileJSPTask.getDestinationDir(),
+>>>>>>> compatible
 			new Callable<File>() {
 
 				@Override

@@ -76,7 +76,11 @@ public class JSPStylingCheck extends BaseFileCheck {
 
 		if (matcher.find()) {
 			addMessage(
+<<<<<<< HEAD
 				fileName, "Avoid chaining on 'getClass'", "chaining.markdown",
+=======
+				fileName, "Avoid chaining on 'getClass'",
+>>>>>>> compatible
 				getLineCount(content, matcher.start()));
 		}
 	}

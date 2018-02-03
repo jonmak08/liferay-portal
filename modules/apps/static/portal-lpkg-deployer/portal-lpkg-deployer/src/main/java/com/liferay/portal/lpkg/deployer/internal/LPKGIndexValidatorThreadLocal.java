@@ -14,8 +14,13 @@
 
 package com.liferay.portal.lpkg.deployer.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
 import com.liferay.portal.kernel.security.auth.CompanyThreadLocal;
+=======
+import com.liferay.portal.kernel.security.auth.CompanyThreadLocal;
+import com.liferay.portal.kernel.util.AutoResetThreadLocal;
+>>>>>>> compatible
 
 /**
  * @author Shuyang Zhou
@@ -31,7 +36,11 @@ public class LPKGIndexValidatorThreadLocal {
 	}
 
 	private static final ThreadLocal<Boolean> _enabled =
+<<<<<<< HEAD
 		new CentralizedThreadLocal<>(
+=======
+		new AutoResetThreadLocal<>(
+>>>>>>> compatible
 			CompanyThreadLocal.class + "._enabled", () -> Boolean.TRUE);
 
 }

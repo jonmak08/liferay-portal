@@ -113,11 +113,17 @@ public class DeleteAfterTestRunTestCallback
 
 					if (collectionType == null) {
 						throw new IllegalArgumentException(
+<<<<<<< HEAD
 							StringBundler.concat(
 								"Unable to annotate field ",
 								String.valueOf(field),
 								" because it is not a collection of type ",
 								PersistedModel.class.getName()));
+=======
+							"Unable to annotate field " + field +
+								" because it is not a collection of type " +
+									PersistedModel.class.getName());
+>>>>>>> compatible
 					}
 
 					addField(
@@ -225,9 +231,15 @@ public class DeleteAfterTestRunTestCallback
 
 	protected void removeField(FieldBag fieldBag, Object instance)
 		throws Exception {
+<<<<<<< HEAD
 
 		Class<?> fieldClass = fieldBag.getFieldClass();
 
+=======
+
+		Class<?> fieldClass = fieldBag.getFieldClass();
+
+>>>>>>> compatible
 		PersistedModelLocalService persistedModelLocalService =
 			PersistedModelLocalServiceRegistryUtil.
 				getPersistedModelLocalService(fieldClass.getName());

@@ -18,9 +18,13 @@ import java.util.Iterator;
 
 /**
  * @author Sergio González
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, with no direct replacement
  */
 @Deprecated
+=======
+ */
+>>>>>>> compatible
 public interface MBMessageIterator extends Iterator<MBMessage> {
 
 	public int getIndexPage();

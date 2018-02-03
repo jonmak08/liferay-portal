@@ -15,8 +15,11 @@
 package com.liferay.wiki.web.internal.portlet.action;
 
 import com.liferay.portal.kernel.exception.PortalException;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.bridges.mvc.BaseMVCActionCommand;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCActionCommand;
 import com.liferay.portal.kernel.security.auth.PrincipalException;
@@ -27,13 +30,20 @@ import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.ProgressTracker;
 import com.liferay.portal.kernel.util.ProgressTrackerThreadLocal;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StreamUtil;
+>>>>>>> compatible
 import com.liferay.wiki.constants.WikiPortletKeys;
 import com.liferay.wiki.exception.NoSuchNodeException;
 import com.liferay.wiki.service.WikiNodeService;
 import com.liferay.wiki.util.WikiCacheHelper;
 import com.liferay.wiki.util.WikiCacheThreadLocal;
 
+<<<<<<< HEAD
 import java.io.IOException;
+=======
+>>>>>>> compatible
 import java.io.InputStream;
 
 import javax.portlet.ActionRequest;
@@ -118,6 +128,7 @@ public class ImportPagesMVCActionCommand extends BaseMVCActionCommand {
 		}
 		finally {
 			for (InputStream inputStream : inputStreams) {
+<<<<<<< HEAD
 				if (inputStream != null) {
 					try {
 						inputStream.close();
@@ -128,6 +139,9 @@ public class ImportPagesMVCActionCommand extends BaseMVCActionCommand {
 						}
 					}
 				}
+=======
+				StreamUtil.cleanUp(inputStream);
+>>>>>>> compatible
 			}
 		}
 
@@ -146,9 +160,12 @@ public class ImportPagesMVCActionCommand extends BaseMVCActionCommand {
 		_wikiNodeService = wikiNodeService;
 	}
 
+<<<<<<< HEAD
 	private static final Log _log = LogFactoryUtil.getLog(
 		ImportPagesMVCActionCommand.class);
 
+=======
+>>>>>>> compatible
 	@Reference
 	private Portal _portal;
 

@@ -2,7 +2,11 @@
 	<command name="assertElementNotPresent">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.AssertElementNotPresent#assertElementNotPresent" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 
@@ -26,7 +30,11 @@
 	<command name="assertNotVisible">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.AssertElementNotPresent#assertNotVisible" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 

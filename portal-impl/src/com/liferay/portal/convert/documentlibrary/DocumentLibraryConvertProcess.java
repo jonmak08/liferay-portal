@@ -169,10 +169,16 @@ public class DocumentLibraryConvertProcess
 		storeFactory.setStore(targetStoreClassName);
 
 		MaintenanceUtil.appendStatus(
+<<<<<<< HEAD
 			StringBundler.concat(
 				"Please set ", PropsKeys.DL_STORE_IMPL,
 				" in your portal-ext.properties to use ",
 				targetStoreClassName));
+=======
+			"Please set " + PropsKeys.DL_STORE_IMPL +
+				" in your portal-ext.properties to use " +
+					targetStoreClassName);
+>>>>>>> compatible
 
 		PropsValues.DL_STORE_IMPL = targetStoreClassName;
 	}

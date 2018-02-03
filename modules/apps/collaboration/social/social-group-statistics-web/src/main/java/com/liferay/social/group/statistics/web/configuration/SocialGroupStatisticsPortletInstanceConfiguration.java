@@ -32,6 +32,7 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
 )
 public interface SocialGroupStatisticsPortletInstanceConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(name = "chart-type", required = false)
 	public String[] chartType();
 
@@ -42,6 +43,18 @@ public interface SocialGroupStatisticsPortletInstanceConfiguration {
 	public String[] dataRange();
 
 	@Meta.AD(name = "display-activity-counter-name", required = false)
+=======
+	@Meta.AD(required = false)
+	public String[] chartType();
+
+	@Meta.AD(required = false)
+	public String[] chartWidth();
+
+	@Meta.AD(required = false)
+	public String[] dataRange();
+
+	@Meta.AD(required = false)
+>>>>>>> compatible
 	public String[] displayActivityCounterName();
 
 }

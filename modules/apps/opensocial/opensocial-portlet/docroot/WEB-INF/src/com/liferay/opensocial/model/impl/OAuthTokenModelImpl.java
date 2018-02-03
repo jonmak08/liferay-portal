@@ -32,6 +32,10 @@ import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Serializable;
 
@@ -314,7 +318,11 @@ public class OAuthTokenModelImpl extends BaseModelImpl<OAuthToken>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -329,7 +337,11 @@ public class OAuthTokenModelImpl extends BaseModelImpl<OAuthToken>
 	@Override
 	public String getUserName() {
 		if (_userName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _userName;
@@ -370,7 +382,11 @@ public class OAuthTokenModelImpl extends BaseModelImpl<OAuthToken>
 	@Override
 	public String getGadgetKey() {
 		if (_gadgetKey == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _gadgetKey;
@@ -395,7 +411,11 @@ public class OAuthTokenModelImpl extends BaseModelImpl<OAuthToken>
 	@Override
 	public String getServiceName() {
 		if (_serviceName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _serviceName;
@@ -442,7 +462,11 @@ public class OAuthTokenModelImpl extends BaseModelImpl<OAuthToken>
 	@Override
 	public String getAccessToken() {
 		if (_accessToken == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _accessToken;
@@ -457,7 +481,11 @@ public class OAuthTokenModelImpl extends BaseModelImpl<OAuthToken>
 	@Override
 	public String getTokenName() {
 		if (_tokenName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _tokenName;
@@ -482,7 +510,11 @@ public class OAuthTokenModelImpl extends BaseModelImpl<OAuthToken>
 	@Override
 	public String getTokenSecret() {
 		if (_tokenSecret == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _tokenSecret;
@@ -497,7 +529,11 @@ public class OAuthTokenModelImpl extends BaseModelImpl<OAuthToken>
 	@Override
 	public String getSessionHandle() {
 		if (_sessionHandle == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _sessionHandle;

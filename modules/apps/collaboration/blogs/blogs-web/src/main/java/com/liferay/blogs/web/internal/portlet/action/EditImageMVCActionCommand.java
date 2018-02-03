@@ -14,10 +14,16 @@
 
 package com.liferay.blogs.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.blogs.constants.BlogsConstants;
 import com.liferay.blogs.constants.BlogsPortletKeys;
 import com.liferay.blogs.exception.NoSuchEntryException;
 import com.liferay.blogs.service.BlogsEntryLocalService;
+=======
+import com.liferay.blogs.kernel.exception.NoSuchEntryException;
+import com.liferay.blogs.kernel.service.BlogsEntryLocalService;
+import com.liferay.blogs.web.constants.BlogsPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.portlet.bridges.mvc.BaseMVCActionCommand;
@@ -27,13 +33,20 @@ import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.Folder;
 import com.liferay.portal.kernel.security.auth.PrincipalException;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.resource.PortletResourcePermission;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.WebKeys;
+<<<<<<< HEAD
+=======
+import com.liferay.portlet.blogs.service.permission.BlogsPermission;
+>>>>>>> compatible
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
@@ -82,9 +95,15 @@ public class EditImageMVCActionCommand extends BaseMVCActionCommand {
 			}
 
 			if ((fileEntry.getUserId() == themeDisplay.getUserId()) ||
+<<<<<<< HEAD
 				_portletResourcePermission.contains(
 					themeDisplay.getPermissionChecker(),
 					themeDisplay.getScopeGroup(), ActionKeys.UPDATE)) {
+=======
+				BlogsPermission.contains(
+					themeDisplay.getPermissionChecker(),
+					themeDisplay.getScopeGroupId(), ActionKeys.UPDATE)) {
+>>>>>>> compatible
 
 				PortletFileRepositoryUtil.deletePortletFileEntry(
 					deleteFileEntryId);
@@ -138,7 +157,10 @@ public class EditImageMVCActionCommand extends BaseMVCActionCommand {
 
 	private BlogsEntryLocalService _blogsEntryLocalService;
 
+<<<<<<< HEAD
 	@Reference(target = "(resource.name=" + BlogsConstants.RESOURCE_NAME + ")")
 	private PortletResourcePermission _portletResourcePermission;
 
+=======
+>>>>>>> compatible
 }

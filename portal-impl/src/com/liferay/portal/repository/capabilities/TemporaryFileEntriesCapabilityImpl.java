@@ -15,6 +15,10 @@
 package com.liferay.portal.repository.capabilities;
 
 import com.liferay.document.library.kernel.exception.NoSuchFolderException;
+<<<<<<< HEAD
+=======
+import com.liferay.document.library.kernel.model.DLFileEntry;
+>>>>>>> compatible
 import com.liferay.document.library.kernel.model.DLFolderConstants;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.NoSuchModelException;
@@ -32,11 +36,19 @@ import com.liferay.portal.kernel.repository.model.BaseRepositoryModelOperation;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.Folder;
 import com.liferay.portal.kernel.service.ServiceContext;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.systemevent.SystemEventHierarchyEntryThreadLocal;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.UnsafeRunnable;
+>>>>>>> compatible
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 
 import java.io.File;
@@ -110,9 +122,10 @@ public class TemporaryFileEntriesCapabilityImpl
 					System.currentTimeMillis() -
 						getTemporaryFileEntriesTimeout()));
 
-		bulkOperationCapability.execute(
-			bulkFilter,
-			new DeleteExpiredTemporaryFilesRepositoryModelOperation());
+		_runWithoutSystemEvents(
+			() -> bulkOperationCapability.execute(
+				bulkFilter,
+				new DeleteExpiredTemporaryFilesRepositoryModelOperation()));
 	}
 
 	@Override
@@ -121,10 +134,13 @@ public class TemporaryFileEntriesCapabilityImpl
 			String fileName)
 		throws PortalException {
 
-		try {
-			FileEntry fileEntry = getTemporaryFileEntry(
-				temporaryFileEntriesScope, fileName);
+		_runWithoutSystemEvents(
+			() -> {
+				try {
+					FileEntry fileEntry = getTemporaryFileEntry(
+						temporaryFileEntriesScope, fileName);
 
+<<<<<<< HEAD
 			_documentRepository.deleteFileEntry(fileEntry.getFileEntryId());
 		}
 		catch (NoSuchModelException nsme) {
@@ -135,6 +151,20 @@ public class TemporaryFileEntriesCapabilityImpl
 				_log.debug(nsme, nsme);
 			}
 		}
+=======
+					_documentRepository.deleteFileEntry(
+						fileEntry.getFileEntryId());
+				}
+				catch (NoSuchModelException nsme) {
+
+					// LPS-52675
+
+					if (_log.isDebugEnabled()) {
+						_log.debug(nsme, nsme);
+					}
+				}
+			});
+>>>>>>> compatible
 	}
 
 	@Override
@@ -299,6 +329,20 @@ public class TemporaryFileEntriesCapabilityImpl
 		sb.append(temporaryFileEntriesScope.getFolderPath());
 
 		return sb.toString();
+	}
+
+	private void _runWithoutSystemEvents(
+			UnsafeRunnable<PortalException> unsafeRunnable)
+		throws PortalException {
+
+		SystemEventHierarchyEntryThreadLocal.push(DLFileEntry.class);
+
+		try {
+			unsafeRunnable.run();
+		}
+		finally {
+			SystemEventHierarchyEntryThreadLocal.pop(DLFileEntry.class);
+		}
 	}
 
 	private static final String _FOLDER_NAME_TEMP = "temp";

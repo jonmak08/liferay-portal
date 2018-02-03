@@ -21,6 +21,13 @@
 		<column name="createDate" type="Date" />
 		<column name="modifiedDate" type="Date" />
 
+<<<<<<< HEAD
+=======
+		<!-- Permission fields -->
+
+		<column name="resourceBlockId" type="long" />
+
+>>>>>>> compatible
 		<!-- Other fields -->
 
 		<column name="folderId" type="long" />
@@ -95,12 +102,21 @@
 
 		<reference entity="Group" package-path="com.liferay.portal" />
 		<reference entity="PortletPreferences" package-path="com.liferay.portal" />
+<<<<<<< HEAD
+=======
+		<reference entity="Subscription" package-path="com.liferay.portal" />
+>>>>>>> compatible
 		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
 		<reference entity="AssetLink" package-path="com.liferay.portlet.asset" />
 		<reference entity="AssetTag" package-path="com.liferay.portlet.asset" />
 		<reference entity="ExpandoRow" package-path="com.liferay.portlet.expando" />
 		<reference entity="RatingsStats" package-path="com.liferay.portlet.ratings" />
 		<reference entity="SocialActivity" package-path="com.liferay.portlet.social" />
+<<<<<<< HEAD
+=======
+		<reference entity="TrashEntry" package-path="com.liferay.portlet.trash" />
+		<reference entity="TrashVersion" package-path="com.liferay.portlet.trash" />
+>>>>>>> compatible
 	</entity>
 	<entity local-service="true" name="BookmarksFolder" remote-service="true" trash-enabled="true" uuid="true">
 
@@ -120,6 +136,13 @@
 		<column name="createDate" type="Date" />
 		<column name="modifiedDate" type="Date" />
 
+<<<<<<< HEAD
+=======
+		<!-- Permission fields -->
+
+		<column name="resourceBlockId" type="long" />
+
+>>>>>>> compatible
 		<!-- Other fields -->
 
 		<column name="parentFolderId" parent-container-model="true" type="long" />
@@ -175,11 +198,20 @@
 		<!-- References -->
 
 		<reference entity="Group" package-path="com.liferay.portal" />
+<<<<<<< HEAD
+=======
+		<reference entity="Subscription" package-path="com.liferay.portal" />
+>>>>>>> compatible
 		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
 		<reference entity="AssetLink" package-path="com.liferay.portlet.asset" />
 		<reference entity="ExpandoRow" package-path="com.liferay.portlet.expando" />
 		<reference entity="RatingsStats" package-path="com.liferay.portlet.ratings" />
 		<reference entity="SocialActivity" package-path="com.liferay.portlet.social" />
+<<<<<<< HEAD
+=======
+		<reference entity="TrashEntry" package-path="com.liferay.portlet.trash" />
+		<reference entity="TrashVersion" package-path="com.liferay.portlet.trash" />
+>>>>>>> compatible
 	</entity>
 	<exceptions>
 		<exception>EntryURL</exception>

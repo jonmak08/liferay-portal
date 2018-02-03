@@ -4,17 +4,30 @@
 
 		<execute function="Type" locator1="TextInput#SOURCE_URL" value1="${sourceURL}" />
 
+<<<<<<< HEAD
 		<execute macro="PortletEntry#save" />
+=======
+		<execute macro="Button#clickSave" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
 
 	<command name="closeFrame">
 		<execute function="SelectFrame" value1="relative=top" />
+<<<<<<< HEAD
 
 		<execute function="Click" locator1="Icon#CLOSE" />
 	</command>
 
+=======
+
+		<execute function="Click" locator1="Icon#CLOSE" />
+	</command>
+
+>>>>>>> compatible
 	<command name="saveConfiguration">
 		<execute macro="PortletEntry#save" />
 		<execute function="SelectFrame" value1="relative=top" />
@@ -25,6 +38,7 @@
 	</command>
 
 	<command name="selectConfigurationFrame">
+<<<<<<< HEAD
 		<if>
 			<condition function="IsElementPresent" locator1="IFrame#DIALOG" />
 			<then>
@@ -33,6 +47,9 @@
 				<execute function="SelectFrame" locator1="IFrame#DIALOG" />
 			</then>
 		</if>
+=======
+		<execute function="SelectFrame" locator1="IFrame#DIALOG" />
+>>>>>>> compatible
 	</command>
 
 	<command name="selectEditAssetFrame">

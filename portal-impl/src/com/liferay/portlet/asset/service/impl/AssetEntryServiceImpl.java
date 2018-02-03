@@ -25,7 +25,10 @@ import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.access.control.AccessControlled;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.util.StringPool;
@@ -133,6 +136,20 @@ public class AssetEntryServiceImpl extends AssetEntryServiceBaseImpl {
 			getPermissionChecker(), entry, ActionKeys.VIEW);
 
 		return entry;
+<<<<<<< HEAD
+=======
+	}
+
+	@Override
+	public void incrementViewCounter(AssetEntry assetEntry)
+		throws PortalException {
+
+		AssetEntryPermission.check(
+			getPermissionChecker(), assetEntry, ActionKeys.VIEW);
+
+		assetEntryLocalService.incrementViewCounter(
+			getGuestOrUserId(), assetEntry);
+>>>>>>> compatible
 	}
 
 	@Override

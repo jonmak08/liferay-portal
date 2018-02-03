@@ -2433,9 +2433,13 @@ public class ParamUtil {
 			String[] values = entry.getValue();
 
 			for (int i = 0; i < values.length; i++) {
+<<<<<<< HEAD
 				System.out.println(
 					StringBundler.concat(
 						name, "[", String.valueOf(i), "] = ", values[i]));
+=======
+				System.out.println(name + "[" + i + "] = " + values[i]);
+>>>>>>> compatible
 			}
 		}
 	}
@@ -2455,9 +2459,13 @@ public class ParamUtil {
 			String[] values = portletRequest.getParameterValues(param);
 
 			for (int i = 0; i < values.length; i++) {
+<<<<<<< HEAD
 				System.out.println(
 					StringBundler.concat(
 						param, "[", String.valueOf(i), "] = ", values[i]));
+=======
+				System.out.println(param + "[" + i + "] = " + values[i]);
+>>>>>>> compatible
 			}
 		}
 	}

@@ -19,11 +19,16 @@ import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.trash.kernel.model.TrashEntry;
 
 /**
+<<<<<<< HEAD
  * @author     Sergio González
  * @deprecated As of 7.0.0, replaced by {@link
  *             com.liferay.trash.util.comparator.EntryUserNameComparator}
  */
 @Deprecated
+=======
+ * @author Sergio González
+ */
+>>>>>>> compatible
 public class EntryUserNameComparator extends OrderByComparator<TrashEntry> {
 
 	public static final String ORDER_BY_ASC = "TrashEntry.userName ASC";

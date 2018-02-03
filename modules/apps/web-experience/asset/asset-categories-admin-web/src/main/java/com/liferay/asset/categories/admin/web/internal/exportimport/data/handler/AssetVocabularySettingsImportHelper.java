@@ -153,9 +153,13 @@ public class AssetVocabularySettingsImportHelper
 			String.valueOf(oldClassTypePK));
 
 		for (ClassType classType : availableClassTypes) {
+<<<<<<< HEAD
 			String curClassTypeName = classType.getName();
 
 			if (curClassTypeName.equals(classTypeName)) {
+=======
+			if (classType.getName().equals(classTypeName)) {
+>>>>>>> compatible
 				return classType.getClassTypeId();
 			}
 		}

@@ -112,6 +112,10 @@ manually adding a dependency to the `dbSupportTool` configuration:
 
 ```gradle
 dependencies {
+<<<<<<< HEAD
 	dbSupportTool group: "com.liferay", name: "com.liferay.portal.tools.db.support", version: "1.0.8"
+=======
+	dbSupportTool group: "com.liferay", name: "com.liferay.portal.tools.db.support", version: "1.0.6"
+>>>>>>> compatible
 }
 ```

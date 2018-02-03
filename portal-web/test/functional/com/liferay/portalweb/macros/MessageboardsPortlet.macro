@@ -2,9 +2,13 @@
 	<command name="configureAnonymousPostingCP">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Message Boards" />
 		</execute>
 
@@ -31,12 +35,19 @@
 			</elseif>
 		</if>
 
+<<<<<<< HEAD
 		<execute macro="PortletEntry#save" />
+=======
+		<execute macro="Button#clickSave" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 	</command>
 
 	<command name="configureGeneralCP">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
@@ -51,6 +62,20 @@
 
 		<execute function="Pause" locator1="10000" />
 
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+			<var name="portlet" value="Message Boards" />
+		</execute>
+
+		<execute function="Click" locator1="Portlet#OPTIONS_ICON" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Configuration">
+			<var name="key_menuItem" value="Configuration" />
+		</execute>
+
+		<execute function="Pause" locator1="10000" />
+
+>>>>>>> compatible
 		<execute function="SelectFrame" locator1="IFrame#CONFIGURATION" />
 
 		<if>
@@ -66,9 +91,13 @@
 	<command name="configureMessageAddedEmailCP">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Message Boards" />
 		</execute>
 
@@ -92,12 +121,19 @@
 			</else>
 		</if>
 
+<<<<<<< HEAD
 		<execute macro="PortletEntry#save" />
+=======
+		<execute macro="Button#clickSave" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 	</command>
 
 	<command name="configureMessageEmailFromCP">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
@@ -112,6 +148,20 @@
 
 		<execute function="SelectFrame" locator1="IFrame#CONFIGURATION" />
 
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+			<var name="portlet" value="Message Boards" />
+		</execute>
+
+		<execute function="Click" locator1="Portlet#OPTIONS_ICON" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Configuration">
+			<var name="key_menuItem" value="Configuration" />
+		</execute>
+
+		<execute function="SelectFrame" locator1="IFrame#CONFIGURATION" />
+
+>>>>>>> compatible
 		<execute function="AssertClick" locator1="MessageBoardsAdminConfiguration#SETUP_NAVIGATION_EMAIL_FROM" value1="Email From" />
 
 		<if>
@@ -128,15 +178,25 @@
 			</then>
 		</if>
 
+<<<<<<< HEAD
 		<execute macro="PortletEntry#save" />
+=======
+		<execute macro="Button#clickSave" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 	</command>
 
 	<command name="configureMessageUpdatedEmailCP">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Message Boards" />
 		</execute>
 
@@ -160,7 +220,12 @@
 			</else>
 		</if>
 
+<<<<<<< HEAD
 		<execute macro="PortletEntry#save" />
+=======
+		<execute macro="Button#clickSave" />
+		<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 	</command>
 
 	<command name="configureScopePG">
@@ -170,11 +235,19 @@
 		</execute>
 
 		<execute function="SelectFrame" locator1="IFrame#CONFIGURATION" />
+<<<<<<< HEAD
 
 		<execute function="AssertClick" locator1="MessageBoardsConfiguration#NAVIGATION_SCOPE" value1="Scope" />
 
 		<execute function="Select" locator1="Select#SCOPE" value1="${scopeName}" />
 
+=======
+
+		<execute function="AssertClick" locator1="MessageBoardsConfiguration#NAVIGATION_SCOPE" value1="Scope" />
+
+		<execute function="Select" locator1="Select#SCOPE" value1="${scopeName}" />
+
+>>>>>>> compatible
 		<execute macro="PortletEntry#save" />
 	</command>
 
@@ -189,9 +262,15 @@
 	</command>
 
 	<command name="searchPG">
+<<<<<<< HEAD
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="${searchTerm}" />
 		</execute>
+=======
+		<execute function="Type" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${searchTerm}" />
+
+		<execute function="Click" locator1="MessageBoards#SEARCH_BUTTON" />
+>>>>>>> compatible
 	</command>
 
 	<command name="subscribePG">
@@ -202,13 +281,18 @@
 	<command name="tearDownConfigurationEmailCP">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Message Boards" />
 		</execute>
 
 		<execute function="Click" locator1="Portlet#OPTIONS_ICON" />
+<<<<<<< HEAD
 
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Configuration">
 			<var name="key_menuItem" value="Configuration" />
@@ -227,11 +311,36 @@
 		<execute function="Check" locator1="MessageBoardsAdminConfiguration#MESSAGE_UPDATED_EMAIL_ENABLED_CHECKBOX" />
 
 		<execute macro="PortletEntry#save" />
+=======
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Configuration">
+			<var name="key_menuItem" value="Configuration" />
+		</execute>
+
+		<execute function="SelectFrame" locator1="IFrame#CONFIGURATION" />
+
+		<execute function="AssertClick" locator1="MessageBoardsAdminConfiguration#SETUP_NAVIGATION_MESSAGE_ADDED_EMAIL" value1="Message Added Email" />
+
+		<execute function="Check" locator1="MessageBoardsAdminConfiguration#MESSAGE_ADDED_EMAIL_ENABLED_CHECKBOX" />
+
+		<execute macro="Button#clickSave" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+
+		<execute function="AssertClick" locator1="MessageBoardsAdminConfiguration#SETUP_NAVIGATION_MESSAGE_UPDATED_EMAIL" value1="Message Updated Email" />
+
+		<execute function="Check" locator1="MessageBoardsAdminConfiguration#MESSAGE_UPDATED_EMAIL_ENABLED_CHECKBOX" />
+
+		<execute macro="Button#clickSave" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 	</command>
 
 	<command name="tearDownConfigurationGeneralCP">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
@@ -249,6 +358,25 @@
 		<execute function="Check" locator1="MessageBoardsAdminConfiguration#GENERAL_ALLOW_ANONYMOUS_POSTING_CHECKBOX" />
 
 		<execute macro="PortletEntry#save" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+			<var name="portlet" value="Message Boards" />
+		</execute>
+
+		<execute function="Click" locator1="Portlet#OPTIONS_ICON" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Configuration">
+			<var name="key_menuItem" value="Configuration" />
+		</execute>
+
+		<execute function="SelectFrame" locator1="IFrame#CONFIGURATION" />
+
+		<execute function="Check" locator1="MessageBoardsAdminConfiguration#GENERAL_ALLOW_ANONYMOUS_POSTING_CHECKBOX" />
+
+		<execute macro="Button#clickSave" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 	</command>
 
 	<command name="unbanUserPG">
@@ -256,11 +384,15 @@
 
 		<var name="key_userScreenName" value="${userScreenName}" />
 
+<<<<<<< HEAD
 		<execute function="Click" locator1="MessageBoardsBannedUsers#BANNED_USERS_TABLE_ACTIONS" />
 
 		<execute function="Click" locator1="MenuItem#ANY_MENU_ITEM" value1="Unban This User">
 			<var name="key_menuItem" value="Unban This User" />
 		</execute>
+=======
+		<execute function="AssertClick" locator1="MessageBoardsBannedUsers#BANNED_USERS_TABLE_UNBAN_THIS_USER" value1="Unban This User" />
+>>>>>>> compatible
 
 		<execute macro="Alert#viewSuccessMessage" />
 		<execute function="AssertElementNotPresent" locator1="MessageBoardsBannedUsers#BANNED_USERS_TABLE_BANNED_USER" />
@@ -293,11 +425,15 @@
 		<execute function="AssertTextEquals" locator1="MessageBoardsBannedUsers#BANNED_USERS_TABLE_BANNED_BY" value1="Test Test" />
 		<execute function="AssertVisible" locator1="MessageBoardsBannedUsers#BANNED_USERS_TABLE_BAN_DATE"  />
 		<execute function="AssertVisible" locator1="MessageBoardsBannedUsers#BANNED_USERS_TABLE_UNBAN_DATE"  />
+<<<<<<< HEAD
 
 		<execute function="Click" locator1="MessageBoardsBannedUsers#BANNED_USERS_TABLE_ACTIONS" />
 		<execute function="AssertElementPresent" locator1="MenuItem#ANY_MENU_ITEM" value1="Unban This User">
 			<var name="key_menuItem" value="Unban This User" />
 		</execute>
+=======
+		<execute function="AssertElementPresent" locator1="MessageBoardsBannedUsers#BANNED_USERS_TABLE_UNBAN_THIS_USER" />
+>>>>>>> compatible
 
 		<execute function="AssertClick" locator1="MessageBoardsBannedUsers#BANNED_USERS_TABLE_BANNED_USER" value1="${userScreenName}" />
 
@@ -325,9 +461,13 @@
 	<command name="viewDefaultEmailFromCP">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Message Boards" />
 		</execute>
 

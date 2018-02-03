@@ -16,7 +16,11 @@ package com.liferay.social.activities.web.internal.portlet.action;
 
 import com.liferay.portal.kernel.portlet.ConfigurationAction;
 import com.liferay.portal.kernel.portlet.DefaultConfigurationAction;
+<<<<<<< HEAD
 import com.liferay.social.activities.constants.SocialActivitiesPortletKeys;
+=======
+import com.liferay.social.activities.web.constants.SocialActivitiesPortletKeys;
+>>>>>>> compatible
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;

@@ -19,6 +19,10 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import com.liferay.social.networking.model.MeetupsEntry;
 
@@ -109,7 +113,11 @@ public class MeetupsEntryCacheModel implements CacheModel<MeetupsEntry>,
 		meetupsEntryImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			meetupsEntryImpl.setUserName("");
+=======
+			meetupsEntryImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			meetupsEntryImpl.setUserName(userName);
@@ -130,14 +138,22 @@ public class MeetupsEntryCacheModel implements CacheModel<MeetupsEntry>,
 		}
 
 		if (title == null) {
+<<<<<<< HEAD
 			meetupsEntryImpl.setTitle("");
+=======
+			meetupsEntryImpl.setTitle(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			meetupsEntryImpl.setTitle(title);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			meetupsEntryImpl.setDescription("");
+=======
+			meetupsEntryImpl.setDescription(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			meetupsEntryImpl.setDescription(description);
@@ -201,7 +217,11 @@ public class MeetupsEntryCacheModel implements CacheModel<MeetupsEntry>,
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -211,14 +231,22 @@ public class MeetupsEntryCacheModel implements CacheModel<MeetupsEntry>,
 		objectOutput.writeLong(modifiedDate);
 
 		if (title == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(title);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(description);

@@ -15,7 +15,10 @@
 package com.liferay.petra.salesforce.client.streaming;
 
 import com.liferay.petra.salesforce.client.BaseSalesforceClientImpl;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 
 import com.sforce.soap.partner.PartnerConnection;
 import com.sforce.ws.ConnectionException;
@@ -143,8 +146,12 @@ public class SalesforceStreamingClientImpl
 			URL url = new URL(connectorConfig.getServiceEndpoint());
 
 			_bayeuxClient = new BayeuxClient(
+<<<<<<< HEAD
 				StringBundler.concat(
 					url.getProtocol(), "://", url.getHost(), "/cometd/37.0"),
+=======
+				url.getProtocol() + "://" + url.getHost() + "/cometd/37.0",
+>>>>>>> compatible
 				new SalesforceTransport(
 					connectorConfig.getSessionId(), options, _httpClient));
 

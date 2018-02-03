@@ -32,6 +32,10 @@ import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.site.navigation.menu.web.internal.constants.SiteNavigationMenuPortletKeys;
 
+<<<<<<< HEAD
+=======
+import java.util.ArrayList;
+>>>>>>> compatible
 import java.util.Collections;
 import java.util.List;
 
@@ -59,6 +63,7 @@ import org.osgi.service.component.annotations.Reference;
 public class SiteNavigationMenuPortletToolbarContributor
 	extends BasePortletToolbarContributor {
 
+<<<<<<< HEAD
 	@Override
 	protected List<MenuItem> getPortletTitleMenuItems(
 		PortletRequest portletRequest, PortletResponse portletResponse) {
@@ -86,6 +91,11 @@ public class SiteNavigationMenuPortletToolbarContributor
 
 	private MenuItem _createMenuItem(
 			ThemeDisplay themeDisplay, PortletRequest portletRequest)
+=======
+	protected void addPortletTitleAddSiteNavigationMenuItems(
+			List<MenuItem> menuItems, ThemeDisplay themeDisplay,
+			PortletRequest portletRequest)
+>>>>>>> compatible
 		throws Exception {
 
 		URLMenuItem urlMenuItem = new URLMenuItem();
@@ -99,6 +109,10 @@ public class SiteNavigationMenuPortletToolbarContributor
 			PortletProvider.Action.EDIT);
 
 		portletURL.setParameter("mvcPath", "/add_layout.jsp");
+<<<<<<< HEAD
+=======
+		portletURL.setParameter("redirect", themeDisplay.getURLCurrent());
+>>>>>>> compatible
 		portletURL.setParameter(
 			"groupId", String.valueOf(themeDisplay.getScopeGroupId()));
 
@@ -114,7 +128,38 @@ public class SiteNavigationMenuPortletToolbarContributor
 
 		urlMenuItem.setURL(portletURL.toString());
 
+<<<<<<< HEAD
 		return urlMenuItem;
+=======
+		menuItems.add(urlMenuItem);
+	}
+
+	@Override
+	protected List<MenuItem> getPortletTitleMenuItems(
+		PortletRequest portletRequest, PortletResponse portletResponse) {
+
+		ThemeDisplay themeDisplay = (ThemeDisplay)portletRequest.getAttribute(
+			WebKeys.THEME_DISPLAY);
+
+		List<MenuItem> menuItems = new ArrayList<>();
+
+		try {
+			if (!LayoutPermissionUtil.contains(
+					themeDisplay.getPermissionChecker(),
+					themeDisplay.getLayout(), ActionKeys.UPDATE)) {
+
+				return Collections.emptyList();
+			}
+
+			addPortletTitleAddSiteNavigationMenuItems(
+				menuItems, themeDisplay, portletRequest);
+		}
+		catch (Exception e) {
+			_log.error("Unable to set add layout to menu item", e);
+		}
+
+		return menuItems;
+>>>>>>> compatible
 	}
 
 	private static final Log _log = LogFactoryUtil.getLog(

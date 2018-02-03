@@ -20,7 +20,10 @@ import com.liferay.portal.kernel.messaging.Message;
 import com.liferay.portal.kernel.messaging.MessageBus;
 import com.liferay.portal.kernel.messaging.MessageBusUtil;
 import com.liferay.portal.kernel.messaging.MessageListener;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 
 /**
@@ -43,9 +46,14 @@ public class ProxyMessageListener implements MessageListener {
 			}
 			else if (!(payload instanceof ProxyRequest)) {
 				throw new Exception(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Payload ", String.valueOf(payload.getClass()),
 						" is not of type ", ProxyRequest.class.getName()));
+=======
+					"Payload " + payload.getClass() + " is not of type " +
+						ProxyRequest.class.getName());
+>>>>>>> compatible
 			}
 			else {
 				ProxyRequest proxyRequest = (ProxyRequest)payload;

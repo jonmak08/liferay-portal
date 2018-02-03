@@ -16,13 +16,12 @@ package com.liferay.portal.search.solr.filter;
 
 import com.liferay.portal.kernel.search.filter.GeoPolygonFilter;
 
-import org.apache.lucene.search.Query;
-
 /**
  * @author Michael C. Han
  */
 public interface GeoPolygonFilterTranslator {
 
-	public Query translate(GeoPolygonFilter geoPolygonFilter);
+	public org.apache.lucene.search.Query translate(
+		GeoPolygonFilter geoPolygonFilter);
 
 }

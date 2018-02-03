@@ -8,6 +8,7 @@
 <tr><td rowspan="1" colspan="3">Dropdown</td></tr>
 </thead>
 <tbody>
+<<<<<<< HEAD
 <tr>
 	<td>ENTRIES</td>
 	<td>//a[contains(@class,'dropdown') and contains(.,'Entries')]</td>
@@ -33,6 +34,8 @@
 	<td>//a[*[name()='svg'][contains(@class,'icon-caret-double')]]</td>
 	<td></td>
 </tr>
+=======
+>>>>>>> compatible
 <!--FILTER-->
 <tr>
 	<td>FILTER</td>

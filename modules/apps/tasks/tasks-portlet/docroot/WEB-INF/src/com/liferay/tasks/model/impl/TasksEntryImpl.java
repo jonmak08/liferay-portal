@@ -30,22 +30,34 @@ public class TasksEntryImpl extends TasksEntryBaseImpl {
 	public TasksEntryImpl() {
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public String getAssigneeFullName() {
 		return getUserFullName(getAssigneeUserId());
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public String getPriorityLabel() {
 		return TasksEntryConstants.getPriorityLabel(getPriority());
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public String getReporterFullName() {
 		return getUserFullName(getUserId());
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public String getStatusLabel() {
 		return TasksEntryConstants.getStatusLabel(getStatus());
 	}

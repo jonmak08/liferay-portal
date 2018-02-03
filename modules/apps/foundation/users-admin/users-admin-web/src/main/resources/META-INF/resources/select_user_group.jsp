@@ -124,6 +124,11 @@ renderResponse.setTitle(LanguageUtil.get(request, "user-groups"));
 
 					data.put("entityid", userGroup.getUserGroupId());
 					data.put("entityname", userGroup.getName());
+<<<<<<< HEAD
+=======
+					data.put("usergroupid", userGroup.getUserGroupId());
+					data.put("usergroupname", userGroup.getName());
+>>>>>>> compatible
 
 					boolean disabled = false;
 

@@ -15,12 +15,16 @@
 package com.liferay.dynamic.data.mapping.data.provider.web.internal.util;
 
 import com.liferay.dynamic.data.mapping.model.DDMDataProviderInstance;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.model.DDMForm;
 import com.liferay.dynamic.data.mapping.model.DDMFormField;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.util.comparator.DataProviderInstanceModifiedDateComparator;
 import com.liferay.dynamic.data.mapping.util.comparator.DataProviderInstanceNameComparator;
 import com.liferay.portal.kernel.util.OrderByComparator;
 
+<<<<<<< HEAD
 import java.util.Collection;
 import java.util.Map;
 import java.util.Objects;
@@ -28,6 +32,8 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+=======
+>>>>>>> compatible
 /**
  * @author Leonardo Barros
  */
@@ -57,6 +63,7 @@ public class DDMDataProviderPortletUtil {
 		return orderByComparator;
 	}
 
+<<<<<<< HEAD
 	public static Set<String> getDDMFormFieldNamesByType(
 		DDMForm ddmForm, String type) {
 
@@ -78,4 +85,6 @@ public class DDMDataProviderPortletUtil {
 		return ddmFormFieldNames;
 	}
 
+=======
+>>>>>>> compatible
 }

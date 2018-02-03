@@ -39,7 +39,10 @@ import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Time;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.Validator;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 
 import java.net.URI;
@@ -417,7 +420,10 @@ public class CalendarICalDataHandler implements CalendarDataHandler {
 			CalendarBookingServiceUtil.addCalendarBooking(
 				calendarId, childCalendarIdsArray,
 				CalendarBookingConstants.PARENT_CALENDAR_BOOKING_ID_DEFAULT,
+<<<<<<< HEAD
 				CalendarBookingConstants.RECURRING_CALENDAR_BOOKING_ID_DEFAULT,
+=======
+>>>>>>> compatible
 				titleMap, descriptionMap, locationString, startDate.getTime(),
 				endDate.getTime(), allDay, recurrence, firstReminder,
 				firstReminderType, secondReminder, secondReminderType,
@@ -674,9 +680,15 @@ public class CalendarICalDataHandler implements CalendarDataHandler {
 
 		// Recurrence
 
+<<<<<<< HEAD
 		String recurrence = calendarBooking.getRecurrence();
 
 		if (Validator.isNotNull(recurrence)) {
+=======
+		if (calendarBooking.isRecurring()) {
+			String recurrence = calendarBooking.getRecurrence();
+
+>>>>>>> compatible
 			int index = recurrence.indexOf(StringPool.NEW_LINE);
 
 			if (index > 0) {

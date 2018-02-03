@@ -45,7 +45,10 @@ import com.liferay.portal.workflow.kaleo.service.KaleoNodeLocalService;
 import com.liferay.portal.workflow.kaleo.service.persistence.KaleoActionPersistence;
 import com.liferay.portal.workflow.kaleo.service.persistence.KaleoConditionPersistence;
 import com.liferay.portal.workflow.kaleo.service.persistence.KaleoDefinitionPersistence;
+<<<<<<< HEAD
 import com.liferay.portal.workflow.kaleo.service.persistence.KaleoDefinitionVersionPersistence;
+=======
+>>>>>>> compatible
 import com.liferay.portal.workflow.kaleo.service.persistence.KaleoInstancePersistence;
 import com.liferay.portal.workflow.kaleo.service.persistence.KaleoInstanceTokenPersistence;
 import com.liferay.portal.workflow.kaleo.service.persistence.KaleoLogPersistence;
@@ -54,8 +57,11 @@ import com.liferay.portal.workflow.kaleo.service.persistence.KaleoNotificationPe
 import com.liferay.portal.workflow.kaleo.service.persistence.KaleoNotificationRecipientPersistence;
 import com.liferay.portal.workflow.kaleo.service.persistence.KaleoTaskAssignmentInstancePersistence;
 import com.liferay.portal.workflow.kaleo.service.persistence.KaleoTaskAssignmentPersistence;
+<<<<<<< HEAD
 import com.liferay.portal.workflow.kaleo.service.persistence.KaleoTaskFormInstancePersistence;
 import com.liferay.portal.workflow.kaleo.service.persistence.KaleoTaskFormPersistence;
+=======
+>>>>>>> compatible
 import com.liferay.portal.workflow.kaleo.service.persistence.KaleoTaskInstanceTokenFinder;
 import com.liferay.portal.workflow.kaleo.service.persistence.KaleoTaskInstanceTokenPersistence;
 import com.liferay.portal.workflow.kaleo.service.persistence.KaleoTaskPersistence;
@@ -444,6 +450,7 @@ public abstract class KaleoNodeLocalServiceBaseImpl extends BaseLocalServiceImpl
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Returns the kaleo definition version local service.
 	 *
 	 * @return the kaleo definition version local service
@@ -482,6 +489,8 @@ public abstract class KaleoNodeLocalServiceBaseImpl extends BaseLocalServiceImpl
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	 * Returns the kaleo instance local service.
 	 *
 	 * @return the kaleo instance local service
@@ -823,6 +832,7 @@ public abstract class KaleoNodeLocalServiceBaseImpl extends BaseLocalServiceImpl
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Returns the kaleo task form local service.
 	 *
 	 * @return the kaleo task form local service
@@ -899,6 +909,8 @@ public abstract class KaleoNodeLocalServiceBaseImpl extends BaseLocalServiceImpl
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	 * Returns the kaleo task instance token local service.
 	 *
 	 * @return the kaleo task instance token local service
@@ -1246,10 +1258,13 @@ public abstract class KaleoNodeLocalServiceBaseImpl extends BaseLocalServiceImpl
 	protected com.liferay.portal.workflow.kaleo.service.KaleoDefinitionLocalService kaleoDefinitionLocalService;
 	@BeanReference(type = KaleoDefinitionPersistence.class)
 	protected KaleoDefinitionPersistence kaleoDefinitionPersistence;
+<<<<<<< HEAD
 	@BeanReference(type = com.liferay.portal.workflow.kaleo.service.KaleoDefinitionVersionLocalService.class)
 	protected com.liferay.portal.workflow.kaleo.service.KaleoDefinitionVersionLocalService kaleoDefinitionVersionLocalService;
 	@BeanReference(type = KaleoDefinitionVersionPersistence.class)
 	protected KaleoDefinitionVersionPersistence kaleoDefinitionVersionPersistence;
+=======
+>>>>>>> compatible
 	@BeanReference(type = com.liferay.portal.workflow.kaleo.service.KaleoInstanceLocalService.class)
 	protected com.liferay.portal.workflow.kaleo.service.KaleoInstanceLocalService kaleoInstanceLocalService;
 	@BeanReference(type = KaleoInstancePersistence.class)
@@ -1286,6 +1301,7 @@ public abstract class KaleoNodeLocalServiceBaseImpl extends BaseLocalServiceImpl
 	protected com.liferay.portal.workflow.kaleo.service.KaleoTaskAssignmentInstanceLocalService kaleoTaskAssignmentInstanceLocalService;
 	@BeanReference(type = KaleoTaskAssignmentInstancePersistence.class)
 	protected KaleoTaskAssignmentInstancePersistence kaleoTaskAssignmentInstancePersistence;
+<<<<<<< HEAD
 	@BeanReference(type = com.liferay.portal.workflow.kaleo.service.KaleoTaskFormLocalService.class)
 	protected com.liferay.portal.workflow.kaleo.service.KaleoTaskFormLocalService kaleoTaskFormLocalService;
 	@BeanReference(type = KaleoTaskFormPersistence.class)
@@ -1294,6 +1310,8 @@ public abstract class KaleoNodeLocalServiceBaseImpl extends BaseLocalServiceImpl
 	protected com.liferay.portal.workflow.kaleo.service.KaleoTaskFormInstanceLocalService kaleoTaskFormInstanceLocalService;
 	@BeanReference(type = KaleoTaskFormInstancePersistence.class)
 	protected KaleoTaskFormInstancePersistence kaleoTaskFormInstancePersistence;
+=======
+>>>>>>> compatible
 	@BeanReference(type = com.liferay.portal.workflow.kaleo.service.KaleoTaskInstanceTokenLocalService.class)
 	protected com.liferay.portal.workflow.kaleo.service.KaleoTaskInstanceTokenLocalService kaleoTaskInstanceTokenLocalService;
 	@BeanReference(type = KaleoTaskInstanceTokenPersistence.class)

@@ -22,14 +22,22 @@
 				<execute macro="PortalInstances#tearDownCP" />
 			</then>
 			<else>
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP" />
+=======
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 
 				<execute macro="BlogsEntry#tearDownCP" />
 			</else>
 		</if>
 	</tear-down>
 
+<<<<<<< HEAD
 	<command name="AddAndDeleteBlogEntriesOnSeparateNodes" priority="5">
+=======
+	<command name="AddAndDeleteBlogEntriesOnSeparateNodes" priority="4">
+>>>>>>> compatible
 		<property name="test.name.skip.portal.instance" value="ClusteringEE#AddAndDeleteBlogEntriesOnSeparateNodes" />
 
 		<execute macro="Clustering#viewClusterStatusInConsole" />
@@ -38,6 +46,7 @@
 			<var name="nodePort" value="8080" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -45,6 +54,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Test Page1" />
 		</execute>
 
@@ -99,6 +111,7 @@
 			<var name="nodePort" value="9080" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -106,6 +119,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Test Page2" />
 		</execute>
 
@@ -159,9 +175,13 @@
 			<var name="url" value="http://localhost:9080" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Recycle Bin" />
 		</execute>
 
@@ -215,6 +235,7 @@
 			<var name="nodePort" value="8080" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -222,6 +243,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
@@ -284,9 +308,13 @@
 		</execute>
 	</command>
 
+<<<<<<< HEAD
 	<!-- LRQA-29556 -->
 
 	<!--<command name="ValidateSchedulerOnSeparateNodes" priority="4">
+=======
+	<command ignore="true" name="ValidateSchedulerOnSeparateNodes" priority="4">
+>>>>>>> compatible
 		<property name="test.name.skip.portal.instance" value="ClusteringEE#ValidateSchedulerOnSeparateNodes" />
 
 		<execute macro="Clustering#viewClusterStatusInConsole" />
@@ -299,9 +327,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Publishing" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesPublishing">
+>>>>>>> compatible
 			<var name="portlet" value="Staging" />
 		</execute>
 
@@ -311,6 +343,7 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="Navigator#gotoStagedView" />
 
 		<execute macro="ProductMenu#gotoPortlet">
@@ -325,6 +358,11 @@
 
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="New Page Name" />
+=======
+		<execute macro="Page#add">
+			<var name="pageName" value="New Page Name" />
+			<var name="pageStaging" value="true" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Staging#schedulePublishToLivePG">
@@ -369,9 +407,13 @@
 			<var name="url" value="http://localhost:9080/web/guest-staging" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Publishing" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesPublishing">
+>>>>>>> compatible
 			<var name="portlet" value="Staging" />
 		</execute>
 
@@ -389,5 +431,9 @@
 			<var name="password" value="test" />
 			<var name="userEmailAddress" value="test@liferay.com" />
 		</execute>
+<<<<<<< HEAD
 	</command>-->
+=======
+	</command>
+>>>>>>> compatible
 </definition>

@@ -14,7 +14,11 @@
 
 package com.liferay.server.manager.internal.executor;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 
 import java.util.ArrayList;

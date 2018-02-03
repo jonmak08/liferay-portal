@@ -18,16 +18,22 @@ import com.liferay.portal.kernel.json.JSON;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+<<<<<<< HEAD
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+=======
+import java.util.List;
+import java.util.Map;
+>>>>>>> compatible
 
 /**
  * @author Marcellus Tavares
  */
 public class DDMFormEvaluationResult {
 
+<<<<<<< HEAD
 	public DDMFormFieldEvaluationResult getDDMFormFieldEvaluationResult(
 		String fieldName, String instanceId) {
 
@@ -40,6 +46,8 @@ public class DDMFormEvaluationResult {
 		return ddmFormFieldEvaluationResultsMap.get(key);
 	}
 
+=======
+>>>>>>> compatible
 	@JSON(name = "fields")
 	public List<DDMFormFieldEvaluationResult>
 		getDDMFormFieldEvaluationResults() {
@@ -47,6 +55,7 @@ public class DDMFormEvaluationResult {
 		return _ddmFormFieldEvaluationResults;
 	}
 
+<<<<<<< HEAD
 	@JSON(include = false)
 	public Map<String, DDMFormFieldEvaluationResult>
 		getDDMFormFieldEvaluationResultsMap() {
@@ -68,6 +77,18 @@ public class DDMFormEvaluationResult {
 
 	public Set<Integer> getDisabledPagesIndexes() {
 		return _disabledPagesIndexes;
+=======
+	public Map<String, DDMFormFieldEvaluationResult>
+		getDDMFormFieldEvaluationResultsMap() {
+
+		Map<String, DDMFormFieldEvaluationResult>
+			ddmFormFieldEvaluationResultsMap = new HashMap<>();
+
+		populateDDMFormFieldEvaluationResultsMap(
+			_ddmFormFieldEvaluationResults, ddmFormFieldEvaluationResultsMap);
+
+		return ddmFormFieldEvaluationResultsMap;
+>>>>>>> compatible
 	}
 
 	public void setDDMFormFieldEvaluationResults(
@@ -76,10 +97,13 @@ public class DDMFormEvaluationResult {
 		_ddmFormFieldEvaluationResults = ddmFormFieldEvaluationResults;
 	}
 
+<<<<<<< HEAD
 	public void setDisabledPagesIndexes(Set<Integer> disabledPagesIndexes) {
 		_disabledPagesIndexes = disabledPagesIndexes;
 	}
 
+=======
+>>>>>>> compatible
 	protected void populateDDMFormFieldEvaluationResultsMap(
 		List<DDMFormFieldEvaluationResult> ddmFormFieldEvaluationResults,
 		Map<String, DDMFormFieldEvaluationResult>
@@ -88,12 +112,18 @@ public class DDMFormEvaluationResult {
 		for (DDMFormFieldEvaluationResult ddmFormFieldEvaluationResult :
 				ddmFormFieldEvaluationResults) {
 
+<<<<<<< HEAD
 			String key = _getKey(
 				ddmFormFieldEvaluationResult.getName(),
 				ddmFormFieldEvaluationResult.getInstanceId());
 
 			ddmFormFieldEvaluationResultsMap.put(
 				key, ddmFormFieldEvaluationResult);
+=======
+			ddmFormFieldEvaluationResultsMap.put(
+				ddmFormFieldEvaluationResult.getName(),
+				ddmFormFieldEvaluationResult);
+>>>>>>> compatible
 
 			populateDDMFormFieldEvaluationResultsMap(
 				ddmFormFieldEvaluationResult.
@@ -102,6 +132,7 @@ public class DDMFormEvaluationResult {
 		}
 	}
 
+<<<<<<< HEAD
 	private String _getKey(String fieldName, String instanceId) {
 		StringBuilder sb = new StringBuilder();
 
@@ -119,5 +150,9 @@ public class DDMFormEvaluationResult {
 	private Map<String, DDMFormFieldEvaluationResult>
 		_ddmFormFieldEvaluationResultsMap;
 	private Set<Integer> _disabledPagesIndexes = new HashSet<>();
+=======
+	private List<DDMFormFieldEvaluationResult> _ddmFormFieldEvaluationResults =
+		new ArrayList<>();
+>>>>>>> compatible
 
 }

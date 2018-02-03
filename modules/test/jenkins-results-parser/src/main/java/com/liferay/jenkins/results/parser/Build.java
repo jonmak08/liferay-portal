@@ -34,8 +34,11 @@ public interface Build {
 
 	public String getArchivePath();
 
+<<<<<<< HEAD
 	public long getAverageDelayTime();
 
+=======
+>>>>>>> compatible
 	public List<String> getBadBuildURLs();
 
 	public String getBaseRepositoryName();
@@ -58,18 +61,26 @@ public interface Build {
 
 	public String getDatabase();
 
+<<<<<<< HEAD
 	public Long getDelayTime();
 
+=======
+>>>>>>> compatible
 	public String getDisplayName();
 
 	public int getDownstreamBuildCount(String status);
 
+<<<<<<< HEAD
 	public int getDownstreamBuildCount(String result, String status);
 
 	public List<Build> getDownstreamBuilds(String status);
 
 	public List<Build> getDownstreamBuilds(String result, String status);
 
+=======
+	public List<Build> getDownstreamBuilds(String status);
+
+>>>>>>> compatible
 	public long getDuration();
 
 	public Element getGitHubMessageBuildAnchorElement();
@@ -80,6 +91,7 @@ public interface Build {
 
 	public String getInvocationURL();
 
+<<<<<<< HEAD
 	public Long getInvokedTime();
 
 	public String getJDK();
@@ -88,12 +100,17 @@ public interface Build {
 
 	public JenkinsSlave getJenkinsSlave();
 
+=======
+	public String getJDK();
+
+>>>>>>> compatible
 	public String getJobName();
 
 	public String getJobURL();
 
 	public String getJobVariant();
 
+<<<<<<< HEAD
 	public int getJobVariantsDownstreamBuildCount(List<String> jobVariants);
 
 	public List<Build> getJobVariantsDownstreamBuilds(List<String> jobVariants);
@@ -105,6 +122,11 @@ public interface Build {
 	public Build getLongestRunningDownstreamBuild();
 
 	public TestResult getLongestRunningTest();
+=======
+	public Long getLatestStartTimestamp();
+
+	public String getMaster();
+>>>>>>> compatible
 
 	public String getOperatingSystem();
 
@@ -118,7 +140,11 @@ public interface Build {
 
 	public Map<String, String> getStartPropertiesTempMap();
 
+<<<<<<< HEAD
 	public Long getStartTime();
+=======
+	public Long getStartTimestamp();
+>>>>>>> compatible
 
 	public String getStatus();
 
@@ -138,10 +164,13 @@ public interface Build {
 
 	public TopLevelBuild getTopLevelBuild();
 
+<<<<<<< HEAD
 	public long getTotalDuration();
 
 	public int getTotalSlavesUsedCount();
 
+=======
+>>>>>>> compatible
 	public boolean hasBuildURL(String buildURL);
 
 	public void reinvoke();
@@ -152,8 +181,11 @@ public interface Build {
 
 	public void setCompareToUpstream(boolean compareToUpstream);
 
+<<<<<<< HEAD
 	public void takeSlaveOffline(SlaveOfflineRule slaveOfflineRule);
 
+=======
+>>>>>>> compatible
 	public void update();
 
 }

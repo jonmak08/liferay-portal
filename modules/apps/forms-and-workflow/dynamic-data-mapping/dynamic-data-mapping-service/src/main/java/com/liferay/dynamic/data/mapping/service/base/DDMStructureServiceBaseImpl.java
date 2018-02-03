@@ -16,12 +16,18 @@ package com.liferay.dynamic.data.mapping.service.base;
 
 import com.liferay.dynamic.data.mapping.model.DDMStructure;
 import com.liferay.dynamic.data.mapping.service.DDMStructureService;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.service.persistence.DDMDataProviderInstanceFinder;
 import com.liferay.dynamic.data.mapping.service.persistence.DDMDataProviderInstanceLinkPersistence;
 import com.liferay.dynamic.data.mapping.service.persistence.DDMDataProviderInstancePersistence;
 import com.liferay.dynamic.data.mapping.service.persistence.DDMStructureFinder;
 import com.liferay.dynamic.data.mapping.service.persistence.DDMStructureLayoutPersistence;
 import com.liferay.dynamic.data.mapping.service.persistence.DDMStructureLinkFinder;
+=======
+import com.liferay.dynamic.data.mapping.service.persistence.DDMDataProviderInstanceLinkPersistence;
+import com.liferay.dynamic.data.mapping.service.persistence.DDMStructureFinder;
+import com.liferay.dynamic.data.mapping.service.persistence.DDMStructureLayoutPersistence;
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.service.persistence.DDMStructureLinkPersistence;
 import com.liferay.dynamic.data.mapping.service.persistence.DDMStructurePersistence;
 import com.liferay.dynamic.data.mapping.service.persistence.DDMStructureVersionPersistence;
@@ -159,6 +165,7 @@ public abstract class DDMStructureServiceBaseImpl extends BaseServiceImpl
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Returns the ddm data provider instance local service.
 	 *
 	 * @return the ddm data provider instance local service
@@ -235,6 +242,8 @@ public abstract class DDMStructureServiceBaseImpl extends BaseServiceImpl
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	 * Returns the ddm data provider instance link local service.
 	 *
 	 * @return the ddm data provider instance link local service
@@ -575,6 +584,7 @@ public abstract class DDMStructureServiceBaseImpl extends BaseServiceImpl
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Returns the ddm structure link finder.
 	 *
 	 * @return the ddm structure link finder
@@ -594,6 +604,8 @@ public abstract class DDMStructureServiceBaseImpl extends BaseServiceImpl
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	 * Returns the ddm structure version local service.
 	 *
 	 * @return the ddm structure version local service
@@ -783,6 +795,7 @@ public abstract class DDMStructureServiceBaseImpl extends BaseServiceImpl
 	protected DDMStructureFinder ddmStructureFinder;
 	@ServiceReference(type = com.liferay.counter.kernel.service.CounterLocalService.class)
 	protected com.liferay.counter.kernel.service.CounterLocalService counterLocalService;
+<<<<<<< HEAD
 	@BeanReference(type = com.liferay.dynamic.data.mapping.service.DDMDataProviderInstanceLocalService.class)
 	protected com.liferay.dynamic.data.mapping.service.DDMDataProviderInstanceLocalService ddmDataProviderInstanceLocalService;
 	@BeanReference(type = com.liferay.dynamic.data.mapping.service.DDMDataProviderInstanceService.class)
@@ -791,6 +804,8 @@ public abstract class DDMStructureServiceBaseImpl extends BaseServiceImpl
 	protected DDMDataProviderInstancePersistence ddmDataProviderInstancePersistence;
 	@BeanReference(type = DDMDataProviderInstanceFinder.class)
 	protected DDMDataProviderInstanceFinder ddmDataProviderInstanceFinder;
+=======
+>>>>>>> compatible
 	@BeanReference(type = com.liferay.dynamic.data.mapping.service.DDMDataProviderInstanceLinkLocalService.class)
 	protected com.liferay.dynamic.data.mapping.service.DDMDataProviderInstanceLinkLocalService ddmDataProviderInstanceLinkLocalService;
 	@BeanReference(type = DDMDataProviderInstanceLinkPersistence.class)
@@ -827,8 +842,11 @@ public abstract class DDMStructureServiceBaseImpl extends BaseServiceImpl
 	protected com.liferay.dynamic.data.mapping.service.DDMStructureLinkLocalService ddmStructureLinkLocalService;
 	@BeanReference(type = DDMStructureLinkPersistence.class)
 	protected DDMStructureLinkPersistence ddmStructureLinkPersistence;
+<<<<<<< HEAD
 	@BeanReference(type = DDMStructureLinkFinder.class)
 	protected DDMStructureLinkFinder ddmStructureLinkFinder;
+=======
+>>>>>>> compatible
 	@BeanReference(type = com.liferay.dynamic.data.mapping.service.DDMStructureVersionLocalService.class)
 	protected com.liferay.dynamic.data.mapping.service.DDMStructureVersionLocalService ddmStructureVersionLocalService;
 	@BeanReference(type = com.liferay.dynamic.data.mapping.service.DDMStructureVersionService.class)

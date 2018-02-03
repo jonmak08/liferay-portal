@@ -14,7 +14,10 @@
 
 package com.liferay.portal.kernel.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Theme;
 import com.liferay.portal.kernel.portlet.PortletIdCodec;
 import com.liferay.portal.kernel.template.TemplateConstants;
@@ -35,10 +38,13 @@ public class ThemeHelper {
 
 	public static final String TEMPLATE_EXTENSION_JSP = "jsp";
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static final String TEMPLATE_EXTENSION_VM = "vm";
 
 	public static String getResourcePath(
@@ -98,6 +104,33 @@ public class ThemeHelper {
 
 			return sb.toString();
 		}
+<<<<<<< HEAD
+=======
+		else if (extension.equals(TEMPLATE_EXTENSION_VM)) {
+			sb.append(theme.getVelocityResourceListener());
+			sb.append(theme.getTemplatesPath());
+
+			if (Validator.isNotNull(servletContextName) &&
+				!path.startsWith(StringPool.SLASH.concat(servletContextName))) {
+
+				sb.append(StringPool.SLASH);
+				sb.append(servletContextName);
+			}
+
+			sb.append(StringPool.SLASH);
+			sb.append(path.substring(start, end));
+			sb.append(StringPool.PERIOD);
+
+			if (Validator.isNotNull(portletId)) {
+				sb.append(portletId);
+				sb.append(StringPool.PERIOD);
+			}
+
+			sb.append(TEMPLATE_EXTENSION_VM);
+
+			return sb.toString();
+		}
+>>>>>>> compatible
 		else {
 			return path;
 		}
@@ -151,6 +184,13 @@ public class ThemeHelper {
 			return TemplateResourceLoaderUtil.hasTemplateResource(
 				TemplateConstants.LANG_TYPE_FTL, resourcePath);
 		}
+<<<<<<< HEAD
+=======
+		else if (extension.equals(TEMPLATE_EXTENSION_VM)) {
+			return TemplateResourceLoaderUtil.hasTemplateResource(
+				TemplateConstants.LANG_TYPE_VM, resourcePath);
+		}
+>>>>>>> compatible
 		else {
 			URL url = null;
 

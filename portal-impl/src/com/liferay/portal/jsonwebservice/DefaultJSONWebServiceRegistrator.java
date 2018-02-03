@@ -14,7 +14,11 @@
 
 package com.liferay.portal.jsonwebservice;
 
+<<<<<<< HEAD
 import com.liferay.petra.reflect.AnnotationLocator;
+=======
+import com.liferay.portal.kernel.annotation.AnnotationLocator;
+>>>>>>> compatible
 import com.liferay.portal.kernel.bean.BeanLocator;
 import com.liferay.portal.kernel.bean.BeanLocatorException;
 import com.liferay.portal.kernel.bean.ClassLoaderBeanHandler;
@@ -29,7 +33,10 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.service.ServiceWrapper;
 import com.liferay.portal.kernel.util.ProxyUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.spring.aop.AdvisedSupportProxy;
 import com.liferay.portal.spring.aop.ServiceBeanAopProxy;
 import com.liferay.portal.util.PropsValues;
@@ -121,9 +128,14 @@ public class DefaultJSONWebServiceRegistrator
 		}
 		catch (Exception e) {
 			_log.error(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Unable to compute target class of bean ", beanName,
 					" with type ", String.valueOf(bean.getClass())),
+=======
+				"Unable to compute target class of bean " + beanName +
+					" with type " + bean.getClass(),
+>>>>>>> compatible
 				e);
 
 			return;

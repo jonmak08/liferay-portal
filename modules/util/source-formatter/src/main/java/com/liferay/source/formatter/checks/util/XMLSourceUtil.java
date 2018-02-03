@@ -25,6 +25,7 @@ import org.dom4j.Element;
  */
 public class XMLSourceUtil {
 
+<<<<<<< HEAD
 	public static boolean isInsideCDATAMarkup(String content, int pos) {
 		String s = content.substring(pos);
 
@@ -43,6 +44,8 @@ public class XMLSourceUtil {
 		return false;
 	}
 
+=======
+>>>>>>> compatible
 	public static void sortElementsByChildElement(
 		Element element, String elementName, String childElementName) {
 

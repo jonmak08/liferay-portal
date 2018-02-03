@@ -2,7 +2,11 @@
 	<command name="sikuliClick">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.SikuliClick#sikuliClick" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute argument1="2000" selenium="pause" />
 

@@ -44,7 +44,11 @@
 		<lst name="defaults">
 			<str name="echoParams">explicit</str>
 			<int name="rows">10</int>
+<<<<<<< HEAD
 			<str name="df">all</str>
+=======
+			<str name="df">text</str>
+>>>>>>> compatible
 		</lst>
 	</requestHandler>
 	<requestHandler class="solr.SearchHandler" name="/query">
@@ -52,7 +56,11 @@
 			<str name="echoParams">explicit</str>
 			<str name="wt">json</str>
 			<str name="indent">true</str>
+<<<<<<< HEAD
 			<str name="df">all</str>
+=======
+			<str name="df">text</str>
+>>>>>>> compatible
 		</lst>
 	</requestHandler>
 	<requestHandler class="solr.RealTimeGetHandler" name="/get">
@@ -68,13 +76,22 @@
 			<str name="v.layout">layout</str>
 			<str name="title">Solritas</str>
 			<str name="defType">edismax</str>
+<<<<<<< HEAD
 			<str name="qf">all^0.5 content^1.0 title^1.0 features^1.0 name^1.0</str>
+=======
+			<str name="qf">text^0.5 content^1.0 title^1.0 features^1.0 name^1.0</str>
+>>>>>>> compatible
 			<str name="mm">100%</str>
 			<str name="q.alt">*:*</str>
 			<str name="rows">10</str>
 			<str name="fl">*,score</str>
+<<<<<<< HEAD
 			<str name="mlt.qf">all^0.5 content^1.0 title^1.0 features^1.0 name^1.0</str>
 			<str name="mlt.fl">all,content,title,features,name</str>
+=======
+			<str name="mlt.qf">text^0.5 content^1.0 title^1.0 features^1.0 name^1.0</str>
+			<str name="mlt.fl">text,content,title,features,name</str>
+>>>>>>> compatible
 			<int name="mlt.count">3</int>
 			<str name="facet">on</str>
 			<str name="facet.field">cat</str>
@@ -99,7 +116,11 @@
 			<str name="f.manufacturedate_dt.facet.range.other">before</str>
 			<str name="f.manufacturedate_dt.facet.range.other">after</str>
 			<str name="hl">on</str>
+<<<<<<< HEAD
 			<str name="hl.fl">all content title features name</str>
+=======
+			<str name="hl.fl">text content title features name</str>
+>>>>>>> compatible
 			<str name="f.name.hl.fragsize">0</str>
 			<str name="f.name.hl.alternateField">name</str>
 			<str name="spellcheck">on</str>
@@ -118,14 +139,23 @@
 	</requestHandler>
 	<requestHandler class="solr.UpdateRequestHandler" name="/update">
 		<lst name="defaults">
+<<<<<<< HEAD
 			<str name="df">all</str>
+=======
+			<str name="df">text</str>
+>>>>>>> compatible
 			<str name="update.chain">replica</str>
 		</lst>
 	</requestHandler>
 	<requestHandler class="solr.extraction.ExtractingRequestHandler" name="/update/extract" startup="lazy">
 		<lst name="defaults">
+<<<<<<< HEAD
 			<str name="df">all</str>
 			<str name="fmap.content">all</str>
+=======
+			<str name="df">text</str>
+			<str name="fmap.content">text</str>
+>>>>>>> compatible
 			<str name="lowernames">true</str>
 			<str name="uprefix">ignored_</str>
 			<str name="captureAttr">true</str>
@@ -180,7 +210,11 @@
 	</searchComponent>
 	<requestHandler class="solr.SearchHandler" name="/spell" startup="lazy">
 		<lst name="defaults">
+<<<<<<< HEAD
 			<str name="df">all</str>
+=======
+			<str name="df">text</str>
+>>>>>>> compatible
 			<str name="spellcheck.dictionary">default</str>
 			<str name="spellcheck.dictionary">wordbreak</str>
 			<str name="spellcheck">on</str>
@@ -200,7 +234,11 @@
 	<searchComponent class="solr.TermVectorComponent" name="tvComponent" />
 	<requestHandler class="solr.SearchHandler" name="/tvrh" startup="lazy">
 		<lst name="defaults">
+<<<<<<< HEAD
 			<str name="df">all</str>
+=======
+			<str name="df">text</str>
+>>>>>>> compatible
 			<bool name="tv">true</bool>
 		</lst>
 		<arr name="last-components">
@@ -231,7 +269,11 @@
 			<bool name="carrot.produceSummary">true</bool>
 			<bool name="carrot.outputSubClusters">false</bool>
 			<str name="defType">edismax</str>
+<<<<<<< HEAD
 			<str name="qf">all^0.5 features^1.0 name^1.2 sku^1.5 id^10.0 manu^1.1 cat^1.4</str>
+=======
+			<str name="qf">text^0.5 features^1.0 name^1.2 sku^1.5 id^10.0 manu^1.1 cat^1.4</str>
+>>>>>>> compatible
 			<str name="q.alt">*:*</str>
 			<str name="rows">10</str>
 			<str name="fl">*,score</str>
@@ -257,7 +299,11 @@
 	<requestHandler class="solr.SearchHandler" name="/elevate" startup="lazy">
 		<lst name="defaults">
 			<str name="echoParams">explicit</str>
+<<<<<<< HEAD
 			<str name="df">all</str>
+=======
+			<str name="df">text</str>
+>>>>>>> compatible
 		</lst>
 		<arr name="last-components">
 			<str>elevator</str>

@@ -65,7 +65,14 @@ public class MailboxDatagramReceiveHandlerTest {
 				new PortalExecutorManagerInvocationHandler()));
 	}
 
+<<<<<<< HEAD
 	@AdviseWith(adviceClasses = {PropsUtilAdvice.class})
+=======
+	@AdviseWith(
+		adviceClasses =
+			{PropsUtilAdvice.class, PortalExecutorManagerUtilAdvice.class}
+	)
+>>>>>>> compatible
 	@NewEnv(type = NewEnv.Type.CLASSLOADER)
 	@Test
 	public void testDoReceive() {

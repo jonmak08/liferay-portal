@@ -14,11 +14,15 @@
 
 package com.liferay.wiki.web.internal.portlet.configuration.icon;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.portlet.configuration.icon.BasePortletConfigurationIcon;
 import com.liferay.portal.kernel.portlet.configuration.icon.PortletConfigurationIcon;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermission;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.Constants;
@@ -27,6 +31,18 @@ import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.trash.TrashHelper;
 import com.liferay.wiki.constants.WikiPortletKeys;
 import com.liferay.wiki.model.WikiPage;
+=======
+import com.liferay.portal.kernel.theme.ThemeDisplay;
+import com.liferay.portal.kernel.util.Constants;
+import com.liferay.portal.kernel.util.HtmlUtil;
+import com.liferay.portal.kernel.util.Portal;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.trash.kernel.util.TrashUtil;
+import com.liferay.wiki.constants.WikiPortletKeys;
+import com.liferay.wiki.model.WikiPage;
+import com.liferay.wiki.service.permission.WikiPagePermissionChecker;
+>>>>>>> compatible
 import com.liferay.wiki.web.internal.portlet.action.ActionUtil;
 
 import javax.portlet.ActionRequest;
@@ -129,8 +145,25 @@ public class DeletePagePortletConfigurationIcon
 		try {
 			WikiPage page = ActionUtil.getPage(portletRequest);
 
+<<<<<<< HEAD
 			return _wikiPageModelResourcePermission.contains(
 				themeDisplay.getPermissionChecker(), page, ActionKeys.DELETE);
+=======
+			if (!page.isDraft() &&
+				WikiPagePermissionChecker.contains(
+					themeDisplay.getPermissionChecker(), page.getNodeId(),
+					HtmlUtil.unescape(page.getTitle()), ActionKeys.DELETE)) {
+
+				return true;
+			}
+			else if (page.isDraft() &&
+					 WikiPagePermissionChecker.contains(
+						 themeDisplay.getPermissionChecker(), page,
+						 ActionKeys.DELETE)) {
+
+				return true;
+			}
+>>>>>>> compatible
 		}
 		catch (Exception e) {
 		}
@@ -140,7 +173,11 @@ public class DeletePagePortletConfigurationIcon
 
 	protected boolean isTrashEnabled(long groupId) {
 		try {
+<<<<<<< HEAD
 			if (_trashHelper.isTrashEnabled(groupId)) {
+=======
+			if (TrashUtil.isTrashEnabled(groupId)) {
+>>>>>>> compatible
 				return true;
 			}
 		}
@@ -153,10 +190,13 @@ public class DeletePagePortletConfigurationIcon
 	@Reference
 	private Portal _portal;
 
+<<<<<<< HEAD
 	@Reference
 	private TrashHelper _trashHelper;
 
 	@Reference(target = "(model.class.name=com.liferay.wiki.model.WikiPage)")
 	private ModelResourcePermission<WikiPage> _wikiPageModelResourcePermission;
 
+=======
+>>>>>>> compatible
 }

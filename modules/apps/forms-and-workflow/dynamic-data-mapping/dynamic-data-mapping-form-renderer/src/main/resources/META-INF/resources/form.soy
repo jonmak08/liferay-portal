@@ -1,6 +1,7 @@
 {namespace ddm}
 
 /**
+<<<<<<< HEAD
  * Defines the base delegated template for the any field.
  */
 {deltemplate ddm.field}
@@ -18,11 +19,34 @@
 		<div class="clearfix {if not $field.visible}hide{/if} lfr-ddm-form-field-container">
 			{delcall ddm.field variant="$variant" data="$field" /}
 		</div>
+=======
+ * Prints one field.
+ *
+ * @param field
+ */
+{template .field autoescape="deprecated-contextual"}
+	{if isNonnull($field)}
+		{$field|noAutoescape}
+	{/if}
+{/template}
+
+/**
+ * Prints a list of fields.
+ *
+ * @param fields
+ */
+{template .fields autoescape="deprecated-contextual"}
+	{foreach $field in $fields}
+		{call ddm.field data="all"}
+			{param field: $field /}
+		{/call}
+>>>>>>> compatible
 	{/foreach}
 {/template}
 
 /**
  * Prints the JavaScript form renderer.
+<<<<<<< HEAD
  */
 {template .form_renderer_js}
 	{@param containerId: string}
@@ -32,10 +56,31 @@
 	{@param portletNamespace: string}
 	{@param readOnly: bool}
 
+=======
+ *
+ * @param containerId
+ * @param dataProviderURL
+ * @param definition
+ * @param evaluation
+ * @param evaluatorURL
+ * @param fieldTypes
+ * @param layout
+ * @param portletNamespace
+ * @param readOnly
+ * @param readOnlyFields
+ * @param showRequiredFieldsWarning
+ * @param showSubmitButton
+ * @param submitLabel
+ * @param templateNamespace
+ * @param values
+ */
+{template .form_renderer_js autoescape="deprecated-contextual"}
+>>>>>>> compatible
 	<script type="text/javascript">
 		AUI().use(
 			'liferay-ddm-form-renderer',
 			'liferay-ddm-form-renderer-field',
+<<<<<<< HEAD
 			'liferay-ddm-soy-template-util',
 			function(A) {lb}
 				var SoyTemplateUtil = Liferay.DDM.SoyTemplateUtil;
@@ -61,12 +106,43 @@
 				{rb};
 
 				Liferay.on('destroyPortlet', destroyFormHandle);
+=======
+			function(A) {lb}
+				Liferay.DDM.Renderer.FieldTypes.register({$fieldTypes|noAutoescape});
+
+				Liferay.component(
+					'{$containerId}DDMForm',
+					new Liferay.DDM.Renderer.Form(
+						{lb}
+							container: '#{$containerId}',
+							dataProviderURL: '{$dataProviderURL|noAutoescape}',
+							definition: {$definition|noAutoescape},
+							evaluation: {$evaluation|noAutoescape},
+							evaluatorURL: '{$evaluatorURL|noAutoescape}',
+
+							{if $layout}
+								layout: {$layout|noAutoescape},
+							{/if}
+
+							portletNamespace: '{$portletNamespace}',
+							readOnly: {$readOnly},
+							readOnlyFields : {$readOnlyFields|noAutoescape},
+							showRequiredFieldsWarning: {$showRequiredFieldsWarning},
+							showSubmitButton: {$showSubmitButton},
+							submitLabel: '{$submitLabel}',
+							templateNamespace: '{$templateNamespace}',
+							values: {$values|noAutoescape}
+						{rb}
+					).render()
+				);
+>>>>>>> compatible
 			{rb}
 		);
 	</script>
 {/template}
 
 /**
+<<<<<<< HEAD
  * Prints render form script
  */
 {template .render_form kind="js"}
@@ -106,6 +182,16 @@
 	{foreach $row in $rows}
 		<div class="row">
 			{call .form_row_columns data="all"}
+=======
+ * Prints all rows.
+ *
+ * @param rows
+ */
+{template .form_rows autoescape="deprecated-contextual"}
+	{foreach $row in $rows}
+		<div class="row">
+			{call ddm.form_row_columns data="all"}
+>>>>>>> compatible
 				{param columns: $row.columns /}
 			{/call}
 		</div>
@@ -114,12 +200,21 @@
 
 /**
  * Prints a column.
+<<<<<<< HEAD
  */
 {template .form_row_column}
 	{@param column: [size: int, fields: list<?>]}
 
 	<div class="col-md-{$column.size}">
 		{call .fields data="all"}
+=======
+ *
+ * @param column
+ */
+{template .form_row_column autoescape="deprecated-contextual"}
+	<div class="col-md-{$column.size}">
+		{call ddm.fields data="all"}
+>>>>>>> compatible
 			{param fields: $column.fields /}
 		{/call}
 	</div>
@@ -127,12 +222,21 @@
 
 /**
  * Prints all columns.
+<<<<<<< HEAD
  */
 {template .form_row_columns}
 	{@param columns: list<[size: int, fields: list<?>]>}
 
 	{foreach $column in $columns}
 		{call .form_row_column data="all"}
+=======
+ *
+ * @param columns
+ */
+{template .form_row_columns autoescape="deprecated-contextual"}
+	{foreach $column in $columns}
+		{call ddm.form_row_column data="all"}
+>>>>>>> compatible
 			{param column: $column /}
 		{/call}
 	{/foreach}
@@ -140,6 +244,7 @@
 
 /**
  * Prints the form fields required message warning.
+<<<<<<< HEAD
  */
 {template .required_warning_message}
 	{@param showRequiredFieldsWarning: bool}
@@ -147,11 +252,21 @@
 
 	{if $showRequiredFieldsWarning}
 		{$requiredFieldsWarningMessageHTML}
+=======
+ *
+ * @param showRequiredFieldsWarning
+ * @param requiredFieldsWarningMessageHTML
+ */
+{template .required_warning_message autoescape="deprecated-contextual"}
+	{if $showRequiredFieldsWarning}
+		{$requiredFieldsWarningMessageHTML|noAutoescape}
+>>>>>>> compatible
 	{/if}
 {/template}
 
 /**
  * Prints a form with pagination.
+<<<<<<< HEAD
  */
 {template .wizard_form}
 	{@param containerId: string}
@@ -166,14 +281,32 @@
 	{@param showSubmitButton: bool}
 	{@param strings: [previous: string, next: string]}
 
+=======
+ *
+ * @param containerId
+ * @param pages
+ * @param requiredFieldsWarningMessageHTML
+ * @param showSubmitButton
+ * @param submitLabel
+ * @param strings
+ */
+{template .paginated_form autoescape="deprecated-contextual"}
+>>>>>>> compatible
 	<div class="lfr-ddm-form-container" id="{$containerId}">
 		<div class="lfr-ddm-form-content">
 			{if length($pages) > 1}
 				<div class="lfr-ddm-form-wizard">
+<<<<<<< HEAD
 					<ul class="multi-step-progress-bar multi-step-progress-bar-collapse">
 						{foreach $page in $pages}
 							<li {if isFirst($page)}class="active"{/if}>
 								<div class="progress-bar-title">{$page.title}</div>
+=======
+					<ul class="multi-step-progress-bar">
+						{foreach $page in $pages}
+							<li {if isFirst($page)}class="active"{/if}>
+								<div class="progress-bar-title">{$page.title|noAutoescape}</div>
+>>>>>>> compatible
 
 								<div class="divider"></div>
 
@@ -184,6 +317,7 @@
 				</div>
 			{/if}
 
+<<<<<<< HEAD
 			<div class="lfr-ddm-form-pages">
 				{foreach $page in $pages}
 					<div class="{if isFirst($page)}active{/if} lfr-ddm-form-page">
@@ -196,11 +330,29 @@
 						{/if}
 
 						{call .required_warning_message data="all"}
+=======
+			<div class="lfr-ddm-form-pages" autoescape="deprecated-contextual">
+				{foreach $page in $pages}
+					<div class="{if isFirst($page)}active{/if} lfr-ddm-form-page">
+						{if $page.title}
+							<h3 class="lfr-ddm-form-page-title">{$page.title|noAutoescape}</h3>
+						{/if}
+
+						{if $page.description}
+							<h4 class="lfr-ddm-form-page-description">{$page.description|noAutoescape}</h4>
+						{/if}
+
+						{call ddm.required_warning_message data="all"}
+>>>>>>> compatible
 							{param showRequiredFieldsWarning: $page.showRequiredFieldsWarning /}
 							{param requiredFieldsWarningMessageHTML: $requiredFieldsWarningMessageHTML /}
 						{/call}
 
+<<<<<<< HEAD
 						{call .form_rows data="all"}
+=======
+						{call ddm.form_rows data="all"}
+>>>>>>> compatible
 							{param rows: $page.rows /}
 						{/call}
 					</div>
@@ -209,15 +361,24 @@
 		</div>
 
 		<div class="lfr-ddm-form-pagination-controls">
+<<<<<<< HEAD
 			<button class="btn btn-primary hide lfr-ddm-form-pagination-prev" type="button">
 				<i class="icon-angle-left"></i> {$strings.previous}
 			</button>
 
 			<button class="btn btn-primary{if length($pages) == 1} hide{/if} lfr-ddm-form-pagination-next pull-right" type="button">
+=======
+			<button class="btn btn-lg btn-primary hide lfr-ddm-form-pagination-prev" type="button">
+				<i class="icon-angle-left"></i> {$strings.previous}
+			</button>
+
+			<button class="btn btn-lg btn-primary{if length($pages) == 1} hide{/if} lfr-ddm-form-pagination-next pull-right" type="button">
+>>>>>>> compatible
 				{$strings.next} <i class="icon-angle-right"></i>
 			</button>
 
 			{if $showSubmitButton}
+<<<<<<< HEAD
 				<button class="btn btn-primary{if length($pages) > 1} hide{/if} lfr-ddm-form-submit pull-right" disabled type="submit">{$submitLabel}</button>
 			{/if}
 		</div>
@@ -289,6 +450,9 @@
 
 			{if $showSubmitButton}
 				<button class="btn btn-primary{if length($pages) > 1} hide{/if} lfr-ddm-form-submit pull-right" disabled type="submit">{$submitLabel}</button>
+=======
+				<button class="btn btn-lg btn-primary{if length($pages) > 1} hide{/if} lfr-ddm-form-submit pull-right" disabled type="submit">{$submitLabel}</button>
+>>>>>>> compatible
 			{/if}
 		</div>
 	</div>
@@ -296,6 +460,7 @@
 
 /**
  * Prints a simple form with just one page.
+<<<<<<< HEAD
  */
 {template .simple_form}
 	{@param containerId: string}
@@ -311,11 +476,27 @@
 		<div class="lfr-ddm-form-fields">
 			{foreach $page in $pages}
 				{call .required_warning_message data="all"}
+=======
+ *
+ * @param containerId
+ * @param pages
+ * @param requiredFieldsWarningMessageHTML
+ */
+{template .simple_form autoescape="deprecated-contextual"}
+	<div class="lfr-ddm-form-container" id="{$containerId}">
+		<div class="lfr-ddm-form-fields">
+			{foreach $page in $pages}
+				{call ddm.required_warning_message data="all"}
+>>>>>>> compatible
 					{param showRequiredFieldsWarning: $page.showRequiredFieldsWarning /}
 					{param requiredFieldsWarningMessageHTML: $requiredFieldsWarningMessageHTML /}
 				{/call}
 
+<<<<<<< HEAD
 				{call .form_rows data="all"}
+=======
+				{call ddm.form_rows data="all"}
+>>>>>>> compatible
 					{param rows: $page.rows /}
 				{/call}
 			{/foreach}
@@ -325,6 +506,7 @@
 
 /**
  * Prints a form with tabs.
+<<<<<<< HEAD
  */
 {template .tabbed_form}
 	{@param containerId: string}
@@ -339,6 +521,17 @@
 	<div class="lfr-ddm-form-container" id="{$containerId}">
 		<div class="lfr-ddm-form-tabs">
 			<ul class="nav navbar-nav">
+=======
+ *
+ * @param containerId
+ * @param pages
+ * @param requiredFieldsWarningMessageHTML
+ */
+{template .tabbed_form autoescape="deprecated-contextual"}
+	<div class="lfr-ddm-form-container" id="{$containerId}">
+		<div class="lfr-ddm-form-tabs">
+			<ul class="nav nav-tabs nav-tabs-default">
+>>>>>>> compatible
 				{foreach $page in $pages}
 					<li>
 						<a href="javascript:;">{$page.title}</a>
@@ -346,6 +539,7 @@
 				{/foreach}
 			</ul>
 
+<<<<<<< HEAD
 			<div class="tab-content lfr-ddm-form-tabs-content">
 				{foreach $page in $pages}
 					<div class="lfr-ddm-form-page tab-pane {if isFirst($page)}active{/if}">
@@ -355,6 +549,17 @@
 						{/call}
 
 						{call .form_rows data="all"}
+=======
+			<div class="tab-content">
+				{foreach $page in $pages}
+					{call ddm.required_warning_message data="all"}
+						{param showRequiredFieldsWarning: $page.showRequiredFieldsWarning /}
+						{param requiredFieldsWarningMessageHTML: $requiredFieldsWarningMessageHTML /}
+					{/call}
+
+					<div class="tab-pane {if isFirst($page)}active{/if}">
+						{call ddm.form_rows data="all"}
+>>>>>>> compatible
 							{param rows: $page.rows /}
 						{/call}
 					</div>
@@ -365,6 +570,7 @@
 {/template}
 
 /**
+<<<<<<< HEAD
  * Prints an empty form tab.
  */
 {template .tabbed_form_frame}
@@ -385,11 +591,23 @@
 		rows: list<[columns: list<[size: int, fields: list<?>]>]>
 	]>}
 
+=======
+ * Prints the settings form.
+ *
+ * @param containerId
+ * @param pages
+ */
+{template .settings_form autoescape="deprecated-contextual"}
+>>>>>>> compatible
 	<div class="lfr-ddm-form-container" id="{$containerId}">
 		<div class="lfr-ddm-settings-form">
 			{foreach $page in $pages}
 				<div class="lfr-ddm-form-page{if isFirst($page)} active basic{/if}{if isLast($page)} advanced{/if}">
+<<<<<<< HEAD
 					{call .form_rows data="all"}
+=======
+					{call ddm.form_rows data="all"}
+>>>>>>> compatible
 						{param rows: $page.rows /}
 					{/call}
 				</div>

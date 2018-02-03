@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {namespace DDMCheckbox}
 
 /**
@@ -32,15 +33,41 @@
 					type="checkbox"
 					value="true"
 				/>
+=======
+{namespace ddm}
+
+/**
+ * Prints the DDM form checkbox field.
+ *
+ * @param? childElementsHTML
+ * @param label
+ * @param name
+ * @param readOnly
+ * @param required
+ * @param showAsSwitcher
+ * @param showLabel
+ * @param status
+ * @param tip
+ */
+{template .checkbox autoescape="deprecated-contextual"}
+	<div class="form-group liferay-ddm-form-field-checkbox" data-fieldname="{$name}">
+		{if $showAsSwitcher}
+			<label aria-checked="{($status) ? true : false}" for="{$name}" role="checkbox">
+				<input class="toggle-switch" {if $readOnly}disabled{/if} id="{$name}" name="{$name}" type="checkbox" {$status} value="true" />
+>>>>>>> compatible
 
 				<span aria-hidden="true" class="toggle-switch-bar">
 					<span class="toggle-switch-handle"></span>
 				</span>
 
 				<span class="toggle-switch-text toggle-switch-text-right">
+<<<<<<< HEAD
 					{if $showLabel}
 						{$label}
 					{/if}
+=======
+					{$label}
+>>>>>>> compatible
 
 					{if $required}
 						<span class="icon-asterisk text-warning"></span>
@@ -48,13 +75,20 @@
 				</span>
 			</label>
 
+<<<<<<< HEAD
 			<p class="liferay-ddm-form-field-tip">{$tip ? $tip: ''}</p>
+=======
+			{if $tip}
+				<p class="liferay-ddm-form-field-tip">{$tip}</p>
+			{/if}
+>>>>>>> compatible
 		{else}
 			<div class="checkbox">
 				{if $showLabel}
 					<label for="{$name}">
 				{/if}
 
+<<<<<<< HEAD
 				<input {if $value}checked{/if}
 					{if $readOnly}disabled{/if}
 					id="{$name}"
@@ -64,18 +98,34 @@
 				/>
 
 				{if $showLabel} {$label} {/if}
+=======
+						<input {if $readOnly}disabled{/if} id="{$name}" name="{$name}" type="checkbox" {$status} value="true" />{if $showLabel} {$label}{/if}
+>>>>>>> compatible
 
 				{if $showLabel}
 						{if $required}
 							<span class="icon-asterisk text-warning"></span>
 						{/if}
 					</label>
+<<<<<<< HEAD
 				{/if}
 			</div>
 
 			{if $showLabel}
 				<p class="liferay-ddm-form-field-tip">{$tip ? $tip: ''}</p>
 			{/if}
+=======
+
+					{if $tip}
+						<p class="liferay-ddm-form-field-tip">{$tip}</p>
+					{/if}
+				{/if}
+			</div>
+		{/if}
+
+		{if $childElementsHTML}
+			{$childElementsHTML|noAutoescape}
+>>>>>>> compatible
 		{/if}
 	</div>
 {/template}

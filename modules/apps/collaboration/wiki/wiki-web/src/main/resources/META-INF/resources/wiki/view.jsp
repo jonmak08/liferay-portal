@@ -35,9 +35,26 @@ if (followRedirect && (redirectPage != null)) {
 }
 
 String title = wikiPage.getTitle();
+<<<<<<< HEAD
 String parentTitle = wikiPage.getParentTitle();
 List<WikiPage> childPages = wikiPage.getViewableChildPages();
 int attachmentsFileEntriesCount = wikiPage.getAttachmentsFileEntriesCount();
+=======
+
+String parentTitle = StringPool.BLANK;
+
+if (wikiPage != null) {
+	parentTitle = wikiPage.getParentTitle();
+}
+
+List<WikiPage> childPages = wikiPage.getViewableChildPages();
+
+int attachmentsFileEntriesCount = 0;
+
+if (wikiPage != null) {
+	attachmentsFileEntriesCount = wikiPage.getAttachmentsFileEntriesCount();
+}
+>>>>>>> compatible
 
 boolean preview = false;
 boolean print = ParamUtil.getString(request, "viewMode").equals(Constants.PRINT);
@@ -71,7 +88,14 @@ addPageURL.setParameter("redirect", currentURL);
 addPageURL.setParameter("nodeId", String.valueOf(node.getNodeId()));
 addPageURL.setParameter("title", StringPool.BLANK);
 addPageURL.setParameter("editTitle", "1");
+<<<<<<< HEAD
 addPageURL.setParameter("parentTitle", wikiPage.getTitle());
+=======
+
+if (wikiPage != null) {
+	addPageURL.setParameter("parentTitle", wikiPage.getTitle());
+}
+>>>>>>> compatible
 
 PortletURL editPageURL = renderResponse.createRenderURL();
 
@@ -95,6 +119,7 @@ PortletURL taggedPagesURL = renderResponse.createRenderURL();
 taggedPagesURL.setParameter("mvcRenderCommandName", "/wiki/view_tagged_pages");
 taggedPagesURL.setParameter("nodeId", String.valueOf(node.getNodeId()));
 
+<<<<<<< HEAD
 AssetEntry layoutAssetEntry = AssetEntryLocalServiceUtil.getEntry(WikiPage.class.getName(), wikiPage.getResourcePrimKey());
 
 AssetEntryServiceUtil.incrementViewCounter(layoutAssetEntry);
@@ -104,6 +129,21 @@ if (Validator.isNotNull(ParamUtil.getString(request, "title"))) {
 }
 
 request.setAttribute(WebKeys.LAYOUT_ASSET_ENTRY, layoutAssetEntry);
+=======
+if (Validator.isNotNull(ParamUtil.getString(request, "title"))) {
+	AssetUtil.addLayoutTags(request, AssetTagLocalServiceUtil.getTags(WikiPage.class.getName(), wikiPage.getResourcePrimKey()));
+}
+
+AssetEntry layoutAssetEntry = null;
+
+if (wikiPage != null) {
+	layoutAssetEntry = AssetEntryLocalServiceUtil.getEntry(WikiPage.class.getName(), wikiPage.getResourcePrimKey());
+
+	AssetEntryServiceUtil.incrementViewCounter(layoutAssetEntry);
+
+	request.setAttribute(WebKeys.LAYOUT_ASSET_ENTRY, layoutAssetEntry);
+}
+>>>>>>> compatible
 
 boolean portletTitleBasedNavigation = GetterUtil.getBoolean(portletConfig.getInitParameter("portlet-title-based-navigation"));
 
@@ -120,8 +160,11 @@ if (portletTitleBasedNavigation) {
 %>
 
 <c:if test="<%= portletTitleBasedNavigation %>">
+<<<<<<< HEAD
 	<div class="lfr-alert-container"></div>
 
+=======
+>>>>>>> compatible
 	<liferay-frontend:info-bar>
 		<aui:workflow-status markupView="lexicon" showHelpMessage="<%= false %>" showIcon="<%= false %>" showLabel="<%= false %>" status="<%= wikiPage.getStatus() %>" version="<%= String.valueOf(wikiPage.getVersion()) %>" />
 
@@ -201,9 +244,13 @@ if (portletTitleBasedNavigation) {
 				contextObjects.put("wikiPortletInstanceOverriddenConfiguration", wikiPortletInstanceConfiguration);
 				%>
 
+<<<<<<< HEAD
 				<c:if test="<%= !portletTitleBasedNavigation %>">
 					<div class="lfr-alert-container"></div>
 				</c:if>
+=======
+				<div class="lfr-alert-container"></div>
+>>>>>>> compatible
 
 				<liferay-ddm:template-renderer className="<%= WikiPage.class.getName() %>" contextObjects="<%= contextObjects %>" displayStyle="<%= wikiPortletInstanceSettingsHelper.getDisplayStyle() %>" displayStyleGroupId="<%= wikiPortletInstanceSettingsHelper.getDisplayStyleGroupId() %>" entries="<%= entries %>">
 					<div class="main-content-body">
@@ -224,7 +271,11 @@ if (portletTitleBasedNavigation) {
 						<c:if test="<%= !print && !portletTitleBasedNavigation %>">
 							<div class="page-actions top-actions">
 								<c:if test="<%= followRedirect || (redirectPage == null) %>">
+<<<<<<< HEAD
 									<c:if test="<%= Validator.isNotNull(formattedContent) && WikiNodePermission.contains(permissionChecker, node, ActionKeys.ADD_PAGE) %>">
+=======
+									<c:if test="<%= (wikiPage != null) && Validator.isNotNull(formattedContent) && WikiNodePermissionChecker.contains(permissionChecker, node, ActionKeys.ADD_PAGE) %>">
+>>>>>>> compatible
 										<liferay-ui:icon
 											iconCssClass="icon-plus"
 											label="<%= true %>"
@@ -234,7 +285,11 @@ if (portletTitleBasedNavigation) {
 										/>
 									</c:if>
 
+<<<<<<< HEAD
 									<c:if test="<%= WikiPagePermission.contains(permissionChecker, wikiPage, ActionKeys.UPDATE) %>">
+=======
+									<c:if test="<%= WikiPagePermissionChecker.contains(permissionChecker, wikiPage, ActionKeys.UPDATE) %>">
+>>>>>>> compatible
 										<liferay-ui:icon
 											iconCssClass="icon-edit"
 											label="<%= true %>"
@@ -295,13 +350,21 @@ if (portletTitleBasedNavigation) {
 						<liferay-expando:custom-attributes-available className="<%= WikiPage.class.getName() %>">
 							<liferay-expando:custom-attribute-list
 								className="<%= WikiPage.class.getName() %>"
+<<<<<<< HEAD
 								classPK="<%= wikiPage.getPrimaryKey() %>"
+=======
+								classPK="<%= (wikiPage != null) ? wikiPage.getPrimaryKey() : 0 %>"
+>>>>>>> compatible
 								editable="<%= false %>"
 								label="<%= true %>"
 							/>
 						</liferay-expando:custom-attributes-available>
 
+<<<<<<< HEAD
 						<c:if test="<%= Validator.isNotNull(formattedContent) && (followRedirect || (redirectPage == null)) %>">
+=======
+						<c:if test="<%= (wikiPage != null) && Validator.isNotNull(formattedContent) && (followRedirect || (redirectPage == null)) %>">
+>>>>>>> compatible
 							<div class="page-actions">
 								<div class="stats">
 
@@ -321,7 +384,11 @@ if (portletTitleBasedNavigation) {
 
 								<div class="page-categorization">
 									<div class="page-categories">
+<<<<<<< HEAD
 										<liferay-asset:asset-categories-summary
+=======
+										<liferay-ui:asset-categories-summary
+>>>>>>> compatible
 											className="<%= WikiPage.class.getName() %>"
 											classPK="<%= wikiPage.getResourcePrimKey() %>"
 											portletURL="<%= PortletURLUtil.clone(categorizedPagesURL, renderResponse) %>"
@@ -329,18 +396,30 @@ if (portletTitleBasedNavigation) {
 									</div>
 
 									<div class="page-tags">
+<<<<<<< HEAD
 										<liferay-asset:asset-tags-available
+=======
+										<liferay-ui:asset-tags-available
+>>>>>>> compatible
 											className="<%= WikiPage.class.getName() %>"
 											classPK="<%= wikiPage.getResourcePrimKey() %>"
 										>
 											<h5><liferay-ui:message key="tags" /></h5>
 
+<<<<<<< HEAD
 											<liferay-asset:asset-tags-summary
+=======
+											<liferay-ui:asset-tags-summary
+>>>>>>> compatible
 												className="<%= WikiPage.class.getName() %>"
 												classPK="<%= wikiPage.getResourcePrimKey() %>"
 												portletURL="<%= PortletURLUtil.clone(taggedPagesURL, renderResponse) %>"
 											/>
+<<<<<<< HEAD
 										</liferay-asset:asset-tags-available>
+=======
+										</liferay-ui:asset-tags-available>
+>>>>>>> compatible
 									</div>
 								</div>
 
@@ -390,7 +469,11 @@ if (portletTitleBasedNavigation) {
 
 								<c:if test="<%= wikiPortletInstanceSettingsHelper.isEnableRelatedAssets() %>">
 									<div class="entry-links">
+<<<<<<< HEAD
 										<liferay-asset:asset-links
+=======
+										<liferay-ui:asset-links
+>>>>>>> compatible
 											assetEntryId="<%= assetEntry.getEntryId() %>"
 										/>
 									</div>
@@ -400,7 +483,11 @@ if (portletTitleBasedNavigation) {
 							<c:if test="<%= wikiPortletInstanceSettingsHelper.isEnableComments() %>">
 								<liferay-ui:panel-container extended="<%= false %>" markupView="lexicon" persistState="<%= true %>">
 									<liferay-ui:panel collapsible="<%= true %>" extended="<%= true %>" id='<%= liferayPortletResponse.getNamespace() + "wikiCommentsPanel" %>' markupView="lexicon" persistState="<%= true %>" title="comments">
+<<<<<<< HEAD
 										<liferay-comment:discussion
+=======
+										<liferay-ui:discussion
+>>>>>>> compatible
 											className="<%= WikiPage.class.getName() %>"
 											classPK="<%= wikiPage.getResourcePrimKey() %>"
 											formName="fm2"
@@ -429,7 +516,11 @@ if (portletTitleBasedNavigation) {
 				</aui:script>
 
 				<%
+<<<<<<< HEAD
 				if (!wikiPage.getTitle().equals(wikiGroupServiceConfiguration.frontPageName())) {
+=======
+				if ((wikiPage != null) && !wikiPage.getTitle().equals(wikiGroupServiceConfiguration.frontPageName())) {
+>>>>>>> compatible
 					if (!portletName.equals(WikiPortletKeys.WIKI_DISPLAY)) {
 						PortalUtil.setPageSubtitle(wikiPage.getTitle(), request);
 
@@ -442,7 +533,11 @@ if (portletTitleBasedNavigation) {
 						description = StringUtil.shorten(description, 200);
 
 						PortalUtil.setPageDescription(description, request);
+<<<<<<< HEAD
 						PortalUtil.setPageKeywords(assetHelper.getAssetKeywords(WikiPage.class.getName(), wikiPage.getResourcePrimKey()), request);
+=======
+						PortalUtil.setPageKeywords(AssetUtil.getAssetKeywords(WikiPage.class.getName(), wikiPage.getResourcePrimKey()), request);
+>>>>>>> compatible
 					}
 
 					List<WikiPage> parentPages = wikiPage.getViewableParentPages();
@@ -463,7 +558,11 @@ if (portletTitleBasedNavigation) {
 			</div>
 		</div>
 
+<<<<<<< HEAD
 		<c:if test="<%= Validator.isNotNull(formattedContent) && (followRedirect || (redirectPage == null)) && !childPages.isEmpty() %>">
+=======
+		<c:if test="<%= !childPages.isEmpty() %>">
+>>>>>>> compatible
 			<h4 class="text-default">
 				<liferay-ui:message arguments="<%= childPages.size() %>" key="child-pages-x" translateArguments="<%= false %>" />
 			</h4>
@@ -487,6 +586,7 @@ if (portletTitleBasedNavigation) {
 								<aui:a href="<%= rowURL.toString() %>"><%= childPage.getTitle() %></aui:a>
 							</h3>
 
+<<<<<<< HEAD
 							<%
 							String childPageFormattedContent = null;
 
@@ -499,6 +599,9 @@ if (portletTitleBasedNavigation) {
 							%>
 
 							<p class="text-default"><%= StringUtil.shorten(HtmlUtil.extractText(childPageFormattedContent), 200) %></p>
+=======
+							<p class="text-default"><%= StringUtil.shorten(HtmlUtil.extractText(childPage.getContent()), 200) %></p>
+>>>>>>> compatible
 						</li>
 
 					<%

@@ -14,12 +14,20 @@
 
 package com.liferay.source.formatter.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.tools.ToolsUtil;
+=======
+import com.liferay.portal.kernel.util.ArrayUtil;
+import com.liferay.portal.kernel.util.CharPool;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
+>>>>>>> compatible
 import com.liferay.source.formatter.ExcludeSyntax;
 import com.liferay.source.formatter.ExcludeSyntaxPattern;
 import com.liferay.source.formatter.SourceFormatterExcludes;
@@ -191,6 +199,7 @@ public class SourceFormatterUtil {
 		return null;
 	}
 
+<<<<<<< HEAD
 	public static List<File> getSuppressionsFiles(
 		String basedir, String fileName, List<String> allFileNames,
 		SourceFormatterExcludes sourceFormatterExcludes, boolean portalSource,
@@ -238,6 +247,8 @@ public class SourceFormatterUtil {
 		return suppressionsFiles;
 	}
 
+=======
+>>>>>>> compatible
 	public static void printError(String fileName, File file) {
 		printError(fileName, file.toString());
 	}

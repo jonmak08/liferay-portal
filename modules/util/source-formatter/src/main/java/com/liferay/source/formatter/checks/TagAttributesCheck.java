@@ -14,7 +14,11 @@
 
 package com.liferay.source.formatter.checks;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -28,6 +32,7 @@ import java.util.regex.Pattern;
  */
 public abstract class TagAttributesCheck extends BaseFileCheck {
 
+<<<<<<< HEAD
 	protected String formatMultiLinesTagAttributes(
 			String fileName, String content)
 		throws Exception {
@@ -76,6 +81,8 @@ public abstract class TagAttributesCheck extends BaseFileCheck {
 		return content;
 	}
 
+=======
+>>>>>>> compatible
 	protected String formatTagAttributes(
 			String fileName, String line, String tag, int lineCount,
 			boolean escapeQuotes)
@@ -283,7 +290,10 @@ public abstract class TagAttributesCheck extends BaseFileCheck {
 
 	private static final Pattern _attributeNamePattern = Pattern.compile(
 		"[a-z]+[-_a-zA-Z0-9]*");
+<<<<<<< HEAD
 	private static final Pattern _multilineTagPattern = Pattern.compile(
 		"(\\s+)<[-\\w:]+\n.*?([^%])(/?>)(\n|$)", Pattern.DOTALL);
+=======
+>>>>>>> compatible
 
 }

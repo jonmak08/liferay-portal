@@ -14,7 +14,10 @@
 
 package com.liferay.announcements.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.announcements.constants.AnnouncementsPortletKeys;
+=======
+>>>>>>> compatible
 import com.liferay.announcements.kernel.exception.EntryContentException;
 import com.liferay.announcements.kernel.exception.EntryDisplayDateException;
 import com.liferay.announcements.kernel.exception.EntryExpirationDateException;
@@ -22,6 +25,10 @@ import com.liferay.announcements.kernel.exception.EntryTitleException;
 import com.liferay.announcements.kernel.exception.EntryURLException;
 import com.liferay.announcements.kernel.exception.NoSuchEntryException;
 import com.liferay.announcements.kernel.service.AnnouncementsEntryService;
+<<<<<<< HEAD
+=======
+import com.liferay.announcements.web.constants.AnnouncementsPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.bridges.mvc.BaseMVCActionCommand;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCActionCommand;
 import com.liferay.portal.kernel.security.auth.PrincipalException;
@@ -51,7 +58,10 @@ import org.osgi.service.component.annotations.Reference;
 	property = {
 		"javax.portlet.name=" + AnnouncementsPortletKeys.ALERTS,
 		"javax.portlet.name=" + AnnouncementsPortletKeys.ANNOUNCEMENTS,
+<<<<<<< HEAD
 		"javax.portlet.name=" + AnnouncementsPortletKeys.ANNOUNCEMENTS_ADMIN,
+=======
+>>>>>>> compatible
 		"mvc.command.name=/announcements/edit_entry"
 	},
 	service = MVCActionCommand.class
@@ -61,6 +71,7 @@ public class EditEntryMVCActionCommand extends BaseMVCActionCommand {
 	protected void deleteEntry(ActionRequest actionRequest) throws Exception {
 		long entryId = ParamUtil.getLong(actionRequest, "entryId");
 
+<<<<<<< HEAD
 		long[] deleteEntryIds = null;
 
 		if (entryId > 0) {
@@ -74,6 +85,9 @@ public class EditEntryMVCActionCommand extends BaseMVCActionCommand {
 		for (long deleteEntryId : deleteEntryIds) {
 			_announcementsEntryService.deleteEntry(deleteEntryId);
 		}
+=======
+		_announcementsEntryService.deleteEntry(entryId);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -93,10 +107,25 @@ public class EditEntryMVCActionCommand extends BaseMVCActionCommand {
 		}
 		catch (EntryContentException | EntryDisplayDateException |
 			   EntryExpirationDateException | EntryTitleException |
+<<<<<<< HEAD
 			   EntryURLException | NoSuchEntryException |
 			   PrincipalException e) {
 
 			SessionErrors.add(actionRequest, e.getClass());
+=======
+			   EntryURLException e) {
+
+			SessionErrors.add(actionRequest, e.getClass());
+
+			actionResponse.setRenderParameter(
+				"mvcRenderCommandName", "/announcements/edit_entry");
+		}
+		catch (NoSuchEntryException | PrincipalException e) {
+			SessionErrors.add(actionRequest, e.getClass());
+
+			actionResponse.setRenderParameter(
+				"mvcPath", "/announcements/error.jsp");
+>>>>>>> compatible
 		}
 	}
 

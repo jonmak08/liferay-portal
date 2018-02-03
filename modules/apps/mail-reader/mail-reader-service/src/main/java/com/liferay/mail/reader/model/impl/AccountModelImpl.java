@@ -32,6 +32,10 @@ import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Serializable;
 
@@ -418,7 +422,11 @@ public class AccountModelImpl extends BaseModelImpl<Account>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -433,7 +441,11 @@ public class AccountModelImpl extends BaseModelImpl<Account>
 	@Override
 	public String getUserName() {
 		if (_userName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _userName;
@@ -474,7 +486,11 @@ public class AccountModelImpl extends BaseModelImpl<Account>
 	@Override
 	public String getAddress() {
 		if (_address == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _address;
@@ -499,7 +515,11 @@ public class AccountModelImpl extends BaseModelImpl<Account>
 	@Override
 	public String getPersonalName() {
 		if (_personalName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _personalName;
@@ -514,7 +534,11 @@ public class AccountModelImpl extends BaseModelImpl<Account>
 	@Override
 	public String getProtocol() {
 		if (_protocol == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _protocol;
@@ -529,7 +553,11 @@ public class AccountModelImpl extends BaseModelImpl<Account>
 	@Override
 	public String getIncomingHostName() {
 		if (_incomingHostName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _incomingHostName;
@@ -569,7 +597,11 @@ public class AccountModelImpl extends BaseModelImpl<Account>
 	@Override
 	public String getOutgoingHostName() {
 		if (_outgoingHostName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _outgoingHostName;
@@ -609,7 +641,11 @@ public class AccountModelImpl extends BaseModelImpl<Account>
 	@Override
 	public String getLogin() {
 		if (_login == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _login;
@@ -624,7 +660,11 @@ public class AccountModelImpl extends BaseModelImpl<Account>
 	@Override
 	public String getPassword() {
 		if (_password == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _password;
@@ -654,7 +694,11 @@ public class AccountModelImpl extends BaseModelImpl<Account>
 	@Override
 	public String getSignature() {
 		if (_signature == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _signature;
@@ -684,7 +728,11 @@ public class AccountModelImpl extends BaseModelImpl<Account>
 	@Override
 	public String getFolderPrefix() {
 		if (_folderPrefix == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _folderPrefix;

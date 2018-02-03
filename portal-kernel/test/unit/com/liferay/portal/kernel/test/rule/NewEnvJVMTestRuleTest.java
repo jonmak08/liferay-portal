@@ -14,9 +14,15 @@
 
 package com.liferay.portal.kernel.test.rule;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.test.rule.NewEnv.Environment;
 import com.liferay.portal.kernel.test.rule.NewEnv.JVMArgsLine;
+=======
+import com.liferay.portal.kernel.test.rule.NewEnv.Environment;
+import com.liferay.portal.kernel.test.rule.NewEnv.JVMArgsLine;
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;

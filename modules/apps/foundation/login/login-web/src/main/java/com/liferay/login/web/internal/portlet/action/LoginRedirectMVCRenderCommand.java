@@ -14,7 +14,11 @@
 
 package com.liferay.login.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.login.web.internal.constants.LoginPortletKeys;
+=======
+import com.liferay.login.web.constants.LoginPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCRenderCommand;
 
 import javax.portlet.RenderRequest;

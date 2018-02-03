@@ -1268,7 +1268,11 @@ public class JournalArticleServiceSoap {
 	* @param articleId the primary key of the web content article
 	* @param newFolderId the primary key of the web content article's new
 	folder
+<<<<<<< HEAD
 	* @deprecated As of 4.0.0, replaced by {@link #moveArticle(long, String,
+=======
+	* @deprecated As of 3.3.0, replaced by {@link #moveArticle(long, String,
+>>>>>>> compatible
 	long, ServiceContext)}
 	*/
 	@Deprecated
@@ -1955,6 +1959,7 @@ public class JournalArticleServiceSoap {
 		}
 	}
 
+<<<<<<< HEAD
 	public static void subscribe(long groupId, long articleId)
 		throws RemoteException {
 		try {
@@ -1967,6 +1972,8 @@ public class JournalArticleServiceSoap {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Subscribes the user to changes in elements that belong to the web content
 	* article's DDM structure.
@@ -1988,6 +1995,7 @@ public class JournalArticleServiceSoap {
 		}
 	}
 
+<<<<<<< HEAD
 	public static void unsubscribe(long groupId, long articleId)
 		throws RemoteException {
 		try {
@@ -2000,6 +2008,8 @@ public class JournalArticleServiceSoap {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Unsubscribes the user from changes in elements that belong to the web
 	* content article's DDM structure.

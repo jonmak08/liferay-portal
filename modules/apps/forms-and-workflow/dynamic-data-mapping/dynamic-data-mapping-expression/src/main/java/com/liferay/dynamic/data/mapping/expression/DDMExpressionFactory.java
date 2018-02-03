@@ -14,12 +14,18 @@
 
 package com.liferay.dynamic.data.mapping.expression;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
 /**
  * @author Marcellus Tavares
  */
 @ProviderType
+=======
+/**
+ * @author Marcellus Tavares
+ */
+>>>>>>> compatible
 public interface DDMExpressionFactory {
 
 	public DDMExpression<Boolean> createBooleanDDMExpression(
@@ -42,10 +48,13 @@ public interface DDMExpressionFactory {
 			String ddmExpressionString)
 		throws DDMExpressionException;
 
+<<<<<<< HEAD
 	public DDMExpression<Number> createNumberDDMExpression(
 			String ddmExpressionString)
 		throws DDMExpressionException;
 
+=======
+>>>>>>> compatible
 	public DDMExpression<String> createStringDDMExpression(
 			String ddmExpressionString)
 		throws DDMExpressionException;

@@ -66,13 +66,19 @@ public class DDLRecordSetWrapper implements DDLRecordSet,
 		attributes.put("companyId", getCompanyId());
 		attributes.put("userId", getUserId());
 		attributes.put("userName", getUserName());
+<<<<<<< HEAD
 		attributes.put("versionUserId", getVersionUserId());
 		attributes.put("versionUserName", getVersionUserName());
+=======
+>>>>>>> compatible
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
 		attributes.put("DDMStructureId", getDDMStructureId());
 		attributes.put("recordSetKey", getRecordSetKey());
+<<<<<<< HEAD
 		attributes.put("version", getVersion());
+=======
+>>>>>>> compatible
 		attributes.put("name", getName());
 		attributes.put("description", getDescription());
 		attributes.put("minDisplayRows", getMinDisplayRows());
@@ -121,6 +127,7 @@ public class DDLRecordSetWrapper implements DDLRecordSet,
 			setUserName(userName);
 		}
 
+<<<<<<< HEAD
 		Long versionUserId = (Long)attributes.get("versionUserId");
 
 		if (versionUserId != null) {
@@ -133,6 +140,8 @@ public class DDLRecordSetWrapper implements DDLRecordSet,
 			setVersionUserName(versionUserName);
 		}
 
+=======
+>>>>>>> compatible
 		Date createDate = (Date)attributes.get("createDate");
 
 		if (createDate != null) {
@@ -157,12 +166,15 @@ public class DDLRecordSetWrapper implements DDLRecordSet,
 			setRecordSetKey(recordSetKey);
 		}
 
+<<<<<<< HEAD
 		String version = (String)attributes.get("version");
 
 		if (version != null) {
 			setVersion(version);
 		}
 
+=======
+>>>>>>> compatible
 		String name = (String)attributes.get("name");
 
 		if (name != null) {
@@ -503,6 +515,7 @@ public class DDLRecordSetWrapper implements DDLRecordSet,
 		return _ddlRecordSet.getRecordSetKey();
 	}
 
+<<<<<<< HEAD
 	@Override
 	public DDLRecordSetVersion getRecordSetVersion()
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -515,6 +528,8 @@ public class DDLRecordSetWrapper implements DDLRecordSet,
 		return _ddlRecordSet.getRecordSetVersion(version);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns the scope of this ddl record set.
 	*
@@ -587,6 +602,7 @@ public class DDLRecordSetWrapper implements DDLRecordSet,
 		return _ddlRecordSet.getUuid();
 	}
 
+<<<<<<< HEAD
 	/**
 	* Returns the version of this ddl record set.
 	*
@@ -627,6 +643,8 @@ public class DDLRecordSetWrapper implements DDLRecordSet,
 		return _ddlRecordSet.getVersionUserUuid();
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	public int hashCode() {
 		return _ddlRecordSet.hashCode();
@@ -981,6 +999,7 @@ public class DDLRecordSetWrapper implements DDLRecordSet,
 		_ddlRecordSet.setUuid(uuid);
 	}
 
+<<<<<<< HEAD
 	/**
 	* Sets the version of this ddl record set.
 	*
@@ -1021,6 +1040,8 @@ public class DDLRecordSetWrapper implements DDLRecordSet,
 		_ddlRecordSet.setVersionUserUuid(versionUserUuid);
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	public com.liferay.portal.kernel.model.CacheModel<DDLRecordSet> toCacheModel() {
 		return _ddlRecordSet.toCacheModel();

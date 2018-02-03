@@ -16,6 +16,7 @@ package com.liferay.jenkins.results.parser;
 
 import java.io.IOException;
 
+<<<<<<< HEAD
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -27,6 +28,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ExecutorService;
+=======
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Properties;
+>>>>>>> compatible
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -43,11 +51,14 @@ import org.json.JSONObject;
 public class BatchBuild extends BaseBuild {
 
 	@Override
+<<<<<<< HEAD
 	public void addTimelineData(BaseBuild.TimelineData timelineData) {
 		addDownstreamBuildsTimelineData(timelineData);
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public String getAppServer() {
 		return getEnvironment("app.server");
 	}
@@ -79,6 +90,7 @@ public class BatchBuild extends BaseBuild {
 			return messageElement;
 		}
 
+<<<<<<< HEAD
 		Map<Build, Element> downstreamBuildFailureMessages =
 			getDownstreamBuildMessages("ABORTED", "FAILURE", "UNSTABLE");
 
@@ -93,13 +105,32 @@ public class BatchBuild extends BaseBuild {
 			Element upstreamJobFailureElement =
 				failedDownstreamBuild.
 					getGitHubMessageUpstreamJobFailureElement();
+=======
+		List<Element> failureElements = new ArrayList<>();
+		List<Element> upstreamJobFailureElements = new ArrayList<>();
+
+		for (Build downstreamBuild : getDownstreamBuilds(null)) {
+			String downstreamBuildResult = downstreamBuild.getResult();
+
+			if (downstreamBuildResult.equals("SUCCESS")) {
+				continue;
+			}
+
+			Element failureElement = downstreamBuild.getGitHubMessageElement();
+
+			Element upstreamJobFailureElement =
+				downstreamBuild.getGitHubMessageUpstreamJobFailureElement();
+>>>>>>> compatible
 
 			if (upstreamJobFailureElement != null) {
 				upstreamJobFailureElements.add(upstreamJobFailureElement);
 			}
 
+<<<<<<< HEAD
 			Element failureElement = entry.getValue();
 
+=======
+>>>>>>> compatible
 			if (failureElement == null) {
 				continue;
 			}
@@ -139,6 +170,7 @@ public class BatchBuild extends BaseBuild {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public Long getInvokedTime() {
 		if (invokedTime != null) {
 			return invokedTime;
@@ -204,6 +236,8 @@ public class BatchBuild extends BaseBuild {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public String getJDK() {
 		return getEnvironment("java.jdk");
 	}
@@ -218,13 +252,18 @@ public class BatchBuild extends BaseBuild {
 		String status = getStatus();
 
 		if (!status.equals("completed")) {
+<<<<<<< HEAD
 			return Collections.emptyList();
+=======
+			return null;
+>>>>>>> compatible
 		}
 
 		List<TestResult> testResults = new ArrayList<>();
 
 		JSONObject testReportJSONObject = getTestReportJSONObject();
 
+<<<<<<< HEAD
 		JSONArray childReportsJSONArray = testReportJSONObject.optJSONArray(
 			"childReports");
 
@@ -252,6 +291,19 @@ public class BatchBuild extends BaseBuild {
 			if (axisBuildURL == null) {
 				continue;
 			}
+=======
+		JSONArray childReportsJSONArray = testReportJSONObject.getJSONArray(
+			"childReports");
+
+		for (int i = 0; i < childReportsJSONArray.length(); i++) {
+			JSONObject childReportJSONObject =
+				childReportsJSONArray.getJSONObject(i);
+
+			JSONObject childJSONObject = childReportJSONObject.getJSONObject(
+				"child");
+
+			String axisBuildURL = childJSONObject.getString("url");
+>>>>>>> compatible
 
 			Matcher axisBuildURLMatcher = null;
 
@@ -268,6 +320,7 @@ public class BatchBuild extends BaseBuild {
 
 			String axisVariable = axisBuildURLMatcher.group("axisVariable");
 
+<<<<<<< HEAD
 			JSONObject resultJSONObject = childReportJSONObject.optJSONObject(
 				"result");
 
@@ -281,6 +334,13 @@ public class BatchBuild extends BaseBuild {
 				continue;
 			}
 
+=======
+			JSONObject resultJSONObject = childReportJSONObject.getJSONObject(
+				"result");
+
+			JSONArray suitesJSONArray = resultJSONObject.getJSONArray("suites");
+
+>>>>>>> compatible
 			testResults.addAll(
 				TestResult.getTestResults(
 					getAxisBuild(axisVariable), suitesJSONArray, testStatus));
@@ -290,6 +350,7 @@ public class BatchBuild extends BaseBuild {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public long getTotalDuration() {
 		long totalDuration = super.getTotalDuration();
 
@@ -302,6 +363,8 @@ public class BatchBuild extends BaseBuild {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public void update() {
 		super.update();
 
@@ -311,8 +374,11 @@ public class BatchBuild extends BaseBuild {
 			return;
 		}
 
+<<<<<<< HEAD
 		String result = getResult();
 
+=======
+>>>>>>> compatible
 		if ((status.equals("completed") && result.equals("SUCCESS")) ||
 			fromArchive) {
 
@@ -356,6 +422,16 @@ public class BatchBuild extends BaseBuild {
 		super(url, topLevelBuild);
 	}
 
+<<<<<<< HEAD
+=======
+	@Override
+	protected List<String> findDownstreamBuildsInConsoleText(
+		String consoleText) {
+
+		return Collections.emptyList();
+	}
+
+>>>>>>> compatible
 	protected AxisBuild getAxisBuild(String axisVariable) {
 		for (Build downstreamBuild : getDownstreamBuilds(null)) {
 			AxisBuild downstreamAxisBuild = (AxisBuild)downstreamBuild;
@@ -441,11 +517,14 @@ public class BatchBuild extends BaseBuild {
 	}
 
 	@Override
+<<<<<<< HEAD
 	protected ExecutorService getExecutorService() {
 		return _executorService;
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	protected Element getFailureMessageElement() {
 		return null;
 	}
@@ -455,7 +534,10 @@ public class BatchBuild extends BaseBuild {
 		return getGitHubMessageJobResultsElement(false);
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	protected Element getGitHubMessageJobResultsElement(
 		boolean showCommonFailuresCount) {
 
@@ -479,9 +561,13 @@ public class BatchBuild extends BaseBuild {
 						continue;
 					}
 
+<<<<<<< HEAD
 					if (UpstreamFailureUtil.isTestFailingInUpstreamJob(
 							testResult)) {
 
+=======
+					if (isTestFailingInUpstreamJob(testResult)) {
+>>>>>>> compatible
 						upstreamFailCount++;
 					}
 				}
@@ -508,6 +594,7 @@ public class BatchBuild extends BaseBuild {
 				" Failed.", getFailureMessageElement()));
 	}
 
+<<<<<<< HEAD
 	@Override
 	protected String getJenkinsReportBuildInfoCellElementTagName() {
 		return "th";
@@ -541,6 +628,8 @@ public class BatchBuild extends BaseBuild {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	protected int getTestCountByStatus(String status) {
 		JSONObject testReportJSONObject = getTestReportJSONObject();
 
@@ -562,7 +651,10 @@ public class BatchBuild extends BaseBuild {
 	protected final Pattern majorVersionPattern = Pattern.compile(
 		"((\\d+)\\.?(\\d+?)).*");
 
+<<<<<<< HEAD
 	private static ExecutorService _executorService =
 		JenkinsResultsParserUtil.getNewThreadPoolExecutor(20, true);
 
+=======
+>>>>>>> compatible
 }

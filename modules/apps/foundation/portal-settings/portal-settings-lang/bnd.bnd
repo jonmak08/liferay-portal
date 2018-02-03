@@ -1,5 +1,9 @@
 Bundle-Name: Liferay Portal Settings Lang
 Bundle-SymbolicName: com.liferay.portal.settings.lang
+<<<<<<< HEAD
 Bundle-Version: 1.0.10
+=======
+Bundle-Version: 1.0.6
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title:

@@ -18,19 +18,31 @@ import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.source.formatter.SourceFormatterMessage;
 import com.liferay.source.formatter.checks.FileCheck;
+<<<<<<< HEAD
 import com.liferay.source.formatter.checks.GradleFileCheck;
 import com.liferay.source.formatter.checks.JavaTermCheck;
 import com.liferay.source.formatter.checks.SourceCheck;
+=======
+import com.liferay.source.formatter.checks.JavaTermCheck;
+import com.liferay.source.formatter.checks.SourceCheck;
+import com.liferay.source.formatter.checks.configuration.ConfigurationLoader;
+>>>>>>> compatible
 import com.liferay.source.formatter.checks.configuration.SourceCheckConfiguration;
 import com.liferay.source.formatter.checks.configuration.SourceChecksResult;
 import com.liferay.source.formatter.checks.configuration.SourceChecksSuppressions;
 import com.liferay.source.formatter.checks.configuration.SourceFormatterConfiguration;
+<<<<<<< HEAD
 import com.liferay.source.formatter.parser.GradleFile;
 import com.liferay.source.formatter.parser.GradleFileParser;
 import com.liferay.source.formatter.parser.JavaClass;
 import com.liferay.source.formatter.parser.JavaClassParser;
 import com.liferay.source.formatter.parser.ParseException;
 import com.liferay.source.formatter.util.DebugUtil;
+=======
+import com.liferay.source.formatter.parser.JavaClass;
+import com.liferay.source.formatter.parser.JavaClassParser;
+import com.liferay.source.formatter.parser.ParseException;
+>>>>>>> compatible
 import com.liferay.source.formatter.util.SourceFormatterUtil;
 
 import java.io.File;
@@ -48,11 +60,20 @@ import org.apache.commons.beanutils.BeanUtils;
 public class SourceChecksUtil {
 
 	public static List<SourceCheck> getSourceChecks(
+<<<<<<< HEAD
 			SourceFormatterConfiguration sourceFormatterConfiguration,
+=======
+>>>>>>> compatible
 			String sourceProcessorName, boolean portalSource,
 			boolean subrepository, boolean includeModuleChecks)
 		throws Exception {
 
+<<<<<<< HEAD
+=======
+		SourceFormatterConfiguration sourceFormatterConfiguration =
+			ConfigurationLoader.loadConfiguration("sourcechecks.xml");
+
+>>>>>>> compatible
 		List<SourceCheck> sourceChecks = _getSourceChecks(
 			sourceFormatterConfiguration, sourceProcessorName, portalSource,
 			subrepository, includeModuleChecks);
@@ -68,8 +89,12 @@ public class SourceChecksUtil {
 	public static SourceChecksResult processSourceChecks(
 			File file, String fileName, String absolutePath, String content,
 			boolean modulesFile, List<SourceCheck> sourceChecks,
+<<<<<<< HEAD
 			SourceChecksSuppressions sourceChecksSuppressions,
 			boolean showDebugInformation)
+=======
+			SourceChecksSuppressions sourceChecksSuppressions)
+>>>>>>> compatible
 		throws Exception {
 
 		SourceChecksResult sourceChecksResult = new SourceChecksResult(content);
@@ -78,7 +103,10 @@ public class SourceChecksUtil {
 			return sourceChecksResult;
 		}
 
+<<<<<<< HEAD
 		GradleFile gradleFile = null;
+=======
+>>>>>>> compatible
 		JavaClass javaClass = null;
 		List<JavaClass> anonymousClasses = null;
 
@@ -95,13 +123,17 @@ public class SourceChecksUtil {
 				continue;
 			}
 
+<<<<<<< HEAD
 			long startTime = System.currentTimeMillis();
 
+=======
+>>>>>>> compatible
 			if (sourceCheck instanceof FileCheck) {
 				sourceChecksResult = _processFileCheck(
 					sourceChecksResult, (FileCheck)sourceCheck, fileName,
 					absolutePath);
 			}
+<<<<<<< HEAD
 			else if (sourceCheck instanceof GradleFileCheck) {
 				if (gradleFile == null) {
 					try {
@@ -121,6 +153,8 @@ public class SourceChecksUtil {
 					sourceChecksResult, (GradleFileCheck)sourceCheck,
 					gradleFile, fileName, absolutePath);
 			}
+=======
+>>>>>>> compatible
 			else {
 				if (javaClass == null) {
 					try {
@@ -144,6 +178,7 @@ public class SourceChecksUtil {
 					anonymousClasses, fileName, absolutePath);
 			}
 
+<<<<<<< HEAD
 			if (showDebugInformation) {
 				long endTime = System.currentTimeMillis();
 
@@ -158,6 +193,9 @@ public class SourceChecksUtil {
 						sourceChecksResult.getContent());
 				}
 
+=======
+			if (!content.equals(sourceChecksResult.getContent())) {
+>>>>>>> compatible
 				return sourceChecksResult;
 			}
 		}
@@ -226,6 +264,7 @@ public class SourceChecksUtil {
 			for (String attributeName :
 					sourceCheckConfiguration.attributeNames()) {
 
+<<<<<<< HEAD
 				for (String attributeValue :
 						sourceCheckConfiguration.getAttributeValues(
 							attributeName)) {
@@ -233,6 +272,11 @@ public class SourceChecksUtil {
 					BeanUtils.setProperty(
 						sourceCheck, attributeName, attributeValue);
 				}
+=======
+				BeanUtils.setProperty(
+					sourceCheck, attributeName,
+					sourceCheckConfiguration.getAttributeValue(attributeName));
+>>>>>>> compatible
 			}
 
 			sourceChecks.add(sourceCheck);
@@ -260,6 +304,7 @@ public class SourceChecksUtil {
 		return sourceChecksResult;
 	}
 
+<<<<<<< HEAD
 	private static SourceChecksResult _processGradleFileCheck(
 			SourceChecksResult sourceChecksResult,
 			GradleFileCheck gradleFileCheck, GradleFile gradleFile,
@@ -282,6 +327,8 @@ public class SourceChecksUtil {
 		return sourceChecksResult;
 	}
 
+=======
+>>>>>>> compatible
 	private static SourceChecksResult _processJavaTermCheck(
 			SourceChecksResult sourceChecksResult, JavaTermCheck javaTermCheck,
 			JavaClass javaClass, List<JavaClass> anonymousClasses,

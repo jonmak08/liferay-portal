@@ -28,6 +28,10 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.util.IntegerWrapper;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.OrderByComparatorFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.PersistenceTestRule;
@@ -137,7 +141,11 @@ public class KaleoActionPersistenceTest {
 
 		newKaleoAction.setKaleoClassPK(RandomTestUtil.nextLong());
 
+<<<<<<< HEAD
 		newKaleoAction.setKaleoDefinitionVersionId(RandomTestUtil.nextLong());
+=======
+		newKaleoAction.setKaleoDefinitionId(RandomTestUtil.nextLong());
+>>>>>>> compatible
 
 		newKaleoAction.setKaleoNodeName(RandomTestUtil.randomString());
 
@@ -179,8 +187,13 @@ public class KaleoActionPersistenceTest {
 			newKaleoAction.getKaleoClassName());
 		Assert.assertEquals(existingKaleoAction.getKaleoClassPK(),
 			newKaleoAction.getKaleoClassPK());
+<<<<<<< HEAD
 		Assert.assertEquals(existingKaleoAction.getKaleoDefinitionVersionId(),
 			newKaleoAction.getKaleoDefinitionVersionId());
+=======
+		Assert.assertEquals(existingKaleoAction.getKaleoDefinitionId(),
+			newKaleoAction.getKaleoDefinitionId());
+>>>>>>> compatible
 		Assert.assertEquals(existingKaleoAction.getKaleoNodeName(),
 			newKaleoAction.getKaleoNodeName());
 		Assert.assertEquals(existingKaleoAction.getName(),
@@ -207,26 +220,46 @@ public class KaleoActionPersistenceTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testCountByKaleoDefinitionVersionId() throws Exception {
 		_persistence.countByKaleoDefinitionVersionId(RandomTestUtil.nextLong());
 
 		_persistence.countByKaleoDefinitionVersionId(0L);
+=======
+	public void testCountByKaleoDefinitionId() throws Exception {
+		_persistence.countByKaleoDefinitionId(RandomTestUtil.nextLong());
+
+		_persistence.countByKaleoDefinitionId(0L);
+>>>>>>> compatible
 	}
 
 	@Test
 	public void testCountByKCN_KCPK() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByKCN_KCPK("", RandomTestUtil.nextLong());
 
 		_persistence.countByKCN_KCPK("null", 0L);
+=======
+		_persistence.countByKCN_KCPK(StringPool.BLANK, RandomTestUtil.nextLong());
+
+		_persistence.countByKCN_KCPK(StringPool.NULL, 0L);
+>>>>>>> compatible
 
 		_persistence.countByKCN_KCPK((String)null, 0L);
 	}
 
 	@Test
 	public void testCountByKCN_KCPK_ET() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByKCN_KCPK_ET("", RandomTestUtil.nextLong(), "");
 
 		_persistence.countByKCN_KCPK_ET("null", 0L, "null");
+=======
+		_persistence.countByKCN_KCPK_ET(StringPool.BLANK,
+			RandomTestUtil.nextLong(), StringPool.BLANK);
+
+		_persistence.countByKCN_KCPK_ET(StringPool.NULL, 0L, StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByKCN_KCPK_ET((String)null, 0L, (String)null);
 	}
@@ -258,9 +291,15 @@ public class KaleoActionPersistenceTest {
 			"kaleoActionId", true, "groupId", true, "companyId", true,
 			"userId", true, "userName", true, "createDate", true,
 			"modifiedDate", true, "kaleoClassName", true, "kaleoClassPK", true,
+<<<<<<< HEAD
 			"kaleoDefinitionVersionId", true, "kaleoNodeName", true, "name",
 			true, "description", true, "executionType", true, "scriptLanguage",
 			true, "scriptRequiredContexts", true, "priority", true);
+=======
+			"kaleoDefinitionId", true, "kaleoNodeName", true, "name", true,
+			"description", true, "executionType", true, "scriptLanguage", true,
+			"scriptRequiredContexts", true, "priority", true);
+>>>>>>> compatible
 	}
 
 	@Test
@@ -478,7 +517,11 @@ public class KaleoActionPersistenceTest {
 
 		kaleoAction.setKaleoClassPK(RandomTestUtil.nextLong());
 
+<<<<<<< HEAD
 		kaleoAction.setKaleoDefinitionVersionId(RandomTestUtil.nextLong());
+=======
+		kaleoAction.setKaleoDefinitionId(RandomTestUtil.nextLong());
+>>>>>>> compatible
 
 		kaleoAction.setKaleoNodeName(RandomTestUtil.randomString());
 

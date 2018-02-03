@@ -15,7 +15,12 @@
 package com.liferay.screens.service.impl;
 
 import com.liferay.dynamic.data.lists.model.DDLRecord;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.lists.model.DDLRecordSet;
+=======
+import com.liferay.dynamic.data.lists.service.permission.DDLRecordPermission;
+import com.liferay.dynamic.data.lists.service.permission.DDLRecordSetPermission;
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.model.Value;
 import com.liferay.dynamic.data.mapping.storage.DDMFormFieldValue;
 import com.liferay.dynamic.data.mapping.storage.DDMFormValues;
@@ -25,8 +30,11 @@ import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermission;
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermissionFactory;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.screens.service.base.ScreensDDLRecordServiceBaseImpl;
@@ -49,16 +57,25 @@ public class ScreensDDLRecordServiceImpl
 
 		DDLRecord ddlRecord = ddlRecordLocalService.getRecord(ddlRecordId);
 
+<<<<<<< HEAD
 		_ddlRecordSetModelResourcePermission.check(
 			getPermissionChecker(), ddlRecord.getRecordSetId(),
 			ActionKeys.VIEW);
+=======
+		DDLRecordPermission.check(
+			getPermissionChecker(), ddlRecord, ActionKeys.VIEW);
+>>>>>>> compatible
 
 		DDMFormValues ddmFormValues = ddlRecord.getDDMFormValues();
 
 		Set<Locale> availableLocales = ddmFormValues.getAvailableLocales();
 
 		if ((locale == null) || !availableLocales.contains(locale)) {
+<<<<<<< HEAD
 			locale = ddmFormValues.getDefaultLocale();
+=======
+			locale = ddlRecord.getDDMFormValues().getDefaultLocale();
+>>>>>>> compatible
 		}
 
 		return getDDLRecordJSONObject(ddlRecord, locale);
@@ -70,7 +87,11 @@ public class ScreensDDLRecordServiceImpl
 			OrderByComparator<DDLRecord> obc)
 		throws PortalException {
 
+<<<<<<< HEAD
 		_ddlRecordSetModelResourcePermission.check(
+=======
+		DDLRecordSetPermission.check(
+>>>>>>> compatible
 			getPermissionChecker(), ddlRecordSetId, ActionKeys.VIEW);
 
 		List<DDLRecord> ddlRecords = ddlRecordLocalService.getRecords(
@@ -85,7 +106,11 @@ public class ScreensDDLRecordServiceImpl
 			OrderByComparator<DDLRecord> obc)
 		throws PortalException {
 
+<<<<<<< HEAD
 		_ddlRecordSetModelResourcePermission.check(
+=======
+		DDLRecordSetPermission.check(
+>>>>>>> compatible
 			getPermissionChecker(), ddlRecordSetId, ActionKeys.VIEW);
 
 		List<DDLRecord> ddlRecords = ddlRecordLocalService.getRecords(
@@ -96,7 +121,11 @@ public class ScreensDDLRecordServiceImpl
 
 	@Override
 	public int getDDLRecordsCount(long ddlRecordSetId) throws PortalException {
+<<<<<<< HEAD
 		_ddlRecordSetModelResourcePermission.check(
+=======
+		DDLRecordSetPermission.check(
+>>>>>>> compatible
 			getPermissionChecker(), ddlRecordSetId, ActionKeys.VIEW);
 
 		return ddlRecordLocalService.getRecordsCount(ddlRecordSetId);
@@ -106,7 +135,11 @@ public class ScreensDDLRecordServiceImpl
 	public int getDDLRecordsCount(long ddlRecordSetId, long userId)
 		throws PortalException {
 
+<<<<<<< HEAD
 		_ddlRecordSetModelResourcePermission.check(
+=======
+		DDLRecordSetPermission.check(
+>>>>>>> compatible
 			getPermissionChecker(), ddlRecordSetId, ActionKeys.VIEW);
 
 		return ddlRecordLocalService.getRecordsCount(ddlRecordSetId, userId);
@@ -243,10 +276,13 @@ public class ScreensDDLRecordServiceImpl
 		return fieldValueString;
 	}
 
+<<<<<<< HEAD
 	private static volatile ModelResourcePermission<DDLRecordSet>
 		_ddlRecordSetModelResourcePermission =
 			ModelResourcePermissionFactory.getInstance(
 				ScreensDDLRecordServiceImpl.class,
 				"_ddlRecordSetModelResourcePermission", DDLRecordSet.class);
 
+=======
+>>>>>>> compatible
 }

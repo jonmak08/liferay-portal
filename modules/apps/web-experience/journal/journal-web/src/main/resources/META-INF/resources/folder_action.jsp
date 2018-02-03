@@ -171,12 +171,20 @@ else {
 		}
 		%>
 
+<<<<<<< HEAD
 		<portlet:actionURL name='<%= trashHelper.isTrashEnabled(scopeGroupId) ? "moveFolderToTrash" : "deleteFolder" %>' var="deleteURL">
+=======
+		<portlet:actionURL name='<%= TrashUtil.isTrashEnabled(scopeGroupId) ? "moveFolderToTrash" : "deleteFolder" %>' var="deleteURL">
+>>>>>>> compatible
 			<portlet:param name="redirect" value="<%= redirect %>" />
 			<portlet:param name="groupId" value="<%= String.valueOf(folder.getGroupId()) %>" />
 			<portlet:param name="folderId" value="<%= String.valueOf(folder.getFolderId()) %>" />
 		</portlet:actionURL>
 
+<<<<<<< HEAD
 		<liferay-ui:icon-delete trash="<%= trashHelper.isTrashEnabled(scopeGroupId) %>" url="<%= deleteURL %>" />
+=======
+		<liferay-ui:icon-delete trash="<%= TrashUtil.isTrashEnabled(scopeGroupId) %>" url="<%= deleteURL %>" />
+>>>>>>> compatible
 	</c:if>
 </liferay-ui:icon-menu>

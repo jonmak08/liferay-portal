@@ -58,26 +58,37 @@
 			<type>boolean</type>
 		</attribute>
 		<attribute>
+<<<<<<< HEAD
 			<name>layoutSetBranch</name>
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
 			<type>com.liferay.portal.kernel.model.LayoutSetBranch</type>
 		</attribute>
 		<attribute>
+=======
+>>>>>>> compatible
 			<description>The HTML template to use to generate the HTML of each page in the tree.</description>
 			<name>linkTemplate</name>
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 		<attribute>
+<<<<<<< HEAD
 			<description>The base portlet URL to use to generate the URL of the nodes.</description>
+=======
+			<description>The base <![CDATA[<code>PortletURL</code>]]> to use to generate the URL of the nodes.</description>
+>>>>>>> compatible
 			<name>portletURL</name>
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
 			<type>javax.portlet.PortletURL</type>
 		</attribute>
 		<attribute>
+<<<<<<< HEAD
 			<description>A map of base portlet URLs that can be used to generate several URLs in the nodes. The key of the map is replaced by the value in the <![CDATA[<code>linkTemplate</code>]]> or <![CDATA[<code>rootLinkTemplate</code>]]>.</description>
+=======
+			<description>A map of base <![CDATA[<code>PortletURL</code>]]>s that can be used to generate several URLs in the nodes. The key of the map is replaced by the value in the <![CDATA[<code>linkTemplate</code>]]> or <![CDATA[<code>rootLinkTemplate</code>]]>.</description>
+>>>>>>> compatible
 			<name>portletURLs</name>
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>

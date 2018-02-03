@@ -20,6 +20,7 @@ package com.liferay.calendar.notification;
  */
 public enum NotificationTemplateType {
 
+<<<<<<< HEAD
 	DECLINE("decline"), INVITE("invite"), INSTANCE_DELETED("instance-deleted"),
 	MOVED_TO_TRASH("moved-to-trash"), REMINDER("reminder"), UPDATE("update");
 
@@ -33,6 +34,15 @@ public enum NotificationTemplateType {
 		else if (INSTANCE_DELETED.getValue().equals(value)) {
 			return INSTANCE_DELETED;
 		}
+=======
+	INVITE("invite"), MOVED_TO_TRASH("moved-to-trash"), REMINDER("reminder"),
+	UPDATE("update");
+
+	public static NotificationTemplateType parse(String value) {
+		if (INVITE.getValue().equals(value)) {
+			return INVITE;
+		}
+>>>>>>> compatible
 		else if (MOVED_TO_TRASH.getValue().equals(value)) {
 			return MOVED_TO_TRASH;
 		}

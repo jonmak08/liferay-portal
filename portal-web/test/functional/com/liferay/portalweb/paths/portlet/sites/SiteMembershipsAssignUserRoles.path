@@ -26,22 +26,38 @@
 <!--ROLE_TABLE-->
 <tr>
 	<td>ROLE_TABLE_CHECKBOX</td>
+<<<<<<< HEAD
 	<td>//div[contains(@id,'siteRolesSearchContainer')]//tr[contains(.,'${key_roleTitle}')]/td[1]/input</td>
+=======
+	<td>//div[contains(@id,'siteRolesSearchContainer')]//tr[contains(.,'${key_roleName}')]/td[1]/input</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>ROLE_TABLE_TITLE</td>
+<<<<<<< HEAD
 	<td>//div[contains(@id,'siteRolesSearchContainer')]//tr[contains(.,'${key_roleTitle}')]/td[2]</td>
+=======
+	<td>//div[contains(@id,'siteRolesSearchContainer')]//tr[contains(.,'${key_roleName}')]/td[2]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>ROLE_TABLE_TYPE</td>
+<<<<<<< HEAD
 	<td>//div[contains(@id,'siteRolesSearchContainer')]//tr[contains(.,'${key_roleTitle}')]/td[3]</td>
+=======
+	<td>//div[contains(@id,'siteRolesSearchContainer')]//tr[contains(.,'${key_roleName}')]/td[3]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>ROLE_TABLE_DESCRIPTION</td>
+<<<<<<< HEAD
 	<td>//div[contains(@id,'siteRolesSearchContainer')]//tr[contains(.,'${key_roleTitle}')]/td[4]</td>
+=======
+	<td>//div[contains(@id,'siteRolesSearchContainer')]//tr[contains(.,'${key_roleName}')]/td[4]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>

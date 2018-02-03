@@ -17,13 +17,25 @@
 <%@ include file="/init.jsp" %>
 
 <%
+<<<<<<< HEAD
 EditSiteTeamAssignmentsDisplayContext editSiteTeamAssignmentsDisplayContext = new EditSiteTeamAssignmentsDisplayContext(renderRequest, renderResponse, request);
+=======
+String tabs1 = (String)request.getAttribute("edit_team_assignments.jsp-tabs1");
+
+Team team = (Team)request.getAttribute("edit_team_assignments.jsp-team");
+>>>>>>> compatible
 
 String displayStyle = portalPreferences.getValue(SiteTeamsPortletKeys.SITE_TEAMS, "display-style", "icon");
 String orderByCol = ParamUtil.getString(request, "orderByCol", "first-name");
 String orderByType = ParamUtil.getString(request, "orderByType", "asc");
 
+<<<<<<< HEAD
 SearchContainer userSearchContainer = new UserSearch(renderRequest, editSiteTeamAssignmentsDisplayContext.getEditTeamAssignmentsURL());
+=======
+PortletURL portletURL = (PortletURL)request.getAttribute("edit_team_assignments.jsp-portletURL");
+
+SearchContainer userSearchContainer = new UserSearch(renderRequest, portletURL);
+>>>>>>> compatible
 
 UserSearchTerms searchTerms = (UserSearchTerms)userSearchContainer.getSearchTerms();
 
@@ -32,7 +44,11 @@ userSearchContainer.setEmptyResultsMessageCssClass(searchTerms.isSearch() ? Stri
 LinkedHashMap<String, Object> userParams = new LinkedHashMap<String, Object>();
 
 userParams.put("inherit", Boolean.TRUE);
+<<<<<<< HEAD
 userParams.put("usersTeams", editSiteTeamAssignmentsDisplayContext.getTeamId());
+=======
+userParams.put("usersTeams", team.getTeamId());
+>>>>>>> compatible
 
 int usersCount = UserLocalServiceUtil.searchCount(company.getCompanyId(), searchTerms.getKeywords(), searchTerms.getStatus(), userParams);
 
@@ -45,10 +61,16 @@ userSearchContainer.setResults(users);
 RowChecker rowChecker = new EmptyOnClickRowChecker(renderResponse);
 %>
 
+<<<<<<< HEAD
 <clay:navigation-bar
 	inverted="<%= true %>"
 	items="<%= editSiteTeamAssignmentsDisplayContext.getNavigationItems() %>"
 />
+=======
+<liferay-util:include page="/navigation_bar.jsp" servletContext="<%= application %>">
+	<liferay-util:param name="searchEnabled" value="<%= String.valueOf((usersCount > 0) || searchTerms.isSearch()) %>" />
+</liferay-util:include>
+>>>>>>> compatible
 
 <liferay-frontend:management-bar
 	disabled="<%= usersCount <= 0 %>"
@@ -58,13 +80,18 @@ RowChecker rowChecker = new EmptyOnClickRowChecker(renderResponse);
 	<liferay-frontend:management-bar-filters>
 		<liferay-frontend:management-bar-navigation
 			navigationKeys='<%= new String[] {"all"} %>'
+<<<<<<< HEAD
 			portletURL="<%= editSiteTeamAssignmentsDisplayContext.getEditTeamAssignmentsURL() %>"
+=======
+			portletURL="<%= portletURL %>"
+>>>>>>> compatible
 		/>
 
 		<liferay-frontend:management-bar-sort
 			orderByCol="<%= orderByCol %>"
 			orderByType="<%= orderByType %>"
 			orderColumns='<%= new String[] {"first-name", "screen-name"} %>'
+<<<<<<< HEAD
 			portletURL="<%= editSiteTeamAssignmentsDisplayContext.getEditTeamAssignmentsURL() %>"
 		/>
 
@@ -77,6 +104,10 @@ RowChecker rowChecker = new EmptyOnClickRowChecker(renderResponse);
 				</aui:form>
 			</li>
 		</c:if>
+=======
+			portletURL="<%= PortletURLUtil.clone(portletURL, renderResponse) %>"
+		/>
+>>>>>>> compatible
 	</liferay-frontend:management-bar-filters>
 
 	<liferay-frontend:management-bar-buttons>
@@ -99,9 +130,15 @@ RowChecker rowChecker = new EmptyOnClickRowChecker(renderResponse);
 <portlet:actionURL name="deleteTeamUsers" var="deleteTeamUsersURL" />
 
 <aui:form action="<%= deleteTeamUsersURL %>" cssClass="container-fluid-1280 portlet-site-teams-users" method="post" name="fm">
+<<<<<<< HEAD
 	<aui:input name="tabs1" type="hidden" value="<%= editSiteTeamAssignmentsDisplayContext.getTabs1() %>" />
 	<aui:input name="redirect" type="hidden" value="<%= currentURL %>" />
 	<aui:input name="teamId" type="hidden" value="<%= String.valueOf(editSiteTeamAssignmentsDisplayContext.getTeamId()) %>" />
+=======
+	<aui:input name="tabs1" type="hidden" value="<%= tabs1 %>" />
+	<aui:input name="redirect" type="hidden" value="<%= currentURL %>" />
+	<aui:input name="teamId" type="hidden" value="<%= String.valueOf(team.getTeamId()) %>" />
+>>>>>>> compatible
 
 	<liferay-ui:search-container
 		emptyResultsMessage="there-are-no-members.-you-can-add-a-member-by-clicking-the-plus-button-on-the-bottom-right-corner"
@@ -132,9 +169,15 @@ RowChecker rowChecker = new EmptyOnClickRowChecker(renderResponse);
 <portlet:actionURL name="addTeamUsers" var="addTeamUsersURL" />
 
 <aui:form action="<%= addTeamUsersURL %>" cssClass="hide" name="addTeamUsersFm">
+<<<<<<< HEAD
 	<aui:input name="tabs1" type="hidden" value="<%= editSiteTeamAssignmentsDisplayContext.getTabs1() %>" />
 	<aui:input name="redirect" type="hidden" value="<%= currentURL %>" />
 	<aui:input name="teamId" type="hidden" value="<%= String.valueOf(editSiteTeamAssignmentsDisplayContext.getTeamId()) %>" />
+=======
+	<aui:input name="tabs1" type="hidden" value="<%= tabs1 %>" />
+	<aui:input name="redirect" type="hidden" value="<%= currentURL %>" />
+	<aui:input name="teamId" type="hidden" value="<%= String.valueOf(team.getTeamId()) %>" />
+>>>>>>> compatible
 </aui:form>
 
 <liferay-frontend:add-menu>
@@ -149,7 +192,11 @@ RowChecker rowChecker = new EmptyOnClickRowChecker(renderResponse);
 	<portlet:renderURL var="selectUserURL" windowState="<%= LiferayWindowState.POP_UP.toString() %>">
 		<portlet:param name="mvcPath" value="/select_users.jsp" />
 		<portlet:param name="redirect" value="<%= currentURL %>" />
+<<<<<<< HEAD
 		<portlet:param name="teamId" value="<%= String.valueOf(editSiteTeamAssignmentsDisplayContext.getTeamId()) %>" />
+=======
+		<portlet:param name="teamId" value="<%= String.valueOf(team.getTeamId()) %>" />
+>>>>>>> compatible
 	</portlet:renderURL>
 
 	$('#<portlet:namespace />addUsers').on(
@@ -173,7 +220,11 @@ RowChecker rowChecker = new EmptyOnClickRowChecker(renderResponse);
 							}
 						}
 					},
+<<<<<<< HEAD
 					title: '<liferay-ui:message arguments="<%= editSiteTeamAssignmentsDisplayContext.getTeamName() %>" key="add-new-user-to-x" />',
+=======
+					title: '<liferay-ui:message arguments="<%= team.getName() %>" key="add-new-user-to-x" />',
+>>>>>>> compatible
 					url: '<%= selectUserURL %>'
 				}
 			);

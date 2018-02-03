@@ -82,8 +82,13 @@ public class KaleoTaskInstanceTokenLocalServiceImpl
 		kaleoTaskInstanceToken.setCreateDate(now);
 		kaleoTaskInstanceToken.setModifiedDate(now);
 		kaleoTaskInstanceToken.setDueDate(dueDate);
+<<<<<<< HEAD
 		kaleoTaskInstanceToken.setKaleoDefinitionVersionId(
 			kaleoInstanceToken.getKaleoDefinitionVersionId());
+=======
+		kaleoTaskInstanceToken.setKaleoDefinitionId(
+			kaleoInstanceToken.getKaleoDefinitionId());
+>>>>>>> compatible
 		kaleoTaskInstanceToken.setKaleoInstanceId(
 			kaleoInstanceToken.getKaleoInstanceId());
 		kaleoTaskInstanceToken.setKaleoInstanceTokenId(kaleoInstanceTokenId);
@@ -185,6 +190,7 @@ public class KaleoTaskInstanceTokenLocalServiceImpl
 
 		kaleoTaskAssignmentInstanceLocalService.
 			deleteCompanyKaleoTaskAssignmentInstances(companyId);
+<<<<<<< HEAD
 
 		// Kaleo task form instances
 
@@ -200,10 +206,23 @@ public class KaleoTaskInstanceTokenLocalServiceImpl
 
 		kaleoTaskInstanceTokenPersistence.removeByKaleoDefinitionVersionId(
 			kaleoDefinitionVersionId);
+=======
+	}
+
+	@Override
+	public void deleteKaleoDefinitionKaleoTaskInstanceTokens(
+		long kaleoDefinitionId) {
+
+		// Kaleo task instance tokens
+
+		kaleoTaskInstanceTokenPersistence.removeByKaleoDefinitionId(
+			kaleoDefinitionId);
+>>>>>>> compatible
 
 		// Kaleo task assignment instances
 
 		kaleoTaskAssignmentInstanceLocalService.
+<<<<<<< HEAD
 			deleteKaleoDefinitionVersionKaleoTaskAssignmentInstances(
 				kaleoDefinitionVersionId);
 
@@ -212,6 +231,10 @@ public class KaleoTaskInstanceTokenLocalServiceImpl
 		kaleoTaskFormInstanceLocalService.
 			deleteKaleoDefinitionVersionKaleoTaskFormInstances(
 				kaleoDefinitionVersionId);
+=======
+			deleteKaleoDefinitionKaleoTaskAssignmentInstances(
+				kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -227,11 +250,14 @@ public class KaleoTaskInstanceTokenLocalServiceImpl
 
 		kaleoTaskAssignmentInstanceLocalService.
 			deleteKaleoInstanceKaleoTaskAssignmentInstances(kaleoInstanceId);
+<<<<<<< HEAD
 
 		// Kaleo task form instances
 
 		kaleoTaskFormInstanceLocalService.
 			deleteKaleoInstanceKaleoTaskFormInstances(kaleoInstanceId);
+=======
+>>>>>>> compatible
 	}
 
 	@Override
@@ -455,6 +481,7 @@ public class KaleoTaskInstanceTokenLocalServiceImpl
 	}
 
 	@Override
+<<<<<<< HEAD
 	public boolean hasPendingKaleoTaskForms(long kaleoTaskInstanceTokenId)
 		throws PortalException {
 
@@ -477,6 +504,8 @@ public class KaleoTaskInstanceTokenLocalServiceImpl
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public List<KaleoTaskInstanceToken> search(
 		String keywords, Boolean completed, Boolean searchByUserRoles,
 		int start, int end,
@@ -497,24 +526,52 @@ public class KaleoTaskInstanceTokenLocalServiceImpl
 		ServiceContext serviceContext) {
 
 		return search(
+<<<<<<< HEAD
 			null, taskName, getAssetTypes(assetType), assetPrimaryKeys,
 			dueDateGT, dueDateLT, completed, searchByUserRoles, andOperator,
 			start, end, orderByComparator, serviceContext);
+=======
+			taskName, getAssetTypes(assetType), assetPrimaryKeys, dueDateGT,
+			dueDateLT, completed, searchByUserRoles, andOperator, start, end,
+			orderByComparator, serviceContext);
+>>>>>>> compatible
 	}
 
 	@Override
 	public List<KaleoTaskInstanceToken> search(
+<<<<<<< HEAD
 		String assetTitle, String taskName, String[] assetTypes,
 		Long[] assetPrimaryKeys, Date dueDateGT, Date dueDateLT,
 		Boolean completed, Boolean searchByUserRoles, boolean andOperator,
 		int start, int end,
+=======
+		String keywords, String[] assetTypes, Boolean completed,
+		Boolean searchByUserRoles, int start, int end,
+		OrderByComparator<KaleoTaskInstanceToken> orderByComparator,
+		ServiceContext serviceContext) {
+
+		return search(
+			keywords, assetTypes, null, null, null, completed,
+			searchByUserRoles, true, start, end, orderByComparator,
+			serviceContext);
+	}
+
+	@Override
+	public List<KaleoTaskInstanceToken> search(
+		String taskName, String[] assetTypes, Long[] assetPrimaryKeys,
+		Date dueDateGT, Date dueDateLT, Boolean completed,
+		Boolean searchByUserRoles, boolean andOperator, int start, int end,
+>>>>>>> compatible
 		OrderByComparator<KaleoTaskInstanceToken> orderByComparator,
 		ServiceContext serviceContext) {
 
 		KaleoTaskInstanceTokenQuery kaleoTaskInstanceTokenQuery =
 			new KaleoTaskInstanceTokenQuery(serviceContext);
 
+<<<<<<< HEAD
 		kaleoTaskInstanceTokenQuery.setAssetTitle(assetTitle);
+=======
+>>>>>>> compatible
 		kaleoTaskInstanceTokenQuery.setAssetPrimaryKeys(assetPrimaryKeys);
 		kaleoTaskInstanceTokenQuery.setAssetTypes(assetTypes);
 		kaleoTaskInstanceTokenQuery.setCompleted(completed);
@@ -532,6 +589,7 @@ public class KaleoTaskInstanceTokenLocalServiceImpl
 	}
 
 	@Override
+<<<<<<< HEAD
 	public List<KaleoTaskInstanceToken> search(
 		String keywords, String[] assetTypes, Boolean completed,
 		Boolean searchByUserRoles, int start, int end,
@@ -545,6 +603,8 @@ public class KaleoTaskInstanceTokenLocalServiceImpl
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public int searchCount(
 		String keywords, Boolean completed, Boolean searchByUserRoles,
 		ServiceContext serviceContext) {
@@ -562,22 +622,46 @@ public class KaleoTaskInstanceTokenLocalServiceImpl
 		ServiceContext serviceContext) {
 
 		return searchCount(
+<<<<<<< HEAD
 			null, taskName, getAssetTypes(assetType), assetPrimaryKeys,
 			dueDateGT, dueDateLT, completed, searchByUserRoles, andOperator,
+=======
+			taskName, getAssetTypes(assetType), assetPrimaryKeys, dueDateGT,
+			dueDateLT, completed, searchByUserRoles, andOperator,
+>>>>>>> compatible
 			serviceContext);
 	}
 
 	@Override
 	public int searchCount(
+<<<<<<< HEAD
 		String assetTitle, String taskName, String[] assetTypes,
 		Long[] assetPrimaryKeys, Date dueDateGT, Date dueDateLT,
 		Boolean completed, Boolean searchByUserRoles, boolean andOperator,
+=======
+		String keywords, String[] assetTypes, Boolean completed,
+		Boolean searchByUserRoles, ServiceContext serviceContext) {
+
+		return searchCount(
+			keywords, assetTypes, null, null, null, completed,
+			searchByUserRoles, true, serviceContext);
+	}
+
+	@Override
+	public int searchCount(
+		String taskName, String[] assetTypes, Long[] assetPrimaryKeys,
+		Date dueDateGT, Date dueDateLT, Boolean completed,
+		Boolean searchByUserRoles, boolean andOperator,
+>>>>>>> compatible
 		ServiceContext serviceContext) {
 
 		KaleoTaskInstanceTokenQuery kaleoTaskInstanceTokenQuery =
 			new KaleoTaskInstanceTokenQuery(serviceContext);
 
+<<<<<<< HEAD
 		kaleoTaskInstanceTokenQuery.setAssetTitle(assetTitle);
+=======
+>>>>>>> compatible
 		kaleoTaskInstanceTokenQuery.setAssetPrimaryKeys(assetPrimaryKeys);
 		kaleoTaskInstanceTokenQuery.setAssetTypes(assetTypes);
 		kaleoTaskInstanceTokenQuery.setCompleted(completed);
@@ -592,6 +676,7 @@ public class KaleoTaskInstanceTokenLocalServiceImpl
 	}
 
 	@Override
+<<<<<<< HEAD
 	public int searchCount(
 		String keywords, String[] assetTypes, Boolean completed,
 		Boolean searchByUserRoles, ServiceContext serviceContext) {
@@ -602,6 +687,8 @@ public class KaleoTaskInstanceTokenLocalServiceImpl
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public KaleoTaskInstanceToken updateDueDate(
 			long kaleoTaskInstanceTokenId, Date dueDate,
 			ServiceContext serviceContext)

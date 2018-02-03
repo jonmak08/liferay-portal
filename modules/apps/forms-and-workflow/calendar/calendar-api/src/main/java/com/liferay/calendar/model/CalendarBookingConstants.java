@@ -22,6 +22,9 @@ public class CalendarBookingConstants {
 
 	public static final long PARENT_CALENDAR_BOOKING_ID_DEFAULT = 0;
 
+<<<<<<< HEAD
 	public static final long RECURRING_CALENDAR_BOOKING_ID_DEFAULT = 0;
 
+=======
+>>>>>>> compatible
 }

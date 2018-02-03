@@ -14,8 +14,13 @@
 
 package com.liferay.wiki.engine.mediawiki.internal.matchers;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.util.CallbackMatcher;
+=======
+import com.liferay.portal.kernel.util.CallbackMatcher;
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 
 import java.util.regex.MatchResult;

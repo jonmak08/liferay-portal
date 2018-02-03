@@ -14,6 +14,18 @@
 								'liferay-ddm-form-field-text',
 								'liferay-ddm-form-renderer-field'
 							]
+<<<<<<< HEAD
+=======
+						},
+						'liferay-ddm-form-field-editor-template': {
+							condition: {
+								trigger: 'liferay-ddm-form-renderer'
+							},
+							path: 'editor.soy.js',
+							requires: [
+								'soyutils'
+							]
+>>>>>>> compatible
 						}
 					},
 					root: MODULE_PATH + '/'

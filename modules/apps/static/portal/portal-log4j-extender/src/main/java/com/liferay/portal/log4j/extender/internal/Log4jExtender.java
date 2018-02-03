@@ -14,7 +14,10 @@
 
 package com.liferay.portal.log4j.extender.internal;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.util.PropsValues;
 
 import java.io.File;
@@ -92,9 +95,14 @@ public class Log4jExtender implements BundleActivator {
 		throws MalformedURLException {
 
 		File configFile = new File(
+<<<<<<< HEAD
 			StringBundler.concat(
 				PropsValues.MODULE_FRAMEWORK_BASE_DIR, "/log4j/", symbolicName,
 				"-log4j-ext.xml"));
+=======
+			PropsValues.MODULE_FRAMEWORK_BASE_DIR + "/log4j/" + symbolicName +
+				"-log4j-ext.xml");
+>>>>>>> compatible
 
 		if (!configFile.exists()) {
 			return;

@@ -14,10 +14,17 @@
 
 package com.liferay.portal.workflow.kaleo.internal.upgrade.v1_0_0;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.upgrade.UpgradeProcess;
 import com.liferay.portal.kernel.util.LoggingTimer;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.upgrade.UpgradeProcess;
+import com.liferay.portal.kernel.util.LoggingTimer;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.workflow.kaleo.definition.NodeType;
 
 import java.sql.PreparedStatement;
@@ -67,12 +74,21 @@ public class UpgradeKaleoTaskInstanceToken extends UpgradeProcess {
 	protected long getKaleoInstanceTokenId(long kaleoInstanceTokenId)
 		throws Exception {
 
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(7);
 
 		sb.append("select KaleoNode.type_, ");
 		sb.append("KaleoInstanceToken.kaleoInstanceTokenId from KaleoNode ");
 		sb.append("inner join KaleoInstanceToken on (KaleoNode.kaleoNodeId = ");
 		sb.append("KaleoInstanceToken.currentKaleoNodeId) where ");
+=======
+		StringBundler sb = new StringBundler();
+
+		sb.append("select KaleoNode.type_, ");
+		sb.append("KaleoInstanceToken.kaleoInstanceTokenId from KaleoNode ");
+		sb.append("inner join KaleoInstanceToken on (KaleoNode.kaleoNodeId ");
+		sb.append("= KaleoInstanceToken.currentKaleoNodeId) where ");
+>>>>>>> compatible
 		sb.append("KaleoInstanceToken.kaleoInstanceTokenId = (select ");
 		sb.append("parentKaleoInstanceTokenId from KaleoInstanceToken where ");
 		sb.append("KaleoInstanceTokenId = ?)");

@@ -21,6 +21,10 @@ import com.liferay.dynamic.data.lists.model.DDLRecordVersion;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -65,7 +69,11 @@ public class DDLRecordVersionCacheModel implements CacheModel<DDLRecordVersion>,
 
 	@Override
 	public String toString() {
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(33);
+=======
+		StringBundler sb = new StringBundler(31);
+>>>>>>> compatible
 
 		sb.append("{recordVersionId=");
 		sb.append(recordVersionId);
@@ -83,8 +91,11 @@ public class DDLRecordVersionCacheModel implements CacheModel<DDLRecordVersion>,
 		sb.append(DDMStorageId);
 		sb.append(", recordSetId=");
 		sb.append(recordSetId);
+<<<<<<< HEAD
 		sb.append(", recordSetVersion=");
 		sb.append(recordSetVersion);
+=======
+>>>>>>> compatible
 		sb.append(", recordId=");
 		sb.append(recordId);
 		sb.append(", version=");
@@ -114,7 +125,11 @@ public class DDLRecordVersionCacheModel implements CacheModel<DDLRecordVersion>,
 		ddlRecordVersionImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			ddlRecordVersionImpl.setUserName("");
+=======
+			ddlRecordVersionImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddlRecordVersionImpl.setUserName(userName);
@@ -129,6 +144,7 @@ public class DDLRecordVersionCacheModel implements CacheModel<DDLRecordVersion>,
 
 		ddlRecordVersionImpl.setDDMStorageId(DDMStorageId);
 		ddlRecordVersionImpl.setRecordSetId(recordSetId);
+<<<<<<< HEAD
 
 		if (recordSetVersion == null) {
 			ddlRecordVersionImpl.setRecordSetVersion("");
@@ -141,6 +157,12 @@ public class DDLRecordVersionCacheModel implements CacheModel<DDLRecordVersion>,
 
 		if (version == null) {
 			ddlRecordVersionImpl.setVersion("");
+=======
+		ddlRecordVersionImpl.setRecordId(recordId);
+
+		if (version == null) {
+			ddlRecordVersionImpl.setVersion(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddlRecordVersionImpl.setVersion(version);
@@ -151,7 +173,11 @@ public class DDLRecordVersionCacheModel implements CacheModel<DDLRecordVersion>,
 		ddlRecordVersionImpl.setStatusByUserId(statusByUserId);
 
 		if (statusByUserName == null) {
+<<<<<<< HEAD
 			ddlRecordVersionImpl.setStatusByUserName("");
+=======
+			ddlRecordVersionImpl.setStatusByUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddlRecordVersionImpl.setStatusByUserName(statusByUserName);
@@ -184,7 +210,10 @@ public class DDLRecordVersionCacheModel implements CacheModel<DDLRecordVersion>,
 		DDMStorageId = objectInput.readLong();
 
 		recordSetId = objectInput.readLong();
+<<<<<<< HEAD
 		recordSetVersion = objectInput.readUTF();
+=======
+>>>>>>> compatible
 
 		recordId = objectInput.readLong();
 		version = objectInput.readUTF();
@@ -210,7 +239,11 @@ public class DDLRecordVersionCacheModel implements CacheModel<DDLRecordVersion>,
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -222,6 +255,7 @@ public class DDLRecordVersionCacheModel implements CacheModel<DDLRecordVersion>,
 
 		objectOutput.writeLong(recordSetId);
 
+<<<<<<< HEAD
 		if (recordSetVersion == null) {
 			objectOutput.writeUTF("");
 		}
@@ -233,6 +267,12 @@ public class DDLRecordVersionCacheModel implements CacheModel<DDLRecordVersion>,
 
 		if (version == null) {
 			objectOutput.writeUTF("");
+=======
+		objectOutput.writeLong(recordId);
+
+		if (version == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(version);
@@ -245,7 +285,11 @@ public class DDLRecordVersionCacheModel implements CacheModel<DDLRecordVersion>,
 		objectOutput.writeLong(statusByUserId);
 
 		if (statusByUserName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(statusByUserName);
@@ -262,7 +306,10 @@ public class DDLRecordVersionCacheModel implements CacheModel<DDLRecordVersion>,
 	public long createDate;
 	public long DDMStorageId;
 	public long recordSetId;
+<<<<<<< HEAD
 	public String recordSetVersion;
+=======
+>>>>>>> compatible
 	public long recordId;
 	public String version;
 	public int displayIndex;

@@ -55,9 +55,13 @@ public class ResourceResponseImpl
 
 	@Override
 	public void addProperty(Cookie cookie) {
+<<<<<<< HEAD
 		if (!(isCalledFlushBuffer() || isCommitted())) {
 			response.addCookie(cookie);
 		}
+=======
+		response.addCookie(cookie);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -109,8 +113,11 @@ public class ResourceResponseImpl
 	@Override
 	public void setCharacterEncoding(String charset) {
 		response.setCharacterEncoding(charset);
+<<<<<<< HEAD
 
 		_canSetLocaleEncoding = false;
+=======
+>>>>>>> compatible
 	}
 
 	@Override
@@ -142,6 +149,7 @@ public class ResourceResponseImpl
 
 	@Override
 	public void setLocale(Locale locale) {
+<<<<<<< HEAD
 		if (locale == null) {
 			return;
 		}
@@ -170,4 +178,9 @@ public class ResourceResponseImpl
 
 	private boolean _canSetLocaleEncoding = true;
 
+=======
+		response.setLocale(locale);
+	}
+
+>>>>>>> compatible
 }

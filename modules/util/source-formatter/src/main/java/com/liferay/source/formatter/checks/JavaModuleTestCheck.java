@@ -34,6 +34,7 @@ public class JavaModuleTestCheck extends BaseFileCheck {
 			return content;
 		}
 
+<<<<<<< HEAD
 		String packageName = JavaSourceUtil.getPackageName(content);
 
 		if (!packageName.startsWith("com.liferay")) {
@@ -41,13 +42,26 @@ public class JavaModuleTestCheck extends BaseFileCheck {
 		}
 
 		_checkTestPackage(fileName, absolutePath, content, packageName);
+=======
+		String packagePath = JavaSourceUtil.getPackagePath(content);
+
+		if (!packagePath.startsWith("com.liferay")) {
+			return content;
+		}
+
+		_checkTestPackage(fileName, absolutePath, content, packagePath);
+>>>>>>> compatible
 
 		return content;
 	}
 
 	private void _checkTestPackage(
 		String fileName, String absolutePath, String content,
+<<<<<<< HEAD
 		String packageName) {
+=======
+		String packagePath) {
+>>>>>>> compatible
 
 		if (absolutePath.contains("/src/testIntegration/java/") ||
 			absolutePath.contains("/test/integration/")) {
@@ -56,6 +70,7 @@ public class JavaModuleTestCheck extends BaseFileCheck {
 				content.contains("import org.powermock.")) {
 
 				addMessage(
+<<<<<<< HEAD
 					fileName, "Do not use PowerMock inside Arquillian tests",
 					"power_mock.markdown");
 			}
@@ -65,16 +80,37 @@ public class JavaModuleTestCheck extends BaseFileCheck {
 					fileName,
 					"Module integration test must be under a test subpackage",
 					"modules_tests.markdown");
+=======
+					fileName,
+					"Do not use PowerMock inside Arquillian tests, see " +
+						"LPS-56706");
+			}
+
+			if (!packagePath.endsWith(".test")) {
+				addMessage(
+					fileName,
+					"Module integration test must be under a test " +
+						"subpackage, see LPS-57722");
+>>>>>>> compatible
 			}
 		}
 		else if ((absolutePath.contains("/test/unit/") ||
 				  absolutePath.contains("/src/test/java/")) &&
+<<<<<<< HEAD
 				 packageName.endsWith(".test")) {
 
 			addMessage(
 				fileName,
 				"Module unit test should not be under a test subpackage",
 				"modules_tests.markdown");
+=======
+				 packagePath.endsWith(".test")) {
+
+			addMessage(
+				fileName,
+				"Module unit test should not be under a test subpackage, see " +
+					"LPS-57722");
+>>>>>>> compatible
 		}
 	}
 

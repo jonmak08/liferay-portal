@@ -35,8 +35,13 @@ import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.SystemEventPersistence;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.model.impl.SystemEventImpl;
 import com.liferay.portal.model.impl.SystemEventModelImpl;
 
@@ -1256,6 +1261,7 @@ public class SystemEventPersistenceImpl extends BasePersistenceImpl<SystemEvent>
 		}
 
 		List<SystemEvent> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<SystemEvent>)finderCache.getResult(finderPath,
@@ -1268,6 +1274,20 @@ public class SystemEventPersistenceImpl extends BasePersistenceImpl<SystemEvent>
 							(classPK != systemEvent.getClassPK())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<SystemEvent>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (SystemEvent systemEvent : list) {
+					if ((groupId != systemEvent.getGroupId()) ||
+							(classNameId != systemEvent.getClassNameId()) ||
+							(classPK != systemEvent.getClassPK())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -1848,6 +1868,7 @@ public class SystemEventPersistenceImpl extends BasePersistenceImpl<SystemEvent>
 		}
 
 		List<SystemEvent> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<SystemEvent>)finderCache.getResult(finderPath,
@@ -1861,6 +1882,21 @@ public class SystemEventPersistenceImpl extends BasePersistenceImpl<SystemEvent>
 							(type != systemEvent.getType())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<SystemEvent>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (SystemEvent systemEvent : list) {
+					if ((groupId != systemEvent.getGroupId()) ||
+							(classNameId != systemEvent.getClassNameId()) ||
+							(classPK != systemEvent.getClassPK()) ||
+							(type != systemEvent.getType())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -2340,11 +2376,17 @@ public class SystemEventPersistenceImpl extends BasePersistenceImpl<SystemEvent>
 		setModelClass(SystemEvent.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("type", "type_");

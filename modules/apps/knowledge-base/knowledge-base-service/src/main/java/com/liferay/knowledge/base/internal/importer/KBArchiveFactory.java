@@ -15,6 +15,7 @@
 package com.liferay.knowledge.base.internal.importer;
 
 import com.liferay.knowledge.base.configuration.KBGroupServiceConfiguration;
+<<<<<<< HEAD
 import com.liferay.knowledge.base.constants.KBConstants;
 import com.liferay.knowledge.base.exception.KBArticleImportException;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -28,6 +29,15 @@ import com.liferay.portal.kernel.zip.ZipReader;
 
 import java.io.File;
 
+=======
+import com.liferay.knowledge.base.exception.KBArticleImportException;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.module.configuration.ConfigurationProvider;
+import com.liferay.portal.kernel.util.ArrayUtil;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.zip.ZipReader;
+
+>>>>>>> compatible
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -58,10 +68,15 @@ public class KBArchiveFactory {
 		}
 
 		KBGroupServiceConfiguration kbGroupServiceConfiguration =
+<<<<<<< HEAD
 			_configurationProvider.getConfiguration(
 				KBGroupServiceConfiguration.class,
 				new GroupServiceSettingsLocator(
 					groupId, KBConstants.SERVICE_NAME));
+=======
+			_configurationProvider.getGroupConfiguration(
+				KBGroupServiceConfiguration.class, groupId);
+>>>>>>> compatible
 
 		Collections.sort(entries);
 
@@ -111,8 +126,12 @@ public class KBArchiveFactory {
 	private static final class FileImpl implements KBArchive.File {
 
 		public FileImpl(String name, ZipReader zipReader) {
+<<<<<<< HEAD
 			_name = StringUtil.replace(
 				name, File.separatorChar, CharPool.SLASH);
+=======
+			_name = name;
+>>>>>>> compatible
 			_zipReader = zipReader;
 		}
 
@@ -137,8 +156,12 @@ public class KBArchiveFactory {
 			String name, KBArchive.Folder parentFolder,
 			KBArchive.File introFile, Collection<KBArchive.File> files) {
 
+<<<<<<< HEAD
 			_name = StringUtil.replace(
 				name, File.separatorChar, CharPool.SLASH);
+=======
+			_name = name;
+>>>>>>> compatible
 			_parentFolder = parentFolder;
 			_introFile = introFile;
 			_files = files;

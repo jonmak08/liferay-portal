@@ -18,6 +18,7 @@ import com.liferay.document.library.kernel.exception.DuplicateFileException;
 import com.liferay.document.library.kernel.exception.NoSuchFileException;
 import com.liferay.document.library.kernel.store.Store;
 import com.liferay.document.library.kernel.util.DLUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
@@ -25,6 +26,15 @@ import com.liferay.portal.convert.documentlibrary.FileSystemStoreRootDirExceptio
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
+import com.liferay.portal.convert.documentlibrary.FileSystemStoreRootDirException;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.util.CharPool;
+import com.liferay.portal.kernel.util.FileUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.store.file.system.configuration.AdvancedFileSystemStoreConfiguration;
@@ -98,10 +108,16 @@ public class AdvancedFileSystemStore extends FileSystemStore {
 
 			if (!renamed) {
 				throw new SystemException(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"File name version file was not renamed from ",
 						fileNameVersionFile.getPath(), " to ",
 						newFileNameVersionFile.getPath()));
+=======
+					"File name version file was not renamed from " +
+						fileNameVersionFile.getPath() + " to " +
+							newFileNameVersionFile.getPath());
+>>>>>>> compatible
 			}
 		}
 	}
@@ -309,7 +325,13 @@ public class AdvancedFileSystemStore extends FileSystemStore {
 
 		String headVersionLabel = VERSION_DEFAULT;
 
+<<<<<<< HEAD
 		for (String versionLabelFragment : versionLabels) {
+=======
+		for (int i = 0; i < versionLabels.length; i++) {
+			String versionLabelFragment = versionLabels[i];
+
+>>>>>>> compatible
 			int x = versionLabelFragment.lastIndexOf(CharPool.UNDERLINE);
 			int y = versionLabelFragment.lastIndexOf(CharPool.PERIOD);
 

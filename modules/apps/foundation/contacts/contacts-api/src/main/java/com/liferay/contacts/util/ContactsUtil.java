@@ -17,7 +17,10 @@ package com.liferay.contacts.util;
 import com.liferay.contacts.constants.ContactsConstants;
 import com.liferay.contacts.constants.SocialRelationConstants;
 import com.liferay.contacts.model.Entry;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
@@ -40,6 +43,10 @@ import com.liferay.portal.kernel.service.WebsiteLocalServiceUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PortalClassLoaderUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.social.kernel.model.SocialRequestConstants;
@@ -159,7 +166,11 @@ public class ContactsUtil {
 	}
 
 	public static String getVCard(User user) throws Exception {
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(9);
+=======
+		StringBundler sb = new StringBundler();
+>>>>>>> compatible
 
 		sb.append(_getHeader());
 
@@ -293,7 +304,11 @@ public class ContactsUtil {
 	}
 
 	private static String _getInstantMessaging(Contact contact) {
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(6);
+=======
+		StringBundler sb = new StringBundler(18);
+>>>>>>> compatible
 
 		if (Validator.isNotNull(contact.getJabberSn())) {
 			sb.append("X-JABBER;type=OTHER;type=pref:");

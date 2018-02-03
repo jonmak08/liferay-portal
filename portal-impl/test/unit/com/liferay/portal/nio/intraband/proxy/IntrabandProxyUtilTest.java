@@ -2175,10 +2175,15 @@ public class IntrabandProxyUtilTest {
 				"PROXY_METHOD_SIGNATURES");
 
 			Assert.assertEquals(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Field ", String.valueOf(field),
 					" is expected to be of type ",
 					String.valueOf(String[].class), " and static"),
+=======
+				"Field " + field + " is expected to be of type " +
+					String[].class + " and static",
+>>>>>>> compatible
 				iae.getMessage());
 		}
 
@@ -2200,10 +2205,15 @@ public class IntrabandProxyUtilTest {
 					"_PROXY_METHODS_MAPPING");
 
 				Assert.assertEquals(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Field ", String.valueOf(field),
 						" is expected to be of type ",
 						String.valueOf(String.class), " and static"),
+=======
+					"Field " + field + " is expected to be of type " +
+						String.class + " and static",
+>>>>>>> compatible
 					iae.getMessage());
 			}
 
@@ -2223,10 +2233,15 @@ public class IntrabandProxyUtilTest {
 				Field field = TestValidateClass3.class.getDeclaredField("_log");
 
 				Assert.assertEquals(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Field ", String.valueOf(field),
 						" is expected to be of type ",
 						String.valueOf(Log.class), " and static"),
+=======
+					"Field " + field + " is expected to be of type " +
+						Log.class + " and static",
+>>>>>>> compatible
 					iae.getMessage());
 			}
 
@@ -2247,10 +2262,15 @@ public class IntrabandProxyUtilTest {
 					"_targetLocator");
 
 				Assert.assertEquals(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Field ", String.valueOf(field),
 						" is expected to be of type ",
 						String.valueOf(TargetLocator.class), " and not static"),
+=======
+					"Field " + field + " is expected to be of type " +
+						TargetLocator.class + " and not static",
+>>>>>>> compatible
 					iae.getMessage());
 			}
 		}
@@ -2272,10 +2292,15 @@ public class IntrabandProxyUtilTest {
 					"_proxyType");
 
 				Assert.assertEquals(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Field ", String.valueOf(field),
 						" is expected to be of type ",
 						String.valueOf(byte.class), " and static"),
+=======
+					"Field " + field + " is expected to be of type " +
+						byte.class + " and static",
+>>>>>>> compatible
 					iae.getMessage());
 			}
 
@@ -2295,10 +2320,15 @@ public class IntrabandProxyUtilTest {
 				Field field = TestValidateClass6.class.getDeclaredField("_id");
 
 				Assert.assertEquals(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Field ", String.valueOf(field),
 						" is expected to be of type ",
 						String.valueOf(String.class), " and not static"),
+=======
+					"Field " + field + " is expected to be of type " +
+						String.class + " and not static",
+>>>>>>> compatible
 					iae.getMessage());
 			}
 
@@ -2319,10 +2349,15 @@ public class IntrabandProxyUtilTest {
 					"_intraband");
 
 				Assert.assertEquals(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Field ", String.valueOf(field),
 						" is expected to be of type ",
 						String.valueOf(Intraband.class), " and not static"),
+=======
+					"Field " + field + " is expected to be of type " +
+						Intraband.class + " and not static",
+>>>>>>> compatible
 					iae.getMessage());
 			}
 
@@ -2343,11 +2378,16 @@ public class IntrabandProxyUtilTest {
 					"_registrationReference");
 
 				Assert.assertEquals(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Field ", String.valueOf(field),
 						" is expected to be of type ",
 						String.valueOf(RegistrationReference.class),
 						" and not static"),
+=======
+					"Field " + field + " is expected to be of type " +
+						RegistrationReference.class + " and not static",
+>>>>>>> compatible
 					iae.getMessage());
 			}
 
@@ -2368,11 +2408,16 @@ public class IntrabandProxyUtilTest {
 					"_exceptionHandler");
 
 				Assert.assertEquals(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Field ", String.valueOf(field),
 						" is expected to be of type ",
 						String.valueOf(ExceptionHandler.class),
 						" and not static"),
+=======
+					"Field " + field + " is expected to be of type " +
+						ExceptionHandler.class + " and not static",
+>>>>>>> compatible
 					iae.getMessage());
 			}
 		}

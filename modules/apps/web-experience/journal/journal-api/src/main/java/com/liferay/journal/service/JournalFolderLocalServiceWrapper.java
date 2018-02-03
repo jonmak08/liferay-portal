@@ -529,6 +529,7 @@ public class JournalFolderLocalServiceWrapper
 		_journalFolderLocalService.getSubfolderIds(folderIds, groupId, folderId);
 	}
 
+<<<<<<< HEAD
 	/**
 	* @deprecated As of 4.0.0, with no direct replacement
 	*/
@@ -538,6 +539,8 @@ public class JournalFolderLocalServiceWrapper
 		return _journalFolderLocalService.getSubscriptionLocalService();
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	public com.liferay.journal.model.JournalFolder moveFolder(long folderId,
 		long parentFolderId,
@@ -584,6 +587,7 @@ public class JournalFolderLocalServiceWrapper
 	}
 
 	@Override
+<<<<<<< HEAD
 	public java.util.List<com.liferay.dynamic.data.mapping.model.DDMStructure> searchDDMStructures(
 		long companyId, long[] groupIds, long folderId, int restrictionType,
 		java.lang.String keywords, int start, int end,
@@ -604,6 +608,8 @@ public class JournalFolderLocalServiceWrapper
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public void subscribe(long userId, long groupId, long folderId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		_journalFolderLocalService.subscribe(userId, groupId, folderId);

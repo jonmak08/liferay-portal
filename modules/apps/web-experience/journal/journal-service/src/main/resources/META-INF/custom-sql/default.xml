@@ -26,12 +26,20 @@
 				COUNT(DISTINCT JournalArticle.articleId) AS COUNT_VALUE
 			FROM
 				JournalArticle
+<<<<<<< HEAD
 			LEFT JOIN
 				JournalArticle tempJournalArticle ON
 					[$STATUS_JOIN$] AND
 					(JournalArticle.groupId = tempJournalArticle.groupId) AND
 					(JournalArticle.articleId = tempJournalArticle.articleId) AND
 					(JournalArticle.version < tempJournalArticle.version)
+=======
+			LEFT JOIN JournalArticle tempJournalArticle ON
+				[$STATUS_JOIN$] AND
+				(JournalArticle.groupId = tempJournalArticle.groupId) AND
+				(JournalArticle.articleId = tempJournalArticle.articleId) AND
+				(JournalArticle.version < tempJournalArticle.version)
+>>>>>>> compatible
 			WHERE
 				(JournalArticle.groupId = ?) AND
 				(JournalArticle.classNameId = ?) AND
@@ -46,12 +54,20 @@
 				COUNT(DISTINCT JournalArticle.articleId) AS COUNT_VALUE
 			FROM
 				JournalArticle
+<<<<<<< HEAD
 			LEFT JOIN
 				JournalArticle tempJournalArticle ON
 					[$STATUS_JOIN$] AND
 					(JournalArticle.groupId = tempJournalArticle.groupId) AND
 					(JournalArticle.articleId = tempJournalArticle.articleId) AND
 					(JournalArticle.version < tempJournalArticle.version)
+=======
+			LEFT JOIN JournalArticle tempJournalArticle ON
+				[$STATUS_JOIN$] AND
+				(JournalArticle.groupId = tempJournalArticle.groupId) AND
+				(JournalArticle.articleId = tempJournalArticle.articleId) AND
+				(JournalArticle.version < tempJournalArticle.version)
+>>>>>>> compatible
 			WHERE
 				(JournalArticle.groupId = ?) AND
 				(JournalArticle.classNameId = ?) AND
@@ -66,6 +82,7 @@
 				COUNT(DISTINCT JournalArticle.articleId) AS COUNT_VALUE
 			FROM
 				JournalArticle
+<<<<<<< HEAD
 			LEFT JOIN
 				JournalArticle tempJournalArticle ON
 					[$STATUS_JOIN$] AND
@@ -76,6 +93,13 @@
 				JournalArticleLocalization ON
 					(JournalArticle.companyId = JournalArticleLocalization.companyId) AND
 					(JournalArticle.id_ = JournalArticleLocalization.articlePK)
+=======
+			LEFT JOIN JournalArticle tempJournalArticle ON
+				[$STATUS_JOIN$] AND
+				(JournalArticle.groupId = tempJournalArticle.groupId) AND
+				(JournalArticle.articleId = tempJournalArticle.articleId) AND
+				(JournalArticle.version < tempJournalArticle.version)
+>>>>>>> compatible
 			WHERE
 				(JournalArticle.companyId = ?) AND
 				(JournalArticle.groupId = ?) AND
@@ -87,8 +111,13 @@
 				(
 					(JournalArticle.articleId LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
 					(JournalArticle.version = ?) [$AND_OR_CONNECTOR$]
+<<<<<<< HEAD
 					(LOWER(JournalArticleLocalization.title) LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
 					(JournalArticleLocalization.description LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
+=======
+					(lower(JournalArticle.title) LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
+					(JournalArticle.description LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
+>>>>>>> compatible
 					(JournalArticle.content LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
 					(JournalArticle.displayDate >= ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
 					(JournalArticle.displayDate <= ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
@@ -177,6 +206,7 @@
 					(JournalArticle.groupId = tempJournalArticle.groupId) AND
 					(JournalArticle.articleId = tempJournalArticle.articleId) AND
 					(JournalArticle.version < tempJournalArticle.version)
+<<<<<<< HEAD
 			LEFT JOIN
 				(
 					SELECT
@@ -188,6 +218,8 @@
 				) JournalArticleLocalization ON
 					(JournalArticle.companyId = JournalArticleLocalization.companyId) AND
 					(JournalArticle.id_ = JournalArticleLocalization.articlePK)
+=======
+>>>>>>> compatible
 			WHERE
 				(JournalArticle.groupId = ?) AND
 				([$STATUS$]) AND
@@ -203,6 +235,7 @@
 				JournalArticle.*
 			FROM
 				JournalArticle
+<<<<<<< HEAD
 			LEFT JOIN
 				JournalArticle tempJournalArticle ON
 					[$STATUS_JOIN$] AND
@@ -220,6 +253,13 @@
 				) JournalArticleLocalization ON
 					(JournalArticle.companyId = JournalArticleLocalization.companyId) AND
 					(JournalArticle.id_ = JournalArticleLocalization.articlePK)
+=======
+			LEFT JOIN JournalArticle tempJournalArticle ON
+				[$STATUS_JOIN$] AND
+				(JournalArticle.groupId = tempJournalArticle.groupId) AND
+				(JournalArticle.articleId = tempJournalArticle.articleId) AND
+				(JournalArticle.version < tempJournalArticle.version)
+>>>>>>> compatible
 			WHERE
 				(JournalArticle.groupId = ?) AND
 				(JournalArticle.classNameId = ?) AND
@@ -236,6 +276,7 @@
 				JournalArticle.*
 			FROM
 				JournalArticle
+<<<<<<< HEAD
 			LEFT JOIN
 				JournalArticle tempJournalArticle ON
 					[$STATUS_JOIN$] AND
@@ -253,6 +294,13 @@
 				) JournalArticleLocalization ON
 					(JournalArticle.companyId = JournalArticleLocalization.companyId) AND
 					(JournalArticle.id_ = JournalArticleLocalization.articlePK)
+=======
+			LEFT JOIN JournalArticle tempJournalArticle ON
+				[$STATUS_JOIN$] AND
+				(JournalArticle.groupId = tempJournalArticle.groupId) AND
+				(JournalArticle.articleId = tempJournalArticle.articleId) AND
+				(JournalArticle.version < tempJournalArticle.version)
+>>>>>>> compatible
 			WHERE
 				(JournalArticle.groupId = ?) AND
 				(JournalArticle.classNameId = ?) AND
@@ -269,6 +317,7 @@
 				JournalArticle.*
 			FROM
 				JournalArticle
+<<<<<<< HEAD
 			LEFT JOIN
 				JournalArticle tempJournalArticle ON
 					[$STATUS_JOIN$] AND
@@ -289,6 +338,13 @@
 				) JournalArticleLocalization ON
 					(JournalArticle.companyId = JournalArticleLocalization.companyId) AND
 					(JournalArticle.id_ = JournalArticleLocalization.articlePK)
+=======
+			LEFT JOIN JournalArticle tempJournalArticle ON
+				[$STATUS_JOIN$] AND
+				(JournalArticle.groupId = tempJournalArticle.groupId) AND
+				(JournalArticle.articleId = tempJournalArticle.articleId) AND
+				(JournalArticle.version < tempJournalArticle.version)
+>>>>>>> compatible
 			WHERE
 				(JournalArticle.companyId = ?) AND
 				(JournalArticle.groupId = ?) AND
@@ -300,9 +356,15 @@
 				(
 					(JournalArticle.articleId LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
 					(JournalArticle.version = ?) [$AND_OR_CONNECTOR$]
+<<<<<<< HEAD
 					(JournalArticle.content LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
 					(LOWER(JournalArticleLocalization.title) LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
 					(JournalArticleLocalization.description LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
+=======
+					(lower(JournalArticle.title) LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
+					(JournalArticle.description LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
+					(JournalArticle.content LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
+>>>>>>> compatible
 					(JournalArticle.displayDate >= ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
 					(JournalArticle.displayDate <= ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
 					(JournalArticle.reviewDate <= ? [$AND_OR_NULL_CHECK$])
@@ -322,8 +384,13 @@
 				(groupId = ?) AND
 				(
 					(feedId LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
+<<<<<<< HEAD
 					(LOWER(name) LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
 					(LOWER(description) LIKE ? [$AND_OR_NULL_CHECK$])
+=======
+					(lower(name) LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
+					(lower(description) LIKE ? [$AND_OR_NULL_CHECK$])
+>>>>>>> compatible
 				)
 		]]>
 	</sql>
@@ -338,8 +405,13 @@
 				(groupId = ?) AND
 				(
 					(feedId LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
+<<<<<<< HEAD
 					(LOWER(name) LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
 					(LOWER(description) LIKE ? [$AND_OR_NULL_CHECK$])
+=======
+					(lower(name) LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
+					(lower(description) LIKE ? [$AND_OR_NULL_CHECK$])
+>>>>>>> compatible
 				)
 			ORDER BY
 				feedId ASC
@@ -388,6 +460,7 @@
 					GROUP BY
 						JournalArticle.resourcePrimKey, JournalArticle.folderId, JournalArticle.articleId
 				) TEMP_TABLE
+<<<<<<< HEAD
 			INNER JOIN
 				JournalArticle ON
 					(TEMP_TABLE.resourcePrimKey = JournalArticle.resourcePrimKey) AND
@@ -420,6 +493,12 @@
 				JournalArticleLocalization ON
 					(JournalArticle.id_ = JournalArticleLocalization.articlePK) AND
 					(JournalArticleLocalization.languageId = ?)
+=======
+				INNER JOIN
+					JournalArticle ON
+						(TEMP_TABLE.resourcePrimKey = JournalArticle.resourcePrimKey) AND
+						(TEMP_TABLE.version = JournalArticle.version)
+>>>>>>> compatible
 		]]>
 	</sql>
 	<sql id="com.liferay.journal.service.persistence.JournalFolderFinder.findF_ByNoAssets">
@@ -433,7 +512,11 @@
 					(AssetEntry.classNameId = ?) AND
 					(AssetEntry.classPK = JournalFolder.folderId)
 			WHERE
+<<<<<<< HEAD
 				AssetEntry.classPK IS NULL
+=======
+				(AssetEntry.classPK IS NULL)
+>>>>>>> compatible
 		]]>
 	</sql>
 	<sql id="com.liferay.journal.service.persistence.JournalFolderFinder.findF_ByG_F">
@@ -448,6 +531,7 @@
 				[$FOLDER_PARENT_FOLDER_ID$]
 		]]>
 	</sql>
+<<<<<<< HEAD
 	<sql id="com.liferay.journal.service.persistence.JournalFolderFinder.findF_ByG_F_L">
 		<![CDATA[
 			SELECT
@@ -460,4 +544,6 @@
 				[$FOLDER_PARENT_FOLDER_ID$]
 		]]>
 	</sql>
+=======
+>>>>>>> compatible
 </custom-sql>

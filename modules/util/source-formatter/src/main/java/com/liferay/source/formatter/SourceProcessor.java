@@ -14,9 +14,12 @@
 
 package com.liferay.source.formatter;
 
+<<<<<<< HEAD
 import com.liferay.source.formatter.checks.configuration.SourceChecksSuppressions;
 import com.liferay.source.formatter.checks.configuration.SourceFormatterConfiguration;
 
+=======
+>>>>>>> compatible
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -40,6 +43,7 @@ public interface SourceProcessor {
 
 	public void setAllFileNames(List<String> allFileNames);
 
+<<<<<<< HEAD
 	public void setPluginsInsideModulesDirectoryNames(
 		List<String> pluginsInsideModulesDirectoryNames);
 
@@ -65,4 +69,16 @@ public interface SourceProcessor {
 
 	public void setSubrepository(boolean subrepository);
 
+=======
+	public void setProgressStatusQueue(
+		BlockingQueue<ProgressStatusUpdate> progressStatusQueue);
+
+	public void setPropertiesMap(Map<String, Properties> propertiesMap);
+
+	public void setSourceFormatterArgs(SourceFormatterArgs sourceFormatterArgs);
+
+	public void setSourceFormatterExcludes(
+		SourceFormatterExcludes sourceFormatterExcludes);
+
+>>>>>>> compatible
 }

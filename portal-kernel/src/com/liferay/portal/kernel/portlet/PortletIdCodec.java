@@ -14,7 +14,11 @@
 
 package com.liferay.portal.kernel.portlet;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ObjectValuePair;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -30,9 +34,14 @@ import java.security.InvalidParameterException;
 public class PortletIdCodec {
 
 	public static final int PORTLET_INSTANCE_KEY_MAX_LENGTH =
+<<<<<<< HEAD
 		255 -
 			(PortletIdCodec._INSTANCE_SEPARATOR.length() +
 				PortletIdCodec._USER_SEPARATOR.length() + 31);
+=======
+		255 - PortletIdCodec._INSTANCE_SEPARATOR.length() +
+			PortletIdCodec._USER_SEPARATOR.length() + 39;
+>>>>>>> compatible
 
 	public static String decodeInstanceId(String portletId) {
 		int index = portletId.indexOf(_INSTANCE_SEPARATOR);
@@ -202,9 +211,14 @@ public class PortletIdCodec {
 
 		if (keyword != null) {
 			throw new InvalidParameterException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"The portlet name \"", portletName,
 					"\" must not contain the keyword ", keyword));
+=======
+				"The portlet name \"" + portletName +
+					"\" must not contain the keyword " + keyword);
+>>>>>>> compatible
 		}
 	}
 

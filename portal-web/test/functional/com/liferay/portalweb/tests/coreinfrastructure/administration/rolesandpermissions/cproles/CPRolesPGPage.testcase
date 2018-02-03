@@ -23,6 +23,7 @@
 	<command name="RemoveNoGuestInlineView" priority="5">
 		<property name="portal.acceptance" value="true" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -37,6 +38,17 @@
 		<execute macro="IFrame#selectPermissionsFrame" />
 
 		<var name="key_roleTitle" value="guest" />
+=======
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Welcome" />
+		</execute>
+
+		<execute macro="PermissionsInline#gotoPagePG">
+			<var name="pageName" value="Welcome" />
+		</execute>
+
+		<var name="key_roleName" value="guest" />
+>>>>>>> compatible
 
 		<execute function="Click" locator1="Permissions#INLINE_PERMISSIONS_VIEW_CHECKBOX" />
 		<execute function="AssertChecked" locator1="Permissions#INLINE_PERMISSIONS_VIEW_CHECKBOX" />

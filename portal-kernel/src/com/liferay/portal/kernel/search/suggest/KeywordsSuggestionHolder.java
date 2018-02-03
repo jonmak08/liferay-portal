@@ -23,10 +23,7 @@ import java.util.regex.Pattern;
 
 /**
  * @author Josef Sustacek
- * @deprecated As of 7.0.0, moved to {@link
- *             com.liferay.portal.search.web.internal.search.suggest.KeywordsSuggestionHolder}
  */
-@Deprecated
 public class KeywordsSuggestionHolder {
 
 	public KeywordsSuggestionHolder(

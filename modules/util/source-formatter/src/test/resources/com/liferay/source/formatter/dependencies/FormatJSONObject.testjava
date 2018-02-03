@@ -17,7 +17,10 @@ package com.liferay.source.formatter.dependencies;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.model.User;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 
@@ -48,9 +51,14 @@ public class FormatJSONObject {
 		jsonObject.put("reminderQueryAnswer", user.getReminderQueryAnswer());
 		jsonObject.put(
 			"fullName",
+<<<<<<< HEAD
 			StringBundler.concat(
 				user.getFirstName(), StringPool.SPACE, user.getMiddleName(),
 				StringPool.SPACE, user.getLastName()));
+=======
+			user.getFirstName() + StringPool.SPACE + user.getMiddleName() +
+				StringPool.SPACE + user.getLastName());
+>>>>>>> compatible
 		jsonObject.put("displayEmailAddress", user.getDisplayEmailAddress());
 		jsonObject.put("digest", user.getDigest());
 		jsonObject.put("emailAddress", user.getEmailAddress());

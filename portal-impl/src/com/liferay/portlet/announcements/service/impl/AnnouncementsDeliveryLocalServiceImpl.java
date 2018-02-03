@@ -21,7 +21,10 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.User;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portlet.announcements.service.base.AnnouncementsDeliveryLocalServiceBaseImpl;
 
 import java.util.ArrayList;
@@ -57,9 +60,14 @@ public class AnnouncementsDeliveryLocalServiceImpl
 		catch (SystemException se) {
 			if (_log.isWarnEnabled()) {
 				_log.warn(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Add failed, fetch {userId=", String.valueOf(userId),
 						", type=", type, "}"));
+=======
+					"Add failed, fetch {userId=" + userId + ", type=" + type +
+						"}");
+>>>>>>> compatible
 			}
 
 			delivery = announcementsDeliveryPersistence.fetchByU_T(

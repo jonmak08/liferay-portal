@@ -17,6 +17,7 @@ package com.liferay.external.data.source.test.model.impl;
 import aQute.bnd.annotation.ProviderType;
 
 /**
+<<<<<<< HEAD
  * The extended model implementation for the TestEntity service. Represents a
  * row in the &quot;TestEntity&quot; database table, with each column mapped to
  * a property of this class.
@@ -26,6 +27,12 @@ import aQute.bnd.annotation.ProviderType;
  * Whenever methods are added, rerun ServiceBuilder to copy their definitions
  * into the {@link com.liferay.external.data.source.test.model.TestEntity}
  * interface.
+=======
+ * The extended model implementation for the TestEntity service. Represents a row in the &quot;TestEntity&quot; database table, with each column mapped to a property of this class.
+ *
+ * <p>
+ * Helper methods and all application logic should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.liferay.external.data.source.test.model.TestEntity} interface.
+>>>>>>> compatible
  * </p>
  *
  * @author Brian Wing Shun Chan
@@ -36,10 +43,14 @@ public class TestEntityImpl extends TestEntityBaseImpl {
 	/**
 	 * NOTE FOR DEVELOPERS:
 	 *
+<<<<<<< HEAD
 	 * Never reference this class directly. All methods that expect a test
 	 * entity model instance should use the {@link
 	 * com.liferay.external.data.source.test.model.TestEntity} interface
 	 * instead.
+=======
+	 * Never reference this class directly. All methods that expect a test entity model instance should use the {@link com.liferay.external.data.source.test.model.TestEntity} interface instead.
+>>>>>>> compatible
 	 */
 	public TestEntityImpl() {
 	}

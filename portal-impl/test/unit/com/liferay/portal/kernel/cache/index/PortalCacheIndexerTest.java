@@ -144,7 +144,11 @@ public class PortalCacheIndexerTest {
 		Set<TestKey> testKeys = _portalCacheIndexer.getKeys(
 			_indexEncoder.encode(_INDEX_1_KEY_1));
 
+<<<<<<< HEAD
 		Assert.assertTrue(testKeys.toString(), testKeys.isEmpty());
+=======
+		Assert.assertTrue(testKeys.isEmpty());
+>>>>>>> compatible
 	}
 
 	@Test

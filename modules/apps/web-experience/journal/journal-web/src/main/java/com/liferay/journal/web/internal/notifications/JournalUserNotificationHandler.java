@@ -14,6 +14,7 @@
 
 package com.liferay.journal.web.internal.notifications;
 
+<<<<<<< HEAD
 import com.liferay.asset.kernel.model.AssetRenderer;
 import com.liferay.journal.constants.JournalPortletKeys;
 import com.liferay.journal.model.JournalArticle;
@@ -34,6 +35,13 @@ import java.util.ResourceBundle;
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+=======
+import com.liferay.journal.constants.JournalPortletKeys;
+import com.liferay.portal.kernel.notifications.BaseModelUserNotificationHandler;
+import com.liferay.portal.kernel.notifications.UserNotificationHandler;
+
+import org.osgi.service.component.annotations.Component;
+>>>>>>> compatible
 
 /**
  * @author Iván Zaera
@@ -50,6 +58,7 @@ public class JournalUserNotificationHandler
 		setPortletId(JournalPortletKeys.JOURNAL);
 	}
 
+<<<<<<< HEAD
 	@Override
 	protected String getTitle(
 		JSONObject jsonObject, AssetRenderer<?> assetRenderer,
@@ -136,4 +145,6 @@ public class JournalUserNotificationHandler
 
 	private ResourceBundleLoader _resourceBundleLoader;
 
+=======
+>>>>>>> compatible
 }

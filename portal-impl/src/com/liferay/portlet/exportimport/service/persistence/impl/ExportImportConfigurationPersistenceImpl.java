@@ -38,8 +38,13 @@ import com.liferay.portal.kernel.service.persistence.CompanyProvider;
 import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import com.liferay.portlet.exportimport.model.impl.ExportImportConfigurationImpl;
 import com.liferay.portlet.exportimport.model.impl.ExportImportConfigurationModelImpl;
@@ -2352,6 +2357,7 @@ public class ExportImportConfigurationPersistenceImpl
 		}
 
 		List<ExportImportConfiguration> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<ExportImportConfiguration>)finderCache.getResult(finderPath,
@@ -2364,6 +2370,20 @@ public class ExportImportConfigurationPersistenceImpl
 							(status != exportImportConfiguration.getStatus())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<ExportImportConfiguration>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (ExportImportConfiguration exportImportConfiguration : list) {
+					if ((groupId != exportImportConfiguration.getGroupId()) ||
+							(type != exportImportConfiguration.getType()) ||
+							(status != exportImportConfiguration.getStatus())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -2823,11 +2843,17 @@ public class ExportImportConfigurationPersistenceImpl
 		setModelClass(ExportImportConfiguration.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("type", "type_");

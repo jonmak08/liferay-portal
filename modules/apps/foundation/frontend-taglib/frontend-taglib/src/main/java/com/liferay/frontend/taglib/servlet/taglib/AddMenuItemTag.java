@@ -14,7 +14,10 @@
 
 package com.liferay.frontend.taglib.servlet.taglib;
 
+<<<<<<< HEAD
 import com.liferay.frontend.taglib.servlet.taglib.util.AddMenuKeys;
+=======
+>>>>>>> compatible
 import com.liferay.taglib.util.IncludeTag;
 
 import java.util.List;
@@ -44,10 +47,13 @@ public class AddMenuItemTag extends IncludeTag {
 		_title = title;
 	}
 
+<<<<<<< HEAD
 	public void setType(AddMenuKeys.AddMenuType type) {
 		_type = type;
 	}
 
+=======
+>>>>>>> compatible
 	public void setUrl(String url) {
 		_url = url;
 	}
@@ -56,7 +62,10 @@ public class AddMenuItemTag extends IncludeTag {
 	protected void cleanUp() {
 		_id = null;
 		_title = null;
+<<<<<<< HEAD
 		_type = AddMenuKeys.AddMenuType.DEFAULT;
+=======
+>>>>>>> compatible
 		_url = null;
 	}
 
@@ -68,7 +77,11 @@ public class AddMenuItemTag extends IncludeTag {
 
 		if (addMenuItems != null) {
 			AddMenuItem addMenuItem = new AddMenuItem(
+<<<<<<< HEAD
 				_anchorData, _id, _title, _type, _url);
+=======
+				_anchorData, _id, _title, _url);
+>>>>>>> compatible
 
 			addMenuItems.add(addMenuItem);
 		}
@@ -77,7 +90,10 @@ public class AddMenuItemTag extends IncludeTag {
 	private Map<String, Object> _anchorData;
 	private String _id;
 	private String _title;
+<<<<<<< HEAD
 	private AddMenuKeys.AddMenuType _type = AddMenuKeys.AddMenuType.DEFAULT;
+=======
+>>>>>>> compatible
 	private String _url;
 
 }

@@ -14,10 +14,15 @@
 
 package com.liferay.site.browser.web.internal.display.context;
 
+<<<<<<< HEAD
 import com.liferay.frontend.taglib.clay.servlet.taglib.util.NavigationItem;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.language.LanguageUtil;
+=======
+import com.liferay.portal.kernel.dao.orm.QueryUtil;
+import com.liferay.portal.kernel.exception.PortalException;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.GroupConstants;
@@ -35,6 +40,10 @@ import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portlet.usersadmin.search.GroupSearch;
@@ -282,6 +291,7 @@ public class SiteBrowserDisplayContext {
 		return groupSearch;
 	}
 
+<<<<<<< HEAD
 	public List<NavigationItem> getNavigationItems() throws PortalException {
 		List<NavigationItem> navigationItems = new ArrayList<>();
 
@@ -319,6 +329,8 @@ public class SiteBrowserDisplayContext {
 		return navigationItems;
 	}
 
+=======
+>>>>>>> compatible
 	public PortletURL getPortletURL() throws PortalException {
 		PortletURL portletURL = _liferayPortletResponse.createRenderURL();
 
@@ -329,6 +341,11 @@ public class SiteBrowserDisplayContext {
 				"p_u_i_d", String.valueOf(selUser.getUserId()));
 		}
 
+<<<<<<< HEAD
+=======
+		long[] selectedGroupIds = StringUtil.split(
+			ParamUtil.getString(_request, "selectedGroupIds"), 0L);
+>>>>>>> compatible
 		boolean includeCompany = ParamUtil.getBoolean(
 			_request, "includeCompany");
 		boolean includeCurrentGroup = ParamUtil.getBoolean(
@@ -341,6 +358,11 @@ public class SiteBrowserDisplayContext {
 		String target = ParamUtil.getString(_request, "target");
 
 		portletURL.setParameter("groupId", String.valueOf(getGroupId()));
+<<<<<<< HEAD
+=======
+		portletURL.setParameter(
+			"selectedGroupIds", StringUtil.merge(selectedGroupIds));
+>>>>>>> compatible
 		portletURL.setParameter("type", getType());
 		portletURL.setParameter("types", getTypes());
 		portletURL.setParameter("displayStyle", getDisplayStyle());

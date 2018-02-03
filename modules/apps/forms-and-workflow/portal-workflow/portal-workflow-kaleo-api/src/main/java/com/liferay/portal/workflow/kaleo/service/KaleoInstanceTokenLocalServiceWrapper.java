@@ -81,9 +81,14 @@ public class KaleoInstanceTokenLocalServiceWrapper
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void deleteKaleoDefinitionVersionKaleoInstanceTokens(
 		long kaleoDefinitionVersionId) {
 		_kaleoInstanceTokenLocalService.deleteKaleoDefinitionVersionKaleoInstanceTokens(kaleoDefinitionVersionId);
+=======
+	public void deleteKaleoDefinitionKaleoInstanceTokens(long kaleoDefinitionId) {
+		_kaleoInstanceTokenLocalService.deleteKaleoDefinitionKaleoInstanceTokens(kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 	@Override

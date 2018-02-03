@@ -19,9 +19,12 @@ package com.liferay.users.admin.constants;
  */
 public class UsersAdminPortletKeys {
 
+<<<<<<< HEAD
 	public static final String MY_ACCOUNT =
 		"com_liferay_my_account_web_portlet_MyAccountPortlet";
 
+=======
+>>>>>>> compatible
 	public static final String MY_ORGANIZATIONS =
 		"com_liferay_users_admin_web_portlet_MyOrganizationsPortlet";
 

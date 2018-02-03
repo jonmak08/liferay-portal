@@ -111,13 +111,22 @@ public class ThemeBuilderTest {
 	public void testThemeBuilderUnstyled() throws Exception {
 		buildTheme(
 			_diffsDir, _NAME, temporaryFolder.getRoot(), null,
+<<<<<<< HEAD
 			ThemeBuilder.UNSTYLED, "ftl", _unstyledJarFile);
+=======
+			ThemeBuilder.UNSTYLED, "vm", _unstyledJarFile);
+>>>>>>> compatible
 
 		_assertEquals("css/_custom.scss", ".text { color: black; }");
 		_assertEquals("css/_portal.scss", "");
 		_assertNotExists("images/thumbnail.png");
+<<<<<<< HEAD
 		_assertExists("templates/init.ftl");
 		_assertNotExists("templates/init.vm");
+=======
+		_assertNotExists("templates/init.ftl");
+		_assertExists("templates/init.vm");
+>>>>>>> compatible
 		_assertExists("WEB-INF/liferay-look-and-feel.xml");
 	}
 

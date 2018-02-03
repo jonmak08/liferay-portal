@@ -16,7 +16,10 @@ package com.liferay.portal.osgi.web.portlet.tracker.internal;
 
 import com.liferay.osgi.util.ServiceTrackerFactory;
 import com.liferay.osgi.util.StringPlus;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.application.type.ApplicationType;
 import com.liferay.portal.kernel.bean.BeanPropertiesUtil;
 import com.liferay.portal.kernel.configuration.Configuration;
@@ -42,13 +45,20 @@ import com.liferay.portal.kernel.service.CompanyLocalService;
 import com.liferay.portal.kernel.service.PortletLocalService;
 import com.liferay.portal.kernel.service.ResourceActionLocalService;
 import com.liferay.portal.kernel.util.ArrayUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.PortletKeys;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.SetUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
@@ -135,11 +145,17 @@ public class PortletTracker
 				PortletIdCodec.PORTLET_INSTANCE_KEY_MAX_LENGTH) {
 
 			_log.error(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Portlet ID ", portletId, " has more than ",
 					String.valueOf(
 						PortletIdCodec.PORTLET_INSTANCE_KEY_MAX_LENGTH),
 					" characters"));
+=======
+				"Portlet ID " + portletId + " has more than " +
+					PortletIdCodec.PORTLET_INSTANCE_KEY_MAX_LENGTH +
+						" characters");
+>>>>>>> compatible
 
 			_bundleContext.ungetService(serviceReference);
 
@@ -323,9 +339,14 @@ public class PortletTracker
 		}
 		catch (Exception e) {
 			_log.error(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Portlet ", portletId, " from ", String.valueOf(bundle),
 					" failed to initialize"),
+=======
+				"Portlet " + portletId + " from " + bundle +
+					" failed to initialize",
+>>>>>>> compatible
 				e);
 
 			return null;
@@ -476,6 +497,13 @@ public class PortletTracker
 			GetterUtil.getString(
 				get(serviceReference, "css-class-wrapper"),
 				portletModel.getCssClassWrapper()));
+<<<<<<< HEAD
+=======
+		portletModel.setFacebookIntegration(
+			GetterUtil.getString(
+				get(serviceReference, "facebook-integration"),
+				portletModel.getFacebookIntegration()));
+>>>>>>> compatible
 		portletModel.setFooterPortalCss(
 			StringPlus.asList(get(serviceReference, "footer-portal-css")));
 		portletModel.setFooterPortalJavaScript(
@@ -1108,9 +1136,14 @@ public class PortletTracker
 
 		for (String invalidKey : invalidKeys) {
 			_log.warn(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Invalid property ", invalidKey, " for portlet ",
 					portletName));
+=======
+				"Invalid property " + invalidKey + " for portlet " +
+					portletName);
+>>>>>>> compatible
 		}
 	}
 

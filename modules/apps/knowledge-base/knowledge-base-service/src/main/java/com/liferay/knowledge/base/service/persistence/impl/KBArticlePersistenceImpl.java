@@ -44,11 +44,22 @@ import com.liferay.portal.kernel.service.persistence.CompanyProvider;
 import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.ArrayUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+import com.liferay.portal.kernel.util.ContentTypes;
+import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
+import com.liferay.portal.kernel.util.SetUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
@@ -322,7 +333,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append("resourcePrimKey=");
 		msg.append(resourcePrimKey);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -373,7 +388,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append("resourcePrimKey=");
 		msg.append(resourcePrimKey);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -751,7 +770,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_UUID_3);
 			}
 			else {
@@ -839,7 +862,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append("uuid=");
 		msg.append(uuid);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -888,7 +915,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append("uuid=");
 		msg.append(uuid);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -980,7 +1011,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		if (uuid == null) {
 			query.append(_FINDER_COLUMN_UUID_UUID_1);
 		}
+<<<<<<< HEAD
 		else if (uuid.equals("")) {
+=======
+		else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_UUID_UUID_3);
 		}
 		else {
@@ -1116,7 +1151,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_UUID_3);
 			}
 			else {
@@ -1195,7 +1234,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			msg.append(", groupId=");
 			msg.append(groupId);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -1258,7 +1301,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_G_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_G_UUID_3);
 			}
 			else {
@@ -1365,7 +1412,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_G_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_G_UUID_3);
 			}
 			else {
@@ -1562,7 +1613,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_C_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_C_UUID_3);
 			}
 			else {
@@ -1659,7 +1714,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", companyId=");
 		msg.append(companyId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -1715,7 +1774,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", companyId=");
 		msg.append(companyId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -1809,7 +1872,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		if (uuid == null) {
 			query.append(_FINDER_COLUMN_UUID_C_UUID_1);
 		}
+<<<<<<< HEAD
 		else if (uuid.equals("")) {
+=======
+		else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_UUID_C_UUID_3);
 		}
 		else {
@@ -1951,7 +2018,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_C_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_C_UUID_3);
 			}
 			else {
@@ -2231,7 +2302,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", groupId=");
 		msg.append(groupId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -2287,7 +2362,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", groupId=");
 		msg.append(groupId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -2955,7 +3034,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			msg.append(", version=");
 			msg.append(version);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -3378,7 +3461,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", latest=");
 		msg.append(latest);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -3434,7 +3521,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", latest=");
 		msg.append(latest);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -3751,15 +3842,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			query.append(_SQL_SELECT_KBARTICLE_WHERE);
 
 			if (resourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_R_L_RESOURCEPRIMKEY_7);
 
 				query.append(StringUtil.merge(resourcePrimKeies));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -3924,15 +4025,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			query.append(_SQL_COUNT_KBARTICLE_WHERE);
 
 			if (resourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_R_L_RESOURCEPRIMKEY_7);
 
 				query.append(StringUtil.merge(resourcePrimKeies));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -4212,7 +4323,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", main=");
 		msg.append(main);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -4268,7 +4383,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", main=");
 		msg.append(main);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -4583,15 +4702,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			query.append(_SQL_SELECT_KBARTICLE_WHERE);
 
 			if (resourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_R_M_RESOURCEPRIMKEY_7);
 
 				query.append(StringUtil.merge(resourcePrimKeies));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -4756,15 +4885,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			query.append(_SQL_COUNT_KBARTICLE_WHERE);
 
 			if (resourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_R_M_RESOURCEPRIMKEY_7);
 
 				query.append(StringUtil.merge(resourcePrimKeies));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -5044,7 +5183,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -5100,7 +5243,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -5417,15 +5564,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			query.append(_SQL_SELECT_KBARTICLE_WHERE);
 
 			if (resourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_R_S_RESOURCEPRIMKEY_7);
 
 				query.append(StringUtil.merge(resourcePrimKeies));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -5590,15 +5747,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			query.append(_SQL_COUNT_KBARTICLE_WHERE);
 
 			if (resourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_R_S_RESOURCEPRIMKEY_7);
 
 				query.append(StringUtil.merge(resourcePrimKeies));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -5873,7 +6040,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", latest=");
 		msg.append(latest);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -5928,7 +6099,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", latest=");
 		msg.append(latest);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -6788,7 +6963,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", main=");
 		msg.append(main);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -6842,7 +7021,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", main=");
 		msg.append(main);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -7703,7 +7886,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -7758,7 +7945,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -8618,7 +8809,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", latest=");
 		msg.append(latest);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -8674,7 +8869,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", latest=");
 		msg.append(latest);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -9159,7 +9358,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", main=");
 		msg.append(main);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -9214,7 +9417,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", main=");
 		msg.append(main);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -9699,7 +9906,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -9755,7 +9966,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -10247,7 +10462,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", latest=");
 		msg.append(latest);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -10303,7 +10522,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", latest=");
 		msg.append(latest);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -10623,15 +10846,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			query.append(_SQL_SELECT_KBARTICLE_WHERE);
 
 			if (parentResourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_P_L_PARENTRESOURCEPRIMKEY_7);
 
 				query.append(StringUtil.merge(parentResourcePrimKeies));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -10796,15 +11029,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			query.append(_SQL_COUNT_KBARTICLE_WHERE);
 
 			if (parentResourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_P_L_PARENTRESOURCEPRIMKEY_7);
 
 				query.append(StringUtil.merge(parentResourcePrimKeies));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -11084,7 +11327,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", main=");
 		msg.append(main);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -11140,7 +11387,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", main=");
 		msg.append(main);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -11460,15 +11711,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			query.append(_SQL_SELECT_KBARTICLE_WHERE);
 
 			if (parentResourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_P_M_PARENTRESOURCEPRIMKEY_7);
 
 				query.append(StringUtil.merge(parentResourcePrimKeies));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -11633,15 +11894,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			query.append(_SQL_COUNT_KBARTICLE_WHERE);
 
 			if (parentResourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_P_M_PARENTRESOURCEPRIMKEY_7);
 
 				query.append(StringUtil.merge(parentResourcePrimKeies));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -11921,7 +12192,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -11977,7 +12252,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -12296,15 +12575,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			query.append(_SQL_SELECT_KBARTICLE_WHERE);
 
 			if (parentResourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_P_S_PARENTRESOURCEPRIMKEY_7);
 
 				query.append(StringUtil.merge(parentResourcePrimKeies));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -12469,15 +12758,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			query.append(_SQL_COUNT_KBARTICLE_WHERE);
 
 			if (parentResourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_P_S_PARENTRESOURCEPRIMKEY_7);
 
 				query.append(StringUtil.merge(parentResourcePrimKeies));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -12568,7 +12867,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			msg.append(", version=");
 			msg.append(version);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -13034,7 +13337,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", latest=");
 		msg.append(latest);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -13095,7 +13402,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", latest=");
 		msg.append(latest);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -13705,15 +14016,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		}
 
 		if (resourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 			query.append("(");
+=======
+			query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(_FINDER_COLUMN_R_G_L_RESOURCEPRIMKEY_7);
 
 			query.append(StringUtil.merge(resourcePrimKeies));
 
+<<<<<<< HEAD
 			query.append(")");
 
 			query.append(")");
+=======
+			query.append(StringPool.CLOSE_PARENTHESIS);
+
+			query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(WHERE_AND);
 		}
@@ -13923,15 +14244,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			query.append(_SQL_SELECT_KBARTICLE_WHERE);
 
 			if (resourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_R_G_L_RESOURCEPRIMKEY_7);
 
 				query.append(StringUtil.merge(resourcePrimKeies));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -14108,15 +14439,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			query.append(_SQL_COUNT_KBARTICLE_WHERE);
 
 			if (resourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_R_G_L_RESOURCEPRIMKEY_7);
 
 				query.append(StringUtil.merge(resourcePrimKeies));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -14250,15 +14591,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		query.append(_FILTER_SQL_COUNT_KBARTICLE_WHERE);
 
 		if (resourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 			query.append("(");
+=======
+			query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(_FINDER_COLUMN_R_G_L_RESOURCEPRIMKEY_7);
 
 			query.append(StringUtil.merge(resourcePrimKeies));
 
+<<<<<<< HEAD
 			query.append(")");
 
 			query.append(")");
+=======
+			query.append(StringPool.CLOSE_PARENTHESIS);
+
+			query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(WHERE_AND);
 		}
@@ -14568,7 +14919,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", main=");
 		msg.append(main);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -14629,7 +14984,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", main=");
 		msg.append(main);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -15237,15 +15596,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		}
 
 		if (resourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 			query.append("(");
+=======
+			query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(_FINDER_COLUMN_R_G_M_RESOURCEPRIMKEY_7);
 
 			query.append(StringUtil.merge(resourcePrimKeies));
 
+<<<<<<< HEAD
 			query.append(")");
 
 			query.append(")");
+=======
+			query.append(StringPool.CLOSE_PARENTHESIS);
+
+			query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(WHERE_AND);
 		}
@@ -15455,15 +15824,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			query.append(_SQL_SELECT_KBARTICLE_WHERE);
 
 			if (resourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_R_G_M_RESOURCEPRIMKEY_7);
 
 				query.append(StringUtil.merge(resourcePrimKeies));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -15639,15 +16018,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			query.append(_SQL_COUNT_KBARTICLE_WHERE);
 
 			if (resourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_R_G_M_RESOURCEPRIMKEY_7);
 
 				query.append(StringUtil.merge(resourcePrimKeies));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -15781,15 +16170,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		query.append(_FILTER_SQL_COUNT_KBARTICLE_WHERE);
 
 		if (resourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 			query.append("(");
+=======
+			query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(_FINDER_COLUMN_R_G_M_RESOURCEPRIMKEY_7);
 
 			query.append(StringUtil.merge(resourcePrimKeies));
 
+<<<<<<< HEAD
 			query.append(")");
 
 			query.append(")");
+=======
+			query.append(StringPool.CLOSE_PARENTHESIS);
+
+			query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(WHERE_AND);
 		}
@@ -16099,7 +16498,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -16160,7 +16563,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -16768,15 +17175,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		}
 
 		if (resourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 			query.append("(");
+=======
+			query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(_FINDER_COLUMN_R_G_S_RESOURCEPRIMKEY_7);
 
 			query.append(StringUtil.merge(resourcePrimKeies));
 
+<<<<<<< HEAD
 			query.append(")");
 
 			query.append(")");
+=======
+			query.append(StringPool.CLOSE_PARENTHESIS);
+
+			query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(WHERE_AND);
 		}
@@ -16986,15 +17403,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			query.append(_SQL_SELECT_KBARTICLE_WHERE);
 
 			if (resourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_R_G_S_RESOURCEPRIMKEY_7);
 
 				query.append(StringUtil.merge(resourcePrimKeies));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -17170,15 +17597,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			query.append(_SQL_COUNT_KBARTICLE_WHERE);
 
 			if (resourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_R_G_S_RESOURCEPRIMKEY_7);
 
 				query.append(StringUtil.merge(resourcePrimKeies));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -17311,15 +17748,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		query.append(_FILTER_SQL_COUNT_KBARTICLE_WHERE);
 
 		if (resourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 			query.append("(");
+=======
+			query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(_FINDER_COLUMN_R_G_S_RESOURCEPRIMKEY_7);
 
 			query.append(StringUtil.merge(resourcePrimKeies));
 
+<<<<<<< HEAD
 			query.append(")");
 
 			query.append(")");
+=======
+			query.append(StringPool.CLOSE_PARENTHESIS);
+
+			query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(WHERE_AND);
 		}
@@ -17631,7 +18078,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", latest=");
 		msg.append(latest);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -17693,7 +18144,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", latest=");
 		msg.append(latest);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -18308,15 +18763,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		query.append(_FINDER_COLUMN_G_P_L_GROUPID_2);
 
 		if (parentResourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 			query.append("(");
+=======
+			query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(_FINDER_COLUMN_G_P_L_PARENTRESOURCEPRIMKEY_7);
 
 			query.append(StringUtil.merge(parentResourcePrimKeies));
 
+<<<<<<< HEAD
 			query.append(")");
 
 			query.append(")");
+=======
+			query.append(StringPool.CLOSE_PARENTHESIS);
+
+			query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(WHERE_AND);
 		}
@@ -18527,15 +18992,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			query.append(_FINDER_COLUMN_G_P_L_GROUPID_2);
 
 			if (parentResourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_G_P_L_PARENTRESOURCEPRIMKEY_7);
 
 				query.append(StringUtil.merge(parentResourcePrimKeies));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -18716,15 +19191,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			query.append(_FINDER_COLUMN_G_P_L_GROUPID_2);
 
 			if (parentResourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_G_P_L_PARENTRESOURCEPRIMKEY_7);
 
 				query.append(StringUtil.merge(parentResourcePrimKeies));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -18858,15 +19343,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		query.append(_FINDER_COLUMN_G_P_L_GROUPID_2);
 
 		if (parentResourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 			query.append("(");
+=======
+			query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(_FINDER_COLUMN_G_P_L_PARENTRESOURCEPRIMKEY_7);
 
 			query.append(StringUtil.merge(parentResourcePrimKeies));
 
+<<<<<<< HEAD
 			query.append(")");
 
 			query.append(")");
+=======
+			query.append(StringPool.CLOSE_PARENTHESIS);
+
+			query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(WHERE_AND);
 		}
@@ -19176,7 +19671,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", main=");
 		msg.append(main);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -19238,7 +19737,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", main=");
 		msg.append(main);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -19853,15 +20356,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		query.append(_FINDER_COLUMN_G_P_M_GROUPID_2);
 
 		if (parentResourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 			query.append("(");
+=======
+			query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(_FINDER_COLUMN_G_P_M_PARENTRESOURCEPRIMKEY_7);
 
 			query.append(StringUtil.merge(parentResourcePrimKeies));
 
+<<<<<<< HEAD
 			query.append(")");
 
 			query.append(")");
+=======
+			query.append(StringPool.CLOSE_PARENTHESIS);
+
+			query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(WHERE_AND);
 		}
@@ -20072,15 +20585,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			query.append(_FINDER_COLUMN_G_P_M_GROUPID_2);
 
 			if (parentResourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_G_P_M_PARENTRESOURCEPRIMKEY_7);
 
 				query.append(StringUtil.merge(parentResourcePrimKeies));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -20259,15 +20782,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			query.append(_FINDER_COLUMN_G_P_M_GROUPID_2);
 
 			if (parentResourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_G_P_M_PARENTRESOURCEPRIMKEY_7);
 
 				query.append(StringUtil.merge(parentResourcePrimKeies));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -20401,15 +20934,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		query.append(_FINDER_COLUMN_G_P_M_GROUPID_2);
 
 		if (parentResourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 			query.append("(");
+=======
+			query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(_FINDER_COLUMN_G_P_M_PARENTRESOURCEPRIMKEY_7);
 
 			query.append(StringUtil.merge(parentResourcePrimKeies));
 
+<<<<<<< HEAD
 			query.append(")");
 
 			query.append(")");
+=======
+			query.append(StringPool.CLOSE_PARENTHESIS);
+
+			query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(WHERE_AND);
 		}
@@ -20719,7 +21262,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -20781,7 +21328,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -21396,15 +21947,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		query.append(_FINDER_COLUMN_G_P_S_GROUPID_2);
 
 		if (parentResourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 			query.append("(");
+=======
+			query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(_FINDER_COLUMN_G_P_S_PARENTRESOURCEPRIMKEY_7);
 
 			query.append(StringUtil.merge(parentResourcePrimKeies));
 
+<<<<<<< HEAD
 			query.append(")");
 
 			query.append(")");
+=======
+			query.append(StringPool.CLOSE_PARENTHESIS);
+
+			query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(WHERE_AND);
 		}
@@ -21615,15 +22176,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			query.append(_FINDER_COLUMN_G_P_S_GROUPID_2);
 
 			if (parentResourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_G_P_S_PARENTRESOURCEPRIMKEY_7);
 
 				query.append(StringUtil.merge(parentResourcePrimKeies));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -21803,15 +22374,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			query.append(_FINDER_COLUMN_G_P_S_GROUPID_2);
 
 			if (parentResourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_G_P_S_PARENTRESOURCEPRIMKEY_7);
 
 				query.append(StringUtil.merge(parentResourcePrimKeies));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -21945,15 +22526,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		query.append(_FINDER_COLUMN_G_P_S_GROUPID_2);
 
 		if (parentResourcePrimKeies.length > 0) {
+<<<<<<< HEAD
 			query.append("(");
+=======
+			query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(_FINDER_COLUMN_G_P_S_PARENTRESOURCEPRIMKEY_7);
 
 			query.append(StringUtil.merge(parentResourcePrimKeies));
 
+<<<<<<< HEAD
 			query.append(")");
 
 			query.append(")");
+=======
+			query.append(StringPool.CLOSE_PARENTHESIS);
+
+			query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(WHERE_AND);
 		}
@@ -22169,7 +22760,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			if (urlTitle == null) {
 				query.append(_FINDER_COLUMN_G_KBFI_UT_URLTITLE_1);
 			}
+<<<<<<< HEAD
 			else if (urlTitle.equals("")) {
+=======
+			else if (urlTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_KBFI_UT_URLTITLE_3);
 			}
 			else {
@@ -22270,7 +22865,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", urlTitle=");
 		msg.append(urlTitle);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -22331,7 +22930,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", urlTitle=");
 		msg.append(urlTitle);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -22432,7 +23035,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		if (urlTitle == null) {
 			query.append(_FINDER_COLUMN_G_KBFI_UT_URLTITLE_1);
 		}
+<<<<<<< HEAD
 		else if (urlTitle.equals("")) {
+=======
+		else if (urlTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_KBFI_UT_URLTITLE_3);
 		}
 		else {
@@ -22621,7 +23228,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		if (urlTitle == null) {
 			query.append(_FINDER_COLUMN_G_KBFI_UT_URLTITLE_1);
 		}
+<<<<<<< HEAD
 		else if (urlTitle.equals("")) {
+=======
+		else if (urlTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_KBFI_UT_URLTITLE_3);
 		}
 		else {
@@ -22769,7 +23380,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		if (urlTitle == null) {
 			query.append(_FINDER_COLUMN_G_KBFI_UT_URLTITLE_1);
 		}
+<<<<<<< HEAD
 		else if (urlTitle.equals("")) {
+=======
+		else if (urlTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_KBFI_UT_URLTITLE_3);
 		}
 		else {
@@ -22947,7 +23562,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			if (urlTitle == null) {
 				query.append(_FINDER_COLUMN_G_KBFI_UT_URLTITLE_1);
 			}
+<<<<<<< HEAD
 			else if (urlTitle.equals("")) {
+=======
+			else if (urlTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_KBFI_UT_URLTITLE_3);
 			}
 			else {
@@ -23020,7 +23639,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		if (urlTitle == null) {
 			query.append(_FINDER_COLUMN_G_KBFI_UT_URLTITLE_1);
 		}
+<<<<<<< HEAD
 		else if (urlTitle.equals("")) {
+=======
+		else if (urlTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_KBFI_UT_URLTITLE_3);
 		}
 		else {
@@ -23326,7 +23949,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", latest=");
 		msg.append(latest);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -23387,7 +24014,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", latest=");
 		msg.append(latest);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -24310,7 +24941,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -24371,7 +25006,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -25155,8 +25794,14 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 				for (KBArticle kbArticle : list) {
 					if ((groupId != kbArticle.getGroupId()) ||
 							!StringUtil.wildcardMatches(
+<<<<<<< HEAD
 								kbArticle.getSections(), sections, '_', '%',
 								'\\', true) ||
+=======
+								kbArticle.getSections(), sections,
+								CharPool.UNDERLINE, CharPool.PERCENT,
+								CharPool.BACK_SLASH, true) ||
+>>>>>>> compatible
 							(latest != kbArticle.getLatest())) {
 						list = null;
 
@@ -25186,7 +25831,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			if (sections == null) {
 				query.append(_FINDER_COLUMN_G_S_L_SECTIONS_1);
 			}
+<<<<<<< HEAD
 			else if (sections.equals("")) {
+=======
+			else if (sections.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_S_L_SECTIONS_3);
 			}
 			else {
@@ -25289,7 +25938,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", latest=");
 		msg.append(latest);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -25350,7 +26003,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", latest=");
 		msg.append(latest);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -25449,7 +26106,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		if (sections == null) {
 			query.append(_FINDER_COLUMN_G_S_L_SECTIONS_1);
 		}
+<<<<<<< HEAD
 		else if (sections.equals("")) {
+=======
+		else if (sections.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_S_L_SECTIONS_3);
 		}
 		else {
@@ -25637,7 +26298,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		if (sections == null) {
 			query.append(_FINDER_COLUMN_G_S_L_SECTIONS_1);
 		}
+<<<<<<< HEAD
 		else if (sections.equals("")) {
+=======
+		else if (sections.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_S_L_SECTIONS_3);
 		}
 		else {
@@ -25785,7 +26450,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		if (sections == null) {
 			query.append(_FINDER_COLUMN_G_S_L_SECTIONS_1);
 		}
+<<<<<<< HEAD
 		else if (sections.equals("")) {
+=======
+		else if (sections.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_S_L_SECTIONS_3);
 		}
 		else {
@@ -26001,7 +26670,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		query.append(_FINDER_COLUMN_G_S_L_GROUPID_2);
 
 		if (sectionses.length > 0) {
+<<<<<<< HEAD
 			query.append("(");
+=======
+			query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 			for (int i = 0; i < sectionses.length; i++) {
 				String sections = sectionses[i];
@@ -26009,7 +26682,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 				if (sections == null) {
 					query.append(_FINDER_COLUMN_G_S_L_SECTIONS_4);
 				}
+<<<<<<< HEAD
 				else if (sections.equals("")) {
+=======
+				else if (sections.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 					query.append(_FINDER_COLUMN_G_S_L_SECTIONS_6);
 				}
 				else {
@@ -26021,7 +26698,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 				}
 			}
 
+<<<<<<< HEAD
 			query.append(")");
+=======
+			query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(WHERE_AND);
 		}
@@ -26238,7 +26919,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			query.append(_FINDER_COLUMN_G_S_L_GROUPID_2);
 
 			if (sectionses.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				for (int i = 0; i < sectionses.length; i++) {
 					String sections = sectionses[i];
@@ -26246,7 +26931,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 					if (sections == null) {
 						query.append(_FINDER_COLUMN_G_S_L_SECTIONS_4);
 					}
+<<<<<<< HEAD
 					else if (sections.equals("")) {
+=======
+					else if (sections.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 						query.append(_FINDER_COLUMN_G_S_L_SECTIONS_6);
 					}
 					else {
@@ -26258,7 +26947,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 					}
 				}
 
+<<<<<<< HEAD
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -26373,7 +27066,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			if (sections == null) {
 				query.append(_FINDER_COLUMN_G_S_L_SECTIONS_1);
 			}
+<<<<<<< HEAD
 			else if (sections.equals("")) {
+=======
+			else if (sections.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_S_L_SECTIONS_3);
 			}
 			else {
@@ -26455,7 +27152,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			query.append(_FINDER_COLUMN_G_S_L_GROUPID_2);
 
 			if (sectionses.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				for (int i = 0; i < sectionses.length; i++) {
 					String sections = sectionses[i];
@@ -26463,7 +27164,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 					if (sections == null) {
 						query.append(_FINDER_COLUMN_G_S_L_SECTIONS_4);
 					}
+<<<<<<< HEAD
 					else if (sections.equals("")) {
+=======
+					else if (sections.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 						query.append(_FINDER_COLUMN_G_S_L_SECTIONS_6);
 					}
 					else {
@@ -26475,7 +27180,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 					}
 				}
 
+<<<<<<< HEAD
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -26550,7 +27259,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		if (sections == null) {
 			query.append(_FINDER_COLUMN_G_S_L_SECTIONS_1);
 		}
+<<<<<<< HEAD
 		else if (sections.equals("")) {
+=======
+		else if (sections.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_S_L_SECTIONS_3);
 		}
 		else {
@@ -26629,7 +27342,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		query.append(_FINDER_COLUMN_G_S_L_GROUPID_2);
 
 		if (sectionses.length > 0) {
+<<<<<<< HEAD
 			query.append("(");
+=======
+			query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 			for (int i = 0; i < sectionses.length; i++) {
 				String sections = sectionses[i];
@@ -26637,7 +27354,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 				if (sections == null) {
 					query.append(_FINDER_COLUMN_G_S_L_SECTIONS_4);
 				}
+<<<<<<< HEAD
 				else if (sections.equals("")) {
+=======
+				else if (sections.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 					query.append(_FINDER_COLUMN_G_S_L_SECTIONS_6);
 				}
 				else {
@@ -26649,7 +27370,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 				}
 			}
 
+<<<<<<< HEAD
 			query.append(")");
+=======
+			query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(WHERE_AND);
 		}
@@ -26826,8 +27551,15 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 				for (KBArticle kbArticle : list) {
 					if ((groupId != kbArticle.getGroupId()) ||
 							!StringUtil.wildcardMatches(
+<<<<<<< HEAD
 								kbArticle.getSections(), sections, '_', '%',
 								'\\', true) || (main != kbArticle.getMain())) {
+=======
+								kbArticle.getSections(), sections,
+								CharPool.UNDERLINE, CharPool.PERCENT,
+								CharPool.BACK_SLASH, true) ||
+							(main != kbArticle.getMain())) {
+>>>>>>> compatible
 						list = null;
 
 						break;
@@ -26856,7 +27588,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			if (sections == null) {
 				query.append(_FINDER_COLUMN_G_S_M_SECTIONS_1);
 			}
+<<<<<<< HEAD
 			else if (sections.equals("")) {
+=======
+			else if (sections.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_S_M_SECTIONS_3);
 			}
 			else {
@@ -26959,7 +27695,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", main=");
 		msg.append(main);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -27020,7 +27760,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", main=");
 		msg.append(main);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -27119,7 +27863,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		if (sections == null) {
 			query.append(_FINDER_COLUMN_G_S_M_SECTIONS_1);
 		}
+<<<<<<< HEAD
 		else if (sections.equals("")) {
+=======
+		else if (sections.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_S_M_SECTIONS_3);
 		}
 		else {
@@ -27307,7 +28055,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		if (sections == null) {
 			query.append(_FINDER_COLUMN_G_S_M_SECTIONS_1);
 		}
+<<<<<<< HEAD
 		else if (sections.equals("")) {
+=======
+		else if (sections.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_S_M_SECTIONS_3);
 		}
 		else {
@@ -27455,7 +28207,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		if (sections == null) {
 			query.append(_FINDER_COLUMN_G_S_M_SECTIONS_1);
 		}
+<<<<<<< HEAD
 		else if (sections.equals("")) {
+=======
+		else if (sections.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_S_M_SECTIONS_3);
 		}
 		else {
@@ -27671,7 +28427,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		query.append(_FINDER_COLUMN_G_S_M_GROUPID_2);
 
 		if (sectionses.length > 0) {
+<<<<<<< HEAD
 			query.append("(");
+=======
+			query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 			for (int i = 0; i < sectionses.length; i++) {
 				String sections = sectionses[i];
@@ -27679,7 +28439,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 				if (sections == null) {
 					query.append(_FINDER_COLUMN_G_S_M_SECTIONS_4);
 				}
+<<<<<<< HEAD
 				else if (sections.equals("")) {
+=======
+				else if (sections.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 					query.append(_FINDER_COLUMN_G_S_M_SECTIONS_6);
 				}
 				else {
@@ -27691,7 +28455,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 				}
 			}
 
+<<<<<<< HEAD
 			query.append(")");
+=======
+			query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(WHERE_AND);
 		}
@@ -27908,7 +28676,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			query.append(_FINDER_COLUMN_G_S_M_GROUPID_2);
 
 			if (sectionses.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				for (int i = 0; i < sectionses.length; i++) {
 					String sections = sectionses[i];
@@ -27916,7 +28688,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 					if (sections == null) {
 						query.append(_FINDER_COLUMN_G_S_M_SECTIONS_4);
 					}
+<<<<<<< HEAD
 					else if (sections.equals("")) {
+=======
+					else if (sections.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 						query.append(_FINDER_COLUMN_G_S_M_SECTIONS_6);
 					}
 					else {
@@ -27928,7 +28704,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 					}
 				}
 
+<<<<<<< HEAD
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -28043,7 +28823,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			if (sections == null) {
 				query.append(_FINDER_COLUMN_G_S_M_SECTIONS_1);
 			}
+<<<<<<< HEAD
 			else if (sections.equals("")) {
+=======
+			else if (sections.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_S_M_SECTIONS_3);
 			}
 			else {
@@ -28125,7 +28909,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			query.append(_FINDER_COLUMN_G_S_M_GROUPID_2);
 
 			if (sectionses.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				for (int i = 0; i < sectionses.length; i++) {
 					String sections = sectionses[i];
@@ -28133,7 +28921,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 					if (sections == null) {
 						query.append(_FINDER_COLUMN_G_S_M_SECTIONS_4);
 					}
+<<<<<<< HEAD
 					else if (sections.equals("")) {
+=======
+					else if (sections.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 						query.append(_FINDER_COLUMN_G_S_M_SECTIONS_6);
 					}
 					else {
@@ -28145,7 +28937,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 					}
 				}
 
+<<<<<<< HEAD
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -28220,7 +29016,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		if (sections == null) {
 			query.append(_FINDER_COLUMN_G_S_M_SECTIONS_1);
 		}
+<<<<<<< HEAD
 		else if (sections.equals("")) {
+=======
+		else if (sections.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_S_M_SECTIONS_3);
 		}
 		else {
@@ -28299,7 +29099,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		query.append(_FINDER_COLUMN_G_S_M_GROUPID_2);
 
 		if (sectionses.length > 0) {
+<<<<<<< HEAD
 			query.append("(");
+=======
+			query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 			for (int i = 0; i < sectionses.length; i++) {
 				String sections = sectionses[i];
@@ -28307,7 +29111,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 				if (sections == null) {
 					query.append(_FINDER_COLUMN_G_S_M_SECTIONS_4);
 				}
+<<<<<<< HEAD
 				else if (sections.equals("")) {
+=======
+				else if (sections.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 					query.append(_FINDER_COLUMN_G_S_M_SECTIONS_6);
 				}
 				else {
@@ -28319,7 +29127,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 				}
 			}
 
+<<<<<<< HEAD
 			query.append(")");
+=======
+			query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(WHERE_AND);
 		}
@@ -28495,8 +29307,14 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 				for (KBArticle kbArticle : list) {
 					if ((groupId != kbArticle.getGroupId()) ||
 							!StringUtil.wildcardMatches(
+<<<<<<< HEAD
 								kbArticle.getSections(), sections, '_', '%',
 								'\\', true) ||
+=======
+								kbArticle.getSections(), sections,
+								CharPool.UNDERLINE, CharPool.PERCENT,
+								CharPool.BACK_SLASH, true) ||
+>>>>>>> compatible
 							(status != kbArticle.getStatus())) {
 						list = null;
 
@@ -28526,7 +29344,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			if (sections == null) {
 				query.append(_FINDER_COLUMN_G_S_S_SECTIONS_1);
 			}
+<<<<<<< HEAD
 			else if (sections.equals("")) {
+=======
+			else if (sections.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_S_S_SECTIONS_3);
 			}
 			else {
@@ -28629,7 +29451,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -28690,7 +29516,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -28789,7 +29619,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		if (sections == null) {
 			query.append(_FINDER_COLUMN_G_S_S_SECTIONS_1);
 		}
+<<<<<<< HEAD
 		else if (sections.equals("")) {
+=======
+		else if (sections.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_S_S_SECTIONS_3);
 		}
 		else {
@@ -28977,7 +29811,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		if (sections == null) {
 			query.append(_FINDER_COLUMN_G_S_S_SECTIONS_1);
 		}
+<<<<<<< HEAD
 		else if (sections.equals("")) {
+=======
+		else if (sections.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_S_S_SECTIONS_3);
 		}
 		else {
@@ -29125,7 +29963,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		if (sections == null) {
 			query.append(_FINDER_COLUMN_G_S_S_SECTIONS_1);
 		}
+<<<<<<< HEAD
 		else if (sections.equals("")) {
+=======
+		else if (sections.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_S_S_SECTIONS_3);
 		}
 		else {
@@ -29341,7 +30183,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		query.append(_FINDER_COLUMN_G_S_S_GROUPID_2);
 
 		if (sectionses.length > 0) {
+<<<<<<< HEAD
 			query.append("(");
+=======
+			query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 			for (int i = 0; i < sectionses.length; i++) {
 				String sections = sectionses[i];
@@ -29349,7 +30195,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 				if (sections == null) {
 					query.append(_FINDER_COLUMN_G_S_S_SECTIONS_4);
 				}
+<<<<<<< HEAD
 				else if (sections.equals("")) {
+=======
+				else if (sections.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 					query.append(_FINDER_COLUMN_G_S_S_SECTIONS_6);
 				}
 				else {
@@ -29361,7 +30211,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 				}
 			}
 
+<<<<<<< HEAD
 			query.append(")");
+=======
+			query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(WHERE_AND);
 		}
@@ -29578,7 +30432,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			query.append(_FINDER_COLUMN_G_S_S_GROUPID_2);
 
 			if (sectionses.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				for (int i = 0; i < sectionses.length; i++) {
 					String sections = sectionses[i];
@@ -29586,7 +30444,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 					if (sections == null) {
 						query.append(_FINDER_COLUMN_G_S_S_SECTIONS_4);
 					}
+<<<<<<< HEAD
 					else if (sections.equals("")) {
+=======
+					else if (sections.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 						query.append(_FINDER_COLUMN_G_S_S_SECTIONS_6);
 					}
 					else {
@@ -29598,7 +30460,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 					}
 				}
 
+<<<<<<< HEAD
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -29713,7 +30579,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			if (sections == null) {
 				query.append(_FINDER_COLUMN_G_S_S_SECTIONS_1);
 			}
+<<<<<<< HEAD
 			else if (sections.equals("")) {
+=======
+			else if (sections.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_S_S_SECTIONS_3);
 			}
 			else {
@@ -29795,7 +30665,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			query.append(_FINDER_COLUMN_G_S_S_GROUPID_2);
 
 			if (sectionses.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				for (int i = 0; i < sectionses.length; i++) {
 					String sections = sectionses[i];
@@ -29803,7 +30677,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 					if (sections == null) {
 						query.append(_FINDER_COLUMN_G_S_S_SECTIONS_4);
 					}
+<<<<<<< HEAD
 					else if (sections.equals("")) {
+=======
+					else if (sections.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 						query.append(_FINDER_COLUMN_G_S_S_SECTIONS_6);
 					}
 					else {
@@ -29815,7 +30693,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 					}
 				}
 
+<<<<<<< HEAD
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -29890,7 +30772,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		if (sections == null) {
 			query.append(_FINDER_COLUMN_G_S_S_SECTIONS_1);
 		}
+<<<<<<< HEAD
 		else if (sections.equals("")) {
+=======
+		else if (sections.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_S_S_SECTIONS_3);
 		}
 		else {
@@ -29968,7 +30854,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		query.append(_FINDER_COLUMN_G_S_S_GROUPID_2);
 
 		if (sectionses.length > 0) {
+<<<<<<< HEAD
 			query.append("(");
+=======
+			query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 			for (int i = 0; i < sectionses.length; i++) {
 				String sections = sectionses[i];
@@ -29976,7 +30866,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 				if (sections == null) {
 					query.append(_FINDER_COLUMN_G_S_S_SECTIONS_4);
 				}
+<<<<<<< HEAD
 				else if (sections.equals("")) {
+=======
+				else if (sections.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 					query.append(_FINDER_COLUMN_G_S_S_SECTIONS_6);
 				}
 				else {
@@ -29988,7 +30882,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 				}
 			}
 
+<<<<<<< HEAD
 			query.append(")");
+=======
+			query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(WHERE_AND);
 		}
@@ -30232,7 +31130,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			if (urlTitle == null) {
 				query.append(_FINDER_COLUMN_G_KBFI_UT_ST_URLTITLE_1);
 			}
+<<<<<<< HEAD
 			else if (urlTitle.equals("")) {
+=======
+			else if (urlTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_KBFI_UT_ST_URLTITLE_3);
 			}
 			else {
@@ -30342,7 +31244,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -30410,7 +31316,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchArticleException(msg.toString());
 	}
@@ -30517,7 +31427,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		if (urlTitle == null) {
 			query.append(_FINDER_COLUMN_G_KBFI_UT_ST_URLTITLE_1);
 		}
+<<<<<<< HEAD
 		else if (urlTitle.equals("")) {
+=======
+		else if (urlTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_KBFI_UT_ST_URLTITLE_3);
 		}
 		else {
@@ -30713,7 +31627,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		if (urlTitle == null) {
 			query.append(_FINDER_COLUMN_G_KBFI_UT_ST_URLTITLE_1);
 		}
+<<<<<<< HEAD
 		else if (urlTitle.equals("")) {
+=======
+		else if (urlTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_KBFI_UT_ST_URLTITLE_3);
 		}
 		else {
@@ -30869,7 +31787,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		if (urlTitle == null) {
 			query.append(_FINDER_COLUMN_G_KBFI_UT_ST_URLTITLE_1);
 		}
+<<<<<<< HEAD
 		else if (urlTitle.equals("")) {
+=======
+		else if (urlTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_KBFI_UT_ST_URLTITLE_3);
 		}
 		else {
@@ -31096,7 +32018,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		if (urlTitle == null) {
 			query.append(_FINDER_COLUMN_G_KBFI_UT_ST_URLTITLE_1);
 		}
+<<<<<<< HEAD
 		else if (urlTitle.equals("")) {
+=======
+		else if (urlTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_KBFI_UT_ST_URLTITLE_3);
 		}
 		else {
@@ -31106,15 +32032,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		}
 
 		if (statuses.length > 0) {
+<<<<<<< HEAD
 			query.append("(");
+=======
+			query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(_FINDER_COLUMN_G_KBFI_UT_ST_STATUS_7);
 
 			query.append(StringUtil.merge(statuses));
 
+<<<<<<< HEAD
 			query.append(")");
 
 			query.append(")");
+=======
+			query.append(StringPool.CLOSE_PARENTHESIS);
+
+			query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 		}
 
 		query.setStringAt(removeConjunction(query.stringAt(query.index() - 1)),
@@ -31335,7 +32271,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			if (urlTitle == null) {
 				query.append(_FINDER_COLUMN_G_KBFI_UT_ST_URLTITLE_1);
 			}
+<<<<<<< HEAD
 			else if (urlTitle.equals("")) {
+=======
+			else if (urlTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_KBFI_UT_ST_URLTITLE_3);
 			}
 			else {
@@ -31345,15 +32285,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			}
 
 			if (statuses.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_G_KBFI_UT_ST_STATUS_7);
 
 				query.append(StringUtil.merge(statuses));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 			}
 
 			query.setStringAt(removeConjunction(query.stringAt(query.index() -
@@ -31468,7 +32418,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			if (urlTitle == null) {
 				query.append(_FINDER_COLUMN_G_KBFI_UT_ST_URLTITLE_1);
 			}
+<<<<<<< HEAD
 			else if (urlTitle.equals("")) {
+=======
+			else if (urlTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_KBFI_UT_ST_URLTITLE_3);
 			}
 			else {
@@ -31559,7 +32513,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			if (urlTitle == null) {
 				query.append(_FINDER_COLUMN_G_KBFI_UT_ST_URLTITLE_1);
 			}
+<<<<<<< HEAD
 			else if (urlTitle.equals("")) {
+=======
+			else if (urlTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_KBFI_UT_ST_URLTITLE_3);
 			}
 			else {
@@ -31569,15 +32527,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 			}
 
 			if (statuses.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_G_KBFI_UT_ST_STATUS_7);
 
 				query.append(StringUtil.merge(statuses));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 			}
 
 			query.setStringAt(removeConjunction(query.stringAt(query.index() -
@@ -31650,7 +32618,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		if (urlTitle == null) {
 			query.append(_FINDER_COLUMN_G_KBFI_UT_ST_URLTITLE_1);
 		}
+<<<<<<< HEAD
 		else if (urlTitle.equals("")) {
+=======
+		else if (urlTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_KBFI_UT_ST_URLTITLE_3);
 		}
 		else {
@@ -31737,7 +32709,11 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		if (urlTitle == null) {
 			query.append(_FINDER_COLUMN_G_KBFI_UT_ST_URLTITLE_1);
 		}
+<<<<<<< HEAD
 		else if (urlTitle.equals("")) {
+=======
+		else if (urlTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_KBFI_UT_ST_URLTITLE_3);
 		}
 		else {
@@ -31747,15 +32723,25 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		}
 
 		if (statuses.length > 0) {
+<<<<<<< HEAD
 			query.append("(");
+=======
+			query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 			query.append(_FINDER_COLUMN_G_KBFI_UT_ST_STATUS_7);
 
 			query.append(StringUtil.merge(statuses));
 
+<<<<<<< HEAD
 			query.append(")");
 
 			query.append(")");
+=======
+			query.append(StringPool.CLOSE_PARENTHESIS);
+
+			query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 		}
 
 		query.setStringAt(removeConjunction(query.stringAt(query.index() - 1)),
@@ -31809,11 +32795,17 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		setModelClass(KBArticle.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("uuid", "uuid_");
@@ -33226,12 +34218,20 @@ public class KBArticlePersistenceImpl extends BasePersistenceImpl<KBArticle>
 		for (Serializable primaryKey : uncachedPrimaryKeys) {
 			query.append((long)primaryKey);
 
+<<<<<<< HEAD
 			query.append(",");
+=======
+			query.append(StringPool.COMMA);
+>>>>>>> compatible
 		}
 
 		query.setIndex(query.index() - 1);
 
+<<<<<<< HEAD
 		query.append(")");
+=======
+		query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 		String sql = query.toString();
 

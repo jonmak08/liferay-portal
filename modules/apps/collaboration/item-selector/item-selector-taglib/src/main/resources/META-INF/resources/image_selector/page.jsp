@@ -55,6 +55,7 @@ if (fileEntryId != 0) {
 		<div class="drag-drop-label">
 			<c:choose>
 				<c:when test="<%= Validator.isNotNull(itemSelectorEventName) && Validator.isNotNull(itemSelectorURL) %>">
+<<<<<<< HEAD
 					<c:choose>
 						<c:when test="<%= BrowserSnifferUtil.isMobile(request) %>">
 							<%= selectFileLink %>
@@ -63,6 +64,9 @@ if (fileEntryId != 0) {
 							<liferay-ui:message arguments="<%= selectFileLink %>" key="drag-and-drop-to-upload-or-x" />
 						</c:otherwise>
 					</c:choose>
+=======
+					<liferay-ui:message arguments="<%= selectFileLink %>" key="drag-and-drop-to-upload-or-x" />
+>>>>>>> compatible
 				</c:when>
 				<c:otherwise>
 					<%= LanguageUtil.get(resourceBundle, "drag-and-drop-to-upload") %>
@@ -106,9 +110,15 @@ if (fileEntryId != 0) {
 	</div>
 
 	<div class="change-image-controls <%= (fileEntryId != 0) ? StringPool.BLANK : "hide" %>">
+<<<<<<< HEAD
 		<aui:button cssClass="browse-image btn-monospaced btn-sm" icon="icon-refresh" />
 
 		<aui:button cssClass="btn-monospaced btn-sm" icon="icon-trash" id='<%= randomNamespace + "removeImage" %>' useNamespace="<%= false %>" />
+=======
+		<aui:button cssClass="browse-image icon-monospaced" icon="icon-refresh" />
+
+		<aui:button cssClass="icon-monospaced" icon="icon-trash" id='<%= randomNamespace + "removeImage" %>' useNamespace="<%= false %>" />
+>>>>>>> compatible
 	</div>
 </div>
 

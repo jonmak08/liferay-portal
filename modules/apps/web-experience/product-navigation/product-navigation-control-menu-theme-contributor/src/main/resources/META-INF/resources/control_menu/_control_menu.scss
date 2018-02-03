@@ -1,5 +1,9 @@
 .has-control-menu {
+<<<<<<< HEAD
 	.affix, #wrapper {
+=======
+	#wrapper {
+>>>>>>> compatible
 		margin-top: $has-control-menu-margin-top-mobile;
 
 		.portlet-boundary > span:first-child {
@@ -21,7 +25,11 @@
 		}
 	}
 
+<<<<<<< HEAD
 	&.has-customization-menu .affix, &.has-customization-menu #wrapper {
+=======
+	&.has-customization-menu #wrapper {
+>>>>>>> compatible
 		margin-top: ($has-control-menu-margin-top-mobile + $has-customization-menu-margin-top-mobile);
 
 		.portlet-boundary > span:first-child {
@@ -44,7 +52,11 @@
 	}
 }
 
+<<<<<<< HEAD
 .affix, .control-menu {
+=======
+.control-menu {
+>>>>>>> compatible
 	left: 0;
 	position: fixed;
 	right: 0;
@@ -54,7 +66,11 @@
 
 .control-menu-icon {
 	display: inline-block;
+<<<<<<< HEAD
 	padding: 0 20px;
+=======
+	margin: 0 10px;
+>>>>>>> compatible
 }
 
 .control-menu-level-1 {
@@ -257,8 +273,12 @@
 
 .sidenav-transition {
 	.control-menu,
+<<<<<<< HEAD
 	.control-menu-level-2,
 	.affix {
+=======
+	.control-menu-level-2 {
+>>>>>>> compatible
 		@include transition($control-menu-css-transition);
 	}
 }
@@ -268,7 +288,10 @@
 	line-height: 35px;
 	margin-left: 3px;
 	margin-right: 3px;
+<<<<<<< HEAD
 	padding: 0;
+=======
+>>>>>>> compatible
 	text-align: center;
 	width: 35px;
 }
@@ -277,8 +300,11 @@
 	@include flex(1);
 	@include flex-wrap(wrap);
 
+<<<<<<< HEAD
 	min-width: 50px;
 
+=======
+>>>>>>> compatible
 	> .control-menu-nav {
 		@include flex-wrap(wrap);
 		@include justify-content(center);

@@ -14,11 +14,17 @@
 
 package com.liferay.exportimport.kernel.controller;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
 /**
  * @author Daniel Kocsis
  */
 @ProviderType
+=======
+/**
+ * @author Daniel Kocsis
+ */
+>>>>>>> compatible
 public interface ExportImportController {
 }

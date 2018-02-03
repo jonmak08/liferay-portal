@@ -57,6 +57,7 @@ AUI.add(
 							return [
 								{
 									cssClass: '',
+<<<<<<< HEAD
 									icon: A.one(Liferay.Util.getLexiconIcon('sun')),
 									tooltip: Liferay.Language.get('light-theme')
 								},
@@ -64,6 +65,13 @@ AUI.add(
 									cssClass: 'ace_dark',
 									icon: A.one(Liferay.Util.getLexiconIcon('moon')),
 									tooltip: Liferay.Language.get('dark-theme')
+=======
+									icon: A.one(Liferay.Util.getLexiconIcon('sun'))
+								},
+								{
+									cssClass: 'ace_dark',
+									icon: A.one(Liferay.Util.getLexiconIcon('moon'))
+>>>>>>> compatible
 								}
 							];
 						}

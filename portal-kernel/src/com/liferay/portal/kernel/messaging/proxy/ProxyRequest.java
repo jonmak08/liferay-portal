@@ -14,7 +14,11 @@
 
 package com.liferay.portal.kernel.messaging.proxy;
 
+<<<<<<< HEAD
 import com.liferay.petra.reflect.AnnotationLocator;
+=======
+import com.liferay.portal.kernel.annotation.AnnotationLocator;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.kernel.util.StringBundler;
 
@@ -135,7 +139,11 @@ public class ProxyRequest implements Externalizable {
 
 	@Override
 	public String toString() {
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(9);
+=======
+		StringBundler sb = new StringBundler(7);
+>>>>>>> compatible
 
 		sb.append("{arguments=");
 		sb.append(Arrays.toString(_arguments));

@@ -97,9 +97,15 @@ AUI.add(
 				var instance = this;
 
 				var bodyContent;
+<<<<<<< HEAD
 				var buttons = instance._getConfirmationPanelButtons(onlyThisInstanceFn, allFollowingFn, allEventsInFn, cancelFn);
 				var footerContent;
 				var modalDescription;
+=======
+				var footerContent;
+				var modalDescription;
+				var buttons = instance._getConfirmationPanelButtons(onlyThisInstanceFn, allFollowingFn, allEventsInFn, cancelFn);
+>>>>>>> compatible
 				var titleText;
 
 				if (actionName === 'delete') {

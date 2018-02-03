@@ -182,6 +182,7 @@ public interface DDLRecordSetModel extends BaseModel<DDLRecordSet>,
 	public void setUserName(String userName);
 
 	/**
+<<<<<<< HEAD
 	 * Returns the version user ID of this ddl record set.
 	 *
 	 * @return the version user ID of this ddl record set
@@ -225,6 +226,8 @@ public interface DDLRecordSetModel extends BaseModel<DDLRecordSet>,
 	public void setVersionUserName(String versionUserName);
 
 	/**
+=======
+>>>>>>> compatible
 	 * Returns the create date of this ddl record set.
 	 *
 	 * @return the create date of this ddl record set
@@ -285,6 +288,7 @@ public interface DDLRecordSetModel extends BaseModel<DDLRecordSet>,
 	public void setRecordSetKey(String recordSetKey);
 
 	/**
+<<<<<<< HEAD
 	 * Returns the version of this ddl record set.
 	 *
 	 * @return the version of this ddl record set
@@ -300,6 +304,8 @@ public interface DDLRecordSetModel extends BaseModel<DDLRecordSet>,
 	public void setVersion(String version);
 
 	/**
+=======
+>>>>>>> compatible
 	 * Returns the name of this ddl record set.
 	 *
 	 * @return the name of this ddl record set

@@ -29,12 +29,20 @@ page import="com.liferay.microblogs.model.MicroblogsEntry" %><%@
 page import="com.liferay.microblogs.model.MicroblogsEntryConstants" %><%@
 page import="com.liferay.microblogs.service.MicroblogsEntryLocalServiceUtil" %><%@
 page import="com.liferay.microblogs.service.MicroblogsEntryServiceUtil" %><%@
+<<<<<<< HEAD
 page import="com.liferay.microblogs.util.MicroblogsUtil" %><%@
 page import="com.liferay.microblogs.util.comparator.EntryCreateDateComparator" %><%@
 page import="com.liferay.microblogs.web.internal.security.permission.resource.MicroblogsEntryPermission" %><%@
 page import="com.liferay.microblogs.web.internal.security.permission.resource.MicroblogsPermission" %><%@
 page import="com.liferay.microblogs.web.internal.util.WebKeys" %><%@
 page import="com.liferay.petra.string.StringPool" %><%@
+=======
+page import="com.liferay.microblogs.service.permission.MicroblogsEntryPermission" %><%@
+page import="com.liferay.microblogs.service.permission.MicroblogsPermission" %><%@
+page import="com.liferay.microblogs.util.MicroblogsUtil" %><%@
+page import="com.liferay.microblogs.util.comparator.EntryCreateDateComparator" %><%@
+page import="com.liferay.microblogs.web.internal.util.WebKeys" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.dao.orm.QueryUtil" %><%@
 page import="com.liferay.portal.kernel.dao.search.SearchContainer" %><%@
 page import="com.liferay.portal.kernel.exception.NoSuchUserException" %><%@
@@ -53,6 +61,10 @@ page import="com.liferay.portal.kernel.util.HtmlUtil" %><%@
 page import="com.liferay.portal.kernel.util.ParamUtil" %><%@
 page import="com.liferay.portal.kernel.util.PortalUtil" %><%@
 page import="com.liferay.portal.kernel.util.PrefsParamUtil" %><%@
+<<<<<<< HEAD
+=======
+page import="com.liferay.portal.kernel.util.StringPool" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.util.StringUtil" %><%@
 page import="com.liferay.portal.kernel.util.Validator" %><%@
 page import="com.liferay.social.kernel.model.SocialRelationConstants" %>

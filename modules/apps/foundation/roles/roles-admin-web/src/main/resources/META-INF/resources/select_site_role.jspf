@@ -17,7 +17,10 @@
 <%
 String p_u_i_d = ParamUtil.getString(request, "p_u_i_d");
 int step = ParamUtil.getInteger(request, "step", 1);
+<<<<<<< HEAD
 long siteGroupId = ParamUtil.getLong(request, "groupId", themeDisplay.getSiteGroupId());
+=======
+>>>>>>> compatible
 String displayStyle = ParamUtil.getString(request, "displayStyle", "list");
 String eventName = ParamUtil.getString(request, "eventName", liferayPortletResponse.getNamespace() + "selectSiteRole");
 String syncEntitiesEventName = ParamUtil.getString(request, "syncEntitiesEventName", liferayPortletResponse.getNamespace() + "syncSiteRoles");
@@ -27,7 +30,10 @@ User selUser = PortalUtil.getSelectedUser(request);
 PortletURL portletURL = renderResponse.createRenderURL();
 
 portletURL.setParameter("mvcPath", "/select_role.jsp");
+<<<<<<< HEAD
 portletURL.setParameter("groupId", String.valueOf(siteGroupId));
+=======
+>>>>>>> compatible
 portletURL.setParameter("roleType", String.valueOf(RoleConstants.TYPE_SITE));
 
 if (selUser != null) {
@@ -55,6 +61,13 @@ if (step == 1) {
 	}
 }
 
+<<<<<<< HEAD
+=======
+long groupId = ParamUtil.getLong(request, "groupId", uniqueGroupId);
+
+portletURL.setParameter("groupId", String.valueOf(groupId));
+
+>>>>>>> compatible
 portletURL.setParameter("step", String.valueOf(step));
 %>
 
@@ -158,6 +171,7 @@ portletURL.setParameter("step", String.valueOf(step));
 			</aui:script>
 		</c:when>
 		<c:when test="<%= step == 2 %>">
+<<<<<<< HEAD
 
 			<%
 			long groupId = ParamUtil.getLong(request, "groupId", uniqueGroupId);
@@ -178,6 +192,21 @@ portletURL.setParameter("step", String.valueOf(step));
 				String breadcrumbs = "<a href=\"" + portletURL.toString() + "\">" + LanguageUtil.get(request, "sites") + "</a> &raquo; " + HtmlUtil.escape(group.getDescriptiveName(locale));
 
 				portletURL.setParameter("step", String.valueOf(step));
+=======
+			<aui:input name="step" type="hidden" value="2" />
+			<aui:input name="groupId" type="hidden" value="<%= String.valueOf(groupId) %>" />
+
+			<%
+			Group group = GroupServiceUtil.getGroup(groupId);
+
+			portletURL.setParameter("step", "1");
+			%>
+
+			<c:if test="<%= selUser != null %>">
+
+				<%
+				String breadcrumbs = "<a href=\"" + portletURL.toString() + "\">" + LanguageUtil.get(request, "sites") + "</a> &raquo; " + HtmlUtil.escape(group.getDescriptiveName(locale));
+>>>>>>> compatible
 				%>
 
 				<div class="breadcrumbs">
@@ -185,6 +214,13 @@ portletURL.setParameter("step", String.valueOf(step));
 				</div>
 			</c:if>
 
+<<<<<<< HEAD
+=======
+			<%
+			portletURL.setParameter("step", "2");
+			%>
+
+>>>>>>> compatible
 			<liferay-ui:search-container
 				headerNames="name"
 				searchContainer="<%= new RoleSearch(renderRequest, portletURL) %>"
@@ -240,6 +276,11 @@ portletURL.setParameter("step", String.valueOf(step));
 							data.put("groupdescriptivename", group.getDescriptiveName(locale));
 							data.put("groupid", group.getGroupId());
 							data.put("iconcssclass", RolesAdminUtil.getIconCssClass(role));
+<<<<<<< HEAD
+=======
+							data.put("roleid", role.getRoleId());
+							data.put("roletitle", role.getTitle(locale));
+>>>>>>> compatible
 							data.put("searchcontainername", "siteRoles");
 
 							boolean disabled = false;

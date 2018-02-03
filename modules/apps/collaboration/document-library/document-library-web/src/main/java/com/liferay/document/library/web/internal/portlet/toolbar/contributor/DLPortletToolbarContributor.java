@@ -14,15 +14,23 @@
 
 package com.liferay.document.library.web.internal.portlet.toolbar.contributor;
 
+<<<<<<< HEAD
 import com.liferay.document.library.constants.DLPortletKeys;
+=======
+>>>>>>> compatible
 import com.liferay.document.library.kernel.model.DLFileEntryType;
 import com.liferay.document.library.kernel.model.DLFolder;
 import com.liferay.document.library.kernel.model.DLFolderConstants;
 import com.liferay.document.library.kernel.service.DLFileEntryTypeService;
+<<<<<<< HEAD
 import com.liferay.document.library.portlet.toolbar.contributor.DLPortletToolbarContributorContext;
 import com.liferay.document.library.web.internal.portlet.toolbar.contributor.helper.DLPortletToolbarContributorHelper;
 import com.liferay.osgi.service.tracker.collections.list.ServiceTrackerList;
 import com.liferay.osgi.service.tracker.collections.list.ServiceTrackerListFactory;
+=======
+import com.liferay.document.library.web.constants.DLPortletKeys;
+import com.liferay.document.library.web.internal.portlet.toolbar.contributor.helper.DLPortletToolbarContributorHelper;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.log.Log;
@@ -40,7 +48,10 @@ import com.liferay.portal.kernel.theme.PortletDisplay;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.WebKeys;
 
 import java.util.ArrayList;
@@ -51,16 +62,23 @@ import javax.portlet.PortletRequest;
 import javax.portlet.PortletResponse;
 import javax.portlet.PortletURL;
 
+<<<<<<< HEAD
 import org.osgi.framework.BundleContext;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
+=======
+import org.osgi.service.component.annotations.Component;
+>>>>>>> compatible
 import org.osgi.service.component.annotations.Reference;
 
 /**
  * @author Sergio González
  * @author Roberto Díaz
+<<<<<<< HEAD
  * @author Mauro Mariuzzo
+=======
+>>>>>>> compatible
  */
 @Component(
 	immediate = true,
@@ -326,12 +344,15 @@ public class DLPortletToolbarContributor extends BasePortletToolbarContributor {
 		return urlMenuItem;
 	}
 
+<<<<<<< HEAD
 	@Activate
 	protected void activate(BundleContext bundleContext) {
 		_dlPortletToolbarContributorContexts = ServiceTrackerListFactory.open(
 			bundleContext, DLPortletToolbarContributorContext.class);
 	}
 
+=======
+>>>>>>> compatible
 	protected void addPortletTitleAddDocumentMenuItems(
 		List<MenuItem> menuItems, Folder folder, ThemeDisplay themeDisplay,
 		PortletRequest portletRequest) {
@@ -415,11 +436,14 @@ public class DLPortletToolbarContributor extends BasePortletToolbarContributor {
 		return true;
 	}
 
+<<<<<<< HEAD
 	@Deactivate
 	protected void deactivate() {
 		_dlPortletToolbarContributorContexts.close();
 	}
 
+=======
+>>>>>>> compatible
 	protected List<DLFileEntryType> getFileEntryTypes(
 		long groupId, Folder folder) {
 
@@ -449,10 +473,15 @@ public class DLPortletToolbarContributor extends BasePortletToolbarContributor {
 			}
 			catch (PortalException pe) {
 				_log.error(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Unable to get file entry types for group ",
 						String.valueOf(groupId), " and folder ",
 						String.valueOf(folderId)),
+=======
+					"Unable to get file entry types for group " + groupId +
+						" and folder " + folderId,
+>>>>>>> compatible
 					pe);
 			}
 		}
@@ -487,6 +516,7 @@ public class DLPortletToolbarContributor extends BasePortletToolbarContributor {
 		addPortletTitleAddDocumentMenuItems(
 			menuItems, folder, themeDisplay, portletRequest);
 
+<<<<<<< HEAD
 		for (DLPortletToolbarContributorContext
 				dlPortletToolbarContributorContext :
 					_dlPortletToolbarContributorContexts) {
@@ -496,6 +526,8 @@ public class DLPortletToolbarContributor extends BasePortletToolbarContributor {
 				portletResponse);
 		}
 
+=======
+>>>>>>> compatible
 		return menuItems;
 	}
 
@@ -610,9 +642,12 @@ public class DLPortletToolbarContributor extends BasePortletToolbarContributor {
 
 	private BaseModelPermissionChecker _baseModelPermissionChecker;
 	private DLFileEntryTypeService _dlFileEntryTypeService;
+<<<<<<< HEAD
 	private ServiceTrackerList
 		<DLPortletToolbarContributorContext, DLPortletToolbarContributorContext>
 			_dlPortletToolbarContributorContexts;
+=======
+>>>>>>> compatible
 	private DLPortletToolbarContributorHelper
 		_dlPortletToolbarContributorHelper;
 

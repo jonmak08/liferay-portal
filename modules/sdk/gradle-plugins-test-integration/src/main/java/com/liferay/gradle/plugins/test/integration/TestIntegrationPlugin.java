@@ -61,7 +61,10 @@ import org.gradle.api.specs.Spec;
 import org.gradle.api.tasks.Copy;
 import org.gradle.api.tasks.SourceSet;
 import org.gradle.api.tasks.StopExecutionException;
+<<<<<<< HEAD
 import org.gradle.api.tasks.TaskOutputs;
+=======
+>>>>>>> compatible
 import org.gradle.api.tasks.testing.Test;
 import org.gradle.process.JavaForkOptions;
 
@@ -193,12 +196,15 @@ public class TestIntegrationPlugin implements Plugin<Project> {
 		GradleUtil.addDependency(
 			project, TEST_MODULES_CONFIGURATION_NAME, "org.apache.aries.jmx",
 			"org.apache.aries.jmx.core", "1.1.7");
+<<<<<<< HEAD
 		GradleUtil.addDependency(
 			project, TEST_MODULES_CONFIGURATION_NAME, "com.liferay.portal",
 			"com.liferay.portal.test", "3.0.0");
 		GradleUtil.addDependency(
 			project, TEST_MODULES_CONFIGURATION_NAME, "com.liferay.portal",
 			"com.liferay.portal.test.integration", "3.0.0");
+=======
+>>>>>>> compatible
 	}
 
 	private Copy _addTaskCopyTestModules(
@@ -217,12 +223,15 @@ public class TestIntegrationPlugin implements Plugin<Project> {
 
 				@Override
 				public void execute(FileCopyDetails fileCopyDetails) {
+<<<<<<< HEAD
 					if (testIntegrationTomcatExtension.
 							isOverwriteCopyTestModules()) {
 
 						return;
 					}
 
+=======
+>>>>>>> compatible
 					String fileName = renameDependencyClosure.call(
 						fileCopyDetails.getName());
 
@@ -256,6 +265,7 @@ public class TestIntegrationPlugin implements Plugin<Project> {
 			"Copies additional OSGi modules to deploy during integration " +
 				"testing.");
 
+<<<<<<< HEAD
 		TaskOutputs taskOutputs = copy.getOutputs();
 
 		taskOutputs.upToDateWhen(
@@ -268,6 +278,8 @@ public class TestIntegrationPlugin implements Plugin<Project> {
 
 			});
 
+=======
+>>>>>>> compatible
 		return copy;
 	}
 

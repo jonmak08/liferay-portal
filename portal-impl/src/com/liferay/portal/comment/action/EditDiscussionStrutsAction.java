@@ -24,7 +24,10 @@ import com.liferay.portal.kernel.comment.DiscussionPermission;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.model.User;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.auth.AuthTokenUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.security.auth.PrincipalException;
 import com.liferay.portal.kernel.security.auth.PrincipalThreadLocal;
 import com.liferay.portal.kernel.service.ServiceContext;
@@ -52,12 +55,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+<<<<<<< HEAD
  * @author     Adolfo Pérez
  * @deprecated As of 7.0.0, replaced by {@link
  *             com.liferay.comment.taglib.internal.action.
  *             EditDiscussionStrutsAction}
  */
 @Deprecated
+=======
+ * @author Adolfo Pérez
+ */
+>>>>>>> compatible
 @OSGiBeanProperties(
 	property = "path=/portal/comment/edit_discussion",
 	service = StrutsAction.class
@@ -69,9 +77,12 @@ public class EditDiscussionStrutsAction extends BaseStrutsAction {
 			HttpServletRequest request, HttpServletResponse response)
 		throws Exception {
 
+<<<<<<< HEAD
 		AuthTokenUtil.checkCSRFToken(
 			request, EditDiscussionStrutsAction.class.getName());
 
+=======
+>>>>>>> compatible
 		String namespace = ParamUtil.getString(request, "namespace");
 
 		HttpServletRequest namespacedRequest = new NamespaceServletRequest(

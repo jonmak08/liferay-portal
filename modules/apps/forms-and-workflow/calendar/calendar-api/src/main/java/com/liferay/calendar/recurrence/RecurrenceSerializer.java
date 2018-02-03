@@ -54,14 +54,23 @@ public class RecurrenceSerializer {
 			int index = data.indexOf(StringPool.NEW_LINE);
 
 			if (index != -1) {
+<<<<<<< HEAD
 				String exceptionDates = data.substring(index + 1);
+=======
+				String exceptionDates = data.substring(
+					index + 1, data.length());
+>>>>>>> compatible
 
 				RDateList rDateList = new RDateList(exceptionDates, timeZone);
 
 				for (DateValue dateValue : rDateList.getDatesUtc()) {
 					Calendar jCalendar = _toJCalendar(dateValue, timeZone);
 
+<<<<<<< HEAD
 					recurrence.addExceptionJCalendar(jCalendar);
+=======
+					recurrence.addExceptionDate(jCalendar);
+>>>>>>> compatible
 				}
 
 				data = data.substring(0, index);

@@ -24,9 +24,12 @@ import com.liferay.contacts.model.Entry;
 import com.liferay.contacts.service.EntryLocalService;
 import com.liferay.contacts.util.ContactsUtil;
 import com.liferay.contacts.web.internal.constants.ContactsPortletKeys;
+<<<<<<< HEAD
 import com.liferay.document.library.kernel.service.DLAppLocalService;
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.bean.BeanParamUtil;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.AddressCityException;
@@ -72,7 +75,10 @@ import com.liferay.portal.kernel.portlet.LiferayWindowState;
 import com.liferay.portal.kernel.portlet.PortletIdCodec;
 import com.liferay.portal.kernel.portlet.PortletResponseUtil;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.repository.model.FileEntry;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.RoleLocalService;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.ServiceContextFactory;
@@ -82,11 +88,18 @@ import com.liferay.portal.kernel.service.UserService;
 import com.liferay.portal.kernel.theme.PortletDisplay;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.CalendarFactoryUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.FileUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.kernel.util.comparator.UserLastNameComparator;
@@ -97,18 +110,26 @@ import com.liferay.social.kernel.model.SocialRequest;
 import com.liferay.social.kernel.model.SocialRequestConstants;
 import com.liferay.social.kernel.service.SocialRelationLocalService;
 import com.liferay.social.kernel.service.SocialRequestLocalService;
+<<<<<<< HEAD
 import com.liferay.users.admin.configuration.UserFileUploadsConfiguration;
 import com.liferay.users.admin.kernel.util.UsersAdminUtil;
 
 import java.io.IOException;
 import java.io.InputStream;
 
+=======
+import com.liferay.users.admin.kernel.util.UsersAdminUtil;
+
+>>>>>>> compatible
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Map;
+=======
+>>>>>>> compatible
 import java.util.Set;
 
 import javax.portlet.ActionRequest;
@@ -118,6 +139,7 @@ import javax.portlet.PortletException;
 import javax.portlet.PortletRequest;
 import javax.portlet.PortletResponse;
 import javax.portlet.PortletURL;
+<<<<<<< HEAD
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 import javax.portlet.ResourceRequest;
@@ -126,6 +148,12 @@ import javax.portlet.ResourceResponse;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Modified;
+=======
+import javax.portlet.ResourceRequest;
+import javax.portlet.ResourceResponse;
+
+import org.osgi.service.component.annotations.Component;
+>>>>>>> compatible
 import org.osgi.service.component.annotations.Reference;
 
 /**
@@ -134,7 +162,10 @@ import org.osgi.service.component.annotations.Reference;
  * @author Eudaldo Alonso
  */
 @Component(
+<<<<<<< HEAD
 	configurationPid = "com.liferay.users.admin.configuration.UserFileUploadsConfiguration",
+=======
+>>>>>>> compatible
 	immediate = true,
 	property = {
 		"com.liferay.portlet.add-default-resource=true",
@@ -705,6 +736,7 @@ public class ContactsCenterPortlet extends MVCPortlet {
 		writeJSON(actionRequest, actionResponse, jsonObject);
 	}
 
+<<<<<<< HEAD
 	@Activate
 	@Modified
 	protected void activate(Map<String, Object> properties) {
@@ -712,6 +744,8 @@ public class ContactsCenterPortlet extends MVCPortlet {
 			UserFileUploadsConfiguration.class, properties);
 	}
 
+=======
+>>>>>>> compatible
 	protected void deleteEntry(
 			ActionRequest actionRequest, ActionResponse actionResponse)
 		throws Exception {
@@ -730,6 +764,7 @@ public class ContactsCenterPortlet extends MVCPortlet {
 		}
 	}
 
+<<<<<<< HEAD
 	@Override
 	protected void doDispatch(
 			RenderRequest renderRequest, RenderResponse renderResponse)
@@ -742,6 +777,8 @@ public class ContactsCenterPortlet extends MVCPortlet {
 		super.doDispatch(renderRequest, renderResponse);
 	}
 
+=======
+>>>>>>> compatible
 	protected JSONObject getContactsDisplayJSONObject(
 			ActionRequest actionRequest, ActionResponse actionResponse)
 		throws Exception {
@@ -1189,6 +1226,7 @@ public class ContactsCenterPortlet extends MVCPortlet {
 
 		boolean deleteLogo = ParamUtil.getBoolean(actionRequest, "deleteLogo");
 
+<<<<<<< HEAD
 		byte[] portraitBytes = null;
 
 		long fileEntryId = ParamUtil.getLong(actionRequest, "fileEntryId");
@@ -1199,6 +1237,10 @@ public class ContactsCenterPortlet extends MVCPortlet {
 			try (InputStream inputStream = fileEntry.getContentStream()) {
 				portraitBytes = FileUtil.getBytes(inputStream);
 			}
+=======
+		if (deleteLogo) {
+			userService.deletePortrait(user.getUserId());
+>>>>>>> compatible
 		}
 
 		String comments = BeanParamUtil.getString(
@@ -1245,7 +1287,11 @@ public class ContactsCenterPortlet extends MVCPortlet {
 			user.getPasswordUnencrypted(), user.getPasswordUnencrypted(),
 			user.getPasswordReset(), user.getReminderQueryQuestion(),
 			user.getReminderQueryAnswer(), screenName, emailAddress,
+<<<<<<< HEAD
 			user.getFacebookId(), user.getOpenId(), !deleteLogo, portraitBytes,
+=======
+			user.getFacebookId(), user.getOpenId(), true, null,
+>>>>>>> compatible
 			user.getLanguageId(), user.getTimeZoneId(), user.getGreeting(),
 			comments, firstName, middleName, lastName, contact.getPrefixId(),
 			contact.getSuffixId(), user.isMale(), birthdayMonth, birthdayDay,
@@ -1275,9 +1321,12 @@ public class ContactsCenterPortlet extends MVCPortlet {
 		announcementsDeliveryLocalService;
 
 	@Reference
+<<<<<<< HEAD
 	protected DLAppLocalService dlAppLocalService;
 
 	@Reference
+=======
+>>>>>>> compatible
 	protected EntryLocalService entryLocalService;
 
 	@Reference
@@ -1305,6 +1354,9 @@ public class ContactsCenterPortlet extends MVCPortlet {
 	private static final Log _log = LogFactoryUtil.getLog(
 		ContactsCenterPortlet.class);
 
+<<<<<<< HEAD
 	private volatile UserFileUploadsConfiguration _userFileUploadsConfiguration;
 
+=======
+>>>>>>> compatible
 }

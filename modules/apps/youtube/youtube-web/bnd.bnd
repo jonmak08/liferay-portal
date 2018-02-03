@@ -1,6 +1,10 @@
 Bundle-Name: Liferay YouTube Web
 Bundle-SymbolicName: com.liferay.youtube.web
+<<<<<<< HEAD
 Bundle-Version: 1.0.15
+=======
+Bundle-Version: 1.0.10
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title:
 Web-ContextPath: /youtube-web

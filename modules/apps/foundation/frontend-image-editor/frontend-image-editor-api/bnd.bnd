@@ -1,4 +1,8 @@
 Bundle-Name: Liferay Frontend Image Editor API
 Bundle-SymbolicName: com.liferay.frontend.image.editor.api
+<<<<<<< HEAD
 Bundle-Version: 1.0.5
+=======
+Bundle-Version: 1.0.4
+>>>>>>> compatible
 Export-Package: com.liferay.frontend.image.editor.capability

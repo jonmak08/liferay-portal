@@ -14,7 +14,10 @@
 
 package com.liferay.portal.upgrade.v6_2_0;
 
+<<<<<<< HEAD
 import com.liferay.petra.encryptor.Encryptor;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.upgrade.UpgradeProcess;
 import com.liferay.portal.kernel.util.Base64;
 import com.liferay.portal.kernel.util.LoggingTimer;

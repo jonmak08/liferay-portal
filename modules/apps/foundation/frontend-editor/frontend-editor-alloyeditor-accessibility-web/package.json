@@ -4,5 +4,10 @@
 		"metal-cli": "^4.0.1"
 	},
 	"name": "frontend-editor-alloyeditor-accessibility-web",
+<<<<<<< HEAD
 	"version": "1.0.6"
 }
+=======
+	"version": "1.0.5"
+}
+>>>>>>> compatible

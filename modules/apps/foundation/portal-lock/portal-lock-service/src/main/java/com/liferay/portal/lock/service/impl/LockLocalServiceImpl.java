@@ -156,6 +156,7 @@ public class LockLocalServiceImpl extends LockLocalServiceBaseImpl {
 
 	@Override
 	public Lock lock(
+<<<<<<< HEAD
 			long userId, String className, long key, String owner,
 			boolean inheritable, long expirationTime, boolean renew)
 		throws PortalException {
@@ -167,10 +168,13 @@ public class LockLocalServiceImpl extends LockLocalServiceBaseImpl {
 
 	@Override
 	public Lock lock(
+=======
+>>>>>>> compatible
 			long userId, String className, String key, String owner,
 			boolean inheritable, long expirationTime)
 		throws PortalException {
 
+<<<<<<< HEAD
 		return lock(
 			userId, className, key, owner, inheritable, expirationTime, true);
 	}
@@ -181,6 +185,8 @@ public class LockLocalServiceImpl extends LockLocalServiceBaseImpl {
 			boolean inheritable, long expirationTime, boolean renew)
 		throws PortalException {
 
+=======
+>>>>>>> compatible
 		Date now = new Date();
 
 		Lock lock = lockPersistence.fetchByC_K(className, key);
@@ -196,8 +202,11 @@ public class LockLocalServiceImpl extends LockLocalServiceBaseImpl {
 			}
 		}
 
+<<<<<<< HEAD
 		boolean isNew = false;
 
+=======
+>>>>>>> compatible
 		if (lock == null) {
 			User user = userLocalService.getUser(userId);
 
@@ -212,11 +221,14 @@ public class LockLocalServiceImpl extends LockLocalServiceBaseImpl {
 			lock.setKey(key);
 			lock.setOwner(owner);
 			lock.setInheritable(inheritable);
+<<<<<<< HEAD
 
 			isNew = true;
 		}
 		else if (!renew) {
 			return lock;
+=======
+>>>>>>> compatible
 		}
 
 		lock.setCreateDate(now);
@@ -228,11 +240,15 @@ public class LockLocalServiceImpl extends LockLocalServiceBaseImpl {
 			lock.setExpirationDate(new Date(now.getTime() + expirationTime));
 		}
 
+<<<<<<< HEAD
 		lock = lockPersistence.update(lock);
 
 		if (isNew) {
 			lock.setNew(true);
 		}
+=======
+		lockPersistence.update(lock);
+>>>>>>> compatible
 
 		return lock;
 	}
@@ -370,10 +386,17 @@ public class LockLocalServiceImpl extends LockLocalServiceBaseImpl {
 
 	@Override
 	public void unlock(String className, String key) {
+<<<<<<< HEAD
 		Lock lock = lockPersistence.fetchByC_K(className, key);
 
 		if (lock != null) {
 			lockPersistence.remove(lock);
+=======
+		try {
+			lockPersistence.removeByC_K(className, key);
+		}
+		catch (NoSuchLockException nsle) {
+>>>>>>> compatible
 		}
 	}
 
@@ -438,8 +461,11 @@ public class LockLocalServiceImpl extends LockLocalServiceBaseImpl {
 
 		try {
 			lockPersistence.remove(lock);
+<<<<<<< HEAD
 
 			lockPersistence.flush();
+=======
+>>>>>>> compatible
 		}
 		finally {
 			if (lockListener != null) {

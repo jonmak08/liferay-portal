@@ -13,4 +13,8 @@
 	<suppress checks="LanguageKeysCheck" files="modules/util/source-formatter/src/main/java/com/liferay/source/formatter/checks/JSPLanguageUtilCheck\.java" />
 	<suppress checks="PrimitiveWrapperInstantiationCheck" files="modules/util/source-formatter/src/main/java/com/liferay/source/formatter/checks/PrimitiveWrapperInstantiationCheck\.java" />
 	<suppress checks="ResourceBundleCheck" files="modules/util/source-formatter/src/main/java/com/liferay/source/formatter/checks/ResourceBundleCheck\.java" />
+<<<<<<< HEAD
+=======
+	<suppress checks="ValidatorEqualsCheck" files="modules/util/source-formatter/src/main/java/com/liferay/source/formatter/checks/ValidatorEqualsCheck\.java" />
+>>>>>>> compatible
 </suppressions>

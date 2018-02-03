@@ -17,15 +17,25 @@ package com.liferay.asset.tags.navigation.web.internal.portlet.template;
 import com.liferay.asset.kernel.model.AssetTag;
 import com.liferay.asset.kernel.service.AssetTagLocalService;
 import com.liferay.asset.kernel.service.AssetTagService;
+<<<<<<< HEAD
 import com.liferay.asset.tag.stats.service.AssetTagStatsLocalService;
 import com.liferay.asset.tags.navigation.constants.AssetTagsNavigationPortletKeys;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.asset.kernel.service.AssetTagStatsLocalService;
+import com.liferay.asset.tags.navigation.web.constants.AssetTagsNavigationPortletKeys;
+import com.liferay.asset.tags.navigation.web.internal.configuration.AssetTagsNavigationWebConfigurationValues;
+>>>>>>> compatible
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.portletdisplaytemplate.BasePortletDisplayTemplateHandler;
 import com.liferay.portal.kernel.template.TemplateHandler;
 import com.liferay.portal.kernel.template.TemplateVariableGroup;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portlet.display.template.PortletDisplayTemplateConstants;
 
 import java.util.List;
@@ -109,8 +119,13 @@ public class AssetTagsNavigationPortletDisplayTemplateHandler
 
 	@Override
 	protected String getTemplatesConfigPath() {
+<<<<<<< HEAD
 		return "com/liferay/asset/tags/navigation/web/portlet/template" +
 			"/dependencies/portlet-display-templates.xml";
+=======
+		return
+			AssetTagsNavigationWebConfigurationValues.DISPLAY_TEMPLATES_CONFIG;
+>>>>>>> compatible
 	}
 
 	@Reference

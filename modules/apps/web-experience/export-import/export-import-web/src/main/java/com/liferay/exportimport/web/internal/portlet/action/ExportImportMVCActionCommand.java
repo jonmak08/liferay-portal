@@ -49,6 +49,10 @@ import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StreamUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 
@@ -275,14 +279,28 @@ public class ExportImportMVCActionCommand extends BaseMVCActionCommand {
 		FileEntry fileEntry = _exportImportHelper.getTempFileEntry(
 			groupId, themeDisplay.getUserId(), folderName);
 
+<<<<<<< HEAD
 		try (InputStream inputStream = _dlFileEntryLocalService.getFileAsStream(
 				fileEntry.getFileEntryId(), fileEntry.getVersion(), false)) {
+=======
+		InputStream inputStream = null;
+
+		try {
+			inputStream = _dlFileEntryLocalService.getFileAsStream(
+				fileEntry.getFileEntryId(), fileEntry.getVersion(), false);
+>>>>>>> compatible
 
 			importData(actionRequest, inputStream);
 
 			_importLayoutsMVCActionCommand.deleteTempFileEntry(
 				groupId, folderName);
 		}
+<<<<<<< HEAD
+=======
+		finally {
+			StreamUtil.cleanUp(inputStream);
+		}
+>>>>>>> compatible
 	}
 
 	@Reference(unbind = "-")
@@ -328,8 +346,16 @@ public class ExportImportMVCActionCommand extends BaseMVCActionCommand {
 		FileEntry fileEntry = _exportImportHelper.getTempFileEntry(
 			groupId, themeDisplay.getUserId(), folderName);
 
+<<<<<<< HEAD
 		try (InputStream inputStream = _dlFileEntryLocalService.getFileAsStream(
 				fileEntry.getFileEntryId(), fileEntry.getVersion(), false)) {
+=======
+		InputStream inputStream = null;
+
+		try {
+			inputStream = _dlFileEntryLocalService.getFileAsStream(
+				fileEntry.getFileEntryId(), fileEntry.getVersion(), false);
+>>>>>>> compatible
 
 			MissingReferences missingReferences = validateFile(
 				actionRequest, inputStream);
@@ -355,6 +381,12 @@ public class ExportImportMVCActionCommand extends BaseMVCActionCommand {
 			JSONPortletResponseUtil.writeJSON(
 				actionRequest, actionResponse, jsonObject);
 		}
+<<<<<<< HEAD
+=======
+		finally {
+			StreamUtil.cleanUp(inputStream);
+		}
+>>>>>>> compatible
 	}
 
 	protected MissingReferences validateFile(

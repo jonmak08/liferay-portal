@@ -14,34 +14,50 @@
 
 package com.liferay.journal.model.impl;
 
+<<<<<<< HEAD
 import com.liferay.document.library.kernel.model.DLFolderConstants;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.model.DDMStructure;
 import com.liferay.dynamic.data.mapping.model.DDMTemplate;
 import com.liferay.dynamic.data.mapping.service.DDMStructureLocalServiceUtil;
 import com.liferay.dynamic.data.mapping.service.DDMTemplateLocalServiceUtil;
 import com.liferay.exportimport.kernel.lar.StagedModelType;
+<<<<<<< HEAD
 import com.liferay.friendly.url.model.FriendlyURLEntry;
 import com.liferay.friendly.url.model.FriendlyURLEntryLocalization;
 import com.liferay.friendly.url.service.FriendlyURLEntryLocalServiceUtil;
 import com.liferay.journal.constants.JournalConstants;
+=======
+>>>>>>> compatible
 import com.liferay.journal.model.JournalArticle;
 import com.liferay.journal.model.JournalArticleResource;
 import com.liferay.journal.model.JournalFolder;
 import com.liferay.journal.model.JournalFolderConstants;
+<<<<<<< HEAD
+=======
+import com.liferay.journal.service.JournalArticleImageLocalServiceUtil;
+>>>>>>> compatible
 import com.liferay.journal.service.JournalArticleLocalServiceUtil;
 import com.liferay.journal.service.JournalArticleResourceLocalServiceUtil;
 import com.liferay.journal.service.JournalFolderLocalServiceUtil;
 import com.liferay.journal.transformer.JournalTransformerListenerRegistryUtil;
 import com.liferay.journal.transformer.LocaleTransformerListener;
 import com.liferay.journal.util.impl.JournalUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.json.JSON;
+=======
+import com.liferay.portal.kernel.exception.LocaleException;
+import com.liferay.portal.kernel.exception.PortalException;
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Image;
 import com.liferay.portal.kernel.model.Layout;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.Repository;
 import com.liferay.portal.kernel.model.cache.CacheField;
 import com.liferay.portal.kernel.portletfilerepository.PortletFileRepositoryUtil;
@@ -50,26 +66,41 @@ import com.liferay.portal.kernel.repository.model.Folder;
 import com.liferay.portal.kernel.service.ClassNameLocalServiceUtil;
 import com.liferay.portal.kernel.service.ImageLocalServiceUtil;
 import com.liferay.portal.kernel.service.ServiceContext;
+=======
+import com.liferay.portal.kernel.model.cache.CacheField;
+import com.liferay.portal.kernel.service.ClassNameLocalServiceUtil;
+import com.liferay.portal.kernel.service.ImageLocalServiceUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.templateparser.TransformerListener;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.LocaleThreadLocal;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.LocalizationUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.PortalUtil;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.webserver.WebServerServletTokenUtil;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.DocumentException;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
+<<<<<<< HEAD
 import com.liferay.portal.util.PropsValues;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+=======
+
+import java.util.HashMap;
+>>>>>>> compatible
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
@@ -103,7 +134,11 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 4.0.0, replaced by {@link #getContentByLocale(Document,
+=======
+	 * @deprecated As of 3.3.0, replaced by {@link #getContentByLocale(Document,
+>>>>>>> compatible
 	 *             String)}
 	 */
 	@Deprecated
@@ -123,6 +158,7 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public Folder addImagesFolder() throws PortalException {
 		if (_imagesFolderId != DLFolderConstants.DEFAULT_PARENT_FOLDER_ID) {
 			return PortletFileRepositoryUtil.getPortletFolder(_imagesFolderId);
@@ -147,6 +183,8 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public String buildTreePath() throws PortalException {
 		if (getFolderId() == JournalFolderConstants.DEFAULT_PARENT_FOLDER_ID) {
 			return StringPool.SLASH;
@@ -158,6 +196,7 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public Object clone() {
 		JournalArticleImpl journalArticle = (JournalArticleImpl)super.clone();
 
@@ -165,6 +204,14 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 		journalArticle.setTitleMap(getTitleMap());
 
 		return journalArticle;
+=======
+	public long getArticleImageId(
+		String elInstanceId, String elName, String languageId) {
+
+		return JournalArticleImageLocalServiceUtil.getArticleImageId(
+			getGroupId(), getArticleId(), getVersion(), elInstanceId, elName,
+			languageId);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -177,10 +224,16 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 			return getSmallImageURL();
 		}
 
+<<<<<<< HEAD
 		return StringBundler.concat(
 			themeDisplay.getPathImage(), "/journal/article?img_id=",
 			String.valueOf(getSmallImageId()), "&t=",
 			WebServerServletTokenUtil.getToken(getSmallImageId()));
+=======
+		return themeDisplay.getPathImage() + "/journal/article?img_id=" +
+			getSmallImageId() + "&t=" +
+				WebServerServletTokenUtil.getToken(getSmallImageId());
+>>>>>>> compatible
 	}
 
 	@Override
@@ -200,9 +253,15 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 	public String[] getAvailableLanguageIds() {
 		Set<String> availableLanguageIds = new TreeSet<>();
 
+<<<<<<< HEAD
 		availableLanguageIds.addAll(
 			JournalArticleLocalServiceUtil.getArticleLocalizationLanguageIds(
 				getId()));
+=======
+		for (String availableLanguageId : super.getAvailableLanguageIds()) {
+			availableLanguageIds.add(availableLanguageId);
+		}
+>>>>>>> compatible
 
 		Document document = getDocument();
 
@@ -222,13 +281,20 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 	public String getContentByLocale(String languageId) {
 		Map<String, String> tokens = new HashMap<>();
 
+<<<<<<< HEAD
 		DDMStructure ddmStructure = getDDMStructure();
 
 		if (ddmStructure != null) {
+=======
+		try {
+			DDMStructure ddmStructure = getDDMStructure();
+
+>>>>>>> compatible
 			tokens.put(
 				"ddm_structure_id",
 				String.valueOf(ddmStructure.getStructureId()));
 		}
+<<<<<<< HEAD
 
 		return getContentByLocale(getDocument(), languageId, tokens);
 	}
@@ -358,6 +424,48 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 		}
 
 		return super.getDisplayDate();
+=======
+		catch (PortalException pe) {
+
+			// LPS-52675
+
+			if (_log.isDebugEnabled()) {
+				_log.debug(pe, pe);
+			}
+		}
+
+		return getContentByLocale(getDocument(), languageId, tokens);
+	}
+
+	@Override
+	public DDMStructure getDDMStructure() throws PortalException {
+		return DDMStructureLocalServiceUtil.fetchStructure(
+			PortalUtil.getSiteGroupId(getGroupId()),
+			ClassNameLocalServiceUtil.getClassNameId(JournalArticle.class),
+			getDDMStructureKey(), true);
+	}
+
+	@Override
+	public DDMTemplate getDDMTemplate() throws PortalException {
+		return DDMTemplateLocalServiceUtil.fetchTemplate(
+			PortalUtil.getSiteGroupId(getGroupId()),
+			ClassNameLocalServiceUtil.getClassNameId(JournalArticle.class),
+			getDDMTemplateKey(), true);
+	}
+
+	@Override
+	public String getDefaultLanguageId() {
+		if (_defaultLanguageId == null) {
+			_defaultLanguageId = super.getDefaultLanguageId();
+
+			if (Validator.isNull(_defaultLanguageId)) {
+				_defaultLanguageId = LocaleUtil.toLanguageId(
+					LocaleUtil.getSiteDefault());
+			}
+		}
+
+		return _defaultLanguageId;
+>>>>>>> compatible
 	}
 
 	@Override
@@ -377,6 +485,7 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public Date getExpirationDate() {
 		if (!PropsValues.SCHEDULER_ENABLED) {
 			return null;
@@ -386,6 +495,8 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public JournalFolder getFolder() throws PortalException {
 		if (getFolderId() <= 0) {
 			return new JournalFolderImpl();
@@ -395,6 +506,7 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public Map<Locale, String> getFriendlyURLMap() throws PortalException {
 		Map<Locale, String> friendlyURLMap = new HashMap<>();
 
@@ -524,6 +636,8 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public Layout getLayout() {
 		String layoutUuid = getLayoutUuid();
 
@@ -534,6 +648,7 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 		return JournalUtil.getArticleLayout(layoutUuid, getGroupId());
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 4.0.0
 	 */
@@ -559,6 +674,8 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 		return super.getReviewDate();
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	public String getSmallImageType() throws PortalException {
 		if ((_smallImageType == null) && isSmallImage()) {
@@ -577,7 +694,11 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 4.0.0, replaced by {@link #getDDMStructureKey()}
+=======
+	 * @deprecated As of 3.3.0, replaced by {@link #getDDMStructureKey()}
+>>>>>>> compatible
 	 */
 	@Deprecated
 	@Override
@@ -586,7 +707,11 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 4.0.0, replaced by {@link #getDDMTemplateKey()}
+=======
+	 * @deprecated As of 3.3.0, replaced by {@link #getDDMTemplateKey()}
+>>>>>>> compatible
 	 */
 	@Deprecated
 	@Override
@@ -594,6 +719,7 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 		return getDDMTemplateKey();
 	}
 
+<<<<<<< HEAD
 	@JSON
 	@Override
 	public String getTitle() {
@@ -673,6 +799,23 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 	public String getTitleMapAsXML() {
 		return LocalizationUtil.updateLocalization(
 			getTitleMap(), StringPool.BLANK, "Title", getDefaultLanguageId());
+=======
+	@Override
+	public Map<Locale, String> getTitleMap() {
+		Locale defaultLocale = LocaleThreadLocal.getDefaultLocale();
+
+		try {
+			Locale articleDefaultLocale = LocaleUtil.fromLanguageId(
+				getDefaultLanguageId());
+
+			LocaleThreadLocal.setDefaultLocale(articleDefaultLocale);
+
+			return super.getTitleMap();
+		}
+		finally {
+			LocaleThreadLocal.setDefaultLocale(defaultLocale);
+		}
+>>>>>>> compatible
 	}
 
 	@Override
@@ -680,6 +823,7 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 		return getResourcePrimKey();
 	}
 
+<<<<<<< HEAD
 	public String getUrlTitle(Locale locale) throws PortalException {
 		String urlTitle = getFriendlyURLMap().get(locale);
 
@@ -690,6 +834,8 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 		return urlTitle;
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	public boolean hasApprovedVersion() {
 		JournalArticle article =
@@ -705,7 +851,11 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 4.0.0, with no direct replacement
+=======
+	 * @deprecated As of 3.3.0, with no direct replacement
+>>>>>>> compatible
 	 */
 	@Deprecated
 	@Override
@@ -713,6 +863,31 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 		return true;
 	}
 
+<<<<<<< HEAD
+=======
+	/**
+	 * @param defaultImportLocale the default imported locale
+	 */
+	@Override
+	public void prepareLocalizedFieldsForImport(Locale defaultImportLocale)
+		throws LocaleException {
+
+		super.prepareLocalizedFieldsForImport(defaultImportLocale);
+
+		String content = StringPool.BLANK;
+
+		try {
+			content = JournalUtil.prepareLocalizedContentForImport(
+				getContent(), defaultImportLocale);
+		}
+		catch (Exception e) {
+			throw new LocaleException(LocaleException.TYPE_DEFAULT, e);
+		}
+
+		setContent(content);
+	}
+
+>>>>>>> compatible
 	@Override
 	public void setContent(String content) {
 		super.setContent(content);
@@ -720,6 +895,7 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 		_document = null;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 4.0.0
 	 */
@@ -730,6 +906,11 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 
 	public void setDescriptionMap(Map<Locale, String> descriptionMap) {
 		_descriptionMap = descriptionMap;
+=======
+	@Override
+	public void setDefaultLanguageId(String defaultLanguageId) {
+		_defaultLanguageId = defaultLanguageId;
+>>>>>>> compatible
 	}
 
 	@Override
@@ -738,17 +919,24 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void setImagesFolderId(long imagesFolderId) {
 		_imagesFolderId = imagesFolderId;
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public void setSmallImageType(String smallImageType) {
 		_smallImageType = smallImageType;
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 4.0.0, replaced by {@link #setDDMStructureKey(String)}
+=======
+	 * @deprecated As of 3.3.0, replaced by {@link #setDDMStructureKey(String)}
+>>>>>>> compatible
 	 */
 	@Deprecated
 	@Override
@@ -757,7 +945,11 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 4.0.0, replaced by {@link #setDDMTemplateKey(String)}
+=======
+	 * @deprecated As of 3.3.0, replaced by {@link #setDDMTemplateKey(String)}
+>>>>>>> compatible
 	 */
 	@Deprecated
 	@Override
@@ -765,6 +957,7 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 		setDDMTemplateKey(ddmTemplateKey);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 4.0.0
 	 */
@@ -775,11 +968,19 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 
 	public void setTitleMap(Map<Locale, String> titleMap) {
 		_titleMap = titleMap;
+=======
+	@Override
+	public void setTitle(String title) {
+		super.setTitle(title);
+
+		_defaultLanguageId = null;
+>>>>>>> compatible
 	}
 
 	private static final Log _log = LogFactoryUtil.getLog(
 		JournalArticleImpl.class);
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 4.0.0
 	 */
@@ -787,10 +988,15 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 	private String _description;
 
 	private Map<Locale, String> _descriptionMap;
+=======
+	@CacheField(propagateToInterface = true)
+	private String _defaultLanguageId;
+>>>>>>> compatible
 
 	@CacheField(propagateToInterface = true)
 	private Document _document;
 
+<<<<<<< HEAD
 	private long _imagesFolderId;
 	private String _smallImageType;
 
@@ -802,4 +1008,8 @@ public class JournalArticleImpl extends JournalArticleBaseImpl {
 
 	private Map<Locale, String> _titleMap;
 
+=======
+	private String _smallImageType;
+
+>>>>>>> compatible
 }

@@ -19,9 +19,15 @@ import com.liferay.dynamic.data.mapping.model.DDMFormField;
 import com.liferay.dynamic.data.mapping.model.DDMFormFieldOptions;
 import com.liferay.dynamic.data.mapping.model.LocalizedValue;
 import com.liferay.dynamic.data.mapping.storage.DDMFormFieldValue;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.json.JSONArray;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.util.Locale;
 
@@ -32,7 +38,11 @@ import org.osgi.service.component.annotations.Reference;
  * @author Dylan Rebelak
  */
 @Component(
+<<<<<<< HEAD
 	immediate = true, property = {"ddm.form.field.type.name=checkbox_multiple"}
+=======
+	immediate = true, property = "ddm.form.field.type.name=checkbox_multiple"
+>>>>>>> compatible
 )
 public class CheckboxMultipleDDMFormFieldValueRenderer
 	implements DDMFormFieldValueRenderer {
@@ -54,6 +64,7 @@ public class CheckboxMultipleDDMFormFieldValueRenderer
 			optionsValuesJSONArray.length() * 2 - 1);
 
 		for (int i = 0; i < optionsValuesJSONArray.length(); i++) {
+<<<<<<< HEAD
 			LocalizedValue optionLabel = ddmFormFieldOptions.getOptionLabels(
 				optionsValuesJSONArray.getString(i));
 
@@ -67,6 +78,19 @@ public class CheckboxMultipleDDMFormFieldValueRenderer
 		if (sb.index() > 0) {
 			sb.setIndex(sb.index() - 1);
 		}
+=======
+			String optionValue = optionsValuesJSONArray.getString(i);
+
+			LocalizedValue optionLabel = ddmFormFieldOptions.getOptionLabels(
+				optionValue);
+
+			sb.append(optionLabel.getString(locale));
+
+			sb.append(StringPool.COMMA_AND_SPACE);
+		}
+
+		sb.setIndex(sb.index() - 1);
+>>>>>>> compatible
 
 		return sb.toString();
 	}

@@ -17,6 +17,11 @@ package com.liferay.jenkins.results.parser.failure.message.generator;
 import com.liferay.jenkins.results.parser.Build;
 import com.liferay.jenkins.results.parser.Dom4JUtil;
 
+<<<<<<< HEAD
+=======
+import java.util.Hashtable;
+
+>>>>>>> compatible
 import org.dom4j.Element;
 
 /**
@@ -26,10 +31,28 @@ public class DownstreamFailureMessageGenerator
 	extends BaseFailureMessageGenerator {
 
 	@Override
+<<<<<<< HEAD
 	public Element getMessageElement(Build build) {
 		String consoleText = build.getConsoleText();
 
 		if (consoleText.contains("Downstream jobs FAILED.")) {
+=======
+	public String getMessage(
+		String buildURL, String consoleOutput, Hashtable<?, ?> properties) {
+
+		if (consoleOutput.contains("Downstream jobs FAILED.")) {
+			return "<pre><code>Downstream jobs FAILED</code></pre>";
+		}
+
+		return null;
+	}
+
+	@Override
+	public Element getMessageElement(Build build) {
+		String consoleOutput = build.getConsoleText();
+
+		if (consoleOutput.contains("Downstream jobs FAILED.")) {
+>>>>>>> compatible
 			return Dom4JUtil.toCodeSnippetElement("Downstream jobs FAILED.");
 		}
 

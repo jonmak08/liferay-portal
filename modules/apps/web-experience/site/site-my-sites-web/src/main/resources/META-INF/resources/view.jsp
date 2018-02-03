@@ -64,6 +64,7 @@ groupSearch.setResults(groups);
 long[] groupIds = ListUtil.toLongArray(groups, Group.GROUP_ID_ACCESSOR);
 
 Map<Long, Integer> groupUsersCounts = UserLocalServiceUtil.searchCounts(company.getCompanyId(), WorkflowConstants.STATUS_APPROVED, groupIds);
+<<<<<<< HEAD
 
 List<NavigationItem> navigationItems = new ArrayList<>();
 
@@ -103,6 +104,42 @@ navigationItems.add(availableSitesNavigationItem);
 <clay:navigation-bar
 	items="<%= navigationItems %>"
 />
+=======
+%>
+
+<liferay-ui:success key="membershipRequestSent" message="your-request-was-sent-you-will-receive-a-reply-by-email" />
+
+<liferay-ui:error key="membershipAlreadyRequested" message="membership-was-already-requested" />
+
+<aui:nav-bar cssClass="collapse-basic-search" markupView="lexicon">
+	<aui:nav cssClass="navbar-nav">
+
+		<%
+		PortletURL mySitesURL = PortletURLUtil.clone(portletURL, renderResponse);
+
+		mySitesURL.setParameter("tabs1", "my-sites");
+		%>
+
+		<aui:nav-item href="<%= mySitesURL.toString() %>" id="mySites" label="my-sites" selected='<%= tabs1.equals("my-sites") %>' />
+
+		<%
+		PortletURL availableSitesURL = PortletURLUtil.clone(portletURL, renderResponse);
+
+		availableSitesURL.setParameter("tabs1", "available-sites");
+		%>
+
+		<aui:nav-item href="<%= availableSitesURL.toString() %>" id="availableSites" label="available-sites" selected='<%= tabs1.equals("available-sites") %>' />
+	</aui:nav>
+
+	<aui:nav-bar-search>
+		<aui:form action="<%= portletURL %>" name="searchFm">
+			<liferay-portlet:renderURLParams varImpl="portletURL" />
+
+			<liferay-ui:input-search autoFocus="<%= windowState.equals(WindowState.MAXIMIZED) %>" markupView="lexicon" />
+		</aui:form>
+	</aui:nav-bar-search>
+</aui:nav-bar>
+>>>>>>> compatible
 
 <liferay-frontend:management-bar>
 	<liferay-frontend:management-bar-buttons>
@@ -125,6 +162,7 @@ navigationItems.add(availableSitesNavigationItem);
 			orderColumns='<%= new String[] {"name"} %>'
 			portletURL="<%= PortletURLUtil.clone(portletURL, renderResponse) %>"
 		/>
+<<<<<<< HEAD
 
 		<li>
 			<aui:form action="<%= portletURL %>" name="searchFm">
@@ -133,6 +171,8 @@ navigationItems.add(availableSitesNavigationItem);
 				<liferay-ui:input-search autoFocus="<%= windowState.equals(WindowState.MAXIMIZED) %>" markupView="lexicon" />
 			</aui:form>
 		</li>
+=======
+>>>>>>> compatible
 	</liferay-frontend:management-bar-filters>
 </liferay-frontend:management-bar>
 
@@ -198,14 +238,22 @@ navigationItems.add(availableSitesNavigationItem);
 						</c:if>
 
 						<h6 class="text-default">
+<<<<<<< HEAD
 							<liferay-asset:asset-tags-summary
+=======
+							<liferay-ui:asset-tags-summary
+>>>>>>> compatible
 								className="<%= Group.class.getName() %>"
 								classPK="<%= group.getGroupId() %>"
 							/>
 						</h6>
 
 						<h6 class="text-default">
+<<<<<<< HEAD
 							<strong><liferay-ui:message key="members" /></strong>: <%= GetterUtil.getInteger(groupUsersCounts.get(group.getGroupId())) %>
+=======
+							<strong><liferay-ui:message key="members" /></strong>: <%= String.valueOf(groupUsersCounts.get(group.getGroupId())) %>
+>>>>>>> compatible
 						</h6>
 
 						<c:if test='<%= tabs1.equals("my-sites") && PropsValues.LIVE_USERS_ENABLED %>'>
@@ -299,7 +347,11 @@ navigationItems.add(availableSitesNavigationItem);
 					<liferay-ui:search-container-column-text
 						name="tags"
 					>
+<<<<<<< HEAD
 						<liferay-asset:asset-tags-summary
+=======
+						<liferay-ui:asset-tags-summary
+>>>>>>> compatible
 							className="<%= Group.class.getName() %>"
 							classPK="<%= group.getGroupId() %>"
 						/>

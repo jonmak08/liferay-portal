@@ -15,7 +15,10 @@
 package com.liferay.mobile.device.rules.exportimport.data.handler.test;
 
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
+<<<<<<< HEAD
 import com.liferay.exportimport.kernel.lar.DataLevel;
+=======
+>>>>>>> compatible
 import com.liferay.mobile.device.rules.constants.MDRPortletKeys;
 import com.liferay.mobile.device.rules.exportimport.data.handler.MDRPortletDataHandler;
 import com.liferay.mobile.device.rules.model.MDRRuleGroup;
@@ -23,6 +26,11 @@ import com.liferay.mobile.device.rules.model.MDRRuleGroupInstance;
 import com.liferay.mobile.device.rules.util.test.MDRTestUtil;
 import com.liferay.portal.kernel.model.Layout;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+>>>>>>> compatible
 import com.liferay.portal.lar.test.BasePortletDataHandlerTestCase;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.util.test.LayoutTestUtil;
@@ -37,12 +45,22 @@ import org.junit.runner.RunWith;
  * @author Zsolt Berentey
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class MDRPortletDataHandlerTest extends BasePortletDataHandlerTestCase {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Override
 	protected void addParameters(Map<String, String[]> parameterMap) {
@@ -75,15 +93,19 @@ public class MDRPortletDataHandlerTest extends BasePortletDataHandlerTestCase {
 	}
 
 	@Override
+<<<<<<< HEAD
 	protected DataLevel getDataLevel() {
 		return DataLevel.SITE;
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	protected String getPortletId() {
 		return MDRPortletKeys.MOBILE_DEVICE_RULES;
 	}
 
+<<<<<<< HEAD
 	@Override
 	protected boolean isDataPortalLevel() {
 		return false;
@@ -99,4 +121,6 @@ public class MDRPortletDataHandlerTest extends BasePortletDataHandlerTestCase {
 		return true;
 	}
 
+=======
+>>>>>>> compatible
 }

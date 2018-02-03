@@ -26,7 +26,11 @@ import com.liferay.portal.kernel.repository.registry.BaseRepositoryDefiner;
 import com.liferay.portal.kernel.repository.registry.CapabilityRegistry;
 import com.liferay.portal.kernel.repository.registry.RepositoryFactoryRegistry;
 import com.liferay.portal.kernel.util.ResourceBundleLoader;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ServiceProxyFactory;
+=======
+import com.liferay.portal.repository.capabilities.LiferayProcessorCapability;
+>>>>>>> compatible
 import com.liferay.portal.repository.util.ExternalRepositoryFactoryUtil;
 
 /**
@@ -69,6 +73,7 @@ public class LegacyExternalRepositoryDefiner extends BaseRepositoryDefiner {
 
 				size = supportedParameters[0].length;
 			}
+<<<<<<< HEAD
 
 			RepositoryConfigurationBuilder repositoryConfigurationBuilder =
 				new RepositoryConfigurationBuilder(_resourceBundleLoader);
@@ -80,6 +85,19 @@ public class LegacyExternalRepositoryDefiner extends BaseRepositoryDefiner {
 
 			_repositoryConfiguration = repositoryConfigurationBuilder.build();
 
+=======
+
+			RepositoryConfigurationBuilder repositoryConfigurationBuilder =
+				new RepositoryConfigurationBuilder(_resourceBundleLoader);
+
+			for (int i = 0; i < size; i++) {
+				repositoryConfigurationBuilder.addParameter(
+					supportedParameters[0][i]);
+			}
+
+			_repositoryConfiguration = repositoryConfigurationBuilder.build();
+
+>>>>>>> compatible
 			return _repositoryConfiguration;
 		}
 		catch (Exception e) {
@@ -118,6 +136,13 @@ public class LegacyExternalRepositoryDefiner extends BaseRepositoryDefiner {
 			false, true);
 
 	private final String _className;
+<<<<<<< HEAD
+=======
+	private final LiferayProcessorCapability _processorCapability =
+		new LiferayProcessorCapability(
+			LiferayProcessorCapability.ResourceGenerationStrategy.
+				ALWAYS_GENERATE);
+>>>>>>> compatible
 	private RepositoryConfiguration _repositoryConfiguration;
 	private final RepositoryFactory _repositoryFactory;
 	private final ResourceBundleLoader _resourceBundleLoader;

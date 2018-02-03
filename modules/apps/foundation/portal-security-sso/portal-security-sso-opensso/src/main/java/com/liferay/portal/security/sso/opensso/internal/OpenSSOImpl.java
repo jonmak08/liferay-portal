@@ -14,13 +14,20 @@
 
 package com.liferay.portal.security.sso.opensso.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.security.sso.OpenSSO;
 import com.liferay.portal.kernel.util.CookieKeys;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 
@@ -283,10 +290,16 @@ public class OpenSSOImpl implements OpenSSO {
 		int responseCode = httpURLConnection.getResponseCode();
 
 		if (responseCode == HttpURLConnection.HTTP_OK) {
+<<<<<<< HEAD
 			String data = StringUtil.toLowerCase(
 				StringUtil.read(httpURLConnection.getInputStream()));
 
 			if (data.contains("boolean=true")) {
+=======
+			String data = StringUtil.read(httpURLConnection.getInputStream());
+
+			if (StringUtil.toLowerCase(data).contains("boolean=true")) {
+>>>>>>> compatible
 				authenticated = true;
 			}
 		}
@@ -332,9 +345,14 @@ public class OpenSSOImpl implements OpenSSO {
 
 				if (_log.isDebugEnabled()) {
 					_log.debug(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"URL ", url, " is invalid with response code ",
 							String.valueOf(responseCode)));
+=======
+						"URL " + url + " is invalid with response code " +
+							responseCode);
+>>>>>>> compatible
 				}
 
 				return false;
@@ -342,9 +360,14 @@ public class OpenSSOImpl implements OpenSSO {
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"URL ", url, " is valid with response code ",
 						String.valueOf(responseCode)));
+=======
+					"URL " + url + " is valid with response code " +
+						responseCode);
+>>>>>>> compatible
 			}
 		}
 		catch (IOException ioe) {

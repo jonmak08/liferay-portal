@@ -19,7 +19,14 @@ import com.liferay.asset.kernel.model.AssetRendererFactory;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.jsonwebservice.JSONWebService;
 import com.liferay.portal.kernel.jsonwebservice.JSONWebServiceMode;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.Group;
+=======
+import com.liferay.portal.kernel.model.AuditedModel;
+import com.liferay.portal.kernel.model.Group;
+import com.liferay.portal.kernel.model.GroupedModel;
+import com.liferay.portal.kernel.model.PermissionedModel;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.PortletConstants;
 import com.liferay.portal.kernel.model.ResourceConstants;
 import com.liferay.portal.kernel.model.ResourcePermission;
@@ -30,15 +37,27 @@ import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.BaseModelPermissionChecker;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.security.permission.ResourceActionsUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermission;
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermissionHelper;
 import com.liferay.portal.kernel.security.permission.resource.PortletResourcePermission;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.permission.PortletPermissionUtil;
 import com.liferay.portal.kernel.service.permission.TeamPermissionUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.service.base.PermissionServiceBaseImpl;
+<<<<<<< HEAD
 import com.liferay.registry.collections.ServiceTrackerCollections;
 import com.liferay.registry.collections.ServiceTrackerMap;
+=======
+import com.liferay.registry.Filter;
+import com.liferay.registry.Registry;
+import com.liferay.registry.RegistryUtil;
+import com.liferay.registry.ServiceReference;
+import com.liferay.registry.ServiceTracker;
+import com.liferay.registry.ServiceTrackerCustomizer;
+>>>>>>> compatible
 
 import java.util.List;
 
@@ -50,6 +69,25 @@ import java.util.List;
  */
 public class PermissionServiceImpl extends PermissionServiceBaseImpl {
 
+<<<<<<< HEAD
+=======
+	@Override
+	public void afterPropertiesSet() {
+		super.afterPropertiesSet();
+
+		Registry registry = RegistryUtil.getRegistry();
+
+		Filter filter = registry.getFilter(
+			"(&(model.class.name=*)(objectClass=" +
+				BaseModelPermissionChecker.class.getName() + "))");
+
+		_serviceTracker = registry.trackServices(
+			filter, new BaseModelPermissionCheckerServiceTrackerCustomizer());
+
+		_serviceTracker.open();
+	}
+
+>>>>>>> compatible
 	/**
 	 * Checks to see if the group has permission to the service.
 	 *

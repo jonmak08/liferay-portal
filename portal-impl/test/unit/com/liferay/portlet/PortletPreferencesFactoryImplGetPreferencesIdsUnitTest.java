@@ -18,6 +18,7 @@ import com.liferay.portal.kernel.model.Layout;
 import com.liferay.portal.kernel.model.Portlet;
 import com.liferay.portal.kernel.portlet.PortletPreferencesFactoryUtil;
 import com.liferay.portal.kernel.security.auth.PrincipalException;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.security.permission.PermissionThreadLocal;
 import com.liferay.portal.kernel.service.PortletLocalService;
@@ -27,32 +28,66 @@ import com.liferay.portal.kernel.service.permission.LayoutPermissionUtil;
 import com.liferay.portal.kernel.test.ReflectionTestUtil;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
+=======
+import com.liferay.portal.kernel.security.permission.ActionKeys;
+import com.liferay.portal.kernel.security.permission.PermissionChecker;
+import com.liferay.portal.kernel.security.permission.PermissionThreadLocal;
+import com.liferay.portal.kernel.service.PortletLocalServiceUtil;
+import com.liferay.portal.kernel.service.permission.LayoutPermissionUtil;
+import com.liferay.portal.kernel.test.util.RandomTestUtil;
+>>>>>>> compatible
 import com.liferay.portal.model.impl.LayoutImpl;
 import com.liferay.portal.model.impl.PortletImpl;
 import com.liferay.portal.tools.ToolDependencies;
 
+<<<<<<< HEAD
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+=======
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+import org.mockito.Mockito;
+
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
+>>>>>>> compatible
 
 /**
  * @author Brian Wing Shun Chan
  * @author Jorge Ferrer
  */
+<<<<<<< HEAD
+=======
+@PrepareForTest(
+	{
+		LayoutPermissionUtil.class, PermissionThreadLocal.class,
+		PortletLocalServiceUtil.class
+	}
+)
+@RunWith(PowerMockRunner.class)
+>>>>>>> compatible
 public class PortletPreferencesFactoryImplGetPreferencesIdsUnitTest {
 
 	@BeforeClass
 	public static void setUpClass() throws Exception {
 		ToolDependencies.wireCaches();
+<<<<<<< HEAD
 
 		PermissionThreadLocal.setPermissionChecker(
 			(PermissionChecker)ProxyUtil.newProxyInstance(
 				PermissionChecker.class.getClassLoader(),
 				new Class<?>[] {PermissionChecker.class},
 				new PermissionCheckerInvocationHandler()));
+=======
+>>>>>>> compatible
 	}
 
 	@Before
@@ -66,6 +101,7 @@ public class PortletPreferencesFactoryImplGetPreferencesIdsUnitTest {
 		_layout.setCompanyId(RandomTestUtil.randomLong());
 		_layout.setPlid(RandomTestUtil.randomLong());
 		_layout.setPrivateLayout(true);
+<<<<<<< HEAD
 
 		ReflectionTestUtil.setFieldValue(
 			PortletLocalServiceUtil.class, "_service",
@@ -74,12 +110,15 @@ public class PortletPreferencesFactoryImplGetPreferencesIdsUnitTest {
 				new Class<?>[] {PortletLocalService.class},
 				new PortletLocalServiceInvocationHandler(
 					_layout.getCompanyId())));
+=======
+>>>>>>> compatible
 	}
 
 	@Test(expected = PrincipalException.MustHavePermission.class)
 	public void testPreferencesWithModeEditGuestInPrivateLayout()
 		throws Exception {
 
+<<<<<<< HEAD
 		LayoutPermissionUtil layoutPermissionUtil = new LayoutPermissionUtil();
 
 		layoutPermissionUtil.setLayoutPermission(
@@ -108,6 +147,34 @@ public class PortletPreferencesFactoryImplGetPreferencesIdsUnitTest {
 				LayoutPermission.class.getClassLoader(),
 				new Class<?>[] {LayoutPermission.class},
 				new LayoutPermissionInvocationHandler(false)));
+=======
+		PowerMockito.mockStatic(PortletLocalServiceUtil.class);
+
+		Mockito.when(
+			PortletLocalServiceUtil.getPortletById(
+				_layout.getCompanyId(), _PORTLET_ID)
+		).thenReturn(
+			getGroupPortlet()
+		);
+
+		PowerMockito.mockStatic(LayoutPermissionUtil.class);
+
+		Mockito.when(
+			LayoutPermissionUtil.contains(
+				Mockito.any(PermissionChecker.class), Mockito.eq(_layout),
+				Mockito.eq(ActionKeys.UPDATE))
+		).thenReturn(
+			true
+		);
+
+		PowerMockito.mockStatic(PermissionThreadLocal.class);
+
+		Mockito.when(
+			PermissionThreadLocal.getPermissionChecker()
+		).thenReturn(
+			PowerMockito.mock(PermissionChecker.class)
+		);
+>>>>>>> compatible
 
 		long siteGroupId = _layout.getGroupId();
 		boolean modeEditGuest = true;
@@ -116,6 +183,7 @@ public class PortletPreferencesFactoryImplGetPreferencesIdsUnitTest {
 			siteGroupId, _USER_ID, _layout, _PORTLET_ID, modeEditGuest);
 	}
 
+<<<<<<< HEAD
 	private static final String _PORTLET_ID = RandomTestUtil.randomString(10);
 
 	private static final long _USER_ID = RandomTestUtil.randomLong();
@@ -216,5 +284,62 @@ public class PortletPreferencesFactoryImplGetPreferencesIdsUnitTest {
 		private final Method _getPortletByIdMethod;
 
 	}
+=======
+	@Test(expected = PrincipalException.MustHavePermission.class)
+	public void testPreferencesWithModeEditGuestInPublicLayoutWithoutPermission()
+		throws Exception {
+
+		_layout.setPrivateLayout(false);
+
+		PowerMockito.mockStatic(PortletLocalServiceUtil.class);
+
+		Mockito.when(
+			PortletLocalServiceUtil.getPortletById(
+				_layout.getCompanyId(), _PORTLET_ID)
+		).thenReturn(
+			getGroupPortlet()
+		);
+
+		PowerMockito.mockStatic(LayoutPermissionUtil.class);
+
+		Mockito.when(
+			LayoutPermissionUtil.contains(
+				Mockito.any(PermissionChecker.class), Mockito.eq(_layout),
+				Mockito.eq(ActionKeys.UPDATE))
+		).thenReturn(
+			false
+		);
+
+		PowerMockito.mockStatic(PermissionThreadLocal.class);
+
+		Mockito.when(
+			PermissionThreadLocal.getPermissionChecker()
+		).thenReturn(
+			PowerMockito.mock(PermissionChecker.class)
+		);
+
+		long siteGroupId = _layout.getGroupId();
+		boolean modeEditGuest = true;
+
+		PortletPreferencesFactoryUtil.getPortletPreferencesIds(
+			siteGroupId, _USER_ID, _layout, _PORTLET_ID, modeEditGuest);
+	}
+
+	protected Portlet getGroupPortlet() {
+		Portlet portlet = new PortletImpl();
+
+		portlet.setPreferencesCompanyWide(false);
+		portlet.setPreferencesOwnedByGroup(true);
+		portlet.setPreferencesUniquePerLayout(false);
+
+		return portlet;
+	}
+
+	private static final String _PORTLET_ID = RandomTestUtil.randomString(10);
+
+	private static final long _USER_ID = RandomTestUtil.randomLong();
+
+	private final Layout _layout = new LayoutImpl();
+>>>>>>> compatible
 
 }

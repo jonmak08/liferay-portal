@@ -43,9 +43,14 @@ public class KaleoTaskAssignmentLocalServiceImpl
 
 	@Override
 	public KaleoTaskAssignment addKaleoTaskAssignment(
+<<<<<<< HEAD
 			String kaleoClassName, long kaleoClassPK,
 			long kaleoDefinitionVersionId, Assignment assignment,
 			ServiceContext serviceContext)
+=======
+			String kaleoClassName, long kaleoClassPK, long kaleoDefinitionId,
+			Assignment assignment, ServiceContext serviceContext)
+>>>>>>> compatible
 		throws PortalException {
 
 		User user = userLocalService.getUser(serviceContext.getGuestOrUserId());
@@ -63,11 +68,15 @@ public class KaleoTaskAssignmentLocalServiceImpl
 		kaleoTaskAssignment.setModifiedDate(now);
 		kaleoTaskAssignment.setKaleoClassName(kaleoClassName);
 		kaleoTaskAssignment.setKaleoClassPK(kaleoClassPK);
+<<<<<<< HEAD
 		kaleoTaskAssignment.setKaleoDefinitionVersionId(
 			kaleoDefinitionVersionId);
 		kaleoTaskAssignment.setKaleoNodeId(
 			kaleoTaskAssignment.getKaleoNodeId());
 
+=======
+		kaleoTaskAssignment.setKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 		setAssignee(kaleoTaskAssignment, assignment, serviceContext);
 
 		kaleoTaskAssignmentPersistence.update(kaleoTaskAssignment);
@@ -81,11 +90,19 @@ public class KaleoTaskAssignmentLocalServiceImpl
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void deleteKaleoDefinitionVersionKaleoTaskAssignments(
 		long kaleoDefinitionVersionId) {
 
 		kaleoTaskAssignmentPersistence.removeByKaleoDefinitionVersionId(
 			kaleoDefinitionVersionId);
+=======
+	public void deleteKaleoDefinitionKaleoTaskAssignments(
+		long kaleoDefinitionId) {
+
+		kaleoTaskAssignmentPersistence.removeByKaleoDefinitionId(
+			kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 	@Override

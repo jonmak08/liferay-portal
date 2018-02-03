@@ -14,12 +14,20 @@
 
 package com.liferay.asset.tags.navigation.web.internal.portlet.template;
 
+<<<<<<< HEAD
 import com.liferay.asset.tags.navigation.constants.AssetTagsNavigationPortletKeys;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.asset.tags.navigation.web.constants.AssetTagsNavigationPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.template.TemplateHandler;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.util.Locale;
 import java.util.ResourceBundle;

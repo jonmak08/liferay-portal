@@ -1,7 +1,10 @@
 <definition component-name="portal-util-misc">
 	<property name="portal.release" value="true" />
 	<property name="portal.upstream" value="true" />
+<<<<<<< HEAD
 	<property name="testray.component.names" value="IFrame Portlet" />
+=======
+>>>>>>> compatible
 	<property name="testray.main.component.name" value="IFrame Portlet" />
 
 	<set-up>
@@ -9,6 +12,7 @@
 
 		<execute macro="User#firstLoginPG" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -16,6 +20,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="IFrame Page" />
 		</execute>
 

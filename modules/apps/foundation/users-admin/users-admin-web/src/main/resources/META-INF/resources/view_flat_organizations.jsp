@@ -19,6 +19,7 @@
 <%
 String toolbarItem = ParamUtil.getString(request, "toolbarItem", "view-all-organizations");
 
+<<<<<<< HEAD
 String displayStyle = ParamUtil.getString(request, "displayStyle");
 
 if (Validator.isNull(displayStyle)) {
@@ -29,13 +30,19 @@ else {
 
 	request.setAttribute(WebKeys.SINGLE_PAGE_APPLICATION_CLEAR_CACHE, Boolean.TRUE);
 }
+=======
+String displayStyle = ParamUtil.getString(request, "displayStyle", "list");
+>>>>>>> compatible
 
 String usersListView = (String)request.getAttribute("view.jsp-usersListView");
 
 PortletURL portletURL = (PortletURL)request.getAttribute("view.jsp-portletURL");
 
+<<<<<<< HEAD
 portletURL.setParameter("displayStyle", displayStyle);
 
+=======
+>>>>>>> compatible
 String keywords = ParamUtil.getString(request, "keywords");
 
 LinkedHashMap<String, Object> organizationParams = new LinkedHashMap<String, Object>();
@@ -82,21 +89,34 @@ boolean hasAddOrganizationPermission = PortalPermissionUtil.contains(permissionC
 			<liferay-frontend:management-bar-filters>
 				<liferay-frontend:management-bar-navigation
 					navigationKeys='<%= new String[] {"all"} %>'
+<<<<<<< HEAD
 					portletURL="<%= PortletURLUtil.clone(portletURL, renderResponse) %>"
+=======
+					portletURL="<%= renderResponse.createRenderURL() %>"
+>>>>>>> compatible
 				/>
 
 				<liferay-frontend:management-bar-sort
 					orderByCol="<%= searchContainer.getOrderByCol() %>"
 					orderByType="<%= searchContainer.getOrderByType() %>"
 					orderColumns='<%= new String[] {"name", "type"} %>'
+<<<<<<< HEAD
 					portletURL="<%= PortletURLUtil.clone(portletURL, renderResponse) %>"
+=======
+					portletURL="<%= portletURL %>"
+>>>>>>> compatible
 				/>
 			</liferay-frontend:management-bar-filters>
 
 			<liferay-frontend:management-bar-buttons>
 				<liferay-frontend:management-bar-display-buttons
+<<<<<<< HEAD
 					displayViews='<%= new String[] {"icon", "descriptive", "list"} %>'
 					portletURL="<%= PortletURLUtil.clone(portletURL, renderResponse) %>"
+=======
+					displayViews='<%= new String[] {"list"} %>'
+					portletURL="<%= renderResponse.createRenderURL() %>"
+>>>>>>> compatible
 					selectedDisplayStyle="<%= displayStyle %>"
 				/>
 			</liferay-frontend:management-bar-buttons>
@@ -160,9 +180,20 @@ boolean hasAddOrganizationPermission = PortalPermissionUtil.contains(permissionC
 					%>
 
 					<%@ include file="/organization/search_columns.jspf" %>
+<<<<<<< HEAD
 				</liferay-ui:search-container-row>
 
 				<liferay-ui:search-iterator displayStyle="<%= displayStyle %>" markupView="lexicon" />
+=======
+
+					<liferay-ui:search-container-column-jsp
+						cssClass="entry-action-column"
+						path="/organization_action.jsp"
+					/>
+				</liferay-ui:search-container-row>
+
+				<liferay-ui:search-iterator markupView="lexicon" />
+>>>>>>> compatible
 			</liferay-ui:search-container>
 		</aui:form>
 	</c:when>

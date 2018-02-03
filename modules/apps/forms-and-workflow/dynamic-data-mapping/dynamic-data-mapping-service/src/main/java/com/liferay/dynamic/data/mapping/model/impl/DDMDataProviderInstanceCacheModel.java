@@ -21,6 +21,10 @@ import com.liferay.dynamic.data.mapping.model.DDMDataProviderInstance;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -101,7 +105,11 @@ public class DDMDataProviderInstanceCacheModel implements CacheModel<DDMDataProv
 		DDMDataProviderInstanceImpl ddmDataProviderInstanceImpl = new DDMDataProviderInstanceImpl();
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			ddmDataProviderInstanceImpl.setUuid("");
+=======
+			ddmDataProviderInstanceImpl.setUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmDataProviderInstanceImpl.setUuid(uuid);
@@ -113,7 +121,11 @@ public class DDMDataProviderInstanceCacheModel implements CacheModel<DDMDataProv
 		ddmDataProviderInstanceImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			ddmDataProviderInstanceImpl.setUserName("");
+=======
+			ddmDataProviderInstanceImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmDataProviderInstanceImpl.setUserName(userName);
@@ -134,28 +146,44 @@ public class DDMDataProviderInstanceCacheModel implements CacheModel<DDMDataProv
 		}
 
 		if (name == null) {
+<<<<<<< HEAD
 			ddmDataProviderInstanceImpl.setName("");
+=======
+			ddmDataProviderInstanceImpl.setName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmDataProviderInstanceImpl.setName(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			ddmDataProviderInstanceImpl.setDescription("");
+=======
+			ddmDataProviderInstanceImpl.setDescription(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmDataProviderInstanceImpl.setDescription(description);
 		}
 
 		if (definition == null) {
+<<<<<<< HEAD
 			ddmDataProviderInstanceImpl.setDefinition("");
+=======
+			ddmDataProviderInstanceImpl.setDefinition(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmDataProviderInstanceImpl.setDefinition(definition);
 		}
 
 		if (type == null) {
+<<<<<<< HEAD
 			ddmDataProviderInstanceImpl.setType("");
+=======
+			ddmDataProviderInstanceImpl.setType(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmDataProviderInstanceImpl.setType(type);
@@ -190,7 +218,11 @@ public class DDMDataProviderInstanceCacheModel implements CacheModel<DDMDataProv
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		if (uuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(uuid);
@@ -205,7 +237,11 @@ public class DDMDataProviderInstanceCacheModel implements CacheModel<DDMDataProv
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -215,28 +251,44 @@ public class DDMDataProviderInstanceCacheModel implements CacheModel<DDMDataProv
 		objectOutput.writeLong(modifiedDate);
 
 		if (name == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(description);
 		}
 
 		if (definition == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(definition);
 		}
 
 		if (type == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(type);

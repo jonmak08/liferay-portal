@@ -15,7 +15,11 @@
 package com.liferay.mentions.web.internal.notifications;
 
 import com.liferay.mentions.constants.MentionsConstants;
+<<<<<<< HEAD
 import com.liferay.mentions.constants.MentionsPortletKeys;
+=======
+import com.liferay.mentions.web.constants.MentionsPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.UserNotificationDeliveryConstants;
 import com.liferay.portal.kernel.notifications.UserNotificationDefinition;
 import com.liferay.portal.kernel.notifications.UserNotificationDeliveryType;

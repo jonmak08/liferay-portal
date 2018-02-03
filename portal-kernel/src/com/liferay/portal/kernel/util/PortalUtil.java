@@ -386,7 +386,13 @@ public class PortalUtil {
 		return getPortal().getAlternateURLs(canonicalURL, themeDisplay, layout);
 	}
 
+<<<<<<< HEAD
 	public static long[] getAncestorSiteGroupIds(long groupId) {
+=======
+	public static long[] getAncestorSiteGroupIds(long groupId)
+		throws PortalException {
+
+>>>>>>> compatible
 		return getPortal().getAncestorSiteGroupIds(groupId);
 	}
 
@@ -929,10 +935,13 @@ public class PortalUtil {
 			uploadPortletRequest, name, type, displayType);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static String getFacebookURL(
 			Portlet portlet, String facebookCanvasPageURL,
 			ThemeDisplay themeDisplay)
@@ -1286,8 +1295,14 @@ public class PortalUtil {
 	}
 
 	public static String getLocalizedFriendlyURL(
+<<<<<<< HEAD
 		HttpServletRequest request, Layout layout, Locale locale,
 		Locale originalLocale) {
+=======
+			HttpServletRequest request, Layout layout, Locale locale,
+			Locale originalLocale)
+		throws Exception {
+>>>>>>> compatible
 
 		return getPortal().getLocalizedFriendlyURL(
 			request, layout, locale, originalLocale);
@@ -1751,8 +1766,13 @@ public class PortalUtil {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 7.0.0, replaced by {@link
 	 *             #getSiteAdminURL(ThemeDisplay, String, Map)}
+=======
+	 * @deprecated As of 7.0.0, replaced by {@link #getSiteAdminURL(
+	 *             ThemeDisplay, String, Map)}
+>>>>>>> compatible
 	 */
 	@Deprecated
 	public static String getSiteAdminURL(
@@ -1764,8 +1784,13 @@ public class PortalUtil {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 7.0.0, replaced by {@link
 	 *             #getSiteAdminURL(ThemeDisplay, String, Map)}
+=======
+	 * @deprecated As of 7.0.0, replaced by {@link #getSiteAdminURL(
+	 *             ThemeDisplay, String, Map)}
+>>>>>>> compatible
 	 */
 	@Deprecated
 	public static String getSiteAdminURL(
@@ -2102,10 +2127,13 @@ public class PortalUtil {
 		return getPortal().isControlPanelPortlet(portletId, themeDisplay);
 	}
 
+<<<<<<< HEAD
 	public static boolean isCustomPortletMode(PortletMode portletMode) {
 		return getPortal().isCustomPortletMode(portletMode);
 	}
 
+=======
+>>>>>>> compatible
 	public static boolean isForwardedSecure(HttpServletRequest request) {
 		return getPortal().isForwardedSecure(request);
 	}

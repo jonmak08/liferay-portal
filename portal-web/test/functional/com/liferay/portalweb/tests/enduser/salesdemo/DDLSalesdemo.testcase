@@ -24,12 +24,17 @@
 
 				<execute macro="DDLDataDefinition#tearDownCP" />
 
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP" />
+=======
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 			</else>
 		</if>
 	</tear-down>
 
 	<command name="Demo1" priority="3">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -49,6 +54,30 @@
 
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Company Picnic" />
+		</execute>
+
+		<execute macro="Portlet#addPG">
+			<var name="portletName" value="Dynamic Data Lists Display" />
+=======
+		<execute macro="Page#add">
+			<var name="pageName" value="Company Picnic" />
+		</execute>
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Company Picnic" />
+		</execute>
+
+		<execute macro="SitePageNavigator#gotoEditPage">
+			<var name="page" value="Company Picnic" />
+		</execute>
+
+		<execute macro="Page#editPageLayoutColumn">
+			<var name="columnName" value="1 Column" />
+		</execute>
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Company Picnic" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Portlet#addPG">

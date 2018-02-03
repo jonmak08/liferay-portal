@@ -19,6 +19,11 @@ AUI.add(
 
 		var STR_PLUS = '+';
 
+<<<<<<< HEAD
+=======
+		var CSS_CALENDAR_LIST_EMPTY_MESSAGE = getClassName(STR_CALENDAR_LIST, 'empty', 'message');
+
+>>>>>>> compatible
 		var CSS_CALENDAR_LIST_ITEM = getClassName(STR_CALENDAR_LIST, STR_ITEM);
 
 		var CSS_CALENDAR_LIST_ITEM_ACTIVE = getClassName(STR_CALENDAR_LIST, STR_ITEM, 'active');
@@ -33,6 +38,11 @@ AUI.add(
 
 		var CSS_ICON_CARET_DOWN = 'icon-caret-down';
 
+<<<<<<< HEAD
+=======
+		var TPL_CALENDAR_LIST_EMPTY_MESSAGE = '<div class="' + CSS_CALENDAR_LIST_EMPTY_MESSAGE + '">{message}</div>';
+
+>>>>>>> compatible
 		var TPL_CALENDAR_LIST_ITEM = new A.Template(
 			'<tpl for="calendars">',
 				'<div class="', CSS_CALENDAR_LIST_ITEM, '">',
@@ -66,6 +76,15 @@ AUI.add(
 						validator: isObject,
 						value: null,
 						zIndex: Liferay.zIndex.MENU
+<<<<<<< HEAD
+=======
+					},
+
+					strings: {
+						value: {
+							emptyMessage: Liferay.Language.get('no-calendars-selected')
+						}
+>>>>>>> compatible
 					}
 				},
 
@@ -77,6 +96,20 @@ AUI.add(
 					initializer: function() {
 						var instance = this;
 
+<<<<<<< HEAD
+=======
+						var emptyMessage = instance.get('strings.emptyMessage');
+
+						instance.emptyMessageNode = A.Node.create(
+							Lang.sub(
+								TPL_CALENDAR_LIST_EMPTY_MESSAGE,
+								{
+									message: emptyMessage
+								}
+							)
+						);
+
+>>>>>>> compatible
 						instance.simpleMenu = new Liferay.SimpleMenu(instance.get('simpleMenu'));
 					},
 
@@ -172,6 +205,7 @@ AUI.add(
 							}
 						}
 
+<<<<<<< HEAD
 						instance.fire(
 							'calendarRemoved',
 							{
@@ -179,6 +213,8 @@ AUI.add(
 							}
 						);
 
+=======
+>>>>>>> compatible
 						instance.set('calendars', calendars);
 					},
 
@@ -294,6 +330,7 @@ AUI.add(
 						var calendars = instance.get('calendars');
 						var contentBox = instance.get('contentBox');
 
+<<<<<<< HEAD
 						instance.items = A.NodeList.create(
 							TPL_CALENDAR_LIST_ITEM.parse(
 								{
@@ -304,6 +341,22 @@ AUI.add(
 
 						contentBox.setContent(instance.items);
 
+=======
+						if (calendars.length === 0) {
+							contentBox.setContent(instance.emptyMessageNode);
+						}
+						else {
+							instance.items = A.NodeList.create(
+								TPL_CALENDAR_LIST_ITEM.parse(
+									{
+										calendars: calendars
+									}
+								)
+							);
+
+							contentBox.setContent(instance.items);
+						}
+>>>>>>> compatible
 					},
 
 					_setCalendarColor: function(calendar, val) {

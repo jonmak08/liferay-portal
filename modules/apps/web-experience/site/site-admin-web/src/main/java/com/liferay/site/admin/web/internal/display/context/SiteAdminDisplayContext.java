@@ -14,9 +14,13 @@
 
 package com.liferay.site.admin.web.internal.display.context;
 
+<<<<<<< HEAD
 import com.liferay.frontend.taglib.clay.servlet.taglib.util.NavigationItem;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.language.LanguageUtil;
+=======
+import com.liferay.portal.kernel.exception.PortalException;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.GroupConstants;
@@ -45,15 +49,22 @@ import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
+<<<<<<< HEAD
 import com.liferay.portal.service.persistence.constants.UserGroupFinderConstants;
+=======
+>>>>>>> compatible
 import com.liferay.portlet.usersadmin.search.GroupSearch;
 import com.liferay.site.admin.web.internal.constants.SiteAdminPortletKeys;
 import com.liferay.site.constants.SiteWebKeys;
 import com.liferay.site.util.GroupSearchProvider;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
+=======
+import java.util.LinkedHashMap;
+>>>>>>> compatible
 
 import javax.portlet.PortletURL;
 
@@ -136,6 +147,7 @@ public class SiteAdminDisplayContext {
 		return _keywords;
 	}
 
+<<<<<<< HEAD
 	public List<NavigationItem> getNavigationItems() {
 		List<NavigationItem> navigationItems = new ArrayList<>();
 
@@ -154,6 +166,8 @@ public class SiteAdminDisplayContext {
 		return navigationItems;
 	}
 
+=======
+>>>>>>> compatible
 	public int getOrganizationsCount() throws PortalException {
 		return getOrganizationsCount(getGroup());
 	}
@@ -222,9 +236,13 @@ public class SiteAdminDisplayContext {
 
 		Company company = themeDisplay.getCompany();
 
+<<<<<<< HEAD
 		userGroupParams.put(
 			UserGroupFinderConstants.PARAM_KEY_USER_GROUPS_GROUPS,
 			group.getGroupId());
+=======
+		userGroupParams.put("userGroupsGroups", group.getGroupId());
+>>>>>>> compatible
 
 		return UserGroupLocalServiceUtil.searchCount(
 			company.getCompanyId(), null, userGroupParams);

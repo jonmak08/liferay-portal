@@ -42,6 +42,15 @@
 				</aui:fieldset>
 			</liferay-ui:panel>
 
+<<<<<<< HEAD
+=======
+			<liferay-ui:panel collapsible="<%= true %>" extended="<%= true %>" id="adminOpenOfficeConversionPanel" markupView="lexicon" persistState="<%= true %>" title="enabling-openoffice-integration-provides-document-conversion-functionality">
+				<aui:input label="enabled" name="openOfficeEnabled" type="checkbox" value="<%= PrefsPropsUtil.getBoolean(PropsKeys.OPENOFFICE_SERVER_ENABLED) %>" />
+
+				<aui:input cssClass="lfr-input-text-container" label="port" name="openOfficePort" type="text" value="<%= PrefsPropsUtil.getString(PropsKeys.OPENOFFICE_SERVER_PORT) %>" />
+			</liferay-ui:panel>
+
+>>>>>>> compatible
 			<liferay-ui:panel collapsible="<%= true %>" extended="<%= true %>" id="adminXugglerPanel" markupView="lexicon" persistState="<%= true %>" title="enabling-xuggler-provides-video-conversion-functionality">
 				<liferay-ui:error exception="<%= XugglerInstallException.class %>" targetNode="#controlMenuAlertsContainer">
 
@@ -134,7 +143,11 @@
 						</aui:select>
 
 						<aui:button-row>
+<<<<<<< HEAD
 							<aui:button cssClass="save-server-button" data-cmd="installXuggler" name="installXugglerButton" value="install" />
+=======
+							<aui:button cssClass="btn-lg save-server-button" data-cmd="installXuggler" name="installXugglerButton" value="install" />
+>>>>>>> compatible
 						</aui:button-row>
 					</c:otherwise>
 				</c:choose>
@@ -144,7 +157,11 @@
 </div>
 
 <aui:button-row>
+<<<<<<< HEAD
 	<aui:button cssClass="save-server-button" data-cmd="updateExternalServices" value="save" />
+=======
+	<aui:button cssClass="btn-lg save-server-button" data-cmd="updateExternalServices" value="save" />
+>>>>>>> compatible
 </aui:button-row>
 
 <%!

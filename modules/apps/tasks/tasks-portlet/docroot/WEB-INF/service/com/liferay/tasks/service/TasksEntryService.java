@@ -21,6 +21,10 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.jsonwebservice.JSONWebService;
 import com.liferay.portal.kernel.security.access.control.AccessControlled;
 import com.liferay.portal.kernel.service.BaseService;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.service.InvokableService;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
@@ -44,7 +48,11 @@ import com.liferay.tasks.model.TasksEntry;
 @ProviderType
 @Transactional(isolation = Isolation.PORTAL, rollbackFor =  {
 	PortalException.class, SystemException.class})
+<<<<<<< HEAD
 public interface TasksEntryService extends BaseService {
+=======
+public interface TasksEntryService extends BaseService, InvokableService {
+>>>>>>> compatible
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
@@ -69,6 +77,14 @@ public interface TasksEntryService extends BaseService {
 	public TasksEntry getTasksEntry(long tasksEntryId)
 		throws PortalException;
 
+<<<<<<< HEAD
+=======
+	@Override
+	public java.lang.Object invokeMethod(java.lang.String name,
+		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
+		throws java.lang.Throwable;
+
+>>>>>>> compatible
 	public TasksEntry updateTasksEntry(long tasksEntryId,
 		java.lang.String title, int priority, long assigneeUserId,
 		long resolverUserId, int dueDateMonth, int dueDateDay, int dueDateYear,

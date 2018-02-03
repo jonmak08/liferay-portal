@@ -29,7 +29,11 @@ import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
 import com.liferay.portal.kernel.trash.TrashRenderer;
 import com.liferay.portal.kernel.util.PortalUtil;
+<<<<<<< HEAD
 import com.liferay.trash.TrashHelper;
+=======
+import com.liferay.trash.kernel.util.TrashUtil;
+>>>>>>> compatible
 
 import java.util.Date;
 import java.util.Locale;
@@ -45,14 +49,19 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author Eudaldo Alonso
  * @author Alexander Chow
+<<<<<<< HEAD
  * @deprecated As of 1.2.0, with no direct replacement
  */
 @Deprecated
+=======
+ */
+>>>>>>> compatible
 public class BookmarksFolderAssetRenderer
 	extends BaseJSPAssetRenderer<BookmarksFolder> implements TrashRenderer {
 
 	public static final String TYPE = "bookmarks_folder";
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 1.1.0, replaced by {@link
 	 *             #BookmarksFolderAssetRenderer(BookmarksFolder, TrashHelper)}
@@ -67,6 +76,10 @@ public class BookmarksFolderAssetRenderer
 
 		_folder = folder;
 		_trashHelper = trashHelper;
+=======
+	public BookmarksFolderAssetRenderer(BookmarksFolder folder) {
+		_folder = folder;
+>>>>>>> compatible
 	}
 
 	@Override
@@ -130,11 +143,15 @@ public class BookmarksFolderAssetRenderer
 
 	@Override
 	public String getTitle(Locale locale) {
+<<<<<<< HEAD
 		if (_trashHelper == null) {
 			return _folder.getName();
 		}
 
 		return _trashHelper.getOriginalTitle(_folder.getName());
+=======
+		return TrashUtil.getOriginalTitle(_folder.getName());
+>>>>>>> compatible
 	}
 
 	@Override
@@ -237,6 +254,9 @@ public class BookmarksFolderAssetRenderer
 	}
 
 	private final BookmarksFolder _folder;
+<<<<<<< HEAD
 	private final TrashHelper _trashHelper;
+=======
+>>>>>>> compatible
 
 }

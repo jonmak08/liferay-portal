@@ -19,9 +19,13 @@ package com.liferay.layout.admin.web.internal.constants;
  */
 public class LayoutAdminWebKeys {
 
+<<<<<<< HEAD
 	public static final String ITEM_SELECTOR = "ITEM_SELECTOR";
 
 	public static final String LAYOUT_ADMIN_CONFIGURATION =
 		"LAYOUT_ADMIN_CONFIGURATION";
+=======
+	public static final String CONTROL_MENU_ENTRY = "CONTROL_MENU_ENTRY";
+>>>>>>> compatible
 
 }

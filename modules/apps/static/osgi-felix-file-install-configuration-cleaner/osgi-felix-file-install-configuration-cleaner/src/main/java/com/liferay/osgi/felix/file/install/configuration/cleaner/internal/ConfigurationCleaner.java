@@ -24,6 +24,10 @@ import java.net.URISyntaxException;
 
 import java.util.Dictionary;
 
+<<<<<<< HEAD
+=======
+import org.osgi.framework.BundleContext;
+>>>>>>> compatible
 import org.osgi.service.cm.Configuration;
 import org.osgi.service.cm.ConfigurationAdmin;
 import org.osgi.service.component.annotations.Activate;
@@ -37,6 +41,7 @@ import org.osgi.service.component.annotations.Reference;
 public class ConfigurationCleaner {
 
 	@Activate
+<<<<<<< HEAD
 	protected void activate() throws Exception {
 		Configuration[] configurations = _configurationAdmin.listConfigurations(
 			null);
@@ -45,10 +50,17 @@ public class ConfigurationCleaner {
 			return;
 		}
 
+=======
+	protected void activate(BundleContext bundleContext) throws Exception {
+		Configuration[] configurations = _configurationAdmin.listConfigurations(
+			null);
+
+>>>>>>> compatible
 		for (Configuration configuration : configurations) {
 			Dictionary<String, Object> dictionary =
 				configuration.getProperties();
 
+<<<<<<< HEAD
 			String ignore = (String)dictionary.get(
 				"configuration.cleaner.ignore");
 
@@ -56,6 +68,8 @@ public class ConfigurationCleaner {
 				continue;
 			}
 
+=======
+>>>>>>> compatible
 			String fileName = (String)dictionary.get(
 				"felix.fileinstall.filename");
 

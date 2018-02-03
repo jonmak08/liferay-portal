@@ -1080,10 +1080,13 @@ public class GroupImpl extends GroupBaseImpl {
 				Portlet stagedPortlet = PortletLocalServiceUtil.getPortletById(
 					stagedPortletId);
 
+<<<<<<< HEAD
 				if (stagedPortlet == null) {
 					continue;
 				}
 
+=======
+>>>>>>> compatible
 				if (portletDataHandler.equals(
 						stagedPortlet.getPortletDataHandlerInstance())) {
 

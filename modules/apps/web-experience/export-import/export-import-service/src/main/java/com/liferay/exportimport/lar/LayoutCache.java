@@ -14,8 +14,11 @@
 
 package com.liferay.exportimport.lar;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.internal.util.ExportImportPermissionUtil;
 import com.liferay.portal.kernel.exception.NoSuchRoleException;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -38,7 +41,10 @@ import java.util.Map;
 /**
  * @author Charles May
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class LayoutCache {
 
 	public Role getNameRole(long companyId, String roleName)

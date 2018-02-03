@@ -129,6 +129,10 @@ if (organizationId > 0) {
 	</div>
 
 	<aui:button-row>
+<<<<<<< HEAD
 		<aui:button type="submit" />
+=======
+		<aui:button cssClass="btn-lg" type="submit" />
+>>>>>>> compatible
 	</aui:button-row>
 </aui:form>

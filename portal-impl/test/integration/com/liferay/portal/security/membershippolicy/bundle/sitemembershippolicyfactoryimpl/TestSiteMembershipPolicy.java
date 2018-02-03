@@ -21,6 +21,10 @@ import com.liferay.portal.kernel.model.Role;
 import com.liferay.portal.kernel.model.UserGroupRole;
 import com.liferay.portal.kernel.security.membershippolicy.SiteMembershipPolicy;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StackTraceUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.UnicodeProperties;
 
 import java.io.Serializable;

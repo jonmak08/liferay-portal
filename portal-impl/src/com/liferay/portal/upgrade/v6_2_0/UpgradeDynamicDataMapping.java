@@ -14,7 +14,10 @@
 
 package com.liferay.portal.upgrade.v6_2_0;
 
+<<<<<<< HEAD
 import com.liferay.petra.xml.XMLUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.metadata.RawMetadataProcessor;
@@ -29,6 +32,10 @@ import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
 import com.liferay.portal.upgrade.v6_2_0.util.DDMTemplateTable;
+<<<<<<< HEAD
+=======
+import com.liferay.util.xml.XMLUtil;
+>>>>>>> compatible
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

@@ -15,15 +15,20 @@
 package com.liferay.portal.search.test.util.indexing;
 
 import com.liferay.portal.kernel.search.BooleanClauseOccur;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.search.Query;
 import com.liferay.portal.kernel.search.generic.MatchQuery;
 import com.liferay.portal.kernel.search.generic.TermQueryImpl;
+=======
+import com.liferay.portal.kernel.search.generic.MatchQuery;
+>>>>>>> compatible
 
 /**
  * @author André de Oliveira
  */
 public class QueryContributors {
 
+<<<<<<< HEAD
 	public static QueryContributor dummy() {
 		return booleanQuery -> {
 		};
@@ -53,6 +58,18 @@ public class QueryContributors {
 
 	public static QueryContributor mustTerm(String field, String value) {
 		return must(new TermQueryImpl(field, value));
+=======
+	public static QueryContributor mustMatch(String field, String value) {
+		return booleanQuery -> QueryContributor.add(
+			booleanQuery, new MatchQuery(field, value),
+			BooleanClauseOccur.MUST);
+	}
+
+	public static QueryContributor mustNotMatch(String field, String value) {
+		return booleanQuery -> QueryContributor.add(
+			booleanQuery, new MatchQuery(field, value),
+			BooleanClauseOccur.MUST_NOT);
+>>>>>>> compatible
 	}
 
 }

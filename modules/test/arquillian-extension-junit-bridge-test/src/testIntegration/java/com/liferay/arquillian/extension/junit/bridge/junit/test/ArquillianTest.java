@@ -68,7 +68,11 @@ public class ArquillianTest {
 
 		List<?> failures = result.getFailures();
 
+<<<<<<< HEAD
 		Assert.assertTrue(failures.toString(), failures.isEmpty());
+=======
+		Assert.assertTrue(failures.isEmpty());
+>>>>>>> compatible
 
 		Assert.assertEquals(0, result.getIgnoreCount());
 

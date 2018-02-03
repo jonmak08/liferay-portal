@@ -14,12 +14,20 @@
 
 package com.liferay.blogs.web.internal.exportimport.portlet.preferences.processor;
 
+<<<<<<< HEAD
 import com.liferay.blogs.constants.BlogsPortletKeys;
+=======
+import com.liferay.blogs.web.constants.BlogsPortletKeys;
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.exportimport.kernel.lar.PortletDataException;
 import com.liferay.exportimport.portlet.preferences.processor.Capability;
 import com.liferay.exportimport.portlet.preferences.processor.ExportImportPortletPreferencesProcessor;
+<<<<<<< HEAD
 import com.liferay.exportimport.portlet.preferences.processor.ExportImportPortletPreferencesProcessorHelper;
+=======
+import com.liferay.exportimport.portlet.preferences.processor.base.BaseExportImportPortletPreferencesProcessor;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.Organization;
@@ -31,12 +39,19 @@ import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.kernel.util.Validator;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.xml.Element;
+>>>>>>> compatible
 import com.liferay.portlet.display.template.exportimport.portlet.preferences.processor.PortletDisplayTemplateExportCapability;
 import com.liferay.portlet.display.template.exportimport.portlet.preferences.processor.PortletDisplayTemplateImportCapability;
 
 import java.util.List;
 import java.util.Map;
+<<<<<<< HEAD
 import java.util.function.Function;
+=======
+>>>>>>> compatible
 
 import javax.portlet.PortletPreferences;
 
@@ -52,7 +67,11 @@ import org.osgi.service.component.annotations.Reference;
 	service = ExportImportPortletPreferencesProcessor.class
 )
 public class BlogsAggregatorExportImportPortletPreferencesProcessor
+<<<<<<< HEAD
 	implements ExportImportPortletPreferencesProcessor {
+=======
+	extends BaseExportImportPortletPreferencesProcessor {
+>>>>>>> compatible
 
 	@Override
 	public List<Capability> getExportCapabilities() {
@@ -97,6 +116,64 @@ public class BlogsAggregatorExportImportPortletPreferencesProcessor
 		}
 	}
 
+<<<<<<< HEAD
+=======
+	@Override
+	protected String getExportPortletPreferencesValue(
+			PortletDataContext portletDataContext, Portlet portlet,
+			String className, long primaryKeyLong)
+		throws Exception {
+
+		String uuid = null;
+
+		Element rootElement = portletDataContext.getExportDataRootElement();
+
+		if (className.equals(Organization.class.getName())) {
+			Organization organization =
+				_organizationLocalService.fetchOrganization(primaryKeyLong);
+
+			if (organization != null) {
+				uuid = organization.getUuid();
+
+				portletDataContext.addReferenceElement(
+					portlet, rootElement, organization,
+					PortletDataContext.REFERENCE_TYPE_DEPENDENCY, true);
+			}
+		}
+
+		return uuid;
+	}
+
+	@Override
+	protected Long getImportPortletPreferencesNewValue(
+			PortletDataContext portletDataContext, Class<?> clazz,
+			long companyGroupId, Map<Long, Long> primaryKeys,
+			String portletPreferencesOldValue)
+		throws Exception {
+
+		if (Validator.isNumber(portletPreferencesOldValue)) {
+			long oldPrimaryKey = GetterUtil.getLong(portletPreferencesOldValue);
+
+			return MapUtil.getLong(primaryKeys, oldPrimaryKey, oldPrimaryKey);
+		}
+
+		String className = clazz.getName();
+
+		if (className.equals(Organization.class.getName())) {
+			Organization organization =
+				_organizationLocalService.fetchOrganizationByUuidAndCompanyId(
+					portletPreferencesOldValue,
+					portletDataContext.getCompanyId());
+
+			if (organization != null) {
+				return organization.getOrganizationId();
+			}
+		}
+
+		return null;
+	}
+
+>>>>>>> compatible
 	@Reference(unbind = "-")
 	protected void setCompanyLocalService(
 		CompanyLocalService companyLocalService) {
@@ -148,6 +225,7 @@ public class BlogsAggregatorExportImportPortletPreferencesProcessor
 			Portlet portlet = _portletLocalService.getPortletById(
 				portletDataContext.getCompanyId(), portletId);
 
+<<<<<<< HEAD
 			Function<String, String> exportPortletPreferencesNewValueFunction =
 				primaryKey -> {
 					long primaryKeyLong = GetterUtil.getLong(primaryKey);
@@ -174,6 +252,11 @@ public class BlogsAggregatorExportImportPortletPreferencesProcessor
 					portletDataContext, portlet, portletPreferences,
 					"organizationId", Organization.class.getName(),
 					exportPortletPreferencesNewValueFunction);
+=======
+			updateExportPortletPreferencesClassPKs(
+				portletDataContext, portlet, portletPreferences,
+				"organizationId", Organization.class.getName());
+>>>>>>> compatible
 		}
 
 		return portletPreferences;
@@ -189,6 +272,7 @@ public class BlogsAggregatorExportImportPortletPreferencesProcessor
 
 		Group companyGroup = company.getGroup();
 
+<<<<<<< HEAD
 		Map<Long, Long> primaryKeys =
 			(Map<Long, Long>)portletDataContext.getNewPrimaryKeysMap(
 				Organization.class);
@@ -221,16 +305,24 @@ public class BlogsAggregatorExportImportPortletPreferencesProcessor
 				portletDataContext, portletPreferences, "organizationId",
 				companyGroup.getGroupId(),
 				importPortletPreferencesNewValueFunction);
+=======
+		updateImportPortletPreferencesClassPKs(
+			portletDataContext, portletPreferences, "organizationId",
+			Organization.class, companyGroup.getGroupId());
+>>>>>>> compatible
 
 		return portletPreferences;
 	}
 
 	private CompanyLocalService _companyLocalService;
+<<<<<<< HEAD
 
 	@Reference
 	private ExportImportPortletPreferencesProcessorHelper
 		_exportImportPortletPreferencesProcessorHelper;
 
+=======
+>>>>>>> compatible
 	private OrganizationLocalService _organizationLocalService;
 	private PortletDisplayTemplateExportCapability
 		_portletDisplayTemplateExportCapability;

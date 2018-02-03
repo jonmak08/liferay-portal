@@ -23,17 +23,21 @@ AssetEntry assetEntry = workflowTaskDisplayContext.getAssetEntry();
 AssetRenderer assetRenderer = workflowTaskDisplayContext.getAssetRenderer();
 AssetRendererFactory assetRendererFactory = workflowTaskDisplayContext.getAssetRendererFactory();
 
+<<<<<<< HEAD
 String languageId = LanguageUtil.getLanguageId(request);
 
 String[] availableLanguageIds = assetRenderer.getAvailableLanguageIds();
 
 String title = assetRenderer.getTitle(workflowTaskDisplayContext.getTaskContentLocale());
 
+=======
+>>>>>>> compatible
 request.setAttribute(WebKeys.WORKFLOW_ASSET_PREVIEW, Boolean.TRUE);
 
 portletDisplay.setShowBackIcon(true);
 portletDisplay.setURLBack(redirect);
 
+<<<<<<< HEAD
 renderResponse.setTitle(title);
 %>
 
@@ -62,3 +66,25 @@ renderResponse.setTitle(title);
 		</c:if>
 	</div>
 </div>
+=======
+renderResponse.setTitle(assetRenderer.getTitle(locale));
+%>
+
+<c:if test="<%= assetEntry != null %>">
+	<liferay-ui:asset-display
+		assetEntry="<%= assetEntry %>"
+		assetRenderer="<%= assetRenderer %>"
+		assetRendererFactory="<%= assetRendererFactory %>"
+	/>
+</c:if>
+
+<%
+String viewInContextURL = assetRenderer.getURLViewInContext(liferayPortletRequest, liferayPortletResponse, null);
+%>
+
+<c:if test="<%= viewInContextURL != null %>">
+	<div class="asset-more">
+		<aui:a href="<%= viewInContextURL %>"><liferay-ui:message key="view-in-context" /> &raquo;</aui:a>
+	</div>
+</c:if>
+>>>>>>> compatible

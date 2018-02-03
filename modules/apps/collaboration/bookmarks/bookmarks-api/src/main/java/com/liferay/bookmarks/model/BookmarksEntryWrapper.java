@@ -68,6 +68,10 @@ public class BookmarksEntryWrapper implements BookmarksEntry,
 		attributes.put("userName", getUserName());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
+<<<<<<< HEAD
+=======
+		attributes.put("resourceBlockId", getResourceBlockId());
+>>>>>>> compatible
 		attributes.put("folderId", getFolderId());
 		attributes.put("treePath", getTreePath());
 		attributes.put("name", getName());
@@ -134,6 +138,15 @@ public class BookmarksEntryWrapper implements BookmarksEntry,
 			setModifiedDate(modifiedDate);
 		}
 
+<<<<<<< HEAD
+=======
+		Long resourceBlockId = (Long)attributes.get("resourceBlockId");
+
+		if (resourceBlockId != null) {
+			setResourceBlockId(resourceBlockId);
+		}
+
+>>>>>>> compatible
 		Long folderId = (Long)attributes.get("folderId");
 
 		if (folderId != null) {
@@ -350,6 +363,19 @@ public class BookmarksEntryWrapper implements BookmarksEntry,
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	* Returns the resource block ID of this bookmarks entry.
+	*
+	* @return the resource block ID of this bookmarks entry
+	*/
+	@Override
+	public long getResourceBlockId() {
+		return _bookmarksEntry.getResourceBlockId();
+	}
+
+	/**
+>>>>>>> compatible
 	* Returns the status of this bookmarks entry.
 	*
 	* @return the status of this bookmarks entry
@@ -779,6 +805,19 @@ public class BookmarksEntryWrapper implements BookmarksEntry,
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	* Sets the resource block ID of this bookmarks entry.
+	*
+	* @param resourceBlockId the resource block ID of this bookmarks entry
+	*/
+	@Override
+	public void setResourceBlockId(long resourceBlockId) {
+		_bookmarksEntry.setResourceBlockId(resourceBlockId);
+	}
+
+	/**
+>>>>>>> compatible
 	* Sets the status of this bookmarks entry.
 	*
 	* @param status the status of this bookmarks entry

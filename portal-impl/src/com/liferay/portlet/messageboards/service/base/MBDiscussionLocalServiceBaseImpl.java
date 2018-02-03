@@ -25,6 +25,10 @@ import com.liferay.exportimport.kernel.lar.StagedModelType;
 import com.liferay.message.boards.kernel.model.MBDiscussion;
 import com.liferay.message.boards.kernel.service.MBDiscussionLocalService;
 import com.liferay.message.boards.kernel.service.persistence.MBDiscussionPersistence;
+<<<<<<< HEAD
+=======
+import com.liferay.message.boards.kernel.service.persistence.MBMailingListPersistence;
+>>>>>>> compatible
 import com.liferay.message.boards.kernel.service.persistence.MBMessageFinder;
 import com.liferay.message.boards.kernel.service.persistence.MBMessagePersistence;
 import com.liferay.message.boards.kernel.service.persistence.MBThreadFinder;
@@ -53,6 +57,10 @@ import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.service.BaseLocalServiceImpl;
 import com.liferay.portal.kernel.service.PersistedModelLocalServiceRegistry;
 import com.liferay.portal.kernel.service.persistence.ClassNamePersistence;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.service.persistence.SubscriptionPersistence;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.persistence.UserFinder;
 import com.liferay.portal.kernel.service.persistence.UserPersistence;
 import com.liferay.portal.kernel.util.OrderByComparator;
@@ -74,8 +82,11 @@ import javax.sql.DataSource;
  * @author Brian Wing Shun Chan
  * @see com.liferay.portlet.messageboards.service.impl.MBDiscussionLocalServiceImpl
  * @see com.liferay.message.boards.kernel.service.MBDiscussionLocalServiceUtil
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, replaced by {@link
             com.liferay.message.boards.service.impl.MBDiscussionLocalServiceImpl}
+=======
+>>>>>>> compatible
  * @generated
  */
 @Deprecated
@@ -326,10 +337,17 @@ public abstract class MBDiscussionLocalServiceBaseImpl
 					StagedModelType stagedModelType = exportActionableDynamicQuery.getStagedModelType();
 
 					long referrerClassNameId = stagedModelType.getReferrerClassNameId();
+<<<<<<< HEAD
 
 					Property classNameIdProperty = PropertyFactoryUtil.forName(
 							"classNameId");
 
+=======
+
+					Property classNameIdProperty = PropertyFactoryUtil.forName(
+							"classNameId");
+
+>>>>>>> compatible
 					if ((referrerClassNameId != StagedModelType.REFERRER_CLASS_NAME_ID_ALL) &&
 							(referrerClassNameId != StagedModelType.REFERRER_CLASS_NAME_ID_ANY)) {
 						dynamicQuery.add(classNameIdProperty.eq(
@@ -554,6 +572,47 @@ public abstract class MBDiscussionLocalServiceBaseImpl
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Returns the subscription local service.
+	 *
+	 * @return the subscription local service
+	 */
+	public com.liferay.portal.kernel.service.SubscriptionLocalService getSubscriptionLocalService() {
+		return subscriptionLocalService;
+	}
+
+	/**
+	 * Sets the subscription local service.
+	 *
+	 * @param subscriptionLocalService the subscription local service
+	 */
+	public void setSubscriptionLocalService(
+		com.liferay.portal.kernel.service.SubscriptionLocalService subscriptionLocalService) {
+		this.subscriptionLocalService = subscriptionLocalService;
+	}
+
+	/**
+	 * Returns the subscription persistence.
+	 *
+	 * @return the subscription persistence
+	 */
+	public SubscriptionPersistence getSubscriptionPersistence() {
+		return subscriptionPersistence;
+	}
+
+	/**
+	 * Sets the subscription persistence.
+	 *
+	 * @param subscriptionPersistence the subscription persistence
+	 */
+	public void setSubscriptionPersistence(
+		SubscriptionPersistence subscriptionPersistence) {
+		this.subscriptionPersistence = subscriptionPersistence;
+	}
+
+	/**
+>>>>>>> compatible
 	 * Returns the user local service.
 	 *
 	 * @return the user local service
@@ -609,6 +668,47 @@ public abstract class MBDiscussionLocalServiceBaseImpl
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Returns the message boards mailing list local service.
+	 *
+	 * @return the message boards mailing list local service
+	 */
+	public com.liferay.message.boards.kernel.service.MBMailingListLocalService getMBMailingListLocalService() {
+		return mbMailingListLocalService;
+	}
+
+	/**
+	 * Sets the message boards mailing list local service.
+	 *
+	 * @param mbMailingListLocalService the message boards mailing list local service
+	 */
+	public void setMBMailingListLocalService(
+		com.liferay.message.boards.kernel.service.MBMailingListLocalService mbMailingListLocalService) {
+		this.mbMailingListLocalService = mbMailingListLocalService;
+	}
+
+	/**
+	 * Returns the message boards mailing list persistence.
+	 *
+	 * @return the message boards mailing list persistence
+	 */
+	public MBMailingListPersistence getMBMailingListPersistence() {
+		return mbMailingListPersistence;
+	}
+
+	/**
+	 * Sets the message boards mailing list persistence.
+	 *
+	 * @param mbMailingListPersistence the message boards mailing list persistence
+	 */
+	public void setMBMailingListPersistence(
+		MBMailingListPersistence mbMailingListPersistence) {
+		this.mbMailingListPersistence = mbMailingListPersistence;
+	}
+
+	/**
+>>>>>>> compatible
 	 * Returns the message-boards message local service.
 	 *
 	 * @return the message-boards message local service
@@ -781,12 +881,26 @@ public abstract class MBDiscussionLocalServiceBaseImpl
 	protected com.liferay.portal.kernel.service.ClassNameLocalService classNameLocalService;
 	@BeanReference(type = ClassNamePersistence.class)
 	protected ClassNamePersistence classNamePersistence;
+<<<<<<< HEAD
+=======
+	@BeanReference(type = com.liferay.portal.kernel.service.SubscriptionLocalService.class)
+	protected com.liferay.portal.kernel.service.SubscriptionLocalService subscriptionLocalService;
+	@BeanReference(type = SubscriptionPersistence.class)
+	protected SubscriptionPersistence subscriptionPersistence;
+>>>>>>> compatible
 	@BeanReference(type = com.liferay.portal.kernel.service.UserLocalService.class)
 	protected com.liferay.portal.kernel.service.UserLocalService userLocalService;
 	@BeanReference(type = UserPersistence.class)
 	protected UserPersistence userPersistence;
 	@BeanReference(type = UserFinder.class)
 	protected UserFinder userFinder;
+<<<<<<< HEAD
+=======
+	@BeanReference(type = com.liferay.message.boards.kernel.service.MBMailingListLocalService.class)
+	protected com.liferay.message.boards.kernel.service.MBMailingListLocalService mbMailingListLocalService;
+	@BeanReference(type = MBMailingListPersistence.class)
+	protected MBMailingListPersistence mbMailingListPersistence;
+>>>>>>> compatible
 	@BeanReference(type = com.liferay.message.boards.kernel.service.MBMessageLocalService.class)
 	protected com.liferay.message.boards.kernel.service.MBMessageLocalService mbMessageLocalService;
 	@BeanReference(type = MBMessagePersistence.class)

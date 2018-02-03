@@ -32,6 +32,7 @@ DDMTemplate ddmTemplate = (DDMTemplate)request.getAttribute("edit_article.jsp-te
 String defaultLanguageId = (String)request.getAttribute("edit_article.jsp-defaultLanguageId");
 
 boolean changeStructure = GetterUtil.getBoolean(request.getAttribute("edit_article.jsp-changeStructure"));
+<<<<<<< HEAD
 
 long folderId = journalDisplayContext.getFolderId();
 
@@ -46,6 +47,8 @@ if (!searchRestriction) {
 
 	searchRestriction = folderId != JournalFolderConstants.DEFAULT_PARENT_FOLDER_ID;
 }
+=======
+>>>>>>> compatible
 %>
 
 <liferay-ui:error-marker key="<%= WebKeys.ERROR_SECTION %>" value="content" />
@@ -54,6 +57,7 @@ if (!searchRestriction) {
 
 <liferay-ui:error exception="<%= ArticleContentException.class %>" message="please-enter-valid-content" />
 <liferay-ui:error exception="<%= ArticleIdException.class %>" message="please-enter-a-valid-id" />
+<<<<<<< HEAD
 <liferay-ui:error exception="<%= ArticleTitleException.class %>" message="please-enter-a-valid-title" />
 
 <liferay-ui:error exception="<%= ArticleTitleException.MustNotExceedMaximumLength.class %>">
@@ -65,6 +69,9 @@ if (!searchRestriction) {
 	<liferay-ui:message arguments="<%= String.valueOf(titleMaxLength) %>" key="please-enter-a-title-with-fewer-than-x-characters" />
 </liferay-ui:error>
 
+=======
+<liferay-ui:error exception="<%= ArticleTitleException.class %>" message="please-enter-a-valid-name" />
+>>>>>>> compatible
 <liferay-ui:error exception="<%= ArticleVersionException.class %>" message="another-user-has-made-changes-since-you-started-editing-please-copy-your-changes-and-try-again" />
 <liferay-ui:error exception="<%= DuplicateArticleIdException.class %>" message="please-enter-a-unique-id" />
 <liferay-ui:error exception="<%= InvalidDDMStructureException.class %>" message="the-structure-you-selected-is-not-valid-for-this-folder" />
@@ -106,7 +113,11 @@ if (!searchRestriction) {
 <liferay-ui:error exception="<%= StorageFieldRequiredException.class %>" message="please-fill-out-all-required-fields" />
 
 <aui:fieldset>
+<<<<<<< HEAD
 	<aui:input autoFocus="<%= true %>" label="title" localized="<%= true %>" name="titleMapAsXML" type="text" wrapperCssClass="article-content-title">
+=======
+	<aui:input autoFocus="<%= true %>" ignoreRequestValue="<%= changeStructure %>" name="title" wrapperCssClass="article-content-title">
+>>>>>>> compatible
 		<c:if test="<%= classNameId == JournalArticleConstants.CLASSNAME_ID_DEFAULT %>">
 			<aui:validator name="required" />
 		</c:if>
@@ -126,6 +137,7 @@ if (!searchRestriction) {
 		</c:choose>
 	</c:if>
 
+<<<<<<< HEAD
 	<div class="article-content-description">
 		<liferay-ui:input-localized
 			cssClass="form-control"
@@ -149,6 +161,18 @@ if (!searchRestriction) {
 			requestedLocale="<%= LocaleUtil.fromLanguageId(defaultLanguageId) %>"
 		/>
 	</div>
+=======
+	<aui:input ignoreRequestValue="<%= changeStructure %>" label="summary" name="description" />
+
+	<liferay-ddm:html
+		checkRequired="<%= classNameId == JournalArticleConstants.CLASSNAME_ID_DEFAULT %>"
+		classNameId="<%= PortalUtil.getClassNameId(DDMStructure.class) %>"
+		classPK="<%= ddmStructure.getStructureId() %>"
+		ddmFormValues="<%= journalDisplayContext.getDDMFormValues(ddmStructure) %>"
+		ignoreRequestValue="<%= changeStructure %>"
+		requestedLocale="<%= LocaleUtil.fromLanguageId(defaultLanguageId) %>"
+	/>
+>>>>>>> compatible
 
 	<aui:input label="searchable" name="indexable" type="toggle-switch" value="<%= (article != null) ? article.isIndexable() : true %>" />
 </aui:fieldset>
@@ -177,7 +201,11 @@ if (!searchRestriction) {
 </liferay-portlet:renderURL>
 
 <aui:script use="liferay-journal-content">
+<<<<<<< HEAD
 	new Liferay.Portlet.JournalContent(
+=======
+	var journalContent = new Liferay.Portlet.JournalContent(
+>>>>>>> compatible
 		{
 			'ddm.basePortletURL': '<%= PortletURLFactoryUtil.create(request, PortletProviderUtil.getPortletId(DDMStructure.class.getName(), PortletProvider.Action.VIEW), PortletRequest.RENDER_PHASE) %>',
 			'ddm.classNameId': '<%= PortalUtil.getClassNameId(DDMStructure.class) %>',
@@ -185,6 +213,7 @@ if (!searchRestriction) {
 			'ddm.groupId': <%= groupId %>,
 			'ddm.refererPortletName': '<%= JournalPortletKeys.JOURNAL + ".selectStructure" %>',
 			'ddm.resourceClassNameId': '<%= ddmStructure.getClassNameId() %>',
+<<<<<<< HEAD
 			'ddm.searchRestriction': <%= searchRestriction %>,
 			'ddm.searchRestrictionClassNameId': <%= ClassNameLocalServiceUtil.getClassNameId(JournalFolder.class) %>,
 			'ddm.searchRestrictionClassPK': <%= folderId %>,
@@ -193,13 +222,24 @@ if (!searchRestriction) {
 			editStructure: '#<portlet:namespace />editDDMStructure',
 			editTemplate: '#<portlet:namespace />editDDMTemplate',
 			friendlyURLInputLocalized: '<portlet:namespace />friendlyURL',
+=======
+			'ddm.templateId': <%= (ddmTemplate != null) ? ddmTemplate.getTemplateId() : 0 %>,
+			descriptionInputLocalized: Liferay.component('<portlet:namespace />description'),
+			editStructure: '#<portlet:namespace />editDDMStructure',
+			editTemplate: '#<portlet:namespace />editDDMTemplate',
+>>>>>>> compatible
 			namespace: '<portlet:namespace />',
 			selectStructure: '#<portlet:namespace />selectStructure',
 			selectTemplate: '#<portlet:namespace />selectTemplate',
 			'strings.draft': '<liferay-ui:message key="draft" />',
 			'strings.editStructure': '<liferay-ui:message key="editing-the-current-structure-deletes-all-unsaved-content" />',
 			'strings.editTemplate': '<liferay-ui:message key="editing-the-current-template-deletes-all-unsaved-content" />',
+<<<<<<< HEAD
 			titleInputLocalized: Liferay.component('<portlet:namespace />titleMapAsXML'),
+=======
+			titleInputLocalized: Liferay.component('<portlet:namespace />title'),
+			translationManager: Liferay.component('<portlet:namespace />translationManager'),
+>>>>>>> compatible
 			'urls.editStructure': '<%= editStructureURL %>',
 			'urls.editTemplate': '<%= editTemplateURL %>'
 		}

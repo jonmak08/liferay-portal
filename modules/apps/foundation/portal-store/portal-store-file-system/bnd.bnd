@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Portal Store File System
 Bundle-SymbolicName: com.liferay.portal.store.file.system
+<<<<<<< HEAD
 Bundle-Version: 2.0.13
+=======
+Bundle-Version: 2.0.6
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Data Stores
 -dsannotations-options: inherit

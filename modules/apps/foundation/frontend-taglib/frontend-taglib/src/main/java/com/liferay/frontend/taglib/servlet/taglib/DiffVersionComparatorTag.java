@@ -28,9 +28,13 @@ import javax.servlet.jsp.PageContext;
 
 /**
  * @author Eudaldo Alonso
+<<<<<<< HEAD
  * @deprecated As of 2.3.0, in favor of com.liferay.frontend.taglib.servlet.taglib.soy.DiffVersionComparatorTag
  */
 @Deprecated
+=======
+ */
+>>>>>>> compatible
 public class DiffVersionComparatorTag extends IncludeTag {
 
 	@Override

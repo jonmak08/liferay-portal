@@ -32,7 +32,10 @@ import com.liferay.dynamic.data.mapping.kernel.StorageEngineManagerUtil;
 import com.liferay.expando.kernel.model.ExpandoBridge;
 import com.liferay.expando.kernel.util.ExpandoBridgeFactoryUtil;
 import com.liferay.expando.kernel.util.ExpandoBridgeIndexerUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.comment.Comment;
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
@@ -70,7 +73,10 @@ import com.liferay.portal.kernel.spring.osgi.OSGiBeanProperties;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.LocalizationUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -189,9 +195,15 @@ public class DLFileEntryIndexer
 			if (fileEntry instanceof LiferayFileEntry) {
 				DLFileEntry dlFileEntry = (DLFileEntry)fileEntry.getModel();
 
+<<<<<<< HEAD
 				if (dlFileEntry.isInHiddenFolder()) {
 					Indexer<?> indexer = IndexerRegistryUtil.getIndexer(
 						dlFileEntry.getClassName());
+=======
+			if (dlFileEntry.isInHiddenFolder()) {
+				Indexer<?> indexer = IndexerRegistryUtil.getIndexer(
+					dlFileEntry.getClassName());
+>>>>>>> compatible
 
 					return indexer.isVisible(dlFileEntry.getClassPK(), status);
 				}
@@ -358,6 +370,7 @@ public class DLFileEntryIndexer
 		}
 	}
 
+<<<<<<< HEAD
 	protected Summary createSummary(
 		Locale locale, Document document, String titleField,
 		String contentField) {
@@ -378,6 +391,15 @@ public class DLFileEntryIndexer
 	}
 
 	@Override
+=======
+	@Override
+	protected void doDelete(DLFileEntry dlFileEntry) throws Exception {
+		deleteDocument(
+			dlFileEntry.getCompanyId(), dlFileEntry.getFileEntryId());
+	}
+
+	@Override
+>>>>>>> compatible
 	protected Document doGetDocument(DLFileEntry dlFileEntry) throws Exception {
 		if (_log.isDebugEnabled()) {
 			_log.debug("Indexing document " + dlFileEntry);
@@ -489,9 +511,14 @@ public class DLFileEntryIndexer
 			addFileEntryTypeAttributes(document, dlFileVersion);
 
 			if (dlFileEntry.isInHiddenFolder()) {
+<<<<<<< HEAD
 				List<RelatedEntryIndexer> relatedEntryIndexers =
 					RelatedEntryIndexerRegistryUtil.getRelatedEntryIndexers(
 						dlFileEntry.getClassName());
+=======
+				Indexer<?> indexer = IndexerRegistryUtil.getIndexer(
+					dlFileEntry.getClassName());
+>>>>>>> compatible
 
 				if (relatedEntryIndexers != null) {
 					for (RelatedEntryIndexer relatedEntryIndexer :
@@ -537,6 +564,10 @@ public class DLFileEntryIndexer
 
 		Summary summary = createSummary(
 			locale, document, Field.TITLE, Field.CONTENT);
+
+		if (Validator.isNull(summary.getContent())) {
+			summary = createSummary(document, Field.TITLE, Field.DESCRIPTION);
+		}
 
 		if (Validator.isNull(summary.getContent())) {
 			summary = createSummary(document, Field.TITLE, Field.DESCRIPTION);

@@ -28,6 +28,7 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
 )
 public interface SAPConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(deflt = "true", name = "use-system-sap-entries", required = false)
 	public boolean useSystemSAPEntries();
 
@@ -35,16 +36,27 @@ public interface SAPConfiguration {
 		deflt = "SYSTEM_DEFAULT", name = "system-default-sap-entry-name",
 		required = false
 	)
+=======
+	@Meta.AD(deflt = "true", required = false)
+	public boolean useSystemSAPEntries();
+
+	@Meta.AD(deflt = "SYSTEM_DEFAULT", required = false)
+>>>>>>> compatible
 	public String systemDefaultSAPEntryName();
 
 	@Meta.AD(
 		deflt = "System Service Access Policy Applied on Every Request",
+<<<<<<< HEAD
 		name = "system-default-sap-entry-description", required = false
+=======
+		required = false
+>>>>>>> compatible
 	)
 	public String systemDefaultSAPEntryDescription();
 
 	@Meta.AD(
 		deflt = "com.liferay.portal.kernel.service.CountryService#getCountries\ncom.liferay.portal.kernel.service.RegionService#getRegions",
+<<<<<<< HEAD
 		name = "system-default-sap-entry-service-signatures", required = false
 	)
 	public String systemDefaultSAPEntryServiceSignatures();
@@ -53,10 +65,18 @@ public interface SAPConfiguration {
 		deflt = "SYSTEM_USER_PASSWORD",
 		name = "system-user-password-sap-entry-name", required = false
 	)
+=======
+		required = false
+	)
+	public String systemDefaultSAPEntryServiceSignatures();
+
+	@Meta.AD(deflt = "SYSTEM_USER_PASSWORD", required = false)
+>>>>>>> compatible
 	public String systemUserPasswordSAPEntryName();
 
 	@Meta.AD(
 		deflt = "System Service Access Policy for Requests Authenticated Using User Password",
+<<<<<<< HEAD
 		name = "system-user-password-sap-entry-description", required = false
 	)
 	public String systemUserPasswordSAPEntryDescription();
@@ -65,6 +85,13 @@ public interface SAPConfiguration {
 		deflt = "*", name = "system-user-password-sap-entry-service-signatures",
 		required = false
 	)
+=======
+		required = false
+	)
+	public String systemUserPasswordSAPEntryDescription();
+
+	@Meta.AD(deflt = "*", required = false)
+>>>>>>> compatible
 	public String systemUserPasswordSAPEntryServiceSignatures();
 
 }

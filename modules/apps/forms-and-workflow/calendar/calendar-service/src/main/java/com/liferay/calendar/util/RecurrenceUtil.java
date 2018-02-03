@@ -24,10 +24,15 @@ import com.liferay.calendar.model.CalendarBooking;
 import com.liferay.calendar.recurrence.PositionalWeekday;
 import com.liferay.calendar.recurrence.Recurrence;
 import com.liferay.calendar.recurrence.Weekday;
+<<<<<<< HEAD
 import com.liferay.calendar.util.comparator.CalendarBookingStartTimeComparator;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.ListUtil;
+=======
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+>>>>>>> compatible
 
 import java.text.ParseException;
 
@@ -157,6 +162,7 @@ public class RecurrenceUtil {
 		return count;
 	}
 
+<<<<<<< HEAD
 	public static CalendarBooking getLastInstanceCalendarBooking(
 		List<CalendarBooking> calendarBookings) {
 
@@ -193,6 +199,8 @@ public class RecurrenceUtil {
 		return lastCalendarBooking;
 	}
 
+=======
+>>>>>>> compatible
 	public static Recurrence inTimeZone(
 		Recurrence recurrence, Calendar startTimeJCalendar, TimeZone timeZone) {
 
@@ -267,6 +275,7 @@ public class RecurrenceUtil {
 		return recurrence;
 	}
 
+<<<<<<< HEAD
 	protected static CalendarBooking getLastCalendarBookingInstance(
 		CalendarBooking calendarBooking) {
 
@@ -289,6 +298,8 @@ public class RecurrenceUtil {
 		return false;
 	}
 
+=======
+>>>>>>> compatible
 	private static DateValue _toDateValue(long time) {
 		Calendar jCalendar = JCalendarUtil.getJCalendar(time);
 

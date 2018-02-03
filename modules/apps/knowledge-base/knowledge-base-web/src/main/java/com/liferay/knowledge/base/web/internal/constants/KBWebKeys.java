@@ -14,13 +14,20 @@
 
 package com.liferay.knowledge.base.web.internal.constants;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.WebKeys;
 
+=======
+>>>>>>> compatible
 /**
  * @author Brian Wing Shun Chan
  * @author Peter Shin
  */
+<<<<<<< HEAD
 public class KBWebKeys implements WebKeys {
+=======
+public class KBWebKeys implements com.liferay.portal.kernel.util.WebKeys {
+>>>>>>> compatible
 
 	public static final String DL_MIME_TYPE_DISPLAY_CONTEXT =
 		"DL_MIME_TYPE_DISPLAY_CONTEXT";

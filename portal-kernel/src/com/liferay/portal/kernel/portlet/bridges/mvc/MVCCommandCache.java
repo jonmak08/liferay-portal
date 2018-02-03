@@ -68,9 +68,15 @@ public class MVCCommandCache {
 
 		_serviceTrackerMap = ServiceTrackerCollections.openSingleValueMap(
 			mvcCommandClass,
+<<<<<<< HEAD
 			StringBundler.concat(
 				"(&(|(javax.portlet.name=", portletName,
 				")(javax.portlet.name=", portletId, "))(mvc.command.name=*))"),
+=======
+			"(&(|(javax.portlet.name=" + portletName + ")(javax.portlet.name=" +
+				portletId +
+					"))(mvc.command.name=*))",
+>>>>>>> compatible
 			new ServiceReferenceMapper<String, MVCCommand>() {
 
 				@Override

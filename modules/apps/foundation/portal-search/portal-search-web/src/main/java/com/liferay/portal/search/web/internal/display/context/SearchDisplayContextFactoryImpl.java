@@ -18,8 +18,11 @@ import com.liferay.portal.kernel.language.Language;
 import com.liferay.portal.kernel.search.facet.faceted.searcher.FacetedSearcherManager;
 import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
 import com.liferay.portal.search.summary.SummaryBuilderFactory;
 import com.liferay.portal.search.web.internal.facet.SearchFacetTracker;
+=======
+>>>>>>> compatible
 
 import javax.portlet.PortletException;
 import javax.portlet.PortletPreferences;
@@ -42,11 +45,30 @@ public class SearchDisplayContextFactoryImpl
 			PortletPreferences portletPreferences)
 		throws PortletException {
 
+<<<<<<< HEAD
 		return new SearchDisplayContext(
 			renderRequest, portletPreferences, portal, HtmlUtil.getHtml(),
 			language, facetedSearcherManager, new IndexSearchPropsValuesImpl(),
 			new PortletURLFactoryImpl(renderRequest, renderResponse),
 			summaryBuilderFactory, searchFacetTracker);
+=======
+		try {
+			return new SearchDisplayContext(
+				renderRequest, portletPreferences, portal, HtmlUtil.getHtml(),
+				language, facetedSearcherManager,
+				new IndexSearchPropsValuesImpl(),
+				new PortletURLFactoryImpl(renderRequest, renderResponse));
+		}
+		catch (PortletException pe) {
+			throw pe;
+		}
+		catch (RuntimeException re) {
+			throw re;
+		}
+		catch (Exception e) {
+			throw new PortletException(e);
+		}
+>>>>>>> compatible
 	}
 
 	@Reference
@@ -59,9 +81,13 @@ public class SearchDisplayContextFactoryImpl
 	protected Portal portal;
 
 	@Reference
+<<<<<<< HEAD
 	protected SearchFacetTracker searchFacetTracker;
 
 	@Reference
 	protected SummaryBuilderFactory summaryBuilderFactory;
+=======
+	private Portal _portal;
+>>>>>>> compatible
 
 }

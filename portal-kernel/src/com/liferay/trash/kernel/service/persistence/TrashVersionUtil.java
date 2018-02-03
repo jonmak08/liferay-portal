@@ -36,11 +36,16 @@ import java.util.List;
  * @author Brian Wing Shun Chan
  * @see TrashVersionPersistence
  * @see com.liferay.portlet.trash.service.persistence.impl.TrashVersionPersistenceImpl
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, replaced by {@link
 com.liferay.trash.model.impl.TrashVersionImpl}
  * @generated
  */
 @Deprecated
+=======
+ * @generated
+ */
+>>>>>>> compatible
 @ProviderType
 public class TrashVersionUtil {
 	/*

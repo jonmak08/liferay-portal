@@ -14,9 +14,14 @@
 
 package com.liferay.login.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.captcha.configuration.CaptchaConfiguration;
 import com.liferay.captcha.util.CaptchaUtil;
 import com.liferay.login.web.internal.constants.LoginPortletKeys;
+=======
+import com.liferay.captcha.util.CaptchaUtil;
+import com.liferay.login.web.constants.LoginPortletKeys;
+>>>>>>> compatible
 import com.liferay.login.web.internal.portlet.util.LoginUtil;
 import com.liferay.portal.kernel.captcha.CaptchaConfigurationException;
 import com.liferay.portal.kernel.captcha.CaptchaException;
@@ -31,7 +36,10 @@ import com.liferay.portal.kernel.exception.UserReminderQueryException;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.model.User;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.module.configuration.ConfigurationProvider;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.bridges.mvc.BaseMVCActionCommand;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCActionCommand;
 import com.liferay.portal.kernel.security.auth.PrincipalException;
@@ -72,11 +80,17 @@ import org.osgi.service.component.annotations.Reference;
 public class ForgotPasswordMVCActionCommand extends BaseMVCActionCommand {
 
 	protected void checkCaptcha(ActionRequest actionRequest)
+<<<<<<< HEAD
 		throws CaptchaConfigurationException, CaptchaException {
 
 		CaptchaConfiguration captchaConfiguration = getCaptchaConfiguration();
 
 		if (captchaConfiguration.sendPasswordCaptchaEnabled()) {
+=======
+		throws CaptchaException {
+
+		if (PropsValues.CAPTCHA_CHECK_PORTAL_SEND_PASSWORD) {
+>>>>>>> compatible
 			CaptchaUtil.check(actionRequest);
 		}
 	}
@@ -180,6 +194,7 @@ public class ForgotPasswordMVCActionCommand extends BaseMVCActionCommand {
 		}
 	}
 
+<<<<<<< HEAD
 	protected CaptchaConfiguration getCaptchaConfiguration()
 		throws CaptchaConfigurationException {
 
@@ -192,6 +207,8 @@ public class ForgotPasswordMVCActionCommand extends BaseMVCActionCommand {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	protected User getUser(ActionRequest actionRequest) throws Exception {
 		PortletSession portletSession = actionRequest.getPortletSession();
 
@@ -261,9 +278,13 @@ public class ForgotPasswordMVCActionCommand extends BaseMVCActionCommand {
 
 			String answer = ParamUtil.getString(actionRequest, "answer");
 
+<<<<<<< HEAD
 			String reminderQueryAnswer = user.getReminderQueryAnswer();
 
 			if (!reminderQueryAnswer.equals(answer)) {
+=======
+			if (!user.getReminderQueryAnswer().equals(answer)) {
+>>>>>>> compatible
 				throw new UserReminderQueryException(
 					"Reminder query answer does not match answer");
 			}
@@ -308,9 +329,12 @@ public class ForgotPasswordMVCActionCommand extends BaseMVCActionCommand {
 	}
 
 	@Reference
+<<<<<<< HEAD
 	private ConfigurationProvider _configurationProvider;
 
 	@Reference
+=======
+>>>>>>> compatible
 	private Portal _portal;
 
 	private UserLocalService _userLocalService;

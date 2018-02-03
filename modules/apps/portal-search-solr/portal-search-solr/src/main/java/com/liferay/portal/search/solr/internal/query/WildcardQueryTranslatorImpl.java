@@ -14,14 +14,23 @@
 
 package com.liferay.portal.search.solr.internal.query;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.search.QueryTerm;
 import com.liferay.portal.kernel.search.WildcardQuery;
+=======
+import com.liferay.portal.kernel.search.QueryTerm;
+import com.liferay.portal.kernel.search.WildcardQuery;
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.search.solr.query.WildcardQueryTranslator;
 
 import org.apache.lucene.index.Term;
 import org.apache.lucene.queryparser.classic.QueryParser;
+<<<<<<< HEAD
 import org.apache.lucene.search.Query;
+=======
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 
@@ -33,7 +42,13 @@ import org.osgi.service.component.annotations.Component;
 public class WildcardQueryTranslatorImpl implements WildcardQueryTranslator {
 
 	@Override
+<<<<<<< HEAD
 	public Query translate(WildcardQuery wildcardQuery) {
+=======
+	public org.apache.lucene.search.Query translate(
+		WildcardQuery wildcardQuery) {
+
+>>>>>>> compatible
 		QueryTerm queryTerm = wildcardQuery.getQueryTerm();
 
 		org.apache.lucene.search.WildcardQuery luceneWildcardQuery =

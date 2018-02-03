@@ -18,7 +18,10 @@ import com.liferay.document.library.display.context.DLEditFileEntryDisplayContex
 import com.liferay.document.library.display.context.DLFilePicker;
 import com.liferay.document.library.kernel.model.DLFileEntryType;
 import com.liferay.document.library.kernel.util.DLUtil;
+<<<<<<< HEAD
 import com.liferay.document.library.kernel.util.DLValidator;
+=======
+>>>>>>> compatible
 import com.liferay.document.library.web.internal.display.context.logic.FileEntryDisplayContextHelper;
 import com.liferay.document.library.web.internal.display.context.logic.FileVersionDisplayContextHelper;
 import com.liferay.document.library.web.internal.display.context.util.DLRequestHelper;
@@ -33,8 +36,14 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.FileVersion;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.upload.UploadServletRequestConfigurationHelperUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
+=======
+import com.liferay.portal.kernel.util.ParamUtil;
+import com.liferay.portal.kernel.util.PrefsPropsUtil;
+import com.liferay.portal.kernel.util.PropsKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.WebKeys;
 
 import java.util.UUID;
@@ -50,20 +59,32 @@ public class DefaultDLEditFileEntryDisplayContext
 
 	public DefaultDLEditFileEntryDisplayContext(
 		HttpServletRequest request, HttpServletResponse response,
+<<<<<<< HEAD
 		DLFileEntryType dlFileEntryType, DLValidator dlValidator,
 		StorageEngine storageEngine) {
 
 		this(request, dlFileEntryType, dlValidator, null, storageEngine);
+=======
+		DLFileEntryType dlFileEntryType, StorageEngine storageEngine) {
+
+		this(request, dlFileEntryType, null, storageEngine);
+>>>>>>> compatible
 	}
 
 	public DefaultDLEditFileEntryDisplayContext(
 		HttpServletRequest request, HttpServletResponse response,
+<<<<<<< HEAD
 		DLValidator dlValidator, FileEntry fileEntry,
 		StorageEngine storageEngine) {
 
 		this(
 			request, (DLFileEntryType)null, dlValidator, fileEntry,
 			storageEngine);
+=======
+		FileEntry fileEntry, StorageEngine storageEngine) {
+
+		this(request, (DLFileEntryType)null, fileEntry, storageEngine);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -80,12 +101,27 @@ public class DefaultDLEditFileEntryDisplayContext
 
 	@Override
 	public long getMaximumUploadRequestSize() {
+<<<<<<< HEAD
 		return UploadServletRequestConfigurationHelperUtil.getMaxSize();
+=======
+		return PrefsPropsUtil.getLong(
+			PropsKeys.UPLOAD_SERVLET_REQUEST_IMPL_MAX_SIZE);
+>>>>>>> compatible
 	}
 
 	@Override
 	public long getMaximumUploadSize() {
+<<<<<<< HEAD
 		return _dlValidator.getMaxAllowableSize();
+=======
+		long fileMaxSize = PrefsPropsUtil.getLong(PropsKeys.DL_FILE_MAX_SIZE);
+
+		if (fileMaxSize == 0) {
+			fileMaxSize = getMaximumUploadRequestSize();
+		}
+
+		return fileMaxSize;
+>>>>>>> compatible
 	}
 
 	@Override
@@ -213,12 +249,19 @@ public class DefaultDLEditFileEntryDisplayContext
 
 	private DefaultDLEditFileEntryDisplayContext(
 		HttpServletRequest request, DLFileEntryType dlFileEntryType,
+<<<<<<< HEAD
 		DLValidator dlValidator, FileEntry fileEntry,
 		StorageEngine storageEngine) {
 
 		try {
 			_dlRequestHelper = new DLRequestHelper(request);
 			_dlValidator = dlValidator;
+=======
+		FileEntry fileEntry, StorageEngine storageEngine) {
+
+		try {
+			_dlRequestHelper = new DLRequestHelper(request);
+>>>>>>> compatible
 			_fileEntry = fileEntry;
 			_storageEngine = storageEngine;
 
@@ -282,7 +325,10 @@ public class DefaultDLEditFileEntryDisplayContext
 
 	private final DLFileEntryType _dlFileEntryType;
 	private final DLRequestHelper _dlRequestHelper;
+<<<<<<< HEAD
 	private final DLValidator _dlValidator;
+=======
+>>>>>>> compatible
 	private final FileEntry _fileEntry;
 	private final FileEntryDisplayContextHelper _fileEntryDisplayContextHelper;
 	private final FileVersion _fileVersion;

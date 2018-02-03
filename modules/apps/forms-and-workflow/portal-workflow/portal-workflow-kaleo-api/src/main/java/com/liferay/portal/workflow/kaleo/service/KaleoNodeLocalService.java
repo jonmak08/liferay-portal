@@ -71,7 +71,11 @@ public interface KaleoNodeLocalService extends BaseLocalService,
 	@Indexable(type = IndexableType.REINDEX)
 	public KaleoNode addKaleoNode(KaleoNode kaleoNode);
 
+<<<<<<< HEAD
 	public KaleoNode addKaleoNode(long kaleoDefinitionVersionId, Node node,
+=======
+	public KaleoNode addKaleoNode(long kaleoDefinitionId, Node node,
+>>>>>>> compatible
 		ServiceContext serviceContext) throws PortalException;
 
 	/**
@@ -84,8 +88,12 @@ public interface KaleoNodeLocalService extends BaseLocalService,
 
 	public void deleteCompanyKaleoNodes(long companyId);
 
+<<<<<<< HEAD
 	public void deleteKaleoDefinitionVersionKaleoNodes(
 		long kaleoDefinitionVersionId);
+=======
+	public void deleteKaleoDefinitionKaleoNodes(long kaleoDefinitionId);
+>>>>>>> compatible
 
 	/**
 	* Deletes the kaleo node from the database. Also notifies the appropriate model listeners.
@@ -183,8 +191,12 @@ public interface KaleoNodeLocalService extends BaseLocalService,
 	public IndexableActionableDynamicQuery getIndexableActionableDynamicQuery();
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+<<<<<<< HEAD
 	public List<KaleoNode> getKaleoDefinitionVersionKaleoNodes(
 		long kaleoDefinitionVersionId);
+=======
+	public List<KaleoNode> getKaleoDefinitionKaleoNodes(long kaleoDefinitionId);
+>>>>>>> compatible
 
 	/**
 	* Returns the kaleo node with the primary key.

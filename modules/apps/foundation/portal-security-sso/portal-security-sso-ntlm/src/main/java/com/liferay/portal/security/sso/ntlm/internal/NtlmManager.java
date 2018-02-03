@@ -14,8 +14,13 @@
 
 package com.liferay.portal.security.sso.ntlm.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.util.ArrayUtil;
+=======
+import com.liferay.portal.kernel.util.ArrayUtil;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;

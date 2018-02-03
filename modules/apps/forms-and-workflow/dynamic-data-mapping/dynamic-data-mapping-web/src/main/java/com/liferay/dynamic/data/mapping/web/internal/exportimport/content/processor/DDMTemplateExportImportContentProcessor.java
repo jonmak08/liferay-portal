@@ -22,7 +22,12 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import org.osgi.service.component.annotations.Component;
 
 /**
+<<<<<<< HEAD
  * @author Gergely Mathe
+=======
+ * @author     Gergely Mathe
+ * @deprecated As of 1.0.0
+>>>>>>> compatible
  */
 @Component(
 	property = {
@@ -33,6 +38,10 @@ import org.osgi.service.component.annotations.Component;
 		ExportImportContentProcessor.class
 	}
 )
+<<<<<<< HEAD
+=======
+@Deprecated
+>>>>>>> compatible
 public class DDMTemplateExportImportContentProcessor
 	extends BaseTextExportImportContentProcessor {
 

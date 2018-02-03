@@ -26,11 +26,14 @@ import java.util.regex.Pattern;
 public class JavaLogClassNameCheck extends BaseFileCheck {
 
 	@Override
+<<<<<<< HEAD
 	public boolean isPortalCheck() {
 		return true;
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	protected String doProcess(
 		String fileName, String absolutePath, String content) {
 

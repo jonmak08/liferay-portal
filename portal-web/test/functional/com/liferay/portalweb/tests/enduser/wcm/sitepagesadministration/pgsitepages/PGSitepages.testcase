@@ -1,7 +1,10 @@
 <definition component-name="portal-wcm">
 	<property name="portal.release" value="true" />
 	<property name="portal.upstream" value="true" />
+<<<<<<< HEAD
 	<property name="testray.component.names" value="Site Pages Administration" />
+=======
+>>>>>>> compatible
 	<property name="testray.main.component.name" value="Site Pages Administration" />
 
 	<set-up>
@@ -21,16 +24,25 @@
 			<else>
 				<execute macro="WebContent#tearDownCP" />
 
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP" />
+=======
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 			</else>
 		</if>
 	</tear-down>
 
 	<command name="AddPageFromExistingPage" priority="5">
+<<<<<<< HEAD
+=======
+		<property name="portal.acceptance" value="true" />
+>>>>>>> compatible
 		<property name="testray.component.names" value="Training" />
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -42,6 +54,17 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+			<var name="pageName" value="Site Page" />
+		</execute>
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Site Page" />
+		</execute>
+
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Site Page Name" />
 			<var name="pageTemplateName" value="Content Display Page" />
 		</execute>
@@ -56,6 +79,7 @@
 			</execute>
 		</for>
 	</command>
+<<<<<<< HEAD
 
 	<command name="DeletePages" priority="5">
 		<execute macro="ProductMenu#gotoPortlet">
@@ -76,17 +100,40 @@
 			<var name="pageName" value="Page1" />
 		</execute>
 
+=======
+
+	<command name="DeletePages" priority="5">
+		<property name="portal.acceptance" value="true" />
+
+		<execute macro="Page#add">
+			<var name="pageName" value="Page1" />
+		</execute>
+
+		<execute macro="Page#add">
+			<var name="pageName" value="Page2" />
+		</execute>
+
+		<execute macro="Page#deletePG">
+			<var name="pageName" value="Page1" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="Page#viewDeletedPage">
 			<var name="pageName" value="Page1" />
 		</execute>
 
 		<execute macro="Navigator#openURL" />
+<<<<<<< HEAD
 
 		<execute macro="Page#deleteViaX">
 			<var name="pageName" value="Page2" />
 		</execute>
 
 		<execute macro="Page#viewDeletedPage">
+=======
+
+		<execute macro="Page#deleteViaX">
+>>>>>>> compatible
 			<var name="pageName" value="Page2" />
 		</execute>
 	</command>
@@ -96,12 +143,22 @@
 
 		<property name="testray.component.names" value="Training" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
 			<var name="portlet" value="Site Pages" />
+=======
+		<execute macro="Page#viewDeletedPage">
+			<var name="pageName" value="Page2" />
+>>>>>>> compatible
 		</execute>
+	</command>
 
+	<command name="EditPageViaControlMenu" priority="5">
+		<description message="This is a use case for LPS-71160" />
+
+<<<<<<< HEAD
 		<execute macro="SitePages#addPublicPage">
 			<var name="pageName" value="Site Page" />
 		</execute>
@@ -116,12 +173,32 @@
 
 		<execute macro="Page#editName">
 			<var name="pageNameEdit" value="Site Page Edit" />
+=======
+		<property name="portal.acceptance" value="true" />
+		<property name="testray.component.names" value="Training" />
+
+		<execute macro="Page#add">
+			<var name="pageName" value="Site Page" />
+		</execute>
+
+		<execute macro="Navigator#gotoEditPageViaControlMenu" >
+			<var name="pageName" value="Site Page" />
+		</execute>
+
+		<execute macro="Page#editName">
+			<var name="pageNameEdit" value="Site Page Edit" />
+		</execute>
+
+		<execute macro="Page#view">
+			<var name="pageName" value="Site Page Edit" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Site Page Edit" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Page#view">
 			<var name="pageName" value="Site Page Edit" />
 			<var name="privacy" value="Public" />
@@ -153,6 +230,30 @@
 
 		<execute macro="Navigator#gotoSEOPanel" />
 
+=======
+		<execute macro="Navigator#gotoEditPageViaControlMenu" >
+			<var name="pageName" value="Site Page Edit" />
+		</execute>
+
+		<execute macro="Navigator#gotoSEOPanel" />
+
+		<execute macro="Page#editPageMetadata">
+			<var name="HTMLTitle" value="S.P.A.C.E.Home" />
+			<var name="metaTagsDescription" value="Welcome to S.P.A.C.E., a graduate-level school for those passionate about expanding their horizons through science, research, and space travel" />
+			<var name="metaTagsKeywords" value="space, education, space travel, graduateschool" />
+		</execute>
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Site Page Edit" />
+		</execute>
+
+		<execute macro="Navigator#gotoEditPageViaControlMenu" >
+			<var name="pageName" value="Site Page Edit" />
+		</execute>
+
+		<execute macro="Navigator#gotoSEOPanel" />
+
+>>>>>>> compatible
 		<execute macro="Page#viewPageMetadata">
 			<var name="HTMLTitle" value="S.P.A.C.E.Home" />
 			<var name="metaTagsDescription" value="Welcome to S.P.A.C.E., a graduate-level school for those passionate about expanding their horizons through science, research, and space travel" />
@@ -163,6 +264,7 @@
 	<command name="EditSitePage" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -178,6 +280,16 @@
 			<var name="rowEntry" value="Site Page" />
 		</execute>
 
+=======
+		<execute macro="Page#add">
+			<var name="pageName" value="Site Page" />
+		</execute>
+
+		<execute macro="SitePageNavigator#gotoEditPage">
+			<var name="page" value="Site Page" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="Page#editName">
 			<var name="pageNameEdit" value="Site Page Edit" />
 		</execute>

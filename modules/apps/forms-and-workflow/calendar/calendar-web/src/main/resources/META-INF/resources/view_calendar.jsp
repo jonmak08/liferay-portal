@@ -27,6 +27,7 @@ JSONArray otherCalendarsJSONArray = CalendarUtil.toCalendarsJSONArray(themeDispl
 boolean columnOptionsVisible = GetterUtil.getBoolean(SessionClicks.get(request, "com.liferay.calendar.web_columnOptionsVisible", "true"));
 %>
 
+<<<<<<< HEAD
 <aui:script use="liferay-calendar-container,liferay-calendar-remote-services,liferay-component">
 	Liferay.component(
 		'<portlet:namespace />calendarContainer',
@@ -87,6 +88,8 @@ boolean columnOptionsVisible = GetterUtil.getBoolean(SessionClicks.get(request, 
 	);
 </aui:script>
 
+=======
+>>>>>>> compatible
 <aui:container cssClass="calendar-portlet-column-parent">
 	<aui:row>
 		<c:if test="<%= !displaySchedulerOnly %>">
@@ -195,7 +198,10 @@ boolean columnOptionsVisible = GetterUtil.getBoolean(SessionClicks.get(request, 
 				<liferay-util:param name="permissionsCalendarBookingURL" value="<%= permissionsCalendarBookingURL %>" />
 
 				<liferay-util:param name="showAddEventBtn" value="<%= String.valueOf((defaultCalendar != null) && CalendarPermission.contains(permissionChecker, defaultCalendar, CalendarActionKeys.MANAGE_BOOKINGS)) %>" />
+<<<<<<< HEAD
 				<liferay-util:param name="showSchedulerHeader" value="<%= String.valueOf(displaySchedulerHeader) %>" />
+=======
+>>>>>>> compatible
 
 				<portlet:renderURL var="viewCalendarBookingURL" windowState="<%= LiferayWindowState.POP_UP.toString() %>">
 					<portlet:param name="mvcPath" value="/view_calendar_booking.jsp" />
@@ -218,7 +224,11 @@ boolean columnOptionsVisible = GetterUtil.getBoolean(SessionClicks.get(request, 
 <aui:script use="liferay-calendar-list,liferay-scheduler,liferay-store,liferay-calendar-util">
 	Liferay.CalendarUtil.USER_CLASS_NAME_ID = <%= PortalUtil.getClassNameId(User.class) %>;
 
+<<<<<<< HEAD
 	var calendarContainer = Liferay.component('<portlet:namespace />calendarContainer');
+=======
+	Liferay.CalendarUtil.DEFAULT_USER_CALENDAR_ID = <%= (defaultCalendar != null) ? defaultCalendar.getCalendarId() : 0 %>;
+>>>>>>> compatible
 
 	var syncCalendarsMap = function() {
 		var calendarLists = [];
@@ -235,7 +245,11 @@ boolean columnOptionsVisible = GetterUtil.getBoolean(SessionClicks.get(request, 
 			calendarLists.push(window.<portlet:namespace />siteCalendarList);
 		</c:if>
 
+<<<<<<< HEAD
 		calendarContainer.syncCalendarsMap(calendarLists);
+=======
+		Liferay.CalendarUtil.syncCalendarsMap(calendarLists);
+>>>>>>> compatible
 	};
 
 	window.<portlet:namespace />syncCalendarsMap = syncCalendarsMap;
@@ -268,6 +282,11 @@ boolean columnOptionsVisible = GetterUtil.getBoolean(SessionClicks.get(request, 
 		).render();
 
 		<c:if test="<%= userCalendarResource != null %>">
+<<<<<<< HEAD
+=======
+			Liferay.CalendarUtil.USER_CALENDAR_RESOURCE_ID = <%= userCalendarResource.getCalendarResourceId() %>;
+
+>>>>>>> compatible
 			window.<portlet:namespace />calendarLists['<%= userCalendarResource.getCalendarResourceId() %>'] = window.<portlet:namespace />myCalendarList;
 		</c:if>
 	</c:if>
@@ -330,13 +349,22 @@ boolean columnOptionsVisible = GetterUtil.getBoolean(SessionClicks.get(request, 
 			}
 		).render();
 
+<<<<<<< HEAD
+=======
+		Liferay.CalendarUtil.GROUP_CALENDAR_RESOURCE_ID = <%= groupCalendarResource.getCalendarResourceId() %>;
+
+>>>>>>> compatible
 		window.<portlet:namespace />calendarLists['<%= groupCalendarResource.getCalendarResourceId() %>'] = window.<portlet:namespace />siteCalendarList;
 	</c:if>
 
 	syncCalendarsMap();
 
 	A.each(
+<<<<<<< HEAD
 		calendarContainer.get('availableCalendars'),
+=======
+		Liferay.CalendarUtil.availableCalendars,
+>>>>>>> compatible
 		function(item, index) {
 			item.on(
 				{
@@ -367,11 +395,17 @@ boolean columnOptionsVisible = GetterUtil.getBoolean(SessionClicks.get(request, 
 
 	<portlet:namespace />scheduler.load();
 
+<<<<<<< HEAD
 	var calendarContainer = Liferay.component('<portlet:namespace />calendarContainer');
 
 	new Liferay.CalendarSessionListener(
 		{
 			calendars: calendarContainer.get('availableCalendars'),
+=======
+	new Liferay.CalendarSessionListener(
+		{
+			calendars: Liferay.CalendarUtil.availableCalendars,
+>>>>>>> compatible
 			scheduler: <portlet:namespace />scheduler
 		}
 	);

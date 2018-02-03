@@ -14,7 +14,10 @@
 
 package com.liferay.item.selector.taglib.servlet.taglib;
 
+<<<<<<< HEAD
 import com.liferay.document.library.display.context.DLMimeTypeDisplayContext;
+=======
+>>>>>>> compatible
 import com.liferay.item.selector.ItemSelectorReturnType;
 import com.liferay.item.selector.ItemSelectorReturnTypeResolver;
 import com.liferay.item.selector.constants.ItemSelectorPortletKeys;
@@ -24,10 +27,17 @@ import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.portlet.PortalPreferences;
 import com.liferay.portal.kernel.portlet.PortletPreferencesFactoryUtil;
 import com.liferay.portal.kernel.repository.model.RepositoryEntry;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.upload.UploadServletRequestConfigurationHelperUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Validator;
+=======
+import com.liferay.portal.kernel.util.ArrayUtil;
+import com.liferay.portal.kernel.util.ParamUtil;
+import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.util.PropsValues;
+>>>>>>> compatible
 import com.liferay.taglib.util.IncludeTag;
 
 import java.util.ArrayList;
@@ -60,20 +70,26 @@ public class RepositoryEntryBrowserTag extends IncludeTag {
 		_displayStyle = displayStyle;
 	}
 
+<<<<<<< HEAD
 	public void setDlMimeTypeDisplayContext(
 		DLMimeTypeDisplayContext dlMimeTypeDisplayContext) {
 
 		_dlMimeTypeDisplayContext = dlMimeTypeDisplayContext;
 	}
 
+=======
+>>>>>>> compatible
 	public void setEmptyResultsMessage(String emptyResultsMessage) {
 		_emptyResultsMessage = emptyResultsMessage;
 	}
 
+<<<<<<< HEAD
 	public void setExtensions(List<String> extensions) {
 		_extensions = extensions;
 	}
 
+=======
+>>>>>>> compatible
 	public void setItemSelectedEventName(String itemSelectedEventName) {
 		_itemSelectedEventName = itemSelectedEventName;
 	}
@@ -130,10 +146,15 @@ public class RepositoryEntryBrowserTag extends IncludeTag {
 		_desiredItemSelectorReturnTypes = null;
 		_emptyResultsMessage = null;
 		_displayStyle = null;
+<<<<<<< HEAD
 		_dlMimeTypeDisplayContext = null;
 		_extensions = new ArrayList<>();
 		_itemSelectedEventName = null;
 		_maxFileSize = UploadServletRequestConfigurationHelperUtil.getMaxSize();
+=======
+		_itemSelectedEventName = null;
+		_maxFileSize = PropsValues.UPLOAD_SERVLET_REQUEST_IMPL_MAX_SIZE;
+>>>>>>> compatible
 		_portletURL = null;
 		_repositoryEntries = new ArrayList<>();
 		_repositoryEntriesCount = 0;
@@ -188,10 +209,13 @@ public class RepositoryEntryBrowserTag extends IncludeTag {
 			getDisplayStyle());
 		request.setAttribute(
 			"liferay-item-selector:repository-entry-browser:" +
+<<<<<<< HEAD
 				"dlMimeTypeDisplayContext",
 			_dlMimeTypeDisplayContext);
 		request.setAttribute(
 			"liferay-item-selector:repository-entry-browser:" +
+=======
+>>>>>>> compatible
 				"emptyResultsMessage",
 			_getEmptyResultsMessage(request));
 
@@ -205,9 +229,12 @@ public class RepositoryEntryBrowserTag extends IncludeTag {
 		}
 
 		request.setAttribute(
+<<<<<<< HEAD
 			"liferay-item-selector:repository-entry-browser:extensions",
 			_extensions);
 		request.setAttribute(
+=======
+>>>>>>> compatible
 			"liferay-item-selector:repository-entry-browser:" +
 				"itemSelectedEventName",
 			_itemSelectedEventName);
@@ -234,7 +261,11 @@ public class RepositoryEntryBrowserTag extends IncludeTag {
 		request.setAttribute(
 			"liferay-item-selector:repository-entry-browser:" +
 				"showDragAndDropZone",
+<<<<<<< HEAD
 			_isShownDragAndDropZone());
+=======
+			_showDragAndDropZone);
+>>>>>>> compatible
 		request.setAttribute(
 			"liferay-item-selector:repository-entry-browser:tabName", _tabName);
 		request.setAttribute(
@@ -250,6 +281,7 @@ public class RepositoryEntryBrowserTag extends IncludeTag {
 		return LanguageUtil.get(request, "no-results-were-found");
 	}
 
+<<<<<<< HEAD
 	private boolean _isShownDragAndDropZone() {
 		if (_uploadURL == null) {
 			return false;
@@ -267,6 +299,15 @@ public class RepositoryEntryBrowserTag extends IncludeTag {
 	private ItemSelectorReturnTypeResolver _itemSelectorReturnTypeResolver;
 	private long _maxFileSize =
 		UploadServletRequestConfigurationHelperUtil.getMaxSize();
+=======
+	private List<ItemSelectorReturnType> _desiredItemSelectorReturnTypes;
+	private String _displayStyle;
+	private String _emptyResultsMessage;
+	private String _itemSelectedEventName;
+	private ItemSelectorReturnTypeResolver _itemSelectorReturnTypeResolver;
+	private long _maxFileSize =
+		PropsValues.UPLOAD_SERVLET_REQUEST_IMPL_MAX_SIZE;
+>>>>>>> compatible
 	private PortletURL _portletURL;
 	private List<RepositoryEntry> _repositoryEntries = new ArrayList<>();
 	private int _repositoryEntriesCount;

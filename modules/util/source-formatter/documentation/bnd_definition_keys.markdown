@@ -10,6 +10,11 @@ or
 
 or
 
+<<<<<<< HEAD
 * a Liferay specific definition key defined in `_APP_BND_DEFINITION_KEYS`,
  `_APP_BND_DEFINITION_KEYS` or `_APP_BND_DEFINITION_KEYS` in
+=======
+* a Liferay specific definition key defined in ```_APP_BND_DEFINITION_KEYS```,
+ ```_APP_BND_DEFINITION_KEYS``` or ```_APP_BND_DEFINITION_KEYS``` in
+>>>>>>> compatible
 [BNDSourceUtil](https://github.com/liferay/liferay-portal/blob/master/modules/util/source-formatter/src/main/java/com/liferay/source/formatter/checks/util/BNDSourceUtil.java)

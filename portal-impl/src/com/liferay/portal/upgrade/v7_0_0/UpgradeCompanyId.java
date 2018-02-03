@@ -14,16 +14,22 @@
 
 package com.liferay.portal.upgrade.v7_0_0;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.PortletKeys;
 import com.liferay.portal.kernel.util.StringBundler;
 
+=======
+>>>>>>> compatible
 import java.io.IOException;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
+<<<<<<< HEAD
 import java.util.List;
 
+=======
+>>>>>>> compatible
 /**
  * @author Brian Wing Shun Chan
  */
@@ -134,6 +140,7 @@ public class UpgradeCompanyId
 		public void update(Connection connection)
 			throws IOException, SQLException {
 
+<<<<<<< HEAD
 			List<Long> companyIds = getCompanyIds(connection);
 
 			if (companyIds.size() == 1) {
@@ -243,6 +250,47 @@ public class UpgradeCompanyId
 			sb.append(" and (companyId is null or companyId = 0)");
 
 			return sb.toString();
+=======
+			// Company
+
+			String selectSQL =
+				"select companyId from Company where Company.companyId = " +
+					"PortletPreferences.ownerId";
+
+			runSQL(connection, getUpdateSQL(selectSQL));
+
+			// Group
+
+			selectSQL =
+				"select companyId from Group_ where Group_.groupId = " +
+					"PortletPreferences.ownerId";
+
+			runSQL(connection, getUpdateSQL(selectSQL));
+
+			// Layout
+
+			selectSQL =
+				"select companyId from Layout where Layout.plid = " +
+					"PortletPreferences.ownerId";
+
+			runSQL(connection, getUpdateSQL(selectSQL));
+
+			// Organization
+
+			selectSQL =
+				"select companyId from Organization_ where " +
+					"Organization_.organizationId = PortletPreferences.ownerId";
+
+			runSQL(connection, getUpdateSQL(selectSQL));
+
+			// User_
+
+			selectSQL =
+				"select companyId from User_ where User_.userId = " +
+					"PortletPreferences.ownerId";
+
+			runSQL(connection, getUpdateSQL(selectSQL));
+>>>>>>> compatible
 		}
 
 	}

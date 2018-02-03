@@ -25,6 +25,7 @@
 				}
 			},
 			{
+<<<<<<< HEAD
 				"template_geolocation": {
 					"mapping": {
 						"index": "not_analyzed",
@@ -36,6 +37,8 @@
 				}
 			},
 			{
+=======
+>>>>>>> compatible
 				"template_assetCategoryTitles": {
 					"mapping": {
 						"index": "analyzed",
@@ -776,11 +779,14 @@
 				"store": "yes",
 				"type": "string"
 			},
+<<<<<<< HEAD
 			"priority": {
 				"index": "not_analyzed",
 				"store": "yes",
 				"type": "double"
 			},
+=======
+>>>>>>> compatible
 			"properties": {
 				"index": "not_analyzed",
 				"store": "yes",

@@ -1,4 +1,5 @@
 <tag>
+<<<<<<< HEAD
 	<description>Deprecated as of 7.0.0, replaced by <![CDATA[<code>liferay-aui:nav-item</code>]]>.</description>
 	<name>app-view-display-style</name>
 	<tag-class>com.liferay.taglib.ui.AppViewDisplayStyleTag</tag-class>
@@ -1088,15 +1089,30 @@
 	</attribute>
 	<attribute>
 		<name>editable</name>
+=======
+	<description>Deprecated as of 7.0.0, replaced by <![CDATA[<code>liferay-aui:nav-item</code>]]>. Creates a navigation list item component for navigating app view entries.</description>
+	<name>app-view-navigation-entry</name>
+	<tag-class>com.liferay.taglib.ui.AppViewNavigationEntryTag</tag-class>
+	<body-content>empty</body-content>
+	<attribute>
+		<description>The path for an action JSP page.</description>
+		<name>actionJsp</name>
+>>>>>>> compatible
 		<required>false</required>
 		<rtexprvalue>true</rtexprvalue>
 	</attribute>
 	<attribute>
+<<<<<<< HEAD
 		<name>ignoreAttributeNames</name>
+=======
+		<description>A CSS class for styling the component.</description>
+		<name>cssClass</name>
+>>>>>>> compatible
 		<required>false</required>
 		<rtexprvalue>true</rtexprvalue>
 	</attribute>
 	<attribute>
+<<<<<<< HEAD
 		<name>label</name>
 		<required>false</required>
 		<rtexprvalue>true</rtexprvalue>
@@ -1108,20 +1124,42 @@
 	<body-content>JSP</body-content>
 	<attribute>
 		<name>className</name>
+=======
+		<description>Data to be applied to the component link and stored via a map. This data is not shared with the browser. The map holds key value pairs of type <![CDATA[<code>&lt;String, Object&gt;</code>]]>.</description>
+		<name>dataView</name>
+		<required>false</required>
+		<rtexprvalue>true</rtexprvalue>
+		<type>java.util.Map</type>
+	</attribute>
+	<attribute>
+		<description>A title for the component.</description>
+		<name>entryTitle</name>
+>>>>>>> compatible
 		<required>true</required>
 		<rtexprvalue>true</rtexprvalue>
 	</attribute>
 	<attribute>
+<<<<<<< HEAD
 		<name>classPK</name>
+=======
+		<description>A CSS class for setting the icon of the component.</description>
+		<name>iconImage</name>
+>>>>>>> compatible
 		<required>false</required>
 		<rtexprvalue>true</rtexprvalue>
 	</attribute>
 	<attribute>
+<<<<<<< HEAD
 		<name>companyId</name>
+=======
+		<description>Deprecated as of 7.0.0, replaced by the attribute <![CDATA[<code>iconImage</code>]]>.</description>
+		<name>iconSrc</name>
+>>>>>>> compatible
 		<required>false</required>
 		<rtexprvalue>true</rtexprvalue>
 	</attribute>
 	<attribute>
+<<<<<<< HEAD
 		<name>editable</name>
 		<required>false</required>
 		<rtexprvalue>true</rtexprvalue>
@@ -1129,10 +1167,23 @@
 	<attribute>
 		<name>ignoreAttributeNames</name>
 		<required>false</required>
+=======
+		<description>Whether the entry is selected.</description>
+		<name>selected</name>
+		<required>false</required>
+		<rtexprvalue>true</rtexprvalue>
+		<type>boolean</type>
+	</attribute>
+	<attribute>
+		<description>A URL to view the entry.</description>
+		<name>viewURL</name>
+		<required>true</required>
+>>>>>>> compatible
 		<rtexprvalue>true</rtexprvalue>
 	</attribute>
 </tag>
 <tag>
+<<<<<<< HEAD
 	<description>Deprecated as of 7.0.0, replaced by <![CDATA[<code>liferay-comment:discussion</code>]]>.</description>
 	<name>discussion</name>
 	<tag-class>com.liferay.taglib.ui.DiscussionTag</tag-class>
@@ -1142,6 +1193,23 @@
 		<required>false</required>
 		<rtexprvalue>true</rtexprvalue>
 	</attribute>
+=======
+	<description>Deprecated as of 7.0.0, replaced by <![CDATA[<code>liferay-captcha:captcha</code>]]>. Creates an image CAPTCHA with a corresponding verification input.</description>
+	<name>captcha</name>
+	<tag-class>com.liferay.taglib.ui.CaptchaTag</tag-class>
+	<body-content>JSP</body-content>
+	<attribute>
+		<description>The source URL for the image CAPTCHA.</description>
+		<name>url</name>
+		<required>true</required>
+		<rtexprvalue>true</rtexprvalue>
+	</attribute>
+</tag>
+<tag>
+	<name>custom-attribute</name>
+	<tag-class>com.liferay.taglib.ui.CustomAttributeTag</tag-class>
+	<body-content>JSP</body-content>
+>>>>>>> compatible
 	<attribute>
 		<name>className</name>
 		<required>true</required>
@@ -1153,6 +1221,7 @@
 		<rtexprvalue>true</rtexprvalue>
 	</attribute>
 	<attribute>
+<<<<<<< HEAD
 		<name>formAction</name>
 		<required>false</required>
 		<rtexprvalue>true</rtexprvalue>
@@ -1169,16 +1238,24 @@
 	</attribute>
 	<attribute>
 		<name>ratingsEnabled</name>
+=======
+		<name>editable</name>
+>>>>>>> compatible
 		<required>false</required>
 		<rtexprvalue>true</rtexprvalue>
 	</attribute>
 	<attribute>
+<<<<<<< HEAD
 		<description>Deprecated as of 7.0.0, with no direct replacement.</description>
 		<name>redirect</name>
+=======
+		<name>label</name>
+>>>>>>> compatible
 		<required>false</required>
 		<rtexprvalue>true</rtexprvalue>
 	</attribute>
 	<attribute>
+<<<<<<< HEAD
 		<name>userId</name>
 		<required>true</required>
 		<rtexprvalue>true</rtexprvalue>
@@ -1218,10 +1295,25 @@
 	<attribute>
 		<name>className</name>
 		<required>false</required>
+=======
+		<name>name</name>
+		<required>true</required>
+		<rtexprvalue>true</rtexprvalue>
+	</attribute>
+</tag>
+<tag>
+	<name>custom-attribute-list</name>
+	<tag-class>com.liferay.taglib.ui.CustomAttributeListTag</tag-class>
+	<body-content>JSP</body-content>
+	<attribute>
+		<name>className</name>
+		<required>true</required>
+>>>>>>> compatible
 		<rtexprvalue>true</rtexprvalue>
 	</attribute>
 	<attribute>
 		<name>classPK</name>
+<<<<<<< HEAD
 		<required>false</required>
 		<rtexprvalue>true</rtexprvalue>
 	</attribute>
@@ -1272,16 +1364,28 @@
 	<attribute>
 		<description>A CSS class for styling the component.</description>
 		<name>cssClass</name>
+=======
+		<required>true</required>
+		<rtexprvalue>true</rtexprvalue>
+	</attribute>
+	<attribute>
+		<name>editable</name>
+>>>>>>> compatible
 		<required>false</required>
 		<rtexprvalue>true</rtexprvalue>
 	</attribute>
 	<attribute>
+<<<<<<< HEAD
 		<description>Text to display in the text area.</description>
 		<name>defaultValue</name>
+=======
+		<name>ignoreAttributeNames</name>
+>>>>>>> compatible
 		<required>false</required>
 		<rtexprvalue>true</rtexprvalue>
 	</attribute>
 	<attribute>
+<<<<<<< HEAD
 		<description>Whether to disable input. The default value is <![CDATA[<code>false</code>]]>.</description>
 		<name>disabled</name>
 		<required>false</required>
@@ -1318,21 +1422,53 @@
 	<body-content>JSP</body-content>
 	<attribute>
 		<name>classNames</name>
-		<required>false</required>
-		<rtexprvalue>true</rtexprvalue>
-	</attribute>
-	<attribute>
-		<name>cssClass</name>
-		<required>false</required>
-		<rtexprvalue>true</rtexprvalue>
-	</attribute>
-	<attribute>
-		<name>max</name>
+=======
+		<name>label</name>
 		<required>false</required>
 		<rtexprvalue>true</rtexprvalue>
 	</attribute>
 </tag>
 <tag>
+	<name>custom-attributes-available</name>
+	<tag-class>com.liferay.taglib.ui.CustomAttributesAvailableTag</tag-class>
+	<body-content>JSP</body-content>
+	<attribute>
+		<name>className</name>
+		<required>true</required>
+		<rtexprvalue>true</rtexprvalue>
+	</attribute>
+	<attribute>
+		<name>classPK</name>
+		<required>false</required>
+		<rtexprvalue>true</rtexprvalue>
+	</attribute>
+	<attribute>
+		<name>companyId</name>
+>>>>>>> compatible
+		<required>false</required>
+		<rtexprvalue>true</rtexprvalue>
+	</attribute>
+	<attribute>
+<<<<<<< HEAD
+		<name>cssClass</name>
+=======
+		<name>editable</name>
+>>>>>>> compatible
+		<required>false</required>
+		<rtexprvalue>true</rtexprvalue>
+	</attribute>
+	<attribute>
+<<<<<<< HEAD
+		<name>max</name>
+=======
+		<name>ignoreAttributeNames</name>
+>>>>>>> compatible
+		<required>false</required>
+		<rtexprvalue>true</rtexprvalue>
+	</attribute>
+</tag>
+<tag>
+<<<<<<< HEAD
 	<description>Deprecated as of 7.0.0, with no direct replacement. Renders a PNG image with the source given for the <![CDATA[<code>image</code>]]> attribute.</description>
 	<name>png-image</name>
 	<tag-class>com.liferay.taglib.ui.PngImageTag</tag-class>
@@ -1359,6 +1495,8 @@
 	</attribute>
 </tag>
 <tag>
+=======
+>>>>>>> compatible
 	<description>Deprecated as of 7.0.0, with no direct replacement.</description>
 	<name>progress</name>
 	<tag-class>com.liferay.taglib.ui.ProgressTag</tag-class>
@@ -1397,6 +1535,7 @@
 	</attribute>
 </tag>
 <tag>
+<<<<<<< HEAD
 	<description>Deprecated as of 7.0.0 with no direct replacement.</description>
 	<name>ratings-score</name>
 	<tag-class>com.liferay.taglib.ui.RatingsScoreTag</tag-class>
@@ -1508,6 +1647,8 @@
 	</attribute>
 </tag>
 <tag>
+=======
+>>>>>>> compatible
 	<name>write</name>
 	<tag-class>com.liferay.taglib.ui.WriteTag</tag-class>
 	<body-content>JSP</body-content>

@@ -1,5 +1,6 @@
 Bundle-Name: Liferay Frontend Editor AlloyEditor Web
 Bundle-SymbolicName: com.liferay.frontend.editor.alloyeditor.web
+<<<<<<< HEAD
 Bundle-Version: 1.0.36
 Liferay-JS-Config: /META-INF/resources/js/config.js
 Liferay-Releng-Module-Group-Description:
@@ -14,3 +15,14 @@ Require-Capability:\
 Web-ContextPath: /frontend-editor-alloyeditor-web
 -donotcopy: (\.touch|.*_diffs.*|.*.properties)
 -includeresource: META-INF/resources=tmp/META-INF/resources
+=======
+Bundle-Version: 1.0.29
+Liferay-JS-Config: /META-INF/resources/js/config.js
+Liferay-Releng-Module-Group-Description:
+Liferay-Releng-Module-Group-Title: Rich Text Editors
+Web-ContextPath: /frontend-editor-alloyeditor-web
+-donotcopy: (\.touch|.*_diffs.*|.*.properties)
+-includeresource:\
+	content=../frontend-editor-lang/src/main/resources/content,\
+	META-INF/resources=tmp/META-INF/resources
+>>>>>>> compatible

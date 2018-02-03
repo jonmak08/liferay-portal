@@ -14,7 +14,11 @@
 
 package com.liferay.blogs.recent.bloggers.web.internal.exportimport.data.handler;
 
+<<<<<<< HEAD
 import com.liferay.blogs.recent.bloggers.constants.RecentBloggersPortletKeys;
+=======
+import com.liferay.blogs.recent.bloggers.web.constants.RecentBloggersPortletKeys;
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.lar.DataLevel;
 import com.liferay.exportimport.kernel.lar.DefaultConfigurationPortletDataHandler;
 import com.liferay.exportimport.kernel.lar.PortletDataHandler;

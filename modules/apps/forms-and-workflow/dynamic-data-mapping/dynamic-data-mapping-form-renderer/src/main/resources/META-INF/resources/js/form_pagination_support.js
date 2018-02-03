@@ -6,6 +6,7 @@ AUI.add(
 		var FormPaginationSupport = function() {
 		};
 
+<<<<<<< HEAD
 		FormPaginationSupport.ATTRS = {
 			pagesState: {
 				setter: '_setPagesSate',
@@ -13,6 +14,8 @@ AUI.add(
 			}
 		};
 
+=======
+>>>>>>> compatible
 		FormPaginationSupport.prototype = {
 			initializer: function() {
 				var instance = this;
@@ -28,18 +31,25 @@ AUI.add(
 				return pagination.get('page');
 			},
 
+<<<<<<< HEAD
 			getCurrentPageNode: function() {
 				var instance = this;
 
 				return instance.getPageNode(instance.getCurrentPage());
 			},
 
+=======
+>>>>>>> compatible
 			getFirstPageField: function() {
 				var instance = this;
 
 				var firstField;
 
+<<<<<<< HEAD
 				var pageNode = instance.getCurrentPageNode();
+=======
+				var pageNode = instance._getCurrentPageNode();
+>>>>>>> compatible
 
 				instance.eachField(
 					function(field) {
@@ -96,6 +106,7 @@ AUI.add(
 
 				var pagination = instance.getPagination();
 
+<<<<<<< HEAD
 				var pages = instance.get('pagesState');
 
 				var page;
@@ -115,6 +126,9 @@ AUI.add(
 						}
 					}
 				);
+=======
+				pagination.next();
+>>>>>>> compatible
 			},
 
 			prevPage: function() {
@@ -122,6 +136,7 @@ AUI.add(
 
 				var pagination = instance.getPagination();
 
+<<<<<<< HEAD
 				var pages = instance.get('pagesState');
 
 				if (!pages.length) {
@@ -139,6 +154,9 @@ AUI.add(
 				} while (!page.enabled);
 
 				pagination.set('page', prevPage + 2);
+=======
+				pagination.prev();
+>>>>>>> compatible
 			},
 
 			showPage: function(page) {
@@ -168,6 +186,7 @@ AUI.add(
 
 				var container = instance.get('container');
 
+<<<<<<< HEAD
 				var paginatedNode = container.one('.lfr-ddm-form-paginated');
 
 				if (container.inDoc() && paginatedNode) {
@@ -179,6 +198,8 @@ AUI.add(
 					).render();
 				}
 
+=======
+>>>>>>> compatible
 				var wizardNode = container.one('.lfr-ddm-form-wizard');
 
 				if (container.inDoc() && wizardNode) {
@@ -203,8 +224,11 @@ AUI.add(
 
 				if (controls) {
 					instance._syncPaginationControlsUI();
+<<<<<<< HEAD
 
 					instance._syncPaginatedUI(event.prevVal, event.newVal);
+=======
+>>>>>>> compatible
 					instance._syncWizardUI(event.prevVal, event.newVal);
 				}
 
@@ -213,6 +237,7 @@ AUI.add(
 				if (firstField) {
 					firstField.focus();
 				}
+<<<<<<< HEAD
 
 				var formId = instance.getFormId();
 
@@ -227,6 +252,14 @@ AUI.add(
 						page: event.newVal
 					});
 				}
+=======
+			},
+
+			_getCurrentPageNode: function() {
+				var instance = this;
+
+				return instance.getPageNode(instance.getCurrentPage());
+>>>>>>> compatible
 			},
 
 			_getPaginationControlsNode: function() {
@@ -286,13 +319,27 @@ AUI.add(
 				if (nextPage > currentPage) {
 					event.preventDefault();
 
+<<<<<<< HEAD
 					pagination.set('page', nextPage);
+=======
+					var pages = instance._getPaginationNodes();
+
+					instance.validatePage(
+						pages.item(currentPage - 1),
+						function(hasErrors) {
+							if (!hasErrors) {
+								pagination.set('page', nextPage);
+							}
+						}
+					);
+>>>>>>> compatible
 				}
 				else {
 					pagination.set('page', nextPage);
 				}
 			},
 
+<<<<<<< HEAD
 			_setPagesSate: function(pages) {
 				var pagesState = [];
 
@@ -329,6 +376,8 @@ AUI.add(
 				}
 			},
 
+=======
+>>>>>>> compatible
 			_syncPaginationControlsUI: function() {
 				var instance = this;
 
@@ -379,12 +428,15 @@ AUI.add(
 
 					wizard.activate(currentPage - 1);
 				}
+<<<<<<< HEAD
 			},
 
 			_valuePagesState: function() {
 				var instance = this;
 
 				return instance.get('context').pages;
+=======
+>>>>>>> compatible
 			}
 		};
 
@@ -392,6 +444,10 @@ AUI.add(
 	},
 	'',
 	{
+<<<<<<< HEAD
 		requires: ['aui-pagination', 'liferay-ddm-form-renderer-paginated', 'liferay-ddm-form-renderer-wizard']
+=======
+		requires: ['aui-pagination', 'liferay-ddm-form-renderer-wizard']
+>>>>>>> compatible
 	}
 );

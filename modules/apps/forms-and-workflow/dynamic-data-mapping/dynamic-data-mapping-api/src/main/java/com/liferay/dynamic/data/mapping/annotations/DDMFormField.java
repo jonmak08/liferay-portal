@@ -14,7 +14,11 @@
 
 package com.liferay.dynamic.data.mapping.annotations;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -52,10 +56,13 @@ public @interface DDMFormField {
 
 	public String validationExpression() default StringPool.BLANK;
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 3.5.0, replaced by {@link DDMFormRule}
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public String visibilityExpression() default StringPool.BLANK;
 
 }

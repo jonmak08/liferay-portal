@@ -55,7 +55,11 @@ AUI.add(
 				'<label>' + Liferay.Language.get('available-translations') + '</label>' +
 			'</div>';
 
+<<<<<<< HEAD
 		var TPL_AVAILABLE_TRANSLATION_LINK = '<span class="label label-default label-lg ' + CSS_TRANSLATION + ' {cssClass}" locale="{locale}">' +
+=======
+		var TPL_AVAILABLE_TRANSLATION_LINK = '<span class="' + CSS_TRANSLATION + ' {cssClass}" locale="{locale}">' +
+>>>>>>> compatible
 				TPL_LOCALE_IMAGE + '{displayName} ' +
 				'<i class="' + CSS_DELETE_TRANSLATION + ' icon icon-remove"></i>' +
 			'</span>';
@@ -280,6 +284,7 @@ AUI.add(
 						);
 					},
 
+<<<<<<< HEAD
 					syncAvailableLocales: function(locales) {
 						var instance = this;
 
@@ -296,6 +301,8 @@ AUI.add(
 						);
 					},
 
+=======
+>>>>>>> compatible
 					toggleDefaultLocales: function() {
 						var instance = this;
 
@@ -419,10 +426,13 @@ AUI.add(
 
 						var locales = A.Object.keys(val);
 
+<<<<<<< HEAD
 						if (locales.length != 0) {
 							this.syncAvailableLocales(locales);
 						}
 
+=======
+>>>>>>> compatible
 						locales.sort();
 
 						instance._locales = locales;

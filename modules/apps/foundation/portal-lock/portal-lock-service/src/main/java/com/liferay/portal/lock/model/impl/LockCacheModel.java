@@ -20,6 +20,10 @@ import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.model.MVCCModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.lock.model.Lock;
 
 import java.io.Externalizable;
@@ -116,7 +120,11 @@ public class LockCacheModel implements CacheModel<Lock>, Externalizable,
 		lockImpl.setMvccVersion(mvccVersion);
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			lockImpl.setUuid("");
+=======
+			lockImpl.setUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			lockImpl.setUuid(uuid);
@@ -127,7 +135,11 @@ public class LockCacheModel implements CacheModel<Lock>, Externalizable,
 		lockImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			lockImpl.setUserName("");
+=======
+			lockImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			lockImpl.setUserName(userName);
@@ -141,21 +153,33 @@ public class LockCacheModel implements CacheModel<Lock>, Externalizable,
 		}
 
 		if (className == null) {
+<<<<<<< HEAD
 			lockImpl.setClassName("");
+=======
+			lockImpl.setClassName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			lockImpl.setClassName(className);
 		}
 
 		if (key == null) {
+<<<<<<< HEAD
 			lockImpl.setKey("");
+=======
+			lockImpl.setKey(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			lockImpl.setKey(key);
 		}
 
 		if (owner == null) {
+<<<<<<< HEAD
 			lockImpl.setOwner("");
+=======
+			lockImpl.setOwner(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			lockImpl.setOwner(owner);
@@ -201,7 +225,11 @@ public class LockCacheModel implements CacheModel<Lock>, Externalizable,
 		objectOutput.writeLong(mvccVersion);
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(uuid);
@@ -214,7 +242,11 @@ public class LockCacheModel implements CacheModel<Lock>, Externalizable,
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -223,21 +255,33 @@ public class LockCacheModel implements CacheModel<Lock>, Externalizable,
 		objectOutput.writeLong(createDate);
 
 		if (className == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(className);
 		}
 
 		if (key == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(key);
 		}
 
 		if (owner == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(owner);

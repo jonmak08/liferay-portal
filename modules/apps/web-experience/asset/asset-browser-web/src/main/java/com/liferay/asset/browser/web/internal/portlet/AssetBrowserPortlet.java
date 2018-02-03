@@ -15,13 +15,17 @@
 package com.liferay.asset.browser.web.internal.portlet;
 
 import com.liferay.asset.browser.web.internal.constants.AssetBrowserPortletKeys;
+<<<<<<< HEAD
 import com.liferay.asset.constants.AssetWebKeys;
 import com.liferay.asset.util.AssetHelper;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.PortalPreferences;
 import com.liferay.portal.kernel.portlet.PortletPreferencesFactoryUtil;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 import com.liferay.portal.kernel.util.ParamUtil;
 
+<<<<<<< HEAD
 import java.io.IOException;
 
 import javax.portlet.ActionRequest;
@@ -33,6 +37,13 @@ import javax.portlet.RenderResponse;
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+=======
+import javax.portlet.ActionRequest;
+import javax.portlet.ActionResponse;
+import javax.portlet.Portlet;
+
+import org.osgi.service.component.annotations.Component;
+>>>>>>> compatible
 
 /**
  * @author Eudaldo Alonso
@@ -75,6 +86,7 @@ public class AssetBrowserPortlet extends MVCPortlet {
 			displayStyle);
 	}
 
+<<<<<<< HEAD
 	@Override
 	protected void doDispatch(
 			RenderRequest renderRequest, RenderResponse renderResponse)
@@ -88,4 +100,6 @@ public class AssetBrowserPortlet extends MVCPortlet {
 	@Reference
 	private AssetHelper _assetHelper;
 
+=======
+>>>>>>> compatible
 }

@@ -14,7 +14,10 @@
 
 package com.liferay.portal.servlet.filters.virtualhost;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.LayoutFriendlyURLException;
 import com.liferay.portal.kernel.exception.NoSuchLayoutException;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -25,7 +28,10 @@ import com.liferay.portal.kernel.model.LayoutSet;
 import com.liferay.portal.kernel.service.LayoutLocalServiceUtil;
 import com.liferay.portal.kernel.struts.LastPath;
 import com.liferay.portal.kernel.util.HttpUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.JavaConstants;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -185,6 +191,7 @@ public class VirtualHostFilter extends BasePortalFilter {
 
 		long companyId = PortalInstances.getCompanyId(request);
 
+<<<<<<< HEAD
 		String originalFriendlyURL = HttpUtil.normalizePath(
 			request.getRequestURI());
 
@@ -195,6 +202,20 @@ public class VirtualHostFilter extends BasePortalFilter {
 			friendlyURL.startsWith(_contextPath) &&
 			(friendlyURL.charAt(_contextPath.length()) == CharPool.SLASH)) {
 
+=======
+		String originalFriendlyURL = request.getRequestURI();
+
+		String friendlyURL = originalFriendlyURL;
+
+		friendlyURL = StringUtil.replace(
+			friendlyURL, StringPool.DOUBLE_SLASH, StringPool.SLASH);
+
+		if (!friendlyURL.equals(StringPool.SLASH) && !_contextPath.isEmpty() &&
+			(friendlyURL.length() > _contextPath.length()) &&
+			friendlyURL.startsWith(_contextPath) &&
+			(friendlyURL.charAt(_contextPath.length()) == CharPool.SLASH)) {
+
+>>>>>>> compatible
 			friendlyURL = friendlyURL.substring(_contextPath.length());
 		}
 
@@ -252,12 +273,15 @@ public class VirtualHostFilter extends BasePortalFilter {
 
 					forwardURL = forwardURL.concat(friendlyURL);
 
+<<<<<<< HEAD
 					forwardURL = _appendQueryString(request, forwardURL);
 
 					if (_log.isDebugEnabled()) {
 						_log.debug("Forward to " + forwardURL);
 					}
 
+=======
+>>>>>>> compatible
 					RequestDispatcher requestDispatcher =
 						_servletContext.getRequestDispatcher(forwardURL);
 
@@ -363,6 +387,7 @@ public class VirtualHostFilter extends BasePortalFilter {
 
 			String forwardURLString = friendlyURL;
 
+<<<<<<< HEAD
 			if (sb.index() > 0) {
 				sb.append(friendlyURL);
 
@@ -370,6 +395,13 @@ public class VirtualHostFilter extends BasePortalFilter {
 			}
 
 			forwardURLString = _appendQueryString(request, forwardURLString);
+=======
+			if (forwardURL.index() > 0) {
+				forwardURL.append(friendlyURL);
+
+				forwardURLString = forwardURL.toString();
+			}
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug("Forward to " + forwardURLString);
@@ -386,7 +418,38 @@ public class VirtualHostFilter extends BasePortalFilter {
 			processFilter(
 				VirtualHostFilter.class.getName(), request, response,
 				filterChain);
+<<<<<<< HEAD
+=======
 		}
+	}
+
+	private String _findLanguageId(String friendlyURL) {
+		if (friendlyURL.isEmpty() ||
+			(friendlyURL.charAt(0) != CharPool.SLASH)) {
+
+			return null;
+		}
+
+		String lowerCaseLanguageId = friendlyURL;
+
+		int index = friendlyURL.indexOf(CharPool.SLASH, 1);
+
+		if (index != -1) {
+			lowerCaseLanguageId = friendlyURL.substring(0, index);
+>>>>>>> compatible
+		}
+
+		lowerCaseLanguageId = StringUtil.toLowerCase(lowerCaseLanguageId);
+
+		Map<String, String> languageIds = I18nServlet.getLanguageIdsMap();
+
+		String languageId = languageIds.get(lowerCaseLanguageId);
+
+		if (languageId == null) {
+			return null;
+		}
+
+		return languageId;
 	}
 
 	private String _appendQueryString(HttpServletRequest request, String path) {

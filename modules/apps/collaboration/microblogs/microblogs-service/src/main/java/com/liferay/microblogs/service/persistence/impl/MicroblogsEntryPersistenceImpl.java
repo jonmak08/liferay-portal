@@ -38,8 +38,15 @@ import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.ReflectionUtil;
+import com.liferay.portal.kernel.util.SetUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.spring.extender.service.ServiceReference;
 
@@ -312,7 +319,11 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 		msg.append("companyId=");
 		msg.append(companyId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchEntryException(msg.toString());
 	}
@@ -363,7 +374,11 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 		msg.append("companyId=");
 		msg.append(companyId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchEntryException(msg.toString());
 	}
@@ -819,7 +834,11 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 		msg.append("userId=");
 		msg.append(userId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchEntryException(msg.toString());
 	}
@@ -870,7 +889,11 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 		msg.append("userId=");
 		msg.append(userId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchEntryException(msg.toString());
 	}
@@ -1344,7 +1367,11 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 		msg.append(", type=");
 		msg.append(type);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchEntryException(msg.toString());
 	}
@@ -1400,7 +1427,11 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 		msg.append(", type=");
 		msg.append(type);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchEntryException(msg.toString());
 	}
@@ -1901,7 +1932,11 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 		msg.append(", creatorClassPK=");
 		msg.append(creatorClassPK);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchEntryException(msg.toString());
 	}
@@ -1959,7 +1994,11 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 		msg.append(", creatorClassPK=");
 		msg.append(creatorClassPK);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchEntryException(msg.toString());
 	}
@@ -2284,15 +2323,25 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 			query.append(_FINDER_COLUMN_CCNI_CCPK_CREATORCLASSNAMEID_2);
 
 			if (creatorClassPKs.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_CCNI_CCPK_CREATORCLASSPK_7);
 
 				query.append(StringUtil.merge(creatorClassPKs));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 			}
 
 			query.setStringAt(removeConjunction(query.stringAt(query.index() -
@@ -2456,15 +2505,25 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 			query.append(_FINDER_COLUMN_CCNI_CCPK_CREATORCLASSNAMEID_2);
 
 			if (creatorClassPKs.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_CCNI_CCPK_CREATORCLASSPK_7);
 
 				query.append(StringUtil.merge(creatorClassPKs));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 			}
 
 			query.setStringAt(removeConjunction(query.stringAt(query.index() -
@@ -2741,7 +2800,11 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 		msg.append(", type=");
 		msg.append(type);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchEntryException(msg.toString());
 	}
@@ -2797,7 +2860,11 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 		msg.append(", type=");
 		msg.append(type);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchEntryException(msg.toString());
 	}
@@ -3291,7 +3358,11 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 		msg.append(", parentMicroblogsEntryId=");
 		msg.append(parentMicroblogsEntryId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchEntryException(msg.toString());
 	}
@@ -3349,7 +3420,11 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 		msg.append(", parentMicroblogsEntryId=");
 		msg.append(parentMicroblogsEntryId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchEntryException(msg.toString());
 	}
@@ -3875,7 +3950,11 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 		msg.append(", creatorClassPK=");
 		msg.append(creatorClassPK);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchEntryException(msg.toString());
 	}
@@ -3938,7 +4017,11 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 		msg.append(", creatorClassPK=");
 		msg.append(creatorClassPK);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchEntryException(msg.toString());
 	}
@@ -4283,15 +4366,25 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 			query.append(_FINDER_COLUMN_C_CCNI_CCPK_CREATORCLASSNAMEID_2);
 
 			if (creatorClassPKs.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_C_CCNI_CCPK_CREATORCLASSPK_7);
 
 				query.append(StringUtil.merge(creatorClassPKs));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 			}
 
 			query.setStringAt(removeConjunction(query.stringAt(query.index() -
@@ -4471,15 +4564,25 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 			query.append(_FINDER_COLUMN_C_CCNI_CCPK_CREATORCLASSNAMEID_2);
 
 			if (creatorClassPKs.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_C_CCNI_CCPK_CREATORCLASSPK_7);
 
 				query.append(StringUtil.merge(creatorClassPKs));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 			}
 
 			query.setStringAt(removeConjunction(query.stringAt(query.index() -
@@ -4783,7 +4886,11 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 		msg.append(", type=");
 		msg.append(type);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchEntryException(msg.toString());
 	}
@@ -4846,7 +4953,11 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 		msg.append(", type=");
 		msg.append(type);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchEntryException(msg.toString());
 	}
@@ -5389,7 +5500,11 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 		msg.append(", type=");
 		msg.append(type);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchEntryException(msg.toString());
 	}
@@ -5452,7 +5567,11 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 		msg.append(", type=");
 		msg.append(type);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchEntryException(msg.toString());
 	}
@@ -5790,15 +5909,25 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 			query.append(_FINDER_COLUMN_CCNI_CCPK_T_CREATORCLASSNAMEID_2);
 
 			if (creatorClassPKs.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_CCNI_CCPK_T_CREATORCLASSPK_7);
 
 				query.append(StringUtil.merge(creatorClassPKs));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -5980,15 +6109,25 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 			query.append(_FINDER_COLUMN_CCNI_CCPK_T_CREATORCLASSNAMEID_2);
 
 			if (creatorClassPKs.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_CCNI_CCPK_T_CREATORCLASSPK_7);
 
 				query.append(StringUtil.merge(creatorClassPKs));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -6322,7 +6461,11 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 		msg.append(", type=");
 		msg.append(type);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchEntryException(msg.toString());
 	}
@@ -6391,7 +6534,11 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 		msg.append(", type=");
 		msg.append(type);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchEntryException(msg.toString());
 	}
@@ -6748,15 +6895,25 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 			query.append(_FINDER_COLUMN_C_CCNI_CCPK_T_CREATORCLASSNAMEID_2);
 
 			if (creatorClassPKs.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_C_CCNI_CCPK_T_CREATORCLASSPK_7);
 
 				query.append(StringUtil.merge(creatorClassPKs));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -6950,15 +7107,25 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 			query.append(_FINDER_COLUMN_C_CCNI_CCPK_T_CREATORCLASSNAMEID_2);
 
 			if (creatorClassPKs.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_C_CCNI_CCPK_T_CREATORCLASSPK_7);
 
 				query.append(StringUtil.merge(creatorClassPKs));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -7297,7 +7464,11 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 		msg.append(", socialRelationType=");
 		msg.append(socialRelationType);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchEntryException(msg.toString());
 	}
@@ -7365,7 +7536,11 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 		msg.append(", socialRelationType=");
 		msg.append(socialRelationType);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchEntryException(msg.toString());
 	}
@@ -7684,11 +7859,17 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 		setModelClass(MicroblogsEntry.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("type", "type_");
@@ -8473,12 +8654,20 @@ public class MicroblogsEntryPersistenceImpl extends BasePersistenceImpl<Microblo
 		for (Serializable primaryKey : uncachedPrimaryKeys) {
 			query.append((long)primaryKey);
 
+<<<<<<< HEAD
 			query.append(",");
+=======
+			query.append(StringPool.COMMA);
+>>>>>>> compatible
 		}
 
 		query.setIndex(query.index() - 1);
 
+<<<<<<< HEAD
 		query.append(")");
+=======
+		query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 		String sql = query.toString();
 

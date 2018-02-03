@@ -2583,6 +2583,7 @@ public class DDMStructureUtil {
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns all the ddm structures where groupId = &#63; and classNameId = &#63; and name = &#63; and description = &#63;.
 	*
 	* @param groupId the group ID
@@ -3081,6 +3082,8 @@ public class DDMStructureUtil {
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	* Caches the ddm structure in the entity cache if it is enabled.
 	*
 	* @param ddmStructure the ddm structure

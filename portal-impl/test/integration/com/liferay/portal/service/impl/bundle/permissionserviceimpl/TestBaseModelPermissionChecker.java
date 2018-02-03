@@ -16,6 +16,10 @@ package com.liferay.portal.service.impl.bundle.permissionserviceimpl;
 
 import com.liferay.portal.kernel.security.permission.BaseModelPermissionChecker;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StackTraceUtil;
+>>>>>>> compatible
 
 import java.util.concurrent.atomic.AtomicBoolean;
 

@@ -20,8 +20,11 @@ import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Validator;
 
+<<<<<<< HEAD
 import java.util.Objects;
 
+=======
+>>>>>>> compatible
 import javax.servlet.http.HttpServletRequest;
 
 import org.osgi.service.component.annotations.Component;
@@ -55,9 +58,13 @@ public class CheckboxMultipleDDMFormFieldValueRequestParameterRetriever
 	protected String[] getDefaultDDMFormFieldParameterValues(
 		String defaultDDMFormFieldParameterValue) {
 
+<<<<<<< HEAD
 		if (Validator.isNull(defaultDDMFormFieldParameterValue) ||
 			Objects.equals(defaultDDMFormFieldParameterValue, "[]")) {
 
+=======
+		if (Validator.isNull(defaultDDMFormFieldParameterValue)) {
+>>>>>>> compatible
 			return GetterUtil.DEFAULT_STRING_VALUES;
 		}
 

@@ -387,9 +387,15 @@ public class UserPersistenceTest {
 
 	@Test
 	public void testCountByC_GUID() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByC_GUID(RandomTestUtil.nextLong(), "");
 
 		_persistence.countByC_GUID(0L, "null");
+=======
+		_persistence.countByC_GUID(RandomTestUtil.nextLong(), StringPool.BLANK);
+
+		_persistence.countByC_GUID(0L, StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByC_GUID(0L, (String)null);
 	}

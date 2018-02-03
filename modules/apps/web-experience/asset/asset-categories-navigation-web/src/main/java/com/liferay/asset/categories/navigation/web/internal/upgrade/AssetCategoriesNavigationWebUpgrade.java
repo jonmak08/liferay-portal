@@ -14,7 +14,11 @@
 
 package com.liferay.asset.categories.navigation.web.internal.upgrade;
 
+<<<<<<< HEAD
 import com.liferay.asset.categories.navigation.constants.AssetCategoriesNavigationPortletKeys;
+=======
+import com.liferay.asset.categories.navigation.web.constants.AssetCategoriesNavigationPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.upgrade.BaseUpgradePortletId;
 import com.liferay.portal.kernel.upgrade.DummyUpgradeStep;
 import com.liferay.portal.upgrade.registry.UpgradeStepRegistrator;

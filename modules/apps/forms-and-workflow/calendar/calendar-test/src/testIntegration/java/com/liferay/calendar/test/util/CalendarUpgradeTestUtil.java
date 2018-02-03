@@ -14,20 +14,27 @@
 
 package com.liferay.calendar.test.util;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.upgrade.UpgradeProcess;
 import com.liferay.portal.kernel.upgrade.UpgradeStep;
 import com.liferay.portal.upgrade.registry.UpgradeStepRegistrator;
 import com.liferay.registry.Registry;
 import com.liferay.registry.RegistryUtil;
 
+<<<<<<< HEAD
 import java.sql.SQLException;
 
+=======
+>>>>>>> compatible
 /**
  * @author Adam Brandizzi
  */
 public class CalendarUpgradeTestUtil {
 
+<<<<<<< HEAD
 	public static UpgradeProcess getServiceUpgradeStep(
 		String upgradeStepClassName) {
 
@@ -49,6 +56,13 @@ public class CalendarUpgradeTestUtil {
 
 		return registry.callService(
 			upgradeClassName,
+=======
+	public static UpgradeProcess getUpgradeStep(String upgradeStepClassName) {
+		Registry registry = RegistryUtil.getRegistry();
+
+		return registry.callService(
+			_UPGRADE_SERVICE_CLASS_NAME,
+>>>>>>> compatible
 			(UpgradeStepRegistrator upgradeStepRegistror) -> {
 				SearchRegistry searchRegistry = new SearchRegistry(
 					upgradeStepClassName);
@@ -59,6 +73,7 @@ public class CalendarUpgradeTestUtil {
 			});
 	}
 
+<<<<<<< HEAD
 	public static UpgradeProcess getWebUpgradeStep(
 		String upgradeStepClassName) {
 
@@ -66,6 +81,10 @@ public class CalendarUpgradeTestUtil {
 			"com.liferay.calendar.web.internal.upgrade.CalendarWebUpgrade",
 			upgradeStepClassName);
 	}
+=======
+	private static final String _UPGRADE_SERVICE_CLASS_NAME =
+		"com.liferay.calendar.internal.upgrade.CalendarServiceUpgrade";
+>>>>>>> compatible
 
 	private static class SearchRegistry
 		implements UpgradeStepRegistrator.Registry {

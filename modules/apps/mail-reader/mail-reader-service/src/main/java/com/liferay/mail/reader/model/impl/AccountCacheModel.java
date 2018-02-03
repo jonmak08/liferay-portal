@@ -21,6 +21,10 @@ import com.liferay.mail.reader.model.Account;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -132,7 +136,11 @@ public class AccountCacheModel implements CacheModel<Account>, Externalizable {
 		accountImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			accountImpl.setUserName("");
+=======
+			accountImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			accountImpl.setUserName(userName);
@@ -153,28 +161,44 @@ public class AccountCacheModel implements CacheModel<Account>, Externalizable {
 		}
 
 		if (address == null) {
+<<<<<<< HEAD
 			accountImpl.setAddress("");
+=======
+			accountImpl.setAddress(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			accountImpl.setAddress(address);
 		}
 
 		if (personalName == null) {
+<<<<<<< HEAD
 			accountImpl.setPersonalName("");
+=======
+			accountImpl.setPersonalName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			accountImpl.setPersonalName(personalName);
 		}
 
 		if (protocol == null) {
+<<<<<<< HEAD
 			accountImpl.setProtocol("");
+=======
+			accountImpl.setProtocol(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			accountImpl.setProtocol(protocol);
 		}
 
 		if (incomingHostName == null) {
+<<<<<<< HEAD
 			accountImpl.setIncomingHostName("");
+=======
+			accountImpl.setIncomingHostName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			accountImpl.setIncomingHostName(incomingHostName);
@@ -184,7 +208,11 @@ public class AccountCacheModel implements CacheModel<Account>, Externalizable {
 		accountImpl.setIncomingSecure(incomingSecure);
 
 		if (outgoingHostName == null) {
+<<<<<<< HEAD
 			accountImpl.setOutgoingHostName("");
+=======
+			accountImpl.setOutgoingHostName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			accountImpl.setOutgoingHostName(outgoingHostName);
@@ -194,14 +222,22 @@ public class AccountCacheModel implements CacheModel<Account>, Externalizable {
 		accountImpl.setOutgoingSecure(outgoingSecure);
 
 		if (login == null) {
+<<<<<<< HEAD
 			accountImpl.setLogin("");
+=======
+			accountImpl.setLogin(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			accountImpl.setLogin(login);
 		}
 
 		if (password == null) {
+<<<<<<< HEAD
 			accountImpl.setPassword("");
+=======
+			accountImpl.setPassword(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			accountImpl.setPassword(password);
@@ -210,7 +246,11 @@ public class AccountCacheModel implements CacheModel<Account>, Externalizable {
 		accountImpl.setSavePassword(savePassword);
 
 		if (signature == null) {
+<<<<<<< HEAD
 			accountImpl.setSignature("");
+=======
+			accountImpl.setSignature(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			accountImpl.setSignature(signature);
@@ -219,7 +259,11 @@ public class AccountCacheModel implements CacheModel<Account>, Externalizable {
 		accountImpl.setUseSignature(useSignature);
 
 		if (folderPrefix == null) {
+<<<<<<< HEAD
 			accountImpl.setFolderPrefix("");
+=======
+			accountImpl.setFolderPrefix(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			accountImpl.setFolderPrefix(folderPrefix);
@@ -289,7 +333,11 @@ public class AccountCacheModel implements CacheModel<Account>, Externalizable {
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -299,28 +347,44 @@ public class AccountCacheModel implements CacheModel<Account>, Externalizable {
 		objectOutput.writeLong(modifiedDate);
 
 		if (address == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(address);
 		}
 
 		if (personalName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(personalName);
 		}
 
 		if (protocol == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(protocol);
 		}
 
 		if (incomingHostName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(incomingHostName);
@@ -331,7 +395,11 @@ public class AccountCacheModel implements CacheModel<Account>, Externalizable {
 		objectOutput.writeBoolean(incomingSecure);
 
 		if (outgoingHostName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(outgoingHostName);
@@ -342,14 +410,22 @@ public class AccountCacheModel implements CacheModel<Account>, Externalizable {
 		objectOutput.writeBoolean(outgoingSecure);
 
 		if (login == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(login);
 		}
 
 		if (password == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(password);
@@ -358,7 +434,11 @@ public class AccountCacheModel implements CacheModel<Account>, Externalizable {
 		objectOutput.writeBoolean(savePassword);
 
 		if (signature == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(signature);
@@ -367,7 +447,11 @@ public class AccountCacheModel implements CacheModel<Account>, Externalizable {
 		objectOutput.writeBoolean(useSignature);
 
 		if (folderPrefix == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(folderPrefix);

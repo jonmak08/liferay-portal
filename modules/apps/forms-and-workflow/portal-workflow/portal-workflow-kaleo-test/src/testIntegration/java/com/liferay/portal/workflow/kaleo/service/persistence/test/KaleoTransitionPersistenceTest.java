@@ -29,6 +29,10 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.util.IntegerWrapper;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.OrderByComparatorFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.PersistenceTestRule;
@@ -135,7 +139,11 @@ public class KaleoTransitionPersistenceTest {
 
 		newKaleoTransition.setModifiedDate(RandomTestUtil.nextDate());
 
+<<<<<<< HEAD
 		newKaleoTransition.setKaleoDefinitionVersionId(RandomTestUtil.nextLong());
+=======
+		newKaleoTransition.setKaleoDefinitionId(RandomTestUtil.nextLong());
+>>>>>>> compatible
 
 		newKaleoTransition.setKaleoNodeId(RandomTestUtil.nextLong());
 
@@ -173,8 +181,13 @@ public class KaleoTransitionPersistenceTest {
 		Assert.assertEquals(Time.getShortTimestamp(
 				existingKaleoTransition.getModifiedDate()),
 			Time.getShortTimestamp(newKaleoTransition.getModifiedDate()));
+<<<<<<< HEAD
 		Assert.assertEquals(existingKaleoTransition.getKaleoDefinitionVersionId(),
 			newKaleoTransition.getKaleoDefinitionVersionId());
+=======
+		Assert.assertEquals(existingKaleoTransition.getKaleoDefinitionId(),
+			newKaleoTransition.getKaleoDefinitionId());
+>>>>>>> compatible
 		Assert.assertEquals(existingKaleoTransition.getKaleoNodeId(),
 			newKaleoTransition.getKaleoNodeId());
 		Assert.assertEquals(existingKaleoTransition.getName(),
@@ -201,10 +214,17 @@ public class KaleoTransitionPersistenceTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testCountByKaleoDefinitionVersionId() throws Exception {
 		_persistence.countByKaleoDefinitionVersionId(RandomTestUtil.nextLong());
 
 		_persistence.countByKaleoDefinitionVersionId(0L);
+=======
+	public void testCountByKaleoDefinitionId() throws Exception {
+		_persistence.countByKaleoDefinitionId(RandomTestUtil.nextLong());
+
+		_persistence.countByKaleoDefinitionId(0L);
+>>>>>>> compatible
 	}
 
 	@Test
@@ -216,9 +236,15 @@ public class KaleoTransitionPersistenceTest {
 
 	@Test
 	public void testCountByKNI_N() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByKNI_N(RandomTestUtil.nextLong(), "");
 
 		_persistence.countByKNI_N(0L, "null");
+=======
+		_persistence.countByKNI_N(RandomTestUtil.nextLong(), StringPool.BLANK);
+
+		_persistence.countByKNI_N(0L, StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByKNI_N(0L, (String)null);
 	}
@@ -257,11 +283,18 @@ public class KaleoTransitionPersistenceTest {
 		return OrderByComparatorFactoryUtil.create("KaleoTransition",
 			"kaleoTransitionId", true, "groupId", true, "companyId", true,
 			"userId", true, "userName", true, "createDate", true,
+<<<<<<< HEAD
 			"modifiedDate", true, "kaleoDefinitionVersionId", true,
 			"kaleoNodeId", true, "name", true, "description", true,
 			"sourceKaleoNodeId", true, "sourceKaleoNodeName", true,
 			"targetKaleoNodeId", true, "targetKaleoNodeName", true,
 			"defaultTransition", true);
+=======
+			"modifiedDate", true, "kaleoDefinitionId", true, "kaleoNodeId",
+			true, "name", true, "description", true, "sourceKaleoNodeId", true,
+			"sourceKaleoNodeName", true, "targetKaleoNodeId", true,
+			"targetKaleoNodeName", true, "defaultTransition", true);
+>>>>>>> compatible
 	}
 
 	@Test
@@ -501,7 +534,11 @@ public class KaleoTransitionPersistenceTest {
 
 		kaleoTransition.setModifiedDate(RandomTestUtil.nextDate());
 
+<<<<<<< HEAD
 		kaleoTransition.setKaleoDefinitionVersionId(RandomTestUtil.nextLong());
+=======
+		kaleoTransition.setKaleoDefinitionId(RandomTestUtil.nextLong());
+>>>>>>> compatible
 
 		kaleoTransition.setKaleoNodeId(RandomTestUtil.nextLong());
 

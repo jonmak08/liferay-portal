@@ -46,6 +46,10 @@ import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StreamUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
@@ -187,6 +191,11 @@ public class AdminPortlet extends BaseKBPortlet {
 			ActionRequest actionRequest, ActionResponse actionResponse)
 		throws Exception {
 
+<<<<<<< HEAD
+=======
+		InputStream inputStream = null;
+
+>>>>>>> compatible
 		try {
 			ThemeDisplay themeDisplay =
 				(ThemeDisplay)actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
@@ -209,6 +218,7 @@ public class AdminPortlet extends BaseKBPortlet {
 			boolean prioritizeByNumericalPrefix = ParamUtil.getBoolean(
 				uploadPortletRequest, "prioritizeByNumericalPrefix");
 
+<<<<<<< HEAD
 			try (InputStream inputStream =
 					uploadPortletRequest.getFileAsStream("file")) {
 
@@ -229,10 +239,33 @@ public class AdminPortlet extends BaseKBPortlet {
 					actionRequest, "importedKBArticlesCount",
 					importedKBArticlesCount);
 			}
+=======
+			inputStream = uploadPortletRequest.getFileAsStream("file");
+
+			ServiceContext serviceContext = ServiceContextFactory.getInstance(
+				AdminPortlet.class.getName(), actionRequest);
+
+			serviceContext.setGuestPermissions(new String[] {ActionKeys.VIEW});
+
+			int importedKBArticlesCount =
+				kbArticleService.addKBArticlesMarkdown(
+					themeDisplay.getScopeGroupId(), parentKBFolderId, fileName,
+					prioritizeByNumericalPrefix, inputStream, serviceContext);
+
+			SessionMessages.add(
+				actionRequest, "importedKBArticlesCount",
+				importedKBArticlesCount);
+>>>>>>> compatible
 		}
 		catch (KBArticleImportException kbaie) {
 			SessionErrors.add(actionRequest, kbaie.getClass(), kbaie);
 		}
+<<<<<<< HEAD
+=======
+		finally {
+			StreamUtil.cleanUp(inputStream);
+		}
+>>>>>>> compatible
 	}
 
 	@Override
@@ -591,7 +624,11 @@ public class AdminPortlet extends BaseKBPortlet {
 	}
 
 	@Reference(
+<<<<<<< HEAD
 		target = "(&(release.bundle.symbolic.name=com.liferay.knowledge.base.web)(release.schema.version=1.1.0))",
+=======
+		target = "(&(release.bundle.symbolic.name=com.liferay.knowledge.base.web)(release.schema.version=1.0.0))",
+>>>>>>> compatible
 		unbind = "-"
 	)
 	protected void setRelease(Release release) {

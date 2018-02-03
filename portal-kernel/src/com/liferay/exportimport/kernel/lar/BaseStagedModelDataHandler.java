@@ -40,6 +40,10 @@ import com.liferay.portal.kernel.model.StagedGroupedModel;
 import com.liferay.portal.kernel.model.StagedModel;
 import com.liferay.portal.kernel.model.TrashedModel;
 import com.liferay.portal.kernel.model.WorkflowedModel;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.model.adapter.StagedGroup;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -50,6 +54,10 @@ import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.ratings.kernel.model.RatingsEntry;
 import com.liferay.ratings.kernel.service.RatingsEntryLocalServiceUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.trash.kernel.util.TrashUtil;
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -531,7 +539,11 @@ public abstract class BaseStagedModelDataHandler<T extends StagedModel>
 
 		List<AssetCategory> assetCategories =
 			AssetCategoryLocalServiceUtil.getCategories(
+<<<<<<< HEAD
 				ExportImportClassedModelUtil.getClassNameId(stagedModel),
+=======
+				ExportImportClassedModelUtil.getClassName(stagedModel),
+>>>>>>> compatible
 				ExportImportClassedModelUtil.getClassPK(stagedModel));
 
 		for (AssetCategory assetCategory : assetCategories) {
@@ -546,7 +558,11 @@ public abstract class BaseStagedModelDataHandler<T extends StagedModel>
 		throws PortletDataException {
 
 		List<AssetTag> assetTags = AssetTagLocalServiceUtil.getTags(
+<<<<<<< HEAD
 			ExportImportClassedModelUtil.getClassNameId(stagedModel),
+=======
+			ExportImportClassedModelUtil.getClassName(stagedModel),
+>>>>>>> compatible
 			ExportImportClassedModelUtil.getClassPK(stagedModel));
 
 		for (AssetTag assetTag : assetTags) {
@@ -656,7 +672,11 @@ public abstract class BaseStagedModelDataHandler<T extends StagedModel>
 		List<Long> assetCategoryIds = new ArrayList<>(referenceElements.size());
 
 		for (Element referenceElement : referenceElements) {
+<<<<<<< HEAD
 			Long classPK = GetterUtil.getLong(
+=======
+			long classPK = GetterUtil.getLong(
+>>>>>>> compatible
 				referenceElement.attributeValue("class-pk"));
 
 			StagedModelDataHandlerUtil.importReferenceStagedModel(
@@ -695,7 +715,11 @@ public abstract class BaseStagedModelDataHandler<T extends StagedModel>
 		List<Long> assetTagIds = new ArrayList<>(referenceElements.size());
 
 		for (Element referenceElement : referenceElements) {
+<<<<<<< HEAD
 			Long classPK = GetterUtil.getLong(
+=======
+			long classPK = GetterUtil.getLong(
+>>>>>>> compatible
 				referenceElement.attributeValue("class-pk"));
 
 			StagedModelDataHandlerUtil.importReferenceStagedModel(
@@ -767,9 +791,16 @@ public abstract class BaseStagedModelDataHandler<T extends StagedModel>
 			PortletDataContext portletDataContext, Element referenceElement)
 		throws PortletDataException {
 
+<<<<<<< HEAD
 		StagedModelDataHandler<?> stagedModelDataHandler =
 			StagedModelDataHandlerRegistryUtil.getStagedModelDataHandler(
 				"com.liferay.site.model.adapter.StagedGroup");
+=======
+		StagedModelDataHandler<StagedGroup> stagedModelDataHandler =
+			(StagedModelDataHandler<StagedGroup>)
+				StagedModelDataHandlerRegistryUtil.getStagedModelDataHandler(
+					StagedGroup.class.getName());
+>>>>>>> compatible
 
 		stagedModelDataHandler.importMissingReference(
 			portletDataContext, referenceElement);
@@ -835,7 +866,11 @@ public abstract class BaseStagedModelDataHandler<T extends StagedModel>
 				continue;
 			}
 
+<<<<<<< HEAD
 			Long classPK = GetterUtil.getLong(
+=======
+			long classPK = GetterUtil.getLong(
+>>>>>>> compatible
 				referenceElement.attributeValue("class-pk"));
 
 			StagedModelDataHandlerUtil.importReferenceStagedModel(
@@ -844,6 +879,7 @@ public abstract class BaseStagedModelDataHandler<T extends StagedModel>
 	}
 
 	protected boolean isStagedModelInTrash(T stagedModel) {
+<<<<<<< HEAD
 		if (!(stagedModel instanceof TrashedModel)) {
 			return false;
 		}
@@ -851,28 +887,36 @@ public abstract class BaseStagedModelDataHandler<T extends StagedModel>
 		TrashedModel trashedModel = (TrashedModel)stagedModel;
 
 		return trashedModel.isInTrash();
+=======
+		String className = ExportImportClassedModelUtil.getClassName(
+			stagedModel);
+		long classPK = ExportImportClassedModelUtil.getClassPK(stagedModel);
+
+		try {
+			return TrashUtil.isInTrash(className, classPK);
+		}
+		catch (PortalException pe) {
+			if (_log.isDebugEnabled()) {
+				_log.debug(pe, pe);
+			}
+		}
+
+		return false;
+>>>>>>> compatible
 	}
 
 	protected void validateExport(
 			PortletDataContext portletDataContext, T stagedModel)
 		throws PortletDataException {
 
+<<<<<<< HEAD
 		if (stagedModel instanceof TrashedModel) {
 			TrashedModel trashedModel = (TrashedModel)stagedModel;
 
 			if (trashedModel.isInTrash()) {
 				PortletDataException pde = new PortletDataException(
 					PortletDataException.STATUS_IN_TRASH);
-
-				pde.setStagedModelDisplayName(getDisplayName(stagedModel));
-				pde.setStagedModelClassName(stagedModel.getModelClassName());
-				pde.setStagedModelClassPK(
-					GetterUtil.getString(stagedModel.getPrimaryKeyObj()));
-
-				throw pde;
-			}
-		}
-
+=======
 		if (!portletDataContext.isInitialPublication() &&
 			(stagedModel instanceof WorkflowedModel)) {
 
@@ -883,6 +927,36 @@ public abstract class BaseStagedModelDataHandler<T extends StagedModel>
 
 				PortletDataException pde = new PortletDataException(
 					PortletDataException.STATUS_UNAVAILABLE);
+>>>>>>> compatible
+
+				pde.setStagedModelDisplayName(getDisplayName(stagedModel));
+				pde.setStagedModelClassName(stagedModel.getModelClassName());
+				pde.setStagedModelClassPK(
+					GetterUtil.getString(stagedModel.getPrimaryKeyObj()));
+
+				throw pde;
+			}
+		}
+
+<<<<<<< HEAD
+		if (!portletDataContext.isInitialPublication() &&
+			(stagedModel instanceof WorkflowedModel)) {
+
+			WorkflowedModel workflowedModel = (WorkflowedModel)stagedModel;
+
+			if (!ArrayUtil.contains(
+					getExportableStatuses(), workflowedModel.getStatus())) {
+
+				PortletDataException pde = new PortletDataException(
+					PortletDataException.STATUS_UNAVAILABLE);
+=======
+		if (stagedModel instanceof TrashedModel) {
+			TrashedModel trashedModel = (TrashedModel)stagedModel;
+
+			if (trashedModel.isInTrash()) {
+				PortletDataException pde = new PortletDataException(
+					PortletDataException.STATUS_IN_TRASH);
+>>>>>>> compatible
 
 				pde.setStagedModelDisplayName(getDisplayName(stagedModel));
 				pde.setStagedModelClassName(stagedModel.getModelClassName());
@@ -897,9 +971,16 @@ public abstract class BaseStagedModelDataHandler<T extends StagedModel>
 	protected boolean validateMissingGroupReference(
 		PortletDataContext portletDataContext, Element referenceElement) {
 
+<<<<<<< HEAD
 		StagedModelDataHandler<?> stagedModelDataHandler =
 			StagedModelDataHandlerRegistryUtil.getStagedModelDataHandler(
 				"com.liferay.site.model.adapter.StagedGroup");
+=======
+		StagedModelDataHandler<StagedGroup> stagedModelDataHandler =
+			(StagedModelDataHandler<StagedGroup>)
+				StagedModelDataHandlerRegistryUtil.getStagedModelDataHandler(
+					StagedGroup.class.getName());
+>>>>>>> compatible
 
 		return stagedModelDataHandler.validateReference(
 			portletDataContext, referenceElement);

@@ -16,13 +16,12 @@ package com.liferay.portal.search.solr.filter;
 
 import com.liferay.portal.kernel.search.filter.GeoDistanceRangeFilter;
 
-import org.apache.lucene.search.Query;
-
 /**
  * @author Michael C. Han
  */
 public interface GeoDistanceRangeFilterTranslator {
 
-	public Query translate(GeoDistanceRangeFilter geoDistanceRangeFilter);
+	public org.apache.lucene.search.Query translate(
+		GeoDistanceRangeFilter geoDistanceRangeFilter);
 
 }

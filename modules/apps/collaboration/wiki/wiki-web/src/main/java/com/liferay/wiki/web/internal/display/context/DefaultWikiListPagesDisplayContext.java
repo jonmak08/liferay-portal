@@ -17,7 +17,10 @@ package com.liferay.wiki.web.internal.display.context;
 import com.liferay.asset.kernel.model.AssetEntry;
 import com.liferay.asset.kernel.service.AssetEntryServiceUtil;
 import com.liferay.asset.kernel.service.persistence.AssetEntryQuery;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.dao.search.SearchContainer;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -37,8 +40,13 @@ import com.liferay.portal.kernel.search.SearchResult;
 import com.liferay.portal.kernel.search.SearchResultUtil;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.servlet.taglib.ui.DeleteMenuItem;
 import com.liferay.portal.kernel.servlet.taglib.ui.JavaScriptMenuItem;
+=======
+import com.liferay.portal.kernel.service.SubscriptionLocalServiceUtil;
+import com.liferay.portal.kernel.servlet.taglib.ui.DeleteMenuItem;
+>>>>>>> compatible
 import com.liferay.portal.kernel.servlet.taglib.ui.Menu;
 import com.liferay.portal.kernel.servlet.taglib.ui.MenuItem;
 import com.liferay.portal.kernel.servlet.taglib.ui.URLMenuItem;
@@ -48,6 +56,7 @@ import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.ParamUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
@@ -56,6 +65,15 @@ import com.liferay.subscription.service.SubscriptionLocalServiceUtil;
 import com.liferay.taglib.search.ResultRow;
 import com.liferay.taglib.security.PermissionsURLTag;
 import com.liferay.trash.TrashHelper;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.taglib.search.ResultRow;
+import com.liferay.taglib.security.PermissionsURLTag;
+import com.liferay.trash.kernel.util.TrashUtil;
+>>>>>>> compatible
 import com.liferay.wiki.configuration.WikiGroupServiceConfiguration;
 import com.liferay.wiki.configuration.WikiGroupServiceOverriddenConfiguration;
 import com.liferay.wiki.constants.WikiWebKeys;
@@ -67,12 +85,21 @@ import com.liferay.wiki.model.WikiPageResource;
 import com.liferay.wiki.service.WikiPageLocalServiceUtil;
 import com.liferay.wiki.service.WikiPageResourceLocalServiceUtil;
 import com.liferay.wiki.service.WikiPageServiceUtil;
+<<<<<<< HEAD
 import com.liferay.wiki.util.comparator.PageVersionComparator;
 import com.liferay.wiki.web.internal.display.context.util.WikiRequestHelper;
 import com.liferay.wiki.web.internal.security.permission.resource.WikiNodePermission;
 import com.liferay.wiki.web.internal.security.permission.resource.WikiPagePermission;
 import com.liferay.wiki.web.internal.util.WikiPortletUtil;
 import com.liferay.wiki.web.internal.util.WikiWebComponentProvider;
+=======
+import com.liferay.wiki.service.permission.WikiNodePermissionChecker;
+import com.liferay.wiki.service.permission.WikiPagePermissionChecker;
+import com.liferay.wiki.util.comparator.PageVersionComparator;
+import com.liferay.wiki.web.internal.display.context.util.WikiRequestHelper;
+import com.liferay.wiki.web.util.WikiPortletUtil;
+import com.liferay.wiki.web.util.WikiWebComponentProvider;
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,7 +107,10 @@ import java.util.UUID;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.PortletURL;
+<<<<<<< HEAD
 import javax.portlet.WindowStateException;
+=======
+>>>>>>> compatible
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -93,11 +123,18 @@ public class DefaultWikiListPagesDisplayContext
 
 	public DefaultWikiListPagesDisplayContext(
 		HttpServletRequest request, HttpServletResponse response,
+<<<<<<< HEAD
 		WikiNode wikiNode, TrashHelper trashHelper) {
 
 		_request = request;
 		_wikiNode = wikiNode;
 		_trashHelper = trashHelper;
+=======
+		WikiNode wikiNode) {
+
+		_request = request;
+		_wikiNode = wikiNode;
+>>>>>>> compatible
 
 		_wikiRequestHelper = new WikiRequestHelper(request);
 	}
@@ -172,12 +209,17 @@ public class DefaultWikiListPagesDisplayContext
 
 		addMoveMenuItem(menuItems, wikiPage);
 
+<<<<<<< HEAD
 		addChildPageMenuItem(menuItems, wikiPage);
 
 		addSubscriptionMenuItem(menuItems, wikiPage);
 
 		addPrintPageMenuItem(menuItems, wikiPage);
 
+=======
+		addSubscriptionMenuItem(menuItems, wikiPage);
+
+>>>>>>> compatible
 		addDeleteMenuItem(menuItems, wikiPage);
 
 		menu.setMenuItems(menuItems);
@@ -267,7 +309,11 @@ public class DefaultWikiListPagesDisplayContext
 				if (permissionChecker.isContentReviewer(
 						_wikiRequestHelper.getCompanyId(),
 						_wikiRequestHelper.getScopeGroupId()) ||
+<<<<<<< HEAD
 					WikiPagePermission.contains(
+=======
+					WikiPagePermissionChecker.contains(
+>>>>>>> compatible
 						permissionChecker, curPage, ActionKeys.UPDATE)) {
 
 					WikiPage lastPage = null;
@@ -428,6 +474,7 @@ public class DefaultWikiListPagesDisplayContext
 		searchContainer.setResults(results);
 	}
 
+<<<<<<< HEAD
 	protected void addChildPageMenuItem(
 			List<MenuItem> menuItems, WikiPage wikiPage)
 		throws PortalException {
@@ -462,6 +509,8 @@ public class DefaultWikiListPagesDisplayContext
 		menuItems.add(urlMenuItem);
 	}
 
+=======
+>>>>>>> compatible
 	protected void addCopyMenuItem(List<MenuItem> menuItems, WikiPage wikiPage)
 		throws PortalException {
 
@@ -499,16 +548,26 @@ public class DefaultWikiListPagesDisplayContext
 		throws PortalException {
 
 		if (!wikiPage.isDraft() &&
+<<<<<<< HEAD
 			WikiPagePermission.contains(
 				_wikiRequestHelper.getPermissionChecker(), wikiPage,
 				ActionKeys.DELETE)) {
+=======
+			WikiPagePermissionChecker.contains(
+				_wikiRequestHelper.getPermissionChecker(), wikiPage.getNodeId(),
+				HtmlUtil.unescape(wikiPage.getTitle()), ActionKeys.DELETE)) {
+>>>>>>> compatible
 
 			DeleteMenuItem deleteMenuItem = new DeleteMenuItem();
 
 			deleteMenuItem.setKey(WikiUIItemKeys.DELETE);
 			deleteMenuItem.setTrash(
+<<<<<<< HEAD
 				_trashHelper.isTrashEnabled(
 					_wikiRequestHelper.getScopeGroupId()));
+=======
+				TrashUtil.isTrashEnabled(_wikiRequestHelper.getScopeGroupId()));
+>>>>>>> compatible
 
 			LiferayPortletResponse liferayPortletResponse =
 				_wikiRequestHelper.getLiferayPortletResponse();
@@ -520,7 +579,11 @@ public class DefaultWikiListPagesDisplayContext
 
 			String cmd = Constants.DELETE;
 
+<<<<<<< HEAD
 			if (_trashHelper.isTrashEnabled(
+=======
+			if (TrashUtil.isTrashEnabled(
+>>>>>>> compatible
 					_wikiRequestHelper.getScopeGroupId())) {
 
 				cmd = Constants.MOVE_TO_TRASH;
@@ -541,7 +604,11 @@ public class DefaultWikiListPagesDisplayContext
 		}
 
 		if (wikiPage.isDraft() &&
+<<<<<<< HEAD
 			WikiPagePermission.contains(
+=======
+			WikiPagePermissionChecker.contains(
+>>>>>>> compatible
 				_wikiRequestHelper.getPermissionChecker(), wikiPage,
 				ActionKeys.DELETE)) {
 
@@ -573,10 +640,17 @@ public class DefaultWikiListPagesDisplayContext
 		}
 	}
 
+<<<<<<< HEAD
 	protected void addEditMenuItem(List<MenuItem> menuItems, WikiPage wikiPage)
 		throws PortalException {
 
 		if (!WikiPagePermission.contains(
+=======
+	protected void addEditMenuItem(
+		List<MenuItem> menuItems, WikiPage wikiPage) {
+
+		if (!WikiPagePermissionChecker.contains(
+>>>>>>> compatible
 				_wikiRequestHelper.getPermissionChecker(), wikiPage,
 				ActionKeys.UPDATE)) {
 
@@ -632,10 +706,16 @@ public class DefaultWikiListPagesDisplayContext
 	}
 
 	protected void addPermissionsMenuItem(
+<<<<<<< HEAD
 			List<MenuItem> menuItems, WikiPage wikiPage)
 		throws PortalException {
 
 		if (!WikiPagePermission.contains(
+=======
+		List<MenuItem> menuItems, WikiPage wikiPage) {
+
+		if (!WikiPagePermissionChecker.contains(
+>>>>>>> compatible
 				_wikiRequestHelper.getPermissionChecker(), wikiPage,
 				ActionKeys.PERMISSIONS)) {
 
@@ -666,6 +746,7 @@ public class DefaultWikiListPagesDisplayContext
 		menuItems.add(urlMenuItem);
 	}
 
+<<<<<<< HEAD
 	protected void addPrintPageMenuItem(
 			List<MenuItem> menuItems, WikiPage wikiPage)
 		throws PortalException {
@@ -710,6 +791,10 @@ public class DefaultWikiListPagesDisplayContext
 	protected void addSubscriptionMenuItem(
 			List<MenuItem> menuItems, WikiPage wikiPage)
 		throws PortalException {
+=======
+	protected void addSubscriptionMenuItem(
+		List<MenuItem> menuItems, WikiPage wikiPage) {
+>>>>>>> compatible
 
 		ResultRow row = (ResultRow)_request.getAttribute(
 			WebKeys.SEARCH_CONTAINER_RESULT_ROW);
@@ -722,7 +807,11 @@ public class DefaultWikiListPagesDisplayContext
 			wikiGroupServiceOverriddenConfiguration =
 				_wikiRequestHelper.getWikiGroupServiceOverriddenConfiguration();
 
+<<<<<<< HEAD
 		if (!WikiPagePermission.contains(
+=======
+		if (!WikiPagePermissionChecker.contains(
+>>>>>>> compatible
 				_wikiRequestHelper.getPermissionChecker(), wikiPage,
 				ActionKeys.SUBSCRIBE) ||
 			(!wikiGroupServiceOverriddenConfiguration.emailPageAddedEnabled() &&
@@ -792,14 +881,22 @@ public class DefaultWikiListPagesDisplayContext
 	protected boolean isCopyPasteEnabled(WikiPage wikiPage)
 		throws PortalException {
 
+<<<<<<< HEAD
 		if (!WikiPagePermission.contains(
+=======
+		if (!WikiPagePermissionChecker.contains(
+>>>>>>> compatible
 				_wikiRequestHelper.getPermissionChecker(), wikiPage,
 				ActionKeys.UPDATE)) {
 
 			return false;
 		}
 
+<<<<<<< HEAD
 		if (!WikiNodePermission.contains(
+=======
+		if (!WikiNodePermissionChecker.contains(
+>>>>>>> compatible
 				_wikiRequestHelper.getPermissionChecker(), wikiPage.getNodeId(),
 				ActionKeys.ADD_PAGE)) {
 
@@ -816,7 +913,10 @@ public class DefaultWikiListPagesDisplayContext
 		DefaultWikiListPagesDisplayContext.class);
 
 	private final HttpServletRequest _request;
+<<<<<<< HEAD
 	private final TrashHelper _trashHelper;
+=======
+>>>>>>> compatible
 	private final WikiNode _wikiNode;
 	private final WikiRequestHelper _wikiRequestHelper;
 

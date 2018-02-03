@@ -80,6 +80,13 @@ if (portletTitleBasedNavigation) {
 			<liferay-ui:header title="<%= kbArticle.getTitle() %>" />
 		</c:if>
 
+<<<<<<< HEAD
+=======
+		<c:if test='<%= enableSocialBookmarks && socialBookmarksDisplayPosition.equals("top") %>'>
+			<liferay-util:include page="/admin/common/article_social_bookmarks.jsp" servletContext="<%= application %>" />
+		</c:if>
+
+>>>>>>> compatible
 		<div class="kb-tools">
 			<liferay-util:include page="/admin/common/article_tools.jsp" servletContext="<%= application %>" />
 		</div>
@@ -96,7 +103,13 @@ if (portletTitleBasedNavigation) {
 					<%= kbArticle.getContent() %>
 				</div>
 
+<<<<<<< HEAD
 				<liferay-util:include page="/admin/common/article_social_bookmarks.jsp" servletContext="<%= application %>" />
+=======
+				<c:if test='<%= enableSocialBookmarks && socialBookmarksDisplayPosition.equals("bottom") %>'>
+					<liferay-util:include page="/admin/common/article_social_bookmarks.jsp" servletContext="<%= application %>" />
+				</c:if>
+>>>>>>> compatible
 
 				<liferay-expando:custom-attributes-available className="<%= KBArticle.class.getName() %>">
 					<liferay-expando:custom-attribute-list

@@ -16,15 +16,24 @@ package com.liferay.frontend.js.loader.modules.extender.internal.npm.flat;
 
 import com.liferay.frontend.js.loader.modules.extender.npm.JSBundle;
 import com.liferay.frontend.js.loader.modules.extender.npm.JSBundleProcessor;
+<<<<<<< HEAD
 import com.liferay.frontend.js.loader.modules.extender.npm.JSModuleAlias;
 import com.liferay.frontend.js.loader.modules.extender.npm.JSPackageDependency;
 import com.liferay.frontend.js.loader.modules.extender.npm.ModuleNameUtil;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.frontend.js.loader.modules.extender.npm.JSPackageDependency;
+import com.liferay.frontend.js.loader.modules.extender.npm.ModuleNameUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.json.JSONFactory;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 
@@ -32,15 +41,22 @@ import java.io.IOException;
 
 import java.net.URL;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+>>>>>>> compatible
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Enumeration;
+<<<<<<< HEAD
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+=======
+import java.util.Iterator;
+>>>>>>> compatible
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -83,6 +99,7 @@ public class FlatNPMBundleProcessor implements JSBundleProcessor {
 		return flatJSBundle;
 	}
 
+<<<<<<< HEAD
 	private String _canonicalizePath(String path) {
 		int parents = 0;
 		String[] parts = path.split(StringPool.SLASH);
@@ -145,6 +162,8 @@ public class FlatNPMBundleProcessor implements JSBundleProcessor {
 		return jsonObject;
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	 * Returns the contents of a resource inside a {@link FlatJSBundle}.
 	 *
@@ -237,15 +256,26 @@ public class FlatNPMBundleProcessor implements JSBundleProcessor {
 	private void _processDependencies(
 		FlatJSPackage flatJSPackage, JSONObject jsonObject, String key) {
 
+<<<<<<< HEAD
 		JSONObject dependenciesJSONObject = jsonObject.getJSONObject(key);
 
 		if (dependenciesJSONObject != null) {
 			Iterator<String> dependencyNames = dependenciesJSONObject.keys();
+=======
+		JSONObject dependencies = jsonObject.getJSONObject(key);
+
+		if (dependencies != null) {
+			Iterator<String> dependencyNames = dependencies.keys();
+>>>>>>> compatible
 
 			while (dependencyNames.hasNext()) {
 				String dependencyName = dependencyNames.next();
 
+<<<<<<< HEAD
 				String versionConstraints = dependenciesJSONObject.getString(
+=======
+				String versionConstraints = dependencies.getString(
+>>>>>>> compatible
 					dependencyName);
 
 				flatJSPackage.addJSPackageDependency(
@@ -255,6 +285,7 @@ public class FlatNPMBundleProcessor implements JSBundleProcessor {
 		}
 	}
 
+<<<<<<< HEAD
 	private void _processModuleAliases(
 		FlatJSPackage flatJSPackage, String location) {
 
@@ -333,6 +364,8 @@ public class FlatNPMBundleProcessor implements JSBundleProcessor {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	 * Processes the modules of a package and adds them to their {@link
 	 * FlatJSPackage} descriptor.
@@ -408,6 +441,7 @@ public class FlatNPMBundleProcessor implements JSBundleProcessor {
 
 			String location = path.substring(1, path.length() - 13);
 
+<<<<<<< HEAD
 			String[] parts = location.split(StringPool.SLASH);
 
 			String lastFolderPath = parts[parts.length - 2];
@@ -415,6 +449,9 @@ public class FlatNPMBundleProcessor implements JSBundleProcessor {
 			if (lastFolderPath.equals("node_modules")) {
 				_processPackage(flatJSBundle, location, false);
 			}
+=======
+			_processPackage(flatJSBundle, location, false);
+>>>>>>> compatible
 		}
 	}
 
@@ -437,9 +474,14 @@ public class FlatNPMBundleProcessor implements JSBundleProcessor {
 		}
 		catch (Exception e) {
 			_log.error(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Unable to parse package of ", String.valueOf(flatJSBundle),
 					": ", location, "/package.json"),
+=======
+				"Unable to parse package of " + flatJSBundle + ": " + location +
+					"/package.json",
+>>>>>>> compatible
 				e);
 
 			return;
@@ -474,10 +516,13 @@ public class FlatNPMBundleProcessor implements JSBundleProcessor {
 
 		_processModules(flatJSPackage, location);
 
+<<<<<<< HEAD
 		if (!root) {
 			_processModuleAliases(flatJSPackage, location);
 		}
 
+=======
+>>>>>>> compatible
 		flatJSBundle.addJSPackage(flatJSPackage);
 	}
 

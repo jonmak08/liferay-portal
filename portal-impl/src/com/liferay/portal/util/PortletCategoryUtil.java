@@ -38,6 +38,7 @@ import java.util.Set;
  */
 public class PortletCategoryUtil {
 
+<<<<<<< HEAD
 	public static Set<String> getFirstChildPortletIds(
 		PortletCategory portletCategory) {
 
@@ -62,6 +63,8 @@ public class PortletCategoryUtil {
 		return Collections.emptySet();
 	}
 
+=======
+>>>>>>> compatible
 	public static String getPortletCategoryKey(
 		String legacyPortletCategoryKey) {
 

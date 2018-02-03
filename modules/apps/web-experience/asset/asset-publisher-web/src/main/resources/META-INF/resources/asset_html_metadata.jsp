@@ -30,5 +30,9 @@ String summary = StringUtil.shorten(assetRenderer.getSummary(liferayPortletReque
 
 PortalUtil.setPageTitle(title, request);
 PortalUtil.setPageDescription(summary, request);
+<<<<<<< HEAD
 PortalUtil.setPageKeywords(assetHelper.getAssetKeywords(assetEntry.getClassName(), assetEntry.getClassPK()), request);
+=======
+PortalUtil.setPageKeywords(AssetUtil.getAssetKeywords(assetEntry.getClassName(), assetEntry.getClassPK()), request);
+>>>>>>> compatible
 %>

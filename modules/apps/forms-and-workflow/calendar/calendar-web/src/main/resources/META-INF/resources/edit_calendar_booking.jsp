@@ -138,9 +138,13 @@ if (calendarBooking != null) {
 		recurring = true;
 	}
 
+<<<<<<< HEAD
 	recurrence = calendarDisplayContext.getLastRecurrence(calendarBooking);
 
 	recurrence = RecurrenceUtil.inTimeZone(recurrence, startTimeJCalendar, calendarBookingTimeZone);
+=======
+	recurrence = RecurrenceUtil.inTimeZone(calendarBooking.getRecurrenceObj(), startTimeJCalendar, calendarBookingTimeZone);
+>>>>>>> compatible
 
 	approved = calendarBooking.isApproved();
 
@@ -209,6 +213,7 @@ while (manageableCalendarsIterator.hasNext()) {
 }
 %>
 
+<<<<<<< HEAD
 <aui:script use="liferay-calendar-container,liferay-calendar-remote-services,liferay-component">
 	Liferay.component(
 		'<portlet:namespace />calendarContainer',
@@ -267,6 +272,8 @@ while (manageableCalendarsIterator.hasNext()) {
 	);
 </aui:script>
 
+=======
+>>>>>>> compatible
 <liferay-portlet:actionURL name="updateFormCalendarBooking" var="updateFormCalendarBookingURL" />
 
 <aui:form action="<%= updateFormCalendarBookingURL %>" method="post" name="fm" onSubmit='<%= "event.preventDefault(); " + renderResponse.getNamespace() + "updateCalendarBooking();" %>'>
@@ -277,11 +284,18 @@ while (manageableCalendarsIterator.hasNext()) {
 		<liferay-portlet:param name="calendarBookingId" value="<%= String.valueOf(calendarBookingId) %>" />
 	</liferay-portlet:renderURL>
 
+<<<<<<< HEAD
 	<aui:input name="redirect" type="hidden" value="<%= calendarDisplayContext.getEditCalendarBookingRedirectURL(request, redirectURL) %>" />
 	<aui:input name="calendarBookingId" type="hidden" value="<%= calendarBookingId %>" />
 	<aui:input name="instanceIndex" type="hidden" value="<%= instanceIndex %>" />
 	<aui:input name="childCalendarIds" type="hidden" />
 	<aui:input name="reinvitableCalendarIds" type="hidden" />
+=======
+	<aui:input name="redirect" type="hidden" value="<%= redirectURL %>" />
+	<aui:input name="calendarBookingId" type="hidden" value="<%= calendarBookingId %>" />
+	<aui:input name="instanceIndex" type="hidden" value="<%= instanceIndex %>" />
+	<aui:input name="childCalendarIds" type="hidden" />
+>>>>>>> compatible
 	<aui:input name="allFollowing" type="hidden" />
 	<aui:input name="updateCalendarBookingInstance" type="hidden" />
 	<aui:input name="workflowAction" type="hidden" value="<%= WorkflowConstants.ACTION_PUBLISH %>" />
@@ -290,9 +304,15 @@ while (manageableCalendarsIterator.hasNext()) {
 		<liferay-ui:error exception="<%= CalendarBookingDurationException.class %>" message="please-enter-a-start-date-that-comes-before-the-end-date" />
 		<liferay-ui:error exception="<%= CalendarBookingRecurrenceException.class %>" message="the-last-repeating-date-should-come-after-the-event-start-date" />
 
+<<<<<<< HEAD
 		<liferay-asset:asset-categories-error />
 
 		<liferay-asset:asset-tags-error />
+=======
+		<liferay-ui:asset-categories-error />
+
+		<liferay-ui:asset-tags-error />
+>>>>>>> compatible
 
 		<aui:model-context bean="<%= calendarBooking %>" model="<%= CalendarBooking.class %>" />
 
@@ -369,13 +389,21 @@ while (manageableCalendarsIterator.hasNext()) {
 
 				<liferay-ui:panel collapsible="<%= true %>" defaultState="closed" extended="<%= false %>" id="calendarBookingInvitationPanel" markupView="lexicon" persistState="<%= true %>" title="invitations">
 					<c:if test="<%= invitable %>">
+<<<<<<< HEAD
 						<aui:input inputCssClass="calendar-portlet-invite-resources-input" label="" name="inviteResource" placeholder="add-people-sites-rooms" type="text" />
+=======
+						<aui:input inputCssClass="calendar-portlet-invite-resources-input" label="" name="inviteResource" placeholder="add-people-groups-rooms" type="text" />
+>>>>>>> compatible
 
 						<div class="separator"><!-- --></div>
 					</c:if>
 
 					<aui:row cssClass="calendar-booking-invitations">
+<<<<<<< HEAD
 						<aui:col width="<%= (calendarBooking != null) ? 25 : 33 %>">
+=======
+						<aui:col width="<%= (calendarBooking != null) ? 25 : 50 %>">
+>>>>>>> compatible
 							<label class="field-label">
 								<liferay-ui:message key="pending" /> (<span id="<portlet:namespace />pendingCounter"><%= pendingCalendarsJSONArray.length() %></span>)
 							</label>
@@ -383,7 +411,11 @@ while (manageableCalendarsIterator.hasNext()) {
 							<div class="calendar-portlet-calendar-list" id="<portlet:namespace />calendarListPending"></div>
 						</aui:col>
 
+<<<<<<< HEAD
 						<aui:col width="<%= (calendarBooking != null) ? 25 : 33 %>">
+=======
+						<aui:col width="<%= (calendarBooking != null) ? 25 : 50 %>">
+>>>>>>> compatible
 							<label class="field-label">
 								<liferay-ui:message key="accepted" /> (<span id="<portlet:namespace />acceptedCounter"><%= acceptedCalendarsJSONArray.length() %></span>)
 							</label>
@@ -391,6 +423,7 @@ while (manageableCalendarsIterator.hasNext()) {
 							<div class="calendar-portlet-calendar-list" id="<portlet:namespace />calendarListAccepted"></div>
 						</aui:col>
 
+<<<<<<< HEAD
 						<aui:col width="<%= (calendarBooking != null) ? 25 : 33 %>">
 							<label class="field-label">
 								<liferay-ui:message key="declined" /> (<span id="<portlet:namespace />declinedCounter"><%= declinedCalendarsJSONArray.length() %></span>)
@@ -399,6 +432,8 @@ while (manageableCalendarsIterator.hasNext()) {
 							<div class="calendar-portlet-calendar-list" id="<portlet:namespace />calendarListDeclined"></div>
 						</aui:col>
 
+=======
+>>>>>>> compatible
 						<c:if test="<%= calendarBooking != null %>">
 							<aui:col width="<%= 25 %>">
 								<label class="field-label">
@@ -407,6 +442,17 @@ while (manageableCalendarsIterator.hasNext()) {
 
 								<div class="calendar-portlet-calendar-list" id="<portlet:namespace />calendarListMaybe"></div>
 							</aui:col>
+<<<<<<< HEAD
+=======
+
+							<aui:col width="<%= 25 %>">
+								<label class="field-label">
+									<liferay-ui:message key="declined" /> (<span id="<portlet:namespace />declinedCounter"><%= declinedCalendarsJSONArray.length() %></span>)
+								</label>
+
+								<div class="calendar-portlet-calendar-list" id="<portlet:namespace />calendarListDeclined"></div>
+							</aui:col>
+>>>>>>> compatible
 						</c:if>
 
 						<aui:col width="<%= 100 %>">
@@ -423,7 +469,11 @@ while (manageableCalendarsIterator.hasNext()) {
 									<liferay-util:include page="/scheduler.jsp" servletContext="<%= application %>">
 										<liferay-util:param name="activeView" value="<%= activeView %>" />
 										<liferay-util:param name="date" value="<%= String.valueOf(startTime) %>" />
+<<<<<<< HEAD
 										<liferay-util:param name="filterCalendarBookings" value='<%= renderResponse.getNamespace() + "filterCalendarBookings" %>' />
+=======
+										<liferay-util:param name="filterCalendarBookings" value='<%= "window." + renderResponse.getNamespace() + "filterCalendarBookings" %>' />
+>>>>>>> compatible
 										<liferay-util:param name="hideAgendaView" value="<%= Boolean.TRUE.toString() %>" />
 										<liferay-util:param name="hideMonthView" value="<%= Boolean.TRUE.toString() %>" />
 										<liferay-util:param name="preventPersistence" value="<%= Boolean.TRUE.toString() %>" />
@@ -440,6 +490,7 @@ while (manageableCalendarsIterator.hasNext()) {
 				</liferay-ui:panel>
 
 				<liferay-ui:panel collapsible="<%= true %>" defaultState="closed" extended="<%= false %>" id="calendarBookingCategorizationPanel" markupView="lexicon" persistState="<%= true %>" title="categorization">
+<<<<<<< HEAD
 					<liferay-asset:asset-categories-selector className="<%= CalendarBooking.class.getName() %>" classPK="<%= calendarBookingId %>" />
 
 					<liferay-asset:asset-tags-selector className="<%= CalendarBooking.class.getName() %>" classPK="<%= calendarBookingId %>" />
@@ -447,6 +498,15 @@ while (manageableCalendarsIterator.hasNext()) {
 
 				<liferay-ui:panel collapsible="<%= true %>" defaultState="closed" extended="<%= false %>" id="calendarBookingAssetLinksPanel" markupView="lexicon" persistState="<%= true %>" title="related-assets">
 					<liferay-asset:input-asset-links
+=======
+					<aui:input classPK="<%= calendarBookingId %>" name="categories" type="assetCategories" />
+
+					<aui:input classPK="<%= calendarBookingId %>" name="tags" type="assetTags" />
+				</liferay-ui:panel>
+
+				<liferay-ui:panel collapsible="<%= true %>" defaultState="closed" extended="<%= false %>" id="calendarBookingAssetLinksPanel" markupView="lexicon" persistState="<%= true %>" title="related-assets">
+					<liferay-ui:input-asset-links
+>>>>>>> compatible
 						className="<%= CalendarBooking.class.getName() %>"
 						classPK="<%= calendarBookingId %>"
 					/>
@@ -470,9 +530,15 @@ while (manageableCalendarsIterator.hasNext()) {
 		}
 		%>
 
+<<<<<<< HEAD
 		<aui:button name="publishButton" type="submit" value="<%= publishButtonLabel %>" />
 
 		<aui:button name="saveButton" primary="<%= false %>" type="submit" value="save-as-draft" />
+=======
+		<aui:button cssClass="btn-lg" name="publishButton" type="submit" value="<%= publishButtonLabel %>" />
+
+		<aui:button cssClass="btn-lg" name="saveButton" primary="<%= false %>" type="submit" value="save-as-draft" />
+>>>>>>> compatible
 
 		<c:if test="<%= calendarBooking != null %>">
 			<liferay-security:permissionsURL
@@ -484,14 +550,22 @@ while (manageableCalendarsIterator.hasNext()) {
 				var="permissionsCalendarBookingURL"
 			/>
 
+<<<<<<< HEAD
 			<aui:button href="<%= permissionsCalendarBookingURL %>" value="permissions" />
+=======
+			<aui:button cssClass="btn-lg" href="<%= permissionsCalendarBookingURL %>" value="permissions" />
+>>>>>>> compatible
 		</c:if>
 	</aui:button-row>
 </aui:form>
 
 <aui:script>
 	function <portlet:namespace />filterCalendarBookings(calendarBooking) {
+<<<<<<< HEAD
 		return calendarBooking.calendarBookingId !== '<%= calendarBookingId %>';
+=======
+		return <%= calendarBookingId %> !== calendarBooking.calendarBookingId;
+>>>>>>> compatible
 	}
 
 	function <portlet:namespace />resolver(data) {
@@ -514,17 +588,25 @@ while (manageableCalendarsIterator.hasNext()) {
 			var A = AUI();
 
 			<c:if test="<%= invitable %>">
+<<<<<<< HEAD
 				var calendarContainer = Liferay.component('<portlet:namespace />calendarContainer');
 
 				var childCalendarIds = A.Object.keys(calendarContainer.get('availableCalendars'));
 
 				var calendarId = A.one('#<portlet:namespace />calendarId').val();
+=======
+				var calendarId = A.one('#<portlet:namespace />calendarId').val();
+				var childCalendarIds = A.Object.keys(Liferay.CalendarUtil.availableCalendars);
+>>>>>>> compatible
 
 				A.Array.remove(childCalendarIds, A.Array.indexOf(childCalendarIds, calendarId));
 
 				A.one('#<portlet:namespace />childCalendarIds').val(childCalendarIds.join(','));
+<<<<<<< HEAD
 
 				A.one('#<portlet:namespace />reinvitableCalendarIds').val(<portlet:namespace />reinvitableCalendarIds.join(','));
+=======
+>>>>>>> compatible
 			</c:if>
 
 			Liferay.CalendarMessageUtil.promptSchedulerEventUpdate(
@@ -552,9 +634,13 @@ while (manageableCalendarsIterator.hasNext()) {
 	</c:if>
 </aui:script>
 
+<<<<<<< HEAD
 <aui:script use="json,liferay-calendar-date-picker-sanitizer,liferay-calendar-interval-selector,liferay-calendar-interval-selector-scheduler-event-link,liferay-calendar-list,liferay-calendar-recurrence-util,liferay-calendar-reminders,liferay-calendar-simple-menu,liferay-calendar-util">
 	var calendarContainer = Liferay.component('<portlet:namespace />calendarContainer');
 
+=======
+<aui:script use="json,liferay-calendar-interval-selector,liferay-calendar-interval-selector-scheduler-event-link,liferay-calendar-list,liferay-calendar-recurrence-util,liferay-calendar-reminders,liferay-calendar-simple-menu,liferay-calendar-util">
+>>>>>>> compatible
 	var defaultCalendarId = <%= calendarId %>;
 
 	var scheduler = window.<portlet:namespace />scheduler;
@@ -574,12 +660,21 @@ while (manageableCalendarsIterator.hasNext()) {
 	);
 
 	var syncCalendarsMap = function() {
+<<<<<<< HEAD
 		calendarContainer.syncCalendarsMap(
 			[
 				window.<portlet:namespace />calendarListAccepted,
 				window.<portlet:namespace />calendarListDeclined,
 
 				<c:if test="<%= calendarBooking != null %>">
+=======
+		Liferay.CalendarUtil.syncCalendarsMap(
+			[
+				window.<portlet:namespace />calendarListAccepted,
+
+				<c:if test="<%= calendarBooking != null %>">
+					window.<portlet:namespace />calendarListDeclined,
+>>>>>>> compatible
 					window.<portlet:namespace />calendarListMaybe,
 				</c:if>
 
@@ -588,14 +683,22 @@ while (manageableCalendarsIterator.hasNext()) {
 		);
 
 		A.each(
+<<<<<<< HEAD
 			calendarContainer.get('availableCalendars'),
+=======
+			Liferay.CalendarUtil.availableCalendars,
+>>>>>>> compatible
 			function(item, index) {
 				item.set('disabled', true);
 			}
 		);
 	};
 
+<<<<<<< HEAD
 	var calendarsMenu = calendarContainer.getCalendarsMenu(
+=======
+	var calendarsMenu = Liferay.CalendarUtil.getCalendarsMenu(
+>>>>>>> compatible
 		{
 			content: '#<portlet:namespace />schedulerContainer',
 			defaultCalendarId: defaultCalendarId,
@@ -653,6 +756,7 @@ while (manageableCalendarsIterator.hasNext()) {
 		}
 	).render();
 
+<<<<<<< HEAD
 	window.<portlet:namespace />reinvitableCalendarIds = [];
 
 	window.<portlet:namespace />calendarListDeclined = new Liferay.CalendarList(
@@ -689,6 +793,33 @@ while (manageableCalendarsIterator.hasNext()) {
 	).render();
 
 	<c:if test="<%= calendarBooking != null %>">
+=======
+	<c:if test="<%= calendarBooking != null %>">
+		window.<portlet:namespace />calendarListDeclined = new Liferay.CalendarList(
+			{
+				after: {
+					calendarsChange: function(event) {
+						var instance = this;
+
+						A.one('#<portlet:namespace />declinedCounter').html(event.newVal.length);
+
+						syncCalendarsMap();
+
+						scheduler.load();
+					},
+					'scheduler-calendar:visibleChange': syncCalendarsMap
+				},
+				boundingBox: '#<portlet:namespace />calendarListDeclined',
+				calendars: <%= declinedCalendarsJSONArray %>,
+				scheduler: <portlet:namespace />scheduler,
+				simpleMenu: calendarsMenu,
+				strings: {
+					emptyMessage: '<liferay-ui:message key="no-declined-invites" />'
+				}
+			}
+		).render();
+
+>>>>>>> compatible
 		window.<portlet:namespace />calendarListMaybe = new Liferay.CalendarList(
 			{
 				after: {
@@ -716,6 +847,7 @@ while (manageableCalendarsIterator.hasNext()) {
 
 	syncCalendarsMap();
 
+<<<<<<< HEAD
 	new Liferay.DatePickerSanitizer(
 		{
 			datePickers: [
@@ -728,6 +860,8 @@ while (manageableCalendarsIterator.hasNext()) {
 		}
 	);
 
+=======
+>>>>>>> compatible
 	var intervalSelector = new Liferay.IntervalSelector(
 		{
 			endDatePicker: Liferay.component('<portlet:namespace />endTimeDatePicker'),
@@ -786,10 +920,16 @@ while (manageableCalendarsIterator.hasNext()) {
 
 				[
 					<portlet:namespace />calendarListAccepted,
+<<<<<<< HEAD
 					<portlet:namespace />calendarListDeclined,
 
 					<c:if test="<%= calendarBooking != null %>">
 						<portlet:namespace />calendarListMaybe,
+=======
+
+					<c:if test="<%= calendarBooking != null %>">
+						<portlet:namespace />calendarListDeclined, <portlet:namespace />calendarListMaybe,
+>>>>>>> compatible
 					</c:if>
 
 					<portlet:namespace />calendarListPending
@@ -819,7 +959,11 @@ while (manageableCalendarsIterator.hasNext()) {
 
 		<liferay-portlet:resourceURL copyCurrentRenderParameters="<%= false %>" id="calendarResources" var="calendarResourcesURL"></liferay-portlet:resourceURL>
 
+<<<<<<< HEAD
 		calendarContainer.createCalendarsAutoComplete(
+=======
+		Liferay.CalendarUtil.createCalendarsAutoComplete(
+>>>>>>> compatible
 			'<%= calendarResourcesURL %>',
 			inviteResourcesInput,
 			function(event) {
@@ -827,11 +971,16 @@ while (manageableCalendarsIterator.hasNext()) {
 
 				calendar.disabled = true;
 
+<<<<<<< HEAD
 				addToList(calendar);
+=======
+				<portlet:namespace />calendarListPending.add(calendar);
+>>>>>>> compatible
 
 				inviteResourcesInput.val('');
 			}
 		);
+<<<<<<< HEAD
 
 		var addToList = function(calendar) {
 			if (calendar.classNameId == <%= ClassNameLocalServiceUtil.getClassNameId(CalendarResource.class) %>) {
@@ -855,6 +1004,8 @@ while (manageableCalendarsIterator.hasNext()) {
 				<portlet:namespace />calendarListPending.add(calendar);
 			}
 		};
+=======
+>>>>>>> compatible
 	</c:if>
 
 	window.<portlet:namespace />reminders = new Liferay.Reminders(

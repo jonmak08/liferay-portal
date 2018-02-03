@@ -14,7 +14,11 @@
 
 package com.liferay.wiki.internal.validator;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.wiki.exception.PageTitleException;
 import com.liferay.wiki.validator.WikiPageTitleValidator;

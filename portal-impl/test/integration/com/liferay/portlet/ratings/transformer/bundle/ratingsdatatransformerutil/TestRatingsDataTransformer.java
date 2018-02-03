@@ -15,6 +15,10 @@
 package com.liferay.portlet.ratings.transformer.bundle.ratingsdatatransformerutil;
 
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery.PerformActionMethod;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StackTraceUtil;
+>>>>>>> compatible
 import com.liferay.ratings.kernel.RatingsType;
 import com.liferay.ratings.kernel.model.RatingsEntry;
 import com.liferay.ratings.kernel.transformer.RatingsDataTransformer;

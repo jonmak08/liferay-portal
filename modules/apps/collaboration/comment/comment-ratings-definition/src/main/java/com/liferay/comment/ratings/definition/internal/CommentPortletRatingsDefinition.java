@@ -26,8 +26,14 @@ import org.osgi.service.component.annotations.Component;
  * @author Roberto Díaz
  */
 @Component(
+<<<<<<< HEAD
 	property =
 		{"model.class.name=com.liferay.message.boards.model.MBDiscussion"}
+=======
+	property = {
+		"model.class.name=com.liferay.message.boards.kernel.model.MBDiscussion"
+	}
+>>>>>>> compatible
 )
 public class CommentPortletRatingsDefinition
 	implements PortletRatingsDefinition {

@@ -18,5 +18,9 @@
 		<os family="windows" />
 	</condition>
 
+<<<<<<< HEAD
 	<property location="${modules.dir}/../gradlew${gradlew.suffix}" name="gradle.wrapper.path" />
+=======
+	<property name="gradle.wrapper.path" relative="yes" value="${modules.dir}/../gradlew${gradlew.suffix}" />
+>>>>>>> compatible
 </project>

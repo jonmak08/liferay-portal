@@ -288,6 +288,7 @@ public class HttpUtil {
 		return getHttp().setParameter(url, name, value);
 	}
 
+<<<<<<< HEAD
 	public static String shortenURL(String url) {
 		return getHttp().shortenURL(url);
 	}
@@ -296,6 +297,8 @@ public class HttpUtil {
 	 * @deprecated As of 7.0.0, replaced by {@link #shortenURL(String)}
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static String shortenURL(String url, int count) {
 		return getHttp().shortenURL(url, count);
 	}

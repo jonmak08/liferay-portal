@@ -243,6 +243,7 @@ public class CalendarPortletDataHandler extends BasePortletDataHandler {
 		}
 
 		if (portletDataContext.getBooleanParameter(
+<<<<<<< HEAD
 				NAMESPACE, "calendar-notification-templates")) {
 
 			Element calendarNotificationTemplatesElement =
@@ -257,10 +258,7 @@ public class CalendarPortletDataHandler extends BasePortletDataHandler {
 
 				StagedModelDataHandlerUtil.importStagedModel(
 					portletDataContext, calendarNotificationTemplateElement);
-			}
-		}
-
-		if (portletDataContext.getBooleanParameter(
+=======
 				NAMESPACE, "calendar-bookings")) {
 
 			Element calendarBookingsElement =
@@ -273,6 +271,40 @@ public class CalendarPortletDataHandler extends BasePortletDataHandler {
 			for (Element calendarBookingElement : calendarBookingElements) {
 				StagedModelDataHandlerUtil.importStagedModel(
 					portletDataContext, calendarBookingElement);
+>>>>>>> compatible
+			}
+		}
+
+		if (portletDataContext.getBooleanParameter(
+<<<<<<< HEAD
+				NAMESPACE, "calendar-bookings")) {
+
+			Element calendarBookingsElement =
+				portletDataContext.getImportDataGroupElement(
+					CalendarBooking.class);
+
+			List<Element> calendarBookingElements =
+				calendarBookingsElement.elements();
+
+			for (Element calendarBookingElement : calendarBookingElements) {
+				StagedModelDataHandlerUtil.importStagedModel(
+					portletDataContext, calendarBookingElement);
+=======
+				NAMESPACE, "calendar-notification-templates")) {
+
+			Element calendarNotificationTemplatesElement =
+				portletDataContext.getImportDataGroupElement(
+					CalendarNotificationTemplate.class);
+
+			List<Element> calendarNotificationTemplateElements =
+				calendarNotificationTemplatesElement.elements();
+
+			for (Element calendarNotificationTemplateElement :
+					calendarNotificationTemplateElements) {
+
+				StagedModelDataHandlerUtil.importStagedModel(
+					portletDataContext, calendarNotificationTemplateElement);
+>>>>>>> compatible
 			}
 		}
 

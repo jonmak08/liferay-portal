@@ -230,8 +230,13 @@ String orderByType = ParamUtil.getString(request, "orderByType", "asc");
 </div>
 
 <aui:button-row>
+<<<<<<< HEAD
 	<aui:button id="fm_submit" type="submit" />
 	<aui:button type="cancel" />
+=======
+	<aui:button cssClass="btn-lg" id="fm_submit" type="submit" />
+	<aui:button cssClass="btn-lg" type="cancel" />
+>>>>>>> compatible
 </aui:button-row>
 
 <aui:script use="aui-base">
@@ -282,10 +287,19 @@ private OrderByComparator<DDLRecordSet> getDDLRecordSetOrderByComparator(String 
 	OrderByComparator<DDLRecordSet> orderByComparator = null;
 
 	if (orderByCol.equals("create-date")) {
+<<<<<<< HEAD
 		orderByComparator = new DDLRecordSetCreateDateComparator(orderByAsc);
 	}
 	else if (orderByCol.equals("modified-date")) {
 		orderByComparator = new DDLRecordSetModifiedDateComparator(orderByAsc);
+=======
+		orderByComparator = new DDLRecordSetCreateDateComparator(
+			orderByAsc);
+	}
+	else if (orderByCol.equals("modified-date")) {
+		orderByComparator = new DDLRecordSetModifiedDateComparator(
+			orderByAsc);
+>>>>>>> compatible
 	}
 	else if (orderByCol.equals("name")) {
 		orderByComparator = new DDLRecordSetNameComparator(orderByAsc);

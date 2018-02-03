@@ -4,7 +4,11 @@
 
 		<execute argument1="5000" selenium="pause" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Select#pauseSelect" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 
@@ -14,7 +18,11 @@
 	<command name="select">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Select#select" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 
@@ -24,7 +32,11 @@
 	<command name="selectByClick">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Select#selectByClick" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 

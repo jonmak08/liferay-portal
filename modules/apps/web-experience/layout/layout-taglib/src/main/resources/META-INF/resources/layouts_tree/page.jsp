@@ -26,7 +26,10 @@ boolean draggableTree = GetterUtil.getBoolean((String)request.getAttribute("life
 boolean expandFirstNode = GetterUtil.getBoolean((String)request.getAttribute("liferay-layout:layouts-tree:expandFirstNode"));
 long groupId = GetterUtil.getLong((String)request.getAttribute("liferay-layout:layouts-tree:groupId"));
 boolean incomplete = GetterUtil.getBoolean((String)request.getAttribute("liferay-layout:layouts-tree:incomplete"));
+<<<<<<< HEAD
 LayoutSetBranch layoutSetBranch = (LayoutSetBranch)request.getAttribute("liferay-layout:layouts-tree:layoutSetBranch");
+=======
+>>>>>>> compatible
 String linkTemplate = (String)request.getAttribute("liferay-layout:layouts-tree:linkTemplate");
 String modules = (String)request.getAttribute("liferay-layout:layouts-tree:modules");
 Map<String, PortletURL> portletURLs = (Map<String, PortletURL>)request.getAttribute("liferay-layout:layouts-tree:portletURLs");
@@ -85,7 +88,11 @@ String treeId = (String)request.getAttribute("liferay-layout:layouts-tree:treeId
 			long[] openNodes = StringUtil.split(SessionTreeJSClicks.getOpenNodes(request, treeId), 0L);
 			%>
 
+<<<<<<< HEAD
 			layouts: <%= LayoutsTreeUtil.getLayoutsJSON(request, groupId, privateLayout, LayoutConstants.DEFAULT_PARENT_LAYOUT_ID, openNodes, true, treeId, layoutSetBranch) %>,
+=======
+			layouts: <%= LayoutsTreeUtil.getLayoutsJSON(request, groupId, privateLayout, LayoutConstants.DEFAULT_PARENT_LAYOUT_ID, openNodes, true, treeId) %>,
+>>>>>>> compatible
 
 			<c:if test="<%= Validator.isNotNull(linkTemplate) %>">
 				linkTemplate: '<%= HtmlUtil.escapeJS(linkTemplate) %>',

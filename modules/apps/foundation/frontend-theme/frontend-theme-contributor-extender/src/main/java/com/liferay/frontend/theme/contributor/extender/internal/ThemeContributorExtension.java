@@ -18,7 +18,10 @@ import com.liferay.frontend.theme.contributor.extender.BundleWebResources;
 import com.liferay.osgi.util.ServiceTrackerFactory;
 import com.liferay.portal.kernel.servlet.PortalWebResourceConstants;
 import com.liferay.portal.kernel.servlet.PortalWebResources;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -59,9 +62,15 @@ public class ThemeContributorExtension implements Extension {
 	public void start() throws Exception {
 		final BundleContext bundleContext = _bundle.getBundleContext();
 
+<<<<<<< HEAD
 		String filter = StringBundler.concat(
 			"(&(objectClass=", ServletContext.class.getName(),
 			")(osgi.web.symbolicname=", _bundle.getSymbolicName(), "))");
+=======
+		String filter =
+			"(&(objectClass=" + ServletContext.class.getName() +
+				")(osgi.web.symbolicname=" + _bundle.getSymbolicName() + "))";
+>>>>>>> compatible
 
 		final Dictionary<String, Object> properties = new Hashtable<>();
 

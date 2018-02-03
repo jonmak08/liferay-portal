@@ -17,6 +17,11 @@ package com.liferay.jenkins.results.parser.failure.message.generator;
 import com.liferay.jenkins.results.parser.Build;
 import com.liferay.jenkins.results.parser.Dom4JUtil;
 
+<<<<<<< HEAD
+=======
+import java.util.Hashtable;
+
+>>>>>>> compatible
 import org.dom4j.Element;
 
 /**
@@ -26,6 +31,58 @@ public class LocalGitMirrorFailureMessageGenerator
 	extends BaseFailureMessageGenerator {
 
 	@Override
+<<<<<<< HEAD
+=======
+	public String getMessage(
+		String buildURL, String consoleOutput, Hashtable<?, ?> properties) {
+
+		if (!consoleOutput.contains(_TOKEN_LOCAL_GIT_FAILURE_END) ||
+			!consoleOutput.contains(_TOKEN_LOCAL_GIT_FAILURE_START)) {
+
+			return null;
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append("<p>Unable to synchronize with <strong>local Git mirror");
+		sb.append("</strong>.</p>");
+
+		int end = consoleOutput.indexOf(_TOKEN_LOCAL_GIT_FAILURE_END);
+
+		int start = consoleOutput.lastIndexOf(
+			_TOKEN_LOCAL_GIT_FAILURE_START, end);
+
+		consoleOutput = consoleOutput.substring(start, end);
+
+		int minIndex = consoleOutput.length();
+
+		for (String string : new String[] {"error: ", "fatal: "}) {
+			int index = consoleOutput.indexOf(string);
+
+			if (index != -1) {
+				if (index < minIndex) {
+					minIndex = index;
+				}
+			}
+		}
+
+		int gitCommandIndex = consoleOutput.lastIndexOf("+ git", minIndex);
+
+		if (gitCommandIndex != -1) {
+			start = gitCommandIndex;
+		}
+
+		start = consoleOutput.lastIndexOf("\n", start);
+
+		end = consoleOutput.lastIndexOf("\n");
+
+		sb.append(getConsoleOutputSnippet(consoleOutput, false, start, end));
+
+		return sb.toString();
+	}
+
+	@Override
+>>>>>>> compatible
 	public Element getMessageElement(Build build) {
 		String consoleText = build.getConsoleText();
 
@@ -71,7 +128,11 @@ public class LocalGitMirrorFailureMessageGenerator
 		end = consoleText.lastIndexOf("\n");
 
 		messageElement.add(
+<<<<<<< HEAD
 			getConsoleTextSnippetElement(consoleText, false, start, end));
+=======
+			getConsoleOutputSnippetElement(consoleText, false, start, end));
+>>>>>>> compatible
 
 		return messageElement;
 	}

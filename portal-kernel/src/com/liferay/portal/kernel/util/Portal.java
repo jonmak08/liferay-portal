@@ -317,7 +317,11 @@ public interface Portal {
 			String canonicalURL, ThemeDisplay themeDisplay, Layout layout)
 		throws PortalException;
 
+<<<<<<< HEAD
 	public long[] getAncestorSiteGroupIds(long groupId);
+=======
+	public long[] getAncestorSiteGroupIds(long groupId) throws PortalException;
+>>>>>>> compatible
 
 	/**
 	 * Returns the base model instance for the resource permission.
@@ -662,10 +666,13 @@ public interface Portal {
 			String displayType)
 		throws PortalException;
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public String getFacebookURL(
 			Portlet portlet, String facebookCanvasPageURL,
 			ThemeDisplay themeDisplay)
@@ -856,8 +863,14 @@ public interface Portal {
 	public Locale getLocale(PortletRequest portletRequest);
 
 	public String getLocalizedFriendlyURL(
+<<<<<<< HEAD
 		HttpServletRequest request, Layout layout, Locale locale,
 		Locale originalLocale);
+=======
+			HttpServletRequest request, Layout layout, Locale locale,
+			Locale originalLocale)
+		throws Exception;
+>>>>>>> compatible
 
 	public String getMailId(String mx, String popPortletPrefix, Object... ids);
 
@@ -1083,8 +1096,13 @@ public interface Portal {
 		String portletName);
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 7.0.0, replaced by {@link
 	 *             #getSiteAdminURL(ThemeDisplay, String, Map)}
+=======
+	 * @deprecated As of 7.0.0, replaced by {@link #getSiteAdminURL(
+	 *             ThemeDisplay, String, Map)}
+>>>>>>> compatible
 	 */
 	@Deprecated
 	public String getSiteAdminURL(
@@ -1093,8 +1111,13 @@ public interface Portal {
 		throws PortalException;
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 7.0.0, replaced by {@link
 	 *             #getSiteAdminURL(ThemeDisplay, String, Map)}
+=======
+	 * @deprecated As of 7.0.0, replaced by {@link #getSiteAdminURL(
+	 *             ThemeDisplay, String, Map)}
+>>>>>>> compatible
 	 */
 	@Deprecated
 	public String getSiteAdminURL(
@@ -1283,8 +1306,11 @@ public interface Portal {
 	public boolean isControlPanelPortlet(
 		String portletId, ThemeDisplay themeDisplay);
 
+<<<<<<< HEAD
 	public boolean isCustomPortletMode(PortletMode portletMode);
 
+=======
+>>>>>>> compatible
 	public boolean isForwardedSecure(HttpServletRequest request);
 
 	public boolean isGroupAdmin(User user, long groupId) throws Exception;

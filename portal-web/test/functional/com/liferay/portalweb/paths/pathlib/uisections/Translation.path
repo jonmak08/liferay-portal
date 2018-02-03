@@ -10,7 +10,11 @@
 <tbody>
 <tr>
 	<td>ADD</td>
+<<<<<<< HEAD
 	<td>//div[contains(@class,'translation') and contains(@class,'manager')]//*[contains(@class,'dropdown')]/a</td>
+=======
+	<td>//div[contains(@class,'translation-manager')]//a[contains(@class,'dropdown-toggle')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -45,7 +49,11 @@
 </tr>
 <tr>
 	<td>CURRENT_LOCALE</td>
+<<<<<<< HEAD
 	<td>//span[contains(.,'${key_localizedLanguage}') and contains(@class,'translation')] | //div[contains(@class,'translation') and //li[contains(@class,'active')]]</td>
+=======
+	<td>//span[contains(.,'${key_localizedLanguage}') and contains(@class,'translation')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>

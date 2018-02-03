@@ -54,6 +54,11 @@ AUI.add(
 
 		var TPL_LOADING = '<div class="loading-animation" />';
 
+<<<<<<< HEAD
+=======
+		var TPL_MAX_LENGTH_ALERT = '<div class="help-block">{message}</div>';
+
+>>>>>>> compatible
 		var TPL_SEARCH_FORM = '<form action="javascript:;" class="form-search lfr-tag-selector-search">' +
 				'<input class="form-control lfr-tag-selector-input search-query" placeholder="{0}" type="text" />' +
 			'</form>';
@@ -147,6 +152,13 @@ AUI.add(
 						value: 'value'
 					},
 
+<<<<<<< HEAD
+=======
+					maxLength: {
+						value: 75
+					},
+
+>>>>>>> compatible
 					portalModelResource: {
 						value: false
 					},
@@ -186,6 +198,11 @@ AUI.add(
 
 						entries.after('add', instance._updateHiddenInput, instance);
 						entries.after('remove', instance._updateHiddenInput, instance);
+<<<<<<< HEAD
+=======
+
+						A.Do.before(instance._checkMaxLengthTag, instance.entries, 'add', instance);
+>>>>>>> compatible
 					},
 
 					syncUI: function() {
@@ -237,6 +254,32 @@ AUI.add(
 						instance.get('boundingBox').on('keypress', instance._onKeyPress, instance);
 					},
 
+<<<<<<< HEAD
+=======
+					_checkMaxLengthTag: function(object) {
+						var instance = this;
+
+						var tag = !object.value ? object : object.value;
+
+						var maxLength = instance.get('maxLength');
+
+						if (!tag.length || (tag.length <= maxLength)) {
+							return;
+						}
+
+						var message = Lang.sub(
+							TPL_MAX_LENGTH_ALERT,
+							{
+								message: Lang.sub(Liferay.Language.get('please-enter-no-more-than-x-characters'), [maxLength])
+							}
+						);
+
+						instance._showError(message);
+
+						return new A.Do.Halt();
+					},
+
+>>>>>>> compatible
 					_getEntries: function(callback) {
 						var instance = this;
 
@@ -490,6 +533,31 @@ AUI.add(
 						return value.split(',');
 					},
 
+<<<<<<< HEAD
+=======
+					_showError: function(message) {
+						var instance = this;
+
+						var contentBox = instance.get('contentBox');
+
+						var toolbar = instance.icons.get('contentBox');
+
+						contentBox.addClass('has-error');
+
+						var alertNode = toolbar.insertBefore(message, toolbar);
+
+						A.later(
+							5000,
+							instance,
+							function() {
+								alertNode.remove();
+
+								contentBox.removeClass('has-error');
+							}, {}, false
+						);
+					},
+
+>>>>>>> compatible
 					_showPopup: function(event) {
 						var instance = this;
 

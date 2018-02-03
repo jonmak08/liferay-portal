@@ -611,12 +611,15 @@ public class OrganizationLocalServiceWrapper implements OrganizationLocalService
 			parentOrganizationId, start, end);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public java.util.List<com.liferay.portal.kernel.model.Organization> getOrganizations(
 		long companyId, java.lang.String treePath) {
 		return _organizationLocalService.getOrganizations(companyId, treePath);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns the organizations with the primary keys.
 	*
@@ -631,6 +634,7 @@ public class OrganizationLocalServiceWrapper implements OrganizationLocalService
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns all the organizations and users belonging to the parent
 	* organization.
 	*
@@ -673,6 +677,8 @@ public class OrganizationLocalServiceWrapper implements OrganizationLocalService
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	* Returns the number of organizations.
 	*
 	* @return the number of organizations
@@ -1384,6 +1390,7 @@ public class OrganizationLocalServiceWrapper implements OrganizationLocalService
 			country, params, andSearch, start, end, sort);
 	}
 
+<<<<<<< HEAD
 	/**
 	* Returns the organizations and users that match the keywords specified for
 	* them and belong to the parent organization.
@@ -1438,6 +1445,8 @@ public class OrganizationLocalServiceWrapper implements OrganizationLocalService
 			parentOrganizationId, keywords, status, params);
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	public void setGroupOrganizations(long groupId, long[] organizationIds) {
 		_organizationLocalService.setGroupOrganizations(groupId, organizationIds);

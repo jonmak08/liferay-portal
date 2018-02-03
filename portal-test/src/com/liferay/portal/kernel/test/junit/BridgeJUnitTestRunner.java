@@ -14,8 +14,13 @@
 
 package com.liferay.portal.kernel.test.junit;
 
+<<<<<<< HEAD
 import com.liferay.petra.concurrent.ConcurrentReferenceKeyHashMap;
 import com.liferay.petra.memory.FinalizeManager;
+=======
+import com.liferay.portal.kernel.concurrent.ConcurrentReferenceKeyHashMap;
+import com.liferay.portal.kernel.memory.FinalizeManager;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.ReflectionTestUtil;
 
 import java.io.Serializable;

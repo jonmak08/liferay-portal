@@ -71,10 +71,13 @@ public abstract class BasePermissionChecker implements PermissionChecker {
 		return _permissionChecksMap;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	@Override
 	public List<Long> getResourceBlockIds(
 		long companyId, long groupId, long userId, String name,

@@ -20,12 +20,21 @@
 			<else>
 				<execute macro="PortalSettings#tearDownAuthenticationCP" />
 
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP" />
+=======
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 			</else>
 		</if>
 	</tear-down>
 
 	<command name="ValidateXSSVulnerabilities" priority="5">
+<<<<<<< HEAD
+=======
+		<property name="portal.acceptance" value="true" />
+
+>>>>>>> compatible
 		<var method="TestPropsUtil#get('portal.url')" name="portalURL" />
 
 		<var name="maliciousURL1">
@@ -78,12 +87,17 @@
 	</command>
 
 	<command name="ViewBookmarkNoXSS" priority="4">
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="Account Settings" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="Account Settings" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="User#editDetailsViaMyAccount">
@@ -111,11 +125,18 @@
 	</command>
 
 	<command name="ViewControlPanelNoXSS" priority="5">
+<<<<<<< HEAD
 		<var name="siteName"><![CDATA[<script>document.write("XSS"); window.stop();</script>]]></var>
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<property name="portal.acceptance" value="true" />
+		<var name="siteName"><![CDATA[<script>document.write("XSS"); window.stop();</script>]]></var>
+
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -123,6 +144,7 @@
 			<var name="siteName" value="${siteName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
@@ -132,6 +154,15 @@
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="${siteName}" />
 		</execute>
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+			<var name="portlet" value="Sites" />
+		</execute>
+
+		<execute function="Type" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${siteName}" />
+
+		<execute function="Click" locator1="Icon#BASIC_SEARCH" />
+>>>>>>> compatible
 
 		<var name="key_rowEntry" value="${siteName}" />
 
@@ -139,7 +170,11 @@
 
 		<execute function="AssertElementNotPresent" locator1="//body[.='XSS']" />
 
+<<<<<<< HEAD
 		<execute function="AssertTextEquals" locator1="Portlet#HEADER" value1="Pages" />
+=======
+		<execute function="AssertTextEquals" locator1="Portlet#HEADER" value1="Public Pages" />
+>>>>>>> compatible
 
 		<var name="key_siteName" value="${siteName}" />
 
@@ -147,11 +182,19 @@
 	</command>
 
 	<command name="ViewGoogleAnalyticsIDNoXSS" priority="5">
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<property name="portal.acceptance" value="true" />
+
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Site Settings" />
 		</execute>
 
@@ -164,6 +207,11 @@
 	</command>
 
 	<command name="ViewJSONWSNoXSS" priority="5">
+<<<<<<< HEAD
+=======
+		<property name="portal.acceptance" value="true" />
+
+>>>>>>> compatible
 		<var method="TestPropsUtil#get('portal.url')" name="portalURL" />
 
 		<execute function="Open" locator1="${portalURL}/api/jsonws?contextPath=%22%3E%3Cimg%20src=x%20onerror=alert%28/contextPath/%29%3E" />
@@ -171,6 +219,7 @@
 	</command>
 
 	<command name="ViewLiferayPortletListNoXSS" priority="5">
+<<<<<<< HEAD
 		<var method="TestPropsUtil#get('portal.url')" name="portalURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
@@ -180,6 +229,13 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<property name="portal.acceptance" value="true" />
+
+		<var method="TestPropsUtil#get('portal.url')" name="portalURL" />
+
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Asset Publisher Page" />
 		</execute>
 
@@ -205,6 +261,7 @@
 	</command>
 
 	<command name="ViewLookAndFeelNoXSS" priority="5">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -212,6 +269,11 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<property name="portal.acceptance" value="true" />
+
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName"><![CDATA[<script>document.write("XSS"); window.stop();</script>]]></var>
 		</execute>
 
@@ -231,6 +293,7 @@
 		<execute function="AssertElementNotPresent" locator1="//body[.='XSS']" />
 	</command>
 
+<<<<<<< HEAD
 	<command name="ViewMobileDeviceRulesNoXSS" priority="5">
 		<description message="This is a use case for LPS-42750." />
 
@@ -275,21 +338,34 @@
 	</command>
 
 	<command name="ViewRecycleBinNoXSS" priority="5">
+=======
+	<command name="ViewRecycleBinNoXSS" priority="5">
+		<property name="portal.acceptance" value="true" />
+
+>>>>>>> compatible
 		<var name="entryTitle"><![CDATA[<script>document.write("XSS"); window.stop();</script>]]></var>
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Blogs" />
 		</execute>
 
 		<execute macro="BlogsNavigator#gotoAddEntry" />
 
+<<<<<<< HEAD
 		<execute function="Type#typeAceEditor" locator1="AlloyEditor#EDITOR" value1="${entryTitle}">
 			<var name="key_editor" value="title" />
 		</execute>
+=======
+		<execute function="Type#typeAceEditor" locator1="AlloyEditor#TITLE_FIELD" value1="${entryTitle}" />
+>>>>>>> compatible
 
 		<execute macro="BlogsEntry#addContent">
 			<var name="entryContent" value="Blogs Entry Content" />
@@ -299,14 +375,22 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Blogs" />
 		</execute>
 
 		<execute macro="Portlet#changeDisplayStyle">
+<<<<<<< HEAD
 			<var name="displayStyle" value="descriptive" />
+=======
+			<var name="displayStyle" value="Descriptive" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="BlogsEntry#moveToRecycleBinCP">
@@ -317,9 +401,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Recycle Bin" />
 		</execute>
 
@@ -333,6 +421,7 @@
 	</command>
 
 	<command name="ViewRolesNoXSS" priority="4">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
@@ -346,12 +435,27 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+			<var name="portlet" value="Roles" />
+		</execute>
+
+		<execute macro="Role#addCP">
+			<var name="roleName"><![CDATA[<script>document.write("XSS"); window.stop();</script>]]></var>
+		</execute>
+
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Roles" />
 		</execute>
 
 		<execute macro="Role#viewCP">
+<<<<<<< HEAD
 			<var name="roleTitle"><![CDATA[<script>document.write("XSS"); window.stop();</script>]]></var>
 			<var name="roleType" value="Regular" />
+=======
+			<var name="roleName"><![CDATA[<script>document.write("XSS"); window.stop();</script>]]></var>
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Navigator#openURL" />
@@ -368,6 +472,10 @@
 	</command>
 
 	<command name="ViewURLValidateNoXSS" priority="5">
+<<<<<<< HEAD
+=======
+		<property name="portal.acceptance" value="true" />
+>>>>>>> compatible
 		<property name="test.name.skip.portal.instance" value="XSSUsecase#ViewURLValidateNoXSS" />
 
 		<var name="maliciousURL1">
@@ -406,12 +514,17 @@
 		<execute function="Open" locator1="${maliciousURL2}" />
 		<execute function="AssertAlertNotPresent" />
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="Account Settings" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="Account Settings" />
+>>>>>>> compatible
 		</execute>
 
 		<execute function="Open" locator1="${maliciousURL3}" />
@@ -425,12 +538,19 @@
 	</command>
 
 	<command name="ViewWikiNoXSS" priority="5">
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="Account Settings" />
+=======
+		<property name="portal.acceptance" value="true" />
+
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="Account Settings" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="User#editDetailsViaMyAccount">
@@ -441,9 +561,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Wiki" />
 		</execute>
 

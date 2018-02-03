@@ -14,11 +14,18 @@
 
 package com.liferay.blogs.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.editor.EditorConstants;
 import com.liferay.portal.kernel.portletfilerepository.PortletFileRepositoryUtil;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portlet.blogs.BlogsEntryAttachmentFileEntryReference;
 
 import java.util.List;
@@ -27,10 +34,15 @@ import org.osgi.service.component.annotations.Component;
 
 /**
  * @author Alejandro Tardín
+<<<<<<< HEAD
  * @deprecated As of 1.2.0, replaced by {@link #AttachmentContentUpdater}
  */
 @Component(service = BlogsEntryAttachmentContentUpdater.class)
 @Deprecated
+=======
+ */
+@Component(service = BlogsEntryAttachmentContentUpdater.class)
+>>>>>>> compatible
 public class BlogsEntryAttachmentContentUpdater {
 
 	public String updateContent(

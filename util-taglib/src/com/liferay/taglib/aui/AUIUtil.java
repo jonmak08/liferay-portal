@@ -14,7 +14,11 @@
 
 package com.liferay.taglib.aui;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -100,6 +104,7 @@ public class AUIUtil {
 
 	public static String buildData(Map<String, Object> data) {
 		return HtmlUtil.buildData(data);
+<<<<<<< HEAD
 	}
 
 	public static String buildLabel(
@@ -107,6 +112,8 @@ public class AUIUtil {
 		String forLabel) {
 
 		return buildLabel(baseType, inlineField, showForLabel, forLabel, false);
+=======
+>>>>>>> compatible
 	}
 
 	public static String buildLabel(
@@ -123,7 +130,11 @@ public class AUIUtil {
 			if (inlineField) {
 				sb.append("class=\"");
 				sb.append(baseType);
+<<<<<<< HEAD
 				sb.append("-inline\"");
+=======
+				sb.append("-inline\" ");
+>>>>>>> compatible
 			}
 		}
 		else {
@@ -207,6 +218,7 @@ public class AUIUtil {
 
 					name.getChars(0, chars.length, chars, 0);
 				}
+<<<<<<< HEAD
 
 				chars[i] = CharPool.DASH;
 			}
@@ -216,6 +228,17 @@ public class AUIUtil {
 			return name;
 		}
 
+=======
+
+				chars[i] = CharPool.DASH;
+			}
+		}
+
+		if (chars == null) {
+			return name;
+		}
+
+>>>>>>> compatible
 		return new String(chars);
 	}
 

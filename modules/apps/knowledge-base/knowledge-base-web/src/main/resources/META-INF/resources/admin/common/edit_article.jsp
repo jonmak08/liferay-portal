@@ -83,6 +83,7 @@ if (portletTitleBasedNavigation) {
 		<aui:input name="parentResourcePrimKey" type="hidden" value="<%= parentResourcePrimKey %>" />
 		<aui:input name="workflowAction" type="hidden" value="<%= WorkflowConstants.ACTION_SAVE_DRAFT %>" />
 
+<<<<<<< HEAD
 		<div class="lfr-form-content">
 			<c:if test="<%= (kbArticle != null) && !portletTitleBasedNavigation %>">
 				<div class="text-center">
@@ -90,13 +91,42 @@ if (portletTitleBasedNavigation) {
 				</div>
 			</c:if>
 
+=======
+		<c:if test="<%= (kbArticle != null) && !portletTitleBasedNavigation %>">
+			<div class="text-center">
+				<%= kbArticleStatus %>
+			</div>
+		</c:if>
+
+		<div class="lfr-form-content">
+>>>>>>> compatible
 			<liferay-ui:error exception="<%= DuplicateFileException.class %>" message="please-enter-a-unique-document-name" />
 			<liferay-ui:error exception="<%= FileNameException.class %>" message="please-enter-a-file-with-a-valid-file-name" />
 			<liferay-ui:error exception="<%= KBArticleStatusException.class %>" message="this-article-cannot-be-published-because-its-parent-has-not-been-published" />
 			<liferay-ui:error exception="<%= KBArticleUrlTitleException.MustNotBeDuplicate.class %>" message="please-enter-a-unique-friendly-url" />
 
+<<<<<<< HEAD
 			<liferay-ui:error exception="<%= FileSizeException.class %>">
 				<liferay-ui:message arguments="<%= DLValidatorUtil.getMaxAllowableSize() / 1024 %>" key="please-enter-a-file-with-a-valid-file-size-no-larger-than-x" translateArguments="<%= false %>" />
+=======
+			<%
+			long uploadServletRequestImplMaxSize = PrefsPropsUtil.getLong(PropsKeys.UPLOAD_SERVLET_REQUEST_IMPL_MAX_SIZE);
+			%>
+
+			<liferay-ui:error exception="<%= FileSizeException.class %>">
+
+				<%
+				long fileMaxSize = PrefsPropsUtil.getLong(PropsKeys.DL_FILE_MAX_SIZE);
+
+				if (fileMaxSize == 0) {
+					fileMaxSize = uploadServletRequestImplMaxSize;
+				}
+
+				fileMaxSize /= 1024;
+				%>
+
+				<liferay-ui:message arguments="<%= fileMaxSize %>" key="please-enter-a-file-with-a-valid-file-size-no-larger-than-x" translateArguments="<%= false %>" />
+>>>>>>> compatible
 			</liferay-ui:error>
 
 			<liferay-ui:error exception="<%= KBArticleUrlTitleException.MustNotContainInvalidCharacters.class %>" message="please-enter-a-friendly-url-that-starts-with-a-slash-and-contains-alphanumeric-characters-dashes-and-underscores" />
@@ -119,12 +149,21 @@ if (portletTitleBasedNavigation) {
 			<liferay-ui:error exception="<%= NoSuchFileException.class %>" message="the-document-could-not-be-found" />
 
 			<liferay-ui:error exception="<%= UploadRequestSizeException.class %>">
+<<<<<<< HEAD
 				<liferay-ui:message arguments="<%= TextFormatter.formatStorageSize(UploadServletRequestConfigurationHelperUtil.getMaxSize(), locale) %>" key="request-is-larger-than-x-and-could-not-be-processed" translateArguments="<%= false %>" />
 			</liferay-ui:error>
 
 			<liferay-asset:asset-categories-error />
 
 			<liferay-asset:asset-tags-error />
+=======
+				<liferay-ui:message arguments="<%= TextFormatter.formatStorageSize(uploadServletRequestImplMaxSize, locale) %>" key="request-is-larger-than-x-and-could-not-be-processed" translateArguments="<%= false %>" />
+			</liferay-ui:error>
+
+			<liferay-ui:asset-categories-error />
+
+			<liferay-ui:asset-tags-error />
+>>>>>>> compatible
 
 			<c:choose>
 				<c:when test="<%= (kbArticle != null) && kbArticle.isApproved() %>">
@@ -183,6 +222,7 @@ if (portletTitleBasedNavigation) {
 				</liferay-expando:custom-attributes-available>
 
 				<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="categorization">
+<<<<<<< HEAD
 					<liferay-asset:asset-categories-selector className="<%= KBArticle.class.getName() %>" classPK="<%= (kbArticle != null) ? kbArticle.getClassPK() : 0 %>" />
 
 					<liferay-asset:asset-tags-selector className="<%= KBArticle.class.getName() %>" classPK="<%= (kbArticle != null) ? kbArticle.getClassPK() : 0 %>" />
@@ -190,6 +230,15 @@ if (portletTitleBasedNavigation) {
 
 				<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="related-assets">
 					<liferay-asset:input-asset-links
+=======
+					<aui:input classPK="<%= (kbArticle != null) ? kbArticle.getClassPK() : 0 %>" name="categories" type="assetCategories" />
+
+					<aui:input classPK="<%= (kbArticle != null) ? kbArticle.getClassPK() : 0 %>" name="tags" type="assetTags" />
+				</aui:fieldset>
+
+				<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="related-assets">
+					<liferay-ui:input-asset-links
+>>>>>>> compatible
 						className="<%= KBArticle.class.getName() %>"
 						classPK="<%= (kbArticle == null) ? KBArticleConstants.DEFAULT_PARENT_RESOURCE_PRIM_KEY : kbArticle.getClassPK() %>"
 					/>
@@ -265,11 +314,19 @@ if (portletTitleBasedNavigation) {
 			}
 			%>
 
+<<<<<<< HEAD
 			<aui:button disabled="<%= pending %>" name="publishButton" type="submit" value="<%= publishButtonLabel %>" />
 
 			<aui:button primary="<%= false %>" type="submit" value="<%= saveButtonLabel %>" />
 
 			<aui:button href="<%= redirect %>" type="cancel" />
+=======
+			<aui:button cssClass="btn-lg" disabled="<%= pending %>" name="publishButton" type="submit" value="<%= publishButtonLabel %>" />
+
+			<aui:button cssClass="btn-lg" primary="<%= false %>" type="submit" value="<%= saveButtonLabel %>" />
+
+			<aui:button cssClass="btn-lg" href="<%= redirect %>" type="cancel" />
+>>>>>>> compatible
 		</aui:button-row>
 	</aui:form>
 </div>
@@ -282,7 +339,19 @@ if (portletTitleBasedNavigation) {
 			var customUrl = urlTitleInput.getAttribute('data-customUrl');
 
 			if (customUrl === 'false') {
+<<<<<<< HEAD
 				urlTitleInput.value = Liferay.Util.normalizeFriendlyURL(html);
+=======
+				html = html.replace(/[^a-zA-Z0-9_-]/g, '-');
+
+				if (html[0] === '-') {
+					html = html.replace(/^-+/, '');
+				}
+
+				html = html.replace(/--+/g, '-');
+
+				urlTitleInput.value = html.toLowerCase();
+>>>>>>> compatible
 			}
 		}
 	</c:if>

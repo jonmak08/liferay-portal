@@ -22,8 +22,13 @@ import com.liferay.knowledge.base.service.KBArticleServiceUtil;
 import com.liferay.knowledge.base.service.KBFolderServiceUtil;
 import com.liferay.knowledge.base.util.KnowledgeBaseUtil;
 import com.liferay.knowledge.base.util.comparator.KBArticlePriorityComparator;
+<<<<<<< HEAD
 import com.liferay.knowledge.base.web.internal.KBUtil;
 import com.liferay.knowledge.base.web.internal.configuration.KBDisplayPortletInstanceConfiguration;
+=======
+import com.liferay.knowledge.base.web.configuration.KBDisplayPortletInstanceConfiguration;
+import com.liferay.knowledge.base.web.internal.KBUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.portlet.PortalPreferences;

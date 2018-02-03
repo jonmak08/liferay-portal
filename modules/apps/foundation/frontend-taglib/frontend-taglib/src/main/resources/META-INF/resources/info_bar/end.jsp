@@ -25,6 +25,7 @@
 			</c:if>
 		</div>
 	</div>
+<<<<<<< HEAD
 </div>
 
 <c:if test="<%= fixed %>">
@@ -37,3 +38,6 @@
 		);
 	</aui:script>
 </c:if>
+=======
+</div>
+>>>>>>> compatible

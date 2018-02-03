@@ -217,11 +217,16 @@ AUI.add(
 						instance.set('currentIndex', links.size() - 1);
 					},
 
+<<<<<<< HEAD
 					updateCurrentImage: function(itemData, link) {
+=======
+					updateCurrentImage: function(imageData, link) {
+>>>>>>> compatible
 						var instance = this;
 
 						link = link || instance.get('links').item(instance.get('currentIndex'));
 
+<<<<<<< HEAD
 						var itemFile = itemData.file;
 
 						var itemFileURL = itemFile.url;
@@ -248,6 +253,27 @@ AUI.add(
 								type: itemFile.type,
 								url: itemFileURL,
 								uuid: itemFile.uuid
+=======
+						var imageURL = imageData.file.url;
+
+						var image = instance._getCurrentImage();
+
+						image.attr('src', imageURL);
+
+						var returnType = link.attr('data-returnType');
+
+						if (imageData.file.resolvedValue) {
+							link.setData('value', imageData.file.resolvedValue);
+						}
+						else {
+							var imageValue = {
+								fileEntryId: imageData.file.fileEntryId,
+								groupId: imageData.file.groupId,
+								title: imageData.file.title,
+								type: imageData.file.type,
+								url: imageURL,
+								uuid: imageData.file.uuid
+>>>>>>> compatible
 							};
 
 							link.setData('value', JSON.stringify(imageValue));

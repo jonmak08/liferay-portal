@@ -19,10 +19,15 @@ patch {
 		autoClean = false
 	}
 
+<<<<<<< HEAD
 	fileNames "**/org/apache/jasper/JspCompilationContext.java"
 	fileNames "**/org/apache/jasper/compiler/Jsr199JavaCompiler.java"
 	fileNames "**/org/apache/jasper/compiler/Node.java"
 	fileNames "**/org/apache/jasper/runtime/JspContextWrapper.java"
+=======
+	fileNames "**/org/apache/jasper/compiler/Jsr199JavaCompiler.java"
+	fileNames "**/org/apache/jasper/compiler/Node.java"
+>>>>>>> compatible
 	fileNames "**/org/apache/jasper/runtime/JspWriterImpl.java"
 	fileNames "**/org/apache/jasper/runtime/PageContextImpl.java"
 	fileNames "**/org/apache/jasper/runtime/TldScanner.java"

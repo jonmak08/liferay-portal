@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Sync Service
 Bundle-SymbolicName: com.liferay.sync.service
+<<<<<<< HEAD
 Bundle-Version: 1.6.1
+=======
+Bundle-Version: 1.5.6
+>>>>>>> compatible
 Export-Package:\
 	com.liferay.sync.service.configuration,\
 	com.liferay.sync.util

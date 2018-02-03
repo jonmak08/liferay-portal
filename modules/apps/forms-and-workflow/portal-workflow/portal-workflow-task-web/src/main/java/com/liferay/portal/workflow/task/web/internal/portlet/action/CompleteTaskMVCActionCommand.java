@@ -19,13 +19,20 @@ import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortletKeys;
 import com.liferay.portal.kernel.util.WebKeys;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.workflow.WorkflowTaskManager;
+=======
+import com.liferay.portal.kernel.workflow.WorkflowTaskManagerUtil;
+>>>>>>> compatible
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 
 import org.osgi.service.component.annotations.Component;
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.Reference;
+=======
+>>>>>>> compatible
 
 /**
  * @author Leonardo Barros
@@ -56,12 +63,19 @@ public class CompleteTaskMVCActionCommand
 			actionRequest, "transitionName");
 		String comment = ParamUtil.getString(actionRequest, "comment");
 
+<<<<<<< HEAD
 		workflowTaskManager.completeWorkflowTask(
+=======
+		WorkflowTaskManagerUtil.completeWorkflowTask(
+>>>>>>> compatible
 			themeDisplay.getCompanyId(), themeDisplay.getUserId(),
 			workflowTaskId, transitionName, comment, null);
 	}
 
+<<<<<<< HEAD
 	@Reference
 	protected WorkflowTaskManager workflowTaskManager;
 
+=======
+>>>>>>> compatible
 }

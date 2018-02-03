@@ -40,6 +40,10 @@ import com.liferay.portal.kernel.util.LocalizationUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 
 import java.io.Serializable;
@@ -464,7 +468,11 @@ public class DDMTemplateModelImpl extends BaseModelImpl<DDMTemplate>
 	@Override
 	public String getUuid() {
 		if (_uuid == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _uuid;
@@ -560,7 +568,11 @@ public class DDMTemplateModelImpl extends BaseModelImpl<DDMTemplate>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -572,7 +584,11 @@ public class DDMTemplateModelImpl extends BaseModelImpl<DDMTemplate>
 	@Override
 	public String getUserName() {
 		if (_userName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _userName;
@@ -603,7 +619,11 @@ public class DDMTemplateModelImpl extends BaseModelImpl<DDMTemplate>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -615,7 +635,11 @@ public class DDMTemplateModelImpl extends BaseModelImpl<DDMTemplate>
 	@Override
 	public String getVersionUserName() {
 		if (_versionUserName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _versionUserName;
@@ -658,7 +682,11 @@ public class DDMTemplateModelImpl extends BaseModelImpl<DDMTemplate>
 	@Override
 	public String getClassName() {
 		if (getClassNameId() <= 0) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 
 		return PortalUtil.getClassName(getClassNameId());
@@ -736,7 +764,11 @@ public class DDMTemplateModelImpl extends BaseModelImpl<DDMTemplate>
 	@Override
 	public String getTemplateKey() {
 		if (_templateKey == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _templateKey;
@@ -762,7 +794,11 @@ public class DDMTemplateModelImpl extends BaseModelImpl<DDMTemplate>
 	@Override
 	public String getVersion() {
 		if (_version == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _version;
@@ -778,7 +814,11 @@ public class DDMTemplateModelImpl extends BaseModelImpl<DDMTemplate>
 	@Override
 	public String getName() {
 		if (_name == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _name;
@@ -877,7 +917,11 @@ public class DDMTemplateModelImpl extends BaseModelImpl<DDMTemplate>
 	@Override
 	public String getDescription() {
 		if (_description == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _description;
@@ -980,7 +1024,11 @@ public class DDMTemplateModelImpl extends BaseModelImpl<DDMTemplate>
 	@Override
 	public String getType() {
 		if (_type == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _type;
@@ -1006,7 +1054,11 @@ public class DDMTemplateModelImpl extends BaseModelImpl<DDMTemplate>
 	@Override
 	public String getMode() {
 		if (_mode == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _mode;
@@ -1032,7 +1084,11 @@ public class DDMTemplateModelImpl extends BaseModelImpl<DDMTemplate>
 	@Override
 	public String getLanguage() {
 		if (_language == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _language;
@@ -1058,7 +1114,11 @@ public class DDMTemplateModelImpl extends BaseModelImpl<DDMTemplate>
 	@Override
 	public String getScript() {
 		if (_script == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _script;
@@ -1131,7 +1191,11 @@ public class DDMTemplateModelImpl extends BaseModelImpl<DDMTemplate>
 	@Override
 	public String getSmallImageURL() {
 		if (_smallImageURL == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _smallImageURL;
@@ -1154,6 +1218,7 @@ public class DDMTemplateModelImpl extends BaseModelImpl<DDMTemplate>
 		_lastPublishDate = lastPublishDate;
 	}
 
+<<<<<<< HEAD
 	public java.lang.String getResourceClassName() {
 		return null;
 	}
@@ -1161,6 +1226,8 @@ public class DDMTemplateModelImpl extends BaseModelImpl<DDMTemplate>
 	public void setResourceClassName(java.lang.String resourceClassName) {
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	public StagedModelType getStagedModelType() {
 		return new StagedModelType(PortalUtil.getClassNameId(
@@ -1218,7 +1285,11 @@ public class DDMTemplateModelImpl extends BaseModelImpl<DDMTemplate>
 		String xml = getName();
 
 		if (xml == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 
 		Locale defaultLocale = LocaleUtil.getSiteDefault();
@@ -1400,8 +1471,11 @@ public class DDMTemplateModelImpl extends BaseModelImpl<DDMTemplate>
 
 		ddmTemplateModelImpl._setOriginalSmallImageId = false;
 
+<<<<<<< HEAD
 		setResourceClassName(null);
 
+=======
+>>>>>>> compatible
 		ddmTemplateModelImpl._columnBitmask = 0;
 	}
 
@@ -1554,8 +1628,11 @@ public class DDMTemplateModelImpl extends BaseModelImpl<DDMTemplate>
 			ddmTemplateCacheModel.lastPublishDate = Long.MIN_VALUE;
 		}
 
+<<<<<<< HEAD
 		ddmTemplateCacheModel._resourceClassName = getResourceClassName();
 
+=======
+>>>>>>> compatible
 		return ddmTemplateCacheModel;
 	}
 

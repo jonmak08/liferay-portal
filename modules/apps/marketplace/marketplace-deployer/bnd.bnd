@@ -1,5 +1,9 @@
 Bundle-Name: Liferay Marketplace Deployer
 Bundle-SymbolicName: com.liferay.marketplace.deployer
+<<<<<<< HEAD
 Bundle-Version: 2.0.15
+=======
+Bundle-Version: 2.0.13
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title:

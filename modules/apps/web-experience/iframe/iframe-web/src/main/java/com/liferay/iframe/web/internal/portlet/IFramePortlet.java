@@ -25,7 +25,10 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.ParamUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 
 import java.io.IOException;
@@ -123,8 +126,12 @@ public class IFramePortlet extends MVCPortlet {
 			String protocol = src.substring(0, pos + 3);
 			String url = src.substring(pos + 3);
 
+<<<<<<< HEAD
 			src = StringBundler.concat(
 				protocol, userName, ":", password, "@", url);
+=======
+			src = protocol + userName + ":" + password + "@" + url;
+>>>>>>> compatible
 		}
 		else {
 			PortletURL proxyURL = renderResponse.createRenderURL();

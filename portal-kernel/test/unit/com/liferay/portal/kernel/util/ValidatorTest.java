@@ -15,6 +15,7 @@
 package com.liferay.portal.kernel.util;
 
 import com.liferay.portal.kernel.test.ReflectionTestUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.test.rule.CodeCoverageAssertor;
 
 import java.lang.reflect.Method;
@@ -25,6 +26,15 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.ClassRule;
 import org.junit.Test;
+=======
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.modules.junit4.PowerMockRunner;
+>>>>>>> compatible
 
 /**
  * @author Shuyang Zhou
@@ -32,6 +42,7 @@ import org.junit.Test;
  * @author Igor Beslic
  * @author Manuel de la Peña
  */
+<<<<<<< HEAD
 public class ValidatorTest {
 
 	@ClassRule
@@ -52,6 +63,10 @@ public class ValidatorTest {
 			}
 
 		};
+=======
+@RunWith(PowerMockRunner.class)
+public class ValidatorTest extends PowerMockito {
+>>>>>>> compatible
 
 	@Test
 	public void testIsContent() throws Exception {
@@ -119,8 +134,12 @@ public class ValidatorTest {
 			"test", "liferay.com", "@liferay.com", "test(@liferay.com",
 			"test)@liferay.com", "test,@liferay.com", ".test@liferay.com",
 			"test.@liferay.com", "te..st@liferay.com", "test user@liferay.com",
+<<<<<<< HEAD
 			"test@-liferay.com", "test@.liferay.com", "test@liferay.com-",
 			"test@liferay.com."
+=======
+			"test@-liferay.com", "test@_liferay.com"
+>>>>>>> compatible
 		};
 
 		testValidEmailAddreses(invalidEmailAddresses, false);
@@ -392,6 +411,7 @@ public class ValidatorTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testIsLUHN() {
 		Assert.assertTrue(Validator.isLUHN("059"));
 		Assert.assertTrue(Validator.isLUHN("0000"));
@@ -413,6 +433,8 @@ public class ValidatorTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testIsNull() throws Exception {
 		String[] nullStrings =
 			{null, "", "  ", "null", " null", "null ", "  null  "};
@@ -438,9 +460,14 @@ public class ValidatorTest {
 			"test-@liferay.com", "test/@liferay.com", "test=@liferay.com",
 			"test?@liferay.com", "test^@liferay.com", "test_@liferay.com",
 			"test`@liferay.com", "test{@liferay.com", "test|@liferay.com",
+<<<<<<< HEAD
 			"test{@liferay.com", "test~@liferay.com", "test@liferay",
 			"test@liferay-abc.com", "test@liferay-abc-def.com",
 			"test@liferay_abc.com", "test@liferay.abc.com"
+=======
+			"test{@liferay.com", "test~@liferay.com", "test@liferay.com.",
+			"test@liferay"
+>>>>>>> compatible
 		};
 
 		testValidEmailAddreses(validEmailAddresses, true);

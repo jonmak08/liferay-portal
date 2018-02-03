@@ -39,18 +39,28 @@ public class UpgradeMessageBoards extends UpgradeProcess {
 		String tempTableName = "TEMP_TABLE_" + StringUtil.randomString(4);
 
 		try (LoggingTimer loggingTimer = new LoggingTimer()) {
+<<<<<<< HEAD
 			runSQL(
 				StringBundler.concat(
 					"create table ", tempTableName, " (threadId LONG NOT NULL ",
 					"PRIMARY KEY)"));
+=======
+			runSQL("create table " + tempTableName + " (threadId LONG)");
+>>>>>>> compatible
 
 			StringBundler sb = new StringBundler(8);
 
 			sb.append("insert into ");
 			sb.append(tempTableName);
+<<<<<<< HEAD
 			sb.append(" select MBMessage.threadId from MBMessage inner join ");
 			sb.append("MBThread on MBMessage.threadId = MBThread.threadId ");
 			sb.append("where MBThread.categoryId = ");
+=======
+			sb.append(" select MBMessage.threadId from MBThread, MBMessage ");
+			sb.append("where MBThread.threadId = MBMessage.threadId and ");
+			sb.append("MBThread.categoryId = ");
+>>>>>>> compatible
 			sb.append(MBCategoryConstants.DISCUSSION_CATEGORY_ID);
 			sb.append(" group by MBMessage.threadId having ");
 			sb.append("count(MBMessage.messageId) = 1");
@@ -77,7 +87,11 @@ public class UpgradeMessageBoards extends UpgradeProcess {
 	}
 
 	protected void populateMBDiscussionGroupId() throws Exception {
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(3);
+=======
+		StringBundler sb = new StringBundler();
+>>>>>>> compatible
 
 		sb.append("select MBThread.groupId, MBDiscussion.discussionId from ");
 		sb.append("MBDiscussion inner join MBThread on MBDiscussion.threadId ");
@@ -123,6 +137,7 @@ public class UpgradeMessageBoards extends UpgradeProcess {
 
 		DBTypeToSQLMap dbTypeToSQLMap = new DBTypeToSQLMap(sb.toString());
 
+<<<<<<< HEAD
 		sb = new StringBundler(9);
 
 		sb.append("delete AssetEntry from AssetEntry inner join MBMessage on ");
@@ -134,6 +149,18 @@ public class UpgradeMessageBoards extends UpgradeProcess {
 		sb.append(" on MBMessage.threadId = ");
 		sb.append(tempTableName);
 		sb.append(".threadId");
+=======
+		sb = new StringBundler(8);
+
+		sb.append("delete AssetEntry from AssetEntry inner join MBMessage ");
+		sb.append("inner join ");
+		sb.append(tempTableName);
+		sb.append(" where MBMessage.threadId = ");
+		sb.append(tempTableName);
+		sb.append(".threadId and AssetEntry.classPK = MBMessage.messageId ");
+		sb.append("and AssetEntry.classNameId = ");
+		sb.append(classNameId);
+>>>>>>> compatible
 
 		String sql = sb.toString();
 
@@ -164,7 +191,11 @@ public class UpgradeMessageBoards extends UpgradeProcess {
 		sb.append(tableName);
 		sb.append(" inner join ");
 		sb.append(tempTableName);
+<<<<<<< HEAD
 		sb.append(" on ");
+=======
+		sb.append(" where ");
+>>>>>>> compatible
 		sb.append(tableName);
 		sb.append(".threadId = ");
 		sb.append(tempTableName);

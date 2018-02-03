@@ -26,27 +26,42 @@ import com.liferay.journal.model.JournalArticle;
 import com.liferay.journal.model.JournalArticleResource;
 import com.liferay.journal.model.JournalFolder;
 import com.liferay.journal.model.JournalFolderConstants;
+<<<<<<< HEAD
+=======
+import com.liferay.journal.service.JournalArticleImageLocalServiceUtil;
+>>>>>>> compatible
 import com.liferay.journal.service.JournalArticleLocalServiceUtil;
 import com.liferay.journal.service.JournalArticleResourceLocalServiceUtil;
 import com.liferay.journal.service.JournalArticleServiceUtil;
 import com.liferay.journal.service.JournalFolderServiceUtil;
 import com.liferay.journal.test.util.JournalTestUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.BaseModel;
 import com.liferay.portal.kernel.model.ClassedModel;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.WorkflowedModel;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.portletfilerepository.PortletFileRepositoryUtil;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+=======
+import com.liferay.portal.kernel.service.ServiceContext;
+import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.trash.TrashHandler;
 import com.liferay.portal.kernel.trash.TrashHandlerRegistryUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -55,12 +70,23 @@ import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
+=======
+import com.liferay.portal.kernel.util.FileUtil;
+import com.liferay.portal.kernel.util.PortalRunMode;
+import com.liferay.portal.kernel.util.PortalUtil;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
+>>>>>>> compatible
 import com.liferay.portal.service.test.ServiceTestUtil;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.registry.Registry;
 import com.liferay.registry.RegistryUtil;
+<<<<<<< HEAD
 import com.liferay.registry.ServiceTracker;
 import com.liferay.trash.TrashHelper;
+=======
+import com.liferay.trash.kernel.util.TrashUtil;
+>>>>>>> compatible
 import com.liferay.trash.test.util.BaseTrashHandlerTestCase;
 import com.liferay.trash.test.util.DefaultWhenIsAssetable;
 import com.liferay.trash.test.util.DefaultWhenIsIndexableBaseModel;
@@ -79,6 +105,7 @@ import com.liferay.trash.test.util.WhenIsRestorableParentBaseModelFromTrash;
 import com.liferay.trash.test.util.WhenIsUpdatableBaseModel;
 import com.liferay.trash.test.util.WhenIsVersionableBaseModel;
 
+<<<<<<< HEAD
 import java.io.InputStream;
 
 import java.util.List;
@@ -87,6 +114,15 @@ import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
+=======
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+>>>>>>> compatible
 import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
@@ -96,6 +132,10 @@ import org.junit.runner.RunWith;
  * @author Sergio González
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class JournalArticleTrashHandlerTest
 	extends BaseTrashHandlerTestCase
 	implements WhenCanBeDuplicatedInTrash, WhenHasDraftStatus,
@@ -109,6 +149,7 @@ public class JournalArticleTrashHandlerTest
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
 
 	@BeforeClass
@@ -124,6 +165,11 @@ public class JournalArticleTrashHandlerTest
 	public static void tearDownClass() {
 		_serviceTracker.close();
 	}
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Override
 	public BaseModel<?> addDraftBaseModelWithWorkflow(
@@ -256,18 +302,41 @@ public class JournalArticleTrashHandlerTest
 	public void setUp() throws Exception {
 		setUpDDMFormXSDDeserializer();
 
+<<<<<<< HEAD
 		ServiceTestUtil.setUser(TestPropsValues.getUser());
 
 		_trashHelper = _serviceTracker.getService();
+=======
+		_testMode = PortalRunMode.isTestMode();
+
+		PortalRunMode.setTestMode(true);
+
+		ServiceTestUtil.setUser(TestPropsValues.getUser());
+>>>>>>> compatible
 
 		super.setUp();
 	}
 
+<<<<<<< HEAD
+=======
+	@After
+	public void tearDown() throws Exception {
+		PortalRunMode.setTestMode(_testMode);
+	}
+
+>>>>>>> compatible
 	@Test
 	public void testArticleImages() throws Exception {
 		ServiceContext serviceContext =
 			ServiceContextTestUtil.getServiceContext(group.getGroupId());
 
+<<<<<<< HEAD
+=======
+		int initialArticleImagesCount =
+			JournalArticleImageLocalServiceUtil.getArticleImagesCount(
+				group.getGroupId());
+
+>>>>>>> compatible
 		Class<?> clazz = getClass();
 
 		ClassLoader classLoader = clazz.getClassLoader();
@@ -287,6 +356,7 @@ public class JournalArticleTrashHandlerTest
 			serviceContext.getScopeGroupId(), ddmStructure.getStructureId(),
 			PortalUtil.getClassNameId(JournalArticle.class));
 
+<<<<<<< HEAD
 		InputStream inputStream = classLoader.getResourceAsStream(
 			"/com/liferay/journal/dependencies/liferay.png");
 
@@ -343,15 +413,47 @@ public class JournalArticleTrashHandlerTest
 				group.getGroupId(), folderId,
 				WorkflowConstants.STATUS_IN_TRASH));
 
+=======
+		String content = StringUtil.read(
+			classLoader,
+			"com/liferay/journal/dependencies" +
+				"/test-journal-content-image-field.xml");
+
+		Map<String, byte[]> images = new HashMap<>();
+
+		images.put(
+			"uewn_image_1_en_US",
+			FileUtil.getBytes(
+				clazz, "/com/liferay/journal/dependencies/liferay.png"));
+
+		baseModel = JournalTestUtil.addArticleWithXMLContent(
+			JournalFolderConstants.DEFAULT_PARENT_FOLDER_ID, content,
+			ddmStructure.getStructureKey(), ddmTemplate.getTemplateKey(),
+			images, serviceContext);
+
+		Assert.assertEquals(
+			initialArticleImagesCount + 1,
+			JournalArticleImageLocalServiceUtil.getArticleImagesCount(
+				group.getGroupId()));
+
+		moveBaseModelToTrash((Long)baseModel.getPrimaryKeyObj());
+
+>>>>>>> compatible
 		TrashHandler trashHandler = TrashHandlerRegistryUtil.getTrashHandler(
 			getBaseModelClassName());
 
 		trashHandler.deleteTrashEntry(getTrashEntryClassPK(baseModel));
 
 		Assert.assertEquals(
+<<<<<<< HEAD
 			0,
 			PortletFileRepositoryUtil.getPortletFileEntriesCount(
 				group.getGroupId(), folderId));
+=======
+			initialArticleImagesCount,
+			JournalArticleImageLocalServiceUtil.getArticleImagesCount(
+				group.getGroupId()));
+>>>>>>> compatible
 	}
 
 	@Override
@@ -474,7 +576,11 @@ public class JournalArticleTrashHandlerTest
 
 		String articleId = article.getArticleId();
 
+<<<<<<< HEAD
 		return _trashHelper.getOriginalTitle(articleId);
+=======
+		return TrashUtil.getOriginalTitle(articleId);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -495,10 +601,15 @@ public class JournalArticleTrashHandlerTest
 
 	private static final int _FOLDER_NAME_MAX_LENGTH = 100;
 
+<<<<<<< HEAD
 	private static ServiceTracker<TrashHelper, TrashHelper> _serviceTracker;
 
 	private DDMFormXSDDeserializer _ddmFormXSDDeserializer;
 	private TrashHelper _trashHelper;
+=======
+	private DDMFormXSDDeserializer _ddmFormXSDDeserializer;
+	private boolean _testMode;
+>>>>>>> compatible
 	private final WhenIsAssetable _whenIsAssetable =
 		new DefaultWhenIsAssetable();
 	private final WhenIsIndexableBaseModel _whenIsIndexableBaseModel =

@@ -15,12 +15,19 @@
 package com.liferay.message.boards.comment.internal;
 
 import com.liferay.message.boards.kernel.model.MBMessage;
+<<<<<<< HEAD
 import com.liferay.message.boards.service.permission.MBDiscussionPermission;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.comment.BaseDiscussionPermission;
 import com.liferay.portal.kernel.comment.Comment;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
+<<<<<<< HEAD
+=======
+import com.liferay.portlet.messageboards.service.permission.MBDiscussionPermission;
+>>>>>>> compatible
 
 /**
  * @author Adolfo Pérez

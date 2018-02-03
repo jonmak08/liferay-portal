@@ -16,7 +16,11 @@ package com.liferay.blogs.demo.data.creator;
 
 import aQute.bnd.annotation.ProviderType;
 
+<<<<<<< HEAD
 import com.liferay.blogs.model.BlogsEntry;
+=======
+import com.liferay.blogs.kernel.model.BlogsEntry;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 
 import java.io.IOException;

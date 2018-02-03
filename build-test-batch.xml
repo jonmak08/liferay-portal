@@ -160,10 +160,13 @@ lportal_BS
 
 			<get-database-property property.name="database.service.cmd.stop" />
 
+<<<<<<< HEAD
 			<local name="database.version.cmd" />
 
 			<get-database-property property.name="database.version.cmd" />
 
+=======
+>>>>>>> compatible
 			<action />
 		</sequential>
 	</macrodef>
@@ -235,6 +238,7 @@ mariadb.executable=${mariadb.executable}]]></echo>
 
 			<database-test-action database.type="@{database.type}">
 				<action>
+<<<<<<< HEAD
 					<if>
 						<equals arg1="${database.type}" arg2="db2" />
 						<then>
@@ -275,6 +279,8 @@ mariadb.executable=${mariadb.executable}]]></echo>
 
 			<database-test-action database.type="@{database.type}">
 				<action>
+=======
+>>>>>>> compatible
 					<exec executable="${database.service.executable}">
 						<arg line="${database.service.cmd.stop}" />
 					</exec>
@@ -347,6 +353,25 @@ mariadb.executable=${mariadb.executable}]]></echo>
 		<sequential>
 			<antcall target="merge-test-results" />
 
+<<<<<<< HEAD
+=======
+			<local name="testsuite.element" />
+
+			<property name="testsuite.element"><![CDATA[<testsuite errors="0" failures="0" hostname="localhost" name="com.liferay.jenkins.JenkinsLogAsserterTest" skipped="0" tests="1" time="0.0">
+	<properties />
+	<testcase classname="com.liferay.jenkins.JenkinsLogAsserterTest" name="testScanJenkinsLog" time="0.0" />
+	<system-out></system-out>
+	<system-err></system-err>
+</testsuite>]]></property>
+
+			<replaceregexp
+				byline="true"
+				file="test-results/TESTS-TestSuites.xml"
+				match="&lt;testsuites /&gt;"
+				replace="${testsuite.element}"
+			/>
+
+>>>>>>> compatible
 			<if>
 				<isset property="env.WORKSPACE" />
 				<then>
@@ -373,8 +398,13 @@ mariadb.executable=${mariadb.executable}]]></echo>
 					<include name="**/com/liferay/**" />
 				</patternset>
 				<fileset dir="@{portal.bundle.dir}">
+<<<<<<< HEAD
 					<include name="**/*.jar" />
 					<include name="**/*.war" />
+=======
+					 <include name="**/*.jar" />
+					 <include name="**/*.war" />
+>>>>>>> compatible
 				</fileset>
 			</unzip>
 
@@ -465,6 +495,42 @@ app.server.type=@{app.server.type}]]></echo>
 
 			<antcall inheritAll="false" target="compile-test" />
 
+<<<<<<< HEAD
+=======
+			<echo file="${project.dir}/.gitignore">/.ivy/
+/app.server.*.properties
+/build.*.properties
+/release.*.properties
+/sql/sql.*.properties
+/test.*.properties
+/tools/maven/*.asc
+/tools/node*
+/tools/selenium/*.exe
+/tools/selenium/extensions/ide.*.js
+/tools/tck
+/tools/zip_tmpl/license</echo>
+
+			<delete file="${project.dir}/lib/.gitignore" />
+
+			<echo file="${project.dir}/modules/.gitignore">tmp
+/*/*/ivy.xml.MD5
+/*/*/javadoc
+/*/*/lib
+/*/*/tmp
+/*/*/*/build/node
+/*/*/*/ivy.xml.MD5
+/*/*/*/javadoc
+/*/*/*/lib
+/*/*/*/node_modules
+/*/*/*/tmp
+/*/*/*/*/build/node
+/*/*/*/*/ivy.xml.MD5
+/*/*/*/*/javadoc
+/*/*/*/*/lib
+/*/*/*/*/node_modules
+/*/*/*/*/tmp</echo>
+
+>>>>>>> compatible
 			<delete>
 				<fileset dir="bundles" includes="*.zip" />
 			</delete>
@@ -472,12 +538,22 @@ app.server.type=@{app.server.type}]]></echo>
 			<if>
 				<contains string="@{app.server.type}" substring="tomcat" />
 				<then>
+<<<<<<< HEAD
 					<zip
 						basedir="${project.dir}"
 						destfile="liferay-portal-source.zip"
 						excludes="${test.batch.dist.source.excludes}"
 						includes="${test.batch.dist.source.includes}"
 					/>
+=======
+					<execute>
+						<![CDATA[
+							git add -A
+
+							git diff --cached --name-only -z | grep -E -v -z '^\.gitignore|bundles/|^modules/\.gitignore' | xargs -0 -n 1000 zip -v liferay-portal-source.zip
+						]]>
+					</execute>
+>>>>>>> compatible
 
 					<prepare-liferay-classes if:true="${test.batch.code.coverage}" merged.jar="${project.dir}/jacoco/merged.jar" portal.bundle.dir="bundles" />
 				</then>
@@ -514,20 +590,30 @@ app.server.type=@{app.server.type}]]></echo>
 		<attribute default="tomcat" name="app.server.type" />
 
 		<sequential>
+<<<<<<< HEAD
 			<antcall inheritAll="false" target="setup-sdk" />
 
 			<unzip dest="." src="liferay-portal-source.zip" />
 
 			<execute>
 				<![CDATA[
+=======
+			<execute>
+				<![CDATA[
+					unzip -oq liferay-portal-source.zip
+
+>>>>>>> compatible
 					unzip -oq liferay-portal-bundle-@{app.server.type}.zip
 
 					chmod -R a+x bundles
 				]]>
 			</execute>
 
+<<<<<<< HEAD
 			<setup-libs />
 
+=======
+>>>>>>> compatible
 			<antcall inheritAll="false" target="install-portal-snapshots" />
 
 			<echo if:set="env.JENKINS_HOME">ANT_OPTS=${env.ANT_OPTS}</echo>
@@ -651,6 +737,10 @@ app.server.type=@{app.server.type}]]></echo>
 									</ant>
 								</finally>
 							</trycatch>
+<<<<<<< HEAD
+=======
+
+>>>>>>> compatible
 						</test-action>
 					</database-test-run-test>
 				</test-action>
@@ -730,7 +820,10 @@ app.server.type=@{app.server.type}]]></echo>
 		<attribute name="database.type" />
 		<attribute default="${database.@{database.type}.version}" name="database.version" />
 		<attribute default="true" name="setup.proxy" />
+<<<<<<< HEAD
 		<attribute default="true" name="setup.testable.jboss" />
+=======
+>>>>>>> compatible
 		<attribute default="true" name="setup.testable.tomcat" />
 		<attribute default="" name="test.build.fix.pack.zip.url" />
 		<attribute default="" name="test.fix.pack.base.url" />
@@ -884,6 +977,7 @@ app.server.type=@{app.server.type}]]></echo>
 
 							<if>
 								<and>
+<<<<<<< HEAD
 									<equals arg1="@{app.server.type}" arg2="jboss" />
 									<equals arg1="@{setup.testable.jboss}" arg2="true" />
 								</and>
@@ -901,6 +995,16 @@ app.server.type=@{app.server.type}]]></echo>
 										<setup-test-batch-testable-tomcat setup.proxy="@{setup.proxy}" />
 									</then>
 								</elseif>
+=======
+									<equals arg1="${app.server.type}" arg2="tomcat" />
+									<equals arg1="@{setup.testable.tomcat}" arg2="true" />
+								</and>
+								<then>
+									<setup-testable-tomcat />
+
+									<setup-test-batch-testable-tomcat setup.proxy="@{setup.proxy}" />
+								</then>
+>>>>>>> compatible
 							</if>
 						</then>
 						<elseif>
@@ -917,8 +1021,13 @@ app.server.type=@{app.server.type}]]></echo>
 
 							<if>
 								<or>
+<<<<<<< HEAD
 									<equals arg1="@{app.server.type}" arg2="weblogic" />
 									<equals arg1="@{app.server.type}" arg2="websphere" />
+=======
+									<equals arg1="${app.server.type}" arg2="weblogic" />
+									<equals arg1="${app.server.type}" arg2="websphere" />
+>>>>>>> compatible
 								</or>
 								<then>
 									<prepare-test-build-custom />
@@ -930,6 +1039,7 @@ app.server.type=@{app.server.type}]]></echo>
 
 							<if>
 								<and>
+<<<<<<< HEAD
 									<equals arg1="@{app.server.type}" arg2="jboss" />
 									<equals arg1="@{setup.testable.jboss}" arg2="true" />
 								</and>
@@ -947,6 +1057,16 @@ app.server.type=@{app.server.type}]]></echo>
 										<setup-test-batch-testable-tomcat setup.proxy="@{setup.proxy}" />
 									</then>
 								</elseif>
+=======
+									<equals arg1="${app.server.type}" arg2="tomcat" />
+									<equals arg1="@{setup.testable.tomcat}" arg2="true" />
+								</and>
+								<then>
+									<setup-testable-tomcat />
+
+									<setup-test-batch-testable-tomcat setup.proxy="@{setup.proxy}" />
+								</then>
+>>>>>>> compatible
 							</if>
 						</else>
 					</if>
@@ -1031,7 +1151,10 @@ app.server.type=@{app.server.type}]]></echo>
 				app.server.type="tomcat"
 				database.type="@{database.type}"
 				database.version="@{database.version}"
+<<<<<<< HEAD
 				setup.testable.jboss="false"
+=======
+>>>>>>> compatible
 				setup.testable.tomcat="false"
 				test.build.fix.pack.zip.url="${test.build.fix.pack.zip.url}"
 				test.fix.pack.base.url="${test.fix.pack.base.url}"
@@ -1501,7 +1624,10 @@ app.server.type=@{app.server.type}]]></echo>
 
 	<macrodef name="run-modules-integration-test">
 		<attribute name="database.type" />
+<<<<<<< HEAD
 		<attribute default="" name="refreshdependencies" />
+=======
+>>>>>>> compatible
 		<attribute default="" name="subrepository.name" />
 
 		<sequential>
@@ -1523,7 +1649,11 @@ app.server.type=@{app.server.type}]]></echo>
 
 							<get-test-batch-app-server-start-executable-arg-line />
 
+<<<<<<< HEAD
 							<gradle-execute dir="modules" refreshdependencies="@{refreshdependencies}" task="testIntegration">
+=======
+							<gradle-execute dir="modules" task="testIntegration">
+>>>>>>> compatible
 								<arg value="-Dapp.server.start.executable.arg.line=${test.batch.app.server.start.executable.arg.line}" />
 								<arg value="-Ddatabase.type=@{database.type}" />
 								<arg value="-Dbuild.exclude.ant.plugin=true" />
@@ -1929,9 +2059,13 @@ app.server.type=@{app.server.type}]]></echo>
 			test.plugin.zip.url="${test.plugin.zip.url}"
 			test.plugins.war.zip.url="${test.plugins.war.zip.url}"
 			test.portal.bundle.version="${test.portal.bundle.version}"
+<<<<<<< HEAD
 			test.portal.bundle.dependencies.zip.url="${test.portal.bundle.dependencies.zip.url}"
 			test.portal.bundle.osgi.zip.url="${test.portal.bundle.osgi.zip.url}"
 			test.portal.bundle.war.url="${test.portal.bundle.war.url}"
+=======
+			test.portal.bundle.zip.url="${test.portal.bundle.zip.url}"
+>>>>>>> compatible
 			test.portal.lpkg.name="${test.portal.lpkg.name}"
 			test.sql.zip.url="${test.sql.zip.url}"
 		/>
@@ -2136,7 +2270,11 @@ app.server.type=@{app.server.type}]]></echo>
 	</target>
 
 	<target name="functional-smoke-jboss70-mysql56-jdk8">
+<<<<<<< HEAD
 		<run-functional-test app.server.type="jboss" database.type="mysql" test.portal.log.assert="true" />
+=======
+		<run-functional-test app.server.type="jboss" database.type="mysql" test.portal.log.assert="false" />
+>>>>>>> compatible
 	</target>
 
 	<target name="functional-smoke-resin40-mysql56-jdk8">
@@ -2144,7 +2282,11 @@ app.server.type=@{app.server.type}]]></echo>
 	</target>
 
 	<target name="functional-smoke-tcserver32-mysql56-jdk8">
+<<<<<<< HEAD
 		<run-functional-test app.server.type="tcserver" database.type="mysql" test.portal.log.assert="false" />
+=======
+		<run-functional-test app.server.type="tcserver" database.type="mysql" test.portal.log.assert="true" />
+>>>>>>> compatible
 	</target>
 
 	<target name="functional-smoke-tomcat80-db2105-jdk8">
@@ -2164,7 +2306,11 @@ app.server.type=@{app.server.type}]]></echo>
 	</target>
 
 	<target name="functional-smoke-tomcat80-oracle121-jdk8">
+<<<<<<< HEAD
 		<run-functional-test app.server.type="tomcat" database.type="oracle" test.portal.log.assert="true" />
+=======
+		<run-functional-test app.server.type="tomcat" database.type="oracle" test.portal.log.assert="false" />
+>>>>>>> compatible
 	</target>
 
 	<target name="functional-smoke-tomcat80-postgresql94-jdk8">
@@ -2176,6 +2322,7 @@ app.server.type=@{app.server.type}]]></echo>
 	</target>
 
 	<target name="functional-smoke-weblogic121-mysql56-jdk8">
+<<<<<<< HEAD
 		<run-functional-test app.server.type="weblogic" database.type="mysql" test.portal.log.assert="true" />
 	</target>
 
@@ -2185,6 +2332,17 @@ app.server.type=@{app.server.type}]]></echo>
 
 	<target name="functional-smoke-wildfly100-mariadb100-jdk8">
 		<run-functional-test app.server.type="wildfly" database.type="mariadb" test.portal.log.assert="true" />
+=======
+		<run-functional-test app.server.type="weblogic" database.type="mysql" test.portal.log.assert="false" />
+	</target>
+
+	<target name="functional-smoke-websphere85-mysql56-jdk8">
+		<run-functional-test app.server.type="websphere" database.type="mysql" test.portal.log.assert="false" />
+	</target>
+
+	<target name="functional-smoke-wildfly100-mariadb100-jdk8">
+		<run-functional-test app.server.type="wildfly" database.type="mariadb" test.portal.log.assert="false" />
+>>>>>>> compatible
 	</target>
 
 	<target name="functional-tomcat80-hypersonic20-jdk8">
@@ -2321,6 +2479,7 @@ app.server.type=@{app.server.type}]]></echo>
 		</run-batch-test>
 	</target>
 
+<<<<<<< HEAD
 	<target name="legacy-functional-bundle-tomcat-db2105">
 		<run-legacy-database-dump database.type="db2" />
 	</target>
@@ -2342,6 +2501,29 @@ app.server.type=@{app.server.type}]]></echo>
 	</target>
 
 	<target name="legacy-functional-bundle-tomcat-sybase160">
+=======
+	<target name="legacy-functional-bundle-tomcat-db2105-jdk7">
+		<run-legacy-database-dump database.type="db2" />
+	</target>
+
+	<target name="legacy-functional-bundle-tomcat-mariadb100-jdk7">
+		<run-legacy-database-dump database.type="mariadb" />
+	</target>
+
+	<target name="legacy-functional-bundle-tomcat-mysql55-jdk7">
+		<run-legacy-database-dump database.type="mysql" database.version="5.5" />
+	</target>
+
+	<target name="legacy-functional-bundle-tomcat-oracle121-jdk7">
+		<run-legacy-database-dump database.type="oracle" />
+	</target>
+
+	<target name="legacy-functional-bundle-tomcat-postgresql94-jdk7">
+		<run-legacy-database-dump database.type="postgresql" />
+	</target>
+
+	<target name="legacy-functional-bundle-tomcat-sybase160-jdk7">
+>>>>>>> compatible
 		<run-legacy-database-dump database.type="sybase" />
 	</target>
 
@@ -2373,6 +2555,7 @@ app.server.type=@{app.server.type}]]></echo>
 					<arg value="-Dbuild.exclude.dirs=private/apps/osb-lcs,private/apps/saml,third-party" />
 				</gradle-execute>
 
+<<<<<<< HEAD
 				<loadresource property="modules.compile.task.groups">
 					<filterchain>
 						<linecontainsregexp>
@@ -2389,6 +2572,22 @@ app.server.type=@{app.server.type}]]></echo>
 					</filterchain>
 					<propertyresource name="modules.compile.project.paths" />
 				</loadresource>
+=======
+				<propertyregex
+					input="${modules.compile.project.paths}"
+					property="modules.compile.task.groups"
+					regexp="(\S+)\r?\n"
+					replace="\1:assemble "
+				/>
+
+				<propertyregex
+					input="${modules.compile.task.groups}:assemble"
+					override="true"
+					property="modules.compile.task.groups"
+					regexp="(\S+ ){${test.module.groups.size}}"
+					replace="\0,"
+				/>
+>>>>>>> compatible
 
 				<for list="${modules.compile.task.groups}" param="modules.compile.task.group" trim="true">
 					<sequential>
@@ -2533,6 +2732,7 @@ ${output.content}</echo>
 		</exec>
 	</target>
 
+<<<<<<< HEAD
 	<target name="patching-tool-custom-scripts-jdk8">
 		<fail message="Please set the property liferay.jenkins.dir" >
 			<condition>
@@ -2558,6 +2758,8 @@ ${output.content}</echo>
 		</run-batch-test>
 	</target>
 
+=======
+>>>>>>> compatible
 	<target name="plugins-compile-jdk8">
 		<run-batch-test>
 			<test-action>
@@ -2661,6 +2863,7 @@ ${output.content}</echo>
 		</run-batch-test>
 	</target>
 
+<<<<<<< HEAD
 	<target name="portal-frontend-js-lint-jdk8">
 		<run-batch-test>
 			<test-action>
@@ -2723,6 +2926,8 @@ ${output.content}</echo>
 		</run-batch-test>
 	</target>
 
+=======
+>>>>>>> compatible
 	<target name="portal-startup-space-in-path-jdk8">
 		<sequential>
 			<run-batch-test>
@@ -2747,7 +2952,12 @@ ${output.content}</echo>
 								</try>
 							</trycatch>
 
+<<<<<<< HEAD
 							<antcall inheritall="false" target="stop-app-server" />
+=======
+								<antcall inheritall="false" target="stop-app-server" />
+
+>>>>>>> compatible
 						</test-action>
 					</database-test-run-test>
 				</test-action>
@@ -2757,6 +2967,10 @@ ${output.content}</echo>
 						<isset property="env.DIST_PATH" />
 						<then>
 							<sequential>
+<<<<<<< HEAD
+=======
+
+>>>>>>> compatible
 								<propertyfile file="app.server.${env.HOSTNAME}.properties">
 									<entry key="app.server.parent.dir" value="${project.dir}/bun dles" />
 								</propertyfile>
@@ -2768,12 +2982,20 @@ ${output.content}</echo>
 								<prepare-test-environment />
 
 								<move file="bundles" tofile="bun dles" />
+<<<<<<< HEAD
+=======
+
+>>>>>>> compatible
 							</sequential>
 						</then>
 						<else>
 							<prepare-test-build />
 						</else>
 					</if>
+<<<<<<< HEAD
+=======
+
+>>>>>>> compatible
 				</test-set-up>
 			</run-batch-test>
 		</sequential>
@@ -3113,7 +3335,11 @@ information. Make sure to commit in all build services results.
 
 				<echo>Running com.liferay.source.formatter.jar ${Bundle-Version}.</echo>
 
+<<<<<<< HEAD
 				<ant dir="portal-impl" target="format-source-all">
+=======
+				<ant dir="portal-impl" target="format-source">
+>>>>>>> compatible
 					<property name="show.documentation" value="false" />
 					<property name="source.auto.fix" value="false" />
 					<property name="source.fail.on.error" value="true" />
@@ -3138,6 +3364,7 @@ information. Make sure to commit in all build services results.
 		</run-batch-test>
 	</target>
 
+<<<<<<< HEAD
 	<target name="subrepository-assemble-jdk8">
 		<fail message="Please set the property ${subrepository.name}." unless="subrepository.name" />
 
@@ -3171,6 +3398,8 @@ information. Make sure to commit in all build services results.
 		</run-batch-test>
 	</target>
 
+=======
+>>>>>>> compatible
 	<target name="subrepository-compile-jdk8">
 		<fail message="Please set the property ${subrepository.name}." unless="subrepository.name" />
 
@@ -3178,13 +3407,25 @@ information. Make sure to commit in all build services results.
 
 		<trycatch property="failure.property">
 			<try>
+<<<<<<< HEAD
 				<gradle-execute checktask="true" dir="${module.base.dir}" outputproperty="gradle.output" refreshdependencies="true" task="compileJava" />
+=======
+				<move file="${module.base.dir}/settings.gradle" tofile="${module.base.dir}/settings.gradle.temp" />
+
+				<gradle-execute checktask="true" dir="${module.base.dir}" outputproperty="gradle.output" task="assemble" />
+>>>>>>> compatible
 			</try>
 			<catch>
 				<echo message="${gradle.output.error}" />
 
 				<fail message="${failure.property}" />
 			</catch>
+<<<<<<< HEAD
+=======
+			<finally>
+				<move file="${module.base.dir}/settings.gradle.temp" tofile="${module.base.dir}/settings.gradle" />
+			</finally>
+>>>>>>> compatible
 		</trycatch>
 	</target>
 
@@ -3195,7 +3436,11 @@ information. Make sure to commit in all build services results.
 	<target name="subrepository-integration-mysql56-jdk8">
 		<fail message="Please set the property ${subrepository.name}." unless="subrepository.name" />
 
+<<<<<<< HEAD
 		<run-modules-integration-test database.type="mysql" refreshdependencies="true" subrepository.name="${subrepository.name}" />
+=======
+		<run-modules-integration-test database.type="mysql" subrepository.name="${subrepository.name}" />
+>>>>>>> compatible
 	</target>
 
 	<target name="subrepository-pmd-jdk8">
@@ -3205,7 +3450,13 @@ information. Make sure to commit in all build services results.
 
 		<trycatch property="failure.property">
 			<try>
+<<<<<<< HEAD
 				<gradle-execute checktask="true" dir="${module.base.dir}" outputproperty="gradle.output" refreshdependencies="true" task="pmdMain">
+=======
+				<move file="${module.base.dir}/settings.gradle" tofile="${module.base.dir}/settings.gradle.temp" />
+
+				<gradle-execute checktask="true" dir="${module.base.dir}" outputproperty="gradle.output" task="pmdMain">
+>>>>>>> compatible
 					<arg value="pmdTest" />
 					<arg value="pmdTestIntegration" />
 				</gradle-execute>
@@ -3215,6 +3466,12 @@ information. Make sure to commit in all build services results.
 
 				<fail message="${failure.property}" />
 			</catch>
+<<<<<<< HEAD
+=======
+			<finally>
+				<move file="${module.base.dir}/settings.gradle.temp" tofile="${module.base.dir}/settings.gradle" />
+			</finally>
+>>>>>>> compatible
 		</trycatch>
 	</target>
 
@@ -3238,13 +3495,25 @@ information. Make sure to commit in all build services results.
 
 		<trycatch property="failure.property">
 			<try>
+<<<<<<< HEAD
 				<gradle-execute checktask="true" dir="${module.base.dir}" forcedcacheenabled="false" outputproperty="gradle.output" refreshdependencies="true" task="baseline" />
+=======
+				<move file="${module.base.dir}/settings.gradle" tofile="${module.base.dir}/settings.gradle.temp" />
+
+				<gradle-execute checktask="true" dir="${module.base.dir}" forcedcacheenabled="false" outputproperty="gradle.output" task="baseline" />
+>>>>>>> compatible
 			</try>
 			<catch>
 				<echo message="${gradle.output.error}" />
 
 				<fail message="${failure.property}" />
 			</catch>
+<<<<<<< HEAD
+=======
+			<finally>
+				<move file="${module.base.dir}/settings.gradle.temp" tofile="${module.base.dir}/settings.gradle" />
+			</finally>
+>>>>>>> compatible
 		</trycatch>
 
 		<echo>Checking for baseline log files.</echo>
@@ -3283,7 +3552,13 @@ information. Make sure to commit in all build services results.
 
 		<trycatch property="failure.property">
 			<try>
+<<<<<<< HEAD
 				<gradle-execute dir="${module.base.dir}" outputproperty="gradle.output" refreshdependencies="true" task="checkSourceFormatting">
+=======
+				<move file="${module.base.dir}/settings.gradle" tofile="${module.base.dir}/settings.gradle.temp" />
+
+				<gradle-execute dir="${module.base.dir}" outputproperty="gradle.output" task="checkSourceFormatting">
+>>>>>>> compatible
 					<arg value="-PdependencyCheckerIgnoreFailures=false" />
 				</gradle-execute>
 			</try>
@@ -3292,6 +3567,12 @@ information. Make sure to commit in all build services results.
 
 				<fail message="${failure.property}" />
 			</catch>
+<<<<<<< HEAD
+=======
+			<finally>
+				<move file="${module.base.dir}/settings.gradle.temp" tofile="${module.base.dir}/settings.gradle" />
+			</finally>
+>>>>>>> compatible
 		</trycatch>
 	</target>
 
@@ -3302,11 +3583,17 @@ information. Make sure to commit in all build services results.
 
 		<trycatch property="failure.property">
 			<try>
+<<<<<<< HEAD
 				<gradle-execute dir="${project.dir}/modules/apps/foundation/petra" task="deploy">
 					<arg value="-Dportal.build=true" />
 				</gradle-execute>
 
 				<gradle-execute checktask="true" dir="${module.base.dir}" forcedcacheenabled="false" outputproperty="gradle.output" refreshdependencies="true" task="test" />
+=======
+				<move file="${module.base.dir}/settings.gradle" tofile="${module.base.dir}/settings.gradle.temp" />
+
+				<gradle-execute checktask="true" dir="${module.base.dir}" forcedcacheenabled="false" outputproperty="gradle.output" task="test" />
+>>>>>>> compatible
 			</try>
 			<catch>
 				<echo message="${gradle.output.error}" />
@@ -3315,6 +3602,11 @@ information. Make sure to commit in all build services results.
 			</catch>
 			<finally>
 				<merge-test-results />
+<<<<<<< HEAD
+=======
+
+				<move file="${module.base.dir}/settings.gradle.temp" tofile="${module.base.dir}/settings.gradle" />
+>>>>>>> compatible
 			</finally>
 		</trycatch>
 	</target>
@@ -3330,6 +3622,11 @@ information. Make sure to commit in all build services results.
 
 		<clean-restart-sybase />
 
+<<<<<<< HEAD
+=======
+		<set-sybase-charset-utf8 />
+
+>>>>>>> compatible
 		<echo file="create-header.sql">use master
 dump transaction master with no_log
 go
@@ -3350,8 +3647,11 @@ go</echo>
 
 		<retry retrycount="10">
 			<sequential>
+<<<<<<< HEAD
 				<set-sybase-charset-utf8 />
 
+=======
+>>>>>>> compatible
 				<if>
 					<not>
 						<available file="/opt/sybase/charsets" />

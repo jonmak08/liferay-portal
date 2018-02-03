@@ -16,15 +16,24 @@ package com.liferay.social.kernel.model;
 
 import com.liferay.asset.kernel.model.AssetEntry;
 import com.liferay.asset.kernel.service.AssetEntryLocalServiceUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.bean.BeanPropertiesUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.User;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.StringPool;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.PortalUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.social.kernel.service.SocialActivityAchievementLocalServiceUtil;
 import com.liferay.social.kernel.service.SocialActivityCounterLocalServiceUtil;
@@ -161,6 +170,7 @@ public class BaseSocialAchievement implements SocialAchievement {
 
 	@Override
 	public void setName(String name) {
+<<<<<<< HEAD
 		if (name == null) {
 			_name = StringPool.BLANK;
 
@@ -191,6 +201,12 @@ public class BaseSocialAchievement implements SocialAchievement {
 		}
 
 		_name = sb.toString();
+=======
+		name = StringUtil.replace(name, CharPool.SPACE, CharPool.UNDERLINE);
+		name = StringUtil.toLowerCase(name);
+
+		_name = StringUtil.extract(name, _NAME_SUPPORTED_CHARS);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -260,6 +276,12 @@ public class BaseSocialAchievement implements SocialAchievement {
 
 	private static final String _ICON_SUFFIX = "-icon.jpg";
 
+<<<<<<< HEAD
+=======
+	private static final char[] _NAME_SUPPORTED_CHARS =
+		"abcdefghijklmnopqrstuvwxyz123456789_-.".toCharArray();
+
+>>>>>>> compatible
 	private static final Log _log = LogFactoryUtil.getLog(
 		BaseSocialAchievement.class);
 

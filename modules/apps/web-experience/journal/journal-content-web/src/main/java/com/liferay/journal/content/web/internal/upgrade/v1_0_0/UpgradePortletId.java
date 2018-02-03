@@ -14,7 +14,11 @@
 
 package com.liferay.journal.content.web.internal.upgrade.v1_0_0;
 
+<<<<<<< HEAD
 import com.liferay.journal.constants.JournalContentPortletKeys;
+=======
+import com.liferay.journal.content.web.constants.JournalContentPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.upgrade.BaseUpgradePortletId;
 
 /**

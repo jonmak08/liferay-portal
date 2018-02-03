@@ -14,7 +14,10 @@
 
 package com.liferay.document.library.internal.util;
 
+<<<<<<< HEAD
 import com.liferay.document.library.configuration.DLFileEntryConfiguration;
+=======
+>>>>>>> compatible
 import com.liferay.document.library.kernel.util.DLProcessor;
 import com.liferay.document.library.kernel.util.DLProcessorRegistry;
 import com.liferay.document.library.kernel.util.DLProcessorThreadLocal;
@@ -22,8 +25,11 @@ import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.osgi.service.tracker.collections.map.ServiceReferenceMapper;
 import com.liferay.osgi.service.tracker.collections.map.ServiceTrackerMap;
 import com.liferay.osgi.service.tracker.collections.map.ServiceTrackerMapFactory;
+<<<<<<< HEAD
 import com.liferay.petra.function.UnsafeConsumer;
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.repository.model.FileEntry;
@@ -34,7 +40,14 @@ import com.liferay.portal.kernel.util.HashMapDictionary;
 import com.liferay.portal.kernel.util.InstanceFactory;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.xml.Element;
+=======
+import com.liferay.portal.kernel.util.UnsafeConsumer;
+import com.liferay.portal.kernel.xml.Element;
+import com.liferay.portal.util.PrefsPropsUtil;
+import com.liferay.portal.util.PropsValues;
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,19 +60,27 @@ import org.osgi.framework.ServiceRegistration;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.Modified;
+=======
+>>>>>>> compatible
 
 /**
  * @author Mika Koivisto
  */
+<<<<<<< HEAD
 @Component(
 	configurationPid = "com.liferay.document.library.configuration.DLFileEntryConfiguration",
 	immediate = true, service = DLProcessorRegistry.class
 )
+=======
+@Component(immediate = true, service = DLProcessorRegistry.class)
+>>>>>>> compatible
 @DoPrivileged
 public class DLProcessorRegistryImpl implements DLProcessorRegistry {
 
 	@Activate
+<<<<<<< HEAD
 	public void activate(
 			BundleContext bundleContext, Map<String, Object> properties)
 		throws Exception {
@@ -67,6 +88,9 @@ public class DLProcessorRegistryImpl implements DLProcessorRegistry {
 		_dlFileEntryConfiguration = ConfigurableUtil.createConfigurable(
 			DLFileEntryConfiguration.class, properties);
 
+=======
+	public void activate(BundleContext bundleContext) throws Exception {
+>>>>>>> compatible
 		_bundleContext = bundleContext;
 
 		_dlProcessorServiceTrackerMap =
@@ -213,7 +237,19 @@ public class DLProcessorRegistryImpl implements DLProcessorRegistry {
 	@Override
 	public boolean isPreviewableSize(FileVersion fileVersion) {
 		long fileEntryPreviewableProcessorMaxSize =
+<<<<<<< HEAD
 			_dlFileEntryConfiguration.previewableProcessorMaxSize();
+=======
+			PropsValues.DL_FILE_ENTRY_PREVIEWABLE_PROCESSOR_MAX_SIZE;
+
+		try {
+			fileEntryPreviewableProcessorMaxSize = PrefsPropsUtil.getLong(
+				PropsKeys.DL_FILE_ENTRY_PREVIEWABLE_PROCESSOR_MAX_SIZE);
+		}
+		catch (Exception e) {
+			_log.error(e, e);
+		}
+>>>>>>> compatible
 
 		if (fileEntryPreviewableProcessorMaxSize == 0) {
 			return false;
@@ -228,12 +264,15 @@ public class DLProcessorRegistryImpl implements DLProcessorRegistry {
 		return true;
 	}
 
+<<<<<<< HEAD
 	@Modified
 	public void modified(Map<String, Object> properties) {
 		_dlFileEntryConfiguration = ConfigurableUtil.createConfigurable(
 			DLFileEntryConfiguration.class, properties);
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	public void register(DLProcessor dlProcessor) {
 		ServiceRegistration<DLProcessor> previousServiceRegistration =
@@ -324,7 +363,10 @@ public class DLProcessorRegistryImpl implements DLProcessorRegistry {
 		DLProcessorRegistryImpl.class);
 
 	private BundleContext _bundleContext;
+<<<<<<< HEAD
 	private volatile DLFileEntryConfiguration _dlFileEntryConfiguration;
+=======
+>>>>>>> compatible
 	private final List<DLProcessor> _dlProcessors = new ArrayList<>();
 	private ServiceTrackerMap<String, DLProcessor>
 		_dlProcessorServiceTrackerMap;

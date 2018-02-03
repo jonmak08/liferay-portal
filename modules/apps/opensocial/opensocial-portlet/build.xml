@@ -25,8 +25,13 @@
 
 		<copy
 			file="tmp/WEB-INF/web.xml.original"
+<<<<<<< HEAD
 			overwrite="true"
 			tofile="tmp/WEB-INF/web.xml"
+=======
+			tofile="tmp/WEB-INF/web.xml"
+			overwrite="true"
+>>>>>>> compatible
 		/>
 
 		<replace file="tmp/WEB-INF/web.xml">
@@ -64,8 +69,13 @@
 		<!-- Remove system.properties -->
 
 		<replaceregexp
+<<<<<<< HEAD
 			file="tmp/WEB-INF/web.xml"
 			flags="gs"
+=======
+			flags="gs"
+			file="tmp/WEB-INF/web.xml"
+>>>>>>> compatible
 			match="&lt;context-param&gt;(\s*?)&lt;param-name&gt;system.properties(.*?)context-param&gt;"
 			replace=""
 		/>
@@ -73,15 +83,25 @@
 		<!-- Remove Shiro Filter -->
 
 		<replaceregexp
+<<<<<<< HEAD
 			file="tmp/WEB-INF/web.xml"
 			flags="gs"
+=======
+			flags="gs"
+			file="tmp/WEB-INF/web.xml"
+>>>>>>> compatible
 			match="&lt;filter&gt;(\s*?)&lt;filter-name&gt;ShiroFilter(.*?)filter&gt;"
 			replace=""
 		/>
 
 		<replaceregexp
+<<<<<<< HEAD
 			file="tmp/WEB-INF/web.xml"
 			flags="gs"
+=======
+			flags="gs"
+			file="tmp/WEB-INF/web.xml"
+>>>>>>> compatible
 			match="&lt;filter-mapping&gt;(\s*?)&lt;filter-name&gt;ShiroFilter(.*?)filter-mapping&gt;"
 			replace=""
 		/>
@@ -108,28 +128,44 @@
 		</replace>
 
 		<replaceregexp
+<<<<<<< HEAD
 			file="tmp/WEB-INF/web.xml"
 			flags="gs"
+=======
+			flags="gs"
+			file="tmp/WEB-INF/web.xml"
+>>>>>>> compatible
 			match="&lt;filter-mapping&gt;(\s*?)&lt;filter-name&gt;authFilter(.*?)filter-mapping&gt;"
 			replace="@AUTH_FILTER_TOKEN@"
 		/>
 
 		<replaceregexp
+<<<<<<< HEAD
 			file="tmp/WEB-INF/web.xml"
 			flags="gs"
+=======
+			flags="gs"
+			file="tmp/WEB-INF/web.xml"
+>>>>>>> compatible
 			match="&lt;servlet-mapping&gt;(\s*?)&lt;servlet-name&gt;jsonRpcServlet(.*?)servlet-mapping&gt;"
 			replace="@JSON_RPC_SERVLET_TOKEN@"
 		/>
 
 		<replaceregexp
+<<<<<<< HEAD
 			file="tmp/WEB-INF/web.xml"
 			flags="gs"
+=======
+			flags="gs"
+			file="tmp/WEB-INF/web.xml"
+>>>>>>> compatible
 			match="&lt;servlet-mapping&gt;(\s*?)&lt;servlet-name&gt;restapiServlet(.*?)servlet-mapping&gt;"
 			replace="@REST_API_SERVLET_TOKEN@"
 		/>
 
 		<replace file="tmp/WEB-INF/web.xml" propertyFile="docroot/WEB-INF/web.xml.properties">
 			<replacefilter
+<<<<<<< HEAD
 				property="auth.filter.replace"
 				token="@AUTH_FILTER_TOKEN@"
 			/>
@@ -140,6 +176,18 @@
 			<replacefilter
 				property="rest.api.servlet.replace"
 				token="@REST_API_SERVLET_TOKEN@"
+=======
+				token="@AUTH_FILTER_TOKEN@"
+				property="auth.filter.replace"
+			/>
+			<replacefilter
+				token="@JSON_RPC_SERVLET_TOKEN@"
+				property="json.rpc.servlet.replace"
+			/>
+			<replacefilter
+				token="@REST_API_SERVLET_TOKEN@"
+				property="rest.api.servlet.replace"
+>>>>>>> compatible
 			/>
 		</replace>
 
@@ -249,8 +297,13 @@
 
 		<copy
 			file="tmp/WEB-INF/classes/shindig.properties.original"
+<<<<<<< HEAD
 			overwrite="true"
 			tofile="tmp/WEB-INF/classes/shindig.properties"
+=======
+			tofile="tmp/WEB-INF/classes/shindig.properties"
+			overwrite="true"
+>>>>>>> compatible
 		/>
 
 		<replace file="tmp/WEB-INF/classes/shindig.properties">
@@ -376,8 +429,13 @@
 
 		<copy
 			file="${backup.file.name}.original"
+<<<<<<< HEAD
 			overwrite="true"
 			tofile="${backup.file.name}"
+=======
+			tofile="${backup.file.name}"
+			overwrite="true"
+>>>>>>> compatible
 		/>
 	</target>
 
@@ -388,8 +446,13 @@
 
 		<copy
 			file="tmp/WEB-INF/web.xml"
+<<<<<<< HEAD
 			overwrite="true"
 			tofile="tmp/WEB-INF/web.xml.original"
+=======
+			tofile="tmp/WEB-INF/web.xml.original"
+			overwrite="true"
+>>>>>>> compatible
 		/>
 	</target>
 

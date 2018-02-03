@@ -34,7 +34,11 @@ import com.liferay.portal.security.auth.verifier.module.configuration.BaseAuthVe
 public interface DigestAuthenticationAuthVerifierConfiguration
 	extends BaseAuthVerifierConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(name = "force-digest-auth", required = false)
+=======
+	@Meta.AD(required = false)
+>>>>>>> compatible
 	public boolean forceDigestAuth();
 
 }

@@ -41,12 +41,19 @@ import com.liferay.portal.kernel.search.filter.BooleanFilter;
 import com.liferay.portal.kernel.search.filter.TermsFilter;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermission;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.Validator;
+<<<<<<< HEAD
 import com.liferay.trash.TrashHelper;
+=======
+import com.liferay.trash.kernel.util.TrashUtil;
+>>>>>>> compatible
 import com.liferay.wiki.engine.impl.WikiEngineRenderer;
 import com.liferay.wiki.exception.WikiFormatException;
 import com.liferay.wiki.model.WikiNode;
@@ -54,6 +61,10 @@ import com.liferay.wiki.model.WikiPage;
 import com.liferay.wiki.service.WikiNodeLocalService;
 import com.liferay.wiki.service.WikiNodeService;
 import com.liferay.wiki.service.WikiPageLocalService;
+<<<<<<< HEAD
+=======
+import com.liferay.wiki.service.permission.WikiPagePermissionChecker;
+>>>>>>> compatible
 
 import java.util.Locale;
 
@@ -69,11 +80,15 @@ import org.osgi.service.component.annotations.Reference;
  * @author Bruno Farache
  * @author Raymond Augé
  */
+<<<<<<< HEAD
 @Component(
 	immediate = true,
 	property = {"related.entry.indexer.class.name=com.liferay.wiki.model.WikiPage"},
 	service = {Indexer.class, RelatedEntryIndexer.class}
 )
+=======
+@Component(immediate = true, service = Indexer.class)
+>>>>>>> compatible
 public class WikiPageIndexer
 	extends BaseIndexer<WikiPage> implements RelatedEntryIndexer {
 
@@ -142,7 +157,11 @@ public class WikiPageIndexer
 
 		WikiPage page = _wikiPageLocalService.getPage(entryClassPK);
 
+<<<<<<< HEAD
 		return _wikiPageModelResourcePermission.contains(
+=======
+		return WikiPagePermissionChecker.contains(
+>>>>>>> compatible
 			permissionChecker, page, ActionKeys.VIEW);
 	}
 
@@ -218,7 +237,11 @@ public class WikiPageIndexer
 		String title = wikiPage.getTitle();
 
 		if (wikiPage.isInTrash()) {
+<<<<<<< HEAD
 			title = _trashHelper.getOriginalTitle(title);
+=======
+			title = TrashUtil.getOriginalTitle(title);
+>>>>>>> compatible
 		}
 
 		document.addText(Field.TITLE, title);
@@ -394,16 +417,22 @@ public class WikiPageIndexer
 
 	private final RelatedEntryIndexer _relatedEntryIndexer =
 		new BaseRelatedEntryIndexer();
+<<<<<<< HEAD
 
 	@Reference
 	private TrashHelper _trashHelper;
 
+=======
+>>>>>>> compatible
 	private WikiEngineRenderer _wikiEngineRenderer;
 	private WikiNodeLocalService _wikiNodeLocalService;
 	private WikiNodeService _wikiNodeService;
 	private WikiPageLocalService _wikiPageLocalService;
 
+<<<<<<< HEAD
 	@Reference(target = "(model.class.name=com.liferay.wiki.model.WikiPage)")
 	private ModelResourcePermission<WikiPage> _wikiPageModelResourcePermission;
 
+=======
+>>>>>>> compatible
 }

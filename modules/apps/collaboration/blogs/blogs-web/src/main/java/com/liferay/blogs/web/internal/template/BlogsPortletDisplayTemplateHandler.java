@@ -15,6 +15,7 @@
 package com.liferay.blogs.web.internal.template;
 
 import com.liferay.blogs.configuration.BlogsConfiguration;
+<<<<<<< HEAD
 import com.liferay.blogs.constants.BlogsPortletKeys;
 import com.liferay.blogs.model.BlogsEntry;
 import com.liferay.blogs.service.BlogsEntryLocalService;
@@ -23,11 +24,23 @@ import com.liferay.petra.string.StringPool;
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.model.Release;
+=======
+import com.liferay.blogs.kernel.model.BlogsEntry;
+import com.liferay.blogs.kernel.service.BlogsEntryLocalService;
+import com.liferay.blogs.kernel.service.BlogsEntryService;
+import com.liferay.blogs.web.constants.BlogsPortletKeys;
+import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
+import com.liferay.portal.kernel.language.LanguageUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.portletdisplaytemplate.BasePortletDisplayTemplateHandler;
 import com.liferay.portal.kernel.portletdisplaytemplate.PortletDisplayTemplateManager;
 import com.liferay.portal.kernel.template.TemplateHandler;
 import com.liferay.portal.kernel.template.TemplateVariableGroup;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.util.List;
 import java.util.Locale;
@@ -77,6 +90,7 @@ public class BlogsPortletDisplayTemplateHandler
 		Map<String, TemplateVariableGroup> templateVariableGroups =
 			super.getTemplateVariableGroups(classPK, language, locale);
 
+<<<<<<< HEAD
 		String[] restrictedVariables = getRestrictedVariables(language);
 
 		TemplateVariableGroup blogsUtilTemplateVariableGroup =
@@ -84,6 +98,18 @@ public class BlogsPortletDisplayTemplateHandler
 
 		templateVariableGroups.put(
 			"blogs-util", blogsUtilTemplateVariableGroup);
+=======
+		TemplateVariableGroup templateVariableGroup =
+			templateVariableGroups.get("fields");
+
+		templateVariableGroup.empty();
+
+		templateVariableGroup.addCollectionVariable(
+			"blog-entries", List.class, PortletDisplayTemplateManager.ENTRIES,
+			"blog-entry", BlogsEntry.class, "curBlogEntry", "title");
+
+		String[] restrictedVariables = getRestrictedVariables(language);
+>>>>>>> compatible
 
 		TemplateVariableGroup blogServicesTemplateVariableGroup =
 			new TemplateVariableGroup("blog-services", restrictedVariables);
@@ -97,6 +123,7 @@ public class BlogsPortletDisplayTemplateHandler
 			blogServicesTemplateVariableGroup.getLabel(),
 			blogServicesTemplateVariableGroup);
 
+<<<<<<< HEAD
 		TemplateVariableGroup fieldsTemplateVariableGroup =
 			templateVariableGroups.get("fields");
 
@@ -106,6 +133,8 @@ public class BlogsPortletDisplayTemplateHandler
 			"blog-entries", List.class, PortletDisplayTemplateManager.ENTRIES,
 			"blog-entry", BlogsEntry.class, "curBlogEntry", "title");
 
+=======
+>>>>>>> compatible
 		return templateVariableGroups;
 	}
 
@@ -126,9 +155,12 @@ public class BlogsPortletDisplayTemplateHandler
 	@Reference
 	private Portal _portal;
 
+<<<<<<< HEAD
 	@Reference(
 		target = "(&(release.bundle.symbolic.name=com.liferay.blogs.service)(release.schema.version=1.1.0))"
 	)
 	private Release _release;
 
+=======
+>>>>>>> compatible
 }

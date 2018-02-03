@@ -29,6 +29,10 @@ import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import com.liferay.wsrp.model.WSRPProducer;
 import com.liferay.wsrp.model.WSRPProducerModel;
@@ -233,7 +237,11 @@ public class WSRPProducerModelImpl extends BaseModelImpl<WSRPProducer>
 	@Override
 	public String getUuid() {
 		if (_uuid == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _uuid;
@@ -336,7 +344,11 @@ public class WSRPProducerModelImpl extends BaseModelImpl<WSRPProducer>
 	@Override
 	public String getName() {
 		if (_name == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _name;
@@ -353,7 +365,11 @@ public class WSRPProducerModelImpl extends BaseModelImpl<WSRPProducer>
 	@Override
 	public String getVersion() {
 		if (_version == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _version;
@@ -368,7 +384,11 @@ public class WSRPProducerModelImpl extends BaseModelImpl<WSRPProducer>
 	@Override
 	public String getPortletIds() {
 		if (_portletIds == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _portletIds;

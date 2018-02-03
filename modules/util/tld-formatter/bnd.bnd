@@ -1,6 +1,10 @@
 Bundle-Name: Liferay TLD Formatter
 Bundle-SymbolicName: com.liferay.tld.formatter
+<<<<<<< HEAD
 Bundle-Version: 1.0.6
+=======
+Bundle-Version: 1.0.4
+>>>>>>> compatible
 Import-Package:\
 	!org.apache.maven.plugin.*,\
 	!org.apache.tools.ant.*,\
@@ -8,7 +12,10 @@ Import-Package:\
 	*
 Main-Class: com.liferay.tld.formatter.TLDFormatter
 -includeresource:\
+<<<<<<< HEAD
 	@com.liferay.petra.xml-[0-9]*.jar!/com/liferay/petra/xml/Dom4jUtil.class,\
+=======
+>>>>>>> compatible
 	@com.liferay.portal.impl-[0-9]*.jar!/com/liferay/portal/tools/ArgumentsMap.class,\
 	@com.liferay.portal.impl-[0-9]*.jar!/com/liferay/portal/tools/ArgumentsUtil.class,\
 	@com.liferay.portal.impl-[0-9]*.jar!/com/liferay/portal/util/EntityResolver.class,\
@@ -41,4 +48,8 @@ Main-Class: com.liferay.tld.formatter.TLDFormatter
 	@com.liferay.portal.kernel-[0-9]*.jar!/com/liferay/portal/kernel/util/SystemProperties.class,\
 	@com.liferay.portal.kernel-[0-9]*.jar!/com/liferay/portal/kernel/util/Validator.class,\
 	@com.liferay.portal.kernel-[0-9]*.jar!/com/liferay/portal/kernel/xml/XMLSchema.class,\
+<<<<<<< HEAD
+=======
+	@com.liferay.util.java-[0-9]*.jar!/com/liferay/util/xml/Dom4jUtil.class,\
+>>>>>>> compatible
 	@xercesImpl-[0-9]*.jar!/org/apache/xerces/xni/XNIException.class

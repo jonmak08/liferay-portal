@@ -26,7 +26,11 @@ import com.liferay.portal.kernel.messaging.DestinationFactory;
 import com.liferay.portal.kernel.messaging.DestinationNames;
 import com.liferay.portal.kernel.messaging.MessageBus;
 import com.liferay.portal.kernel.util.HashMapDictionary;
+<<<<<<< HEAD
 import com.liferay.portal.monitoring.internal.configuration.MonitoringConfiguration;
+=======
+import com.liferay.portal.monitoring.configuration.MonitoringConfiguration;
+>>>>>>> compatible
 
 import java.util.Dictionary;
 

@@ -16,14 +16,25 @@ package com.liferay.portal.security.sso.google.internal.verify;
 
 import com.liferay.portal.kernel.service.CompanyLocalService;
 import com.liferay.portal.kernel.settings.SettingsFactory;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.PrefsProps;
 import com.liferay.portal.kernel.util.SetUtil;
+=======
+import com.liferay.portal.kernel.util.HashMapDictionary;
+import com.liferay.portal.kernel.util.PrefsProps;
+import com.liferay.portal.kernel.util.SetUtil;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.security.sso.google.constants.GoogleAuthorizationConfigurationKeys;
 import com.liferay.portal.security.sso.google.constants.GoogleConstants;
 import com.liferay.portal.security.sso.google.constants.LegacyGoogleLoginPropsKeys;
 import com.liferay.portal.verify.BaseCompanySettingsVerifyProcess;
 import com.liferay.portal.verify.VerifyProcess;
 
+<<<<<<< HEAD
+=======
+import java.util.Dictionary;
+>>>>>>> compatible
 import java.util.Set;
 
 import org.osgi.service.component.annotations.Component;
@@ -51,6 +62,7 @@ public class GoogleLoginCompanySettingsVerifyProcess
 	}
 
 	@Override
+<<<<<<< HEAD
 	protected String[][] getRenamePropertyKeysArray() {
 		return new String[][] {
 			new String[] {
@@ -66,6 +78,28 @@ public class GoogleLoginCompanySettingsVerifyProcess
 				GoogleAuthorizationConfigurationKeys.CLIENT_SECRET
 			}
 		};
+=======
+	protected Dictionary<String, String> getPropertyValues(long companyId) {
+		Dictionary<String, String> dictionary = new HashMapDictionary<>();
+
+		dictionary.put(
+			GoogleAuthorizationConfigurationKeys.AUTH_ENABLED,
+			_prefsProps.getString(
+				companyId, LegacyGoogleLoginPropsKeys.AUTH_ENABLED,
+				StringPool.FALSE));
+		dictionary.put(
+			GoogleAuthorizationConfigurationKeys.CLIENT_ID,
+			_prefsProps.getString(
+				companyId, LegacyGoogleLoginPropsKeys.CLIENT_ID,
+				StringPool.BLANK));
+		dictionary.put(
+			GoogleAuthorizationConfigurationKeys.CLIENT_SECRET,
+			_prefsProps.getString(
+				companyId, LegacyGoogleLoginPropsKeys.CLIENT_SECRET,
+				StringPool.BLANK));
+
+		return dictionary;
+>>>>>>> compatible
 	}
 
 	@Override
@@ -81,10 +115,13 @@ public class GoogleLoginCompanySettingsVerifyProcess
 	@Reference
 	private CompanyLocalService _companyLocalService;
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 2.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	@Reference
 	private PrefsProps _prefsProps;
 

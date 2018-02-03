@@ -12,6 +12,7 @@
 
 		<execute macro="User#firstLoginPG" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -19,6 +20,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Bookmarks Page" />
 		</execute>
 
@@ -33,6 +37,7 @@
 
 	<tear-down>
 		<var method="TestPropsUtil#get('test.portal.instance')" name="testPortalInstance" />
+<<<<<<< HEAD
 
 		<if>
 			<equals arg1="${testPortalInstance}" arg2="true" />
@@ -45,12 +50,30 @@
 				<execute macro="BookmarksFolder#tearDownCP" />
 
 				<execute macro="Page#tearDownCP" />
+=======
+
+		<if>
+			<equals arg1="${testPortalInstance}" arg2="true" />
+			<then>
+				<execute macro="PortalInstances#tearDownCP" />
+			</then>
+			<else>
+				<execute macro="Bookmark#tearDownCP" />
+
+				<execute macro="BookmarksFolder#tearDownCP" />
+
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 			</else>
 		</if>
 	</tear-down>
 
 	<command name="AddBookmark" priority="5">
+<<<<<<< HEAD
 		<property name="portal.acceptance" value="false" />
+=======
+		<property name="portal.acceptance" value="true" />
+>>>>>>> compatible
 
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Bookmarks Page" />
@@ -116,9 +139,15 @@
 		</execute>
 
 		<execute function="Refresh" />
+<<<<<<< HEAD
 
 		<execute function="Pause" locator1="3000" />
 
+=======
+
+		<execute function="Pause" locator1="3000" />
+
+>>>>>>> compatible
 		<execute macro="Bookmark#viewBookmark">
 			<var name="bookmarkName" value="Test Bookmark Name" />
 			<var name="bookmarkURL" value="https://www.liferay.com" />
@@ -126,7 +155,11 @@
 	</command>
 
 	<command name="AddFolderBookmarkURLInvalid" priority="5">
+<<<<<<< HEAD
 		<property name="portal.acceptance" value="false" />
+=======
+		<property name="portal.acceptance" value="true" />
+>>>>>>> compatible
 
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Bookmarks Page" />
@@ -237,7 +270,11 @@
 	</command>
 
 	<command name="EditFolderBookmark" priority="5">
+<<<<<<< HEAD
 		<property name="portal.acceptance" value="false" />
+=======
+		<property name="portal.acceptance" value="true" />
+>>>>>>> compatible
 
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Bookmarks Page" />
@@ -332,7 +369,11 @@
 	</command>
 
 	<command name="RemoveBookmarkPortlet" priority="5">
+<<<<<<< HEAD
 		<property name="portal.acceptance" value="false" />
+=======
+		<property name="portal.acceptance" value="true" />
+>>>>>>> compatible
 
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Bookmarks Page" />
@@ -373,6 +414,7 @@
 
 		<execute macro="BookmarksFolder#gotoPG">
 			<var name="folderName" value="Test Folder Name" />
+<<<<<<< HEAD
 		</execute>
 
 		<execute macro="Search#searchPG">
@@ -383,6 +425,18 @@
 			<var name="searchAssetTitle" value="Test Bookmark Name" />
 		</execute>
 
+=======
+		</execute>
+
+		<execute macro="Search#searchPG">
+			<var name="searchTerm" value="Test Bookmark Name" />
+		</execute>
+
+		<execute macro="Search#viewSearchAssetTitle">
+			<var name="searchAssetTitle" value="Test Bookmark Name" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Bookmarks Page" />
 		</execute>

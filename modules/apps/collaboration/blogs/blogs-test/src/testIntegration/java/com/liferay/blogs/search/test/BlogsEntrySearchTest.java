@@ -15,18 +15,33 @@
 package com.liferay.blogs.search.test;
 
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
+<<<<<<< HEAD
 import com.liferay.blogs.model.BlogsEntry;
 import com.liferay.blogs.service.BlogsEntryLocalServiceUtil;
+=======
+import com.liferay.blogs.kernel.model.BlogsEntry;
+import com.liferay.blogs.kernel.service.BlogsEntryLocalServiceUtil;
+>>>>>>> compatible
 import com.liferay.blogs.test.util.BlogsTestUtil;
 import com.liferay.portal.kernel.model.BaseModel;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.search.test.util.BaseSearchTestCase;
 import com.liferay.portal.service.test.ServiceTestUtil;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 
 import org.junit.Before;
+=======
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+import com.liferay.portal.kernel.test.util.TestPropsValues;
+import com.liferay.portal.search.test.BaseSearchTestCase;
+import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+import com.liferay.portal.test.rule.PermissionCheckerTestRule;
+
+>>>>>>> compatible
 import org.junit.ClassRule;
 import org.junit.Ignore;
 import org.junit.Rule;
@@ -37,11 +52,16 @@ import org.junit.runner.RunWith;
  * @author Eudaldo Alonso
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class BlogsEntrySearchTest extends BaseSearchTestCase {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
 
 	@Before
@@ -51,6 +71,12 @@ public class BlogsEntrySearchTest extends BaseSearchTestCase {
 
 		super.setUp();
 	}
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			PermissionCheckerTestRule.INSTANCE,
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Ignore
 	@Override
@@ -136,7 +162,11 @@ public class BlogsEntrySearchTest extends BaseSearchTestCase {
 
 	@Override
 	protected void deleteBaseModel(long primaryKey) throws Exception {
+<<<<<<< HEAD
 		BlogsEntryLocalServiceUtil.deleteEntry(primaryKey);
+=======
+		BlogsEntryLocalServiceUtil.deleteBlogsEntry(primaryKey);
+>>>>>>> compatible
 	}
 
 	@Override

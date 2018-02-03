@@ -14,7 +14,11 @@
 
 package com.liferay.portal.kernel.plugin;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
@@ -116,11 +120,19 @@ public class Version implements Comparable<Version>, Serializable {
 
 		// Unknown is always considered a lower version
 
+<<<<<<< HEAD
 		if (UNKNOWN.equals(version.toString())) {
 			return 1;
 		}
 
 		if (UNKNOWN.equals(toString())) {
+=======
+		if (version.toString().equals(UNKNOWN)) {
+			return 1;
+		}
+
+		if (toString().equals(UNKNOWN)) {
+>>>>>>> compatible
 			return -1;
 		}
 
@@ -351,7 +363,11 @@ public class Version implements Comparable<Version>, Serializable {
 		String major, String minor, String bugFix, String buildNumber,
 		String qualifier) {
 
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(9);
+=======
+		StringBundler sb = new StringBundler(7);
+>>>>>>> compatible
 
 		sb.append(major);
 

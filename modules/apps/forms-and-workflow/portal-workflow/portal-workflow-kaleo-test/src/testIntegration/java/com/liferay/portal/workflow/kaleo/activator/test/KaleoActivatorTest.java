@@ -46,7 +46,11 @@ public class KaleoActivatorTest {
 	public void testDefaultKaleoDefinitionsAreDeployed() throws Exception {
 		List<Company> companies = CompanyLocalServiceUtil.getCompanies();
 
+<<<<<<< HEAD
 		Assert.assertFalse(companies.toString(), companies.isEmpty());
+=======
+		Assert.assertFalse(companies.isEmpty());
+>>>>>>> compatible
 
 		for (Company company : companies) {
 			ServiceContext serviceContext = new ServiceContext();
@@ -55,7 +59,11 @@ public class KaleoActivatorTest {
 
 			KaleoDefinition kaleoDefinition =
 				KaleoDefinitionLocalServiceUtil.getKaleoDefinition(
+<<<<<<< HEAD
 					"Single Approver", serviceContext);
+=======
+					"Single Approver", 1, serviceContext);
+>>>>>>> compatible
 
 			Assert.assertNotNull(kaleoDefinition);
 		}

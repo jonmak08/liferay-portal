@@ -409,11 +409,17 @@ public class NavItem implements Serializable {
 	}
 
 	public boolean isSelected() throws Exception {
+<<<<<<< HEAD
 		Layout layout = _themeDisplay.getLayout();
 
 		return _layout.isSelected(
 			_themeDisplay.isTilesSelectable(), _themeDisplay.getLayout(),
 			layout.getAncestorPlid());
+=======
+		return _layout.isSelected(
+			_themeDisplay.isTilesSelectable(), _themeDisplay.getLayout(),
+			_themeDisplay.getLayout().getAncestorPlid());
+>>>>>>> compatible
 	}
 
 	private static List<NavItem> _fromLayouts(

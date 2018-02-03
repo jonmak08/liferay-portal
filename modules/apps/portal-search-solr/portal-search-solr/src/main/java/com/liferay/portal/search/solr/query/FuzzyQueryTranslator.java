@@ -16,13 +16,11 @@ package com.liferay.portal.search.solr.query;
 
 import com.liferay.portal.kernel.search.generic.FuzzyQuery;
 
-import org.apache.lucene.search.Query;
-
 /**
  * @author Michael C. Han
  */
 public interface FuzzyQueryTranslator {
 
-	public Query translate(FuzzyQuery fuzzyQuery);
+	public org.apache.lucene.search.Query translate(FuzzyQuery fuzzyQuery);
 
 }

@@ -32,6 +32,10 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.util.IntegerWrapper;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.OrderByComparatorFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.PersistenceTestRule;
 import com.liferay.portal.test.rule.TransactionalTestRule;
@@ -166,9 +170,15 @@ public class ResourcePermissionPersistenceTest {
 
 	@Test
 	public void testCountByName() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByName("");
 
 		_persistence.countByName("null");
+=======
+		_persistence.countByName(StringPool.BLANK);
+
+		_persistence.countByName(StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByName((String)null);
 	}
@@ -214,9 +224,15 @@ public class ResourcePermissionPersistenceTest {
 	@Test
 	public void testCountByC_S_P() throws Exception {
 		_persistence.countByC_S_P(RandomTestUtil.nextLong(),
+<<<<<<< HEAD
 			RandomTestUtil.nextInt(), "");
 
 		_persistence.countByC_S_P(0L, 0, "null");
+=======
+			RandomTestUtil.nextInt(), StringPool.BLANK);
+
+		_persistence.countByC_S_P(0L, 0, StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByC_S_P(0L, 0, (String)null);
 	}
@@ -251,11 +267,20 @@ public class ResourcePermissionPersistenceTest {
 
 	@Test
 	public void testCountByC_N_S_P_R_V() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByC_N_S_P_R_V(RandomTestUtil.nextLong(), "",
 			RandomTestUtil.nextInt(), RandomTestUtil.nextLong(),
 			RandomTestUtil.nextLong(), RandomTestUtil.randomBoolean());
 
 		_persistence.countByC_N_S_P_R_V(0L, "null", 0, 0L, 0L,
+=======
+		_persistence.countByC_N_S_P_R_V(RandomTestUtil.nextLong(),
+			StringPool.BLANK, RandomTestUtil.nextInt(),
+			RandomTestUtil.nextLong(), RandomTestUtil.nextLong(),
+			RandomTestUtil.randomBoolean());
+
+		_persistence.countByC_N_S_P_R_V(0L, StringPool.NULL, 0, 0L, 0L,
+>>>>>>> compatible
 			RandomTestUtil.randomBoolean());
 
 		_persistence.countByC_N_S_P_R_V(0L, (String)null, 0, 0L, 0L,

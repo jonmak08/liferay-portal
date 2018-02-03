@@ -1,4 +1,5 @@
 <definition>
+<<<<<<< HEAD
 	<command name="configureCategoryNavigationDisplayStyle">
 		<execute function="Click" locator1="Dropdown#TRIGGER" />
 
@@ -15,6 +16,8 @@
 		<execute macro="SystemSettings#saveConfiguration" />
 	</command>
 
+=======
+>>>>>>> compatible
 	<command name="editConfiguration">
 		<var name="key_rowEntry" value="${configurationName}" />
 
@@ -40,6 +43,7 @@
 		</execute>
 	</command>
 
+<<<<<<< HEAD
 	<command name="editSecurityCredential">
 		<execute function="Type" locator1="SystemSettings#SECURITY_CREDENTIAL_FIELD" value1="${securityCredential}" />
 
@@ -52,18 +56,23 @@
 		<execute function="SikuliAssertElementPresent" locator1="SystemSettings#SECURITY_CREDENTIAL_HIDDEN_IMAGE" />
 	</command>
 
+=======
+>>>>>>> compatible
 	<command name="editTextAreaSetting">
 		<var name="key_fieldName" value="${settingName}" />
 
 		<execute function="Type" locator1="DDMField#TEXT_BOX" value1="${settingValue}" />
 	</command>
 
+<<<<<<< HEAD
 	<command name="editTextSetting">
 		<var name="key_fieldDefaultValue" value="${settingName}" />
 
 		<execute function="Type" locator1="DDMField#DDM_INPUT" value1="${settingValue}" />
 	</command>
 
+=======
+>>>>>>> compatible
 	<command name="enableSetting">
 		<execute function="Check" locator1="SystemSettings#${checkboxSetting}" />
 	</command>
@@ -106,7 +115,13 @@
 		<if>
 			<condition function="IsElementPresent" locator1="Button#SAVE" />
 			<then>
+<<<<<<< HEAD
 				<execute macro="PortletEntry#save" />
+=======
+				<execute macro="Button#clickSave" />
+
+				<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 			</then>
 			<else>
 				<execute macro="Button#clickUpdate" />

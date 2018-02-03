@@ -40,7 +40,11 @@ import org.jgroups.stack.ProtocolStack;
 public class JGroupsClusterChannel implements ClusterChannel {
 
 	public JGroupsClusterChannel(
+<<<<<<< HEAD
 		String channelLogicName, String channelProperties, String clusterName,
+=======
+		String channelProperties, String clusterName,
+>>>>>>> compatible
 		ClusterReceiver clusterReceiver, InetAddress bindInetAddress) {
 
 		if (Validator.isNull(channelProperties)) {
@@ -61,10 +65,13 @@ public class JGroupsClusterChannel implements ClusterChannel {
 		try {
 			_jChannel = new JChannel(channelProperties);
 
+<<<<<<< HEAD
 			if (Validator.isNotNull(channelLogicName)) {
 				_jChannel.setName(channelLogicName);
 			}
 
+=======
+>>>>>>> compatible
 			if (bindInetAddress != null) {
 				ProtocolStack protocolStack = _jChannel.getProtocolStack();
 

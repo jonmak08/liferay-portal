@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Wiki API
 Bundle-SymbolicName: com.liferay.wiki.api
+<<<<<<< HEAD
 Bundle-Version: 2.6.0
+=======
+Bundle-Version: 2.4.4
+>>>>>>> compatible
 Export-Package:\
 	com.liferay.wiki.configuration,\
 	com.liferay.wiki.configuration.definition,\
@@ -10,7 +14,10 @@ Export-Package:\
 	com.liferay.wiki.escape,\
 	com.liferay.wiki.exception,\
 	com.liferay.wiki.importer,\
+<<<<<<< HEAD
 	com.liferay.wiki.item.selector,\
+=======
+>>>>>>> compatible
 	com.liferay.wiki.item.selector.criterion,\
 	com.liferay.wiki.model,\
 	com.liferay.wiki.processor,\

@@ -9,11 +9,14 @@
 </thead>
 <tbody>
 <tr>
+<<<<<<< HEAD
 	<td>APPLICATION_DECORATOR_SELECT</td>
 	<td>//select[contains(@id,'portletDecorator')]</td>
 	<td></td>
 </tr>
 <tr>
+=======
+>>>>>>> compatible
 	<td>BODY</td>
 	<td>//div[@id='main-content']//section[contains(.,'${key_portletName}')]//div[@class='portlet-body']</td>
 	<td></td>
@@ -21,6 +24,14 @@
 <tr>
 	<td>BORDER_WIDTH_TOP_INPUT</td>
 	<td>//div[contains(@class,'form-group') and contains(.,'Top')]//input</td>
+<<<<<<< HEAD
+=======
+	<td></td>
+</tr>
+<tr>
+	<td>CONFIGURATION_CUSTOM_TITLE_FIELD</td>
+	<td>//div/input[contains(@id,'custom-title')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -65,12 +76,20 @@
 </tr>
 <tr>
 	<td>ICON_PLUS_SIGN</td>
+<<<<<<< HEAD
 	<td>//header[div/span[.='${key_portletName}']]//*[@data-qa-id='addButton']//a/span</td>
+=======
+	<td>//header[div/span[.='${key_portletName}']]//*[@data-qa-id='addButton']//a</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>LOADED</td>
+<<<<<<< HEAD
 	<td>//div[@data-qa-id='app-loaded']//span[contains(.,'${key_portletName}')]</td>
+=======
+	<td>//div[@data-qa-id='app-loaded']//span[contains(.,'${key_portletName}')] | //div[contains(@class,'portlet-content')]/h2[contains(.,'${key_portletName}')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -110,7 +129,11 @@
 </tr>
 <tr>
 	<td>SPECIFIC_ELLIPSIS_ICON</td>
+<<<<<<< HEAD
 	<td>//div[@id='main-content']//header[contains(.,'${key_portletName}')]//menu/div[contains(@class,'portlet-options')]/a</td>
+=======
+	<td>//div[@id='main-content']//h2[contains(.,'${key_portletName}')]/../../header/menu/div[contains(@class,'portlet-options')]/a</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>

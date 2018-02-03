@@ -14,6 +14,7 @@
 
 package com.liferay.dynamic.data.mapping.type.options.internal;
 
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.model.DDMForm;
 import com.liferay.dynamic.data.mapping.model.DDMFormField;
 import com.liferay.portal.kernel.json.JSONArray;
@@ -25,15 +26,32 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
+=======
+import com.liferay.dynamic.data.mapping.model.DDMFormFieldOptions;
+import com.liferay.dynamic.data.mapping.model.LocalizedValue;
+import com.liferay.portal.kernel.json.JSONArray;
+import com.liferay.portal.kernel.json.JSONException;
+import com.liferay.portal.kernel.json.JSONFactory;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+<<<<<<< HEAD
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
+=======
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Objects;
+>>>>>>> compatible
 
 /**
  * @author Marcellus Tavares
@@ -41,6 +59,7 @@ import java.util.ResourceBundle;
 public class OptionsDDMFormFieldContextHelper {
 
 	public OptionsDDMFormFieldContextHelper(
+<<<<<<< HEAD
 		JSONFactory jsonFactory, DDMFormField ddmFormField, String value) {
 
 		_ddmForm = ddmFormField.getDDMForm();
@@ -88,10 +107,41 @@ public class OptionsDDMFormFieldContextHelper {
 		String defaultOptionLabel = getDefaultOptionLabel();
 
 		options.add(createOption(defaultOptionLabel, defaultOptionLabel));
+=======
+		JSONFactory jsonFactory, DDMFormFieldOptions ddmFormFieldOptions,
+		String value, LocalizedValue predefinedValue, Locale locale) {
+
+		_jsonFactory = jsonFactory;
+		_ddmFormFieldOptions = ddmFormFieldOptions;
+		_value = toString(value);
+		_predefinedValue = toString(predefinedValue.getString(locale));
+		_locale = locale;
+	}
+
+	public List<Object> getOptions() {
+		List<Object> options = new ArrayList<>();
+
+		for (String optionValue : _ddmFormFieldOptions.getOptionsValues()) {
+			Map<String, String> optionMap = new HashMap<>();
+
+			LocalizedValue optionLabel = _ddmFormFieldOptions.getOptionLabels(
+				optionValue);
+
+			optionMap.put("label", optionLabel.getString(_locale));
+
+			optionMap.put(
+				"status",
+				isChecked(optionValue) ? "checked" : StringPool.BLANK);
+			optionMap.put("value", optionValue);
+
+			options.add(optionMap);
+		}
+>>>>>>> compatible
 
 		return options;
 	}
 
+<<<<<<< HEAD
 	protected Map<String, String> createOption(String label, String value) {
 		Map<String, String> map = new HashMap<>();
 
@@ -128,13 +178,45 @@ public class OptionsDDMFormFieldContextHelper {
 
 		return ResourceBundleUtil.getBundle(
 			"content.Language", locale, clazz.getClassLoader());
+=======
+	protected boolean isChecked(String optionValue) {
+		if (Validator.isNull(_value)) {
+			return Objects.equals(_predefinedValue, optionValue);
+		}
+
+		return Objects.equals(_value, optionValue);
+	}
+
+	protected String toString(String value) {
+		if (Validator.isNull(value)) {
+			return StringPool.BLANK;
+		}
+
+		try {
+			JSONArray jsonArray = _jsonFactory.createJSONArray(value);
+
+			return jsonArray.getString(0);
+		}
+		catch (JSONException jsone) {
+			_log.error("Unable to parse JSON array", jsone);
+
+			return StringPool.BLANK;
+		}
+>>>>>>> compatible
 	}
 
 	private static final Log _log = LogFactoryUtil.getLog(
 		OptionsDDMFormFieldContextHelper.class);
 
+<<<<<<< HEAD
 	private final DDMForm _ddmForm;
 	private final JSONFactory _jsonFactory;
+=======
+	private final DDMFormFieldOptions _ddmFormFieldOptions;
+	private final JSONFactory _jsonFactory;
+	private final Locale _locale;
+	private final String _predefinedValue;
+>>>>>>> compatible
 	private final String _value;
 
 }

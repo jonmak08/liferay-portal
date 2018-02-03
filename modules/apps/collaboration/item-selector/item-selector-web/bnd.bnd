@@ -1,5 +1,10 @@
 Bundle-Name: Liferay Item Selector Web
 Bundle-SymbolicName: com.liferay.item.selector.web
+<<<<<<< HEAD
 Bundle-Version: 3.0.7
+=======
+Bundle-Version: 2.1.7
+Export-Package: com.liferay.item.selector.web
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Item Selector

@@ -19,11 +19,17 @@ import java.lang.reflect.Method;
 import java.util.Comparator;
 
 /**
+<<<<<<< HEAD
  * @author     Shuyang Zhou
  * @author     Brian Wing Shun Chan
  * @deprecated As of 7.0.0, with no direct replacement
  */
 @Deprecated
+=======
+ * @author Shuyang Zhou
+ * @author Brian Wing Shun Chan
+ */
+>>>>>>> compatible
 public class MethodComparator implements Comparator<Method> {
 
 	@Override

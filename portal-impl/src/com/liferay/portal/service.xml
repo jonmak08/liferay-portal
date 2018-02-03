@@ -469,11 +469,14 @@
 			<finder-column name="liveGroupId" />
 			<finder-column name="groupKey" />
 		</finder>
+<<<<<<< HEAD
 		<finder db-index="false" name="C_T_S" return-type="Collection">
 			<finder-column name="companyId" />
 			<finder-column comparator="LIKE" name="treePath" />
 			<finder-column name="site" />
 		</finder>
+=======
+>>>>>>> compatible
 		<finder db-index="false" name="G_C_C_P" return-type="Collection">
 			<finder-column comparator="&gt;" name="groupId" />
 			<finder-column name="companyId" />
@@ -509,9 +512,17 @@
 		<reference entity="PortletPreferences" package-path="com.liferay.portal" />
 		<reference entity="Resource" package-path="com.liferay.portal" />
 		<reference entity="ResourceAction" package-path="com.liferay.portal" />
+<<<<<<< HEAD
 		<reference entity="ResourcePermission" package-path="com.liferay.portal" />
 		<reference entity="Role" package-path="com.liferay.portal" />
 		<reference entity="SystemEvent" package-path="com.liferay.portal" />
+=======
+		<reference entity="ResourceBlock" package-path="com.liferay.portal" />
+		<reference entity="ResourcePermission" package-path="com.liferay.portal" />
+		<reference entity="ResourceTypePermission" package-path="com.liferay.portal" />
+		<reference entity="Role" package-path="com.liferay.portal" />
+		<reference entity="Subscription" package-path="com.liferay.portal" />
+>>>>>>> compatible
 		<reference entity="Team" package-path="com.liferay.portal" />
 		<reference entity="User" package-path="com.liferay.portal" />
 		<reference entity="UserGroup" package-path="com.liferay.portal" />
@@ -689,6 +700,10 @@
 		<reference entity="PortletPreferences" package-path="com.liferay.portal" />
 		<reference entity="Resource" package-path="com.liferay.portal" />
 		<reference entity="ResourcePermission" package-path="com.liferay.portal" />
+<<<<<<< HEAD
+=======
+		<reference entity="Subscription" package-path="com.liferay.portal" />
+>>>>>>> compatible
 		<reference entity="User" package-path="com.liferay.portal" />
 		<reference entity="UserGroup" package-path="com.liferay.portal" />
 		<reference entity="AssetCategory" package-path="com.liferay.portlet.asset" />
@@ -1221,7 +1236,10 @@
 		<!-- References -->
 
 		<reference entity="Mail" package-path="com.liferay.mail" />
+<<<<<<< HEAD
 		<reference entity="Company" package-path="com.liferay.portal" />
+=======
+>>>>>>> compatible
 		<reference entity="Group" package-path="com.liferay.portal" />
 		<reference entity="Resource" package-path="com.liferay.portal" />
 		<reference entity="Role" package-path="com.liferay.portal" />
@@ -1515,6 +1533,10 @@
 
 		<!-- References -->
 
+<<<<<<< HEAD
+=======
+		<reference entity="ResourceBlock" package-path="com.liferay.portal" />
+>>>>>>> compatible
 		<reference entity="ResourcePermission" package-path="com.liferay.portal" />
 		<reference entity="Role" package-path="com.liferay.portal" />
 		<reference entity="Team" package-path="com.liferay.portal" />
@@ -1670,6 +1692,10 @@
 		<reference entity="PortletPreferences" package-path="com.liferay.portal" />
 		<reference entity="Resource" package-path="com.liferay.portal" />
 		<reference entity="ResourceAction" package-path="com.liferay.portal" />
+<<<<<<< HEAD
+=======
+		<reference entity="ResourceBlock" package-path="com.liferay.portal" />
+>>>>>>> compatible
 		<reference entity="ResourcePermission" package-path="com.liferay.portal" />
 		<reference entity="Role" package-path="com.liferay.portal" />
 	</entity>
@@ -1789,6 +1815,7 @@
 		<reference entity="Portlet" package-path="com.liferay.portal" />
 		<reference entity="PortletItem" package-path="com.liferay.portal" />
 		<reference entity="User" package-path="com.liferay.portal" />
+<<<<<<< HEAD
 	</entity>
 	<entity local-service="true" name="RecentLayoutBranch" remote-service="false" uuid="false">
 
@@ -1878,6 +1905,97 @@
 
 		<!-- PK fields -->
 
+=======
+	</entity>
+	<entity local-service="true" name="RecentLayoutBranch" remote-service="false" uuid="false">
+
+		<!-- PK fields -->
+
+		<column name="recentLayoutBranchId" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="layoutBranchId" type="long" />
+		<column name="layoutSetBranchId" type="long" />
+		<column name="plid" type="long" />
+
+		<!-- Finder methods -->
+
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+		<finder name="UserId" return-type="Collection">
+			<finder-column name="userId" />
+		</finder>
+		<finder name="LayoutBranchId" return-type="Collection">
+			<finder-column name="layoutBranchId" />
+		</finder>
+		<finder name="U_L_P" return-type="RecentLayout" unique="true">
+			<finder-column name="userId" />
+			<finder-column name="layoutSetBranchId" />
+			<finder-column name="plid" />
+		</finder>
+
+		<!-- References -->
+
+		<reference entity="LayoutBranch" package-path="com.liferay.portal" />
+	</entity>
+	<entity local-service="true" name="RecentLayoutRevision" remote-service="false" uuid="false">
+
+		<!-- PK fields -->
+
+		<column name="recentLayoutRevisionId" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+
+		<!-- Other fields -->
+
+		<column name="layoutRevisionId" type="long" />
+		<column name="layoutSetBranchId" type="long" />
+		<column name="plid" type="long" />
+
+		<!-- Finder methods -->
+
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+		<finder name="UserId" return-type="Collection">
+			<finder-column name="userId" />
+		</finder>
+		<finder name="LayoutRevisionId" return-type="Collection">
+			<finder-column name="layoutRevisionId" />
+		</finder>
+		<finder name="U_L_P" return-type="RecentLayout" unique="true">
+			<finder-column name="userId" />
+			<finder-column name="layoutSetBranchId" />
+			<finder-column name="plid" />
+		</finder>
+
+		<!-- References -->
+
+		<reference entity="LayoutRevision" package-path="com.liferay.portal" />
+	</entity>
+	<entity local-service="true" name="RecentLayoutSetBranch" remote-service="false" uuid="false">
+
+		<!-- PK fields -->
+
+>>>>>>> compatible
 		<column name="recentLayoutSetBranchId" primary="true" type="long" />
 
 		<!-- Group instance -->
@@ -2118,9 +2236,18 @@
 		<!-- References -->
 
 		<reference entity="Company" package-path="com.liferay.portal" />
+<<<<<<< HEAD
 		<reference entity="ResourcePermission" package-path="com.liferay.portal" />
 	</entity>
 	<entity deprecated="true" local-service="true" name="ResourceBlock" remote-service="true">
+=======
+		<reference entity="ResourceBlock" package-path="com.liferay.portal" />
+		<reference entity="ResourceBlockPermission" package-path="com.liferay.portal" />
+		<reference entity="ResourcePermission" package-path="com.liferay.portal" />
+		<reference entity="ResourceTypePermission" package-path="com.liferay.portal" />
+	</entity>
+	<entity local-service="true" name="ResourceBlock" remote-service="true">
+>>>>>>> compatible
 
 		<!-- PK fields -->
 
@@ -2164,7 +2291,11 @@
 		<reference entity="ResourceTypePermission" package-path="com.liferay.portal" />
 		<reference entity="Role" package-path="com.liferay.portal" />
 	</entity>
+<<<<<<< HEAD
 	<entity deprecated="true" local-service="true" name="ResourceBlockPermission" remote-service="false">
+=======
+	<entity local-service="true" name="ResourceBlockPermission" remote-service="false">
+>>>>>>> compatible
 
 		<!-- PK fields -->
 
@@ -2268,7 +2399,11 @@
 		<reference entity="ResourceAction" package-path="com.liferay.portal" />
 		<reference entity="Role" package-path="com.liferay.portal" />
 	</entity>
+<<<<<<< HEAD
 	<entity deprecated="true" local-service="true" name="ResourceTypePermission" remote-service="false">
+=======
+	<entity local-service="true" name="ResourceTypePermission" remote-service="false">
+>>>>>>> compatible
 
 		<!-- PK fields -->
 
@@ -2381,7 +2516,14 @@
 		<reference entity="Layout" package-path="com.liferay.portal" />
 		<reference entity="Resource" package-path="com.liferay.portal" />
 		<reference entity="ResourceAction" package-path="com.liferay.portal" />
+<<<<<<< HEAD
 		<reference entity="ResourcePermission" package-path="com.liferay.portal" />
+=======
+		<reference entity="ResourceBlock" package-path="com.liferay.portal" />
+		<reference entity="ResourceBlockPermission" package-path="com.liferay.portal" />
+		<reference entity="ResourcePermission" package-path="com.liferay.portal" />
+		<reference entity="ResourceTypePermission" package-path="com.liferay.portal" />
+>>>>>>> compatible
 		<reference entity="Team" package-path="com.liferay.portal" />
 		<reference entity="User" package-path="com.liferay.portal" />
 		<reference entity="UserGroupGroupRole" package-path="com.liferay.portal" />
@@ -2422,10 +2564,73 @@
 
 		<reference entity="Release" package-path="com.liferay.portal" />
 	</entity>
+<<<<<<< HEAD
 	<entity local-service="true" name="SystemEvent" remote-service="false">
 
 		<!-- PK fields -->
 
+=======
+	<entity local-service="true" name="Subscription" remote-service="false">
+
+		<!-- PK fields -->
+
+		<column name="subscriptionId" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="classNameId" type="long" />
+		<column name="classPK" type="long" />
+		<column name="frequency" type="String" />
+
+		<!-- Finder methods -->
+
+		<finder name="UserId" return-type="Collection">
+			<finder-column name="userId" />
+		</finder>
+		<finder name="G_U" return-type="Collection">
+			<finder-column name="groupId" />
+			<finder-column name="userId" />
+		</finder>
+		<finder name="U_C" return-type="Collection">
+			<finder-column name="userId" />
+			<finder-column name="classNameId" />
+		</finder>
+		<finder name="C_C_C" return-type="Collection">
+			<finder-column name="companyId" />
+			<finder-column name="classNameId" />
+			<finder-column name="classPK" />
+		</finder>
+		<finder name="C_U_C_C" return-type="Collection" unique="true">
+			<finder-column name="companyId" />
+			<finder-column name="userId" />
+			<finder-column name="classNameId" />
+			<finder-column arrayable-operator="OR" name="classPK" />
+		</finder>
+
+		<!-- References -->
+
+		<reference entity="ClassName" package-path="com.liferay.portal" />
+		<reference entity="User" package-path="com.liferay.portal" />
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+		<reference entity="MBThread" package-path="com.liferay.portlet.messageboards" />
+	</entity>
+	<entity local-service="true" name="SystemEvent" remote-service="false">
+
+		<!-- PK fields -->
+
+>>>>>>> compatible
 		<column accessor="true" name="systemEventId" primary="true" type="long" />
 
 		<!-- Group instance -->
@@ -2729,6 +2934,10 @@
 		<reference entity="RecentLayoutSetBranch" package-path="com.liferay.portal" />
 		<reference entity="Resource" package-path="com.liferay.portal" />
 		<reference entity="Role" package-path="com.liferay.portal" />
+<<<<<<< HEAD
+=======
+		<reference entity="Subscription" package-path="com.liferay.portal" />
+>>>>>>> compatible
 		<reference entity="Team" package-path="com.liferay.portal" />
 		<reference entity="Ticket" package-path="com.liferay.portal" />
 		<reference entity="UserGroup" package-path="com.liferay.portal" />
@@ -2737,8 +2946,19 @@
 		<reference entity="WorkflowInstanceLink" package-path="com.liferay.portal" />
 		<reference entity="AnnouncementsDelivery" package-path="com.liferay.portlet.announcements" />
 		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+<<<<<<< HEAD
 		<reference entity="DLFileEntry" package-path="com.liferay.portlet.documentlibrary" />
 		<reference entity="ExpandoRow" package-path="com.liferay.portlet.expando" />
+=======
+		<reference entity="BlogsStatsUser" package-path="com.liferay.portlet.blogs" />
+		<reference entity="DLFileEntry" package-path="com.liferay.portlet.documentlibrary" />
+		<reference entity="DLFileRank" package-path="com.liferay.portlet.documentlibrary" />
+		<reference entity="ExpandoRow" package-path="com.liferay.portlet.expando" />
+		<reference entity="MBBan" package-path="com.liferay.portlet.messageboards" />
+		<reference entity="MBMessage" package-path="com.liferay.portlet.messageboards" />
+		<reference entity="MBStatsUser" package-path="com.liferay.portlet.messageboards" />
+		<reference entity="MBThreadFlag" package-path="com.liferay.portlet.messageboards" />
+>>>>>>> compatible
 		<reference entity="RatingsStats" package-path="com.liferay.portlet.ratings" />
 		<reference entity="SocialActivity" package-path="com.liferay.portlet.social" />
 		<reference entity="SocialRelation" package-path="com.liferay.portlet.social" />
@@ -3270,6 +3490,10 @@
 		<!-- References -->
 
 		<reference entity="ClassName" package-path="com.liferay.portal" />
+<<<<<<< HEAD
+=======
+		<reference entity="Subscription" package-path="com.liferay.portal" />
+>>>>>>> compatible
 		<reference entity="User" package-path="com.liferay.portal" />
 	</entity>
 	<entity local-service="true" name="WorkflowInstanceLink" remote-service="false">
@@ -3314,6 +3538,10 @@
 		<!-- References -->
 
 		<reference entity="ClassName" package-path="com.liferay.portal" />
+<<<<<<< HEAD
+=======
+		<reference entity="Subscription" package-path="com.liferay.portal" />
+>>>>>>> compatible
 		<reference entity="User" package-path="com.liferay.portal" />
 	</entity>
 	<exceptions>

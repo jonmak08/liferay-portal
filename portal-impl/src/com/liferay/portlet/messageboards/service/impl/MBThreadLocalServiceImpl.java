@@ -500,10 +500,13 @@ public class MBThreadLocalServiceImpl extends MBThreadLocalServiceBaseImpl {
 
 		MBThread thread = mbThreadPersistence.fetchByPrimaryKey(threadId);
 
+<<<<<<< HEAD
 		if (thread == null) {
 			return;
 		}
 
+=======
+>>>>>>> compatible
 		thread.setModifiedDate(thread.getModifiedDate());
 		thread.setViewCount(thread.getViewCount() + increment);
 
@@ -514,6 +517,8 @@ public class MBThreadLocalServiceImpl extends MBThreadLocalServiceBaseImpl {
 	public void moveDependentsToTrash(
 			long groupId, long threadId, long trashEntryId)
 		throws PortalException {
+
+		MBThread thread = mbThreadLocalService.getThread(threadId);
 
 		MBThread thread = mbThreadLocalService.getThread(threadId);
 
@@ -770,6 +775,8 @@ public class MBThreadLocalServiceImpl extends MBThreadLocalServiceBaseImpl {
 	@Override
 	public void restoreDependentsFromTrash(long groupId, long threadId)
 		throws PortalException {
+
+		MBThread thread = mbThreadLocalService.getThread(threadId);
 
 		MBThread thread = mbThreadLocalService.getThread(threadId);
 

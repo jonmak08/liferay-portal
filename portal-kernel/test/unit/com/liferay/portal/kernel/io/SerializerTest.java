@@ -14,16 +14,26 @@
 
 package com.liferay.portal.kernel.io;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.ClassLoaderPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.io.Serializer.BufferNode;
 import com.liferay.portal.kernel.io.Serializer.BufferQueue;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.test.ReflectionTestUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.CodeCoverageAssertor;
 import com.liferay.portal.kernel.test.rule.NewEnv;
 import com.liferay.portal.kernel.test.rule.NewEnvTestRule;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.ClassLoaderPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 
 import java.io.IOException;
@@ -389,10 +399,14 @@ public class SerializerTest {
 
 		serializer.toByteBuffer();
 
+<<<<<<< HEAD
 		BufferQueue bufferQueue = ReflectionTestUtil.invoke(
 			serializer, "_getBufferQueue", new Class<?>[0]);
 
 		Assert.assertEquals(0, bufferQueue.count);
+=======
+		Assert.assertEquals(0, Serializer.bufferQueueThreadLocal.get().count);
+>>>>>>> compatible
 
 		serializer = new Serializer();
 
@@ -403,7 +417,12 @@ public class SerializerTest {
 
 		serializer.writeTo(unsyncByteArrayOutputStream);
 
+<<<<<<< HEAD
 		Assert.assertEquals(0, bufferQueue.count);
+=======
+		Assert.assertEquals(0, Serializer.bufferQueueThreadLocal.get().count);
+
+>>>>>>> compatible
 		Assert.assertEquals(
 			chars.length * 2 + 5, unsyncByteArrayOutputStream.size());
 	}

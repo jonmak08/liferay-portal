@@ -90,6 +90,10 @@
 		<reference entity="User" package-path="com.liferay.portal.kernel" />
 		<reference entity="UserNotificationEvent" package-path="com.liferay.portal.kernel" />
 		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+<<<<<<< HEAD
+=======
+		<reference entity="MBMessage" package-path="com.liferay.portlet.messageboards" />
+>>>>>>> compatible
 		<reference entity="SocialActivity" package-path="com.liferay.portlet.social" />
 	</entity>
 	<exceptions>

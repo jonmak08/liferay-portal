@@ -35,6 +35,7 @@ public interface BookmarksGroupServiceConfiguration {
 
 	@Meta.AD(
 		deflt = "${resource:com/liferay/bookmarks/configuration/dependencies/email_entry_added_body.tmpl}",
+<<<<<<< HEAD
 		name = "email-entry-added-body", required = false
 	)
 	public LocalizedValuesMap emailEntryAddedBody();
@@ -42,16 +43,28 @@ public interface BookmarksGroupServiceConfiguration {
 	@Meta.AD(
 		deflt = "true", name = "email-entry-added-enabled", required = false
 	)
+=======
+		required = false
+	)
+	public LocalizedValuesMap emailEntryAddedBody();
+
+	@Meta.AD(deflt = "true", required = false)
+>>>>>>> compatible
 	public boolean emailEntryAddedEnabled();
 
 	@Meta.AD(
 		deflt = "${resource:com/liferay/bookmarks/configuration/dependencies/email_entry_added_subject.tmpl}",
+<<<<<<< HEAD
 		name = "email-entry-added-subject", required = false
+=======
+		required = false
+>>>>>>> compatible
 	)
 	public LocalizedValuesMap emailEntryAddedSubject();
 
 	@Meta.AD(
 		deflt = "${resource:com/liferay/bookmarks/configuration/dependencies/email_entry_updated_body.tmpl}",
+<<<<<<< HEAD
 		name = "email-entry-updated-body", required = false
 	)
 	public LocalizedValuesMap emailEntryUpdatedBody();
@@ -59,31 +72,55 @@ public interface BookmarksGroupServiceConfiguration {
 	@Meta.AD(
 		deflt = "true", name = "email-entry-updated-enabled", required = false
 	)
+=======
+		required = false
+	)
+	public LocalizedValuesMap emailEntryUpdatedBody();
+
+	@Meta.AD(deflt = "true", required = false)
+>>>>>>> compatible
 	public boolean emailEntryUpdatedEnabled();
 
 	@Meta.AD(
 		deflt = "${resource:com/liferay/bookmarks/configuration/dependencies/email_entry_updated_subject.tmpl}",
+<<<<<<< HEAD
 		name = "email-entry-updated-subject", required = false
+=======
+		required = false
+>>>>>>> compatible
 	)
 	public LocalizedValuesMap emailEntryUpdatedSubject();
 
 	@Meta.AD(
 		deflt = "${server-property://com.liferay.portal/admin.email.from.address}",
+<<<<<<< HEAD
 		name = "email-from-address", required = false
+=======
+		required = false
+>>>>>>> compatible
 	)
 	public String emailFromAddress();
 
 	@Meta.AD(
 		deflt = "${server-property://com.liferay.portal/admin.email.from.name}",
+<<<<<<< HEAD
 		name = "email-from-name", required = false
 	)
 	public String emailFromName();
 
 	@Meta.AD(deflt = "true", name = "enable-related-assets", required = false)
+=======
+		required = false
+	)
+	public String emailFromName();
+
+	@Meta.AD(deflt = "true", required = false)
+>>>>>>> compatible
 	public boolean enableRelatedAssets();
 
 	@Meta.AD(
 		deflt = "${server-property://com.liferay.portal/search.container.page.default.delta}",
+<<<<<<< HEAD
 		name = "entries-per-page", required = false
 	)
 	public String entriesPerPage();
@@ -97,11 +134,23 @@ public interface BookmarksGroupServiceConfiguration {
 	@Meta.AD(
 		deflt = "folder|num-of-folders|num-of-entries|action",
 		name = "folder-columns", required = false
+=======
+		required = false
+	)
+	public String entriesPerPage();
+
+	@Meta.AD(deflt = "name|url|visits|modified-date|action", required = false)
+	public String[] entryColumns();
+
+	@Meta.AD(
+		deflt = "folder|num-of-folders|num-of-entries|action", required = false
+>>>>>>> compatible
 	)
 	public String[] folderColumns();
 
 	@Meta.AD(
 		deflt = "${server-property://com.liferay.portal/search.container.page.default.delta}",
+<<<<<<< HEAD
 		name = "folders-per-page", required = false
 	)
 	public String foldersPerPage();
@@ -110,6 +159,16 @@ public interface BookmarksGroupServiceConfiguration {
 	public boolean showFoldersSearch();
 
 	@Meta.AD(deflt = "true", name = "show-subfolders", required = false)
+=======
+		required = false
+	)
+	public String foldersPerPage();
+
+	@Meta.AD(deflt = "true", required = false)
+	public boolean showFoldersSearch();
+
+	@Meta.AD(deflt = "true", required = false)
+>>>>>>> compatible
 	public boolean showSubfolders();
 
 }

@@ -36,7 +36,15 @@ AssetRendererFactory<JournalArticle> assetRendererFactory = AssetRendererFactory
 						<liferay-ui:message key="this-application-is-not-visible-to-users-yet" />
 					</div>
 
+<<<<<<< HEAD
 					<c:if test="<%= journalContentDisplayContext.isShowSelectArticleLink() %>">
+=======
+					<%
+					Group scopeGroup = themeDisplay.getScopeGroup();
+					%>
+
+					<c:if test="<%= !scopeGroup.isStaged() || scopeGroup.isStagingGroup() %>">
+>>>>>>> compatible
 						<div>
 							<aui:a href="javascript:;" onClick="<%= portletDisplay.getURLConfigurationJS() %>"><liferay-ui:message key="select-web-content-to-make-it-visible" /></aui:a>
 						</div>
@@ -44,6 +52,7 @@ AssetRendererFactory<JournalArticle> assetRendererFactory = AssetRendererFactory
 				</div>
 			</c:when>
 			<c:otherwise>
+<<<<<<< HEAD
 
 				<%
 				JournalArticle selectedArticle = journalContentDisplayContext.getSelectedArticle();
@@ -84,6 +93,10 @@ AssetRendererFactory<JournalArticle> assetRendererFactory = AssetRendererFactory
 							</c:choose>
 						</div>
 					</c:if>
+=======
+				<div class="alert alert-danger">
+					<liferay-ui:message key="the-selected-web-content-no-longer-exists" />
+>>>>>>> compatible
 				</div>
 			</c:otherwise>
 		</c:choose>
@@ -130,6 +143,7 @@ AssetRendererFactory<JournalArticle> assetRendererFactory = AssetRendererFactory
 					</c:when>
 					<c:when test="<%= articleDisplay != null %>">
 						<div class="text-right user-tool-asset-addon-entries">
+<<<<<<< HEAD
 							<liferay-asset:asset-addon-entry-display assetAddonEntries="<%= journalContentDisplayContext.getSelectedUserToolAssetAddonEntries() %>" />
 						</div>
 
@@ -194,6 +208,9 @@ AssetRendererFactory<JournalArticle> assetRendererFactory = AssetRendererFactory
 									/>
 								</c:if>
 							</liferay-ui:icon-menu>
+=======
+							<liferay-ui:asset-addon-entry-display assetAddonEntries="<%= journalContentDisplayContext.getSelectedUserToolAssetAddonEntries() %>" />
+>>>>>>> compatible
 						</div>
 
 						<div class="journal-content-article">
@@ -228,7 +245,11 @@ AssetRendererFactory<JournalArticle> assetRendererFactory = AssetRendererFactory
 
 <c:if test="<%= (articleDisplay != null) && journalContentDisplayContext.hasViewPermission() %>">
 	<div class="content-metadata-asset-addon-entries">
+<<<<<<< HEAD
 		<liferay-asset:asset-addon-entry-display assetAddonEntries="<%= journalContentDisplayContext.getSelectedContentMetadataAssetAddonEntries() %>" />
+=======
+		<liferay-ui:asset-addon-entry-display assetAddonEntries="<%= journalContentDisplayContext.getSelectedContentMetadataAssetAddonEntries() %>" />
+>>>>>>> compatible
 	</div>
 </c:if>
 

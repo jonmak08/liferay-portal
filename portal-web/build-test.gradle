@@ -2,7 +2,11 @@ import com.liferay.gradle.util.GradleUtil
 
 buildscript {
 	dependencies {
+<<<<<<< HEAD
 		classpath group: "com.liferay", name: "com.liferay.gradle.plugins.poshi.runner", version: "1.0.12"
+=======
+		classpath group: "com.liferay", name: "com.liferay.gradle.plugins.poshi.runner", version: "1.0.11"
+>>>>>>> compatible
 	}
 
 	repositories {
@@ -34,7 +38,11 @@ poshiRunner {
 	}
 
 	openCVVersion = "2.4.10-0.10"
+<<<<<<< HEAD
 	version = "1.0.78"
+=======
+	version = "1.0.63"
+>>>>>>> compatible
 }
 
 task updateGradleCache
@@ -76,6 +84,21 @@ updateGradleCache {
 	doLast {
 		configurations.poshiRunner.resolve()
 		configurations.sikuliComplete.resolve()
+<<<<<<< HEAD
+	}
+}
+
+if (GradleUtil.getProperty(project, "local", false)) {
+	File localPoshiDir = file("../tools/sdk/dependencies/com.liferay.poshi.runner/lib")
+
+	dependencies {
+		poshiRunner fileTree(dir: localPoshiDir, include: "*.jar")
+	}
+
+	expandPoshiRunner {
+		from zipTree(new File(localPoshiDir, "com.liferay.poshi.runner.jar"))
+=======
+>>>>>>> compatible
 	}
 }
 

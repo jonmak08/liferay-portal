@@ -26,9 +26,15 @@
 		</execute>
 
 		<var name="key_siteName" value="${siteName}" />
+<<<<<<< HEAD
 
 		<execute function="Click" locator1="Calendar#CURRENT_SITE_CALENDARS_MENULIST_ARROW" />
 
+=======
+
+		<execute function="Click" locator1="Calendar#CURRENT_SITE_CALENDARS_MENULIST_ARROW" />
+
+>>>>>>> compatible
 		<execute function="AssertClick" locator1="Calendar#CURRENT_SITE_CALENDARS_MENULIST_ADD_CALENDAR" value1="Add Calendar" />
 
 		<execute macro="CalendarNavigator#_selectCalendarSettingsIframe" />
@@ -73,6 +79,21 @@
 		<var method="StringUtil#upperCase('${viewType}')" name="viewTypeUppercase" />
 
 		<execute function="Click" locator1="Calendar#SCHEDULER_VIEW_${viewTypeUppercase}_CURRENT_DAY" />
+<<<<<<< HEAD
+=======
+	</command>
+
+	<command name="gotoAddEventViaAssetPublisher">
+		<execute function="Click#makeVisibleClickAt" locator1="AP#ADD_ASSET_PLUS_ICON" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Calendar Event">
+			<var name="key_menuItem" value="Calendar Event" />
+		</execute>
+
+		<execute macro="CalendarEvent#selectEventIframe" />
+
+		<execute macro="CalendarEvent#_viewNewEventIframe" />
+>>>>>>> compatible
 	</command>
 
 	<command name="gotoAddMyCalendars">

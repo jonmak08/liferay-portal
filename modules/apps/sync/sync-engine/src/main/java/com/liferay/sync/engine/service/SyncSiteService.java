@@ -64,12 +64,24 @@ public class SyncSiteService {
 			return syncSite;
 		}
 
+<<<<<<< HEAD
+=======
+		syncSite.setActive(true);
+		syncSite.setState(SyncSite.STATE_SYNCED);
+		syncSite.setUiEvent(SyncSite.UI_EVENT_NONE);
+
+>>>>>>> compatible
 		if (reset) {
 			syncSite.setRemoteSyncTime(-1);
 
 			deleteSyncFiles(syncSite);
 		}
 
+<<<<<<< HEAD
+=======
+		update(syncSite);
+
+>>>>>>> compatible
 		// Sync file
 
 		String filePathName = syncSite.getFilePathName();
@@ -94,12 +106,15 @@ public class SyncSiteService {
 			SyncFileService.update(syncFile);
 		}
 
+<<<<<<< HEAD
 		syncSite.setActive(true);
 		syncSite.setState(SyncSite.STATE_SYNCED);
 		syncSite.setUiEvent(SyncSite.UI_EVENT_NONE);
 
 		update(syncSite);
 
+=======
+>>>>>>> compatible
 		return syncSite;
 	}
 

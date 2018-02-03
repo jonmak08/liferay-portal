@@ -16,11 +16,17 @@ package com.liferay.frontend.js.loader.modules.extender.internal;
 
 import aQute.bnd.osgi.Constants;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PredicateFilter;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.ArrayUtil;
+import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 
@@ -144,8 +150,12 @@ public class JSLoaderModule {
 
 			String modulePath = name.substring(x);
 
+<<<<<<< HEAD
 			moduleName = StringBundler.concat(
 				getName(), "@", getVersion(), modulePath);
+=======
+			moduleName = getName() + "@" + getVersion() + modulePath;
+>>>>>>> compatible
 
 			JSONObject nameJSONObject = jsonObject.getJSONObject(name);
 
@@ -165,8 +175,13 @@ public class JSLoaderModule {
 				String dependencyPath = dependency.substring(y);
 
 				if (dependencyName.equals(getName())) {
+<<<<<<< HEAD
 					dependencyName = StringBundler.concat(
 						getName(), "@", getVersion(), dependencyPath);
+=======
+					dependencyName =
+						getName() + "@" + getVersion() + dependencyPath;
+>>>>>>> compatible
 
 					dependenciesJSONArray.put(j, dependencyName);
 				}
@@ -218,6 +233,7 @@ public class JSLoaderModule {
 				continue;
 			}
 
+<<<<<<< HEAD
 			final String submoduleName = submodulePath.substring(0, y);
 
 			PredicateFilter<String> wildcardPredicateFilter =
@@ -231,6 +247,12 @@ public class JSLoaderModule {
 
 			if (exportAll ||
 				ArrayUtil.exists(exportJSSubmodules, wildcardPredicateFilter)) {
+=======
+			String submoduleName = submodulePath.substring(0, y);
+
+			if (exportAll ||
+				ArrayUtil.contains(exportJSSubmodules, submoduleName)) {
+>>>>>>> compatible
 
 				mapsConfigurationJSONObject.put(
 					submoduleName, moduleRootPath.concat(submoduleName));
@@ -267,8 +289,13 @@ public class JSLoaderModule {
 			Version version = (Version)attributes.get(
 				Constants.VERSION_ATTRIBUTE);
 
+<<<<<<< HEAD
 			dependencyName = StringBundler.concat(
 				dependencyName, "@", version.toString(), dependencyPath);
+=======
+			dependencyName =
+				dependencyName + "@" + version.toString() + dependencyPath;
+>>>>>>> compatible
 
 			jsonArray.put(index, dependencyName);
 
@@ -308,6 +335,7 @@ public class JSLoaderModule {
 		}
 	}
 
+<<<<<<< HEAD
 	private boolean _matchesWildcard(String text, String pattern) {
 		pattern = StringUtil.replace(
 			pattern, new String[] {"?", "*"}, new String[] {".?", ".*"});
@@ -315,6 +343,8 @@ public class JSLoaderModule {
 		return text.matches(pattern);
 	}
 
+=======
+>>>>>>> compatible
 	private final boolean _applyVersioning;
 	private final Bundle _bundle;
 	private final String _contextPath;

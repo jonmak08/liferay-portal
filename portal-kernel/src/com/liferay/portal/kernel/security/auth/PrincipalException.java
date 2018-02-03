@@ -172,8 +172,12 @@ public class PrincipalException extends PortalException {
 			super(
 				String.format(
 					"User %s must have %s permission for %s %s", userId,
+<<<<<<< HEAD
 					StringUtil.merge(actionIds, ","), resourceName,
 					(resourceId == 0) ? "" : resourceId),
+=======
+					StringUtil.merge(actionIds, ","), resourceName, resourceId),
+>>>>>>> compatible
 				cause);
 
 			this.userId = userId;

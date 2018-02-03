@@ -14,7 +14,11 @@
 
 package com.liferay.configuration.admin.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.configuration.admin.constants.ConfigurationAdminPortletKeys;
+=======
+import com.liferay.configuration.admin.web.internal.constants.ConfigurationAdminPortletKeys;
+>>>>>>> compatible
 import com.liferay.configuration.admin.web.internal.model.ConfigurationModel;
 import com.liferay.configuration.admin.web.internal.util.ConfigurationModelRetriever;
 import com.liferay.configuration.admin.web.internal.util.ConfigurationModelToDDMFormConverter;
@@ -23,7 +27,10 @@ import com.liferay.configuration.admin.web.internal.util.ResourceBundleLoaderPro
 import com.liferay.dynamic.data.mapping.form.values.factory.DDMFormValuesFactory;
 import com.liferay.dynamic.data.mapping.model.DDMForm;
 import com.liferay.dynamic.data.mapping.storage.DDMFormValues;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.configuration.persistence.listener.ConfigurationModelListenerException;
 import com.liferay.portal.kernel.json.JSONFactory;
 import com.liferay.portal.kernel.log.Log;
@@ -34,6 +41,10 @@ import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.ResourceBundleLoader;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.util.PropsValues;
@@ -107,7 +118,11 @@ public class BindConfigurationMVCActionCommand implements MVCActionCommand {
 				configurationModel.getBundleSymbolicName());
 
 		ResourceBundle resourceBundle = resourceBundleLoader.loadResourceBundle(
+<<<<<<< HEAD
 			themeDisplay.getLocale());
+=======
+			themeDisplay.getLanguageId());
+>>>>>>> compatible
 
 		ConfigurationModelToDDMFormConverter
 			configurationModelToDDMFormConverter =
@@ -210,9 +225,12 @@ public class BindConfigurationMVCActionCommand implements MVCActionCommand {
 			// LPS-69521
 
 			if (configurationModel.isFactory()) {
+<<<<<<< HEAD
 				configuredProperties.put(
 					"configuration.cleaner.ignore", "true");
 
+=======
+>>>>>>> compatible
 				String pid = configuration.getPid();
 
 				int index = pid.lastIndexOf('.');

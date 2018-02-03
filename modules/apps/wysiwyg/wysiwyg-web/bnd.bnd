@@ -1,6 +1,10 @@
 Bundle-Name: Liferay WYSIWYG Web
 Bundle-SymbolicName: com.liferay.wysiwyg.web
+<<<<<<< HEAD
 Bundle-Version: 1.0.6
+=======
+Bundle-Version: 1.0.3
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title:
 Web-ContextPath: /wysiwyg-web

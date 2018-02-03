@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Ant Heap Dump
 Bundle-SymbolicName: com.liferay.ant.heap.dump
+<<<<<<< HEAD
 Bundle-Version: 1.0.3
+=======
+Bundle-Version: 1.0.2
+>>>>>>> compatible
 Export-Package: com.liferay.ant.heap.dump
 -includeresource:\
 	@com.liferay.portal.kernel-[0-9]*.jar!/com/liferay/portal/kernel/concurrent/*,\

@@ -295,6 +295,7 @@ public class DLFileEntryImpl extends DLFileEntryBaseImpl {
 
 	@Override
 	public boolean hasLock() {
+<<<<<<< HEAD
 		long folderId = getFolderId();
 
 		boolean hasLock = LockManagerUtil.hasLock(
@@ -305,6 +306,27 @@ public class DLFileEntryImpl extends DLFileEntryBaseImpl {
 			(folderId != DLFolderConstants.DEFAULT_PARENT_FOLDER_ID)) {
 
 			hasLock = DLFolderLocalServiceUtil.hasInheritableLock(folderId);
+=======
+		try {
+			long folderId = getFolderId();
+
+			boolean hasLock = LockManagerUtil.hasLock(
+				PrincipalThreadLocal.getUserId(), DLFileEntry.class.getName(),
+				getFileEntryId());
+
+			if (!hasLock &&
+				(folderId != DLFolderConstants.DEFAULT_PARENT_FOLDER_ID)) {
+
+				hasLock = DLFolderLocalServiceUtil.hasInheritableLock(folderId);
+			}
+
+			return hasLock;
+		}
+		catch (Exception e) {
+			if (_log.isWarnEnabled()) {
+				_log.warn(e, e);
+			}
+>>>>>>> compatible
 		}
 
 		return hasLock;

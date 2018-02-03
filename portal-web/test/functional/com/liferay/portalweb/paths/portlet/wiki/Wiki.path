@@ -133,6 +133,7 @@
 	<td></td>
 </tr>
 <!--COMPARE_ACTIVITIES_NAVIGATION-->
+<<<<<<< HEAD
 <tr>
 	<td>COMPARE_ACTIVITIES_NAVIGATION_TEXT_MODE_LINK</td>
 	<td>//div[@class='central-info']//a[contains(.,'Text Mode')]</td>
@@ -171,8 +172,66 @@
 <tr>
 	<td></td>
 	<td></td>
+=======
+<tr>
+	<td>COMPARE_ACTIVITIES_NAVIGATION_TEXT_MODE_LINK</td>
+	<td>//div[@class='central-info']//a[contains(.,'Text Mode')]</td>
 	<td></td>
 </tr>
+<tr>
+	<td>COMPARE_VERSIONS_TEXT_MODE_TABLE_TITLE_VERSION_OLD</td>
+	<td>//table[@id='taglib-diff-results']//tr/td[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>COMPARE_VERSIONS_TEXT_MODE_TABLE_TITLE_VERSION_NEW</td>
+	<td>//table[@id='taglib-diff-results']//tr/td[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>COMPARE_VERSIONS_TEXT_MODE_TABLE_LINE_NUMBER_OLD_1</td>
+	<td>//table[@id='taglib-diff-results']//tr[contains(.,'Line')]/th[1]</td>
+>>>>>>> compatible
+	<td></td>
+</tr>
+<!--DESCRIPTIVE_VIEW-->
+<tr>
+<<<<<<< HEAD
+	<td>DESCRIPTIVE_VIEW_ENTRY_CHECKBOX</td>
+	<td>//input[@type='checkbox' and (@value='${key_wikiPageTitle}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>DESCRIPTIVE_VIEW_ENTRY_TITLE</td>
+	<td>//li[@data-qa-id='row']/div[contains(@class,'content')]/h4[contains(.,'${key_wikiPageTitle}')]/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>DESCRIPTIVE_VIEW_ACTIONS</td>
+	<td>//li[contains(.,'${key_wikiPageTitle}')]//a[span/*[name()='svg'][contains(@class,'icon-ellipsis')]]</td>
+=======
+	<td>COMPARE_VERSIONS_TEXT_MODE_TABLE_LINE_NUMBER_NEW_1</td>
+	<td>//table[@id='taglib-diff-results']//tr[contains(.,'Line')]/th[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>COMPARE_VERSIONS_TEXT_MODE_TABLE_CONTENT_OLD_1</td>
+	<td>//table[@id='taglib-diff-results']//tr[3]/td[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>COMPARE_VERSIONS_TEXT_MODE_TABLE_CONTENT_NEW_1</td>
+	<td>//table[@id='taglib-diff-results']//tr[3]/td[2]</td>
+>>>>>>> compatible
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<<<<<<< HEAD
+=======
 <!--DESCRIPTIVE_VIEW-->
 <tr>
 	<td>DESCRIPTIVE_VIEW_ENTRY_CHECKBOX</td>
@@ -186,7 +245,7 @@
 </tr>
 <tr>
 	<td>DESCRIPTIVE_VIEW_ACTIONS</td>
-	<td>//li[contains(.,'${key_wikiPageTitle}')]//a[span/*[name()='svg'][contains(@class,'icon-ellipsis')]]</td>
+	<td>//li[contains(.,'${key_wikiPageTitle}')]//span/*[name()='svg'][contains(@class,'icon-ellipsis')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -194,6 +253,7 @@
 	<td></td>
 	<td></td>
 </tr>
+>>>>>>> compatible
 <!--FILES_READY_TO_BE_SAVED-->
 <tr>
 	<td>FILES_READY_TO_BE_SAVED_TITLE</td>
@@ -233,7 +293,11 @@
 </tr>
 <tr>
 	<td>HISTORY_VERSIONS_ACTIONS</td>
+<<<<<<< HEAD
 	<td>//tr[contains(.,'${key_wikiPageRevision}')]/td[8]//a[span/*[name()='svg'][contains(@class,'icon-ellipsis-v')]]</td>
+=======
+	<td>//tr[contains(.,'${key_wikiPageRevision}')]/td[8]//span/*[name()='svg'][contains(@class,'icon-ellipsis-v')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -294,7 +358,11 @@
 </tr>
 <tr>
 	<td>COMPARE_VERSIONS_VERSION_ACTIONS</td>
+<<<<<<< HEAD
 	<td>//li[@class='list-group-item']/div[contains(.,'${key_wikiPageVersion}')]/..//div//a[span/*[name()='svg'][contains(@class,'icon-ellipsis')]]</td>
+=======
+	<td>//h4[contains(.,'${key_wikiPageVersion}')]/..//span/*[name()='svg'][contains(@class,'icon-ellipsis-v')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -440,6 +508,15 @@
 	<td></td>
 	<td></td>
 </tr>
+<<<<<<< HEAD
+=======
+<!--OPTIONS_MENULIST-->
+<tr>
+	<td>OPTIONS_MENULIST_EXPORT_IMPORT</td>
+	<td>//a[@role='menuitem' and contains(.,'Export / Import')]</td>
+	<td></td>
+</tr>
+>>>>>>> compatible
 </tbody>
 </table>
 </body>

@@ -54,8 +54,20 @@ public class ModuleFrameworkAdapterHelper {
 				fileUtil.setFile(DoPrivilegedUtil.wrap(new FileImpl()));
 			}
 
+<<<<<<< HEAD
 			_classLoader = new ModuleFrameworkClassLoader(
 				_getClassPathURLs(), ClassLoaderUtil.getPortalClassLoader());
+=======
+			List<ClassPathResolver> classPathResolvers = ServiceLoader.load(
+				ClassPathResolver.class);
+
+			ClassPathResolver classPathResolver = classPathResolvers.get(0);
+
+			URL[] classPathURLs = classPathResolver.getClassPathURLs();
+
+			_classLoader = new ModuleFrameworkClassLoader(
+				classPathURLs, ClassLoaderUtil.getPortalClassLoader());
+>>>>>>> compatible
 
 			return _classLoader;
 		}

@@ -32,10 +32,14 @@ public class CommentJSONWS {
 		setBody(discussionComment.getBody());
 		setCommentId(discussionComment.getCommentId());
 		setCreateDate(discussionComment.getCreateDate());
+<<<<<<< HEAD
 		setDescendantCommentsCount(
 			discussionComment.getDescendantCommentsCount());
 		setModifiedDate(discussionComment.getModifiedDate());
 		setParentCommentId(discussionComment.getParentCommentId());
+=======
+		setModifiedDate(discussionComment.getModifiedDate());
+>>>>>>> compatible
 		setUserId(discussionComment.getUserId());
 		setUserName(discussionComment.getUserName());
 	}
@@ -56,21 +60,27 @@ public class CommentJSONWS {
 	}
 
 	@JSON
+<<<<<<< HEAD
 	public int getDescendantCommentsCount() {
 		return _descendantCommentsCount;
 	}
 
 	@JSON
+=======
+>>>>>>> compatible
 	public Date getModifiedDate() {
 		return _modifiedDate;
 	}
 
 	@JSON
+<<<<<<< HEAD
 	public long getParentCommentId() {
 		return _parentCommentId;
 	}
 
 	@JSON
+=======
+>>>>>>> compatible
 	public long getUserId() {
 		return _userId;
 	}
@@ -92,18 +102,24 @@ public class CommentJSONWS {
 		_createDate = createDate;
 	}
 
+<<<<<<< HEAD
 	public void setDescendantCommentsCount(int descendantCommentsCount) {
 		_descendantCommentsCount = descendantCommentsCount;
 	}
 
+=======
+>>>>>>> compatible
 	public void setModifiedDate(Date modifiedDate) {
 		_modifiedDate = modifiedDate;
 	}
 
+<<<<<<< HEAD
 	public void setParentCommentId(long parentCommentId) {
 		_parentCommentId = parentCommentId;
 	}
 
+=======
+>>>>>>> compatible
 	public void setUserId(long userId) {
 		_userId = userId;
 	}
@@ -115,9 +131,13 @@ public class CommentJSONWS {
 	private String _body;
 	private long _commentId;
 	private Date _createDate;
+<<<<<<< HEAD
 	private int _descendantCommentsCount;
 	private Date _modifiedDate;
 	private long _parentCommentId;
+=======
+	private Date _modifiedDate;
+>>>>>>> compatible
 	private long _userId;
 	private String _userName;
 

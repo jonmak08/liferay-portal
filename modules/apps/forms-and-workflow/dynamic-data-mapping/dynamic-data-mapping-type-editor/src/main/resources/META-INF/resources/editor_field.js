@@ -1,10 +1,13 @@
 AUI.add(
 	'liferay-ddm-form-field-editor',
 	function(A) {
+<<<<<<< HEAD
 		var Renderer = Liferay.DDM.Renderer;
 
 		var Util = Renderer.Util;
 
+=======
+>>>>>>> compatible
 		var EditorField = A.Component.create(
 			{
 				ATTRS: {
@@ -44,7 +47,11 @@ AUI.add(
 						return A.merge(
 							EditorField.superclass.getTemplateContext.apply(instance, arguments),
 							{
+<<<<<<< HEAD
 								placeholder: instance.get('placeholder')
+=======
+								placeholder: instance.getLocalizedValue(instance.get('placeholder'))
+>>>>>>> compatible
 							}
 						);
 					},
@@ -61,12 +68,15 @@ AUI.add(
 						return value;
 					},
 
+<<<<<<< HEAD
 					hasFocus: function() {
 						var instance = this;
 
 						return EditorField.superclass.hasFocus.apply(instance, arguments) || instance._hasAlloyEditorFocus();
 					},
 
+=======
+>>>>>>> compatible
 					render: function() {
 						var instance = this;
 
@@ -77,7 +87,11 @@ AUI.add(
 						if (editorNode.inDoc() && !instance.get('readOnly')) {
 							var name = instance.getQualifiedName();
 
+<<<<<<< HEAD
 							var value = instance.get('value');
+=======
+							var value = instance.getContextValue();
+>>>>>>> compatible
 
 							editorNode.html(value);
 
@@ -106,8 +120,11 @@ AUI.add(
 									textMode: false
 								}
 							).render();
+<<<<<<< HEAD
 
 							instance._alloyEditor.getNativeEditor().on('actionPerformed', A.bind(instance._onActionPerformed, instance));
+=======
+>>>>>>> compatible
 						}
 
 						return instance;
@@ -118,11 +135,16 @@ AUI.add(
 
 						EditorField.superclass.setValue.apply(instance, arguments);
 
+<<<<<<< HEAD
 						if (instance._alloyEditor && value !== instance.getValue()) {
+=======
+						if (instance._alloyEditor) {
+>>>>>>> compatible
 							instance._alloyEditor.setHTML(value);
 						}
 					},
 
+<<<<<<< HEAD
 					_hasAlloyEditorFocus: function() {
 						var instance = this;
 
@@ -145,6 +167,22 @@ AUI.add(
 
 							instance.set('value', value);
 						}
+=======
+					_onChangeEditor: function() {
+						var instance = this;
+
+						var value = instance._alloyEditor.getHTML();
+
+						instance.getInputNode().val(value);
+
+						instance.fire(
+							'valueChanged',
+							{
+								field: instance,
+								value: value
+							}
+						);
+>>>>>>> compatible
 					}
 				}
 			}

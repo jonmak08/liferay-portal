@@ -16,14 +16,12 @@ package com.liferay.portal.search.solr.query;
 
 import com.liferay.portal.kernel.search.TermQuery;
 
-import org.apache.lucene.search.Query;
-
 /**
  * @author André de Oliveira
  * @author Miguel Angelo Caldas Gallindo
  */
 public interface TermQueryTranslator {
 
-	public Query translate(TermQuery termQuery);
+	public org.apache.lucene.search.Query translate(TermQuery termQuery);
 
 }

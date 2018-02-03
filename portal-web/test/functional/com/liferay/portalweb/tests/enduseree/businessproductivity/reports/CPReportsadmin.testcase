@@ -31,9 +31,13 @@
 	<command name="AddReportInvalidEmail" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Reports Admin" />
 		</execute>
 
@@ -71,9 +75,13 @@
 	<command name="AddSchedule" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Reports Admin" />
 		</execute>
 
@@ -106,9 +114,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Reports Admin" />
 		</execute>
 
@@ -129,9 +141,13 @@
 	<command name="ChangeReportName" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Reports Admin" />
 		</execute>
 
@@ -172,9 +188,13 @@
 	<command name="DeleteReportFile" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Reports Admin" />
 		</execute>
 
@@ -212,9 +232,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Reports Admin" />
 		</execute>
 
@@ -235,9 +259,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Reports Admin" />
 		</execute>
 
@@ -288,9 +316,13 @@
 	<command name="DownloadReportCSV" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Reports Admin" />
 		</execute>
 
@@ -330,9 +362,13 @@
 	<command name="DownloadReportHTML" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Reports Admin" />
 		</execute>
 
@@ -372,9 +408,13 @@
 	<command name="DownloadReportPDF" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Reports Admin" />
 		</execute>
 
@@ -415,9 +455,13 @@
 	<command name="DownloadReportRTF" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Reports Admin" />
 		</execute>
 
@@ -457,9 +501,13 @@
 	<command name="DownloadReportTXT" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Reports Admin" />
 		</execute>
 
@@ -499,9 +547,13 @@
 	<command name="DownloadReportXLS" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Reports Admin" />
 		</execute>
 
@@ -541,9 +593,13 @@
 	<command name="DownloadReportXML" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Reports Admin" />
 		</execute>
 
@@ -589,9 +645,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Reports Admin" />
 		</execute>
 
@@ -613,30 +673,49 @@
 	<command name="ViewEmailNotificationDelivery" priority="4">
 		<property name="test.assert.javascript.errors" value="false" />
 		<property name="test.name.skip.portal.instance" value="CPReportsadmin#ViewEmailNotificationDelivery" />
+<<<<<<< HEAD
 
 		<var method="TestPropsUtil#get('portal.url')" name="portalURL" />
 
+=======
+
+		<var method="TestPropsUtil#get('portal.url')" name="portalURL" />
+
+>>>>>>> compatible
 		<execute macro="TestCase#getSiteName">
 			<return from="siteName" name="siteName" />
 			<var name="siteName" value="${siteName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Server Administration" />
 		</execute>
 
 		<execute macro="ServerAdministration#configureMailServerSettings">
+<<<<<<< HEAD
 			<var method="TestPropsUtil#get('email.address.1')" name="userName" />
 			<var method="TestPropsUtil#get('email.password.1')" name="userPassword" />
+=======
+			<var method="TestPropsUtil#get('email.address.2')" name="userName" />
+			<var method="TestPropsUtil#get('email.password.2')" name="userPassword" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Reports Admin" />
 		</execute>
 
@@ -650,7 +729,11 @@
 		</execute>
 
 		<execute macro="ReportsAdmin#addReportEntry">
+<<<<<<< HEAD
 			<var method="TestPropsUtil#get('email.address.2')" name="emailNotificationsAddress" />
+=======
+			<var method="TestPropsUtil#get('email.address.3')" name="emailNotificationsAddress" />
+>>>>>>> compatible
 			<var name="emailRecipientAddress" value="test@liferay.com" />
 			<var name="reportFormat" value="pdf" />
 			<var name="reportName" value="Custom Report Name" />
@@ -660,8 +743,13 @@
 		<execute function="Pause" locator1="30000" />
 
 		<execute macro="Gmail#login">
+<<<<<<< HEAD
 			<var method="TestPropsUtil#get('email.address.2')" name="userEmailAddress" />
 			<var method="TestPropsUtil#get('email.password.2')" name="userPassword" />
+=======
+			<var method="TestPropsUtil#get('email.address.3')" name="userEmailAddress" />
+			<var method="TestPropsUtil#get('email.password.3')" name="userPassword" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Gmail#gotoHtmlMode" />
@@ -699,29 +787,46 @@
 		<execute function="Open" locator1="${portalURL}" />
 	</command>
 
+<<<<<<< HEAD
 	<command ignore="true" name="ViewEmailRecipientDelivery" priority="4">
+=======
+	<command name="ViewEmailRecipientDelivery" priority="4">
+>>>>>>> compatible
 		<property name="test.name.skip.portal.instance" value="CPReportsadmin#ViewEmailRecipientDelivery" />
 
 		<var method="TestPropsUtil#get('portal.url')" name="portalURL" />
 
 		<property name="test.assert.javascript.errors" value="false" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Server Administration" />
 		</execute>
 
 		<execute macro="ServerAdministration#configureMailServerSettings">
+<<<<<<< HEAD
 			<var method="TestPropsUtil#get('email.address.1')" name="userName" />
 			<var method="TestPropsUtil#get('email.password.1')" name="userPassword" />
+=======
+			<var method="TestPropsUtil#get('email.address.2')" name="userName" />
+			<var method="TestPropsUtil#get('email.password.2')" name="userPassword" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Reports Admin" />
 		</execute>
 
@@ -754,7 +859,11 @@
 			<var name="emailFromUserName" value="Joe Bloggs" />
 			<var name="gmailAssetType" value="New Report: reports_admin_template_source_sample_class_name.pdf" />
 			<var name="gmailMessageAttachment" value="reports_admin_template_source_sample_class_name.pdf" />
+<<<<<<< HEAD
 			<var name="gmailMessageBody" value="You have a new report." />
+=======
+			<var name="gmailMessageBody" value="Please review the attached report." />
+>>>>>>> compatible
 			<var name="gmailMessageTitle" value="New Report: reports_admin_template_source_sample_class_name.pdf" />
 		</execute>
 
@@ -775,9 +884,13 @@
 	<command name="ViewReportDefinitionParametersFields" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Reports Admin" />
 		</execute>
 

@@ -1,11 +1,19 @@
 Bundle-Name: Liferay Frontend Taglib
 Bundle-SymbolicName: com.liferay.frontend.taglib
+<<<<<<< HEAD
 Bundle-Version: 2.3.0
 Export-Package:\
 	com.liferay.frontend.taglib.servlet.taglib,\
 	com.liferay.frontend.taglib.servlet.taglib.base,\
 	com.liferay.frontend.taglib.servlet.taglib.soy,\
 	com.liferay.frontend.taglib.servlet.taglib.util
+=======
+Bundle-Version: 2.2.6
+Export-Package:\
+	com.liferay.frontend.taglib.servlet.taglib,\
+	com.liferay.frontend.taglib.servlet.taglib.base,\
+	com.liferay.frontend.taglib.servlet.taglib.soy
+>>>>>>> compatible
 Liferay-JS-Config: /META-INF/resources/config.js
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Frontend Infrastructure

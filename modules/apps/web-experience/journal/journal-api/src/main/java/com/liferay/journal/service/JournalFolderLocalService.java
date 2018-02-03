@@ -43,8 +43,11 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
 import com.liferay.portal.kernel.util.OrderByComparator;
 
+<<<<<<< HEAD
 import com.liferay.subscription.service.SubscriptionLocalService;
 
+=======
+>>>>>>> compatible
 import java.io.Serializable;
 
 import java.util.List;
@@ -395,6 +398,7 @@ public interface JournalFolderLocalService extends BaseLocalService,
 	public void getSubfolderIds(List<java.lang.Long> folderIds, long groupId,
 		long folderId);
 
+<<<<<<< HEAD
 	/**
 	* @deprecated As of 4.0.0, with no direct replacement
 	*/
@@ -402,6 +406,8 @@ public interface JournalFolderLocalService extends BaseLocalService,
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public com.liferay.portal.kernel.service.SubscriptionLocalService getSubscriptionLocalService();
 
+=======
+>>>>>>> compatible
 	@Indexable(type = IndexableType.REINDEX)
 	public JournalFolder moveFolder(long folderId, long parentFolderId,
 		ServiceContext serviceContext) throws PortalException;
@@ -423,6 +429,7 @@ public interface JournalFolderLocalService extends BaseLocalService,
 	public void restoreFolderFromTrash(long userId, long folderId)
 		throws PortalException;
 
+<<<<<<< HEAD
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<DDMStructure> searchDDMStructures(long companyId,
 		long[] groupIds, long folderId, int restrictionType,
@@ -436,6 +443,8 @@ public interface JournalFolderLocalService extends BaseLocalService,
 	public void setSubscriptionLocalService(
 		com.liferay.portal.kernel.service.SubscriptionLocalService subscriptionLocalService);
 
+=======
+>>>>>>> compatible
 	public void subscribe(long userId, long groupId, long folderId)
 		throws PortalException;
 

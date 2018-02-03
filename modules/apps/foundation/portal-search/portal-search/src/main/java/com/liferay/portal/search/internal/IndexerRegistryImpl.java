@@ -178,7 +178,11 @@ public class IndexerRegistryImpl implements IndexerRegistry {
 				synchronized (_queuedIndexerPostProcessors) {
 					List<IndexerPostProcessor> indexerPostProcessors =
 						_queuedIndexerPostProcessors.computeIfAbsent(
+<<<<<<< HEAD
 							indexerClassName, key -> new ArrayList<>());
+=======
+							indexerClassName, (key) -> new ArrayList<>());
+>>>>>>> compatible
 
 					indexerPostProcessors.add(indexerPostProcessor);
 

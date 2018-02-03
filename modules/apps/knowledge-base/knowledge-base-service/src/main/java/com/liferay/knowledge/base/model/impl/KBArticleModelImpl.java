@@ -38,6 +38,10 @@ import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 
 import java.io.Serializable;
@@ -494,7 +498,11 @@ public class KBArticleModelImpl extends BaseModelImpl<KBArticle>
 	@Override
 	public String getUuid() {
 		if (_uuid == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _uuid;
@@ -618,7 +626,11 @@ public class KBArticleModelImpl extends BaseModelImpl<KBArticle>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -630,7 +642,11 @@ public class KBArticleModelImpl extends BaseModelImpl<KBArticle>
 	@Override
 	public String getUserName() {
 		if (_userName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _userName;
@@ -767,7 +783,11 @@ public class KBArticleModelImpl extends BaseModelImpl<KBArticle>
 	@Override
 	public String getTitle() {
 		if (_title == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _title;
@@ -783,7 +803,11 @@ public class KBArticleModelImpl extends BaseModelImpl<KBArticle>
 	@Override
 	public String getUrlTitle() {
 		if (_urlTitle == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _urlTitle;
@@ -809,7 +833,11 @@ public class KBArticleModelImpl extends BaseModelImpl<KBArticle>
 	@Override
 	public String getContent() {
 		if (_content == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _content;
@@ -825,7 +853,11 @@ public class KBArticleModelImpl extends BaseModelImpl<KBArticle>
 	@Override
 	public String getDescription() {
 		if (_description == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _description;
@@ -852,7 +884,11 @@ public class KBArticleModelImpl extends BaseModelImpl<KBArticle>
 	@Override
 	public String getSections() {
 		if (_sections == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _sections;
@@ -947,7 +983,11 @@ public class KBArticleModelImpl extends BaseModelImpl<KBArticle>
 	@Override
 	public String getSourceURL() {
 		if (_sourceURL == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _sourceURL;
@@ -1012,7 +1052,11 @@ public class KBArticleModelImpl extends BaseModelImpl<KBArticle>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -1024,7 +1068,11 @@ public class KBArticleModelImpl extends BaseModelImpl<KBArticle>
 	@Override
 	public String getStatusByUserName() {
 		if (_statusByUserName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _statusByUserName;

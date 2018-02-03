@@ -3,6 +3,7 @@
 <FindBugsFilter>
 	<Match>
 		<Or>
+<<<<<<< HEAD
 			<Class name="~.+\.model\..+Soap" />
 			<Class name="~.+\.model\.impl\..+ModelImpl" />
 		</Or>
@@ -36,12 +37,15 @@
 	</Match>
 	<Match>
 		<Or>
+=======
+>>>>>>> compatible
 			<Class name="~.+\.model\..+Wrapper" />
 			<Class name="~.+\.model\.impl\..+ModelImpl" />
 		</Or>
 		<Method name="clone" />
 		<Bug pattern="CN_IDIOM_NO_SUPER_CALL" />
 	</Match>
+<<<<<<< HEAD
 	<Match>
 		<Class name="~.+\.exportimport\.data\.handler\..+StagedModelDataHandler" />
 		<Or>
@@ -88,4 +92,6 @@
 			</And>
 		</Or>
 	</Match>
+=======
+>>>>>>> compatible
 </FindBugsFilter>

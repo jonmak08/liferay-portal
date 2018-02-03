@@ -40,6 +40,10 @@ import com.liferay.portal.kernel.util.LocalizationUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 
 import java.io.Serializable;
@@ -87,6 +91,10 @@ public class CalendarModelImpl extends BaseModelImpl<Calendar>
 			{ "userName", Types.VARCHAR },
 			{ "createDate", Types.TIMESTAMP },
 			{ "modifiedDate", Types.TIMESTAMP },
+<<<<<<< HEAD
+=======
+			{ "resourceBlockId", Types.BIGINT },
+>>>>>>> compatible
 			{ "calendarResourceId", Types.BIGINT },
 			{ "name", Types.VARCHAR },
 			{ "description", Types.VARCHAR },
@@ -108,6 +116,10 @@ public class CalendarModelImpl extends BaseModelImpl<Calendar>
 		TABLE_COLUMNS_MAP.put("userName", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("createDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("modifiedDate", Types.TIMESTAMP);
+<<<<<<< HEAD
+=======
+		TABLE_COLUMNS_MAP.put("resourceBlockId", Types.BIGINT);
+>>>>>>> compatible
 		TABLE_COLUMNS_MAP.put("calendarResourceId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("name", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("description", Types.VARCHAR);
@@ -119,7 +131,11 @@ public class CalendarModelImpl extends BaseModelImpl<Calendar>
 		TABLE_COLUMNS_MAP.put("lastPublishDate", Types.TIMESTAMP);
 	}
 
+<<<<<<< HEAD
 	public static final String TABLE_SQL_CREATE = "create table Calendar (uuid_ VARCHAR(75) null,calendarId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,calendarResourceId LONG,name STRING null,description STRING null,timeZoneId VARCHAR(75) null,color INTEGER,defaultCalendar BOOLEAN,enableComments BOOLEAN,enableRatings BOOLEAN,lastPublishDate DATE null)";
+=======
+	public static final String TABLE_SQL_CREATE = "create table Calendar (uuid_ VARCHAR(75) null,calendarId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,resourceBlockId LONG,calendarResourceId LONG,name STRING null,description STRING null,timeZoneId VARCHAR(75) null,color INTEGER,defaultCalendar BOOLEAN,enableComments BOOLEAN,enableRatings BOOLEAN,lastPublishDate DATE null)";
+>>>>>>> compatible
 	public static final String TABLE_SQL_DROP = "drop table Calendar";
 	public static final String ORDER_BY_JPQL = " ORDER BY calendar.name ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY Calendar.name ASC";
@@ -139,8 +155,14 @@ public class CalendarModelImpl extends BaseModelImpl<Calendar>
 	public static final long COMPANYID_COLUMN_BITMASK = 2L;
 	public static final long DEFAULTCALENDAR_COLUMN_BITMASK = 4L;
 	public static final long GROUPID_COLUMN_BITMASK = 8L;
+<<<<<<< HEAD
 	public static final long UUID_COLUMN_BITMASK = 16L;
 	public static final long NAME_COLUMN_BITMASK = 32L;
+=======
+	public static final long RESOURCEBLOCKID_COLUMN_BITMASK = 16L;
+	public static final long UUID_COLUMN_BITMASK = 32L;
+	public static final long NAME_COLUMN_BITMASK = 64L;
+>>>>>>> compatible
 
 	/**
 	 * Converts the soap model instance into a normal model instance.
@@ -163,6 +185,10 @@ public class CalendarModelImpl extends BaseModelImpl<Calendar>
 		model.setUserName(soapModel.getUserName());
 		model.setCreateDate(soapModel.getCreateDate());
 		model.setModifiedDate(soapModel.getModifiedDate());
+<<<<<<< HEAD
+=======
+		model.setResourceBlockId(soapModel.getResourceBlockId());
+>>>>>>> compatible
 		model.setCalendarResourceId(soapModel.getCalendarResourceId());
 		model.setName(soapModel.getName());
 		model.setDescription(soapModel.getDescription());
@@ -244,6 +270,10 @@ public class CalendarModelImpl extends BaseModelImpl<Calendar>
 		attributes.put("userName", getUserName());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
+<<<<<<< HEAD
+=======
+		attributes.put("resourceBlockId", getResourceBlockId());
+>>>>>>> compatible
 		attributes.put("calendarResourceId", getCalendarResourceId());
 		attributes.put("name", getName());
 		attributes.put("description", getDescription());
@@ -310,6 +340,15 @@ public class CalendarModelImpl extends BaseModelImpl<Calendar>
 			setModifiedDate(modifiedDate);
 		}
 
+<<<<<<< HEAD
+=======
+		Long resourceBlockId = (Long)attributes.get("resourceBlockId");
+
+		if (resourceBlockId != null) {
+			setResourceBlockId(resourceBlockId);
+		}
+
+>>>>>>> compatible
 		Long calendarResourceId = (Long)attributes.get("calendarResourceId");
 
 		if (calendarResourceId != null) {
@@ -369,7 +408,11 @@ public class CalendarModelImpl extends BaseModelImpl<Calendar>
 	@Override
 	public String getUuid() {
 		if (_uuid == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _uuid;
@@ -465,7 +508,11 @@ public class CalendarModelImpl extends BaseModelImpl<Calendar>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -477,7 +524,11 @@ public class CalendarModelImpl extends BaseModelImpl<Calendar>
 	@Override
 	public String getUserName() {
 		if (_userName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _userName;
@@ -519,6 +570,32 @@ public class CalendarModelImpl extends BaseModelImpl<Calendar>
 
 	@JSON
 	@Override
+<<<<<<< HEAD
+=======
+	public long getResourceBlockId() {
+		return _resourceBlockId;
+	}
+
+	@Override
+	public void setResourceBlockId(long resourceBlockId) {
+		_columnBitmask |= RESOURCEBLOCKID_COLUMN_BITMASK;
+
+		if (!_setOriginalResourceBlockId) {
+			_setOriginalResourceBlockId = true;
+
+			_originalResourceBlockId = _resourceBlockId;
+		}
+
+		_resourceBlockId = resourceBlockId;
+	}
+
+	public long getOriginalResourceBlockId() {
+		return _originalResourceBlockId;
+	}
+
+	@JSON
+	@Override
+>>>>>>> compatible
 	public long getCalendarResourceId() {
 		return _calendarResourceId;
 	}
@@ -544,7 +621,11 @@ public class CalendarModelImpl extends BaseModelImpl<Calendar>
 	@Override
 	public String getName() {
 		if (_name == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _name;
@@ -645,7 +726,11 @@ public class CalendarModelImpl extends BaseModelImpl<Calendar>
 	@Override
 	public String getDescription() {
 		if (_description == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _description;
@@ -748,7 +833,11 @@ public class CalendarModelImpl extends BaseModelImpl<Calendar>
 	@Override
 	public String getTimeZoneId() {
 		if (_timeZoneId == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _timeZoneId;
@@ -902,7 +991,11 @@ public class CalendarModelImpl extends BaseModelImpl<Calendar>
 		String xml = getName();
 
 		if (xml == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 
 		Locale defaultLocale = LocaleUtil.getSiteDefault();
@@ -972,6 +1065,10 @@ public class CalendarModelImpl extends BaseModelImpl<Calendar>
 		calendarImpl.setUserName(getUserName());
 		calendarImpl.setCreateDate(getCreateDate());
 		calendarImpl.setModifiedDate(getModifiedDate());
+<<<<<<< HEAD
+=======
+		calendarImpl.setResourceBlockId(getResourceBlockId());
+>>>>>>> compatible
 		calendarImpl.setCalendarResourceId(getCalendarResourceId());
 		calendarImpl.setName(getName());
 		calendarImpl.setDescription(getDescription());
@@ -1053,6 +1150,13 @@ public class CalendarModelImpl extends BaseModelImpl<Calendar>
 
 		calendarModelImpl._setModifiedDate = false;
 
+<<<<<<< HEAD
+=======
+		calendarModelImpl._originalResourceBlockId = calendarModelImpl._resourceBlockId;
+
+		calendarModelImpl._setOriginalResourceBlockId = false;
+
+>>>>>>> compatible
 		calendarModelImpl._originalCalendarResourceId = calendarModelImpl._calendarResourceId;
 
 		calendarModelImpl._setOriginalCalendarResourceId = false;
@@ -1110,6 +1214,11 @@ public class CalendarModelImpl extends BaseModelImpl<Calendar>
 			calendarCacheModel.modifiedDate = Long.MIN_VALUE;
 		}
 
+<<<<<<< HEAD
+=======
+		calendarCacheModel.resourceBlockId = getResourceBlockId();
+
+>>>>>>> compatible
 		calendarCacheModel.calendarResourceId = getCalendarResourceId();
 
 		calendarCacheModel.name = getName();
@@ -1158,7 +1267,11 @@ public class CalendarModelImpl extends BaseModelImpl<Calendar>
 
 	@Override
 	public String toString() {
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(35);
+=======
+		StringBundler sb = new StringBundler(37);
+>>>>>>> compatible
 
 		sb.append("{uuid=");
 		sb.append(getUuid());
@@ -1176,6 +1289,11 @@ public class CalendarModelImpl extends BaseModelImpl<Calendar>
 		sb.append(getCreateDate());
 		sb.append(", modifiedDate=");
 		sb.append(getModifiedDate());
+<<<<<<< HEAD
+=======
+		sb.append(", resourceBlockId=");
+		sb.append(getResourceBlockId());
+>>>>>>> compatible
 		sb.append(", calendarResourceId=");
 		sb.append(getCalendarResourceId());
 		sb.append(", name=");
@@ -1201,7 +1319,11 @@ public class CalendarModelImpl extends BaseModelImpl<Calendar>
 
 	@Override
 	public String toXmlString() {
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(55);
+=======
+		StringBundler sb = new StringBundler(58);
+>>>>>>> compatible
 
 		sb.append("<model><model-name>");
 		sb.append("com.liferay.calendar.model.Calendar");
@@ -1240,6 +1362,13 @@ public class CalendarModelImpl extends BaseModelImpl<Calendar>
 		sb.append(getModifiedDate());
 		sb.append("]]></column-value></column>");
 		sb.append(
+<<<<<<< HEAD
+=======
+			"<column><column-name>resourceBlockId</column-name><column-value><![CDATA[");
+		sb.append(getResourceBlockId());
+		sb.append("]]></column-value></column>");
+		sb.append(
+>>>>>>> compatible
 			"<column><column-name>calendarResourceId</column-name><column-value><![CDATA[");
 		sb.append(getCalendarResourceId());
 		sb.append("]]></column-value></column>");
@@ -1299,6 +1428,12 @@ public class CalendarModelImpl extends BaseModelImpl<Calendar>
 	private Date _createDate;
 	private Date _modifiedDate;
 	private boolean _setModifiedDate;
+<<<<<<< HEAD
+=======
+	private long _resourceBlockId;
+	private long _originalResourceBlockId;
+	private boolean _setOriginalResourceBlockId;
+>>>>>>> compatible
 	private long _calendarResourceId;
 	private long _originalCalendarResourceId;
 	private boolean _setOriginalCalendarResourceId;

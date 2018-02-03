@@ -14,9 +14,13 @@
 
 package com.liferay.portal.tools;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.kernel.util.StringPool;
@@ -173,12 +177,15 @@ public class ToolsUtil {
 	}
 
 	public static boolean isInsideQuotes(String s, int pos) {
+<<<<<<< HEAD
 		return isInsideQuotes(s, pos, true);
 	}
 
 	public static boolean isInsideQuotes(
 		String s, int pos, boolean allowEscapedQuotes) {
 
+=======
+>>>>>>> compatible
 		int start = s.lastIndexOf(CharPool.NEW_LINE, pos);
 
 		if (start == -1) {
@@ -203,6 +210,7 @@ public class ToolsUtil {
 
 			if (insideQuotes) {
 				if (c == delimeter) {
+<<<<<<< HEAD
 					if (!allowEscapedQuotes) {
 						insideQuotes = false;
 					}
@@ -223,6 +231,23 @@ public class ToolsUtil {
 
 							insideQuotes = false;
 						}
+=======
+					int precedingBackSlashCount = 0;
+
+					for (int j = i - 1; j >= 0; j--) {
+						if (line.charAt(j) == CharPool.BACK_SLASH) {
+							precedingBackSlashCount += 1;
+						}
+						else {
+							break;
+						}
+					}
+
+					if ((precedingBackSlashCount == 0) ||
+						((precedingBackSlashCount % 2) == 0)) {
+
+						insideQuotes = false;
+>>>>>>> compatible
 					}
 				}
 			}
@@ -267,6 +292,7 @@ public class ToolsUtil {
 			return content;
 		}
 
+<<<<<<< HEAD
 		String afterImportsContent = null;
 
 		int pos = content.indexOf(imports);
@@ -335,6 +361,78 @@ public class ToolsUtil {
 					s = StringUtil.trim(s);
 
 					if (s.startsWith("//")) {
+=======
+		Pattern pattern1 = Pattern.compile(
+			"\n(.*)" + StringUtil.replace(packagePath, CharPool.PERIOD, "\\.") +
+				"\\.([A-Z]\\w+)\\W");
+
+		outerLoop:
+		while (true) {
+			Matcher matcher1 = pattern1.matcher(content);
+
+			while (matcher1.find()) {
+				String lineStart = StringUtil.trimLeading(matcher1.group(1));
+
+				if (lineStart.startsWith("import ") ||
+					lineStart.contains("//") ||
+					isInsideQuotes(content, matcher1.start(2))) {
+
+					continue;
+				}
+
+				String className = matcher1.group(2);
+
+				Pattern pattern2 = Pattern.compile(
+					"import [\\w.]+\\." + className + ";");
+
+				Matcher matcher2 = pattern2.matcher(imports);
+
+				if (matcher2.find()) {
+					continue;
+				}
+
+				content = StringUtil.replaceFirst(
+					content, packagePath + ".", StringPool.BLANK,
+					matcher1.start());
+
+				continue outerLoop;
+			}
+
+			break;
+		}
+
+		for (String line : StringUtil.splitLines(imports)) {
+			int x = line.indexOf("import ");
+
+			if (x == -1) {
+				continue;
+			}
+
+			String importPackageAndClassName = line.substring(
+				x + 7, line.lastIndexOf(StringPool.SEMICOLON));
+
+			if (importPackageAndClassName.contains(StringPool.STAR)) {
+				continue;
+			}
+
+			String s = StringUtil.replace(
+				importPackageAndClassName, ".", "\\.");
+
+			Pattern pattern3 = Pattern.compile("\n(.*)(" + s + ")\\W");
+
+			outerLoop:
+			while (true) {
+				Matcher matcher3 = pattern3.matcher(content);
+
+				while (matcher3.find()) {
+					String lineStart = StringUtil.trimLeading(
+						matcher3.group(1));
+
+					if (lineStart.startsWith("import ") ||
+						lineStart.contains("//") ||
+						isInsideQuotes(content, matcher3.start(2))) {
+
+>>>>>>> compatible
 						continue;
 					}
 
@@ -343,6 +441,7 @@ public class ToolsUtil {
 							importPackageAndClassName.lastIndexOf(
 								StringPool.PERIOD) + 1);
 
+<<<<<<< HEAD
 					afterImportsContent = StringUtil.replaceFirst(
 						afterImportsContent, importPackageAndClassName,
 						importClassName, x);
@@ -355,6 +454,20 @@ public class ToolsUtil {
 
 			return content.substring(0, pos) + afterImportsContent;
 		}
+=======
+					content = StringUtil.replaceFirst(
+						content, importPackageAndClassName, importClassName,
+						matcher3.start());
+
+					continue outerLoop;
+				}
+
+				break;
+			}
+		}
+
+		return content;
+>>>>>>> compatible
 	}
 
 	public static void writeFile(
@@ -608,6 +721,7 @@ public class ToolsUtil {
 		return url;
 	}
 
+<<<<<<< HEAD
 	private static String _stripFullyQualifiedClassNames(
 		String imports, String afterImportsContent, String packagePath) {
 
@@ -652,6 +766,8 @@ public class ToolsUtil {
 		return afterImportsContent;
 	}
 
+=======
+>>>>>>> compatible
 	private static void _write(File file, String s) throws IOException {
 		Path path = file.toPath();
 

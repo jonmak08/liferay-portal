@@ -16,7 +16,10 @@ package com.liferay.portal.workflow.kaleo.definition.internal.parser;
 
 import com.liferay.portal.kernel.model.RoleConstants;
 import com.liferay.portal.kernel.util.GetterUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ListUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowDefinitionFileException;
@@ -47,8 +50,11 @@ import com.liferay.portal.workflow.kaleo.definition.ScriptAssignment;
 import com.liferay.portal.workflow.kaleo.definition.ScriptRecipient;
 import com.liferay.portal.workflow.kaleo.definition.State;
 import com.liferay.portal.workflow.kaleo.definition.Task;
+<<<<<<< HEAD
 import com.liferay.portal.workflow.kaleo.definition.TaskForm;
 import com.liferay.portal.workflow.kaleo.definition.TaskFormReference;
+=======
+>>>>>>> compatible
 import com.liferay.portal.workflow.kaleo.definition.Timer;
 import com.liferay.portal.workflow.kaleo.definition.Transition;
 import com.liferay.portal.workflow.kaleo.definition.UserAssignment;
@@ -77,6 +83,7 @@ public class XMLWorkflowModelParser implements WorkflowModelParser {
 	@Override
 	public Definition parse(InputStream inputStream) throws WorkflowException {
 		try {
+<<<<<<< HEAD
 			Document document = SAXReaderUtil.read(inputStream, _validate);
 
 			return doParse(document);
@@ -93,6 +100,9 @@ public class XMLWorkflowModelParser implements WorkflowModelParser {
 			Document document = SAXReaderUtil.read(content, _validate);
 
 			return doParse(document);
+=======
+			return doParse(inputStream);
+>>>>>>> compatible
 		}
 		catch (Exception e) {
 			throw new WorkflowDefinitionFileException(
@@ -109,7 +119,13 @@ public class XMLWorkflowModelParser implements WorkflowModelParser {
 		_validate = GetterUtil.getBoolean(properties.get("validating"), true);
 	}
 
+<<<<<<< HEAD
 	protected Definition doParse(Document document) throws Exception {
+=======
+	protected Definition doParse(InputStream inputStream) throws Exception {
+		Document document = SAXReaderUtil.read(inputStream, _validate);
+
+>>>>>>> compatible
 		Element rootElement = document.getRootElement();
 
 		String name = rootElement.elementTextTrim("name");
@@ -624,10 +640,13 @@ public class XMLWorkflowModelParser implements WorkflowModelParser {
 			task.setAssignments(assignments);
 		}
 
+<<<<<<< HEAD
 		Element formsElement = taskElement.element("task-forms");
 
 		parseTaskFormsElements(formsElement, task);
 
+=======
+>>>>>>> compatible
 		Element timersElement = taskElement.element("task-timers");
 
 		parseTaskTimerElements(timersElement, task);
@@ -635,6 +654,7 @@ public class XMLWorkflowModelParser implements WorkflowModelParser {
 		return task;
 	}
 
+<<<<<<< HEAD
 	protected void parseTaskFormsElements(Element taskFormsElement, Task task) {
 		if (taskFormsElement == null) {
 			return;
@@ -705,6 +725,8 @@ public class XMLWorkflowModelParser implements WorkflowModelParser {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	protected void parseTaskTimerElements(
 		Element taskTimersElement, Node node) {
 

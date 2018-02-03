@@ -40,6 +40,7 @@ public class ExportImportLocalServiceWrapper implements ExportImportLocalService
 		return _exportImportLocalService.exportLayoutsAsFile(exportImportConfiguration);
 	}
 
+<<<<<<< HEAD
 	/**
 	* @deprecated As of 7.0.0
 	*/
@@ -53,6 +54,8 @@ public class ExportImportLocalServiceWrapper implements ExportImportLocalService
 			privateLayout, parameterMap);
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	public long exportLayoutsAsFileInBackground(long userId,
 		com.liferay.exportimport.kernel.model.ExportImportConfiguration exportImportConfiguration)
@@ -119,6 +122,7 @@ public class ExportImportLocalServiceWrapper implements ExportImportLocalService
 			inputStream);
 	}
 
+<<<<<<< HEAD
 	/**
 	* @deprecated As of 7.0.0
 	*/
@@ -132,6 +136,8 @@ public class ExportImportLocalServiceWrapper implements ExportImportLocalService
 			parameterMap, file);
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	public void importLayoutsDataDeletions(
 		com.liferay.exportimport.kernel.model.ExportImportConfiguration exportImportConfiguration,

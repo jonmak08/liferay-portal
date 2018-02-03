@@ -15,12 +15,19 @@
 package com.liferay.journal.internal.exportimport.lifecycle;
 
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
+<<<<<<< HEAD
 import com.liferay.exportimport.kernel.lifecycle.EventAwareExportImportLifecycleListener;
 import com.liferay.exportimport.kernel.lifecycle.ExportImportLifecycleListener;
 import com.liferay.exportimport.kernel.model.ExportImportConfiguration;
 import com.liferay.journal.constants.JournalPortletKeys;
 import com.liferay.journal.util.JournalContent;
 import com.liferay.portal.kernel.model.StagedModel;
+=======
+import com.liferay.exportimport.kernel.lifecycle.BaseExportImportLifecycleListener;
+import com.liferay.exportimport.kernel.lifecycle.ExportImportLifecycleListener;
+import com.liferay.journal.constants.JournalPortletKeys;
+import com.liferay.journal.util.JournalContent;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -30,13 +37,18 @@ import org.osgi.service.component.annotations.Reference;
  */
 @Component(service = ExportImportLifecycleListener.class)
 public class JournalCacheExportImportLifecycleListener
+<<<<<<< HEAD
 	implements EventAwareExportImportLifecycleListener {
+=======
+	extends BaseExportImportLifecycleListener {
+>>>>>>> compatible
 
 	@Override
 	public boolean isParallel() {
 		return false;
 	}
 
+<<<<<<< HEAD
 	@Override
 	public void onLayoutExportFailed(
 			PortletDataContext portletDataContext, Throwable throwable)
@@ -61,6 +73,14 @@ public class JournalCacheExportImportLifecycleListener
 
 	@Override
 	public void onLayoutImportProcessFinished(
+=======
+	protected void clearCache() {
+		_journalContent.clearCache();
+	}
+
+	@Override
+	protected void onLayoutImportProcessFinished(
+>>>>>>> compatible
 			PortletDataContext portletDataContext)
 		throws Exception {
 
@@ -68,6 +88,7 @@ public class JournalCacheExportImportLifecycleListener
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void onLayoutImportStarted(PortletDataContext portletDataContext)
 		throws Exception {
 	}
@@ -139,6 +160,9 @@ public class JournalCacheExportImportLifecycleListener
 
 	@Override
 	public void onPortletImportProcessFinished(
+=======
+	protected void onPortletImportProcessFinished(
+>>>>>>> compatible
 			PortletDataContext portletDataContext)
 		throws Exception {
 
@@ -151,6 +175,7 @@ public class JournalCacheExportImportLifecycleListener
 		clearCache();
 	}
 
+<<<<<<< HEAD
 	@Override
 	public void onPortletImportStarted(PortletDataContext portletDataContext)
 		throws Exception {
@@ -222,6 +247,8 @@ public class JournalCacheExportImportLifecycleListener
 		_journalContent.clearCache();
 	}
 
+=======
+>>>>>>> compatible
 	@Reference(unbind = "-")
 	protected void setJournalContent(JournalContent journalContent) {
 		_journalContent = journalContent;

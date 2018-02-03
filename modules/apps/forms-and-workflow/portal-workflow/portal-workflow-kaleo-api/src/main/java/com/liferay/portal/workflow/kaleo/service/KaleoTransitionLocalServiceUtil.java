@@ -54,14 +54,22 @@ public class KaleoTransitionLocalServiceUtil {
 	}
 
 	public static com.liferay.portal.workflow.kaleo.model.KaleoTransition addKaleoTransition(
+<<<<<<< HEAD
 		long kaleoDefinitionVersionId, long kaleoNodeId,
+=======
+		long kaleoDefinitionId, long kaleoNodeId,
+>>>>>>> compatible
 		com.liferay.portal.workflow.kaleo.definition.Transition transition,
 		com.liferay.portal.workflow.kaleo.model.KaleoNode sourceKaleoNode,
 		com.liferay.portal.workflow.kaleo.model.KaleoNode targetKaleoNode,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService()
+<<<<<<< HEAD
 				   .addKaleoTransition(kaleoDefinitionVersionId, kaleoNodeId,
+=======
+				   .addKaleoTransition(kaleoDefinitionId, kaleoNodeId,
+>>>>>>> compatible
 			transition, sourceKaleoNode, targetKaleoNode, serviceContext);
 	}
 
@@ -80,10 +88,16 @@ public class KaleoTransitionLocalServiceUtil {
 		getService().deleteCompanyKaleoTransitions(companyId);
 	}
 
+<<<<<<< HEAD
 	public static void deleteKaleoDefinitionVersionKaleoTransitions(
 		long kaleoDefinitionVersionId) {
 		getService()
 			.deleteKaleoDefinitionVersionKaleoTransitions(kaleoDefinitionVersionId);
+=======
+	public static void deleteKaleoDefinitionKaleoTransitions(
+		long kaleoDefinitionId) {
+		getService().deleteKaleoDefinitionKaleoTransitions(kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 	/**
@@ -216,10 +230,16 @@ public class KaleoTransitionLocalServiceUtil {
 		return getService().getIndexableActionableDynamicQuery();
 	}
 
+<<<<<<< HEAD
 	public static java.util.List<com.liferay.portal.workflow.kaleo.model.KaleoTransition> getKaleoDefinitionVersionKaleoTransitions(
 		long kaleoDefinitionVersionId) {
 		return getService()
 				   .getKaleoDefinitionVersionKaleoTransitions(kaleoDefinitionVersionId);
+=======
+	public static java.util.List<com.liferay.portal.workflow.kaleo.model.KaleoTransition> getKaleoDefinitionKaleoTransitions(
+		long kaleoDefinitionId) {
+		return getService().getKaleoDefinitionKaleoTransitions(kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 	/**

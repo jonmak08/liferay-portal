@@ -95,11 +95,38 @@
 		<execute function="Type" locator1="Comments#EDIT_COMMENT_FIELD" value1="${entryCommentEdit}" />
 
 		<execute function="AssertClick" locator1="Comments#PUBLISH_COMMENT_BUTTON" value1="Publish" />
+<<<<<<< HEAD
 
 		<var name="key_entryComment" value="${entryCommentEdit}" />
 
 		<execute macro="Alert#viewSuccessMessage" />
 		<execute function="AssertTextEquals" locator1="Comments#COMMENT_BODY_SPECIFIC" value1="${entryCommentEdit}" />
+=======
+
+		<var name="key_entryComment" value="${entryCommentEdit}" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+		<execute function="AssertTextEquals" locator1="Comments#COMMENT_BODY_SPECIFIC" value1="${entryCommentEdit}" />
+	</command>
+
+	<command name="signInToCommentPG">
+		<execute function="AssertElementNotPresent" locator1="Comments#COMMENT_FIELD" />
+
+		<execute function="AssertClick" locator1="Comments#SIGN_IN_TO_COMMENTS_LINK" value1="Please sign in to ${entryType}.">
+			<var name="key_entryType" value="${entryType}" />
+		</execute>
+
+		<execute function="Type" locator1="TextInput#EMAIL_ADDRESS" value1="${userEmailAddress}" />
+		<execute function="Type" locator1="TextInput#PASSWORD" value1="test" />
+
+		<execute function="Click" locator1="Button#SIGN_IN" value1="Sign In" />
+
+		<execute function="AssertElementPresent" locator1="UserBar#USER_AVATAR_IMAGE" />
+
+		<execute macro="BlogsEntryComment#add">
+			<var name="entryComment" value="${entryComment}" />
+		</execute>
+>>>>>>> compatible
 	</command>
 
 	<command name="subscribePG">
@@ -110,6 +137,7 @@
 
 	<command name="viewCP">
 		<var name="key_entryComment" value="${entryComment}" />
+<<<<<<< HEAD
 
 		<execute macro="BlogsNavigator#gotoEntryCP">
 			<var name="entryContent" value="${entryContent}" />
@@ -132,6 +160,30 @@
 
 		<execute function="AssertTextEquals#assertPartialText" locator1="Comments#ENTRY_COUNT_PANEL" value1="${commentCount} Comment" />
 
+=======
+
+		<execute macro="BlogsNavigator#gotoEntryCP">
+			<var name="entryContent" value="${entryContent}" />
+			<var name="entryTitle" value="${entryTitle}" />
+		</execute>
+
+		<execute function="AssertTextEquals" locator1="Comments#ENTRY_COUNT_PANEL" value1="${commentCount} Comments" />
+		<execute function="AssertTextEquals" locator1="Comments#COMMENT_BODY_SPECIFIC" value1="${entryComment}" />
+	</command>
+
+	<command name="viewDefault">
+		<execute function="AssertTextEquals" locator1="Comments#ENTRY_COUNT_PANEL" value1="0 Comments" />
+		<execute function="AssertTextNotPresent" value1="${entryComment}" />
+	</command>
+
+	<command name="viewPG">
+		<var name="key_entryComment" value="${entryComment}" />
+
+		<execute function="Pause" locator1="1000" />
+
+		<execute function="AssertTextEquals" locator1="Comments#ENTRY_COUNT_PANEL" value1="${commentCount} Comments" />
+
+>>>>>>> compatible
 		<var name="key_userFullName" value="${userFullName}" />
 
 		<execute function="AssertTextEquals#assertPartialText" locator1="Comments#USER_NAME" value1="${userFullName}" />

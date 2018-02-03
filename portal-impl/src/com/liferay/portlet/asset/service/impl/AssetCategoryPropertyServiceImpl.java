@@ -16,8 +16,15 @@ package com.liferay.portlet.asset.service.impl;
 
 import com.liferay.asset.kernel.model.AssetCategoryProperty;
 import com.liferay.portal.kernel.exception.PortalException;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.security.permission.ActionKeys;
+>>>>>>> compatible
 import com.liferay.portlet.asset.service.base.AssetCategoryPropertyServiceBaseImpl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -53,20 +60,47 @@ public class AssetCategoryPropertyServiceImpl
 
 	@Override
 	public List<AssetCategoryProperty> getCategoryProperties(long entryId) {
+<<<<<<< HEAD
 		throw new UnsupportedOperationException(
 			"This class is deprecate and replaced by " +
 				"com.liferay.asset.category.property.service.impl" +
 					"AssetCategoryPropertyServiceImpl");
+=======
+		try {
+			if (AssetCategoryPermission.contains(
+					getPermissionChecker(), entryId, ActionKeys.VIEW)) {
+
+				return assetCategoryPropertyLocalService.getCategoryProperties(
+					entryId);
+			}
+		}
+		catch (PortalException pe) {
+			if (_log.isDebugEnabled()) {
+				_log.debug(
+					"Unable to get asset category property for asset entry " +
+						entryId,
+					pe);
+			}
+		}
+
+		return new ArrayList<>();
+>>>>>>> compatible
 	}
 
 	@Override
 	public List<AssetCategoryProperty> getCategoryPropertyValues(
 		long companyId, String key) {
 
+<<<<<<< HEAD
 		throw new UnsupportedOperationException(
 			"This class is deprecate and replaced by " +
 				"com.liferay.asset.category.property.service.impl" +
 					"AssetCategoryPropertyServiceImpl");
+=======
+		return filterAssetCategoryProperties(
+			assetCategoryPropertyLocalService.getCategoryPropertyValues(
+				companyId, key));
+>>>>>>> compatible
 	}
 
 	@Override
@@ -99,5 +133,39 @@ public class AssetCategoryPropertyServiceImpl
 				"com.liferay.asset.category.property.service.impl" +
 					"AssetCategoryPropertyServiceImpl");
 	}
+
+	protected List<AssetCategoryProperty> filterAssetCategoryProperties(
+		List<AssetCategoryProperty> assetCategoryProperties) {
+
+		List<AssetCategoryProperty> filteredAssetCategoryProperties =
+			new ArrayList<>(assetCategoryProperties.size());
+
+		for (AssetCategoryProperty assetCategoryProperty :
+				assetCategoryProperties) {
+
+			try {
+				if (AssetCategoryPermission.contains(
+						getPermissionChecker(),
+						assetCategoryProperty.getCategoryId(),
+						ActionKeys.VIEW)) {
+
+					filteredAssetCategoryProperties.add(assetCategoryProperty);
+				}
+			}
+			catch (PortalException pe) {
+
+				// LPS-52675
+
+				if (_log.isDebugEnabled()) {
+					_log.debug(pe, pe);
+				}
+			}
+		}
+
+		return filteredAssetCategoryProperties;
+	}
+
+	private static final Log _log = LogFactoryUtil.getLog(
+		AssetCategoryPropertyServiceImpl.class);
 
 }

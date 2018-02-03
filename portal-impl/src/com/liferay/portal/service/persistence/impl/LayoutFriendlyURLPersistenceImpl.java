@@ -38,8 +38,13 @@ import com.liferay.portal.kernel.service.persistence.LayoutFriendlyURLPersistenc
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
@@ -3777,15 +3782,25 @@ public class LayoutFriendlyURLPersistenceImpl extends BasePersistenceImpl<Layout
 			query.append(_SQL_SELECT_LAYOUTFRIENDLYURL_WHERE);
 
 			if (plids.length > 0) {
+<<<<<<< HEAD
 				query.append("(");
+=======
+				query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(_FINDER_COLUMN_P_L_PLID_7);
 
 				query.append(StringUtil.merge(plids));
 
+<<<<<<< HEAD
 				query.append(")");
 
 				query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 				query.append(WHERE_AND);
 			}
@@ -3887,7 +3902,11 @@ public class LayoutFriendlyURLPersistenceImpl extends BasePersistenceImpl<Layout
 			msg.append(", languageId=");
 			msg.append(languageId);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -3953,7 +3972,11 @@ public class LayoutFriendlyURLPersistenceImpl extends BasePersistenceImpl<Layout
 			if (languageId == null) {
 				query.append(_FINDER_COLUMN_P_L_LANGUAGEID_1);
 			}
+<<<<<<< HEAD
 			else if (languageId.equals("")) {
+=======
+			else if (languageId.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_P_L_LANGUAGEID_3);
 			}
 			else {
@@ -4089,6 +4112,7 @@ public class LayoutFriendlyURLPersistenceImpl extends BasePersistenceImpl<Layout
 				count = (Long)q.uniqueResult();
 
 				finderCache.putResult(finderPath, finderArgs, count);
+<<<<<<< HEAD
 			}
 			catch (Exception e) {
 				finderCache.removeResult(finderPath, finderArgs);
@@ -4183,6 +4207,102 @@ public class LayoutFriendlyURLPersistenceImpl extends BasePersistenceImpl<Layout
 					finderArgs, count);
 			}
 			catch (Exception e) {
+=======
+			}
+			catch (Exception e) {
+				finderCache.removeResult(finderPath, finderArgs);
+
+				throw processException(e);
+			}
+			finally {
+				closeSession(session);
+			}
+		}
+
+		return count.intValue();
+	}
+
+	/**
+	 * Returns the number of layout friendly urls where plid = any &#63; and languageId = &#63;.
+	 *
+	 * @param plids the plids
+	 * @param languageId the language ID
+	 * @return the number of matching layout friendly urls
+	 */
+	@Override
+	public int countByP_L(long[] plids, String languageId) {
+		if (plids == null) {
+			plids = new long[0];
+		}
+		else if (plids.length > 1) {
+			plids = ArrayUtil.unique(plids);
+
+			Arrays.sort(plids);
+		}
+
+		Object[] finderArgs = new Object[] { StringUtil.merge(plids), languageId };
+
+		Long count = (Long)finderCache.getResult(FINDER_PATH_WITH_PAGINATION_COUNT_BY_P_L,
+				finderArgs, this);
+
+		if (count == null) {
+			StringBundler query = new StringBundler();
+
+			query.append(_SQL_COUNT_LAYOUTFRIENDLYURL_WHERE);
+
+			if (plids.length > 0) {
+				query.append(StringPool.OPEN_PARENTHESIS);
+
+				query.append(_FINDER_COLUMN_P_L_PLID_7);
+
+				query.append(StringUtil.merge(plids));
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(StringPool.CLOSE_PARENTHESIS);
+
+				query.append(WHERE_AND);
+			}
+
+			boolean bindLanguageId = false;
+
+			if (languageId == null) {
+				query.append(_FINDER_COLUMN_P_L_LANGUAGEID_1);
+			}
+			else if (languageId.equals(StringPool.BLANK)) {
+				query.append(_FINDER_COLUMN_P_L_LANGUAGEID_3);
+			}
+			else {
+				bindLanguageId = true;
+
+				query.append(_FINDER_COLUMN_P_L_LANGUAGEID_2);
+			}
+
+			query.setStringAt(removeConjunction(query.stringAt(query.index() -
+						1)), query.index() - 1);
+
+			String sql = query.toString();
+
+			Session session = null;
+
+			try {
+				session = openSession();
+
+				Query q = session.createQuery(sql);
+
+				QueryPos qPos = QueryPos.getInstance(q);
+
+				if (bindLanguageId) {
+					qPos.add(languageId);
+				}
+
+				count = (Long)q.uniqueResult();
+
+				finderCache.putResult(FINDER_PATH_WITH_PAGINATION_COUNT_BY_P_L,
+					finderArgs, count);
+			}
+			catch (Exception e) {
+>>>>>>> compatible
 				finderCache.removeResult(FINDER_PATH_WITH_PAGINATION_COUNT_BY_P_L,
 					finderArgs);
 
@@ -4330,11 +4450,19 @@ public class LayoutFriendlyURLPersistenceImpl extends BasePersistenceImpl<Layout
 		}
 
 		List<LayoutFriendlyURL> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<LayoutFriendlyURL>)finderCache.getResult(finderPath,
 					finderArgs, this);
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<LayoutFriendlyURL>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+>>>>>>> compatible
 			if ((list != null) && !list.isEmpty()) {
 				for (LayoutFriendlyURL layoutFriendlyURL : list) {
 					if ((groupId != layoutFriendlyURL.getGroupId()) ||
@@ -5195,11 +5323,17 @@ public class LayoutFriendlyURLPersistenceImpl extends BasePersistenceImpl<Layout
 		setModelClass(LayoutFriendlyURL.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("uuid", "uuid_");

@@ -1,10 +1,18 @@
 Bundle-Name: Liferay Frontend Image Editor Capability Crop
 Bundle-SymbolicName: com.liferay.frontend.image.editor.capability.crop
+<<<<<<< HEAD
 Bundle-Version: 1.0.15
 Provide-Capability:\
 	soy;\
 		type="image-editor-capability";\
 		version:Version="${Bundle-Version}"
+=======
+Bundle-Version: 1.0.12
+Provide-Capability:\
+	soy;\
+		type="image-editor-capability";\
+		version:Version="1.0.0"
+>>>>>>> compatible
 Require-Capability:\
 	soy;\
 		filter:="(type=metal)"

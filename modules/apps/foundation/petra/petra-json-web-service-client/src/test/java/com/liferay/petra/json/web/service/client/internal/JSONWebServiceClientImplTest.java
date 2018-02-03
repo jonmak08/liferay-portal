@@ -14,6 +14,10 @@
 
 package com.liferay.petra.json.web.service.client.internal;
 
+<<<<<<< HEAD
+=======
+import java.util.HashMap;
+>>>>>>> compatible
 import java.util.Map;
 
 import org.junit.Assert;
@@ -22,14 +26,22 @@ import org.junit.Test;
 /**
  * @author Igor Beslic
  */
+<<<<<<< HEAD
 public class JSONWebServiceClientImplTest extends JSONWebServiceClientBaseTest {
+=======
+public class JSONWebServiceClientImplTest {
+>>>>>>> compatible
 
 	@Test
 	public void testActivateForBasicProxy() throws Exception {
 		JSONWebServiceClientImpl jsonWebServiceClientImpl =
 			new JSONWebServiceClientImpl();
 
+<<<<<<< HEAD
 		Map<String, Object> properties = getBaseProperties();
+=======
+		Map<String, Object> properties = _getBaseProperties();
+>>>>>>> compatible
 
 		properties.put("proxyHostName", "proxyhost.net");
 		properties.put("proxyHostPort", "443");
@@ -64,7 +76,11 @@ public class JSONWebServiceClientImplTest extends JSONWebServiceClientBaseTest {
 		JSONWebServiceClientImpl jsonWebServiceClientImpl =
 			new JSONWebServiceClientImpl();
 
+<<<<<<< HEAD
 		Map<String, Object> properties = getBaseProperties();
+=======
+		Map<String, Object> properties = _getBaseProperties();
+>>>>>>> compatible
 
 		properties.put("proxyAuthType", "ntlm");
 		properties.put("proxyDomain", "liferay.com");
@@ -88,7 +104,11 @@ public class JSONWebServiceClientImplTest extends JSONWebServiceClientBaseTest {
 		JSONWebServiceClientImpl jsonWebServiceClientImpl =
 			new JSONWebServiceClientImpl();
 
+<<<<<<< HEAD
 		Map<String, Object> properties = getBaseProperties();
+=======
+		Map<String, Object> properties = _getBaseProperties();
+>>>>>>> compatible
 
 		properties.put(
 			"headers", "headerKey1=headerValue1;headerKey2=headerValue2");
@@ -100,4 +120,17 @@ public class JSONWebServiceClientImplTest extends JSONWebServiceClientBaseTest {
 		Assert.assertTrue(headers.containsKey("headerKey1"));
 	}
 
+<<<<<<< HEAD
+=======
+	private Map<String, Object> _getBaseProperties() {
+		Map<String, Object> properties = new HashMap<String, Object>();
+
+		properties.put("hostName", "localhost");
+		properties.put("hostPort", "9090");
+		properties.put("protocol", "https");
+
+		return properties;
+	}
+
+>>>>>>> compatible
 }

@@ -20,12 +20,17 @@
 			<else>
 				<execute macro="User#firstLoginPG" />
 
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP" />
+=======
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 			</else>
 		</if>
 	</tear-down>
 
 	<command name="ViewBlogsPortletAsGuestPG" priority="5">
+<<<<<<< HEAD
 		<property name="portal.acceptance" value="false" />
 
 		<execute macro="ProductMenu#gotoPortlet">
@@ -35,6 +40,11 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<property name="portal.acceptance" value="true" />
+
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Blogs Page" />
 		</execute>
 

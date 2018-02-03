@@ -5,7 +5,13 @@
 		</execute>
 
 		<if>
+<<<<<<< HEAD
 			<contains string="${rowNumber}" substring="{rowNumber}" />
+=======
+			<not>
+				<isset var="rowNumber" />
+			</not>
+>>>>>>> compatible
 			<then>
 				<var name="rowNumber" value="1" />
 			</then>
@@ -26,7 +32,11 @@
 	</command>
 
 	<command name="addCP" summary="Add a vocabulary named '${vocabularyName}'">
+<<<<<<< HEAD
 		<execute macro="LexiconEntry#gotoAdd" />
+=======
+		<execute function="Click" locator1="Button#PLUS" />
+>>>>>>> compatible
 
 		<execute macro="PortletEntry#inputName">
 			<var name="name" value="${vocabularyName}" />
@@ -78,16 +88,28 @@
 	</command>
 
 	<command name="addViewableByCP">
+<<<<<<< HEAD
 		<execute macro="LexiconEntry#gotoAdd" />
+=======
+		<execute function="Click" locator1="Button#PLUS" />
+>>>>>>> compatible
 
 		<execute macro="PortletEntry#inputName">
 			<var name="name" value="${vocabularyName}" />
 		</execute>
+<<<<<<< HEAD
 
 		<execute macro="Panel#expandPanel">
 			<var name="panelHeading" value="Permissions" />
 		</execute>
 
+=======
+
+		<execute macro="Panel#expandPanel">
+			<var name="panelHeading" value="Permissions" />
+		</execute>
+
+>>>>>>> compatible
 		<execute function="Select" locator1="CategoriesEditVocabulary#PERMISSIONS_VIEWABLE_BY_SELECT" value1="${viewableBy}" />
 
 		<execute macro="PortletEntry#save" />
@@ -98,6 +120,7 @@
 	</command>
 
 	<command name="addVocabularyWithNullTitle">
+<<<<<<< HEAD
 		<execute macro="LexiconEntry#gotoAdd" />
 
 		<execute macro="PortletEntry#inputName">
@@ -131,6 +154,34 @@
 
 		<execute macro="PortletEntry#save" />
 
+=======
+		<execute function="Click" locator1="Button#PLUS" />
+
+		<execute macro="PortletEntry#inputName">
+			<var name="name" value=" " />
+		</execute>
+
+		<execute macro="Button#clickSave" />
+
+		<execute function="AssertTextEquals" locator1="Message#ERROR_FIELD_REQUIRED" value1="This field is required." />
+	</command>
+
+	<command name="addWithAssociatedAssetTypeCP">
+		<execute function="Click" locator1="Button#PLUS" />
+
+		<execute macro="PortletEntry#inputName">
+			<var name="name" value="${vocabularyName}" />
+		</execute>
+
+		<execute macro="Vocabulary#addAssociatedAssetType">
+			<var name="assetType" value="${assetType}" />
+			<var name="required" value="${required}" />
+			<var name="rowNumber" value="${rowNumber}" />
+		</execute>
+
+		<execute macro="PortletEntry#save" />
+
+>>>>>>> compatible
 		<execute function="AssertTextEquals" locator1="Categories#VOCABULARY_ENTRY" value1="${vocabularyName}">
 			<var name="key_vocabularyName" value="${vocabularyName}" />
 		</execute>
@@ -144,6 +195,7 @@
 		<var name="key_rowEntry" value="${vocabularyName}" />
 
 		<execute function="Click#waitForMenuToggleJSClick" locator1="Icon#ROW_VERTICAL_ELLIPSIS" />
+<<<<<<< HEAD
 
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Edit">
 			<var name="key_menuItem" value="Edit" />
@@ -155,6 +207,19 @@
 
 		<execute function="Click" locator1="CategoriesEditVocabulary#ASSOCIATED_ASSET_TYPES_DELETE_BUTTON_2" />
 
+=======
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Edit">
+			<var name="key_menuItem" value="Edit" />
+		</execute>
+
+		<execute macro="Panel#expandPanel">
+			<var name="panelHeading" value="Associated Asset Types" />
+		</execute>
+
+		<execute function="Click" locator1="CategoriesEditVocabulary#ASSOCIATED_ASSET_TYPES_DELETE_BUTTON_2" />
+
+>>>>>>> compatible
 		<execute macro="PortletEntry#save" />
 	</command>
 
@@ -178,9 +243,15 @@
 		<var name="key_vocabularyName" value="${vocabularyName}" />
 
 		<execute function="AssertTextEquals" locator1="Categories#VOCABULARY_ENTRY" value1="${vocabularyName}" />
+<<<<<<< HEAD
 
 		<var name="key_rowEntry" value="${vocabularyName}" />
 
+=======
+
+		<var name="key_rowEntry" value="${vocabularyName}" />
+
+>>>>>>> compatible
 		<execute function="Click#waitForMenuToggleJSClick" locator1="Icon#ROW_VERTICAL_ELLIPSIS" />
 
 		<execute function="AssertClickNoError" locator1="MenuItem#ANY_MENU_ITEM" value1="Delete">
@@ -242,17 +313,27 @@
 	</command>
 
 	<command name="searchCP">
+<<<<<<< HEAD
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="${vocabularySearchEntry}" />
 		</execute>
+=======
+		<execute function="Type" locator1="TextInput#SEARCH" value1="${vocabularySearchEntry}" />
+
+		<execute function="Click" locator1="Icon#BASIC_SEARCH" />
+>>>>>>> compatible
 	</command>
 
 	<command name="tearDownCP">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Categories" />
 		</execute>
 
@@ -284,7 +365,11 @@
 					<var name="key_menuItem" value="Edit" />
 				</execute>
 
+<<<<<<< HEAD
 				<execute function="AssertNotChecked#assertNotCheckedNotVisible" locator1="CategoriesEditVocabulary#ALLOW_MULTIPLE_CATEGORIES_TOGGLE_SWITCH" />
+=======
+				<execute function="AssertNotChecked#assertNotCheckedToggleSwitch" locator1="CategoriesEditVocabulary#ALLOW_MULTIPLE_CATEGORIES_TOGGLE_SWITCH" />
+>>>>>>> compatible
 			</then>
 		</if>
 	</command>

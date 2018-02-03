@@ -34,8 +34,15 @@ import com.liferay.portal.kernel.service.persistence.CompanyProvider;
 import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.PortletPreferencesPersistence;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.model.impl.PortletPreferencesImpl;
 import com.liferay.portal.model.impl.PortletPreferencesModelImpl;
@@ -4256,11 +4263,19 @@ public class PortletPreferencesPersistenceImpl extends BasePersistenceImpl<Portl
 
 	/**
 	 * Returns an ordered range of all the portlet preferenceses where companyId = &#63; and ownerId = &#63; and ownerType = &#63; and portletId LIKE &#63;.
+<<<<<<< HEAD
 	 *
 	 * <p>
 	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link PortletPreferencesModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	 * </p>
 	 *
+=======
+	 *
+	 * <p>
+	 * Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link PortletPreferencesModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	 * </p>
+	 *
+>>>>>>> compatible
 	 * @param companyId the company ID
 	 * @param ownerId the owner ID
 	 * @param ownerType the owner type
@@ -4324,7 +4339,12 @@ public class PortletPreferencesPersistenceImpl extends BasePersistenceImpl<Portl
 							(ownerType != portletPreferences.getOwnerType()) ||
 							!StringUtil.wildcardMatches(
 								portletPreferences.getPortletId(), portletId,
+<<<<<<< HEAD
 								'_', '%', '\\', true)) {
+=======
+								CharPool.UNDERLINE, CharPool.PERCENT,
+								CharPool.BACK_SLASH, true)) {
+>>>>>>> compatible
 						list = null;
 
 						break;
@@ -4357,7 +4377,11 @@ public class PortletPreferencesPersistenceImpl extends BasePersistenceImpl<Portl
 			if (portletId == null) {
 				query.append(_FINDER_COLUMN_C_O_O_LIKEP_PORTLETID_1);
 			}
+<<<<<<< HEAD
 			else if (portletId.equals("")) {
+=======
+			else if (portletId.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_C_O_O_LIKEP_PORTLETID_3);
 			}
 			else {
@@ -4465,7 +4489,11 @@ public class PortletPreferencesPersistenceImpl extends BasePersistenceImpl<Portl
 		msg.append(", portletId=");
 		msg.append(portletId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPortletPreferencesException(msg.toString());
 	}
@@ -4533,7 +4561,11 @@ public class PortletPreferencesPersistenceImpl extends BasePersistenceImpl<Portl
 		msg.append(", portletId=");
 		msg.append(portletId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPortletPreferencesException(msg.toString());
 	}
@@ -4644,7 +4676,11 @@ public class PortletPreferencesPersistenceImpl extends BasePersistenceImpl<Portl
 		if (portletId == null) {
 			query.append(_FINDER_COLUMN_C_O_O_LIKEP_PORTLETID_1);
 		}
+<<<<<<< HEAD
 		else if (portletId.equals("")) {
+=======
+		else if (portletId.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_C_O_O_LIKEP_PORTLETID_3);
 		}
 		else {
@@ -4803,7 +4839,11 @@ public class PortletPreferencesPersistenceImpl extends BasePersistenceImpl<Portl
 			if (portletId == null) {
 				query.append(_FINDER_COLUMN_C_O_O_LIKEP_PORTLETID_1);
 			}
+<<<<<<< HEAD
 			else if (portletId.equals("")) {
+=======
+			else if (portletId.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_C_O_O_LIKEP_PORTLETID_3);
 			}
 			else {
@@ -4909,7 +4949,11 @@ public class PortletPreferencesPersistenceImpl extends BasePersistenceImpl<Portl
 			msg.append(", portletId=");
 			msg.append(portletId);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());

@@ -17,21 +17,34 @@ package com.liferay.blogs.web.asset;
 import com.liferay.asset.kernel.model.AssetRenderer;
 import com.liferay.asset.kernel.model.AssetRendererFactory;
 import com.liferay.asset.kernel.model.BaseAssetRendererFactory;
+<<<<<<< HEAD
 import com.liferay.blogs.constants.BlogsConstants;
 import com.liferay.blogs.constants.BlogsPortletKeys;
 import com.liferay.blogs.model.BlogsEntry;
 import com.liferay.blogs.service.BlogsEntryLocalService;
 import com.liferay.blogs.service.BlogsEntryService;
+=======
+import com.liferay.blogs.kernel.model.BlogsEntry;
+import com.liferay.blogs.kernel.service.BlogsEntryLocalService;
+import com.liferay.blogs.kernel.service.BlogsEntryService;
+import com.liferay.blogs.web.constants.BlogsPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.portlet.LiferayPortletRequest;
 import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
 import com.liferay.portal.kernel.portlet.LiferayPortletURL;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermission;
 import com.liferay.portal.kernel.security.permission.resource.PortletResourcePermission;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.ResourceBundleLoader;
+=======
+import com.liferay.portal.kernel.util.Portal;
+import com.liferay.portlet.blogs.service.permission.BlogsEntryPermission;
+import com.liferay.portlet.blogs.service.permission.BlogsPermission;
+>>>>>>> compatible
 
 import javax.portlet.PortletRequest;
 import javax.portlet.PortletURL;
@@ -73,7 +86,11 @@ public class BlogsEntryAssetRendererFactory
 		BlogsEntry entry = _blogsEntryLocalService.getEntry(classPK);
 
 		BlogsEntryAssetRenderer blogsEntryAssetRenderer =
+<<<<<<< HEAD
 			new BlogsEntryAssetRenderer(entry, _resourceBundleLoader);
+=======
+			new BlogsEntryAssetRenderer(entry);
+>>>>>>> compatible
 
 		blogsEntryAssetRenderer.setAssetRendererType(type);
 		blogsEntryAssetRenderer.setServletContext(_servletContext);
@@ -88,12 +105,16 @@ public class BlogsEntryAssetRendererFactory
 
 		BlogsEntry entry = _blogsEntryService.getEntry(groupId, urlTitle);
 
+<<<<<<< HEAD
 		BlogsEntryAssetRenderer blogsEntryAssetRenderer =
 			new BlogsEntryAssetRenderer(entry, _resourceBundleLoader);
 
 		blogsEntryAssetRenderer.setServletContext(_servletContext);
 
 		return blogsEntryAssetRenderer;
+=======
+		return new BlogsEntryAssetRenderer(entry);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -148,7 +169,11 @@ public class BlogsEntryAssetRendererFactory
 			PermissionChecker permissionChecker, long groupId, long classTypeId)
 		throws Exception {
 
+<<<<<<< HEAD
 		return _portletResourcePermission.contains(
+=======
+		return BlogsPermission.contains(
+>>>>>>> compatible
 			permissionChecker, groupId, ActionKeys.ADD_ENTRY);
 	}
 
@@ -157,11 +182,16 @@ public class BlogsEntryAssetRendererFactory
 			PermissionChecker permissionChecker, long classPK, String actionId)
 		throws Exception {
 
+<<<<<<< HEAD
 		return _blogsEntryFolderModelResourcePermission.contains(
+=======
+		return BlogsEntryPermission.contains(
+>>>>>>> compatible
 			permissionChecker, classPK, actionId);
 	}
 
 	@Reference(
+<<<<<<< HEAD
 		target = "(bundle.symbolic.name=com.liferay.blogs.web)", unbind = "-"
 	)
 	public void setResourceBundleLoader(
@@ -171,6 +201,8 @@ public class BlogsEntryAssetRendererFactory
 	}
 
 	@Reference(
+=======
+>>>>>>> compatible
 		target = "(osgi.web.symbolicname=com.liferay.blogs.web)", unbind = "-"
 	)
 	public void setServletContext(ServletContext servletContext) {
@@ -189,20 +221,26 @@ public class BlogsEntryAssetRendererFactory
 		_blogsEntryService = blogsEntryService;
 	}
 
+<<<<<<< HEAD
 	@Reference(target = "(model.class.name=com.liferay.blogs.model.BlogsEntry)")
 	private ModelResourcePermission<BlogsEntry>
 		_blogsEntryFolderModelResourcePermission;
 
+=======
+>>>>>>> compatible
 	private BlogsEntryLocalService _blogsEntryLocalService;
 	private BlogsEntryService _blogsEntryService;
 
 	@Reference
 	private Portal _portal;
 
+<<<<<<< HEAD
 	@Reference(target = "(resource.name=" + BlogsConstants.RESOURCE_NAME + ")")
 	private PortletResourcePermission _portletResourcePermission;
 
 	private ResourceBundleLoader _resourceBundleLoader;
+=======
+>>>>>>> compatible
 	private ServletContext _servletContext;
 
 }

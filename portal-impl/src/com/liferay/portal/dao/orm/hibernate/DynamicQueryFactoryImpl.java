@@ -14,9 +14,14 @@
 
 package com.liferay.portal.dao.orm.hibernate;
 
+<<<<<<< HEAD
 import com.liferay.petra.concurrent.ConcurrentReferenceKeyHashMap;
 import com.liferay.petra.memory.FinalizeManager;
 import com.liferay.portal.kernel.annotation.ImplementationClassName;
+=======
+import com.liferay.portal.kernel.annotation.ImplementationClassName;
+import com.liferay.portal.kernel.concurrent.ConcurrentReferenceKeyHashMap;
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.dao.orm.DynamicQueryFactory;
 import com.liferay.portal.kernel.log.Log;

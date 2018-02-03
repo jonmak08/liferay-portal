@@ -28,8 +28,11 @@ import com.liferay.portal.kernel.transaction.Transactional;
 import java.io.File;
 import java.io.InputStream;
 
+<<<<<<< HEAD
 import java.util.Map;
 
+=======
+>>>>>>> compatible
 /**
  * Provides the local service interface for ExportImport. Methods of this
  * service will not have security checks based on the propagated JAAS
@@ -55,6 +58,7 @@ public interface ExportImportLocalService extends BaseLocalService {
 		ExportImportConfiguration exportImportConfiguration)
 		throws PortalException;
 
+<<<<<<< HEAD
 	/**
 	* @deprecated As of 7.0.0
 	*/
@@ -64,6 +68,8 @@ public interface ExportImportLocalService extends BaseLocalService {
 		Map<java.lang.String, java.lang.String[]> parameterMap)
 		throws PortalException;
 
+=======
+>>>>>>> compatible
 	public long exportLayoutsAsFileInBackground(long userId,
 		ExportImportConfiguration exportImportConfiguration)
 		throws PortalException;
@@ -97,6 +103,7 @@ public interface ExportImportLocalService extends BaseLocalService {
 		ExportImportConfiguration exportImportConfiguration,
 		InputStream inputStream) throws PortalException;
 
+<<<<<<< HEAD
 	/**
 	* @deprecated As of 7.0.0
 	*/
@@ -105,6 +112,8 @@ public interface ExportImportLocalService extends BaseLocalService {
 		Map<java.lang.String, java.lang.String[]> parameterMap, File file)
 		throws PortalException;
 
+=======
+>>>>>>> compatible
 	public void importLayoutsDataDeletions(
 		ExportImportConfiguration exportImportConfiguration, File file)
 		throws PortalException;

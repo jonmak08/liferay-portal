@@ -46,6 +46,7 @@ public class ServiceTrackerMapModelAdapterBuilderLocator
 
 		return _modelAdapterBuilders.getService(
 			_getKey(adapteeModelClass, adaptedModelClass));
+<<<<<<< HEAD
 	}
 
 	private Type _getGenericInterface(Class<?> clazz, Class<?> interfaceClass) {
@@ -91,6 +92,8 @@ public class ServiceTrackerMapModelAdapterBuilderLocator
 		}
 
 		return null;
+=======
+>>>>>>> compatible
 	}
 
 	private <T, V> String _getKey(

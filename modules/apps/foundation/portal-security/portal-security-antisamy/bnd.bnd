@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Portal Security AntiSamy
 Bundle-SymbolicName: com.liferay.portal.security.antisamy
+<<<<<<< HEAD
 Bundle-Version: 2.0.19
+=======
+Bundle-Version: 2.0.13
+>>>>>>> compatible
 Import-Package:\
 	!org.apache.commons.codec.*,\
 	!org.apache.commons.logging.*,\

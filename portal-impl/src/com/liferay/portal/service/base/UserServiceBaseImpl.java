@@ -19,11 +19,30 @@ import com.liferay.announcements.kernel.service.persistence.AnnouncementsDeliver
 import com.liferay.asset.kernel.service.persistence.AssetEntryFinder;
 import com.liferay.asset.kernel.service.persistence.AssetEntryPersistence;
 
+<<<<<<< HEAD
 import com.liferay.document.library.kernel.service.persistence.DLFileEntryFinder;
 import com.liferay.document.library.kernel.service.persistence.DLFileEntryPersistence;
 
 import com.liferay.expando.kernel.service.persistence.ExpandoRowPersistence;
 
+=======
+import com.liferay.blogs.kernel.service.persistence.BlogsStatsUserFinder;
+import com.liferay.blogs.kernel.service.persistence.BlogsStatsUserPersistence;
+
+import com.liferay.document.library.kernel.service.persistence.DLFileEntryFinder;
+import com.liferay.document.library.kernel.service.persistence.DLFileEntryPersistence;
+import com.liferay.document.library.kernel.service.persistence.DLFileRankFinder;
+import com.liferay.document.library.kernel.service.persistence.DLFileRankPersistence;
+
+import com.liferay.expando.kernel.service.persistence.ExpandoRowPersistence;
+
+import com.liferay.message.boards.kernel.service.persistence.MBBanPersistence;
+import com.liferay.message.boards.kernel.service.persistence.MBMessageFinder;
+import com.liferay.message.boards.kernel.service.persistence.MBMessagePersistence;
+import com.liferay.message.boards.kernel.service.persistence.MBStatsUserPersistence;
+import com.liferay.message.boards.kernel.service.persistence.MBThreadFlagPersistence;
+
+>>>>>>> compatible
 import com.liferay.portal.kernel.bean.BeanReference;
 import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.dao.db.DBManagerUtil;
@@ -54,6 +73,10 @@ import com.liferay.portal.kernel.service.persistence.RecentLayoutRevisionPersist
 import com.liferay.portal.kernel.service.persistence.RecentLayoutSetBranchPersistence;
 import com.liferay.portal.kernel.service.persistence.RoleFinder;
 import com.liferay.portal.kernel.service.persistence.RolePersistence;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.service.persistence.SubscriptionPersistence;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.persistence.TeamFinder;
 import com.liferay.portal.kernel.service.persistence.TeamPersistence;
 import com.liferay.portal.kernel.service.persistence.TicketPersistence;
@@ -1054,6 +1077,47 @@ public abstract class UserServiceBaseImpl extends BaseServiceImpl
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Returns the subscription local service.
+	 *
+	 * @return the subscription local service
+	 */
+	public com.liferay.portal.kernel.service.SubscriptionLocalService getSubscriptionLocalService() {
+		return subscriptionLocalService;
+	}
+
+	/**
+	 * Sets the subscription local service.
+	 *
+	 * @param subscriptionLocalService the subscription local service
+	 */
+	public void setSubscriptionLocalService(
+		com.liferay.portal.kernel.service.SubscriptionLocalService subscriptionLocalService) {
+		this.subscriptionLocalService = subscriptionLocalService;
+	}
+
+	/**
+	 * Returns the subscription persistence.
+	 *
+	 * @return the subscription persistence
+	 */
+	public SubscriptionPersistence getSubscriptionPersistence() {
+		return subscriptionPersistence;
+	}
+
+	/**
+	 * Sets the subscription persistence.
+	 *
+	 * @param subscriptionPersistence the subscription persistence
+	 */
+	public void setSubscriptionPersistence(
+		SubscriptionPersistence subscriptionPersistence) {
+		this.subscriptionPersistence = subscriptionPersistence;
+	}
+
+	/**
+>>>>>>> compatible
 	 * Returns the team local service.
 	 *
 	 * @return the team local service
@@ -1297,6 +1361,66 @@ public abstract class UserServiceBaseImpl extends BaseServiceImpl
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Returns the blogs stats user local service.
+	 *
+	 * @return the blogs stats user local service
+	 */
+	public com.liferay.blogs.kernel.service.BlogsStatsUserLocalService getBlogsStatsUserLocalService() {
+		return blogsStatsUserLocalService;
+	}
+
+	/**
+	 * Sets the blogs stats user local service.
+	 *
+	 * @param blogsStatsUserLocalService the blogs stats user local service
+	 */
+	public void setBlogsStatsUserLocalService(
+		com.liferay.blogs.kernel.service.BlogsStatsUserLocalService blogsStatsUserLocalService) {
+		this.blogsStatsUserLocalService = blogsStatsUserLocalService;
+	}
+
+	/**
+	 * Returns the blogs stats user persistence.
+	 *
+	 * @return the blogs stats user persistence
+	 */
+	public BlogsStatsUserPersistence getBlogsStatsUserPersistence() {
+		return blogsStatsUserPersistence;
+	}
+
+	/**
+	 * Sets the blogs stats user persistence.
+	 *
+	 * @param blogsStatsUserPersistence the blogs stats user persistence
+	 */
+	public void setBlogsStatsUserPersistence(
+		BlogsStatsUserPersistence blogsStatsUserPersistence) {
+		this.blogsStatsUserPersistence = blogsStatsUserPersistence;
+	}
+
+	/**
+	 * Returns the blogs stats user finder.
+	 *
+	 * @return the blogs stats user finder
+	 */
+	public BlogsStatsUserFinder getBlogsStatsUserFinder() {
+		return blogsStatsUserFinder;
+	}
+
+	/**
+	 * Sets the blogs stats user finder.
+	 *
+	 * @param blogsStatsUserFinder the blogs stats user finder
+	 */
+	public void setBlogsStatsUserFinder(
+		BlogsStatsUserFinder blogsStatsUserFinder) {
+		this.blogsStatsUserFinder = blogsStatsUserFinder;
+	}
+
+	/**
+>>>>>>> compatible
 	 * Returns the document library file entry local service.
 	 *
 	 * @return the document library file entry local service
@@ -1372,6 +1496,65 @@ public abstract class UserServiceBaseImpl extends BaseServiceImpl
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Returns the document library file rank local service.
+	 *
+	 * @return the document library file rank local service
+	 */
+	public com.liferay.document.library.kernel.service.DLFileRankLocalService getDLFileRankLocalService() {
+		return dlFileRankLocalService;
+	}
+
+	/**
+	 * Sets the document library file rank local service.
+	 *
+	 * @param dlFileRankLocalService the document library file rank local service
+	 */
+	public void setDLFileRankLocalService(
+		com.liferay.document.library.kernel.service.DLFileRankLocalService dlFileRankLocalService) {
+		this.dlFileRankLocalService = dlFileRankLocalService;
+	}
+
+	/**
+	 * Returns the document library file rank persistence.
+	 *
+	 * @return the document library file rank persistence
+	 */
+	public DLFileRankPersistence getDLFileRankPersistence() {
+		return dlFileRankPersistence;
+	}
+
+	/**
+	 * Sets the document library file rank persistence.
+	 *
+	 * @param dlFileRankPersistence the document library file rank persistence
+	 */
+	public void setDLFileRankPersistence(
+		DLFileRankPersistence dlFileRankPersistence) {
+		this.dlFileRankPersistence = dlFileRankPersistence;
+	}
+
+	/**
+	 * Returns the document library file rank finder.
+	 *
+	 * @return the document library file rank finder
+	 */
+	public DLFileRankFinder getDLFileRankFinder() {
+		return dlFileRankFinder;
+	}
+
+	/**
+	 * Sets the document library file rank finder.
+	 *
+	 * @param dlFileRankFinder the document library file rank finder
+	 */
+	public void setDLFileRankFinder(DLFileRankFinder dlFileRankFinder) {
+		this.dlFileRankFinder = dlFileRankFinder;
+	}
+
+	/**
+>>>>>>> compatible
 	 * Returns the expando row local service.
 	 *
 	 * @return the expando row local service
@@ -1407,6 +1590,236 @@ public abstract class UserServiceBaseImpl extends BaseServiceImpl
 	public void setExpandoRowPersistence(
 		ExpandoRowPersistence expandoRowPersistence) {
 		this.expandoRowPersistence = expandoRowPersistence;
+	}
+
+	/**
+<<<<<<< HEAD
+	 * Returns the ratings stats local service.
+=======
+	 * Returns the message boards ban local service.
+	 *
+	 * @return the message boards ban local service
+	 */
+	public com.liferay.message.boards.kernel.service.MBBanLocalService getMBBanLocalService() {
+		return mbBanLocalService;
+	}
+
+	/**
+	 * Sets the message boards ban local service.
+>>>>>>> compatible
+	 *
+	 * @return the ratings stats local service
+	 */
+<<<<<<< HEAD
+	public com.liferay.ratings.kernel.service.RatingsStatsLocalService getRatingsStatsLocalService() {
+		return ratingsStatsLocalService;
+=======
+	public void setMBBanLocalService(
+		com.liferay.message.boards.kernel.service.MBBanLocalService mbBanLocalService) {
+		this.mbBanLocalService = mbBanLocalService;
+>>>>>>> compatible
+	}
+
+	/**
+	 * Sets the ratings stats local service.
+	 *
+	 * @param ratingsStatsLocalService the ratings stats local service
+	 */
+<<<<<<< HEAD
+	public void setRatingsStatsLocalService(
+		com.liferay.ratings.kernel.service.RatingsStatsLocalService ratingsStatsLocalService) {
+		this.ratingsStatsLocalService = ratingsStatsLocalService;
+=======
+	public com.liferay.message.boards.kernel.service.MBBanService getMBBanService() {
+		return mbBanService;
+>>>>>>> compatible
+	}
+
+	/**
+	 * Returns the ratings stats persistence.
+	 *
+	 * @return the ratings stats persistence
+	 */
+<<<<<<< HEAD
+	public RatingsStatsPersistence getRatingsStatsPersistence() {
+		return ratingsStatsPersistence;
+=======
+	public void setMBBanService(
+		com.liferay.message.boards.kernel.service.MBBanService mbBanService) {
+		this.mbBanService = mbBanService;
+>>>>>>> compatible
+	}
+
+	/**
+	 * Sets the ratings stats persistence.
+	 *
+	 * @param ratingsStatsPersistence the ratings stats persistence
+	 */
+	public void setRatingsStatsPersistence(
+		RatingsStatsPersistence ratingsStatsPersistence) {
+		this.ratingsStatsPersistence = ratingsStatsPersistence;
+	}
+
+	/**
+	 * Returns the ratings stats finder.
+	 *
+	 * @return the ratings stats finder
+	 */
+	public RatingsStatsFinder getRatingsStatsFinder() {
+		return ratingsStatsFinder;
+	}
+
+	/**
+	 * Sets the ratings stats finder.
+	 *
+	 * @param ratingsStatsFinder the ratings stats finder
+	 */
+<<<<<<< HEAD
+=======
+	public com.liferay.message.boards.kernel.service.MBMessageLocalService getMBMessageLocalService() {
+		return mbMessageLocalService;
+	}
+
+	/**
+	 * Sets the message-boards message local service.
+	 *
+	 * @param mbMessageLocalService the message-boards message local service
+	 */
+	public void setMBMessageLocalService(
+		com.liferay.message.boards.kernel.service.MBMessageLocalService mbMessageLocalService) {
+		this.mbMessageLocalService = mbMessageLocalService;
+	}
+
+	/**
+	 * Returns the message-boards message remote service.
+	 *
+	 * @return the message-boards message remote service
+	 */
+	public com.liferay.message.boards.kernel.service.MBMessageService getMBMessageService() {
+		return mbMessageService;
+	}
+
+	/**
+	 * Sets the message-boards message remote service.
+	 *
+	 * @param mbMessageService the message-boards message remote service
+	 */
+	public void setMBMessageService(
+		com.liferay.message.boards.kernel.service.MBMessageService mbMessageService) {
+		this.mbMessageService = mbMessageService;
+	}
+
+	/**
+	 * Returns the message-boards message persistence.
+	 *
+	 * @return the message-boards message persistence
+	 */
+	public MBMessagePersistence getMBMessagePersistence() {
+		return mbMessagePersistence;
+	}
+
+	/**
+	 * Sets the message-boards message persistence.
+	 *
+	 * @param mbMessagePersistence the message-boards message persistence
+	 */
+	public void setMBMessagePersistence(
+		MBMessagePersistence mbMessagePersistence) {
+		this.mbMessagePersistence = mbMessagePersistence;
+	}
+
+	/**
+	 * Returns the message-boards message finder.
+	 *
+	 * @return the message-boards message finder
+	 */
+	public MBMessageFinder getMBMessageFinder() {
+		return mbMessageFinder;
+	}
+
+	/**
+	 * Sets the message-boards message finder.
+	 *
+	 * @param mbMessageFinder the message-boards message finder
+	 */
+	public void setMBMessageFinder(MBMessageFinder mbMessageFinder) {
+		this.mbMessageFinder = mbMessageFinder;
+	}
+
+	/**
+	 * Returns the message boards stats user local service.
+	 *
+	 * @return the message boards stats user local service
+	 */
+	public com.liferay.message.boards.kernel.service.MBStatsUserLocalService getMBStatsUserLocalService() {
+		return mbStatsUserLocalService;
+	}
+
+	/**
+	 * Sets the message boards stats user local service.
+	 *
+	 * @param mbStatsUserLocalService the message boards stats user local service
+	 */
+	public void setMBStatsUserLocalService(
+		com.liferay.message.boards.kernel.service.MBStatsUserLocalService mbStatsUserLocalService) {
+		this.mbStatsUserLocalService = mbStatsUserLocalService;
+	}
+
+	/**
+	 * Returns the message boards stats user persistence.
+	 *
+	 * @return the message boards stats user persistence
+	 */
+	public MBStatsUserPersistence getMBStatsUserPersistence() {
+		return mbStatsUserPersistence;
+	}
+
+	/**
+	 * Sets the message boards stats user persistence.
+	 *
+	 * @param mbStatsUserPersistence the message boards stats user persistence
+	 */
+	public void setMBStatsUserPersistence(
+		MBStatsUserPersistence mbStatsUserPersistence) {
+		this.mbStatsUserPersistence = mbStatsUserPersistence;
+	}
+
+	/**
+	 * Returns the message boards thread flag local service.
+	 *
+	 * @return the message boards thread flag local service
+	 */
+	public com.liferay.message.boards.kernel.service.MBThreadFlagLocalService getMBThreadFlagLocalService() {
+		return mbThreadFlagLocalService;
+	}
+
+	/**
+	 * Sets the message boards thread flag local service.
+	 *
+	 * @param mbThreadFlagLocalService the message boards thread flag local service
+	 */
+	public void setMBThreadFlagLocalService(
+		com.liferay.message.boards.kernel.service.MBThreadFlagLocalService mbThreadFlagLocalService) {
+		this.mbThreadFlagLocalService = mbThreadFlagLocalService;
+	}
+
+	/**
+	 * Returns the message boards thread flag persistence.
+	 *
+	 * @return the message boards thread flag persistence
+	 */
+	public MBThreadFlagPersistence getMBThreadFlagPersistence() {
+		return mbThreadFlagPersistence;
+	}
+
+	/**
+	 * Sets the message boards thread flag persistence.
+	 *
+	 * @param mbThreadFlagPersistence the message boards thread flag persistence
+	 */
+	public void setMBThreadFlagPersistence(
+		MBThreadFlagPersistence mbThreadFlagPersistence) {
+		this.mbThreadFlagPersistence = mbThreadFlagPersistence;
 	}
 
 	/**
@@ -1461,6 +1874,7 @@ public abstract class UserServiceBaseImpl extends BaseServiceImpl
 	 *
 	 * @param ratingsStatsFinder the ratings stats finder
 	 */
+>>>>>>> compatible
 	public void setRatingsStatsFinder(RatingsStatsFinder ratingsStatsFinder) {
 		this.ratingsStatsFinder = ratingsStatsFinder;
 	}
@@ -2012,6 +2426,13 @@ public abstract class UserServiceBaseImpl extends BaseServiceImpl
 	protected RolePersistence rolePersistence;
 	@BeanReference(type = RoleFinder.class)
 	protected RoleFinder roleFinder;
+<<<<<<< HEAD
+=======
+	@BeanReference(type = com.liferay.portal.kernel.service.SubscriptionLocalService.class)
+	protected com.liferay.portal.kernel.service.SubscriptionLocalService subscriptionLocalService;
+	@BeanReference(type = SubscriptionPersistence.class)
+	protected SubscriptionPersistence subscriptionPersistence;
+>>>>>>> compatible
 	@BeanReference(type = com.liferay.portal.kernel.service.TeamLocalService.class)
 	protected com.liferay.portal.kernel.service.TeamLocalService teamLocalService;
 	@BeanReference(type = com.liferay.portal.kernel.service.TeamService.class)
@@ -2038,6 +2459,15 @@ public abstract class UserServiceBaseImpl extends BaseServiceImpl
 	protected AssetEntryPersistence assetEntryPersistence;
 	@BeanReference(type = AssetEntryFinder.class)
 	protected AssetEntryFinder assetEntryFinder;
+<<<<<<< HEAD
+=======
+	@BeanReference(type = com.liferay.blogs.kernel.service.BlogsStatsUserLocalService.class)
+	protected com.liferay.blogs.kernel.service.BlogsStatsUserLocalService blogsStatsUserLocalService;
+	@BeanReference(type = BlogsStatsUserPersistence.class)
+	protected BlogsStatsUserPersistence blogsStatsUserPersistence;
+	@BeanReference(type = BlogsStatsUserFinder.class)
+	protected BlogsStatsUserFinder blogsStatsUserFinder;
+>>>>>>> compatible
 	@BeanReference(type = com.liferay.document.library.kernel.service.DLFileEntryLocalService.class)
 	protected com.liferay.document.library.kernel.service.DLFileEntryLocalService dlFileEntryLocalService;
 	@BeanReference(type = com.liferay.document.library.kernel.service.DLFileEntryService.class)
@@ -2046,10 +2476,44 @@ public abstract class UserServiceBaseImpl extends BaseServiceImpl
 	protected DLFileEntryPersistence dlFileEntryPersistence;
 	@BeanReference(type = DLFileEntryFinder.class)
 	protected DLFileEntryFinder dlFileEntryFinder;
+<<<<<<< HEAD
+=======
+	@BeanReference(type = com.liferay.document.library.kernel.service.DLFileRankLocalService.class)
+	protected com.liferay.document.library.kernel.service.DLFileRankLocalService dlFileRankLocalService;
+	@BeanReference(type = DLFileRankPersistence.class)
+	protected DLFileRankPersistence dlFileRankPersistence;
+	@BeanReference(type = DLFileRankFinder.class)
+	protected DLFileRankFinder dlFileRankFinder;
+>>>>>>> compatible
 	@BeanReference(type = com.liferay.expando.kernel.service.ExpandoRowLocalService.class)
 	protected com.liferay.expando.kernel.service.ExpandoRowLocalService expandoRowLocalService;
 	@BeanReference(type = ExpandoRowPersistence.class)
 	protected ExpandoRowPersistence expandoRowPersistence;
+<<<<<<< HEAD
+=======
+	@BeanReference(type = com.liferay.message.boards.kernel.service.MBBanLocalService.class)
+	protected com.liferay.message.boards.kernel.service.MBBanLocalService mbBanLocalService;
+	@BeanReference(type = com.liferay.message.boards.kernel.service.MBBanService.class)
+	protected com.liferay.message.boards.kernel.service.MBBanService mbBanService;
+	@BeanReference(type = MBBanPersistence.class)
+	protected MBBanPersistence mbBanPersistence;
+	@BeanReference(type = com.liferay.message.boards.kernel.service.MBMessageLocalService.class)
+	protected com.liferay.message.boards.kernel.service.MBMessageLocalService mbMessageLocalService;
+	@BeanReference(type = com.liferay.message.boards.kernel.service.MBMessageService.class)
+	protected com.liferay.message.boards.kernel.service.MBMessageService mbMessageService;
+	@BeanReference(type = MBMessagePersistence.class)
+	protected MBMessagePersistence mbMessagePersistence;
+	@BeanReference(type = MBMessageFinder.class)
+	protected MBMessageFinder mbMessageFinder;
+	@BeanReference(type = com.liferay.message.boards.kernel.service.MBStatsUserLocalService.class)
+	protected com.liferay.message.boards.kernel.service.MBStatsUserLocalService mbStatsUserLocalService;
+	@BeanReference(type = MBStatsUserPersistence.class)
+	protected MBStatsUserPersistence mbStatsUserPersistence;
+	@BeanReference(type = com.liferay.message.boards.kernel.service.MBThreadFlagLocalService.class)
+	protected com.liferay.message.boards.kernel.service.MBThreadFlagLocalService mbThreadFlagLocalService;
+	@BeanReference(type = MBThreadFlagPersistence.class)
+	protected MBThreadFlagPersistence mbThreadFlagPersistence;
+>>>>>>> compatible
 	@BeanReference(type = com.liferay.ratings.kernel.service.RatingsStatsLocalService.class)
 	protected com.liferay.ratings.kernel.service.RatingsStatsLocalService ratingsStatsLocalService;
 	@BeanReference(type = RatingsStatsPersistence.class)

@@ -20,9 +20,16 @@ import com.liferay.calendar.model.CalendarBooking;
 import com.liferay.calendar.model.CalendarResource;
 import com.liferay.calendar.recurrence.Recurrence;
 import com.liferay.calendar.recurrence.RecurrenceSerializer;
+<<<<<<< HEAD
 import com.liferay.calendar.service.CalendarBookingService;
 import com.liferay.calendar.service.CalendarResourceLocalService;
 import com.liferay.calendar.service.CalendarService;
+=======
+import com.liferay.calendar.service.CalendarBookingServiceUtil;
+import com.liferay.calendar.service.CalendarResourceLocalServiceUtil;
+import com.liferay.calendar.service.CalendarServiceUtil;
+import com.liferay.calendar.service.permission.CalendarPermission;
+>>>>>>> compatible
 import com.liferay.calendar.util.comparator.CalendarNameComparator;
 import com.liferay.calendar.workflow.CalendarBookingWorkflowConstants;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
@@ -32,15 +39,23 @@ import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermission;
 import com.liferay.portal.kernel.service.WorkflowDefinitionLinkLocalService;
 import com.liferay.portal.kernel.service.WorkflowInstanceLinkLocalService;
+=======
+import com.liferay.portal.kernel.service.WorkflowDefinitionLinkLocalServiceUtil;
+import com.liferay.portal.kernel.service.WorkflowInstanceLinkLocalServiceUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.Validator;
+=======
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -52,15 +67,21 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TimeZone;
 
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
+=======
+>>>>>>> compatible
 /**
  * @author Eduardo Lundgren
  * @author Peter Shin
  * @author Fabio Pezzutto
  */
+<<<<<<< HEAD
 @Component(immediate = true)
+=======
+>>>>>>> compatible
 public class CalendarUtil {
 
 	public static TimeZone getCalendarBookingDisplayTimeZone(
@@ -78,10 +99,18 @@ public class CalendarUtil {
 			long startTime, long endTime, String ruleName, TimeZone timeZone)
 		throws PortalException {
 
+<<<<<<< HEAD
 		List<CalendarBooking> calendarBookings = _calendarBookingService.search(
 			themeDisplay.getCompanyId(), null, calendarIds, new long[0], -1,
 			null, startTime, endTime, true, statuses, QueryUtil.ALL_POS,
 			QueryUtil.ALL_POS, null);
+=======
+		List<CalendarBooking> calendarBookings =
+			CalendarBookingServiceUtil.search(
+				themeDisplay.getCompanyId(), null, calendarIds, new long[0], -1,
+				null, startTime, endTime, true, statuses, QueryUtil.ALL_POS,
+				QueryUtil.ALL_POS, null);
+>>>>>>> compatible
 
 		Map<Integer, Map<Integer, List<Integer>>> rulesMap = new HashMap<>();
 
@@ -242,9 +271,14 @@ public class CalendarUtil {
 	}
 
 	public static JSONObject toCalendarBookingJSONObject(
+<<<<<<< HEAD
 			ThemeDisplay themeDisplay, CalendarBooking calendarBooking,
 			TimeZone timeZone)
 		throws PortalException {
+=======
+		ThemeDisplay themeDisplay, CalendarBooking calendarBooking,
+		TimeZone timeZone) {
+>>>>>>> compatible
 
 		JSONObject jsonObject = JSONFactoryUtil.createJSONObject();
 
@@ -277,7 +311,11 @@ public class CalendarUtil {
 
 		jsonObject.put(
 			"hasWorkflowInstanceLink",
+<<<<<<< HEAD
 			_workflowInstanceLinkLocalService.hasWorkflowInstanceLink(
+=======
+			WorkflowInstanceLinkLocalServiceUtil.hasWorkflowInstanceLink(
+>>>>>>> compatible
 				themeDisplay.getCompanyId(), calendarBooking.getGroupId(),
 				CalendarBooking.class.getName(),
 				calendarBooking.getCalendarBookingId()));
@@ -287,28 +325,42 @@ public class CalendarUtil {
 			"parentCalendarBookingId",
 			calendarBooking.getParentCalendarBookingId());
 
+<<<<<<< HEAD
 		CalendarBooking lastInstanceCalendarBooking =
 			_calendarBookingService.getLastInstanceCalendarBooking(
 				calendarBooking.getCalendarBookingId());
 
 		String recurrence = lastInstanceCalendarBooking.getRecurrence();
+=======
+		String recurrence = calendarBooking.getRecurrence();
+>>>>>>> compatible
 
 		java.util.Calendar startTimeJCalendar = JCalendarUtil.getJCalendar(
 			calendarBooking.getStartTime(), timeZone);
 
+<<<<<<< HEAD
 		if (Validator.isNotNull(recurrence)) {
 			Recurrence recurrenceObj = RecurrenceUtil.inTimeZone(
 				lastInstanceCalendarBooking.getRecurrenceObj(),
 				startTimeJCalendar, timeZone);
+=======
+		if (calendarBooking.isRecurring()) {
+			Recurrence recurrenceObj = RecurrenceUtil.inTimeZone(
+				calendarBooking.getRecurrenceObj(), startTimeJCalendar,
+				timeZone);
+>>>>>>> compatible
 
 			recurrence = RecurrenceSerializer.serialize(recurrenceObj);
 		}
 
 		jsonObject.put("recurrence", recurrence);
 
+<<<<<<< HEAD
 		jsonObject.put(
 			"recurringCalendarBookingId",
 			calendarBooking.getRecurringCalendarBookingId());
+=======
+>>>>>>> compatible
 		jsonObject.put("secondReminder", calendarBooking.getSecondReminder());
 		jsonObject.put(
 			"secondReminderType", calendarBooking.getSecondReminder());
@@ -343,9 +395,14 @@ public class CalendarUtil {
 	}
 
 	public static JSONArray toCalendarBookingsJSONArray(
+<<<<<<< HEAD
 			ThemeDisplay themeDisplay, List<CalendarBooking> calendarBookings,
 			TimeZone timeZone)
 		throws PortalException {
+=======
+		ThemeDisplay themeDisplay, List<CalendarBooking> calendarBookings,
+		TimeZone timeZone) {
+>>>>>>> compatible
 
 		JSONArray jsonArray = JSONFactoryUtil.createJSONArray();
 
@@ -375,7 +432,11 @@ public class CalendarUtil {
 		jsonObject.put("calendarId", calendar.getCalendarId());
 
 		CalendarResource calendarResource =
+<<<<<<< HEAD
 			_calendarResourceLocalService.fetchCalendarResource(
+=======
+			CalendarResourceLocalServiceUtil.fetchCalendarResource(
+>>>>>>> compatible
 				calendar.getCalendarResourceId());
 
 		jsonObject.put(
@@ -391,13 +452,21 @@ public class CalendarUtil {
 		jsonObject.put("groupId", calendar.getGroupId());
 		jsonObject.put(
 			"hasWorkflowDefinitionLink",
+<<<<<<< HEAD
 			_workflowDefinitionLinkLocalService.hasWorkflowDefinitionLink(
+=======
+			WorkflowDefinitionLinkLocalServiceUtil.hasWorkflowDefinitionLink(
+>>>>>>> compatible
 				themeDisplay.getCompanyId(), calendarResource.getGroupId(),
 				CalendarBooking.class.getName()));
 
 		jsonObject.put(
 			"manageable",
+<<<<<<< HEAD
 			_calendarService.isManageableFromGroup(
+=======
+			CalendarServiceUtil.isManageableFromGroup(
+>>>>>>> compatible
 				calendar.getCalendarId(), themeDisplay.getScopeGroupId()));
 
 		jsonObject.put("name", calendar.getName(themeDisplay.getLocale()));
@@ -449,6 +518,7 @@ public class CalendarUtil {
 		return jsonArray;
 	}
 
+<<<<<<< HEAD
 	@Reference(unbind = "-")
 	protected void setCalendarBookingService(
 		CalendarBookingService calendarBookingService) {
@@ -493,6 +563,8 @@ public class CalendarUtil {
 		_workflowInstanceLinkLocalService = workflowInstanceLinkLocalService;
 	}
 
+=======
+>>>>>>> compatible
 	private static void _addTimeProperties(
 		JSONObject jsonObject, String prefix, java.util.Calendar jCalendar) {
 
@@ -509,46 +581,75 @@ public class CalendarUtil {
 	}
 
 	private static JSONObject _getPermissionsJSONObject(
+<<<<<<< HEAD
 			PermissionChecker permissionChecker, Calendar calendar)
 		throws PortalException {
+=======
+		PermissionChecker permissionChecker, Calendar calendar) {
+>>>>>>> compatible
 
 		JSONObject jsonObject = JSONFactoryUtil.createJSONObject();
 
 		jsonObject.put(
 			ActionKeys.DELETE,
+<<<<<<< HEAD
 			_calendarModelResourcePermission.contains(
+=======
+			CalendarPermission.contains(
+>>>>>>> compatible
 				permissionChecker, calendar, ActionKeys.DELETE));
 
 		jsonObject.put(
 			ActionKeys.PERMISSIONS,
+<<<<<<< HEAD
 			_calendarModelResourcePermission.contains(
+=======
+			CalendarPermission.contains(
+>>>>>>> compatible
 				permissionChecker, calendar, ActionKeys.PERMISSIONS));
 
 		jsonObject.put(
 			ActionKeys.UPDATE,
+<<<<<<< HEAD
 			_calendarModelResourcePermission.contains(
+=======
+			CalendarPermission.contains(
+>>>>>>> compatible
 				permissionChecker, calendar, ActionKeys.UPDATE));
 
 		jsonObject.put(
 			ActionKeys.VIEW,
+<<<<<<< HEAD
 			_calendarModelResourcePermission.contains(
+=======
+			CalendarPermission.contains(
+>>>>>>> compatible
 				permissionChecker, calendar, ActionKeys.VIEW));
 
 		jsonObject.put(
 			CalendarActionKeys.MANAGE_BOOKINGS,
+<<<<<<< HEAD
 			_calendarModelResourcePermission.contains(
+=======
+			CalendarPermission.contains(
+>>>>>>> compatible
 				permissionChecker, calendar,
 				CalendarActionKeys.MANAGE_BOOKINGS));
 
 		jsonObject.put(
 			CalendarActionKeys.VIEW_BOOKING_DETAILS,
+<<<<<<< HEAD
 			_calendarModelResourcePermission.contains(
+=======
+			CalendarPermission.contains(
+>>>>>>> compatible
 				permissionChecker, calendar,
 				CalendarActionKeys.VIEW_BOOKING_DETAILS));
 
 		return jsonObject;
 	}
 
+<<<<<<< HEAD
 	private static CalendarBookingService _calendarBookingService;
 	private static ModelResourcePermission<Calendar>
 		_calendarModelResourcePermission;
@@ -560,5 +661,9 @@ public class CalendarUtil {
 		_workflowDefinitionLinkLocalService;
 	private static WorkflowInstanceLinkLocalService
 		_workflowInstanceLinkLocalService;
+=======
+	private static final TimeZone _utcTimeZone = TimeZone.getTimeZone(
+		StringPool.UTC);
+>>>>>>> compatible
 
 }

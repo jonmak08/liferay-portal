@@ -134,7 +134,11 @@
 	<command name="viewEditableFieldNotVisibleCmd">
 		<var name="key_wfFieldName" value="${wfFieldName}" />
 
+<<<<<<< HEAD
 		<execute function="AssertNotVisible" locator1="WebFormConfiguration#SETUP_FORM_FIELDS_NAME_FIELD" />
+=======
+		<execute function="AssertElementNotPresent#assertNotVisible" locator1="WebFormConfiguration#SETUP_FORM_FIELDS_NAME_FIELD" />
+>>>>>>> compatible
 	</command>
 
 	<command name="viewSubmittedField">

@@ -61,7 +61,11 @@ public class ServiceRegistrarTest {
 
 			services = registry.getServices(Foo.class, null);
 
+<<<<<<< HEAD
 			Assert.assertTrue(services.toString(), services.isEmpty());
+=======
+			Assert.assertTrue(services.isEmpty());
+>>>>>>> compatible
 		}
 		finally {
 			if (serviceRegistration1 != null) {

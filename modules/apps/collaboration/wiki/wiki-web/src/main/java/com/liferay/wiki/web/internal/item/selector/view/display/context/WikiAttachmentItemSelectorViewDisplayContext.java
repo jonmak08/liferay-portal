@@ -41,7 +41,12 @@ public class WikiAttachmentItemSelectorViewDisplayContext {
 
 	public WikiAttachmentItemSelectorViewDisplayContext(
 		WikiAttachmentItemSelectorCriterion wikiAttachmentItemSelectorCriterion,
+<<<<<<< HEAD
 		WikiAttachmentItemSelectorView wikiAttachmentItemSelectorView,
+=======
+		WikiAttachmentItemSelectorView
+			wikiAttachmentItemSelectorView,
+>>>>>>> compatible
 		ItemSelectorReturnTypeResolverHandler
 			itemSelectorReturnTypeResolverHandler,
 		String itemSelectedEventName, boolean search, PortletURL portletURL) {
@@ -67,10 +72,13 @@ public class WikiAttachmentItemSelectorViewDisplayContext {
 				_wikiAttachmentItemSelectorView, FileEntry.class);
 	}
 
+<<<<<<< HEAD
 	public String[] getMimeTypes() {
 		return _wikiAttachmentItemSelectorCriterion.getMimeTypes();
 	}
 
+=======
+>>>>>>> compatible
 	public PortletURL getPortletURL(
 			HttpServletRequest request,
 			LiferayPortletResponse liferayPortletResponse)
@@ -98,8 +106,11 @@ public class WikiAttachmentItemSelectorViewDisplayContext {
 		portletURL.setParameter(
 			ActionRequest.ACTION_NAME, "/wiki/upload_page_attachment");
 		portletURL.setParameter(
+<<<<<<< HEAD
 			"mimeTypes", _wikiAttachmentItemSelectorCriterion.getMimeTypes());
 		portletURL.setParameter(
+=======
+>>>>>>> compatible
 			"resourcePrimKey",
 			String.valueOf(
 				_wikiAttachmentItemSelectorCriterion.getWikiPageResourceId()));

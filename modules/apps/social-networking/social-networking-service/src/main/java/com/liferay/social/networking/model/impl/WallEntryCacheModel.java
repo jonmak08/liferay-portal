@@ -19,6 +19,10 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import com.liferay.social.networking.model.WallEntry;
 
@@ -98,7 +102,11 @@ public class WallEntryCacheModel implements CacheModel<WallEntry>,
 		wallEntryImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			wallEntryImpl.setUserName("");
+=======
+			wallEntryImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			wallEntryImpl.setUserName(userName);
@@ -119,7 +127,11 @@ public class WallEntryCacheModel implements CacheModel<WallEntry>,
 		}
 
 		if (comments == null) {
+<<<<<<< HEAD
 			wallEntryImpl.setComments("");
+=======
+			wallEntryImpl.setComments(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			wallEntryImpl.setComments(comments);
@@ -157,7 +169,11 @@ public class WallEntryCacheModel implements CacheModel<WallEntry>,
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -167,7 +183,11 @@ public class WallEntryCacheModel implements CacheModel<WallEntry>,
 		objectOutput.writeLong(modifiedDate);
 
 		if (comments == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(comments);

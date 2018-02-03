@@ -4,6 +4,10 @@
 	<sql file="custom-sql/portal.xml" />
 	<sql file="custom-sql/announcements.xml" />
 	<sql file="custom-sql/asset.xml" />
+<<<<<<< HEAD
+=======
+	<sql file="custom-sql/blogs.xml" />
+>>>>>>> compatible
 	<sql file="custom-sql/documentlibrary.xml" />
 	<sql file="custom-sql/exportimport.xml" />
 	<sql file="custom-sql/messageboards.xml" />

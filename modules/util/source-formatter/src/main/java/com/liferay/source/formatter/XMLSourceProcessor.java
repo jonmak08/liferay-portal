@@ -14,8 +14,11 @@
 
 package com.liferay.source.formatter;
 
+<<<<<<< HEAD
 import com.liferay.source.formatter.checks.util.XMLSourceUtil;
 
+=======
+>>>>>>> compatible
 import java.util.List;
 
 /**
@@ -42,6 +45,7 @@ public class XMLSourceProcessor extends BaseSourceProcessor {
 		return _INCLUDES;
 	}
 
+<<<<<<< HEAD
 	@Override
 	protected boolean hasGeneratedTag(String content) {
 		if (!content.contains("@generated")) {
@@ -67,6 +71,11 @@ public class XMLSourceProcessor extends BaseSourceProcessor {
 		"**/*.action", "**/*.function", "**/*.jrxml", "**/*.macro",
 		"**/*.testcase", "**/*.toggle", "**/*.xml",
 		"**/definitions/liferay-*.xsd"
+=======
+	private static final String[] _INCLUDES = {
+		"**/*.action", "**/*.function", "**/*.jrxml", "**/*.macro",
+		"**/*.testcase", "**/*.toggle", "**/*.xml"
+>>>>>>> compatible
 	};
 
 }

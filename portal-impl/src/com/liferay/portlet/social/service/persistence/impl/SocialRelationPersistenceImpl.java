@@ -32,6 +32,7 @@ import com.liferay.portal.kernel.service.persistence.CompanyProvider;
 import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.Validator;
@@ -2344,6 +2345,7 @@ public class SocialRelationPersistenceImpl extends BasePersistenceImpl<SocialRel
 		}
 
 		List<SocialRelation> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<SocialRelation>)finderCache.getResult(finderPath,
@@ -2354,6 +2356,18 @@ public class SocialRelationPersistenceImpl extends BasePersistenceImpl<SocialRel
 					if ((userId2 != socialRelation.getUserId2())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<SocialRelation>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (SocialRelation socialRelation : list) {
+					if ((userId2 != socialRelation.getUserId2())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -2852,12 +2866,21 @@ public class SocialRelationPersistenceImpl extends BasePersistenceImpl<SocialRel
 		if (retrieveFromCache) {
 			list = (List<SocialRelation>)finderCache.getResult(finderPath,
 					finderArgs, this);
+<<<<<<< HEAD
 
 			if ((list != null) && !list.isEmpty()) {
 				for (SocialRelation socialRelation : list) {
 					if ((type != socialRelation.getType())) {
 						list = null;
 
+=======
+
+			if ((list != null) && !list.isEmpty()) {
+				for (SocialRelation socialRelation : list) {
+					if ((type != socialRelation.getType())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -3365,6 +3388,7 @@ public class SocialRelationPersistenceImpl extends BasePersistenceImpl<SocialRel
 		if (retrieveFromCache) {
 			list = (List<SocialRelation>)finderCache.getResult(finderPath,
 					finderArgs, this);
+<<<<<<< HEAD
 
 			if ((list != null) && !list.isEmpty()) {
 				for (SocialRelation socialRelation : list) {
@@ -3372,6 +3396,15 @@ public class SocialRelationPersistenceImpl extends BasePersistenceImpl<SocialRel
 							(type != socialRelation.getType())) {
 						list = null;
 
+=======
+
+			if ((list != null) && !list.isEmpty()) {
+				for (SocialRelation socialRelation : list) {
+					if ((companyId != socialRelation.getCompanyId()) ||
+							(type != socialRelation.getType())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -4452,6 +4485,7 @@ public class SocialRelationPersistenceImpl extends BasePersistenceImpl<SocialRel
 		if (retrieveFromCache) {
 			list = (List<SocialRelation>)finderCache.getResult(finderPath,
 					finderArgs, this);
+<<<<<<< HEAD
 
 			if ((list != null) && !list.isEmpty()) {
 				for (SocialRelation socialRelation : list) {
@@ -4459,6 +4493,15 @@ public class SocialRelationPersistenceImpl extends BasePersistenceImpl<SocialRel
 							(type != socialRelation.getType())) {
 						list = null;
 
+=======
+
+			if ((list != null) && !list.isEmpty()) {
+				for (SocialRelation socialRelation : list) {
+					if ((userId1 != socialRelation.getUserId1()) ||
+							(type != socialRelation.getType())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -5677,11 +5720,17 @@ public class SocialRelationPersistenceImpl extends BasePersistenceImpl<SocialRel
 		setModelClass(SocialRelation.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("uuid", "uuid_");

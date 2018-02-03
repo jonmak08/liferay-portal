@@ -14,7 +14,10 @@
 
 package com.liferay.document.library.repository.cmis.search;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -41,6 +44,10 @@ import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 
 import java.util.HashMap;
@@ -142,7 +149,11 @@ public class BaseCmisSearchQueryBuilder implements CMISSearchQueryBuilder {
 		}
 
 		if (_log.isDebugEnabled()) {
+<<<<<<< HEAD
 			_log.debug("CMIS query " + sb.toString());
+=======
+			_log.debug("CMIS query " + sb);
+>>>>>>> compatible
 		}
 
 		return sb.toString();
@@ -216,8 +227,12 @@ public class BaseCmisSearchQueryBuilder implements CMISSearchQueryBuilder {
 				}
 
 				throw new SearchException(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Unable to determine user {", field, "=", value, "}"),
+=======
+					"Unable to determine user {" + field + "=" + value + "}",
+>>>>>>> compatible
 					e);
 			}
 		}

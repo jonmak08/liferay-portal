@@ -14,13 +14,22 @@
 
 package com.liferay.portal.scheduler.internal.verify;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HashMapDictionary;
 import com.liferay.portal.kernel.util.LoggingTimer;
 import com.liferay.portal.kernel.util.Props;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.scheduler.internal.configuration.SchedulerEngineHelperConfiguration;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.scheduler.configuration.SchedulerEngineHelperConfiguration;
+>>>>>>> compatible
 import com.liferay.portal.verify.VerifyProcess;
 
 import java.util.Dictionary;

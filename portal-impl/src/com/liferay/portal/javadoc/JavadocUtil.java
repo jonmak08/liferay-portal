@@ -14,9 +14,14 @@
 
 package com.liferay.portal.javadoc;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.util.ClassLoaderUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+import com.liferay.portal.kernel.util.ClassLoaderUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 
 import java.util.Arrays;

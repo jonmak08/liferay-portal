@@ -1,5 +1,9 @@
 Bundle-Name: Liferay Layout Prototype Web
 Bundle-SymbolicName: com.liferay.layout.prototype.web
+<<<<<<< HEAD
 Bundle-Version: 1.0.14
+=======
+Bundle-Version: 1.0.9
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Site Management

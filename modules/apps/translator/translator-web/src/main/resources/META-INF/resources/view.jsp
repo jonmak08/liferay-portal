@@ -95,7 +95,11 @@ if (translation == null) {
 			</aui:fieldset>
 
 			<aui:button-row>
+<<<<<<< HEAD
 				<aui:button type="submit" value="translate" />
+=======
+				<aui:button cssClass="btn-lg" type="submit" value="translate" />
+>>>>>>> compatible
 			</aui:button-row>
 		</aui:form>
 	</c:otherwise>

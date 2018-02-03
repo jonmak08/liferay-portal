@@ -60,10 +60,13 @@ import org.osgi.service.component.annotations.Reference;
 )
 public class BundleBlacklist {
 
+<<<<<<< HEAD
 	public List<String> getBlacklistBundleSymbolicNames() {
 		return new ArrayList<>(_uninstalledBundles.keySet());
 	}
 
+=======
+>>>>>>> compatible
 	@Activate
 	@Modified
 	protected void activate(

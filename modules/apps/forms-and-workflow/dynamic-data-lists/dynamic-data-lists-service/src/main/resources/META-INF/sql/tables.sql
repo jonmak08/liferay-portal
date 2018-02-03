@@ -11,7 +11,10 @@ create table DDLRecord (
 	modifiedDate DATE null,
 	DDMStorageId LONG,
 	recordSetId LONG,
+<<<<<<< HEAD
 	recordSetVersion VARCHAR(75) null,
+=======
+>>>>>>> compatible
 	version VARCHAR(75) null,
 	displayIndex INTEGER,
 	lastPublishDate DATE null
@@ -24,13 +27,19 @@ create table DDLRecordSet (
 	companyId LONG,
 	userId LONG,
 	userName VARCHAR(75) null,
+<<<<<<< HEAD
 	versionUserId LONG,
 	versionUserName VARCHAR(75) null,
+=======
+>>>>>>> compatible
 	createDate DATE null,
 	modifiedDate DATE null,
 	DDMStructureId LONG,
 	recordSetKey VARCHAR(75) null,
+<<<<<<< HEAD
 	version VARCHAR(75) null,
+=======
+>>>>>>> compatible
 	name STRING null,
 	description STRING null,
 	minDisplayRows INTEGER,
@@ -39,6 +48,7 @@ create table DDLRecordSet (
 	lastPublishDate DATE null
 );
 
+<<<<<<< HEAD
 create table DDLRecordSetVersion (
 	recordSetVersionId LONG not null primary key,
 	groupId LONG,
@@ -58,6 +68,8 @@ create table DDLRecordSetVersion (
 	statusDate DATE null
 );
 
+=======
+>>>>>>> compatible
 create table DDLRecordVersion (
 	recordVersionId LONG not null primary key,
 	groupId LONG,
@@ -67,7 +79,10 @@ create table DDLRecordVersion (
 	createDate DATE null,
 	DDMStorageId LONG,
 	recordSetId LONG,
+<<<<<<< HEAD
 	recordSetVersion VARCHAR(75) null,
+=======
+>>>>>>> compatible
 	recordId LONG,
 	version VARCHAR(75) null,
 	displayIndex INTEGER,

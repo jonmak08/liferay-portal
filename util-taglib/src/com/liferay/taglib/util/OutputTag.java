@@ -52,6 +52,19 @@ public class OutputTag extends PositionTagSupport {
 			if (_output) {
 				String bodyContentString =
 					getBodyContentAsStringBundler().toString();
+<<<<<<< HEAD
+=======
+
+				bodyContentString = _addAtrribute(
+					bodyContentString, "link", "data-senna-track",
+					"\"temporary\"");
+				bodyContentString = _addAtrribute(
+					bodyContentString, "script", "data-senna-track",
+					"\"permanent\"");
+				bodyContentString = _addAtrribute(
+					bodyContentString, "style", "data-senna-track",
+					"\"temporary\"");
+>>>>>>> compatible
 
 				if (isPositionInLine()) {
 					JspWriter jspWriter = pageContext.getOut();
@@ -112,6 +125,38 @@ public class OutputTag extends PositionTagSupport {
 		}
 
 		return outputData;
+	}
+
+	private String _addAtrribute(
+		String content, String tagName, String attributeName,
+		String attributeValue) {
+
+		int x = 0;
+		int y = 0;
+
+		while (x >= 0) {
+			x = content.indexOf("<" + tagName, y);
+
+			if (x < 0) {
+				break;
+			}
+
+			y = content.indexOf(">", x);
+
+			if (y < 0) {
+				break;
+			}
+
+			String subcontent = content.substring(x, y);
+
+			if (!subcontent.contains(attributeName)) {
+				content = StringUtil.insert(
+					content, " " + attributeName + "=" + attributeValue,
+					x + tagName.length() + 1);
+			}
+		}
+
+		return content;
 	}
 
 	private boolean _output;

@@ -16,7 +16,10 @@ package com.liferay.jenkins.results.parser;
 
 import java.io.File;
 import java.io.FileInputStream;
+<<<<<<< HEAD
 import java.io.FileNotFoundException;
+=======
+>>>>>>> compatible
 import java.io.IOException;
 
 import java.util.Properties;
@@ -35,13 +38,17 @@ public class CentralSubrepository {
 
 		_centralUpstreamBranchName = centralUpstreamBranchName;
 
+<<<<<<< HEAD
 		_ciProperties = new Properties();
 
+=======
+>>>>>>> compatible
 		_gitrepoProperties = new Properties();
 
 		_gitrepoProperties.load(new FileInputStream(gitrepoFile));
 
 		_subrepositoryName = _getSubrepositoryName();
+<<<<<<< HEAD
 
 		StringBuilder sb = new StringBuilder();
 
@@ -107,6 +114,11 @@ public class CentralSubrepository {
 
 	public String getCIProperty(String key) {
 		return _ciProperties.getProperty(key);
+=======
+		_subrepositoryUpstreamBranchName =
+			_getSubrepositoryUpstreamBranchName();
+		_subrepositoryUsername = _getSubrepositoryUsername();
+>>>>>>> compatible
 	}
 
 	public String getSubrepositoryName() {
@@ -161,6 +173,7 @@ public class CentralSubrepository {
 			_subrepositoryName, "/commits/", subrepositoryUpstreamCommit,
 			"/statuses");
 
+<<<<<<< HEAD
 		for (int i = 0; i < 15; i++) {
 			JSONArray statusesJSONArray = new JSONArray(
 				JenkinsResultsParserUtil.toString(
@@ -177,6 +190,15 @@ public class CentralSubrepository {
 			for (int j = 0; j < statusesJSONArray.length(); j++) {
 				JSONObject statusesJSONObject = statusesJSONArray.getJSONObject(
 					j);
+=======
+		JSONArray statusesJSONArray = new JSONArray(
+			JenkinsResultsParserUtil.toString(url, true));
+
+		if (statusesJSONArray != null) {
+			for (int i = 0; i < statusesJSONArray.length(); i++) {
+				JSONObject statusesJSONObject = statusesJSONArray.getJSONObject(
+					i);
+>>>>>>> compatible
 
 				String context = statusesJSONObject.getString("context");
 
@@ -273,9 +295,13 @@ public class CentralSubrepository {
 
 	private Boolean _centralPullRequestCandidate;
 	private final String _centralUpstreamBranchName;
+<<<<<<< HEAD
 	private final Properties _ciProperties;
 	private final Properties _gitrepoProperties;
 	private final String _subrepositoryDirectory;
+=======
+	private final Properties _gitrepoProperties;
+>>>>>>> compatible
 	private final String _subrepositoryName;
 	private final String _subrepositoryUpstreamBranchName;
 	private String _subrepositoryUpstreamCommit;

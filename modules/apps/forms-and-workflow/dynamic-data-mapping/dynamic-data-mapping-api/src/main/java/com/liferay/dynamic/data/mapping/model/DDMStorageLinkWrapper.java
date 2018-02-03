@@ -63,7 +63,10 @@ public class DDMStorageLinkWrapper implements DDMStorageLink,
 		attributes.put("classNameId", getClassNameId());
 		attributes.put("classPK", getClassPK());
 		attributes.put("structureId", getStructureId());
+<<<<<<< HEAD
 		attributes.put("structureVersionId", getStructureVersionId());
+=======
+>>>>>>> compatible
 
 		return attributes;
 	}
@@ -105,12 +108,15 @@ public class DDMStorageLinkWrapper implements DDMStorageLink,
 		if (structureId != null) {
 			setStructureId(structureId);
 		}
+<<<<<<< HEAD
 
 		Long structureVersionId = (Long)attributes.get("structureVersionId");
 
 		if (structureVersionId != null) {
 			setStructureVersionId(structureVersionId);
 		}
+=======
+>>>>>>> compatible
 	}
 
 	@Override
@@ -216,6 +222,7 @@ public class DDMStorageLinkWrapper implements DDMStorageLink,
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns the structure version ID of this ddm storage link.
 	*
 	* @return the structure version ID of this ddm storage link
@@ -226,6 +233,8 @@ public class DDMStorageLinkWrapper implements DDMStorageLink,
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	* Returns the uuid of this ddm storage link.
 	*
 	* @return the uuid of this ddm storage link
@@ -357,6 +366,7 @@ public class DDMStorageLinkWrapper implements DDMStorageLink,
 	}
 
 	/**
+<<<<<<< HEAD
 	* Sets the structure version ID of this ddm storage link.
 	*
 	* @param structureVersionId the structure version ID of this ddm storage link
@@ -367,6 +377,8 @@ public class DDMStorageLinkWrapper implements DDMStorageLink,
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	* Sets the uuid of this ddm storage link.
 	*
 	* @param uuid the uuid of this ddm storage link

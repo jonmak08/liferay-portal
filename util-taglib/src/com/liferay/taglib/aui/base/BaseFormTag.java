@@ -107,10 +107,13 @@ public abstract class BaseFormTag extends com.liferay.taglib.util.IncludeTag {
 
 	public void setUseNamespace(boolean useNamespace) {
 		_useNamespace = useNamespace;
+<<<<<<< HEAD
 	}
 
 	public void setValidateOnBlur(boolean validateOnBlur) {
 		_validateOnBlur = validateOnBlur;
+=======
+>>>>>>> compatible
 	}
 
 	@Override
@@ -150,7 +153,10 @@ public abstract class BaseFormTag extends com.liferay.taglib.util.IncludeTag {
 		request.setAttribute("aui:form:onSubmit", _onSubmit);
 		request.setAttribute("aui:form:portletNamespace", _portletNamespace);
 		request.setAttribute("aui:form:useNamespace", String.valueOf(_useNamespace));
+<<<<<<< HEAD
 		request.setAttribute("aui:form:validateOnBlur", String.valueOf(_validateOnBlur));
+=======
+>>>>>>> compatible
 	}
 
 	protected static final String _ATTRIBUTE_NAMESPACE = "aui:form:";

@@ -14,10 +14,16 @@
 
 package com.liferay.portal.store.jcr;
 
+<<<<<<< HEAD
 import com.liferay.petra.memory.FinalizeAction;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.memory.FinalizeAction;
+>>>>>>> compatible
 
 import java.lang.ref.Reference;
 import java.lang.reflect.InvocationHandler;
@@ -76,9 +82,13 @@ public class JCRSessionInvocationHandler
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Tracking binary ", key, " for session ",
 						String.valueOf(_session)));
+=======
+					"Tracking binary " + key + " for session " + _session);
+>>>>>>> compatible
 			}
 
 			_binaries.put(key, binary);

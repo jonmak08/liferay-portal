@@ -14,11 +14,18 @@
 
 package com.liferay.source.formatter.checks;
 
+<<<<<<< HEAD
 import com.liferay.petra.xml.Dom4jUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.source.formatter.checks.util.SourceUtil;
 import com.liferay.source.formatter.checks.util.XMLSourceUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.util.xml.Dom4jUtil;
+>>>>>>> compatible
 
 import java.util.List;
 

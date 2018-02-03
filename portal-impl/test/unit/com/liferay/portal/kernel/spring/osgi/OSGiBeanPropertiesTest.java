@@ -578,7 +578,11 @@ public class OSGiBeanPropertiesTest {
 			new C());
 
 		Assert.assertNotNull(properties);
+<<<<<<< HEAD
 		Assert.assertFalse(properties.toString(), properties.isEmpty());
+=======
+		Assert.assertFalse(properties.isEmpty());
+>>>>>>> compatible
 		Assert.assertEquals(properties.toString(), 2, properties.size());
 		Assert.assertEquals("value1", properties.get("key1"));
 	}
@@ -610,7 +614,11 @@ public class OSGiBeanPropertiesTest {
 			new C());
 
 		Assert.assertNotNull(properties);
+<<<<<<< HEAD
 		Assert.assertFalse(properties.toString(), properties.isEmpty());
+=======
+		Assert.assertFalse(properties.isEmpty());
+>>>>>>> compatible
 		Assert.assertEquals(properties.toString(), 1, properties.size());
 		Assert.assertEquals("value", properties.get("key"));
 	}

@@ -14,7 +14,11 @@
 
 package com.liferay.document.library.kernel.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
+=======
+import com.liferay.portal.kernel.util.AutoResetThreadLocal;
+>>>>>>> compatible
 
 /**
  * @author Mika Koivisto
@@ -30,7 +34,11 @@ public class DLProcessorThreadLocal {
 	}
 
 	private static final ThreadLocal<Boolean> _enabled =
+<<<<<<< HEAD
 		new CentralizedThreadLocal<>(
+=======
+		new AutoResetThreadLocal<>(
+>>>>>>> compatible
 			DLProcessorThreadLocal.class + "._enabled", () -> Boolean.TRUE);
 
 }

@@ -116,9 +116,12 @@ if (ListUtil.isEmpty(folders) && ListUtil.isEmpty(articles)) {
 		<div class="sidebar-header">
 			<ul class="sidebar-header-actions">
 				<li>
+<<<<<<< HEAD
 					<liferay-util:include page="/subscribe.jsp" servletContext="<%= application %>" />
 				</li>
 				<li>
+=======
+>>>>>>> compatible
 					<liferay-util:include page="/article_action.jsp" servletContext="<%= application %>" />
 				</li>
 			</ul>
@@ -172,7 +175,11 @@ if (ListUtil.isEmpty(folders) && ListUtil.isEmpty(articles)) {
 			</c:if>
 
 			<div class="lfr-asset-tags">
+<<<<<<< HEAD
 				<liferay-asset:asset-tags-summary
+=======
+				<liferay-ui:asset-tags-summary
+>>>>>>> compatible
 					className="<%= JournalArticle.class.getName() %>"
 					classPK="<%= classPK %>"
 					message="tags"
@@ -191,6 +198,7 @@ if (ListUtil.isEmpty(folders) && ListUtil.isEmpty(articles)) {
 			Date reviewDate = article.getReviewDate();
 			%>
 
+<<<<<<< HEAD
 			<c:if test="<%= article.getDisplayDate() != null %>">
 				<h5><liferay-ui:message key="display-date" /></h5>
 
@@ -198,6 +206,13 @@ if (ListUtil.isEmpty(folders) && ListUtil.isEmpty(articles)) {
 					<%= dateFormatDateTime.format(article.getDisplayDate()) %>
 				</p>
 			</c:if>
+=======
+			<h5><liferay-ui:message key="display-date" /></h5>
+
+			<p>
+				<%= dateFormatDateTime.format(article.getDisplayDate()) %>
+			</p>
+>>>>>>> compatible
 
 			<h5><liferay-ui:message key="expiration-date" /></h5>
 

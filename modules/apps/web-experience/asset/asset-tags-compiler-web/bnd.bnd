@@ -1,5 +1,9 @@
 Bundle-Name: Liferay Asset Tags Compiler Web
 Bundle-SymbolicName: com.liferay.asset.tags.compiler.web
+<<<<<<< HEAD
 Bundle-Version: 2.0.7
+=======
+Bundle-Version: 2.0.3
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Asset

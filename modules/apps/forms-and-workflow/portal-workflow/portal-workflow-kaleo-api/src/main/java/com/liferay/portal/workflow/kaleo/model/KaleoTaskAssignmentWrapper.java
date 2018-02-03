@@ -67,7 +67,11 @@ public class KaleoTaskAssignmentWrapper implements KaleoTaskAssignment,
 		attributes.put("modifiedDate", getModifiedDate());
 		attributes.put("kaleoClassName", getKaleoClassName());
 		attributes.put("kaleoClassPK", getKaleoClassPK());
+<<<<<<< HEAD
 		attributes.put("kaleoDefinitionVersionId", getKaleoDefinitionVersionId());
+=======
+		attributes.put("kaleoDefinitionId", getKaleoDefinitionId());
+>>>>>>> compatible
 		attributes.put("kaleoNodeId", getKaleoNodeId());
 		attributes.put("assigneeClassName", getAssigneeClassName());
 		attributes.put("assigneeClassPK", getAssigneeClassPK());
@@ -137,11 +141,18 @@ public class KaleoTaskAssignmentWrapper implements KaleoTaskAssignment,
 			setKaleoClassPK(kaleoClassPK);
 		}
 
+<<<<<<< HEAD
 		Long kaleoDefinitionVersionId = (Long)attributes.get(
 				"kaleoDefinitionVersionId");
 
 		if (kaleoDefinitionVersionId != null) {
 			setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
+=======
+		Long kaleoDefinitionId = (Long)attributes.get("kaleoDefinitionId");
+
+		if (kaleoDefinitionId != null) {
+			setKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 		}
 
 		Long kaleoNodeId = (Long)attributes.get("kaleoNodeId");
@@ -315,6 +326,7 @@ public class KaleoTaskAssignmentWrapper implements KaleoTaskAssignment,
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns the kaleo definition version ID of this kaleo task assignment.
 	*
 	* @return the kaleo definition version ID of this kaleo task assignment
@@ -322,6 +334,15 @@ public class KaleoTaskAssignmentWrapper implements KaleoTaskAssignment,
 	@Override
 	public long getKaleoDefinitionVersionId() {
 		return _kaleoTaskAssignment.getKaleoDefinitionVersionId();
+=======
+	* Returns the kaleo definition ID of this kaleo task assignment.
+	*
+	* @return the kaleo definition ID of this kaleo task assignment
+	*/
+	@Override
+	public long getKaleoDefinitionId() {
+		return _kaleoTaskAssignment.getKaleoDefinitionId();
+>>>>>>> compatible
 	}
 
 	/**
@@ -558,6 +579,7 @@ public class KaleoTaskAssignmentWrapper implements KaleoTaskAssignment,
 	}
 
 	/**
+<<<<<<< HEAD
 	* Sets the kaleo definition version ID of this kaleo task assignment.
 	*
 	* @param kaleoDefinitionVersionId the kaleo definition version ID of this kaleo task assignment
@@ -565,6 +587,15 @@ public class KaleoTaskAssignmentWrapper implements KaleoTaskAssignment,
 	@Override
 	public void setKaleoDefinitionVersionId(long kaleoDefinitionVersionId) {
 		_kaleoTaskAssignment.setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
+=======
+	* Sets the kaleo definition ID of this kaleo task assignment.
+	*
+	* @param kaleoDefinitionId the kaleo definition ID of this kaleo task assignment
+	*/
+	@Override
+	public void setKaleoDefinitionId(long kaleoDefinitionId) {
+		_kaleoTaskAssignment.setKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 	/**

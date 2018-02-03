@@ -21,6 +21,10 @@ import com.liferay.contacts.model.Entry;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -101,7 +105,11 @@ public class EntryCacheModel implements CacheModel<Entry>, Externalizable {
 		entryImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			entryImpl.setUserName("");
+=======
+			entryImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			entryImpl.setUserName(userName);
@@ -122,21 +130,33 @@ public class EntryCacheModel implements CacheModel<Entry>, Externalizable {
 		}
 
 		if (fullName == null) {
+<<<<<<< HEAD
 			entryImpl.setFullName("");
+=======
+			entryImpl.setFullName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			entryImpl.setFullName(fullName);
 		}
 
 		if (emailAddress == null) {
+<<<<<<< HEAD
 			entryImpl.setEmailAddress("");
+=======
+			entryImpl.setEmailAddress(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			entryImpl.setEmailAddress(emailAddress);
 		}
 
 		if (comments == null) {
+<<<<<<< HEAD
 			entryImpl.setComments("");
+=======
+			entryImpl.setComments(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			entryImpl.setComments(comments);
@@ -176,7 +196,11 @@ public class EntryCacheModel implements CacheModel<Entry>, Externalizable {
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -186,21 +210,33 @@ public class EntryCacheModel implements CacheModel<Entry>, Externalizable {
 		objectOutput.writeLong(modifiedDate);
 
 		if (fullName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(fullName);
 		}
 
 		if (emailAddress == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(emailAddress);
 		}
 
 		if (comments == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(comments);

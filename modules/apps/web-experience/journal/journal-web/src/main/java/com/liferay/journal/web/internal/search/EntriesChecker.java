@@ -14,6 +14,7 @@
 
 package com.liferay.journal.web.internal.search;
 
+<<<<<<< HEAD
 import com.liferay.journal.model.JournalArticle;
 import com.liferay.journal.model.JournalFolder;
 import com.liferay.journal.service.JournalArticleLocalServiceUtil;
@@ -22,6 +23,16 @@ import com.liferay.journal.service.permission.JournalArticlePermission;
 import com.liferay.journal.service.permission.JournalFolderPermission;
 import com.liferay.journal.web.internal.display.context.JournalDisplayContext;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.journal.exception.NoSuchArticleException;
+import com.liferay.journal.model.JournalArticle;
+import com.liferay.journal.model.JournalFolder;
+import com.liferay.journal.service.JournalArticleServiceUtil;
+import com.liferay.journal.service.JournalFolderServiceUtil;
+import com.liferay.journal.service.permission.JournalArticlePermission;
+import com.liferay.journal.service.permission.JournalFolderPermission;
+import com.liferay.journal.web.internal.display.context.JournalDisplayContext;
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.search.EmptyOnClickRowChecker;
 import com.liferay.portal.kernel.dao.search.RowChecker;
 import com.liferay.portal.kernel.portlet.LiferayPortletRequest;
@@ -32,8 +43,13 @@ import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.trash.TrashHelper;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.WebKeys;
+>>>>>>> compatible
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -44,15 +60,23 @@ public class EntriesChecker extends EmptyOnClickRowChecker {
 
 	public EntriesChecker(
 		LiferayPortletRequest liferayPortletRequest,
+<<<<<<< HEAD
 		LiferayPortletResponse liferayPortletResponse,
 		TrashHelper trashHelper) {
+=======
+		LiferayPortletResponse liferayPortletResponse) {
+>>>>>>> compatible
 
 		super(liferayPortletResponse);
 
 		_journalDisplayContext = new JournalDisplayContext(
 			PortalUtil.getHttpServletRequest(liferayPortletRequest),
 			liferayPortletRequest, liferayPortletResponse,
+<<<<<<< HEAD
 			liferayPortletRequest.getPreferences(), trashHelper);
+=======
+			liferayPortletRequest.getPreferences());
+>>>>>>> compatible
 
 		_liferayPortletResponse = liferayPortletResponse;
 
@@ -85,10 +109,15 @@ public class EntriesChecker extends EmptyOnClickRowChecker {
 		ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
 			WebKeys.THEME_DISPLAY);
 
+<<<<<<< HEAD
+=======
+		JournalArticle article = null;
+>>>>>>> compatible
 		JournalFolder folder = null;
 
 		String articleId = GetterUtil.getString(primaryKey);
 
+<<<<<<< HEAD
 		JournalArticle article = JournalArticleLocalServiceUtil.fetchArticle(
 			themeDisplay.getScopeGroupId(), articleId);
 
@@ -96,6 +125,23 @@ public class EntriesChecker extends EmptyOnClickRowChecker {
 			long folderId = GetterUtil.getLong(primaryKey);
 
 			folder = JournalFolderLocalServiceUtil.fetchFolder(folderId);
+=======
+		try {
+			article = JournalArticleServiceUtil.getArticle(
+				themeDisplay.getScopeGroupId(), articleId);
+		}
+		catch (Exception e1) {
+			if (e1 instanceof NoSuchArticleException) {
+				try {
+					long folderId = GetterUtil.getLong(primaryKey);
+
+					folder = JournalFolderServiceUtil.getFolder(folderId);
+				}
+				catch (Exception e2) {
+					return StringPool.BLANK;
+				}
+			}
+>>>>>>> compatible
 		}
 
 		String name = null;
@@ -152,9 +198,14 @@ public class EntriesChecker extends EmptyOnClickRowChecker {
 
 		return getRowCheckBox(
 			request, checked, disabled,
+<<<<<<< HEAD
 			StringBundler.concat(
 				_liferayPortletResponse.getNamespace(), RowChecker.ROW_IDS,
 				name, StringPool.BLANK),
+=======
+			_liferayPortletResponse.getNamespace() + RowChecker.ROW_IDS + name +
+				"",
+>>>>>>> compatible
 			primaryKey, checkBoxRowIds, "'#" + getAllRowIds() + "'",
 			StringPool.BLANK);
 	}

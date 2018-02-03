@@ -17,8 +17,11 @@ package com.liferay.exportimport.test;
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
 import com.liferay.asset.kernel.model.AssetCategory;
 import com.liferay.asset.kernel.model.AssetVocabulary;
+<<<<<<< HEAD
 import com.liferay.asset.test.util.AssetTestUtil;
 import com.liferay.bookmarks.constants.BookmarksPortletKeys;
+=======
+>>>>>>> compatible
 import com.liferay.bookmarks.model.BookmarksEntry;
 import com.liferay.bookmarks.model.BookmarksFolder;
 import com.liferay.bookmarks.util.test.BookmarksTestUtil;
@@ -26,19 +29,31 @@ import com.liferay.exportimport.kernel.lar.ExportImportPathUtil;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.exportimport.kernel.lar.PortletDataContextFactoryUtil;
 import com.liferay.exportimport.kernel.lar.StagedModelDataHandlerUtil;
+<<<<<<< HEAD
 import com.liferay.journal.constants.JournalContentPortletKeys;
+=======
+import com.liferay.journal.content.web.constants.JournalContentPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.Portlet;
 import com.liferay.portal.kernel.service.PortletLocalServiceUtil;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.util.GetterUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.Validator;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
@@ -46,6 +61,10 @@ import com.liferay.portal.kernel.zip.ZipWriter;
 import com.liferay.portal.kernel.zip.ZipWriterFactoryUtil;
 import com.liferay.portal.service.test.ServiceTestUtil;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+<<<<<<< HEAD
+=======
+import com.liferay.portlet.asset.util.test.AssetTestUtil;
+>>>>>>> compatible
 
 import java.util.HashMap;
 import java.util.List;
@@ -61,12 +80,22 @@ import org.junit.runner.RunWith;
  * @author Mate Thurzo
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class PortletDataContextReferencesTest {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Before
 	public void setUp() throws Exception {
@@ -106,9 +135,12 @@ public class PortletDataContextReferencesTest {
 
 	@Test
 	public void testCleanUpMissingReferences() throws Exception {
+<<<<<<< HEAD
 		_portletDataContext.setPortletId(
 			JournalContentPortletKeys.JOURNAL_CONTENT);
 
+=======
+>>>>>>> compatible
 		Portlet portlet = PortletLocalServiceUtil.getPortletById(
 			JournalContentPortletKeys.JOURNAL_CONTENT);
 
@@ -128,9 +160,13 @@ public class PortletDataContextReferencesTest {
 		List<Element> missingReferenceElements =
 			missingReferencesElement.elements();
 
+<<<<<<< HEAD
 		Assert.assertFalse(
 			missingReferenceElements.toString(),
 			missingReferenceElements.isEmpty());
+=======
+		Assert.assertFalse(missingReferenceElements.isEmpty());
+>>>>>>> compatible
 		Assert.assertEquals(
 			missingReferenceElements.toString(), 1,
 			missingReferenceElements.size());
@@ -140,6 +176,7 @@ public class PortletDataContextReferencesTest {
 
 		missingReferenceElements = missingReferencesElement.elements();
 
+<<<<<<< HEAD
 		Assert.assertFalse(
 			missingReferenceElements.toString(),
 			missingReferenceElements.isEmpty());
@@ -153,12 +190,18 @@ public class PortletDataContextReferencesTest {
 		Assert.assertFalse(
 			Validator.isBlank(
 				missingReferenceElement.attributeValue("element-path")));
+=======
+		Assert.assertTrue(missingReferenceElements.isEmpty());
+>>>>>>> compatible
 	}
 
 	@Test
 	public void testMissingNotMissingReference() throws Exception {
+<<<<<<< HEAD
 		_portletDataContext.setPortletId(BookmarksPortletKeys.BOOKMARKS);
 
+=======
+>>>>>>> compatible
 		Element bookmarksEntryElement =
 			_portletDataContext.getExportDataElement(_bookmarksEntry);
 
@@ -175,6 +218,7 @@ public class PortletDataContextReferencesTest {
 		List<Element> missingReferenceElements =
 			missingReferencesElement.elements();
 
+<<<<<<< HEAD
 		Assert.assertFalse(
 			missingReferenceElements.toString(),
 			missingReferenceElements.isEmpty());
@@ -188,6 +232,11 @@ public class PortletDataContextReferencesTest {
 		Assert.assertFalse(
 			Validator.isBlank(
 				missingReferenceElement.attributeValue("element-path")));
+=======
+		Assert.assertEquals(
+			missingReferenceElements.toString(), 0,
+			missingReferenceElements.size());
+>>>>>>> compatible
 	}
 
 	@Test
@@ -221,8 +270,11 @@ public class PortletDataContextReferencesTest {
 
 	@Test
 	public void testMultipleMissingNotMissingReference() throws Exception {
+<<<<<<< HEAD
 		_portletDataContext.setPortletId(BookmarksPortletKeys.BOOKMARKS);
 
+=======
+>>>>>>> compatible
 		Element bookmarksEntryElement1 =
 			_portletDataContext.getExportDataElement(_bookmarksEntry);
 
@@ -249,6 +301,7 @@ public class PortletDataContextReferencesTest {
 		List<Element> missingReferenceElements =
 			missingReferencesElement.elements();
 
+<<<<<<< HEAD
 		Assert.assertFalse(
 			missingReferenceElements.toString(),
 			missingReferenceElements.isEmpty());
@@ -262,6 +315,11 @@ public class PortletDataContextReferencesTest {
 		Assert.assertFalse(
 			Validator.isBlank(
 				missingReferenceElement.attributeValue("element-path")));
+=======
+		Assert.assertEquals(
+			missingReferenceElements.toString(), 0,
+			missingReferenceElements.size());
+>>>>>>> compatible
 	}
 
 	@Test
@@ -284,9 +342,13 @@ public class PortletDataContextReferencesTest {
 		List<Element> missingReferenceElements =
 			missingReferencesElement.elements();
 
+<<<<<<< HEAD
 		Assert.assertFalse(
 			missingReferenceElements.toString(),
 			missingReferenceElements.isEmpty());
+=======
+		Assert.assertFalse(missingReferenceElements.isEmpty());
+>>>>>>> compatible
 		Assert.assertEquals(
 			missingReferenceElements.toString(), 1,
 			missingReferenceElements.size());
@@ -371,9 +433,13 @@ public class PortletDataContextReferencesTest {
 		List<Element> missingReferenceElements =
 			missingReferencesElement.elements();
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			missingReferenceElements.toString(),
 			missingReferenceElements.isEmpty());
+=======
+		Assert.assertTrue(missingReferenceElements.isEmpty());
+>>>>>>> compatible
 	}
 
 	@Test

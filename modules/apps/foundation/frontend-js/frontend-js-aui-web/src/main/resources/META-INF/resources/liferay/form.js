@@ -3,14 +3,20 @@ AUI.add(
 	function(A) {
 		var AArray = A.Array;
 
+<<<<<<< HEAD
 		var formConfig;
 
+=======
+>>>>>>> compatible
 		var DEFAULTS_FORM_VALIDATOR = A.config.FormValidator;
 
 		var defaultAcceptFiles = DEFAULTS_FORM_VALIDATOR.RULES.acceptFiles;
 
+<<<<<<< HEAD
 		var TABS_SECTION_STR = 'TabsSection';
 
+=======
+>>>>>>> compatible
 		var acceptFiles = function(val, node, ruleValue) {
 			if (ruleValue == '*') {
 				return true;
@@ -78,10 +84,13 @@ AUI.add(
 
 							return instance._onSubmit;
 						}
+<<<<<<< HEAD
 					},
 					validateOnBlur: {
 						validator: A.Lang.isBoolean,
 						value: true
+=======
+>>>>>>> compatible
 					}
 				},
 
@@ -102,6 +111,7 @@ AUI.add(
 						if (formNode) {
 							var formValidator = new A.FormValidator(
 								{
+<<<<<<< HEAD
 									boundingBox: formNode,
 									validateOnBlur: instance.get('validateOnBlur')
 								}
@@ -109,6 +119,11 @@ AUI.add(
 
 							A.Do.before('_focusInvalidFieldTab', formValidator, 'focusInvalidField', instance);
 
+=======
+									boundingBox: formNode
+								}
+							);
+>>>>>>> compatible
 							instance.formValidator = formValidator;
 
 							instance._processFieldRules();
@@ -213,6 +228,7 @@ AUI.add(
 						return ruleIndex;
 					},
 
+<<<<<<< HEAD
 					_focusInvalidFieldTab: function() {
 						var instance = this;
 
@@ -250,6 +266,8 @@ AUI.add(
 						}
 					},
 
+=======
+>>>>>>> compatible
 					_onEditorBlur: function(event) {
 						var instance = this;
 
@@ -380,8 +398,11 @@ AUI.add(
 				register: function(config) {
 					var instance = this;
 
+<<<<<<< HEAD
 					formConfig = config;
 
+=======
+>>>>>>> compatible
 					var form = new Liferay.Form(config);
 
 					var formName = config.id || config.namespace;

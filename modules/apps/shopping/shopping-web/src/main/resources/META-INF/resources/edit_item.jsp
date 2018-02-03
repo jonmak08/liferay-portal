@@ -450,15 +450,22 @@ renderResponse.setTitle(((item == null) ? LanguageUtil.get(request, "new-item") 
 			<aui:button onClick='<%= renderResponse.getNamespace() + "addPrice();" %>' value="add-price" />
 		</aui:fieldset>
 
+<<<<<<< HEAD
 		<%
 		ShoppingFileUploadsConfiguration shoppingFileUploadsConfiguration = (ShoppingFileUploadsConfiguration)GetterUtil.getObject(renderRequest.getAttribute(ShoppingFileUploadsConfiguration.class.getName()));
 		%>
 
+=======
+>>>>>>> compatible
 		<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="images">
 			<liferay-ui:error exception="<%= ItemLargeImageNameException.class %>">
 
 				<%
+<<<<<<< HEAD
 				String[] imageExtensions = shoppingFileUploadsConfiguration.imageExtensions();
+=======
+				String[] imageExtensions = PrefsPropsUtil.getStringArray(PropsKeys.SHOPPING_IMAGE_EXTENSIONS, StringPool.COMMA);
+>>>>>>> compatible
 				%>
 
 				<liferay-ui:message key="image-names-must-end-with-one-of-the-following-extensions" /> <%= StringUtil.merge(imageExtensions, ", ") %>.
@@ -467,7 +474,11 @@ renderResponse.setTitle(((item == null) ? LanguageUtil.get(request, "new-item") 
 			<liferay-ui:error exception="<%= ItemLargeImageSizeException.class %>">
 
 				<%
+<<<<<<< HEAD
 				long imageMaxSize = shoppingFileUploadsConfiguration.largeImageMaxSize();
+=======
+				long imageMaxSize = PrefsPropsUtil.getLong(PropsKeys.SHOPPING_IMAGE_LARGE_MAX_SIZE);
+>>>>>>> compatible
 				%>
 
 				<liferay-ui:message arguments="<%= TextFormatter.formatStorageSize(imageMaxSize, locale) %>" key="please-enter-a-file-with-a-valid-file-size-no-larger-than-x" translateArguments="<%= false %>" />
@@ -476,7 +487,11 @@ renderResponse.setTitle(((item == null) ? LanguageUtil.get(request, "new-item") 
 			<liferay-ui:error exception="<%= ItemMediumImageNameException.class %>">
 
 				<%
+<<<<<<< HEAD
 				String[] imageExtensions = shoppingFileUploadsConfiguration.imageExtensions();
+=======
+				String[] imageExtensions = PrefsPropsUtil.getStringArray(PropsKeys.SHOPPING_IMAGE_EXTENSIONS, StringPool.COMMA);
+>>>>>>> compatible
 				%>
 
 				<liferay-ui:message key="image-names-must-end-with-one-of-the-following-extensions" /> <%= StringUtil.merge(imageExtensions, ", ") %>.
@@ -485,7 +500,11 @@ renderResponse.setTitle(((item == null) ? LanguageUtil.get(request, "new-item") 
 			<liferay-ui:error exception="<%= ItemMediumImageSizeException.class %>">
 
 				<%
+<<<<<<< HEAD
 				long imageMaxSize = shoppingFileUploadsConfiguration.mediumImageMaxSize();
+=======
+				long imageMaxSize = PrefsPropsUtil.getLong(PropsKeys.SHOPPING_IMAGE_MEDIUM_MAX_SIZE);
+>>>>>>> compatible
 				%>
 
 				<liferay-ui:message arguments="<%= TextFormatter.formatStorageSize(imageMaxSize, locale) %>" key="please-enter-a-file-with-a-valid-file-size-no-larger-than-x" translateArguments="<%= false %>" />
@@ -494,7 +513,11 @@ renderResponse.setTitle(((item == null) ? LanguageUtil.get(request, "new-item") 
 			<liferay-ui:error exception="<%= ItemSmallImageNameException.class %>">
 
 				<%
+<<<<<<< HEAD
 				String[] imageExtensions = shoppingFileUploadsConfiguration.imageExtensions();
+=======
+				String[] imageExtensions = PrefsPropsUtil.getStringArray(PropsKeys.SHOPPING_IMAGE_EXTENSIONS, StringPool.COMMA);
+>>>>>>> compatible
 				%>
 
 				<liferay-ui:message key="image-names-must-end-with-one-of-the-following-extensions" /> <%= StringUtil.merge(imageExtensions, ", ") %>.
@@ -503,7 +526,11 @@ renderResponse.setTitle(((item == null) ? LanguageUtil.get(request, "new-item") 
 			<liferay-ui:error exception="<%= ItemSmallImageSizeException.class %>">
 
 				<%
+<<<<<<< HEAD
 				long imageMaxSize = shoppingFileUploadsConfiguration.smallImageMaxSize();
+=======
+				long imageMaxSize = PrefsPropsUtil.getLong(PropsKeys.SHOPPING_IMAGE_SMALL_MAX_SIZE);
+>>>>>>> compatible
 				%>
 
 				<liferay-ui:message arguments="<%= TextFormatter.formatStorageSize(imageMaxSize, locale) %>" key="please-enter-a-file-with-a-valid-file-size-no-larger-than-x" translateArguments="<%= false %>" />
@@ -536,9 +563,15 @@ renderResponse.setTitle(((item == null) ? LanguageUtil.get(request, "new-item") 
 	</aui:fieldset-group>
 
 	<aui:button-row>
+<<<<<<< HEAD
 		<aui:button type="submit" />
 
 		<aui:button href="<%= redirect %>" type="cancel" />
+=======
+		<aui:button cssClass="btn-lg" type="submit" />
+
+		<aui:button cssClass="btn-lg" href="<%= redirect %>" type="cancel" />
+>>>>>>> compatible
 	</aui:button-row>
 </aui:form>
 

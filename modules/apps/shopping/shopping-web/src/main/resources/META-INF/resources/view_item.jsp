@@ -166,7 +166,11 @@ renderResponse.setTitle(item.getName());
 	</aui:fieldset-group>
 
 	<aui:button-row>
+<<<<<<< HEAD
 		<aui:button onClick='<%= renderResponse.getNamespace() + "addToCart();" %>' primary="<%= true %>" value="add-to-shopping-cart" />
+=======
+		<aui:button cssClass="btn-lg" onClick='<%= renderResponse.getNamespace() + "addToCart();" %>' primary="<%= true %>" value="add-to-shopping-cart" />
+>>>>>>> compatible
 	</aui:button-row>
 </aui:form>
 

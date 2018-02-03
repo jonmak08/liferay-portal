@@ -14,7 +14,10 @@
 
 package com.liferay.portal.security.ldap.internal.model.listener;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.exception.ModelListenerException;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Contact;
@@ -38,12 +41,20 @@ import org.osgi.service.component.annotations.ReferencePolicyOption;
 public class ContactModelListener extends BaseLDAPExportModelListener<Contact> {
 
 	@Override
+<<<<<<< HEAD
 	public void onAfterCreate(Contact contact) throws ModelListenerException {
+=======
+	public void onAfterCreate(Contact contact) {
+>>>>>>> compatible
 		try {
 			exportToLDAP(contact);
 		}
 		catch (Exception e) {
+<<<<<<< HEAD
 			throw new ModelListenerException(
+=======
+			_log.error(
+>>>>>>> compatible
 				"Unable to export contact with user ID " + contact.getUserId() +
 					" to LDAP on after create",
 				e);
@@ -51,12 +62,20 @@ public class ContactModelListener extends BaseLDAPExportModelListener<Contact> {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void onAfterUpdate(Contact contact) throws ModelListenerException {
+=======
+	public void onAfterUpdate(Contact contact) {
+>>>>>>> compatible
 		try {
 			exportToLDAP(contact);
 		}
 		catch (Exception e) {
+<<<<<<< HEAD
 			throw new ModelListenerException(
+=======
+			_log.error(
+>>>>>>> compatible
 				"Unable to export contact with user ID " + contact.getUserId() +
 					" to LDAP on after update",
 				e);

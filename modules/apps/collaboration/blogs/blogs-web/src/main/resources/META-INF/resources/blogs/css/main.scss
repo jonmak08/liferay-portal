@@ -120,6 +120,13 @@
 				}
 			}
 
+<<<<<<< HEAD
+=======
+			.taglib-flags {
+				vertical-align: middle;
+			}
+
+>>>>>>> compatible
 			.taglib-social-bookmarks {
 				display: inline-block;
 				margin-top: 5px;
@@ -265,6 +272,7 @@
 		}
 	}
 
+<<<<<<< HEAD
 	.info-bar-container.affix + .entry-body {
 		margin-top: 47px;
 
@@ -273,6 +281,8 @@
 		}
 	}
 
+=======
+>>>>>>> compatible
 	.nameplate-content {
 		padding-left: 0;
 		vertical-align: middle;
@@ -397,6 +407,7 @@
 	.separator {
 		border-color: transparent;
 	}
+<<<<<<< HEAD
 
 	.reading-time:before {
 		content: " - "
@@ -405,4 +416,6 @@
 	:empty + .reading-time-wrapper > .reading-time:before {
 		content: ""
 	}
+=======
+>>>>>>> compatible
 }

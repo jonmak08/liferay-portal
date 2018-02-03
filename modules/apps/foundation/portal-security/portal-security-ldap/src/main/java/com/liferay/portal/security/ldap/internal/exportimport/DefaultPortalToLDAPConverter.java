@@ -16,7 +16,10 @@ package com.liferay.portal.security.ldap.internal.exportimport;
 
 import com.liferay.expando.kernel.model.ExpandoBridge;
 import com.liferay.expando.kernel.util.ExpandoConverterUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.bean.BeanPropertiesUtil;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
@@ -34,6 +37,10 @@ import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.Props;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.security.exportimport.UserOperation;
 import com.liferay.portal.security.ldap.GroupConverterKeys;
@@ -494,9 +501,14 @@ public class DefaultPortalToLDAPConverter implements PortalToLDAPConverter {
 			catch (Exception e) {
 				if (_log.isWarnEnabled()) {
 					_log.warn(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"Unable to map field ", fieldName, " to class ",
 							String.valueOf(object.getClass())),
+=======
+						"Unable to map field " + fieldName + " to class " +
+							object.getClass(),
+>>>>>>> compatible
 						e);
 				}
 			}
@@ -574,9 +586,14 @@ public class DefaultPortalToLDAPConverter implements PortalToLDAPConverter {
 			catch (Exception e) {
 				if (_log.isWarnEnabled()) {
 					_log.warn(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"Unable to map field ", fieldName, " to class ",
 							String.valueOf(object.getClass())),
+=======
+						"Unable to map field " + fieldName + " to class " +
+							object.getClass(),
+>>>>>>> compatible
 						e);
 				}
 			}

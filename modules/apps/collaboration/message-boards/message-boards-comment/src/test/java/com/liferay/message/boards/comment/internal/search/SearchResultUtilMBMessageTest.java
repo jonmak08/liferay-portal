@@ -103,9 +103,13 @@ public class SearchResultUtilMBMessageTest
 		List<RelatedSearchResult<Comment>> commentRelatedSearchResults =
 			searchResult.getCommentRelatedSearchResults();
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			commentRelatedSearchResults.toString(),
 			commentRelatedSearchResults.isEmpty());
+=======
+		Assert.assertTrue(commentRelatedSearchResults.isEmpty());
+>>>>>>> compatible
 
 		verifyZeroInteractions(_mbMessageLocalService);
 

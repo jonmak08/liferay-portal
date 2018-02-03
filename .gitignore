@@ -13,7 +13,10 @@
 *~
 .ant-targets-build.xml
 .ant_targets
+<<<<<<< HEAD
 .eslintrc
+=======
+>>>>>>> compatible
 .gh.json
 .sass-cache
 .sass_cache_*.css
@@ -44,7 +47,10 @@
 /dist
 /intellij
 /jacoco
+<<<<<<< HEAD
 /modules/.releng/private
+=======
+>>>>>>> compatible
 /modules/private
 /nbproject/private
 /out

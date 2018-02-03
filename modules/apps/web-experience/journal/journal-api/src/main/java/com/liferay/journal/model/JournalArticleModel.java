@@ -19,10 +19,18 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.expando.kernel.model.ExpandoBridge;
 
 import com.liferay.portal.kernel.bean.AutoEscape;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.exception.LocaleException;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.AttachedModel;
 import com.liferay.portal.kernel.model.BaseModel;
 import com.liferay.portal.kernel.model.CacheModel;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.model.LocalizedModel;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.ResourcedModel;
 import com.liferay.portal.kernel.model.ShardedModel;
 import com.liferay.portal.kernel.model.StagedGroupedModel;
@@ -33,6 +41,11 @@ import com.liferay.portal.kernel.service.ServiceContext;
 import java.io.Serializable;
 
 import java.util.Date;
+<<<<<<< HEAD
+=======
+import java.util.Locale;
+import java.util.Map;
+>>>>>>> compatible
 
 /**
  * The base model interface for the JournalArticle service. Represents a row in the &quot;JournalArticle&quot; database table, with each column mapped to a property of this class.
@@ -49,8 +62,13 @@ import java.util.Date;
  */
 @ProviderType
 public interface JournalArticleModel extends AttachedModel,
+<<<<<<< HEAD
 	BaseModel<JournalArticle>, ResourcedModel, ShardedModel, StagedGroupedModel,
 	TrashedModel, WorkflowedModel {
+=======
+	BaseModel<JournalArticle>, LocalizedModel, ResourcedModel, ShardedModel,
+	StagedGroupedModel, TrashedModel, WorkflowedModel {
+>>>>>>> compatible
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
@@ -335,6 +353,108 @@ public interface JournalArticleModel extends AttachedModel,
 	public void setVersion(double version);
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Returns the title of this journal article.
+	 *
+	 * @return the title of this journal article
+	 */
+	public String getTitle();
+
+	/**
+	 * Returns the localized title of this journal article in the language. Uses the default language if no localization exists for the requested language.
+	 *
+	 * @param locale the locale of the language
+	 * @return the localized title of this journal article
+	 */
+	@AutoEscape
+	public String getTitle(Locale locale);
+
+	/**
+	 * Returns the localized title of this journal article in the language, optionally using the default language if no localization exists for the requested language.
+	 *
+	 * @param locale the local of the language
+	 * @param useDefault whether to use the default language if no localization exists for the requested language
+	 * @return the localized title of this journal article. If <code>useDefault</code> is <code>false</code> and no localization exists for the requested language, an empty string will be returned.
+	 */
+	@AutoEscape
+	public String getTitle(Locale locale, boolean useDefault);
+
+	/**
+	 * Returns the localized title of this journal article in the language. Uses the default language if no localization exists for the requested language.
+	 *
+	 * @param languageId the ID of the language
+	 * @return the localized title of this journal article
+	 */
+	@AutoEscape
+	public String getTitle(String languageId);
+
+	/**
+	 * Returns the localized title of this journal article in the language, optionally using the default language if no localization exists for the requested language.
+	 *
+	 * @param languageId the ID of the language
+	 * @param useDefault whether to use the default language if no localization exists for the requested language
+	 * @return the localized title of this journal article
+	 */
+	@AutoEscape
+	public String getTitle(String languageId, boolean useDefault);
+
+	@AutoEscape
+	public String getTitleCurrentLanguageId();
+
+	@AutoEscape
+	public String getTitleCurrentValue();
+
+	/**
+	 * Returns a map of the locales and localized titles of this journal article.
+	 *
+	 * @return the locales and localized titles of this journal article
+	 */
+	public Map<Locale, String> getTitleMap();
+
+	/**
+	 * Sets the title of this journal article.
+	 *
+	 * @param title the title of this journal article
+	 */
+	public void setTitle(String title);
+
+	/**
+	 * Sets the localized title of this journal article in the language.
+	 *
+	 * @param title the localized title of this journal article
+	 * @param locale the locale of the language
+	 */
+	public void setTitle(String title, Locale locale);
+
+	/**
+	 * Sets the localized title of this journal article in the language, and sets the default locale.
+	 *
+	 * @param title the localized title of this journal article
+	 * @param locale the locale of the language
+	 * @param defaultLocale the default locale
+	 */
+	public void setTitle(String title, Locale locale, Locale defaultLocale);
+
+	public void setTitleCurrentLanguageId(String languageId);
+
+	/**
+	 * Sets the localized titles of this journal article from the map of locales and localized titles.
+	 *
+	 * @param titleMap the locales and localized titles of this journal article
+	 */
+	public void setTitleMap(Map<Locale, String> titleMap);
+
+	/**
+	 * Sets the localized titles of this journal article from the map of locales and localized titles, and sets the default locale.
+	 *
+	 * @param titleMap the locales and localized titles of this journal article
+	 * @param defaultLocale the default locale
+	 */
+	public void setTitleMap(Map<Locale, String> titleMap, Locale defaultLocale);
+
+	/**
+>>>>>>> compatible
 	 * Returns the url title of this journal article.
 	 *
 	 * @return the url title of this journal article
@@ -350,6 +470,110 @@ public interface JournalArticleModel extends AttachedModel,
 	public void setUrlTitle(String urlTitle);
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Returns the description of this journal article.
+	 *
+	 * @return the description of this journal article
+	 */
+	public String getDescription();
+
+	/**
+	 * Returns the localized description of this journal article in the language. Uses the default language if no localization exists for the requested language.
+	 *
+	 * @param locale the locale of the language
+	 * @return the localized description of this journal article
+	 */
+	@AutoEscape
+	public String getDescription(Locale locale);
+
+	/**
+	 * Returns the localized description of this journal article in the language, optionally using the default language if no localization exists for the requested language.
+	 *
+	 * @param locale the local of the language
+	 * @param useDefault whether to use the default language if no localization exists for the requested language
+	 * @return the localized description of this journal article. If <code>useDefault</code> is <code>false</code> and no localization exists for the requested language, an empty string will be returned.
+	 */
+	@AutoEscape
+	public String getDescription(Locale locale, boolean useDefault);
+
+	/**
+	 * Returns the localized description of this journal article in the language. Uses the default language if no localization exists for the requested language.
+	 *
+	 * @param languageId the ID of the language
+	 * @return the localized description of this journal article
+	 */
+	@AutoEscape
+	public String getDescription(String languageId);
+
+	/**
+	 * Returns the localized description of this journal article in the language, optionally using the default language if no localization exists for the requested language.
+	 *
+	 * @param languageId the ID of the language
+	 * @param useDefault whether to use the default language if no localization exists for the requested language
+	 * @return the localized description of this journal article
+	 */
+	@AutoEscape
+	public String getDescription(String languageId, boolean useDefault);
+
+	@AutoEscape
+	public String getDescriptionCurrentLanguageId();
+
+	@AutoEscape
+	public String getDescriptionCurrentValue();
+
+	/**
+	 * Returns a map of the locales and localized descriptions of this journal article.
+	 *
+	 * @return the locales and localized descriptions of this journal article
+	 */
+	public Map<Locale, String> getDescriptionMap();
+
+	/**
+	 * Sets the description of this journal article.
+	 *
+	 * @param description the description of this journal article
+	 */
+	public void setDescription(String description);
+
+	/**
+	 * Sets the localized description of this journal article in the language.
+	 *
+	 * @param description the localized description of this journal article
+	 * @param locale the locale of the language
+	 */
+	public void setDescription(String description, Locale locale);
+
+	/**
+	 * Sets the localized description of this journal article in the language, and sets the default locale.
+	 *
+	 * @param description the localized description of this journal article
+	 * @param locale the locale of the language
+	 * @param defaultLocale the default locale
+	 */
+	public void setDescription(String description, Locale locale,
+		Locale defaultLocale);
+
+	public void setDescriptionCurrentLanguageId(String languageId);
+
+	/**
+	 * Sets the localized descriptions of this journal article from the map of locales and localized descriptions.
+	 *
+	 * @param descriptionMap the locales and localized descriptions of this journal article
+	 */
+	public void setDescriptionMap(Map<Locale, String> descriptionMap);
+
+	/**
+	 * Sets the localized descriptions of this journal article from the map of locales and localized descriptions, and sets the default locale.
+	 *
+	 * @param descriptionMap the locales and localized descriptions of this journal article
+	 * @param defaultLocale the default locale
+	 */
+	public void setDescriptionMap(Map<Locale, String> descriptionMap,
+		Locale defaultLocale);
+
+	/**
+>>>>>>> compatible
 	 * Returns the content of this journal article.
 	 *
 	 * @return the content of this journal article
@@ -395,6 +619,7 @@ public interface JournalArticleModel extends AttachedModel,
 	public void setDDMTemplateKey(String DDMTemplateKey);
 
 	/**
+<<<<<<< HEAD
 	 * Returns the default language ID of this journal article.
 	 *
 	 * @return the default language ID of this journal article
@@ -410,6 +635,8 @@ public interface JournalArticleModel extends AttachedModel,
 	public void setDefaultLanguageId(String defaultLanguageId);
 
 	/**
+=======
+>>>>>>> compatible
 	 * Returns the layout uuid of this journal article.
 	 *
 	 * @return the layout uuid of this journal article
@@ -781,6 +1008,22 @@ public interface JournalArticleModel extends AttachedModel,
 	public void setExpandoBridgeAttributes(ServiceContext serviceContext);
 
 	@Override
+<<<<<<< HEAD
+=======
+	public String[] getAvailableLanguageIds();
+
+	@Override
+	public String getDefaultLanguageId();
+
+	@Override
+	public void prepareLocalizedFieldsForImport() throws LocaleException;
+
+	@Override
+	public void prepareLocalizedFieldsForImport(Locale defaultImportLocale)
+		throws LocaleException;
+
+	@Override
+>>>>>>> compatible
 	public Object clone();
 
 	@Override

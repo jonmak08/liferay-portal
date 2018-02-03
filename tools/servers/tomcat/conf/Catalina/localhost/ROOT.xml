@@ -24,8 +24,13 @@
 
 	<Resources>
 		<PreResources
+<<<<<<< HEAD
 			base="${catalina.base}/lib/ext/portal"
 			className="com.liferay.support.tomcat.webresources.ExtResourceSet"
+=======
+			className="com.liferay.support.tomcat.webresources.ExtResourceSet"
+			base="${catalina.base}/lib/ext/portal"
+>>>>>>> compatible
 			webAppMount="/WEB-INF/lib"
 		/>
 	</Resources>

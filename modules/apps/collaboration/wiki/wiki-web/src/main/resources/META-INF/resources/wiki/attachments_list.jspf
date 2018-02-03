@@ -40,7 +40,11 @@
 		<liferay-ui:search-container-column-text
 			href="<%= rowURL %>"
 			name="file-name"
+<<<<<<< HEAD
 			value="<%= fileEntry.isInTrash() ? trashHelper.getOriginalTitle(fileEntry.getTitle()) : fileEntry.getTitle() %>"
+=======
+			value="<%= fileEntry.isInTrash() ? TrashUtil.getOriginalTitle(fileEntry.getTitle()) : fileEntry.getTitle() %>"
+>>>>>>> compatible
 		/>
 
 		<liferay-ui:search-container-column-text

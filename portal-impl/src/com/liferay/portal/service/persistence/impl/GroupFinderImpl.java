@@ -28,6 +28,10 @@ import com.liferay.portal.kernel.model.ResourceAction;
 import com.liferay.portal.kernel.security.permission.RolePermissions;
 import com.liferay.portal.kernel.service.ClassNameLocalServiceUtil;
 import com.liferay.portal.kernel.service.ResourceActionLocalServiceUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.service.ResourceBlockLocalServiceUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.persistence.GroupFinder;
 import com.liferay.portal.kernel.service.persistence.GroupUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
@@ -69,9 +73,12 @@ public class GroupFinderImpl
 	public static final String COUNT_BY_C_PG_N_D =
 		GroupFinder.class.getName() + ".countByC_PG_N_D";
 
+<<<<<<< HEAD
 	public static final String FIND_BY_ACTIVE_GROUPS =
 		GroupFinder.class.getName() + ".findByActiveGroups";
 
+=======
+>>>>>>> compatible
 	public static final String FIND_BY_COMPANY_ID =
 		GroupFinder.class.getName() + ".findByCompanyId";
 
@@ -346,6 +353,150 @@ public class GroupFinderImpl
 		}
 	}
 
+<<<<<<< HEAD
+=======
+	@Override
+	public List<Group> findByCompanyId(
+		long companyId, LinkedHashMap<String, Object> params, int start,
+		int end, OrderByComparator<Group> obc) {
+
+		if (params == null) {
+			params = _emptyLinkedHashMap;
+		}
+
+		LinkedHashMap<String, Object> params1 = params;
+
+		LinkedHashMap<String, Object> params2 = null;
+
+		LinkedHashMap<String, Object> params3 = null;
+
+		LinkedHashMap<String, Object> params4 = null;
+
+		Long userId = (Long)params.get("usersGroups");
+		boolean inherit = GetterUtil.getBoolean(params.get("inherit"), true);
+
+		boolean doUnion = false;
+
+		if (Validator.isNotNull(userId) && inherit) {
+			doUnion = true;
+		}
+
+		if (doUnion) {
+			params2 = new LinkedHashMap<>(params1);
+			params3 = new LinkedHashMap<>(params1);
+			params4 = new LinkedHashMap<>(params1);
+
+			_populateUnionParams(
+				userId, null, params1, params2, params3, params4);
+		}
+		else {
+			params1.put("classNameIds", _getGroupOrganizationClassNameIds());
+		}
+
+		String sqlKey = _buildSQLCacheKey(
+			obc, params1, params2, params3, params4);
+
+		String sql = _findByCompanyIdSQLCache.get(sqlKey);
+
+		if (sql == null) {
+			String findByCompanyIdSQL = CustomSQLUtil.get(FIND_BY_COMPANY_ID);
+
+			if (params.get("active") == Boolean.TRUE) {
+				findByCompanyIdSQL = StringUtil.replace(
+					findByCompanyIdSQL, "(Group_.liveGroupId = 0) AND",
+					StringPool.BLANK);
+			}
+
+			findByCompanyIdSQL = replaceOrderBy(findByCompanyIdSQL, obc);
+
+			StringBundler sb = new StringBundler(9);
+
+			sb.append(StringPool.OPEN_PARENTHESIS);
+			sb.append(replaceJoinAndWhere(findByCompanyIdSQL, params1));
+
+			if (doUnion) {
+				sb.append(") UNION (");
+				sb.append(replaceJoinAndWhere(findByCompanyIdSQL, params2));
+				sb.append(") UNION (");
+				sb.append(replaceJoinAndWhere(findByCompanyIdSQL, params3));
+				sb.append(") UNION (");
+				sb.append(replaceJoinAndWhere(findByCompanyIdSQL, params4));
+			}
+
+			sb.append(StringPool.CLOSE_PARENTHESIS);
+
+			if (obc != null) {
+				sb.append(" ORDER BY ");
+				sb.append(obc.toString());
+			}
+
+			sql = sb.toString();
+
+			_findByCompanyIdSQLCache.put(sqlKey, sql);
+		}
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			SQLQuery q = session.createSynchronizedSQLQuery(sql);
+
+			q.addScalar("groupId", Type.LONG);
+
+			QueryPos qPos = QueryPos.getInstance(q);
+
+			setJoin(qPos, params1);
+
+			qPos.add(companyId);
+
+			if (doUnion) {
+				setJoin(qPos, params2);
+
+				qPos.add(companyId);
+
+				setJoin(qPos, params3);
+
+				qPos.add(companyId);
+
+				setJoin(qPos, params4);
+
+				qPos.add(companyId);
+			}
+
+			List<Long> groupIds = (List<Long>)QueryUtil.list(
+				q, getDialect(), start, end);
+
+			List<Group> groups = new ArrayList<>(groupIds.size());
+
+			for (Long groupId : groupIds) {
+				Group group = GroupUtil.findByPrimaryKey(groupId);
+
+				groups.add(group);
+			}
+
+			return groups;
+		}
+		catch (Exception e) {
+			throw new SystemException(e);
+		}
+		finally {
+			closeSession(session);
+		}
+	}
+
+	/**
+	 * @deprecated As of 7.0.0
+	 */
+	@Deprecated
+	@Override
+	public List<Group> findByLayouts(
+		long companyId, long parentGroupId, boolean site, int start, int end) {
+
+		return findByLayouts(companyId, parentGroupId, site, start, end, null);
+	}
+
+>>>>>>> compatible
 	@Override
 	public List<Long> findByActiveGroupIds(long userId) {
 		Session session = null;
@@ -624,6 +775,7 @@ public class GroupFinderImpl
 	}
 
 	@Override
+<<<<<<< HEAD
 	public List<Group> findByNullFriendlyURL() {
 		Session session = null;
 
@@ -674,6 +826,8 @@ public class GroupFinderImpl
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public List<Long> findByC_P(
 		long companyId, long parentGroupId, long previousGroupId, int size) {
 
@@ -1060,7 +1214,20 @@ public class GroupFinderImpl
 			}
 
 			if (key.equals("rolePermissions")) {
+<<<<<<< HEAD
 				key = "rolePermissions_6";
+=======
+				RolePermissions rolePermissions = (RolePermissions)value;
+
+				if (ResourceBlockLocalServiceUtil.isSupported(
+						rolePermissions.getName())) {
+
+					key = "rolePermissions_6_block";
+				}
+				else {
+					key = "rolePermissions_6";
+				}
+>>>>>>> compatible
 			}
 
 			Map<String, String> joinMap = _getJoinMap();
@@ -1145,7 +1312,21 @@ public class GroupFinderImpl
 			}
 			else {
 				if (key.equals("rolePermissions")) {
+<<<<<<< HEAD
 					key = "rolePermissions_6";
+=======
+					RolePermissions rolePermissions =
+						(RolePermissions)entry.getValue();
+
+					if (ResourceBlockLocalServiceUtil.isSupported(
+							rolePermissions.getName())) {
+
+						key = "rolePermissions_6_block";
+					}
+					else {
+						key = "rolePermissions_6";
+					}
+>>>>>>> compatible
 				}
 
 				Map<String, String> whereMap = _getWhereMap();
@@ -1259,11 +1440,29 @@ public class GroupFinderImpl
 						rolePermissions.getName(),
 						rolePermissions.getActionId());
 
+<<<<<<< HEAD
 				qPos.add(rolePermissions.getName());
 				qPos.add(rolePermissions.getScope());
 				qPos.add(rolePermissions.getRoleId());
 
 				qPos.add(resourceAction.getBitwiseValue());
+=======
+				if (ResourceBlockLocalServiceUtil.isSupported(
+						rolePermissions.getName())) {
+
+					// Scope is assumed to always be group
+
+					qPos.add(rolePermissions.getName());
+					qPos.add(rolePermissions.getRoleId());
+					qPos.add(resourceAction.getBitwiseValue());
+				}
+				else {
+					qPos.add(rolePermissions.getName());
+					qPos.add(rolePermissions.getScope());
+					qPos.add(rolePermissions.getRoleId());
+					qPos.add(resourceAction.getBitwiseValue());
+				}
+>>>>>>> compatible
 			}
 			else if (key.equals("types")) {
 				List<Integer> values = (List<Integer>)entry.getValue();
@@ -1333,9 +1532,27 @@ public class GroupFinderImpl
 		}
 
 		StringBundler sb = new StringBundler(size);
+<<<<<<< HEAD
+=======
 
 		sb.append(sql);
 
+		for (Map<String, Object> param : params) {
+			if (param == null) {
+				continue;
+			}
+
+			for (Map.Entry<String, Object> entry : param.entrySet()) {
+				sb.append(StringPool.COMMA);
+
+				String key = entry.getKey();
+>>>>>>> compatible
+
+				if (key.equals("rolePermissions")) {
+					RolePermissions rolePermissions =
+						(RolePermissions)entry.getValue();
+
+<<<<<<< HEAD
 		for (Map<String, Object> param : params) {
 			if (param == null) {
 				continue;
@@ -1353,12 +1570,28 @@ public class GroupFinderImpl
 				sb.append(key);
 				sb.append(StringPool.DASH);
 
+=======
+					if (ResourceBlockLocalServiceUtil.isSupported(
+							rolePermissions.getName())) {
+
+						key = "rolePermissions_6_block";
+					}
+					else {
+						key = "rolePermissions_6";
+					}
+				}
+
+				sb.append(key);
+				sb.append(StringPool.DASH);
+
+>>>>>>> compatible
 				Object value = entry.getValue();
 
 				if (value instanceof long[]) {
 					long[] values = (long[])value;
 
 					sb.append(values.length);
+<<<<<<< HEAD
 				}
 				else if (value instanceof Collection<?>) {
 					Collection<?> values = (Collection<?>)value;
@@ -1366,6 +1599,15 @@ public class GroupFinderImpl
 					sb.append(values.size());
 				}
 
+=======
+				}
+				else if (value instanceof Collection<?>) {
+					Collection<?> values = (Collection<?>)value;
+
+					sb.append(values.size());
+				}
+
+>>>>>>> compatible
 				sb.append(StringPool.COMMA);
 			}
 		}
@@ -1541,7 +1783,11 @@ public class GroupFinderImpl
 		if (classNameIds == null) {
 			params1.put("classNameIds", groupOrganizationClassNameIds);
 			params2.put("classNameIds", organizationClassNameId);
+<<<<<<< HEAD
 			params3.put("classNameIds", groupOrganizationClassNameIds);
+=======
+			params3.put("classNameIds", groupClassNameId);
+>>>>>>> compatible
 			params4.put("classNameIds", groupOrganizationClassNameIds);
 		}
 		else {
@@ -1587,6 +1833,7 @@ public class GroupFinderImpl
 	private volatile Map<String, String> _joinMap;
 	private final Map<String, String> _replaceJoinAndWhereSQLCache =
 		new ConcurrentHashMap<>();
+	private volatile Long _userGroupClassNameId;
 	private volatile Map<String, String> _whereMap;
 
 }

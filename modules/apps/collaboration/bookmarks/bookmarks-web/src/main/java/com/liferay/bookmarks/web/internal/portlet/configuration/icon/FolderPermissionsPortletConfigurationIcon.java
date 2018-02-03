@@ -16,8 +16,13 @@ package com.liferay.bookmarks.web.internal.portlet.configuration.icon;
 
 import com.liferay.bookmarks.constants.BookmarksPortletKeys;
 import com.liferay.bookmarks.model.BookmarksFolder;
+<<<<<<< HEAD
 import com.liferay.bookmarks.web.internal.portlet.action.ActionUtil;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.bookmarks.service.permission.BookmarksFolderPermissionChecker;
+import com.liferay.bookmarks.web.internal.portlet.action.ActionUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.portlet.LiferayWindowState;
@@ -25,8 +30,13 @@ import com.liferay.portal.kernel.portlet.configuration.icon.BasePortletConfigura
 import com.liferay.portal.kernel.portlet.configuration.icon.PortletConfigurationIcon;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermission;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+=======
+import com.liferay.portal.kernel.theme.ThemeDisplay;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.taglib.security.PermissionsURLTag;
 
@@ -34,7 +44,10 @@ import javax.portlet.PortletRequest;
 import javax.portlet.PortletResponse;
 
 import org.osgi.service.component.annotations.Component;
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.Reference;
+=======
+>>>>>>> compatible
 
 /**
  * @author Sergio González
@@ -106,7 +119,11 @@ public class FolderPermissionsPortletConfigurationIcon
 		try {
 			BookmarksFolder folder = ActionUtil.getFolder(portletRequest);
 
+<<<<<<< HEAD
 			if (!_bookmarksFolderModelResourcePermission.contains(
+=======
+			if (!BookmarksFolderPermissionChecker.contains(
+>>>>>>> compatible
 					permissionChecker, folder, ActionKeys.PERMISSIONS)) {
 
 				return false;
@@ -129,10 +146,13 @@ public class FolderPermissionsPortletConfigurationIcon
 		return true;
 	}
 
+<<<<<<< HEAD
 	@Reference(
 		target = "(model.class.name=com.liferay.bookmarks.model.BookmarksFolder)"
 	)
 	private ModelResourcePermission<BookmarksFolder>
 		_bookmarksFolderModelResourcePermission;
 
+=======
+>>>>>>> compatible
 }

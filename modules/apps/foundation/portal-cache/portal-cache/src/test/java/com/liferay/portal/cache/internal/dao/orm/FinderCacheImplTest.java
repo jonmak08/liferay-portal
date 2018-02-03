@@ -20,14 +20,19 @@ import com.liferay.portal.kernel.cache.key.CacheKeyGenerator;
 import com.liferay.portal.kernel.cache.key.CacheKeyGeneratorUtil;
 import com.liferay.portal.kernel.dao.orm.FinderCache;
 import com.liferay.portal.kernel.dao.orm.FinderPath;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.BaseModel;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.Props;
 import com.liferay.portal.kernel.util.PropsKeys;
+=======
+import com.liferay.portal.kernel.util.Props;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.registry.BasicRegistryImpl;
 import com.liferay.registry.RegistryUtil;
 
+<<<<<<< HEAD
 import java.io.Serializable;
 
 import java.lang.reflect.Method;
@@ -39,6 +44,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+=======
+import java.util.Collections;
+>>>>>>> compatible
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -94,6 +102,7 @@ public class FinderCacheImplTest {
 	@Test
 	public void testTestKeysCollide() {
 		Assert.assertEquals(
+<<<<<<< HEAD
 			_cacheKeyGenerator.getCacheKey(_KEY1),
 			_cacheKeyGenerator.getCacheKey(_KEY2));
 	}
@@ -148,6 +157,10 @@ public class FinderCacheImplTest {
 			_finderPath, _KEY1, new TestBasePersistence(null));
 
 		Assert.assertNull(result);
+=======
+			_cacheKeyGenerator.getCacheKey(_key1),
+			_cacheKeyGenerator.getCacheKey(_key2));
+>>>>>>> compatible
 	}
 
 	private FinderCache _activateFinderCache(MultiVMPool multiVMPool) {
@@ -172,9 +185,15 @@ public class FinderCacheImplTest {
 		FinderCache finderCache = _activateFinderCache(multiVMPool);
 
 		finderCache.putResult(
+<<<<<<< HEAD
 			_finderPath, _KEY1, Collections.emptyList(), true);
 
 		Object result = finderCache.getResult(_finderPath, _KEY2, null);
+=======
+			_finderPath, _key1, Collections.emptyList(), true);
+
+		Object result = finderCache.getResult(_finderPath, _key2, null);
+>>>>>>> compatible
 
 		Assert.assertNull(result);
 	}
@@ -183,27 +202,42 @@ public class FinderCacheImplTest {
 		FinderCache finderCache = _activateFinderCache(multiVMPool);
 
 		finderCache.putResult(
+<<<<<<< HEAD
 			_finderPath, _KEY1, Collections.emptyList(), true);
 
 		Object result = finderCache.getResult(_finderPath, _KEY1, null);
+=======
+			_finderPath, _key1, Collections.emptyList(), true);
+
+		Object result = finderCache.getResult(_finderPath, _key1, null);
+>>>>>>> compatible
 
 		Assert.assertSame(Collections.emptyList(), result);
 	}
 
+<<<<<<< HEAD
 	private static final String[] _KEY1 = {"home"};
 
 	private static final String[] _KEY2 = {"j1me"};
 
+=======
+>>>>>>> compatible
 	private static final CacheKeyGenerator _cacheKeyGenerator =
 		new HashCodeHexStringCacheKeyGenerator();
 	private static final ClassLoader _classLoader =
 		FinderCacheImplTest.class.getClassLoader();
+<<<<<<< HEAD
+=======
+	private static final String[] _key1 = {"home"};
+	private static final String[] _key2 = {"j1me"};
+>>>>>>> compatible
 	private static MultiVMPool _notSerializedMultiVMPool;
 	private static Props _props;
 	private static MultiVMPool _serializedMultiVMPool;
 
 	private FinderPath _finderPath;
 
+<<<<<<< HEAD
 	private static class TestBasePersistence<T extends BaseModel<T>>
 		extends BasePersistenceImpl<T> {
 
@@ -231,4 +265,6 @@ public class FinderCacheImplTest {
 
 	}
 
+=======
+>>>>>>> compatible
 }

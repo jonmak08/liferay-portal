@@ -247,7 +247,11 @@ public class EhcachePortalCacheTest {
 		List<String> keys = _ehcachePortalCache.getKeys();
 
 		Assert.assertEquals(keys.toString(), 1, keys.size());
+<<<<<<< HEAD
 		Assert.assertTrue(keys.toString(), keys.contains(_KEY_1));
+=======
+		Assert.assertTrue(keys.contains(_KEY_1));
+>>>>>>> compatible
 	}
 
 	@Test
@@ -369,15 +373,23 @@ public class EhcachePortalCacheTest {
 		Set<CacheEventListener> cacheEventListeners =
 			registeredEventListeners.getCacheEventListeners();
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			cacheEventListeners.toString(), cacheEventListeners.isEmpty());
+=======
+		Assert.assertTrue(cacheEventListeners.isEmpty());
+>>>>>>> compatible
 
 		registeredEventListeners = ehcache2.getCacheEventNotificationService();
 
 		cacheEventListeners = registeredEventListeners.getCacheEventListeners();
 
+<<<<<<< HEAD
 		Assert.assertFalse(
 			cacheEventListeners.toString(), cacheEventListeners.isEmpty());
+=======
+		Assert.assertFalse(cacheEventListeners.isEmpty());
+>>>>>>> compatible
 	}
 
 	@Test

@@ -19,13 +19,19 @@ import com.liferay.dynamic.data.mapping.model.DDMStructure;
 import com.liferay.dynamic.data.mapping.model.DDMTemplate;
 import com.liferay.dynamic.data.mapping.model.DDMTemplateConstants;
 import com.liferay.dynamic.data.mapping.service.DDMTemplateServiceUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.security.auth.PrincipalThreadLocal;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.PermissionCheckerFactoryUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.security.permission.PermissionThreadLocal;
 import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
 import com.liferay.portal.kernel.template.TemplateConstants;
@@ -35,8 +41,15 @@ import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.test.util.UserTestUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.portal.security.permission.AdvancedPermissionChecker;
+>>>>>>> compatible
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 
 import java.util.ArrayList;
@@ -225,8 +238,12 @@ public class DDMTemplateServiceTest extends BaseDDMServiceTestCase {
 		Assert.assertEquals(templates.toString(), 3, templates.size());
 
 		for (DDMTemplate newTemplate : newTemplates) {
+<<<<<<< HEAD
 			Assert.assertTrue(
 				templates.toString(), templates.contains(newTemplate));
+=======
+			Assert.assertTrue(templates.contains(newTemplate));
+>>>>>>> compatible
 		}
 	}
 
@@ -693,7 +710,15 @@ public class DDMTemplateServiceTest extends BaseDDMServiceTestCase {
 			PermissionThreadLocal.getPermissionChecker();
 
 		PermissionThreadLocal.setPermissionChecker(
+<<<<<<< HEAD
 			PermissionCheckerFactoryUtil.create(_siteAdminUser));
+=======
+			new AdvancedPermissionChecker() {
+				{
+					init(_siteAdminUser);
+				}
+			});
+>>>>>>> compatible
 	}
 
 	protected void setUpPrincipalThreadLocal() throws Exception {

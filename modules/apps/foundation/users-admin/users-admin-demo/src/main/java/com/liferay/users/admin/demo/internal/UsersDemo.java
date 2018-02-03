@@ -14,14 +14,20 @@
 
 package com.liferay.users.admin.demo.internal;
 
+<<<<<<< HEAD
 import com.liferay.journal.constants.JournalContentPortletKeys;
 import com.liferay.journal.constants.JournalPortletKeys;
+=======
+>>>>>>> compatible
 import com.liferay.portal.instance.lifecycle.BasePortalInstanceLifecycleListener;
 import com.liferay.portal.instance.lifecycle.PortalInstanceLifecycleListener;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.model.Group;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.Portlet;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Role;
 import com.liferay.portal.kernel.model.RoleConstants;
 import com.liferay.portal.kernel.model.User;
@@ -112,6 +118,7 @@ public class UsersDemo extends BasePortalInstanceLifecycleListener {
 		_siteRoleDemoDataCreator.delete();
 	}
 
+<<<<<<< HEAD
 	@Reference(
 		target = "(javax.portlet.name=" + JournalContentPortletKeys.JOURNAL_CONTENT + ")",
 		unbind = "-"
@@ -126,6 +133,8 @@ public class UsersDemo extends BasePortalInstanceLifecycleListener {
 	protected void setJournalPortlet(Portlet portlet) {
 	}
 
+=======
+>>>>>>> compatible
 	@Reference
 	private BasicUserDemoDataCreator _basicUserDemoDataCreator;
 

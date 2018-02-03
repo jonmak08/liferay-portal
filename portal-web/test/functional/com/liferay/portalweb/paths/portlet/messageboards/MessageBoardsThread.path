@@ -30,21 +30,27 @@
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 	<td>THREAD_PUBLISH_BUTTON</td>
 	<td>//div[@class='card list-group-card panel']//button[span[contains(.,'Publish')]]</td>
 	<td></td>
 </tr>
 <tr>
+=======
+>>>>>>> compatible
 	<td>THREAD_REPLY_BUTTON</td>
 	<td>//div[@class='thread-container' and contains(.,'${key_threadSubject}')]//span[contains(.,'Reply to Main Thread')]</td>
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 	<td>THREAD_REPLY_EDITOR</td>
 	<td>//div[(contains(@id,'replyMessageBody') or contains(@id,'content')) and contains(@class,'alloy-editor-container')]//div[contains(@class,'alloy-editor-placeholder')]</td>
 	<td></td>
 </tr>
 <tr>
+=======
+>>>>>>> compatible
 	<td>THREAD_REPLY_SUBJECT</td>
 	<td>//div[contains(@class,'list-group-card') and contains(.,'${key_threadBody}')]//h4[contains(.,'${key_threadSubject}')]</td>
 	<td></td>
@@ -450,7 +456,11 @@
 </tr>
 <tr>
 	<td>MESSAGE_ATTACHMENT_IMAGE</td>
+<<<<<<< HEAD
 	<td>//li[contains(@class,'message-attachment')]//a/span[contains(.,'${key_mbThreadAttachment}')]</td>
+=======
+	<td>//div[contains(@class,'message-attachments')]//img[contains(@src,'${key_mbThreadAttachment}')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>

@@ -36,7 +36,10 @@ import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.transaction.TransactionsUtil;
 import com.liferay.portal.util.InitUtil;
+<<<<<<< HEAD
 import com.liferay.portal.util.PortalClassPathUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.util.PropsValues;
 import com.liferay.registry.Registry;
 import com.liferay.registry.RegistryUtil;
@@ -94,7 +97,10 @@ public class DBUpgrader {
 			stopWatch.start();
 
 			ClassPathUtil.initializeClassPaths(null);
+<<<<<<< HEAD
 			PortalClassPathUtil.initializeClassPaths(null);
+=======
+>>>>>>> compatible
 
 			InitUtil.initWithSpring(true, false);
 

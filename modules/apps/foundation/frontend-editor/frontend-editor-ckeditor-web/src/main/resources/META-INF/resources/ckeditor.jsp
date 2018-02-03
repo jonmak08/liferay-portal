@@ -152,8 +152,11 @@ name = HtmlUtil.escapeJS(name);
 %>
 
 <aui:script use="<%= modules %>">
+<<<<<<< HEAD
 	var UA = A.UA;
 
+=======
+>>>>>>> compatible
 	var getInitialContent = function() {
 		var data;
 
@@ -366,10 +369,15 @@ name = HtmlUtil.escapeJS(name);
 
 						var editorNode = A.one('#<%= name %>');
 
+<<<<<<< HEAD
 						if (editorNode) {
 							editorNode.removeAttribute('contenteditable');
 							editorNode.removeClass('lfr-editable');
 						}
+=======
+						editorNode.removeAttribute('contenteditable');
+						editorNode.removeClass('lfr-editable');
+>>>>>>> compatible
 					}
 				}
 			}
@@ -404,6 +412,7 @@ name = HtmlUtil.escapeJS(name);
 	var createEditor = function() {
 		var editorNode = A.one('#<%= name %>');
 
+<<<<<<< HEAD
 		if (editorNode) {
 			editorNode.attr('contenteditable', true);
 			editorNode.addClass('lfr-editable');
@@ -412,6 +421,14 @@ name = HtmlUtil.escapeJS(name);
 				A.Do.after(afterVal, editorNode, 'val', this)
 			];
 		}
+=======
+		editorNode.attr('contenteditable', true);
+		editorNode.addClass('lfr-editable');
+
+		var eventHandles = [
+			A.Do.after(afterVal, editorNode, 'val', this)
+		];
+>>>>>>> compatible
 
 		function initData() {
 			<c:if test="<%= Validator.isNotNull(initMethod) && !(inlineEdit && Validator.isNotNull(inlineEditSaveURL)) %>">
@@ -579,8 +596,11 @@ name = HtmlUtil.escapeJS(name);
 
 											window['<%= name %>'].create();
 
+<<<<<<< HEAD
 											window['<%= name %>'].setHTML(ckEditorContent);
 
+=======
+>>>>>>> compatible
 											initialEditor = CKEDITOR.instances['<%= name %>'].id;
 										}
 									}
@@ -621,6 +641,7 @@ name = HtmlUtil.escapeJS(name);
 		);
 
 		ckEditor.on('dataReady', window['<%= name %>']._setStyles);
+<<<<<<< HEAD
 
 		if (UA.edge && parseInt(UA.edge, 10) >= 14) {
 			var resetActiveElementValidation = function(activeElement) {
@@ -671,6 +692,8 @@ name = HtmlUtil.escapeJS(name);
 				}
 			);
 		}
+=======
+>>>>>>> compatible
 	};
 
 	<%

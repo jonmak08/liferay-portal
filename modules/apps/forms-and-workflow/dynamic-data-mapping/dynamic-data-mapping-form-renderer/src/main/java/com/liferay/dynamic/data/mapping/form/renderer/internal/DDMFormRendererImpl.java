@@ -14,8 +14,11 @@
 
 package com.liferay.dynamic.data.mapping.form.renderer.internal;
 
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.form.field.type.BaseDDMFormFieldRenderer;
 import com.liferay.dynamic.data.mapping.form.field.type.DDMFormFieldRenderer;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.form.renderer.DDMFormRenderer;
 import com.liferay.dynamic.data.mapping.form.renderer.DDMFormRenderingContext;
 import com.liferay.dynamic.data.mapping.form.renderer.DDMFormRenderingException;
@@ -25,8 +28,11 @@ import com.liferay.dynamic.data.mapping.model.DDMFormLayout;
 import com.liferay.dynamic.data.mapping.util.DDM;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringWriter;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.json.JSONFactory;
 import com.liferay.portal.kernel.json.JSONSerializer;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.template.Template;
 import com.liferay.portal.kernel.template.TemplateConstants;
 import com.liferay.portal.kernel.template.TemplateException;
@@ -34,22 +40,32 @@ import com.liferay.portal.kernel.template.TemplateManagerUtil;
 import com.liferay.portal.kernel.template.TemplateResource;
 import com.liferay.portal.kernel.template.URLTemplateResource;
 import com.liferay.portal.kernel.util.MapUtil;
+<<<<<<< HEAD
 import com.liferay.portal.template.soy.utils.SoyRawData;
+=======
+>>>>>>> compatible
 
 import java.io.Writer;
 
 import java.net.URL;
 
+<<<<<<< HEAD
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
+=======
+import java.util.Map;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
 import org.osgi.service.component.annotations.ReferencePolicyOption;
+=======
+>>>>>>> compatible
 
 /**
  * @author Marcellus Tavares
@@ -98,6 +114,7 @@ public class DDMFormRendererImpl implements DDMFormRenderer {
 	protected void activate(Map<String, Object> properties) {
 		String templatePath = MapUtil.getString(properties, "templatePath");
 
+<<<<<<< HEAD
 		TemplateResource formTemplateResource = getFormTemplateResource(
 			templatePath);
 
@@ -119,6 +136,9 @@ public class DDMFormRendererImpl implements DDMFormRenderer {
 		if (templateResource != null) {
 			_templateResources.add(templateResource);
 		}
+=======
+		_templateResource = getTemplateResource(templatePath);
+>>>>>>> compatible
 	}
 
 	protected String doRender(
@@ -127,14 +147,22 @@ public class DDMFormRendererImpl implements DDMFormRenderer {
 		throws PortalException {
 
 		Template template = TemplateManagerUtil.getTemplate(
+<<<<<<< HEAD
 			TemplateConstants.LANG_TYPE_SOY, _templateResources, false);
+=======
+			TemplateConstants.LANG_TYPE_SOY, _templateResource, false);
+>>>>>>> compatible
 
 		populateCommonContext(
 			template, ddmForm, ddmFormLayout, ddmFormRenderingContext);
 
+<<<<<<< HEAD
 		SoyRawData soyRawData = (SoyRawData)template.get("templateNamespace");
 
 		String templateNamespace = (String)soyRawData.getValue();
+=======
+		String templateNamespace = (String)template.get("templateNamespace");
+>>>>>>> compatible
 
 		String html = render(template, templateNamespace);
 
@@ -143,6 +171,7 @@ public class DDMFormRendererImpl implements DDMFormRenderer {
 		return html.concat(javaScript);
 	}
 
+<<<<<<< HEAD
 	protected TemplateResource getFormTemplateResource(String templatePath) {
 		Class<?> clazz = getClass();
 
@@ -166,6 +195,8 @@ public class DDMFormRendererImpl implements DDMFormRenderer {
 		return null;
 	}
 
+=======
+>>>>>>> compatible
 	protected TemplateResource getTemplateResource(String templatePath) {
 		Class<?> clazz = getClass();
 
@@ -185,6 +216,7 @@ public class DDMFormRendererImpl implements DDMFormRenderer {
 			_ddmFormTemplateContextFactory.create(
 				ddmForm, ddmFormLayout, ddmFormRenderingContext);
 
+<<<<<<< HEAD
 		for (Map.Entry<String, Object> entry :
 				ddmFormTemplateContext.entrySet()) {
 
@@ -217,6 +249,9 @@ public class DDMFormRendererImpl implements DDMFormRenderer {
 		if (templateResource != null) {
 			_templateResources.remove(templateResource);
 		}
+=======
+		template.putAll(ddmFormTemplateContext);
+>>>>>>> compatible
 	}
 
 	protected String render(Template template, String namespace)
@@ -232,16 +267,28 @@ public class DDMFormRendererImpl implements DDMFormRenderer {
 		return writer.toString();
 	}
 
+<<<<<<< HEAD
+=======
+	@Reference(unbind = "-")
+	protected void setDDM(DDM ddm) {
+		_ddm = ddm;
+	}
+
+>>>>>>> compatible
 	@Reference
 	private DDM _ddm;
 
 	@Reference
 	private DDMFormTemplateContextFactory _ddmFormTemplateContextFactory;
 
+<<<<<<< HEAD
 	@Reference
 	private JSONFactory _jsonFactory;
 
 	private final List<TemplateResource> _templateResources =
 		new CopyOnWriteArrayList<>();
+=======
+	private TemplateResource _templateResource;
+>>>>>>> compatible
 
 }

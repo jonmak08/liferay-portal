@@ -18,10 +18,15 @@ import aQute.bnd.annotation.ProviderType;
 
 /**
  * @author Brian Wing Shun Chan
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, with no direct replacement
  * @generated
  */
 @Deprecated
+=======
+ * @generated
+ */
+>>>>>>> compatible
 @ProviderType
 public interface ResourceBlockFinder {
 	public com.liferay.portal.kernel.security.permission.ResourceBlockIdsBag findByC_G_N_R(

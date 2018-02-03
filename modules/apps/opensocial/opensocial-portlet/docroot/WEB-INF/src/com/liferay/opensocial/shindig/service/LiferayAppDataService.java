@@ -191,15 +191,26 @@ public class LiferayAppDataService implements AppDataService {
 
 		long userIdLong = GetterUtil.getLong(userId.getUserId(securityToken));
 
+<<<<<<< HEAD
 		for (Map.Entry<String, String> entry : values.entrySet()) {
+=======
+		for (String key : values.keySet()) {
+>>>>>>> compatible
 
 			// Workaround for a Shindig bug that stores a Long in value instead
 			// of the expected String so we cannot use generics here
 
+<<<<<<< HEAD
 			String value = String.valueOf(entry.getValue());
 
 			ExpandoColumn expandoColumn = getExpandoColumn(
 				companyId, getColumnName(appId, entry.getKey()));
+=======
+			String value = String.valueOf(values.get(key));
+
+			ExpandoColumn expandoColumn = getExpandoColumn(
+				companyId, getColumnName(appId, key));
+>>>>>>> compatible
 
 			ExpandoValueLocalServiceUtil.addValue(
 				companyId, User.class.getName(),

@@ -31,6 +31,7 @@ public class LicenseUtilWindowsTest extends BaseLicenseUtilTestCase {
 	@Override
 	protected void testMacAddresses(Set<String> macAddresses) {
 		Assert.assertEquals(macAddresses.toString(), 3, macAddresses.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			macAddresses.toString(),
 			macAddresses.contains("08:00:27:62:4c:9d"));
@@ -40,6 +41,11 @@ public class LicenseUtilWindowsTest extends BaseLicenseUtilTestCase {
 		Assert.assertTrue(
 			macAddresses.toString(),
 			macAddresses.contains("00:ff:b0:3b:1f:e7"));
+=======
+		Assert.assertTrue(macAddresses.contains("08:00:27:62:4c:9d"));
+		Assert.assertTrue(macAddresses.contains("08:00:27:c0:ab:91"));
+		Assert.assertTrue(macAddresses.contains("00:ff:b0:3b:1f:e7"));
+>>>>>>> compatible
 	}
 
 }

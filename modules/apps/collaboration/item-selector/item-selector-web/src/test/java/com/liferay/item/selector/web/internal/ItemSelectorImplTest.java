@@ -76,7 +76,10 @@ public class ItemSelectorImplTest extends PowerMockito {
 
 		_itemSelectorImpl.setItemSelectorCriterionSerializer(
 			_stubItemSelectorCriterionSerializer);
+<<<<<<< HEAD
 
+=======
+>>>>>>> compatible
 		ReflectionTestUtil.setFieldValue(
 			_itemSelectorImpl, "_http", new HttpImpl());
 		ReflectionTestUtil.setFieldValue(
@@ -149,6 +152,10 @@ public class ItemSelectorImplTest extends PowerMockito {
 		Assert.assertEquals(
 			desiredItemSelectorReturnTypes.toString(), 2,
 			desiredItemSelectorReturnTypes.size());
+<<<<<<< HEAD
+=======
+
+>>>>>>> compatible
 		Assert.assertTrue(
 			desiredItemSelectorReturnTypes.get(0) instanceof
 				TestFileEntryItemSelectorReturnType);
@@ -178,6 +185,10 @@ public class ItemSelectorImplTest extends PowerMockito {
 		Assert.assertNull(parameters.get("0_desiredItemSelectorReturnTypes"));
 		Assert.assertNotNull(parameters.get("0_json")[0]);
 		Assert.assertNotNull(parameters.get("1_json")[0]);
+<<<<<<< HEAD
+=======
+
+>>>>>>> compatible
 		Assert.assertEquals(parameters.toString(), 4, parameters.size());
 	}
 
@@ -281,12 +292,21 @@ public class ItemSelectorImplTest extends PowerMockito {
 		String namespace = PortalUtil.getPortletNamespace(
 			ItemSelectorPortletKeys.ITEM_SELECTOR);
 
+<<<<<<< HEAD
 		for (Map.Entry<String, String[]> entry :
 				itemSelectorParameters.entrySet()) {
 
 			itemSelectorURL = HttpUtil.addParameter(
 				itemSelectorURL, namespace + entry.getKey(),
 				entry.getValue()[0]);
+=======
+		for (String itemSelectorParameterKey :
+				itemSelectorParameters.keySet()) {
+
+			itemSelectorURL = HttpUtil.addParameter(
+				itemSelectorURL, namespace + itemSelectorParameterKey,
+				itemSelectorParameters.get(itemSelectorParameterKey)[0]);
+>>>>>>> compatible
 		}
 
 		return itemSelectorURL;

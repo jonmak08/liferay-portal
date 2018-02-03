@@ -7,7 +7,11 @@
 
 	<#if finderCol.hasArrayableOperator()>
 		if (${finderCol.names}.length > 0) {
+<<<<<<< HEAD
 			query.append("(");
+=======
+			query.append(StringPool.OPEN_PARENTHESIS);
+>>>>>>> compatible
 
 			<#if stringUtil.equals(finderCol.type, "String")>
 				for (int i = 0; i < ${finderCol.names}.length; i++) {
@@ -24,10 +28,17 @@
 
 				query.append(StringUtil.merge(${finderCol.names}));
 
+<<<<<<< HEAD
 				query.append(")");
 			</#if>
 
 			query.append(")");
+=======
+				query.append(StringPool.CLOSE_PARENTHESIS);
+			</#if>
+
+			query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 			<#if finderCol_has_next>
 				query.append(WHERE_AND);

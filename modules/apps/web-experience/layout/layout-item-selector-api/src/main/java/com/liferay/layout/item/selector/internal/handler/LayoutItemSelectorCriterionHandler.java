@@ -15,6 +15,7 @@
 package com.liferay.layout.item.selector.internal.handler;
 
 import com.liferay.item.selector.BaseItemSelectorCriterionHandler;
+<<<<<<< HEAD
 import com.liferay.item.selector.ItemSelectorCriterion;
 import com.liferay.item.selector.ItemSelectorCriterionHandler;
 import com.liferay.item.selector.ItemSelectorView;
@@ -24,6 +25,10 @@ import com.liferay.layout.item.selector.view.LayoutItemSelectorView;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+=======
+import com.liferay.item.selector.ItemSelectorCriterionHandler;
+import com.liferay.layout.item.selector.criterion.LayoutItemSelectorCriterion;
+>>>>>>> compatible
 
 import org.osgi.framework.BundleContext;
 import org.osgi.service.component.annotations.Activate;
@@ -42,6 +47,7 @@ public class LayoutItemSelectorCriterionHandler
 		return LayoutItemSelectorCriterion.class;
 	}
 
+<<<<<<< HEAD
 	@Override
 	public List<ItemSelectorView<LayoutItemSelectorCriterion>>
 		getItemSelectorViews(ItemSelectorCriterion itemSelectorCriterion) {
@@ -82,6 +88,8 @@ public class LayoutItemSelectorCriterionHandler
 		return visibleItemSelectorViews;
 	}
 
+=======
+>>>>>>> compatible
 	@Activate
 	@Override
 	protected void activate(BundleContext bundleContext) {

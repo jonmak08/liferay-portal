@@ -32,8 +32,11 @@ import com.liferay.portal.kernel.service.OrganizationLocalServiceUtil;
 import com.liferay.portal.kernel.service.RoleLocalServiceUtil;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.TeamLocalServiceUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.service.UserGroupGroupRoleLocalServiceUtil;
 import com.liferay.portal.kernel.service.UserGroupRoleLocalServiceUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
@@ -84,6 +87,7 @@ public class RoleLocalServiceTest {
 			RoleConstants.TYPE_REGULAR);
 	}
 
+<<<<<<< HEAD
 	@Test
 	public void testGetAssigneesTotalOrganizationRole() throws Exception {
 		_organization = OrganizationTestUtil.addOrganization();
@@ -139,6 +143,8 @@ public class RoleLocalServiceTest {
 			2, RoleLocalServiceUtil.getAssigneesTotal(_role.getRoleId()));
 	}
 
+=======
+>>>>>>> compatible
 	@SuppressWarnings({"rawtypes", "unchecked"})
 	@Test
 	public void testGetGroupRelatedRoles() throws Exception {
@@ -280,7 +286,11 @@ public class RoleLocalServiceTest {
 			companyId, keyword, excludedRoleNames, roleTypes, 0, groupId,
 			QueryUtil.ALL_POS, QueryUtil.ALL_POS);
 
+<<<<<<< HEAD
 		Assert.assertTrue(roles.toString(), roles.isEmpty());
+=======
+		Assert.assertTrue(roles.isEmpty());
+>>>>>>> compatible
 
 		keyword = team.getName();
 
@@ -293,9 +303,15 @@ public class RoleLocalServiceTest {
 			companyId, keyword, excludedRoleNames, roleTypes, 0, groupId,
 			QueryUtil.ALL_POS, QueryUtil.ALL_POS);
 
+<<<<<<< HEAD
 		_role = roles.get(0);
 
 		Assert.assertEquals(team.getTeamId(), _role.getClassPK());
+=======
+		Role role = roles.get(0);
+
+		Assert.assertEquals(team.getTeamId(), role.getClassPK());
+>>>>>>> compatible
 	}
 
 	@Test
@@ -432,7 +448,11 @@ public class RoleLocalServiceTest {
 			RandomTestUtil.randomString(), false);
 
 		Team team = TeamLocalServiceUtil.addTeam(
+<<<<<<< HEAD
 			user.getUserId(), _organization.getGroupId(),
+=======
+			user.getUserId(), organization.getGroupId(),
+>>>>>>> compatible
 			RandomTestUtil.randomString(), null, new ServiceContext());
 
 		return new Object[] {_organization, team};
@@ -460,10 +480,20 @@ public class RoleLocalServiceTest {
 	private Group _group;
 
 	@DeleteAfterTestRun
+<<<<<<< HEAD
 	private Organization _organization;
 
 	@DeleteAfterTestRun
 	private Role _role;
+
+	@DeleteAfterTestRun
+	private User _user;
+
+	@DeleteAfterTestRun
+	private UserGroup _userGroup;
+=======
+	private final List<Organization> _organizations = new ArrayList<>();
+>>>>>>> compatible
 
 	@DeleteAfterTestRun
 	private User _user;

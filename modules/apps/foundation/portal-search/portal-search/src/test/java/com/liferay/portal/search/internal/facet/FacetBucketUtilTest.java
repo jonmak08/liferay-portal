@@ -31,7 +31,11 @@ public class FacetBucketUtilTest {
 
 	@Test
 	public void testMultiValueFacet() {
+<<<<<<< HEAD
 		Field field = new Field(_FIELD_NAME, new String[] {"foo", "bar"});
+=======
+		Field field = new Field(_fieldName, new String[] {"foo", "bar"});
+>>>>>>> compatible
 
 		Facet facet = new MultiValueFacet(null);
 
@@ -40,7 +44,11 @@ public class FacetBucketUtilTest {
 
 	@Test
 	public void testRangeFacet() {
+<<<<<<< HEAD
 		Field field = new Field(_FIELD_NAME, "007");
+=======
+		Field field = new Field(_fieldName, "007");
+>>>>>>> compatible
 
 		Facet facet = new RangeFacet(null);
 
@@ -50,13 +58,21 @@ public class FacetBucketUtilTest {
 
 	@Test
 	public void testSimpleFacet() {
+<<<<<<< HEAD
 		Field field = new Field(_FIELD_NAME, "foo");
+=======
+		Field field = new Field(_fieldName, "foo");
+>>>>>>> compatible
 
 		Facet facet = new SimpleFacet(null);
 
 		Assert.assertTrue(FacetBucketUtil.isFieldInBucket(field, "foo", facet));
 	}
 
+<<<<<<< HEAD
 	private static final String _FIELD_NAME = RandomTestUtil.randomString();
+=======
+	private static final String _fieldName = RandomTestUtil.randomString();
+>>>>>>> compatible
 
 }

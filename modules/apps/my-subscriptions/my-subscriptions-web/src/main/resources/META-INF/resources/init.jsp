@@ -19,25 +19,42 @@
 <%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
 
 <%@ taglib uri="http://liferay.com/tld/aui" prefix="aui" %><%@
+<<<<<<< HEAD
 taglib uri="http://liferay.com/tld/frontend" prefix="liferay-frontend" %><%@
+=======
+>>>>>>> compatible
 taglib uri="http://liferay.com/tld/portlet" prefix="liferay-portlet" %><%@
 taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %><%@
 taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 
 <%@ page import="com.liferay.asset.kernel.model.AssetRenderer" %><%@
+<<<<<<< HEAD
 page import="com.liferay.my.subscriptions.web.internal.dao.search.MySubscriptionsResultRowSplitter" %><%@
 page import="com.liferay.my.subscriptions.web.internal.util.MySubscriptionsUtil" %><%@
 page import="com.liferay.portal.kernel.dao.search.EmptyOnClickRowChecker" %><%@
 page import="com.liferay.portal.kernel.exception.NoSuchSubscriptionException" %><%@
 page import="com.liferay.portal.kernel.language.UnicodeLanguageUtil" %><%@
+=======
+page import="com.liferay.my.subscriptions.web.internal.util.MySubscriptionsUtil" %><%@
+page import="com.liferay.portal.kernel.dao.search.RowChecker" %><%@
+page import="com.liferay.portal.kernel.exception.NoSuchSubscriptionException" %><%@
+page import="com.liferay.portal.kernel.language.UnicodeLanguageUtil" %><%@
+page import="com.liferay.portal.kernel.model.Subscription" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.portlet.LiferayPortletRequest" %><%@
 page import="com.liferay.portal.kernel.portlet.LiferayPortletResponse" %><%@
 page import="com.liferay.portal.kernel.portlet.LiferayWindowState" %><%@
 page import="com.liferay.portal.kernel.security.permission.ResourceActionsUtil" %><%@
+<<<<<<< HEAD
+=======
+page import="com.liferay.portal.kernel.service.SubscriptionLocalServiceUtil" %><%@
+page import="com.liferay.portal.kernel.util.PortalUtil" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.util.StringBundler" %><%@
 page import="com.liferay.portal.kernel.util.StringPool" %><%@
 page import="com.liferay.portal.kernel.util.Validator" %><%@
 page import="com.liferay.portal.kernel.util.WebKeys" %><%@
+<<<<<<< HEAD
 page import="com.liferay.subscription.model.Subscription" %><%@
 page import="com.liferay.subscription.service.SubscriptionLocalServiceUtil" %><%@
 page import="com.liferay.subscription.util.comparator.SubscriptionClassNameIdComparator" %><%@
@@ -50,3 +67,17 @@ page import="com.liferay.taglib.search.ResultRow" %>
 <liferay-theme:defineObjects />
 
 <portlet:defineObjects />
+=======
+page import="com.liferay.portal.kernel.util.comparator.SubscriptionClassNameIdComparator" %><%@
+page import="com.liferay.taglib.search.ResultRow" %>
+
+<%@ page import="java.util.List" %>
+
+<liferay-theme:defineObjects />
+
+<portlet:defineObjects />
+
+<%
+String currentURL = PortalUtil.getCurrentURL(request);
+%>
+>>>>>>> compatible

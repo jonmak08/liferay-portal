@@ -20,9 +20,13 @@
 
 		<execute macro="User#firstLoginPG" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -33,9 +37,13 @@
 			<var name="userScreenName" value="${userScreenName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -44,9 +52,13 @@
 			<var name="userScreenName" value="${userScreenName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Instance Settings" />
 		</execute>
 
@@ -91,9 +103,13 @@
 			<var name="siteName" value="${siteName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Instance Settings" />
 		</execute>
 
@@ -130,8 +146,13 @@
 
 		<var method="TestPropsUtil#get('google.client.id')" name="googleClientID" />
 		<var method="TestPropsUtil#get('google.client.secret')" name="googleClientSecret" />
+<<<<<<< HEAD
 		<var method="TestPropsUtil#get('email.address.1')" name="userEmailAddress" />
 		<var method="TestPropsUtil#get('email.password.1')" name="userPassword" />
+=======
+		<var method="TestPropsUtil#get('email.address.2')" name="userEmailAddress" />
+		<var method="TestPropsUtil#get('email.password.2')" name="userPassword" />
+>>>>>>> compatible
 
 		<execute macro="User#firstLoginPG" />
 
@@ -140,9 +161,13 @@
 			<var name="siteName" value="${siteName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Instance Settings" />
 		</execute>
 
@@ -193,6 +218,27 @@
 		<execute macro="Smoke#viewWelcomePage" />
 	</command>
 
+<<<<<<< HEAD
+=======
+	<command name="LoginWithSessionEnabled" priority="5">
+		<description message="This is a use case for LPS-48653." />
+
+		<property name="custom.properties" value="session.enable.url.with.session.id=true" />
+
+		<execute macro="User#firstLoginPG" />
+
+		<execute macro="Portlet#addPG">
+			<var name="portletName" value="Sign In" />
+		</execute>
+
+		<execute macro="User#logoutPG" />
+
+		<execute macro="SignIn#signIn" />
+
+		<execute macro="Smoke#viewWelcomePage" />
+	</command>
+
+>>>>>>> compatible
 	<command name="OpenIDSmoke" priority="4">
 		<property name="test.name.skip.portal.instance" value="Login#OpenIDSmoke" />
 
@@ -201,9 +247,13 @@
 
 		<execute macro="User#firstLoginPG" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Instance Settings" />
 		</execute>
 
@@ -272,9 +322,13 @@
 
 		<execute macro="User#firstLoginPG" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Instance Settings" />
 		</execute>
 
@@ -310,9 +364,13 @@
 
 		<execute macro="User#firstLoginPG" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="System Settings" />
 		</execute>
 

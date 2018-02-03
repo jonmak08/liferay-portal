@@ -14,8 +14,13 @@
 
 package com.liferay.portal.search.solr.internal.query;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.search.generic.MatchQuery;
+=======
+import com.liferay.portal.kernel.search.generic.MatchQuery;
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.search.solr.query.MatchQueryTranslator;
@@ -23,7 +28,10 @@ import com.liferay.portal.search.solr.query.MatchQueryTranslator;
 import org.apache.lucene.index.Term;
 import org.apache.lucene.queryparser.classic.QueryParser;
 import org.apache.lucene.search.PhraseQuery;
+<<<<<<< HEAD
 import org.apache.lucene.search.Query;
+=======
+>>>>>>> compatible
 import org.apache.lucene.search.TermQuery;
 
 import org.osgi.service.component.annotations.Component;
@@ -36,8 +44,13 @@ import org.osgi.service.component.annotations.Component;
 public class MatchQueryTranslatorImpl implements MatchQueryTranslator {
 
 	@Override
+<<<<<<< HEAD
 	public Query translate(MatchQuery matchQuery) {
 		Query query = translateMatchQuery(matchQuery);
+=======
+	public org.apache.lucene.search.Query translate(MatchQuery matchQuery) {
+		org.apache.lucene.search.Query query = translateMatchQuery(matchQuery);
+>>>>>>> compatible
 
 		if (!matchQuery.isDefaultBoost()) {
 			query.setBoost(matchQuery.getBoost());
@@ -46,7 +59,13 @@ public class MatchQueryTranslatorImpl implements MatchQueryTranslator {
 		return query;
 	}
 
+<<<<<<< HEAD
 	protected Query translateMatchQuery(MatchQuery matchQuery) {
+=======
+	protected org.apache.lucene.search.Query translateMatchQuery(
+		MatchQuery matchQuery) {
+
+>>>>>>> compatible
 		String field = matchQuery.getField();
 		MatchQuery.Type matchQueryType = matchQuery.getType();
 		String value = matchQuery.getValue();
@@ -87,14 +106,24 @@ public class MatchQueryTranslatorImpl implements MatchQueryTranslator {
 			"Invalid match query type: " + matchQueryType);
 	}
 
+<<<<<<< HEAD
 	protected Query translateQueryTypeBoolean(String field, String value) {
+=======
+	protected org.apache.lucene.search.Query translateQueryTypeBoolean(
+		String field, String value) {
+
+>>>>>>> compatible
 		value = _encloseMultiword(
 			value, StringPool.OPEN_PARENTHESIS, StringPool.CLOSE_PARENTHESIS);
 
 		return new TermQuery(new Term(field, value));
 	}
 
+<<<<<<< HEAD
 	protected Query translateQueryTypePhrase(
+=======
+	protected org.apache.lucene.search.Query translateQueryTypePhrase(
+>>>>>>> compatible
 		String field, String value, Integer slop) {
 
 		PhraseQuery phraseQuery = new PhraseQuery();
@@ -108,7 +137,13 @@ public class MatchQueryTranslatorImpl implements MatchQueryTranslator {
 		return phraseQuery;
 	}
 
+<<<<<<< HEAD
 	protected Query translateQueryTypePhrasePrefix(String field, String value) {
+=======
+	protected org.apache.lucene.search.Query translateQueryTypePhrasePrefix(
+		String field, String value) {
+
+>>>>>>> compatible
 		value = value.concat(StringPool.STAR);
 
 		value = _encloseMultiword(

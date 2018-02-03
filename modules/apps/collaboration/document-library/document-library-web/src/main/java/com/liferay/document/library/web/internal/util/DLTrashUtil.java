@@ -18,14 +18,19 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.repository.Repository;
 import com.liferay.portal.kernel.repository.RepositoryProviderUtil;
 import com.liferay.portal.kernel.repository.capabilities.TrashCapability;
+<<<<<<< HEAD
 import com.liferay.trash.TrashHelper;
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+=======
+import com.liferay.trash.kernel.util.TrashUtil;
+>>>>>>> compatible
 
 /**
  * @author Adolfo Pérez
  */
+<<<<<<< HEAD
 @Component(immediate = true, service = DLTrashUtil.class)
 public class DLTrashUtil {
 
@@ -33,6 +38,14 @@ public class DLTrashUtil {
 		throws PortalException {
 
 		if (!_trashHelper.isTrashEnabled(groupId)) {
+=======
+public class DLTrashUtil {
+
+	public static boolean isTrashEnabled(long groupId, long repositoryId)
+		throws PortalException {
+
+		if (!TrashUtil.isTrashEnabled(groupId)) {
+>>>>>>> compatible
 			return false;
 		}
 
@@ -46,7 +59,10 @@ public class DLTrashUtil {
 		return repository.isCapabilityProvided(TrashCapability.class);
 	}
 
+<<<<<<< HEAD
 	@Reference
 	private TrashHelper _trashHelper;
 
+=======
+>>>>>>> compatible
 }

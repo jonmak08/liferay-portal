@@ -1,4 +1,8 @@
 Bundle-Name: Liferay Chat Web
 Bundle-SymbolicName: com.liferay.chat.web
+<<<<<<< HEAD
 Bundle-Version: 1.0.12
+=======
+Bundle-Version: 1.0.7
+>>>>>>> compatible
 Web-ContextPath: /chat-web

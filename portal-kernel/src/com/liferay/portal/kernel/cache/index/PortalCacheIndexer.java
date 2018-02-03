@@ -16,6 +16,10 @@ package com.liferay.portal.kernel.cache.index;
 
 import com.liferay.portal.kernel.cache.PortalCache;
 import com.liferay.portal.kernel.cache.PortalCacheListener;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.concurrent.ConcurrentHashSet;
+>>>>>>> compatible
 
 import java.io.Serializable;
 
@@ -73,8 +77,12 @@ public class PortalCacheIndexer<I, K extends Serializable, V> {
 		Set<K> keys = _indexedCacheKeys.get(index);
 
 		if (keys == null) {
+<<<<<<< HEAD
 			Set<K> newKeys = Collections.newSetFromMap(
 				new ConcurrentHashMap<>());
+=======
+			Set<K> newKeys = new ConcurrentHashSet<>();
+>>>>>>> compatible
 
 			newKeys.add(key);
 

@@ -38,6 +38,13 @@ DLPortletInstanceSettingsHelper dlPortletInstanceSettingsHelper = new DLPortletI
 				<aui:fieldset collapsible="<%= true %>" id="imageGalleryDisplayDisplay" label="display-settings">
 					<aui:input label="show-actions" name="preferences--showActions--" type="checkbox" value="<%= dlPortletInstanceSettings.isShowActions() %>" />
 
+<<<<<<< HEAD
+=======
+					<aui:input label="show-navigation-links" name="preferences--showTabs--" type="checkbox" value="<%= dlPortletInstanceSettings.isShowTabs() %>" />
+
+					<aui:input label="show-search" name="preferences--showFoldersSearch--" type="checkbox" value="<%= dlPortletInstanceSettings.isShowFoldersSearch() %>" />
+
+>>>>>>> compatible
 					<aui:field-wrapper label="show-media-type">
 						<liferay-ui:input-move-boxes
 							leftBoxName="currentMimeTypes"
@@ -76,12 +83,24 @@ DLPortletInstanceSettingsHelper dlPortletInstanceSettingsHelper = new DLPortletI
 						</div>
 					</aui:field-wrapper>
 				</aui:fieldset>
+<<<<<<< HEAD
+=======
+
+				<aui:fieldset collapsible="<%= true %>" id="imageGalleryImagesRatingsPanel" label="ratings">
+					<aui:input name="preferences--enableRatings--" type="checkbox" value="<%= dlPortletInstanceSettings.isEnableRatings() %>" />
+					<aui:input name="preferences--enableCommentRatings--" type="checkbox" value="<%= dlPortletInstanceSettings.isEnableCommentRatings() %>" />
+				</aui:fieldset>
+>>>>>>> compatible
 			</aui:fieldset-group>
 		</div>
 	</div>
 
 	<aui:button-row>
+<<<<<<< HEAD
 		<aui:button type="submit" />
+=======
+		<aui:button cssClass="btn-lg" type="submit" />
+>>>>>>> compatible
 	</aui:button-row>
 </aui:form>
 

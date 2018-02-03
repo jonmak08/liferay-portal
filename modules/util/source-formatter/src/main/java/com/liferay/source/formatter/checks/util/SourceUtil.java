@@ -14,8 +14,13 @@
 
 package com.liferay.source.formatter.checks.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
+=======
+import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -104,12 +109,15 @@ public class SourceUtil {
 		return level;
 	}
 
+<<<<<<< HEAD
 	public static Document readXML(File file) throws Exception {
 		SAXReader saxReader = SAXReaderFactory.getSAXReader(null, false, false);
 
 		return saxReader.read(file);
 	}
 
+=======
+>>>>>>> compatible
 	public static Document readXML(String content) throws Exception {
 		SAXReader saxReader = SAXReaderFactory.getSAXReader(null, false, false);
 
@@ -125,7 +133,11 @@ public class SourceUtil {
 		for (String line : lines) {
 			line = StringUtil.trim(line);
 
+<<<<<<< HEAD
 			if (line.startsWith("//") || line.startsWith("*")) {
+=======
+			if (line.startsWith("//")) {
+>>>>>>> compatible
 				continue;
 			}
 

@@ -38,7 +38,11 @@ public class PowwowMeetingFinderUtil {
 
 	public static PowwowMeetingFinder getFinder() {
 		if (_finder == null) {
+<<<<<<< HEAD
 			_finder = (PowwowMeetingFinder)PortletBeanLocatorUtil.locate(com.liferay.powwow.service.ServletContextUtil.getServletContextName(),
+=======
+			_finder = (PowwowMeetingFinder)PortletBeanLocatorUtil.locate(com.liferay.powwow.service.ClpSerializer.getServletContextName(),
+>>>>>>> compatible
 					PowwowMeetingFinder.class.getName());
 
 			ReferenceRegistry.registerReference(PowwowMeetingFinderUtil.class,

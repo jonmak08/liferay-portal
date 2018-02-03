@@ -14,8 +14,12 @@
 
 package com.liferay.portal.kernel.servlet.filters.invoker;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.cache.PortalCache;
 import com.liferay.portal.kernel.cache.SingleVMPoolUtil;
+=======
+import com.liferay.portal.kernel.concurrent.ConcurrentLFUCache;
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.servlet.HttpOnlyCookieServletResponse;
@@ -132,7 +136,11 @@ public class InvokerFilter extends BasePortalLifecycle implements Filter {
 
 	protected void clearFilterChainsCache() {
 		if (_filterChains != null) {
+<<<<<<< HEAD
 			_filterChains.removeAll();
+=======
+			_filterChains.clear();
+>>>>>>> compatible
 		}
 	}
 
@@ -153,9 +161,15 @@ public class InvokerFilter extends BasePortalLifecycle implements Filter {
 
 	@Override
 	protected void doPortalInit() throws Exception {
+<<<<<<< HEAD
 		if (_INVOKER_FILTER_CHAIN_ENABLED) {
 			_filterChains = SingleVMPoolUtil.getPortalCache(
 				InvokerFilter.class.getName());
+=======
+		if (_INVOKER_FILTER_CHAIN_SIZE > 0) {
+			_filterChains = new ConcurrentLFUCache<>(
+				_INVOKER_FILTER_CHAIN_SIZE);
+>>>>>>> compatible
 		}
 
 		ServletContext servletContext = _filterConfig.getServletContext();
@@ -323,9 +337,14 @@ public class InvokerFilter extends BasePortalLifecycle implements Filter {
 			request, response);
 	}
 
+<<<<<<< HEAD
 	private static final boolean _INVOKER_FILTER_CHAIN_ENABLED =
 		GetterUtil.getBoolean(
 			PropsUtil.get(PropsKeys.INVOKER_FILTER_CHAIN_ENABLED));
+=======
+	private static final int _INVOKER_FILTER_CHAIN_SIZE = GetterUtil.getInteger(
+		PropsUtil.get(PropsKeys.INVOKER_FILTER_CHAIN_SIZE));
+>>>>>>> compatible
 
 	private static final int _INVOKER_FILTER_URI_MAX_LENGTH =
 		GetterUtil.getInteger(
@@ -338,7 +357,11 @@ public class InvokerFilter extends BasePortalLifecycle implements Filter {
 
 	private String _contextPath;
 	private Dispatcher _dispatcher;
+<<<<<<< HEAD
 	private PortalCache<String, InvokerFilterChain> _filterChains;
+=======
+	private ConcurrentLFUCache<String, InvokerFilterChain> _filterChains;
+>>>>>>> compatible
 	private FilterConfig _filterConfig;
 	private InvokerFilterHelper _invokerFilterHelper;
 

@@ -37,13 +37,20 @@ import com.liferay.portal.kernel.service.permission.ModelPermissions;
 import com.liferay.portal.kernel.service.permission.ModelPermissionsFactory;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ListUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.model.impl.ResourceImpl;
 import com.liferay.portal.security.permission.PermissionCacheUtil;
 import com.liferay.portal.service.base.ResourceLocalServiceBaseImpl;
 import com.liferay.portal.util.ResourcePermissionsThreadLocal;
 
 import java.util.ArrayList;
+<<<<<<< HEAD
+=======
+import java.util.Arrays;
+>>>>>>> compatible
 import java.util.Iterator;
 import java.util.List;
 
@@ -676,6 +683,7 @@ public class ResourceLocalServiceImpl extends ResourceLocalServiceBaseImpl {
 		String[] ownerPermissions = ownerActionIds.toArray(
 			new String[ownerActionIds.size()]);
 
+<<<<<<< HEAD
 		resourcePermissionLocalService.setOwnerResourcePermissions(
 			resource.getCompanyId(), resource.getName(), resource.getScope(),
 			resource.getPrimKey(), ownerRole.getRoleId(), userId,
@@ -689,6 +697,49 @@ public class ResourceLocalServiceImpl extends ResourceLocalServiceBaseImpl {
 					resource.getCompanyId(), resource.getName(),
 					resource.getScope(), resource.getPrimKey(),
 					role.getRoleId(), modelPermissions.getActionIds(roleName));
+=======
+		if (resourceBlockLocalService.isSupported(resource.getName())) {
+			if (permissionedModel == null) {
+				throw new IllegalArgumentException(
+					"Permissioned model is null");
+			}
+
+			// Scope is assumed to always be individual
+
+			resourceBlockLocalService.setIndividualScopePermissions(
+				resource.getCompanyId(), groupId, resource.getName(),
+				permissionedModel, ownerRole.getRoleId(), ownerActionIds);
+
+			if (modelPermissions != null) {
+				for (String roleName : modelPermissions.getRoleNames()) {
+					Role role = getRole(
+						resource.getCompanyId(), groupId, roleName);
+
+					resourceBlockLocalService.setIndividualScopePermissions(
+						resource.getCompanyId(), groupId, resource.getName(),
+						permissionedModel, role.getRoleId(),
+						modelPermissions.getActionIdsList(roleName));
+				}
+			}
+		}
+		else {
+			resourcePermissionLocalService.setOwnerResourcePermissions(
+				resource.getCompanyId(), resource.getName(),
+				resource.getScope(), resource.getPrimKey(),
+				ownerRole.getRoleId(), userId, ownerPermissions);
+
+			if (modelPermissions != null) {
+				for (String roleName : modelPermissions.getRoleNames()) {
+					Role role = getRole(
+						resource.getCompanyId(), groupId, roleName);
+
+					resourcePermissionLocalService.setResourcePermissions(
+						resource.getCompanyId(), resource.getName(),
+						resource.getScope(), resource.getPrimKey(),
+						role.getRoleId(),
+						modelPermissions.getActionIds(roleName));
+				}
+>>>>>>> compatible
 			}
 		}
 	}
@@ -746,6 +797,11 @@ public class ResourceLocalServiceImpl extends ResourceLocalServiceBaseImpl {
 			PermissionThreadLocal.setFlushResourcePermissionEnabled(
 				name, primKey, flushResourcePermissionEnabled);
 
+<<<<<<< HEAD
+=======
+			PermissionCacheUtil.clearResourceBlockCache(
+				companyId, groupId, name);
+>>>>>>> compatible
 			PermissionCacheUtil.clearResourcePermissionCache(
 				ResourceConstants.SCOPE_INDIVIDUAL, name, primKey);
 
@@ -863,6 +919,11 @@ public class ResourceLocalServiceImpl extends ResourceLocalServiceBaseImpl {
 			PermissionThreadLocal.setFlushResourcePermissionEnabled(
 				name, primKey, flushResourcePermissionEnabled);
 
+<<<<<<< HEAD
+=======
+			PermissionCacheUtil.clearResourceBlockCache(
+				companyId, groupId, name);
+>>>>>>> compatible
 			PermissionCacheUtil.clearResourcePermissionCache(
 				ResourceConstants.SCOPE_INDIVIDUAL, name, primKey);
 
@@ -955,6 +1016,27 @@ public class ResourceLocalServiceImpl extends ResourceLocalServiceBaseImpl {
 				String.valueOf(stopWatch.getTime()), " ms"));
 	}
 
+	protected void updateResourceBlocks(
+			long groupId, Resource resource, ModelPermissions modelPermissions,
+			PermissionedModel permissionedModel)
+		throws PortalException {
+
+		if (permissionedModel == null) {
+			throw new IllegalArgumentException("Permissioned model is null");
+		}
+
+		// Scope is assumed to always be individual
+
+		for (String roleName : modelPermissions.getRoleNames()) {
+			Role role = getRole(resource.getCompanyId(), groupId, roleName);
+
+			resourceBlockLocalService.setIndividualScopePermissions(
+				role.getCompanyId(), groupId, resource.getName(),
+				permissionedModel, role.getRoleId(),
+				modelPermissions.getActionIdsList(roleName));
+		}
+	}
+
 	protected void updateResourcePermissions(
 			long companyId, long groupId, Resource resource,
 			String[] groupPermissions, String[] guestPermissions)
@@ -1005,6 +1087,7 @@ public class ResourceLocalServiceImpl extends ResourceLocalServiceBaseImpl {
 			resourcePermissionPersistence.update(resourcePermission);
 		}
 	}
+<<<<<<< HEAD
 
 	protected void updateResources(
 			long companyId, long groupId, String name, String primKey,
@@ -1016,6 +1099,25 @@ public class ResourceLocalServiceImpl extends ResourceLocalServiceBaseImpl {
 			companyId, name, ResourceConstants.SCOPE_INDIVIDUAL, primKey);
 
 		updateResourcePermissions(groupId, resource, modelPermissions);
+=======
+
+	protected void updateResources(
+			long companyId, long groupId, String name, String primKey,
+			ModelPermissions modelPermissions,
+			PermissionedModel permissionedModel)
+		throws PortalException {
+
+		Resource resource = getResource(
+			companyId, name, ResourceConstants.SCOPE_INDIVIDUAL, primKey);
+
+		if (resourceBlockLocalService.isSupported(name)) {
+			updateResourceBlocks(
+				groupId, resource, modelPermissions, permissionedModel);
+		}
+		else {
+			updateResourcePermissions(groupId, resource, modelPermissions);
+		}
+>>>>>>> compatible
 	}
 
 	protected void updateResources(

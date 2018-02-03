@@ -24,9 +24,17 @@ import com.liferay.portal.kernel.upload.UploadServletRequestConfigurationHelperU
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.ProgressTracker;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.PropsKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.util.PrefsPropsUtil;
+>>>>>>> compatible
 
 import java.io.File;
 import java.io.IOException;
@@ -96,8 +104,13 @@ public class UploadServletRequestImpl
 
 			liferayServletRequest.setFinishedReadingOriginalStream(true);
 
+<<<<<<< HEAD
 			long uploadServletRequestImplMaxSize =
 				UploadServletRequestConfigurationHelperUtil.getMaxSize();
+=======
+			long uploadServletRequestImplMaxSize = PrefsPropsUtil.getLong(
+				PropsKeys.UPLOAD_SERVLET_REQUEST_IMPL_MAX_SIZE);
+>>>>>>> compatible
 			long uploadServletRequestImplSize = 0;
 
 			int contentLength = request.getContentLength();

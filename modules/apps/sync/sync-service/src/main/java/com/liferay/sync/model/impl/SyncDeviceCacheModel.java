@@ -19,6 +19,10 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import com.liferay.sync.model.SyncDevice;
 
@@ -101,7 +105,11 @@ public class SyncDeviceCacheModel implements CacheModel<SyncDevice>,
 		SyncDeviceImpl syncDeviceImpl = new SyncDeviceImpl();
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			syncDeviceImpl.setUuid("");
+=======
+			syncDeviceImpl.setUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			syncDeviceImpl.setUuid(uuid);
@@ -112,7 +120,11 @@ public class SyncDeviceCacheModel implements CacheModel<SyncDevice>,
 		syncDeviceImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			syncDeviceImpl.setUserName("");
+=======
+			syncDeviceImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			syncDeviceImpl.setUserName(userName);
@@ -133,7 +145,11 @@ public class SyncDeviceCacheModel implements CacheModel<SyncDevice>,
 		}
 
 		if (type == null) {
+<<<<<<< HEAD
 			syncDeviceImpl.setType("");
+=======
+			syncDeviceImpl.setType(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			syncDeviceImpl.setType(type);
@@ -143,7 +159,11 @@ public class SyncDeviceCacheModel implements CacheModel<SyncDevice>,
 		syncDeviceImpl.setFeatureSet(featureSet);
 
 		if (hostname == null) {
+<<<<<<< HEAD
 			syncDeviceImpl.setHostname("");
+=======
+			syncDeviceImpl.setHostname(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			syncDeviceImpl.setHostname(hostname);
@@ -182,7 +202,11 @@ public class SyncDeviceCacheModel implements CacheModel<SyncDevice>,
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		if (uuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(uuid);
@@ -195,7 +219,11 @@ public class SyncDeviceCacheModel implements CacheModel<SyncDevice>,
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -205,7 +233,11 @@ public class SyncDeviceCacheModel implements CacheModel<SyncDevice>,
 		objectOutput.writeLong(modifiedDate);
 
 		if (type == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(type);
@@ -216,7 +248,11 @@ public class SyncDeviceCacheModel implements CacheModel<SyncDevice>,
 		objectOutput.writeInt(featureSet);
 
 		if (hostname == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(hostname);

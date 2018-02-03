@@ -1,9 +1,14 @@
 Bundle-Name: Liferay Users Admin API
 Bundle-SymbolicName: com.liferay.users.admin.api
+<<<<<<< HEAD
 Bundle-Version: 2.1.0
 Export-Package:\
 	com.liferay.users.admin.configuration,\
 	com.liferay.users.admin.constants,\
 	com.liferay.users.admin.display.context
+=======
+Bundle-Version: 2.0.2
+Export-Package: com.liferay.users.admin.constants
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title:

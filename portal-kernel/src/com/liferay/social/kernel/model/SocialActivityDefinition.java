@@ -16,7 +16,10 @@ package com.liferay.social.kernel.model;
 
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.util.HashUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 
 import java.io.Serializable;
 
@@ -134,9 +137,13 @@ public class SocialActivityDefinition implements Serializable {
 
 	public String getName(Locale locale) {
 		return LanguageUtil.get(
+<<<<<<< HEAD
 			locale,
 			StringBundler.concat(
 				"social.activity.", _modelName, ".", _languageKey));
+=======
+			locale, "social.activity." + _modelName + "." + _languageKey);
+>>>>>>> compatible
 	}
 
 	@Override

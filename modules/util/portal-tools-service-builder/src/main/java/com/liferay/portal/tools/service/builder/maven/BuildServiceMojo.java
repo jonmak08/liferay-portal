@@ -103,6 +103,7 @@ public class BuildServiceMojo extends AbstractMojo {
 	/**
 	 * @parameter
 	 */
+<<<<<<< HEAD
 	public void setDatabaseNameMaxLength(int databaseNameMaxLength) {
 		_serviceBuilderArgs.setDatabaseNameMaxLength(databaseNameMaxLength);
 	}
@@ -110,6 +111,8 @@ public class BuildServiceMojo extends AbstractMojo {
 	/**
 	 * @parameter
 	 */
+=======
+>>>>>>> compatible
 	public void setHbmFileName(String hbmFileName) {
 		_serviceBuilderArgs.setHbmFileName(hbmFileName);
 	}

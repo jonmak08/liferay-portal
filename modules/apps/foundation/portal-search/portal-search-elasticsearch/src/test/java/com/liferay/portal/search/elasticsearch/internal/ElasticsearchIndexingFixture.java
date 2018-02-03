@@ -16,14 +16,20 @@ package com.liferay.portal.search.elasticsearch.internal;
 
 import com.liferay.portal.kernel.search.IndexSearcher;
 import com.liferay.portal.kernel.search.IndexWriter;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.search.suggest.QuerySuggester;
 import com.liferay.portal.kernel.util.Localization;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Props;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.search.elasticsearch.connection.ElasticsearchConnectionManager;
 import com.liferay.portal.search.elasticsearch.connection.TestElasticsearchConnectionManager;
 import com.liferay.portal.search.elasticsearch.document.ElasticsearchUpdateDocumentCommand;
+<<<<<<< HEAD
 import com.liferay.portal.search.elasticsearch.facet.FacetProcessor;
+=======
+>>>>>>> compatible
 import com.liferay.portal.search.elasticsearch.index.IndexNameBuilder;
 import com.liferay.portal.search.elasticsearch.internal.connection.ElasticsearchFixture;
 import com.liferay.portal.search.elasticsearch.internal.connection.IndexCreator;
@@ -59,6 +65,7 @@ import com.liferay.portal.search.elasticsearch.internal.query.TermQueryTranslato
 import com.liferay.portal.search.elasticsearch.internal.query.TermRangeQueryTranslatorImpl;
 import com.liferay.portal.search.elasticsearch.internal.query.WildcardQueryTranslatorImpl;
 import com.liferay.portal.search.elasticsearch.internal.stats.DefaultStatsTranslator;
+<<<<<<< HEAD
 import com.liferay.portal.search.elasticsearch.internal.suggest.ElasticsearchSuggesterTranslator;
 import com.liferay.portal.search.elasticsearch.internal.suggest.PhraseSuggesterTranslatorImpl;
 import com.liferay.portal.search.elasticsearch.internal.suggest.TermSuggesterTranslatorImpl;
@@ -67,6 +74,9 @@ import com.liferay.portal.util.DigesterImpl;
 import com.liferay.portal.util.LocalizationImpl;
 
 import org.elasticsearch.action.search.SearchRequestBuilder;
+=======
+import com.liferay.portal.search.test.util.indexing.IndexingFixture;
+>>>>>>> compatible
 
 import org.mockito.Mockito;
 
@@ -111,12 +121,15 @@ public class ElasticsearchIndexingFixture implements IndexingFixture {
 		return true;
 	}
 
+<<<<<<< HEAD
 	public void setFacetProcessor(
 		FacetProcessor<SearchRequestBuilder> facetProcessor) {
 
 		_facetProcessor = facetProcessor;
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	public void setUp() throws Exception {
 		_elasticsearchFixture.setUp();
@@ -186,6 +199,7 @@ public class ElasticsearchIndexingFixture implements IndexingFixture {
 		};
 	}
 
+<<<<<<< HEAD
 	protected QuerySuggester createElasticsearchQuerySuggester(
 		final ElasticsearchConnectionManager elasticsearchConnectionManager1,
 		final IndexNameBuilder indexNameBuilder1) {
@@ -236,6 +250,8 @@ public class ElasticsearchIndexingFixture implements IndexingFixture {
 		};
 	}
 
+=======
+>>>>>>> compatible
 	protected void createIndex() {
 		_indexCreator.createIndex(
 			new IndexName(_indexNameBuilder.getIndexName(_companyId)));
@@ -249,7 +265,11 @@ public class ElasticsearchIndexingFixture implements IndexingFixture {
 			{
 				elasticsearchConnectionManager =
 					elasticsearchConnectionManager1;
+<<<<<<< HEAD
 				facetProcessor = _facetProcessor;
+=======
+				facetProcessor = new DefaultFacetProcessor();
+>>>>>>> compatible
 				filterTranslator = createElasticsearchFilterTranslator();
 				groupByTranslator = new DefaultGroupByTranslator();
 				indexNameBuilder = indexNameBuilder1;
@@ -259,10 +279,13 @@ public class ElasticsearchIndexingFixture implements IndexingFixture {
 				searchHitDocumentTranslator =
 					new SearchHitDocumentTranslatorImpl();
 
+<<<<<<< HEAD
 				setQuerySuggester(
 					createElasticsearchQuerySuggester(
 						elasticsearchConnectionManager, indexNameBuilder));
 
+=======
+>>>>>>> compatible
 				activate(
 					_elasticsearchFixture.
 						getElasticsearchConfigurationProperties());
@@ -274,6 +297,7 @@ public class ElasticsearchIndexingFixture implements IndexingFixture {
 		final ElasticsearchConnectionManager elasticsearchConnectionManager1,
 		final IndexNameBuilder indexNameBuilder1) {
 
+<<<<<<< HEAD
 		final ElasticsearchUpdateDocumentCommand
 			elasticsearchUpdateDocumentCommand1 =
 				new ElasticsearchUpdateDocumentCommandImpl() {
@@ -289,11 +313,28 @@ public class ElasticsearchIndexingFixture implements IndexingFixture {
 								getElasticsearchConfigurationProperties());
 					}
 				};
+=======
+		final ElasticsearchUpdateDocumentCommand updateDocumentCommand =
+			new ElasticsearchUpdateDocumentCommandImpl() {
+				{
+					elasticsearchConnectionManager =
+						elasticsearchConnectionManager1;
+					elasticsearchDocumentFactory =
+						new DefaultElasticsearchDocumentFactory();
+					indexNameBuilder = indexNameBuilder1;
+
+					activate(
+						_elasticsearchFixture.
+							getElasticsearchConfigurationProperties());
+				}
+			};
+>>>>>>> compatible
 
 		return new ElasticsearchIndexWriter() {
 			{
 				elasticsearchConnectionManager =
 					elasticsearchConnectionManager1;
+<<<<<<< HEAD
 				elasticsearchUpdateDocumentCommand =
 					elasticsearchUpdateDocumentCommand1;
 				indexNameBuilder = indexNameBuilder1;
@@ -302,6 +343,10 @@ public class ElasticsearchIndexingFixture implements IndexingFixture {
 					createElasticsearchSpellCheckIndexWriter(
 						elasticsearchConnectionManager1, indexNameBuilder1,
 						elasticsearchUpdateDocumentCommand1, this));
+=======
+				elasticsearchUpdateDocumentCommand = updateDocumentCommand;
+				indexNameBuilder = indexNameBuilder1;
+>>>>>>> compatible
 			}
 		};
 	}
@@ -331,13 +376,19 @@ public class ElasticsearchIndexingFixture implements IndexingFixture {
 
 	private final long _companyId;
 	private final ElasticsearchFixture _elasticsearchFixture;
+<<<<<<< HEAD
 	private FacetProcessor<SearchRequestBuilder> _facetProcessor =
 		new DefaultFacetProcessor();
+=======
+>>>>>>> compatible
 	private final IndexCreator _indexCreator;
 	private final IndexNameBuilder _indexNameBuilder =
 		new TestIndexNameBuilder();
 	private IndexSearcher _indexSearcher;
 	private IndexWriter _indexWriter;
+<<<<<<< HEAD
 	private final Localization _localization = new LocalizationImpl();
+=======
+>>>>>>> compatible
 
 }

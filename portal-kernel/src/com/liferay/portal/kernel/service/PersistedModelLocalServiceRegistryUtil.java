@@ -44,10 +44,13 @@ public class PersistedModelLocalServiceRegistryUtil {
 			getPersistedModelLocalServices();
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static boolean isPermissionedModelLocalService(String className) {
 		return getPersistedModelLocalServiceRegistry().
 			isPermissionedModelLocalService(className);

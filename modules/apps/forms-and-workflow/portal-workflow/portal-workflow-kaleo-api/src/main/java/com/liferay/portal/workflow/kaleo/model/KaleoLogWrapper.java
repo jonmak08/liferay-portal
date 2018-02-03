@@ -66,7 +66,11 @@ public class KaleoLogWrapper implements KaleoLog, ModelWrapper<KaleoLog> {
 		attributes.put("modifiedDate", getModifiedDate());
 		attributes.put("kaleoClassName", getKaleoClassName());
 		attributes.put("kaleoClassPK", getKaleoClassPK());
+<<<<<<< HEAD
 		attributes.put("kaleoDefinitionVersionId", getKaleoDefinitionVersionId());
+=======
+		attributes.put("kaleoDefinitionId", getKaleoDefinitionId());
+>>>>>>> compatible
 		attributes.put("kaleoInstanceId", getKaleoInstanceId());
 		attributes.put("kaleoInstanceTokenId", getKaleoInstanceTokenId());
 		attributes.put("kaleoTaskInstanceTokenId", getKaleoTaskInstanceTokenId());
@@ -148,11 +152,18 @@ public class KaleoLogWrapper implements KaleoLog, ModelWrapper<KaleoLog> {
 			setKaleoClassPK(kaleoClassPK);
 		}
 
+<<<<<<< HEAD
 		Long kaleoDefinitionVersionId = (Long)attributes.get(
 				"kaleoDefinitionVersionId");
 
 		if (kaleoDefinitionVersionId != null) {
 			setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
+=======
+		Long kaleoDefinitionId = (Long)attributes.get("kaleoDefinitionId");
+
+		if (kaleoDefinitionId != null) {
+			setKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 		}
 
 		Long kaleoInstanceId = (Long)attributes.get("kaleoInstanceId");
@@ -429,6 +440,7 @@ public class KaleoLogWrapper implements KaleoLog, ModelWrapper<KaleoLog> {
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns the kaleo definition version ID of this kaleo log.
 	*
 	* @return the kaleo definition version ID of this kaleo log
@@ -436,6 +448,15 @@ public class KaleoLogWrapper implements KaleoLog, ModelWrapper<KaleoLog> {
 	@Override
 	public long getKaleoDefinitionVersionId() {
 		return _kaleoLog.getKaleoDefinitionVersionId();
+=======
+	* Returns the kaleo definition ID of this kaleo log.
+	*
+	* @return the kaleo definition ID of this kaleo log
+	*/
+	@Override
+	public long getKaleoDefinitionId() {
+		return _kaleoLog.getKaleoDefinitionId();
+>>>>>>> compatible
 	}
 
 	/**
@@ -812,6 +833,7 @@ public class KaleoLogWrapper implements KaleoLog, ModelWrapper<KaleoLog> {
 	}
 
 	/**
+<<<<<<< HEAD
 	* Sets the kaleo definition version ID of this kaleo log.
 	*
 	* @param kaleoDefinitionVersionId the kaleo definition version ID of this kaleo log
@@ -819,6 +841,15 @@ public class KaleoLogWrapper implements KaleoLog, ModelWrapper<KaleoLog> {
 	@Override
 	public void setKaleoDefinitionVersionId(long kaleoDefinitionVersionId) {
 		_kaleoLog.setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
+=======
+	* Sets the kaleo definition ID of this kaleo log.
+	*
+	* @param kaleoDefinitionId the kaleo definition ID of this kaleo log
+	*/
+	@Override
+	public void setKaleoDefinitionId(long kaleoDefinitionId) {
+		_kaleoLog.setKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 	/**

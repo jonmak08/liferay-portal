@@ -21,6 +21,7 @@ import com.liferay.dynamic.data.mapping.model.DDMFormFieldOptions;
 import com.liferay.dynamic.data.mapping.model.DDMFormFieldType;
 import com.liferay.dynamic.data.mapping.model.LocalizedValue;
 import com.liferay.dynamic.data.mapping.storage.FieldConstants;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.util.DDMFormFactory;
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.language.LanguageUtil;
@@ -28,6 +29,13 @@ import com.liferay.portal.kernel.util.ArrayUtil;
 
 import java.util.Locale;
 import java.util.Map;
+=======
+import com.liferay.portal.kernel.language.LanguageUtil;
+import com.liferay.portal.kernel.util.ArrayUtil;
+import com.liferay.portal.kernel.util.StringPool;
+
+import java.util.Locale;
+>>>>>>> compatible
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -51,11 +59,15 @@ public class ConfigurationModelToDDMFormConverter {
 	}
 
 	public DDMForm getDDMForm() {
+<<<<<<< HEAD
 		DDMForm ddmForm = getConfigurationDDMForm();
 
 		if (ddmForm == null) {
 			ddmForm = new DDMForm();
 		}
+=======
+		DDMForm ddmForm = new DDMForm();
+>>>>>>> compatible
 
 		ddmForm.addAvailableLocale(_locale);
 		ddmForm.setDefaultLocale(_locale);
@@ -74,6 +86,7 @@ public class ConfigurationModelToDDMFormConverter {
 			return;
 		}
 
+<<<<<<< HEAD
 		Map<String, DDMFormField> ddmFormFieldsMap =
 			ddmForm.getDDMFormFieldsMap(false);
 
@@ -84,6 +97,13 @@ public class ConfigurationModelToDDMFormConverter {
 
 				ddmForm.addDDMFormField(ddmFormField);
 			}
+=======
+		for (AttributeDefinition attributeDefinition : attributeDefinitions) {
+			DDMFormField ddmFormField = getDDMFormField(
+				attributeDefinition, required);
+
+			ddmForm.addDDMFormField(ddmFormField);
+>>>>>>> compatible
 		}
 	}
 
@@ -103,6 +123,7 @@ public class ConfigurationModelToDDMFormConverter {
 		addDDMFormFields(requiredAttributeDefinitions, ddmForm, true);
 	}
 
+<<<<<<< HEAD
 	protected DDMForm getConfigurationDDMForm() {
 		Class<?> formClass =
 			ConfigurationDDMFormDeclarationUtil.getConfigurationDDMFormClass(
@@ -119,6 +140,8 @@ public class ConfigurationModelToDDMFormConverter {
 		return null;
 	}
 
+=======
+>>>>>>> compatible
 	protected DDMFormFieldOptions getDDMFieldOptions(
 		AttributeDefinition attributeDefinition) {
 
@@ -228,9 +251,12 @@ public class ConfigurationModelToDDMFormConverter {
 
 			return DDMFormFieldType.RADIO;
 		}
+<<<<<<< HEAD
 		else if (type == AttributeDefinition.PASSWORD) {
 			return DDMFormFieldType.PASSWORD;
 		}
+=======
+>>>>>>> compatible
 
 		if (ArrayUtil.isNotEmpty(attributeDefinition.getOptionLabels()) ||
 			ArrayUtil.isNotEmpty(attributeDefinition.getOptionValues())) {

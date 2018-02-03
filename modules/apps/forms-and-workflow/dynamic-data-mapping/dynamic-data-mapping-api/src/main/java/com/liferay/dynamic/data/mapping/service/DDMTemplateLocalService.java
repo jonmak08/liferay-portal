@@ -404,10 +404,19 @@ public interface DDMTemplateLocalService extends BaseLocalService,
 	search in the search
 	* @return the matching template, or <code>null</code> if a matching
 	template could not be found
+<<<<<<< HEAD
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public DDMTemplate fetchTemplate(long groupId, long classNameId,
 		java.lang.String templateKey, boolean includeAncestorTemplates);
+=======
+	* @throws PortalException if a portal exception occurred
+	*/
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public DDMTemplate fetchTemplate(long groupId, long classNameId,
+		java.lang.String templateKey, boolean includeAncestorTemplates)
+		throws PortalException;
+>>>>>>> compatible
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ActionableDynamicQuery getActionableDynamicQuery();
@@ -735,6 +744,7 @@ public interface DDMTemplateLocalService extends BaseLocalService,
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public int getTemplatesCount(long groupId, long classNameId, long classPK);
 
+<<<<<<< HEAD
 	/**
 	* Returns the number of templates matching the group IDs, class name ID,
 	* and class PK.
@@ -748,6 +758,8 @@ public interface DDMTemplateLocalService extends BaseLocalService,
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public int getTemplatesCount(long[] groupIds, long classNameId, long classPK);
 
+=======
+>>>>>>> compatible
 	public void revertTemplate(long userId, long templateId,
 		java.lang.String version, ServiceContext serviceContext)
 		throws PortalException;

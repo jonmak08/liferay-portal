@@ -1,5 +1,9 @@
 Bundle-Name: Liferay Push Notifications Sender Apple
 Bundle-SymbolicName: com.liferay.push.notifications.sender.apple
+<<<<<<< HEAD
 Bundle-Version: 1.0.13
+=======
+Bundle-Version: 1.0.9
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title:

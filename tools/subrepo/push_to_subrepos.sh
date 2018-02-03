@@ -145,10 +145,17 @@ fi
 #
 
 SUBREPO_SEARCH_PARAMETERS=(
+<<<<<<< HEAD
 	"7.0.x:../..:modules"
 	"7.0.x-private:../../../liferay-portal-ee:modules/private"
 	"master-private:../../../liferay-portal-ee:modules/private"
 	"master:../..:modules"
+=======
+	"7.0.x:../..:modules/apps"
+	"7.0.x-private:../../../liferay-portal-ee:modules/private/apps"
+	"master-private:../../../liferay-portal-ee:modules/private/apps"
+	"master:../..:modules/apps"
+>>>>>>> compatible
 )
 
 for SUBREPO_SEARCH_PARAMETER in "${SUBREPO_SEARCH_PARAMETERS[@]}"

@@ -21,6 +21,7 @@ MBMessageDisplay messageDisplay = (MBMessageDisplay)request.getAttribute(WebKeys
 
 MBMessage message = messageDisplay.getMessage();
 
+<<<<<<< HEAD
 MBThread thread = messageDisplay.getThread();
 
 if (layout.isTypeControlPanel()) {
@@ -32,6 +33,17 @@ AssetEntry layoutAssetEntry = AssetEntryLocalServiceUtil.getEntry(MBMessage.clas
 request.setAttribute(WebKeys.LAYOUT_ASSET_ENTRY, layoutAssetEntry);
 
 AssetEntryServiceUtil.incrementViewCounter(layoutAssetEntry);
+=======
+MBCategory category = messageDisplay.getCategory();
+
+MBThread thread = messageDisplay.getThread();
+
+if ((message != null) && layout.isTypeControlPanel()) {
+	MBBreadcrumbUtil.addPortletBreadcrumbEntries(message, request, renderResponse);
+}
+
+AssetEntryServiceUtil.incrementViewCounter(MBMessage.class.getName(), message.getMessageId());
+>>>>>>> compatible
 
 boolean portletTitleBasedNavigation = GetterUtil.getBoolean(portletConfig.getInitParameter("portlet-title-based-navigation"));
 
@@ -43,6 +55,7 @@ MBBreadcrumbUtil.addPortletBreadcrumbEntries(message, request, renderResponse);
 		<liferay-util:include page="/message_boards/top_links.jsp" servletContext="<%= application %>" />
 	</c:if>
 
+<<<<<<< HEAD
 	<liferay-util:include page="/message_boards/view_message_content.jsp" servletContext="<%= application %>" />
 </div>
 
@@ -75,6 +88,49 @@ MBBreadcrumbUtil.addPortletBreadcrumbEntries(message, request, renderResponse);
 
 		if (window[editorName]) {
 			window[editorName].dispose();
+=======
+	<c:choose>
+		<c:when test="<%= includeFormTag %>">
+			<aui:form name="fm">
+				<aui:input name="breadcrumbsCategoryId" type="hidden" value="<%= category.getCategoryId() %>" />
+				<aui:input name="breadcrumbsMessageId" type="hidden" value="<%= message.getMessageId() %>" />
+				<aui:input name="threadId" type="hidden" value="<%= message.getThreadId() %>" />
+
+				<liferay-util:include page="/message_boards/view_message_content.jsp" servletContext="<%= application %>" />
+			</aui:form>
+		</c:when>
+		<c:otherwise>
+			<liferay-util:include page="/message_boards/view_message_content.jsp" servletContext="<%= application %>" />
+		</c:otherwise>
+	</c:choose>
+
+	<c:if test="<%= MBCategoryPermission.contains(permissionChecker, scopeGroupId, message.getCategoryId(), ActionKeys.REPLY_TO_MESSAGE) && !thread.isLocked() %>">
+		<div class="hide" id="<portlet:namespace />addQuickReplyDiv">
+			<%@ include file="/message_boards/edit_message_quick.jspf" %>
+		</div>
+	</c:if>
+</div>
+
+<aui:script>
+	function <portlet:namespace />addQuickReply(cmd, messageId) {
+		var addQuickReplyDiv = AUI.$('#<portlet:namespace />addQuickReplyDiv');
+
+		if (cmd == 'reply') {
+			addQuickReplyDiv.removeClass('hide');
+
+			addQuickReplyDiv.find('#<portlet:namespace />parentMessageId').val(messageId);
+
+			var editorInput = addQuickReplyDiv.find('textarea');
+
+			var editorInstance = window[editorInput.attr('id')];
+
+			if (editorInstance) {
+				setTimeout(AUI._.bind(editorInstance.focus, editorInstance), 50);
+			}
+		}
+		else {
+			addQuickReplyDiv.addClass('hide');
+>>>>>>> compatible
 		}
 	}
 
@@ -86,6 +142,11 @@ MBBreadcrumbUtil.addPortletBreadcrumbEntries(message, request, renderResponse);
 <%
 MBThreadFlagLocalServiceUtil.addThreadFlag(themeDisplay.getUserId(), thread, new ServiceContext());
 
+<<<<<<< HEAD
+=======
+message = messageDisplay.getMessage();
+
+>>>>>>> compatible
 PortalUtil.setPageSubtitle(message.getSubject(), request);
 PortalUtil.setPageDescription(message.getSubject(), request);
 

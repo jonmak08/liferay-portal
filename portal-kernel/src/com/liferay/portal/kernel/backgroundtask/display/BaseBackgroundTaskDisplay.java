@@ -33,7 +33,10 @@ import com.liferay.portal.kernel.template.TemplateManagerUtil;
 import com.liferay.portal.kernel.template.TemplateResource;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringPool;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.Validator;
+=======
+>>>>>>> compatible
 
 import java.io.Writer;
 
@@ -41,8 +44,11 @@ import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
 
+<<<<<<< HEAD
 import javax.servlet.http.HttpServletRequest;
 
+=======
+>>>>>>> compatible
 /**
  * @author Andrew Betts
  */
@@ -58,6 +64,7 @@ public abstract class BaseBackgroundTaskDisplay
 	}
 
 	@Override
+<<<<<<< HEAD
 	public String getDisplayName(HttpServletRequest request) {
 		if (Validator.isNull(backgroundTask.getName())) {
 			return LanguageUtil.get(request, "untitled");
@@ -67,6 +74,8 @@ public abstract class BaseBackgroundTaskDisplay
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public abstract int getPercentage();
 
 	@Override

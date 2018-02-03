@@ -14,8 +14,11 @@
 
 package com.liferay.exportimport.lifecycle;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.lifecycle.ExportImportLifecycleEvent;
 import com.liferay.exportimport.kernel.lifecycle.ExportImportLifecycleEventFactory;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -28,12 +31,19 @@ import org.osgi.service.component.annotations.Component;
  * @author Daniel Kocsis
  */
 @Component(immediate = true)
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class ExportImportLifecycleEventFactoryImpl
 	implements ExportImportLifecycleEventFactory {
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 4.0.0
+=======
+	 * @deprecated As of 3.6.0
+>>>>>>> compatible
 	 */
 	@Deprecated
 	@Override

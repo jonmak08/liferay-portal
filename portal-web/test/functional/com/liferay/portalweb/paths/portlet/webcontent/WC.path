@@ -9,6 +9,7 @@
 </thead>
 <tbody>
 <tr>
+<<<<<<< HEAD
 	<td>ADD_TO_FAVORITES</td>
 	<td>//table[contains(@class,'table-heading')]//th[contains(@id,'add-to-favorites') and contains(.,'Add to Favorites')]</td>
 	<td></td>
@@ -21,6 +22,20 @@
 <tr>
 	<td>LINK_TO_PAGE_SELECT_PAGE_RADIO</td>
 	<td>//li[contains(.,'${key_pageName}')]/input[@type='radio']</td>
+=======
+	<td>LINK_TO_PAGE_SELECT_PAGE_BUTTON</td>
+	<td>//button[contains(@id,'SelectButton')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>LINK_TO_PAGE_SELECT_PAGE_RADIO</td>
+	<td>//li[contains(.,'${key_pageName}')]/input[@type='radio']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PRIORITY</td>
+	<td>//input[contains(@id,'assetPriority')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -29,12 +44,18 @@
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 	<td>SOURCE_GARBAGE_DATA</td>
 	<td>//pre[contains(.,'data')]</td>
+=======
+	<td>SEARCH_FILTER_REMOVE_BUTTON</td>
+	<td>//span[contains(@class,'close-search')]//i[contains(@class,'icon-remove')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <!--SEARCH-->
 <tr>
+<<<<<<< HEAD
 	<td>SEARCH_NONE</td>
 	<td>//div[@id='_15_entriesContainer']//div[contains(.,'No web content was found that matched the keywords: ${searchQuery}.')]</td>
 	<td></td>
@@ -45,6 +66,8 @@
 	<td></td>
 </tr>
 <tr>
+=======
+>>>>>>> compatible
 	<td>SEARCH_TITLE</td>
 	<td>//li[contains(@data-title,'${key_webContentTitle}')]//div[@class=' list-group-item-content']//a</td>
 	<td></td>
@@ -218,6 +241,7 @@
 	<td>//tr[contains(.,'${key_webContentTitle}')]//span[@class='workflow-status']/strong</td>
 	<td></td>
 </tr>
+<<<<<<< HEAD
 <tr>
 	<td>MOVE_WEB_CONTENT_ARTICLE</td>
 	<td>//li[contains(@class,'move-article') and contains(.,'${key_webContentTitle}')]</td>
@@ -243,12 +267,23 @@
 	<td>//a[contains(.,'${key_webContentTitle}')]</td>
 	<td></td>
 </tr>
+=======
+>>>>>>> compatible
 <!--FOLDER_TABLE-->
 <tr>
 	<td>FOLDER_TABLE_CHOOSE</td>
 	<td>//tr[contains(.,'${key_folderName}')]/td[4]//button[contains(.,'Choose')]</td>
 	<td></td>
 </tr>
+<<<<<<< HEAD
+=======
+<!--TOOLBAR-->
+<tr>
+	<td>TOOLBAR_MOVE_BUTTON</td>
+	<td>//div[@class='management-bar-header-right']/a[@data-title='Move']/span</td>
+	<td></td>
+</tr>
+>>>>>>> compatible
 </tbody>
 </table>
 </body>

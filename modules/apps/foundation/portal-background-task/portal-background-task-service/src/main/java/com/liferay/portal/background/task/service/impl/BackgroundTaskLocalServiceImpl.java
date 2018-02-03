@@ -15,7 +15,10 @@
 package com.liferay.portal.background.task.service.impl;
 
 import com.liferay.document.library.kernel.model.DLFolderConstants;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.background.task.internal.BackgroundTaskImpl;
 import com.liferay.portal.background.task.model.BackgroundTask;
 import com.liferay.portal.background.task.service.base.BackgroundTaskLocalServiceBaseImpl;
@@ -42,6 +45,10 @@ import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.PortletKeys;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.spring.extender.service.ServiceReference;
@@ -644,7 +651,11 @@ public class BackgroundTaskLocalServiceImpl
 		User user = null;
 
 		if (userId != UserConstants.USER_ID_DEFAULT) {
+<<<<<<< HEAD
 			user = userLocalService.fetchUser(userId);
+=======
+			user = userLocalService.getUser(userId);
+>>>>>>> compatible
 		}
 
 		final long backgroundTaskId = counterLocalService.increment();

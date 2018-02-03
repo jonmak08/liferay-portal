@@ -15,7 +15,11 @@ To use the plugin, include it in your build script:
 ```gradle
 buildscript {
 	dependencies {
+<<<<<<< HEAD
 		classpath group: "com.liferay", name: "com.liferay.gradle.plugins.dependency.checker", version: "1.0.1"
+=======
+		classpath group: "com.liferay", name: "com.liferay.gradle.plugins.dependency.checker", version: "1.0.0"
+>>>>>>> compatible
 	}
 
 	repositories {

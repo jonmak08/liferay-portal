@@ -34,9 +34,15 @@ public class KaleoTransitionLocalServiceImpl
 
 	@Override
 	public KaleoTransition addKaleoTransition(
+<<<<<<< HEAD
 			long kaleoDefinitionVersionId, long kaleoNodeId,
 			Transition transition, KaleoNode sourceKaleoNode,
 			KaleoNode targetKaleoNode, ServiceContext serviceContext)
+=======
+			long kaleoDefinitionId, long kaleoNodeId, Transition transition,
+			KaleoNode sourceKaleoNode, KaleoNode targetKaleoNode,
+			ServiceContext serviceContext)
+>>>>>>> compatible
 		throws PortalException {
 
 		// Kaleo transition
@@ -54,7 +60,11 @@ public class KaleoTransitionLocalServiceImpl
 		kaleoTransition.setUserName(user.getFullName());
 		kaleoTransition.setCreateDate(now);
 		kaleoTransition.setModifiedDate(now);
+<<<<<<< HEAD
 		kaleoTransition.setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
+=======
+		kaleoTransition.setKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 		kaleoTransition.setKaleoNodeId(kaleoNodeId);
 		kaleoTransition.setName(transition.getName());
 		kaleoTransition.setSourceKaleoNodeId(sourceKaleoNode.getKaleoNodeId());
@@ -72,7 +82,11 @@ public class KaleoTransitionLocalServiceImpl
 		if (timer != null) {
 			kaleoTimerLocalService.addKaleoTimer(
 				KaleoTransition.class.getName(), kaleoTransitionId,
+<<<<<<< HEAD
 				kaleoDefinitionVersionId, timer, serviceContext);
+=======
+				kaleoDefinitionId, timer, serviceContext);
+>>>>>>> compatible
 		}
 
 		return kaleoTransition;
@@ -84,11 +98,16 @@ public class KaleoTransitionLocalServiceImpl
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void deleteKaleoDefinitionVersionKaleoTransitions(
 		long kaleoDefinitionVersionId) {
 
 		kaleoTransitionPersistence.removeByKaleoDefinitionVersionId(
 			kaleoDefinitionVersionId);
+=======
+	public void deleteKaleoDefinitionKaleoTransitions(long kaleoDefinitionId) {
+		kaleoTransitionPersistence.removeByKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -99,11 +118,19 @@ public class KaleoTransitionLocalServiceImpl
 	}
 
 	@Override
+<<<<<<< HEAD
 	public List<KaleoTransition> getKaleoDefinitionVersionKaleoTransitions(
 		long kaleoDefinitionVersionId) {
 
 		return kaleoTransitionPersistence.findByKaleoDefinitionVersionId(
 			kaleoDefinitionVersionId);
+=======
+	public List<KaleoTransition> getKaleoDefinitionKaleoTransitions(
+		long kaleoDefinitionId) {
+
+		return kaleoTransitionPersistence.findByKaleoDefinitionId(
+			kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 	@Override

@@ -35,6 +35,7 @@ public interface JournalWebConfiguration {
 	)
 	public boolean changeableDefaultLanguage();
 
+<<<<<<< HEAD
 	@Meta.AD(
 		deflt = "descriptive", name = "default-display-view", required = false
 	)
@@ -88,6 +89,30 @@ public interface JournalWebConfiguration {
 		deflt = "true", name = "publish-version-history-by-default",
 		required = false
 	)
+=======
+	@Meta.AD(deflt = "15", required = false)
+	public int checkInterval();
+
+	@Meta.AD(deflt = "descriptive", required = false)
+	public String defaultDisplayView();
+
+	@Meta.AD(deflt = "icon|descriptive|list", required = false)
+	public String[] displayViews();
+
+	@Meta.AD(deflt = "true", required = false)
+	public boolean journalArticleForceAutogenerateId();
+
+	@Meta.AD(deflt = "true", required = false)
+	public boolean journalArticlesSearchWithIndex();
+
+	@Meta.AD(deflt = "true", required = false)
+	public boolean journalFeedForceAutogenerateId();
+
+	@Meta.AD(deflt = "true", required = false)
+	public boolean publishToLiveByDefault();
+
+	@Meta.AD(deflt = "true", required = false)
+>>>>>>> compatible
 	public boolean publishVersionHistoryByDefault();
 
 }

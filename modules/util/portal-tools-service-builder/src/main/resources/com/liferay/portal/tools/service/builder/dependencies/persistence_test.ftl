@@ -35,6 +35,10 @@ import com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.ProjectionFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.AssertUtils;
 import com.liferay.portal.kernel.test.ReflectionTestUtil;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
@@ -43,6 +47,10 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.util.IntegerWrapper;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.OrderByComparatorFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.PersistenceTestRule;
@@ -55,8 +63,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+<<<<<<< HEAD
 import java.io.ByteArrayInputStream;
 
+=======
+>>>>>>> compatible
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -246,9 +257,15 @@ public class ${entity.name}PersistenceTest {
 				<#if stringUtil.equals(column.type, "Blob")>
 					String new${column.methodName}String = RandomTestUtil.randomString();
 
+<<<<<<< HEAD
 					byte[] new${column.methodName}Bytes = new${column.methodName}String.getBytes("UTF-8");
 
 					Blob new${column.methodName}Blob = new OutputBlob(new ByteArrayInputStream(new${column.methodName}Bytes), new${column.methodName}Bytes.length);
+=======
+					byte[] new${column.methodName}Bytes = new${column.methodName}String.getBytes(StringPool.UTF8);
+
+					Blob new${column.methodName}Blob = new OutputBlob(new UnsyncByteArrayInputStream(new${column.methodName}Bytes), new${column.methodName}Bytes.length);
+>>>>>>> compatible
 				</#if>
 
 				new${entity.name}.set${column.methodName}(
@@ -321,7 +338,11 @@ public class ${entity.name}PersistenceTest {
 				<#elseif stringUtil.equals(finderCol.type, "String")>
 					<#assign hasString = true />
 
+<<<<<<< HEAD
 					""
+=======
+					StringPool.BLANK
+>>>>>>> compatible
 				<#else>
 					(${finderCol.type})null
 				</#if>
@@ -348,7 +369,11 @@ public class ${entity.name}PersistenceTest {
 						<#elseif stringUtil.equals(finderCol.type, "Date")>
 							RandomTestUtil.nextDate()
 						<#elseif stringUtil.equals(finderCol.type, "String")>
+<<<<<<< HEAD
 							"null"
+=======
+							StringPool.NULL
+>>>>>>> compatible
 						<#else>
 							(${finderCol.type})null
 						</#if>
@@ -409,9 +434,15 @@ public class ${entity.name}PersistenceTest {
 							<#assign maxLength = serviceBuilder.getMaxLength(entity.getName(), finderCol.getName()) />
 
 							<#if maxLength < 8>
+<<<<<<< HEAD
 								RandomTestUtil.randomString(${maxLength}), "", "null", null, null
 							<#else>
 								RandomTestUtil.randomString(), "", "null", null, null
+=======
+								RandomTestUtil.randomString(${maxLength}), StringPool.BLANK, StringPool.NULL, null, null
+							<#else>
+								RandomTestUtil.randomString(), StringPool.BLANK, StringPool.NULL, null, null
+>>>>>>> compatible
 							</#if>
 						<#else>
 							null
@@ -1064,9 +1095,15 @@ public class ${entity.name}PersistenceTest {
 				<#if stringUtil.equals(column.type, "Blob")>
 					String ${column.name}String = RandomTestUtil.randomString();
 
+<<<<<<< HEAD
 					byte[] ${column.name}Bytes = ${column.name}String.getBytes("UTF-8");
 
 					Blob ${column.name}Blob = new OutputBlob(new ByteArrayInputStream(${column.name}Bytes), ${column.name}Bytes.length);
+=======
+					byte[] ${column.name}Bytes = ${column.name}String.getBytes(StringPool.UTF8);
+
+					Blob ${column.name}Blob = new OutputBlob(new UnsyncByteArrayInputStream(${column.name}Bytes), ${column.name}Bytes.length);
+>>>>>>> compatible
 				</#if>
 
 				${entity.varName}.set${column.methodName}(
@@ -1329,9 +1366,15 @@ public class ${entity.name}PersistenceTest {
 						<#if stringUtil.equals(column.type, "Blob")>
 							String ${column.name}String = RandomTestUtil.randomString();
 
+<<<<<<< HEAD
 							byte[] ${column.name}Bytes = ${column.name}String.getBytes("UTF-8");
 
 							Blob ${column.name}Blob = new OutputBlob(new ByteArrayInputStream(${column.name}Bytes), ${column.name}Bytes.length);
+=======
+							byte[] ${column.name}Bytes = ${column.name}String.getBytes(StringPool.UTF8);
+
+							Blob ${column.name}Blob = new OutputBlob(new UnsyncByteArrayInputStream(${column.name}Bytes), ${column.name}Bytes.length);
+>>>>>>> compatible
 						</#if>
 
 						${entity.varName}.set${column.methodName}(

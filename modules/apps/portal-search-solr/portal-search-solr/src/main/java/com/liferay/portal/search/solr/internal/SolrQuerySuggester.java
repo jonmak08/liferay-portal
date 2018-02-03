@@ -16,19 +16,32 @@ package com.liferay.portal.search.solr.internal;
 
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.search.Field;
 import com.liferay.portal.kernel.search.SearchContext;
 import com.liferay.portal.kernel.search.SearchException;
 import com.liferay.portal.kernel.search.suggest.QuerySuggester;
 import com.liferay.portal.kernel.search.suggest.Suggester;
 import com.liferay.portal.kernel.search.suggest.SuggesterResults;
+=======
+import com.liferay.portal.kernel.search.DocumentImpl;
+import com.liferay.portal.kernel.search.Field;
+import com.liferay.portal.kernel.search.SearchContext;
+import com.liferay.portal.kernel.search.SearchException;
+import com.liferay.portal.kernel.search.analysis.TokenizerUtil;
+import com.liferay.portal.kernel.search.suggest.BaseQuerySuggester;
+import com.liferay.portal.kernel.search.suggest.QuerySuggester;
+>>>>>>> compatible
 import com.liferay.portal.kernel.search.suggest.SuggestionConstants;
 import com.liferay.portal.kernel.search.suggest.WeightedWord;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.Localization;
 import com.liferay.portal.kernel.util.LocalizationUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
@@ -38,15 +51,23 @@ import com.liferay.portal.search.solr.connection.SolrClientManager;
 import com.liferay.portal.search.solr.suggest.NGramQueryBuilder;
 
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+=======
+import java.util.HashMap;
+import java.util.Iterator;
+>>>>>>> compatible
 import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
 
+<<<<<<< HEAD
 import org.apache.commons.lang.StringUtils;
+=======
+>>>>>>> compatible
 import org.apache.lucene.search.spell.LevensteinDistance;
 import org.apache.lucene.search.spell.StringDistance;
 import org.apache.solr.client.solrj.SolrClient;
@@ -73,6 +94,7 @@ import org.osgi.service.component.annotations.ReferencePolicyOption;
 	property = {"distance.threshold=0.6f", "search.engine.impl=Solr"},
 	service = QuerySuggester.class
 )
+<<<<<<< HEAD
 public class SolrQuerySuggester implements QuerySuggester {
 
 	@Override
@@ -134,6 +156,64 @@ public class SolrQuerySuggester implements QuerySuggester {
 
 			solrQuery.setRows(max);
 
+=======
+public class SolrQuerySuggester extends BaseQuerySuggester {
+
+	@Override
+	public Map<String, List<String>> spellCheckKeywords(
+			SearchContext searchContext, int max)
+		throws SearchException {
+
+		Map<String, List<String>> suggestions = new HashMap<>();
+
+		String localizedFieldName = DocumentImpl.getLocalizedName(
+			searchContext.getLanguageId(), Field.SPELL_CHECK_WORD);
+
+		List<String> keywords = TokenizerUtil.tokenize(
+			localizedFieldName, searchContext.getKeywords(),
+			searchContext.getLanguageId());
+
+		for (String keyword : keywords) {
+			List<String> keywordSuggestions = suggestKeywords(
+				searchContext, max, keyword);
+
+			suggestions.put(keyword, keywordSuggestions);
+		}
+
+		return suggestions;
+	}
+
+	@Override
+	public String[] suggestKeywordQueries(SearchContext searchContext, int max)
+		throws SearchException {
+
+		SolrClient solrClient = _solrClientManager.getSolrClient();
+
+		SolrQuery solrQuery = new SolrQuery();
+
+		solrQuery.setFilterQueries(
+			getFilterQueries(
+				searchContext, SuggestionConstants.TYPE_QUERY_SUGGESTION));
+
+		StringBundler sb = new StringBundler(6);
+
+		sb.append("start");
+
+		String keywords = searchContext.getKeywords();
+
+		sb.append(keywords.length());
+
+		sb.append(StringPool.COLON);
+		sb.append(StringPool.QUOTE);
+		sb.append(keywords);
+		sb.append(StringPool.QUOTE);
+
+		solrQuery.setQuery(sb.toString());
+
+		solrQuery.setRows(max);
+
+		try {
+>>>>>>> compatible
 			QueryResponse queryResponse = solrClient.query(solrQuery);
 
 			SolrDocumentList solrDocumentList = queryResponse.getResults();
@@ -164,6 +244,7 @@ public class SolrQuerySuggester implements QuerySuggester {
 			properties, "distance.threshold", 0.6D);
 	}
 
+<<<<<<< HEAD
 	protected List<Suggestion> doSuggest(SearchContext searchContext, int max)
 		throws SearchException {
 
@@ -187,6 +268,8 @@ public class SolrQuerySuggester implements QuerySuggester {
 		return suggestions;
 	}
 
+=======
+>>>>>>> compatible
 	protected String[] getFilterQueries(
 		SearchContext searchContext, String type) {
 
@@ -262,6 +345,7 @@ public class SolrQuerySuggester implements QuerySuggester {
 		return ArrayUtil.append(groupIds, _GLOBAL_GROUP_ID);
 	}
 
+<<<<<<< HEAD
 	protected Localization getLocalization() {
 
 		// See LPS-72507 and LPS-76500
@@ -281,6 +365,8 @@ public class SolrQuerySuggester implements QuerySuggester {
 		return options.get(0);
 	}
 
+=======
+>>>>>>> compatible
 	@Reference(unbind = "-")
 	protected void setNGramQueryBuilder(NGramQueryBuilder nGramQueryBuilder) {
 		_nGramQueryBuilder = nGramQueryBuilder;
@@ -358,14 +444,27 @@ public class SolrQuerySuggester implements QuerySuggester {
 
 			SolrDocumentList solrDocumentList = queryResponse.getResults();
 
+<<<<<<< HEAD
 			for (SolrDocument solrDocument : solrDocumentList) {
+=======
+			for (int i = 0; i < solrDocumentList.size(); i++) {
+				SolrDocument solrDocument = solrDocumentList.get(i);
+
+>>>>>>> compatible
 				List<String> suggestions = (List<String>)solrDocument.get(
 					Field.SPELL_CHECK_WORD);
 
 				String suggestion = suggestions.get(0);
 
+<<<<<<< HEAD
 				float weight = GetterUtil.getFloat(
 					solrDocument.get(Field.PRIORITY));
+=======
+				List<String> weights = (List<String>)solrDocument.get(
+					Field.PRIORITY);
+
+				float weight = GetterUtil.getFloat(weights.get(0));
+>>>>>>> compatible
 
 				if (suggestion.equals(input)) {
 					weight = _INFINITE_WEIGHT;
@@ -412,8 +511,11 @@ public class SolrQuerySuggester implements QuerySuggester {
 		_stringDistance = new LevensteinDistance();
 	}
 
+<<<<<<< HEAD
 	protected Localization localization;
 
+=======
+>>>>>>> compatible
 	private static final long _GLOBAL_GROUP_ID = 0;
 
 	private static final float _INFINITE_WEIGHT = 100F;
@@ -428,6 +530,7 @@ public class SolrQuerySuggester implements QuerySuggester {
 	private SolrClientManager _solrClientManager;
 	private StringDistance _stringDistance = new LevensteinDistance();
 
+<<<<<<< HEAD
 	private static class Suggestion {
 
 		protected List<String> options;
@@ -435,4 +538,6 @@ public class SolrQuerySuggester implements QuerySuggester {
 
 	}
 
+=======
+>>>>>>> compatible
 }

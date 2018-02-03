@@ -15,7 +15,10 @@
 package com.liferay.frontend.js.spa.web.internal.servlet.taglib;
 
 import com.liferay.frontend.js.spa.web.internal.servlet.taglib.util.SPAUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.language.Language;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.servlet.taglib.BaseJSPDynamicInclude;
@@ -26,10 +29,18 @@ import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.Html;
 import com.liferay.portal.kernel.util.Props;
 import com.liferay.portal.kernel.util.PropsKeys;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.WebKeys;
 
 import java.io.IOException;
+<<<<<<< HEAD
+=======
+import java.io.InputStream;
+>>>>>>> compatible
 
 import java.util.HashMap;
 import java.util.Map;
@@ -71,7 +82,10 @@ public class SPATopHeadJSPDynamicInclude extends BaseJSPDynamicInclude {
 			"clearScreensCache",
 			String.valueOf(
 				_spaUtil.isClearScreensCache(request, request.getSession())));
+<<<<<<< HEAD
 		values.put("debugEnabled", String.valueOf(_spaUtil.isDebugEnabled()));
+=======
+>>>>>>> compatible
 		values.put("excludedPaths", _spaUtil.getExcludedPaths());
 		values.put(
 			"loginRedirect",
@@ -82,9 +96,12 @@ public class SPATopHeadJSPDynamicInclude extends BaseJSPDynamicInclude {
 				_spaUtil.getLanguageResourceBundle(themeDisplay.getLocale()),
 				"it-looks-like-this-is-taking-longer-than-expected"));
 		values.put(
+<<<<<<< HEAD
 			"navigationExceptionSelectors",
 			_spaUtil.getNavigationExceptionSelectors());
 		values.put(
+=======
+>>>>>>> compatible
 			"portletsBlacklist", _spaUtil.getPortletsBlacklist(themeDisplay));
 		values.put(
 			"requestTimeout", String.valueOf(_spaUtil.getRequestTimeout()));
@@ -100,7 +117,11 @@ public class SPATopHeadJSPDynamicInclude extends BaseJSPDynamicInclude {
 		scriptData.append(
 			null,
 			StringUtil.replaceToStringBundler(
+<<<<<<< HEAD
 				_TMPL_CONTENT, StringPool.POUND, StringPool.POUND, values),
+=======
+				_initTemplate, StringPool.POUND, StringPool.POUND, values),
+>>>>>>> compatible
 			"frontend-js-spa-web/liferay/init.es", ScriptData.ModulesType.ES6);
 
 		scriptData.writeTo(response.getWriter());
@@ -140,8 +161,24 @@ public class SPATopHeadJSPDynamicInclude extends BaseJSPDynamicInclude {
 		_spaUtil = null;
 	}
 
+<<<<<<< HEAD
 	private static final String _TMPL_CONTENT = StringUtil.read(
 		SPATopHeadJSPDynamicInclude.class, "/META-INF/resources/init.tmpl");
+=======
+	private static final String _initTemplate;
+
+	static {
+		try (InputStream inputStream =
+				SPATopHeadJSPDynamicInclude.class.getResourceAsStream(
+					"/META-INF/resources/init.tmpl")) {
+
+			_initTemplate = StringUtil.read(inputStream);
+		}
+		catch (IOException ioe) {
+			throw new ExceptionInInitializerError(ioe);
+		}
+	}
+>>>>>>> compatible
 
 	@Reference
 	private Html _html;

@@ -9,10 +9,13 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"
 >
+<<<<<<< HEAD
 	<bean abstract="true" id="basePersistence">
 		<property name="dataSource" ref="liferayDataSource" />
 		<property name="sessionFactory" ref="liferaySessionFactory" />
 	</bean>
+=======
+>>>>>>> compatible
 	<bean class="com.liferay.portal.cache.thread.local.ThreadLocalCacheAdvice" id="threadLocalCacheAdvice">
 		<property name="nextMethodInterceptor" ref="bufferedIncrementAdvice" />
 	</bean>
@@ -69,6 +72,13 @@
 		<property name="nextMethodInterceptor" ref="accessControlAdvice" />
 	</bean>
 	<bean class="com.liferay.portal.spring.bean.BeanReferenceAnnotationBeanPostProcessor" />
+<<<<<<< HEAD
+=======
+	<bean abstract="true" id="basePersistence">
+		<property name="dataSource" ref="liferayDataSource" />
+		<property name="sessionFactory" ref="liferaySessionFactory" />
+	</bean>
+>>>>>>> compatible
 	<bean class="com.liferay.portal.spring.transaction.AnnotationTransactionAttributeSource" id="transactionAttributeSource" />
 	<bean class="com.liferay.portal.spring.transaction.TransactionExecutorFactory" factory-method="createTransactionExecutor" id="transactionExecutor">
 		<constructor-arg ref="liferayTransactionManager" />

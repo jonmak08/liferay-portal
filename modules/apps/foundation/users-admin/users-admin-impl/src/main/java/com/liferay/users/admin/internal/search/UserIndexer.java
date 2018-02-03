@@ -31,12 +31,20 @@ import com.liferay.portal.kernel.search.Field;
 import com.liferay.portal.kernel.search.IndexWriterHelper;
 import com.liferay.portal.kernel.search.Indexer;
 import com.liferay.portal.kernel.search.IndexerRegistryUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.search.QueryConfig;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.search.SearchContext;
 import com.liferay.portal.kernel.search.Summary;
 import com.liferay.portal.kernel.search.filter.BooleanFilter;
 import com.liferay.portal.kernel.search.filter.TermsFilter;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.service.GroupLocalService;
+=======
+import com.liferay.portal.kernel.security.auth.FullNameGenerator;
+import com.liferay.portal.kernel.security.auth.FullNameGeneratorFactory;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.OrganizationLocalService;
 import com.liferay.portal.kernel.service.UserLocalService;
 import com.liferay.portal.kernel.util.ArrayUtil;
@@ -47,7 +55,10 @@ import com.liferay.portal.model.impl.ContactImpl;
 
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+<<<<<<< HEAD
 import java.util.List;
+=======
+>>>>>>> compatible
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
@@ -135,8 +146,11 @@ public class UserIndexer extends BaseIndexer<User> {
 			SearchContext searchContext)
 		throws Exception {
 
+<<<<<<< HEAD
 		addHighlightFieldNames(searchContext);
 
+=======
+>>>>>>> compatible
 		addSearchTerm(searchQuery, searchContext, "city", false);
 		addSearchTerm(searchQuery, searchContext, "country", false);
 		addSearchTerm(searchQuery, searchContext, "emailAddress", false);
@@ -236,6 +250,7 @@ public class UserIndexer extends BaseIndexer<User> {
 		}
 	}
 
+<<<<<<< HEAD
 	protected void addHighlightFieldNames(SearchContext searchContext) {
 		QueryConfig queryConfig = searchContext.getQueryConfig();
 
@@ -246,6 +261,8 @@ public class UserIndexer extends BaseIndexer<User> {
 		queryConfig.addHighlightFieldNames("fullName");
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	protected void doDelete(User user) throws Exception {
 		deleteDocument(user.getCompanyId(), user.getUserId());
@@ -268,13 +285,22 @@ public class UserIndexer extends BaseIndexer<User> {
 		long[] organizationIds = user.getOrganizationIds();
 
 		document.addKeyword(Field.COMPANY_ID, user.getCompanyId());
+<<<<<<< HEAD
 		document.addKeyword(
 			Field.GROUP_ID, getActiveGroupIds(user.getUserId()));
+=======
+		document.addKeyword(Field.GROUP_ID, user.getGroupIds());
+>>>>>>> compatible
 		document.addDate(Field.MODIFIED_DATE, user.getModifiedDate());
 		document.addKeyword(Field.SCOPE_GROUP_ID, user.getGroupIds());
 		document.addKeyword(Field.STATUS, user.getStatus());
 		document.addKeyword(Field.USER_ID, user.getUserId());
+<<<<<<< HEAD
 		document.addKeyword(Field.USER_NAME, user.getFullName(), true);
+=======
+		document.addKeyword(Field.USER_NAME, user.getFullName());
+
+>>>>>>> compatible
 		document.addKeyword(
 			"ancestorOrganizationIds",
 			getAncestorOrganizationIds(user.getOrganizationIds()));
@@ -299,11 +325,52 @@ public class UserIndexer extends BaseIndexer<User> {
 	}
 
 	@Override
+<<<<<<< HEAD
+=======
+	protected String doGetSortField(String orderByCol) {
+		if (orderByCol.equals("email-address")) {
+			return "emailAddress";
+		}
+		else if (orderByCol.equals("first-name")) {
+			return "firstName";
+		}
+		else if (orderByCol.equals("job-title")) {
+			return "jobTitle";
+		}
+		else if (orderByCol.equals("last-name")) {
+			return "lastName";
+		}
+		else if (orderByCol.equals("screen-name")) {
+			return "screenName";
+		}
+		else {
+			return orderByCol;
+		}
+	}
+
+	@Override
+>>>>>>> compatible
 	protected Summary doGetSummary(
 		Document document, Locale locale, String snippet,
 		PortletRequest portletRequest, PortletResponse portletResponse) {
 
+<<<<<<< HEAD
 		return createSummary(document, "fullName", null);
+=======
+		String firstName = document.get("firstName");
+		String middleName = document.get("middleName");
+		String lastName = document.get("lastName");
+
+		FullNameGenerator fullNameGenerator =
+			FullNameGeneratorFactory.getInstance();
+
+		String title = fullNameGenerator.getFullName(
+			firstName, middleName, lastName);
+
+		String content = null;
+
+		return new Summary(title, content);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -348,12 +415,15 @@ public class UserIndexer extends BaseIndexer<User> {
 		}
 	}
 
+<<<<<<< HEAD
 	protected long[] getActiveGroupIds(long userId) {
 		List<Long> groupIds = groupLocalService.getActiveGroupIds(userId);
 
 		return ArrayUtil.toArray(groupIds.toArray(new Long[groupIds.size()]));
 	}
 
+=======
+>>>>>>> compatible
 	protected long[] getAncestorOrganizationIds(long[] organizationIds)
 		throws Exception {
 
@@ -408,9 +478,12 @@ public class UserIndexer extends BaseIndexer<User> {
 	}
 
 	@Reference
+<<<<<<< HEAD
 	protected GroupLocalService groupLocalService;
 
 	@Reference
+=======
+>>>>>>> compatible
 	protected IndexWriterHelper indexWriterHelper;
 
 	@Reference

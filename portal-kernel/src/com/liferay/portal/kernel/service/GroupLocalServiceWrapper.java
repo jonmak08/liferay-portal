@@ -584,11 +584,14 @@ public class GroupLocalServiceWrapper implements GroupLocalService,
 		return _groupLocalService.getActionableDynamicQuery();
 	}
 
+<<<<<<< HEAD
 	@Override
 	public java.util.List<java.lang.Long> getActiveGroupIds(long userId) {
 		return _groupLocalService.getActiveGroupIds(userId);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns all the active or inactive groups associated with the company.
 	*
@@ -772,12 +775,15 @@ public class GroupLocalServiceWrapper implements GroupLocalService,
 			inheritContent);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public java.util.List<com.liferay.portal.kernel.model.Group> getGroups(
 		long companyId, java.lang.String treePath, boolean site) {
 		return _groupLocalService.getGroups(companyId, treePath, site);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns all the groups that are direct children of the parent group with
 	* the matching className.
@@ -935,6 +941,7 @@ public class GroupLocalServiceWrapper implements GroupLocalService,
 	* @param companyId the primary key of the company
 	* @param parentGroupId the primary key of the parent group
 	* @param site whether the group is to be associated with a main site
+<<<<<<< HEAD
 	* @param active whether to return only active groups, or only inactive
 	groups
 	* @param start the lower bound of the range of groups to return
@@ -970,6 +977,8 @@ public class GroupLocalServiceWrapper implements GroupLocalService,
 	* @param companyId the primary key of the company
 	* @param parentGroupId the primary key of the parent group
 	* @param site whether the group is to be associated with a main site
+=======
+>>>>>>> compatible
 	* @param start the lower bound of the range of groups to return
 	* @param end the upper bound of the range of groups to return (not
 	inclusive)
@@ -1003,6 +1012,7 @@ public class GroupLocalServiceWrapper implements GroupLocalService,
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns the number of groups that are children or the parent group and
 	* that have at least one layout
 	*
@@ -1021,6 +1031,8 @@ public class GroupLocalServiceWrapper implements GroupLocalService,
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	* Returns all live groups.
 	*
 	* @return all live groups

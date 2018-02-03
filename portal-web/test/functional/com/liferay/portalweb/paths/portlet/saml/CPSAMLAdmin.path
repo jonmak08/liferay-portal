@@ -69,6 +69,7 @@
 	<td>//fieldset[contains(.,'Certificate and Private Key')]//button[contains(.,'Save')]</td>
 	<td></td>
 </tr>
+<<<<<<< HEAD
 <tr>
 	<td></td>
 	<td></td>
@@ -85,6 +86,8 @@
 	<td>//input[contains(@id,'saml-idp-session-maximum-age')]</td>
 	<td></td>
 </tr>
+=======
+>>>>>>> compatible
 </tbody>
 </table>
 </body>

@@ -14,12 +14,20 @@
 
 package com.liferay.powwow.util;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.PortletKeys;
 
 /**
  * @author Shinn Lok
  */
 public class PowwowPortletKeys extends PortletKeys {
+=======
+/**
+ * @author Shinn Lok
+ */
+public class PowwowPortletKeys
+	extends com.liferay.portal.kernel.util.PortletKeys {
+>>>>>>> compatible
 
 	public static final String POWWOW_ADMIN = "2_WAR_powwowportlet";
 

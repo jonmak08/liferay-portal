@@ -15,7 +15,11 @@
 package com.liferay.social.user.statistics.web.internal.upgrade.v1_0_0;
 
 import com.liferay.portal.kernel.upgrade.BaseUpgradePortletId;
+<<<<<<< HEAD
 import com.liferay.social.user.statistics.constants.SocialUserStatisticsPortletKeys;
+=======
+import com.liferay.social.user.statistics.web.constants.SocialUserStatisticsPortletKeys;
+>>>>>>> compatible
 
 /**
  * @author Iván Zaera

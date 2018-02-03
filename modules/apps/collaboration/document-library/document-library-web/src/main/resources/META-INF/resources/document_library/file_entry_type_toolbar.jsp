@@ -17,14 +17,27 @@
 <%@ include file="/document_library/init.jsp" %>
 
 <%
+<<<<<<< HEAD
 String toolbarItem = ParamUtil.getString(request, "toolbarItem");
+=======
+String mvcPath = ParamUtil.getString(request, "mvcPath", "/document_library/view_file_entry_types.jsp");
+
+String toolbarItem = ParamUtil.getString(request, "toolbarItem");
+
+boolean includeBasicFileEntryType = ParamUtil.getBoolean(request, "includeBasicFileEntryType");
+>>>>>>> compatible
 %>
 
 <aui:nav-bar markupView="lexicon">
 	<aui:nav cssClass="navbar-nav">
 		<portlet:renderURL var="viewFileEntryTypesURL">
+<<<<<<< HEAD
 			<portlet:param name="mvcPath" value="/document_library/select_restricted_file_entry_type.jsp" />
 			<portlet:param name="includeBasicFileEntryType" value="<%= Boolean.TRUE.toString() %>" />
+=======
+			<portlet:param name="mvcPath" value="<%= mvcPath %>" />
+			<portlet:param name="includeBasicFileEntryType" value="<%= String.valueOf(includeBasicFileEntryType) %>" />
+>>>>>>> compatible
 		</portlet:renderURL>
 
 		<c:if test="<%= DLPermission.contains(permissionChecker, scopeGroupId, ActionKeys.ADD_DOCUMENT_TYPE) %>">
@@ -40,7 +53,11 @@ String toolbarItem = ParamUtil.getString(request, "toolbarItem");
 	<aui:nav-bar-search>
 		<div class="form-search">
 			<liferay-portlet:renderURL varImpl="searchURL">
+<<<<<<< HEAD
 				<portlet:param name="mvcPath" value="/document_library/select_restricted_file_entry_type.jsp" />
+=======
+				<portlet:param name="mvcPath" value="<%= mvcPath %>" />
+>>>>>>> compatible
 			</liferay-portlet:renderURL>
 
 			<aui:form action="<%= searchURL.toString() %>" method="post" name="fm">

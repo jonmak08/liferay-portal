@@ -54,20 +54,26 @@ public interface LockManager {
 		throws PortalException;
 
 	public Lock lock(
+<<<<<<< HEAD
 			long userId, String className, long key, String owner,
 			boolean inheritable, long expirationTime, boolean renew)
 		throws PortalException;
 
 	public Lock lock(
+=======
+>>>>>>> compatible
 			long userId, String className, String key, String owner,
 			boolean inheritable, long expirationTime)
 		throws PortalException;
 
+<<<<<<< HEAD
 	public Lock lock(
 			long userId, String className, String key, String owner,
 			boolean inheritable, long expirationTime, boolean renew)
 		throws PortalException;
 
+=======
+>>>>>>> compatible
 	public Lock lock(String className, String key, String owner);
 
 	public Lock lock(

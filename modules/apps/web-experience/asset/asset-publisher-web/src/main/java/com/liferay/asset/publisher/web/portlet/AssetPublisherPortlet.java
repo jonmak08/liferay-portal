@@ -14,6 +14,7 @@
 
 package com.liferay.asset.publisher.web.portlet;
 
+<<<<<<< HEAD
 import com.liferay.asset.constants.AssetWebKeys;
 import com.liferay.asset.publisher.web.configuration.AssetPublisherPortletInstanceConfiguration;
 import com.liferay.asset.publisher.web.configuration.AssetPublisherWebConfiguration;
@@ -25,10 +26,16 @@ import com.liferay.asset.publisher.web.util.AssetPublisherCustomizer;
 import com.liferay.asset.publisher.web.util.AssetPublisherCustomizerRegistry;
 import com.liferay.asset.publisher.web.util.AssetRSSUtil;
 import com.liferay.asset.util.AssetHelper;
+=======
+import com.liferay.asset.publisher.web.constants.AssetPublisherPortletKeys;
+import com.liferay.asset.publisher.web.util.AssetPublisherUtil;
+import com.liferay.asset.publisher.web.util.AssetRSSUtil;
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.model.DDMStructure;
 import com.liferay.dynamic.data.mapping.storage.Field;
 import com.liferay.dynamic.data.mapping.storage.Fields;
 import com.liferay.dynamic.data.mapping.util.DDMUtil;
+<<<<<<< HEAD
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
 import com.liferay.portal.kernel.exception.NoSuchGroupException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
@@ -36,12 +43,20 @@ import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.portlet.PortletIdCodec;
+=======
+import com.liferay.portal.kernel.exception.NoSuchGroupException;
+import com.liferay.portal.kernel.json.JSONFactoryUtil;
+import com.liferay.portal.kernel.json.JSONObject;
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 import com.liferay.portal.kernel.security.auth.PrincipalException;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.ServiceContextFactory;
 import com.liferay.portal.kernel.servlet.SessionErrors;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.theme.PortletDisplay;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.DateFormatFactoryUtil;
@@ -57,7 +72,10 @@ import java.io.Serializable;
 import java.text.DateFormat;
 
 import java.util.Date;
+<<<<<<< HEAD
 import java.util.Map;
+=======
+>>>>>>> compatible
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
@@ -71,16 +89,23 @@ import javax.portlet.ResourceResponse;
 
 import javax.servlet.ServletException;
 
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Modified;
+=======
+import org.osgi.service.component.annotations.Component;
+>>>>>>> compatible
 import org.osgi.service.component.annotations.Reference;
 
 /**
  * @author Eudaldo Alonso
  */
 @Component(
+<<<<<<< HEAD
 	configurationPid = "com.liferay.asset.publisher.web.configuration.AssetPublisherWebConfiguration",
+=======
+>>>>>>> compatible
 	immediate = true,
 	property = {
 		"com.liferay.portlet.add-default-resource=true",
@@ -226,6 +251,7 @@ public class AssetPublisherPortlet extends MVCPortlet {
 		try (OutputStream outputStream =
 				resourceResponse.getPortletOutputStream()) {
 
+<<<<<<< HEAD
 			String rootPortletId = PortletIdCodec.decodePortletName(
 				portal.getPortletId(resourceRequest));
 
@@ -241,17 +267,23 @@ public class AssetPublisherPortlet extends MVCPortlet {
 				AssetPublisherWebKeys.ASSET_PUBLISHER_WEB_UTIL,
 				assetPublisherWebUtil);
 
+=======
+>>>>>>> compatible
 			byte[] bytes = AssetRSSUtil.getRSS(
 				resourceRequest, resourceResponse);
 
 			outputStream.write(bytes);
 		}
 		catch (Exception e) {
+<<<<<<< HEAD
 			_log.error("Unable to get RSS feed", e);
+=======
+>>>>>>> compatible
 		}
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void render(
 			RenderRequest renderRequest, RenderResponse renderResponse)
 		throws IOException, PortletException {
@@ -264,6 +296,8 @@ public class AssetPublisherPortlet extends MVCPortlet {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public void serveResource(
 			ResourceRequest resourceRequest, ResourceResponse resourceResponse)
 		throws IOException, PortletException {
@@ -289,7 +323,11 @@ public class AssetPublisherPortlet extends MVCPortlet {
 		ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(
 			WebKeys.THEME_DISPLAY);
 
+<<<<<<< HEAD
 		assetPublisherWebUtil.subscribe(
+=======
+		AssetPublisherUtil.subscribe(
+>>>>>>> compatible
 			themeDisplay.getPermissionChecker(), themeDisplay.getScopeGroupId(),
 			themeDisplay.getPlid(), themeDisplay.getPpid());
 	}
@@ -301,11 +339,16 @@ public class AssetPublisherPortlet extends MVCPortlet {
 		ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(
 			WebKeys.THEME_DISPLAY);
 
+<<<<<<< HEAD
 		assetPublisherWebUtil.unsubscribe(
+=======
+		AssetPublisherUtil.unsubscribe(
+>>>>>>> compatible
 			themeDisplay.getPermissionChecker(), themeDisplay.getPlid(),
 			themeDisplay.getPpid());
 	}
 
+<<<<<<< HEAD
 	@Activate
 	@Modified
 	protected void activate(Map<String, Object> properties) {
@@ -313,11 +356,14 @@ public class AssetPublisherPortlet extends MVCPortlet {
 			AssetPublisherWebConfiguration.class, properties);
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	protected void doDispatch(
 			RenderRequest renderRequest, RenderResponse renderResponse)
 		throws IOException, PortletException {
 
+<<<<<<< HEAD
 		try {
 			renderRequest.setAttribute(
 				AssetPublisherWebKeys.ASSET_ENTRY_ACTION_REGISTRY,
@@ -361,6 +407,10 @@ public class AssetPublisherPortlet extends MVCPortlet {
 		catch (Exception e) {
 			_log.error("Unable to get asset publisher customizer", e);
 		}
+=======
+		renderRequest.setAttribute(
+			WebKeys.SINGLE_PAGE_APPLICATION_CLEAR_CACHE, Boolean.TRUE);
+>>>>>>> compatible
 
 		if (SessionErrors.contains(
 				renderRequest, NoSuchGroupException.class.getName()) ||
@@ -386,6 +436,7 @@ public class AssetPublisherPortlet extends MVCPortlet {
 	}
 
 	@Reference
+<<<<<<< HEAD
 	protected AssetEntryActionRegistry assetEntryActionRegistry;
 
 	@Reference
@@ -405,4 +456,8 @@ public class AssetPublisherPortlet extends MVCPortlet {
 	private static final Log _log = LogFactoryUtil.getLog(
 		AssetPublisherPortlet.class);
 
+=======
+	protected Portal portal;
+
+>>>>>>> compatible
 }

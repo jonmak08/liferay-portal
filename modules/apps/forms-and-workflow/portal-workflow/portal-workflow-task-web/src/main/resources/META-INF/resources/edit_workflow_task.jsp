@@ -23,12 +23,15 @@ String redirect = ParamUtil.getString(request, "redirect");
 
 String backURL = ParamUtil.getString(request, "backURL", redirect);
 
+<<<<<<< HEAD
 if (Validator.isNull(backURL)) {
 	PortletURL renderURL = renderResponse.createRenderURL();
 
 	backURL = renderURL.toString();
 }
 
+=======
+>>>>>>> compatible
 WorkflowTask workflowTask = workflowTaskDisplayContext.getWorkflowTask();
 
 long classPK = workflowTaskDisplayContext.getWorkflowContextEntryClassPK(workflowTask);
@@ -41,10 +44,13 @@ AssetRendererFactory<?> assetRendererFactory = assetRenderer.getAssetRendererFac
 
 AssetEntry assetEntry = assetRendererFactory.getAssetEntry(workflowHandler.getClassName(), assetRenderer.getClassPK());
 
+<<<<<<< HEAD
 String languageId = LanguageUtil.getLanguageId(request);
 
 String[] availableLanguageIds = assetRenderer.getAvailableLanguageIds();
 
+=======
+>>>>>>> compatible
 String headerTitle = workflowTaskDisplayContext.getHeaderTitle(workflowTask);
 
 portletDisplay.setShowBackIcon(true);
@@ -131,17 +137,23 @@ renderResponse.setTitle(headerTitle);
 			<liferay-ui:panel-container cssClass="task-panel-container" extended="<%= false %>">
 				<c:if test="<%= assetRenderer != null %>">
 					<liferay-ui:panel extended="<%= true %>" markupView="lexicon" title="<%= workflowTaskDisplayContext.getPreviewOfTitle(workflowTask) %>">
+<<<<<<< HEAD
 						<div class="locale-actions">
 							<liferay-ui:language formAction="<%= currentURL %>" languageId="<%= languageId %>" languageIds="<%= availableLanguageIds %>" />
 						</div>
 
+=======
+>>>>>>> compatible
 						<div class="task-content-actions">
 							<liferay-ui:icon-list>
 								<c:if test="<%= assetRenderer.hasViewPermission(permissionChecker) %>">
 									<portlet:renderURL var="viewFullContentURL">
 										<portlet:param name="mvcPath" value="/view_content.jsp" />
 										<portlet:param name="redirect" value="<%= currentURL %>" />
+<<<<<<< HEAD
 										<portlet:param name="languageId" value="<%= languageId %>" />
+=======
+>>>>>>> compatible
 
 										<c:if test="<%= assetEntry != null %>">
 											<portlet:param name="assetEntryId" value="<%= String.valueOf(assetEntry.getEntryId()) %>" />
@@ -194,14 +206,22 @@ renderResponse.setTitle(headerTitle);
 							/>
 						</h3>
 
+<<<<<<< HEAD
 						<liferay-asset:asset-display
+=======
+						<liferay-ui:asset-display
+>>>>>>> compatible
 							assetRenderer="<%= assetRenderer %>"
 							template="<%= AssetRenderer.TEMPLATE_ABSTRACT %>"
 						/>
 					</liferay-ui:panel>
 
 					<liferay-ui:panel extended="<%= true %>" markupView="lexicon" title="comments">
+<<<<<<< HEAD
 						<liferay-comment:discussion
+=======
+						<liferay-ui:discussion
+>>>>>>> compatible
 							assetEntryVisible="<%= false %>"
 							className="<%= assetRenderer.getClassName() %>"
 							classPK="<%= assetRenderer.getClassPK() %>"

@@ -40,6 +40,7 @@ public class SearchResponseImpl implements SearchResponse {
 		return _searchContext.getFacet(name);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 1.3.0
 	 */
@@ -47,6 +48,11 @@ public class SearchResponseImpl implements SearchResponse {
 	@Override
 	public String[] getHighlights() {
 		return null;
+=======
+	@Override
+	public String[] getHighlights() {
+		return _highlights;
+>>>>>>> compatible
 	}
 
 	public Hits getHits() {
@@ -90,6 +96,13 @@ public class SearchResponseImpl implements SearchResponse {
 		_documents = documents;
 	}
 
+<<<<<<< HEAD
+=======
+	public void setHighlights(String[] highlights) {
+		_highlights = highlights;
+	}
+
+>>>>>>> compatible
 	public void setHits(Hits hits) {
 		_hits = hits;
 	}
@@ -123,6 +136,10 @@ public class SearchResponseImpl implements SearchResponse {
 	}
 
 	private List<Document> _documents;
+<<<<<<< HEAD
+=======
+	private String[] _highlights;
+>>>>>>> compatible
 	private Hits _hits;
 	private String _keywords;
 	private int _paginationDelta;

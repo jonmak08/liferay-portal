@@ -31,7 +31,10 @@ import com.liferay.portal.kernel.service.UserLocalService;
 import com.liferay.portal.kernel.service.WorkflowDefinitionLinkLocalService;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.workflow.WorkflowDefinition;
 import com.liferay.portal.kernel.workflow.WorkflowDefinitionManager;
 import com.liferay.portal.kernel.workflow.comparator.WorkflowComparatorFactory;
@@ -153,9 +156,14 @@ public class DefaultPortalKaleoManager
 			if (inputStream == null) {
 				if (_log.isWarnEnabled()) {
 					_log.warn(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"Unable to find definition file for ",
 							definitionName, " with file name ", fileName));
+=======
+						"Unable to find definition file for " + definitionName +
+							" with file name " + fileName);
+>>>>>>> compatible
 				}
 
 				return;
@@ -165,7 +173,11 @@ public class DefaultPortalKaleoManager
 
 			_workflowDefinitionManager.deployWorkflowDefinition(
 				serviceContext.getCompanyId(), defaultUser.getUserId(),
+<<<<<<< HEAD
 				definitionName, definitionName, FileUtil.getBytes(inputStream));
+=======
+				definitionName, FileUtil.getBytes(inputStream));
+>>>>>>> compatible
 		}
 	}
 

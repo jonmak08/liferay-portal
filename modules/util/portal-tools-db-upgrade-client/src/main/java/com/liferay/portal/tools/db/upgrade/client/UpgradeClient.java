@@ -486,6 +486,7 @@ public class UpgradeClient {
 				_appServer.getServerDetectorServerId());
 		}
 		else {
+<<<<<<< HEAD
 			String dirName = _appServerProperties.getProperty("dir");
 
 			File dir = new File(dirName);
@@ -502,6 +503,17 @@ public class UpgradeClient {
 				dirName, _appServerProperties.getProperty("extra.lib.dirs"),
 				_appServerProperties.getProperty("global.lib.dir"),
 				_appServerProperties.getProperty("portal.dir"), value);
+=======
+			_appServer = new AppServer(
+				_appServerProperties.getProperty("dir"),
+				_appServerProperties.getProperty("extra.lib.dirs"),
+				_appServerProperties.getProperty("global.lib.dir"),
+				_appServerProperties.getProperty("portal.dir"), value);
+
+			File dir = _appServer.getDir();
+
+			_appServerProperties.setProperty("dir", dir.getCanonicalPath());
+>>>>>>> compatible
 		}
 	}
 
@@ -624,8 +636,11 @@ public class UpgradeClient {
 	private void _verifyPortalUpgradeExtProperties() throws IOException {
 		String value = _portalUpgradeExtProperties.getProperty("liferay.home");
 
+<<<<<<< HEAD
 		File baseDir = new File(".");
 
+=======
+>>>>>>> compatible
 		if ((value == null) || value.isEmpty()) {
 			File defaultLiferayHomeDir = new File(_jarDir, "../../");
 
@@ -639,6 +654,7 @@ public class UpgradeClient {
 				value = defaultLiferayHomeDir.getCanonicalPath();
 			}
 		}
+<<<<<<< HEAD
 		else {
 			baseDir = _jarDir;
 		}
@@ -649,6 +665,11 @@ public class UpgradeClient {
 			liferayHome = new File(baseDir, value);
 		}
 
+=======
+
+		File liferayHome = new File(value);
+
+>>>>>>> compatible
 		_portalUpgradeExtProperties.setProperty(
 			"liferay.home", liferayHome.getCanonicalPath());
 	}

@@ -117,7 +117,11 @@ redirectURL.setParameter("mvcPath", "/view.jsp");
 </div>
 
 <div class="hide" id="<%= randomId %>updateComments">
+<<<<<<< HEAD
 	<aui:input cols="55" cssClass="task-content-comment" name="comment" placeholder="comment" rows="1" type="textarea" />
+=======
+	<aui:input cols="55" name="comment" placeholder="comment" rows="1" type="textarea" />
+>>>>>>> compatible
 </div>
 
 <aui:script use="liferay-workflow-tasks">
@@ -150,8 +154,12 @@ redirectURL.setParameter("mvcPath", "/view.jsp");
 				{
 					dialog: {
 						destroyOnHide: true,
+<<<<<<< HEAD
 						height: 380,
 						resizable: false,
+=======
+						height: 210,
+>>>>>>> compatible
 						width: 720
 					},
 					id: '<portlet:namespace />assignToDialog',
@@ -171,8 +179,12 @@ redirectURL.setParameter("mvcPath", "/view.jsp");
 				{
 					dialog: {
 						destroyOnHide: true,
+<<<<<<< HEAD
 						height: 470,
 						resizable: false,
+=======
+						height: 290,
+>>>>>>> compatible
 						width: 720
 					},
 					id: '<portlet:namespace />assignToDialog',
@@ -190,6 +202,12 @@ redirectURL.setParameter("mvcPath", "/view.jsp");
 		function(uri) {
 			location.href = uri;
 		},
+<<<<<<< HEAD
 		['aui-dialog', 'aui-dialog-iframe']
 	);
+=======
+		['aui-dialog','aui-dialog-iframe']
+	);
+
+>>>>>>> compatible
 </aui:script>

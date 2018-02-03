@@ -69,6 +69,7 @@ dlSearchContainer.setResults(foldersAndFileEntriesAndFileShortcuts);
 						</liferay-portlet:renderURL>
 
 						<%
+<<<<<<< HEAD
 						if (curFolder.isMountPoint()) {
 							try {
 								DLAppServiceUtil.getFoldersCount(curFolder.getRepositoryId(), curFolder.getFolderId());
@@ -76,6 +77,17 @@ dlSearchContainer.setResults(foldersAndFileEntriesAndFileShortcuts);
 							catch (PortalException pe) {
 								rowURL = null;
 							}
+=======
+						try{
+							DLAppServiceUtil.getFoldersFileEntriesCount(curFolder.getRepositoryId(), Arrays.asList(curFolder.getFolderId()), WorkflowConstants.STATUS_APPROVED);
+							DLAppServiceUtil.getFoldersCount(curFolder.getRepositoryId(), curFolder.getFolderId());
+						}
+						catch (com.liferay.portal.kernel.repository.RepositoryException re) {
+							rowURL = null;
+						}
+						catch (com.liferay.portal.kernel.security.auth.PrincipalException pe) {
+							rowURL = null;
+>>>>>>> compatible
 						}
 						%>
 
@@ -88,6 +100,7 @@ dlSearchContainer.setResults(foldersAndFileEntriesAndFileShortcuts);
 						</liferay-ui:search-container-column-text>
 					</c:when>
 					<c:when test="<%= (fileEntry != null) && (fileShortcut == null) %>">
+<<<<<<< HEAD
 
 						<%
 						FileVersion fileVersion = fileEntry.getFileVersion();
@@ -115,6 +128,28 @@ dlSearchContainer.setResults(foldersAndFileEntriesAndFileShortcuts);
 								</c:if>
 							</liferay-ui:search-container-column-text>
 						</c:if>
+=======
+						<liferay-ui:search-container-column-text
+							name="title"
+						>
+
+							<%
+							Map<String, Object> data = new HashMap<String, Object>();
+
+							data.put("entryid", fileEntry.getFileEntryId());
+							data.put("entryname", fileEntry.getTitle());
+							%>
+
+							<aui:a cssClass="selector-button" data="<%= data %>" href="javascript:;">
+								<%= HtmlUtil.escape(fileEntry.getTitle()) %>
+							</aui:a>
+
+							<c:if test="<%= Validator.isNotNull(fileEntry.getDescription()) %>">
+								<br />
+								<%= HtmlUtil.escape(fileEntry.getDescription()) %>
+							</c:if>
+						</liferay-ui:search-container-column-text>
+>>>>>>> compatible
 					</c:when>
 				</c:choose>
 			</liferay-ui:search-container-row>

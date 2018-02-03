@@ -34,7 +34,11 @@ else {
 	entriesChecker.setRememberCheckBoxStateURLRegex("^(?!.*" + liferayPortletResponse.getNamespace() + "redirect).*(folderId=" + folderId + ")");
 }
 
+<<<<<<< HEAD
 EntriesMover entriesMover = new EntriesMover(trashHelper.isTrashEnabled(scopeGroupId));
+=======
+EntriesMover entriesMover = new EntriesMover(scopeGroupId);
+>>>>>>> compatible
 
 bookmarksSearchContainer.setRowMover(entriesMover);
 

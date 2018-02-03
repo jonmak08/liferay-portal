@@ -1,5 +1,6 @@
 Bundle-Name: Liferay Frontend JS Web
 Bundle-SymbolicName: com.liferay.frontend.js.web
+<<<<<<< HEAD
 Bundle-Version: 1.0.69
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Frontend Infrastructure
@@ -158,6 +159,11 @@ Liferay-Top-Head-JS-Resources:\
 	/liferay/poller.js,\
 	\
 	/liferay/modal/main.js
+=======
+Bundle-Version: 1.0.61
+Liferay-Releng-Module-Group-Description:
+Liferay-Releng-Module-Group-Title: Frontend Infrastructure
+>>>>>>> compatible
 Provide-Capability:\
 	osgi.extender;\
 		osgi.extender="liferay.js";\

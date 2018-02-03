@@ -36,10 +36,15 @@ import javax.portlet.PortletURL;
 import javax.servlet.http.HttpServletRequest;
 
 /**
+<<<<<<< HEAD
  * @author     Julio Camarero
  * @deprecated As of 7.0.0
  */
 @Deprecated
+=======
+ * @author Julio Camarero
+ */
+>>>>>>> compatible
 @ProviderType
 public class TrashUtil {
 

@@ -16,13 +16,12 @@ package com.liferay.portal.search.solr.query;
 
 import com.liferay.portal.kernel.search.generic.MoreLikeThisQuery;
 
-import org.apache.lucene.search.Query;
-
 /**
  * @author Michael C. Han
  */
 public interface MoreLikeThisQueryTranslator {
 
-	public Query translate(MoreLikeThisQuery moreLikeThisQuery);
+	public org.apache.lucene.search.Query translate(
+		MoreLikeThisQuery moreLikeThisQuery);
 
 }

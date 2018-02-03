@@ -22,13 +22,21 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Layout;
 import com.liferay.portal.kernel.model.LayoutConstants;
 import com.liferay.portal.kernel.model.Portlet;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.model.PortletApp;
+import com.liferay.portal.kernel.model.PortletURLListener;
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
 import com.liferay.portal.kernel.portlet.LiferayPortletURL;
 import com.liferay.portal.kernel.portlet.PortletPreferencesFactoryUtil;
 import com.liferay.portal.kernel.portlet.PortletURLFactoryUtil;
 import com.liferay.portal.kernel.security.xml.SecureXMLFactoryProviderUtil;
 import com.liferay.portal.kernel.service.LayoutLocalServiceUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.servlet.TransferHeadersHelperUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.servlet.URLEncoder;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ArrayUtil;
@@ -626,6 +634,35 @@ public abstract class PortletResponseImpl implements LiferayPortletResponse {
 			if (portletName.equals(portlet.getPortletId())) {
 				portletURL = PortletURLFactoryUtil.create(
 					portletRequestImpl, portlet, plid, lifecycle);
+<<<<<<< HEAD
+=======
+			}
+			else {
+				portletURL = PortletURLFactoryUtil.create(
+					portletRequestImpl, portletName, plid, lifecycle);
+			}
+		}
+
+		PortletApp portletApp = portlet.getPortletApp();
+
+		Set<PortletURLListener> portletURLListeners =
+			portletApp.getPortletURLListeners();
+
+		for (PortletURLListener portletURLListener : portletURLListeners) {
+			try {
+				PortletURLGenerationListener portletURLGenerationListener =
+					PortletURLListenerFactory.create(portletURLListener);
+
+				if (lifecycle.equals(PortletRequest.ACTION_PHASE)) {
+					portletURLGenerationListener.filterActionURL(portletURL);
+				}
+				else if (lifecycle.equals(PortletRequest.RENDER_PHASE)) {
+					portletURLGenerationListener.filterRenderURL(portletURL);
+				}
+				else if (lifecycle.equals(PortletRequest.RESOURCE_PHASE)) {
+					portletURLGenerationListener.filterResourceURL(portletURL);
+				}
+>>>>>>> compatible
 			}
 			else {
 				portletURL = PortletURLFactoryUtil.create(
@@ -657,12 +694,25 @@ public abstract class PortletResponseImpl implements LiferayPortletResponse {
 			_log.error(pme.getMessage());
 		}
 
+<<<<<<< HEAD
 		return portletURL;
 	}
 
 	protected void init(
 		PortletRequestImpl portletRequestImpl, HttpServletResponse response) {
 
+=======
+		if (lifecycle.equals(PortletRequest.RESOURCE_PHASE)) {
+			portletURL.setCopyCurrentRenderParameters(true);
+		}
+
+		return portletURL;
+	}
+
+	protected void init(
+		PortletRequestImpl portletRequestImpl, HttpServletResponse response) {
+
+>>>>>>> compatible
 		this.portletRequestImpl = portletRequestImpl;
 		this.response = response;
 

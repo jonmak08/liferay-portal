@@ -16,11 +16,16 @@ package com.liferay.dynamic.data.mapping.render;
 
 import com.liferay.dynamic.data.mapping.storage.Field;
 import com.liferay.dynamic.data.mapping.storage.Fields;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.MapUtil;
 
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+=======
+
+import java.util.Locale;
+>>>>>>> compatible
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,10 +35,13 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class DDMFormFieldRenderingContext {
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 3.5.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public String getChildElementsHTML() {
 		return _childElementsHTML;
 	}
@@ -51,7 +59,11 @@ public class DDMFormFieldRenderingContext {
 	}
 
 	public String getLabel() {
+<<<<<<< HEAD
 		return MapUtil.getString(_properties, "label");
+=======
+		return _label;
+>>>>>>> compatible
 	}
 
 	public Locale getLocale() {
@@ -63,7 +75,11 @@ public class DDMFormFieldRenderingContext {
 	}
 
 	public String getName() {
+<<<<<<< HEAD
 		return MapUtil.getString(_properties, "name");
+=======
+		return _name;
+>>>>>>> compatible
 	}
 
 	public String getNamespace() {
@@ -74,6 +90,7 @@ public class DDMFormFieldRenderingContext {
 		return _portletNamespace;
 	}
 
+<<<<<<< HEAD
 	public Map<String, Object> getProperties() {
 		return _properties;
 	}
@@ -96,6 +113,22 @@ public class DDMFormFieldRenderingContext {
 
 	public boolean isRequired() {
 		return MapUtil.getBoolean(_properties, "required");
+=======
+	public String getTip() {
+		return _tip;
+	}
+
+	public String getValue() {
+		return _value;
+	}
+
+	public boolean isReadOnly() {
+		return _readOnly;
+	}
+
+	public boolean isRequired() {
+		return _required;
+>>>>>>> compatible
 	}
 
 	public boolean isShowEmptyFieldLabel() {
@@ -103,6 +136,7 @@ public class DDMFormFieldRenderingContext {
 	}
 
 	public boolean isVisible() {
+<<<<<<< HEAD
 		return MapUtil.getBoolean(_properties, "visible");
 	}
 
@@ -110,6 +144,11 @@ public class DDMFormFieldRenderingContext {
 	 * @deprecated As of 3.5.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+		return _visible;
+	}
+
+>>>>>>> compatible
 	public void setChildElementsHTML(String childElementsHTML) {
 		_childElementsHTML = childElementsHTML;
 	}
@@ -137,7 +176,11 @@ public class DDMFormFieldRenderingContext {
 	}
 
 	public void setLabel(String label) {
+<<<<<<< HEAD
 		_properties.put("label", label);
+=======
+		_label = label;
+>>>>>>> compatible
 	}
 
 	public void setLocale(Locale locale) {
@@ -149,7 +192,11 @@ public class DDMFormFieldRenderingContext {
 	}
 
 	public void setName(String name) {
+<<<<<<< HEAD
 		_properties.put("name", name);
+=======
+		_name = name;
+>>>>>>> compatible
 	}
 
 	public void setNamespace(String namespace) {
@@ -160,6 +207,7 @@ public class DDMFormFieldRenderingContext {
 		_portletNamespace = portletNamespace;
 	}
 
+<<<<<<< HEAD
 	public void setProperties(Map<String, Object> properties) {
 		_properties.putAll(properties);
 	}
@@ -174,6 +222,14 @@ public class DDMFormFieldRenderingContext {
 
 	public void setRequired(boolean required) {
 		_properties.put("required", required);
+=======
+	public void setReadOnly(boolean readOnly) {
+		_readOnly = readOnly;
+	}
+
+	public void setRequired(boolean required) {
+		_required = required;
+>>>>>>> compatible
 	}
 
 	public void setShowEmptyFieldLabel(boolean showEmptyFieldLabel) {
@@ -181,6 +237,7 @@ public class DDMFormFieldRenderingContext {
 	}
 
 	public void setTip(String tip) {
+<<<<<<< HEAD
 		_properties.put("tip", tip);
 	}
 
@@ -190,17 +247,43 @@ public class DDMFormFieldRenderingContext {
 
 	public void setVisible(boolean visible) {
 		_properties.put("visible", visible);
+=======
+		_tip = tip;
+	}
+
+	public void setValue(String value) {
+		_value = value;
+	}
+
+	public void setVisible(boolean visible) {
+		_visible = visible;
+>>>>>>> compatible
 	}
 
 	private String _childElementsHTML;
 	private Fields _fields;
 	private HttpServletRequest _httpServletRequest;
 	private HttpServletResponse _httpServletResponse;
+<<<<<<< HEAD
 	private Locale _locale;
 	private String _mode;
 	private String _namespace;
 	private String _portletNamespace;
 	private final Map<String, Object> _properties = new HashMap<>();
 	private boolean _showEmptyFieldLabel;
+=======
+	private String _label;
+	private Locale _locale;
+	private String _mode;
+	private String _name;
+	private String _namespace;
+	private String _portletNamespace;
+	private boolean _readOnly;
+	private boolean _required;
+	private boolean _showEmptyFieldLabel;
+	private String _tip;
+	private String _value;
+	private boolean _visible;
+>>>>>>> compatible
 
 }

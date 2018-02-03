@@ -209,8 +209,12 @@ public class ClusterMasterExecutorImplTest extends BaseClusterTestCase {
 
 		clusterMasterExecutorImpl.deactivate();
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			clusterEventListeners.toString(), clusterEventListeners.isEmpty());
+=======
+		Assert.assertTrue(clusterEventListeners.isEmpty());
+>>>>>>> compatible
 
 		// Test 2, destory when cluster link is disabled
 
@@ -278,7 +282,11 @@ public class ClusterMasterExecutorImplTest extends BaseClusterTestCase {
 
 			List<LogRecord> logRecords = captureHandler.getLogRecords();
 
+<<<<<<< HEAD
 			Assert.assertTrue(logRecords.toString(), logRecords.isEmpty());
+=======
+			Assert.assertTrue(logRecords.isEmpty());
+>>>>>>> compatible
 		}
 
 		// Test 3, execute with exception
@@ -502,8 +510,12 @@ public class ClusterMasterExecutorImplTest extends BaseClusterTestCase {
 
 					List<LogRecord> logRecords = captureHandler.getLogRecords();
 
+<<<<<<< HEAD
 					Assert.assertTrue(
 						logRecords.toString(), logRecords.isEmpty());
+=======
+					Assert.assertTrue(logRecords.isEmpty());
+>>>>>>> compatible
 				}
 			}
 
@@ -851,8 +863,12 @@ public class ClusterMasterExecutorImplTest extends BaseClusterTestCase {
 				});
 
 			initialize(
+<<<<<<< HEAD
 				"test-channel-logic-name-mock", "test-channel-properties-mock",
 				"test-channel-name-mock");
+=======
+				"test-channel-properties-mock", "test-channel-name-mock");
+>>>>>>> compatible
 
 			_clusterNodes = new ConcurrentHashMap<>();
 

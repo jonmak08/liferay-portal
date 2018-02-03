@@ -20,8 +20,11 @@ import com.liferay.dynamic.data.mapping.model.DDMForm;
 import com.liferay.dynamic.data.mapping.model.DDMFormField;
 import com.liferay.dynamic.data.mapping.model.DDMFormFieldOptions;
 import com.liferay.dynamic.data.mapping.model.DDMFormFieldType;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.model.DDMFormFieldValidation;
 import com.liferay.dynamic.data.mapping.model.DDMFormRule;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.model.LocalizedValue;
 import com.liferay.dynamic.data.mapping.validator.DDMFormValidationException;
 import com.liferay.dynamic.data.mapping.validator.DDMFormValidationException.MustNotDuplicateFieldName;
@@ -35,6 +38,7 @@ import com.liferay.dynamic.data.mapping.validator.DDMFormValidationException.Mus
 import com.liferay.dynamic.data.mapping.validator.DDMFormValidationException.MustSetValidCharactersForFieldName;
 import com.liferay.dynamic.data.mapping.validator.DDMFormValidationException.MustSetValidCharactersForFieldType;
 import com.liferay.dynamic.data.mapping.validator.DDMFormValidationException.MustSetValidDefaultLocaleForProperty;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.validator.DDMFormValidationException.MustSetValidFormRuleExpression;
 import com.liferay.dynamic.data.mapping.validator.DDMFormValidationException.MustSetValidIndexType;
 import com.liferay.dynamic.data.mapping.validator.DDMFormValidationException.MustSetValidValidationExpression;
@@ -45,6 +49,15 @@ import com.liferay.portal.kernel.bean.BeanPropertiesUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.MapUtil;
+=======
+import com.liferay.dynamic.data.mapping.validator.DDMFormValidationException.MustSetValidIndexType;
+import com.liferay.dynamic.data.mapping.validator.DDMFormValidationException.MustSetValidVisibilityExpression;
+import com.liferay.dynamic.data.mapping.validator.DDMFormValidator;
+import com.liferay.portal.kernel.bean.BeanPropertiesUtil;
+import com.liferay.portal.kernel.util.ArrayUtil;
+import com.liferay.portal.kernel.util.MapUtil;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 
@@ -79,8 +92,11 @@ public class DDMFormValidatorImpl implements DDMFormValidator {
 		validateDDMFormFields(
 			ddmFormFields, new HashSet<String>(), ddmForm.getAvailableLocales(),
 			ddmForm.getDefaultLocale());
+<<<<<<< HEAD
 
 		validateDDMFormRules(ddmForm.getDDMFormRules());
+=======
+>>>>>>> compatible
 	}
 
 	@Reference(unbind = "-")
@@ -90,6 +106,7 @@ public class DDMFormValidatorImpl implements DDMFormValidator {
 		_ddmExpressionFactory = ddmExpressionFactory;
 	}
 
+<<<<<<< HEAD
 	protected void validateDDMExpression(
 			String expressionType, String ddmExpressionString)
 		throws DDMFormValidationException {
@@ -108,6 +125,8 @@ public class DDMFormValidatorImpl implements DDMFormValidator {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	protected void validateDDMFormAvailableLocales(
 			Set<Locale> availableLocales, Locale defaultLocale)
 		throws DDMFormValidationException {
@@ -125,7 +144,11 @@ public class DDMFormValidatorImpl implements DDMFormValidator {
 		throws DDMFormValidationException {
 
 		if (!ArrayUtil.contains(
+<<<<<<< HEAD
 				_DDM_FORM_FIELD_INDEX_TYPES, ddmFormField.getIndexType())) {
+=======
+				_ddmFormFieldIndexTypes, ddmFormField.getIndexType())) {
+>>>>>>> compatible
 
 			throw new MustSetValidIndexType(ddmFormField.getName());
 		}
@@ -159,15 +182,24 @@ public class DDMFormValidatorImpl implements DDMFormValidator {
 
 		String fieldType = ddmFormField.getType();
 
+<<<<<<< HEAD
 		if (!fieldType.equals(DDMFormFieldType.CHECKBOX_MULTIPLE) &&
 			!fieldType.equals(DDMFormFieldType.RADIO) &&
+=======
+		if (!fieldType.equals(DDMFormFieldType.RADIO) &&
+>>>>>>> compatible
 			!fieldType.equals(DDMFormFieldType.SELECT)) {
 
 			return;
 		}
 
+<<<<<<< HEAD
 		String dataSourceType = GetterUtil.getString(
 			ddmFormField.getProperty("dataSourceType"), "manual");
+=======
+		String dataSourceType = (String)ddmFormField.getProperty(
+			"dataSourceType");
+>>>>>>> compatible
 
 		if (!Objects.equals(dataSourceType, "manual")) {
 			return;
@@ -241,7 +273,10 @@ public class DDMFormValidatorImpl implements DDMFormValidator {
 				ddmFormField, "tip", ddmFormAvailableLocales,
 				ddmFormDefaultLocale);
 
+<<<<<<< HEAD
 			validateDDMFormFieldValidationExpression(ddmFormField);
+=======
+>>>>>>> compatible
 			validateDDMFormFieldVisibilityExpression(ddmFormField);
 
 			validateDDMFormFields(
@@ -266,6 +301,7 @@ public class DDMFormValidatorImpl implements DDMFormValidator {
 		}
 	}
 
+<<<<<<< HEAD
 	protected void validateDDMFormFieldValidationExpression(
 			DDMFormField ddmFormField)
 		throws DDMFormValidationException {
@@ -293,6 +329,8 @@ public class DDMFormValidatorImpl implements DDMFormValidator {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	protected void validateDDMFormFieldVisibilityExpression(
 			DDMFormField ddmFormField)
 		throws DDMFormValidationException {
@@ -326,6 +364,7 @@ public class DDMFormValidatorImpl implements DDMFormValidator {
 			ddmForm.getAvailableLocales(), defaultLocale);
 	}
 
+<<<<<<< HEAD
 	protected void validateDDMFormRule(DDMFormRule ddmFormRule)
 		throws DDMFormValidationException {
 
@@ -344,6 +383,8 @@ public class DDMFormValidatorImpl implements DDMFormValidator {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	protected void validateOptionalDDMFormFieldLocalizedProperty(
 			DDMFormField ddmFormField, String propertyName,
 			Set<Locale> ddmFormAvailableLocales, Locale ddmFormDefaultLocale)
@@ -362,10 +403,16 @@ public class DDMFormValidatorImpl implements DDMFormValidator {
 			ddmFormAvailableLocales, ddmFormDefaultLocale);
 	}
 
+<<<<<<< HEAD
 	private static final String[] _DDM_FORM_FIELD_INDEX_TYPES =
 		{StringPool.BLANK, "keyword", "text"};
 
 	private DDMExpressionFactory _ddmExpressionFactory;
+=======
+	private DDMExpressionFactory _ddmExpressionFactory;
+	private final String[] _ddmFormFieldIndexTypes =
+		{StringPool.BLANK, "keyword", "text"};
+>>>>>>> compatible
 	private final Pattern _ddmFormFieldNamePattern = Pattern.compile(
 		"([^\\p{Punct}|\\p{Space}$]|_)+");
 	private final Pattern _ddmFormFieldTypePattern = Pattern.compile(

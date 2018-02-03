@@ -14,7 +14,10 @@
 
 package com.liferay.portal.util;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.FileUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.MimeTypes;
 
 import java.io.InputStream;
@@ -31,10 +34,13 @@ public class MimeTypesImplTest {
 
 	@Before
 	public void setUp() {
+<<<<<<< HEAD
 		FileUtil fileUtil = new FileUtil();
 
 		fileUtil.setFile(new FileImpl());
 
+=======
+>>>>>>> compatible
 		MimeTypesImpl mimeTypesImpl = new MimeTypesImpl();
 
 		mimeTypesImpl.afterPropertiesSet();
@@ -95,6 +101,7 @@ public class MimeTypesImplTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testLar() throws Exception {
 		String validContentType = "application/zip";
 
@@ -106,6 +113,8 @@ public class MimeTypesImplTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testOdt() throws Exception {
 		String validContentType = "application/vnd.oasis.opendocument.text";
 

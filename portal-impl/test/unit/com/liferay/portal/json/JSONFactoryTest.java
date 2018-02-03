@@ -14,11 +14,18 @@
 
 package com.liferay.portal.json;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONSerializer;
 import com.liferay.portal.kernel.test.AssertUtils;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.json.JSONFactoryUtil;
+import com.liferay.portal.kernel.json.JSONSerializer;
+import com.liferay.portal.kernel.test.AssertUtils;
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 
@@ -177,10 +184,16 @@ public class JSONFactoryTest {
 		Assert.assertEquals("boo", map.get("foo"));
 
 		map = (Map<?, ?>)JSONFactoryUtil.looseDeserialize(
+<<<<<<< HEAD
 			StringBundler.concat(
 				"{\"class\":\"", JSONFactoryUtil.class.getName(),
 				"\",\"foo\": \"boo\",\"jsonFactory\":{\"class\":\"",
 				JSONFactoryImpl.class.getName(), "\"}}"));
+=======
+			"{\"class\":\"" + JSONFactoryUtil.class.getName() +
+				"\",\"foo\": \"boo\",\"jsonFactory\":{\"class\":\"" +
+					JSONFactoryImpl.class.getName() + "\"}}");
+>>>>>>> compatible
 
 		Assert.assertNotNull(map);
 		Assert.assertEquals(map.toString(), 3, map.size());

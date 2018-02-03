@@ -15,20 +15,34 @@
 package com.liferay.document.library.web.internal.search;
 
 import com.liferay.admin.kernel.util.PortalProductMenuApplicationType;
+<<<<<<< HEAD
+=======
+import com.liferay.document.library.web.internal.util.DLTrashUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.search.RowMover;
 import com.liferay.portal.kernel.dao.search.RowMoverDropTarget;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.portlet.PortletProvider;
 import com.liferay.portal.kernel.portlet.PortletProviderUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.trash.model.TrashEntry;
+=======
+import com.liferay.trash.kernel.model.TrashEntry;
+>>>>>>> compatible
 
 /**
  * @author Chema Balsas
  */
 public class EntriesMover extends RowMover {
 
+<<<<<<< HEAD
 	public EntriesMover(boolean trashEnabled) throws PortalException {
+=======
+	public EntriesMover(long scopeGroupId, long repositoryId)
+		throws PortalException {
+
+>>>>>>> compatible
 		RowMoverDropTarget moveToFolderRowMoverDropTarget =
 			new RowMoverDropTarget();
 
@@ -38,7 +52,11 @@ public class EntriesMover extends RowMover {
 
 		addRowMoverDropTarget(moveToFolderRowMoverDropTarget);
 
+<<<<<<< HEAD
 		if (trashEnabled) {
+=======
+		if (DLTrashUtil.isTrashEnabled(scopeGroupId, repositoryId)) {
+>>>>>>> compatible
 			RowMoverDropTarget moveToTrashRowMoverDropTarget =
 				new RowMoverDropTarget();
 
@@ -55,8 +73,12 @@ public class EntriesMover extends RowMover {
 				TrashEntry.class.getName(), PortletProvider.Action.VIEW);
 
 			moveToTrashRowMoverDropTarget.setSelector(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"#_", productMenuPortletId, "_portlet_", trashPortletId));
+=======
+				"#_" + productMenuPortletId + "_portlet_" + trashPortletId);
+>>>>>>> compatible
 
 			addRowMoverDropTarget(moveToTrashRowMoverDropTarget);
 		}

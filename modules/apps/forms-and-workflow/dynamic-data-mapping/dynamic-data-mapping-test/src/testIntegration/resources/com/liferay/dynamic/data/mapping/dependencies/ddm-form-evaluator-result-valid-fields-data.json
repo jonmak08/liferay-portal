@@ -1,6 +1,7 @@
 {
 	"fields": [
 		{
+<<<<<<< HEAD
 			"errorMessage": "",
 			"instanceId": "lroa",
 			"name": "Integer",
@@ -97,6 +98,55 @@
 			"required": false,
 			"valid": false,
 			"value": 2,
+=======
+			"errorMessage": "This field is never valid.",
+			"instanceId": "gfkm",
+			"name": "Text",
+			"nestedFields": [
+				{
+					"errorMessage": "",
+					"instanceId": "lroa",
+					"name": "Integer",
+					"nestedFields": [],
+					"valid": true,
+					"visible": false
+				}
+			],
+			"valid": false,
+			"visible": true
+		},
+		{
+			"errorMessage": "This field is never valid.",
+			"instanceId": "xucq",
+			"name": "Text",
+			"nestedFields": [
+				{
+					"errorMessage": "Integer must be equal to zero.",
+					"instanceId": "uvwn",
+					"name": "Integer",
+					"nestedFields": [],
+					"valid": false,
+					"visible": false
+				},
+				{
+					"errorMessage": "Integer must be equal to zero.",
+					"instanceId": "lsky",
+					"name": "Integer",
+					"nestedFields": [],
+					"valid": false,
+					"visible": false
+				}
+			],
+			"valid": false,
+			"visible": true
+		},
+		{
+			"errorMessage": "",
+			"instanceId": "mnst",
+			"name": "Boolean",
+			"nestedFields": [],
+			"valid": true,
+>>>>>>> compatible
 			"visible": false
 		},
 		{
@@ -104,6 +154,7 @@
 			"instanceId": "uahm",
 			"name": "Text2",
 			"nestedFields": [],
+<<<<<<< HEAD
 			"readOnly": false,
 			"required": true,
 			"valid": false,
@@ -120,6 +171,18 @@
 			"valid": true,
 			"value": true,
 			"visible": false
+=======
+			"valid": false,
+			"visible": true
+		},
+		{
+			"errorMessage": "This field should contain 'Joe'.",
+			"instanceId": "nahi",
+			"name": "Text3",
+			"nestedFields": [],
+			"valid": false,
+			"visible": true
+>>>>>>> compatible
 		}
 	]
 }

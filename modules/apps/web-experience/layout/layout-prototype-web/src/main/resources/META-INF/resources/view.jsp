@@ -18,10 +18,18 @@
 
 <liferay-ui:error exception="<%= RequiredLayoutPrototypeException.class %>" message="you-cannot-delete-page-templates-that-are-used-by-a-page" />
 
+<<<<<<< HEAD
 <clay:navigation-bar
 	inverted="<%= true %>"
 	items="<%= layoutPrototypeDisplayContext.getNavigationItems() %>"
 />
+=======
+<aui:nav-bar markupView="lexicon">
+	<aui:nav cssClass="navbar-nav">
+		<aui:nav-item href="<%= String.valueOf(layoutPrototypeDisplayContext.getPortletURL()) %>" label="templates" selected="<%= true %>" />
+	</aui:nav>
+</aui:nav-bar>
+>>>>>>> compatible
 
 <liferay-frontend:management-bar
 	disabled="<%= layoutPrototypeDisplayContext.isDisabledManagementBar() %>"
@@ -82,7 +90,11 @@
 			<c:choose>
 				<c:when test="<%= layoutPrototypeDisplayContext.isDescriptiveView() %>">
 					<liferay-ui:search-container-column-icon
+<<<<<<< HEAD
 						icon="page-template"
+=======
+						icon="edit-layout"
+>>>>>>> compatible
 						toggleRowChecker="<%= true %>"
 					/>
 
@@ -131,7 +143,11 @@
 							actionJsp="/layout_prototype_action.jsp"
 							actionJspServletContext="<%= application %>"
 							cssClass="entry-display-style"
+<<<<<<< HEAD
 							icon="page-template"
+=======
+							icon="edit-layout"
+>>>>>>> compatible
 							resultRow="<%= row %>"
 							rowChecker="<%= searchContainer.getRowChecker() %>"
 							title="<%= layoutPrototype.getName(locale) %>"

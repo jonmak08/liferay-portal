@@ -15,6 +15,7 @@
 package com.liferay.portal.search.internal.index;
 
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.search.IndexStatusManagerThreadLocal;
 import com.liferay.portal.search.configuration.IndexStatusManagerConfiguration;
 import com.liferay.portal.search.index.IndexStatusManager;
@@ -23,6 +24,12 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+=======
+import com.liferay.portal.search.configuration.IndexStatusManagerConfiguration;
+import com.liferay.portal.search.index.IndexStatusManager;
+
+import java.util.Map;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
@@ -39,6 +46,7 @@ public class IndexStatusManagerImpl implements IndexStatusManager {
 
 	@Override
 	public boolean isIndexReadOnly() {
+<<<<<<< HEAD
 		if (IndexStatusManagerThreadLocal.isIndexReadOnly() || _indexReadOnly) {
 			return true;
 		}
@@ -49,6 +57,9 @@ public class IndexStatusManagerImpl implements IndexStatusManager {
 	@Override
 	public boolean isIndexReadOnly(String className) {
 		return _indexReadOnlyModels.contains(className);
+=======
+		return _indexReadOnly;
+>>>>>>> compatible
 	}
 
 	@Override
@@ -56,6 +67,7 @@ public class IndexStatusManagerImpl implements IndexStatusManager {
 		_indexReadOnly = indexReadOnly;
 	}
 
+<<<<<<< HEAD
 	@Override
 	public void setIndexReadOnly(String className, boolean indexReadOnly) {
 		if (indexReadOnly) {
@@ -66,6 +78,8 @@ public class IndexStatusManagerImpl implements IndexStatusManager {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	@Activate
 	@Modified
 	protected void activate(Map<String, Object> properties) {
@@ -77,7 +91,10 @@ public class IndexStatusManagerImpl implements IndexStatusManager {
 	}
 
 	private volatile boolean _indexReadOnly;
+<<<<<<< HEAD
 	private final Set<String> _indexReadOnlyModels = Collections.newSetFromMap(
 		new ConcurrentHashMap<>());
+=======
+>>>>>>> compatible
 
 }

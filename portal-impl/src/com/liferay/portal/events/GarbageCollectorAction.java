@@ -36,20 +36,32 @@ public class GarbageCollectorAction extends SessionAction {
 
 		if (_log.isDebugEnabled()) {
 			_log.debug(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Before:\t\t", nf.format(runtime.freeMemory()), "\t",
 					nf.format(runtime.totalMemory()), "\t",
 					nf.format(runtime.maxMemory())));
+=======
+				"Before:\t\t" + nf.format(runtime.freeMemory()) + "\t" +
+					nf.format(runtime.totalMemory()) + "\t" +
+						nf.format(runtime.maxMemory()));
+>>>>>>> compatible
 		}
 
 		System.gc();
 
 		if (_log.isDebugEnabled()) {
 			_log.debug(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"After:\t\t", nf.format(runtime.freeMemory()), "\t",
 					nf.format(runtime.totalMemory()), "\t",
 					nf.format(runtime.maxMemory())));
+=======
+				"After:\t\t" + nf.format(runtime.freeMemory()) + "\t" +
+					nf.format(runtime.totalMemory()) + "\t" +
+						nf.format(runtime.maxMemory()));
+>>>>>>> compatible
 		}
 	}
 

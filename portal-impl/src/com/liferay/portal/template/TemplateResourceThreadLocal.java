@@ -42,8 +42,14 @@ public class TemplateResourceThreadLocal {
 	}
 
 	private static final ThreadLocal<Map<String, TemplateResource>>
+<<<<<<< HEAD
 		_templateResources = new CentralizedThreadLocal<>(
 			TemplateResourceThreadLocal.class.getName() + "._templateResources",
 			HashMap::new, false);
+=======
+		_templateResources = new InitialThreadLocal<>(
+			TemplateResourceThreadLocal.class.getName() + "._templateResources",
+			HashMap::new);
+>>>>>>> compatible
 
 }

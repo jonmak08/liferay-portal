@@ -16,14 +16,25 @@ package com.liferay.portal.security.sso.openid.internal.verify;
 
 import com.liferay.portal.kernel.service.CompanyLocalService;
 import com.liferay.portal.kernel.settings.SettingsFactory;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.PrefsProps;
 import com.liferay.portal.kernel.util.SetUtil;
+=======
+import com.liferay.portal.kernel.util.HashMapDictionary;
+import com.liferay.portal.kernel.util.PrefsProps;
+import com.liferay.portal.kernel.util.SetUtil;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.security.sso.openid.constants.LegacyOpenIdPropsKeys;
 import com.liferay.portal.security.sso.openid.constants.OpenIdConfigurationKeys;
 import com.liferay.portal.security.sso.openid.constants.OpenIdConstants;
 import com.liferay.portal.verify.BaseCompanySettingsVerifyProcess;
 import com.liferay.portal.verify.VerifyProcess;
 
+<<<<<<< HEAD
+=======
+import java.util.Dictionary;
+>>>>>>> compatible
 import java.util.Set;
 
 import org.osgi.service.component.annotations.Component;
@@ -51,6 +62,7 @@ public class OpenIdCompanySettingsVerifyProcess
 	}
 
 	@Override
+<<<<<<< HEAD
 	protected String[][] getRenamePropertyKeysArray() {
 		return new String[][] {
 			new String[] {
@@ -58,6 +70,18 @@ public class OpenIdCompanySettingsVerifyProcess
 				OpenIdConfigurationKeys.AUTH_ENABLED
 			}
 		};
+=======
+	protected Dictionary<String, String> getPropertyValues(long companyId) {
+		Dictionary<String, String> dictionary = new HashMapDictionary<>();
+
+		dictionary.put(
+			OpenIdConfigurationKeys.AUTH_ENABLED,
+			_prefsProps.getString(
+				companyId, LegacyOpenIdPropsKeys.OPENID_AUTH_ENABLED,
+				StringPool.FALSE));
+
+		return dictionary;
+>>>>>>> compatible
 	}
 
 	@Override
@@ -77,10 +101,13 @@ public class OpenIdCompanySettingsVerifyProcess
 		_companyLocalService = companyLocalService;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 3.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	@Reference(unbind = "-")
 	protected void setPrefsProps(PrefsProps prefsProps) {
 		_prefsProps = prefsProps;

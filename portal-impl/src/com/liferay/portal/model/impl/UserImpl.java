@@ -516,6 +516,7 @@ public class UserImpl extends UserBaseImpl {
 
 	@Override
 	public String getInitials() {
+<<<<<<< HEAD
 		String initials = UserInitialsGeneratorUtil.getInitials(this);
 
 		if (initials == null) {
@@ -526,6 +527,12 @@ public class UserImpl extends UserBaseImpl {
 		}
 
 		return initials;
+=======
+		String firstInitial = StringUtil.shorten(getFirstName(), 1);
+		String lastInitial = StringUtil.shorten(getLastName(), 1);
+
+		return StringUtil.toUpperCase(firstInitial.concat(lastInitial));
+>>>>>>> compatible
 	}
 
 	@Override
@@ -989,7 +996,11 @@ public class UserImpl extends UserBaseImpl {
 	}
 
 	protected String getProfileFriendlyURL() {
+<<<<<<< HEAD
 		if (!_HAS_USERS_PROFILE_FRIENDLY_URL) {
+=======
+		if (!_hasUsersProfileFriendlyURL) {
+>>>>>>> compatible
 			return null;
 		}
 
@@ -1005,13 +1016,22 @@ public class UserImpl extends UserBaseImpl {
 			});
 	}
 
+<<<<<<< HEAD
 	private static final boolean _HAS_USERS_PROFILE_FRIENDLY_URL =
 		Validator.isNotNull(PropsValues.USERS_PROFILE_FRIENDLY_URL);
 
+=======
+>>>>>>> compatible
 	private static final Contact _NULL_CONTACT = new ContactImpl();
 
 	private static final Log _log = LogFactoryUtil.getLog(UserImpl.class);
 
+<<<<<<< HEAD
+=======
+	private static final boolean _hasUsersProfileFriendlyURL =
+		Validator.isNotNull(PropsValues.USERS_PROFILE_FRIENDLY_URL);
+
+>>>>>>> compatible
 	private Contact _contact;
 	private Locale _locale;
 	private boolean _passwordModified;

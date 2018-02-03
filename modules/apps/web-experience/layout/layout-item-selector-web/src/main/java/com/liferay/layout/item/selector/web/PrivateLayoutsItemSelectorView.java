@@ -14,6 +14,10 @@
 
 package com.liferay.layout.item.selector.web;
 
+<<<<<<< HEAD
+=======
+import com.liferay.item.selector.ItemSelectorView;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.Portal;
@@ -24,14 +28,25 @@ import java.util.ResourceBundle;
 
 import javax.servlet.ServletContext;
 
+<<<<<<< HEAD
+=======
+import org.osgi.service.component.annotations.Component;
+>>>>>>> compatible
 import org.osgi.service.component.annotations.Reference;
 
 /**
  * @author Eudaldo Alonso
+<<<<<<< HEAD
  * @deprecated As of 1.1.0, replaced by {@link
  *             com.liferay.layout.item.selector.web.internal.PrivateLayoutsItemSelectorView}
  */
 @Deprecated
+=======
+ */
+@Component(
+	service = {ItemSelectorView.class, PrivateLayoutsItemSelectorView.class}
+)
+>>>>>>> compatible
 public class PrivateLayoutsItemSelectorView
 	extends BaseLayoutsItemSelectorView {
 

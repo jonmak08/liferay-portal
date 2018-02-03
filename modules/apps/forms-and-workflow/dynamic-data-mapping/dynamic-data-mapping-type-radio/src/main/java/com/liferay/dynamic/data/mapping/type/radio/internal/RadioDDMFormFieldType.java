@@ -26,10 +26,14 @@ import org.osgi.service.component.annotations.Component;
 @Component(
 	immediate = true,
 	property = {
+<<<<<<< HEAD
 		"ddm.form.field.type.data.domain=list",
 		"ddm.form.field.type.description=radio-field-type-description",
 		"ddm.form.field.type.display.order:Integer=4",
 		"ddm.form.field.type.group=basic",
+=======
+		"ddm.form.field.type.display.order:Integer=4",
+>>>>>>> compatible
 		"ddm.form.field.type.icon=radio-button",
 		"ddm.form.field.type.js.class.name=Liferay.DDM.Field.Radio",
 		"ddm.form.field.type.js.module=liferay-ddm-form-field-radio",

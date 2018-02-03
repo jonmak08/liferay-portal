@@ -31,10 +31,16 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.service.persistence.CompanyProvider;
 import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
+=======
+import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import com.liferay.portlet.ratings.model.impl.RatingsStatsImpl;
 import com.liferay.portlet.ratings.model.impl.RatingsStatsModelImpl;
@@ -529,6 +535,7 @@ public class RatingsStatsPersistenceImpl extends BasePersistenceImpl<RatingsStat
 			}
 			catch (Exception e) {
 				finderCache.removeResult(finderPath, finderArgs);
+<<<<<<< HEAD
 
 				throw processException(e);
 			}
@@ -608,6 +615,8 @@ public class RatingsStatsPersistenceImpl extends BasePersistenceImpl<RatingsStat
 			catch (Exception e) {
 				finderCache.removeResult(FINDER_PATH_WITH_PAGINATION_COUNT_BY_C_C,
 					finderArgs);
+=======
+>>>>>>> compatible
 
 				throw processException(e);
 			}
@@ -883,6 +892,15 @@ public class RatingsStatsPersistenceImpl extends BasePersistenceImpl<RatingsStat
 
 		if (!RatingsStatsModelImpl.COLUMN_BITMASK_ENABLED) {
 			finderCache.clearCache(FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION);
+<<<<<<< HEAD
+=======
+		}
+		else
+		 if (isNew) {
+			finderCache.removeResult(FINDER_PATH_COUNT_ALL, FINDER_ARGS_EMPTY);
+			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_ALL,
+				FINDER_ARGS_EMPTY);
+>>>>>>> compatible
 		}
 		else
 		 if (isNew) {
@@ -891,6 +909,7 @@ public class RatingsStatsPersistenceImpl extends BasePersistenceImpl<RatingsStat
 					ratingsStatsModelImpl.getClassPK()
 				};
 
+<<<<<<< HEAD
 			finderCache.removeResult(FINDER_PATH_COUNT_BY_C_C, args);
 			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_C_C,
 				args);
@@ -923,6 +942,8 @@ public class RatingsStatsPersistenceImpl extends BasePersistenceImpl<RatingsStat
 			}
 		}
 
+=======
+>>>>>>> compatible
 		entityCache.putResult(RatingsStatsModelImpl.ENTITY_CACHE_ENABLED,
 			RatingsStatsImpl.class, ratingsStats.getPrimaryKey(), ratingsStats,
 			false);

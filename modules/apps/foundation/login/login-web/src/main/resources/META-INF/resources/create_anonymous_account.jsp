@@ -73,7 +73,11 @@
 		</aui:col>
 
 		<aui:col width="<%= 50 %>">
+<<<<<<< HEAD
 			<c:if test="<%= captchaConfiguration.createAccountCaptchaEnabled() %>">
+=======
+			<c:if test="<%= PropsValues.CAPTCHA_CHECK_PORTAL_CREATE_ACCOUNT %>">
+>>>>>>> compatible
 				<portlet:resourceURL id="/login/captcha" var="captchaURL" />
 
 				<liferay-captcha:captcha url="<%= captchaURL %>" />
@@ -82,7 +86,11 @@
 	</aui:fieldset>
 
 	<aui:button-row>
+<<<<<<< HEAD
 		<aui:button type="submit" />
+=======
+		<aui:button cssClass="btn-lg" type="submit" />
+>>>>>>> compatible
 	</aui:button-row>
 </aui:form>
 

@@ -21,7 +21,10 @@ import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.module.framework.service.IdentifiableOSGiService;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -77,10 +80,16 @@ public class BeanReferenceAnnotationBeanPostProcessor
 			beanName.endsWith("Service") && _log.isWarnEnabled()) {
 
 			_log.warn(
+<<<<<<< HEAD
 				StringBundler.concat(
 					beanName, " should implement ",
 					IdentifiableOSGiService.class.getName(), " for ",
 					ClusterableAdvice.class.getName()));
+=======
+				beanName + " should implement " +
+					IdentifiableOSGiService.class.getName() + " for " +
+						ClusterableAdvice.class.getName());
+>>>>>>> compatible
 		}
 
 		_autoInject(bean, beanName, bean.getClass());

@@ -20,10 +20,15 @@ import com.liferay.portal.kernel.util.StringBundler;
 import java.util.Objects;
 
 /**
+<<<<<<< HEAD
  * @author     Shuyang Zhou
  * @deprecated As of 7.0.0, with no direct replacement
  */
 @Deprecated
+=======
+ * @author Shuyang Zhou
+ */
+>>>>>>> compatible
 public abstract class IncreasableEntry<K, V> {
 
 	public IncreasableEntry(K key, V value) {

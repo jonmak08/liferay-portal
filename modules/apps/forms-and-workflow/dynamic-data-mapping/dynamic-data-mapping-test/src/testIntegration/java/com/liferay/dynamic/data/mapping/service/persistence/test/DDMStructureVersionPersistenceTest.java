@@ -35,6 +35,10 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.util.IntegerWrapper;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.OrderByComparatorFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.PersistenceTestRule;
@@ -211,9 +215,15 @@ public class DDMStructureVersionPersistenceTest {
 
 	@Test
 	public void testCountByS_V() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByS_V(RandomTestUtil.nextLong(), "");
 
 		_persistence.countByS_V(0L, "null");
+=======
+		_persistence.countByS_V(RandomTestUtil.nextLong(), StringPool.BLANK);
+
+		_persistence.countByS_V(0L, StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByS_V(0L, (String)null);
 	}

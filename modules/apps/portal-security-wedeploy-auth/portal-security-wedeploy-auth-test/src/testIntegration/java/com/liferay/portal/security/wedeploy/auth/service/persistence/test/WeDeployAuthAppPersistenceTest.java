@@ -29,6 +29,10 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.util.IntegerWrapper;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.OrderByComparatorFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.security.wedeploy.auth.exception.NoSuchAppException;
 import com.liferay.portal.security.wedeploy.auth.model.WeDeployAuthApp;
@@ -171,18 +175,30 @@ public class WeDeployAuthAppPersistenceTest {
 
 	@Test
 	public void testCountByRU_CI() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByRU_CI("", "");
 
 		_persistence.countByRU_CI("null", "null");
+=======
+		_persistence.countByRU_CI(StringPool.BLANK, StringPool.BLANK);
+
+		_persistence.countByRU_CI(StringPool.NULL, StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByRU_CI((String)null, (String)null);
 	}
 
 	@Test
 	public void testCountByCI_CS() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByCI_CS("", "");
 
 		_persistence.countByCI_CS("null", "null");
+=======
+		_persistence.countByCI_CS(StringPool.BLANK, StringPool.BLANK);
+
+		_persistence.countByCI_CS(StringPool.NULL, StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByCI_CS((String)null, (String)null);
 	}

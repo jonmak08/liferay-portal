@@ -18,9 +18,7 @@ import com.liferay.portal.kernel.messaging.Message;
 
 /**
  * @author Michael C. Han
- * @deprecated As of 7.0.0, with no direct replacement
  */
-@Deprecated
 public interface SingleDestinationMessageSender {
 
 	public void send(Message message);

@@ -82,7 +82,11 @@ boolean ldapExportEnabled = !(ldapImportConfiguration.importUserPasswordAutogene
 	addServerURL.setParameter("redirect", authenticationURL);
 	%>
 
+<<<<<<< HEAD
 	<aui:button href="<%= addServerURL.toString() %>" name="addButton" value="add" />
+=======
+	<aui:button cssClass="btn-lg" href="<%= addServerURL.toString() %>" name="addButton" value="add" />
+>>>>>>> compatible
 </aui:button-row>
 
 <aui:fieldset>

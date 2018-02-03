@@ -56,10 +56,13 @@ public class FormatSourceTask extends JavaExec {
 		return _sourceFormatterArgs.getBaseDirName();
 	}
 
+<<<<<<< HEAD
 	public List<String> getFileExtensions() {
 		return _sourceFormatterArgs.getFileExtensions();
 	}
 
+=======
+>>>>>>> compatible
 	public List<String> getFileNames() {
 		return _sourceFormatterArgs.getFileNames();
 	}
@@ -112,10 +115,13 @@ public class FormatSourceTask extends JavaExec {
 		return _sourceFormatterArgs.isPrintErrors();
 	}
 
+<<<<<<< HEAD
 	public boolean isShowDebugInformation() {
 		return _sourceFormatterArgs.isShowDebugInformation();
 	}
 
+=======
+>>>>>>> compatible
 	public boolean isShowDocumentation() {
 		return _sourceFormatterArgs.isShowDocumentation();
 	}
@@ -136,6 +142,7 @@ public class FormatSourceTask extends JavaExec {
 		_sourceFormatterArgs.setBaseDirName(baseDirName);
 	}
 
+<<<<<<< HEAD
 	public void setFileExtensions(Iterable<String> fileExtensions) {
 		_sourceFormatterArgs.setFileExtensions(
 			CollectionUtils.toList(fileExtensions));
@@ -146,6 +153,8 @@ public class FormatSourceTask extends JavaExec {
 			CollectionUtils.toList(fileExtensions));
 	}
 
+=======
+>>>>>>> compatible
 	public void setFileNames(Iterable<String> fileNames) {
 		_sourceFormatterArgs.setFileNames(
 			CollectionUtils.toStringList(fileNames));
@@ -187,10 +196,13 @@ public class FormatSourceTask extends JavaExec {
 		_sourceFormatterArgs.setProcessorThreadCount(processorThreadCount);
 	}
 
+<<<<<<< HEAD
 	public void setShowDebugInformation(boolean showDebugInformation) {
 		_sourceFormatterArgs.setShowDebugInformation(showDebugInformation);
 	}
 
+=======
+>>>>>>> compatible
 	public void setShowDocumentation(boolean showDocumentation) {
 		_sourceFormatterArgs.setShowDocumentation(showDocumentation);
 	}
@@ -213,6 +225,7 @@ public class FormatSourceTask extends JavaExec {
 		args.add("include.subrepositories=" + isIncludeSubrepositories());
 		args.add("max.line.length=" + getMaxLineLength());
 		args.add("processor.thread.count=" + getProcessorThreadCount());
+<<<<<<< HEAD
 		args.add("show.debug.information=" + isShowDebugInformation());
 		args.add("show.documentation=" + isShowDocumentation());
 		args.add("show.status.updates=" + isShowStatusUpdates());
@@ -220,6 +233,11 @@ public class FormatSourceTask extends JavaExec {
 		args.add(
 			"source.file.extensions=" +
 				CollectionUtils.join(",", getFileExtensions()));
+=======
+		args.add("show.documentation=" + isShowDocumentation());
+		args.add("show.status.updates=" + isShowStatusUpdates());
+		args.add("source.auto.fix=" + isAutoFix());
+>>>>>>> compatible
 		args.add("source.print.errors=" + isPrintErrors());
 		args.add("source.throw.exception=" + isThrowException());
 
@@ -228,7 +246,11 @@ public class FormatSourceTask extends JavaExec {
 		if (fileCollection.isEmpty()) {
 			args.add(
 				"source.base.dir=" +
+<<<<<<< HEAD
 					_relativizeDir(getBaseDir(), getWorkingDir()));
+=======
+					FileUtil.relativize(getBaseDir(), getWorkingDir()));
+>>>>>>> compatible
 		}
 		else {
 			args.add("source.files=" + _merge(fileCollection, getWorkingDir()));
@@ -255,6 +277,7 @@ public class FormatSourceTask extends JavaExec {
 		return sb.toString();
 	}
 
+<<<<<<< HEAD
 	private String _relativizeDir(File dir, File startDir) {
 		String relativePath = FileUtil.relativize(dir, startDir);
 
@@ -271,6 +294,8 @@ public class FormatSourceTask extends JavaExec {
 		return relativePath;
 	}
 
+=======
+>>>>>>> compatible
 	private final SourceFormatterArgs _sourceFormatterArgs =
 		new SourceFormatterArgs();
 

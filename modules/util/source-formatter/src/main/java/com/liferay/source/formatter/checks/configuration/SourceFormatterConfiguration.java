@@ -18,7 +18,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+<<<<<<< HEAD
 import java.util.Set;
+=======
+>>>>>>> compatible
 
 /**
  * @author Hugo Huijser
@@ -48,10 +51,13 @@ public class SourceFormatterConfiguration {
 		return _sourceCheckConfigurationMap.get(sourceProcessorName);
 	}
 
+<<<<<<< HEAD
 	public Set<String> getSourceProcessorNames() {
 		return _sourceCheckConfigurationMap.keySet();
 	}
 
+=======
+>>>>>>> compatible
 	private final Map<String, List<SourceCheckConfiguration>>
 		_sourceCheckConfigurationMap = new HashMap<>();
 

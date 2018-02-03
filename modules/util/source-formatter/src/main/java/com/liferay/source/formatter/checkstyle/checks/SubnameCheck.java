@@ -14,6 +14,10 @@
 
 package com.liferay.source.formatter.checkstyle.checks;
 
+<<<<<<< HEAD
+=======
+import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
+>>>>>>> compatible
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 import com.puppycrawl.tools.checkstyle.utils.AnnotationUtility;
@@ -21,7 +25,11 @@ import com.puppycrawl.tools.checkstyle.utils.AnnotationUtility;
 /**
  * @author Hugo Huijser
  */
+<<<<<<< HEAD
 public class SubnameCheck extends BaseCheck {
+=======
+public class SubnameCheck extends AbstractCheck {
+>>>>>>> compatible
 
 	@Override
 	public int[] getDefaultTokens() {
@@ -32,7 +40,11 @@ public class SubnameCheck extends BaseCheck {
 	}
 
 	@Override
+<<<<<<< HEAD
 	protected void doVisitToken(DetailAST detailAST) {
+=======
+	public void visitToken(DetailAST detailAST) {
+>>>>>>> compatible
 		DetailAST nameAST = detailAST.findFirstToken(TokenTypes.IDENT);
 
 		String name = nameAST.getText();

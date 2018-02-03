@@ -8,9 +8,13 @@
 	<command name="MarketplacePortletSmoke" priority="4">
 		<var name="appName" value="Marketplace" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Apps" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelApps">
+>>>>>>> compatible
 			<var name="portlet" value="App Manager" />
 		</execute>
 

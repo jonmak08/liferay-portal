@@ -17,8 +17,15 @@ package com.liferay.configuration.admin.web.internal.application.list;
 import com.liferay.application.list.BasePanelApp;
 import com.liferay.application.list.PanelApp;
 import com.liferay.application.list.constants.PanelCategoryKeys;
+<<<<<<< HEAD
 import com.liferay.configuration.admin.constants.ConfigurationAdminPortletKeys;
 import com.liferay.portal.kernel.model.Portlet;
+=======
+import com.liferay.configuration.admin.web.internal.constants.ConfigurationAdminPortletKeys;
+import com.liferay.portal.kernel.model.Group;
+import com.liferay.portal.kernel.model.Portlet;
+import com.liferay.portal.kernel.security.permission.PermissionChecker;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -42,6 +49,14 @@ public class ConfigurationAdminPanelApp extends BasePanelApp {
 	}
 
 	@Override
+<<<<<<< HEAD
+=======
+	public boolean isShow(PermissionChecker permissionChecker, Group group) {
+		return permissionChecker.isOmniadmin();
+	}
+
+	@Override
+>>>>>>> compatible
 	@Reference(
 		target = "(javax.portlet.name=" + ConfigurationAdminPortletKeys.SYSTEM_SETTINGS + ")",
 		unbind = "-"

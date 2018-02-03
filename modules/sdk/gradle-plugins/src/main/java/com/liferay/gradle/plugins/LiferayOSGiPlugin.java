@@ -40,7 +40,10 @@ import com.liferay.gradle.plugins.internal.util.GradleUtil;
 import com.liferay.gradle.plugins.jasper.jspc.JspCPlugin;
 import com.liferay.gradle.plugins.javadoc.formatter.JavadocFormatterPlugin;
 import com.liferay.gradle.plugins.js.module.config.generator.JSModuleConfigGeneratorPlugin;
+<<<<<<< HEAD
 import com.liferay.gradle.plugins.js.transpiler.JSTranspilerBasePlugin;
+=======
+>>>>>>> compatible
 import com.liferay.gradle.plugins.js.transpiler.JSTranspilerPlugin;
 import com.liferay.gradle.plugins.lang.builder.LangBuilderPlugin;
 import com.liferay.gradle.plugins.node.NodePlugin;
@@ -660,10 +663,14 @@ public class LiferayOSGiPlugin implements Plugin<Project> {
 
 		GradleUtil.applyPlugin(project, NodePlugin.class);
 
+<<<<<<< HEAD
 		if (GradleUtil.hasTask(project, NodePlugin.NPM_RUN_BUILD_TASK_NAME)) {
 			GradleUtil.applyPlugin(project, JSTranspilerBasePlugin.class);
 		}
 		else {
+=======
+		if (!GradleUtil.hasTask(project, NodePlugin.NPM_RUN_BUILD_TASK_NAME)) {
+>>>>>>> compatible
 			GradleUtil.applyPlugin(
 				project, JSModuleConfigGeneratorPlugin.class);
 			GradleUtil.applyPlugin(project, JSTranspilerPlugin.class);

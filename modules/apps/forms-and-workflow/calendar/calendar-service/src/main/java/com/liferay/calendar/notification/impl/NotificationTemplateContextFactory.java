@@ -32,12 +32,18 @@ import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.service.CompanyLocalServiceUtil;
 import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
 import com.liferay.portal.kernel.service.LayoutLocalServiceUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.service.ServiceContext;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.FastDateFormatFactoryUtil;
 import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.StringPool;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.Validator;
+=======
+>>>>>>> compatible
 
 import java.io.Serializable;
 
@@ -91,6 +97,7 @@ public class NotificationTemplateContextFactory {
 
 		Map<String, Serializable> attributes = new HashMap<>();
 
+<<<<<<< HEAD
 		Format userDateTimeFormat = _getUserDateTimeFormat(
 			calendarBooking, user);
 
@@ -98,6 +105,20 @@ public class NotificationTemplateContextFactory {
 
 		String endTime =
 			userDateTimeFormat.format(calendarBooking.getEndTime()) +
+=======
+		TimeZone userTimezone = user.getTimeZone();
+
+		Format dateFormatDateTime = FastDateFormatFactoryUtil.getDateTime(
+			user.getLocale(),
+			CalendarUtil.getCalendarBookingDisplayTimeZone(
+				calendarBooking, userTimezone));
+
+		String userTimezoneDisplayName = userTimezone.getDisplayName(
+			false, TimeZone.SHORT, user.getLocale());
+
+		String endTime =
+			dateFormatDateTime.format(calendarBooking.getEndTime()) +
+>>>>>>> compatible
 				StringPool.SPACE + userTimezoneDisplayName;
 
 		attributes.put("endTime", endTime);
@@ -124,7 +145,11 @@ public class NotificationTemplateContextFactory {
 				"javax.portlet.title.".concat(CalendarPortletKeys.CALENDAR)));
 
 		String startTime =
+<<<<<<< HEAD
 			userDateTimeFormat.format(calendarBooking.getStartTime()) +
+=======
+			dateFormatDateTime.format(calendarBooking.getStartTime()) +
+>>>>>>> compatible
 				StringPool.SPACE + userTimezoneDisplayName;
 
 		attributes.put("startTime", startTime);
@@ -141,6 +166,7 @@ public class NotificationTemplateContextFactory {
 		return notificationTemplateContext;
 	}
 
+<<<<<<< HEAD
 	public static NotificationTemplateContext getInstance(
 			NotificationType notificationType,
 			NotificationTemplateType notificationTemplateType,
@@ -176,6 +202,8 @@ public class NotificationTemplateContextFactory {
 		return notificationTemplateContext;
 	}
 
+=======
+>>>>>>> compatible
 	public static PortletConfig getPortletConfig() {
 		return _portletConfig;
 	}
@@ -226,6 +254,7 @@ public class NotificationTemplateContextFactory {
 		return company.getPortalURL(groupId);
 	}
 
+<<<<<<< HEAD
 	private static Format _getUserDateTimeFormat(
 		CalendarBooking calendarBooking, User user) {
 
@@ -248,6 +277,8 @@ public class NotificationTemplateContextFactory {
 		return userTimezoneDisplayName;
 	}
 
+=======
+>>>>>>> compatible
 	private static PortletConfig _portletConfig;
 
 }

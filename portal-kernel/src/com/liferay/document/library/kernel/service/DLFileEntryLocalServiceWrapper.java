@@ -88,6 +88,7 @@ public class DLFileEntryLocalServiceWrapper implements DLFileEntryLocalService,
 
 	@Override
 	public com.liferay.document.library.kernel.model.DLFileEntry checkOutFileEntry(
+<<<<<<< HEAD
 		long userId, long fileEntryId, long fileEntryTypeId,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -107,6 +108,8 @@ public class DLFileEntryLocalServiceWrapper implements DLFileEntryLocalService,
 
 	@Override
 	public com.liferay.document.library.kernel.model.DLFileEntry checkOutFileEntry(
+=======
+>>>>>>> compatible
 		long userId, long fileEntryId,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -242,12 +245,15 @@ public class DLFileEntryLocalServiceWrapper implements DLFileEntryLocalService,
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void deleteRepositoryFileEntries(long repositoryId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		_dlFileEntryLocalService.deleteRepositoryFileEntries(repositoryId);
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public void deleteRepositoryFileEntries(long repositoryId, long folderId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		_dlFileEntryLocalService.deleteRepositoryFileEntries(repositoryId,

@@ -18,7 +18,10 @@ import com.liferay.registry.Filter;
 import com.liferay.registry.Registry;
 import com.liferay.registry.ServiceReference;
 import com.liferay.registry.ServiceRegistrar;
+<<<<<<< HEAD
 import com.liferay.registry.ServiceRegistration;
+=======
+>>>>>>> compatible
 import com.liferay.registry.ServiceTracker;
 import com.liferay.registry.ServiceTrackerCustomizer;
 import com.liferay.registry.dependency.ServiceDependencyManager;
@@ -168,42 +171,66 @@ public class RegistryWrapper implements Registry {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public <T> ServiceRegistration<T> registerService(
+=======
+	public <T> com.liferay.registry.ServiceRegistration<T> registerService(
+>>>>>>> compatible
 		Class<T> clazz, T service) {
 
 		return _registry.registerService(clazz, service);
 	}
 
 	@Override
+<<<<<<< HEAD
 	public <T> ServiceRegistration<T> registerService(
+=======
+	public <T> com.liferay.registry.ServiceRegistration<T> registerService(
+>>>>>>> compatible
 		Class<T> clazz, T service, Map<String, Object> properties) {
 
 		return _registry.registerService(clazz, service, properties);
 	}
 
 	@Override
+<<<<<<< HEAD
 	public <T> ServiceRegistration<T> registerService(
+=======
+	public <T> com.liferay.registry.ServiceRegistration<T> registerService(
+>>>>>>> compatible
 		String className, T service) {
 
 		return _registry.registerService(className, service);
 	}
 
 	@Override
+<<<<<<< HEAD
 	public <T> ServiceRegistration<T> registerService(
+=======
+	public <T> com.liferay.registry.ServiceRegistration<T> registerService(
+>>>>>>> compatible
 		String className, T service, Map<String, Object> properties) {
 
 		return _registry.registerService(className, service, properties);
 	}
 
 	@Override
+<<<<<<< HEAD
 	public <T> ServiceRegistration<T> registerService(
+=======
+	public <T> com.liferay.registry.ServiceRegistration<T> registerService(
+>>>>>>> compatible
 		String[] classNames, T service) {
 
 		return _registry.registerService(classNames, service);
 	}
 
 	@Override
+<<<<<<< HEAD
 	public <T> ServiceRegistration<T> registerService(
+=======
+	public <T> com.liferay.registry.ServiceRegistration<T> registerService(
+>>>>>>> compatible
 		String[] classNames, T service, Map<String, Object> properties) {
 
 		return _registry.registerService(classNames, service, properties);

@@ -20,13 +20,28 @@ import com.liferay.portal.kernel.dao.orm.Projection;
 import com.liferay.portal.kernel.dao.orm.ProjectionFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.Property;
 import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.exception.LayoutFriendlyURLException;
+import com.liferay.portal.kernel.language.LanguageUtil;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Layout;
 import com.liferay.portal.kernel.model.LayoutFriendlyURL;
 import com.liferay.portal.kernel.service.LayoutFriendlyURLLocalServiceUtil;
 import com.liferay.portal.kernel.service.LayoutLocalServiceUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.LoggingTimer;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
+=======
+import com.liferay.portal.kernel.util.LocaleUtil;
+import com.liferay.portal.kernel.util.LoggingTimer;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.Validator;
+>>>>>>> compatible
 
 import java.util.List;
 
@@ -57,6 +72,46 @@ public class VerifyLayout extends VerifyProcess {
 		verifyUuid();
 	}
 
+<<<<<<< HEAD
+	protected void updateUnlinkedOrphanedLayouts() throws Exception {
+		try (LoggingTimer loggingTimer = new LoggingTimer()) {
+			StringBundler sb = new StringBundler(4);
+
+			sb.append("update Layout set layoutPrototypeUuid = null where ");
+			sb.append("layoutPrototypeUuid != '' and layoutPrototypeUuid not ");
+			sb.append("in (select uuid_ from LayoutPrototype) and ");
+			sb.append("layoutPrototypeLinkEnabled = FALSE");
+=======
+	protected List<Layout> getInvalidLayoutIdFriendlyURLLayouts()
+		throws Exception {
+
+		final List<Layout> layouts = new ArrayList<>();
+
+		ActionableDynamicQuery actionableDynamicQuery =
+			LayoutLocalServiceUtil.getActionableDynamicQuery();
+
+		actionableDynamicQuery.setPerformActionMethod(
+			new ActionableDynamicQuery.PerformActionMethod<Layout>() {
+
+				@Override
+				public void performAction(Layout layout) {
+					String friendlyURL = layout.getFriendlyURL();
+
+					friendlyURL = friendlyURL.substring(1);
+
+					if (Validator.isNumber(friendlyURL) &&
+						!friendlyURL.equals(
+							String.valueOf(layout.getLayoutId()))) {
+
+						layouts.add(layout);
+					}
+				}
+>>>>>>> compatible
+
+			runSQL(sb.toString());
+		}
+	}
+
 	protected void updateUnlinkedOrphanedLayouts() throws Exception {
 		try (LoggingTimer loggingTimer = new LoggingTimer()) {
 			StringBundler sb = new StringBundler(4);
@@ -79,6 +134,16 @@ public class VerifyLayout extends VerifyProcess {
 				List<LayoutFriendlyURL> layoutFriendlyURLs =
 					LayoutFriendlyURLLocalServiceUtil.getLayoutFriendlyURLs(
 						layout.getPlid());
+<<<<<<< HEAD
+
+				for (LayoutFriendlyURL layoutFriendlyURL : layoutFriendlyURLs) {
+					String friendlyURL =
+						StringPool.SLASH + layout.getLayoutId();
+
+					LayoutLocalServiceUtil.updateFriendlyURL(
+						layout.getUserId(), layout.getPlid(), friendlyURL,
+						layoutFriendlyURL.getLanguageId());
+=======
 
 				for (LayoutFriendlyURL layoutFriendlyURL : layoutFriendlyURLs) {
 					String friendlyURL =
@@ -132,6 +197,98 @@ public class VerifyLayout extends VerifyProcess {
 		}
 	}
 
+	protected void verifyLayoutIdFriendlyURL() throws Exception {
+		try (LoggingTimer loggingTimer = new LoggingTimer()) {
+			while (true) {
+				List<Layout> layouts = getInvalidLayoutIdFriendlyURLLayouts();
+
+				if (layouts.isEmpty()) {
+					break;
+				}
+
+				for (Layout layout : layouts) {
+					if (verifyLayoutIdFriendlyURL(layout)) {
+						continue;
+					}
+>>>>>>> compatible
+				}
+			}
+
+			ActionableDynamicQuery actionableDynamicQuery =
+				LayoutFriendlyURLLocalServiceUtil.getActionableDynamicQuery();
+
+			actionableDynamicQuery.setAddCriteriaMethod(
+				new ActionableDynamicQuery.AddCriteriaMethod() {
+
+					@Override
+					public void addCriteria(DynamicQuery dynamicQuery) {
+						DynamicQuery layoutDynamicQuery =
+							LayoutLocalServiceUtil.dynamicQuery();
+
+						Projection projection = ProjectionFactoryUtil.property(
+							"plid");
+
+<<<<<<< HEAD
+						layoutDynamicQuery.setProjection(projection);
+
+						Property plidProperty = PropertyFactoryUtil.forName(
+							"plid");
+
+						dynamicQuery.add(
+							plidProperty.notIn(layoutDynamicQuery));
+					}
+=======
+		for (LayoutFriendlyURL layoutFriendlyURL : layoutFriendlyURLs) {
+			if (!oldFriendlyURL.equals(layoutFriendlyURL.getFriendlyURL())) {
+				continue;
+			}
+
+			try {
+				layout = LayoutLocalServiceUtil.updateFriendlyURL(
+					layout.getUserId(), layout.getPlid(), newFriendlyURL,
+					layoutFriendlyURL.getLanguageId());
+			}
+			catch (LayoutFriendlyURLException lfurle) {
+				int type = lfurle.getType();
+
+				if (type == LayoutFriendlyURLException.DUPLICATE) {
+					continue;
+				}
+				else {
+					throw lfurle;
+				}
+			}
+		}
+>>>>>>> compatible
+
+				});
+			actionableDynamicQuery.setPerformActionMethod(
+				new ActionableDynamicQuery.
+					PerformActionMethod<LayoutFriendlyURL>() {
+
+					@Override
+					public void performAction(
+						LayoutFriendlyURL layoutFriendlyURL) {
+
+<<<<<<< HEAD
+						LayoutFriendlyURLLocalServiceUtil.
+							deleteLayoutFriendlyURL(layoutFriendlyURL);
+					}
+
+				});
+=======
+			LayoutLocalServiceUtil.updateFriendlyURL(
+				layout.getUserId(), layout.getPlid(), newFriendlyURL,
+				LanguageUtil.getLanguageId(LocaleUtil.getSiteDefault()));
+		}
+		catch (LayoutFriendlyURLException lfurle) {
+			int type = lfurle.getType();
+>>>>>>> compatible
+
+			actionableDynamicQuery.performActions();
+		}
+	}
+
 	protected void verifyLayoutPrototypeLinkEnabled() throws Exception {
 		try (LoggingTimer loggingTimer = new LoggingTimer()) {
 			runSQL(
@@ -143,6 +300,11 @@ public class VerifyLayout extends VerifyProcess {
 
 	protected void verifyUuid() throws Exception {
 		try (LoggingTimer loggingTimer = new LoggingTimer()) {
+<<<<<<< HEAD
+=======
+			verifyUuid("AssetEntry");
+
+>>>>>>> compatible
 			runSQL(
 				"update Layout set uuid_ = sourcePrototypeLayoutUuid where " +
 					"sourcePrototypeLayoutUuid != '' and uuid_ != " +

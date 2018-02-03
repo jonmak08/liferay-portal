@@ -16,7 +16,10 @@ package com.liferay.calendar.web.internal.portlet;
 
 import com.liferay.asset.kernel.exception.AssetCategoryException;
 import com.liferay.asset.kernel.exception.AssetTagException;
+<<<<<<< HEAD
 import com.liferay.asset.kernel.model.AssetVocabulary;
+=======
+>>>>>>> compatible
 import com.liferay.calendar.constants.CalendarPortletKeys;
 import com.liferay.calendar.exception.CalendarBookingDurationException;
 import com.liferay.calendar.exception.CalendarBookingRecurrenceException;
@@ -49,17 +52,27 @@ import com.liferay.calendar.service.CalendarLocalService;
 import com.liferay.calendar.service.CalendarNotificationTemplateService;
 import com.liferay.calendar.service.CalendarResourceService;
 import com.liferay.calendar.service.CalendarService;
+<<<<<<< HEAD
+=======
+import com.liferay.calendar.service.permission.CalendarPermission;
+>>>>>>> compatible
 import com.liferay.calendar.util.CalendarResourceUtil;
 import com.liferay.calendar.util.CalendarUtil;
 import com.liferay.calendar.util.JCalendarUtil;
 import com.liferay.calendar.util.RSSUtil;
 import com.liferay.calendar.util.RecurrenceUtil;
+<<<<<<< HEAD
 import com.liferay.calendar.util.comparator.CalendarBookingStartTimeComparator;
+=======
+>>>>>>> compatible
 import com.liferay.calendar.web.internal.constants.CalendarWebKeys;
 import com.liferay.calendar.web.internal.display.context.CalendarDisplayContext;
 import com.liferay.calendar.web.internal.upgrade.CalendarWebUpgrade;
 import com.liferay.calendar.workflow.CalendarBookingWorkflowConstants;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.dao.orm.custom.sql.CustomSQLUtil;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.dao.search.SearchContainer;
@@ -70,12 +83,17 @@ import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Group;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.LayoutSetPrototype;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.portlet.LiferayPortletURL;
 import com.liferay.portal.kernel.portlet.LiferayWindowState;
 import com.liferay.portal.kernel.portlet.PortletResponseUtil;
 import com.liferay.portal.kernel.portlet.PortletURLFactoryUtil;
+=======
+import com.liferay.portal.kernel.model.User;
+import com.liferay.portal.kernel.portlet.PortletResponseUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 import com.liferay.portal.kernel.search.Document;
 import com.liferay.portal.kernel.search.Field;
@@ -85,7 +103,10 @@ import com.liferay.portal.kernel.search.SearchContext;
 import com.liferay.portal.kernel.security.auth.PrincipalException;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermission;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.GroupLocalService;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.ServiceContextFactory;
@@ -95,11 +116,18 @@ import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.upload.UploadPortletRequest;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.CalendarFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.Http;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.JavaConstants;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.LocalizationUtil;
 import com.liferay.portal.kernel.util.MimeTypesUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
@@ -114,7 +142,10 @@ import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.kernel.util.comparator.UserFirstNameComparator;
 import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
+=======
+>>>>>>> compatible
 
 import java.io.File;
 import java.io.IOException;
@@ -124,7 +155,10 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+<<<<<<< HEAD
 import java.util.HashSet;
+=======
+>>>>>>> compatible
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -137,16 +171,25 @@ import java.util.TimeZone;
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.Portlet;
+<<<<<<< HEAD
 import javax.portlet.PortletConfig;
 import javax.portlet.PortletException;
 import javax.portlet.PortletPreferences;
 import javax.portlet.PortletRequest;
 import javax.portlet.PortletURL;
+=======
+import javax.portlet.PortletException;
+import javax.portlet.PortletPreferences;
+import javax.portlet.PortletRequest;
+>>>>>>> compatible
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
+<<<<<<< HEAD
 import javax.portlet.WindowStateException;
+=======
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -168,8 +211,13 @@ import org.osgi.service.component.annotations.Reference;
 		"com.liferay.portlet.friendly-url-mapping=calendar",
 		"com.liferay.portlet.header-portlet-css=/css/main.css",
 		"com.liferay.portlet.icon=/icons/calendar.png",
+<<<<<<< HEAD
 		"com.liferay.portlet.instanceable=true",
 		"com.liferay.portlet.preferences-owned-by-group=true",
+=======
+		"com.liferay.portlet.preferences-owned-by-group=true",
+		"com.liferay.portlet.preferences-unique-per-layout=false",
+>>>>>>> compatible
 		"javax.portlet.display-name=Calendar",
 		"javax.portlet.expiration-cache=0",
 		"javax.portlet.init-param.copy-request-parameters=true",
@@ -268,16 +316,21 @@ public class CalendarPortlet extends MVCPortlet {
 		long calendarBookingId = ParamUtil.getLong(
 			actionRequest, "calendarBookingId");
 
+<<<<<<< HEAD
 		long startTime = ParamUtil.getLong(actionRequest, "startTime");
 		int status = ParamUtil.getInteger(actionRequest, "status");
 		boolean updateInstance = ParamUtil.getBoolean(
 			actionRequest, "updateInstance");
 		boolean allFollowing = ParamUtil.getBoolean(
 			actionRequest, "allFollowing");
+=======
+		int status = ParamUtil.getInteger(actionRequest, "status");
+>>>>>>> compatible
 
 		ServiceContext serviceContext = ServiceContextFactory.getInstance(
 			CalendarBooking.class.getName(), actionRequest);
 
+<<<<<<< HEAD
 		CalendarBooking calendarBooking =
 			_calendarBookingService.invokeTransition(
 				calendarBookingId, startTime, status, updateInstance,
@@ -291,6 +344,10 @@ public class CalendarPortlet extends MVCPortlet {
 		}
 
 		actionRequest.setAttribute(WebKeys.REDIRECT, redirect);
+=======
+		_calendarBookingService.invokeTransition(
+			calendarBookingId, status, serviceContext);
+>>>>>>> compatible
 	}
 
 	public void moveCalendarBookingToTrash(
@@ -360,10 +417,13 @@ public class CalendarPortlet extends MVCPortlet {
 			else if (resourceID.equals("exportCalendar")) {
 				serveExportCalendar(resourceRequest, resourceResponse);
 			}
+<<<<<<< HEAD
 			else if (resourceID.equals("hasExclusiveCalendarBooking")) {
 				serveHasExclusiveCalendarBooking(
 					resourceRequest, resourceResponse);
 			}
+=======
+>>>>>>> compatible
 			else if (resourceID.equals("resourceCalendars")) {
 				serveResourceCalendars(resourceRequest, resourceResponse);
 			}
@@ -511,8 +571,11 @@ public class CalendarPortlet extends MVCPortlet {
 
 		long[] childCalendarIds = ParamUtil.getLongValues(
 			actionRequest, "childCalendarIds");
+<<<<<<< HEAD
 		long[] reinvitableCalendarIds = ParamUtil.getLongValues(
 			actionRequest, "reinvitableCalendarIds");
+=======
+>>>>>>> compatible
 		Map<Locale, String> titleMap = LocalizationUtil.getLocalizationMap(
 			actionRequest, "title");
 		Map<Locale, String> descriptionMap =
@@ -537,15 +600,21 @@ public class CalendarPortlet extends MVCPortlet {
 			CalendarBooking.class.getName(), actionRequest);
 
 		CalendarBooking calendarBooking = updateCalendarBooking(
+<<<<<<< HEAD
 			calendarBookingId, calendar, childCalendarIds,
 			reinvitableCalendarIds, titleMap, descriptionMap, location,
 			startTimeJCalendar.getTimeInMillis(),
+=======
+			calendarBookingId, calendar, childCalendarIds, titleMap,
+			descriptionMap, location, startTimeJCalendar.getTimeInMillis(),
+>>>>>>> compatible
 			endTimeJCalendar.getTimeInMillis(), allDay, recurrence, reminders,
 			remindersType, instanceIndex, updateCalendarBookingInstance,
 			allFollowing, serviceContext);
 
 		String redirect = getRedirect(actionRequest, actionResponse);
 
+<<<<<<< HEAD
 		int workflowAction = ParamUtil.getInteger(
 			actionRequest, "workflowAction",
 			WorkflowConstants.ACTION_SAVE_DRAFT);
@@ -561,6 +630,11 @@ public class CalendarPortlet extends MVCPortlet {
 				redirect, actionResponse.getNamespace() + "calendarBookingId",
 				calendarBooking.getCalendarBookingId());
 		}
+=======
+		redirect = _http.setParameter(
+			redirect, actionResponse.getNamespace() + "calendarBookingId",
+			calendarBooking.getCalendarBookingId());
+>>>>>>> compatible
 
 		actionRequest.setAttribute(WebKeys.REDIRECT, redirect);
 	}
@@ -629,6 +703,7 @@ public class CalendarPortlet extends MVCPortlet {
 		ServiceContext serviceContext = ServiceContextFactory.getInstance(
 			CalendarBooking.class.getName(), actionRequest);
 
+<<<<<<< HEAD
 		JSONObject jsonObject = null;
 
 		try {
@@ -658,6 +733,17 @@ public class CalendarPortlet extends MVCPortlet {
 		}
 
 		hideDefaultSuccessMessage(actionRequest);
+=======
+		calendarBooking = updateCalendarBooking(
+			calendarBookingId, calendar, childCalendarIds, titleMap,
+			descriptionMap, location, startTimeJCalendar.getTimeInMillis(),
+			endTimeJCalendar.getTimeInMillis(), allDay, recurrence, reminders,
+			remindersType, instanceIndex, updateInstance, allFollowing,
+			serviceContext);
+
+		JSONObject jsonObject = CalendarUtil.toCalendarBookingJSONObject(
+			themeDisplay, calendarBooking, timeZone);
+>>>>>>> compatible
 
 		writeJSON(actionRequest, actionResponse, jsonObject);
 	}
@@ -687,7 +773,11 @@ public class CalendarPortlet extends MVCPortlet {
 				calendarResource.getCalendarResourceId());
 
 		for (Calendar calendar : calendars) {
+<<<<<<< HEAD
 			if (!_calendarModelResourcePermission.contains(
+=======
+			if (!CalendarPermission.contains(
+>>>>>>> compatible
 					permissionChecker, calendar, ActionKeys.VIEW)) {
 
 				continue;
@@ -714,6 +804,7 @@ public class CalendarPortlet extends MVCPortlet {
 		}
 	}
 
+<<<<<<< HEAD
 	protected Set<Long> filterReinvitedCalendarIds(
 		long[] childCalendarIds, long[] reinvitableCalendarIds) {
 
@@ -728,6 +819,8 @@ public class CalendarPortlet extends MVCPortlet {
 		return reinvitedCalendarIds;
 	}
 
+=======
+>>>>>>> compatible
 	protected void getCalendar(PortletRequest portletRequest) throws Exception {
 		long calendarId = ParamUtil.getLong(portletRequest, "calendarId");
 
@@ -821,7 +914,11 @@ public class CalendarPortlet extends MVCPortlet {
 		String namespace = actionResponse.getNamespace();
 
 		editCalendarURL = _http.setParameter(
+<<<<<<< HEAD
 			editCalendarURL, "p_p_id", themeDisplay.getPpid());
+=======
+			editCalendarURL, "p_p_id", CalendarPortletKeys.CALENDAR);
+>>>>>>> compatible
 		editCalendarURL = _http.setParameter(
 			editCalendarURL, namespace + "mvcPath",
 			templatePath + "edit_calendar.jsp");
@@ -838,6 +935,7 @@ public class CalendarPortlet extends MVCPortlet {
 		return editCalendarURL;
 	}
 
+<<<<<<< HEAD
 	protected String getErrorMessageForException(
 		AssetCategoryException assetCategoryException,
 		ThemeDisplay themeDisplay) {
@@ -871,6 +969,8 @@ public class CalendarPortlet extends MVCPortlet {
 		return errorMessage;
 	}
 
+=======
+>>>>>>> compatible
 	protected CalendarBooking getFirstCalendarBookingInstance(
 		CalendarBooking calendarBooking, Recurrence recurrenceObj,
 		TimeZone timeZone) {
@@ -1094,7 +1194,11 @@ public class CalendarPortlet extends MVCPortlet {
 			ParamUtil.getString(actionRequest, "exceptionDates"));
 
 		for (String exceptionDate : exceptionDates) {
+<<<<<<< HEAD
 			recurrence.addExceptionJCalendar(
+=======
+			recurrence.addExceptionDate(
+>>>>>>> compatible
 				JCalendarUtil.getJCalendar(Long.valueOf(exceptionDate)));
 		}
 
@@ -1126,6 +1230,7 @@ public class CalendarPortlet extends MVCPortlet {
 		return new String[] {firstReminderType, secondReminderType};
 	}
 
+<<<<<<< HEAD
 	protected String getSaveAndContinueRedirect(
 			ActionRequest actionRequest, CalendarBooking calendarBooking,
 			String redirect)
@@ -1150,6 +1255,8 @@ public class CalendarPortlet extends MVCPortlet {
 		return portletURL.toString();
 	}
 
+=======
+>>>>>>> compatible
 	protected TimeZone getTimeZone(PortletRequest portletRequest) {
 		ThemeDisplay themeDisplay = (ThemeDisplay)portletRequest.getAttribute(
 			WebKeys.THEME_DISPLAY);
@@ -1174,6 +1281,7 @@ public class CalendarPortlet extends MVCPortlet {
 		return TimeZone.getTimeZone(timeZoneId);
 	}
 
+<<<<<<< HEAD
 	protected String getViewCalendarBookingURL(
 			ActionRequest actionRequest, CalendarBooking calendarBooking)
 		throws WindowStateException {
@@ -1195,6 +1303,8 @@ public class CalendarPortlet extends MVCPortlet {
 		return redirectURL.toString();
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	protected boolean isSessionErrorException(Throwable cause) {
 		if (cause instanceof AssetCategoryException ||
@@ -1268,11 +1378,17 @@ public class CalendarPortlet extends MVCPortlet {
 
 		JSONArray jsonArray = JSONFactoryUtil.createJSONArray();
 
+<<<<<<< HEAD
 		Group group = themeDisplay.getScopeGroup();
 
 		List<CalendarBooking> childCalendarBookings =
 			_calendarBookingService.getChildCalendarBookings(
 				parentCalendarBookingId, group.isStagingGroup());
+=======
+		List<CalendarBooking> childCalendarBookings =
+			_calendarBookingService.getChildCalendarBookings(
+				parentCalendarBookingId);
+>>>>>>> compatible
 
 		Collection<CalendarResource> calendarResources =
 			CalendarUtil.getCalendarResources(childCalendarBookings);
@@ -1311,6 +1427,7 @@ public class CalendarPortlet extends MVCPortlet {
 				themeDisplay.getCompanyId(), new long[0], calendarIds,
 				new long[0], -1, null, startTimeJCalendar.getTimeInMillis(),
 				endTimeJCalendar.getTimeInMillis(), true, statuses,
+<<<<<<< HEAD
 				QueryUtil.ALL_POS, QueryUtil.ALL_POS,
 				new CalendarBookingStartTimeComparator(true));
 
@@ -1322,6 +1439,9 @@ public class CalendarPortlet extends MVCPortlet {
 
 				calendarBookings = calendarBookings.subList(0, eventsPerPage);
 			}
+=======
+				QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
+>>>>>>> compatible
 		}
 
 		JSONArray jsonArray = CalendarUtil.toCalendarBookingsJSONArray(
@@ -1434,6 +1554,7 @@ public class CalendarPortlet extends MVCPortlet {
 				Group group = _groupLocalService.getGroup(
 					calendar.getGroupId());
 
+<<<<<<< HEAD
 				long layoutSetPrototypeClassNameId = _portal.getClassNameId(
 					LayoutSetPrototype.class);
 
@@ -1441,6 +1562,8 @@ public class CalendarPortlet extends MVCPortlet {
 					continue;
 				}
 
+=======
+>>>>>>> compatible
 				if (group.hasStagingGroup()) {
 					Group stagingGroup = group.getStagingGroup();
 
@@ -1567,6 +1690,7 @@ public class CalendarPortlet extends MVCPortlet {
 			contentType);
 	}
 
+<<<<<<< HEAD
 	protected void serveHasExclusiveCalendarBooking(
 			ResourceRequest resourceRequest, ResourceResponse resourceResponse)
 		throws Exception {
@@ -1593,6 +1717,8 @@ public class CalendarPortlet extends MVCPortlet {
 		writeJSON(resourceRequest, resourceResponse, jsonObject);
 	}
 
+=======
+>>>>>>> compatible
 	protected void serveResourceCalendars(
 			ResourceRequest resourceRequest, ResourceResponse resourceResponse)
 		throws Exception {
@@ -1694,9 +1820,14 @@ public class CalendarPortlet extends MVCPortlet {
 
 		CalendarDisplayContext calendarDisplayContext =
 			new CalendarDisplayContext(
+<<<<<<< HEAD
 				_groupLocalService, _calendarBookingLocalService,
 				_calendarBookingService, _calendarLocalService,
 				_calendarService, themeDisplay);
+=======
+				_groupLocalService, _calendarService, _calendarLocalService,
+				themeDisplay);
+>>>>>>> compatible
 
 		renderRequest.setAttribute(
 			CalendarWebKeys.CALENDAR_DISPLAY_CONTEXT, calendarDisplayContext);
@@ -1709,6 +1840,7 @@ public class CalendarPortlet extends MVCPortlet {
 
 	protected CalendarBooking updateCalendarBooking(
 			long calendarBookingId, Calendar calendar, long[] childCalendarIds,
+<<<<<<< HEAD
 			long[] reinvitableCalendarIds, Map<Locale, String> titleMap,
 			Map<Locale, String> descriptionMap, String location, long startTime,
 			long endTime, boolean allDay, Recurrence recurrence,
@@ -1719,6 +1851,16 @@ public class CalendarPortlet extends MVCPortlet {
 
 		CalendarBooking calendarBooking =
 			_calendarBookingService.fetchCalendarBooking(calendarBookingId);
+=======
+			Map<Locale, String> titleMap, Map<Locale, String> descriptionMap,
+			String location, long startTime, long endTime, boolean allDay,
+			Recurrence recurrence, long[] reminders, String[] remindersType,
+			int instanceIndex, boolean updateInstance, boolean allFollowing,
+			ServiceContext serviceContext)
+		throws PortalException {
+
+		CalendarBooking calendarBooking = null;
+>>>>>>> compatible
 
 		TimeZone timeZone = TimeZoneUtil.getTimeZone(StringPool.UTC);
 
@@ -1737,7 +1879,10 @@ public class CalendarPortlet extends MVCPortlet {
 		if (calendarBookingId <= 0) {
 			calendarBooking = _calendarBookingService.addCalendarBooking(
 				calendar.getCalendarId(), childCalendarIds,
+<<<<<<< HEAD
 				CalendarBookingConstants.RECURRING_CALENDAR_BOOKING_ID_DEFAULT,
+=======
+>>>>>>> compatible
 				CalendarBookingConstants.PARENT_CALENDAR_BOOKING_ID_DEFAULT,
 				titleMap, descriptionMap, location, startTime, endTime, allDay,
 				RecurrenceSerializer.serialize(recurrence), reminders[0],
@@ -1745,6 +1890,7 @@ public class CalendarPortlet extends MVCPortlet {
 				serviceContext);
 		}
 		else {
+<<<<<<< HEAD
 			if (calendarBooking.isRecurring()) {
 				if (updateInstance) {
 					calendarBooking =
@@ -1770,6 +1916,17 @@ public class CalendarPortlet extends MVCPortlet {
 					updateLastInstanceCalendarBookingRecurrence(
 						calendarBooking.getCalendarBookingId(),
 						RecurrenceSerializer.serialize(recurrence));
+=======
+			if (updateInstance) {
+				calendarBooking =
+					_calendarBookingService.updateCalendarBookingInstance(
+						calendarBookingId, instanceIndex,
+						calendar.getCalendarId(), childCalendarIds, titleMap,
+						descriptionMap, location, startTime, endTime, allDay,
+						RecurrenceSerializer.serialize(recurrence),
+						allFollowing, reminders[0], remindersType[0],
+						reminders[1], remindersType[1], serviceContext);
+>>>>>>> compatible
 			}
 			else {
 				calendarBooking =
@@ -1796,6 +1953,7 @@ public class CalendarPortlet extends MVCPortlet {
 					remindersType[0], reminders[1], remindersType[1],
 					serviceContext);
 			}
+<<<<<<< HEAD
 
 			Set<Long> reinvitedCalendarIds = filterReinvitedCalendarIds(
 				childCalendarIds, reinvitableCalendarIds);
@@ -1823,6 +1981,8 @@ public class CalendarPortlet extends MVCPortlet {
 					CalendarBookingWorkflowConstants.STATUS_PENDING,
 					serviceContext);
 			}
+=======
+>>>>>>> compatible
 		}
 
 		return calendarBooking;
@@ -1834,12 +1994,15 @@ public class CalendarPortlet extends MVCPortlet {
 	private CalendarBookingLocalService _calendarBookingLocalService;
 	private CalendarBookingService _calendarBookingService;
 	private CalendarLocalService _calendarLocalService;
+<<<<<<< HEAD
 
 	@Reference(
 		target = "(model.class.name=com.liferay.calendar.model.Calendar)"
 	)
 	private ModelResourcePermission<Calendar> _calendarModelResourcePermission;
 
+=======
+>>>>>>> compatible
 	private CalendarNotificationTemplateService
 		_calendarNotificationTemplateService;
 	private CalendarResourceService _calendarResourceService;

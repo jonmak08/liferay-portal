@@ -147,7 +147,11 @@ public class SimpleRuleHandler implements RuleHandler {
 	protected StringBundler getLogStringBundler(
 		MDRRule mdrRule, String value, boolean valid) {
 
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(6);
+=======
+		StringBundler sb = new StringBundler();
+>>>>>>> compatible
 
 		sb.append("Rule ");
 		sb.append(mdrRule.getNameCurrentValue());

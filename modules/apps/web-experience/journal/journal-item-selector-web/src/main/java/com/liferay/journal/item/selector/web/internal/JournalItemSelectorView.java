@@ -14,9 +14,13 @@
 
 package com.liferay.journal.item.selector.web.internal;
 
+<<<<<<< HEAD
 import com.liferay.document.library.display.context.DLMimeTypeDisplayContext;
 import com.liferay.item.selector.ItemSelectorReturnType;
 import com.liferay.item.selector.ItemSelectorReturnTypeResolverHandler;
+=======
+import com.liferay.item.selector.ItemSelectorReturnType;
+>>>>>>> compatible
 import com.liferay.item.selector.ItemSelectorView;
 import com.liferay.item.selector.criteria.FileEntryItemSelectorReturnType;
 import com.liferay.item.selector.criteria.URLItemSelectorReturnType;
@@ -42,9 +46,12 @@ import javax.servlet.ServletResponse;
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
 import org.osgi.service.component.annotations.ReferencePolicyOption;
+=======
+>>>>>>> compatible
 
 /**
  * @author Eduardo Garcia
@@ -56,6 +63,12 @@ import org.osgi.service.component.annotations.ReferencePolicyOption;
 public class JournalItemSelectorView
 	implements ItemSelectorView<JournalItemSelectorCriterion> {
 
+<<<<<<< HEAD
+=======
+	public static final String JOURNAL_ITEM_SELECTOR_VIEW_DISPLAY_CONTEXT =
+		"JOURNAL_ITEM_SELECTOR_VIEW_DISPLAY_CONTEXT";
+
+>>>>>>> compatible
 	@Override
 	public Class<JournalItemSelectorCriterion> getItemSelectorCriterionClass() {
 		return JournalItemSelectorCriterion.class;
@@ -92,6 +105,7 @@ public class JournalItemSelectorView
 			PortletURL portletURL, String itemSelectedEventName, boolean search)
 		throws IOException, ServletException {
 
+<<<<<<< HEAD
 		request.setAttribute(
 			JournalItemSelectorWebKeys.DL_MIME_TYPE_DISPLAY_CONTEXT,
 			_dlMimeTypeDisplayContext);
@@ -106,6 +120,16 @@ public class JournalItemSelectorView
 		request.setAttribute(
 			JournalItemSelectorWebKeys.
 				JOURNAL_ITEM_SELECTOR_VIEW_DISPLAY_CONTEXT,
+=======
+		JournalItemSelectorViewDisplayContext
+			journalItemSelectorViewDisplayContext =
+				new JournalItemSelectorViewDisplayContext(
+					journalItemSelectorCriterion, this, itemSelectedEventName,
+					search, portletURL);
+
+		request.setAttribute(
+			JOURNAL_ITEM_SELECTOR_VIEW_DISPLAY_CONTEXT,
+>>>>>>> compatible
 			journalItemSelectorViewDisplayContext);
 
 		ServletContext servletContext = getServletContext();
@@ -117,6 +141,7 @@ public class JournalItemSelectorView
 	}
 
 	@Reference(
+<<<<<<< HEAD
 		cardinality = ReferenceCardinality.OPTIONAL,
 		policy = ReferencePolicy.DYNAMIC,
 		policyOption = ReferencePolicyOption.GREEDY
@@ -137,6 +162,8 @@ public class JournalItemSelectorView
 	}
 
 	@Reference(
+=======
+>>>>>>> compatible
 		target = "(osgi.web.symbolicname=com.liferay.journal.item.selector.web)",
 		unbind = "-"
 	)
@@ -144,12 +171,15 @@ public class JournalItemSelectorView
 		_servletContext = servletContext;
 	}
 
+<<<<<<< HEAD
 	public void unsetDLMimeTypeDisplayContext(
 		DLMimeTypeDisplayContext dlMimeTypeDisplayContext) {
 
 		_dlMimeTypeDisplayContext = null;
 	}
 
+=======
+>>>>>>> compatible
 	private static final List<ItemSelectorReturnType>
 		_supportedItemSelectorReturnTypes = Collections.unmodifiableList(
 			ListUtil.fromArray(
@@ -158,9 +188,12 @@ public class JournalItemSelectorView
 					new URLItemSelectorReturnType()
 				}));
 
+<<<<<<< HEAD
 	private DLMimeTypeDisplayContext _dlMimeTypeDisplayContext;
 	private ItemSelectorReturnTypeResolverHandler
 		_itemSelectorReturnTypeResolverHandler;
+=======
+>>>>>>> compatible
 	private ServletContext _servletContext;
 
 }

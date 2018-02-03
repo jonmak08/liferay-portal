@@ -10,7 +10,11 @@
 <tbody>
 <tr>
 	<td>APPLICATION_DECORATORS</td>
+<<<<<<< HEAD
 	<td>//div[label[contains(.,'Application Decorators')]]/select[contains(@id,'portletDecorator')]</td>
+=======
+	<td>//div[label[contains(.,'Application Decorators')]]/select[contains(@id,'portlet-decorator')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -19,21 +23,27 @@
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 	<td>ASSET_SUBTYPE</td>
 	<td>//div[not(contains(@class,'hide'))]/select[contains(@id,'subtype')]</td>
 	<td></td>
 </tr>
 <tr>
+=======
+>>>>>>> compatible
 	<td>AVAILABLE</td>
 	<td>//div[label[contains(.,'Available')]]/select</td>
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 	<td>BLOGS_RATING</td>
 	<td>//select[contains(@id,'blogs')]</td>
 	<td></td>
 </tr>
 <tr>
+=======
+>>>>>>> compatible
 	<td>BULLET_STYLE</td>
 	<td>//div[label[contains(.,'Bullet Style')]]/select</td>
 	<td></td>
@@ -136,6 +146,7 @@
 <tr>
 	<td>LAST_TIME</td>
 	<td>//select[contains(@id, 'last')]/option[contains(.,'${key_lastDateRange}')]</td>
+<<<<<<< HEAD
 	<td></td>
 </tr>
 <tr>
@@ -144,6 +155,16 @@
 	<td></td>
 </tr>
 <tr>
+=======
+	<td></td>
+</tr>
+<tr>
+	<td>LENGTH</td>
+	<td>//select[contains(@id,'length')]</td>
+	<td></td>
+</tr>
+<tr>
+>>>>>>> compatible
 	<td>LOCKOUT_DURATION</td>
 	<td>//div[label[contains(.,'Lockout Duration')]]/select</td>
 	<td></td>
@@ -214,11 +235,14 @@
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 	<td>SCOPE_CONFIGURATION</td>
 	<td>//div[label[contains(.,'Scope')]]/select</td>
 	<td></td>
 </tr>
 <tr>
+=======
+>>>>>>> compatible
 	<td>TIME_ZONE</td>
 	<td>//select[contains(@id,'timeZoneId')]</td>
 	<td></td>

@@ -19,7 +19,10 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.dynamic.data.mapping.model.DDMStorageLink;
 import com.liferay.dynamic.data.mapping.service.DDMStorageLinkLocalService;
 import com.liferay.dynamic.data.mapping.service.persistence.DDMStorageLinkPersistence;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.service.persistence.DDMStructureVersionPersistence;
+=======
+>>>>>>> compatible
 
 import com.liferay.portal.kernel.bean.BeanReference;
 import com.liferay.portal.kernel.dao.db.DB;
@@ -399,6 +402,7 @@ public abstract class DDMStorageLinkLocalServiceBaseImpl
 		this.counterLocalService = counterLocalService;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Returns the ddm structure version local service.
 	 *
@@ -437,6 +441,8 @@ public abstract class DDMStorageLinkLocalServiceBaseImpl
 		this.ddmStructureVersionPersistence = ddmStructureVersionPersistence;
 	}
 
+=======
+>>>>>>> compatible
 	public void afterPropertiesSet() {
 		persistedModelLocalServiceRegistry.register("com.liferay.dynamic.data.mapping.model.DDMStorageLink",
 			ddmStorageLinkLocalService);
@@ -495,10 +501,13 @@ public abstract class DDMStorageLinkLocalServiceBaseImpl
 	protected DDMStorageLinkPersistence ddmStorageLinkPersistence;
 	@ServiceReference(type = com.liferay.counter.kernel.service.CounterLocalService.class)
 	protected com.liferay.counter.kernel.service.CounterLocalService counterLocalService;
+<<<<<<< HEAD
 	@BeanReference(type = com.liferay.dynamic.data.mapping.service.DDMStructureVersionLocalService.class)
 	protected com.liferay.dynamic.data.mapping.service.DDMStructureVersionLocalService ddmStructureVersionLocalService;
 	@BeanReference(type = DDMStructureVersionPersistence.class)
 	protected DDMStructureVersionPersistence ddmStructureVersionPersistence;
+=======
+>>>>>>> compatible
 	@ServiceReference(type = PersistedModelLocalServiceRegistry.class)
 	protected PersistedModelLocalServiceRegistry persistedModelLocalServiceRegistry;
 }

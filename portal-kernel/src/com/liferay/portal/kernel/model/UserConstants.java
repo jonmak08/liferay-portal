@@ -20,14 +20,23 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.util.DigesterUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.kernel.util.ServiceProxyFactory;
+=======
+import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.PropsKeys;
+import com.liferay.portal.kernel.util.PropsUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.URLCodec;
 import com.liferay.portal.kernel.webserver.WebServerServletTokenUtil;
+<<<<<<< HEAD
 import com.liferay.users.admin.kernel.file.uploads.UserFileUploadsSettings;
+=======
+>>>>>>> compatible
 
 /**
  * @author Amos Fong
@@ -59,7 +68,13 @@ public class UserConstants {
 	public static String getPortraitURL(
 		String imagePath, boolean male, long portraitId) {
 
+<<<<<<< HEAD
 		if (!_userFileUploadsSettings.isImageCheckToken()) {
+=======
+		if (!GetterUtil.getBoolean(
+				PropsUtil.get(PropsKeys.USERS_IMAGE_CHECK_TOKEN))) {
+
+>>>>>>> compatible
 			return getPortraitURL(imagePath, male, portraitId, null);
 		}
 
@@ -104,7 +119,13 @@ public class UserConstants {
 		sb.append("_portrait?img_id=");
 		sb.append(portraitId);
 
+<<<<<<< HEAD
 		if (_userFileUploadsSettings.isImageCheckToken()) {
+=======
+		if (GetterUtil.getBoolean(
+				PropsUtil.get(PropsKeys.USERS_IMAGE_CHECK_TOKEN))) {
+
+>>>>>>> compatible
 			sb.append("&img_id_token=");
 			sb.append(URLCodec.encodeURL(DigesterUtil.digest(userUuid)));
 		}
@@ -117,9 +138,12 @@ public class UserConstants {
 
 	private static final Log _log = LogFactoryUtil.getLog(UserConstants.class);
 
+<<<<<<< HEAD
 	private static volatile UserFileUploadsSettings _userFileUploadsSettings =
 		ServiceProxyFactory.newServiceTrackedInstance(
 			UserFileUploadsSettings.class, UserConstants.class,
 			"_userFileUploadsSettings", false);
 
+=======
+>>>>>>> compatible
 }

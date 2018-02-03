@@ -650,8 +650,17 @@ public class AssetEntryQuery {
 	private long[] _flattenTagIds(long[][] tagIdsArray) {
 		List<Long> tagIdsList = new ArrayList<>();
 
+<<<<<<< HEAD
 		for (long[] tagIds : tagIdsArray) {
 			for (long tagId : tagIds) {
+=======
+		for (int i = 0; i < tagIdsArray.length; i++) {
+			long[] tagIds = tagIdsArray[i];
+
+			for (int j = 0; j < tagIds.length; j++) {
+				long tagId = tagIds[j];
+
+>>>>>>> compatible
 				tagIdsList.add(tagId);
 			}
 		}

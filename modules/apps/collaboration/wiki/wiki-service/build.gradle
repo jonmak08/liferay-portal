@@ -7,6 +7,7 @@ buildService {
 }
 
 dependencies {
+<<<<<<< HEAD
 	compileInclude group: "antlr", name: "antlr", version: "2.7.7"
 	compileInclude group: "com.liferay", name: "org.apache.commons.jrcs.diff", version: "0.3.0"
 	compileInclude group: "ecs", name: "ecs", version: "1.4.2"
@@ -21,6 +22,13 @@ dependencies {
 	provided group: "com.liferay", name: "com.liferay.petra.function", version: "1.0.0"
 	provided group: "com.liferay", name: "com.liferay.petra.lang", version: "1.0.0"
 	provided group: "com.liferay", name: "com.liferay.petra.string", version: "1.0.0"
+=======
+	provided group: "biz.aQute.bnd", name: "biz.aQute.bndlib", version: "3.1.0"
+	provided group: "com.liferay", name: "com.liferay.exportimport.api", version: "2.0.0"
+	provided group: "com.liferay", name: "com.liferay.exportimport.service", version: "3.0.0"
+	provided group: "com.liferay", name: "com.liferay.osgi.service.tracker.collections", version: "2.0.0"
+	provided group: "com.liferay", name: "com.liferay.osgi.util", version: "3.0.0"
+>>>>>>> compatible
 	provided group: "com.liferay", name: "com.liferay.portal.configuration.metatype", version: "2.0.0"
 	provided group: "com.liferay", name: "com.liferay.portal.dao.orm.custom.sql", version: "1.0.0"
 	provided group: "com.liferay", name: "com.liferay.portal.spring.extender", version: "2.0.0"
@@ -28,9 +36,16 @@ dependencies {
 	provided group: "com.liferay", name: "com.liferay.portlet.display.template", version: "2.0.0"
 	provided group: "com.liferay", name: "com.liferay.registry.api", version: "1.0.0"
 	provided group: "com.liferay", name: "com.liferay.rss.util", version: "1.0.0"
+<<<<<<< HEAD
 	provided group: "com.liferay", name: "com.liferay.xstream.configurator.api", version: "2.0.0"
 	provided group: "com.liferay.portal", name: "com.liferay.portal.impl", version: "2.0.0"
 	provided group: "com.liferay.portal", name: "com.liferay.portal.kernel", version: "default"
+=======
+	provided group: "com.liferay", name: "com.liferay.wiki.api", version: "2.4.0"
+	provided group: "com.liferay", name: "com.liferay.xstream.configurator.api", version: "2.0.0"
+	provided group: "com.liferay.portal", name: "com.liferay.portal.impl", version: "2.0.0"
+	provided group: "com.liferay.portal", name: "com.liferay.portal.kernel", version: "2.40.0"
+>>>>>>> compatible
 	provided group: "com.liferay.portal", name: "com.liferay.util.java", version: "2.0.0"
 	provided group: "com.liferay.portal", name: "com.liferay.util.taglib", version: "2.0.0"
 	provided group: "commons-lang", name: "commons-lang", version: "2.6"
@@ -40,6 +55,7 @@ dependencies {
 	provided group: "org.osgi", name: "org.osgi.core", version: "5.0.0"
 	provided group: "org.osgi", name: "org.osgi.service.component.annotations", version: "1.3.0"
 	provided group: "rome", name: "rome", version: "1.0"
+<<<<<<< HEAD
 	provided project(":apps:collaboration:subscription:subscription-api")
 	provided project(":apps:collaboration:wiki:wiki-api")
 	provided project(":apps:web-experience:asset:asset-api")
@@ -50,4 +66,6 @@ dependencies {
 
 liferayOSGi {
 	expandCompileInclude = true
+=======
+>>>>>>> compatible
 }

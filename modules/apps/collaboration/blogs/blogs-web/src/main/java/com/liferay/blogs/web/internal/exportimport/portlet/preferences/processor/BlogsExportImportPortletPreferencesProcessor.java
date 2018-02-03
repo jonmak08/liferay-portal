@@ -14,7 +14,11 @@
 
 package com.liferay.blogs.web.internal.exportimport.portlet.preferences.processor;
 
+<<<<<<< HEAD
 import com.liferay.blogs.constants.BlogsPortletKeys;
+=======
+import com.liferay.blogs.web.constants.BlogsPortletKeys;
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.exportimport.kernel.lar.PortletDataException;
 import com.liferay.exportimport.portlet.preferences.processor.Capability;

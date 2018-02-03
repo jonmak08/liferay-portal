@@ -21,6 +21,7 @@ import aQute.bnd.annotation.metatype.Meta;
  */
 public interface BaseAuthVerifierConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(deflt = "true", name = "enabled", required = false)
 	public boolean enabled();
 
@@ -31,6 +32,18 @@ public interface BaseAuthVerifierConfiguration {
 	public String urlsExcludes();
 
 	@Meta.AD(name = "urls-includes", required = false)
+=======
+	@Meta.AD(deflt = "true", required = false)
+	public boolean enabled();
+
+	@Meta.AD(required = false)
+	public String hostsAllowed();
+
+	@Meta.AD(required = false)
+	public String urlsExcludes();
+
+	@Meta.AD(required = false)
+>>>>>>> compatible
 	public String urlsIncludes();
 
 }

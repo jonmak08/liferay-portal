@@ -1,12 +1,20 @@
 <definition default="selectFrame">
 	<command name="selectFrame">
+<<<<<<< HEAD
 		<execute function="Poshi.SelectFrame#selectFrame" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute function="WaitForSPARefresh" />
 	</command>
 
 	<command name="selectFrameTop">
+<<<<<<< HEAD
 		<execute function="Poshi.SelectFrame#selectFrameTop" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 

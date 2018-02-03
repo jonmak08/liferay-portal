@@ -359,12 +359,15 @@ public interface AssetEntryLocalService extends BaseLocalService,
 		throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+<<<<<<< HEAD
 	public double getEntryPriority(long classNameId, long classPK);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public double getEntryPriority(java.lang.String className, long classPK);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+=======
+>>>>>>> compatible
 	public List<AssetEntry> getGroupEntries(long groupId);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
@@ -597,6 +600,14 @@ public interface AssetEntryLocalService extends BaseLocalService,
 		long classPK, long classTypePK, long[] categoryIds,
 		java.lang.String[] tagNames) throws PortalException;
 
+<<<<<<< HEAD
+=======
+	/**
+	* @deprecated As of 7.0.0, replaced by {@link #validate(long, String, long,
+	long, long[], String[])}
+	*/
+	@java.lang.Deprecated
+>>>>>>> compatible
 	public void validate(long groupId, java.lang.String className,
 		long classTypePK, long[] categoryIds, java.lang.String[] tagNames)
 		throws PortalException;

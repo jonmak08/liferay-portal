@@ -15,10 +15,15 @@
 package com.liferay.exportimport.internal.lifecycle;
 
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
+<<<<<<< HEAD
 import com.liferay.exportimport.kernel.lifecycle.EventAwareExportImportLifecycleListener;
 import com.liferay.exportimport.kernel.lifecycle.ExportImportLifecycleListener;
 import com.liferay.exportimport.kernel.model.ExportImportConfiguration;
 import com.liferay.portal.kernel.model.StagedModel;
+=======
+import com.liferay.exportimport.kernel.lifecycle.BaseExportImportLifecycleListener;
+import com.liferay.exportimport.kernel.lifecycle.ExportImportLifecycleListener;
+>>>>>>> compatible
 import com.liferay.portal.security.permission.PermissionCacheUtil;
 import com.liferay.portal.servlet.filters.cache.CacheUtil;
 
@@ -29,13 +34,18 @@ import org.osgi.service.component.annotations.Component;
  */
 @Component(immediate = true, service = ExportImportLifecycleListener.class)
 public class CacheExportImportLifecycleListener
+<<<<<<< HEAD
 	implements EventAwareExportImportLifecycleListener {
+=======
+	extends BaseExportImportLifecycleListener {
+>>>>>>> compatible
 
 	@Override
 	public boolean isParallel() {
 		return false;
 	}
 
+<<<<<<< HEAD
 	@Override
 	public void onLayoutExportFailed(
 			PortletDataContext portletDataContext, Throwable throwable)
@@ -60,12 +70,22 @@ public class CacheExportImportLifecycleListener
 
 	@Override
 	public void onLayoutImportProcessFinished(
+=======
+	protected void clearCache() {
+		CacheUtil.clearCache();
+		PermissionCacheUtil.clearCache();
+	}
+
+	@Override
+	protected void onLayoutImportProcessFinished(
+>>>>>>> compatible
 		PortletDataContext portletDataContext) {
 
 		clearCache();
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void onLayoutImportStarted(PortletDataContext portletDataContext)
 		throws Exception {
 	}
@@ -137,11 +157,15 @@ public class CacheExportImportLifecycleListener
 
 	@Override
 	public void onPortletImportProcessFinished(
+=======
+	protected void onPortletImportProcessFinished(
+>>>>>>> compatible
 		PortletDataContext portletDataContext) {
 
 		clearCache();
 	}
 
+<<<<<<< HEAD
 	@Override
 	public void onPortletImportStarted(PortletDataContext portletDataContext)
 		throws Exception {
@@ -214,4 +238,6 @@ public class CacheExportImportLifecycleListener
 		PermissionCacheUtil.clearCache();
 	}
 
+=======
+>>>>>>> compatible
 }

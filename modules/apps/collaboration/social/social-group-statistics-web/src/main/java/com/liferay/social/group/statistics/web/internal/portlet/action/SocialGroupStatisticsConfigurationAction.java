@@ -67,6 +67,7 @@ public class SocialGroupStatisticsConfigurationAction
 	}
 
 	private void _setPreference(ActionRequest actionRequest, String key) {
+<<<<<<< HEAD
 		String[] displayActivityCounterNameIndexes = ParamUtil.getStringValues(
 			actionRequest, "displayActivityCounterNameIndexes");
 
@@ -79,6 +80,19 @@ public class SocialGroupStatisticsConfigurationAction
 			if (Validator.isNotNull(value)) {
 				values.add(value);
 			}
+=======
+		List<String> values = new ArrayList<>();
+
+		for (int i = 0;; i++) {
+			String value = ParamUtil.getString(
+				actionRequest, "preferences--" + key + i + "--");
+
+			if (Validator.isNull(value)) {
+				break;
+			}
+
+			values.add(value);
+>>>>>>> compatible
 		}
 
 		setPreference(

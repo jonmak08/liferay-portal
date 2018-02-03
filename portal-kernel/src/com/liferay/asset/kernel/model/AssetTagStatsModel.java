@@ -37,11 +37,16 @@ import java.io.Serializable;
  * @see AssetTagStats
  * @see com.liferay.portlet.asset.model.impl.AssetTagStatsImpl
  * @see com.liferay.portlet.asset.model.impl.AssetTagStatsModelImpl
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, replaced by {@link
             com.liferay.asset.tags.model.impl.AssetTagStatsImpl}
  * @generated
  */
 @Deprecated
+=======
+ * @generated
+ */
+>>>>>>> compatible
 @ProviderType
 public interface AssetTagStatsModel extends BaseModel<AssetTagStats>,
 	ShardedModel, TypedModel {

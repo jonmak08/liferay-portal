@@ -14,7 +14,11 @@
 
 package com.liferay.source.formatter.checks;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -29,11 +33,18 @@ import com.liferay.source.formatter.util.FileUtil;
 import com.liferay.source.formatter.util.SourceFormatterUtil;
 
 import java.io.File;
+<<<<<<< HEAD
 
 import java.net.URL;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+=======
+import java.io.FileInputStream;
+import java.io.InputStream;
+
+import java.util.ArrayList;
+>>>>>>> compatible
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -43,10 +54,13 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 
+<<<<<<< HEAD
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 
+=======
+>>>>>>> compatible
 /**
  * @author Hugo Huijser
  */
@@ -105,11 +119,14 @@ public abstract class BaseSourceCheck implements SourceCheck {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void setProjectPathPrefix(String projectPathPrefix) {
 		_projectPathPrefix = projectPathPrefix;
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public void setPropertiesMap(Map<String, Properties> propertiesMap) {
 		_propertiesMap = propertiesMap;
 	}
@@ -231,6 +248,7 @@ public abstract class BaseSourceCheck implements SourceCheck {
 		return StringPool.BLANK;
 	}
 
+<<<<<<< HEAD
 	protected Document getCustomSQLDocument(
 			String fileName, String absolutePath,
 			Document portalCustomSQLDocument)
@@ -270,6 +288,20 @@ public abstract class BaseSourceCheck implements SourceCheck {
 
 	protected File getFile(String fileName, int level) {
 		return SourceFormatterUtil.getFile(_baseDirName, fileName, level);
+=======
+	protected File getFile(String fileName, int level) {
+		for (int i = 0; i < level; i++) {
+			File file = new File(_baseDirName + fileName);
+
+			if (file.exists()) {
+				return file;
+			}
+
+			fileName = "../" + fileName;
+		}
+
+		return null;
+>>>>>>> compatible
 	}
 
 	protected List<String> getFileNames(
@@ -318,6 +350,7 @@ public abstract class BaseSourceCheck implements SourceCheck {
 			s, increaseLevelStrings, decreaseLevelStrings, startLevel);
 	}
 
+<<<<<<< HEAD
 	protected String getLine(String content, int lineCount) {
 		int nextLineStartPos = getLineStartPos(content, lineCount);
 
@@ -335,10 +368,13 @@ public abstract class BaseSourceCheck implements SourceCheck {
 		return content.substring(nextLineStartPos, nextLineEndPos);
 	}
 
+=======
+>>>>>>> compatible
 	protected int getLineCount(String content, int pos) {
 		return StringUtil.count(content, 0, pos, CharPool.NEW_LINE) + 1;
 	}
 
+<<<<<<< HEAD
 	protected int getLineStartPos(String content, int lineCount) {
 		int x = 0;
 
@@ -353,6 +389,8 @@ public abstract class BaseSourceCheck implements SourceCheck {
 		return x + 1;
 	}
 
+=======
+>>>>>>> compatible
 	protected int getMaxLineLength() {
 		return _maxLineLength;
 	}
@@ -361,6 +399,7 @@ public abstract class BaseSourceCheck implements SourceCheck {
 		return _pluginsInsideModulesDirectoryNames;
 	}
 
+<<<<<<< HEAD
 	protected String getPortalContent(String fileName) throws Exception {
 		String content = getContent(fileName, ToolsUtil.PORTAL_MAX_DIR_LEVEL);
 
@@ -440,6 +479,42 @@ public abstract class BaseSourceCheck implements SourceCheck {
 
 	protected Map<String, Properties> getPropertiesMap() {
 		return _propertiesMap;
+=======
+	protected Properties getPortalLanguageProperties() throws Exception {
+		Properties portalLanguageProperties = new Properties();
+
+		File portalLanguagePropertiesFile = getFile(
+			"portal-impl/src/content/Language.properties",
+			ToolsUtil.PORTAL_MAX_DIR_LEVEL);
+
+		if (portalLanguagePropertiesFile != null) {
+			InputStream inputStream = new FileInputStream(
+				portalLanguagePropertiesFile);
+
+			portalLanguageProperties.load(inputStream);
+		}
+
+		return portalLanguageProperties;
+	}
+
+	protected String getProjectPathPrefix() throws Exception {
+		if (!_subrepository) {
+			return null;
+		}
+
+		File file = getFile(
+			"gradle.properties", ToolsUtil.PORTAL_MAX_DIR_LEVEL);
+
+		if (!file.exists()) {
+			return null;
+		}
+
+		Properties properties = new Properties();
+
+		properties.load(new FileInputStream(file));
+
+		return properties.getProperty("project.path.prefix");
+>>>>>>> compatible
 	}
 
 	protected SourceFormatterExcludes getSourceFormatterExcludes() {
@@ -533,19 +608,34 @@ public abstract class BaseSourceCheck implements SourceCheck {
 		return isExcludedPath(key, path, -1, parameter);
 	}
 
+<<<<<<< HEAD
 	protected boolean isModulesApp(String absolutePath, boolean privateOnly) {
+=======
+	protected boolean isModulesApp(
+		String absolutePath, String projectPathPrefix, boolean privateOnly) {
+
+>>>>>>> compatible
 		if (absolutePath.contains("/modules/private/apps/") ||
 			(!privateOnly && absolutePath.contains("/modules/apps/"))) {
 
 			return true;
 		}
 
+<<<<<<< HEAD
 		if (_projectPathPrefix == null) {
 			return false;
 		}
 
 		if (_projectPathPrefix.startsWith(":private:apps") ||
 			(!privateOnly && _projectPathPrefix.startsWith(":apps:"))) {
+=======
+		if (projectPathPrefix == null) {
+			return false;
+		}
+
+		if (projectPathPrefix.startsWith(":private:apps") ||
+			(!privateOnly && projectPathPrefix.startsWith(":apps:"))) {
+>>>>>>> compatible
 
 			return true;
 		}
@@ -585,6 +675,7 @@ public abstract class BaseSourceCheck implements SourceCheck {
 		return _portalSource;
 	}
 
+<<<<<<< HEAD
 	protected boolean isReadOnly(String absolutePath) {
 
 		// This method should only be called temporarily by checks with new
@@ -600,6 +691,8 @@ public abstract class BaseSourceCheck implements SourceCheck {
 		return false;
 	}
 
+=======
+>>>>>>> compatible
 	protected boolean isSubrepository() {
 		return _subrepository;
 	}
@@ -651,6 +744,7 @@ public abstract class BaseSourceCheck implements SourceCheck {
 		return sb.toString();
 	}
 
+<<<<<<< HEAD
 	protected static final String RUN_OUTSIDE_PORTAL_EXCLUDES =
 		"run.outside.portal.excludes";
 
@@ -682,11 +776,16 @@ public abstract class BaseSourceCheck implements SourceCheck {
 		"/modules/apps/foundation/vulcan/",
 		"/modules/apps/web-experience/journal/", "/modules/private/apps/");
 
+=======
+>>>>>>> compatible
 	private String _baseDirName;
 	private int _maxLineLength;
 	private List<String> _pluginsInsideModulesDirectoryNames;
 	private boolean _portalSource;
+<<<<<<< HEAD
 	private String _projectPathPrefix;
+=======
+>>>>>>> compatible
 	private Map<String, Properties> _propertiesMap;
 	private SourceFormatterExcludes _sourceFormatterExcludes;
 	private final Map<String, Set<SourceFormatterMessage>>

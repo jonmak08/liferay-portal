@@ -18,11 +18,14 @@ import com.liferay.mail.kernel.model.FileAttachment;
 import com.liferay.mail.kernel.model.MailMessage;
 import com.liferay.mail.kernel.model.SMTPAccount;
 import com.liferay.mail.kernel.service.MailServiceUtil;
+<<<<<<< HEAD
 import com.liferay.mail.kernel.template.MailTemplate;
 import com.liferay.mail.kernel.template.MailTemplateContext;
 import com.liferay.mail.kernel.template.MailTemplateContextBuilder;
 import com.liferay.mail.kernel.template.MailTemplateFactoryUtil;
 import com.liferay.petra.lang.ClassLoaderPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
@@ -64,6 +67,10 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
+<<<<<<< HEAD
+=======
+import java.util.concurrent.Callable;
+>>>>>>> compatible
 
 import javax.mail.internet.InternetAddress;
 
@@ -94,12 +101,15 @@ public class SubscriptionSender implements Serializable {
 		fileAttachments.add(attachment);
 	}
 
+<<<<<<< HEAD
 	public <T> void addHook(Hook.Event<T> event, Hook<T> hook) {
 		List<Hook<T>> hooks = _getHooks(event);
 
 		hooks.add(hook);
 	}
 
+=======
+>>>>>>> compatible
 	public void addPersistedSubscribers(String className, long classPK) {
 		ObjectValuePair<String, Long> ovp = new ObjectValuePair<>(
 			className, classPK);
@@ -172,10 +182,15 @@ public class SubscriptionSender implements Serializable {
 
 				if (_log.isDebugEnabled()) {
 					_log.debug(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"Add ", toAddress,
 							" to the list of users who have received an ",
 							"email"));
+=======
+						"Add " + toAddress + " to the list of users who have " +
+							"received an email");
+>>>>>>> compatible
 				}
 
 				_sentEmailAddresses.add(toAddress);
@@ -192,6 +207,7 @@ public class SubscriptionSender implements Serializable {
 			if (bulk) {
 				Locale locale = LocaleUtil.getDefault();
 
+<<<<<<< HEAD
 				MailTemplateContext mailTemplateContext =
 					_getBasicMailTemplateContext(locale);
 
@@ -205,6 +221,11 @@ public class SubscriptionSender implements Serializable {
 
 				InternetAddress to = new InternetAddress(
 					processedReplyToAddress, processedReplyToAddress);
+=======
+				InternetAddress to = new InternetAddress(
+					replaceContent(replyToAddress, locale),
+					replaceContent(replyToAddress, locale));
+>>>>>>> compatible
 
 				sendEmail(to, locale);
 			}
@@ -220,6 +241,7 @@ public class SubscriptionSender implements Serializable {
 
 	public void flushNotificationsAsync() {
 		TransactionCommitCallbackUtil.registerCallback(
+<<<<<<< HEAD
 			() -> {
 				Thread currentThread = Thread.currentThread();
 
@@ -235,6 +257,24 @@ public class SubscriptionSender implements Serializable {
 
 	public long getCompanyId() {
 		return companyId;
+=======
+			new Callable<Void>() {
+
+				@Override
+				public Void call() throws Exception {
+					Thread currentThread = Thread.currentThread();
+
+					_classLoader = currentThread.getContextClassLoader();
+
+					MessageBusUtil.sendMessage(
+						DestinationNames.SUBSCRIPTION_SENDER,
+						SubscriptionSender.this);
+
+					return null;
+				}
+
+			});
+>>>>>>> compatible
 	}
 
 	public Object getContextAttribute(String key) {
@@ -249,12 +289,17 @@ public class SubscriptionSender implements Serializable {
 		return mailId;
 	}
 
+<<<<<<< HEAD
 	public ServiceContext getServiceContext() {
 		return serviceContext;
 	}
 
 	/**
 	 * @deprecated As of 7.0.0, replaced by {@link #getCurrentUserId()}
+=======
+	/**
+	 * @deprecated As of 7.0.0, replaced by {@link getCurrentUserId()}
+>>>>>>> compatible
 	 */
 	@Deprecated
 	public long getUserId() {
@@ -305,10 +350,13 @@ public class SubscriptionSender implements Serializable {
 			company.getMx(), _mailIdPopPortletPrefix, _mailIdIds);
 	}
 
+<<<<<<< HEAD
 	public boolean isBulk() {
 		return bulk;
 	}
 
+=======
+>>>>>>> compatible
 	public void setBody(String body) {
 		this.body = body;
 	}
@@ -339,7 +387,12 @@ public class SubscriptionSender implements Serializable {
 
 	public void setContextAttribute(String key, Object value, boolean escape) {
 		setContextAttribute(
+<<<<<<< HEAD
 			key, new HtmlEscapableObject<>(String.valueOf(value), escape));
+=======
+			key,
+			new HtmlEscapableObject<String>(String.valueOf(value), escape));
+>>>>>>> compatible
 	}
 
 	public void setContextAttributes(Object... values) {
@@ -409,6 +462,7 @@ public class SubscriptionSender implements Serializable {
 			key, new EscapableLocalizableFunction(function, escape));
 	}
 
+<<<<<<< HEAD
 	public void setLocalizedContextAttributeWithFunction(
 		String key, Function<Locale, String> function) {
 
@@ -422,6 +476,8 @@ public class SubscriptionSender implements Serializable {
 			key, new EscapableLocalizableFunction(function, escape));
 	}
 
+=======
+>>>>>>> compatible
 	public void setLocalizedPortletTitleMap(
 		Map<Locale, String> localizedPortletTitleMap) {
 
@@ -502,6 +558,7 @@ public class SubscriptionSender implements Serializable {
 		setCurrentUserId(userId);
 	}
 
+<<<<<<< HEAD
 	public interface Hook<T> {
 
 		public void process(T payload);
@@ -518,6 +575,8 @@ public class SubscriptionSender implements Serializable {
 
 	}
 
+=======
+>>>>>>> compatible
 	protected void deleteSubscription(Subscription subscription)
 		throws Exception {
 
@@ -652,8 +711,11 @@ public class SubscriptionSender implements Serializable {
 			return;
 		}
 
+<<<<<<< HEAD
 		_notifyHooks(Hook.Event.PERSISTED_SUBSCRIBER_FOUND, subscription);
 
+=======
+>>>>>>> compatible
 		sendNotification(user);
 	}
 
@@ -668,6 +730,7 @@ public class SubscriptionSender implements Serializable {
 		if (user == null) {
 			if (_log.isInfoEnabled()) {
 				_log.info(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"User with email address ", emailAddress,
 						" does not exist for company ",
@@ -676,6 +739,18 @@ public class SubscriptionSender implements Serializable {
 
 			if (bulk) {
 				_addBulkAddress(to);
+=======
+					"User with email address " + emailAddress +
+						" does not exist for company " + companyId);
+			}
+
+			if (bulk) {
+				if (_bulkAddresses == null) {
+					_bulkAddresses = new ArrayList<>();
+				}
+
+				_bulkAddresses.add(to);
+>>>>>>> compatible
 
 				return;
 			}
@@ -718,6 +793,7 @@ public class SubscriptionSender implements Serializable {
 		InternetAddress from = mailMessage.getFrom();
 		InternetAddress to = mailMessage.getTo()[0];
 
+<<<<<<< HEAD
 		MailTemplateContext mailTemplateContext = _getBodyMailTemplateContext(
 			locale, from, to);
 
@@ -746,20 +822,63 @@ public class SubscriptionSender implements Serializable {
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+		String processedSubject = StringUtil.replace(
+			mailMessage.getSubject(),
+			new String[] {
+				"[$FROM_ADDRESS$]", "[$FROM_NAME$]", "[$TO_ADDRESS$]",
+				"[$TO_NAME$]"
+			},
+			new String[] {
+				from.getAddress(),
+				GetterUtil.getString(from.getPersonal(), from.getAddress()),
+				HtmlUtil.escape(to.getAddress()),
+				HtmlUtil.escape(
+					GetterUtil.getString(to.getPersonal(), to.getAddress()))
+			});
+
+		processedSubject = replaceContent(processedSubject, locale, false);
+
+		mailMessage.setSubject(processedSubject);
+
+		String processedBody = StringUtil.replace(
+			mailMessage.getBody(),
+			new String[] {
+				"[$FROM_ADDRESS$]", "[$FROM_NAME$]", "[$TO_ADDRESS$]",
+				"[$TO_NAME$]"
+			},
+			new String[] {
+				from.getAddress(),
+				GetterUtil.getString(from.getPersonal(), from.getAddress()),
+				HtmlUtil.escape(to.getAddress()),
+				HtmlUtil.escape(
+					GetterUtil.getString(to.getPersonal(), to.getAddress()))
+			});
+
+		processedBody = replaceContent(processedBody, locale, htmlFormat);
+
+		mailMessage.setBody(processedBody);
+	}
+
+>>>>>>> compatible
 	protected String replaceContent(String content, Locale locale)
 		throws Exception {
 
 		return replaceContent(content, locale, true);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	protected String replaceContent(
 			String content, Locale locale, boolean escape)
 		throws Exception {
 
+<<<<<<< HEAD
 		MailTemplateContext mailTemplateContext = _getBasicMailTemplateContext(
 			locale);
 
@@ -767,11 +886,91 @@ public class SubscriptionSender implements Serializable {
 			content, escape);
 
 		return mailTemplate.renderAsString(locale, mailTemplateContext);
+=======
+		for (Map.Entry<String, EscapableLocalizableFunction> entry :
+				_localizedContext.entrySet()) {
+
+			String key = entry.getKey();
+			EscapableLocalizableFunction value = entry.getValue();
+
+			String valueString = null;
+
+			if (escape) {
+				valueString = value.getEscapedValue(locale);
+			}
+			else {
+				valueString = value.getOriginalValue(locale);
+			}
+
+			content = StringUtil.replace(content, key, valueString);
+		}
+
+		for (Map.Entry<String, EscapableObject<String>> entry :
+				_context.entrySet()) {
+
+			String key = entry.getKey();
+			EscapableObject<String> value = entry.getValue();
+
+			String valueString = null;
+
+			if (escape) {
+				valueString = value.getEscapedValue();
+			}
+			else {
+				valueString = value.getOriginalValue();
+			}
+
+			content = StringUtil.replace(content, key, valueString);
+		}
+
+		String portletName = StringPool.BLANK;
+
+		if (Validator.isNotNull(portletId)) {
+			portletName = PortalUtil.getPortletTitle(portletId, locale);
+
+			content = StringUtil.replace(
+				content, "[$PORTLET_NAME$]", portletName);
+		}
+
+		String portletTitle = portletName;
+
+		if (localizedPortletTitleMap != null) {
+			if (Validator.isNotNull(localizedPortletTitleMap.get(locale))) {
+				portletTitle = localizedPortletTitleMap.get(locale);
+			}
+			else {
+				Locale defaultLocale = LocaleUtil.getDefault();
+
+				if (Validator.isNotNull(
+						localizedPortletTitleMap.get(defaultLocale))) {
+
+					portletTitle = localizedPortletTitleMap.get(defaultLocale);
+				}
+			}
+		}
+
+		if (Validator.isNotNull(portletTitle)) {
+			content = StringUtil.replace(
+				content, "[$PORTLET_TITLE$]", portletTitle);
+		}
+
+		Company company = CompanyLocalServiceUtil.getCompany(companyId);
+
+		content = StringUtil.replace(
+			content, new String[] {"href=\"/", "src=\"/"},
+			new String[] {
+				"href=\"" + company.getPortalURL(groupId) + "/",
+				"src=\"" + company.getPortalURL(groupId) + "/"
+			});
+
+		return content;
+>>>>>>> compatible
 	}
 
 	protected void sendEmail(InternetAddress to, Locale locale)
 		throws Exception {
 
+<<<<<<< HEAD
 		MailTemplateContext mailTemplateContext = _getBasicMailTemplateContext(
 			locale);
 
@@ -790,6 +989,47 @@ public class SubscriptionSender implements Serializable {
 
 		String processedBody = _getLocalizedValue(
 			localizedBodyMap, locale, body);
+=======
+		InternetAddress from = new InternetAddress(
+			replaceContent(fromAddress, locale),
+			replaceContent(fromName, locale));
+
+		String processedSubject = null;
+
+		if (localizedSubjectMap != null) {
+			String localizedSubject = localizedSubjectMap.get(locale);
+
+			if (Validator.isNull(localizedSubject)) {
+				Locale defaultLocale = LocaleUtil.getDefault();
+
+				processedSubject = localizedSubjectMap.get(defaultLocale);
+			}
+			else {
+				processedSubject = localizedSubject;
+			}
+		}
+		else {
+			processedSubject = subject;
+		}
+
+		String processedBody = null;
+
+		if (localizedBodyMap != null) {
+			String localizedBody = localizedBodyMap.get(locale);
+
+			if (Validator.isNull(localizedBody)) {
+				Locale defaultLocale = LocaleUtil.getDefault();
+
+				processedBody = localizedBodyMap.get(defaultLocale);
+			}
+			else {
+				processedBody = localizedBody;
+			}
+		}
+		else {
+			processedBody = body;
+		}
+>>>>>>> compatible
 
 		MailMessage mailMessage = new MailMessage(
 			from, to, processedSubject, processedBody, htmlFormat);
@@ -816,6 +1056,7 @@ public class SubscriptionSender implements Serializable {
 		mailMessage.setMessageId(mailId);
 
 		if (replyToAddress != null) {
+<<<<<<< HEAD
 			MailTemplate replyToAddressMailTemplate =
 				MailTemplateFactoryUtil.createMailTemplate(
 					replyToAddress, false);
@@ -826,6 +1067,11 @@ public class SubscriptionSender implements Serializable {
 
 			InternetAddress replyTo = new InternetAddress(
 				processedReplyToAddress, processedReplyToAddress);
+=======
+			InternetAddress replyTo = new InternetAddress(
+				replaceContent(replyToAddress, locale),
+				replaceContent(replyToAddress, locale));
+>>>>>>> compatible
 
 			mailMessage.setReplyTo(new InternetAddress[] {replyTo});
 		}
@@ -849,7 +1095,15 @@ public class SubscriptionSender implements Serializable {
 				user.getEmailAddress(), user.getFullName());
 
 			if (bulk) {
+<<<<<<< HEAD
 				_addBulkAddress(to);
+=======
+				if (_bulkAddresses == null) {
+					_bulkAddresses = new ArrayList<>();
+				}
+
+				_bulkAddresses.add(to);
+>>>>>>> compatible
 
 				return;
 			}
@@ -923,6 +1177,7 @@ public class SubscriptionSender implements Serializable {
 	protected String subject;
 	protected boolean uniqueMailId = true;
 
+<<<<<<< HEAD
 	private void _addBulkAddress(InternetAddress internetAddress) {
 		if (_bulkAddresses == null) {
 			_bulkAddresses = new ArrayList<>();
@@ -1004,6 +1259,8 @@ public class SubscriptionSender implements Serializable {
 		hooks.forEach(hook -> hook.process(payload));
 	}
 
+=======
+>>>>>>> compatible
 	private void readObject(ObjectInputStream objectInputStream)
 		throws ClassNotFoundException, IOException {
 
@@ -1042,7 +1299,10 @@ public class SubscriptionSender implements Serializable {
 	private String _contextCreatorUserPrefix;
 	private String _entryTitle;
 	private String _entryURL;
+<<<<<<< HEAD
 	private final Map<Hook.Event<?>, List<Hook<?>>> _hooks = new HashMap<>();
+=======
+>>>>>>> compatible
 	private boolean _initialized;
 	private final Map<String, EscapableLocalizableFunction> _localizedContext =
 		new HashMap<>();

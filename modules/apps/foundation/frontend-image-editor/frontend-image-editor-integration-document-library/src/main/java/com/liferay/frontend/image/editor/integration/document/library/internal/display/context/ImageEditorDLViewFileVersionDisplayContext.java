@@ -19,6 +19,10 @@ import com.liferay.document.library.display.context.DLViewFileVersionDisplayCont
 import com.liferay.frontend.image.editor.integration.document.library.internal.display.context.logic.ImageEditorDLDisplayContextHelper;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.language.LanguageUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.FileVersion;
 import com.liferay.portal.kernel.servlet.taglib.ui.Menu;
@@ -84,7 +88,12 @@ public class ImageEditorDLViewFileVersionDisplayContext
 		}
 
 		ResourceBundle resourceBundle =
+<<<<<<< HEAD
 			_resourceBundleLoader.loadResourceBundle(_themeDisplay.getLocale());
+=======
+			_resourceBundleLoader.loadResourceBundle(
+				LanguageUtil.getLanguageId(_themeDisplay.getLocale()));
+>>>>>>> compatible
 
 		ImageEditorDLDisplayContextHelper imageEditorDLDisplayContextHelper =
 			new ImageEditorDLDisplayContextHelper(fileVersion, request);
@@ -105,7 +114,12 @@ public class ImageEditorDLViewFileVersionDisplayContext
 		}
 
 		ResourceBundle resourceBundle =
+<<<<<<< HEAD
 			_resourceBundleLoader.loadResourceBundle(_themeDisplay.getLocale());
+=======
+			_resourceBundleLoader.loadResourceBundle(
+				LanguageUtil.getLanguageId(_themeDisplay.getLocale()));
+>>>>>>> compatible
 
 		ImageEditorDLDisplayContextHelper imageEditorDLDisplayContextHelper =
 			new ImageEditorDLDisplayContextHelper(fileVersion, request);

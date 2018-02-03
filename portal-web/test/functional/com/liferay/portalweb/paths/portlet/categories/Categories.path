@@ -75,12 +75,15 @@
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 	<td></td>
 	<td></td>
 	<td></td>
 </tr>
 <!--CATEGORY_ENTRY_MENULIST-->
 <tr>
+=======
+>>>>>>> compatible
 	<td>CATEGORY_ENTRY_MENULIST_ARROW</td>
 	<td>//tr[contains(.,'${key_categoryName}')]//a[contains(@id,'assetCategories')]</td>
 	<td></td>

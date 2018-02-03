@@ -18,7 +18,10 @@ import com.liferay.portal.kernel.model.GroupConstants;
 import com.liferay.portal.kernel.model.ResourcePermission;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.util.LoggingTimer;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -108,11 +111,17 @@ public abstract class BaseUpgradeAdminPortlets extends UpgradeProcess {
 							actionIds = actionIds & (~bitwiseValue);
 
 							runSQL(
+<<<<<<< HEAD
 								StringBundler.concat(
 									"update ResourcePermission set actionIds ",
 									"= ", String.valueOf(actionIds),
 									" where resourcePermissionId = ",
 									String.valueOf(resourcePermissionId)));
+=======
+								"update ResourcePermission set actionIds = " +
+									actionIds + " where resourcePermissionId " +
+										"= " + resourcePermissionId);
+>>>>>>> compatible
 
 							resourcePermissionId = increment(
 								ResourcePermission.class.getName());

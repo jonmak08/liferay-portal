@@ -18,7 +18,11 @@ import com.liferay.portal.kernel.nio.intraband.RegistrationReference;
 import com.liferay.portal.kernel.nio.intraband.welder.Welder;
 import com.liferay.portal.kernel.process.ProcessChannel;
 import com.liferay.portal.kernel.process.ProcessConfig.Builder;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.process.ProcessExecutor;
+=======
+import com.liferay.portal.kernel.process.ProcessExecutorUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.resiliency.PortalResiliencyException;
 import com.liferay.portal.kernel.resiliency.mpi.MPIHelperUtil;
 import com.liferay.portal.kernel.resiliency.spi.SPI;
@@ -26,7 +30,10 @@ import com.liferay.portal.kernel.resiliency.spi.SPIConfiguration;
 import com.liferay.portal.kernel.resiliency.spi.remote.RemoteSPI;
 import com.liferay.portal.kernel.resiliency.spi.remote.RemoteSPIProxy;
 import com.liferay.portal.kernel.util.PortalClassLoaderUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ServiceProxyFactory;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringBundler;
 
 import java.util.concurrent.Callable;
@@ -74,7 +81,11 @@ public abstract class BaseSPIProvider implements SPIProvider {
 		weldServerThread.start();
 
 		try {
+<<<<<<< HEAD
 			ProcessChannel<SPI> processChannel = _processExecutor.execute(
+=======
+			ProcessChannel<SPI> processChannel = ProcessExecutorUtil.execute(
+>>>>>>> compatible
 				builder.build(), remoteSPI);
 
 			Future<SPI> cancelHandlerFuture =
@@ -160,9 +171,12 @@ public abstract class BaseSPIProvider implements SPIProvider {
 
 	}
 
+<<<<<<< HEAD
 	private static volatile ProcessExecutor _processExecutor =
 		ServiceProxyFactory.newServiceTrackedInstance(
 			ProcessExecutor.class, BaseSPIProvider.class, "_processExecutor",
 			true);
 
+=======
+>>>>>>> compatible
 }

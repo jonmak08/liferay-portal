@@ -3,7 +3,11 @@ AUI.add(
 	function(A) {
 		var Lang = A.Lang;
 
+<<<<<<< HEAD
 		var TPL_ERROR_MESSAGE = '<div class="form-feedback-item help-block">{errorMessage}</div>';
+=======
+		var TPL_ERROR_MESSAGE = '<div class="help-block">{errorMessage}</div>';
+>>>>>>> compatible
 
 		var TPL_FEEDBACK = '<span aria-hidden="true" class="form-control-feedback"><span class="icon-{icon}"></span></span>';
 
@@ -20,11 +24,17 @@ AUI.add(
 			initializer: function() {
 				var instance = this;
 
+<<<<<<< HEAD
 				instance._errorMessageNode = instance._createErrorMessageNode();
 
 				instance._eventHandlers.push(
 					instance.after('errorMessageChange', instance._afterErrorMessageChange),
 					instance.after('visibleChange', instance._afterVisibleChange)
+=======
+				instance._eventHandlers.push(
+					instance.after('errorMessageChange', instance._afterErrorMessageChange),
+					instance.after(instance._renderErrorMessage, instance, 'render')
+>>>>>>> compatible
 				);
 			},
 
@@ -34,6 +44,10 @@ AUI.add(
 				var container = instance.get('container');
 
 				container.removeClass('has-error');
+<<<<<<< HEAD
+=======
+				container.removeClass('has-success');
+>>>>>>> compatible
 
 				instance.hideFeedback();
 			},
@@ -41,9 +55,13 @@ AUI.add(
 			hideErrorMessage: function() {
 				var instance = this;
 
+<<<<<<< HEAD
 				instance._errorMessageNode.hide();
 
 				instance.clearValidationStatus();
+=======
+				instance.set('errorMessage', '');
+>>>>>>> compatible
 			},
 
 			hideFeedback: function() {
@@ -62,6 +80,7 @@ AUI.add(
 				instance._showFeedback('remove');
 			},
 
+<<<<<<< HEAD
 			showErrorMessage: function() {
 				var instance = this;
 
@@ -85,6 +104,12 @@ AUI.add(
 						});
 					}
 				}
+=======
+			showErrorMessage: function(errorMessage) {
+				var instance = this;
+
+				instance.set('errorMessage', errorMessage);
+>>>>>>> compatible
 			},
 
 			showLoadingFeedback: function() {
@@ -102,6 +127,7 @@ AUI.add(
 			showValidationStatus: function() {
 				var instance = this;
 
+<<<<<<< HEAD
 				var container = instance.get('container');
 
 				container.toggleClass('has-error', instance.hasErrors());
@@ -116,10 +142,28 @@ AUI.add(
 			},
 
 			_afterVisibleChange: function(event) {
+=======
+				if (instance.hasValidation()) {
+					var container = instance.get('container');
+					var hasErrors = instance.hasErrors();
+
+					container.toggleClass('has-error', hasErrors);
+				}
+			},
+
+			_afterErrorMessageChange: function() {
+				var instance = this;
+
+				instance._renderErrorMessage();
+			},
+
+			_renderErrorMessage: function() {
+>>>>>>> compatible
 				var instance = this;
 
 				var container = instance.get('container');
 
+<<<<<<< HEAD
 				container.toggleClass('hide', !event.newVal);
 			},
 
@@ -136,6 +180,25 @@ AUI.add(
 						}
 					)
 				);
+=======
+				container.all('.help-block').remove();
+
+				var errorMessage = instance.get('errorMessage');
+
+				var inputNode = instance.getInputNode();
+
+				if (errorMessage && inputNode) {
+					inputNode.insert(
+						Lang.sub(
+							TPL_ERROR_MESSAGE,
+							{
+								errorMessage: errorMessage
+							}
+						),
+						'after'
+					);
+				}
+>>>>>>> compatible
 			},
 
 			_showFeedback: function(icon) {

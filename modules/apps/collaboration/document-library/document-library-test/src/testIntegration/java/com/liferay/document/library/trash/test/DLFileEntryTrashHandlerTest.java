@@ -17,6 +17,7 @@ package com.liferay.document.library.trash.test;
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
 import com.liferay.asset.kernel.model.AssetEntry;
 import com.liferay.document.library.kernel.model.DLFileEntry;
+<<<<<<< HEAD
 import com.liferay.document.library.kernel.model.DLFileVersion;
 import com.liferay.document.library.kernel.model.DLFolder;
 import com.liferay.document.library.kernel.model.DLFolderConstants;
@@ -27,20 +28,46 @@ import com.liferay.document.library.kernel.service.DLFolderLocalServiceUtil;
 import com.liferay.document.library.kernel.service.DLTrashServiceUtil;
 import com.liferay.document.library.kernel.util.DLUtil;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.document.library.kernel.model.DLFileRank;
+import com.liferay.document.library.kernel.model.DLFileVersion;
+import com.liferay.document.library.kernel.model.DLFolder;
+import com.liferay.document.library.kernel.model.DLFolderConstants;
+import com.liferay.document.library.kernel.service.DLAppLocalServiceUtil;
+import com.liferay.document.library.kernel.service.DLAppServiceUtil;
+import com.liferay.document.library.kernel.service.DLFileEntryLocalServiceUtil;
+import com.liferay.document.library.kernel.service.DLFileEntryServiceUtil;
+import com.liferay.document.library.kernel.service.DLFileRankLocalServiceUtil;
+import com.liferay.document.library.kernel.service.DLFolderLocalServiceUtil;
+import com.liferay.document.library.kernel.service.DLTrashServiceUtil;
+import com.liferay.document.library.kernel.util.DLUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.BaseModel;
 import com.liferay.portal.kernel.model.ClassedModel;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.WorkflowedModel;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.Folder;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+=======
+import com.liferay.portal.kernel.security.auth.PrincipalThreadLocal;
+import com.liferay.portal.kernel.security.permission.PermissionChecker;
+import com.liferay.portal.kernel.security.permission.PermissionThreadLocal;
+import com.liferay.portal.kernel.service.ServiceContext;
+import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+import com.liferay.portal.kernel.test.util.GroupTestUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.trash.TrashHandler;
 import com.liferay.portal.kernel.trash.TrashHandlerRegistryUtil;
 import com.liferay.portal.kernel.util.ContentTypes;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.repository.liferayrepository.model.LiferayFileEntry;
 import com.liferay.portal.test.rule.Inject;
@@ -50,6 +77,15 @@ import com.liferay.portlet.documentlibrary.util.test.DLAppTestUtil;
 import com.liferay.trash.TrashHelper;
 import com.liferay.trash.exception.RestoreEntryException;
 import com.liferay.trash.exception.TrashEntryException;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.portal.repository.liferayrepository.model.LiferayFileEntry;
+import com.liferay.portal.security.permission.SimplePermissionChecker;
+import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+import com.liferay.portlet.documentlibrary.util.test.DLAppTestUtil;
+import com.liferay.trash.kernel.util.TrashUtil;
+>>>>>>> compatible
 import com.liferay.trash.test.util.BaseTrashHandlerTestCase;
 import com.liferay.trash.test.util.DefaultWhenIsAssetable;
 import com.liferay.trash.test.util.DefaultWhenIsIndexableBaseModel;
@@ -66,7 +102,15 @@ import com.liferay.trash.test.util.WhenIsMoveableFromTrashBaseModel;
 import com.liferay.trash.test.util.WhenIsRestorableBaseModel;
 import com.liferay.trash.test.util.WhenIsUpdatableBaseModel;
 
+<<<<<<< HEAD
 import org.junit.Assert;
+=======
+import java.util.List;
+
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+>>>>>>> compatible
 import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
@@ -78,6 +122,10 @@ import org.junit.runner.RunWith;
  * @author Eudaldo Alonso
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class DLFileEntryTrashHandlerTest
 	extends BaseTrashHandlerTestCase
 	implements WhenCanBeDuplicatedInTrash, WhenHasDraftStatus,
@@ -92,7 +140,11 @@ public class DLFileEntryTrashHandlerTest
 	public static final AggregateTestRule aggregateTestRule =
 		new AggregateTestRule(
 			new LiferayIntegrationTestRule(),
+<<<<<<< HEAD
 			PermissionCheckerTestRule.INSTANCE);
+=======
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Override
 	public BaseModel<?> addDraftBaseModelWithWorkflow(
@@ -191,6 +243,25 @@ public class DLFileEntryTrashHandlerTest
 			keywords, serviceContext);
 	}
 
+<<<<<<< HEAD
+=======
+	@Before
+	@Override
+	public void setUp() throws Exception {
+		super.setUp();
+
+		setUpPermissionThreadLocal();
+		setUpPrincipalThreadLocal();
+	}
+
+	@After
+	public void tearDown() {
+		PermissionThreadLocal.setPermissionChecker(_originalPermissionChecker);
+
+		PrincipalThreadLocal.setName(_originalName);
+	}
+
+>>>>>>> compatible
 	@Test
 	public void testFileNameUpdateWhenUpdatingTitle() throws Exception {
 		ServiceContext serviceContext =
@@ -222,6 +293,7 @@ public class DLFileEntryTrashHandlerTest
 			dlFileVersion.getFileName());
 	}
 
+<<<<<<< HEAD
 	@Override
 	@Test(expected = TrashEntryException.class)
 	public void testTrashParentAndBaseModel() throws Exception {
@@ -242,6 +314,11 @@ public class DLFileEntryTrashHandlerTest
 		catch (com.liferay.trash.kernel.exception.RestoreEntryException ree) {
 			throw new RestoreEntryException();
 		}
+=======
+	@Test
+	public void testTrashDLFileRank() throws Exception {
+		trashDLFileRank();
+>>>>>>> compatible
 	}
 
 	@Override
@@ -311,6 +388,26 @@ public class DLFileEntryTrashHandlerTest
 		DLFolderLocalServiceUtil.deleteFolder(dlFolder.getFolderId(), false);
 	}
 
+<<<<<<< HEAD
+=======
+	protected int getActiveDLFileRanksCount(long groupId, long fileEntryId)
+		throws Exception {
+
+		List<DLFileRank> dlFileRanks = DLFileRankLocalServiceUtil.getFileRanks(
+			groupId, TestPropsValues.getUserId());
+
+		int count = 0;
+
+		for (DLFileRank dlFileRank : dlFileRanks) {
+			if (dlFileRank.getFileEntryId() == fileEntryId) {
+				count++;
+			}
+		}
+
+		return count;
+	}
+
+>>>>>>> compatible
 	@Override
 	protected BaseModel<?> getBaseModel(long primaryKey) throws Exception {
 		return DLFileEntryLocalServiceUtil.getDLFileEntry(primaryKey);
@@ -360,7 +457,11 @@ public class DLFileEntryTrashHandlerTest
 
 		String title = dlFileEntry.getTitle();
 
+<<<<<<< HEAD
 		return _trashHelper.getOriginalTitle(title);
+=======
+		return TrashUtil.getOriginalTitle(title);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -377,14 +478,95 @@ public class DLFileEntryTrashHandlerTest
 		DLTrashServiceUtil.moveFileEntryToTrash(primaryKey);
 	}
 
+<<<<<<< HEAD
+=======
+	protected void setUpPermissionThreadLocal() throws Exception {
+		_originalPermissionChecker =
+			PermissionThreadLocal.getPermissionChecker();
+
+		PermissionThreadLocal.setPermissionChecker(
+			new SimplePermissionChecker() {
+
+				{
+					init(TestPropsValues.getUser());
+				}
+
+				@Override
+				public boolean hasOwnerPermission(
+					long companyId, String name, String primKey, long ownerId,
+					String actionId) {
+
+					return true;
+				}
+
+			});
+	}
+
+	protected void setUpPrincipalThreadLocal() throws Exception {
+		_originalName = PrincipalThreadLocal.getName();
+
+		PrincipalThreadLocal.setName(TestPropsValues.getUserId());
+	}
+
+	protected void trashDLFileRank() throws Exception {
+		Group group = GroupTestUtil.addGroup();
+
+		ServiceContext serviceContext =
+			ServiceContextTestUtil.getServiceContext(group.getGroupId());
+
+		BaseModel<?> parentBaseModel = getParentBaseModel(
+			group, serviceContext);
+
+		TrashHandler trashHandler = TrashHandlerRegistryUtil.getTrashHandler(
+			getBaseModelClassName());
+
+		try {
+			baseModel = addBaseModel(parentBaseModel, serviceContext);
+
+			DLAppLocalServiceUtil.addFileRank(
+				group.getGroupId(), TestPropsValues.getCompanyId(),
+				TestPropsValues.getUserId(), (Long)baseModel.getPrimaryKeyObj(),
+				serviceContext);
+
+			Assert.assertEquals(
+				1,
+				getActiveDLFileRanksCount(
+					group.getGroupId(), (Long)baseModel.getPrimaryKeyObj()));
+
+			moveBaseModelToTrash((Long)baseModel.getPrimaryKeyObj());
+
+			Assert.assertEquals(
+				0,
+				getActiveDLFileRanksCount(
+					group.getGroupId(), (Long)baseModel.getPrimaryKeyObj()));
+
+			trashHandler.restoreTrashEntry(
+				TestPropsValues.getUserId(), getTrashEntryClassPK(baseModel));
+
+			Assert.assertEquals(
+				1,
+				getActiveDLFileRanksCount(
+					group.getGroupId(), (Long)baseModel.getPrimaryKeyObj()));
+		}
+		finally {
+			trashHandler.deleteTrashEntry(getTrashEntryClassPK(baseModel));
+		}
+	}
+
+>>>>>>> compatible
 	private static final String _FILE_ENTRY_TITLE = RandomTestUtil.randomString(
 		255);
 
 	private static final int _FOLDER_NAME_MAX_LENGTH = 100;
 
+<<<<<<< HEAD
 	@Inject
 	private TrashHelper _trashHelper;
 
+=======
+	private String _originalName;
+	private PermissionChecker _originalPermissionChecker;
+>>>>>>> compatible
 	private final WhenIsAssetable _whenIsAssetable =
 		new DefaultWhenIsAssetable();
 	private final WhenIsIndexableBaseModel _whenIsIndexableBaseModel =

@@ -1,11 +1,19 @@
 ## Collections
 
 To avoid creating unnecessary overhead, we want to avoid using
+<<<<<<< HEAD
 `Collection.addAll(Arrays.asList(T...))` or
 `Collection.addAll(ListUtil.fromArray(E[]))` when adding all elements of an
 array to a collection.
 
 Instead we should use `Collections.addAll(Collection, T...)`
+=======
+```Collection.addAll(Arrays.asList(T...))``` or
+```Collection.addAll(ListUtil.fromArray(E[]))``` when adding all
+elements of an array to a collection.
+
+Instead we should use ```Collections.addAll(Collection, T...)```
+>>>>>>> compatible
 
 ### Example
 

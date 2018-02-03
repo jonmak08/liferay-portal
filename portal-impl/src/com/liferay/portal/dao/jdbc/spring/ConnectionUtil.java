@@ -37,16 +37,25 @@ public class ConnectionUtil {
 
 		if (connection != null) {
 			return (Connection)ProxyUtil.newProxyInstance(
+<<<<<<< HEAD
 				ClassLoader.getSystemClassLoader(), _INTERFACES,
+=======
+				ClassLoader.getSystemClassLoader(), _interfaces,
+>>>>>>> compatible
 				new UncloseableInvocationHandler(connection));
 		}
 
 		return dataSource.getConnection();
 	}
 
+<<<<<<< HEAD
 	private static final Class<?>[] _INTERFACES = {Connection.class};
 
 	private static final Method _closeMethod;
+=======
+	private static final Method _closeMethod;
+	private static final Class<?>[] _interfaces = {Connection.class};
+>>>>>>> compatible
 
 	static {
 		try {

@@ -476,12 +476,15 @@ public class DDLRecordSetLocalServiceUtil {
 		return getService().getRecordSet(groupId, recordSetKey);
 	}
 
+<<<<<<< HEAD
 	public static com.liferay.dynamic.data.lists.model.DDLRecordSet getRecordSet(
 		java.lang.String uuid, long recordSetId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService().getRecordSet(uuid, recordSetId);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns all the record sets belonging the group.
 	*

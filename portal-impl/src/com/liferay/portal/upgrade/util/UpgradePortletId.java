@@ -71,8 +71,15 @@ public class UpgradePortletId extends UpgradeProcess {
 				typeSettingsProperties.entrySet()) {
 
 			String typeSettingId = entry.getKey();
+<<<<<<< HEAD
 
 			if (!LayoutTypePortletConstants.hasPortletIds(typeSettingId)) {
+=======
+
+			if (!LayoutTypePortletConstants.isLayoutTemplateColumnName(
+					typeSettingId)) {
+
+>>>>>>> compatible
 				continue;
 			}
 
@@ -105,7 +112,12 @@ public class UpgradePortletId extends UpgradeProcess {
 
 			String portletIdsString = StringUtil.merge(portletIds);
 
+<<<<<<< HEAD
 			typeSettingsProperties.setProperty(typeSettingId, portletIdsString);
+=======
+			typeSettingsProperties.setProperty(
+				typeSettingId, portletIdsString.concat(StringPool.COMMA));
+>>>>>>> compatible
 		}
 
 		return typeSettingsProperties.toString();
@@ -345,18 +357,28 @@ public class UpgradePortletId extends UpgradeProcess {
 		throws Exception {
 
 		runSQL(
+<<<<<<< HEAD
 			StringBundler.concat(
 				"update Portlet set portletId = '", newRootPortletId,
 				"' where portletId = '", oldRootPortletId, "'"));
+=======
+			"update Portlet set portletId = '" + newRootPortletId +
+				"' where portletId = '" + oldRootPortletId + "'");
+>>>>>>> compatible
 	}
 
 	protected void updateResourceAction(String oldName, String newName)
 		throws Exception {
 
 		runSQL(
+<<<<<<< HEAD
 			StringBundler.concat(
 				"update ResourceAction set name = '", newName,
 				"' where name = '", oldName, "'"));
+=======
+			"update ResourceAction set name = '" + newName +
+				"' where name = '" + oldName + "'");
+>>>>>>> compatible
 	}
 
 	protected void updateResourcePermission(
@@ -365,10 +387,16 @@ public class UpgradePortletId extends UpgradeProcess {
 		throws Exception {
 
 		try (PreparedStatement ps1 = connection.prepareStatement(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"select resourcePermissionId, name, scope, primKey from ",
 					"ResourcePermission where name = '", oldRootPortletId,
 					"'"));
+=======
+				"select resourcePermissionId, name, scope, primKey from " +
+					"ResourcePermission where name = '" + oldRootPortletId +
+						"'");
+>>>>>>> compatible
 			PreparedStatement ps2 =
 				AutoBatchPreparedStatementUtil.concurrentAutoBatch(
 					connection,
@@ -436,9 +464,14 @@ public class UpgradePortletId extends UpgradeProcess {
 		throws Exception {
 
 		runSQL(
+<<<<<<< HEAD
 			StringBundler.concat(
 				"update UserNotificationDelivery set portletId = '",
 				newPortletId, "' where portletId = '", oldPortletId, "'"));
+=======
+			"update UserNotificationDelivery set portletId = '" + newPortletId +
+				"' where portletId = '" + oldPortletId + "'");
+>>>>>>> compatible
 	}
 
 	protected void updateUserNotificationEvent(
@@ -446,9 +479,14 @@ public class UpgradePortletId extends UpgradeProcess {
 		throws Exception {
 
 		runSQL(
+<<<<<<< HEAD
 			StringBundler.concat(
 				"update UserNotificationEvent set type_ = '", newPortletId,
 				"' where type_ = '", oldPortletId, "'"));
+=======
+			"update UserNotificationEvent set type_ = '" + newPortletId +
+				"' where type_ = '" + oldPortletId + "'");
+>>>>>>> compatible
 	}
 
 	protected void upgradeInstanceablePortletIds() throws Exception {

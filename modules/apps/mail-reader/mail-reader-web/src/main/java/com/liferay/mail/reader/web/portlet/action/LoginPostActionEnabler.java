@@ -14,7 +14,10 @@
 
 package com.liferay.mail.reader.web.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.osgi.util.ComponentUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.messaging.DestinationNames;
 import com.liferay.portal.kernel.messaging.MessageListener;
 
@@ -22,6 +25,10 @@ import org.osgi.service.component.ComponentContext;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
+<<<<<<< HEAD
+=======
+import org.osgi.service.component.annotations.Reference;
+>>>>>>> compatible
 
 /**
  * @author Shuyang Zhou
@@ -31,10 +38,14 @@ public class LoginPostActionEnabler {
 
 	@Activate
 	public void activate(ComponentContext componentContext) {
+<<<<<<< HEAD
 		ComponentUtil.enableComponents(
 			MessageListener.class,
 			"(destination.name=" + DestinationNames.MAIL_SYNCHRONIZER + ")",
 			componentContext, LoginPostAction.class);
+=======
+		componentContext.enableComponent(LoginPostAction.class.getName());
+>>>>>>> compatible
 	}
 
 	@Deactivate
@@ -42,4 +53,13 @@ public class LoginPostActionEnabler {
 		componentContext.disableComponent(LoginPostAction.class.getName());
 	}
 
+<<<<<<< HEAD
+=======
+	@Reference(
+		target = "(destination.name=" + DestinationNames.MAIL_SYNCHRONIZER + ")"
+	)
+	protected void registerMessageListener(MessageListener messageListener) {
+	}
+
+>>>>>>> compatible
 }

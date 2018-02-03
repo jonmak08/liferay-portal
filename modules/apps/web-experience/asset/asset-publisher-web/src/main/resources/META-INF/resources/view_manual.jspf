@@ -73,10 +73,17 @@ request.setAttribute("view.jsp-results", assetEntries);
 		<liferay-ddm:template-renderer className="<%= AssetEntry.class.getName() %>" displayStyle="<%= assetPublisherDisplayContext.getDisplayStyle() %>" displayStyleGroupId="<%= assetPublisherDisplayContext.getDisplayStyleGroupId() %>" entries="<%= new ArrayList<AssetEntry>() %>">
 
 			<%
+<<<<<<< HEAD
 			Map<Long, List<AssetPublisherAddItemHolder>> scopeAssetPublisherAddItemHolders = assetPublisherDisplayContext.getScopeAssetPublisherAddItemHolders(1);
 			%>
 
 			<c:if test="<%= MapUtil.isEmpty(scopeAssetPublisherAddItemHolders) %>">
+=======
+			Map<Long, Map<String, PortletURL>> addPortletURLs = assetPublisherDisplayContext.getScopeAddPortletURLs(1);
+			%>
+
+			<c:if test="<%= MapUtil.isEmpty(addPortletURLs) %>">
+>>>>>>> compatible
 
 				<%
 				renderRequest.setAttribute(WebKeys.PORTLET_CONFIGURATOR_VISIBILITY, Boolean.TRUE);

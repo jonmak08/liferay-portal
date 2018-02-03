@@ -207,11 +207,14 @@ public class DLFolderLocalServiceImpl extends DLFolderLocalServiceBaseImpl {
 			repositoryEventTrigger.trigger(
 				RepositoryEventType.Delete.class, Folder.class,
 				new LiferayFolder(dlFolder));
+<<<<<<< HEAD
 
 			Indexer<DLFolder> indexer = IndexerRegistryUtil.nullSafeGetIndexer(
 				DLFolder.class);
 
 			indexer.delete(dlFolder);
+=======
+>>>>>>> compatible
 		}
 
 		if (repository != null) {
@@ -1166,9 +1169,13 @@ public class DLFolderLocalServiceImpl extends DLFolderLocalServiceBaseImpl {
 				throw new NoSuchLockException("{folderId=" + folderId + "}");
 			}
 
+<<<<<<< HEAD
 			String uuid = lock.getUuid();
 
 			if (uuid.equals(lockUuid)) {
+=======
+			if (lock.getUuid().equals(lockUuid)) {
+>>>>>>> compatible
 				verified = true;
 			}
 		}

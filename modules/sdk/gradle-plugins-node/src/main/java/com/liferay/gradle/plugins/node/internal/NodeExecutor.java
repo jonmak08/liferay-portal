@@ -15,7 +15,10 @@
 package com.liferay.gradle.plugins.node.internal;
 
 import com.liferay.gradle.plugins.node.internal.util.GradleUtil;
+<<<<<<< HEAD
 import com.liferay.gradle.plugins.node.internal.util.NodePluginUtil;
+=======
+>>>>>>> compatible
 import com.liferay.gradle.util.OSDetector;
 import com.liferay.gradle.util.Validator;
 
@@ -213,7 +216,11 @@ public class NodeExecutor {
 			return null;
 		}
 
+<<<<<<< HEAD
 		return NodePluginUtil.getBinDir(nodeDir);
+=======
+		return new File(nodeDir, "bin");
+>>>>>>> compatible
 	}
 
 	private List<String> _getWindowsArgs() {

@@ -14,8 +14,13 @@
 
 package com.liferay.portal.security.pacl.test;
 
+<<<<<<< HEAD
 import com.liferay.document.library.kernel.service.DLFileEntryLocalServiceUtil;
 import com.liferay.document.library.kernel.service.DLFolderLocalServiceUtil;
+=======
+import com.liferay.message.boards.kernel.service.MBMessageLocalServiceUtil;
+import com.liferay.message.boards.kernel.service.MBStatsUserLocalServiceUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.security.pacl.test.hook.action.FailureStrutsAction;
@@ -91,13 +96,22 @@ public class HookTest {
 
 	@Test
 	public void testServices1() throws Exception {
+<<<<<<< HEAD
 		Assert.assertTrue(
 			DLFileEntryLocalServiceUtil.getDLFileEntriesCount() < 0);
+=======
+		Assert.assertTrue(MBMessageLocalServiceUtil.getMBMessagesCount() < 0);
+>>>>>>> compatible
 	}
 
 	@Test
 	public void testServices2() throws Exception {
+<<<<<<< HEAD
 		Assert.assertTrue(DLFolderLocalServiceUtil.getDLFoldersCount() >= 0);
+=======
+		Assert.assertTrue(
+			MBStatsUserLocalServiceUtil.getMBStatsUsersCount() >= 0);
+>>>>>>> compatible
 	}
 
 	@Test

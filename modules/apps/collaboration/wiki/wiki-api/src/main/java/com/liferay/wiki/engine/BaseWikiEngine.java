@@ -14,6 +14,7 @@
 
 package com.liferay.wiki.engine;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringWriter;
 import com.liferay.portal.kernel.language.LanguageUtil;
@@ -23,6 +24,12 @@ import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.language.LanguageResources;
 import com.liferay.taglib.servlet.PipingServletResponse;
+=======
+import com.liferay.portal.kernel.util.LocaleUtil;
+import com.liferay.portal.kernel.util.ResourceBundleLoader;
+import com.liferay.portal.kernel.util.ResourceBundleUtil;
+import com.liferay.portal.language.LanguageResources;
+>>>>>>> compatible
 import com.liferay.wiki.exception.PageContentException;
 import com.liferay.wiki.model.WikiNode;
 import com.liferay.wiki.model.WikiPage;
@@ -41,21 +48,27 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+<<<<<<< HEAD
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.jsp.PageContext;
+=======
+>>>>>>> compatible
 
 /**
  * @author Iván Zaera
  */
 public abstract class BaseWikiEngine implements WikiEngine {
 
+<<<<<<< HEAD
 	public static BaseWikiEngine getBaseWikiEngine(
 		ServletRequest servletRequest) {
 
 		return (BaseWikiEngine)servletRequest.getAttribute(_BASE_WIKI_ENGINE);
 	}
 
+=======
+>>>>>>> compatible
 	public static WikiNode getWikiNode(ServletRequest servletRequest) {
 		return (WikiNode)servletRequest.getAttribute(_WIKI_NODE);
 	}
@@ -73,14 +86,21 @@ public abstract class BaseWikiEngine implements WikiEngine {
 		return page.getContent();
 	}
 
+<<<<<<< HEAD
 	public abstract String getEditorName();
 
+=======
+>>>>>>> compatible
 	@Override
 	public String getFormatLabel(Locale locale) {
 		ResourceBundleLoader resourceBundleLoader = getResourceBundleLoader();
 
 		ResourceBundle resourceBundle = resourceBundleLoader.loadResourceBundle(
+<<<<<<< HEAD
 			locale);
+=======
+			LocaleUtil.toLanguageId(locale));
+>>>>>>> compatible
 
 		String format = getFormat();
 
@@ -94,6 +114,7 @@ public abstract class BaseWikiEngine implements WikiEngine {
 		return format;
 	}
 
+<<<<<<< HEAD
 	public String getHelpPageHTML(PageContext pageContext)
 		throws IOException, ServletException {
 
@@ -130,6 +151,8 @@ public abstract class BaseWikiEngine implements WikiEngine {
 
 	public abstract String getHelpURL();
 
+=======
+>>>>>>> compatible
 	@Override
 	public Map<String, Boolean> getOutgoingLinks(WikiPage page)
 		throws PageContentException {
@@ -142,6 +165,7 @@ public abstract class BaseWikiEngine implements WikiEngine {
 		return "creole";
 	}
 
+<<<<<<< HEAD
 	public boolean isHelpPageDefined() {
 		if ((getHelpPageServletContext() == null) ||
 			Validator.isNull(getHelpPageJSP())) {
@@ -152,6 +176,8 @@ public abstract class BaseWikiEngine implements WikiEngine {
 		return true;
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	public void renderEditPage(
 			ServletRequest servletRequest, ServletResponse servletResponse,
@@ -163,7 +189,10 @@ public abstract class BaseWikiEngine implements WikiEngine {
 		RequestDispatcher requestDispatcher =
 			servletContext.getRequestDispatcher(getEditPageJSP());
 
+<<<<<<< HEAD
 		servletRequest.setAttribute(_BASE_WIKI_ENGINE, this);
+=======
+>>>>>>> compatible
 		servletRequest.setAttribute(_WIKI_NODE, node);
 		servletRequest.setAttribute(_WIKI_PAGE, page);
 
@@ -181,19 +210,25 @@ public abstract class BaseWikiEngine implements WikiEngine {
 
 	protected abstract ServletContext getEditPageServletContext();
 
+<<<<<<< HEAD
 	protected String getHelpPageJSP() {
 		return "/help_page.jsp";
 	}
 
 	protected abstract ServletContext getHelpPageServletContext();
 
+=======
+>>>>>>> compatible
 	protected ResourceBundleLoader getResourceBundleLoader() {
 		return LanguageResources.RESOURCE_BUNDLE_LOADER;
 	}
 
+<<<<<<< HEAD
 	private static final String _BASE_WIKI_ENGINE =
 		BaseWikiEngine.class.getName() + "#BASE_WIKI_ENGINE";
 
+=======
+>>>>>>> compatible
 	private static final String _WIKI_NODE =
 		BaseWikiEngine.class.getName() + "#WIKI_NODE";
 

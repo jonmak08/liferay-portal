@@ -17,7 +17,13 @@ package com.liferay.portal.search.solr.internal.query;
 import com.liferay.portal.kernel.search.generic.StringQuery;
 import com.liferay.portal.search.solr.query.StringQueryTranslator;
 
+<<<<<<< HEAD
 import org.apache.lucene.search.Query;
+=======
+import org.apache.lucene.analysis.core.KeywordAnalyzer;
+import org.apache.lucene.queryparser.classic.ParseException;
+import org.apache.lucene.queryparser.classic.QueryParser;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 
@@ -28,6 +34,7 @@ import org.osgi.service.component.annotations.Component;
 public class StringQueryTranslatorImpl implements StringQueryTranslator {
 
 	@Override
+<<<<<<< HEAD
 	public Query translate(StringQuery stringQuery) {
 		return new Query() {
 
@@ -37,6 +44,18 @@ public class StringQueryTranslatorImpl implements StringQueryTranslator {
 			}
 
 		};
+=======
+	public org.apache.lucene.search.Query translate(StringQuery stringQuery) {
+		try {
+			QueryParser queryParser = new QueryParser(
+				"uuid", new KeywordAnalyzer());
+
+			return queryParser.parse(stringQuery.getQuery());
+		}
+		catch (ParseException pe) {
+			throw new IllegalArgumentException("Invalid query", pe);
+		}
+>>>>>>> compatible
 	}
 
 }

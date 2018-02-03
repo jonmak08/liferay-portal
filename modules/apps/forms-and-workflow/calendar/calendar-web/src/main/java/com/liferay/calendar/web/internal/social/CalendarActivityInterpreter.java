@@ -15,6 +15,7 @@
 package com.liferay.calendar.web.internal.social;
 
 import com.liferay.calendar.constants.CalendarPortletKeys;
+<<<<<<< HEAD
 import com.liferay.calendar.model.Calendar;
 import com.liferay.calendar.model.CalendarBooking;
 import com.liferay.calendar.service.CalendarBookingLocalService;
@@ -25,6 +26,16 @@ import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermi
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.util.AggregateResourceBundleLoader;
 import com.liferay.portal.kernel.util.Http;
+=======
+import com.liferay.calendar.model.CalendarBooking;
+import com.liferay.calendar.service.CalendarBookingLocalService;
+import com.liferay.calendar.service.permission.CalendarPermission;
+import com.liferay.calendar.social.CalendarActivityKeys;
+import com.liferay.portal.kernel.portlet.PortletURLFactoryUtil;
+import com.liferay.portal.kernel.security.permission.PermissionChecker;
+import com.liferay.portal.kernel.service.ServiceContext;
+import com.liferay.portal.kernel.util.AggregateResourceBundleLoader;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.ResourceBundleLoader;
 import com.liferay.portal.kernel.util.ResourceBundleLoaderUtil;
@@ -37,7 +48,10 @@ import com.liferay.social.kernel.model.SocialActivityInterpreter;
 
 import javax.portlet.PortletRequest;
 import javax.portlet.PortletURL;
+<<<<<<< HEAD
 import javax.portlet.WindowState;
+=======
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -72,12 +86,17 @@ public class CalendarActivityInterpreter extends BaseSocialActivityInterpreter {
 			SocialActivity activity, ServiceContext serviceContext)
 		throws Exception {
 
+<<<<<<< HEAD
 		CalendarBooking calendarBooking =
 			_calendarBookingLocalService.getCalendarBooking(
 				activity.getClassPK());
 
 		long plid = _portal.getPlidFromPortletId(
 			calendarBooking.getGroupId(), CalendarPortletKeys.CALENDAR);
+=======
+		long plid = _portal.getPlidFromPortletId(
+			serviceContext.getScopeGroupId(), CalendarPortletKeys.CALENDAR);
+>>>>>>> compatible
 
 		PortletURL portletURL = PortletURLFactoryUtil.create(
 			serviceContext.getRequest(), CalendarPortletKeys.CALENDAR, plid,
@@ -87,7 +106,10 @@ public class CalendarActivityInterpreter extends BaseSocialActivityInterpreter {
 		portletURL.setParameter("backURL", serviceContext.getCurrentURL());
 		portletURL.setParameter(
 			"calendarBookingId", String.valueOf(activity.getClassPK()));
+<<<<<<< HEAD
 		portletURL.setWindowState(WindowState.MAXIMIZED);
+=======
+>>>>>>> compatible
 
 		return portletURL.toString();
 	}
@@ -151,7 +173,11 @@ public class CalendarActivityInterpreter extends BaseSocialActivityInterpreter {
 			_calendarBookingLocalService.getCalendarBooking(
 				activity.getClassPK());
 
+<<<<<<< HEAD
 		return _calendarModelResourcePermission.contains(
+=======
+		return CalendarPermission.contains(
+>>>>>>> compatible
 			permissionChecker, calendarBooking.getCalendarId(), actionId);
 	}
 
@@ -167,6 +193,7 @@ public class CalendarActivityInterpreter extends BaseSocialActivityInterpreter {
 
 	private CalendarBookingLocalService _calendarBookingLocalService;
 
+<<<<<<< HEAD
 	@Reference(
 		target = "(model.class.name=com.liferay.calendar.model.Calendar)"
 	)
@@ -175,6 +202,8 @@ public class CalendarActivityInterpreter extends BaseSocialActivityInterpreter {
 	@Reference
 	private Http _http;
 
+=======
+>>>>>>> compatible
 	@Reference
 	private Portal _portal;
 

@@ -15,7 +15,10 @@
 package com.liferay.portlet.expando;
 
 import com.liferay.expando.kernel.model.ExpandoColumnConstants;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portlet.expando.service.impl.ExpandoValueLocalServiceImpl;
 
 import java.math.BigDecimal;

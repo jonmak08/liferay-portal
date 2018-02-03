@@ -92,7 +92,11 @@ else {
 				webdavDialog.after(
 					'render',
 					function(event) {
+<<<<<<< HEAD
 						var webdavURLInput = webdavDialog.get('boundingBox').one('#<portlet:namespace />webDavURL');
+=======
+						var webdavURLInput = webdavDialog.get('boundingBox').one('.webdav-url-resource');
+>>>>>>> compatible
 
 						webdavURLInput.focus();
 					}

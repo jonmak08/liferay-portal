@@ -14,7 +14,10 @@
 
 package com.liferay.portlet.documentlibrary.util;
 
+<<<<<<< HEAD
 import com.liferay.document.library.kernel.document.conversion.DocumentConversionUtil;
+=======
+>>>>>>> compatible
 import com.liferay.document.library.kernel.exception.NoSuchFileEntryException;
 import com.liferay.document.library.kernel.model.DLProcessorConstants;
 import com.liferay.document.library.kernel.store.DLStoreUtil;
@@ -22,11 +25,14 @@ import com.liferay.document.library.kernel.util.DLPreviewableProcessor;
 import com.liferay.document.library.kernel.util.DLUtil;
 import com.liferay.document.library.kernel.util.PDFProcessor;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
+<<<<<<< HEAD
 import com.liferay.petra.log4j.Log4JUtil;
 import com.liferay.petra.process.ProcessCallable;
 import com.liferay.petra.process.ProcessChannel;
 import com.liferay.petra.process.ProcessException;
 import com.liferay.petra.process.ProcessExecutor;
+=======
+>>>>>>> compatible
 import com.liferay.portal.fabric.InputResource;
 import com.liferay.portal.fabric.OutputResource;
 import com.liferay.portal.kernel.image.GhostscriptUtil;
@@ -53,6 +59,10 @@ import com.liferay.portal.repository.liferayrepository.model.LiferayFileVersion;
 import com.liferay.portal.util.PortalClassPathUtil;
 import com.liferay.portal.util.PropsUtil;
 import com.liferay.portal.util.PropsValues;
+<<<<<<< HEAD
+=======
+import com.liferay.util.log4j.Log4JUtil;
+>>>>>>> compatible
 
 import java.io.File;
 import java.io.IOException;
@@ -73,10 +83,13 @@ import java.util.concurrent.TimeoutException;
 
 import org.apache.commons.lang.time.StopWatch;
 import org.apache.pdfbox.pdmodel.PDDocument;
+<<<<<<< HEAD
 import org.apache.pdfbox.pdmodel.PDDocumentCatalog;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageTree;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;
+=======
+>>>>>>> compatible
 import org.apache.pdfbox.pdmodel.encryption.InvalidPasswordException;
 
 /**
@@ -448,9 +461,15 @@ public class PDFProcessorImpl
 						destinationFileVersion.getFileEntryId(),
 						destinationFileVersion.getVersion());
 
+<<<<<<< HEAD
 					if (Objects.equals(
 							"PWC", destinationFileVersion.getVersion()) ||
 						destinationFileVersion.isPending()) {
+=======
+				if (Objects.equals(
+						"PWC", destinationFileVersion.getVersion()) ||
+					destinationFileVersion.isPending()) {
+>>>>>>> compatible
 
 						File file = new File(
 							DocumentConversionUtil.getFilePath(
@@ -570,6 +589,7 @@ public class PDFProcessorImpl
 		if (_log.isDebugEnabled()) {
 			if (thumbnail) {
 				_log.debug(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Waiting for ", String.valueOf(ghostscriptTimeout),
 						" seconds to generate thumbnail for ", file.getPath()));
@@ -600,6 +620,36 @@ public class PDFProcessorImpl
 				errorMessage += " resulted in a canceled timeout for " + future;
 			}
 
+=======
+					"Waiting for " + ghostscriptTimeout +
+						" seconds to generate thumbnail for " + file.getPath());
+			}
+			else {
+				_log.debug(
+					"Waiting for " + ghostscriptTimeout +
+						" seconds to generate preview for " + file.getPath());
+			}
+		}
+
+		try {
+			future.get(ghostscriptTimeout, TimeUnit.SECONDS);
+
+			futures.put(processIdentity, future);
+		}
+		catch (TimeoutException te) {
+			String errorMessage =
+				"Timeout when generating preview for " + file.getPath();
+
+			if (thumbnail) {
+				errorMessage =
+					"Timeout when generating thumbanil for " + file.getPath();
+			}
+
+			if (future.cancel(true)) {
+				errorMessage += " resulted in a canceled timeout for " + future;
+			}
+
+>>>>>>> compatible
 			_log.error(errorMessage);
 
 			throw te;
@@ -712,6 +762,7 @@ public class PDFProcessorImpl
 
 			long pdfBoxTimeout =
 				PropsValues.DL_FILE_ENTRY_PREVIEW_GENERATION_TIMEOUT_PDFBOX;
+<<<<<<< HEAD
 
 			if (_log.isDebugEnabled()) {
 				if (generateThumbnail && generatePreview) {
@@ -748,6 +799,41 @@ public class PDFProcessorImpl
 			catch (TimeoutException te) {
 				String errorMessage = null;
 
+=======
+
+			if (_log.isDebugEnabled()) {
+				if (generateThumbnail && generatePreview) {
+					_log.debug(
+						"Waiting for " + pdfBoxTimeout +
+							" seconds to generate thumbnail and preview for " +
+								decryptedFile.getPath());
+				}
+				else {
+					if (generateThumbnail) {
+						_log.debug(
+							"Waiting for " + pdfBoxTimeout +
+								" seconds to generate thumbnail for " +
+									decryptedFile.getPath());
+					}
+
+					if (generatePreview) {
+						_log.debug(
+							"Waiting for " + pdfBoxTimeout +
+								" seconds to generate preview for " +
+									decryptedFile.getPath());
+					}
+				}
+			}
+
+			try {
+				future.get(pdfBoxTimeout, TimeUnit.SECONDS);
+
+				futures.put(processIdentity, future);
+			}
+			catch (TimeoutException te) {
+				String errorMessage = null;
+
+>>>>>>> compatible
 				if (generateThumbnail && generatePreview) {
 					errorMessage =
 						"Timeout when generating thumbnail and preview for " +
@@ -831,29 +917,46 @@ public class PDFProcessorImpl
 
 			if (generateThumbnail && generatePreview) {
 				_log.info(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"PDFBox generated a thumbnail and ",
 						String.valueOf(previewFileCount), " preview pages for ",
 						String.valueOf(fileVersionId), " in ",
 						String.valueOf(time), " ms"));
+=======
+					"PDFBox generated a thumbnail and " + previewFileCount +
+						" preview pages for " + fileVersionId + " in " + time +
+							" ms");
+>>>>>>> compatible
 			}
 			else {
 				if (generateThumbnail) {
 					_log.info(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"PDFBox generated a thumbnail for ",
 							String.valueOf(fileVersionId), " in ",
 							String.valueOf(time), " ms"));
+=======
+						"PDFBox generated a thumbnail for " + fileVersionId +
+							" in " + time + " ms");
+>>>>>>> compatible
 				}
 
 				if (generatePreview) {
 					_log.info(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"PDFBox generated ",
 							String.valueOf(previewFileCount),
 							" preview pages for ",
 							String.valueOf(fileVersionId), " in ",
 							String.valueOf(time), " ms"));
+=======
+						"PDFBox generated " + previewFileCount +
+							" preview pages for " + fileVersionId + " in " +
+								time + " ms");
+>>>>>>> compatible
 				}
 			}
 		}
@@ -901,6 +1004,7 @@ public class PDFProcessorImpl
 		return 0;
 	}
 
+<<<<<<< HEAD
 	private Map<String, Integer> _getScaledDimensions(File file)
 		throws Exception {
 
@@ -940,6 +1044,8 @@ public class PDFProcessorImpl
 		}
 	}
 
+=======
+>>>>>>> compatible
 	private boolean _hasImages(FileVersion fileVersion) throws Exception {
 		if (PropsValues.DL_FILE_ENTRY_PREVIEW_ENABLED) {
 			if (!hasPreview(fileVersion)) {

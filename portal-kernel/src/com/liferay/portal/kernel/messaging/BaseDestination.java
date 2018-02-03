@@ -14,12 +14,19 @@
 
 package com.liferay.portal.kernel.messaging;
 
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.concurrent.ConcurrentHashSet;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 
 import java.util.Collections;
 import java.util.Set;
+<<<<<<< HEAD
 import java.util.concurrent.ConcurrentHashMap;
+=======
+>>>>>>> compatible
 
 /**
  * @author Michael C. Han
@@ -221,11 +228,19 @@ public abstract class BaseDestination implements Destination {
 		return unregistered;
 	}
 
+<<<<<<< HEAD
 	protected Set<MessageListener> messageListeners = Collections.newSetFromMap(
 		new ConcurrentHashMap<>());
 	protected String name = StringPool.BLANK;
 
 	private final Set<DestinationEventListener> _destinationEventListeners =
 		Collections.newSetFromMap(new ConcurrentHashMap<>());
+=======
+	protected Set<MessageListener> messageListeners = new ConcurrentHashSet<>();
+	protected String name = StringPool.BLANK;
+
+	private final Set<DestinationEventListener> _destinationEventListeners =
+		new ConcurrentHashSet<>();
+>>>>>>> compatible
 
 }

@@ -14,8 +14,13 @@
 
 package com.liferay.portal.kernel.io;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.ClassLoaderPool;
 import com.liferay.petra.lang.ClassResolverUtil;
+=======
+import com.liferay.portal.kernel.util.ClassLoaderPool;
+import com.liferay.portal.kernel.util.ClassResolverUtil;
+>>>>>>> compatible
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -109,6 +114,7 @@ public class Deserializer {
 
 		byte tcByte = buffer[index++];
 
+<<<<<<< HEAD
 		if (tcByte == SerializationConstants.TC_BOOLEAN) {
 			return (T)Boolean.valueOf(readBoolean());
 		}
@@ -162,6 +168,63 @@ public class Deserializer {
 		}
 
 		throw new IllegalStateException("Unkown TC code " + tcByte);
+=======
+		switch (tcByte) {
+			case SerializationConstants.TC_BOOLEAN:
+				return (T)Boolean.valueOf(readBoolean());
+
+			case SerializationConstants.TC_BYTE:
+				return (T)Byte.valueOf(readByte());
+
+			case SerializationConstants.TC_CHARACTER:
+				return (T)Character.valueOf(readChar());
+
+			case SerializationConstants.TC_CLASS:
+				String contextName = readString();
+				String className = readString();
+
+				ClassLoader classLoader = ClassLoaderPool.getClassLoader(
+					contextName);
+
+				return (T)ClassResolverUtil.resolve(className, classLoader);
+
+			case SerializationConstants.TC_DOUBLE:
+				return (T)Double.valueOf(readDouble());
+
+			case SerializationConstants.TC_FLOAT:
+				return (T)Float.valueOf(readFloat());
+
+			case SerializationConstants.TC_INTEGER:
+				return (T)Integer.valueOf(readInt());
+
+			case SerializationConstants.TC_LONG:
+				return (T)Long.valueOf(readLong());
+
+			case SerializationConstants.TC_NULL:
+				return null;
+
+			case SerializationConstants.TC_SHORT:
+				return (T)Short.valueOf(readShort());
+
+			case SerializationConstants.TC_STRING:
+				return (T)readString();
+
+			case SerializationConstants.TC_OBJECT:
+				try {
+					ObjectInputStream objectInpputStream =
+						new ProtectedAnnotatedObjectInputStream(
+							new BufferInputStream());
+
+					return (T)objectInpputStream.readObject();
+				}
+				catch (IOException ioe) {
+					throw new RuntimeException(ioe);
+				}
+
+			default :
+				throw new IllegalStateException("Unkown TC code " + tcByte);
+		}
+>>>>>>> compatible
 	}
 
 	public short readShort() {
@@ -207,9 +270,16 @@ public class Deserializer {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Detects a buffer underflow throwing an {@link IllegalStateException} if
 	 * the input data is shorter than the reserved space. This method is final
 	 * so JIT can perform an inline expansion.
+=======
+	 * Detects a buffer underflow throwing an {@link
+	 * java.lang.IllegalStateException} if the input data is shorter than the
+	 * reserved space. This method is final so JIT can perform an inline
+	 * expansion.
+>>>>>>> compatible
 	 *
 	 * @param availableBytes number of bytes available in input buffer
 	 */

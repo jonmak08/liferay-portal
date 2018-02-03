@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Map API
 Bundle-SymbolicName: com.liferay.map.api
+<<<<<<< HEAD
 Bundle-Version: 2.2.0
+=======
+Bundle-Version: 2.1.1
+>>>>>>> compatible
 Export-Package:\
 	com.liferay.map,\
 	com.liferay.map.constants,\

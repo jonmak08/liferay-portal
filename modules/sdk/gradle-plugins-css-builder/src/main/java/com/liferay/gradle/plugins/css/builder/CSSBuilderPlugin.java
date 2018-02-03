@@ -165,7 +165,11 @@ public class CSSBuilderPlugin implements Plugin<Project> {
 	private void _configureTaskBuildCSSForJavaPlugin(
 		final BuildCSSTask buildCSSTask) {
 
+<<<<<<< HEAD
 		buildCSSTask.setBaseDir(
+=======
+		buildCSSTask.setDocrootDir(
+>>>>>>> compatible
 			new Callable<File>() {
 
 				@Override
@@ -184,7 +188,11 @@ public class CSSBuilderPlugin implements Plugin<Project> {
 	private void _configureTaskBuildCSSForWarPlugin(
 		final BuildCSSTask buildCSSTask) {
 
+<<<<<<< HEAD
 		buildCSSTask.setBaseDir(
+=======
+		buildCSSTask.setDocrootDir(
+>>>>>>> compatible
 			new Callable<File>() {
 
 				@Override
@@ -195,11 +203,19 @@ public class CSSBuilderPlugin implements Plugin<Project> {
 			});
 	}
 
+<<<<<<< HEAD
 	private void _configureTaskBuildCSSImportFile(
 		BuildCSSTask buildCSSTask,
 		final Configuration portalCommonCSSConfiguration) {
 
 		buildCSSTask.setImportFile(
+=======
+	private void _configureTaskBuildCSSPortalCommonFile(
+		BuildCSSTask buildCSSTask,
+		final Configuration portalCommonCSSConfiguration) {
+
+		buildCSSTask.setPortalCommonFile(
+>>>>>>> compatible
 			new Callable<File>() {
 
 				@Override
@@ -224,7 +240,11 @@ public class CSSBuilderPlugin implements Plugin<Project> {
 				public void execute(BuildCSSTask buildCSSTask) {
 					_configureTaskBuildCSSClasspath(
 						buildCSSTask, cssBuilderConfiguration);
+<<<<<<< HEAD
 					_configureTaskBuildCSSImportFile(
+=======
+					_configureTaskBuildCSSPortalCommonFile(
+>>>>>>> compatible
 						buildCSSTask, portalCommonCSSConfiguration);
 				}
 

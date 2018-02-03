@@ -14,7 +14,11 @@
 
 package com.liferay.portal.kernel.cache;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
+=======
+import com.liferay.portal.kernel.util.InitialThreadLocal;
+>>>>>>> compatible
 
 /**
  * @author Tina Tian
@@ -30,8 +34,14 @@ public class SkipReplicationThreadLocal {
 	}
 
 	private static final ThreadLocal<Boolean> _skipReplicationThreadLocal =
+<<<<<<< HEAD
 		new CentralizedThreadLocal<>(
 			SkipReplicationThreadLocal.class + "._skipReplicationThreadLocal",
 			() -> Boolean.FALSE, false);
+=======
+		new InitialThreadLocal<>(
+			SkipReplicationThreadLocal.class + "._skipReplicationThreadLocal",
+			() -> Boolean.FALSE);
+>>>>>>> compatible
 
 }

@@ -14,6 +14,18 @@
 							requires: [
 								'liferay-ddm-form-renderer-field'
 							]
+<<<<<<< HEAD
+=======
+						},
+						'liferay-ddm-form-field-checkbox-template': {
+							condition: {
+								trigger: 'liferay-ddm-form-renderer'
+							},
+							path: 'checkbox.soy.js',
+							requires: [
+								'soyutils'
+							]
+>>>>>>> compatible
 						}
 					},
 					root: MODULE_PATH + '/'

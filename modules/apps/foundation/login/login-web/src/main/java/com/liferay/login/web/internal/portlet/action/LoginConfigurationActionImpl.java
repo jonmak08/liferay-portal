@@ -14,12 +14,19 @@
 
 package com.liferay.login.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.login.web.internal.constants.LoginPortletKeys;
+=======
+import com.liferay.login.web.constants.LoginPortletKeys;
+>>>>>>> compatible
 import com.liferay.petra.content.ContentUtil;
 import com.liferay.portal.kernel.portlet.ConfigurationAction;
 import com.liferay.portal.kernel.portlet.DefaultConfigurationAction;
 import com.liferay.portal.kernel.util.LocaleUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.PortalClassLoaderUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.util.PropsValues;
 
 import javax.portlet.ActionRequest;
@@ -55,25 +62,41 @@ public class LoginConfigurationActionImpl extends DefaultConfigurationAction {
 			portletRequest, portletPreferences,
 			"emailPasswordResetBody_" + languageId,
 			ContentUtil.get(
+<<<<<<< HEAD
 				PortalClassLoaderUtil.getClassLoader(),
+=======
+				LoginConfigurationActionImpl.class.getClassLoader(),
+>>>>>>> compatible
 				PropsValues.ADMIN_EMAIL_PASSWORD_RESET_BODY));
 		removeDefaultValue(
 			portletRequest, portletPreferences,
 			"emailPasswordResetSubject_" + languageId,
 			ContentUtil.get(
+<<<<<<< HEAD
 				PortalClassLoaderUtil.getClassLoader(),
+=======
+				LoginConfigurationActionImpl.class.getClassLoader(),
+>>>>>>> compatible
 				PropsValues.ADMIN_EMAIL_PASSWORD_RESET_SUBJECT));
 		removeDefaultValue(
 			portletRequest, portletPreferences,
 			"emailPasswordSentBody_" + languageId,
 			ContentUtil.get(
+<<<<<<< HEAD
 				PortalClassLoaderUtil.getClassLoader(),
+=======
+				LoginConfigurationActionImpl.class.getClassLoader(),
+>>>>>>> compatible
 				PropsValues.ADMIN_EMAIL_PASSWORD_SENT_BODY));
 		removeDefaultValue(
 			portletRequest, portletPreferences,
 			"emailPasswordSentSubject_" + languageId,
 			ContentUtil.get(
+<<<<<<< HEAD
 				PortalClassLoaderUtil.getClassLoader(),
+=======
+				LoginConfigurationActionImpl.class.getClassLoader(),
+>>>>>>> compatible
 				PropsValues.ADMIN_EMAIL_PASSWORD_SENT_SUBJECT));
 	}
 

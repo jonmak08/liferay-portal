@@ -41,7 +41,11 @@ else {
 
 <c:if test="<%= wikiGroupServiceOverriddenConfiguration.emailPageAddedEnabled() || wikiGroupServiceOverriddenConfiguration.emailPageUpdatedEnabled() %>">
 	<c:choose>
+<<<<<<< HEAD
 		<c:when test="<%= (node != null) && WikiNodePermission.contains(permissionChecker, node, ActionKeys.SUBSCRIBE) %>">
+=======
+		<c:when test="<%= (node != null) && WikiNodePermissionChecker.contains(permissionChecker, node, ActionKeys.SUBSCRIBE) %>">
+>>>>>>> compatible
 			<c:choose>
 				<c:when test="<%= SubscriptionLocalServiceUtil.isSubscribed(user.getCompanyId(), user.getUserId(), WikiNode.class.getName(), node.getNodeId()) %>">
 					<portlet:actionURL name="/wiki/edit_node" var="unsubscribeURL">
@@ -75,7 +79,11 @@ else {
 				</c:otherwise>
 			</c:choose>
 		</c:when>
+<<<<<<< HEAD
 		<c:when test="<%= (wikiPage != null) && WikiPagePermission.contains(permissionChecker, wikiPage, ActionKeys.SUBSCRIBE) %>">
+=======
+		<c:when test="<%= (wikiPage != null) && WikiPagePermissionChecker.contains(permissionChecker, wikiPage, ActionKeys.SUBSCRIBE) %>">
+>>>>>>> compatible
 			<c:choose>
 				<c:when test="<%= SubscriptionLocalServiceUtil.isSubscribed(user.getCompanyId(), user.getUserId(), WikiPage.class.getName(), wikiPage.getResourcePrimKey()) %>">
 					<portlet:actionURL name="/wiki/edit_page" var="unsubscribeURL">

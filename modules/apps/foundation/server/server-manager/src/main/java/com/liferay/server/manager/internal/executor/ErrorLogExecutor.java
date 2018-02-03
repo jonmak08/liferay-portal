@@ -15,7 +15,10 @@
 package com.liferay.server.manager.internal.executor;
 
 import com.liferay.portal.kernel.util.ServerDetector;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 
 import java.io.File;
 
@@ -50,9 +53,14 @@ public class ErrorLogExecutor extends OutputLogExecutor {
 		}
 		else if (ServerDetector.isTomcat()) {
 			logFile = new File(
+<<<<<<< HEAD
 				StringBundler.concat(
 					System.getProperty("catalina.base"), "/logs/catalina.",
 					getTomcatDateString(), ".log"));
+=======
+				System.getProperty("catalina.base") + "/logs/catalina." +
+					getTomcatDateString() + ".log");
+>>>>>>> compatible
 		}
 
 		return logFile;

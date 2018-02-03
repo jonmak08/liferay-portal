@@ -16,8 +16,11 @@
 
 <%@ include file="/init.jsp" %>
 
+<<<<<<< HEAD
 <%@ page import="com.liferay.document.library.kernel.util.DLValidatorUtil" %>
 
+=======
+>>>>>>> compatible
 <%
 String portletResource = ParamUtil.getString(request, "portletResource");
 

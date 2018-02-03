@@ -38,6 +38,7 @@ public class JCalendarUtil {
 
 	public static final long SECOND = 1000;
 
+<<<<<<< HEAD
 	public static long convertTimeToNewDay(long oldTime, long newTime) {
 		Calendar oldJCalendar = getJCalendar(oldTime);
 		Calendar newJCalendar = getJCalendar(newTime);
@@ -50,6 +51,8 @@ public class JCalendarUtil {
 		return newJCalendar.getTimeInMillis();
 	}
 
+=======
+>>>>>>> compatible
 	public static long getDaysBetween(
 		Calendar startTimeJCalendar, Calendar endTimeJCalendar) {
 

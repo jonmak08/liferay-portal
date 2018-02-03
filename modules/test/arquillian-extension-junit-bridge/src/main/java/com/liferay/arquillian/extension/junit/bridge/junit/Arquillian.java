@@ -26,7 +26,10 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.rules.TestRule;
 import org.junit.runners.model.FrameworkMethod;
+<<<<<<< HEAD
 import org.junit.runners.model.InitializationError;
+=======
+>>>>>>> compatible
 import org.junit.runners.model.Statement;
 import org.junit.runners.model.TestClass;
 
@@ -35,7 +38,13 @@ import org.junit.runners.model.TestClass;
  */
 public class Arquillian extends org.jboss.arquillian.junit.Arquillian {
 
+<<<<<<< HEAD
 	public Arquillian(Class<?> clazz) throws InitializationError {
+=======
+	public Arquillian(Class<?> clazz)
+		throws org.junit.runners.model.InitializationError {
+
+>>>>>>> compatible
 		super(clazz);
 	}
 

@@ -15,7 +15,11 @@
 package com.liferay.portal.kernel.workflow;
 
 import com.liferay.exportimport.kernel.lar.ExportImportThreadLocal;
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
+=======
+import com.liferay.portal.kernel.util.AutoResetThreadLocal;
+>>>>>>> compatible
 
 /**
  * @author Jorge Ferrer
@@ -35,7 +39,11 @@ public class WorkflowThreadLocal {
 	}
 
 	private static final ThreadLocal<Boolean> _enabled =
+<<<<<<< HEAD
 		new CentralizedThreadLocal<>(
+=======
+		new AutoResetThreadLocal<>(
+>>>>>>> compatible
 			WorkflowThreadLocal.class + "._enabled", () -> Boolean.TRUE);
 
 }

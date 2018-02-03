@@ -38,6 +38,10 @@ import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.model.impl.OrgGroupRoleImpl;
 import com.liferay.portal.model.impl.OrgGroupRoleModelImpl;
 
@@ -687,6 +691,7 @@ public class OrgGroupRolePersistenceImpl extends BasePersistenceImpl<OrgGroupRol
 		}
 
 		List<OrgGroupRole> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<OrgGroupRole>)finderCache.getResult(finderPath,
@@ -697,6 +702,18 @@ public class OrgGroupRolePersistenceImpl extends BasePersistenceImpl<OrgGroupRol
 					if ((roleId != orgGroupRole.getRoleId())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<OrgGroupRole>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (OrgGroupRole orgGroupRole : list) {
+					if ((roleId != orgGroupRole.getRoleId())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -1696,11 +1713,14 @@ public class OrgGroupRolePersistenceImpl extends BasePersistenceImpl<OrgGroupRol
 	}
 
 	@Override
+<<<<<<< HEAD
 	public Set<String> getCompoundPKColumnNames() {
 		return _compoundPKColumnNames;
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	protected Map<String, Integer> getTableColumnsMap() {
 		return OrgGroupRoleModelImpl.TABLE_COLUMNS_MAP;
 	}
@@ -1730,7 +1750,10 @@ public class OrgGroupRolePersistenceImpl extends BasePersistenceImpl<OrgGroupRol
 	private static final String _NO_SUCH_ENTITY_WITH_PRIMARY_KEY = "No OrgGroupRole exists with the primary key ";
 	private static final String _NO_SUCH_ENTITY_WITH_KEY = "No OrgGroupRole exists with the key {";
 	private static final Log _log = LogFactoryUtil.getLog(OrgGroupRolePersistenceImpl.class);
+<<<<<<< HEAD
 	private static final Set<String> _compoundPKColumnNames = SetUtil.fromArray(new String[] {
 				"organizationId", "groupId", "roleId"
 			});
+=======
+>>>>>>> compatible
 }

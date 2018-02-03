@@ -421,10 +421,13 @@ public interface DDLRecordSetLocalService extends BaseLocalService,
 	public DDLRecordSet getRecordSet(long groupId, java.lang.String recordSetKey)
 		throws PortalException;
 
+<<<<<<< HEAD
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public DDLRecordSet getRecordSet(java.lang.String uuid, long recordSetId)
 		throws PortalException;
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns all the record sets belonging the group.
 	*

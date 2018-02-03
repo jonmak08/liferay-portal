@@ -21,6 +21,10 @@ import com.liferay.portal.kernel.dao.search.SearchPaginationUtil;
 import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.Organization;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.security.permission.PermissionChecker;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.ClassNameLocalServiceUtil;
 import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
@@ -86,6 +90,18 @@ public class GroupSelectorTag extends IncludeTag {
 		int[] startAndEnd = SearchPaginationUtil.calculateStartAndEnd(
 			cur, delta);
 
+<<<<<<< HEAD
+=======
+		PermissionChecker permissionChecker =
+			themeDisplay.getPermissionChecker();
+
+		if (permissionChecker.isCompanyAdmin()) {
+			return GroupLocalServiceUtil.search(
+				themeDisplay.getCompanyId(), _CLASS_NAME_IDS_COMPANY_ADMIN,
+				keywords, groupParams, startAndEnd[0], startAndEnd[1], null);
+		}
+
+>>>>>>> compatible
 		return GroupLocalServiceUtil.search(
 			themeDisplay.getCompanyId(), _CLASS_NAME_IDS, keywords, groupParams,
 			startAndEnd[0], startAndEnd[1], null);
@@ -105,6 +121,18 @@ public class GroupSelectorTag extends IncludeTag {
 
 		groupParams.put("site", Boolean.TRUE);
 
+<<<<<<< HEAD
+=======
+		PermissionChecker permissionChecker =
+			themeDisplay.getPermissionChecker();
+
+		if (permissionChecker.isCompanyAdmin()) {
+			return GroupLocalServiceUtil.searchCount(
+				themeDisplay.getCompanyId(), _CLASS_NAME_IDS_COMPANY_ADMIN,
+				keywords, groupParams);
+		}
+
+>>>>>>> compatible
 		return GroupLocalServiceUtil.searchCount(
 			themeDisplay.getCompanyId(), _CLASS_NAME_IDS, keywords,
 			groupParams);
@@ -128,6 +156,14 @@ public class GroupSelectorTag extends IncludeTag {
 	}
 
 	private static final long[] _CLASS_NAME_IDS = {
+<<<<<<< HEAD
+=======
+		ClassNameLocalServiceUtil.getClassNameId(Group.class),
+		ClassNameLocalServiceUtil.getClassNameId(Organization.class)
+	};
+
+	private static final long[] _CLASS_NAME_IDS_COMPANY_ADMIN = {
+>>>>>>> compatible
 		ClassNameLocalServiceUtil.getClassNameId(Company.class),
 		ClassNameLocalServiceUtil.getClassNameId(Group.class),
 		ClassNameLocalServiceUtil.getClassNameId(Organization.class)

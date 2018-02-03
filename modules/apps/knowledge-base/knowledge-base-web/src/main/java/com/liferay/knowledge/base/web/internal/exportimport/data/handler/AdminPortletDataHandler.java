@@ -22,7 +22,10 @@ import com.liferay.exportimport.kernel.lar.PortletDataHandlerBoolean;
 import com.liferay.exportimport.kernel.lar.StagedModelDataHandlerUtil;
 import com.liferay.exportimport.kernel.lar.StagedModelType;
 import com.liferay.exportimport.kernel.xstream.XStreamAliasRegistryUtil;
+<<<<<<< HEAD
 import com.liferay.knowledge.base.constants.KBConstants;
+=======
+>>>>>>> compatible
 import com.liferay.knowledge.base.constants.KBPortletKeys;
 import com.liferay.knowledge.base.model.KBArticle;
 import com.liferay.knowledge.base.model.KBComment;
@@ -92,11 +95,14 @@ public class AdminPortletDataHandler extends BasePortletDataHandler {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public String getServiceName() {
 		return KBConstants.SERVICE_NAME;
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	protected PortletPreferences doDeleteData(
 			PortletDataContext portletDataContext, String portletId,
 			PortletPreferences portletPreferences)

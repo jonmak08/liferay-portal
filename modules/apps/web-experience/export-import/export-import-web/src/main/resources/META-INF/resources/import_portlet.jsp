@@ -86,7 +86,11 @@ String[] tempFileNames = LayoutServiceUtil.getTempFileNames(scopeGroupId, Export
 	</c:when>
 </c:choose>
 
+<<<<<<< HEAD
 <aui:script use="liferay-export-import-export-import">
+=======
+<aui:script use="liferay-export-import">
+>>>>>>> compatible
 	<liferay-portlet:resourceURL copyCurrentRenderParameters="<%= false %>" id="exportImport" var="importProcessesURL">
 		<portlet:param name="<%= Constants.CMD %>" value="<%= Constants.IMPORT %>" />
 		<portlet:param name="tabs2" value="import" />

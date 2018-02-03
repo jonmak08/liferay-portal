@@ -34,6 +34,10 @@ import com.liferay.portal.kernel.search.filter.TermsFilter;
 import com.liferay.portal.kernel.search.generic.BooleanQueryImpl;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.spring.osgi.OSGiBeanProperties;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
@@ -52,7 +56,11 @@ import javax.portlet.PortletResponse;
  * @deprecated As of 7.0.0, moved to {@link
  *             com.liferay.asset.categories.internal.search.AssetCategoryIndexer}
  */
+<<<<<<< HEAD
 @Deprecated
+=======
+@OSGiBeanProperties
+>>>>>>> compatible
 public class AssetCategoryIndexer extends BaseIndexer<AssetCategory> {
 
 	public static final String CLASS_NAME = AssetCategory.class.getName();
@@ -169,6 +177,7 @@ public class AssetCategoryIndexer extends BaseIndexer<AssetCategory> {
 		document.addKeyword(
 			Field.ASSET_PARENT_CATEGORY_ID,
 			assetCategory.getParentCategoryId());
+<<<<<<< HEAD
 		document.addKeyword(
 			Field.ASSET_VOCABULARY_ID, assetCategory.getVocabularyId());
 
@@ -185,6 +194,22 @@ public class AssetCategoryIndexer extends BaseIndexer<AssetCategory> {
 			assetCategory.getTitleMap());
 		document.addKeyword(
 			"leftCategoryId", assetCategory.getLeftCategoryId());
+=======
+		document.addKeyword(
+			Field.ASSET_VOCABULARY_ID, assetCategory.getVocabularyId());
+
+		Locale siteDefaultLocale = PortalUtil.getSiteDefaultLocale(
+			assetCategory.getGroupId());
+
+		addLocalizedField(
+			document, Field.DESCRIPTION, siteDefaultLocale,
+			assetCategory.getDescriptionMap());
+
+		document.addText(Field.NAME, assetCategory.getName());
+		addLocalizedField(
+			document, Field.TITLE, siteDefaultLocale,
+			assetCategory.getTitleMap());
+>>>>>>> compatible
 
 		if (_log.isDebugEnabled()) {
 			_log.debug("Document " + assetCategory + " indexed successfully");

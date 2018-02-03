@@ -37,9 +37,17 @@ public class SerializableUtil {
 	}
 
 	public static Object deserialize(byte[] bytes) {
+<<<<<<< HEAD
 		try (ObjectInputStream objectInputStream =
 				new ProtectedObjectInputStream(
 					new UnsyncByteArrayInputStream(bytes))) {
+=======
+		ObjectInputStream objectInputStream = null;
+
+		try {
+			objectInputStream = new ProtectedObjectInputStream(
+				new UnsyncByteArrayInputStream(bytes));
+>>>>>>> compatible
 
 			return objectInputStream.readObject();
 		}
@@ -49,12 +57,26 @@ public class SerializableUtil {
 		catch (IOException ioe) {
 			throw new RuntimeException(ioe);
 		}
+<<<<<<< HEAD
 	}
 
 	public static Object deserialize(byte[] bytes, ClassLoader classLoader) {
 		try (ObjectInputStream objectInputStream =
 				new ProtectedClassLoaderObjectInputStream(
 					new UnsyncByteArrayInputStream(bytes), classLoader)) {
+=======
+		finally {
+			StreamUtil.cleanUp(objectInputStream);
+		}
+	}
+
+	public static Object deserialize(byte[] bytes, ClassLoader classLoader) {
+		ObjectInputStream objectInputStream = null;
+
+		try {
+			objectInputStream = new ProtectedClassLoaderObjectInputStream(
+				new UnsyncByteArrayInputStream(bytes), classLoader);
+>>>>>>> compatible
 
 			return objectInputStream.readObject();
 		}
@@ -64,6 +86,7 @@ public class SerializableUtil {
 		catch (IOException ioe) {
 			throw new RuntimeException(ioe);
 		}
+<<<<<<< HEAD
 	}
 
 	public static byte[] serialize(Object object) {
@@ -72,12 +95,34 @@ public class SerializableUtil {
 
 		try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(
 				unsyncByteArrayOutputStream)) {
+=======
+		finally {
+			StreamUtil.cleanUp(objectInputStream);
+		}
+	}
+
+	public static byte[] serialize(Object object) {
+		ObjectOutputStream objectOutputStream = null;
+
+		UnsyncByteArrayOutputStream unsyncByteArrayOutputStream =
+			new UnsyncByteArrayOutputStream();
+
+		try {
+			objectOutputStream = new ObjectOutputStream(
+				unsyncByteArrayOutputStream);
+>>>>>>> compatible
 
 			objectOutputStream.writeObject(object);
 		}
 		catch (IOException ioe) {
 			throw new RuntimeException(ioe);
 		}
+<<<<<<< HEAD
+=======
+		finally {
+			StreamUtil.cleanUp(objectOutputStream);
+		}
+>>>>>>> compatible
 
 		return unsyncByteArrayOutputStream.toByteArray();
 	}

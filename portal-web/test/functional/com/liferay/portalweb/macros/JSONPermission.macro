@@ -5,7 +5,11 @@
 		</execute>
 
 		<execute macro="JSONRole#getRoleIdByName">
+<<<<<<< HEAD
 			<var name="roleTitle" value="${roleTitle}" />
+=======
+			<var name="roleName" value="${roleName}" />
+>>>>>>> compatible
 			<return from="roleId" name="roleId" />
 		</execute>
 
@@ -13,6 +17,7 @@
 			<return from="companyId" name="companyId" />
 		</execute>
 
+<<<<<<< HEAD
 		<if>
 			<equals arg1="${roleType}" arg2="regular" />
 			<then>
@@ -34,6 +39,8 @@
 			</else>
 		</if>
 
+=======
+>>>>>>> compatible
 		<execute macro="JSONGroup#getGroupIdByName">
 			<var name="groupName" value="${groupName}" />
 			<return from="groupId" name="groupId" />
@@ -45,8 +52,13 @@
 				-d groupId=${groupId} \
 				-d companyId=${companyId} \
 				-d name=${resourceName} \
+<<<<<<< HEAD
 				-d scope=${scope} \
 				-d primKey=${primKey} \
+=======
+				-d scope=1 \
+				-d primKey=${companyId} \
+>>>>>>> compatible
 				-d roleId=${roleId} \
 				-d actionId=${resourceAction}
 		</var>

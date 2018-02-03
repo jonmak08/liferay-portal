@@ -14,6 +14,11 @@
 
 package com.liferay.portal.monitoring.internal.statistics;
 
+<<<<<<< HEAD
+=======
+import com.liferay.portal.monitoring.statistics.Statistics;
+
+>>>>>>> compatible
 /**
  * @author Rajesh Thiagarajan
  * @author Brian Wing Shun Chan

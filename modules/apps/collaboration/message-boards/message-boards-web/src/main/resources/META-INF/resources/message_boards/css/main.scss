@@ -2,10 +2,13 @@
 @import "mixins";
 
 .portlet-asset-publisher, .portlet-message-boards, .portlet-trash {
+<<<<<<< HEAD
 	.advanced-reply {
 		float: right;
 	}
 
+=======
+>>>>>>> compatible
 	.category-subscriptions {
 		clear: both;
 		margin-bottom: 1em;
@@ -61,6 +64,13 @@
 			list-style: none;
 		}
 
+<<<<<<< HEAD
+=======
+		.message-attachment {
+			padding: 0.5em;
+		}
+
+>>>>>>> compatible
 		.deleted-input {
 			margin-left: -2em;
 			padding: 0;
@@ -90,6 +100,15 @@
 			padding-left: 0;
 		}
 
+<<<<<<< HEAD
+=======
+		.message-content {
+			img {
+				max-width: 100%;
+			}
+		}
+
+>>>>>>> compatible
 		.reply-to-main-thread-container {
 			text-align: center;
 		}
@@ -100,7 +119,11 @@
 	}
 
 	.message-content {
+<<<<<<< HEAD
 		display: block;
+=======
+		word-break: break-all;
+>>>>>>> compatible
 
 		img {
 			max-width: 100%;
@@ -191,10 +214,13 @@
 			font-weight: bold;
 			margin-right: 1em;
 		}
+<<<<<<< HEAD
 
 		.list-group-item-content span.h5 {
 			margin-right: 12px;
 		}
+=======
+>>>>>>> compatible
 	}
 
 	.views {
@@ -230,6 +256,10 @@
 	}
 
 	.thread-controls {
+<<<<<<< HEAD
+=======
+		border: 1px solid #CCC;
+>>>>>>> compatible
 		margin-bottom: 5px;
 		padding: 3px 5px;
 	}
@@ -242,6 +272,13 @@
 		float: right;
 	}
 
+<<<<<<< HEAD
+=======
+	.thread-user-rank {
+		display: block;
+	}
+
+>>>>>>> compatible
 	.thread-priority {
 		border-width: 0;
 	}

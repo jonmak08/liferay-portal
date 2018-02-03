@@ -18,7 +18,10 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.workflow.kaleo.definition.Condition;
+<<<<<<< HEAD
 import com.liferay.portal.workflow.kaleo.definition.ScriptLanguage;
+=======
+>>>>>>> compatible
 import com.liferay.portal.workflow.kaleo.model.KaleoCondition;
 import com.liferay.portal.workflow.kaleo.service.base.KaleoConditionLocalServiceBaseImpl;
 
@@ -33,8 +36,13 @@ public class KaleoConditionLocalServiceImpl
 
 	@Override
 	public KaleoCondition addKaleoCondition(
+<<<<<<< HEAD
 			long kaleoDefinitionVersionId, long kaleoNodeId,
 			Condition condition, ServiceContext serviceContext)
+=======
+			long kaleoDefinitionId, long kaleoNodeId, Condition condition,
+			ServiceContext serviceContext)
+>>>>>>> compatible
 		throws PortalException {
 
 		User user = userLocalService.getUser(serviceContext.getGuestOrUserId());
@@ -50,6 +58,7 @@ public class KaleoConditionLocalServiceImpl
 		kaleoCondition.setUserName(user.getFullName());
 		kaleoCondition.setCreateDate(now);
 		kaleoCondition.setModifiedDate(now);
+<<<<<<< HEAD
 		kaleoCondition.setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
 		kaleoCondition.setKaleoNodeId(kaleoNodeId);
 		kaleoCondition.setScript(condition.getScript());
@@ -58,6 +67,13 @@ public class KaleoConditionLocalServiceImpl
 
 		kaleoCondition.setScriptLanguage(scriptLanguage.getValue());
 
+=======
+		kaleoCondition.setKaleoDefinitionId(kaleoDefinitionId);
+		kaleoCondition.setKaleoNodeId(kaleoNodeId);
+		kaleoCondition.setScript(condition.getScript());
+		kaleoCondition.setScriptLanguage(
+			condition.getScriptLanguage().getValue());
+>>>>>>> compatible
 		kaleoCondition.setScriptRequiredContexts(
 			condition.getScriptRequiredContexts());
 
@@ -72,11 +88,16 @@ public class KaleoConditionLocalServiceImpl
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void deleteKaleoDefinitionVersionKaleoCondition(
 		long kaleoDefinitionVersionId) {
 
 		kaleoConditionPersistence.removeByKaleoDefinitionVersionId(
 			kaleoDefinitionVersionId);
+=======
+	public void deleteKaleoDefinitionKaleoCondition(long kaleoDefinitionId) {
+		kaleoConditionPersistence.removeByKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 	@Override

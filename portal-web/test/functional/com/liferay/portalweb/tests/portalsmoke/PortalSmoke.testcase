@@ -20,7 +20,11 @@
 				<execute macro="PortalInstances#tearDownCP" />
 			</then>
 			<else>
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP" />
+=======
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 
 				<execute macro="WebContent#tearDownCP" />
 			</else>
@@ -39,8 +43,11 @@
 
 	<command name="SmokeWithDeveloperProperties" priority="5">
 		<property name="custom.properties" value="include-and-override=portal-developer.properties" />
+<<<<<<< HEAD
 		<property name="osgi.module.configuration.file.names" value="com.liferay.document.library.document.conversion.configuration.OpenOfficeConfiguration" />
 		<property name="osgi.module.configurations" value="cacheEnabled=&quot;false&quot;" />
+=======
+>>>>>>> compatible
 		<property name="portal.acceptance" value="true" />
 		<property name="portal.smoke" value="false" />
 
@@ -51,7 +58,10 @@
 
 	<command name="SmokeWithSPADisabled" priority="5">
 		<property name="custom.properties" value="javascript.single.page.application.enabled=false" />
+<<<<<<< HEAD
 		<property name="portal.smoke" value="false" />
+=======
+>>>>>>> compatible
 
 		<execute macro="Smoke#viewWelcomePage" />
 

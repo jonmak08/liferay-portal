@@ -63,12 +63,15 @@ public class SystemEventLocalServiceWrapper implements SystemEventLocalService,
 		return _systemEventLocalService.addSystemEvent(systemEvent);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public void checkSystemEvents()
 		throws com.liferay.portal.kernel.exception.PortalException {
 		_systemEventLocalService.checkSystemEvents();
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Creates a new system event with the primary key. Does not add the system event to the database.
 	*
@@ -320,12 +323,15 @@ public class SystemEventLocalServiceWrapper implements SystemEventLocalService,
 	}
 
 	@Override
+<<<<<<< HEAD
 	public boolean validateGroup(long groupId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return _systemEventLocalService.validateGroup(groupId);
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public SystemEventLocalService getWrappedService() {
 		return _systemEventLocalService;
 	}

@@ -38,8 +38,13 @@ public class BuildTest extends BaseJenkinsResultsParserTestCase {
 			JenkinsResultsParserUtil.getBuildProperties());
 
 		downloadSample(
+<<<<<<< HEAD
 			"test-jenkins-acceptance-pullrequest_passed", "117",
 			"test-jenkins-acceptance-pullrequest", "test-1-17");
+=======
+			"test-jenkins-acceptance-pullrequest_passed", "34",
+			"test-jenkins-acceptance-pullrequest", "test-5-1");
+>>>>>>> compatible
 		downloadSample(
 			"test-plugins-acceptance-pullrequest(ee-6.2.x)_passed", "66",
 			"test-plugins-acceptance-pullrequest(ee-6.2.x)", "test-1-8");

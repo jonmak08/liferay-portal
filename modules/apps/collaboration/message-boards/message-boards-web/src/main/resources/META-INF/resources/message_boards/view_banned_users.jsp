@@ -36,7 +36,11 @@ portletURL.setParameter("mvcRenderCommandName", "/message_boards/view_banned_use
 		/>
 
 		<liferay-ui:search-container-row
+<<<<<<< HEAD
 			className="com.liferay.message.boards.model.MBBan"
+=======
+			className="com.liferay.message.boards.kernel.model.MBBan"
+>>>>>>> compatible
 			keyProperty="banId"
 			modelVar="ban"
 		>
@@ -69,7 +73,11 @@ portletURL.setParameter("mvcRenderCommandName", "/message_boards/view_banned_use
 			<c:if test="<%= PropsValues.MESSAGE_BOARDS_EXPIRE_BAN_INTERVAL > 0 %>">
 				<liferay-ui:search-container-column-date
 					name="unban-date"
+<<<<<<< HEAD
 					value="<%= com.liferay.message.boards.util.MBUtil.getUnbanDate(ban, PropsValues.MESSAGE_BOARDS_EXPIRE_BAN_INTERVAL) %>"
+=======
+					value="<%= MBUtil.getUnbanDate(ban, PropsValues.MESSAGE_BOARDS_EXPIRE_BAN_INTERVAL) %>"
+>>>>>>> compatible
 				/>
 			</c:if>
 
@@ -80,7 +88,11 @@ portletURL.setParameter("mvcRenderCommandName", "/message_boards/view_banned_use
 			/>
 		</liferay-ui:search-container-row>
 
+<<<<<<< HEAD
 		<liferay-ui:search-iterator displayStyle="list" markupView="lexicon" />
+=======
+		<liferay-ui:search-iterator />
+>>>>>>> compatible
 	</liferay-ui:search-container>
 </div>
 

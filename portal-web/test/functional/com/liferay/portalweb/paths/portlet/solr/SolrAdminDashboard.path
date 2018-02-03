@@ -96,7 +96,11 @@
 <!--LOGGING_TABLE-->
 <tr>
 	<td>LOGGING_TABLE_LOGGER_NAME</td>
+<<<<<<< HEAD
 	<td>//abbr[contains(.,'${key_loggerName}')]</td>
+=======
+	<td>//tr[@class='level-info']//span[contains(.,'${key_loggerName}')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>

@@ -1,5 +1,10 @@
 <definition component-name="portal-user-interface">
 	<property name="blacklist.portal.profile.names.remove" value="com.liferay.chat.service,com.liferay.chat.web" />
+<<<<<<< HEAD
+=======
+	<property name="osgi.app.includes" value="chat" />
+	<property name="plugins.deployment.type" value="osgi" />
+>>>>>>> compatible
 	<property name="portal.release" value="true" />
 	<property name="portal.upstream" value="true" />
 	<property name="testray.main.component.name" value="User Interface" />

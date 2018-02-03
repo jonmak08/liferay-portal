@@ -1,10 +1,19 @@
 <definition component-name="portal-authentication-ee">
+<<<<<<< HEAD
 	<property name="portal.release" value="true" />
 	<property name="portal.upstream" value="true" />
 	<property name="app.server.bundles.size" value="1" />
 	<property name="databases.size" value="1" />
 	<property name="osgi.app.includes" value="saml" />
 	<property name="plugins.deployment.type" value="osgi" />
+=======
+	<property name="osgi.app.includes" value="saml" />
+	<property name="plugins.deployment.type" value="osgi" />
+	<property name="portal.release" value="true" />
+	<property name="portal.upstream" value="true" />
+	<property name="databases.size" value="1" />
+	<property name="portlet.plugins.includes" value="saml-portlet" />
+>>>>>>> compatible
 	<property name="test.run.environment" value="EE" />
 	<property name="testray.main.component.name" value="SAML" />
 
@@ -14,6 +23,7 @@
 		<execute macro="User#firstLoginPG">
 			<var name="rememberMeChecked" value="false" />
 		</execute>
+<<<<<<< HEAD
 	</set-up>
 
 	<command name="AssertSSOIdleSessionTakesPrecedenceOverIdPSessionTimeout" priority="4">
@@ -23,16 +33,24 @@
 		<execute macro="SAML#configureLiferaySAMLAsIdP">
 			<var name="idpSessionIdleTimeout" value="480" />
 			<var name="idpSessionMaximumAge" value="0" />
+=======
+
+		<execute macro="SAML#configureLiferaySAMLAsIdP">
+>>>>>>> compatible
 			<var name="samlEntityID" value="samlidp" />
 		</execute>
 
 		<execute macro="SAML#configureLiferaySAMLAsSP">
+<<<<<<< HEAD
 			<var name="nameIdentifierAttributeName" value="emailAddress" />
+=======
+>>>>>>> compatible
 			<var name="samlEntityID" value="samlsp" />
 			<var name="spURL" value="http://www.able.com:9080/" />
 		</execute>
 
 		<execute macro="User#logoutPG" />
+<<<<<<< HEAD
 
 		<execute macro="User#viewLoggedOutPG" />
 
@@ -242,10 +260,14 @@
 
 		<execute function="AssertConsoleTextPresent" value1="nameid-format:unspecified" />
 	</command>
+=======
+	</set-up>
+>>>>>>> compatible
 
 	<command name="ViewIdPInitiatedSSO" priority="4">
 		<description message="Sign into portal by executing a IdP initiated SSO login. After a successful login, the IdP will redirect to the SP. If the same users with the same email address are present on both instances, it will authenticate and show the SP. SAML can authenticate across major portal versions, that is, the IdP can be Portal 6.1 EE GA3 and the SP can be Portal 6.2. EE GA1. For testing purposes, it is obvious if the authentication succeeds or fails if the IdP and SP are different portal versions." />
 
+<<<<<<< HEAD
 		<property name="test.name.skip.portal.instance" value="CPSAML#ViewIdPInitiatedSSO" />
 
 		<execute macro="SAML#configureLiferaySAMLAsIdP">
@@ -262,6 +284,11 @@
 
 		<execute macro="User#viewLoggedOutPG" />
 
+=======
+		<property name="app.server.bundles.size" value="1" />
+		<property name="test.name.skip.portal.instance" value="CPSAML#ViewIdPInitiatedSSO" />
+
+>>>>>>> compatible
 		<var method="TestPropsUtil#get('portal.url')" name="portalURL" />
 
 		<!-- Verify SP is logged in -->
@@ -270,6 +297,10 @@
 			<var name="idpInitiatedSSOURL" value="${portalURL}/c/portal/saml/sso?entityId=samlsp&amp;RelayState=http://www.able.com:9080" />
 			<var name="password" value="test" />
 			<var name="rememberMeChecked" value="false" />
+<<<<<<< HEAD
+=======
+			<var name="samlEnabled" value="true" />
+>>>>>>> compatible
 			<var name="spURL" value="http://www.able.com:9080/" />
 			<var name="userEmailAddress" value="test@liferay.com" />
 		</execute>
@@ -306,6 +337,7 @@
 	<command name="ViewIdPInitiatedSSOWithRememberMeChecked" priority="4">
 		<description message="LPS-50220 - IdP initiated SSO login should work regardless if 'Remember Me' is checked or not." />
 
+<<<<<<< HEAD
 		<property name="test.name.skip.portal.instance" value="CPSAML#ViewIdPInitiatedSSOWithRememberMeChecked" />
 
 		<execute macro="SAML#configureLiferaySAMLAsIdP">
@@ -322,6 +354,11 @@
 
 		<execute macro="User#viewLoggedOutPG" />
 
+=======
+		<property name="app.server.bundles.size" value="1" />
+		<property name="test.name.skip.portal.instance" value="CPSAML#ViewIdPInitiatedSSOWithRememberMeChecked" />
+
+>>>>>>> compatible
 		<var method="TestPropsUtil#get('portal.url')" name="portalURL" />
 
 		<!-- Verify SP is logged in -->
@@ -330,6 +367,10 @@
 			<var name="idpInitiatedSSOURL" value="${portalURL}/c/portal/saml/sso?entityId=samlsp&amp;RelayState=http://www.able.com:9080" />
 			<var name="password" value="test" />
 			<var name="rememberMeChecked" value="true" />
+<<<<<<< HEAD
+=======
+			<var name="samlEnabled" value="true" />
+>>>>>>> compatible
 			<var name="spURL" value="http://www.able.com:9080/" />
 			<var name="userEmailAddress" value="test@liferay.com" />
 		</execute>
@@ -366,6 +407,7 @@
 	<command name="ViewSingleLogoutHTTPPostBindingInConsole" priority="4">
 		<description message="LPS-49666 - SAML Single Logout should support HTTP-POST binding." />
 
+<<<<<<< HEAD
 		<property name="test.name.skip.portal.instance" value="CPSAML#ViewSingleLogoutHTTPPostBindingInConsole" />
 
 		<execute macro="SAML#configureLiferaySAMLAsIdP">
@@ -381,6 +423,19 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		<property name="app.server.bundles.size" value="1" />
+		<property name="test.name.skip.portal.instance" value="CPSAML#ViewSingleLogoutHTTPPostBindingInConsole" />
+
+		<var method="TestPropsUtil#get('portal.url')" name="portalURL" />
+
+		<execute macro="User#loginPG">
+			<var name="password" value="test" />
+			<var name="userEmailAddress" value="test@liferay.com" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Server Administration" />
 		</execute>
 
@@ -391,14 +446,21 @@
 
 		<execute macro="User#logoutPG" />
 
+<<<<<<< HEAD
 		<execute macro="User#viewLoggedOutPG" />
 
 		<var method="TestPropsUtil#get('portal.url')" name="portalURL" />
 
+=======
+>>>>>>> compatible
 		<execute macro="SAML#executeIdPInitiatedSSO">
 			<var name="idpInitiatedSSOURL" value="${portalURL}/c/portal/saml/sso?entityId=samlsp&amp;RelayState=http://www.able.com:9080" />
 			<var name="password" value="test" />
 			<var name="rememberMeChecked" value="true" />
+<<<<<<< HEAD
+=======
+			<var name="samlEnabled" value="true" />
+>>>>>>> compatible
 			<var name="spURL" value="http://www.able.com:9080/" />
 			<var name="userEmailAddress" value="test@liferay.com" />
 		</execute>
@@ -409,13 +471,17 @@
 			<var name="specificURL" value="http://www.able.com:9080" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="User#viewLoggedOutPG" />
 
+=======
+>>>>>>> compatible
 		<execute function="AssertConsoleTextPresent" value1="Validation of protocol message signature succeeded, message type: {urn:oasis:names:tc:SAML:2.0:protocol}LogoutRequest" />
 	</command>
 
 	<command name="ViewSingleLogoutWithMultipleSPs" priority="4">
 		<property name="app.server.bundles.size" value="2" />
+<<<<<<< HEAD
 		<property name="databases.size" value="2" />
 		<property name="test.name.skip.portal.instance" value="CPSAML#ViewSingleLogoutWithMultipleSPs" />
 
@@ -427,17 +493,31 @@
 			<var name="nameIdentifierAttributeName" value="emailAddress" />
 			<var name="samlEntityID" value="samlsp" />
 			<var name="spURL" value="http://www.able.com:9080/" />
+=======
+		<property name="test.name.skip.portal.instance" value="CPSAML#ViewSingleLogoutWithMultipleSPs" />
+
+		<execute macro="User#loginPG">
+			<var name="password" value="test" />
+			<var name="userEmailAddress" value="test@liferay.com" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="SAML#configureLiferaySAMLAsSP">
 			<var name="samlEntityID" value="samlsp2" />
+<<<<<<< HEAD
 			<var name="spURL" value="http://www.baker.com:10080" />
+=======
+			<var name="spURL" value="http://www.baker.com:10080/" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="User#logoutPG" />
 
+<<<<<<< HEAD
 		<execute macro="User#viewLoggedOutPG" />
 
+=======
+>>>>>>> compatible
 		<execute macro="SAML#executeSPInitiatedSSO">
 			<var name="password" value="test" />
 			<var name="specificURL" value="http://www.able.com:9080" />
@@ -496,6 +576,7 @@
 	<command name="ViewSPInitiatedSSO" priority="4">
 		<description message="Sign into portal by executing a SP initiated SSO login. This is done by clicking on the 'Sign In' link in the dockbar on the SP. After the SP is logged in, and if both instances has the same user and email address, the IdP will also be logged in." />
 
+<<<<<<< HEAD
 		<property name="test.name.skip.portal.instance" value="CPSAML#ViewSPInitiatedSSO" />
 
 		<execute macro="SAML#configureLiferaySAMLAsIdP">
@@ -512,6 +593,11 @@
 
 		<execute macro="User#viewLoggedOutPG" />
 
+=======
+		<property name="app.server.bundles.size" value="1" />
+		<property name="test.name.skip.portal.instance" value="CPSAML#ViewSPInitiatedSSO" />
+
+>>>>>>> compatible
 		<!-- Verify SP is logged in -->
 
 		<execute macro="SAML#executeSPInitiatedSSO">

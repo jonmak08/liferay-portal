@@ -14,6 +14,10 @@
 
 package com.liferay.portal.security.auth;
 
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.concurrent.ConcurrentHashSet;
+>>>>>>> compatible
 import com.liferay.portal.kernel.security.auth.AuthenticatedUserUUIDStore;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 

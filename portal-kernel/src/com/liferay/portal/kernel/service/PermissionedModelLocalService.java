@@ -16,9 +16,13 @@ package com.liferay.portal.kernel.service;
 
 /**
  * @author Connor McKay
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, with no direct replacement
  */
 @Deprecated
+=======
+ */
+>>>>>>> compatible
 public interface PermissionedModelLocalService
 	extends PersistedModelLocalService {
 }

@@ -47,8 +47,11 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
 import com.liferay.portal.kernel.util.OrderByComparator;
 
+<<<<<<< HEAD
 import com.liferay.subscription.service.SubscriptionLocalService;
 
+=======
+>>>>>>> compatible
 import java.io.File;
 import java.io.Serializable;
 
@@ -122,8 +125,11 @@ public interface JournalArticleLocalService extends BaseLocalService,
 	* @param titleMap the web content article's locales and localized titles
 	* @param descriptionMap the web content article's locales and localized
 	descriptions
+<<<<<<< HEAD
 	* @param friendlyURLMap the web content article's locales and localized
 	friendly URLs
+=======
+>>>>>>> compatible
 	* @param content the HTML content wrapped in XML
 	* @param ddmStructureKey the primary key of the web content article's DDM
 	structure, if the article is related to a DDM structure, or
@@ -182,6 +188,7 @@ public interface JournalArticleLocalService extends BaseLocalService,
 		long classNameId, long classPK, java.lang.String articleId,
 		boolean autoArticleId, double version,
 		Map<Locale, java.lang.String> titleMap,
+<<<<<<< HEAD
 		Map<Locale, java.lang.String> descriptionMap,
 		Map<Locale, java.lang.String> friendlyURLMap, java.lang.String content,
 		java.lang.String ddmStructureKey, java.lang.String ddmTemplateKey,
@@ -294,6 +301,8 @@ public interface JournalArticleLocalService extends BaseLocalService,
 		long classNameId, long classPK, java.lang.String articleId,
 		boolean autoArticleId, double version,
 		Map<Locale, java.lang.String> titleMap,
+=======
+>>>>>>> compatible
 		Map<Locale, java.lang.String> descriptionMap, java.lang.String content,
 		java.lang.String ddmStructureKey, java.lang.String ddmTemplateKey,
 		java.lang.String layoutUuid, int displayDateMonth, int displayDateDay,
@@ -720,6 +729,7 @@ public interface JournalArticleLocalService extends BaseLocalService,
 		java.lang.String articleId, java.lang.String articleURL,
 		ServiceContext serviceContext) throws PortalException;
 
+<<<<<<< HEAD
 	/**
 	* Returns the web content article with the ID.
 	*
@@ -729,6 +739,8 @@ public interface JournalArticleLocalService extends BaseLocalService,
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public JournalArticle fetchArticle(long id);
 
+=======
+>>>>>>> compatible
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public JournalArticle fetchArticle(long groupId, java.lang.String articleId);
 
@@ -935,7 +947,11 @@ public interface JournalArticleLocalService extends BaseLocalService,
 	* @param languageId the primary key of the language translation to get
 	* @param themeDisplay the theme display
 	* @return the web content from the matching web content article
+<<<<<<< HEAD
 	* @deprecated As of 4.0.0, replaced by {@link
+=======
+	* @deprecated As of 3.3.0, replaced by {@link
+>>>>>>> compatible
 	#getArticleContent(JournalArticle, String, String, String,
 	PortletRequestModel,ThemeDisplay)}
 	*/
@@ -984,7 +1000,11 @@ public interface JournalArticleLocalService extends BaseLocalService,
 	* @param languageId the primary key of the language translation to get
 	* @param themeDisplay the theme display
 	* @return the web content from the matching web content article
+<<<<<<< HEAD
 	* @deprecated As of 4.0.0, replaced by {@link #getArticleContent(long,
+=======
+	* @deprecated As of 3.3.0, replaced by {@link #getArticleContent(long,
+>>>>>>> compatible
 	String, double, String, String, String, PortletRequestModel,
 	ThemeDisplay)}
 	*/
@@ -1006,7 +1026,11 @@ public interface JournalArticleLocalService extends BaseLocalService,
 	* @param languageId the primary key of the language translation to get
 	* @param themeDisplay the theme display
 	* @return the web content from the matching web content article
+<<<<<<< HEAD
 	* @deprecated As of 4.0.0, replaced by {@link #getArticleContent(long,
+=======
+	* @deprecated As of 3.3.0, replaced by {@link #getArticleContent(long,
+>>>>>>> compatible
 	String, double, String, String, String, PortletRequestModel,
 	ThemeDisplay)}
 	*/
@@ -1051,7 +1075,11 @@ public interface JournalArticleLocalService extends BaseLocalService,
 	* @param languageId the primary key of the language translation to get
 	* @param themeDisplay the theme display
 	* @return the latest web content from the matching web content article
+<<<<<<< HEAD
 	* @deprecated As of 4.0.0, replaced by {@link #getArticleContent(long,
+=======
+	* @deprecated As of 3.3.0, replaced by {@link #getArticleContent(long,
+>>>>>>> compatible
 	String, String, String, String, PortletRequestModel,
 	ThemeDisplay)}
 	*/
@@ -1072,7 +1100,11 @@ public interface JournalArticleLocalService extends BaseLocalService,
 	* @param languageId the primary key of the language translation to get
 	* @param themeDisplay the theme display
 	* @return the latest web content from the matching web content article
+<<<<<<< HEAD
 	* @deprecated As of 4.0.0, replaced by {@link #getArticleContent(long,
+=======
+	* @deprecated As of 3.3.0, replaced by {@link #getArticleContent(long,
+>>>>>>> compatible
 	String, String, String, String, PortletRequestModel,
 	ThemeDisplay)}
 	*/
@@ -1083,6 +1115,7 @@ public interface JournalArticleLocalService extends BaseLocalService,
 		java.lang.String languageId, ThemeDisplay themeDisplay)
 		throws PortalException;
 
+<<<<<<< HEAD
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public java.lang.String getArticleDescription(long articlePK, Locale locale);
 
@@ -1094,6 +1127,8 @@ public interface JournalArticleLocalService extends BaseLocalService,
 	public Map<Locale, java.lang.String> getArticleDescriptionMap(
 		long articlePK);
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns a web content article display for the specified page of the
 	* latest version of the web content article, based on the DDM template. Web
@@ -1266,10 +1301,13 @@ public interface JournalArticleLocalService extends BaseLocalService,
 		java.lang.String languageId, ThemeDisplay themeDisplay)
 		throws PortalException;
 
+<<<<<<< HEAD
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<java.lang.String> getArticleLocalizationLanguageIds(
 		long articlePK);
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns all the web content articles present in the system.
 	*
@@ -1513,6 +1551,7 @@ public interface JournalArticleLocalService extends BaseLocalService,
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public int getArticlesCount(long groupId, java.lang.String articleId);
 
+<<<<<<< HEAD
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public java.lang.String getArticleTitle(long articlePK, Locale locale);
 
@@ -1523,6 +1562,8 @@ public interface JournalArticleLocalService extends BaseLocalService,
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public Map<Locale, java.lang.String> getArticleTitleMap(long articlePK);
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns an ordered range of all the web content articles matching the
 	* company, version, and workflow status.
@@ -2015,6 +2056,7 @@ public interface JournalArticleLocalService extends BaseLocalService,
 		java.lang.String ddmStructureKey);
 
 	/**
+<<<<<<< HEAD
 	* @deprecated As of 4.0.0, with no direct replacement
 	*/
 	@java.lang.Deprecated
@@ -2022,6 +2064,8 @@ public interface JournalArticleLocalService extends BaseLocalService,
 	public com.liferay.portal.kernel.service.SubscriptionLocalService getSubscriptionLocalService();
 
 	/**
+=======
+>>>>>>> compatible
 	* Returns the web content articles matching the group and DDM template key.
 	*
 	* @param groupId the primary key of the web content article's group
@@ -2147,7 +2191,11 @@ public interface JournalArticleLocalService extends BaseLocalService,
 	folder
 	* @return the updated web content article, which was moved to a new
 	folder
+<<<<<<< HEAD
 	* @deprecated As of 4.0.0, replaced by {@link #moveArticle(long, String,
+=======
+	* @deprecated As of 3.3.0, replaced by {@link #moveArticle(long, String,
+>>>>>>> compatible
 	long, ServiceContext)}
 	*/
 	@java.lang.Deprecated
@@ -2673,7 +2721,11 @@ public interface JournalArticleLocalService extends BaseLocalService,
 		boolean andSearch, int start, int end, Sort sort);
 
 	/**
+<<<<<<< HEAD
 	* @deprecated As of 4.0.0, replaced by {@link #search(long, long, List,
+=======
+	* @deprecated As of 3.3.0, replaced by {@link #search(long, long, List,
+>>>>>>> compatible
 	long, String, String, String, String, int, String, String,
 	LinkedHashMap, boolean, int, int, Sort)}
 	*/
@@ -3087,6 +3139,7 @@ public interface JournalArticleLocalService extends BaseLocalService,
 		long groupId, long userId, long creatorUserId, int status, int start,
 		int end) throws PortalException;
 
+<<<<<<< HEAD
 	/**
 	* @deprecated As of 4.0.0, with no direct replacement
 	*/
@@ -3094,11 +3147,14 @@ public interface JournalArticleLocalService extends BaseLocalService,
 	public void setSubscriptionLocalService(
 		com.liferay.portal.kernel.service.SubscriptionLocalService subscriptionLocalService);
 
+=======
+>>>>>>> compatible
 	public void setTreePaths(long folderId, java.lang.String treePath,
 		boolean reindex) throws PortalException;
 
 	/**
 	* Subscribes the user to changes in elements that belong to the web content
+<<<<<<< HEAD
 	* article.
 	*
 	* @param userId the primary key of the user to be subscribed
@@ -3110,6 +3166,8 @@ public interface JournalArticleLocalService extends BaseLocalService,
 
 	/**
 	* Subscribes the user to changes in elements that belong to the web content
+=======
+>>>>>>> compatible
 	* article's DDM structure.
 	*
 	* @param groupId the primary key of the folder's group
@@ -3121,6 +3179,7 @@ public interface JournalArticleLocalService extends BaseLocalService,
 
 	/**
 	* Unsubscribes the user from changes in elements that belong to the web
+<<<<<<< HEAD
 	* content article.
 	*
 	* @param userId the primary key of the user to be subscribed
@@ -3132,6 +3191,8 @@ public interface JournalArticleLocalService extends BaseLocalService,
 
 	/**
 	* Unsubscribes the user from changes in elements that belong to the web
+=======
+>>>>>>> compatible
 	* content article's DDM structure.
 	*
 	* @param groupId the primary key of the folder's group
@@ -3142,6 +3203,7 @@ public interface JournalArticleLocalService extends BaseLocalService,
 		long ddmStructureId) throws PortalException;
 
 	/**
+<<<<<<< HEAD
 	* Updates the web content article with additional parameters.
 	*
 	* @param userId the primary key of the user updating the web content
@@ -3242,6 +3304,8 @@ public interface JournalArticleLocalService extends BaseLocalService,
 		throws PortalException;
 
 	/**
+=======
+>>>>>>> compatible
 	* Updates the web content article matching the version, replacing its
 	* folder, title, description, content, and layout UUID.
 	*
@@ -3447,7 +3511,11 @@ public interface JournalArticleLocalService extends BaseLocalService,
 	* @param assetTagNames the new asset tag names
 	* @param assetLinkEntryIds the primary keys of the new asset link
 	entries
+<<<<<<< HEAD
 	* @deprecated As of 4.0.0, replaced by {@link #updateAsset(long,
+=======
+	* @deprecated As of 3.3.0, replaced by {@link #updateAsset(long,
+>>>>>>> compatible
 	JournalArticle, long[], String[], long[], Double)}
 	*/
 	@java.lang.Deprecated
@@ -3606,7 +3674,11 @@ public interface JournalArticleLocalService extends BaseLocalService,
 	article's old DDM template
 	* @param newDDMTemplateKey the primary key of the web content
 	article's new DDM template
+<<<<<<< HEAD
 	* @deprecated As of 4.0.0, replaced by {@link #updateDDMTemplateKey}
+=======
+	* @deprecated As of 3.3.0, replaced by {@link #updateDDMTemplateKey}
+>>>>>>> compatible
 	*/
 	@java.lang.Deprecated
 	public void updateTemplateId(long groupId, long classNameId,

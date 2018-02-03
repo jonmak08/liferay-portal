@@ -14,7 +14,10 @@
 
 package com.liferay.journal.exception;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 
 /**
@@ -37,6 +40,7 @@ public class ArticleTitleException extends PortalException {
 		super(cause);
 	}
 
+<<<<<<< HEAD
 	public static class MustNotExceedMaximumLength
 		extends ArticleTitleException {
 
@@ -49,4 +53,6 @@ public class ArticleTitleException extends PortalException {
 
 	}
 
+=======
+>>>>>>> compatible
 }

@@ -20,7 +20,11 @@
 			<else>
 				<execute macro="PortalInstances#tearDownCP" />
 
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP" />
+=======
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 			</else>
 		</if>
 	</tear-down>
@@ -28,9 +32,13 @@
 	<command name="ViewIndependentModulesIsNotNestedWithinItself" priority="4">
 		<property name="test.name.skip.portal.instance" value="AppManagerUsecase#ViewIndependentModulesIsNotNestedWithinItself" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Apps" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelApps">
+>>>>>>> compatible
 			<var name="portlet" value="App Manager" />
 		</execute>
 

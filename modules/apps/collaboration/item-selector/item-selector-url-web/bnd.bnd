@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Item Selector URL Web
 Bundle-SymbolicName: com.liferay.item.selector.url.web
+<<<<<<< HEAD
 Bundle-Version: 2.0.9
+=======
+Bundle-Version: 2.0.5
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Item Selector
 Web-ContextPath: /item-selector-url-web

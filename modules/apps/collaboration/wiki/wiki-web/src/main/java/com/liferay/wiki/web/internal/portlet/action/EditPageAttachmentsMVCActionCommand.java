@@ -16,7 +16,10 @@ package com.liferay.wiki.web.internal.portlet.action;
 
 import com.liferay.asset.kernel.exception.AssetCategoryException;
 import com.liferay.asset.kernel.exception.AssetTagException;
+<<<<<<< HEAD
 import com.liferay.document.library.configuration.DLConfiguration;
+=======
+>>>>>>> compatible
 import com.liferay.document.library.kernel.antivirus.AntivirusScannerException;
 import com.liferay.document.library.kernel.exception.DuplicateFileEntryException;
 import com.liferay.document.library.kernel.exception.DuplicateFolderNameException;
@@ -28,10 +31,14 @@ import com.liferay.document.library.kernel.exception.InvalidFileVersionException
 import com.liferay.document.library.kernel.exception.NoSuchFileEntryException;
 import com.liferay.document.library.kernel.exception.NoSuchFolderException;
 import com.liferay.document.library.kernel.exception.SourceFileNameException;
+<<<<<<< HEAD
 import com.liferay.document.library.kernel.util.DLValidator;
 import com.liferay.dynamic.data.mapping.kernel.StorageFieldRequiredException;
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
+=======
+import com.liferay.dynamic.data.mapping.kernel.StorageFieldRequiredException;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
@@ -51,20 +58,34 @@ import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.PrefsPropsUtil;
+import com.liferay.portal.kernel.util.PropsKeys;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.TextFormatter;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
+<<<<<<< HEAD
+=======
+import com.liferay.taglib.util.RestoreEntryUtil;
+import com.liferay.trash.kernel.util.TrashUtil;
+>>>>>>> compatible
 import com.liferay.wiki.constants.WikiPortletKeys;
 import com.liferay.wiki.exception.NoSuchNodeException;
 import com.liferay.wiki.exception.NoSuchPageException;
 import com.liferay.wiki.web.internal.WikiAttachmentsHelper;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+=======
+>>>>>>> compatible
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.PortletConfig;
@@ -73,9 +94,13 @@ import javax.portlet.PortletResponse;
 
 import javax.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Modified;
+=======
+import org.osgi.service.component.annotations.Component;
+>>>>>>> compatible
 import org.osgi.service.component.annotations.Reference;
 
 /**
@@ -83,7 +108,10 @@ import org.osgi.service.component.annotations.Reference;
  * @author Roberto Díaz
  */
 @Component(
+<<<<<<< HEAD
 	configurationPid = "com.liferay.document.library.configuration.DLConfiguration",
+=======
+>>>>>>> compatible
 	immediate = true,
 	property = {
 		"javax.portlet.name=" + WikiPortletKeys.WIKI,
@@ -102,6 +130,7 @@ public class EditPageAttachmentsMVCActionCommand extends BaseMVCActionCommand {
 		_wikiAttachmentsHelper = wikiAttachmentsHelper;
 	}
 
+<<<<<<< HEAD
 	@Activate
 	@Modified
 	protected void activate(Map<String, Object> properties) {
@@ -109,6 +138,8 @@ public class EditPageAttachmentsMVCActionCommand extends BaseMVCActionCommand {
 			DLConfiguration.class, properties);
 	}
 
+=======
+>>>>>>> compatible
 	protected void deleteAttachment(
 			ActionRequest actionRequest, boolean moveToTrash)
 		throws Exception {
@@ -117,6 +148,7 @@ public class EditPageAttachmentsMVCActionCommand extends BaseMVCActionCommand {
 			actionRequest, moveToTrash);
 
 		if (moveToTrash && (trashedModel != null)) {
+<<<<<<< HEAD
 			Map<String, Object> data = new HashMap<>();
 
 			data.put(Constants.CMD, Constants.REMOVE);
@@ -128,6 +160,12 @@ public class EditPageAttachmentsMVCActionCommand extends BaseMVCActionCommand {
 			data.put("trashedModels", trashedModels);
 
 			addDeleteSuccessData(actionRequest, data);
+=======
+			TrashUtil.addTrashSessionMessages(
+				actionRequest, trashedModel, Constants.REMOVE);
+
+			hideDefaultSuccessMessage(actionRequest);
+>>>>>>> compatible
 		}
 	}
 
@@ -165,6 +203,18 @@ public class EditPageAttachmentsMVCActionCommand extends BaseMVCActionCommand {
 			else if (cmd.equals(Constants.ADD)) {
 				_wikiAttachmentsHelper.addAttachments(actionRequest);
 			}
+<<<<<<< HEAD
+=======
+			else if (cmd.equals(Constants.CHECK)) {
+				JSONObject jsonObject = RestoreEntryUtil.checkEntry(
+					actionRequest);
+
+				JSONPortletResponseUtil.writeJSON(
+					actionRequest, actionResponse, jsonObject);
+
+				return;
+			}
+>>>>>>> compatible
 			else if (cmd.equals(Constants.DELETE)) {
 				deleteAttachment(actionRequest, false);
 			}
@@ -174,6 +224,12 @@ public class EditPageAttachmentsMVCActionCommand extends BaseMVCActionCommand {
 			else if (cmd.equals(Constants.MOVE_TO_TRASH)) {
 				deleteAttachment(actionRequest, true);
 			}
+<<<<<<< HEAD
+=======
+			else if (cmd.equals(Constants.RENAME)) {
+				_wikiAttachmentsHelper.restoreRename(actionRequest);
+			}
+>>>>>>> compatible
 			else if (cmd.equals(Constants.RESTORE)) {
 				_wikiAttachmentsHelper.restoreEntries(actionRequest);
 
@@ -184,6 +240,12 @@ public class EditPageAttachmentsMVCActionCommand extends BaseMVCActionCommand {
 					actionResponse.sendRedirect(redirect);
 				}
 			}
+<<<<<<< HEAD
+=======
+			else if (cmd.equals(Constants.OVERRIDE)) {
+				_wikiAttachmentsHelper.restoreOverride(actionRequest);
+			}
+>>>>>>> compatible
 		}
 		catch (NoSuchNodeException | NoSuchPageException |
 			   PrincipalException e) {
@@ -207,7 +269,12 @@ public class EditPageAttachmentsMVCActionCommand extends BaseMVCActionCommand {
 			PortletResponse portletResponse)
 		throws PortalException {
 
+<<<<<<< HEAD
 		return _dlConfiguration.fileExtensions();
+=======
+		return PrefsPropsUtil.getStringArray(
+			PropsKeys.DL_FILE_EXTENSIONS, StringPool.COMMA);
+>>>>>>> compatible
 	}
 
 	/**
@@ -305,12 +372,28 @@ public class EditPageAttachmentsMVCActionCommand extends BaseMVCActionCommand {
 					errorType = ServletResponseConstants.SC_FILE_NAME_EXCEPTION;
 				}
 				else if (e instanceof FileSizeException) {
+<<<<<<< HEAD
+=======
+					long fileMaxSize = PrefsPropsUtil.getLong(
+						PropsKeys.DL_FILE_MAX_SIZE);
+
+					if (fileMaxSize == 0) {
+						fileMaxSize = PrefsPropsUtil.getLong(
+							PropsKeys.UPLOAD_SERVLET_REQUEST_IMPL_MAX_SIZE);
+					}
+
+>>>>>>> compatible
 					errorMessage = themeDisplay.translate(
 						"please-enter-a-file-with-a-valid-file-size-no-" +
 							"larger-than-x",
 						TextFormatter.formatStorageSize(
+<<<<<<< HEAD
 							_dlValidator.getMaxAllowableSize(),
 							themeDisplay.getLocale()));
+=======
+							fileMaxSize, themeDisplay.getLocale()));
+
+>>>>>>> compatible
 					errorType = ServletResponseConstants.SC_FILE_SIZE_EXCEPTION;
 				}
 
@@ -360,11 +443,14 @@ public class EditPageAttachmentsMVCActionCommand extends BaseMVCActionCommand {
 		}
 	}
 
+<<<<<<< HEAD
 	private volatile DLConfiguration _dlConfiguration;
 
 	@Reference
 	private DLValidator _dlValidator;
 
+=======
+>>>>>>> compatible
 	@Reference
 	private Portal _portal;
 

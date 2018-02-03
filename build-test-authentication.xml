@@ -164,7 +164,11 @@ SERVER_URL=http://test.able.com:8080</echo>
 
 	<target name="verify-token-based-login">
 		<exec executable="curl" outputproperty="curl.output">
+<<<<<<< HEAD
 			<arg line="-H SM_USER:test@liferay.com localhost:8080/web/guest" />
+=======
+		    <arg line="-H SM_USER:test@liferay.com localhost:8080" />
+>>>>>>> compatible
 		</exec>
 
 		<echo>${curl.output}</echo>

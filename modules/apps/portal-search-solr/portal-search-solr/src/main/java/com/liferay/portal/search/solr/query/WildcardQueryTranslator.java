@@ -16,14 +16,13 @@ package com.liferay.portal.search.solr.query;
 
 import com.liferay.portal.kernel.search.WildcardQuery;
 
-import org.apache.lucene.search.Query;
-
 /**
  * @author André de Oliveira
  * @author Miguel Angelo Caldas Gallindo
  */
 public interface WildcardQueryTranslator {
 
-	public Query translate(WildcardQuery wildcardQuery);
+	public org.apache.lucene.search.Query translate(
+		WildcardQuery wildcardQuery);
 
 }

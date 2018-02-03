@@ -14,10 +14,15 @@
 
 package com.liferay.site.memberships.web.internal.display.context;
 
+<<<<<<< HEAD
 import com.liferay.frontend.taglib.clay.servlet.taglib.util.NavigationItem;
 import com.liferay.portal.kernel.dao.search.SearchContainer;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.language.LanguageUtil;
+=======
+import com.liferay.portal.kernel.dao.search.SearchContainer;
+import com.liferay.portal.kernel.exception.PortalException;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.model.UserGroup;
@@ -30,10 +35,13 @@ import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+=======
+>>>>>>> compatible
 import javax.portlet.PortletURL;
 
 import javax.servlet.http.HttpServletRequest;
@@ -84,6 +92,7 @@ public class SiteMembershipsDisplayContext {
 		return group.getGroupId();
 	}
 
+<<<<<<< HEAD
 	public List<NavigationItem> getInfoPanelNavigationItems() {
 		ThemeDisplay themeDisplay = (ThemeDisplay)_request.getAttribute(
 			WebKeys.THEME_DISPLAY);
@@ -101,6 +110,8 @@ public class SiteMembershipsDisplayContext {
 		return navigationItems;
 	}
 
+=======
+>>>>>>> compatible
 	public PortletURL getPortletURL() throws PortalException {
 		PortletURL portletURL = _liferayPortletResponse.createRenderURL();
 
@@ -137,6 +148,7 @@ public class SiteMembershipsDisplayContext {
 		return _selUser;
 	}
 
+<<<<<<< HEAD
 	public List<NavigationItem> getSiteRolesNavigationItems() {
 		ThemeDisplay themeDisplay = (ThemeDisplay)_request.getAttribute(
 			WebKeys.THEME_DISPLAY);
@@ -154,6 +166,8 @@ public class SiteMembershipsDisplayContext {
 		return navigationItems;
 	}
 
+=======
+>>>>>>> compatible
 	public String getTabs1() {
 		if (_tabs1 != null) {
 			return _tabs1;
@@ -194,6 +208,7 @@ public class SiteMembershipsDisplayContext {
 		return 0;
 	}
 
+<<<<<<< HEAD
 	public List<NavigationItem> getViewNavigationItems()
 		throws PortalException {
 
@@ -248,6 +263,8 @@ public class SiteMembershipsDisplayContext {
 		return navigationItems;
 	}
 
+=======
+>>>>>>> compatible
 	private Integer _cur;
 	private Group _group;
 	private final LiferayPortletResponse _liferayPortletResponse;

@@ -135,6 +135,7 @@ public class WikiPageImpl extends WikiPageBaseImpl {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public List<FileEntry> getAttachmentsFileEntries(
 			String[] mimeTypes, int start, int end,
 			OrderByComparator<FileEntry> obc)
@@ -168,6 +169,9 @@ public class WikiPageImpl extends WikiPageBaseImpl {
 	public int getAttachmentsFileEntriesCount(String[] mimeTypes)
 		throws PortalException {
 
+=======
+	public int getAttachmentsFileEntriesCount() throws PortalException {
+>>>>>>> compatible
 		int attachmentsFileEntriesCount = 0;
 
 		long attachmentsFolderId = getAttachmentsFolderId();
@@ -175,7 +179,11 @@ public class WikiPageImpl extends WikiPageBaseImpl {
 		if (attachmentsFolderId != DLFolderConstants.DEFAULT_PARENT_FOLDER_ID) {
 			attachmentsFileEntriesCount =
 				PortletFileRepositoryUtil.getPortletFileEntriesCount(
+<<<<<<< HEAD
 					getGroupId(), attachmentsFolderId, mimeTypes,
+=======
+					getGroupId(), attachmentsFolderId,
+>>>>>>> compatible
 					WorkflowConstants.STATUS_APPROVED);
 		}
 

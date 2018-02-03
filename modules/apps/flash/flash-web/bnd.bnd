@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Flash Web
 Bundle-SymbolicName: com.liferay.flash.web
+<<<<<<< HEAD
 Bundle-Version: 1.0.6
+=======
+Bundle-Version: 1.0.2
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title:
 Web-ContextPath: /flash-web

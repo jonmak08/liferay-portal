@@ -32,6 +32,7 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
 )
 public interface JournalContentPortletInstanceConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(name = "article-id", required = false)
 	public String articleId();
 
@@ -48,6 +49,24 @@ public interface JournalContentPortletInstanceConfiguration {
 	public long groupId();
 
 	@Meta.AD(name = "user-tool-asset-addon-entry-keys", required = false)
+=======
+	@Meta.AD(required = false)
+	public String articleId();
+
+	@Meta.AD(required = false)
+	public String contentMetadataAssetAddonEntryKeys();
+
+	@Meta.AD(required = false)
+	public String ddmTemplateKey();
+
+	@Meta.AD(required = false)
+	public String enableViewCountIncrement();
+
+	@Meta.AD(deflt = "0", required = false)
+	public long groupId();
+
+	@Meta.AD(required = false)
+>>>>>>> compatible
 	public String userToolAssetAddonEntryKeys();
 
 }

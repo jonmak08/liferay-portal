@@ -20,10 +20,30 @@
 PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "vocabularies"), null);
 %>
 
+<<<<<<< HEAD
 <clay:navigation-bar
 	inverted="<%= true %>"
 	items="<%= assetCategoriesDisplayContext.getAssetVocabulariesNavigationItems() %>"
 />
+=======
+<aui:nav-bar cssClass="collapse-basic-search" markupView="lexicon">
+	<portlet:renderURL var="mainURL" />
+
+	<aui:nav cssClass="navbar-nav">
+		<aui:nav-item href="<%= mainURL.toString() %>" label="vocabularies" selected="<%= true %>" />
+	</aui:nav>
+
+	<c:if test="<%= assetCategoriesDisplayContext.isShowVocabulariesSearch() %>">
+		<liferay-portlet:renderURL varImpl="portletURL" />
+
+		<aui:nav-bar-search>
+			<aui:form action="<%= portletURL %>" name="searchFm">
+				<liferay-ui:input-search markupView="lexicon" />
+			</aui:form>
+		</aui:nav-bar-search>
+	</c:if>
+</aui:nav-bar>
+>>>>>>> compatible
 
 <liferay-frontend:management-bar
 	disabled="<%= assetCategoriesDisplayContext.isDisabledVocabulariesManagementBar() %>"
@@ -43,6 +63,7 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "vocabul
 				orderColumns='<%= new String[] {"create-date"} %>'
 				portletURL="<%= PortletURLUtil.clone(renderResponse.createRenderURL(), liferayPortletResponse) %>"
 			/>
+<<<<<<< HEAD
 
 			<c:if test="<%= assetCategoriesDisplayContext.isShowVocabulariesSearch() %>">
 				<liferay-portlet:renderURL varImpl="portletURL" />
@@ -53,6 +74,8 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "vocabul
 					</aui:form>
 				</li>
 			</c:if>
+=======
+>>>>>>> compatible
 		</liferay-frontend:management-bar-filters>
 
 		<liferay-portlet:actionURL name="changeDisplayStyle" varImpl="changeDisplayStyleURL">
@@ -100,7 +123,11 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "vocabul
 			<c:choose>
 				<c:when test='<%= Objects.equals(assetCategoriesDisplayContext.getDisplayStyle(), "descriptive") %>'>
 					<liferay-ui:search-container-column-icon
+<<<<<<< HEAD
 						icon="vocabulary"
+=======
+						icon="categories"
+>>>>>>> compatible
 						toggleRowChecker="<%= true %>"
 					/>
 
@@ -120,6 +147,7 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "vocabul
 						</h6>
 
 						<h6 class="text-default">
+<<<<<<< HEAD
 							<strong><liferay-ui:message key="number-of-categories" /></strong>:
 
 							<c:choose>
@@ -130,6 +158,9 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "vocabul
 									<%= vocabulary.getCategoriesCount() %>
 								</c:otherwise>
 							</c:choose>
+=======
+							<strong><liferay-ui:message key="number-of-categories" /></strong>: <%= vocabulary.getCategoriesCount() %>
+>>>>>>> compatible
 						</h6>
 
 						<h6 class="text-default">
@@ -151,7 +182,11 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "vocabul
 						<liferay-frontend:icon-vertical-card
 							actionJsp="/vocabulary_action.jsp"
 							actionJspServletContext="<%= application %>"
+<<<<<<< HEAD
 							icon="vocabulary"
+=======
+							icon="categories"
+>>>>>>> compatible
 							resultRow="<%= row %>"
 							rowChecker="<%= searchContainer.getRowChecker() %>"
 							subtitle="<%= vocabulary.getDescription(locale) %>"
@@ -189,6 +224,7 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "vocabul
 
 					<liferay-ui:search-container-column-text
 						name="number-of-categories"
+<<<<<<< HEAD
 					>
 						<c:choose>
 							<c:when test="<%= assetCategoriesDisplayContext.isFlattenedNavigationAllowed() %>">
@@ -199,6 +235,10 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "vocabul
 							</c:otherwise>
 						</c:choose>
 					</liferay-ui:search-container-column-text>
+=======
+						value="<%= String.valueOf(vocabulary.getCategoriesCount()) %>"
+					/>
+>>>>>>> compatible
 
 					<liferay-ui:search-container-column-text
 						name="asset-type"

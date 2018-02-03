@@ -30,6 +30,10 @@ String redirect = ParamUtil.getString(request, "redirect");
 	<aui:input name="<%= Constants.CMD %>" type="hidden" value="<%= Constants.UPDATE %>" />
 	<aui:input name="redirect" type="hidden" value="<%= configurationRenderURL %>" />
 	<aui:input name="preferences--assetEntryId--" type="hidden" value="<%= journalContentDisplayContext.getAssetEntryId() %>" />
+<<<<<<< HEAD
+=======
+	<aui:input name="preferences--ddmTemplateKey--" type="hidden" value="<%= journalContentDisplayContext.getDDMTemplateKey() %>" />
+>>>>>>> compatible
 
 	<div class="portlet-configuration-body-content">
 		<div class="container-fluid-1280">
@@ -46,6 +50,7 @@ String redirect = ParamUtil.getString(request, "redirect");
 	</div>
 
 	<aui:button-row>
+<<<<<<< HEAD
 		<aui:button name="saveButton" type="submit" />
 
 		<aui:button href="<%= redirect %>" type="cancel" />
@@ -53,10 +58,24 @@ String redirect = ParamUtil.getString(request, "redirect");
 </aui:form>
 
 <aui:script sandbox="<%= true %>" use="aui-base">
+=======
+		<aui:button cssClass="btn-lg" name="saveButton" type="submit" />
+
+		<aui:button cssClass="btn-lg" href="<%= redirect %>" type="cancel" />
+	</aui:button-row>
+</aui:form>
+
+<aui:script sandbox="<%= true %>" use="aui-io-request,aui-parse-content">
+>>>>>>> compatible
 	var form = A.one('#<portlet:namespace />fm');
 
 	var articlePreview = A.one('#<portlet:namespace />articlePreview');
 
+<<<<<<< HEAD
+=======
+	articlePreview.plug(A.Plugin.ParseContent);
+
+>>>>>>> compatible
 	articlePreview.delegate(
 		'click',
 		function(event) {
@@ -66,7 +85,11 @@ String redirect = ParamUtil.getString(request, "redirect");
 			PortletURL selectWebContentURL = PortletProviderUtil.getPortletURL(request, JournalArticle.class.getName(), PortletProvider.Action.BROWSE);
 
 			selectWebContentURL.setParameter("groupId", String.valueOf(journalContentDisplayContext.getGroupId()));
+<<<<<<< HEAD
 			selectWebContentURL.setParameter("selectedGroupId", String.valueOf(themeDisplay.getScopeGroupId()));
+=======
+			selectWebContentURL.setParameter("selectedGroupIds", StringUtil.merge(journalContentDisplayContext.getSelectedGroupIds()));
+>>>>>>> compatible
 			selectWebContentURL.setParameter("refererAssetEntryId", "[$ARTICLE_REFERER_ASSET_ENTRY_ID$]");
 			selectWebContentURL.setParameter("typeSelection", JournalArticle.class.getName());
 			selectWebContentURL.setParameter("showNonindexable", String.valueOf(Boolean.TRUE));
@@ -87,15 +110,49 @@ String redirect = ParamUtil.getString(request, "redirect");
 					eventName: 'selectContent',
 					id: 'selectContent',
 					title: '<liferay-ui:message key="select-web-content" />',
+<<<<<<< HEAD
 					uri: baseSelectWebContentURI.replace(encodeURIComponent('[$ARTICLE_REFERER_ASSET_ENTRY_ID$]'), form.attr('<portlet:namespace />assetEntryId').val())
 				},
 				function(event) {
 					retrieveWebContent(event.assetclasspk);
+=======
+					uri: baseSelectWebContentURI.replace(encodeURIComponent('[$ARTICLE_REFERER_ASSET_ENTRY_ID$]'), form.attr('<portlet:namespace/>assetEntryId').val())
+				},
+				function(event) {
+					form.attr('<portlet:namespace/>assetEntryId').val(event.entityid);
+
+					articlePreview.html('<div class="loading-animation"></div>');
+
+					var data = Liferay.Util.ns(
+						'<%= PortalUtil.getPortletNamespace(JournalContentPortletKeys.JOURNAL_CONTENT) %>',
+						{
+							articleResourcePrimKey: event.assetclasspk
+						}
+					);
+
+					A.io.request(
+						'<liferay-portlet:resourceURL portletName="<%= JournalContentPortletKeys.JOURNAL_CONTENT %>" windowState="<%= LiferayWindowState.EXCLUSIVE.toString() %>"><portlet:param name="mvcPath" value="/journal_resources.jsp" /><portlet:param name="refererPortletName" value="<%= renderResponse.getNamespace() %>" /></liferay-portlet:resourceURL>',
+						{
+							data: data,
+							on: {
+								failure: function() {
+									articlePreview.html('<div class="alert alert-danger hidden"><liferay-ui:message key="an-unexpected-error-occurred" /></div>');
+								},
+								success: function(event, id, obj) {
+									var responseData = this.get('responseData');
+
+									articlePreview.setContent(responseData);
+								}
+							}
+						}
+					);
+>>>>>>> compatible
 				}
 			);
 		},
 		'.web-content-selector'
 	);
+<<<<<<< HEAD
 
 	articlePreview.delegate(
 		'click',
@@ -114,4 +171,6 @@ String redirect = ParamUtil.getString(request, "redirect");
 
 		location.href = uri;
 	}
+=======
+>>>>>>> compatible
 </aui:script>

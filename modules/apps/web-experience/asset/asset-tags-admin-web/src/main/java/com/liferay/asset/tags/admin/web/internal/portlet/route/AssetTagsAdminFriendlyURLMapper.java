@@ -14,7 +14,11 @@
 
 package com.liferay.asset.tags.admin.web.internal.portlet.route;
 
+<<<<<<< HEAD
 import com.liferay.asset.tags.constants.AssetTagsAdminPortletKeys;
+=======
+import com.liferay.asset.tags.admin.web.internal.constants.AssetTagsAdminPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.DefaultFriendlyURLMapper;
 import com.liferay.portal.kernel.portlet.FriendlyURLMapper;
 

@@ -66,17 +66,29 @@ for (FileEntry curFileEntry : fileEntries) {
 
 List<FileShortcut> fileShortcuts = (List<FileShortcut>)request.getAttribute(WebKeys.DOCUMENT_LIBRARY_FILE_SHORTCUTS);
 
+<<<<<<< HEAD
 List<FileShortcut> invalidMoveShortcutEntries = new ArrayList<FileShortcut>();
 List<FileShortcut> validMoveShortcutEntries = new ArrayList<FileShortcut>();
+=======
+List<FileShortcut> invalidShortcutEntries = new ArrayList<FileShortcut>();
+List<FileShortcut> validShortcutEntries = new ArrayList<FileShortcut>();
+>>>>>>> compatible
 
 for (FileShortcut curFileShortcut : fileShortcuts) {
 	boolean movePermission = DLFileShortcutPermission.contains(permissionChecker, curFileShortcut, ActionKeys.UPDATE);
 
 	if (movePermission) {
+<<<<<<< HEAD
 		validMoveShortcutEntries.add(curFileShortcut);
 	}
 	else {
 		invalidMoveShortcutEntries.add(curFileShortcut);
+=======
+		validShortcutEntries.add(curFileShortcut);
+	}
+	else {
+		invalidShortcutEntries.add(curFileShortcut);
+>>>>>>> compatible
 	}
 }
 
@@ -274,16 +286,26 @@ if (portletTitleBasedNavigation) {
 
 				<aui:input name="rowIdsFileEntry" type="hidden" value="<%= ListUtil.toString(validMoveFileEntries, FileEntry.FILE_ENTRY_ID_ACCESSOR) %>" />
 
+<<<<<<< HEAD
 				<c:if test="<%= !validMoveShortcutEntries.isEmpty() %>">
 					<div class="move-list-info">
 						<h4><liferay-ui:message arguments="<%= validMoveShortcutEntries.size() %>" key="x-shortcuts-are-ready-to-be-moved" translateArguments="<%= false %>" /></h4>
+=======
+				<c:if test="<%= !validShortcutEntries.isEmpty() %>">
+					<div class="move-list-info">
+						<h4><liferay-ui:message arguments="<%= validShortcutEntries.size() %>" key="x-shortcuts-are-ready-to-be-moved" translateArguments="<%= false %>" /></h4>
+>>>>>>> compatible
 					</div>
 
 					<div class="move-list">
 						<ul class="list-unstyled">
 
 							<%
+<<<<<<< HEAD
 							for (FileShortcut fileShortcut : validMoveShortcutEntries) {
+=======
+							for (FileShortcut fileShortcut : validShortcutEntries) {
+>>>>>>> compatible
 							%>
 
 								<li class="move-file">
@@ -300,16 +322,26 @@ if (portletTitleBasedNavigation) {
 					</div>
 				</c:if>
 
+<<<<<<< HEAD
 				<c:if test="<%= !invalidMoveShortcutEntries.isEmpty() %>">
 					<div class="move-list-info">
 						<h4><liferay-ui:message arguments="<%= invalidMoveShortcutEntries.size() %>" key="x-shortcuts-cannot-be-moved" translateArguments="<%= false %>" /></h4>
+=======
+				<c:if test="<%= !invalidShortcutEntries.isEmpty() %>">
+					<div class="move-list-info">
+						<h4><liferay-ui:message arguments="<%= invalidShortcutEntries.size() %>" key="x-shortcuts-cannot-be-moved" translateArguments="<%= false %>" /></h4>
+>>>>>>> compatible
 					</div>
 
 					<div class="move-list">
 						<ul class="list-unstyled">
 
 							<%
+<<<<<<< HEAD
 							for (FileShortcut fileShortcut : invalidMoveShortcutEntries) {
+=======
+							for (FileShortcut fileShortcut : invalidShortcutEntries) {
+>>>>>>> compatible
 							%>
 
 								<li class="move-error move-file">
@@ -329,7 +361,11 @@ if (portletTitleBasedNavigation) {
 					</div>
 				</c:if>
 
+<<<<<<< HEAD
 				<aui:input name="rowIdsDLFileShortcut" type="hidden" value="<%= ListUtil.toString(validMoveShortcutEntries, FileShortcut.FILE_SHORTCUT_ID_ACCESSOR) %>" />
+=======
+				<aui:input name="rowIdsDLFileShortcut" type="hidden" value="<%= ListUtil.toString(validShortcutEntries, FileShortcut.FILE_SHORTCUT_ID_ACCESSOR) %>" />
+>>>>>>> compatible
 
 				<%
 				String folderName = StringPool.BLANK;
@@ -355,9 +391,15 @@ if (portletTitleBasedNavigation) {
 		</aui:fieldset-group>
 
 		<aui:button-row>
+<<<<<<< HEAD
 			<aui:button type="submit" value="move" />
 
 			<aui:button href="<%= redirect %>" type="cancel" />
+=======
+			<aui:button cssClass="btn-lg" type="submit" value="move" />
+
+			<aui:button cssClass="btn-lg" href="<%= redirect %>" type="cancel" />
+>>>>>>> compatible
 		</aui:button-row>
 	</aui:form>
 </div>

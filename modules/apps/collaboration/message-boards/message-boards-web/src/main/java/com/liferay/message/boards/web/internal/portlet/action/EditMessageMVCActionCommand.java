@@ -16,14 +16,20 @@ package com.liferay.message.boards.web.internal.portlet.action;
 
 import com.liferay.asset.kernel.exception.AssetCategoryException;
 import com.liferay.asset.kernel.exception.AssetTagException;
+<<<<<<< HEAD
 import com.liferay.captcha.configuration.CaptchaConfiguration;
+=======
+>>>>>>> compatible
 import com.liferay.captcha.util.CaptchaUtil;
 import com.liferay.document.library.kernel.antivirus.AntivirusScannerException;
 import com.liferay.document.library.kernel.exception.DuplicateFileEntryException;
 import com.liferay.document.library.kernel.exception.FileExtensionException;
 import com.liferay.document.library.kernel.exception.FileNameException;
 import com.liferay.document.library.kernel.exception.FileSizeException;
+<<<<<<< HEAD
 import com.liferay.message.boards.constants.MBPortletKeys;
+=======
+>>>>>>> compatible
 import com.liferay.message.boards.kernel.exception.LockedThreadException;
 import com.liferay.message.boards.kernel.exception.MessageBodyException;
 import com.liferay.message.boards.kernel.exception.MessageSubjectException;
@@ -33,6 +39,7 @@ import com.liferay.message.boards.kernel.model.MBCategory;
 import com.liferay.message.boards.kernel.model.MBCategoryConstants;
 import com.liferay.message.boards.kernel.model.MBMessage;
 import com.liferay.message.boards.kernel.service.MBCategoryService;
+<<<<<<< HEAD
 import com.liferay.message.boards.kernel.service.MBMessageLocalService;
 import com.liferay.message.boards.kernel.service.MBMessageService;
 import com.liferay.message.boards.kernel.service.MBThreadLocalService;
@@ -53,6 +60,18 @@ import com.liferay.portal.kernel.portlet.bridges.mvc.MVCActionCommand;
 import com.liferay.portal.kernel.portletfilerepository.PortletFileRepositoryUtil;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.Folder;
+=======
+import com.liferay.message.boards.kernel.service.MBMessageService;
+import com.liferay.message.boards.kernel.service.MBThreadLocalService;
+import com.liferay.message.boards.kernel.service.MBThreadService;
+import com.liferay.message.boards.web.constants.MBPortletKeys;
+import com.liferay.portal.kernel.captcha.CaptchaConfigurationException;
+import com.liferay.portal.kernel.captcha.CaptchaTextException;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.portlet.LiferayWindowState;
+import com.liferay.portal.kernel.portlet.bridges.mvc.BaseMVCActionCommand;
+import com.liferay.portal.kernel.portlet.bridges.mvc.MVCActionCommand;
+>>>>>>> compatible
 import com.liferay.portal.kernel.sanitizer.SanitizerException;
 import com.liferay.portal.kernel.security.auth.PrincipalException;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
@@ -61,9 +80,12 @@ import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.ServiceContextFactory;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.TransactionConfig;
 import com.liferay.portal.kernel.transaction.TransactionInvokerUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.upload.LiferayFileItemException;
 import com.liferay.portal.kernel.upload.UploadException;
 import com.liferay.portal.kernel.upload.UploadPortletRequest;
@@ -72,15 +94,26 @@ import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.ObjectValuePair;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StreamUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.util.PropsValues;
+>>>>>>> compatible
 import com.liferay.portlet.ActionResponseImpl;
 import com.liferay.portlet.messageboards.MBGroupServiceSettings;
 import com.liferay.portlet.messageboards.service.permission.MBMessagePermission;
 
+<<<<<<< HEAD
 import java.io.IOException;
+=======
+>>>>>>> compatible
 import java.io.InputStream;
 
 import java.util.ArrayList;
@@ -161,9 +194,13 @@ public class EditMessageMVCActionCommand extends BaseMVCActionCommand {
 			else if (cmd.equals(Constants.ADD) ||
 					 cmd.equals(Constants.UPDATE)) {
 
+<<<<<<< HEAD
 				message = TransactionInvokerUtil.invoke(
 					_transactionConfig,
 					() -> updateMessage(actionRequest, actionResponse));
+=======
+				message = updateMessage(actionRequest, actionResponse);
+>>>>>>> compatible
 			}
 			else if (cmd.equals(Constants.ADD_ANSWER)) {
 				addAnswer(actionRequest);
@@ -241,6 +278,7 @@ public class EditMessageMVCActionCommand extends BaseMVCActionCommand {
 				throw e;
 			}
 		}
+<<<<<<< HEAD
 		catch (Throwable t) {
 			_log.error("Unable to process action", t);
 
@@ -261,6 +299,8 @@ public class EditMessageMVCActionCommand extends BaseMVCActionCommand {
 		catch (Exception e) {
 			throw new CaptchaConfigurationException(e);
 		}
+=======
+>>>>>>> compatible
 	}
 
 	protected String getRedirect(
@@ -334,6 +374,31 @@ public class EditMessageMVCActionCommand extends BaseMVCActionCommand {
 		}
 	}
 
+<<<<<<< HEAD
+=======
+	@Reference(unbind = "-")
+	protected void setMBCategoryService(MBCategoryService mbCategoryService) {
+		_mbCategoryService = mbCategoryService;
+	}
+
+	@Reference(unbind = "-")
+	protected void setMBMessageService(MBMessageService mbMessageService) {
+		_mbMessageService = mbMessageService;
+	}
+
+	@Reference(unbind = "-")
+	protected void setMBThreadLocalService(
+		MBThreadLocalService mbThreadLocalService) {
+
+		_mbThreadLocalService = mbThreadLocalService;
+	}
+
+	@Reference(unbind = "-")
+	protected void setMBThreadService(MBThreadService mbThreadService) {
+		_mbThreadService = mbThreadService;
+	}
+
+>>>>>>> compatible
 	protected void subscribeMessage(ActionRequest actionRequest)
 		throws Exception {
 
@@ -437,12 +502,18 @@ public class EditMessageMVCActionCommand extends BaseMVCActionCommand {
 
 			MBMessage message = null;
 
+<<<<<<< HEAD
 			CaptchaConfiguration captchaConfiguration =
 				getCaptchaConfiguration();
 
 			if (messageId <= 0) {
 				if (captchaConfiguration.
 						messageBoardsEditMessageCaptchaEnabled()) {
+=======
+			if (messageId <= 0) {
+				if (PropsValues.
+						CAPTCHA_CHECK_PORTLET_MESSAGE_BOARDS_EDIT_MESSAGE) {
+>>>>>>> compatible
 
 					CaptchaUtil.check(actionRequest);
 				}
@@ -472,6 +543,7 @@ public class EditMessageMVCActionCommand extends BaseMVCActionCommand {
 						inputStreamOVPs, anonymous, priority, allowPingbacks,
 						serviceContext);
 				}
+<<<<<<< HEAD
 
 				MBMessageFormatUploadHandler formatHandler =
 					_formatHandlerProvider.provide(message.getFormat());
@@ -485,6 +557,8 @@ public class EditMessageMVCActionCommand extends BaseMVCActionCommand {
 
 					_mbMessageLocalService.updateMBMessage(message);
 				}
+=======
+>>>>>>> compatible
 			}
 			else {
 				List<String> existingFiles = new ArrayList<>();
@@ -498,6 +572,7 @@ public class EditMessageMVCActionCommand extends BaseMVCActionCommand {
 					}
 				}
 
+<<<<<<< HEAD
 				message = _mbMessageService.getMessage(messageId);
 
 				MBMessageFormatUploadHandler formatHandler =
@@ -509,6 +584,8 @@ public class EditMessageMVCActionCommand extends BaseMVCActionCommand {
 						formatHandler);
 				}
 
+=======
+>>>>>>> compatible
 				// Update message
 
 				message = _mbMessageService.updateMessage(
@@ -540,6 +617,7 @@ public class EditMessageMVCActionCommand extends BaseMVCActionCommand {
 			for (ObjectValuePair<String, InputStream> inputStreamOVP :
 					inputStreamOVPs) {
 
+<<<<<<< HEAD
 				try (InputStream inputStream = inputStreamOVP.getValue()) {
 				}
 				catch (IOException ioe) {
@@ -618,6 +696,18 @@ public class EditMessageMVCActionCommand extends BaseMVCActionCommand {
 	private MBThreadLocalService _mbThreadLocalService;
 
 	@Reference
+=======
+				InputStream inputStream = inputStreamOVP.getValue();
+
+				StreamUtil.cleanUp(inputStream);
+			}
+		}
+	}
+
+	private MBCategoryService _mbCategoryService;
+	private MBMessageService _mbMessageService;
+	private MBThreadLocalService _mbThreadLocalService;
+>>>>>>> compatible
 	private MBThreadService _mbThreadService;
 
 	@Reference

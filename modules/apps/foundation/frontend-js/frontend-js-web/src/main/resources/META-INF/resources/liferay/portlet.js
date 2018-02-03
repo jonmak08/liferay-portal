@@ -1,6 +1,9 @@
 ;(function(A, Liferay) {
+<<<<<<< HEAD
 	var Lang = A.Lang;
 
+=======
+>>>>>>> compatible
 	var Util = Liferay.Util;
 
 	var STR_HEAD = 'head';
@@ -205,6 +208,7 @@
 
 				placeHolder.addClass('portlet-boundary');
 
+<<<<<<< HEAD
 				var columnPortlets = column.all('.portlet-boundary');
 				var nestedPortlets = column.all('.portlet-nested-portlets');
 
@@ -226,6 +230,9 @@
 				);
 
 				portletPosition -= nestedPortletOffset;
+=======
+				portletPosition = column.all('.portlet-boundary').indexOf(placeHolder);
+>>>>>>> compatible
 
 				currentColumnId = Util.getColumnId(column.attr('id'));
 			}
@@ -293,7 +300,11 @@
 			var placeHolder = options.placeHolder;
 			var url = options.url;
 
+<<<<<<< HEAD
 			if (data && Lang.isString(data.dataType)) {
+=======
+			if (data && data.dataType) {
+>>>>>>> compatible
 				dataType = data.dataType;
 			}
 
@@ -551,7 +562,10 @@
 			var namespacedId = options.namespacedId;
 			var portletId = options.portletId;
 			var refreshURL = options.refreshURL;
+<<<<<<< HEAD
 			var refreshURLData = options.refreshURLData;
+=======
+>>>>>>> compatible
 
 			if (isStatic) {
 				instance.registerStatic(portletId);
@@ -565,7 +579,10 @@
 				portlet.columnPos = columnPos;
 				portlet.isStatic = isStatic;
 				portlet.refreshURL = refreshURL;
+<<<<<<< HEAD
 				portlet.refreshURLData = refreshURLData;
+=======
+>>>>>>> compatible
 
 				// Functions to run on portlet load
 
@@ -625,7 +642,11 @@
 			portlet = A.one(portlet);
 
 			if (portlet) {
+<<<<<<< HEAD
 				data = data || portlet.refreshURLData || {};
+=======
+				data = data || {};
+>>>>>>> compatible
 
 				if (!data.hasOwnProperty('portletAjaxable')) {
 					data.portletAjaxable = true;
@@ -680,7 +701,11 @@
 				else if (!portlet.getData('pendingRefresh')) {
 					portlet.setData('pendingRefresh', true);
 
+<<<<<<< HEAD
 					var nonAjaxableContentMessage = Lang.sub(
+=======
+					var nonAjaxableContentMessage = A.Lang.sub(
+>>>>>>> compatible
 						TPL_NOT_AJAXABLE,
 						[Liferay.Language.get('this-change-will-only-be-shown-after-you-refresh-the-page')]
 					);

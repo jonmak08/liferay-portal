@@ -5,7 +5,10 @@ AUI.add(
 	function(A) {
 		var Do = A.Do;
 		var Lang = A.Lang;
+<<<<<<< HEAD
 		var UA = A.UA;
+=======
+>>>>>>> compatible
 
 		var contentFilter = new CKEDITOR.filter(
 			{
@@ -56,11 +59,14 @@ AUI.add(
 					textMode: {
 						validator: Lang.isBoolean,
 						value: {}
+<<<<<<< HEAD
 					},
 
 					useCustomDataProcessor: {
 						validator: Lang.isBoolean,
 						value: false
+=======
+>>>>>>> compatible
 					}
 				},
 
@@ -113,10 +119,13 @@ AUI.add(
 							nativeEditor.on('focus', instance._onFocus, instance);
 						}
 
+<<<<<<< HEAD
 						if (instance.get('useCustomDataProcessor')) {
 							nativeEditor.on('customDataProcessorLoaded', instance._onCustomDataProcessorLoaded, instance);
 						}
 
+=======
+>>>>>>> compatible
 						var editorConfig = instance.get('editorConfig');
 
 						if (editorConfig.disallowedContent && editorConfig.disallowedContent.indexOf('br') !== -1) {
@@ -143,12 +152,16 @@ AUI.add(
 					focus: function() {
 						var instance = this;
 
+<<<<<<< HEAD
 						if (instance.instanceReady) {
 							instance.getNativeEditor().focus();
 						}
 						else {
 							instance.pendingFocus = true;
 						}
+=======
+						instance.getNativeEditor().focus();
+>>>>>>> compatible
 					},
 
 					getCkData: function() {
@@ -200,12 +213,16 @@ AUI.add(
 					setHTML: function(value) {
 						var instance = this;
 
+<<<<<<< HEAD
 						if (instance.instanceReady) {
 							instance.getNativeEditor().setData(value);
 						}
 						else {
 							instance.set('contents', value);
 						}
+=======
+						instance.getNativeEditor().setData(value);
+>>>>>>> compatible
 					},
 
 					_afterGet: function(attrName) {
@@ -256,6 +273,7 @@ AUI.add(
 						return Lang.isFunction(method) ? method : (window[method] || method);
 					},
 
+<<<<<<< HEAD
 					_initializeData: function() {
 						var instance = this;
 
@@ -278,6 +296,8 @@ AUI.add(
 						}
 					},
 
+=======
+>>>>>>> compatible
 					_onBlur: function(event) {
 						var instance = this;
 
@@ -298,6 +318,7 @@ AUI.add(
 						}
 					},
 
+<<<<<<< HEAD
 					_onCustomDataProcessorLoaded: function() {
 						var instance = this;
 
@@ -308,6 +329,8 @@ AUI.add(
 						}
 					},
 
+=======
+>>>>>>> compatible
 					_onFocus: function(event) {
 						var instance = this;
 
@@ -318,6 +341,7 @@ AUI.add(
 						}
 					},
 
+<<<<<<< HEAD
 					_onFocusFix: function(activeElement, nativeEditor) {
 						var instance = this;
 
@@ -334,19 +358,39 @@ AUI.add(
 
 					_onInstanceReady: function() {
 						var instance = this;
+=======
+					_onInstanceReady: function() {
+						var instance = this;
+
+						var contents = instance.get('contents');
+
+						if (contents) {
+							instance.getNativeEditor().setData(contents);
+						}
+
+						var onInitFn = instance.get('onInitMethod');
+
+						if (onInitFn) {
+							onInitFn();
+						}
+>>>>>>> compatible
 
 						instance.instanceReady = true;
 
 						window[instance.get('namespace')].instanceReady = true;
 
+<<<<<<< HEAD
 						if (instance.customDataProcessorLoaded || !instance.get('useCustomDataProcessor')) {
 							instance._initializeData();
 						}
 
+=======
+>>>>>>> compatible
 						// LPS-73775
 
 						instance.getNativeEditor().editable().$.addEventListener('compositionend', A.bind('_onChange', instance));
 
+<<<<<<< HEAD
 						// LPS-71967
 
 						if (UA.edge && parseInt(UA.edge, 10) >= 14) {
@@ -360,11 +404,17 @@ AUI.add(
 							);
 						}
 
+=======
+>>>>>>> compatible
 						// LPS-72963
 
 						var editorConfig = instance.getNativeEditor().config;
 
+<<<<<<< HEAD
 						var removeResizePlugin = editorConfig.removePlugins && editorConfig.removePlugins.indexOf('ae_dragresize') > -1;
+=======
+						var removeResizePlugin = editorConfig.removePlugins && editorConfig.removePlugins.indexOf('ae_dragresize') != -1;
+>>>>>>> compatible
 
 						if (CKEDITOR.env.gecko && removeResizePlugin) {
 							var doc = instance.getNativeEditor().document.$;
@@ -407,6 +457,10 @@ AUI.add(
 	},
 	'',
 	{
+<<<<<<< HEAD
 		requires: ['aui-component', 'liferay-portlet-base', 'timers']
+=======
+		requires: ['aui-component', 'liferay-portlet-base']
+>>>>>>> compatible
 	}
 );

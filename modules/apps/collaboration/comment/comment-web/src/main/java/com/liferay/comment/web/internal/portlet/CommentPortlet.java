@@ -14,7 +14,11 @@
 
 package com.liferay.comment.web.internal.portlet;
 
+<<<<<<< HEAD
 import com.liferay.comment.web.internal.constants.CommentPortletKeys;
+=======
+import com.liferay.comment.web.constants.CommentPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 
 import javax.portlet.Portlet;

@@ -35,6 +35,10 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.util.IntegerWrapper;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.OrderByComparatorFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.PersistenceTestRule;
@@ -134,10 +138,13 @@ public class DDLRecordSetPersistenceTest {
 
 		newDDLRecordSet.setUserName(RandomTestUtil.randomString());
 
+<<<<<<< HEAD
 		newDDLRecordSet.setVersionUserId(RandomTestUtil.nextLong());
 
 		newDDLRecordSet.setVersionUserName(RandomTestUtil.randomString());
 
+=======
+>>>>>>> compatible
 		newDDLRecordSet.setCreateDate(RandomTestUtil.nextDate());
 
 		newDDLRecordSet.setModifiedDate(RandomTestUtil.nextDate());
@@ -146,8 +153,11 @@ public class DDLRecordSetPersistenceTest {
 
 		newDDLRecordSet.setRecordSetKey(RandomTestUtil.randomString());
 
+<<<<<<< HEAD
 		newDDLRecordSet.setVersion(RandomTestUtil.randomString());
 
+=======
+>>>>>>> compatible
 		newDDLRecordSet.setName(RandomTestUtil.randomString());
 
 		newDDLRecordSet.setDescription(RandomTestUtil.randomString());
@@ -176,10 +186,13 @@ public class DDLRecordSetPersistenceTest {
 			newDDLRecordSet.getUserId());
 		Assert.assertEquals(existingDDLRecordSet.getUserName(),
 			newDDLRecordSet.getUserName());
+<<<<<<< HEAD
 		Assert.assertEquals(existingDDLRecordSet.getVersionUserId(),
 			newDDLRecordSet.getVersionUserId());
 		Assert.assertEquals(existingDDLRecordSet.getVersionUserName(),
 			newDDLRecordSet.getVersionUserName());
+=======
+>>>>>>> compatible
 		Assert.assertEquals(Time.getShortTimestamp(
 				existingDDLRecordSet.getCreateDate()),
 			Time.getShortTimestamp(newDDLRecordSet.getCreateDate()));
@@ -190,8 +203,11 @@ public class DDLRecordSetPersistenceTest {
 			newDDLRecordSet.getDDMStructureId());
 		Assert.assertEquals(existingDDLRecordSet.getRecordSetKey(),
 			newDDLRecordSet.getRecordSetKey());
+<<<<<<< HEAD
 		Assert.assertEquals(existingDDLRecordSet.getVersion(),
 			newDDLRecordSet.getVersion());
+=======
+>>>>>>> compatible
 		Assert.assertEquals(existingDDLRecordSet.getName(),
 			newDDLRecordSet.getName());
 		Assert.assertEquals(existingDDLRecordSet.getDescription(),
@@ -209,27 +225,45 @@ public class DDLRecordSetPersistenceTest {
 
 	@Test
 	public void testCountByUuid() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByUuid("");
 
 		_persistence.countByUuid("null");
+=======
+		_persistence.countByUuid(StringPool.BLANK);
+
+		_persistence.countByUuid(StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByUuid((String)null);
 	}
 
 	@Test
 	public void testCountByUUID_G() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByUUID_G("", RandomTestUtil.nextLong());
 
 		_persistence.countByUUID_G("null", 0L);
+=======
+		_persistence.countByUUID_G(StringPool.BLANK, RandomTestUtil.nextLong());
+
+		_persistence.countByUUID_G(StringPool.NULL, 0L);
+>>>>>>> compatible
 
 		_persistence.countByUUID_G((String)null, 0L);
 	}
 
 	@Test
 	public void testCountByUuid_C() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByUuid_C("", RandomTestUtil.nextLong());
 
 		_persistence.countByUuid_C("null", 0L);
+=======
+		_persistence.countByUuid_C(StringPool.BLANK, RandomTestUtil.nextLong());
+
+		_persistence.countByUuid_C(StringPool.NULL, 0L);
+>>>>>>> compatible
 
 		_persistence.countByUuid_C((String)null, 0L);
 	}
@@ -248,9 +282,15 @@ public class DDLRecordSetPersistenceTest {
 
 	@Test
 	public void testCountByG_R() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByG_R(RandomTestUtil.nextLong(), "");
 
 		_persistence.countByG_R(0L, "null");
+=======
+		_persistence.countByG_R(RandomTestUtil.nextLong(), StringPool.BLANK);
+
+		_persistence.countByG_R(0L, StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByG_R(0L, (String)null);
 	}
@@ -286,9 +326,14 @@ public class DDLRecordSetPersistenceTest {
 	protected OrderByComparator<DDLRecordSet> getOrderByComparator() {
 		return OrderByComparatorFactoryUtil.create("DDLRecordSet", "uuid",
 			true, "recordSetId", true, "groupId", true, "companyId", true,
+<<<<<<< HEAD
 			"userId", true, "userName", true, "versionUserId", true,
 			"versionUserName", true, "createDate", true, "modifiedDate", true,
 			"DDMStructureId", true, "recordSetKey", true, "version", true,
+=======
+			"userId", true, "userName", true, "createDate", true,
+			"modifiedDate", true, "DDMStructureId", true, "recordSetKey", true,
+>>>>>>> compatible
 			"name", true, "description", true, "minDisplayRows", true, "scope",
 			true, "lastPublishDate", true);
 	}
@@ -524,10 +569,13 @@ public class DDLRecordSetPersistenceTest {
 
 		ddlRecordSet.setUserName(RandomTestUtil.randomString());
 
+<<<<<<< HEAD
 		ddlRecordSet.setVersionUserId(RandomTestUtil.nextLong());
 
 		ddlRecordSet.setVersionUserName(RandomTestUtil.randomString());
 
+=======
+>>>>>>> compatible
 		ddlRecordSet.setCreateDate(RandomTestUtil.nextDate());
 
 		ddlRecordSet.setModifiedDate(RandomTestUtil.nextDate());
@@ -536,8 +584,11 @@ public class DDLRecordSetPersistenceTest {
 
 		ddlRecordSet.setRecordSetKey(RandomTestUtil.randomString());
 
+<<<<<<< HEAD
 		ddlRecordSet.setVersion(RandomTestUtil.randomString());
 
+=======
+>>>>>>> compatible
 		ddlRecordSet.setName(RandomTestUtil.randomString());
 
 		ddlRecordSet.setDescription(RandomTestUtil.randomString());

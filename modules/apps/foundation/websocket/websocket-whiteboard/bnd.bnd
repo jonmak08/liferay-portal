@@ -1,5 +1,9 @@
 Bundle-Name: Liferay WebSocket Whiteboard
 Bundle-SymbolicName: com.liferay.websocket.whiteboard
+<<<<<<< HEAD
 Bundle-Version: 1.0.3
+=======
+Bundle-Version: 1.0.2
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title:

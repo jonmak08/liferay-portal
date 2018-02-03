@@ -30,6 +30,11 @@ import com.liferay.portal.kernel.model.RoleConstants;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.ResourceActionsUtil;
 import com.liferay.portal.kernel.service.LayoutSetPrototypeLocalServiceUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.service.ResourceBlockLocalServiceUtil;
+import com.liferay.portal.kernel.service.ResourceBlockServiceUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.ResourceLocalServiceUtil;
 import com.liferay.portal.kernel.service.ResourcePermissionServiceUtil;
 import com.liferay.portal.kernel.service.RoleLocalServiceUtil;
@@ -38,6 +43,10 @@ import com.liferay.portal.kernel.test.ReflectionTestUtil;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.GetterUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.PortletKeys;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.xml.Element;
@@ -130,11 +139,29 @@ public class PermissionExportImportTest {
 
 		Map<Long, String[]> roleIdsToActionIds = new HashMap<>();
 
+<<<<<<< HEAD
 		roleIdsToActionIds.put(role.getRoleId(), _ACTION_IDS);
 
 		ResourcePermissionServiceUtil.setIndividualResourcePermissions(
 			exportGroup.getGroupId(), TestPropsValues.getCompanyId(),
 			_PORTLET_ID, exportResourcePrimKey, roleIdsToActionIds);
+=======
+		if (ResourceBlockLocalServiceUtil.isSupported(_PORTLET_ID)) {
+			roleIdsToActionIds.put(role.getRoleId(), _ACTION_IDS);
+
+			ResourceBlockServiceUtil.setIndividualScopePermissions(
+				TestPropsValues.getCompanyId(), exportGroup.getGroupId(),
+				_PORTLET_ID, GetterUtil.getLong(exportResourcePrimKey),
+				roleIdsToActionIds);
+		}
+		else {
+			roleIdsToActionIds.put(role.getRoleId(), _ACTION_IDS);
+
+			ResourcePermissionServiceUtil.setIndividualResourcePermissions(
+				exportGroup.getGroupId(), TestPropsValues.getCompanyId(),
+				_PORTLET_ID, exportResourcePrimKey, roleIdsToActionIds);
+		}
+>>>>>>> compatible
 	}
 
 	protected Element exportPortletPermissions(

@@ -14,10 +14,15 @@
 
 package com.liferay.portal.servlet;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.exception.NoSuchGroupException;
 import com.liferay.portal.kernel.exception.NoSuchLayoutException;
 import com.liferay.portal.kernel.exception.PortalException;
+=======
+import com.liferay.portal.kernel.exception.NoSuchGroupException;
+import com.liferay.portal.kernel.exception.NoSuchLayoutException;
+>>>>>>> compatible
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -67,11 +72,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+<<<<<<< HEAD
  * @author     Brian Wing Shun Chan
  * @author     Jorge Ferrer
  * @author     Shuyang Zhou
  * @author     Marco Leo
  * @deprecated As of 7.0.0, with no direct replacement
+=======
+ * @author Brian Wing Shun Chan
+ * @author Jorge Ferrer
+ * @author Shuyang Zhou
+ * @author Marco Leo
+>>>>>>> compatible
  */
 @Deprecated
 public class FriendlyURLServlet extends HttpServlet {
@@ -128,8 +140,13 @@ public class FriendlyURLServlet extends HttpServlet {
 				_log.warn(pe);
 			}
 
+<<<<<<< HEAD
 			if (pe instanceof NoSuchGroupException ||
 				pe instanceof NoSuchLayoutException) {
+=======
+			if (e instanceof NoSuchGroupException ||
+				e instanceof NoSuchLayoutException) {
+>>>>>>> compatible
 
 				PortalUtil.sendError(
 					HttpServletResponse.SC_NOT_FOUND, pe, request, response);
@@ -211,7 +228,11 @@ public class FriendlyURLServlet extends HttpServlet {
 	}
 
 	protected Redirect getRedirect(HttpServletRequest request, String path)
+<<<<<<< HEAD
 		throws PortalException {
+=======
+		throws Exception {
+>>>>>>> compatible
 
 		if (path.length() <= 1) {
 			return new Redirect();
@@ -330,6 +351,7 @@ public class FriendlyURLServlet extends HttpServlet {
 
 			if (Validator.isNull(
 					layoutFriendlyURLSeparatorCompositeFriendlyURL)) {
+<<<<<<< HEAD
 
 				layoutFriendlyURLSeparatorCompositeFriendlyURL =
 					layout.getFriendlyURL(locale);
@@ -364,6 +386,42 @@ public class FriendlyURLServlet extends HttpServlet {
 
 					Boolean forcePermanentRedirect = Boolean.TRUE;
 
+=======
+
+				layoutFriendlyURLSeparatorCompositeFriendlyURL =
+					layout.getFriendlyURL(locale);
+			}
+
+			pos = layoutFriendlyURLSeparatorCompositeFriendlyURL.indexOf(
+				layoutFriendlyURLSeparatorComposite.getURLSeparator());
+
+			if (pos != 0) {
+				if (pos != -1) {
+					layoutFriendlyURLSeparatorCompositeFriendlyURL =
+						layoutFriendlyURLSeparatorCompositeFriendlyURL.
+							substring(0, pos);
+				}
+
+				String i18nLanguageId = (String)request.getAttribute(
+					WebKeys.I18N_LANGUAGE_ID);
+
+				if ((Validator.isNotNull(i18nLanguageId) &&
+					 !LanguageUtil.isAvailableLocale(
+						 group.getGroupId(), i18nLanguageId)) ||
+					!StringUtil.equalsIgnoreCase(
+						layoutFriendlyURLSeparatorCompositeFriendlyURL,
+						layout.getFriendlyURL(locale))) {
+
+					Locale originalLocale = setAlternativeLayoutFriendlyURL(
+						request, layout,
+						layoutFriendlyURLSeparatorCompositeFriendlyURL);
+
+					String redirect = PortalUtil.getLocalizedFriendlyURL(
+						request, layout, locale, originalLocale);
+
+					Boolean forcePermanentRedirect = Boolean.TRUE;
+
+>>>>>>> compatible
 					if (Validator.isNull(i18nLanguageId)) {
 						forcePermanentRedirect = Boolean.FALSE;
 					}
@@ -395,6 +453,23 @@ public class FriendlyURLServlet extends HttpServlet {
 			requestContext);
 
 		return new Redirect(actualURL);
+<<<<<<< HEAD
+=======
+	}
+
+	/**
+	 * @deprecated As of 7.0.0, with no direct replacement
+	 */
+	@Deprecated
+	protected Object[] getRedirect(
+			HttpServletRequest request, String path, String mainPath,
+			Map<String, String[]> params)
+		throws Exception {
+
+		Redirect redirect = getRedirect(request, path);
+
+		return new Object[] {redirect.getPath(), redirect.isForce()};
+>>>>>>> compatible
 	}
 
 	/**

@@ -15,14 +15,20 @@
 package com.liferay.blogs.trackback.test;
 
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
+<<<<<<< HEAD
 import com.liferay.blogs.linkback.LinkbackConsumer;
 import com.liferay.blogs.model.BlogsEntry;
 import com.liferay.blogs.service.BlogsEntryLocalServiceUtil;
+=======
+import com.liferay.blogs.kernel.model.BlogsEntry;
+import com.liferay.blogs.kernel.service.BlogsEntryLocalServiceUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.comment.CommentManagerUtil;
 import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.service.CompanyLocalServiceUtil;
 import com.liferay.portal.kernel.service.IdentityServiceContextFunction;
 import com.liferay.portal.kernel.service.ServiceContext;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.test.ReflectionTestUtil;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
@@ -32,6 +38,20 @@ import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.Function;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+=======
+import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
+import com.liferay.portal.kernel.test.util.TestPropsValues;
+import com.liferay.portal.kernel.theme.ThemeDisplay;
+import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+import com.liferay.portlet.blogs.linkback.LinkbackConsumerUtil;
+import com.liferay.portlet.blogs.trackback.Trackback;
+import com.liferay.portlet.blogs.trackback.TrackbackImpl;
+>>>>>>> compatible
 
 import java.util.Date;
 
@@ -41,21 +61,34 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+<<<<<<< HEAD
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.FrameworkUtil;
 import org.osgi.framework.ServiceReference;
 
+=======
+>>>>>>> compatible
 /**
  * @author Adolfo Pérez
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class TrackbackImplTest {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Test
 	public void testAddTrackback() throws Exception {
@@ -77,6 +110,7 @@ public class TrackbackImplTest {
 		int initialCommentsCount = CommentManagerUtil.getCommentsCount(
 			BlogsEntry.class.getName(), _blogsEntry.getEntryId());
 
+<<<<<<< HEAD
 		Bundle bundle = FrameworkUtil.getBundle(getClass());
 
 		BundleContext bundleContext = bundle.getBundleContext();
@@ -88,6 +122,9 @@ public class TrackbackImplTest {
 		Assert.assertNotNull(serviceReference);
 
 		Object trackback = bundleContext.getService(serviceReference);
+=======
+		Trackback trackback = new TrackbackImpl();
+>>>>>>> compatible
 
 		ThemeDisplay themeDisplay = new ThemeDisplay();
 
@@ -96,12 +133,16 @@ public class TrackbackImplTest {
 
 		themeDisplay.setCompany(company);
 
+<<<<<<< HEAD
 		ReflectionTestUtil.invoke(
 			trackback, "addTrackback",
 			new Class<?>[] {
 				BlogsEntry.class, ThemeDisplay.class, String.class,
 				String.class, String.class, String.class, Function.class
 			},
+=======
+		trackback.addTrackback(
+>>>>>>> compatible
 			_blogsEntry, themeDisplay, StringUtil.randomString(),
 			StringUtil.randomString(), StringUtil.randomString(),
 			StringUtil.randomString(), serviceContextFunction);
@@ -111,10 +152,14 @@ public class TrackbackImplTest {
 			CommentManagerUtil.getCommentsCount(
 				BlogsEntry.class.getName(), _blogsEntry.getEntryId()));
 
+<<<<<<< HEAD
 		LinkbackConsumer linkbackConsumer = bundleContext.getService(
 			bundleContext.getServiceReference(LinkbackConsumer.class));
 
 		linkbackConsumer.verifyNewTrackbacks();
+=======
+		LinkbackConsumerUtil.verifyNewTrackbacks();
+>>>>>>> compatible
 	}
 
 	@DeleteAfterTestRun

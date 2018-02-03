@@ -20,12 +20,22 @@ import com.liferay.portal.kernel.model.Permission;
 import com.liferay.portal.kernel.model.ResourceAction;
 import com.liferay.portal.kernel.model.ResourceConstants;
 import com.liferay.portal.kernel.model.ResourcePermission;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.model.ResourceTypePermission;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Role;
 import com.liferay.portal.kernel.model.RoleConstants;
 import com.liferay.portal.kernel.security.permission.PermissionConversionFilter;
 import com.liferay.portal.kernel.security.permission.PermissionConverter;
 import com.liferay.portal.kernel.service.ResourceActionLocalServiceUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.service.ResourcePermissionLocalServiceUtil;
+=======
+import com.liferay.portal.kernel.service.ResourceBlockLocalServiceUtil;
+import com.liferay.portal.kernel.service.ResourcePermissionLocalServiceUtil;
+import com.liferay.portal.kernel.service.ResourceTypePermissionLocalServiceUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.RoleLocalServiceUtil;
 import com.liferay.portal.model.impl.PermissionImpl;
 

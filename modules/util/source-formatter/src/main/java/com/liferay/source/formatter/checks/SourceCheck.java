@@ -47,8 +47,11 @@ public interface SourceCheck {
 
 	public void setPortalSource(boolean portalSource);
 
+<<<<<<< HEAD
 	public void setProjectPathPrefix(String projectPathPrefix);
 
+=======
+>>>>>>> compatible
 	public void setPropertiesMap(Map<String, Properties> propertiesMap);
 
 	public void setSourceFormatterExcludes(

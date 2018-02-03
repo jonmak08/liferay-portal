@@ -21,6 +21,10 @@ import com.liferay.polls.model.PollsChoice;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -101,7 +105,11 @@ public class PollsChoiceCacheModel implements CacheModel<PollsChoice>,
 		PollsChoiceImpl pollsChoiceImpl = new PollsChoiceImpl();
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			pollsChoiceImpl.setUuid("");
+=======
+			pollsChoiceImpl.setUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			pollsChoiceImpl.setUuid(uuid);
@@ -113,7 +121,11 @@ public class PollsChoiceCacheModel implements CacheModel<PollsChoice>,
 		pollsChoiceImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			pollsChoiceImpl.setUserName("");
+=======
+			pollsChoiceImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			pollsChoiceImpl.setUserName(userName);
@@ -136,14 +148,22 @@ public class PollsChoiceCacheModel implements CacheModel<PollsChoice>,
 		pollsChoiceImpl.setQuestionId(questionId);
 
 		if (name == null) {
+<<<<<<< HEAD
 			pollsChoiceImpl.setName("");
+=======
+			pollsChoiceImpl.setName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			pollsChoiceImpl.setName(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			pollsChoiceImpl.setDescription("");
+=======
+			pollsChoiceImpl.setDescription(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			pollsChoiceImpl.setDescription(description);
@@ -186,7 +206,11 @@ public class PollsChoiceCacheModel implements CacheModel<PollsChoice>,
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		if (uuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(uuid);
@@ -201,7 +225,11 @@ public class PollsChoiceCacheModel implements CacheModel<PollsChoice>,
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -213,14 +241,22 @@ public class PollsChoiceCacheModel implements CacheModel<PollsChoice>,
 		objectOutput.writeLong(questionId);
 
 		if (name == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(description);

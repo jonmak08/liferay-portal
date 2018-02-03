@@ -20,7 +20,12 @@ import com.liferay.registry.ServiceRegistration;
 
 import java.util.HashMap;
 import java.util.Map;
+<<<<<<< HEAD
 import java.util.concurrent.atomic.AtomicBoolean;
+=======
+import java.util.Objects;
+import java.util.concurrent.atomic.AtomicReference;
+>>>>>>> compatible
 
 /**
  * @author Peter Fellwock
@@ -42,8 +47,17 @@ public class AtomicState {
 		_serviceRegistration.unregister();
 	}
 
+<<<<<<< HEAD
 	public Boolean get() {
 		return _atomicBoolean.get();
+=======
+	public boolean equalsTo(String value) {
+		return Objects.equals(_atomicReference.get(), value);
+	}
+
+	public String get() {
+		return _atomicReference.get();
+>>>>>>> compatible
 	}
 
 	public boolean isSet() {

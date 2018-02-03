@@ -15,6 +15,10 @@
 package com.liferay.portal.verify;
 
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.concurrent.ThrowableAwareRunnable;
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.jdbc.AutoBatchPreparedStatementUtil;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
 import com.liferay.portal.kernel.log.Log;
@@ -109,12 +113,49 @@ public class VerifyAuditedModel extends VerifyProcess {
 		throws Exception {
 
 		try (PreparedStatement ps = con.prepareStatement(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"select companyId, userId, createDate, modifiedDate from ",
 					tableName, " where ", pkColumnName, " = ?"))) {
 
 			ps.setLong(1, primKey);
 
+			try (ResultSet rs = ps.executeQuery()) {
+				if (rs.next()) {
+					long companyId = rs.getLong("companyId");
+=======
+				"select companyId, userId, createDate, modifiedDate from " +
+					tableName + " where " + pkColumnName + " = ?")) {
+>>>>>>> compatible
+
+					long userId = 0;
+					String userName = null;
+
+<<<<<<< HEAD
+					if (allowAnonymousUser) {
+						userId = previousUserId;
+						userName = "Anonymous";
+					}
+					else {
+						userId = rs.getLong("userId");
+
+						userName = getUserName(con, userId);
+					}
+
+					Timestamp createDate = rs.getTimestamp("createDate");
+					Timestamp modifiedDate = rs.getTimestamp("modifiedDate");
+
+					return new Object[] {
+						companyId, userId, userName, createDate, modifiedDate
+					};
+				}
+
+				if (_log.isDebugEnabled()) {
+					_log.debug(
+						StringBundler.concat(
+							"Unable to find ", tableName, " ",
+							String.valueOf(primKey)));
+=======
 			try (ResultSet rs = ps.executeQuery()) {
 				if (rs.next()) {
 					long companyId = rs.getLong("companyId");
@@ -141,10 +182,8 @@ public class VerifyAuditedModel extends VerifyProcess {
 				}
 
 				if (_log.isDebugEnabled()) {
-					_log.debug(
-						StringBundler.concat(
-							"Unable to find ", tableName, " ",
-							String.valueOf(primKey)));
+					_log.debug("Unable to find " + tableName + " " + primKey);
+>>>>>>> compatible
 				}
 
 				return null;

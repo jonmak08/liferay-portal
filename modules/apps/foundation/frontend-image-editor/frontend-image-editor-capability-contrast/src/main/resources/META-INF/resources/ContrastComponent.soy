@@ -3,12 +3,21 @@
 /**
  * Image Editor Contrast Component
  *
+<<<<<<< HEAD
  * @param? pathThemeImages
  * @param ref
  * @param requestPreview
  */
 {template .render}
 	<div id="{$ref}">
+=======
+ * @param key
+ * @param? pathThemeImages
+ * @param requestPreview
+ */
+{template .render}
+	<div id="{$key}">
+>>>>>>> compatible
 		<svg class="lexicon-icon min-value">
 			<use xlink:href="{$pathThemeImages}/lexicon/icons.svg#adjust"></use>
 		</svg>
@@ -18,9 +27,15 @@
 				{param events: [
 					'valueChanged': $requestPreview
 				] /}
+<<<<<<< HEAD
 				{param max: 100 /}
 				{param min: 0 /}
 				{param ref: 'slider' /}
+=======
+				{param key: 'slider' /}
+				{param max: 100 /}
+				{param min: 0 /}
+>>>>>>> compatible
 				{param value: 50 /}
 			{/call}
 		</div>

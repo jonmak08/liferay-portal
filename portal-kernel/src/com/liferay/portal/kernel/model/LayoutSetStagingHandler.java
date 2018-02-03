@@ -23,6 +23,10 @@ import com.liferay.portal.kernel.service.ServiceContextThreadLocal;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalClassLoaderUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.ReflectionUtil;
+>>>>>>> compatible
 
 import java.io.Serializable;
 
@@ -91,7 +95,12 @@ public class LayoutSetStagingHandler
 					Class<?> layoutSetBranchClass = _layoutSetBranch.getClass();
 
 					method = layoutSetBranchClass.getMethod(
+<<<<<<< HEAD
 						methodName, method.getParameterTypes());
+=======
+						methodName,
+						ReflectionUtil.getParameterTypes(arguments));
+>>>>>>> compatible
 
 					bean = _layoutSetBranch;
 				}
@@ -114,7 +123,11 @@ public class LayoutSetStagingHandler
 	private Object _clone() {
 		return ProxyUtil.newProxyInstance(
 			PortalClassLoaderUtil.getClassLoader(),
+<<<<<<< HEAD
 			new Class<?>[] {LayoutSet.class},
+=======
+			new Class<?>[] {Layout.class},
+>>>>>>> compatible
 			new LayoutSetStagingHandler(_layoutSet));
 	}
 

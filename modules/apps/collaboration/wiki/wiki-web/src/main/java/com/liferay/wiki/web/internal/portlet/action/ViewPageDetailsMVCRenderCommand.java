@@ -16,6 +16,7 @@ package com.liferay.wiki.web.internal.portlet.action;
 
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCRenderCommand;
 import com.liferay.wiki.constants.WikiPortletKeys;
+<<<<<<< HEAD
 import com.liferay.wiki.constants.WikiWebKeys;
 import com.liferay.wiki.engine.impl.WikiEngineRenderer;
 
@@ -25,6 +26,10 @@ import javax.portlet.RenderResponse;
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+=======
+
+import org.osgi.service.component.annotations.Component;
+>>>>>>> compatible
 
 /**
  * @author Iván Zaera
@@ -43,6 +48,7 @@ public class ViewPageDetailsMVCRenderCommand
 	extends BaseViewPageMVCRenderCommand {
 
 	@Override
+<<<<<<< HEAD
 	public String render(
 			RenderRequest renderRequest, RenderResponse renderResponse)
 		throws PortletException {
@@ -54,10 +60,13 @@ public class ViewPageDetailsMVCRenderCommand
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	protected String getPath() {
 		return "/wiki/view_page_details.jsp";
 	}
 
+<<<<<<< HEAD
 	@Reference(unbind = "-")
 	protected void setWikiEngineRenderer(
 		WikiEngineRenderer wikiEngineRenderer) {
@@ -67,4 +76,6 @@ public class ViewPageDetailsMVCRenderCommand
 
 	private WikiEngineRenderer _wikiEngineRenderer;
 
+=======
+>>>>>>> compatible
 }

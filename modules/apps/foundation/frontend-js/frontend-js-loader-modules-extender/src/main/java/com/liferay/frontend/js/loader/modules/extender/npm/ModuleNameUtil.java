@@ -14,6 +14,7 @@
 
 package com.liferay.frontend.js.loader.modules.extender.npm;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -21,6 +22,11 @@ import com.liferay.portal.kernel.util.StringBundler;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 /**
  * Provides utility methods to manipulate module names.
@@ -118,6 +124,7 @@ public class ModuleNameUtil {
 	 * </p>
 	 *
 	 * @param  moduleName the module's name
+<<<<<<< HEAD
 	 * @return the package name or null if the module name is a reserved one
 	 * @review
 	 */
@@ -128,6 +135,11 @@ public class ModuleNameUtil {
 			return null;
 		}
 
+=======
+	 * @return the package name
+	 */
+	public static String getPackageName(String moduleName) {
+>>>>>>> compatible
 		int i = moduleName.indexOf(StringPool.SLASH);
 
 		if ((moduleName.charAt(0) == CharPool.AT) && (i != -1)) {
@@ -173,10 +185,13 @@ public class ModuleNameUtil {
 		return moduleName.substring(i + 1);
 	}
 
+<<<<<<< HEAD
 	public static boolean isReservedModuleName(String moduleName) {
 		return _reservedModuleNames.contains(moduleName);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	 * Returns the file name implementing the module.
 	 *
@@ -203,7 +218,10 @@ public class ModuleNameUtil {
 		return fileName.substring(0, i);
 	}
 
+<<<<<<< HEAD
 	private static final Set<String> _reservedModuleNames = new HashSet<>(
 		Arrays.asList("exports", "module", "require"));
 
+=======
+>>>>>>> compatible
 }

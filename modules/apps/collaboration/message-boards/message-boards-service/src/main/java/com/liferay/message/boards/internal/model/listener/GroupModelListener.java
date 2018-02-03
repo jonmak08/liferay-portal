@@ -19,7 +19,11 @@ import com.liferay.portal.kernel.exception.ModelListenerException;
 import com.liferay.portal.kernel.model.BaseModelListener;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.ModelListener;
+<<<<<<< HEAD
 import com.liferay.subscription.service.SubscriptionLocalService;
+=======
+import com.liferay.portal.kernel.service.SubscriptionLocalService;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;

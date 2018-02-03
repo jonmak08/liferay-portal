@@ -19,8 +19,11 @@ import com.liferay.document.library.kernel.antivirus.AntivirusScannerUtil;
 import com.liferay.document.library.kernel.antivirus.AntivirusScannerWrapper;
 import com.liferay.document.library.kernel.util.DLProcessor;
 import com.liferay.document.library.kernel.util.DLProcessorRegistryUtil;
+<<<<<<< HEAD
 import com.liferay.mail.kernel.util.Hook;
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.bean.BeanLocatorException;
 import com.liferay.portal.kernel.bean.ClassLoaderBeanHandler;
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
@@ -92,6 +95,10 @@ import com.liferay.portal.kernel.upgrade.UpgradeProcess;
 import com.liferay.portal.kernel.upgrade.util.UpgradeProcessUtil;
 import com.liferay.portal.kernel.url.ServletContextURLContainer;
 import com.liferay.portal.kernel.util.CacheResourceBundleLoader;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ClassResourceBundleLoader;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HttpUtil;
@@ -103,7 +110,6 @@ import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.ResourceBundleLoader;
 import com.liferay.portal.kernel.util.SetUtil;
-import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.SystemProperties;
@@ -1518,11 +1524,22 @@ public class HookHotDeployListener
 			String mailHookClassName = portalProperties.getProperty(
 				PropsKeys.MAIL_HOOK_IMPL);
 
+<<<<<<< HEAD
 			Hook mailHook = (Hook)newInstance(
 				portletClassLoader, Hook.class, mailHookClassName);
 
 			registerService(
 				servletContextName, mailHookClassName, Hook.class, mailHook);
+=======
+			com.liferay.mail.kernel.util.Hook mailHook =
+				(com.liferay.mail.kernel.util.Hook)newInstance(
+					portletClassLoader, com.liferay.mail.kernel.util.Hook.class,
+					mailHookClassName);
+
+			registerService(
+				servletContextName, mailHookClassName,
+				com.liferay.mail.kernel.util.Hook.class, mailHook);
+>>>>>>> compatible
 		}
 
 		if (portalProperties.containsKey(

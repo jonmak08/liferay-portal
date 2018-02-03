@@ -120,8 +120,11 @@ User selUser = (User)request.getAttribute("user.selUser");
 
 				<%
 				long logoId = organization.getLogoId();
+<<<<<<< HEAD
 
 				UserFileUploadsConfiguration userFileUploadsConfiguration = (UserFileUploadsConfiguration)request.getAttribute(UserFileUploadsConfiguration.class.getName());
+=======
+>>>>>>> compatible
 				%>
 
 				<liferay-ui:logo-selector
@@ -129,7 +132,11 @@ User selUser = (User)request.getAttribute("user.selUser");
 					defaultLogo="<%= logoId == 0 %>"
 					defaultLogoURL='<%= themeDisplay.getPathImage() + "/organization_logo?img_id=0" %>'
 					logoDisplaySelector=".organization-logo"
+<<<<<<< HEAD
 					maxFileSize="<%= userFileUploadsConfiguration.imageMaxSize() %>"
+=======
+					maxFileSize="<%= PrefsPropsUtil.getLong(PropsKeys.USERS_IMAGE_MAX_SIZE) %>"
+>>>>>>> compatible
 					tempImageFileName="<%= String.valueOf(groupId) %>"
 				/>
 			</c:if>
@@ -222,7 +229,11 @@ if (parentOrganization != null) {
 	cssClass="modify-link"
 	id="selectOrganizationLink"
 	label="<%= true %>"
+<<<<<<< HEAD
 	linkCssClass="btn btn-primary"
+=======
+	linkCssClass="btn btn-default btn-lg"
+>>>>>>> compatible
 	message="select"
 	method="get"
 	url="javascript:;"

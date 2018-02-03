@@ -1,7 +1,15 @@
 dependencies {
+<<<<<<< HEAD
 	testIntegrationCompile group: "com.liferay", name: "com.liferay.registry.api", version: "1.0.0"
 	testIntegrationCompile group: "com.liferay.portal", name: "com.liferay.portal.impl", version: "default"
 	testIntegrationCompile group: "com.liferay.portal", name: "com.liferay.portal.kernel", version: "default"
 	testIntegrationCompile project(":test:external-data-source-test-api")
 	testIntegrationCompile project(":test:external-data-source-test-service")
+=======
+	provided group: "com.liferay", name: "com.liferay.registry.api", version: "1.0.0"
+	provided group: "com.liferay.portal", name: "com.liferay.portal.impl", version: "default"
+	provided group: "com.liferay.portal", name: "com.liferay.portal.kernel", version: "default"
+	provided project(":test:external-data-source-test-api")
+	provided project(":test:external-data-source-test-service")
+>>>>>>> compatible
 }

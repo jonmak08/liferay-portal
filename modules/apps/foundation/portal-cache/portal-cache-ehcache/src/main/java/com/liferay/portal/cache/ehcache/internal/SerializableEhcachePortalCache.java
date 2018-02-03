@@ -14,8 +14,13 @@
 
 package com.liferay.portal.cache.ehcache.internal;
 
+<<<<<<< HEAD
 import com.liferay.portal.cache.io.SerializableObjectWrapper;
 import com.liferay.portal.kernel.cache.PortalCacheManager;
+=======
+import com.liferay.portal.kernel.cache.PortalCacheManager;
+import com.liferay.portal.kernel.io.SerializableObjectWrapper;
+>>>>>>> compatible
 
 import java.io.Serializable;
 

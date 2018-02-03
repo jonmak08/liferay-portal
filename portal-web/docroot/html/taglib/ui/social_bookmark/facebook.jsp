@@ -41,6 +41,7 @@ else if (displayStyle.equals("vertical")) {
 			facebookScriptNode.id = id;
 
 			facebookScriptNode.src = '//connect.facebook.net/<%= locale.getLanguage() %>_<%= locale.getCountry() %>/sdk.js#xfbml=1&version=v2.10';
+<<<<<<< HEAD
 
 			var firstScriptNode = doc.getElementsByTagName(scriptTagName)[0];
 
@@ -67,4 +68,23 @@ else if (displayStyle.equals("vertical")) {
 		data-show-faces="true"
 	>
 	</div>
+=======
+
+			var firstScriptNode = doc.getElementsByTagName(scriptTagName)[0];
+
+			firstScriptNode.parentNode.insertBefore(facebookScriptNode, firstScriptNode);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
+</liferay-util:html-bottom>
+
+<div id="fb-root"></div>
+<div class="fb-like"
+	data-action="like"
+	data-height="<%= (facebookDisplayStyle.equals("standard") || facebookDisplayStyle.equals("button_count")) ? 20 : StringPool.BLANK %>"
+	data-href="<%= url %>"
+	data-layout="<%= facebookDisplayStyle %>"
+	data-size="small"
+	data-show-faces="true"
+>
+>>>>>>> compatible
 </div>

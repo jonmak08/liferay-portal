@@ -14,9 +14,15 @@
 
 package com.liferay.source.formatter.checks;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
+=======
+import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
+import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -26,6 +32,7 @@ import com.liferay.portal.kernel.util.TextFormatter;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.tools.ToolsUtil;
 import com.liferay.source.formatter.checks.util.SourceUtil;
+<<<<<<< HEAD
 import com.liferay.source.formatter.parser.JavaClass;
 import com.liferay.source.formatter.parser.JavaClassParser;
 import com.liferay.source.formatter.parser.JavaMethod;
@@ -34,6 +41,17 @@ import com.liferay.source.formatter.parser.JavaSignature;
 import com.liferay.source.formatter.parser.JavaTerm;
 import com.liferay.source.formatter.util.FileUtil;
 import com.liferay.source.formatter.util.SourceFormatterUtil;
+=======
+import com.liferay.source.formatter.util.FileUtil;
+import com.liferay.source.formatter.util.SourceFormatterUtil;
+import com.liferay.source.formatter.util.ThreadSafeSortedClassLibraryBuilder;
+
+import com.thoughtworks.qdox.JavaProjectBuilder;
+import com.thoughtworks.qdox.model.JavaClass;
+import com.thoughtworks.qdox.model.JavaMethod;
+import com.thoughtworks.qdox.model.JavaType;
+import com.thoughtworks.qdox.parser.ParseException;
+>>>>>>> compatible
 
 import java.io.File;
 
@@ -56,6 +74,10 @@ public class JSPTagAttributesCheck extends TagAttributesCheck {
 	@Override
 	public void init() throws Exception {
 		_primitiveTagAttributeDataTypes = _getPrimitiveTagAttributeDataTypes();
+<<<<<<< HEAD
+=======
+		_tagJavaClassesMap = _getTagJavaClassesMap();
+>>>>>>> compatible
 	}
 
 	@Override
@@ -68,9 +90,15 @@ public class JSPTagAttributesCheck extends TagAttributesCheck {
 			String fileName, String absolutePath, String content)
 		throws Exception {
 
+<<<<<<< HEAD
 		content = _formatSingleLineTagAttributes(fileName, content);
 
 		content = formatMultiLinesTagAttributes(fileName, content);
+=======
+		content = _formatSingleLineTagAttribues(fileName, content);
+
+		content = _formatMultiLinesTagAttribues(fileName, content);
+>>>>>>> compatible
 
 		return content;
 	}
@@ -104,12 +132,18 @@ public class JSPTagAttributesCheck extends TagAttributesCheck {
 			return line;
 		}
 
+<<<<<<< HEAD
 		Map<String, Map<String, String>> tagSetMethodsMap =
 			_getTagSetMethodsMap();
 
 		Map<String, String> setMethodsMap = tagSetMethodsMap.get(tagName);
 
 		if (setMethodsMap == null) {
+=======
+		JavaClass tagJavaClass = _tagJavaClassesMap.get(tagName);
+
+		if (tagJavaClass == null) {
+>>>>>>> compatible
 			return line;
 		}
 
@@ -120,6 +154,7 @@ public class JSPTagAttributesCheck extends TagAttributesCheck {
 		String setAttributeMethodName =
 			"set" + TextFormatter.format(attribute, TextFormatter.G);
 
+<<<<<<< HEAD
 		String dataType = setMethodsMap.get(setAttributeMethodName);
 
 		if (dataType == null) {
@@ -145,6 +180,52 @@ public class JSPTagAttributesCheck extends TagAttributesCheck {
 		if (!dataType.equals("java.lang.String") &&
 			!dataType.equals("String")) {
 
+=======
+		for (String dataType : _primitiveTagAttributeDataTypes) {
+			JavaMethod setAttributeMethod = null;
+
+			while (true) {
+
+				// com.thoughtworks.qdox.model.JavaClass is not thread-safe and
+				// can throw NPE as a result of a race condition
+
+				try {
+					setAttributeMethod = _getSetAttributeMethod(
+						tagJavaClass, setAttributeMethodName, dataType);
+
+					break;
+				}
+				catch (Exception e) {
+				}
+			}
+
+			if (setAttributeMethod != null) {
+				String value = attributeAndValue.substring(
+					pos + 2, attributeAndValue.length() - 1);
+
+				if (!_isValidTagAttributeValue(value, dataType)) {
+					return line;
+				}
+
+				String newAttributeAndValue = StringUtil.replace(
+					attributeAndValue,
+					StringPool.QUOTE + value + StringPool.QUOTE,
+					"\"<%= " + value + " %>\"");
+
+				return StringUtil.replace(
+					line, attributeAndValue, newAttributeAndValue);
+			}
+		}
+
+		if (!attributeAndValue.matches(".*=\"(false|true)\".*")) {
+			return line;
+		}
+
+		JavaMethod setAttributeMethod = _getSetAttributeMethod(
+			tagJavaClass, setAttributeMethodName, "java.lang.String");
+
+		if (setAttributeMethod == null) {
+>>>>>>> compatible
 			return line;
 		}
 
@@ -185,7 +266,55 @@ public class JSPTagAttributesCheck extends TagAttributesCheck {
 			line, attributeAndValue, newAttributeAndValue);
 	}
 
+<<<<<<< HEAD
 	private String _formatSingleLineTagAttributes(
+=======
+	private String _formatMultiLinesTagAttribues(
+			String fileName, String content)
+		throws Exception {
+
+		Matcher matcher = _multilineTagPattern.matcher(content);
+
+		while (matcher.find()) {
+			char beforeClosingTagChar = content.charAt(matcher.start(2) - 1);
+
+			if ((beforeClosingTagChar != CharPool.NEW_LINE) &&
+				(beforeClosingTagChar != CharPool.TAB)) {
+
+				String closingTag = matcher.group(2);
+
+				String whitespace = matcher.group(1);
+
+				String tabs = StringUtil.removeChar(
+					whitespace, CharPool.NEW_LINE);
+
+				return StringUtil.replaceFirst(
+					content, closingTag, "\n" + tabs + closingTag,
+					matcher.start(2));
+			}
+
+			String tag = matcher.group();
+
+			String singlelineTag = StringUtil.removeChar(
+				StringUtil.trim(tag), CharPool.TAB);
+
+			singlelineTag = StringUtil.replace(
+				singlelineTag, CharPool.NEW_LINE, CharPool.SPACE);
+
+			String newTag = formatTagAttributes(
+				fileName, tag, singlelineTag,
+				getLineCount(content, matcher.end(1)), false);
+
+			if (!tag.equals(newTag)) {
+				return StringUtil.replace(content, tag, newTag);
+			}
+		}
+
+		return content;
+	}
+
+	private String _formatSingleLineTagAttribues(
+>>>>>>> compatible
 			String fileName, String content)
 		throws Exception {
 
@@ -230,6 +359,7 @@ public class JSPTagAttributesCheck extends TagAttributesCheck {
 		return content;
 	}
 
+<<<<<<< HEAD
 	private String _getExtendedFileName(
 		String content, String fileName, List<String> imports,
 		String utilTaglibSrcDirName) {
@@ -278,6 +408,8 @@ public class JSPTagAttributesCheck extends TagAttributesCheck {
 		return sb.toString();
 	}
 
+=======
+>>>>>>> compatible
 	private Set<String> _getPrimitiveTagAttributeDataTypes() {
 		return SetUtil.fromArray(
 			new String[] {
@@ -287,6 +419,7 @@ public class JSPTagAttributesCheck extends TagAttributesCheck {
 			});
 	}
 
+<<<<<<< HEAD
 	private Map<String, String> _getSetMethodsMap(
 			String tagFileName, String utilTaglibSrcDirName)
 		throws Exception {
@@ -364,6 +497,38 @@ public class JSPTagAttributesCheck extends TagAttributesCheck {
 		}
 
 		String utilTaglibSrcDirName = _getUtilTaglibSrcDirName();
+=======
+	private JavaMethod _getSetAttributeMethod(
+		JavaClass javaClass, String methodName, String parameterTypeName) {
+
+		List<JavaMethod> methods = javaClass.getMethods(true);
+
+		for (JavaMethod method : methods) {
+			if (!methodName.equals(method.getName())) {
+				continue;
+			}
+
+			List<JavaType> parameterTypes = method.getParameterTypes();
+
+			if (parameterTypes.size() != 1) {
+				continue;
+			}
+
+			JavaType parameterType = parameterTypes.get(0);
+
+			if (parameterTypeName.equals(
+					parameterType.getFullyQualifiedName())) {
+
+				return method;
+			}
+		}
+
+		return null;
+	}
+
+	private Map<String, JavaClass> _getTagJavaClassesMap() throws Exception {
+		Map<String, JavaClass> tagJavaClassesMap = new HashMap<>();
+>>>>>>> compatible
 
 		outerLoop:
 		for (String tldFileName : _getTLDFileNames()) {
@@ -395,6 +560,7 @@ public class JSPTagAttributesCheck extends TagAttributesCheck {
 					continue;
 				}
 
+<<<<<<< HEAD
 				Element tagNameElement = tagElement.element("name");
 
 				String tagName = tagNameElement.getStringValue();
@@ -408,13 +574,25 @@ public class JSPTagAttributesCheck extends TagAttributesCheck {
 				if (srcDir == null) {
 					if (tldFileName.contains("/src/")) {
 						srcDir = SourceUtil.getAbsolutePath(tldFile);
+=======
+				if (srcDir == null) {
+					if (tldFileName.contains("/src/")) {
+						srcDir = tldFile.getAbsolutePath();
+
+						srcDir = StringUtil.replace(
+							srcDir, CharPool.BACK_SLASH, CharPool.SLASH);
+>>>>>>> compatible
 
 						srcDir =
 							srcDir.substring(0, srcDir.lastIndexOf("/src/")) +
 								"/src/main/java/";
 					}
 					else {
+<<<<<<< HEAD
 						srcDir = utilTaglibSrcDirName;
+=======
+						srcDir = _getUtilTaglibSrcDirName();
+>>>>>>> compatible
 
 						if (Validator.isNull(srcDir)) {
 							continue outerLoop;
@@ -430,6 +608,7 @@ public class JSPTagAttributesCheck extends TagAttributesCheck {
 						tagClassName, CharPool.PERIOD, CharPool.SLASH));
 				sb.append(".java");
 
+<<<<<<< HEAD
 				Map<String, String> setMethodsMap = _getSetMethodsMap(
 					sb.toString(), utilTaglibSrcDirName);
 
@@ -443,6 +622,37 @@ public class JSPTagAttributesCheck extends TagAttributesCheck {
 		}
 
 		return _tagSetMethodsMap;
+=======
+				File tagJavaFile = new File(sb.toString());
+
+				if (!tagJavaFile.exists()) {
+					continue;
+				}
+
+				JavaProjectBuilder javaProjectBuilder = new JavaProjectBuilder(
+					new ThreadSafeSortedClassLibraryBuilder());
+
+				try {
+					javaProjectBuilder.addSource(tagJavaFile);
+				}
+				catch (ParseException pe) {
+					continue;
+				}
+
+				JavaClass tagJavaClass = javaProjectBuilder.getClassByName(
+					tagClassName);
+
+				Element tagNameElement = tagElement.element("name");
+
+				String tagName = tagNameElement.getStringValue();
+
+				tagJavaClassesMap.put(
+					shortName + StringPool.COLON + tagName, tagJavaClass);
+			}
+		}
+
+		return tagJavaClassesMap;
+>>>>>>> compatible
 	}
 
 	private List<String> _getTLDFileNames() throws Exception {
@@ -485,7 +695,18 @@ public class JSPTagAttributesCheck extends TagAttributesCheck {
 			return StringPool.BLANK;
 		}
 
+<<<<<<< HEAD
 		return SourceUtil.getAbsolutePath(utilTaglibDir) + StringPool.SLASH;
+=======
+		String utilTaglibSrcDirName = utilTaglibDir.getAbsolutePath();
+
+		utilTaglibSrcDirName = StringUtil.replace(
+			utilTaglibSrcDirName, CharPool.BACK_SLASH, CharPool.SLASH);
+
+		utilTaglibSrcDirName += StringPool.SLASH;
+
+		return utilTaglibSrcDirName;
+>>>>>>> compatible
 	}
 
 	private boolean _isValidTagAttributeValue(String value, String dataType) {
@@ -514,6 +735,7 @@ public class JSPTagAttributesCheck extends TagAttributesCheck {
 	}
 
 	private List<String> _allFileNames;
+<<<<<<< HEAD
 	private final Map<String, Map<String, String>> _classSetMethodsMap =
 		new HashMap<>();
 	private final Pattern _extendedClassPattern = Pattern.compile(
@@ -522,5 +744,13 @@ public class JSPTagAttributesCheck extends TagAttributesCheck {
 		"<[-\\w]+:[-\\w]+ .");
 	private Set<String> _primitiveTagAttributeDataTypes;
 	private Map<String, Map<String, String>> _tagSetMethodsMap;
+=======
+	private final Pattern _jspTaglibPattern = Pattern.compile(
+		"<[-\\w]+:[-\\w]+ .");
+	private final Pattern _multilineTagPattern = Pattern.compile(
+		"(\\s+)<[-\\w]+:[-\\w]+\n.*?(/?>)(\n|$)", Pattern.DOTALL);
+	private Set<String> _primitiveTagAttributeDataTypes;
+	private Map<String, JavaClass> _tagJavaClassesMap;
+>>>>>>> compatible
 
 }

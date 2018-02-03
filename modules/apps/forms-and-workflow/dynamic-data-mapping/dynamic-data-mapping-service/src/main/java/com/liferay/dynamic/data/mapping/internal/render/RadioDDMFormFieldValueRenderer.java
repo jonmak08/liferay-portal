@@ -14,6 +14,7 @@
 
 package com.liferay.dynamic.data.mapping.internal.render;
 
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.model.DDMFormField;
 import com.liferay.dynamic.data.mapping.model.DDMFormFieldOptions;
 import com.liferay.dynamic.data.mapping.model.DDMFormFieldType;
@@ -27,18 +28,26 @@ import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.Validator;
 
 import java.util.Locale;
+=======
+import com.liferay.dynamic.data.mapping.model.DDMFormFieldType;
+>>>>>>> compatible
 
 /**
  * @author Marcellus Tavares
  */
 public class RadioDDMFormFieldValueRenderer
+<<<<<<< HEAD
 	extends BaseDDMFormFieldValueRenderer {
+=======
+	extends BaseListDDMFormFieldValueRenderer {
+>>>>>>> compatible
 
 	@Override
 	public String getSupportedDDMFormFieldType() {
 		return DDMFormFieldType.RADIO;
 	}
 
+<<<<<<< HEAD
 	@Override
 	protected ValueAccessor getValueAcessor(Locale locale) {
 		return new ValueAccessor(locale) {
@@ -77,4 +86,6 @@ public class RadioDDMFormFieldValueRenderer
 		};
 	}
 
+=======
+>>>>>>> compatible
 }

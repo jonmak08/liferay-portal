@@ -17,23 +17,38 @@ package com.liferay.dynamic.data.mapping.type.key.value.internal;
 import com.liferay.dynamic.data.mapping.form.field.type.BaseDDMFormFieldRenderer;
 import com.liferay.dynamic.data.mapping.form.field.type.DDMFormFieldRenderer;
 import com.liferay.dynamic.data.mapping.model.DDMFormField;
+<<<<<<< HEAD
+=======
+import com.liferay.dynamic.data.mapping.model.LocalizedValue;
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.render.DDMFormFieldRenderingContext;
 import com.liferay.portal.kernel.template.Template;
 import com.liferay.portal.kernel.template.TemplateConstants;
 import com.liferay.portal.kernel.template.TemplateResource;
 
+<<<<<<< HEAD
+=======
+import java.util.Locale;
+>>>>>>> compatible
 import java.util.Map;
 
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.Reference;
+=======
+>>>>>>> compatible
 
 /**
  * @author Bruno Basto
  */
 @Component(
+<<<<<<< HEAD
 	immediate = true, property = "ddm.form.field.type.name=key_value",
+=======
+	immediate = true, property = "ddm.form.field.type.name=key-value",
+>>>>>>> compatible
 	service = DDMFormFieldRenderer.class
 )
 public class KeyValueDDMFormFieldRenderer extends BaseDDMFormFieldRenderer {
@@ -45,7 +60,11 @@ public class KeyValueDDMFormFieldRenderer extends BaseDDMFormFieldRenderer {
 
 	@Override
 	public String getTemplateNamespace() {
+<<<<<<< HEAD
 		return "DDMKeyValue.render";
+=======
+		return "ddm.key_value";
+>>>>>>> compatible
 	}
 
 	@Override
@@ -56,7 +75,11 @@ public class KeyValueDDMFormFieldRenderer extends BaseDDMFormFieldRenderer {
 	@Activate
 	protected void activate(Map<String, Object> properties) {
 		_templateResource = getTemplateResource(
+<<<<<<< HEAD
 			"/META-INF/resources/key-value.soy");
+=======
+			"/META-INF/resources/key_value.soy");
+>>>>>>> compatible
 	}
 
 	@Deactivate
@@ -69,6 +92,7 @@ public class KeyValueDDMFormFieldRenderer extends BaseDDMFormFieldRenderer {
 		Template template, DDMFormField ddmFormField,
 		DDMFormFieldRenderingContext ddmFormFieldRenderingContext) {
 
+<<<<<<< HEAD
 		Map<String, Object> parameters =
 			keyValueDDMFormFieldTemplateContextContributor.getParameters(
 				ddmFormField, ddmFormFieldRenderingContext);
@@ -79,6 +103,22 @@ public class KeyValueDDMFormFieldRenderer extends BaseDDMFormFieldRenderer {
 	@Reference
 	protected KeyValueDDMFormFieldTemplateContextContributor
 		keyValueDDMFormFieldTemplateContextContributor;
+=======
+		template.put("displayStyle", ddmFormField.getProperty("displayStyle"));
+
+		LocalizedValue placeholder = (LocalizedValue)ddmFormField.getProperty(
+			"placeholder");
+
+		Locale locale = ddmFormFieldRenderingContext.getLocale();
+
+		template.put("placeholder", getValueString(placeholder, locale));
+
+		LocalizedValue tooltip = (LocalizedValue)ddmFormField.getProperty(
+			"tooltip");
+
+		template.put("tooltip", getValueString(tooltip, locale));
+	}
+>>>>>>> compatible
 
 	private TemplateResource _templateResource;
 

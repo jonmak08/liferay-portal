@@ -14,8 +14,13 @@
 
 package com.liferay.blogs.internal.workflow;
 
+<<<<<<< HEAD
 import com.liferay.blogs.model.BlogsEntry;
 import com.liferay.blogs.service.BlogsEntryLocalService;
+=======
+import com.liferay.blogs.kernel.model.BlogsEntry;
+import com.liferay.blogs.kernel.service.BlogsEntryLocalService;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.security.permission.ResourceActionsUtil;
 import com.liferay.portal.kernel.service.ServiceContext;
@@ -36,7 +41,11 @@ import org.osgi.service.component.annotations.Reference;
  * @author Jorge Ferrer
  */
 @Component(
+<<<<<<< HEAD
 	property = {"model.class.name=com.liferay.blogs.model.BlogsEntry"},
+=======
+	property = {"model.class.name=com.liferay.blogs.kernel.model.BlogsEntry"},
+>>>>>>> compatible
 	service = WorkflowHandler.class
 )
 public class BlogsEntryWorkflowHandler extends BaseWorkflowHandler<BlogsEntry> {

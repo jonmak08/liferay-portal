@@ -18,7 +18,11 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.module.framework.ModuleServiceLifecycle;
 import com.liferay.portal.kernel.util.HashMapDictionary;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.Http;
+=======
+import com.liferay.portal.kernel.util.StringUtil;
+>>>>>>> compatible
 import com.liferay.portal.osgi.web.wab.generator.internal.artifact.ArtifactURLUtil;
 import com.liferay.portal.osgi.web.wab.generator.internal.artifact.WarArtifactUrlTransformer;
 import com.liferay.portal.osgi.web.wab.generator.internal.handler.WabURLStreamHandlerService;
@@ -43,7 +47,10 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.CountDownLatch;
+<<<<<<< HEAD
 import java.util.concurrent.TimeUnit;
+=======
+>>>>>>> compatible
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
@@ -93,11 +100,19 @@ public class WabGenerator
 
 		registerArtifactUrlTransformer(bundleContext);
 
+<<<<<<< HEAD
 		final Set<String> requiredForStartupContextPaths =
 			getRequiredForStartupContextPaths(
 				Paths.get(PropsValues.LIFERAY_HOME, "osgi/war"));
 
 		if (requiredForStartupContextPaths.isEmpty()) {
+=======
+		final Set<String> requiredForStartupLocations =
+			getRequiredForStartupLocations(
+				Paths.get(PropsValues.LIFERAY_HOME, "osgi/war"));
+
+		if (requiredForStartupLocations.isEmpty()) {
+>>>>>>> compatible
 			return;
 		}
 
@@ -108,22 +123,34 @@ public class WabGenerator
 
 			@Override
 			public Void addingBundle(Bundle bundle, BundleEvent bundleEvent) {
+<<<<<<< HEAD
 				String location = bundle.getLocation();
+=======
+				String location = StringUtil.toLowerCase(bundle.getLocation());
+>>>>>>> compatible
 
 				if (_log.isDebugEnabled()) {
 					_log.debug("Activated bundle " + location);
 				}
 
+<<<<<<< HEAD
 				if (requiredForStartupContextPaths.remove(
 						_http.getParameter(
 							location, "Web-ContextPath", false))) {
 
+=======
+				if (requiredForStartupLocations.remove(location)) {
+>>>>>>> compatible
 					if (_log.isDebugEnabled()) {
 						_log.debug(
 							"Bundle " + location + " is required for startup");
 					}
 
+<<<<<<< HEAD
 					if (requiredForStartupContextPaths.isEmpty()) {
+=======
+					if (requiredForStartupLocations.isEmpty()) {
+>>>>>>> compatible
 						countDownLatch.countDown();
 					}
 				}
@@ -135,12 +162,17 @@ public class WabGenerator
 
 		if (_log.isDebugEnabled()) {
 			_log.debug(
+<<<<<<< HEAD
 				"Bundles required for startup: " +
 					requiredForStartupContextPaths);
+=======
+				"Bundles required for startup: " + requiredForStartupLocations);
+>>>>>>> compatible
 		}
 
 		bundleTracker.open();
 
+<<<<<<< HEAD
 		while (true) {
 			if (countDownLatch.await(1, TimeUnit.MINUTES)) {
 				break;
@@ -158,6 +190,11 @@ public class WabGenerator
 		if (_log.isDebugEnabled()) {
 			_log.debug("All startup required bundles are active");
 		}
+=======
+		countDownLatch.await();
+
+		bundleTracker.close();
+>>>>>>> compatible
 	}
 
 	@Deactivate
@@ -167,10 +204,17 @@ public class WabGenerator
 		_serviceRegistration = null;
 	}
 
+<<<<<<< HEAD
 	protected Set<String> getRequiredForStartupContextPaths(Path path)
 		throws IOException {
 
 		Set<String> contextPaths = new HashSet<>();
+=======
+	protected Set<String> getRequiredForStartupLocations(Path path)
+		throws IOException {
+
+		Set<String> locations = new HashSet<>();
+>>>>>>> compatible
 
 		try (DirectoryStream<Path> directoryStream =
 				Files.newDirectoryStream(path.toRealPath(), "*.war")) {
@@ -199,14 +243,22 @@ public class WabGenerator
 
 					URL url = ArtifactURLUtil.transform(uri.toURL());
 
+<<<<<<< HEAD
 					contextPaths.add(
 						_http.getParameter(
 							url.toString(), "Web-ContextPath", false));
+=======
+					locations.add(StringUtil.toLowerCase(url.toString()));
+>>>>>>> compatible
 				}
 			}
 		}
 
+<<<<<<< HEAD
 		return contextPaths;
+=======
+		return locations;
+>>>>>>> compatible
 	}
 
 	protected void registerArtifactUrlTransformer(BundleContext bundleContext) {
@@ -263,9 +315,12 @@ public class WabGenerator
 
 	private static final Log _log = LogFactoryUtil.getLog(WabGenerator.class);
 
+<<<<<<< HEAD
 	@Reference
 	private Http _http;
 
+=======
+>>>>>>> compatible
 	private final AtomicBoolean _portalIsReady = new AtomicBoolean();
 	private ServiceRegistration<ArtifactUrlTransformer> _serviceRegistration;
 

@@ -379,11 +379,14 @@ public class RoleLocalServiceUtil {
 		return getService().getActionableDynamicQuery();
 	}
 
+<<<<<<< HEAD
 	public static int getAssigneesTotal(long roleId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService().getAssigneesTotal(roleId);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns the default role for the group with the primary key.
 	*
@@ -483,10 +486,13 @@ public class RoleLocalServiceUtil {
 		return getService().getPersistedModel(primaryKeyObj);
 	}
 
+<<<<<<< HEAD
 	/**
 	* @deprecated As of 7.0.0, with no direct replacement
 	*/
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static java.util.List<com.liferay.portal.kernel.model.Role> getResourceBlockRoles(
 		long resourceBlockId, java.lang.String className,
 		java.lang.String actionId) {

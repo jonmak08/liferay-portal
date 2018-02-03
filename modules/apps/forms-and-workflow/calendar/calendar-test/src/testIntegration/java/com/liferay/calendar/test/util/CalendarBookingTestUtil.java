@@ -78,7 +78,10 @@ public class CalendarBookingTestUtil {
 				user.getUserId(), calendar.getCalendarId(),
 				childCalendarBookingIds,
 				CalendarBookingConstants.PARENT_CALENDAR_BOOKING_ID_DEFAULT,
+<<<<<<< HEAD
 				CalendarBookingConstants.RECURRING_CALENDAR_BOOKING_ID_DEFAULT,
+=======
+>>>>>>> compatible
 				titleMap, descriptionMap, RandomTestUtil.randomString(),
 				startTime, endTime, allDay,
 				RecurrenceSerializer.serialize(recurrence), firstReminder,
@@ -227,9 +230,16 @@ public class CalendarBookingTestUtil {
 			int actionPublish)
 		throws PortalException {
 
+<<<<<<< HEAD
 		User user = UserLocalServiceUtil.fetchUser(invitedCalendar.getUserId());
 		long startTime = System.currentTimeMillis();
 
+=======
+		long startTime = System.currentTimeMillis();
+
+		User user = UserLocalServiceUtil.fetchUser(invitedCalendar.getUserId());
+
+>>>>>>> compatible
 		ServiceContext serviceContext = createServiceContext(user);
 
 		serviceContext.setWorkflowAction(actionPublish);
@@ -242,6 +252,7 @@ public class CalendarBookingTestUtil {
 		return calendarBooking;
 	}
 
+<<<<<<< HEAD
 	public static CalendarBooking addMasterRecurringCalendarBooking(
 			Calendar invitedCalendar, Calendar invitingCalendar)
 		throws PortalException {
@@ -261,6 +272,8 @@ public class CalendarBookingTestUtil {
 			0, NotificationType.EMAIL, createServiceContext(user));
 	}
 
+=======
+>>>>>>> compatible
 	public static CalendarBooking addPublishedCalendarBooking(User user)
 		throws PortalException {
 
@@ -269,6 +282,7 @@ public class CalendarBookingTestUtil {
 	}
 
 	public static CalendarBooking addRecurringCalendarBooking(
+<<<<<<< HEAD
 			Calendar invitingCalendar, Calendar invitedCalendar,
 			Recurrence recurrence)
 		throws PortalException {
@@ -300,6 +314,8 @@ public class CalendarBookingTestUtil {
 	}
 
 	public static CalendarBooking addRecurringCalendarBooking(
+=======
+>>>>>>> compatible
 			User user, Calendar calendar, long startTime, long endTime,
 			Recurrence recurrence, ServiceContext serviceContext)
 		throws PortalException {
@@ -372,6 +388,7 @@ public class CalendarBookingTestUtil {
 			null, 0, null, serviceContext);
 	}
 
+<<<<<<< HEAD
 	public static CalendarBooking addRegularCalendarBookingWithReminders(
 			Calendar calendar, long startTime, long endTime, int firstReminder,
 			int secondReminder)
@@ -386,6 +403,8 @@ public class CalendarBookingTestUtil {
 			NotificationType.EMAIL, createServiceContext(user));
 	}
 
+=======
+>>>>>>> compatible
 	public static CalendarBooking
 			addRegularCalendarBookingWithTitleAndDescription(
 				User user, Calendar calendar, Map<Locale, String> titleMap,
@@ -448,6 +467,7 @@ public class CalendarBookingTestUtil {
 		return childCalendarBooking;
 	}
 
+<<<<<<< HEAD
 	public static CalendarBooking updateCalendarBooking(
 			CalendarBooking calendarBooking, Map<Locale, String> titleMap,
 			ServiceContext serviceContext)
@@ -464,6 +484,8 @@ public class CalendarBookingTestUtil {
 			serviceContext);
 	}
 
+=======
+>>>>>>> compatible
 	public static CalendarBooking updateCalendarBookingInstance(
 			CalendarBooking calendarBooking, int instanceIndex,
 			Map<Locale, String> titleMap, ServiceContext serviceContext)

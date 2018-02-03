@@ -101,11 +101,20 @@ public class ModifiableServletContextAdapter
 			Map<String, FilterRegistrationImpl> newFilterRegistrationImpls =
 				modifiableServletContext.getFilterRegistrationImpls();
 
+<<<<<<< HEAD
 			for (Map.Entry<String, FilterRegistrationImpl> entry :
 					filterRegistrationImpls.entrySet()) {
 
 				newFilterRegistrationImpls.put(
 					entry.getKey(), entry.getValue());
+=======
+			for (String filterName : filterRegistrationImpls.keySet()) {
+				FilterRegistrationImpl filterRegistrationImpl =
+					filterRegistrationImpls.get(filterName);
+
+				newFilterRegistrationImpls.put(
+					filterName, filterRegistrationImpl);
+>>>>>>> compatible
 			}
 		}
 
@@ -113,11 +122,20 @@ public class ModifiableServletContextAdapter
 			Map<String, ServletRegistrationImpl> newServletRegistrationImpls =
 				modifiableServletContext.getServletRegistrationImpls();
 
+<<<<<<< HEAD
 			for (Map.Entry<String, ServletRegistrationImpl> entry :
 					servletRegistrationImpls.entrySet()) {
 
 				newServletRegistrationImpls.put(
 					entry.getKey(), entry.getValue());
+=======
+			for (String servletName : servletRegistrationImpls.keySet()) {
+				ServletRegistrationImpl servletRegistrationImpl =
+					servletRegistrationImpls.get(servletName);
+
+				newServletRegistrationImpls.put(
+					servletName, servletRegistrationImpl);
+>>>>>>> compatible
 			}
 		}
 

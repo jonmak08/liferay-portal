@@ -14,20 +14,34 @@
 
 package com.liferay.shopping.service.impl;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.ResourceConstants;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.permission.ModelPermissions;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+import com.liferay.portal.kernel.util.FileUtil;
+import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.PropsKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
+<<<<<<< HEAD
 import com.liferay.portal.spring.extender.service.ServiceReference;
 import com.liferay.shopping.configuration.ShoppingFileUploadsConfiguration;
+=======
+import com.liferay.portal.util.PrefsPropsUtil;
+>>>>>>> compatible
 import com.liferay.shopping.exception.DuplicateItemFieldNameException;
 import com.liferay.shopping.exception.DuplicateItemSKUException;
 import com.liferay.shopping.exception.ItemLargeImageNameException;
@@ -702,8 +716,13 @@ public class ShoppingItemLocalServiceImpl
 			}
 		}
 
+<<<<<<< HEAD
 		String[] imageExtensions =
 			_shoppingFileUploadsConfiguration.imageExtensions();
+=======
+		String[] imageExtensions = PrefsPropsUtil.getStringArray(
+			PropsKeys.SHOPPING_IMAGE_EXTENSIONS, StringPool.COMMA);
+>>>>>>> compatible
 
 		// Small image
 
@@ -730,8 +749,13 @@ public class ShoppingItemLocalServiceImpl
 				}
 			}
 
+<<<<<<< HEAD
 			long smallImageMaxSize =
 				_shoppingFileUploadsConfiguration.smallImageMaxSize();
+=======
+			long smallImageMaxSize = PrefsPropsUtil.getLong(
+				PropsKeys.SHOPPING_IMAGE_SMALL_MAX_SIZE);
+>>>>>>> compatible
 
 			if ((smallImageMaxSize > 0) &&
 				((smallImageBytes == null) ||
@@ -766,8 +790,13 @@ public class ShoppingItemLocalServiceImpl
 				}
 			}
 
+<<<<<<< HEAD
 			long mediumImageMaxSize =
 				_shoppingFileUploadsConfiguration.mediumImageMaxSize();
+=======
+			long mediumImageMaxSize = PrefsPropsUtil.getLong(
+				PropsKeys.SHOPPING_IMAGE_MEDIUM_MAX_SIZE);
+>>>>>>> compatible
 
 			if ((mediumImageMaxSize > 0) &&
 				((mediumImageBytes == null) ||
@@ -805,8 +834,13 @@ public class ShoppingItemLocalServiceImpl
 			}
 		}
 
+<<<<<<< HEAD
 		long largeImageMaxSize =
 			_shoppingFileUploadsConfiguration.largeImageMaxSize();
+=======
+		long largeImageMaxSize = PrefsPropsUtil.getLong(
+			PropsKeys.SHOPPING_IMAGE_LARGE_MAX_SIZE);
+>>>>>>> compatible
 
 		if ((largeImageMaxSize > 0) &&
 			((largeImageBytes == null) ||
@@ -816,7 +850,10 @@ public class ShoppingItemLocalServiceImpl
 		}
 	}
 
+<<<<<<< HEAD
 	@ServiceReference(type = ShoppingFileUploadsConfiguration.class)
 	private ShoppingFileUploadsConfiguration _shoppingFileUploadsConfiguration;
 
+=======
+>>>>>>> compatible
 }

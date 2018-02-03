@@ -22,17 +22,24 @@ import com.liferay.source.formatter.checks.util.JavaSourceUtil;
 public class JavaVerifyUpgradeConnectionCheck extends BaseFileCheck {
 
 	@Override
+<<<<<<< HEAD
 	public boolean isPortalCheck() {
 		return true;
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	protected String doProcess(
 		String fileName, String absolutePath, String content) {
 
 		if (fileName.endsWith("Test.java") ||
 			fileName.endsWith("UpgradeTableListener.java") ||
+<<<<<<< HEAD
 			content.contains("Callable<Void>")) {
+=======
+			content.contains("ThrowableAwareRunnable")) {
+>>>>>>> compatible
 
 			return content;
 		}

@@ -14,6 +14,7 @@
 
 package com.liferay.document.library.item.selector.web.internal;
 
+<<<<<<< HEAD
 import com.liferay.asset.kernel.service.AssetVocabularyService;
 import com.liferay.document.library.display.context.DLMimeTypeDisplayContext;
 import com.liferay.document.library.item.selector.web.internal.constants.DLItemSelectorWebKeys;
@@ -22,6 +23,13 @@ import com.liferay.item.selector.ItemSelectorCriterion;
 import com.liferay.item.selector.ItemSelectorReturnTypeResolverHandler;
 import com.liferay.portal.kernel.service.ClassNameLocalService;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+=======
+import com.liferay.document.library.item.selector.web.internal.display.context.DLItemSelectorViewDisplayContext;
+import com.liferay.item.selector.ItemSelectorCriterion;
+import com.liferay.item.selector.ItemSelectorReturnTypeResolverHandler;
+import com.liferay.portal.kernel.theme.ThemeDisplay;
+import com.liferay.portal.kernel.util.LocaleUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ResourceBundleLoader;
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
 import com.liferay.portal.language.LanguageResources;
@@ -40,9 +48,12 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
 import org.osgi.service.component.annotations.Reference;
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
 import org.osgi.service.component.annotations.ReferencePolicyOption;
+=======
+>>>>>>> compatible
 
 /**
  * @author Roberto Díaz
@@ -51,11 +62,14 @@ public abstract class BaseDLItemSelectorView<T extends ItemSelectorCriterion>
 	implements DLItemSelectorView<T> {
 
 	@Override
+<<<<<<< HEAD
 	public String[] getExtensions() {
 		return new String[0];
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public String[] getMimeTypes() {
 		return new String[0];
 	}
@@ -69,7 +83,11 @@ public abstract class BaseDLItemSelectorView<T extends ItemSelectorCriterion>
 		ResourceBundleLoader resourceBundleLoader = getResourceBundleLoader();
 
 		ResourceBundle resourceBundle = resourceBundleLoader.loadResourceBundle(
+<<<<<<< HEAD
 			locale);
+=======
+			LocaleUtil.toLanguageId(locale));
+>>>>>>> compatible
 
 		return ResourceBundleUtil.getString(
 			resourceBundle, "documents-and-media");
@@ -99,6 +117,7 @@ public abstract class BaseDLItemSelectorView<T extends ItemSelectorCriterion>
 		DLItemSelectorViewDisplayContext dlItemSelectorViewDisplayContext =
 			new DLItemSelectorViewDisplayContext(
 				t, this, _itemSelectorReturnTypeResolverHandler,
+<<<<<<< HEAD
 				itemSelectedEventName, search, portletURL,
 				_assetVocabularyService, _classNameLocalService);
 
@@ -110,10 +129,19 @@ public abstract class BaseDLItemSelectorView<T extends ItemSelectorCriterion>
 			DLItemSelectorWebKeys.DL_MIME_TYPE_DISPLAY_CONTEXT,
 			_dlMimeTypeDisplayContext);
 
+=======
+				itemSelectedEventName, search, portletURL);
+
+		request.setAttribute(
+			DL_ITEM_SELECTOR_VIEW_DISPLAY_CONTEXT,
+			dlItemSelectorViewDisplayContext);
+
+>>>>>>> compatible
 		requestDispatcher.include(request, response);
 	}
 
 	@Reference(unbind = "-")
+<<<<<<< HEAD
 	public void setAssetVocabularyService(
 		AssetVocabularyService assetVocabularyService) {
 
@@ -139,6 +167,8 @@ public abstract class BaseDLItemSelectorView<T extends ItemSelectorCriterion>
 	}
 
 	@Reference(unbind = "-")
+=======
+>>>>>>> compatible
 	public void setItemSelectorReturnTypeResolverHandler(
 		ItemSelectorReturnTypeResolverHandler
 			itemSelectorReturnTypeResolverHandler) {
@@ -155,19 +185,25 @@ public abstract class BaseDLItemSelectorView<T extends ItemSelectorCriterion>
 		_servletContext = servletContext;
 	}
 
+<<<<<<< HEAD
 	public void unsetDLMimeTypeDisplayContext(
 		DLMimeTypeDisplayContext dlMimeTypeDisplayContext) {
 
 		_dlMimeTypeDisplayContext = null;
 	}
 
+=======
+>>>>>>> compatible
 	protected ResourceBundleLoader getResourceBundleLoader() {
 		return LanguageResources.RESOURCE_BUNDLE_LOADER;
 	}
 
+<<<<<<< HEAD
 	private AssetVocabularyService _assetVocabularyService;
 	private ClassNameLocalService _classNameLocalService;
 	private DLMimeTypeDisplayContext _dlMimeTypeDisplayContext;
+=======
+>>>>>>> compatible
 	private ItemSelectorReturnTypeResolverHandler
 		_itemSelectorReturnTypeResolverHandler;
 	private ServletContext _servletContext;

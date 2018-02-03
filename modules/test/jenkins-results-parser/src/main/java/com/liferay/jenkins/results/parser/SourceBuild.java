@@ -40,11 +40,14 @@ public class SourceBuild extends BaseBuild {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void addTimelineData(BaseBuild.TimelineData timelineData) {
 		timelineData.addTimelineData(this);
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public void findDownstreamBuilds() {
 	}
 

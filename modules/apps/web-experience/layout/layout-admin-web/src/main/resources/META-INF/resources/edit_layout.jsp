@@ -17,16 +17,22 @@
 <%@ include file="/init.jsp" %>
 
 <%
+<<<<<<< HEAD
 String redirect = ParamUtil.getString(request, "redirect");
 
+=======
+>>>>>>> compatible
 String backURL = ParamUtil.getString(request, "backURL");
 
 if (Validator.isNull(backURL)) {
 	backURL = PortalUtil.getLayoutFullURL(layoutsAdminDisplayContext.getSelLayout(), themeDisplay);
 }
 
+<<<<<<< HEAD
 String portletResource = ParamUtil.getString(request, "portletResource");
 
+=======
+>>>>>>> compatible
 Group selGroup = (Group)request.getAttribute(WebKeys.GROUP);
 
 Group group = layoutsAdminDisplayContext.getGroup();
@@ -77,6 +83,7 @@ if (layoutRevision != null) {
 		if (LayoutSetBranchConstants.MASTER_BRANCH_NAME.equals(layoutSetBranchName)) {
 			layoutSetBranchName = LanguageUtil.get(request, layoutSetBranchName);
 		}
+<<<<<<< HEAD
 
 		portletDisplay.setShowStagingIcon(false);
 	}
@@ -87,6 +94,11 @@ if (Validator.isNotNull(backURL)) {
 	portletDisplay.setURLBack(backURL);
 }
 
+=======
+	}
+}
+
+>>>>>>> compatible
 renderResponse.setTitle(selLayout.getName(locale));
 %>
 
@@ -95,9 +107,15 @@ renderResponse.setTitle(selLayout.getName(locale));
 		<liferay-ui:message arguments="<%= new Object[] {HtmlUtil.escape(selLayout.getName(locale)), HtmlUtil.escape(layoutSetBranchName)} %>" key="the-page-x-is-not-enabled-in-x,-but-is-available-in-other-pages-variations" translateArguments="<%= false %>" />
 
 		<aui:button-row>
+<<<<<<< HEAD
 			<aui:button id="enableLayoutButton" name="enableLayout" value='<%= LanguageUtil.format(request, "enable-in-x", HtmlUtil.escape(layoutSetBranchName), false) %>' />
 
 			<portlet:actionURL name="/layout/enable_layout" var="enableLayoutURL">
+=======
+			<aui:button cssClass="btn-lg" id="enableLayoutButton" name="enableLayout" value='<%= LanguageUtil.format(request, "enable-in-x", HtmlUtil.escape(layoutSetBranchName), false) %>' />
+
+			<portlet:actionURL name="enableLayout" var="enableLayoutURL">
+>>>>>>> compatible
 				<portlet:param name="mvcPath" value="/view.jsp" />
 				<portlet:param name="redirect" value="<%= redirectURL.toString() %>" />
 				<portlet:param name="incompleteLayoutRevisionId" value="<%= String.valueOf(layoutRevision.getLayoutRevisionId()) %>" />
@@ -112,9 +130,15 @@ renderResponse.setTitle(selLayout.getName(locale));
 				);
 			</aui:script>
 
+<<<<<<< HEAD
 			<aui:button cssClass="remove-layout" id="deleteLayoutButton" name="deleteLayout" value="delete-in-all-pages-variations" />
 
 			<portlet:actionURL name="/layout/delete_layout" var="deleteLayoutURL">
+=======
+			<aui:button cssClass="btn-lg remove-layout" id="deleteLayoutButton" name="deleteLayout" value="delete-in-all-pages-variations" />
+
+			<portlet:actionURL name="deleteLayout" var="deleteLayoutURL">
+>>>>>>> compatible
 				<portlet:param name="mvcPath" value="/view.jsp" />
 				<portlet:param name="redirect" value='<%= HttpUtil.addParameter(redirectURL.toString(), liferayPortletResponse.getNamespace() + "selPlid", selLayout.getParentPlid()) %>' />
 				<portlet:param name="selPlid" value="<%= String.valueOf(layoutsAdminDisplayContext.getSelPlid()) %>" />
@@ -133,6 +157,7 @@ renderResponse.setTitle(selLayout.getName(locale));
 		</aui:button-row>
 	</c:when>
 	<c:otherwise>
+<<<<<<< HEAD
 		<portlet:actionURL name="/layout/edit_layout" var="editLayoutURL">
 			<portlet:param name="mvcRenderCommandName" value="/layout/edit_layout" />
 		</portlet:actionURL>
@@ -141,6 +166,14 @@ renderResponse.setTitle(selLayout.getName(locale));
 			<aui:input name="redirect" type="hidden" value="<%= redirect %>" />
 			<aui:input name="backURL" type="hidden" value="<%= backURL %>" />
 			<aui:input name="portletResource" type="hidden" value="<%= portletResource %>" />
+=======
+		<portlet:actionURL name="editLayout" var="editLayoutURL">
+			<portlet:param name="mvcPath" value="/view.jsp" />
+		</portlet:actionURL>
+
+		<aui:form action='<%= HttpUtil.addParameter(editLayoutURL, "refererPlid", plid) %>' cssClass="edit-layout-form" data-senna-off="true" enctype="multipart/form-data" method="post" name="editLayoutFm">
+			<aui:input name="backURL" type="hidden" value="<%= backURL %>" />
+>>>>>>> compatible
 			<aui:input name="groupId" type="hidden" value="<%= layoutsAdminDisplayContext.getGroupId() %>" />
 			<aui:input name="liveGroupId" type="hidden" value="<%= layoutsAdminDisplayContext.getLiveGroupId() %>" />
 			<aui:input name="stagingGroupId" type="hidden" value="<%= layoutsAdminDisplayContext.getStagingGroupId() %>" />
@@ -149,6 +182,7 @@ renderResponse.setTitle(selLayout.getName(locale));
 			<aui:input name="layoutId" type="hidden" value="<%= layoutsAdminDisplayContext.getLayoutId() %>" />
 			<aui:input name="<%= PortletDataHandlerKeys.SELECTED_LAYOUTS %>" type="hidden" />
 
+<<<<<<< HEAD
 			<liferay-ui:error exception="<%= LayoutTypeException.class %>">
 
 				<%
@@ -187,6 +221,8 @@ renderResponse.setTitle(selLayout.getName(locale));
 				</c:if>
 			</liferay-ui:error>
 
+=======
+>>>>>>> compatible
 			<c:if test="<%= layoutRevision != null %>">
 				<aui:input name="layoutSetBranchId" type="hidden" value="<%= layoutRevision.getLayoutSetBranchId() %>" />
 			</c:if>
@@ -236,10 +272,17 @@ renderResponse.setTitle(selLayout.getName(locale));
 
 			<c:if test="<%= (selLayout.getGroupId() == layoutsAdminDisplayContext.getGroupId()) && SitesUtil.isLayoutUpdateable(selLayout) && LayoutPermissionUtil.contains(permissionChecker, selLayout, ActionKeys.UPDATE) %>">
 				<aui:button-row>
+<<<<<<< HEAD
 					<aui:button type="submit" />
 
 					<c:if test="<%= Validator.isNotNull(backURL) %>">
 						<aui:button href="<%= backURL %>" name="cancelButton" type="cancel" />
+=======
+					<aui:button cssClass="btn-lg" type="submit" />
+
+					<c:if test="<%= Validator.isNotNull(backURL) %>">
+						<aui:button cssClass="btn-lg" href="<%= backURL %>" name="cancelButton" type="cancel" />
+>>>>>>> compatible
 					</c:if>
 				</aui:button-row>
 			</c:if>

@@ -17,10 +17,23 @@ package com.liferay.dynamic.data.mapping.type.radio.internal;
 import com.liferay.dynamic.data.mapping.form.field.type.DDMFormFieldValueAccessor;
 import com.liferay.dynamic.data.mapping.model.Value;
 import com.liferay.dynamic.data.mapping.storage.DDMFormFieldValue;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.json.JSONArray;
+import com.liferay.portal.kernel.json.JSONException;
+import com.liferay.portal.kernel.json.JSONFactory;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.util.Locale;
 
 import org.osgi.service.component.annotations.Component;
+<<<<<<< HEAD
+=======
+import org.osgi.service.component.annotations.Reference;
+>>>>>>> compatible
 
 /**
  * @author Renato Rego
@@ -35,9 +48,33 @@ public class RadioDDMFormFieldValueAccessor
 
 	@Override
 	public String getValue(DDMFormFieldValue ddmFormFieldValue, Locale locale) {
+<<<<<<< HEAD
 		Value value = ddmFormFieldValue.getValue();
 
 		return value.getString(locale);
 	}
 
+=======
+		try {
+			Value value = ddmFormFieldValue.getValue();
+
+			JSONArray jsonArray = jsonFactory.createJSONArray(
+				value.getString(locale));
+
+			return jsonArray.getString(0);
+		}
+		catch (JSONException jsone) {
+			_log.error("Unable to parse JSON array", jsone);
+
+			return StringPool.BLANK;
+		}
+	}
+
+	@Reference
+	protected JSONFactory jsonFactory;
+
+	private static final Log _log = LogFactoryUtil.getLog(
+		RadioDDMFormFieldValueAccessor.class);
+
+>>>>>>> compatible
 }

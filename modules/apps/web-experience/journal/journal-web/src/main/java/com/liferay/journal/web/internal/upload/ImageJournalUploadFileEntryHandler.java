@@ -15,10 +15,14 @@
 package com.liferay.journal.web.internal.upload;
 
 import com.liferay.document.library.kernel.util.DLValidator;
+<<<<<<< HEAD
 import com.liferay.journal.configuration.JournalFileUploadsConfiguration;
 import com.liferay.journal.service.permission.JournalPermission;
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
+=======
+import com.liferay.journal.service.permission.JournalPermission;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.ImageTypeException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
@@ -31,29 +35,45 @@ import com.liferay.portal.kernel.security.permission.ResourcePermissionCheckerUt
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.upload.UploadPortletRequest;
 import com.liferay.portal.kernel.util.FileUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.TempFileEntryUtil;
 import com.liferay.portal.kernel.util.WebKeys;
+=======
+import com.liferay.portal.kernel.util.PropsKeys;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.TempFileEntryUtil;
+import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.portal.util.PrefsPropsUtil;
+>>>>>>> compatible
 import com.liferay.upload.UniqueFileNameProvider;
 import com.liferay.upload.UploadFileEntryHandler;
 
 import java.io.IOException;
 import java.io.InputStream;
 
+<<<<<<< HEAD
 import java.util.Map;
 
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Modified;
+=======
+import org.osgi.service.component.annotations.Component;
+>>>>>>> compatible
 import org.osgi.service.component.annotations.Reference;
 
 /**
  * @author Eduardo Garcia
  * @author Alejandro Tardín
  */
+<<<<<<< HEAD
 @Component(
 	configurationPid = "com.liferay.journal.configuration.JournalFileUploadsConfiguration",
 	immediate = true, service = ImageJournalUploadFileEntryHandler.class
 )
+=======
+@Component(immediate = true, service = ImageJournalUploadFileEntryHandler.class)
+>>>>>>> compatible
 public class ImageJournalUploadFileEntryHandler
 	implements UploadFileEntryHandler {
 
@@ -89,6 +109,7 @@ public class ImageJournalUploadFileEntryHandler
 		}
 	}
 
+<<<<<<< HEAD
 	@Activate
 	@Modified
 	protected void activate(Map<String, Object> properties) {
@@ -96,6 +117,8 @@ public class ImageJournalUploadFileEntryHandler
 			JournalFileUploadsConfiguration.class, properties);
 	}
 
+=======
+>>>>>>> compatible
 	private void _checkPermission(
 			long groupId, PermissionChecker permissionChecker)
 		throws PortalException {
@@ -137,11 +160,19 @@ public class ImageJournalUploadFileEntryHandler
 
 		_dlValidator.validateFileSize(fileName, size);
 
+<<<<<<< HEAD
 		String extension = FileUtil.getExtension(fileName);
 
 		for (String imageExtension :
 				_journalFileUploadsConfiguration.imageExtensions()) {
 
+=======
+		String[] imageExtensions = PrefsPropsUtil.getStringArray(
+			PropsKeys.JOURNAL_IMAGE_EXTENSIONS, StringPool.COMMA);
+		String extension = FileUtil.getExtension(fileName);
+
+		for (String imageExtension : imageExtensions) {
+>>>>>>> compatible
 			if (StringPool.STAR.equals(imageExtension) ||
 				imageExtension.equals(StringPool.PERIOD + extension)) {
 
@@ -164,8 +195,11 @@ public class ImageJournalUploadFileEntryHandler
 	@Reference
 	private DLValidator _dlValidator;
 
+<<<<<<< HEAD
 	private JournalFileUploadsConfiguration _journalFileUploadsConfiguration;
 
+=======
+>>>>>>> compatible
 	@Reference
 	private UniqueFileNameProvider _uniqueFileNameProvider;
 

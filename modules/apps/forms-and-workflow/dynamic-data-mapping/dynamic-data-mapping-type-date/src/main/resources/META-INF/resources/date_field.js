@@ -8,7 +8,11 @@ AUI.add(
 				popover: {
 					zIndex: Liferay.zIndex.TOOLTIP
 				},
+<<<<<<< HEAD
 				trigger: '.liferay-ddm-form-field-date .form-control'
+=======
+				trigger: '.liferay-ddm-form-field-date .trigger'
+>>>>>>> compatible
 			}
 		);
 
@@ -23,10 +27,13 @@ AUI.add(
 						value: Liferay.AUI.getDateFormat()
 					},
 
+<<<<<<< HEAD
 					predefinedValue: {
 						value: ''
 					},
 
+=======
+>>>>>>> compatible
 					type: {
 						value: 'date'
 					}
@@ -76,17 +83,25 @@ AUI.add(
 					getTemplateContext: function() {
 						var instance = this;
 
+<<<<<<< HEAD
 						var predefinedValue = instance.get('predefinedValue');
 						var value = instance.get('value');
 
 						instance.set('readOnly', false);
+=======
+						var value = instance.getContextValue();
+>>>>>>> compatible
 
 						return A.merge(
 							DateField.superclass.getTemplateContext.apply(instance, arguments),
 							{
+<<<<<<< HEAD
 								formattedValue: instance.formatDate(value),
 								predefinedValue: instance.formatDate(predefinedValue),
 								readOnly: false,
+=======
+								displayValue: instance.formatDate(value),
+>>>>>>> compatible
 								value: value
 							}
 						);
@@ -97,10 +112,14 @@ AUI.add(
 
 						var container = instance.get('container');
 
+<<<<<<< HEAD
 						var triggerNode;
 
 						triggerNode = container.one('.form-control');
 						return triggerNode;
+=======
+						return container.one('.trigger');
+>>>>>>> compatible
 					},
 
 					setValue: function(isoDate) {
@@ -108,6 +127,7 @@ AUI.add(
 
 						DateField.superclass.setValue.apply(instance, arguments);
 
+<<<<<<< HEAD
 						var formattedValue = instance.get('formattedValue');
 
 						instance.getTriggerNode().val(formattedValue);
@@ -125,6 +145,11 @@ AUI.add(
 						var inputGroup = container.one('.input-group-container');
 
 						inputGroup.insert(container.one('.form-feedback-indicator'), 'after');
+=======
+						var formattedDate = instance.formatDate(isoDate);
+
+						instance.getTriggerNode().val(formattedDate);
+>>>>>>> compatible
 					},
 
 					_afterSelectionChange: function(event) {
@@ -143,8 +168,11 @@ AUI.add(
 
 							instance.validate();
 						}
+<<<<<<< HEAD
 
 						instance._fireStartedFillingEvent();
+=======
+>>>>>>> compatible
 					},
 
 					_onActiveInputChange: function(event) {
@@ -163,6 +191,21 @@ AUI.add(
 						instance.getTriggerNode().focus();
 
 						datePicker.show();
+<<<<<<< HEAD
+=======
+					},
+
+					_renderErrorMessage: function() {
+						var instance = this;
+
+						DateField.superclass._renderErrorMessage.apply(instance, arguments);
+
+						var container = instance.get('container');
+
+						var inputGroup = container.one('.input-group-container');
+
+						inputGroup.insert(container.one('.help-block'), 'after');
+>>>>>>> compatible
 					}
 				}
 			}

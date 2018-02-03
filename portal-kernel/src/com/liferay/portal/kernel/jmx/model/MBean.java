@@ -14,10 +14,18 @@
 
 package com.liferay.portal.kernel.jmx.model;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.HashUtil;
+=======
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.util.CharPool;
+import com.liferay.portal.kernel.util.HashCode;
+import com.liferay.portal.kernel.util.HashCodeFactoryUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 
 import java.io.Serializable;
@@ -112,9 +120,18 @@ public class MBean implements Serializable {
 
 	@Override
 	public int hashCode() {
+<<<<<<< HEAD
 		int hashCode = HashUtil.hash(0, _domainName);
 
 		return HashUtil.hash(hashCode, _mBeanName);
+=======
+		HashCode hashCode = HashCodeFactoryUtil.getHashCode();
+
+		hashCode.append(_domainName);
+		hashCode.append(_mBeanName);
+
+		return hashCode.toHashCode();
+>>>>>>> compatible
 	}
 
 	public boolean isLoaded() {

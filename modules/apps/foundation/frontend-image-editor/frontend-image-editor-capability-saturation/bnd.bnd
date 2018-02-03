@@ -1,10 +1,18 @@
 Bundle-Name: Liferay Frontend Image Editor Capability Saturation
 Bundle-SymbolicName: com.liferay.frontend.image.editor.capability.saturation
+<<<<<<< HEAD
 Bundle-Version: 1.0.15
 Provide-Capability:\
 	soy;\
 		type="image-editor-capability";\
 		version:Version="${Bundle-Version}"
+=======
+Bundle-Version: 1.0.12
+Provide-Capability:\
+	soy;\
+		type="image-editor-capability";\
+		version:Version="1.0.0"
+>>>>>>> compatible
 Require-Capability:\
 	soy;\
 		filter:="(type=metal)"

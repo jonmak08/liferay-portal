@@ -16,11 +16,21 @@ package com.liferay.portal.service.persistence;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.ResourceAction;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.model.ResourceBlock;
+import com.liferay.portal.kernel.model.ResourceBlockPermission;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.ResourcePermission;
 import com.liferay.portal.kernel.model.Role;
 import com.liferay.portal.kernel.model.RoleConstants;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.service.ResourceActionLocalServiceUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.service.ResourceBlockLocalServiceUtil;
+import com.liferay.portal.kernel.service.ResourceBlockPermissionLocalServiceUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.ResourcePermissionLocalServiceUtil;
 import com.liferay.portal.kernel.service.RoleLocalServiceUtil;
 import com.liferay.portal.kernel.service.persistence.RoleFinderUtil;
@@ -83,6 +93,45 @@ public class RoleFinderTest {
 		String name = _resourcePermission.getName();
 		int scope = _resourcePermission.getScope();
 		String primKey = _resourcePermission.getPrimKey();
+<<<<<<< HEAD
+=======
+
+		Map<String, List<String>> actionIdsLists = new HashMap<>();
+
+		List<ResourcePermission> resourcePermissions =
+			ResourcePermissionLocalServiceUtil.getResourcePermissions(
+				companyId, name, scope, primKey);
+
+		List<ResourceAction> resourceActions =
+			ResourceActionLocalServiceUtil.getResourceActions(name);
+
+		for (ResourcePermission resourcePermission : resourcePermissions) {
+			long roleId = resourcePermission.getRoleId();
+
+			Role role = RoleLocalServiceUtil.getRole(roleId);
+
+			long actionIds = resourcePermission.getActionIds();
+
+			List<String> actionIdsList = new ArrayList<>();
+
+			for (ResourceAction resourceAction : resourceActions) {
+				if ((resourceAction.getBitwiseValue() & actionIds) != 0) {
+					actionIdsList.add(resourceAction.getActionId());
+				}
+			}
+
+			actionIdsLists.put(role.getName(), actionIdsList);
+		}
+
+		Assert.assertEquals(
+			actionIdsLists,
+			RoleFinderUtil.findByC_N_S_P(companyId, name, scope, primKey));
+	}
+
+	@Test
+	public void testFindByC_N_S_P_A() throws Exception {
+		boolean exists = false;
+>>>>>>> compatible
 
 		Map<String, List<String>> actionIdsLists = new HashMap<>();
 

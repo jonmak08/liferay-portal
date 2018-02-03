@@ -33,7 +33,11 @@ import com.liferay.portal.kernel.trash.TrashHandler;
 import com.liferay.portal.kernel.trash.TrashHandlerRegistryUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
+<<<<<<< HEAD
 import com.liferay.trash.model.TrashEntry;
+=======
+import com.liferay.trash.kernel.model.TrashEntry;
+>>>>>>> compatible
 
 import java.util.List;
 import java.util.Locale;
@@ -141,12 +145,19 @@ public class TrashIndexer extends BaseIndexer<TrashEntry> {
 			return;
 		}
 
+<<<<<<< HEAD
 		addSearchLocalizedTerm(searchQuery, searchContext, Field.CONTENT, true);
 		addSearchLocalizedTerm(
 			searchQuery, searchContext, Field.DESCRIPTION, true);
 		addSearchTerm(
 			searchQuery, searchContext, Field.REMOVED_BY_USER_NAME, true);
 		addSearchLocalizedTerm(searchQuery, searchContext, Field.TITLE, true);
+=======
+		addSearchTerm(searchQuery, searchContext, Field.CONTENT, true);
+		addSearchTerm(
+			searchQuery, searchContext, Field.REMOVED_BY_USER_NAME, true);
+		addSearchTerm(searchQuery, searchContext, Field.TITLE, true);
+>>>>>>> compatible
 		addSearchTerm(searchQuery, searchContext, Field.TYPE, false);
 		addSearchTerm(searchQuery, searchContext, Field.USER_NAME, true);
 	}
@@ -161,6 +172,22 @@ public class TrashIndexer extends BaseIndexer<TrashEntry> {
 	}
 
 	@Override
+<<<<<<< HEAD
+=======
+	protected String doGetSortField(String orderByCol) {
+		if (orderByCol.equals("removed-date")) {
+			return Field.REMOVED_DATE;
+		}
+		else if (orderByCol.equals("removed-by")) {
+			return Field.REMOVED_BY_USER_NAME;
+		}
+		else {
+			return orderByCol;
+		}
+	}
+
+	@Override
+>>>>>>> compatible
 	protected Summary doGetSummary(
 		Document document, Locale locale, String snippet,
 		PortletRequest portletRequest, PortletResponse portletResponse) {

@@ -77,6 +77,7 @@ public class StagingServiceImpl extends StagingServiceBaseImpl {
 		catch (PortalException pe) {
 			if (_log.isDebugEnabled()) {
 				_log.debug(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"StagingServiceImpl#createStagingRequest(",
 						String.valueOf(groupId), ", ", checksum, ")"),
@@ -106,6 +107,10 @@ public class StagingServiceImpl extends StagingServiceBaseImpl {
 						"StagingServiceImpl#hasRemoteLayout(", uuid, ", ",
 						String.valueOf(groupId), ", ",
 						String.valueOf(privateLayout), ")"),
+=======
+					"StagingServiceImpl#createStagingRequest(" + groupId +
+						", " + checksum + ")",
+>>>>>>> compatible
 					pe);
 			}
 
@@ -118,6 +123,7 @@ public class StagingServiceImpl extends StagingServiceBaseImpl {
 			int code, int processFlag, String processId,
 			List<Serializable> arguments)
 		throws PortalException {
+<<<<<<< HEAD
 
 		try {
 			Serializable serializable = arguments.get(0);
@@ -151,6 +157,41 @@ public class StagingServiceImpl extends StagingServiceBaseImpl {
 			if (_log.isDebugEnabled()) {
 				StringBundler sb = new StringBundler(9);
 
+=======
+
+		try {
+			Serializable serializable = arguments.get(0);
+
+			long groupId = GroupConstants.DEFAULT_LIVE_GROUP_ID;
+
+			if (serializable instanceof PortletDataContext) {
+				PortletDataContext portletDataContext =
+					(PortletDataContext)serializable;
+
+				groupId = portletDataContext.getGroupId();
+			}
+			else if (serializable instanceof ExportImportConfiguration) {
+				ExportImportConfiguration exportImportConfiguration =
+					(ExportImportConfiguration)serializable;
+
+				groupId = MapUtil.getLong(
+					exportImportConfiguration.getSettingsMap(),
+					"targetGroupId");
+			}
+
+			GroupPermissionUtil.check(
+				getPermissionChecker(), groupId,
+				ActionKeys.EXPORT_IMPORT_LAYOUTS);
+
+			ExportImportLifecycleManagerUtil.fireExportImportLifecycleEvent(
+				code, processFlag, processId,
+				arguments.toArray(new Serializable[arguments.size()]));
+		}
+		catch (PortalException pe) {
+			if (_log.isDebugEnabled()) {
+				StringBundler sb = new StringBundler(9);
+
+>>>>>>> compatible
 				sb.append(
 					"StagingServiceImpl#propagateExportImportLifecycleEvent(");
 				sb.append(code);
@@ -200,10 +241,16 @@ public class StagingServiceImpl extends StagingServiceBaseImpl {
 		catch (PortalException pe) {
 			if (_log.isDebugEnabled()) {
 				_log.debug(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"StagingServiceImpl#publishStagingRequest(",
 						String.valueOf(stagingRequestId), ", ",
 						String.valueOf(exportImportConfiguration), ")"),
+=======
+					"StagingServiceImpl#publishStagingRequest(" +
+						stagingRequestId + ", " + exportImportConfiguration +
+							")",
+>>>>>>> compatible
 					pe);
 			}
 
@@ -225,10 +272,16 @@ public class StagingServiceImpl extends StagingServiceBaseImpl {
 		catch (PortalException pe) {
 			if (_log.isDebugEnabled()) {
 				_log.debug(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"StagingServiceImpl#updateStagingRequest(",
 						String.valueOf(stagingRequestId), ", ", fileName, ", ",
 						String.valueOf(bytes.length), "bytes)"),
+=======
+					"StagingServiceImpl#updateStagingRequest(" +
+						stagingRequestId + ", " + fileName + ", " +
+							bytes.length + "bytes)",
+>>>>>>> compatible
 					pe);
 			}
 

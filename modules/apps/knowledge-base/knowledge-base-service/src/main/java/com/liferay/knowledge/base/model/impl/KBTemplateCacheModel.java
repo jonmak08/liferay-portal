@@ -21,6 +21,10 @@ import com.liferay.knowledge.base.model.KBTemplate;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -99,7 +103,11 @@ public class KBTemplateCacheModel implements CacheModel<KBTemplate>,
 		KBTemplateImpl kbTemplateImpl = new KBTemplateImpl();
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			kbTemplateImpl.setUuid("");
+=======
+			kbTemplateImpl.setUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kbTemplateImpl.setUuid(uuid);
@@ -111,7 +119,11 @@ public class KBTemplateCacheModel implements CacheModel<KBTemplate>,
 		kbTemplateImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			kbTemplateImpl.setUserName("");
+=======
+			kbTemplateImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kbTemplateImpl.setUserName(userName);
@@ -132,14 +144,22 @@ public class KBTemplateCacheModel implements CacheModel<KBTemplate>,
 		}
 
 		if (title == null) {
+<<<<<<< HEAD
 			kbTemplateImpl.setTitle("");
+=======
+			kbTemplateImpl.setTitle(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kbTemplateImpl.setTitle(title);
 		}
 
 		if (content == null) {
+<<<<<<< HEAD
 			kbTemplateImpl.setContent("");
+=======
+			kbTemplateImpl.setContent(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kbTemplateImpl.setContent(content);
@@ -180,7 +200,11 @@ public class KBTemplateCacheModel implements CacheModel<KBTemplate>,
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		if (uuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(uuid);
@@ -195,7 +219,11 @@ public class KBTemplateCacheModel implements CacheModel<KBTemplate>,
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -205,14 +233,22 @@ public class KBTemplateCacheModel implements CacheModel<KBTemplate>,
 		objectOutput.writeLong(modifiedDate);
 
 		if (title == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(title);
 		}
 
 		if (content == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(content);

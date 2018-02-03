@@ -3,12 +3,21 @@
 /**
  * Image Editor Saturation Component
  *
+<<<<<<< HEAD
  * @param? pathThemeImages
  * @param ref
  * @param requestPreview
  */
 {template .render}
 	<div id="{$ref}">
+=======
+ * @param key
+ * @param? pathThemeImages
+ * @param requestPreview
+ */
+{template .render}
+	<div id="{$key}">
+>>>>>>> compatible
 		<svg class="lexicon-icon min-value">
 			<use xlink:href="{$pathThemeImages}/lexicon/icons.svg#radio-button"></use>
 		</svg>
@@ -18,7 +27,11 @@
 				{param events: [
 					'valueChanged': $requestPreview
 				] /}
+<<<<<<< HEAD
 				{param ref: 'slider' /}
+=======
+				{param key: 'slider' /}
+>>>>>>> compatible
 				{param max: 100 /}
 				{param min: 0 /}
 				{param value: 50 /}

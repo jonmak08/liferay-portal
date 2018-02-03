@@ -14,11 +14,24 @@
 
 package com.liferay.roles.admin.internal.exportimport.data.handler;
 
+<<<<<<< HEAD
 import com.liferay.exportimport.data.handler.base.BaseStagedModelDataHandler;
 import com.liferay.exportimport.kernel.lar.ExportImportPathUtil;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.exportimport.kernel.lar.StagedModelDataHandler;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
+=======
+import com.liferay.exportimport.kernel.lar.ExportImportPathUtil;
+import com.liferay.exportimport.kernel.lar.PortletDataContext;
+import com.liferay.exportimport.kernel.lar.StagedModelDataHandler;
+import com.liferay.exportimport.lar.BaseStagedModelDataHandler;
+import com.liferay.portal.kernel.dao.orm.DynamicQuery;
+import com.liferay.portal.kernel.dao.orm.Junction;
+import com.liferay.portal.kernel.dao.orm.Property;
+import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
+import com.liferay.portal.kernel.dao.orm.QueryUtil;
+import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.NoSuchResourceActionException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
@@ -28,6 +41,10 @@ import com.liferay.portal.kernel.model.GroupConstants;
 import com.liferay.portal.kernel.model.Permission;
 import com.liferay.portal.kernel.model.ResourceConstants;
 import com.liferay.portal.kernel.model.ResourcePermission;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.model.ResourceTypePermission;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Role;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
@@ -35,8 +52,15 @@ import com.liferay.portal.kernel.security.permission.PermissionConversionFilter;
 import com.liferay.portal.kernel.security.permission.PermissionConverterUtil;
 import com.liferay.portal.kernel.security.permission.PermissionThreadLocal;
 import com.liferay.portal.kernel.service.GroupLocalService;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.service.ResourcePermissionLocalService;
 import com.liferay.portal.kernel.service.ResourcePermissionService;
+=======
+import com.liferay.portal.kernel.service.ResourceBlockLocalService;
+import com.liferay.portal.kernel.service.ResourcePermissionLocalService;
+import com.liferay.portal.kernel.service.ResourcePermissionService;
+import com.liferay.portal.kernel.service.ResourceTypePermissionLocalService;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.RoleLocalService;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -136,6 +160,19 @@ public class RoleStagedModelDataHandler
 					groupResourcePermission);
 			}
 		}
+<<<<<<< HEAD
+=======
+
+		List<ResourceTypePermission> resourceTypePermissions =
+			getResourceTypePermissions(portletDataContext, importedRole);
+
+		for (ResourceTypePermission resourceTypePermission :
+				resourceTypePermissions) {
+
+			_resourceTypePermissionLocalService.deleteResourceTypePermission(
+				resourceTypePermission);
+		}
+>>>>>>> compatible
 	}
 
 	@Override
@@ -205,8 +242,21 @@ public class RoleStagedModelDataHandler
 
 		for (Permission permission : permissions) {
 			try {
+<<<<<<< HEAD
 				importResourcePermissions(
 					portletDataContext, importedRole, permission);
+=======
+				if (_resourceBlockLocalService.isSupported(
+						permission.getName())) {
+
+					importResourceBlock(
+						portletDataContext, importedRole, permission);
+				}
+				else {
+					importResourcePermissions(
+						portletDataContext, importedRole, permission);
+				}
+>>>>>>> compatible
 			}
 			catch (NoSuchResourceActionException nsrae) {
 				if (_log.isDebugEnabled()) {
@@ -220,6 +270,85 @@ public class RoleStagedModelDataHandler
 		portletDataContext.importClassedModel(role, importedRole);
 	}
 
+<<<<<<< HEAD
+=======
+	protected List<ResourceTypePermission> getResourceTypePermissions(
+		PortletDataContext portletDataContext, Role importedRole) {
+
+		DynamicQuery dynamicQuery =
+			_resourceTypePermissionLocalService.dynamicQuery();
+
+		Property companyIdProperty = PropertyFactoryUtil.forName("companyId");
+
+		dynamicQuery.add(
+			companyIdProperty.eq(portletDataContext.getCompanyId()));
+
+		Junction junction = RestrictionsFactoryUtil.disjunction();
+
+		long[] permissibleGroupIds = {
+			GroupConstants.DEFAULT_PARENT_GROUP_ID,
+			portletDataContext.getCompanyId(),
+			portletDataContext.getCompanyGroupId(),
+			portletDataContext.getUserPersonalSiteGroupId()
+		};
+
+		for (long permissibleGroupId : permissibleGroupIds) {
+			Property property = PropertyFactoryUtil.forName("groupId");
+
+			junction.add(property.eq(permissibleGroupId));
+		}
+
+		dynamicQuery.add(junction);
+
+		Property roleIdProperty = PropertyFactoryUtil.forName("roleId");
+
+		dynamicQuery.add(roleIdProperty.eq(importedRole.getRoleId()));
+
+		return _resourceTypePermissionLocalService.dynamicQuery(dynamicQuery);
+	}
+
+	protected void importResourceBlock(
+			PortletDataContext portletDataContext, Role importedRole,
+			Permission permission)
+		throws PortalException {
+
+		int scope = permission.getScope();
+
+		if (scope == ResourceConstants.SCOPE_COMPANY) {
+			_resourceBlockLocalService.addCompanyScopePermission(
+				portletDataContext.getCompanyId(), permission.getName(),
+				importedRole.getRoleId(), permission.getActionId());
+		}
+		else if (scope == ResourceConstants.SCOPE_GROUP) {
+			long groupId = portletDataContext.getCompanyGroupId();
+
+			long sourceGroupId = GetterUtil.getLong(permission.getPrimKey());
+
+			if (sourceGroupId ==
+					portletDataContext.getSourceUserPersonalSiteGroupId()) {
+
+				groupId = portletDataContext.getUserPersonalSiteGroupId();
+			}
+
+			_resourceBlockLocalService.addGroupScopePermission(
+				portletDataContext.getCompanyId(), groupId,
+				permission.getName(), importedRole.getRoleId(),
+				permission.getActionId());
+		}
+		else if (scope == ResourceConstants.SCOPE_GROUP_TEMPLATE) {
+			_resourceBlockLocalService.addGroupScopePermission(
+				portletDataContext.getCompanyId(),
+				GroupConstants.DEFAULT_PARENT_GROUP_ID, permission.getName(),
+				importedRole.getRoleId(), permission.getActionId());
+		}
+		else {
+			if (_log.isDebugEnabled()) {
+				_log.debug("Individually scoped permissions are not exported");
+			}
+		}
+	}
+
+>>>>>>> compatible
 	protected void importResourcePermissions(
 			PortletDataContext portletDataContext, Role importedRole,
 			Permission permission)
@@ -281,6 +410,16 @@ public class RoleStagedModelDataHandler
 	}
 
 	@Reference(unbind = "-")
+<<<<<<< HEAD
+=======
+	protected void setResourceBlockLocalService(
+		ResourceBlockLocalService resourceBlockLocalService) {
+
+		_resourceBlockLocalService = resourceBlockLocalService;
+	}
+
+	@Reference(unbind = "-")
+>>>>>>> compatible
 	protected void setResourcePermissionLocalService(
 		ResourcePermissionLocalService resourcePermissionLocalService) {
 
@@ -295,6 +434,17 @@ public class RoleStagedModelDataHandler
 	}
 
 	@Reference(unbind = "-")
+<<<<<<< HEAD
+=======
+	protected void setResourceTypePermissionLocalService(
+		ResourceTypePermissionLocalService resourceTypePermissionLocalService) {
+
+		_resourceTypePermissionLocalService =
+			resourceTypePermissionLocalService;
+	}
+
+	@Reference(unbind = "-")
+>>>>>>> compatible
 	protected void setRoleLocalService(RoleLocalService roleLocalService) {
 		_roleLocalService = roleLocalService;
 	}
@@ -305,8 +455,16 @@ public class RoleStagedModelDataHandler
 	private GroupLocalService _groupLocalService;
 	private final PermissionConversionFilter _permissionConversionFilter =
 		new ImportExportPermissionConversionFilter();
+<<<<<<< HEAD
 	private ResourcePermissionLocalService _resourcePermissionLocalService;
 	private ResourcePermissionService _resourcePermissionService;
+=======
+	private ResourceBlockLocalService _resourceBlockLocalService;
+	private ResourcePermissionLocalService _resourcePermissionLocalService;
+	private ResourcePermissionService _resourcePermissionService;
+	private ResourceTypePermissionLocalService
+		_resourceTypePermissionLocalService;
+>>>>>>> compatible
 	private RoleLocalService _roleLocalService;
 
 }

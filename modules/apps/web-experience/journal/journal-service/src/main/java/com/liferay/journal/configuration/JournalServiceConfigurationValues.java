@@ -17,16 +17,30 @@ package com.liferay.journal.configuration;
 import com.liferay.portal.kernel.util.GetterUtil;
 
 /**
+<<<<<<< HEAD
  * @author     Eduardo Garcia
  * @deprecated As of 4.0.0, see {@link JournalServiceConfiguration}
  */
 @Deprecated
+=======
+ * @author Eduardo Garcia
+ */
+>>>>>>> compatible
 public class JournalServiceConfigurationValues {
 
 	public static final String[] CHAR_BLACKLIST =
 		JournalServiceConfigurationUtil.getArray(
 			JournalServiceConfigurationKeys.CHAR_BLACKLIST);
 
+<<<<<<< HEAD
+=======
+	public static final boolean FETCH_LATEST_ARTICLE_WITH_PAGINATION =
+		GetterUtil.getBoolean(
+			JournalServiceConfigurationUtil.get(
+				JournalServiceConfigurationKeys.
+					FETCH_LATEST_ARTICLE_WITH_PAGINATION));
+
+>>>>>>> compatible
 	public static final int JOURNAL_ARTICLE_CHECK_INTERVAL =
 		GetterUtil.getInteger(
 			JournalServiceConfigurationUtil.get(
@@ -82,7 +96,11 @@ public class JournalServiceConfigurationValues {
 					JOURNAL_FOLDER_ICON_CHECK_COUNT));
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 4.0.0, with no direct replacement
+=======
+	 * @deprecated As of 3.6.0, with no direct replacement
+>>>>>>> compatible
 	 */
 	@Deprecated
 	public static final String LAR_CREATION_STRATEGY =

@@ -23,7 +23,11 @@
 		<delete failonerror="false" file="${jar.file}-sources.jar" />
 	</target>
 
+<<<<<<< HEAD
 	<target depends="download-latest-artifact,init-compile" name="compile" unless="${compile.uptodate}">
+=======
+	<target depends="init-compile" name="compile" unless="compile.uptodate">
+>>>>>>> compatible
 		<property name="javac.destdir" value="classes" />
 		<property name="javac.srcdir" value="src" />
 		<property name="javac.classpathref" value="project.classpath" />
@@ -51,6 +55,7 @@
 		<copy file="${jar.file}.jar" preservelastmodified="true" todir="${deploy.dir}" />
 	</target>
 
+<<<<<<< HEAD
 	<target name="download-latest-artifact" unless="${build.portal.artifacts.enabled}">
 		<download-latest-artifact destfile="${jar.file}.jar" />
 
@@ -58,6 +63,9 @@
 	</target>
 
 	<target if="${build.portal.artifacts.enabled}" name="init-compile">
+=======
+	<target name="init-compile">
+>>>>>>> compatible
 		<condition property="compile.uptodate">
 			<uptodate targetfile="classes/.touch">
 				<srcfiles dir="${basedir}" includes="bnd.bnd,build.xml,ivy.xml,src/**/*.*" />
@@ -86,6 +94,7 @@
 		<install-portal-artifact>
 			<attach classifier="sources" file="${artifact.name}-sources.jar" />
 		</install-portal-artifact>
+<<<<<<< HEAD
 	</target>
 
 	<target depends="jar,jar-sources" name="install-portal-snapshot">
@@ -94,6 +103,16 @@
 		</install-portal-artifact>
 	</target>
 
+=======
+	</target>
+
+	<target depends="jar,jar-sources" name="install-portal-snapshot">
+		<install-portal-artifact snapshot="true">
+			<attach classifier="sources" file="${artifact.name}-sources.jar" />
+		</install-portal-artifact>
+	</target>
+
+>>>>>>> compatible
 	<target depends="compile,init-jar" name="jar" unless="jar.uptodate">
 		<if>
 			<available file="bnd.bnd" />
@@ -324,15 +343,25 @@
 		</if>
 	</target>
 
+<<<<<<< HEAD
 	<target name="publish-portal-release">
 		<publish-portal-artifact targets="jar,jar-javadoc,jar-sources">
+=======
+	<target depends="jar,jar-javadoc,jar-sources" name="publish-portal-release">
+		<publish-portal-artifact >
+>>>>>>> compatible
 			<attach classifier="javadoc" file="${artifact.name}-javadoc.jar" />
 			<attach classifier="sources" file="${artifact.name}-sources.jar" />
 		</publish-portal-artifact>
 	</target>
 
+<<<<<<< HEAD
 	<target name="publish-portal-snapshot">
 		<publish-portal-artifact snapshot="true" targets="jar,jar-javadoc,jar-sources">
+=======
+	<target depends="jar,jar-javadoc,jar-sources" name="publish-portal-snapshot">
+		<publish-portal-artifact snapshot="true">
+>>>>>>> compatible
 			<attach classifier="javadoc" file="${artifact.name}-javadoc.jar" />
 			<attach classifier="sources" file="${artifact.name}-sources.jar" />
 		</publish-portal-artifact>

@@ -12,9 +12,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Web Content" />
 		</execute>
 	</set-up>
@@ -37,6 +41,7 @@
 		</if>
 	</tear-down>
 
+<<<<<<< HEAD
 	<command name="ApproveInWCSubfolderWorkflow" priority="5">
 		<property name="portal.acceptance" value="pending" />
 		<property name="testray.component.names" value="Training" />
@@ -87,6 +92,11 @@
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
 			<var name="portlet" value="Web Content" />
+=======
+	<command name="ConfigureFolderWorkflow" priority="4">
+		<execute macro="Workflow#configureWorkflowViaFolderInfo">
+			<var name="workflowDefinition" value="Single Approver (Version 1)" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="WebContentFolder#addCP">
@@ -94,6 +104,7 @@
 			<var name="folderName" value="WC Folder Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="WebContentFolder#addSubfolderCP">
 			<var name="folderName" value="WC Folder Name" />
 			<var name="subfolderDescription" value="WC Subfolder Description" />
@@ -170,5 +181,30 @@
 			<var name="webContentText" value="WC WebContent Text" />
 			<var name="webContentTitle" value="WC WebContent Title" />
 		</execute>
+=======
+		<execute macro="WebContentFolder#configureWorkflowCP">
+			<var name="folderName" value="WC Folder Name" />
+			<var name="workflowDefinition" value="Single Approver (Version 1)" />
+			<var name="workflowRestriction" value="Default Workflow" />
+		</execute>
+
+		<execute macro="WebContentFolder#configureWorkflowCP">
+			<var name="folderName" value="WC Folder Name" />
+			<var name="workflowRestriction" value="Parent Folder" />
+		</execute>
+
+		<execute macro="WebContentFolder#configureWorkflowCP">
+			<var name="folderName" value="WC Folder Name" />
+			<var name="structureName" value="Basic Web Content" />
+			<var name="workflowDefinition" value="Single Approver (Version 1)" />
+			<var name="workflowRestriction" value="Specific Restrictions" />
+		</execute>
+
+		<execute macro="WebContentFolder#configureWorkflowCP">
+			<var name="folderName" value="WC Folder Name" />
+			<var name="workflowDefinition" value="No Workflow" />
+			<var name="workflowRestriction" value="Default Workflow" />
+		</execute>
+>>>>>>> compatible
 	</command>
 </definition>

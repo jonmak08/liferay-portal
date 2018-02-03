@@ -8,9 +8,15 @@
  * @param? image
  * @param? imageEditorCapabilities
  * @param? imageEditorReady
+<<<<<<< HEAD
  * @param? pathThemeImages
  * @param? selectedControl
  * @param? selectedTool
+=======
+ * @param? selectedControl
+ * @param? selectedTool
+ * @param? pathThemeImages
+>>>>>>> compatible
  * @param? strings
  *
  * Function References
@@ -28,7 +34,11 @@
 				<canvas class="fade {$imageEditorReady ? 'in' : ''} image-preview"></canvas>
 
 				{call ImageEditorLoading.render data="all"}
+<<<<<<< HEAD
 					{param ref: 'loading' /}
+=======
+					{param key: 'loading' /}
+>>>>>>> compatible
 				{/call}
 			</div>
 
@@ -43,19 +53,31 @@
 
 			<div class="fade {$imageEditorReady and not $selectedTool ? 'in' : ''} lfr-image-editor-history-container">
 				<div class="btn-group" role="group">
+<<<<<<< HEAD
 					<a class="btn btn-link btn-monospaced {$history and $history.canUndo ? '' : 'disabled'}" data-onclick="undo" href="javascript:;">
+=======
+					<a class="btn btn-link {$history and $history.canUndo ? '' : 'disabled'} icon-monospaced" data-onclick="undo" href="javascript:;">
+>>>>>>> compatible
 						<svg class="lexicon-icon">
 							<use xlink:href="{$pathThemeImages}/lexicon/icons.svg#angle-left"></use>
 						</svg>
 					</a>
 
+<<<<<<< HEAD
 					<a class="btn btn-link btn-monospaced {$history and $history.canReset ? '' : 'disabled'}" data-onclick="reset" href="javascript:;">
+=======
+					<a class="btn btn-link {$history and $history.canReset ? '' : 'disabled'} icon-monospaced" data-onclick="reset" href="javascript:;">
+>>>>>>> compatible
 						<svg class="lexicon-icon">
 							<use xlink:href="{$pathThemeImages}/lexicon/icons.svg#restore"></use>
 						</svg>
 					</a>
 
+<<<<<<< HEAD
 					<a class="btn btn-link btn-monospaced {$history and $history.canRedo ? '' : 'disabled'}" data-onclick="redo" href="javascript:;">
+=======
+					<a class="btn btn-link {$history and $history.canRedo ? '' : 'disabled'} icon-monospaced" data-onclick="redo" href="javascript:;">
+>>>>>>> compatible
 						<svg class="lexicon-icon">
 							<use xlink:href="{$pathThemeImages}/lexicon/icons.svg#angle-right"></use>
 						</svg>
@@ -94,8 +116,13 @@
  * @param? selectedTool
  */
 {template .tools}
+<<<<<<< HEAD
 	<div class="controls text-center pt-2">
 		<ul class="d-flex justify-content-center list-inline">
+=======
+	<div class="controls text-center">
+		<ul class="list-inline">
+>>>>>>> compatible
 			{foreach $tool in $imageEditorCapabilities.tools}
 				<li class="{$selectedTool == 'tool-' + index($tool) ? 'open' : ''}">
 					{call .tool data="all"}
@@ -125,7 +152,11 @@
 	{else}
 		{let $control : $tool.controls[0] /}
 
+<<<<<<< HEAD
 		<a class="btn btn-monospaced" data-control="{$control.variant}" data-onclick="requestImageEditorEdit" data-tool="tool-{$toolIndex}" href="javascript:;">
+=======
+		<a class="btn" data-control="{$control.variant}" data-onclick="requestImageEditorEdit" data-tool="tool-{$toolIndex}" href="javascript:;">
+>>>>>>> compatible
 			<svg class="icon-monospaced lexicon-icon">
 				<use xlink:href="{$pathThemeImages}/lexicon/icons.svg#{$tool.icon}"></use>
 			</svg>
@@ -148,7 +179,11 @@
 {template .tool_dropdown}
 	{call Dropdown.render}
 		{param header kind="html"}
+<<<<<<< HEAD
 			<a class="btn btn-monospaced" data-onclick="toggle" href="javascript:;">
+=======
+			<a class="btn" data-onclick="toggle" href="javascript:;">
+>>>>>>> compatible
 				<svg class="icon-monospaced lexicon-icon" data-icon="{$tool.icon}">
 					<use xlink:href="{$pathThemeImages}/lexicon/icons.svg#{$tool.icon}"></use>
 				</svg>
@@ -163,7 +198,11 @@
 			{/foreach}
 		{/param}
 
+<<<<<<< HEAD
 		{param classMap: ['dropdown-menu-top'] /}
+=======
+		{param elementClasses: 'dropup' /}
+>>>>>>> compatible
 		{param position: 0 /}
 		{param positionClassOnMenu: true /}
 	{/call}
@@ -180,16 +219,27 @@
  * custom UI for the selected control
  *
  * @param control
+<<<<<<< HEAD
  * @param? pathThemeImages
+=======
+>>>>>>> compatible
  * @param selectedControl
  * @param strings
  */
 {template .tool_control}
+<<<<<<< HEAD
 	<div class="controls-container d-flex {$selectedControl and $selectedControl.label == $control.label ? 'open' : ''}">
 		<div class="col-2 mt-4">
 			<button class="btn btn-link" data-onclick="accept">{$strings['apply']}</button>
 		</div>
 		<div class="col-8 tool-controls">
+=======
+	<div class="controls-container {$selectedControl and $selectedControl.label == $control.label ? 'open' : ''}">
+		<div class="btn-space col-md-2 col-sm-2 col-xs-2">
+			<button class="btn btn-link" data-onclick="accept">{$strings['apply']}</button>
+		</div>
+		<div class="col-md-8 col-sm-8 col-xs-8 tool-controls">
+>>>>>>> compatible
 			{if $selectedControl and $selectedControl.label == $control.label}
 				{call .active_controls data="all"}
 					{param modulePath: $control.modulePath /}
@@ -197,7 +247,11 @@
 				{/call}
 			{/if}
 		</div>
+<<<<<<< HEAD
 		<div class="col-2 mt-4">
+=======
+		<div class="btn-space col-md-2 col-sm-2 col-xs-2">
+>>>>>>> compatible
 			<button class="btn btn-link" data-onclick="discard">{$strings['cancel']}</button>
 		</div>
 	</div>
@@ -213,7 +267,11 @@
  */
 {template .active_controls}
 	{delcall ImageEditor.Controls allowemptydefault="true" variant="$variant" data="all" }
+<<<<<<< HEAD
 		{param ref: $id + '_selected_control_' + $variant /}
+=======
+		{param key: $id + '_selected_control_' + $variant /}
+>>>>>>> compatible
 	{/delcall}
 {/template}
 

@@ -14,9 +14,19 @@
 
 package com.liferay.portal.configuration.extender.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.configuration.extender.ConfigurationDescription;
+import com.liferay.portal.configuration.extender.ConfigurationDescriptionFactory;
+import com.liferay.portal.configuration.extender.FactoryConfigurationDescription;
+import com.liferay.portal.configuration.extender.NamedConfigurationContent;
+import com.liferay.portal.configuration.extender.SingleConfigurationDescription;
+import com.liferay.portal.kernel.util.ArrayUtil;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Supplier;
 
 import java.io.IOException;
@@ -95,6 +105,7 @@ public class ConfiguratorExtension implements Extension {
 				continue;
 			}
 
+<<<<<<< HEAD
 			_process(configurationDescription);
 		}
 	}
@@ -128,11 +139,52 @@ public class ConfiguratorExtension implements Extension {
 			configuration = _configurationAdmin.createFactoryConfiguration(
 				configurationDescription.getFactoryPid(), StringPool.QUESTION);
 		}
+=======
+			if (configurationDescription instanceof
+					FactoryConfigurationDescription) {
+
+				_process(
+					(FactoryConfigurationDescription)configurationDescription);
+			}
+			else if (configurationDescription instanceof
+						SingleConfigurationDescription) {
+
+				_process(
+					(SingleConfigurationDescription)configurationDescription);
+			}
+			else {
+				_logger.log(
+					Logger.LOG_ERROR,
+					configurationDescriptionFactory + " returned an " +
+						"unsupported configuration description " +
+							configurationDescription);
+			}
+		}
+	}
+
+	private void _process(
+			FactoryConfigurationDescription factoryConfigurationDescription)
+		throws InvalidSyntaxException, IOException {
+
+		String factoryPid = factoryConfigurationDescription.getFactoryPid();
+		String pid = factoryConfigurationDescription.getPid();
+
+		String configuratorURL = _namespace + "#" + pid;
+
+		if (_configurationExists(
+				"(configurator.url=" + configuratorURL + ")")) {
+
+			return;
+		}
+
+		Configuration configuration =
+			_configurationAdmin.createFactoryConfiguration(
+				factoryPid, StringPool.QUESTION);
 
 		Dictionary<String, Object> properties = null;
 
 		Supplier<Dictionary<String, Object>> propertiesSupplier =
-			configurationDescription.getPropertiesSupplier();
+			factoryConfigurationDescription.getPropertiesSupplier();
 
 		try {
 			properties = propertiesSupplier.get();
@@ -140,19 +192,67 @@ public class ConfiguratorExtension implements Extension {
 		catch (Throwable t) {
 			_logger.log(
 				Logger.LOG_WARNING,
-				StringBundler.concat(
-					"Supplier from description ",
-					String.valueOf(configurationDescription),
-					" threw an exception: "),
+				"Supplier from factory configuration description " +
+					factoryConfigurationDescription + " threw an exception: ",
 				t);
 
 			return;
 		}
 
+		properties.put("configurator.url", configuratorURL);
+
+		configuration.update(properties);
+	}
+
+	private void _process(SingleConfigurationDescription description)
+		throws InvalidSyntaxException, IOException {
+
+		String pid = description.getPid();
+
+		if (_configurationExists("(service.pid=" + pid + ")")) {
+			return;
+		}
+
+		Configuration configuration = _configurationAdmin.getConfiguration(
+			pid, StringPool.QUESTION);
+>>>>>>> compatible
+
+		Dictionary<String, Object> properties = null;
+
+		Supplier<Dictionary<String, Object>> propertiesSupplier =
+<<<<<<< HEAD
+			configurationDescription.getPropertiesSupplier();
+=======
+			description.getPropertiesSupplier();
+>>>>>>> compatible
+
+		try {
+			properties = propertiesSupplier.get();
+		}
+		catch (Throwable t) {
+			_logger.log(
+				Logger.LOG_WARNING,
+<<<<<<< HEAD
+				StringBundler.concat(
+					"Supplier from description ",
+					String.valueOf(configurationDescription),
+					" threw an exception: "),
+=======
+				"Supplier from description " + description + " threw an " +
+					"exception: ",
+>>>>>>> compatible
+				t);
+
+			return;
+		}
+
+<<<<<<< HEAD
 		if (configuratorURL != null) {
 			properties.put("configurator.url", configuratorURL);
 		}
 
+=======
+>>>>>>> compatible
 		configuration.update(properties);
 	}
 

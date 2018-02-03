@@ -14,6 +14,7 @@
 
 package com.liferay.blogs.web.internal.portlet;
 
+<<<<<<< HEAD
 import com.liferay.asset.constants.AssetWebKeys;
 import com.liferay.asset.util.AssetHelper;
 import com.liferay.blogs.constants.BlogsPortletKeys;
@@ -27,6 +28,12 @@ import javax.portlet.Portlet;
 import javax.portlet.PortletException;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
+=======
+import com.liferay.blogs.web.constants.BlogsPortletKeys;
+import com.liferay.portal.kernel.model.Release;
+
+import javax.portlet.Portlet;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -61,6 +68,7 @@ import org.osgi.service.component.annotations.Reference;
 )
 public class BlogsAdminPortlet extends BaseBlogsPortlet {
 
+<<<<<<< HEAD
 	@Override
 	public void render(
 			RenderRequest renderRequest, RenderResponse renderResponse)
@@ -75,15 +83,22 @@ public class BlogsAdminPortlet extends BaseBlogsPortlet {
 
 	@Reference(
 		target = "(&(release.bundle.symbolic.name=com.liferay.blogs.web)(release.schema.version=1.1.0))",
+=======
+	@Reference(
+		target = "(&(release.bundle.symbolic.name=com.liferay.blogs.web)(release.schema.version=1.0.0))",
+>>>>>>> compatible
 		unbind = "-"
 	)
 	protected void setRelease(Release release) {
 	}
 
+<<<<<<< HEAD
 	@Reference
 	private AssetHelper _assetHelper;
 
 	@Reference
 	private TrashHelper _trashHelper;
 
+=======
+>>>>>>> compatible
 }

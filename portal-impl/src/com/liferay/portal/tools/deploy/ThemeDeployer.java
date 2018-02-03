@@ -14,10 +14,14 @@
 
 package com.liferay.portal.tools.deploy;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Plugin;
 import com.liferay.portal.kernel.plugin.PluginPackage;
+import com.liferay.portal.kernel.util.StreamUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
@@ -50,6 +54,7 @@ public class ThemeDeployer extends BaseDeployer {
 			}
 		}
 
+<<<<<<< HEAD
 		try (ThemeDeployer themeDeployer = new ThemeDeployer(wars, jars)) {
 		}
 		catch (IOException ioe) {
@@ -57,6 +62,9 @@ public class ThemeDeployer extends BaseDeployer {
 				_log.warn(ioe, ioe);
 			}
 		}
+=======
+		StreamUtil.cleanUp(new ThemeDeployer(wars, jars));
+>>>>>>> compatible
 	}
 
 	public ThemeDeployer() {

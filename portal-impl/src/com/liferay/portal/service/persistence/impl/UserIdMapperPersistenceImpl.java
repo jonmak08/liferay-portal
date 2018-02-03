@@ -35,8 +35,13 @@ import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.UserIdMapperPersistence;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.model.impl.UserIdMapperImpl;
 import com.liferay.portal.model.impl.UserIdMapperModelImpl;
 
@@ -188,6 +193,7 @@ public class UserIdMapperPersistenceImpl extends BasePersistenceImpl<UserIdMappe
 		}
 
 		List<UserIdMapper> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<UserIdMapper>)finderCache.getResult(finderPath,
@@ -198,6 +204,18 @@ public class UserIdMapperPersistenceImpl extends BasePersistenceImpl<UserIdMappe
 					if ((userId != userIdMapper.getUserId())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<UserIdMapper>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (UserIdMapper userIdMapper : list) {
+					if ((userId != userIdMapper.getUserId())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -1134,11 +1152,17 @@ public class UserIdMapperPersistenceImpl extends BasePersistenceImpl<UserIdMappe
 		setModelClass(UserIdMapper.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("type", "type_");

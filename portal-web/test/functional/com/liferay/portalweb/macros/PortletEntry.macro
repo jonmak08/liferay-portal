@@ -13,6 +13,7 @@
 		</execute>
 	</command>
 
+<<<<<<< HEAD
 	<command name="deleteViaMenuItem">
 		<execute function="Click#waitForMenuToggleJSClick" locator1="Icon#ROW_VERTICAL_ELLIPSIS">
 			<var name="key_rowEntry" value="${rowEntry}" />
@@ -40,6 +41,9 @@
 	<command name="inputDescription">
 		<execute function="Click" locator1="TextArea#DESCRIPTION" />
 
+=======
+	<command name="inputDescription">
+>>>>>>> compatible
 		<execute function="Type" locator1="TextArea#DESCRIPTION" value1="${description}" />
 	</command>
 
@@ -54,8 +58,11 @@
 	</command>
 
 	<command name="inputName">
+<<<<<<< HEAD
 		<execute function="Click" locator1="TextInput#NAME" />
 
+=======
+>>>>>>> compatible
 		<execute function="Type" locator1="TextInput#NAME" value1="${name}" />
 	</command>
 
@@ -84,6 +91,7 @@
 
 		<execute macro="Alert#viewSuccessMessage" />
 	</command>
+<<<<<<< HEAD
 
 	<command name="saveAsDraft">
 		<execute macro="Button#clickSaveAsDraft" />
@@ -100,4 +108,6 @@
 			<var name="key_rowEntry" value="${rowEntry}" />
 		</execute>
 	</command>
+=======
+>>>>>>> compatible
 </definition>

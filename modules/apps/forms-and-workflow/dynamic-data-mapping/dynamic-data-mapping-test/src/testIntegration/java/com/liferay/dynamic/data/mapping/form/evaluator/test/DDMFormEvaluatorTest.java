@@ -17,7 +17,10 @@ package com.liferay.dynamic.data.mapping.form.evaluator.test;
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
 import com.liferay.dynamic.data.mapping.form.evaluator.DDMFormEvaluationResult;
 import com.liferay.dynamic.data.mapping.form.evaluator.DDMFormEvaluator;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.form.evaluator.DDMFormEvaluatorContext;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.form.evaluator.DDMFormFieldEvaluationResult;
 import com.liferay.dynamic.data.mapping.io.DDMFormJSONDeserializer;
 import com.liferay.dynamic.data.mapping.io.DDMFormValuesJSONDeserializer;
@@ -31,6 +34,11 @@ import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.registry.Registry;
 import com.liferay.registry.RegistryUtil;
 
+<<<<<<< HEAD
+=======
+import java.util.Map;
+
+>>>>>>> compatible
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.ClassRule;
@@ -61,15 +69,25 @@ public class DDMFormEvaluatorTest extends BaseDDMServiceTestCase {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testSumValuesForRepeatableField() throws Exception {
 		String serializedDDMForm = read(
 			"ddm-form-evaluator-sum-values-repeatable-field.json");
+=======
+	public void testValidFields() throws Exception {
+		String serializedDDMForm = read(
+			"ddm-form-evaluator-form-valid-fields-test-data.json");
+>>>>>>> compatible
 
 		DDMForm ddmForm = _ddmFormJSONDeserializer.deserialize(
 			serializedDDMForm);
 
 		String serializedDDMFormValues = read(
+<<<<<<< HEAD
 			"ddm-form-evaluator-sum-values-repeatable-field-test-data.json");
+=======
+			"ddm-form-evaluator-form-values-valid-fields-test-data.json");
+>>>>>>> compatible
 
 		DDMFormValues ddmFormValues =
 			_ddmFormValuesJSONDeserializer.deserialize(
@@ -80,6 +98,7 @@ public class DDMFormEvaluatorTest extends BaseDDMServiceTestCase {
 		DDMFormEvaluator ddmFormEvaluator = registry.getService(
 			DDMFormEvaluator.class);
 
+<<<<<<< HEAD
 		DDMFormEvaluatorContext ddmFormEvaluatorContext =
 			new DDMFormEvaluatorContext(ddmForm, ddmFormValues, LocaleUtil.US);
 
@@ -96,19 +115,42 @@ public class DDMFormEvaluatorTest extends BaseDDMServiceTestCase {
 		String expectedResult = read(
 			"ddm-form-evaluator-result-sum-values-repeatable-field.json");
 
+=======
+		DDMFormEvaluationResult ddmFormEvaluationResult =
+			ddmFormEvaluator.evaluate(ddmForm, ddmFormValues, LocaleUtil.US);
+
+		JSONSerializer jsonSerializer = JSONFactoryUtil.createJSONSerializer();
+
+		String expectedResult = read(
+			"ddm-form-evaluator-result-valid-fields-data.json");
+
+		String actualResult = jsonSerializer.serializeDeep(
+			ddmFormEvaluationResult);
+
+>>>>>>> compatible
 		JSONAssert.assertEquals(expectedResult, actualResult, false);
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testValidFields() throws Exception {
 		String serializedDDMForm = read(
 			"ddm-form-evaluator-form-valid-fields-test-data.json");
+=======
+	public void testVisibleFields1() throws Exception {
+		String serializedDDMForm = read(
+			"ddm-form-evaluator-form-visible-fields-test-data-1.json");
+>>>>>>> compatible
 
 		DDMForm ddmForm = _ddmFormJSONDeserializer.deserialize(
 			serializedDDMForm);
 
 		String serializedDDMFormValues = read(
+<<<<<<< HEAD
 			"ddm-form-evaluator-form-values-valid-fields-test-data.json");
+=======
+			"ddm-form-evaluator-form-values-visible-fields-test-data-1.json");
+>>>>>>> compatible
 
 		DDMFormValues ddmFormValues =
 			_ddmFormValuesJSONDeserializer.deserialize(
@@ -119,6 +161,7 @@ public class DDMFormEvaluatorTest extends BaseDDMServiceTestCase {
 		DDMFormEvaluator ddmFormEvaluator = registry.getService(
 			DDMFormEvaluator.class);
 
+<<<<<<< HEAD
 		DDMFormEvaluatorContext ddmFormEvaluatorContext =
 			new DDMFormEvaluatorContext(ddmForm, ddmFormValues, LocaleUtil.US);
 
@@ -140,6 +183,23 @@ public class DDMFormEvaluatorTest extends BaseDDMServiceTestCase {
 
 	@Test
 	public void testVisibleFields1() throws Exception {
+=======
+		DDMFormEvaluationResult ddmFormEvaluationResult =
+			ddmFormEvaluator.evaluate(ddmForm, ddmFormValues, LocaleUtil.US);
+
+		Map<String, DDMFormFieldEvaluationResult>
+			ddmFormFieldEvaluationResultMap =
+				ddmFormEvaluationResult.getDDMFormFieldEvaluationResultsMap();
+
+		DDMFormFieldEvaluationResult checkboxDDMFormFieldEvaluationResult =
+			ddmFormFieldEvaluationResultMap.get("Confirmation");
+
+		Assert.assertFalse(checkboxDDMFormFieldEvaluationResult.isVisible());
+	}
+
+	@Test
+	public void testVisibleFields2() throws Exception {
+>>>>>>> compatible
 		String serializedDDMForm = read(
 			"ddm-form-evaluator-form-visible-fields-test-data-1.json");
 
@@ -147,7 +207,11 @@ public class DDMFormEvaluatorTest extends BaseDDMServiceTestCase {
 			serializedDDMForm);
 
 		String serializedDDMFormValues = read(
+<<<<<<< HEAD
 			"ddm-form-evaluator-form-values-visible-fields-test-data-1.json");
+=======
+			"ddm-form-evaluator-form-values-visible-fields-test-data-2.json");
+>>>>>>> compatible
 
 		DDMFormValues ddmFormValues =
 			_ddmFormValuesJSONDeserializer.deserialize(
@@ -158,6 +222,7 @@ public class DDMFormEvaluatorTest extends BaseDDMServiceTestCase {
 		DDMFormEvaluator ddmFormEvaluator = registry.getService(
 			DDMFormEvaluator.class);
 
+<<<<<<< HEAD
 		DDMFormEvaluatorContext ddmFormEvaluatorContext =
 			new DDMFormEvaluatorContext(ddmForm, ddmFormValues, LocaleUtil.US);
 
@@ -175,6 +240,23 @@ public class DDMFormEvaluatorTest extends BaseDDMServiceTestCase {
 
 	@Test
 	public void testVisibleFields2() throws Exception {
+=======
+		DDMFormEvaluationResult ddmFormEvaluationResult =
+			ddmFormEvaluator.evaluate(ddmForm, ddmFormValues, LocaleUtil.US);
+
+		Map<String, DDMFormFieldEvaluationResult>
+			ddmFormFieldEvaluationResultMap =
+				ddmFormEvaluationResult.getDDMFormFieldEvaluationResultsMap();
+
+		DDMFormFieldEvaluationResult checkboxDDMFormFieldEvaluationResult =
+			ddmFormFieldEvaluationResultMap.get("Confirmation");
+
+		Assert.assertTrue(checkboxDDMFormFieldEvaluationResult.isVisible());
+	}
+
+	@Test
+	public void testVisibleFields3() throws Exception {
+>>>>>>> compatible
 		String serializedDDMForm = read(
 			"ddm-form-evaluator-form-visible-fields-test-data-2.json");
 
@@ -182,7 +264,11 @@ public class DDMFormEvaluatorTest extends BaseDDMServiceTestCase {
 			serializedDDMForm);
 
 		String serializedDDMFormValues = read(
+<<<<<<< HEAD
 			"ddm-form-evaluator-form-values-visible-fields-test-data-2.json");
+=======
+			"ddm-form-evaluator-form-values-visible-fields-test-data-3.json");
+>>>>>>> compatible
 
 		DDMFormValues ddmFormValues =
 			_ddmFormValuesJSONDeserializer.deserialize(
@@ -193,6 +279,7 @@ public class DDMFormEvaluatorTest extends BaseDDMServiceTestCase {
 		DDMFormEvaluator ddmFormEvaluator = registry.getService(
 			DDMFormEvaluator.class);
 
+<<<<<<< HEAD
 		DDMFormEvaluatorContext ddmFormEvaluatorContext =
 			new DDMFormEvaluatorContext(ddmForm, ddmFormValues, LocaleUtil.US);
 
@@ -210,6 +297,56 @@ public class DDMFormEvaluatorTest extends BaseDDMServiceTestCase {
 
 	@Test
 	public void testVisibleFields3() throws Exception {
+=======
+		DDMFormEvaluationResult ddmFormEvaluationResult =
+			ddmFormEvaluator.evaluate(ddmForm, ddmFormValues, LocaleUtil.US);
+
+		Map<String, DDMFormFieldEvaluationResult>
+			ddmFormFieldEvaluationResultMap =
+				ddmFormEvaluationResult.getDDMFormFieldEvaluationResultsMap();
+
+		DDMFormFieldEvaluationResult phoneDDMFormFieldEvaluationResult =
+			ddmFormFieldEvaluationResultMap.get("Phone");
+
+		Assert.assertFalse(phoneDDMFormFieldEvaluationResult.isVisible());
+	}
+
+	@Test
+	public void testVisibleFields4() throws Exception {
+		String serializedDDMForm = read(
+			"ddm-form-evaluator-form-visible-fields-test-data-2.json");
+
+		DDMForm ddmForm = _ddmFormJSONDeserializer.deserialize(
+			serializedDDMForm);
+
+		String serializedDDMFormValues = read(
+			"ddm-form-evaluator-form-values-visible-fields-test-data-4.json");
+
+		DDMFormValues ddmFormValues =
+			_ddmFormValuesJSONDeserializer.deserialize(
+				ddmForm, serializedDDMFormValues);
+
+		Registry registry = RegistryUtil.getRegistry();
+
+		DDMFormEvaluator ddmFormEvaluator = registry.getService(
+			DDMFormEvaluator.class);
+
+		DDMFormEvaluationResult ddmFormEvaluationResult =
+			ddmFormEvaluator.evaluate(ddmForm, ddmFormValues, LocaleUtil.US);
+
+		Map<String, DDMFormFieldEvaluationResult>
+			ddmFormFieldEvaluationResultMap =
+				ddmFormEvaluationResult.getDDMFormFieldEvaluationResultsMap();
+
+		DDMFormFieldEvaluationResult phoneDDMFormFieldEvaluationResult =
+			ddmFormFieldEvaluationResultMap.get("Phone");
+
+		Assert.assertTrue(phoneDDMFormFieldEvaluationResult.isVisible());
+	}
+
+	@Test
+	public void testVisibleFields5() throws Exception {
+>>>>>>> compatible
 		String serializedDDMForm = read(
 			"ddm-form-evaluator-form-visible-fields-test-data-3.json");
 
@@ -228,6 +365,7 @@ public class DDMFormEvaluatorTest extends BaseDDMServiceTestCase {
 		DDMFormEvaluator ddmFormEvaluator = registry.getService(
 			DDMFormEvaluator.class);
 
+<<<<<<< HEAD
 		DDMFormEvaluatorContext ddmFormEvaluatorContext =
 			new DDMFormEvaluatorContext(ddmForm, ddmFormValues, LocaleUtil.US);
 
@@ -239,14 +377,31 @@ public class DDMFormEvaluatorTest extends BaseDDMServiceTestCase {
 		DDMFormFieldEvaluationResult phoneDDMFormFieldEvaluationResult =
 			ddmFormEvaluationResult.getDDMFormFieldEvaluationResult(
 				"Phone", "hany");
+=======
+		DDMFormEvaluationResult ddmFormEvaluationResult =
+			ddmFormEvaluator.evaluate(ddmForm, ddmFormValues, LocaleUtil.US);
+
+		Map<String, DDMFormFieldEvaluationResult>
+			ddmFormFieldEvaluationResultMap =
+				ddmFormEvaluationResult.getDDMFormFieldEvaluationResultsMap();
+
+		DDMFormFieldEvaluationResult phoneDDMFormFieldEvaluationResult =
+			ddmFormFieldEvaluationResultMap.get("Phone");
+>>>>>>> compatible
 
 		Assert.assertFalse(phoneDDMFormFieldEvaluationResult.isVisible());
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testVisibleFields4() throws Exception {
 		String serializedDDMForm = read(
 			"ddm-form-evaluator-form-visible-fields-test-data-4.json");
+=======
+	public void testVisibleFields6() throws Exception {
+		String serializedDDMForm = read(
+			"ddm-form-evaluator-form-visible-fields-test-data-3.json");
+>>>>>>> compatible
 
 		DDMForm ddmForm = _ddmFormJSONDeserializer.deserialize(
 			serializedDDMForm);
@@ -263,6 +418,7 @@ public class DDMFormEvaluatorTest extends BaseDDMServiceTestCase {
 		DDMFormEvaluator ddmFormEvaluator = registry.getService(
 			DDMFormEvaluator.class);
 
+<<<<<<< HEAD
 		DDMFormEvaluatorContext ddmFormEvaluatorContext =
 			new DDMFormEvaluatorContext(ddmForm, ddmFormValues, LocaleUtil.US);
 
@@ -274,6 +430,17 @@ public class DDMFormEvaluatorTest extends BaseDDMServiceTestCase {
 		DDMFormFieldEvaluationResult phoneDDMFormFieldEvaluationResult =
 			ddmFormEvaluationResult.getDDMFormFieldEvaluationResult(
 				"Phone", "hany");
+=======
+		DDMFormEvaluationResult ddmFormEvaluationResult =
+			ddmFormEvaluator.evaluate(ddmForm, ddmFormValues, LocaleUtil.US);
+
+		Map<String, DDMFormFieldEvaluationResult>
+			ddmFormFieldEvaluationResultMap =
+				ddmFormEvaluationResult.getDDMFormFieldEvaluationResultsMap();
+
+		DDMFormFieldEvaluationResult phoneDDMFormFieldEvaluationResult =
+			ddmFormFieldEvaluationResultMap.get("Phone");
+>>>>>>> compatible
 
 		Assert.assertTrue(phoneDDMFormFieldEvaluationResult.isVisible());
 	}

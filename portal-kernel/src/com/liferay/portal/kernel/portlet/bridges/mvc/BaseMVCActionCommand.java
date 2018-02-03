@@ -14,7 +14,10 @@
 
 package com.liferay.portal.kernel.portlet.bridges.mvc;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Layout;
 import com.liferay.portal.kernel.model.LayoutTypePortlet;
 import com.liferay.portal.kernel.model.Portlet;
@@ -26,6 +29,10 @@ import com.liferay.portal.kernel.servlet.BrowserSnifferUtil;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.JavaConstants;
@@ -70,6 +77,7 @@ public abstract class BaseMVCActionCommand implements MVCActionCommand {
 		}
 	}
 
+<<<<<<< HEAD
 	protected void addDeleteSuccessData(
 		PortletRequest portletRequest, Object data) {
 
@@ -82,6 +90,8 @@ public abstract class BaseMVCActionCommand implements MVCActionCommand {
 		hideDefaultSuccessMessage(portletRequest);
 	}
 
+=======
+>>>>>>> compatible
 	protected void addSuccessMessage(
 		ActionRequest actionRequest, ActionResponse actionResponse) {
 

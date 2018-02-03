@@ -340,7 +340,11 @@ that may or may not be enforced with a unique index at the database level. Case
 			msg.append(${finderCol.name});
 
 			<#if !finderCol_has_next>
+<<<<<<< HEAD
 				msg.append("}");
+=======
+				msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 			</#if>
 		</#list>
 
@@ -418,7 +422,11 @@ that may or may not be enforced with a unique index at the database level. Case
 			msg.append(${finderCol.name});
 
 			<#if !finderCol_has_next>
+<<<<<<< HEAD
 				msg.append("}");
+=======
+				msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 			</#if>
 		</#list>
 
@@ -1730,7 +1738,11 @@ that may or may not be enforced with a unique index at the database level. Case
 				msg.append(${finderCol.name});
 
 				<#if !finderCol_has_next>
+<<<<<<< HEAD
 					msg.append("}");
+=======
+					msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 				</#if>
 			</#list>
 

@@ -12,6 +12,7 @@
 
 	<tear-down>
 		<var method="TestPropsUtil#get('test.portal.instance')" name="testPortalInstance" />
+<<<<<<< HEAD
 
 		<if>
 			<equals arg1="${testPortalInstance}" arg2="true" />
@@ -30,14 +31,38 @@
 				<execute macro="Polls#tearDownCP" />
 
 				<execute macro="Page#tearDownCP" />
+=======
+
+		<if>
+			<equals arg1="${testPortalInstance}" arg2="true" />
+			<then>
+				<execute macro="PortalInstances#tearDownCP" />
+			</then>
+			<else>
+				<!--There is no need for a SocialActivity#tearDownCP, as the User Statistics will not be reset and Jenkins does not run teardowns.-->
+
+				<execute macro="User#firstLoginPG" />
+
+				<execute macro="User#tearDownCP" />
+
+				<execute macro="BlogsEntry#tearDownCP" />
+
+				<execute macro="Polls#tearDownCP" />
+
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 			</else>
 		</if>
 	</tear-down>
 
 	<command name="BlogsDemo" priority="4">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -48,9 +73,13 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -61,9 +90,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Social Activity" />
 		</execute>
 
@@ -90,6 +123,7 @@
 			<var name="userAction" value="Votes on a Blog" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -97,6 +131,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Social Activity Page" />
 		</execute>
 
@@ -112,6 +149,7 @@
 
 		<execute function="AssertTextEquals" locator1="Portlet#BODY" value1="There are no active users for this period." />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -119,6 +157,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Blogs Page" />
 		</execute>
 
@@ -153,12 +194,21 @@
 		<execute macro="BlogsNavigator#gotoEntryPG">
 			<var name="entryContent" value="Blogs Entry Content" />
 			<var name="entryTitle" value="Blogs Entry Title" />
+<<<<<<< HEAD
 		</execute>
 
 		<execute macro="BlogsEntryComment#add">
 			<var name="entryComment" value="Blogs Entry Comment 1" />
 		</execute>
 
+=======
+		</execute>
+
+		<execute macro="BlogsEntryComment#add">
+			<var name="entryComment" value="Blogs Entry Comment 1" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Social Activity Page" />
 		</execute>
@@ -177,12 +227,21 @@
 		<execute macro="BlogsNavigator#gotoEntryPG">
 			<var name="entryContent" value="Blogs Entry Content" />
 			<var name="entryTitle" value="Blogs Entry Title" />
+<<<<<<< HEAD
 		</execute>
 
 		<execute macro="BlogsEntryComment#add">
 			<var name="entryComment" value="Blogs Entry Comment 2" />
 		</execute>
 
+=======
+		</execute>
+
+		<execute macro="BlogsEntryComment#add">
+			<var name="entryComment" value="Blogs Entry Comment 2" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Social Activity Page" />
 		</execute>
@@ -196,6 +255,7 @@
 
 		<execute macro="User#logoutPG" />
 
+<<<<<<< HEAD
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Blogs Page" />
 		</execute>
@@ -208,6 +268,8 @@
 			<var name="userFirstName" value="Guest" />
 		</execute>
 
+=======
+>>>>>>> compatible
 		<execute macro="User#loginPG">
 			<var name="userEmailAddress" value="userea@liferay.com" />
 		</execute>
@@ -219,12 +281,21 @@
 		<execute macro="BlogsNavigator#gotoEntryPG">
 			<var name="entryContent" value="Blogs Entry Content" />
 			<var name="entryTitle" value="Blogs Entry Title" />
+<<<<<<< HEAD
 		</execute>
 
 		<execute macro="BlogsEntryComment#add">
 			<var name="entryComment" value="Blogs Entry Comment from userfn" />
 		</execute>
 
+=======
+		</execute>
+
+		<execute macro="BlogsEntryComment#add">
+			<var name="entryComment" value="Blogs Entry Comment from userfn" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Social Activity Page" />
 		</execute>
@@ -255,12 +326,21 @@
 		<execute macro="BlogsNavigator#gotoEntryPG">
 			<var name="entryContent" value="Blogs Entry Content" />
 			<var name="entryTitle" value="Blogs Entry Title" />
+<<<<<<< HEAD
 		</execute>
 
 		<execute macro="BlogsEntryComment#add">
 			<var name="entryComment" value="Blogs Entry Comment 3" />
 		</execute>
 
+=======
+		</execute>
+
+		<execute macro="BlogsEntryComment#add">
+			<var name="entryComment" value="Blogs Entry Comment 3" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Social Activity Page" />
 		</execute>
@@ -283,6 +363,7 @@
 	<command name="Localization" priority="4">
 		<property name="test.name.skip.portal.instance" value="SocialactivityUsecase#Localization" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -290,6 +371,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Social Activity Page" />
 		</execute>
 
@@ -299,11 +383,16 @@
 
 		<execute macro="Portlet#addPG">
 			<var name="portletName" value="Language Selector" />
+<<<<<<< HEAD
 		</execute>
 
 		<execute macro="ProductMenuHelper#expandPanel">
 			<var name="panel" value="Control Panel" />
+=======
+>>>>>>> compatible
 		</execute>
+
+		<execute macro="ProductMenuHelper#expandPanelControlPanel" />
 
 		<execute macro="LanguagePortlet#selectLanguagePG">
 			<var name="language" value="French (France)" />
@@ -363,9 +452,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Social Activity" />
 		</execute>
 
@@ -381,6 +474,7 @@
 	</command>
 
 	<command name="SaveUserStatisticsConfiguration" priority="4">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -388,6 +482,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="User Statistics Page" />
 		</execute>
 
@@ -430,6 +527,7 @@
 		</execute>
 
 		<execute function="SelectFrame" locator1="IFrame#DIALOG" />
+<<<<<<< HEAD
 
 		<execute function="AssertNotChecked" locator1="Checkbox#RANK_BY_CONTRIBUTION" />
 		<execute function="AssertNotChecked" locator1="Checkbox#RANK_BY_PARTICIPATION" />
@@ -448,6 +546,20 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+
+		<execute function="AssertNotChecked" locator1="Checkbox#RANK_BY_CONTRIBUTION" />
+		<execute function="AssertNotChecked" locator1="Checkbox#RANK_BY_PARTICIPATION" />
+		<execute function="AssertNotChecked" locator1="Checkbox#SHOW_HEADER_TEXT" />
+		<execute function="AssertNotChecked" locator1="Checkbox#SHOW_TOTALS" />
+		<execute function="AssertNotChecked" locator1="Checkbox#DISPLAY_ADDITIONAL_ACTIVITY_COUNTERS" />
+
+		<execute function="SelectFrameTop" value1="relative=top" />
+	</command>
+
+	<command name="ViewActivityViaGroupStatistics" priority="4">
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Group Statistics Page" />
 		</execute>
 
@@ -472,9 +584,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Social Activity" />
 		</execute>
 
@@ -487,9 +603,13 @@
 		<for list="${blogsEntryCounterList}" param="entryCount" >
 			<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 			<execute macro="ProductMenu#gotoPortlet">
 				<var name="category" value="Content" />
 				<var name="panel" value="Site Administration" />
+=======
+			<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 				<var name="portlet" value="Blogs" />
 			</execute>
 

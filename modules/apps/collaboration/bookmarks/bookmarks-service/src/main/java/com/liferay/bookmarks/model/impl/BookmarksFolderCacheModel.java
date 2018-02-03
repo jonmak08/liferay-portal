@@ -21,6 +21,10 @@ import com.liferay.bookmarks.model.BookmarksFolder;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -65,7 +69,11 @@ public class BookmarksFolderCacheModel implements CacheModel<BookmarksFolder>,
 
 	@Override
 	public String toString() {
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(35);
+=======
+		StringBundler sb = new StringBundler(37);
+>>>>>>> compatible
 
 		sb.append("{uuid=");
 		sb.append(uuid);
@@ -83,6 +91,11 @@ public class BookmarksFolderCacheModel implements CacheModel<BookmarksFolder>,
 		sb.append(createDate);
 		sb.append(", modifiedDate=");
 		sb.append(modifiedDate);
+<<<<<<< HEAD
+=======
+		sb.append(", resourceBlockId=");
+		sb.append(resourceBlockId);
+>>>>>>> compatible
 		sb.append(", parentFolderId=");
 		sb.append(parentFolderId);
 		sb.append(", treePath=");
@@ -111,7 +124,11 @@ public class BookmarksFolderCacheModel implements CacheModel<BookmarksFolder>,
 		BookmarksFolderImpl bookmarksFolderImpl = new BookmarksFolderImpl();
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			bookmarksFolderImpl.setUuid("");
+=======
+			bookmarksFolderImpl.setUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			bookmarksFolderImpl.setUuid(uuid);
@@ -123,7 +140,11 @@ public class BookmarksFolderCacheModel implements CacheModel<BookmarksFolder>,
 		bookmarksFolderImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			bookmarksFolderImpl.setUserName("");
+=======
+			bookmarksFolderImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			bookmarksFolderImpl.setUserName(userName);
@@ -143,24 +164,40 @@ public class BookmarksFolderCacheModel implements CacheModel<BookmarksFolder>,
 			bookmarksFolderImpl.setModifiedDate(new Date(modifiedDate));
 		}
 
+<<<<<<< HEAD
 		bookmarksFolderImpl.setParentFolderId(parentFolderId);
 
 		if (treePath == null) {
 			bookmarksFolderImpl.setTreePath("");
+=======
+		bookmarksFolderImpl.setResourceBlockId(resourceBlockId);
+		bookmarksFolderImpl.setParentFolderId(parentFolderId);
+
+		if (treePath == null) {
+			bookmarksFolderImpl.setTreePath(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			bookmarksFolderImpl.setTreePath(treePath);
 		}
 
 		if (name == null) {
+<<<<<<< HEAD
 			bookmarksFolderImpl.setName("");
+=======
+			bookmarksFolderImpl.setName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			bookmarksFolderImpl.setName(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			bookmarksFolderImpl.setDescription("");
+=======
+			bookmarksFolderImpl.setDescription(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			bookmarksFolderImpl.setDescription(description);
@@ -177,7 +214,11 @@ public class BookmarksFolderCacheModel implements CacheModel<BookmarksFolder>,
 		bookmarksFolderImpl.setStatusByUserId(statusByUserId);
 
 		if (statusByUserName == null) {
+<<<<<<< HEAD
 			bookmarksFolderImpl.setStatusByUserName("");
+=======
+			bookmarksFolderImpl.setStatusByUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			bookmarksFolderImpl.setStatusByUserName(statusByUserName);
@@ -210,6 +251,11 @@ public class BookmarksFolderCacheModel implements CacheModel<BookmarksFolder>,
 		createDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
 
+<<<<<<< HEAD
+=======
+		resourceBlockId = objectInput.readLong();
+
+>>>>>>> compatible
 		parentFolderId = objectInput.readLong();
 		treePath = objectInput.readUTF();
 		name = objectInput.readUTF();
@@ -227,7 +273,11 @@ public class BookmarksFolderCacheModel implements CacheModel<BookmarksFolder>,
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		if (uuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(uuid);
@@ -242,7 +292,11 @@ public class BookmarksFolderCacheModel implements CacheModel<BookmarksFolder>,
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -251,24 +305,41 @@ public class BookmarksFolderCacheModel implements CacheModel<BookmarksFolder>,
 		objectOutput.writeLong(createDate);
 		objectOutput.writeLong(modifiedDate);
 
+<<<<<<< HEAD
 		objectOutput.writeLong(parentFolderId);
 
 		if (treePath == null) {
 			objectOutput.writeUTF("");
+=======
+		objectOutput.writeLong(resourceBlockId);
+
+		objectOutput.writeLong(parentFolderId);
+
+		if (treePath == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(treePath);
 		}
 
 		if (name == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(description);
@@ -281,7 +352,11 @@ public class BookmarksFolderCacheModel implements CacheModel<BookmarksFolder>,
 		objectOutput.writeLong(statusByUserId);
 
 		if (statusByUserName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(statusByUserName);
@@ -298,6 +373,10 @@ public class BookmarksFolderCacheModel implements CacheModel<BookmarksFolder>,
 	public String userName;
 	public long createDate;
 	public long modifiedDate;
+<<<<<<< HEAD
+=======
+	public long resourceBlockId;
+>>>>>>> compatible
 	public long parentFolderId;
 	public String treePath;
 	public String name;

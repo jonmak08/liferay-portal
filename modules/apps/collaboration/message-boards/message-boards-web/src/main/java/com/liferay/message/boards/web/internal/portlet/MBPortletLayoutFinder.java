@@ -14,7 +14,11 @@
 
 package com.liferay.message.boards.web.internal.portlet;
 
+<<<<<<< HEAD
 import com.liferay.message.boards.constants.MBPortletKeys;
+=======
+import com.liferay.message.boards.web.constants.MBPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.BasePortletLayoutFinder;
 import com.liferay.portal.kernel.portlet.PortletLayoutFinder;
 

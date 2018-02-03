@@ -46,6 +46,7 @@ public class ExportImportLocalServiceUtil {
 		return getService().exportLayoutsAsFile(exportImportConfiguration);
 	}
 
+<<<<<<< HEAD
 	/**
 	* @deprecated As of 7.0.0
 	*/
@@ -59,6 +60,8 @@ public class ExportImportLocalServiceUtil {
 			parameterMap);
 	}
 
+=======
+>>>>>>> compatible
 	public static long exportLayoutsAsFileInBackground(long userId,
 		com.liferay.exportimport.kernel.model.ExportImportConfiguration exportImportConfiguration)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -120,6 +123,7 @@ public class ExportImportLocalServiceUtil {
 		getService().importLayouts(exportImportConfiguration, inputStream);
 	}
 
+<<<<<<< HEAD
 	/**
 	* @deprecated As of 7.0.0
 	*/
@@ -133,6 +137,8 @@ public class ExportImportLocalServiceUtil {
 			.importLayouts(userId, groupId, privateLayout, parameterMap, file);
 	}
 
+=======
+>>>>>>> compatible
 	public static void importLayoutsDataDeletions(
 		com.liferay.exportimport.kernel.model.ExportImportConfiguration exportImportConfiguration,
 		java.io.File file)

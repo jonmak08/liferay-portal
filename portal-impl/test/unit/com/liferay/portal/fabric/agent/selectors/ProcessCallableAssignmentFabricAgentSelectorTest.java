@@ -64,7 +64,23 @@ public class ProcessCallableAssignmentFabricAgentSelectorTest
 		Assert.assertSame(fabricAgent1, iterator.next());
 
 		fabricAgents = fabricAgentSelector.select(
+<<<<<<< HEAD
 			new ArrayList<>(Arrays.asList(fabricAgent1)),
+=======
+			new ArrayList<FabricAgent>(
+				Arrays.asList(fabricAgent1, fabricAgent2)),
+			new LoggingProcessCallable(null));
+
+		Assert.assertEquals(fabricAgents.toString(), 1, fabricAgents.size());
+
+		iterator = fabricAgents.iterator();
+
+		Assert.assertSame(fabricAgent2, iterator.next());
+
+		fabricAgents = fabricAgentSelector.select(
+			new ArrayList<FabricAgent>(
+				Arrays.asList(fabricAgent1, fabricAgent2)),
+>>>>>>> compatible
 			new ExceptionProcessCallable(null));
 
 		Assert.assertTrue(fabricAgents.toString(), fabricAgents.isEmpty());

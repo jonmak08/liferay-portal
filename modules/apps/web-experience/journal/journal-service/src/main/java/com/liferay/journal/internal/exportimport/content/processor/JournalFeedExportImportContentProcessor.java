@@ -18,13 +18,22 @@ import com.liferay.exportimport.content.processor.ExportImportContentProcessor;
 import com.liferay.exportimport.content.processor.base.BaseTextExportImportContentProcessor;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.journal.model.JournalFeed;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.Layout;
 import com.liferay.portal.kernel.model.StagedModel;
 import com.liferay.portal.kernel.service.GroupLocalService;
 import com.liferay.portal.kernel.service.LayoutLocalService;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.Portal;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.util.PropsValues;
@@ -118,6 +127,7 @@ public class JournalFeedExportImportContentProcessor
 
 		newGroupFriendlyURL = newGroupFriendlyURL.substring(1);
 
+<<<<<<< HEAD
 		String newTargetLayoutFriendlyURL = StringUtil.replace(
 			feed.getTargetLayoutFriendlyUrl(), DATA_HANDLER_GROUP_FRIENDLY_URL,
 			newGroupFriendlyURL);
@@ -144,6 +154,20 @@ public class JournalFeedExportImportContentProcessor
 
 		feed.setTargetLayoutFriendlyUrl(newTargetLayoutFriendlyURL);
 
+=======
+		String[] friendlyURLParts = StringUtil.split(
+			feed.getTargetLayoutFriendlyUrl(), '/');
+
+		String oldGroupFriendlyURL = friendlyURLParts[2];
+
+		if (oldGroupFriendlyURL.equals(DATA_HANDLER_GROUP_FRIENDLY_URL)) {
+			feed.setTargetLayoutFriendlyUrl(
+				StringUtil.replace(
+					feed.getTargetLayoutFriendlyUrl(),
+					DATA_HANDLER_GROUP_FRIENDLY_URL, newGroupFriendlyURL));
+		}
+
+>>>>>>> compatible
 		return content;
 	}
 
@@ -159,10 +183,19 @@ public class JournalFeedExportImportContentProcessor
 		_layoutLocalService = layoutLocalService;
 	}
 
+<<<<<<< HEAD
 	private GroupLocalService _groupLocalService;
 	private LayoutLocalService _layoutLocalService;
 
 	@Reference
 	private Portal _portal;
 
+=======
+	private static final Log _log = LogFactoryUtil.getLog(
+		JournalFeedExportImportContentProcessor.class);
+
+	private GroupLocalService _groupLocalService;
+	private LayoutLocalService _layoutLocalService;
+
+>>>>>>> compatible
 }

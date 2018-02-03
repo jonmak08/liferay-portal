@@ -29,6 +29,7 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
 )
 public interface VelocityEngineConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(
 		deflt = "false", name = "directive-if-to-string-null-check",
 		required = false
@@ -39,10 +40,17 @@ public interface VelocityEngineConfiguration {
 		deflt = "60", name = "resource-modification-check-interval",
 		required = false
 	)
+=======
+	@Meta.AD(deflt = "false", required = false)
+	public boolean directiveIfToStringNullCheck();
+
+	@Meta.AD(deflt = "60", required = false)
+>>>>>>> compatible
 	public int resourceModificationCheckInterval();
 
 	@Meta.AD(
 		deflt = "java.lang.Class|java.lang.ClassLoader|java.lang.Thread",
+<<<<<<< HEAD
 		name = "restricted-classes", required = false
 	)
 	public String[] restrictedClasses();
@@ -60,10 +68,26 @@ public interface VelocityEngineConfiguration {
 		deflt = "VM_global_library.vm|VM_liferay.vm",
 		name = "velocity-macro-library", required = false
 	)
+=======
+		required = false
+	)
+	public String[] restrictedClasses();
+
+	@Meta.AD(deflt = "", required = false)
+	public String[] restrictedPackages();
+
+	@Meta.AD(
+		deflt = "serviceLocator|staticFieldGetter|utilLocator", required = false
+	)
+	public String[] restrictedVariables();
+
+	@Meta.AD(deflt = "VM_global_library.vm|VM_liferay.vm", required = false)
+>>>>>>> compatible
 	public String[] velocimacroLibrary();
 
 	@Meta.AD(
 		deflt = "org.apache.velocity.runtime.log.SimpleLog4JLogSystem",
+<<<<<<< HEAD
 		name = "logger", required = false
 	)
 	public String logger();
@@ -72,6 +96,13 @@ public interface VelocityEngineConfiguration {
 		deflt = "org.apache.velocity", name = "logger-category",
 		required = false
 	)
+=======
+		required = false
+	)
+	public String logger();
+
+	@Meta.AD(deflt = "org.apache.velocity", required = false)
+>>>>>>> compatible
 	public String loggerCategory();
 
 }

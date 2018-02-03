@@ -16,8 +16,14 @@ package com.liferay.portal.deploy.hot.bundle.osgihotdeploylistener;
 
 import com.liferay.portal.kernel.deploy.hot.HotDeployEvent;
 import com.liferay.portal.kernel.deploy.hot.HotDeployListener;
+<<<<<<< HEAD
 
 import java.util.concurrent.atomic.AtomicBoolean;
+=======
+import com.liferay.portal.kernel.util.StackTraceUtil;
+
+import java.util.concurrent.atomic.AtomicReference;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -30,11 +36,16 @@ public class TestHotDeployListener implements HotDeployListener {
 
 	@Override
 	public void invokeDeploy(HotDeployEvent event) {
+<<<<<<< HEAD
 		_atomicBoolean.set(Boolean.TRUE);
+=======
+		_atomicReference.set(StackTraceUtil.getCallerKey());
+>>>>>>> compatible
 	}
 
 	@Override
 	public void invokeUndeploy(HotDeployEvent event) {
+<<<<<<< HEAD
 		_atomicBoolean.set(Boolean.TRUE);
 	}
 
@@ -44,5 +55,16 @@ public class TestHotDeployListener implements HotDeployListener {
 	}
 
 	private AtomicBoolean _atomicBoolean;
+=======
+		_atomicReference.set(StackTraceUtil.getCallerKey());
+	}
+
+	@Reference(target = "(test=AtomicState)")
+	protected void setAtomicReference(AtomicReference<String> atomicReference) {
+		_atomicReference = atomicReference;
+	}
+
+	private AtomicReference<String> _atomicReference;
+>>>>>>> compatible
 
 }

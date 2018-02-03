@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Portal LPKG Deployer
 Bundle-SymbolicName: com.liferay.portal.lpkg.deployer
+<<<<<<< HEAD
 Bundle-Version: 2.1.7
+=======
+Bundle-Version: 2.1.1
+>>>>>>> compatible
 Export-Package:\
 	com.liferay.portal.lpkg.deployer,\
 	com.liferay.portal.lpkg.deployer.util

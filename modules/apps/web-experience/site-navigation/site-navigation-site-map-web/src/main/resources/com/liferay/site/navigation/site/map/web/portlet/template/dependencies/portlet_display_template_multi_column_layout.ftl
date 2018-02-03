@@ -16,20 +16,30 @@
 					</h3>
 				</div>
 
+<<<<<<< HEAD
 				<@displayPages
 					depth=1
 					pages=entry.getChildren()
 				/>
+=======
+				<@displayPages pages=entry.getChildren() />
+>>>>>>> compatible
 			</@liferay_aui.col>
 		</#list>
 	</@liferay_aui.row>
 </#if>
 
 <#macro displayPages
+<<<<<<< HEAD
 	depth
 	pages
 >
 	<#if pages?has_content && ((depth < displayDepth?number) || (displayDepth?number == 0))>
+=======
+	pages
+>
+	<#if pages?has_content>
+>>>>>>> compatible
 		<ul class="child-pages">
 			<#list pages as page>
 				<li>
@@ -43,10 +53,14 @@
 
 					>${page.getName(locale)}</a>
 
+<<<<<<< HEAD
 					<@displayPages
 						depth=depth + 1
 						pages=page.getChildren()
 					/>
+=======
+					<@displayPages pages=page.getChildren() />
+>>>>>>> compatible
 				</li>
 			</#list>
 		</ul>

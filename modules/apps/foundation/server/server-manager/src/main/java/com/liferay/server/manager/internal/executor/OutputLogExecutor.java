@@ -21,7 +21,10 @@ import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.kernel.util.ServerDetector;
 import com.liferay.portal.kernel.util.StreamUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.server.manager.internal.constants.JSONKeys;
 
 import java.io.ByteArrayOutputStream;
@@ -98,9 +101,14 @@ public class OutputLogExecutor extends BaseExecutor {
 		}
 		else {
 			logFile = new File(
+<<<<<<< HEAD
 				StringBundler.concat(
 					PropsUtil.get(PropsKeys.LIFERAY_HOME), "/logs/liferay.",
 					getLiferayDateString(), ".log"));
+=======
+				PropsUtil.get(PropsKeys.LIFERAY_HOME) + "/logs/liferay." +
+					getLiferayDateString() + ".log");
+>>>>>>> compatible
 		}
 
 		return logFile;

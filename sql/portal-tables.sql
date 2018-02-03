@@ -97,6 +97,21 @@ create table AssetCategory (
 	description STRING null,
 	vocabularyId LONG,
 	lastPublishDate DATE null
+<<<<<<< HEAD
+=======
+);
+
+create table AssetCategoryProperty (
+	categoryPropertyId LONG not null primary key,
+	companyId LONG,
+	userId LONG,
+	userName VARCHAR(75) null,
+	createDate DATE null,
+	modifiedDate DATE null,
+	categoryId LONG,
+	key_ VARCHAR(75) null,
+	value VARCHAR(75) null
+>>>>>>> compatible
 );
 
 create table AssetEntries_AssetCategories (
@@ -167,6 +182,17 @@ create table AssetTag (
 	name VARCHAR(75) null,
 	assetCount INTEGER,
 	lastPublishDate DATE null
+<<<<<<< HEAD
+=======
+);
+
+create table AssetTagStats (
+	tagStatsId LONG not null primary key,
+	companyId LONG,
+	tagId LONG,
+	classNameId LONG,
+	assetCount INTEGER
+>>>>>>> compatible
 );
 
 create table AssetVocabulary (
@@ -183,6 +209,53 @@ create table AssetVocabulary (
 	description STRING null,
 	settings_ STRING null,
 	lastPublishDate DATE null
+<<<<<<< HEAD
+=======
+);
+
+create table BlogsEntry (
+	uuid_ VARCHAR(75) null,
+	entryId LONG not null primary key,
+	groupId LONG,
+	companyId LONG,
+	userId LONG,
+	userName VARCHAR(75) null,
+	createDate DATE null,
+	modifiedDate DATE null,
+	title VARCHAR(150) null,
+	subtitle STRING null,
+	urlTitle VARCHAR(150) null,
+	description STRING null,
+	content TEXT null,
+	displayDate DATE null,
+	allowPingbacks BOOLEAN,
+	allowTrackbacks BOOLEAN,
+	trackbacks TEXT null,
+	coverImageCaption STRING null,
+	coverImageFileEntryId LONG,
+	coverImageURL STRING null,
+	smallImage BOOLEAN,
+	smallImageFileEntryId LONG,
+	smallImageId LONG,
+	smallImageURL STRING null,
+	lastPublishDate DATE null,
+	status INTEGER,
+	statusByUserId LONG,
+	statusByUserName VARCHAR(75) null,
+	statusDate DATE null
+);
+
+create table BlogsStatsUser (
+	statsUserId LONG not null primary key,
+	groupId LONG,
+	companyId LONG,
+	userId LONG,
+	entryCount INTEGER,
+	lastPostDate DATE null,
+	ratingsTotalEntries INTEGER,
+	ratingsTotalScore DOUBLE,
+	ratingsAverageScore DOUBLE
+>>>>>>> compatible
 );
 
 create table BrowserTracker (
@@ -270,6 +343,20 @@ create table Country (
 	active_ BOOLEAN
 );
 
+<<<<<<< HEAD
+=======
+create table DLContent (
+	contentId LONG not null primary key,
+	groupId LONG,
+	companyId LONG,
+	repositoryId LONG,
+	path_ VARCHAR(255) null,
+	version VARCHAR(75) null,
+	data_ BLOB,
+	size_ LONG
+);
+
+>>>>>>> compatible
 create table DLFileEntry (
 	uuid_ VARCHAR(75) null,
 	fileEntryId LONG not null primary key,
@@ -413,6 +500,18 @@ create table DLFolder (
 	statusDate DATE null
 );
 
+<<<<<<< HEAD
+=======
+create table DLSyncEvent (
+	syncEventId LONG not null primary key,
+	companyId LONG,
+	modifiedTime LONG,
+	event VARCHAR(75) null,
+	type_ VARCHAR(75) null,
+	typePK LONG
+);
+
+>>>>>>> compatible
 create table EmailAddress (
 	mvccVersion LONG default 0 not null,
 	uuid_ VARCHAR(75) null,
@@ -712,6 +811,22 @@ create table ListType (
 	listTypeId LONG not null primary key,
 	name VARCHAR(75) null,
 	type_ VARCHAR(75) null
+<<<<<<< HEAD
+=======
+);
+
+create table MBBan (
+	uuid_ VARCHAR(75) null,
+	banId LONG not null primary key,
+	groupId LONG,
+	companyId LONG,
+	userId LONG,
+	userName VARCHAR(75) null,
+	createDate DATE null,
+	modifiedDate DATE null,
+	banUserId LONG,
+	lastPublishDate DATE null
+>>>>>>> compatible
 );
 
 create table MBCategory (
@@ -737,6 +852,53 @@ create table MBCategory (
 	statusDate DATE null
 );
 
+<<<<<<< HEAD
+=======
+create table MBDiscussion (
+	uuid_ VARCHAR(75) null,
+	discussionId LONG not null primary key,
+	groupId LONG,
+	companyId LONG,
+	userId LONG,
+	userName VARCHAR(75) null,
+	createDate DATE null,
+	modifiedDate DATE null,
+	classNameId LONG,
+	classPK LONG,
+	threadId LONG,
+	lastPublishDate DATE null
+);
+
+create table MBMailingList (
+	uuid_ VARCHAR(75) null,
+	mailingListId LONG not null primary key,
+	groupId LONG,
+	companyId LONG,
+	userId LONG,
+	userName VARCHAR(75) null,
+	createDate DATE null,
+	modifiedDate DATE null,
+	categoryId LONG,
+	emailAddress VARCHAR(75) null,
+	inProtocol VARCHAR(75) null,
+	inServerName VARCHAR(75) null,
+	inServerPort INTEGER,
+	inUseSSL BOOLEAN,
+	inUserName VARCHAR(75) null,
+	inPassword VARCHAR(75) null,
+	inReadInterval INTEGER,
+	outEmailAddress VARCHAR(75) null,
+	outCustom BOOLEAN,
+	outServerName VARCHAR(75) null,
+	outServerPort INTEGER,
+	outUseSSL BOOLEAN,
+	outUserName VARCHAR(75) null,
+	outPassword VARCHAR(75) null,
+	allowAnonymous BOOLEAN,
+	active_ BOOLEAN
+);
+
+>>>>>>> compatible
 create table MBMessage (
 	uuid_ VARCHAR(75) null,
 	messageId LONG not null primary key,
@@ -766,6 +928,18 @@ create table MBMessage (
 	statusDate DATE null
 );
 
+<<<<<<< HEAD
+=======
+create table MBStatsUser (
+	statsUserId LONG not null primary key,
+	groupId LONG,
+	companyId LONG,
+	userId LONG,
+	messageCount INTEGER,
+	lastPostDate DATE null
+);
+
+>>>>>>> compatible
 create table MBThread (
 	uuid_ VARCHAR(75) null,
 	threadId LONG not null primary key,
@@ -791,6 +965,22 @@ create table MBThread (
 	statusDate DATE null
 );
 
+<<<<<<< HEAD
+=======
+create table MBThreadFlag (
+	uuid_ VARCHAR(75) null,
+	threadFlagId LONG not null primary key,
+	groupId LONG,
+	companyId LONG,
+	userId LONG,
+	userName VARCHAR(75) null,
+	createDate DATE null,
+	modifiedDate DATE null,
+	threadId LONG,
+	lastPublishDate DATE null
+);
+
+>>>>>>> compatible
 create table MembershipRequest (
 	mvccVersion LONG default 0 not null,
 	membershipRequestId LONG not null primary key,
@@ -1278,6 +1468,23 @@ create table SocialRequest (
 	status INTEGER
 );
 
+<<<<<<< HEAD
+=======
+create table Subscription (
+	mvccVersion LONG default 0 not null,
+	subscriptionId LONG not null primary key,
+	groupId LONG,
+	companyId LONG,
+	userId LONG,
+	userName VARCHAR(75) null,
+	createDate DATE null,
+	modifiedDate DATE null,
+	classNameId LONG,
+	classPK LONG,
+	frequency VARCHAR(75) null
+);
+
+>>>>>>> compatible
 create table SystemEvent (
 	mvccVersion LONG default 0 not null,
 	systemEventId LONG not null primary key,
@@ -1324,6 +1531,33 @@ create table Ticket (
 	expirationDate DATE null
 );
 
+<<<<<<< HEAD
+=======
+create table TrashEntry (
+	entryId LONG not null primary key,
+	groupId LONG,
+	companyId LONG,
+	userId LONG,
+	userName VARCHAR(75) null,
+	createDate DATE null,
+	classNameId LONG,
+	classPK LONG,
+	systemEventSetKey LONG,
+	typeSettings TEXT null,
+	status INTEGER
+);
+
+create table TrashVersion (
+	versionId LONG not null primary key,
+	companyId LONG,
+	entryId LONG,
+	classNameId LONG,
+	classPK LONG,
+	typeSettings TEXT null,
+	status INTEGER
+);
+
+>>>>>>> compatible
 create table UserNotificationDelivery (
 	mvccVersion LONG default 0 not null,
 	userNotificationDeliveryId LONG not null primary key,

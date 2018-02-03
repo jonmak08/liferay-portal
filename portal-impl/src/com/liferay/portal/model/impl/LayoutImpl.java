@@ -14,7 +14,10 @@
 
 package com.liferay.portal.model.impl;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.LayoutFriendlyURLException;
 import com.liferay.portal.kernel.exception.NoSuchGroupException;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -450,7 +453,11 @@ public class LayoutImpl extends LayoutBaseImpl {
 
 			}
 			else {
+<<<<<<< HEAD
 				embeddedPortlet = new PortletWrapper(portlet) {
+=======
+				portlet = new PortletWrapper(portlet) {
+>>>>>>> compatible
 
 					@Override
 					public boolean getStatic() {
@@ -1054,6 +1061,7 @@ public class LayoutImpl extends LayoutBaseImpl {
 
 	@Override
 	public boolean isPortletEmbedded(String portletId, long groupId) {
+<<<<<<< HEAD
 		PortletPreferences portletPreferences =
 			PortletPreferencesLocalServiceUtil.fetchPortletPreferences(
 				PortletKeys.PREFS_OWNER_ID_DEFAULT,
@@ -1100,6 +1108,21 @@ public class LayoutImpl extends LayoutBaseImpl {
 		}
 
 		return true;
+=======
+		List<Portlet> embeddedPortlets = getEmbeddedPortlets(groupId);
+
+		if (embeddedPortlets.isEmpty()) {
+			return false;
+		}
+
+		for (Portlet portlet : embeddedPortlets) {
+			if (Objects.equals(portlet.getPortletId(), portletId)) {
+				return true;
+			}
+		}
+
+		return false;
+>>>>>>> compatible
 	}
 
 	/**

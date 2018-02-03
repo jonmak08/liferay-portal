@@ -325,9 +325,12 @@ public interface PortletLocalService extends BaseLocalService,
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public int getPortletsCount();
 
+<<<<<<< HEAD
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public int getPortletsCount(long companyId);
 
+=======
+>>>>>>> compatible
 	@Skip
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<Portlet> getScopablePortlets();

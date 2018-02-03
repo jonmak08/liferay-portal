@@ -27,7 +27,10 @@ import com.liferay.dynamic.data.mapping.storage.DDMFormFieldValue;
 import com.liferay.dynamic.data.mapping.storage.DDMFormValues;
 import com.liferay.dynamic.data.mapping.test.util.DDMFormTestUtil;
 import com.liferay.dynamic.data.mapping.test.util.DDMFormValuesTestUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.json.JSONFactoryImpl;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.language.Language;
@@ -40,9 +43,19 @@ import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.LocalizationUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.Props;
+import com.liferay.portal.kernel.util.PropsKeys;
+import com.liferay.portal.kernel.util.PropsUtil;
+import com.liferay.portal.kernel.util.ProxyUtil;
+import com.liferay.portal.kernel.util.SetUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.Element;
@@ -50,7 +63,10 @@ import com.liferay.portal.kernel.xml.SAXReaderUtil;
 import com.liferay.portal.kernel.xml.UnsecureSAXReaderUtil;
 import com.liferay.portal.security.xml.SecureXMLFactoryProviderImpl;
 import com.liferay.portal.util.LocalizationImpl;
+<<<<<<< HEAD
 import com.liferay.portal.util.PropsValues;
+=======
+>>>>>>> compatible
 import com.liferay.portal.xml.SAXReaderImpl;
 
 import java.lang.reflect.InvocationHandler;
@@ -80,7 +96,10 @@ import org.mockito.stubbing.Answer;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareForTest;
+<<<<<<< HEAD
 import org.powermock.core.classloader.annotations.SuppressStaticInitializationFor;
+=======
+>>>>>>> compatible
 import org.powermock.modules.junit4.PowerMockRunner;
 
 import org.skyscreamer.jsonassert.JSONAssert;
@@ -89,6 +108,7 @@ import org.skyscreamer.jsonassert.JSONAssert;
  * @author Marcellus Tavares
  */
 @PowerMockIgnore("javax.xml.stream.*")
+<<<<<<< HEAD
 @PrepareForTest({LocaleUtil.class, PropsValues.class})
 @RunWith(PowerMockRunner.class)
 @SuppressStaticInitializationFor(
@@ -97,6 +117,10 @@ import org.skyscreamer.jsonassert.JSONAssert;
 		"com.liferay.portal.util.PropsValues"
 	}
 )
+=======
+@PrepareForTest(LocaleUtil.class)
+@RunWith(PowerMockRunner.class)
+>>>>>>> compatible
 public class UpgradeDynamicDataMappingTest extends PowerMockito {
 
 	@Before
@@ -106,7 +130,11 @@ public class UpgradeDynamicDataMappingTest extends PowerMockito {
 		setUpLanguageUtil();
 		setUpLocaleUtil();
 		setUpLocalizationUtil();
+<<<<<<< HEAD
 		setUpPropsValues();
+=======
+		setUpPropsUtil();
+>>>>>>> compatible
 		setUpSecureXMLFactoryProviderUtil();
 		setUpSAXReaderUtil();
 		setUpJSONFactoryUtil();
@@ -932,8 +960,21 @@ public class UpgradeDynamicDataMappingTest extends PowerMockito {
 		localizationUtil.setLocalization(new LocalizationImpl());
 	}
 
+<<<<<<< HEAD
 	protected void setUpPropsValues() {
 		mockStatic(PropsValues.class);
+=======
+	protected void setUpPropsUtil() {
+		Props props = mock(Props.class);
+
+		when(
+			props.get(PropsKeys.XML_SECURITY_ENABLED)
+		).thenReturn(
+			Boolean.TRUE.toString()
+		);
+
+		PropsUtil.setProps(props);
+>>>>>>> compatible
 	}
 
 	protected void setUpSAXReaderUtil() {

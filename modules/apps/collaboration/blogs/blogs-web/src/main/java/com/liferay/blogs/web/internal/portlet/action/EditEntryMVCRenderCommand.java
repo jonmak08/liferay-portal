@@ -14,23 +14,34 @@
 
 package com.liferay.blogs.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.blogs.constants.BlogsPortletKeys;
 import com.liferay.blogs.exception.NoSuchEntryException;
 import com.liferay.blogs.model.BlogsEntry;
+=======
+import com.liferay.blogs.kernel.exception.NoSuchEntryException;
+import com.liferay.blogs.web.constants.BlogsPortletKeys;
+>>>>>>> compatible
 import com.liferay.blogs.web.constants.BlogsWebKeys;
 import com.liferay.blogs.web.internal.BlogsItemSelectorHelper;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCRenderCommand;
 import com.liferay.portal.kernel.security.auth.PrincipalException;
 import com.liferay.portal.kernel.servlet.SessionErrors;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.WebKeys;
+=======
+>>>>>>> compatible
 
 import javax.portlet.PortletException;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
+<<<<<<< HEAD
 import javax.servlet.http.HttpServletRequest;
 
+=======
+>>>>>>> compatible
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
@@ -56,12 +67,16 @@ public class EditEntryMVCRenderCommand implements MVCRenderCommand {
 		throws PortletException {
 
 		try {
+<<<<<<< HEAD
 			BlogsEntry entry = ActionUtil.getEntry(renderRequest);
 
 			HttpServletRequest request = _portal.getHttpServletRequest(
 				renderRequest);
 
 			request.setAttribute(WebKeys.BLOGS_ENTRY, entry);
+=======
+			ActionUtil.getEntry(renderRequest);
+>>>>>>> compatible
 
 			renderRequest.setAttribute(
 				BlogsWebKeys.BLOGS_ITEM_SELECTOR_HELPER,
@@ -92,7 +107,10 @@ public class EditEntryMVCRenderCommand implements MVCRenderCommand {
 
 	private BlogsItemSelectorHelper _blogsItemSelectorHelper;
 
+<<<<<<< HEAD
 	@Reference
 	private Portal _portal;
 
+=======
+>>>>>>> compatible
 }

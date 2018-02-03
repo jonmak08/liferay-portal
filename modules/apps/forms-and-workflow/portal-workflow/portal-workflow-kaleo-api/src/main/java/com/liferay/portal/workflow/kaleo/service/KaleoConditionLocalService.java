@@ -71,7 +71,11 @@ public interface KaleoConditionLocalService extends BaseLocalService,
 	@Indexable(type = IndexableType.REINDEX)
 	public KaleoCondition addKaleoCondition(KaleoCondition kaleoCondition);
 
+<<<<<<< HEAD
 	public KaleoCondition addKaleoCondition(long kaleoDefinitionVersionId,
+=======
+	public KaleoCondition addKaleoCondition(long kaleoDefinitionId,
+>>>>>>> compatible
 		long kaleoNodeId, Condition condition, ServiceContext serviceContext)
 		throws PortalException;
 
@@ -105,8 +109,12 @@ public interface KaleoConditionLocalService extends BaseLocalService,
 	public KaleoCondition deleteKaleoCondition(long kaleoConditionId)
 		throws PortalException;
 
+<<<<<<< HEAD
 	public void deleteKaleoDefinitionVersionKaleoCondition(
 		long kaleoDefinitionVersionId);
+=======
+	public void deleteKaleoDefinitionKaleoCondition(long kaleoDefinitionId);
+>>>>>>> compatible
 
 	/**
 	* @throws PortalException

@@ -14,6 +14,10 @@
  */
 --%>
 
+<<<<<<< HEAD
 <%@ include file="/init.jsp" %>
 
 <%@ page import="com.liferay.portal.kernel.servlet.BrowserSnifferUtil" %>
+=======
+<%@ include file="/init.jsp" %>
+>>>>>>> compatible

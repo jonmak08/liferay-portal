@@ -14,7 +14,11 @@
 
 package com.liferay.asset.categories.navigation.web.internal.portlet;
 
+<<<<<<< HEAD
 import com.liferay.asset.categories.navigation.constants.AssetCategoriesNavigationPortletKeys;
+=======
+import com.liferay.asset.categories.navigation.web.constants.AssetCategoriesNavigationPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 
 import javax.portlet.Portlet;

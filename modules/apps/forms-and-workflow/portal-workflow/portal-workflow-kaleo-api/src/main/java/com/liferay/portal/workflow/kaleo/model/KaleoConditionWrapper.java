@@ -65,7 +65,11 @@ public class KaleoConditionWrapper implements KaleoCondition,
 		attributes.put("userName", getUserName());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
+<<<<<<< HEAD
 		attributes.put("kaleoDefinitionVersionId", getKaleoDefinitionVersionId());
+=======
+		attributes.put("kaleoDefinitionId", getKaleoDefinitionId());
+>>>>>>> compatible
 		attributes.put("kaleoNodeId", getKaleoNodeId());
 		attributes.put("script", getScript());
 		attributes.put("scriptLanguage", getScriptLanguage());
@@ -118,11 +122,18 @@ public class KaleoConditionWrapper implements KaleoCondition,
 			setModifiedDate(modifiedDate);
 		}
 
+<<<<<<< HEAD
 		Long kaleoDefinitionVersionId = (Long)attributes.get(
 				"kaleoDefinitionVersionId");
 
 		if (kaleoDefinitionVersionId != null) {
 			setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
+=======
+		Long kaleoDefinitionId = (Long)attributes.get("kaleoDefinitionId");
+
+		if (kaleoDefinitionId != null) {
+			setKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 		}
 
 		Long kaleoNodeId = (Long)attributes.get("kaleoNodeId");
@@ -207,6 +218,7 @@ public class KaleoConditionWrapper implements KaleoCondition,
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns the kaleo definition version ID of this kaleo condition.
 	*
 	* @return the kaleo definition version ID of this kaleo condition
@@ -214,6 +226,15 @@ public class KaleoConditionWrapper implements KaleoCondition,
 	@Override
 	public long getKaleoDefinitionVersionId() {
 		return _kaleoCondition.getKaleoDefinitionVersionId();
+=======
+	* Returns the kaleo definition ID of this kaleo condition.
+	*
+	* @return the kaleo definition ID of this kaleo condition
+	*/
+	@Override
+	public long getKaleoDefinitionId() {
+		return _kaleoCondition.getKaleoDefinitionId();
+>>>>>>> compatible
 	}
 
 	/**
@@ -398,6 +419,7 @@ public class KaleoConditionWrapper implements KaleoCondition,
 	}
 
 	/**
+<<<<<<< HEAD
 	* Sets the kaleo definition version ID of this kaleo condition.
 	*
 	* @param kaleoDefinitionVersionId the kaleo definition version ID of this kaleo condition
@@ -405,6 +427,15 @@ public class KaleoConditionWrapper implements KaleoCondition,
 	@Override
 	public void setKaleoDefinitionVersionId(long kaleoDefinitionVersionId) {
 		_kaleoCondition.setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
+=======
+	* Sets the kaleo definition ID of this kaleo condition.
+	*
+	* @param kaleoDefinitionId the kaleo definition ID of this kaleo condition
+	*/
+	@Override
+	public void setKaleoDefinitionId(long kaleoDefinitionId) {
+		_kaleoCondition.setKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 	/**

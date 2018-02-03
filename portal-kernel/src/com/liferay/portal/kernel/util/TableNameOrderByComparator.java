@@ -14,8 +14,6 @@
 
 package com.liferay.portal.kernel.util;
 
-import com.liferay.petra.string.CharPool;
-
 /**
  * @author José Manuel Navarro
  */

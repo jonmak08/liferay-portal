@@ -14,7 +14,10 @@
 
 package com.liferay.portal.security.pacl.checker;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.configuration.Filter;
 import com.liferay.portal.kernel.deploy.DeployManagerUtil;
 import com.liferay.portal.kernel.log.Log;
@@ -22,13 +25,20 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.servlet.ServletContextPool;
 import com.liferay.portal.kernel.url.URLContainer;
 import com.liferay.portal.kernel.util.ArrayUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.JavaConstants;
 import com.liferay.portal.kernel.util.PathUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.ReleaseInfo;
 import com.liferay.portal.kernel.util.ServerDetector;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
@@ -202,9 +212,14 @@ public class FileChecker extends BaseChecker {
 
 		logSecurityException(
 			_log,
+<<<<<<< HEAD
 			StringBundler.concat(
 				"Attempted to ", permission.getActions(), " on file ",
 				permission.getName()));
+=======
+			"Attempted to " + permission.getActions() + " on file " +
+				permission.getName());
+>>>>>>> compatible
 
 		return false;
 	}
@@ -276,8 +291,12 @@ public class FileChecker extends BaseChecker {
 
 	protected void addPermission(String path, String actions) {
 		if (_log.isDebugEnabled()) {
+<<<<<<< HEAD
 			_log.debug(
 				StringBundler.concat("Allowing ", actions, " on ", path));
+=======
+			_log.debug("Allowing " + actions + " on " + path);
+>>>>>>> compatible
 		}
 
 		String unixPath = PathUtil.toUnixPath(path);

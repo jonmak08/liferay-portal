@@ -17,6 +17,10 @@ package com.liferay.opensocial.service;
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.portal.kernel.bean.PortletBeanLocatorUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.service.InvokableLocalService;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ReferenceRegistry;
 
 /**
@@ -277,6 +281,15 @@ public class OAuthConsumerLocalServiceUtil {
 		return getService().getPersistedModel(primaryKeyObj);
 	}
 
+<<<<<<< HEAD
+=======
+	public static java.lang.Object invokeMethod(java.lang.String name,
+		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
+		throws java.lang.Throwable {
+		return getService().invokeMethod(name, parameterTypes, arguments);
+	}
+
+>>>>>>> compatible
 	public static com.liferay.opensocial.model.OAuthConsumer updateOAuthConsumer(
 		long oAuthConsumerId, java.lang.String consumerKey,
 		java.lang.String consumerSecret, java.lang.String keyType,
@@ -304,9 +317,22 @@ public class OAuthConsumerLocalServiceUtil {
 
 	public static OAuthConsumerLocalService getService() {
 		if (_service == null) {
+<<<<<<< HEAD
 			_service = (OAuthConsumerLocalService)PortletBeanLocatorUtil.locate(ServletContextUtil.getServletContextName(),
 					OAuthConsumerLocalService.class.getName());
 
+=======
+			InvokableLocalService invokableLocalService = (InvokableLocalService)PortletBeanLocatorUtil.locate(ClpSerializer.getServletContextName(),
+					OAuthConsumerLocalService.class.getName());
+
+			if (invokableLocalService instanceof OAuthConsumerLocalService) {
+				_service = (OAuthConsumerLocalService)invokableLocalService;
+			}
+			else {
+				_service = new OAuthConsumerLocalServiceClp(invokableLocalService);
+			}
+
+>>>>>>> compatible
 			ReferenceRegistry.registerReference(OAuthConsumerLocalServiceUtil.class,
 				"_service");
 		}

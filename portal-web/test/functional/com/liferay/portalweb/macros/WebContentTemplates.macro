@@ -80,9 +80,15 @@
 		<execute macro="WebContentNavigator#gotoManageTemplates" />
 
 		<execute macro="LexiconEntry#gotoAdd" />
+<<<<<<< HEAD
 
 		<execute function="AssertElementNotPresent" locator1="TextInput#REQUIRED_ALERT" />
 
+=======
+
+		<execute function="AssertElementNotPresent" locator1="TextInput#REQUIRED_ALERT" />
+
+>>>>>>> compatible
 		<execute macro="Button#clickSave" />
 
 		<execute function="AssertTextEquals" locator1="Message#ERROR_FIELD_REQUIRED" value1="This field is required." />
@@ -164,9 +170,13 @@
 		<if>
 			<isset var="templateDescription" />
 			<then>
+<<<<<<< HEAD
 				<execute macro="PortletEntry#inputDescription">
 					<var name="description" value="${templateDescription}" />
 				</execute>
+=======
+				<execute function="Type" locator1="TextInput#DESCRIPTION" value1="${templateDescription}" />
+>>>>>>> compatible
 			</then>
 		</if>
 
@@ -208,9 +218,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Web Content" />
 		</execute>
 
@@ -220,6 +234,7 @@
 
 		<execute macro="WebContentNavigator#gotoViewTemplate">
 			<var name="templateName" value="${templateName}" />
+<<<<<<< HEAD
 		</execute>
 
 		<execute function="AssertTextEquals" locator1="TextInput#NAME" value1="${templateName}" />
@@ -258,6 +273,44 @@
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="2" />
 		</execute>
+=======
+		</execute>
+
+		<execute function="AssertTextEquals" locator1="TextInput#NAME" value1="${templateName}" />
+
+		<execute function="Click" locator1="Translation#LOCALIZATION_NAME" />
+
+		<execute function="Type#clickAtType" locator1="TextInput#NAME" value1="${localization1Name}" />
+
+		<if>
+			<isset var="localization2NameKey" />
+			<then>
+				<var name="key_localizationName" value="${localization2NameKey}" />
+
+				<execute function="Click" locator1="Translation#LOCALIZATION_NAME" />
+
+				<execute function="Type#clickAtType" locator1="TextInput#NAME" value1="${localization2Name}" />
+			</then>
+		</if>
+	</command>
+
+	<command name="save">
+		<execute function="AssertClick" locator1="DDMEditTemplate#SAVE_BUTTON" value1="Save" />
+	</command>
+
+	<command name="tearDownCP">
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="ProductMenu#gotoSitesContent">
+			<var name="portlet" value="Web Content" />
+		</execute>
+
+		<execute macro="WebContentNavigator#gotoManageTemplates" />
+
+		<execute function="Type" locator1="DDMSelectTemplate#TOOLBAR_SEARCH_FIELD" value1="2" />
+
+		<execute function="Click" locator1="Icon#BASIC_SEARCH" />
+>>>>>>> compatible
 
 		<while>
 			<condition function="IsElementNotPresent" locator1="Message#EMPTY_INFO" />
@@ -272,9 +325,15 @@
 			</then>
 		</while>
 
+<<<<<<< HEAD
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="Template" />
 		</execute>
+=======
+		<execute function="Type" locator1="DDMSelectTemplate#TOOLBAR_SEARCH_FIELD" value1="Template" />
+
+		<execute function="Click" locator1="Icon#BASIC_SEARCH" />
+>>>>>>> compatible
 
 		<while>
 			<condition function="IsElementNotPresent" locator1="Message#EMPTY_INFO" />
@@ -289,16 +348,26 @@
 			</then>
 		</while>
 
+<<<<<<< HEAD
 		<execute macro="Portlet#viewEmptyMessage">
 			<var name="message" value="There are no results." />
 		</execute>
+=======
+		<execute macro="Portlet#viewEmptyMessage" />
+>>>>>>> compatible
 	</command>
 
 	<command name="viewCP">
 		<execute macro="WebContentNavigator#gotoManageTemplates" />
+<<<<<<< HEAD
 
 		<var name="key_ddlTemplateName" value="${templateName}" />
 
+=======
+
+		<var name="key_ddlTemplateName" value="${templateName}" />
+
+>>>>>>> compatible
 		<execute function="AssertTextEquals" locator1="DDMSelectTemplate#TEMPLATE_TABLE_NAME" value1="${templateName}" />
 		<execute function="AssertTextEquals" locator1="DDMSelectTemplate#TEMPLATE_TABLE_DESCRIPTION" value1="${templateDescription}" />
 

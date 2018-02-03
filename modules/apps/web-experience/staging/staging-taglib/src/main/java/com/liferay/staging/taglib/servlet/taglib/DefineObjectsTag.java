@@ -14,8 +14,11 @@
 
 package com.liferay.staging.taglib.servlet.taglib;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.staging.StagingUtil;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.Layout;
@@ -34,7 +37,10 @@ import javax.servlet.jsp.PageContext;
 /**
  * @author Levente Hudák
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class DefineObjectsTag extends IncludeTag {
 
 	@Override

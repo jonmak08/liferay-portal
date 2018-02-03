@@ -15,7 +15,10 @@
 package com.liferay.dynamic.data.lists.service.test;
 
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.lists.exception.RecordGroupIdException;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.lists.helper.DDLRecordSetTestHelper;
 import com.liferay.dynamic.data.lists.helper.DDLRecordTestHelper;
 import com.liferay.dynamic.data.lists.helper.DDLRecordTestUtil;
@@ -24,7 +27,10 @@ import com.liferay.dynamic.data.lists.model.DDLRecordConstants;
 import com.liferay.dynamic.data.lists.model.DDLRecordSet;
 import com.liferay.dynamic.data.lists.model.DDLRecordVersion;
 import com.liferay.dynamic.data.lists.service.DDLRecordLocalServiceUtil;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.lists.service.DDLRecordVersionLocalServiceUtil;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.exception.StorageException;
 import com.liferay.dynamic.data.mapping.model.DDMForm;
 import com.liferay.dynamic.data.mapping.model.DDMFormField;
@@ -43,8 +49,14 @@ import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
+=======
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+import com.liferay.portal.kernel.test.util.GroupTestUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
@@ -78,12 +90,22 @@ import org.junit.runner.RunWith;
  * @author Marcellus Tavares
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class DDLRecordServiceTest {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@BeforeClass
 	public static void setUpClass() {
@@ -110,6 +132,7 @@ public class DDLRecordServiceTest {
 		_recordSetTestHelper = new DDLRecordSetTestHelper(_group);
 	}
 
+<<<<<<< HEAD
 	@Test
 	public void testAddDraftVersion() throws Exception {
 		DDMForm ddmForm = createDDMForm();
@@ -200,6 +223,8 @@ public class DDLRecordServiceTest {
 		ddlRecordTestHelper.addRecord();
 	}
 
+=======
+>>>>>>> compatible
 	@Test(expected = StorageException.class)
 	public void testAddRecordWithFailStorage() throws Exception {
 		DDMForm ddmForm = DDMFormTestUtil.createDDMForm("Field");
@@ -332,6 +357,7 @@ public class DDLRecordServiceTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testAddRecordWithUpdatedRecordSet() throws Exception {
 		DDMForm ddmForm = createDDMForm();
 
@@ -375,6 +401,8 @@ public class DDLRecordServiceTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testPublishRecordDraftWithoutChanges() throws Exception {
 		DDMForm ddmForm = createDDMForm();
 

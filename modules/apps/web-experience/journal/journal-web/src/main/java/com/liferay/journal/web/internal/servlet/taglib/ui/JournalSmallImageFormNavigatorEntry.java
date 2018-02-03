@@ -14,6 +14,7 @@
 
 package com.liferay.journal.web.internal.servlet.taglib.ui;
 
+<<<<<<< HEAD
 import com.liferay.journal.configuration.JournalFileUploadsConfiguration;
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
 import com.liferay.portal.kernel.servlet.taglib.ui.FormNavigatorEntry;
@@ -29,13 +30,23 @@ import javax.servlet.http.HttpServletResponse;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Modified;
+=======
+import com.liferay.portal.kernel.servlet.taglib.ui.FormNavigatorEntry;
+
+import javax.servlet.ServletContext;
+
+import org.osgi.service.component.annotations.Component;
+>>>>>>> compatible
 import org.osgi.service.component.annotations.Reference;
 
 /**
  * @author Eudaldo Alonso
  */
 @Component(
+<<<<<<< HEAD
 	configurationPid = "com.liferay.journal.configuration.JournalFileUploadsConfiguration",
+=======
+>>>>>>> compatible
 	property = {"form.navigator.entry.order:Integer=70"},
 	service = FormNavigatorEntry.class
 )
@@ -48,6 +59,7 @@ public class JournalSmallImageFormNavigatorEntry
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void include(
 			HttpServletRequest request, HttpServletResponse response)
 		throws IOException {
@@ -60,6 +72,8 @@ public class JournalSmallImageFormNavigatorEntry
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	@Reference(
 		target = "(osgi.web.symbolicname=com.liferay.journal.web)", unbind = "-"
 	)
@@ -67,6 +81,7 @@ public class JournalSmallImageFormNavigatorEntry
 		super.setServletContext(servletContext);
 	}
 
+<<<<<<< HEAD
 	@Activate
 	@Modified
 	protected void activate(Map<String, Object> properties) {
@@ -74,12 +89,17 @@ public class JournalSmallImageFormNavigatorEntry
 			JournalFileUploadsConfiguration.class, properties);
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	protected String getJspPath() {
 		return "/article/small_image.jsp";
 	}
 
+<<<<<<< HEAD
 	private volatile JournalFileUploadsConfiguration
 		_journalFileUploadsConfiguration;
 
+=======
+>>>>>>> compatible
 }

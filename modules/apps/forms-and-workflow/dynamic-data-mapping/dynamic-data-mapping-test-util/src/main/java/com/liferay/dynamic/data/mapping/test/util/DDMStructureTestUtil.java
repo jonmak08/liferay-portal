@@ -23,7 +23,10 @@ import com.liferay.dynamic.data.mapping.model.LocalizedValue;
 import com.liferay.dynamic.data.mapping.service.DDMStructureLocalServiceUtil;
 import com.liferay.dynamic.data.mapping.storage.StorageType;
 import com.liferay.dynamic.data.mapping.util.DDMUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
@@ -31,6 +34,10 @@ import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.xml.Attribute;
 import com.liferay.portal.kernel.xml.Document;
@@ -244,6 +251,7 @@ public class DDMStructureTestUtil {
 	public static String getSampleStructuredContent(
 		String name, List<Map<Locale, String>> contents, String defaultLocale) {
 
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler();
 
 		for (Map<Locale, String> map : contents) {
@@ -256,6 +264,21 @@ public class DDMStructureTestUtil {
 		}
 
 		Document document = createDocumentContent(sb.toString(), defaultLocale);
+=======
+		StringBundler availableLocales = new StringBundler();
+
+		for (Map<Locale, String> map : contents) {
+			for (Locale locale : map.keySet()) {
+				availableLocales.append(LocaleUtil.toLanguageId(locale));
+				availableLocales.append(StringPool.COMMA);
+			}
+
+			availableLocales.setIndex(availableLocales.index() - 1);
+		}
+
+		Document document = createDocumentContent(
+			availableLocales.toString(), defaultLocale);
+>>>>>>> compatible
 
 		Element rootElement = document.getRootElement();
 

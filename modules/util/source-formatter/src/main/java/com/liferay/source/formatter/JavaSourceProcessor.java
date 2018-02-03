@@ -16,6 +16,7 @@ package com.liferay.source.formatter;
 
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.StringPool;
+<<<<<<< HEAD
 import com.liferay.source.formatter.checkstyle.Checker;
 import com.liferay.source.formatter.checkstyle.util.CheckstyleUtil;
 import com.liferay.source.formatter.util.CheckType;
@@ -23,15 +24,25 @@ import com.liferay.source.formatter.util.DebugUtil;
 import com.liferay.source.formatter.util.SourceFormatterUtil;
 
 import com.puppycrawl.tools.checkstyle.api.Configuration;
+=======
+import com.liferay.source.formatter.checkstyle.util.CheckStyleUtil;
+>>>>>>> compatible
 
 import java.io.File;
 
 import java.util.ArrayList;
 import java.util.Collection;
+<<<<<<< HEAD
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+=======
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.concurrent.CopyOnWriteArraySet;
+>>>>>>> compatible
 
 /**
  * @author Hugo Huijser
@@ -64,6 +75,7 @@ public class JavaSourceProcessor extends BaseSourceProcessor {
 	}
 
 	@Override
+<<<<<<< HEAD
 	protected void format(
 			File file, String fileName, String absolutePath, String content)
 		throws Exception {
@@ -144,6 +156,28 @@ public class JavaSourceProcessor extends BaseSourceProcessor {
 			configuration, suppressionsFiles, sourceFormatterArgs);
 
 		return _checker;
+=======
+	protected void postFormat() throws Exception {
+		addProgressStatusUpdate(
+			new ProgressStatusUpdate(
+				ProgressStatus.CHECK_STYLE_STARTING, _ungeneratedFiles.size()));
+
+		_processCheckStyle();
+	}
+
+	@Override
+	protected String processSourceChecks(
+			File file, String fileName, String absolutePath, String content)
+		throws Exception {
+
+		if (_hasGeneratedTag(content)) {
+			return content;
+		}
+
+		_ungeneratedFiles.add(file);
+
+		return super.processSourceChecks(file, fileName, absolutePath, content);
+>>>>>>> compatible
 	}
 
 	private String[] _getPluginExcludes(String pluginDirectoryName) {
@@ -192,7 +226,11 @@ public class JavaSourceProcessor extends BaseSourceProcessor {
 		Collection<String> fileNames = new TreeSet<>();
 
 		String[] excludes = {
+<<<<<<< HEAD
 			"**/*_IW.java", "**/counter/service/**",
+=======
+			"**/*_IW.java", "**/counter/service/**", "**/jsp/*",
+>>>>>>> compatible
 			"**/model/impl/*Model.java", "**/model/impl/*ModelImpl.java",
 			"**/portal/service/**", "**/portal-client/**",
 			"**/portal-web/test/**/*Test.java", "**/test/*-generated/**"
@@ -241,6 +279,7 @@ public class JavaSourceProcessor extends BaseSourceProcessor {
 		return fileNames;
 	}
 
+<<<<<<< HEAD
 	private synchronized void _processCheckstyle(File file) throws Exception {
 		_ungeneratedFiles.add(file);
 
@@ -259,5 +298,44 @@ public class JavaSourceProcessor extends BaseSourceProcessor {
 
 	private Checker _checker;
 	private List<File> _ungeneratedFiles = new ArrayList<>();
+=======
+	private boolean _hasGeneratedTag(String content) {
+		if ((content.contains("* @generated") || content.contains("$ANTLR")) &&
+			!content.contains("hasGeneratedTag")) {
+
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	private void _processCheckStyle() throws Exception {
+		if (_ungeneratedFiles.isEmpty()) {
+			return;
+		}
+
+		Set<SourceFormatterMessage> sourceFormatterMessages =
+			CheckStyleUtil.process(
+				_ungeneratedFiles,
+				getSuppressionsFiles("checkstyle-suppressions.xml"),
+				sourceFormatterArgs.getBaseDirName(), getProgressStatusQueue());
+
+		for (SourceFormatterMessage sourceFormatterMessage :
+				sourceFormatterMessages) {
+
+			processMessage(
+				sourceFormatterMessage.getFileName(), sourceFormatterMessage);
+
+			printError(
+				sourceFormatterMessage.getFileName(),
+				sourceFormatterMessage.toString());
+		}
+	}
+
+	private static final String[] _INCLUDES = {"**/*.java"};
+
+	private final Set<File> _ungeneratedFiles = new CopyOnWriteArraySet<>();
+>>>>>>> compatible
 
 }

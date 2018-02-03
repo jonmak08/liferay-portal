@@ -42,7 +42,10 @@ import org.osgi.service.component.annotations.Component;
 		"javax.portlet.info.short-title=Tags Compiler",
 		"javax.portlet.info.title=Tags Compiler",
 		"javax.portlet.name=" + AssetTagsCompilerPortletKeys.ASSET_TAGS_COMPILER,
+<<<<<<< HEAD
 		"javax.portlet.resource-bundle=content.Language",
+=======
+>>>>>>> compatible
 		"javax.portlet.supported-public-render-parameter=tags",
 		"javax.portlet.supports.mime-type=text/html"
 	},

@@ -141,6 +141,7 @@ public class HtmlImpl implements Html {
 				replacement = "&#187;";
 			}
 			else if (c == '\u2013') {
+<<<<<<< HEAD
 				replacement = "&#8211;";
 			}
 			else if (c == '\u2014') {
@@ -148,6 +149,15 @@ public class HtmlImpl implements Html {
 			}
 			else if (c == '\u2028') {
 				replacement = "&#8232;";
+=======
+				replacement = "&#x2013;";
+			}
+			else if (c == '\u2014') {
+				replacement = "&#x2014;";
+			}
+			else if (c == '\u2028') {
+				replacement = "&#x2028;";
+>>>>>>> compatible
 			}
 			else if (!_isValidXmlCharacter(c) ||
 					 _isUnicodeCompatibilityCharacter(c)) {
@@ -237,6 +247,7 @@ public class HtmlImpl implements Html {
 
 			if (c < _VALID_CHARS.length) {
 				if (!_VALID_CHARS[c]) {
+<<<<<<< HEAD
 					String replacement = null;
 
 					if (mode == ESCAPE_MODE_ATTRIBUTE) {
@@ -318,6 +329,64 @@ public class HtmlImpl implements Html {
 					sb.append(text, lastReplacementIndex, i);
 				}
 
+=======
+					if (sb == null) {
+						sb = new StringBuilder(text.length() + 64);
+					}
+
+					if (i > lastReplacementIndex) {
+						sb.append(text, lastReplacementIndex, i);
+					}
+
+					sb.append(prefix);
+
+					_appendHexChars(sb, hexBuffer, c);
+
+					sb.append(postfix);
+
+					if ((mode == ESCAPE_MODE_CSS) &&
+						(i < (text.length() - 1))) {
+
+						char nextChar = text.charAt(i + 1);
+
+						if ((nextChar >= CharPool.NUMBER_0) &&
+							(nextChar <= CharPool.NUMBER_9)) {
+
+							sb.append(CharPool.SPACE);
+						}
+					}
+
+					lastReplacementIndex = i + 1;
+				}
+			}
+			else if ((mode == ESCAPE_MODE_ATTRIBUTE) &&
+					 (!_isValidXmlCharacter(c) ||
+					  _isUnicodeCompatibilityCharacter(c))) {
+
+				if (sb == null) {
+					sb = new StringBuilder(text.length() + 64);
+				}
+
+				if (i > lastReplacementIndex) {
+					sb.append(text, lastReplacementIndex, i);
+				}
+
+				sb.append(CharPool.SPACE);
+
+				lastReplacementIndex = i + 1;
+			}
+			else if ((mode == ESCAPE_MODE_JS) &&
+					 ((c == '\u2028') || (c == '\u2029'))) {
+
+				if (sb == null) {
+					sb = new StringBuilder(text.length() + 64);
+				}
+
+				if (i > lastReplacementIndex) {
+					sb.append(text, lastReplacementIndex, i);
+				}
+
+>>>>>>> compatible
 				sb.append("\\u");
 
 				_appendHexChars(sb, hexBuffer, c);
@@ -929,6 +998,7 @@ public class HtmlImpl implements Html {
 
 		return false;
 	}
+<<<<<<< HEAD
 
 	private boolean _isValidXmlCharacter(char c) {
 		if (((c >= CharPool.SPACE) && (c <= '\ud7ff')) ||
@@ -936,6 +1006,15 @@ public class HtmlImpl implements Html {
 			(c == CharPool.TAB) || (c == CharPool.NEW_LINE) ||
 			(c == CharPool.RETURN)) {
 
+=======
+
+	private boolean _isValidXmlCharacter(char c) {
+		if (((c >= CharPool.SPACE) && (c <= '\ud7ff')) ||
+			((c >= '\ue000') && (c <= '\ufffd')) || Character.isSurrogate(c) ||
+			(c == CharPool.TAB) || (c == CharPool.NEW_LINE) ||
+			(c == CharPool.RETURN)) {
+
+>>>>>>> compatible
 			return true;
 		}
 

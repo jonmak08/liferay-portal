@@ -15,19 +15,36 @@
 package com.liferay.wiki.web.internal;
 
 import com.liferay.document.library.kernel.model.DLFileEntry;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.TrashedModel;
 import com.liferay.portal.kernel.repository.model.FileEntry;
+=======
+import com.liferay.portal.kernel.model.TrashedModel;
+import com.liferay.portal.kernel.repository.model.FileEntry;
+import com.liferay.portal.kernel.theme.ThemeDisplay;
+>>>>>>> compatible
 import com.liferay.portal.kernel.upload.UploadPortletRequest;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.ObjectValuePair;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
 import com.liferay.trash.service.TrashEntryService;
 import com.liferay.wiki.service.WikiPageService;
 
 import java.io.IOException;
+=======
+import com.liferay.portal.kernel.util.StreamUtil;
+import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.trash.kernel.service.TrashEntryService;
+import com.liferay.trash.kernel.util.TrashUtil;
+import com.liferay.wiki.service.WikiPageService;
+
+>>>>>>> compatible
 import java.io.InputStream;
 
 import java.util.ArrayList;
@@ -96,6 +113,7 @@ public class WikiAttachmentsHelper {
 			for (ObjectValuePair<String, InputStream> inputStreamOVP :
 					inputStreamOVPs) {
 
+<<<<<<< HEAD
 				try (InputStream inputStream = inputStreamOVP.getValue()) {
 				}
 				catch (IOException ioe) {
@@ -103,6 +121,11 @@ public class WikiAttachmentsHelper {
 						_log.warn(ioe, ioe);
 					}
 				}
+=======
+				InputStream inputStream = inputStreamOVP.getValue();
+
+				StreamUtil.cleanUp(inputStream);
+>>>>>>> compatible
 			}
 		}
 	}
@@ -140,12 +163,55 @@ public class WikiAttachmentsHelper {
 	}
 
 	public void restoreEntries(ActionRequest actionRequest) throws Exception {
+<<<<<<< HEAD
 		long nodeId = ParamUtil.getLong(actionRequest, "nodeId");
 		String title = ParamUtil.getString(actionRequest, "title");
 		String fileName = ParamUtil.getString(actionRequest, "fileName");
 
 		_wikiPageService.restorePageAttachmentFromTrash(
 			nodeId, title, fileName);
+=======
+		long trashEntryId = ParamUtil.getLong(actionRequest, "trashEntryId");
+
+		if (trashEntryId > 0) {
+			_trashEntryService.restoreEntry(trashEntryId);
+
+			return;
+		}
+
+		long[] restoreEntryIds = StringUtil.split(
+			ParamUtil.getString(actionRequest, "restoreTrashEntryIds"), 0L);
+
+		for (long restoreEntryId : restoreEntryIds) {
+			_trashEntryService.restoreEntry(restoreEntryId);
+		}
+	}
+
+	public void restoreOverride(ActionRequest actionRequest) throws Exception {
+		long trashEntryId = ParamUtil.getLong(actionRequest, "trashEntryId");
+
+		long duplicateEntryId = ParamUtil.getLong(
+			actionRequest, "duplicateEntryId");
+
+		_trashEntryService.restoreEntry(trashEntryId, duplicateEntryId, null);
+	}
+
+	public void restoreRename(ActionRequest actionRequest) throws Exception {
+		ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(
+			WebKeys.THEME_DISPLAY);
+
+		long trashEntryId = ParamUtil.getLong(actionRequest, "trashEntryId");
+
+		String newName = ParamUtil.getString(actionRequest, "newName");
+
+		if (Validator.isNull(newName)) {
+			String oldName = ParamUtil.getString(actionRequest, "oldName");
+
+			newName = TrashUtil.getNewName(themeDisplay, null, 0, oldName);
+		}
+
+		_trashEntryService.restoreEntry(trashEntryId, 0, newName);
+>>>>>>> compatible
 	}
 
 	@Reference(unbind = "-")
@@ -158,9 +224,12 @@ public class WikiAttachmentsHelper {
 		_wikiPageService = wikiPageService;
 	}
 
+<<<<<<< HEAD
 	private static final Log _log = LogFactoryUtil.getLog(
 		WikiAttachmentsHelper.class);
 
+=======
+>>>>>>> compatible
 	@Reference
 	private Portal _portal;
 

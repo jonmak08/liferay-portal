@@ -194,6 +194,7 @@ public interface KaleoTaskAssignmentInstanceModel extends BaseModel<KaleoTaskAss
 	public void setModifiedDate(Date modifiedDate);
 
 	/**
+<<<<<<< HEAD
 	 * Returns the kaleo definition version ID of this kaleo task assignment instance.
 	 *
 	 * @return the kaleo definition version ID of this kaleo task assignment instance
@@ -206,6 +207,20 @@ public interface KaleoTaskAssignmentInstanceModel extends BaseModel<KaleoTaskAss
 	 * @param kaleoDefinitionVersionId the kaleo definition version ID of this kaleo task assignment instance
 	 */
 	public void setKaleoDefinitionVersionId(long kaleoDefinitionVersionId);
+=======
+	 * Returns the kaleo definition ID of this kaleo task assignment instance.
+	 *
+	 * @return the kaleo definition ID of this kaleo task assignment instance
+	 */
+	public long getKaleoDefinitionId();
+
+	/**
+	 * Sets the kaleo definition ID of this kaleo task assignment instance.
+	 *
+	 * @param kaleoDefinitionId the kaleo definition ID of this kaleo task assignment instance
+	 */
+	public void setKaleoDefinitionId(long kaleoDefinitionId);
+>>>>>>> compatible
 
 	/**
 	 * Returns the kaleo instance ID of this kaleo task assignment instance.

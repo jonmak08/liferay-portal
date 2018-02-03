@@ -21,6 +21,10 @@ import com.liferay.opensocial.model.Gadget;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -94,7 +98,11 @@ public class GadgetCacheModel implements CacheModel<Gadget>, Externalizable {
 		GadgetImpl gadgetImpl = new GadgetImpl();
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			gadgetImpl.setUuid("");
+=======
+			gadgetImpl.setUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			gadgetImpl.setUuid(uuid);
@@ -118,21 +126,33 @@ public class GadgetCacheModel implements CacheModel<Gadget>, Externalizable {
 		}
 
 		if (name == null) {
+<<<<<<< HEAD
 			gadgetImpl.setName("");
+=======
+			gadgetImpl.setName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			gadgetImpl.setName(name);
 		}
 
 		if (url == null) {
+<<<<<<< HEAD
 			gadgetImpl.setUrl("");
+=======
+			gadgetImpl.setUrl(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			gadgetImpl.setUrl(url);
 		}
 
 		if (portletCategoryNames == null) {
+<<<<<<< HEAD
 			gadgetImpl.setPortletCategoryNames("");
+=======
+			gadgetImpl.setPortletCategoryNames(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			gadgetImpl.setPortletCategoryNames(portletCategoryNames);
@@ -169,7 +189,11 @@ public class GadgetCacheModel implements CacheModel<Gadget>, Externalizable {
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		if (uuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(uuid);
@@ -182,21 +206,33 @@ public class GadgetCacheModel implements CacheModel<Gadget>, Externalizable {
 		objectOutput.writeLong(modifiedDate);
 
 		if (name == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(name);
 		}
 
 		if (url == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(url);
 		}
 
 		if (portletCategoryNames == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(portletCategoryNames);

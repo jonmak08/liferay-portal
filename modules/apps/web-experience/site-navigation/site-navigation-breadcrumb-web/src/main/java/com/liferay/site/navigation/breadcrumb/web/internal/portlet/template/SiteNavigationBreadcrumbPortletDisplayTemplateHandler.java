@@ -14,7 +14,10 @@
 
 package com.liferay.site.navigation.breadcrumb.web.internal.portlet.template;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.portletdisplaytemplate.BasePortletDisplayTemplateHandler;
@@ -24,9 +27,17 @@ import com.liferay.portal.kernel.template.TemplateHandler;
 import com.liferay.portal.kernel.template.TemplateVariableGroup;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
+<<<<<<< HEAD
 import com.liferay.portlet.display.template.PortletDisplayTemplateConstants;
 import com.liferay.site.navigation.breadcrumb.web.configuration.SiteNavigationBreadcrumbWebTemplateConfiguration;
 import com.liferay.site.navigation.breadcrumb.web.internal.constants.SiteNavigationBreadcrumbPortletKeys;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portlet.display.template.PortletDisplayTemplateConstants;
+import com.liferay.site.navigation.breadcrumb.web.configuration.SiteNavigationBreadcrumbConfigurationValues;
+import com.liferay.site.navigation.breadcrumb.web.configuration.SiteNavigationBreadcrumbWebTemplateConfiguration;
+import com.liferay.site.navigation.breadcrumb.web.constants.SiteNavigationBreadcrumbPortletKeys;
+>>>>>>> compatible
 
 import java.util.HashMap;
 import java.util.List;
@@ -134,8 +145,13 @@ public class SiteNavigationBreadcrumbPortletDisplayTemplateHandler
 
 	@Override
 	protected String getTemplatesConfigPath() {
+<<<<<<< HEAD
 		return "com/liferay/site/navigation/breadcrumb/web/portlet/template" +
 			"/dependencies/portlet-display-templates.xml";
+=======
+		return SiteNavigationBreadcrumbConfigurationValues.
+			DISPLAY_TEMPLATES_CONFIG;
+>>>>>>> compatible
 	}
 
 	@Reference

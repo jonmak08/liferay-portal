@@ -19,7 +19,11 @@
 <%
 String tabs1 = ParamUtil.getString(request, "tabs1", "templates");
 
+<<<<<<< HEAD
 long groupId = ParamUtil.getLong(request, "groupId", PortalUtil.getScopeGroupId(request, refererPortletName));
+=======
+long groupId = ParamUtil.getLong(request, "groupId", themeDisplay.getSiteGroupId());
+>>>>>>> compatible
 long classNameId = ParamUtil.getLong(request, "classNameId");
 long classPK = ParamUtil.getLong(request, "classPK");
 
@@ -116,7 +120,11 @@ TemplateSearchTerms templateSearchTerms = (TemplateSearchTerms)templateSearch.ge
 	<div class="container-fluid-1280" id="<portlet:namespace />entriesContainer">
 		<liferay-ui:search-container
 			id="ddmTemplates"
+<<<<<<< HEAD
 			rowChecker="<%= new DDMTemplateRowChecker(renderResponse) %>"
+=======
+			rowChecker="<%= new EmptyOnClickRowChecker(renderResponse) %>"
+>>>>>>> compatible
 			searchContainer="<%= templateSearch %>"
 		>
 			<liferay-ui:search-container-results>

@@ -18,8 +18,11 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.workflow.kaleo.definition.Action;
+<<<<<<< HEAD
 import com.liferay.portal.workflow.kaleo.definition.ExecutionType;
 import com.liferay.portal.workflow.kaleo.definition.ScriptLanguage;
+=======
+>>>>>>> compatible
 import com.liferay.portal.workflow.kaleo.model.KaleoAction;
 import com.liferay.portal.workflow.kaleo.service.base.KaleoActionLocalServiceBaseImpl;
 
@@ -34,9 +37,14 @@ public class KaleoActionLocalServiceImpl
 
 	@Override
 	public KaleoAction addKaleoAction(
+<<<<<<< HEAD
 			String kaleoClassName, long kaleoClassPK,
 			long kaleoDefinitionVersionId, String kaleoNodeName, Action action,
 			ServiceContext serviceContext)
+=======
+			String kaleoClassName, long kaleoClassPK, long kaleoDefinitionId,
+			String kaleoNodeName, Action action, ServiceContext serviceContext)
+>>>>>>> compatible
 		throws PortalException {
 
 		User user = userLocalService.getUser(serviceContext.getGuestOrUserId());
@@ -53,6 +61,7 @@ public class KaleoActionLocalServiceImpl
 		kaleoAction.setModifiedDate(now);
 		kaleoAction.setKaleoClassName(kaleoClassName);
 		kaleoAction.setKaleoClassPK(kaleoClassPK);
+<<<<<<< HEAD
 		kaleoAction.setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
 		kaleoAction.setKaleoNodeName(kaleoNodeName);
 		kaleoAction.setName(action.getName());
@@ -68,6 +77,15 @@ public class KaleoActionLocalServiceImpl
 
 		kaleoAction.setScriptLanguage(scriptLanguage.getValue());
 
+=======
+		kaleoAction.setKaleoDefinitionId(kaleoDefinitionId);
+		kaleoAction.setKaleoNodeName(kaleoNodeName);
+		kaleoAction.setName(action.getName());
+		kaleoAction.setDescription(action.getDescription());
+		kaleoAction.setExecutionType(action.getExecutionType().getValue());
+		kaleoAction.setScript(action.getScript());
+		kaleoAction.setScriptLanguage(action.getScriptLanguage().getValue());
+>>>>>>> compatible
 		kaleoAction.setScriptRequiredContexts(
 			action.getScriptRequiredContexts());
 		kaleoAction.setPriority(action.getPriority());
@@ -83,11 +101,16 @@ public class KaleoActionLocalServiceImpl
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void deleteKaleoDefinitionVersionKaleoActions(
 		long kaleoDefinitionVersionId) {
 
 		kaleoActionPersistence.removeByKaleoDefinitionVersionId(
 			kaleoDefinitionVersionId);
+=======
+	public void deleteKaleoDefinitionKaleoActions(long kaleoDefinitionId) {
+		kaleoActionPersistence.removeByKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 	@Override

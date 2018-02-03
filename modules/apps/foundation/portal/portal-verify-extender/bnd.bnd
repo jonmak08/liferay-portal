@@ -1,6 +1,11 @@
 Bundle-Name: Liferay Portal Verify Extender
 Bundle-SymbolicName: com.liferay.portal.verify.extender
+<<<<<<< HEAD
 Bundle-Version: 3.0.1
+=======
+Bundle-Version: 2.1.7
+Export-Package: com.liferay.portal.verify.extender.marker
+>>>>>>> compatible
 Import-Package:\
 	org.apache.felix.service.command;resolution:=optional,\
 	\

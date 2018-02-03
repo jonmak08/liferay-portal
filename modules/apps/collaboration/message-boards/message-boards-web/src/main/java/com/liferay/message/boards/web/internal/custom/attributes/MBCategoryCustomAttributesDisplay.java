@@ -16,8 +16,13 @@ package com.liferay.message.boards.web.internal.custom.attributes;
 
 import com.liferay.expando.kernel.model.BaseCustomAttributesDisplay;
 import com.liferay.expando.kernel.model.CustomAttributesDisplay;
+<<<<<<< HEAD
 import com.liferay.message.boards.constants.MBPortletKeys;
 import com.liferay.message.boards.kernel.model.MBCategory;
+=======
+import com.liferay.message.boards.kernel.model.MBCategory;
+import com.liferay.message.boards.web.constants.MBPortletKeys;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 

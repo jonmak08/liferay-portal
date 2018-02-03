@@ -19,7 +19,11 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.scheduler.TimeUnit;
 import com.liferay.portal.kernel.scheduler.Trigger;
 import com.liferay.portal.kernel.scheduler.TriggerFactory;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.scheduler.quartz.QuartzTrigger;
+>>>>>>> compatible
 
 import java.util.Date;
 
@@ -50,9 +54,14 @@ public class QuartzTriggerFactory implements TriggerFactory {
 		if (interval < 0) {
 			if (_log.isWarnEnabled()) {
 				_log.warn(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Not scheduling ", jobName,
 						" because interval is less than 0"));
+=======
+					"Not scheduling " + jobName + " because interval is less " +
+						"than 0");
+>>>>>>> compatible
 			}
 
 			return null;

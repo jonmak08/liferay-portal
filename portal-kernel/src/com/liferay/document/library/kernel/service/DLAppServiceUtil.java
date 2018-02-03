@@ -1104,6 +1104,7 @@ public class DLAppServiceUtil {
 
 	public static java.util.List<java.lang.Object> getFoldersAndFileEntriesAndFileShortcuts(
 		long repositoryId, long folderId, int status,
+<<<<<<< HEAD
 		java.lang.String[] mimeTypes, boolean includeMountFolders,
 		boolean includeOwner, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator<?> obc)
@@ -1116,6 +1117,8 @@ public class DLAppServiceUtil {
 
 	public static java.util.List<java.lang.Object> getFoldersAndFileEntriesAndFileShortcuts(
 		long repositoryId, long folderId, int status,
+=======
+>>>>>>> compatible
 		java.lang.String[] mimeTypes, boolean includeMountFolders, int start,
 		int end, com.liferay.portal.kernel.util.OrderByComparator<?> obc)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -1154,6 +1157,7 @@ public class DLAppServiceUtil {
 			folderId, status, mimeTypes, includeMountFolders);
 	}
 
+<<<<<<< HEAD
 	public static int getFoldersAndFileEntriesAndFileShortcutsCount(
 		long repositoryId, long folderId, int status,
 		java.lang.String[] mimeTypes, boolean includeMountFolders,
@@ -1164,6 +1168,8 @@ public class DLAppServiceUtil {
 			folderId, status, mimeTypes, includeMountFolders, includeOwner);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns the number of immediate subfolders of the parent folder.
 	*

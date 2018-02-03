@@ -14,12 +14,16 @@
 
 package com.liferay.portal.kernel.process;
 
+import com.liferay.portal.kernel.concurrent.AbortPolicy;
 import com.liferay.portal.kernel.concurrent.BaseFutureListener;
 import com.liferay.portal.kernel.concurrent.DefaultNoticeableFuture;
+import com.liferay.portal.kernel.concurrent.FutureListener;
 import com.liferay.portal.kernel.concurrent.NoticeableFuture;
+import com.liferay.portal.kernel.concurrent.ThreadPoolExecutor;
+import com.liferay.portal.kernel.concurrent.ThreadPoolHandlerAdapter;
+import com.liferay.portal.kernel.util.NamedThreadFactory;
 import com.liferay.portal.kernel.util.ObjectValuePair;
-import com.liferay.portal.kernel.util.StringBundler;
-import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.PortalClassLoaderUtil;
 
 import java.io.IOException;
 
@@ -27,6 +31,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
+import java.util.concurrent.RejectedExecutionException;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicMarkableReference;
 
 /**
@@ -34,34 +40,15 @@ import java.util.concurrent.atomic.AtomicMarkableReference;
  */
 public class ProcessUtil {
 
-	/**
-	 * @deprecated As of 7.0.0, replaced by {@link
-	 *             CollectorOutputProcessor#INSTANCE}
-	 */
-	@Deprecated
 	public static final CollectorOutputProcessor COLLECTOR_OUTPUT_PROCESSOR =
 		new CollectorOutputProcessor();
 
-	/**
-	 * @deprecated As of 7.0.0, replaced by {@link
-	 *             ConsumerOutputProcessor#INSTANCE}
-	 */
-	@Deprecated
 	public static final ConsumerOutputProcessor CONSUMER_OUTPUT_PROCESSOR =
 		new ConsumerOutputProcessor();
 
-	/**
-	 * @deprecated As of 7.0.0, replaced by {@link EchoOutputProcessor#INSTANCE}
-	 */
-	@Deprecated
 	public static final EchoOutputProcessor ECHO_OUTPUT_PROCESSOR =
 		new EchoOutputProcessor();
 
-	/**
-	 * @deprecated As of 7.0.0, replaced by {@link
-	 *             LoggingOutputProcessor#INSTANCE}
-	 */
-	@Deprecated
 	public static final LoggingOutputProcessor LOGGING_OUTPUT_PROCESSOR =
 		new LoggingOutputProcessor();
 
@@ -79,21 +66,29 @@ public class ProcessUtil {
 
 		ProcessBuilder processBuilder = new ProcessBuilder(arguments);
 
-		String threadNamePrefix = _buildThreadNamePrefix(arguments);
-
 		try {
 			Process process = processBuilder.start();
 
-			NoticeableFuture<O> stdOutNoticeableFuture = _submit(
-				threadNamePrefix.concat("StdOut"),
-				new ProcessStdOutCallable<>(outputProcessor, process));
+			ThreadPoolExecutor threadPoolExecutor = _getThreadPoolExecutor();
 
-			NoticeableFuture<E> stdErrNoticeableFuture = _submit(
-				threadNamePrefix.concat("StdErr"),
-				new ProcessStdErrCallable<>(outputProcessor, process));
+			try {
+				NoticeableFuture<O> stdOutNoticeableFuture =
+					threadPoolExecutor.submit(
+						new ProcessStdOutCallable<O>(outputProcessor, process));
 
-			return _wrapNoticeableFuture(
-				stdOutNoticeableFuture, stdErrNoticeableFuture, process);
+				NoticeableFuture<E> stdErrNoticeableFuture =
+					threadPoolExecutor.submit(
+						new ProcessStdErrCallable<E>(outputProcessor, process));
+
+				return _wrapNoticeableFuture(
+					stdOutNoticeableFuture, stdErrNoticeableFuture, process);
+			}
+			catch (RejectedExecutionException ree) {
+				process.destroy();
+
+				throw new ProcessException(
+					"Cancelled execution because of a concurrent destroy", ree);
+			}
 		}
 		catch (IOException ioe) {
 			throw new ProcessException(ioe);
@@ -107,70 +102,71 @@ public class ProcessUtil {
 		return execute(outputProcessor, Arrays.asList(arguments));
 	}
 
-	/**
-	 * @deprecated As of 7.0.0, with no direct replacement
-	 */
-	@Deprecated
 	public void destroy() {
-	}
-
-	private static String _buildThreadNamePrefix(List<String> arguments) {
-		StringBundler sb = new StringBundler(arguments.size() * 2 + 1);
-
-		sb.append(StringPool.OPEN_BRACKET);
-
-		for (String argument : arguments) {
-			sb.append(argument);
-			sb.append(StringPool.SPACE);
+		if (_threadPoolExecutor == null) {
+			return;
 		}
 
-		sb.setStringAt(StringPool.CLOSE_BRACKET, sb.index() - 1);
+		synchronized (ProcessUtil.class) {
+			if (_threadPoolExecutor != null) {
+				_threadPoolExecutor.shutdownNow();
 
-		sb.append("-");
-
-		return sb.toString();
+				_threadPoolExecutor = null;
+			}
+		}
 	}
 
-	private static <T> NoticeableFuture<T> _submit(
-		String threadName, Callable<T> callable) {
+	private static ThreadPoolExecutor _getThreadPoolExecutor() {
+		if (_threadPoolExecutor != null) {
+			return _threadPoolExecutor;
+		}
 
-		DefaultNoticeableFuture<T> defaultNoticeableFuture =
-			new DefaultNoticeableFuture<>(callable);
+		synchronized (ProcessUtil.class) {
+			if (_threadPoolExecutor == null) {
+				_threadPoolExecutor = new ThreadPoolExecutor(
+					0, Integer.MAX_VALUE, 60, TimeUnit.SECONDS, true,
+					Integer.MAX_VALUE, new AbortPolicy(),
+					new NamedThreadFactory(
+						ProcessUtil.class.getName(), Thread.MIN_PRIORITY,
+						PortalClassLoaderUtil.getClassLoader()),
+					new ThreadPoolHandlerAdapter());
+			}
+		}
 
-		Thread thread = new Thread(defaultNoticeableFuture, threadName);
-
-		thread.setDaemon(true);
-
-		thread.start();
-
-		return defaultNoticeableFuture;
+		return _threadPoolExecutor;
 	}
 
 	private static <O, E> NoticeableFuture<ObjectValuePair<O, E>>
 		_wrapNoticeableFuture(
-			NoticeableFuture<O> stdOutNoticeableFuture,
-			NoticeableFuture<E> stdErrNoticeableFuture, Process process) {
+			final NoticeableFuture<O> stdOutNoticeableFuture,
+			final NoticeableFuture<E> stdErrNoticeableFuture,
+			final Process process) {
 
-		DefaultNoticeableFuture<ObjectValuePair<O, E>> defaultNoticeableFuture =
-			new DefaultNoticeableFuture<>();
+		final DefaultNoticeableFuture<ObjectValuePair<O, E>>
+			defaultNoticeableFuture = new DefaultNoticeableFuture<>();
 
 		defaultNoticeableFuture.addFutureListener(
-			future -> {
-				if (!future.isCancelled()) {
-					return;
+			new FutureListener<ObjectValuePair<O, E>>() {
+
+				@Override
+				public void complete(Future<ObjectValuePair<O, E>> future) {
+					if (!future.isCancelled()) {
+						return;
+					}
+
+					stdOutNoticeableFuture.cancel(true);
+
+					stdErrNoticeableFuture.cancel(true);
+
+					process.destroy();
 				}
 
-				stdOutNoticeableFuture.cancel(true);
-
-				stdErrNoticeableFuture.cancel(true);
-
-				process.destroy();
 			});
 
-		AtomicMarkableReference<O> stdOutReference =
+		final AtomicMarkableReference<O> stdOutReference =
 			new AtomicMarkableReference<>(null, false);
 
-		AtomicMarkableReference<E> stdErrReference =
+		final AtomicMarkableReference<E> stdErrReference =
 			new AtomicMarkableReference<>(null, false);
 
 		stdOutNoticeableFuture.addFutureListener(
@@ -198,7 +194,7 @@ public class ProcessUtil {
 
 					if (markHolder[0]) {
 						defaultNoticeableFuture.set(
-							new ObjectValuePair<>(stdOut, stdErr));
+							new ObjectValuePair<O, E>(stdOut, stdErr));
 					}
 				}
 
@@ -229,7 +225,7 @@ public class ProcessUtil {
 
 					if (markHolder[0]) {
 						defaultNoticeableFuture.set(
-							new ObjectValuePair<>(stdOut, stdErr));
+							new ObjectValuePair<O, E>(stdOut, stdErr));
 					}
 				}
 
@@ -238,18 +234,20 @@ public class ProcessUtil {
 		return defaultNoticeableFuture;
 	}
 
+	private static volatile ThreadPoolExecutor _threadPoolExecutor;
+
 	private static class ProcessStdErrCallable<T> implements Callable<T> {
 
-		@Override
-		public T call() throws Exception {
-			return _outputProcessor.processStdErr(_process.getErrorStream());
-		}
-
-		private ProcessStdErrCallable(
+		public ProcessStdErrCallable(
 			OutputProcessor<?, T> outputProcessor, Process process) {
 
 			_outputProcessor = outputProcessor;
 			_process = process;
+		}
+
+		@Override
+		public T call() throws Exception {
+			return _outputProcessor.processStdErr(_process.getErrorStream());
 		}
 
 		private final OutputProcessor<?, T> _outputProcessor;
@@ -258,6 +256,13 @@ public class ProcessUtil {
 	}
 
 	private static class ProcessStdOutCallable<T> implements Callable<T> {
+
+		public ProcessStdOutCallable(
+			OutputProcessor<T, ?> outputProcessor, Process process) {
+
+			_outputProcessor = outputProcessor;
+			_process = process;
+		}
 
 		@Override
 		public T call() throws Exception {
@@ -280,13 +285,6 @@ public class ProcessUtil {
 						"Forcibly killed subprocess on interruption", ie);
 				}
 			}
-		}
-
-		private ProcessStdOutCallable(
-			OutputProcessor<T, ?> outputProcessor, Process process) {
-
-			_outputProcessor = outputProcessor;
-			_process = process;
 		}
 
 		private final OutputProcessor<T, ?> _outputProcessor;

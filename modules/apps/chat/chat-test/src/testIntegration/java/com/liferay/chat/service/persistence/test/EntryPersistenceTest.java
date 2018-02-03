@@ -34,6 +34,10 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.util.IntegerWrapper;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.OrderByComparatorFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.PersistenceTestRule;
 import com.liferay.portal.test.rule.TransactionalTestRule;
@@ -201,9 +205,15 @@ public class EntryPersistenceTest {
 	@Test
 	public void testCountByF_T_C() throws Exception {
 		_persistence.countByF_T_C(RandomTestUtil.nextLong(),
+<<<<<<< HEAD
 			RandomTestUtil.nextLong(), "");
 
 		_persistence.countByF_T_C(0L, 0L, "null");
+=======
+			RandomTestUtil.nextLong(), StringPool.BLANK);
+
+		_persistence.countByF_T_C(0L, 0L, StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByF_T_C(0L, 0L, (String)null);
 	}

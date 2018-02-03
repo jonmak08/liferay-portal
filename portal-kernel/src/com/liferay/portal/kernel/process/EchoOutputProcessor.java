@@ -24,9 +24,6 @@ import java.io.InputStream;
  */
 public class EchoOutputProcessor implements OutputProcessor<Void, Void> {
 
-	public static final OutputProcessor<Void, Void> INSTANCE =
-		new EchoOutputProcessor();
-
 	@Override
 	public Void processStdErr(InputStream stdErrInputStream)
 		throws ProcessException {

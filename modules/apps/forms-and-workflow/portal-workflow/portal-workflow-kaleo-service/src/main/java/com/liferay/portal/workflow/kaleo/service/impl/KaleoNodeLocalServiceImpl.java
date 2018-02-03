@@ -37,8 +37,12 @@ public class KaleoNodeLocalServiceImpl extends KaleoNodeLocalServiceBaseImpl {
 
 	@Override
 	public KaleoNode addKaleoNode(
+<<<<<<< HEAD
 			long kaleoDefinitionVersionId, Node node,
 			ServiceContext serviceContext)
+=======
+			long kaleoDefinitionId, Node node, ServiceContext serviceContext)
+>>>>>>> compatible
 		throws PortalException {
 
 		// Kaleo node
@@ -55,6 +59,7 @@ public class KaleoNodeLocalServiceImpl extends KaleoNodeLocalServiceBaseImpl {
 		kaleoNode.setUserName(user.getFullName());
 		kaleoNode.setCreateDate(now);
 		kaleoNode.setModifiedDate(now);
+<<<<<<< HEAD
 		kaleoNode.setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
 		kaleoNode.setName(node.getName());
 		kaleoNode.setMetadata(node.getMetadata());
@@ -63,10 +68,22 @@ public class KaleoNodeLocalServiceImpl extends KaleoNodeLocalServiceBaseImpl {
 		NodeType nodeType = node.getNodeType();
 
 		kaleoNode.setType(nodeType.name());
+=======
+		kaleoNode.setKaleoDefinitionId(kaleoDefinitionId);
+		kaleoNode.setName(node.getName());
+		kaleoNode.setMetadata(node.getMetadata());
+		kaleoNode.setDescription(node.getDescription());
+		kaleoNode.setType(node.getNodeType().name());
+>>>>>>> compatible
 
 		boolean initial = false;
 		boolean terminal = false;
 
+<<<<<<< HEAD
+=======
+		NodeType nodeType = node.getNodeType();
+
+>>>>>>> compatible
 		if (nodeType.equals(NodeType.STATE)) {
 			State state = (State)node;
 
@@ -85,9 +102,14 @@ public class KaleoNodeLocalServiceImpl extends KaleoNodeLocalServiceBaseImpl {
 
 		for (Action action : actions) {
 			kaleoActionLocalService.addKaleoAction(
+<<<<<<< HEAD
 				KaleoNode.class.getName(), kaleoNodeId,
 				kaleoDefinitionVersionId, node.getName(), action,
 				serviceContext);
+=======
+				KaleoNode.class.getName(), kaleoNodeId, kaleoDefinitionId,
+				node.getName(), action, serviceContext);
+>>>>>>> compatible
 		}
 
 		// Kaleo notifications
@@ -96,9 +118,14 @@ public class KaleoNodeLocalServiceImpl extends KaleoNodeLocalServiceBaseImpl {
 
 		for (Notification notification : notifications) {
 			kaleoNotificationLocalService.addKaleoNotification(
+<<<<<<< HEAD
 				KaleoNode.class.getName(), kaleoNodeId,
 				kaleoDefinitionVersionId, node.getName(), notification,
 				serviceContext);
+=======
+				KaleoNode.class.getName(), kaleoNodeId, kaleoDefinitionId,
+				node.getName(), notification, serviceContext);
+>>>>>>> compatible
 		}
 
 		// Kaleo timers
@@ -107,8 +134,13 @@ public class KaleoNodeLocalServiceImpl extends KaleoNodeLocalServiceBaseImpl {
 
 		for (Timer timer : timers) {
 			kaleoTimerLocalService.addKaleoTimer(
+<<<<<<< HEAD
 				KaleoNode.class.getName(), kaleoNodeId,
 				kaleoDefinitionVersionId, timer, serviceContext);
+=======
+				KaleoNode.class.getName(), kaleoNodeId, kaleoDefinitionId,
+				timer, serviceContext);
+>>>>>>> compatible
 		}
 
 		return kaleoNode;
@@ -132,6 +164,7 @@ public class KaleoNodeLocalServiceImpl extends KaleoNodeLocalServiceBaseImpl {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void deleteKaleoDefinitionVersionKaleoNodes(
 		long kaleoDefinitionVersionId) {
 
@@ -158,6 +191,30 @@ public class KaleoNodeLocalServiceImpl extends KaleoNodeLocalServiceBaseImpl {
 
 		return kaleoNodePersistence.findByKaleoDefinitionVersionId(
 			kaleoDefinitionVersionId);
+=======
+	public void deleteKaleoDefinitionKaleoNodes(long kaleoDefinitionId) {
+
+		// Kaleo nodes
+
+		kaleoNodePersistence.removeByKaleoDefinitionId(kaleoDefinitionId);
+
+		// Kaleo actions
+
+		kaleoActionLocalService.deleteKaleoDefinitionKaleoActions(
+			kaleoDefinitionId);
+
+		// Kaleo notifications
+
+		kaleoNotificationLocalService.deleteKaleoDefinitionKaleoNotifications(
+			kaleoDefinitionId);
+	}
+
+	@Override
+	public List<KaleoNode> getKaleoDefinitionKaleoNodes(
+		long kaleoDefinitionId) {
+
+		return kaleoNodePersistence.findByKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 }

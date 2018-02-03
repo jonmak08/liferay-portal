@@ -116,6 +116,7 @@ public class SourceFormatterPlugin implements Plugin<Project> {
 
 		formatSourceTask.setClasspath(classpath);
 
+<<<<<<< HEAD
 		String fileExtensions = GradleUtil.getTaskPrefixedProperty(
 			formatSourceTask, "file.extensions");
 
@@ -130,6 +131,8 @@ public class SourceFormatterPlugin implements Plugin<Project> {
 			formatSourceTask.setFileNames(fileNames.split(","));
 		}
 
+=======
+>>>>>>> compatible
 		String formatCurrentBranch = GradleUtil.getTaskPrefixedProperty(
 			formatSourceTask, "format.current.branch");
 

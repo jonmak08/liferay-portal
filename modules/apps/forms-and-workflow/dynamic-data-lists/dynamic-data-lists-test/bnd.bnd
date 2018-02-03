@@ -1,6 +1,7 @@
 Bundle-Name: Liferay Dynamic Data Lists Test
 Bundle-SymbolicName: com.liferay.dynamic.data.lists.test
 Bundle-Version: 1.0.0
+<<<<<<< HEAD
 Import-Package:\
 	!org.apache.poi.hssf.usermodel.*,\
 	!org.apache.poi.ss.usermodel.*,\
@@ -11,3 +12,8 @@ Liferay-Releng-Module-Group-Title: Dynamic Data Lists
 -includeresource:\
 	test-classes/integration,\
 	@lib/poi.jar
+=======
+Liferay-Releng-Module-Group-Description:
+Liferay-Releng-Module-Group-Title: Dynamic Data Lists
+-includeresource: test-classes/integration
+>>>>>>> compatible

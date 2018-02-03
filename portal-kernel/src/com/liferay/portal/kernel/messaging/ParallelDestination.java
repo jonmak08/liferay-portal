@@ -14,12 +14,19 @@
 
 package com.liferay.portal.kernel.messaging;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.cache.thread.local.Lifecycle;
 import com.liferay.portal.kernel.cache.thread.local.ThreadLocalCacheManager;
 import com.liferay.portal.kernel.concurrent.ThreadPoolExecutor;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CentralizedThreadLocal;
+>>>>>>> compatible
 
 import java.util.Set;
 

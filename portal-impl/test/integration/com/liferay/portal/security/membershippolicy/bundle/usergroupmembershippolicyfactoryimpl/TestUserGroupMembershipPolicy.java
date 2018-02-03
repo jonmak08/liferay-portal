@@ -16,6 +16,10 @@ package com.liferay.portal.security.membershippolicy.bundle.usergroupmembershipp
 
 import com.liferay.portal.kernel.model.UserGroup;
 import com.liferay.portal.kernel.security.membershippolicy.UserGroupMembershipPolicy;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StackTraceUtil;
+>>>>>>> compatible
 
 import java.io.Serializable;
 

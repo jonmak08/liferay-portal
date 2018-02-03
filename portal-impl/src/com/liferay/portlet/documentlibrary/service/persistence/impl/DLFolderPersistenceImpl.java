@@ -43,8 +43,13 @@ import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.service.persistence.impl.TableMapper;
 import com.liferay.portal.kernel.service.persistence.impl.TableMapperFactory;
 import com.liferay.portal.kernel.util.ArrayUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -9052,8 +9057,14 @@ public class DLFolderPersistenceImpl extends BasePersistenceImpl<DLFolder>
 					if ((groupId != dlFolder.getGroupId()) ||
 							(mountPoint != dlFolder.getMountPoint()) ||
 							!StringUtil.wildcardMatches(
+<<<<<<< HEAD
 								dlFolder.getTreePath(), treePath, '_', '%',
 								'\\', true) ||
+=======
+								dlFolder.getTreePath(), treePath,
+								CharPool.UNDERLINE, CharPool.PERCENT,
+								CharPool.BACK_SLASH, true) ||
+>>>>>>> compatible
 							(hidden != dlFolder.getHidden())) {
 						list = null;
 
@@ -9085,7 +9096,11 @@ public class DLFolderPersistenceImpl extends BasePersistenceImpl<DLFolder>
 			if (treePath == null) {
 				query.append(_FINDER_COLUMN_G_M_T_H_TREEPATH_1);
 			}
+<<<<<<< HEAD
 			else if (treePath.equals("")) {
+=======
+			else if (treePath.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_M_T_H_TREEPATH_3);
 			}
 			else {
@@ -9195,7 +9210,11 @@ public class DLFolderPersistenceImpl extends BasePersistenceImpl<DLFolder>
 		msg.append(", hidden=");
 		msg.append(hidden);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchFolderException(msg.toString());
 	}
@@ -9263,7 +9282,11 @@ public class DLFolderPersistenceImpl extends BasePersistenceImpl<DLFolder>
 		msg.append(", hidden=");
 		msg.append(hidden);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchFolderException(msg.toString());
 	}
@@ -9368,7 +9391,11 @@ public class DLFolderPersistenceImpl extends BasePersistenceImpl<DLFolder>
 		if (treePath == null) {
 			query.append(_FINDER_COLUMN_G_M_T_H_TREEPATH_1);
 		}
+<<<<<<< HEAD
 		else if (treePath.equals("")) {
+=======
+		else if (treePath.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_M_T_H_TREEPATH_3);
 		}
 		else {
@@ -9564,7 +9591,11 @@ public class DLFolderPersistenceImpl extends BasePersistenceImpl<DLFolder>
 		if (treePath == null) {
 			query.append(_FINDER_COLUMN_G_M_T_H_TREEPATH_1);
 		}
+<<<<<<< HEAD
 		else if (treePath.equals("")) {
+=======
+		else if (treePath.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_M_T_H_TREEPATH_3);
 		}
 		else {
@@ -9720,7 +9751,11 @@ public class DLFolderPersistenceImpl extends BasePersistenceImpl<DLFolder>
 		if (treePath == null) {
 			query.append(_FINDER_COLUMN_G_M_T_H_TREEPATH_1);
 		}
+<<<<<<< HEAD
 		else if (treePath.equals("")) {
+=======
+		else if (treePath.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_M_T_H_TREEPATH_3);
 		}
 		else {
@@ -9906,7 +9941,11 @@ public class DLFolderPersistenceImpl extends BasePersistenceImpl<DLFolder>
 			if (treePath == null) {
 				query.append(_FINDER_COLUMN_G_M_T_H_TREEPATH_1);
 			}
+<<<<<<< HEAD
 			else if (treePath.equals("")) {
+=======
+			else if (treePath.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_M_T_H_TREEPATH_3);
 			}
 			else {
@@ -9984,7 +10023,11 @@ public class DLFolderPersistenceImpl extends BasePersistenceImpl<DLFolder>
 		if (treePath == null) {
 			query.append(_FINDER_COLUMN_G_M_T_H_TREEPATH_1);
 		}
+<<<<<<< HEAD
 		else if (treePath.equals("")) {
+=======
+		else if (treePath.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_M_T_H_TREEPATH_3);
 		}
 		else {
@@ -10174,6 +10217,7 @@ public class DLFolderPersistenceImpl extends BasePersistenceImpl<DLFolder>
 		}
 
 		List<DLFolder> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<DLFolder>)finderCache.getResult(finderPath,
@@ -10187,6 +10231,21 @@ public class DLFolderPersistenceImpl extends BasePersistenceImpl<DLFolder>
 							(status != dlFolder.getStatus())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<DLFolder>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (DLFolder dlFolder : list) {
+					if ((groupId != dlFolder.getGroupId()) ||
+							(parentFolderId != dlFolder.getParentFolderId()) ||
+							(hidden != dlFolder.getHidden()) ||
+							(status != dlFolder.getStatus())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -12199,11 +12258,17 @@ public class DLFolderPersistenceImpl extends BasePersistenceImpl<DLFolder>
 		setModelClass(DLFolder.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("uuid", "uuid_");

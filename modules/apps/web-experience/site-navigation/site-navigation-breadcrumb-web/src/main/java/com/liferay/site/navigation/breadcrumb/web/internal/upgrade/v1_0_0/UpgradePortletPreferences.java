@@ -14,16 +14,27 @@
 
 package com.liferay.site.navigation.breadcrumb.web.internal.upgrade.v1_0_0;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.portlet.PortletPreferencesFactoryUtil;
 import com.liferay.portal.kernel.portletdisplaytemplate.PortletDisplayTemplateManager;
 import com.liferay.portal.kernel.upgrade.BaseUpgradePortletPreferences;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.site.navigation.breadcrumb.web.internal.constants.SiteNavigationBreadcrumbPortletKeys;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.util.Validator;
+import com.liferay.site.navigation.breadcrumb.web.constants.SiteNavigationBreadcrumbPortletKeys;
+>>>>>>> compatible
 
 import javax.portlet.PortletPreferences;
 import javax.portlet.ReadOnlyException;
@@ -55,13 +66,21 @@ public class UpgradePortletPreferences extends BaseUpgradePortletPreferences {
 			return;
 		}
 
+<<<<<<< HEAD
 		if (displayStyle.equals("horizontal") || displayStyle.equals("1")) {
+=======
+		if (displayStyle.equals("horizontal")) {
+>>>>>>> compatible
 			portletPreferences.setValue(
 				"displayStyle",
 				PortletDisplayTemplateManager.DISPLAY_STYLE_PREFIX +
 					"breadcrumb-horizontal-ftl");
 		}
+<<<<<<< HEAD
 		else if (displayStyle.equals("vertical") || displayStyle.equals("2")) {
+=======
+		else if (displayStyle.equals("vertical")) {
+>>>>>>> compatible
 			portletPreferences.setValue(
 				"displayStyle",
 				PortletDisplayTemplateManager.DISPLAY_STYLE_PREFIX +

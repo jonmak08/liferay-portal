@@ -15,9 +15,15 @@
 package com.liferay.dynamic.data.mapping.webdav;
 
 import com.liferay.dynamic.data.mapping.model.DDMStructure;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
 import com.liferay.portal.kernel.util.ContentTypes;
+=======
+import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
+import com.liferay.portal.kernel.util.ContentTypes;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.webdav.BaseResourceImpl;
 import com.liferay.portal.kernel.webdav.WebDAVException;
 
@@ -47,10 +53,15 @@ public class DDMStructureResourceImpl extends BaseResourceImpl {
 	@Override
 	public InputStream getContentAsStream() throws WebDAVException {
 		try {
+<<<<<<< HEAD
 			String definition = _structure.getDefinition();
 
 			return new UnsyncByteArrayInputStream(
 				definition.getBytes(StringPool.UTF8));
+=======
+			return new UnsyncByteArrayInputStream(
+				_structure.getDefinition().getBytes(StringPool.UTF8));
+>>>>>>> compatible
 		}
 		catch (Exception e) {
 			throw new WebDAVException(e);

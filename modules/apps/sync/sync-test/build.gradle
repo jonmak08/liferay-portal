@@ -1,4 +1,5 @@
 dependencies {
+<<<<<<< HEAD
 	testCompile group: "com.liferay", name: "com.liferay.petra.lang", version: "1.0.0"
 	testCompile group: "com.liferay", name: "com.liferay.petra.string", version: "1.0.0"
 	testCompile group: "com.liferay", name: "org.jabsorb", version: "1.3.1.LIFERAY-PATCHED-1"
@@ -14,4 +15,11 @@ dependencies {
 	testCompile project(":apps:sync:sync-service")
 
 	testIntegrationCompile group: "com.liferay", name: "com.liferay.arquillian.extension.junit.bridge", version: "1.0.8"
+=======
+	testCompile project(":apps:sync:sync-api")
+	testCompile project(":apps:sync:sync-service")
+
+	testIntegrationCompile group: "com.liferay", name: "com.liferay.arquillian.extension.junit.bridge", version: "1.0.7"
+	testIntegrationCompile group: "com.liferay.portal", name: "com.liferay.portal.kernel", version: "2.0.0"
+>>>>>>> compatible
 }

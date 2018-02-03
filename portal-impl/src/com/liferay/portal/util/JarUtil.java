@@ -64,9 +64,14 @@ public class JarUtil {
 
 					if (_log.isDebugEnabled()) {
 						_log.debug(
+<<<<<<< HEAD
 							StringBundler.concat(
 								"Swapping URL from ", urlString, " to ",
 								newURLString));
+=======
+							"Swapping URL from " + urlString + " to " +
+								newURLString);
+>>>>>>> compatible
 					}
 				}
 				catch (UnknownHostException uhe) {

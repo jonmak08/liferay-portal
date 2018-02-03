@@ -14,9 +14,15 @@
 
 package com.liferay.wiki.engine.creole.internal.parser.visitor;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.HtmlUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.wiki.engine.creole.internal.parser.ast.ASTNode;
 import com.liferay.wiki.engine.creole.internal.parser.ast.BoldTextNode;
 import com.liferay.wiki.engine.creole.internal.parser.ast.CollectionNode;

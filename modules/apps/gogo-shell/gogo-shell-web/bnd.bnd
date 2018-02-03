@@ -1,3 +1,7 @@
 Bundle-Name: Liferay Gogo Shell Web
 Bundle-SymbolicName: com.liferay.gogo.shell.web
+<<<<<<< HEAD
 Bundle-Version: 1.0.7
+=======
+Bundle-Version: 1.0.2
+>>>>>>> compatible

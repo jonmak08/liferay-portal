@@ -15,7 +15,10 @@
 package com.liferay.frontend.css.rtl.servlet.internal;
 
 import com.liferay.osgi.util.ServiceTrackerFactory;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 
 import java.util.Hashtable;
 
@@ -40,9 +43,15 @@ public class RTLServletTracker {
 
 	@Activate
 	protected void activate(final BundleContext bundleContext) {
+<<<<<<< HEAD
 		String filterString = StringBundler.concat(
 			"(&(objectClass=", ServletContextHelper.class.getName(), ")",
 			"(rtl.required=true))");
+=======
+		String filterString =
+			"(&(objectClass=" + ServletContextHelper.class.getName() + ")" +
+				"(rtl.required=true))";
+>>>>>>> compatible
 
 		_serviceTracker = ServiceTrackerFactory.open(
 			bundleContext, filterString,

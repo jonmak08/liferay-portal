@@ -76,6 +76,10 @@ backURL.setParameter("structureId", String.valueOf(structureVersion.getStructure
 	<%@ include file="/form_builder.jspf" %>
 
 	<aui:button-row>
+<<<<<<< HEAD
 		<aui:button href="<%= backURL.toString() %>" type="cancel" />
+=======
+		<aui:button cssClass="btn-lg" href="<%= backURL.toString() %>" type="cancel" />
+>>>>>>> compatible
 	</aui:button-row>
 </div>

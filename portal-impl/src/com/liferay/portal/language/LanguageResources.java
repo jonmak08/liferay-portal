@@ -60,6 +60,7 @@ public class LanguageResources {
 		new ResourceBundleLoader() {
 
 			@Override
+<<<<<<< HEAD
 			public ResourceBundle loadResourceBundle(Locale locale) {
 				return LanguageResources.getResourceBundle(locale);
 			}
@@ -72,6 +73,11 @@ public class LanguageResources {
 			public ResourceBundle loadResourceBundle(String languageId) {
 				return ResourceBundleLoader.super.loadResourceBundle(
 					languageId);
+=======
+			public ResourceBundle loadResourceBundle(String languageId) {
+				return LanguageResources.getResourceBundle(
+					LocaleUtil.fromLanguageId(languageId));
+>>>>>>> compatible
 			}
 
 		};

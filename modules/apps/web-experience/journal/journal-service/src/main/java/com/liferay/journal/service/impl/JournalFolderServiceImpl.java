@@ -33,7 +33,10 @@ import com.liferay.portal.util.PropsValues;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Locale;
+=======
+>>>>>>> compatible
 
 /**
  * @author Juan Fernández
@@ -190,6 +193,7 @@ public class JournalFolderServiceImpl extends JournalFolderServiceBaseImpl {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public List<Object> getFoldersAndArticles(
 		long groupId, long userId, long folderId, int status, Locale locale,
 		int start, int end, OrderByComparator<?> obc) {
@@ -202,6 +206,8 @@ public class JournalFolderServiceImpl extends JournalFolderServiceBaseImpl {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public int getFoldersAndArticlesCount(
 		long groupId, List<Long> folderIds, int status) {
 
@@ -219,9 +225,13 @@ public class JournalFolderServiceImpl extends JournalFolderServiceBaseImpl {
 			int articlesCount = journalArticleFinder.filterCountByG_F(
 				groupId, folderIds.subList(start, end), queryDefinition);
 
+<<<<<<< HEAD
 			List<Long> sublist = folderIds.subList(start, end);
 
 			sublist.clear();
+=======
+			folderIds.subList(start, end).clear();
+>>>>>>> compatible
 
 			articlesCount += getFoldersAndArticlesCount(
 				groupId, folderIds, status);
@@ -273,7 +283,11 @@ public class JournalFolderServiceImpl extends JournalFolderServiceBaseImpl {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 4.0.0, replaced by {@link #getSubfolderIds(List, long,
+=======
+	 * @deprecated As of 3.3.0, replaced by {@link #getSubfolderIds(List, long,
+>>>>>>> compatible
 	 *             long, boolean)}
 	 */
 	@Deprecated
@@ -366,6 +380,7 @@ public class JournalFolderServiceImpl extends JournalFolderServiceBaseImpl {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public List<DDMStructure> searchDDMStructures(
 			long companyId, long[] groupIds, long folderId, int restrictionType,
 			String keywords, int start, int end,
@@ -379,6 +394,8 @@ public class JournalFolderServiceImpl extends JournalFolderServiceBaseImpl {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public void subscribe(long groupId, long folderId) throws PortalException {
 		JournalFolderPermission.check(
 			getPermissionChecker(), groupId, folderId, ActionKeys.SUBSCRIBE);

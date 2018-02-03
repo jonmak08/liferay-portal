@@ -28,14 +28,12 @@ import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.taglib.TagSupport;
 import com.liferay.taglib.portlet.ActionURLTag;
-import com.liferay.taglib.portletext.IconBackTag;
 import com.liferay.taglib.portletext.IconOptionsTag;
 import com.liferay.taglib.portletext.IconPortletTag;
 import com.liferay.taglib.portletext.RuntimeTag;
 import com.liferay.taglib.security.DoAsURLTag;
 import com.liferay.taglib.security.PermissionsURLTag;
 import com.liferay.taglib.servlet.PipingPageContext;
-import com.liferay.taglib.theme.LayoutIconTag;
 import com.liferay.taglib.theme.MetaTagsTag;
 import com.liferay.taglib.theme.WrapPortletTag;
 import com.liferay.taglib.ui.AssetCategoriesSummaryTag;
@@ -43,7 +41,10 @@ import com.liferay.taglib.ui.AssetLinksTag;
 import com.liferay.taglib.ui.AssetTagsSummaryTag;
 import com.liferay.taglib.ui.BreadcrumbTag;
 import com.liferay.taglib.ui.DiscussionTag;
+<<<<<<< HEAD
 import com.liferay.taglib.ui.IconHelpTag;
+=======
+>>>>>>> compatible
 import com.liferay.taglib.ui.IconTag;
 import com.liferay.taglib.ui.JournalArticleTag;
 import com.liferay.taglib.ui.JournalContentSearchTag;
@@ -342,10 +343,13 @@ public class VelocityTaglibImpl implements VelocityTaglib {
 		return breadcrumbTag;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	@Override
 	public DiscussionTag getDiscussionTag() throws Exception {
 		DiscussionTag discussionTag = new DiscussionTag();
@@ -373,10 +377,13 @@ public class VelocityTaglibImpl implements VelocityTaglib {
 		return journalArticleTag;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	@Override
 	public MySitesTag getMySitesTag() throws Exception {
 		MySitesTag mySitesTag = new MySitesTag();
@@ -565,7 +572,11 @@ public class VelocityTaglibImpl implements VelocityTaglib {
 	@Deprecated
 	@Override
 	public void layoutIcon(Layout layout) throws Exception {
+<<<<<<< HEAD
 		LayoutIconTag.doTag(layout, _pageContext);
+=======
+		com.liferay.taglib.theme.LayoutIconTag.doTag(layout, _pageContext);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -573,10 +584,13 @@ public class VelocityTaglibImpl implements VelocityTaglib {
 		MetaTagsTag.doTag(_servletContext, _request, _response);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	@Override
 	public void mySites() throws Exception {
 		MySitesTag mySitesTag = new MySitesTag();
@@ -619,7 +633,8 @@ public class VelocityTaglibImpl implements VelocityTaglib {
 	@Deprecated
 	@Override
 	public void portletIconBack() throws Exception {
-		IconBackTag iconBackTag = new IconBackTag();
+		com.liferay.taglib.portletext.IconBackTag iconBackTag =
+			new com.liferay.taglib.portletext.IconBackTag();
 
 		setUp(iconBackTag);
 
@@ -834,10 +849,13 @@ public class VelocityTaglibImpl implements VelocityTaglib {
 			_pageContext, _request, _response);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	@Override
 	public void search() throws Exception {
 		SearchTag searchTag = new SearchTag();

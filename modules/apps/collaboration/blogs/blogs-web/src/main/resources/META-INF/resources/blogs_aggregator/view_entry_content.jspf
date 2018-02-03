@@ -133,30 +133,53 @@
 		</c:if>
 
 		<c:if test='<%= !displayStyle.endsWith("-without-title") %>'>
+<<<<<<< HEAD
 			<liferay-asset:asset-categories-available
+=======
+			<liferay-ui:asset-categories-available
+>>>>>>> compatible
 				className="<%= BlogsEntry.class.getName() %>"
 				classPK="<%= entry.getEntryId() %>"
 			>
 				<span class="entry-categories">
+<<<<<<< HEAD
 					<liferay-asset:asset-categories-summary
+=======
+					<liferay-ui:asset-categories-summary
+>>>>>>> compatible
 						className="<%= BlogsEntry.class.getName() %>"
 						classPK="<%= entry.getEntryId() %>"
 					/>
 				</span>
+<<<<<<< HEAD
 			</liferay-asset:asset-categories-available>
 
 			<c:if test="<%= showTags %>">
 				<liferay-asset:asset-tags-available
+=======
+			</liferay-ui:asset-categories-available>
+
+			<c:if test="<%= showTags %>">
+				<liferay-ui:asset-tags-available
+>>>>>>> compatible
 					className="<%= BlogsEntry.class.getName() %>"
 					classPK="<%= entry.getEntryId() %>"
 				>
 					<span class="entry-tags">
+<<<<<<< HEAD
 						<liferay-asset:asset-tags-summary
+=======
+						<liferay-ui:asset-tags-summary
+>>>>>>> compatible
 							className="<%= BlogsEntry.class.getName() %>"
 							classPK="<%= entry.getEntryId() %>"
 						/>
 					</span>
+<<<<<<< HEAD
 				</liferay-asset:asset-tags-available>
+=======
+				</liferay-ui:asset-tags-available>
+>>>>>>> compatible
 			</c:if>
 		</c:if>
 	</div>

@@ -43,6 +43,10 @@ import com.liferay.portal.kernel.search.Field;
 import com.liferay.portal.kernel.search.IndexWriterHelper;
 import com.liferay.portal.kernel.search.Indexer;
 import com.liferay.portal.kernel.search.SearchContext;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.search.SearchEngineHelperUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.search.SearchPermissionChecker;
 import com.liferay.portal.kernel.search.Summary;
 import com.liferay.portal.kernel.search.filter.BooleanFilter;
@@ -50,7 +54,10 @@ import com.liferay.portal.kernel.search.filter.QueryFilter;
 import com.liferay.portal.kernel.service.ClassNameLocalService;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
@@ -58,7 +65,10 @@ import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import java.io.Serializable;
 
 import java.util.Locale;
+<<<<<<< HEAD
 import java.util.Set;
+=======
+>>>>>>> compatible
 
 import javax.portlet.PortletRequest;
 import javax.portlet.PortletResponse;
@@ -98,6 +108,12 @@ public class DDLRecordIndexer extends BaseIndexer<DDLRecord> {
 			Field.ENTRY_CLASS_NAME, DDLRecord.class.getName());
 
 		if (searchContext.getUserId() > 0) {
+<<<<<<< HEAD
+=======
+			SearchPermissionChecker searchPermissionChecker =
+				SearchEngineHelperUtil.getSearchPermissionChecker();
+
+>>>>>>> compatible
 			facetBooleanFilter =
 				searchPermissionChecker.getPermissionBooleanFilter(
 					searchContext.getCompanyId(), searchContext.getGroupIds(),
@@ -160,6 +176,7 @@ public class DDLRecordIndexer extends BaseIndexer<DDLRecord> {
 
 		addSearchTerm(searchQuery, searchContext, Field.USER_NAME, false);
 
+<<<<<<< HEAD
 		addDDMContentSearchTerm(searchQuery, searchContext);
 	}
 
@@ -195,6 +212,9 @@ public class DDLRecordIndexer extends BaseIndexer<DDLRecord> {
 		sb.append(LocaleUtil.toLanguageId(locale));
 
 		addSearchTerm(searchQuery, searchContext, sb.toString(), false);
+=======
+		addSearchTerm(searchQuery, searchContext, "ddmContent", false);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -220,6 +240,12 @@ public class DDLRecordIndexer extends BaseIndexer<DDLRecord> {
 		document.addKeyword(Field.STATUS, recordVersion.getStatus());
 		document.addKeyword(Field.VERSION, recordVersion.getVersion());
 
+<<<<<<< HEAD
+=======
+		document.addText(
+			"ddmContent",
+			extractDDMContent(recordVersion, LocaleUtil.getSiteDefault()));
+>>>>>>> compatible
 		document.addKeyword("recordSetId", recordSet.getRecordSetId());
 		document.addKeyword("recordSetScope", recordSet.getScope());
 
@@ -228,8 +254,11 @@ public class DDLRecordIndexer extends BaseIndexer<DDLRecord> {
 		DDMFormValues ddmFormValues = storageEngine.getDDMFormValues(
 			recordVersion.getDDMStorageId());
 
+<<<<<<< HEAD
 		addDDMContent(recordVersion, ddmFormValues, document);
 
+=======
+>>>>>>> compatible
 		ddmIndexer.addAttributes(document, ddmStructure, ddmFormValues);
 
 		return document;
@@ -407,9 +436,12 @@ public class DDLRecordIndexer extends BaseIndexer<DDLRecord> {
 	protected IndexWriterHelper indexWriterHelper;
 
 	@Reference
+<<<<<<< HEAD
 	protected SearchPermissionChecker searchPermissionChecker;
 
 	@Reference
+=======
+>>>>>>> compatible
 	protected StorageEngine storageEngine;
 
 	private static final int[] _REINDEX_SCOPES = {

@@ -1,5 +1,9 @@
 Bundle-Name: Liferay Portal Scheduler Single
 Bundle-SymbolicName: com.liferay.portal.scheduler.single
+<<<<<<< HEAD
 Bundle-Version: 2.0.8
+=======
+Bundle-Version: 2.0.6
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title:

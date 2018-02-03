@@ -404,12 +404,15 @@ public class RoleLocalServiceWrapper implements RoleLocalService,
 		return _roleLocalService.getActionableDynamicQuery();
 	}
 
+<<<<<<< HEAD
 	@Override
 	public int getAssigneesTotal(long roleId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return _roleLocalService.getAssigneesTotal(roleId);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns the default role for the group with the primary key.
 	*
@@ -521,10 +524,13 @@ public class RoleLocalServiceWrapper implements RoleLocalService,
 		return _roleLocalService.getPersistedModel(primaryKeyObj);
 	}
 
+<<<<<<< HEAD
 	/**
 	* @deprecated As of 7.0.0, with no direct replacement
 	*/
 	@Deprecated
+=======
+>>>>>>> compatible
 	@Override
 	public java.util.List<com.liferay.portal.kernel.model.Role> getResourceBlockRoles(
 		long resourceBlockId, java.lang.String className,

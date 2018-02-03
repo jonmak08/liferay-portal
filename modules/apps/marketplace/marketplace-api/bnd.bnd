@@ -1,8 +1,13 @@
 Bundle-Name: Liferay Marketplace API
 Bundle-SymbolicName: com.liferay.marketplace.api
+<<<<<<< HEAD
 Bundle-Version: 4.3.1
 Export-Package:\
 	com.liferay.marketplace.bundle,\
+=======
+Bundle-Version: 4.2.3
+Export-Package:\
+>>>>>>> compatible
 	com.liferay.marketplace.exception,\
 	com.liferay.marketplace.model,\
 	com.liferay.marketplace.service,\

@@ -64,8 +64,14 @@ public class PortletToolbar {
 
 		List<Menu> portletTitleMenus = new ArrayList<>();
 
+<<<<<<< HEAD
 		for (PortletToolbarContributorLocator portletToolbarContributorLocator :
 				_portletToolbarContributorLocators) {
+=======
+		for (PortletToolbarContributorLocator
+				portletToolbarContributorLocator :
+					_portletToolbarContributorLocators) {
+>>>>>>> compatible
 
 			List<PortletToolbarContributor> portletToolbarContributors =
 				portletToolbarContributorLocator.getPortletToolbarContributors(

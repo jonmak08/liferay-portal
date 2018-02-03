@@ -32,7 +32,10 @@ import com.liferay.portal.kernel.theme.ThemeCompanyLimit;
 import com.liferay.portal.kernel.theme.ThemeGroupLimit;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.ThemeHelper;
@@ -683,10 +686,15 @@ public class ThemeImpl extends PluginBaseImpl implements Theme {
 
 		if (_log.isDebugEnabled()) {
 			_log.debug(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Theme ", getThemeId(), " is ",
 					String.valueOf(!available ? "NOT " : ""), "available for ",
 					String.valueOf(id)));
+=======
+				"Theme " + getThemeId() + " is " + (!available ? "NOT " : "") +
+					"available for " + id);
+>>>>>>> compatible
 		}
 
 		return available;

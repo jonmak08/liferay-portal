@@ -125,7 +125,11 @@ create table ShoppingOrder (
 	couponDiscount DOUBLE,
 	billingFirstName VARCHAR(75) null,
 	billingLastName VARCHAR(75) null,
+<<<<<<< HEAD
 	billingEmailAddress VARCHAR(254) null,
+=======
+	billingEmailAddress VARCHAR(75) null,
+>>>>>>> compatible
 	billingCompany VARCHAR(75) null,
 	billingStreet VARCHAR(75) null,
 	billingCity VARCHAR(75) null,
@@ -136,7 +140,11 @@ create table ShoppingOrder (
 	shipToBilling BOOLEAN,
 	shippingFirstName VARCHAR(75) null,
 	shippingLastName VARCHAR(75) null,
+<<<<<<< HEAD
 	shippingEmailAddress VARCHAR(254) null,
+=======
+	shippingEmailAddress VARCHAR(75) null,
+>>>>>>> compatible
 	shippingCompany VARCHAR(75) null,
 	shippingStreet VARCHAR(75) null,
 	shippingCity VARCHAR(75) null,
@@ -154,8 +162,13 @@ create table ShoppingOrder (
 	ppTxnId VARCHAR(75) null,
 	ppPaymentStatus VARCHAR(75) null,
 	ppPaymentGross DOUBLE,
+<<<<<<< HEAD
 	ppReceiverEmail VARCHAR(254) null,
 	ppPayerEmail VARCHAR(254) null,
+=======
+	ppReceiverEmail VARCHAR(75) null,
+	ppPayerEmail VARCHAR(75) null,
+>>>>>>> compatible
 	sendOrderEmail BOOLEAN,
 	sendShippingEmail BOOLEAN
 );

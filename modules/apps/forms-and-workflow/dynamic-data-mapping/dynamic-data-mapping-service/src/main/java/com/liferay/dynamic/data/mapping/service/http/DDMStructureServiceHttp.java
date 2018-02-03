@@ -643,6 +643,7 @@ public class DDMStructureServiceHttp {
 
 	public static java.util.List<com.liferay.dynamic.data.mapping.model.DDMStructure> search(
 		HttpPrincipal httpPrincipal, long companyId, long[] groupIds,
+<<<<<<< HEAD
 		long classNameId, java.lang.String keywords, int type, int status,
 		int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator<com.liferay.dynamic.data.mapping.model.DDMStructure> orderByComparator) {
@@ -674,12 +675,18 @@ public class DDMStructureServiceHttp {
 
 	public static java.util.List<com.liferay.dynamic.data.mapping.model.DDMStructure> search(
 		HttpPrincipal httpPrincipal, long companyId, long[] groupIds,
+=======
+>>>>>>> compatible
 		long classNameId, java.lang.String keywords, int status, int start,
 		int end,
 		com.liferay.portal.kernel.util.OrderByComparator<com.liferay.dynamic.data.mapping.model.DDMStructure> orderByComparator) {
 		try {
 			MethodKey methodKey = new MethodKey(DDMStructureServiceUtil.class,
+<<<<<<< HEAD
 					"search", _searchParameterTypes18);
+=======
+					"search", _searchParameterTypes17);
+>>>>>>> compatible
 
 			MethodHandler methodHandler = new MethodHandler(methodKey,
 					companyId, groupIds, classNameId, keywords, status, start,
@@ -711,7 +718,11 @@ public class DDMStructureServiceHttp {
 		com.liferay.portal.kernel.util.OrderByComparator<com.liferay.dynamic.data.mapping.model.DDMStructure> orderByComparator) {
 		try {
 			MethodKey methodKey = new MethodKey(DDMStructureServiceUtil.class,
+<<<<<<< HEAD
 					"search", _searchParameterTypes19);
+=======
+					"search", _searchParameterTypes18);
+>>>>>>> compatible
 
 			MethodHandler methodHandler = new MethodHandler(methodKey,
 					companyId, groupIds, classNameId, name, description,
@@ -740,7 +751,11 @@ public class DDMStructureServiceHttp {
 		long[] groupIds, long classNameId, java.lang.String keywords, int status) {
 		try {
 			MethodKey methodKey = new MethodKey(DDMStructureServiceUtil.class,
+<<<<<<< HEAD
 					"searchCount", _searchCountParameterTypes20);
+=======
+					"searchCount", _searchCountParameterTypes19);
+>>>>>>> compatible
 
 			MethodHandler methodHandler = new MethodHandler(methodKey,
 					companyId, groupIds, classNameId, keywords, status);
@@ -764,6 +779,7 @@ public class DDMStructureServiceHttp {
 	}
 
 	public static int searchCount(HttpPrincipal httpPrincipal, long companyId,
+<<<<<<< HEAD
 		long[] groupIds, long classNameId, java.lang.String keywords, int type,
 		int status) {
 		try {
@@ -792,12 +808,18 @@ public class DDMStructureServiceHttp {
 	}
 
 	public static int searchCount(HttpPrincipal httpPrincipal, long companyId,
+=======
+>>>>>>> compatible
 		long[] groupIds, long classNameId, java.lang.String name,
 		java.lang.String description, java.lang.String storageType, int type,
 		int status, boolean andOperator) {
 		try {
 			MethodKey methodKey = new MethodKey(DDMStructureServiceUtil.class,
+<<<<<<< HEAD
 					"searchCount", _searchCountParameterTypes22);
+=======
+					"searchCount", _searchCountParameterTypes20);
+>>>>>>> compatible
 
 			MethodHandler methodHandler = new MethodHandler(methodKey,
 					companyId, groupIds, classNameId, name, description,
@@ -832,7 +854,11 @@ public class DDMStructureServiceHttp {
 		throws com.liferay.portal.kernel.exception.PortalException {
 		try {
 			MethodKey methodKey = new MethodKey(DDMStructureServiceUtil.class,
+<<<<<<< HEAD
 					"updateStructure", _updateStructureParameterTypes23);
+=======
+					"updateStructure", _updateStructureParameterTypes21);
+>>>>>>> compatible
 
 			MethodHandler methodHandler = new MethodHandler(methodKey, groupId,
 					parentStructureId, classNameId, structureKey, nameMap,
@@ -870,7 +896,11 @@ public class DDMStructureServiceHttp {
 		throws com.liferay.portal.kernel.exception.PortalException {
 		try {
 			MethodKey methodKey = new MethodKey(DDMStructureServiceUtil.class,
+<<<<<<< HEAD
 					"updateStructure", _updateStructureParameterTypes24);
+=======
+					"updateStructure", _updateStructureParameterTypes22);
+>>>>>>> compatible
 
 			MethodHandler methodHandler = new MethodHandler(methodKey, groupId,
 					parentStructureId, classNameId, structureKey, nameMap,
@@ -908,7 +938,11 @@ public class DDMStructureServiceHttp {
 		throws com.liferay.portal.kernel.exception.PortalException {
 		try {
 			MethodKey methodKey = new MethodKey(DDMStructureServiceUtil.class,
+<<<<<<< HEAD
 					"updateStructure", _updateStructureParameterTypes25);
+=======
+					"updateStructure", _updateStructureParameterTypes23);
+>>>>>>> compatible
 
 			MethodHandler methodHandler = new MethodHandler(methodKey,
 					structureId, parentStructureId, nameMap, descriptionMap,
@@ -945,7 +979,11 @@ public class DDMStructureServiceHttp {
 		throws com.liferay.portal.kernel.exception.PortalException {
 		try {
 			MethodKey methodKey = new MethodKey(DDMStructureServiceUtil.class,
+<<<<<<< HEAD
 					"updateStructure", _updateStructureParameterTypes26);
+=======
+					"updateStructure", _updateStructureParameterTypes24);
+>>>>>>> compatible
 
 			MethodHandler methodHandler = new MethodHandler(methodKey,
 					structureId, parentStructureId, nameMap, descriptionMap,
@@ -1053,6 +1091,7 @@ public class DDMStructureServiceHttp {
 		};
 	private static final Class<?>[] _searchParameterTypes17 = new Class[] {
 			long.class, long[].class, long.class, java.lang.String.class,
+<<<<<<< HEAD
 			int.class, int.class, int.class, int.class,
 			com.liferay.portal.kernel.util.OrderByComparator.class
 		};
@@ -1062,11 +1101,18 @@ public class DDMStructureServiceHttp {
 			com.liferay.portal.kernel.util.OrderByComparator.class
 		};
 	private static final Class<?>[] _searchParameterTypes19 = new Class[] {
+=======
+			int.class, int.class, int.class,
+			com.liferay.portal.kernel.util.OrderByComparator.class
+		};
+	private static final Class<?>[] _searchParameterTypes18 = new Class[] {
+>>>>>>> compatible
 			long.class, long[].class, long.class, java.lang.String.class,
 			java.lang.String.class, java.lang.String.class, int.class, int.class,
 			boolean.class, int.class, int.class,
 			com.liferay.portal.kernel.util.OrderByComparator.class
 		};
+<<<<<<< HEAD
 	private static final Class<?>[] _searchCountParameterTypes20 = new Class[] {
 			long.class, long[].class, long.class, java.lang.String.class,
 			int.class
@@ -1076,29 +1122,52 @@ public class DDMStructureServiceHttp {
 			int.class, int.class
 		};
 	private static final Class<?>[] _searchCountParameterTypes22 = new Class[] {
+=======
+	private static final Class<?>[] _searchCountParameterTypes19 = new Class[] {
+			long.class, long[].class, long.class, java.lang.String.class,
+			int.class
+		};
+	private static final Class<?>[] _searchCountParameterTypes20 = new Class[] {
+>>>>>>> compatible
 			long.class, long[].class, long.class, java.lang.String.class,
 			java.lang.String.class, java.lang.String.class, int.class, int.class,
 			boolean.class
 		};
+<<<<<<< HEAD
 	private static final Class<?>[] _updateStructureParameterTypes23 = new Class[] {
+=======
+	private static final Class<?>[] _updateStructureParameterTypes21 = new Class[] {
+>>>>>>> compatible
 			long.class, long.class, long.class, java.lang.String.class,
 			java.util.Map.class, java.util.Map.class,
 			com.liferay.dynamic.data.mapping.model.DDMForm.class,
 			com.liferay.dynamic.data.mapping.model.DDMFormLayout.class,
 			com.liferay.portal.kernel.service.ServiceContext.class
 		};
+<<<<<<< HEAD
 	private static final Class<?>[] _updateStructureParameterTypes24 = new Class[] {
+=======
+	private static final Class<?>[] _updateStructureParameterTypes22 = new Class[] {
+>>>>>>> compatible
 			long.class, long.class, long.class, java.lang.String.class,
 			java.util.Map.class, java.util.Map.class, java.lang.String.class,
 			com.liferay.portal.kernel.service.ServiceContext.class
 		};
+<<<<<<< HEAD
 	private static final Class<?>[] _updateStructureParameterTypes25 = new Class[] {
+=======
+	private static final Class<?>[] _updateStructureParameterTypes23 = new Class[] {
+>>>>>>> compatible
 			long.class, long.class, java.util.Map.class, java.util.Map.class,
 			com.liferay.dynamic.data.mapping.model.DDMForm.class,
 			com.liferay.dynamic.data.mapping.model.DDMFormLayout.class,
 			com.liferay.portal.kernel.service.ServiceContext.class
 		};
+<<<<<<< HEAD
 	private static final Class<?>[] _updateStructureParameterTypes26 = new Class[] {
+=======
+	private static final Class<?>[] _updateStructureParameterTypes24 = new Class[] {
+>>>>>>> compatible
 			long.class, long.class, java.util.Map.class, java.util.Map.class,
 			java.lang.String.class,
 			com.liferay.portal.kernel.service.ServiceContext.class

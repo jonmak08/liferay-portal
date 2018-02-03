@@ -36,6 +36,7 @@ portletURL.setParameter("eventName", eventName);
 List<Theme> themes = ThemeLocalServiceUtil.getPageThemes(company.getCompanyId(), layoutsAdminDisplayContext.getLiveGroupId(), user.getUserId());
 
 themes = ListUtil.sort(themes, new ThemeNameComparator(orderByType.equals("asc")));
+<<<<<<< HEAD
 
 List<NavigationItem> navigationItems = new ArrayList<>();
 
@@ -55,6 +56,15 @@ navigationItems.add(mySitesNavigationItem);
 <clay:navigation-bar
 	items="<%= navigationItems %>"
 />
+=======
+%>
+
+<aui:nav-bar markupView="lexicon">
+	<aui:nav cssClass="navbar-nav">
+		<aui:nav-item label="available-themes" selected="<%= true %>" />
+	</aui:nav>
+</aui:nav-bar>
+>>>>>>> compatible
 
 <liferay-frontend:management-bar>
 	<liferay-frontend:management-bar-filters>
@@ -80,7 +90,11 @@ navigationItems.add(mySitesNavigationItem);
 	</liferay-frontend:management-bar-buttons>
 </liferay-frontend:management-bar>
 
+<<<<<<< HEAD
 <c:if test="<%= permissionChecker.isOmniadmin() && PortletLocalServiceUtil.hasPortlet(themeDisplay.getCompanyId(), PortletKeys.MARKETPLACE_STORE) && PropsValues.AUTO_DEPLOY_ENABLED %>">
+=======
+<c:if test="<%= permissionChecker.isOmniadmin() && PortletLocalServiceUtil.hasPortlet(themeDisplay.getCompanyId(), PortletKeys.MARKETPLACE_STORE) && PrefsPropsUtil.getBoolean(PropsKeys.AUTO_DEPLOY_ENABLED, PropsValues.AUTO_DEPLOY_ENABLED) %>">
+>>>>>>> compatible
 
 	<%
 	PortletURL marketplaceURL = PortalUtil.getControlPanelPortletURL(request, PortletKeys.MARKETPLACE_STORE, PortletRequest.RENDER_PHASE);

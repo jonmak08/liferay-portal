@@ -20,14 +20,21 @@ import com.liferay.dynamic.data.mapping.annotations.DDMFormLayout;
 import com.liferay.dynamic.data.mapping.annotations.DDMFormLayoutColumn;
 import com.liferay.dynamic.data.mapping.annotations.DDMFormLayoutPage;
 import com.liferay.dynamic.data.mapping.annotations.DDMFormLayoutRow;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.annotations.DDMFormRule;
 import com.liferay.dynamic.data.mapping.form.field.type.DefaultDDMFormFieldTypeSettings;
 import com.liferay.dynamic.data.mapping.model.DDMFormFieldOptions;
 import com.liferay.dynamic.data.mapping.model.LocalizedValue;
+=======
+import com.liferay.dynamic.data.mapping.form.field.type.DefaultDDMFormFieldTypeSettings;
+import com.liferay.dynamic.data.mapping.model.DDMFormFieldOptions;
+import com.liferay.dynamic.data.mapping.model.DDMFormFieldValidation;
+>>>>>>> compatible
 
 /**
  * @author Marcellus Tavares
  */
+<<<<<<< HEAD
 @DDMForm(
 	rules = {
 		@DDMFormRule(
@@ -45,6 +52,14 @@ import com.liferay.dynamic.data.mapping.model.LocalizedValue;
 	value = {
 		@DDMFormLayoutPage(
 			title = "%basic",
+=======
+@DDMForm
+@DDMFormLayout(
+	paginationMode = com.liferay.dynamic.data.mapping.model.DDMFormLayout.SETTINGS_MODE,
+	value = {
+		@DDMFormLayoutPage(
+			title = "basic",
+>>>>>>> compatible
 			value = {
 				@DDMFormLayoutRow(
 					{
@@ -57,7 +72,11 @@ import com.liferay.dynamic.data.mapping.model.LocalizedValue;
 			}
 		),
 		@DDMFormLayoutPage(
+<<<<<<< HEAD
 			title = "%properties",
+=======
+			title = "advanced",
+>>>>>>> compatible
 			value = {
 				@DDMFormLayoutRow(
 					{
@@ -79,6 +98,7 @@ import com.liferay.dynamic.data.mapping.model.LocalizedValue;
 public interface RadioDDMFormFieldTypeSettings
 	extends DefaultDDMFormFieldTypeSettings {
 
+<<<<<<< HEAD
 	@DDMFormField(
 		label = "%inline", predefinedValue = "true",
 		properties = {"showAsSwitcher=true"}
@@ -100,5 +120,19 @@ public interface RadioDDMFormFieldTypeSettings
 	)
 	@Override
 	public LocalizedValue predefinedValue();
+=======
+	@DDMFormField(label = "%inline", properties = {"showAsSwitcher=true"})
+	public boolean inline();
+
+	@DDMFormField(
+		dataType = "ddm-options", label = "%options", required = true,
+		type = "options"
+	)
+	public DDMFormFieldOptions options();
+
+	@DDMFormField(visibilityExpression = "FALSE")
+	@Override
+	public DDMFormFieldValidation validation();
+>>>>>>> compatible
 
 }

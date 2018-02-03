@@ -14,13 +14,17 @@
 
 package com.liferay.exportimport.kernel.exception;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 
 /**
  * @author Brian Wing Shun Chan
  */
+<<<<<<< HEAD
 @ProviderType
 public class LayoutImportException extends PortalException {
 
@@ -62,6 +66,13 @@ public class LayoutImportException extends PortalException {
 		_type = type;
 	}
 
+=======
+public class LayoutImportException extends PortalException {
+
+	public LayoutImportException() {
+	}
+
+>>>>>>> compatible
 	public LayoutImportException(String msg) {
 		super(msg);
 	}
@@ -74,6 +85,7 @@ public class LayoutImportException extends PortalException {
 		super(cause);
 	}
 
+<<<<<<< HEAD
 	public Object[] getArguments() {
 		return _arguments;
 	}
@@ -93,4 +105,6 @@ public class LayoutImportException extends PortalException {
 	private Object[] _arguments = {};
 	private int _type = TYPE_DEFAULT;
 
+=======
+>>>>>>> compatible
 }

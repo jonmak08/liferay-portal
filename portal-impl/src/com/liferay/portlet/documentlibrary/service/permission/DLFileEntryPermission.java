@@ -107,12 +107,17 @@ public class DLFileEntryPermission implements BaseModelPermissionChecker {
 			return hasPermission.booleanValue();
 		}
 
+<<<<<<< HEAD
 		boolean hasOwnerPermission = permissionChecker.hasOwnerPermission(
 			dlFileEntry.getCompanyId(), DLFileEntry.class.getName(),
 			dlFileEntry.getFileEntryId(), dlFileEntry.getUserId(), actionId);
 
 		DLFileVersion currentDLFileVersion = dlFileEntry.getFileVersion();
 
+=======
+		DLFileVersion currentDLFileVersion = dlFileEntry.getFileVersion();
+
+>>>>>>> compatible
 		if (currentDLFileVersion.isPending()) {
 			hasPermission = WorkflowPermissionUtil.hasPermission(
 				permissionChecker, dlFileEntry.getGroupId(),
@@ -156,6 +161,46 @@ public class DLFileEntryPermission implements BaseModelPermissionChecker {
 					classPK, actionId);
 
 			if ((hasBaseModelPermission != null) && !hasBaseModelPermission) {
+				return false;
+			}
+		}
+
+		if (permissionChecker.hasOwnerPermission(
+				dlFileEntry.getCompanyId(), DLFileEntry.class.getName(),
+				dlFileEntry.getFileEntryId(), dlFileEntry.getUserId(),
+				actionId)) {
+
+			return true;
+		}
+
+		String className = dlFileEntry.getClassName();
+		long classPK = dlFileEntry.getClassPK();
+
+		if (Validator.isNotNull(className) && (classPK > 0)) {
+			Boolean hasResourcePermission =
+				ResourcePermissionCheckerUtil.containsResourcePermission(
+					permissionChecker, className, classPK, actionId);
+
+			if ((hasResourcePermission != null) && !hasResourcePermission) {
+				return false;
+			}
+
+			Boolean hasBaseModelPermission =
+				BaseModelPermissionCheckerUtil.containsBaseModelPermission(
+					permissionChecker, dlFileEntry.getGroupId(), className,
+					classPK, actionId);
+
+			if ((hasBaseModelPermission != null) && !hasBaseModelPermission) {
+				return false;
+			}
+
+			// See LPS-10500 and LPS-72547
+
+			if (actionId.equals(ActionKeys.VIEW) &&
+				_hasActiveWorkflowInstance(
+					permissionChecker.getCompanyId(), dlFileEntry.getGroupId(),
+					currentDLFileVersion.getFileVersionId())) {
+
 				return false;
 			}
 		}

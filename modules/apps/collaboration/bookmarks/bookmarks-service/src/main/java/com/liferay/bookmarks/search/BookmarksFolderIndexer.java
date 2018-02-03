@@ -16,7 +16,11 @@ package com.liferay.bookmarks.search;
 
 import com.liferay.bookmarks.model.BookmarksFolder;
 import com.liferay.bookmarks.service.BookmarksFolderLocalService;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+import com.liferay.bookmarks.service.permission.BookmarksFolderPermissionChecker;
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.IndexableActionableDynamicQuery;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -25,7 +29,10 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.search.BaseIndexer;
 import com.liferay.portal.kernel.search.Document;
 import com.liferay.portal.kernel.search.Field;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.search.FolderIndexer;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.search.IndexWriterHelper;
 import com.liferay.portal.kernel.search.Indexer;
 import com.liferay.portal.kernel.search.SearchContext;
@@ -33,7 +40,11 @@ import com.liferay.portal.kernel.search.Summary;
 import com.liferay.portal.kernel.search.filter.BooleanFilter;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermission;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringUtil;
 
@@ -49,8 +60,12 @@ import org.osgi.service.component.annotations.Reference;
  * @author Eduardo Garcia
  */
 @Component(immediate = true, service = Indexer.class)
+<<<<<<< HEAD
 public class BookmarksFolderIndexer
 	extends BaseIndexer<BookmarksFolder> implements FolderIndexer {
+=======
+public class BookmarksFolderIndexer extends BaseIndexer<BookmarksFolder> {
+>>>>>>> compatible
 
 	public static final String CLASS_NAME = BookmarksFolder.class.getName();
 
@@ -68,18 +83,29 @@ public class BookmarksFolderIndexer
 	}
 
 	@Override
+<<<<<<< HEAD
 	public String[] getFolderClassNames() {
 		return new String[] {CLASS_NAME};
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public boolean hasPermission(
 			PermissionChecker permissionChecker, String entryClassName,
 			long entryClassPK, String actionId)
 		throws Exception {
 
+<<<<<<< HEAD
 		return _bookmarksFolderModelResourcePermission.contains(
 			permissionChecker, entryClassPK, ActionKeys.VIEW);
+=======
+		BookmarksFolder folder = _bookmarksFolderLocalService.getFolder(
+			entryClassPK);
+
+		return BookmarksFolderPermissionChecker.contains(
+			permissionChecker, folder, ActionKeys.VIEW);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -205,12 +231,15 @@ public class BookmarksFolderIndexer
 
 	private BookmarksFolderLocalService _bookmarksFolderLocalService;
 
+<<<<<<< HEAD
 	@Reference(
 		target = "(model.class.name=com.liferay.bookmarks.model.BookmarksFolder)"
 	)
 	private ModelResourcePermission<BookmarksFolder>
 		_bookmarksFolderModelResourcePermission;
 
+=======
+>>>>>>> compatible
 	@Reference
 	private IndexWriterHelper _indexWriterHelper;
 

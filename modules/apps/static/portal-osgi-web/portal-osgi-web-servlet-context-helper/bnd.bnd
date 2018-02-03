@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Portal OSGi Web Servlet Context Helper
 Bundle-SymbolicName: com.liferay.portal.osgi.web.servlet.context.helper
+<<<<<<< HEAD
 Bundle-Version: 2.1.16
+=======
+Bundle-Version: 2.1.13
+>>>>>>> compatible
 Export-Package:\
 	com.liferay.portal.osgi.web.servlet.context.helper,\
 	com.liferay.portal.osgi.web.servlet.context.helper.definition,\

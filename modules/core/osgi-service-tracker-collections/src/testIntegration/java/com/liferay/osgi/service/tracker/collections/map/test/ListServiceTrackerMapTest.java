@@ -190,8 +190,13 @@ public class ListServiceTrackerMapTest {
 		// changes
 
 		Assert.assertEquals(services.toString(), 2, services.size());
+<<<<<<< HEAD
 		Assert.assertTrue(services.toString(), services.contains(trackedOne1));
 		Assert.assertTrue(services.toString(), services.contains(trackedOne3));
+=======
+		Assert.assertTrue(services.contains(trackedOne1));
+		Assert.assertTrue(services.contains(trackedOne3));
+>>>>>>> compatible
 
 		serviceRegistration3.unregister();
 
@@ -199,7 +204,11 @@ public class ListServiceTrackerMapTest {
 
 		Assert.assertEquals(services.toString(), 1, services.size());
 
+<<<<<<< HEAD
 		Assert.assertTrue(services.toString(), services.contains(trackedOne1));
+=======
+		Assert.assertTrue(services.contains(trackedOne1));
+>>>>>>> compatible
 
 		serviceRegistration1.unregister();
 	}

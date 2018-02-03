@@ -287,10 +287,15 @@ public class FileHelperUtil {
 
 				if (size != length) {
 					throw new IOException(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"Zip stream for entry ", zipEntry.getName(), " is ",
 							String.valueOf(size), " bytes but should ",
 							String.valueOf(length), " bytes"));
+=======
+						"Zip stream for entry " + zipEntry.getName() + " is " +
+							size + " bytes but should " + length + " bytes");
+>>>>>>> compatible
 				}
 			}
 		}

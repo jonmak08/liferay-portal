@@ -50,7 +50,11 @@ String prompt = (String)SessionMessages.get(renderRequest, "prompt");
 		</c:if>
 
 		<aui:button-row>
+<<<<<<< HEAD
 			<aui:button primary="<%= true %>" type="submit" value="execute" />
+=======
+			<aui:button cssClass="btn-lg" primary="<%= true %>" type="submit" value="execute" />
+>>>>>>> compatible
 		</aui:button-row>
 	</aui:form>
 </div>

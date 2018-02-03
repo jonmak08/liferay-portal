@@ -210,7 +210,11 @@ if (comment) {
 			}
 			%>
 
+<<<<<<< HEAD
 			<aui:select inlineLabel="<%= Boolean.TRUE.toString() %>" label="viewable-by" name="socialRelationType" onChange='<%= renderResponse.getNamespace() + "relationTypeOnChange(event);" %>' value="<%= socialRelationType %>">
+=======
+			<aui:select inlineLabel="<%= Boolean.TRUE.toString() %>" label="viewable-by" name="socialRelationType" value="<%= socialRelationType %>">
+>>>>>>> compatible
 				<aui:option label="everyone" value="<%= MicroblogsEntryConstants.TYPE_EVERYONE %>" />
 				<aui:option label="connections" value="<%= SocialRelationConstants.TYPE_BI_CONNECTION %>" />
 				<aui:option label="followers" value="<%= SocialRelationConstants.TYPE_UNI_FOLLOWER %>" />
@@ -219,6 +223,7 @@ if (comment) {
 	</div>
 </aui:form>
 
+<<<<<<< HEAD
 <c:if test="<%= !repost %>">
 	<aui:script>
 		function <portlet:namespace />relationTypeOnChange(event) {
@@ -241,6 +246,8 @@ if (comment) {
 	</aui:script>
 </c:if>
 
+=======
+>>>>>>> compatible
 <aui:script use="aui-base,aui-event-input,aui-template-deprecated,aui-form-textarea-deprecated,autocomplete,autocomplete-filters">
 	var MAP_MATCHED_USERS = {
 		screenName: function(str, match) {
@@ -275,11 +282,16 @@ if (comment) {
 
 	<c:if test="<%= !repost %>">
 		var countContent = function(event) {
+<<<<<<< HEAD
 			var content = event.currentTarget.val();
+=======
+			var contentInput = event.currentTarget;
+>>>>>>> compatible
 
 			var countdown = form.one('.microblogs-countdown');
 			var submitButton = form.one('.microblogs-post');
 
+<<<<<<< HEAD
 			var remaining = 150 - content.length;
 
 			var disabled = <portlet:namespace />invalidContent(content);
@@ -288,6 +300,17 @@ if (comment) {
 
 			Liferay.Util.toggleDisabled(submitButton, disabled);
 
+=======
+			var remaining = 150 - contentInput.val().length;
+
+			var disabled = remaining == 150 || contentInput.get('value') == '' || remaining < 0;
+
+			countdown.html(remaining);
+
+			submitButton.attr('disabled', disabled);
+
+			submitButton.toggleClass('disabled', disabled);
+>>>>>>> compatible
 			submitButton.toggleClass('btn-warning', disabled);
 
 			countdown.toggleClass('microblogs-countdown-warned', disabled);
@@ -440,6 +463,7 @@ if (comment) {
 		};
 
 		var createAutocomplete = function(contentTextarea) {
+<<<<<<< HEAD
 			AUI.$.ajax(
 				'<liferay-portlet:resourceURL id="/microblogs/autocomplete_user_mentions" />',
 				{
@@ -469,6 +493,29 @@ if (comment) {
 					}
 				}
 			);
+=======
+			autocompleteDiv = new A.AutoComplete(
+				{
+					inputNode: contentTextarea,
+					maxResults: 5,
+					on: {
+						clear: function() {
+							var highlighterContent = A.one('#<portlet:namespace />highlighterContent<%= formId %>');
+
+							highlighterContent.html('');
+						},
+						query: updateHighlightDivContent,
+						select: updateContentTextbox
+					},
+					resultFilters: 'phraseMatch',
+					resultFormatter: resultFormatter,
+					resultTextLocator: 'fullName',
+					source: <%= MicroblogsUtil.getJSONRecipients(user.getUserId(), themeDisplay) %>
+				}
+			).render();
+
+			return autocompleteDiv;
+>>>>>>> compatible
 		};
 
 		<c:choose>

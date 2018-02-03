@@ -28,7 +28,10 @@ import org.osgi.service.component.annotations.Component;
 @Component(
 	immediate = true,
 	property = {
+<<<<<<< HEAD
 		"javax.portlet.name=" + UsersAdminPortletKeys.MY_ORGANIZATIONS,
+=======
+>>>>>>> compatible
 		"javax.portlet.name=" + UsersAdminPortletKeys.USERS_ADMIN,
 		"mvc.command.name=/", "mvc.command.name=/users_admin/view"
 	},

@@ -28,19 +28,37 @@ public class BaseIGDisplayContextFactory
 	extends BaseDisplayContextFactory implements IGDisplayContextFactory {
 
 	@Override
+<<<<<<< HEAD
 	public IGViewFileVersionDisplayContext getIGViewFileVersionDisplayContext(
 		IGViewFileVersionDisplayContext parentIGViewFileVersionDisplayContext,
 		HttpServletRequest request, HttpServletResponse response,
 		FileShortcut fileShortcut) {
+=======
+	public IGViewFileVersionDisplayContext
+		getIGViewFileVersionDisplayContext(
+			IGViewFileVersionDisplayContext
+				parentIGViewFileVersionDisplayContext,
+			HttpServletRequest request, HttpServletResponse response,
+			FileShortcut fileShortcut) {
+>>>>>>> compatible
 
 		return parentIGViewFileVersionDisplayContext;
 	}
 
 	@Override
+<<<<<<< HEAD
 	public IGViewFileVersionDisplayContext getIGViewFileVersionDisplayContext(
 		IGViewFileVersionDisplayContext parentIGViewFileVersionDisplayContext,
 		HttpServletRequest request, HttpServletResponse response,
 		FileVersion fileVersion) {
+=======
+	public IGViewFileVersionDisplayContext
+		getIGViewFileVersionDisplayContext(
+			IGViewFileVersionDisplayContext
+				parentIGViewFileVersionDisplayContext,
+			HttpServletRequest request, HttpServletResponse response,
+			FileVersion fileVersion) {
+>>>>>>> compatible
 
 		return parentIGViewFileVersionDisplayContext;
 	}

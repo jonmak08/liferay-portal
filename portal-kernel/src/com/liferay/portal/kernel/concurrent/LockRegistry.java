@@ -19,10 +19,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @author     Shuyang Zhou
- * @deprecated As of 7.0.0, with no direct replacement
+ * @author Shuyang Zhou
  */
-@Deprecated
 public class LockRegistry {
 
 	public static ReentrantLock allocateLock(String groupName, String key) {

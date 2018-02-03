@@ -22,8 +22,12 @@ import com.liferay.document.library.kernel.model.DLFileEntryConstants;
 import com.liferay.document.library.kernel.model.DLFileVersion;
 import com.liferay.document.library.kernel.model.DLFolder;
 import com.liferay.document.library.kernel.model.DLFolderConstants;
+<<<<<<< HEAD
 import com.liferay.document.library.sync.model.DLSyncEvent;
 import com.liferay.document.library.sync.service.DLSyncEventLocalService;
+=======
+import com.liferay.document.library.kernel.model.DLSyncEvent;
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
@@ -65,7 +69,10 @@ import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.comparator.GroupNameComparator;
 import com.liferay.portal.kernel.zip.ZipReader;
 import com.liferay.portal.kernel.zip.ZipReaderFactoryUtil;
+<<<<<<< HEAD
 import com.liferay.portal.spring.extender.service.ServiceReference;
+=======
+>>>>>>> compatible
 import com.liferay.sync.constants.SyncConstants;
 import com.liferay.sync.constants.SyncDLObjectConstants;
 import com.liferay.sync.constants.SyncDeviceConstants;
@@ -1162,11 +1169,19 @@ public class SyncDLObjectServiceImpl extends SyncDLObjectServiceBaseImpl {
 	protected SyncDLObject checkModifiedTime(
 		SyncDLObject syncDLObject, long typePK) {
 
+<<<<<<< HEAD
 		DynamicQuery dynamicQuery = _dlSyncEventLocalService.dynamicQuery();
 
 		dynamicQuery.add(RestrictionsFactoryUtil.eq("typePK", typePK));
 
 		List<DLSyncEvent> dlSyncEvents = _dlSyncEventLocalService.dynamicQuery(
+=======
+		DynamicQuery dynamicQuery = dlSyncEventLocalService.dynamicQuery();
+
+		dynamicQuery.add(RestrictionsFactoryUtil.eq("typePK", typePK));
+
+		List<DLSyncEvent> dlSyncEvents = dlSyncEventLocalService.dynamicQuery(
+>>>>>>> compatible
 			dynamicQuery);
 
 		if (dlSyncEvents.isEmpty()) {
@@ -1679,7 +1694,10 @@ public class SyncDLObjectServiceImpl extends SyncDLObjectServiceBaseImpl {
 	private static final Log _log = LogFactoryUtil.getLog(
 		SyncDLObjectServiceImpl.class);
 
+<<<<<<< HEAD
 	@ServiceReference(type = DLSyncEventLocalService.class)
 	private DLSyncEventLocalService _dlSyncEventLocalService;
 
+=======
+>>>>>>> compatible
 }

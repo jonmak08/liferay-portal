@@ -570,6 +570,7 @@ public class DLFileEntryServiceImpl extends DLFileEntryServiceBaseImpl {
 
 		return dlFileEntry.hasLock();
 	}
+<<<<<<< HEAD
 
 	@Override
 	public boolean isFileEntryCheckedOut(long fileEntryId)
@@ -586,6 +587,24 @@ public class DLFileEntryServiceImpl extends DLFileEntryServiceBaseImpl {
 
 		PermissionChecker permissionChecker = getPermissionChecker();
 
+=======
+
+	@Override
+	public boolean isFileEntryCheckedOut(long fileEntryId)
+		throws PortalException {
+
+		return dlFileEntryLocalService.isFileEntryCheckedOut(fileEntryId);
+	}
+
+	@Override
+	public boolean isKeepFileVersionLabel(
+			long fileEntryId, boolean majorVersion,
+			ServiceContext serviceContext)
+		throws PortalException {
+
+		PermissionChecker permissionChecker = getPermissionChecker();
+
+>>>>>>> compatible
 		DLFileEntryPermission.check(
 			permissionChecker, fileEntryId, ActionKeys.VIEW);
 

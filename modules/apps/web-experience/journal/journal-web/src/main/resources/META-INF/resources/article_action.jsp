@@ -115,6 +115,7 @@ else {
 			/>
 		</c:if>
 
+<<<<<<< HEAD
 		<c:if test="<%= JournalArticlePermission.contains(permissionChecker, article, ActionKeys.SUBSCRIBE) %>">
 			<c:choose>
 				<c:when test="<%= JournalUtil.isSubscribedToArticle(article.getCompanyId(), scopeGroupId, themeDisplay.getUserId(), article.getResourcePrimKey()) %>">
@@ -173,6 +174,21 @@ else {
 					/>
 				</c:otherwise>
 			</c:choose>
+=======
+		<c:if test="<%= JournalFolderPermission.contains(permissionChecker, scopeGroupId, article.getFolderId(), ActionKeys.ADD_ARTICLE) %>">
+			<portlet:renderURL var="copyURL">
+				<portlet:param name="mvcPath" value="/copy_article.jsp" />
+				<portlet:param name="redirect" value="<%= currentURL %>" />
+				<portlet:param name="groupId" value="<%= String.valueOf(article.getGroupId()) %>" />
+				<portlet:param name="oldArticleId" value="<%= article.getArticleId() %>" />
+				<portlet:param name="version" value="<%= String.valueOf(article.getVersion()) %>" />
+			</portlet:renderURL>
+
+			<liferay-ui:icon
+				message="copy"
+				url="<%= copyURL.toString() %>"
+			/>
+>>>>>>> compatible
 		</c:if>
 	</c:if>
 
@@ -190,14 +206,22 @@ else {
 	</c:if>
 
 	<c:if test="<%= JournalArticlePermission.contains(permissionChecker, article, ActionKeys.DELETE) %>">
+<<<<<<< HEAD
 		<portlet:actionURL name='<%= trashHelper.isTrashEnabled(scopeGroupId) ? "moveToTrash" : "deleteArticles" %>' var="deleteURL">
+=======
+		<portlet:actionURL name='<%= TrashUtil.isTrashEnabled(scopeGroupId) ? "moveToTrash" : "deleteArticles" %>' var="deleteURL">
+>>>>>>> compatible
 			<portlet:param name="redirect" value="<%= currentURL %>" />
 			<portlet:param name="groupId" value="<%= String.valueOf(article.getGroupId()) %>" />
 			<portlet:param name="articleId" value="<%= article.getArticleId() %>" />
 		</portlet:actionURL>
 
 		<liferay-ui:icon-delete
+<<<<<<< HEAD
 			trash="<%= trashHelper.isTrashEnabled(scopeGroupId) %>"
+=======
+			trash="<%= TrashUtil.isTrashEnabled(scopeGroupId) %>"
+>>>>>>> compatible
 			url="<%= deleteURL %>"
 		/>
 	</c:if>

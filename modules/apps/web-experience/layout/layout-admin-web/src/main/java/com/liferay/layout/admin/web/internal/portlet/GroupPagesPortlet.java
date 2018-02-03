@@ -14,6 +14,7 @@
 
 package com.liferay.layout.admin.web.internal.portlet;
 
+<<<<<<< HEAD
 import com.liferay.application.list.GroupProvider;
 import com.liferay.application.list.constants.ApplicationListWebKeys;
 import com.liferay.asset.kernel.exception.AssetCategoryException;
@@ -63,12 +64,26 @@ import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Modified;
 import org.osgi.service.component.annotations.Reference;
+=======
+import com.liferay.layout.admin.web.internal.constants.LayoutAdminPortletKeys;
+import com.liferay.portal.kernel.model.Group;
+import com.liferay.portal.kernel.theme.ThemeDisplay;
+import com.liferay.portal.kernel.util.WebKeys;
+
+import javax.portlet.Portlet;
+import javax.portlet.PortletRequest;
+
+import org.osgi.service.component.annotations.Component;
+>>>>>>> compatible
 
 /**
  * @author Jorge Ferrer
  */
 @Component(
+<<<<<<< HEAD
 	configurationPid = "com.liferay.layout.admin.web.configuration.LayoutAdminWebConfiguration",
+=======
+>>>>>>> compatible
 	immediate = true,
 	property = {
 		"com.liferay.portlet.add-default-resource=true",
@@ -94,6 +109,7 @@ import org.osgi.service.component.annotations.Reference;
 	},
 	service = {Portlet.class}
 )
+<<<<<<< HEAD
 public class GroupPagesPortlet extends MVCPortlet {
 
 	@Activate
@@ -156,6 +172,11 @@ public class GroupPagesPortlet extends MVCPortlet {
 		}
 	}
 
+=======
+public class GroupPagesPortlet extends LayoutAdminPortlet {
+
+	@Override
+>>>>>>> compatible
 	protected Group getGroup(PortletRequest portletRequest) throws Exception {
 		ThemeDisplay themeDisplay = (ThemeDisplay)portletRequest.getAttribute(
 			WebKeys.THEME_DISPLAY);
@@ -167,6 +188,7 @@ public class GroupPagesPortlet extends MVCPortlet {
 		return group;
 	}
 
+<<<<<<< HEAD
 	@Override
 	protected boolean isAlwaysSendRedirect() {
 		return true;
@@ -209,4 +231,6 @@ public class GroupPagesPortlet extends MVCPortlet {
 
 	private volatile LayoutAdminWebConfiguration _layoutAdminWebConfiguration;
 
+=======
+>>>>>>> compatible
 }

@@ -14,8 +14,11 @@
 
 package com.liferay.frontend.taglib.internal.servlet;
 
+<<<<<<< HEAD
 import com.liferay.frontend.taglib.servlet.taglib.ScreenNavigationRegistry;
 
+=======
+>>>>>>> compatible
 import javax.servlet.ServletContext;
 
 import org.osgi.service.component.annotations.Activate;
@@ -29,10 +32,13 @@ import org.osgi.service.component.annotations.Reference;
 @Component(immediate = true)
 public class ServletContextUtil {
 
+<<<<<<< HEAD
 	public static final ScreenNavigationRegistry getScreenNavigationRegistry() {
 		return _instance._getScreenNavigationRegistry();
 	}
 
+=======
+>>>>>>> compatible
 	public static final ServletContext getServletContext() {
 		return _instance._getServletContext();
 	}
@@ -55,19 +61,25 @@ public class ServletContextUtil {
 		_servletContext = servletContext;
 	}
 
+<<<<<<< HEAD
 	private ScreenNavigationRegistry _getScreenNavigationRegistry() {
 		return _screenNavigationRegistry;
 	}
 
+=======
+>>>>>>> compatible
 	private ServletContext _getServletContext() {
 		return _servletContext;
 	}
 
 	private static ServletContextUtil _instance;
 
+<<<<<<< HEAD
 	@Reference
 	private ScreenNavigationRegistry _screenNavigationRegistry;
 
+=======
+>>>>>>> compatible
 	private ServletContext _servletContext;
 
 }

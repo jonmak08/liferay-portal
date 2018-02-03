@@ -15,7 +15,11 @@
 </tr>
 <tr>
 	<td>ACTIVE_NAV_ITEM_LINK</td>
+<<<<<<< HEAD
 	<td>//div[contains(@class,'navbar')]//li[contains(@class,'active')]//a[normalize-space()='${key_navItem}'] | //div[contains(@class,'navbar')]//a[normalize-space()='${key_navItem}'][@aria-label='Current Page']</td>
+=======
+	<td>//div[contains(@class,'navbar-default')]//li[contains(@class,'active')]/a/span[contains(.,'${key_navItem}')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -89,18 +93,25 @@
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 	<td>DEFINE_PERMISSIONS</td>
 	<td>//ul[contains(@class,'navbar-nav')]/li/a[contains(.,'Define Permissions')]</td>
 	<td></td>
 </tr>
 <tr>
+=======
+>>>>>>> compatible
 	<td>DETAILS</td>
 	<td>//ul[contains(@class,'navbar-nav')]/li/a[contains(@class,'dropdown-toggle')]/span[contains(.,'Details')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>DOCUMENT_TYPES</td>
+<<<<<<< HEAD
 	<td>//ul[contains(@class,'navbar-nav')]/li/a[contains(.,'Document Types')]</td>
+=======
+	<td>//*[@data-qa-id='navigation']//a[contains(.,'Document Types')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -139,11 +150,14 @@
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 	<td>METADATA_SETS</td>
 	<td>//ul[contains(@class,'navbar-nav')]/li/a[contains(.,'Metadata Sets')]</td>
 	<td></td>
 </tr>
 <tr>
+=======
+>>>>>>> compatible
 	<td>MINE</td>
 	<td>//*[@data-qa-id='navigation']//a[contains(.,'Mine')] | //div[contains(@class,'navbar-default')]//a/span[contains(.,'Mine')]</td>
 	<td></td>
@@ -155,7 +169,11 @@
 </tr>
 <tr>
 	<td>NAV_ITEM_LINK</td>
+<<<<<<< HEAD
 	<td>//div[contains(@class,'navbar')]//a[normalize-space()='${key_navItem}']</td>
+=======
+	<td>//div[contains(@class,'navbar-default')]//a/span[contains(.,'${key_navItem}')] | //*[@data-qa-id='navigation']//a[contains(.,'${key_navItem}')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -221,6 +239,14 @@
 <tr>
 	<td>USERS</td>
 	<td>//ul[contains(@class,'nav') and contains(@class,'navbar-nav')]/li/a[contains(.,'Users')]</td>
+<<<<<<< HEAD
+=======
+	<td></td>
+</tr>
+<tr>
+	<td>USER_GROUPS</td>
+	<td>//ul[contains(@class,'nav') and contains(@class,'navbar-nav')]/li/a[contains(.,'User Groups')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 </tbody>

@@ -20,8 +20,15 @@ import com.liferay.portal.kernel.model.ModelListener;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.wiki.model.WikiPage;
+<<<<<<< HEAD
 
 import org.osgi.service.component.annotations.Component;
+=======
+import com.liferay.wiki.service.persistence.WikiPagePersistence;
+
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
+>>>>>>> compatible
 
 /**
  * @author Tomas Polesovsky
@@ -53,8 +60,11 @@ public class CycleDetectorWikiPageModelListener
 	}
 
 	protected boolean isCycleDetectedInWikiPagesGraph(WikiPage wikiPage) {
+<<<<<<< HEAD
 		WikiPage parentPage = wikiPage;
 
+=======
+>>>>>>> compatible
 		String title = wikiPage.getTitle();
 
 		if (Validator.isBlank(title)) {
@@ -63,8 +73,13 @@ public class CycleDetectorWikiPageModelListener
 
 		title = title.trim();
 
+<<<<<<< HEAD
 		while (parentPage != null) {
 			String parentTitle = parentPage.getParentTitle();
+=======
+		while (wikiPage != null) {
+			String parentTitle = wikiPage.getParentTitle();
+>>>>>>> compatible
 
 			if (Validator.isBlank(parentTitle)) {
 				return false;
@@ -76,10 +91,21 @@ public class CycleDetectorWikiPageModelListener
 				return true;
 			}
 
+<<<<<<< HEAD
 			parentPage = parentPage.fetchParentPage();
+=======
+			wikiPage = _wikiPagePersistence.fetchByN_T_H_First(
+				wikiPage.getNodeId(), wikiPage.getParentTitle(), true, null);
+>>>>>>> compatible
 		}
 
 		return false;
 	}
 
+<<<<<<< HEAD
+=======
+	@Reference
+	private WikiPagePersistence _wikiPagePersistence;
+
+>>>>>>> compatible
 }

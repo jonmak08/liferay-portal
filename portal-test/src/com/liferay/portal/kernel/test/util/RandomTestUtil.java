@@ -73,6 +73,7 @@ public class RandomTestUtil {
 					continue generation;
 				}
 			}
+<<<<<<< HEAD
 
 			return bytes;
 		}
@@ -89,6 +90,22 @@ public class RandomTestUtil {
 	public static byte[] randomBytes(
 		RandomizerBumper<byte[]>... randomizerBumpers) {
 
+=======
+
+			return bytes;
+		}
+
+		throw new IllegalStateException(
+			"Unable to generate a random byte array that is acceptable by " +
+				"all randomizer bumpers " + Arrays.toString(randomizerBumpers) +
+					" after " + _RANDOMIZER_BUMPER_TRIES_MAX + " tries");
+	}
+
+	@SafeVarargs
+	public static byte[] randomBytes(
+		RandomizerBumper<byte[]>... randomizerBumpers) {
+
+>>>>>>> compatible
 		return randomBytes(8, randomizerBumpers);
 	}
 

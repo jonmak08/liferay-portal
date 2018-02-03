@@ -18,7 +18,10 @@ import com.liferay.marketplace.util.ContextUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.upgrade.UpgradeProcess;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 
 import java.io.IOException;
 
@@ -63,6 +66,7 @@ public class UpgradeModule extends UpgradeProcess {
 					newContextName = ContextUtil.getContextName(contextName);
 
 					runSQL(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"update Marketplace_Module set contextName = '",
 							newContextName, "' where moduleId = ",
@@ -74,6 +78,15 @@ public class UpgradeModule extends UpgradeProcess {
 							"Unable to update module + ",
 							String.valueOf(moduleId),
 							" with the new context name ", newContextName),
+=======
+						"update Marketplace_Module set contextName = '" +
+							newContextName + "' where moduleId = " + moduleId);
+				}
+				catch (IOException ioe) {
+					_log.error(
+						"Unable to update module + " + moduleId +
+							" with the new context name " + newContextName,
+>>>>>>> compatible
 						ioe);
 				}
 			}

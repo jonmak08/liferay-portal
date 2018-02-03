@@ -62,12 +62,20 @@ public class ModulesProjectConfigurator extends BaseProjectConfigurator {
 
 		_defaultRepositoryEnabled = GradleUtil.getProperty(
 			settings,
+<<<<<<< HEAD
 			WorkspacePlugin.PROPERTY_PREFIX + NAME +
+=======
+			WorkspacePlugin.PROPERTY_PREFIX + _NAME +
+>>>>>>> compatible
 				".default.repository.enabled",
 			_DEFAULT_REPOSITORY_ENABLED);
 		_jspPrecompileEnabled = GradleUtil.getProperty(
 			settings,
+<<<<<<< HEAD
 			WorkspacePlugin.PROPERTY_PREFIX + NAME + ".jsp.precompile.enabled",
+=======
+			WorkspacePlugin.PROPERTY_PREFIX + _NAME + ".jsp.precompile.enabled",
+>>>>>>> compatible
 			_DEFAULT_JSP_PRECOMPILE_ENABLED);
 	}
 
@@ -105,7 +113,11 @@ public class ModulesProjectConfigurator extends BaseProjectConfigurator {
 
 	@Override
 	public String getName() {
+<<<<<<< HEAD
 		return NAME;
+=======
+		return _NAME;
+>>>>>>> compatible
 	}
 
 	public boolean isDefaultRepositoryEnabled() {
@@ -151,8 +163,11 @@ public class ModulesProjectConfigurator extends BaseProjectConfigurator {
 		return projectDirs;
 	}
 
+<<<<<<< HEAD
 	protected static final String NAME = "modules";
 
+=======
+>>>>>>> compatible
 	private void _applyPlugins(Project project) {
 		GradleUtil.applyPlugin(project, LiferayOSGiPlugin.class);
 		GradleUtil.applyPlugin(project, PoshiRunnerPlugin.class);
@@ -245,6 +260,11 @@ public class ModulesProjectConfigurator extends BaseProjectConfigurator {
 
 	private static final boolean _DEFAULT_REPOSITORY_ENABLED = true;
 
+<<<<<<< HEAD
+=======
+	private static final String _NAME = "modules";
+
+>>>>>>> compatible
 	private boolean _defaultRepositoryEnabled;
 	private boolean _jspPrecompileEnabled;
 

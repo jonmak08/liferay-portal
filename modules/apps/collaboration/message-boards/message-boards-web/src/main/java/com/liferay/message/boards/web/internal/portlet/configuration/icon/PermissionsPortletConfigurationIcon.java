@@ -14,8 +14,12 @@
 
 package com.liferay.message.boards.web.internal.portlet.configuration.icon;
 
+<<<<<<< HEAD
 import com.liferay.message.boards.constants.MBPortletKeys;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.message.boards.web.constants.MBPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.portlet.LiferayWindowState;
@@ -26,6 +30,10 @@ import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.AggregateResourceBundle;
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portlet.messageboards.service.permission.MBPermission;
 import com.liferay.taglib.security.PermissionsURLTag;

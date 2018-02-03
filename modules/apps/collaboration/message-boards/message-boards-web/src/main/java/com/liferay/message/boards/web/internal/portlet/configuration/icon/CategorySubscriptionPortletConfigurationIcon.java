@@ -14,20 +14,32 @@
 
 package com.liferay.message.boards.web.internal.portlet.configuration.icon;
 
+<<<<<<< HEAD
 import com.liferay.message.boards.constants.MBPortletKeys;
 import com.liferay.message.boards.kernel.model.MBCategory;
+=======
+import com.liferay.message.boards.kernel.model.MBCategory;
+import com.liferay.message.boards.web.constants.MBPortletKeys;
+>>>>>>> compatible
 import com.liferay.message.boards.web.internal.portlet.action.ActionUtil;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.portlet.configuration.icon.BasePortletConfigurationIcon;
 import com.liferay.portal.kernel.portlet.configuration.icon.PortletConfigurationIcon;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.service.SubscriptionLocalService;
+>>>>>>> compatible
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portlet.messageboards.MBGroupServiceSettings;
 import com.liferay.portlet.messageboards.service.permission.MBCategoryPermission;
+<<<<<<< HEAD
 import com.liferay.subscription.service.SubscriptionLocalService;
+=======
+>>>>>>> compatible
 
 import javax.portlet.ActionRequest;
 import javax.portlet.PortletRequest;

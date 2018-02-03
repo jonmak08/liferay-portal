@@ -14,8 +14,12 @@
 							requires: [
 								'aui-component',
 								'aui-tabview',
+<<<<<<< HEAD
 								'liferay-ddm-form-renderer-context',
 								'liferay-ddm-form-renderer-evaluation',
+=======
+								'liferay-ddm-form-renderer-definition',
+>>>>>>> compatible
 								'liferay-ddm-form-renderer-feedback',
 								'liferay-ddm-form-renderer-nested-fields',
 								'liferay-ddm-form-renderer-pagination',
@@ -25,6 +29,7 @@
 								'liferay-ddm-form-renderer-types',
 								'liferay-ddm-form-renderer-util',
 								'liferay-ddm-form-renderer-validation',
+<<<<<<< HEAD
 								'liferay-ddm-soy-template-util'
 							]
 						},
@@ -32,14 +37,25 @@
 							path: 'form_context_support.js',
 							requires: [
 								'liferay-ddm-form-renderer-layout-visitor',
+=======
+								'liferay-ddm-form-soy'
+							]
+						},
+						'liferay-ddm-form-renderer-definition': {
+							path: 'form_definition_support.js',
+							requires: [
+>>>>>>> compatible
 								'liferay-ddm-form-renderer-types',
 								'liferay-ddm-form-renderer-util'
 							]
 						},
+<<<<<<< HEAD
 						'liferay-ddm-form-renderer-evaluation': {
 							path: 'form_evaluation_support.js',
 							requires: []
 						},
+=======
+>>>>>>> compatible
 						'liferay-ddm-form-renderer-expressions-evaluator': {
 							path: 'expressions_evaluator.js',
 							requires: [
@@ -59,8 +75,11 @@
 								'aui-datatype',
 								'aui-node',
 								'liferay-ddm-form-renderer',
+<<<<<<< HEAD
 								'liferay-ddm-form-renderer-field-context-support',
 								'liferay-ddm-form-renderer-field-evaluation',
+=======
+>>>>>>> compatible
 								'liferay-ddm-form-renderer-field-events',
 								'liferay-ddm-form-renderer-field-feedback',
 								'liferay-ddm-form-renderer-field-repetition',
@@ -70,6 +89,7 @@
 								'liferay-ddm-form-renderer-util'
 							]
 						},
+<<<<<<< HEAD
 						'liferay-ddm-form-renderer-field-context-support': {
 							path: 'field_context_support.js',
 							requires: [
@@ -84,6 +104,8 @@
 								'liferay-ddm-form-renderer-util'
 							]
 						},
+=======
+>>>>>>> compatible
 						'liferay-ddm-form-renderer-field-events': {
 							path: 'field_events_support.js',
 							requires: []
@@ -108,9 +130,18 @@
 								'liferay-ddm-form-renderer-expressions-evaluator'
 							]
 						},
+<<<<<<< HEAD
 						'liferay-ddm-form-renderer-layout-visitor': {
 							path: 'layout_visitor.js',
 							requires: ['aui-base']
+=======
+						'liferay-ddm-form-renderer-field-visibility': {
+							path: 'field_visibility_support.js',
+							requires: [
+								'liferay-ddm-form-renderer-expressions-evaluator',
+								'liferay-ddm-form-renderer-util'
+							]
+>>>>>>> compatible
 						},
 						'liferay-ddm-form-renderer-nested-fields': {
 							path: 'nested_fields_support.js',
@@ -120,6 +151,7 @@
 								'liferay-ddm-form-renderer-util'
 							]
 						},
+<<<<<<< HEAD
 						'liferay-ddm-form-renderer-paginated': {
 							path: 'paginated.js',
 							requires: [
@@ -128,11 +160,16 @@
 								'widget'
 							]
 						},
+=======
+>>>>>>> compatible
 						'liferay-ddm-form-renderer-pagination': {
 							path: 'form_pagination_support.js',
 							requires: [
 								'aui-pagination',
+<<<<<<< HEAD
 								'liferay-ddm-form-renderer-paginated',
+=======
+>>>>>>> compatible
 								'liferay-ddm-form-renderer-wizard'
 							]
 						},
@@ -145,7 +182,11 @@
 						'liferay-ddm-form-renderer-template': {
 							path: 'form_template_support.js',
 							requires: [
+<<<<<<< HEAD
 								'aui-base', 'liferay-ddm-soy-template-util'
+=======
+								'aui-base'
+>>>>>>> compatible
 							]
 						},
 						'liferay-ddm-form-renderer-type': {
@@ -165,7 +206,12 @@
 						'liferay-ddm-form-renderer-util': {
 							path: 'util.js',
 							requires: [
+<<<<<<< HEAD
 								'liferay-ddm-form-renderer-types'
+=======
+								'liferay-ddm-form-renderer-types',
+								'queue'
+>>>>>>> compatible
 							]
 						},
 						'liferay-ddm-form-renderer-validation': {
@@ -182,10 +228,13 @@
 								'aui-node',
 								'widget'
 							]
+<<<<<<< HEAD
 						},
 						'liferay-ddm-soy-template-util': {
 							path: 'soy_template_util.js',
 							requires: []
+=======
+>>>>>>> compatible
 						}
 					},
 					root: MODULE_PATH + '/js/'
@@ -193,6 +242,17 @@
 				'templates': {
 					base: MODULE_PATH + '/',
 					combine: Liferay.AUI.getCombine(),
+<<<<<<< HEAD
+=======
+					modules: {
+						'liferay-ddm-form-soy': {
+							path: 'form.soy.js',
+							requires: [
+								'soyutils'
+							]
+						}
+					},
+>>>>>>> compatible
 					root: MODULE_PATH + '/'
 				}
 			}

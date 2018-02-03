@@ -8,6 +8,14 @@
 			<var name="description" value="${teamDescription}" />
 		</execute>
 	</command>
+<<<<<<< HEAD
+=======
+
+	<command name="_searchCP">
+		<execute function="Type" locator1="TextInput#SEARCH" value1="${searchTerm}" />
+		<execute function="KeyPress" locator1="TextInput#SEARCH" value1="\RETURN" />
+	</command>
+>>>>>>> compatible
 
 	<command name="addCP">
 		<execute macro="LexiconEntry#gotoAdd" />
@@ -24,12 +32,20 @@
 		<var name="key_teamName" value="${teamName}" />
 		<var name="key_userScreenName" value="${userScreenName}" />
 
+<<<<<<< HEAD
 		<execute macro="Search#searchCP">
+=======
+		<execute macro="Team#_searchCP">
+>>>>>>> compatible
 			<var name="searchTerm" value="${teamName}" />
 		</execute>
 
 		<execute macro="Portlet#changeDisplayStyle">
+<<<<<<< HEAD
 			<var name="displayStyle" value="list" />
+=======
+			<var name="displayStyle" value="List" />
+>>>>>>> compatible
 		</execute>
 
 		<execute function="AssertTextEquals" locator1="SiteTeams#TEAM_TABLE_NAME" value1="${teamName}" />
@@ -39,12 +55,21 @@
 		<execute macro="Navigator#gotoNavItem">
 			<var name="navItem" value="Users" />
 		</execute>
+<<<<<<< HEAD
 
 		<execute macro="LexiconEntry#gotoAdd" />
 
 		<execute function="SelectFrame" locator1="IFrame#DIALOG" />
 
 		<execute macro="Search#searchCP">
+=======
+
+		<execute macro="LexiconEntry#gotoAdd" />
+
+		<execute function="SelectFrame" locator1="IFrame#DIALOG" />
+
+		<execute macro="Team#_searchCP">
+>>>>>>> compatible
 			<var name="searchTerm" value="${userScreenName}" />
 		</execute>
 
@@ -55,6 +80,7 @@
 			</then>
 			<else>
 				<execute macro="Portlet#changeDisplayStyle">
+<<<<<<< HEAD
 					<var name="displayStyle" value="icon" />
 				</execute>
 
@@ -64,6 +90,17 @@
 
 				<execute function="Check" locator1="Card#SPECIFIC_CHECKBOX" />
 
+=======
+					<var name="displayStyle" value="Icon" />
+				</execute>
+
+				<var name="key_cardText" value="${userScreenName}" />
+
+				<execute function="AssertTextEquals" locator1="Card#SPECIFIC_TEXT" value1="${userScreenName}" />
+
+				<execute function="Check" locator1="Card#SPECIFIC_CHECKBOX" />
+
+>>>>>>> compatible
 				<execute function="Pause" locator1="5000" />
 
 				<execute function="SelectFrameTop" />
@@ -82,6 +119,7 @@
 	<command name="assignUserGroups">
 		<var name="key_teamName" value="${teamName}" />
 
+<<<<<<< HEAD
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="${teamName}" />
 		</execute>
@@ -92,6 +130,18 @@
 
 		<execute function="AssertTextEquals" locator1="SiteTeams#TEAM_TABLE_NAME" value1="${teamName}" />
 
+=======
+		<execute macro="Team#_searchCP">
+			<var name="searchTerm" value="${teamName}" />
+		</execute>
+
+		<execute macro="Portlet#changeDisplayStyle">
+			<var name="displayStyle" value="List" />
+		</execute>
+
+		<execute function="AssertTextEquals" locator1="SiteTeams#TEAM_TABLE_NAME" value1="${teamName}" />
+
+>>>>>>> compatible
 		<execute function="AssertClick" locator1="SiteTeams#TEAM_TABLE_NAME" value1="${teamName}" />
 
 		<execute macro="Navigator#gotoNavItem">
@@ -104,7 +154,11 @@
 
 		<var name="key_cardText" value="${userGroupName}" />
 
+<<<<<<< HEAD
 		<execute macro="Search#searchCP">
+=======
+		<execute macro="Team#_searchCP">
+>>>>>>> compatible
 			<var name="searchTerm" value="${userGroupName}" />
 		</execute>
 
@@ -115,6 +169,7 @@
 			</then>
 			<else>
 				<execute macro="Portlet#changeDisplayStyle">
+<<<<<<< HEAD
 					<var name="displayStyle" value="icon" />
 				</execute>
 
@@ -126,6 +181,19 @@
 
 				<execute function="AssertClick" locator1="Button#ADD" value1="Add" />
 
+=======
+					<var name="displayStyle" value="Icon" />
+				</execute>
+
+				<execute function="AssertTextEquals" locator1="Card#SPECIFIC_LARGE_TEXT" value1="${userGroupName}" />
+
+				<execute function="Check" locator1="Card#SPECIFIC_CHECKBOX" />
+
+				<execute function="SelectFrameTop" />
+
+				<execute function="AssertClick" locator1="Button#ADD" value1="Add" />
+
+>>>>>>> compatible
 				<execute macro="Alert#viewSuccessMessage" />
 			</else>
 		</if>
@@ -136,7 +204,13 @@
 	<command name="definePermissionPG">
 		<execute function="Check" locator1="//tr[contains(.,'${teamName}')]/td/input[contains(@id,'${permissionDefinitionKey}')]" />
 
+<<<<<<< HEAD
 		<execute macro="PortletEntry#save" />
+=======
+		<execute macro="Button#clickSave" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 
 		<execute function="AssertChecked" locator1="//tr[contains(.,'${teamName}')]/td/input[contains(@id,'${permissionDefinitionKey}')]" />
 	</command>
@@ -145,7 +219,11 @@
 		<var name="key_teamName" value="${teamName}" />
 
 		<execute macro="Portlet#changeDisplayStyle">
+<<<<<<< HEAD
 			<var name="displayStyle" value="list" />
+=======
+			<var name="displayStyle" value="List" />
+>>>>>>> compatible
 		</execute>
 
 		<execute function="AssertTextEquals" locator1="SiteTeams#TEAM_TABLE_NAME" value1="${teamName}" />
@@ -161,6 +239,7 @@
 
 	<command name="editCP">
 		<execute macro="Portlet#changeDisplayStyle">
+<<<<<<< HEAD
 			<var name="displayStyle" value="list" />
 		</execute>
 
@@ -186,6 +265,33 @@
 			<var name="navItem" value="${membershipType}s" />
 		</execute>
 
+=======
+			<var name="displayStyle" value="List" />
+		</execute>
+
+		<execute macro="LexiconEntry#gotoEntryMenuItem">
+			<var name="menuItem" value="Edit" />
+			<var name="rowEntry" value="${teamName}" />
+		</execute>
+
+		<execute macro="Team#_editCP">
+			<var name="teamDescription" value="${teamDescriptionEdit}" />
+			<var name="teamName" value="${teamNameEdit}" />
+		</execute>
+
+		<execute macro="PortletEntry#save" />
+	</command>
+
+	<command name="removeMemberCP">
+		<execute function="AssertClick" locator1="ContentRow#ENTRY_CONTENT_ENTRY_NAME_LINK" value1="${teamName}">
+			<var name="key_rowEntry" value="${teamName}" />
+		</execute>
+
+		<execute macro="Navigator#gotoNavItem">
+			<var name="navItem" value="${membershipType}s" />
+		</execute>
+
+>>>>>>> compatible
 		<if>
 			<equals arg1="${membershipType}" arg2="User" />
 			<then>
@@ -213,7 +319,13 @@
 	<command name="removePermissionPG">
 		<execute function="Uncheck" locator1="//tr[contains(.,'${teamName}')]/td/input[contains(@id,'${permissionDefinitionKey}')]" />
 
+<<<<<<< HEAD
 		<execute macro="PortletEntry#save" />
+=======
+		<execute macro="Button#clickSave" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 
 		<execute function="AssertNotChecked" locator1="//tr[contains(.,'${teamName}')]/td/input[contains(@id,'${permissionDefinitionKey}')]" />
 	</command>
@@ -223,7 +335,11 @@
 			<var name="navItem" value="${membershipType}s" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Search#searchCP">
+=======
+		<execute macro="Team#_searchCP">
+>>>>>>> compatible
 			<var name="searchTerm" value="${searchTerm}" />
 		</execute>
 
@@ -233,9 +349,15 @@
 				<execute function="AssertElementPresent" locator1="Message#EMPTY_INFO" />
 			</then>
 			<else>
+<<<<<<< HEAD
 				<var method="StringUtil#unquote('${searchTerm}')" name="name" />
 
 				<execute function="AssertTextEquals#assertPartialText" locator1="ContentRow#ENTRY_CONTENT_ROW_1" value1="${name}" />
+=======
+				<execute function="AssertElementPresent" locator1="Card#SPECIFIC_LARGE_TEXT">
+					<var method="StringUtil#unquote('${searchTerm}')" name="key_cardText" />
+				</execute>
+>>>>>>> compatible
 			</else>
 		</if>
 	</command>
@@ -250,9 +372,13 @@
 			<var name="site" value="${siteName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Members" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesMembers">
+>>>>>>> compatible
 			<var name="portlet" value="Site Teams" />
 		</execute>
 
@@ -272,7 +398,11 @@
 		<var name="key_teamName" value="${teamName}" />
 
 		<execute macro="Portlet#changeDisplayStyle">
+<<<<<<< HEAD
 			<var name="displayStyle" value="list" />
+=======
+			<var name="displayStyle" value="List" />
+>>>>>>> compatible
 		</execute>
 
 		<execute function="AssertTextEquals" locator1="SiteTeams#TEAM_TABLE_NAME" value1="${teamName}" />

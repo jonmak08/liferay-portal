@@ -14,8 +14,11 @@
 
 package com.liferay.portal.kernel.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
 
+=======
+>>>>>>> compatible
 import java.util.HashMap;
 import java.util.Map;
 
@@ -100,7 +103,11 @@ public class DeterminateKeyGenerator {
 	private static final int _DEFAULT_LENGTH = 4;
 
 	private static final ThreadLocal<Map<String, Integer>> _seedMap =
+<<<<<<< HEAD
 		new CentralizedThreadLocal<>(
+=======
+		new AutoResetThreadLocal<>(
+>>>>>>> compatible
 			DeterminateKeyGenerator.class + "._seedMap", HashMap::new);
 
 }

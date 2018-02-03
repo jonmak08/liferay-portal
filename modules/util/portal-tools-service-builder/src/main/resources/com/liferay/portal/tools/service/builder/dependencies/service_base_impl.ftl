@@ -1216,6 +1216,15 @@ import ${apiPackagePath}.service.${entity.name}${sessionTypeName}Service;
 	</#list>
 
 	public void afterPropertiesSet() {
+<<<<<<< HEAD
+=======
+		<#if validator.isNotNull(pluginName)>
+			Class<?> clazz = getClass();
+
+			_classLoader = clazz.getClassLoader();
+		</#if>
+
+>>>>>>> compatible
 		<#if stringUtil.equals(sessionTypeName, "Local") && entity.hasColumns()>
 			<#if validator.isNotNull(pluginName)>
 				PersistedModelLocalServiceRegistryUtil.register("${apiPackagePath}.model.${entity.name}", ${entity.varName}LocalService);
@@ -1249,6 +1258,34 @@ import ${apiPackagePath}.service.${entity.name}${sessionTypeName}Service;
 		</#if>
 	}
 
+<<<<<<< HEAD
+=======
+	<#if validator.isNotNull(pluginName)>
+		@Override
+		public Object invokeMethod(
+				String name, String[] parameterTypes, Object[] arguments)
+			throws Throwable {
+
+			Thread currentThread = Thread.currentThread();
+
+			ClassLoader contextClassLoader = currentThread.getContextClassLoader();
+
+			if (contextClassLoader != _classLoader) {
+				currentThread.setContextClassLoader(_classLoader);
+			}
+
+			try {
+				return _clpInvoker.invokeMethod(name, parameterTypes, arguments);
+			}
+			finally {
+				if (contextClassLoader != _classLoader) {
+					currentThread.setContextClassLoader(contextClassLoader);
+				}
+			}
+		}
+	</#if>
+
+>>>>>>> compatible
 	<#if entity.hasColumns()>
 		protected Class<?> getModelClass() {
 			return ${entity.name}.class;
@@ -1348,4 +1385,12 @@ import ${apiPackagePath}.service.${entity.name}${sessionTypeName}Service;
 		</#if>
 	</#if>
 
+<<<<<<< HEAD
+=======
+	<#if validator.isNotNull(pluginName)>
+		private ClassLoader _classLoader;
+		private ${entity.name}${sessionTypeName}ServiceClpInvoker _clpInvoker = new ${entity.name}${sessionTypeName}ServiceClpInvoker();
+	</#if>
+
+>>>>>>> compatible
 }

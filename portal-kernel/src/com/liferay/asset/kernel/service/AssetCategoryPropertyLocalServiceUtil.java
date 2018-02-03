@@ -31,11 +31,16 @@ import com.liferay.portal.kernel.util.ReferenceRegistry;
  * @see AssetCategoryPropertyLocalService
  * @see com.liferay.portlet.asset.service.base.AssetCategoryPropertyLocalServiceBaseImpl
  * @see com.liferay.portlet.asset.service.impl.AssetCategoryPropertyLocalServiceImpl
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, replaced by {@link
 com.liferay.asset.category.property.service.impl.AssetCategoryPropertyLocalServiceImpl}
  * @generated
  */
 @Deprecated
+=======
+ * @generated
+ */
+>>>>>>> compatible
 @ProviderType
 public class AssetCategoryPropertyLocalServiceUtil {
 	/*

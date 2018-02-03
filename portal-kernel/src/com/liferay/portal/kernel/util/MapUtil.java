@@ -334,6 +334,7 @@ public class MapUtil {
 		return GetterUtil.getString(String.valueOf(value), defaultValue);
 	}
 
+<<<<<<< HEAD
 	public static <K, V> V getWithFallbackKey(
 		Map<K, V> map, K key, K fallbackKey) {
 
@@ -350,6 +351,8 @@ public class MapUtil {
 		return map.get(fallbackKey);
 	}
 
+=======
+>>>>>>> compatible
 	public static boolean isEmpty(Map<?, ?> map) {
 		if ((map == null) || map.isEmpty()) {
 			return true;

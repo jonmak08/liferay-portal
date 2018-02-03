@@ -15,7 +15,10 @@
 package com.liferay.polls.internal.exportimport.data.handler.test;
 
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
+<<<<<<< HEAD
 import com.liferay.exportimport.kernel.lar.DataLevel;
+=======
+>>>>>>> compatible
 import com.liferay.polls.constants.PollsPortletKeys;
 import com.liferay.polls.model.PollsChoice;
 import com.liferay.polls.model.PollsQuestion;
@@ -51,15 +54,19 @@ public class PollsPortletDataHandlerTest
 	}
 
 	@Override
+<<<<<<< HEAD
 	protected DataLevel getDataLevel() {
 		return DataLevel.SITE;
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	protected String getPortletId() {
 		return PollsPortletKeys.POLLS;
 	}
 
+<<<<<<< HEAD
 	@Override
 	protected boolean isDataPortalLevel() {
 		return false;
@@ -75,4 +82,6 @@ public class PollsPortletDataHandlerTest
 		return true;
 	}
 
+=======
+>>>>>>> compatible
 }

@@ -16,7 +16,10 @@ package com.liferay.calendar.service;
 
 import aQute.bnd.annotation.ProviderType;
 
+<<<<<<< HEAD
 import com.liferay.calendar.model.Calendar;
+=======
+>>>>>>> compatible
 import com.liferay.calendar.model.CalendarBooking;
 
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
@@ -33,7 +36,11 @@ import com.liferay.portal.kernel.model.SystemEventConstants;
 import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.service.BaseLocalService;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.service.PersistedModelLocalService;
+=======
+import com.liferay.portal.kernel.service.PermissionedModelLocalService;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.systemevent.SystemEvent;
 import com.liferay.portal.kernel.transaction.Isolation;
@@ -63,7 +70,11 @@ import java.util.Map;
 @Transactional(isolation = Isolation.PORTAL, rollbackFor =  {
 	PortalException.class, SystemException.class})
 public interface CalendarBookingLocalService extends BaseLocalService,
+<<<<<<< HEAD
 	PersistedModelLocalService {
+=======
+	PermissionedModelLocalService {
+>>>>>>> compatible
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
@@ -81,6 +92,7 @@ public interface CalendarBookingLocalService extends BaseLocalService,
 
 	public CalendarBooking addCalendarBooking(long userId, long calendarId,
 		long[] childCalendarIds, long parentCalendarBookingId,
+<<<<<<< HEAD
 		long recurringCalendarBookingId,
 		Map<Locale, java.lang.String> titleMap,
 		Map<Locale, java.lang.String> descriptionMap,
@@ -98,6 +110,8 @@ public interface CalendarBookingLocalService extends BaseLocalService,
 	@java.lang.Deprecated
 	public CalendarBooking addCalendarBooking(long userId, long calendarId,
 		long[] childCalendarIds, long parentCalendarBookingId,
+=======
+>>>>>>> compatible
 		Map<Locale, java.lang.String> titleMap,
 		Map<Locale, java.lang.String> descriptionMap,
 		java.lang.String location, long startTime, long endTime,
@@ -124,6 +138,7 @@ public interface CalendarBookingLocalService extends BaseLocalService,
 	* @throws PortalException
 	*/
 	@Indexable(type = IndexableType.DELETE)
+<<<<<<< HEAD
 	public CalendarBooking deleteCalendarBooking(
 		CalendarBooking calendarBooking) throws PortalException;
 
@@ -132,6 +147,11 @@ public interface CalendarBookingLocalService extends BaseLocalService,
 	public CalendarBooking deleteCalendarBooking(
 		CalendarBooking calendarBooking, boolean allRecurringInstances)
 		throws PortalException;
+=======
+	@SystemEvent(action = SystemEventConstants.ACTION_SKIP, type = SystemEventConstants.TYPE_DELETE)
+	public CalendarBooking deleteCalendarBooking(
+		CalendarBooking calendarBooking) throws PortalException;
+>>>>>>> compatible
 
 	/**
 	* Deletes the calendar booking with the primary key from the database. Also notifies the appropriate model listeners.
@@ -144,6 +164,7 @@ public interface CalendarBookingLocalService extends BaseLocalService,
 	public CalendarBooking deleteCalendarBooking(long calendarBookingId)
 		throws PortalException;
 
+<<<<<<< HEAD
 	public CalendarBooking deleteCalendarBooking(long calendarBookingId,
 		boolean allRecurringInstances) throws PortalException;
 
@@ -212,6 +233,17 @@ public interface CalendarBookingLocalService extends BaseLocalService,
 		long calendarBookingId, long startTime, boolean allFollowing)
 		throws PortalException;
 
+=======
+	public void deleteCalendarBookingInstance(CalendarBooking calendarBooking,
+		int instanceIndex, boolean allFollowing) throws PortalException;
+
+	public void deleteCalendarBookingInstance(CalendarBooking calendarBooking,
+		long startTime, boolean allFollowing) throws PortalException;
+
+	public void deleteCalendarBookingInstance(long calendarBookingId,
+		long startTime, boolean allFollowing) throws PortalException;
+
+>>>>>>> compatible
 	public void deleteCalendarBookings(long calendarId)
 		throws PortalException;
 
@@ -222,12 +254,15 @@ public interface CalendarBookingLocalService extends BaseLocalService,
 	public PersistedModel deletePersistedModel(PersistedModel persistedModel)
 		throws PortalException;
 
+<<<<<<< HEAD
 	public CalendarBooking deleteRecurringCalendarBooking(
 		CalendarBooking calendarBooking) throws PortalException;
 
 	public CalendarBooking deleteRecurringCalendarBooking(
 		long calendarBookingId) throws PortalException;
 
+=======
+>>>>>>> compatible
 	public DynamicQuery dynamicQuery();
 
 	/**
@@ -432,10 +467,13 @@ public interface CalendarBookingLocalService extends BaseLocalService,
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public IndexableActionableDynamicQuery getIndexableActionableDynamicQuery();
 
+<<<<<<< HEAD
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public CalendarBooking getLastInstanceCalendarBooking(
 		CalendarBooking calendarBooking);
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns the OSGi service identifier.
 	*
@@ -449,6 +487,7 @@ public interface CalendarBookingLocalService extends BaseLocalService,
 		throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+<<<<<<< HEAD
 	public List<CalendarBooking> getRecurringCalendarBookings(
 		CalendarBooking calendarBooking);
 
@@ -466,6 +505,8 @@ public interface CalendarBookingLocalService extends BaseLocalService,
 		ServiceContext serviceContext) throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+=======
+>>>>>>> compatible
 	public boolean isStagingCalendarBooking(CalendarBooking calendarBooking)
 		throws PortalException;
 
@@ -546,6 +587,7 @@ public interface CalendarBookingLocalService extends BaseLocalService,
 		long[] childCalendarIds, Map<Locale, java.lang.String> titleMap,
 		Map<Locale, java.lang.String> descriptionMap,
 		java.lang.String location, long startTime, long endTime,
+<<<<<<< HEAD
 		boolean allDay, boolean allFollowing, long firstReminder,
 		java.lang.String firstReminderType, long secondReminder,
 		java.lang.String secondReminderType, ServiceContext serviceContext)
@@ -556,6 +598,8 @@ public interface CalendarBookingLocalService extends BaseLocalService,
 		long[] childCalendarIds, Map<Locale, java.lang.String> titleMap,
 		Map<Locale, java.lang.String> descriptionMap,
 		java.lang.String location, long startTime, long endTime,
+=======
+>>>>>>> compatible
 		boolean allDay, java.lang.String recurrence, boolean allFollowing,
 		long firstReminder, java.lang.String firstReminderType,
 		long secondReminder, java.lang.String secondReminderType,
@@ -571,6 +615,7 @@ public interface CalendarBookingLocalService extends BaseLocalService,
 		long secondReminder, java.lang.String secondReminderType,
 		ServiceContext serviceContext) throws PortalException;
 
+<<<<<<< HEAD
 	public void updateLastInstanceCalendarBookingRecurrence(
 		CalendarBooking calendarBooking, java.lang.String recurrence);
 
@@ -583,6 +628,8 @@ public interface CalendarBookingLocalService extends BaseLocalService,
 		long secondReminder, java.lang.String secondReminderType,
 		ServiceContext serviceContext) throws PortalException;
 
+=======
+>>>>>>> compatible
 	@Indexable(type = IndexableType.REINDEX)
 	public CalendarBooking updateStatus(long userId,
 		CalendarBooking calendarBooking, int status,

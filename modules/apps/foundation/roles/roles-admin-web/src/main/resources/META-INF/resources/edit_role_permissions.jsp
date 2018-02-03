@@ -19,8 +19,13 @@
 <%
 String cmd = ParamUtil.getString(request, Constants.CMD);
 
+<<<<<<< HEAD
 String tabs2 = "roles";
 String tabs3 = ParamUtil.getString(request, "tabs3", "current");
+=======
+String tabs1 = "roles";
+String tabs2 = ParamUtil.getString(request, "tabs2", "current");
+>>>>>>> compatible
 
 String redirect = ParamUtil.getString(request, "redirect");
 
@@ -36,9 +41,14 @@ PortletURL portletURL = renderResponse.createRenderURL();
 
 portletURL.setParameter("mvcPath", "/edit_role_permissions.jsp");
 portletURL.setParameter(Constants.CMD, Constants.VIEW);
+<<<<<<< HEAD
 portletURL.setParameter("tabs1", "define-permissions");
 portletURL.setParameter("tabs2", tabs2);
 portletURL.setParameter("tabs3", tabs3);
+=======
+portletURL.setParameter("tabs1", tabs1);
+portletURL.setParameter("tabs2", tabs2);
+>>>>>>> compatible
 portletURL.setParameter("backURL", backURL);
 portletURL.setParameter("roleId", String.valueOf(role.getRoleId()));
 
@@ -54,11 +64,34 @@ if (!portletName.equals(PortletKeys.SERVER_ADMIN)) {
 }
 %>
 
+<<<<<<< HEAD
 <liferay-ui:success key="permissionDeleted" message="the-permission-was-deleted" />
 <liferay-ui:success key="permissionsUpdated" message="the-role-permissions-were-updated" />
 
 <liferay-util:include page="/edit_role_tabs.jsp" servletContext="<%= application %>" />
 
+=======
+<liferay-portlet:resourceURL copyCurrentRenderParameters="<%= false %>" varImpl="editPermissionsResourceURL">
+	<portlet:param name="mvcPath" value="/view_resources.jsp" />
+	<portlet:param name="<%= Constants.CMD %>" value="<%= Constants.EDIT %>" />
+	<portlet:param name="tabs1" value="roles" />
+	<portlet:param name="redirect" value="<%= backURL %>" />
+	<portlet:param name="roleId" value="<%= String.valueOf(role.getRoleId()) %>" />
+</liferay-portlet:resourceURL>
+
+<liferay-portlet:renderURL copyCurrentRenderParameters="<%= false %>" varImpl="editPermissionsURL">
+	<portlet:param name="mvcPath" value="/view_resources.jsp" />
+	<portlet:param name="<%= Constants.CMD %>" value="<%= Constants.EDIT %>" />
+	<portlet:param name="tabs1" value="roles" />
+	<portlet:param name="redirect" value="<%= backURL %>" />
+	<portlet:param name="backURL" value="<%= backURL %>" />
+	<portlet:param name="roleId" value="<%= String.valueOf(role.getRoleId()) %>" />
+</liferay-portlet:renderURL>
+
+<liferay-ui:success key="permissionDeleted" message="the-permission-was-deleted" />
+<liferay-ui:success key="permissionsUpdated" message="the-role-permissions-were-updated" />
+
+>>>>>>> compatible
 <aui:container cssClass="container-fluid-1280" id="permissionContainer">
 	<aui:row>
 		<c:if test="<%= !portletName.equals(PortletKeys.SERVER_ADMIN) %>">

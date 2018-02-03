@@ -19,7 +19,10 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.dynamic.data.mapping.model.DDMStructure;
 import com.liferay.dynamic.data.mapping.model.DDMTemplate;
 import com.liferay.dynamic.data.mapping.service.DDMStructureLocalServiceUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.portlet.LiferayPortletRequest;
@@ -29,7 +32,10 @@ import com.liferay.portal.kernel.portlet.PortletProviderUtil;
 import com.liferay.portal.kernel.template.TemplateConstants;
 import com.liferay.portal.kernel.template.TemplateHandler;
 import com.liferay.portal.kernel.template.TemplateHandlerRegistryUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.theme.PortletDisplay;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.AggregateResourceBundle;
 import com.liferay.portal.kernel.util.ArrayUtil;
@@ -40,11 +46,18 @@ import com.liferay.portal.kernel.util.ResourceBundleLoader;
 import com.liferay.portal.kernel.util.ResourceBundleLoaderUtil;
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
 import com.liferay.portal.kernel.util.SetUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
+
+import java.util.ArrayList;
+>>>>>>> compatible
 import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -53,8 +66,11 @@ import java.util.Set;
 import javax.portlet.PortletRequest;
 import javax.portlet.PortletURL;
 
+<<<<<<< HEAD
 import javax.servlet.http.HttpServletRequest;
 
+=======
+>>>>>>> compatible
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
 
@@ -85,6 +101,7 @@ public abstract class BaseDDMDisplay implements DDMDisplay {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public DDMDisplayTabItem getDefaultTabItem() {
 		return new DDMDisplayTabItem() {
 
@@ -108,16 +125,21 @@ public abstract class BaseDDMDisplay implements DDMDisplay {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public String getDefaultTemplateLanguage() {
 		return TemplateConstants.LANG_TYPE_FTL;
 	}
 
 	@Override
+<<<<<<< HEAD
 	public String getDescription(Locale locale) {
 		return null;
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public String getEditStructureDefaultValuesURL(
 			LiferayPortletRequest liferayPortletRequest,
 			LiferayPortletResponse liferayPortletResponse,
@@ -194,11 +216,14 @@ public abstract class BaseDDMDisplay implements DDMDisplay {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public List<DDMDisplayTabItem> getTabItems() {
 		return Arrays.asList(getDefaultTabItem());
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public long[] getTemplateClassNameIds(long classNameId) {
 		if (classNameId > 0) {
 			return new long[] {classNameId};
@@ -236,6 +261,7 @@ public abstract class BaseDDMDisplay implements DDMDisplay {
 			ThemeDisplay themeDisplay, boolean includeAncestorTemplates)
 		throws Exception {
 
+<<<<<<< HEAD
 		HttpServletRequest request = themeDisplay.getRequest();
 
 		PortletDisplay portletDisplay = themeDisplay.getPortletDisplay();
@@ -254,6 +280,14 @@ public abstract class BaseDDMDisplay implements DDMDisplay {
 		}
 
 		return new long[] {groupId};
+=======
+		if (includeAncestorTemplates) {
+			return PortalUtil.getCurrentAndAncestorSiteGroupIds(
+				themeDisplay.getScopeGroupId());
+		}
+
+		return new long[] {themeDisplay.getScopeGroupId()};
+>>>>>>> compatible
 	}
 
 	@Override
@@ -453,10 +487,13 @@ public abstract class BaseDDMDisplay implements DDMDisplay {
 		return false;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 3.6.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	protected ResourceBundle getBaseDDMDisplayResourceBundle(
 		String languageId) {
 
@@ -467,10 +504,13 @@ public abstract class BaseDDMDisplay implements DDMDisplay {
 			baseDDMDisplayClazz.getClassLoader());
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 3.6.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	protected ResourceBundle getDDMDisplayResourceBundle(String languageId) {
 		Bundle bundle = FrameworkUtil.getBundle(getClass());
 
@@ -496,10 +536,13 @@ public abstract class BaseDDMDisplay implements DDMDisplay {
 		return LanguageUtil.get(locale, "templates");
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 3.6.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	protected ResourceBundle getPortalResourceBundle(String languageId) {
 		ResourceBundleLoader portalResourceBundleLoader =
 			ResourceBundleLoaderUtil.getPortalResourceBundleLoader();
@@ -508,6 +551,7 @@ public abstract class BaseDDMDisplay implements DDMDisplay {
 	}
 
 	protected ResourceBundle getResourceBundle(Locale locale) {
+<<<<<<< HEAD
 		Bundle bundle = FrameworkUtil.getBundle(getClass());
 
 		ResourceBundleLoader resourceBundleLoader =
@@ -539,6 +583,23 @@ public abstract class BaseDDMDisplay implements DDMDisplay {
 		return new AggregateResourceBundle(
 			ddmDisplayResourceBundle, baseDDMDisplayResourceBundle,
 			portalResourceBundleLoader.loadResourceBundle(locale));
+=======
+		String languageId = LocaleUtil.toLanguageId(locale);
+
+		ResourceBundle ddmDisplayResourceBundle = getDDMDisplayResourceBundle(
+			languageId);
+
+		if (ddmDisplayResourceBundle == null) {
+			return new AggregateResourceBundle(
+				getBaseDDMDisplayResourceBundle(languageId),
+				getPortalResourceBundle(languageId));
+		}
+
+		return new AggregateResourceBundle(
+			ddmDisplayResourceBundle,
+			getBaseDDMDisplayResourceBundle(languageId),
+			getPortalResourceBundle(languageId));
+>>>>>>> compatible
 	}
 
 	protected String getViewTemplatesURL(

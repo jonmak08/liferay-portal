@@ -32,6 +32,7 @@ public class ClassResourceBundleLoader implements ResourceBundleLoader {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public ResourceBundle loadResourceBundle(Locale locale) {
 		return ResourceBundleUtil.getBundle(_baseName, locale, _classLoader);
 	}
@@ -43,6 +44,12 @@ public class ClassResourceBundleLoader implements ResourceBundleLoader {
 	@Override
 	public ResourceBundle loadResourceBundle(String languageId) {
 		return ResourceBundleLoader.super.loadResourceBundle(languageId);
+=======
+	public ResourceBundle loadResourceBundle(String languageId) {
+		Locale locale = LocaleUtil.fromLanguageId(languageId);
+
+		return ResourceBundleUtil.getBundle(_baseName, locale, _classLoader);
+>>>>>>> compatible
 	}
 
 	private final String _baseName;

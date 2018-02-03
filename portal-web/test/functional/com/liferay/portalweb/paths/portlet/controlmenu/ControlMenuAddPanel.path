@@ -56,18 +56,25 @@
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 	<td>ADD_PORTLET_DRAG_LINK</td>
 	<td>//span[contains(@data-search,'-${portletName}') and contains(@class,'drag-content-item')]</td>
 	<td></td>
 </tr>
 <tr>
+=======
+>>>>>>> compatible
 	<td>ADD_PORTLET_LINK</td>
 	<td>//span[contains(@data-search,'-${portletName}') and contains(@class,'add-content-item')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>SIDEBAR_APPLICATIONS_PANEL_COLLAPSED</td>
+<<<<<<< HEAD
 	<td>//*[@data-qa-id='addMenuAddApplicationCategory'][@aria-expanded='false' and contains(.,'Applications')]</td>
+=======
+	<td>//*[@data-qa-id='addMenuAddApplicationCategory'][@aria-expanded='false' and contains(.,'Applications')]</td>]
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -77,7 +84,11 @@
 </tr>
 <tr>
 	<td>SIDEBAR_CONTENT_PANEL_COLLAPSED</td>
+<<<<<<< HEAD
 	<td>//*[@data-qa-id='addMenuAddContentCategory'][@aria-expanded='false' and contains(.,'Content')]</td>
+=======
+	<td>//*[@data-qa-id='addMenuAddContentCategory'][@aria-expanded='false' and contains(.,'Content')]</td>]
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>

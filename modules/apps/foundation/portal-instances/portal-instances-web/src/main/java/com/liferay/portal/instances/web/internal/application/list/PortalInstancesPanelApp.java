@@ -18,7 +18,13 @@ import com.liferay.application.list.BasePanelApp;
 import com.liferay.application.list.PanelApp;
 import com.liferay.application.list.constants.PanelCategoryKeys;
 import com.liferay.portal.instances.web.internal.constants.PortalInstancesPortletKeys;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.Portlet;
+=======
+import com.liferay.portal.kernel.model.Group;
+import com.liferay.portal.kernel.model.Portlet;
+import com.liferay.portal.kernel.security.permission.PermissionChecker;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -42,6 +48,14 @@ public class PortalInstancesPanelApp extends BasePanelApp {
 	}
 
 	@Override
+<<<<<<< HEAD
+=======
+	public boolean isShow(PermissionChecker permissionChecker, Group group) {
+		return permissionChecker.isOmniadmin();
+	}
+
+	@Override
+>>>>>>> compatible
 	@Reference(
 		target = "(javax.portlet.name=" + PortalInstancesPortletKeys.PORTAL_INSTANCES + ")",
 		unbind = "-"

@@ -14,11 +14,18 @@
 
 package com.liferay.portal.kernel.search.suggest;
 
+<<<<<<< HEAD
 import com.liferay.petra.nio.CharsetEncoderUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.configuration.Filter;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Group;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.nio.charset.CharsetEncoderUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.search.Field;
 import com.liferay.portal.kernel.search.SearchContext;
 import com.liferay.portal.kernel.search.SearchException;
@@ -30,6 +37,10 @@ import com.liferay.portal.kernel.util.DigesterUtil;
 import com.liferay.portal.kernel.util.PortalClassLoaderUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StreamUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -45,10 +56,14 @@ import java.util.List;
 
 /**
  * @author Michael C. Han
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, moved to {@link
  *             com.liferay.portal.search.suggest.BaseSpellCheckIndexWriter}
  */
 @Deprecated
+=======
+ */
+>>>>>>> compatible
 public abstract class BaseSpellCheckIndexWriter
 	implements SpellCheckIndexWriter {
 
@@ -169,9 +184,14 @@ public abstract class BaseSpellCheckIndexWriter
 	}
 
 	protected URL getResource(String name) {
+<<<<<<< HEAD
 		Thread thread = Thread.currentThread();
 
 		ClassLoader contextClassLoader = thread.getContextClassLoader();
+=======
+		ClassLoader contextClassLoader =
+			Thread.currentThread().getContextClassLoader();
+>>>>>>> compatible
 
 		URL url = contextClassLoader.getResource(name);
 
@@ -254,11 +274,17 @@ public abstract class BaseSpellCheckIndexWriter
 		throws Exception {
 
 		for (String dictionaryFileName : dictionaryFileNames) {
+<<<<<<< HEAD
+=======
+			InputStream inputStream = null;
+
+>>>>>>> compatible
 			if (_log.isInfoEnabled()) {
 				_log.info(
 					"Start indexing dictionary for " + dictionaryFileName);
 			}
 
+<<<<<<< HEAD
 			URL url = getResource(dictionaryFileName);
 
 			if (url == null) {
@@ -270,10 +296,39 @@ public abstract class BaseSpellCheckIndexWriter
 			}
 
 			try (InputStream inputStream = url.openStream()) {
+=======
+			try {
+				URL url = getResource(dictionaryFileName);
+
+				if (url == null) {
+					if (_log.isWarnEnabled()) {
+						_log.warn("Unable to read " + dictionaryFileName);
+					}
+
+					continue;
+				}
+
+				inputStream = url.openStream();
+
+				if (inputStream == null) {
+					if (_log.isWarnEnabled()) {
+						_log.warn("Unable to read " + dictionaryFileName);
+					}
+
+					continue;
+				}
+
+>>>>>>> compatible
 				indexKeywords(
 					searchContext, groupId, languageId, inputStream,
 					keywordFieldName, typeFieldValue, maxNGramLength);
 			}
+<<<<<<< HEAD
+=======
+			finally {
+				StreamUtil.cleanUp(inputStream);
+			}
+>>>>>>> compatible
 
 			if (_log.isInfoEnabled()) {
 				_log.info(

@@ -58,14 +58,24 @@ renderResponse.setTitle(oldName);
 				</c:otherwise>
 			</c:choose>
 
+<<<<<<< HEAD
 			<aui:input label='<%= overridable ? StringPool.BLANK : "keep-both-entries-and-rename-the-entry-from-the-recycle-bin-as" %>' name="newName" value="<%= trashHelper.getNewName(themeDisplay, entry.getClassName(), entry.getClassPK(), oldName) %>" />
+=======
+			<aui:input label='<%= overridable ? StringPool.BLANK : "keep-both-entries-and-rename-the-entry-from-the-recycle-bin-as" %>' name="newName" value="<%= TrashUtil.getNewName(themeDisplay, entry.getClassName(), entry.getClassPK(), oldName) %>" />
+>>>>>>> compatible
 		</aui:fieldset>
 	</aui:fieldset-group>
 
 	<aui:button-row>
+<<<<<<< HEAD
 		<aui:button type="submit" />
 
 		<aui:button href="<%= redirect %>" type="cancel" />
+=======
+		<aui:button cssClass="btn-lg" type="submit" />
+
+		<aui:button cssClass="btn-cancel btn-lg" href="<%= redirect %>" type="cancel" />
+>>>>>>> compatible
 	</aui:button-row>
 </aui:form>
 

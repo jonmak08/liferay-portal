@@ -28,13 +28,20 @@ import com.liferay.journal.model.JournalFolderConstants;
 import com.liferay.journal.service.JournalArticleLocalServiceUtil;
 import com.liferay.journal.service.JournalFeedLocalServiceUtil;
 import com.liferay.journal.service.JournalFolderLocalServiceUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.Layout;
 import com.liferay.portal.kernel.search.Hits;
 import com.liferay.portal.kernel.search.Indexer;
 import com.liferay.portal.kernel.search.IndexerRegistryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.search.QueryConfig;
+>>>>>>> compatible
 import com.liferay.portal.kernel.search.SearchContext;
 import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
 import com.liferay.portal.kernel.service.LayoutLocalServiceUtil;
@@ -48,6 +55,10 @@ import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.RSSUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.kernel.xml.Attribute;
 import com.liferay.portal.kernel.xml.Document;
@@ -269,6 +280,7 @@ public class JournalTestUtil {
 		serviceContext.setLayoutFullURL("http://localhost");
 
 		return addArticle(
+<<<<<<< HEAD
 			groupId, folderId, articleId, autoArticleId, serviceContext);
 	}
 
@@ -278,6 +290,8 @@ public class JournalTestUtil {
 		throws Exception {
 
 		return addArticle(
+=======
+>>>>>>> compatible
 			groupId, folderId, JournalArticleConstants.CLASSNAME_ID_DEFAULT,
 			articleId, autoArticleId,
 			_getLocalizedMap(RandomTestUtil.randomString()),
@@ -722,6 +736,13 @@ public class JournalTestUtil {
 		searchContext.setGroupIds(new long[] {groupId});
 		searchContext.setKeywords(StringPool.BLANK);
 
+<<<<<<< HEAD
+=======
+		QueryConfig queryConfig = new QueryConfig();
+
+		searchContext.setQueryConfig(queryConfig);
+
+>>>>>>> compatible
 		return indexer.search(searchContext);
 	}
 

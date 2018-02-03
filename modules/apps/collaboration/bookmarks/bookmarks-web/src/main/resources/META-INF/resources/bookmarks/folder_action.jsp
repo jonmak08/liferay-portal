@@ -39,7 +39,11 @@ if (folder != null) {
 	modelResourceDescription = folder.getName();
 	resourcePrimKey = String.valueOf(folder.getFolderId());
 
+<<<<<<< HEAD
 	showPermissionsURL = BookmarksFolderPermission.contains(permissionChecker, folder, ActionKeys.PERMISSIONS);
+=======
+	showPermissionsURL = BookmarksFolderPermissionChecker.contains(permissionChecker, folder, ActionKeys.PERMISSIONS);
+>>>>>>> compatible
 }
 else {
 	modelResource = "com.liferay.bookmarks";
@@ -57,7 +61,11 @@ if (row == null) {
 %>
 
 <liferay-ui:icon-menu direction="left-side" icon="<%= StringPool.BLANK %>" markupView="lexicon" message="<%= StringPool.BLANK %>" showWhenSingleIcon="<%= true %>">
+<<<<<<< HEAD
 	<c:if test="<%= (folder != null) && BookmarksFolderPermission.contains(permissionChecker, folder, ActionKeys.UPDATE) %>">
+=======
+	<c:if test="<%= (folder != null) && BookmarksFolderPermissionChecker.contains(permissionChecker, folder, ActionKeys.UPDATE) %>">
+>>>>>>> compatible
 		<portlet:renderURL var="editURL">
 			<portlet:param name="mvcRenderCommandName" value="/bookmarks/edit_folder" />
 			<portlet:param name="redirect" value="<%= currentURL %>" />
@@ -99,7 +107,11 @@ if (row == null) {
 		/>
 	</c:if>
 
+<<<<<<< HEAD
 	<c:if test="<%= (folder != null) && BookmarksFolderPermission.contains(permissionChecker, folder, ActionKeys.DELETE) %>">
+=======
+	<c:if test="<%= (folder != null) && BookmarksFolderPermissionChecker.contains(permissionChecker, folder, ActionKeys.DELETE) %>">
+>>>>>>> compatible
 		<portlet:renderURL var="redirectURL">
 			<c:choose>
 				<c:when test="<%= folder.getParentFolderId() == BookmarksFolderConstants.DEFAULT_PARENT_FOLDER_ID %>">
@@ -113,13 +125,21 @@ if (row == null) {
 		</portlet:renderURL>
 
 		<portlet:actionURL name="/bookmarks/edit_folder" var="deleteURL">
+<<<<<<< HEAD
 			<portlet:param name="<%= Constants.CMD %>" value="<%= trashHelper.isTrashEnabled(scopeGroupId) ? Constants.MOVE_TO_TRASH : Constants.DELETE %>" />
+=======
+			<portlet:param name="<%= Constants.CMD %>" value="<%= TrashUtil.isTrashEnabled(scopeGroupId) ? Constants.MOVE_TO_TRASH : Constants.DELETE %>" />
+>>>>>>> compatible
 			<portlet:param name="redirect" value="<%= view ? redirectURL : currentURL %>" />
 			<portlet:param name="folderId" value="<%= String.valueOf(folder.getFolderId()) %>" />
 		</portlet:actionURL>
 
 		<liferay-ui:icon-delete
+<<<<<<< HEAD
 			trash="<%= trashHelper.isTrashEnabled(scopeGroupId) %>"
+=======
+			trash="<%= TrashUtil.isTrashEnabled(scopeGroupId) %>"
+>>>>>>> compatible
 			url="<%= deleteURL %>"
 		/>
 	</c:if>

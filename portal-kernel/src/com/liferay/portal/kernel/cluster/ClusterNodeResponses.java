@@ -14,9 +14,10 @@
 
 package com.liferay.portal.kernel.cluster;
 
+import com.liferay.portal.kernel.concurrent.ConcurrentHashSet;
+
 import java.io.Serializable;
 
-import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.BlockingQueue;
@@ -29,10 +30,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class ClusterNodeResponses implements Serializable {
 
 	public ClusterNodeResponses(Set<String> expectedReplyNodeIds) {
-		_expectedReplyNodeIds = Collections.newSetFromMap(
-			new ConcurrentHashMap<>());
-
-		_expectedReplyNodeIds.addAll(expectedReplyNodeIds);
+		_expectedReplyNodeIds = new ConcurrentHashSet<>(expectedReplyNodeIds);
 	}
 
 	public boolean addClusterResponse(ClusterNodeResponse clusterNodeResponse) {

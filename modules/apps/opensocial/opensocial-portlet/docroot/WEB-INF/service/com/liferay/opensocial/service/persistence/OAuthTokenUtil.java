@@ -534,7 +534,11 @@ public class OAuthTokenUtil {
 
 	public static OAuthTokenPersistence getPersistence() {
 		if (_persistence == null) {
+<<<<<<< HEAD
 			_persistence = (OAuthTokenPersistence)PortletBeanLocatorUtil.locate(com.liferay.opensocial.service.ServletContextUtil.getServletContextName(),
+=======
+			_persistence = (OAuthTokenPersistence)PortletBeanLocatorUtil.locate(com.liferay.opensocial.service.ClpSerializer.getServletContextName(),
+>>>>>>> compatible
 					OAuthTokenPersistence.class.getName());
 
 			ReferenceRegistry.registerReference(OAuthTokenUtil.class,

@@ -14,18 +14,27 @@
 		<tag-class>com.liferay.frontend.taglib.soy.servlet.taglib.TemplateRendererTag</tag-class>
 		<body-content>empty</body-content>
 		<attribute>
+<<<<<<< HEAD
 			<description>The component's ID that can be referenced by <![CDATA[<code>Liferay.component()</code>]]>.</description>
+=======
+			<description>The ID of the component that can be referenced by <![CDATA[<code>Liferay.component()</code>]]>.</description>
+>>>>>>> compatible
 			<name>componentId</name>
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 		<attribute>
+<<<<<<< HEAD
 			<description>The chosen template's context map.</description>
+=======
+			<description>The context map for the chosen template.</description>
+>>>>>>> compatible
 			<name>context</name>
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 		<attribute>
+<<<<<<< HEAD
 			<description>The additional JavaScript module dependencies.</description>
 			<name>dependencies</name>
 			<required>false</required>
@@ -38,13 +47,19 @@
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 		<attribute>
+=======
+>>>>>>> compatible
 			<description>The AMD module of the component's JavaScript.</description>
 			<name>module</name>
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 		<attribute>
+<<<<<<< HEAD
 			<description>The Soy template's namespace.</description>
+=======
+			<description>The namespace of the Soy template.</description>
+>>>>>>> compatible
 			<name>templateNamespace</name>
 			<required>true</required>
 			<rtexprvalue>true</rtexprvalue>

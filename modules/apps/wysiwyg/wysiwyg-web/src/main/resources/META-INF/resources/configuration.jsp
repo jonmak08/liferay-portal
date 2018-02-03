@@ -30,9 +30,15 @@
 	<aui:input name="preferences--message--" type="hidden" />
 
 	<aui:button-row>
+<<<<<<< HEAD
 		<aui:button type="submit" />
 
 		<aui:button type="cancel" />
+=======
+		<aui:button cssClass="btn-lg" type="submit" />
+
+		<aui:button cssClass="btn-lg" type="cancel" />
+>>>>>>> compatible
 	</aui:button-row>
 </aui:form>
 

@@ -16,7 +16,10 @@ package com.liferay.portal.search.solr.internal.http;
 
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.search.solr.http.HttpClientFactory;
 
 import java.util.ArrayList;
@@ -93,9 +96,14 @@ public abstract class BasePoolingHttpClientFactory
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(
+<<<<<<< HEAD
 					StringBundler.concat(
 						toString(), " is waiting on ",
 						String.valueOf(availableConnections), " connections"));
+=======
+					toString() + " is waiting on " + availableConnections +
+						" connections");
+>>>>>>> compatible
 			}
 
 			_poolingClientConnectionManager.closeIdleConnections(

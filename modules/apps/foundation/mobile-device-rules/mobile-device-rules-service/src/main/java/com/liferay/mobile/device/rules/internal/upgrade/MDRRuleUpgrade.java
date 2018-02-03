@@ -16,7 +16,10 @@ package com.liferay.mobile.device.rules.internal.upgrade;
 
 import com.liferay.mobile.device.rules.rule.group.rule.SimpleRuleHandler;
 import com.liferay.portal.kernel.upgrade.UpgradeProcess;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 
 /**
  * @author Tom Wang
@@ -26,11 +29,17 @@ public class MDRRuleUpgrade extends UpgradeProcess {
 	@Override
 	public void doUpgrade() throws Exception {
 		runSQL(
+<<<<<<< HEAD
 			StringBundler.concat(
 				"update MDRRule set type_ = '",
 				SimpleRuleHandler.class.getName(),
 				"' where type_ = 'com.liferay.portal.mobile.device.rulegroup.",
 				"rule.impl.SimpleRuleHandler'"));
+=======
+			"update MDRRule set type_ = '" + SimpleRuleHandler.class.getName() +
+				"' where type_ = 'com.liferay.portal.mobile.device.rulegroup." +
+					"rule.impl.SimpleRuleHandler'");
+>>>>>>> compatible
 	}
 
 }

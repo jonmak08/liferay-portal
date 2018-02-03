@@ -17,7 +17,11 @@
 <%@ include file="/init.jsp" %>
 
 <%
+<<<<<<< HEAD
 String redirect = PortalUtil.escapeRedirect(ParamUtil.getString(request, "redirect"));
+=======
+String redirect = ParamUtil.getString(request, "redirect");
+>>>>>>> compatible
 
 if (Validator.isNull(redirect)) {
 	redirect = ParamUtil.getString(PortalUtil.getOriginalServletRequest(request), "redirect");
@@ -46,7 +50,10 @@ String languageId = LanguageUtil.getLanguageId(request);
 String title = assetRenderer.getTitle(LocaleUtil.fromLanguageId(languageId));
 
 boolean print = ((Boolean)request.getAttribute("view.jsp-print")).booleanValue();
+<<<<<<< HEAD
 boolean viewInContext = ((Boolean)request.getAttribute("view.jsp-viewInContext")).booleanValue();
+=======
+>>>>>>> compatible
 boolean workflowEnabled = WorkflowDefinitionLinkLocalServiceUtil.hasWorkflowDefinitionLink(assetEntry.getCompanyId(), assetEntry.getGroupId(), assetEntry.getClassName());
 
 assetPublisherDisplayContext.setLayoutAssetEntry(assetEntry);
@@ -127,16 +134,38 @@ request.setAttribute("view.jsp-showIconLabel", true);
 
 		viewFullContentURL.setParameter("urlTitle", assetRenderer.getUrlTitle());
 	}
+<<<<<<< HEAD
 	%>
 
 	<div class="asset-content" id="<portlet:namespace /><%= assetEntry.getEntryId() %>">
 		<liferay-asset:asset-display
+=======
+
+	String socialBookmarksDisplayPosition = assetPublisherDisplayContext.getSocialBookmarksDisplayPosition();
+	%>
+
+	<div class="asset-content" id="<portlet:namespace /><%= assetEntry.getEntryId() %>">
+		<c:if test='<%= assetPublisherDisplayContext.isEnableSocialBookmarks() && socialBookmarksDisplayPosition.equals("top") && !print %>'>
+			<div class="pull-right">
+				<liferay-ui:social-bookmarks
+					contentId="<%= String.valueOf(assetEntry.getEntryId()) %>"
+					displayStyle="<%= assetPublisherDisplayContext.getSocialBookmarksDisplayStyle() %>"
+					target="_blank"
+					title="<%= title %>"
+					url="<%= PortalUtil.getCanonicalURL(viewFullContentURL.toString(), themeDisplay, layout) %>"
+				/>
+			</div>
+		</c:if>
+
+		<liferay-ui:asset-display
+>>>>>>> compatible
 			assetEntry="<%= assetEntry %>"
 			assetRenderer="<%= assetRenderer %>"
 			assetRendererFactory="<%= assetRendererFactory %>"
 			showExtraInfo="<%= assetPublisherDisplayContext.isShowExtraInfo() %>"
 		/>
 
+<<<<<<< HEAD
 		<div class="pull-right">
 			<liferay-ui:social-bookmarks
 				displayStyle="<%= assetPublisherDisplayContext.getSocialBookmarksDisplayStyle() %>"
@@ -155,13 +184,30 @@ request.setAttribute("view.jsp-showIconLabel", true);
 			boolean inTrash = trashHandler.isInTrash(assetEntry.getClassPK());
 			%>
 
+=======
+		<c:if test='<%= assetPublisherDisplayContext.isEnableSocialBookmarks() && socialBookmarksDisplayPosition.equals("bottom") && !print %>'>
+			<div class="pull-right">
+				<liferay-ui:social-bookmarks
+					displayStyle="<%= assetPublisherDisplayContext.getSocialBookmarksDisplayStyle() %>"
+					target="_blank"
+					title="<%= title %>"
+					url="<%= PortalUtil.getCanonicalURL(viewFullContentURL.toString(), themeDisplay, layout) %>"
+				/>
+			</div>
+		</c:if>
+
+		<c:if test="<%= assetPublisherDisplayContext.isEnableFlags() %>">
+>>>>>>> compatible
 			<div class="asset-flag">
 				<liferay-flags:flags
 					className="<%= assetEntry.getClassName() %>"
 					classPK="<%= assetEntry.getClassPK() %>"
 					contentTitle="<%= title %>"
+<<<<<<< HEAD
 					enabled="<%= !inTrash %>"
 					message='<%= inTrash ? "flags-are-disabled-because-this-entry-is-in-the-recycle-bin" : StringPool.BLANK %>'
+=======
+>>>>>>> compatible
 					reportedUserId="<%= assetRenderer.getUserId() %>"
 				/>
 			</div>
@@ -194,16 +240,26 @@ request.setAttribute("view.jsp-showIconLabel", true);
 			}
 			%>
 
+<<<<<<< HEAD
 			<liferay-asset:asset-links
 				assetEntryId="<%= assetEntry.getEntryId() %>"
 				portletURL="<%= assetLingsURL %>"
 				viewInContext="<%= viewInContext %>"
+=======
+			<liferay-ui:asset-links
+				assetEntryId="<%= assetEntry.getEntryId() %>"
+				portletURL="<%= assetLingsURL %>"
+>>>>>>> compatible
 			/>
 		</c:if>
 
 		<c:if test="<%= assetPublisherDisplayContext.isEnableComments() && assetRenderer.isCommentable() %>">
 			<div class="col-md-12">
+<<<<<<< HEAD
 				<liferay-comment:discussion
+=======
+				<liferay-ui:discussion
+>>>>>>> compatible
 					className="<%= assetEntry.getClassName() %>"
 					classPK="<%= assetEntry.getClassPK() %>"
 					formName='<%= "fm" + assetEntry.getClassPK() %>'
@@ -215,7 +271,11 @@ request.setAttribute("view.jsp-showIconLabel", true);
 		</c:if>
 	</div>
 
+<<<<<<< HEAD
 	<liferay-asset:asset-metadata
+=======
+	<liferay-ui:asset-metadata
+>>>>>>> compatible
 		className="<%= assetEntry.getClassName() %>"
 		classPK="<%= assetEntry.getClassPK() %>"
 		filterByMetadata="<%= true %>"

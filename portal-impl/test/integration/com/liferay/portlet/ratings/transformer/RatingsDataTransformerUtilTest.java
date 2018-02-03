@@ -60,7 +60,11 @@ public class RatingsDataTransformerUtilTest {
 		PortletPreferences oldPortletPreferences = new PortletPreferencesImpl();
 
 		oldPortletPreferences.setValue(
+<<<<<<< HEAD
 			"com.liferay.blogs.model.BlogsEntry_RatingsType", "like");
+=======
+			"com.liferay.blogs.kernel.model.BlogsEntry_RatingsType", "like");
+>>>>>>> compatible
 		oldPortletPreferences.setValue(
 			"com.liferay.bookmarks.model.BookmarksEntry_RatingsType", "like");
 		oldPortletPreferences.setValue(
@@ -71,7 +75,11 @@ public class RatingsDataTransformerUtilTest {
 		oldPortletPreferences.setValue(
 			"com.liferay.knowledge.base.model.KBArticle_RatingsType", "like");
 		oldPortletPreferences.setValue(
+<<<<<<< HEAD
 			"com.liferay.message.boards.model.MBDiscussion_RatingsType",
+=======
+			"com.liferay.message.boards.kernel.model.MBDiscussion_RatingsType",
+>>>>>>> compatible
 			"like");
 		oldPortletPreferences.setValue(
 			"com.liferay.message.boards.kernel.model.MBMessage_RatingsType",
@@ -82,7 +90,11 @@ public class RatingsDataTransformerUtilTest {
 		UnicodeProperties unicodeProperties = new UnicodeProperties();
 
 		unicodeProperties.setProperty(
+<<<<<<< HEAD
 			"com.liferay.blogs.model.BlogsEntry_RatingsType", "stars");
+=======
+			"com.liferay.blogs.kernel.model.BlogsEntry_RatingsType", "stars");
+>>>>>>> compatible
 		unicodeProperties.setProperty(
 			"com.liferay.bookmarks.model.BookmarksEntry_RatingsType", "stars");
 		unicodeProperties.setProperty(
@@ -93,7 +105,11 @@ public class RatingsDataTransformerUtilTest {
 		unicodeProperties.setProperty(
 			"com.liferay.knowledge.base.model.KBArticle_RatingsType", "stars");
 		unicodeProperties.setProperty(
+<<<<<<< HEAD
 			"com.liferay.message.boards.model.MBDiscussion_RatingsType",
+=======
+			"com.liferay.message.boards.kernel.model.MBDiscussion_RatingsType",
+>>>>>>> compatible
 			"stars");
 		unicodeProperties.setProperty(
 			"com.liferay.message.boards.kernel.model.MBMessage_RatingsType",
@@ -114,7 +130,11 @@ public class RatingsDataTransformerUtilTest {
 		UnicodeProperties oldUnicodeProperties = new UnicodeProperties();
 
 		oldUnicodeProperties.setProperty(
+<<<<<<< HEAD
 			"com.liferay.blogs.model.BlogsEntry_RatingsType", "like");
+=======
+			"com.liferay.blogs.kernel.model.BlogsEntry_RatingsType", "like");
+>>>>>>> compatible
 		oldUnicodeProperties.setProperty(
 			"com.liferay.bookmarks.model.BookmarksEntry_RatingsType", "like");
 		oldUnicodeProperties.setProperty(
@@ -125,7 +145,11 @@ public class RatingsDataTransformerUtilTest {
 		oldUnicodeProperties.setProperty(
 			"com.liferay.knowledge.base.model.KBArticle_RatingsType", "like");
 		oldUnicodeProperties.setProperty(
+<<<<<<< HEAD
 			"com.liferay.message.boards.model.MBDiscussion_RatingsType",
+=======
+			"com.liferay.message.boards.kernel.model.MBDiscussion_RatingsType",
+>>>>>>> compatible
 			"like");
 		oldUnicodeProperties.setProperty(
 			"com.liferay.message.boards.kernel.model.MBMessage_RatingsType",
@@ -136,7 +160,11 @@ public class RatingsDataTransformerUtilTest {
 		UnicodeProperties unicodeProperties = new UnicodeProperties();
 
 		unicodeProperties.setProperty(
+<<<<<<< HEAD
 			"com.liferay.blogs.model.BlogsEntry_RatingsType", "stars");
+=======
+			"com.liferay.blogs.kernel.model.BlogsEntry_RatingsType", "stars");
+>>>>>>> compatible
 		unicodeProperties.setProperty(
 			"com.liferay.bookmarks.model.BookmarksEntry_RatingsType", "stars");
 		unicodeProperties.setProperty(
@@ -147,7 +175,11 @@ public class RatingsDataTransformerUtilTest {
 		unicodeProperties.setProperty(
 			"com.liferay.knowledge.base.model.KBArticle_RatingsType", "stars");
 		unicodeProperties.setProperty(
+<<<<<<< HEAD
 			"com.liferay.message.boards.model.MBDiscussion_RatingsType",
+=======
+			"com.liferay.message.boards.kernel.model.MBDiscussion_RatingsType",
+>>>>>>> compatible
 			"stars");
 		unicodeProperties.setProperty(
 			"com.liferay.message.boards.kernel.model.MBMessage_RatingsType",

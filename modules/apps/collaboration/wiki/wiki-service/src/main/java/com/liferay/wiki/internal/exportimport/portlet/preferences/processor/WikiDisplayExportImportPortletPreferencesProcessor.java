@@ -20,7 +20,10 @@ import com.liferay.exportimport.kernel.lar.StagedModelDataHandlerUtil;
 import com.liferay.exportimport.portlet.preferences.processor.Capability;
 import com.liferay.exportimport.portlet.preferences.processor.ExportImportPortletPreferencesProcessor;
 import com.liferay.exportimport.portlet.preferences.processor.capability.ReferencedStagedModelImporterCapability;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.dao.orm.Property;
@@ -31,11 +34,19 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.MapUtil;
+<<<<<<< HEAD
 import com.liferay.wiki.constants.WikiConstants;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.wiki.constants.WikiPortletKeys;
 import com.liferay.wiki.model.WikiNode;
 import com.liferay.wiki.model.WikiPage;
 import com.liferay.wiki.service.WikiPageLocalService;
+<<<<<<< HEAD
+=======
+import com.liferay.wiki.service.permission.WikiResourcePermissionChecker;
+>>>>>>> compatible
 import com.liferay.wiki.service.persistence.WikiNodeUtil;
 
 import java.util.List;
@@ -113,7 +124,11 @@ public class WikiDisplayExportImportPortletPreferencesProcessor
 
 		try {
 			portletDataContext.addPortletPermissions(
+<<<<<<< HEAD
 				WikiConstants.RESOURCE_NAME);
+=======
+				WikiResourcePermissionChecker.RESOURCE_NAME);
+>>>>>>> compatible
 		}
 		catch (PortalException pe) {
 			throw new PortletDataException(
@@ -146,7 +161,11 @@ public class WikiDisplayExportImportPortletPreferencesProcessor
 
 		try {
 			portletDataContext.importPortletPermissions(
+<<<<<<< HEAD
 				WikiConstants.RESOURCE_NAME);
+=======
+				WikiResourcePermissionChecker.RESOURCE_NAME);
+>>>>>>> compatible
 		}
 		catch (PortalException pe) {
 			throw new PortletDataException(

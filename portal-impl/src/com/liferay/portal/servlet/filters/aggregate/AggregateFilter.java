@@ -14,7 +14,10 @@
 
 package com.liferay.portal.servlet.filters.aggregate;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.configuration.Filter;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -378,7 +381,11 @@ public class AggregateFilter extends IgnoreModuleRequestFilter {
 			_tempDir, cacheCommonFileName + "_E_DATA");
 
 		if (cacheDataFile.exists() &&
+<<<<<<< HEAD
 			(cacheDataFile.lastModified() ==
+=======
+			(cacheDataFile.lastModified() >=
+>>>>>>> compatible
 				URLUtil.getLastModifiedTime(resourceURL)) &&
 			!_isLegacyIe(request)) {
 

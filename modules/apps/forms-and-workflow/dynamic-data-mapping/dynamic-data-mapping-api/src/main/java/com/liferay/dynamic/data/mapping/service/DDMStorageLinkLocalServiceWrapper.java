@@ -48,10 +48,17 @@ public class DDMStorageLinkLocalServiceWrapper
 
 	@Override
 	public com.liferay.dynamic.data.mapping.model.DDMStorageLink addStorageLink(
+<<<<<<< HEAD
 		long classNameId, long classPK, long structureVersionId,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext) {
 		return _ddmStorageLinkLocalService.addStorageLink(classNameId, classPK,
 			structureVersionId, serviceContext);
+=======
+		long classNameId, long classPK, long structureId,
+		com.liferay.portal.kernel.service.ServiceContext serviceContext) {
+		return _ddmStorageLinkLocalService.addStorageLink(classNameId, classPK,
+			structureId, serviceContext);
+>>>>>>> compatible
 	}
 
 	/**
@@ -337,6 +344,7 @@ public class DDMStorageLinkLocalServiceWrapper
 		return _ddmStorageLinkLocalService.getStructureStorageLinksCount(structureId);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public java.util.List<com.liferay.dynamic.data.mapping.model.DDMStorageLink> getStructureVersionStorageLinks(
 		long structureVersionId) {
@@ -348,6 +356,8 @@ public class DDMStorageLinkLocalServiceWrapper
 		return _ddmStorageLinkLocalService.getStructureVersionStorageLinksCount(structureVersionId);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Updates the ddm storage link in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	*

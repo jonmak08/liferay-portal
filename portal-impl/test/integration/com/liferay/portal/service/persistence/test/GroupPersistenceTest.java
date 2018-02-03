@@ -32,6 +32,10 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.util.IntegerWrapper;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.OrderByComparatorFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.PersistenceTestRule;
 import com.liferay.portal.test.rule.TransactionalTestRule;
@@ -349,6 +353,7 @@ public class GroupPersistenceTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testCountByC_T_S() throws Exception {
 		_persistence.countByC_T_S(RandomTestUtil.nextLong(), "",
 			RandomTestUtil.randomBoolean());
@@ -360,6 +365,8 @@ public class GroupPersistenceTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testCountByG_C_C_P() throws Exception {
 		_persistence.countByG_C_C_P(RandomTestUtil.nextLong(),
 			RandomTestUtil.nextLong(), RandomTestUtil.nextLong(),

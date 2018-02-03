@@ -14,9 +14,13 @@
 
 package com.liferay.staging.taglib.servlet.taglib;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.staging.taglib.internal.servlet.ServletContextUtil;
 import com.liferay.taglib.util.IncludeTag;
 
@@ -26,7 +30,10 @@ import javax.servlet.jsp.PageContext;
 /**
  * @author Mate Thurzo
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class PermissionsTag extends IncludeTag {
 
 	public void setAction(String action) {

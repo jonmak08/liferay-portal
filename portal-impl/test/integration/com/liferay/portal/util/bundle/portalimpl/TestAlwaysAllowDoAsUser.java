@@ -56,7 +56,11 @@ public class TestAlwaysAllowDoAsUser implements AlwaysAllowDoAsUser {
 
 	@Override
 	public Collection<String> getMVCRenderCommandNames() {
+<<<<<<< HEAD
 		_atomicBoolean.set(Boolean.TRUE);
+=======
+		_atomicReference.set(StackTraceUtil.getCallerKey());
+>>>>>>> compatible
 
 		Collection<String> mvcRenderCommandNames = new ArrayList<>();
 

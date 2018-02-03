@@ -54,12 +54,20 @@ public class KaleoConditionLocalServiceUtil {
 	}
 
 	public static com.liferay.portal.workflow.kaleo.model.KaleoCondition addKaleoCondition(
+<<<<<<< HEAD
 		long kaleoDefinitionVersionId, long kaleoNodeId,
+=======
+		long kaleoDefinitionId, long kaleoNodeId,
+>>>>>>> compatible
 		com.liferay.portal.workflow.kaleo.definition.Condition condition,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService()
+<<<<<<< HEAD
 				   .addKaleoCondition(kaleoDefinitionVersionId, kaleoNodeId,
+=======
+				   .addKaleoCondition(kaleoDefinitionId, kaleoNodeId,
+>>>>>>> compatible
 			condition, serviceContext);
 	}
 
@@ -102,10 +110,16 @@ public class KaleoConditionLocalServiceUtil {
 		return getService().deleteKaleoCondition(kaleoConditionId);
 	}
 
+<<<<<<< HEAD
 	public static void deleteKaleoDefinitionVersionKaleoCondition(
 		long kaleoDefinitionVersionId) {
 		getService()
 			.deleteKaleoDefinitionVersionKaleoCondition(kaleoDefinitionVersionId);
+=======
+	public static void deleteKaleoDefinitionKaleoCondition(
+		long kaleoDefinitionId) {
+		getService().deleteKaleoDefinitionKaleoCondition(kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 	/**

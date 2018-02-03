@@ -275,10 +275,13 @@ public class RatingsStatsLocalServiceWrapper implements RatingsStatsLocalService
 		return _ratingsStatsLocalService.getStats(statsId);
 	}
 
+<<<<<<< HEAD
 	/**
 	* @deprecated As of 7.0.0, with no direct replacement
 	*/
 	@Deprecated
+=======
+>>>>>>> compatible
 	@Override
 	public java.util.List<com.liferay.ratings.kernel.model.RatingsStats> getStats(
 		java.lang.String className, java.util.List<java.lang.Long> classPKs) {
@@ -287,6 +290,7 @@ public class RatingsStatsLocalServiceWrapper implements RatingsStatsLocalService
 
 	@Override
 	public com.liferay.ratings.kernel.model.RatingsStats getStats(
+<<<<<<< HEAD
 		java.lang.String className, long classPK)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return _ratingsStatsLocalService.getStats(className, classPK);
@@ -298,6 +302,12 @@ public class RatingsStatsLocalServiceWrapper implements RatingsStatsLocalService
 		return _ratingsStatsLocalService.getStats(className, classPKs);
 	}
 
+=======
+		java.lang.String className, long classPK) {
+		return _ratingsStatsLocalService.getStats(className, classPK);
+	}
+
+>>>>>>> compatible
 	/**
 	* Updates the ratings stats in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	*

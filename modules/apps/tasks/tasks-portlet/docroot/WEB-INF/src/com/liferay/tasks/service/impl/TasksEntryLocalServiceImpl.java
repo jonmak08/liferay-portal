@@ -46,7 +46,10 @@ import java.util.List;
  */
 public class TasksEntryLocalServiceImpl extends TasksEntryLocalServiceBaseImpl {
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public TasksEntry addTasksEntry(
 			long userId, String title, int priority, long assigneeUserId,
 			int dueDateMonth, int dueDateDay, int dueDateYear, int dueDateHour,
@@ -155,7 +158,10 @@ public class TasksEntryLocalServiceImpl extends TasksEntryLocalServiceBaseImpl {
 		return tasksEntry;
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public List<TasksEntry> getAssigneeTasksEntries(
 		long assigneeUserId, int start, int end) {
 
@@ -163,12 +169,18 @@ public class TasksEntryLocalServiceImpl extends TasksEntryLocalServiceBaseImpl {
 			assigneeUserId, start, end);
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public int getAssigneeTasksEntriesCount(long assigneeUserId) {
 		return tasksEntryPersistence.countByAssigneeUserId(assigneeUserId);
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public List<TasksEntry> getGroupAssigneeTasksEntries(
 		long groupId, long assigneeUserId, int start, int end) {
 
@@ -176,14 +188,20 @@ public class TasksEntryLocalServiceImpl extends TasksEntryLocalServiceBaseImpl {
 			groupId, assigneeUserId, start, end);
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public int getGroupAssigneeTasksEntriesCount(
 		long groupId, long assigneeUserId) {
 
 		return tasksEntryPersistence.countByG_A(groupId, assigneeUserId);
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public List<TasksEntry> getGroupResolverTasksEntries(
 		long groupId, long resolverUserId, int start, int end) {
 
@@ -191,26 +209,38 @@ public class TasksEntryLocalServiceImpl extends TasksEntryLocalServiceBaseImpl {
 			groupId, resolverUserId, start, end);
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public int getGroupResolverTasksEntriesCount(
 		long groupId, long resolverUserId) {
 
 		return tasksEntryPersistence.countByG_R(groupId, resolverUserId);
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public List<TasksEntry> getGroupUserTasksEntries(
 		long groupId, long userId, int start, int end) {
 
 		return tasksEntryPersistence.findByG_U(groupId, userId, start, end);
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public int getGroupUserTasksEntriesCount(long groupId, long userId) {
 		return tasksEntryPersistence.countByG_U(groupId, userId);
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public List<TasksEntry> getResolverTasksEntries(
 		long resolverUserId, int start, int end) {
 
@@ -218,17 +248,26 @@ public class TasksEntryLocalServiceImpl extends TasksEntryLocalServiceBaseImpl {
 			resolverUserId, start, end);
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public int getResolverTasksEntriesCount(long resolverUserId) {
 		return tasksEntryPersistence.countByResolverUserId(resolverUserId);
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public List<TasksEntry> getTasksEntries(long groupId, int start, int end) {
 		return tasksEntryPersistence.findByGroupId(groupId, start, end);
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public List<TasksEntry> getTasksEntries(
 		long groupId, long userId, int priority, long assigneeUserId,
 		int status, long[] assetTagIds, long[] notAssetTagIds, int start,
@@ -239,12 +278,18 @@ public class TasksEntryLocalServiceImpl extends TasksEntryLocalServiceBaseImpl {
 			notAssetTagIds, start, end);
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public int getTasksEntriesCount(long groupId) {
 		return tasksEntryPersistence.countByGroupId(groupId);
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public int getTasksEntriesCount(
 		long groupId, long userId, int priority, long assigneeUserId,
 		int status, long[] tagsEntryIds, long[] notTagsEntryIds) {
@@ -259,19 +304,28 @@ public class TasksEntryLocalServiceImpl extends TasksEntryLocalServiceBaseImpl {
 		return tasksEntryPersistence.findByPrimaryKey(tasksEntryId);
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public List<TasksEntry> getUserTasksEntries(
 		long userId, int start, int end) {
 
 		return tasksEntryPersistence.findByUserId(userId, start, end);
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public int getUserTasksEntriesCount(long userId) {
 		return tasksEntryPersistence.countByUserId(userId);
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public void updateAsset(
 			long userId, TasksEntry tasksEntry, long[] assetCategoryIds,
 			String[] assetTagNames)
@@ -282,7 +336,10 @@ public class TasksEntryLocalServiceImpl extends TasksEntryLocalServiceBaseImpl {
 			tasksEntry.getTasksEntryId(), assetCategoryIds, assetTagNames);
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public TasksEntry updateTasksEntry(
 			long tasksEntryId, String title, int priority, long assigneeUserId,
 			long resolverUserId, int dueDateMonth, int dueDateDay,
@@ -351,7 +408,10 @@ public class TasksEntryLocalServiceImpl extends TasksEntryLocalServiceBaseImpl {
 		return tasksEntry;
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public TasksEntry updateTasksEntryStatus(
 			long tasksEntryId, long resolverUserId, int status,
 			ServiceContext serviceContext)

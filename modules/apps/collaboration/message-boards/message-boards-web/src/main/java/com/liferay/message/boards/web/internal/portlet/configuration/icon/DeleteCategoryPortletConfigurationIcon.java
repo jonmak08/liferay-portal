@@ -14,11 +14,18 @@
 
 package com.liferay.message.boards.web.internal.portlet.configuration.icon;
 
+<<<<<<< HEAD
 import com.liferay.message.boards.constants.MBPortletKeys;
 import com.liferay.message.boards.kernel.model.MBCategory;
 import com.liferay.message.boards.kernel.model.MBCategoryConstants;
 import com.liferay.message.boards.web.internal.portlet.action.ActionUtil;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.message.boards.kernel.model.MBCategory;
+import com.liferay.message.boards.kernel.model.MBCategoryConstants;
+import com.liferay.message.boards.web.constants.MBPortletKeys;
+import com.liferay.message.boards.web.internal.portlet.action.ActionUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.portlet.configuration.icon.BasePortletConfigurationIcon;
 import com.liferay.portal.kernel.portlet.configuration.icon.PortletConfigurationIcon;
@@ -26,9 +33,16 @@ import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portlet.messageboards.service.permission.MBCategoryPermission;
 import com.liferay.trash.TrashHelper;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.portlet.messageboards.service.permission.MBCategoryPermission;
+import com.liferay.trash.kernel.util.TrashUtil;
+>>>>>>> compatible
 
 import javax.portlet.ActionRequest;
 import javax.portlet.PortletRequest;
@@ -168,7 +182,11 @@ public class DeleteCategoryPortletConfigurationIcon
 
 	protected boolean isTrashEnabled(long groupId) {
 		try {
+<<<<<<< HEAD
 			if (_trashHelper.isTrashEnabled(groupId)) {
+=======
+			if (TrashUtil.isTrashEnabled(groupId)) {
+>>>>>>> compatible
 				return true;
 			}
 		}
@@ -181,7 +199,10 @@ public class DeleteCategoryPortletConfigurationIcon
 	@Reference
 	private Portal _portal;
 
+<<<<<<< HEAD
 	@Reference
 	private TrashHelper _trashHelper;
 
+=======
+>>>>>>> compatible
 }

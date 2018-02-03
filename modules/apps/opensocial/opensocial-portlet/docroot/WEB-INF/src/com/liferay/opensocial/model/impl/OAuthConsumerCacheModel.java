@@ -21,6 +21,10 @@ import com.liferay.opensocial.model.OAuthConsumer;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -112,35 +116,55 @@ public class OAuthConsumerCacheModel implements CacheModel<OAuthConsumer>,
 		}
 
 		if (gadgetKey == null) {
+<<<<<<< HEAD
 			oAuthConsumerImpl.setGadgetKey("");
+=======
+			oAuthConsumerImpl.setGadgetKey(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			oAuthConsumerImpl.setGadgetKey(gadgetKey);
 		}
 
 		if (serviceName == null) {
+<<<<<<< HEAD
 			oAuthConsumerImpl.setServiceName("");
+=======
+			oAuthConsumerImpl.setServiceName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			oAuthConsumerImpl.setServiceName(serviceName);
 		}
 
 		if (consumerKey == null) {
+<<<<<<< HEAD
 			oAuthConsumerImpl.setConsumerKey("");
+=======
+			oAuthConsumerImpl.setConsumerKey(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			oAuthConsumerImpl.setConsumerKey(consumerKey);
 		}
 
 		if (consumerSecret == null) {
+<<<<<<< HEAD
 			oAuthConsumerImpl.setConsumerSecret("");
+=======
+			oAuthConsumerImpl.setConsumerSecret(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			oAuthConsumerImpl.setConsumerSecret(consumerSecret);
 		}
 
 		if (keyType == null) {
+<<<<<<< HEAD
 			oAuthConsumerImpl.setKeyType("");
+=======
+			oAuthConsumerImpl.setKeyType(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			oAuthConsumerImpl.setKeyType(keyType);
@@ -175,35 +199,55 @@ public class OAuthConsumerCacheModel implements CacheModel<OAuthConsumer>,
 		objectOutput.writeLong(modifiedDate);
 
 		if (gadgetKey == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(gadgetKey);
 		}
 
 		if (serviceName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(serviceName);
 		}
 
 		if (consumerKey == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(consumerKey);
 		}
 
 		if (consumerSecret == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(consumerSecret);
 		}
 
 		if (keyType == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(keyType);

@@ -43,12 +43,15 @@ public class AssetTagNamesFieldQueryBuilderTest
 
 	@Override
 	@Test
+<<<<<<< HEAD
 	public void testLuceneUnfriendlyTerms() throws Exception {
 		super.testLuceneUnfriendlyTerms();
 	}
 
 	@Override
 	@Test
+=======
+>>>>>>> compatible
 	public void testMultiwordPhrasePrefixes() throws Exception {
 		super.testMultiwordPhrasePrefixes();
 	}
@@ -90,6 +93,7 @@ public class AssetTagNamesFieldQueryBuilderTest
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void testWhitespace() throws Exception {
 		super.testWhitespace();
 	}
@@ -101,6 +105,8 @@ public class AssetTagNamesFieldQueryBuilderTest
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	@Test
 	public void testWordPrefixes() throws Exception {
 		super.testWordPrefixes();

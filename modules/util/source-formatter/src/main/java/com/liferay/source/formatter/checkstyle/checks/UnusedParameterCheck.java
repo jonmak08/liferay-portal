@@ -16,6 +16,10 @@ package com.liferay.source.formatter.checkstyle.checks;
 
 import com.liferay.source.formatter.checkstyle.util.DetailASTUtil;
 
+<<<<<<< HEAD
+=======
+import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
+>>>>>>> compatible
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 
@@ -24,6 +28,7 @@ import java.util.List;
 /**
  * @author Hugo Huijser
  */
+<<<<<<< HEAD
 public class UnusedParameterCheck extends BaseCheck {
 
 	@Override
@@ -35,6 +40,17 @@ public class UnusedParameterCheck extends BaseCheck {
 
 	@Override
 	protected void doVisitToken(DetailAST detailAST) {
+=======
+public class UnusedParameterCheck extends AbstractCheck {
+
+	@Override
+	public int[] getDefaultTokens() {
+		return new int[] {TokenTypes.CLASS_DEF};
+	}
+
+	@Override
+	public void visitToken(DetailAST detailAST) {
+>>>>>>> compatible
 		DetailAST parentAST = detailAST.getParent();
 
 		if (parentAST != null) {

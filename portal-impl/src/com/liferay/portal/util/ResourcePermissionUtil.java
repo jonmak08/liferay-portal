@@ -16,8 +16,16 @@ package com.liferay.portal.util;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.Resource;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.ResourceConstants;
 import com.liferay.portal.kernel.model.Role;
+=======
+import com.liferay.portal.kernel.model.ResourceBlock;
+import com.liferay.portal.kernel.model.ResourceConstants;
+import com.liferay.portal.kernel.model.Role;
+import com.liferay.portal.kernel.model.RoleConstants;
+import com.liferay.portal.kernel.service.ResourceBlockLocalServiceUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.ResourcePermissionLocalServiceUtil;
 
 import java.util.List;

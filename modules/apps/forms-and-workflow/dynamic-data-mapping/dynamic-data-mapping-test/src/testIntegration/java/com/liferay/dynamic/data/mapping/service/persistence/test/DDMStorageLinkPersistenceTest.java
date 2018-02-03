@@ -35,6 +35,10 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.util.IntegerWrapper;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.OrderByComparatorFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.PersistenceTestRule;
 import com.liferay.portal.test.rule.TransactionalTestRule;
@@ -132,8 +136,11 @@ public class DDMStorageLinkPersistenceTest {
 
 		newDDMStorageLink.setStructureId(RandomTestUtil.nextLong());
 
+<<<<<<< HEAD
 		newDDMStorageLink.setStructureVersionId(RandomTestUtil.nextLong());
 
+=======
+>>>>>>> compatible
 		_ddmStorageLinks.add(_persistence.update(newDDMStorageLink));
 
 		DDMStorageLink existingDDMStorageLink = _persistence.findByPrimaryKey(newDDMStorageLink.getPrimaryKey());
@@ -150,24 +157,39 @@ public class DDMStorageLinkPersistenceTest {
 			newDDMStorageLink.getClassPK());
 		Assert.assertEquals(existingDDMStorageLink.getStructureId(),
 			newDDMStorageLink.getStructureId());
+<<<<<<< HEAD
 		Assert.assertEquals(existingDDMStorageLink.getStructureVersionId(),
 			newDDMStorageLink.getStructureVersionId());
+=======
+>>>>>>> compatible
 	}
 
 	@Test
 	public void testCountByUuid() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByUuid("");
 
 		_persistence.countByUuid("null");
+=======
+		_persistence.countByUuid(StringPool.BLANK);
+
+		_persistence.countByUuid(StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByUuid((String)null);
 	}
 
 	@Test
 	public void testCountByUuid_C() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByUuid_C("", RandomTestUtil.nextLong());
 
 		_persistence.countByUuid_C("null", 0L);
+=======
+		_persistence.countByUuid_C(StringPool.BLANK, RandomTestUtil.nextLong());
+
+		_persistence.countByUuid_C(StringPool.NULL, 0L);
+>>>>>>> compatible
 
 		_persistence.countByUuid_C((String)null, 0L);
 	}
@@ -187,6 +209,7 @@ public class DDMStorageLinkPersistenceTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testCountByStructureVersionId() throws Exception {
 		_persistence.countByStructureVersionId(RandomTestUtil.nextLong());
 
@@ -202,6 +225,8 @@ public class DDMStorageLinkPersistenceTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testFindByPrimaryKeyExisting() throws Exception {
 		DDMStorageLink newDDMStorageLink = addDDMStorageLink();
 
@@ -226,8 +251,12 @@ public class DDMStorageLinkPersistenceTest {
 	protected OrderByComparator<DDMStorageLink> getOrderByComparator() {
 		return OrderByComparatorFactoryUtil.create("DDMStorageLink", "uuid",
 			true, "storageLinkId", true, "companyId", true, "classNameId",
+<<<<<<< HEAD
 			true, "classPK", true, "structureId", true, "structureVersionId",
 			true);
+=======
+			true, "classPK", true, "structureId", true);
+>>>>>>> compatible
 	}
 
 	@Test
@@ -452,8 +481,11 @@ public class DDMStorageLinkPersistenceTest {
 
 		ddmStorageLink.setStructureId(RandomTestUtil.nextLong());
 
+<<<<<<< HEAD
 		ddmStorageLink.setStructureVersionId(RandomTestUtil.nextLong());
 
+=======
+>>>>>>> compatible
 		_ddmStorageLinks.add(_persistence.update(ddmStorageLink));
 
 		return ddmStorageLink;

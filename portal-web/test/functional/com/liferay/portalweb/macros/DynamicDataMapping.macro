@@ -215,6 +215,7 @@
 
 	<command name="editFieldLabel">
 		<execute macro="DynamicDataMapping#selectDynamicDataMappingFrame" />
+<<<<<<< HEAD
 
 		<execute macro="DynamicDataMapping#_editFieldLabel">
 			<var name="field" value="${field}" />
@@ -233,6 +234,26 @@
 	<command name="editFieldLabelNested">
 		<execute macro="DynamicDataMapping#editFieldSettingsNested" />
 
+=======
+
+		<execute macro="DynamicDataMapping#_editFieldLabel">
+			<var name="field" value="${field}" />
+			<var name="fieldFieldLabel" value="${fieldFieldLabel}" />
+		</execute>
+
+		<execute function="SelectFrame" value1="relative=top" />
+
+		<execute macro="DynamicDataMapping#viewField">
+			<var name="field" value="${field}" />
+			<var name="fieldFieldLabel" value="${fieldFieldLabel}" />
+			<var name="fieldName" value="${fieldName}" />
+		</execute>
+	</command>
+
+	<command name="editFieldLabelNested">
+		<execute macro="DynamicDataMapping#editFieldSettingsNested" />
+
+>>>>>>> compatible
 		<execute function="DoubleClick" locator1="DDMEditStructure#SETTINGS_FIELD_LABEL" />
 
 		<execute function="Type" locator1="DDMEditStructure#SETTINGS_CELL_EDITOR_FIELD" value1="${fieldFieldLabelNested}" />
@@ -248,6 +269,7 @@
 		</execute>
 
 		<execute function="DoubleClick" locator1="DDMEditStructure#SETTINGS_LOCALIZABLE" />
+<<<<<<< HEAD
 
 		<execute function="Click" locator1="DDMEditStructure#SETTINGS_CELL_EDITOR_NO_RADIO" />
 
@@ -255,6 +277,15 @@
 
 		<execute function="AssertClick#pauseAssertTextClickAt" locator1="DDMEditStructure#FIELDS_LINK" value1="Fields" />
 
+=======
+
+		<execute function="Click" locator1="DDMEditStructure#SETTINGS_CELL_EDITOR_NO_RADIO" />
+
+		<execute function="AssertClick" locator1="DDMEditStructure#SETTINGS_CELL_EDITOR_SAVE_BUTTON" value1="Save" />
+
+		<execute function="AssertClick#pauseAssertTextClickAt" locator1="DDMEditStructure#FIELDS_LINK" value1="Fields" />
+
+>>>>>>> compatible
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
 
@@ -272,6 +303,11 @@
 			</then>
 		</if>
 
+<<<<<<< HEAD
+=======
+		<execute function="AssertTextNotEquals#assertNotPartialText" locator1="DDMEditStructure#SETTINGS_NAME" value1="_" />
+
+>>>>>>> compatible
 		<execute function="DoubleClick" locator1="DDMEditStructure#SETTINGS_NAME" />
 
 		<execute function="Type" locator1="DDMEditStructure#SETTINGS_CELL_EDITOR_FIELD" value1="${fieldName}" />
@@ -289,7 +325,11 @@
 			<var name="fieldName" value="${fieldName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute function="AssertTextEquals" locator1="DDMEditStructure#SETTINGS_CELL_EDITOR_FIELD_ALERT" value1="Please enter only alphanumeric characters or underscore." />
+=======
+		<execute function="AssertTextEquals" locator1="DDMEditStructure#SETTINGS_CELL_EDITOR_FIELD_ALERT" value1="Please enter only alphanumeric characters." />
+>>>>>>> compatible
 
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
@@ -562,6 +602,7 @@
 		<execute function="DoubleClick" locator1="DDMEditStructure#SETTINGS_TIP" />
 
 		<execute function="Type" locator1="DDMEditStructure#SETTINGS_CELL_EDITOR_TEXT_AREA" value1="${fieldTip}" />
+<<<<<<< HEAD
 
 		<execute function="AssertClick" locator1="DDMEditStructure#SETTINGS_CELL_EDITOR_SAVE_BUTTON" value1="Save" />
 
@@ -569,6 +610,15 @@
 
 		<execute function="AssertClick#pauseAssertTextClickAt" locator1="DDMEditStructure#FIELDS_LINK" value1="Fields" />
 
+=======
+
+		<execute function="AssertClick" locator1="DDMEditStructure#SETTINGS_CELL_EDITOR_SAVE_BUTTON" value1="Save" />
+
+		<execute function="AssertTextEquals" locator1="DDMEditStructure#SETTINGS_TIP" value1="${fieldTip}" />
+
+		<execute function="AssertClick#pauseAssertTextClickAt" locator1="DDMEditStructure#FIELDS_LINK" value1="Fields" />
+
+>>>>>>> compatible
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
 
@@ -648,10 +698,19 @@
 				<execute function="Click" locator1="DDMEditStructure#FORM_FIELD_1_NO_LABEL" />
 			</then>
 			<else>
+<<<<<<< HEAD
 				<execute function="AssertClick#assertPartialTextClickAt" locator1="DDMEditStructure#FORM_FIELD" value1="${fieldFieldLabel}" />
 			</else>
 		</if>
 
+=======
+				<execute function="AssertClick" locator1="DDMEditStructure#FORM_FIELD" value1="${fieldFieldLabel}" />
+			</else>
+		</if>
+
+		<execute function="AssertTextNotEquals#assertNotPartialText" locator1="DDMEditStructure#SETTINGS_NAME" value1="_" />
+
+>>>>>>> compatible
 		<execute function="AssertTextEquals" locator1="DDMEditStructure#SETTINGS_NAME" value1="${fieldName}" />
 		<execute function="AssertTextEquals" locator1="DDMEditStructure#SETTINGS_FIELD_LABEL" value1="${fieldFieldLabel}" />
 
@@ -727,7 +786,11 @@
 			<elseif>
 				<equals arg1="${field}" arg2="Paragraph" />
 				<then>
+<<<<<<< HEAD
 					<execute function="AssertTextEquals#assertPartialText" locator1="DDMEditStructure#FORM_FIELD" value1="${field}" />
+=======
+					<execute function="AssertTextEquals" locator1="DDMEditStructure#FORM_FIELD" value1="${field}" />
+>>>>>>> compatible
 				</then>
 			</elseif>
 			<elseif>

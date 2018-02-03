@@ -24,14 +24,21 @@ import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortletKeys;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.kernel.workflow.WorkflowTask;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.workflow.WorkflowTaskManager;
+=======
+import com.liferay.portal.kernel.workflow.WorkflowTaskManagerUtil;
+>>>>>>> compatible
 import com.liferay.portal.workflow.task.web.internal.permission.WorkflowTaskPermissionChecker;
 
 import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
 
 import org.osgi.service.component.annotations.Component;
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.Reference;
+=======
+>>>>>>> compatible
 
 /**
  * @author Leonardo Barros
@@ -50,7 +57,11 @@ public class AssignTaskMVCResourceCommand extends BaseMVCResourceCommand {
 			long workflowTaskId, ThemeDisplay themeDisplay)
 		throws Exception {
 
+<<<<<<< HEAD
 		WorkflowTask workflowTask = workflowTaskManager.getWorkflowTask(
+=======
+		WorkflowTask workflowTask = WorkflowTaskManagerUtil.getWorkflowTask(
+>>>>>>> compatible
 			themeDisplay.getCompanyId(), workflowTaskId);
 
 		long groupId = MapUtil.getLong(
@@ -84,16 +95,23 @@ public class AssignTaskMVCResourceCommand extends BaseMVCResourceCommand {
 
 		checkWorkflowTaskAssignmentPermission(workflowTaskId, themeDisplay);
 
+<<<<<<< HEAD
 		workflowTaskManager.assignWorkflowTaskToUser(
+=======
+		WorkflowTaskManagerUtil.assignWorkflowTaskToUser(
+>>>>>>> compatible
 			themeDisplay.getCompanyId(), themeDisplay.getUserId(),
 			workflowTaskId, assigneeUserId, comment, null, null);
 
 		SessionMessages.add(resourceRequest, "requestProcessed", "");
 	}
 
+<<<<<<< HEAD
 	@Reference
 	protected WorkflowTaskManager workflowTaskManager;
 
+=======
+>>>>>>> compatible
 	private final WorkflowTaskPermissionChecker _workflowTaskPermissionChecker =
 		new WorkflowTaskPermissionChecker();
 

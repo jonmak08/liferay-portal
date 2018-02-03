@@ -34,7 +34,11 @@ boolean viewInContext = ((Boolean)request.getAttribute("view.jsp-viewInContext")
 String viewURL = AssetPublisherHelper.getAssetViewURL(liferayPortletRequest, liferayPortletResponse, assetRenderer, assetEntry, viewInContext);
 %>
 
+<<<<<<< HEAD
 <div class="asset-abstract <%= assetPublisherWebUtil.isDefaultAssetPublisher(layout, portletDisplay.getId(), assetPublisherDisplayContext.getPortletResource()) ? "default-asset-publisher" : StringPool.BLANK %>">
+=======
+<div class="asset-abstract <%= AssetUtil.isDefaultAssetPublisher(layout, portletDisplay.getId(), assetPublisherDisplayContext.getPortletResource()) ? "default-asset-publisher" : StringPool.BLANK %>">
+>>>>>>> compatible
 	<liferay-util:include page="/asset_actions.jsp" servletContext="<%= application %>" />
 
 	<span class="asset-anchor lfr-asset-anchor" id="<%= assetEntry.getEntryId() %>"></span>
@@ -53,7 +57,11 @@ String viewURL = AssetPublisherHelper.getAssetViewURL(liferayPortletRequest, lif
 
 	<div class="asset-content">
 		<div class="asset-summary">
+<<<<<<< HEAD
 			<liferay-asset:asset-display
+=======
+			<liferay-ui:asset-display
+>>>>>>> compatible
 				abstractLength="<%= assetPublisherDisplayContext.getAbstractLength() %>"
 				assetEntry="<%= assetEntry %>"
 				assetRenderer="<%= assetRenderer %>"
@@ -64,7 +72,11 @@ String viewURL = AssetPublisherHelper.getAssetViewURL(liferayPortletRequest, lif
 		</div>
 	</div>
 
+<<<<<<< HEAD
 	<liferay-asset:asset-metadata
+=======
+	<liferay-ui:asset-metadata
+>>>>>>> compatible
 		className="<%= assetEntry.getClassName() %>"
 		classPK="<%= assetEntry.getClassPK() %>"
 		filterByMetadata="<%= true %>"

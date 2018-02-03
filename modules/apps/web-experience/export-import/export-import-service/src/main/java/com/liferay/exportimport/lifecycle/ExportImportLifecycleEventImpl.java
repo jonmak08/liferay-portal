@@ -14,8 +14,11 @@
 
 package com.liferay.exportimport.lifecycle;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.lifecycle.ExportImportLifecycleEvent;
 
 import java.io.Serializable;
@@ -27,7 +30,10 @@ import java.util.List;
 /**
  * @author Daniel Kocsis
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class ExportImportLifecycleEventImpl
 	implements ExportImportLifecycleEvent {
 

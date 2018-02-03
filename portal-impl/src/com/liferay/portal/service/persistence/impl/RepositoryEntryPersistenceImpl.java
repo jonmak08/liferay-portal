@@ -37,6 +37,7 @@ import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.RepositoryEntryPersistence;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.Validator;
@@ -196,6 +197,7 @@ public class RepositoryEntryPersistenceImpl extends BasePersistenceImpl<Reposito
 		}
 
 		List<RepositoryEntry> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<RepositoryEntry>)finderCache.getResult(finderPath,
@@ -206,6 +208,18 @@ public class RepositoryEntryPersistenceImpl extends BasePersistenceImpl<Reposito
 					if (!Objects.equals(uuid, repositoryEntry.getUuid())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<RepositoryEntry>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (RepositoryEntry repositoryEntry : list) {
+					if (!Objects.equals(uuid, repositoryEntry.getUuid())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -2259,11 +2273,17 @@ public class RepositoryEntryPersistenceImpl extends BasePersistenceImpl<Reposito
 		setModelClass(RepositoryEntry.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("uuid", "uuid_");
@@ -2374,12 +2394,21 @@ public class RepositoryEntryPersistenceImpl extends BasePersistenceImpl<Reposito
 				repositoryEntryModelImpl.getUuid(),
 				repositoryEntryModelImpl.getGroupId()
 			};
+<<<<<<< HEAD
 
 		finderCache.putResult(FINDER_PATH_COUNT_BY_UUID_G, args,
 			Long.valueOf(1), false);
 		finderCache.putResult(FINDER_PATH_FETCH_BY_UUID_G, args,
 			repositoryEntryModelImpl, false);
 
+=======
+
+		finderCache.putResult(FINDER_PATH_COUNT_BY_UUID_G, args,
+			Long.valueOf(1), false);
+		finderCache.putResult(FINDER_PATH_FETCH_BY_UUID_G, args,
+			repositoryEntryModelImpl, false);
+
+>>>>>>> compatible
 		args = new Object[] {
 				repositoryEntryModelImpl.getRepositoryId(),
 				repositoryEntryModelImpl.getMappedId()

@@ -68,11 +68,18 @@ public class CalendarBookingWrapper implements CalendarBooking,
 		attributes.put("userName", getUserName());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
+<<<<<<< HEAD
 		attributes.put("calendarId", getCalendarId());
 		attributes.put("calendarResourceId", getCalendarResourceId());
 		attributes.put("parentCalendarBookingId", getParentCalendarBookingId());
 		attributes.put("recurringCalendarBookingId",
 			getRecurringCalendarBookingId());
+=======
+		attributes.put("resourceBlockId", getResourceBlockId());
+		attributes.put("calendarId", getCalendarId());
+		attributes.put("calendarResourceId", getCalendarResourceId());
+		attributes.put("parentCalendarBookingId", getParentCalendarBookingId());
+>>>>>>> compatible
 		attributes.put("vEventUid", getVEventUid());
 		attributes.put("title", getTitle());
 		attributes.put("description", getDescription());
@@ -144,6 +151,15 @@ public class CalendarBookingWrapper implements CalendarBooking,
 			setModifiedDate(modifiedDate);
 		}
 
+<<<<<<< HEAD
+=======
+		Long resourceBlockId = (Long)attributes.get("resourceBlockId");
+
+		if (resourceBlockId != null) {
+			setResourceBlockId(resourceBlockId);
+		}
+
+>>>>>>> compatible
 		Long calendarId = (Long)attributes.get("calendarId");
 
 		if (calendarId != null) {
@@ -163,6 +179,7 @@ public class CalendarBookingWrapper implements CalendarBooking,
 			setParentCalendarBookingId(parentCalendarBookingId);
 		}
 
+<<<<<<< HEAD
 		Long recurringCalendarBookingId = (Long)attributes.get(
 				"recurringCalendarBookingId");
 
@@ -170,6 +187,8 @@ public class CalendarBookingWrapper implements CalendarBooking,
 			setRecurringCalendarBookingId(recurringCalendarBookingId);
 		}
 
+=======
+>>>>>>> compatible
 		String vEventUid = (String)attributes.get("vEventUid");
 
 		if (vEventUid != null) {
@@ -585,6 +604,7 @@ public class CalendarBookingWrapper implements CalendarBooking,
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns the recurring calendar booking ID of this calendar booking.
 	*
 	* @return the recurring calendar booking ID of this calendar booking
@@ -592,6 +612,15 @@ public class CalendarBookingWrapper implements CalendarBooking,
 	@Override
 	public long getRecurringCalendarBookingId() {
 		return _calendarBooking.getRecurringCalendarBookingId();
+=======
+	* Returns the resource block ID of this calendar booking.
+	*
+	* @return the resource block ID of this calendar booking
+	*/
+	@Override
+	public long getResourceBlockId() {
+		return _calendarBooking.getResourceBlockId();
+>>>>>>> compatible
 	}
 
 	/**
@@ -965,11 +994,14 @@ public class CalendarBookingWrapper implements CalendarBooking,
 	}
 
 	@Override
+<<<<<<< HEAD
 	public boolean isMasterRecurringBooking() {
 		return _calendarBooking.isMasterRecurringBooking();
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public boolean isNew() {
 		return _calendarBooking.isNew();
 	}
@@ -1278,6 +1310,7 @@ public class CalendarBookingWrapper implements CalendarBooking,
 	}
 
 	/**
+<<<<<<< HEAD
 	* Sets the recurring calendar booking ID of this calendar booking.
 	*
 	* @param recurringCalendarBookingId the recurring calendar booking ID of this calendar booking
@@ -1285,6 +1318,15 @@ public class CalendarBookingWrapper implements CalendarBooking,
 	@Override
 	public void setRecurringCalendarBookingId(long recurringCalendarBookingId) {
 		_calendarBooking.setRecurringCalendarBookingId(recurringCalendarBookingId);
+=======
+	* Sets the resource block ID of this calendar booking.
+	*
+	* @param resourceBlockId the resource block ID of this calendar booking
+	*/
+	@Override
+	public void setResourceBlockId(long resourceBlockId) {
+		_calendarBooking.setResourceBlockId(resourceBlockId);
+>>>>>>> compatible
 	}
 
 	/**

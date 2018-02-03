@@ -26,14 +26,20 @@ import com.liferay.asset.kernel.service.AssetEntryLocalServiceUtil;
 import com.liferay.asset.kernel.service.AssetLinkLocalServiceUtil;
 import com.liferay.asset.kernel.service.AssetTagLocalServiceUtil;
 import com.liferay.asset.kernel.service.AssetVocabularyLocalServiceUtil;
+<<<<<<< HEAD
 import com.liferay.asset.test.util.AssetTestUtil;
+=======
+>>>>>>> compatible
 import com.liferay.expando.kernel.model.ExpandoBridge;
 import com.liferay.expando.kernel.model.ExpandoColumn;
 import com.liferay.expando.kernel.model.ExpandoColumnConstants;
 import com.liferay.expando.kernel.model.ExpandoValue;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.repository.model.FileEntry;
@@ -41,10 +47,16 @@ import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.test.AssertUtils;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -53,6 +65,17 @@ import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.kernel.workflow.WorkflowThreadLocal;
 import com.liferay.portal.service.test.ServiceTestUtil;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+import com.liferay.portal.kernel.util.ListUtil;
+import com.liferay.portal.kernel.util.PortalUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.portal.service.test.ServiceTestUtil;
+import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+import com.liferay.portlet.asset.util.test.AssetTestUtil;
+>>>>>>> compatible
 import com.liferay.portlet.expando.util.test.ExpandoTestUtil;
 import com.liferay.wiki.exception.DuplicatePageException;
 import com.liferay.wiki.exception.NoSuchPageResourceException;
@@ -62,12 +85,16 @@ import com.liferay.wiki.model.WikiPage;
 import com.liferay.wiki.service.WikiPageLocalServiceUtil;
 import com.liferay.wiki.util.test.WikiTestUtil;
 
+<<<<<<< HEAD
 import java.io.Serializable;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+=======
+import java.util.List;
+>>>>>>> compatible
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -81,12 +108,22 @@ import org.junit.runner.RunWith;
  * @author Roberto Díaz
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class WikiPageLocalServiceTest {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Before
 	public void setUp() throws Exception {
@@ -216,6 +253,7 @@ public class WikiPageLocalServiceTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testChangeParentChangesAllWikiPageVersionsParentTitle()
 		throws Exception {
 
@@ -253,11 +291,14 @@ public class WikiPageLocalServiceTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testChangeParentWithExpando() throws Exception {
 		testChangeParent(true);
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testChangeParentWithWorkflowChangesParentAfterUpdateStatus()
 		throws Exception {
 
@@ -321,6 +362,8 @@ public class WikiPageLocalServiceTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testCopyPage() throws Exception {
 		WikiPage page = WikiTestUtil.addPage(
 			_group.getGroupId(), _node.getNodeId(), true);
@@ -365,6 +408,7 @@ public class WikiPageLocalServiceTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testDeleteParentPageWithChangedParentChild() throws Exception {
 		WikiTestUtil.addPage(
 			TestPropsValues.getUserId(), _group.getGroupId(), _node.getNodeId(),
@@ -393,6 +437,8 @@ public class WikiPageLocalServiceTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testDeleteTrashedPageWithExplicitTrashedRedirectPage()
 		throws Exception {
 
@@ -620,7 +666,11 @@ public class WikiPageLocalServiceTest {
 			AssetCategoryLocalServiceUtil.getCategoryIds(
 				WikiPage.class.getName(), renamedPage.getResourcePrimKey());
 
+<<<<<<< HEAD
 		_assertArrayEquals(assetCategoryIds, finalAssetCategoryIds);
+=======
+		Assert.assertArrayEquals(assetCategoryIds, finalAssetCategoryIds);
+>>>>>>> compatible
 	}
 
 	@Test
@@ -658,7 +708,11 @@ public class WikiPageLocalServiceTest {
 		String[] finalAssetTagNames = AssetTagLocalServiceUtil.getTagNames(
 			WikiPage.class.getName(), renamedPage.getResourcePrimKey());
 
+<<<<<<< HEAD
 		_assertArrayEquals(finalAssetTagNames, assetTagNames);
+=======
+		Assert.assertArrayEquals(finalAssetTagNames, assetTagNames);
+>>>>>>> compatible
 	}
 
 	@Test
@@ -704,7 +758,11 @@ public class WikiPageLocalServiceTest {
 			AssetCategoryLocalServiceUtil.getCategoryIds(
 				WikiPage.class.getName(), renamedPage.getResourcePrimKey());
 
+<<<<<<< HEAD
 		_assertArrayEquals(assetCategoryIds, finalAssetCategoryIds);
+=======
+		Assert.assertArrayEquals(assetCategoryIds, finalAssetCategoryIds);
+>>>>>>> compatible
 	}
 
 	@Test
@@ -744,7 +802,11 @@ public class WikiPageLocalServiceTest {
 		String[] finalAssetTagNames = AssetTagLocalServiceUtil.getTagNames(
 			WikiPage.class.getName(), renamedPage.getResourcePrimKey());
 
+<<<<<<< HEAD
 		_assertArrayEquals(finalAssetTagNames, assetTagNames);
+=======
+		Assert.assertArrayEquals(finalAssetTagNames, assetTagNames);
+>>>>>>> compatible
 	}
 
 	@Test
@@ -892,7 +954,11 @@ public class WikiPageLocalServiceTest {
 		long[] assetCategoryIds = AssetCategoryLocalServiceUtil.getCategoryIds(
 			WikiPage.class.getName(), page.getResourcePrimKey());
 
+<<<<<<< HEAD
 		_assertArrayEquals(
+=======
+		Assert.assertArrayEquals(
+>>>>>>> compatible
 			serviceContext.getAssetCategoryIds(), assetCategoryIds);
 
 		AssetEntry assetEntry = AssetEntryLocalServiceUtil.getEntry(
@@ -904,13 +970,22 @@ public class WikiPageLocalServiceTest {
 		long[] assetLinkEntryIds = ListUtil.toLongArray(
 			assetLinks, AssetLink.ENTRY_ID2_ACCESSOR);
 
+<<<<<<< HEAD
 		_assertArrayEquals(
+=======
+		Assert.assertArrayEquals(
+>>>>>>> compatible
 			serviceContext.getAssetLinkEntryIds(), assetLinkEntryIds);
 
 		String[] assetTagNames = AssetTagLocalServiceUtil.getTagNames(
 			WikiPage.class.getName(), page.getResourcePrimKey());
 
+<<<<<<< HEAD
 		_assertArrayEquals(serviceContext.getAssetTagNames(), assetTagNames);
+=======
+		Assert.assertArrayEquals(
+			serviceContext.getAssetTagNames(), assetTagNames);
+>>>>>>> compatible
 
 		if (hasExpandoValues) {
 			ExpandoBridge expandoBridge = page.getExpandoBridge();
@@ -1040,6 +1115,7 @@ public class WikiPageLocalServiceTest {
 			serviceContext, revertedPage, hasExpandoValues);
 	}
 
+<<<<<<< HEAD
 	private void _assertArrayEquals(long[] expectedArray, long[] actualArray) {
 		Arrays.sort(expectedArray);
 		Arrays.sort(actualArray);
@@ -1056,6 +1132,8 @@ public class WikiPageLocalServiceTest {
 		Assert.assertArrayEquals(expectedArray, actualArray);
 	}
 
+=======
+>>>>>>> compatible
 	@DeleteAfterTestRun
 	private Group _group;
 

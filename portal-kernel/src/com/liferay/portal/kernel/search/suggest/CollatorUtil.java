@@ -22,9 +22,13 @@ import java.util.Map;
 
 /**
  * @author Michael C. Han
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, with no direct replacement
  */
 @Deprecated
+=======
+ */
+>>>>>>> compatible
 public class CollatorUtil {
 
 	public static String collate(

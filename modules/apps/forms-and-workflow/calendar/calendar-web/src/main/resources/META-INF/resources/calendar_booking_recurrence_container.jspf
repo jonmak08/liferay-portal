@@ -241,6 +241,10 @@ if (recurrence != null) {
 <%@ include file="/calendar_booking_recurrence_language_keys.jspf" %>
 
 <aui:script use="liferay-util-window,liferay-calendar-recurrence-dialog">
+<<<<<<< HEAD
+=======
+	var currentRecurrence = null;
+>>>>>>> compatible
 	var editEventFormNode = A.one('#<portlet:namespace />fm');
 	var recurrenceContainerNode = A.one('#<portlet:namespace />recurrenceContainer');
 	var repeatCheckboxNode = A.one('#<portlet:namespace />repeat');
@@ -300,6 +304,7 @@ if (recurrence != null) {
 					},
 					bodyContent: recurrenceContainerNode,
 					centered: true,
+<<<<<<< HEAD
 					height: 600,
 					hideOn: [
 						{
@@ -308,6 +313,16 @@ if (recurrence != null) {
 							node: editEventFormNode
 						}
 					],
+=======
+					hideOn: [
+						{
+							node: editEventFormNode,
+							eventName: 'key',
+							keyCode: 'esc'
+						}
+					],
+					height: 600,
+>>>>>>> compatible
 					id: '<portlet:namespace />recurrenceDialog',
 					modal: true,
 					render: '#<portlet:namespace />fm',
@@ -321,8 +336,13 @@ if (recurrence != null) {
 		window.<portlet:namespace />recurrenceDialog.addToolbar(
 			[
 				{
+<<<<<<< HEAD
 					cssClass: 'btn-primary',
 					label: '<liferay-ui:message key="done" />',
+=======
+					label: '<liferay-ui:message key="done" />',
+					cssClass: 'btn-primary',
+>>>>>>> compatible
 					on: {
 						click: A.rbind('_hideModal', recurrenceDialogController, true)
 					}
@@ -338,7 +358,11 @@ if (recurrence != null) {
 		);
 
 		var destroyRecurrenceDialog = function(event) {
+<<<<<<< HEAD
 			if (event.portletId === '<%= portletDisplay.getId() %>') {
+=======
+			if (event.portletId === '<%= portletDisplay.getRootPortletId() %>') {
+>>>>>>> compatible
 				window.<portlet:namespace />recurrenceDialog.destroy();
 
 				delete window['<portlet:namespace />recurrenceDialog'];

@@ -14,9 +14,14 @@
 
 package com.liferay.portal.tools.deploy;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Plugin;
+=======
+import com.liferay.portal.kernel.model.Plugin;
+import com.liferay.portal.kernel.util.StreamUtil;
+>>>>>>> compatible
 import com.liferay.portal.tools.ToolDependencies;
 
 import java.io.IOException;
@@ -44,6 +49,7 @@ public class LayoutTemplateDeployer extends BaseDeployer {
 			}
 		}
 
+<<<<<<< HEAD
 		try (LayoutTemplateDeployer layoutTemplateDeployer =
 				new LayoutTemplateDeployer(wars, jars)) {
 		}
@@ -52,6 +58,9 @@ public class LayoutTemplateDeployer extends BaseDeployer {
 				_log.warn(ioe, ioe);
 			}
 		}
+=======
+		StreamUtil.cleanUp(new LayoutTemplateDeployer(wars, jars));
+>>>>>>> compatible
 	}
 
 	public LayoutTemplateDeployer() {

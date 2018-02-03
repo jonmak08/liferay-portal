@@ -61,6 +61,7 @@ public class DDMDataProviderInstanceServiceWrapper
 	}
 
 	@Override
+<<<<<<< HEAD
 	public com.liferay.dynamic.data.mapping.model.DDMDataProviderInstance fetchDataProviderInstanceByUuid(
 		java.lang.String uuid)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -68,12 +69,15 @@ public class DDMDataProviderInstanceServiceWrapper
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public com.liferay.dynamic.data.mapping.model.DDMDataProviderInstance getDataProviderInstance(
 		long dataProviderInstanceId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return _ddmDataProviderInstanceService.getDataProviderInstance(dataProviderInstanceId);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public com.liferay.dynamic.data.mapping.model.DDMDataProviderInstance getDataProviderInstanceByUuid(
 		java.lang.String uuid)
@@ -81,6 +85,8 @@ public class DDMDataProviderInstanceServiceWrapper
 		return _ddmDataProviderInstanceService.getDataProviderInstanceByUuid(uuid);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns the OSGi service identifier.
 	*

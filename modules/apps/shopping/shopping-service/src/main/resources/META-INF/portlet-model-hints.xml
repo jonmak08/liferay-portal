@@ -168,9 +168,13 @@
 		<field name="couponDiscount" type="double" />
 		<field name="billingFirstName" type="String" />
 		<field name="billingLastName" type="String" />
+<<<<<<< HEAD
 		<field name="billingEmailAddress" type="String">
 			<hint-collection name="EMAIL-ADDRESS" />
 		</field>
+=======
+		<field name="billingEmailAddress" type="String" />
+>>>>>>> compatible
 		<field name="billingCompany" type="String" />
 		<field name="billingStreet" type="String" />
 		<field name="billingCity" type="String" />
@@ -181,9 +185,13 @@
 		<field name="shipToBilling" type="boolean" />
 		<field name="shippingFirstName" type="String" />
 		<field name="shippingLastName" type="String" />
+<<<<<<< HEAD
 		<field name="shippingEmailAddress" type="String">
 			<hint-collection name="EMAIL-ADDRESS" />
 		</field>
+=======
+		<field name="shippingEmailAddress" type="String" />
+>>>>>>> compatible
 		<field name="shippingCompany" type="String" />
 		<field name="shippingStreet" type="String" />
 		<field name="shippingCity" type="String" />
@@ -207,12 +215,17 @@
 		<field name="ppTxnId" type="String" />
 		<field name="ppPaymentStatus" type="String" />
 		<field name="ppPaymentGross" type="double" />
+<<<<<<< HEAD
 		<field name="ppReceiverEmail" type="String">
 			<hint-collection name="EMAIL-ADDRESS" />
 		</field>
 		<field name="ppPayerEmail" type="String">
 			<hint-collection name="EMAIL-ADDRESS" />
 		</field>
+=======
+		<field name="ppReceiverEmail" type="String" />
+		<field name="ppPayerEmail" type="String" />
+>>>>>>> compatible
 		<field name="sendOrderEmail" type="boolean" />
 		<field name="sendShippingEmail" type="boolean" />
 	</model>

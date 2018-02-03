@@ -16,7 +16,10 @@ package com.liferay.frontend.js.loader.modules.extender.internal.npm.builtin;
 
 import com.liferay.frontend.js.loader.modules.extender.npm.JSModule;
 import com.liferay.frontend.js.loader.modules.extender.npm.ModuleNameUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.StreamUtil;
 
@@ -31,8 +34,13 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Provides a base abstract class to implement servlets that return JavaScript
+<<<<<<< HEAD
  * modules tracked by the
  * {@link com.liferay.frontend.js.loader.modules.extender.npm.NPMRegistry}.
+=======
+ * modules tracked by the {@link
+ * com.liferay.frontend.js.loader.modules.extender.internal.npm.NPMRegistry}.
+>>>>>>> compatible
  *
  * @author Adolfo Pérez
  */
@@ -52,6 +60,7 @@ public abstract class BaseBuiltInJSModuleServlet extends HttpServlet {
 			HttpServletRequest request, HttpServletResponse response)
 		throws IOException, ServletException {
 
+<<<<<<< HEAD
 		JSModule jsModule = _resolveJSModule(request);
 
 		if (jsModule == null) {
@@ -79,6 +88,21 @@ public abstract class BaseBuiltInJSModuleServlet extends HttpServlet {
 		ServletOutputStream servletOutputStream = response.getOutputStream();
 
 		try {
+=======
+		String pathInfo = request.getPathInfo();
+
+		String identifier = pathInfo.substring(1);
+
+		String moduleName = ModuleNameUtil.toModuleName(identifier);
+
+		JSModule jsModule = getJSModule(moduleName);
+
+		response.setContentType(ContentTypes.TEXT_JAVASCRIPT_UTF8);
+
+		ServletOutputStream servletOutputStream = response.getOutputStream();
+
+		try (InputStream inputStream = jsModule.getInputStream()) {
+>>>>>>> compatible
 			StreamUtil.transfer(inputStream, servletOutputStream, false);
 		}
 		catch (Exception e) {
@@ -86,6 +110,7 @@ public abstract class BaseBuiltInJSModuleServlet extends HttpServlet {
 				HttpServletResponse.SC_INTERNAL_SERVER_ERROR,
 				"Unable to read file");
 		}
+<<<<<<< HEAD
 		finally {
 			inputStream.close();
 		}
@@ -105,6 +130,8 @@ public abstract class BaseBuiltInJSModuleServlet extends HttpServlet {
 		String moduleName = ModuleNameUtil.toModuleName(identifier);
 
 		return getJSModule(moduleName);
+=======
+>>>>>>> compatible
 	}
 
 }

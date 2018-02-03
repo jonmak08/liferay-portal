@@ -20,7 +20,10 @@ import com.liferay.dynamic.data.lists.service.persistence.DDLRecordFinder;
 import com.liferay.dynamic.data.lists.service.persistence.DDLRecordPersistence;
 import com.liferay.dynamic.data.lists.service.persistence.DDLRecordSetFinder;
 import com.liferay.dynamic.data.lists.service.persistence.DDLRecordSetPersistence;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.lists.service.persistence.DDLRecordSetVersionPersistence;
+=======
+>>>>>>> compatible
 
 import com.liferay.portal.kernel.bean.BeanReference;
 import com.liferay.portal.kernel.dao.db.DB;
@@ -396,6 +399,7 @@ public abstract class DDLRecordSetServiceBaseImpl extends BaseServiceImpl
 		this.workflowDefinitionLinkPersistence = workflowDefinitionLinkPersistence;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Returns the ddl record set version local service.
 	 *
@@ -453,6 +457,8 @@ public abstract class DDLRecordSetServiceBaseImpl extends BaseServiceImpl
 		this.ddlRecordSetVersionPersistence = ddlRecordSetVersionPersistence;
 	}
 
+=======
+>>>>>>> compatible
 	public void afterPropertiesSet() {
 	}
 
@@ -537,10 +543,13 @@ public abstract class DDLRecordSetServiceBaseImpl extends BaseServiceImpl
 	protected com.liferay.portal.kernel.service.WorkflowDefinitionLinkLocalService workflowDefinitionLinkLocalService;
 	@ServiceReference(type = WorkflowDefinitionLinkPersistence.class)
 	protected WorkflowDefinitionLinkPersistence workflowDefinitionLinkPersistence;
+<<<<<<< HEAD
 	@BeanReference(type = com.liferay.dynamic.data.lists.service.DDLRecordSetVersionLocalService.class)
 	protected com.liferay.dynamic.data.lists.service.DDLRecordSetVersionLocalService ddlRecordSetVersionLocalService;
 	@BeanReference(type = com.liferay.dynamic.data.lists.service.DDLRecordSetVersionService.class)
 	protected com.liferay.dynamic.data.lists.service.DDLRecordSetVersionService ddlRecordSetVersionService;
 	@BeanReference(type = DDLRecordSetVersionPersistence.class)
 	protected DDLRecordSetVersionPersistence ddlRecordSetVersionPersistence;
+=======
+>>>>>>> compatible
 }

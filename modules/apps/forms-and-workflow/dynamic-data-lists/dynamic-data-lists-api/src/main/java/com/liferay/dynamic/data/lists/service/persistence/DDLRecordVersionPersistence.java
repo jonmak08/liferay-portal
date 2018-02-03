@@ -174,6 +174,7 @@ public interface DDLRecordVersionPersistence extends BasePersistence<DDLRecordVe
 	public int countByRecordId(long recordId);
 
 	/**
+<<<<<<< HEAD
 	* Returns all the ddl record versions where recordSetId = &#63; and recordSetVersion = &#63;.
 	*
 	* @param recordSetId the record set ID
@@ -322,6 +323,8 @@ public interface DDLRecordVersionPersistence extends BasePersistence<DDLRecordVe
 	public int countByR_R(long recordSetId, java.lang.String recordSetVersion);
 
 	/**
+=======
+>>>>>>> compatible
 	* Returns the ddl record version where recordId = &#63; and version = &#63; or throws a {@link NoSuchRecordVersionException} if it could not be found.
 	*
 	* @param recordId the record ID
@@ -515,6 +518,7 @@ public interface DDLRecordVersionPersistence extends BasePersistence<DDLRecordVe
 	public int countByR_S(long recordId, int status);
 
 	/**
+<<<<<<< HEAD
 	* Returns all the ddl record versions where userId = &#63; and recordSetId = &#63; and recordSetVersion = &#63; and status = &#63;.
 	*
 	* @param userId the user ID
@@ -691,6 +695,8 @@ public interface DDLRecordVersionPersistence extends BasePersistence<DDLRecordVe
 		java.lang.String recordSetVersion, int status);
 
 	/**
+=======
+>>>>>>> compatible
 	* Caches the ddl record version in the entity cache if it is enabled.
 	*
 	* @param ddlRecordVersion the ddl record version

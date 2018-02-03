@@ -14,7 +14,10 @@
 
 package com.liferay.portal.kernel.nio.intraband.messaging;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.ClassLoaderPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.messaging.BaseDestination;
 import com.liferay.portal.kernel.messaging.Message;
 import com.liferay.portal.kernel.messaging.MessageBus;
@@ -36,6 +39,10 @@ import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.CodeCoverageAssertor;
 import com.liferay.portal.kernel.test.rule.NewEnv;
 import com.liferay.portal.kernel.test.rule.NewEnvTestRule;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.ClassLoaderPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.registry.BasicRegistryImpl;
 import com.liferay.registry.Registry;

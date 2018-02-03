@@ -22,9 +22,12 @@ import aQute.bnd.annotation.ProviderType;
 @ProviderType
 public interface SettingsLocatorHelper {
 
+<<<<<<< HEAD
 	public Settings getCompanyConfigurationBeanSettings(
 		long companyId, String configurationPid, Settings parentSettings);
 
+=======
+>>>>>>> compatible
 	public Settings getCompanyPortletPreferencesSettings(
 		long companyId, String settingsId, Settings parentSettings);
 
@@ -38,9 +41,12 @@ public interface SettingsLocatorHelper {
 	public Settings getConfigurationBeanSettings(
 		String configurationPid, Settings parentSettings);
 
+<<<<<<< HEAD
 	public Settings getGroupConfigurationBeanSettings(
 		long groupId, String configurationPid, Settings parentSettings);
 
+=======
+>>>>>>> compatible
 	public Settings getGroupPortletPreferencesSettings(
 		long groupId, String settingsId, Settings parentSettings);
 
@@ -53,9 +59,12 @@ public interface SettingsLocatorHelper {
 	@Deprecated
 	public Settings getPortalPropertiesSettings();
 
+<<<<<<< HEAD
 	public Settings getPortletInstanceConfigurationBeanSettings(
 		String portletId, String configurationPid, Settings parentSettings);
 
+=======
+>>>>>>> compatible
 	public Settings getPortletInstancePortletPreferencesSettings(
 		long companyId, long ownerId, int ownerType, long plid,
 		String portletId, Settings parentSettings);

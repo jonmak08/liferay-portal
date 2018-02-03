@@ -14,7 +14,10 @@
 
 package com.liferay.portal.deploy;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.FileUtil;
@@ -126,7 +129,13 @@ public class DeployUtil {
 		String serverId = GetterUtil.getString(ServerDetector.getServerId());
 
 		if (serverId.equals(ServerDetector.TOMCAT_ID)) {
+<<<<<<< HEAD
 			destDir = PropsValues.AUTO_DEPLOY_TOMCAT_DEST_DIR;
+=======
+			destDir = PrefsPropsUtil.getString(
+				PropsKeys.AUTO_DEPLOY_TOMCAT_DEST_DIR,
+				PropsValues.AUTO_DEPLOY_TOMCAT_DEST_DIR);
+>>>>>>> compatible
 		}
 		else {
 			destDir = PrefsPropsUtil.getString(
@@ -253,9 +262,13 @@ public class DeployUtil {
 
 		if (appServerType.equals(ServerDetector.JETTY_ID)) {
 			FileUtil.delete(
+<<<<<<< HEAD
 				StringBundler.concat(
 					_getJettyHome(), "/contexts/", deployDir.getName(),
 					".xml"));
+=======
+				_getJettyHome() + "/contexts/" + deployDir.getName() + ".xml");
+>>>>>>> compatible
 		}
 
 		if (appServerType.equals(ServerDetector.JBOSS_ID) ||

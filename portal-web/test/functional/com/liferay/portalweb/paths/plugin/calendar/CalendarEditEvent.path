@@ -31,17 +31,29 @@
 <!--START_DATE-->
 <tr>
 	<td>START_DATE</td>
+<<<<<<< HEAD
 	<td>//input[contains(@name,'_startTime') and @placeholder='mm/dd/yyyy']</td>
+=======
+	<td>//input[contains(@name,'CalendarPortlet_startTime') and @placeholder='mm/dd/yyyy']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>START_DATE_TIME</td>
+<<<<<<< HEAD
 	<td>//input[contains(@name,'_startTime') and @placeholder='h:mm am/pm']</td>
+=======
+	<td>//input[contains(@name,'CalendarPortlet_startTime') and @placeholder='h:mm am/pm']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>START_DATE_TIME_24_HOUR</td>
+<<<<<<< HEAD
 	<td>//input[contains(@name,'_startTime') and @placeholder='h:mm']</td>
+=======
+	<td>//input[contains(@name,'CalendarPortlet_startTime') and @placeholder='h:mm']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -57,17 +69,29 @@
 <!--END_DATE-->
 <tr>
 	<td>END_DATE</td>
+<<<<<<< HEAD
 	<td>//input[contains(@name,'_endTime') and @placeholder='mm/dd/yyyy']</td>
+=======
+	<td>//input[contains(@name,'CalendarPortlet_endTime') and @placeholder='mm/dd/yyyy']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>END_DATE_TIME</td>
+<<<<<<< HEAD
 	<td>//input[contains(@name,'_endTime') and @placeholder='h:mm am/pm']</td>
+=======
+	<td>//input[contains(@name,'CalendarPortlet_endTime') and @placeholder='h:mm am/pm']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>END_DATE_TIME_24_HOUR</td>
+<<<<<<< HEAD
 	<td>//input[contains(@name,'_endTime') and @placeholder='h:mm']</td>
+=======
+	<td>//input[contains(@name,'CalendarPortlet_endTime') and @placeholder='h:mm']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -82,7 +106,11 @@
 </tr>
 <tr>
 	<td>ALL_DAY_CHECKBOX</td>
+<<<<<<< HEAD
 	<td>//input[contains(@id,'_allDay')]</td>
+=======
+	<td>//input[contains(@id,'CalendarPortlet_allDay')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -93,7 +121,11 @@
 <!--REPEAT-->
 <tr>
 	<td>REPEAT_CHECKBOX</td>
+<<<<<<< HEAD
 	<td>//input[contains(@id,'_repeat')]</td>
+=======
+	<td>//input[contains(@id,'CalendarPortlet_repeat')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -103,12 +135,20 @@
 </tr>
 <tr>
 	<td>REPEAT_REPEATS_DROPDOWN</td>
+<<<<<<< HEAD
 	<td>//select[contains(@id,'_frequency')]</td>
+=======
+	<td>//select[contains(@id,'CalendarPortlet_frequency')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>REPEAT_REPEAT_EVERY_DROPDOWN</td>
+<<<<<<< HEAD
 	<td>//select[contains(@id,'_interval')]</td>
+=======
+	<td>//select[contains(@id,'CalendarPortlet_interval')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -123,37 +163,65 @@
 </tr>
 <tr>
 	<td>REPEAT_REPEAT_ON_DAY_OF_THE_WEEK_POSITION_DROPDOWN</td>
+<<<<<<< HEAD
 	<td>//div[contains(@id,'_viewPositionalWeekday')]//select[@title='Position']</td>
+=======
+	<td>//div[contains(@id,'CalendarPortlet_viewPositionalWeekday')]//select[@title='Position']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>REPEAT_REPEAT_ON_DAY_OF_THE_WEEK_WEEKDAY_DROPDOWN</td>
+<<<<<<< HEAD
 	<td>//div[contains(@id,'_viewPositionalWeekday')]//select[@title='Weekday']</td>
+=======
+	<td>//div[contains(@id,'CalendarPortlet_viewPositionalWeekday')]//select[@title='Weekday']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>REPEAT_ENDS_NEVER_RADIO</td>
+<<<<<<< HEAD
 	<td>//input[contains(@name,'_ends') and @value='never']</td>
+=======
+	<td>//input[contains(@name,'CalendarPortlet_ends') and @value='never']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>REPEAT_ENDS_AFTER_RADIO</td>
+<<<<<<< HEAD
 	<td>//td[contains(@class,'calendar-portlet-recurrence-content')]//input[contains(@name,'_ends') and @value='after']</td>
+=======
+	<td>//td[contains(@class,'calendar-portlet-recurrence-content')]//input[contains(@name,'CalendarPortlet_ends') and @value='after']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>REPEAT_ENDS_AFTER_FIELD</td>
+<<<<<<< HEAD
 	<td>//input[contains(@id,'_count')and(@class='field form-control')]</td>
+=======
+	<td>//input[contains(@id,'CalendarPortlet_count')and(@class='field form-control')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>REPEAT_ENDS_ON_DATE_FIELD</td>
+<<<<<<< HEAD
 	<td>//input[contains(@id,'_untilDate')]</td>
+=======
+	<td>//input[contains(@id,'CalendarPortlet_untilDate')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>REPEAT_ENDS_ON_RADIO</td>
+<<<<<<< HEAD
 	<td>//input[contains(@name,'_ends') and @value='on']</td>
+=======
+	<td>//input[contains(@name,'CalendarPortlet_ends') and @value='on']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -168,12 +236,20 @@
 </tr>
 <tr>
 	<td>REPEAT_MONTHLY_CURRENT_DAY</td>
+<<<<<<< HEAD
 	<td>//td[contains(@class,'calendar-recurrence-month-radio')]//input[contains(@id,'_weekday') and @type='hidden']</td>
+=======
+	<td>//td[contains(@class,'calendar-recurrence-month-radio')]//input[contains(@id,'CalendarPortlet_weekday') and @type='hidden']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>REPEAT_MONTHLY_CURRENT_MONTH_POSITION</td>
+<<<<<<< HEAD
 	<td>//td[contains(@class,'calendar-recurrence-month-radio')]//input[contains(@id,'_position') and @type='hidden']</td>
+=======
+	<td>//td[contains(@class,'calendar-recurrence-month-radio')]//input[contains(@id,'CalendarPortlet_position') and @type='hidden']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>

@@ -21,6 +21,10 @@ import com.liferay.portal.kernel.model.MVCCModel;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -259,7 +263,11 @@ public class UserCacheModel implements CacheModel<User>, Externalizable,
 		userImpl.setFacebookId(facebookId);
 
 		if (googleUserId == null) {
+<<<<<<< HEAD
 			userImpl.setGoogleUserId("");
+=======
+			userImpl.setGoogleUserId(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			userImpl.setGoogleUserId(googleUserId);
@@ -521,7 +529,11 @@ public class UserCacheModel implements CacheModel<User>, Externalizable,
 		objectOutput.writeLong(facebookId);
 
 		if (googleUserId == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(googleUserId);

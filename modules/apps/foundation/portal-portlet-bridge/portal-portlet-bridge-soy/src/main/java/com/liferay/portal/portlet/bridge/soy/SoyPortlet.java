@@ -14,6 +14,7 @@
 
 package com.liferay.portal.portlet.bridge.soy;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringWriter;
 import com.liferay.portal.kernel.log.Log;
@@ -21,19 +22,26 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Portlet;
 import com.liferay.portal.kernel.portlet.FriendlyURLMapper;
 import com.liferay.portal.kernel.portlet.LiferayPortletConfig;
+=======
+import com.liferay.portal.kernel.io.unsync.UnsyncStringWriter;
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCCommand;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCCommandCache;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCRenderCommand;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.servlet.ServletResponseUtil;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.servlet.taglib.aui.ScriptData;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.template.Template;
 import com.liferay.portal.kernel.template.TemplateConstants;
 import com.liferay.portal.kernel.template.TemplateException;
 import com.liferay.portal.kernel.template.TemplateManagerUtil;
 import com.liferay.portal.kernel.template.TemplateResource;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -42,10 +50,17 @@ import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
+=======
+import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.PortalUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.UnsyncPrintWriterPool;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.portlet.bridge.soy.internal.SoyPortletHelper;
+<<<<<<< HEAD
 import com.liferay.portal.portlet.bridge.soy.internal.SoyPortletRequestFactory;
 import com.liferay.portal.template.soy.constants.SoyTemplateConstants;
 import com.liferay.portal.template.soy.utils.SoyContext;
@@ -54,30 +69,44 @@ import com.liferay.portlet.ActionRequestImpl;
 import com.liferay.portlet.ActionResponseImpl;
 import com.liferay.portlet.PortletRequestImpl;
 import com.liferay.portlet.RenderRequestImpl;
+=======
+import com.liferay.portal.template.soy.utils.SoyTemplateResourcesProvider;
+>>>>>>> compatible
 
 import java.io.IOException;
 import java.io.Writer;
 
 import java.util.Collections;
+<<<<<<< HEAD
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.HashSet;
+=======
+>>>>>>> compatible
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import javax.portlet.MimeResponse;
+<<<<<<< HEAD
 import javax.portlet.PortletConfig;
+=======
+>>>>>>> compatible
 import javax.portlet.PortletException;
 import javax.portlet.PortletRequest;
 import javax.portlet.PortletResponse;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
+<<<<<<< HEAD
 import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+=======
+
+import javax.servlet.http.HttpServletRequest;
+>>>>>>> compatible
 
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
@@ -88,6 +117,7 @@ import org.osgi.framework.FrameworkUtil;
  */
 public class SoyPortlet extends MVCPortlet {
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 3.1.0, use {@link SoyPortlet#init(PortletConfig)}}
 	 *             instead
@@ -101,11 +131,17 @@ public class SoyPortlet extends MVCPortlet {
 	@Override
 	public void init(PortletConfig portletConfig) throws PortletException {
 		super.init(portletConfig);
+=======
+	@Override
+	public void init() throws PortletException {
+		super.init();
+>>>>>>> compatible
 
 		propagateRequestParameters = GetterUtil.getBoolean(
 			getInitParameter("propagate-request-parameters"), true);
 
 		_bundle = FrameworkUtil.getBundle(getClass());
+<<<<<<< HEAD
 		_portletConfig = portletConfig;
 
 		try {
@@ -115,6 +151,11 @@ public class SoyPortlet extends MVCPortlet {
 
 			_soyPortletHelper = new SoyPortletHelper(
 				_bundle, mvcRenderCommandCache, friendlyURLMapper);
+=======
+
+		try {
+			_soyPortletHelper = new SoyPortletHelper(_bundle);
+>>>>>>> compatible
 		}
 		catch (Exception e) {
 			throw new PortletException(e);
@@ -138,6 +179,7 @@ public class SoyPortlet extends MVCPortlet {
 			}
 		}
 
+<<<<<<< HEAD
 		if (_isPjaxRequest(renderRequest)) {
 			return;
 		}
@@ -210,6 +252,13 @@ public class SoyPortlet extends MVCPortlet {
 		}
 
 		return path;
+=======
+		super.render(renderRequest, renderResponse);
+	}
+
+	protected Set<String> getJavaScriptRequiredModules(String path) {
+		return Collections.emptySet();
+>>>>>>> compatible
 	}
 
 	protected Writer getResponseWriter(PortletResponse portletResponse)
@@ -236,7 +285,11 @@ public class SoyPortlet extends MVCPortlet {
 			WebKeys.TEMPLATE);
 
 		if (template != null) {
+<<<<<<< HEAD
 			return template;
+=======
+			return (Template)portletRequest.getAttribute(WebKeys.TEMPLATE);
+>>>>>>> compatible
 		}
 
 		try {
@@ -249,11 +302,16 @@ public class SoyPortlet extends MVCPortlet {
 
 	@Override
 	protected void include(
+<<<<<<< HEAD
 			String path, PortletRequest portletRequest,
+=======
+			String namespace, PortletRequest portletRequest,
+>>>>>>> compatible
 			PortletResponse portletResponse, String lifecycle)
 		throws IOException, PortletException {
 
 		try {
+<<<<<<< HEAD
 			Writer writer = getResponseWriter(portletResponse);
 
 			_prepareTemplate(portletRequest, portletResponse);
@@ -261,6 +319,38 @@ public class SoyPortlet extends MVCPortlet {
 			_writeTemplate(portletRequest, portletResponse, writer);
 
 			_writeJavaScript(portletRequest, portletResponse, writer);
+=======
+			String path = getPath(portletRequest, portletResponse);
+
+			if (Validator.isNull(path)) {
+				path = namespace;
+			}
+
+			Template template = getTemplate(portletRequest);
+
+			template.put(
+				TemplateConstants.NAMESPACE,
+				_soyPortletHelper.getTemplateNamespace(path));
+
+			if (propagateRequestParameters) {
+				propagateRequestParameters(portletRequest);
+			}
+
+			Writer writer = getResponseWriter(portletResponse);
+
+			populateJavaScriptTemplateContext(
+				template, portletResponse.getNamespace());
+
+			HttpServletRequest httpServletRequest =
+				PortalUtil.getHttpServletRequest(portletRequest);
+
+			template.prepare(httpServletRequest);
+
+			template.processTemplate(writer);
+
+			_writePortletJavaScript(
+				portletRequest, portletResponse, path, writer);
+>>>>>>> compatible
 		}
 		catch (Exception e) {
 			throw new PortletException(e);
@@ -276,26 +366,40 @@ public class SoyPortlet extends MVCPortlet {
 	protected void populateJavaScriptTemplateContext(
 		Template template, String portletNamespace) {
 
+<<<<<<< HEAD
 		String portletComponentId = _getPortletComponentId(portletNamespace);
 
 		template.put(
 			"element", "#" + _getPortletWrapperId(portletNamespace) + " > div");
 
+=======
+		String portletComponentId = portletNamespace.concat("PortletComponent");
+
+		template.put("element", StringPool.POUND.concat(portletComponentId));
+>>>>>>> compatible
 		template.put("id", portletComponentId);
 	}
 
 	protected void propagateRequestParameters(PortletRequest portletRequest)
 		throws PortletException {
 
+<<<<<<< HEAD
 		Map<String, Object> soyContextParametersMap = new HashMap<>();
 
 		Map<String, String[]> parametersMap = portletRequest.getParameterMap();
 
+=======
+		Map<String, String[]> parametersMap = portletRequest.getParameterMap();
+
+		Template template = getTemplate(portletRequest);
+
+>>>>>>> compatible
 		for (Map.Entry<String, String[]> entry : parametersMap.entrySet()) {
 			String parameterName = entry.getKey();
 			String[] parameterValues = entry.getValue();
 
 			if (parameterValues.length == 1) {
+<<<<<<< HEAD
 				soyContextParametersMap.put(parameterName, parameterValues[0]);
 			}
 			else if (parameterValues.length > 1) {
@@ -315,6 +419,14 @@ public class SoyPortlet extends MVCPortlet {
 		injectedData.put("requestParams", soyContextParametersMap);
 
 		template.put(SoyTemplateConstants.INJECTED_DATA, injectedData);
+=======
+				template.put(parameterName, parameterValues[0]);
+			}
+			else if (parameterValues.length > 1) {
+				template.put(parameterName, parameterValues);
+			}
+		}
+>>>>>>> compatible
 	}
 
 	protected boolean propagateRequestParameters;
@@ -326,6 +438,7 @@ public class SoyPortlet extends MVCPortlet {
 	@Deprecated
 	protected Template template;
 
+<<<<<<< HEAD
 	private void _callProcessAction(
 			ResourceRequest resourceRequest, ResourceResponse resourceResponse,
 			HttpServletResponse response, Portlet portlet)
@@ -415,6 +528,8 @@ public class SoyPortlet extends MVCPortlet {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	private Template _createRequestTemplate(PortletRequest portletRequest)
 		throws TemplateException {
 
@@ -428,12 +543,15 @@ public class SoyPortlet extends MVCPortlet {
 		return template;
 	}
 
+<<<<<<< HEAD
 	private FriendlyURLMapper _getFriendlyURLMapper() {
 		Portlet portlet = _getPortlet();
 
 		return portlet.getFriendlyURLMapperInstance();
 	}
 
+=======
+>>>>>>> compatible
 	private MVCRenderCommand _getMVCRenderCommand(String mvcRenderCommandName) {
 		MVCCommandCache mvcRenderCommandCache = getRenderMVCCommandCache();
 
@@ -441,6 +559,7 @@ public class SoyPortlet extends MVCPortlet {
 			mvcRenderCommandName);
 	}
 
+<<<<<<< HEAD
 	private Portlet _getPortlet() {
 		LiferayPortletConfig liferayPortletConfig =
 			(LiferayPortletConfig)_portletConfig;
@@ -462,6 +581,8 @@ public class SoyPortlet extends MVCPortlet {
 		return sb.toString();
 	}
 
+=======
+>>>>>>> compatible
 	private List<TemplateResource> _getTemplateResources()
 		throws TemplateException {
 
@@ -490,6 +611,7 @@ public class SoyPortlet extends MVCPortlet {
 		return _templateResources;
 	}
 
+<<<<<<< HEAD
 	private boolean _isPjaxRequest(PortletRequest portletRequest) {
 		return ParamUtil.getBoolean(portletRequest, "pjax");
 	}
@@ -635,6 +757,31 @@ public class SoyPortlet extends MVCPortlet {
 
 	private Bundle _bundle;
 	private PortletConfig _portletConfig;
+=======
+	private void _writePortletJavaScript(
+			PortletRequest portletRequest, PortletResponse portletResponse,
+			String path, Writer writer)
+		throws Exception {
+
+		StringBundler sb = new StringBundler(3);
+
+		sb.append("<script>");
+
+		Template template = getTemplate(portletRequest);
+
+		String portletJavaScript = _soyPortletHelper.getPortletJavaScript(
+			template, path, portletResponse.getNamespace(),
+			getJavaScriptRequiredModules(path));
+
+		sb.append(portletJavaScript);
+
+		sb.append("</script>");
+
+		writer.write(sb.toString());
+	}
+
+	private Bundle _bundle;
+>>>>>>> compatible
 	private SoyPortletHelper _soyPortletHelper;
 	private List<TemplateResource> _templateResources;
 

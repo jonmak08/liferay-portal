@@ -2,7 +2,11 @@
 	<command name="assertConsoleTextPresent">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.AssertConsoleTextPresent#assertConsoleTextPresent" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 

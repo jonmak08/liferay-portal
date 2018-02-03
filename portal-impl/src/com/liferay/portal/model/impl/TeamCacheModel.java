@@ -21,6 +21,10 @@ import com.liferay.portal.kernel.model.MVCCModel;
 import com.liferay.portal.kernel.model.Team;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -116,7 +120,11 @@ public class TeamCacheModel implements CacheModel<Team>, Externalizable,
 		teamImpl.setMvccVersion(mvccVersion);
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			teamImpl.setUuid("");
+=======
+			teamImpl.setUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			teamImpl.setUuid(uuid);
@@ -201,7 +209,11 @@ public class TeamCacheModel implements CacheModel<Team>, Externalizable,
 		objectOutput.writeLong(mvccVersion);
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(uuid);

@@ -81,6 +81,7 @@ public abstract class BaseDB implements DB {
 			_log.info("Adding indexes");
 		}
 
+<<<<<<< HEAD
 		try (UnsyncBufferedReader unsyncBufferedReader =
 				new UnsyncBufferedReader(new UnsyncStringReader(indexesSQL))) {
 
@@ -92,6 +93,16 @@ public abstract class BaseDB implements DB {
 				}
 
 				int y = sql.indexOf(" on ");
+=======
+		for (String sql : StringUtil.splitLines(indexesSQL)) {
+			if (Validator.isNull(sql)) {
+				continue;
+			}
+
+			int y = sql.indexOf(" on ");
+
+			int x = sql.lastIndexOf(" ", y - 1);
+>>>>>>> compatible
 
 				int x = sql.lastIndexOf(" ", y - 1);
 

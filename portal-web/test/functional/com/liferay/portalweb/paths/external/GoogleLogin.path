@@ -24,11 +24,14 @@
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 	<td>HEADER</td>
 	<td>//h1[normalize-space()='Choose an account']</td>
 	<td></td>
 </tr>
 <tr>
+=======
+>>>>>>> compatible
 	<td></td>
 	<td></td>
 	<td></td>

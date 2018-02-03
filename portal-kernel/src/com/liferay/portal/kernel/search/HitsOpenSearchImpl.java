@@ -29,7 +29,10 @@ import com.liferay.ratings.kernel.service.RatingsStatsLocalServiceUtil;
 
 import java.util.Date;
 import java.util.Locale;
+<<<<<<< HEAD
 import java.util.Map;
+=======
+>>>>>>> compatible
 
 import javax.portlet.PortletURL;
 
@@ -163,9 +166,14 @@ public abstract class HitsOpenSearchImpl extends BaseOpenSearchImpl {
 
 				String[] tags = new String[0];
 
+<<<<<<< HEAD
 				Map<String, Field> fieldsMap = result.getFields();
 
 				Field assetTagNamesField = fieldsMap.get(Field.ASSET_TAG_NAMES);
+=======
+				Field assetTagNamesField = result.getFields().get(
+					Field.ASSET_TAG_NAMES);
+>>>>>>> compatible
 
 				if (assetTagNamesField != null) {
 					tags = assetTagNamesField.getValues();
@@ -178,6 +186,7 @@ public abstract class HitsOpenSearchImpl extends BaseOpenSearchImpl {
 					result.get(Field.ENTRY_CLASS_PK));
 
 				if (Validator.isNotNull(entryClassName) && (entryClassPK > 0)) {
+<<<<<<< HEAD
 					RatingsStats stats =
 						RatingsStatsLocalServiceUtil.fetchStats(
 							entryClassName, entryClassPK);
@@ -185,6 +194,12 @@ public abstract class HitsOpenSearchImpl extends BaseOpenSearchImpl {
 					if (stats != null) {
 						ratings = stats.getTotalScore();
 					}
+=======
+					RatingsStats stats = RatingsStatsLocalServiceUtil.getStats(
+						entryClassName, entryClassPK);
+
+					ratings = stats.getTotalScore();
+>>>>>>> compatible
 				}
 
 				double score = results.score(i);

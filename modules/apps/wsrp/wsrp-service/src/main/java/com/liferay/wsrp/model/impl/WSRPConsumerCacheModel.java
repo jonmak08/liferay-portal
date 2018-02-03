@@ -19,6 +19,10 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import com.liferay.wsrp.model.WSRPConsumer;
 
@@ -105,7 +109,11 @@ public class WSRPConsumerCacheModel implements CacheModel<WSRPConsumer>,
 		WSRPConsumerImpl wsrpConsumerImpl = new WSRPConsumerImpl();
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			wsrpConsumerImpl.setUuid("");
+=======
+			wsrpConsumerImpl.setUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			wsrpConsumerImpl.setUuid(uuid);
@@ -129,56 +137,88 @@ public class WSRPConsumerCacheModel implements CacheModel<WSRPConsumer>,
 		}
 
 		if (name == null) {
+<<<<<<< HEAD
 			wsrpConsumerImpl.setName("");
+=======
+			wsrpConsumerImpl.setName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			wsrpConsumerImpl.setName(name);
 		}
 
 		if (url == null) {
+<<<<<<< HEAD
 			wsrpConsumerImpl.setUrl("");
+=======
+			wsrpConsumerImpl.setUrl(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			wsrpConsumerImpl.setUrl(url);
 		}
 
 		if (wsdl == null) {
+<<<<<<< HEAD
 			wsrpConsumerImpl.setWsdl("");
+=======
+			wsrpConsumerImpl.setWsdl(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			wsrpConsumerImpl.setWsdl(wsdl);
 		}
 
 		if (registrationContextString == null) {
+<<<<<<< HEAD
 			wsrpConsumerImpl.setRegistrationContextString("");
+=======
+			wsrpConsumerImpl.setRegistrationContextString(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			wsrpConsumerImpl.setRegistrationContextString(registrationContextString);
 		}
 
 		if (registrationPropertiesString == null) {
+<<<<<<< HEAD
 			wsrpConsumerImpl.setRegistrationPropertiesString("");
+=======
+			wsrpConsumerImpl.setRegistrationPropertiesString(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			wsrpConsumerImpl.setRegistrationPropertiesString(registrationPropertiesString);
 		}
 
 		if (forwardCookies == null) {
+<<<<<<< HEAD
 			wsrpConsumerImpl.setForwardCookies("");
+=======
+			wsrpConsumerImpl.setForwardCookies(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			wsrpConsumerImpl.setForwardCookies(forwardCookies);
 		}
 
 		if (forwardHeaders == null) {
+<<<<<<< HEAD
 			wsrpConsumerImpl.setForwardHeaders("");
+=======
+			wsrpConsumerImpl.setForwardHeaders(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			wsrpConsumerImpl.setForwardHeaders(forwardHeaders);
 		}
 
 		if (markupCharacterSets == null) {
+<<<<<<< HEAD
 			wsrpConsumerImpl.setMarkupCharacterSets("");
+=======
+			wsrpConsumerImpl.setMarkupCharacterSets(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			wsrpConsumerImpl.setMarkupCharacterSets(markupCharacterSets);
@@ -220,7 +260,11 @@ public class WSRPConsumerCacheModel implements CacheModel<WSRPConsumer>,
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		if (uuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(uuid);
@@ -233,56 +277,88 @@ public class WSRPConsumerCacheModel implements CacheModel<WSRPConsumer>,
 		objectOutput.writeLong(modifiedDate);
 
 		if (name == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(name);
 		}
 
 		if (url == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(url);
 		}
 
 		if (wsdl == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(wsdl);
 		}
 
 		if (registrationContextString == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(registrationContextString);
 		}
 
 		if (registrationPropertiesString == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(registrationPropertiesString);
 		}
 
 		if (forwardCookies == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(forwardCookies);
 		}
 
 		if (forwardHeaders == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(forwardHeaders);
 		}
 
 		if (markupCharacterSets == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(markupCharacterSets);

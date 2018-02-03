@@ -69,10 +69,16 @@ import com.liferay.portal.kernel.util.comparator.OrganizationNameComparator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.model.impl.OrganizationImpl;
 import com.liferay.portal.service.base.OrganizationLocalServiceBaseImpl;
+<<<<<<< HEAD
 import com.liferay.portal.util.PropsUtil;
 import com.liferay.portal.util.PropsValues;
 import com.liferay.portlet.usersadmin.search.OrganizationUsersSearcher;
 import com.liferay.users.admin.kernel.file.uploads.UserFileUploadsSettings;
+=======
+import com.liferay.portal.util.PrefsPropsUtil;
+import com.liferay.portal.util.PropsUtil;
+import com.liferay.portal.util.PropsValues;
+>>>>>>> compatible
 import com.liferay.users.admin.kernel.util.UsersAdminUtil;
 import com.liferay.util.dao.orm.CustomSQLUtil;
 
@@ -334,6 +340,7 @@ public class OrganizationLocalServiceImpl
 
 		if (!CompanyThreadLocal.isDeleteInProcess()) {
 			LinkedHashMap<String, Object> params = new LinkedHashMap<>();
+<<<<<<< HEAD
 
 			params.put(
 				"usersOrgs", Long.valueOf(organization.getOrganizationId()));
@@ -345,6 +352,19 @@ public class OrganizationLocalServiceImpl
 					organization.getCompanyId(), null,
 					WorkflowConstants.STATUS_APPROVED, params) > 0)) {
 
+=======
+
+			params.put(
+				"usersOrgs", Long.valueOf(organization.getOrganizationId()));
+
+			if ((organizationPersistence.countByC_P(
+					organization.getCompanyId(),
+					organization.getOrganizationId()) > 0) ||
+				(userFinder.countByKeywords(
+					organization.getCompanyId(), null,
+					WorkflowConstants.STATUS_APPROVED, params) > 0)) {
+
+>>>>>>> compatible
 				throw new RequiredOrganizationException();
 			}
 		}
@@ -1603,6 +1623,7 @@ public class OrganizationLocalServiceImpl
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Returns the organizations and users that match the keywords specified for
 	 * them and belong to the parent organization.
 	 *
@@ -1676,6 +1697,14 @@ public class OrganizationLocalServiceImpl
 	 * @param organizationIds the primary keys of the organizations
 	 */
 	@Override
+=======
+	 * Removes the organizations from the group.
+	 *
+	 * @param groupId the primary key of the group
+	 * @param organizationIds the primary keys of the organizations
+	 */
+	@Override
+>>>>>>> compatible
 	public void unsetGroupOrganizations(long groupId, long[] organizationIds) {
 		groupPersistence.removeOrganizations(groupId, organizationIds);
 	}
@@ -1875,9 +1904,13 @@ public class OrganizationLocalServiceImpl
 		Indexer<Organization> indexer = IndexerRegistryUtil.nullSafeGetIndexer(
 			Organization.class);
 
+<<<<<<< HEAD
 		if (!oldName.equals(name) ||
 			(oldParentOrganizationId != parentOrganizationId)) {
 
+=======
+		if (oldParentOrganizationId != parentOrganizationId) {
+>>>>>>> compatible
 			long[] reindexOrganizationIds = getReindexOrganizationIds(
 				organization);
 
@@ -2187,8 +2220,8 @@ public class OrganizationLocalServiceImpl
 			long parentOrganizationId, long organizationId)
 		throws PortalException {
 
-		// Return true if parentOrganizationId is among the parent organizatons
-		// of organizationId
+		// Return true if parentOrganizationId is among the parent or ancestor
+		// organizations of organizationId
 
 		if (organizationId ==
 				OrganizationConstants.DEFAULT_PARENT_ORGANIZATION_ID) {
@@ -2207,7 +2240,8 @@ public class OrganizationLocalServiceImpl
 			return true;
 		}
 		else {
-			return false;
+			return isParentOrganization(
+				parentOrganizationId, organization.getParentOrganizationId());
 		}
 	}
 

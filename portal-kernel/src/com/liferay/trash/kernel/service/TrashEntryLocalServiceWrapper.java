@@ -23,11 +23,16 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  *
  * @author Brian Wing Shun Chan
  * @see TrashEntryLocalService
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, replaced by {@link
 com.liferay.trash.service.impl.TrashEntryLocalServiceImpl}
  * @generated
  */
 @Deprecated
+=======
+ * @generated
+ */
+>>>>>>> compatible
 @ProviderType
 public class TrashEntryLocalServiceWrapper implements TrashEntryLocalService,
 	ServiceWrapper<TrashEntryLocalService> {
@@ -36,6 +41,7 @@ public class TrashEntryLocalServiceWrapper implements TrashEntryLocalService,
 		_trashEntryLocalService = trashEntryLocalService;
 	}
 
+<<<<<<< HEAD
 	@Override
 	public com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery getActionableDynamicQuery() {
 		return _trashEntryLocalService.getActionableDynamicQuery();
@@ -96,6 +102,8 @@ public class TrashEntryLocalServiceWrapper implements TrashEntryLocalService,
 		return _trashEntryLocalService.addTrashEntry(trashEntry);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Moves an entry to trash.
 	*
@@ -127,6 +135,7 @@ public class TrashEntryLocalServiceWrapper implements TrashEntryLocalService,
 	}
 
 	/**
+<<<<<<< HEAD
 	* Creates a new trash entry with the primary key. Does not add the trash entry to the database.
 	*
 	* @param entryId the primary key for the new trash entry
@@ -160,6 +169,40 @@ public class TrashEntryLocalServiceWrapper implements TrashEntryLocalService,
 	@Override
 	public void deleteEntries(long groupId, boolean deleteTrashedModels) {
 		_trashEntryLocalService.deleteEntries(groupId, deleteTrashedModels);
+=======
+	* Adds the trash entry to the database. Also notifies the appropriate model listeners.
+	*
+	* @param trashEntry the trash entry
+	* @return the trash entry that was added
+	*/
+	@Override
+	public com.liferay.trash.kernel.model.TrashEntry addTrashEntry(
+		com.liferay.trash.kernel.model.TrashEntry trashEntry) {
+		return _trashEntryLocalService.addTrashEntry(trashEntry);
+	}
+
+	@Override
+	public void checkEntries()
+		throws com.liferay.portal.kernel.exception.PortalException {
+		_trashEntryLocalService.checkEntries();
+	}
+
+	/**
+	* Creates a new trash entry with the primary key. Does not add the trash entry to the database.
+	*
+	* @param entryId the primary key for the new trash entry
+	* @return the new trash entry
+	*/
+	@Override
+	public com.liferay.trash.kernel.model.TrashEntry createTrashEntry(
+		long entryId) {
+		return _trashEntryLocalService.createTrashEntry(entryId);
+	}
+
+	@Override
+	public void deleteEntries(long groupId) {
+		_trashEntryLocalService.deleteEntries(groupId);
+>>>>>>> compatible
 	}
 
 	/**
@@ -174,6 +217,7 @@ public class TrashEntryLocalServiceWrapper implements TrashEntryLocalService,
 	}
 
 	/**
+<<<<<<< HEAD
 	* Deletes the trash entry from the database. Also notifies the appropriate model listeners.
 	*
 	* @param trashEntry the trash entry
@@ -309,6 +353,65 @@ public class TrashEntryLocalServiceWrapper implements TrashEntryLocalService,
 	@Override
 	public java.lang.String getOSGiServiceIdentifier() {
 		return _trashEntryLocalService.getOSGiServiceIdentifier();
+=======
+	* Deletes the trash entry with the entity class name and primary key.
+	*
+	* @param className the class name of entity
+	* @param classPK the primary key of the entry
+	* @return the trash entry with the entity class name and primary key
+	*/
+	@Override
+	public com.liferay.trash.kernel.model.TrashEntry deleteEntry(
+		java.lang.String className, long classPK) {
+		return _trashEntryLocalService.deleteEntry(className, classPK);
+	}
+
+	@Override
+	public com.liferay.trash.kernel.model.TrashEntry deleteEntry(
+		com.liferay.trash.kernel.model.TrashEntry trashEntry) {
+		return _trashEntryLocalService.deleteEntry(trashEntry);
+	}
+
+	/**
+	* @throws PortalException
+	*/
+	@Override
+	public com.liferay.portal.kernel.model.PersistedModel deletePersistedModel(
+		com.liferay.portal.kernel.model.PersistedModel persistedModel)
+		throws com.liferay.portal.kernel.exception.PortalException {
+		return _trashEntryLocalService.deletePersistedModel(persistedModel);
+	}
+
+	/**
+	* Deletes the trash entry with the primary key from the database. Also notifies the appropriate model listeners.
+	*
+	* @param entryId the primary key of the trash entry
+	* @return the trash entry that was removed
+	* @throws PortalException if a trash entry with the primary key could not be found
+	*/
+	@Override
+	public com.liferay.trash.kernel.model.TrashEntry deleteTrashEntry(
+		long entryId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+		return _trashEntryLocalService.deleteTrashEntry(entryId);
+	}
+
+	/**
+	* Deletes the trash entry from the database. Also notifies the appropriate model listeners.
+	*
+	* @param trashEntry the trash entry
+	* @return the trash entry that was removed
+	*/
+	@Override
+	public com.liferay.trash.kernel.model.TrashEntry deleteTrashEntry(
+		com.liferay.trash.kernel.model.TrashEntry trashEntry) {
+		return _trashEntryLocalService.deleteTrashEntry(trashEntry);
+	}
+
+	@Override
+	public com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery() {
+		return _trashEntryLocalService.dynamicQuery();
+>>>>>>> compatible
 	}
 
 	/**
@@ -365,6 +468,71 @@ public class TrashEntryLocalServiceWrapper implements TrashEntryLocalService,
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	* Returns the number of rows matching the dynamic query.
+	*
+	* @param dynamicQuery the dynamic query
+	* @return the number of rows matching the dynamic query
+	*/
+	@Override
+	public long dynamicQueryCount(
+		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery) {
+		return _trashEntryLocalService.dynamicQueryCount(dynamicQuery);
+	}
+
+	/**
+	* Returns the number of rows matching the dynamic query.
+	*
+	* @param dynamicQuery the dynamic query
+	* @param projection the projection to apply to the query
+	* @return the number of rows matching the dynamic query
+	*/
+	@Override
+	public long dynamicQueryCount(
+		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery,
+		com.liferay.portal.kernel.dao.orm.Projection projection) {
+		return _trashEntryLocalService.dynamicQueryCount(dynamicQuery,
+			projection);
+	}
+
+	/**
+	* Returns the trash entry with the primary key.
+	*
+	* @param entryId the primary key of the entry
+	* @return the trash entry with the primary key
+	*/
+	@Override
+	public com.liferay.trash.kernel.model.TrashEntry fetchEntry(long entryId) {
+		return _trashEntryLocalService.fetchEntry(entryId);
+	}
+
+	/**
+	* Returns the trash entry with the entity class name and primary key.
+	*
+	* @param className the class name of the entity
+	* @param classPK the primary key of the entity
+	* @return the trash entry with the entity class name and primary key
+	*/
+	@Override
+	public com.liferay.trash.kernel.model.TrashEntry fetchEntry(
+		java.lang.String className, long classPK) {
+		return _trashEntryLocalService.fetchEntry(className, classPK);
+	}
+
+	@Override
+	public com.liferay.trash.kernel.model.TrashEntry fetchTrashEntry(
+		long entryId) {
+		return _trashEntryLocalService.fetchTrashEntry(entryId);
+	}
+
+	@Override
+	public com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery getActionableDynamicQuery() {
+		return _trashEntryLocalService.getActionableDynamicQuery();
+	}
+
+	/**
+>>>>>>> compatible
 	* Returns the trash entries with the matching group ID.
 	*
 	* @param groupId the primary key of the group
@@ -417,6 +585,68 @@ public class TrashEntryLocalServiceWrapper implements TrashEntryLocalService,
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	* Returns the number of trash entries with the group ID.
+	*
+	* @param groupId the primary key of the group
+	* @return the number of matching trash entries
+	*/
+	@Override
+	public int getEntriesCount(long groupId) {
+		return _trashEntryLocalService.getEntriesCount(groupId);
+	}
+
+	/**
+	* Returns the trash entry with the primary key.
+	*
+	* @param entryId the primary key of the trash entry
+	* @return the trash entry with the primary key
+	*/
+	@Override
+	public com.liferay.trash.kernel.model.TrashEntry getEntry(long entryId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+		return _trashEntryLocalService.getEntry(entryId);
+	}
+
+	/**
+	* Returns the entry with the entity class name and primary key.
+	*
+	* @param className the class name of the entity
+	* @param classPK the primary key of the entity
+	* @return the trash entry with the entity class name and primary key
+	*/
+	@Override
+	public com.liferay.trash.kernel.model.TrashEntry getEntry(
+		java.lang.String className, long classPK)
+		throws com.liferay.portal.kernel.exception.PortalException {
+		return _trashEntryLocalService.getEntry(className, classPK);
+	}
+
+	@Override
+	public com.liferay.portal.kernel.dao.orm.IndexableActionableDynamicQuery getIndexableActionableDynamicQuery() {
+		return _trashEntryLocalService.getIndexableActionableDynamicQuery();
+	}
+
+	/**
+	* Returns the OSGi service identifier.
+	*
+	* @return the OSGi service identifier
+	*/
+	@Override
+	public java.lang.String getOSGiServiceIdentifier() {
+		return _trashEntryLocalService.getOSGiServiceIdentifier();
+	}
+
+	@Override
+	public com.liferay.portal.kernel.model.PersistedModel getPersistedModel(
+		java.io.Serializable primaryKeyObj)
+		throws com.liferay.portal.kernel.exception.PortalException {
+		return _trashEntryLocalService.getPersistedModel(primaryKeyObj);
+	}
+
+	/**
+>>>>>>> compatible
 	* Returns a range of all the trash entries.
 	*
 	* <p>
@@ -434,6 +664,7 @@ public class TrashEntryLocalServiceWrapper implements TrashEntryLocalService,
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns the number of rows matching the dynamic query.
 	*
 	* @param dynamicQuery the dynamic query
@@ -469,6 +700,56 @@ public class TrashEntryLocalServiceWrapper implements TrashEntryLocalService,
 	@Override
 	public void deleteEntries(long groupId) {
 		_trashEntryLocalService.deleteEntries(groupId);
+=======
+	* Returns the number of trash entries.
+	*
+	* @return the number of trash entries
+	*/
+	@Override
+	public int getTrashEntriesCount() {
+		return _trashEntryLocalService.getTrashEntriesCount();
+	}
+
+	/**
+	* Returns the trash entry with the primary key.
+	*
+	* @param entryId the primary key of the trash entry
+	* @return the trash entry
+	* @throws PortalException if a trash entry with the primary key could not be found
+	*/
+	@Override
+	public com.liferay.trash.kernel.model.TrashEntry getTrashEntry(long entryId)
+		throws com.liferay.portal.kernel.exception.PortalException {
+		return _trashEntryLocalService.getTrashEntry(entryId);
+	}
+
+	@Override
+	public com.liferay.portal.kernel.search.Hits search(long companyId,
+		long groupId, long userId, java.lang.String keywords, int start,
+		int end, com.liferay.portal.kernel.search.Sort sort) {
+		return _trashEntryLocalService.search(companyId, groupId, userId,
+			keywords, start, end, sort);
+	}
+
+	@Override
+	public com.liferay.portal.kernel.search.BaseModelSearchResult<com.liferay.trash.kernel.model.TrashEntry> searchTrashEntries(
+		long companyId, long groupId, long userId, java.lang.String keywords,
+		int start, int end, com.liferay.portal.kernel.search.Sort sort) {
+		return _trashEntryLocalService.searchTrashEntries(companyId, groupId,
+			userId, keywords, start, end, sort);
+	}
+
+	/**
+	* Updates the trash entry in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
+	*
+	* @param trashEntry the trash entry
+	* @return the trash entry that was updated
+	*/
+	@Override
+	public com.liferay.trash.kernel.model.TrashEntry updateTrashEntry(
+		com.liferay.trash.kernel.model.TrashEntry trashEntry) {
+		return _trashEntryLocalService.updateTrashEntry(trashEntry);
+>>>>>>> compatible
 	}
 
 	@Override

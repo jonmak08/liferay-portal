@@ -26,6 +26,10 @@ import com.liferay.portal.kernel.model.PersistedModel;
 import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.service.BaseLocalService;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.service.InvokableLocalService;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.PersistedModelLocalService;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.transaction.Isolation;
@@ -55,7 +59,11 @@ import java.util.List;
 @Transactional(isolation = Isolation.PORTAL, rollbackFor =  {
 	PortalException.class, SystemException.class})
 public interface TasksEntryLocalService extends BaseLocalService,
+<<<<<<< HEAD
 	PersistedModelLocalService {
+=======
+	InvokableLocalService, PersistedModelLocalService {
+>>>>>>> compatible
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
@@ -285,6 +293,14 @@ public interface TasksEntryLocalService extends BaseLocalService,
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public int getUserTasksEntriesCount(long userId);
 
+<<<<<<< HEAD
+=======
+	@Override
+	public java.lang.Object invokeMethod(java.lang.String name,
+		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
+		throws java.lang.Throwable;
+
+>>>>>>> compatible
 	public void updateAsset(long userId, TasksEntry tasksEntry,
 		long[] assetCategoryIds, java.lang.String[] assetTagNames)
 		throws PortalException;

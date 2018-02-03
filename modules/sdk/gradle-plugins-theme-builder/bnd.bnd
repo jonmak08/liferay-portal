@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 Bundle-Description: The Theme Builder Gradle plugin lets you run the Liferay Theme Builder tool to build the Liferay theme files in your project.
+=======
+>>>>>>> compatible
 Bundle-Name: Liferay Gradle Plugins Theme Builder
 Bundle-SymbolicName: com.liferay.gradle.plugins.theme.builder
 Bundle-Version: 2.0.4

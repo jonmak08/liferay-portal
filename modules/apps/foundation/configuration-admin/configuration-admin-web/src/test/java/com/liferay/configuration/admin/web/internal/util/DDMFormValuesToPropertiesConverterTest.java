@@ -165,6 +165,7 @@ public class DDMFormValuesToPropertiesConverterTest extends Mockito {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testSimpleIntegerInvalidValue() {
 		DDMForm ddmForm = new DDMForm();
 
@@ -214,6 +215,8 @@ public class DDMFormValuesToPropertiesConverterTest extends Mockito {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testSimpleIntegerValue() {
 		DDMForm ddmForm = new DDMForm();
 

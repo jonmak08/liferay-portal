@@ -1,5 +1,9 @@
 Bundle-Name: Liferay Password Policies Admin Web
 Bundle-SymbolicName: com.liferay.password.policies.admin.web
+<<<<<<< HEAD
 Bundle-Version: 1.0.25
+=======
+Bundle-Version: 1.0.18
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title:

@@ -173,6 +173,7 @@ public interface KaleoTaskAssignmentPersistence extends BasePersistence<KaleoTas
 	public int countByCompanyId(long companyId);
 
 	/**
+<<<<<<< HEAD
 	* Returns all the kaleo task assignments where kaleoDefinitionVersionId = &#63;.
 	*
 	* @param kaleoDefinitionVersionId the kaleo definition version ID
@@ -183,69 +184,127 @@ public interface KaleoTaskAssignmentPersistence extends BasePersistence<KaleoTas
 
 	/**
 	* Returns a range of all the kaleo task assignments where kaleoDefinitionVersionId = &#63;.
+=======
+	* Returns all the kaleo task assignments where kaleoDefinitionId = &#63;.
+	*
+	* @param kaleoDefinitionId the kaleo definition ID
+	* @return the matching kaleo task assignments
+	*/
+	public java.util.List<KaleoTaskAssignment> findByKaleoDefinitionId(
+		long kaleoDefinitionId);
+
+	/**
+	* Returns a range of all the kaleo task assignments where kaleoDefinitionId = &#63;.
+>>>>>>> compatible
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link KaleoTaskAssignmentModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
+<<<<<<< HEAD
 	* @param kaleoDefinitionVersionId the kaleo definition version ID
+=======
+	* @param kaleoDefinitionId the kaleo definition ID
+>>>>>>> compatible
 	* @param start the lower bound of the range of kaleo task assignments
 	* @param end the upper bound of the range of kaleo task assignments (not inclusive)
 	* @return the range of matching kaleo task assignments
 	*/
+<<<<<<< HEAD
 	public java.util.List<KaleoTaskAssignment> findByKaleoDefinitionVersionId(
 		long kaleoDefinitionVersionId, int start, int end);
 
 	/**
 	* Returns an ordered range of all the kaleo task assignments where kaleoDefinitionVersionId = &#63;.
+=======
+	public java.util.List<KaleoTaskAssignment> findByKaleoDefinitionId(
+		long kaleoDefinitionId, int start, int end);
+
+	/**
+	* Returns an ordered range of all the kaleo task assignments where kaleoDefinitionId = &#63;.
+>>>>>>> compatible
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link KaleoTaskAssignmentModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
+<<<<<<< HEAD
 	* @param kaleoDefinitionVersionId the kaleo definition version ID
+=======
+	* @param kaleoDefinitionId the kaleo definition ID
+>>>>>>> compatible
 	* @param start the lower bound of the range of kaleo task assignments
 	* @param end the upper bound of the range of kaleo task assignments (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @return the ordered range of matching kaleo task assignments
 	*/
+<<<<<<< HEAD
 	public java.util.List<KaleoTaskAssignment> findByKaleoDefinitionVersionId(
 		long kaleoDefinitionVersionId, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator<KaleoTaskAssignment> orderByComparator);
 
 	/**
 	* Returns an ordered range of all the kaleo task assignments where kaleoDefinitionVersionId = &#63;.
+=======
+	public java.util.List<KaleoTaskAssignment> findByKaleoDefinitionId(
+		long kaleoDefinitionId, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<KaleoTaskAssignment> orderByComparator);
+
+	/**
+	* Returns an ordered range of all the kaleo task assignments where kaleoDefinitionId = &#63;.
+>>>>>>> compatible
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link KaleoTaskAssignmentModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
 	* </p>
 	*
+<<<<<<< HEAD
 	* @param kaleoDefinitionVersionId the kaleo definition version ID
+=======
+	* @param kaleoDefinitionId the kaleo definition ID
+>>>>>>> compatible
 	* @param start the lower bound of the range of kaleo task assignments
 	* @param end the upper bound of the range of kaleo task assignments (not inclusive)
 	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
 	* @param retrieveFromCache whether to retrieve from the finder cache
 	* @return the ordered range of matching kaleo task assignments
 	*/
+<<<<<<< HEAD
 	public java.util.List<KaleoTaskAssignment> findByKaleoDefinitionVersionId(
 		long kaleoDefinitionVersionId, int start, int end,
+=======
+	public java.util.List<KaleoTaskAssignment> findByKaleoDefinitionId(
+		long kaleoDefinitionId, int start, int end,
+>>>>>>> compatible
 		com.liferay.portal.kernel.util.OrderByComparator<KaleoTaskAssignment> orderByComparator,
 		boolean retrieveFromCache);
 
 	/**
+<<<<<<< HEAD
 	* Returns the first kaleo task assignment in the ordered set where kaleoDefinitionVersionId = &#63;.
 	*
 	* @param kaleoDefinitionVersionId the kaleo definition version ID
+=======
+	* Returns the first kaleo task assignment in the ordered set where kaleoDefinitionId = &#63;.
+	*
+	* @param kaleoDefinitionId the kaleo definition ID
+>>>>>>> compatible
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the first matching kaleo task assignment
 	* @throws NoSuchTaskAssignmentException if a matching kaleo task assignment could not be found
 	*/
+<<<<<<< HEAD
 	public KaleoTaskAssignment findByKaleoDefinitionVersionId_First(
 		long kaleoDefinitionVersionId,
+=======
+	public KaleoTaskAssignment findByKaleoDefinitionId_First(
+		long kaleoDefinitionId,
+>>>>>>> compatible
 		com.liferay.portal.kernel.util.OrderByComparator<KaleoTaskAssignment> orderByComparator)
 		throws NoSuchTaskAssignmentException;
 
 	/**
+<<<<<<< HEAD
 	* Returns the first kaleo task assignment in the ordered set where kaleoDefinitionVersionId = &#63;.
 	*
 	* @param kaleoDefinitionVersionId the kaleo definition version ID
@@ -260,16 +319,38 @@ public interface KaleoTaskAssignmentPersistence extends BasePersistence<KaleoTas
 	* Returns the last kaleo task assignment in the ordered set where kaleoDefinitionVersionId = &#63;.
 	*
 	* @param kaleoDefinitionVersionId the kaleo definition version ID
+=======
+	* Returns the first kaleo task assignment in the ordered set where kaleoDefinitionId = &#63;.
+	*
+	* @param kaleoDefinitionId the kaleo definition ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching kaleo task assignment, or <code>null</code> if a matching kaleo task assignment could not be found
+	*/
+	public KaleoTaskAssignment fetchByKaleoDefinitionId_First(
+		long kaleoDefinitionId,
+		com.liferay.portal.kernel.util.OrderByComparator<KaleoTaskAssignment> orderByComparator);
+
+	/**
+	* Returns the last kaleo task assignment in the ordered set where kaleoDefinitionId = &#63;.
+	*
+	* @param kaleoDefinitionId the kaleo definition ID
+>>>>>>> compatible
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the last matching kaleo task assignment
 	* @throws NoSuchTaskAssignmentException if a matching kaleo task assignment could not be found
 	*/
+<<<<<<< HEAD
 	public KaleoTaskAssignment findByKaleoDefinitionVersionId_Last(
 		long kaleoDefinitionVersionId,
+=======
+	public KaleoTaskAssignment findByKaleoDefinitionId_Last(
+		long kaleoDefinitionId,
+>>>>>>> compatible
 		com.liferay.portal.kernel.util.OrderByComparator<KaleoTaskAssignment> orderByComparator)
 		throws NoSuchTaskAssignmentException;
 
 	/**
+<<<<<<< HEAD
 	* Returns the last kaleo task assignment in the ordered set where kaleoDefinitionVersionId = &#63;.
 	*
 	* @param kaleoDefinitionVersionId the kaleo definition version ID
@@ -285,16 +366,39 @@ public interface KaleoTaskAssignmentPersistence extends BasePersistence<KaleoTas
 	*
 	* @param kaleoTaskAssignmentId the primary key of the current kaleo task assignment
 	* @param kaleoDefinitionVersionId the kaleo definition version ID
+=======
+	* Returns the last kaleo task assignment in the ordered set where kaleoDefinitionId = &#63;.
+	*
+	* @param kaleoDefinitionId the kaleo definition ID
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching kaleo task assignment, or <code>null</code> if a matching kaleo task assignment could not be found
+	*/
+	public KaleoTaskAssignment fetchByKaleoDefinitionId_Last(
+		long kaleoDefinitionId,
+		com.liferay.portal.kernel.util.OrderByComparator<KaleoTaskAssignment> orderByComparator);
+
+	/**
+	* Returns the kaleo task assignments before and after the current kaleo task assignment in the ordered set where kaleoDefinitionId = &#63;.
+	*
+	* @param kaleoTaskAssignmentId the primary key of the current kaleo task assignment
+	* @param kaleoDefinitionId the kaleo definition ID
+>>>>>>> compatible
 	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
 	* @return the previous, current, and next kaleo task assignment
 	* @throws NoSuchTaskAssignmentException if a kaleo task assignment with the primary key could not be found
 	*/
+<<<<<<< HEAD
 	public KaleoTaskAssignment[] findByKaleoDefinitionVersionId_PrevAndNext(
 		long kaleoTaskAssignmentId, long kaleoDefinitionVersionId,
+=======
+	public KaleoTaskAssignment[] findByKaleoDefinitionId_PrevAndNext(
+		long kaleoTaskAssignmentId, long kaleoDefinitionId,
+>>>>>>> compatible
 		com.liferay.portal.kernel.util.OrderByComparator<KaleoTaskAssignment> orderByComparator)
 		throws NoSuchTaskAssignmentException;
 
 	/**
+<<<<<<< HEAD
 	* Removes all the kaleo task assignments where kaleoDefinitionVersionId = &#63; from the database.
 	*
 	* @param kaleoDefinitionVersionId the kaleo definition version ID
@@ -308,6 +412,21 @@ public interface KaleoTaskAssignmentPersistence extends BasePersistence<KaleoTas
 	* @return the number of matching kaleo task assignments
 	*/
 	public int countByKaleoDefinitionVersionId(long kaleoDefinitionVersionId);
+=======
+	* Removes all the kaleo task assignments where kaleoDefinitionId = &#63; from the database.
+	*
+	* @param kaleoDefinitionId the kaleo definition ID
+	*/
+	public void removeByKaleoDefinitionId(long kaleoDefinitionId);
+
+	/**
+	* Returns the number of kaleo task assignments where kaleoDefinitionId = &#63;.
+	*
+	* @param kaleoDefinitionId the kaleo definition ID
+	* @return the number of matching kaleo task assignments
+	*/
+	public int countByKaleoDefinitionId(long kaleoDefinitionId);
+>>>>>>> compatible
 
 	/**
 	* Returns all the kaleo task assignments where kaleoClassName = &#63; and kaleoClassPK = &#63;.

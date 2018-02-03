@@ -14,6 +14,10 @@
 
 package com.liferay.portal.struts;
 
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.concurrent.ConcurrentHashSet;
+>>>>>>> compatible
 import com.liferay.registry.Registry;
 import com.liferay.registry.RegistryUtil;
 import com.liferay.registry.ServiceReference;
@@ -24,7 +28,10 @@ import com.liferay.registry.collections.StringServiceRegistrationMap;
 import com.liferay.registry.collections.StringServiceRegistrationMapImpl;
 import com.liferay.registry.util.StringPlus;
 
+<<<<<<< HEAD
 import java.util.Collections;
+=======
+>>>>>>> compatible
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -69,8 +76,12 @@ public class AuthPublicPathRegistry {
 		}
 	}
 
+<<<<<<< HEAD
 	private static final Set<String> _paths = Collections.newSetFromMap(
 		new ConcurrentHashMap<>());
+=======
+	private static final Set<String> _paths = new ConcurrentHashSet<>();
+>>>>>>> compatible
 	private static final StringServiceRegistrationMap<Object>
 		_serviceRegistrations = new StringServiceRegistrationMapImpl<>();
 	private static final ServiceTracker<Object, Object> _serviceTracker;

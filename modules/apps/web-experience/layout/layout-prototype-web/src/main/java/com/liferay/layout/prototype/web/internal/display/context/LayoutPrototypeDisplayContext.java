@@ -14,11 +14,17 @@
 
 package com.liferay.layout.prototype.web.internal.display.context;
 
+<<<<<<< HEAD
 import com.liferay.frontend.taglib.clay.servlet.taglib.util.NavigationItem;
 import com.liferay.layout.prototype.constants.LayoutPrototypePortletKeys;
 import com.liferay.portal.kernel.dao.search.EmptyOnClickRowChecker;
 import com.liferay.portal.kernel.dao.search.SearchContainer;
 import com.liferay.portal.kernel.language.LanguageUtil;
+=======
+import com.liferay.layout.prototype.constants.LayoutPrototypePortletKeys;
+import com.liferay.portal.kernel.dao.search.EmptyOnClickRowChecker;
+import com.liferay.portal.kernel.dao.search.SearchContainer;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.LayoutPrototype;
 import com.liferay.portal.kernel.portlet.PortalPreferences;
 import com.liferay.portal.kernel.portlet.PortletPreferencesFactoryUtil;
@@ -32,7 +38,10 @@ import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.kernel.util.comparator.LayoutPrototypeCreateDateComparator;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+>>>>>>> compatible
 import java.util.List;
 import java.util.Objects;
 
@@ -86,6 +95,7 @@ public class LayoutPrototypeDisplayContext {
 		return _displayStyle;
 	}
 
+<<<<<<< HEAD
 	public List<NavigationItem> getNavigationItems() {
 		List<NavigationItem> navigationItems = new ArrayList<>();
 
@@ -104,6 +114,8 @@ public class LayoutPrototypeDisplayContext {
 		return navigationItems;
 	}
 
+=======
+>>>>>>> compatible
 	public String getOrderByCol() {
 		if (Validator.isNotNull(_orderByCol)) {
 			return _orderByCol;

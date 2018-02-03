@@ -21,6 +21,10 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.jsonwebservice.JSONWebService;
 import com.liferay.portal.kernel.security.access.control.AccessControlled;
 import com.liferay.portal.kernel.service.BaseService;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.service.InvokableService;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
@@ -46,7 +50,11 @@ import java.util.List;
 @ProviderType
 @Transactional(isolation = Isolation.PORTAL, rollbackFor =  {
 	PortalException.class, SystemException.class})
+<<<<<<< HEAD
 public interface PowwowParticipantService extends BaseService {
+=======
+public interface PowwowParticipantService extends BaseService, InvokableService {
+>>>>>>> compatible
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
@@ -70,6 +78,14 @@ public interface PowwowParticipantService extends BaseService {
 	public int getPowwowParticipantsCount(long powwowMeetingId)
 		throws PortalException;
 
+<<<<<<< HEAD
+=======
+	@Override
+	public java.lang.Object invokeMethod(java.lang.String name,
+		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
+		throws java.lang.Throwable;
+
+>>>>>>> compatible
 	public PowwowParticipant updatePowwowParticipant(long powwowParticipantId,
 		long powwowMeetingId, java.lang.String name, long participantUserId,
 		java.lang.String emailAddress, int type, int status,

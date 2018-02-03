@@ -18,6 +18,11 @@ import com.liferay.asset.kernel.model.AssetCategory;
 import com.liferay.asset.kernel.service.AssetCategoryService;
 import com.liferay.asset.kernel.service.persistence.AssetCategoryFinder;
 import com.liferay.asset.kernel.service.persistence.AssetCategoryPersistence;
+<<<<<<< HEAD
+=======
+import com.liferay.asset.kernel.service.persistence.AssetCategoryPropertyFinder;
+import com.liferay.asset.kernel.service.persistence.AssetCategoryPropertyPersistence;
+>>>>>>> compatible
 import com.liferay.asset.kernel.service.persistence.AssetEntryFinder;
 import com.liferay.asset.kernel.service.persistence.AssetEntryPersistence;
 import com.liferay.asset.kernel.service.persistence.AssetTagFinder;
@@ -305,6 +310,85 @@ public abstract class AssetCategoryServiceBaseImpl extends BaseServiceImpl
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Returns the asset category property local service.
+	 *
+	 * @return the asset category property local service
+	 */
+	public com.liferay.asset.kernel.service.AssetCategoryPropertyLocalService getAssetCategoryPropertyLocalService() {
+		return assetCategoryPropertyLocalService;
+	}
+
+	/**
+	 * Sets the asset category property local service.
+	 *
+	 * @param assetCategoryPropertyLocalService the asset category property local service
+	 */
+	public void setAssetCategoryPropertyLocalService(
+		com.liferay.asset.kernel.service.AssetCategoryPropertyLocalService assetCategoryPropertyLocalService) {
+		this.assetCategoryPropertyLocalService = assetCategoryPropertyLocalService;
+	}
+
+	/**
+	 * Returns the asset category property remote service.
+	 *
+	 * @return the asset category property remote service
+	 */
+	public com.liferay.asset.kernel.service.AssetCategoryPropertyService getAssetCategoryPropertyService() {
+		return assetCategoryPropertyService;
+	}
+
+	/**
+	 * Sets the asset category property remote service.
+	 *
+	 * @param assetCategoryPropertyService the asset category property remote service
+	 */
+	public void setAssetCategoryPropertyService(
+		com.liferay.asset.kernel.service.AssetCategoryPropertyService assetCategoryPropertyService) {
+		this.assetCategoryPropertyService = assetCategoryPropertyService;
+	}
+
+	/**
+	 * Returns the asset category property persistence.
+	 *
+	 * @return the asset category property persistence
+	 */
+	public AssetCategoryPropertyPersistence getAssetCategoryPropertyPersistence() {
+		return assetCategoryPropertyPersistence;
+	}
+
+	/**
+	 * Sets the asset category property persistence.
+	 *
+	 * @param assetCategoryPropertyPersistence the asset category property persistence
+	 */
+	public void setAssetCategoryPropertyPersistence(
+		AssetCategoryPropertyPersistence assetCategoryPropertyPersistence) {
+		this.assetCategoryPropertyPersistence = assetCategoryPropertyPersistence;
+	}
+
+	/**
+	 * Returns the asset category property finder.
+	 *
+	 * @return the asset category property finder
+	 */
+	public AssetCategoryPropertyFinder getAssetCategoryPropertyFinder() {
+		return assetCategoryPropertyFinder;
+	}
+
+	/**
+	 * Sets the asset category property finder.
+	 *
+	 * @param assetCategoryPropertyFinder the asset category property finder
+	 */
+	public void setAssetCategoryPropertyFinder(
+		AssetCategoryPropertyFinder assetCategoryPropertyFinder) {
+		this.assetCategoryPropertyFinder = assetCategoryPropertyFinder;
+	}
+
+	/**
+>>>>>>> compatible
 	 * Returns the asset entry local service.
 	 *
 	 * @return the asset entry local service
@@ -603,6 +687,17 @@ public abstract class AssetCategoryServiceBaseImpl extends BaseServiceImpl
 	protected UserPersistence userPersistence;
 	@BeanReference(type = UserFinder.class)
 	protected UserFinder userFinder;
+<<<<<<< HEAD
+=======
+	@BeanReference(type = com.liferay.asset.kernel.service.AssetCategoryPropertyLocalService.class)
+	protected com.liferay.asset.kernel.service.AssetCategoryPropertyLocalService assetCategoryPropertyLocalService;
+	@BeanReference(type = com.liferay.asset.kernel.service.AssetCategoryPropertyService.class)
+	protected com.liferay.asset.kernel.service.AssetCategoryPropertyService assetCategoryPropertyService;
+	@BeanReference(type = AssetCategoryPropertyPersistence.class)
+	protected AssetCategoryPropertyPersistence assetCategoryPropertyPersistence;
+	@BeanReference(type = AssetCategoryPropertyFinder.class)
+	protected AssetCategoryPropertyFinder assetCategoryPropertyFinder;
+>>>>>>> compatible
 	@BeanReference(type = com.liferay.asset.kernel.service.AssetEntryLocalService.class)
 	protected com.liferay.asset.kernel.service.AssetEntryLocalService assetEntryLocalService;
 	@BeanReference(type = com.liferay.asset.kernel.service.AssetEntryService.class)

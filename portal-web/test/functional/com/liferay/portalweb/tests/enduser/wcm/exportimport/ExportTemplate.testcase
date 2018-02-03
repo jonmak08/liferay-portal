@@ -10,9 +10,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Publishing" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesPublishing">
+>>>>>>> compatible
 			<var name="portlet" value="Export" />
 		</execute>
 	</set-up>
@@ -53,9 +57,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Recycle Bin" />
 		</execute>
 
@@ -71,9 +79,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Publishing" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesPublishing">
+>>>>>>> compatible
 			<var name="portlet" value="Export" />
 		</execute>
 
@@ -98,7 +110,11 @@
 
 		<echo message="value name ${valueName}" />
 
+<<<<<<< HEAD
 		<var method="RegexUtil#replace('${valueName}', '([a-zA-z0-9_.-]*)[(0-9KB)]*', '1')" name="larFileName" />
+=======
+		<var group="1" input="${valueName}"  name="larFileName" pattern="([a-zA-z0-9_.-]*)[(0-9KB)]*" />
+>>>>>>> compatible
 
 		<echo message="lar file name ${larFileName}" />
 
@@ -115,6 +131,13 @@
 			<var name="exportTemplateName" value="Export Template Name" />
 		</execute>
 
+<<<<<<< HEAD
+=======
+		<execute macro="LAR#configureExportOptions">
+			<var name="uncheckContentNameList" value="Blogs" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="LAR#saveExportTemplateCP">
 			<var name="exportTemplateDescription" value="Export Template Description" />
 			<var name="exportTemplateName" value="Export Template Name" />
@@ -122,9 +145,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Publishing" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesPublishing">
+>>>>>>> compatible
 			<var name="portlet" value="Export" />
 		</execute>
 

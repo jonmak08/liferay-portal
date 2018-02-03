@@ -41,6 +41,10 @@ import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StreamUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
@@ -406,10 +410,37 @@ public class KBArticleStagedModelDataHandler
 			FileEntry fileEntry =
 				(FileEntry)portletDataContext.getZipEntryAsObject(path);
 
+<<<<<<< HEAD
 			String binPath = dlFileEntryElement.attributeValue("bin-path");
 
 			try (InputStream inputStream = _getKBArticalAttachmentInputStream(
 					binPath, portletDataContext, fileEntry)) {
+=======
+			InputStream inputStream = null;
+
+			try {
+				String binPath = dlFileEntryElement.attributeValue("bin-path");
+
+				if (Validator.isNull(binPath) &&
+					portletDataContext.isPerformDirectBinaryImport()) {
+
+					try {
+						inputStream = FileEntryUtil.getContentStream(fileEntry);
+					}
+					catch (NoSuchFileException nsfe) {
+
+						// LPS-52675
+
+						if (_log.isDebugEnabled()) {
+							_log.debug(nsfe, nsfe);
+						}
+					}
+				}
+				else {
+					inputStream = portletDataContext.getZipEntryAsInputStream(
+						binPath);
+				}
+>>>>>>> compatible
 
 				if (inputStream == null) {
 					if (_log.isWarnEnabled()) {
@@ -438,10 +469,28 @@ public class KBArticleStagedModelDataHandler
 					_log.debug(dfee, dfee);
 				}
 			}
+<<<<<<< HEAD
+=======
+			finally {
+				StreamUtil.cleanUp(inputStream);
+			}
+>>>>>>> compatible
 		}
 	}
 
 	@Reference(unbind = "-")
+<<<<<<< HEAD
+=======
+	protected void setKBArticleExportImportContentProcessor(
+		KBArticleExportImportContentProcessor
+			kbArticleExportImportContentProcessor) {
+
+		_kbArticleExportImportContentProcessor =
+			kbArticleExportImportContentProcessor;
+	}
+
+	@Reference(unbind = "-")
+>>>>>>> compatible
 	protected void setKBArticleLocalService(
 		KBArticleLocalService kbArticleLocalService) {
 
@@ -467,6 +516,7 @@ public class KBArticleStagedModelDataHandler
 		_portletFileRepository = portletFileRepository;
 	}
 
+<<<<<<< HEAD
 	private InputStream _getKBArticalAttachmentInputStream(
 			String binPath, PortletDataContext portletDataContext,
 			FileEntry fileEntry)
@@ -500,6 +550,13 @@ public class KBArticleStagedModelDataHandler
 	private KBArticleExportImportContentProcessor
 		_kbArticleExportImportContentProcessor;
 
+=======
+	private static final Log _log = LogFactoryUtil.getLog(
+		KBArticleStagedModelDataHandler.class);
+
+	private KBArticleExportImportContentProcessor
+		_kbArticleExportImportContentProcessor;
+>>>>>>> compatible
 	private KBArticleLocalService _kbArticleLocalService;
 	private KBFolderLocalService _kbFolderLocalService;
 	private Portal _portal;

@@ -40,7 +40,11 @@ import org.apache.struts.action.Action;
 public class StrutsActionRegistryUtil {
 
 	public static Action getAction(String path) {
+<<<<<<< HEAD
 		Action action = _actions.getService(path);
+=======
+		Action action = _actions.get(path);
+>>>>>>> compatible
 
 		if (action != null) {
 			return action;
@@ -56,6 +60,7 @@ public class StrutsActionRegistryUtil {
 	}
 
 	public static Map<String, Action> getActions() {
+<<<<<<< HEAD
 		Map<String, Action> map = new HashMap<>();
 
 		for (String key : _actions.keySet()) {
@@ -63,6 +68,9 @@ public class StrutsActionRegistryUtil {
 		}
 
 		return map;
+=======
+		return _actions;
+>>>>>>> compatible
 	}
 
 	public static void register(String path, StrutsAction strutsAction) {
@@ -111,6 +119,7 @@ public class StrutsActionRegistryUtil {
 		}
 	}
 
+<<<<<<< HEAD
 	private static String[] _getPaths(
 		ServiceReference<Object> serviceReference) {
 
@@ -124,6 +133,11 @@ public class StrutsActionRegistryUtil {
 	}
 
 	private static final ServiceTrackerMap<String, Action> _actions;
+=======
+	private static final Map<String, Action> _actions =
+		new ConcurrentHashMap<>();
+	private static final ServiceTracker<?, Action> _serviceTracker;
+>>>>>>> compatible
 	private static final StringServiceRegistrationMap<StrutsAction>
 		_strutsActionServiceRegistrations =
 			new StringServiceRegistrationMapImpl<>();
@@ -188,6 +202,20 @@ public class StrutsActionRegistryUtil {
 			new ActionServiceTrackerCustomizer());
 
 		_actions.open();
+	}
+
+	static {
+		Registry registry = RegistryUtil.getRegistry();
+
+		Filter filter = registry.getFilter(
+			"(&(|(objectClass=" + StrutsAction.class.getName() +
+				")(objectClass=" + StrutsPortletAction.class.getName() +
+					"))(path=*))");
+
+		_serviceTracker = registry.trackServices(
+			filter, new ActionServiceTrackerCustomizer());
+
+		_serviceTracker.open();
 	}
 
 }

@@ -19,6 +19,18 @@
 								'liferay-ddm-form-field-key-value',
 								'liferay-ddm-form-renderer-field'
 							]
+<<<<<<< HEAD
+=======
+						},
+						'liferay-ddm-form-field-options-template': {
+							condition: {
+								trigger: 'liferay-ddm-form-renderer'
+							},
+							path: 'options.soy.js',
+							requires: [
+								'soyutils'
+							]
+>>>>>>> compatible
 						}
 					},
 					root: MODULE_PATH + '/'

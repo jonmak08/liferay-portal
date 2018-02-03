@@ -222,6 +222,7 @@ public interface KaleoTimerModel extends BaseModel<KaleoTimer>, GroupedModel,
 	public void setKaleoClassPK(long kaleoClassPK);
 
 	/**
+<<<<<<< HEAD
 	 * Returns the kaleo definition version ID of this kaleo timer.
 	 *
 	 * @return the kaleo definition version ID of this kaleo timer
@@ -234,6 +235,20 @@ public interface KaleoTimerModel extends BaseModel<KaleoTimer>, GroupedModel,
 	 * @param kaleoDefinitionVersionId the kaleo definition version ID of this kaleo timer
 	 */
 	public void setKaleoDefinitionVersionId(long kaleoDefinitionVersionId);
+=======
+	 * Returns the kaleo definition ID of this kaleo timer.
+	 *
+	 * @return the kaleo definition ID of this kaleo timer
+	 */
+	public long getKaleoDefinitionId();
+
+	/**
+	 * Sets the kaleo definition ID of this kaleo timer.
+	 *
+	 * @param kaleoDefinitionId the kaleo definition ID of this kaleo timer
+	 */
+	public void setKaleoDefinitionId(long kaleoDefinitionId);
+>>>>>>> compatible
 
 	/**
 	 * Returns the name of this kaleo timer.

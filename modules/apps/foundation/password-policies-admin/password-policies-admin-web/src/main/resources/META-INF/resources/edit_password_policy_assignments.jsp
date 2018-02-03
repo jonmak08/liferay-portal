@@ -17,7 +17,11 @@
 <%@ include file="/init.jsp" %>
 
 <%
+<<<<<<< HEAD
 String tabs1 = ParamUtil.getString(request, "tabs1", "assignees");
+=======
+String tabs1 = ParamUtil.getString(request, "tabs1");
+>>>>>>> compatible
 String tabs2 = ParamUtil.getString(request, "tabs2", "users");
 
 String redirect = ParamUtil.getString(request, "redirect");
@@ -45,14 +49,21 @@ portletURL.setParameter("tabs2", tabs2);
 portletURL.setParameter("redirect", redirect);
 portletURL.setParameter("passwordPolicyId", String.valueOf(passwordPolicy.getPasswordPolicyId()));
 
+<<<<<<< HEAD
 request.setAttribute("edit_password_policy_assignments.jsp-portletURL", portletURL);
 
+=======
+>>>>>>> compatible
 portletDisplay.setShowBackIcon(true);
 portletDisplay.setURLBack(redirect);
 
 renderResponse.setTitle(passwordPolicy.getName());
 
+<<<<<<< HEAD
 String[] orderColumns = {"first-name", "last-name", "screen-name"};
+=======
+String[] orderColumns = {"first-name", "screen-name"};
+>>>>>>> compatible
 RowChecker rowChecker = new DeleteUserPasswordPolicyChecker(renderResponse, passwordPolicy);
 PortletURL searchURL = PortletURLUtil.clone(portletURL, renderResponse);
 SearchContainer searchContainer = new UserSearch(renderRequest, searchURL);
@@ -71,6 +82,7 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "passwor
 PortalUtil.addPortletBreadcrumbEntry(request, passwordPolicy.getName(), null);
 %>
 
+<<<<<<< HEAD
 <liferay-util:include page="/edit_password_policy_tabs.jsp" servletContext="<%= application %>" />
 
 <liferay-ui:tabs
@@ -79,6 +91,34 @@ PortalUtil.addPortletBreadcrumbEntry(request, passwordPolicy.getName(), null);
 	type="tabs nav-tabs-default"
 	url="<%= portletURL.toString() %>"
 />
+=======
+<aui:nav-bar cssClass="collapse-basic-search" markupView="lexicon">
+	<aui:nav cssClass="navbar-nav">
+
+		<%
+		PortletURL usersURL = PortletURLUtil.clone(portletURL, renderResponse);
+
+		usersURL.setParameter("tabs2", "users");
+		%>
+
+		<aui:nav-item href="<%= usersURL.toString() %>" label="users" selected='<%= tabs2.equals("users") %>' />
+
+		<%
+		PortletURL userGroupsURL = PortletURLUtil.clone(portletURL, renderResponse);
+
+		userGroupsURL.setParameter("tabs2", "organizations");
+		%>
+
+		<aui:nav-item href="<%= userGroupsURL.toString() %>" label="organizations" selected='<%= tabs2.equals("organizations") %>' />
+	</aui:nav>
+
+	<aui:nav-bar-search>
+		<aui:form action="<%= portletURL.toString() %>" name="searchFm">
+			<liferay-ui:input-search markupView="lexicon" />
+		</aui:form>
+	</aui:nav-bar-search>
+</aui:nav-bar>
+>>>>>>> compatible
 
 <liferay-frontend:management-bar
 	includeCheckBox="<%= true %>"
@@ -96,6 +136,7 @@ PortalUtil.addPortletBreadcrumbEntry(request, passwordPolicy.getName(), null);
 			orderColumns="<%= orderColumns %>"
 			portletURL="<%= PortletURLUtil.clone(portletURL, renderResponse) %>"
 		/>
+<<<<<<< HEAD
 
 		<c:if test='<%= passwordPolicyDisplayContext.hasAssignMembersPermission() && tabs1.equals("assignees") %>'>
 			<li>
@@ -104,6 +145,8 @@ PortalUtil.addPortletBreadcrumbEntry(request, passwordPolicy.getName(), null);
 				</aui:form>
 			</li>
 		</c:if>
+=======
+>>>>>>> compatible
 	</liferay-frontend:management-bar-filters>
 
 	<liferay-frontend:management-bar-buttons>
@@ -204,7 +247,11 @@ PortalUtil.addPortletBreadcrumbEntry(request, passwordPolicy.getName(), null);
 </aui:form>
 
 <liferay-frontend:add-menu>
+<<<<<<< HEAD
 	<liferay-frontend:add-menu-item id="addAssignees" title='<%= LanguageUtil.get(request, "add-assignees") %>' url="javascript:;" />
+=======
+	<liferay-frontend:add-menu-item id="addMembers" title='<%= LanguageUtil.get(request, "add-members") %>' url="javascript:;" />
+>>>>>>> compatible
 </liferay-frontend:add-menu>
 
 <aui:script use="liferay-item-selector-dialog">
@@ -221,7 +268,11 @@ PortalUtil.addPortletBreadcrumbEntry(request, passwordPolicy.getName(), null);
 		<portlet:param name="passwordPolicyId" value="<%= String.valueOf(passwordPolicyId) %>" />
 	</portlet:renderURL>
 
+<<<<<<< HEAD
 	$('#<portlet:namespace />addAssignees').on(
+=======
+	$('#<portlet:namespace />addMembers').on(
+>>>>>>> compatible
 		'click',
 		function(event) {
 			event.preventDefault();
@@ -245,7 +296,11 @@ PortalUtil.addPortletBreadcrumbEntry(request, passwordPolicy.getName(), null);
 							}
 						}
 					},
+<<<<<<< HEAD
 					title: '<liferay-ui:message arguments="<%= HtmlUtil.escape(passwordPolicy.getName()) %>" key="add-assignees-to-x" />',
+=======
+					title: '<liferay-ui:message arguments="<%= HtmlUtil.escape(passwordPolicy.getName()) %>" key="add-members-to-x" />',
+>>>>>>> compatible
 					url: '<%= selectMembersURL %>'
 				}
 			);

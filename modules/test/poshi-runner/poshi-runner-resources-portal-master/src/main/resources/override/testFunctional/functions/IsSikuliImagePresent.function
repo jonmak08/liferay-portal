@@ -2,6 +2,10 @@
 	<command name="isSikuliImagePresent">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.IsSikuliImagePresent#isSikuliImagePresent" />
+=======
+		<super />
+>>>>>>> compatible
 	</command>
 </definition>

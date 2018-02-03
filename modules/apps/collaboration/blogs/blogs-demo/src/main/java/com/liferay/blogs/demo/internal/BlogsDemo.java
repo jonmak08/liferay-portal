@@ -15,7 +15,11 @@
 package com.liferay.blogs.demo.internal;
 
 import com.liferay.blogs.demo.data.creator.BlogsEntryDemoDataCreator;
+<<<<<<< HEAD
 import com.liferay.blogs.model.BlogsEntry;
+=======
+import com.liferay.blogs.kernel.model.BlogsEntry;
+>>>>>>> compatible
 import com.liferay.comment.demo.data.creator.MultipleCommentDemoDataCreator;
 import com.liferay.portal.instance.lifecycle.BasePortalInstanceLifecycleListener;
 import com.liferay.portal.instance.lifecycle.PortalInstanceLifecycleListener;

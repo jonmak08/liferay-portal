@@ -14,14 +14,21 @@
 
 package com.liferay.source.formatter.parser;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.source.formatter.checks.util.JavaSourceUtil;
 
+<<<<<<< HEAD
 import java.util.Set;
 import java.util.TreeSet;
 
+=======
+>>>>>>> compatible
 /**
  * @author Hugo Huijser
  */
@@ -63,14 +70,18 @@ public class JavaSignatureParser {
 			}
 		}
 
+<<<<<<< HEAD
 		boolean isFinal = false;
 		Set<String> parameterAnnotations = new TreeSet<>();
 
+=======
+>>>>>>> compatible
 		parameters = StringUtil.replace(
 			parameters, new String[] {"\t", ".\n", "\n"},
 			new String[] {"", ".", " "});
 
 		for (x = 0;;) {
+<<<<<<< HEAD
 			int pos = -1;
 
 			while (true) {
@@ -101,6 +112,15 @@ public class JavaSignatureParser {
 
 			if (parameters.startsWith("final ")) {
 				isFinal = true;
+=======
+			parameters = StringUtil.trim(parameters);
+
+			if (parameters.startsWith(StringPool.AT)) {
+				parameters = _stripAnnotation(parameters);
+			}
+
+			if (parameters.startsWith("final ")) {
+>>>>>>> compatible
 				parameters = parameters.substring(6);
 			}
 
@@ -121,20 +141,29 @@ public class JavaSignatureParser {
 			if (y == -1) {
 				String parameterName = parameters.substring(x + 1);
 
+<<<<<<< HEAD
 				javaSignature.addParameter(
 					parameterName, parameterType, parameterAnnotations,
 					isFinal);
+=======
+				javaSignature.addParameter(parameterName, parameterType);
+>>>>>>> compatible
 
 				return javaSignature;
 			}
 
 			String parameterName = parameters.substring(x + 1, y);
 
+<<<<<<< HEAD
 			javaSignature.addParameter(
 				parameterName, parameterType, parameterAnnotations, isFinal);
 
 			isFinal = false;
 			parameterAnnotations = new TreeSet<>();
+=======
+			javaSignature.addParameter(parameterName, parameterType);
+
+>>>>>>> compatible
 			parameters = parameters.substring(y + 1);
 
 			x = 0;
@@ -168,4 +197,27 @@ public class JavaSignatureParser {
 		return returnType;
 	}
 
+<<<<<<< HEAD
+=======
+	private static String _stripAnnotation(String parameters) {
+		int pos = -1;
+
+		while (true) {
+			pos = parameters.indexOf(CharPool.SPACE, pos + 1);
+
+			if (pos == -1) {
+				return parameters;
+			}
+
+			String annotation = parameters.substring(0, pos);
+
+			if ((JavaSourceUtil.getLevel(annotation) == 0) &&
+				(JavaSourceUtil.getLevel(annotation, "<", ">") == 0)) {
+
+				return parameters.substring(pos + 1);
+			}
+		}
+	}
+
+>>>>>>> compatible
 }

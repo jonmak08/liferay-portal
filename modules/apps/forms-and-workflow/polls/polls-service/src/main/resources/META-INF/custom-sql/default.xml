@@ -22,8 +22,13 @@
 				{PollsQuestion.*}
 			FROM
 				(
+<<<<<<< HEAD
 					SELECT
 						DISTINCT PollsQuestion.questionId
+=======
+					SELECT DISTINCT
+						PollsQuestion.questionId
+>>>>>>> compatible
 					FROM
 						PollsQuestion
 					WHERE
@@ -35,9 +40,14 @@
 						)
 				)
 				TEMP_TABLE
+<<<<<<< HEAD
 			INNER JOIN
 				PollsQuestion ON
 					TEMP_TABLE.questionId = PollsQuestion.questionId
+=======
+					INNER JOIN PollsQuestion ON
+						TEMP_TABLE.questionId = PollsQuestion.questionId
+>>>>>>> compatible
 			ORDER BY
 				PollsQuestion.questionId DESC
 		]]>

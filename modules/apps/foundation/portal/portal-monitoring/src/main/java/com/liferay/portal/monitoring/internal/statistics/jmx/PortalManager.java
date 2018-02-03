@@ -16,7 +16,10 @@ package com.liferay.portal.monitoring.internal.statistics.jmx;
 
 import com.liferay.portal.kernel.monitoring.MonitoringException;
 import com.liferay.portal.kernel.util.ArrayUtil;
+<<<<<<< HEAD
 import com.liferay.portal.monitoring.internal.statistics.portal.CompanyStatistics;
+=======
+>>>>>>> compatible
 import com.liferay.portal.monitoring.internal.statistics.portal.ServerStatistics;
 import com.liferay.portal.monitoring.internal.statistics.portal.ServerSummaryStatistics;
 
@@ -143,6 +146,7 @@ public class PortalManager extends StandardMBean implements PortalManagerMBean {
 	}
 
 	public long getStartTime(long companyId) throws MonitoringException {
+<<<<<<< HEAD
 		CompanyStatistics companyStatistics =
 			_serverStatistics.getCompanyStatistics(companyId);
 
@@ -154,6 +158,13 @@ public class PortalManager extends StandardMBean implements PortalManagerMBean {
 			_serverStatistics.getCompanyStatistics(webId);
 
 		return companyStatistics.getStartTime();
+=======
+		return _serverStatistics.getCompanyStatistics(companyId).getStartTime();
+	}
+
+	public long getStartTime(String webId) throws MonitoringException {
+		return _serverStatistics.getCompanyStatistics(webId).getStartTime();
+>>>>>>> compatible
 	}
 
 	@Override
@@ -196,18 +207,26 @@ public class PortalManager extends StandardMBean implements PortalManagerMBean {
 
 	@Override
 	public long getUptime(long companyId) throws MonitoringException {
+<<<<<<< HEAD
 		CompanyStatistics companyStatistics =
 			_serverStatistics.getCompanyStatistics(companyId);
 
 		return companyStatistics.getUptime();
+=======
+		return _serverStatistics.getCompanyStatistics(companyId).getUptime();
+>>>>>>> compatible
 	}
 
 	@Override
 	public long getUptime(String webId) throws MonitoringException {
+<<<<<<< HEAD
 		CompanyStatistics companyStatistics =
 			_serverStatistics.getCompanyStatistics(webId);
 
 		return companyStatistics.getUptime();
+=======
+		return _serverStatistics.getCompanyStatistics(webId).getUptime();
+>>>>>>> compatible
 	}
 
 	@Override

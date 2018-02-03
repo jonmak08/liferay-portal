@@ -14,9 +14,15 @@
 
 package com.liferay.portal.upgrade.test;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.FileUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -75,15 +81,23 @@ public class WabBuildAutoUpgradeTest extends BaseBuildAutoUpgradeTestCase {
 			sb.append(url.getPath());
 			sb.append("?");
 			sb.append(Constants.BUNDLE_SYMBOLICNAME);
+<<<<<<< HEAD
 			sb.append("=BuildAutoUpgradeTest&Web-ContextPath=");
 			sb.append("/BuildAutoUpgradeTest&protocol=file");
+=======
+			sb.append("=BuildAutoUpgradeTest&Web-ContextPath=/");
+			sb.append("BuildAutoUpgradeTest&protocol=file");
+>>>>>>> compatible
 
 			_warURLs[i] = new URL("webbundle", null, sb.toString());
 		}
 	}
 
 	@After
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public void tearDown() throws Throwable {
 		super.tearDown();
 

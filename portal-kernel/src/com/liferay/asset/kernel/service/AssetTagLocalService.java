@@ -31,10 +31,15 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.PersistedModel;
 import com.liferay.portal.kernel.model.SystemEventConstants;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.search.BaseModelSearchResult;
 import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.search.Sort;
+=======
+import com.liferay.portal.kernel.search.Indexable;
+import com.liferay.portal.kernel.search.IndexableType;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.BaseLocalService;
 import com.liferay.portal.kernel.service.PersistedModelLocalService;
 import com.liferay.portal.kernel.service.ServiceContext;
@@ -97,7 +102,10 @@ public interface AssetTagLocalService extends BaseLocalService,
 	* @param serviceContext the service context to be applied
 	* @return the asset tag that was added
 	*/
+<<<<<<< HEAD
 	@Indexable(type = IndexableType.REINDEX)
+=======
+>>>>>>> compatible
 	public AssetTag addTag(long userId, long groupId, java.lang.String name,
 		ServiceContext serviceContext) throws PortalException;
 
@@ -151,7 +159,10 @@ public interface AssetTagLocalService extends BaseLocalService,
 	tag had been applied
 	* @return the asset tag
 	*/
+<<<<<<< HEAD
 	@Indexable(type = IndexableType.REINDEX)
+=======
+>>>>>>> compatible
 	public AssetTag decrementAssetCount(long tagId, long classNameId)
 		throws PortalException;
 
@@ -519,6 +530,7 @@ public interface AssetTagLocalService extends BaseLocalService,
 	public long[] getTagIds(long[] groupIds, java.lang.String[] names);
 
 	/**
+<<<<<<< HEAD
 	* Returns the primary keys of the asset tags with the names.
 	*
 	* @param name the name of the asset tags
@@ -528,6 +540,8 @@ public interface AssetTagLocalService extends BaseLocalService,
 	public long[] getTagIds(java.lang.String name);
 
 	/**
+=======
+>>>>>>> compatible
 	* Returns the names of all the asset tags.
 	*
 	* @return the names of all the asset tags
@@ -597,9 +611,12 @@ public interface AssetTagLocalService extends BaseLocalService,
 	public int getTagsSize(long groupId, long classNameId, java.lang.String name);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+<<<<<<< HEAD
 	public int getTagsSize(long groupId, java.lang.String name);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+=======
+>>>>>>> compatible
 	public boolean hasAssetEntryAssetTag(long entryId, long tagId);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
@@ -625,7 +642,10 @@ public interface AssetTagLocalService extends BaseLocalService,
 	tag is being applied
 	* @return the asset tag
 	*/
+<<<<<<< HEAD
 	@Indexable(type = IndexableType.REINDEX)
+=======
+>>>>>>> compatible
 	public AssetTag incrementAssetCount(long tagId, long classNameId)
 		throws PortalException;
 
@@ -666,11 +686,14 @@ public interface AssetTagLocalService extends BaseLocalService,
 	public List<AssetTag> search(long[] groupIds, java.lang.String name,
 		int start, int end);
 
+<<<<<<< HEAD
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public BaseModelSearchResult<AssetTag> searchTags(long[] groupIds,
 		java.lang.String name, int start, int end, Sort sort)
 		throws PortalException;
 
+=======
+>>>>>>> compatible
 	public void setAssetEntryAssetTags(long entryId, long[] tagIds);
 
 	/**
@@ -682,7 +705,10 @@ public interface AssetTagLocalService extends BaseLocalService,
 	@Indexable(type = IndexableType.REINDEX)
 	public AssetTag updateAssetTag(AssetTag assetTag);
 
+<<<<<<< HEAD
 	@Indexable(type = IndexableType.REINDEX)
+=======
+>>>>>>> compatible
 	public AssetTag updateTag(long userId, long tagId, java.lang.String name,
 		ServiceContext serviceContext) throws PortalException;
 }

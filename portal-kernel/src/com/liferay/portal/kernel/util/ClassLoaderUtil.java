@@ -14,8 +14,6 @@
 
 package com.liferay.portal.kernel.util;
 
-import com.liferay.petra.lang.ClassLoaderPool;
-
 /**
  * @author Raymond Augé
  * @author Shuyang Zhou

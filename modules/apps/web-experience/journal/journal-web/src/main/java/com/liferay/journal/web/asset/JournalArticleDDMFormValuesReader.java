@@ -29,8 +29,12 @@ import com.liferay.portal.kernel.util.PortalUtil;
 /**
  * @author Adolfo Pérez
  */
+<<<<<<< HEAD
 public final class JournalArticleDDMFormValuesReader
 	extends BaseDDMFormValuesReader {
+=======
+public class JournalArticleDDMFormValuesReader extends BaseDDMFormValuesReader {
+>>>>>>> compatible
 
 	public JournalArticleDDMFormValuesReader(JournalArticle article) {
 		_article = article;

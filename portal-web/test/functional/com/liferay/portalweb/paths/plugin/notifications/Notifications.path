@@ -47,6 +47,7 @@
 <tr>
 	<td>NOTIFICATIONS_TITLE</td>
 	<td>//div[@class='title']</td>
+<<<<<<< HEAD
 	<td></td>
 </tr>
 <tr>
@@ -67,20 +68,56 @@
 <tr>
 	<td>NOTIFICATIONS_CONTENT_GENERIC</td>
 	<td>//div[@class='body-container']//div[@class='body']</td>
+=======
+	<td></td>
+</tr>
+<tr>
+	<td>NOTIFICATIONS_VERTICAL_ELLIPSIS</td>
+	<td>//li[contains(.,'${key_contentBody}')]//span/*[name()='svg'][contains(@class,'icon-ellipsis')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NOTIFICATIONS_WORKFLOW_TITLE</td>
+	<td>//div[@class='body-container']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NOTIFICATIONS_CONTENT</td>
+	<td>//div[contains(@class,'content')]//div[@class='body' and contains(.,'${key_contentBody}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NOTIFICATIONS_CONTENT_GENERIC</td>
+	<td>//div[@class='body-container']//div[@class='body']</td>
 	<td></td>
 </tr>
 <tr>
 	<td></td>
 	<td></td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <!--NOTIFICATIONS_CONFIGURATION-->
 <tr>
+<<<<<<< HEAD
+	<td></td>
+	<td></td>
+=======
+	<td>NOTIFICATIONS_CONFIGURATION_EMAIL_SWITCH</td>
+	<td>//div[contains(@id,'${key_contentType}Content')]//td[contains(.,'${key_actionType}')]//following-sibling::td[contains(@class,'lfr-email-column')]//span</td>
+>>>>>>> compatible
+	<td></td>
+</tr>
+<!--NOTIFICATIONS_CONFIGURATION-->
+<tr>
+<<<<<<< HEAD
 	<td>NOTIFICATIONS_CONFIGURATION_EMAIL_SWITCH</td>
 	<td>//div[contains(@id,'${key_contentType}Content')]//td[contains(.,'${key_actionType}')]//following-sibling::td[contains(@class,'lfr-email-column')]//span</td>
 	<td></td>
 </tr>
 <tr>
+=======
+>>>>>>> compatible
 	<td>NOTIFICATIONS_CONFIGURATION_WEBSITE_SWITCH</td>
 	<td>//div[contains(@id,'${key_contentType}Content')]//td[contains(.,'${key_actionType}')]//following-sibling::td/following-sibling::td[contains(@class,'lfr-website-column')]//span</td>
 	<td></td>
@@ -147,6 +184,7 @@
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 	<td>NOTIFICATION_DELIVERY_TEXT_5</td>
 	<td>//div[contains(@id,'${key_contentType}')]//table//tr[6]</td>
 	<td></td>
@@ -157,6 +195,8 @@
 	<td></td>
 </tr>
 <tr>
+=======
+>>>>>>> compatible
 	<td>NOTIFICATION_DELIVERY_CONTACTS_CENTER_WEBSITE_CHECKBOX</td>
 	<td>//table[contains(.,'Contacts Center')]//tr[contains(.,'sends you a social relationship request.')]//label[contains(.,'Website')]/input[@type='checkbox' and contains(@class,'disabled')]</td>
 	<td></td>
@@ -174,7 +214,11 @@
 <!--REQUESTS-->
 <tr>
 	<td>REQUESTS_LIST_TAB</td>
+<<<<<<< HEAD
 	<td>//a[contains(@title,'Requests List')]</td>
+=======
+	<td>//a[@title='Requests List']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 </tbody>

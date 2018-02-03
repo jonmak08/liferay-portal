@@ -18,6 +18,7 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.service.CompanyLocalService;
 import com.liferay.portal.kernel.settings.SettingsFactory;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.PrefsProps;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.security.sso.token.internal.constants.LegacyTokenPropsKeys;
@@ -26,6 +27,19 @@ import com.liferay.portal.security.sso.token.internal.constants.TokenConstants;
 import com.liferay.portal.verify.BaseCompanySettingsVerifyProcess;
 import com.liferay.portal.verify.VerifyProcess;
 
+=======
+import com.liferay.portal.kernel.util.HashMapDictionary;
+import com.liferay.portal.kernel.util.PrefsProps;
+import com.liferay.portal.kernel.util.SetUtil;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.security.sso.token.constants.LegacyTokenPropsKeys;
+import com.liferay.portal.security.sso.token.constants.TokenConfigurationKeys;
+import com.liferay.portal.security.sso.token.constants.TokenConstants;
+import com.liferay.portal.verify.BaseCompanySettingsVerifyProcess;
+import com.liferay.portal.verify.VerifyProcess;
+
+import java.util.Dictionary;
+>>>>>>> compatible
 import java.util.Set;
 
 import org.osgi.service.component.annotations.Component;
@@ -53,6 +67,7 @@ public class SiteMinderCompanySettingsVerifyProcess
 	}
 
 	@Override
+<<<<<<< HEAD
 	protected String[][] getRenamePropertyKeysArray() {
 		return new String[][] {
 			new String[] {
@@ -68,6 +83,41 @@ public class SiteMinderCompanySettingsVerifyProcess
 				TokenConfigurationKeys.USER_HEADER
 			}
 		};
+=======
+	protected Dictionary<String, String> getPropertyValues(long companyId) {
+		Dictionary<String, String> dictionary = new HashMapDictionary<>();
+
+		boolean siteMinderEnabled = _prefsProps.getBoolean(
+			companyId, LegacyTokenPropsKeys.SITEMINDER_AUTH_ENABLED);
+
+		if (!siteMinderEnabled) {
+			return dictionary;
+		}
+
+		dictionary.put(
+			TokenConfigurationKeys.AUTH_ENABLED,
+			_prefsProps.getString(
+				companyId, LegacyTokenPropsKeys.SITEMINDER_AUTH_ENABLED,
+				StringPool.FALSE));
+		dictionary.put(
+			TokenConfigurationKeys.IMPORT_FROM_LDAP,
+			_prefsProps.getString(
+				companyId, LegacyTokenPropsKeys.SITEMINDER_IMPORT_FROM_LDAP,
+				StringPool.FALSE));
+		dictionary.put(
+			TokenConfigurationKeys.USER_HEADER,
+			_prefsProps.getString(
+				companyId, LegacyTokenPropsKeys.SITEMINDER_USER_HEADER,
+				"SM_USER"));
+
+		if (_log.isDebugEnabled()) {
+			_log.debug(
+				"Adding SiteMinder token configuration for company " +
+					companyId + " with properties: " + dictionary);
+		}
+
+		return dictionary;
+>>>>>>> compatible
 	}
 
 	@Override
@@ -87,10 +137,13 @@ public class SiteMinderCompanySettingsVerifyProcess
 		_companyLocalService = companyLocalService;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 3.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	@Reference(unbind = "-")
 	protected void setPrefsProps(PrefsProps prefsProps) {
 		_prefsProps = prefsProps;

@@ -14,9 +14,15 @@
 
 package com.liferay.portal.cache.ehcache.internal.configurator;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.cache.configuration.PortalCacheManagerConfiguration;
 import com.liferay.portal.kernel.util.PropsKeys;
+=======
+import com.liferay.portal.cache.configuration.PortalCacheManagerConfiguration;
+import com.liferay.portal.kernel.util.PropsKeys;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import net.sf.ehcache.config.Configuration;
 import net.sf.ehcache.config.FactoryConfiguration;

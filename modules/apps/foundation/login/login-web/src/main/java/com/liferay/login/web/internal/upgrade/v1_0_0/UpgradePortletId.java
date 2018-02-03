@@ -14,7 +14,11 @@
 
 package com.liferay.login.web.internal.upgrade.v1_0_0;
 
+<<<<<<< HEAD
 import com.liferay.login.web.internal.constants.LoginPortletKeys;
+=======
+import com.liferay.login.web.constants.LoginPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.upgrade.BaseUpgradePortletId;
 
 /**

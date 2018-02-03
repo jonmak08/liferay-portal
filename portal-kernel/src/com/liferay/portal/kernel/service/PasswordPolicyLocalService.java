@@ -261,10 +261,13 @@ public interface PasswordPolicyLocalService extends BaseLocalService,
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public PasswordPolicy getPasswordPolicy(long companyId,
+<<<<<<< HEAD
 		boolean defaultPolicy) throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public PasswordPolicy getPasswordPolicy(long companyId,
+=======
+>>>>>>> compatible
 		long[] organizationIds) throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)

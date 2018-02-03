@@ -246,7 +246,13 @@
 					<var name="name" value="${calendarNameEdit}" />
 				</execute>
 
+<<<<<<< HEAD
 				<execute macro="PortletEntry#save" />
+=======
+				<execute macro="Button#clickSave" />
+
+				<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 
 				<execute function="SelectFrame" value1="relative=top" />
 			</then>
@@ -268,7 +274,13 @@
 						<var name="name" value="${calendarNameEdit}" />
 					</execute>
 
+<<<<<<< HEAD
 					<execute macro="PortletEntry#save" />
+=======
+					<execute macro="Button#clickSave" />
+
+					<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 
 					<execute function="SelectFrame" value1="relative=top" />
 				</then>
@@ -287,7 +299,13 @@
 						<var name="name" value="${calendarNameEdit}" />
 					</execute>
 
+<<<<<<< HEAD
 					<execute macro="PortletEntry#save" />
+=======
+					<execute macro="Button#clickSave" />
+
+					<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 
 					<execute function="SelectFrame" value1="relative=top" />
 				</then>
@@ -419,8 +437,24 @@
 		</if>
 
 		<execute macro="Button#clickSave" />
+<<<<<<< HEAD
 
 		<execute macro="Alert#waitForSuccessMessageHide" />
+=======
+
+		<if>
+			<condition function="IsElementPresent" locator1="Message#SUCCESS" />
+			<then>
+				<execute macro="Alert#viewSuccessMessage" />
+				<execute function="SelectFrame" value1="relative=top" />
+			</then>
+			<else>
+				<execute function="SelectFrame" value1="relative=top" />
+
+				<execute macro="Alert#viewSuccessMessage" />
+			</else>
+		</if>
+>>>>>>> compatible
 
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
@@ -597,6 +631,15 @@
 
 		<execute macro="Button#clickSave" />
 
+<<<<<<< HEAD
+=======
+		<execute macro="IFrame#selectPermissionsFrame" />
+
+		<execute function="Check" locator1="Permissions#EVENT_PERMISSIONS_VIEW_EVENT_DETAILS_CHECKBOX" value1="${roleName}" />
+
+		<execute macro="Button#clickSave" />
+
+>>>>>>> compatible
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
 
@@ -697,6 +740,15 @@
 
 		<execute macro="Button#clickSave" />
 
+<<<<<<< HEAD
+=======
+		<execute macro="IFrame#selectPermissionsFrame" />
+
+		<execute function="Uncheck" locator1="Permissions#EVENT_PERMISSIONS_VIEW_CHECKBOX" value1="${roleName}" />
+
+		<execute macro="Button#clickSave" />
+
+>>>>>>> compatible
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
 
@@ -755,6 +807,10 @@
 		<execute function="AssertElementNotPresent" locator1="Calendar#MY_CALENDARS_CALENDAR_ADDITIONAL_GENERIC" />
 		<execute function="AssertElementNotPresent" locator1="Calendar#CURRENT_SITE_CALENDARS_CALENDAR_ADDITIONAL_GENERIC" />
 		<execute function="AssertElementNotPresent" locator1="Calendar#OTHER_CALENDARS_CALENDAR_GENERIC" />
+<<<<<<< HEAD
+=======
+		<execute function="AssertTextEquals" locator1="Calendar#OTHER_CALENDARS_CALENDAR_EMPTY_MESSAGE" value1="No calendars selected." />
+>>>>>>> compatible
 	</command>
 
 	<command name="tearDownColor">
@@ -860,9 +916,15 @@
 		<var name="key_siteName" value="${siteName}" />
 
 		<execute function="AssertTextEquals" locator1="Calendar#CURRENT_SITE_CALENDARS_HEADER" value1="${siteName}'s Calendars" />
+<<<<<<< HEAD
 
 		<var name="key_calendarName" value="${calendarName}" />
 
+=======
+
+		<var name="key_calendarName" value="${calendarName}" />
+
+>>>>>>> compatible
 		<execute function="AssertTextEquals" locator1="Calendar#CURRENT_SITE_CALENDARS_CALENDAR_PRIMARY" value1="${calendarName}" />
 	</command>
 

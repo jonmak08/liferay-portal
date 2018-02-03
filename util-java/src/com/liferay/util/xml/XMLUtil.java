@@ -14,8 +14,13 @@
 
 package com.liferay.util.xml;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.exception.SystemException;
+=======
+import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
@@ -23,6 +28,7 @@ import com.liferay.portal.kernel.xml.Document;
 
 import java.io.IOException;
 
+<<<<<<< HEAD
 import org.dom4j.DocumentException;
 
 /**
@@ -31,6 +37,12 @@ import org.dom4j.DocumentException;
  * @deprecated As of 7.0.0
  */
 @Deprecated
+=======
+/**
+ * @author Leonardo Barros
+ * @see    com.liferay.petra.xml.XMLUtil
+ */
+>>>>>>> compatible
 public class XMLUtil {
 
 	public static String fixProlog(String xml) {
@@ -73,7 +85,11 @@ public class XMLUtil {
 		catch (IOException ioe) {
 			throw new SystemException(ioe);
 		}
+<<<<<<< HEAD
 		catch (DocumentException de) {
+=======
+		catch (org.dom4j.DocumentException de) {
+>>>>>>> compatible
 			throw new SystemException(de);
 		}
 	}

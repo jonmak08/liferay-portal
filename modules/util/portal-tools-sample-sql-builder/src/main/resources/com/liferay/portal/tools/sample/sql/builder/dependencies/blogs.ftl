@@ -3,6 +3,7 @@
 <#list blogsEntryModels as blogsEntryModel>
 	${dataFactory.toInsertSQL(blogsEntryModel)}
 
+<<<<<<< HEAD
 	<#assign friendlyURLEntryModel = dataFactory.newFriendlyURLEntryModel(blogsEntryModel) />
 
 	${dataFactory.toInsertSQL(friendlyURLEntryModel)}
@@ -11,6 +12,8 @@
 
 	${dataFactory.toInsertSQL(dataFactory.newFriendlyURLEntryMapping(friendlyURLEntryModel))}
 
+=======
+>>>>>>> compatible
 	<@insertAssetEntry
 		_categoryAndTag=true
 		_entry=blogsEntryModel

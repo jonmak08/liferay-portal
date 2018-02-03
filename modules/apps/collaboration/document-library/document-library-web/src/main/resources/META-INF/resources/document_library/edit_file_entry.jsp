@@ -77,9 +77,12 @@ if (fileEntryTypeId >= 0) {
 	dlFileEntryType = DLFileEntryTypeLocalServiceUtil.getFileEntryType(fileEntryTypeId);
 }
 
+<<<<<<< HEAD
 boolean majorVersion = ParamUtil.getBoolean(request, "majorVersion");
 boolean updateVersionDetails = ParamUtil.getBoolean(request, "updateVersionDetails");
 
+=======
+>>>>>>> compatible
 long assetClassPK = 0;
 
 if ((fileVersion != null) && !fileVersion.isApproved() && Validator.isNotNull(fileVersion.getVersion()) && !fileVersion.getVersion().equals(DLFileEntryConstants.VERSION_DEFAULT)) {
@@ -119,9 +122,31 @@ else {
 	dlEditFileEntryDisplayContext = dlDisplayContextProvider.getDLEditFileEntryDisplayContext(request, response, fileEntry);
 }
 
+<<<<<<< HEAD
 String defaultLanguageId = LocaleUtil.toLanguageId(LocaleUtil.getSiteDefault());
 
 Locale[] availableLocales = DLFileEntryTypeUtil.getDLFileEntryTypeAvailableLocales(fileVersion, dlFileEntryType, dlEditFileEntryDisplayContext, defaultLanguageId);
+=======
+String defaultLanguageId = themeDisplay.getLanguageId();
+
+Locale[] availableLocales = {LocaleUtil.fromLanguageId(defaultLanguageId)};
+
+if (fileEntryTypeId > 0) {
+	DLFileEntryType fileEntryType = DLFileEntryTypeLocalServiceUtil.getFileEntryType(fileEntryTypeId);
+
+	defaultLanguageId = fileEntryType.getDefaultLanguageId();
+
+	String[] availableLanguageIds = fileEntryType.getAvailableLanguageIds();
+
+	if (availableLanguageIds.length > 0) {
+		availableLocales = new Locale[availableLanguageIds.length];
+
+		for (int i = 0; i < availableLanguageIds.length; i++) {
+			availableLocales[i] = LocaleUtil.fromLanguageId(availableLanguageIds[i]);
+		}
+	}
+}
+>>>>>>> compatible
 
 String headerTitle = LanguageUtil.get(request, "new-document");
 
@@ -208,8 +233,11 @@ if (portletTitleBasedNavigation) {
 		<aui:input name="workflowAction" type="hidden" value="<%= String.valueOf(WorkflowConstants.ACTION_PUBLISH) %>" />
 
 		<div class="lfr-form-content">
+<<<<<<< HEAD
 			<liferay-ui:error exception="<%= RequiredFileException.class %>" message="please-select-the-file-again" />
 
+=======
+>>>>>>> compatible
 			<liferay-ui:error exception="<%= AntivirusScannerException.class %>">
 
 				<%
@@ -227,7 +255,11 @@ if (portletTitleBasedNavigation) {
 			</liferay-ui:error>
 
 			<liferay-ui:error exception="<%= FileExtensionException.class %>">
+<<<<<<< HEAD
 				<liferay-ui:message key="document-names-must-end-with-one-of-the-following-extensions" /> <%= StringUtil.merge(dlConfiguration.fileExtensions(), StringPool.COMMA_AND_SPACE) %>.
+=======
+				<liferay-ui:message key="document-names-must-end-with-one-of-the-following-extensions" /> <%= StringUtil.merge(PrefsPropsUtil.getStringArray(PropsKeys.DL_FILE_EXTENSIONS, StringPool.COMMA), StringPool.COMMA_AND_SPACE) %>.
+>>>>>>> compatible
 			</liferay-ui:error>
 
 			<liferay-ui:error exception="<%= FileMimeTypeException.class %>">
@@ -253,9 +285,15 @@ if (portletTitleBasedNavigation) {
 				<liferay-ui:message arguments="<%= TextFormatter.formatStorageSize(dlEditFileEntryDisplayContext.getMaximumUploadRequestSize(), locale) %>" key="request-is-larger-than-x-and-could-not-be-processed" translateArguments="<%= false %>" />
 			</liferay-ui:error>
 
+<<<<<<< HEAD
 			<liferay-asset:asset-categories-error />
 
 			<liferay-asset:asset-tags-error />
+=======
+			<liferay-ui:asset-categories-error />
+
+			<liferay-ui:asset-tags-error />
+>>>>>>> compatible
 
 			<aui:translation-manager
 				availableLocales="<%= availableLocales %>"
@@ -430,6 +468,7 @@ if (portletTitleBasedNavigation) {
 							%>
 
 						</c:if>
+<<<<<<< HEAD
 					</c:if>
 				</aui:fieldset>
 
@@ -455,6 +494,30 @@ if (portletTitleBasedNavigation) {
 						</div>
 					</aui:fieldset>
 				</c:if>
+=======
+
+						<c:if test="<%= (fileEntry != null) && !checkedOut %>">
+							<aui:input
+								label="customize-the-version-number-increment-and-describe-my-changes"
+								name="updateVersionDetails"
+								type="checkbox"
+							/>
+
+							<div id="<portlet:namespace />versionDetails" style="display: none">
+								<aui:input label="major-version" name="majorVersion" type="radio" value="<%= true %>" />
+
+								<aui:input checked="<%= true %>" label="minor-version" name="majorVersion" type="radio" value="<%= false %>" />
+
+								<aui:model-context />
+
+								<aui:input label="change-log" name="changeLog" type="textarea" />
+
+								<aui:model-context bean="<%= fileVersion %>" model="<%= DLFileVersion.class %>" />
+							</div>
+						</c:if>
+					</c:if>
+				</aui:fieldset>
+>>>>>>> compatible
 
 				<c:if test="<%= (folder == null) || folder.isSupportsMetadata() %>">
 					<liferay-expando:custom-attributes-available className="<%= DLFileEntryConstants.getClassName() %>">
@@ -471,6 +534,7 @@ if (portletTitleBasedNavigation) {
 
 				<c:if test="<%= (folder == null) || folder.isSupportsSocial() %>">
 					<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="categorization">
+<<<<<<< HEAD
 						<liferay-asset:asset-categories-selector className="<%= DLFileEntry.class.getName() %>" classPK="<%= assetClassPK %>" classTypePK="<%= fileEntryTypeId %>" />
 
 						<liferay-asset:asset-tags-selector className="<%= DLFileEntry.class.getName() %>" classPK="<%= assetClassPK %>" />
@@ -478,6 +542,15 @@ if (portletTitleBasedNavigation) {
 
 					<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="related-assets">
 						<liferay-asset:input-asset-links
+=======
+						<aui:input classPK="<%= assetClassPK %>" classTypePK="<%= fileEntryTypeId %>" model="<%= DLFileEntry.class %>" name="categories" type="assetCategories" />
+
+						<aui:input classPK="<%= assetClassPK %>" model="<%= DLFileEntry.class %>" name="tags" type="assetTags" />
+					</aui:fieldset>
+
+					<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="related-assets">
+						<liferay-ui:input-asset-links
+>>>>>>> compatible
 							className="<%= DLFileEntry.class.getName() %>"
 							classPK="<%= assetClassPK %>"
 						/>
@@ -502,6 +575,7 @@ if (portletTitleBasedNavigation) {
 
 		<aui:button-row>
 			<c:if test="<%= dlEditFileEntryDisplayContext.isSaveButtonVisible() %>">
+<<<<<<< HEAD
 				<aui:button disabled="<%= dlEditFileEntryDisplayContext.isSaveButtonDisabled() %>" name="saveButton" onClick='<%= renderResponse.getNamespace() + "saveFileEntry(true);" %>' value="<%= dlEditFileEntryDisplayContext.getSaveButtonLabel() %>" />
 			</c:if>
 
@@ -522,6 +596,28 @@ if (portletTitleBasedNavigation) {
 			</c:if>
 
 			<aui:button href="<%= redirect %>" type="cancel" />
+=======
+				<aui:button cssClass="btn-lg" disabled="<%= dlEditFileEntryDisplayContext.isSaveButtonDisabled() %>" name="saveButton" onClick='<%= renderResponse.getNamespace() + "saveFileEntry(true);" %>' value="<%= dlEditFileEntryDisplayContext.getSaveButtonLabel() %>" />
+			</c:if>
+
+			<c:if test="<%= dlEditFileEntryDisplayContext.isPublishButtonVisible() %>">
+				<aui:button cssClass="btn-lg" disabled="<%= dlEditFileEntryDisplayContext.isPublishButtonDisabled() %>" name="publishButton" type="submit" value="<%= dlEditFileEntryDisplayContext.getPublishButtonLabel() %>" />
+			</c:if>
+
+			<c:if test="<%= dlEditFileEntryDisplayContext.isCheckoutDocumentButtonVisible() %>">
+				<aui:button cssClass="btn-lg" disabled="<%= dlEditFileEntryDisplayContext.isCheckoutDocumentButtonDisabled() %>" onClick='<%= renderResponse.getNamespace() + "checkOut();" %>' value="checkout[document]" />
+			</c:if>
+
+			<c:if test="<%= dlEditFileEntryDisplayContext.isCheckinButtonVisible() %>">
+				<aui:button cssClass="btn-lg" disabled="<%= dlEditFileEntryDisplayContext.isCheckinButtonDisabled() %>" onClick='<%= renderResponse.getNamespace() + "checkIn();" %>' value="save-and-checkin" />
+			</c:if>
+
+			<c:if test="<%= dlEditFileEntryDisplayContext.isCancelCheckoutDocumentButtonVisible() %>">
+				<aui:button cssClass="btn-lg" disabled="<%= dlEditFileEntryDisplayContext.isCancelCheckoutDocumentButtonDisabled() %>" onClick='<%= renderResponse.getNamespace() + "cancelCheckOut();" %>' value="cancel-checkout[document]" />
+			</c:if>
+
+			<aui:button cssClass="btn-lg" href="<%= redirect %>" type="cancel" />
+>>>>>>> compatible
 		</aui:button-row>
 	</aui:form>
 
@@ -592,6 +688,7 @@ if (portletTitleBasedNavigation) {
 			Liferay.Portlet.DocumentLibrary.Checkin.showDialog(
 				'<portlet:namespace />versionDetails',
 				'<%= UnicodeLanguageUtil.get(request, "describe-your-changes") %>',
+<<<<<<< HEAD
 				{
 					label: '<liferay-ui:message key="save" />',
 					callback: function(event) {
@@ -609,6 +706,21 @@ if (portletTitleBasedNavigation) {
 					}
 				},
 				'<liferay-ui:message key="cancel" />'
+=======
+				function(event) {
+					var $ = AUI.$;
+
+					var majorVersionNode = $("input:radio[name='<portlet:namespace />versionDetailsMajorVersion']:checked");
+
+					form.fm('majorVersion').val(majorVersionNode.val());
+
+					var changeLogNode = $('#<portlet:namespace />versionDetailsChangeLog');
+
+					form.fm('changeLog').val(changeLogNode.val());
+
+					submitForm(form);
+				}
+>>>>>>> compatible
 			);
 		},
 		['document-library-checkin']
@@ -638,7 +750,11 @@ if (portletTitleBasedNavigation) {
 		$('#<portlet:namespace />updateVersionDetails').on(
 			'click',
 			function(event) {
+<<<<<<< HEAD
 				$('#<portlet:namespace />versionDetails').toggle();
+=======
+				$('#<portlet:namespace />versionDetails').show();
+>>>>>>> compatible
 			}
 		);
 	</aui:script>

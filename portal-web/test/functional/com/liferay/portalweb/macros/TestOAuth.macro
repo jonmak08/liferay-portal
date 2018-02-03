@@ -16,7 +16,11 @@
 
 		<execute function="AssertClick" locator1="TestOAuth#OAUTH_ADMIN_TABLE_NAME" value1="${applicationName}" />
 
+<<<<<<< HEAD
 		<var method="selenium#getText(TestOAuth#OAUTH_ADMIN_APPLICATION_CREDENTIALS)" name="applicationCredentials" />
+=======
+		<var locator="TestOAuth#OAUTH_ADMIN_APPLICATION_CREDENTIALS" name="applicationCredentials" />
+>>>>>>> compatible
 
 		<var method="StringUtil#stripBetween('${applicationCredentials}', 'Application', 'Secret: ')" name="consumerSecret" />
 

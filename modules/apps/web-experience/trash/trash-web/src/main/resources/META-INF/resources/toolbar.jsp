@@ -16,10 +16,13 @@
 
 <%@ include file="/init.jsp" %>
 
+<<<<<<< HEAD
 <%
 String redirect = ParamUtil.getString(request, "redirect");
 %>
 
+=======
+>>>>>>> compatible
 <liferay-frontend:management-bar
 	includeCheckBox="<%= true %>"
 	searchContainerId="trash"
@@ -43,6 +46,7 @@ String redirect = ParamUtil.getString(request, "redirect");
 
 	<liferay-frontend:management-bar-filters>
 		<liferay-frontend:management-bar-navigation
+<<<<<<< HEAD
 			label='<%= Objects.equals(trashDisplayContext.getNavigation(), "all") ? "all" : ResourceActionsUtil.getModelResource(locale, trashDisplayContext.getNavigation()) %>'
 		>
 
@@ -70,6 +74,11 @@ String redirect = ParamUtil.getString(request, "redirect");
 			%>
 
 		</liferay-frontend:management-bar-navigation>
+=======
+			navigationKeys='<%= new String[] {"all"} %>'
+			portletURL="<%= trashDisplayContext.getPortletURL() %>"
+		/>
+>>>>>>> compatible
 
 		<liferay-frontend:management-bar-sort
 			orderByCol="<%= trashDisplayContext.getOrderByCol() %>"
@@ -77,6 +86,7 @@ String redirect = ParamUtil.getString(request, "redirect");
 			orderColumns='<%= new String[] {"removed-date"} %>'
 			portletURL="<%= trashDisplayContext.getPortletURL() %>"
 		/>
+<<<<<<< HEAD
 
 		<li>
 			<liferay-portlet:renderURL varImpl="searchURL" />
@@ -90,6 +100,8 @@ String redirect = ParamUtil.getString(request, "redirect");
 				<liferay-ui:input-search autoFocus="<%= windowState.equals(WindowState.MAXIMIZED) %>" markupView="lexicon" placeholder='<%= LanguageUtil.get(request, "search") %>' />
 			</aui:form>
 		</li>
+=======
+>>>>>>> compatible
 	</liferay-frontend:management-bar-filters>
 
 	<liferay-frontend:management-bar-action-buttons>

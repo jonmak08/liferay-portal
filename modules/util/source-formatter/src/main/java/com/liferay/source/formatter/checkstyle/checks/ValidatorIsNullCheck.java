@@ -14,9 +14,15 @@
 
 package com.liferay.source.formatter.checkstyle.checks;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.source.formatter.checkstyle.util.DetailASTUtil;
 
+=======
+import com.liferay.source.formatter.checkstyle.util.DetailASTUtil;
+
+import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
+>>>>>>> compatible
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 
@@ -25,7 +31,11 @@ import java.util.List;
 /**
  * @author Hugo Huijser
  */
+<<<<<<< HEAD
 public class ValidatorIsNullCheck extends BaseCheck {
+=======
+public class ValidatorIsNullCheck extends AbstractCheck {
+>>>>>>> compatible
 
 	@Override
 	public int[] getDefaultTokens() {
@@ -33,7 +43,11 @@ public class ValidatorIsNullCheck extends BaseCheck {
 	}
 
 	@Override
+<<<<<<< HEAD
 	protected void doVisitToken(DetailAST detailAST) {
+=======
+	public void visitToken(DetailAST detailAST) {
+>>>>>>> compatible
 		_checkMethod(detailAST, "Validator", "isNotNull");
 		_checkMethod(detailAST, "Validator", "isNull");
 	}
@@ -54,7 +68,11 @@ public class ValidatorIsNullCheck extends BaseCheck {
 			if (child.getType() == TokenTypes.NUM_INT) {
 				log(
 					methodCallAST.getLineNo(), _MSG_METHOD_INVALID_NAME,
+<<<<<<< HEAD
 					StringBundler.concat(className, ".", methodName, "(long)"));
+=======
+					className + "." + methodName + "(long)");
+>>>>>>> compatible
 
 				continue;
 			}
@@ -77,7 +95,11 @@ public class ValidatorIsNullCheck extends BaseCheck {
 
 				log(
 					methodCallAST.getLineNo(), _MSG_METHOD_INVALID_NAME,
+<<<<<<< HEAD
 					StringBundler.concat(className, ".", methodName, "(long)"));
+=======
+					className + "." + methodName + "(long)");
+>>>>>>> compatible
 			}
 		}
 	}

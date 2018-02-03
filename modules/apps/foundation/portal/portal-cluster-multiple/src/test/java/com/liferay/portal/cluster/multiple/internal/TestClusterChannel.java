@@ -67,7 +67,11 @@ public class TestClusterChannel implements ClusterChannel {
 	}
 
 	public TestClusterChannel(
+<<<<<<< HEAD
 		String channelLogicName, String channelProperties, String clusterName,
+=======
+		String channelProperties, String clusterName,
+>>>>>>> compatible
 		ClusterReceiver clusterReceiver) {
 
 		_clusterName = clusterName;

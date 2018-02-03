@@ -1,13 +1,19 @@
 AUI.add(
 	'liferay-ddm-form-renderer-expressions-evaluator',
 	function(A) {
+<<<<<<< HEAD
 		var CACHE = {};
 
+=======
+>>>>>>> compatible
 		var ExpressionsEvaluator = A.Component.create(
 			{
 				ATTRS: {
 					enabled: {
+<<<<<<< HEAD
 						getter: '_getEnabled',
+=======
+>>>>>>> compatible
 						value: true
 					},
 
@@ -25,6 +31,7 @@ AUI.add(
 					initializer: function() {
 						var instance = this;
 
+<<<<<<< HEAD
 						instance._queue = new A.Queue();
 
 						instance.publish(
@@ -42,12 +49,19 @@ AUI.add(
 					},
 
 					evaluate: function(trigger, callback) {
+=======
+						instance.after('evaluationEnded', instance._afterEvaluationEnded);
+					},
+
+					evaluate: function(callback) {
+>>>>>>> compatible
 						var instance = this;
 
 						var enabled = instance.get('enabled');
 
 						var form = instance.get('form');
 
+<<<<<<< HEAD
 						if (enabled && form) {
 							if (instance.isEvaluating()) {
 								instance.stop();
@@ -93,6 +107,31 @@ AUI.add(
 										}
 									},
 									trigger: trigger
+=======
+						if (instance.isEvaluating()) {
+							instance.stop();
+						}
+
+						if (enabled && form) {
+							instance.fire('evaluationStarted');
+
+							form.disableSubmitButton();
+
+							instance._evaluate(
+								function(result) {
+									form.enableSubmitButton();
+
+									instance.fire(
+										'evaluationEnded',
+										{
+											result: result
+										}
+									);
+
+									if (callback) {
+										callback.apply(instance, arguments);
+									}
+>>>>>>> compatible
 								}
 							);
 						}
@@ -101,17 +140,27 @@ AUI.add(
 					isEvaluating: function() {
 						var instance = this;
 
+<<<<<<< HEAD
 						return instance._evaluating;
+=======
+						return instance._request !== undefined;
+>>>>>>> compatible
 					},
 
 					stop: function() {
 						var instance = this;
 
+<<<<<<< HEAD
 						if (instance._request) {
 							instance._request.destroy();
 
 							delete instance._request;
 						}
+=======
+						instance._request.destroy();
+
+						delete instance._request;
+>>>>>>> compatible
 					},
 
 					_afterEvaluationEnded: function() {
@@ -120,6 +169,7 @@ AUI.add(
 						instance.stop();
 					},
 
+<<<<<<< HEAD
 					_evaluate: function(event) {
 						var instance = this;
 
@@ -186,6 +236,41 @@ AUI.add(
 								}
 							);
 						}
+=======
+					_evaluate: function(callback) {
+						var instance = this;
+
+						var form = instance.get('form');
+
+						var definition = form.get('definition');
+
+						instance._request = A.io.request(
+							instance.get('evaluatorURL'),
+							{
+								data: {
+									languageId: definition.defaultLanguageId,
+									serializedDDMForm: JSON.stringify(definition),
+									serializedDDMFormValues: JSON.stringify(form.toJSON())
+								},
+								dataType: 'JSON',
+								method: 'POST',
+								on: {
+									failure: function(event) {
+										if (event.details[1].statusText !== 'abort') {
+											callback.call(instance, null);
+										}
+
+										callback.call(instance, {});
+									},
+									success: function() {
+										var result = this.get('responseData');
+
+										callback.call(instance, result);
+									}
+								}
+							}
+						);
+>>>>>>> compatible
 					},
 
 					_valueEvaluatorURL: function() {

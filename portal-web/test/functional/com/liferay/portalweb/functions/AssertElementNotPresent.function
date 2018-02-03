@@ -24,4 +24,19 @@
 
 		<execute selenium="assertLiferayErrors" />
 	</command>
+<<<<<<< HEAD
+=======
+
+	<command name="assertNotVisible">
+		<execute function="WaitForSPARefresh" />
+
+		<execute selenium="waitForNotVisible" />
+
+		<execute selenium="assertNotVisible" />
+
+		<execute selenium="assertJavaScriptErrors" />
+
+		<execute selenium="assertLiferayErrors" />
+	</command>
+>>>>>>> compatible
 </definition>

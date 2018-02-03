@@ -15,6 +15,18 @@
 								'aui-datepicker',
 								'liferay-ddm-form-renderer-field'
 							]
+<<<<<<< HEAD
+=======
+						},
+						'liferay-ddm-form-field-date-template': {
+							condition: {
+								trigger: 'liferay-ddm-form-renderer'
+							},
+							path: 'date.soy.js',
+							requires: [
+								'soyutils'
+							]
+>>>>>>> compatible
 						}
 					},
 					root: MODULE_PATH + '/'

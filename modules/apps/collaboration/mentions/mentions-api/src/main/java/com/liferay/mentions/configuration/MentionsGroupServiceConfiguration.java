@@ -35,25 +35,41 @@ public interface MentionsGroupServiceConfiguration {
 
 	@Meta.AD(
 		deflt = "${resource:com/liferay/mentions/configuration/dependencies/asset_entry_mention_email_body.tmpl}",
+<<<<<<< HEAD
 		name = "asset-entry-mention-email-body", required = false
+=======
+		required = false
+>>>>>>> compatible
 	)
 	public LocalizedValuesMap assetEntryMentionEmailBody();
 
 	@Meta.AD(
 		deflt = "${resource:com/liferay/mentions/configuration/dependencies/asset_entry_mention_email_subject.tmpl}",
+<<<<<<< HEAD
 		name = "asset-entry-mention-email-subject", required = false
+=======
+		required = false
+>>>>>>> compatible
 	)
 	public LocalizedValuesMap assetEntryMentionEmailSubject();
 
 	@Meta.AD(
 		deflt = "${resource:com/liferay/mentions/configuration/dependencies/comment_mention_email_body.tmpl}",
+<<<<<<< HEAD
 		name = "comment-mention-email-body", required = false
+=======
+		required = false
+>>>>>>> compatible
 	)
 	public LocalizedValuesMap commentMentionEmailBody();
 
 	@Meta.AD(
 		deflt = "${resource:com/liferay/mentions/configuration/dependencies/comment_mention_email_subject.tmpl}",
+<<<<<<< HEAD
 		name = "comment-mention-email-subject", required = false
+=======
+		required = false
+>>>>>>> compatible
 	)
 	public LocalizedValuesMap commentMentionEmailSubject();
 

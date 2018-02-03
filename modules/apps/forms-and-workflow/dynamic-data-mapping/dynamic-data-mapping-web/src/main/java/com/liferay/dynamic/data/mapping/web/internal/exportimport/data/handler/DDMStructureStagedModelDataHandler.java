@@ -38,7 +38,10 @@ import com.liferay.exportimport.kernel.lar.StagedModelDataHandler;
 import com.liferay.exportimport.kernel.lar.StagedModelDataHandlerUtil;
 import com.liferay.exportimport.kernel.lar.StagedModelModifiedDateComparator;
 import com.liferay.exportimport.lar.BaseStagedModelDataHandler;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
@@ -51,6 +54,10 @@ import com.liferay.portal.kernel.util.DateUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.xml.Element;
 
@@ -271,12 +278,15 @@ public class DDMStructureStagedModelDataHandler
 				DDMStructure.class + ".ddmStructureKey");
 
 		structureKeys.put(structureKey, existingStructure.getStructureKey());
+<<<<<<< HEAD
 
 		Map<String, String> structureUuids =
 			(Map<String, String>)portletDataContext.getNewPrimaryKeysMap(
 				DDMStructure.class + ".ddmStructureUuid");
 
 		structureUuids.put(uuid, existingStructure.getUuid());
+=======
+>>>>>>> compatible
 	}
 
 	@Override
@@ -536,9 +546,13 @@ public class DDMStructureStagedModelDataHandler
 		List<DDMFormField> ddmFormFields = ddmForm.getDDMFormFields();
 
 		for (DDMFormField ddmFormField : ddmFormFields) {
+<<<<<<< HEAD
 			String ddmFormFieldType = ddmFormField.getType();
 
 			if (!ddmFormFieldType.equals(DDMFormFieldType.SELECT)) {
+=======
+			if (!ddmFormField.getType().equals(DDMFormFieldType.SELECT)) {
+>>>>>>> compatible
 				continue;
 			}
 

@@ -172,7 +172,11 @@ public class FreeMarkerTemplateTest {
 		catch (TemplateException te) {
 			String message = te.getMessage();
 
+<<<<<<< HEAD
 			Assert.assertTrue(message, message.contains(_WRONG_TEMPLATE_ID));
+=======
+			Assert.assertTrue(message.contains(_WRONG_TEMPLATE_ID));
+>>>>>>> compatible
 		}
 	}
 
@@ -253,8 +257,12 @@ public class FreeMarkerTemplateTest {
 		catch (TemplateException te) {
 			String message = te.getMessage();
 
+<<<<<<< HEAD
 			Assert.assertTrue(
 				message, message.contains(_WRONG_ERROR_TEMPLATE_ID));
+=======
+			Assert.assertTrue(message.contains(_WRONG_ERROR_TEMPLATE_ID));
+>>>>>>> compatible
 		}
 	}
 

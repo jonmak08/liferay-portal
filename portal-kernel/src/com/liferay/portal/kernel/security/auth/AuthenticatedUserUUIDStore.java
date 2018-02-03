@@ -15,10 +15,15 @@
 package com.liferay.portal.kernel.security.auth;
 
 /**
+<<<<<<< HEAD
  * @author     Michael C. Han
  * @deprecated As of 7.0.0, with no direct replacement
  */
 @Deprecated
+=======
+ * @author Michael C. Han
+ */
+>>>>>>> compatible
 public interface AuthenticatedUserUUIDStore {
 
 	public boolean exists(String userUUID);

@@ -34,10 +34,15 @@ import java.io.Serializable;
  * @see ResourceBlock
  * @see com.liferay.portal.model.impl.ResourceBlockImpl
  * @see com.liferay.portal.model.impl.ResourceBlockModelImpl
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, with no direct replacement
  * @generated
  */
 @Deprecated
+=======
+ * @generated
+ */
+>>>>>>> compatible
 @ProviderType
 public interface ResourceBlockModel extends BaseModel<ResourceBlock>, MVCCModel,
 	ShardedModel {

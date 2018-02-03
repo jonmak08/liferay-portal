@@ -1,6 +1,10 @@
 <definition default="antCommand" summary="ant -f ${locator1} ${value1}">
 	<command name="antCommand">
+<<<<<<< HEAD
 		<execute function="Poshi.AntCommand#antCommand" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 

@@ -35,7 +35,11 @@ public class PortalCacheConfiguration {
 
 	/**
 	 * @deprecated As of 2.4.0, replaced by {@link
+<<<<<<< HEAD
 	 *             #PORTAL_CACHE_LISTENER_PROPERTIES_KEY_SCOPE}
+=======
+	 *		#PORTAL_CACHE_LISTENER_PROPERTIES_KEY_SCOPE}
+>>>>>>> compatible
 	 */
 	@Deprecated
 	public static final String PORTAL_CACHE_LISTENER_SCOPE =

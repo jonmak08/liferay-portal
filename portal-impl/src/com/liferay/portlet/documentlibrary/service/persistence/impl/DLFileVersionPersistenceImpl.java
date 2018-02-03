@@ -38,6 +38,7 @@ import com.liferay.portal.kernel.service.persistence.CompanyProvider;
 import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.Validator;
@@ -3155,6 +3156,7 @@ public class DLFileVersionPersistenceImpl extends BasePersistenceImpl<DLFileVers
 			};
 
 		List<DLFileVersion> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<DLFileVersion>)finderCache.getResult(finderPath,
@@ -3166,6 +3168,19 @@ public class DLFileVersionPersistenceImpl extends BasePersistenceImpl<DLFileVers
 							(status == dlFileVersion.getStatus())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<DLFileVersion>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (DLFileVersion dlFileVersion : list) {
+					if ((companyId != dlFileVersion.getCompanyId()) ||
+							(status == dlFileVersion.getStatus())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -4515,6 +4530,7 @@ public class DLFileVersionPersistenceImpl extends BasePersistenceImpl<DLFileVers
 		}
 
 		List<DLFileVersion> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<DLFileVersion>)finderCache.getResult(finderPath,
@@ -4527,6 +4543,20 @@ public class DLFileVersionPersistenceImpl extends BasePersistenceImpl<DLFileVers
 							(status != dlFileVersion.getStatus())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<DLFileVersion>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (DLFileVersion dlFileVersion : list) {
+					if ((groupId != dlFileVersion.getGroupId()) ||
+							(folderId != dlFileVersion.getFolderId()) ||
+							(status != dlFileVersion.getStatus())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -5109,6 +5139,7 @@ public class DLFileVersionPersistenceImpl extends BasePersistenceImpl<DLFileVers
 		}
 
 		List<DLFileVersion> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<DLFileVersion>)finderCache.getResult(finderPath,
@@ -5122,6 +5153,21 @@ public class DLFileVersionPersistenceImpl extends BasePersistenceImpl<DLFileVers
 							!Objects.equals(version, dlFileVersion.getVersion())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<DLFileVersion>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (DLFileVersion dlFileVersion : list) {
+					if ((groupId != dlFileVersion.getGroupId()) ||
+							(folderId != dlFileVersion.getFolderId()) ||
+							!Objects.equals(title, dlFileVersion.getTitle()) ||
+							!Objects.equals(version, dlFileVersion.getVersion())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -5693,11 +5739,17 @@ public class DLFileVersionPersistenceImpl extends BasePersistenceImpl<DLFileVers
 		setModelClass(DLFileVersion.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("uuid", "uuid_");

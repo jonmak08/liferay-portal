@@ -20,7 +20,10 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.PortalPreferences;
 import com.liferay.portal.kernel.model.PortletConstants;
 import com.liferay.portal.kernel.portlet.PortletPreferencesFactoryUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.service.base.PortalPreferencesLocalServiceBaseImpl;
 import com.liferay.portlet.PortalPreferencesImpl;
@@ -86,6 +89,7 @@ public class PortalPreferencesLocalServiceImpl
 		return portalPreferences;
 	}
 
+<<<<<<< HEAD
 	@Override
 	public PortalPreferences fetchPortalPreferences(
 		long ownerId, int ownerType) {
@@ -93,6 +97,8 @@ public class PortalPreferencesLocalServiceImpl
 		return portalPreferencesPersistence.fetchByO_O(ownerId, ownerType);
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	public PortletPreferences getPreferences(long ownerId, int ownerType) {
 		return getPreferences(ownerId, ownerType, null);

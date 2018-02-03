@@ -61,7 +61,11 @@
 			%>
 
 			<aui:button-row>
+<<<<<<< HEAD
 				<aui:button type="submit" value="invite-friends" />
+=======
+				<aui:button cssClass="btn-lg" type="submit" value="invite-friends" />
+>>>>>>> compatible
 			</aui:button-row>
 		</aui:form>
 	</c:otherwise>

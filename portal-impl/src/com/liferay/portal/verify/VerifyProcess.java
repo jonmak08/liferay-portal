@@ -14,7 +14,12 @@
 
 package com.liferay.portal.verify;
 
+<<<<<<< HEAD
 import com.liferay.petra.function.UnsafeConsumer;
+=======
+import com.liferay.portal.kernel.concurrent.ThrowableAwareRunnable;
+import com.liferay.portal.kernel.concurrent.ThrowableAwareRunnablesExecutorUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.db.BaseDBProcess;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
 import com.liferay.portal.kernel.log.Log;
@@ -34,10 +39,6 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -98,6 +99,7 @@ public abstract class VerifyProcess extends BaseDBProcess {
 	protected void doVerify(Collection<? extends Callable<Void>> callables)
 		throws Exception {
 
+<<<<<<< HEAD
 		try {
 			if ((callables.size() <
 					PropsValues.VERIFY_PROCESS_CONCURRENCY_THRESHOLD) &&
@@ -122,6 +124,38 @@ public abstract class VerifyProcess extends BaseDBProcess {
 
 			throw new Exception(
 				"Verification error: " + clazz.getName(), throwable);
+=======
+		if ((throwableAwareRunnables.size() <
+				PropsValues.VERIFY_PROCESS_CONCURRENCY_THRESHOLD) &&
+			!isForceConcurrent(throwableAwareRunnables)) {
+
+			for (ThrowableAwareRunnable throwableAwareRunnable :
+					throwableAwareRunnables) {
+
+				throwableAwareRunnable.run();
+			}
+
+			List<Throwable> throwables = new ArrayList<>();
+
+			for (ThrowableAwareRunnable throwableAwareRunnable :
+					throwableAwareRunnables) {
+
+				if (throwableAwareRunnable.hasException()) {
+					throwables.add(throwableAwareRunnable.getThrowable());
+				}
+			}
+
+			if (!throwables.isEmpty()) {
+				Class<?> clazz = getClass();
+
+				throw new BulkException(
+					"Verification error: " + clazz.getName(), throwables);
+			}
+		}
+		else {
+			ThrowableAwareRunnablesExecutorUtil.execute(
+				throwableAwareRunnables);
+>>>>>>> compatible
 		}
 	}
 
@@ -173,7 +207,11 @@ public abstract class VerifyProcess extends BaseDBProcess {
 	}
 
 	protected boolean isForceConcurrent(
+<<<<<<< HEAD
 		Collection<? extends Callable<Void>> callables) {
+=======
+		Collection<? extends ThrowableAwareRunnable> throwableAwareRunnables) {
+>>>>>>> compatible
 
 		return false;
 	}

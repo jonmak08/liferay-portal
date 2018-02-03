@@ -19,6 +19,10 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.workflow.kaleo.model.KaleoTaskAssignment;
 
 import java.io.Externalizable;
@@ -84,8 +88,13 @@ public class KaleoTaskAssignmentCacheModel implements CacheModel<KaleoTaskAssign
 		sb.append(kaleoClassName);
 		sb.append(", kaleoClassPK=");
 		sb.append(kaleoClassPK);
+<<<<<<< HEAD
 		sb.append(", kaleoDefinitionVersionId=");
 		sb.append(kaleoDefinitionVersionId);
+=======
+		sb.append(", kaleoDefinitionId=");
+		sb.append(kaleoDefinitionId);
+>>>>>>> compatible
 		sb.append(", kaleoNodeId=");
 		sb.append(kaleoNodeId);
 		sb.append(", assigneeClassName=");
@@ -115,7 +124,11 @@ public class KaleoTaskAssignmentCacheModel implements CacheModel<KaleoTaskAssign
 		kaleoTaskAssignmentImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			kaleoTaskAssignmentImpl.setUserName("");
+=======
+			kaleoTaskAssignmentImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoTaskAssignmentImpl.setUserName(userName);
@@ -136,18 +149,30 @@ public class KaleoTaskAssignmentCacheModel implements CacheModel<KaleoTaskAssign
 		}
 
 		if (kaleoClassName == null) {
+<<<<<<< HEAD
 			kaleoTaskAssignmentImpl.setKaleoClassName("");
+=======
+			kaleoTaskAssignmentImpl.setKaleoClassName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoTaskAssignmentImpl.setKaleoClassName(kaleoClassName);
 		}
 
 		kaleoTaskAssignmentImpl.setKaleoClassPK(kaleoClassPK);
+<<<<<<< HEAD
 		kaleoTaskAssignmentImpl.setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
 		kaleoTaskAssignmentImpl.setKaleoNodeId(kaleoNodeId);
 
 		if (assigneeClassName == null) {
 			kaleoTaskAssignmentImpl.setAssigneeClassName("");
+=======
+		kaleoTaskAssignmentImpl.setKaleoDefinitionId(kaleoDefinitionId);
+		kaleoTaskAssignmentImpl.setKaleoNodeId(kaleoNodeId);
+
+		if (assigneeClassName == null) {
+			kaleoTaskAssignmentImpl.setAssigneeClassName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoTaskAssignmentImpl.setAssigneeClassName(assigneeClassName);
@@ -156,28 +181,44 @@ public class KaleoTaskAssignmentCacheModel implements CacheModel<KaleoTaskAssign
 		kaleoTaskAssignmentImpl.setAssigneeClassPK(assigneeClassPK);
 
 		if (assigneeActionId == null) {
+<<<<<<< HEAD
 			kaleoTaskAssignmentImpl.setAssigneeActionId("");
+=======
+			kaleoTaskAssignmentImpl.setAssigneeActionId(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoTaskAssignmentImpl.setAssigneeActionId(assigneeActionId);
 		}
 
 		if (assigneeScript == null) {
+<<<<<<< HEAD
 			kaleoTaskAssignmentImpl.setAssigneeScript("");
+=======
+			kaleoTaskAssignmentImpl.setAssigneeScript(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoTaskAssignmentImpl.setAssigneeScript(assigneeScript);
 		}
 
 		if (assigneeScriptLanguage == null) {
+<<<<<<< HEAD
 			kaleoTaskAssignmentImpl.setAssigneeScriptLanguage("");
+=======
+			kaleoTaskAssignmentImpl.setAssigneeScriptLanguage(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoTaskAssignmentImpl.setAssigneeScriptLanguage(assigneeScriptLanguage);
 		}
 
 		if (assigneeScriptRequiredContexts == null) {
+<<<<<<< HEAD
 			kaleoTaskAssignmentImpl.setAssigneeScriptRequiredContexts("");
+=======
+			kaleoTaskAssignmentImpl.setAssigneeScriptRequiredContexts(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoTaskAssignmentImpl.setAssigneeScriptRequiredContexts(assigneeScriptRequiredContexts);
@@ -204,7 +245,11 @@ public class KaleoTaskAssignmentCacheModel implements CacheModel<KaleoTaskAssign
 
 		kaleoClassPK = objectInput.readLong();
 
+<<<<<<< HEAD
 		kaleoDefinitionVersionId = objectInput.readLong();
+=======
+		kaleoDefinitionId = objectInput.readLong();
+>>>>>>> compatible
 
 		kaleoNodeId = objectInput.readLong();
 		assigneeClassName = objectInput.readUTF();
@@ -228,7 +273,11 @@ public class KaleoTaskAssignmentCacheModel implements CacheModel<KaleoTaskAssign
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -238,7 +287,11 @@ public class KaleoTaskAssignmentCacheModel implements CacheModel<KaleoTaskAssign
 		objectOutput.writeLong(modifiedDate);
 
 		if (kaleoClassName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(kaleoClassName);
@@ -246,12 +299,20 @@ public class KaleoTaskAssignmentCacheModel implements CacheModel<KaleoTaskAssign
 
 		objectOutput.writeLong(kaleoClassPK);
 
+<<<<<<< HEAD
 		objectOutput.writeLong(kaleoDefinitionVersionId);
+=======
+		objectOutput.writeLong(kaleoDefinitionId);
+>>>>>>> compatible
 
 		objectOutput.writeLong(kaleoNodeId);
 
 		if (assigneeClassName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(assigneeClassName);
@@ -260,28 +321,44 @@ public class KaleoTaskAssignmentCacheModel implements CacheModel<KaleoTaskAssign
 		objectOutput.writeLong(assigneeClassPK);
 
 		if (assigneeActionId == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(assigneeActionId);
 		}
 
 		if (assigneeScript == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(assigneeScript);
 		}
 
 		if (assigneeScriptLanguage == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(assigneeScriptLanguage);
 		}
 
 		if (assigneeScriptRequiredContexts == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(assigneeScriptRequiredContexts);
@@ -297,7 +374,11 @@ public class KaleoTaskAssignmentCacheModel implements CacheModel<KaleoTaskAssign
 	public long modifiedDate;
 	public String kaleoClassName;
 	public long kaleoClassPK;
+<<<<<<< HEAD
 	public long kaleoDefinitionVersionId;
+=======
+	public long kaleoDefinitionId;
+>>>>>>> compatible
 	public long kaleoNodeId;
 	public String assigneeClassName;
 	public long assigneeClassPK;

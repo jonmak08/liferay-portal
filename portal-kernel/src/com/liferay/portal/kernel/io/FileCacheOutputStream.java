@@ -28,10 +28,8 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 /**
- * @author     Raymond Augé
- * @deprecated As of 7.0.0, with no direct replacement
+ * @author Raymond Augé
  */
-@Deprecated
 public class FileCacheOutputStream extends OutputStream {
 
 	public FileCacheOutputStream() throws IOException {

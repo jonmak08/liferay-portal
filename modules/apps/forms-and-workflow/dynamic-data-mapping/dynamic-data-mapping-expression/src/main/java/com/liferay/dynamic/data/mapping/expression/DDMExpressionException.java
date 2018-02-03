@@ -15,9 +15,12 @@
 package com.liferay.dynamic.data.mapping.expression;
 
 import com.liferay.portal.kernel.exception.PortalException;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringUtil;
 
 import java.util.Set;
+=======
+>>>>>>> compatible
 
 /**
  * @author Marcellus Tavares
@@ -39,10 +42,13 @@ public class DDMExpressionException extends PortalException {
 		super(cause);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 2.1.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static class FunctionNotAllowed extends DDMExpressionException {
 
 		public FunctionNotAllowed(String functionName) {
@@ -61,6 +67,7 @@ public class DDMExpressionException extends PortalException {
 
 	}
 
+<<<<<<< HEAD
 	public static class FunctionNotDefined extends DDMExpressionException {
 
 		public FunctionNotDefined(Set<String> undefinedFunctionNames) {
@@ -97,6 +104,8 @@ public class DDMExpressionException extends PortalException {
 
 	}
 
+=======
+>>>>>>> compatible
 	public static class NumberExceedsSupportedRange
 		extends DDMExpressionException {
 

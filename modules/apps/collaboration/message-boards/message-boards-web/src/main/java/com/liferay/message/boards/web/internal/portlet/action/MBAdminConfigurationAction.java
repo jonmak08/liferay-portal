@@ -14,19 +14,31 @@
 
 package com.liferay.message.boards.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.message.boards.constants.MBPortletKeys;
 import com.liferay.petra.string.CharPool;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.message.boards.web.constants.MBPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.portlet.BaseJSPSettingsConfigurationAction;
 import com.liferay.portal.kernel.portlet.ConfigurationAction;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.LocalizationUtil;
 import com.liferay.portal.kernel.util.NaturalOrderStringComparator;
 import com.liferay.portal.kernel.util.ParamUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
@@ -90,9 +102,14 @@ public class MBAdminConfigurationAction
 		ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(
 			WebKeys.THEME_DISPLAY);
 
+<<<<<<< HEAD
 		for (Locale locale :
 				LanguageUtil.getAvailableLocales(
 					themeDisplay.getSiteGroupId())) {
+=======
+		for (Locale locale : LanguageUtil.getAvailableLocales(
+				themeDisplay.getSiteGroupId())) {
+>>>>>>> compatible
 
 			String languageId = LocaleUtil.toLanguageId(locale);
 
@@ -100,6 +117,7 @@ public class MBAdminConfigurationAction
 
 			for (int j = 0; j < 10; j++) {
 				String name = ParamUtil.getString(
+<<<<<<< HEAD
 					actionRequest,
 					StringBundler.concat(
 						"priorityName", String.valueOf(j), "_", languageId));
@@ -111,14 +129,26 @@ public class MBAdminConfigurationAction
 					actionRequest,
 					StringBundler.concat(
 						"priorityValue", String.valueOf(j), "_", languageId));
+=======
+					actionRequest, "priorityName" + j + "_" + languageId);
+				String image = ParamUtil.getString(
+					actionRequest, "priorityImage" + j + "_" + languageId);
+				double value = ParamUtil.getDouble(
+					actionRequest, "priorityValue" + j + "_" + languageId);
+>>>>>>> compatible
 
 				if (Validator.isNotNull(name) || Validator.isNotNull(image) ||
 					(value != 0.0)) {
 
 					priorities.add(
+<<<<<<< HEAD
 						StringBundler.concat(
 							name, StringPool.PIPE, image, StringPool.PIPE,
 							String.valueOf(value)));
+=======
+						name + StringPool.PIPE + image + StringPool.PIPE +
+							value);
+>>>>>>> compatible
 				}
 			}
 
@@ -135,9 +165,14 @@ public class MBAdminConfigurationAction
 		ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(
 			WebKeys.THEME_DISPLAY);
 
+<<<<<<< HEAD
 		for (Locale locale :
 				LanguageUtil.getAvailableLocales(
 					themeDisplay.getSiteGroupId())) {
+=======
+		for (Locale locale : LanguageUtil.getAvailableLocales(
+				themeDisplay.getSiteGroupId())) {
+>>>>>>> compatible
 
 			String languageId = LocaleUtil.toLanguageId(locale);
 

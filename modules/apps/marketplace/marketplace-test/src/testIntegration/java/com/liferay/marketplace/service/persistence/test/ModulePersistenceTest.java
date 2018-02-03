@@ -35,6 +35,10 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.util.IntegerWrapper;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.OrderByComparatorFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.PersistenceTestRule;
 import com.liferay.portal.test.rule.TransactionalTestRule;
@@ -155,18 +159,30 @@ public class ModulePersistenceTest {
 
 	@Test
 	public void testCountByUuid() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByUuid("");
 
 		_persistence.countByUuid("null");
+=======
+		_persistence.countByUuid(StringPool.BLANK);
+
+		_persistence.countByUuid(StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByUuid((String)null);
 	}
 
 	@Test
 	public void testCountByUuid_C() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByUuid_C("", RandomTestUtil.nextLong());
 
 		_persistence.countByUuid_C("null", 0L);
+=======
+		_persistence.countByUuid_C(StringPool.BLANK, RandomTestUtil.nextLong());
+
+		_persistence.countByUuid_C(StringPool.NULL, 0L);
+>>>>>>> compatible
 
 		_persistence.countByUuid_C((String)null, 0L);
 	}
@@ -180,36 +196,61 @@ public class ModulePersistenceTest {
 
 	@Test
 	public void testCountByBundleSymbolicName() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByBundleSymbolicName("");
 
 		_persistence.countByBundleSymbolicName("null");
+=======
+		_persistence.countByBundleSymbolicName(StringPool.BLANK);
+
+		_persistence.countByBundleSymbolicName(StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByBundleSymbolicName((String)null);
 	}
 
 	@Test
 	public void testCountByContextName() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByContextName("");
 
 		_persistence.countByContextName("null");
+=======
+		_persistence.countByContextName(StringPool.BLANK);
+
+		_persistence.countByContextName(StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByContextName((String)null);
 	}
 
 	@Test
 	public void testCountByA_CN() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByA_CN(RandomTestUtil.nextLong(), "");
 
 		_persistence.countByA_CN(0L, "null");
+=======
+		_persistence.countByA_CN(RandomTestUtil.nextLong(), StringPool.BLANK);
+
+		_persistence.countByA_CN(0L, StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByA_CN(0L, (String)null);
 	}
 
 	@Test
 	public void testCountByA_BSN_BV() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByA_BSN_BV(RandomTestUtil.nextLong(), "", "");
 
 		_persistence.countByA_BSN_BV(0L, "null", "null");
+=======
+		_persistence.countByA_BSN_BV(RandomTestUtil.nextLong(),
+			StringPool.BLANK, StringPool.BLANK);
+
+		_persistence.countByA_BSN_BV(0L, StringPool.NULL, StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByA_BSN_BV(0L, (String)null, (String)null);
 	}

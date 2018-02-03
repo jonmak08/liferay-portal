@@ -14,10 +14,15 @@
 
 package com.liferay.staging.bar.web.internal.portlet;
 
+<<<<<<< HEAD
 import com.liferay.exportimport.kernel.exception.RemoteExportException;
 import com.liferay.exportimport.kernel.staging.LayoutStagingUtil;
 import com.liferay.exportimport.kernel.staging.Staging;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.exportimport.kernel.staging.LayoutStagingUtil;
+import com.liferay.exportimport.kernel.staging.Staging;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.LayoutBranchNameException;
 import com.liferay.portal.kernel.exception.LayoutSetBranchNameException;
 import com.liferay.portal.kernel.exception.NoSuchGroupException;
@@ -47,6 +52,10 @@ import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.UnicodeProperties;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
@@ -55,8 +64,11 @@ import com.liferay.staging.constants.StagingProcessesWebKeys;
 
 import java.io.IOException;
 
+<<<<<<< HEAD
 import java.net.ConnectException;
 
+=======
+>>>>>>> compatible
 import java.util.List;
 
 import javax.portlet.ActionRequest;
@@ -281,6 +293,7 @@ public class StagingBarPortlet extends MVCPortlet {
 
 					SessionErrors.add(renderRequest, AuthException.class);
 				}
+<<<<<<< HEAD
 				catch (SystemException se) {
 					Throwable cause = se.getCause();
 
@@ -297,6 +310,8 @@ public class StagingBarPortlet extends MVCPortlet {
 					SessionErrors.add(
 						renderRequest, RemoteExportException.class);
 				}
+=======
+>>>>>>> compatible
 				catch (Exception e) {
 					_log.error(e, e);
 

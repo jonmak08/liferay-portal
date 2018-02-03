@@ -14,10 +14,18 @@
 
 package com.liferay.portal.kernel.servlet;
 
+<<<<<<< HEAD
 import com.liferay.petra.nio.CharsetEncoderUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
+=======
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.nio.charset.CharsetEncoderUtil;
+import com.liferay.portal.kernel.util.ArrayUtil;
+import com.liferay.portal.kernel.util.ContentTypes;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.MimeTypesUtil;
@@ -100,7 +108,12 @@ public class ServletResponseUtil {
 			int index = rangeField.indexOf(StringPool.DASH);
 
 			long start = GetterUtil.getLong(rangeField.substring(0, index), -1);
+<<<<<<< HEAD
 			long end = GetterUtil.getLong(rangeField.substring(index + 1), -1);
+=======
+			long end = GetterUtil.getLong(
+				rangeField.substring(index + 1, rangeField.length()), -1);
+>>>>>>> compatible
 
 			if (start == -1) {
 				start = length - end;
@@ -112,9 +125,13 @@ public class ServletResponseUtil {
 
 			if (start > end) {
 				throw new IOException(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Range start ", String.valueOf(start),
 						" is greater than end ", String.valueOf(end)));
+=======
+					"Range start " + start + " is greater than end " + end);
+>>>>>>> compatible
 			}
 
 			Range range = new Range(start, end, length);
@@ -259,7 +276,15 @@ public class ServletResponseUtil {
 			long fullLength, String contentType)
 		throws IOException {
 
+<<<<<<< HEAD
 		try (OutputStream outputStream = response.getOutputStream()) {
+=======
+		OutputStream outputStream = null;
+
+		try {
+			outputStream = response.getOutputStream();
+
+>>>>>>> compatible
 			Range fullRange = new Range(0, fullLength - 1, fullLength);
 
 			Range firstRange = null;
@@ -278,7 +303,11 @@ public class ServletResponseUtil {
 				setHeaders(
 					request, response, fileName, contentType, null, fullRange);
 
+<<<<<<< HEAD
 				_copyRange(
+=======
+				copyRange(
+>>>>>>> compatible
 					inputStream, outputStream, fullRange.getStart(),
 					fullRange.getLength());
 			}
@@ -296,7 +325,11 @@ public class ServletResponseUtil {
 
 				response.setStatus(HttpServletResponse.SC_PARTIAL_CONTENT);
 
+<<<<<<< HEAD
 				_copyRange(
+=======
+				copyRange(
+>>>>>>> compatible
 					inputStream, outputStream, range.getStart(),
 					range.getLength());
 			}
@@ -321,6 +354,7 @@ public class ServletResponseUtil {
 
 				response.setStatus(HttpServletResponse.SC_PARTIAL_CONTENT);
 
+<<<<<<< HEAD
 				boolean sequentialRangeList = _isSequentialRangeList(ranges);
 
 				if (!sequentialRangeList) {
@@ -330,6 +364,11 @@ public class ServletResponseUtil {
 				Range previousRange = null;
 
 				for (Range curRange : ranges) {
+=======
+				for (int i = 0; i < ranges.size(); i++) {
+					Range range = ranges.get(i);
+
+>>>>>>> compatible
 					servletOutputStream.println();
 					servletOutputStream.println(
 						StringPool.DOUBLE_DASH + boundary);
@@ -337,6 +376,7 @@ public class ServletResponseUtil {
 						HttpHeaders.CONTENT_TYPE + ": " + contentType);
 					servletOutputStream.println(
 						HttpHeaders.CONTENT_RANGE + ": " +
+<<<<<<< HEAD
 							curRange.getContentRange());
 					servletOutputStream.println();
 
@@ -353,6 +393,14 @@ public class ServletResponseUtil {
 					_copyRange(
 						inputStream, servletOutputStream, start,
 						curRange.getLength());
+=======
+							range.getContentRange());
+					servletOutputStream.println();
+
+					inputStream = copyRange(
+						inputStream, outputStream, range.getStart(),
+						range.getLength());
+>>>>>>> compatible
 				}
 
 				servletOutputStream.println();
@@ -361,7 +409,15 @@ public class ServletResponseUtil {
 			}
 		}
 		finally {
+<<<<<<< HEAD
 			StreamUtil.cleanUp(inputStream);
+=======
+			try {
+				inputStream.close();
+			}
+			catch (IOException ioe) {
+			}
+>>>>>>> compatible
 		}
 	}
 
@@ -555,6 +611,7 @@ public class ServletResponseUtil {
 		throws IOException {
 
 		if (response.isCommitted()) {
+<<<<<<< HEAD
 			if (inputStream != null) {
 				try {
 					inputStream.close();
@@ -565,6 +622,9 @@ public class ServletResponseUtil {
 					}
 				}
 			}
+=======
+			StreamUtil.cleanUp(inputStream);
+>>>>>>> compatible
 
 			return;
 		}
@@ -590,23 +650,70 @@ public class ServletResponseUtil {
 		}
 		else {
 			ByteBuffer byteBuffer = CharsetEncoderUtil.encode(
+<<<<<<< HEAD
 				StringPool.UTF8, CharBuffer.wrap(s));
+=======
+				StringPool.UTF8, s);
+>>>>>>> compatible
 
 			write(response, byteBuffer);
 		}
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	protected static InputStream copyRange(
 			InputStream inputStream, OutputStream outputStream, long start,
 			long length)
 		throws IOException {
 
+<<<<<<< HEAD
 		return _copyRange(
 			_toRandomAccessInputStream(inputStream), outputStream, start,
+=======
+		if (inputStream instanceof FileInputStream) {
+			FileInputStream fileInputStream = (FileInputStream)inputStream;
+
+			FileChannel fileChannel = fileInputStream.getChannel();
+
+			fileChannel.transferTo(
+				start, length, Channels.newChannel(outputStream));
+
+			return fileInputStream;
+		}
+		else if (inputStream instanceof ByteArrayInputStream) {
+			ByteArrayInputStream byteArrayInputStream =
+				(ByteArrayInputStream)inputStream;
+
+			byteArrayInputStream.reset();
+
+			byteArrayInputStream.skip(start);
+
+			StreamUtil.transfer(byteArrayInputStream, outputStream, length);
+
+			return byteArrayInputStream;
+		}
+		else if (inputStream instanceof RandomAccessInputStream) {
+			RandomAccessInputStream randomAccessInputStream =
+				(RandomAccessInputStream)inputStream;
+
+			randomAccessInputStream.seek(start);
+
+			StreamUtil.transfer(
+				randomAccessInputStream, outputStream, StreamUtil.BUFFER_SIZE,
+				false, length);
+
+			return randomAccessInputStream;
+		}
+
+		return copyRange(
+			new RandomAccessInputStream(inputStream), outputStream, start,
+>>>>>>> compatible
 			length);
 	}
 
@@ -628,6 +735,15 @@ public class ServletResponseUtil {
 		// LEP-2201
 
 		if (Validator.isNotNull(contentType)) {
+<<<<<<< HEAD
+=======
+			if (contentType.equals(ContentTypes.IMAGE_X_MS_BMP) &&
+				BrowserSnifferUtil.isIe(request)) {
+
+				contentType = ContentTypes.IMAGE_BMP;
+			}
+
+>>>>>>> compatible
 			response.setContentType(contentType);
 		}
 
@@ -731,6 +847,7 @@ public class ServletResponseUtil {
 		}
 	}
 
+<<<<<<< HEAD
 	private static InputStream _copyRange(
 			InputStream inputStream, OutputStream outputStream, long start,
 			long length)
@@ -819,6 +936,8 @@ public class ServletResponseUtil {
 		return new RandomAccessInputStream(inputStream);
 	}
 
+=======
+>>>>>>> compatible
 	private static final String _CLIENT_ABORT_EXCEPTION =
 		"org.apache.catalina.connector.ClientAbortException";
 

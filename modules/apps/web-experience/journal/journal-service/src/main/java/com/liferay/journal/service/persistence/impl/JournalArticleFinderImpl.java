@@ -20,7 +20,10 @@ import com.liferay.journal.model.JournalArticle;
 import com.liferay.journal.model.impl.JournalArticleImpl;
 import com.liferay.journal.service.persistence.JournalArticleFinder;
 import com.liferay.journal.service.persistence.JournalArticleUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.dao.orm.custom.sql.CustomSQLUtil;
 import com.liferay.portal.kernel.dao.orm.QueryDefinition;
 import com.liferay.portal.kernel.dao.orm.QueryPos;
@@ -39,6 +42,10 @@ import com.liferay.portal.kernel.util.CalendarUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
@@ -821,7 +828,13 @@ public class JournalArticleFinderImpl
 			qPos.add(groupId);
 			qPos.add(queryDefinition.getStatus());
 
+<<<<<<< HEAD
 			for (Long folderId : folderIds) {
+=======
+			for (int i = 0; i < folderIds.size(); i++) {
+				Long folderId = folderIds.get(i);
+
+>>>>>>> compatible
 				qPos.add(folderId);
 			}
 
@@ -1041,11 +1054,19 @@ public class JournalArticleFinderImpl
 			}
 
 			sql = CustomSQLUtil.replaceKeywords(
+<<<<<<< HEAD
 				sql, "LOWER(JournalArticleLocalization.title)", StringPool.LIKE,
 				false, titles);
 			sql = CustomSQLUtil.replaceKeywords(
 				sql, "JournalArticleLocalization.description", StringPool.LIKE,
 				false, descriptions);
+=======
+				sql, "lower(JournalArticle.title)", StringPool.LIKE, false,
+				titles);
+			sql = CustomSQLUtil.replaceKeywords(
+				sql, "JournalArticle.description", StringPool.LIKE, false,
+				descriptions);
+>>>>>>> compatible
 			sql = CustomSQLUtil.replaceKeywords(
 				sql, "JournalArticle.content", StringPool.LIKE, false,
 				contents);
@@ -1155,7 +1176,11 @@ public class JournalArticleFinderImpl
 			sql = replaceStatusJoin(sql, queryDefinition);
 
 			sql = CustomSQLUtil.replaceOrderBy(
+<<<<<<< HEAD
 				sql, queryDefinition.getOrderByComparator());
+=======
+				sql, queryDefinition.getOrderByComparator("JournalArticle"));
+>>>>>>> compatible
 
 			if (inlineSQLHelper) {
 				sql = InlineSQLHelperUtil.replacePermissionCheck(
@@ -1177,7 +1202,13 @@ public class JournalArticleFinderImpl
 			qPos.add(groupId);
 			qPos.add(queryDefinition.getStatus());
 
+<<<<<<< HEAD
 			for (Long folderId : folderIds) {
+=======
+			for (int i = 0; i < folderIds.size(); i++) {
+				Long folderId = folderIds.get(i);
+
+>>>>>>> compatible
 				qPos.add(folderId);
 			}
 
@@ -1209,7 +1240,11 @@ public class JournalArticleFinderImpl
 			sql = replaceStatusJoin(sql, queryDefinition);
 
 			sql = CustomSQLUtil.replaceOrderBy(
+<<<<<<< HEAD
 				sql, queryDefinition.getOrderByComparator());
+=======
+				sql, queryDefinition.getOrderByComparator("JournalArticle"));
+>>>>>>> compatible
 
 			if (groupId <= 0) {
 				sql = StringUtil.replace(
@@ -1270,7 +1305,11 @@ public class JournalArticleFinderImpl
 			sql = replaceStatusJoin(sql, queryDefinition);
 
 			sql = CustomSQLUtil.replaceOrderBy(
+<<<<<<< HEAD
 				sql, queryDefinition.getOrderByComparator());
+=======
+				sql, queryDefinition.getOrderByComparator("JournalArticle"));
+>>>>>>> compatible
 
 			if (folderIds.isEmpty()) {
 				sql = StringUtil.replace(
@@ -1380,6 +1419,7 @@ public class JournalArticleFinderImpl
 			}
 
 			sql = CustomSQLUtil.replaceKeywords(
+<<<<<<< HEAD
 				sql, "LOWER(JournalArticleLocalization.title)", StringPool.LIKE,
 				false, titles);
 
@@ -1387,10 +1427,18 @@ public class JournalArticleFinderImpl
 				sql, "JournalArticleLocalization.description", StringPool.LIKE,
 				true, descriptions);
 
+=======
+				sql, "lower(JournalArticle.title)", StringPool.LIKE, false,
+				titles);
+			sql = CustomSQLUtil.replaceKeywords(
+				sql, "JournalArticle.description", StringPool.LIKE, false,
+				descriptions);
+>>>>>>> compatible
 			sql = CustomSQLUtil.replaceKeywords(
 				sql, "JournalArticle.content", StringPool.LIKE, false,
 				contents);
 
+<<<<<<< HEAD
 			sql = CustomSQLUtil.replaceKeywords(
 				sql, "LOWER(tempJournalArticleLocalization.title)",
 				StringPool.LIKE, false, titles);
@@ -1399,6 +1447,8 @@ public class JournalArticleFinderImpl
 				sql, "tempJournalArticleLocalization.description",
 				StringPool.LIKE, false, descriptions);
 
+=======
+>>>>>>> compatible
 			sql = replaceStructureTemplate(
 				sql, ddmStructureKeys, ddmTemplateKeys);
 
@@ -1416,7 +1466,11 @@ public class JournalArticleFinderImpl
 
 			sql = CustomSQLUtil.replaceAndOperator(sql, andOperator);
 			sql = CustomSQLUtil.replaceOrderBy(
+<<<<<<< HEAD
 				sql, queryDefinition.getOrderByComparator());
+=======
+				sql, queryDefinition.getOrderByComparator("JournalArticle"));
+>>>>>>> compatible
 
 			if (inlineSQLHelper) {
 				sql = InlineSQLHelperUtil.replacePermissionCheck(
@@ -1434,9 +1488,12 @@ public class JournalArticleFinderImpl
 
 			QueryPos qPos = QueryPos.getInstance(q);
 
+<<<<<<< HEAD
 			qPos.add(titles, 2);
 			qPos.add(descriptions, 2);
 
+=======
+>>>>>>> compatible
 			qPos.add(companyId);
 
 			if (groupId > 0) {
@@ -1464,9 +1521,15 @@ public class JournalArticleFinderImpl
 				qPos.add(version);
 			}
 
+<<<<<<< HEAD
 			qPos.add(contents, 2);
 			qPos.add(titles, 2);
 			qPos.add(descriptions, 2);
+=======
+			qPos.add(titles, 2);
+			qPos.add(descriptions, 2);
+			qPos.add(contents, 2);
+>>>>>>> compatible
 			qPos.add(displayDateGT_TS);
 			qPos.add(displayDateGT_TS);
 			qPos.add(displayDateLT_TS);

@@ -1,7 +1,11 @@
 Bundle-Name: Liferay Staging Processes Web
 Bundle-SymbolicName: com.liferay.staging.processes.web
+<<<<<<< HEAD
 Bundle-Version: 1.0.24
 Liferay-JS-Config: /META-INF/resources/js/config.js
+=======
+Bundle-Version: 1.0.20
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Data Management
 Web-ContextPath: /staging-processes-web

@@ -71,9 +71,14 @@ public interface KaleoTaskLocalService extends BaseLocalService,
 	@Indexable(type = IndexableType.REINDEX)
 	public KaleoTask addKaleoTask(KaleoTask kaleoTask);
 
+<<<<<<< HEAD
 	public KaleoTask addKaleoTask(long kaleoDefinitionVersionId,
 		long kaleoNodeId, Task task, ServiceContext serviceContext)
 		throws PortalException;
+=======
+	public KaleoTask addKaleoTask(long kaleoDefinitionId, long kaleoNodeId,
+		Task task, ServiceContext serviceContext) throws PortalException;
+>>>>>>> compatible
 
 	/**
 	* Creates a new kaleo task with the primary key. Does not add the kaleo task to the database.
@@ -85,8 +90,12 @@ public interface KaleoTaskLocalService extends BaseLocalService,
 
 	public void deleteCompanyKaleoTasks(long companyId);
 
+<<<<<<< HEAD
 	public void deleteKaleoDefinitionVersionKaleoTasks(
 		long kaleoDefinitionVersionId);
+=======
+	public void deleteKaleoDefinitionKaleoTasks(long kaleoDefinitionId);
+>>>>>>> compatible
 
 	/**
 	* Deletes the kaleo task from the database. Also notifies the appropriate model listeners.

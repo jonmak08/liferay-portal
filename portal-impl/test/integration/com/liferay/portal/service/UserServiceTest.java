@@ -16,32 +16,51 @@ package com.liferay.portal.service;
 
 import com.liferay.portal.kernel.exception.NoSuchUserException;
 import com.liferay.portal.kernel.exception.UserEmailAddressException;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.exception.UserScreenNameException;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Contact;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.GroupConstants;
 import com.liferay.portal.kernel.model.Organization;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.PasswordPolicy;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Role;
 import com.liferay.portal.kernel.model.RoleConstants;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.model.UserGroupRole;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.auth.DefaultScreenNameValidator;
 import com.liferay.portal.kernel.security.auth.PrincipalThreadLocal;
 import com.liferay.portal.kernel.security.auth.ScreenNameValidator;
+=======
+import com.liferay.portal.kernel.security.auth.PrincipalThreadLocal;
+>>>>>>> compatible
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.security.permission.PermissionCheckerFactoryUtil;
 import com.liferay.portal.kernel.security.permission.PermissionThreadLocal;
 import com.liferay.portal.kernel.service.CompanyLocalServiceUtil;
 import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.service.PasswordPolicyLocalServiceUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.UserGroupRoleLocalServiceUtil;
 import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.service.UserServiceUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.test.ReflectionTestUtil;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+=======
+import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+import com.liferay.portal.kernel.test.rule.Sync;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.OrganizationTestUtil;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
@@ -50,18 +69,27 @@ import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.test.util.UserTestUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.CalendarFactoryUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.UnicodeProperties;
 import com.liferay.portal.security.auth.ScreenNameValidatorFactory;
+=======
+import com.liferay.portal.kernel.util.PropsKeys;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.UnicodeProperties;
+>>>>>>> compatible
 import com.liferay.portal.test.mail.MailServiceTestUtil;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.SynchronousMailTestRule;
 import com.liferay.portal.util.PrefsPropsUtil;
 import com.liferay.portal.util.PropsUtil;
+<<<<<<< HEAD
 import com.liferay.portal.util.PropsValues;
 import com.liferay.portlet.passwordpoliciesadmin.util.test.PasswordPolicyTestUtil;
+=======
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -69,7 +97,6 @@ import java.util.List;
 
 import javax.portlet.PortletPreferences;
 
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.ClassRule;
@@ -86,6 +113,7 @@ import org.junit.runner.RunWith;
 @RunWith(Enclosed.class)
 public class UserServiceTest {
 
+<<<<<<< HEAD
 	public static class WhenAddingOrRemovingPasswordPolicyUsers {
 
 		@ClassRule
@@ -160,6 +188,8 @@ public class UserServiceTest {
 
 	}
 
+=======
+>>>>>>> compatible
 	public static class WhenAddingUserWithDefaultSitesEnabled {
 
 		@ClassRule
@@ -216,12 +246,22 @@ public class UserServiceTest {
 		public void shouldInheritDefaultSiteRolesFromDefaultSite()
 			throws Exception {
 
+<<<<<<< HEAD
 			Assert.assertTrue(
 				ArrayUtil.contains(_user.getGroupIds(), _group.getGroupId()));
 
 			List<UserGroupRole> userGroupRoles =
 				UserGroupRoleLocalServiceUtil.getUserGroupRoles(
 					_user.getUserId(), _group.getGroupId());
+=======
+			long groupId = _group.getGroupId();
+
+			Assert.assertTrue(ArrayUtil.contains(_user.getGroupIds(), groupId));
+
+			List<UserGroupRole> userGroupRoles =
+				UserGroupRoleLocalServiceUtil.getUserGroupRoles(
+					_user.getUserId(), groupId);
+>>>>>>> compatible
 
 			Assert.assertEquals(
 				userGroupRoles.toString(), 1, userGroupRoles.size());
@@ -246,6 +286,7 @@ public class UserServiceTest {
 
 	}
 
+<<<<<<< HEAD
 	public static class WhenAddingUserWithNumericScreenName {
 
 		@ClassRule
@@ -378,6 +419,8 @@ public class UserServiceTest {
 
 	}
 
+=======
+>>>>>>> compatible
 	public static class WhenCompanySecurityStrangersWithMXDisabled {
 
 		@ClassRule

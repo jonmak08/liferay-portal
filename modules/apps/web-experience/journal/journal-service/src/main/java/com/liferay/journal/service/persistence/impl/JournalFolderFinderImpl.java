@@ -21,7 +21,10 @@ import com.liferay.journal.model.impl.JournalFolderImpl;
 import com.liferay.journal.service.persistence.JournalArticleUtil;
 import com.liferay.journal.service.persistence.JournalFolderFinder;
 import com.liferay.journal.service.persistence.JournalFolderUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.dao.orm.custom.sql.CustomSQLUtil;
 import com.liferay.portal.kernel.dao.orm.QueryDefinition;
 import com.liferay.portal.kernel.dao.orm.QueryPos;
@@ -31,16 +34,25 @@ import com.liferay.portal.kernel.dao.orm.Session;
 import com.liferay.portal.kernel.dao.orm.Type;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.security.permission.InlineSQLHelperUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.PortalUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Locale;
+=======
+>>>>>>> compatible
 
 /**
  * @author Juan Fernández
@@ -58,18 +70,24 @@ public class JournalFolderFinderImpl
 	public static final String FIND_A_BY_G_U_F =
 		JournalFolderFinder.class.getName() + ".findA_ByG_U_F";
 
+<<<<<<< HEAD
 	public static final String FIND_A_BY_G_U_F_L =
 		JournalFolderFinder.class.getName() + ".findA_ByG_U_F_L";
 
+=======
+>>>>>>> compatible
 	public static final String FIND_F_BY_NO_ASSETS =
 		JournalFolderFinder.class.getName() + ".findF_ByNoAssets";
 
 	public static final String FIND_F_BY_G_F =
 		JournalFolderFinder.class.getName() + ".findF_ByG_F";
 
+<<<<<<< HEAD
 	public static final String FIND_F_BY_G_F_L =
 		JournalFolderFinder.class.getName() + ".findF_ByG_F_L";
 
+=======
+>>>>>>> compatible
 	@Override
 	public int countF_A_ByG_F(
 		long groupId, long folderId, QueryDefinition<?> queryDefinition) {
@@ -92,6 +110,7 @@ public class JournalFolderFinderImpl
 	}
 
 	@Override
+<<<<<<< HEAD
 	public List<Object> filterFindF_A_ByG_F_L(
 		long groupId, long folderId, Locale locale,
 		QueryDefinition<?> queryDefinition) {
@@ -101,6 +120,8 @@ public class JournalFolderFinderImpl
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public List<Object> findF_A_ByG_F(
 		long groupId, long folderId, QueryDefinition<?> queryDefinition) {
 
@@ -300,6 +321,7 @@ public class JournalFolderFinderImpl
 		}
 	}
 
+<<<<<<< HEAD
 	protected List<Object> doFindF_A_ByG_F_L(
 		long groupId, long folderId, Locale locale,
 		QueryDefinition<?> queryDefinition, boolean inlineSQLHelper) {
@@ -397,6 +419,8 @@ public class JournalFolderFinderImpl
 		}
 	}
 
+=======
+>>>>>>> compatible
 	protected String getArticlesSQL(
 		String id, long groupId, QueryDefinition<?> queryDefinition,
 		boolean inlineSQLHelper) {

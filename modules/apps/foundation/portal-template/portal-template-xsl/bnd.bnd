@@ -1,5 +1,9 @@
 Bundle-Name: Liferay Portal Template XSL
 Bundle-SymbolicName: com.liferay.portal.template.xsl
+<<<<<<< HEAD
 Bundle-Version: 2.0.10
+=======
+Bundle-Version: 2.0.5
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Template Engines

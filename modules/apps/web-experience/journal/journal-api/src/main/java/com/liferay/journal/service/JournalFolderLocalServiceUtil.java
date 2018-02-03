@@ -471,6 +471,7 @@ public class JournalFolderLocalServiceUtil {
 		getService().getSubfolderIds(folderIds, groupId, folderId);
 	}
 
+<<<<<<< HEAD
 	/**
 	* @deprecated As of 4.0.0, with no direct replacement
 	*/
@@ -479,6 +480,8 @@ public class JournalFolderLocalServiceUtil {
 		return getService().getSubscriptionLocalService();
 	}
 
+=======
+>>>>>>> compatible
 	public static com.liferay.journal.model.JournalFolder moveFolder(
 		long folderId, long parentFolderId,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
@@ -518,6 +521,7 @@ public class JournalFolderLocalServiceUtil {
 		getService().restoreFolderFromTrash(userId, folderId);
 	}
 
+<<<<<<< HEAD
 	public static java.util.List<com.liferay.dynamic.data.mapping.model.DDMStructure> searchDDMStructures(
 		long companyId, long[] groupIds, long folderId, int restrictionType,
 		java.lang.String keywords, int start, int end,
@@ -537,6 +541,8 @@ public class JournalFolderLocalServiceUtil {
 		getService().setSubscriptionLocalService(subscriptionLocalService);
 	}
 
+=======
+>>>>>>> compatible
 	public static void subscribe(long userId, long groupId, long folderId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		getService().subscribe(userId, groupId, folderId);

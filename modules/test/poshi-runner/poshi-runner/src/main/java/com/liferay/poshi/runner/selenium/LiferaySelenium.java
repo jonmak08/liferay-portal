@@ -30,10 +30,13 @@ public interface LiferaySelenium {
 
 	public void assertAlertNotPresent() throws Exception;
 
+<<<<<<< HEAD
 	public void assertAttributeValue(
 			String locator, String attribute, String expectedValue)
 		throws Exception;
 
+=======
+>>>>>>> compatible
 	public void assertChecked(String pattern) throws Exception;
 
 	public void assertConfirmation(String pattern) throws Exception;
@@ -76,10 +79,13 @@ public interface LiferaySelenium {
 
 	public void assertNotAlert(String pattern);
 
+<<<<<<< HEAD
 	public void assertNotAttributeValue(
 			String locator, String attribute, String forbiddenValue)
 		throws Exception;
 
+=======
+>>>>>>> compatible
 	public void assertNotChecked(String locator) throws Exception;
 
 	public void assertNotEditable(String locator) throws Exception;
@@ -405,7 +411,11 @@ public interface LiferaySelenium {
 
 	public void type(String locator, String value) throws Exception;
 
+<<<<<<< HEAD
 	public void typeAceEditor(String locator, String value);
+=======
+	public void typeAceEditor(String locator, String value) throws Exception;
+>>>>>>> compatible
 
 	public void typeAlloyEditor(String locator, String value);
 

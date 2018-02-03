@@ -96,9 +96,17 @@ public abstract class BasePortletDataHandler implements PortletDataHandler {
 			return doDeleteData(
 				portletDataContext, portletId, portletPreferences);
 		}
+<<<<<<< HEAD
 		catch (Exception e) {
 			throw _handleException(
 				e, PortletDataException.DELETE_PORTLET_DATA, portletId);
+=======
+		catch (PortletDataException pde) {
+			throw pde;
+		}
+		catch (Exception e) {
+			throw new PortletDataException(e);
+>>>>>>> compatible
 		}
 		finally {
 			if (_log.isInfoEnabled()) {
@@ -141,9 +149,17 @@ public abstract class BasePortletDataHandler implements PortletDataHandler {
 			return doExportData(
 				portletDataContext, portletId, portletPreferences);
 		}
+<<<<<<< HEAD
 		catch (Exception e) {
 			throw _handleException(
 				e, PortletDataException.EXPORT_PORTLET_DATA, portletId);
+=======
+		catch (PortletDataException pde) {
+			throw pde;
+		}
+		catch (Exception e) {
+			throw new PortletDataException(e);
+>>>>>>> compatible
 		}
 		finally {
 			portletDataContext.setExportDataRootElement(rootElement);
@@ -351,6 +367,7 @@ public abstract class BasePortletDataHandler implements PortletDataHandler {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public PortletDataHandlerControl[] getStagingControls() {
 		if (ArrayUtil.isNotEmpty(_stagingControls)) {
 			return _stagingControls;
@@ -360,6 +377,8 @@ public abstract class BasePortletDataHandler implements PortletDataHandler {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public PortletPreferences importData(
 			PortletDataContext portletDataContext, String portletId,
 			PortletPreferences portletPreferences, String data)
@@ -387,9 +406,17 @@ public abstract class BasePortletDataHandler implements PortletDataHandler {
 			return doImportData(
 				portletDataContext, portletId, portletPreferences, data);
 		}
+<<<<<<< HEAD
 		catch (Exception e) {
 			throw _handleException(
 				e, PortletDataException.IMPORT_PORTLET_DATA, portletId);
+=======
+		catch (PortletDataException pde) {
+			throw pde;
+		}
+		catch (Exception e) {
+			throw new PortletDataException(e);
+>>>>>>> compatible
 		}
 		finally {
 			portletDataContext.setImportDataRootElement(rootElement);
@@ -472,6 +499,7 @@ public abstract class BasePortletDataHandler implements PortletDataHandler {
 		try {
 			doPrepareManifestSummary(portletDataContext, portletPreferences);
 		}
+<<<<<<< HEAD
 		catch (Exception e) {
 			throw _handleException(
 				e, PortletDataException.PREPARE_MANIFEST_SUMMARY,
@@ -483,6 +511,16 @@ public abstract class BasePortletDataHandler implements PortletDataHandler {
 	 * @deprecated As of 7.0.0
 	 */
 	@Deprecated
+=======
+		catch (PortletDataException pde) {
+			throw pde;
+		}
+		catch (Exception e) {
+			throw new PortletDataException(e);
+		}
+	}
+
+>>>>>>> compatible
 	@Override
 	public PortletPreferences processExportPortletPreferences(
 			PortletDataContext portletDataContext, String portletId,
@@ -501,10 +539,13 @@ public abstract class BasePortletDataHandler implements PortletDataHandler {
 		}
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	@Override
 	public PortletPreferences processImportPortletPreferences(
 			PortletDataContext portletDataContext, String portletId,
@@ -837,12 +878,15 @@ public abstract class BasePortletDataHandler implements PortletDataHandler {
 		_publishToLiveByDefault = publishToLiveByDefault;
 	}
 
+<<<<<<< HEAD
 	protected void setStagingControls(
 		PortletDataHandlerControl... stagingControls) {
 
 		_stagingControls = stagingControls;
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	 * @deprecated As of 7.0.0
 	 */
@@ -851,6 +895,7 @@ public abstract class BasePortletDataHandler implements PortletDataHandler {
 		boolean supportsDataStrategyCopyAsNew) {
 	}
 
+<<<<<<< HEAD
 	private PortletDataException _handleException(
 		Exception e, int type, String portletId) {
 
@@ -876,6 +921,8 @@ public abstract class BasePortletDataHandler implements PortletDataHandler {
 		return pde;
 	}
 
+=======
+>>>>>>> compatible
 	private static final Log _log = LogFactoryUtil.getLog(
 		BasePortletDataHandler.class);
 
@@ -896,7 +943,10 @@ public abstract class BasePortletDataHandler implements PortletDataHandler {
 	private String _portletId;
 	private boolean _publishToLiveByDefault;
 	private int _rank = 100;
+<<<<<<< HEAD
 	private PortletDataHandlerControl[] _stagingControls =
 		new PortletDataHandlerControl[0];
+=======
+>>>>>>> compatible
 
 }

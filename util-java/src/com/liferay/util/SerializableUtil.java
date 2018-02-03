@@ -18,6 +18,10 @@ import com.liferay.portal.kernel.io.ProtectedObjectInputStream;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
 import com.liferay.portal.kernel.util.ProtectedClassLoaderObjectInputStream;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StreamUtil;
+>>>>>>> compatible
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -36,9 +40,17 @@ public class SerializableUtil {
 	}
 
 	public static Object deserialize(byte[] bytes) {
+<<<<<<< HEAD
 		try (ObjectInputStream objectInputStream =
 				new ProtectedObjectInputStream(
 					new UnsyncByteArrayInputStream(bytes))) {
+=======
+		ObjectInputStream objectInputStream = null;
+
+		try {
+			objectInputStream = new ProtectedObjectInputStream(
+				new UnsyncByteArrayInputStream(bytes));
+>>>>>>> compatible
 
 			return objectInputStream.readObject();
 		}
@@ -51,9 +63,17 @@ public class SerializableUtil {
 	}
 
 	public static Object deserialize(byte[] bytes, ClassLoader classLoader) {
+<<<<<<< HEAD
 		try (ObjectInputStream objectInputStream =
 				new ProtectedClassLoaderObjectInputStream(
 					new UnsyncByteArrayInputStream(bytes), classLoader);) {
+=======
+		ObjectInputStream objectInputStream = null;
+
+		try {
+			objectInputStream = new ProtectedClassLoaderObjectInputStream(
+				new UnsyncByteArrayInputStream(bytes), classLoader);
+>>>>>>> compatible
 
 			return objectInputStream.readObject();
 		}

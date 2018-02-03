@@ -23,10 +23,15 @@ import com.liferay.portal.kernel.service.ServiceWrapper;
  *
  * @author Brian Wing Shun Chan
  * @see KaleoDefinitionService
+<<<<<<< HEAD
  * @deprecated As of 2.0.0, with no direct replacement
  * @generated
  */
 @Deprecated
+=======
+ * @generated
+ */
+>>>>>>> compatible
 @ProviderType
 public class KaleoDefinitionServiceWrapper implements KaleoDefinitionService,
 	ServiceWrapper<KaleoDefinitionService> {
@@ -35,20 +40,26 @@ public class KaleoDefinitionServiceWrapper implements KaleoDefinitionService,
 		_kaleoDefinitionService = kaleoDefinitionService;
 	}
 
+<<<<<<< HEAD
 	/**
 	* @deprecated As of 2.0.0, with no direct replacement
 	*/
 	@Deprecated
+=======
+>>>>>>> compatible
 	@Override
 	public java.util.List<com.liferay.portal.workflow.kaleo.model.KaleoDefinition> getKaleoDefinitions(
 		int start, int end) {
 		return _kaleoDefinitionService.getKaleoDefinitions(start, end);
 	}
 
+<<<<<<< HEAD
 	/**
 	* @deprecated As of 2.0.0, with no direct replacement
 	*/
 	@Deprecated
+=======
+>>>>>>> compatible
 	@Override
 	public java.util.List<com.liferay.portal.workflow.kaleo.model.KaleoDefinition> getKaleoDefinitions(
 		long companyId, int start, int end) {

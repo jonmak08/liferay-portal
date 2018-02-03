@@ -21,7 +21,10 @@ import com.liferay.journal.service.base.JournalArticleServiceBaseImpl;
 import com.liferay.journal.service.permission.JournalArticlePermission;
 import com.liferay.journal.service.permission.JournalFolderPermission;
 import com.liferay.journal.service.permission.JournalPermission;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.QueryDefinition;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.portlet.PortletRequestModel;
@@ -31,6 +34,10 @@ import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 
 import java.io.File;
@@ -74,6 +81,7 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 	 * @param  titleMap the web content article's locales and localized titles
 	 * @param  descriptionMap the web content article's locales and localized
 	 *         descriptions
+<<<<<<< HEAD
 	 * @param  friendlyURLMap the web content article's locales and localized
 	 *         friendly URLs
 	 * @param  content the HTML content wrapped in XML. For more information,
@@ -185,6 +193,8 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 	 * @param  titleMap the web content article's locales and localized titles
 	 * @param  descriptionMap the web content article's locales and localized
 	 *         descriptions
+=======
+>>>>>>> compatible
 	 * @param  content the HTML content wrapped in XML. For more information,
 	 *         see the content example in the {@link #updateArticle(long, long,
 	 *         String, double, String, ServiceContext)} description.
@@ -422,6 +432,7 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 			ServiceContext serviceContext)
 		throws PortalException {
 
+<<<<<<< HEAD
 		JournalArticle article = journalArticlePersistence.findByG_A_V(
 			groupId, articleId, version);
 
@@ -430,6 +441,14 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 
 		journalArticleLocalService.deleteArticle(
 			article, articleURL, serviceContext);
+=======
+		JournalArticlePermission.check(
+			getPermissionChecker(), groupId, articleId, version,
+			ActionKeys.DELETE);
+
+		journalArticleLocalService.deleteArticle(
+			groupId, articleId, version, articleURL, serviceContext);
+>>>>>>> compatible
 	}
 
 	/**
@@ -450,11 +469,16 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 			ServiceContext serviceContext)
 		throws PortalException {
 
+<<<<<<< HEAD
 		JournalArticle article = journalArticleLocalService.getArticle(
 			groupId, articleId);
 
 		JournalArticlePermission.check(
 			getPermissionChecker(), article, ActionKeys.DELETE);
+=======
+		JournalArticlePermission.check(
+			getPermissionChecker(), groupId, articleId, ActionKeys.DELETE);
+>>>>>>> compatible
 
 		journalArticleLocalService.deleteArticle(
 			groupId, articleId, serviceContext);
@@ -484,6 +508,7 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 			ServiceContext serviceContext)
 		throws PortalException {
 
+<<<<<<< HEAD
 		JournalArticle article = journalArticlePersistence.findByG_A_V(
 			groupId, articleId, version);
 
@@ -493,6 +518,15 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 		return journalArticleLocalService.updateStatus(
 			getUserId(), article, WorkflowConstants.STATUS_EXPIRED, articleURL,
 			serviceContext, new HashMap<>());
+=======
+		JournalArticlePermission.check(
+			getPermissionChecker(), groupId, articleId, version,
+			ActionKeys.EXPIRE);
+
+		return journalArticleLocalService.expireArticle(
+			getUserId(), groupId, articleId, version, articleURL,
+			serviceContext);
+>>>>>>> compatible
 	}
 
 	/**
@@ -519,11 +553,16 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 			ServiceContext serviceContext)
 		throws PortalException {
 
+<<<<<<< HEAD
 		JournalArticle article = journalArticleLocalService.getArticle(
 			groupId, articleId);
 
 		JournalArticlePermission.check(
 			getPermissionChecker(), article, ActionKeys.EXPIRE);
+=======
+		JournalArticlePermission.check(
+			getPermissionChecker(), groupId, articleId, ActionKeys.EXPIRE);
+>>>>>>> compatible
 
 		journalArticleLocalService.expireArticle(
 			getUserId(), groupId, articleId, articleURL, serviceContext);
@@ -573,6 +612,7 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 	public JournalArticle getArticle(long groupId, String articleId)
 		throws PortalException {
 
+<<<<<<< HEAD
 		JournalArticle article = journalArticleLocalService.getArticle(
 			groupId, articleId);
 
@@ -580,6 +620,12 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 			getPermissionChecker(), article, ActionKeys.VIEW);
 
 		return article;
+=======
+		JournalArticlePermission.check(
+			getPermissionChecker(), groupId, articleId, ActionKeys.VIEW);
+
+		return journalArticleLocalService.getArticle(groupId, articleId);
+>>>>>>> compatible
 	}
 
 	/**
@@ -596,6 +642,7 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 			long groupId, String articleId, double version)
 		throws PortalException {
 
+<<<<<<< HEAD
 		JournalArticle article = journalArticleLocalService.getArticle(
 			groupId, articleId, version);
 
@@ -603,6 +650,14 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 			getPermissionChecker(), article, ActionKeys.VIEW);
 
 		return article;
+=======
+		JournalArticlePermission.check(
+			getPermissionChecker(), groupId, articleId, version,
+			ActionKeys.VIEW);
+
+		return journalArticleLocalService.getArticle(
+			groupId, articleId, version);
+>>>>>>> compatible
 	}
 
 	/**
@@ -630,7 +685,12 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 			groupId, className, classPK);
 
 		JournalArticlePermission.check(
+<<<<<<< HEAD
 			getPermissionChecker(), article, ActionKeys.VIEW);
+=======
+			getPermissionChecker(), groupId, article.getArticleId(),
+			article.getVersion(), ActionKeys.VIEW);
+>>>>>>> compatible
 
 		return article;
 	}
@@ -675,11 +735,17 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 			PortletRequestModel portletRequestModel, ThemeDisplay themeDisplay)
 		throws PortalException {
 
+<<<<<<< HEAD
 		JournalArticle article = journalArticlePersistence.findByG_A_V(
 			groupId, articleId, version);
 
 		JournalArticlePermission.check(
 			getPermissionChecker(), article, ActionKeys.VIEW);
+=======
+		JournalArticlePermission.check(
+			getPermissionChecker(), groupId, articleId, version,
+			ActionKeys.VIEW);
+>>>>>>> compatible
 
 		return journalArticleLocalService.getArticleContent(
 			groupId, articleId, version, null, null, languageId,
@@ -696,7 +762,11 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 	 * @param      languageId the primary key of the language translation to get
 	 * @param      themeDisplay the theme display
 	 * @return     the matching web content
+<<<<<<< HEAD
 	 * @deprecated As of 4.0.0, replaced by {@link #getArticleContent(long,
+=======
+	 * @deprecated As of 3.3.0, replaced by {@link #getArticleContent(long,
+>>>>>>> compatible
 	 *             String, double, String, PortletRequestModel, ThemeDisplay)}
 	 */
 	@Deprecated
@@ -706,11 +776,17 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 			ThemeDisplay themeDisplay)
 		throws PortalException {
 
+<<<<<<< HEAD
 		JournalArticle article = journalArticlePersistence.findByG_A_V(
 			groupId, articleId, version);
 
 		JournalArticlePermission.check(
 			getPermissionChecker(), article, ActionKeys.VIEW);
+=======
+		JournalArticlePermission.check(
+			getPermissionChecker(), groupId, articleId, version,
+			ActionKeys.VIEW);
+>>>>>>> compatible
 
 		return journalArticleLocalService.getArticleContent(
 			groupId, articleId, version, null, languageId, themeDisplay);
@@ -733,11 +809,16 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 			PortletRequestModel portletRequestModel, ThemeDisplay themeDisplay)
 		throws PortalException {
 
+<<<<<<< HEAD
 		JournalArticle article = journalArticleLocalService.getArticle(
 			groupId, articleId);
 
 		JournalArticlePermission.check(
 			getPermissionChecker(), article, ActionKeys.VIEW);
+=======
+		JournalArticlePermission.check(
+			getPermissionChecker(), groupId, articleId, ActionKeys.VIEW);
+>>>>>>> compatible
 
 		return journalArticleLocalService.getArticleContent(
 			groupId, articleId, null, null, languageId, portletRequestModel,
@@ -753,7 +834,11 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 	 * @param      languageId the primary key of the language translation to get
 	 * @param      themeDisplay the theme display
 	 * @return     the matching web content
+<<<<<<< HEAD
 	 * @deprecated As of 4.0.0, replaced by {@link #getArticleContent(long,
+=======
+	 * @deprecated As of 3.3.0, replaced by {@link #getArticleContent(long,
+>>>>>>> compatible
 	 *             String, String, PortletRequestModel, ThemeDisplay)}
 	 */
 	@Deprecated
@@ -763,11 +848,16 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 			ThemeDisplay themeDisplay)
 		throws PortalException {
 
+<<<<<<< HEAD
 		JournalArticle article = journalArticleLocalService.getArticle(
 			groupId, articleId);
 
 		JournalArticlePermission.check(
 			getPermissionChecker(), article, ActionKeys.VIEW);
+=======
+		JournalArticlePermission.check(
+			getPermissionChecker(), groupId, articleId, ActionKeys.VIEW);
+>>>>>>> compatible
 
 		return journalArticleLocalService.getArticleContent(
 			groupId, articleId, null, languageId, themeDisplay);
@@ -1384,6 +1474,7 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 			long groupId, String articleId, int status)
 		throws PortalException {
 
+<<<<<<< HEAD
 		JournalArticle article = journalArticleLocalService.getLatestArticle(
 			groupId, articleId, status);
 
@@ -1391,6 +1482,14 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 			getPermissionChecker(), article, ActionKeys.VIEW);
 
 		return article;
+=======
+		JournalArticlePermission.check(
+			getPermissionChecker(), groupId, articleId, status,
+			ActionKeys.VIEW);
+
+		return journalArticleLocalService.getLatestArticle(
+			groupId, articleId, status);
+>>>>>>> compatible
 	}
 
 	/**
@@ -1417,7 +1516,12 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 			groupId, className, classPK);
 
 		JournalArticlePermission.check(
+<<<<<<< HEAD
 			getPermissionChecker(), article, ActionKeys.VIEW);
+=======
+			getPermissionChecker(), groupId, article.getArticleId(),
+			article.getVersion(), ActionKeys.VIEW);
+>>>>>>> compatible
 
 		return article;
 	}
@@ -1436,7 +1540,11 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 	 * @param      articleId the primary key of the web content article
 	 * @param      newFolderId the primary key of the web content article's new
 	 *             folder
+<<<<<<< HEAD
 	 * @deprecated As of 4.0.0, replaced by {@link #moveArticle(long, String,
+=======
+	 * @deprecated As of 3.3.0, replaced by {@link #moveArticle(long, String,
+>>>>>>> compatible
 	 *             long, ServiceContext)}
 	 */
 	@Deprecated
@@ -1474,6 +1582,7 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 			getPermissionChecker(), groupId, newFolderId,
 			ActionKeys.ADD_ARTICLE);
 
+<<<<<<< HEAD
 		JournalArticle article = journalArticleLocalService.getArticle(
 			groupId, articleId);
 
@@ -1482,6 +1591,18 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 
 		journalArticleLocalService.moveArticle(
 			groupId, articleId, newFolderId, serviceContext);
+=======
+		List<JournalArticle> articles = journalArticlePersistence.findByG_A(
+			groupId, articleId);
+
+		for (JournalArticle article : articles) {
+			JournalArticlePermission.check(
+				getPermissionChecker(), article, ActionKeys.UPDATE);
+
+			journalArticleLocalService.moveArticle(
+				groupId, articleId, newFolderId, serviceContext);
+		}
+>>>>>>> compatible
 	}
 
 	/**
@@ -1545,7 +1666,11 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 			groupId, articleId, WorkflowConstants.STATUS_IN_TRASH);
 
 		JournalArticlePermission.check(
+<<<<<<< HEAD
 			getPermissionChecker(), article, ActionKeys.UPDATE);
+=======
+			getPermissionChecker(), groupId, articleId, ActionKeys.UPDATE);
+>>>>>>> compatible
 
 		return journalArticleLocalService.moveArticleFromTrash(
 			getUserId(), groupId, article, newFolderId, serviceContext);
@@ -1564,11 +1689,16 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 	public JournalArticle moveArticleToTrash(long groupId, String articleId)
 		throws PortalException {
 
+<<<<<<< HEAD
 		JournalArticle article = journalArticleLocalService.getArticle(
 			groupId, articleId);
 
 		JournalArticlePermission.check(
 			getPermissionChecker(), article, ActionKeys.DELETE);
+=======
+		JournalArticlePermission.check(
+			getPermissionChecker(), groupId, articleId, ActionKeys.DELETE);
+>>>>>>> compatible
 
 		return journalArticleLocalService.moveArticleToTrash(
 			getUserId(), groupId, articleId);
@@ -1609,11 +1739,17 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 			long groupId, String articleId, double version, String languageId)
 		throws PortalException {
 
+<<<<<<< HEAD
 		JournalArticle article = journalArticlePersistence.findByG_A_V(
 			groupId, articleId, version);
 
 		JournalArticlePermission.check(
 			getPermissionChecker(), article, ActionKeys.UPDATE);
+=======
+		JournalArticlePermission.check(
+			getPermissionChecker(), groupId, articleId, version,
+			ActionKeys.UPDATE);
+>>>>>>> compatible
 
 		return journalArticleLocalService.removeArticleLocale(
 			groupId, articleId, version, languageId);
@@ -2102,6 +2238,7 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 			new QueryDefinition<JournalArticle>(status));
 	}
 
+<<<<<<< HEAD
 	@Override
 	public void subscribe(long groupId, long articleId) throws PortalException {
 		JournalArticle article = getLatestArticle(articleId);
@@ -2112,6 +2249,8 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 		journalArticleLocalService.subscribe(getUserId(), groupId, articleId);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	 * Subscribes the user to changes in elements that belong to the web content
 	 * article's DDM structure.
@@ -2132,6 +2271,7 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 			groupId, userId, ddmStructureId);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public void unsubscribe(long groupId, long articleId)
 		throws PortalException {
@@ -2144,6 +2284,8 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 		journalArticleLocalService.unsubscribe(getUserId(), groupId, articleId);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	 * Unsubscribes the user from changes in elements that belong to the web
 	 * content article's DDM structure.
@@ -2201,11 +2343,17 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 			String layoutUuid, ServiceContext serviceContext)
 		throws PortalException {
 
+<<<<<<< HEAD
 		JournalArticle article = journalArticlePersistence.findByG_A_V(
 			groupId, articleId, version);
 
 		JournalArticlePermission.check(
 			getPermissionChecker(), article, ActionKeys.UPDATE);
+=======
+		JournalArticlePermission.check(
+			getPermissionChecker(), groupId, articleId, version,
+			ActionKeys.UPDATE);
+>>>>>>> compatible
 
 		return journalArticleLocalService.updateArticle(
 			userId, groupId, folderId, articleId, version, titleMap,
@@ -2222,6 +2370,7 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 	 * @param  titleMap the web content article's locales and localized titles
 	 * @param  descriptionMap the web content article's locales and localized
 	 *         descriptions
+<<<<<<< HEAD
 	 * @param  friendlyURLMap the web content article's locales and localized
 	 *         friendly URLs
 	 * @param  content the HTML content wrapped in XML. For more information,
@@ -2334,6 +2483,8 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 	 * @param  titleMap the web content article's locales and localized titles
 	 * @param  descriptionMap the web content article's locales and localized
 	 *         descriptions
+=======
+>>>>>>> compatible
 	 * @param  content the HTML content wrapped in XML. For more information,
 	 *         see the content example in the {@link #updateArticle(long, long,
 	 *         String, double, String, ServiceContext)} description.
@@ -2416,11 +2567,17 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 			ServiceContext serviceContext)
 		throws PortalException {
 
+<<<<<<< HEAD
 		JournalArticle article = journalArticlePersistence.findByG_A_V(
 			groupId, articleId, version);
 
 		JournalArticlePermission.check(
 			getPermissionChecker(), article, ActionKeys.UPDATE);
+=======
+		JournalArticlePermission.check(
+			getPermissionChecker(), groupId, articleId, version,
+			ActionKeys.UPDATE);
+>>>>>>> compatible
 
 		return journalArticleLocalService.updateArticle(
 			getUserId(), groupId, folderId, articleId, version, titleMap,
@@ -2479,11 +2636,17 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 			String content, ServiceContext serviceContext)
 		throws PortalException {
 
+<<<<<<< HEAD
 		JournalArticle article = journalArticlePersistence.findByG_A_V(
 			groupId, articleId, version);
 
 		JournalArticlePermission.check(
 			getPermissionChecker(), article, ActionKeys.UPDATE);
+=======
+		JournalArticlePermission.check(
+			getPermissionChecker(), groupId, articleId, version,
+			ActionKeys.UPDATE);
+>>>>>>> compatible
 
 		return journalArticleLocalService.updateArticle(
 			getUserId(), groupId, folderId, articleId, version, content,
@@ -2514,11 +2677,17 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 			Map<String, byte[]> images, ServiceContext serviceContext)
 		throws PortalException {
 
+<<<<<<< HEAD
 		JournalArticle article = journalArticlePersistence.findByG_A_V(
 			groupId, articleId, version);
 
 		JournalArticlePermission.check(
 			getPermissionChecker(), article, ActionKeys.UPDATE);
+=======
+		JournalArticlePermission.check(
+			getPermissionChecker(), groupId, articleId, version,
+			ActionKeys.UPDATE);
+>>>>>>> compatible
 
 		return journalArticleLocalService.updateArticleTranslation(
 			groupId, articleId, version, locale, title, description, content,
@@ -2542,6 +2711,7 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 			long groupId, String articleId, double version, String content)
 		throws PortalException {
 
+<<<<<<< HEAD
 		JournalArticle article = journalArticlePersistence.findByG_A_V(
 			groupId, articleId, version);
 
@@ -2551,6 +2721,14 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 		article.setContent(content);
 
 		return journalArticleLocalService.updateJournalArticle(article);
+=======
+		JournalArticlePermission.check(
+			getPermissionChecker(), groupId, articleId, version,
+			ActionKeys.UPDATE);
+
+		return journalArticleLocalService.updateContent(
+			groupId, articleId, version, content);
+>>>>>>> compatible
 	}
 
 	/**
@@ -2575,6 +2753,7 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 			String articleURL, ServiceContext serviceContext)
 		throws PortalException {
 
+<<<<<<< HEAD
 		JournalArticle article = journalArticlePersistence.findByG_A_V(
 			groupId, articleId, version);
 
@@ -2584,6 +2763,15 @@ public class JournalArticleServiceImpl extends JournalArticleServiceBaseImpl {
 		return journalArticleLocalService.updateStatus(
 			getUserId(), article, status, articleURL, serviceContext,
 			new HashMap<String, Serializable>());
+=======
+		JournalArticlePermission.check(
+			getPermissionChecker(), groupId, articleId, version,
+			ActionKeys.UPDATE);
+
+		return journalArticleLocalService.updateStatus(
+			getUserId(), groupId, articleId, version, status, articleURL,
+			new HashMap<String, Serializable>(), serviceContext);
+>>>>>>> compatible
 	}
 
 }

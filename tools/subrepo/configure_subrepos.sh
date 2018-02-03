@@ -115,10 +115,17 @@ fi
 #
 
 SUBREPO_SEARCH_PARAMETERS=(
+<<<<<<< HEAD
 	"7.0.x:../..:modules"
 	"7.0.x-private:../../../liferay-portal-ee:modules/private"
 	"master-private:../../../liferay-portal-ee:modules/private"
 	"master:../..:modules"
+=======
+	"7.0.x:../..:modules/apps"
+	"7.0.x-private:../../../liferay-portal-ee:modules/private/apps"
+	"master-private:../../../liferay-portal-ee:modules/private/apps"
+	"master:../..:modules/apps"
+>>>>>>> compatible
 )
 
 if [[ "${SUBREPO_NAME}" ]]
@@ -198,7 +205,11 @@ do
 	GITREPO_PATH="${GITREPO##*:}"
 	REPO_PATH="$(echo "${GITREPO}" | sed 's/:[^:]*$//' | sed 's/.*://')"
 
+<<<<<<< HEAD
 	if [[ "${GITREPO_PATH}" == modules/* ]] && [[ -z "$(echo "${GITREPOS[@]}" | grep "modules/private.*/$(echo "${GITREPO_PATH}" | sed 's@.*/\([^/]*/\.gitrepo$\)$@\1@')")" ]]
+=======
+	if [[ "${GITREPO_PATH}" == modules/apps/* ]] && [[ -z "$(echo "${GITREPOS[@]}" | grep "modules/private/apps.*/$(echo "${GITREPO_PATH}" | sed 's@.*/\([^/]*/\.gitrepo$\)$@\1@')")" ]]
+>>>>>>> compatible
 	then
 		GITREPOS=("${GITREPOS[@]}" "${GITREPO}-private")
 	fi
@@ -211,6 +222,7 @@ for GITREPO in "${GITREPOS[@]}"
 do
 	BRANCH_NAME="${GITREPO%%:*}"
 	GITREPO_PATH="${GITREPO##*:}"
+<<<<<<< HEAD
 	PRIVATE_MIRROR=false
 	REPO_PATH="$(echo "${GITREPO}" | sed 's/:[^:]*$//' | sed 's/.*://')"
 
@@ -220,6 +232,12 @@ do
 	else
 		PRIVATE_CREATE_PARAMETERS=
 	fi
+=======
+	REPO_PATH="$(echo "${GITREPO}" | sed 's/:[^:]*$//' | sed 's/.*://')"
+
+	PRIVATE_CREATE_PARAMETERS=
+	PRIVATE_MIRROR=false
+>>>>>>> compatible
 
 	if [[ "${GITREPO_PATH}" == */.gitrepo-private ]]
 	then
@@ -271,7 +289,11 @@ do
 
 	if [[ -z "${COMMANDS}" ]] || [[ "$(echo "${COMMANDS}" | grep '^branches$')" ]]
 	then
+<<<<<<< HEAD
 		OUTPUT="$(curl -H "Accept: application/vnd.github.v3+json" -H "Authorization: token ${GITHUB_API_TOKEN}" -L -s "https://api.github.com/repos/liferay/${REPO_NAME}/branches" -X GET 2>&1)"
+=======
+		OUTPUT="$(curl -H "Accept: application/vnd.github.loki-preview+json" -H "Authorization: token ${GITHUB_API_TOKEN}" -L -s "https://api.github.com/repos/liferay/${REPO_NAME}/branches" -X GET 2>&1)"
+>>>>>>> compatible
 
 		if [[ -z "$(echo "${OUTPUT}" | grep '\[')" ]] || [[ -z "$(echo "${OUTPUT}" | grep '\]')" ]]
 		then
@@ -284,6 +306,7 @@ do
 
 		if [[ "$(echo "${OUTPUT}" | grep '"name"')" ]]
 		then
+<<<<<<< HEAD
 			PROTECTED_JSON="$(curl -H "Accept: application/vnd.github.v3+json" -H "Authorization: token ${GITHUB_API_TOKEN}" -L -s "https://api.github.com/repos/liferay/${REPO_NAME}/branches?protected=true" -X GET 2>&1)"
 
 			if [[ -z "$(echo "${PROTECTED_JSON}" | grep '\[')" ]] || [[ -z "$(echo "${PROTECTED_JSON}" | grep '\]')" ]]
@@ -295,6 +318,8 @@ do
 				continue
 			fi
 
+=======
+>>>>>>> compatible
 			PROTECTED_BRANCHES="
 7.0.x
 7.0.x-private
@@ -306,11 +331,19 @@ master-private
 			do
 				BRANCH="$(echo "${BRANCH_JSON}" | sed 's/.*"name":"//' | sed 's/".*//')"
 
+<<<<<<< HEAD
 				if [[ "$(echo "${PROTECTED_BRANCHES}" | grep "^${BRANCH}\$")" ]] && [[ -z "$(echo "${PROTECTED_JSON}" | grep "\"name\":.*\"${BRANCH}\"")" ]]
 				then
 					info "Protecting branch ${BRANCH} at liferay/${REPO_NAME}."
 
 					OUTPUT="$(curl -d "{\"enforce_admins\":false,\"required_pull_request_reviews\":null,\"required_status_checks\":null,\"restrictions\":null}" -H "Accept: application/vnd.github.v3+json" -H "Authorization: token ${GITHUB_API_TOKEN}" -L -s "https://api.github.com/repos/liferay/${REPO_NAME}/branches/${BRANCH}/protection" -X PUT 2>&1)"
+=======
+				if [[ "$(echo "${PROTECTED_BRANCHES}" | grep "^${BRANCH}\$")" ]] && [[ "$(echo "${BRANCH_JSON}" | grep '"protected":false')" ]]
+				then
+					info "Protecting branch ${BRANCH} at liferay/${REPO_NAME}."
+
+					OUTPUT="$(curl -d "{\"enforce_admins\":false,\"required_status_checks\":null,\"restrictions\":null}" -H "Accept: application/vnd.github.loki-preview+json" -H "Authorization: token ${GITHUB_API_TOKEN}" -L -s "https://api.github.com/repos/liferay/${REPO_NAME}/branches/${BRANCH}/protection" -X PUT 2>&1)"
+>>>>>>> compatible
 
 					if [[ -z "$(echo "${OUTPUT}" | grep '"url"')" ]]
 					then

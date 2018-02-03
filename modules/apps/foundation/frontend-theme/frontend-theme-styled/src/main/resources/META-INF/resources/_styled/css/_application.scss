@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 @import "application/variables";
 @import "application/variables_custom";
+=======
+@import "application/variables_custom";
+@import "application/variables";
+>>>>>>> compatible
 
 @import "application/autocomplete";
 @import "application/cards";
@@ -13,6 +18,10 @@
 @import "application/editor_lfr_source";
 @import "application/file_icons_colors";
 @import "application/item_viewer";
+<<<<<<< HEAD
+=======
+@import "application/labels";
+>>>>>>> compatible
 @import "application/list_group_deprecated";
 @import "application/menu";
 @import "application/misc";

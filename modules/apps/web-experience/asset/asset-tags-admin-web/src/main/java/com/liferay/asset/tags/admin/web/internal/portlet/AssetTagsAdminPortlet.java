@@ -20,7 +20,11 @@ import com.liferay.asset.kernel.exception.NoSuchTagException;
 import com.liferay.asset.kernel.model.AssetTag;
 import com.liferay.asset.kernel.service.AssetTagLocalService;
 import com.liferay.asset.kernel.service.AssetTagService;
+<<<<<<< HEAD
 import com.liferay.asset.tags.constants.AssetTagsAdminPortletKeys;
+=======
+import com.liferay.asset.tags.admin.web.internal.constants.AssetTagsAdminPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.PortalPreferences;
 import com.liferay.portal.kernel.portlet.PortletPreferencesFactoryUtil;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;

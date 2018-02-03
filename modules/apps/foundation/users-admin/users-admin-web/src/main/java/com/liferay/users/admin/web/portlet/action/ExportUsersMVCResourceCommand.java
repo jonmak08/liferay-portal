@@ -15,12 +15,19 @@
 package com.liferay.users.admin.web.portlet.action;
 
 import com.liferay.expando.kernel.model.ExpandoBridge;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.bean.BeanPropertiesUtil;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.User;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.portlet.DynamicResourceRequest;
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
 import com.liferay.portal.kernel.portlet.PortletResponseUtil;
 import com.liferay.portal.kernel.portlet.bridges.mvc.BaseMVCResourceCommand;
@@ -43,6 +50,11 @@ import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.ProgressTracker;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.Validator;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.util.PropsValues;
 import com.liferay.portlet.usersadmin.search.UserSearch;
@@ -88,6 +100,21 @@ public class ExportUsersMVCResourceCommand extends BaseMVCResourceCommand {
 				_portal.getPortletId(resourceRequest) +
 					SessionMessages.KEY_SUFFIX_HIDE_DEFAULT_ERROR_MESSAGE);
 
+<<<<<<< HEAD
+=======
+			String keywords = ParamUtil.getString(resourceRequest, "keywords");
+
+			if (Validator.isNotNull(keywords)) {
+				DynamicResourceRequest dynamicResourceRequest =
+					new DynamicResourceRequest(resourceRequest);
+
+				dynamicResourceRequest.setParameter(
+					"keywords", StringPool.BLANK);
+
+				resourceRequest = dynamicResourceRequest;
+			}
+
+>>>>>>> compatible
 			String csv = getUsersCSV(resourceRequest, resourceResponse);
 
 			PortletResponseUtil.sendFile(
@@ -108,6 +135,7 @@ public class ExportUsersMVCResourceCommand extends BaseMVCResourceCommand {
 		for (int i = 0; i < PropsValues.USERS_EXPORT_CSV_FIELDS.length; i++) {
 			String field = PropsValues.USERS_EXPORT_CSV_FIELDS[i];
 
+<<<<<<< HEAD
 			if (field.startsWith("expando:")) {
 				String attributeName = field.substring(8);
 
@@ -117,6 +145,9 @@ public class ExportUsersMVCResourceCommand extends BaseMVCResourceCommand {
 					CSVUtil.encode(expandoBridge.getAttribute(attributeName)));
 			}
 			else if (field.contains("Date")) {
+=======
+			if (field.contains("Date")) {
+>>>>>>> compatible
 				Date date = (Date)BeanPropertiesUtil.getObject(user, field);
 
 				if (date instanceof Timestamp) {
@@ -125,6 +156,17 @@ public class ExportUsersMVCResourceCommand extends BaseMVCResourceCommand {
 
 				sb.append(CSVUtil.encode(String.valueOf(date)));
 			}
+<<<<<<< HEAD
+=======
+			else if (field.startsWith("expando:")) {
+				String attributeName = field.substring(8);
+
+				ExpandoBridge expandoBridge = user.getExpandoBridge();
+
+				sb.append(
+					CSVUtil.encode(expandoBridge.getAttribute(attributeName)));
+			}
+>>>>>>> compatible
 			else if (field.equals("fullName")) {
 				sb.append(CSVUtil.encode(user.getFullName()));
 			}

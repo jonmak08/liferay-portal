@@ -10,42 +10,74 @@
 <tbody>
 <tr>
 	<td>GENERIC_CHECKBOX</td>
+<<<<<<< HEAD
 	<td>//div[contains(@class,'card')]//input[@type='checkbox']</td>
+=======
+	<td>//div[contains(@class,'vertical-card')]//input[@type='checkbox']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>GENERIC_LARGE_TEXT</td>
+<<<<<<< HEAD
 	<td>//div[contains(@class,'card')]//span[contains(@class,'lfr-card-title-text')]</td>
+=======
+	<td>//div[contains(@class,'vertical-card')]//span[contains(@class,'lfr-card-title-text')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>GENERIC_LARGE_TEXT_LINK</td>
+<<<<<<< HEAD
 	<td>//div[contains(@class,'card')]//span[contains(@class,'lfr-card-title-text')]//a</td>
+=======
+	<td>//div[contains(@class,'vertical-card')]//span[contains(@class,'lfr-card-title-text')]//a</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>GENERIC_SMALL_TEXT</td>
+<<<<<<< HEAD
 	<td>//div[contains(@class,'card')]//span[contains(@class,'lfr-card-workflow-text')]</td>
+=======
+	<td>//div[contains(@class,'vertical-card')]//span[contains(@class,'lfr-card-workflow-text')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>SPECIFIC_CHECKBOX</td>
+<<<<<<< HEAD
 	<td>//*[@data-qa-id='row'][div[contains(@class,'card')]//*[normalize-space()='${key_cardText}']]//input[@type='checkbox']</td>
+=======
+	<td>//div[contains(@class,'vertical-card') and contains(.,'${key_cardText}')]//input[@type='checkbox']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>SPECIFIC_LARGE_TEXT</td>
+<<<<<<< HEAD
 	<td>//*[@data-qa-id='row'][div[contains(@class,'card')]//*[normalize-space()='${key_cardText}']]//span[contains(@class,'lfr-card-title-text')]</td>
+=======
+	<td>//div[contains(@class,'vertical-card') and contains(.,'${key_cardText}')]//span[contains(@class,'lfr-card-title-text')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>SPECIFIC_TEXT</td>
+<<<<<<< HEAD
 	<td>//*[@data-qa-id='row'][div[contains(@class,'card')]//*[normalize-space()='${key_cardText}']]//span[contains(@class,'lfr-card-subtitle-text')]</td>
+=======
+	<td>//div[contains(@class,'vertical-card') and contains(.,'${key_cardText}')]//span[contains(@class,'lfr-card-subtitle-text')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>SPECIFIC_SMALL_TEXT</td>
+<<<<<<< HEAD
 	<td>//*[@data-qa-id='row'][div[contains(@class,'card')]//*[normalize-space()='${key_cardText}']]//span[contains(@class,'lfr-card-workflow-text')]</td>
+=======
+	<td>//div[contains(@class,'vertical-card') and contains(.,'${key_cardText}')]//span[contains(@class,'lfr-card-workflow-text')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 </tbody>

@@ -1,3 +1,7 @@
 Bundle-Name: Liferay Unit Converter Web
 Bundle-SymbolicName: com.liferay.unit.converter.web
+<<<<<<< HEAD
 Bundle-Version: 1.0.11
+=======
+Bundle-Version: 1.0.8
+>>>>>>> compatible

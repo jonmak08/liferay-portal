@@ -1,6 +1,11 @@
 Bundle-Name: Liferay Product Navigation Simulation Web
 Bundle-SymbolicName: com.liferay.product.navigation.simulation.web
+<<<<<<< HEAD
 Bundle-Version: 3.0.2
+=======
+Bundle-Version: 2.1.5
+Export-Package: com.liferay.product.navigation.simulation.web.constants
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title:
 Web-ContextPath: /product-navigation-simulation-web

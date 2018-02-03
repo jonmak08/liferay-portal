@@ -68,9 +68,15 @@ List<MDRRuleGroupInstance> ruleGroupInstances = MDRRuleGroupInstanceServiceUtil.
 	</div>
 
 	<aui:button-row>
+<<<<<<< HEAD
 		<aui:button type="submit" />
 
 		<aui:button onClick="<%= saveCallback %>" value="close" />
+=======
+		<aui:button cssClass="btn-lg" type="submit" />
+
+		<aui:button cssClass="btn-lg" onClick="<%= saveCallback %>" value="close" />
+>>>>>>> compatible
 	</aui:button-row>
 </aui:form>
 

@@ -25,7 +25,11 @@
 
 		<column name="kaleoClassName" type="String" />
 		<column name="kaleoClassPK" type="long" />
+<<<<<<< HEAD
 		<column name="kaleoDefinitionVersionId" type="long" />
+=======
+		<column name="kaleoDefinitionId" type="long" />
+>>>>>>> compatible
 		<column name="kaleoNodeName" type="String" />
 		<column name="name" type="String" />
 		<column name="description" type="String" />
@@ -46,8 +50,13 @@
 		<finder name="CompanyId" return-type="Collection">
 			<finder-column name="companyId" />
 		</finder>
+<<<<<<< HEAD
 		<finder name="KaleoDefinitionVersionId" return-type="Collection">
 			<finder-column name="kaleoDefinitionVersionId" />
+=======
+		<finder name="KaleoDefinitionId" return-type="Collection">
+			<finder-column name="kaleoDefinitionId" />
+>>>>>>> compatible
 		</finder>
 		<finder name="KCN_KCPK" return-type="Collection">
 			<finder-column name="kaleoClassName" />
@@ -79,7 +88,11 @@
 
 		<!-- Other fields -->
 
+<<<<<<< HEAD
 		<column name="kaleoDefinitionVersionId" type="long" />
+=======
+		<column name="kaleoDefinitionId" type="long" />
+>>>>>>> compatible
 		<column name="kaleoNodeId" type="long" />
 		<column name="script" type="String" />
 		<column name="scriptLanguage" type="String" />
@@ -96,8 +109,13 @@
 		<finder name="CompanyId" return-type="Collection">
 			<finder-column name="companyId" />
 		</finder>
+<<<<<<< HEAD
 		<finder name="KaleoDefinitionVersionId" return-type="Collection">
 			<finder-column name="kaleoDefinitionVersionId" />
+=======
+		<finder name="KaleoDefinitionId" return-type="Collection">
+			<finder-column name="kaleoDefinitionId" />
+>>>>>>> compatible
 		</finder>
 		<finder name="KaleoNodeId" return-type="KaleoCondition">
 			<finder-column name="kaleoNodeId" />
@@ -129,6 +147,10 @@
 		<column name="content" type="String" />
 		<column name="version" type="int" />
 		<column name="active" type="boolean" />
+<<<<<<< HEAD
+=======
+		<column name="startKaleoNodeId" type="long" />
+>>>>>>> compatible
 
 		<!-- Order -->
 
@@ -141,7 +163,11 @@
 		<finder name="CompanyId" return-type="Collection">
 			<finder-column name="companyId" />
 		</finder>
+<<<<<<< HEAD
 		<finder name="C_N" return-type="KaleoDefinition">
+=======
+		<finder name="C_N" return-type="Collection">
+>>>>>>> compatible
 			<finder-column name="companyId" />
 			<finder-column name="name" />
 		</finder>
@@ -154,12 +180,17 @@
 			<finder-column name="name" />
 			<finder-column name="version" />
 		</finder>
+<<<<<<< HEAD
 		<finder name="C_N_A" return-type="KaleoDefinition">
+=======
+		<finder name="C_N_A" return-type="Collection">
+>>>>>>> compatible
 			<finder-column name="companyId" />
 			<finder-column name="name" />
 			<finder-column name="active" />
 		</finder>
 	</entity>
+<<<<<<< HEAD
 	<entity local-service="true" name="KaleoDefinitionVersion" remote-service="false">
 
 		<!-- PK fields -->
@@ -206,6 +237,8 @@
 			<finder-column name="version" />
 		</finder>
 	</entity>
+=======
+>>>>>>> compatible
 	<entity local-service="true" name="KaleoInstance" remote-service="false">
 
 		<!-- PK fields -->
@@ -226,7 +259,11 @@
 
 		<!-- Other fields -->
 
+<<<<<<< HEAD
 		<column name="kaleoDefinitionVersionId" type="long" />
+=======
+		<column name="kaleoDefinitionId" type="long" />
+>>>>>>> compatible
 		<column name="kaleoDefinitionName" type="String" />
 		<column name="kaleoDefinitionVersion" type="int" />
 		<column name="rootKaleoInstanceTokenId" type="long" />
@@ -247,15 +284,25 @@
 		<finder name="CompanyId" return-type="Collection">
 			<finder-column name="companyId" />
 		</finder>
+<<<<<<< HEAD
 		<finder name="KaleoDefinitionVersionId" return-type="Collection">
 			<finder-column name="kaleoDefinitionVersionId" />
+=======
+		<finder name="KaleoDefinitionId" return-type="Collection">
+			<finder-column name="kaleoDefinitionId" />
+>>>>>>> compatible
 		</finder>
 		<finder name="C_U" return-type="Collection">
 			<finder-column name="companyId" />
 			<finder-column name="userId" />
 		</finder>
+<<<<<<< HEAD
 		<finder name="KDVI_C" return-type="Collection">
 			<finder-column name="kaleoDefinitionVersionId" />
+=======
+		<finder name="KDI_C" return-type="Collection">
+			<finder-column name="kaleoDefinitionId" />
+>>>>>>> compatible
 			<finder-column name="completed" />
 		</finder>
 		<finder name="CN_CPK" return-type="Collection">
@@ -289,7 +336,11 @@
 
 		<!-- Other fields -->
 
+<<<<<<< HEAD
 		<column name="kaleoDefinitionVersionId" type="long" />
+=======
+		<column name="kaleoDefinitionId" type="long" />
+>>>>>>> compatible
 		<column name="kaleoInstanceId" type="long" />
 		<column name="parentKaleoInstanceTokenId" type="long" />
 		<column name="currentKaleoNodeId" type="long" />
@@ -310,8 +361,13 @@
 		<finder name="CompanyId" return-type="Collection">
 			<finder-column name="companyId" />
 		</finder>
+<<<<<<< HEAD
 		<finder name="KaleoDefinitionVersionId" return-type="Collection">
 			<finder-column name="kaleoDefinitionVersionId" />
+=======
+		<finder name="KaleoDefinitionId" return-type="Collection">
+			<finder-column name="kaleoDefinitionId" />
+>>>>>>> compatible
 		</finder>
 		<finder name="KaleoInstanceId" return-type="Collection">
 			<finder-column name="kaleoInstanceId" />
@@ -348,7 +404,11 @@
 
 		<column name="kaleoClassName" type="String" />
 		<column name="kaleoClassPK" type="long" />
+<<<<<<< HEAD
 		<column name="kaleoDefinitionVersionId" type="long" />
+=======
+		<column name="kaleoDefinitionId" type="long" />
+>>>>>>> compatible
 		<column name="kaleoInstanceId" type="long" />
 		<column name="kaleoInstanceTokenId" type="long" />
 		<column name="kaleoTaskInstanceTokenId" type="long" />
@@ -381,8 +441,13 @@
 		<finder name="CompanyId" return-type="Collection">
 			<finder-column name="companyId" />
 		</finder>
+<<<<<<< HEAD
 		<finder name="KaleoDefinitionVersionId" return-type="Collection">
 			<finder-column name="kaleoDefinitionVersionId" />
+=======
+		<finder name="KaleoDefinitionId" return-type="Collection">
+			<finder-column name="kaleoDefinitionId" />
+>>>>>>> compatible
 		</finder>
 		<finder name="KaleoInstanceId" return-type="Collection">
 			<finder-column name="kaleoInstanceId" />
@@ -421,7 +486,11 @@
 
 		<!-- Other fields -->
 
+<<<<<<< HEAD
 		<column name="kaleoDefinitionVersionId" type="long" />
+=======
+		<column name="kaleoDefinitionId" type="long" />
+>>>>>>> compatible
 		<column name="name" type="String" />
 		<column name="metadata" type="String" />
 		<column name="description" type="String" />
@@ -440,12 +509,21 @@
 		<finder name="CompanyId" return-type="Collection">
 			<finder-column name="companyId" />
 		</finder>
+<<<<<<< HEAD
 		<finder name="KaleoDefinitionVersionId" return-type="Collection">
 			<finder-column name="kaleoDefinitionVersionId" />
 		</finder>
 		<finder name="C_KDVI" return-type="Collection">
 			<finder-column name="companyId" />
 			<finder-column name="kaleoDefinitionVersionId" />
+=======
+		<finder name="KaleoDefinitionId" return-type="Collection">
+			<finder-column name="kaleoDefinitionId" />
+		</finder>
+		<finder name="C_KDI" return-type="Collection">
+			<finder-column name="companyId" />
+			<finder-column name="kaleoDefinitionId" />
+>>>>>>> compatible
 		</finder>
 	</entity>
 	<entity local-service="true" name="KaleoNotification" remote-service="false">
@@ -470,7 +548,11 @@
 
 		<column name="kaleoClassName" type="String" />
 		<column name="kaleoClassPK" type="long" />
+<<<<<<< HEAD
 		<column name="kaleoDefinitionVersionId" type="long" />
+=======
+		<column name="kaleoDefinitionId" type="long" />
+>>>>>>> compatible
 		<column name="kaleoNodeName" type="String" />
 		<column name="name" type="String" />
 		<column name="description" type="String" />
@@ -490,8 +572,13 @@
 		<finder name="CompanyId" return-type="Collection">
 			<finder-column name="companyId" />
 		</finder>
+<<<<<<< HEAD
 		<finder name="KaleoDefinitionVersionId" return-type="Collection">
 			<finder-column name="kaleoDefinitionVersionId" />
+=======
+		<finder name="KaleoDefinitionId" return-type="Collection">
+			<finder-column name="kaleoDefinitionId" />
+>>>>>>> compatible
 		</finder>
 		<finder name="KCN_KCPK" return-type="Collection">
 			<finder-column name="kaleoClassName" />
@@ -523,7 +610,11 @@
 
 		<!-- Other fields -->
 
+<<<<<<< HEAD
 		<column name="kaleoDefinitionVersionId" type="long" />
+=======
+		<column name="kaleoDefinitionId" type="long" />
+>>>>>>> compatible
 		<column name="kaleoNotificationId" type="long" />
 		<column name="recipientClassName" type="String" />
 		<column name="recipientClassPK" type="long" />
@@ -545,8 +636,13 @@
 		<finder name="CompanyId" return-type="Collection">
 			<finder-column name="companyId" />
 		</finder>
+<<<<<<< HEAD
 		<finder name="KaleoDefinitionVersionId" return-type="Collection">
 			<finder-column name="kaleoDefinitionVersionId" />
+=======
+		<finder name="KaleoDefinitionId" return-type="Collection">
+			<finder-column name="kaleoDefinitionId" />
+>>>>>>> compatible
 		</finder>
 		<finder name="KaleoNotificationId" return-type="Collection">
 			<finder-column name="kaleoNotificationId" />
@@ -576,7 +672,11 @@
 
 		<!-- Other fields -->
 
+<<<<<<< HEAD
 		<column name="kaleoDefinitionVersionId" type="long" />
+=======
+		<column name="kaleoDefinitionId" type="long" />
+>>>>>>> compatible
 		<column name="kaleoNodeId" type="long" />
 		<column name="name" type="String" />
 		<column name="description" type="String" />
@@ -592,8 +692,13 @@
 		<finder name="CompanyId" return-type="Collection">
 			<finder-column name="companyId" />
 		</finder>
+<<<<<<< HEAD
 		<finder name="KaleoDefinitionVersionId" return-type="Collection">
 			<finder-column name="kaleoDefinitionVersionId" />
+=======
+		<finder name="KaleoDefinitionId" return-type="Collection">
+			<finder-column name="kaleoDefinitionId" />
+>>>>>>> compatible
 		</finder>
 		<finder name="KaleoNodeId" return-type="KaleoTask">
 			<finder-column name="kaleoNodeId" />
@@ -621,7 +726,11 @@
 
 		<column name="kaleoClassName" type="String" />
 		<column name="kaleoClassPK" type="long" />
+<<<<<<< HEAD
 		<column name="kaleoDefinitionVersionId" type="long" />
+=======
+		<column name="kaleoDefinitionId" type="long" />
+>>>>>>> compatible
 		<column name="kaleoNodeId" type="long" />
 		<column name="assigneeClassName" type="String" />
 		<column name="assigneeClassPK" type="long" />
@@ -641,8 +750,13 @@
 		<finder name="CompanyId" return-type="Collection">
 			<finder-column name="companyId" />
 		</finder>
+<<<<<<< HEAD
 		<finder name="KaleoDefinitionVersionId" return-type="Collection">
 			<finder-column name="kaleoDefinitionVersionId" />
+=======
+		<finder name="KaleoDefinitionId" return-type="Collection">
+			<finder-column name="kaleoDefinitionId" />
+>>>>>>> compatible
 		</finder>
 		<finder name="KCN_KCPK" return-type="Collection">
 			<finder-column name="kaleoClassName" />
@@ -678,7 +792,11 @@
 
 		<!-- Other fields -->
 
+<<<<<<< HEAD
 		<column name="kaleoDefinitionVersionId" type="long" />
+=======
+		<column name="kaleoDefinitionId" type="long" />
+>>>>>>> compatible
 		<column name="kaleoInstanceId" type="long" />
 		<column name="kaleoInstanceTokenId" type="long" />
 		<column name="kaleoTaskInstanceTokenId" type="long" />
@@ -700,8 +818,13 @@
 		<finder name="CompanyId" return-type="Collection">
 			<finder-column name="companyId" />
 		</finder>
+<<<<<<< HEAD
 		<finder name="KaleoDefinitionVersionId" return-type="Collection">
 			<finder-column name="kaleoDefinitionVersionId" />
+=======
+		<finder name="KaleoDefinitionId" return-type="Collection">
+			<finder-column name="kaleoDefinitionId" />
+>>>>>>> compatible
 		</finder>
 		<finder name="KaleoInstanceId" return-type="Collection">
 			<finder-column name="kaleoInstanceId" />
@@ -721,6 +844,7 @@
 			<finder-column name="assigneeClassPK" />
 		</finder>
 	</entity>
+<<<<<<< HEAD
 	<entity local-service="true" name="KaleoTaskForm" remote-service="false">
 
 		<!-- PK fields -->
@@ -838,6 +962,8 @@
 			<finder-column name="kaleoTaskFormId" />
 		</finder>
 	</entity>
+=======
+>>>>>>> compatible
 	<entity local-service="true" name="KaleoTaskInstanceToken" remote-service="false">
 
 		<!-- PK fields -->
@@ -858,7 +984,11 @@
 
 		<!-- Other fields -->
 
+<<<<<<< HEAD
 		<column name="kaleoDefinitionVersionId" type="long" />
+=======
+		<column name="kaleoDefinitionId" type="long" />
+>>>>>>> compatible
 		<column name="kaleoInstanceId" type="long" />
 		<column name="kaleoInstanceTokenId" type="long" />
 		<column name="kaleoTaskId" type="long" />
@@ -882,8 +1012,13 @@
 		<finder name="CompanyId" return-type="Collection">
 			<finder-column name="companyId" />
 		</finder>
+<<<<<<< HEAD
 		<finder name="KaleoDefinitionVersionId" return-type="Collection">
 			<finder-column name="kaleoDefinitionVersionId" />
+=======
+		<finder name="KaleoDefinitionId" return-type="Collection">
+			<finder-column name="kaleoDefinitionId" />
+>>>>>>> compatible
 		</finder>
 		<finder name="KaleoInstanceId" return-type="Collection">
 			<finder-column name="kaleoInstanceId" />
@@ -919,7 +1054,11 @@
 
 		<column name="kaleoClassName" type="String" />
 		<column name="kaleoClassPK" type="long" />
+<<<<<<< HEAD
 		<column name="kaleoDefinitionVersionId" type="long" />
+=======
+		<column name="kaleoDefinitionId" type="long" />
+>>>>>>> compatible
 		<column name="name" type="String" />
 		<column name="blocking" type="boolean" />
 		<column name="description" type="String" />
@@ -968,7 +1107,11 @@
 
 		<column name="kaleoClassName" type="String" />
 		<column name="kaleoClassPK" type="long" />
+<<<<<<< HEAD
 		<column name="kaleoDefinitionVersionId" type="long" />
+=======
+		<column name="kaleoDefinitionId" type="long" />
+>>>>>>> compatible
 		<column name="kaleoInstanceId" type="long" />
 		<column name="kaleoInstanceTokenId" type="long" />
 		<column name="kaleoTaskInstanceTokenId" type="long" />
@@ -999,10 +1142,17 @@
 			<finder-column name="kaleoInstanceTokenId" />
 			<finder-column name="completed" />
 		</finder>
+<<<<<<< HEAD
 		<finder name="KITI_B_C" return-type="Collection">
 			<finder-column name="kaleoInstanceTokenId" />
 			<finder-column name="blocking" />
 			<finder-column name="completed" />
+=======
+		<finder name="KITI_C_B" return-type="Collection">
+			<finder-column name="kaleoInstanceTokenId" />
+			<finder-column name="completed" />
+			<finder-column name="blocking" />
+>>>>>>> compatible
 		</finder>
 	</entity>
 	<entity local-service="true" name="KaleoTransition" remote-service="false">
@@ -1025,7 +1175,11 @@
 
 		<!-- Other fields -->
 
+<<<<<<< HEAD
 		<column name="kaleoDefinitionVersionId" type="long" />
+=======
+		<column name="kaleoDefinitionId" type="long" />
+>>>>>>> compatible
 		<column name="kaleoNodeId" type="long" />
 		<column name="name" type="String" />
 		<column name="description" type="String" />
@@ -1046,8 +1200,13 @@
 		<finder name="CompanyId" return-type="Collection">
 			<finder-column name="companyId" />
 		</finder>
+<<<<<<< HEAD
 		<finder name="KaleoDefinitionVersionId" return-type="Collection">
 			<finder-column name="kaleoDefinitionVersionId" />
+=======
+		<finder name="KaleoDefinitionId" return-type="Collection">
+			<finder-column name="kaleoDefinitionId" />
+>>>>>>> compatible
 		</finder>
 		<finder name="KaleoNodeId" return-type="Collection">
 			<finder-column name="kaleoNodeId" />
@@ -1061,9 +1220,12 @@
 			<finder-column name="defaultTransition" />
 		</finder>
 	</entity>
+<<<<<<< HEAD
 	<exceptions>
 		<exception>DuplicateKaleoDefinitionName</exception>
 		<exception>KaleoDefinitionContent</exception>
 		<exception>KaleoDefinitionName</exception>
 	</exceptions>
+=======
+>>>>>>> compatible
 </service-builder>

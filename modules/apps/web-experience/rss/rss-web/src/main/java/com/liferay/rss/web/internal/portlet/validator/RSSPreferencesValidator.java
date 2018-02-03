@@ -15,7 +15,11 @@
 package com.liferay.rss.web.internal.portlet.validator;
 
 import com.liferay.portal.kernel.util.Validator;
+<<<<<<< HEAD
 import com.liferay.rss.constants.RSSPortletKeys;
+=======
+import com.liferay.rss.web.constants.RSSPortletKeys;
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.List;

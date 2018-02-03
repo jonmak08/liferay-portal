@@ -14,24 +14,36 @@
 
 package com.liferay.site.navigation.menu.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.item.selector.ItemSelector;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.ConfigurationAction;
 import com.liferay.portal.kernel.portlet.DefaultConfigurationAction;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portlet.display.template.PortletDisplayTemplate;
 import com.liferay.site.navigation.menu.web.internal.constants.SiteNavigationMenuPortletKeys;
+<<<<<<< HEAD
 import com.liferay.site.navigation.menu.web.internal.constants.SiteNavigationMenuWebKeys;
 
 import java.io.IOException;
 
 import javax.portlet.PortletConfig;
+=======
+
+import java.io.IOException;
+
+>>>>>>> compatible
 import javax.portlet.PortletException;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+<<<<<<< HEAD
 import javax.servlet.http.HttpServletResponse;
+=======
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -55,6 +67,7 @@ public class SiteNavigationMenuConfigurationAction
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void include(
 			PortletConfig portletConfig, HttpServletRequest request,
 			HttpServletResponse response)
@@ -67,6 +80,8 @@ public class SiteNavigationMenuConfigurationAction
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	@Reference(
 		target = "(osgi.web.symbolicname=com.liferay.site.navigation.menu.web)",
 		unbind = "-"
@@ -93,9 +108,12 @@ public class SiteNavigationMenuConfigurationAction
 		_portletDisplayTemplate = portletDisplayTemplate;
 	}
 
+<<<<<<< HEAD
 	@Reference
 	private ItemSelector _itemSelector;
 
+=======
+>>>>>>> compatible
 	private PortletDisplayTemplate _portletDisplayTemplate;
 
 }

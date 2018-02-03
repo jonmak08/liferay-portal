@@ -163,12 +163,21 @@
 		<install-portal-artifact packaging="war" snapshot="true" />
 	</target>
 
+<<<<<<< HEAD
 	<target name="publish-portal-release">
 		<publish-portal-artifact packaging="war" targets="war" />
 	</target>
 
 	<target name="publish-portal-snapshot">
 		<publish-portal-artifact packaging="war" snapshot="true" targets="war" />
+=======
+	<target depends="war" name="publish-portal-release">
+		<publish-portal-artifact packaging="war" />
+	</target>
+
+	<target depends="war" name="publish-portal-snapshot">
+		<publish-portal-artifact packaging="war" snapshot="true" />
+>>>>>>> compatible
 	</target>
 
 	<target name="war">

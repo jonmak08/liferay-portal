@@ -43,6 +43,7 @@ public class CheckboxDDMFormFieldValueAccessor
 		return Boolean.valueOf(value.getString(locale));
 	}
 
+<<<<<<< HEAD
 	@Override
 	public boolean isEmpty(DDMFormFieldValue ddmFormFieldValue, Locale locale) {
 		Boolean valueBoolean = getValue(ddmFormFieldValue, locale);
@@ -54,4 +55,6 @@ public class CheckboxDDMFormFieldValueAccessor
 		return false;
 	}
 
+=======
+>>>>>>> compatible
 }

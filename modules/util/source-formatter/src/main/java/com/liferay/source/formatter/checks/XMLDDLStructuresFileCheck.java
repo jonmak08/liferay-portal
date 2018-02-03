@@ -14,10 +14,17 @@
 
 package com.liferay.source.formatter.checks;
 
+<<<<<<< HEAD
 import com.liferay.petra.xml.Dom4jUtil;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.source.formatter.checks.util.SourceUtil;
 import com.liferay.source.formatter.checks.util.XMLSourceUtil;
+=======
+import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.source.formatter.checks.util.SourceUtil;
+import com.liferay.source.formatter.checks.util.XMLSourceUtil;
+import com.liferay.util.xml.Dom4jUtil;
+>>>>>>> compatible
 
 import java.util.List;
 import java.util.Map;

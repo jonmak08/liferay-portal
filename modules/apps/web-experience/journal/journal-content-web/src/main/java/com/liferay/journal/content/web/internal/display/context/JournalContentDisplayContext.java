@@ -25,7 +25,10 @@ import com.liferay.dynamic.data.mapping.model.DDMTemplate;
 import com.liferay.dynamic.data.mapping.service.DDMStructureLocalServiceUtil;
 import com.liferay.dynamic.data.mapping.service.DDMTemplateLocalServiceUtil;
 import com.liferay.dynamic.data.mapping.service.permission.DDMTemplatePermission;
+<<<<<<< HEAD
 import com.liferay.journal.constants.JournalContentPortletKeys;
+=======
+>>>>>>> compatible
 import com.liferay.journal.constants.JournalPortletKeys;
 import com.liferay.journal.constants.JournalWebKeys;
 import com.liferay.journal.content.asset.addon.entry.common.ContentMetadataAssetAddonEntry;
@@ -33,6 +36,10 @@ import com.liferay.journal.content.asset.addon.entry.common.ContentMetadataAsset
 import com.liferay.journal.content.asset.addon.entry.common.UserToolAssetAddonEntry;
 import com.liferay.journal.content.asset.addon.entry.common.UserToolAssetAddonEntryTracker;
 import com.liferay.journal.content.web.configuration.JournalContentPortletInstanceConfiguration;
+<<<<<<< HEAD
+=======
+import com.liferay.journal.content.web.constants.JournalContentPortletKeys;
+>>>>>>> compatible
 import com.liferay.journal.model.JournalArticle;
 import com.liferay.journal.model.JournalArticleDisplay;
 import com.liferay.journal.service.JournalArticleLocalServiceUtil;
@@ -40,12 +47,18 @@ import com.liferay.journal.service.permission.JournalArticlePermission;
 import com.liferay.journal.service.permission.JournalPermission;
 import com.liferay.journal.util.JournalContent;
 import com.liferay.journal.web.asset.JournalArticleAssetRenderer;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Group;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.Layout;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.LiferayWindowState;
 import com.liferay.portal.kernel.portlet.PortletProvider;
 import com.liferay.portal.kernel.portlet.PortletProviderUtil;
@@ -56,23 +69,33 @@ import com.liferay.portal.kernel.service.permission.PortletPermissionUtil;
 import com.liferay.portal.kernel.servlet.taglib.ui.AssetAddonEntry;
 import com.liferay.portal.kernel.theme.PortletDisplay;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.trash.TrashActionKeys;
 import com.liferay.portal.kernel.trash.TrashHandler;
 import com.liferay.portal.kernel.trash.TrashHandlerRegistryUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.PredicateFilter;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.util.PropsValues;
+<<<<<<< HEAD
 import com.liferay.trash.kernel.model.TrashEntry;
+=======
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -80,10 +103,15 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
+<<<<<<< HEAD
 import java.util.stream.Stream;
 
 import javax.portlet.PortletMode;
 import javax.portlet.PortletPreferences;
+=======
+
+import javax.portlet.PortletMode;
+>>>>>>> compatible
 import javax.portlet.PortletRequest;
 import javax.portlet.PortletResponse;
 import javax.portlet.PortletURL;
@@ -150,10 +178,13 @@ public class JournalContentDisplayContext {
 		long articleResourcePrimKey = ParamUtil.getLong(
 			_portletRequest, "articleResourcePrimKey");
 
+<<<<<<< HEAD
 		if (articleResourcePrimKey == -1) {
 			return _article;
 		}
 
+=======
+>>>>>>> compatible
 		if (articleResourcePrimKey > 0) {
 			_article = JournalArticleLocalServiceUtil.fetchLatestArticle(
 				articleResourcePrimKey, WorkflowConstants.STATUS_ANY, true);
@@ -193,10 +224,13 @@ public class JournalContentDisplayContext {
 				(JournalContent)_portletRequest.getAttribute(
 					JournalWebKeys.JOURNAL_CONTENT);
 
+<<<<<<< HEAD
 			if (journalContent == null) {
 				return null;
 			}
 
+=======
+>>>>>>> compatible
 			_articleDisplay = journalContent.getDisplay(
 				article.getGroupId(), article.getArticleId(),
 				article.getVersion(), null, null, themeDisplay.getLanguageId(),
@@ -313,6 +347,7 @@ public class JournalContentDisplayContext {
 			return _ddmTemplateKey;
 		}
 
+<<<<<<< HEAD
 		_ddmTemplateKey =
 			_journalContentPortletInstanceConfiguration.ddmTemplateKey();
 
@@ -337,6 +372,19 @@ public class JournalContentDisplayContext {
 			template -> _ddmTemplateKey.equals(template.getTemplateKey()));
 
 		if (!hasTemplate) {
+=======
+		_ddmTemplateKey = ParamUtil.getString(
+			_portletRequest, "ddmTemplateKey",
+			_journalContentPortletInstanceConfiguration.ddmTemplateKey());
+
+		if (Validator.isNotNull(_ddmTemplateKey)) {
+			return _ddmTemplateKey;
+		}
+
+		JournalArticle article = getArticle();
+
+		if (article != null) {
+>>>>>>> compatible
 			_ddmTemplateKey = article.getDDMTemplateKey();
 		}
 
@@ -368,7 +416,12 @@ public class JournalContentDisplayContext {
 		}
 		catch (PortalException pe) {
 			_log.error(
+<<<<<<< HEAD
 				"Unable to get DDM temmplate for article " + article.getId(),
+=======
+				"Unable to obtain ddm temmplate for article " +
+					article.getId(),
+>>>>>>> compatible
 				pe);
 		}
 
@@ -475,6 +528,7 @@ public class JournalContentDisplayContext {
 		return _portletResource;
 	}
 
+<<<<<<< HEAD
 	public JournalArticle getSelectedArticle() throws PortalException {
 		PortletPreferences portletPreferences =
 			_portletRequest.getPreferences();
@@ -493,6 +547,8 @@ public class JournalContentDisplayContext {
 			assetEntry.getClassPK());
 	}
 
+=======
+>>>>>>> compatible
 	public List<ContentMetadataAssetAddonEntry>
 		getSelectedContentMetadataAssetAddonEntries() {
 
@@ -701,6 +757,7 @@ public class JournalContentDisplayContext {
 		}
 	}
 
+<<<<<<< HEAD
 	public boolean hasRestorePermission() throws PortalException {
 		JournalArticle selectedArticle = getSelectedArticle();
 
@@ -721,6 +778,8 @@ public class JournalContentDisplayContext {
 			TrashActionKeys.RESTORE);
 	}
 
+=======
+>>>>>>> compatible
 	public boolean hasViewPermission() throws PortalException {
 		if (_hasViewPermission != null) {
 			return _hasViewPermission;
@@ -893,6 +952,7 @@ public class JournalContentDisplayContext {
 			return _showEditArticleIcon;
 		}
 
+<<<<<<< HEAD
 		_showEditArticleIcon = false;
 
 		ThemeDisplay themeDisplay = (ThemeDisplay)_portletRequest.getAttribute(
@@ -913,6 +973,30 @@ public class JournalContentDisplayContext {
 		_showEditArticleIcon = JournalArticlePermission.contains(
 			themeDisplay.getPermissionChecker(), latestArticle,
 			ActionKeys.UPDATE);
+=======
+		JournalArticle latestArticle = getLatestArticle();
+
+		_showEditArticleIcon = false;
+
+		if (latestArticle == null) {
+			return _showEditArticleIcon;
+		}
+
+		ThemeDisplay themeDisplay = (ThemeDisplay)_portletRequest.getAttribute(
+			WebKeys.THEME_DISPLAY);
+
+		try {
+			_showEditArticleIcon = JournalArticlePermission.contains(
+				themeDisplay.getPermissionChecker(), latestArticle,
+				ActionKeys.UPDATE);
+		}
+		catch (PortalException pe) {
+			_log.error(
+				"Unable to check permissions for article " +
+					latestArticle.getId(),
+				pe);
+		}
+>>>>>>> compatible
 
 		return _showEditArticleIcon;
 	}
@@ -943,7 +1027,11 @@ public class JournalContentDisplayContext {
 		}
 		catch (PortalException pe) {
 			_log.error(
+<<<<<<< HEAD
 				"Unable to check permission on DDM template " +
+=======
+				"Unable to check permission on ddm template " +
+>>>>>>> compatible
 					ddmTemplate.getTemplateId(),
 				pe);
 		}
@@ -968,6 +1056,7 @@ public class JournalContentDisplayContext {
 		return _showSelectArticleIcon;
 	}
 
+<<<<<<< HEAD
 	public boolean isShowSelectArticleLink() throws PortalException {
 		if (_showSelectArticleLink != null) {
 			return _showSelectArticleLink;
@@ -997,6 +1086,8 @@ public class JournalContentDisplayContext {
 		return _showSelectArticleLink;
 	}
 
+=======
+>>>>>>> compatible
 	private JournalContentDisplayContext(
 			PortletRequest portletRequest, PortletResponse portletResponse,
 			JournalContentPortletInstanceConfiguration
@@ -1036,8 +1127,14 @@ public class JournalContentDisplayContext {
 
 		try {
 			ddmTemplate = DDMTemplateLocalServiceUtil.fetchTemplate(
+<<<<<<< HEAD
 				articleDisplay.getGroupId(), _ddmStructureClassNameId,
 				ddmTemplateKey, true);
+=======
+				articleDisplay.getGroupId(),
+				PortalUtil.getClassNameId(DDMStructure.class), ddmTemplateKey,
+				true);
+>>>>>>> compatible
 		}
 		catch (PortalException pe) {
 			_log.error(
@@ -1049,10 +1146,13 @@ public class JournalContentDisplayContext {
 		return ddmTemplate;
 	}
 
+<<<<<<< HEAD
 	private static final boolean _STAGING_LIVE_GROUP_LOCKING_ENABLED =
 		GetterUtil.getBoolean(
 			PropsUtil.get(PropsKeys.STAGING_LIVE_GROUP_LOCKING_ENABLED));
 
+=======
+>>>>>>> compatible
 	private static final Log _log = LogFactoryUtil.getLog(
 		JournalContentDisplayContext.class);
 
@@ -1096,7 +1196,10 @@ public class JournalContentDisplayContext {
 	private Boolean _showEditArticleIcon;
 	private Boolean _showEditTemplateIcon;
 	private Boolean _showSelectArticleIcon;
+<<<<<<< HEAD
 	private Boolean _showSelectArticleLink;
+=======
+>>>>>>> compatible
 	private List<UserToolAssetAddonEntry> _userToolAssetAddonEntries;
 
 }

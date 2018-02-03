@@ -14,6 +14,7 @@
 
 package com.liferay.portlet.messageboards.service.permission;
 
+<<<<<<< HEAD
 import com.liferay.message.boards.kernel.model.MBMessage;
 import com.liferay.message.boards.kernel.model.MBThread;
 import com.liferay.message.boards.kernel.service.MBMessageLocalServiceUtil;
@@ -23,10 +24,39 @@ import com.liferay.portal.kernel.security.auth.PrincipalException;
 import com.liferay.portal.kernel.security.permission.BaseModelPermissionChecker;
 import com.liferay.portal.kernel.security.permission.BaseModelPermissionCheckerUtil;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
+=======
+import com.liferay.exportimport.kernel.staging.permission.StagingPermissionUtil;
+import com.liferay.message.boards.kernel.exception.NoSuchCategoryException;
+import com.liferay.message.boards.kernel.model.MBCategory;
+import com.liferay.message.boards.kernel.model.MBCategoryConstants;
+import com.liferay.message.boards.kernel.model.MBMessage;
+import com.liferay.message.boards.kernel.model.MBThread;
+import com.liferay.message.boards.kernel.service.MBBanLocalServiceUtil;
+import com.liferay.message.boards.kernel.service.MBCategoryLocalServiceUtil;
+import com.liferay.message.boards.kernel.service.MBMessageLocalServiceUtil;
+import com.liferay.message.boards.kernel.service.MBThreadLocalServiceUtil;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.portlet.PortletProvider;
+import com.liferay.portal.kernel.portlet.PortletProviderUtil;
+import com.liferay.portal.kernel.security.auth.PrincipalException;
+import com.liferay.portal.kernel.security.permission.ActionKeys;
+import com.liferay.portal.kernel.security.permission.BaseModelPermissionChecker;
+import com.liferay.portal.kernel.security.permission.PermissionChecker;
+import com.liferay.portal.kernel.spring.osgi.OSGiBeanProperties;
+import com.liferay.portal.kernel.workflow.permission.WorkflowPermissionUtil;
+import com.liferay.portal.util.PropsValues;
+>>>>>>> compatible
 
 /**
  * @author Brian Wing Shun Chan
  */
+<<<<<<< HEAD
+=======
+@OSGiBeanProperties(
+	property =
+		{"model.class.name=com.liferay.message.boards.kernel.model.MBMessage"}
+)
+>>>>>>> compatible
 public class MBMessagePermission implements BaseModelPermissionChecker {
 
 	public static void check(
@@ -34,6 +64,7 @@ public class MBMessagePermission implements BaseModelPermissionChecker {
 			String actionId)
 		throws PortalException {
 
+<<<<<<< HEAD
 		MBMessage message = _getMBMessage(messageId);
 
 		Boolean containsBaseModelPermission =
@@ -47,6 +78,12 @@ public class MBMessagePermission implements BaseModelPermissionChecker {
 			throw new PrincipalException.MustHavePermission(
 				permissionChecker, MBMessage.class.getName(),
 				message.getMessageId(), actionId);
+=======
+		if (!contains(permissionChecker, messageId, actionId)) {
+			throw new PrincipalException.MustHavePermission(
+				permissionChecker, MBMessage.class.getName(), messageId,
+				actionId);
+>>>>>>> compatible
 		}
 	}
 
@@ -55,6 +92,7 @@ public class MBMessagePermission implements BaseModelPermissionChecker {
 			String actionId)
 		throws PortalException {
 
+<<<<<<< HEAD
 		Boolean containsBaseModelPermission =
 			BaseModelPermissionCheckerUtil.containsBaseModelPermission(
 				permissionChecker, message.getGroupId(),
@@ -63,6 +101,9 @@ public class MBMessagePermission implements BaseModelPermissionChecker {
 		if ((containsBaseModelPermission == null) ||
 			!containsBaseModelPermission) {
 
+=======
+		if (!contains(permissionChecker, message, actionId)) {
+>>>>>>> compatible
 			throw new PrincipalException.MustHavePermission(
 				permissionChecker, MBMessage.class.getName(),
 				message.getMessageId(), actionId);
@@ -94,8 +135,37 @@ public class MBMessagePermission implements BaseModelPermissionChecker {
 			String actionId)
 		throws PortalException {
 
+<<<<<<< HEAD
 		Boolean containsBaseModelPermission =
 			BaseModelPermissionCheckerUtil.containsBaseModelPermission(
+=======
+		if (MBBanLocalServiceUtil.hasBan(
+				message.getGroupId(), permissionChecker.getUserId())) {
+
+			return false;
+		}
+
+		String portletId = PortletProviderUtil.getPortletId(
+			MBMessage.class.getName(), PortletProvider.Action.EDIT);
+
+		Boolean hasPermission = StagingPermissionUtil.hasPermission(
+			permissionChecker, message.getGroupId(), MBMessage.class.getName(),
+			message.getMessageId(), portletId, actionId);
+
+		if (hasPermission != null) {
+			return hasPermission.booleanValue();
+		}
+
+		if (message.isDraft() || message.isScheduled()) {
+			if (actionId.equals(ActionKeys.VIEW) &&
+				!contains(permissionChecker, message, ActionKeys.UPDATE)) {
+
+				return false;
+			}
+		}
+		else if (message.isPending()) {
+			hasPermission = WorkflowPermissionUtil.hasPermission(
+>>>>>>> compatible
 				permissionChecker, message.getGroupId(),
 				MBMessage.class.getName(), message.getMessageId(), actionId);
 
@@ -105,7 +175,25 @@ public class MBMessagePermission implements BaseModelPermissionChecker {
 			return true;
 		}
 
+<<<<<<< HEAD
 		return false;
+=======
+		if (!permissionChecker.hasPermission(
+				message.getGroupId(), MBMessage.class.getName(),
+				message.getMessageId(), actionId)) {
+
+			return false;
+		}
+
+		if (message.isRoot() || !actionId.equals(ActionKeys.VIEW)) {
+			return true;
+		}
+
+		return contains(
+			permissionChecker,
+			MBMessageLocalServiceUtil.getMessage(message.getParentMessageId()),
+			actionId);
+>>>>>>> compatible
 	}
 
 	/**

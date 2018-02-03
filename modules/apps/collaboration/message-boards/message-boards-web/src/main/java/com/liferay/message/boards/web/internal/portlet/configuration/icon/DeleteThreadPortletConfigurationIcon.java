@@ -14,11 +14,18 @@
 
 package com.liferay.message.boards.web.internal.portlet.configuration.icon;
 
+<<<<<<< HEAD
 import com.liferay.message.boards.constants.MBPortletKeys;
+=======
+>>>>>>> compatible
 import com.liferay.message.boards.kernel.model.MBCategory;
 import com.liferay.message.boards.kernel.model.MBCategoryConstants;
 import com.liferay.message.boards.kernel.model.MBMessage;
 import com.liferay.message.boards.kernel.model.MBThread;
+<<<<<<< HEAD
+=======
+import com.liferay.message.boards.web.constants.MBPortletKeys;
+>>>>>>> compatible
 import com.liferay.message.boards.web.internal.portlet.action.ActionUtil;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.portlet.PortletURLFactoryUtil;
@@ -30,7 +37,11 @@ import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portlet.messageboards.service.permission.MBMessagePermission;
+<<<<<<< HEAD
 import com.liferay.trash.TrashHelper;
+=======
+import com.liferay.trash.kernel.util.TrashUtil;
+>>>>>>> compatible
 
 import javax.portlet.ActionRequest;
 import javax.portlet.PortletRequest;
@@ -167,7 +178,11 @@ public class DeleteThreadPortletConfigurationIcon
 
 	protected boolean isTrashEnabled(long groupId) {
 		try {
+<<<<<<< HEAD
 			if (_trashHelper.isTrashEnabled(groupId)) {
+=======
+			if (TrashUtil.isTrashEnabled(groupId)) {
+>>>>>>> compatible
 				return true;
 			}
 		}
@@ -180,7 +195,10 @@ public class DeleteThreadPortletConfigurationIcon
 	@Reference
 	private Portal _portal;
 
+<<<<<<< HEAD
 	@Reference
 	private TrashHelper _trashHelper;
 
+=======
+>>>>>>> compatible
 }

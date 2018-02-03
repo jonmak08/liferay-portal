@@ -28,6 +28,10 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.util.IntegerWrapper;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.OrderByComparatorFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.PersistenceTestRule;
@@ -178,18 +182,30 @@ public class SyncDevicePersistenceTest {
 
 	@Test
 	public void testCountByUuid() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByUuid("");
 
 		_persistence.countByUuid("null");
+=======
+		_persistence.countByUuid(StringPool.BLANK);
+
+		_persistence.countByUuid(StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByUuid((String)null);
 	}
 
 	@Test
 	public void testCountByUuid_C() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByUuid_C("", RandomTestUtil.nextLong());
 
 		_persistence.countByUuid_C("null", 0L);
+=======
+		_persistence.countByUuid_C(StringPool.BLANK, RandomTestUtil.nextLong());
+
+		_persistence.countByUuid_C(StringPool.NULL, 0L);
+>>>>>>> compatible
 
 		_persistence.countByUuid_C((String)null, 0L);
 	}
@@ -203,9 +219,15 @@ public class SyncDevicePersistenceTest {
 
 	@Test
 	public void testCountByC_U() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByC_U(RandomTestUtil.nextLong(), "");
 
 		_persistence.countByC_U(0L, "null");
+=======
+		_persistence.countByC_U(RandomTestUtil.nextLong(), StringPool.BLANK);
+
+		_persistence.countByC_U(0L, StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByC_U(0L, (String)null);
 	}

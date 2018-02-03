@@ -14,11 +14,15 @@
 
 package com.liferay.source.formatter.checks;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
+=======
+import com.liferay.portal.kernel.util.StringUtil;
+>>>>>>> compatible
 
 /**
  * @author Peter Shin
@@ -30,6 +34,7 @@ public class PropertiesSourceFormatterContentCheck extends BaseFileCheck {
 			String fileName, String absolutePath, String content)
 		throws Exception {
 
+<<<<<<< HEAD
 		if (fileName.endsWith("/source-formatter.properties")) {
 			content = _checkConvertedKeys(content);
 			content = _checkGitLiferayPortalBranch(content);
@@ -39,6 +44,18 @@ public class PropertiesSourceFormatterContentCheck extends BaseFileCheck {
 	}
 
 	private String _checkConvertedKeys(String content) {
+=======
+		if (!fileName.endsWith("/source-formatter.properties")) {
+			return content;
+		}
+
+		return _checkSourceFormatterContent(content);
+	}
+
+	private String _checkSourceFormatterContent(String content)
+		throws Exception {
+
+>>>>>>> compatible
 		for (String[] array : _CONVERTED_KEYS) {
 			content = StringUtil.replace(content, array[0], array[1]);
 		}
@@ -46,6 +63,7 @@ public class PropertiesSourceFormatterContentCheck extends BaseFileCheck {
 		return content;
 	}
 
+<<<<<<< HEAD
 	private String _checkGitLiferayPortalBranch(String content) {
 		if (!content.matches("(?s).*[^#]git\\.liferay\\.portal\\.branch=.*")) {
 			return content;
@@ -103,6 +121,8 @@ public class PropertiesSourceFormatterContentCheck extends BaseFileCheck {
 			"git.liferay.portal.branch=", gitLiferayPortalBranch);
 	}
 
+=======
+>>>>>>> compatible
 	private static final String[][] _CONVERTED_KEYS = {
 		new String[] {
 			"blob/master/portal-impl/src/source-formatter.properties",
@@ -110,8 +130,11 @@ public class PropertiesSourceFormatterContentCheck extends BaseFileCheck {
 		}
 	};
 
+<<<<<<< HEAD
 	private static final String _SOURCE_FORMATTER_PROPERTIES_URL =
 		"https://github.com/liferay/liferay-portal/blob/master" +
 			"/source-formatter.properties";
 
+=======
+>>>>>>> compatible
 }

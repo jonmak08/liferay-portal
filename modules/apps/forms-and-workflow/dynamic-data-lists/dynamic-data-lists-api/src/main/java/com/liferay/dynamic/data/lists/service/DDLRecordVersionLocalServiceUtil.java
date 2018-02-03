@@ -180,6 +180,7 @@ public class DDLRecordVersionLocalServiceUtil {
 		return getService().fetchDDLRecordVersion(recordVersionId);
 	}
 
+<<<<<<< HEAD
 	/**
 	* Returns the latest record version matching the user, the record set, the
 	* record set version and workflow status.
@@ -198,6 +199,8 @@ public class DDLRecordVersionLocalServiceUtil {
 			recordSetVersion, status);
 	}
 
+=======
+>>>>>>> compatible
 	public static com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery getActionableDynamicQuery() {
 		return getService().getActionableDynamicQuery();
 	}

@@ -43,7 +43,10 @@ import com.liferay.sync.engine.service.SyncSiteService;
 import com.liferay.sync.engine.util.FileUtil;
 import com.liferay.sync.engine.util.IODeltaUtil;
 import com.liferay.sync.engine.util.PropsValues;
+<<<<<<< HEAD
 import com.liferay.sync.engine.util.ReleaseInfo;
+=======
+>>>>>>> compatible
 import com.liferay.sync.engine.util.ServerInfo;
 
 import java.io.IOException;
@@ -73,7 +76,11 @@ public class FileEventUtil {
 
 		Map<String, Object> parameters = new HashMap<>();
 
+<<<<<<< HEAD
 		parameters.put("changeLog", getChangeLog());
+=======
+		parameters.put("changeLog", "");
+>>>>>>> compatible
 		parameters.put("checksum", checksum);
 		parameters.put("description", "");
 		parameters.put("filePath", filePath);
@@ -498,7 +505,11 @@ public class FileEventUtil {
 
 		Map<String, Object> parameters = new HashMap<>();
 
+<<<<<<< HEAD
 		parameters.put("changeLog", getChangeLog());
+=======
+		parameters.put("changeLog", syncFile.getChangeLog());
+>>>>>>> compatible
 		parameters.put("checksum", targetChecksum);
 		parameters.put("description", syncFile.getDescription());
 		parameters.put("fileEntryId", syncFile.getTypePK());
@@ -553,10 +564,13 @@ public class FileEventUtil {
 		updateFolderEvent.run();
 	}
 
+<<<<<<< HEAD
 	protected static String getChangeLog() {
 		return "Uploaded with Liferay Sync " + ReleaseInfo.getVersion();
 	}
 
+=======
+>>>>>>> compatible
 	protected static boolean isDownloadInProgress(SyncFile syncFile) {
 		Set<Event> events = FileEventManager.getEvents(
 			syncFile.getSyncFileId());

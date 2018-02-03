@@ -52,6 +52,10 @@ public class PortalSettingsOpenSSOAuthenticationDynamicInclude
 	@Reference(
 		target = "(osgi.web.symbolicname=com.liferay.portal.settings.authentication.opensso.web)",
 		unbind = "-"
+<<<<<<< HEAD
+=======
+
+>>>>>>> compatible
 	)
 	protected void setServletContext(ServletContext servletContext) {
 		super.setServletContext(servletContext);

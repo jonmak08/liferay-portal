@@ -41,6 +41,11 @@ import com.liferay.portal.kernel.service.persistence.PortletPersistence;
 import com.liferay.portal.kernel.service.persistence.PortletPreferencesFinder;
 import com.liferay.portal.kernel.service.persistence.PortletPreferencesPersistence;
 import com.liferay.portal.kernel.service.persistence.ResourceActionPersistence;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.service.persistence.ResourceBlockFinder;
+import com.liferay.portal.kernel.service.persistence.ResourceBlockPersistence;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.persistence.ResourcePermissionFinder;
 import com.liferay.portal.kernel.service.persistence.ResourcePermissionPersistence;
 import com.liferay.portal.kernel.service.persistence.RoleFinder;
@@ -481,6 +486,65 @@ public abstract class PortletLocalServiceBaseImpl extends BaseLocalServiceImpl
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Returns the resource block local service.
+	 *
+	 * @return the resource block local service
+	 */
+	public com.liferay.portal.kernel.service.ResourceBlockLocalService getResourceBlockLocalService() {
+		return resourceBlockLocalService;
+	}
+
+	/**
+	 * Sets the resource block local service.
+	 *
+	 * @param resourceBlockLocalService the resource block local service
+	 */
+	public void setResourceBlockLocalService(
+		com.liferay.portal.kernel.service.ResourceBlockLocalService resourceBlockLocalService) {
+		this.resourceBlockLocalService = resourceBlockLocalService;
+	}
+
+	/**
+	 * Returns the resource block persistence.
+	 *
+	 * @return the resource block persistence
+	 */
+	public ResourceBlockPersistence getResourceBlockPersistence() {
+		return resourceBlockPersistence;
+	}
+
+	/**
+	 * Sets the resource block persistence.
+	 *
+	 * @param resourceBlockPersistence the resource block persistence
+	 */
+	public void setResourceBlockPersistence(
+		ResourceBlockPersistence resourceBlockPersistence) {
+		this.resourceBlockPersistence = resourceBlockPersistence;
+	}
+
+	/**
+	 * Returns the resource block finder.
+	 *
+	 * @return the resource block finder
+	 */
+	public ResourceBlockFinder getResourceBlockFinder() {
+		return resourceBlockFinder;
+	}
+
+	/**
+	 * Sets the resource block finder.
+	 *
+	 * @param resourceBlockFinder the resource block finder
+	 */
+	public void setResourceBlockFinder(ResourceBlockFinder resourceBlockFinder) {
+		this.resourceBlockFinder = resourceBlockFinder;
+	}
+
+	/**
+>>>>>>> compatible
 	 * Returns the resource permission local service.
 	 *
 	 * @return the resource permission local service
@@ -662,6 +726,15 @@ public abstract class PortletLocalServiceBaseImpl extends BaseLocalServiceImpl
 	protected com.liferay.portal.kernel.service.ResourceActionLocalService resourceActionLocalService;
 	@BeanReference(type = ResourceActionPersistence.class)
 	protected ResourceActionPersistence resourceActionPersistence;
+<<<<<<< HEAD
+=======
+	@BeanReference(type = com.liferay.portal.kernel.service.ResourceBlockLocalService.class)
+	protected com.liferay.portal.kernel.service.ResourceBlockLocalService resourceBlockLocalService;
+	@BeanReference(type = ResourceBlockPersistence.class)
+	protected ResourceBlockPersistence resourceBlockPersistence;
+	@BeanReference(type = ResourceBlockFinder.class)
+	protected ResourceBlockFinder resourceBlockFinder;
+>>>>>>> compatible
 	@BeanReference(type = com.liferay.portal.kernel.service.ResourcePermissionLocalService.class)
 	protected com.liferay.portal.kernel.service.ResourcePermissionLocalService resourcePermissionLocalService;
 	@BeanReference(type = ResourcePermissionPersistence.class)

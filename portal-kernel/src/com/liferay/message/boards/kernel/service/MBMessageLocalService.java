@@ -265,10 +265,13 @@ public interface MBMessageLocalService extends BaseLocalService,
 		throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+<<<<<<< HEAD
 	public MBMessage fetchFirstMessage(long threadId, long parentMessageId)
 		throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+=======
+>>>>>>> compatible
 	public MBMessage fetchMBMessage(long messageId);
 
 	/**
@@ -344,10 +347,13 @@ public interface MBMessageLocalService extends BaseLocalService,
 		PortletDataContext portletDataContext);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+<<<<<<< HEAD
 	public MBMessage getFirstMessage(long threadId, long parentMessageId)
 		throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+=======
+>>>>>>> compatible
 	public List<MBMessage> getGroupMessages(long groupId, int status,
 		int start, int end);
 

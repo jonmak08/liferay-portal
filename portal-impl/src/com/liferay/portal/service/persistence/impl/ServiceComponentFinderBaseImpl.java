@@ -20,6 +20,10 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.ServiceComponent;
 import com.liferay.portal.kernel.service.persistence.ServiceComponentPersistence;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.ReflectionUtil;
+>>>>>>> compatible
 
 import java.lang.reflect.Field;
 
@@ -36,11 +40,17 @@ public class ServiceComponentFinderBaseImpl extends BasePersistenceImpl<ServiceC
 		setModelClass(ServiceComponent.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("data", "data_");

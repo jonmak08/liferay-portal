@@ -22,7 +22,11 @@ import com.liferay.dynamic.data.mapping.annotations.DDMFormLayoutPage;
 import com.liferay.dynamic.data.mapping.annotations.DDMFormLayoutRow;
 import com.liferay.dynamic.data.mapping.model.DDMFormFieldValidation;
 import com.liferay.dynamic.data.mapping.model.LocalizedValue;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 /**
  * @author Marcellus Tavares
@@ -45,7 +49,11 @@ import com.liferay.petra.string.StringPool;
 			}
 		),
 		@DDMFormLayoutPage(
+<<<<<<< HEAD
 			title = "properties",
+=======
+			title = "advanced",
+>>>>>>> compatible
 			value = {
 				@DDMFormLayoutRow(
 					{
@@ -73,8 +81,12 @@ public interface DefaultDDMFormFieldTypeSettings
 		optionLabels = {
 			"%not-indexable", "%indexable-keyword", "%indexable-text"
 		},
+<<<<<<< HEAD
 		optionValues = {StringPool.BLANK, "keyword", "text"},
 		predefinedValue = "keyword", type = "radio",
+=======
+		optionValues = {StringPool.BLANK, "keyword", "text"}, type = "select",
+>>>>>>> compatible
 		visibilityExpression = "FALSE"
 	)
 	public String indexType();
@@ -82,10 +94,17 @@ public interface DefaultDDMFormFieldTypeSettings
 	@DDMFormField(
 		label = "%label",
 		properties = {
+<<<<<<< HEAD
 			"autoFocus=true", "placeholder=%enter-a-field-label",
 			"tooltip=%enter-a-descriptive-field-label-that-guides-users-to-enter-the-information-you-want"
 		},
 		type = "key_value"
+=======
+			"placeholder=%enter-a-field-label",
+			"tooltip=%enter-a-descriptive-field-label-that-guides-users-to-enter-the-information-you-want"
+		},
+		required = true, type = "key-value"
+>>>>>>> compatible
 	)
 	public LocalizedValue label();
 
@@ -113,10 +132,14 @@ public interface DefaultDDMFormFieldTypeSettings
 	)
 	public boolean required();
 
+<<<<<<< HEAD
 	@DDMFormField(
 		label = "%show-label", predefinedValue = "true",
 		properties = {"showAsSwitcher=true"}
 	)
+=======
+	@DDMFormField(label = "%show-label", properties = {"showAsSwitcher=true"})
+>>>>>>> compatible
 	public boolean showLabel();
 
 	@DDMFormField(
@@ -130,7 +153,11 @@ public interface DefaultDDMFormFieldTypeSettings
 	public LocalizedValue tip();
 
 	@DDMFormField(
+<<<<<<< HEAD
 		dataType = "string", label = "%validation", type = "validation"
+=======
+		dataType = "ddm-validation", label = "%validation", type = "validation"
+>>>>>>> compatible
 	)
 	public DDMFormFieldValidation validation();
 
@@ -142,8 +169,12 @@ public interface DefaultDDMFormFieldTypeSettings
 		properties = {
 			"placeholder=%equals(Country, \"US\")",
 			"tooltip=%write-a-conditional-expression-to-control-whether-this-field-is-displayed"
+<<<<<<< HEAD
 		},
 		visibilityExpression = "FALSE"
+=======
+		}
+>>>>>>> compatible
 	)
 	@Deprecated
 	public String visibilityExpression();

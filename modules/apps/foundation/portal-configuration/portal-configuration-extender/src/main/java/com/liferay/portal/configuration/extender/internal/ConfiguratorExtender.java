@@ -15,7 +15,14 @@
 package com.liferay.portal.configuration.extender.internal;
 
 import com.liferay.osgi.felix.util.AbstractExtender;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.configuration.extender.BundleStorage;
+import com.liferay.portal.configuration.extender.ConfigurationDescriptionFactory;
+import com.liferay.portal.configuration.extender.NamedConfigurationContent;
+import com.liferay.portal.configuration.extender.NamedConfigurationContentFactory;
+>>>>>>> compatible
 
 import java.io.IOException;
 
@@ -57,7 +64,11 @@ public class ConfiguratorExtender extends AbstractExtender {
 	}
 
 	@Reference(
+<<<<<<< HEAD
 		cardinality = ReferenceCardinality.AT_LEAST_ONE,
+=======
+		cardinality = ReferenceCardinality.MULTIPLE,
+>>>>>>> compatible
 		policy = ReferencePolicy.DYNAMIC,
 		policyOption = ReferencePolicyOption.GREEDY,
 		unbind = "removeConfigurationDescriptionFactory"
@@ -69,7 +80,11 @@ public class ConfiguratorExtender extends AbstractExtender {
 	}
 
 	@Reference(
+<<<<<<< HEAD
 		cardinality = ReferenceCardinality.AT_LEAST_ONE,
+=======
+		cardinality = ReferenceCardinality.MULTIPLE,
+>>>>>>> compatible
 		policy = ReferencePolicy.DYNAMIC,
 		policyOption = ReferencePolicyOption.GREEDY,
 		unbind = "removeNamedConfigurationContentFactory"
@@ -88,9 +103,13 @@ public class ConfiguratorExtender extends AbstractExtender {
 
 	@Override
 	protected void debug(Bundle bundle, String s) {
+<<<<<<< HEAD
 		_logger.log(
 			Logger.LOG_DEBUG,
 			StringBundler.concat("[", String.valueOf(bundle), "] ", s));
+=======
+		_logger.log(Logger.LOG_DEBUG, "[" + bundle + "] " + s);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -153,9 +172,13 @@ public class ConfiguratorExtender extends AbstractExtender {
 
 	@Override
 	protected void warn(Bundle bundle, String s, Throwable throwable) {
+<<<<<<< HEAD
 		_logger.log(
 			Logger.LOG_WARNING,
 			StringBundler.concat("[", String.valueOf(bundle), "] ", s));
+=======
+		_logger.log(Logger.LOG_WARNING, "[" + bundle + "] " + s);
+>>>>>>> compatible
 	}
 
 	private ConfigurationAdmin _configurationAdmin;

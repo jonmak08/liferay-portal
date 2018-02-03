@@ -18,6 +18,7 @@ import com.liferay.document.library.kernel.model.DLFileEntryMetadata;
 import com.liferay.dynamic.data.mapping.storage.StorageType;
 import com.liferay.dynamic.data.mapping.util.BaseDDMDisplay;
 import com.liferay.dynamic.data.mapping.util.DDMDisplay;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.util.DDMDisplayTabItem;
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.language.LanguageUtil;
@@ -26,11 +27,19 @@ import com.liferay.portal.kernel.util.PortletKeys;
 
 import java.util.Arrays;
 import java.util.List;
+=======
+import com.liferay.portal.kernel.language.LanguageUtil;
+import com.liferay.portal.kernel.util.PortletKeys;
+
+>>>>>>> compatible
 import java.util.Locale;
 import java.util.ResourceBundle;
 
 import org.osgi.service.component.annotations.Component;
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.Reference;
+=======
+>>>>>>> compatible
 
 /**
  * @author Eduardo Garcia
@@ -43,6 +52,7 @@ import org.osgi.service.component.annotations.Reference;
 public class DLDDMDisplay extends BaseDDMDisplay {
 
 	@Override
+<<<<<<< HEAD
 	public DDMDisplayTabItem getDefaultTabItem() {
 		return _defaultTabItem;
 	}
@@ -58,6 +68,8 @@ public class DLDDMDisplay extends BaseDDMDisplay {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public String getPortletId() {
 		return PortletKeys.DOCUMENT_LIBRARY;
 	}
@@ -80,6 +92,7 @@ public class DLDDMDisplay extends BaseDDMDisplay {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public List<DDMDisplayTabItem> getTabItems() {
 		return Arrays.asList(
 			_documentsAndMediaDDMDisplayTabItem,
@@ -91,10 +104,17 @@ public class DLDDMDisplay extends BaseDDMDisplay {
 		ResourceBundle resourceBundle = getResourceBundle(locale);
 
 		return LanguageUtil.get(resourceBundle, "documents-and-media");
+=======
+	public String getTitle(Locale locale) {
+		ResourceBundle resourceBundle = getResourceBundle(locale);
+
+		return LanguageUtil.get(resourceBundle, "metadata-sets");
+>>>>>>> compatible
 	}
 
 	@Override
 	public boolean isShowBackURLInTitleBar() {
+<<<<<<< HEAD
 		return false;
 	}
 
@@ -113,4 +133,9 @@ public class DLDDMDisplay extends BaseDDMDisplay {
 	@Reference
 	private DocumentTypesDDMDisplayTabItem _documentTypesDDMDisplayTabItem;
 
+=======
+		return true;
+	}
+
+>>>>>>> compatible
 }

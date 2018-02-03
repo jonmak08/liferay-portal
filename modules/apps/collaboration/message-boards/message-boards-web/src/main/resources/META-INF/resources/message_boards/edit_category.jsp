@@ -152,9 +152,15 @@ if (portletTitleBasedNavigation) {
 			<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="mailing-list">
 				<aui:model-context bean="<%= mailingList %>" model="<%= MBMailingList.class %>" />
 
+<<<<<<< HEAD
 				<aui:input label="active" name="mailingListActive" type="toggle-switch" value='<%= ParamUtil.getBoolean(request, "mailingListActive", BeanPropertiesUtil.getBoolean(mailingList, "active")) %>' />
 
 				<aui:input label="allow-anonymous-emails" name="allowAnonymous" type="toggle-switch" value='<%= BeanParamUtil.getBoolean(mailingList, request, "allowAnonymous") %>' />
+=======
+				<aui:input fieldParam="mailingListActive" name="active" />
+
+				<aui:input label="allow-anonymous-emails" name="allowAnonymous" />
+>>>>>>> compatible
 
 				<div id="<portlet:namespace />mailingListSettings">
 					<aui:input name="emailAddress" />
@@ -204,7 +210,11 @@ if (portletTitleBasedNavigation) {
 					</aui:fieldset>
 				</div>
 
+<<<<<<< HEAD
 				<c:if test="<%= (category == null) && captchaConfiguration.messageBoardsEditCategoryCaptchaEnabled() %>">
+=======
+				<c:if test="<%= (category == null) && PropsValues.CAPTCHA_CHECK_PORTLET_MESSAGE_BOARDS_EDIT_CATEGORY %>">
+>>>>>>> compatible
 					<portlet:resourceURL id="/message_boards/captcha" var="captchaURL" />
 
 					<liferay-captcha:captcha url="<%= captchaURL %>" />
@@ -232,9 +242,15 @@ if (portletTitleBasedNavigation) {
 		</aui:fieldset-group>
 
 		<aui:button-row>
+<<<<<<< HEAD
 			<aui:button type="submit" />
 
 			<aui:button href="<%= redirect %>" type="cancel" />
+=======
+			<aui:button cssClass="btn-lg" type="submit" />
+
+			<aui:button cssClass="btn-lg" href="<%= redirect %>" type="cancel" />
+>>>>>>> compatible
 		</aui:button-row>
 	</aui:form>
 </div>

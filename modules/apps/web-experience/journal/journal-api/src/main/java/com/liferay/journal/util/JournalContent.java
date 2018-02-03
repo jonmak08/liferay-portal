@@ -32,8 +32,11 @@ public interface JournalContent {
 	public void clearCache(
 		long groupId, String articleId, String ddmTemplateKey);
 
+<<<<<<< HEAD
 	public void clearCache(String ddmTemplateKey);
 
+=======
+>>>>>>> compatible
 	public String getContent(
 		long groupId, String articleId, String viewMode, String languageId);
 

@@ -16,14 +16,25 @@ package com.liferay.portal.security.sso.ntlm.internal.verify;
 
 import com.liferay.portal.kernel.service.CompanyLocalService;
 import com.liferay.portal.kernel.settings.SettingsFactory;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.PrefsProps;
 import com.liferay.portal.kernel.util.SetUtil;
+=======
+import com.liferay.portal.kernel.util.HashMapDictionary;
+import com.liferay.portal.kernel.util.PrefsProps;
+import com.liferay.portal.kernel.util.SetUtil;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.security.sso.ntlm.constants.LegacyNtlmPropsKeys;
 import com.liferay.portal.security.sso.ntlm.constants.NtlmConfigurationKeys;
 import com.liferay.portal.security.sso.ntlm.constants.NtlmConstants;
 import com.liferay.portal.verify.BaseCompanySettingsVerifyProcess;
 import com.liferay.portal.verify.VerifyProcess;
 
+<<<<<<< HEAD
+=======
+import java.util.Dictionary;
+>>>>>>> compatible
 import java.util.Set;
 
 import org.osgi.service.component.annotations.Component;
@@ -51,6 +62,7 @@ public class NtlmCompanySettingsVerifyProcess
 	}
 
 	@Override
+<<<<<<< HEAD
 	protected String[][] getRenamePropertyKeysArray() {
 		return new String[][] {
 			new String[] {
@@ -82,6 +94,47 @@ public class NtlmCompanySettingsVerifyProcess
 				NtlmConfigurationKeys.AUTH_SERVICE_PASSWORD
 			}
 		};
+=======
+	protected Dictionary<String, String> getPropertyValues(long companyId) {
+		Dictionary<String, String> dictionary = new HashMapDictionary<>();
+
+		dictionary.put(
+			NtlmConfigurationKeys.AUTH_DOMAIN,
+			_prefsProps.getString(
+				companyId, LegacyNtlmPropsKeys.NTLM_AUTH_DOMAIN, "EXAMPLE"));
+		dictionary.put(
+			NtlmConfigurationKeys.AUTH_DOMAIN_CONTROLLER,
+			_prefsProps.getString(
+				companyId, LegacyNtlmPropsKeys.NTLM_AUTH_DOMAIN_CONTROLLER,
+				"127.0.0.1"));
+		dictionary.put(
+			NtlmConfigurationKeys.AUTH_DOMAIN_CONTROLLER_NAME,
+			_prefsProps.getString(
+				companyId, LegacyNtlmPropsKeys.NTLM_AUTH_DOMAIN_CONTROLLER_NAME,
+				"EXAMPLE"));
+		dictionary.put(
+			NtlmConfigurationKeys.AUTH_ENABLED,
+			_prefsProps.getString(
+				companyId, LegacyNtlmPropsKeys.NTLM_AUTH_ENABLED,
+				StringPool.FALSE));
+		dictionary.put(
+			NtlmConfigurationKeys.AUTH_NEGOTIATE_FLAGS,
+			_prefsProps.getString(
+				companyId, LegacyNtlmPropsKeys.NTLM_AUTH_NEGOTIATE_FLAGS,
+				"0x600FFFFF"));
+		dictionary.put(
+			NtlmConfigurationKeys.AUTH_SERVICE_ACCOUNT,
+			_prefsProps.getString(
+				companyId, LegacyNtlmPropsKeys.NTLM_AUTH_SERVICE_ACCOUNT,
+				"LIFERAY$@EXAMPLE.COM"));
+		dictionary.put(
+			NtlmConfigurationKeys.AUTH_SERVICE_PASSWORD,
+			_prefsProps.getString(
+				companyId, LegacyNtlmPropsKeys.NTLM_AUTH_SERVICE_PASSWORD,
+				"test"));
+
+		return dictionary;
+>>>>>>> compatible
 	}
 
 	@Override
@@ -101,10 +154,13 @@ public class NtlmCompanySettingsVerifyProcess
 		_companyLocalService = companyLocalService;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 3.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	@Reference(unbind = "-")
 	protected void setPrefsProps(PrefsProps prefsProps) {
 		_prefsProps = prefsProps;

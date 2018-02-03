@@ -35,6 +35,10 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.util.IntegerWrapper;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.OrderByComparatorFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.PersistenceTestRule;
@@ -138,14 +142,22 @@ public class CalendarBookingPersistenceTest {
 
 		newCalendarBooking.setModifiedDate(RandomTestUtil.nextDate());
 
+<<<<<<< HEAD
+=======
+		newCalendarBooking.setResourceBlockId(RandomTestUtil.nextLong());
+
+>>>>>>> compatible
 		newCalendarBooking.setCalendarId(RandomTestUtil.nextLong());
 
 		newCalendarBooking.setCalendarResourceId(RandomTestUtil.nextLong());
 
 		newCalendarBooking.setParentCalendarBookingId(RandomTestUtil.nextLong());
 
+<<<<<<< HEAD
 		newCalendarBooking.setRecurringCalendarBookingId(RandomTestUtil.nextLong());
 
+=======
+>>>>>>> compatible
 		newCalendarBooking.setVEventUid(RandomTestUtil.randomString());
 
 		newCalendarBooking.setTitle(RandomTestUtil.randomString());
@@ -202,14 +214,22 @@ public class CalendarBookingPersistenceTest {
 		Assert.assertEquals(Time.getShortTimestamp(
 				existingCalendarBooking.getModifiedDate()),
 			Time.getShortTimestamp(newCalendarBooking.getModifiedDate()));
+<<<<<<< HEAD
+=======
+		Assert.assertEquals(existingCalendarBooking.getResourceBlockId(),
+			newCalendarBooking.getResourceBlockId());
+>>>>>>> compatible
 		Assert.assertEquals(existingCalendarBooking.getCalendarId(),
 			newCalendarBooking.getCalendarId());
 		Assert.assertEquals(existingCalendarBooking.getCalendarResourceId(),
 			newCalendarBooking.getCalendarResourceId());
 		Assert.assertEquals(existingCalendarBooking.getParentCalendarBookingId(),
 			newCalendarBooking.getParentCalendarBookingId());
+<<<<<<< HEAD
 		Assert.assertEquals(existingCalendarBooking.getRecurringCalendarBookingId(),
 			newCalendarBooking.getRecurringCalendarBookingId());
+=======
+>>>>>>> compatible
 		Assert.assertEquals(existingCalendarBooking.getVEventUid(),
 			newCalendarBooking.getVEventUid());
 		Assert.assertEquals(existingCalendarBooking.getTitle(),
@@ -249,28 +269,54 @@ public class CalendarBookingPersistenceTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testCountByUuid() throws Exception {
 		_persistence.countByUuid("");
 
 		_persistence.countByUuid("null");
+=======
+	public void testCountByResourceBlockId() throws Exception {
+		_persistence.countByResourceBlockId(RandomTestUtil.nextLong());
+
+		_persistence.countByResourceBlockId(0L);
+	}
+
+	@Test
+	public void testCountByUuid() throws Exception {
+		_persistence.countByUuid(StringPool.BLANK);
+
+		_persistence.countByUuid(StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByUuid((String)null);
 	}
 
 	@Test
 	public void testCountByUUID_G() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByUUID_G("", RandomTestUtil.nextLong());
 
 		_persistence.countByUUID_G("null", 0L);
+=======
+		_persistence.countByUUID_G(StringPool.BLANK, RandomTestUtil.nextLong());
+
+		_persistence.countByUUID_G(StringPool.NULL, 0L);
+>>>>>>> compatible
 
 		_persistence.countByUUID_G((String)null, 0L);
 	}
 
 	@Test
 	public void testCountByUuid_C() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByUuid_C("", RandomTestUtil.nextLong());
 
 		_persistence.countByUuid_C("null", 0L);
+=======
+		_persistence.countByUuid_C(StringPool.BLANK, RandomTestUtil.nextLong());
+
+		_persistence.countByUuid_C(StringPool.NULL, 0L);
+>>>>>>> compatible
 
 		_persistence.countByUuid_C((String)null, 0L);
 	}
@@ -297,6 +343,7 @@ public class CalendarBookingPersistenceTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testCountByRecurringCalendarBookingId()
 		throws Exception {
 		_persistence.countByRecurringCalendarBookingId(RandomTestUtil.nextLong());
@@ -305,6 +352,8 @@ public class CalendarBookingPersistenceTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testCountByC_P() throws Exception {
 		_persistence.countByC_P(RandomTestUtil.nextLong(),
 			RandomTestUtil.nextLong());
@@ -314,9 +363,15 @@ public class CalendarBookingPersistenceTest {
 
 	@Test
 	public void testCountByC_V() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByC_V(RandomTestUtil.nextLong(), "");
 
 		_persistence.countByC_V(0L, "null");
+=======
+		_persistence.countByC_V(RandomTestUtil.nextLong(), StringPool.BLANK);
+
+		_persistence.countByC_V(0L, StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByC_V(0L, (String)null);
 	}
@@ -369,6 +424,7 @@ public class CalendarBookingPersistenceTest {
 		return OrderByComparatorFactoryUtil.create("CalendarBooking", "uuid",
 			true, "calendarBookingId", true, "groupId", true, "companyId",
 			true, "userId", true, "userName", true, "createDate", true,
+<<<<<<< HEAD
 			"modifiedDate", true, "calendarId", true, "calendarResourceId",
 			true, "parentCalendarBookingId", true,
 			"recurringCalendarBookingId", true, "vEventUid", true, "title",
@@ -377,6 +433,15 @@ public class CalendarBookingPersistenceTest {
 			"firstReminderType", true, "secondReminder", true,
 			"secondReminderType", true, "lastPublishDate", true, "status",
 			true, "statusByUserId", true, "statusByUserName", true,
+=======
+			"modifiedDate", true, "resourceBlockId", true, "calendarId", true,
+			"calendarResourceId", true, "parentCalendarBookingId", true,
+			"vEventUid", true, "title", true, "location", true, "startTime",
+			true, "endTime", true, "allDay", true, "recurrence", true,
+			"firstReminder", true, "firstReminderType", true, "secondReminder",
+			true, "secondReminderType", true, "lastPublishDate", true,
+			"status", true, "statusByUserId", true, "statusByUserName", true,
+>>>>>>> compatible
 			"statusDate", true);
 	}
 
@@ -627,14 +692,22 @@ public class CalendarBookingPersistenceTest {
 
 		calendarBooking.setModifiedDate(RandomTestUtil.nextDate());
 
+<<<<<<< HEAD
+=======
+		calendarBooking.setResourceBlockId(RandomTestUtil.nextLong());
+
+>>>>>>> compatible
 		calendarBooking.setCalendarId(RandomTestUtil.nextLong());
 
 		calendarBooking.setCalendarResourceId(RandomTestUtil.nextLong());
 
 		calendarBooking.setParentCalendarBookingId(RandomTestUtil.nextLong());
 
+<<<<<<< HEAD
 		calendarBooking.setRecurringCalendarBookingId(RandomTestUtil.nextLong());
 
+=======
+>>>>>>> compatible
 		calendarBooking.setVEventUid(RandomTestUtil.randomString());
 
 		calendarBooking.setTitle(RandomTestUtil.randomString());

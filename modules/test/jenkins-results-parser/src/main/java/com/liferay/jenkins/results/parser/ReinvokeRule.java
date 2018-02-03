@@ -63,8 +63,13 @@ public class ReinvokeRule {
 		return name;
 	}
 
+<<<<<<< HEAD
 	public String getNotificationRecipients() {
 		return notificationRecipients;
+=======
+	public String getNotificationList() {
+		return notificationList;
+>>>>>>> compatible
 	}
 
 	public boolean matches(Build build) {
@@ -148,9 +153,15 @@ public class ReinvokeRule {
 		sb.append(name);
 		sb.append("\n");
 
+<<<<<<< HEAD
 		if (notificationRecipients != null) {
 			sb.append("notificationRecipients=");
 			sb.append(notificationRecipients);
+=======
+		if (notificationList != null) {
+			sb.append("notificationList=");
+			sb.append(notificationList);
+>>>>>>> compatible
 			sb.append("\n");
 		}
 
@@ -167,7 +178,11 @@ public class ReinvokeRule {
 	protected Pattern consolePattern;
 	protected Pattern jobVariantPattern;
 	protected String name;
+<<<<<<< HEAD
 	protected String notificationRecipients;
+=======
+	protected String notificationList;
+>>>>>>> compatible
 	protected Pattern topLevelBuildJobNamePattern;
 
 	private ReinvokeRule(String configurations, String ruleName) {
@@ -185,8 +200,13 @@ public class ReinvokeRule {
 				continue;
 			}
 
+<<<<<<< HEAD
 			if (name.equals("notificationRecipients")) {
 				notificationRecipients = value;
+=======
+			if (name.equals("notificationList")) {
+				notificationList = value;
+>>>>>>> compatible
 
 				continue;
 			}

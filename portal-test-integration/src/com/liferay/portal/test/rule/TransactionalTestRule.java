@@ -23,7 +23,10 @@ import com.liferay.portal.kernel.transaction.TransactionConfig;
 import com.liferay.portal.kernel.transaction.TransactionInvokerUtil;
 import com.liferay.portal.kernel.transaction.Transactional;
 import com.liferay.portal.kernel.util.ReflectionUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.spring.hibernate.PortletTransactionManager;
 import com.liferay.portal.spring.transaction.CurrentPlatformTransactionManagerUtil;
 
@@ -261,10 +264,16 @@ public class TransactionalTestRule implements TestRule {
 					")");
 
 		Assert.assertEquals(
+<<<<<<< HEAD
 			StringBundler.concat(
 				"Expected 1 PortletTransactionManager for ",
 				originBundleSymbolicName, ", actually have ",
 				Arrays.toString(serviceReferences)),
+=======
+			"Expected 1 PortletTransactionManager for " +
+				originBundleSymbolicName + ", actually have " +
+					Arrays.toString(serviceReferences),
+>>>>>>> compatible
 			1, serviceReferences.length);
 
 		ServiceReference<?> serviceReference = serviceReferences[0];

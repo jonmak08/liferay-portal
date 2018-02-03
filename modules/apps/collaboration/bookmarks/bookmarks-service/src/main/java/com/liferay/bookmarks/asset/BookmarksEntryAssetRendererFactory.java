@@ -15,6 +15,10 @@
 package com.liferay.bookmarks.asset;
 
 import com.liferay.asset.kernel.model.AssetRenderer;
+<<<<<<< HEAD
+=======
+import com.liferay.asset.kernel.model.AssetRendererFactory;
+>>>>>>> compatible
 import com.liferay.asset.kernel.model.BaseAssetRendererFactory;
 import com.liferay.bookmarks.constants.BookmarksPortletKeys;
 import com.liferay.bookmarks.model.BookmarksEntry;
@@ -37,6 +41,10 @@ import javax.portlet.WindowStateException;
 
 import javax.servlet.ServletContext;
 
+<<<<<<< HEAD
+=======
+import org.osgi.service.component.annotations.Component;
+>>>>>>> compatible
 import org.osgi.service.component.annotations.Reference;
 
 /**
@@ -44,9 +52,18 @@ import org.osgi.service.component.annotations.Reference;
  * @author Juan Fernández
  * @author Raymond Augé
  * @author Sergio González
+<<<<<<< HEAD
  * @deprecated As of 1.2.0, with no direct replacement
  */
 @Deprecated
+=======
+ */
+@Component(
+	immediate = true,
+	property = {"javax.portlet.name=" + BookmarksPortletKeys.BOOKMARKS},
+	service = AssetRendererFactory.class
+)
+>>>>>>> compatible
 public class BookmarksEntryAssetRendererFactory
 	extends BaseAssetRendererFactory<BookmarksEntry> {
 

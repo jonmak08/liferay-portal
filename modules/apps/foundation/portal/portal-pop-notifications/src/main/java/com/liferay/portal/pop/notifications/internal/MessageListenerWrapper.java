@@ -90,9 +90,13 @@ public class MessageListenerWrapper implements MessageListener {
 
 	@Override
 	public int hashCode() {
+<<<<<<< HEAD
 		String id = _messageListener.getId();
 
 		return id.hashCode();
+=======
+		return _messageListener.getId().hashCode();
+>>>>>>> compatible
 	}
 
 	private static final Log _log = LogFactoryUtil.getLog(

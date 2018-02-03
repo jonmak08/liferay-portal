@@ -66,7 +66,13 @@ public enum SearchScopePreference {
 		_searchScopePreferences = new HashMap<>();
 
 	static {
+<<<<<<< HEAD
 		for (SearchScopePreference searchScopePreference : values()) {
+=======
+		for (SearchScopePreference searchScopePreference :
+				SearchScopePreference.values()) {
+
+>>>>>>> compatible
 			_searchScopePreferences.put(
 				searchScopePreference._preferenceString, searchScopePreference);
 		}

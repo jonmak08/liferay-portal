@@ -2,6 +2,10 @@
 	<command name="typeScreen">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.TypeScreen#typeScreen" />
+=======
+		<super />
+>>>>>>> compatible
 	</command>
 </definition>

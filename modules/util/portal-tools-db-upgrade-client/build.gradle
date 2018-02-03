@@ -9,6 +9,7 @@ deploy {
 	}
 }
 
+<<<<<<< HEAD
 distributions {
 	main {
 		contents {
@@ -20,6 +21,8 @@ distributions {
 	}
 }
 
+=======
+>>>>>>> compatible
 liferayOSGi {
 	expandCompileInclude = true
 }

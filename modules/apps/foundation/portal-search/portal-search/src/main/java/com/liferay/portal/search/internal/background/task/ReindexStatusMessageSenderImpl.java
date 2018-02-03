@@ -17,8 +17,11 @@ package com.liferay.portal.search.internal.background.task;
 import com.liferay.portal.kernel.backgroundtask.BackgroundTaskConstants;
 import com.liferay.portal.kernel.backgroundtask.BackgroundTaskStatusMessageSender;
 import com.liferay.portal.kernel.backgroundtask.BackgroundTaskThreadLocal;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.messaging.Message;
 import com.liferay.portal.kernel.search.background.task.ReindexBackgroundTaskConstants;
 import com.liferay.portal.kernel.search.background.task.ReindexStatusMessageSender;
@@ -45,7 +48,12 @@ public class ReindexStatusMessageSenderImpl
 		message.put(ReindexBackgroundTaskConstants.TOTAL, total);
 		message.put("status", BackgroundTaskConstants.STATUS_IN_PROGRESS);
 
+<<<<<<< HEAD
 		sendBackgroundTaskStatusMessage(message);
+=======
+		_backgroundTaskStatusMessageSender.sendBackgroundTaskStatusMessage(
+			message);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -62,6 +70,7 @@ public class ReindexStatusMessageSenderImpl
 		message.put(ReindexBackgroundTaskConstants.PHASE, phase);
 		message.put("status", BackgroundTaskConstants.STATUS_IN_PROGRESS);
 
+<<<<<<< HEAD
 		sendBackgroundTaskStatusMessage(message);
 	}
 
@@ -78,6 +87,12 @@ public class ReindexStatusMessageSenderImpl
 	private static final Log _log = LogFactoryUtil.getLog(
 		ReindexStatusMessageSenderImpl.class);
 
+=======
+		_backgroundTaskStatusMessageSender.sendBackgroundTaskStatusMessage(
+			message);
+	}
+
+>>>>>>> compatible
 	@Reference
 	private BackgroundTaskStatusMessageSender
 		_backgroundTaskStatusMessageSender;

@@ -1,4 +1,8 @@
 Bundle-Activator: com.liferay.registry.internal.ServiceRegistryBundleActivator
 Bundle-Name: Liferay Registry Implementation
 Bundle-SymbolicName: com.liferay.registry.impl
+<<<<<<< HEAD
 Bundle-Version: 1.0.5
+=======
+Bundle-Version: 1.0.4
+>>>>>>> compatible

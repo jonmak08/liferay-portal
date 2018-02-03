@@ -20,7 +20,10 @@ import com.liferay.portal.kernel.settings.LocalizedValuesMap;
 import com.liferay.portal.kernel.upgrade.UpgradeProcess;
 import com.liferay.portal.kernel.util.LocalizationUtil;
 import com.liferay.portal.kernel.util.LoggingTimer;
+<<<<<<< HEAD
 import com.liferay.portal.language.LanguageResources;
+=======
+>>>>>>> compatible
 import com.liferay.portal.upgrade.v7_0_0.util.GroupTable;
 
 import java.sql.PreparedStatement;
@@ -29,7 +32,10 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+<<<<<<< HEAD
 import java.util.ResourceBundle;
+=======
+>>>>>>> compatible
 
 /**
  * @author Eudaldo Alonso
@@ -76,11 +82,16 @@ public class UpgradeGroup extends UpgradeProcess {
 				CompanyThreadLocal.setCompanyId(companyId);
 
 				for (Locale locale : LanguageUtil.getAvailableLocales()) {
+<<<<<<< HEAD
 					ResourceBundle resourceBundle =
 						LanguageResources.getResourceBundle(locale);
 
 					localizedValuesMap.put(
 						locale, LanguageUtil.get(resourceBundle, "global"));
+=======
+					localizedValuesMap.put(
+						locale, LanguageUtil.get(locale, "global"));
+>>>>>>> compatible
 				}
 
 				String nameXML = LocalizationUtil.getXml(

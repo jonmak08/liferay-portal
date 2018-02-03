@@ -30,9 +30,18 @@ import com.liferay.portal.kernel.service.ServiceContextThreadLocal;
 import com.liferay.portal.kernel.service.persistence.CompanyProvider;
 import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
+import com.liferay.portal.kernel.util.SetUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
@@ -226,7 +235,11 @@ public class SyncDevicePersistenceImpl extends BasePersistenceImpl<SyncDevice>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_UUID_3);
 			}
 			else {
@@ -314,7 +327,11 @@ public class SyncDevicePersistenceImpl extends BasePersistenceImpl<SyncDevice>
 		msg.append("uuid=");
 		msg.append(uuid);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchDeviceException(msg.toString());
 	}
@@ -363,7 +380,11 @@ public class SyncDevicePersistenceImpl extends BasePersistenceImpl<SyncDevice>
 		msg.append("uuid=");
 		msg.append(uuid);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchDeviceException(msg.toString());
 	}
@@ -455,7 +476,11 @@ public class SyncDevicePersistenceImpl extends BasePersistenceImpl<SyncDevice>
 		if (uuid == null) {
 			query.append(_FINDER_COLUMN_UUID_UUID_1);
 		}
+<<<<<<< HEAD
 		else if (uuid.equals("")) {
+=======
+		else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_UUID_UUID_3);
 		}
 		else {
@@ -591,7 +616,11 @@ public class SyncDevicePersistenceImpl extends BasePersistenceImpl<SyncDevice>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_UUID_3);
 			}
 			else {
@@ -782,7 +811,11 @@ public class SyncDevicePersistenceImpl extends BasePersistenceImpl<SyncDevice>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_C_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_C_UUID_3);
 			}
 			else {
@@ -879,7 +912,11 @@ public class SyncDevicePersistenceImpl extends BasePersistenceImpl<SyncDevice>
 		msg.append(", companyId=");
 		msg.append(companyId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchDeviceException(msg.toString());
 	}
@@ -935,7 +972,11 @@ public class SyncDevicePersistenceImpl extends BasePersistenceImpl<SyncDevice>
 		msg.append(", companyId=");
 		msg.append(companyId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchDeviceException(msg.toString());
 	}
@@ -1030,7 +1071,11 @@ public class SyncDevicePersistenceImpl extends BasePersistenceImpl<SyncDevice>
 		if (uuid == null) {
 			query.append(_FINDER_COLUMN_UUID_C_UUID_1);
 		}
+<<<<<<< HEAD
 		else if (uuid.equals("")) {
+=======
+		else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_UUID_C_UUID_3);
 		}
 		else {
@@ -1172,7 +1217,11 @@ public class SyncDevicePersistenceImpl extends BasePersistenceImpl<SyncDevice>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_C_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_C_UUID_3);
 			}
 			else {
@@ -1430,7 +1479,11 @@ public class SyncDevicePersistenceImpl extends BasePersistenceImpl<SyncDevice>
 		msg.append("userId=");
 		msg.append(userId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchDeviceException(msg.toString());
 	}
@@ -1479,7 +1532,11 @@ public class SyncDevicePersistenceImpl extends BasePersistenceImpl<SyncDevice>
 		msg.append("userId=");
 		msg.append(userId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchDeviceException(msg.toString());
 	}
@@ -1828,8 +1885,14 @@ public class SyncDevicePersistenceImpl extends BasePersistenceImpl<SyncDevice>
 				for (SyncDevice syncDevice : list) {
 					if ((companyId != syncDevice.getCompanyId()) ||
 							!StringUtil.wildcardMatches(
+<<<<<<< HEAD
 								syncDevice.getUserName(), userName, '_', '%',
 								'\\', false)) {
+=======
+								syncDevice.getUserName(), userName,
+								CharPool.UNDERLINE, CharPool.PERCENT,
+								CharPool.BACK_SLASH, false)) {
+>>>>>>> compatible
 						list = null;
 
 						break;
@@ -1858,7 +1921,11 @@ public class SyncDevicePersistenceImpl extends BasePersistenceImpl<SyncDevice>
 			if (userName == null) {
 				query.append(_FINDER_COLUMN_C_U_USERNAME_1);
 			}
+<<<<<<< HEAD
 			else if (userName.equals("")) {
+=======
+			else if (userName.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_C_U_USERNAME_3);
 			}
 			else {
@@ -1953,7 +2020,11 @@ public class SyncDevicePersistenceImpl extends BasePersistenceImpl<SyncDevice>
 		msg.append(", userName=");
 		msg.append(userName);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchDeviceException(msg.toString());
 	}
@@ -2009,7 +2080,11 @@ public class SyncDevicePersistenceImpl extends BasePersistenceImpl<SyncDevice>
 		msg.append(", userName=");
 		msg.append(userName);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchDeviceException(msg.toString());
 	}
@@ -2106,7 +2181,11 @@ public class SyncDevicePersistenceImpl extends BasePersistenceImpl<SyncDevice>
 		if (userName == null) {
 			query.append(_FINDER_COLUMN_C_U_USERNAME_1);
 		}
+<<<<<<< HEAD
 		else if (userName.equals("")) {
+=======
+		else if (userName.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_C_U_USERNAME_3);
 		}
 		else {
@@ -2248,7 +2327,11 @@ public class SyncDevicePersistenceImpl extends BasePersistenceImpl<SyncDevice>
 			if (userName == null) {
 				query.append(_FINDER_COLUMN_C_U_USERNAME_1);
 			}
+<<<<<<< HEAD
 			else if (userName.equals("")) {
+=======
+			else if (userName.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_C_U_USERNAME_3);
 			}
 			else {
@@ -2300,11 +2383,17 @@ public class SyncDevicePersistenceImpl extends BasePersistenceImpl<SyncDevice>
 		setModelClass(SyncDevice.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("uuid", "uuid_");
@@ -2832,12 +2921,20 @@ public class SyncDevicePersistenceImpl extends BasePersistenceImpl<SyncDevice>
 		for (Serializable primaryKey : uncachedPrimaryKeys) {
 			query.append((long)primaryKey);
 
+<<<<<<< HEAD
 			query.append(",");
+=======
+			query.append(StringPool.COMMA);
+>>>>>>> compatible
 		}
 
 		query.setIndex(query.index() - 1);
 
+<<<<<<< HEAD
 		query.append(")");
+=======
+		query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 		String sql = query.toString();
 

@@ -379,10 +379,13 @@ public class PortletLocalServiceUtil {
 		return getService().getPortletsCount();
 	}
 
+<<<<<<< HEAD
 	public static int getPortletsCount(long companyId) {
 		return getService().getPortletsCount(companyId);
 	}
 
+=======
+>>>>>>> compatible
 	public static java.util.List<com.liferay.portal.kernel.model.Portlet> getScopablePortlets() {
 		return getService().getScopablePortlets();
 	}

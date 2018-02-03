@@ -1,4 +1,8 @@
 Bundle-Name: Liferay Map Common
 Bundle-SymbolicName: com.liferay.map.common
 Bundle-Version: 2.0.2
+<<<<<<< HEAD
+=======
+Liferay-JS-Config: /META-INF/resources/js/config.js
+>>>>>>> compatible
 Web-ContextPath: /map-common

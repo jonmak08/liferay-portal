@@ -14,13 +14,19 @@
 
 package com.liferay.exportimport.staging;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.document.library.kernel.exception.DuplicateFileEntryException;
 import com.liferay.document.library.kernel.exception.FileExtensionException;
 import com.liferay.document.library.kernel.exception.FileNameException;
 import com.liferay.document.library.kernel.exception.FileSizeException;
+<<<<<<< HEAD
 import com.liferay.document.library.kernel.util.DLValidator;
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.background.task.BackgroundTaskExecutorNames;
 import com.liferay.exportimport.kernel.configuration.ExportImportConfigurationConstants;
 import com.liferay.exportimport.kernel.configuration.ExportImportConfigurationParameterMapFactory;
@@ -28,7 +34,10 @@ import com.liferay.exportimport.kernel.configuration.ExportImportConfigurationSe
 import com.liferay.exportimport.kernel.exception.LARFileException;
 import com.liferay.exportimport.kernel.exception.LARFileSizeException;
 import com.liferay.exportimport.kernel.exception.LARTypeException;
+<<<<<<< HEAD
 import com.liferay.exportimport.kernel.exception.LayoutImportException;
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.exception.MissingReferenceException;
 import com.liferay.exportimport.kernel.exception.RemoteExportException;
 import com.liferay.exportimport.kernel.lar.ExportImportDateUtil;
@@ -44,7 +53,10 @@ import com.liferay.exportimport.kernel.service.StagingLocalService;
 import com.liferay.exportimport.kernel.staging.LayoutStagingUtil;
 import com.liferay.exportimport.kernel.staging.Staging;
 import com.liferay.exportimport.kernel.staging.StagingConstants;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.backgroundtask.BackgroundTask;
 import com.liferay.portal.kernel.backgroundtask.BackgroundTaskManager;
 import com.liferay.portal.kernel.exception.LayoutPrototypeException;
@@ -95,7 +107,10 @@ import com.liferay.portal.kernel.service.LayoutLocalService;
 import com.liferay.portal.kernel.service.LayoutRevisionLocalService;
 import com.liferay.portal.kernel.service.LayoutService;
 import com.liferay.portal.kernel.service.LayoutSetBranchLocalService;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.service.PortletLocalService;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.RecentLayoutBranchLocalService;
 import com.liferay.portal.kernel.service.RecentLayoutRevisionLocalService;
 import com.liferay.portal.kernel.service.RecentLayoutSetBranchLocalService;
@@ -113,8 +128,14 @@ import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.PortalClassLoaderUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.PropsKeys;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.TextFormatter;
 import com.liferay.portal.kernel.util.Tuple;
@@ -127,6 +148,11 @@ import com.liferay.portal.kernel.workflow.WorkflowTaskManagerUtil;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.service.http.ClassNameServiceHttp;
 import com.liferay.portal.service.http.GroupServiceHttp;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.util.PrefsPropsUtil;
+import com.liferay.portal.util.PropsValues;
+>>>>>>> compatible
 import com.liferay.portlet.exportimport.staging.ProxiedLayoutsThreadLocal;
 
 import java.io.Serializable;
@@ -144,7 +170,10 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
+<<<<<<< HEAD
 import java.util.ResourceBundle;
+=======
+>>>>>>> compatible
 import java.util.Set;
 
 import javax.portlet.PortletPreferences;
@@ -163,7 +192,10 @@ import org.osgi.service.component.annotations.Reference;
  */
 @Component(immediate = true)
 @DoPrivileged
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class StagingImpl implements Staging {
 
 	@Override
@@ -673,11 +705,14 @@ public class StagingImpl implements Staging {
 		int errorType = 0;
 		JSONArray warningMessagesJSONArray = null;
 
+<<<<<<< HEAD
 		ResourceBundle resourceBundle = ResourceBundleUtil.getBundle(
 			"content.Language", locale, getClass());
 
 		Throwable cause = e.getCause();
 
+=======
+>>>>>>> compatible
 		if (e instanceof DuplicateFileEntryException) {
 			errorMessage = LanguageUtil.get(
 				locale, "please-enter-a-unique-document-name");
@@ -698,6 +733,23 @@ public class StagingImpl implements Staging {
 		else if (e instanceof FileSizeException ||
 				 e instanceof LARFileSizeException) {
 
+<<<<<<< HEAD
+=======
+			long fileMaxSize = PropsValues.DL_FILE_MAX_SIZE;
+
+			try {
+				fileMaxSize = PrefsPropsUtil.getLong(
+					PropsKeys.DL_FILE_MAX_SIZE);
+
+				if (fileMaxSize == 0) {
+					fileMaxSize = PrefsPropsUtil.getLong(
+						PropsKeys.UPLOAD_SERVLET_REQUEST_IMPL_MAX_SIZE);
+				}
+			}
+			catch (Exception e1) {
+			}
+
+>>>>>>> compatible
 			if ((exportImportConfiguration != null) &&
 				((exportImportConfiguration.getType() ==
 					ExportImportConfigurationConstants.
@@ -719,8 +771,12 @@ public class StagingImpl implements Staging {
 					locale,
 					"please-enter-a-file-with-a-valid-file-size-no-larger-" +
 						"than-x",
+<<<<<<< HEAD
 					TextFormatter.formatStorageSize(
 						_dlValidator.getMaxAllowableSize(), locale),
+=======
+					TextFormatter.formatStorageSize(fileMaxSize, locale),
+>>>>>>> compatible
 					false);
 			}
 
@@ -729,6 +785,7 @@ public class StagingImpl implements Staging {
 		else if (e instanceof LARTypeException) {
 			LARTypeException lte = (LARTypeException)e;
 
+<<<<<<< HEAD
 			if (lte.getType() == LARTypeException.TYPE_COMPANY_GROUP) {
 				errorMessage = LanguageUtil.format(
 					resourceBundle, "a-x-can-only-be-imported-to-a-x",
@@ -760,10 +817,16 @@ public class StagingImpl implements Staging {
 							StringPool.COMMA_AND_SPACE)
 					});
 			}
+=======
+			errorMessage = LanguageUtil.format(
+				locale, "please-import-a-lar-file-of-the-correct-type-x",
+				lte.getMessage());
+>>>>>>> compatible
 
 			errorType = ServletResponseConstants.SC_FILE_CUSTOM_EXCEPTION;
 		}
 		else if (e instanceof LARFileException) {
+<<<<<<< HEAD
 			LARFileException lfe = (LARFileException)e;
 
 			if (lfe.getType() == LARFileException.TYPE_INVALID_MANIFEST) {
@@ -831,6 +894,10 @@ public class StagingImpl implements Staging {
 				errorMessage = e.getLocalizedMessage();
 			}
 
+=======
+			errorMessage = LanguageUtil.get(
+				locale, "please-specify-a-lar-file-to-import");
+>>>>>>> compatible
 			errorType = ServletResponseConstants.SC_FILE_CUSTOM_EXCEPTION;
 		}
 		else if (e instanceof LayoutPrototypeException) {
@@ -843,7 +910,11 @@ public class StagingImpl implements Staging {
 			sb.append("not-be-found.-please-import-the-following-templates-");
 			sb.append("manually");
 
+<<<<<<< HEAD
 			errorMessage = LanguageUtil.get(resourceBundle, sb.toString());
+=======
+			errorMessage = LanguageUtil.get(locale, sb.toString());
+>>>>>>> compatible
 
 			errorMessagesJSONArray = JSONFactoryUtil.createJSONArray();
 
@@ -937,6 +1008,7 @@ public class StagingImpl implements Staging {
 			String referrerClassName = pde.getStagedModelClassName();
 			String referrerDisplayName = pde.getStagedModelDisplayName();
 
+<<<<<<< HEAD
 			String modelResource = ResourceActionsUtil.getModelResource(
 				locale, referrerClassName);
 
@@ -1014,17 +1086,30 @@ public class StagingImpl implements Staging {
 				}
 			}
 			else if (pde.getType() == PortletDataException.INVALID_GROUP) {
+=======
+			if (pde.getType() == PortletDataException.INVALID_GROUP) {
+>>>>>>> compatible
 				errorMessage = LanguageUtil.format(
 					locale,
 					"the-x-x-could-not-be-exported-because-it-is-not-in-the-" +
 						"currently-exported-group",
+<<<<<<< HEAD
 					new String[] {modelResource, referrerDisplayName}, false);
+=======
+					new String[] {
+						ResourceActionsUtil.getModelResource(
+							locale, referrerClassName),
+						referrerDisplayName
+					},
+					false);
+>>>>>>> compatible
 			}
 			else if (pde.getType() == PortletDataException.MISSING_DEPENDENCY) {
 				errorMessage = LanguageUtil.format(
 					locale,
 					"the-x-x-has-missing-references-that-could-not-be-found-" +
 						"during-the-process",
+<<<<<<< HEAD
 					new String[] {modelResource, referrerDisplayName}, false);
 			}
 			else if (pde.getType() ==
@@ -1051,19 +1136,37 @@ public class StagingImpl implements Staging {
 						},
 						false);
 				}
+=======
+					new String[] {
+						ResourceActionsUtil.getModelResource(
+							locale, referrerClassName),
+						referrerDisplayName
+					},
+					false);
+>>>>>>> compatible
 			}
 			else if (pde.getType() == PortletDataException.STATUS_IN_TRASH) {
 				errorMessage = LanguageUtil.format(
 					locale,
 					"the-x-x-could-not-be-exported-because-it-is-in-the-" +
 						"recycle-bin",
+<<<<<<< HEAD
 					new String[] {modelResource, referrerDisplayName}, false);
+=======
+					new String[] {
+						ResourceActionsUtil.getModelResource(
+							locale, referrerClassName),
+						referrerDisplayName
+					},
+					false);
+>>>>>>> compatible
 			}
 			else if (pde.getType() == PortletDataException.STATUS_UNAVAILABLE) {
 				errorMessage = LanguageUtil.format(
 					locale,
 					"the-x-x-could-not-be-exported-because-its-workflow-" +
 						"status-is-not-exportable",
+<<<<<<< HEAD
 					new String[] {modelResource, referrerDisplayName}, false);
 			}
 			else if (Validator.isNotNull(referrerDisplayName)) {
@@ -1074,6 +1177,14 @@ public class StagingImpl implements Staging {
 						modelResource, referrerDisplayName,
 						e.getLocalizedMessage()
 					});
+=======
+					new String[] {
+						ResourceActionsUtil.getModelResource(
+							locale, referrerClassName),
+						referrerDisplayName
+					},
+					false);
+>>>>>>> compatible
 			}
 			else {
 				errorMessage = e.getLocalizedMessage();
@@ -1082,6 +1193,7 @@ public class StagingImpl implements Staging {
 			errorType = ServletResponseConstants.SC_FILE_CUSTOM_EXCEPTION;
 		}
 		else if (e instanceof PortletIdException) {
+<<<<<<< HEAD
 			PortletIdException pie = (PortletIdException)e;
 
 			Portlet portlet = _portletLocalService.getPortletById(
@@ -1091,6 +1203,10 @@ public class StagingImpl implements Staging {
 				resourceBundle, "a-x-can-only-be-imported-to-a-x",
 				portlet.getDisplayName() + " Portlet");
 
+=======
+			errorMessage = LanguageUtil.get(
+				locale, "please-import-a-lar-file-for-the-current-portlet");
+>>>>>>> compatible
 			errorType = ServletResponseConstants.SC_FILE_CUSTOM_EXCEPTION;
 		}
 		else {
@@ -1188,6 +1304,7 @@ public class StagingImpl implements Staging {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public Group getPermissionStagingGroup(Group group) {
 		if (group == null) {
 			return null;
@@ -1227,6 +1344,8 @@ public class StagingImpl implements Staging {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public long getRecentLayoutRevisionId(
 			HttpServletRequest request, long layoutSetBranchId, long plid)
 		throws PortalException {
@@ -1408,10 +1527,18 @@ public class StagingImpl implements Staging {
 
 		JSONArray warningMessagesJSONArray = JSONFactoryUtil.createJSONArray();
 
+<<<<<<< HEAD
 		for (Map.Entry<String, MissingReference> entry :
 				missingReferences.entrySet()) {
 
 			MissingReference missingReference = entry.getValue();
+=======
+		for (String missingReferenceReferrerClassName :
+				missingReferences.keySet()) {
+
+			MissingReference missingReference = missingReferences.get(
+				missingReferenceReferrerClassName);
+>>>>>>> compatible
 
 			Map<String, String> referrers = missingReference.getReferrers();
 
@@ -1433,7 +1560,12 @@ public class StagingImpl implements Staging {
 			errorMessageJSONObject.put("size", referrers.size());
 			errorMessageJSONObject.put(
 				"type",
+<<<<<<< HEAD
 				ResourceActionsUtil.getModelResource(locale, entry.getKey()));
+=======
+				ResourceActionsUtil.getModelResource(
+					locale, missingReferenceReferrerClassName));
+>>>>>>> compatible
 
 			warningMessagesJSONArray.put(errorMessageJSONObject);
 		}
@@ -1527,6 +1659,7 @@ public class StagingImpl implements Staging {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public boolean isIncomplete(Layout layout) {
 		LayoutRevision layoutRevision = LayoutStagingUtil.getLayoutRevision(
 			layout);
@@ -1551,6 +1684,38 @@ public class StagingImpl implements Staging {
 
 		return isLayoutRevisionIncomplete(
 			layout.getPlid(), layoutRevision, layoutSetBranchId);
+=======
+	public boolean isIncomplete(Layout layout, long layoutSetBranchId) {
+		LayoutRevision layoutRevision = LayoutStagingUtil.getLayoutRevision(
+			layout);
+
+		if (layoutRevision == null) {
+			List<LayoutRevision> layoutRevisions =
+				_layoutRevisionLocalService.getLayoutRevisions(
+					layoutSetBranchId, layout.getPlid(), true);
+
+			if (!layoutRevisions.isEmpty()) {
+				return false;
+			}
+		}
+
+		List<LayoutRevision> layoutRevisions =
+			_layoutRevisionLocalService.getLayoutRevisions(
+				layoutSetBranchId, layout.getPlid(), false);
+
+		if (!layoutRevisions.isEmpty()) {
+			layoutRevision = layoutRevisions.get(0);
+		}
+
+		if ((layoutRevision == null) ||
+			(layoutRevision.getStatus() ==
+				WorkflowConstants.STATUS_INCOMPLETE)) {
+
+			return true;
+		}
+
+		return false;
+>>>>>>> compatible
 	}
 
 	/**
@@ -1637,8 +1802,13 @@ public class StagingImpl implements Staging {
 				userId, exportImportConfiguration.getGroupId(),
 				backgroundTaskName,
 				BackgroundTaskExecutorNames.
+<<<<<<< HEAD
 					LAYOUT_STAGING_BACKGROUND_TASK_EXECUTOR,
 				taskContextMap, new ServiceContext());
+=======
+					LAYOUT_STAGING_BACKGROUND_TASK_EXECUTOR, taskContextMap,
+				new ServiceContext());
+>>>>>>> compatible
 
 		return backgroundTask.getBackgroundTaskId();
 	}
@@ -2498,12 +2668,15 @@ public class StagingImpl implements Staging {
 			portletId, portletPreferences, null, lastPublishDate);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 4.0.0, replaced by {@link
 	 *             com.liferay.staging.configuration.web.internal.portlet.StagingConfigurationPortlet#editStagingConfiguration(
 	 *             javax.portlet.ActionRequest, javax.portlet.ActionResponse)}
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	@Override
 	public void updateStaging(PortletRequest portletRequest, Group liveGroup)
 		throws PortalException {
@@ -2661,8 +2834,11 @@ public class StagingImpl implements Staging {
 
 		taskContextMap.put("httpPrincipal", httpPrincipal);
 
+<<<<<<< HEAD
 		taskContextMap.put("privateLayout", remotePrivateLayout);
 
+=======
+>>>>>>> compatible
 		BackgroundTask backgroundTask =
 			_backgroundTaskManager.addBackgroundTask(
 				user.getUserId(), exportImportConfiguration.getGroupId(),
@@ -2886,6 +3062,7 @@ public class StagingImpl implements Staging {
 		return false;
 	}
 
+<<<<<<< HEAD
 	protected boolean isLayoutRevisionIncomplete(
 		long plid, LayoutRevision layoutRevision, long layoutSetBranchId) {
 
@@ -2917,6 +3094,8 @@ public class StagingImpl implements Staging {
 		return false;
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	 * @deprecated As of 3.0.0, with no direct replacement
 	 */
@@ -2937,8 +3116,11 @@ public class StagingImpl implements Staging {
 
 		Layout sourceLayout = _layoutLocalService.getLayout(plid);
 
+<<<<<<< HEAD
 		Group scopeGroup = sourceLayout.getScopeGroup();
 
+=======
+>>>>>>> compatible
 		Group stagingGroup = null;
 		Group liveGroup = null;
 
@@ -2952,9 +3134,15 @@ public class StagingImpl implements Staging {
 			targetLayout = sourceLayout;
 		}
 		else if (sourceLayout.hasScopeGroup() &&
+<<<<<<< HEAD
 				 (scopeGroup.getGroupId() == scopeGroupId)) {
 
 			stagingGroup = scopeGroup;
+=======
+				 (sourceLayout.getScopeGroup().getGroupId() == scopeGroupId)) {
+
+			stagingGroup = sourceLayout.getScopeGroup();
+>>>>>>> compatible
 
 			liveGroup = stagingGroup.getLiveGroup();
 
@@ -2995,6 +3183,7 @@ public class StagingImpl implements Staging {
 		return 0;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 4.0.0
 	 */
@@ -3055,6 +3244,58 @@ public class StagingImpl implements Staging {
 	 */
 	@Deprecated
 	protected void setLockManager(LockManager lockManager) {
+=======
+	@Reference(unbind = "-")
+	protected void setExportImportConfigurationLocalService(
+		ExportImportConfigurationLocalService
+			exportImportConfigurationLocalService) {
+
+		_exportImportConfigurationLocalService =
+			exportImportConfigurationLocalService;
+	}
+
+	@Reference(unbind = "-")
+	protected void setGroupLocalService(GroupLocalService groupLocalService) {
+		_groupLocalService = groupLocalService;
+	}
+
+	@Reference(unbind = "-")
+	protected void setLayoutBranchLocalService(
+		LayoutBranchLocalService layoutBranchLocalService) {
+
+		_layoutBranchLocalService = layoutBranchLocalService;
+	}
+
+	@Reference(unbind = "-")
+	protected void setLayoutLocalService(
+		LayoutLocalService layoutLocalService) {
+
+		_layoutLocalService = layoutLocalService;
+	}
+
+	@Reference(unbind = "-")
+	protected void setLayoutRevisionLocalService(
+		LayoutRevisionLocalService layoutRevisionLocalService) {
+
+		_layoutRevisionLocalService = layoutRevisionLocalService;
+	}
+
+	@Reference(unbind = "-")
+	protected void setLayoutService(LayoutService layoutService) {
+		_layoutService = layoutService;
+	}
+
+	@Reference(unbind = "-")
+	protected void setLayoutSetBranchLocalService(
+		LayoutSetBranchLocalService layoutSetBranchLocalService) {
+
+		_layoutSetBranchLocalService = layoutSetBranchLocalService;
+	}
+
+	@Reference(unbind = "-")
+	protected void setLockManager(LockManager lockManager) {
+		_lockManager = lockManager;
+>>>>>>> compatible
 	}
 
 	protected void setRecentLayoutBranchId(
@@ -3094,12 +3335,20 @@ public class StagingImpl implements Staging {
 		ProxiedLayoutsThreadLocal.clearProxiedLayouts();
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 4.0.0
 	 */
 	@Deprecated
 	protected void setRecentLayoutBranchLocalService(
 		RecentLayoutBranchLocalService recentLayoutBranchLocalService) {
+=======
+	@Reference(unbind = "-")
+	protected void setRecentLayoutBranchLocalService(
+		RecentLayoutBranchLocalService recentLayoutBranchLocalService) {
+
+		_recentLayoutBranchLocalService = recentLayoutBranchLocalService;
+>>>>>>> compatible
 	}
 
 	protected void setRecentLayoutRevisionId(
@@ -3144,11 +3393,17 @@ public class StagingImpl implements Staging {
 		catch (PortalException pe) {
 			if (_log.isWarnEnabled()) {
 				_log.warn(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Unable to set recent layout revision ID with layout ",
 						"set branch ", String.valueOf(layoutSetBranchId),
 						" and PLID ", String.valueOf(plid),
 						" and layout branch ", String.valueOf(layoutBranchId)),
+=======
+					"Unable to set recent layout revision ID with layout set " +
+						"branch " + layoutSetBranchId + " and PLID " + plid +
+							" and layout branch " + layoutBranchId,
+>>>>>>> compatible
 					pe);
 			}
 		}
@@ -3157,12 +3412,20 @@ public class StagingImpl implements Staging {
 			userId, layoutSetBranchId, plid, layoutBranchId);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 4.0.0
 	 */
 	@Deprecated
 	protected void setRecentLayoutRevisionLocalService(
 		RecentLayoutRevisionLocalService recentLayoutRevisionLocalService) {
+=======
+	@Reference (unbind = "-")
+	protected void setRecentLayoutRevisionLocalService(
+		RecentLayoutRevisionLocalService recentLayoutRevisionLocalService) {
+
+		_recentLayoutRevisionLocalService = recentLayoutRevisionLocalService;
+>>>>>>> compatible
 	}
 
 	protected void setRecentLayoutSetBranchId(
@@ -3203,6 +3466,7 @@ public class StagingImpl implements Staging {
 		ProxiedLayoutsThreadLocal.clearProxiedLayouts();
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 4.0.0
 	 */
@@ -3232,6 +3496,32 @@ public class StagingImpl implements Staging {
 	@Deprecated
 	protected void setWorkflowInstanceLinkLocalService(
 		WorkflowInstanceLinkLocalService workflowInstanceLinkLocalService) {
+=======
+	@Reference(unbind = "-")
+	protected void setRecentLayoutSetBranchLocalService(
+		RecentLayoutSetBranchLocalService recentLayoutSetBranchLocalService) {
+
+		_recentLayoutSetBranchLocalService = recentLayoutSetBranchLocalService;
+	}
+
+	@Reference(unbind = "-")
+	protected void setStagingLocalService(
+		StagingLocalService stagingLocalService) {
+
+		_stagingLocalService = stagingLocalService;
+	}
+
+	@Reference(unbind = "-")
+	protected void setUserLocalService(UserLocalService userLocalService) {
+		_userLocalService = userLocalService;
+	}
+
+	@Reference(unbind = "-")
+	protected void setWorkflowInstanceLinkLocalService(
+		WorkflowInstanceLinkLocalService workflowInstanceLinkLocalService) {
+
+		_workflowInstanceLinkLocalService = workflowInstanceLinkLocalService;
+>>>>>>> compatible
 	}
 
 	protected void validateRemoteGroup(
@@ -3283,6 +3573,20 @@ public class StagingImpl implements Staging {
 			Group remoteGroup = GroupServiceHttp.getGroup(
 				httpPrincipal, remoteGroupId);
 
+<<<<<<< HEAD
+=======
+			if (group.equals(remoteGroup) &&
+				Objects.equals(group.getUuid(), remoteGroup.getUuid())) {
+
+				RemoteExportException ree = new RemoteExportException(
+					RemoteExportException.SAME_GROUP);
+
+				ree.setGroupId(remoteGroupId);
+
+				throw ree;
+			}
+
+>>>>>>> compatible
 			if (group.isCompany() ^
 				isCompanyGroup(httpPrincipal, remoteGroup)) {
 
@@ -3361,16 +3665,20 @@ public class StagingImpl implements Staging {
 	@Reference
 	private BackgroundTaskManager _backgroundTaskManager;
 
+<<<<<<< HEAD
 	@Reference
 	private DLValidator _dlValidator;
 
 	@Reference
+=======
+>>>>>>> compatible
 	private ExportImportConfigurationLocalService
 		_exportImportConfigurationLocalService;
 
 	@Reference
 	private ExportImportHelper _exportImportHelper;
 
+<<<<<<< HEAD
 	@Reference
 	private GroupLocalService _groupLocalService;
 
@@ -3390,11 +3698,20 @@ public class StagingImpl implements Staging {
 	private LayoutSetBranchLocalService _layoutSetBranchLocalService;
 
 	@Reference
+=======
+	private GroupLocalService _groupLocalService;
+	private LayoutBranchLocalService _layoutBranchLocalService;
+	private LayoutLocalService _layoutLocalService;
+	private LayoutRevisionLocalService _layoutRevisionLocalService;
+	private LayoutService _layoutService;
+	private LayoutSetBranchLocalService _layoutSetBranchLocalService;
+>>>>>>> compatible
 	private LockManager _lockManager;
 
 	@Reference
 	private Portal _portal;
 
+<<<<<<< HEAD
 	@Reference
 	private PortletLocalService _portletLocalService;
 
@@ -3415,6 +3732,14 @@ public class StagingImpl implements Staging {
 	private UserLocalService _userLocalService;
 
 	@Reference
+=======
+	private RecentLayoutBranchLocalService _recentLayoutBranchLocalService;
+	private RecentLayoutRevisionLocalService _recentLayoutRevisionLocalService;
+	private RecentLayoutSetBranchLocalService
+		_recentLayoutSetBranchLocalService;
+	private StagingLocalService _stagingLocalService;
+	private UserLocalService _userLocalService;
+>>>>>>> compatible
 	private WorkflowInstanceLinkLocalService _workflowInstanceLinkLocalService;
 
 	private class ScheduleInformation {

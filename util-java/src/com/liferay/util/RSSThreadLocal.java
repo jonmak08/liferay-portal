@@ -33,7 +33,11 @@ public class RSSThreadLocal {
 	}
 
 	private static final ThreadLocal<Boolean> _exportRSS =
+<<<<<<< HEAD
 		new CentralizedThreadLocal<>(
+=======
+		new AutoResetThreadLocal<>(
+>>>>>>> compatible
 			RSSThreadLocal.class + "._exportRSS", () -> Boolean.FALSE);
 
 }

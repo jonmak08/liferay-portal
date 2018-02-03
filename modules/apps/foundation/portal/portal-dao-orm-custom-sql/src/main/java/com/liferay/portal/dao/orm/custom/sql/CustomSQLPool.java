@@ -14,8 +14,13 @@
 
 package com.liferay.portal.dao.orm.custom.sql;
 
+<<<<<<< HEAD
 import com.liferay.petra.concurrent.ConcurrentReferenceKeyHashMap;
 import com.liferay.petra.memory.FinalizeManager;
+=======
+import com.liferay.portal.kernel.concurrent.ConcurrentReferenceKeyHashMap;
+import com.liferay.portal.kernel.memory.FinalizeManager;
+>>>>>>> compatible
 
 import java.util.HashMap;
 import java.util.Map;

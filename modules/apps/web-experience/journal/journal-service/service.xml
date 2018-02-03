@@ -33,11 +33,20 @@
 		<column name="treePath" type="String" />
 		<column accessor="true" name="articleId" type="String" />
 		<column name="version" type="double" />
+<<<<<<< HEAD
 		<column name="urlTitle" type="String" />
 		<column name="content" type="String" />
 		<column name="DDMStructureKey" type="String" />
 		<column name="DDMTemplateKey" type="String" />
 		<column name="defaultLanguageId" type="String" />
+=======
+		<column localized="true" name="title" type="String" />
+		<column name="urlTitle" type="String" />
+		<column localized="true" name="description" type="String" />
+		<column name="content" type="String" />
+		<column name="DDMStructureKey" type="String" />
+		<column name="DDMTemplateKey" type="String" />
+>>>>>>> compatible
 		<column name="layoutUuid" type="String" />
 		<column name="displayDate" type="Date" />
 		<column name="expirationDate" type="Date" />
@@ -206,7 +215,11 @@
 
 		<!-- References -->
 
+<<<<<<< HEAD
 		<reference entity="JournalArticleLocalization" package-path="com.liferay.journal" />
+=======
+		<reference entity="JournalArticleImage" package-path="com.liferay.journal" />
+>>>>>>> compatible
 		<reference entity="JournalArticleResource" package-path="com.liferay.journal" />
 		<reference entity="JournalContentSearch" package-path="com.liferay.journal" />
 		<reference entity="JournalFolder" package-path="com.liferay.journal" />
@@ -217,6 +230,10 @@
 		<reference entity="Image" package-path="com.liferay.portal" />
 		<reference entity="PortletPreferences" package-path="com.liferay.portal" />
 		<reference entity="Resource" package-path="com.liferay.portal" />
+<<<<<<< HEAD
+=======
+		<reference entity="Subscription" package-path="com.liferay.portal" />
+>>>>>>> compatible
 		<reference entity="SystemEvent" package-path="com.liferay.portal" />
 		<reference entity="User" package-path="com.liferay.portal" />
 		<reference entity="WorkflowDefinitionLink" package-path="com.liferay.portal" />
@@ -231,11 +248,23 @@
 		<reference entity="TrashEntry" package-path="com.liferay.portlet.trash" />
 		<reference entity="TrashVersion" package-path="com.liferay.portlet.trash" />
 	</entity>
+<<<<<<< HEAD
 	<entity local-service="false" name="JournalArticleLocalization" remote-service="false">
 
 		<!-- PK fields -->
 
 		<column name="articleLocalizationId" primary="true" type="long" />
+=======
+	<entity local-service="true" name="JournalArticleImage" remote-service="false">
+
+		<!-- PK fields -->
+
+		<column name="articleImageId" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+>>>>>>> compatible
 
 		<!-- Audit fields -->
 
@@ -243,6 +272,7 @@
 
 		<!-- Other fields -->
 
+<<<<<<< HEAD
 		<column name="articlePK" type="long" />
 		<column name="title" type="String" />
 		<column name="description" type="String" />
@@ -257,6 +287,40 @@
 			<finder-column name="articlePK" />
 			<finder-column name="languageId" />
 		</finder>
+=======
+		<column name="articleId" type="String" />
+		<column name="version" type="double" />
+		<column name="elInstanceId" type="String" />
+		<column name="elName" type="String" />
+		<column name="languageId" type="String" />
+		<column name="tempImage" type="boolean" />
+
+		<!-- Finder methods -->
+
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+		<finder name="TempImage" return-type="Collection">
+			<finder-column name="tempImage" />
+		</finder>
+		<finder name="G_A_V" return-type="Collection">
+			<finder-column name="groupId" />
+			<finder-column name="articleId" />
+			<finder-column name="version" />
+		</finder>
+		<finder name="G_A_V_E_E_L" return-type="JournalArticleImage" unique="true">
+			<finder-column name="groupId" />
+			<finder-column name="articleId" />
+			<finder-column name="version" />
+			<finder-column name="elInstanceId" />
+			<finder-column name="elName" />
+			<finder-column name="languageId" />
+		</finder>
+
+		<!-- References -->
+
+		<reference entity="Image" package-path="com.liferay.portal" />
+>>>>>>> compatible
 	</entity>
 	<entity local-service="true" name="JournalArticleResource" remote-service="false" uuid="true">
 
@@ -499,6 +563,10 @@
 		<reference entity="ClassName" package-path="com.liferay.portal" />
 		<reference entity="Group" package-path="com.liferay.portal" />
 		<reference entity="Resource" package-path="com.liferay.portal" />
+<<<<<<< HEAD
+=======
+		<reference entity="Subscription" package-path="com.liferay.portal" />
+>>>>>>> compatible
 		<reference entity="User" package-path="com.liferay.portal" />
 		<reference entity="WorkflowDefinitionLink" package-path="com.liferay.portal" />
 		<reference entity="WorkflowInstanceLink" package-path="com.liferay.portal" />
@@ -513,7 +581,10 @@
 		<exception>ArticleContent</exception>
 		<exception>ArticleDisplayDate</exception>
 		<exception>ArticleExpirationDate</exception>
+<<<<<<< HEAD
 		<exception>ArticleFriendlyURL</exception>
+=======
+>>>>>>> compatible
 		<exception>ArticleId</exception>
 		<exception>ArticleReviewDate</exception>
 		<exception>ArticleSmallImageName</exception>
@@ -521,6 +592,10 @@
 		<exception>ArticleTitle</exception>
 		<exception>ArticleVersion</exception>
 		<exception>DuplicateArticleId</exception>
+<<<<<<< HEAD
+=======
+		<exception>DuplicateArticleImageId</exception>
+>>>>>>> compatible
 		<exception>DuplicateFeedId</exception>
 		<exception>DuplicateFolderName</exception>
 		<exception>FeedContentField</exception>

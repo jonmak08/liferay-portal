@@ -85,9 +85,13 @@ public class NetlogonConnectionManagerImpl
 
 		MD4 md4 = new MD4();
 
+<<<<<<< HEAD
 		String password = ntlmServiceAccount.getPassword();
 
 		md4.update(password.getBytes("UTF-16LE"));
+=======
+		md4.update(ntlmServiceAccount.getPassword().getBytes("UTF-16LE"));
+>>>>>>> compatible
 
 		byte[] sessionKey = computeSessionKey(
 			md4.digest(), clientChallenge,

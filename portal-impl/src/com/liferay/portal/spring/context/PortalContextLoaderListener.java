@@ -217,7 +217,10 @@ public class PortalContextLoaderListener extends ContextLoaderListener {
 		}
 
 		ClassPathUtil.initializeClassPaths(servletContext);
+<<<<<<< HEAD
 		PortalClassPathUtil.initializeClassPaths(servletContext);
+=======
+>>>>>>> compatible
 
 		InitUtil.init();
 

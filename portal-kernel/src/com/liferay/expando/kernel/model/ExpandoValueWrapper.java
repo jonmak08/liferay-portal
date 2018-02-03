@@ -261,12 +261,15 @@ public class ExpandoValueWrapper implements ExpandoValue,
 	}
 
 	@Override
+<<<<<<< HEAD
 	public com.liferay.portal.kernel.json.JSONObject getGeolocationJSONObject()
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return _expandoValue.getGeolocationJSONObject();
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public int getInteger()
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return _expandoValue.getInteger();
@@ -556,6 +559,7 @@ public class ExpandoValueWrapper implements ExpandoValue,
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void setGeolocationJSONObject(
 		com.liferay.portal.kernel.json.JSONObject data)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -563,6 +567,8 @@ public class ExpandoValueWrapper implements ExpandoValue,
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public void setInteger(int data)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		_expandoValue.setInteger(data);

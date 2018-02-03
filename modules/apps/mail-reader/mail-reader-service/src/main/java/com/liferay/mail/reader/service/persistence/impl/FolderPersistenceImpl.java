@@ -38,6 +38,10 @@ import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.spring.extender.service.ServiceReference;
 
@@ -298,7 +302,11 @@ public class FolderPersistenceImpl extends BasePersistenceImpl<Folder>
 		msg.append("accountId=");
 		msg.append(accountId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchFolderException(msg.toString());
 	}
@@ -347,7 +355,11 @@ public class FolderPersistenceImpl extends BasePersistenceImpl<Folder>
 		msg.append("accountId=");
 		msg.append(accountId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchFolderException(msg.toString());
 	}
@@ -624,7 +636,11 @@ public class FolderPersistenceImpl extends BasePersistenceImpl<Folder>
 			msg.append(", fullName=");
 			msg.append(fullName);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -689,7 +705,11 @@ public class FolderPersistenceImpl extends BasePersistenceImpl<Folder>
 			if (fullName == null) {
 				query.append(_FINDER_COLUMN_A_F_FULLNAME_1);
 			}
+<<<<<<< HEAD
 			else if (fullName.equals("")) {
+=======
+			else if (fullName.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_A_F_FULLNAME_3);
 			}
 			else {
@@ -807,7 +827,11 @@ public class FolderPersistenceImpl extends BasePersistenceImpl<Folder>
 			if (fullName == null) {
 				query.append(_FINDER_COLUMN_A_F_FULLNAME_1);
 			}
+<<<<<<< HEAD
 			else if (fullName.equals("")) {
+=======
+			else if (fullName.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_A_F_FULLNAME_3);
 			}
 			else {
@@ -1347,12 +1371,20 @@ public class FolderPersistenceImpl extends BasePersistenceImpl<Folder>
 		for (Serializable primaryKey : uncachedPrimaryKeys) {
 			query.append((long)primaryKey);
 
+<<<<<<< HEAD
 			query.append(",");
+=======
+			query.append(StringPool.COMMA);
+>>>>>>> compatible
 		}
 
 		query.setIndex(query.index() - 1);
 
+<<<<<<< HEAD
 		query.append(")");
+=======
+		query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 		String sql = query.toString();
 

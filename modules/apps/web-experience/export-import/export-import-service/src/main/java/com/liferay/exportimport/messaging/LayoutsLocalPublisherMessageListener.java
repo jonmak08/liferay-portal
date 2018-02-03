@@ -26,6 +26,10 @@ import com.liferay.portal.kernel.messaging.Destination;
 import com.liferay.portal.kernel.messaging.DestinationNames;
 import com.liferay.portal.kernel.messaging.Message;
 import com.liferay.portal.kernel.messaging.MessageStatus;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.messaging.sender.SingleDestinationMessageSenderFactory;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Release;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.MapUtil;
@@ -59,7 +63,11 @@ public class LayoutsLocalPublisherMessageListener
 
 	@Activate
 	protected void activate(ComponentContext componentContext) {
+<<<<<<< HEAD
 		initialize(componentContext);
+=======
+		initialize(componentContext, _singleDestinationMessageSenderFactory);
+>>>>>>> compatible
 	}
 
 	@Deactivate
@@ -117,11 +125,14 @@ public class LayoutsLocalPublisherMessageListener
 		}
 	}
 
+<<<<<<< HEAD
 	@Override
 	protected Destination getDestination() {
 		return _destination;
 	}
 
+=======
+>>>>>>> compatible
 	@Reference(
 		target = "(destination.name=" + DestinationNames.LAYOUTS_LOCAL_PUBLISHER + ")",
 		unbind = "-"
@@ -129,6 +140,18 @@ public class LayoutsLocalPublisherMessageListener
 	protected void setDestination(Destination destination) {
 	}
 
+<<<<<<< HEAD
+=======
+	/**
+	 * @deprecated As of 3.2.0
+	 */
+	@Deprecated
+	protected void setExportImportConfigurationLocalService(
+		ExportImportConfigurationLocalService
+			exportImportConfigurationLocalService) {
+	}
+
+>>>>>>> compatible
 	@Reference(
 		target = "(&(release.bundle.symbolic.name=com.liferay.exportimport.service)(release.schema.version=1.0.0))",
 		unbind = "-"
@@ -139,16 +162,26 @@ public class LayoutsLocalPublisherMessageListener
 	private static final Log _log = LogFactoryUtil.getLog(
 		LayoutsLocalPublisherMessageListener.class);
 
+<<<<<<< HEAD
 	@Reference(
 		target = "(destination.name=" + DestinationNames.MESSAGE_BUS_MESSAGE_STATUS + ")"
 	)
 	private Destination _destination;
 
+=======
+>>>>>>> compatible
 	@Reference
 	private ExportImportConfigurationLocalService
 		_exportImportConfigurationLocalService;
 
 	@Reference
+<<<<<<< HEAD
+=======
+	private SingleDestinationMessageSenderFactory
+		_singleDestinationMessageSenderFactory;
+
+	@Reference
+>>>>>>> compatible
 	private Staging _staging;
 
 }

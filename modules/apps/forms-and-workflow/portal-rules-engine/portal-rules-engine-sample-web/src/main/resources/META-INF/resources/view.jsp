@@ -64,7 +64,11 @@
 
 					<br /><br />
 
+<<<<<<< HEAD
 					<liferay-asset:asset-display
+=======
+					<liferay-ui:asset-display
+>>>>>>> compatible
 						assetRenderer="<%= assetRenderer %>"
 						template="<%= AssetRenderer.TEMPLATE_FULL_CONTENT %>"
 					/>

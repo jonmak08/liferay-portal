@@ -51,9 +51,17 @@ Group group = siteMembershipsDisplayContext.getGroup();
 			</h6>
 		</div>
 
+<<<<<<< HEAD
 		<clay:navigation-bar
 			items="<%= siteMembershipsDisplayContext.getInfoPanelNavigationItems() %>"
 		/>
+=======
+		<aui:nav-bar cssClass="navbar-no-collapse" markupView="lexicon">
+			<aui:nav collapsible="<%= false %>" cssClass="navbar-nav">
+				<aui:nav-item label="details" selected="<%= true %>" />
+			</aui:nav>
+		</aui:nav-bar>
+>>>>>>> compatible
 
 		<div class="sidebar-body">
 			<h5><liferay-ui:message key="num-of-users" /></h5>
@@ -86,9 +94,17 @@ Group group = siteMembershipsDisplayContext.getGroup();
 			</h6>
 		</div>
 
+<<<<<<< HEAD
 		<clay:navigation-bar
 			items="<%= siteMembershipsDisplayContext.getInfoPanelNavigationItems() %>"
 		/>
+=======
+		<aui:nav-bar cssClass="navbar-no-collapse" markupView="lexicon">
+			<aui:nav collapsible="<%= false %>" cssClass="navbar-nav">
+				<aui:nav-item label="details" selected="<%= true %>" />
+			</aui:nav>
+		</aui:nav-bar>
+>>>>>>> compatible
 
 		<div class="sidebar-body">
 
@@ -151,9 +167,17 @@ Group group = siteMembershipsDisplayContext.getGroup();
 			<h4><liferay-ui:message arguments="<%= users.size() %>" key="x-items-are-selected" /></h4>
 		</div>
 
+<<<<<<< HEAD
 		<clay:navigation-bar
 			items="<%= siteMembershipsDisplayContext.getInfoPanelNavigationItems() %>"
 		/>
+=======
+		<aui:nav-bar cssClass="navbar-no-collapse" markupView="lexicon">
+			<aui:nav collapsible="<%= false %>" cssClass="navbar-nav">
+				<aui:nav-item label="details" selected="<%= true %>" />
+			</aui:nav>
+		</aui:nav-bar>
+>>>>>>> compatible
 
 		<div class="sidebar-body">
 			<h5><liferay-ui:message arguments="<%= users.size() %>" key="x-items-are-selected" /></h5>

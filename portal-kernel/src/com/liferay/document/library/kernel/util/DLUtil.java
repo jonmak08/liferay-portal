@@ -139,10 +139,13 @@ public class DLUtil {
 		return getDL().getFileEntryImage(fileEntry, themeDisplay);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static Set<Long> getFileEntryTypeSubscriptionClassPKs(long userId) {
 		return getDL().getFileEntryTypeSubscriptionClassPKs(userId);
 	}
@@ -334,6 +337,7 @@ public class DLUtil {
 		return getDL().isOfficeExtension(extension);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, replaced by {@link
 	 *             com.liferay.document.library.web.internal.util.
@@ -341,6 +345,8 @@ public class DLUtil {
 	 *             long, long)}
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static boolean isSubscribedToFileEntryType(
 		long companyId, long groupId, long userId, long fileEntryTypeId) {
 
@@ -348,6 +354,7 @@ public class DLUtil {
 			companyId, groupId, userId, fileEntryTypeId);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, replaced by {@link
 	 *             com.liferay.document.library.web.internal.util.
@@ -355,6 +362,8 @@ public class DLUtil {
 	 *             long)}
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static boolean isSubscribedToFolder(
 			long companyId, long groupId, long userId, long folderId)
 		throws PortalException {
@@ -363,6 +372,7 @@ public class DLUtil {
 			companyId, groupId, userId, folderId);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, replaced by {@link
 	 *             com.liferay.document.library.web.internal.util.
@@ -370,6 +380,8 @@ public class DLUtil {
 	 *             long, boolean)}
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static boolean isSubscribedToFolder(
 			long companyId, long groupId, long userId, long folderId,
 			boolean recursive)

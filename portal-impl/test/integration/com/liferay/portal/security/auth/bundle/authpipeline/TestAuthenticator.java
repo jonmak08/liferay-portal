@@ -15,6 +15,10 @@
 package com.liferay.portal.security.auth.bundle.authpipeline;
 
 import com.liferay.portal.kernel.security.auth.Authenticator;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StackTraceUtil;
+>>>>>>> compatible
 
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;

@@ -14,9 +14,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Designer" />
 		</execute>
 
@@ -37,6 +41,11 @@
 	</tear-down>
 
 	<command name="DeleteTaskNode" priority="5">
+<<<<<<< HEAD
+=======
+		<property name="test.name.skip.portal.instance" value="KaleoDesignerEditSingleApprover#DeleteTaskNode" />
+
+>>>>>>> compatible
 		<execute macro="KaleoDesigner#editWorkflowDefinitionTitleViaWorkflowCP">
 			<var name="workflowDefinitionTitle" value="Edited Workflow Definition" />
 		</execute>
@@ -51,9 +60,13 @@
 
 		<execute macro="KaleoDesigner#publishWorkflowDefinitionViaKDCP" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Designer" />
 		</execute>
 
@@ -75,6 +88,11 @@
 	<command name="ViewInvalidSourceXMLRemainsAfterTabSwitch" priority="4">
 		<description message="This is a use case for LPS-48590." />
 
+<<<<<<< HEAD
+=======
+		<property name="test.name.skip.portal.instance" value="KaleoDesignerEditSingleApprover#ViewInvalidSourceXMLRemainsAfterTabSwitch" />
+
+>>>>>>> compatible
 		<execute macro="KaleoDesigner#editSourceXML">
 			<var name="kdSourceXML" value="INVALID" />
 			<var name="line" value="6" />
@@ -92,6 +110,11 @@
 	<command name="ViewNodeNotificationRecipientPersistsAfterSwitchingTabs" priority="4">
 		<description message="This is a use case for LPS-46657." />
 
+<<<<<<< HEAD
+=======
+		<property name="test.name.skip.portal.instance" value="KaleoDesignerEditSingleApprover#ViewNodeNotificationRecipientPersistsAfterSwitchingTabs" />
+
+>>>>>>> compatible
 		<execute macro="KaleoDesigner#selectNode">
 			<var name="nodeNodeLabel" value="review" />
 		</execute>
@@ -100,7 +123,11 @@
 			<var name="nodeNotificationsDescription" value="Review Notification Description" />
 			<var name="nodeNotificationsName" value="Review Notification" />
 			<var name="nodeNotificationsRecipientType" value="Role Type" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="Administrator" />
+=======
+			<var name="roleName" value="Administrator" />
+>>>>>>> compatible
 			<var name="roleType" value="Regular" />
 		</execute>
 
@@ -114,7 +141,11 @@
 		<execute macro="KaleoDesigner#viewNodeNotifications">
 			<var name="nodeNotificationsName" value="Review Notification" />
 			<var name="nodeNotificationsRecipientType" value="Role Type" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="Administrator" />
+=======
+			<var name="roleName" value="Administrator" />
+>>>>>>> compatible
 			<var name="roleType" value="Regular" />
 		</execute>
 	</command>
@@ -122,6 +153,11 @@
 	<command name="ViewUserNotificationOption" priority="3">
 		<description message="This is a use case for LPS-46605." />
 
+<<<<<<< HEAD
+=======
+		<property name="test.name.skip.portal.instance" value="KaleoDesignerEditSingleApprover#ViewUserNotificationOption" />
+
+>>>>>>> compatible
 		<execute macro="KaleoDesigner#selectNode">
 			<var name="nodeNodeLabel" value="review" />
 		</execute>

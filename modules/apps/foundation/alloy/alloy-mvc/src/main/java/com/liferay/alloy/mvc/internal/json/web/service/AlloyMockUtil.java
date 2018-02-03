@@ -24,8 +24,11 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.io.Serializable;
 
+<<<<<<< HEAD
 import java.security.Principal;
 
+=======
+>>>>>>> compatible
 import java.util.Collection;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -445,7 +448,11 @@ public class AlloyMockUtil {
 		}
 
 		@Override
+<<<<<<< HEAD
 		public Principal getUserPrincipal() {
+=======
+		public java.security.Principal getUserPrincipal() {
+>>>>>>> compatible
 			throw new UnsupportedOperationException();
 		}
 
@@ -1145,7 +1152,11 @@ public class AlloyMockUtil {
 		}
 
 		@Override
+<<<<<<< HEAD
 		public Principal getUserPrincipal() {
+=======
+		public java.security.Principal getUserPrincipal() {
+>>>>>>> compatible
 			throw new UnsupportedOperationException();
 		}
 

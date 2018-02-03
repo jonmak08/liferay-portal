@@ -17,10 +17,15 @@ package com.liferay.dynamic.data.mapping.model;
 import java.io.Serializable;
 
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
+=======
+import java.util.List;
+import java.util.Locale;
+>>>>>>> compatible
 
 /**
  * @author Marcellus Tavares
@@ -53,10 +58,13 @@ public class DDMFormLayout implements Serializable {
 		_ddmFormLayoutPages.add(ddmFormLayoutPage);
 	}
 
+<<<<<<< HEAD
 	public Set<Locale> getAvailableLocales() {
 		return _availableLocales;
 	}
 
+=======
+>>>>>>> compatible
 	public DDMFormLayoutPage getDDMFormLayoutPage(int index) {
 		return _ddmFormLayoutPages.get(index);
 	}
@@ -73,10 +81,13 @@ public class DDMFormLayout implements Serializable {
 		return _paginationMode;
 	}
 
+<<<<<<< HEAD
 	public void setAvailableLocales(Set<Locale> availableLocales) {
 		_availableLocales = availableLocales;
 	}
 
+=======
+>>>>>>> compatible
 	public void setDDMFormLayoutPages(
 		List<DDMFormLayoutPage> ddmFormLayoutPages) {
 
@@ -91,7 +102,10 @@ public class DDMFormLayout implements Serializable {
 		_paginationMode = paginationMode;
 	}
 
+<<<<<<< HEAD
 	private Set<Locale> _availableLocales = new LinkedHashSet<>();
+=======
+>>>>>>> compatible
 	private List<DDMFormLayoutPage> _ddmFormLayoutPages = new ArrayList<>();
 	private Locale _defaultLocale;
 	private String _paginationMode;

@@ -17,16 +17,22 @@ package com.liferay.document.library.web.internal.display.context;
 import com.liferay.document.library.display.context.DLDisplayContextFactory;
 import com.liferay.document.library.display.context.DLEditFileEntryDisplayContext;
 import com.liferay.document.library.display.context.DLMimeTypeDisplayContext;
+<<<<<<< HEAD
 import com.liferay.document.library.display.context.DLViewFileEntryHistoryDisplayContext;
 import com.liferay.document.library.display.context.DLViewFileVersionDisplayContext;
 import com.liferay.document.library.kernel.model.DLFileEntryType;
 import com.liferay.document.library.kernel.util.DLValidator;
 import com.liferay.document.library.web.internal.util.DLTrashUtil;
+=======
+import com.liferay.document.library.display.context.DLViewFileVersionDisplayContext;
+import com.liferay.document.library.kernel.model.DLFileEntryType;
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.storage.StorageEngine;
 import com.liferay.osgi.service.tracker.collections.list.ServiceTrackerList;
 import com.liferay.osgi.service.tracker.collections.list.ServiceTrackerListFactory;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.FileShortcut;
@@ -38,6 +44,14 @@ import com.liferay.portal.kernel.util.WebKeys;
 
 import java.util.Map;
 import java.util.ResourceBundle;
+=======
+import com.liferay.portal.kernel.repository.model.FileEntry;
+import com.liferay.portal.kernel.repository.model.FileShortcut;
+import com.liferay.portal.kernel.repository.model.FileVersion;
+import com.liferay.portal.kernel.util.ResourceBundleLoader;
+
+import java.util.Map;
+>>>>>>> compatible
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -63,8 +77,12 @@ public class DLDisplayContextProvider {
 
 		DLEditFileEntryDisplayContext dlEditFileEntryDisplayContext =
 			new DefaultDLEditFileEntryDisplayContext(
+<<<<<<< HEAD
 				request, response, dlFileEntryType, _dlValidator,
 				_storageEngine);
+=======
+				request, response, dlFileEntryType, _storageEngine);
+>>>>>>> compatible
 
 		for (DLDisplayContextFactory dlDisplayContextFactory :
 				_dlDisplayContextFactories) {
@@ -84,7 +102,11 @@ public class DLDisplayContextProvider {
 
 		DLEditFileEntryDisplayContext dlEditFileEntryDisplayContext =
 			new DefaultDLEditFileEntryDisplayContext(
+<<<<<<< HEAD
 				request, response, _dlValidator, fileEntry, _storageEngine);
+=======
+				request, response, fileEntry, _storageEngine);
+>>>>>>> compatible
 
 		for (DLDisplayContextFactory dlDisplayContextFactory :
 				_dlDisplayContextFactories) {
@@ -98,6 +120,7 @@ public class DLDisplayContextProvider {
 		return dlEditFileEntryDisplayContext;
 	}
 
+<<<<<<< HEAD
 	public DLViewFileEntryHistoryDisplayContext
 		getDLViewFileEntryHistoryDisplayContext(
 			HttpServletRequest request, HttpServletResponse response,
@@ -146,6 +169,18 @@ public class DLDisplayContextProvider {
 				new DefaultDLViewFileVersionDisplayContext(
 					request, response, fileShortcut, _dlMimeTypeDisplayContext,
 					resourceBundle, _storageEngine, _dlTrashUtil);
+=======
+	public DLViewFileVersionDisplayContext
+		getDLViewFileVersionDisplayContext(
+			HttpServletRequest request, HttpServletResponse response,
+			FileShortcut fileShortcut) {
+
+		try {
+			DLViewFileVersionDisplayContext dlViewFileVersionDisplayContext =
+				new DefaultDLViewFileVersionDisplayContext(
+					request, response, fileShortcut, _dlMimeTypeDisplayContext,
+					_resourceBundleLoader, _storageEngine);
+>>>>>>> compatible
 
 			if (fileShortcut == null) {
 				return dlViewFileVersionDisplayContext;
@@ -167,6 +202,7 @@ public class DLDisplayContextProvider {
 		}
 	}
 
+<<<<<<< HEAD
 	public DLViewFileVersionDisplayContext getDLViewFileVersionDisplayContext(
 		HttpServletRequest request, HttpServletResponse response,
 		FileVersion fileVersion) {
@@ -176,11 +212,21 @@ public class DLDisplayContextProvider {
 
 		ResourceBundle resourceBundle =
 			_resourceBundleLoader.loadResourceBundle(themeDisplay.getLocale());
+=======
+	public DLViewFileVersionDisplayContext
+		getDLViewFileVersionDisplayContext(
+			HttpServletRequest request, HttpServletResponse response,
+			FileVersion fileVersion) {
+>>>>>>> compatible
 
 		DLViewFileVersionDisplayContext dlViewFileVersionDisplayContext =
 			new DefaultDLViewFileVersionDisplayContext(
 				request, response, fileVersion, _dlMimeTypeDisplayContext,
+<<<<<<< HEAD
 				resourceBundle, _storageEngine, _dlTrashUtil);
+=======
+				_resourceBundleLoader, _storageEngine);
+>>>>>>> compatible
 
 		if (fileVersion == null) {
 			return dlViewFileVersionDisplayContext;
@@ -240,13 +286,18 @@ public class DLDisplayContextProvider {
 	protected void setResourceBundleLoader(
 		ResourceBundleLoader resourceBundleLoader) {
 
+<<<<<<< HEAD
 		_resourceBundleLoader = new AggregateResourceBundleLoader(
 			resourceBundleLoader, LanguageUtil.getPortalResourceBundleLoader());
+=======
+		_resourceBundleLoader = resourceBundleLoader;
+>>>>>>> compatible
 	}
 
 	private ServiceTrackerList<DLDisplayContextFactory, DLDisplayContextFactory>
 		_dlDisplayContextFactories;
 	private DLMimeTypeDisplayContext _dlMimeTypeDisplayContext;
+<<<<<<< HEAD
 
 	@Reference
 	private DLTrashUtil _dlTrashUtil;
@@ -254,6 +305,8 @@ public class DLDisplayContextProvider {
 	@Reference
 	private DLValidator _dlValidator;
 
+=======
+>>>>>>> compatible
 	private ResourceBundleLoader _resourceBundleLoader;
 	private StorageEngine _storageEngine;
 

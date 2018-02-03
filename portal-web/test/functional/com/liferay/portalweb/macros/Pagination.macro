@@ -11,6 +11,13 @@
 		<execute function="AssertTextEquals" locator1="Pagination#ITEMS_PER_PAGE_SELECT" value1="${itemsPerPage} Entries" />
 	</command>
 
+<<<<<<< HEAD
+=======
+	<command name="clickNextPage">
+		<execute function="Click" locator1="Pagination#NEXT_LINK" />
+	</command>
+
+>>>>>>> compatible
 	<command name="viewResults">
 		<execute function="AssertTextEquals" locator1="Pagination#RESULTS" value1="${results}" />
 	</command>

@@ -195,6 +195,7 @@ public interface DDLRecordVersionModel extends BaseModel<DDLRecordVersion>,
 	public void setRecordSetId(long recordSetId);
 
 	/**
+<<<<<<< HEAD
 	 * Returns the record set version of this ddl record version.
 	 *
 	 * @return the record set version of this ddl record version
@@ -210,6 +211,8 @@ public interface DDLRecordVersionModel extends BaseModel<DDLRecordVersion>,
 	public void setRecordSetVersion(String recordSetVersion);
 
 	/**
+=======
+>>>>>>> compatible
 	 * Returns the record ID of this ddl record version.
 	 *
 	 * @return the record ID of this ddl record version

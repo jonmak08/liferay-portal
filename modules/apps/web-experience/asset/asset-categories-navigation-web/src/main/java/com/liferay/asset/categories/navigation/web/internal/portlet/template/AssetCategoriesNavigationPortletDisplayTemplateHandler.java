@@ -14,7 +14,12 @@
 
 package com.liferay.asset.categories.navigation.web.internal.portlet.template;
 
+<<<<<<< HEAD
 import com.liferay.asset.categories.navigation.constants.AssetCategoriesNavigationPortletKeys;
+=======
+import com.liferay.asset.categories.navigation.web.configuration.AssetCategoriesNavigationWebConfigurationValues;
+import com.liferay.asset.categories.navigation.web.constants.AssetCategoriesNavigationPortletKeys;
+>>>>>>> compatible
 import com.liferay.asset.categories.navigation.web.internal.display.context.AssetCategoriesNavigationDisplayContext;
 import com.liferay.asset.kernel.model.AssetCategory;
 import com.liferay.asset.kernel.model.AssetVocabulary;
@@ -22,13 +27,20 @@ import com.liferay.asset.kernel.service.AssetCategoryLocalService;
 import com.liferay.asset.kernel.service.AssetCategoryService;
 import com.liferay.asset.kernel.service.AssetVocabularyLocalService;
 import com.liferay.asset.kernel.service.AssetVocabularyService;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.portletdisplaytemplate.BasePortletDisplayTemplateHandler;
 import com.liferay.portal.kernel.template.TemplateHandler;
 import com.liferay.portal.kernel.template.TemplateVariableGroup;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portlet.display.template.PortletDisplayTemplateConstants;
 
 import java.util.List;
@@ -116,8 +128,13 @@ public class AssetCategoriesNavigationPortletDisplayTemplateHandler
 
 	@Override
 	protected String getTemplatesConfigPath() {
+<<<<<<< HEAD
 		return "com/liferay/asset/categories/navigation/web/portlet/template" +
 			"/dependencies/portlet-display-templates.xml";
+=======
+		return AssetCategoriesNavigationWebConfigurationValues.
+			DISPLAY_TEMPLATES_CONFIG;
+>>>>>>> compatible
 	}
 
 	@Reference

@@ -35,8 +35,13 @@ import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.UserTrackerPathPersistence;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.model.impl.UserTrackerPathImpl;
 import com.liferay.portal.model.impl.UserTrackerPathModelImpl;
 
@@ -200,6 +205,7 @@ public class UserTrackerPathPersistenceImpl extends BasePersistenceImpl<UserTrac
 		}
 
 		List<UserTrackerPath> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<UserTrackerPath>)finderCache.getResult(finderPath,
@@ -210,6 +216,18 @@ public class UserTrackerPathPersistenceImpl extends BasePersistenceImpl<UserTrac
 					if ((userTrackerId != userTrackerPath.getUserTrackerId())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<UserTrackerPath>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (UserTrackerPath userTrackerPath : list) {
+					if ((userTrackerId != userTrackerPath.getUserTrackerId())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -608,11 +626,17 @@ public class UserTrackerPathPersistenceImpl extends BasePersistenceImpl<UserTrac
 		setModelClass(UserTrackerPath.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("path", "path_");

@@ -91,7 +91,11 @@ public class Properties {
 
 				if (index > 0) {
 					name = line.substring(0, index);
+<<<<<<< HEAD
 					value = line.substring(index + 1);
+=======
+					value = line.substring(index + 1, line.length());
+>>>>>>> compatible
 				}
 				else {
 					value = _properties.get(name) + "\n" + line;

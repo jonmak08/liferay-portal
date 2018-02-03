@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <definition component-name="portal-test-plugins">
+=======
+<definition component-name="portal-test-plugins" ignore="true">
+>>>>>>> compatible
 	<property name="portal.release" value="true" />
 	<property name="portal.upstream" value="true" />
 	<property name="testray.main.component.name" value="Test Plugins" />
@@ -9,6 +13,7 @@
 	</set-up>
 
 	<tear-down>
+<<<<<<< HEAD
 		<execute macro="Page#tearDownCP" />
 	</tear-down>
 
@@ -24,6 +29,13 @@
 		</execute>
 
 		<execute macro="Navigator#gotoPage">
+=======
+		<execute macro="Page#tearDownPG" />
+	</tear-down>
+
+	<command name="ViewJSR" priority="4">
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Test JSR 286 PLT.26.6 Page" />
 		</execute>
 

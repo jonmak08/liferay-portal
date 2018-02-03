@@ -25,7 +25,10 @@ import java.util.List;
 public class TestItemSelectorViewReturnTypeProvider
 	implements ItemSelectorViewReturnTypeProvider {
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public List<ItemSelectorReturnType>
 		populateSupportedItemSelectorReturnTypes(
 			List<ItemSelectorReturnType> itemSelectorReturnTypes) {

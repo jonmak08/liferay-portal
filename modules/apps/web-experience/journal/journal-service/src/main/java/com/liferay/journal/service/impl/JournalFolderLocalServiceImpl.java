@@ -30,7 +30,10 @@ import com.liferay.journal.model.JournalFolderConstants;
 import com.liferay.journal.service.base.JournalFolderLocalServiceBaseImpl;
 import com.liferay.journal.util.JournalValidator;
 import com.liferay.journal.util.comparator.FolderIdComparator;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.QueryDefinition;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -57,17 +60,28 @@ import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.UnicodeProperties;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.spring.extender.service.ServiceReference;
 import com.liferay.portal.util.PropsValues;
 import com.liferay.social.kernel.model.SocialActivityConstants;
+<<<<<<< HEAD
 import com.liferay.subscription.service.SubscriptionLocalService;
 import com.liferay.trash.TrashHelper;
+=======
+>>>>>>> compatible
 import com.liferay.trash.kernel.exception.RestoreEntryException;
 import com.liferay.trash.kernel.exception.TrashEntryException;
 import com.liferay.trash.kernel.model.TrashEntry;
 import com.liferay.trash.kernel.model.TrashVersion;
+<<<<<<< HEAD
+=======
+import com.liferay.trash.kernel.util.TrashUtil;
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -428,9 +442,13 @@ public class JournalFolderLocalServiceImpl
 			int articlesCount = journalArticleFinder.countByG_F(
 				groupId, folderIds.subList(start, end), queryDefinition);
 
+<<<<<<< HEAD
 			List<Long> sublist = folderIds.subList(start, end);
 
 			sublist.clear();
+=======
+			folderIds.subList(start, end).clear();
+>>>>>>> compatible
 
 			articlesCount += getFoldersAndArticlesCount(
 				groupId, folderIds, status);
@@ -532,6 +550,7 @@ public class JournalFolderLocalServiceImpl
 		}
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 4.0.0, with no direct replacement
 	 */
@@ -542,6 +561,8 @@ public class JournalFolderLocalServiceImpl
 		return subscriptionLocalService;
 	}
 
+=======
+>>>>>>> compatible
 	@Indexable(type = IndexableType.REINDEX)
 	@Override
 	public JournalFolder moveFolder(
@@ -657,7 +678,11 @@ public class JournalFolderLocalServiceImpl
 			folder.getFolderId(), folder.getUuid(), null,
 			WorkflowConstants.STATUS_APPROVED, null, typeSettingsProperties);
 
+<<<<<<< HEAD
 		folder.setName(_trashHelper.getTrashTitle(trashEntry.getEntryId()));
+=======
+		folder.setName(TrashUtil.getTrashTitle(trashEntry.getEntryId()));
+>>>>>>> compatible
 
 		journalFolderPersistence.update(folder);
 
@@ -736,7 +761,11 @@ public class JournalFolderLocalServiceImpl
 				RestoreEntryException.INVALID_STATUS);
 		}
 
+<<<<<<< HEAD
 		folder.setName(_trashHelper.getOriginalTitle(folder.getName()));
+=======
+		folder.setName(TrashUtil.getOriginalTitle(folder.getName()));
+>>>>>>> compatible
 
 		journalFolderPersistence.update(folder);
 
@@ -771,6 +800,7 @@ public class JournalFolderLocalServiceImpl
 	}
 
 	@Override
+<<<<<<< HEAD
 	public List<DDMStructure> searchDDMStructures(
 			long companyId, long[] groupIds, long folderId, int restrictionType,
 			String keywords, int start, int end,
@@ -814,6 +844,8 @@ public class JournalFolderLocalServiceImpl
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public void subscribe(long userId, long groupId, long folderId)
 		throws PortalException {
 
@@ -821,7 +853,11 @@ public class JournalFolderLocalServiceImpl
 			folderId = groupId;
 		}
 
+<<<<<<< HEAD
 		_subscriptionLocalService.addSubscription(
+=======
+		subscriptionLocalService.addSubscription(
+>>>>>>> compatible
 			userId, groupId, JournalFolder.class.getName(), folderId);
 	}
 
@@ -833,7 +869,11 @@ public class JournalFolderLocalServiceImpl
 			folderId = groupId;
 		}
 
+<<<<<<< HEAD
 		_subscriptionLocalService.deleteSubscription(
+=======
+		subscriptionLocalService.deleteSubscription(
+>>>>>>> compatible
 			userId, JournalFolder.class.getName(), folderId);
 	}
 
@@ -1548,6 +1588,7 @@ public class JournalFolderLocalServiceImpl
 	@ServiceReference(type = JournalValidator.class)
 	protected JournalValidator journalValidator;
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 4.0.0, with no direct replacement
 	 */
@@ -1564,4 +1605,6 @@ public class JournalFolderLocalServiceImpl
 	@ServiceReference(type = TrashHelper.class)
 	private TrashHelper _trashHelper;
 
+=======
+>>>>>>> compatible
 }

@@ -28,7 +28,6 @@ import com.liferay.portal.kernel.service.CompanyLocalServiceUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.PropertiesUtil;
-import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.Validator;
 
 import java.lang.reflect.Field;
@@ -387,6 +386,7 @@ public class ConfigurationImpl
 		ComponentProperties componentProperties = getComponentProperties();
 
 		List<String> sources = componentProperties.getLoadedSources();
+<<<<<<< HEAD
 
 		for (int i = sources.size() - 1; i >= 0; i--) {
 			String source = sources.get(i);
@@ -442,6 +442,61 @@ public class ConfigurationImpl
 			return null;
 		}
 
+=======
+
+		for (int i = sources.size() - 1; i >= 0; i--) {
+			String source = sources.get(i);
+
+			if (_printedSources.contains(source)) {
+				continue;
+			}
+
+			_printedSources.add(source);
+
+			if (source.startsWith("bundleresource://")) {
+				continue;
+			}
+
+			String info = "Loading " + source;
+
+			if (companyId > CompanyConstants.SYSTEM) {
+				info +=
+					" for {companyId=" + companyId + ", webId=" + webId + "}";
+			}
+
+			System.out.println(info);
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	private static Map<String, Object> _castPropertiesToMap(
+		Properties properties) {
+
+		return (Map)properties;
+	}
+
+	private static String _getWebId(long companyId) {
+		if (companyId > CompanyConstants.SYSTEM) {
+			try {
+				Company company = CompanyLocalServiceUtil.getCompanyById(
+					companyId);
+
+				return company.getWebId();
+			}
+			catch (Exception e) {
+				_log.error(e, e);
+			}
+		}
+
+		return null;
+	}
+
+	private FilterCacheKey _buildFilterCacheKey(String key, Filter filter) {
+		if (filter.getVariables() != null) {
+			return null;
+		}
+
+>>>>>>> compatible
 		return new FilterCacheKey(key, filter);
 	}
 
@@ -471,6 +526,7 @@ public class ConfigurationImpl
 		return value;
 	}
 
+<<<<<<< HEAD
 	private static final String[] _EMPTY_ARRAY = new String[0];
 
 	private static final boolean _PRINT_DUPLICATE_CALLS_TO_GET = false;
@@ -501,6 +557,37 @@ public class ConfigurationImpl
 			if (Objects.equals(_key, filterCacheKey._key) &&
 				Arrays.equals(_selectors, filterCacheKey._selectors)) {
 
+=======
+	private static final boolean _PRINT_DUPLICATE_CALLS_TO_GET = false;
+
+	private static final Log _log = LogFactoryUtil.getLog(
+		ConfigurationImpl.class);
+
+	private static final String[] _emptyArray = new String[0];
+	private static final Object _nullValue = new Object();
+
+	private final ComponentConfiguration _componentConfiguration;
+	private final Map<String, Object> _configurationArrayCache =
+		new ConcurrentHashMap<>();
+	private final Map<String, Object> _configurationCache =
+		new ConcurrentHashMap<>();
+	private final Map<FilterCacheKey, Object> _configurationFilterArrayCache =
+		new ConcurrentHashMap<>();
+	private final Map<FilterCacheKey, Object> _configurationFilterCache =
+		new ConcurrentHashMap<>();
+	private final Set<String> _printedSources = new HashSet<>();
+	private Properties _properties;
+
+	private static class FilterCacheKey {
+
+		@Override
+		public boolean equals(Object object) {
+			FilterCacheKey filterCacheKey = (FilterCacheKey)object;
+
+			if (Objects.equals(_key, filterCacheKey._key) &&
+				Arrays.equals(_selectors, filterCacheKey._selectors)) {
+
+>>>>>>> compatible
 				return true;
 			}
 

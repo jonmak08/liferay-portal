@@ -1,6 +1,10 @@
 Bundle-Name: ${manifest.bundle.name}
 Bundle-SymbolicName: ${manifest.bundle.symbolic.name}
+<<<<<<< HEAD
 Bundle-Version: 4.0.0
+=======
+Bundle-Version: 3.2.0
+>>>>>>> compatible
 Export-Package:\
 	com.liferay.portal.lar.test,\
 	com.liferay.portal.module.framework.test,\
@@ -35,4 +39,8 @@ Include-Resource:\
 	@${project.dir}/../lib/portal/httpmime.jar,\
 	@${project.dir}/../lib/portal/juniversalchardet.jar,\
 	@${project.dir}/../lib/portal/poi.jar
+<<<<<<< HEAD
 -baseline: *;file=${project.dir}/.bnd/ant-baseline-cache/com.liferay.portal.test.integration-3.2.0.jar
+=======
+-baseline: *;file=${project.dir}/.bnd/ant-baseline-cache/com.liferay.portal.test.integration-3.1.0.jar
+>>>>>>> compatible

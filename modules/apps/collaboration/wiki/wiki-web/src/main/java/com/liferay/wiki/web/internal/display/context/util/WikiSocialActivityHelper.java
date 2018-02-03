@@ -15,7 +15,10 @@
 package com.liferay.wiki.web.internal.display.context.util;
 
 import com.liferay.document.library.kernel.exception.NoSuchFileEntryException;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.language.LanguageUtil;
@@ -28,6 +31,10 @@ import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.social.kernel.model.SocialActivity;
 import com.liferay.social.kernel.model.SocialActivityConstants;
@@ -185,7 +192,11 @@ public class WikiSocialActivityHelper {
 					false);
 			}
 			else if (type == WikiActivityKeys.ADD_PAGE) {
+<<<<<<< HEAD
 				String titleLink = getLink(page.getTitle(), pageURL);
+=======
+				String titleLink = getLink(page.getTitle(), pageURL.toString());
+>>>>>>> compatible
 
 				return LanguageUtil.format(
 					resourceBundle, "x-added-the-page-x",

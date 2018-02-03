@@ -38,6 +38,7 @@ public class LiferayObjectConstructor implements TemplateMethodModelEx {
 					"the class to instantiate");
 		}
 
+<<<<<<< HEAD
 		String className = String.valueOf(arguments.get(0));
 
 		Class<?> clazz = null;
@@ -54,6 +55,18 @@ public class LiferayObjectConstructor implements TemplateMethodModelEx {
 			catch (Exception e2) {
 				throw new TemplateModelException(e2.getMessage());
 			}
+=======
+		Class<?> clazz = null;
+
+		try {
+			String className = String.valueOf(arguments.get(0));
+
+			clazz = Class.forName(
+				className, true, ClassLoaderUtil.getContextClassLoader());
+		}
+		catch (Exception e) {
+			throw new TemplateModelException(e.getMessage());
+>>>>>>> compatible
 		}
 
 		BeansWrapper beansWrapper = FreeMarkerManager.getBeansWrapper();

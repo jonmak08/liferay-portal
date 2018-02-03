@@ -14,13 +14,17 @@
 
 package com.liferay.document.library.web.internal.display.context;
 
+<<<<<<< HEAD
 import com.liferay.document.library.web.internal.util.DLTrashUtil;
+=======
+>>>>>>> compatible
 import com.liferay.image.gallery.display.kernel.display.context.IGDisplayContextFactory;
 import com.liferay.image.gallery.display.kernel.display.context.IGViewFileVersionDisplayContext;
 import com.liferay.osgi.service.tracker.collections.list.ServiceTrackerList;
 import com.liferay.osgi.service.tracker.collections.list.ServiceTrackerListFactory;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.repository.model.FileShortcut;
 import com.liferay.portal.kernel.repository.model.FileVersion;
@@ -30,6 +34,10 @@ import com.liferay.portal.kernel.util.ResourceBundleLoader;
 import com.liferay.portal.kernel.util.WebKeys;
 
 import java.util.ResourceBundle;
+=======
+import com.liferay.portal.kernel.repository.model.FileShortcut;
+import com.liferay.portal.kernel.repository.model.FileVersion;
+>>>>>>> compatible
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -38,7 +46,10 @@ import org.osgi.framework.BundleContext;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.Reference;
+=======
+>>>>>>> compatible
 
 /**
  * @author Iván Zaera
@@ -52,6 +63,7 @@ public class IGDisplayContextProvider {
 			FileShortcut fileShortcut) {
 
 		try {
+<<<<<<< HEAD
 			ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
 				WebKeys.THEME_DISPLAY);
 
@@ -63,6 +75,11 @@ public class IGDisplayContextProvider {
 				new DefaultIGViewFileVersionDisplayContext(
 					request, response, fileShortcut, resourceBundle,
 					_dlTrashUtil);
+=======
+			IGViewFileVersionDisplayContext igViewFileVersionDisplayContext =
+				new DefaultIGViewFileVersionDisplayContext(
+					request, response, fileShortcut);
+>>>>>>> compatible
 
 			if (fileShortcut == null) {
 				return igViewFileVersionDisplayContext;
@@ -90,6 +107,7 @@ public class IGDisplayContextProvider {
 			FileVersion fileVersion) {
 
 		try {
+<<<<<<< HEAD
 			ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
 				WebKeys.THEME_DISPLAY);
 
@@ -101,6 +119,11 @@ public class IGDisplayContextProvider {
 				new DefaultIGViewFileVersionDisplayContext(
 					request, response, fileVersion, resourceBundle,
 					_dlTrashUtil);
+=======
+			IGViewFileVersionDisplayContext igViewFileVersionDisplayContext =
+				new DefaultIGViewFileVersionDisplayContext(
+					request, response, fileVersion);
+>>>>>>> compatible
 
 			if (fileVersion == null) {
 				return igViewFileVersionDisplayContext;
@@ -133,6 +156,7 @@ public class IGDisplayContextProvider {
 		_igDisplayContextFactories.close();
 	}
 
+<<<<<<< HEAD
 	@Reference(
 		target = "(bundle.symbolic.name=com.liferay.document.library.web)",
 		unbind = "-"
@@ -150,5 +174,9 @@ public class IGDisplayContextProvider {
 	private ServiceTrackerList<IGDisplayContextFactory, IGDisplayContextFactory>
 		_igDisplayContextFactories;
 	private ResourceBundleLoader _resourceBundleLoader;
+=======
+	private ServiceTrackerList<IGDisplayContextFactory, IGDisplayContextFactory>
+		_igDisplayContextFactories;
+>>>>>>> compatible
 
 }

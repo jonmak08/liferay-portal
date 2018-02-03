@@ -65,7 +65,11 @@ public class KaleoInstanceWrapper implements KaleoInstance,
 		attributes.put("userName", getUserName());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
+<<<<<<< HEAD
 		attributes.put("kaleoDefinitionVersionId", getKaleoDefinitionVersionId());
+=======
+		attributes.put("kaleoDefinitionId", getKaleoDefinitionId());
+>>>>>>> compatible
 		attributes.put("kaleoDefinitionName", getKaleoDefinitionName());
 		attributes.put("kaleoDefinitionVersion", getKaleoDefinitionVersion());
 		attributes.put("rootKaleoInstanceTokenId", getRootKaleoInstanceTokenId());
@@ -122,11 +126,18 @@ public class KaleoInstanceWrapper implements KaleoInstance,
 			setModifiedDate(modifiedDate);
 		}
 
+<<<<<<< HEAD
 		Long kaleoDefinitionVersionId = (Long)attributes.get(
 				"kaleoDefinitionVersionId");
 
 		if (kaleoDefinitionVersionId != null) {
 			setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
+=======
+		Long kaleoDefinitionId = (Long)attributes.get("kaleoDefinitionId");
+
+		if (kaleoDefinitionId != null) {
+			setKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 		}
 
 		String kaleoDefinitionName = (String)attributes.get(
@@ -266,6 +277,25 @@ public class KaleoInstanceWrapper implements KaleoInstance,
 		return _kaleoInstance.getGroupId();
 	}
 
+<<<<<<< HEAD
+=======
+	@Override
+	public KaleoDefinition getKaleoDefinition()
+		throws com.liferay.portal.kernel.exception.PortalException {
+		return _kaleoInstance.getKaleoDefinition();
+	}
+
+	/**
+	* Returns the kaleo definition ID of this kaleo instance.
+	*
+	* @return the kaleo definition ID of this kaleo instance
+	*/
+	@Override
+	public long getKaleoDefinitionId() {
+		return _kaleoInstance.getKaleoDefinitionId();
+	}
+
+>>>>>>> compatible
 	/**
 	* Returns the kaleo definition name of this kaleo instance.
 	*
@@ -287,6 +317,7 @@ public class KaleoInstanceWrapper implements KaleoInstance,
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns the kaleo definition version ID of this kaleo instance.
 	*
 	* @return the kaleo definition version ID of this kaleo instance
@@ -297,6 +328,8 @@ public class KaleoInstanceWrapper implements KaleoInstance,
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	* Returns the kaleo instance ID of this kaleo instance.
 	*
 	* @return the kaleo instance ID of this kaleo instance
@@ -524,6 +557,19 @@ public class KaleoInstanceWrapper implements KaleoInstance,
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	* Sets the kaleo definition ID of this kaleo instance.
+	*
+	* @param kaleoDefinitionId the kaleo definition ID of this kaleo instance
+	*/
+	@Override
+	public void setKaleoDefinitionId(long kaleoDefinitionId) {
+		_kaleoInstance.setKaleoDefinitionId(kaleoDefinitionId);
+	}
+
+	/**
+>>>>>>> compatible
 	* Sets the kaleo definition name of this kaleo instance.
 	*
 	* @param kaleoDefinitionName the kaleo definition name of this kaleo instance
@@ -544,6 +590,7 @@ public class KaleoInstanceWrapper implements KaleoInstance,
 	}
 
 	/**
+<<<<<<< HEAD
 	* Sets the kaleo definition version ID of this kaleo instance.
 	*
 	* @param kaleoDefinitionVersionId the kaleo definition version ID of this kaleo instance
@@ -554,6 +601,8 @@ public class KaleoInstanceWrapper implements KaleoInstance,
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	* Sets the kaleo instance ID of this kaleo instance.
 	*
 	* @param kaleoInstanceId the kaleo instance ID of this kaleo instance

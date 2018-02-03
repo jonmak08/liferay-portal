@@ -18,7 +18,10 @@ import com.liferay.portal.kernel.diff.Diff;
 import com.liferay.portal.kernel.diff.DiffResult;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
 import com.liferay.portal.kernel.util.FileUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.util.FileImpl;
 
 import java.io.Reader;
@@ -90,6 +93,7 @@ public class DiffImplTest {
 
 		expectedSource.add(
 			new DiffResult(
+<<<<<<< HEAD
 				0,
 				StringBundler.concat(
 					"a", Diff.OPEN_DEL, "a", Diff.CLOSE_DEL, "a")));
@@ -111,6 +115,21 @@ public class DiffImplTest {
 				2,
 				StringBundler.concat(
 					"b", Diff.OPEN_INS, "e", Diff.CLOSE_INS, "b")));
+=======
+				0, "a" + Diff.OPEN_DEL + "a" + Diff.CLOSE_DEL + "a"));
+
+		expectedTarget.add(
+			new DiffResult(
+				1, "a" + Diff.OPEN_INS + "d" + Diff.CLOSE_INS + "a"));
+
+		expectedSource.add(
+			new DiffResult(
+				1, "b" + Diff.OPEN_DEL + "b" + Diff.CLOSE_DEL + "b"));
+
+		expectedTarget.add(
+			new DiffResult(
+				2, "b" + Diff.OPEN_INS + "e" + Diff.CLOSE_INS + "b"));
+>>>>>>> compatible
 
 		expectedSource.add(
 			new DiffResult(2, Diff.OPEN_DEL + "fff" + Diff.CLOSE_DEL));
@@ -191,10 +210,14 @@ public class DiffImplTest {
 		expectedSource.add(new DiffResult(0, "abcd"));
 
 		expectedTarget.add(
+<<<<<<< HEAD
 			new DiffResult(
 				0,
 				StringBundler.concat(
 					"abcd", Diff.OPEN_INS, "ee", Diff.CLOSE_INS)));
+=======
+			new DiffResult(0, "abcd" + Diff.OPEN_INS + "ee" + Diff.CLOSE_INS));
+>>>>>>> compatible
 
 		List<DiffResult>[] actual = _diffImpl.diff(reader1, reader2);
 
@@ -233,14 +256,22 @@ public class DiffImplTest {
 
 		changedLines = new ArrayList<>();
 
+<<<<<<< HEAD
 		changedLines.add(
 			StringBundler.concat("bb", Diff.OPEN_DEL, "e", Diff.CLOSE_DEL));
+=======
+		changedLines.add("bb" + Diff.OPEN_DEL + "e" + Diff.CLOSE_DEL);
+>>>>>>> compatible
 		expectedSource.add(new DiffResult(2, changedLines));
 
 		changedLines = new ArrayList<>();
 
+<<<<<<< HEAD
 		changedLines.add(
 			StringBundler.concat("bb", Diff.OPEN_INS, "b", Diff.CLOSE_INS));
+=======
+		changedLines.add("bb" + Diff.OPEN_INS + "b" + Diff.CLOSE_INS);
+>>>>>>> compatible
 		expectedTarget.add(new DiffResult(1, changedLines));
 
 		List<DiffResult>[] actual = _diffImpl.diff(reader1, reader2);
@@ -340,6 +371,7 @@ public class DiffImplTest {
 
 		expectedSource.add(
 			new DiffResult(
+<<<<<<< HEAD
 				0,
 				StringBundler.concat(
 					"a", Diff.OPEN_DEL, "d", Diff.CLOSE_DEL, "a")));
@@ -349,6 +381,13 @@ public class DiffImplTest {
 				0,
 				StringBundler.concat(
 					"a", Diff.OPEN_INS, "a", Diff.CLOSE_INS, "a")));
+=======
+				0, "a" + Diff.OPEN_DEL + "d" + Diff.CLOSE_DEL + "a"));
+
+		expectedTarget.add(
+			new DiffResult(
+				0, "a" + Diff.OPEN_INS + "a" + Diff.CLOSE_INS + "a"));
+>>>>>>> compatible
 
 		expectedSource.add(new DiffResult(1, Diff.CONTEXT_LINE));
 
@@ -372,18 +411,28 @@ public class DiffImplTest {
 		List<String> changedLines = new ArrayList<>();
 
 		changedLines.add(
+<<<<<<< HEAD
 			StringBundler.concat(
 				Diff.OPEN_DEL, "l", Diff.CLOSE_DEL, "ife", Diff.OPEN_DEL, "r",
 				Diff.CLOSE_DEL, "ay"));
+=======
+			Diff.OPEN_DEL + "l" + Diff.CLOSE_DEL + "ife" + Diff.OPEN_DEL + "r" +
+				Diff.CLOSE_DEL + "ay");
+>>>>>>> compatible
 
 		expectedSource.add(new DiffResult(0, changedLines));
 
 		changedLines = new ArrayList<>();
 
 		changedLines.add(
+<<<<<<< HEAD
 			StringBundler.concat(
 				Diff.OPEN_INS, "L", Diff.CLOSE_INS, "ife", Diff.OPEN_INS, "R",
 				Diff.CLOSE_INS, "ay"));
+=======
+			Diff.OPEN_INS + "L" + Diff.CLOSE_INS + "ife" + Diff.OPEN_INS + "R" +
+				Diff.CLOSE_INS + "ay");
+>>>>>>> compatible
 
 		expectedTarget.add(new DiffResult(0, changedLines));
 

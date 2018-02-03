@@ -14,7 +14,11 @@
 
 package com.liferay.source.formatter.checkstyle.checks;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -26,6 +30,10 @@ import com.liferay.source.formatter.checks.util.SourceUtil;
 import com.liferay.source.formatter.util.SourceFormatterUtil;
 import com.liferay.source.formatter.util.ThreadSafeSortedClassLibraryBuilder;
 
+<<<<<<< HEAD
+=======
+import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
+>>>>>>> compatible
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.FileContents;
 import com.puppycrawl.tools.checkstyle.api.FullIdent;
@@ -50,7 +58,11 @@ import java.util.Set;
 /**
  * @author Hugo Huijser
  */
+<<<<<<< HEAD
 public class MissingOverrideCheck extends BaseCheck {
+=======
+public class MissingOverrideCheck extends AbstractCheck {
+>>>>>>> compatible
 
 	@Override
 	public int[] getDefaultTokens() {
@@ -58,7 +70,11 @@ public class MissingOverrideCheck extends BaseCheck {
 	}
 
 	@Override
+<<<<<<< HEAD
 	protected void doVisitToken(DetailAST detailAST) {
+=======
+	public void visitToken(DetailAST detailAST) {
+>>>>>>> compatible
 		FileContents fileContents = getFileContents();
 
 		String fileName = StringUtil.replace(
@@ -78,7 +94,11 @@ public class MissingOverrideCheck extends BaseCheck {
 		}
 
 		JavaClass javaClass = javaProjectBuilder.getClassByName(
+<<<<<<< HEAD
 			_getPackageName(detailAST) + "." + _getClassName(fileName));
+=======
+			_getPackagePath(detailAST) + "." + _getClassName(fileName));
+>>>>>>> compatible
 
 		List<Tuple> ancestorJavaClassTuples = _addAncestorJavaClassTuples(
 			javaClass, javaProjectBuilder, new ArrayList<Tuple>());
@@ -195,7 +215,11 @@ public class MissingOverrideCheck extends BaseCheck {
 		return _javaProjectBuilder;
 	}
 
+<<<<<<< HEAD
 	private String _getPackageName(DetailAST packageDefAST) {
+=======
+	private String _getPackagePath(DetailAST packageDefAST) {
+>>>>>>> compatible
 		DetailAST dotAST = packageDefAST.findFirstToken(TokenTypes.DOT);
 
 		FullIdent fullIdent = FullIdent.createFullIdent(dotAST);
@@ -212,8 +236,13 @@ public class MissingOverrideCheck extends BaseCheck {
 			return false;
 		}
 
+<<<<<<< HEAD
 		for (JavaAnnotation javaAnnotation : annotations) {
 			JavaClass javaClass = javaAnnotation.getType();
+=======
+		for (int i = 0; i < annotations.size(); i++) {
+			JavaClass javaClass = annotations.get(i).getType();
+>>>>>>> compatible
 
 			if (annotationName.equals(javaClass.getName())) {
 				return true;

@@ -20,6 +20,10 @@ import com.liferay.dynamic.data.mapping.model.DDMTemplate;
 import com.liferay.dynamic.data.mapping.service.DDMTemplateLocalServiceUtil;
 import com.liferay.journal.configuration.JournalGroupServiceConfiguration;
 import com.liferay.journal.configuration.JournalServiceConfiguration;
+<<<<<<< HEAD
+=======
+import com.liferay.journal.configuration.JournalServiceConfigurationKeys;
+>>>>>>> compatible
 import com.liferay.journal.model.JournalArticle;
 import com.liferay.journal.model.JournalArticleDisplay;
 import com.liferay.journal.model.JournalFolder;
@@ -29,10 +33,15 @@ import com.liferay.journal.service.JournalArticleLocalServiceUtil;
 import com.liferay.journal.service.JournalArticleServiceUtil;
 import com.liferay.journal.service.JournalFolderLocalServiceUtil;
 import com.liferay.journal.transformer.JournalTransformer;
+<<<<<<< HEAD
 import com.liferay.journal.transformer.JournalTransformerListenerRegistryUtil;
 import com.liferay.journal.util.comparator.ArticleVersionComparator;
 import com.liferay.petra.string.CharPool;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.journal.util.comparator.ArticleVersionComparator;
+import com.liferay.petra.collection.stack.FiniteUniqueStack;
+>>>>>>> compatible
 import com.liferay.petra.xml.XMLUtil;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.diff.CompareVersionsException;
@@ -73,15 +82,29 @@ import com.liferay.portal.kernel.templateparser.TransformerListener;
 import com.liferay.portal.kernel.theme.PortletDisplay;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ArrayUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.FriendlyURLNormalizerUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.HttpUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.InstanceFactory;
+import com.liferay.portal.kernel.util.LocaleUtil;
+import com.liferay.portal.kernel.util.MapUtil;
+import com.liferay.portal.kernel.util.PortalUtil;
+import com.liferay.portal.kernel.util.PropsUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.kernel.util.Validator;
@@ -409,10 +432,13 @@ public class JournalUtil {
 		return layout;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 4.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static List<JournalArticle> getArticles(Hits hits)
 		throws PortalException {
 
@@ -423,8 +449,12 @@ public class JournalUtil {
 
 		for (com.liferay.portal.kernel.search.Document document : documents) {
 			String articleId = document.get(Field.ARTICLE_ID);
+<<<<<<< HEAD
 			long groupId = GetterUtil.getLong(
 				document.get(Field.SCOPE_GROUP_ID));
+=======
+			long groupId = GetterUtil.getLong(document.get(Field.GROUP_ID));
+>>>>>>> compatible
 
 			JournalArticle article =
 				JournalArticleLocalServiceUtil.fetchLatestArticle(
@@ -706,9 +736,30 @@ public class JournalUtil {
 			return script;
 		}
 
+<<<<<<< HEAD
 		for (TransformerListener transformerListener :
 				JournalTransformerListenerRegistryUtil.
 					getTransformerListeners()) {
+=======
+		String[] transformerListenerClassNames = PropsUtil.getArray(
+			JournalServiceConfigurationKeys.TRANSFORMER_LISTENER);
+
+		for (String transformerListenerClassName :
+				transformerListenerClassNames) {
+
+			TransformerListener transformerListener = null;
+
+			try {
+				transformerListener =
+					(TransformerListener)InstanceFactory.newInstance(
+						transformerListenerClassName);
+
+				continue;
+			}
+			catch (Exception e) {
+				_log.error(e, e);
+			}
+>>>>>>> compatible
 
 			script = transformerListener.onScript(
 				script, (Document)null, languageId, tokens);
@@ -836,6 +887,7 @@ public class JournalUtil {
 		return false;
 	}
 
+<<<<<<< HEAD
 	public static boolean isLatestArticle(JournalArticle article) {
 		JournalArticle latestArticle =
 			JournalArticleLocalServiceUtil.fetchLatestArticle(
@@ -858,6 +910,8 @@ public class JournalUtil {
 			companyId, userId, JournalArticle.class.getName(), articleId);
 	}
 
+=======
+>>>>>>> compatible
 	public static boolean isSubscribedToFolder(
 			long companyId, long groupId, long userId, long folderId)
 		throws PortalException {
@@ -1108,9 +1162,13 @@ public class JournalUtil {
 		while (itr.hasNext()) {
 			JournalArticle journalArticle = itr.next();
 
+<<<<<<< HEAD
 			String journalArticleId = journalArticle.getArticleId();
 
 			if (journalArticleId.equals(articleId) &&
+=======
+			if (journalArticle.getArticleId().equals(articleId) &&
+>>>>>>> compatible
 				((journalArticle.getVersion() == version) || (version == 0))) {
 
 				itr.remove();
@@ -1254,7 +1312,13 @@ public class JournalUtil {
 		List<Element> curElements = curParentElement.elements(
 			"dynamic-element");
 
+<<<<<<< HEAD
 		for (Element curElement : curElements) {
+=======
+		for (int i = 0; i < curElements.size(); i++) {
+			Element curElement = curElements.get(i);
+
+>>>>>>> compatible
 			_mergeArticleContentDelete(curElement, newDocument);
 
 			String instanceId = curElement.attributeValue("instance-id");
@@ -1688,6 +1752,7 @@ public class JournalUtil {
 	private static final JournalTransformer _journalTransformer =
 		new JournalTransformer(true);
 
+<<<<<<< HEAD
 	private static class FiniteUniqueStack<E> extends Stack<E> {
 
 		@Override
@@ -1713,4 +1778,6 @@ public class JournalUtil {
 
 	}
 
+=======
+>>>>>>> compatible
 }

@@ -14,9 +14,12 @@
 
 package com.liferay.source.formatter.dependencies;
 
+<<<<<<< HEAD
 import com.liferay.petra.json.web.service.client.JSONWebServiceInvocationException;
 import com.liferay.petra.json.web.service.client.JSONWebServiceSerializeException;
 import com.liferay.petra.json.web.service.client.JSONWebServiceTransportException;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.LiferayPortlet;
 import com.liferay.portal.kernel.util.StringUtil;
 
@@ -134,6 +137,7 @@ public class IncorrectWhitespace {
 		return newList;
 	}
 
+<<<<<<< HEAD
 	public void testMethod8(String s1, String s2, String s3)
 		throws JSONWebServiceInvocationException,
 			   JSONWebServiceTransportException {
@@ -150,6 +154,8 @@ public class IncorrectWhitespace {
 			   JSONWebServiceTransportException {
 	}
 
+=======
+>>>>>>> compatible
 	protected class SubClass1 {
 	}
 

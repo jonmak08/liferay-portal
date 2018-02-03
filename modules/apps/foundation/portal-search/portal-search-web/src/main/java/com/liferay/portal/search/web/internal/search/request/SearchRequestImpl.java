@@ -20,6 +20,10 @@ import com.liferay.portal.kernel.search.Hits;
 import com.liferay.portal.kernel.search.HitsImpl;
 import com.liferay.portal.kernel.search.SearchContext;
 import com.liferay.portal.kernel.search.SearchException;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.search.facet.AssetEntriesFacet;
+>>>>>>> compatible
 import com.liferay.portal.kernel.search.facet.Facet;
 import com.liferay.portal.kernel.search.facet.ScopeFacet;
 import com.liferay.portal.kernel.search.facet.faceted.searcher.FacetedSearcher;
@@ -87,6 +91,17 @@ public class SearchRequestImpl implements SearchRequest {
 		return searchResponseImpl;
 	}
 
+<<<<<<< HEAD
+=======
+	protected void addAssetEntriesFacet(SearchContext searchContext) {
+		Facet assetEntriesFacet = new AssetEntriesFacet(searchContext);
+
+		assetEntriesFacet.setStatic(true);
+
+		searchContext.addFacet(assetEntriesFacet);
+	}
+
+>>>>>>> compatible
 	protected void addScopeFacet(SearchContext searchContext) {
 		Facet scopeFacet = new ScopeFacet(searchContext);
 
@@ -106,6 +121,11 @@ public class SearchRequestImpl implements SearchRequest {
 
 		searchContext.setAttribute("paginationType", "more");
 
+<<<<<<< HEAD
+=======
+		addAssetEntriesFacet(searchContext);
+
+>>>>>>> compatible
 		addScopeFacet(searchContext);
 
 		return searchContext;
@@ -118,6 +138,10 @@ public class SearchRequestImpl implements SearchRequest {
 		SearchResponseImpl searchResponseImpl = new SearchResponseImpl();
 
 		searchResponseImpl.setDocuments(hits.toList());
+<<<<<<< HEAD
+=======
+		searchResponseImpl.setHighlights(hits.getQueryTerms());
+>>>>>>> compatible
 		searchResponseImpl.setHits(hits);
 		searchResponseImpl.setKeywords(searchContext.getKeywords());
 		searchResponseImpl.setPaginationDelta(searchContainer.getDelta());

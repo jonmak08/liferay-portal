@@ -211,6 +211,7 @@ public class TrashEntryServiceSoap {
 		}
 	}
 
+<<<<<<< HEAD
 	/**
 	* Returns a range of all the trash entries matching the group ID.
 	*
@@ -241,6 +242,8 @@ public class TrashEntryServiceSoap {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Moves the trash entry with the entity class name and primary key,
 	* restoring it to a new location identified by the destination container

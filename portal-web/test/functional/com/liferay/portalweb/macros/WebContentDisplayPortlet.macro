@@ -23,6 +23,7 @@
 				<execute function="SelectFrame" locator1="IFrame#DIALOG" />
 
 				<execute function="Click" locator1="WCDConfiguration#USER_TOOLS_SELECT_BUTTON" />
+<<<<<<< HEAD
 
 				<execute function="SelectFrameTop" />
 
@@ -35,6 +36,20 @@
 					</if>
 				</for>
 
+=======
+
+				<execute function="SelectFrameTop" />
+
+				<for list="${userToolNameList}" param="key_toggleCardLabel">
+					<if>
+						<condition function="IsNotChecked" locator1="WCDConfiguration#TOGGLE_CARD_CHECKBOX" />
+						<then>
+							<execute function="Click#clickNoWaitForVisible" locator1="WCDConfiguration#TOGGLE_CARD_CHECKBOX" />
+						</then>
+					</if>
+				</for>
+
+>>>>>>> compatible
 				<execute function="Click" locator1="Button#DONE" />
 			</then>
 		</if>
@@ -79,6 +94,7 @@
 		<if>
 			<equals arg1="${editTemplateButton}" arg2="true" />
 			<then>
+<<<<<<< HEAD
 				<execute macro="WebContentDisplayPortlet#gotoEditTemplate">
 					<var name="webContentTitle" value="${webContentTitle}" />
 				</execute>
@@ -88,6 +104,15 @@
 					<var name="menuItem" value="${menuItem}" />
 					<var name="webContentTitle" value="${webContentTitle}" />
 				</execute>
+=======
+				<execute macro="Portlet#gotoPortletOptions">
+					<var name="portletName" value="Web Content Display" />
+					<var name="portletOption" value="Edit Template" />
+				</execute>
+			</then>
+			<else>
+				<execute macro="WebContentNavigator#gotoEditPGViaWCD" />
+>>>>>>> compatible
 
 				<execute macro="Panel#expandPanel">
 					<var name="panelHeading" value="Structure and Template" />
@@ -153,6 +178,7 @@
 		</if>
 	</command>
 
+<<<<<<< HEAD
 	<command name="gotoEditTemplate">
 		<execute macro="WebContentNavigator#gotoArticleMenuPGViaWCD">
 			<var name="webContentTitle" value="${webContentTitle}" />
@@ -176,6 +202,8 @@
 		<execute macro="PortletEntry#save" />
 	</command>
 
+=======
+>>>>>>> compatible
 	<command name="saveConfiguration">
 		<execute function="SelectFrame" locator1="IFrame#DIALOG" />
 
@@ -191,6 +219,7 @@
 		</execute>
 
 		<execute function="SelectFrame" locator1="IFrame#DIALOG" />
+<<<<<<< HEAD
 
 		<execute function="AssertClick" locator1="WCDConfiguration#SELECT_WEB_CONTENT_BUTTON" value1="Select" />
 
@@ -199,10 +228,13 @@
 		<execute function="SelectFrame" locator1="IFrame#DIALOG" />
 
 		<var name="searchTerm" value="${webContentTitle}" />
+=======
+>>>>>>> compatible
 
 		<if>
 			<isset var="webContentSearchValue" />
 			<then>
+<<<<<<< HEAD
 				<var name="searchTerm" value="${webContentSearchValue}" />
 			</then>
 		</if>
@@ -210,6 +242,28 @@
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="${searchTerm}" />
 		</execute>
+=======
+				<execute function="AssertClick" locator1="WCDConfiguration#SELECT_WEB_CONTENT_BUTTON" value1="Select" />
+
+				<execute function="SelectFrame" value1="relative=top" />
+
+				<execute function="SelectFrame" locator1="IFrame#DIALOG" />
+
+				<execute function="Type" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${webContentSearchValue}" />
+			</then>
+			<else>
+				<execute function="AssertClick" locator1="WCDConfiguration#SELECT_WEB_CONTENT_BUTTON" value1="Select" />
+
+				<execute function="SelectFrame" value1="relative=top" />
+
+				<execute function="SelectFrame" locator1="IFrame#DIALOG" />
+
+				<execute function="Type" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${webContentTitle}" />
+			</else>
+		</if>
+
+		<execute function="Click" locator1="Icon#BASIC_SEARCH" />
+>>>>>>> compatible
 
 		<var name="key_webContentTitle" value="${webContentTitle}" />
 
@@ -226,7 +280,13 @@
 
 				<execute function="AssertTextEquals" locator1="Message#INFO_ARTICLE" value1="${webContentTitle} (Modified)" />
 
+<<<<<<< HEAD
 				<execute macro="PortletEntry#save" />
+=======
+				<execute macro="Button#clickSave" />
+
+				<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 			</then>
 		</if>
 
@@ -236,6 +296,7 @@
 	<command name="searchWebContentNo">
 		<execute macro="Portlet#gotoPortletOptions">
 			<var name="portletName" value="${portletName}" />
+<<<<<<< HEAD
 			<var name="portletOption" value="Configuration" />
 		</execute>
 
@@ -261,6 +322,8 @@
 	<command name="selectParentSiteWebContent">
 		<execute macro="Portlet#gotoPortletOptions">
 			<var name="portletName" value="Web Content Display" />
+=======
+>>>>>>> compatible
 			<var name="portletOption" value="Configuration" />
 		</execute>
 
@@ -272,6 +335,34 @@
 
 		<execute function="SelectFrame" locator1="IFrame#DIALOG" />
 
+<<<<<<< HEAD
+=======
+		<execute function="Type" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${webContentTitle}" />
+
+		<execute function="Click" locator1="Icon#BASIC_SEARCH" />
+
+		<var name="key_webContentTitle" value="${webContentTitle}" />
+
+		<execute function="AssertElementNotPresent" locator1="WCDConfiguration#WEB_CONTENT_TABLE_TITLE" value1="${webContentTitle}" />
+
+		<execute function="SelectFrame" value1="relative=top" />
+	</command>
+
+	<command name="selectParentSiteWebContent">
+		<execute macro="Portlet#gotoPortletOptions">
+			<var name="portletName" value="Web Content Display" />
+			<var name="portletOption" value="Configuration" />
+		</execute>
+
+		<execute function="SelectFrame" locator1="IFrame#DIALOG" />
+
+		<execute function="AssertClick" locator1="WCDConfiguration#SELECT_WEB_CONTENT_BUTTON" value1="Select" />
+
+		<execute function="SelectFrame" value1="relative=top" />
+
+		<execute function="SelectFrame" locator1="IFrame#DIALOG" />
+
+>>>>>>> compatible
 		<execute function="Click" locator1="Dropdown#FILTER" />
 
 		<var name="key_filterValue" value="${parentSiteName}" />
@@ -286,7 +377,13 @@
 
 		<execute function="SelectFrame" locator1="IFrame#DIALOG" />
 
+<<<<<<< HEAD
 		<execute macro="PortletEntry#save" />
+=======
+		<execute macro="Button#clickSave" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 
 		<execute function="SelectFrame" value1="relative=top" />
 
@@ -315,7 +412,13 @@
 
 		<execute function="SelectFrame" locator1="IFrame#DIALOG" />
 
+<<<<<<< HEAD
 		<execute macro="PortletEntry#save" />
+=======
+		<execute macro="Button#clickSave" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
@@ -381,8 +484,13 @@
 		<execute function="AssertClick" locator1="Pagination#PREVIOUS_LINK" value1="Previous" />
 	</command>
 
+<<<<<<< HEAD
 	<command name="viewDeletedArticle">
 		<execute function="AssertTextEquals#assertPartialText" locator1="Message#ERROR_3" value1="The selected web content no longer exists" />
+=======
+	<command name="viewDeletedArticlePGViaWCD">
+		<execute function="AssertTextEquals" locator1="Message#ERROR" value1="The selected web content no longer exists." />
+>>>>>>> compatible
 	</command>
 
 	<command name="viewEnabledFileTypesPGViaWCD">
@@ -400,11 +508,14 @@
 
 	<command name="viewNoPermissionPG">
 		<execute function="AssertTextEquals" locator1="Message#ERROR" value1="You do not have the roles required to access this portlet." />
+<<<<<<< HEAD
 	</command>
 
 	<command name="viewRecycleBinMessage">
 		<var name="key_webContentTitle" value="${webContentTitle}" />
 
 		<execute function="AssertTextEquals#assertPartialText" locator1="Message#ERROR_3" value1="The Web Content article ${webContentTitle} was moved to the Recycle Bin" />
+=======
+>>>>>>> compatible
 	</command>
 </definition>

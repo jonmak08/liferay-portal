@@ -14,6 +14,10 @@
 
 package com.liferay.taglib.util;
 
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.language.LanguageUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.AggregateResourceBundle;
 import com.liferay.portal.kernel.util.AggregateResourceBundleLoader;
 import com.liferay.portal.kernel.util.JavaConstants;
@@ -46,7 +50,12 @@ public class TagResourceBundleUtil {
 			request);
 
 		if (resourceBundleLoader != null) {
+<<<<<<< HEAD
 			return resourceBundleLoader.loadResourceBundle(locale);
+=======
+			return resourceBundleLoader.loadResourceBundle(
+				LanguageUtil.getLanguageId(locale));
+>>>>>>> compatible
 		}
 
 		ResourceBundle portletResourceBundle = getPortletResourceBundle(

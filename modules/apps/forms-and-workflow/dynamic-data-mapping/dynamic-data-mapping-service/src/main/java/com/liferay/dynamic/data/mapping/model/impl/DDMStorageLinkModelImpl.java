@@ -30,6 +30,10 @@ import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 
 import java.io.Serializable;
@@ -67,8 +71,12 @@ public class DDMStorageLinkModelImpl extends BaseModelImpl<DDMStorageLink>
 			{ "companyId", Types.BIGINT },
 			{ "classNameId", Types.BIGINT },
 			{ "classPK", Types.BIGINT },
+<<<<<<< HEAD
 			{ "structureId", Types.BIGINT },
 			{ "structureVersionId", Types.BIGINT }
+=======
+			{ "structureId", Types.BIGINT }
+>>>>>>> compatible
 		};
 	public static final Map<String, Integer> TABLE_COLUMNS_MAP = new HashMap<String, Integer>();
 
@@ -79,10 +87,16 @@ public class DDMStorageLinkModelImpl extends BaseModelImpl<DDMStorageLink>
 		TABLE_COLUMNS_MAP.put("classNameId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("classPK", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("structureId", Types.BIGINT);
+<<<<<<< HEAD
 		TABLE_COLUMNS_MAP.put("structureVersionId", Types.BIGINT);
 	}
 
 	public static final String TABLE_SQL_CREATE = "create table DDMStorageLink (uuid_ VARCHAR(75) null,storageLinkId LONG not null primary key,companyId LONG,classNameId LONG,classPK LONG,structureId LONG,structureVersionId LONG)";
+=======
+	}
+
+	public static final String TABLE_SQL_CREATE = "create table DDMStorageLink (uuid_ VARCHAR(75) null,storageLinkId LONG not null primary key,companyId LONG,classNameId LONG,classPK LONG,structureId LONG)";
+>>>>>>> compatible
 	public static final String TABLE_SQL_DROP = "drop table DDMStorageLink";
 	public static final String ORDER_BY_JPQL = " ORDER BY ddmStorageLink.storageLinkId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY DDMStorageLink.storageLinkId ASC";
@@ -101,9 +115,14 @@ public class DDMStorageLinkModelImpl extends BaseModelImpl<DDMStorageLink>
 	public static final long CLASSPK_COLUMN_BITMASK = 1L;
 	public static final long COMPANYID_COLUMN_BITMASK = 2L;
 	public static final long STRUCTUREID_COLUMN_BITMASK = 4L;
+<<<<<<< HEAD
 	public static final long STRUCTUREVERSIONID_COLUMN_BITMASK = 8L;
 	public static final long UUID_COLUMN_BITMASK = 16L;
 	public static final long STORAGELINKID_COLUMN_BITMASK = 32L;
+=======
+	public static final long UUID_COLUMN_BITMASK = 8L;
+	public static final long STORAGELINKID_COLUMN_BITMASK = 16L;
+>>>>>>> compatible
 	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.liferay.dynamic.data.mapping.service.util.ServiceProps.get(
 				"lock.expiration.time.com.liferay.dynamic.data.mapping.model.DDMStorageLink"));
 
@@ -150,7 +169,10 @@ public class DDMStorageLinkModelImpl extends BaseModelImpl<DDMStorageLink>
 		attributes.put("classNameId", getClassNameId());
 		attributes.put("classPK", getClassPK());
 		attributes.put("structureId", getStructureId());
+<<<<<<< HEAD
 		attributes.put("structureVersionId", getStructureVersionId());
+=======
+>>>>>>> compatible
 
 		attributes.put("entityCacheEnabled", isEntityCacheEnabled());
 		attributes.put("finderCacheEnabled", isFinderCacheEnabled());
@@ -195,18 +217,25 @@ public class DDMStorageLinkModelImpl extends BaseModelImpl<DDMStorageLink>
 		if (structureId != null) {
 			setStructureId(structureId);
 		}
+<<<<<<< HEAD
 
 		Long structureVersionId = (Long)attributes.get("structureVersionId");
 
 		if (structureVersionId != null) {
 			setStructureVersionId(structureVersionId);
 		}
+=======
+>>>>>>> compatible
 	}
 
 	@Override
 	public String getUuid() {
 		if (_uuid == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _uuid;
@@ -261,7 +290,11 @@ public class DDMStorageLinkModelImpl extends BaseModelImpl<DDMStorageLink>
 	@Override
 	public String getClassName() {
 		if (getClassNameId() <= 0) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 
 		return PortalUtil.getClassName(getClassNameId());
@@ -332,6 +365,7 @@ public class DDMStorageLinkModelImpl extends BaseModelImpl<DDMStorageLink>
 		return _originalStructureId;
 	}
 
+<<<<<<< HEAD
 	@Override
 	public long getStructureVersionId() {
 		return _structureVersionId;
@@ -354,6 +388,8 @@ public class DDMStorageLinkModelImpl extends BaseModelImpl<DDMStorageLink>
 		return _originalStructureVersionId;
 	}
 
+=======
+>>>>>>> compatible
 	public long getColumnBitmask() {
 		return _columnBitmask;
 	}
@@ -391,7 +427,10 @@ public class DDMStorageLinkModelImpl extends BaseModelImpl<DDMStorageLink>
 		ddmStorageLinkImpl.setClassNameId(getClassNameId());
 		ddmStorageLinkImpl.setClassPK(getClassPK());
 		ddmStorageLinkImpl.setStructureId(getStructureId());
+<<<<<<< HEAD
 		ddmStorageLinkImpl.setStructureVersionId(getStructureVersionId());
+=======
+>>>>>>> compatible
 
 		ddmStorageLinkImpl.resetOriginalValues();
 
@@ -468,10 +507,13 @@ public class DDMStorageLinkModelImpl extends BaseModelImpl<DDMStorageLink>
 
 		ddmStorageLinkModelImpl._setOriginalStructureId = false;
 
+<<<<<<< HEAD
 		ddmStorageLinkModelImpl._originalStructureVersionId = ddmStorageLinkModelImpl._structureVersionId;
 
 		ddmStorageLinkModelImpl._setOriginalStructureVersionId = false;
 
+=======
+>>>>>>> compatible
 		ddmStorageLinkModelImpl._columnBitmask = 0;
 	}
 
@@ -497,14 +539,21 @@ public class DDMStorageLinkModelImpl extends BaseModelImpl<DDMStorageLink>
 
 		ddmStorageLinkCacheModel.structureId = getStructureId();
 
+<<<<<<< HEAD
 		ddmStorageLinkCacheModel.structureVersionId = getStructureVersionId();
 
+=======
+>>>>>>> compatible
 		return ddmStorageLinkCacheModel;
 	}
 
 	@Override
 	public String toString() {
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(15);
+=======
+		StringBundler sb = new StringBundler(13);
+>>>>>>> compatible
 
 		sb.append("{uuid=");
 		sb.append(getUuid());
@@ -518,8 +567,11 @@ public class DDMStorageLinkModelImpl extends BaseModelImpl<DDMStorageLink>
 		sb.append(getClassPK());
 		sb.append(", structureId=");
 		sb.append(getStructureId());
+<<<<<<< HEAD
 		sb.append(", structureVersionId=");
 		sb.append(getStructureVersionId());
+=======
+>>>>>>> compatible
 		sb.append("}");
 
 		return sb.toString();
@@ -527,7 +579,11 @@ public class DDMStorageLinkModelImpl extends BaseModelImpl<DDMStorageLink>
 
 	@Override
 	public String toXmlString() {
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(25);
+=======
+		StringBundler sb = new StringBundler(22);
+>>>>>>> compatible
 
 		sb.append("<model><model-name>");
 		sb.append("com.liferay.dynamic.data.mapping.model.DDMStorageLink");
@@ -557,10 +613,13 @@ public class DDMStorageLinkModelImpl extends BaseModelImpl<DDMStorageLink>
 			"<column><column-name>structureId</column-name><column-value><![CDATA[");
 		sb.append(getStructureId());
 		sb.append("]]></column-value></column>");
+<<<<<<< HEAD
 		sb.append(
 			"<column><column-name>structureVersionId</column-name><column-value><![CDATA[");
 		sb.append(getStructureVersionId());
 		sb.append("]]></column-value></column>");
+=======
+>>>>>>> compatible
 
 		sb.append("</model>");
 
@@ -584,9 +643,12 @@ public class DDMStorageLinkModelImpl extends BaseModelImpl<DDMStorageLink>
 	private long _structureId;
 	private long _originalStructureId;
 	private boolean _setOriginalStructureId;
+<<<<<<< HEAD
 	private long _structureVersionId;
 	private long _originalStructureVersionId;
 	private boolean _setOriginalStructureVersionId;
+=======
+>>>>>>> compatible
 	private long _columnBitmask;
 	private DDMStorageLink _escapedModel;
 }

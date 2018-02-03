@@ -213,21 +213,27 @@ public class RatingsEntryLocalServiceUtil {
 		return getService().getActionableDynamicQuery();
 	}
 
+<<<<<<< HEAD
 	/**
 	* @deprecated As of 7.0.0, with no direct replacement
 	*/
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static java.util.List<com.liferay.ratings.kernel.model.RatingsEntry> getEntries(
 		long userId, java.lang.String className,
 		java.util.List<java.lang.Long> classPKs) {
 		return getService().getEntries(userId, className, classPKs);
 	}
 
+<<<<<<< HEAD
 	public static java.util.Map<java.lang.Long, com.liferay.ratings.kernel.model.RatingsEntry> getEntries(
 		long userId, java.lang.String className, long[] classPKs) {
 		return getService().getEntries(userId, className, classPKs);
 	}
 
+=======
+>>>>>>> compatible
 	public static java.util.List<com.liferay.ratings.kernel.model.RatingsEntry> getEntries(
 		java.lang.String className, long classPK) {
 		return getService().getEntries(className, classPK);

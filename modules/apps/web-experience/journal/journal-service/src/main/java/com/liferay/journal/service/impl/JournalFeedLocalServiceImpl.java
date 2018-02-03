@@ -18,8 +18,11 @@ import com.liferay.dynamic.data.mapping.model.DDMForm;
 import com.liferay.dynamic.data.mapping.model.DDMFormField;
 import com.liferay.dynamic.data.mapping.model.DDMFormFieldOptions;
 import com.liferay.dynamic.data.mapping.model.DDMStructure;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.model.DDMStructureLink;
 import com.liferay.dynamic.data.mapping.service.DDMStructureLinkLocalService;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.service.DDMStructureLocalService;
 import com.liferay.journal.exception.DuplicateFeedIdException;
 import com.liferay.journal.exception.FeedContentFieldException;
@@ -30,8 +33,11 @@ import com.liferay.journal.model.JournalArticle;
 import com.liferay.journal.model.JournalFeed;
 import com.liferay.journal.model.JournalFeedConstants;
 import com.liferay.journal.service.base.JournalFeedLocalServiceBaseImpl;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -40,10 +46,18 @@ import com.liferay.portal.kernel.model.SystemEventConstants;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.systemevent.SystemEvent;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.RSSUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.spring.extender.service.ServiceReference;
@@ -71,7 +85,11 @@ public class JournalFeedLocalServiceImpl
 		// Feed
 
 		User user = userLocalService.getUser(userId);
+<<<<<<< HEAD
 		feedId = StringUtil.toUpperCase(StringUtil.trim(feedId));
+=======
+		feedId = StringUtil.toUpperCase(feedId.trim());
+>>>>>>> compatible
 
 		validate(
 			user.getCompanyId(), groupId, feedId, autoFeedId, name,
@@ -116,6 +134,7 @@ public class JournalFeedLocalServiceImpl
 
 		journalFeedPersistence.update(feed);
 
+<<<<<<< HEAD
 		// DDM Structure Link
 
 		DDMStructure ddmStructure = ddmStructureLocalService.getStructure(
@@ -126,6 +145,8 @@ public class JournalFeedLocalServiceImpl
 			classNameLocalService.getClassNameId(JournalFeed.class),
 			feed.getPrimaryKey(), ddmStructure.getStructureId());
 
+=======
+>>>>>>> compatible
 		// Resources
 
 		if (serviceContext.isAddGroupPermissions() ||
@@ -197,6 +218,7 @@ public class JournalFeedLocalServiceImpl
 
 		journalFeedPersistence.remove(feed);
 
+<<<<<<< HEAD
 		// DDM Structure Link
 
 		DDMStructure ddmStructure = ddmStructureLocalService.getStructure(
@@ -208,6 +230,8 @@ public class JournalFeedLocalServiceImpl
 			classNameLocalService.getClassNameId(JournalFeed.class),
 			feed.getPrimaryKey(), ddmStructure.getStructureId());
 
+=======
+>>>>>>> compatible
 		// Resources
 
 		resourceLocalService.deleteResource(
@@ -348,6 +372,7 @@ public class JournalFeedLocalServiceImpl
 
 		journalFeedPersistence.update(feed);
 
+<<<<<<< HEAD
 		//DDM Structure Link
 
 		long classNameId = classNameLocalService.getClassNameId(
@@ -365,6 +390,8 @@ public class JournalFeedLocalServiceImpl
 			ddmStructureLink.getStructureLinkId(), classNameId,
 			feed.getPrimaryKey(), ddmStructure.getStructureId());
 
+=======
+>>>>>>> compatible
 		return feed;
 	}
 
@@ -479,9 +506,12 @@ public class JournalFeedLocalServiceImpl
 		}
 	}
 
+<<<<<<< HEAD
 	@ServiceReference(type = DDMStructureLinkLocalService.class)
 	protected DDMStructureLinkLocalService ddmStructureLinkLocalService;
 
+=======
+>>>>>>> compatible
 	@ServiceReference(type = DDMStructureLocalService.class)
 	protected DDMStructureLocalService ddmStructureLocalService;
 

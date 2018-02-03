@@ -15,8 +15,11 @@
 package com.liferay.source.formatter.dependencies;
 
 import com.liferay.portal.kernel.exception.SystemException;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.module.configuration.ConfigurationException;
 import com.liferay.portal.kernel.module.configuration.ConfigurationProviderUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.FileUtil;
 
 import java.io.File;
@@ -40,6 +43,7 @@ public class ExceptionVariableName {
 		return null;
 	}
 
+<<<<<<< HEAD
 	public <T> T getPortletInstanceConfiguration(Class<T> clazz)
 		throws Exception {
 
@@ -54,6 +58,8 @@ public class ExceptionVariableName {
 		return null;
 	}
 
+=======
+>>>>>>> compatible
 	public String readFile(File file) throws Exception {
 		try {
 			return FileUtil.read(file);

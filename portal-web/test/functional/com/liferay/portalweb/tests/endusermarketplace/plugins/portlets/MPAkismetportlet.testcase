@@ -10,6 +10,7 @@
 
 		<var name="appName" value="Akismet" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Apps" />
 			<var name="panel" value="Control Panel" />
@@ -19,6 +20,13 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Apps" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelApps">
+			<var name="portlet" value="Akismet" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoControlPanelApps">
+>>>>>>> compatible
 			<var name="portlet" value="App Manager" />
 		</execute>
 
@@ -26,9 +34,13 @@
 			<var name="appName" value="${appName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Apps" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelApps">
+>>>>>>> compatible
 			<var name="portlet" value="App Manager" />
 		</execute>
 

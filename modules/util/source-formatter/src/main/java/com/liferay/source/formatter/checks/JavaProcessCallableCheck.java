@@ -26,6 +26,11 @@ public class JavaProcessCallableCheck extends BaseFileCheck {
 	protected String doProcess(
 		String fileName, String absolutePath, String content) {
 
+<<<<<<< HEAD
+=======
+		// LPS-33070
+
+>>>>>>> compatible
 		Matcher matcher = _processCallablePattern.matcher(content);
 
 		if (!matcher.find() ||
@@ -36,8 +41,12 @@ public class JavaProcessCallableCheck extends BaseFileCheck {
 
 		addMessage(
 			fileName,
+<<<<<<< HEAD
 			"Assign ProcessCallable implementation a serialVersionUID",
 			"process_callable.markdown");
+=======
+			"Assign ProcessCallable implementation a serialVersionUID");
+>>>>>>> compatible
 
 		return content;
 	}

@@ -11,6 +11,7 @@
 
 		<execute macro="User#firstLoginPG" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -18,6 +19,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Dynamic Data Lists Display Page" />
 		</execute>
 
@@ -47,7 +51,11 @@
 
 				<execute macro="DDLDataDefinition#tearDownCP" />
 
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP" />
+=======
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 			</else>
 		</if>
 	</tear-down>
@@ -66,6 +74,7 @@
 			<var name="fieldFieldLabel" value="Boolean" />
 			<var name="fieldName" value="Boolean" />
 		</execute>
+<<<<<<< HEAD
 
 		<execute macro="DynamicDataMapping#addField">
 			<var name="field" value="Text" />
@@ -99,6 +108,41 @@
 			<var name="fieldFieldLabel" value="Boolean" />
 		</execute>
 
+=======
+
+		<execute macro="DynamicDataMapping#addField">
+			<var name="field" value="Text" />
+			<var name="fieldFieldLabel" value="Text" />
+			<var name="fieldName" value="Text" />
+		</execute>
+
+		<execute macro="DDLDataDefinition#saveViaDDLDisplayPG" />
+
+		<execute macro="DDLDataDefinition#selectViaDDLDisplayPG" />
+
+		<execute macro="DDLList#saveViaDDLDisplayPG" />
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Dynamic Data Lists Display Page" />
+		</execute>
+
+		<execute macro="DDLTemplate#addFormTemplateViaDDLDisplayPG">
+			<var name="ddlFormTemplateName" value="Form Template" />
+		</execute>
+
+		<execute macro="DynamicDataMapping#viewCannotAddField">
+			<var name="field" value="Boolean" />
+		</execute>
+
+		<execute macro="DynamicDataMapping#viewCannotAddField">
+			<var name="field" value="Text" />
+		</execute>
+
+		<execute macro="DynamicDataMapping#deleteField">
+			<var name="fieldFieldLabel" value="Boolean" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="DynamicDataMapping#viewCanAddField">
 			<var name="field" value="Boolean" />
 		</execute>
@@ -150,9 +194,13 @@
 	<command name="AddList" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -194,6 +242,11 @@
 	</command>
 
 	<command name="AddListRecord" priority="5">
+<<<<<<< HEAD
+=======
+		<property name="portal.acceptance" value="true" />
+
+>>>>>>> compatible
 		<var name="ddlDataDefinitionName" value="Data Definition Name" />
 		<var name="ddlListName" value="List Name" />
 		<var name="ddlRecordFieldData" value="Text" />
@@ -203,9 +256,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -262,12 +319,18 @@
 
 	<command name="AddListWithDocumentsAndMediaField" priority="3">
 		<description message="This is a use case for LPS-58893." />
+<<<<<<< HEAD
 
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="ProductMenu#gotoSitesContent">
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -285,9 +348,7 @@
 
 		<execute macro="Navigator#openURL" />
 
-		<execute macro="ProductMenu#gotoPortlet">
-			<var name="category" value="Content" />
-			<var name="panel" value="Site Administration" />
+		<execute macro="ProductMenu#gotoSitesContent">
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -339,9 +400,7 @@
 
 		<execute macro="Navigator#openURL" />
 
-		<execute macro="ProductMenu#gotoPortlet">
-			<var name="category" value="Content" />
-			<var name="panel" value="Site Administration" />
+		<execute macro="ProductMenu#gotoSitesContent">
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -501,6 +560,264 @@
 	<command name="ConfigureEditableListPG" priority="4">
 		<execute macro="Navigator#openURL" />
 
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
+			<var name="portlet" value="Dynamic Data Lists" />
+		</execute>
+
+		<execute macro="DDLDataDefinition#addCP">
+<<<<<<< HEAD
+			<var name="ddlDataDefinitionName" value="Data Definition" />
+		</execute>
+
+		<execute macro="DynamicDataMapping#addField">
+			<var name="field" value="Documents and Media" />
+			<var name="fieldFieldLabel" value="Documents and Media" />
+			<var name="fieldName" value="DocumentsAndMedia" />
+		</execute>
+
+		<execute macro="DDLDataDefinition#save" />
+
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="ProductMenu#gotoPortlet">
+			<var name="category" value="Content" />
+			<var name="panel" value="Site Administration" />
+			<var name="portlet" value="Dynamic Data Lists" />
+		</execute>
+
+		<execute macro="DDLList#addCP">
+			<var name="ddlListName" value="DDL List" />
+		</execute>
+
+		<execute macro="DDLDataDefinition#selectCP">
+			<var name="ddlDataDefinitionName" value="Data Definition" />
+		</execute>
+
+		<execute macro="DDLList#save" />
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Dynamic Data Lists Display Page" />
+		</execute>
+
+		<execute macro="DDLList#selectViaDDLDisplayPG">
+			<var name="ddlListName" value="DDL List" />
+		</execute>
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Dynamic Data Lists Display Page" />
+		</execute>
+
+		<execute macro="DDLRecord#addViaDDLDisplayPG">
+			<var name="ddlDataDefinitionName" value="Data Definition" />
+			<var name="ddlListName" value="DDL List" />
+		</execute>
+
+		<execute macro="DDLRecord#populateFieldDocumentsAndMediaChooseFromDocumentLibrary">
+			<var name="document" value="Document_1.png" />
+			<var name="fieldFieldLabel" value="Documents and Media" />
+			<var name="fieldName" value="DocumentsAndMedia" />
+		</execute>
+
+		<execute macro="PortletEntry#publish" />
+
+		<execute macro="DDLRecord#viewViaDDLDisplayPG">
+			<var name="ddlListName" value="DDL List" />
+			<var name="ddlRecordFieldData" value="Document_1.png" />
+			<var name="field" value="Documents and Media" />
+			<var name="fieldFieldLabel" value="Documents and Media" />
+		</execute>
+	</command>
+
+	<command name="AddRecordNested" priority="3">
+		<description message="This is a use case for LPS-59565." />
+
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="ProductMenu#gotoPortlet">
+			<var name="category" value="Content" />
+			<var name="panel" value="Site Administration" />
+			<var name="portlet" value="Dynamic Data Lists" />
+		</execute>
+
+		<execute macro="DDLDataDefinition#addCP">
+			<var name="ddlDataDefinitionName" value="DDL Nested Definition" />
+		</execute>
+
+		<execute macro="DynamicDataMapping#addField">
+			<var name="field" value="Text" />
+			<var name="fieldFieldLabel" value="Text" />
+			<var name="fieldName" value="Text" />
+		</execute>
+
+		<execute macro="DynamicDataMapping#addFieldNested">
+			<var name="field" value="Integer" />
+			<var name="fieldFieldLabel" value="Integer" />
+			<var name="fieldName" value="Integer" />
+		</execute>
+
+		<execute macro="DDLDataDefinition#save" />
+
+=======
+			<var name="ddlDataDefinitionName" value="Data Definition Name" />
+		</execute>
+
+		<execute macro="DynamicDataMapping#addField">
+			<var name="field" value="Text" />
+			<var name="fieldFieldLabel" value="Text" />
+			<var name="fieldName" value="Text" />
+		</execute>
+
+		<execute macro="DDLDataDefinition#save" />
+
+>>>>>>> compatible
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Dynamic Data Lists Display Page" />
+		</execute>
+
+		<execute macro="DDLList#addViaDDLDisplayPG">
+<<<<<<< HEAD
+			<var name="ddlListName" value="DDL List" />
+		</execute>
+
+		<execute macro="DDLDataDefinition#selectViaDDLDisplayPG">
+			<var name="ddlDataDefinitionName" value="DDL Nested Definition" />
+=======
+			<var name="ddlListName" value="List Name" />
+		</execute>
+
+		<execute macro="DDLDataDefinition#selectViaDDLDisplayPG">
+			<var name="ddlDataDefinitionName" value="Data Definition Name" />
+>>>>>>> compatible
+		</execute>
+
+		<execute macro="DDLList#saveViaDDLDisplayPG" />
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Dynamic Data Lists Display Page" />
+<<<<<<< HEAD
+		</execute>
+
+		<execute macro="DDLRecord#addViaDDLDisplayPG">
+			<var name="ddlDataDefinitionName" value="DDL Nested Definition" />
+			<var name="ddlListName" value="DDL List" />
+		</execute>
+
+		<execute macro="DDLRecord#viewNestedFields">
+			<var name="nestedChildFieldFieldName" value="Integer" />
+			<var name="nestedParentFieldFieldName" value="Text" />
+		</execute>
+
+		<execute macro="DDLRecord#populateFieldText">
+			<var name="ddlRecordFieldData" value="Text" />
+			<var name="fieldName" value="Text" />
+		</execute>
+
+		<execute macro="DDLRecord#populateFieldInteger">
+			<var name="ddlRecordFieldData" value="123" />
+			<var name="fieldName" value="Integer" />
+		</execute>
+
+		<execute macro="PortletEntry#publish" />
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Dynamic Data Lists Display Page" />
+		</execute>
+
+		<execute macro="DDLRecord#viewViaDDLDisplayPG">
+			<var name="ddlListName" value="DDL List" />
+			<var name="ddlRecordFieldData" value="Text" />
+			<var name="ddlRecordNestedFieldData" value="123" />
+			<var name="fieldFieldLabel" value="Text" />
+			<var name="nestedFieldFieldLabel" value="Integer" />
+		</execute>
+	</command>
+
+	<command name="AddVelocityDisplayTemplate" priority="3">
+		<property name="custom.properties" value="freemarker.engine.restricted.variables=${line.separator}restricted.variables=" />
+
+		<var name="ddlDisplayTemplateScript">
+			<![CDATA[
+				#set ($records = $ddlDisplayTemplateHelper.getRecords($reserved_record_set_id))${line.separator}${line.separator}
+
+				#if (!$records.isEmpty())${line.separator}
+					#foreach ($cur_record in $records)${line.separator}
+
+						<div class="ddl-record">$ddlDisplayTemplateHelper.renderRecordFieldValue($cur_record.getDDMFormFieldValues("Name").get(0), $locale)</div>${line.separator}
+
+					#end${line.separator}
+				#end${line.separator}
+			]]>
+		</var>
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Dynamic Data Lists Display Page" />
+		</execute>
+
+		<execute macro="DDLList#addViaDDLDisplayPG" />
+
+		<execute macro="DDLDataDefinition#addViaDDLDisplayPG" />
+
+		<execute macro="DynamicDataMapping#addField">
+			<var name="field" value="Text" />
+			<var name="fieldFieldLabel" value="Name" />
+			<var name="fieldName" value="Name" />
+		</execute>
+
+		<execute macro="DDLDataDefinition#saveViaDDLDisplayPG" />
+
+		<execute macro="DDLDataDefinition#selectViaDDLDisplayPG" />
+
+		<execute macro="DDLList#saveViaDDLDisplayPG" />
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Dynamic Data Lists Display Page" />
+		</execute>
+
+		<execute macro="DDLRecord#addViaDDLDisplayPG" />
+
+		<execute function="Pause" locator1="3000" />
+
+		<execute macro="DDLRecord#populateFieldText">
+			<var name="ddlRecordFieldData" value="Name1" />
+			<var name="fieldFieldLabel" value="Name" />
+			<var name="fieldName" value="Name" />
+		</execute>
+
+		<execute macro="PortletEntry#publish" />
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Dynamic Data Lists Display Page" />
+		</execute>
+
+		<execute macro="DDLTemplate#addDisplayTemplateTemplateViaDDLDisplayPG">
+			<var name="ddlDisplayTemplateLanguage" value="Velocity (.vm)" />
+			<var name="ddlDisplayTemplateName" value="Velocity Template" />
+			<var name="ddlDisplayTemplateScript" value="${ddlDisplayTemplateScript}" />
+		</execute>
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Dynamic Data Lists Display Page" />
+		</execute>
+
+		<execute macro="DDLList#selectViaDDLDisplayPG">
+			<var name="ddlListName" value="List Name" />
+		</execute>
+
+		<execute macro="DDLTemplate#selectDisplayTemplateViaDDLDisplayPG">
+			<var name="ddlDisplayTemplateName" value="Velocity Template" />
+		</execute>
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Dynamic Data Lists Display Page" />
+		</execute>
+
+		<execute function="AssertTextPresent" locator1="//div[@class='portlet-body']/form" value1="Name1" />
+	</command>
+
+	<command name="ConfigureEditableListPG" priority="4">
+		<execute macro="Navigator#openURL" />
+
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
@@ -535,6 +852,8 @@
 
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Dynamic Data Lists Display Page" />
+=======
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="DDLDisplayPortlet#configureListViewPG">
@@ -555,9 +874,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -607,9 +930,13 @@
 	<command name="DeleteListRecord" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -666,9 +993,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -686,9 +1017,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -705,9 +1040,13 @@
 
 		<execute macro="DDLTemplate#saveFormTemplateCP" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -763,9 +1102,13 @@
 	<command name="EditList" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -818,9 +1161,13 @@
 	<command name="EditListRecord" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -894,9 +1241,13 @@
 	<command name="EditListRecordViaRecordView" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -970,9 +1321,13 @@
 	<command name="SearchDynamicDataListsRecords" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -996,9 +1351,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -1051,7 +1410,11 @@
 			<var name="searchAssetType" value="Dynamic Data Lists Record" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Search#gotoSearchResultPG">
+=======
+		<execute macro="Search#gotoUserSearchResultPG">
+>>>>>>> compatible
 			<var name="searchAssetTitle" value="New Data Definition Name for List: DDL List Name" />
 		</execute>
 
@@ -1074,7 +1437,11 @@
 			<var name="searchAssetType" value="Dynamic Data Lists Record" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Search#gotoSearchResultPG">
+=======
+		<execute macro="Search#gotoUserSearchResultPG">
+>>>>>>> compatible
 			<var name="searchAssetTitle" value="New Data Definition Name for List: DDL List Name" />
 		</execute>
 
@@ -1086,6 +1453,7 @@
 	</command>
 
 	<command name="SearchDynamicDataListsRecordsAsUserWithNoPermissions" priority="4">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
@@ -1099,6 +1467,17 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+			<var name="portlet" value="Roles" />
+		</execute>
+
+		<execute macro="Role#addCP">
+			<var name="roleName" value="No Permissions Role" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -1109,9 +1488,13 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -1120,22 +1503,34 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
 		<execute macro="User#assignRegularRoleCP">
+<<<<<<< HEAD
 			<var name="roleTitle" value="No Permissions Role" />
+=======
+			<var name="roleName" value="No Permissions Role" />
+>>>>>>> compatible
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -1153,9 +1548,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -1170,9 +1569,13 @@
 
 		<execute macro="DDLList#save" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -1182,14 +1585,22 @@
 
 		<execute macro="Role#removePermissionPG">
 			<var name="permissionDefinitionKey" value="CONTENT_PERMISSIONS_VIEW_CHECKBOX" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="Guest" />
+=======
+			<var name="roleName" value="Guest" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -1226,7 +1637,11 @@
 			<var name="searchAssetType" value="Dynamic Data Lists Record" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Search#gotoSearchResultPG">
+=======
+		<execute macro="Search#gotoUserSearchResultPG">
+>>>>>>> compatible
 			<var name="searchAssetTitle" value="New Data Definition Name for List: DDL List Name" />
 		</execute>
 
@@ -1253,9 +1668,13 @@
 	<command name="SelectList" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -1273,9 +1692,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -1349,9 +1772,13 @@
 	<command name="ViewBooleanFieldPredefinedValue" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -1445,12 +1872,19 @@
 		</execute>
 	</command>
 
+<<<<<<< HEAD
 	<command name="ViewDateFieldPredefinedValue" priority="3">
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+	<command ignore="true" name="ViewDateFieldPredefinedValue" priority="3">
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -1468,10 +1902,17 @@
 			<var name="field" value="Date" />
 			<var name="fieldFieldLabel" value="Date" />
 			<var name="fieldName" value="Date" />
+<<<<<<< HEAD
 			<var name="fieldPredefinedValue" value="09/01/2017" />
 			<var name="fieldPredefinedValueDay" value="1" />
 			<var name="fieldPredefinedValueMonth" value="September" />
 			<var name="fieldPredefinedValueYear" value="2017" />
+=======
+			<var name="fieldPredefinedValue" value="06/01/2016" />
+			<var name="fieldPredefinedValueDay" value="1" />
+			<var name="fieldPredefinedValueMonth" value="June" />
+			<var name="fieldPredefinedValueYear" value="2016" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="DDLDataDefinition#save" />
@@ -1503,14 +1944,22 @@
 			<var name="field" value="Date" />
 			<var name="fieldFieldLabel" value="Date" />
 			<var name="fieldName" value="Date" />
+<<<<<<< HEAD
 			<var name="fieldPredefinedValue" value="09/01/2017" />
+=======
+			<var name="fieldPredefinedValue" value="06/01/2016" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="PortletEntry#publish" />
 
 		<execute macro="DDLRecord#viewViaDDLDisplayPG">
 			<var name="ddlListName" value="List Name" />
+<<<<<<< HEAD
 			<var name="ddlRecordFieldData" value="9/1/17" />
+=======
+			<var name="ddlRecordFieldData" value="6/1/16" />
+>>>>>>> compatible
 			<var name="field" value="Date" />
 			<var name="fieldFieldLabel" value="Date" />
 		</execute>
@@ -1528,7 +1977,11 @@
 			<var name="field" value="Date" />
 			<var name="fieldFieldLabel" value="Date" />
 			<var name="fieldName" value="Date" />
+<<<<<<< HEAD
 			<var name="fieldPredefinedValue" value="09/01/2017" />
+=======
+			<var name="fieldPredefinedValue" value="06/01/2016" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="DDLRecord#populateFieldDate">
@@ -1550,9 +2003,13 @@
 	<command name="ViewDecimalFieldPredefinedValue" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -1649,9 +2106,13 @@
 	<command name="ViewDefaultGuestViewPermissions" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -1670,9 +2131,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -1736,9 +2201,13 @@
 	<command name="ViewIntegerFieldPredefinedValue" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -1837,9 +2306,13 @@
 	<command name="ViewListRecordAndAssertAnchorLink"  priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -1899,9 +2372,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -1919,9 +2396,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -1934,9 +2415,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -1952,9 +2437,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -1973,9 +2462,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -2022,9 +2515,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -2042,9 +2539,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -2057,9 +2558,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -2075,9 +2580,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -2096,9 +2605,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -2154,9 +2667,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -2175,9 +2692,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -2191,9 +2712,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -2210,9 +2735,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -2231,9 +2760,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -2273,9 +2806,13 @@
 	<command name="ViewNumberFieldPredefinedValue" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -2422,9 +2959,13 @@
 	<command name="ViewTextBoxFieldPredefinedValue" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -2521,9 +3062,13 @@
 	<command name="ViewTextFieldPredefinedValue" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 

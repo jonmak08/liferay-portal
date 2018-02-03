@@ -17,8 +17,11 @@
 <%@ include file="/init.jsp" %>
 
 <%
+<<<<<<< HEAD
 String tabs1 = ParamUtil.getString(request, "tabs1", "details");
 
+=======
+>>>>>>> compatible
 String redirect = ParamUtil.getString(request, "redirect");
 
 String backURL = ParamUtil.getString(request, "backURL", redirect);
@@ -41,12 +44,19 @@ portletDisplay.setURLBack(backURL.toString());
 renderResponse.setTitle(passwordPolicy.isNew() ? LanguageUtil.get(request, "new-password-policy") : passwordPolicy.getName());
 %>
 
+<<<<<<< HEAD
 <liferay-util:include page="/edit_password_policy_tabs.jsp" servletContext="<%= application %>" />
 
 <portlet:actionURL name="editPasswordPolicy" var="editPasswordPolicyURL" />
 
 <aui:form action="<%= editPasswordPolicyURL %>" cssClass="container-fluid-1280" method="post" name="fm">
 	<aui:input name="redirect" type="hidden" value="<%= currentURL %>" />
+=======
+<portlet:actionURL name="editPasswordPolicy" var="editPasswordPolicyURL" />
+
+<aui:form action="<%= editPasswordPolicyURL %>" cssClass="container-fluid-1280" method="post" name="fm">
+	<aui:input name="redirect" type="hidden" value="<%= redirect %>" />
+>>>>>>> compatible
 	<aui:input name="passwordPolicyId" type="hidden" value="<%= passwordPolicyId %>" />
 
 	<liferay-ui:error exception="<%= DuplicatePasswordPolicyException.class %>" message="please-enter-a-unique-name" />
@@ -122,10 +132,17 @@ renderResponse.setTitle(passwordPolicy.isNew() ? LanguageUtil.get(request, "new-
 						<aui:input helpMessage="minimum-upper-case-help" label="minimum-upper-case" name="minUpperCase" />
 
 						<%
+<<<<<<< HEAD
 						String taglibHelpMessage = LanguageUtil.format(request, "regular-expression-help", new Object[] {"<a href=\"http://docs.oracle.com/javase/tutorial/essential/regex\" target=\"_blank\">", "</a>"}, false);
 						%>
 
 						<aui:input helpMessage="<%= taglibHelpMessage %>" label="regular-expression" name="regex" />
+=======
+						String taglinbHelpMessage = LanguageUtil.format(request, "regular-expression-help", new Object[] {"<a href=\"http://docs.oracle.com/javase/tutorial/essential/regex\" target=\"_blank\">", "</a>"}, false);
+						%>
+
+						<aui:input helpMessage="<%= taglinbHelpMessage %>" label="regular-expression" name="regex" />
+>>>>>>> compatible
 					</div>
 				</aui:fieldset>
 			</liferay-ui:panel>
@@ -233,9 +250,15 @@ renderResponse.setTitle(passwordPolicy.isNew() ? LanguageUtil.get(request, "new-
 	</aui:fieldset-group>
 
 	<aui:button-row>
+<<<<<<< HEAD
 		<aui:button type="submit" />
 
 		<aui:button href="<%= redirect %>" type="cancel" />
+=======
+		<aui:button cssClass="btn-lg" type="submit" />
+
+		<aui:button cssClass="btn-lg" href="<%= redirect %>" type="cancel" />
+>>>>>>> compatible
 	</aui:button-row>
 </aui:form>
 

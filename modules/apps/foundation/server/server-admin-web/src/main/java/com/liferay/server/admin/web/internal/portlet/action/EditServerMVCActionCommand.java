@@ -14,12 +14,20 @@
 
 package com.liferay.server.admin.web.internal.portlet.action;
 
+<<<<<<< HEAD
+=======
+import com.liferay.captcha.recaptcha.ReCaptchaImpl;
+import com.liferay.captcha.simplecaptcha.SimpleCaptchaImpl;
+>>>>>>> compatible
 import com.liferay.document.library.kernel.util.DLPreviewableProcessor;
 import com.liferay.mail.kernel.model.Account;
 import com.liferay.mail.kernel.service.MailService;
 import com.liferay.petra.log4j.Log4JUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.convert.ConvertException;
 import com.liferay.portal.convert.ConvertProcess;
 import com.liferay.portal.instances.service.PortalInstancesLocalService;
@@ -62,20 +70,36 @@ import com.liferay.portal.kernel.servlet.DirectServletRegistry;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.InstancePool;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.PortletKeys;
 import com.liferay.portal.kernel.util.PropsKeys;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.ThreadUtil;
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.kernel.util.UnsyncPrintWriterPool;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.Validator;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.kernel.uuid.PortalUUID;
 import com.liferay.portal.kernel.xuggler.XugglerInstallException;
 import com.liferay.portal.kernel.xuggler.XugglerUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.upload.UploadServletRequestImpl;
+>>>>>>> compatible
 import com.liferay.portal.util.MaintenanceUtil;
 import com.liferay.portal.util.PrefsPropsUtil;
 import com.liferay.portal.util.ShutdownUtil;
@@ -83,6 +107,10 @@ import com.liferay.portlet.ActionResponseImpl;
 import com.liferay.portlet.admin.util.CleanUpPermissionsUtil;
 import com.liferay.portlet.admin.util.CleanUpPortletPreferencesUtil;
 
+<<<<<<< HEAD
+=======
+import java.io.File;
+>>>>>>> compatible
 import java.io.Serializable;
 
 import java.util.Enumeration;
@@ -202,9 +230,21 @@ public class EditServerMVCActionCommand extends BaseMVCActionCommand {
 		else if (cmd.equals("threadDump")) {
 			threadDump();
 		}
+<<<<<<< HEAD
 		else if (cmd.equals("updateExternalServices")) {
 			updateExternalServices(actionRequest, portletPreferences);
 		}
+=======
+		else if (cmd.equals("updateCaptcha")) {
+			updateCaptcha(actionRequest, portletPreferences);
+		}
+		else if (cmd.equals("updateExternalServices")) {
+			updateExternalServices(actionRequest, portletPreferences);
+		}
+		else if (cmd.equals("updateFileUploads")) {
+			updateFileUploads(actionRequest, portletPreferences);
+		}
+>>>>>>> compatible
 		else if (cmd.equals("updateLogLevels")) {
 			updateLogLevels(actionRequest);
 		}
@@ -311,9 +351,13 @@ public class EditServerMVCActionCommand extends BaseMVCActionCommand {
 	}
 
 	protected void gc() throws Exception {
+<<<<<<< HEAD
 		Runtime runtime = Runtime.getRuntime();
 
 		runtime.gc();
+=======
+		Runtime.getRuntime().gc();
+>>>>>>> compatible
 	}
 
 	protected String getFileExtensions(
@@ -501,6 +545,46 @@ public class EditServerMVCActionCommand extends BaseMVCActionCommand {
 		}
 	}
 
+<<<<<<< HEAD
+=======
+	protected void updateCaptcha(
+			ActionRequest actionRequest, PortletPreferences portletPreferences)
+		throws Exception {
+
+		boolean reCaptchaEnabled = ParamUtil.getBoolean(
+			actionRequest, "reCaptchaEnabled");
+		String reCaptchaPrivateKey = ParamUtil.getString(
+			actionRequest, "reCaptchaPrivateKey");
+		String reCaptchaPublicKey = ParamUtil.getString(
+			actionRequest, "reCaptchaPublicKey");
+
+		String captchaClassName = StringPool.BLANK;
+
+		if (reCaptchaEnabled) {
+			captchaClassName = ReCaptchaImpl.class.getName();
+		}
+		else {
+			captchaClassName = SimpleCaptchaImpl.class.getName();
+		}
+
+		validateCaptcha(actionRequest);
+
+		if (SessionErrors.isEmpty(actionRequest)) {
+			portletPreferences.setValue(
+				PropsKeys.CAPTCHA_ENGINE_IMPL, captchaClassName);
+
+			portletPreferences.setValue(
+				PropsKeys.CAPTCHA_ENGINE_RECAPTCHA_KEY_PRIVATE,
+				reCaptchaPrivateKey);
+			portletPreferences.setValue(
+				PropsKeys.CAPTCHA_ENGINE_RECAPTCHA_KEY_PUBLIC,
+				reCaptchaPublicKey);
+
+			portletPreferences.store();
+		}
+	}
+
+>>>>>>> compatible
 	protected void updateExternalServices(
 			ActionRequest actionRequest, PortletPreferences portletPreferences)
 		throws Exception {
@@ -509,6 +593,13 @@ public class EditServerMVCActionCommand extends BaseMVCActionCommand {
 			actionRequest, "imageMagickEnabled");
 		String imageMagickPath = ParamUtil.getString(
 			actionRequest, "imageMagickPath");
+<<<<<<< HEAD
+=======
+		boolean openOfficeEnabled = ParamUtil.getBoolean(
+			actionRequest, "openOfficeEnabled");
+		int openOfficePort = ParamUtil.getInteger(
+			actionRequest, "openOfficePort");
+>>>>>>> compatible
 		boolean xugglerEnabled = ParamUtil.getBoolean(
 			actionRequest, "xugglerEnabled");
 
@@ -517,6 +608,14 @@ public class EditServerMVCActionCommand extends BaseMVCActionCommand {
 		portletPreferences.setValue(
 			PropsKeys.IMAGEMAGICK_GLOBAL_SEARCH_PATH, imageMagickPath);
 		portletPreferences.setValue(
+<<<<<<< HEAD
+=======
+			PropsKeys.OPENOFFICE_SERVER_ENABLED,
+			String.valueOf(openOfficeEnabled));
+		portletPreferences.setValue(
+			PropsKeys.OPENOFFICE_SERVER_PORT, String.valueOf(openOfficePort));
+		portletPreferences.setValue(
+>>>>>>> compatible
 			PropsKeys.XUGGLER_ENABLED, String.valueOf(xugglerEnabled));
 
 		Enumeration<String> enu = actionRequest.getParameterNames();
@@ -525,7 +624,12 @@ public class EditServerMVCActionCommand extends BaseMVCActionCommand {
 			String name = enu.nextElement();
 
 			if (name.startsWith("imageMagickLimit")) {
+<<<<<<< HEAD
 				String key = StringUtil.toLowerCase(name.substring(16));
+=======
+				String key = StringUtil.toLowerCase(
+					name.substring(16, name.length()));
+>>>>>>> compatible
 				String value = ParamUtil.getString(actionRequest, name);
 
 				portletPreferences.setValue(
@@ -539,6 +643,89 @@ public class EditServerMVCActionCommand extends BaseMVCActionCommand {
 		ImageMagickUtil.reset();
 	}
 
+<<<<<<< HEAD
+=======
+	protected void updateFileUploads(
+			ActionRequest actionRequest, PortletPreferences portletPreferences)
+		throws Exception {
+
+		long dlFileEntryPreviewableProcessorMaxSize = ParamUtil.getLong(
+			actionRequest, "dlFileEntryPreviewableProcessorMaxSize");
+		long dlFileEntryThumbnailMaxHeight = ParamUtil.getLong(
+			actionRequest, "dlFileEntryThumbnailMaxHeight");
+		long dlFileEntryThumbnailMaxWidth = ParamUtil.getLong(
+			actionRequest, "dlFileEntryThumbnailMaxWidth");
+		String dlFileExtensions = getFileExtensions(
+			actionRequest, "dlFileExtensions");
+		long dlFileMaxSize = ParamUtil.getLong(actionRequest, "dlFileMaxSize");
+		String journalImageExtensions = getFileExtensions(
+			actionRequest, "journalImageExtensions");
+		long journalImageSmallMaxSize = ParamUtil.getLong(
+			actionRequest, "journalImageSmallMaxSize");
+		String shoppingImageExtensions = getFileExtensions(
+			actionRequest, "shoppingImageExtensions");
+		long shoppingImageLargeMaxSize = ParamUtil.getLong(
+			actionRequest, "shoppingImageLargeMaxSize");
+		long shoppingImageMediumMaxSize = ParamUtil.getLong(
+			actionRequest, "shoppingImageMediumMaxSize");
+		long shoppingImageSmallMaxSize = ParamUtil.getLong(
+			actionRequest, "shoppingImageSmallMaxSize");
+		long uploadServletRequestImplMaxSize = ParamUtil.getLong(
+			actionRequest, "uploadServletRequestImplMaxSize");
+		String uploadServletRequestImplTempDir = ParamUtil.getString(
+			actionRequest, "uploadServletRequestImplTempDir");
+		long usersImageMaxSize = ParamUtil.getLong(
+			actionRequest, "usersImageMaxSize");
+
+		portletPreferences.setValue(
+			PropsKeys.DL_FILE_ENTRY_PREVIEWABLE_PROCESSOR_MAX_SIZE,
+			String.valueOf(dlFileEntryPreviewableProcessorMaxSize));
+		portletPreferences.setValue(
+			PropsKeys.DL_FILE_ENTRY_THUMBNAIL_MAX_HEIGHT,
+			String.valueOf(dlFileEntryThumbnailMaxHeight));
+		portletPreferences.setValue(
+			PropsKeys.DL_FILE_ENTRY_THUMBNAIL_MAX_WIDTH,
+			String.valueOf(dlFileEntryThumbnailMaxWidth));
+		portletPreferences.setValue(
+			PropsKeys.DL_FILE_EXTENSIONS, dlFileExtensions);
+		portletPreferences.setValue(
+			PropsKeys.DL_FILE_MAX_SIZE, String.valueOf(dlFileMaxSize));
+		portletPreferences.setValue(
+			PropsKeys.JOURNAL_IMAGE_EXTENSIONS, journalImageExtensions);
+		portletPreferences.setValue(
+			PropsKeys.JOURNAL_IMAGE_SMALL_MAX_SIZE,
+			String.valueOf(journalImageSmallMaxSize));
+		portletPreferences.setValue(
+			PropsKeys.SHOPPING_IMAGE_EXTENSIONS, shoppingImageExtensions);
+		portletPreferences.setValue(
+			PropsKeys.SHOPPING_IMAGE_LARGE_MAX_SIZE,
+			String.valueOf(shoppingImageLargeMaxSize));
+		portletPreferences.setValue(
+			PropsKeys.SHOPPING_IMAGE_MEDIUM_MAX_SIZE,
+			String.valueOf(shoppingImageMediumMaxSize));
+		portletPreferences.setValue(
+			PropsKeys.SHOPPING_IMAGE_SMALL_MAX_SIZE,
+			String.valueOf(shoppingImageSmallMaxSize));
+		portletPreferences.setValue(
+			PropsKeys.UPLOAD_SERVLET_REQUEST_IMPL_MAX_SIZE,
+			String.valueOf(uploadServletRequestImplMaxSize));
+
+		if (Validator.isNotNull(uploadServletRequestImplTempDir)) {
+			portletPreferences.setValue(
+				PropsKeys.UPLOAD_SERVLET_REQUEST_IMPL_TEMP_DIR,
+				uploadServletRequestImplTempDir);
+
+			UploadServletRequestImpl.setTempDir(
+				new File(uploadServletRequestImplTempDir));
+		}
+
+		portletPreferences.setValue(
+			PropsKeys.USERS_IMAGE_MAX_SIZE, String.valueOf(usersImageMaxSize));
+
+		portletPreferences.store();
+	}
+
+>>>>>>> compatible
 	protected void updateLogLevels(ActionRequest actionRequest)
 		throws Exception {
 
@@ -627,6 +814,32 @@ public class EditServerMVCActionCommand extends BaseMVCActionCommand {
 		_mailService.clearSession();
 	}
 
+<<<<<<< HEAD
+=======
+	protected void validateCaptcha(ActionRequest actionRequest)
+		throws Exception {
+
+		boolean reCaptchaEnabled = ParamUtil.getBoolean(
+			actionRequest, "reCaptchaEnabled");
+
+		if (!reCaptchaEnabled) {
+			return;
+		}
+
+		String reCaptchaPrivateKey = ParamUtil.getString(
+			actionRequest, "reCaptchaPrivateKey");
+		String reCaptchaPublicKey = ParamUtil.getString(
+			actionRequest, "reCaptchaPublicKey");
+
+		if (Validator.isNull(reCaptchaPublicKey)) {
+			SessionErrors.add(actionRequest, "reCaptchaPublicKey");
+		}
+		else if (Validator.isNull(reCaptchaPrivateKey)) {
+			SessionErrors.add(actionRequest, "reCaptchaPrivateKey");
+		}
+	}
+
+>>>>>>> compatible
 	protected void verifyMembershipPolicies() throws Exception {
 		OrganizationMembershipPolicy organizationMembershipPolicy =
 			_organizationMembershipPolicyFactory.

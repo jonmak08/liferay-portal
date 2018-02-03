@@ -15,12 +15,22 @@
 package com.liferay.portal.kernel.captcha;
 
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ServiceProxyFactory;
+=======
+import com.liferay.portal.kernel.util.PrefsPropsUtil;
+import com.liferay.portal.kernel.util.PropsKeys;
+import com.liferay.portal.kernel.util.PropsUtil;
+>>>>>>> compatible
 import com.liferay.registry.collections.ServiceTrackerCollections;
 import com.liferay.registry.collections.ServiceTrackerMap;
 
 import java.io.IOException;
 
+<<<<<<< HEAD
+=======
+import javax.portlet.PortletPreferences;
+>>>>>>> compatible
 import javax.portlet.PortletRequest;
 import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
@@ -54,7 +64,12 @@ public class CaptchaUtil {
 			return null;
 		}
 
+<<<<<<< HEAD
 		String captchaClassName = _captchaSettings.getCaptchaEngine();
+=======
+		String captchaClassName = PrefsPropsUtil.getString(
+			PropsKeys.CAPTCHA_ENGINE_IMPL, _CAPTCHA_ENGINE_IMPL);
+>>>>>>> compatible
 
 		return _serviceTrackerMap.getService(captchaClassName);
 	}
@@ -88,6 +103,7 @@ public class CaptchaUtil {
 	public void setCaptcha(Captcha captcha) throws Exception {
 		PortalRuntimePermission.checkSetBeanProperty(getClass());
 
+<<<<<<< HEAD
 		Class<?> clazz = captcha.getClass();
 
 		_captchaSettings.setCaptchaEngine(clazz.getName());
@@ -97,6 +113,21 @@ public class CaptchaUtil {
 		ServiceProxyFactory.newServiceTrackedInstance(
 			CaptchaSettings.class, CaptchaUtil.class, "_captchaSettings",
 			false);
+=======
+		PortletPreferences portletPreferences = PrefsPropsUtil.getPreferences();
+
+		Class<?> clazz = captcha.getClass();
+
+		portletPreferences.setValue(
+			PropsKeys.CAPTCHA_ENGINE_IMPL, clazz.getName());
+
+		portletPreferences.store();
+	}
+
+	private static final String _CAPTCHA_ENGINE_IMPL = PropsUtil.get(
+		PropsKeys.CAPTCHA_ENGINE_IMPL);
+
+>>>>>>> compatible
 	private static final ServiceTrackerMap<String, Captcha> _serviceTrackerMap =
 		ServiceTrackerCollections.openSingleValueMap(
 			Captcha.class, "captcha.engine.impl");

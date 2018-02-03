@@ -14,7 +14,11 @@
 
 package com.liferay.portlet.social.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
+=======
+import com.liferay.portal.kernel.util.AutoResetThreadLocal;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.PortalUtil;
 
 import java.util.Stack;
@@ -74,7 +78,11 @@ public class SocialActivityHierarchyEntryThreadLocal {
 	}
 
 	private static final ThreadLocal<Stack<SocialActivityHierarchyEntry>>
+<<<<<<< HEAD
 		_activityHierarchyEntries = new CentralizedThreadLocal<>(
+=======
+		_activityHierarchyEntries = new AutoResetThreadLocal<>(
+>>>>>>> compatible
 			SocialActivityHierarchyEntryThreadLocal.class +
 				"._activityHierarchyEntries",
 			Stack::new);

@@ -17,29 +17,44 @@ package com.liferay.portal.search.web.internal.facet;
 import com.liferay.asset.kernel.AssetRendererFactoryRegistryUtil;
 import com.liferay.asset.kernel.model.AssetRendererFactory;
 import com.liferay.portal.kernel.json.JSONArray;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.json.JSONException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.search.Field;
+=======
+import com.liferay.portal.kernel.json.JSONFactoryUtil;
+import com.liferay.portal.kernel.json.JSONObject;
+import com.liferay.portal.kernel.search.Field;
+import com.liferay.portal.kernel.search.facet.AssetEntriesFacet;
+import com.liferay.portal.kernel.search.facet.AssetEntriesFacetFactory;
+>>>>>>> compatible
 import com.liferay.portal.kernel.search.facet.config.FacetConfiguration;
 import com.liferay.portal.kernel.search.facet.util.FacetFactory;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.StringUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.search.facet.type.AssetEntriesFacetFactory;
+=======
+import com.liferay.portal.kernel.util.WebKeys;
+>>>>>>> compatible
 import com.liferay.portal.search.web.facet.BaseJSPSearchFacet;
 import com.liferay.portal.search.web.facet.SearchFacet;
 
 import java.util.ArrayList;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Objects;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+=======
+>>>>>>> compatible
 
 import javax.portlet.ActionRequest;
 
@@ -54,6 +69,7 @@ import org.osgi.service.component.annotations.Reference;
 @Component(immediate = true, service = SearchFacet.class)
 public class AssetEntriesSearchFacet extends BaseJSPSearchFacet {
 
+<<<<<<< HEAD
 	public static String[] getEntryClassNames(String configuration) {
 		if (Validator.isNull(configuration)) {
 			return null;
@@ -104,6 +120,8 @@ public class AssetEntriesSearchFacet extends BaseJSPSearchFacet {
 		);
 	}
 
+=======
+>>>>>>> compatible
 	public List<AssetRendererFactory<?>> getAssetRendererFactories(
 		long companyId) {
 
@@ -152,7 +170,11 @@ public class AssetEntriesSearchFacet extends BaseJSPSearchFacet {
 
 	@Override
 	public String getFacetClassName() {
+<<<<<<< HEAD
 		return Field.ENTRY_CLASS_NAME;
+=======
+		return AssetEntriesFacet.class.getName();
+>>>>>>> compatible
 	}
 
 	@Override
@@ -238,7 +260,10 @@ public class AssetEntriesSearchFacet extends BaseJSPSearchFacet {
 	@Reference
 	protected AssetEntriesFacetFactory assetEntriesFacetFactory;
 
+<<<<<<< HEAD
 	private static final Log _log = LogFactoryUtil.getLog(
 		AssetEntriesSearchFacet.class);
 
+=======
+>>>>>>> compatible
 }

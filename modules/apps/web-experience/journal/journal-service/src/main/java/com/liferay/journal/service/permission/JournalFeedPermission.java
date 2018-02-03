@@ -59,10 +59,13 @@ public class JournalFeedPermission implements BaseModelPermissionChecker {
 		}
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 4.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static void check(
 			PermissionChecker permissionChecker, long groupId, String feedId,
 			String actionId)
@@ -111,10 +114,13 @@ public class JournalFeedPermission implements BaseModelPermissionChecker {
 		return contains(permissionChecker, feed, actionId);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 4.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static boolean contains(
 			PermissionChecker permissionChecker, long groupId, String feedId,
 			String actionId)

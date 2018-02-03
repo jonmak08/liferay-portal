@@ -21,6 +21,10 @@ import com.liferay.dynamic.data.mapping.model.DDMTemplateVersion;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -118,7 +122,11 @@ public class DDMTemplateVersionCacheModel implements CacheModel<DDMTemplateVersi
 		ddmTemplateVersionImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			ddmTemplateVersionImpl.setUserName("");
+=======
+			ddmTemplateVersionImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmTemplateVersionImpl.setUserName(userName);
@@ -136,35 +144,55 @@ public class DDMTemplateVersionCacheModel implements CacheModel<DDMTemplateVersi
 		ddmTemplateVersionImpl.setTemplateId(templateId);
 
 		if (version == null) {
+<<<<<<< HEAD
 			ddmTemplateVersionImpl.setVersion("");
+=======
+			ddmTemplateVersionImpl.setVersion(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmTemplateVersionImpl.setVersion(version);
 		}
 
 		if (name == null) {
+<<<<<<< HEAD
 			ddmTemplateVersionImpl.setName("");
+=======
+			ddmTemplateVersionImpl.setName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmTemplateVersionImpl.setName(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			ddmTemplateVersionImpl.setDescription("");
+=======
+			ddmTemplateVersionImpl.setDescription(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmTemplateVersionImpl.setDescription(description);
 		}
 
 		if (language == null) {
+<<<<<<< HEAD
 			ddmTemplateVersionImpl.setLanguage("");
+=======
+			ddmTemplateVersionImpl.setLanguage(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmTemplateVersionImpl.setLanguage(language);
 		}
 
 		if (script == null) {
+<<<<<<< HEAD
 			ddmTemplateVersionImpl.setScript("");
+=======
+			ddmTemplateVersionImpl.setScript(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmTemplateVersionImpl.setScript(script);
@@ -174,7 +202,11 @@ public class DDMTemplateVersionCacheModel implements CacheModel<DDMTemplateVersi
 		ddmTemplateVersionImpl.setStatusByUserId(statusByUserId);
 
 		if (statusByUserName == null) {
+<<<<<<< HEAD
 			ddmTemplateVersionImpl.setStatusByUserName("");
+=======
+			ddmTemplateVersionImpl.setStatusByUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmTemplateVersionImpl.setStatusByUserName(statusByUserName);
@@ -234,7 +266,11 @@ public class DDMTemplateVersionCacheModel implements CacheModel<DDMTemplateVersi
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -249,35 +285,55 @@ public class DDMTemplateVersionCacheModel implements CacheModel<DDMTemplateVersi
 		objectOutput.writeLong(templateId);
 
 		if (version == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(version);
 		}
 
 		if (name == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(description);
 		}
 
 		if (language == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(language);
 		}
 
 		if (script == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(script);
@@ -288,7 +344,11 @@ public class DDMTemplateVersionCacheModel implements CacheModel<DDMTemplateVersi
 		objectOutput.writeLong(statusByUserId);
 
 		if (statusByUserName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(statusByUserName);

@@ -105,6 +105,7 @@ public class RestrictPortletContainerWrapper implements PortletContainer {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void processPublicRenderParameters(
 		HttpServletRequest request, Layout layout, Portlet portlet) {
 
@@ -113,6 +114,8 @@ public class RestrictPortletContainerWrapper implements PortletContainer {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public void render(
 			HttpServletRequest request, HttpServletResponse response,
 			Portlet portlet)

@@ -14,8 +14,11 @@
 
 package com.liferay.users.admin.web.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.asset.kernel.exception.AssetCategoryException;
 import com.liferay.asset.kernel.exception.AssetTagException;
+=======
+>>>>>>> compatible
 import com.liferay.document.library.kernel.service.DLAppLocalService;
 import com.liferay.portal.kernel.exception.AddressCityException;
 import com.liferay.portal.kernel.exception.AddressStreetException;
@@ -137,11 +140,14 @@ public class EditOrganizationMVCActionCommand extends BaseMVCActionCommand {
 
 				mvcPath = "/error.jsp";
 			}
+<<<<<<< HEAD
 			else if (e instanceof AssetCategoryException ||
 					 e instanceof AssetTagException) {
 
 				SessionErrors.add(actionRequest, e.getClass(), e);
 			}
+=======
+>>>>>>> compatible
 			else if (e instanceof AddressCityException ||
 					 e instanceof AddressStreetException ||
 					 e instanceof AddressZipException ||

@@ -14,9 +14,15 @@
 
 package com.liferay.exportimport.internal.lifecycle;
 
+<<<<<<< HEAD
 import com.liferay.exportimport.kernel.lifecycle.ExportImportLifecycleEvent;
 import com.liferay.exportimport.kernel.lifecycle.ExportImportLifecycleListener;
 import com.liferay.exportimport.kernel.lifecycle.ProcessAwareExportImportLifecycleListener;
+=======
+import com.liferay.exportimport.kernel.lifecycle.BaseProcessExportImportLifecycleListener;
+import com.liferay.exportimport.kernel.lifecycle.ExportImportLifecycleEvent;
+import com.liferay.exportimport.kernel.lifecycle.ExportImportLifecycleListener;
+>>>>>>> compatible
 import com.liferay.exportimport.lar.ExportImportProcessCallbackUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -31,7 +37,11 @@ import org.osgi.service.component.annotations.Component;
  */
 @Component(immediate = true, service = ExportImportLifecycleListener.class)
 public class ExportImportProcessCallbackLifecycleListener
+<<<<<<< HEAD
 	implements ProcessAwareExportImportLifecycleListener {
+=======
+	extends BaseProcessExportImportLifecycleListener {
+>>>>>>> compatible
 
 	@Override
 	public boolean isParallel() {
@@ -39,7 +49,11 @@ public class ExportImportProcessCallbackLifecycleListener
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void onProcessFailed(
+=======
+	protected void onProcessFailed(
+>>>>>>> compatible
 			ExportImportLifecycleEvent exportImportLifecycleEvent)
 		throws Exception {
 
@@ -48,7 +62,11 @@ public class ExportImportProcessCallbackLifecycleListener
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void onProcessStarted(
+=======
+	protected void onProcessStarted(
+>>>>>>> compatible
 			ExportImportLifecycleEvent exportImportLifecycleEvent)
 		throws Exception {
 
@@ -57,7 +75,11 @@ public class ExportImportProcessCallbackLifecycleListener
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void onProcessSucceeded(
+=======
+	protected void onProcessSucceeded(
+>>>>>>> compatible
 			ExportImportLifecycleEvent exportImportLifecycleEvent)
 		throws Exception {
 

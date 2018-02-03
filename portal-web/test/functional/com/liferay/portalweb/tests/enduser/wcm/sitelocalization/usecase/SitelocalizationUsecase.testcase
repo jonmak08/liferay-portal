@@ -18,7 +18,11 @@
 				<execute macro="PortalInstances#tearDownCP" />
 			</then>
 			<else>
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP" />
+=======
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 
 				<execute macro="Site#tearDownCP" />
 			</else>
@@ -28,6 +32,7 @@
 	<command name="AvailableSiteLocalesSubsetOfAvailablePortalLocales" priority="5">
 		<property name="portal.acceptance" value="true" />
 		<property name="test.name.skip.portal.instance" value="SitelocalizationUsecase#AvailableSiteLocalesSubsetOfAvailablePortalLocales" />
+<<<<<<< HEAD
 		<property name="testray.component.names" value="Site Localization" />
 
 		<execute macro="ProductMenu#gotoPortlet">
@@ -45,6 +50,16 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+
+		<execute macro="Page#add">
+			<var name="pageName" value="Language Test Page" />
+		</execute>
+
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Site Settings" />
 		</execute>
 
@@ -54,9 +69,13 @@
 			<var name="displaySettings" value="Display Settings" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Instance Settings" />
 		</execute>
 
@@ -68,9 +87,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Site Settings" />
 		</execute>
 
@@ -84,15 +107,20 @@
 		<execute macro="Page#viewPageLocalization">
 			<var name="category" value="Navigation" />
 			<var name="defaultSiteLanguageKey" value="es_ES" />
+<<<<<<< HEAD
 			<var name="menuItem" value="Configure" />
 			<var name="page" value="Language Test Page" />
 			<var name="portlet" value="Site Pages" />
+=======
+			<var name="page" value="Language Test Page" />
+>>>>>>> compatible
 		</execute>
 	</command>
 
 	<command name="LocalizationStyle0" priority="3">
 		<property name="custom.properties" value="locale.prepend.friendly.url.style=0" />
 		<property name="test.name.skip.portal.instance" value="SitelocalizationUsecase#LocalizationStyle0" />
+<<<<<<< HEAD
 		<property name="testray.component.names" value="Site Localization" />
 
 		<var method="TestPropsUtil#get('portal.url')" name="portalURL" />
@@ -108,6 +136,12 @@
 		</execute>
 
 		<execute macro="Navigator#gotoPage">
+=======
+
+		<var method="TestPropsUtil#get('portal.url')" name="portalURL" />
+
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Language Test Page" />
 		</execute>
 
@@ -149,6 +183,7 @@
 	<command name="LocalizationStyle1" priority="3">
 		<property name="custom.properties" value="locale.prepend.friendly.url.style=1" />
 		<property name="test.name.skip.portal.instance" value="SitelocalizationUsecase#LocalizationStyle1" />
+<<<<<<< HEAD
 		<property name="testray.component.names" value="Site Localization" />
 
 		<var method="TestPropsUtil#get('portal.url')" name="portalURL" />
@@ -164,6 +199,12 @@
 		</execute>
 
 		<execute macro="Navigator#gotoPage">
+=======
+
+		<var method="TestPropsUtil#get('portal.url')" name="portalURL" />
+
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Language Test Page" />
 		</execute>
 
@@ -204,6 +245,7 @@
 
 	<command name="LocalizationStyle2" priority="3">
 		<property name="custom.properties" value="locale.prepend.friendly.url.style=2" />
+<<<<<<< HEAD
 		<property name="test.name.skip.portal.instance" value="SitelocalizationUsecase#LOcalizationStyle2" />
 		<property name="testray.component.names" value="Site Localization" />
 
@@ -220,6 +262,13 @@
 		</execute>
 
 		<execute macro="Navigator#gotoPage">
+=======
+		<property name="test.name.skip.portal.instance" value="SitelocalizationUsecase#LocalizationStyle2" />
+
+		<var method="TestPropsUtil#get('portal.url')" name="portalURL" />
+
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Language Test Page" />
 		</execute>
 
@@ -259,11 +308,17 @@
 	</command>
 
 	<command name="LocalizeCountryName" priority="3">
+<<<<<<< HEAD
 		<property name="testray.component.names" value="Site Localization,Users and Organizations" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<property name="test.name.skip.portal.instance" value="SitelocalizationUsecase#LocalizeCountryName" />
+
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -274,9 +329,13 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -285,9 +344,13 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -296,14 +359,22 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
 		<execute macro="User#assignRegularRoleCP">
+<<<<<<< HEAD
 			<var name="roleTitle" value="Administrator" />
+=======
+			<var name="roleName" value="Administrator" />
+>>>>>>> compatible
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
@@ -312,9 +383,14 @@
 			<var name="userEmailAddress" value="userea@liferay.com" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Usuarios" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoLocalizedControlPanel">
+			<var name="category" value="Usuarios" />
+>>>>>>> compatible
 			<var name="portlet" value="Usuarios y Organizaciones" />
 		</execute>
 
@@ -331,9 +407,14 @@
 			<var name="userEmailAddress" value="userea@liferay.com" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Usuarios" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoLocalizedControlPanel">
+			<var name="category" value="Usuarios" />
+>>>>>>> compatible
 			<var name="portlet" value="Usuarios y Organizaciones" />
 		</execute>
 
@@ -347,6 +428,7 @@
 
 	<command name="NoLocalePrependedWhenLocaleMatchMyPreferredLocalization" priority="3">
 		<property name="test.name.skip.portal.instance" value="SitelocalizationUsecase#NoLocalePrependedWhenLocaleMatchMyPreferredLocalization" />
+<<<<<<< HEAD
 		<property name="testray.component.names" value="Site Localization" />
 
 		<var method="TestPropsUtil#get('portal.url')" name="portalURL" />
@@ -354,6 +436,12 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+
+		<var method="TestPropsUtil#get('portal.url')" name="portalURL" />
+
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -361,6 +449,7 @@
 			<var name="siteName" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -374,6 +463,18 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+			<var name="portlet" value="Sites" />
+		</execute>
+
+		<execute macro="Page#add">
+			<var name="pageName" value="Site Page Name" />
+			<var name="siteName" value="Site Name" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -381,6 +482,7 @@
 			<var name="siteName" value="Site2 Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -389,15 +491,28 @@
 
 		<execute macro="SitePages#addPublicPage">
 			<var name="pageName" value="Site Page Name" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+			<var name="portlet" value="Sites" />
+		</execute>
+
+		<execute macro="Page#add">
+			<var name="pageName" value="Site Page Name" />
+			<var name="siteName" value="Site2 Name" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="ProductMenu#gotoSite">
 			<var name="site" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Site Settings" />
 		</execute>
 
@@ -409,9 +524,13 @@
 			<var name="site" value="Site2 Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Site Settings" />
 		</execute>
 
@@ -419,9 +538,13 @@
 			<var name="defaultSiteLanguage" value="Spanish (Spain)" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -432,9 +555,13 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -443,9 +570,13 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -454,9 +585,13 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -465,9 +600,13 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -513,12 +652,20 @@
 	</command>
 
 	<command name="PortletInteractionLocalization" priority="4">
+<<<<<<< HEAD
 		<property name="test.name.skip.portal.instance" value="SitelocalizationUsecase#PortletInteractionLocalization" />
 		<property name="testray.component.names" value="Site Localization" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<description message="This case uses a workaround for LPS-71938" />
+
+		<property name="test.name.skip.portal.instance" value="SitelocalizationUsecase#PortletInteractionLocalization" />
+
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -526,6 +673,7 @@
 			<var name="siteName" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -538,6 +686,24 @@
 
 		<execute macro="SitePages#addPublicPage">
 			<var name="pageName" value="Site Page 2" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+			<var name="portlet" value="Sites" />
+		</execute>
+
+		<execute macro="Page#add">
+			<var name="pageName" value="Site Page 1" />
+			<var name="siteName" value="Site Name" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoControlPanelSites">
+			<var name="portlet" value="Sites" />
+		</execute>
+
+		<execute macro="Page#add">
+			<var name="pageName" value="Site Page 2" />
+			<var name="siteName" value="Site Name" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Navigator#gotoSitePage">
@@ -562,9 +728,13 @@
 			<var name="site" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Site Settings" />
 		</execute>
 
@@ -582,9 +752,13 @@
 		<execute macro="Page#viewPageLocalization">
 			<var name="category" value="Navegación" />
 			<var name="defaultSiteLanguageKey" value="es_ES" />
+<<<<<<< HEAD
 			<var name="menuItem" value="Configurar" />
 			<var name="page" value="Site Page 1" />
 			<var name="portlet" value="Páginas del sitio web" />
+=======
+			<var name="page" value="Site Page 1" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Navigator#gotoSitePage">
@@ -595,6 +769,7 @@
 		<execute macro="Page#viewPageLocalization">
 			<var name="category" value="Navegación" />
 			<var name="defaultSiteLanguageKey" value="es_ES" />
+<<<<<<< HEAD
 			<var name="menuItem" value="Configurar" />
 			<var name="page" value="Site Page 2" />
 			<var name="portlet" value="Páginas del sitio web" />
@@ -622,13 +797,48 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuración" />
 			<var name="panel" value="Site Administration" />
+=======
+			<var name="page" value="Site Page 2" />
+		</execute>
+
+		<execute macro="Navigator#gotoSitePage">
+			<var name="pageName" value="Site Page 1" />
+			<var name="siteName" value="Site Name" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoLocalizedControlPanel">
+			<var name="category" value="Configuración" />
+			<var name="portlet" value="Instance Settings" />
+		</execute>
+
+		<execute macro="PortalSettings#viewCurrentDefaultPortalLanguageCP">
+			<var name="defaultPortalLanguage" value="inglés (Estados Unidos)" />
+			<var name="navTab" value="Varios" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoLocalizedSite">
+			<var name="navItem" value="Mis Sitios" />
+			<var name="site" value="Site Name" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoLocalizedSitesAdministration">
+			<var name="category" value="Configuración" />
+>>>>>>> compatible
 			<var name="portlet" value="Ajustes del sitio" />
 		</execute>
 
 		<execute macro="Site#configureCurrentLanguagesCP">
+<<<<<<< HEAD
 			<var name="currentSiteLanguages" value="Spanish (Spain),German (Germany)" />
 			<var name="displaySettings" value="Display Settings" />
 			<var name="localizedSuccessMessage" value="Your request completed successfully." />
+=======
+			<var name="currentSiteLanguages" value="español (España),alemán (Alemania)" />
+			<var name="displaySettings" value="Display Settings" />
+			<var name="localizedLanguageTab" value="Idiomas" />
+			<var name="localizedSaveButton" value="Guardar" />
+			<var name="localizedSuccessMessage" value="Su petición ha terminado con éxito." />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Navigator#gotoSitePage">
@@ -638,7 +848,11 @@
 
 		<execute macro="WebContent#addLocalizedPGViaWCD">
 			<var name="localizedBasicWebContent" value="Contenido web básico" />
+<<<<<<< HEAD
 			<var name="webContentContent" value="Web Content1 Content" />
+=======
+			<var name="localizedWebContentContent" value="Web Content1 Content" />
+>>>>>>> compatible
 			<var name="webContentTitle" value="Web Content1 Title" />
 		</execute>
 
@@ -661,16 +875,29 @@
 			<var name="siteName" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuración" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoLocalizedSitesAdministration">
+			<var name="category" value="Configuración" />
+>>>>>>> compatible
 			<var name="portlet" value="Ajustes del sitio" />
 		</execute>
 
 		<execute macro="Site#configureCurrentLanguagesCP">
+<<<<<<< HEAD
 			<var name="currentSiteLanguages" value="Spanish (Spain),German (Germany),English (United States)" />
 			<var name="displaySettings" value="Display Settings" />
 			<var name="localizedSuccessMessage" value="Your request completed successfully." />
+=======
+			<var name="currentSiteLanguages" value="español (España),alemán (Alemania),inglés (Estados Unidos)" />
+			<var name="displaySettings" value="Display Settings" />
+			<var name="localizedLanguageTab" value="Idiomas" />
+			<var name="localizedSaveButton" value="Guardar" />
+			<var name="localizedSuccessMessage" value="Su petición ha terminado con éxito." />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Navigator#gotoSitePage">
@@ -683,7 +910,64 @@
 		</execute>
 	</command>
 
+	<command name="RedirectLocalizedFriendlyURL" priority="4">
+		<description message="This is a use case for LPS-59345" />
+
+		<property name="test.name.skip.portal.instance" value="SitelocalizationUsecase#RedirectLocalizedFriendlyURL" />
+
+		<var method="TestPropsUtil#get('portal.url')" name="portalURL" />
+
+		<execute macro="ProductMenu#gotoControlPanelSites">
+			<var name="portlet" value="Sites" />
+		</execute>
+
+		<execute macro="Site#addBlankCP">
+			<var name="siteName" value="Site Name" />
+		</execute>
+
+		<execute macro="Site#configureCurrentLanguagesCP">
+			<var name="currentSiteLanguages" value="English (United States),Hungarian (Hungary)" />
+			<var name="defaultSiteLanguage" value="English (United States)" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoControlPanelSites">
+			<var name="portlet" value="Sites" />
+		</execute>
+
+		<execute macro="Page#add">
+			<var name="pageName" value="Language Page" />
+			<var name="siteName" value="Site Name" />
+		</execute>
+
+		<execute macro="SitePageNavigator#gotoEditPage">
+			<var name="page" value="Language Page" />
+		</execute>
+
+		<execute macro="Page#addFriendlyURLLocalizedPG">
+			<var name="friendlyUrlLocalized" value="hu_HU" />
+			<var name="localizedFriendlyURL" value="/teszt" />
+		</execute>
+
+		<execute macro="Page#addFriendlyURLLocalizedPG">
+			<var name="friendlyUrlLocalized" value="en_US" />
+			<var name="localizedFriendlyURL" value="/test" />
+		</execute>
+
+		<execute macro="Page#hideFromNavigationMenu" />
+
+		<execute macro="User#logoutPG" />
+
+		<execute macro="Navigator#openSpecificURL">
+			<var name="url" value="${portalURL}/hu/web/site-name/test" />
+		</execute>
+
+		<execute macro="Alert#closePortalLocalizationWarning" />
+
+		<execute function="AssertLocation" value1="${portalURL}/hu/web/site-name/teszt" />
+	</command>
+
 	<command name="SiteTemplateLocalization" priority="5">
+<<<<<<< HEAD
 		<property name="portal.acceptance" value="quarantine" />
 		<property name="test.name.skip.portal.instance" value="SitelocalizationUsecase#SiteTemplateLocalization" />
 		<property name="testray.component.names" value="Site and Page Templates,Site Localization" />
@@ -691,6 +975,12 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<property name="portal.acceptance" value="true" />
+		<property name="test.name.skip.portal.instance" value="SitelocalizationUsecase#SiteTemplateLocalization" />
+
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Site Templates" />
 		</execute>
 
@@ -699,17 +989,25 @@
 			<var name="siteTemplateName" value="Site Template Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Site Templates" />
 		</execute>
 
 		<execute macro="SiteTemplates#viewNoSiteOrWorkflowLinksCP" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -726,9 +1024,13 @@
 			<var name="site" value="Site Name from Template" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Site Settings" />
 		</execute>
 
@@ -742,9 +1044,13 @@
 			<var name="site" value="Site Name from Template" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Site Settings" />
 		</execute>
 
@@ -756,11 +1062,16 @@
 
 	<command name="ViewAvailableSiteLocaleAlternatives" priority="4">
 		<property name="test.name.skip.portal.instance" value="SitelocalizationUsecase#ViewAvailableSiteLocaleAlternatives" />
+<<<<<<< HEAD
 		<property name="testray.component.names" value="Site Localization" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -771,9 +1082,13 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -782,9 +1097,13 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -793,9 +1112,13 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -810,6 +1133,7 @@
 			<var name="displaySettings" value="Display Settings" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoSite">
 			<var name="site" value="Site Name" />
 		</execute>
@@ -822,6 +1146,15 @@
 
 		<execute macro="SitePages#addPublicPage">
 			<var name="pageName" value="Site Page Name" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+			<var name="portlet" value="Sites" />
+		</execute>
+
+		<execute macro="Page#add">
+			<var name="pageName" value="Site Page Name" />
+			<var name="siteName" value="Site Name" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="User#logoutPG" />
@@ -847,6 +1180,7 @@
 	</command>
 
 	<command name="ViewEditURLLocale" priority="4">
+<<<<<<< HEAD
 		<property name="testray.component.names" value="Site Localization" />
 
 		<var method="TestPropsUtil#get('portal.url')" name="portalURL" />
@@ -854,6 +1188,13 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<property name="test.name.skip.portal.instance" value="SitelocalizationUsecase#ViewEditURLLocale" />
+
+		<var method="TestPropsUtil#get('portal.url')" name="portalURL" />
+
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Site Settings" />
 		</execute>
 
@@ -862,9 +1203,13 @@
 			<var name="defaultSiteLanguage" value="English (United States)" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -872,6 +1217,7 @@
 			<var name="siteName" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -885,6 +1231,18 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+			<var name="portlet" value="Sites" />
+		</execute>
+
+		<execute macro="Page#add">
+			<var name="pageName" value="Language Page" />
+			<var name="siteName" value="Site Name" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Site Settings" />
 		</execute>
 
@@ -921,9 +1279,13 @@
 			<var name="site" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Site Settings" />
 		</execute>
 
@@ -944,6 +1306,7 @@
 	</command>
 
 	<command name="ViewSiteLocalizationAfterDeletingOriginalLocale" priority="5">
+<<<<<<< HEAD
 		<property name="portal.acceptance" value="quarantine" />
 		<property name="test.name.skip.portal.instance" value="SitelocalizationUsecase#ViewSiteLocalizationAfterDeletingOriginalLocale" />
 		<property name="testray.component.names" value="Site Localization" />
@@ -951,6 +1314,12 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		<property name="portal.acceptance" value="true" />
+		<property name="test.name.skip.portal.instance" value="SitelocalizationUsecase#ViewSiteLocalizationAfterDeletingOriginalLocale" />
+
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Instance Settings" />
 		</execute>
 
@@ -958,9 +1327,13 @@
 			<var name="defaultPortalLanguage" value="English (United States)" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -975,6 +1348,7 @@
 			<var name="displaySettings" value="Display Settings" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -983,6 +1357,16 @@
 
 		<execute macro="SitePages#addPublicPage">
 			<var name="pageName" value="Site Page Name" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+			<var name="portlet" value="Sites" />
+		</execute>
+
+		<execute macro="Page#add">
+			<var name="localized" value="La página ha sido creada con éxito" />
+			<var name="pageName" value="Site Page Name" />
+			<var name="siteName" value="Site Name" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Navigator#gotoSitePage">
@@ -990,6 +1374,7 @@
 			<var name="siteName" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navegación" />
 			<var name="panel" value="Site Administration" />
@@ -999,6 +1384,11 @@
 		<execute macro="LexiconEntry#gotoEntryMenuItem">
 			<var name="menuItem" value="Configurar" />
 			<var name="rowEntry" value="Site Page Name" />
+=======
+		<execute macro="ProductMenu#gotoLocalizedEditPage">
+			<var name="category" value="Navegación" />
+			<var name="page" value="Site Page Name" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Page#viewFriendlyURLLanguageOptionsPG">

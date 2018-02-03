@@ -88,6 +88,7 @@
 		<execute macro="BlogsEntry#addTitle">
 			<var name="entryTitle" value="${entryTitle}" />
 		</execute>
+<<<<<<< HEAD
 
 		<execute macro="BlogsEntry#addSubtitle">
 			<var name="entrySubtitle" value="${entrySubtitle}" />
@@ -97,6 +98,17 @@
 			<var name="content" value="${entryContent}" />
 		</execute>
 
+=======
+
+		<execute macro="BlogsEntry#addSubtitle">
+			<var name="entrySubtitle" value="${entrySubtitle}" />
+		</execute>
+
+		<execute macro="AlloyEditor#addSourceContent">
+			<var name="content" value="${entryContent}" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="PortletEntry#publish" />
 	</command>
 
@@ -137,8 +149,15 @@
 			<var name="tagName" value="${tagName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute function="SelectFrameTop" value1="relative=top" />
 
+		<execute macro="PortletEntry#publish" />
+	</command>
+
+	<command name="addEntryWithTags">
+		<execute macro="BlogsNavigator#gotoAddEntry" />
+=======
 		<execute macro="PortletEntry#publish" />
 	</command>
 
@@ -151,6 +170,43 @@
 			<var name="entryTitle" value="${entryTitle}" />
 		</execute>
 
+		<execute macro="Panel#expandPanel">
+			<var name="panelHeading" value="Categorization" />
+		</execute>
+
+		<for list="${tagNameList}" param="tagName">
+			<execute macro="AssetCategorization#addTag">
+				<var name="tagName" value="${tagName}" />
+			</execute>
+		</for>
+
+		<execute macro="PortletEntry#publish" />
+	</command>
+
+	<command name="addEntryWithUploadedCoverImage">
+		<execute macro="BlogsNavigator#gotoAddEntry" />
+
+		<execute macro="BlogsNavigator#gotoSelectFile" />
+
+		<execute macro="ItemSelector#uploadFile">
+			<var name="navTab" value="${navTab}" />
+			<var name="uploadFileName" value="${uploadFileName}" />
+		</execute>
+
+		<execute function="Pause" locator1="5000" />
+
+		<execute macro="BlogsEntry#addTitle">
+			<var name="entryTitle" value="${entryTitle}" />
+		</execute>
+>>>>>>> compatible
+
+		<execute macro="BlogsEntry#addEntryContent">
+			<var name="entryContent" value="${entryContent}" />
+			<var name="entrySubtitle" value="${entrySubtitle}" />
+			<var name="entryTitle" value="${entryTitle}" />
+		</execute>
+
+<<<<<<< HEAD
 		<execute macro="Panel#expandPanel">
 			<var name="panelHeading" value="Categorization" />
 		</execute>
@@ -181,6 +237,69 @@
 		<execute macro="BlogsEntry#addTitle">
 			<var name="entryTitle" value="${entryTitle}" />
 		</execute>
+=======
+		<execute function="AssertVisible" locator1="BlogsEntry#ENTRY_COVER_IMAGE_UNPUBLISHED">
+			<var name="key_coverImageName" value="${coverImageName}" />
+		</execute>
+	</command>
+
+	<command name="addViaAP">
+		<execute function="Click#makeVisibleClickAt" locator1="AP#ADD_ASSET_PLUS_ICON" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Blogs Entry">
+			<var name="key_menuItem" value="Blogs Entry" />
+		</execute>
+
+		<execute function="SelectFrame" locator1="IFrame#DIALOG" />
+
+		<execute macro="AlloyEditor#addTitleAndContent">
+			<var name="content" value="${entryContent}" />
+			<var name="title" value="${entryTitle}" />
+		</execute>
+
+		<execute function="AssertClick" locator1="Button#PUBLISH" value1="Publish" />
+
+		<execute function="SelectFrameTop" value1="relative=top" />
+
+		<execute function="Pause" locator1="5000" />
+
+		<var name="key_assetTitle" value="${entryTitle}" />
+
+		<execute function="AssertTextEquals" locator1="AP#ASSET_ABSTRACT_TITLE" value1="${entryTitle}" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="AP#ASSET_ABSTRACT_DESCRIPTION" value1="${entryContent}" />
+	</command>
+
+	<command name="addViaAPSelectScope">
+		<execute function="Click#makeVisibleClickAt" locator1="AP#ADD_ASSET_PLUS_ICON" />
+
+		<execute function="Click" locator1="AP#ADD_ASSET_SCOPED" />
+
+		<execute function="SelectFrame" locator1="IFrame#MODAL_IFRAME" />
+
+		<execute function="Select" locator1="Select#TYPE" value1="Blogs Entry" />
+
+		<execute function="AssertClick" locator1="Button#ADD" value1="Add" />
+
+		<execute macro="AlloyEditor#addTitleAndContent">
+			<var name="content" value="${entryContent}" />
+			<var name="title" value="${entryTitle}" />
+		</execute>
+
+		<execute function="AssertClick" locator1="Button#PUBLISH" value1="Publish" />
+
+		<execute function="SelectFrameTop" value1="relative=top" />
+
+		<execute function="Pause" locator1="5000" />
+
+		<var name="key_assetTitle" value="${entryTitle}" />
+
+		<execute function="AssertTextEquals" locator1="AP#ASSET_ABSTRACT_TITLE" value1="${entryTitle}" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="AP#ASSET_ABSTRACT_DESCRIPTION" value1="${entryContent}" />
+	</command>
+
+	<command name="addWithCustomAbstract">
+		<execute macro="BlogsNavigator#gotoAddEntry" />
+>>>>>>> compatible
 
 		<execute macro="BlogsEntry#addEntryContent">
 			<var name="entryContent" value="${entryContent}" />
@@ -188,6 +307,7 @@
 			<var name="entryTitle" value="${entryTitle}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute function="AssertVisible" locator1="BlogsEntry#ENTRY_COVER_IMAGE_UNPUBLISHED">
 			<var name="key_coverImageName" value="${coverImageName}" />
 		</execute>
@@ -256,14 +376,7 @@
 	</command>
 
 	<command name="addWithCustomAbstract">
-		<execute macro="BlogsNavigator#gotoAddEntry" />
-
-		<execute macro="BlogsEntry#addEntryContent">
-			<var name="entryContent" value="${entryContent}" />
-			<var name="entrySubtitle" value="${entrySubtitle}" />
-			<var name="entryTitle" value="${entryTitle}" />
-		</execute>
-
+=======
 		<execute macro="Panel#expandPanel">
 			<var name="panelHeading" value="Configuration" />
 		</execute>
@@ -276,6 +389,52 @@
 	</command>
 
 	<command name="addWithCustomAbstractImage">
+>>>>>>> compatible
+		<execute macro="BlogsNavigator#gotoAddEntry" />
+
+		<execute macro="BlogsEntry#addEntryContent">
+			<var name="entryContent" value="${entryContent}" />
+			<var name="entrySubtitle" value="${entrySubtitle}" />
+			<var name="entryTitle" value="${entryTitle}" />
+		</execute>
+
+		<execute macro="Panel#expandPanel">
+			<var name="panelHeading" value="Configuration" />
+<<<<<<< HEAD
+		</execute>
+
+		<execute macro="BlogsEntry#addCustomAbstract">
+			<var name="entryAbstractDescription" value="${entryAbstractDescription}" />
+=======
+		</execute>
+
+		<execute function="Click" locator1="Radio#CUSTOM_ABSTRACT" />
+
+		<execute function="Click" locator1="Button#SELECT" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Basic Document">
+			<var name="key_menuItem" value="Basic Document" />
+		</execute>
+
+		<execute function="UploadCommonFile" locator1="TextInput#FILE" value1="${dmDocumentFile}" />
+
+		<execute macro="PortletEntry#inputTitle">
+			<var name="title" value="${dmDocumentTitle}" />
+		</execute>
+
+		<execute macro="PortletEntry#inputDescription">
+			<var name="description" value="${dmDocumentDescription}" />
+>>>>>>> compatible
+		</execute>
+
+		<execute macro="PortletEntry#publish" />
+	</command>
+
+<<<<<<< HEAD
+	<command name="addWithCustomAbstractImage">
+=======
+	<command name="addWithDefaultAbstract">
+>>>>>>> compatible
 		<execute macro="BlogsNavigator#gotoAddEntry" />
 
 		<execute macro="BlogsEntry#addEntryContent">
@@ -288,6 +447,7 @@
 			<var name="panelHeading" value="Configuration" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute function="Click" locator1="Radio#CUSTOM_ABSTRACT" />
 
 		<execute function="Click" locator1="Button#SELECT" />
@@ -310,11 +470,32 @@
 	</command>
 
 	<command name="addWithDefaultAbstract">
+=======
+		<execute function="AssertChecked" locator1="Radio#FIRST_400_ABSTRACT" value1="Use the first 400 characters of the entry content." />
+
+		<execute macro="PortletEntry#publish" />
+	</command>
+
+	<command name="addWithInvalidContent">
+		<execute macro="BlogsNavigator#gotoAddEntry" />
+
+		<execute macro="BlogsEntry#addEntryContent">
+			<var name="entryContent" value="${entryInvalidContent}" />
+			<var name="entrySubtitle" value="${entrySubtitle}" />
+			<var name="entryTitle" value="${entryTitle}" />
+		</execute>
+
+		<execute macro="BlogsEntry#publishWithInvalidContent" />
+	</command>
+
+	<command name="addWithInvalidTitle">
+>>>>>>> compatible
 		<execute macro="BlogsNavigator#gotoAddEntry" />
 
 		<execute macro="BlogsEntry#addEntryContent">
 			<var name="entryContent" value="${entryContent}" />
 			<var name="entrySubtitle" value="${entrySubtitle}" />
+<<<<<<< HEAD
 			<var name="entryTitle" value="${entryTitle}" />
 		</execute>
 
@@ -360,6 +541,23 @@
 			<var name="entryTitle" value="${entryInvalidTitleLength}" />
 		</execute>
 
+=======
+			<var name="entryTitle" value="${entryInvalidTitle}" />
+		</execute>
+
+		<execute macro="BlogsEntry#publishWithInvalidTitle" />
+	</command>
+
+	<command name="addWithInvalidTitleLength">
+		<execute macro="BlogsNavigator#gotoAddEntry" />
+
+		<execute macro="BlogsEntry#addEntryContent">
+			<var name="entryContent" value="${entryContent}" />
+			<var name="entrySubtitle" value="${entrySubtitle}" />
+			<var name="entryTitle" value="${entryInvalidTitleLength}" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="BlogsEntry#publishWithInvalidTitleLength" />
 	</command>
 
@@ -376,6 +574,7 @@
 	</command>
 
 	<command name="addWithWorkflowViaAP">
+<<<<<<< HEAD
 		<execute function="MouseOver#mouseOverNotVisible" locator1="AP#ADD_ASSET_PLUS_ICON" />
 
 		<execute function="Click" locator1="AP#ADD_ASSET_PLUS_ICON" />
@@ -384,6 +583,14 @@
 			<var name="key_menuItem" value="Blogs Entry" />
 		</execute>
 
+=======
+		<execute function="Click#makeVisibleClickAt" locator1="AP#ADD_ASSET_PLUS_ICON" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Blogs Entry">
+			<var name="key_menuItem" value="Blogs Entry" />
+		</execute>
+
+>>>>>>> compatible
 		<execute function="SelectFrame" locator1="IFrame#DIALOG" />
 
 		<execute macro="AlloyEditor#addTitleAndContent">
@@ -526,9 +733,13 @@
 	<command name="tearDownCP">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Blogs" />
 		</execute>
 
@@ -545,9 +756,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Recycle Bin" />
 		</execute>
 

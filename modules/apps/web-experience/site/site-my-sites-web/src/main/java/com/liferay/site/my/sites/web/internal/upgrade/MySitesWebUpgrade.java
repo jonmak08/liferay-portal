@@ -17,7 +17,11 @@ package com.liferay.site.my.sites.web.internal.upgrade;
 import com.liferay.portal.kernel.upgrade.BaseUpgradePortletId;
 import com.liferay.portal.kernel.upgrade.DummyUpgradeStep;
 import com.liferay.portal.upgrade.registry.UpgradeStepRegistrator;
+<<<<<<< HEAD
 import com.liferay.site.my.sites.web.internal.constants.MySitesPortletKeys;
+=======
+import com.liferay.site.my.sites.web.constants.MySitesPortletKeys;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 

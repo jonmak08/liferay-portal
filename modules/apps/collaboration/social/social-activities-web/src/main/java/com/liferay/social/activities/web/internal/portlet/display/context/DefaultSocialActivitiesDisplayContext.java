@@ -203,7 +203,12 @@ public class DefaultSocialActivitiesDisplayContext
 			resourceBundleLoader, LanguageUtil.getPortalResourceBundleLoader());
 
 		_resourceBundle = resourceBundleLoader.loadResourceBundle(
+<<<<<<< HEAD
 			_socialActivitiesRequestHelper.getLocale());
+=======
+			LanguageUtil.getLanguageId(
+				_socialActivitiesRequestHelper.getLocale()));
+>>>>>>> compatible
 
 		return _resourceBundle;
 	}

@@ -28,6 +28,7 @@ import com.liferay.portal.kernel.nio.intraband.messaging.IntrabandBridgeDestinat
 
 import java.util.Set;
 
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
@@ -35,6 +36,11 @@ import org.osgi.service.component.annotations.Reference;
  * @author Shuyang Zhou
  */
 @Component(property = "mode=DIRECT")
+=======
+/**
+ * @author Shuyang Zhou
+ */
+>>>>>>> compatible
 public class DirectSynchronousMessageSender
 	implements SynchronousMessageSender {
 
@@ -88,10 +94,20 @@ public class DirectSynchronousMessageSender
 		return send(destinationName, message);
 	}
 
+<<<<<<< HEAD
 	private static final Log _log = LogFactoryUtil.getLog(
 		DirectSynchronousMessageSender.class);
 
 	@Reference
+=======
+	public void setMessageBus(MessageBus messageBus) {
+		_messageBus = messageBus;
+	}
+
+	private static final Log _log = LogFactoryUtil.getLog(
+		DirectSynchronousMessageSender.class);
+
+>>>>>>> compatible
 	private MessageBus _messageBus;
 
 }

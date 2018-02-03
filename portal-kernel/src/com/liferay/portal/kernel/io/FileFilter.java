@@ -20,11 +20,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @author     Brian Wing Shun Chan
- * @author     Alexander Chow
- * @deprecated As of 7.0.0, with no direct replacement
+ * @author Brian Wing Shun Chan
+ * @author Alexander Chow
  */
-@Deprecated
 public class FileFilter implements java.io.FileFilter {
 
 	public FileFilter() {

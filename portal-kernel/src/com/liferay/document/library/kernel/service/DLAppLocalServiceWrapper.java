@@ -184,10 +184,14 @@ public class DLAppLocalServiceWrapper implements DLAppLocalService,
 	* @param fileEntryId the primary key of the file entry
 	* @param serviceContext the service context to be applied
 	* @return the file rank
+<<<<<<< HEAD
 	* @deprecated As of 7.0.0, replaced by {@link
 	com.liferay.document.library.file.rank.service.DLFileRankLocalService#addFileRank}
 	*/
 	@Deprecated
+=======
+	*/
+>>>>>>> compatible
 	@Override
 	public com.liferay.document.library.kernel.model.DLFileRank addFileRank(
 		long repositoryId, long companyId, long userId, long fileEntryId,
@@ -276,10 +280,14 @@ public class DLAppLocalServiceWrapper implements DLAppLocalService,
 	* only supported by the Liferay repository.
 	*
 	* @param fileEntryId the primary key of the file entry
+<<<<<<< HEAD
 	* @deprecated As of 7.0.0, replaced by {@link
 	com.liferay.document.library.file.rank.service.DLFileRankLocalService#deleteFileRanksByFileEntryId}
 	*/
 	@Deprecated
+=======
+	*/
+>>>>>>> compatible
 	@Override
 	public void deleteFileRanksByFileEntryId(long fileEntryId) {
 		_dlAppLocalService.deleteFileRanksByFileEntryId(fileEntryId);
@@ -290,10 +298,14 @@ public class DLAppLocalServiceWrapper implements DLAppLocalService,
 	* supported by the Liferay repository.
 	*
 	* @param userId the primary key of the user
+<<<<<<< HEAD
 	* @deprecated As of 7.0.0, replaced by {@link
 	com.liferay.document.library.file.rank.service.DLFileRankLocalService#deleteFileRanksByUserId}
 	*/
 	@Deprecated
+=======
+	*/
+>>>>>>> compatible
 	@Override
 	public void deleteFileRanksByUserId(long userId) {
 		_dlAppLocalService.deleteFileRanksByUserId(userId);
@@ -396,10 +408,14 @@ public class DLAppLocalServiceWrapper implements DLAppLocalService,
 	* @param repositoryId the primary key of the repository
 	* @param userId the primary key of the user
 	* @return the file ranks from the user
+<<<<<<< HEAD
 	* @deprecated As of 7.0.0, replaced by {@link
 	com.liferay.document.library.file.rank.service.DLFileRankLocalService#getFileRanks}
 	*/
 	@Deprecated
+=======
+	*/
+>>>>>>> compatible
 	@Override
 	public java.util.List<com.liferay.document.library.kernel.model.DLFileRank> getFileRanks(
 		long repositoryId, long userId) {
@@ -746,10 +762,14 @@ public class DLAppLocalServiceWrapper implements DLAppLocalService,
 	* @param fileEntryId the primary key of the file rank's file entry
 	* @param serviceContext the service context to be applied
 	* @return the file rank
+<<<<<<< HEAD
 	* @deprecated As of 7.0.0, replaced by {@link
 	com.liferay.document.library.file.rank.service.DLFileRankLocalService#updateFileRank}
 	*/
 	@Deprecated
+=======
+	*/
+>>>>>>> compatible
 	@Override
 	public com.liferay.document.library.kernel.model.DLFileRank updateFileRank(
 		long repositoryId, long companyId, long userId, long fileEntryId,

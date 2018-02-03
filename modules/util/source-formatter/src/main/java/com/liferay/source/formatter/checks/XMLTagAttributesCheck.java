@@ -32,8 +32,11 @@ public class XMLTagAttributesCheck extends TagAttributesCheck {
 
 		content = _formatTagAttributes(fileName, content);
 
+<<<<<<< HEAD
 		content = formatMultiLinesTagAttributes(fileName, content);
 
+=======
+>>>>>>> compatible
 		return content;
 	}
 

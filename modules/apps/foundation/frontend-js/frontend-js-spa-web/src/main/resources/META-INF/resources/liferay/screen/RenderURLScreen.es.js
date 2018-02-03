@@ -2,6 +2,7 @@
 
 import EventScreen from './EventScreen.es';
 
+<<<<<<< HEAD
 /**
  * RenderURLScreen
  *
@@ -14,6 +15,9 @@ class RenderURLScreen extends EventScreen {
 	 * @inheritDoc
 	 * @review
 	 */
+=======
+class RenderURLScreen extends EventScreen {
+>>>>>>> compatible
 	constructor() {
 		super();
 

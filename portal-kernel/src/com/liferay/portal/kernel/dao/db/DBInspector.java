@@ -17,7 +17,10 @@ package com.liferay.portal.kernel.dao.db;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.upgrade.UpgradeException;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 
@@ -204,9 +207,14 @@ public class DBInspector {
 		}
 
 		throw new UpgradeException(
+<<<<<<< HEAD
 			StringBundler.concat(
 				"Table class ", String.valueOf(tableClass),
 				" does not have column ", columnName));
+=======
+			"Table class " + tableClass + " does not have column " +
+				columnName);
+>>>>>>> compatible
 	}
 
 	private int _getColumnSize(String columnType) throws UpgradeException {
@@ -224,9 +232,14 @@ public class DBInspector {
 			}
 			catch (NumberFormatException nfe) {
 				throw new UpgradeException(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Column type ", columnType,
 						" has an invalid column size ", columnSize),
+=======
+					"Column type " + columnType +
+						" has an invalid column size " + columnSize,
+>>>>>>> compatible
 					nfe);
 			}
 		}

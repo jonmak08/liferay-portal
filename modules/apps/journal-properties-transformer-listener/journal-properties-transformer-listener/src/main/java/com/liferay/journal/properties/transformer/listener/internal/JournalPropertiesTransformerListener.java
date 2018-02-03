@@ -24,7 +24,10 @@ import com.liferay.portal.kernel.templateparser.TransformerListener;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.kernel.util.PropertiesUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.xml.Document;
@@ -131,9 +134,15 @@ public class JournalPropertiesTransformerListener
 			String key = (String)entry.getKey();
 			String value = (String)entry.getValue();
 
+<<<<<<< HEAD
 			String escapedKey = StringBundler.concat(
 				StringPool.AT, StringPool.AT, key, StringPool.AT,
 				StringPool.AT);
+=======
+			String escapedKey =
+				StringPool.AT + StringPool.AT + key + StringPool.AT +
+					StringPool.AT;
+>>>>>>> compatible
 
 			String actualKey = StringPool.AT + key + StringPool.AT;
 

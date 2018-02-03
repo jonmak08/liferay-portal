@@ -14,7 +14,10 @@
 
 package com.liferay.portal.util;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.test.ReflectionTestUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.File;
 
 import java.io.IOException;
@@ -22,6 +25,7 @@ import java.io.InputStream;
 
 import java.nio.charset.Charset;
 
+<<<<<<< HEAD
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -35,6 +39,9 @@ import org.apache.tika.parser.ocr.TesseractOCRParser;
 
 import org.junit.Assert;
 import org.junit.Before;
+=======
+import org.junit.Assert;
+>>>>>>> compatible
 import org.junit.Test;
 
 /**
@@ -43,6 +50,7 @@ import org.junit.Test;
  */
 public class FileImplExtractTest {
 
+<<<<<<< HEAD
 	@Before
 	public void setUp() throws Exception {
 		Class<?> clazz = Class.forName(
@@ -78,6 +86,8 @@ public class FileImplExtractTest {
 		compositeParser.setParsers(parsers);
 	}
 
+=======
+>>>>>>> compatible
 	@Test
 	public void testDoc() {
 		String text = extractText("test.doc");
@@ -89,11 +99,19 @@ public class FileImplExtractTest {
 	public void testDocx() {
 		String text = extractText("test-2007.docx");
 
+<<<<<<< HEAD
 		Assert.assertTrue(text, text.contains("Extract test."));
 
 		text = extractText("test-2010.docx");
 
 		Assert.assertTrue(text, text.contains("Extract test."));
+=======
+		Assert.assertTrue(text.contains("Extract test."));
+
+		text = extractText("test-2010.docx");
+
+		Assert.assertTrue(text.contains("Extract test."));
+>>>>>>> compatible
 	}
 
 	@Test
@@ -139,7 +157,11 @@ public class FileImplExtractTest {
 	public void testPptx() {
 		String text = extractText("test-2010.pptx");
 
+<<<<<<< HEAD
 		Assert.assertTrue(text, text.contains("Extract test."));
+=======
+		Assert.assertTrue(text.contains("Extract test."));
+>>>>>>> compatible
 	}
 
 	@Test
@@ -179,7 +201,11 @@ public class FileImplExtractTest {
 	public void testXlsx() {
 		String text = extractText("test-2010.xlsx");
 
+<<<<<<< HEAD
 		Assert.assertTrue(text, text.contains("Extract test."));
+=======
+		Assert.assertTrue(text.contains("Extract test."));
+>>>>>>> compatible
 	}
 
 	@Test

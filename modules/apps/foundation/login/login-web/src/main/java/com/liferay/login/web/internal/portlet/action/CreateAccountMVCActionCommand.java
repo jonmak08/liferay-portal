@@ -14,9 +14,14 @@
 
 package com.liferay.login.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.captcha.configuration.CaptchaConfiguration;
 import com.liferay.captcha.util.CaptchaUtil;
 import com.liferay.login.web.internal.constants.LoginPortletKeys;
+=======
+import com.liferay.captcha.util.CaptchaUtil;
+import com.liferay.login.web.constants.LoginPortletKeys;
+>>>>>>> compatible
 import com.liferay.login.web.internal.portlet.util.LoginUtil;
 import com.liferay.portal.kernel.captcha.CaptchaConfigurationException;
 import com.liferay.portal.kernel.captcha.CaptchaTextException;
@@ -53,7 +58,10 @@ import com.liferay.portal.kernel.model.Layout;
 import com.liferay.portal.kernel.model.ListType;
 import com.liferay.portal.kernel.model.ListTypeConstants;
 import com.liferay.portal.kernel.model.User;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.module.configuration.ConfigurationProvider;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.DynamicActionRequest;
 import com.liferay.portal.kernel.portlet.bridges.mvc.BaseMVCActionCommand;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCActionCommand;
@@ -231,10 +239,14 @@ public class CreateAccountMVCActionCommand extends BaseMVCActionCommand {
 
 		try {
 			if (cmd.equals(Constants.ADD)) {
+<<<<<<< HEAD
 				CaptchaConfiguration captchaConfiguration =
 					getCaptchaConfiguration();
 
 				if (captchaConfiguration.createAccountCaptchaEnabled()) {
+=======
+				if (PropsValues.CAPTCHA_CHECK_PORTAL_CREATE_ACCOUNT) {
+>>>>>>> compatible
 					CaptchaUtil.check(actionRequest);
 				}
 
@@ -325,6 +337,7 @@ public class CreateAccountMVCActionCommand extends BaseMVCActionCommand {
 		}
 	}
 
+<<<<<<< HEAD
 	protected CaptchaConfiguration getCaptchaConfiguration()
 		throws CaptchaConfigurationException {
 
@@ -337,6 +350,8 @@ public class CreateAccountMVCActionCommand extends BaseMVCActionCommand {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	protected long getListTypeId(
 			PortletRequest portletRequest, String parameterName, String type)
 		throws Exception {
@@ -586,9 +601,12 @@ public class CreateAccountMVCActionCommand extends BaseMVCActionCommand {
 	@Reference
 	private AuthenticatedSessionManager _authenticatedSessionManager;
 
+<<<<<<< HEAD
 	@Reference
 	private ConfigurationProvider _configurationProvider;
 
+=======
+>>>>>>> compatible
 	private LayoutLocalService _layoutLocalService;
 
 	@Reference

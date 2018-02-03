@@ -60,6 +60,7 @@ List<User> users = UserLocalServiceUtil.search(company.getCompanyId(), searchTer
 userSearchContainer.setResults(users);
 
 RowChecker rowChecker = new UserTeamChecker(renderResponse, team);
+<<<<<<< HEAD
 
 List<NavigationItem> navigationItems = new ArrayList<>();
 
@@ -75,6 +76,23 @@ navigationItems.add(navigationItem);
 <clay:navigation-bar
 	items="<%= navigationItems %>"
 />
+=======
+%>
+
+<aui:nav-bar cssClass="collapse-basic-search" markupView="lexicon">
+	<aui:nav cssClass="navbar-nav">
+		<aui:nav-item label="users" selected="<%= true %>" />
+	</aui:nav>
+
+	<c:if test="<%= (usersCount > 0) || searchTerms.isSearch() %>">
+		<aui:nav-bar-search>
+			<aui:form action="<%= portletURL.toString() %>" name="searchFm">
+				<liferay-ui:input-search markupView="lexicon" />
+			</aui:form>
+		</aui:nav-bar-search>
+	</c:if>
+</aui:nav-bar>
+>>>>>>> compatible
 
 <liferay-frontend:management-bar
 	disabled="<%= usersCount <= 0 %>"
@@ -93,6 +111,7 @@ navigationItems.add(navigationItem);
 			orderColumns='<%= new String[] {"first-name", "screen-name"} %>'
 			portletURL="<%= PortletURLUtil.clone(portletURL, renderResponse) %>"
 		/>
+<<<<<<< HEAD
 
 		<c:if test="<%= (usersCount > 0) || searchTerms.isSearch() %>">
 			<li>
@@ -101,6 +120,8 @@ navigationItems.add(navigationItem);
 				</aui:form>
 			</li>
 		</c:if>
+=======
+>>>>>>> compatible
 	</liferay-frontend:management-bar-filters>
 
 	<liferay-frontend:management-bar-buttons>

@@ -20,9 +20,14 @@
 taglib uri="http://liferay.com/tld/item-selector" prefix="liferay-item-selector" %><%@
 taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %>
 
+<<<<<<< HEAD
 <%@ page import="com.liferay.document.library.display.context.DLMimeTypeDisplayContext" %><%@
 page import="com.liferay.document.library.kernel.util.DLUtil" %><%@
 page import="com.liferay.knowledge.base.item.selector.web.internal.constants.KBItemSelectorWebKeys" %><%@
+=======
+<%@ page import="com.liferay.document.library.kernel.util.DLUtil" %><%@
+page import="com.liferay.knowledge.base.item.selector.web.internal.KBAttachmentItemSelectorView" %><%@
+>>>>>>> compatible
 page import="com.liferay.knowledge.base.item.selector.web.internal.display.context.KBAttachmentItemSelectorViewDisplayContext" %><%@
 page import="com.liferay.portal.kernel.dao.search.SearchContainer" %><%@
 page import="com.liferay.portal.kernel.dao.search.SearchPaginationUtil" %><%@

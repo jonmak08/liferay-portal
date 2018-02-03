@@ -26,9 +26,14 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
+=======
+import com.liferay.portal.kernel.util.StreamUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.kernel.zip.ZipReader;
@@ -87,7 +92,13 @@ public class KBArticleImporter {
 			long userId, long groupId, long parentKBFolderId,
 			long parentResourceClassNameId, long parentResourcePrimaryKey,
 			String markdown, String fileEntryName, ZipReader zipReader,
+<<<<<<< HEAD
 			Map<String, String> metadata, ServiceContext serviceContext)
+=======
+			Map<String, String> metadata,
+			PrioritizationStrategy prioritizationStrategy,
+			ServiceContext serviceContext)
+>>>>>>> compatible
 		throws KBArticleImportException {
 
 		if (Validator.isNull(markdown)) {
@@ -103,6 +114,15 @@ public class KBArticleImporter {
 		KBArticle kbArticle = _kbArticleLocalService.fetchKBArticleByUrlTitle(
 			groupId, parentKBFolderId, urlTitle);
 
+<<<<<<< HEAD
+=======
+		boolean newKBArticle = false;
+
+		if (kbArticle == null) {
+			newKBArticle = true;
+		}
+
+>>>>>>> compatible
 		try {
 			if (kbArticle == null) {
 				int workflowAction = serviceContext.getWorkflowAction();
@@ -145,6 +165,17 @@ public class KBArticleImporter {
 				kbArticleMarkdownConverter.getSourceURL(), null, null, null,
 				serviceContext);
 
+<<<<<<< HEAD
+=======
+			if (newKBArticle) {
+				prioritizationStrategy.addKBArticle(kbArticle, fileEntryName);
+			}
+			else {
+				prioritizationStrategy.updateKBArticle(
+					kbArticle, fileEntryName);
+			}
+
+>>>>>>> compatible
 			return kbArticle;
 		}
 		catch (Exception e) {
@@ -159,6 +190,7 @@ public class KBArticleImporter {
 		}
 	}
 
+<<<<<<< HEAD
 	protected double getKBArchiveResourcePriority(
 			KBArchive.Resource kbArchiveResource)
 		throws KBArticleImportException {
@@ -201,6 +233,15 @@ public class KBArticleImporter {
 
 		try (InputStream inputStream =
 				zipReader.getEntryAsInputStream(".METADATA")) {
+=======
+	protected Map<String, String> getMetadata(ZipReader zipReader)
+		throws KBArticleImportException {
+
+		InputStream inputStream = null;
+
+		try {
+			inputStream = zipReader.getEntryAsInputStream(".METADATA");
+>>>>>>> compatible
 
 			if (inputStream == null) {
 				return Collections.emptyMap();
@@ -226,6 +267,12 @@ public class KBArticleImporter {
 		catch (IOException ioe) {
 			throw new KBArticleImportException(ioe);
 		}
+<<<<<<< HEAD
+=======
+		finally {
+			StreamUtil.cleanUp(inputStream);
+		}
+>>>>>>> compatible
 	}
 
 	protected int processKBArticleFiles(
@@ -236,6 +283,13 @@ public class KBArticleImporter {
 
 		int importedKBArticlesCount = 0;
 
+<<<<<<< HEAD
+=======
+		PrioritizationStrategy prioritizationStrategy =
+			PrioritizationStrategy.create(
+				groupId, parentKBFolderId, prioritizeByNumericalPrefix);
+
+>>>>>>> compatible
 		KBArchive kbArchive = _kbArchiveFactory.createKBArchive(
 			groupId, zipReader);
 
@@ -266,11 +320,16 @@ public class KBArticleImporter {
 					userId, groupId, parentKBFolderId,
 					sectionResourceClassNameId, sectionResourcePrimaryKey,
 					introFile.getContent(), introFile.getName(), zipReader,
+<<<<<<< HEAD
 					metadata, serviceContext);
+=======
+					metadata, prioritizationStrategy, serviceContext);
+>>>>>>> compatible
 
 				importedKBArticlesCount++;
 
 				introFileNameKBArticleMap.put(introFile, introKBArticle);
+<<<<<<< HEAD
 
 				if (prioritizeByNumericalPrefix) {
 					double introFilePriority = getKBArchiveResourcePriority(
@@ -281,6 +340,8 @@ public class KBArticleImporter {
 						sectionResourceClassNameId, sectionResourcePrimaryKey,
 						introFilePriority);
 				}
+=======
+>>>>>>> compatible
 			}
 
 			long sectionResourceClassNameId = _portal.getClassNameId(
@@ -303,6 +364,7 @@ public class KBArticleImporter {
 					}
 				}
 
+<<<<<<< HEAD
 				KBArticle kbArticle = addKBArticleMarkdown(
 					userId, groupId, parentKBFolderId,
 					sectionResourceClassNameId, sectionResourcePrimaryKey,
@@ -328,6 +390,20 @@ public class KBArticleImporter {
 			}
 		}
 
+=======
+				addKBArticleMarkdown(
+					userId, groupId, parentKBFolderId,
+					sectionResourceClassNameId, sectionResourcePrimaryKey,
+					markdown, file.getName(), zipReader, metadata,
+					prioritizationStrategy, serviceContext);
+
+				importedKBArticlesCount++;
+			}
+		}
+
+		prioritizationStrategy.prioritizeKBArticles();
+
+>>>>>>> compatible
 		return importedKBArticlesCount;
 	}
 

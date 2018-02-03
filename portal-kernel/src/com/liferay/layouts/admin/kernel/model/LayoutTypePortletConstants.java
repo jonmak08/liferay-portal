@@ -24,6 +24,7 @@ import java.util.Set;
 public class LayoutTypePortletConstants
 	extends com.liferay.portal.kernel.model.LayoutTypePortletConstants {
 
+<<<<<<< HEAD
 	public static final String ARTICLE_ID = "article-id";
 
 	public static final String CUSTOMIZABLE_LAYOUT = "CUSTOMIZABLE_LAYOUT";
@@ -112,10 +113,15 @@ public class LayoutTypePortletConstants
 		}
 
 		return true;
+=======
+	public static boolean isLayoutTemplateColumnName(String typeSettingId) {
+		return !_typeSettingsIds.contains(typeSettingId);
+>>>>>>> compatible
 	}
 
 	private static final Set<String> _typeSettingsIds = SetUtil.fromArray(
 		new String[] {
+<<<<<<< HEAD
 			ARTICLE_ID, CUSTOMIZABLE_LAYOUT, DEFAULT_ASSET_PUBLISHER_PORTLET_ID,
 			EMBEDDED_LAYOUT_URL, FULL_PAGE_APPLICATION_PORTLET, GROUP_ID,
 			JAVASCRIPT, LAST_IMPORT_DATE, LAST_IMPORT_LAYOUT_BRANCH_ID,
@@ -132,6 +138,13 @@ public class LayoutTypePortletConstants
 			STATE_MIN, STATIC_PORTLET_ORGANIZATION_SELECTOR,
 			STATIC_PORTLET_REGULAR_SITE_SELECTOR, STATIC_PORTLET_USER_SELECTOR,
 			TARGET, URL
+=======
+			DEFAULT_ASSET_PUBLISHER_PORTLET_ID, LAYOUT_TEMPLATE_ID, MODE_ABOUT,
+			MODE_CONFIG, MODE_EDIT, MODE_EDIT_DEFAULTS, MODE_EDIT_GUEST,
+			MODE_HELP, MODE_PREVIEW, MODE_PRINT, NESTED_COLUMN_IDS, STATE_MAX,
+			STATE_MIN, STATIC_PORTLET_ORGANIZATION_SELECTOR,
+			STATIC_PORTLET_REGULAR_SITE_SELECTOR, STATIC_PORTLET_USER_SELECTOR
+>>>>>>> compatible
 		});
 
 }

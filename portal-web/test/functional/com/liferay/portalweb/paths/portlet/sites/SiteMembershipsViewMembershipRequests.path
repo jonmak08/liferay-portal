@@ -20,7 +20,11 @@
 </tr>
 <tr>
 	<td>REPLY</td>
+<<<<<<< HEAD
 	<td>//a[span/*[name()='svg'][contains(@class,'icon-reply')]]</td>
+=======
+	<td>//span/*[name()='svg'][contains(@class,'icon-reply')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>

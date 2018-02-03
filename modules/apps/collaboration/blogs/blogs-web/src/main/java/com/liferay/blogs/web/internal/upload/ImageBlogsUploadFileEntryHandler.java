@@ -14,25 +14,48 @@
 
 package com.liferay.blogs.web.internal.upload;
 
+<<<<<<< HEAD
 import com.liferay.blogs.constants.BlogsConstants;
 import com.liferay.blogs.exception.EntryImageNameException;
 import com.liferay.blogs.exception.EntryImageSizeException;
 import com.liferay.blogs.model.BlogsEntry;
 import com.liferay.blogs.service.BlogsEntryLocalService;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.blogs.kernel.exception.EntryImageNameException;
+import com.liferay.blogs.kernel.exception.EntryImageSizeException;
+import com.liferay.blogs.kernel.model.BlogsEntry;
+import com.liferay.blogs.kernel.service.BlogsEntryLocalService;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.portletfilerepository.PortletFileRepositoryUtil;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.Folder;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.resource.PortletResourcePermission;
+=======
+import com.liferay.portal.kernel.security.auth.PrincipalException;
+import com.liferay.portal.kernel.security.permission.ActionKeys;
+import com.liferay.portal.kernel.security.permission.PermissionChecker;
+import com.liferay.portal.kernel.security.permission.ResourcePermissionCheckerUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.upload.UploadPortletRequest;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.util.PrefsPropsUtil;
 import com.liferay.portal.util.PropsValues;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.portal.util.PrefsPropsUtil;
+import com.liferay.portal.util.PropsValues;
+import com.liferay.portlet.blogs.constants.BlogsConstants;
+import com.liferay.portlet.blogs.service.permission.BlogsPermission;
+>>>>>>> compatible
 import com.liferay.upload.UploadFileEntryHandler;
 
 import java.io.IOException;
@@ -56,9 +79,13 @@ public class ImageBlogsUploadFileEntryHandler
 			(ThemeDisplay)uploadPortletRequest.getAttribute(
 				WebKeys.THEME_DISPLAY);
 
+<<<<<<< HEAD
 		portletResourcePermission.check(
 			themeDisplay.getPermissionChecker(), themeDisplay.getScopeGroup(),
 			ActionKeys.ADD_ENTRY);
+=======
+		_checkPermission(themeDisplay);
+>>>>>>> compatible
 
 		String fileName = uploadPortletRequest.getFileName(_PARAMETER_NAME);
 		long size = uploadPortletRequest.getSize(_PARAMETER_NAME);
@@ -97,8 +124,26 @@ public class ImageBlogsUploadFileEntryHandler
 	@Reference
 	protected BlogsEntryLocalService blogsLocalService;
 
+<<<<<<< HEAD
 	@Reference(target = "(resource.name=" + BlogsConstants.RESOURCE_NAME + ")")
 	protected PortletResourcePermission portletResourcePermission;
+=======
+	private void _checkPermission(ThemeDisplay themeDisplay)
+		throws PortalException {
+
+		PermissionChecker permissionChecker =
+			themeDisplay.getPermissionChecker();
+
+		if (!ResourcePermissionCheckerUtil.containsResourcePermission(
+				permissionChecker, BlogsPermission.RESOURCE_NAME,
+				themeDisplay.getScopeGroupId(), ActionKeys.ADD_ENTRY)) {
+
+			throw new PrincipalException.MustHavePermission(
+				permissionChecker, BlogsPermission.RESOURCE_NAME,
+				themeDisplay.getScopeGroupId(), ActionKeys.ADD_ENTRY);
+		}
+	}
+>>>>>>> compatible
 
 	private void _validateFile(String fileName, long size)
 		throws PortalException {

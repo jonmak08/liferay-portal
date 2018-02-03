@@ -67,8 +67,11 @@ public abstract class BaseJSPMapProvider implements MapProvider {
 		RequestDispatcher requestDispatcher =
 			_servletContext.getRequestDispatcher(jspPath);
 
+<<<<<<< HEAD
 		prepareRequest(request);
 
+=======
+>>>>>>> compatible
 		try {
 			requestDispatcher.include(request, response);
 		}
@@ -81,8 +84,11 @@ public abstract class BaseJSPMapProvider implements MapProvider {
 		return true;
 	}
 
+<<<<<<< HEAD
 	protected abstract void prepareRequest(HttpServletRequest request);
 
+=======
+>>>>>>> compatible
 	private static final Log _log = LogFactoryUtil.getLog(
 		BaseJSPMapProvider.class);
 

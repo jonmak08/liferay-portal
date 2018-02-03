@@ -14,18 +14,30 @@
 
 package com.liferay.portal.library;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
 import com.liferay.portal.kernel.util.PropertiesUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
+=======
+import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
+import com.liferay.portal.kernel.util.CharPool;
+import com.liferay.portal.kernel.util.PropertiesUtil;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
+>>>>>>> compatible
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 
+<<<<<<< HEAD
+=======
+import java.nio.charset.Charset;
+>>>>>>> compatible
 import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -33,6 +45,7 @@ import java.nio.file.Paths;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -41,6 +54,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+=======
+import java.util.Collections;
+import java.util.HashSet;
+>>>>>>> compatible
 import java.util.Properties;
 import java.util.Set;
 
@@ -79,7 +96,10 @@ public class LibraryReferenceTest {
 			documentBuilderFactory.newDocumentBuilder();
 
 		_initEclipse(documentBuilder);
+<<<<<<< HEAD
 		_initIntelliJ(documentBuilder);
+=======
+>>>>>>> compatible
 		_initNetBeans(documentBuilder);
 		_initVersionsJars(documentBuilder, _VERSIONS_FILE_NAME, _versionsJars);
 		_initVersionsJars(
@@ -98,6 +118,7 @@ public class LibraryReferenceTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testIntelliJLibPreModules() {
 		for (Map.Entry<String, List<String>> entry :
 				_intelliJModuleSourceModules.entrySet()) {
@@ -128,6 +149,8 @@ public class LibraryReferenceTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testLibDependencyJarsInGitIgnore() {
 		testMissingJarReferences(_gitIgnoreJars, _GIT_IGNORE_FILE_NAME);
 	}
@@ -307,6 +330,7 @@ public class LibraryReferenceTest {
 		}
 	}
 
+<<<<<<< HEAD
 	private static void _initIntelliJ(DocumentBuilder documentBuilder)
 		throws Exception {
 
@@ -335,6 +359,22 @@ public class LibraryReferenceTest {
 		Path libDirPath = Paths.get(LIB_DIR_NAME);
 
 		_readLines(_excludeJars, libDirPath.resolve("versions-ignore.txt"));
+=======
+	private static void _initLibJars() throws IOException {
+		Path libDirPath = Paths.get(LIB_DIR_NAME);
+
+		for (String line :
+				Files.readAllLines(
+					libDirPath.resolve("versions-ignore.txt"),
+					Charset.forName("UTF-8"))) {
+
+			line = line.trim();
+
+			if (!line.isEmpty()) {
+				_excludeJars.add(line);
+			}
+		}
+>>>>>>> compatible
 
 		Files.walkFileTree(
 			libDirPath,
@@ -409,7 +449,11 @@ public class LibraryReferenceTest {
 
 					String dirName = String.valueOf(dirPath.getFileName());
 
+<<<<<<< HEAD
 					if (!dirName.endsWith("-compat") &&
+=======
+					if (!dirName.equals("util-taglib-compat") &&
+>>>>>>> compatible
 						Files.exists(dirPath.resolve(".lfrbuild-portal-pre"))) {
 
 						Path sourceDirPath = dirPath.resolve(
@@ -487,6 +531,7 @@ public class LibraryReferenceTest {
 		}
 	}
 
+<<<<<<< HEAD
 	private static void _readLines(Set<String> lines, Path path)
 		throws IOException {
 
@@ -507,6 +552,8 @@ public class LibraryReferenceTest {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	private static final String _ECLIPSE_FILE_NAME = ".classpath";
 
 	private static final String _GIT_IGNORE_FILE_NAME =
@@ -532,6 +579,7 @@ public class LibraryReferenceTest {
 	private static final Set<String> _eclipseModuleSourceDirs = new HashSet<>();
 	private static final Set<String> _excludeJars = new HashSet<>();
 	private static final Set<String> _gitIgnoreJars = new HashSet<>();
+<<<<<<< HEAD
 	private static final List<String> _intelliJFileNames = Arrays.asList(
 		"portal-impl/portal-impl.iml", "portal-kernel/portal-kernel.iml",
 		"portal-test-integration/portal-test-integration.iml",
@@ -540,6 +588,8 @@ public class LibraryReferenceTest {
 		"util-slf4j/util-slf4j.iml", "util-taglib/util-taglib.iml");
 	private static final Map<String, List<String>>
 		_intelliJModuleSourceModules = new HashMap<>();
+=======
+>>>>>>> compatible
 	private static final Set<String> _libDependencyJars = new HashSet<>();
 	private static final Set<String> _libJars = new HashSet<>();
 	private static final Set<String> _moduleSourceDirs = new HashSet<>();

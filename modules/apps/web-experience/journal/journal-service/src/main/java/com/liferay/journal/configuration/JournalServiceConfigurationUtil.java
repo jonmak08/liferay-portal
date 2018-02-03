@@ -14,6 +14,7 @@
 
 package com.liferay.journal.configuration;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.configuration.Configuration;
 import com.liferay.portal.kernel.configuration.ConfigurationFactoryUtil;
 import com.liferay.portal.kernel.configuration.Filter;
@@ -26,6 +27,16 @@ import java.io.IOException;
  * @deprecated As of 4.0.0, see {@link JournalServiceConfiguration}
  */
 @Deprecated
+=======
+import com.liferay.petra.content.ContentUtil;
+import com.liferay.portal.kernel.configuration.Configuration;
+import com.liferay.portal.kernel.configuration.ConfigurationFactoryUtil;
+import com.liferay.portal.kernel.configuration.Filter;
+
+/**
+ * @author Eduardo Garcia
+ */
+>>>>>>> compatible
 public class JournalServiceConfigurationUtil {
 
 	public static String get(String key) {
@@ -41,6 +52,7 @@ public class JournalServiceConfigurationUtil {
 	}
 
 	public static String getContent(String location) {
+<<<<<<< HEAD
 		try {
 			return StringUtil.read(
 				JournalServiceConfigurationUtil.class.getClassLoader(),
@@ -49,6 +61,10 @@ public class JournalServiceConfigurationUtil {
 		catch (IOException ioe) {
 			return null;
 		}
+=======
+		return ContentUtil.get(
+			JournalServiceConfigurationUtil.class.getClassLoader(), location);
+>>>>>>> compatible
 	}
 
 	private static final Configuration _configuration =

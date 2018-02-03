@@ -14,8 +14,11 @@
 
 package com.liferay.portal.kernel.search;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.search.facet.Facet;
@@ -24,7 +27,10 @@ import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ListUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ServiceProxyFactory;
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
@@ -36,6 +42,7 @@ import java.util.Map;
 /**
  * @author Tina Tian
  */
+<<<<<<< HEAD
 @ProviderType
 public class DefaultSearchResultPermissionFilter
 	extends BaseSearchResultPermissionFilter {
@@ -67,6 +74,18 @@ public class DefaultSearchResultPermissionFilter
 
 	}
 
+=======
+public class DefaultSearchResultPermissionFilter
+	extends BaseSearchResultPermissionFilter {
+
+	public DefaultSearchResultPermissionFilter(
+		BaseIndexer<?> baseIndexer, PermissionChecker permissionChecker) {
+
+		_baseIndexer = baseIndexer;
+		_permissionChecker = permissionChecker;
+	}
+
+>>>>>>> compatible
 	@Override
 	protected void filterHits(Hits hits, SearchContext searchContext) {
 		List<Document> docs = new ArrayList<>();
@@ -116,7 +135,11 @@ public class DefaultSearchResultPermissionFilter
 
 	@Override
 	protected Hits getHits(SearchContext searchContext) throws SearchException {
+<<<<<<< HEAD
 		return _searchExecutor.search(searchContext);
+=======
+		return _baseIndexer.doSearch(searchContext);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -167,6 +190,7 @@ public class DefaultSearchResultPermissionFilter
 		try {
 			if (indexer.hasPermission(
 					_permissionChecker, entryClassName, entryClassPK,
+<<<<<<< HEAD
 					ActionKeys.VIEW)) {
 
 				List<RelatedEntryIndexer> relatedEntryIndexers =
@@ -181,6 +205,10 @@ public class DefaultSearchResultPermissionFilter
 							entryClassPK, status);
 					}
 				}
+=======
+					ActionKeys.VIEW) &&
+				indexer.isVisibleRelatedEntry(entryClassPK, status)) {
+>>>>>>> compatible
 
 				return true;
 			}
@@ -202,7 +230,12 @@ public class DefaultSearchResultPermissionFilter
 			FacetPostProcessor.class, DefaultSearchResultPermissionFilter.class,
 			"_facetPostProcessor", false, true);
 
+<<<<<<< HEAD
 	private final PermissionChecker _permissionChecker;
 	private final SearchExecutor _searchExecutor;
+=======
+	private final BaseIndexer<?> _baseIndexer;
+	private final PermissionChecker _permissionChecker;
+>>>>>>> compatible
 
 }

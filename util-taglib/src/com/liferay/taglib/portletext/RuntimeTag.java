@@ -40,9 +40,17 @@ import com.liferay.portal.kernel.service.PortletPreferencesLocalServiceUtil;
 import com.liferay.portal.kernel.service.permission.LayoutPermissionUtil;
 import com.liferay.portal.kernel.servlet.DynamicServletRequest;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.PortletKeys;
+=======
+import com.liferay.portal.kernel.util.AutoResetThreadLocal;
+import com.liferay.portal.kernel.util.MapUtil;
+import com.liferay.portal.kernel.util.PortalUtil;
+import com.liferay.portal.kernel.util.PortletKeys;
+import com.liferay.portal.kernel.util.PrefixPredicateFilter;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
@@ -167,6 +175,7 @@ public class RuntimeTag extends TagSupport implements DirectTag {
 			}
 		}
 
+<<<<<<< HEAD
 		HttpServletRequest originalRequest =
 			PortalUtil.getOriginalServletRequest(request);
 
@@ -183,10 +192,32 @@ public class RuntimeTag extends TagSupport implements DirectTag {
 				PortletIdCodec.decodePortletName(portletName),
 				PortletIdCodec.decodeUserId(portletName), instanceId);
 		}
+=======
+		String portletInstanceKey = portletName;
+
+		if (Validator.isNotNull(instanceId)) {
+			portletInstanceKey = PortletIdCodec.encode(
+				PortletIdCodec.decodePortletName(portletName),
+				PortletIdCodec.decodeUserId(portletName), instanceId);
+		}
+
+		RestrictPortletServletRequest restrictPortletServletRequest =
+			new RestrictPortletServletRequest(
+				PortalUtil.getOriginalServletRequest(request));
+
+		queryString = PortletParameterUtil.addNamespace(
+			portletInstanceKey, queryString);
+>>>>>>> compatible
 
 		if (!Objects.equals(
 				portletInstanceKey, request.getParameter("p_p_id"))) {
 
+<<<<<<< HEAD
+=======
+		if (!Objects.equals(
+				portletInstanceKey, request.getParameter("p_p_id"))) {
+
+>>>>>>> compatible
 			parameterMap = MapUtil.filterByKeys(
 				parameterMap, key -> !key.startsWith("p_p_"));
 		}
@@ -251,6 +282,7 @@ public class RuntimeTag extends TagSupport implements DirectTag {
 			Layout layout = themeDisplay.getLayout();
 
 			request.setAttribute(WebKeys.SETTINGS_SCOPE, settingsScope);
+<<<<<<< HEAD
 
 			JSONObject jsonObject = null;
 
@@ -258,6 +290,18 @@ public class RuntimeTag extends TagSupport implements DirectTag {
 
 			if (persistSettings &&
 				!themeDisplay.isPortletEmbedded(portlet.getPortletId())) {
+=======
+
+			JSONObject jsonObject = null;
+
+			boolean writeObject = false;
+
+			LayoutTypePortlet layoutTypePortlet =
+				themeDisplay.getLayoutTypePortlet();
+
+			if (persistSettings &&
+				!layoutTypePortlet.isPortletEmbedded(portlet.getPortletId())) {
+>>>>>>> compatible
 
 				PortletPreferencesFactoryUtil.getLayoutPortletSetup(
 					themeDisplay.getCompanyId(), themeDisplay.getScopeGroupId(),
@@ -437,7 +481,11 @@ public class RuntimeTag extends TagSupport implements DirectTag {
 	private static final Log _log = LogFactoryUtil.getLog(RuntimeTag.class);
 
 	private static final ThreadLocal<Stack<String>> _embeddedPortletIds =
+<<<<<<< HEAD
 		new CentralizedThreadLocal<>(RuntimeTag.class + "._embeddedPortletIds");
+=======
+		new AutoResetThreadLocal<>(RuntimeTag.class + "._embeddedPortletIds");
+>>>>>>> compatible
 
 	private String _defaultPreferences;
 	private String _instanceId;

@@ -98,9 +98,14 @@ public class VerifySQLServer extends VerifyProcess {
 
 		if (_log.isInfoEnabled()) {
 			_log.info(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Updating ", tableName, ".", columnName, " to use ",
 					"nvarchar(max)"));
+=======
+				"Updating " + tableName + "." + columnName + " to use " +
+					"nvarchar(max)");
+>>>>>>> compatible
 		}
 
 		StringBundler sb = new StringBundler(4);
@@ -245,6 +250,7 @@ public class VerifySQLServer extends VerifyProcess {
 		List<String> columnNames = new ArrayList<>();
 
 		StringBundler sb = new StringBundler(9);
+<<<<<<< HEAD
 
 		sb.append("select distinct syscolumns.name as column_name from ");
 		sb.append("sysobjects inner join syscolumns on sysobjects.id = ");
@@ -258,6 +264,21 @@ public class VerifySQLServer extends VerifyProcess {
 
 		String sql = sb.toString();
 
+=======
+
+		sb.append("select distinct syscolumns.name as column_name from ");
+		sb.append("sysobjects inner join syscolumns on sysobjects.id = ");
+		sb.append("syscolumns.id inner join sysindexes on sysobjects.id = ");
+		sb.append("sysindexes.id inner join sysindexkeys on ((sysobjects.id ");
+		sb.append("= sysindexkeys.id) and (syscolumns.colid = ");
+		sb.append("sysindexkeys.colid) and (sysindexes.indid = ");
+		sb.append("sysindexkeys.indid)) where sysindexes.name = '");
+		sb.append(indexName);
+		sb.append("'");
+
+		String sql = sb.toString();
+
+>>>>>>> compatible
 		try (PreparedStatement ps = connection.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery()) {
 

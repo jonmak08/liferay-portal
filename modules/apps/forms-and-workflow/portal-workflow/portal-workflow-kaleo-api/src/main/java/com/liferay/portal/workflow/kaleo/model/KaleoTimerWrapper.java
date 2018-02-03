@@ -66,7 +66,11 @@ public class KaleoTimerWrapper implements KaleoTimer, ModelWrapper<KaleoTimer> {
 		attributes.put("modifiedDate", getModifiedDate());
 		attributes.put("kaleoClassName", getKaleoClassName());
 		attributes.put("kaleoClassPK", getKaleoClassPK());
+<<<<<<< HEAD
 		attributes.put("kaleoDefinitionVersionId", getKaleoDefinitionVersionId());
+=======
+		attributes.put("kaleoDefinitionId", getKaleoDefinitionId());
+>>>>>>> compatible
 		attributes.put("name", getName());
 		attributes.put("blocking", getBlocking());
 		attributes.put("description", getDescription());
@@ -134,11 +138,18 @@ public class KaleoTimerWrapper implements KaleoTimer, ModelWrapper<KaleoTimer> {
 			setKaleoClassPK(kaleoClassPK);
 		}
 
+<<<<<<< HEAD
 		Long kaleoDefinitionVersionId = (Long)attributes.get(
 				"kaleoDefinitionVersionId");
 
 		if (kaleoDefinitionVersionId != null) {
 			setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
+=======
+		Long kaleoDefinitionId = (Long)attributes.get("kaleoDefinitionId");
+
+		if (kaleoDefinitionId != null) {
+			setKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 		}
 
 		String name = (String)attributes.get("name");
@@ -280,6 +291,7 @@ public class KaleoTimerWrapper implements KaleoTimer, ModelWrapper<KaleoTimer> {
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns the kaleo definition version ID of this kaleo timer.
 	*
 	* @return the kaleo definition version ID of this kaleo timer
@@ -287,6 +299,15 @@ public class KaleoTimerWrapper implements KaleoTimer, ModelWrapper<KaleoTimer> {
 	@Override
 	public long getKaleoDefinitionVersionId() {
 		return _kaleoTimer.getKaleoDefinitionVersionId();
+=======
+	* Returns the kaleo definition ID of this kaleo timer.
+	*
+	* @return the kaleo definition ID of this kaleo timer
+	*/
+	@Override
+	public long getKaleoDefinitionId() {
+		return _kaleoTimer.getKaleoDefinitionId();
+>>>>>>> compatible
 	}
 
 	@Override
@@ -541,6 +562,7 @@ public class KaleoTimerWrapper implements KaleoTimer, ModelWrapper<KaleoTimer> {
 	}
 
 	/**
+<<<<<<< HEAD
 	* Sets the kaleo definition version ID of this kaleo timer.
 	*
 	* @param kaleoDefinitionVersionId the kaleo definition version ID of this kaleo timer
@@ -548,6 +570,15 @@ public class KaleoTimerWrapper implements KaleoTimer, ModelWrapper<KaleoTimer> {
 	@Override
 	public void setKaleoDefinitionVersionId(long kaleoDefinitionVersionId) {
 		_kaleoTimer.setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
+=======
+	* Sets the kaleo definition ID of this kaleo timer.
+	*
+	* @param kaleoDefinitionId the kaleo definition ID of this kaleo timer
+	*/
+	@Override
+	public void setKaleoDefinitionId(long kaleoDefinitionId) {
+		_kaleoTimer.setKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 	/**

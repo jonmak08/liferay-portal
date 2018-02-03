@@ -21,12 +21,18 @@ String searchContainerId = ParamUtil.getString(request, "searchContainerId");
 
 String displayStyle = GetterUtil.getString((String)request.getAttribute("view.jsp-displayStyle"));
 SearchContainer groupSearch = (SearchContainer)request.getAttribute("view.jsp-groupSearchContainer");
+<<<<<<< HEAD
 %>
 
 <clay:navigation-bar
 	inverted="<%= true %>"
 	items="<%= siteAdminDisplayContext.getNavigationItems() %>"
 />
+=======
+
+PortletURL portletURL = siteAdminDisplayContext.getPortletURL();
+%>
+>>>>>>> compatible
 
 <liferay-frontend:management-bar
 	includeCheckBox="<%= true %>"
@@ -52,13 +58,18 @@ SearchContainer groupSearch = (SearchContainer)request.getAttribute("view.jsp-gr
 	<liferay-frontend:management-bar-filters>
 		<liferay-frontend:management-bar-navigation
 			navigationKeys='<%= new String[] {"all"} %>'
+<<<<<<< HEAD
 			portletURL="<%= siteAdminDisplayContext.getPortletURL() %>"
+=======
+			portletURL="<%= portletURL %>"
+>>>>>>> compatible
 		/>
 
 		<liferay-frontend:management-bar-sort
 			orderByCol="<%= groupSearch.getOrderByCol() %>"
 			orderByType="<%= groupSearch.getOrderByType() %>"
 			orderColumns='<%= new String[] {"name"} %>'
+<<<<<<< HEAD
 			portletURL="<%= siteAdminDisplayContext.getPortletURL() %>"
 		/>
 
@@ -75,6 +86,10 @@ SearchContainer groupSearch = (SearchContainer)request.getAttribute("view.jsp-gr
 				<liferay-ui:input-search markupView="lexicon" />
 			</aui:form>
 		</li>
+=======
+			portletURL="<%= portletURL %>"
+		/>
+>>>>>>> compatible
 	</liferay-frontend:management-bar-filters>
 
 	<liferay-frontend:management-bar-action-buttons>

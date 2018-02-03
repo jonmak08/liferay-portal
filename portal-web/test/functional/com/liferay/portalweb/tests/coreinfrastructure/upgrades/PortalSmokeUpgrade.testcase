@@ -14,6 +14,10 @@
 
 	<command name="ViewPortalSmokeArchive6012" priority="5">
 		<property name="data.archive.type" value="data-archive-portal" />
+<<<<<<< HEAD
+=======
+		<property name="portal.upgrades" value="true" />
+>>>>>>> compatible
 		<property name="portal.version" value="6.0.12" />
 		<property name="test.assert.warning.exceptions" value="true" />
 
@@ -76,6 +80,7 @@
 
 		<execute macro="Upgrade#searchForAssetsAfterUpgrade" />
 	</command>
+<<<<<<< HEAD
 
 	<command ignore="true" name="ViewPortalSmokeArchive70106" priority="5">
 		<property name="data.archive.type" value="data-archive-portal" />
@@ -98,4 +103,6 @@
 
 		<execute macro="Upgrade#searchForAssetsAfterUpgrade" />
 	</command>
+=======
+>>>>>>> compatible
 </definition>

@@ -19,6 +19,10 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import com.liferay.wsrp.model.WSRPConsumerPortlet;
 
@@ -95,7 +99,11 @@ public class WSRPConsumerPortletCacheModel implements CacheModel<WSRPConsumerPor
 		WSRPConsumerPortletImpl wsrpConsumerPortletImpl = new WSRPConsumerPortletImpl();
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			wsrpConsumerPortletImpl.setUuid("");
+=======
+			wsrpConsumerPortletImpl.setUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			wsrpConsumerPortletImpl.setUuid(uuid);
@@ -121,14 +129,22 @@ public class WSRPConsumerPortletCacheModel implements CacheModel<WSRPConsumerPor
 		wsrpConsumerPortletImpl.setWsrpConsumerId(wsrpConsumerId);
 
 		if (name == null) {
+<<<<<<< HEAD
 			wsrpConsumerPortletImpl.setName("");
+=======
+			wsrpConsumerPortletImpl.setName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			wsrpConsumerPortletImpl.setName(name);
 		}
 
 		if (portletHandle == null) {
+<<<<<<< HEAD
 			wsrpConsumerPortletImpl.setPortletHandle("");
+=======
+			wsrpConsumerPortletImpl.setPortletHandle(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			wsrpConsumerPortletImpl.setPortletHandle(portletHandle);
@@ -166,7 +182,11 @@ public class WSRPConsumerPortletCacheModel implements CacheModel<WSRPConsumerPor
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		if (uuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(uuid);
@@ -181,14 +201,22 @@ public class WSRPConsumerPortletCacheModel implements CacheModel<WSRPConsumerPor
 		objectOutput.writeLong(wsrpConsumerId);
 
 		if (name == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(name);
 		}
 
 		if (portletHandle == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(portletHandle);

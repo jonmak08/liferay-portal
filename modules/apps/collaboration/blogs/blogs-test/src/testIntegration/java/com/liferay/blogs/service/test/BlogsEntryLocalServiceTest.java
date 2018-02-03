@@ -17,6 +17,7 @@ package com.liferay.blogs.service.test;
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
 import com.liferay.asset.kernel.model.AssetEntry;
 import com.liferay.asset.kernel.service.AssetEntryLocalServiceUtil;
+<<<<<<< HEAD
 import com.liferay.blogs.constants.BlogsConstants;
 import com.liferay.blogs.exception.EntryContentException;
 import com.liferay.blogs.exception.EntryTitleException;
@@ -27,6 +28,15 @@ import com.liferay.blogs.test.util.BlogsTestUtil;
 import com.liferay.blogs.util.BlogsUtil;
 import com.liferay.message.boards.kernel.service.MBMessageLocalServiceUtil;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.blogs.kernel.exception.EntryContentException;
+import com.liferay.blogs.kernel.exception.EntryTitleException;
+import com.liferay.blogs.kernel.exception.NoSuchEntryException;
+import com.liferay.blogs.kernel.model.BlogsEntry;
+import com.liferay.blogs.kernel.service.BlogsEntryLocalServiceUtil;
+import com.liferay.blogs.test.util.BlogsTestUtil;
+import com.liferay.message.boards.kernel.service.MBMessageLocalServiceUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.QueryDefinition;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -39,9 +49,18 @@ import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.Folder;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.service.ServiceContext;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.servlet.taglib.ui.ImageSelector;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+=======
+import com.liferay.portal.kernel.service.SubscriptionLocalServiceUtil;
+import com.liferay.portal.kernel.servlet.taglib.ui.ImageSelector;
+import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.OrganizationTestUtil;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
@@ -52,12 +71,21 @@ import com.liferay.portal.kernel.util.CalendarFactoryUtil;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.MimeTypesUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.TempFileEntryUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.service.test.ServiceTestUtil;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.subscription.service.SubscriptionLocalServiceUtil;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.TempFileEntryUtil;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+import com.liferay.portal.test.rule.PermissionCheckerTestRule;
+import com.liferay.portlet.blogs.constants.BlogsConstants;
+>>>>>>> compatible
 
 import java.io.InputStream;
 
@@ -77,17 +105,29 @@ import org.junit.runner.RunWith;
  * @author Manuel de la Peña
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class BlogsEntryLocalServiceTest {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			PermissionCheckerTestRule.INSTANCE,
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Before
 	public void setUp() throws Exception {
 		_group = GroupTestUtil.addGroup();
 		_user = TestPropsValues.getUser();
+<<<<<<< HEAD
 
 		ServiceTestUtil.setUser(TestPropsValues.getUser());
 	}
@@ -130,6 +170,8 @@ public class BlogsEntryLocalServiceTest {
 			_group.getGroupId(), _statusAnyQueryDefinition);
 
 		Assert.assertEquals(initialCount + 1, actualCount);
+=======
+>>>>>>> compatible
 	}
 
 	@Test
@@ -157,7 +199,11 @@ public class BlogsEntryLocalServiceTest {
 
 		BlogsEntryLocalServiceUtil.addEntry(
 			_user.getUserId(), RandomTestUtil.randomString(), content,
+<<<<<<< HEAD
 			serviceContext);
+=======
+			new Date(), serviceContext);
+>>>>>>> compatible
 	}
 
 	@Test(expected = EntryTitleException.class)
@@ -171,7 +217,11 @@ public class BlogsEntryLocalServiceTest {
 			ServiceContextTestUtil.getServiceContext(_group, _user.getUserId());
 
 		BlogsEntryLocalServiceUtil.addEntry(
+<<<<<<< HEAD
 			_user.getUserId(), title, RandomTestUtil.randomString(),
+=======
+			_user.getUserId(), title, RandomTestUtil.randomString(), new Date(),
+>>>>>>> compatible
 			serviceContext);
 	}
 
@@ -183,7 +233,11 @@ public class BlogsEntryLocalServiceTest {
 
 		BlogsEntry blogsEntry = BlogsEntryLocalServiceUtil.addEntry(
 			_user.getUserId(), RandomTestUtil.randomString(),
+<<<<<<< HEAD
 			RandomTestUtil.randomString(), serviceContext);
+=======
+			RandomTestUtil.randomString(), new Date(), serviceContext);
+>>>>>>> compatible
 
 		FileEntry tempFileEntry = getTempFileEntry(
 			_user.getUserId(), _group.getGroupId(), "image.jpg");
@@ -396,6 +450,7 @@ public class BlogsEntryLocalServiceTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testGetEntryByGroupAndOldUrlTitle() throws Exception {
 		BlogsEntry expectedEntry = addEntry(false);
 
@@ -426,6 +481,8 @@ public class BlogsEntryLocalServiceTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testGetEntryByGroupAndUrlTitle() throws Exception {
 		BlogsEntry expectedEntry = addEntry(false);
 
@@ -579,6 +636,7 @@ public class BlogsEntryLocalServiceTest {
 		testGetOrganizationEntries(false);
 	}
 
+<<<<<<< HEAD
 	@Test(expected = EntryTitleException.class)
 	public void testPublishWithBlankTitle() throws Exception {
 		ServiceContext serviceContext =
@@ -609,6 +667,8 @@ public class BlogsEntryLocalServiceTest {
 			serviceContext);
 	}
 
+=======
+>>>>>>> compatible
 	@Test
 	public void testSubscribe() throws Exception {
 		int initialCount =
@@ -652,6 +712,7 @@ public class BlogsEntryLocalServiceTest {
 			entry, new String[] {ActionKeys.ADD_DISCUSSION}, null);
 	}
 
+<<<<<<< HEAD
 	@Test
 	public void testURLTitleIsNotUpdatedWhenUpdatingEntryTitle()
 		throws Exception {
@@ -757,6 +818,8 @@ public class BlogsEntryLocalServiceTest {
 		Assert.assertTrue(Validator.isNotNull(entry.getUrlTitle()));
 	}
 
+=======
+>>>>>>> compatible
 	protected BlogsEntry addEntry(boolean statusInTrash) throws Exception {
 		return addEntry(_user.getUserId(), statusInTrash);
 	}
@@ -822,7 +885,11 @@ public class BlogsEntryLocalServiceTest {
 		ClassLoader classLoader = clazz.getClassLoader();
 
 		InputStream inputStream = classLoader.getResourceAsStream(
+<<<<<<< HEAD
 			"com/liferay/blogs/dependencies/test.jpg");
+=======
+			"com/liferay/portal/util/dependencies/test.jpg");
+>>>>>>> compatible
 
 		return TempFileEntryUtil.addTempFileEntry(
 			groupId, userId, BlogsEntry.class.getName(), title, inputStream,

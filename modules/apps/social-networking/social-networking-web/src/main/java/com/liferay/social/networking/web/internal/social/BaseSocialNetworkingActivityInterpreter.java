@@ -23,7 +23,11 @@ import com.liferay.portal.kernel.util.ResourceBundleLoaderUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.social.kernel.model.BaseSocialActivityInterpreter;
 import com.liferay.social.kernel.model.SocialActivity;
+<<<<<<< HEAD
 import com.liferay.social.networking.web.internal.friends.social.FriendsActivityKeys;
+=======
+import com.liferay.social.networking.friends.social.FriendsActivityKeys;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Reference;
 

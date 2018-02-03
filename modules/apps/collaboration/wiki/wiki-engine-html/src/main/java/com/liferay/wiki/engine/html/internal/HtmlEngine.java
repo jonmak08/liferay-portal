@@ -14,7 +14,10 @@
 
 package com.liferay.wiki.engine.html.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -23,12 +26,21 @@ import com.liferay.portal.kernel.portlet.Router;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.ResourceBundleLoader;
 import com.liferay.portal.kernel.util.ResourceBundleLoaderUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.wiki.configuration.WikiGroupServiceConfiguration;
 import com.liferay.wiki.constants.WikiPortletKeys;
+<<<<<<< HEAD
 import com.liferay.wiki.engine.BaseWikiEngine;
 import com.liferay.wiki.engine.WikiEngine;
+=======
+import com.liferay.wiki.engine.WikiEngine;
+import com.liferay.wiki.engine.input.editor.common.BaseInputEditorWikiEngine;
+>>>>>>> compatible
 import com.liferay.wiki.exception.NoSuchNodeException;
 import com.liferay.wiki.exception.PageContentException;
 import com.liferay.wiki.model.WikiPage;
@@ -53,7 +65,11 @@ import org.osgi.service.component.annotations.Reference;
  * @author Zsigmond Rab
  */
 @Component(service = WikiEngine.class)
+<<<<<<< HEAD
 public class HtmlEngine extends BaseWikiEngine {
+=======
+public class HtmlEngine extends BaseInputEditorWikiEngine {
+>>>>>>> compatible
 
 	@Override
 	public String getEditorName() {
@@ -93,11 +109,14 @@ public class HtmlEngine extends BaseWikiEngine {
 	}
 
 	@Override
+<<<<<<< HEAD
 	protected ServletContext getEditPageServletContext() {
 		return _servletContext;
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	protected ServletContext getHelpPageServletContext() {
 		return null;
 	}
@@ -209,12 +228,15 @@ public class HtmlEngine extends BaseWikiEngine {
 
 	private String _friendlyURLMapping;
 	private Router _router;
+<<<<<<< HEAD
 
 	@Reference(
 		target = "(osgi.web.symbolicname=com.liferay.wiki.engine.input.editor.common)"
 	)
 	private ServletContext _servletContext;
 
+=======
+>>>>>>> compatible
 	private WikiGroupServiceConfiguration _wikiGroupServiceConfiguration;
 	private WikiNodeLocalService _wikiNodeLocalService;
 

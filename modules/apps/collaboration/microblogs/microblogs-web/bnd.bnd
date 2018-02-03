@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Microblogs Web
 Bundle-SymbolicName: com.liferay.microblogs.web
+<<<<<<< HEAD
 Bundle-Version: 2.0.25
+=======
+Bundle-Version: 2.0.18
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Microblogs
 Web-ContextPath: /microblogs-web

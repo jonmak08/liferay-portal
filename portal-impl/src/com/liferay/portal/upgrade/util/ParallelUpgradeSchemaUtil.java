@@ -14,16 +14,27 @@
 
 package com.liferay.portal.upgrade.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.executor.PortalExecutorManager;
 import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.dao.db.DBManagerUtil;
 import com.liferay.portal.kernel.util.LoggingTimer;
 import com.liferay.portal.kernel.util.ServiceProxyFactory;
+=======
+import com.liferay.portal.kernel.concurrent.ThreadPoolExecutor;
+import com.liferay.portal.kernel.dao.db.DB;
+import com.liferay.portal.kernel.dao.db.DBManagerUtil;
+import com.liferay.portal.kernel.executor.PortalExecutorManagerUtil;
+import com.liferay.portal.kernel.util.LoggingTimer;
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
+<<<<<<< HEAD
 import java.util.concurrent.ExecutorService;
+=======
+>>>>>>> compatible
 import java.util.concurrent.Future;
 
 /**
@@ -32,8 +43,13 @@ import java.util.concurrent.Future;
 public class ParallelUpgradeSchemaUtil {
 
 	public static void execute(String... sqlFileNames) throws Exception {
+<<<<<<< HEAD
 		ExecutorService executorService =
 			_portalExecutorManager.getPortalExecutor(
+=======
+		ThreadPoolExecutor threadPoolExecutor =
+			PortalExecutorManagerUtil.getPortalExecutor(
+>>>>>>> compatible
 				ParallelUpgradeSchemaUtil.class.getName());
 
 		List<Future<Void>> futures = new ArrayList<>(sqlFileNames.length);
@@ -41,7 +57,11 @@ public class ParallelUpgradeSchemaUtil {
 		try {
 			for (String sqlFileName : sqlFileNames) {
 				futures.add(
+<<<<<<< HEAD
 					executorService.submit(
+=======
+					threadPoolExecutor.submit(
+>>>>>>> compatible
 						new CallableSQLExecutor(sqlFileName)));
 			}
 
@@ -50,6 +70,7 @@ public class ParallelUpgradeSchemaUtil {
 			}
 		}
 		finally {
+<<<<<<< HEAD
 			executorService.shutdown();
 		}
 	}
@@ -59,6 +80,12 @@ public class ParallelUpgradeSchemaUtil {
 			PortalExecutorManager.class, ParallelUpgradeSchemaUtil.class,
 			"_portalExecutorManager", true);
 
+=======
+			threadPoolExecutor.shutdown();
+		}
+	}
+
+>>>>>>> compatible
 	private static class CallableSQLExecutor implements Callable<Void> {
 
 		@Override

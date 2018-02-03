@@ -46,8 +46,17 @@
 		<execute macro="AlloyEditor#addContent">
 			<var name="content" value="${entryContent}" />
 		</execute>
+<<<<<<< HEAD
 
 		<execute macro="ItemSelector#gotoItemSelectorViaAlloyEditor" />
+=======
+
+		<execute function="Click" locator1="AlloyEditor#CONTENT_FIELD" />
+
+		<execute function="Click" locator1="AlloyEditor#CONTENT_ADD_BUTTON" />
+
+		<execute function="Click" locator1="AlloyEditor#CONTENT_ADD_MENUBAR_IMAGE" />
+>>>>>>> compatible
 
 		<execute macro="ItemSelector#uploadFile">
 			<var name="navTab" value="${navTab}" />
@@ -58,9 +67,13 @@
 	<command name="addCustomAbstract">
 		<execute function="Click" locator1="Radio#CUSTOM_ABSTRACT" />
 
+<<<<<<< HEAD
 		<execute macro="PortletEntry#inputDescription">
 			<var name="description" value="${entryAbstractDescription}" />
 		</execute>
+=======
+		<execute function="Type" locator1="TextInput#DESCRIPTION" value1="${entryAbstractDescription}" />
+>>>>>>> compatible
 	</command>
 
 	<command name="addCustomURL">
@@ -105,10 +118,14 @@
 	</command>
 
 	<command name="addSubtitle">
+<<<<<<< HEAD
 		<execute macro="AlloyEditor#typeEditor">
 			<var name="content" value="${entrySubtitle}" />
 			<var name="editor" value="subtitle" />
 		</execute>
+=======
+		<execute function="Type#typeEditor" locator1="AlloyEditor#SUBTITLE_FIELD" value1="${entrySubtitle}" />
+>>>>>>> compatible
 	</command>
 
 	<command name="addTag">
@@ -169,6 +186,7 @@
 		</if>
 
 		<execute macro="BlogsNavigator#gotoAddEntry" />
+<<<<<<< HEAD
 
 		<execute macro="BlogsEntry#addEntryContent">
 			<var name="entryContent" value="${entryContent2}" />
@@ -193,10 +211,24 @@
 		</execute>
 
 		<execute function="AssertClick" locator1="Button#SUBMIT_FOR_PUBLICATION" value1="Submit for Publication" />
+=======
+
+		<execute macro="BlogsEntry#addEntryContent">
+			<var name="entryContent" value="${entryContent2}" />
+			<var name="entryTitle" value="${entryTitle2}" />
+		</execute>
+
+		<execute macro="BlogsNavigator#gotoAbstractField" />
+
+		<execute function="Paste" locator1="AlloyEditor#TRACKBACKS_TO_SEND" />
+
+		<execute function="AssertClick" locator1="Button#PUBLISH" value1="Publish" />
+>>>>>>> compatible
 
 		<execute macro="Alert#viewSuccessMessage" />
 	</command>
 
+<<<<<<< HEAD
 	<command name="addWithWorkflowPGViaAP">
 		<execute function="MouseOver#mouseOverNotVisible" locator1="AP#ADD_ASSET_PLUS_ICON" />
 
@@ -212,6 +244,31 @@
 			<var name="title" value="${entryTitle}" />
 		</execute>
 
+=======
+	<command name="addWithWorkflowPG">
+		<execute macro="BlogsNavigator#gotoAddEntry" />
+
+		<execute macro="BlogsEntry#addEntryContent">
+			<var name="entryContent" value="${entryContent}" />
+			<var name="entryTitle" value="${entryTitle}" />
+		</execute>
+
+		<execute function="AssertClick" locator1="Button#SUBMIT_FOR_PUBLICATION" value1="Submit for Publication" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+	</command>
+
+	<command name="addWithWorkflowPGViaAP">
+		<execute function="Click#makeVisibleClickAt" locator1="AP#ADD_ASSET_PLUS_ICON" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Blogs Entry">
+			<var name="key_menuItem" value="Blogs Entry" />
+		</execute>
+
+		<execute function="SelectFrame" locator1="IFrame#DIALOG" />
+
+		<execute function="Type" locator1="BlogsEntry#TITLE" value1="${entryTitle}" />
+>>>>>>> compatible
 		<execute function="Type" locator1="BlogsEntry#CONTENT" value1="${entryContent}" />
 
 		<execute function="AssertClick" locator1="Button#SUBMIT_FOR_PUBLICATION" value1="Submit for Publication" />
@@ -239,6 +296,7 @@
 		<execute macro="AlloyEditor#addContent">
 			<var name="content" value="${entryContentEdit}" />
 		</execute>
+<<<<<<< HEAD
 	</command>
 
 	<command name="editContentViaCardViewPG">
@@ -278,6 +336,17 @@
 		<var name="displayDate" value="${displayDateMonth}/${displayDateDay}/${displayDateYear}" />
 
 		<execute function="Type" locator1="TextInput#DISPLAY_DATE" value1="${displayDate}" />
+=======
+	</command>
+
+	<command name="editContentViaCardViewPG">
+		<execute macro="PortletEntry#clickEditFromEllipsis" />
+
+		<execute macro="BlogsEntry#editContent">
+			<var name="entryContent" value="${entryContent}" />
+			<var name="entryContentEdit" value="${entryContentEdit}" />
+		</execute>
+>>>>>>> compatible
 	</command>
 
 	<command name="editEntryContent">
@@ -323,10 +392,14 @@
 			<var name="key_editor" value="subtitle" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="AlloyEditor#typeEditor">
 			<var name="content" value="${entrySubtitleEdit}" />
 			<var name="editor" value="subtitle" />
 		</execute>
+=======
+		<execute function="Type#typeEditor" locator1="AlloyEditor#SUBTITLE_FIELD" value1="${entrySubtitleEdit}" />
+>>>>>>> compatible
 	</command>
 
 	<command name="editTitle">
@@ -505,8 +578,13 @@
 
 	<command name="removeViewPermissionsPG">
 		<var name="key_assetHeader" value="${entryTitle}" />
+<<<<<<< HEAD
 		<var method="StringUtil#replace('${roleTitle}', ' ', '-')" name="key_roleTitle" />
 		<var method="StringUtil#lowerCase('${key_roleTitle}')" name="key_roleTitle" />
+=======
+		<var method="StringUtil#replace('${roleName}', ' ', '-')" name="key_roleName" />
+		<var method="StringUtil#lowerCase('${key_roleName}')" name="key_roleName" />
+>>>>>>> compatible
 
 		<execute function="Click" locator1="Icon#DESCRIPTIVE_HEADER_VERTICAL_ELLIPSIS" />
 
@@ -538,18 +616,31 @@
 	</command>
 
 	<command name="scheduleBlogEntry">
+<<<<<<< HEAD
 		<var method="selenium#getElementValue(TextInput#DISPLAY_DATE_DAY)" name="displayDateDay" />
 		<var method="selenium#getElementValue(TextInput#DISPLAY_DATE_MONTH)" name="displayDateMonth" />
 
 		<var method="MathUtil#sum('${displayDateMonth}','1')" name="displayDateMonth" />
 
 		<var method="selenium#getElementValue(TextInput#DISPLAY_DATE_YEAR)" name="displayDateYear" />
+=======
+		<var locator="TextInput#DISPLAY_DATE_DAY" name="displayDateDay" />
+		<var locator="TextInput#DISPLAY_DATE_MONTH" name="displayDateMonth" />
+
+		<var method="MathUtil#sum('${displayDateMonth}','1')" name="displayDateMonth" />
+
+		<var locator="TextInput#DISPLAY_DATE_YEAR" name="displayDateYear" />
+>>>>>>> compatible
 
 		<var name="displayDate" value="${displayDateMonth}/${displayDateDay}/${displayDateYear}" />
 
 		<execute function="Type" locator1="TextInput#DISPLAY_DATE" value1="${displayDate}" />
 
+<<<<<<< HEAD
 		<var method="selenium#getElementValue(TextInput#DISPLAY_DATE_HOUR)" name="displayDateHour" />
+=======
+		<var locator="TextInput#DISPLAY_DATE_HOUR" name="displayDateHour" />
+>>>>>>> compatible
 
 		<var name="displayDateHourLength" value="${displayDateHour?length()}" />
 
@@ -560,7 +651,11 @@
 			</then>
 		</if>
 
+<<<<<<< HEAD
 		<var method="selenium#getElementValue(TextInput#DISPLAY_DATE_MINUTE)" name="displayDateMinute" />
+=======
+		<var locator="TextInput#DISPLAY_DATE_MINUTE" name="displayDateMinute" />
+>>>>>>> compatible
 
 		<var method="MathUtil#sum('${displayDateMinute}','3')" name="displayDateMinuteFuture" />
 
@@ -573,7 +668,11 @@
 			</then>
 		</if>
 
+<<<<<<< HEAD
 		<var method="selenium#getElementValue(TextInput#DISPLAY_DATE_MERIDIAN)" name="displayDateMeridian" />
+=======
+		<var locator="TextInput#DISPLAY_DATE_MERIDIAN" name="displayDateMeridian" />
+>>>>>>> compatible
 
 		<var method="StringUtil#replace('${displayDateMeridian}', '0', 'AM')" name="displayDateMeridian" />
 		<var method="StringUtil#replace('${displayDateMeridian}', '1', 'PM')" name="displayDateMeridian" />
@@ -587,9 +686,15 @@
 		<var name="key_entryContent" value="${entryContent}" />
 		<var name="key_entryTitle" value="${entryTitle}" />
 
+<<<<<<< HEAD
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="${entrySearchTerm}" />
 		</execute>
+=======
+		<execute function="Type" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${entrySearchTerm}" />
+
+		<execute function="KeyPress" locator1="NavBar#BASIC_SEARCH_FIELD" value1="\RETURN" />
+>>>>>>> compatible
 
 		<execute function="AssertTextEquals" locator1="Blogs#DESCRIPTIVE_VIEW_ENTRY_TITLE" value1="${entryTitle}" />
 	</command>
@@ -598,9 +703,15 @@
 		<var name="key_entryContent" value="${entryContent}" />
 		<var name="key_entryTitle" value="${entryTitle}" />
 
+<<<<<<< HEAD
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="${entrySearchTerm}" />
 		</execute>
+=======
+		<execute function="Type" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${entrySearchTerm}" />
+
+		<execute function="KeyPress" locator1="NavBar#BASIC_SEARCH_FIELD" value1="\RETURN" />
+>>>>>>> compatible
 
 		<execute function="AssertTextEquals" locator1="Message#EMPTY_INFO" value1="No entries were found." />
 		<execute function="AssertElementNotPresent" locator1="Blogs#DESCRIPTIVE_VIEW_ENTRY_TITLE" value1="${entryTitle}" />
@@ -611,11 +722,19 @@
 		<var name="key_entryTitle" value="${entryTitle}" />
 
 		<execute function="Type" locator1="TextInput#SEARCH" value1="${entrySearchTerm}" />
+<<<<<<< HEAD
 
 		<execute function="AssertClick" locator1="Button#SEARCH" value1="Search" />
 
 		<execute function="AssertTextEquals" locator1="Message#INFO" value1="No entries were found that matched the keywords: ${entrySearchTerm}." />
 
+=======
+
+		<execute function="AssertClick" locator1="Button#SEARCH" value1="Search" />
+
+		<execute function="AssertTextEquals" locator1="Message#INFO" value1="No entries were found that matched the keywords: ${entrySearchTerm}." />
+
+>>>>>>> compatible
 		<execute function="AssertElementNotPresent" locator1="Blogs#SEARCH_RESULTS_ENTRY_TITLE" value1="${entryTitle}" />
 		<execute function="AssertElementNotPresent" locator1="Blogs#SEARCH_RESULTS_ENTRY_DESCRIPTION" value1="${entryContent}" />
 	</command>
@@ -637,18 +756,27 @@
 		<var name="key_entryContent" value="${entryContent}" />
 		<var name="key_entryTitle" value="${entryTitle}" />
 
+<<<<<<< HEAD
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="${entrySearchTerm}" />
 		</execute>
+=======
+		<execute function="Type" locator1="TextInput#SEARCH" value1="${entrySearchTerm}" />
+		<execute function="AssertClick" locator1="Button#SEARCH" value1="Search" />
+>>>>>>> compatible
 
 		<execute function="AssertTextEquals" locator1="Blogs#SEARCH_RESULTS_ENTRY_TITLE" value1="${entryTitle}" />
 		<execute function="AssertTextEquals" locator1="Blogs#SEARCH_RESULTS_ENTRY_DESCRIPTION" value1="${entryContent}" />
 	</command>
 
 	<command name="selectFormattingStyle">
+<<<<<<< HEAD
 		<execute function="SelectFieldText" locator1="AlloyEditor#EDITOR">
 			<var name="key_editor" value="content" />
 		</execute>
+=======
+		<execute function="SelectFieldText" locator1="AlloyEditor#CONTENT_FIELD" />
+>>>>>>> compatible
 
 		<execute function="Click" locator1="AlloyEditor#TEXT_FORMATTING_STYLE" />
 
@@ -666,9 +794,13 @@
 	<command name="tearDownCP">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Blogs" />
 		</execute>
 
@@ -688,9 +820,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Recycle Bin" />
 		</execute>
 
@@ -735,12 +871,15 @@
 		<execute function="AssertTextEquals" locator1="BlogsEntry#CONTENT" value1="${entryContent}" />
 		<execute function="AssertTextEquals" locator1="AssetRelatedAssets#HEADER" value1="Related Assets:" />
 		<execute function="AssertTextEquals" locator1="AssetRelatedAssets#ASSET_TITLE" value1="${assetTitle}" />
+<<<<<<< HEAD
 	</command>
 
 	<command name="viewAutomaticURL">
 		<execute function="Click" locator1="Radio#CUSTOM_ABSTRACT" />
 
 		<execute function="Type#typeEditor" locator1="TextInput#DESCRIPTION" value1="${entryAbstractDescription}" />
+=======
+>>>>>>> compatible
 	</command>
 
 	<command name="viewCategory">
@@ -891,11 +1030,19 @@
 
 	<command name="viewEntryTable">
 		<var name="key_entryTitle" value="${entryTitle}" />
+<<<<<<< HEAD
 
 		<execute macro="Portlet#changeDisplayStyle">
 			<var name="displayStyle" value="list" />
 		</execute>
 
+=======
+
+		<execute macro="Portlet#changeDisplayStyle">
+			<var name="displayStyle" value="List" />
+		</execute>
+
+>>>>>>> compatible
 		<execute function="AssertElementPresent" locator1="Blogs#ENTRY_TABLE_CHECKBOX" />
 		<execute function="AssertTextEquals" locator1="Blogs#ENTRY_TABLE_TITLE" value1="${entryTitle}" />
 		<execute function="AssertElementPresent" locator1="Blogs#ENTRY_TABLE_CREATE_DATE" />
@@ -1019,9 +1166,15 @@
 		<execute function="AssertTextEquals#assertPartialText" locator1="AP#ASSET_ABSTRACT_DESCRIPTION" value1="${entryContent}" />
 
 		<execute function="AssertClick" locator1="AP#ASSET_ABSTRACT_TITLE" value1="${entryTitle}" />
+<<<<<<< HEAD
 
 		<execute function="AssertVisible" locator1="Icon#SHARE" />
 
+=======
+
+		<execute function="AssertVisible" locator1="Icon#SHARE" />
+
+>>>>>>> compatible
 		<execute function="AssertTextEquals" locator1="APAsset#ASSET_TITLE_HEADER" value1="${entryTitle}" />
 		<execute function="AssertTextEquals#assertPartialText" locator1="APAsset#ASSET_CONTENT" value1="${entryContent}" />
 	</command>
@@ -1084,9 +1237,14 @@
 
 		<execute function="Pause" locator1="3000" />
 
+<<<<<<< HEAD
 		<execute function="SelectWindow#selectPopUp" locator1="null" />
 
 		<execute function="AssertLocation#assertPartialLocation" value1="blogs/rss" />
+=======
+		<execute function="SelectWindow" locator1="title=${siteName}" />
+
+>>>>>>> compatible
 		<execute function="AssertTextEquals" locator1="Blogs#RSS_FEED_TITLE" value1="${siteName}" />
 		<execute function="AssertTextEquals" locator1="Blogs#RSS_FEED_SUBTITLE" value1="${siteName}" />
 		<execute function="AssertTextEquals" locator1="Blogs#RSS_ENTRY_TITLE" value1="${entryTitle}" />
@@ -1145,10 +1303,17 @@
 					<var method="StringUtil#lowerCase('${tagName}')" name="${tagName}" />
 
 					<var name="key_tagName" value="${tagName}" />
+<<<<<<< HEAD
 
 					<execute function="AssertClick" locator1="BlogsEntry#TAG" value1="${tagName}" />
 
 					<execute function="AssertTextEquals#assertPartialText" locator1="AssetCategorization#TAG_FILTER_TITLE" value1="Entries with tag ${tagName}" />
+=======
+
+					<execute function="AssertClick" locator1="BlogsEntry#TAG" value1="${tagName}" />
+
+					<execute function="AssertTextEquals" locator1="AssetCategorization#TAG_FILTER_TITLE" value1="Entries with tag ${tagName} ." />
+>>>>>>> compatible
 					<execute function="AssertTextEquals" locator1="BlogsEntry#TITLE" value1="${entryTitle}" />
 				</for>
 			</then>
@@ -1159,7 +1324,11 @@
 
 				<execute function="AssertClick" locator1="BlogsEntry#TAG" value1="${tagName}" />
 
+<<<<<<< HEAD
 				<execute function="AssertTextEquals#assertPartialText" locator1="AssetCategorization#TAG_FILTER_TITLE" value1="Entries with tag ${tagName}" />
+=======
+				<execute function="AssertTextEquals" locator1="AssetCategorization#TAG_FILTER_TITLE" value1="Entries with tag ${tagName} ." />
+>>>>>>> compatible
 				<execute function="AssertTextEquals" locator1="BlogsEntry#TITLE" value1="${entryTitle}" />
 			</else>
 		</if>
@@ -1195,6 +1364,7 @@
 		<var name="key_entryTitle" value="${entryTitle}" />
 
 		<execute function="AssertClick" locator1="BlogsEntry#TITLE_LINK" value1="${entryTitle}" />
+<<<<<<< HEAD
 
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="${pageName}" />
@@ -1204,6 +1374,19 @@
 
 		<var method="selenium#getText(BlogsEntry#ENTRY_VIEW_COUNT)" name="entryViewCount" />
 
+=======
+
+		<execute function="AssertElementPresent#pauseAssertVisible" locator1="Comments#SUBSCRIBE_TO_COMMENTS_LINK" />
+
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="${pageName}" />
+		</execute>
+
+		<execute function="AssertClick" locator1="BlogsEntry#TITLE_LINK" value1="${entryTitle}" />
+
+		<var locator="BlogsEntry#ENTRY_VIEW_COUNT" name="entryViewCount" />
+
+>>>>>>> compatible
 		<var method="StringUtil#extractLast('${entryViewCount}',',')" name="entryViewCount" />
 		<var method="StringUtil#extractDigits('${entryViewCount}')" name="entryViewCount" />
 
@@ -1294,7 +1477,11 @@
 
 		<execute function="AssertTextEquals" locator1="BlogsEntry#TITLE" value1="${entryTitle}" />
 		<execute function="AssertTextEquals" locator1="BlogsEntry#CONTENT" value1="${entryContent}" />
+<<<<<<< HEAD
 		<execute function="AssertTextEquals" locator1="Comments#ENTRY_COUNT_PANEL" value1="1 Comment" />
+=======
+		<execute function="AssertTextEquals" locator1="Comments#ENTRY_COUNT_PANEL" value1="1 Comments" />
+>>>>>>> compatible
 		<execute function="AssertTextEquals" locator1="Comments#COMMENT_BODY" value1="[...] ${entryContent2} [...] Read More" />
 
 		<execute function="AssertClick" locator1="Link#READ_MORE" value1="Read More" />
@@ -1310,7 +1497,11 @@
 		<var name="key_entryTitle" value="${entryTitle}" />
 
 		<execute macro="Portlet#changeDisplayStyle">
+<<<<<<< HEAD
 			<var name="displayStyle" value="list" />
+=======
+			<var name="displayStyle" value="List" />
+>>>>>>> compatible
 		</execute>
 
 		<execute function="AssertTextEquals" locator1="Blogs#ENTRY_TABLE_TITLE" value1="${entryTitle}" />

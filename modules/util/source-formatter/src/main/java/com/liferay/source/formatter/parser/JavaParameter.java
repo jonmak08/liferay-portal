@@ -14,13 +14,17 @@
 
 package com.liferay.source.formatter.parser;
 
+<<<<<<< HEAD
 import java.util.Set;
 
+=======
+>>>>>>> compatible
 /**
  * @author Hugo Huijser
  */
 public class JavaParameter {
 
+<<<<<<< HEAD
 	public JavaParameter(
 		String parameterName, String parameterType,
 		Set<String> parameterAnnotations, boolean isFinal) {
@@ -33,6 +37,11 @@ public class JavaParameter {
 
 	public Set<String> getParameterAnnotations() {
 		return _parameterAnnotations;
+=======
+	public JavaParameter(String parameterName, String parameterType) {
+		_parameterName = parameterName;
+		_parameterType = parameterType;
+>>>>>>> compatible
 	}
 
 	public String getParameterName() {
@@ -43,12 +52,15 @@ public class JavaParameter {
 		return _parameterType;
 	}
 
+<<<<<<< HEAD
 	public boolean isFinal() {
 		return _isFinal;
 	}
 
 	private final boolean _isFinal;
 	private final Set<String> _parameterAnnotations;
+=======
+>>>>>>> compatible
 	private final String _parameterName;
 	private final String _parameterType;
 

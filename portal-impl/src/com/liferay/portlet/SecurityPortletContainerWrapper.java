@@ -35,6 +35,10 @@ import com.liferay.portal.kernel.servlet.HttpHeaders;
 import com.liferay.portal.kernel.servlet.TempAttributesServletRequest;
 import com.liferay.portal.kernel.struts.LastPath;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.WebKeys;
@@ -122,6 +126,7 @@ public class SecurityPortletContainerWrapper implements PortletContainer {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void processPublicRenderParameters(
 		HttpServletRequest request, Layout layout, Portlet portlet) {
 
@@ -130,6 +135,8 @@ public class SecurityPortletContainerWrapper implements PortletContainer {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public void render(
 			HttpServletRequest request, HttpServletResponse response,
 			Portlet portlet)

@@ -14,6 +14,7 @@
 
 package com.liferay.upload.web.internal;
 
+<<<<<<< HEAD
 import com.liferay.document.library.configuration.DLConfiguration;
 import com.liferay.document.library.kernel.antivirus.AntivirusScannerException;
 import com.liferay.document.library.kernel.exception.FileExtensionException;
@@ -21,6 +22,11 @@ import com.liferay.document.library.kernel.exception.FileNameException;
 import com.liferay.document.library.kernel.exception.FileSizeException;
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
+=======
+import com.liferay.document.library.kernel.antivirus.AntivirusScannerException;
+import com.liferay.document.library.kernel.exception.FileNameException;
+import com.liferay.document.library.kernel.exception.FileSizeException;
+>>>>>>> compatible
 import com.liferay.portal.kernel.editor.EditorConstants;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
@@ -32,6 +38,7 @@ import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.upload.UploadPortletRequest;
 import com.liferay.portal.kernel.upload.UploadRequestSizeException;
 import com.liferay.portal.kernel.util.ParamUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.upload.UploadResponseHandler;
@@ -43,14 +50,27 @@ import javax.portlet.PortletRequest;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Modified;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.upload.UploadResponseHandler;
+
+import javax.portlet.PortletRequest;
+
+import org.osgi.service.component.annotations.Component;
+>>>>>>> compatible
 
 /**
  * @author Alejandro Tardín
  */
+<<<<<<< HEAD
 @Component(
 	configurationPid = "com.liferay.document.library.configuration.DLConfiguration",
 	property = {"upload.response.handler.system.default=true"}
 )
+=======
+@Component(property = {"upload.response.handler.system.default=true"})
+>>>>>>> compatible
 public class DefaultUploadResponseHandler implements UploadResponseHandler {
 
 	@Override
@@ -63,7 +83,10 @@ public class DefaultUploadResponseHandler implements UploadResponseHandler {
 		jsonObject.put("success", Boolean.FALSE);
 
 		if (pe instanceof AntivirusScannerException ||
+<<<<<<< HEAD
 			pe instanceof FileExtensionException ||
+=======
+>>>>>>> compatible
 			pe instanceof FileNameException ||
 			pe instanceof FileSizeException ||
 			pe instanceof UploadRequestSizeException) {
@@ -82,12 +105,15 @@ public class DefaultUploadResponseHandler implements UploadResponseHandler {
 
 				errorMessage = themeDisplay.translate(ase.getMessageKey());
 			}
+<<<<<<< HEAD
 			else if (pe instanceof FileExtensionException) {
 				errorType =
 					ServletResponseConstants.SC_FILE_EXTENSION_EXCEPTION;
 
 				errorMessage = _getAllowedFileExtensions();
 			}
+=======
+>>>>>>> compatible
 			else if (pe instanceof FileNameException) {
 				errorType = ServletResponseConstants.SC_FILE_NAME_EXCEPTION;
 			}
@@ -123,7 +149,10 @@ public class DefaultUploadResponseHandler implements UploadResponseHandler {
 			"attributeDataImageId", EditorConstants.ATTRIBUTE_DATA_IMAGE_ID);
 		imageJSONObject.put("fileEntryId", fileEntry.getFileEntryId());
 		imageJSONObject.put("groupId", fileEntry.getGroupId());
+<<<<<<< HEAD
 		imageJSONObject.put("mimeType", fileEntry.getMimeType());
+=======
+>>>>>>> compatible
 
 		String randomId = ParamUtil.getString(uploadPortletRequest, "randomId");
 
@@ -150,6 +179,7 @@ public class DefaultUploadResponseHandler implements UploadResponseHandler {
 		return jsonObject;
 	}
 
+<<<<<<< HEAD
 	@Activate
 	@Modified
 	protected void activate(Map<String, Object> properties) {
@@ -170,4 +200,6 @@ public class DefaultUploadResponseHandler implements UploadResponseHandler {
 
 	private volatile DLConfiguration _dlConfiguration;
 
+=======
+>>>>>>> compatible
 }

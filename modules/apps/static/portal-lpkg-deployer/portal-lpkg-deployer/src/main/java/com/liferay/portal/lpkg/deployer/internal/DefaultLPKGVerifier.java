@@ -16,7 +16,10 @@ package com.liferay.portal.lpkg.deployer.internal;
 
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.lpkg.deployer.LPKGVerifier;
 import com.liferay.portal.lpkg.deployer.LPKGVerifyException;
@@ -112,10 +115,16 @@ public class DefaultLPKGVerifier implements LPKGVerifier {
 					}
 
 					throw new LPKGVerifyException(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"Existing LPKG bundle ", String.valueOf(bundle),
 							" has the same symbolic name and version as LPKG ",
 							"file ", String.valueOf(lpkgFile)));
+=======
+						"Existing LPKG bundle " + bundle + " has the same " +
+							"symbolic name and version as LPKG file " +
+								lpkgFile);
+>>>>>>> compatible
 				}
 			}
 

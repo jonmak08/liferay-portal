@@ -5,6 +5,7 @@
 			<var name="rowEntry" value="${pageName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#gotoNavTab">
 			<var name="navTab" value="Advanced" />
 		</execute>
@@ -22,6 +23,49 @@
 		<execute macro="Button#clickSave" />
 	</command>
 
+=======
+		<execute macro="SitePageNavigator#gotoEditPage">
+			<var name="page" value="${pageName}" />
+		</execute>
+
+		<execute macro="Navigator#gotoNavTab">
+			<var name="navTab" value="Advanced" />
+		</execute>
+
+		<execute macro="Panel#expandPanel">
+			<var name="panelHeading" value="Customization Settings" />
+		</execute>
+
+		<execute function="Check#checkToggleSwitch" locator1="SitePagesEditPage#CUSTOMIZATION_SETTINGS_SHOW_CUSTOMIZABLE_SECTIONS" />
+
+		<execute function="Check#checkToggleSwitch" locator1="SitePagesEditPage#CUSTOMIZATION_SETTINGS_CUSTOMIZABLE_COLUMN" />
+
+		<execute macro="PortletEntry#save" />
+	</command>
+
+	<command name="enableSectionCustomizablePG">
+		<var name="key_columnId" value="${columnId}" />
+
+		<execute function="Check#checkToggleSwitch" locator1="SitePagesEditPage#CUSTOMIZATION_SETTINGS_SHOW_CUSTOMIZABLE_SECTIONS" />
+
+		<execute function="Check#checkToggleSwitch" locator1="SitePagesEditPage#CUSTOMIZATION_SETTINGS_CUSTOMIZABLE_COLUMN_CHECKBOX" />
+
+		<execute function="AssertClick#pauseAssertTextClickAt" locator1="Button#SAVE" value1="Save" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+	</command>
+
+	<command name="gotoCustomizationSettingsPG">
+		<execute macro="Navigator#gotoNavTab">
+			<var name="navTab" value="Advanced" />
+		</execute>
+
+		<execute macro="Panel#expandPanel">
+			<var name="panelHeading" value="Customization Settings" />
+		</execute>
+	</command>
+
+>>>>>>> compatible
 	<command name="gotoCustomizedPageInfo">
 		<execute function="Click" locator1="Icon#HEADER_VERTICAL_ELLIPSIS" />
 
@@ -45,12 +89,21 @@
 			</else>
 		</if>
 	</command>
+<<<<<<< HEAD
 
 	<command name="gotoViewMyCustomizedPage">
 		<execute function="Click" locator1="Icon#HEADER_VERTICAL_ELLIPSIS" />
 
 		<var name="key_menuItem" value="View My Customized Page" />
 
+=======
+
+	<command name="gotoViewMyCustomizedPage">
+		<execute function="Click" locator1="Icon#HEADER_VERTICAL_ELLIPSIS" />
+
+		<var name="key_menuItem" value="View My Customized Page" />
+
+>>>>>>> compatible
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="View My Customized Page">
 			<var name="key_menuItem" value="View My Customized Page" />
 		</execute>

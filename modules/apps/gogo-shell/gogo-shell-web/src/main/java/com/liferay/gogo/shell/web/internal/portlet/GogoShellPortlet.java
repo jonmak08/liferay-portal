@@ -170,7 +170,11 @@ public class GogoShellPortlet extends MVCPortlet {
 		if (StringUtil.startsWith(command, "exit")) {
 			ResourceBundle resourceBundle =
 				_resourceBundleLoader.loadResourceBundle(
+<<<<<<< HEAD
 					themeDisplay.getLocale());
+=======
+					themeDisplay.getLanguageId());
+>>>>>>> compatible
 
 			throw new Exception(
 				LanguageUtil.format(

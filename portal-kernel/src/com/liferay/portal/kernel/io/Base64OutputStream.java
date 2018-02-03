@@ -14,16 +14,14 @@
 
 package com.liferay.portal.kernel.io;
 
-import com.liferay.petra.string.CharPool;
+import com.liferay.portal.kernel.util.CharPool;
 
 import java.io.IOException;
 import java.io.OutputStream;
 
 /**
- * @author     Tina Tian
- * @deprecated As of 7.0.0, with no direct replacement
+ * @author Tina Tian
  */
-@Deprecated
 public class Base64OutputStream extends OutputStream {
 
 	public Base64OutputStream(OutputStream outputStream) {

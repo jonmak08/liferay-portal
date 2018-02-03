@@ -359,7 +359,11 @@ public class DDMStructureManagerImpl implements DDMStructureManager {
 		if (structureComparator ==
 				DDMStructureManager.STRUCTURE_COMPARATOR_STRUCTURE_KEY) {
 
+<<<<<<< HEAD
 			return StructureStructureKeyComparator.INSTANCE_DESCENDING;
+=======
+			return new StructureStructureKeyComparator();
+>>>>>>> compatible
 		}
 
 		return new StructureIdComparator();

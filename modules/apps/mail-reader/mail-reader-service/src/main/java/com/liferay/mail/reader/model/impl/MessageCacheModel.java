@@ -21,6 +21,10 @@ import com.liferay.mail.reader.model.Message;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -120,7 +124,11 @@ public class MessageCacheModel implements CacheModel<Message>, Externalizable {
 		messageImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			messageImpl.setUserName("");
+=======
+			messageImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			messageImpl.setUserName(userName);
@@ -144,28 +152,44 @@ public class MessageCacheModel implements CacheModel<Message>, Externalizable {
 		messageImpl.setFolderId(folderId);
 
 		if (sender == null) {
+<<<<<<< HEAD
 			messageImpl.setSender("");
+=======
+			messageImpl.setSender(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			messageImpl.setSender(sender);
 		}
 
 		if (to == null) {
+<<<<<<< HEAD
 			messageImpl.setTo("");
+=======
+			messageImpl.setTo(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			messageImpl.setTo(to);
 		}
 
 		if (cc == null) {
+<<<<<<< HEAD
 			messageImpl.setCc("");
+=======
+			messageImpl.setCc(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			messageImpl.setCc(cc);
 		}
 
 		if (bcc == null) {
+<<<<<<< HEAD
 			messageImpl.setBcc("");
+=======
+			messageImpl.setBcc(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			messageImpl.setBcc(bcc);
@@ -179,28 +203,44 @@ public class MessageCacheModel implements CacheModel<Message>, Externalizable {
 		}
 
 		if (subject == null) {
+<<<<<<< HEAD
 			messageImpl.setSubject("");
+=======
+			messageImpl.setSubject(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			messageImpl.setSubject(subject);
 		}
 
 		if (preview == null) {
+<<<<<<< HEAD
 			messageImpl.setPreview("");
+=======
+			messageImpl.setPreview(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			messageImpl.setPreview(preview);
 		}
 
 		if (body == null) {
+<<<<<<< HEAD
 			messageImpl.setBody("");
+=======
+			messageImpl.setBody(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			messageImpl.setBody(body);
 		}
 
 		if (flags == null) {
+<<<<<<< HEAD
 			messageImpl.setFlags("");
+=======
+			messageImpl.setFlags(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			messageImpl.setFlags(flags);
@@ -210,7 +250,11 @@ public class MessageCacheModel implements CacheModel<Message>, Externalizable {
 		messageImpl.setRemoteMessageId(remoteMessageId);
 
 		if (contentType == null) {
+<<<<<<< HEAD
 			messageImpl.setContentType("");
+=======
+			messageImpl.setContentType(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			messageImpl.setContentType(contentType);
@@ -261,7 +305,11 @@ public class MessageCacheModel implements CacheModel<Message>, Externalizable {
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -275,28 +323,44 @@ public class MessageCacheModel implements CacheModel<Message>, Externalizable {
 		objectOutput.writeLong(folderId);
 
 		if (sender == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(sender);
 		}
 
 		if (to == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(to);
 		}
 
 		if (cc == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(cc);
 		}
 
 		if (bcc == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(bcc);
@@ -305,28 +369,44 @@ public class MessageCacheModel implements CacheModel<Message>, Externalizable {
 		objectOutput.writeLong(sentDate);
 
 		if (subject == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(subject);
 		}
 
 		if (preview == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(preview);
 		}
 
 		if (body == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(body);
 		}
 
 		if (flags == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(flags);
@@ -337,7 +417,11 @@ public class MessageCacheModel implements CacheModel<Message>, Externalizable {
 		objectOutput.writeLong(remoteMessageId);
 
 		if (contentType == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(contentType);

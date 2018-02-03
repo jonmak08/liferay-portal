@@ -17,8 +17,11 @@
 <%@ include file="/init.jsp" %>
 
 <%
+<<<<<<< HEAD
 String backURL = ParamUtil.getString(request, "backURL");
 
+=======
+>>>>>>> compatible
 long backgroundTaskId = ParamUtil.getLong(request, "backgroundTaskId");
 
 BackgroundTask backgroundTask = null;
@@ -26,6 +29,7 @@ BackgroundTask backgroundTask = null;
 if (backgroundTaskId > 0) {
 	backgroundTask = BackgroundTaskManagerUtil.getBackgroundTask(backgroundTaskId);
 }
+<<<<<<< HEAD
 
 if (Validator.isNotNull(backURL)) {
 	portletDisplay.setShowBackIcon(true);
@@ -34,6 +38,11 @@ if (Validator.isNotNull(backURL)) {
 %>
 
 <liferay-ui:search-container emptyResultsMessage="no-processes-were-found">
+=======
+%>
+
+<liferay-ui:search-container emptyResultsMessage="no-export-processes-were-found">
+>>>>>>> compatible
 	<liferay-ui:search-container-results>
 
 		<%
@@ -58,9 +67,17 @@ if (Validator.isNotNull(backURL)) {
 	>
 
 		<%
+<<<<<<< HEAD
 		BackgroundTaskDisplay backgroundTaskDisplay = BackgroundTaskDisplayFactoryUtil.getBackgroundTaskDisplay(curBackgroundTask);
 
 		String backgroundTaskName = backgroundTaskDisplay.getDisplayName(request);
+=======
+		String backgroundTaskName = curBackgroundTask.getName();
+
+		if (backgroundTaskName.equals(StringPool.BLANK)) {
+			backgroundTaskName = LanguageUtil.get(request, "untitled");
+		}
+>>>>>>> compatible
 		%>
 
 		<liferay-ui:search-container-column-text>

@@ -142,9 +142,15 @@ if (portletTitleBasedNavigation) {
 		</aui:fieldset-group>
 
 		<aui:button-row>
+<<<<<<< HEAD
 			<aui:button type="submit" />
 
 			<aui:button href="<%= redirect %>" type="cancel" />
+=======
+			<aui:button cssClass="btn-lg" type="submit" />
+
+			<aui:button cssClass="btn-lg" href="<%= redirect %>" type="cancel" />
+>>>>>>> compatible
 		</aui:button-row>
 	</aui:form>
 
@@ -153,10 +159,19 @@ if (portletTitleBasedNavigation) {
 		<%
 		for (RepositoryClassDefinition repositoryClassDefinition : RepositoryClassDefinitionCatalogUtil.getExternalRepositoryClassDefinitions()) {
 			try {
+<<<<<<< HEAD
 				String repositoryClassDefinitionId = RepositoryClassDefinitionUtil.getRepositoryClassDefinitionId(repositoryClassDefinition);
 		%>
 
 				<div class="settings-parameters" id="<portlet:namespace />repository-<%= repositoryClassDefinitionId %>-configuration">
+=======
+				String className = repositoryClassDefinition.getClassName();
+
+				String unqualifiedClassName = HtmlUtil.escapeAttribute(className.substring(className.lastIndexOf(StringPool.PERIOD) + 1));
+		%>
+
+				<div class="settings-parameters" id="<portlet:namespace />repository-<%= unqualifiedClassName %>-configuration">
+>>>>>>> compatible
 
 					<%
 					RepositoryConfiguration repositoryConfiguration = repositoryClassDefinition.getRepositoryConfiguration();
@@ -190,11 +205,17 @@ if (portletTitleBasedNavigation) {
 	var showConfiguration = function(select) {
 		settingsSupported.append(settingsParameters.find('.settings-parameters'));
 
+<<<<<<< HEAD
 		var className = select.val();
 
 		var repositoryClassDefinitionId = className.replace(/\W/g, '-');
 
 		var repositoryParameters = $('#<portlet:namespace />repository-' + repositoryClassDefinitionId + '-configuration');
+=======
+		var className = select.val().split('.').pop();
+
+		var repositoryParameters = $('#<portlet:namespace />repository-' + className + '-configuration');
+>>>>>>> compatible
 
 		settingsParameters.append(repositoryParameters);
 	};

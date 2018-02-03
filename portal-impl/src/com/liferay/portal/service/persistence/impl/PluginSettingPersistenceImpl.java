@@ -35,8 +35,13 @@ import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.PluginSettingPersistence;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.model.impl.PluginSettingImpl;
 import com.liferay.portal.model.impl.PluginSettingModelImpl;
 
@@ -194,6 +199,7 @@ public class PluginSettingPersistenceImpl extends BasePersistenceImpl<PluginSett
 		}
 
 		List<PluginSetting> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<PluginSetting>)finderCache.getResult(finderPath,
@@ -204,6 +210,18 @@ public class PluginSettingPersistenceImpl extends BasePersistenceImpl<PluginSett
 					if ((companyId != pluginSetting.getCompanyId())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<PluginSetting>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (PluginSetting pluginSetting : list) {
+					if ((companyId != pluginSetting.getCompanyId())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -915,11 +933,17 @@ public class PluginSettingPersistenceImpl extends BasePersistenceImpl<PluginSett
 		setModelClass(PluginSetting.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("active", "active_");

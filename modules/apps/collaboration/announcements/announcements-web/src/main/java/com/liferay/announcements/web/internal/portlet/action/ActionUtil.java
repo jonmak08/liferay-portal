@@ -16,7 +16,11 @@ package com.liferay.announcements.web.internal.portlet.action;
 
 import com.liferay.announcements.kernel.model.AnnouncementsEntry;
 import com.liferay.announcements.kernel.service.AnnouncementsEntryServiceUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.exception.PortalException;
+=======
+import com.liferay.announcements.web.constants.AnnouncementsWebKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 
@@ -29,6 +33,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class ActionUtil {
 
+<<<<<<< HEAD
 	public static AnnouncementsEntry getEntry(HttpServletRequest request)
 		throws PortalException {
 
@@ -43,11 +48,31 @@ public class ActionUtil {
 
 	public static AnnouncementsEntry getEntry(PortletRequest portletRequest)
 		throws PortalException {
+=======
+	public static void getEntry(HttpServletRequest request) throws Exception {
+		long entryId = ParamUtil.getLong(request, "entryId");
+
+		AnnouncementsEntry entry = null;
+
+		if (entryId > 0) {
+			entry = AnnouncementsEntryServiceUtil.getEntry(entryId);
+		}
+
+		request.setAttribute(AnnouncementsWebKeys.ANNOUNCEMENTS_ENTRY, entry);
+	}
+
+	public static void getEntry(PortletRequest portletRequest)
+		throws Exception {
+>>>>>>> compatible
 
 		HttpServletRequest request = PortalUtil.getHttpServletRequest(
 			portletRequest);
 
+<<<<<<< HEAD
 		return getEntry(request);
+=======
+		getEntry(request);
+>>>>>>> compatible
 	}
 
 }

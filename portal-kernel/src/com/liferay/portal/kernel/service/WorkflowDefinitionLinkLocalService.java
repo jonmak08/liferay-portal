@@ -249,11 +249,14 @@ public interface WorkflowDefinitionLinkLocalService extends BaseLocalService,
 	public List<WorkflowDefinitionLink> getWorkflowDefinitionLinks(int start,
 		int end);
 
+<<<<<<< HEAD
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<WorkflowDefinitionLink> getWorkflowDefinitionLinks(
 		long companyId, java.lang.String workflowDefinitionName,
 		int workflowDefinitionVersion) throws PortalException;
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns the number of workflow definition links.
 	*

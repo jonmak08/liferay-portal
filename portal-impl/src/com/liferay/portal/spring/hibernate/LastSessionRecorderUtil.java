@@ -60,7 +60,11 @@ public class LastSessionRecorderUtil {
 	}
 
 	private static final ThreadLocal<Session> _lastSessionThreadLocal =
+<<<<<<< HEAD
 		new CentralizedThreadLocal<>(
+=======
+		new AutoResetThreadLocal<>(
+>>>>>>> compatible
 			LastSessionRecorderUtil.class.getName() +
 				"._lastSessionThreadLocal");
 

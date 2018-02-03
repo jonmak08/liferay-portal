@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Product Navigation User
 Bundle-SymbolicName: com.liferay.product.navigation.user
+<<<<<<< HEAD
 Bundle-Version: 2.0.6
+=======
+Bundle-Version: 2.0.5
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Product Navigation
 Web-ContextPath: /product-navigation-user

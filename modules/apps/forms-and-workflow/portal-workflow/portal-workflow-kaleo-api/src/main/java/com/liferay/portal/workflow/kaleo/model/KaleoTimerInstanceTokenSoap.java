@@ -43,7 +43,11 @@ public class KaleoTimerInstanceTokenSoap implements Serializable {
 		soapModel.setModifiedDate(model.getModifiedDate());
 		soapModel.setKaleoClassName(model.getKaleoClassName());
 		soapModel.setKaleoClassPK(model.getKaleoClassPK());
+<<<<<<< HEAD
 		soapModel.setKaleoDefinitionVersionId(model.getKaleoDefinitionVersionId());
+=======
+		soapModel.setKaleoDefinitionId(model.getKaleoDefinitionId());
+>>>>>>> compatible
 		soapModel.setKaleoInstanceId(model.getKaleoInstanceId());
 		soapModel.setKaleoInstanceTokenId(model.getKaleoInstanceTokenId());
 		soapModel.setKaleoTaskInstanceTokenId(model.getKaleoTaskInstanceTokenId());
@@ -181,12 +185,21 @@ public class KaleoTimerInstanceTokenSoap implements Serializable {
 		_kaleoClassPK = kaleoClassPK;
 	}
 
+<<<<<<< HEAD
 	public long getKaleoDefinitionVersionId() {
 		return _kaleoDefinitionVersionId;
 	}
 
 	public void setKaleoDefinitionVersionId(long kaleoDefinitionVersionId) {
 		_kaleoDefinitionVersionId = kaleoDefinitionVersionId;
+=======
+	public long getKaleoDefinitionId() {
+		return _kaleoDefinitionId;
+	}
+
+	public void setKaleoDefinitionId(long kaleoDefinitionId) {
+		_kaleoDefinitionId = kaleoDefinitionId;
+>>>>>>> compatible
 	}
 
 	public long getKaleoInstanceId() {
@@ -286,7 +299,11 @@ public class KaleoTimerInstanceTokenSoap implements Serializable {
 	private Date _modifiedDate;
 	private String _kaleoClassName;
 	private long _kaleoClassPK;
+<<<<<<< HEAD
 	private long _kaleoDefinitionVersionId;
+=======
+	private long _kaleoDefinitionId;
+>>>>>>> compatible
 	private long _kaleoInstanceId;
 	private long _kaleoInstanceTokenId;
 	private long _kaleoTaskInstanceTokenId;

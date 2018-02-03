@@ -52,6 +52,7 @@
 		</sequential>
 	</macrodef>
 
+<<<<<<< HEAD
 	<macrodef name="update-apacheds-log4j-level">
 		<sequential>
 			<replace file="${apacheds.dir}/instances/liferay/conf/log4j.properties">
@@ -61,6 +62,8 @@
 		</sequential>
 	</macrodef>
 
+=======
+>>>>>>> compatible
 	<target name="start-apacheds">
 		<unzip-apacheds />
 
@@ -82,8 +85,11 @@
 			</else>
 		</if>
 
+<<<<<<< HEAD
 		<update-apacheds-log4j-level />
 
+=======
+>>>>>>> compatible
 		<if>
 			<os family="unix" />
 			<then>
@@ -104,6 +110,7 @@
 				</then>
 			</elseif>
 		</if>
+<<<<<<< HEAD
 
 		<waitfor checkevery="5" maxwait="60" maxwaitunit="second">
 			<available file="${apacheds.dir}/instances/liferay/log/apacheds.log" />
@@ -123,6 +130,8 @@
 				<fail message="ApacheDS server failed to initialize." />
 			</then>
 		</if>
+=======
+>>>>>>> compatible
 	</target>
 
 	<target name="stop-apacheds">

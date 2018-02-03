@@ -37,19 +37,31 @@
 	<command name="gotoSuggestionStatusInProgress">
 		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
 
+<<<<<<< HEAD
 		<execute function="AssertClick" locator1="KnowledgeBaseSuggestions#NAVIGATION_IN_PROGRESS" value1="IN PROGRESS (${suggestionCount})" />
+=======
+		<execute function="AssertClick" locator1="KnowledgeBaseSuggestions#NAVIGATION_IN_PROGRESS" value1="In Progress (${suggestionCount})" />
+>>>>>>> compatible
 	</command>
 
 	<command name="gotoSuggestionStatusNew">
 		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
 
+<<<<<<< HEAD
 		<execute function="AssertTextEquals#assertPartialText" locator1="KnowledgeBaseSuggestions#NAVIGATION_NEW" value1="NEW (${suggestionCount})" />
+=======
+		<execute function="AssertTextEquals#assertPartialText" locator1="KnowledgeBaseSuggestions#NAVIGATION_NEW" value1="New (${suggestionCount})" />
+>>>>>>> compatible
 	</command>
 
 	<command name="gotoSuggestionStatusResolved">
 		<var name="key_kbArticleTitle" value="${kbArticleTitle}" />
 
+<<<<<<< HEAD
 		<execute function="AssertClick" locator1="KnowledgeBaseSuggestions#NAVIGATION_RESOLVED" value1="RESOLVED (${suggestionCount})" />
+=======
+		<execute function="AssertClick" locator1="KnowledgeBaseSuggestions#NAVIGATION_RESOLVED" value1="Resolved (${suggestionCount})" />
+>>>>>>> compatible
 	</command>
 
 	<command name="moveToInProgressStatus">

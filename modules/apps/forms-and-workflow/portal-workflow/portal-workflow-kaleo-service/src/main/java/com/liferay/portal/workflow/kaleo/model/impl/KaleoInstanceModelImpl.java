@@ -29,6 +29,10 @@ import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.workflow.kaleo.model.KaleoInstance;
 import com.liferay.portal.workflow.kaleo.model.KaleoInstanceModel;
 
@@ -70,7 +74,11 @@ public class KaleoInstanceModelImpl extends BaseModelImpl<KaleoInstance>
 			{ "userName", Types.VARCHAR },
 			{ "createDate", Types.TIMESTAMP },
 			{ "modifiedDate", Types.TIMESTAMP },
+<<<<<<< HEAD
 			{ "kaleoDefinitionVersionId", Types.BIGINT },
+=======
+			{ "kaleoDefinitionId", Types.BIGINT },
+>>>>>>> compatible
 			{ "kaleoDefinitionName", Types.VARCHAR },
 			{ "kaleoDefinitionVersion", Types.INTEGER },
 			{ "rootKaleoInstanceTokenId", Types.BIGINT },
@@ -90,7 +98,11 @@ public class KaleoInstanceModelImpl extends BaseModelImpl<KaleoInstance>
 		TABLE_COLUMNS_MAP.put("userName", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("createDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("modifiedDate", Types.TIMESTAMP);
+<<<<<<< HEAD
 		TABLE_COLUMNS_MAP.put("kaleoDefinitionVersionId", Types.BIGINT);
+=======
+		TABLE_COLUMNS_MAP.put("kaleoDefinitionId", Types.BIGINT);
+>>>>>>> compatible
 		TABLE_COLUMNS_MAP.put("kaleoDefinitionName", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("kaleoDefinitionVersion", Types.INTEGER);
 		TABLE_COLUMNS_MAP.put("rootKaleoInstanceTokenId", Types.BIGINT);
@@ -101,7 +113,11 @@ public class KaleoInstanceModelImpl extends BaseModelImpl<KaleoInstance>
 		TABLE_COLUMNS_MAP.put("workflowContext", Types.CLOB);
 	}
 
+<<<<<<< HEAD
 	public static final String TABLE_SQL_CREATE = "create table KaleoInstance (kaleoInstanceId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(200) null,createDate DATE null,modifiedDate DATE null,kaleoDefinitionVersionId LONG,kaleoDefinitionName VARCHAR(200) null,kaleoDefinitionVersion INTEGER,rootKaleoInstanceTokenId LONG,className VARCHAR(200) null,classPK LONG,completed BOOLEAN,completionDate DATE null,workflowContext TEXT null)";
+=======
+	public static final String TABLE_SQL_CREATE = "create table KaleoInstance (kaleoInstanceId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(200) null,createDate DATE null,modifiedDate DATE null,kaleoDefinitionId LONG,kaleoDefinitionName VARCHAR(200) null,kaleoDefinitionVersion INTEGER,rootKaleoInstanceTokenId LONG,className VARCHAR(200) null,classPK LONG,completed BOOLEAN,completionDate DATE null,workflowContext TEXT null)";
+>>>>>>> compatible
 	public static final String TABLE_SQL_DROP = "drop table KaleoInstance";
 	public static final String ORDER_BY_JPQL = " ORDER BY kaleoInstance.kaleoInstanceId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY KaleoInstance.kaleoInstanceId ASC";
@@ -122,9 +138,15 @@ public class KaleoInstanceModelImpl extends BaseModelImpl<KaleoInstance>
 	public static final long COMPANYID_COLUMN_BITMASK = 4L;
 	public static final long COMPLETED_COLUMN_BITMASK = 8L;
 	public static final long COMPLETIONDATE_COLUMN_BITMASK = 16L;
+<<<<<<< HEAD
 	public static final long KALEODEFINITIONNAME_COLUMN_BITMASK = 32L;
 	public static final long KALEODEFINITIONVERSION_COLUMN_BITMASK = 64L;
 	public static final long KALEODEFINITIONVERSIONID_COLUMN_BITMASK = 128L;
+=======
+	public static final long KALEODEFINITIONID_COLUMN_BITMASK = 32L;
+	public static final long KALEODEFINITIONNAME_COLUMN_BITMASK = 64L;
+	public static final long KALEODEFINITIONVERSION_COLUMN_BITMASK = 128L;
+>>>>>>> compatible
 	public static final long USERID_COLUMN_BITMASK = 256L;
 	public static final long KALEOINSTANCEID_COLUMN_BITMASK = 512L;
 	public static final long LOCK_EXPIRATION_TIME = GetterUtil.getLong(com.liferay.portal.workflow.kaleo.service.util.ServiceProps.get(
@@ -174,7 +196,11 @@ public class KaleoInstanceModelImpl extends BaseModelImpl<KaleoInstance>
 		attributes.put("userName", getUserName());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
+<<<<<<< HEAD
 		attributes.put("kaleoDefinitionVersionId", getKaleoDefinitionVersionId());
+=======
+		attributes.put("kaleoDefinitionId", getKaleoDefinitionId());
+>>>>>>> compatible
 		attributes.put("kaleoDefinitionName", getKaleoDefinitionName());
 		attributes.put("kaleoDefinitionVersion", getKaleoDefinitionVersion());
 		attributes.put("rootKaleoInstanceTokenId", getRootKaleoInstanceTokenId());
@@ -234,11 +260,18 @@ public class KaleoInstanceModelImpl extends BaseModelImpl<KaleoInstance>
 			setModifiedDate(modifiedDate);
 		}
 
+<<<<<<< HEAD
 		Long kaleoDefinitionVersionId = (Long)attributes.get(
 				"kaleoDefinitionVersionId");
 
 		if (kaleoDefinitionVersionId != null) {
 			setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
+=======
+		Long kaleoDefinitionId = (Long)attributes.get("kaleoDefinitionId");
+
+		if (kaleoDefinitionId != null) {
+			setKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 		}
 
 		String kaleoDefinitionName = (String)attributes.get(
@@ -363,7 +396,11 @@ public class KaleoInstanceModelImpl extends BaseModelImpl<KaleoInstance>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -378,7 +415,11 @@ public class KaleoInstanceModelImpl extends BaseModelImpl<KaleoInstance>
 	@Override
 	public String getUserName() {
 		if (_userName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _userName;
@@ -417,6 +458,7 @@ public class KaleoInstanceModelImpl extends BaseModelImpl<KaleoInstance>
 	}
 
 	@Override
+<<<<<<< HEAD
 	public long getKaleoDefinitionVersionId() {
 		return _kaleoDefinitionVersionId;
 	}
@@ -436,12 +478,37 @@ public class KaleoInstanceModelImpl extends BaseModelImpl<KaleoInstance>
 
 	public long getOriginalKaleoDefinitionVersionId() {
 		return _originalKaleoDefinitionVersionId;
+=======
+	public long getKaleoDefinitionId() {
+		return _kaleoDefinitionId;
+	}
+
+	@Override
+	public void setKaleoDefinitionId(long kaleoDefinitionId) {
+		_columnBitmask |= KALEODEFINITIONID_COLUMN_BITMASK;
+
+		if (!_setOriginalKaleoDefinitionId) {
+			_setOriginalKaleoDefinitionId = true;
+
+			_originalKaleoDefinitionId = _kaleoDefinitionId;
+		}
+
+		_kaleoDefinitionId = kaleoDefinitionId;
+	}
+
+	public long getOriginalKaleoDefinitionId() {
+		return _originalKaleoDefinitionId;
+>>>>>>> compatible
 	}
 
 	@Override
 	public String getKaleoDefinitionName() {
 		if (_kaleoDefinitionName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _kaleoDefinitionName;
@@ -498,7 +565,11 @@ public class KaleoInstanceModelImpl extends BaseModelImpl<KaleoInstance>
 	@Override
 	public String getClassName() {
 		if (_className == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _className;
@@ -592,7 +663,11 @@ public class KaleoInstanceModelImpl extends BaseModelImpl<KaleoInstance>
 	@Override
 	public String getWorkflowContext() {
 		if (_workflowContext == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _workflowContext;
@@ -642,7 +717,11 @@ public class KaleoInstanceModelImpl extends BaseModelImpl<KaleoInstance>
 		kaleoInstanceImpl.setUserName(getUserName());
 		kaleoInstanceImpl.setCreateDate(getCreateDate());
 		kaleoInstanceImpl.setModifiedDate(getModifiedDate());
+<<<<<<< HEAD
 		kaleoInstanceImpl.setKaleoDefinitionVersionId(getKaleoDefinitionVersionId());
+=======
+		kaleoInstanceImpl.setKaleoDefinitionId(getKaleoDefinitionId());
+>>>>>>> compatible
 		kaleoInstanceImpl.setKaleoDefinitionName(getKaleoDefinitionName());
 		kaleoInstanceImpl.setKaleoDefinitionVersion(getKaleoDefinitionVersion());
 		kaleoInstanceImpl.setRootKaleoInstanceTokenId(getRootKaleoInstanceTokenId());
@@ -729,9 +808,15 @@ public class KaleoInstanceModelImpl extends BaseModelImpl<KaleoInstance>
 
 		kaleoInstanceModelImpl._setModifiedDate = false;
 
+<<<<<<< HEAD
 		kaleoInstanceModelImpl._originalKaleoDefinitionVersionId = kaleoInstanceModelImpl._kaleoDefinitionVersionId;
 
 		kaleoInstanceModelImpl._setOriginalKaleoDefinitionVersionId = false;
+=======
+		kaleoInstanceModelImpl._originalKaleoDefinitionId = kaleoInstanceModelImpl._kaleoDefinitionId;
+
+		kaleoInstanceModelImpl._setOriginalKaleoDefinitionId = false;
+>>>>>>> compatible
 
 		kaleoInstanceModelImpl._originalKaleoDefinitionName = kaleoInstanceModelImpl._kaleoDefinitionName;
 
@@ -792,7 +877,11 @@ public class KaleoInstanceModelImpl extends BaseModelImpl<KaleoInstance>
 			kaleoInstanceCacheModel.modifiedDate = Long.MIN_VALUE;
 		}
 
+<<<<<<< HEAD
 		kaleoInstanceCacheModel.kaleoDefinitionVersionId = getKaleoDefinitionVersionId();
+=======
+		kaleoInstanceCacheModel.kaleoDefinitionId = getKaleoDefinitionId();
+>>>>>>> compatible
 
 		kaleoInstanceCacheModel.kaleoDefinitionName = getKaleoDefinitionName();
 
@@ -857,8 +946,13 @@ public class KaleoInstanceModelImpl extends BaseModelImpl<KaleoInstance>
 		sb.append(getCreateDate());
 		sb.append(", modifiedDate=");
 		sb.append(getModifiedDate());
+<<<<<<< HEAD
 		sb.append(", kaleoDefinitionVersionId=");
 		sb.append(getKaleoDefinitionVersionId());
+=======
+		sb.append(", kaleoDefinitionId=");
+		sb.append(getKaleoDefinitionId());
+>>>>>>> compatible
 		sb.append(", kaleoDefinitionName=");
 		sb.append(getKaleoDefinitionName());
 		sb.append(", kaleoDefinitionVersion=");
@@ -917,8 +1011,13 @@ public class KaleoInstanceModelImpl extends BaseModelImpl<KaleoInstance>
 		sb.append(getModifiedDate());
 		sb.append("]]></column-value></column>");
 		sb.append(
+<<<<<<< HEAD
 			"<column><column-name>kaleoDefinitionVersionId</column-name><column-value><![CDATA[");
 		sb.append(getKaleoDefinitionVersionId());
+=======
+			"<column><column-name>kaleoDefinitionId</column-name><column-value><![CDATA[");
+		sb.append(getKaleoDefinitionId());
+>>>>>>> compatible
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>kaleoDefinitionName</column-name><column-value><![CDATA[");
@@ -974,9 +1073,15 @@ public class KaleoInstanceModelImpl extends BaseModelImpl<KaleoInstance>
 	private Date _createDate;
 	private Date _modifiedDate;
 	private boolean _setModifiedDate;
+<<<<<<< HEAD
 	private long _kaleoDefinitionVersionId;
 	private long _originalKaleoDefinitionVersionId;
 	private boolean _setOriginalKaleoDefinitionVersionId;
+=======
+	private long _kaleoDefinitionId;
+	private long _originalKaleoDefinitionId;
+	private boolean _setOriginalKaleoDefinitionId;
+>>>>>>> compatible
 	private String _kaleoDefinitionName;
 	private String _originalKaleoDefinitionName;
 	private int _kaleoDefinitionVersion;

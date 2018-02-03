@@ -18,6 +18,10 @@ import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.util.FileImpl;
+>>>>>>> compatible
 
 import java.io.File;
 import java.io.IOException;
@@ -65,9 +69,15 @@ public class LPKGOverrideTest {
 
 		File file = new File(liferayHome, "/osgi/marketplace/override");
 
+<<<<<<< HEAD
 		for (File subfiles : file.listFiles()) {
 			subfiles.delete();
 		}
+=======
+		_fileImpl.deltree(file);
+
+		_fileImpl.mkdirs(file);
+>>>>>>> compatible
 
 		Map<String, String> overrides = new HashMap<>();
 
@@ -200,6 +210,10 @@ public class LPKGOverrideTest {
 		}
 	}
 
+<<<<<<< HEAD
+=======
+	private static final FileImpl _fileImpl = FileImpl.getInstance();
+>>>>>>> compatible
 	private static final Pattern _pattern = Pattern.compile(
 		"(.*?)(-\\d+\\.\\d+\\.\\d+)(\\..+)?(\\.[jw]ar)");
 

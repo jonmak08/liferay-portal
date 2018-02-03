@@ -48,11 +48,16 @@ import java.util.List;
  * @see AssetCategoryPropertyLocalServiceUtil
  * @see com.liferay.portlet.asset.service.base.AssetCategoryPropertyLocalServiceBaseImpl
  * @see com.liferay.portlet.asset.service.impl.AssetCategoryPropertyLocalServiceImpl
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, replaced by {@link
             com.liferay.asset.category.property.service.impl.AssetCategoryPropertyLocalServiceImpl}
  * @generated
  */
 @Deprecated
+=======
+ * @generated
+ */
+>>>>>>> compatible
 @ProviderType
 @Transactional(isolation = Isolation.PORTAL, rollbackFor =  {
 	PortalException.class, SystemException.class})

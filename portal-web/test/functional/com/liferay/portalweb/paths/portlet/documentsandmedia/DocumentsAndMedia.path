@@ -40,7 +40,11 @@
 </tr>
 <tr>
 	<td>DOCUMENT_VERSION_VERTICAL_ELLIPSIS</td>
+<<<<<<< HEAD
 	<td>//li[@class='list-group-item']/div[contains(.,'${key_dmDocumentVersionNumber}')]/..//div//a[span/*[name()='svg'][contains(@class,'icon-ellipsis')]]</td>
+=======
+	<td>//dl/dt[contains(.,'${key_dmDocumentVersionNumber}')]/../..//div//*[name()='svg'][contains(@class,'icon-ellipsis')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -81,7 +85,11 @@
 </tr>
 <tr>
 	<td>ICON_DOCUMENT_ICON_LOCKED</td>
+<<<<<<< HEAD
 	<td>//div[contains(@id,'entriesContainer')]//li[contains(@data-title,'${key_dmDocumentTitle}')]//span/*[name()='svg'][@message='locked']</td>
+=======
+	<td>//div[contains(@id,'entriesContainer')]//li[contains(@data-title,'${key_dmDocumentTitle}')]//*[name()='svg'][@message='locked']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -111,7 +119,11 @@
 </tr>
 <tr>
 	<td>ICON_DOCUMENT_VERTICAL_ELLIPSIS</td>
+<<<<<<< HEAD
 	<td>//div[contains(@class,'document-container')]//li[contains(.,'${key_dmDocumentTitle}')]//a[span/*[name()='svg'][contains(@class,'icon-ellipsis-v')]] | //ul[contains(@class,'display-style')]/li[contains(@data-title,'${key_dmDocumentTitle}')]//a[span/*[name()='svg'][contains(@class,'icon-ellipsis')]]</td>
+=======
+	<td>//div[contains(@class,'document-container')]//li[contains(.,'${key_dmDocumentTitle}')]//span/*[name()='svg'][contains(@class,'icon-ellipsis-v')] | //ul[contains(@class,'display-style')]/li[contains(@data-title,'${key_dmDocumentTitle}')]//span/*[name()='svg'][contains(@class,'icon-ellipsis')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -127,7 +139,11 @@
 <!--ICON_FOLDER-->
 <tr>
 	<td>ICON_FOLDER_THUMBNAIL</td>
+<<<<<<< HEAD
 	<td>//div[contains(@class,'card-col-content')]/span[contains(@class,'lfr-card-title-text')]/a[contains(@title,'${key_dmFolderName}')]</td>
+=======
+	<td>//div[contains(@class,'selectable') and contains(.,'${key_dmFolderName}')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -142,7 +158,11 @@
 </tr>
 <tr>
 	<td>ICON_FOLDER_ACTIONS</td>
+<<<<<<< HEAD
 	<td>//div[contains(@class,'selectable') and contains(.,'${key_dmFolderName}')]//a[span/*[name()='svg'][contains(@class,'icon-ellipsis-v')]]</td>
+=======
+	<td>//div[contains(@class,'selectable') and contains(.,'${key_dmFolderName}')]//span/*[name()='svg'][contains(@class,'icon-ellipsis-v')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -183,7 +203,11 @@
 </tr>
 <tr>
 	<td>DESCRIPTIVE_LIST_DOCUMENT_VERTICAL_ELLIPSIS</td>
+<<<<<<< HEAD
 	<td>//li[contains(.,'${key_dmDocumentTitle}')]//a[span/*[name()='svg'][contains(@class,'icon-ellipsis')]]</td>
+=======
+	<td>//li[contains(.,'${key_dmDocumentTitle}')]//span/*[name()='svg'][contains(@class,'icon-ellipsis')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -194,7 +218,11 @@
 <!--DESCRIPTIVE_LIST_FOLDER-->
 <tr>
 	<td>DESCRIPTIVE_LIST_VERTICAL_ELLIPSIS</td>
+<<<<<<< HEAD
 	<td>//li[contains(.,'${key_dmFolderName}')]//a[span/*[name()='svg'][contains(@class,'icon-ellipsis')]]</td>
+=======
+	<td>//li[contains(.,'${key_dmFolderName}')]//span/*[name()='svg'][contains(@class,'icon-ellipsis')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -204,7 +232,11 @@
 </tr>
 <tr>
 	<td>DESCRIPTIVE_LIST_FOLDER_ICON</td>
+<<<<<<< HEAD
 	<td>//li[@data-title='${key_dmFolderName}']//div[span/*[name()='svg'][contains(@class,'icon-folder')]]</td>
+=======
+	<td>//li[@data-title='${key_dmFolderName}']//*[name()='svg'][contains(@class,'icon-folder')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -350,6 +382,7 @@
 <tr>
 	<td>SEARCH_REPOSITORY_TAB</td>
 	<td>//ul[contains(@class,'nav-tabs')]/li/a[contains(.,'${key_dmRepositoryName}')]</td>
+<<<<<<< HEAD
 	<td></td>
 </tr>
 <tr>
@@ -358,6 +391,26 @@
 	<td></td>
 </tr>
 <tr>
+	<td>SEARCH_PARENT_FOLDER</td>
+	<td>//a[@class='entry-link' and contains(.,'${dmDocumentTitle}')]//dd</td>
+=======
+>>>>>>> compatible
+	<td></td>
+</tr>
+<tr>
+	<td>SEARCH_FIELD</td>
+	<td>//div[contains(@class,'basic-search')]/input[contains(@id,'document_library')]</td>
+	<td></td>
+</tr>
+<tr>
+<<<<<<< HEAD
+	<td>SEARCH_BUTTON</td>
+	<td>//*[@data-qa-id='searchButton']</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+=======
 	<td>SEARCH_PARENT_FOLDER</td>
 	<td>//a[@class='entry-link' and contains(.,'${dmDocumentTitle}')]//dd</td>
 	<td></td>
@@ -374,6 +427,7 @@
 </tr>
 <tr>
 	<td></td>
+>>>>>>> compatible
 	<td></td>
 	<td></td>
 </tr>

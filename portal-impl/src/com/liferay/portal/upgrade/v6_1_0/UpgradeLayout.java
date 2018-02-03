@@ -189,9 +189,14 @@ public class UpgradeLayout extends UpgradeProcess {
 		}
 
 		try (PreparedStatement ps = connection.prepareStatement(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"update Layout set ", columName, " = ? where plid = ",
 					String.valueOf(plid)))) {
+=======
+				"update Layout set " + columName + " = ? where plid = " +
+					plid)) {
+>>>>>>> compatible
 
 			ps.setString(1, xml);
 

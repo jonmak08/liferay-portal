@@ -14,15 +14,24 @@
 
 package com.liferay.calendar.service.impl;
 
+<<<<<<< HEAD
 import com.liferay.calendar.model.Calendar;
+=======
+>>>>>>> compatible
 import com.liferay.calendar.model.CalendarNotificationTemplate;
 import com.liferay.calendar.notification.NotificationTemplateType;
 import com.liferay.calendar.notification.NotificationType;
 import com.liferay.calendar.service.base.CalendarNotificationTemplateServiceBaseImpl;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermission;
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermissionFactory;
+=======
+import com.liferay.calendar.service.permission.CalendarPermission;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.security.permission.ActionKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.ServiceContext;
 
 /**
@@ -39,7 +48,11 @@ public class CalendarNotificationTemplateServiceImpl
 			String body, ServiceContext serviceContext)
 		throws PortalException {
 
+<<<<<<< HEAD
 		_calendarModelResourcePermission.check(
+=======
+		CalendarPermission.check(
+>>>>>>> compatible
 			getPermissionChecker(), calendarId, ActionKeys.UPDATE);
 
 		return calendarNotificationTemplateLocalService.
@@ -60,7 +73,11 @@ public class CalendarNotificationTemplateServiceImpl
 			calendarNotificationTemplatePersistence.findByPrimaryKey(
 				calendarNotificationTemplateId);
 
+<<<<<<< HEAD
 		_calendarModelResourcePermission.check(
+=======
+		CalendarPermission.check(
+>>>>>>> compatible
 			getPermissionChecker(),
 			calendarNotificationTemplate.getCalendarId(), ActionKeys.UPDATE);
 
@@ -70,10 +87,13 @@ public class CalendarNotificationTemplateServiceImpl
 				subject, body, serviceContext);
 	}
 
+<<<<<<< HEAD
 	private static volatile ModelResourcePermission<Calendar>
 		_calendarModelResourcePermission =
 			ModelResourcePermissionFactory.getInstance(
 				CalendarNotificationTemplateServiceImpl.class,
 				"_calendarModelResourcePermission", Calendar.class);
 
+=======
+>>>>>>> compatible
 }

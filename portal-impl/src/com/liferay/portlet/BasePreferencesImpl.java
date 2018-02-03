@@ -17,6 +17,10 @@ package com.liferay.portlet;
 import com.liferay.petra.xml.XMLUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.xml.simple.Element;
+<<<<<<< HEAD
+=======
+import com.liferay.util.xml.XMLUtil;
+>>>>>>> compatible
 
 import java.io.IOException;
 import java.io.Serializable;

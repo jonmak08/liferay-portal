@@ -64,7 +64,11 @@ public class KaleoNodeWrapper implements KaleoNode, ModelWrapper<KaleoNode> {
 		attributes.put("userName", getUserName());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
+<<<<<<< HEAD
 		attributes.put("kaleoDefinitionVersionId", getKaleoDefinitionVersionId());
+=======
+		attributes.put("kaleoDefinitionId", getKaleoDefinitionId());
+>>>>>>> compatible
 		attributes.put("name", getName());
 		attributes.put("metadata", getMetadata());
 		attributes.put("description", getDescription());
@@ -119,11 +123,18 @@ public class KaleoNodeWrapper implements KaleoNode, ModelWrapper<KaleoNode> {
 			setModifiedDate(modifiedDate);
 		}
 
+<<<<<<< HEAD
 		Long kaleoDefinitionVersionId = (Long)attributes.get(
 				"kaleoDefinitionVersionId");
 
 		if (kaleoDefinitionVersionId != null) {
 			setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
+=======
+		Long kaleoDefinitionId = (Long)attributes.get("kaleoDefinitionId");
+
+		if (kaleoDefinitionId != null) {
+			setKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 		}
 
 		String name = (String)attributes.get("name");
@@ -235,6 +246,7 @@ public class KaleoNodeWrapper implements KaleoNode, ModelWrapper<KaleoNode> {
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns the kaleo definition version ID of this kaleo node.
 	*
 	* @return the kaleo definition version ID of this kaleo node
@@ -242,6 +254,15 @@ public class KaleoNodeWrapper implements KaleoNode, ModelWrapper<KaleoNode> {
 	@Override
 	public long getKaleoDefinitionVersionId() {
 		return _kaleoNode.getKaleoDefinitionVersionId();
+=======
+	* Returns the kaleo definition ID of this kaleo node.
+	*
+	* @return the kaleo definition ID of this kaleo node
+	*/
+	@Override
+	public long getKaleoDefinitionId() {
+		return _kaleoNode.getKaleoDefinitionId();
+>>>>>>> compatible
 	}
 
 	/**
@@ -482,6 +503,7 @@ public class KaleoNodeWrapper implements KaleoNode, ModelWrapper<KaleoNode> {
 	}
 
 	/**
+<<<<<<< HEAD
 	* Sets the kaleo definition version ID of this kaleo node.
 	*
 	* @param kaleoDefinitionVersionId the kaleo definition version ID of this kaleo node
@@ -489,6 +511,15 @@ public class KaleoNodeWrapper implements KaleoNode, ModelWrapper<KaleoNode> {
 	@Override
 	public void setKaleoDefinitionVersionId(long kaleoDefinitionVersionId) {
 		_kaleoNode.setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
+=======
+	* Sets the kaleo definition ID of this kaleo node.
+	*
+	* @param kaleoDefinitionId the kaleo definition ID of this kaleo node
+	*/
+	@Override
+	public void setKaleoDefinitionId(long kaleoDefinitionId) {
+		_kaleoNode.setKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 	/**

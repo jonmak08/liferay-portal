@@ -14,7 +14,10 @@
 
 package com.liferay.source.formatter.checks;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.tools.ToolsUtil;
@@ -80,9 +83,14 @@ public class ArrayCheck extends BaseFileCheck {
 
 				return StringUtil.replaceFirst(
 					content, matcher.group(),
+<<<<<<< HEAD
 					StringBundler.concat(
 						matcher.group(1), whitespace, matcher.group(4),
 						matcher.group(8)));
+=======
+					matcher.group(1) + whitespace + matcher.group(4) +
+						matcher.group(8));
+>>>>>>> compatible
 			}
 
 			if (matcher.group(9) == null) {
@@ -93,9 +101,13 @@ public class ArrayCheck extends BaseFileCheck {
 
 			content = StringUtil.replaceFirst(
 				content, matcher.group(),
+<<<<<<< HEAD
 				StringBundler.concat(
 					matcher.group(1), matcher.group(3), matcher.group(4),
 					" {\n"),
+=======
+				matcher.group(1) + matcher.group(3) + matcher.group(4) + " {\n",
+>>>>>>> compatible
 				matcher.start());
 
 			int level = 1;

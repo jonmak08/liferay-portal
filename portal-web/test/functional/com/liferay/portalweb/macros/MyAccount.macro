@@ -6,7 +6,13 @@
 			<var name="name" value="${organizationName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="PortletEntry#save" />
+=======
+		<execute macro="Button#clickSave" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 	</command>
 
 	<command name="changeUserLanguage">
@@ -20,12 +26,17 @@
 	</command>
 
 	<command name="configureDisplaySettingsLanguage">
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="Account Settings" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="Account Settings" />
+>>>>>>> compatible
 		</execute>
 
 		<execute function="Select" locator1="MyAccount#LANGUAGE_SELECT" value1="${languageName}" />
@@ -33,12 +44,22 @@
 		<execute function="AssertClick" locator1="Button#SAVE" value1="Save" />
 
 		<execute function="AssertElementPresent" locator1="Message#SUCCESS" />
+<<<<<<< HEAD
 	</command>
 
 	<command name="configureDisplaySettingsLanguageLocalized">
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="${category}" />
 			<var name="panel" value="User" />
+=======
+
+		<execute function="AssertClick" locator1="MyAccount#LANGUAGE_PAGE_DISPLAY_MESSAGE" value1="${languagePageDisplayMessage}" />
+	</command>
+
+	<command name="configureDisplaySettingsLanguageLocalized">
+		<execute macro="ProductMenu#gotoLocalizedUserMyAccount">
+			<var name="category" value="${category}" />
+>>>>>>> compatible
 			<var name="portlet" value="${portlet}" />
 		</execute>
 
@@ -49,6 +70,7 @@
 		<execute function="AssertClick" locator1="Button#SAVE_LOCALIZED" value1="${saveButton}" />
 
 		<execute function="AssertElementPresent" locator1="Message#SUCCESS" />
+<<<<<<< HEAD
 	</command>
 
 	<command name="editPasswordInvalidCP">
@@ -84,6 +106,10 @@
 				<execute function="AssertTextEquals#assertPartialText" locator1="Message#ERROR_2" value1="That password is invalid. Please enter in a different password." />
 			</else>
 		</if>
+=======
+
+		<execute function="AssertClick" locator1="MyAccount#LANGUAGE_PAGE_DISPLAY_MESSAGE" value1="${languagePageDisplayMessage}" />
+>>>>>>> compatible
 	</command>
 
 	<command name="view">

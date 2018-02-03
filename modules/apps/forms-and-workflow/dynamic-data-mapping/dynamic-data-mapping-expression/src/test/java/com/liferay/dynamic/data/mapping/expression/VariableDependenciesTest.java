@@ -29,9 +29,14 @@ public class VariableDependenciesTest {
 
 	@Test
 	public void testVariableDependenciesMap() throws Exception {
+<<<<<<< HEAD
 		DDMExpression<Number> ddmExpression =
 			_ddmExpressionFactory.createNumberDDMExpression(
 				"var1 + var2 + var3");
+=======
+		DDMExpression<Long> ddmExpression =
+			_ddmExpressionFactory.createLongDDMExpression("var1 + var2 + var3");
+>>>>>>> compatible
 
 		ddmExpression.setLongVariableValue("var1", 5L);
 		ddmExpression.setExpressionStringVariableValue("var2", "var1 + 3");
@@ -51,9 +56,13 @@ public class VariableDependenciesTest {
 		List<String> var1RequiredVariableNames =
 			var1VariableDependencies.getRequiredVariableNames();
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			var1RequiredVariableNames.toString(),
 			var1RequiredVariableNames.isEmpty());
+=======
+		Assert.assertTrue(var1RequiredVariableNames.isEmpty());
+>>>>>>> compatible
 
 		VariableDependencies var2VariableDependencies =
 			variableDependenciesMap.get("var2");
@@ -69,9 +78,13 @@ public class VariableDependenciesTest {
 		List<String> var3AffectedVariableNames =
 			var3VariableDependencies.getAffectedVariableNames();
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			var3AffectedVariableNames.toString(),
 			var3AffectedVariableNames.isEmpty());
+=======
+		Assert.assertTrue(var3AffectedVariableNames.isEmpty());
+>>>>>>> compatible
 
 		Assert.assertTrue(
 			hasRequiredVariableName(var3VariableDependencies, "var1"));

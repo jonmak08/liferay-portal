@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Portal Scripting JavaScript
 Bundle-SymbolicName: com.liferay.portal.scripting.javascript
+<<<<<<< HEAD
 Bundle-Version: 2.0.13
+=======
+Bundle-Version: 2.0.9
+>>>>>>> compatible
 Import-Package:\
 	!javax.swing.*,\
 	\

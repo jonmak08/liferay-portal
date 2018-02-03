@@ -22,6 +22,10 @@ import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.portlet.RequestBackedPortletURLFactory;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.AggregateResourceBundleLoader;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.LocaleUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ResourceBundleLoader;
 import com.liferay.portal.kernel.util.ResourceBundleLoaderUtil;
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
@@ -78,7 +82,10 @@ public class AlloyEditorCreoleConfigContributor
 
 		JSONObject linkEditJSONObject = JSONFactoryUtil.createJSONObject();
 
+<<<<<<< HEAD
 		linkEditJSONObject.put("appendProtocol", false);
+=======
+>>>>>>> compatible
 		linkEditJSONObject.put("showTargetSelector", false);
 
 		buttonCfgJSONObject.put("linkEdit", linkEditJSONObject);
@@ -135,7 +142,12 @@ public class AlloyEditorCreoleConfigContributor
 		ResourceBundle resourceBundle = null;
 
 		try {
+<<<<<<< HEAD
 			resourceBundle = _resourceBundleLoader.loadResourceBundle(locale);
+=======
+			resourceBundle = _resourceBundleLoader.loadResourceBundle(
+				LocaleUtil.toLanguageId(locale));
+>>>>>>> compatible
 		}
 		catch (MissingResourceException mre) {
 			resourceBundle = ResourceBundleUtil.EMPTY_RESOURCE_BUNDLE;

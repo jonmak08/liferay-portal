@@ -19,9 +19,13 @@ import com.liferay.asset.kernel.model.AssetVocabulary;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.Validator;
+=======
+import com.liferay.portal.kernel.util.PortalUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.WebKeys;
 
 import java.util.Collections;
@@ -61,6 +65,7 @@ public class AssetCategoryUtil {
 		}
 
 		portletURL.setParameter("mvcPath", "/view_categories.jsp");
+<<<<<<< HEAD
 
 		String navigation = ParamUtil.getString(request, "navigation");
 
@@ -68,6 +73,8 @@ public class AssetCategoryUtil {
 			portletURL.setParameter("navigation", navigation);
 		}
 
+=======
+>>>>>>> compatible
 		portletURL.setParameter(
 			"vocabularyId", String.valueOf(vocabulary.getVocabularyId()));
 

@@ -33,8 +33,12 @@ import com.liferay.portal.kernel.service.ServiceContextThreadLocal;
 import com.liferay.portal.kernel.service.persistence.CompanyProvider;
 import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ArrayUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -52,8 +56,11 @@ import java.io.Serializable;
 
 import java.lang.reflect.Field;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.Arrays;
+=======
+>>>>>>> compatible
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
@@ -198,6 +205,7 @@ public class RatingsEntryPersistenceImpl extends BasePersistenceImpl<RatingsEntr
 		}
 
 		List<RatingsEntry> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<RatingsEntry>)finderCache.getResult(finderPath,
@@ -208,6 +216,18 @@ public class RatingsEntryPersistenceImpl extends BasePersistenceImpl<RatingsEntr
 					if (!Objects.equals(uuid, ratingsEntry.getUuid())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<RatingsEntry>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (RatingsEntry ratingsEntry : list) {
+					if (!Objects.equals(uuid, ratingsEntry.getUuid())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -753,6 +773,7 @@ public class RatingsEntryPersistenceImpl extends BasePersistenceImpl<RatingsEntr
 		}
 
 		List<RatingsEntry> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<RatingsEntry>)finderCache.getResult(finderPath,
@@ -764,6 +785,19 @@ public class RatingsEntryPersistenceImpl extends BasePersistenceImpl<RatingsEntr
 							(companyId != ratingsEntry.getCompanyId())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<RatingsEntry>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (RatingsEntry ratingsEntry : list) {
+					if (!Objects.equals(uuid, ratingsEntry.getUuid()) ||
+							(companyId != ratingsEntry.getCompanyId())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -1342,6 +1376,7 @@ public class RatingsEntryPersistenceImpl extends BasePersistenceImpl<RatingsEntr
 		if (retrieveFromCache) {
 			list = (List<RatingsEntry>)finderCache.getResult(finderPath,
 					finderArgs, this);
+<<<<<<< HEAD
 
 			if ((list != null) && !list.isEmpty()) {
 				for (RatingsEntry ratingsEntry : list) {
@@ -1349,6 +1384,15 @@ public class RatingsEntryPersistenceImpl extends BasePersistenceImpl<RatingsEntr
 							(classPK != ratingsEntry.getClassPK())) {
 						list = null;
 
+=======
+
+			if ((list != null) && !list.isEmpty()) {
+				for (RatingsEntry ratingsEntry : list) {
+					if ((classNameId != ratingsEntry.getClassNameId()) ||
+							(classPK != ratingsEntry.getClassPK())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -2247,6 +2291,7 @@ public class RatingsEntryPersistenceImpl extends BasePersistenceImpl<RatingsEntr
 				count = (Long)q.uniqueResult();
 
 				finderCache.putResult(finderPath, finderArgs, count);
+<<<<<<< HEAD
 			}
 			catch (Exception e) {
 				finderCache.removeResult(finderPath, finderArgs);
@@ -2334,6 +2379,11 @@ public class RatingsEntryPersistenceImpl extends BasePersistenceImpl<RatingsEntr
 			catch (Exception e) {
 				finderCache.removeResult(FINDER_PATH_WITH_PAGINATION_COUNT_BY_U_C_C,
 					finderArgs);
+=======
+			}
+			catch (Exception e) {
+				finderCache.removeResult(finderPath, finderArgs);
+>>>>>>> compatible
 
 				throw processException(e);
 			}
@@ -2476,11 +2526,19 @@ public class RatingsEntryPersistenceImpl extends BasePersistenceImpl<RatingsEntr
 		}
 
 		List<RatingsEntry> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<RatingsEntry>)finderCache.getResult(finderPath,
 					finderArgs, this);
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<RatingsEntry>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+>>>>>>> compatible
 			if ((list != null) && !list.isEmpty()) {
 				for (RatingsEntry ratingsEntry : list) {
 					if ((classNameId != ratingsEntry.getClassNameId()) ||
@@ -2939,11 +2997,17 @@ public class RatingsEntryPersistenceImpl extends BasePersistenceImpl<RatingsEntr
 		setModelClass(RatingsEntry.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("uuid", "uuid_");
@@ -3277,6 +3341,7 @@ public class RatingsEntryPersistenceImpl extends BasePersistenceImpl<RatingsEntr
 				args);
 
 			args = new Object[] {
+<<<<<<< HEAD
 					ratingsEntryModelImpl.getUserId(),
 					ratingsEntryModelImpl.getClassNameId(),
 					ratingsEntryModelImpl.getClassPK()
@@ -3287,6 +3352,8 @@ public class RatingsEntryPersistenceImpl extends BasePersistenceImpl<RatingsEntr
 				args);
 
 			args = new Object[] {
+=======
+>>>>>>> compatible
 					ratingsEntryModelImpl.getClassNameId(),
 					ratingsEntryModelImpl.getClassPK(),
 					ratingsEntryModelImpl.getScore()
@@ -3349,6 +3416,7 @@ public class RatingsEntryPersistenceImpl extends BasePersistenceImpl<RatingsEntr
 
 				finderCache.removeResult(FINDER_PATH_COUNT_BY_C_C, args);
 				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_C_C,
+<<<<<<< HEAD
 					args);
 
 				args = new Object[] {
@@ -3371,6 +3439,8 @@ public class RatingsEntryPersistenceImpl extends BasePersistenceImpl<RatingsEntr
 
 				finderCache.removeResult(FINDER_PATH_COUNT_BY_U_C_C, args);
 				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_U_C_C,
+=======
+>>>>>>> compatible
 					args);
 
 				args = new Object[] {
@@ -3379,8 +3449,13 @@ public class RatingsEntryPersistenceImpl extends BasePersistenceImpl<RatingsEntr
 						ratingsEntryModelImpl.getClassPK()
 					};
 
+<<<<<<< HEAD
 				finderCache.removeResult(FINDER_PATH_COUNT_BY_U_C_C, args);
 				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_U_C_C,
+=======
+				finderCache.removeResult(FINDER_PATH_COUNT_BY_C_C, args);
+				finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_C_C,
+>>>>>>> compatible
 					args);
 			}
 

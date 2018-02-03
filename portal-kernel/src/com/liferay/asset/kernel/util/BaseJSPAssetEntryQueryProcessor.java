@@ -27,10 +27,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+<<<<<<< HEAD
  * @author     Julio Camarero
  * @deprecated As of 7.0.0
  */
 @Deprecated
+=======
+ * @author Julio Camarero
+ */
+>>>>>>> compatible
 public abstract class BaseJSPAssetEntryQueryProcessor
 	extends BaseAssetEntryQueryProcessor {
 

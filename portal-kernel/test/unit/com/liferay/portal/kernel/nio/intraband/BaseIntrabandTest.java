@@ -340,7 +340,11 @@ public class BaseIntrabandTest {
 				new MockScatteringByteChannel(false), channelContext);
 
 			Assert.assertFalse(mockRegistrationReference.isValid());
+<<<<<<< HEAD
 			Assert.assertTrue(logRecords.toString(), logRecords.isEmpty());
+=======
+			Assert.assertTrue(logRecords.isEmpty());
+>>>>>>> compatible
 
 			// Slow reading of ownerless datagram, with log
 
@@ -432,7 +436,11 @@ public class BaseIntrabandTest {
 
 				Assert.assertArrayEquals(_data, dataByteBuffer.array());
 
+<<<<<<< HEAD
 				Assert.assertTrue(logRecords.toString(), logRecords.isEmpty());
+=======
+				Assert.assertTrue(logRecords.isEmpty());
+>>>>>>> compatible
 
 				// Read ownerless ACK response, with log
 
@@ -476,7 +484,11 @@ public class BaseIntrabandTest {
 				_mockIntraband.handleReading(sourceChannel, channelContext);
 
 				Assert.assertTrue(receiveDatagram.isAckResponse());
+<<<<<<< HEAD
 				Assert.assertTrue(logRecords.toString(), logRecords.isEmpty());
+=======
+				Assert.assertTrue(logRecords.isEmpty());
+>>>>>>> compatible
 
 				// Normal ACK response
 
@@ -560,7 +572,11 @@ public class BaseIntrabandTest {
 
 				Assert.assertArrayEquals(_data, dataByteBuffer.array());
 
+<<<<<<< HEAD
 				Assert.assertTrue(logRecords.toString(), logRecords.isEmpty());
+=======
+				Assert.assertTrue(logRecords.isEmpty());
+>>>>>>> compatible
 
 				// Reply response
 
@@ -678,7 +694,11 @@ public class BaseIntrabandTest {
 
 				Assert.assertArrayEquals(_data, dataByteBuffer.array());
 
+<<<<<<< HEAD
 				Assert.assertTrue(logRecords.toString(), logRecords.isEmpty());
+=======
+				Assert.assertTrue(logRecords.isEmpty());
+>>>>>>> compatible
 
 				// Ownerless request with ACK requirement, with log
 
@@ -835,7 +855,11 @@ public class BaseIntrabandTest {
 
 				Assert.assertArrayEquals(_data, dataByteBuffer.array());
 
+<<<<<<< HEAD
 				Assert.assertTrue(logRecords.toString(), logRecords.isEmpty());
+=======
+				Assert.assertTrue(logRecords.isEmpty());
+>>>>>>> compatible
 			}
 		}
 	}
@@ -932,7 +956,11 @@ public class BaseIntrabandTest {
 			recordCompletionHandler.waitUntilFailed();
 
 			Assert.assertNotNull(recordCompletionHandler.getIOException());
+<<<<<<< HEAD
 			Assert.assertTrue(logRecords.toString(), logRecords.isEmpty());
+=======
+			Assert.assertTrue(logRecords.isEmpty());
+>>>>>>> compatible
 		}
 
 		// Huge datagram write
@@ -1020,9 +1048,13 @@ public class BaseIntrabandTest {
 
 			String requestDatagramString = requestDatagram.toString();
 
+<<<<<<< HEAD
 			Assert.assertTrue(
 				requestDatagramString,
 				requestDatagramString.contains("dataChunk=null"));
+=======
+			Assert.assertTrue(requestDatagramString.contains("dataChunk=null"));
+>>>>>>> compatible
 		}
 
 		Assert.assertSame(sendingQueue, channelContext.getSendingQueue());
@@ -1056,9 +1088,13 @@ public class BaseIntrabandTest {
 
 		Assert.assertEquals(
 			timeoutSequenceIds.toString(), 1, timeoutSequenceIds.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			timeoutSequenceIds.toString(),
 			timeoutSequenceIds.contains(sequenceId));
+=======
+		Assert.assertTrue(timeoutSequenceIds.contains(sequenceId));
+>>>>>>> compatible
 
 		// Remove, hit
 
@@ -1069,19 +1105,29 @@ public class BaseIntrabandTest {
 
 		_mockIntraband.removeResponseWaitingDatagram(responseDatagram);
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			responseWaitingMap.toString(), responseWaitingMap.isEmpty());
 		Assert.assertTrue(
 			timeoutSequenceIds.toString(), timeoutSequenceIds.isEmpty());
+=======
+		Assert.assertTrue(responseWaitingMap.isEmpty());
+		Assert.assertTrue(timeoutSequenceIds.isEmpty());
+>>>>>>> compatible
 
 		// Remove, miss
 
 		_mockIntraband.removeResponseWaitingDatagram(responseDatagram);
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			responseWaitingMap.toString(), responseWaitingMap.isEmpty());
 		Assert.assertTrue(
 			timeoutSequenceIds.toString(), timeoutSequenceIds.isEmpty());
+=======
+		Assert.assertTrue(responseWaitingMap.isEmpty());
+		Assert.assertTrue(timeoutSequenceIds.isEmpty());
+>>>>>>> compatible
 
 		try (CaptureHandler captureHandler =
 				JDKLoggerTestUtil.configureJDKLogger(
@@ -1129,12 +1175,17 @@ public class BaseIntrabandTest {
 				requestDatagram2, responseWaitingMap.get(sequenceId + 1));
 			Assert.assertEquals(
 				timeoutSequenceIds.toString(), 2, timeoutSequenceIds.size());
+<<<<<<< HEAD
 			Assert.assertTrue(
 				timeoutSequenceIds.toString(),
 				timeoutSequenceIds.contains(sequenceId));
 			Assert.assertTrue(
 				timeoutSequenceIds.toString(),
 				timeoutSequenceIds.contains(sequenceId + 1));
+=======
+			Assert.assertTrue(timeoutSequenceIds.contains(sequenceId));
+			Assert.assertTrue(timeoutSequenceIds.contains(sequenceId + 1));
+>>>>>>> compatible
 
 			Thread.sleep(10);
 
@@ -1190,18 +1241,27 @@ public class BaseIntrabandTest {
 				requestDatagram2, responseWaitingMap.get(sequenceId + 1));
 			Assert.assertEquals(
 				timeoutSequenceIds.toString(), 2, timeoutSequenceIds.size());
+<<<<<<< HEAD
 			Assert.assertTrue(
 				timeoutSequenceIds.toString(),
 				timeoutSequenceIds.contains(sequenceId));
 			Assert.assertTrue(
 				timeoutSequenceIds.toString(),
 				timeoutSequenceIds.contains(sequenceId + 1));
+=======
+			Assert.assertTrue(timeoutSequenceIds.contains(sequenceId));
+			Assert.assertTrue(timeoutSequenceIds.contains(sequenceId + 1));
+>>>>>>> compatible
 
 			Thread.sleep(10);
 
 			_mockIntraband.cleanUpTimeoutResponseWaitingDatagrams();
 
+<<<<<<< HEAD
 			Assert.assertTrue(logRecords.toString(), logRecords.isEmpty());
+=======
+			Assert.assertTrue(logRecords.isEmpty());
+>>>>>>> compatible
 
 			recordCompletionHandler1.waitUntilTimeouted();
 			recordCompletionHandler2.waitUntilTimeouted();

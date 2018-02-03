@@ -41,6 +41,7 @@ import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -2931,6 +2932,7 @@ public class AssetVocabularyPersistenceImpl extends BasePersistenceImpl<AssetVoc
 		}
 
 		List<AssetVocabulary> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<AssetVocabulary>)finderCache.getResult(finderPath,
@@ -2941,6 +2943,18 @@ public class AssetVocabularyPersistenceImpl extends BasePersistenceImpl<AssetVoc
 					if ((companyId != assetVocabulary.getCompanyId())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<AssetVocabulary>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (AssetVocabulary assetVocabulary : list) {
+					if ((companyId != assetVocabulary.getCompanyId())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -3691,8 +3705,14 @@ public class AssetVocabularyPersistenceImpl extends BasePersistenceImpl<AssetVoc
 				for (AssetVocabulary assetVocabulary : list) {
 					if ((groupId != assetVocabulary.getGroupId()) ||
 							!StringUtil.wildcardMatches(
+<<<<<<< HEAD
 								assetVocabulary.getName(), name, '_', '%',
 								'\\', false)) {
+=======
+								assetVocabulary.getName(), name,
+								CharPool.UNDERLINE, CharPool.PERCENT,
+								CharPool.BACK_SLASH, false)) {
+>>>>>>> compatible
 						list = null;
 
 						break;
@@ -4582,11 +4602,17 @@ public class AssetVocabularyPersistenceImpl extends BasePersistenceImpl<AssetVoc
 		setModelClass(AssetVocabulary.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("uuid", "uuid_");

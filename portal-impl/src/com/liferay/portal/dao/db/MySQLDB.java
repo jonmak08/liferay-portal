@@ -19,6 +19,7 @@ import com.liferay.portal.kernel.dao.db.Index;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
+import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.util.PropsValues;
@@ -139,6 +140,10 @@ public class MySQLDB extends BaseDB {
 
 	@Override
 	protected String[] getTemplate() {
+		if (GetterUtil.getFloat(getVersionString()) >= 5.6F) {
+			_MYSQL[8] = " datetime(6)";
+		}
+
 		return _MYSQL;
 	}
 
@@ -185,9 +190,16 @@ public class MySQLDB extends BaseDB {
 				if (createTable && (pos != -1)) {
 					createTable = false;
 
+<<<<<<< HEAD
 					line = StringBundler.concat(
 						line.substring(0, pos), " engine ",
 						PropsValues.DATABASE_MYSQL_ENGINE, line.substring(pos));
+=======
+					line =
+						line.substring(0, pos) + " engine " +
+							PropsValues.DATABASE_MYSQL_ENGINE +
+								line.substring(pos);
+>>>>>>> compatible
 				}
 
 				sb.append(line);

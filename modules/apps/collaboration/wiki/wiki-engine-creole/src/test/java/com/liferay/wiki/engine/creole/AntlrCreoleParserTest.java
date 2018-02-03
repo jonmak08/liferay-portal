@@ -14,7 +14,11 @@
 
 package com.liferay.wiki.engine.creole;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.wiki.engine.creole.internal.parser.ast.ASTNode;
 import com.liferay.wiki.engine.creole.internal.parser.ast.BaseListNode;
 import com.liferay.wiki.engine.creole.internal.parser.ast.BoldTextNode;

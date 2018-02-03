@@ -48,7 +48,11 @@ AUI.add(
 
 					TPL_ALERTS_CONTAINER: '<div class="lfr-alert-container"></div>',
 
+<<<<<<< HEAD
 					TPL_CONTENT: '<strong class="lead"><svg class="lexicon-icon" focusable="false"><use data-href="{pathThemeImages}/lexicon/icons.svg#{icon}" /><title>{title}</title></svg> {title}</strong>{message}',
+=======
+					TPL_CONTENT: '<strong class="lead"><svg class="lexicon-icon" focusable="false"><use data-href="{pathThemeImages}/lexicon/icons.svg#{icon}" /></svg> {title}</strong>{message}',
+>>>>>>> compatible
 
 					bindUI: function() {
 						var instance = this;

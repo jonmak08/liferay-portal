@@ -16,10 +16,7 @@ package com.liferay.portal.kernel.util;
 
 /**
  * @author Brian Wing Shun Chan
- * @deprecated As of 7.0.0, replaced with {@link
- *             com.liferay.petra.string.CharPool}
  */
-@Deprecated
 public class CharPool {
 
 	public static final char AMPERSAND = '&';

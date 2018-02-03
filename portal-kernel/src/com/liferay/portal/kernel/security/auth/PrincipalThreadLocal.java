@@ -14,9 +14,15 @@
 
 package com.liferay.portal.kernel.security.auth;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+=======
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.util.AutoResetThreadLocal;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 
 /**
@@ -61,9 +67,16 @@ public class PrincipalThreadLocal {
 	private static final Log _log = LogFactoryUtil.getLog(
 		PrincipalThreadLocal.class);
 
+<<<<<<< HEAD
 	private static final ThreadLocal<String> _name =
 		new CentralizedThreadLocal<>(PrincipalThreadLocal.class + "._name");
 	private static final ThreadLocal<String> _password =
 		new CentralizedThreadLocal<>(PrincipalThreadLocal.class + "._password");
+=======
+	private static final ThreadLocal<String> _name = new AutoResetThreadLocal<>(
+		PrincipalThreadLocal.class + "._name");
+	private static final ThreadLocal<String> _password =
+		new AutoResetThreadLocal<>(PrincipalThreadLocal.class + "._password");
+>>>>>>> compatible
 
 }

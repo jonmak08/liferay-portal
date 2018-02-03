@@ -1,23 +1,41 @@
+<<<<<<< HEAD
 import Component from 'metal-component';
 import Soy from 'metal-soy';
 import { CancellablePromise } from 'metal-promise';
 import { core } from 'metal';
+=======
+import Component from 'metal-component/src/Component';
+import Soy from 'metal-soy/src/Soy';
+
+import core from 'metal/src/core';
+import { CancellablePromise } from 'metal-promise/src/promise/Promise';
+>>>>>>> compatible
 
 import componentTemplates from './CropComponent.soy';
 import controlsTemplates from './CropControls.soy';
 
 /**
  * Crop Component
+<<<<<<< HEAD
  * @review
+=======
+>>>>>>> compatible
  */
 class CropComponent extends Component {
 	/**
 	 * Applies the brighntess filter to generate a final
 	 * version of the image.
+<<<<<<< HEAD
 	 * @param  {Object} imageData An object with several image representations.
 	 * @return {CancellablePromise} A promise that will resolve when the webworker
 	 * finishes processing the image for preview.
 	 * @review
+=======
+	 *
+	 * @param  {Object} imageData An object with several image representations.
+	 * @return {CancellablePromise} A promise that will resolve when the webworker
+	 * finishes processing the image for preview.
+>>>>>>> compatible
 	 */
 	process(imageData) {
 		let imageCanvas = this.getImageEditorCanvas();
@@ -25,7 +43,11 @@ class CropComponent extends Component {
 		var horizontalRatio = imageData.width / imageCanvas.offsetWidth;
 		var verticalRatio = imageData.height / imageCanvas.offsetHeight;
 
+<<<<<<< HEAD
 		let cropHandles = this.components[this.ref + 'CropHandles'];
+=======
+		let cropHandles = this.components[this.key + 'CropHandles'];
+>>>>>>> compatible
 		let selection = {
 			height: cropHandles.element.offsetHeight,
 			left: cropHandles.element.offsetLeft - imageCanvas.offsetLeft,
@@ -59,14 +81,22 @@ class CropComponent extends Component {
 
 /**
  * State definition.
+<<<<<<< HEAD
  * @review
  * @static
  * @type {!Object}
+=======
+ * @type {!Object}
+ * @static
+>>>>>>> compatible
  */
 CropComponent.STATE = {
 	/**
 	 * Injected helper to get the editor canvas
+<<<<<<< HEAD
 	 * @review
+=======
+>>>>>>> compatible
 	 * @type {Function}
 	 */
 	getImageEditorCanvas: {
@@ -74,6 +104,10 @@ CropComponent.STATE = {
 	}
 };
 
+<<<<<<< HEAD
+=======
+// Register component
+>>>>>>> compatible
 Soy.register(CropComponent, componentTemplates);
 
 export default CropComponent;

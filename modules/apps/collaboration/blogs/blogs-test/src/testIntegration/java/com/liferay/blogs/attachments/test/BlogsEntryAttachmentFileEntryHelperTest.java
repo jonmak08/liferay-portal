@@ -15,11 +15,17 @@
 package com.liferay.blogs.attachments.test;
 
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
+<<<<<<< HEAD
 import com.liferay.blogs.model.BlogsEntry;
 import com.liferay.blogs.service.BlogsEntryLocalServiceUtil;
 import com.liferay.blogs.test.util.BlogsTestUtil;
 import com.liferay.blogs.util.BlogsEntryAttachmentFileEntryUtil;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.blogs.kernel.model.BlogsEntry;
+import com.liferay.blogs.kernel.service.BlogsEntryLocalServiceUtil;
+import com.liferay.blogs.test.util.BlogsTestUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.editor.EditorConstants;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.User;
@@ -29,6 +35,11 @@ import com.liferay.portal.kernel.repository.model.Folder;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
@@ -37,9 +48,17 @@ import com.liferay.portal.kernel.test.util.UserTestUtil;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.DigesterUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.TempFileEntryUtil;
 import com.liferay.portal.service.test.ServiceTestUtil;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.TempFileEntryUtil;
+import com.liferay.portal.service.test.ServiceTestUtil;
+import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+import com.liferay.portlet.blogs.BlogsEntryAttachmentFileEntryHelper;
+>>>>>>> compatible
 import com.liferay.portlet.blogs.BlogsEntryAttachmentFileEntryReference;
 
 import java.io.InputStream;
@@ -59,12 +78,22 @@ import org.junit.runner.RunWith;
  * @author Sergio González
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class BlogsEntryAttachmentFileEntryHelperTest {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Before
 	public void setUp() throws Exception {
@@ -123,7 +152,11 @@ public class BlogsEntryAttachmentFileEntryHelperTest {
 					null, tempFileEntry, StringPool.BLANK));
 
 		List<FileEntry> tempBlogsEntryAttachmentFileEntries =
+<<<<<<< HEAD
 			BlogsEntryAttachmentFileEntryUtil.
+=======
+			_blogsEntryAttachmentFileEntryHelper.
+>>>>>>> compatible
 				getTempBlogsEntryAttachmentFileEntries(
 					getContent(tempFileEntryImgTag));
 
@@ -152,7 +185,11 @@ public class BlogsEntryAttachmentFileEntryHelperTest {
 			tempFileEntry);
 
 		List<FileEntry> tempBlogsEntryAttachmentFileEntries =
+<<<<<<< HEAD
 			BlogsEntryAttachmentFileEntryUtil.
+=======
+			_blogsEntryAttachmentFileEntryHelper.
+>>>>>>> compatible
 				getTempBlogsEntryAttachmentFileEntries(
 					getContent(tempFileEntryImgTag));
 
@@ -188,7 +225,11 @@ public class BlogsEntryAttachmentFileEntryHelperTest {
 		Folder folder = BlogsEntryLocalServiceUtil.addAttachmentsFolder(
 			_user.getUserId(), _group.getGroupId());
 
+<<<<<<< HEAD
 		return BlogsEntryAttachmentFileEntryUtil.
+=======
+		return _blogsEntryAttachmentFileEntryHelper.
+>>>>>>> compatible
 			addBlogsEntryAttachmentFileEntries(
 				_group.getGroupId(), _user.getUserId(), entry.getEntryId(),
 				folder.getFolderId(), tempFileEntries);
@@ -238,6 +279,13 @@ public class BlogsEntryAttachmentFileEntryHelperTest {
 
 	private static final String _TEMP_FOLDER_NAME = BlogsEntry.class.getName();
 
+<<<<<<< HEAD
+=======
+	private final BlogsEntryAttachmentFileEntryHelper
+		_blogsEntryAttachmentFileEntryHelper =
+			new BlogsEntryAttachmentFileEntryHelper();
+
+>>>>>>> compatible
 	@DeleteAfterTestRun
 	private Group _group;
 

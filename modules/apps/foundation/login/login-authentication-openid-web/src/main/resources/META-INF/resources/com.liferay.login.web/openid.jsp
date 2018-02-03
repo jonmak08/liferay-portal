@@ -38,7 +38,11 @@ String openId = ParamUtil.getString(request, "openId");
 		<aui:input autoFocus="<%= windowState.equals(WindowState.MAXIMIZED) %>" cssClass="openid-login" label="openid" name="openId" title="openid" type="text" value="<%= openId %>" />
 
 		<aui:button-row>
+<<<<<<< HEAD
 			<aui:button type="submit" value="sign-in" />
+=======
+			<aui:button cssClass="btn-lg" type="submit" value="sign-in" />
+>>>>>>> compatible
 		</aui:button-row>
 	</aui:fieldset>
 </aui:form>

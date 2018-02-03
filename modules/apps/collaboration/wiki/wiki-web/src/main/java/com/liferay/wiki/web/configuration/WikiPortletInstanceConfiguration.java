@@ -37,34 +37,54 @@ public interface WikiPortletInstanceConfiguration {
 	 * ddmTemplate_06cd7b42-e8a4-4b5e-8d5a-b4f4dbba5618) to use as the display
 	 * style.
 	 */
+<<<<<<< HEAD
 	@Meta.AD(deflt = "", name = "display-style", required = false)
 	public String displayStyle();
 
 	@Meta.AD(deflt = "0", name = "display-style-group-id", required = false)
+=======
+	@Meta.AD(deflt = "", required = false)
+	public String displayStyle();
+
+	@Meta.AD(deflt = "0", required = false)
+>>>>>>> compatible
 	public long displayStyleGroupId();
 
 	/**
 	 * Set this to <code>true</code> to enable ratings in Wiki comments.
 	 */
+<<<<<<< HEAD
 	@Meta.AD(deflt = "true", name = "enable-comment-ratings", required = false)
+=======
+	@Meta.AD(deflt = "true", required = false)
+>>>>>>> compatible
 	public boolean enableCommentRatings();
 
 	/**
 	 * Set this to <code>true</code> to enable comments for Wiki pages.
 	 */
+<<<<<<< HEAD
 	@Meta.AD(deflt = "true", name = "enable-comments", required = false)
+=======
+	@Meta.AD(deflt = "true", required = false)
+>>>>>>> compatible
 	public boolean enableComments();
 
 	/**
 	 * Set this to <code>true</code> to enable highlighting of search results in
 	 * the Wiki portlet.
 	 */
+<<<<<<< HEAD
 	@Meta.AD(deflt = "true", name = "enable-highlighting", required = false)
+=======
+	@Meta.AD(deflt = "true", required = false)
+>>>>>>> compatible
 	public boolean enableHighlighting();
 
 	/**
 	 * Set this to <code>true</code> to enable ratings for Wiki pages.
 	 */
+<<<<<<< HEAD
 	@Meta.AD(deflt = "true", name = "enable-page-ratings", required = false)
 	public boolean enablePageRatings();
 
@@ -75,6 +95,18 @@ public interface WikiPortletInstanceConfiguration {
 	public String[] hiddenNodes();
 
 	@Meta.AD(deflt = "", name = "visible-nodes", required = false)
+=======
+	@Meta.AD(deflt = "true", required = false)
+	public boolean enablePageRatings();
+
+	@Meta.AD(deflt = "true", required = false)
+	public boolean enableRelatedAssets();
+
+	@Meta.AD(deflt = "", required = false)
+	public String[] hiddenNodes();
+
+	@Meta.AD(deflt = "", required = false)
+>>>>>>> compatible
 	public String[] visibleNodes();
 
 }

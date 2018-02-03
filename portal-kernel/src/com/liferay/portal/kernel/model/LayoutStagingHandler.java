@@ -28,6 +28,10 @@ import com.liferay.portal.kernel.util.LayoutTypePortletFactoryUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalClassLoaderUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.ReflectionUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 
 import java.io.Serializable;
@@ -100,7 +104,12 @@ public class LayoutStagingHandler implements InvocationHandler, Serializable {
 					Class<?> layoutRevisionClass = _layoutRevision.getClass();
 
 					method = layoutRevisionClass.getMethod(
+<<<<<<< HEAD
 						methodName, method.getParameterTypes());
+=======
+						methodName,
+						ReflectionUtil.getParameterTypes(arguments));
+>>>>>>> compatible
 
 					bean = _layoutRevision;
 				}

@@ -18,8 +18,6 @@ import com.liferay.portal.kernel.search.generic.NestedQuery;
 import com.liferay.portal.kernel.search.query.QueryVisitor;
 import com.liferay.portal.search.solr.query.NestedQueryTranslator;
 
-import org.apache.lucene.search.Query;
-
 import org.osgi.service.component.annotations.Component;
 
 /**
@@ -29,8 +27,9 @@ import org.osgi.service.component.annotations.Component;
 public class NestedQueryTranslatorImpl implements NestedQueryTranslator {
 
 	@Override
-	public Query translate(
-		NestedQuery nestedQuery, QueryVisitor<Query> queryVisitor) {
+	public org.apache.lucene.search.Query translate(
+		NestedQuery nestedQuery,
+		QueryVisitor<org.apache.lucene.search.Query> queryVisitor) {
 
 		throw new UnsupportedOperationException(
 			"Nested query not supported in Solr");

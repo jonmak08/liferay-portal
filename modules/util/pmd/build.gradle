@@ -1,7 +1,11 @@
 dependencies {
 	compile group: "net.sourceforge.pmd", name: "pmd-java", version: "5.5.0"
 
+<<<<<<< HEAD
 	testCompile group: "com.liferay.portal", name: "com.liferay.portal.kernel", version: "2.49.0"
+=======
+	testCompile group: "com.liferay.portal", name: "com.liferay.portal.kernel", version: "2.0.0"
+>>>>>>> compatible
 	testCompile group: "net.sourceforge.pmd", name: "pmd-test", version: "5.5.0"
 }
 

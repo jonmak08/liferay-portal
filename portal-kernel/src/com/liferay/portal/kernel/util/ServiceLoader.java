@@ -14,7 +14,10 @@
 
 package com.liferay.portal.kernel.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 
@@ -38,7 +41,11 @@ import java.util.List;
 public class ServiceLoader {
 
 	public static <S> List<S> load(Class<S> clazz) throws Exception {
+<<<<<<< HEAD
 		return load(clazz, null);
+=======
+		return load(clazz, _serviceLoaderCondition);
+>>>>>>> compatible
 	}
 
 	public static <S> List<S> load(
@@ -55,7 +62,11 @@ public class ServiceLoader {
 	public static <S> List<S> load(ClassLoader classLoader, Class<S> clazz)
 		throws Exception {
 
+<<<<<<< HEAD
 		return load(classLoader, clazz, null);
+=======
+		return load(classLoader, clazz, _serviceLoaderCondition);
+>>>>>>> compatible
 	}
 
 	public static <S> List<S> load(
@@ -63,6 +74,7 @@ public class ServiceLoader {
 			ServiceLoaderCondition serviceLoaderCondition)
 		throws Exception {
 
+<<<<<<< HEAD
 		return load(classLoader, classLoader, clazz, serviceLoaderCondition);
 	}
 
@@ -72,6 +84,9 @@ public class ServiceLoader {
 		throws Exception {
 
 		Enumeration<URL> enu = lookupClassLoader.getResources(
+=======
+		Enumeration<URL> enu = classLoader.getResources(
+>>>>>>> compatible
 			"META-INF/services/" + clazz.getName());
 
 		List<S> services = new ArrayList<>();
@@ -79,13 +94,18 @@ public class ServiceLoader {
 		while (enu.hasMoreElements()) {
 			URL url = enu.nextElement();
 
+<<<<<<< HEAD
 			if ((serviceLoaderCondition != null) &&
 				!serviceLoaderCondition.isLoad(url)) {
 
+=======
+			if (!serviceLoaderCondition.isLoad(url)) {
+>>>>>>> compatible
 				continue;
 			}
 
 			try {
+<<<<<<< HEAD
 				_load(services, defineClassLoader, clazz, url);
 			}
 			catch (Exception e) {
@@ -94,6 +114,13 @@ public class ServiceLoader {
 						"Unable to load ", String.valueOf(clazz), " with ",
 						String.valueOf(defineClassLoader)),
 					e);
+=======
+				_load(services, classLoader, clazz, url);
+			}
+			catch (Exception e) {
+				_log.error(
+					"Unable to load " + clazz + " with " + classLoader, e);
+>>>>>>> compatible
 			}
 		}
 
@@ -144,4 +171,10 @@ public class ServiceLoader {
 
 	private static final Log _log = LogFactoryUtil.getLog(ServiceLoader.class);
 
+<<<<<<< HEAD
+=======
+	private static final ServiceLoaderCondition _serviceLoaderCondition =
+		new DefaultServiceLoaderCondition();
+
+>>>>>>> compatible
 }

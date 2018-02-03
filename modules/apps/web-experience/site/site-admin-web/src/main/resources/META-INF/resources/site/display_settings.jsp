@@ -131,8 +131,11 @@ if (publicLayoutSet.isLayoutSetPrototypeLinkEnabled() || privateLayoutSet.isLayo
 		</aui:select>
 	</aui:fieldset>
 
+<<<<<<< HEAD
 	<div id="<portlet:namespace />languageWarning"></div>
 
+=======
+>>>>>>> compatible
 	<aui:fieldset cssClass="available-languages">
 		<h4 class="text-default"><liferay-ui:message key="available-languages" /></h4>
 
@@ -182,6 +185,7 @@ if (publicLayoutSet.isLayoutSetPrototypeLinkEnabled() || privateLayoutSet.isLayo
 
 		form.fm('<%= PropsKeys.LOCALES %>').val(Liferay.Util.listSelect(form.fm('currentLanguageIds')));
 	}
+<<<<<<< HEAD
 </aui:script>
 
 <aui:script use="aui-base,aui-alert">
@@ -204,4 +208,6 @@ if (publicLayoutSet.isLayoutSetPrototypeLinkEnabled() || privateLayoutSet.isLayo
 			}
 		);
 	}
+=======
+>>>>>>> compatible
 </aui:script>

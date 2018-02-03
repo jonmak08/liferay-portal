@@ -16,7 +16,11 @@ package com.liferay.site.my.sites.web.internal.portlet.route;
 
 import com.liferay.portal.kernel.portlet.DefaultFriendlyURLMapper;
 import com.liferay.portal.kernel.portlet.FriendlyURLMapper;
+<<<<<<< HEAD
 import com.liferay.site.my.sites.web.internal.constants.MySitesPortletKeys;
+=======
+import com.liferay.site.my.sites.web.constants.MySitesPortletKeys;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 

@@ -16,6 +16,7 @@
 
 <%@ include file="/init.jsp" %>
 
+<<<<<<< HEAD
 <%
 int status = GetterUtil.getInteger(request.getAttribute(UsersAdminWebKeys.STATUS), WorkflowConstants.STATUS_APPROVED);
 %>
@@ -27,5 +28,11 @@ int status = GetterUtil.getInteger(request.getAttribute(UsersAdminWebKeys.STATUS
 <liferay-ui:icon
 	message="export-users"
 	method="get"
+=======
+<liferay-portlet:resourceURL id="/users_admin/export_users" var="exportURL" />
+
+<liferay-ui:icon
+	message="export-users"
+>>>>>>> compatible
 	url='<%= exportURL + "&compress=0&etag=0&strip=0" %>'
 />

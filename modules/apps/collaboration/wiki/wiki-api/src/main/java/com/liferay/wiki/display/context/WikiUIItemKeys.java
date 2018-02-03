@@ -19,9 +19,6 @@ package com.liferay.wiki.display.context;
  */
 public class WikiUIItemKeys {
 
-	public static final String ADD_CHILD_PAGE =
-		WikiUIItemKeys.class.getName() + "#add-child-page";
-
 	public static final String ADD_PAGE =
 		WikiUIItemKeys.class.getName() + "#add-page";
 
@@ -36,9 +33,6 @@ public class WikiUIItemKeys {
 
 	public static final String PERMISSIONS =
 		WikiUIItemKeys.class.getName() + "#permissions";
-
-	public static final String PRINT =
-		WikiUIItemKeys.class.getName() + "#print";
 
 	public static final String SUBSCRIBE =
 		WikiUIItemKeys.class.getName() + "#subscribe";

@@ -20,6 +20,7 @@ import com.liferay.external.data.source.test.service.base.TestEntityLocalService
  * The implementation of the test entity local service.
  *
  * <p>
+<<<<<<< HEAD
  * All custom service methods should be put in this class. Whenever methods are
  * added, rerun ServiceBuilder to copy their definitions into the {@link
  * com.liferay.external.data.source.test.service.TestEntityLocalService}
@@ -31,6 +32,17 @@ import com.liferay.external.data.source.test.service.base.TestEntityLocalService
  * @author Brian Wing Shun Chan
  * @see    TestEntityLocalServiceBaseImpl
  * @see    com.liferay.external.data.source.test.service.TestEntityLocalServiceUtil
+=======
+ * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.liferay.external.data.source.test.service.TestEntityLocalService} interface.
+ *
+ * <p>
+ * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
+ * </p>
+ *
+ * @author Brian Wing Shun Chan
+ * @see TestEntityLocalServiceBaseImpl
+ * @see com.liferay.external.data.source.test.service.TestEntityLocalServiceUtil
+>>>>>>> compatible
  */
 public class TestEntityLocalServiceImpl extends TestEntityLocalServiceBaseImpl {
 

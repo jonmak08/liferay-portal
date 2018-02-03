@@ -81,8 +81,11 @@ public class WorkflowConstants {
 
 	public static final String LABEL_SCHEDULED = "scheduled";
 
+<<<<<<< HEAD
 	public static final String SERVICE_NAME = "com.liferay.portal.workflow";
 
+=======
+>>>>>>> compatible
 	public static final int STATUS_ANY = -1;
 
 	public static final int STATUS_APPROVED = 0;

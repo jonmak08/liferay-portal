@@ -100,8 +100,13 @@ if ((row == null) && portletName.equals(DLPortletKeys.MEDIA_GALLERY_DISPLAY)) {
 		boolean hasViewPermission = DLFolderPermission.contains(permissionChecker, scopeGroupId, folderId, ActionKeys.VIEW);
 		%>
 
+<<<<<<< HEAD
 		<c:if test="<%= hasViewPermission && ((folder == null) || !folder.isMountPoint()) %>">
 			<portlet:resourceURL id="/document_library/download_folder" var="downloadURL">
+=======
+		<c:if test="<%= hasViewPermission %>">
+			<portlet:resourceURL id="/document_library/edit_folder" var="downloadURL">
+>>>>>>> compatible
 				<portlet:param name="folderId" value="<%= String.valueOf(folderId) %>" />
 				<portlet:param name="repositoryId" value="<%= String.valueOf(repositoryId) %>" />
 			</portlet:resourceURL>
@@ -363,12 +368,20 @@ if ((row == null) && portletName.equals(DLPortletKeys.MEDIA_GALLERY_DISPLAY)) {
 					</portlet:renderURL>
 
 					<portlet:actionURL name="/document_library/edit_folder" var="deleteURL">
+<<<<<<< HEAD
 						<portlet:param name="<%= Constants.CMD %>" value="<%= ((folder.getModel() instanceof DLFolder) && dlTrashUtil.isTrashEnabled(scopeGroupId, repositoryId)) ? Constants.MOVE_TO_TRASH : Constants.DELETE %>" />
+=======
+						<portlet:param name="<%= Constants.CMD %>" value="<%= ((folder.getModel() instanceof DLFolder) && DLTrashUtil.isTrashEnabled(scopeGroupId, repositoryId)) ? Constants.MOVE_TO_TRASH : Constants.DELETE %>" />
+>>>>>>> compatible
 						<portlet:param name="redirect" value="<%= (view || folderSelected) ? redirectURL : redirect %>" />
 						<portlet:param name="folderId" value="<%= String.valueOf(folderId) %>" />
 					</portlet:actionURL>
 
+<<<<<<< HEAD
 					<liferay-ui:icon-delete trash="<%= ((folder.getModel() instanceof DLFolder) && dlTrashUtil.isTrashEnabled(scopeGroupId, repositoryId)) %>" url="<%= deleteURL %>" />
+=======
+					<liferay-ui:icon-delete trash="<%= ((folder.getModel() instanceof DLFolder) && DLTrashUtil.isTrashEnabled(scopeGroupId, repositoryId)) %>" url="<%= deleteURL %>" />
+>>>>>>> compatible
 				</c:when>
 				<c:otherwise>
 					<portlet:renderURL var="redirectURL">

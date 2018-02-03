@@ -15,7 +15,10 @@
 package com.liferay.dynamic.data.mapping.util;
 
 import com.liferay.dynamic.data.mapping.BaseDDMTestCase;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.internal.util.DDMFormTemplateSynchonizer;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.model.DDMForm;
 import com.liferay.dynamic.data.mapping.model.DDMFormField;
 import com.liferay.dynamic.data.mapping.model.DDMFormFieldOptions;
@@ -24,11 +27,18 @@ import com.liferay.dynamic.data.mapping.model.DDMTemplateConstants;
 import com.liferay.dynamic.data.mapping.model.LocalizedValue;
 import com.liferay.dynamic.data.mapping.model.impl.DDMTemplateImpl;
 import com.liferay.dynamic.data.mapping.service.impl.DDMTemplateLocalServiceImpl;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.service.util.ServiceProps;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.util.PropsValues;
+=======
+import com.liferay.dynamic.data.mapping.util.impl.DDMFormTemplateSynchonizer;
+import com.liferay.portal.kernel.test.util.RandomTestUtil;
+import com.liferay.portal.kernel.util.LocaleUtil;
+import com.liferay.portal.kernel.util.StringUtil;
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -38,15 +48,21 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+<<<<<<< HEAD
 import org.junit.runner.RunWith;
 
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.core.classloader.annotations.SuppressStaticInitializationFor;
 import org.powermock.modules.junit4.PowerMockRunner;
+=======
+
+import org.powermock.core.classloader.annotations.PrepareForTest;
+>>>>>>> compatible
 
 /**
  * @author Marcellus Tavares
  */
+<<<<<<< HEAD
 @PrepareForTest({LocaleUtil.class, PropsValues.class, ServiceProps.class})
 @RunWith(PowerMockRunner.class)
 @SuppressStaticInitializationFor(
@@ -56,6 +72,9 @@ import org.powermock.modules.junit4.PowerMockRunner;
 		"com.liferay.portal.util.PropsValues"
 	}
 )
+=======
+@PrepareForTest(LocaleUtil.class)
+>>>>>>> compatible
 public class DDMFormTemplateSynchonizerTest extends BaseDDMTestCase {
 
 	@Before
@@ -70,9 +89,14 @@ public class DDMFormTemplateSynchonizerTest extends BaseDDMTestCase {
 		setUpLanguageUtil();
 		setUpLocaleUtil();
 		setUpHtmlUtil();
+<<<<<<< HEAD
 		setUpPropsValues();
 		setUpSAXReaderUtil();
 		setUpServiceProps();
+=======
+		setUpPropsUtil();
+		setUpSAXReaderUtil();
+>>>>>>> compatible
 	}
 
 	@Test
@@ -308,10 +332,13 @@ public class DDMFormTemplateSynchonizerTest extends BaseDDMTestCase {
 		}
 	}
 
+<<<<<<< HEAD
 	protected void setUpServiceProps() {
 		mockStatic(ServiceProps.class);
 	}
 
+=======
+>>>>>>> compatible
 	protected void testFormTemplatesAfterAddRequiredFields() throws Exception {
 
 		// Create
@@ -334,7 +361,11 @@ public class DDMFormTemplateSynchonizerTest extends BaseDDMTestCase {
 	}
 
 	protected void testFormTemplatesAfterChangeDDMFormFieldOptionsProperty(
+<<<<<<< HEAD
 			DDMForm structureForm, String... fields)
+=======
+			DDMForm structureForm, String...fields)
+>>>>>>> compatible
 		throws Exception {
 
 		Map<String, DDMFormField> structureDDMFormFieldsMap =

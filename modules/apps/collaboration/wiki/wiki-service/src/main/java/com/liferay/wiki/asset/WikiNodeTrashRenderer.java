@@ -16,7 +16,11 @@ package com.liferay.wiki.asset;
 
 import com.liferay.portal.kernel.trash.BaseTrashRenderer;
 import com.liferay.portal.kernel.util.HtmlUtil;
+<<<<<<< HEAD
 import com.liferay.trash.TrashHelper;
+=======
+import com.liferay.trash.kernel.util.TrashUtil;
+>>>>>>> compatible
 import com.liferay.wiki.constants.WikiPortletKeys;
 import com.liferay.wiki.model.WikiNode;
 
@@ -30,13 +34,18 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author Eudaldo Alonso
+<<<<<<< HEAD
  * @deprecated As of 1.7.0, with no direct replacement
  */
 @Deprecated
+=======
+ */
+>>>>>>> compatible
 public class WikiNodeTrashRenderer extends BaseTrashRenderer {
 
 	public static final String TYPE = "wiki_node";
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 1.6.0, replaced by {@link
 	 *             #WikiNodeTrashRenderer(WikiNode, TrashHelper)}
@@ -49,6 +58,10 @@ public class WikiNodeTrashRenderer extends BaseTrashRenderer {
 	public WikiNodeTrashRenderer(WikiNode node, TrashHelper trashHelper) {
 		_node = node;
 		_trashHelper = trashHelper;
+=======
+	public WikiNodeTrashRenderer(WikiNode node) {
+		_node = node;
+>>>>>>> compatible
 	}
 
 	@Override
@@ -84,11 +97,15 @@ public class WikiNodeTrashRenderer extends BaseTrashRenderer {
 			return _node.getName();
 		}
 
+<<<<<<< HEAD
 		if (_trashHelper == null) {
 			return _node.getName();
 		}
 
 		return _trashHelper.getOriginalTitle(_node.getName());
+=======
+		return TrashUtil.getOriginalTitle(_node.getName());
+>>>>>>> compatible
 	}
 
 	@Override
@@ -106,6 +123,9 @@ public class WikiNodeTrashRenderer extends BaseTrashRenderer {
 	}
 
 	private final WikiNode _node;
+<<<<<<< HEAD
 	private final TrashHelper _trashHelper;
+=======
+>>>>>>> compatible
 
 }

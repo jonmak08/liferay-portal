@@ -17,6 +17,7 @@ package com.liferay.petra.json.web.service.client;
 /**
  * @author Ivica Cardic
  */
+<<<<<<< HEAD
 public class JSONWebServiceTransportException extends JSONWebServiceException {
 
 	public JSONWebServiceTransportException(String message) {
@@ -25,14 +26,44 @@ public class JSONWebServiceTransportException extends JSONWebServiceException {
 
 	public JSONWebServiceTransportException(String message, int status) {
 		super(message, status);
+=======
+public class JSONWebServiceTransportException extends RuntimeException {
+
+	public JSONWebServiceTransportException() {
+		_status = _DEFAULT_STATUS;
+	}
+
+	public JSONWebServiceTransportException(String message) {
+		this(message, _DEFAULT_STATUS);
+	}
+
+	public JSONWebServiceTransportException(String message, int status) {
+		super(message);
+
+		_status = status;
+>>>>>>> compatible
 	}
 
 	public JSONWebServiceTransportException(String message, Throwable cause) {
 		super(message, cause);
+<<<<<<< HEAD
+=======
+
+		_status = _DEFAULT_STATUS;
+>>>>>>> compatible
 	}
 
 	public JSONWebServiceTransportException(Throwable cause) {
 		super(cause);
+<<<<<<< HEAD
+=======
+
+		_status = _DEFAULT_STATUS;
+	}
+
+	public int getStatus() {
+		return _status;
+>>>>>>> compatible
 	}
 
 	public static class AuthenticationFailure
@@ -69,6 +100,7 @@ public class JSONWebServiceTransportException extends JSONWebServiceException {
 
 	}
 
+<<<<<<< HEAD
 	public static class SigningFailure
 		extends JSONWebServiceTransportException {
 
@@ -85,5 +117,10 @@ public class JSONWebServiceTransportException extends JSONWebServiceException {
 		}
 
 	}
+=======
+	private static final int _DEFAULT_STATUS = 0;
+
+	private final int _status;
+>>>>>>> compatible
 
 }

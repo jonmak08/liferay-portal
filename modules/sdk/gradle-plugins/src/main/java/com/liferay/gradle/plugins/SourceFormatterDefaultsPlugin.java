@@ -15,7 +15,10 @@
 package com.liferay.gradle.plugins;
 
 import com.liferay.gradle.plugins.internal.util.GradleUtil;
+<<<<<<< HEAD
 import com.liferay.gradle.plugins.node.NodePlugin;
+=======
+>>>>>>> compatible
 import com.liferay.gradle.plugins.source.formatter.FormatSourceTask;
 import com.liferay.gradle.plugins.source.formatter.SourceFormatterPlugin;
 import com.liferay.gradle.util.Validator;
@@ -23,7 +26,10 @@ import com.liferay.gradle.util.Validator;
 import org.gradle.api.Action;
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
+<<<<<<< HEAD
 import org.gradle.api.Task;
+=======
+>>>>>>> compatible
 import org.gradle.api.tasks.TaskContainer;
 
 /**
@@ -38,11 +44,16 @@ public class SourceFormatterDefaultsPlugin
 
 	@Override
 	protected void configureDefaults(
+<<<<<<< HEAD
 		final Project project, SourceFormatterPlugin sourceFormatterPlugin) {
+=======
+		Project project, SourceFormatterPlugin sourceFormatterPlugin) {
+>>>>>>> compatible
 
 		super.configureDefaults(project, sourceFormatterPlugin);
 
 		_configureTasksFormatSource(project);
+<<<<<<< HEAD
 
 		GradleUtil.withPlugin(
 			project, NodePlugin.class,
@@ -60,6 +71,8 @@ public class SourceFormatterDefaultsPlugin
 				}
 
 			});
+=======
+>>>>>>> compatible
 	}
 
 	@Override
@@ -77,6 +90,7 @@ public class SourceFormatterDefaultsPlugin
 		return _PORTAL_TOOL_NAME;
 	}
 
+<<<<<<< HEAD
 	private void _configureTaskForNodePlugin(
 		Project project, String taskName, String nodeTaskName) {
 
@@ -89,6 +103,9 @@ public class SourceFormatterDefaultsPlugin
 
 			task.dependsOn(nodeTask);
 		}
+=======
+	private SourceFormatterDefaultsPlugin() {
+>>>>>>> compatible
 	}
 
 	private void _configureTasksFormatSource(
@@ -126,6 +143,7 @@ public class SourceFormatterDefaultsPlugin
 				Integer.parseInt(processorThreadCount));
 		}
 
+<<<<<<< HEAD
 		String showDebugInformation = GradleUtil.getProperty(
 			project, "source.formatter.show.debug.information", (String)null);
 
@@ -134,6 +152,8 @@ public class SourceFormatterDefaultsPlugin
 				Boolean.parseBoolean(showDebugInformation));
 		}
 
+=======
+>>>>>>> compatible
 		String showDocumentation = GradleUtil.getProperty(
 			project, "source.formatter.show.documentation", (String)null);
 

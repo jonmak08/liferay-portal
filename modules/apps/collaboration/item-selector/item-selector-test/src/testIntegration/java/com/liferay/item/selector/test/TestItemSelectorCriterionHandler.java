@@ -40,7 +40,10 @@ public class TestItemSelectorCriterionHandler
 	}
 
 	@Deactivate
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	protected void deactivate() {
 		super.deactivate();
 	}

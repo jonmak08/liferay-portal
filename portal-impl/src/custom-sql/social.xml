@@ -539,12 +539,21 @@
 				SocialActivitySet
 			INNER JOIN
 				Group_ ON
+<<<<<<< HEAD
 					Group_.groupId = SocialActivitySet.groupId
 			INNER JOIN
 				Organization_ ON
 					Organization_.organizationId = Group_.classPK
 			WHERE
 				Organization_.organizationId = ?
+=======
+					(Group_.groupId = SocialActivitySet.groupId)
+			INNER JOIN
+				Organization_ ON
+					(Organization_.organizationId = Group_.classPK)
+			WHERE
+				(Organization_.organizationId = ?)
+>>>>>>> compatible
 		]]>
 	</sql>
 	<sql id="com.liferay.social.kernel.service.persistence.SocialActivitySetFinder.countByRelation">
@@ -679,10 +688,17 @@
 				SocialActivitySet
 			INNER JOIN
 				Group_ ON
+<<<<<<< HEAD
 					Group_.groupId = SocialActivitySet.groupId
 			INNER JOIN
 				Organization_ ON
 					Organization_.organizationId = Group_.classPK
+=======
+					(Group_.groupId = SocialActivitySet.groupId)
+			INNER JOIN
+				Organization_ ON
+					(Organization_.organizationId = Group_.classPK)
+>>>>>>> compatible
 			WHERE
 				(Organization_.organizationId = ?)
 			ORDER BY

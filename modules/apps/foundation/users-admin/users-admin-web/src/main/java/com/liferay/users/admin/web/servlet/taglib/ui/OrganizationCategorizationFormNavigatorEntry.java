@@ -44,7 +44,15 @@ public class OrganizationCategorizationFormNavigatorEntry
 
 	@Override
 	public boolean isVisible(User user, Organization organization) {
+<<<<<<< HEAD
 		return true;
+=======
+		if (organization != null) {
+			return true;
+		}
+
+		return false;
+>>>>>>> compatible
 	}
 
 	@Override

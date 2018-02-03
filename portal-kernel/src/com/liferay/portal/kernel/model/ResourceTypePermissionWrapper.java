@@ -33,10 +33,15 @@ import java.util.Objects;
  *
  * @author Brian Wing Shun Chan
  * @see ResourceTypePermission
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, with no direct replacement
  * @generated
  */
 @Deprecated
+=======
+ * @generated
+ */
+>>>>>>> compatible
 @ProviderType
 public class ResourceTypePermissionWrapper implements ResourceTypePermission,
 	ModelWrapper<ResourceTypePermission> {

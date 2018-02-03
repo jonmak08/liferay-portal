@@ -14,8 +14,11 @@
 
 package com.liferay.portal.kernel.comment;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.service.ServiceContext;
@@ -24,7 +27,10 @@ import com.liferay.portal.kernel.util.Function;
 /**
  * @author André de Oliveira
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public interface CommentManager {
 
 	public long addComment(
@@ -59,9 +65,12 @@ public interface CommentManager {
 
 	public Comment fetchComment(long commentId);
 
+<<<<<<< HEAD
 	public DiscussionComment fetchDiscussionComment(long userId, long commentId)
 		throws PortalException;
 
+=======
+>>>>>>> compatible
 	public int getCommentsCount(String className, long classPK);
 
 	public Discussion getDiscussion(

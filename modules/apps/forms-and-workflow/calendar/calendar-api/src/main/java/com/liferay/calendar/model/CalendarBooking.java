@@ -17,7 +17,11 @@ package com.liferay.calendar.model;
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.portal.kernel.annotation.ImplementationClassName;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.PersistedModel;
+=======
+import com.liferay.portal.kernel.model.PermissionedModel;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Accessor;
 
 /**
@@ -31,7 +35,11 @@ import com.liferay.portal.kernel.util.Accessor;
  */
 @ImplementationClassName("com.liferay.calendar.model.impl.CalendarBookingImpl")
 @ProviderType
+<<<<<<< HEAD
 public interface CalendarBooking extends CalendarBookingModel, PersistedModel {
+=======
+public interface CalendarBooking extends CalendarBookingModel, PermissionedModel {
+>>>>>>> compatible
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
@@ -81,8 +89,11 @@ public interface CalendarBooking extends CalendarBookingModel, PersistedModel {
 
 	public boolean isMasterBooking();
 
+<<<<<<< HEAD
 	public boolean isMasterRecurringBooking();
 
+=======
+>>>>>>> compatible
 	public boolean isRecurring();
 
 	@com.liferay.portal.kernel.json.JSON()

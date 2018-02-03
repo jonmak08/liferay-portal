@@ -81,7 +81,11 @@ mbGroupServiceSettings = MBGroupServiceSettings.getInstance(themeDisplay.getSite
 
 							</aui:select>
 
+<<<<<<< HEAD
 							<aui:input label="enable-report-inappropriate-content" name="preferences--enableFlags--" type="checkbox" value="<%= enableFlags %>" />
+=======
+							<aui:input name="preferences--enableFlags--" type="checkbox" value="<%= enableFlags %>" />
+>>>>>>> compatible
 
 							<aui:input name="preferences--enableRatings--" type="checkbox" value="<%= enableRatings %>" />
 

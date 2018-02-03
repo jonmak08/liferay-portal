@@ -32,6 +32,7 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
 )
 public interface SiteNavigationSiteMapPortletInstanceConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(deflt = "0", name = "display-depth", required = false)
 	public int displayDepth();
 
@@ -54,6 +55,30 @@ public interface SiteNavigationSiteMapPortletInstanceConfiguration {
 	public boolean showHiddenPages();
 
 	@Meta.AD(deflt = "false", name = "use-html-title", required = false)
+=======
+	@Meta.AD(deflt = "0", required = false)
+	public int displayDepth();
+
+	@Meta.AD(required = false)
+	public String displayStyle();
+
+	@Meta.AD(deflt = "0", required = false)
+	public long displayStyleGroupId();
+
+	@Meta.AD(deflt = "false", required = false)
+	public boolean includeRootInTree();
+
+	@Meta.AD(required = false)
+	public String rootLayoutUuid();
+
+	@Meta.AD(deflt = "false", required = false)
+	public boolean showCurrentPage();
+
+	@Meta.AD(deflt = "false", required = false)
+	public boolean showHiddenPages();
+
+	@Meta.AD(deflt = "false", required = false)
+>>>>>>> compatible
 	public boolean useHtmlTitle();
 
 }

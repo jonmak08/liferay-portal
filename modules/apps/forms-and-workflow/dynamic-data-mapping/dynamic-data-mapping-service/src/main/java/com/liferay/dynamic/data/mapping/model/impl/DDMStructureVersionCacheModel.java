@@ -21,6 +21,10 @@ import com.liferay.dynamic.data.mapping.model.DDMStructureVersion;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -118,7 +122,11 @@ public class DDMStructureVersionCacheModel implements CacheModel<DDMStructureVer
 		ddmStructureVersionImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			ddmStructureVersionImpl.setUserName("");
+=======
+			ddmStructureVersionImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmStructureVersionImpl.setUserName(userName);
@@ -134,7 +142,11 @@ public class DDMStructureVersionCacheModel implements CacheModel<DDMStructureVer
 		ddmStructureVersionImpl.setStructureId(structureId);
 
 		if (version == null) {
+<<<<<<< HEAD
 			ddmStructureVersionImpl.setVersion("");
+=======
+			ddmStructureVersionImpl.setVersion(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmStructureVersionImpl.setVersion(version);
@@ -143,28 +155,44 @@ public class DDMStructureVersionCacheModel implements CacheModel<DDMStructureVer
 		ddmStructureVersionImpl.setParentStructureId(parentStructureId);
 
 		if (name == null) {
+<<<<<<< HEAD
 			ddmStructureVersionImpl.setName("");
+=======
+			ddmStructureVersionImpl.setName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmStructureVersionImpl.setName(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			ddmStructureVersionImpl.setDescription("");
+=======
+			ddmStructureVersionImpl.setDescription(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmStructureVersionImpl.setDescription(description);
 		}
 
 		if (definition == null) {
+<<<<<<< HEAD
 			ddmStructureVersionImpl.setDefinition("");
+=======
+			ddmStructureVersionImpl.setDefinition(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmStructureVersionImpl.setDefinition(definition);
 		}
 
 		if (storageType == null) {
+<<<<<<< HEAD
 			ddmStructureVersionImpl.setStorageType("");
+=======
+			ddmStructureVersionImpl.setStorageType(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmStructureVersionImpl.setStorageType(storageType);
@@ -175,7 +203,11 @@ public class DDMStructureVersionCacheModel implements CacheModel<DDMStructureVer
 		ddmStructureVersionImpl.setStatusByUserId(statusByUserId);
 
 		if (statusByUserName == null) {
+<<<<<<< HEAD
 			ddmStructureVersionImpl.setStatusByUserName("");
+=======
+			ddmStructureVersionImpl.setStatusByUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmStructureVersionImpl.setStatusByUserName(statusByUserName);
@@ -240,7 +272,11 @@ public class DDMStructureVersionCacheModel implements CacheModel<DDMStructureVer
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -251,7 +287,11 @@ public class DDMStructureVersionCacheModel implements CacheModel<DDMStructureVer
 		objectOutput.writeLong(structureId);
 
 		if (version == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(version);
@@ -260,28 +300,44 @@ public class DDMStructureVersionCacheModel implements CacheModel<DDMStructureVer
 		objectOutput.writeLong(parentStructureId);
 
 		if (name == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(description);
 		}
 
 		if (definition == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(definition);
 		}
 
 		if (storageType == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(storageType);
@@ -294,7 +350,11 @@ public class DDMStructureVersionCacheModel implements CacheModel<DDMStructureVer
 		objectOutput.writeLong(statusByUserId);
 
 		if (statusByUserName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(statusByUserName);

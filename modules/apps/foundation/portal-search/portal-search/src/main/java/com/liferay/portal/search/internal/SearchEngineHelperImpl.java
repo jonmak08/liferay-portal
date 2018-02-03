@@ -14,7 +14,10 @@
 
 package com.liferay.portal.search.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -28,7 +31,11 @@ import com.liferay.portal.kernel.search.SearchEngineHelper;
 import com.liferay.portal.kernel.search.queue.QueuingSearchEngine;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 import com.liferay.portal.kernel.util.ClassUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.search.configuration.SearchEngineHelperConfiguration;
 
 import java.util.Collection;
@@ -162,9 +169,14 @@ public class SearchEngineHelperImpl implements SearchEngineHelper {
 
 		if (_log.isDebugEnabled()) {
 			_log.debug(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Search engine ID ", searchEngineId, " is associated with ",
 					ClassUtil.getClassName(indexer)));
+=======
+				"Search engine ID " + searchEngineId + " is associated with " +
+					ClassUtil.getClassName(indexer));
+>>>>>>> compatible
 		}
 
 		return searchEngineId;

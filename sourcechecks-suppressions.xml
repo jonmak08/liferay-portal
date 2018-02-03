@@ -14,6 +14,7 @@
 	<suppress checks="JavaDiamondOperatorCheck" files="portal-kernel/src/com/liferay/portal/kernel/repository/BaseRepositoryImpl\.java" />
 	<suppress checks="JavaDiamondOperatorCheck" files="portal-kernel/src/com/liferay/portal/kernel/search/generic/BooleanClauseFactoryImpl\.java" />
 	<suppress checks="JavaDiamondOperatorCheck" files="portal-kernel/src/com/liferay/portal/kernel/util/ListUtil\.java" />
+<<<<<<< HEAD
 	<suppress checks="JavaFinderImplCustomSQLCheck" files="portal-impl/src/com/liferay/portlet/asset/service/persistence/impl/AssetCategoryPropertyFinderImpl\.java" />
 	<suppress checks="JavaStringBundlerInitialCapacityCheck" files="portal-kernel/test/unit/com/liferay/portal/kernel/util/StringBundlerTest\.java" />
 	<suppress checks="JavaUnsafeCastingCheck" files="portal-impl/src/com/liferay/portal/util/PortalImpl\.java" />
@@ -24,6 +25,12 @@
 	<suppress checks="JavaVariableTypeCheck" files="portal-kernel/test/unit/com/liferay/portal/kernel/nio/intraband/BaseIntrabandTest\.java" />
 	<suppress checks="JavaVariableTypeCheck" files="portal-kernel/test/unit/com/liferay/portal/kernel/nio/intraband/blocking/ExecutorIntrabandTest\.java" />
 	<suppress checks="JavaVariableTypeCheck" files="portal-kernel/test/unit/com/liferay/portal/kernel/util/ObjectGraphUtilTest\.java" />
+=======
+	<suppress checks="JavaUnsafeCastingCheck" files="portal-impl/src/com/liferay/portal/util/PortalImpl\.java" />
+	<suppress checks="JavaVariableTypeCheck" files="portal-impl/test/unit/com/liferay/portal/json/One\.java" />
+	<suppress checks="JavaVariableTypeCheck" files="portal-impl/test/unit/com/liferay/portal/json/Two\.java" />
+	<suppress checks="JavaVariableTypeCheck" files="portal-kernel/src/com/liferay/portal/kernel/io/PathHolder\.java" />
+>>>>>>> compatible
 	<suppress checks="JavaVerifyUpgradeConnectionCheck" files="portal-impl/src/com/liferay/portal/upgrade/util/BaseUpgradeTableImpl.java" />
 	<suppress checks="JavaVerifyUpgradeConnectionCheck" files="portal-impl/src/com/liferay/portal/upgrade/util/UpgradeCompanyId.java" />
 	<suppress checks="JavaVerifyUpgradeConnectionCheck" files="portal-impl/src/com/liferay/portal/verify/VerifyProcess.java" />
@@ -40,11 +47,18 @@
 	<suppress checks="JavaXMLSecurityCheck" files="util-java/src/com/liferay/util/log4j/Log4JUtil\.java" />
 	<suppress checks="JavaXMLSecurityCheck" files="util-java/src/com/liferay/util/xml/Dom4jUtil\.java" />
 	<suppress checks="JavaXMLSecurityCheck" files="util-java/src/com/liferay/util/xml/XMLMergerRunner\.java" />
+<<<<<<< HEAD
+=======
+	<suppress checks="JSONWhitespaceCheck" files="/package\.json" />
+>>>>>>> compatible
 	<suppress checks="JSPLineBreakCheck" files="portal-web/docroot/html/portal/progress_poller\.jsp" />
 	<suppress checks="MethodCallsOrderCheck" files="portal-impl/src/com/liferay/portal/util/PortalImpl\.java" />
 	<suppress checks="ResourceBundleCheck" files="portal-kernel/src/com/liferay/portal/kernel/util/ResourceBundleUtil\.java" />
 	<suppress checks="StringUtilCheck" files="portal-kernel/test/unit/com/liferay/portal/kernel/util/StringUtilTest\.java" />
+<<<<<<< HEAD
 	<suppress checks="XMLIndentationCheck" files="portal-web/test/functional/com/liferay/portalweb/dependencies/.*" />
 	<suppress checks="XMLIndentationCheck" files="portal-web/test/functional/com/liferay/portalweb/macros/Calendar\.macro" />
 	<suppress checks="XMLIndentationCheck" files="tools/jalopy\.xml" />
+=======
+>>>>>>> compatible
 </suppressions>

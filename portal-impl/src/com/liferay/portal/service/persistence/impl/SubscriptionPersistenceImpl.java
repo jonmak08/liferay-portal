@@ -1245,11 +1245,19 @@ public class SubscriptionPersistenceImpl extends BasePersistenceImpl<Subscriptio
 		}
 
 		List<Subscription> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<Subscription>)finderCache.getResult(finderPath,
 					finderArgs, this);
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<Subscription>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+>>>>>>> compatible
 			if ((list != null) && !list.isEmpty()) {
 				for (Subscription subscription : list) {
 					if ((userId != subscription.getUserId()) ||
@@ -1799,6 +1807,7 @@ public class SubscriptionPersistenceImpl extends BasePersistenceImpl<Subscriptio
 		}
 
 		List<Subscription> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<Subscription>)finderCache.getResult(finderPath,
@@ -1811,6 +1820,20 @@ public class SubscriptionPersistenceImpl extends BasePersistenceImpl<Subscriptio
 							(classPK != subscription.getClassPK())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<Subscription>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (Subscription subscription : list) {
+					if ((companyId != subscription.getCompanyId()) ||
+							(classNameId != subscription.getClassNameId()) ||
+							(classPK != subscription.getClassPK())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -2441,6 +2464,7 @@ public class SubscriptionPersistenceImpl extends BasePersistenceImpl<Subscriptio
 		if (retrieveFromCache) {
 			list = (List<Subscription>)finderCache.getResult(FINDER_PATH_WITH_PAGINATION_FIND_BY_C_U_C_C,
 					finderArgs, this);
+<<<<<<< HEAD
 
 			if ((list != null) && !list.isEmpty()) {
 				for (Subscription subscription : list) {
@@ -2451,6 +2475,18 @@ public class SubscriptionPersistenceImpl extends BasePersistenceImpl<Subscriptio
 								subscription.getClassPK())) {
 						list = null;
 
+=======
+
+			if ((list != null) && !list.isEmpty()) {
+				for (Subscription subscription : list) {
+					if ((companyId != subscription.getCompanyId()) ||
+							(userId != subscription.getUserId()) ||
+							(classNameId != subscription.getClassNameId()) ||
+							!ArrayUtil.contains(classPKs,
+								subscription.getClassPK())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -3179,9 +3215,66 @@ public class SubscriptionPersistenceImpl extends BasePersistenceImpl<Subscriptio
 		}
 
 		finderCache.clearCache(FINDER_CLASS_NAME_LIST_WITH_PAGINATION);
+<<<<<<< HEAD
 
 		if (isNew || !SubscriptionModelImpl.COLUMN_BITMASK_ENABLED) {
 			finderCache.clearCache(FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION);
+=======
+
+		if (!SubscriptionModelImpl.COLUMN_BITMASK_ENABLED) {
+			finderCache.clearCache(FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION);
+		}
+		else
+		 if (isNew) {
+			Object[] args = new Object[] { subscriptionModelImpl.getUserId() };
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_USERID, args);
+			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_USERID,
+				args);
+
+			args = new Object[] {
+					subscriptionModelImpl.getGroupId(),
+					subscriptionModelImpl.getUserId()
+				};
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_G_U, args);
+			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_G_U,
+				args);
+
+			args = new Object[] {
+					subscriptionModelImpl.getUserId(),
+					subscriptionModelImpl.getClassNameId()
+				};
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_U_C, args);
+			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_U_C,
+				args);
+
+			args = new Object[] {
+					subscriptionModelImpl.getCompanyId(),
+					subscriptionModelImpl.getClassNameId(),
+					subscriptionModelImpl.getClassPK()
+				};
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_C_C_C, args);
+			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_C_C_C,
+				args);
+
+			args = new Object[] {
+					subscriptionModelImpl.getCompanyId(),
+					subscriptionModelImpl.getUserId(),
+					subscriptionModelImpl.getClassNameId(),
+					subscriptionModelImpl.getClassPK()
+				};
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_C_U_C_C, args);
+			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_C_U_C_C,
+				args);
+
+			finderCache.removeResult(FINDER_PATH_COUNT_ALL, FINDER_ARGS_EMPTY);
+			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_ALL,
+				FINDER_ARGS_EMPTY);
+>>>>>>> compatible
 		}
 
 		else {
@@ -3479,7 +3572,7 @@ public class SubscriptionPersistenceImpl extends BasePersistenceImpl<Subscriptio
 		query.append(_SQL_SELECT_SUBSCRIPTION_WHERE_PKS_IN);
 
 		for (Serializable primaryKey : uncachedPrimaryKeys) {
-			query.append(String.valueOf(primaryKey));
+			query.append((long)primaryKey);
 
 			query.append(StringPool.COMMA);
 		}

@@ -32,12 +32,21 @@ import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.trash.TrashHandler;
 import com.liferay.portal.kernel.trash.TrashHandlerRegistryUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.PortalRunMode;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.service.test.ServiceTestUtil;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
@@ -45,6 +54,10 @@ import com.liferay.trash.kernel.exception.RestoreEntryException;
 
 import java.util.List;
 
+<<<<<<< HEAD
+=======
+import org.junit.After;
+>>>>>>> compatible
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.ClassRule;
@@ -56,20 +69,45 @@ import org.junit.runner.RunWith;
  * @author Juan Fernández
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class JournalFolderServiceTest {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Before
 	public void setUp() throws Exception {
 		_group = GroupTestUtil.addGroup();
 
+<<<<<<< HEAD
 		ServiceTestUtil.setUser(TestPropsValues.getUser());
 	}
 
+=======
+		_testMode = PortalRunMode.isTestMode();
+
+		PortalRunMode.setTestMode(true);
+
+		ServiceTestUtil.setUser(TestPropsValues.getUser());
+	}
+
+	@After
+	public void tearDown() throws Exception {
+		PortalRunMode.setTestMode(_testMode);
+	}
+
+>>>>>>> compatible
 	@Test
 	public void testAddArticle() throws Exception {
 		JournalFolder folder = JournalTestUtil.addFolder(
@@ -112,7 +150,11 @@ public class JournalFolderServiceTest {
 				JournalFolderConstants.
 					RESTRICTION_TYPE_DDM_STRUCTURES_AND_WORKFLOW);
 
+<<<<<<< HEAD
 		Assert.assertFalse(ddmStructures.toString(), ddmStructures.isEmpty());
+=======
+		Assert.assertFalse(ddmStructures.isEmpty());
+>>>>>>> compatible
 
 		String xml = DDMStructureTestUtil.getSampleStructuredContent(
 			"Test Article");
@@ -158,7 +200,11 @@ public class JournalFolderServiceTest {
 			JournalFolderConstants.
 				RESTRICTION_TYPE_DDM_STRUCTURES_AND_WORKFLOW);
 
+<<<<<<< HEAD
 		Assert.assertTrue(ddmStructures.toString(), ddmStructures.isEmpty());
+=======
+		Assert.assertTrue(ddmStructures.isEmpty());
+>>>>>>> compatible
 	}
 
 	@Test
@@ -576,4 +622,9 @@ public class JournalFolderServiceTest {
 	@DeleteAfterTestRun
 	private Group _group;
 
+<<<<<<< HEAD
+=======
+	private boolean _testMode;
+
+>>>>>>> compatible
 }

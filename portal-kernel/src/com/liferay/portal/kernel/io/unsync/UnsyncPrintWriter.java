@@ -94,9 +94,7 @@ public class UnsyncPrintWriter extends PrintWriter {
 			charSequence = StringPool.NULL;
 		}
 
-		charSequence = charSequence.subSequence(start, end);
-
-		write(charSequence.toString());
+		write(charSequence.subSequence(start, end).toString());
 
 		return this;
 	}

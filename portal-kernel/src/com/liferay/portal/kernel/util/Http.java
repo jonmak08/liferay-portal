@@ -181,12 +181,15 @@ public interface Http {
 
 	public String setParameter(String url, String name, String value);
 
+<<<<<<< HEAD
 	public String shortenURL(String url);
 
 	/**
 	 * @deprecated As of 7.0.0, replaced by {@link #shortenURL(String)}
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public String shortenURL(String url, int count);
 
 	public byte[] URLtoByteArray(Http.Options options) throws IOException;

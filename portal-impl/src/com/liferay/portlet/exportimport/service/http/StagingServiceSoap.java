@@ -81,6 +81,7 @@ public class StagingServiceSoap {
 		}
 	}
 
+<<<<<<< HEAD
 	public static boolean hasRemoteLayout(java.lang.String uuid, long groupId,
 		boolean privateLayout) throws RemoteException {
 		try {
@@ -96,6 +97,8 @@ public class StagingServiceSoap {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	public static void propagateExportImportLifecycleEvent(int code,
 		int processFlag, java.lang.String processId,
 		java.util.List<java.io.Serializable> arguments)

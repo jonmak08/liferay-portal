@@ -28,7 +28,11 @@ import com.liferay.dynamic.data.mapping.annotations.DDMFormLayoutRow;
 @DDMFormLayout(
 	{
 		@DDMFormLayoutPage(
+<<<<<<< HEAD
 			title = "properties",
+=======
+			title = "advanced",
+>>>>>>> compatible
 			value = {
 				@DDMFormLayoutRow(
 					{
@@ -43,10 +47,14 @@ import com.liferay.dynamic.data.mapping.annotations.DDMFormLayoutRow;
 )
 public interface DDMFormFieldTypeSettings {
 
+<<<<<<< HEAD
 	@DDMFormField(
 		predefinedValue = "string", required = true,
 		visibilityExpression = "FALSE"
 	)
+=======
+	@DDMFormField(required = true, visibilityExpression = "FALSE")
+>>>>>>> compatible
 	public String dataType();
 
 	@DDMFormField(

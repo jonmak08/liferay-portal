@@ -13,6 +13,7 @@
 		</content>
 		<orderEntry type="inheritedJdk" />
 		<orderEntry type="sourceFolder" forTests="false" />
+<<<<<<< HEAD
 		<orderEntry type="module" module-name="petra-concurrent" scope="PROVIDED" />
 		<orderEntry type="module" module-name="petra-content" scope="PROVIDED" />
 		<orderEntry type="module" module-name="petra-encryptor" scope="PROVIDED" />
@@ -28,6 +29,8 @@
 		<orderEntry type="module" module-name="petra-reflect" scope="PROVIDED" />
 		<orderEntry type="module" module-name="petra-string" scope="PROVIDED" />
 		<orderEntry type="module" module-name="petra-xml" scope="PROVIDED" />
+=======
+>>>>>>> compatible
 		<orderEntry type="module" module-name="registry-api" scope="PROVIDED" />
 		<orderEntry type="module" module-name="portal-test" scope="TEST" />
 		<orderEntry type="library" name="development" level="project" />

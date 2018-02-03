@@ -4,7 +4,11 @@
 
 		<execute argument1="1000" selenium="pause" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.SikuliRightMouseUp#sikuliRightMouseUp" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 

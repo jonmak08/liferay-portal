@@ -27,11 +27,16 @@ import com.liferay.portal.kernel.util.Accessor;
  * @see MBMailingListModel
  * @see com.liferay.portlet.messageboards.model.impl.MBMailingListImpl
  * @see com.liferay.portlet.messageboards.model.impl.MBMailingListModelImpl
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, replaced by {@link
 com.liferay.message.boards.service.impl.MBMailingListImpl}
  * @generated
  */
 @Deprecated
+=======
+ * @generated
+ */
+>>>>>>> compatible
 @ImplementationClassName("com.liferay.portlet.messageboards.model.impl.MBMailingListImpl")
 @ProviderType
 public interface MBMailingList extends MBMailingListModel, PersistedModel {

@@ -103,10 +103,17 @@ else {
 					<portlet:param name="formDDMTemplateId" value="<%= String.valueOf(formDDMTemplateId) %>" />
 				</portlet:renderURL>
 
+<<<<<<< HEAD
 				<aui:button href="<%= editRecordURL %>" name="edit" primary="<%= true %>" value="edit" />
 			</c:if>
 
 			<aui:button href="<%= redirect %>" name="cancelButton" type="cancel" />
+=======
+				<aui:button cssClass="btn-lg" href="<%= editRecordURL %>" name="edit" primary="<%= true %>" value="edit" />
+			</c:if>
+
+			<aui:button cssClass="btn-lg" href="<%= redirect %>" name="cancelButton" type="cancel" />
+>>>>>>> compatible
 		</aui:button-row>
 	</aui:fieldset>
 </div>

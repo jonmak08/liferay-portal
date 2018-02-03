@@ -14,6 +14,7 @@
 
 package com.liferay.source.formatter.checks;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -90,4 +91,16 @@ public class JSPStringBundlerCheck extends BaseFileCheck {
 		"\n(\t*\\w*(sb|SB)[0-9]?\\.append\\(\".*\"\\);)\n\\s*\\w*(sb|SB)" +
 			"[0-9]?\\.append\\(\" .*\"\\);\n");
 
+=======
+/**
+ * @author Hugo Huijser
+ */
+public class JSPStringBundlerCheck extends StringBundlerCheck {
+
+	@Override
+	protected int getMaxLineLength() {
+		return -1;
+	}
+
+>>>>>>> compatible
 }

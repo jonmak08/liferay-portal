@@ -15,16 +15,23 @@
 package com.liferay.document.library.web.exportimport.data.handler.test;
 
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
+<<<<<<< HEAD
 import com.liferay.document.library.constants.DLPortletKeys;
 import com.liferay.document.library.kernel.model.DLFileEntry;
 import com.liferay.document.library.kernel.model.DLFileEntryConstants;
 import com.liferay.document.library.kernel.model.DLFileEntryMetadata;
 import com.liferay.document.library.kernel.model.DLFileEntryType;
 import com.liferay.document.library.kernel.model.DLFileShortcutConstants;
+=======
+import com.liferay.document.library.kernel.model.DLFileEntry;
+import com.liferay.document.library.kernel.model.DLFileEntryMetadata;
+import com.liferay.document.library.kernel.model.DLFileEntryType;
+>>>>>>> compatible
 import com.liferay.document.library.kernel.model.DLFolder;
 import com.liferay.document.library.kernel.model.DLFolderConstants;
 import com.liferay.document.library.kernel.service.DLAppLocalServiceUtil;
 import com.liferay.document.library.kernel.service.DLAppServiceUtil;
+<<<<<<< HEAD
 import com.liferay.document.library.kernel.service.DLFileEntryLocalServiceUtil;
 import com.liferay.document.library.kernel.service.DLFileEntryTypeLocalServiceUtil;
 import com.liferay.document.library.kernel.service.DLFileShortcutLocalServiceUtil;
@@ -41,12 +48,29 @@ import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.Repository;
 import com.liferay.portal.kernel.model.StagedModel;
+=======
+import com.liferay.document.library.kernel.service.DLFileEntryTypeLocalServiceUtil;
+import com.liferay.document.library.kernel.service.DLFolderLocalServiceUtil;
+import com.liferay.document.library.kernel.service.DLTrashServiceUtil;
+import com.liferay.document.library.web.constants.DLPortletKeys;
+import com.liferay.document.library.web.lar.DLPortletDataHandler;
+import com.liferay.dynamic.data.mapping.kernel.DDMStructure;
+import com.liferay.exportimport.kernel.lar.ExportImportPathUtil;
+import com.liferay.exportimport.kernel.lar.ManifestSummary;
+import com.liferay.portal.kernel.model.Group;
+import com.liferay.portal.kernel.model.Repository;
+>>>>>>> compatible
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.Folder;
 import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
 import com.liferay.portal.kernel.service.RepositoryLocalServiceUtil;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
@@ -55,8 +79,13 @@ import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.LongWrapper;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.PortletKeys;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.UnicodeProperties;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.UnicodeProperties;
+>>>>>>> compatible
 import com.liferay.portal.lar.test.BasePortletDataHandlerTestCase;
 import com.liferay.portal.repository.liferayrepository.LiferayRepository;
 import com.liferay.portal.service.test.ServiceTestUtil;
@@ -66,8 +95,11 @@ import com.liferay.portlet.PortletPreferencesImpl;
 import com.liferay.portlet.documentlibrary.util.test.DLAppTestUtil;
 import com.liferay.portlet.dynamicdatamapping.util.test.DDMStructureTestUtil;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
+=======
+>>>>>>> compatible
 import java.util.Map;
 
 import org.junit.Assert;
@@ -81,6 +113,7 @@ import org.junit.runner.RunWith;
  * @author Zsolt Berentey
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
 public class DLPortletDataHandlerTest extends BasePortletDataHandlerTestCase {
 
 	public static final String NAMESPACE = "document_library";
@@ -89,6 +122,17 @@ public class DLPortletDataHandlerTest extends BasePortletDataHandlerTestCase {
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
 		new LiferayIntegrationTestRule();
+=======
+@Sync
+public class DLPortletDataHandlerTest extends BasePortletDataHandlerTestCase {
+
+	@ClassRule
+	@Rule
+	public static final AggregateTestRule aggregateTestRule =
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Before
 	@Override
@@ -100,7 +144,11 @@ public class DLPortletDataHandlerTest extends BasePortletDataHandlerTestCase {
 
 	@Test
 	public void testCustomRepositoryEntriesExport() throws Exception {
+<<<<<<< HEAD
 		initContext();
+=======
+		initExport();
+>>>>>>> compatible
 
 		addRepositoryEntries();
 
@@ -177,7 +225,11 @@ public class DLPortletDataHandlerTest extends BasePortletDataHandlerTestCase {
 	@Override
 	protected void addParameters(Map<String, String[]> parameterMap) {
 		addBooleanParameter(
+<<<<<<< HEAD
 			parameterMap, "document_library", "repositories", true);
+=======
+			parameterMap, DLPortletDataHandler.NAMESPACE, "repositories", true);
+>>>>>>> compatible
 	}
 
 	protected void addRepositoryEntries() throws Exception {
@@ -224,6 +276,12 @@ public class DLPortletDataHandlerTest extends BasePortletDataHandlerTestCase {
 		DDMStructure ddmStructure = DDMStructureTestUtil.addStructure(
 			stagingGroup.getGroupId(), DLFileEntryMetadata.class.getName());
 
+<<<<<<< HEAD
+=======
+		portletDataContext.isPathProcessed(
+			ExportImportPathUtil.getModelPath(ddmStructure));
+
+>>>>>>> compatible
 		DLFileEntryType dlFileEntryType =
 			DLFileEntryTypeLocalServiceUtil.addFileEntryType(
 				TestPropsValues.getUserId(), stagingGroup.getGroupId(),
@@ -246,6 +304,7 @@ public class DLPortletDataHandlerTest extends BasePortletDataHandlerTestCase {
 	}
 
 	@Override
+<<<<<<< HEAD
 	protected DataLevel getDataLevel() {
 		return DataLevel.SITE;
 	}
@@ -287,10 +346,13 @@ public class DLPortletDataHandlerTest extends BasePortletDataHandlerTestCase {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	protected String getPortletId() {
 		return DLPortletKeys.DOCUMENT_LIBRARY;
 	}
 
+<<<<<<< HEAD
 	@Override
 	protected List<StagedModel> getStagedModels() {
 		List<StagedModel> stagedModels = new ArrayList<>();
@@ -381,4 +443,6 @@ public class DLPortletDataHandlerTest extends BasePortletDataHandlerTestCase {
 		return true;
 	}
 
+=======
+>>>>>>> compatible
 }

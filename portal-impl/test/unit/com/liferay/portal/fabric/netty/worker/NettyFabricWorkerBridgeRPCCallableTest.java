@@ -103,8 +103,13 @@ public class NettyFabricWorkerBridgeRPCCallableTest {
 					new DefaultNoticeableFuture<Serializable>()) {
 
 					@Override
+<<<<<<< HEAD
 					public <V extends Serializable> NoticeableFuture<V> write(
 						ProcessCallable<V> processCallable) {
+=======
+					public <V extends Serializable> NoticeableFuture<V>
+						write(ProcessCallable<V> processCallable) {
+>>>>>>> compatible
 
 						return new DefaultNoticeableFuture<>();
 					}

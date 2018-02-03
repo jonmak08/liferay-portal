@@ -16,10 +16,17 @@ package com.liferay.marketplace.service.impl;
 
 import com.liferay.document.library.kernel.exception.NoSuchFileException;
 import com.liferay.document.library.kernel.store.DLStoreUtil;
+<<<<<<< HEAD
 import com.liferay.marketplace.exception.AppPropertiesException;
 import com.liferay.marketplace.exception.AppTitleException;
 import com.liferay.marketplace.exception.AppVersionException;
 import com.liferay.marketplace.internal.bundle.BundleManagerUtil;
+=======
+import com.liferay.marketplace.bundle.BundleManagerUtil;
+import com.liferay.marketplace.exception.AppPropertiesException;
+import com.liferay.marketplace.exception.AppTitleException;
+import com.liferay.marketplace.exception.AppVersionException;
+>>>>>>> compatible
 import com.liferay.marketplace.model.App;
 import com.liferay.marketplace.model.Module;
 import com.liferay.marketplace.service.base.AppLocalServiceBaseImpl;
@@ -38,6 +45,10 @@ import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.PropertiesUtil;
 import com.liferay.portal.kernel.util.ReleaseInfo;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StreamUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -250,9 +261,17 @@ public class AppLocalServiceImpl extends AppLocalServiceBaseImpl {
 			throw new NoSuchFileException();
 		}
 
+<<<<<<< HEAD
 		try (InputStream inputStream = DLStoreUtil.getFileAsStream(
 				app.getCompanyId(), CompanyConstants.SYSTEM,
 				app.getFilePath())) {
+=======
+		InputStream inputStream = null;
+
+		try {
+			inputStream = DLStoreUtil.getFileAsStream(
+				app.getCompanyId(), CompanyConstants.SYSTEM, app.getFilePath());
+>>>>>>> compatible
 
 			if (inputStream == null) {
 				throw new IOException(
@@ -295,6 +314,11 @@ public class AppLocalServiceImpl extends AppLocalServiceBaseImpl {
 			_log.error(e, e);
 		}
 		finally {
+<<<<<<< HEAD
+=======
+			StreamUtil.cleanUp(inputStream);
+
+>>>>>>> compatible
 			clearInstalledAppsCache();
 		}
 	}
@@ -427,6 +451,7 @@ public class AppLocalServiceImpl extends AppLocalServiceBaseImpl {
 	}
 
 	protected Properties getMarketplaceProperties(File liferayPackageFile) {
+<<<<<<< HEAD
 		try (ZipFile zipFile = new ZipFile(liferayPackageFile)) {
 			ZipEntry zipEntry = zipFile.getEntry(
 				"liferay-marketplace.properties");
@@ -436,10 +461,40 @@ public class AppLocalServiceImpl extends AppLocalServiceBaseImpl {
 
 				return PropertiesUtil.load(propertiesString);
 			}
+=======
+		InputStream inputStream = null;
+		ZipFile zipFile = null;
+
+		try {
+			zipFile = new ZipFile(liferayPackageFile);
+
+			ZipEntry zipEntry = zipFile.getEntry(
+				"liferay-marketplace.properties");
+
+			inputStream = zipFile.getInputStream(zipEntry);
+
+			String propertiesString = StringUtil.read(inputStream);
+
+			return PropertiesUtil.load(propertiesString);
+>>>>>>> compatible
 		}
 		catch (IOException ioe) {
 			return null;
 		}
+<<<<<<< HEAD
+=======
+		finally {
+			if (zipFile != null) {
+				try {
+					zipFile.close();
+				}
+				catch (IOException ioe) {
+				}
+			}
+
+			StreamUtil.cleanUp(inputStream);
+		}
+>>>>>>> compatible
 	}
 
 	protected boolean hasDependentApp(Module module) throws PortalException {

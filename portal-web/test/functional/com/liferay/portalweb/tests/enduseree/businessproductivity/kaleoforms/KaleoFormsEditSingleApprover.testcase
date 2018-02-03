@@ -14,9 +14,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -103,7 +107,11 @@
 
 				<execute macro="DMDocument#tearDownCP" />
 
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP" />
+=======
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 
 				<execute macro="Workflow#tearDownSpecificWorkflowDefinition">
 					<var name="workflowDefinitionTitle" value="Edited Workflow Definition" />
@@ -122,29 +130,47 @@
 		<property name="test.assert.javascript.errors" value="false" />
 		<property name="test.smtp.server.enabled" value="true" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Roles" />
 		</execute>
 
 		<execute macro="Role#addCP">
+<<<<<<< HEAD
 			<var name="roleTitle" value="Reviewer Name" />
 		</execute>
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+			<var name="roleName" value="Reviewer Name" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Roles" />
 		</execute>
 
 		<execute macro="Role#addCP">
+<<<<<<< HEAD
 			<var name="roleTitle" value="Updater Name" />
 		</execute>
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+			<var name="roleName" value="Updater Name" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -155,9 +181,13 @@
 			<var name="userScreenName" value="creator" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -166,13 +196,18 @@
 			<var name="userScreenName" value="creator" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Roles" />
 		</execute>
 
 		<execute macro="Role#assignRegRoleCP">
+<<<<<<< HEAD
 			<var name="roleTitle" value="Administrator" />
 			<var name="userScreenName" value="creator" />
 		</execute>
@@ -180,6 +215,13 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+			<var name="roleName" value="Administrator" />
+			<var name="userScreenName" value="creator" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -190,9 +232,13 @@
 			<var name="userScreenName" value="reviewer" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -201,13 +247,18 @@
 			<var name="userScreenName" value="reviewer" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Roles" />
 		</execute>
 
 		<execute macro="Role#assignRegRoleCP">
+<<<<<<< HEAD
 			<var name="roleTitle" value="Administrator" />
 			<var name="userScreenName" value="reviewer" />
 		</execute>
@@ -215,10 +266,18 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+			<var name="roleName" value="Administrator" />
+			<var name="userScreenName" value="reviewer" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Roles" />
 		</execute>
 
 		<execute macro="Role#assignRegRoleCP">
+<<<<<<< HEAD
 			<var name="roleTitle" value="Reviewer Name" />
 			<var name="userScreenName" value="reviewer" />
 		</execute>
@@ -226,6 +285,13 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+			<var name="roleName" value="Reviewer Name" />
+			<var name="userScreenName" value="reviewer" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -236,9 +302,13 @@
 			<var name="userScreenName" value="updater" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -247,13 +317,18 @@
 			<var name="userScreenName" value="updater" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Roles" />
 		</execute>
 
 		<execute macro="Role#assignRegRoleCP">
+<<<<<<< HEAD
 			<var name="roleTitle" value="Administrator" />
 			<var name="userScreenName" value="updater" />
 		</execute>
@@ -261,19 +336,34 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+			<var name="roleName" value="Administrator" />
+			<var name="userScreenName" value="updater" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Roles" />
 		</execute>
 
 		<execute macro="Role#assignRegRoleCP">
+<<<<<<< HEAD
 			<var name="roleTitle" value="Updater Name" />
+=======
+			<var name="roleName" value="Updater Name" />
+>>>>>>> compatible
 			<var name="userScreenName" value="updater" />
 		</execute>
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -296,7 +386,11 @@
 
 		<execute macro="KaleoDesigner#editNodeAssignments">
 			<var name="nodeAssignmentType" value="Role" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="Reviewer Name" />
+=======
+			<var name="roleName" value="Reviewer Name" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="KaleoDesigner#editNodeNotifications">
@@ -304,7 +398,11 @@
 			<var name="nodeNotificationsName" value="Review Notification" />
 			<var name="nodeNotificationsRecipientType" value="Role" />
 			<var name="nodeNotificationsType" value="Email" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="Reviewer Name" />
+=======
+			<var name="roleName" value="Reviewer Name" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="KaleoDesigner#selectNode">
@@ -313,7 +411,11 @@
 
 		<execute macro="KaleoDesigner#editNodeAssignments">
 			<var name="nodeAssignmentType" value="Role" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="Updater Name" />
+=======
+			<var name="roleName" value="Updater Name" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="KaleoDesigner#editNodeNotifications">
@@ -321,7 +423,11 @@
 			<var name="nodeNotificationsName" value="Updater Modification Notification" />
 			<var name="nodeNotificationsRecipientType" value="Role" />
 			<var name="nodeNotificationsType" value="Email" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="Updater Name" />
+=======
+			<var name="roleName" value="Updater Name" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="KaleoFormsAdmin#publishWorkflow" />
@@ -347,9 +453,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -362,19 +472,28 @@
 			<var name="userLoginFullName" value="userfn Creator" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="My Workflow Tasks" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#viewDefaultMyWorkflowTasksCP" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -404,12 +523,17 @@
 			<var name="userLoginFullName" value="userfn Reviewer" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="My Workflow Tasks" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#assignToMeTaskByActions">
@@ -424,12 +548,17 @@
 			<var name="workflowTask" value="Review" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="My Workflow Tasks" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Navigator#gotoNavTab">
@@ -457,12 +586,17 @@
 			<var name="userLoginFullName" value="userfn Updater" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="My Workflow Tasks" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#assignToMeTaskByActions">
@@ -492,12 +626,17 @@
 			<var name="userLoginFullName" value="userfn Reviewer" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="My Workflow Tasks" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#assignToMeTaskByActions">
@@ -512,12 +651,17 @@
 			<var name="workflowTask" value="Review" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="My Workflow Tasks" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#viewCompletedTask">
@@ -539,9 +683,13 @@
 	<command name="ViewApprovedProcessNotificationWithComments" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -549,6 +697,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
+=======
+		<execute macro="KaleoFormsAdmin#editProcessDetails">
+			<var name="kfProcessNameEdit" value="Edited Kaleo Forms Process" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="KaleoFormsAdmin#gotoProgressStep">
 			<var name="kfProgressName" value="Workflow" />
 		</execute>
@@ -591,16 +746,24 @@
 		</execute>
 
 		<execute macro="KaleoFormsAdmin#saveProcess">
+<<<<<<< HEAD
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+			<var name="kfProcessName" value="Edited Kaleo Forms Process" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
 		<execute macro="KaleoFormsAdmin#viewProcess">
+<<<<<<< HEAD
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
@@ -610,18 +773,33 @@
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="My Workflow Tasks" />
+=======
+			<var name="kfProcessName" value="Edited Kaleo Forms Process" />
+		</execute>
+
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#viewDefaultMyWorkflowTasksCP" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
 		<execute macro="KaleoFormsAdmin#submitNewProcess">
+<<<<<<< HEAD
 			<var name="kfProcessName" value="Kaleo Forms Process" />
+=======
+			<var name="kfProcessName" value="Edited Kaleo Forms Process" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="KaleoFormsAdmin#populateFieldText">
@@ -631,6 +809,7 @@
 
 		<execute macro="KaleoFormsAdmin#saveProcessRecord" />
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
@@ -641,23 +820,40 @@
 
 		<execute macro="Workflow#assignToMeTaskByActions">
 			<var name="workflowAssetTitle" value="Kaleo Forms Process" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+		</execute>
+
+		<execute macro="Workflow#assignToMeTaskByActions">
+			<var name="workflowAssetTitle" value="Edited Kaleo Forms Process" />
+>>>>>>> compatible
 			<var name="workflowAssetType" value="${workflowAssetType}" />
 			<var name="workflowTask" value="Review" />
 		</execute>
 
 		<execute macro="Workflow#approveTaskByActions">
 			<var name="workflowActivityComment" value="Process is approved" />
+<<<<<<< HEAD
 			<var name="workflowAssetTitle" value="Kaleo Forms Process" />
+=======
+			<var name="workflowAssetTitle" value="Edited Kaleo Forms Process" />
+>>>>>>> compatible
 			<var name="workflowAssetType" value="${workflowAssetType}" />
 			<var name="workflowTask" value="Review" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="Notifications" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="Notifications" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="WorkflowAsset#viewNotification">

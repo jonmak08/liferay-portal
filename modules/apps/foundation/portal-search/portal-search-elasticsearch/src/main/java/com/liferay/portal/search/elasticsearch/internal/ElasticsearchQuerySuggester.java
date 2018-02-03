@@ -14,6 +14,7 @@
 
 package com.liferay.portal.search.elasticsearch.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -21,6 +22,15 @@ import com.liferay.portal.kernel.search.Field;
 import com.liferay.portal.kernel.search.SearchContext;
 import com.liferay.portal.kernel.search.SearchException;
 import com.liferay.portal.kernel.search.suggest.AggregateSuggester;
+=======
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.search.DocumentImpl;
+import com.liferay.portal.kernel.search.Field;
+import com.liferay.portal.kernel.search.SearchContext;
+import com.liferay.portal.kernel.search.suggest.AggregateSuggester;
+import com.liferay.portal.kernel.search.suggest.BaseQuerySuggester;
+>>>>>>> compatible
 import com.liferay.portal.kernel.search.suggest.PhraseSuggester;
 import com.liferay.portal.kernel.search.suggest.QuerySuggester;
 import com.liferay.portal.kernel.search.suggest.Suggester;
@@ -28,14 +38,22 @@ import com.liferay.portal.kernel.search.suggest.SuggesterResult;
 import com.liferay.portal.kernel.search.suggest.SuggesterResults;
 import com.liferay.portal.kernel.search.suggest.SuggesterTranslator;
 import com.liferay.portal.kernel.search.suggest.TermSuggester;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.Localization;
 import com.liferay.portal.kernel.util.LocalizationUtil;
 import com.liferay.portal.kernel.util.StringUtil;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.search.elasticsearch.connection.ElasticsearchConnectionManager;
 import com.liferay.portal.search.elasticsearch.index.IndexNameBuilder;
 
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.LinkedHashMap;
+=======
+import java.util.HashMap;
+>>>>>>> compatible
 import java.util.List;
 import java.util.Map;
 
@@ -46,9 +64,12 @@ import org.elasticsearch.action.suggest.SuggestResponse;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.common.text.Text;
 import org.elasticsearch.search.suggest.Suggest;
+<<<<<<< HEAD
 import org.elasticsearch.search.suggest.Suggest.Suggestion;
 import org.elasticsearch.search.suggest.Suggest.Suggestion.Entry;
 import org.elasticsearch.search.suggest.Suggest.Suggestion.Entry.Option;
+=======
+>>>>>>> compatible
 import org.elasticsearch.search.suggest.SuggestBuilder;
 import org.elasticsearch.search.suggest.term.TermSuggestion;
 
@@ -62,6 +83,7 @@ import org.osgi.service.component.annotations.Reference;
 	immediate = true, property = {"search.engine.impl=Elasticsearch"},
 	service = QuerySuggester.class
 )
+<<<<<<< HEAD
 public class ElasticsearchQuerySuggester implements QuerySuggester {
 
 	@Override
@@ -91,11 +113,15 @@ public class ElasticsearchQuerySuggester implements QuerySuggester {
 
 		return StringUtil.merge(words, StringPool.SPACE);
 	}
+=======
+public class ElasticsearchQuerySuggester extends BaseQuerySuggester {
+>>>>>>> compatible
 
 	@Override
 	public Map<String, List<String>> spellCheckKeywords(
 		SearchContext searchContext, int max) {
 
+<<<<<<< HEAD
 		Suggester suggester = createSpellCheckSuggester(searchContext, max);
 
 		Suggest suggest = doSuggest(suggester, searchContext);
@@ -124,6 +150,42 @@ public class ElasticsearchQuerySuggester implements QuerySuggester {
 				Text text = suggestionEntry.getText();
 
 				suggestionsMap.put(text.string(), suggestionsList);
+=======
+		String field = DocumentImpl.getLocalizedName(
+			searchContext.getLocale(), Field.SPELL_CHECK_WORD);
+
+		TermSuggester termSuggester = new TermSuggester(
+			"spellCheckRequest", field, searchContext.getKeywords());
+
+		termSuggester.setSize(max);
+
+		SuggesterResults suggesterResults = suggest(
+			searchContext, termSuggester);
+
+		Map<String, List<String>> suggestionsMap = new HashMap<>();
+
+		for (SuggesterResult suggesterResult :
+				suggesterResults.getSuggesterResults()) {
+
+			for (SuggesterResult.Entry suggesterResultEntry :
+					suggesterResult.getEntries()) {
+
+				String text = suggesterResultEntry.getText();
+
+				List<String> suggestionsList = suggestionsMap.get(text);
+
+				if (suggestionsList == null) {
+					suggestionsList = new ArrayList<>();
+
+					suggestionsMap.put(text, suggestionsList);
+				}
+
+				for (SuggesterResult.Entry.Option suggesterResultEntryOption :
+						suggesterResultEntry.getOptions()) {
+
+					suggestionsList.add(suggesterResultEntryOption.getText());
+				}
+>>>>>>> compatible
 			}
 		}
 
@@ -134,6 +196,7 @@ public class ElasticsearchQuerySuggester implements QuerySuggester {
 	public SuggesterResults suggest(
 		SearchContext searchContext, Suggester suggester) {
 
+<<<<<<< HEAD
 		Suggest suggest = doSuggest(suggester, searchContext);
 
 		SuggesterResults suggesterResults = new SuggesterResults();
@@ -216,18 +279,29 @@ public class ElasticsearchQuerySuggester implements QuerySuggester {
 	protected Suggest doSuggest(
 		Suggester suggester, SearchContext searchContext) {
 
+=======
+>>>>>>> compatible
 		StopWatch stopWatch = new StopWatch();
 
 		stopWatch.start();
 
 		Client client = elasticsearchConnectionManager.getClient();
 
+<<<<<<< HEAD
 		SuggestRequestBuilder suggestRequestBuilder = client.prepareSuggest(
 			indexNameBuilder.getIndexName(searchContext.getCompanyId()));
 
 		SuggestBuilder suggestBuilder = suggesterTranslator.translate(
 			suggester, searchContext);
 
+=======
+		SuggestBuilder suggestBuilder = suggesterTranslator.translate(
+			suggester, searchContext);
+
+		SuggestRequestBuilder suggestRequestBuilder = client.prepareSuggest(
+			indexNameBuilder.getIndexName(searchContext.getCompanyId()));
+
+>>>>>>> compatible
 		for (SuggestBuilder.SuggestionBuilder<?> suggestionBuilder :
 				suggestBuilder.getSuggestion()) {
 
@@ -245,6 +319,21 @@ public class ElasticsearchQuerySuggester implements QuerySuggester {
 
 		Suggest suggest = suggestResponse.getSuggest();
 
+<<<<<<< HEAD
+=======
+		SuggesterResults suggesterResults = new SuggesterResults();
+
+		for (Suggest.Suggestion
+				<? extends Suggest.Suggestion.Entry
+					<? extends Suggest.Suggestion.Entry.Option>> suggestion :
+						suggest) {
+
+			SuggesterResult suggesterResult = translate(suggestion);
+
+			suggesterResults.addSuggesterResult(suggesterResult);
+		}
+
+>>>>>>> compatible
 		if (_log.isInfoEnabled()) {
 			stopWatch.stop();
 
@@ -252,6 +341,7 @@ public class ElasticsearchQuerySuggester implements QuerySuggester {
 				"Spell checked keywords in " + stopWatch.getTime() + "ms");
 		}
 
+<<<<<<< HEAD
 		return suggest;
 	}
 
@@ -278,6 +368,53 @@ public class ElasticsearchQuerySuggester implements QuerySuggester {
 			suggestionEntryOptions.get(0);
 
 		return suggestionEntryOption.getText();
+=======
+		return suggesterResults;
+	}
+
+	@Override
+	public String[] suggestKeywordQueries(
+		SearchContext searchContext, int max) {
+
+		String field = DocumentImpl.getLocalizedName(
+			searchContext.getLocale(), Field.KEYWORD_SEARCH);
+
+		PhraseSuggester phraseSuggester = new PhraseSuggester(
+			"keywordQueryRequest", field, searchContext.getKeywords());
+
+		phraseSuggester.setSize(max);
+
+		SuggesterResults suggesterResults = suggest(
+			searchContext, phraseSuggester);
+
+		SuggesterResult suggesterResult = suggesterResults.getSuggesterResult(
+			phraseSuggester.getName());
+
+		if (suggesterResult == null) {
+			return StringPool.EMPTY_ARRAY;
+		}
+
+		List<SuggesterResult.Entry> suggesterResultEntries =
+			suggesterResult.getEntries();
+
+		List<String> keywordQueries = new ArrayList<>(
+			suggesterResultEntries.size());
+
+		for (SuggesterResult.Entry suggesterResultEntry :
+				suggesterResultEntries) {
+
+			for (SuggesterResult.Entry.Option suggesterResultEntryOption :
+					suggesterResultEntry.getOptions()) {
+
+				String optionText = String.valueOf(
+					suggesterResultEntryOption.getText());
+
+				keywordQueries.add(optionText);
+			}
+		}
+
+		return keywordQueries.toArray(new String[keywordQueries.size()]);
+>>>>>>> compatible
 	}
 
 	protected SuggesterResult translate(
@@ -303,6 +440,7 @@ public class ElasticsearchQuerySuggester implements QuerySuggester {
 	protected SuggesterResult.Entry.Option translate(
 		Suggest.Suggestion.Entry.Option suggestionEntryOption) {
 
+<<<<<<< HEAD
 		Text text = suggestionEntryOption.getText();
 
 		SuggesterResult.Entry.Option suggesterResultEntryOption =
@@ -313,6 +451,16 @@ public class ElasticsearchQuerySuggester implements QuerySuggester {
 
 		if (suggestionEntryOption.getHighlighted() != null) {
 			suggesterResultEntryOption.setHighlightedText(highlighted.string());
+=======
+		SuggesterResult.Entry.Option suggesterResultEntryOption =
+			new SuggesterResult.Entry.Option(
+				suggestionEntryOption.getText().string(),
+				suggestionEntryOption.getScore());
+
+		if (suggestionEntryOption.getHighlighted() != null) {
+			suggesterResultEntryOption.setHighlightedText(
+				suggestionEntryOption.getHighlighted().string());
+>>>>>>> compatible
 		}
 
 		if (suggestionEntryOption instanceof TermSuggestion.Entry.Option) {
@@ -356,8 +504,11 @@ public class ElasticsearchQuerySuggester implements QuerySuggester {
 	@Reference(unbind = "-")
 	protected IndexNameBuilder indexNameBuilder;
 
+<<<<<<< HEAD
 	protected Localization localization;
 
+=======
+>>>>>>> compatible
 	@Reference(target = "(search.engine.impl=Elasticsearch)")
 	protected SuggesterTranslator<SuggestBuilder> suggesterTranslator;
 

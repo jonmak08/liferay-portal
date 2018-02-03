@@ -1369,7 +1369,11 @@ fix for all tasks of type `FindBugs` related to source sets.
 ## 3.6.0 - 2017-04-14
 
 ### Added
+<<<<<<< HEAD
 - [LPS-71901]: Add the task `updateFileSnapshotVersions` to update the project
+=======
+- [LPS-71901]: Add task `updateFileSnapshotVersions` to update the project
+>>>>>>> compatible
 version in external files to the latest snapshot.
 
 ### Changed
@@ -1566,7 +1570,11 @@ Gradle Daemon:
 ### Fixed
 - [LPS-72989]: Fix [Find Security Bugs] custom configuration loading on Windows.
 
+<<<<<<< HEAD
 ## 3.7.4 - 2017-06-13
+=======
+## 3.7.4 - 2017-06-12
+>>>>>>> compatible
 
 ### Changed
 - [LPS-72705]: Update the [Liferay Gradle Plugins] dependency to version 3.3.26.
@@ -2032,6 +2040,10 @@ ensure it matches the project version.
 dependencies that belong to a different sub-repository.
 
 ### Changed
+<<<<<<< HEAD
+=======
+
+>>>>>>> compatible
 - [LPS-74469]: Allow publishing modules whose `soyCompile` configuration
 contains project dependencies.
 
@@ -2042,6 +2054,7 @@ contains project dependencies.
 checking if the `soyCompile` configuration contains project dependencies that
 belong to a different sub-repository.
 
+<<<<<<< HEAD
 ## 5.0.36 - 2017-09-06
 
 ### Changed
@@ -2746,6 +2759,8 @@ when applied.
 ### Changed
 - [LPS-77305]: Update the [Liferay Gradle Plugins] dependency to version 3.5.92.
 
+=======
+>>>>>>> compatible
 [Find Security Bugs]: https://github.com/liferay/liferay-portal/tree/master/modules/third-party/com-h3xstream-findsecbugs
 [Gradle License Report]: https://github.com/jk1/Gradle-License-Report
 [Liferay CDN]: https://cdn.lfrs.sl/repository.liferay.com/nexus/content/groups/public
@@ -2753,10 +2768,15 @@ when applied.
 [Liferay Gradle Plugins App Javadoc Builder]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins-app-javadoc-builder
 [Liferay Gradle Plugins Baseline]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins-baseline
 [Liferay Gradle Plugins Dependency Checker]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins-dependency-checker
+<<<<<<< HEAD
 [Liferay Gradle Plugins JSDoc]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins-jsdoc
 [Liferay Gradle Plugins Lang Merger]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins-lang-merger
 [Liferay Gradle Plugins Node]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins-node
 [Liferay Gradle Plugins Source Formatter]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins-source-formatter
+=======
+[Liferay Gradle Plugins Lang Merger]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins-lang-merger
+[Liferay Gradle Plugins Node]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins-node
+>>>>>>> compatible
 [Liferay Source Formatter]: https://github.com/liferay/liferay-portal/tree/master/modules/util/source-formatter
 [LPS-52675]: https://issues.liferay.com/browse/LPS-52675
 [LPS-53392]: https://issues.liferay.com/browse/LPS-53392
@@ -2846,7 +2866,10 @@ when applied.
 [LPS-69899]: https://issues.liferay.com/browse/LPS-69899
 [LPS-69920]: https://issues.liferay.com/browse/LPS-69920
 [LPS-69926]: https://issues.liferay.com/browse/LPS-69926
+<<<<<<< HEAD
 [LPS-69999]: https://issues.liferay.com/browse/LPS-69999
+=======
+>>>>>>> compatible
 [LPS-70036]: https://issues.liferay.com/browse/LPS-70036
 [LPS-70084]: https://issues.liferay.com/browse/LPS-70084
 [LPS-70092]: https://issues.liferay.com/browse/LPS-70092
@@ -2877,7 +2900,10 @@ when applied.
 [LPS-70941]: https://issues.liferay.com/browse/LPS-70941
 [LPS-71005]: https://issues.liferay.com/browse/LPS-71005
 [LPS-71048]: https://issues.liferay.com/browse/LPS-71048
+<<<<<<< HEAD
 [LPS-71117]: https://issues.liferay.com/browse/LPS-71117
+=======
+>>>>>>> compatible
 [LPS-71118]: https://issues.liferay.com/browse/LPS-71118
 [LPS-71164]: https://issues.liferay.com/browse/LPS-71164
 [LPS-71201]: https://issues.liferay.com/browse/LPS-71201
@@ -2920,7 +2946,10 @@ when applied.
 [LPS-72851]: https://issues.liferay.com/browse/LPS-72851
 [LPS-72854]: https://issues.liferay.com/browse/LPS-72854
 [LPS-72868]: https://issues.liferay.com/browse/LPS-72868
+<<<<<<< HEAD
 [LPS-72912]: https://issues.liferay.com/browse/LPS-72912
+=======
+>>>>>>> compatible
 [LPS-72914]: https://issues.liferay.com/browse/LPS-72914
 [LPS-72989]: https://issues.liferay.com/browse/LPS-72989
 [LPS-73058]: https://issues.liferay.com/browse/LPS-73058
@@ -2948,7 +2977,10 @@ when applied.
 [LPS-73642]: https://issues.liferay.com/browse/LPS-73642
 [LPS-73652]: https://issues.liferay.com/browse/LPS-73652
 [LPS-73655]: https://issues.liferay.com/browse/LPS-73655
+<<<<<<< HEAD
 [LPS-73725]: https://issues.liferay.com/browse/LPS-73725
+=======
+>>>>>>> compatible
 [LPS-73807]: https://issues.liferay.com/browse/LPS-73807
 [LPS-73818]: https://issues.liferay.com/browse/LPS-73818
 [LPS-73855]: https://issues.liferay.com/browse/LPS-73855
@@ -2961,12 +2993,17 @@ when applied.
 [LPS-74088]: https://issues.liferay.com/browse/LPS-74088
 [LPS-74092]: https://issues.liferay.com/browse/LPS-74092
 [LPS-74104]: https://issues.liferay.com/browse/LPS-74104
+<<<<<<< HEAD
 [LPS-74110]: https://issues.liferay.com/browse/LPS-74110
 [LPS-74126]: https://issues.liferay.com/browse/LPS-74126
 [LPS-74139]: https://issues.liferay.com/browse/LPS-74139
 [LPS-74143]: https://issues.liferay.com/browse/LPS-74143
 [LPS-74155]: https://issues.liferay.com/browse/LPS-74155
 [LPS-74207]: https://issues.liferay.com/browse/LPS-74207
+=======
+[LPS-74126]: https://issues.liferay.com/browse/LPS-74126
+[LPS-74155]: https://issues.liferay.com/browse/LPS-74155
+>>>>>>> compatible
 [LPS-74210]: https://issues.liferay.com/browse/LPS-74210
 [LPS-74222]: https://issues.liferay.com/browse/LPS-74222
 [LPS-74250]: https://issues.liferay.com/browse/LPS-74250
@@ -2975,6 +3012,7 @@ when applied.
 [LPS-74314]: https://issues.liferay.com/browse/LPS-74314
 [LPS-74343]: https://issues.liferay.com/browse/LPS-74343
 [LPS-74345]: https://issues.liferay.com/browse/LPS-74345
+<<<<<<< HEAD
 [LPS-74348]: https://issues.liferay.com/browse/LPS-74348
 [LPS-74368]: https://issues.liferay.com/browse/LPS-74368
 [LPS-74373]: https://issues.liferay.com/browse/LPS-74373
@@ -3054,10 +3092,19 @@ when applied.
 [LPS-77111]: https://issues.liferay.com/browse/LPS-77111
 [LPS-77250]: https://issues.liferay.com/browse/LPS-77250
 [LPS-77305]: https://issues.liferay.com/browse/LPS-77305
+=======
+[LPS-74368]: https://issues.liferay.com/browse/LPS-74368
+[LPS-74433]: https://issues.liferay.com/browse/LPS-74433
+[LPS-74469]: https://issues.liferay.com/browse/LPS-74469
+>>>>>>> compatible
 [LRDOCS-2594]: https://issues.liferay.com/browse/LRDOCS-2594
 [LRDOCS-2841]: https://issues.liferay.com/browse/LRDOCS-2841
 [LRDOCS-2981]: https://issues.liferay.com/browse/LRDOCS-2981
 [LRDOCS-3023]: https://issues.liferay.com/browse/LRDOCS-3023
 [LRDOCS-3038]: https://issues.liferay.com/browse/LRDOCS-3038
+<<<<<<< HEAD
 [LRDOCS-3643]: https://issues.liferay.com/browse/LRDOCS-3643
 [LRDOCS-4111]: https://issues.liferay.com/browse/LRDOCS-4111
+=======
+[LRDOCS-3643]: https://issues.liferay.com/browse/LRDOCS-3643
+>>>>>>> compatible

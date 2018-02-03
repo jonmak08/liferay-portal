@@ -43,8 +43,13 @@ public class JavaCollatorUtilCheck extends BaseFileCheck {
 		while (index != -1) {
 			if (!ToolsUtil.isInsideQuotes(content, index)) {
 				addMessage(
+<<<<<<< HEAD
 					fileName, "Use CollatorUtil.getInstance(Locale)",
 					"collator.markdown", getLineCount(content, index));
+=======
+					fileName, "Use CollatorUtil.getInstance(Locale) instead",
+					getLineCount(content, index));
+>>>>>>> compatible
 			}
 
 			index = content.indexOf("Collator.getInstance(", index + 1);

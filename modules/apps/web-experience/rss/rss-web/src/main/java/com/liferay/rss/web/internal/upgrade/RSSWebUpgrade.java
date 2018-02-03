@@ -17,8 +17,12 @@ package com.liferay.rss.web.internal.upgrade;
 import com.liferay.portal.kernel.upgrade.BaseUpgradePortletId;
 import com.liferay.portal.kernel.upgrade.DummyUpgradeStep;
 import com.liferay.portal.upgrade.registry.UpgradeStepRegistrator;
+<<<<<<< HEAD
 import com.liferay.portal.upgrade.v7_0_0.UpgradeKernelPackage;
 import com.liferay.rss.constants.RSSPortletKeys;
+=======
+import com.liferay.rss.web.constants.RSSPortletKeys;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 
@@ -31,7 +35,11 @@ public class RSSWebUpgrade implements UpgradeStepRegistrator {
 	@Override
 	public void register(Registry registry) {
 		registry.register(
+<<<<<<< HEAD
 			"com.liferay.rss.web", "0.0.0", "3.0.0", new DummyUpgradeStep());
+=======
+			"com.liferay.rss.web", "0.0.0", "1.0.0", new DummyUpgradeStep());
+>>>>>>> compatible
 
 		registry.register(
 			"com.liferay.rss.web", "0.0.1", "1.0.0",
@@ -45,6 +53,7 @@ public class RSSWebUpgrade implements UpgradeStepRegistrator {
 				}
 
 			});
+<<<<<<< HEAD
 
 		registry.register(
 			"com.liferay.rss.web", "1.0.0", "3.0.0",
@@ -66,6 +75,8 @@ public class RSSWebUpgrade implements UpgradeStepRegistrator {
 				}
 
 			});
+=======
+>>>>>>> compatible
 	}
 
 }

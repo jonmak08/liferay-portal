@@ -37,7 +37,10 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.GroupConstants;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.Image;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Layout;
 import com.liferay.portal.kernel.model.LayoutConstants;
 import com.liferay.portal.kernel.model.LayoutPrototype;
@@ -62,7 +65,10 @@ import com.liferay.portal.kernel.security.permission.PermissionThreadLocal;
 import com.liferay.portal.kernel.security.permission.ResourceActionsUtil;
 import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
 import com.liferay.portal.kernel.service.GroupServiceUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.service.ImageLocalServiceUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.LayoutLocalServiceUtil;
 import com.liferay.portal.kernel.service.LayoutPrototypeLocalServiceUtil;
 import com.liferay.portal.kernel.service.LayoutServiceUtil;
@@ -282,7 +288,11 @@ public class SitesImpl implements Sites {
 				targetLayout.getDescriptionMap(), targetLayout.getKeywordsMap(),
 				targetLayout.getRobotsMap(), layoutPrototypeLayout.getType(),
 				targetLayout.getHidden(), targetLayout.getFriendlyURLMap(),
+<<<<<<< HEAD
 				layoutPrototypeLayout.isIconImage(), iconBytes, serviceContext);
+=======
+				targetLayout.getIconImage(), null, serviceContext);
+>>>>>>> compatible
 		}
 		finally {
 			LocaleThreadLocal.setSiteDefaultLocale(siteDefaultLocale);
@@ -647,10 +657,13 @@ public class SitesImpl implements Sites {
 		Map<String, String[]> parameterMap = getLayoutSetPrototypeParameters(
 			serviceContext);
 
+<<<<<<< HEAD
 		parameterMap.put(
 			PortletDataHandlerKeys.PERFORM_DIRECT_BINARY_IMPORT,
 			new String[] {Boolean.FALSE.toString()});
 
+=======
+>>>>>>> compatible
 		Map<String, Serializable> exportLayoutSettingsMap =
 			ExportImportConfigurationSettingsMapFactory.
 				buildExportLayoutSettingsMap(

@@ -14,14 +14,20 @@
 
 package com.liferay.exportimport.web.internal.trash;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.model.ExportImportConfiguration;
 import com.liferay.exportimport.kernel.service.ExportImportConfigurationLocalService;
 import com.liferay.exportimport.web.trash.ExportImportConfigurationTrashRenderer;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.Group;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.TrashedModel;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.service.GroupLocalService;
 import com.liferay.portal.kernel.service.permission.GroupPermissionUtil;
@@ -30,6 +36,10 @@ import com.liferay.portal.kernel.trash.BaseTrashHandler;
 import com.liferay.portal.kernel.trash.TrashHandler;
 import com.liferay.portal.kernel.trash.TrashRenderer;
 import com.liferay.portal.kernel.util.WebKeys;
+<<<<<<< HEAD
+=======
+import com.liferay.trash.kernel.model.TrashEntry;
+>>>>>>> compatible
 
 import javax.portlet.PortletRequest;
 
@@ -48,7 +58,10 @@ import org.osgi.service.component.annotations.Reference;
 	},
 	service = TrashHandler.class
 )
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class ExportImportConfigurationTrashHandler extends BaseTrashHandler {
 
 	@Override
@@ -73,9 +86,18 @@ public class ExportImportConfigurationTrashHandler extends BaseTrashHandler {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public TrashedModel getTrashedModel(long classPK) {
 		return _exportImportConfigurationLocalService.
 			fetchExportImportConfiguration(classPK);
+=======
+	public TrashEntry getTrashEntry(long classPK) throws PortalException {
+		ExportImportConfiguration exportImportConfiguration =
+			_exportImportConfigurationLocalService.getExportImportConfiguration(
+				classPK);
+
+		return exportImportConfiguration.getTrashEntry();
+>>>>>>> compatible
 	}
 
 	@Override
@@ -96,6 +118,18 @@ public class ExportImportConfigurationTrashHandler extends BaseTrashHandler {
 	}
 
 	@Override
+<<<<<<< HEAD
+=======
+	public boolean isInTrash(long classPK) throws PortalException {
+		ExportImportConfiguration exportImportConfiguration =
+			_exportImportConfigurationLocalService.getExportImportConfiguration(
+				classPK);
+
+		return exportImportConfiguration.isInTrash();
+	}
+
+	@Override
+>>>>>>> compatible
 	public void restoreTrashEntry(long userId, long classPK)
 		throws PortalException {
 

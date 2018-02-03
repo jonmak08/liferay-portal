@@ -44,7 +44,11 @@ if (row != null) {
 	<c:if test="<%= BlogsEntryPermission.contains(permissionChecker, entry, ActionKeys.PERMISSIONS) %>">
 		<liferay-security:permissionsURL
 			modelResource="<%= BlogsEntry.class.getName() %>"
+<<<<<<< HEAD
 			modelResourceDescription="<%= BlogsEntryUtil.getDisplayTitle(resourceBundle, entry) %>"
+=======
+			modelResourceDescription="<%= entry.getTitle() %>"
+>>>>>>> compatible
 			resourceGroupId="<%= String.valueOf(entry.getGroupId()) %>"
 			resourcePrimKey="<%= String.valueOf(entry.getEntryId()) %>"
 			var="permissionsEntryURL"
@@ -62,14 +66,22 @@ if (row != null) {
 
 	<c:if test="<%= BlogsEntryPermission.contains(permissionChecker, entry, ActionKeys.DELETE) %>">
 		<portlet:actionURL name="/blogs/edit_entry" var="deleteEntryURL">
+<<<<<<< HEAD
 			<portlet:param name="<%= Constants.CMD %>" value="<%= trashHelper.isTrashEnabled(scopeGroupId) ? Constants.MOVE_TO_TRASH : Constants.DELETE %>" />
+=======
+			<portlet:param name="<%= Constants.CMD %>" value="<%= TrashUtil.isTrashEnabled(scopeGroupId) ? Constants.MOVE_TO_TRASH : Constants.DELETE %>" />
+>>>>>>> compatible
 			<portlet:param name="redirect" value="<%= currentURL %>" />
 			<portlet:param name="entryId" value="<%= String.valueOf(entry.getEntryId()) %>" />
 		</portlet:actionURL>
 
 		<liferay-ui:icon-delete
 			label="<%= true %>"
+<<<<<<< HEAD
 			trash="<%= trashHelper.isTrashEnabled(scopeGroupId) %>"
+=======
+			trash="<%= TrashUtil.isTrashEnabled(scopeGroupId) %>"
+>>>>>>> compatible
 			url="<%= deleteEntryURL %>"
 		/>
 	</c:if>

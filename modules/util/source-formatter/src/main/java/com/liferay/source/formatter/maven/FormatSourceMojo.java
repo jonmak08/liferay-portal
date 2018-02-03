@@ -135,6 +135,7 @@ public class FormatSourceMojo extends AbstractMojo {
 	/**
 	 * @parameter
 	 */
+<<<<<<< HEAD
 	public void setShowDebugInformation(boolean showDebugInformation) {
 		_sourceFormatterArgs.setShowDebugInformation(showDebugInformation);
 	}
@@ -142,6 +143,8 @@ public class FormatSourceMojo extends AbstractMojo {
 	/**
 	 * @parameter
 	 */
+=======
+>>>>>>> compatible
 	public void setShowDocumentation(boolean showDocumentation) {
 		_sourceFormatterArgs.setShowDocumentation(showDocumentation);
 	}

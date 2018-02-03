@@ -107,6 +107,7 @@ public class S3FileCacheImpl implements S3FileCache {
 
 		File cacheFile = new File(cacheFileName);
 
+<<<<<<< HEAD
 		try (InputStream inputStream = s3Object.getObjectContent()) {
 			if (cacheFile.exists() &&
 				(cacheFile.lastModified() >= lastModifiedDate.getTime())) {
@@ -118,13 +119,41 @@ public class S3FileCacheImpl implements S3FileCache {
 				throw new IOException("S3 object input stream is null");
 			}
 
+=======
+		InputStream inputStream = s3Object.getObjectContent();
+
+		if (cacheFile.exists() &&
+			(cacheFile.lastModified() >= lastModifiedDate.getTime())) {
+
+			StreamUtil.cleanUp(inputStream);
+
+			return cacheFile;
+		}
+
+		if (inputStream == null) {
+			throw new IOException("S3 object input stream is null");
+		}
+
+		OutputStream outputStream = null;
+
+		try {
+>>>>>>> compatible
 			File parentFile = cacheFile.getParentFile();
 
 			FileUtil.mkdirs(parentFile);
 
+<<<<<<< HEAD
 			try (OutputStream outputStream = new FileOutputStream(cacheFile)) {
 				StreamUtil.transfer(inputStream, outputStream);
 			}
+=======
+			outputStream = new FileOutputStream(cacheFile);
+
+			StreamUtil.transfer(inputStream, outputStream);
+		}
+		finally {
+			StreamUtil.cleanUp(inputStream, outputStream);
+>>>>>>> compatible
 		}
 
 		return cacheFile;

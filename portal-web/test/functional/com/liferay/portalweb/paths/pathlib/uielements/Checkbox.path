@@ -54,11 +54,14 @@
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 	<td>ANY_CHECKBOX</td>
 	<td>//label[contains(.,'${checkboxName}')]/input[@type='checkbox']</td>
 	<td></td>
 </tr>
 <tr>
+=======
+>>>>>>> compatible
 	<td>BLOGS_ENTRY</td>
 	<td>//input[contains(@id,'BlogsEntry')]</td>
 	<td></td>
@@ -74,11 +77,14 @@
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 	<td>CHECKBOX_DISABLED</td>
 	<td>//label[contains(.,'${key_checkboxName}')]/input[@type='checkbox' and contains(@class,'disabled')]</td>
 	<td></td>
 </tr>
 <tr>
+=======
+>>>>>>> compatible
 	<td>DISPLAY_ADDITIONAL_ACTIVITY_COUNTERS</td>
 	<td>//label[contains(.,'Display Additional Activity Counters')]/input[@type='checkbox']</td>
 	<td></td>
@@ -194,8 +200,13 @@
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 	<td>SHOW_VIEW_COUNT</td>
 	<td>//label[contains(.,'Show View Count')]/input[@type='checkbox']</td>
+=======
+	<td>ENABLE_VIEW_COUNT</td>
+	<td>//label[contains(.,'Enable View Count')]/input[@type='checkbox']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -205,12 +216,20 @@
 </tr>
 <tr>
 	<td>ENABLED_ON_PRIVATE_PAGES</td>
+<<<<<<< HEAD
 	<td>//label[contains(@*,'branchingPrivate')]//span</td>
+=======
+	<td>//input[contains(@id,'branchingPrivate')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>ENABLED_ON_PUBLIC_PAGES</td>
+<<<<<<< HEAD
 	<td>//label[contains(@*,'branchingPublic')]//span</td>
+=======
+	<td>//input[contains(@id,'branchingPublic')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -326,6 +345,7 @@
 <tr>
 	<td>SELECT_ALL</td>
 	<td>//*[@data-qa-id='selectAllCheckbox'] | //div[@class='checkbox']//input[@title='Select All'] | //input[contains(@id,'allRowIds') or contains(@name,'allRowIds') or contains(@class,'select-all-checkboxes')] | //input[contains(@id,'selectAllCheckbox')]</td>
+<<<<<<< HEAD
 	<td></td>
 </tr>
 <tr>
@@ -334,6 +354,16 @@
 	<td></td>
 </tr>
 <tr>
+=======
+	<td></td>
+</tr>
+<tr>
+	<td>SELECT_ALL_CHECKBOX_TICK</td>
+	<td>//div[@class='portlet-body']//div[contains(@class,'secondary-bar-open')]</td>
+	<td></td>
+</tr>
+<tr>
+>>>>>>> compatible
 	<td>SELECT_ALL_NOTIFICATIONS</td>
 	<td>//input[contains(@id,'notifications') and contains(@class,'select-all')]</td>
 	<td></td>
@@ -386,6 +416,7 @@
 <tr>
 	<td>SITE_OWNER</td>
 	<td>//tr[contains(.,'Site Owner')]//input[@type='checkbox']</td>
+<<<<<<< HEAD
 	<td></td>
 </tr>
 <tr>
@@ -399,6 +430,21 @@
 	<td></td>
 </tr>
 <tr>
+=======
+	<td></td>
+</tr>
+<tr>
+	<td>SOURCE_URL_ENABLED</td>
+	<td>//label[contains(@for,'sourceURLEnabled')]//input[@type='checkbox']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>STAGED_CONTENT</td>
+	<td>//li[contains(.,'${key_contentName}')]//input</td>
+	<td></td>
+</tr>
+<tr>
+>>>>>>> compatible
 	<td>STATUS</td>
 	<td>//span[@class='icon-check' and contains(.,'${key_status}')]</td>
 	<td></td>

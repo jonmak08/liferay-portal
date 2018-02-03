@@ -17,11 +17,16 @@ package com.liferay.trash.kernel.exception;
 import com.liferay.portal.kernel.exception.PortalException;
 
 /**
+<<<<<<< HEAD
  * @author     Eduardo Garcia
  * @deprecated As of 7.0.0, replaced by {@link
  *             com.liferay.trash.exception.TrashEntryException}
  */
 @Deprecated
+=======
+ * @author Eduardo Garcia
+ */
+>>>>>>> compatible
 public class TrashEntryException extends PortalException {
 
 	public TrashEntryException() {

@@ -145,6 +145,31 @@ public class GoogleDocsMetadataHelper {
 		return false;
 	}
 
+<<<<<<< HEAD
+=======
+	public void setFieldValue(String fieldName, String value) {
+		Field field = _getField(fieldName);
+
+		field.setValue(value);
+	}
+
+	public void update() {
+		try {
+			DDMFormValues ddmFormValues = toDDMFormValues(_fields);
+
+			_storageEngine.update(
+				_dlFileEntryMetadata.getDDMStorageId(), ddmFormValues,
+				new ServiceContext());
+		}
+		catch (PortalException pe) {
+			throw new SystemException(
+				"Unable to update DDM fields for file version " +
+					_dlFileVersion.getFileVersionId(),
+				pe);
+		}
+	}
+
+>>>>>>> compatible
 	protected void addGoogleDocsDLFileEntryMetadata() {
 		try {
 			DLFileEntry dlFileEntry = _dlFileVersion.getFileEntry();

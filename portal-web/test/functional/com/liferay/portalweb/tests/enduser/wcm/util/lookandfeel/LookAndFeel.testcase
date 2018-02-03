@@ -1,7 +1,10 @@
 <definition component-name="portal-wcm">
 	<property name="portal.release" value="true" />
 	<property name="portal.upstream" value="true" />
+<<<<<<< HEAD
 	<property name="testray.component.names" value="Look And Feel" />
+=======
+>>>>>>> compatible
 	<property name="testray.main.component.name" value="Look And Feel" />
 
 	<set-up>
@@ -22,6 +25,10 @@
 	</tear-down>
 
 	<command name="ConfigureCustomStylesViaLookAndFeelPG" priority="5">
+<<<<<<< HEAD
+=======
+		<property name="portal.acceptance" value="true" />
+>>>>>>> compatible
 		<property name="testray.component.names" value="Training" />
 
 		<execute macro="Portlet#addPG">
@@ -33,12 +40,17 @@
 			<var name="portletOption" value="Look and Feel Configuration" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="IFrame#selectConfigurationFrame" />
 
 		<execute macro="Portlet#configureCustomStylesViaLookandfeelPG" />
 
 		<execute macro="PortletEntry#save" />
 
+=======
+		<execute macro="Portlet#configureCustomStylesViaLookandfeelPG" />
+
+>>>>>>> compatible
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="Portlet#viewCustomStylesViaLookandfeelPG" />
@@ -47,6 +59,7 @@
 			<var name="portletName" value="Web Content Display" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Portlet#gotoPortletOptions">
 			<var name="portletName" value="Web Content Display" />
 			<var name="portletOption" value="Look and Feel Configuration" />
@@ -62,6 +75,8 @@
 
 		<execute macro="Navigator#openURL" />
 
+=======
+>>>>>>> compatible
 		<execute macro="Portlet#viewApplicationDecorator">
 			<var name="decorator" value="decorate" />
 		</execute>
@@ -71,14 +86,20 @@
 			<var name="portletOption" value="Look and Feel Configuration" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="IFrame#selectConfigurationFrame" />
 
+=======
+>>>>>>> compatible
 		<execute macro="Portlet#selectApplicationDecorator">
 			<var name="decorator" value="Borderless" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="PortletEntry#save" />
 
+=======
+>>>>>>> compatible
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="Portlet#viewApplicationDecorator">
@@ -90,14 +111,20 @@
 			<var name="portletOption" value="Look and Feel Configuration" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="IFrame#selectConfigurationFrame" />
 
+=======
+>>>>>>> compatible
 		<execute macro="Portlet#selectApplicationDecorator">
 			<var name="decorator" value="Barebone" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="PortletEntry#save" />
 
+=======
+>>>>>>> compatible
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="Portlet#viewApplicationDecorator">

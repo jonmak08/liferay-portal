@@ -14,21 +14,37 @@
 
 package com.liferay.wiki.web.internal.portlet.configuration.icon;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.portlet.configuration.icon.BasePortletConfigurationIcon;
 import com.liferay.portal.kernel.portlet.configuration.icon.PortletConfigurationIcon;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermission;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.subscription.service.SubscriptionLocalService;
+=======
+import com.liferay.portal.kernel.service.SubscriptionLocalService;
+import com.liferay.portal.kernel.theme.ThemeDisplay;
+import com.liferay.portal.kernel.util.Constants;
+import com.liferay.portal.kernel.util.Portal;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.WebKeys;
+>>>>>>> compatible
 import com.liferay.wiki.configuration.WikiGroupServiceOverriddenConfiguration;
 import com.liferay.wiki.constants.WikiPortletKeys;
 import com.liferay.wiki.model.WikiNode;
 import com.liferay.wiki.model.WikiPage;
+<<<<<<< HEAD
+=======
+import com.liferay.wiki.service.permission.WikiPagePermissionChecker;
+>>>>>>> compatible
 import com.liferay.wiki.web.internal.display.context.util.WikiRequestHelper;
 import com.liferay.wiki.web.internal.portlet.action.ActionUtil;
 
@@ -128,7 +144,11 @@ public class PageSubscriptionPortletConfigurationIcon
 		try {
 			WikiPage page = ActionUtil.getPage(portletRequest);
 
+<<<<<<< HEAD
 			if (_wikiPageModelResourcePermission.contains(
+=======
+			if (WikiPagePermissionChecker.contains(
+>>>>>>> compatible
 					wikiRequestHelper.getPermissionChecker(), page,
 					ActionKeys.SUBSCRIBE) &&
 				(wikiGroupServiceOverriddenConfiguration.
@@ -168,7 +188,10 @@ public class PageSubscriptionPortletConfigurationIcon
 
 	private SubscriptionLocalService _subscriptionLocalService;
 
+<<<<<<< HEAD
 	@Reference(target = "(model.class.name=com.liferay.wiki.model.WikiPage)")
 	private ModelResourcePermission<WikiPage> _wikiPageModelResourcePermission;
 
+=======
+>>>>>>> compatible
 }

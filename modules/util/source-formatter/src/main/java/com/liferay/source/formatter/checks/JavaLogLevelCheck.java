@@ -14,7 +14,11 @@
 
 package com.liferay.source.formatter.checks;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 
@@ -27,11 +31,14 @@ import java.util.regex.Pattern;
 public class JavaLogLevelCheck extends BaseFileCheck {
 
 	@Override
+<<<<<<< HEAD
 	public boolean isPortalCheck() {
 		return true;
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	protected String doProcess(
 		String fileName, String absolutePath, String content) {
 

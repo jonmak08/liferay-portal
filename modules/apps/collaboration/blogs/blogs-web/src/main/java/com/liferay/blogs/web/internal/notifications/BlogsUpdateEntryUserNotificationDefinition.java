@@ -14,7 +14,11 @@
 
 package com.liferay.blogs.web.internal.notifications;
 
+<<<<<<< HEAD
 import com.liferay.blogs.constants.BlogsPortletKeys;
+=======
+import com.liferay.blogs.web.constants.BlogsPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.UserNotificationDeliveryConstants;
 import com.liferay.portal.kernel.notifications.UserNotificationDefinition;
 import com.liferay.portal.kernel.notifications.UserNotificationDeliveryType;

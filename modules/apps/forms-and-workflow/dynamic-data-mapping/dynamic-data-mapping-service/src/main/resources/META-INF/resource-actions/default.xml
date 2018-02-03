@@ -5,14 +5,19 @@
 	<model-resource>
 		<model-name>com.liferay.dynamic.data.mapping</model-name>
 		<portlet-ref>
+<<<<<<< HEAD
 			<portlet-name>com_liferay_dynamic_data_mapping_form_web_portlet_DDMFormAdminPortlet</portlet-name>
 			<portlet-name>com_liferay_dynamic_data_mapping_form_web_portlet_DDMFormPortlet</portlet-name>
+=======
+			<portlet-name>com_liferay_dynamic_data_mapping_data_provider_web_portlet_DDMDataProviderPortlet</portlet-name>
+>>>>>>> compatible
 		</portlet-ref>
 		<root>true</root>
 		<weight>1</weight>
 		<permissions>
 			<supports>
 				<action-key>ADD_DATA_PROVIDER_INSTANCE</action-key>
+<<<<<<< HEAD
 				<action-key>ADD_FORM_INSTANCE</action-key>
 				<action-key>ADD_STRUCTURE</action-key>
 			</supports>
@@ -20,12 +25,20 @@
 				<action-key>ADD_DATA_PROVIDER_INSTANCE</action-key>
 				<action-key>ADD_FORM_INSTANCE</action-key>
 				<action-key>ADD_STRUCTURE</action-key>
+=======
+			</supports>
+			<site-member-defaults>
+				<action-key>ADD_DATA_PROVIDER_INSTANCE</action-key>
+>>>>>>> compatible
 			</site-member-defaults>
 			<guest-defaults />
 			<guest-unsupported>
 				<action-key>ADD_DATA_PROVIDER_INSTANCE</action-key>
+<<<<<<< HEAD
 				<action-key>ADD_FORM_INSTANCE</action-key>
 				<action-key>ADD_STRUCTURE</action-key>
+=======
+>>>>>>> compatible
 			</guest-unsupported>
 		</permissions>
 	</model-resource>
@@ -52,6 +65,7 @@
 		</permissions>
 	</model-resource>
 	<model-resource>
+<<<<<<< HEAD
 		<model-name>com.liferay.dynamic.data.mapping.model.DDMFormInstance</model-name>
 		<portlet-ref>
 			<portlet-name>com_liferay_dynamic_data_mapping_form_web_portlet_DDMFormAdminPortlet</portlet-name>
@@ -108,11 +122,17 @@
 		</permissions>
 	</model-resource>
 	<model-resource>
+=======
+>>>>>>> compatible
 		<model-name>com.liferay.dynamic.data.mapping.model.DDMStructure</model-name>
 		<portlet-ref>
 			<portlet-name>com_liferay_dynamic_data_mapping_web_portlet_DDMPortlet</portlet-name>
 		</portlet-ref>
+<<<<<<< HEAD
 		<weight>5</weight>
+=======
+		<weight>3</weight>
+>>>>>>> compatible
 		<permissions>
 			<supports>
 				<action-key>DELETE</action-key>
@@ -136,7 +156,11 @@
 		<portlet-ref>
 			<portlet-name>com_liferay_dynamic_data_mapping_web_portlet_DDMPortlet</portlet-name>
 		</portlet-ref>
+<<<<<<< HEAD
 		<weight>6</weight>
+=======
+		<weight>4</weight>
+>>>>>>> compatible
 		<permissions>
 			<supports>
 				<action-key>DELETE</action-key>

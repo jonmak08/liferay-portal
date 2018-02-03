@@ -14,7 +14,10 @@
 
 package com.liferay.portal.search.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
 import com.liferay.portal.kernel.exception.NoSuchResourceException;
 import com.liferay.portal.kernel.log.Log;
@@ -40,6 +43,10 @@ import com.liferay.portal.kernel.security.permission.PermissionCheckerFactoryUti
 import com.liferay.portal.kernel.security.permission.PermissionThreadLocal;
 import com.liferay.portal.kernel.security.permission.UserBag;
 import com.liferay.portal.kernel.service.GroupLocalService;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.service.ResourceBlockLocalService;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.ResourcePermissionLocalService;
 import com.liferay.portal.kernel.service.RoleLocalService;
 import com.liferay.portal.kernel.service.UserLocalService;
@@ -47,7 +54,11 @@ import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.search.configuration.SearchPermissionCheckerConfiguration;
 
@@ -173,6 +184,7 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 				SearchPermissionCheckerConfiguration.class, properties);
 	}
 
+<<<<<<< HEAD
 	private void _addGroup(
 		Group group, List<Role> groupRoles,
 		List<UsersGroupIdRoles> usersGroupIdsRoles) {
@@ -183,14 +195,30 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	private void _addPermissionFields(
 			long companyId, long groupId, String className, String classPK,
 			String viewActionId, Document doc)
 		throws Exception {
 
+<<<<<<< HEAD
 		List<Role> roles = _resourcePermissionLocalService.getRoles(
 			companyId, className, ResourceConstants.SCOPE_INDIVIDUAL, classPK,
 			viewActionId);
+=======
+		List<Role> roles = null;
+
+		if (_resourceBlockLocalService.isSupported(className)) {
+			roles = _resourceBlockLocalService.getRoles(
+				className, Long.valueOf(classPK), viewActionId);
+		}
+		else {
+			roles = _resourcePermissionLocalService.getRoles(
+				companyId, className, ResourceConstants.SCOPE_INDIVIDUAL,
+				classPK, viewActionId);
+		}
+>>>>>>> compatible
 
 		if (roles.isEmpty()) {
 			return;
@@ -249,10 +277,15 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 		if (termsCount > permissionTermsLimit) {
 			if (_log.isDebugEnabled()) {
 				_log.debug(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Skipping presearch permission checking due to too ",
 						"many roles: ", String.valueOf(termsCount), " > ",
 						String.valueOf(permissionTermsLimit)));
+=======
+					"Skipping presearch permission checking due to too many " +
+						"roles: " + termsCount + " > " + permissionTermsLimit);
+>>>>>>> compatible
 			}
 
 			return null;
@@ -273,10 +306,16 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 		if (termsCount > permissionTermsLimit) {
 			if (_log.isDebugEnabled()) {
 				_log.debug(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Skipping presearch permission checking due to too ",
 						"many roles and groups: ", String.valueOf(termsCount),
 						" > ", String.valueOf(permissionTermsLimit)));
+=======
+					"Skipping presearch permission checking due to too many " +
+						"roles and groups: " + termsCount + " > " +
+							permissionTermsLimit);
+>>>>>>> compatible
 			}
 
 			return null;
@@ -312,20 +351,31 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 				groupRoles.add(siteMemberRole);
 			}
 
+<<<<<<< HEAD
 			_addGroup(group, groupRoles, usersGroupIdsRoles);
 
 			_addGroup(group.getStagingGroup(), groupRoles, usersGroupIdsRoles);
+=======
+			usersGroupIdsRoles.add(
+				new UsersGroupIdRoles(group.getGroupId(), groupRoles));
+>>>>>>> compatible
 
 			termsCount += groupRoles.size();
 
 			if (termsCount > permissionTermsLimit) {
 				if (_log.isDebugEnabled()) {
 					_log.debug(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"Skipping presearch permission checking due to ",
 							"too many roles, groups, and group roles: ",
 							String.valueOf(termsCount), " > ",
 							String.valueOf(permissionTermsLimit)));
+=======
+						"Skipping presearch permission checking due to too " +
+							"many roles, groups, and groupRoles: " +
+								termsCount + " > " + permissionTermsLimit);
+>>>>>>> compatible
 				}
 
 				return null;
@@ -368,9 +418,13 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 		SearchPermissionContext searchPermissionContext = null;
 
 		if (searchPermissionContextObject != null) {
+<<<<<<< HEAD
 			if (searchPermissionContextObject ==
 					_NULL_SEARCH_PERMISSION_CONTEXT) {
 
+=======
+			if (searchPermissionContextObject == _nullSearchPermissionContext) {
+>>>>>>> compatible
 				return booleanFilter;
 			}
 
@@ -384,7 +438,11 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 
 		if (searchPermissionContext == null) {
 			searchContext.setAttribute(
+<<<<<<< HEAD
 				"searchPermissionContext", _NULL_SEARCH_PERMISSION_CONTEXT);
+=======
+				"searchPermissionContext", _nullSearchPermissionContext);
+>>>>>>> compatible
 
 			return booleanFilter;
 		}
@@ -485,6 +543,7 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 			return booleanFilter;
 		}
 
+<<<<<<< HEAD
 		if (booleanFilter != null) {
 			booleanFilter.add(permissionBooleanFilter, BooleanClauseOccur.MUST);
 
@@ -496,10 +555,27 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 
 	private static final String _NULL_SEARCH_PERMISSION_CONTEXT =
 		StringPool.BLANK;
+=======
+		BooleanFilter fullBooleanFilter = new BooleanFilter();
+
+		if ((booleanFilter != null) && booleanFilter.hasClauses()) {
+			fullBooleanFilter.add(booleanFilter, BooleanClauseOccur.MUST);
+		}
+
+		fullBooleanFilter.add(permissionBooleanFilter, BooleanClauseOccur.MUST);
+
+		return fullBooleanFilter;
+	}
+>>>>>>> compatible
 
 	private static final Log _log = LogFactoryUtil.getLog(
 		SearchPermissionCheckerImpl.class);
 
+<<<<<<< HEAD
+=======
+	private static final String _nullSearchPermissionContext = StringPool.BLANK;
+
+>>>>>>> compatible
 	@Reference
 	private GroupLocalService _groupLocalService;
 
@@ -510,6 +586,12 @@ public class SearchPermissionCheckerImpl implements SearchPermissionChecker {
 	private Portal _portal;
 
 	@Reference
+<<<<<<< HEAD
+=======
+	private ResourceBlockLocalService _resourceBlockLocalService;
+
+	@Reference
+>>>>>>> compatible
 	private ResourcePermissionLocalService _resourcePermissionLocalService;
 
 	@Reference

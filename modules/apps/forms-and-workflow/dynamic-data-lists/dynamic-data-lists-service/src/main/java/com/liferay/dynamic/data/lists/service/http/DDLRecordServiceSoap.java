@@ -204,6 +204,7 @@ public class DDLRecordServiceSoap {
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns all the records matching the record set ID
 	*
 	* @param recordSetId the record's record set ID
@@ -226,6 +227,8 @@ public class DDLRecordServiceSoap {
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	* Reverts the record to a given version.
 	*
 	* @param recordId the primary key of the record

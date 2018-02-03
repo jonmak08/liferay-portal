@@ -63,6 +63,7 @@ public class ATag extends BaseATag {
 				jspWriter.write(themeDisplay.getPathThemeImages());
 				jspWriter.write("/lexicon/icons.svg#shortcut\" /><span ");
 				jspWriter.write("class=\"sr-only\">");
+<<<<<<< HEAD
 
 				String opensNewWindowLabel = LanguageUtil.get(
 					resourceBundle, "opens-new-window");
@@ -74,6 +75,11 @@ public class ATag extends BaseATag {
 				jspWriter.write(opensNewWindowLabel);
 				jspWriter.write("</title>");
 				jspWriter.write("</svg>");
+=======
+				jspWriter.write(
+					LanguageUtil.get(resourceBundle, "opens-new-window"));
+				jspWriter.write("</span></svg>");
+>>>>>>> compatible
 			}
 
 			jspWriter.write("</a>");

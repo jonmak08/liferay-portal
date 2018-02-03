@@ -1,5 +1,6 @@
 <definition>
 	<command name="add">
+<<<<<<< HEAD
 		<execute macro="LexiconEntry#gotoAdd" />
 
 		<execute macro="PortletEntry#inputName">
@@ -9,6 +10,14 @@
 		<execute macro="PortletEntry#inputDescription">
 			<var name="description" value="${dmDocumentTypeDescription}" />
 		</execute>
+=======
+		<execute function="AssertTextEquals" locator1="Portlet#HEADER" value1="Document Types" />
+
+		<execute function="Click" locator1="Button#PLUS" />
+
+		<execute function="Type" locator1="DocumentsAndMediaEditDocumentType#NAME_FIELD" value1="${dmDocumentTypeName}" />
+		<execute function="Type" locator1="DocumentsAndMediaEditDocumentType#DETAILS_DESCRIPTION_FIELD" value1="${dmDocumentTypeDescription}" />
+>>>>>>> compatible
 
 		<execute macro="Panel#expandPanel">
 			<var name="panelHeading" value="Main Metadata Fields" />
@@ -35,7 +44,13 @@
 			</then>
 		</if>
 
+<<<<<<< HEAD
 		<execute macro="DDLDataDefinition#save" />
+=======
+		<execute function="AssertClick" locator1="DocumentsAndMediaDocumentTypes#SAVE_BUTTON" value1="Save" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 	</command>
 
 	<command name="deletePG">
@@ -127,7 +142,11 @@
 			</then>
 		</if>
 
+<<<<<<< HEAD
 		<execute macro="DDLDataDefinition#save" />
+=======
+		<execute function="AssertClick" locator1="DocumentsAndMediaDocumentTypes#SAVE_BUTTON" value1="Save" />
+>>>>>>> compatible
 
 		<if>
 			<isset var="dmDocumentTypeNameEdit" />
@@ -168,9 +187,13 @@
 	<command name="tearDownCP">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Documents and Media" />
 		</execute>
 
@@ -178,9 +201,15 @@
 
 		<execute macro="DMDocumentType#selectDocumentTypeFrame" />
 
+<<<<<<< HEAD
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="DM Document Type" />
 		</execute>
+=======
+		<execute function="Type" locator1="NavBar#BASIC_SEARCH_FIELD" value1="DM Document Type" />
+
+		<execute function="AssertClick" locator1="NavBar#BASIC_SEARCH_BUTTON" value1="Search" />
+>>>>>>> compatible
 
 		<while>
 			<condition function="IsElementPresent" locator1="DocumentsAndMediaDocumentTypes#DOCUMENT_TYPES_TABLE_ACTIONS_1" />
@@ -201,7 +230,11 @@
 	<command name="viewMenulistOption">
 		<var name="key_dmDocumentTypeName" value="${dmDocumentTypeName}" />
 
+<<<<<<< HEAD
 		<execute macro="LexiconEntry#gotoAdd" />
+=======
+		<execute function="Click" locator1="Button#PLUS" />
+>>>>>>> compatible
 
 		<execute function="AssertTextEquals" locator1="MenuItem#ANY_MENU_ITEM" value1="${dmDocumentTypeName}">
 			<var name="key_menuItem" value="${dmDocumentTypeName}" />

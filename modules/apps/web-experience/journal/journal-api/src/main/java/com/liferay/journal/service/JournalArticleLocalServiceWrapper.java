@@ -75,6 +75,7 @@ public class JournalArticleLocalServiceWrapper
 	* @param titleMap the web content article's locales and localized titles
 	* @param descriptionMap the web content article's locales and localized
 	descriptions
+<<<<<<< HEAD
 	* @param friendlyURLMap the web content article's locales and localized
 	friendly URLs
 	* @param content the HTML content wrapped in XML
@@ -204,6 +205,8 @@ public class JournalArticleLocalServiceWrapper
 	* @param titleMap the web content article's locales and localized titles
 	* @param descriptionMap the web content article's locales and localized
 	descriptions
+=======
+>>>>>>> compatible
 	* @param content the HTML content wrapped in XML
 	* @param ddmStructureKey the primary key of the web content article's DDM
 	structure, if the article is related to a DDM structure, or
@@ -836,6 +839,7 @@ public class JournalArticleLocalServiceWrapper
 			articleURL, serviceContext);
 	}
 
+<<<<<<< HEAD
 	/**
 	* Returns the web content article with the ID.
 	*
@@ -847,6 +851,8 @@ public class JournalArticleLocalServiceWrapper
 		return _journalArticleLocalService.fetchArticle(id);
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	public com.liferay.journal.model.JournalArticle fetchArticle(long groupId,
 		java.lang.String articleId) {
@@ -1119,7 +1125,11 @@ public class JournalArticleLocalServiceWrapper
 	* @param languageId the primary key of the language translation to get
 	* @param themeDisplay the theme display
 	* @return the web content from the matching web content article
+<<<<<<< HEAD
 	* @deprecated As of 4.0.0, replaced by {@link
+=======
+	* @deprecated As of 3.3.0, replaced by {@link
+>>>>>>> compatible
 	#getArticleContent(JournalArticle, String, String, String,
 	PortletRequestModel,ThemeDisplay)}
 	*/
@@ -1178,7 +1188,11 @@ public class JournalArticleLocalServiceWrapper
 	* @param languageId the primary key of the language translation to get
 	* @param themeDisplay the theme display
 	* @return the web content from the matching web content article
+<<<<<<< HEAD
 	* @deprecated As of 4.0.0, replaced by {@link #getArticleContent(long,
+=======
+	* @deprecated As of 3.3.0, replaced by {@link #getArticleContent(long,
+>>>>>>> compatible
 	String, double, String, String, String, PortletRequestModel,
 	ThemeDisplay)}
 	*/
@@ -1205,7 +1219,11 @@ public class JournalArticleLocalServiceWrapper
 	* @param languageId the primary key of the language translation to get
 	* @param themeDisplay the theme display
 	* @return the web content from the matching web content article
+<<<<<<< HEAD
 	* @deprecated As of 4.0.0, replaced by {@link #getArticleContent(long,
+=======
+	* @deprecated As of 3.3.0, replaced by {@link #getArticleContent(long,
+>>>>>>> compatible
 	String, double, String, String, String, PortletRequestModel,
 	ThemeDisplay)}
 	*/
@@ -1259,7 +1277,11 @@ public class JournalArticleLocalServiceWrapper
 	* @param languageId the primary key of the language translation to get
 	* @param themeDisplay the theme display
 	* @return the latest web content from the matching web content article
+<<<<<<< HEAD
 	* @deprecated As of 4.0.0, replaced by {@link #getArticleContent(long,
+=======
+	* @deprecated As of 3.3.0, replaced by {@link #getArticleContent(long,
+>>>>>>> compatible
 	String, String, String, String, PortletRequestModel,
 	ThemeDisplay)}
 	*/
@@ -1284,7 +1306,11 @@ public class JournalArticleLocalServiceWrapper
 	* @param languageId the primary key of the language translation to get
 	* @param themeDisplay the theme display
 	* @return the latest web content from the matching web content article
+<<<<<<< HEAD
 	* @deprecated As of 4.0.0, replaced by {@link #getArticleContent(long,
+=======
+	* @deprecated As of 3.3.0, replaced by {@link #getArticleContent(long,
+>>>>>>> compatible
 	String, String, String, String, PortletRequestModel,
 	ThemeDisplay)}
 	*/
@@ -1299,6 +1325,7 @@ public class JournalArticleLocalServiceWrapper
 			articleId, viewMode, languageId, themeDisplay);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public java.lang.String getArticleDescription(long articlePK,
 		java.util.Locale locale) {
@@ -1319,6 +1346,8 @@ public class JournalArticleLocalServiceWrapper
 		return _journalArticleLocalService.getArticleDescriptionMap(articlePK);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns a web content article display for the specified page of the
 	* latest version of the web content article, based on the DDM template. Web
@@ -1527,12 +1556,15 @@ public class JournalArticleLocalServiceWrapper
 			articleId, viewMode, languageId, themeDisplay);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public java.util.List<java.lang.String> getArticleLocalizationLanguageIds(
 		long articlePK) {
 		return _journalArticleLocalService.getArticleLocalizationLanguageIds(articlePK);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns all the web content articles present in the system.
 	*
@@ -1830,6 +1862,7 @@ public class JournalArticleLocalServiceWrapper
 		return _journalArticleLocalService.getArticlesCount(groupId, articleId);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public java.lang.String getArticleTitle(long articlePK,
 		java.util.Locale locale) {
@@ -1848,6 +1881,8 @@ public class JournalArticleLocalServiceWrapper
 		return _journalArticleLocalService.getArticleTitleMap(articlePK);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns an ordered range of all the web content articles matching the
 	* company, version, and workflow status.
@@ -2451,6 +2486,7 @@ public class JournalArticleLocalServiceWrapper
 	}
 
 	/**
+<<<<<<< HEAD
 	* @deprecated As of 4.0.0, with no direct replacement
 	*/
 	@Deprecated
@@ -2460,6 +2496,8 @@ public class JournalArticleLocalServiceWrapper
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	* Returns the web content articles matching the group and DDM template key.
 	*
 	* @param groupId the primary key of the web content article's group
@@ -2614,7 +2652,11 @@ public class JournalArticleLocalServiceWrapper
 	folder
 	* @return the updated web content article, which was moved to a new
 	folder
+<<<<<<< HEAD
 	* @deprecated As of 4.0.0, replaced by {@link #moveArticle(long, String,
+=======
+	* @deprecated As of 3.3.0, replaced by {@link #moveArticle(long, String,
+>>>>>>> compatible
 	long, ServiceContext)}
 	*/
 	@Deprecated
@@ -3208,7 +3250,11 @@ public class JournalArticleLocalServiceWrapper
 	}
 
 	/**
+<<<<<<< HEAD
 	* @deprecated As of 4.0.0, replaced by {@link #search(long, long, List,
+=======
+	* @deprecated As of 3.3.0, replaced by {@link #search(long, long, List,
+>>>>>>> compatible
 	long, String, String, String, String, int, String, String,
 	LinkedHashMap, boolean, int, int, Sort)}
 	*/
@@ -3668,6 +3714,7 @@ public class JournalArticleLocalServiceWrapper
 			userId, creatorUserId, status, start, end);
 	}
 
+<<<<<<< HEAD
 	/**
 	* @deprecated As of 4.0.0, with no direct replacement
 	*/
@@ -3678,6 +3725,8 @@ public class JournalArticleLocalServiceWrapper
 		_journalArticleLocalService.setSubscriptionLocalService(subscriptionLocalService);
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	public void setTreePaths(long folderId, java.lang.String treePath,
 		boolean reindex)
@@ -3687,6 +3736,7 @@ public class JournalArticleLocalServiceWrapper
 
 	/**
 	* Subscribes the user to changes in elements that belong to the web content
+<<<<<<< HEAD
 	* article.
 	*
 	* @param userId the primary key of the user to be subscribed
@@ -3701,6 +3751,8 @@ public class JournalArticleLocalServiceWrapper
 
 	/**
 	* Subscribes the user to changes in elements that belong to the web content
+=======
+>>>>>>> compatible
 	* article's DDM structure.
 	*
 	* @param groupId the primary key of the folder's group
@@ -3717,6 +3769,7 @@ public class JournalArticleLocalServiceWrapper
 
 	/**
 	* Unsubscribes the user from changes in elements that belong to the web
+<<<<<<< HEAD
 	* content article.
 	*
 	* @param userId the primary key of the user to be subscribed
@@ -3731,6 +3784,8 @@ public class JournalArticleLocalServiceWrapper
 
 	/**
 	* Unsubscribes the user from changes in elements that belong to the web
+=======
+>>>>>>> compatible
 	* content article's DDM structure.
 	*
 	* @param groupId the primary key of the folder's group
@@ -3746,6 +3801,7 @@ public class JournalArticleLocalServiceWrapper
 	}
 
 	/**
+<<<<<<< HEAD
 	* Updates the web content article with additional parameters.
 	*
 	* @param userId the primary key of the user updating the web content
@@ -3861,6 +3917,8 @@ public class JournalArticleLocalServiceWrapper
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	* Updates the web content article matching the version, replacing its
 	* folder, title, description, content, and layout UUID.
 	*
@@ -4099,7 +4157,11 @@ public class JournalArticleLocalServiceWrapper
 	* @param assetTagNames the new asset tag names
 	* @param assetLinkEntryIds the primary keys of the new asset link
 	entries
+<<<<<<< HEAD
 	* @deprecated As of 4.0.0, replaced by {@link #updateAsset(long,
+=======
+	* @deprecated As of 3.3.0, replaced by {@link #updateAsset(long,
+>>>>>>> compatible
 	JournalArticle, long[], String[], long[], Double)}
 	*/
 	@Deprecated
@@ -4297,7 +4359,11 @@ public class JournalArticleLocalServiceWrapper
 	article's old DDM template
 	* @param newDDMTemplateKey the primary key of the web content
 	article's new DDM template
+<<<<<<< HEAD
 	* @deprecated As of 4.0.0, replaced by {@link #updateDDMTemplateKey}
+=======
+	* @deprecated As of 3.3.0, replaced by {@link #updateDDMTemplateKey}
+>>>>>>> compatible
 	*/
 	@Deprecated
 	@Override

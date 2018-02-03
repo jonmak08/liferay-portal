@@ -41,6 +41,10 @@ import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 
 import java.io.Serializable;
@@ -231,7 +235,11 @@ public class OAuthConsumerPersistenceImpl extends BasePersistenceImpl<OAuthConsu
 			if (gadgetKey == null) {
 				query.append(_FINDER_COLUMN_GADGETKEY_GADGETKEY_1);
 			}
+<<<<<<< HEAD
 			else if (gadgetKey.equals("")) {
+=======
+			else if (gadgetKey.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_GADGETKEY_GADGETKEY_3);
 			}
 			else {
@@ -320,7 +328,11 @@ public class OAuthConsumerPersistenceImpl extends BasePersistenceImpl<OAuthConsu
 		msg.append("gadgetKey=");
 		msg.append(gadgetKey);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchOAuthConsumerException(msg.toString());
 	}
@@ -371,7 +383,11 @@ public class OAuthConsumerPersistenceImpl extends BasePersistenceImpl<OAuthConsu
 		msg.append("gadgetKey=");
 		msg.append(gadgetKey);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchOAuthConsumerException(msg.toString());
 	}
@@ -463,7 +479,11 @@ public class OAuthConsumerPersistenceImpl extends BasePersistenceImpl<OAuthConsu
 		if (gadgetKey == null) {
 			query.append(_FINDER_COLUMN_GADGETKEY_GADGETKEY_1);
 		}
+<<<<<<< HEAD
 		else if (gadgetKey.equals("")) {
+=======
+		else if (gadgetKey.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_GADGETKEY_GADGETKEY_3);
 		}
 		else {
@@ -599,7 +619,11 @@ public class OAuthConsumerPersistenceImpl extends BasePersistenceImpl<OAuthConsu
 			if (gadgetKey == null) {
 				query.append(_FINDER_COLUMN_GADGETKEY_GADGETKEY_1);
 			}
+<<<<<<< HEAD
 			else if (gadgetKey.equals("")) {
+=======
+			else if (gadgetKey.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_GADGETKEY_GADGETKEY_3);
 			}
 			else {
@@ -678,7 +702,11 @@ public class OAuthConsumerPersistenceImpl extends BasePersistenceImpl<OAuthConsu
 			msg.append(", serviceName=");
 			msg.append(serviceName);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -741,7 +769,11 @@ public class OAuthConsumerPersistenceImpl extends BasePersistenceImpl<OAuthConsu
 			if (gadgetKey == null) {
 				query.append(_FINDER_COLUMN_G_S_GADGETKEY_1);
 			}
+<<<<<<< HEAD
 			else if (gadgetKey.equals("")) {
+=======
+			else if (gadgetKey.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_S_GADGETKEY_3);
 			}
 			else {
@@ -755,7 +787,11 @@ public class OAuthConsumerPersistenceImpl extends BasePersistenceImpl<OAuthConsu
 			if (serviceName == null) {
 				query.append(_FINDER_COLUMN_G_S_SERVICENAME_1);
 			}
+<<<<<<< HEAD
 			else if (serviceName.equals("")) {
+=======
+			else if (serviceName.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_S_SERVICENAME_3);
 			}
 			else {
@@ -874,7 +910,11 @@ public class OAuthConsumerPersistenceImpl extends BasePersistenceImpl<OAuthConsu
 			if (gadgetKey == null) {
 				query.append(_FINDER_COLUMN_G_S_GADGETKEY_1);
 			}
+<<<<<<< HEAD
 			else if (gadgetKey.equals("")) {
+=======
+			else if (gadgetKey.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_S_GADGETKEY_3);
 			}
 			else {
@@ -888,7 +928,11 @@ public class OAuthConsumerPersistenceImpl extends BasePersistenceImpl<OAuthConsu
 			if (serviceName == null) {
 				query.append(_FINDER_COLUMN_G_S_SERVICENAME_1);
 			}
+<<<<<<< HEAD
 			else if (serviceName.equals("")) {
+=======
+			else if (serviceName.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_S_SERVICENAME_3);
 			}
 			else {
@@ -1444,12 +1488,20 @@ public class OAuthConsumerPersistenceImpl extends BasePersistenceImpl<OAuthConsu
 		for (Serializable primaryKey : uncachedPrimaryKeys) {
 			query.append((long)primaryKey);
 
+<<<<<<< HEAD
 			query.append(",");
+=======
+			query.append(StringPool.COMMA);
+>>>>>>> compatible
 		}
 
 		query.setIndex(query.index() - 1);
 
+<<<<<<< HEAD
 		query.append(")");
+=======
+		query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 		String sql = query.toString();
 

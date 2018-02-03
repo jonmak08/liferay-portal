@@ -37,7 +37,10 @@ import com.liferay.portal.kernel.trash.TrashHandler;
 import com.liferay.portal.kernel.trash.TrashHandlerRegistryUtil;
 import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.HttpUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.PortalUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ResourceBundleLoader;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
@@ -270,9 +273,15 @@ public abstract class BaseSocialActivityInterpreter
 				return HtmlUtil.escape(groupName);
 			}
 
+<<<<<<< HEAD
 			groupName = StringBundler.concat(
 				"<a class=\"group\" href=\"", groupDisplayURL, "\">",
 				HtmlUtil.escape(groupName), "</a>");
+=======
+			groupName =
+				"<a class=\"group\" href=\"" + groupDisplayURL + "\">" +
+					HtmlUtil.escape(groupName) + "</a>";
+>>>>>>> compatible
 
 			return groupName;
 		}
@@ -312,9 +321,15 @@ public abstract class BaseSocialActivityInterpreter
 				return HtmlUtil.escape(groupName);
 			}
 
+<<<<<<< HEAD
 			groupName = StringBundler.concat(
 				"<a class=\"group\" href=\"", groupDisplayURL, "\">",
 				HtmlUtil.escape(groupName), "</a>");
+=======
+			groupName =
+				"<a class=\"group\" href=\"" + groupDisplayURL + "\">" +
+					HtmlUtil.escape(groupName) + "</a>";
+>>>>>>> compatible
 
 			return groupName;
 		}
@@ -377,6 +392,7 @@ public abstract class BaseSocialActivityInterpreter
 			return path;
 		}
 
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(4);
 
 		sb.append(serviceContext.getPortalURL());
@@ -392,6 +408,10 @@ public abstract class BaseSocialActivityInterpreter
 		sb.append(path);
 
 		return sb.toString();
+=======
+		return serviceContext.getPortalURL() + serviceContext.getPathMain() +
+			path;
+>>>>>>> compatible
 	}
 
 	protected String getPath(
@@ -433,7 +453,11 @@ public abstract class BaseSocialActivityInterpreter
 		}
 
 		ResourceBundle resourceBundle = resourceBundleLoader.loadResourceBundle(
+<<<<<<< HEAD
 			serviceContext.getLocale());
+=======
+			LanguageUtil.getLanguageId(serviceContext.getLocale()));
+>>>>>>> compatible
 
 		return LanguageUtil.format(
 			resourceBundle, titlePattern, titleArguments);
@@ -478,9 +502,15 @@ public abstract class BaseSocialActivityInterpreter
 			String userDisplayURL = user.getDisplayURL(
 				serviceContext.getThemeDisplay());
 
+<<<<<<< HEAD
 			userName = StringBundler.concat(
 				"<a class=\"user\" href=\"", userDisplayURL, "\">",
 				HtmlUtil.escape(userName), "</a>");
+=======
+			userName =
+				"<a class=\"user\" href=\"" + userDisplayURL + "\">" +
+					HtmlUtil.escape(userName) + "</a>";
+>>>>>>> compatible
 
 			return userName;
 		}
@@ -516,9 +546,15 @@ public abstract class BaseSocialActivityInterpreter
 
 			String userDisplayURL = user.getDisplayURL(themeDisplay);
 
+<<<<<<< HEAD
 			userName = StringBundler.concat(
 				"<a class=\"user\" href=\"", userDisplayURL, "\">",
 				HtmlUtil.escape(userName), "</a>");
+=======
+			userName =
+				"<a class=\"user\" href=\"" + userDisplayURL + "\">" +
+					HtmlUtil.escape(userName) + "</a>";
+>>>>>>> compatible
 
 			return userName;
 		}
@@ -618,7 +654,11 @@ public abstract class BaseSocialActivityInterpreter
 		ResourceBundleLoader resourceBundleLoader = getResourceBundleLoader();
 
 		ResourceBundle resourceBundle = resourceBundleLoader.loadResourceBundle(
+<<<<<<< HEAD
 			serviceContext.getLocale());
+=======
+			serviceContext.getLanguageId());
+>>>>>>> compatible
 
 		String title = LanguageUtil.get(resourceBundle, key);
 

@@ -14,8 +14,11 @@
 
 package com.liferay.staging.taglib.servlet.taglib;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Group;
 
 import javax.servlet.jsp.tagext.TagData;
@@ -25,7 +28,10 @@ import javax.servlet.jsp.tagext.VariableInfo;
 /**
  * @author Levente Hudák
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class DefineObjectsTei extends TagExtraInfo {
 
 	@Override

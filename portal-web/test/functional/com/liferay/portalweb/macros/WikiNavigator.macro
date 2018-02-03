@@ -54,7 +54,11 @@
 	</command>
 
 	<command name="gotoChildPageCP">
+<<<<<<< HEAD
 		<execute function="AssertTextEquals" locator1="Wiki#CHILD_PAGE_CONTENT" value1="${wikiChildPageContent}" />
+=======
+		<execute function="AssertTextEquals#assertPartialText" locator1="Wiki#CHILD_PAGE_CONTENT" value1="${wikiChildPageContent}" />
+>>>>>>> compatible
 
 		<var name="key_wikiChildPageTitle" value="${wikiChildPageTitle}" />
 
@@ -124,9 +128,13 @@
 	</command>
 
 	<command name="gotoEntryMoveViaTable">
+<<<<<<< HEAD
 		<execute macro="Portlet#changeDisplayStyle">
 			<var name="displayStyle" value="list" />
 		</execute>
+=======
+		<execute function="Click" locator1="Icon#DISPLAY_STYLE_LIST" />
+>>>>>>> compatible
 
 		<var name="key_wikiPageTitle" value="${wikiPageTitle}" />
 
@@ -144,9 +152,13 @@
 	</command>
 
 	<command name="gotoFrontPageCP">
+<<<<<<< HEAD
 		<execute macro="Portlet#changeDisplayStyle">
 			<var name="displayStyle" value="descriptive" />
 		</execute>
+=======
+		<execute function="Click" locator1="Icon#DISPLAY_STYLE_DESCRIPTIVE" />
+>>>>>>> compatible
 
 		<var name="key_wikiPageTitle" value="FrontPage" />
 
@@ -162,9 +174,13 @@
 	<command name="gotoNode">
 		<var name="key_wikiNodeName" value="${wikiNodeName}" />
 
+<<<<<<< HEAD
 		<execute macro="Portlet#changeDisplayStyle">
 			<var name="displayStyle" value="list" />
 		</execute>
+=======
+		<execute function="Click" locator1="Icon#DISPLAY_STYLE_LIST" />
+>>>>>>> compatible
 
 		<execute function="AssertTextEquals" locator1="Wiki#NODE_TABLE_WIKI_NAME" value1="${wikiNodeName}" />
 

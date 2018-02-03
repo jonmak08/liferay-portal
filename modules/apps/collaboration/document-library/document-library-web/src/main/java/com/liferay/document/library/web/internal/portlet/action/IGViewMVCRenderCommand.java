@@ -14,12 +14,19 @@
 
 package com.liferay.document.library.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.document.library.constants.DLPortletKeys;
 import com.liferay.document.library.web.internal.util.DLTrashUtil;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCRenderCommand;
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+=======
+import com.liferay.document.library.web.constants.DLPortletKeys;
+import com.liferay.portal.kernel.portlet.bridges.mvc.MVCRenderCommand;
+
+import org.osgi.service.component.annotations.Component;
+>>>>>>> compatible
 
 /**
  * @author Brian Wing Shun Chan
@@ -34,16 +41,22 @@ import org.osgi.service.component.annotations.Reference;
 public class IGViewMVCRenderCommand extends GetFolderMVCRenderCommand {
 
 	@Override
+<<<<<<< HEAD
 	protected DLTrashUtil getDLTrashUtil() {
 		return _dlTrashUtil;
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	protected String getPath() {
 		return "/image_gallery_display/view.jsp";
 	}
 
+<<<<<<< HEAD
 	@Reference
 	private DLTrashUtil _dlTrashUtil;
 
+=======
+>>>>>>> compatible
 }

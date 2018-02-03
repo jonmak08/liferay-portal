@@ -8,8 +8,11 @@
 	<bean class="com.liferay.portal.workflow.kaleo.service.impl.KaleoDefinitionLocalServiceImpl" id="com.liferay.portal.workflow.kaleo.service.KaleoDefinitionLocalService" />
 	<bean class="com.liferay.portal.workflow.kaleo.service.impl.KaleoDefinitionServiceImpl" id="com.liferay.portal.workflow.kaleo.service.KaleoDefinitionService" />
 	<bean class="com.liferay.portal.workflow.kaleo.service.persistence.impl.KaleoDefinitionPersistenceImpl" id="com.liferay.portal.workflow.kaleo.service.persistence.KaleoDefinitionPersistence" parent="basePersistence" />
+<<<<<<< HEAD
 	<bean class="com.liferay.portal.workflow.kaleo.service.impl.KaleoDefinitionVersionLocalServiceImpl" id="com.liferay.portal.workflow.kaleo.service.KaleoDefinitionVersionLocalService" />
 	<bean class="com.liferay.portal.workflow.kaleo.service.persistence.impl.KaleoDefinitionVersionPersistenceImpl" id="com.liferay.portal.workflow.kaleo.service.persistence.KaleoDefinitionVersionPersistence" parent="basePersistence" />
+=======
+>>>>>>> compatible
 	<bean class="com.liferay.portal.workflow.kaleo.service.impl.KaleoInstanceLocalServiceImpl" id="com.liferay.portal.workflow.kaleo.service.KaleoInstanceLocalService" />
 	<bean class="com.liferay.portal.workflow.kaleo.service.persistence.impl.KaleoInstancePersistenceImpl" id="com.liferay.portal.workflow.kaleo.service.persistence.KaleoInstancePersistence" parent="basePersistence" />
 	<bean class="com.liferay.portal.workflow.kaleo.service.impl.KaleoInstanceTokenLocalServiceImpl" id="com.liferay.portal.workflow.kaleo.service.KaleoInstanceTokenLocalService" />
@@ -28,10 +31,13 @@
 	<bean class="com.liferay.portal.workflow.kaleo.service.persistence.impl.KaleoTaskAssignmentPersistenceImpl" id="com.liferay.portal.workflow.kaleo.service.persistence.KaleoTaskAssignmentPersistence" parent="basePersistence" />
 	<bean class="com.liferay.portal.workflow.kaleo.service.impl.KaleoTaskAssignmentInstanceLocalServiceImpl" id="com.liferay.portal.workflow.kaleo.service.KaleoTaskAssignmentInstanceLocalService" />
 	<bean class="com.liferay.portal.workflow.kaleo.service.persistence.impl.KaleoTaskAssignmentInstancePersistenceImpl" id="com.liferay.portal.workflow.kaleo.service.persistence.KaleoTaskAssignmentInstancePersistence" parent="basePersistence" />
+<<<<<<< HEAD
 	<bean class="com.liferay.portal.workflow.kaleo.service.impl.KaleoTaskFormLocalServiceImpl" id="com.liferay.portal.workflow.kaleo.service.KaleoTaskFormLocalService" />
 	<bean class="com.liferay.portal.workflow.kaleo.service.persistence.impl.KaleoTaskFormPersistenceImpl" id="com.liferay.portal.workflow.kaleo.service.persistence.KaleoTaskFormPersistence" parent="basePersistence" />
 	<bean class="com.liferay.portal.workflow.kaleo.service.impl.KaleoTaskFormInstanceLocalServiceImpl" id="com.liferay.portal.workflow.kaleo.service.KaleoTaskFormInstanceLocalService" />
 	<bean class="com.liferay.portal.workflow.kaleo.service.persistence.impl.KaleoTaskFormInstancePersistenceImpl" id="com.liferay.portal.workflow.kaleo.service.persistence.KaleoTaskFormInstancePersistence" parent="basePersistence" />
+=======
+>>>>>>> compatible
 	<bean class="com.liferay.portal.workflow.kaleo.service.impl.KaleoTaskInstanceTokenLocalServiceImpl" id="com.liferay.portal.workflow.kaleo.service.KaleoTaskInstanceTokenLocalService" />
 	<bean class="com.liferay.portal.workflow.kaleo.service.persistence.impl.KaleoTaskInstanceTokenPersistenceImpl" id="com.liferay.portal.workflow.kaleo.service.persistence.KaleoTaskInstanceTokenPersistence" parent="basePersistence" />
 	<bean class="com.liferay.portal.workflow.kaleo.service.persistence.impl.KaleoTaskInstanceTokenFinderImpl" id="com.liferay.portal.workflow.kaleo.service.persistence.KaleoTaskInstanceTokenFinder" parent="basePersistence" />

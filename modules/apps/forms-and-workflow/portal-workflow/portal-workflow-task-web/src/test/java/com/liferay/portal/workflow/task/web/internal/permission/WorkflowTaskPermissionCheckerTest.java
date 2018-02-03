@@ -16,11 +16,17 @@ package com.liferay.portal.workflow.task.web.internal.permission;
 
 import com.liferay.asset.kernel.model.AssetRenderer;
 import com.liferay.portal.kernel.exception.PortalException;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.Role;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
+=======
+import com.liferay.portal.kernel.model.Role;
+import com.liferay.portal.kernel.model.User;
+import com.liferay.portal.kernel.security.permission.PermissionChecker;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.workflow.WorkflowHandler;
 import com.liferay.portal.kernel.workflow.WorkflowHandlerRegistryUtil;
@@ -48,6 +54,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
 /**
  * @author Adam Brandizzi
  */
+<<<<<<< HEAD
 @PrepareForTest(
 	{GroupLocalServiceUtil.class, WorkflowHandlerRegistryUtil.class}
 )
@@ -57,12 +64,22 @@ import org.powermock.modules.junit4.PowerMockRunner;
 		"com.liferay.portal.kernel.service.GroupLocalServiceUtil",
 		"com.liferay.portal.kernel.workflow.WorkflowHandlerRegistryUtil"
 	}
+=======
+@PrepareForTest(WorkflowHandlerRegistryUtil.class)
+@RunWith(PowerMockRunner.class)
+@SuppressStaticInitializationFor(
+	"com.liferay.portal.kernel.workflow.WorkflowHandlerRegistryUtil"
+>>>>>>> compatible
 )
 public class WorkflowTaskPermissionCheckerTest extends PowerMockito {
 
 	@Before
+<<<<<<< HEAD
 	public void setUp() throws PortalException {
 		setUpGroupLocalServiceUtil();
+=======
+	public void setUp() {
+>>>>>>> compatible
 		setUpWorkflowHandlerRegistryUtil();
 	}
 
@@ -407,6 +424,7 @@ public class WorkflowTaskPermissionCheckerTest extends PowerMockito {
 		return new long[] {RandomTestUtil.randomLong()};
 	}
 
+<<<<<<< HEAD
 	protected void setUpGroupLocalServiceUtil() throws PortalException {
 		mockStatic(GroupLocalServiceUtil.class);
 
@@ -419,6 +437,8 @@ public class WorkflowTaskPermissionCheckerTest extends PowerMockito {
 		);
 	}
 
+=======
+>>>>>>> compatible
 	protected void setUpWorkflowHandlerRegistryUtil() {
 		mockStatic(WorkflowHandlerRegistryUtil.class);
 	}

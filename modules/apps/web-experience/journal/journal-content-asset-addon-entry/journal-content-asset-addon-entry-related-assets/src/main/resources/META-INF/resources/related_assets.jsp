@@ -14,7 +14,11 @@
  */
 --%>
 
+<<<<<<< HEAD
 <%@ taglib uri="http://liferay.com/tld/asset" prefix="liferay-asset" %>
+=======
+<%@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
+>>>>>>> compatible
 
 <%@ page import="com.liferay.journal.model.JournalArticle" %><%@
 page import="com.liferay.journal.model.JournalArticleDisplay" %><%@
@@ -25,7 +29,11 @@ JournalArticleDisplay articleDisplay = (JournalArticleDisplay)request.getAttribu
 %>
 
 <div class="content-metadata-asset-addon-entry content-metadata-asset-addon-entry-links">
+<<<<<<< HEAD
 	<liferay-asset:asset-links
+=======
+	<liferay-ui:asset-links
+>>>>>>> compatible
 		className="<%= JournalArticle.class.getName() %>"
 		classPK="<%= articleDisplay.getResourcePrimKey() %>"
 	/>

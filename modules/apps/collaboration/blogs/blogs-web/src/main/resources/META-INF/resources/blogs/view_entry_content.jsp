@@ -23,8 +23,12 @@ BlogsEntry entry = (BlogsEntry)request.getAttribute("view_entry_content.jsp-entr
 
 AssetEntry assetEntry = (AssetEntry)request.getAttribute("view_entry_content.jsp-assetEntry");
 
+<<<<<<< HEAD
 RatingsEntry ratingsEntry = (RatingsEntry)request.getAttribute("view_entry_content.jsp-ratingsEntry");
 RatingsStats ratingsStats = (RatingsStats)request.getAttribute("view_entry_content.jsp-ratingsStats");
+=======
+String socialBookmarksDisplayPosition = blogsPortletInstanceConfiguration.socialBookmarksDisplayPosition();
+>>>>>>> compatible
 %>
 
 <c:choose>
@@ -68,12 +72,17 @@ RatingsStats ratingsStats = (RatingsStats)request.getAttribute("view_entry_conte
 
 					<c:if test="<%= viewSingleEntry %>">
 						<div class="cover-image-caption">
+<<<<<<< HEAD
 							<small><%= entry.getCoverImageCaption() %></small>
+=======
+							<small><%= HtmlUtil.escape(entry.getCoverImageCaption()) %></small>
+>>>>>>> compatible
 						</div>
 					</c:if>
 				</c:if>
 
 				<div class="<%= colCssClass %> entry-info text-muted ">
+<<<<<<< HEAD
 					<small>
 						<strong><%= HtmlUtil.escape(entry.getUserName()) %></strong>
 						<span> - </span>
@@ -84,11 +93,26 @@ RatingsStats ratingsStats = (RatingsStats)request.getAttribute("view_entry_conte
 							<liferay-reading-time:reading-time model="<%= entry %>" />
 						</c:if>
 					</small>
+=======
+					<c:if test="<%= !viewSingleEntry %>">
+						<small>
+							<strong><%= HtmlUtil.escape(entry.getUserName()) %></strong>
+							<span> - </span>
+							<span class="hide-accessible"><liferay-ui:message key="published-date" /></span>
+							<%= dateFormatDate.format(entry.getDisplayDate()) %>
+						</small>
+					</c:if>
+
+					<c:if test='<%= viewSingleEntry && blogsPortletInstanceConfiguration.enableSocialBookmarks() && socialBookmarksDisplayPosition.equals("top") %>'>
+						<liferay-util:include page="/blogs/social_bookmarks.jsp" servletContext="<%= application %>" />
+					</c:if>
+>>>>>>> compatible
 				</div>
 
 				<portlet:renderURL var="viewEntryURL">
 					<portlet:param name="mvcRenderCommandName" value="/blogs/view_entry" />
 					<portlet:param name="redirect" value="<%= currentURL %>" />
+<<<<<<< HEAD
 
 					<c:choose>
 						<c:when test="<%= Validator.isNotNull(entry.getUrlTitle()) %>">
@@ -98,6 +122,9 @@ RatingsStats ratingsStats = (RatingsStats)request.getAttribute("view_entry_conte
 							<portlet:param name="entryId" value="<%= String.valueOf(entry.getEntryId()) %>" />
 						</c:otherwise>
 					</c:choose>
+=======
+					<portlet:param name="urlTitle" value="<%= entry.getUrlTitle() %>" />
+>>>>>>> compatible
 				</portlet:renderURL>
 
 				<div class="<%= colCssClass %>">
@@ -105,7 +132,11 @@ RatingsStats ratingsStats = (RatingsStats)request.getAttribute("view_entry_conte
 						<c:choose>
 							<c:when test="<%= !viewSingleEntry %>">
 								<h2>
+<<<<<<< HEAD
 									<aui:a href="<%= viewEntryURL %>"><%= HtmlUtil.escape(BlogsEntryUtil.getDisplayTitle(resourceBundle, entry)) %></aui:a>
+=======
+									<aui:a href="<%= viewEntryURL %>"><%= HtmlUtil.escape(entry.getTitle()) %></aui:a>
+>>>>>>> compatible
 								</h2>
 
 								<c:if test="<%= !entry.isApproved() %>">
@@ -117,9 +148,19 @@ RatingsStats ratingsStats = (RatingsStats)request.getAttribute("view_entry_conte
 								<c:if test="<%= BlogsEntryPermission.contains(permissionChecker, entry, ActionKeys.DELETE) || BlogsEntryPermission.contains(permissionChecker, entry, ActionKeys.PERMISSIONS) || BlogsEntryPermission.contains(permissionChecker, entry, ActionKeys.UPDATE) %>">
 									<liferay-util:include page="/blogs/entry_action.jsp" servletContext="<%= application %>" />
 								</c:if>
+<<<<<<< HEAD
 							</c:when>
 							<c:otherwise>
 								<h1><%= HtmlUtil.escape(BlogsEntryUtil.getDisplayTitle(resourceBundle, entry)) %></h1>
+=======
+
+								<c:if test='<%= blogsPortletInstanceConfiguration.enableSocialBookmarks() && socialBookmarksDisplayPosition.equals("top") %>'>
+									<liferay-util:include page="/blogs/social_bookmarks.jsp" servletContext="<%= application %>" />
+								</c:if>
+							</c:when>
+							<c:otherwise>
+								<h1><%= HtmlUtil.escape(entry.getTitle()) %></h1>
+>>>>>>> compatible
 							</c:otherwise>
 						</c:choose>
 					</div>
@@ -179,7 +220,11 @@ RatingsStats ratingsStats = (RatingsStats)request.getAttribute("view_entry_conte
 					<aui:col width="<%= 40 %>">
 						<c:if test="<%= blogsPortletInstanceConfiguration.enableRelatedAssets() %>">
 							<div class="entry-links">
+<<<<<<< HEAD
 								<liferay-asset:asset-links
+=======
+								<liferay-ui:asset-links
+>>>>>>> compatible
 									assetEntryId="<%= (assetEntry != null) ? assetEntry.getEntryId() : 0 %>"
 									className="<%= BlogsEntry.class.getName() %>"
 									classPK="<%= entry.getEntryId() %>"
@@ -187,37 +232,61 @@ RatingsStats ratingsStats = (RatingsStats)request.getAttribute("view_entry_conte
 							</div>
 						</c:if>
 
+<<<<<<< HEAD
 						<liferay-asset:asset-categories-available
+=======
+						<liferay-ui:asset-categories-available
+>>>>>>> compatible
 							className="<%= BlogsEntry.class.getName() %>"
 							classPK="<%= entry.getEntryId() %>"
 						>
 							<p><liferay-ui:message key="categories" />:</p>
 
 							<div class="entry-categories">
+<<<<<<< HEAD
 								<liferay-asset:asset-categories-summary
+=======
+								<liferay-ui:asset-categories-summary
+>>>>>>> compatible
 									className="<%= BlogsEntry.class.getName() %>"
 									classPK="<%= entry.getEntryId() %>"
 									portletURL="<%= renderResponse.createRenderURL() %>"
 								/>
 							</div>
+<<<<<<< HEAD
 						</liferay-asset:asset-categories-available>
 					</aui:col>
 
 					<aui:col width="<%= 60 %>">
 						<liferay-asset:asset-tags-available
+=======
+						</liferay-ui:asset-categories-available>
+					</aui:col>
+
+					<aui:col width="<%= 60 %>">
+						<liferay-ui:asset-tags-available
+>>>>>>> compatible
 							className="<%= BlogsEntry.class.getName() %>"
 							classPK="<%= entry.getEntryId() %>"
 						>
 							<div class="entry-tags">
 								<p><liferay-ui:message key="tags" />:</p>
 
+<<<<<<< HEAD
 								<liferay-asset:asset-tags-summary
+=======
+								<liferay-ui:asset-tags-summary
+>>>>>>> compatible
 									className="<%= BlogsEntry.class.getName() %>"
 									classPK="<%= entry.getEntryId() %>"
 									portletURL="<%= renderResponse.createRenderURL() %>"
 								/>
 							</div>
+<<<<<<< HEAD
 						</liferay-asset:asset-tags-available>
+=======
+						</liferay-ui:asset-tags-available>
+>>>>>>> compatible
 					</aui:col>
 				</aui:container>
 			</c:if>
@@ -249,6 +318,7 @@ RatingsStats ratingsStats = (RatingsStats)request.getAttribute("view_entry_conte
 						<portlet:renderURL var="viewEntryCommentsURL">
 							<portlet:param name="mvcRenderCommandName" value="/blogs/view_entry" />
 							<portlet:param name="scroll" value='<%= renderResponse.getNamespace() + "discussionContainer" %>' />
+<<<<<<< HEAD
 
 							<c:choose>
 								<c:when test="<%= Validator.isNotNull(entry.getUrlTitle()) %>">
@@ -258,6 +328,9 @@ RatingsStats ratingsStats = (RatingsStats)request.getAttribute("view_entry_conte
 									<portlet:param name="entryId" value="<%= String.valueOf(entry.getEntryId()) %>" />
 								</c:otherwise>
 							</c:choose>
+=======
+							<portlet:param name="urlTitle" value="<%= entry.getUrlTitle() %>" />
+>>>>>>> compatible
 						</portlet:renderURL>
 
 						<div class="comments">
@@ -274,22 +347,35 @@ RatingsStats ratingsStats = (RatingsStats)request.getAttribute("view_entry_conte
 								className="<%= BlogsEntry.class.getName() %>"
 								classPK="<%= entry.getEntryId() %>"
 								inTrash="<%= entry.isInTrash() %>"
+<<<<<<< HEAD
 								ratingsEntry="<%= ratingsEntry %>"
 								ratingsStats="<%= ratingsStats %>"
+=======
+>>>>>>> compatible
 							/>
 						</div>
 					</c:if>
 
+<<<<<<< HEAD
 					<liferay-util:include page="/blogs/social_bookmarks.jsp" servletContext="<%= application %>" />
+=======
+					<c:if test='<%= blogsPortletInstanceConfiguration.enableSocialBookmarks() && socialBookmarksDisplayPosition.equals("bottom") %>'>
+						<liferay-util:include page="/blogs/social_bookmarks.jsp" servletContext="<%= application %>" />
+					</c:if>
+>>>>>>> compatible
 
 					<c:if test="<%= viewSingleEntry && blogsPortletInstanceConfiguration.enableFlags() %>">
 						<div class="flags">
 							<liferay-flags:flags
 								className="<%= BlogsEntry.class.getName() %>"
 								classPK="<%= entry.getEntryId() %>"
+<<<<<<< HEAD
 								contentTitle="<%= BlogsEntryUtil.getDisplayTitle(resourceBundle, entry) %>"
 								enabled="<%= !entry.isInTrash() %>"
 								message='<%= entry.isInTrash() ? "flags-are-disabled-because-this-entry-is-in-the-recycle-bin" : StringPool.BLANK %>'
+=======
+								contentTitle="<%= entry.getTitle() %>"
+>>>>>>> compatible
 								reportedUserId="<%= entry.getUserId() %>"
 							/>
 						</div>

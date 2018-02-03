@@ -20,8 +20,11 @@ import com.liferay.bookmarks.model.BookmarksEntry;
 import com.liferay.bookmarks.model.BookmarksFolder;
 import com.liferay.portal.kernel.portlet.bridges.mvc.BaseMVCResourceCommand;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCResourceCommand;
+<<<<<<< HEAD
 import com.liferay.trash.TrashHelper;
 import com.liferay.trash.util.TrashWebKeys;
+=======
+>>>>>>> compatible
 
 import java.util.List;
 
@@ -29,7 +32,10 @@ import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
 
 import org.osgi.service.component.annotations.Component;
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.Reference;
+=======
+>>>>>>> compatible
 
 /**
  * @author Sergio González
@@ -60,6 +66,7 @@ public class InfoPanelMVCResourceCommand extends BaseMVCResourceCommand {
 		resourceRequest.setAttribute(
 			BookmarksWebKeys.BOOKMARKS_FOLDERS, folders);
 
+<<<<<<< HEAD
 		resourceRequest.setAttribute(TrashWebKeys.TRASH_HELPER, _trashHelper);
 
 		include(resourceRequest, resourceResponse, "/bookmarks/info_panel.jsp");
@@ -68,4 +75,9 @@ public class InfoPanelMVCResourceCommand extends BaseMVCResourceCommand {
 	@Reference
 	private TrashHelper _trashHelper;
 
+=======
+		include(resourceRequest, resourceResponse, "/bookmarks/info_panel.jsp");
+	}
+
+>>>>>>> compatible
 }

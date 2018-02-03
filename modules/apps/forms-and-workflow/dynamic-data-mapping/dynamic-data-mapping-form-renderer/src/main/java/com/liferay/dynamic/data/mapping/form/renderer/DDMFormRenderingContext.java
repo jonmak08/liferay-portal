@@ -16,9 +16,13 @@ package com.liferay.dynamic.data.mapping.form.renderer;
 
 import com.liferay.dynamic.data.mapping.storage.DDMFormValues;
 
+<<<<<<< HEAD
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
+=======
+import java.util.Locale;
+>>>>>>> compatible
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,10 +32,13 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class DDMFormRenderingContext {
 
+<<<<<<< HEAD
 	public void addProperty(String key, Object value) {
 		_properties.put(key, value);
 	}
 
+=======
+>>>>>>> compatible
 	public String getContainerId() {
 		return _containerId;
 	}
@@ -40,10 +47,13 @@ public class DDMFormRenderingContext {
 		return _ddmFormValues;
 	}
 
+<<<<<<< HEAD
 	public long getGroupId() {
 		return _groupId;
 	}
 
+=======
+>>>>>>> compatible
 	public HttpServletRequest getHttpServletRequest() {
 		return _httpServletRequest;
 	}
@@ -60,10 +70,13 @@ public class DDMFormRenderingContext {
 		return _portletNamespace;
 	}
 
+<<<<<<< HEAD
 	public <T> T getProperty(String key) {
 		return (T)_properties.get(key);
 	}
 
+=======
+>>>>>>> compatible
 	public String getSubmitLabel() {
 		return _submitLabel;
 	}
@@ -88,10 +101,13 @@ public class DDMFormRenderingContext {
 		_ddmFormValues = ddmFormValues;
 	}
 
+<<<<<<< HEAD
 	public void setGroupId(long groupId) {
 		_groupId = groupId;
 	}
 
+=======
+>>>>>>> compatible
 	public void setHttpServletRequest(HttpServletRequest httpServletRequest) {
 		_httpServletRequest = httpServletRequest;
 	}
@@ -130,12 +146,18 @@ public class DDMFormRenderingContext {
 
 	private String _containerId;
 	private DDMFormValues _ddmFormValues;
+<<<<<<< HEAD
 	private long _groupId;
+=======
+>>>>>>> compatible
 	private HttpServletRequest _httpServletRequest;
 	private HttpServletResponse _httpServletResponse;
 	private Locale _locale;
 	private String _portletNamespace;
+<<<<<<< HEAD
 	private final Map<String, Object> _properties = new HashMap<>();
+=======
+>>>>>>> compatible
 	private boolean _readOnly;
 	private boolean _showRequiredFieldsWarning = true;
 	private boolean _showSubmitButton;

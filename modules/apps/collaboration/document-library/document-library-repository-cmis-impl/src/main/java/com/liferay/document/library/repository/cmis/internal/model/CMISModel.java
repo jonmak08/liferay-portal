@@ -17,7 +17,10 @@ package com.liferay.document.library.repository.cmis.internal.model;
 import com.liferay.document.library.repository.cmis.internal.CMISRepository;
 import com.liferay.expando.kernel.model.ExpandoBridge;
 import com.liferay.expando.kernel.util.ExpandoBridgeFactoryUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.model.CompanyConstants;
@@ -28,6 +31,10 @@ import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.service.CompanyLocalServiceUtil;
 import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -140,13 +147,17 @@ public abstract class CMISModel {
 	static {
 		_mappedActionKeys.put(ActionKeys.ACCESS, Action.CAN_GET_FOLDER_TREE);
 		_mappedActionKeys.put(
+<<<<<<< HEAD
 			ActionKeys.ADD_DISCUSSION, Action.CAN_GET_PROPERTIES);
 		_mappedActionKeys.put(
+=======
+>>>>>>> compatible
 			ActionKeys.ADD_DOCUMENT, Action.CAN_CREATE_DOCUMENT);
 		_mappedActionKeys.put(ActionKeys.ADD_FOLDER, Action.CAN_CREATE_FOLDER);
 		_mappedActionKeys.put(
 			ActionKeys.ADD_SUBFOLDER, Action.CAN_CREATE_FOLDER);
 		_mappedActionKeys.put(ActionKeys.DELETE, Action.CAN_DELETE_OBJECT);
+<<<<<<< HEAD
 		_mappedActionKeys.put(
 			ActionKeys.DELETE_DISCUSSION, Action.CAN_DELETE_OBJECT);
 		_mappedActionKeys.put(ActionKeys.UPDATE, Action.CAN_UPDATE_PROPERTIES);
@@ -157,6 +168,17 @@ public abstract class CMISModel {
 		_unsupportedActionKeys.add(ActionKeys.ADD_SHORTCUT);
 		_unsupportedActionKeys.add(ActionKeys.PERMISSIONS);
 		_unsupportedActionKeys.add(ActionKeys.SUBSCRIBE);
+=======
+		_mappedActionKeys.put(ActionKeys.UPDATE, Action.CAN_UPDATE_PROPERTIES);
+		_mappedActionKeys.put(ActionKeys.VIEW, Action.CAN_GET_PROPERTIES);
+
+		_unsupportedActionKeys.add(ActionKeys.ADD_DISCUSSION);
+		_unsupportedActionKeys.add(ActionKeys.ADD_SHORTCUT);
+		_unsupportedActionKeys.add(ActionKeys.DELETE_DISCUSSION);
+		_unsupportedActionKeys.add(ActionKeys.PERMISSIONS);
+		_unsupportedActionKeys.add(ActionKeys.SUBSCRIBE);
+		_unsupportedActionKeys.add(ActionKeys.UPDATE_DISCUSSION);
+>>>>>>> compatible
 	}
 
 	private Folder _parentFolder;

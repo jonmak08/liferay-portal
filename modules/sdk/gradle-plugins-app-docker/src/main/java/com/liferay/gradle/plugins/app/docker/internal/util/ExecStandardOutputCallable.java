@@ -20,9 +20,13 @@ import java.util.Map;
 import java.util.concurrent.Callable;
 
 import org.gradle.api.Action;
+<<<<<<< HEAD
 import org.gradle.api.GradleException;
 import org.gradle.api.Project;
 import org.gradle.api.logging.Logger;
+=======
+import org.gradle.api.Project;
+>>>>>>> compatible
 import org.gradle.process.ExecSpec;
 
 /**
@@ -47,6 +51,7 @@ public class ExecStandardOutputCallable implements Callable<String> {
 		final ByteArrayOutputStream byteArrayOutputStream =
 			new ByteArrayOutputStream();
 
+<<<<<<< HEAD
 		try {
 			_project.exec(
 				new Action<ExecSpec>() {
@@ -74,6 +79,26 @@ public class ExecStandardOutputCallable implements Callable<String> {
 
 			return null;
 		}
+=======
+		_project.exec(
+			new Action<ExecSpec>() {
+
+				@Override
+				public void execute(ExecSpec execSpec) {
+					if (_environment != null) {
+						execSpec.environment(_environment);
+					}
+
+					execSpec.setCommandLine(_commandLine);
+					execSpec.setStandardOutput(byteArrayOutputStream);
+				}
+
+			});
+
+		String result = byteArrayOutputStream.toString();
+
+		return result.trim();
+>>>>>>> compatible
 	}
 
 	private final Object[] _commandLine;

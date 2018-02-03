@@ -15,9 +15,15 @@
 package com.liferay.portal.security.service.access.policy.service.permission;
 
 import com.liferay.portal.kernel.exception.PortalException;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.BaseModelPermissionChecker;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermission;
+=======
+import com.liferay.portal.kernel.security.auth.PrincipalException;
+import com.liferay.portal.kernel.security.permission.BaseModelPermissionChecker;
+import com.liferay.portal.kernel.security.permission.PermissionChecker;
+>>>>>>> compatible
 import com.liferay.portal.security.service.access.policy.model.SAPEntry;
 import com.liferay.portal.security.service.access.policy.service.SAPEntryLocalService;
 
@@ -26,14 +32,20 @@ import org.osgi.service.component.annotations.Reference;
 
 /**
  * @author Mika Koivisto
+<<<<<<< HEAD
  * @deprecated As of 2.1.0, with no direct replacement
+=======
+>>>>>>> compatible
  */
 @Component(
 	property = {
 		"model.class.name=com.liferay.portal.security.service.access.policy.model.SAPEntry"
 	}
 )
+<<<<<<< HEAD
 @Deprecated
+=======
+>>>>>>> compatible
 public class SAPEntryPermission implements BaseModelPermissionChecker {
 
 	public static void check(
@@ -41,8 +53,16 @@ public class SAPEntryPermission implements BaseModelPermissionChecker {
 			String actionId)
 		throws PortalException {
 
+<<<<<<< HEAD
 		_sapEntryFolderModelResourcePermission.check(
 			permissionChecker, sapEntryId, actionId);
+=======
+		if (!contains(permissionChecker, sapEntryId, actionId)) {
+			throw new PrincipalException.MustHavePermission(
+				permissionChecker, SAPEntry.class.getName(), sapEntryId,
+				actionId);
+		}
+>>>>>>> compatible
 	}
 
 	public static void check(
@@ -50,14 +70,23 @@ public class SAPEntryPermission implements BaseModelPermissionChecker {
 			String actionId)
 		throws PortalException {
 
+<<<<<<< HEAD
 		_sapEntryFolderModelResourcePermission.check(
 			permissionChecker, sapEntry, actionId);
+=======
+		if (!contains(permissionChecker, sapEntry, actionId)) {
+			throw new PrincipalException.MustHavePermission(
+				permissionChecker, SAPEntry.class.getName(),
+				sapEntry.getSapEntryId(), actionId);
+		}
+>>>>>>> compatible
 	}
 
 	public static boolean contains(
 			PermissionChecker permissionChecker, long classPK, String actionId)
 		throws PortalException {
 
+<<<<<<< HEAD
 		return _sapEntryFolderModelResourcePermission.contains(
 			permissionChecker, classPK, actionId);
 	}
@@ -69,6 +98,19 @@ public class SAPEntryPermission implements BaseModelPermissionChecker {
 
 		return _sapEntryFolderModelResourcePermission.contains(
 			permissionChecker, sapEntry, actionId);
+=======
+		SAPEntry sapEntry = _sapEntryLocalService.getSAPEntry(classPK);
+
+		return contains(permissionChecker, sapEntry, actionId);
+	}
+
+	public static boolean contains(
+		PermissionChecker permissionChecker, SAPEntry sapEntry,
+		String actionId) {
+
+		return permissionChecker.hasPermission(
+			null, SAPEntry.class.getName(), sapEntry.getSapEntryId(), actionId);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -77,6 +119,7 @@ public class SAPEntryPermission implements BaseModelPermissionChecker {
 			String actionId)
 		throws PortalException {
 
+<<<<<<< HEAD
 		_sapEntryFolderModelResourcePermission.check(
 			permissionChecker, primaryKey, actionId);
 	}
@@ -97,5 +140,18 @@ public class SAPEntryPermission implements BaseModelPermissionChecker {
 
 	private static ModelResourcePermission<SAPEntry>
 		_sapEntryFolderModelResourcePermission;
+=======
+		check(permissionChecker, primaryKey, actionId);
+	}
+
+	@Reference(unbind = "-")
+	protected void setSAPEntryLocalService(
+		SAPEntryLocalService sapEntryLocalService) {
+
+		_sapEntryLocalService = sapEntryLocalService;
+	}
+
+	private static SAPEntryLocalService _sapEntryLocalService;
+>>>>>>> compatible
 
 }

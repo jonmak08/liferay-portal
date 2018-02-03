@@ -30,14 +30,23 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
 public interface IPGeocoderConfiguration {
 
 	@Meta.AD(
+<<<<<<< HEAD
 		description = "file-path-description", name = "file-path",
 		required = false
+=======
+		description = "The path where the database will be stored, with a default path of ${java.io.tmpdir}/liferay/geoip/GeoIPCity.dat",
+		name = "File Path", required = false
+>>>>>>> compatible
 	)
 	public String filePath();
 
 	@Meta.AD(
 		deflt = "http://cdn.mirrors.liferay.com/geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.xz",
+<<<<<<< HEAD
 		description = "file-url-description", name = "file-url",
+=======
+		description = "The URL of the Geo IP City database", name = "File URL",
+>>>>>>> compatible
 		required = false
 	)
 	public String fileURL();

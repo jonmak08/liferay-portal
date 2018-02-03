@@ -21,6 +21,10 @@ import com.liferay.dynamic.data.mapping.model.DDMStorageLink;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -63,7 +67,11 @@ public class DDMStorageLinkCacheModel implements CacheModel<DDMStorageLink>,
 
 	@Override
 	public String toString() {
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(15);
+=======
+		StringBundler sb = new StringBundler(13);
+>>>>>>> compatible
 
 		sb.append("{uuid=");
 		sb.append(uuid);
@@ -77,8 +85,11 @@ public class DDMStorageLinkCacheModel implements CacheModel<DDMStorageLink>,
 		sb.append(classPK);
 		sb.append(", structureId=");
 		sb.append(structureId);
+<<<<<<< HEAD
 		sb.append(", structureVersionId=");
 		sb.append(structureVersionId);
+=======
+>>>>>>> compatible
 		sb.append("}");
 
 		return sb.toString();
@@ -89,7 +100,11 @@ public class DDMStorageLinkCacheModel implements CacheModel<DDMStorageLink>,
 		DDMStorageLinkImpl ddmStorageLinkImpl = new DDMStorageLinkImpl();
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			ddmStorageLinkImpl.setUuid("");
+=======
+			ddmStorageLinkImpl.setUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			ddmStorageLinkImpl.setUuid(uuid);
@@ -100,7 +115,10 @@ public class DDMStorageLinkCacheModel implements CacheModel<DDMStorageLink>,
 		ddmStorageLinkImpl.setClassNameId(classNameId);
 		ddmStorageLinkImpl.setClassPK(classPK);
 		ddmStorageLinkImpl.setStructureId(structureId);
+<<<<<<< HEAD
 		ddmStorageLinkImpl.setStructureVersionId(structureVersionId);
+=======
+>>>>>>> compatible
 
 		ddmStorageLinkImpl.resetOriginalValues();
 
@@ -120,15 +138,22 @@ public class DDMStorageLinkCacheModel implements CacheModel<DDMStorageLink>,
 		classPK = objectInput.readLong();
 
 		structureId = objectInput.readLong();
+<<<<<<< HEAD
 
 		structureVersionId = objectInput.readLong();
+=======
+>>>>>>> compatible
 	}
 
 	@Override
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		if (uuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(uuid);
@@ -143,8 +168,11 @@ public class DDMStorageLinkCacheModel implements CacheModel<DDMStorageLink>,
 		objectOutput.writeLong(classPK);
 
 		objectOutput.writeLong(structureId);
+<<<<<<< HEAD
 
 		objectOutput.writeLong(structureVersionId);
+=======
+>>>>>>> compatible
 	}
 
 	public String uuid;
@@ -153,5 +181,8 @@ public class DDMStorageLinkCacheModel implements CacheModel<DDMStorageLink>,
 	public long classNameId;
 	public long classPK;
 	public long structureId;
+<<<<<<< HEAD
 	public long structureVersionId;
+=======
+>>>>>>> compatible
 }

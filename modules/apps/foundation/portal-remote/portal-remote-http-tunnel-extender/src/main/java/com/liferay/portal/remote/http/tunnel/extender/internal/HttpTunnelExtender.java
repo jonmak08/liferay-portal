@@ -16,7 +16,10 @@ package com.liferay.portal.remote.http.tunnel.extender.internal;
 
 import com.liferay.osgi.felix.util.AbstractExtender;
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.remote.http.tunnel.extender.configuration.HttpTunnelExtenderConfiguration;
 import com.liferay.portal.servlet.TunnelServlet;
@@ -73,9 +76,13 @@ public class HttpTunnelExtender extends AbstractExtender {
 
 	@Override
 	protected void debug(Bundle bundle, String s) {
+<<<<<<< HEAD
 		_logger.log(
 			Logger.LOG_DEBUG,
 			StringBundler.concat("[", String.valueOf(bundle), "] ", s));
+=======
+		_logger.log(Logger.LOG_DEBUG, "[" + bundle + "] " + s);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -106,9 +113,13 @@ public class HttpTunnelExtender extends AbstractExtender {
 
 	@Override
 	protected void warn(Bundle bundle, String s, Throwable t) {
+<<<<<<< HEAD
 		_logger.log(
 			Logger.LOG_WARNING,
 			StringBundler.concat("[", String.valueOf(bundle), "] ", s), t);
+=======
+		_logger.log(Logger.LOG_WARNING, "[" + bundle + "] " + s, t);
+>>>>>>> compatible
 	}
 
 	private HttpTunnelExtenderConfiguration _httpTunnelExtenderConfiguration;

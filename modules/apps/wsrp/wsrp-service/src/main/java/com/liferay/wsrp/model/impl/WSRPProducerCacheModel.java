@@ -19,6 +19,10 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import com.liferay.wsrp.model.WSRPProducer;
 
@@ -97,7 +101,11 @@ public class WSRPProducerCacheModel implements CacheModel<WSRPProducer>,
 		WSRPProducerImpl wsrpProducerImpl = new WSRPProducerImpl();
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			wsrpProducerImpl.setUuid("");
+=======
+			wsrpProducerImpl.setUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			wsrpProducerImpl.setUuid(uuid);
@@ -122,21 +130,33 @@ public class WSRPProducerCacheModel implements CacheModel<WSRPProducer>,
 		}
 
 		if (name == null) {
+<<<<<<< HEAD
 			wsrpProducerImpl.setName("");
+=======
+			wsrpProducerImpl.setName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			wsrpProducerImpl.setName(name);
 		}
 
 		if (version == null) {
+<<<<<<< HEAD
 			wsrpProducerImpl.setVersion("");
+=======
+			wsrpProducerImpl.setVersion(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			wsrpProducerImpl.setVersion(version);
 		}
 
 		if (portletIds == null) {
+<<<<<<< HEAD
 			wsrpProducerImpl.setPortletIds("");
+=======
+			wsrpProducerImpl.setPortletIds(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			wsrpProducerImpl.setPortletIds(portletIds);
@@ -175,7 +195,11 @@ public class WSRPProducerCacheModel implements CacheModel<WSRPProducer>,
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		if (uuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(uuid);
@@ -190,21 +214,33 @@ public class WSRPProducerCacheModel implements CacheModel<WSRPProducer>,
 		objectOutput.writeLong(modifiedDate);
 
 		if (name == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(name);
 		}
 
 		if (version == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(version);
 		}
 
 		if (portletIds == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(portletIds);

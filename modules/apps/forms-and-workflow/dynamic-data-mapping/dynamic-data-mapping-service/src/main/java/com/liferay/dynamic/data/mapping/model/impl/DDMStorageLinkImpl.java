@@ -15,9 +15,13 @@
 package com.liferay.dynamic.data.mapping.model.impl;
 
 import com.liferay.dynamic.data.mapping.model.DDMStructure;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.model.DDMStructureVersion;
 import com.liferay.dynamic.data.mapping.service.DDMStructureLocalServiceUtil;
 import com.liferay.dynamic.data.mapping.service.DDMStructureVersionLocalServiceUtil;
+=======
+import com.liferay.dynamic.data.mapping.service.DDMStructureLocalServiceUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 
 /**
@@ -34,12 +38,16 @@ public class DDMStorageLinkImpl extends DDMStorageLinkBaseImpl {
 
 	@Override
 	public DDMStructure getStructure() throws PortalException {
+<<<<<<< HEAD
 		DDMStructureVersion structureVersion =
 			DDMStructureVersionLocalServiceUtil.getStructureVersion(
 				getStructureVersionId());
 
 		return DDMStructureLocalServiceUtil.getStructure(
 			structureVersion.getStructureId());
+=======
+		return DDMStructureLocalServiceUtil.getStructure(getStructureId());
+>>>>>>> compatible
 	}
 
 }

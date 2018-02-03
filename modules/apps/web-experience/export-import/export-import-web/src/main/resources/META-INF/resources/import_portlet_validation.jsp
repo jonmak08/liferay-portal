@@ -41,7 +41,11 @@ String redirect = ParamUtil.getString(request, "redirect");
 	</div>
 
 	<aui:button-row>
+<<<<<<< HEAD
 		<aui:button name="continueButton" type="submit" value="continue" />
+=======
+		<aui:button cssClass="btn-lg" name="continueButton" type="submit" value="continue" />
+>>>>>>> compatible
 	</aui:button-row>
 
 	<%
@@ -62,6 +66,7 @@ String redirect = ParamUtil.getString(request, "redirect");
 				decimalSeparator: '<%= decimalFormatSymbols.getDecimalSeparator() %>',
 
 				deleteFile: '<liferay-portlet:actionURL doAsUserId="<%= user.getUserId() %>" name="exportImport"><portlet:param name="mvcRenderCommandName" value="exportImport" /><portlet:param name="<%= Constants.CMD %>" value="<%= Constants.DELETE_TEMP %>" /><portlet:param name="redirect" value="<%= redirect %>" /><portlet:param name="portletResource" value="<%= portletResource %>" /></liferay-portlet:actionURL>&ticketKey=<%= ticket.getKey() %><liferay-ui:input-permissions-params modelName="<%= Group.class.getName() %>" />',
+<<<<<<< HEAD
 
 				<%
 				DLConfiguration dlConfiguration = ConfigurationProviderUtil.getSystemConfiguration(DLConfiguration.class);
@@ -70,6 +75,10 @@ String redirect = ParamUtil.getString(request, "redirect");
 				fileDescription: '<%= StringUtil.merge(dlConfiguration.fileExtensions()) %>',
 
 				maxFileSize: '<%= UploadServletRequestConfigurationHelperUtil.getMaxSize() %> B',
+=======
+				fileDescription: '<%= StringUtil.merge(PrefsPropsUtil.getStringArray(PropsKeys.DL_FILE_EXTENSIONS, StringPool.COMMA)) %>',
+				maxFileSize: '<%= PrefsPropsUtil.getLong(PropsKeys.UPLOAD_SERVLET_REQUEST_IMPL_MAX_SIZE) %> B',
+>>>>>>> compatible
 				metadataContainer: '#<portlet:namespace />commonFileMetadataContainer',
 				metadataExplanationContainer: '#<portlet:namespace />metadataExplanationContainer',
 				multipleFiles: false,

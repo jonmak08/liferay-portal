@@ -31,6 +31,10 @@ import com.liferay.portal.kernel.util.Validator;
 import com.liferay.taglib.ui.util.SessionTreeJSClicks;
 
 import java.util.ConcurrentModificationException;
+<<<<<<< HEAD
+=======
+import java.util.List;
+>>>>>>> compatible
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -73,8 +77,23 @@ public class SessionTreeJSClickAction extends Action {
 						request, "privateLayout");
 
 					SessionTreeJSClicks.openLayoutNodes(
+<<<<<<< HEAD
 						request, treeId, privateLayout,
 						LayoutConstants.DEFAULT_PLID, true);
+=======
+						request, treeId, false, LayoutConstants.DEFAULT_PLID,
+						false);
+
+					List<Layout> layouts = LayoutLocalServiceUtil.getLayouts(
+						groupId, privateLayout,
+						LayoutConstants.DEFAULT_PARENT_LAYOUT_ID);
+
+					for (Layout layout : layouts) {
+						SessionTreeJSClicks.openLayoutNodes(
+							request, treeId, layout.isPrivateLayout(),
+							layout.getLayoutId(), true);
+					}
+>>>>>>> compatible
 				}
 				else {
 					boolean recursive = ParamUtil.getBoolean(
@@ -93,7 +112,27 @@ public class SessionTreeJSClickAction extends Action {
 				long plid = ParamUtil.getLong(request, "plid");
 
 				if (plid == LayoutConstants.DEFAULT_PLID) {
+<<<<<<< HEAD
 					SessionTreeJSClicks.closeNodes(request, treeId);
+=======
+					long groupId = ParamUtil.getLong(request, "groupId");
+					boolean privateLayout = ParamUtil.getBoolean(
+						request, "privateLayout");
+
+					SessionTreeJSClicks.closeLayoutNodes(
+						request, treeId, false, LayoutConstants.DEFAULT_PLID,
+						false);
+
+					List<Layout> layouts = LayoutLocalServiceUtil.getLayouts(
+						groupId, privateLayout,
+						LayoutConstants.DEFAULT_PARENT_LAYOUT_ID);
+
+					for (Layout layout : layouts) {
+						SessionTreeJSClicks.closeLayoutNodes(
+							request, treeId, layout.isPrivateLayout(),
+							layout.getLayoutId(), true);
+					}
+>>>>>>> compatible
 				}
 				else {
 					boolean recursive = ParamUtil.getBoolean(

@@ -14,7 +14,11 @@
 
 package com.liferay.portal.osgi.web.servlet.jsp.compiler;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
@@ -82,7 +86,10 @@ import javax.servlet.http.HttpSessionListener;
 import javax.servlet.jsp.JspFactory;
 
 import org.apache.felix.utils.log.Logger;
+<<<<<<< HEAD
 import org.apache.jasper.Constants;
+=======
+>>>>>>> compatible
 import org.apache.jasper.runtime.JspFactoryImpl;
 import org.apache.jasper.runtime.TagHandlerPool;
 import org.apache.jasper.xmlparser.ParserUtils;
@@ -105,7 +112,11 @@ import org.osgi.util.tracker.BundleTrackerCustomizer;
  */
 public class JspServlet extends HttpServlet {
 
+<<<<<<< HEAD
 	public static final String JSP_FILE = Constants.JSP_FILE;
+=======
+	public static final String JSP_FILE = org.apache.jasper.Constants.JSP_FILE;
+>>>>>>> compatible
 
 	public static void scanTLDs(
 		Bundle bundle, ServletContext servletContext,
@@ -408,10 +419,14 @@ public class JspServlet extends HttpServlet {
 					}
 				}
 
+<<<<<<< HEAD
 				_jspServlet.log(
 					StringBundler.concat(
 						"[JSP DEBUG] ", String.valueOf(_bundle), " invoking ",
 						path));
+=======
+				_jspServlet.log("[JSP DEBUG] " + _bundle + " invoking " + path);
+>>>>>>> compatible
 			}
 
 			_jspServlet.service(request, response);
@@ -565,8 +580,13 @@ public class JspServlet extends HttpServlet {
 	private static final Class<?>[] _INTERFACES =
 		{JspServletContext.class, ServletContext.class};
 
+<<<<<<< HEAD
 	private static final String _WORK_DIR = StringBundler.concat(
 		PropsValues.LIFERAY_HOME, File.separator, "work", File.separator);
+=======
+	private static final String _WORK_DIR =
+		PropsValues.LIFERAY_HOME + File.separator + "work" + File.separator;
+>>>>>>> compatible
 
 	private static final Map<Method, Method> _contextAdapterMethods;
 	private static final Properties _initParams = PropsUtil.getProperties(
@@ -735,6 +755,7 @@ public class JspServlet extends HttpServlet {
 		public Object invoke(Object proxy, Method method, Object[] args)
 			throws Throwable {
 
+<<<<<<< HEAD
 			String methodName = method.getName();
 
 			if (methodName.equals("getClassLoader")) {
@@ -747,6 +768,18 @@ public class JspServlet extends HttpServlet {
 				return _getResourceAsStream((String)args[0]);
 			}
 			else if (methodName.equals("getResourcePaths")) {
+=======
+			if (method.getName().equals("getClassLoader")) {
+				return _jspBundleClassloader;
+			}
+			else if (method.getName().equals("getResource")) {
+				return _getResource((String)args[0]);
+			}
+			else if (method.getName().equals("getResourceAsStream")) {
+				return _getResourceAsStream((String)args[0]);
+			}
+			else if (method.getName().equals("getResourcePaths")) {
+>>>>>>> compatible
 				return _getResourcePaths((String)args[0]);
 			}
 
@@ -802,9 +835,13 @@ public class JspServlet extends HttpServlet {
 					return url;
 				}
 
+<<<<<<< HEAD
 				ClassLoader classLoader = _servletContext.getClassLoader();
 
 				url = classLoader.getResource(path);
+=======
+				url = _servletContext.getClassLoader().getResource(path);
+>>>>>>> compatible
 
 				if (url != null) {
 					return url;

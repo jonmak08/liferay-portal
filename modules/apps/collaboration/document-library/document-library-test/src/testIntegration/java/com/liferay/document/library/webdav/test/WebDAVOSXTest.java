@@ -15,6 +15,7 @@
 package com.liferay.document.library.webdav.test;
 
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
+<<<<<<< HEAD
 import com.liferay.document.library.kernel.model.DLFileEntry;
 import com.liferay.document.library.kernel.model.DLFileEntryMetadata;
 import com.liferay.document.library.kernel.model.DLFileEntryType;
@@ -41,13 +42,29 @@ import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
+=======
+import com.liferay.document.library.kernel.model.DLFolderConstants;
+import com.liferay.document.library.kernel.service.DLAppLocalServiceUtil;
+import com.liferay.portal.kernel.model.Group;
+import com.liferay.portal.kernel.repository.model.FileEntry;
+import com.liferay.portal.kernel.repository.model.Folder;
+import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
+import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.FileUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
+=======
+import com.liferay.portal.kernel.util.PortalUtil;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Tuple;
 import com.liferay.portal.kernel.webdav.WebDAVUtil;
 import com.liferay.portal.kernel.webdav.methods.Method;
@@ -55,11 +72,15 @@ import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.util.PropsValues;
 
 import java.util.HashMap;
+<<<<<<< HEAD
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
+=======
+import java.util.Map;
+>>>>>>> compatible
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -76,9 +97,15 @@ import org.junit.runner.RunWith;
  * </p>
  *
  * @author Alexander Chow
+<<<<<<< HEAD
  * @author Roberto Díaz
  */
 @RunWith(Arquillian.class)
+=======
+ */
+@RunWith(Arquillian.class)
+@Sync
+>>>>>>> compatible
 public class WebDAVOSXTest extends BaseWebDAVTestCase {
 
 	@ClassRule
@@ -86,6 +113,10 @@ public class WebDAVOSXTest extends BaseWebDAVTestCase {
 	public static final AggregateTestRule aggregateTestRule =
 		new AggregateTestRule(
 			new LiferayIntegrationTestRule(),
+<<<<<<< HEAD
+=======
+			SynchronousDestinationTestRule.INSTANCE,
+>>>>>>> compatible
 			WebDAVEnvironmentConfigTestRule.INSTANCE);
 
 	@Before
@@ -403,6 +434,7 @@ public class WebDAVOSXTest extends BaseWebDAVTestCase {
 			servicePropFind(_TEMP_FILE_NAME_2));
 	}
 
+<<<<<<< HEAD
 	@Test
 	public void testPutFileWithDDMFormValuesKeepsDDMFormValues()
 		throws Exception {
@@ -638,6 +670,8 @@ public class WebDAVOSXTest extends BaseWebDAVTestCase {
 		return ddmFormValues;
 	}
 
+=======
+>>>>>>> compatible
 	protected String getLock(String fileName) {
 		return _lockMap.get(fileName);
 	}
@@ -689,8 +723,11 @@ public class WebDAVOSXTest extends BaseWebDAVTestCase {
 
 	private static final String _TEST_FILE_NAME = "Test.docx";
 
+<<<<<<< HEAD
 	private static final String _TEST_FILE_NAME_2 = "Test2.docx";
 
+=======
+>>>>>>> compatible
 	private static final String _TEST_FILE_NAME_ILLEGAL_CHARACTERS =
 		"Test/0.docx";
 

@@ -14,7 +14,10 @@
 
 package com.liferay.portal.apache.bridges.struts;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Portlet;
 import com.liferay.portal.kernel.model.PortletApp;
 import com.liferay.portal.kernel.servlet.DynamicServletRequest;

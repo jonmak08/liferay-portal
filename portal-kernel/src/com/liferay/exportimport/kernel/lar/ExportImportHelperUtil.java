@@ -291,10 +291,13 @@ public class ExportImportHelperUtil {
 			portletDataContext, stagedModelType);
 	}
 
+<<<<<<< HEAD
 	public static String getPortletExportFileName(Portlet portlet) {
 		return _exportImportHelper.getPortletExportFileName(portlet);
 	}
 
+=======
+>>>>>>> compatible
 	public static ZipWriter getPortletZipWriter(String portletId) {
 		return _exportImportHelper.getPortletZipWriter(portletId);
 	}
@@ -321,6 +324,7 @@ public class ExportImportHelperUtil {
 		return _exportImportHelper.getUserIdStrategy(userId, userIdStrategy);
 	}
 
+<<<<<<< HEAD
 	public static boolean isAlwaysIncludeReference(
 		PortletDataContext portletDataContext,
 		StagedModel referenceStagedModel) {
@@ -329,6 +333,8 @@ public class ExportImportHelperUtil {
 			portletDataContext, referenceStagedModel);
 	}
 
+=======
+>>>>>>> compatible
 	public static boolean isReferenceWithinExportScope(
 		PortletDataContext portletDataContext, StagedModel stagedModel) {
 
@@ -583,12 +589,15 @@ public class ExportImportHelperUtil {
 			portletDataContext, content, importReferencedContent);
 	}
 
+<<<<<<< HEAD
 	public static void setPortletScope(
 		PortletDataContext portletDataContext, Element portletElement) {
 
 		_exportImportHelper.setPortletScope(portletDataContext, portletElement);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	 * @deprecated As of 7.0.0, see {@link
 	 *             DefaultConfigurationPortletDataHandler#updateExportPortletPreferencesClassPKs(

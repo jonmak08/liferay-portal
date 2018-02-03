@@ -15,9 +15,12 @@
 package com.liferay.dynamic.data.mapping.internal.render;
 
 import com.liferay.dynamic.data.mapping.constants.DDMPortletKeys;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.internal.util.DDMFieldsCounter;
 import com.liferay.dynamic.data.mapping.internal.util.DDMFormFieldFreeMarkerRendererHelper;
 import com.liferay.dynamic.data.mapping.internal.util.DDMImpl;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.model.DDMForm;
 import com.liferay.dynamic.data.mapping.model.DDMFormField;
 import com.liferay.dynamic.data.mapping.model.DDMFormFieldOptions;
@@ -27,9 +30,14 @@ import com.liferay.dynamic.data.mapping.render.DDMFormFieldRenderer;
 import com.liferay.dynamic.data.mapping.render.DDMFormFieldRenderingContext;
 import com.liferay.dynamic.data.mapping.storage.Field;
 import com.liferay.dynamic.data.mapping.storage.Fields;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.editor.Editor;
+=======
+import com.liferay.dynamic.data.mapping.util.impl.DDMFieldsCounter;
+import com.liferay.dynamic.data.mapping.util.impl.DDMImpl;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringWriter;
 import com.liferay.portal.kernel.language.LanguageConstants;
@@ -45,11 +53,19 @@ import com.liferay.portal.kernel.template.TemplateManagerUtil;
 import com.liferay.portal.kernel.template.TemplateResource;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ArrayUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.PortletKeys;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
@@ -339,9 +355,15 @@ public class DDMFormFieldFreeMarkerRenderer implements DDMFormFieldRenderer {
 				ddmFieldsCounter.incrementKey(name);
 			}
 
+<<<<<<< HEAD
 			StringBundler childrenHTMLSB = new StringBundler(2);
 
 			childrenHTMLSB.append(
+=======
+			StringBundler childrenHTML = new StringBundler(2);
+
+			childrenHTML.append(
+>>>>>>> compatible
 				getHTML(
 					request, response, ddmFormField.getNestedDDMFormFields(),
 					fields, ddmFormField, portletNamespace, namespace, mode,
@@ -356,13 +378,21 @@ public class DDMFormFieldFreeMarkerRenderer implements DDMFormFieldRenderer {
 				optionFreeMarkerContext.put(
 					"parentFieldStructure", fieldStructure);
 
+<<<<<<< HEAD
 				childrenHTMLSB.append(
+=======
+				childrenHTML.append(
+>>>>>>> compatible
 					getDDMFormFieldOptionHTML(
 						request, response, ddmFormField, mode, readOnly, locale,
 						optionFreeMarkerContext));
 			}
 
+<<<<<<< HEAD
 			fieldStructure.put("children", childrenHTMLSB.toString());
+=======
+			fieldStructure.put("children", childrenHTML.toString());
+>>>>>>> compatible
 
 			sb.append(
 				processFTL(
@@ -498,11 +528,14 @@ public class DDMFormFieldFreeMarkerRenderer implements DDMFormFieldRenderer {
 
 		freeMarkerContext.put(
 			"ddmPortletId", DDMPortletKeys.DYNAMIC_DATA_MAPPING);
+<<<<<<< HEAD
 
 		Editor editor = DDMFormFieldFreeMarkerRendererHelper.getEditor(request);
 
 		freeMarkerContext.put("editorName", editor.getName());
 
+=======
+>>>>>>> compatible
 		freeMarkerContext.put("fieldStructure", fieldContext);
 
 		ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
@@ -602,6 +635,7 @@ public class DDMFormFieldFreeMarkerRenderer implements DDMFormFieldRenderer {
 		String templateName = StringUtil.replaceFirst(
 			type, fieldNamespace.concat(StringPool.DASH), StringPool.BLANK);
 
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(5);
 
 		sb.append(_TPL_PATH);
@@ -611,6 +645,17 @@ public class DDMFormFieldFreeMarkerRenderer implements DDMFormFieldRenderer {
 		sb.append(_TPL_EXT);
 
 		String resource = sb.toString();
+=======
+		StringBundler resourcePath = new StringBundler(5);
+
+		resourcePath.append(_TPL_PATH);
+		resourcePath.append(StringUtil.toLowerCase(fieldNamespace));
+		resourcePath.append(CharPool.SLASH);
+		resourcePath.append(templateName);
+		resourcePath.append(_TPL_EXT);
+
+		String resource = resourcePath.toString();
+>>>>>>> compatible
 
 		URL url = getResource(resource);
 
@@ -660,11 +705,19 @@ public class DDMFormFieldFreeMarkerRenderer implements DDMFormFieldRenderer {
 	private static final String _DEFAULT_READ_ONLY_NAMESPACE = "readonly";
 
 	private static final String[] _SUPPORTED_DDM_FORM_FIELD_TYPES = {
+<<<<<<< HEAD
 		"checkbox", "ddm-color", "ddm-date", "ddm-decimal",
 		"ddm-documentlibrary", "ddm-geolocation", "ddm-image", "ddm-integer",
 		"ddm-journal-article", "ddm-link-to-page", "ddm-number",
 		"ddm-paragraph", "ddm-separator", "ddm-text-html", "fieldset", "option",
 		"radio", "select", "text", "textarea"
+=======
+		"checkbox", "ddm-date", "ddm-decimal", "ddm-documentlibrary",
+		"ddm-geolocation", "ddm-image", "ddm-integer", "ddm-journal-article",
+		"ddm-link-to-page", "ddm-number", "ddm-paragraph", "ddm-separator",
+		"ddm-text-html", "fieldset", "option", "radio", "select", "text",
+		"textarea"
+>>>>>>> compatible
 	};
 
 	private static final String _TPL_EXT = ".ftl";

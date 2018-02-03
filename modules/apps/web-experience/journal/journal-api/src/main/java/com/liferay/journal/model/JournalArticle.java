@@ -73,13 +73,22 @@ public interface JournalArticle extends JournalArticleModel, PersistedModel,
 			}
 		};
 
+<<<<<<< HEAD
 	public com.liferay.portal.kernel.repository.model.Folder addImagesFolder()
 		throws com.liferay.portal.kernel.exception.PortalException;
 
+=======
+>>>>>>> compatible
 	@Override
 	public java.lang.String buildTreePath()
 		throws com.liferay.portal.kernel.exception.PortalException;
 
+<<<<<<< HEAD
+=======
+	public long getArticleImageId(java.lang.String elInstanceId,
+		java.lang.String elName, java.lang.String languageId);
+
+>>>>>>> compatible
 	public java.lang.String getArticleImageURL(
 		com.liferay.portal.kernel.theme.ThemeDisplay themeDisplay);
 
@@ -89,6 +98,7 @@ public interface JournalArticle extends JournalArticleModel, PersistedModel,
 	public java.lang.String getArticleResourceUuid()
 		throws com.liferay.portal.kernel.exception.PortalException;
 
+<<<<<<< HEAD
 	public java.lang.String[] getAvailableLanguageIds();
 
 	public java.lang.String getContentByLocale(java.lang.String languageId);
@@ -155,21 +165,47 @@ public interface JournalArticle extends JournalArticleModel, PersistedModel,
 	@java.lang.Deprecated()
 	public java.lang.String getLegacyTitle();
 
+=======
+	public java.lang.String getContentByLocale(java.lang.String languageId);
+
+	public com.liferay.dynamic.data.mapping.model.DDMStructure getDDMStructure()
+		throws com.liferay.portal.kernel.exception.PortalException;
+
+	public com.liferay.dynamic.data.mapping.model.DDMTemplate getDDMTemplate()
+		throws com.liferay.portal.kernel.exception.PortalException;
+
+	public com.liferay.portal.kernel.xml.Document getDocument();
+
+	public JournalFolder getFolder()
+		throws com.liferay.portal.kernel.exception.PortalException;
+
+	public com.liferay.portal.kernel.model.Layout getLayout();
+
+>>>>>>> compatible
 	public java.lang.String getSmallImageType()
 		throws com.liferay.portal.kernel.exception.PortalException;
 
 	/**
+<<<<<<< HEAD
 	* @deprecated As of 4.0.0, replaced by {@link #getDDMStructureKey()}
+=======
+	* @deprecated As of 3.3.0, replaced by {@link #getDDMStructureKey()}
+>>>>>>> compatible
 	*/
 	@java.lang.Deprecated()
 	public java.lang.String getStructureId();
 
 	/**
+<<<<<<< HEAD
 	* @deprecated As of 4.0.0, replaced by {@link #getDDMTemplateKey()}
+=======
+	* @deprecated As of 3.3.0, replaced by {@link #getDDMTemplateKey()}
+>>>>>>> compatible
 	*/
 	@java.lang.Deprecated()
 	public java.lang.String getTemplateId();
 
+<<<<<<< HEAD
 	@com.liferay.portal.kernel.json.JSON()
 	public java.lang.String getTitle();
 
@@ -196,10 +232,17 @@ public interface JournalArticle extends JournalArticleModel, PersistedModel,
 
 	/**
 	* @deprecated As of 4.0.0, with no direct replacement
+=======
+	public boolean hasApprovedVersion();
+
+	/**
+	* @deprecated As of 3.3.0, with no direct replacement
+>>>>>>> compatible
 	*/
 	@java.lang.Deprecated()
 	public boolean isTemplateDriven();
 
+<<<<<<< HEAD
 	/**
 	* @deprecated As of 4.0.0
 	*/
@@ -217,11 +260,22 @@ public interface JournalArticle extends JournalArticleModel, PersistedModel,
 
 	/**
 	* @deprecated As of 4.0.0, replaced by {@link #setDDMStructureKey(String)}
+=======
+	public void setDefaultLanguageId(java.lang.String defaultLanguageId);
+
+	public void setDocument(com.liferay.portal.kernel.xml.Document document);
+
+	public void setSmallImageType(java.lang.String smallImageType);
+
+	/**
+	* @deprecated As of 3.3.0, replaced by {@link #setDDMStructureKey(String)}
+>>>>>>> compatible
 	*/
 	@java.lang.Deprecated()
 	public void setStructureId(java.lang.String ddmStructureKey);
 
 	/**
+<<<<<<< HEAD
 	* @deprecated As of 4.0.0, replaced by {@link #setDDMTemplateKey(String)}
 	*/
 	@java.lang.Deprecated()
@@ -235,4 +289,10 @@ public interface JournalArticle extends JournalArticleModel, PersistedModel,
 
 	public void setTitleMap(
 		java.util.Map<java.util.Locale, java.lang.String> titleMap);
+=======
+	* @deprecated As of 3.3.0, replaced by {@link #setDDMTemplateKey(String)}
+	*/
+	@java.lang.Deprecated()
+	public void setTemplateId(java.lang.String ddmTemplateKey);
+>>>>>>> compatible
 }

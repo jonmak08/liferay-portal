@@ -1,6 +1,7 @@
 <definition>
 	<var name="rowNumber" value="1" />
 
+<<<<<<< HEAD
 	<command name="addRepeatableField">
 		<execute function="Click" locator1="FormFields#FIELD_ADD_SPECIFIC">
 			<var name="key_fieldName" value="${fieldName}" />
@@ -30,6 +31,29 @@
 		<execute function="KeyPress" locator1="FormFields#TEXT_MULTILINE_FIELD" value1="\RETURN">
 			<var name="key_fieldName" value="${fieldName}" />
 		</execute>
+=======
+	<command name="addOptionsRow">
+		<execute function="Click" locator1="FormFields#OPTIONS_ADD_ROW_BUTTON" />
+	</command>
+
+	<command name="addRepeatableField">
+		<var name="key_fieldName" value="${fieldName}" />
+		<var name="key_repeatableFieldNumber" value="${repeatableFieldNumber}" />
+
+		<execute function="Click" locator1="FormFields#FIELD_ADD_SPECIFIC" />
+	</command>
+
+	<command name="disableCheckbox">
+		<var name="key_fieldName" value="${fieldName}" />
+
+		<execute function="Uncheck" locator1="FormFields#CHECKBOX" />
+	</command>
+
+	<command name="editBlankMultiTextFieldWithEnterKey">
+		<var name="key_fieldName" value="${fieldName}" />
+
+		<execute function="KeyPress" locator1="FormFields#TEXT_MULTILINE_FIELD" value1="\RETURN" />
+>>>>>>> compatible
 	</command>
 
 	<command name="editCaptchaTextVerification">
@@ -37,14 +61,21 @@
 	</command>
 
 	<command name="editDate">
+<<<<<<< HEAD
 		<execute function="Type" locator1="FormFields#DATE_FIELD" value1="${fieldValue}">
 			<var name="key_fieldName" value="${fieldName}" />
 		</execute>
+=======
+		<var name="key_fieldName" value="${fieldName}" />
+
+		<execute function="Type" locator1="FormFields#DATE_FIELD" value1="${fieldValue}" />
+>>>>>>> compatible
 	</command>
 
 	<command name="editFieldName">
 		<var name="key_fieldValue" value="${fieldValue}" />
 
+<<<<<<< HEAD
 		<execute function="Type#clickAtType" locator1="FormFields#FIELD_NAME_EDIT" value1="${fieldValue}" />
 	</command>
 
@@ -61,6 +92,13 @@
 		<execute function="Type" locator1="FormFields#HELP_TEXT_INPUT_FIELD" value1="${fieldHelpText}">
 			<var name="key_fieldName" value="${fieldName}" />
 		</execute>
+=======
+		<execute function="Click" locator1="FormFields#FIELD_NAME_PLACEHOLDER" />
+
+		<execute function="Type" locator1="FormFields#FIELD_NAME_EDIT" value1="${fieldValue}" />
+
+		<execute function="Click" locator1="FormFields#FIELD_NAME_EDIT_DONE" />
+>>>>>>> compatible
 	</command>
 
 	<command name="editOptionsRow">
@@ -68,19 +106,34 @@
 
 		<execute function="Type" locator1="FormFields#OPTIONS_OPTION_VALUE_FIELD" value1="${optionValue}" />
 
+<<<<<<< HEAD
 		<execute function="AssertElementPresent" locator1="FormFields#OPTIONS_OPTION_NAME_FIELD" />
+=======
+		<execute function="AssertElementPresent" locator1="FormFields#OPTIONS_OPTION_NAME_FIELD" value1="Field Name:${optionName}" />
+>>>>>>> compatible
 	</command>
 
 	<command name="editOptionsRowNameField">
 		<var name="key_rowNumber" value="${rowNumber}" />
 
+<<<<<<< HEAD
 		<execute function="Type#clickAtType" locator1="FormFields#OPTIONS_OPTION_NAME_FIELD_EDIT" value1="${optionValue}" />
+=======
+		<execute function="Click" locator1="FormFields#OPTIONS_OPTION_NAME_FIELD_PLACEHOLDER" />
+
+		<execute function="Type" locator1="FormFields#OPTIONS_OPTION_NAME_FIELD_EDIT" value1="${optionValue}" />
+
+		<execute function="Click" locator1="FormFields#OPTIONS_OPTION_NAME_FIELD_EDIT_DONE" />
+
+		<execute function="AssertTextEquals" locator1="FormFields#OPTIONS_OPTION_NAME_FIELD" value1="Field Name:${optionValue}" />
+>>>>>>> compatible
 	</command>
 
 	<command name="editParagraphBody">
 		<execute function="Type" locator1="FormFields#PARAGRAPH_BODY_TEXT_FIELD" value1="${fieldValue}" />
 	</command>
 
+<<<<<<< HEAD
 	<command name="editPassword">
 		<var name="key_fieldName" value="${fieldName}" />
 
@@ -92,6 +145,13 @@
 			<var name="key_fieldName" value="${fieldName}" />
 			<var name="key_repeatableFieldNumber" value="${repeatableFieldNumber}" />
 		</execute>
+=======
+	<command name="editRepeatableTextMultiline">
+		<var name="key_fieldName" value="${fieldName}" />
+		<var name="key_repeatableFieldNumber" value="${repeatableFieldNumber}" />
+
+		<execute function="Type" locator1="FormFields#REPEATABLE_TEXT_MULTILINE_FIELD" value1="${fieldValue}" />
+>>>>>>> compatible
 	</command>
 
 	<command name="editRepeatingText">
@@ -105,6 +165,7 @@
 	</command>
 
 	<command name="editText">
+<<<<<<< HEAD
 		<execute function="Type" locator1="FormFields#TEXT_FIELD" value1="${fieldValue}">
 			<var name="key_fieldName" value="${fieldName}" />
 		</execute>
@@ -131,12 +192,35 @@
 	</command>
 
 	<command name="editValidation">
+=======
+		<var name="key_fieldName" value="${fieldName}" />
+
+		<execute function="Type" locator1="FormFields#TEXT_FIELD" value1="${fieldValue}" />
+	</command>
+
+	<command name="editTextAlt">
+		<var name="key_fieldName" value="${fieldName}" />
+
+		<execute function="Type" locator1="FormFields#TEXT_FIELD_ALT" value1="${fieldValue}" />
+	</command>
+
+	<command name="editTextMultiline">
+		<var name="key_fieldName" value="${fieldName}" />
+
+		<execute function="Type" locator1="FormFields#TEXT_MULTILINE_FIELD" value1="${fieldValue}" />
+	</command>
+
+	<command name="editValidation">
+		<execute function="Select" locator1="FormFields#VALIDATION_TYPE" value1="${validationType}" />
+
+>>>>>>> compatible
 		<execute function="Select" locator1="FormFields#VALIDATION_ARGUMENT" value1="${validationArgument}" />
 
 		<execute function="Type" locator1="FormFields#VALIDATION_INPUT" value1="${validationInput}" />
 		<execute function="Type" locator1="FormFields#VALIDATION_ERROR_MESSAGE" value1="${validationErrorMessage}" />
 	</command>
 
+<<<<<<< HEAD
 	<command name="enableCheckbox">
 		<execute function="Check" locator1="FormFields#CHECKBOX">
 			<var name="key_fieldName" value="${fieldName}" />
@@ -300,6 +384,66 @@
 				<execute function="AssertTextNotPresent" locator1="FormFields#AUTOCOMPLETE_LIST" value1="${autocompleteOptionNotVisible}" />
 			</then>
 		</if>
+=======
+	<command name="enableAdvancedOptions">
+		<execute function="AssertClick" locator1="FormFields#ADVANCED_FIELD_SETTINGS_TOGGLE" value1="Show More Options" />
+	</command>
+
+	<command name="enableCheckbox">
+		<var name="key_fieldName" value="${fieldName}" />
+
+		<execute function="Check" locator1="FormFields#CHECKBOX" />
+	</command>
+
+	<command name="enableSwitcher">
+		<var name="key_fieldName" value="${fieldName}" />
+
+		<execute function="Click" locator1="FormFields#SWITCHER" />
+	</command>
+
+	<command name="removeRepeatableField">
+		<execute function="Click" locator1="FormFields#FIELD_REMOVE" />
+	</command>
+
+	<command name="save">
+		<execute function="Click" locator1="FormFields#FIELD_NAME" />
+
+		<execute function="AssertClick" locator1="Button#ADD" value1="Add" />
+	</command>
+
+	<command name="saveEdit">
+		<execute function="Click" locator1="FormFields#FIELD_NAME" />
+
+		<execute function="AssertClick" locator1="Button#SAVE" value1="Save" />
+	</command>
+
+	<command name="selectCheckboxOption">
+		<var name="key_checkboxOption" value="${checkboxOption}" />
+		<var name="key_fieldName" value="${fieldName}" />
+
+		<execute function="Click" locator1="FormFields#CHECKBOX_OPTION" />
+	</command>
+
+	<command name="selectRadioOption">
+		<var name="key_fieldName" value="${fieldName}" />
+		<var name="key_radioOption" value="${radioOption}" />
+
+		<execute function="Click" locator1="FormFields#RADIO_OPTION" />
+	</command>
+
+	<command name="selectSelectOption">
+		<var name="key_fieldName" value="${fieldName}" />
+
+		<execute function="Select" locator1="FormFields#SELECT_FIELD" value1="${selectOption}" />
+
+		<execute function="Click" locator1="FormPortlet#FORM_CONTAINER" />
+	</command>
+
+	<command name="selectTextFieldLineOption">
+		<var name="key_textFieldLineOption" value="${textFieldLineOption}" />
+
+		<execute function="Click" locator1="FormFields#TEXT_FIELD_LINE_OPTION" />
+>>>>>>> compatible
 	</command>
 
 	<command name="viewCaptchaField">
@@ -310,6 +454,7 @@
 	</command>
 
 	<command name="viewCheckboxChecked">
+<<<<<<< HEAD
 		<execute function="AssertChecked" locator1="FormFields#CHECKBOX">
 			<var name="key_fieldName" value="${fieldName}" />
 		</execute>
@@ -326,6 +471,23 @@
 		<execute function="AssertNotChecked" locator1="FormFields#CHECKBOX">
 			<var name="key_fieldName" value="${fieldName}" />
 		</execute>
+=======
+		<var name="key_fieldName" value="${fieldName}" />
+
+		<execute function="AssertChecked" locator1="FormFields#CHECKBOX" />
+	</command>
+
+	<command name="viewCheckboxLabel">
+		<var name="key_fieldName" value="${fieldName}" />
+
+		<execute function="AssertTextEquals#assertText" locator1="FormFields#CHECKBOX_LABEL" value1="${fieldLabel}" />
+	</command>
+
+	<command name="viewCheckboxNotChecked">
+		<var name="key_fieldName" value="${fieldName}" />
+
+		<execute function="AssertNotChecked" locator1="FormFields#CHECKBOX" />
+>>>>>>> compatible
 	</command>
 
 	<command name="viewDateField">
@@ -334,9 +496,16 @@
 			<var name="fieldName" value="${fieldName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute function="AssertElementPresent#assertVisible" locator1="FormFields#DATE_FIELD">
 			<var name="key_fieldName" value="${fieldName}" />
 		</execute>
+=======
+		<var name="key_fieldLabel" value="${fieldLabel}" />
+		<var name="key_fieldName" value="${fieldName}" />
+
+		<execute function="AssertElementPresent#assertVisible" locator1="FormFields#DATE_FIELD" />
+>>>>>>> compatible
 	</command>
 
 	<command name="viewDateFieldNotPresent">
@@ -346,8 +515,13 @@
 		<if>
 			<condition function="IsElementPresent" locator1="FormFields#DATE_FIELD" />
 			<then>
+<<<<<<< HEAD
 				<execute function="AssertNotVisible" locator1="FormFields#DATE_LABEL" />
 				<execute function="AssertNotVisible" locator1="FormFields#DATE_FIELD" />
+=======
+				<execute function="AssertElementNotPresent#assertNotVisible" locator1="FormFields#DATE_LABEL" />
+				<execute function="AssertElementNotPresent#assertNotVisible" locator1="FormFields#DATE_FIELD" />
+>>>>>>> compatible
 			</then>
 			<else>
 				<execute function="AssertElementNotPresent" locator1="FormFields#DATE_LABEL" />
@@ -357,6 +531,7 @@
 	</command>
 
 	<command name="viewDateLabel">
+<<<<<<< HEAD
 		<execute function="AssertTextEquals#assertText" locator1="FormFields#DATE_LABEL" value1="${fieldLabel}">
 			<var name="key_fieldLabel" value="${fieldLabel}" />
 			<var name="key_fieldName" value="${fieldName}" />
@@ -390,6 +565,29 @@
 
 	<command name="viewFieldName">
 		<execute function="AssertTextEquals" locator1="FormFields#FIELD_NAME_EDIT" value1="${fieldName}" />
+=======
+		<var name="key_fieldLabel" value="${fieldLabel}" />
+		<var name="key_fieldName" value="${fieldName}" />
+
+		<execute function="AssertTextEquals#assertText" locator1="FormFields#DATE_LABEL" value1="${fieldLabel}" />
+	</command>
+
+	<command name="viewDateValue">
+		<var name="key_fieldLabel" value="${fieldLabel}" />
+		<var name="key_fieldName" value="${fieldName}" />
+
+		<execute function="AssertTextEquals" locator1="FormFields#DATE_FIELD" value1="${fieldValue}" />
+	</command>
+
+	<command name="viewFieldHelpText">
+		<var name="key_fieldName" value="${fieldName}" />
+
+		<execute function="AssertTextEquals" locator1="FormFields#HELP_TEXT" value1="${fieldHelpText}" />
+	</command>
+
+	<command name="viewFieldName">
+		<execute function="AssertTextEquals" locator1="FormFields#FIELD_NAME" value1="Field Name:${fieldName}" />
+>>>>>>> compatible
 	</command>
 
 	<command name="viewFieldValidationErrorMessage">
@@ -406,6 +604,7 @@
 	</command>
 
 	<command name="viewMultilineTextValue">
+<<<<<<< HEAD
 		<execute function="AssertTextEquals" locator1="FormFields#TEXT_MULTILINE_FIELD" value1="${fieldValue}">
 			<var name="key_fieldName" value="${fieldName}" />
 			<var name="key_fieldValue" value="${fieldValue}" />
@@ -463,10 +662,37 @@
 			</else>
 		</if>
 
+=======
+		<var name="key_fieldName" value="${fieldName}" />
+		<var name="key_fieldValue" value="${fieldValue}" />
+
+		<execute function="AssertTextEquals" locator1="FormFields#TEXT_MULTILINE_FIELD" value1="${fieldValue}" />
+	</command>
+
+	<command name="viewOptionsLabel">
+		<var name="key_fieldLabel" value="${fieldLabel}" />
+		<var name="key_fieldName" value="${fieldName}" />
+
+		<execute function="AssertTextEquals#assertText" locator1="FormFields#OPTIONS_LABEL" value1="${fieldLabel}" />
+	</command>
+
+	<command name="viewOptionsRowFieldName">
+		<var name="key_rowNumber" value="${rowNumber}" />
+
+		<execute function="AssertTextEquals" locator1="FormFields#OPTIONS_OPTION_NAME_FIELD" value1="Field Name:${fieldName}" />
+	</command>
+
+	<command name="viewParagraphField">
+		<var name="key_fieldName" value="${fieldTitle}" />
+		<var method="StringUtil#replace('${fieldTitle}',' ','')" name="key_fieldName" />
+
+		<execute function="AssertTextEquals" locator1="FormFields#PARAGRAPH_TITLE" value1="${fieldTitle}" />
+>>>>>>> compatible
 		<execute function="AssertTextEquals" locator1="FormFields#PARAGRAPH_BODY_TEXT_CONTENT" value1="${fieldValue}" />
 	</command>
 
 	<command name="viewRadioLabel">
+<<<<<<< HEAD
 		<execute function="AssertTextEquals#assertText" locator1="FormFields#RADIO_LABEL" value1="${fieldLabel}">
 			<var name="key_fieldName" value="${fieldName}" />
 		</execute>
@@ -485,6 +711,29 @@
 			<var name="key_fieldName" value="${fieldName}" />
 			<var name="key_repeatableFieldNumber" value="${repeatableFieldNumber}" />
 		</execute>
+=======
+		<var name="key_fieldName" value="${fieldName}" />
+
+		<execute function="AssertTextEquals#assertText" locator1="FormFields#RADIO_LABEL" value1="${fieldLabel}" />
+	</command>
+
+	<command name="viewRadioValue">
+		<var name="key_fieldName" value="${fieldName}" />
+		<var name="key_radioOption" value="${fieldValue}" />
+
+		<execute function="AssertElementPresent" locator1="FormFields#RADIO_OPTION" />
+
+		<var method="StringUtil#replace('${fieldValue}', ' ', '')" name="fieldValue" />
+
+		<execute function="AssertTextEquals" locator1="FormFields#RADIO_OPTION" value1="${fieldValue}" />
+	</command>
+
+	<command name="viewRepeatableFieldHelpText">
+		<var name="key_fieldName" value="${fieldName}" />
+		<var name="key_repeatableFieldNumber" value="${repeatableFieldNumber}" />
+
+		<execute function="AssertTextEquals" locator1="FormFields#REPEATABLE_HELP_TEXT" value1="${fieldHelpText}" />
+>>>>>>> compatible
 	</command>
 
 	<command name="viewRepeatableTextFieldLabel">
@@ -513,6 +762,7 @@
 			</then>
 		</if>
 
+<<<<<<< HEAD
 		<execute function="AssertElementPresent#assertVisible" locator1="FormFields#REPEATABLE_TEXT_MULTILINE_FIELD">
 			<var name="key_fieldName" value="${fieldName}" />
 			<var name="key_repeatableFieldNumber" value="${repeatableFieldNumber}" />
@@ -532,12 +782,34 @@
 			<var name="key_fieldName" value="${fieldName}" />
 			<var name="key_repeatableFieldNumber" value="${repeatableFieldNumber}" />
 		</execute>
+=======
+		<var name="key_fieldName" value="${fieldName}" />
+		<var name="key_repeatableFieldNumber" value="${repeatableFieldNumber}" />
+
+		<execute function="AssertElementPresent#assertVisible" locator1="FormFields#REPEATABLE_TEXT_MULTILINE_FIELD" />
+	</command>
+
+	<command name="viewRepeatableTextMultilineLabel">
+		<var name="key_fieldLabel" value="${fieldLabel}" />
+		<var name="key_fieldName" value="${fieldName}" />
+		<var name="key_repeatableFieldNumber" value="${repeatableFieldNumber}" />
+
+		<execute function="AssertTextEquals#assertText" locator1="FormFields#REPEATABLE_TEXT_MULTILINE_LABEL" value1="${fieldLabel}" />
+	</command>
+
+	<command name="viewRepeatableTextMultilineValue">
+		<var name="key_fieldName" value="${fieldName}" />
+		<var name="key_repeatableFieldNumber" value="${repeatableFieldNumber}" />
+
+		<execute function="AssertTextEquals" locator1="FormFields#REPEATABLE_TEXT_MULTILINE_FIELD" value1="${fieldValue}" />
+>>>>>>> compatible
 	</command>
 
 	<command name="viewRequiredAsterisk">
 		<execute function="AssertElementPresent#assertVisible" locator1="Icon#ASTERISK" />
 	</command>
 
+<<<<<<< HEAD
 	<command name="viewRequiredAsteriskNotPresent">
 		<execute function="AssertElementNotPresent" locator1="Icon#ASTERISK" />
 	</command>
@@ -601,6 +873,31 @@
 		<var name="key_fieldName" value="${fieldName}" />
 
 		<execute function="AssertTextNotPresent" locator1="FormFields#SWITCHER_LABEL" value1="${fieldLabel}" />
+=======
+	<command name="viewSelectLabel">
+		<var name="key_fieldName" value="${fieldName}" />
+
+		<execute function="AssertTextEquals#assertText" locator1="FormFields#SELECT_LABEL" value1="${fieldLabel}" />
+	</command>
+
+	<command name="viewSelectOption">
+		<var name="key_fieldName" value="${fieldName}" />
+		<var name="key_selectOption" value="${selectOption}" />
+
+		<execute function="AssertTextEquals#assertText" locator1="FormFields#SELECT_OPTION" value1="${selectOption}" />
+	</command>
+
+	<command name="viewSelectValue">
+		<var name="key_fieldName" value="${fieldName}" />
+
+		<execute function="AssertElementPresent" locator1="FormFields#SELECT_FIELD" />
+	</command>
+
+	<command name="viewSwitcherLabel">
+		<var name="key_fieldName" value="${fieldName}" />
+
+		<execute function="AssertTextEquals#assertText" locator1="FormFields#SWITCHER_LABEL" value1="${fieldLabel}" />
+>>>>>>> compatible
 	</command>
 
 	<command name="viewTextField">
@@ -619,9 +916,15 @@
 			</then>
 		</if>
 
+<<<<<<< HEAD
 		<execute function="AssertElementPresent#assertVisible" locator1="FormFields#TEXT_FIELD">
 			<var name="key_fieldName" value="${fieldName}" />
 		</execute>
+=======
+		<var name="key_fieldName" value="${fieldName}" />
+
+		<execute function="AssertElementPresent#assertVisible" locator1="FormFields#TEXT_FIELD" />
+>>>>>>> compatible
 	</command>
 
 	<command name="viewTextFieldNotVisible">
@@ -633,10 +936,17 @@
 	</command>
 
 	<command name="viewTextLabel">
+<<<<<<< HEAD
 		<execute function="AssertTextEquals#assertText" locator1="FormFields#TEXT_LABEL" value1="${fieldLabel}">
 			<var name="key_fieldLabel" value="${fieldLabel}" />
 			<var name="key_fieldName" value="${fieldName}" />
 		</execute>
+=======
+		<var name="key_fieldLabel" value="${fieldLabel}" />
+		<var name="key_fieldName" value="${fieldName}" />
+
+		<execute function="AssertTextEquals#assertText" locator1="FormFields#TEXT_LABEL" value1="${fieldLabel}" />
+>>>>>>> compatible
 	</command>
 
 	<command name="viewTextMultilineField">
@@ -645,6 +955,7 @@
 			<var name="fieldName" value="${fieldName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute function="AssertElementPresent#assertVisible" locator1="FormFields#TEXT_MULTILINE_FIELD">
 			<var name="key_fieldName" value="${fieldName}" />
 		</execute>
@@ -692,5 +1003,35 @@
 		<var name="key_fieldName" value="${fieldName}" />
 
 		<execute function="AssertTextEquals#assertText" locator1="FormFields#UPLOAD_LABEL" value1="${fieldLabel}" />
+=======
+		<var name="key_fieldName" value="${fieldName}" />
+
+		<execute function="AssertElementPresent#assertVisible" locator1="FormFields#TEXT_MULTILINE_FIELD" />
+	</command>
+
+	<command name="viewTextMultilineLabel">
+		<var name="key_fieldLabel" value="${fieldLabel}" />
+		<var name="key_fieldName" value="${fieldName}" />
+
+		<execute function="AssertTextEquals#assertText" locator1="FormFields#TEXT_MULTILINE_LABEL" value1="${fieldLabel}" />
+	</command>
+
+	<command name="viewTextMultilineValue">
+		<var name="key_fieldName" value="${fieldName}" />
+
+		<execute function="AssertTextEquals" locator1="FormFields#TEXT_MULTILINE_FIELD" value1="${fieldValue}" />
+	</command>
+
+	<command name="viewTextValue">
+		<var name="key_fieldName" value="${fieldName}" />
+
+		<execute function="AssertTextEquals" locator1="FormFields#TEXT_FIELD" value1="${fieldValue}" />
+	</command>
+
+	<command name="viewTextValueAlt">
+		<var name="key_fieldName" value="${fieldName}" />
+
+		<execute function="AssertTextEquals" locator1="FormFields#TEXT_FIELD_ALT" value1="${fieldValue}" />
+>>>>>>> compatible
 	</command>
 </definition>

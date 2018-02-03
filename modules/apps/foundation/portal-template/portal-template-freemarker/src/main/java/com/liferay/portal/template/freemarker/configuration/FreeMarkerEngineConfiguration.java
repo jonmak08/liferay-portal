@@ -29,6 +29,7 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
 )
 public interface FreeMarkerEngineConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(deflt = "false", name = "localized-lookup", required = false)
 	public boolean localizedLookup();
 
@@ -38,16 +39,30 @@ public interface FreeMarkerEngineConfiguration {
 	public int resourceModificationCheck();
 
 	@Meta.AD(name = "allowed-classes", required = false)
+=======
+	@Meta.AD(deflt = "false", required = false)
+	public boolean localizedLookup();
+
+	@Meta.AD(deflt = "60000", required = false)
+	public int resourceModificationCheck();
+
+	@Meta.AD(required = false)
+>>>>>>> compatible
 	public String[] allowedClasses();
 
 	@Meta.AD(
 		deflt = "java.lang.Class|java.lang.ClassLoader|java.lang.Thread",
+<<<<<<< HEAD
 		name = "restricted-classes", required = false
+=======
+		required = false
+>>>>>>> compatible
 	)
 	public String[] restrictedClasses();
 
 	@Meta.AD(
 		deflt = "serviceLocator|utilLocator|objectUtil|staticFieldGetter|staticUtil",
+<<<<<<< HEAD
 		name = "restricted-variables", required = false
 	)
 	public String[] restrictedVariables();
@@ -61,6 +76,16 @@ public interface FreeMarkerEngineConfiguration {
 		deflt = "FTL_liferay.ftl as liferay", name = "macro-library",
 		required = false
 	)
+=======
+		required = false
+	)
+	public String[] restrictedVariables();
+
+	@Meta.AD(deflt = "rethrow", required = false)
+	public String templateExceptionHandler();
+
+	@Meta.AD(deflt = "FTL_liferay.ftl as liferay", required = false)
+>>>>>>> compatible
 	public String[] macroLibrary();
 
 }

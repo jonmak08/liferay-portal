@@ -85,7 +85,11 @@ public class PoshiRunnerContext {
 	}
 
 	public static String getDefaultNamespace() {
+<<<<<<< HEAD
 		return _DEFAULT_NAMESPACE;
+=======
+		return _defaultNamespace;
+>>>>>>> compatible
 	}
 
 	public static String getFilePathFromClassKey(String classKey) {
@@ -96,7 +100,11 @@ public class PoshiRunnerContext {
 	}
 
 	public static String getFilePathFromFileName(String fileName) {
+<<<<<<< HEAD
 		return getFilePathFromFileName(fileName, _DEFAULT_NAMESPACE);
+=======
+		return getFilePathFromFileName(fileName, _defaultNamespace);
+>>>>>>> compatible
 	}
 
 	public static String getFilePathFromFileName(
@@ -120,7 +128,11 @@ public class PoshiRunnerContext {
 	}
 
 	public static int getFunctionLocatorCount(String className) {
+<<<<<<< HEAD
 		return getFunctionLocatorCount(className, _DEFAULT_NAMESPACE);
+=======
+		return getFunctionLocatorCount(className, _defaultNamespace);
+>>>>>>> compatible
 	}
 
 	public static int getFunctionLocatorCount(
@@ -149,7 +161,11 @@ public class PoshiRunnerContext {
 	}
 
 	public static List<String> getMacroCommandReturns(String classCommandName) {
+<<<<<<< HEAD
 		return getMacroCommandReturns(classCommandName, _DEFAULT_NAMESPACE);
+=======
+		return getMacroCommandReturns(classCommandName, _defaultNamespace);
+>>>>>>> compatible
 	}
 
 	public static List<String> getMacroCommandReturns(
@@ -160,7 +176,11 @@ public class PoshiRunnerContext {
 	}
 
 	public static String getMacroCommandSummary(String classCommandName) {
+<<<<<<< HEAD
 		return getMacroCommandSummary(classCommandName, _DEFAULT_NAMESPACE);
+=======
+		return getMacroCommandSummary(classCommandName, _defaultNamespace);
+>>>>>>> compatible
 	}
 
 	public static String getMacroCommandSummary(
@@ -189,11 +209,19 @@ public class PoshiRunnerContext {
 			}
 		}
 
+<<<<<<< HEAD
 		return _DEFAULT_NAMESPACE;
 	}
 
 	public static String getPathLocator(String pathLocatorKey) {
 		return getPathLocator(pathLocatorKey, _DEFAULT_NAMESPACE);
+=======
+		return _defaultNamespace;
+	}
+
+	public static String getPathLocator(String pathLocatorKey) {
+		return getPathLocator(pathLocatorKey, _defaultNamespace);
+>>>>>>> compatible
 	}
 
 	public static String getPathLocator(
@@ -209,13 +237,23 @@ public class PoshiRunnerContext {
 		if ((pathLocator == null) &&
 			_pathExtensions.containsKey(namespace + "." + className)) {
 
+<<<<<<< HEAD
 			String pathExtension = _pathExtensions.get(
 				namespace + "." + className);
+=======
+>>>>>>> compatible
 			String commandName =
 				PoshiRunnerGetterUtil.getCommandNameFromClassCommandName(
 					pathLocatorKey);
 
+<<<<<<< HEAD
 			return getPathLocator(pathExtension + "#" + commandName, namespace);
+=======
+			pathLocator = _pathLocators.get(
+				namespace + "." +
+					_pathExtensions.get(namespace + "." + className) + "#" +
+						commandName);
+>>>>>>> compatible
 		}
 
 		return pathLocator;
@@ -244,7 +282,11 @@ public class PoshiRunnerContext {
 	}
 
 	public static Element getTestCaseCommandElement(String classCommandName) {
+<<<<<<< HEAD
 		return getTestCaseCommandElement(classCommandName, _DEFAULT_NAMESPACE);
+=======
+		return getTestCaseCommandElement(classCommandName, _defaultNamespace);
+>>>>>>> compatible
 	}
 
 	public static Element getTestCaseCommandElement(
@@ -271,7 +313,11 @@ public class PoshiRunnerContext {
 	}
 
 	public static Element getTestCaseRootElement(String className) {
+<<<<<<< HEAD
 		return getTestCaseRootElement(className, _DEFAULT_NAMESPACE);
+=======
+		return getTestCaseRootElement(className, _defaultNamespace);
+>>>>>>> compatible
 	}
 
 	public static Element getTestCaseRootElement(
@@ -284,7 +330,11 @@ public class PoshiRunnerContext {
 		String classType, String commandElementKey) {
 
 		return isCommandElement(
+<<<<<<< HEAD
 			classType, commandElementKey, _DEFAULT_NAMESPACE);
+=======
+			classType, commandElementKey, _defaultNamespace);
+>>>>>>> compatible
 	}
 
 	public static boolean isCommandElement(
@@ -295,7 +345,11 @@ public class PoshiRunnerContext {
 	}
 
 	public static boolean isPathLocator(String pathLocatorKey) {
+<<<<<<< HEAD
 		return isPathLocator(pathLocatorKey, _DEFAULT_NAMESPACE);
+=======
+		return isPathLocator(pathLocatorKey, _defaultNamespace);
+>>>>>>> compatible
 	}
 
 	public static boolean isPathLocator(
@@ -313,7 +367,11 @@ public class PoshiRunnerContext {
 	public static boolean isRootElement(
 		String classType, String rootElementKey) {
 
+<<<<<<< HEAD
 		return isRootElement(classType, rootElementKey, _DEFAULT_NAMESPACE);
+=======
+		return isRootElement(classType, rootElementKey, _defaultNamespace);
+>>>>>>> compatible
 	}
 
 	public static boolean isRootElement(
@@ -819,7 +877,11 @@ public class PoshiRunnerContext {
 						testCaseClassName + "#" + extendsCommandName);
 
 					_commandElements.put(
+<<<<<<< HEAD
 						"test-case#" + _DEFAULT_NAMESPACE + "." +
+=======
+						"test-case#" + _defaultNamespace + "." +
+>>>>>>> compatible
 							testCaseClassName + "#" + extendsCommandName,
 						extendsCommandElement);
 				}
@@ -919,12 +981,21 @@ public class PoshiRunnerContext {
 		throws Exception {
 
 		for (String baseDirName : baseDirNames) {
+<<<<<<< HEAD
 			for (URL url :
 					_getPoshiURLs(includes, baseDirName, _DEFAULT_NAMESPACE)) {
 
 				_storeRootElement(
 					PoshiRunnerGetterUtil.getRootElementFromURL(url),
 					url.getFile(), _DEFAULT_NAMESPACE);
+=======
+			for (URL url : _getPoshiURLs(
+					includes, baseDirName, _defaultNamespace)) {
+
+				_storeRootElement(
+					PoshiRunnerGetterUtil.getRootElementFromURL(url),
+					url.getFile(), _defaultNamespace);
+>>>>>>> compatible
 			}
 		}
 	}
@@ -971,11 +1042,18 @@ public class PoshiRunnerContext {
 
 					_namespaces.add(namespace);
 
+<<<<<<< HEAD
 					List<URL> poshiURLs = _getPoshiURLs(
 						fileSystem, includes,
 						resourceURLString.substring(x + 1), namespace);
 
 					for (URL poshiURL : poshiURLs) {
+=======
+					for (URL poshiURL : _getPoshiURLs(
+							fileSystem, includes,
+							resourceURLString.substring(x + 1), namespace)) {
+
+>>>>>>> compatible
 						_storeRootElement(
 							PoshiRunnerGetterUtil.getRootElementFromURL(
 								poshiURL),
@@ -1325,8 +1403,11 @@ public class PoshiRunnerContext {
 		FileUtil.write("test.generated.properties", sb.toString());
 	}
 
+<<<<<<< HEAD
 	private static final String _DEFAULT_NAMESPACE;
 
+=======
+>>>>>>> compatible
 	private static final String _TEST_BASE_DIR_NAME =
 		PoshiRunnerGetterUtil.getCanonicalPath(PropsValues.TEST_BASE_DIR_NAME);
 
@@ -1341,6 +1422,10 @@ public class PoshiRunnerContext {
 	private static final Map<String, Set<String>> _componentClassCommandNames =
 		new TreeMap<>();
 	private static final Set<String> _componentNames = new TreeSet<>();
+<<<<<<< HEAD
+=======
+	private static final String _defaultNamespace;
+>>>>>>> compatible
 	private static final Map<String, String> _filePaths = new HashMap<>();
 	private static final Map<String, Integer> _functionLocatorCounts =
 		new HashMap<>();
@@ -1381,7 +1466,11 @@ public class PoshiRunnerContext {
 
 		UUID randomUUID = UUID.randomUUID();
 
+<<<<<<< HEAD
 		_DEFAULT_NAMESPACE = randomUUID.toString();
+=======
+		_defaultNamespace = randomUUID.toString();
+>>>>>>> compatible
 
 		String testCaseAvailablePropertyNames =
 			PropsValues.TEST_CASE_AVAILABLE_PROPERTY_NAMES;

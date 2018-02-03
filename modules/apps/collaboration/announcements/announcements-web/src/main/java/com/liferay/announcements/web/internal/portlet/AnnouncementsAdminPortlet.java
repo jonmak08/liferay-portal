@@ -14,7 +14,11 @@
 
 package com.liferay.announcements.web.internal.portlet;
 
+<<<<<<< HEAD
 import com.liferay.announcements.constants.AnnouncementsPortletKeys;
+=======
+import com.liferay.announcements.web.constants.AnnouncementsPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Release;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 
@@ -29,6 +33,7 @@ import org.osgi.service.component.annotations.Reference;
 @Component(
 	immediate = true,
 	property = {
+<<<<<<< HEAD
 		"com.liferay.portlet.css-class-wrapper=portlet-announcements",
 		"com.liferay.portlet.display-category=category.hidden",
 		"com.liferay.portlet.header-portlet-css=/announcements/css/main.css",
@@ -48,6 +53,11 @@ import org.osgi.service.component.annotations.Reference;
 		"javax.portlet.resource-bundle=content.Language",
 		"javax.portlet.security-role-ref=administrator",
 		"javax.portlet.supports.mime-type=text/html"
+=======
+		"com.liferay.portlet.display-category=category.hidden",
+		"javax.portlet.display-name=Announcements",
+		"javax.portlet.name=" + AnnouncementsPortletKeys.ANNOUNCEMENTS_ADMIN
+>>>>>>> compatible
 	},
 	service = Portlet.class
 )

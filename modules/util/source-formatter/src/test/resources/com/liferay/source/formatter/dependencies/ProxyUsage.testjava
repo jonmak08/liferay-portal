@@ -14,8 +14,6 @@
 
 package com.liferay.source.formatter.dependencies;
 
-import com.liferay.portal.kernel.util.StringBundler;
-
 import java.io.Closeable;
 
 import java.lang.reflect.InvocationHandler;
@@ -148,9 +146,7 @@ public class ProxyUsage implements Closeable {
 		}
 		catch (Exception e) {
 			throw new RuntimeException(
-				StringBundler.concat(
-					"Unable to unset ", injectionPoint.getName(), " on ",
-					target),
+				"Unable to unset " + injectionPoint.getName() + " on " + target,
 				e);
 		}
 
@@ -177,9 +173,8 @@ public class ProxyUsage implements Closeable {
 						}
 						catch (Exception e) {
 							throw new RuntimeException(
-								StringBundler.concat(
-									"Unable to set service reference using ",
-									injectionPoint.getName(), " on ", target),
+								"Unable to set service reference using " +
+									injectionPoint.getName() + " on " + target,
 								e);
 						}
 					}
@@ -203,9 +198,8 @@ public class ProxyUsage implements Closeable {
 					}
 					catch (Exception e) {
 						throw new RuntimeException(
-							StringBundler.concat(
-								"Unable to set injection point ",
-								injectionPoint.getName(), " on ", target),
+							"Unable to set injection point " +
+								injectionPoint.getName() + " on " + target,
 							e);
 					}
 				}
@@ -234,9 +228,8 @@ public class ProxyUsage implements Closeable {
 					}
 					catch (Exception e) {
 						throw new RuntimeException(
-							StringBundler.concat(
-								"Unable to set injection point ",
-								injectionPoint.getName(), " on ", target),
+							"Unable to set injection point " +
+								injectionPoint.getName() + " on " + target,
 							e);
 					}
 				}

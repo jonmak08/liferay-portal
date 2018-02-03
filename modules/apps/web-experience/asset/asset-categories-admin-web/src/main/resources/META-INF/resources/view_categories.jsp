@@ -25,10 +25,39 @@ renderResponse.setTitle(assetCategoriesDisplayContext.getCategoryTitle());
 AssetCategoryUtil.addPortletBreadcrumbEntry(assetCategoriesDisplayContext.getVocabulary(), assetCategoriesDisplayContext.getCategory(), request, renderResponse);
 %>
 
+<<<<<<< HEAD
 <clay:navigation-bar
 	inverted="<%= true %>"
 	items="<%= assetCategoriesDisplayContext.getAssetCategoriesNavigationItems() %>"
 />
+=======
+<aui:nav-bar cssClass="collapse-basic-search" markupView="lexicon">
+	<portlet:renderURL var="mainURL">
+		<portlet:param name="mvcPath" value="/view_categories.jsp" />
+		<portlet:param name="vocabularyId" value="<%= String.valueOf(assetCategoriesDisplayContext.getVocabularyId()) %>" />
+	</portlet:renderURL>
+
+	<aui:nav cssClass="navbar-nav">
+		<aui:nav-item href="<%= mainURL.toString() %>" label="categories" selected="<%= true %>" />
+	</aui:nav>
+
+	<c:if test="<%= assetCategoriesDisplayContext.isShowCategoriesSearch() %>">
+		<portlet:renderURL var="portletURL">
+			<portlet:param name="mvcPath" value="/view_categories.jsp" />
+			<portlet:param name="redirect" value="<%= currentURL %>" />
+			<portlet:param name="categoryId" value="<%= String.valueOf(assetCategoriesDisplayContext.getCategoryId()) %>" />
+			<portlet:param name="vocabularyId" value="<%= String.valueOf(assetCategoriesDisplayContext.getVocabularyId()) %>" />
+			<portlet:param name="displayStyle" value="<%= assetCategoriesDisplayContext.getDisplayStyle() %>" />
+		</portlet:renderURL>
+
+		<aui:nav-bar-search>
+			<aui:form action="<%= portletURL %>" name="searchFm">
+				<liferay-ui:input-search markupView="lexicon" />
+			</aui:form>
+		</aui:nav-bar-search>
+	</c:if>
+</aui:nav-bar>
+>>>>>>> compatible
 
 <liferay-frontend:management-bar
 	disabled="<%= assetCategoriesDisplayContext.isDisabledCategoriesManagementBar() %>"
@@ -38,6 +67,7 @@ AssetCategoryUtil.addPortletBreadcrumbEntry(assetCategoriesDisplayContext.getVoc
 	<liferay-frontend:management-bar-buttons>
 		<liferay-frontend:management-bar-filters>
 			<liferay-frontend:management-bar-navigation
+<<<<<<< HEAD
 				label="<%= assetCategoriesDisplayContext.isNavigationCategory() ? assetCategoriesDisplayContext.getCategoryTitle() : null %>"
 			>
 
@@ -53,10 +83,16 @@ AssetCategoryUtil.addPortletBreadcrumbEntry(assetCategoriesDisplayContext.getVoc
 					<liferay-frontend:management-bar-filter-item active="<%= assetCategoriesDisplayContext.isNavigationCategory() %>" id="selectCategory" label="category" url="javascript:;" />
 				</c:if>
 			</liferay-frontend:management-bar-navigation>
+=======
+				navigationKeys='<%= new String[] {"all"} %>'
+				portletURL="<%= PortletURLUtil.clone(assetCategoriesDisplayContext.getIteratorURL(), liferayPortletResponse) %>"
+			/>
+>>>>>>> compatible
 
 			<liferay-frontend:management-bar-sort
 				orderByCol="<%= assetCategoriesDisplayContext.getOrderByCol() %>"
 				orderByType="<%= assetCategoriesDisplayContext.getOrderByType() %>"
+<<<<<<< HEAD
 				orderColumns="<%= assetCategoriesDisplayContext.getOrderColumns() %>"
 				portletURL="<%= PortletURLUtil.clone(assetCategoriesDisplayContext.getIteratorURL(), liferayPortletResponse) %>"
 			/>
@@ -76,6 +112,11 @@ AssetCategoryUtil.addPortletBreadcrumbEntry(assetCategoriesDisplayContext.getVoc
 					</aui:form>
 				</li>
 			</c:if>
+=======
+				orderColumns='<%= new String[] {"create-date"} %>'
+				portletURL="<%= PortletURLUtil.clone(assetCategoriesDisplayContext.getIteratorURL(), liferayPortletResponse) %>"
+			/>
+>>>>>>> compatible
 		</liferay-frontend:management-bar-filters>
 
 		<liferay-portlet:actionURL name="changeDisplayStyle" varImpl="changeDisplayStyleURL">
@@ -83,7 +124,11 @@ AssetCategoryUtil.addPortletBreadcrumbEntry(assetCategoriesDisplayContext.getVoc
 		</liferay-portlet:actionURL>
 
 		<liferay-frontend:management-bar-display-buttons
+<<<<<<< HEAD
 			displayViews="<%= assetCategoriesDisplayContext.getDisplayViews() %>"
+=======
+			displayViews='<%= new String[] {"icon", "descriptive", "list"} %>'
+>>>>>>> compatible
 			portletURL="<%= changeDisplayStyleURL %>"
 			selectedDisplayStyle="<%= assetCategoriesDisplayContext.getDisplayStyle() %>"
 		/>
@@ -184,6 +229,7 @@ AssetCategoryUtil.addPortletBreadcrumbEntry(assetCategoriesDisplayContext.getVoc
 					</liferay-ui:search-container-column-text>
 				</c:when>
 				<c:when test='<%= Objects.equals(assetCategoriesDisplayContext.getDisplayStyle(), "list") %>'>
+<<<<<<< HEAD
 					<c:choose>
 						<c:when test="<%= assetCategoriesDisplayContext.isFlattenedNavigationAllowed() %>">
 							<liferay-ui:search-container-column-text
@@ -220,6 +266,26 @@ AssetCategoryUtil.addPortletBreadcrumbEntry(assetCategoriesDisplayContext.getVoc
 							/>
 						</c:otherwise>
 					</c:choose>
+=======
+					<liferay-ui:search-container-column-text
+						cssClass="table-cell-content"
+						href="<%= rowURL %>"
+						name="category"
+						value="<%= HtmlUtil.escape(curCategory.getTitle(locale)) %>"
+					/>
+
+					<liferay-ui:search-container-column-text
+						cssClass="table-cell-content"
+						name="description"
+						value="<%= HtmlUtil.escape(curCategory.getDescription(locale)) %>"
+					/>
+
+					<liferay-ui:search-container-column-text
+						cssClass="table-cell-content"
+						name="subcategories"
+						value="<%= String.valueOf(subcategoriesCount) %>"
+					/>
+>>>>>>> compatible
 
 					<liferay-ui:search-container-column-date
 						name="create-date"
@@ -253,6 +319,7 @@ AssetCategoryUtil.addPortletBreadcrumbEntry(assetCategoriesDisplayContext.getVoc
 	</liferay-frontend:add-menu>
 </c:if>
 
+<<<<<<< HEAD
 <portlet:actionURL name="moveCategory" var="moveCategoryURL">
 	<portlet:param name="redirect" value="<%= currentURL %>" />
 	<portlet:param name="mvcPath" value="/view_categories.jsp" />
@@ -300,6 +367,9 @@ AssetCategoryUtil.addPortletBreadcrumbEntry(assetCategoriesDisplayContext.getVoc
 		}
 	);
 
+=======
+<aui:script sandbox="<%= true %>">
+>>>>>>> compatible
 	$('#<portlet:namespace />deleteSelectedCategories').on(
 		'click',
 		function() {

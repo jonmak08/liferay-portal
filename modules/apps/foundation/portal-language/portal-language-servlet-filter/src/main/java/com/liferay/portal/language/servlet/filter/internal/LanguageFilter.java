@@ -80,10 +80,17 @@ public class LanguageFilter extends BasePortalFilter {
 	}
 
 	protected String translateResponse(String languageId, String content) {
+<<<<<<< HEAD
 		Locale locale = LocaleUtil.fromLanguageId(languageId);
 
 		ResourceBundle resourceBundle =
 			_resourceBundleLoader.loadResourceBundle(locale);
+=======
+		ResourceBundle resourceBundle =
+			_resourceBundleLoader.loadResourceBundle(languageId);
+
+		Locale locale = LocaleUtil.fromLanguageId(languageId);
+>>>>>>> compatible
 
 		return LanguageUtil.process(resourceBundle, locale, content);
 	}

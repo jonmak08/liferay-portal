@@ -90,7 +90,11 @@ public class PortletDataContextZipWriterTest {
 
 		_portletDataContext.addZipEntry(_PATH, bytes);
 
+<<<<<<< HEAD
 		Assert.assertTrue(methodHandlers.toString(), methodHandlers.isEmpty());
+=======
+		Assert.assertTrue(methodHandlers.isEmpty());
+>>>>>>> compatible
 	}
 
 	@Test
@@ -125,7 +129,11 @@ public class PortletDataContextZipWriterTest {
 
 		_portletDataContext.addZipEntry(_PATH, is);
 
+<<<<<<< HEAD
 		Assert.assertTrue(methodHandlers.toString(), methodHandlers.isEmpty());
+=======
+		Assert.assertTrue(methodHandlers.isEmpty());
+>>>>>>> compatible
 	}
 
 	@Test
@@ -158,7 +166,11 @@ public class PortletDataContextZipWriterTest {
 
 		_portletDataContext.addZipEntry(_PATH, string);
 
+<<<<<<< HEAD
 		Assert.assertTrue(methodHandlers.toString(), methodHandlers.isEmpty());
+=======
+		Assert.assertTrue(methodHandlers.isEmpty());
+>>>>>>> compatible
 	}
 
 	private static final String _PATH = "/test.xml";

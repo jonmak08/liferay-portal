@@ -14,19 +14,27 @@
 
 package com.liferay.portal.security.auth;
 
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.concurrent.ConcurrentHashSet;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Portlet;
 import com.liferay.portal.kernel.portlet.LiferayPortletURL;
 import com.liferay.portal.kernel.portlet.PortletIdCodec;
 import com.liferay.portal.kernel.security.auth.BaseAuthTokenWhitelist;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.DigesterUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.util.PropsValues;
 
-import java.util.Collections;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+
+import javax.servlet.http.HttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -137,6 +145,7 @@ public class AuthTokenWhitelistImpl extends BaseAuthTokenWhitelist {
 		}
 
 		return sharedSecret.equals(
+<<<<<<< HEAD
 			DigesterUtil.digest(PropsValues.AUTH_TOKEN_SHARED_SECRET));
 	}
 
@@ -146,5 +155,14 @@ public class AuthTokenWhitelistImpl extends BaseAuthTokenWhitelist {
 		new ConcurrentHashMap<>());
 	private final Set<String> _portletInvocationWhitelist =
 		Collections.newSetFromMap(new ConcurrentHashMap<>());
+=======
+			Encryptor.digest(PropsValues.AUTH_TOKEN_SHARED_SECRET));
+	}
+
+	private final Set<String> _originCSRFWhitelist = new ConcurrentHashSet<>();
+	private final Set<String> _portletCSRFWhitelist = new ConcurrentHashSet<>();
+	private final Set<String> _portletInvocationWhitelist =
+		new ConcurrentHashSet<>();
+>>>>>>> compatible
 
 }

@@ -32,8 +32,13 @@ import com.liferay.social.kernel.model.SocialRequest;
 import com.liferay.social.kernel.model.SocialRequestFeedEntry;
 import com.liferay.social.kernel.service.SocialActivityLocalService;
 import com.liferay.social.kernel.service.SocialRelationLocalService;
+<<<<<<< HEAD
 import com.liferay.social.networking.web.internal.friends.social.FriendsActivityKeys;
 import com.liferay.social.networking.web.internal.friends.social.FriendsRequestKeys;
+=======
+import com.liferay.social.networking.friends.social.FriendsActivityKeys;
+import com.liferay.social.networking.friends.social.FriendsRequestKeys;
+>>>>>>> compatible
 
 /**
  * @author Adolfo Pérez

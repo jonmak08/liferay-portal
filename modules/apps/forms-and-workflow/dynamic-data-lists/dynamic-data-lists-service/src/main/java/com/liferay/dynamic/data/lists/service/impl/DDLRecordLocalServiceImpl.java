@@ -16,7 +16,10 @@ package com.liferay.dynamic.data.lists.service.impl;
 
 import com.liferay.document.library.kernel.util.DLUtil;
 import com.liferay.dynamic.data.lists.exception.NoSuchRecordException;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.lists.exception.RecordGroupIdException;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.lists.model.DDLFormRecord;
 import com.liferay.dynamic.data.lists.model.DDLRecord;
 import com.liferay.dynamic.data.lists.model.DDLRecordConstants;
@@ -116,8 +119,11 @@ public class DDLRecordLocalServiceImpl extends DDLRecordLocalServiceBaseImpl {
 		DDLRecordSet recordSet = ddlRecordSetPersistence.findByPrimaryKey(
 			recordSetId);
 
+<<<<<<< HEAD
 		validate(groupId, recordSet);
 
+=======
+>>>>>>> compatible
 		long recordId = counterLocalService.increment();
 
 		DDLRecord record = ddlRecordPersistence.create(recordId);
@@ -137,7 +143,10 @@ public class DDLRecordLocalServiceImpl extends DDLRecordLocalServiceBaseImpl {
 		record.setDDMStorageId(ddmStorageId);
 
 		record.setRecordSetId(recordSetId);
+<<<<<<< HEAD
 		record.setRecordSetVersion(recordSet.getVersion());
+=======
+>>>>>>> compatible
 		record.setVersion(DDLRecordConstants.VERSION_DEFAULT);
 		record.setDisplayIndex(displayIndex);
 
@@ -145,6 +154,7 @@ public class DDLRecordLocalServiceImpl extends DDLRecordLocalServiceBaseImpl {
 
 		// Record version
 
+<<<<<<< HEAD
 		int status = GetterUtil.getInteger(
 			serviceContext.getAttribute("status"),
 			WorkflowConstants.STATUS_DRAFT);
@@ -152,6 +162,11 @@ public class DDLRecordLocalServiceImpl extends DDLRecordLocalServiceBaseImpl {
 		DDLRecordVersion recordVersion = addRecordVersion(
 			user, record, ddmStorageId, DDLRecordConstants.VERSION_DEFAULT,
 			displayIndex, status);
+=======
+		DDLRecordVersion recordVersion = addRecordVersion(
+			user, record, ddmStorageId, DDLRecordConstants.VERSION_DEFAULT,
+			displayIndex, WorkflowConstants.STATUS_DRAFT);
+>>>>>>> compatible
 
 		// Asset
 
@@ -164,6 +179,7 @@ public class DDLRecordLocalServiceImpl extends DDLRecordLocalServiceBaseImpl {
 
 		// Workflow
 
+<<<<<<< HEAD
 		if (serviceContext.getWorkflowAction() ==
 				WorkflowConstants.ACTION_PUBLISH) {
 
@@ -173,6 +189,12 @@ public class DDLRecordLocalServiceImpl extends DDLRecordLocalServiceBaseImpl {
 				recordVersion.getRecordVersionId(), recordVersion,
 				serviceContext);
 		}
+=======
+		WorkflowHandlerRegistryUtil.startWorkflowInstance(
+			user.getCompanyId(), groupId, userId,
+			getWorkflowAssetClassName(recordSet),
+			recordVersion.getRecordVersionId(), recordVersion, serviceContext);
+>>>>>>> compatible
 
 		return record;
 	}
@@ -867,7 +889,11 @@ public class DDLRecordLocalServiceImpl extends DDLRecordLocalServiceBaseImpl {
 
 		record.setModifiedDate(serviceContext.getModifiedDate(null));
 
+<<<<<<< HEAD
 		record = ddlRecordPersistence.update(record);
+=======
+		ddlRecordPersistence.update(record);
+>>>>>>> compatible
 
 		// Record version
 
@@ -913,6 +939,7 @@ public class DDLRecordLocalServiceImpl extends DDLRecordLocalServiceBaseImpl {
 
 		// Workflow
 
+<<<<<<< HEAD
 		if (serviceContext.getWorkflowAction() ==
 				WorkflowConstants.ACTION_PUBLISH) {
 
@@ -921,6 +948,12 @@ public class DDLRecordLocalServiceImpl extends DDLRecordLocalServiceBaseImpl {
 				DDLRecord.class.getName(), recordVersion.getRecordVersionId(),
 				recordVersion, serviceContext);
 		}
+=======
+		WorkflowHandlerRegistryUtil.startWorkflowInstance(
+			user.getCompanyId(), record.getGroupId(), userId,
+			DDLRecord.class.getName(), recordVersion.getRecordVersionId(),
+			recordVersion, serviceContext);
+>>>>>>> compatible
 
 		return record;
 	}
@@ -1084,10 +1117,14 @@ public class DDLRecordLocalServiceImpl extends DDLRecordLocalServiceBaseImpl {
 						WorkflowConstants.STATUS_APPROVED);
 
 				if (!approvedRecordVersions.isEmpty()) {
+<<<<<<< HEAD
 					DDLRecordVersion approvedRecordVersion =
 						approvedRecordVersions.get(0);
 
 					newVersion = approvedRecordVersion.getVersion();
+=======
+					newVersion = approvedRecordVersions.get(0).getVersion();
+>>>>>>> compatible
 				}
 
 				record.setVersion(newVersion);
@@ -1124,7 +1161,10 @@ public class DDLRecordLocalServiceImpl extends DDLRecordLocalServiceBaseImpl {
 		recordVersion.setCreateDate(record.getModifiedDate());
 		recordVersion.setDDMStorageId(ddmStorageId);
 		recordVersion.setRecordSetId(record.getRecordSetId());
+<<<<<<< HEAD
 		recordVersion.setRecordSetVersion(record.getRecordSetVersion());
+=======
+>>>>>>> compatible
 		recordVersion.setRecordId(record.getRecordId());
 		recordVersion.setVersion(version);
 		recordVersion.setDisplayIndex(displayIndex);
@@ -1364,6 +1404,7 @@ public class DDLRecordLocalServiceImpl extends DDLRecordLocalServiceBaseImpl {
 		ddlRecordVersionPersistence.update(recordVersion);
 	}
 
+<<<<<<< HEAD
 	protected void validate(long groupId, DDLRecordSet recordSet)
 		throws PortalException {
 
@@ -1373,6 +1414,8 @@ public class DDLRecordLocalServiceImpl extends DDLRecordLocalServiceBaseImpl {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	@ServiceReference(type = DDM.class)
 	protected DDM ddm;
 

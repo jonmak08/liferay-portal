@@ -102,7 +102,11 @@ if (Validator.isNotNull(keywords)) {
 	redirectURL.setWindowState(LiferayWindowState.POP_UP);
 	%>
 
+<<<<<<< HEAD
 	<liferay-asset:asset-add-button
+=======
+	<liferay-ui:asset-add-button
+>>>>>>> compatible
 		redirect="<%= redirectURL.toString() %>"
 	/>
 </div>
@@ -139,7 +143,11 @@ if (Validator.isNotNull(keywords)) {
 				assetEntryQuery.setOrderByType2("ASC");
 				assetEntryQuery.setStart(0);
 
+<<<<<<< HEAD
 				BaseModelSearchResult<AssetEntry> baseModelSearchResult = assetHelper.searchAssetEntries(request, assetEntryQuery, 0, delta);
+=======
+				BaseModelSearchResult<AssetEntry> baseModelSearchResult = AssetUtil.searchAssetEntries(request, assetEntryQuery, 0, delta);
+>>>>>>> compatible
 
 				for (AssetEntry assetEntry : baseModelSearchResult.getBaseModels()) {
 					String className = PortalUtil.getClassName(assetEntry.getClassNameId());

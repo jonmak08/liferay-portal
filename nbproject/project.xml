@@ -20,6 +20,7 @@
 					<encoding>UTF-8</encoding>
 				</source-folder>
 				<source-folder>
+<<<<<<< HEAD
 					<label>modules\apps\foundation\petra\petra-content\src\main\java</label>
 					<type>java</type>
 					<location>modules/apps/foundation/petra/petra-content/src/main/java</location>
@@ -112,6 +113,10 @@
 				<source-folder>
 					<label>modules\core\registry-api\src\main\java</label>
 					<type>java</type>
+=======
+					<label>modules\core\registry-api\src\main\java</label>
+					<type>java</type>
+>>>>>>> compatible
 					<location>modules/core/registry-api/src/main/java</location>
 					<encoding>UTF-8</encoding>
 				</source-folder>
@@ -384,6 +389,7 @@
 		</general-data>
 		<java-data xmlns="http://www.netbeans.org/ns/freeform-project-java/4">
 			<compilation-unit>
+<<<<<<< HEAD
 				<package-root>modules/apps/foundation/petra/petra-content/src/main/java</package-root>
 				<package-root>modules/apps/foundation/petra/petra-encryptor/src/main/java</package-root>
 				<package-root>modules/apps/foundation/petra/petra-log4j/src/main/java</package-root>
@@ -399,6 +405,8 @@
 				<package-root>modules/core/petra/petra-process/src/main/java</package-root>
 				<package-root>modules/core/petra/petra-reflect/src/main/java</package-root>
 				<package-root>modules/core/petra/petra-string/src/main/java</package-root>
+=======
+>>>>>>> compatible
 				<package-root>modules/core/registry-api/src/main/java</package-root>
 				<package-root>portal-impl/src</package-root>
 				<package-root>portal-impl/test/integration</package-root>

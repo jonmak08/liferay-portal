@@ -14,9 +14,15 @@
 
 package com.liferay.source.formatter.checks;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
+=======
+import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
+import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -201,12 +207,23 @@ public class JSPUnusedTermsCheck extends BaseFileCheck {
 		String fileName, String portletDefineObjectProperty,
 		Set<String> checkedFileNames, Set<String> includeFileNames) {
 
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(4);
 
 		sb.append("((/)|(\\*)|(\\+(\\+)?)|(-(-)?)|\\(|=)?( )?");
 		sb.append(portletDefineObjectProperty);
 		sb.append("( )?(\\.|(((\\+)|(-)|(\\*)|(/)|(%)|(\\|)|(&)|(\\^))?(=))");
 		sb.append("|(\\+(\\+)?)|(-(-)?)|(\\)))?");
+=======
+		StringBundler sb = new StringBundler(6);
+
+		sb.append("((/)|(\\*)|(\\+(\\+)?)|(-(-)?)|\\(|=)?( )?");
+		sb.append(portletDefineObjectProperty);
+		sb.append("( )?(\\.");
+		sb.append("|(((\\+)|(-)|(\\*)|(/)|(%)|(\\|)|(&)|(\\^))?(=))");
+		sb.append("|(\\+(\\+)?)|(-(-)?)");
+		sb.append("|(\\)))?");
+>>>>>>> compatible
 
 		return _hasUnusedJSPTerm(
 			fileName, sb.toString(), "portletDefineObjectProperty",
@@ -229,12 +246,23 @@ public class JSPUnusedTermsCheck extends BaseFileCheck {
 			return false;
 		}
 
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(4);
 
 		sb.append("((/)|(\\*)|(\\+(\\+)?)|(-(-)?)|\\(|=)?( )?");
 		sb.append(variableName);
 		sb.append("( )?(\\.|(((\\+)|(-)|(\\*)|(/)|(%)|(\\|)|(&)|(\\^))?(=))");
 		sb.append("|(\\+(\\+)?)|(-(-)?)|(\\)))?");
+=======
+		StringBundler sb = new StringBundler(6);
+
+		sb.append("((/)|(\\*)|(\\+(\\+)?)|(-(-)?)|\\(|=)?( )?");
+		sb.append(variableName);
+		sb.append("( )?(\\.");
+		sb.append("|(((\\+)|(-)|(\\*)|(/)|(%)|(\\|)|(&)|(\\^))?(=))");
+		sb.append("|(\\+(\\+)?)|(-(-)?)");
+		sb.append("|(\\)))?");
+>>>>>>> compatible
 
 		return _hasUnusedJSPTerm(
 			fileName, sb.toString(), "variable", checkedFileNames,

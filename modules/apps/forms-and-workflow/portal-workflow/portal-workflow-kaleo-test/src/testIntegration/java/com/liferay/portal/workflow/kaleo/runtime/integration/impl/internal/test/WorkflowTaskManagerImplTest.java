@@ -15,6 +15,7 @@
 package com.liferay.portal.workflow.kaleo.runtime.integration.impl.internal.test;
 
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
+<<<<<<< HEAD
 import com.liferay.blogs.model.BlogsEntry;
 import com.liferay.blogs.service.BlogsEntryLocalServiceUtil;
 import com.liferay.document.library.kernel.model.DLFileEntry;
@@ -25,6 +26,10 @@ import com.liferay.document.library.kernel.model.DLFolder;
 import com.liferay.document.library.kernel.model.DLFolderConstants;
 import com.liferay.document.library.kernel.service.DLAppServiceUtil;
 import com.liferay.document.library.kernel.service.DLTrashServiceUtil;
+=======
+import com.liferay.blogs.kernel.model.BlogsEntry;
+import com.liferay.blogs.kernel.service.BlogsEntryLocalServiceUtil;
+>>>>>>> compatible
 import com.liferay.dynamic.data.lists.model.DDLRecord;
 import com.liferay.dynamic.data.lists.model.DDLRecordSet;
 import com.liferay.dynamic.data.lists.model.DDLRecordVersion;
@@ -36,6 +41,7 @@ import com.liferay.journal.model.JournalArticleConstants;
 import com.liferay.journal.model.JournalFolder;
 import com.liferay.journal.model.JournalFolderConstants;
 import com.liferay.journal.service.JournalArticleLocalServiceUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.model.Organization;
 import com.liferay.portal.kernel.model.RoleConstants;
@@ -48,14 +54,22 @@ import com.liferay.portal.kernel.service.OrganizationLocalServiceUtil;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
+=======
+import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.kernel.workflow.WorkflowTask;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 
+<<<<<<< HEAD
 import java.util.HashMap;
 import java.util.Map;
 
+=======
+>>>>>>> compatible
 import org.junit.Assert;
 import org.junit.ClassRule;
 import org.junit.Rule;
@@ -66,12 +80,17 @@ import org.junit.runner.RunWith;
  * @author Inácio Nery
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class WorkflowTaskManagerImplTest
 	extends BaseWorkflowTaskManagerTestCase {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
 
 	@Test
@@ -264,6 +283,17 @@ public class WorkflowTaskManagerImplTest
 	@Test
 	public void testApproveJoinXorWorkflow() throws Exception {
 		activateWorkflow(BlogsEntry.class.getName(), 0, 0, JOIN_XOR, 1);
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+
+	@Test
+	public void testApproveJoinXorWorkflow() throws Exception {
+		createJoinXorWorkflow();
+
+		activateWorkflow(BlogsEntry.class.getName(), 0, 0, "Join Xor", 1);
+>>>>>>> compatible
 
 		BlogsEntry blogsEntry = addBlogsEntry();
 
@@ -271,9 +301,13 @@ public class WorkflowTaskManagerImplTest
 
 		completeWorkflowTask(siteAdminUser, "join-xor", "task1");
 
+<<<<<<< HEAD
 		WorkflowTask workflowTask2 = getWorkflowTask(
 			siteAdminUser, "task2", true, BlogsEntry.class.getName(),
 			blogsEntry.getEntryId());
+=======
+		WorkflowTask workflowTask2 = getWorkflowTask("task2", true);
+>>>>>>> compatible
 
 		Assert.assertTrue(workflowTask2.isCompleted());
 
@@ -306,7 +340,11 @@ public class WorkflowTaskManagerImplTest
 
 		completeWorkflowTask(adminUser, Constants.APPROVE);
 
+<<<<<<< HEAD
 		getWorkflowInstance(JournalArticle.class.getName(), article.getId());
+=======
+		checkWorkflowInstance(JournalArticle.class.getName(), article.getId());
+>>>>>>> compatible
 
 		article = JournalArticleLocalServiceUtil.getArticle(article.getId());
 
@@ -342,7 +380,11 @@ public class WorkflowTaskManagerImplTest
 
 		completeWorkflowTask(adminUser, Constants.APPROVE);
 
+<<<<<<< HEAD
 		getWorkflowInstance(JournalArticle.class.getName(), article.getId());
+=======
+		checkWorkflowInstance(JournalArticle.class.getName(), article.getId());
+>>>>>>> compatible
 
 		article = JournalArticleLocalServiceUtil.getArticle(article.getId());
 
@@ -384,7 +426,11 @@ public class WorkflowTaskManagerImplTest
 
 		completeWorkflowTask(adminUser, Constants.APPROVE);
 
+<<<<<<< HEAD
 		getWorkflowInstance(JournalArticle.class.getName(), article.getId());
+=======
+		checkWorkflowInstance(JournalArticle.class.getName(), article.getId());
+>>>>>>> compatible
 
 		article = JournalArticleLocalServiceUtil.getArticle(article.getId());
 
@@ -419,7 +465,11 @@ public class WorkflowTaskManagerImplTest
 
 		completeWorkflowTask(adminUser, Constants.APPROVE);
 
+<<<<<<< HEAD
 		getWorkflowInstance(JournalArticle.class.getName(), article.getId());
+=======
+		checkWorkflowInstance(JournalArticle.class.getName(), article.getId());
+>>>>>>> compatible
 
 		article = JournalArticleLocalServiceUtil.getArticle(article.getId());
 
@@ -432,6 +482,7 @@ public class WorkflowTaskManagerImplTest
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testApproveOrganizationParentReviewer() throws Exception {
 		Organization parentOrganization = createOrganization(true);
 
@@ -573,6 +624,8 @@ public class WorkflowTaskManagerImplTest
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testApproveWorkflowBlogsEntryAsSiteAdmin() throws Exception {
 		activateSingleApproverWorkflow(BlogsEntry.class.getName(), 0, 0);
 
@@ -615,7 +668,11 @@ public class WorkflowTaskManagerImplTest
 
 		DDLRecordVersion recordVersion = record.getRecordVersion();
 
+<<<<<<< HEAD
 		getWorkflowInstance(
+=======
+		checkWorkflowInstance(
+>>>>>>> compatible
 			DDLRecord.class.getName(), recordVersion.getRecordVersionId());
 
 		record = DDLRecordLocalServiceUtil.getRecord(record.getRecordId());
@@ -658,6 +715,7 @@ public class WorkflowTaskManagerImplTest
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testMovetoTrashAndRestoreFromTrashPendingDLFileEntryInDLFolderWithWorkflow()
 		throws Exception {
 
@@ -747,6 +805,8 @@ public class WorkflowTaskManagerImplTest
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testRejectWorkflowBlogsEntryAndViewAssignee() throws Exception {
 		activateSingleApproverWorkflow(BlogsEntry.class.getName(), 0, 0);
 
@@ -777,6 +837,7 @@ public class WorkflowTaskManagerImplTest
 		deactivateWorkflow(BlogsEntry.class.getName(), 0, 0);
 	}
 
+<<<<<<< HEAD
 	@Test
 	public void testSearchWorkflowTaskByAssetTitle() throws Exception {
 		activateSingleApproverWorkflow(BlogsEntry.class.getName(), 0, 0);
@@ -794,4 +855,6 @@ public class WorkflowTaskManagerImplTest
 		deactivateWorkflow(BlogsEntry.class.getName(), 0, 0);
 	}
 
+=======
+>>>>>>> compatible
 }

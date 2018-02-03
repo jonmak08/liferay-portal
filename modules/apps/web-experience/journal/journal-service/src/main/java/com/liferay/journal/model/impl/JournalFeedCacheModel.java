@@ -21,6 +21,10 @@ import com.liferay.journal.model.JournalFeed;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -123,7 +127,11 @@ public class JournalFeedCacheModel implements CacheModel<JournalFeed>,
 		JournalFeedImpl journalFeedImpl = new JournalFeedImpl();
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			journalFeedImpl.setUuid("");
+=======
+			journalFeedImpl.setUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalFeedImpl.setUuid(uuid);
@@ -135,7 +143,11 @@ public class JournalFeedCacheModel implements CacheModel<JournalFeed>,
 		journalFeedImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			journalFeedImpl.setUserName("");
+=======
+			journalFeedImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalFeedImpl.setUserName(userName);
@@ -156,42 +168,66 @@ public class JournalFeedCacheModel implements CacheModel<JournalFeed>,
 		}
 
 		if (feedId == null) {
+<<<<<<< HEAD
 			journalFeedImpl.setFeedId("");
+=======
+			journalFeedImpl.setFeedId(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalFeedImpl.setFeedId(feedId);
 		}
 
 		if (name == null) {
+<<<<<<< HEAD
 			journalFeedImpl.setName("");
+=======
+			journalFeedImpl.setName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalFeedImpl.setName(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			journalFeedImpl.setDescription("");
+=======
+			journalFeedImpl.setDescription(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalFeedImpl.setDescription(description);
 		}
 
 		if (DDMStructureKey == null) {
+<<<<<<< HEAD
 			journalFeedImpl.setDDMStructureKey("");
+=======
+			journalFeedImpl.setDDMStructureKey(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalFeedImpl.setDDMStructureKey(DDMStructureKey);
 		}
 
 		if (DDMTemplateKey == null) {
+<<<<<<< HEAD
 			journalFeedImpl.setDDMTemplateKey("");
+=======
+			journalFeedImpl.setDDMTemplateKey(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalFeedImpl.setDDMTemplateKey(DDMTemplateKey);
 		}
 
 		if (DDMRendererTemplateKey == null) {
+<<<<<<< HEAD
 			journalFeedImpl.setDDMRendererTemplateKey("");
+=======
+			journalFeedImpl.setDDMRendererTemplateKey(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalFeedImpl.setDDMRendererTemplateKey(DDMRendererTemplateKey);
@@ -200,42 +236,66 @@ public class JournalFeedCacheModel implements CacheModel<JournalFeed>,
 		journalFeedImpl.setDelta(delta);
 
 		if (orderByCol == null) {
+<<<<<<< HEAD
 			journalFeedImpl.setOrderByCol("");
+=======
+			journalFeedImpl.setOrderByCol(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalFeedImpl.setOrderByCol(orderByCol);
 		}
 
 		if (orderByType == null) {
+<<<<<<< HEAD
 			journalFeedImpl.setOrderByType("");
+=======
+			journalFeedImpl.setOrderByType(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalFeedImpl.setOrderByType(orderByType);
 		}
 
 		if (targetLayoutFriendlyUrl == null) {
+<<<<<<< HEAD
 			journalFeedImpl.setTargetLayoutFriendlyUrl("");
+=======
+			journalFeedImpl.setTargetLayoutFriendlyUrl(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalFeedImpl.setTargetLayoutFriendlyUrl(targetLayoutFriendlyUrl);
 		}
 
 		if (targetPortletId == null) {
+<<<<<<< HEAD
 			journalFeedImpl.setTargetPortletId("");
+=======
+			journalFeedImpl.setTargetPortletId(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalFeedImpl.setTargetPortletId(targetPortletId);
 		}
 
 		if (contentField == null) {
+<<<<<<< HEAD
 			journalFeedImpl.setContentField("");
+=======
+			journalFeedImpl.setContentField(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalFeedImpl.setContentField(contentField);
 		}
 
 		if (feedFormat == null) {
+<<<<<<< HEAD
 			journalFeedImpl.setFeedFormat("");
+=======
+			journalFeedImpl.setFeedFormat(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalFeedImpl.setFeedFormat(feedFormat);
@@ -292,7 +352,11 @@ public class JournalFeedCacheModel implements CacheModel<JournalFeed>,
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		if (uuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(uuid);
@@ -307,7 +371,11 @@ public class JournalFeedCacheModel implements CacheModel<JournalFeed>,
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -317,42 +385,66 @@ public class JournalFeedCacheModel implements CacheModel<JournalFeed>,
 		objectOutput.writeLong(modifiedDate);
 
 		if (feedId == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(feedId);
 		}
 
 		if (name == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(description);
 		}
 
 		if (DDMStructureKey == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(DDMStructureKey);
 		}
 
 		if (DDMTemplateKey == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(DDMTemplateKey);
 		}
 
 		if (DDMRendererTemplateKey == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(DDMRendererTemplateKey);
@@ -361,42 +453,66 @@ public class JournalFeedCacheModel implements CacheModel<JournalFeed>,
 		objectOutput.writeInt(delta);
 
 		if (orderByCol == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(orderByCol);
 		}
 
 		if (orderByType == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(orderByType);
 		}
 
 		if (targetLayoutFriendlyUrl == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(targetLayoutFriendlyUrl);
 		}
 
 		if (targetPortletId == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(targetPortletId);
 		}
 
 		if (contentField == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(contentField);
 		}
 
 		if (feedFormat == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(feedFormat);

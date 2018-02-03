@@ -22,16 +22,28 @@ User selUser = (User)request.getAttribute("user.selUser");
 
 <aui:model-context bean="<%= selUser %>" model="<%= User.class %>" />
 
+<<<<<<< HEAD
 <liferay-asset:asset-categories-error />
 
 <liferay-asset:asset-tags-error />
+=======
+<liferay-ui:asset-categories-error />
+
+<liferay-ui:asset-tags-error />
+>>>>>>> compatible
 
 <h3><liferay-ui:message key="categorization" /></h3>
 
 <aui:fieldset>
+<<<<<<< HEAD
 	<liferay-asset:asset-categories-selector className="<%= User.class.getName() %>" classPK="<%= (selUser != null) ? selUser.getPrimaryKey() : 0 %>" />
 
 	<liferay-asset:asset-tags-selector className="<%= User.class.getName() %>" classPK="<%= (selUser != null) ? selUser.getPrimaryKey() : 0 %>" />
+=======
+	<aui:input name="categories" type="assetCategories" />
+
+	<aui:input name="tags" type="assetTags" />
+>>>>>>> compatible
 </aui:fieldset>
 
 <aui:script>

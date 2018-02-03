@@ -37,7 +37,11 @@
 
 		<execute macro="Permissions#setUpRegRoleLoginUserCP">
 			<var name="portletName" value="${portletName1}" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="Regrole Name" />
+=======
+			<var name="roleName" value="Regrole Name" />
+>>>>>>> compatible
 			<var name="userEmailAddress" value="userea@liferay.com" />
 			<var name="userFirstName" value="userfn" />
 			<var name="userLastName" value="userln" />
@@ -50,6 +54,7 @@
 
 		<execute function="AssertElementNotPresent" locator1="ControlMenu#SIMULATION" />
 
+<<<<<<< HEAD
 		<execute macro="Permissions#definePermissionViaJSONAPI">
 			<var name="resourceAction" value="PREVIEW_IN_DEVICE" />
 			<var name="resourceName" value="com.liferay.portal.kernel.model.Group" />
@@ -57,6 +62,12 @@
 		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
+=======
+		<execute macro="Permissions#definePermissionLoginUserCP">
+			<var name="permissionDefinitionKey" value="CONTROL_PANEL_SITES_SITES_RESOURCE_PERMISSIONS_SITE_PREVIEW_IN_DEVICE_CHECKBOX" />
+			<var name="permissionDefinitionValue" value="Preview in Device" />
+			<var name="roleName" value="Regrole Name" />
+>>>>>>> compatible
 			<var name="userLoginEmailAddress" value="userea@liferay.com" />
 			<var name="userLoginFullName" value="userfn userln" />
 		</execute>
@@ -67,6 +78,7 @@
 			<var name="deviceType" value="smartphone" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Permissions#removePermissionViaAPI">
 			<var name="resourceAction" value="PREVIEW_IN_DEVICE" />
 			<var name="resourceName" value="com.liferay.portal.kernel.model.Group" />
@@ -74,6 +86,12 @@
 		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
+=======
+		<execute macro="Permissions#removePermissionLoginUserCP">
+			<var name="permissionDefinitionKey" value="CONTROL_PANEL_SITES_SITES_RESOURCE_PERMISSIONS_SITE_PREVIEW_IN_DEVICE_CHECKBOX" />
+			<var name="permissionDefinitionValue" value="Preview in Device" />
+			<var name="roleName" value="Regrole Name" />
+>>>>>>> compatible
 			<var name="userLoginEmailAddress" value="userea@liferay.com" />
 			<var name="userLoginFullName" value="userfn userln" />
 		</execute>

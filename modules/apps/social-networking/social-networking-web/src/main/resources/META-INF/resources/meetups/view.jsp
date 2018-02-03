@@ -51,7 +51,11 @@ else if (tabs1.equals("my-meetups")) {
 	%>
 
 	<aui:button-row>
+<<<<<<< HEAD
 		<aui:button href="<%= addMeetupsEntryURL.toString() %>" primary="<%= true %>" value="add-meetup" />
+=======
+		<aui:button cssClass="btn-lg" href="<%= addMeetupsEntryURL.toString() %>" primary="<%= true %>" value="add-meetup" />
+>>>>>>> compatible
 	</aui:button-row>
 
 	<br />

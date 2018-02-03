@@ -19,6 +19,7 @@
 
 		<check name="BNDBundleInformationCheck" />
 		<check name="BNDDirectoryNameCheck" />
+<<<<<<< HEAD
 		<check name="BNDExportsCheck">
 			<property name="allowedExportPackageDirName" value="apio-architect-sample-liferay-portal" />
 			<property name="allowedExportPackageDirName" value="dynamic-data-mapping-data-provider" />
@@ -97,6 +98,9 @@
 			<property name="allowedExportPackageDirName" value="modules/apps/web-experience/product-navigation/product-navigation-product-menu-web" />
 			<property name="allowedExportPackageDirName" value="modules/apps/web-experience/rss/rss-util" />
 		</check>
+=======
+		<check name="BNDExportsCheck" />
+>>>>>>> compatible
 		<check name="BNDIncludeResourceCheck" />
 		<check name="BNDWebContextPathCheck" />
 	</source-processor>
@@ -116,7 +120,10 @@
 		<check name="CSSCommentsCheck" />
 		<check name="CSSEmptyLinesCheck" />
 		<check name="CSSHexColorsCheck" />
+<<<<<<< HEAD
 		<check name="CSSImportsCheck" />
+=======
+>>>>>>> compatible
 		<check name="CSSPropertiesOrderCheck" />
 		<check name="CSSWhitespaceCheck" />
 	</source-processor>
@@ -135,8 +142,11 @@
 		<check name="FTLWhitespaceCheck" />
 	</source-processor>
 	<source-processor name="GradleSourceProcessor">
+<<<<<<< HEAD
 		<check name="GradleBlockOrderCheck" />
 		<check name="GradleBodyCheck" />
+=======
+>>>>>>> compatible
 		<check name="GradleDependenciesCheck" />
 		<check name="GradleImportsCheck" />
 		<check name="GradleIndentationCheck" />
@@ -147,10 +157,13 @@
 	<source-processor name="GroovySourceProcessor">
 		<check name="WhitespaceCheck" />
 	</source-processor>
+<<<<<<< HEAD
 	<source-processor name="HTMLSourceProcessor">
 		<check name="WhitespaceCheck" />
 		<check name="XMLTagAttributesCheck" />
 	</source-processor>
+=======
+>>>>>>> compatible
 	<source-processor name="JavaSourceProcessor">
 		<check name="CopyrightCheck">
 			<property name="copyrightFileName" value="copyright.txt" />
@@ -175,7 +188,10 @@
 		<check name="JavaDeserializationSecurityCheck" />
 		<check name="JavaEmptyLinesCheck" />
 		<check name="JavaExceptionCheck" />
+<<<<<<< HEAD
 		<check name="JavaForLoopCheck" />
+=======
+>>>>>>> compatible
 		<check name="JavaHibernateSQLCheck" />
 		<check name="JavaIfStatementCheck" />
 		<check name="JavaIllegalImportsCheck" />
@@ -185,10 +201,19 @@
 		<check name="JavaIOExceptionCheck" />
 		<check name="JavaLineBreakCheck" />
 		<check name="JavaLocalSensitiveComparisonCheck" />
+<<<<<<< HEAD
 		<check name="JavaLongLinesCheck" />
 		<check name="JavaPackagePathCheck" />
 		<check name="JavaParameterAnnotationsCheck" />
 		<check name="JavaProcessCallableCheck" />
+=======
+		<check name="JavaLogClassNameCheck" />
+		<check name="JavaLogLevelCheck" />
+		<check name="JavaLongLinesCheck" />
+		<check name="JavaPackagePathCheck" />
+		<check name="JavaProcessCallableCheck" />
+		<check name="JavaProviderTypeAnnotationCheck" />
+>>>>>>> compatible
 		<check name="JavaRedundantConstructorCheck" />
 		<check name="JavaResultSetCheck" />
 		<check name="JavaReturnStatementCheck" />
@@ -200,7 +225,10 @@
 		<check name="JavaStylingCheck" />
 		<check name="JavaSystemExceptionCheck" />
 		<check name="JavaTermDividersCheck" />
+<<<<<<< HEAD
 		<check name="JavaTermMetadataLineBreakCheck" />
+=======
+>>>>>>> compatible
 		<check name="JavaTermOrderCheck" />
 		<check name="JavaTermStylingCheck" />
 		<check name="JavaWhitespaceCheck" />
@@ -208,6 +236,10 @@
 		<check name="PrimitiveWrapperInstantiationCheck" />
 		<check name="PrincipalExceptionCheck" />
 		<check name="SessionKeysCheck" />
+<<<<<<< HEAD
+=======
+		<check name="StringBundlerCheck" />
+>>>>>>> compatible
 		<check name="StringUtilCheck" />
 		<check name="UnparameterizedClassCheck" />
 		<check name="ValidatorEqualsCheck" />
@@ -223,6 +255,7 @@
 		<check name="JavaModuleServiceReferenceCheck" />
 		<check name="JavaModuleTestCheck" />
 		<check name="JavaOSGiReferenceCheck">
+<<<<<<< HEAD
 			<property name="serviceReferenceUtilClassName" value="com.liferay.exportimport.kernel.lar.ExportImportHelperUtil" />
 			<property name="serviceReferenceUtilClassName" value="com.liferay.exportimport.kernel.lar.ExportImportProcessCallbackRegistryUtil" />
 			<property name="serviceReferenceUtilClassName" value="com.liferay.exportimport.kernel.lar.PortletDataContextFactoryUtil" />
@@ -234,6 +267,9 @@
 			<property name="serviceReferenceUtilClassName" value="com.liferay.portal.kernel.comment.CommentManagerUtil" />
 			<property name="serviceReferenceUtilClassName" value="com.liferay.portal.kernel.util.HttpUtil" />
 			<property name="serviceReferenceUtilClassName" value="com.liferay.portal.kernel.util.PortalUtil" />
+=======
+			<property name="serviceReferenceUtilClassNames" value="     com.liferay.exportimport.kernel.lar.ExportImportHelperUtil,     com.liferay.exportimport.kernel.lar.ExportImportProcessCallbackRegistryUtil,     com.liferay.exportimport.kernel.lar.PortletDataContextFactoryUtil,     com.liferay.exportimport.kernel.lar.PortletDataHandlerStatusMessageSenderUtil,     com.liferay.exportimport.kernel.staging.StagingUtil,     com.liferay.portal.kernel.backgroundtask.BackgroundTaskManagerUtil,     com.liferay.portal.kernel.backgroundtask.display.BackgroundTaskDisplayFactoryUtil,     com.liferay.portal.kernel.captcha.CaptchaUtil,     com.liferay.portal.kernel.comment.CommentManagerUtil,     com.liferay.portal.kernel.util.HttpUtil,     com.liferay.portal.kernel.util.PortalUtil" />
+>>>>>>> compatible
 		</check>
 
 		<!-- Plugins checks -->
@@ -244,6 +280,7 @@
 
 		<check name="JavaCleanUpMethodVariablesCheck" />
 		<check name="JavaFinderCacheCheck" />
+<<<<<<< HEAD
 		<check name="JavaFinderImplCustomSQLCheck" />
 		<check name="JavaLogClassNameCheck" />
 		<check name="JavaLogLevelCheck" />
@@ -253,6 +290,9 @@
 		<check name="JavaServiceUtilCheck" />
 		<check name="JavaStringBundlerInitialCapacityCheck" />
 		<check name="JavaSwitchCheck" />
+=======
+		<check name="JavaServiceUtilCheck" />
+>>>>>>> compatible
 		<check name="JavaSystemEventAnnotationCheck" />
 		<check name="JavaTestMethodAnnotationsCheck" />
 		<check name="JavaUnsafeCastingCheck" />
@@ -265,7 +305,10 @@
 		<check name="LanguageKeysCheck" />
 		<check name="ResourceBundleCheck" />
 		<check name="StringMethodsCheck" />
+<<<<<<< HEAD
 		<check name="SubstringCheck" />
+=======
+>>>>>>> compatible
 	</source-processor>
 	<source-processor name="JSONSourceProcessor">
 		<check name="JSONIndentationCheck" />
@@ -293,6 +336,10 @@
 		<check name="JSPLineBreakCheck" />
 		<check name="JSPLogFileNameCheck" />
 		<check name="JSPRedirectBackURLCheck" />
+<<<<<<< HEAD
+=======
+		<check name="JSPSendRedirectCheck" />
+>>>>>>> compatible
 		<check name="JSPSessionKeysCheck" />
 		<check name="JSPStringBundlerCheck" />
 		<check name="JSPStylingCheck" />
@@ -320,10 +367,15 @@
 		<!-- Portal checks -->
 
 		<check name="JSPLanguageKeysCheck" />
+<<<<<<< HEAD
 		<check name="JSPSendRedirectCheck" />
 		<check name="JSPStringMethodsCheck" />
 		<check name="ResourceBundleCheck" />
 		<check name="SubstringCheck" />
+=======
+		<check name="JSPStringMethodsCheck" />
+		<check name="ResourceBundleCheck" />
+>>>>>>> compatible
 	</source-processor>
 	<source-processor name="JSSourceProcessor">
 		<check name="JSStylingCheck" />
@@ -340,10 +392,13 @@
 			<property name="allowLeadingSpaces" value="true" />
 		</check>
 	</source-processor>
+<<<<<<< HEAD
 	<source-processor name="PackageinfoSourceProcessor">
 		<check name="PackageinfoBNDExportPackageCheck" />
 		<check name="WhitespaceCheck" />
 	</source-processor>
+=======
+>>>>>>> compatible
 	<source-processor name="PropertiesSourceProcessor">
 		<check name="PropertiesDefinitionKeysCheck" />
 		<check name="PropertiesDependenciesFileCheck" />
@@ -352,22 +407,32 @@
 		<check name="PropertiesLongLinesCheck" />
 		<check name="PropertiesPortalFileCheck" />
 		<check name="PropertiesPortletFileCheck" />
+<<<<<<< HEAD
+=======
+		<check name="PropertiesServiceKeysCheck" />
+>>>>>>> compatible
 		<check name="PropertiesSourceFormatterContentCheck" />
 		<check name="PropertiesSourceFormatterFileCheck" />
 		<check name="PropertiesWhitespaceCheck">
 			<property name="allowLeadingSpaces" value="true" />
 		</check>
+<<<<<<< HEAD
 
 		<!-- Portal checks -->
 
 		<check name="PropertiesServiceKeysCheck" />
+=======
+>>>>>>> compatible
 	</source-processor>
 	<source-processor name="SoySourceProcessor">
 		<check name="WhitespaceCheck" />
 	</source-processor>
 	<source-processor name="SQLSourceProcessor">
 		<check name="SQLEmptyLinesCheck" />
+<<<<<<< HEAD
 		<check name="SQLLongNamesCheck" />
+=======
+>>>>>>> compatible
 		<check name="SQLStylingCheck" />
 		<check name="WhitespaceCheck" />
 	</source-processor>
@@ -376,6 +441,7 @@
 		<check name="TLDTypeCheck" />
 		<check name="WhitespaceCheck" />
 	</source-processor>
+<<<<<<< HEAD
 	<source-processor name="TSSourceProcessor">
 		<check name="WhitespaceCheck" />
 	</source-processor>
@@ -383,11 +449,19 @@
 		<check name="XMLBuildFileCheck" />
 		<check name="XMLCustomSQLOrderCheck" />
 		<check name="XMLCustomSQLStylingCheck" />
+=======
+	<source-processor name="XMLSourceProcessor">
+		<check name="XMLBuildFileCheck" />
+		<check name="XMLCustomSQLFileCheck" />
+>>>>>>> compatible
 		<check name="XMLDDLStructuresFileCheck" />
 		<check name="XMLFriendlyURLRoutesFileCheck" />
 		<check name="XMLFSBExcludeFileCheck" />
 		<check name="XMLHBMFileCheck" />
+<<<<<<< HEAD
 		<check name="XMLIndentationCheck" />
+=======
+>>>>>>> compatible
 		<check name="XMLLog4jFileCheck" />
 		<check name="XMLLookAndFeelFileCheck" />
 		<check name="XMLModelHintsFileCheck" />
@@ -397,6 +471,10 @@
 		<check name="XMLResourceActionsFileCheck" />
 		<check name="XMLServiceFileCheck" />
 		<check name="XMLSolrSchemaFileCheck" />
+<<<<<<< HEAD
+=======
+		<check name="XMLSpringFileCheck" />
+>>>>>>> compatible
 		<check name="XMLTagAttributesCheck" />
 		<check name="XMLToggleFileCheck" />
 		<check name="XMLWhitespaceCheck" />
@@ -404,17 +482,27 @@
 		<!-- Portal checks -->
 
 		<check name="XMLEmptyLinesCheck" />
+<<<<<<< HEAD
 		<check name="XMLIvyFileCheck" />
 		<check name="XMLSpringFileCheck" />
+=======
+>>>>>>> compatible
 		<check name="XMLStrutsConfigFileCheck" />
 		<check name="XMLTestIgnorableErrorLinesFileCheck" />
 		<check name="XMLTilesDefsFileCheck" />
 		<check name="XMLWebFileCheck" />
 	</source-processor>
 	<source-processor name="YMLSourceProcessor">
+<<<<<<< HEAD
 		<check name="YMLDefintionOrderCheck" />
 		<check name="YMLWhitespaceCheck">
 			<property name="allowLeadingSpaces" value="true" />
 		</check>
+=======
+		<check name="WhitespaceCheck">
+			<property name="allowLeadingSpaces" value="true" />
+		</check>
+		<check name="YMLDefintionOrderCheck" />
+>>>>>>> compatible
 	</source-processor>
 </source-formatter>

@@ -31,7 +31,11 @@
 
 		<execute function="Confirm" value1="Disabling the Recycle Bin prevents the restoring of content that has been moved to the Recycle Bin." />
 
+<<<<<<< HEAD
 		<execute function="AssertNotChecked#assertNotCheckedNotVisible" locator1="Checkbox#ENABLE_RECYCLE_BIN" />
+=======
+		<execute function="AssertNotChecked#assertNotCheckedToggleSwitch" locator1="Checkbox#ENABLE_RECYCLE_BIN" />
+>>>>>>> compatible
 
 		<execute macro="PortletEntry#save" />
 	</command>
@@ -191,9 +195,15 @@
 	</command>
 
 	<command name="searchCP">
+<<<<<<< HEAD
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="${assetName}" />
 		</execute>
+=======
+		<execute function="Type" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${assetName}" />
+
+		<execute function="Click" locator1="Icon#BASIC_SEARCH" />
+>>>>>>> compatible
 	</command>
 
 	<command name="undoMoveToRecycleBin">
@@ -205,6 +215,7 @@
 
 		<if>
 			<condition function="IsElementPresent" locator1="RecycleBin#EMPTY_RECYCLE_BIN" />
+<<<<<<< HEAD
 			<then>
 				<execute function="MouseOver" locator1="Icon#TOOLTIP" />
 
@@ -222,6 +233,20 @@
 				</execute>
 
 				<execute function="AssertTextEquals#assertPartialText" locator1="Message#RECYCLE_BIN_INFO" value1="The Recycle Bin shows all assets removed by users. Assets can be restored or permanently deleted." />
+=======
+
+			<then>
+				<execute function="MouseOver" locator1="Icon#TOOLTIP" />
+				<if>
+					<isset var="customMaxAgeMsg" />
+					<then>
+						<execute function="AssertTextEquals#assertPartialText" locator1="Message#RECYCLE_BIN_INFO" value1="${customMaxAgeMsg}" />
+					</then>
+					<else>
+						<execute function="AssertTextEquals" locator1="Message#RECYCLE_BIN_INFO" value1="The Recycle Bin shows all assets removed by users. Assets can be restored or permanently deleted.Entries that have been in the Recycle Bin for more than 1 month are automatically deleted." />
+					</else>
+				</if>
+>>>>>>> compatible
 			</then>
 		</if>
 
@@ -266,7 +291,11 @@
 	</command>
 
 	<command name="viewRecycleBinMaxAge">
+<<<<<<< HEAD
 		<execute function="AssertTextEquals#assertPartialText" locator1="Message#RECYCLE_BIN_INFO" value1="Entries that have been in the Recycle Bin for more than ${maxAgeField} minute are automatically deleted." />
+=======
+		<execute function="AssertTextEquals#assertPartialText" locator1="Message#INFO" value1="Entries that have been in the Recycle Bin for more than ${maxAgeField} minute are automatically deleted." />
+>>>>>>> compatible
 	</command>
 
 	<command name="viewRecyclebinViaSiteSettingsCP">

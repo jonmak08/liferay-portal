@@ -24,14 +24,20 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.model.Organization;
 import com.liferay.portal.kernel.service.persistence.OrganizationFinder;
 import com.liferay.portal.kernel.service.persistence.OrganizationUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.service.persistence.UserUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
+=======
+>>>>>>> compatible
 import com.liferay.portal.model.impl.OrganizationImpl;
 import com.liferay.util.dao.orm.CustomSQLUtil;
 

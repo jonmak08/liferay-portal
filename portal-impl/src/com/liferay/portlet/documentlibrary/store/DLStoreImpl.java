@@ -15,7 +15,10 @@
 package com.liferay.portlet.documentlibrary.store;
 
 import com.liferay.document.library.kernel.antivirus.AntivirusScannerUtil;
+<<<<<<< HEAD
 import com.liferay.document.library.kernel.exception.AccessDeniedException;
+=======
+>>>>>>> compatible
 import com.liferay.document.library.kernel.exception.DirectoryNameException;
 import com.liferay.document.library.kernel.store.DLStore;
 import com.liferay.document.library.kernel.store.Store;
@@ -24,7 +27,10 @@ import com.liferay.portal.kernel.bean.BeanReference;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.io.ByteArrayFileInputStream;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.auth.PrincipalException;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.GroupLocalService;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.util.PropsValues;
@@ -237,12 +243,16 @@ public class DLStoreImpl implements DLStore {
 
 		Store store = _storeFactory.getStore();
 
+<<<<<<< HEAD
 		try {
 			store.deleteFile(companyId, repositoryId, fileName, versionLabel);
 		}
 		catch (AccessDeniedException ade) {
 			throw new PrincipalException(ade);
 		}
+=======
+		store.deleteFile(companyId, repositoryId, fileName, versionLabel);
+>>>>>>> compatible
 	}
 
 	@Override

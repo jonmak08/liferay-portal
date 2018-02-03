@@ -18,30 +18,47 @@ import com.liferay.knowledge.base.constants.KBFolderConstants;
 import com.liferay.knowledge.base.constants.KBPortletKeys;
 import com.liferay.knowledge.base.model.KBArticle;
 import com.liferay.knowledge.base.service.KBArticleLocalServiceUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
 import com.liferay.portal.kernel.json.JSONException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.ModelHintsUtil;
 import com.liferay.portal.kernel.portlet.PortalPreferences;
 import com.liferay.portal.kernel.util.ArrayUtil;
+=======
+import com.liferay.portal.kernel.model.ModelHintsUtil;
+import com.liferay.portal.kernel.portlet.PortalPreferences;
+import com.liferay.portal.kernel.util.ArrayUtil;
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.FriendlyURLNormalizerUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.MimeTypesUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StreamUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 
+<<<<<<< HEAD
 import java.io.IOException;
+=======
+>>>>>>> compatible
 import java.io.InputStream;
 
 import java.util.HashMap;
@@ -111,6 +128,7 @@ public class KnowledgeBaseUtil {
 	}
 
 	public static String getMimeType(byte[] bytes, String fileName) {
+<<<<<<< HEAD
 		try (InputStream inputStream = new UnsyncByteArrayInputStream(bytes)) {
 			return MimeTypesUtil.getContentType(inputStream, fileName);
 		}
@@ -121,6 +139,16 @@ public class KnowledgeBaseUtil {
 		}
 
 		return null;
+=======
+		InputStream inputStream = new UnsyncByteArrayInputStream(bytes);
+
+		try {
+			return MimeTypesUtil.getContentType(inputStream, fileName);
+		}
+		finally {
+			StreamUtil.cleanUp(inputStream);
+		}
+>>>>>>> compatible
 	}
 
 	public static Long[][] getParams(Long[] params) {
@@ -247,15 +275,22 @@ public class KnowledgeBaseUtil {
 			x = x + 1;
 		}
 
+<<<<<<< HEAD
 		return s.substring(x);
+=======
+		return s.substring(x, s.length());
+>>>>>>> compatible
 	}
 
 	private static final int _SQL_DATA_MAX_PARAMETERS = GetterUtil.getInteger(
 		PropsUtil.get(PropsKeys.SQL_DATA_MAX_PARAMETERS));
 
+<<<<<<< HEAD
 	private static final Log _log = LogFactoryUtil.getLog(
 		KnowledgeBaseUtil.class);
 
+=======
+>>>>>>> compatible
 	private static final Pattern _normalizationFriendlyUrlPattern =
 		Pattern.compile("[^a-z0-9_-]");
 	private static final Pattern _validFriendlyUrlPattern = Pattern.compile(

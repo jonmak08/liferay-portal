@@ -14,7 +14,10 @@
 
 package com.liferay.portlet.configuration.css.web.internal.portlet;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.language.LanguageUtil;
@@ -23,28 +26,50 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Layout;
 import com.liferay.portal.kernel.model.Release;
 import com.liferay.portal.kernel.portlet.PortletIdCodec;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.portlet.PortletSetupUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.service.permission.PortletPermissionUtil;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.LocalizationUtil;
+=======
+import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.LocaleUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portlet.configuration.css.web.internal.constants.PortletConfigurationCSSPortletKeys;
 
+<<<<<<< HEAD
 import java.util.Locale;
 import java.util.Map;
+=======
+import java.io.IOException;
+
+import java.util.Locale;
+>>>>>>> compatible
 import java.util.Objects;
 import java.util.Set;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.Portlet;
+<<<<<<< HEAD
 import javax.portlet.PortletPreferences;
+=======
+import javax.portlet.PortletException;
+import javax.portlet.PortletPreferences;
+import javax.portlet.ResourceRequest;
+import javax.portlet.ResourceResponse;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -73,6 +98,81 @@ import org.osgi.service.component.annotations.Reference;
 )
 public class PortletConfigurationCSSPortlet extends MVCPortlet {
 
+<<<<<<< HEAD
+=======
+	public void getLookAndFeel(
+			ResourceRequest resourceRequest, ResourceResponse resourceResponse)
+		throws PortletException {
+
+		ThemeDisplay themeDisplay = (ThemeDisplay)resourceRequest.getAttribute(
+			WebKeys.THEME_DISPLAY);
+
+		try {
+			Layout layout = themeDisplay.getLayout();
+
+			PermissionChecker permissionChecker =
+				themeDisplay.getPermissionChecker();
+
+			String portletId = ParamUtil.getString(
+				resourceRequest, "portletId");
+
+			if (!PortletPermissionUtil.contains(
+					permissionChecker, layout, portletId,
+					ActionKeys.CONFIGURATION)) {
+
+				return;
+			}
+
+			PortletPreferences portletSetup =
+				themeDisplay.getStrictLayoutPortletSetup(layout, portletId);
+
+			JSONObject portletSetupJSONObject =
+				PortletSetupUtil.cssToJSONObject(portletSetup);
+
+			JSONObject defaultPortletTitlesJSONObject =
+				JSONFactoryUtil.createJSONObject();
+
+			for (Locale locale : LanguageUtil.getAvailableLocales(
+					themeDisplay.getSiteGroupId())) {
+
+				String rootPortletId = PortletIdCodec.decodePortletName(
+					portletId);
+				String languageId = LocaleUtil.toLanguageId(locale);
+
+				defaultPortletTitlesJSONObject.put(
+					languageId,
+					_portal.getPortletTitle(rootPortletId, languageId));
+			}
+
+			portletSetupJSONObject.put(
+				"defaultPortletTitles", defaultPortletTitlesJSONObject);
+
+			writeJSON(
+				resourceRequest, resourceResponse,
+				portletSetupJSONObject.toString());
+		}
+		catch (Exception e) {
+			throw new PortletException(e);
+		}
+	}
+
+	@Override
+	public void serveResource(
+			ResourceRequest resourceRequest, ResourceResponse resourceResponse)
+		throws IOException, PortletException {
+
+		String resourceID = GetterUtil.getString(
+			resourceRequest.getResourceID());
+
+		if (resourceID.equals("getLookAndFeel")) {
+			getLookAndFeel(resourceRequest, resourceResponse);
+		}
+		else {
+			super.serveResource(resourceRequest, resourceResponse);
+		}
+	}
+
+>>>>>>> compatible
 	public void updateLookAndFeel(
 			ActionRequest actionRequest, ActionResponse actionResponse)
 		throws Exception {
@@ -97,12 +197,17 @@ public class PortletConfigurationCSSPortlet extends MVCPortlet {
 		PortletPreferences portletSetup =
 			themeDisplay.getStrictLayoutPortletSetup(layout, portletId);
 
+<<<<<<< HEAD
 		String css = getCSS(actionRequest);
+=======
+		String css = ParamUtil.getString(actionRequest, "css");
+>>>>>>> compatible
 
 		if (_log.isDebugEnabled()) {
 			_log.debug("Updating css " + css);
 		}
 
+<<<<<<< HEAD
 		String linkToLayoutUuid = ParamUtil.getString(
 			actionRequest, "linkToLayoutUuid");
 		String portletDecoratorId = ParamUtil.getString(
@@ -111,6 +216,25 @@ public class PortletConfigurationCSSPortlet extends MVCPortlet {
 			LocalizationUtil.getLocalizationMap(actionRequest, "customTitle");
 		boolean useCustomTitle = ParamUtil.getBoolean(
 			actionRequest, "useCustomTitle");
+=======
+		JSONObject jsonObject = JSONFactoryUtil.createJSONObject(css);
+
+		JSONObject portletDataJSONObject = jsonObject.getJSONObject(
+			"portletData");
+
+		jsonObject.remove("portletData");
+
+		css = jsonObject.toString();
+
+		String linkToLayoutUuid = GetterUtil.getString(
+			portletDataJSONObject.getString("portletLinksTarget"));
+		String portletDecoratorId = portletDataJSONObject.getString(
+			"portletDecoratorId");
+		JSONObject titlesJSONObject = portletDataJSONObject.getJSONObject(
+			"titles");
+		boolean useCustomTitle = portletDataJSONObject.getBoolean(
+			"useCustomTitle");
+>>>>>>> compatible
 
 		Set<Locale> locales = LanguageUtil.getAvailableLocales(
 			themeDisplay.getSiteGroupId());
@@ -120,8 +244,14 @@ public class PortletConfigurationCSSPortlet extends MVCPortlet {
 
 			String title = null;
 
+<<<<<<< HEAD
 			if (customTitleMap.containsKey(locale)) {
 				title = customTitleMap.get(locale);
+=======
+			if (titlesJSONObject.has(languageId)) {
+				title = GetterUtil.getString(
+					titlesJSONObject.getString(languageId));
+>>>>>>> compatible
 			}
 
 			String rootPortletId = PortletIdCodec.decodePortletName(portletId);
@@ -163,6 +293,7 @@ public class PortletConfigurationCSSPortlet extends MVCPortlet {
 		portletSetup.store();
 	}
 
+<<<<<<< HEAD
 	protected JSONObject getAdvancedDataJSONObject(
 		ActionRequest actionRequest) {
 
@@ -549,6 +680,8 @@ public class PortletConfigurationCSSPortlet extends MVCPortlet {
 		return textDataJSONObject;
 	}
 
+=======
+>>>>>>> compatible
 	@Reference(
 		target = "(&(release.bundle.symbolic.name=com.liferay.portlet.configuration.css.web)(release.schema.version=1.0.0))",
 		unbind = "-"

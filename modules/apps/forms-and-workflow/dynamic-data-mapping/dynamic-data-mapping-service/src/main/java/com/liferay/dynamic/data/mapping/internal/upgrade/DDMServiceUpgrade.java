@@ -18,16 +18,24 @@ import com.liferay.asset.kernel.service.AssetEntryLocalService;
 import com.liferay.document.library.kernel.service.DLFileEntryLocalService;
 import com.liferay.document.library.kernel.service.DLFileVersionLocalService;
 import com.liferay.document.library.kernel.service.DLFolderLocalService;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.data.provider.DDMDataProviderTracker;
 import com.liferay.dynamic.data.mapping.expression.DDMExpressionFactory;
 import com.liferay.dynamic.data.mapping.internal.upgrade.v1_0_0.UpgradeCompanyId;
+=======
+import com.liferay.dynamic.data.mapping.internal.upgrade.v1_0_0.UpgradeCompanyId;
+import com.liferay.dynamic.data.mapping.internal.upgrade.v1_0_0.UpgradeDynamicDataMapping;
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.internal.upgrade.v1_0_0.UpgradeKernelPackage;
 import com.liferay.dynamic.data.mapping.internal.upgrade.v1_0_0.UpgradeLastPublishDate;
 import com.liferay.dynamic.data.mapping.internal.upgrade.v1_0_0.UpgradeSchema;
 import com.liferay.dynamic.data.mapping.internal.upgrade.v1_0_1.UpgradeResourcePermission;
 import com.liferay.dynamic.data.mapping.internal.upgrade.v1_0_2.UpgradeDDMTemplateSmallImageURL;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.internal.upgrade.v1_1_0.UpgradeCheckboxFieldToCheckboxMultipleField;
 import com.liferay.dynamic.data.mapping.internal.upgrade.v1_1_1.UpgradeDDMFormFieldSettings;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.io.DDMFormJSONDeserializer;
 import com.liferay.dynamic.data.mapping.io.DDMFormJSONSerializer;
 import com.liferay.dynamic.data.mapping.io.DDMFormLayoutJSONSerializer;
@@ -38,7 +46,10 @@ import com.liferay.dynamic.data.mapping.util.DDM;
 import com.liferay.expando.kernel.service.ExpandoRowLocalService;
 import com.liferay.expando.kernel.service.ExpandoTableLocalService;
 import com.liferay.expando.kernel.service.ExpandoValueLocalService;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.json.JSONFactory;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.security.permission.ResourceActions;
 import com.liferay.portal.kernel.service.ResourceLocalService;
 import com.liferay.portal.kernel.service.ResourcePermissionLocalService;
@@ -69,6 +80,7 @@ public class DDMServiceUpgrade implements UpgradeStepRegistrator {
 		registry.register(
 			"com.liferay.dynamic.data.mapping.service", "0.0.3", "1.0.0",
 			new UpgradeCompanyId(),
+<<<<<<< HEAD
 			new com.liferay.dynamic.data.mapping.internal.upgrade.v1_0_0.
 				UpgradeDynamicDataMapping(
 					_assetEntryLocalService, _ddm, _ddmFormJSONDeserializer,
@@ -80,6 +92,17 @@ public class DDMServiceUpgrade implements UpgradeStepRegistrator {
 					_expandoTableLocalService, _expandoValueLocalService,
 					_resourceActions, _resourceLocalService,
 					_resourcePermissionLocalService),
+=======
+			new UpgradeDynamicDataMapping(
+				_assetEntryLocalService, _ddm, _ddmFormJSONDeserializer,
+				_ddmFormJSONSerializer, _ddmFormLayoutJSONSerializer,
+				_ddmFormValuesJSONDeserializer, _ddmFormValuesJSONSerializer,
+				_ddmFormXSDDeserializer, _dlFileEntryLocalService,
+				_dlFileVersionLocalService, _dlFolderLocalService,
+				_expandoRowLocalService, _expandoTableLocalService,
+				_expandoValueLocalService, _resourceActions,
+				_resourceLocalService, _resourcePermissionLocalService),
+>>>>>>> compatible
 			new UpgradeLastPublishDate());
 
 		registry.register(
@@ -89,6 +112,7 @@ public class DDMServiceUpgrade implements UpgradeStepRegistrator {
 		registry.register(
 			"com.liferay.dynamic.data.mapping.service", "1.0.1", "1.0.2",
 			new UpgradeDDMTemplateSmallImageURL());
+<<<<<<< HEAD
 
 		registry.register(
 			"com.liferay.dynamic.data.mapping.service", "1.0.2", "1.1.0",
@@ -188,6 +212,141 @@ public class DDMServiceUpgrade implements UpgradeStepRegistrator {
 	private ResourceLocalService _resourceLocalService;
 
 	@Reference
+=======
+	}
+
+	@Reference(unbind = "-")
+	public void setExpandoRowLocalService(
+		ExpandoRowLocalService expandoRowLocalService) {
+
+		_expandoRowLocalService = expandoRowLocalService;
+	}
+
+	@Reference(unbind = "-")
+	public void setExpandoTableLocalService(
+		ExpandoTableLocalService expandoTableLocalService) {
+
+		_expandoTableLocalService = expandoTableLocalService;
+	}
+
+	@Reference(unbind = "-")
+	public void setExpandoValueLocalService(
+		ExpandoValueLocalService expandoValueLocalService) {
+
+		_expandoValueLocalService = expandoValueLocalService;
+	}
+
+	@Reference(unbind = "-")
+	protected void setAssetEntryLocalService(
+		AssetEntryLocalService assetEntryLocalService) {
+
+		_assetEntryLocalService = assetEntryLocalService;
+	}
+
+	@Reference(unbind = "-")
+	protected void setDDM(DDM ddm) {
+		_ddm = ddm;
+	}
+
+	@Reference(unbind = "-")
+	protected void setDDMFormJSONDeserializer(
+		DDMFormJSONDeserializer ddmFormJSONDeserializer) {
+
+		_ddmFormJSONDeserializer = ddmFormJSONDeserializer;
+	}
+
+	@Reference(unbind = "-")
+	protected void setDDMFormJSONSerializer(
+		DDMFormJSONSerializer ddmFormJSONSerializer) {
+
+		_ddmFormJSONSerializer = ddmFormJSONSerializer;
+	}
+
+	@Reference(unbind = "-")
+	protected void setDDMFormLayoutJSONSerializer(
+		DDMFormLayoutJSONSerializer ddmFormLayoutJSONSerializer) {
+
+		_ddmFormLayoutJSONSerializer = ddmFormLayoutJSONSerializer;
+	}
+
+	@Reference(unbind = "-")
+	protected void setDDMFormValuesJSONDeserializer(
+		DDMFormValuesJSONDeserializer ddmFormValuesJSONDeserializer) {
+
+		_ddmFormValuesJSONDeserializer = ddmFormValuesJSONDeserializer;
+	}
+
+	@Reference(unbind = "-")
+	protected void setDDMFormValuesJSONSerializer(
+		DDMFormValuesJSONSerializer ddmFormValuesJSONSerializer) {
+
+		_ddmFormValuesJSONSerializer = ddmFormValuesJSONSerializer;
+	}
+
+	@Reference(unbind = "-")
+	protected void setDDMFormXSDDeserializer(
+		DDMFormXSDDeserializer ddmFormXSDDeserializer) {
+
+		_ddmFormXSDDeserializer = ddmFormXSDDeserializer;
+	}
+
+	@Reference(unbind = "-")
+	protected void setDLFileEntryLocalService(
+		DLFileEntryLocalService dlFileEntryLocalService) {
+
+		_dlFileEntryLocalService = dlFileEntryLocalService;
+	}
+
+	@Reference(unbind = "-")
+	protected void setDlFileVersionLocalService(
+		DLFileVersionLocalService dlFileVersionLocalService) {
+
+		_dlFileVersionLocalService = dlFileVersionLocalService;
+	}
+
+	@Reference(unbind = "-")
+	protected void setDlFolderLocalService(
+		DLFolderLocalService dlFolderLocalService) {
+
+		_dlFolderLocalService = dlFolderLocalService;
+	}
+
+	@Reference(unbind = "-")
+	protected void setResourceActions(ResourceActions resourceActions) {
+		_resourceActions = resourceActions;
+	}
+
+	@Reference(unbind = "-")
+	protected void setResourceLocalService(
+		ResourceLocalService resourceLocalService) {
+
+		_resourceLocalService = resourceLocalService;
+	}
+
+	@Reference(unbind = "-")
+	protected void setResourcePermissionLocalService(
+		ResourcePermissionLocalService resourcePermissionLocalService) {
+
+		_resourcePermissionLocalService = resourcePermissionLocalService;
+	}
+
+	private AssetEntryLocalService _assetEntryLocalService;
+	private DDM _ddm;
+	private DDMFormJSONDeserializer _ddmFormJSONDeserializer;
+	private DDMFormJSONSerializer _ddmFormJSONSerializer;
+	private DDMFormLayoutJSONSerializer _ddmFormLayoutJSONSerializer;
+	private DDMFormValuesJSONDeserializer _ddmFormValuesJSONDeserializer;
+	private DDMFormValuesJSONSerializer _ddmFormValuesJSONSerializer;
+	private DDMFormXSDDeserializer _ddmFormXSDDeserializer;
+	private DLFileEntryLocalService _dlFileEntryLocalService;
+	private DLFileVersionLocalService _dlFileVersionLocalService;
+	private DLFolderLocalService _dlFolderLocalService;
+	private ExpandoRowLocalService _expandoRowLocalService;
+	private ExpandoTableLocalService _expandoTableLocalService;
+	private ExpandoValueLocalService _expandoValueLocalService;
+	private ResourceActions _resourceActions;
+	private ResourceLocalService _resourceLocalService;
+>>>>>>> compatible
 	private ResourcePermissionLocalService _resourcePermissionLocalService;
 
 }

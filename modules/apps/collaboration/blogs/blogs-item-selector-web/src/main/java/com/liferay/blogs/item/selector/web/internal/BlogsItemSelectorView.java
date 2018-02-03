@@ -14,12 +14,18 @@
 
 package com.liferay.blogs.item.selector.web.internal;
 
+<<<<<<< HEAD
 import com.liferay.blogs.item.selector.constants.BlogsItemSelectorViewConstants;
 import com.liferay.blogs.item.selector.criterion.BlogsItemSelectorCriterion;
 import com.liferay.blogs.item.selector.web.internal.constants.BlogsItemSelectorWebKeys;
 import com.liferay.blogs.item.selector.web.internal.display.context.BlogsItemSelectorViewDisplayContext;
 import com.liferay.blogs.service.BlogsEntryLocalService;
 import com.liferay.document.library.display.context.DLMimeTypeDisplayContext;
+=======
+import com.liferay.blogs.item.selector.criterion.BlogsItemSelectorCriterion;
+import com.liferay.blogs.item.selector.web.constants.BlogsItemSelectorViewConstants;
+import com.liferay.blogs.item.selector.web.internal.display.context.BlogsItemSelectorViewDisplayContext;
+>>>>>>> compatible
 import com.liferay.item.selector.ItemSelectorReturnType;
 import com.liferay.item.selector.ItemSelectorReturnTypeResolverHandler;
 import com.liferay.item.selector.ItemSelectorView;
@@ -45,9 +51,12 @@ import javax.servlet.ServletResponse;
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
 import org.osgi.service.component.annotations.ReferencePolicyOption;
+=======
+>>>>>>> compatible
 
 /**
  * @author Roberto Díaz
@@ -60,6 +69,12 @@ import org.osgi.service.component.annotations.ReferencePolicyOption;
 public class BlogsItemSelectorView
 	implements ItemSelectorView<BlogsItemSelectorCriterion> {
 
+<<<<<<< HEAD
+=======
+	public static final String BLOGS_ITEM_SELECTOR_VIEW_DISPLAY_CONTEXT =
+		"BLOGS_ITEM_SELECTOR_VIEW_DISPLAY_CONTEXT";
+
+>>>>>>> compatible
 	@Override
 	public Class<BlogsItemSelectorCriterion> getItemSelectorCriterionClass() {
 		return BlogsItemSelectorCriterion.class;
@@ -101,6 +116,7 @@ public class BlogsItemSelectorView
 				new BlogsItemSelectorViewDisplayContext(
 					blogsItemSelectorCriterion, this,
 					_itemSelectorReturnTypeResolverHandler,
+<<<<<<< HEAD
 					itemSelectedEventName, search, portletURL,
 					_blogsEntryLocalService);
 
@@ -112,6 +128,14 @@ public class BlogsItemSelectorView
 			BlogsItemSelectorWebKeys.DL_MIME_TYPE_DISPLAY_CONTEXT,
 			_dlMimeTypeDisplayContext);
 
+=======
+					itemSelectedEventName, search, portletURL);
+
+		request.setAttribute(
+			BLOGS_ITEM_SELECTOR_VIEW_DISPLAY_CONTEXT,
+			blogsItemSelectorViewDisplayContext);
+
+>>>>>>> compatible
 		ServletContext servletContext = getServletContext();
 
 		RequestDispatcher requestDispatcher =
@@ -120,6 +144,7 @@ public class BlogsItemSelectorView
 		requestDispatcher.include(request, response);
 	}
 
+<<<<<<< HEAD
 	@Reference(
 		cardinality = ReferenceCardinality.OPTIONAL,
 		policy = ReferencePolicy.DYNAMIC,
@@ -131,6 +156,8 @@ public class BlogsItemSelectorView
 		_dlMimeTypeDisplayContext = dlMimeTypeDisplayContext;
 	}
 
+=======
+>>>>>>> compatible
 	@Reference(unbind = "-")
 	public void setItemSelectorReturnTypeResolverHandler(
 		ItemSelectorReturnTypeResolverHandler
@@ -148,6 +175,7 @@ public class BlogsItemSelectorView
 		_servletContext = servletContext;
 	}
 
+<<<<<<< HEAD
 	public void unsetDLMimeTypeDisplayContext(
 		DLMimeTypeDisplayContext dlMimeTypeDisplayContext) {
 
@@ -161,6 +189,8 @@ public class BlogsItemSelectorView
 		_blogsEntryLocalService = blogsEntryLocalService;
 	}
 
+=======
+>>>>>>> compatible
 	private static final List<ItemSelectorReturnType>
 		_supportedItemSelectorReturnTypes = Collections.unmodifiableList(
 			ListUtil.fromArray(
@@ -169,8 +199,11 @@ public class BlogsItemSelectorView
 					new URLItemSelectorReturnType()
 				}));
 
+<<<<<<< HEAD
 	private BlogsEntryLocalService _blogsEntryLocalService;
 	private DLMimeTypeDisplayContext _dlMimeTypeDisplayContext;
+=======
+>>>>>>> compatible
 	private ItemSelectorReturnTypeResolverHandler
 		_itemSelectorReturnTypeResolverHandler;
 	private ServletContext _servletContext;

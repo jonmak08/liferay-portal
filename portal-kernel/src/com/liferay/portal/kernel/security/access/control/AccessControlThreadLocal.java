@@ -14,7 +14,11 @@
 
 package com.liferay.portal.kernel.security.access.control;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
+=======
+import com.liferay.portal.kernel.util.AutoResetThreadLocal;
+>>>>>>> compatible
 
 /**
  * @author Michael C. Han
@@ -31,8 +35,13 @@ public class AccessControlThreadLocal {
 	}
 
 	private static final ThreadLocal<Boolean> _remoteAccess =
+<<<<<<< HEAD
 		new CentralizedThreadLocal<>(
 			AccessControlThreadLocal.class + "._remoteAccess",
 			() -> Boolean.FALSE);
+=======
+		new AutoResetThreadLocal<>(
+			AutoResetThreadLocal.class + "._remoteAccess", () -> Boolean.FALSE);
+>>>>>>> compatible
 
 }

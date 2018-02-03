@@ -17,8 +17,11 @@ package com.liferay.wiki.web.internal.portlet.action;
 import com.liferay.portal.kernel.portlet.bridges.mvc.BaseMVCResourceCommand;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCResourceCommand;
 import com.liferay.portal.kernel.util.ParamUtil;
+<<<<<<< HEAD
 import com.liferay.trash.TrashHelper;
 import com.liferay.trash.util.TrashWebKeys;
+=======
+>>>>>>> compatible
 import com.liferay.wiki.constants.WikiPortletKeys;
 import com.liferay.wiki.constants.WikiWebKeys;
 
@@ -26,7 +29,10 @@ import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
 
 import org.osgi.service.component.annotations.Component;
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.Reference;
+=======
+>>>>>>> compatible
 
 /**
  * @author Adolfo Pérez
@@ -46,8 +52,11 @@ public class NodeInfoPanelMVCResourceCommand extends BaseMVCResourceCommand {
 			ResourceRequest resourceRequest, ResourceResponse resourceResponse)
 		throws Exception {
 
+<<<<<<< HEAD
 		resourceRequest.setAttribute(TrashWebKeys.TRASH_HELPER, _trashHelper);
 
+=======
+>>>>>>> compatible
 		if (ParamUtil.getLong(resourceRequest, "nodeId") != 0) {
 			resourceRequest.setAttribute(
 				WikiWebKeys.WIKI_NODE, ActionUtil.getNode(resourceRequest));
@@ -61,7 +70,10 @@ public class NodeInfoPanelMVCResourceCommand extends BaseMVCResourceCommand {
 			"/wiki_admin/node_info_panel.jsp");
 	}
 
+<<<<<<< HEAD
 	@Reference
 	private TrashHelper _trashHelper;
 
+=======
+>>>>>>> compatible
 }

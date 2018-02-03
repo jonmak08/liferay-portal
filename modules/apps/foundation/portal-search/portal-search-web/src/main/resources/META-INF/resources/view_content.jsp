@@ -64,7 +64,11 @@ AssetRenderer<?> assetRenderer = assetEntry.getAssetRenderer();
 		</div>
 	</c:if>
 
+<<<<<<< HEAD
 	<liferay-asset:asset-display
+=======
+	<liferay-ui:asset-display
+>>>>>>> compatible
 		assetEntry="<%= assetEntry %>"
 		assetRenderer="<%= assetRenderer %>"
 		assetRendererFactory="<%= assetRendererFactory %>"

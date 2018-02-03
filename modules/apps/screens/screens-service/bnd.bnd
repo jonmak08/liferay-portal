@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Screens Service
 Bundle-SymbolicName: com.liferay.screens.service
+<<<<<<< HEAD
 Bundle-Version: 1.0.30
+=======
+Bundle-Version: 1.0.28
+>>>>>>> compatible
 Import-Package:\
 	com.liferay.dynamic.data.lists.util.comparator;version="[1.0,2.0)",\
 	com.liferay.journal.*;version="[1.0,4.0)",\

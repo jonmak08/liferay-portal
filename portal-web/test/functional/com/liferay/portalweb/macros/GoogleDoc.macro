@@ -16,6 +16,7 @@
 		<execute function="AssertTextEquals" locator1="AssetCategorization#TAG" value1="${tagName}" />
 	</command>
 
+<<<<<<< HEAD
 	<command name="gotoDrive">
 		<execute function="AssertClick" locator1="Button#SELECT_FILE" value1="Select File" />
 
@@ -67,6 +68,25 @@
 		<execute function="Click#clickAt" locator1="GoogleDrive#SELECT_BUTTON" value1="Select" />
 
 		<execute function="SelectFrameTop" />
+=======
+	<command name="selectDocument">
+		<execute function="AssertClick" locator1="Button#SELECT_FILE" value1="Select File" />
+
+		<execute function="SelectFrame" locator1="GoogleDrive#GOOGLE_DRIVE_IFRAME" />
+
+		<if>
+			<condition function="IsVisible" locator1="GoogleDrive#LIST_VIEW_BUTTON" />
+			<then>
+				<execute function="AssertClick" locator1="GoogleDrive#LIST_VIEW_BUTTON" value1="List view" />
+			</then>
+		</if>
+
+		<var name="key_googleDocName" value="${googleDocName}" />
+
+		<execute function="AssertClick" locator1="GoogleDrive#LIST_VIEW_DOCUMENT" value1="${googleDocName}" />
+
+		<execute function="AssertClick" locator1="GoogleDrive#SELECT_BUTTON" value1="Select" />
+>>>>>>> compatible
 
 		<var name="key_dmDocumentTitle" value="${googleDocName}" />
 

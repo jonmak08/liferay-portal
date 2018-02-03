@@ -34,6 +34,11 @@ public class XMLEmptyLinesCheck extends EmptyLinesCheck {
 		String fileName, String absolutePath, String content) {
 
 		if (fileName.matches(".*\\.(action|function|macro|testcase)") ||
+<<<<<<< HEAD
+=======
+			fileName.startsWith(getBaseDirName() + "build") ||
+			fileName.matches(".*/(build|tools/).*") ||
+>>>>>>> compatible
 			fileName.endsWith("/content.xml")) {
 
 			return content;
@@ -47,6 +52,7 @@ public class XMLEmptyLinesCheck extends EmptyLinesCheck {
 
 		content = _fixMissingEmptyLinesAroundComments(content);
 
+<<<<<<< HEAD
 		Matcher matcher = _redundantEmptyLinePattern.matcher(content);
 
 		if (matcher.find()) {
@@ -54,10 +60,13 @@ public class XMLEmptyLinesCheck extends EmptyLinesCheck {
 				content, "\n\n", "\n", matcher.start());
 		}
 
+=======
+>>>>>>> compatible
 		return content;
 	}
 
 	private String _fixEmptyLinesBetweenTags(String fileName, String content) {
+<<<<<<< HEAD
 		if (fileName.startsWith(getBaseDirName() + "build") ||
 			fileName.matches(".*/(build|tools/).*")) {
 
@@ -66,6 +75,9 @@ public class XMLEmptyLinesCheck extends EmptyLinesCheck {
 
 		if (fileName.endsWith("-log4j-ext.xml") ||
 			fileName.endsWith("-log4j.xml") ||
+=======
+		if (fileName.endsWith("-log4j.xml") ||
+>>>>>>> compatible
 			fileName.endsWith("-logback.xml") ||
 			fileName.endsWith("/ivy.xml") ||
 			fileName.endsWith("/struts-config.xml") ||
@@ -108,7 +120,10 @@ public class XMLEmptyLinesCheck extends EmptyLinesCheck {
 		Pattern.compile("[\t ]-->\n[\t<]");
 	private final Pattern _missingEmptyLineBeforeCommentPattern =
 		Pattern.compile(">\n\t+<!--[\n ]");
+<<<<<<< HEAD
 	private final Pattern _redundantEmptyLinePattern = Pattern.compile(
 		"<\\?xml .*\\?>\n\n<\\!DOCTYPE");
+=======
+>>>>>>> compatible
 
 }

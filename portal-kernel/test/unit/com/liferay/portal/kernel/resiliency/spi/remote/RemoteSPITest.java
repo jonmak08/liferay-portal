@@ -26,8 +26,13 @@ import com.liferay.portal.kernel.nio.intraband.test.MockRegistrationReference;
 import com.liferay.portal.kernel.nio.intraband.welder.Welder;
 import com.liferay.portal.kernel.process.ProcessCallable;
 import com.liferay.portal.kernel.process.ProcessException;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.process.local.LocalProcessLauncher;
 import com.liferay.portal.kernel.process.local.LocalProcessLauncher.ProcessContext;
+=======
+import com.liferay.portal.kernel.process.local.LocalProcessLauncher.ProcessContext;
+import com.liferay.portal.kernel.process.log.ProcessOutputStream;
+>>>>>>> compatible
 import com.liferay.portal.kernel.resiliency.mpi.MPIHelperUtil;
 import com.liferay.portal.kernel.resiliency.mpi.MPIHelperUtilTestUtil;
 import com.liferay.portal.kernel.resiliency.spi.MockRemoteSPI;
@@ -52,13 +57,19 @@ import com.liferay.portal.kernel.test.ReflectionTestUtil;
 import com.liferay.portal.kernel.test.rule.CodeCoverageAssertor;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.ProxyUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+<<<<<<< HEAD
 import java.lang.reflect.Constructor;
+=======
+>>>>>>> compatible
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -157,6 +168,7 @@ public class RemoteSPITest {
 
 		// Success
 
+<<<<<<< HEAD
 		Class<?> clazz = Class.forName(
 			LocalProcessLauncher.class.getName() + "$ProcessOutputStream");
 
@@ -181,6 +193,26 @@ public class RemoteSPITest {
 
 				},
 				false));
+=======
+		ProcessOutputStream processOutputStream = new ProcessOutputStream(
+			new ObjectOutputStream(new UnsyncByteArrayOutputStream())) {
+
+			@Override
+			public void writeProcessCallable(ProcessCallable<?> processCallable)
+				throws IOException {
+
+				if (throwIOException.get()) {
+					throw new IOException();
+				}
+
+				super.writeProcessCallable(processCallable);
+			}
+
+		};
+
+		ReflectionTestUtil.setFieldValue(
+			ProcessContext.class, "_processOutputStream", processOutputStream);
+>>>>>>> compatible
 
 		ConcurrentMap<String, Object> attributes =
 			ProcessContext.getAttributes();
@@ -439,11 +471,16 @@ public class RemoteSPITest {
 		Assert.assertEquals(
 			exceptionTypes.toString(), 2, exceptionTypes.size());
 		Assert.assertTrue(
+<<<<<<< HEAD
 			exceptionTypes.toString(),
 			exceptionTypes.contains(ClassNotFoundException.class));
 		Assert.assertTrue(
 			exceptionTypes.toString(),
 			exceptionTypes.contains(IOException.class));
+=======
+			exceptionTypes.contains(ClassNotFoundException.class));
+		Assert.assertTrue(exceptionTypes.contains(IOException.class));
+>>>>>>> compatible
 
 		// Write object
 
@@ -484,7 +521,11 @@ public class RemoteSPITest {
 
 			List<LogRecord> logRecords = captureHandler.getLogRecords();
 
+<<<<<<< HEAD
 			Assert.assertTrue(logRecords.toString(), logRecords.isEmpty());
+=======
+			Assert.assertTrue(logRecords.isEmpty());
+>>>>>>> compatible
 		}
 	}
 
@@ -571,7 +612,11 @@ public class RemoteSPITest {
 
 			List<LogRecord> logRecords = captureHandler.getLogRecords();
 
+<<<<<<< HEAD
 			Assert.assertTrue(logRecords.toString(), logRecords.isEmpty());
+=======
+			Assert.assertTrue(logRecords.isEmpty());
+>>>>>>> compatible
 		}
 
 		unexported();
@@ -614,7 +659,11 @@ public class RemoteSPITest {
 
 			List<LogRecord> logRecords = captureHandler.getLogRecords();
 
+<<<<<<< HEAD
 			Assert.assertTrue(logRecords.toString(), logRecords.isEmpty());
+=======
+			Assert.assertTrue(logRecords.isEmpty());
+>>>>>>> compatible
 		}
 
 		Assert.assertNull(future.get());
@@ -733,7 +782,11 @@ public class RemoteSPITest {
 
 			List<LogRecord> logRecords = captureHandler.getLogRecords();
 
+<<<<<<< HEAD
 			Assert.assertTrue(logRecords.toString(), logRecords.isEmpty());
+=======
+			Assert.assertTrue(logRecords.isEmpty());
+>>>>>>> compatible
 		}
 
 		unexported();
@@ -756,7 +809,11 @@ public class RemoteSPITest {
 
 			List<LogRecord> logRecords = captureHandler.getLogRecords();
 
+<<<<<<< HEAD
 			Assert.assertTrue(logRecords.toString(), logRecords.isEmpty());
+=======
+			Assert.assertTrue(logRecords.isEmpty());
+>>>>>>> compatible
 		}
 
 		unexported();
@@ -818,7 +875,11 @@ public class RemoteSPITest {
 
 			List<LogRecord> logRecords = captureHandler.getLogRecords();
 
+<<<<<<< HEAD
 			Assert.assertTrue(logRecords.toString(), logRecords.isEmpty());
+=======
+			Assert.assertTrue(logRecords.isEmpty());
+>>>>>>> compatible
 		}
 	}
 
@@ -858,10 +919,15 @@ public class RemoteSPITest {
 			LogRecord logRecord = logRecords.get(0);
 
 			Assert.assertEquals(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Not unregistering SPI ", String.valueOf(mockSPI),
 					" with foreign MPI null versus ",
 					String.valueOf(MPIHelperUtil.getMPI())),
+=======
+				"Not unregistering SPI " + mockSPI + " with foreign MPI null " +
+					"versus " + MPIHelperUtil.getMPI(),
+>>>>>>> compatible
 				logRecord.getMessage());
 		}
 

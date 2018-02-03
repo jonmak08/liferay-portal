@@ -14,8 +14,11 @@
 
 package com.liferay.portal.split.packages;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
 
+=======
+>>>>>>> compatible
 import java.io.IOException;
 
 import java.nio.file.DirectoryStream;
@@ -136,11 +139,16 @@ public class SplitPackagesTest {
 			}
 
 			Assert.assertTrue(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Detected split packages in ",
 					String.valueOf(portalPath.relativize(dirPath)), " and ",
 					String.valueOf(modulePath), ": ",
 					String.valueOf(modulePackageNames)),
+=======
+				"Detected split packages in " + portalPath.relativize(dirPath) +
+					" and " + modulePath + ": " + modulePackageNames,
+>>>>>>> compatible
 				modulePackageNames.isEmpty());
 		}
 

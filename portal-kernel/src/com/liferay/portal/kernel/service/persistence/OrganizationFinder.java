@@ -49,6 +49,7 @@ public interface OrganizationFinder {
 		java.util.LinkedHashMap<java.lang.String, java.lang.Object> params,
 		boolean andOperator);
 
+<<<<<<< HEAD
 	public int countO_ByKeywords(long companyId, long parentOrganizationId,
 		java.lang.String parentOrganizationIdComparator,
 		java.lang.String keywords, java.lang.String type,
@@ -79,6 +80,8 @@ public interface OrganizationFinder {
 	public int countO_U_ByC_P(long companyId, long parentOrganizationId,
 		com.liferay.portal.kernel.dao.orm.QueryDefinition<?> queryDefinition);
 
+=======
+>>>>>>> compatible
 	public java.util.List<com.liferay.portal.kernel.model.Organization> findByKeywords(
 		long companyId, long parentOrganizationId,
 		java.lang.String parentOrganizationIdComparator,
@@ -113,6 +116,7 @@ public interface OrganizationFinder {
 		java.util.LinkedHashMap<java.lang.String, java.lang.Object> params,
 		boolean andOperator, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator<com.liferay.portal.kernel.model.Organization> obc);
+<<<<<<< HEAD
 
 	public java.util.List<com.liferay.portal.kernel.model.Organization> findO_ByKeywords(
 		long companyId, long parentOrganizationId,
@@ -152,4 +156,6 @@ public interface OrganizationFinder {
 	public java.util.List<java.lang.Object> findO_U_ByC_P(long companyId,
 		long parentOrganizationId,
 		com.liferay.portal.kernel.dao.orm.QueryDefinition<?> queryDefinition);
+=======
+>>>>>>> compatible
 }

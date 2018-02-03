@@ -14,8 +14,11 @@
 
 package com.liferay.exportimport.lar;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.exportimport.kernel.lar.PortletDataHandlerKeys;
 import com.liferay.portal.kernel.log.Log;
@@ -31,7 +34,10 @@ import com.liferay.portal.kernel.xml.Element;
 /**
  * @author Mate Thurzo
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class ThemeExporter {
 
 	public static ThemeExporter getInstance() {

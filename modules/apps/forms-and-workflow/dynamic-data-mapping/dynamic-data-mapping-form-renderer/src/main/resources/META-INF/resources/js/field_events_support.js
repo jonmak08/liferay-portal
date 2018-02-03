@@ -13,9 +13,17 @@ AUI.add(
 				);
 
 				instance._domEvents = [];
+<<<<<<< HEAD
 			},
 
 			bindContainerEvent: function(eventName, callback, selector, volatile) {
+=======
+
+				instance._bindEvents();
+			},
+
+			bindContainerEvent: function(eventName, callback, selector) {
+>>>>>>> compatible
 				var instance = this;
 
 				var container = instance.get('container');
@@ -33,14 +41,19 @@ AUI.add(
 						callback: callback,
 						handler: handler,
 						name: eventName,
+<<<<<<< HEAD
 						selector: selector,
 						volatile: volatile
+=======
+						selector: selector
+>>>>>>> compatible
 					}
 				);
 
 				return handler;
 			},
 
+<<<<<<< HEAD
 			bindInputEvent: function(eventName, callback, volatile) {
 				var instance = this;
 
@@ -49,6 +62,12 @@ AUI.add(
 
 			getChangeEventName: function() {
 				return 'change';
+=======
+			bindInputEvent: function(eventName, callback) {
+				var instance = this;
+
+				return instance.bindContainerEvent(eventName, callback, instance.getInputSelector);
+>>>>>>> compatible
 			},
 
 			_afterEventsRender: function() {
@@ -65,6 +84,7 @@ AUI.add(
 
 					event.handler.detach();
 
+<<<<<<< HEAD
 					if (!event.volatile) {
 						instance.bindContainerEvent(event.name, event.callback, event.selector);
 					}
@@ -105,11 +125,23 @@ AUI.add(
 					field: instance,
 					originalEvent: originalEvent
 				};
+=======
+					instance.bindContainerEvent(event.name, event.callback, event.selector);
+				}
+			},
+
+			_bindEvents: function() {
+				var instance = this;
+
+				instance.bindInputEvent('blur', instance._onInputBlur);
+				instance.bindInputEvent(['input', 'change'], instance._onValueChange);
+>>>>>>> compatible
 			},
 
 			_onInputBlur: function(event) {
 				var instance = this;
 
+<<<<<<< HEAD
 				instance.fire('blur', instance._getEventPayload(event));
 
 				var root = instance.getRoot();
@@ -140,16 +172,36 @@ AUI.add(
 						formId: root.getFormId()
 					});
 				}
+=======
+				instance.fire(
+					'blur',
+					{
+						domEvent: event,
+						field: instance
+					}
+				);
+>>>>>>> compatible
 			},
 
 			_onValueChange: function(event) {
 				var instance = this;
 
+<<<<<<< HEAD
 				var value = instance.getValue();
 
 				instance.set('value', value);
 
 				instance._fireStartedFillingEvent();
+=======
+				instance.fire(
+					'valueChanged',
+					{
+						domEvent: event,
+						field: instance,
+						value: instance.getValue()
+					}
+				);
+>>>>>>> compatible
 			}
 		};
 

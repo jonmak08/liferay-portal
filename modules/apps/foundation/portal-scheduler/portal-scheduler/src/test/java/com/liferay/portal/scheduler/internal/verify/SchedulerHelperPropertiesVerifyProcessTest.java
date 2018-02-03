@@ -14,9 +14,15 @@
 
 package com.liferay.portal.scheduler.internal.verify;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.util.Props;
 import com.liferay.portal.scheduler.internal.configuration.SchedulerEngineHelperConfiguration;
+=======
+import com.liferay.portal.kernel.util.Props;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.scheduler.configuration.SchedulerEngineHelperConfiguration;
+>>>>>>> compatible
 
 import java.util.Dictionary;
 

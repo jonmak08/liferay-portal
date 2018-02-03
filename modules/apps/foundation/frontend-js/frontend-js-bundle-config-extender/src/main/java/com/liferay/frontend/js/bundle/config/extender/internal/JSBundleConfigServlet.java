@@ -18,7 +18,10 @@ import com.liferay.frontend.js.bundle.config.extender.internal.JSBundleConfigTra
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.StreamUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -110,9 +113,14 @@ public class JSBundleConfigServlet extends HttpServlet {
 						jsConfig.getServletContext();
 
 					servletOutputStream.println(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"var MODULE_PATH = '", _portal.getPathProxy(),
 							servletContext.getContextPath(), "';"));
+=======
+						"var MODULE_PATH = '" + _portal.getPathProxy() +
+							servletContext.getContextPath() + "';");
+>>>>>>> compatible
 
 					StreamUtil.transfer(
 						inputStream, servletOutputStream, false);

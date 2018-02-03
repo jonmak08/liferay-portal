@@ -24,9 +24,13 @@
 	</tear-down>
 
 	<command name="AddOrganizationMember" priority="5">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -37,9 +41,13 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
+=======
+		<execute macro="ProductMenu#gotoUserMyAccount">
+>>>>>>> compatible
 			<var name="portlet" value="My Organizations" />
 		</execute>
 
@@ -47,9 +55,13 @@
 			<var name="organizationName" value="Organization Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
+=======
+		<execute macro="ProductMenu#gotoUserMyAccount">
+>>>>>>> compatible
 			<var name="portlet" value="My Organizations" />
 		</execute>
 
@@ -57,6 +69,7 @@
 			<var name="orgName" value="Organization Name" />
 			<var name="userFirstName" value="userfn" />
 			<var name="userLastName" value="userln" />
+<<<<<<< HEAD
 			<var name="userName" value="userfn userln" />
 			<var name="userScreenName" value="usersn" />
 		</execute>
@@ -64,6 +77,12 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
+=======
+			<var name="userScreenName" value="usersn" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoUserMyAccount">
+>>>>>>> compatible
 			<var name="portlet" value="My Organizations" />
 		</execute>
 
@@ -79,9 +98,13 @@
 	</command>
 
 	<command name="AddOrganizations" priority="4">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
+=======
+		<execute macro="ProductMenu#gotoUserMyAccount">
+>>>>>>> compatible
 			<var name="portlet" value="My Organizations" />
 		</execute>
 
@@ -90,9 +113,13 @@
 				<var name="organizationName" value="Organization Name ${i}" />
 			</execute>
 
+<<<<<<< HEAD
 			<execute macro="ProductMenu#gotoPortlet">
 				<var name="category" value="My Account" />
 				<var name="panel" value="User" />
+=======
+			<execute macro="ProductMenu#gotoUserMyAccount">
+>>>>>>> compatible
 				<var name="portlet" value="My Organizations" />
 			</execute>
 
@@ -104,9 +131,13 @@
 	</command>
 
 	<command name="DeleteOrganization" priority="5">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
+=======
+		<execute macro="ProductMenu#gotoUserMyAccount">
+>>>>>>> compatible
 			<var name="portlet" value="My Organizations" />
 		</execute>
 
@@ -114,9 +145,13 @@
 			<var name="organizationName" value="Organization Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
+=======
+		<execute macro="ProductMenu#gotoUserMyAccount">
+>>>>>>> compatible
 			<var name="portlet" value="My Organizations" />
 		</execute>
 
@@ -124,9 +159,13 @@
 			<var name="orgName" value="Organization Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
+=======
+		<execute macro="ProductMenu#gotoUserMyAccount">
+>>>>>>> compatible
 			<var name="portlet" value="My Organizations" />
 		</execute>
 
@@ -134,9 +173,13 @@
 	</command>
 
 	<command name="EditOrganizationSite" priority="5">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
+=======
+		<execute macro="ProductMenu#gotoUserMyAccount">
+>>>>>>> compatible
 			<var name="portlet" value="My Organizations" />
 		</execute>
 
@@ -144,9 +187,13 @@
 			<var name="organizationName" value="Organization Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
+=======
+		<execute macro="ProductMenu#gotoUserMyAccount">
+>>>>>>> compatible
 			<var name="portlet" value="My Organizations" />
 		</execute>
 
@@ -154,9 +201,13 @@
 			<var name="orgName" value="Organization Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -166,9 +217,13 @@
 			<var name="siteType" value="Private" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
+=======
+		<execute macro="ProductMenu#gotoUserMyAccount">
+>>>>>>> compatible
 			<var name="portlet" value="My Organizations" />
 		</execute>
 
@@ -177,9 +232,13 @@
 			<var name="orgNameEdit" value="Organization Name Edit" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
+=======
+		<execute macro="ProductMenu#gotoUserMyAccount">
+>>>>>>> compatible
 			<var name="portlet" value="My Organizations" />
 		</execute>
 
@@ -195,21 +254,36 @@
 	</command>
 
 	<command name="ViewMyAccount" priority="4">
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="Account Settings" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="Account Settings" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="MyAccount#view" />
 	</command>
 
 	<command name="ViewMyAccountUser" priority="4">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<var name="userEmailAddress" value="userea@liferay.com" />
+		<var name="userFirstName" value="userfn" />
+		<var name="userLastName" value="userln" />
+		<var name="userLoginFullName" value="userfn userln" />
+		<var name="userScreenName" value="usersn" />
+
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -220,9 +294,13 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -236,12 +314,17 @@
 			<var name="userLoginFullName" value="userfn userln" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="Account Settings" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="Account Settings" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="MyAccount#view" />

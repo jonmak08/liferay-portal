@@ -40,6 +40,7 @@ public class LayoutTemplateLocalServiceWrapper
 	}
 
 	@Override
+<<<<<<< HEAD
 	public java.lang.String getLangType(java.lang.String layoutTemplateId,
 		boolean standard, java.lang.String themeId) {
 		return _layoutTemplateLocalService.getLangType(layoutTemplateId,
@@ -47,6 +48,8 @@ public class LayoutTemplateLocalServiceWrapper
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public com.liferay.portal.kernel.model.LayoutTemplate getLayoutTemplate(
 		java.lang.String layoutTemplateId, boolean standard,
 		java.lang.String themeId) {

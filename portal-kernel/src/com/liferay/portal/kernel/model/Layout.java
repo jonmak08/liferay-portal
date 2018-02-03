@@ -187,7 +187,12 @@ public interface Layout extends LayoutModel, PersistedModel {
 	*
 	* @return the current layout's group
 	*/
+<<<<<<< HEAD
 	public Group getGroup();
+=======
+	public Group getGroup()
+		throws com.liferay.portal.kernel.exception.PortalException;
+>>>>>>> compatible
 
 	/**
 	* Returns the current layout's HTML title for the given locale, or the
@@ -225,7 +230,12 @@ public interface Layout extends LayoutModel, PersistedModel {
 	*
 	* @return the current layout's layout set
 	*/
+<<<<<<< HEAD
 	public LayoutSet getLayoutSet();
+=======
+	public LayoutSet getLayoutSet()
+		throws com.liferay.portal.kernel.exception.PortalException;
+>>>>>>> compatible
 
 	/**
 	* Returns the current layout's {@link LayoutType}.
@@ -433,10 +443,13 @@ public interface Layout extends LayoutModel, PersistedModel {
 
 	public boolean isTypePortlet();
 
+<<<<<<< HEAD
 	/**
 	* @deprecated As of 7.0.0, with no direct replacement
 	*/
 	@java.lang.Deprecated()
+=======
+>>>>>>> compatible
 	public boolean isTypeSharedPortlet();
 
 	public boolean isTypeURL();

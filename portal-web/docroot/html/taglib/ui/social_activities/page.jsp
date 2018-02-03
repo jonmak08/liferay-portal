@@ -58,6 +58,7 @@
 			daysBetween = curDaysBetween;
 
 			if (hasActivities) {
+<<<<<<< HEAD
 			%>
 
 				</ul>
@@ -66,6 +67,16 @@
 			}
 			%>
 
+=======
+			%>
+
+				</ul>
+
+			<%
+			}
+			%>
+
+>>>>>>> compatible
 			<ul class="list-group-card list-unstyled">
 				<li class="splitter">
 					<c:choose>
@@ -79,7 +90,11 @@
 							<%= dateFormatDate.format(activityDescriptor.getCreateDate()) %>
 						</c:when>
 						<c:otherwise>
+<<<<<<< HEAD
 							<%= yearDateFormatDate.format(activityDescriptor.getCreateDate()) %>
+=======
+							<%= dateFormatDate.format(activityDescriptor.getCreateDate()) %>
+>>>>>>> compatible
 						</c:otherwise>
 					</c:choose>
 				</li>
@@ -96,9 +111,15 @@
 						<h5 class="text-default">
 							<%= timeFormatDate.format(activityDescriptor.getCreateDate()) %>
 						</h5>
+<<<<<<< HEAD
 
 						<%= activityFeedEntry.getTitle() %>
 
+=======
+
+						<%= activityFeedEntry.getTitle() %>
+
+>>>>>>> compatible
 						<%= activityFeedEntry.getBody() %>
 					</div>
 				</div>

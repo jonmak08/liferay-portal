@@ -26,8 +26,11 @@ int displayActivityCounterNameIndexCount = displayActivityCounterNames.length;
 if (displayActivityCounterNameIndexCount == 0) {
 	displayActivityCounterNameIndexCount = 1;
 }
+<<<<<<< HEAD
 
 String[] displayActivityCounterNameIndexes = new String[displayActivityCounterNameIndexCount];
+=======
+>>>>>>> compatible
 %>
 
 <liferay-portlet:actionURL portletConfiguration="<%= true %>" var="configurationActionURL" />
@@ -45,17 +48,25 @@ String[] displayActivityCounterNameIndexes = new String[displayActivityCounterNa
 					<aui:fieldset label="">
 
 						<%
+<<<<<<< HEAD
 						for (int i = 0; i < displayActivityCounterNameIndexCount; i++) {
 							String index = String.valueOf(i);
 
 							displayActivityCounterNameIndexes[i] = index;
+=======
+						for (int displayActivityCounterNameIndex = 0; displayActivityCounterNameIndex < displayActivityCounterNameIndexCount; displayActivityCounterNameIndex++) {
+>>>>>>> compatible
 						%>
 
 							<div class="lfr-form-row">
 								<div class="row-fields">
 									<liferay-util:include page="/add_activity_counter.jsp" servletContext="<%= application %>">
 										<liferay-util:param name="portletResource" value="<%= portletName %>" />
+<<<<<<< HEAD
 										<liferay-util:param name="index" value="<%= index %>" />
+=======
+										<liferay-util:param name="index" value="<%= String.valueOf(displayActivityCounterNameIndex) %>" />
+>>>>>>> compatible
 									</liferay-util:include>
 								</div>
 							</div>
@@ -67,6 +78,7 @@ String[] displayActivityCounterNameIndexes = new String[displayActivityCounterNa
 					</aui:fieldset>
 				</div>
 
+<<<<<<< HEAD
 				<aui:input name="displayActivityCounterNameIndexes" type="hidden" value="<%= StringUtil.merge(displayActivityCounterNameIndexes) %>" />
 
 				<aui:script use="liferay-auto-fields">
@@ -77,6 +89,14 @@ String[] displayActivityCounterNameIndexes = new String[displayActivityCounterNa
 							namespace: '<portlet:namespace />',
 							url: '<liferay-portlet:renderURL portletName="<%= SocialGroupStatisticsPortletKeys.SOCIAL_GROUP_STATISTICS %>" windowState="<%= LiferayWindowState.EXCLUSIVE.toString() %>"><liferay-portlet:param name="mvcPath" value="/add_activity_counter.jsp" /><liferay-portlet:param name="portletResource" value="<%= portletName %>" /></liferay-portlet:renderURL>',
 							urlNamespace: '<%= "_" + SocialGroupStatisticsPortletKeys.SOCIAL_GROUP_STATISTICS + "_" %>'
+=======
+				<aui:script use="liferay-auto-fields">
+					var autoFields = new Liferay.AutoFields(
+						{
+							contentBox: '#<portlet:namespace />displayActivityCounterNames > fieldset',
+							namespace: '<portlet:namespace />',
+							url: '<liferay-portlet:renderURL portletName="<%= SocialGroupStatisticsPortletKeys.SOCIAL_GROUP_STATISTICS %>" windowState="<%= LiferayWindowState.EXCLUSIVE.toString() %>"><liferay-portlet:param name="mvcPath" value="/add_activity_counter.jsp" /><liferay-portlet:param name="portletResource" value="<%= portletName %>" /><liferay-portlet:param name="index" value="<%= String.valueOf(displayActivityCounterNameIndexCount) %>" /></liferay-portlet:renderURL>'
+>>>>>>> compatible
 						}
 					).render();
 				</aui:script>
@@ -85,6 +105,10 @@ String[] displayActivityCounterNameIndexes = new String[displayActivityCounterNa
 	</div>
 
 	<aui:button-row>
+<<<<<<< HEAD
 		<aui:button type="submit" />
+=======
+		<aui:button cssClass="btn-lg" type="submit" />
+>>>>>>> compatible
 	</aui:button-row>
 </aui:form>

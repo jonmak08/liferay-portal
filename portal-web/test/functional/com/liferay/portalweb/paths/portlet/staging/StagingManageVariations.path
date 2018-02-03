@@ -8,6 +8,7 @@
 <tr><td rowspan="1" colspan="3">StagingManageVariations</td></tr>
 </thead>
 <tbody>
+<<<<<<< HEAD
 <tr>
 	<td>ADD</td>
 	<td>//button[@type='submit' and contains(.,'Add')]</td>
@@ -16,6 +17,22 @@
 <tr>
 	<td></td>
 	<td></td>
+=======
+<tr>
+	<td>ADD</td>
+	<td>//button[@type='submit' and contains(.,'Add')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--SITE_VARIATION-->
+<tr>
+	<td>MANAGE_SITE_PAGES_VARIATIONS_IFRAME</td>
+	<td>//iframe[contains(@id,'_layoutSetBranches_iframe_')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <!--SITE_VARIATION-->
@@ -36,8 +53,18 @@
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 	<td>UPDATE_BUTTON</td>
 	<td>//div[contains(@class,'button-holder')]//button[contains(@id,'StagingBarPortlet') and contains(.,'Update')]</td>
+=======
+	<td>SITE_PAGES_VARIATIONS_TABLE_ACTIONS</td>
+	<td>//tr[contains(.,'${key_sitePagesVariationName}')]/td[3]//div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td>UPDATE_BUTTON</td>
+	<td>xpath=(//button[contains(.,'Update')])[2]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -81,6 +108,52 @@
 <tr>
 	<td>MERGE_SITE_PAGES_VARIATION_TABLE_SELECT_LINK</td>
 	<td>//tbody//tr[contains(.,'${key_sitePagesVariationMergeName}')]/td[contains(.,'Select')]//a</td>
+<<<<<<< HEAD
+=======
+	<td></td>
+</tr>
+<!--PAGE_VARIATION-->
+<tr>
+	<td>MANAGE_PAGE_VARIATIONS_IFRAME</td>
+	<td>//iframe[contains(@id,'_layoutRevisions_iframe_')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ADD_PAGE_VARIATION_BUTTON</td>
+	<td>//button[contains(.,'Add Page Variation')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--PAGE_VARIATION_TABLE-->
+<tr>
+	<td>PAGE_VARIATION_TABLE_NAME</td>
+	<td>//tr[contains(.,'${key_pageVariationName}')]/td[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PAGE_VARIATION_TABLE_ACTIONS</td>
+	<td>//tr[contains(.,'${key_pageVariationName}')]/td[3]//div/a</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
+<!--PAGE_VARIATIONS_TABLE_ACTIONS_MENULIST-->
+<tr>
+	<td>PAGE_VARIATIONS_TABLE_ACTIONS_MENULIST_EDIT</td>
+	<td>//a[contains(@id,'_layoutRevisionsSearchContainer_2_menu_edit')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>PAGE_VARIATIONS_TABLE_ACTIONS_MENULIST_DELETE</td>
+	<td>//a[contains(@id,'_layoutRevisionsSearchContainer_2_menu_delete')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 </tbody>

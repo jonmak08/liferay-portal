@@ -143,7 +143,11 @@ public class SearchPortlet extends BaseKBPortlet {
 	}
 
 	@Reference(
+<<<<<<< HEAD
 		target = "(&(release.bundle.symbolic.name=com.liferay.knowledge.base.web)(release.schema.version=1.1.0))",
+=======
+		target = "(&(release.bundle.symbolic.name=com.liferay.knowledge.base.web)(release.schema.version=1.0.0))",
+>>>>>>> compatible
 		unbind = "-"
 	)
 	protected void setRelease(Release release) {

@@ -17,7 +17,10 @@ package com.liferay.directory.web.internal.asset;
 import com.liferay.asset.kernel.model.AssetRenderer;
 import com.liferay.asset.kernel.model.AssetRendererFactory;
 import com.liferay.asset.kernel.model.BaseAssetRendererFactory;
+<<<<<<< HEAD
 import com.liferay.directory.web.internal.constants.DirectoryPortletKeys;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.User;
@@ -91,11 +94,14 @@ public class UserAssetRendererFactory extends BaseAssetRendererFactory<User> {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public String getPortletId() {
 		return DirectoryPortletKeys.SITE_MEMBERS_DIRECTORY;
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public String getType() {
 		return TYPE;
 	}

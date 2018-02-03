@@ -136,6 +136,10 @@ AUI.add(
 						var inputPlaceholder = instance.get(STR_INPUT_PLACEHOLDER);
 
 						var eventHandles = [
+<<<<<<< HEAD
+=======
+							A.after(instance._afterRenderUI, instance, 'renderUI'),
+>>>>>>> compatible
 							instance.after(
 								{
 									focusedChange: instance._onFocusedChange,
@@ -168,7 +172,10 @@ AUI.add(
 						);
 
 						instance._inputPlaceholderDescription = boundingBox.one('#' + inputPlaceholder.attr('id') + '_desc');
+<<<<<<< HEAD
 						instance._flags = boundingBox.one('.palette-container');
+=======
+>>>>>>> compatible
 					},
 
 					destructor: function() {
@@ -207,7 +214,11 @@ AUI.add(
 					},
 
 					removeInputLanguage: function(languageId) {
+<<<<<<< HEAD
 						var instance = this;
+=======
+						var instance  = this;
+>>>>>>> compatible
 
 						var boundingBox = instance.get('boundingBox');
 
@@ -221,10 +232,13 @@ AUI.add(
 					selectFlag: function(languageId) {
 						var instance = this;
 
+<<<<<<< HEAD
 						if (!Lang.isValue(languageId)) {
 							languageId = defaultLanguageId;
 						}
 
+=======
+>>>>>>> compatible
 						var inputPlaceholder = instance.get(STR_INPUT_PLACEHOLDER);
 
 						var defaultLanguageValue = instance.getValue(defaultLanguageId);
@@ -260,6 +274,7 @@ AUI.add(
 						}
 					},
 
+<<<<<<< HEAD
 					updateInputLanguage: function(value, languageId) {
 						var instance = this;
 
@@ -268,6 +283,12 @@ AUI.add(
 						if (!Lang.isValue(selectedLanguageId)) {
 							selectedLanguageId = defaultLanguageId;
 						}
+=======
+					updateInputLanguage: function(value) {
+						var instance = this;
+
+						var selectedLanguageId = instance.getSelectedLanguageId();
+>>>>>>> compatible
 
 						var defaultInputLanguage = instance._getInputLanguage(defaultLanguageId);
 						var inputLanguage = instance._getInputLanguage(selectedLanguageId);
@@ -291,6 +312,15 @@ AUI.add(
 						translatedLanguages[action](selectedLanguageId);
 					},
 
+<<<<<<< HEAD
+=======
+					_afterRenderUI: function() {
+						var instance = this;
+
+						instance._flags = instance.get('boundingBox').one('.palette-container');
+					},
+
+>>>>>>> compatible
 					_animate: function(input) {
 						var instance = this;
 
@@ -379,6 +409,10 @@ AUI.add(
 					_getInputLanguageId: function(languageId) {
 						var instance = this;
 
+<<<<<<< HEAD
+=======
+						var boundingBox = instance.get('boundingBox');
+>>>>>>> compatible
 						var id = instance.get('id');
 						var namespace = instance.get('namespace');
 

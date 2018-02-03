@@ -187,6 +187,7 @@ public class DLFileEntryTrashHandler extends DLBaseTrashHandler {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public TrashedModel getTrashedModel(long classPK) {
 		try {
 			return getDLFileEntry(classPK);
@@ -198,6 +199,12 @@ public class DLFileEntryTrashHandler extends DLBaseTrashHandler {
 
 			return null;
 		}
+=======
+	public TrashEntry getTrashEntry(long classPK) throws PortalException {
+		DLFileEntry dlFileEntry = getDLFileEntry(classPK);
+
+		return dlFileEntry.getTrashEntry();
+>>>>>>> compatible
 	}
 
 	@Override
@@ -216,6 +223,41 @@ public class DLFileEntryTrashHandler extends DLBaseTrashHandler {
 	}
 
 	@Override
+<<<<<<< HEAD
+=======
+	public boolean isInTrash(long classPK) throws PortalException {
+		try {
+			DLFileEntry dlFileEntry = getDLFileEntry(classPK);
+
+			return dlFileEntry.isInTrash();
+		}
+		catch (UnsupportedCapabilityException uce) {
+			if (_log.isDebugEnabled()) {
+				_log.debug(uce, uce);
+			}
+
+			return false;
+		}
+	}
+
+	@Override
+	public boolean isInTrashContainer(long classPK) throws PortalException {
+		try {
+			DLFileEntry dlFileEntry = getDLFileEntry(classPK);
+
+			return dlFileEntry.isInTrashContainer();
+		}
+		catch (UnsupportedCapabilityException uce) {
+			if (_log.isDebugEnabled()) {
+				_log.debug(uce, uce);
+			}
+
+			return false;
+		}
+	}
+
+	@Override
+>>>>>>> compatible
 	public boolean isRestorable(long classPK) throws PortalException {
 		DLFileEntry dlFileEntry = fetchDLFileEntry(classPK);
 

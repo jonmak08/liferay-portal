@@ -1,5 +1,9 @@
 Bundle-Name: Liferay Asset Categories Service
 Bundle-SymbolicName: com.liferay.asset.categories.service
+<<<<<<< HEAD
 Bundle-Version: 1.1.0
+=======
+Bundle-Version: 1.0.10
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Asset

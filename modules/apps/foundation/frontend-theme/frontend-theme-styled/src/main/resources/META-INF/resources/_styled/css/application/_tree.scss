@@ -3,7 +3,11 @@
 		padding-right: 2px;
 
 		&:before {
+<<<<<<< HEAD
 			content: "\f096";
+=======
+			content: $check-empty;
+>>>>>>> compatible
 		}
 	}
 
@@ -12,7 +16,11 @@
 			padding-right: 0;
 
 			&:before {
+<<<<<<< HEAD
 				content: "\f046";
+=======
+				content: $check;
+>>>>>>> compatible
 			}
 		}
 	}

@@ -23,6 +23,10 @@ import com.liferay.portal.kernel.model.Organization;
 import com.liferay.portal.kernel.model.OrganizationConstants;
 import com.liferay.portal.kernel.model.PasswordPolicy;
 import com.liferay.portal.kernel.model.Phone;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.model.User;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Website;
 import com.liferay.portal.kernel.service.AddressLocalServiceUtil;
 import com.liferay.portal.kernel.service.EmailAddressLocalServiceUtil;
@@ -81,6 +85,11 @@ public class OrganizationTestUtil {
 			long parentOrganizationId, String name, boolean site)
 		throws Exception {
 
+<<<<<<< HEAD
+=======
+		User user = UserTestUtil.addUser();
+
+>>>>>>> compatible
 		return OrganizationLocalServiceUtil.addOrganization(
 			TestPropsValues.getUserId(), parentOrganizationId, name, site);
 	}

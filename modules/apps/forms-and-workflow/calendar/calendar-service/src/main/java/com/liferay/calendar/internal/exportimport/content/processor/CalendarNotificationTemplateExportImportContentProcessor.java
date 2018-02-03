@@ -15,6 +15,7 @@
 package com.liferay.calendar.internal.exportimport.content.processor;
 
 import com.liferay.exportimport.content.processor.ExportImportContentProcessor;
+<<<<<<< HEAD
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.StagedModel;
@@ -27,6 +28,16 @@ import org.osgi.service.component.annotations.Reference;
 /**
  * @author Gergely Mathe
  * @author Daniel Kocsis
+=======
+import com.liferay.exportimport.content.processor.base.BaseTextExportImportContentProcessor;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+
+import org.osgi.service.component.annotations.Component;
+
+/**
+ * @author Gergely Mathe
+>>>>>>> compatible
  */
 @Component(
 	property = {
@@ -38,6 +49,7 @@ import org.osgi.service.component.annotations.Reference;
 	}
 )
 public class CalendarNotificationTemplateExportImportContentProcessor
+<<<<<<< HEAD
 	implements ExportImportContentProcessor<String> {
 
 	@Override
@@ -103,5 +115,11 @@ public class CalendarNotificationTemplateExportImportContentProcessor
 	@Reference(target = "(content.processor.type=LayoutReferences)")
 	private ExportImportContentProcessor<String>
 		_layoutReferencesExportImportContentProcessor;
+=======
+	extends BaseTextExportImportContentProcessor {
+
+	private static final Log _log = LogFactoryUtil.getLog(
+		CalendarNotificationTemplateExportImportContentProcessor.class);
+>>>>>>> compatible
 
 }

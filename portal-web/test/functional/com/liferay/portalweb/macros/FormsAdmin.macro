@@ -28,6 +28,7 @@
 		</execute>
 
 		<execute macro="FormFields#editText">
+<<<<<<< HEAD
 			<var name="fieldName" value="$username" />
 			<var name="fieldValue" value="${username}" />
 		</execute>
@@ -97,6 +98,42 @@
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="${searchTerm}" />
 		</execute>
+=======
+			<var name="fieldName" value="$key" />
+			<var name="fieldValue" value="${displayedAttribute}" />
+		</execute>
+
+		<execute macro="FormFields#editText">
+			<var name="fieldName" value="$value" />
+			<var name="fieldValue" value="${storedAttribute}" />
+		</execute>
+
+		<execute macro="FormFields#editText">
+			<var name="fieldName" value="$username" />
+			<var name="fieldValue" value="${username}" />
+		</execute>
+
+		<execute macro="FormFields#editText">
+			<var name="fieldName" value="$password" />
+			<var name="fieldValue" value="${password}" />
+		</execute>
+	</command>
+
+	<command name="saveDataProvider">
+		<execute function="SelectFrame" value1="relative=top" />
+
+		<execute macro="Button#clickSave" />
+
+		<execute function="SelectFrame" locator1="IFrame#DIALOG" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+	</command>
+
+	<command name="searchFormEntry">
+		<execute function="Type" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${searchTerm}" />
+
+		<execute function="Click" locator1="Icon#BASIC_SEARCH" />
+>>>>>>> compatible
 	</command>
 
 	<command name="teardownForms">
@@ -163,6 +200,7 @@
 		<execute function="AssertElementPresent" locator1="Icon#ROW_VERTICAL_ELLIPSIS" />
 	</command>
 
+<<<<<<< HEAD
 	<command name="viewFormGridFieldTableEntry">
 		<var name="key_fieldLabel" value="${fieldLabel}" />
 
@@ -172,6 +210,8 @@
 		<execute function="AssertTextEquals#assertPartialText" locator1="FormsAdmin#GRID_FIELD_FORM_ENTRY_TABLE_ENTRY" value1="${optionRowLabel}: ${categoryColumnLabel}" />
 	</command>
 
+=======
+>>>>>>> compatible
 	<command name="viewFormIcon">
 		<var name="key_formName" value="${formName}" />
 
@@ -184,7 +224,11 @@
 		<var name="key_fieldLabel" value="${fieldLabel}" />
 		<var name="key_fieldValue" value="${fieldValue}" />
 
+<<<<<<< HEAD
 		<execute function="AssertTextEquals" locator1="FormsAdmin#FORM_ENTRY_TABLE_ENTRY" value1="${fieldValue}" />
+=======
+		<execute function="AssertTextEquals#assertPartialText" locator1="FormsAdmin#FORM_ENTRY_TABLE_ENTRY" value1="${fieldValue}" />
+>>>>>>> compatible
 	</command>
 
 	<command name="viewFormTableEntryNotPresent">
@@ -208,25 +252,34 @@
 		</execute>
 	</command>
 
+<<<<<<< HEAD
 	<command name="viewNoDuplicateForms">
 		<var name="key_formName" value="${formName}" />
 
 		<execute function="AssertElementNotPresent" locator1="FormsAdmin#FORMS_TABLE_NAME_2" value1="${formName}" />
 	</command>
 
+=======
+>>>>>>> compatible
 	<command name="viewNoFormEntries">
 		<execute function="AssertTextEquals" locator1="Message#EMPTY_INFO" value1="No entries were found." />
 	</command>
 
+<<<<<<< HEAD
 	<command name="viewNoForms">
 		<execute function="AssertTextEquals" locator1="Message#EMPTY_INFO" value1="There are no forms. Click on the plus button to add the first one." />
 	</command>
 
+=======
+>>>>>>> compatible
 	<command name="viewParagraphEntry">
 		<execute macro="FormsAdmin#viewCannotEditFormEntries" />
 
 		<execute macro="FormFields#viewParagraphField">
+<<<<<<< HEAD
 			<var name="fieldName" value="${fieldName}" />
+=======
+>>>>>>> compatible
 			<var name="fieldTitle" value="${fieldTitle}" />
 			<var name="fieldValue" value="${fieldValue}" />
 		</execute>
@@ -279,6 +332,7 @@
 			<var name="fieldValue" value="${fieldValue}" />
 		</execute>
 	</command>
+<<<<<<< HEAD
 
 	<command name="viewUploadFile">
 		<execute macro="FormFields#viewUploadLabel">
@@ -293,4 +347,6 @@
 
 		<execute function="AssertElementPresent" locator1="FormFields#UPLOAD_DOWNLOAD_ICON" value1="${uploadFileName}" />
 	</command>
+=======
+>>>>>>> compatible
 </definition>

@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Frontend Image Editor Integration Document Library
 Bundle-SymbolicName: com.liferay.frontend.image.editor.integration.document.library
+<<<<<<< HEAD
 Bundle-Version: 1.0.18
+=======
+Bundle-Version: 1.0.12
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title:
 Web-ContextPath: /frontend-image-editor-integration-document-library

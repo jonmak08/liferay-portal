@@ -17,7 +17,10 @@ package com.liferay.layout.type.controller.full.page.application.internal.contro
 import com.liferay.layout.type.controller.full.page.application.internal.constants.FullPageApplicationLayoutTypeControllerConstants;
 import com.liferay.layout.type.controller.full.page.application.internal.constants.FullPageApplicationLayoutTypeControllerWebKeys;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringWriter;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.Layout;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.LayoutConstants;
 import com.liferay.portal.kernel.model.LayoutTypeController;
 import com.liferay.portal.kernel.model.Portlet;
@@ -25,7 +28,10 @@ import com.liferay.portal.kernel.model.impl.BaseLayoutTypeControllerImpl;
 import com.liferay.portal.kernel.service.PortletLocalService;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.PredicateFilter;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.WebKeys;
+=======
+>>>>>>> compatible
 import com.liferay.taglib.servlet.PipingServletResponse;
 
 import java.util.List;
@@ -60,6 +66,7 @@ public class FullPageApplicationLayoutTypeController
 	}
 
 	@Override
+<<<<<<< HEAD
 	public String includeEditContent(
 			HttpServletRequest request, HttpServletResponse response,
 			Layout layout)
@@ -71,6 +78,8 @@ public class FullPageApplicationLayoutTypeController
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public boolean isBrowsable() {
 		return true;
 	}
@@ -144,6 +153,7 @@ public class FullPageApplicationLayoutTypeController
 		return _VIEW_PAGE;
 	}
 
+<<<<<<< HEAD
 	@Override
 	protected void removeAttributes(HttpServletRequest request) {
 		request.removeAttribute(WebKeys.SEL_LAYOUT);
@@ -151,6 +161,8 @@ public class FullPageApplicationLayoutTypeController
 		super.removeAttributes(request);
 	}
 
+=======
+>>>>>>> compatible
 	@Reference(unbind = "-")
 	protected void setPortletLocalService(
 		PortletLocalService portletLocalService) {

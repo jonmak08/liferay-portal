@@ -2,7 +2,10 @@ buildService {
 	apiDir = "../portal-instances-api/src/main/java"
 	testDir = "../portal-instances-test/src/testIntegration/java"
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> compatible
 buildService {
 }
 

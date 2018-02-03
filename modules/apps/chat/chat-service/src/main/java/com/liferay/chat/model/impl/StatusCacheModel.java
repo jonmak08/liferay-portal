@@ -21,6 +21,10 @@ import com.liferay.chat.model.Status;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -96,14 +100,22 @@ public class StatusCacheModel implements CacheModel<Status>, Externalizable {
 		statusImpl.setAwake(awake);
 
 		if (activePanelIds == null) {
+<<<<<<< HEAD
 			statusImpl.setActivePanelIds("");
+=======
+			statusImpl.setActivePanelIds(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			statusImpl.setActivePanelIds(activePanelIds);
 		}
 
 		if (message == null) {
+<<<<<<< HEAD
 			statusImpl.setMessage("");
+=======
+			statusImpl.setMessage(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			statusImpl.setMessage(message);
@@ -147,14 +159,22 @@ public class StatusCacheModel implements CacheModel<Status>, Externalizable {
 		objectOutput.writeBoolean(awake);
 
 		if (activePanelIds == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(activePanelIds);
 		}
 
 		if (message == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(message);

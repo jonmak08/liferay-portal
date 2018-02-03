@@ -16,15 +16,19 @@ package com.liferay.portal.configuration.settings.internal.util;
 
 import aQute.bnd.annotation.metatype.Meta;
 
+<<<<<<< HEAD
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 
+=======
+>>>>>>> compatible
 /**
  * @author Iván Zaera
  */
 public class ConfigurationPidUtil {
 
 	public static String getConfigurationPid(Class<?> configurationBeanClass) {
+<<<<<<< HEAD
 		for (Annotation annotation : configurationBeanClass.getAnnotations()) {
 			Class<? extends Annotation> clazz = annotation.annotationType();
 
@@ -48,6 +52,11 @@ public class ConfigurationPidUtil {
 		throw new IllegalArgumentException(
 			"Invalid configuration bean class: " +
 				configurationBeanClass.getName());
+=======
+		Meta.OCD ocd = configurationBeanClass.getAnnotation(Meta.OCD.class);
+
+		return ocd.id();
+>>>>>>> compatible
 	}
 
 }

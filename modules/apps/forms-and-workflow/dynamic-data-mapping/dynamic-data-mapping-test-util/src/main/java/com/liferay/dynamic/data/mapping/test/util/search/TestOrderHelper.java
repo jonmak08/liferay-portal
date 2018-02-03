@@ -20,8 +20,11 @@ import com.liferay.asset.kernel.model.AssetRenderer;
 import com.liferay.asset.kernel.model.AssetRendererFactory;
 import com.liferay.asset.kernel.model.DDMFormValuesReader;
 import com.liferay.asset.kernel.service.persistence.AssetEntryQuery;
+<<<<<<< HEAD
 import com.liferay.asset.test.util.AssetEntryQueryTestUtil;
 import com.liferay.asset.util.AssetHelper;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.model.DDMForm;
 import com.liferay.dynamic.data.mapping.model.DDMFormField;
 import com.liferay.dynamic.data.mapping.model.DDMFormFieldOptions;
@@ -37,8 +40,11 @@ import com.liferay.dynamic.data.mapping.test.util.DDMStructureTestUtil;
 import com.liferay.dynamic.data.mapping.test.util.DDMTemplateTestUtil;
 import com.liferay.dynamic.data.mapping.util.DDMBeanTranslatorUtil;
 import com.liferay.dynamic.data.mapping.util.DDMIndexer;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.model.BaseModel;
 import com.liferay.portal.kernel.model.Group;
@@ -47,10 +53,20 @@ import com.liferay.portal.kernel.search.SearchContext;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.test.util.SearchContextTestUtil;
 import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.osgi.util.test.OSGiServiceUtil;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+import com.liferay.portal.kernel.util.ListUtil;
+import com.liferay.portal.kernel.util.LocaleUtil;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portlet.asset.service.persistence.test.AssetEntryQueryTestUtil;
+import com.liferay.portlet.asset.util.AssetUtil;
+>>>>>>> compatible
 
 import java.util.List;
 import java.util.Locale;
@@ -60,9 +76,12 @@ import org.apache.commons.lang.ArrayUtils;
 
 import org.junit.Assert;
 
+<<<<<<< HEAD
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
 
+=======
+>>>>>>> compatible
 /**
  * @author Preston Crary
  * @author André de Oliveira
@@ -223,11 +242,15 @@ public abstract class TestOrderHelper {
 
 		Hits hits = search(assetEntryQuery);
 
+<<<<<<< HEAD
 		Bundle bundle = FrameworkUtil.getBundle(TestOrderHelper.class);
 
 		List<AssetEntry> assetEntries = OSGiServiceUtil.callService(
 			bundle.getBundleContext(), AssetHelper.class,
 			assetHelper -> assetHelper.getAssetEntries(hits));
+=======
+		List<AssetEntry> assetEntries = AssetUtil.getAssetEntries(hits);
+>>>>>>> compatible
 
 		Assert.assertEquals(
 			ArrayUtils.toString(_sortedValues),
@@ -318,6 +341,7 @@ public abstract class TestOrderHelper {
 
 		searchContext.setGroupIds(assetEntryQuery.getGroupIds());
 
+<<<<<<< HEAD
 		Bundle bundle = FrameworkUtil.getBundle(TestOrderHelper.class);
 
 		return OSGiServiceUtil.callService(
@@ -325,6 +349,11 @@ public abstract class TestOrderHelper {
 			assetHelper -> assetHelper.search(
 				searchContext, assetEntryQuery, QueryUtil.ALL_POS,
 				QueryUtil.ALL_POS));
+=======
+		return AssetUtil.search(
+			searchContext, assetEntryQuery, QueryUtil.ALL_POS,
+			QueryUtil.ALL_POS);
+>>>>>>> compatible
 	}
 
 	protected void setDDMFormFieldOptions(DDMForm ddmForm) {
@@ -409,8 +438,13 @@ public abstract class TestOrderHelper {
 			String indexType, String type)
 		throws Exception {
 
+<<<<<<< HEAD
 		_unsortedValues = unsortedValues;
 		_sortedValues = sortedValues;
+=======
+		_unsortedValues = toJsonArrays(unsortedValues);
+		_sortedValues = toJsonArrays(sortedValues);
+>>>>>>> compatible
 		_dataType = dataType;
 		_indexType = indexType;
 		_type = type;

@@ -13,7 +13,11 @@
 			<var name="name" value="${consumerName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute function="Paste" locator1="TextInput#URL" />
+=======
+		<execute function="Paste" locator1="TextArea#URL" />
+>>>>>>> compatible
 		<execute macro="PortletEntry#save" />
 	</command>
 
@@ -56,9 +60,13 @@
 	</command>
 
 	<command name="tearDownCP">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Apps" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelApps">
+>>>>>>> compatible
 			<var name="portlet" value="WSRP Admin" />
 		</execute>
 

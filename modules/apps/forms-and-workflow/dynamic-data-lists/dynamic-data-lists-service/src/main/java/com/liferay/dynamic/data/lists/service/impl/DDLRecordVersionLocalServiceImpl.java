@@ -35,6 +35,7 @@ public class DDLRecordVersionLocalServiceImpl
 	extends DDLRecordVersionLocalServiceBaseImpl {
 
 	/**
+<<<<<<< HEAD
 	 * Returns the latest record version matching the user, the record set, the
 	 * record set version and workflow status.
 	 *
@@ -53,6 +54,8 @@ public class DDLRecordVersionLocalServiceImpl
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	 * Returns the record's latest record version.
 	 *
 	 * @param  recordId the primary key of the record

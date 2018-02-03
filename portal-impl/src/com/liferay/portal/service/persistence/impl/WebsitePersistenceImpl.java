@@ -37,6 +37,7 @@ import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.WebsitePersistence;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.Validator;
@@ -2887,6 +2888,7 @@ public class WebsitePersistenceImpl extends BasePersistenceImpl<Website>
 		}
 
 		List<Website> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<Website>)finderCache.getResult(finderPath, finderArgs,
@@ -2899,6 +2901,20 @@ public class WebsitePersistenceImpl extends BasePersistenceImpl<Website>
 							(classPK != website.getClassPK())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<Website>)finderCache.getResult(finderPath, finderArgs,
+					this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (Website website : list) {
+					if ((companyId != website.getCompanyId()) ||
+							(classNameId != website.getClassNameId()) ||
+							(classPK != website.getClassPK())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -3478,6 +3494,7 @@ public class WebsitePersistenceImpl extends BasePersistenceImpl<Website>
 		}
 
 		List<Website> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<Website>)finderCache.getResult(finderPath, finderArgs,
@@ -3491,6 +3508,21 @@ public class WebsitePersistenceImpl extends BasePersistenceImpl<Website>
 							(primary != website.getPrimary())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<Website>)finderCache.getResult(finderPath, finderArgs,
+					this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (Website website : list) {
+					if ((companyId != website.getCompanyId()) ||
+							(classNameId != website.getClassNameId()) ||
+							(classPK != website.getClassPK()) ||
+							(primary != website.getPrimary())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -3976,11 +4008,17 @@ public class WebsitePersistenceImpl extends BasePersistenceImpl<Website>
 		setModelClass(Website.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("uuid", "uuid_");
@@ -4232,6 +4270,7 @@ public class WebsitePersistenceImpl extends BasePersistenceImpl<Website>
 		}
 
 		finderCache.clearCache(FINDER_CLASS_NAME_LIST_WITH_PAGINATION);
+<<<<<<< HEAD
 
 		if (!WebsiteModelImpl.COLUMN_BITMASK_ENABLED) {
 			finderCache.clearCache(FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION);
@@ -4254,6 +4293,30 @@ public class WebsitePersistenceImpl extends BasePersistenceImpl<Website>
 
 			args = new Object[] { websiteModelImpl.getCompanyId() };
 
+=======
+
+		if (!WebsiteModelImpl.COLUMN_BITMASK_ENABLED) {
+			finderCache.clearCache(FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION);
+		}
+		else
+		 if (isNew) {
+			Object[] args = new Object[] { websiteModelImpl.getUuid() };
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_UUID, args);
+			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_UUID,
+				args);
+
+			args = new Object[] {
+					websiteModelImpl.getUuid(), websiteModelImpl.getCompanyId()
+				};
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_UUID_C, args);
+			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_UUID_C,
+				args);
+
+			args = new Object[] { websiteModelImpl.getCompanyId() };
+
+>>>>>>> compatible
 			finderCache.removeResult(FINDER_PATH_COUNT_BY_COMPANYID, args);
 			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_COMPANYID,
 				args);

@@ -413,7 +413,11 @@ public class BrowserSnifferImpl implements BrowserSniffer {
 	protected static char[] revisionSeparators =
 		{CharPool.BACK_SLASH, CharPool.COLON, CharPool.SLASH, CharPool.SPACE};
 	protected static String[] versionLeadings =
+<<<<<<< HEAD
 		{"edge", "chrome", "firefox", "version", "minefield", "trident"};
+=======
+		{"edge", "chrome", "firefox", "version", "minefield"};
+>>>>>>> compatible
 	protected static char[] versionSeparators =
 		{CharPool.BACK_SLASH, CharPool.SLASH};
 

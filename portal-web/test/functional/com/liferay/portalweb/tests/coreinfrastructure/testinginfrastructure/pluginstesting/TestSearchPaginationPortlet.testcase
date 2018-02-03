@@ -11,12 +11,17 @@
 	</set-up>
 
 	<tear-down>
+<<<<<<< HEAD
 		<execute macro="Page#tearDownCP" />
+=======
+		<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 	</tear-down>
 
 	<command name="SearchAndViewPagination" priority="4">
 		<description message="This is a use case for LPS-65608." />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -28,6 +33,9 @@
 		</execute>
 
 		<execute macro="Navigator#gotoPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Sample Service Builder Page" />
 		</execute>
 

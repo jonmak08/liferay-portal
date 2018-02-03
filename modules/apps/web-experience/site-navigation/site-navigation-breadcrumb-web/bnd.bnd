@@ -1,6 +1,11 @@
 Bundle-Name: Liferay Site Navigation Breadcrumb Web
 Bundle-SymbolicName: com.liferay.site.navigation.breadcrumb.web
+<<<<<<< HEAD
 Bundle-Version: 3.0.4
+=======
+Bundle-Version: 2.0.12
+Export-Package: com.liferay.site.navigation.breadcrumb.web.constants
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Site Navigation
 Web-ContextPath: /site-navigation-breadcrumb-web

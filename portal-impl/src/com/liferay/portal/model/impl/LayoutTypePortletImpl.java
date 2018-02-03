@@ -260,10 +260,13 @@ public class LayoutTypePortletImpl
 		return list;
 	}
 
+<<<<<<< HEAD
 	public String getAddedCustomPortletMode() {
 		return _addedCustomPortletMode;
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	public List<Portlet> getAllPortlets() {
 		List<Portlet> explicitlyAddedPortlets = getExplicitlyAddedPortlets();
@@ -337,7 +340,13 @@ public class LayoutTypePortletImpl
 
 		List<String> columns = getColumns();
 
+<<<<<<< HEAD
 		for (String columnId : columns) {
+=======
+		for (int i = 0; i < columns.size(); i++) {
+			String columnId = columns.get(i);
+
+>>>>>>> compatible
 			portlets.addAll(getAllPortlets(columnId));
 		}
 
@@ -752,9 +761,15 @@ public class LayoutTypePortletImpl
 	public boolean isColumnCustomizable(String columnId) {
 		String customizableString = getTypeSettingsProperty(
 			CustomizedPages.namespaceColumnId(columnId));
+<<<<<<< HEAD
 
 		boolean customizable = GetterUtil.getBoolean(customizableString);
 
+=======
+
+		boolean customizable = GetterUtil.getBoolean(customizableString);
+
+>>>>>>> compatible
 		if (customizable) {
 			if (isLayoutSetPrototype()) {
 				return false;
@@ -1336,9 +1351,15 @@ public class LayoutTypePortletImpl
 
 		if (portlet.isInstanceable() &&
 			!PortletIdCodec.hasInstanceId(portletId)) {
+<<<<<<< HEAD
 
 			PortletIdCodec.validatePortletName(portletId);
 
+=======
+
+			PortletIdCodec.validatePortletName(portletId);
+
+>>>>>>> compatible
 			portletId = PortletIdCodec.encode(portletId);
 		}
 
@@ -1365,7 +1386,14 @@ public class LayoutTypePortletImpl
 				return null;
 			}
 
+<<<<<<< HEAD
 			if (hasUserPreferences()) {
+=======
+			if ((PortletIdCodec.hasInstanceId(portletId) ||
+				 portlet.isPreferencesUniquePerLayout()) &&
+				hasUserPreferences()) {
+
+>>>>>>> compatible
 				portletId = PortletIdCodec.encode(
 					PortletIdCodec.decodePortletName(portletId), userId,
 					PortletIdCodec.decodeInstanceId(portletId));
@@ -1587,10 +1615,20 @@ public class LayoutTypePortletImpl
 
 		String selector1 = StringPool.BLANK;
 
+<<<<<<< HEAD
 		Group group = _getGroup();
 
 		if (group == null) {
 			_log.error("Unable to get group " + layout.getGroupId());
+=======
+		Group group = null;
+
+		try {
+			group = _getGroup();
+		}
+		catch (PortalException pe) {
+			_log.error("Unable to get group " + layout.getGroupId(), pe);
+>>>>>>> compatible
 
 			return new String[0];
 		}
@@ -1833,7 +1871,12 @@ public class LayoutTypePortletImpl
 				PortletIdCodec.decodePortletName(nonstaticPortletId);
 
 			if (nonstaticPortletId.equals(portletId) ||
+<<<<<<< HEAD
 				decodedNonStaticPortletName.equals(portletId)) {
+=======
+				PortletIdCodec.decodePortletName(
+					nonstaticPortletId).equals(portletId)) {
+>>>>>>> compatible
 
 				return true;
 			}
@@ -1854,7 +1897,12 @@ public class LayoutTypePortletImpl
 				staticPortletId);
 
 			if (staticPortletId.equals(portletId) ||
+<<<<<<< HEAD
 				decodedStaticPortletName.equals(portletId)) {
+=======
+				PortletIdCodec.decodePortletName(
+					staticPortletId).equals(portletId)) {
+>>>>>>> compatible
 
 				return true;
 			}
@@ -1865,7 +1913,12 @@ public class LayoutTypePortletImpl
 				staticPortletId);
 
 			if (staticPortletId.equals(portletId) ||
+<<<<<<< HEAD
 				decodedStaticPortletName.equals(portletId)) {
+=======
+				PortletIdCodec.decodePortletName(
+					staticPortletId).equals(portletId)) {
+>>>>>>> compatible
 
 				return true;
 			}
@@ -1950,7 +2003,11 @@ public class LayoutTypePortletImpl
 			_dateFormat.format(new Date()));
 	}
 
+<<<<<<< HEAD
 	private Group _getGroup() {
+=======
+	private Group _getGroup() throws PortalException {
+>>>>>>> compatible
 		if (_group == null) {
 			Layout layout = getLayout();
 
@@ -2038,7 +2095,10 @@ public class LayoutTypePortletImpl
 
 	private static final Layout _nullLayout = new LayoutImpl();
 
+<<<<<<< HEAD
 	private String _addedCustomPortletMode;
+=======
+>>>>>>> compatible
 	private boolean _customizedView;
 	private final Format _dateFormat =
 		FastDateFormatFactoryUtil.getSimpleDateFormat(

@@ -1,4 +1,5 @@
 @import "bourbon";
+<<<<<<< HEAD
 @import "utilities";
 
 @import "field-type-checkbox-switch";
@@ -15,6 +16,10 @@
 }
 
 .ddm-form-builder-app {
+=======
+
+.ddl-form-builder-app {
+>>>>>>> compatible
 	.lfr-ddm-form-page {
 		> .row {
 			margin-left: 18px;
@@ -24,8 +29,11 @@
 }
 
 .lfr-ddm-form-container {
+<<<<<<< HEAD
 	word-break: normal;
 
+=======
+>>>>>>> compatible
 	.form-control-feedback {
 		margin-left: -20px;
 	}
@@ -116,6 +124,7 @@
 	.row {
 		min-height: auto;
 	}
+<<<<<<< HEAD
 
 	.has-error select.form-control[multiple] {
 		background-image: none;
@@ -137,6 +146,11 @@
 
 .liferay-ddm-form-field-paragraph,
 .liferay-ddm-form-field-tip {
+=======
+}
+
+.liferay-ddm-form-field-paragraph, .liferay-ddm-form-field-tip {
+>>>>>>> compatible
 	color: #869CAD;
 	line-height: 16px;
 }
@@ -145,6 +159,7 @@
 	font-size: 14px;
 }
 
+<<<<<<< HEAD
 .liferay-ddm-form-field-numeric {
 }
 
@@ -156,11 +171,14 @@
 	}
 }
 
+=======
+>>>>>>> compatible
 .liferay-ddm-form-field-tip {
 	font-size: 11px;
 	font-weight: 400;
 }
 
+<<<<<<< HEAD
 .liferay-ddm-form-field-grid {
 	th, td:not(:first-child) {
 		text-align: center;
@@ -176,6 +194,8 @@
 	}
 }
 
+=======
+>>>>>>> compatible
 .multi-step-progress-bar {
 	> .complete {
 		color: #65B6F0;
@@ -199,6 +219,7 @@
 		padding-left: $side-spacing;
 		padding-right: $side-spacing;
 	}
+<<<<<<< HEAD
 }
 
 .form-builder-layout {
@@ -413,4 +434,6 @@
 			width: auto;
 		}
 	}
+=======
+>>>>>>> compatible
 }

@@ -40,8 +40,13 @@
 	</sql>
 	<sql id="com.liferay.portal.kernel.security.permission.InlineSQLHelper.findByResourcePermission">
 		<![CDATA[
+<<<<<<< HEAD
 			SELECT
 				DISTINCT ResourcePermission.primKeyId
+=======
+			SELECT DISTINCT
+				ResourcePermission.primKeyId
+>>>>>>> compatible
 			FROM
 				ResourcePermission
 			WHERE
@@ -111,6 +116,7 @@
 				(Group_.type_ != 4)
 		]]>
 	</sql>
+<<<<<<< HEAD
 	<sql id="com.liferay.portal.kernel.service.persistence.GroupFinder.findByActiveGroups">
 		<![CDATA[
 			SELECT
@@ -125,6 +131,8 @@
 				(Group_.active_ = [$TRUE$])
 		]]>
 	</sql>
+=======
+>>>>>>> compatible
 	<sql id="com.liferay.portal.kernel.service.persistence.GroupFinder.findByCompanyId">
 		<![CDATA[
 			SELECT
@@ -386,7 +394,11 @@
 		<![CDATA[
 			INNER JOIN
 				ResourcePermission ON
+<<<<<<< HEAD
 					ResourcePermission.primKeyId = Group_.groupId
+=======
+					(ResourcePermission.primKeyId = Group_.groupId)
+>>>>>>> compatible
 			WHERE
 				(Group_.liveGroupId = 0) AND
 				(ResourcePermission.name = ?) AND
@@ -514,7 +526,11 @@
 				(CAST_CLOB_TEXT(PortletPreferences.preferences) LIKE ?)
 		]]>
 	</sql>
+<<<<<<< HEAD
 	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.countO_ByGroupId">
+=======
+	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.countByGroupId">
+>>>>>>> compatible
 		<![CDATA[
 			SELECT
 				COUNT(*) AS COUNT_VALUE
@@ -527,7 +543,11 @@
 				Group_.groupId = ?
 		]]>
 	</sql>
+<<<<<<< HEAD
 	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.countO_ByOrganizationId">
+=======
+	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.countByOrganizationId">
+>>>>>>> compatible
 		<![CDATA[
 			SELECT
 				COUNT(*) AS COUNT_VALUE
@@ -539,6 +559,7 @@
 				(Organization_.organizationId = ?)
 		]]>
 	</sql>
+<<<<<<< HEAD
 	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.countO_ByC_PO">
 		<![CDATA[
 			SELECT
@@ -551,6 +572,9 @@
 		]]>
 	</sql>
 	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.countO_ByC_PO_N_S_C_Z_R_C">
+=======
+	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.countByC_PO_N_S_C_Z_R_C">
+>>>>>>> compatible
 		<![CDATA[
 			SELECT
 				COUNT(DISTINCT Organization_.organizationId) AS COUNT_VALUE
@@ -586,7 +610,11 @@
 				)
 		]]>
 	</sql>
+<<<<<<< HEAD
 	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.countO_ByC_PO_N_L_S_C_Z_R_C">
+=======
+	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.countByC_PO_N_L_S_C_Z_R_C">
+>>>>>>> compatible
 		<![CDATA[
 			SELECT
 				COUNT(DISTINCT Organization_.organizationId) AS COUNT_VALUE
@@ -623,6 +651,7 @@
 				)
 		]]>
 	</sql>
+<<<<<<< HEAD
 	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.countU_ByC_S_O">
 		<![CDATA[
 			SELECT
@@ -639,6 +668,9 @@
 		]]>
 	</sql>
 	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.findO_ByNoAssets">
+=======
+	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.findByNoAssets">
+>>>>>>> compatible
 		<![CDATA[
 			SELECT
 				{Organization_.*}
@@ -652,7 +684,11 @@
 				AssetEntry.classPK IS NULL
 		]]>
 	</sql>
+<<<<<<< HEAD
 	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.findO_ByGroupId">
+=======
+	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.findByGroupId">
+>>>>>>> compatible
 		<![CDATA[
 			SELECT
 				DISTINCT Organization_.organizationId AS orgId, Organization_.name AS orgName, Organization_.parentOrganizationId as orgParentId, Organization_.type_ as orgType
@@ -665,7 +701,11 @@
 				Group_.groupId = ?
 		]]>
 	</sql>
+<<<<<<< HEAD
 	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.findO_ByC_P">
+=======
+	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.findByC_P">
+>>>>>>> compatible
 		<![CDATA[
 			SELECT
 				organizationId
@@ -679,6 +719,7 @@
 				organizationId ASC
 		]]>
 	</sql>
+<<<<<<< HEAD
 	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.findO_ByC_PO">
 		<![CDATA[
 			SELECT
@@ -691,6 +732,9 @@
 		]]>
 	</sql>
 	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.findO_ByC_PO_N_S_C_Z_R_C">
+=======
+	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.findByC_PO_N_S_C_Z_R_C">
+>>>>>>> compatible
 		<![CDATA[
 			SELECT
 				DISTINCT Organization_.organizationId AS orgId, Organization_.name AS orgName, Organization_.parentOrganizationId as orgParentId, Organization_.type_ as orgType
@@ -726,7 +770,11 @@
 				)
 		]]>
 	</sql>
+<<<<<<< HEAD
 	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.findO_ByC_PO_N_L_S_C_Z_R_C">
+=======
+	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.findByC_PO_N_L_S_C_Z_R_C">
+>>>>>>> compatible
 		<![CDATA[
 			SELECT
 				DISTINCT Organization_.organizationId AS orgId, Organization_.name AS orgName, Organization_.parentOrganizationId as orgParentId, Organization_.type_ as orgType
@@ -763,6 +811,7 @@
 				)
 		]]>
 	</sql>
+<<<<<<< HEAD
 	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.findU_ByC_S_O">
 		<![CDATA[
 			SELECT
@@ -779,6 +828,9 @@
 		]]>
 	</sql>
 	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.joinO_ByOrganizationsGroups">
+=======
+	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.joinByOrganizationsGroups">
+>>>>>>> compatible
 		<![CDATA[
 			INNER JOIN
 				Groups_Orgs ON
@@ -787,7 +839,11 @@
 				Groups_Orgs.groupId = ?
 		]]>
 	</sql>
+<<<<<<< HEAD
 	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.joinO_ByOrganizationsPasswordPolicies">
+=======
+	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.joinByOrganizationsPasswordPolicies">
+>>>>>>> compatible
 		<![CDATA[
 			INNER JOIN
 				PasswordPolicyRel ON
@@ -797,7 +853,11 @@
 				(PasswordPolicyRel.classNameId = [$CLASS_NAME_ID_COM.LIFERAY.PORTAL.MODEL.ORGANIZATION$])
 		]]>
 	</sql>
+<<<<<<< HEAD
 	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.joinO_ByOrganizationsRoles">
+=======
+	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.joinByOrganizationsRoles">
+>>>>>>> compatible
 		<![CDATA[
 			INNER JOIN
 				Group_ ON
@@ -810,7 +870,11 @@
 				(Groups_Roles.roleId = ?)
 		]]>
 	</sql>
+<<<<<<< HEAD
 	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.joinO_ByOrganizationsUsers">
+=======
+	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.joinByOrganizationsUsers">
+>>>>>>> compatible
 		<![CDATA[
 			INNER JOIN
 				Users_Orgs ON
@@ -819,7 +883,11 @@
 				Users_Orgs.userId = ?
 		]]>
 	</sql>
+<<<<<<< HEAD
 	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.joinO_ByUsersOrgs">
+=======
+	<sql id="com.liferay.portal.kernel.service.persistence.OrganizationFinder.joinByUsersOrgs">
+>>>>>>> compatible
 		<![CDATA[
 			INNER JOIN
 				Users_Orgs ON
@@ -1043,6 +1111,7 @@
 				(
 					(Role_.classNameId = ?) AND
 					(Role_.roleId != ?) AND
+<<<<<<< HEAD
 					(
 						Role_.classPK IN
 							(
@@ -1057,6 +1126,20 @@
 										(lower(Team.description) LIKE ? [$AND_OR_NULL_CHECK$])
 									)
 							)
+=======
+					(Role_.classPK IN (
+						SELECT
+							Team.teamId
+						FROM
+							Team
+						WHERE
+							(groupId = ?) AND
+							(
+								(lower(Team.name) LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
+								(lower(Team.description) LIKE ? [$AND_OR_NULL_CHECK$])
+							)
+						)
+>>>>>>> compatible
 					)
 				)
 		]]>
@@ -1226,6 +1309,7 @@
 				(
 					(Role_.classNameId = ?) AND
 					(Role_.roleId != ?) AND
+<<<<<<< HEAD
 					(
 						Role_.classPK IN
 							(
@@ -1240,6 +1324,20 @@
 										(lower(Team.description) LIKE ? [$AND_OR_NULL_CHECK$])
 									)
 							)
+=======
+					(Role_.classPK IN (
+						SELECT
+							Team.teamId
+						FROM
+							Team
+						WHERE
+							(groupId = ?) AND
+							(
+								(lower(Team.name) LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
+								(lower(Team.description) LIKE ? [$AND_OR_NULL_CHECK$])
+							)
+						)
+>>>>>>> compatible
 					)
 				)
 			ORDER BY
@@ -1284,12 +1382,21 @@
 						(Team.teamId = Role_.classPK)
 				INNER JOIN
 					Users_Teams ON
+<<<<<<< HEAD
 						Users_Teams.teamId = Team.teamId
+=======
+						(Users_Teams.teamId = Team.teamId)
+>>>>>>> compatible
 				WHERE
 					(Role_.classNameId = [$CLASS_NAME_ID_COM.LIFERAY.PORTAL.MODEL.TEAM$]) AND
 					(Team.groupId = ?) AND
 					(Users_Teams.userId = ?)
+<<<<<<< HEAD
 			) UNION
+=======
+			)
+			UNION
+>>>>>>> compatible
 			(
 				SELECT
 					{Role_.*}
@@ -1301,10 +1408,17 @@
 						(Team.teamId = Role_.classPK)
 				INNER JOIN
 					UserGroups_Teams ON
+<<<<<<< HEAD
 						UserGroups_Teams.teamId = Team.teamId
 				INNER JOIN
 					Users_UserGroups ON
 						Users_UserGroups.userGroupId = UserGroups_Teams.userGroupId
+=======
+						(UserGroups_Teams.teamId = Team.teamId)
+				INNER JOIN
+					Users_UserGroups ON
+						(Users_UserGroups.userGroupId = UserGroups_Teams.userGroupId)
+>>>>>>> compatible
 				WHERE
 					(Role_.classNameId = [$CLASS_NAME_ID_COM.LIFERAY.PORTAL.MODEL.TEAM$]) AND
 					(Team.groupId = ?) AND
@@ -1432,7 +1546,11 @@
 				ResourcePermission
 			INNER JOIN
 				Role_ ON
+<<<<<<< HEAD
 					Role_.roleId = ResourcePermission.roleId
+=======
+					(Role_.roleId = ResourcePermission.roleId)
+>>>>>>> compatible
 			INNER JOIN
 				ResourceAction ON
 					(ResourcePermission.name = ResourceAction.name) AND
@@ -1544,6 +1662,43 @@
 				)
 		]]>
 	</sql>
+<<<<<<< HEAD
+=======
+	<sql id="com.liferay.portal.kernel.service.persistence.TeamFinder.findByG_U">
+		<![CDATA[
+			SELECT
+				DISTINCT {Team.*}
+			FROM
+				Team
+			WHERE
+				Team.groupId = ? AND
+				(
+					Team.teamId IN
+						(
+							SELECT
+								UserGroups_Teams.teamId
+							FROM
+								Users_UserGroups, UserGroups_Teams
+							WHERE
+								Users_UserGroups.userId = ?
+							AND
+								Users_UserGroups.userGroupId = UserGroups_Teams.userGroupId
+						) OR
+					Team.teamId IN
+						(
+							SELECT
+								Users_Teams.teamId
+							FROM
+								User_, Users_Teams
+							WHERE
+								User_.userId = ?
+							AND
+								User_.userId = Users_Teams.userId
+						)
+				)
+		]]>
+	</sql>
+>>>>>>> compatible
 	<sql id="com.liferay.portal.kernel.service.persistence.TeamFinder.findByG_N_D">
 		<![CDATA[
 			SELECT
@@ -1685,7 +1840,11 @@
 				User_
 			INNER JOIN
 				Users_Groups ON
+<<<<<<< HEAD
 					Users_Groups.userId = User_.userId
+=======
+					(Users_Groups.userId = User_.userId)
+>>>>>>> compatible
 			WHERE
 				(Users_Groups.groupId IN [$GROUP_ID$]) AND
 				(User_.companyId = ?) AND
@@ -1701,12 +1860,21 @@
 				User_
 			INNER JOIN
 				Users_Orgs ON
+<<<<<<< HEAD
 					Users_Orgs.userId = User_.userId
 			INNER JOIN
 				Groups_Orgs ON
 					Groups_Orgs.organizationId = Users_Orgs.organizationId
 			WHERE
 				(Groups_Orgs.groupId IN [$GROUP_ID$]) AND
+=======
+					(Users_Orgs.userId = User_.userId)
+			INNER JOIN
+				Groups_Orgs ON
+					(Groups_Orgs.organizationId = Users_Orgs.organizationId)
+			WHERE
+				Groups_Orgs.groupId IN [$GROUP_ID$] AND
+>>>>>>> compatible
 				(User_.companyId = ?) AND
 				(User_.defaultUser = ?) AND
 				(User_.status = ?)
@@ -1720,18 +1888,28 @@
 				User_
 			INNER JOIN
 				Users_Orgs ON
+<<<<<<< HEAD
 					Users_Orgs.userId = User_.userId
 			INNER JOIN
 				Group_ ON
 					Group_.classPK = Users_Orgs.organizationId
 			WHERE
 				(Group_.groupId IN [$GROUP_ID$]) AND
+=======
+					(Users_Orgs.userId = User_.userId)
+			INNER JOIN
+				Group_ ON
+					(Group_.classPK = Users_Orgs.organizationId)
+			WHERE
+				Group_.groupId IN [$GROUP_ID$] AND
+>>>>>>> compatible
 				(User_.companyId = ?) AND
 				(User_.defaultUser = ?) AND
 				(User_.status = ?)
 		]]>
 	</sql>
 	<sql id="com.liferay.portal.kernel.service.persistence.UserFinder.findByUsersUserGroups">
+<<<<<<< HEAD
 		<![CDATA[
 			SELECT
 				User_.userId, groupId
@@ -1753,6 +1931,29 @@
 	<sql id="com.liferay.portal.kernel.service.persistence.UserFinder.findByC_FN_MN_LN_SN_EA_S">
 		<![CDATA[
 			SELECT
+=======
+		<![CDATA[
+			SELECT
+				User_.userId, groupId
+			FROM
+				User_
+			INNER JOIN
+				Users_UserGroups ON
+					(Users_UserGroups.userId = User_.userId)
+			INNER JOIN
+				Groups_UserGroups ON
+					(Groups_UserGroups.userGroupId = Users_UserGroups.userGroupId)
+			WHERE
+				Groups_UserGroups.groupId IN [$GROUP_ID$] AND
+				(User_.companyId = ?) AND
+				(User_.defaultUser = ?) AND
+				(User_.status = ?)
+		]]>
+	</sql>
+	<sql id="com.liferay.portal.kernel.service.persistence.UserFinder.findByC_FN_MN_LN_SN_EA_S">
+		<![CDATA[
+			SELECT
+>>>>>>> compatible
 				[$COLUMN_NAMES$]
 			FROM
 				User_
@@ -2041,6 +2242,7 @@
 					UserGroupGroupRole
 				WHERE
 					(UserGroupGroupRole.groupId = ?) AND
+<<<<<<< HEAD
 					(
 						UserGroupGroupRole.roleId IN
 							(
@@ -2051,6 +2253,17 @@
 								WHERE
 									Role_.type_ = ?
 							)
+=======
+					(UserGroupGroupRole.roleId IN
+						(
+							SELECT
+								Role_.roleId
+							FROM
+								Role_
+							WHERE
+								(Role_.type_ = ?)
+						)
+>>>>>>> compatible
 					)
 			)
 		]]>
@@ -2080,6 +2293,7 @@
 					UserGroupRole
 				WHERE
 					(UserGroupRole.groupId = ?) AND
+<<<<<<< HEAD
 					(
 						UserGroupRole.roleId IN
 							(
@@ -2090,6 +2304,17 @@
 								WHERE
 									Role_.type_ = ?
 							)
+=======
+					(UserGroupRole.roleId IN
+						(
+							SELECT
+								Role_.roleId
+							FROM
+								Role_
+							WHERE
+								(Role_.type_ = ?)
+						)
+>>>>>>> compatible
 					)
 			)
 		]]>
@@ -2130,7 +2355,11 @@
 			SET
 				referenceCount = (referenceCount - 1)
 			WHERE
+<<<<<<< HEAD
 				resourceBlockId = ?
+=======
+				(resourceBlockId = ?)
+>>>>>>> compatible
 		]]>
 	</sql>
 	<sql id="com.liferay.portal.service.impl.ResourceBlockLocalServiceImpl.retainResourceBlock">
@@ -2148,6 +2377,7 @@
 		<![CDATA[
 			SELECT
 				TEMP_TABLE.companyId AS companyId, TEMP_TABLE.name AS name, TEMP_TABLE.scope AS scope, TEMP_TABLE.primKey AS primKey, Role_.roleId AS roleId
+<<<<<<< HEAD
 			FROM
 				(
 					SELECT
@@ -2158,10 +2388,22 @@
 						(ResourcePermission.name = ?) AND
 						(ResourcePermission.scope = ?)
 				) TEMP_TABLE
+=======
+			FROM (
+				SELECT
+					DISTINCT ResourcePermission.companyId, ResourcePermission.name, ResourcePermission.scope, ResourcePermission.primKey
+				FROM
+					ResourcePermission
+				WHERE
+					(ResourcePermission.name = ?) AND
+					(ResourcePermission.scope = ?)
+			) TEMP_TABLE
+>>>>>>> compatible
 			CROSS JOIN
 				Role_
 			WHERE
 				(TEMP_TABLE.companyId = Role_.companyId) AND
+<<<<<<< HEAD
 				NOT EXISTS
 					(
 						SELECT
@@ -2175,6 +2417,20 @@
 							(TEMP_TABLE.primKey = ResourcePermission.primKey) AND
 							(Role_.roleId = ResourcePermission.roleId)
 					) AND
+=======
+				NOT EXISTS (
+					SELECT
+						*
+					FROM
+						ResourcePermission
+					WHERE
+						(TEMP_TABLE.companyId = ResourcePermission.companyId) AND
+						(TEMP_TABLE.name = ResourcePermission.name) AND
+						(TEMP_TABLE.scope = ResourcePermission.scope) AND
+						(TEMP_TABLE.primKey = ResourcePermission.primKey) AND
+						(Role_.roleId = ResourcePermission.roleId)
+				) AND
+>>>>>>> compatible
 				(Role_.name = ?)
 		]]>
 	</sql>

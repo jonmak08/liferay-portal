@@ -26,6 +26,10 @@ import com.liferay.portal.kernel.model.PersistedModel;
 import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.service.BaseLocalService;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.service.InvokableLocalService;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.PersistedModelLocalService;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.transaction.Isolation;
@@ -55,7 +59,11 @@ import java.util.List;
 @Transactional(isolation = Isolation.PORTAL, rollbackFor =  {
 	PortalException.class, SystemException.class})
 public interface PowwowParticipantLocalService extends BaseLocalService,
+<<<<<<< HEAD
 	PersistedModelLocalService {
+=======
+	InvokableLocalService, PersistedModelLocalService {
+>>>>>>> compatible
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
@@ -246,6 +254,14 @@ public interface PowwowParticipantLocalService extends BaseLocalService,
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public int getPowwowParticipantsCount(long powwowMeetingId, int type);
 
+<<<<<<< HEAD
+=======
+	@Override
+	public java.lang.Object invokeMethod(java.lang.String name,
+		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
+		throws java.lang.Throwable;
+
+>>>>>>> compatible
 	public PowwowParticipant updatePowwowParticipant(long powwowParticipantId,
 		long powwowMeetingId, java.lang.String name, long participantUserId,
 		java.lang.String emailAddress, int type, int status,

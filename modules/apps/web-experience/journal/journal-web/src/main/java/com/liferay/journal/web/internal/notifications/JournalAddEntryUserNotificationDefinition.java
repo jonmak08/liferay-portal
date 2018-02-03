@@ -30,10 +30,18 @@ import org.osgi.service.component.annotations.Component;
 	service = UserNotificationDefinition.class
 )
 public class JournalAddEntryUserNotificationDefinition
+<<<<<<< HEAD
 	extends BaseJournalUserNotificationDefinition {
 
 	public JournalAddEntryUserNotificationDefinition() {
 		super(
+=======
+	extends UserNotificationDefinition {
+
+	public JournalAddEntryUserNotificationDefinition() {
+		super(
+			JournalPortletKeys.JOURNAL, 0,
+>>>>>>> compatible
 			UserNotificationDefinition.NOTIFICATION_TYPE_ADD_ENTRY,
 			"receive-a-notification-when-someone-adds-new-web-content-in-a-" +
 				"folder-you-are-subscribed-to");

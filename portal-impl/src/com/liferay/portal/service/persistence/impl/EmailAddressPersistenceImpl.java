@@ -37,6 +37,7 @@ import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.EmailAddressPersistence;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.Validator;
@@ -2899,6 +2900,7 @@ public class EmailAddressPersistenceImpl extends BasePersistenceImpl<EmailAddres
 		}
 
 		List<EmailAddress> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<EmailAddress>)finderCache.getResult(finderPath,
@@ -2911,6 +2913,20 @@ public class EmailAddressPersistenceImpl extends BasePersistenceImpl<EmailAddres
 							(classPK != emailAddress.getClassPK())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<EmailAddress>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (EmailAddress emailAddress : list) {
+					if ((companyId != emailAddress.getCompanyId()) ||
+							(classNameId != emailAddress.getClassNameId()) ||
+							(classPK != emailAddress.getClassPK())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -3492,6 +3508,7 @@ public class EmailAddressPersistenceImpl extends BasePersistenceImpl<EmailAddres
 		}
 
 		List<EmailAddress> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<EmailAddress>)finderCache.getResult(finderPath,
@@ -3505,6 +3522,21 @@ public class EmailAddressPersistenceImpl extends BasePersistenceImpl<EmailAddres
 							(primary != emailAddress.getPrimary())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<EmailAddress>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (EmailAddress emailAddress : list) {
+					if ((companyId != emailAddress.getCompanyId()) ||
+							(classNameId != emailAddress.getClassNameId()) ||
+							(classPK != emailAddress.getClassPK()) ||
+							(primary != emailAddress.getPrimary())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -3992,11 +4024,17 @@ public class EmailAddressPersistenceImpl extends BasePersistenceImpl<EmailAddres
 		setModelClass(EmailAddress.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("uuid", "uuid_");
@@ -4251,6 +4289,7 @@ public class EmailAddressPersistenceImpl extends BasePersistenceImpl<EmailAddres
 		}
 
 		finderCache.clearCache(FINDER_CLASS_NAME_LIST_WITH_PAGINATION);
+<<<<<<< HEAD
 
 		if (!EmailAddressModelImpl.COLUMN_BITMASK_ENABLED) {
 			finderCache.clearCache(FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION);
@@ -4274,6 +4313,31 @@ public class EmailAddressPersistenceImpl extends BasePersistenceImpl<EmailAddres
 
 			args = new Object[] { emailAddressModelImpl.getCompanyId() };
 
+=======
+
+		if (!EmailAddressModelImpl.COLUMN_BITMASK_ENABLED) {
+			finderCache.clearCache(FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION);
+		}
+		else
+		 if (isNew) {
+			Object[] args = new Object[] { emailAddressModelImpl.getUuid() };
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_UUID, args);
+			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_UUID,
+				args);
+
+			args = new Object[] {
+					emailAddressModelImpl.getUuid(),
+					emailAddressModelImpl.getCompanyId()
+				};
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_UUID_C, args);
+			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_UUID_C,
+				args);
+
+			args = new Object[] { emailAddressModelImpl.getCompanyId() };
+
+>>>>>>> compatible
 			finderCache.removeResult(FINDER_PATH_COUNT_BY_COMPANYID, args);
 			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_COMPANYID,
 				args);

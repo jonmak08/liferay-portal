@@ -14,7 +14,10 @@
 
 package com.liferay.source.formatter.checks;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 
@@ -77,9 +80,13 @@ public class JSPDefineObjectsCheck extends BaseFileCheck {
 
 		while (true) {
 			x = content.indexOf(
+<<<<<<< HEAD
 				StringBundler.concat(
 					objectType, " ", variableName, " = ", value, ";"),
 				x + 1);
+=======
+				objectType + " " + variableName + " = " + value + ";", x + 1);
+>>>>>>> compatible
 
 			if (x == -1) {
 				return;
@@ -94,8 +101,14 @@ public class JSPDefineObjectsCheck extends BaseFileCheck {
 			}
 
 			addMessage(
+<<<<<<< HEAD
 				fileName, "Use '" + tag + ":defineObjects' or rename var",
 				"jsp_code_duplication.markdown", getLineCount(content, x));
+=======
+				fileName,
+				"Use '" + tag + ":defineObjects' or rename var, see LPS-62493",
+				getLineCount(content, x));
+>>>>>>> compatible
 		}
 	}
 

@@ -29,8 +29,11 @@ import com.liferay.journal.service.JournalFeedLocalService;
 import com.liferay.journal.util.JournalContent;
 import com.liferay.journal.util.comparator.ArticleDisplayDateComparator;
 import com.liferay.journal.util.comparator.ArticleModifiedDateComparator;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.log.Log;
@@ -43,14 +46,25 @@ import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.service.ImageLocalService;
 import com.liferay.portal.kernel.service.LayoutLocalService;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.Http;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.HtmlUtil;
+import com.liferay.portal.kernel.util.HttpUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.MimeTypesUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
@@ -191,9 +205,15 @@ public class JournalRSSUtil {
 	public FileEntry getFileEntry(String url) {
 		FileEntry fileEntry = null;
 
+<<<<<<< HEAD
 		String queryString = _http.getQueryString(url);
 
 		Map<String, String[]> parameters = _http.parameterMapFromString(
+=======
+		String queryString = _httpUtil.getQueryString(url);
+
+		Map<String, String[]> parameters = _httpUtil.parameterMapFromString(
+>>>>>>> compatible
 			queryString);
 
 		if (url.startsWith("/documents/")) {
@@ -209,7 +229,11 @@ public class JournalRSSUtil {
 			}
 			else if (pathArray.length == 5) {
 				folderId = GetterUtil.getLong(pathArray[3]);
+<<<<<<< HEAD
 				title = _http.decodeURL(pathArray[4]);
+=======
+				title = _httpUtil.decodeURL(pathArray[4]);
+>>>>>>> compatible
 			}
 			else if (pathArray.length > 5) {
 				uuid = pathArray[5];
@@ -314,9 +338,15 @@ public class JournalRSSUtil {
 	public Image getImage(String url) {
 		Image image = null;
 
+<<<<<<< HEAD
 		String queryString = _http.getQueryString(url);
 
 		Map<String, String[]> parameters = _http.parameterMapFromString(
+=======
+		String queryString = _httpUtil.getQueryString(url);
+
+		Map<String, String[]> parameters = _httpUtil.parameterMapFromString(
+>>>>>>> compatible
 			queryString);
 
 		if (parameters.containsKey("image_id") ||
@@ -435,8 +465,13 @@ public class JournalRSSUtil {
 
 			try {
 				value = processContent(
+<<<<<<< HEAD
 					resourceRequest, resourceResponse, feed, article,
 					languageId, themeDisplay, syndEntry, syndContent);
+=======
+					feed, article, languageId, themeDisplay, syndEntry,
+					syndContent);
+>>>>>>> compatible
 			}
 			catch (Exception e) {
 				if (_log.isWarnEnabled()) {
@@ -563,6 +598,7 @@ public class JournalRSSUtil {
 		return null;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 2.0.0, replaced by {@link
 	 *             #processContent(ResourceRequest, ResourceResponse,
@@ -570,12 +606,15 @@ public class JournalRSSUtil {
 	 *             SyndContent)}
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	protected String processContent(
 			JournalFeed feed, JournalArticle article, String languageId,
 			ThemeDisplay themeDisplay, SyndEntry syndEntry,
 			SyndContent syndContent)
 		throws Exception {
 
+<<<<<<< HEAD
 		return StringPool.BLANK;
 	}
 
@@ -586,6 +625,8 @@ public class JournalRSSUtil {
 			SyndContent syndContent)
 		throws Exception {
 
+=======
+>>>>>>> compatible
 		String content = article.getDescription(languageId);
 
 		String contentField = feed.getContentField();
@@ -600,7 +641,11 @@ public class JournalRSSUtil {
 			JournalArticleDisplay articleDisplay = _journalContent.getDisplay(
 				feed.getGroupId(), article.getArticleId(),
 				ddmRendererTemplateKey, null, languageId, 1,
+<<<<<<< HEAD
 				new PortletRequestModel(resourceRequest, resourceResponse) {
+=======
+				new PortletRequestModel() {
+>>>>>>> compatible
 
 					@Override
 					public String toXML() {
@@ -645,9 +690,15 @@ public class JournalRSSUtil {
 
 				url = processURL(feed, url, themeDisplay, syndEntry);
 
+<<<<<<< HEAD
 				content = StringBundler.concat(
 					content, "<br /><br /><img alt='' src='",
 					themeDisplay.getURLPortal(), url, "' />");
+=======
+				content =
+					content + "<br /><br /><img alt='' src='" +
+						themeDisplay.getURLPortal() + url + "' />";
+>>>>>>> compatible
 			}
 			else if (elType.equals("text_box")) {
 				syndContent.setType("text");
@@ -742,7 +793,11 @@ public class JournalRSSUtil {
 	private DLAppLocalService _dlAppLocalService;
 
 	@Reference
+<<<<<<< HEAD
 	private Http _http;
+=======
+	private HttpUtil _httpUtil;
+>>>>>>> compatible
 
 	private ImageLocalService _imageLocalService;
 	private JournalArticleLocalService _journalArticleLocalService;

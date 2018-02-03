@@ -9,6 +9,24 @@
 </thead>
 <tbody>
 <tr>
+<<<<<<< HEAD
+=======
+	<td>CONTENT_TAB</td>
+	<td>//li[contains(@class,'tab')]/a[contains(.,'Content')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SETTINGS_SECTION</td>
+	<td>//div[contains(@id,'Blogs') and contains(@id,'settingsSection')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>SETTINGS_TAB</td>
+	<td>//button[contains(@id,'Blogs') and contains(@id,'settingsIcon')]</td>
+	<td></td>
+</tr>
+<tr>
+>>>>>>> compatible
 	<td>COVER_IMAGE</td>
 	<td>//div[contains(@class,'cover-image-selector')]//div[contains(@class,'image-wrapper')]</td>
 	<td></td>

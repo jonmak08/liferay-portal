@@ -56,7 +56,10 @@ import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
 import com.liferay.portal.kernel.spring.osgi.OSGiBeanProperties;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HtmlUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portlet.messageboards.service.permission.MBMessagePermission;
@@ -166,6 +169,7 @@ public class MBMessageIndexer
 				Indexer<?> indexer = IndexerRegistryUtil.getIndexer(
 					message.getClassName());
 
+<<<<<<< HEAD
 				return indexer.isVisible(message.getClassPK(), status);
 			}
 		}
@@ -173,6 +177,11 @@ public class MBMessageIndexer
 			if (_log.isInfoEnabled()) {
 				_log.info("Unable to get message boards message", e);
 			}
+=======
+		if (message.isDiscussion()) {
+			Indexer<?> indexer = IndexerRegistryUtil.getIndexer(
+				message.getClassName());
+>>>>>>> compatible
 
 			return false;
 		}
@@ -287,14 +296,20 @@ public class MBMessageIndexer
 		document.addKeyword("threadId", mbMessage.getThreadId());
 
 		if (mbMessage.isDiscussion()) {
+<<<<<<< HEAD
 			List<RelatedEntryIndexer> relatedEntryIndexers =
 				RelatedEntryIndexerRegistryUtil.getRelatedEntryIndexers(
 					mbMessage.getClassName());
+=======
+			Indexer<?> indexer = IndexerRegistryUtil.getIndexer(
+				mbMessage.getClassName());
+>>>>>>> compatible
 
 			if (relatedEntryIndexers != null) {
 				for (RelatedEntryIndexer relatedEntryIndexer :
 						relatedEntryIndexers) {
 
+<<<<<<< HEAD
 					Comment comment = CommentManagerUtil.fetchComment(
 						mbMessage.getMessageId());
 
@@ -304,6 +319,16 @@ public class MBMessageIndexer
 
 						document.addKeyword(Field.RELATED_ENTRY, true);
 					}
+=======
+				Comment comment = CommentManagerUtil.fetchComment(
+					mbMessage.getMessageId());
+
+				if (comment != null) {
+					relatedEntryIndexer.addRelatedEntryFields(
+						document, comment);
+
+					document.addKeyword(Field.RELATED_ENTRY, true);
+>>>>>>> compatible
 				}
 			}
 		}
@@ -379,10 +404,15 @@ public class MBMessageIndexer
 		}
 		catch (Exception e) {
 			_log.error(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Unable to parse message ",
 					String.valueOf(message.getMessageId()), ": ",
 					e.getMessage()),
+=======
+				"Unable to parse message " + message.getMessageId() + ": " +
+					e.getMessage(),
+>>>>>>> compatible
 				e);
 		}
 

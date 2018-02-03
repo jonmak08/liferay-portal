@@ -30,6 +30,10 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.util.IntegerWrapper;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.OrderByComparatorFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.PersistenceTestRule;
@@ -235,27 +239,45 @@ public class WikiPagePersistenceTest {
 
 	@Test
 	public void testCountByUuid() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByUuid("");
 
 		_persistence.countByUuid("null");
+=======
+		_persistence.countByUuid(StringPool.BLANK);
+
+		_persistence.countByUuid(StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByUuid((String)null);
 	}
 
 	@Test
 	public void testCountByUUID_G() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByUUID_G("", RandomTestUtil.nextLong());
 
 		_persistence.countByUUID_G("null", 0L);
+=======
+		_persistence.countByUUID_G(StringPool.BLANK, RandomTestUtil.nextLong());
+
+		_persistence.countByUUID_G(StringPool.NULL, 0L);
+>>>>>>> compatible
 
 		_persistence.countByUUID_G((String)null, 0L);
 	}
 
 	@Test
 	public void testCountByUuid_C() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByUuid_C("", RandomTestUtil.nextLong());
 
 		_persistence.countByUuid_C("null", 0L);
+=======
+		_persistence.countByUuid_C(StringPool.BLANK, RandomTestUtil.nextLong());
+
+		_persistence.countByUuid_C(StringPool.NULL, 0L);
+>>>>>>> compatible
 
 		_persistence.countByUuid_C((String)null, 0L);
 	}
@@ -269,9 +291,15 @@ public class WikiPagePersistenceTest {
 
 	@Test
 	public void testCountByFormat() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByFormat("");
 
 		_persistence.countByFormat("null");
+=======
+		_persistence.countByFormat(StringPool.BLANK);
+
+		_persistence.countByFormat(StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByFormat((String)null);
 	}
@@ -294,9 +322,15 @@ public class WikiPagePersistenceTest {
 
 	@Test
 	public void testCountByN_T() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByN_T(RandomTestUtil.nextLong(), "");
 
 		_persistence.countByN_T(0L, "null");
+=======
+		_persistence.countByN_T(RandomTestUtil.nextLong(), StringPool.BLANK);
+
+		_persistence.countByN_T(0L, StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByN_T(0L, (String)null);
 	}
@@ -311,18 +345,30 @@ public class WikiPagePersistenceTest {
 
 	@Test
 	public void testCountByN_P() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByN_P(RandomTestUtil.nextLong(), "");
 
 		_persistence.countByN_P(0L, "null");
+=======
+		_persistence.countByN_P(RandomTestUtil.nextLong(), StringPool.BLANK);
+
+		_persistence.countByN_P(0L, StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByN_P(0L, (String)null);
 	}
 
 	@Test
 	public void testCountByN_R() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByN_R(RandomTestUtil.nextLong(), "");
 
 		_persistence.countByN_R(0L, "null");
+=======
+		_persistence.countByN_R(RandomTestUtil.nextLong(), StringPool.BLANK);
+
+		_persistence.countByN_R(0L, StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByN_R(0L, (String)null);
 	}
@@ -385,20 +431,35 @@ public class WikiPagePersistenceTest {
 
 	@Test
 	public void testCountByN_T_V() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByN_T_V(RandomTestUtil.nextLong(), "",
 			RandomTestUtil.nextDouble());
 
 		_persistence.countByN_T_V(0L, "null", 0D);
+=======
+		_persistence.countByN_T_V(RandomTestUtil.nextLong(), StringPool.BLANK,
+			RandomTestUtil.nextDouble());
+
+		_persistence.countByN_T_V(0L, StringPool.NULL, 0D);
+>>>>>>> compatible
 
 		_persistence.countByN_T_V(0L, (String)null, 0D);
 	}
 
 	@Test
 	public void testCountByN_T_H() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByN_T_H(RandomTestUtil.nextLong(), "",
 			RandomTestUtil.randomBoolean());
 
 		_persistence.countByN_T_H(0L, "null", RandomTestUtil.randomBoolean());
+=======
+		_persistence.countByN_T_H(RandomTestUtil.nextLong(), StringPool.BLANK,
+			RandomTestUtil.randomBoolean());
+
+		_persistence.countByN_T_H(0L, StringPool.NULL,
+			RandomTestUtil.randomBoolean());
+>>>>>>> compatible
 
 		_persistence.countByN_T_H(0L, (String)null,
 			RandomTestUtil.randomBoolean());
@@ -406,10 +467,17 @@ public class WikiPagePersistenceTest {
 
 	@Test
 	public void testCountByN_T_S() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByN_T_S(RandomTestUtil.nextLong(), "",
 			RandomTestUtil.nextInt());
 
 		_persistence.countByN_T_S(0L, "null", 0);
+=======
+		_persistence.countByN_T_S(RandomTestUtil.nextLong(), StringPool.BLANK,
+			RandomTestUtil.nextInt());
+
+		_persistence.countByN_T_S(0L, StringPool.NULL, 0);
+>>>>>>> compatible
 
 		_persistence.countByN_T_S(0L, (String)null, 0);
 	}
@@ -417,9 +485,16 @@ public class WikiPagePersistenceTest {
 	@Test
 	public void testCountByN_H_P() throws Exception {
 		_persistence.countByN_H_P(RandomTestUtil.nextLong(),
+<<<<<<< HEAD
 			RandomTestUtil.randomBoolean(), "");
 
 		_persistence.countByN_H_P(0L, RandomTestUtil.randomBoolean(), "null");
+=======
+			RandomTestUtil.randomBoolean(), StringPool.BLANK);
+
+		_persistence.countByN_H_P(0L, RandomTestUtil.randomBoolean(),
+			StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByN_H_P(0L, RandomTestUtil.randomBoolean(),
 			(String)null);
@@ -428,9 +503,16 @@ public class WikiPagePersistenceTest {
 	@Test
 	public void testCountByN_H_R() throws Exception {
 		_persistence.countByN_H_R(RandomTestUtil.nextLong(),
+<<<<<<< HEAD
 			RandomTestUtil.randomBoolean(), "");
 
 		_persistence.countByN_H_R(0L, RandomTestUtil.randomBoolean(), "null");
+=======
+			RandomTestUtil.randomBoolean(), StringPool.BLANK);
+
+		_persistence.countByN_H_R(0L, RandomTestUtil.randomBoolean(),
+			StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByN_H_R(0L, RandomTestUtil.randomBoolean(),
 			(String)null);
@@ -464,9 +546,16 @@ public class WikiPagePersistenceTest {
 	@Test
 	public void testCountByG_N_T_H() throws Exception {
 		_persistence.countByG_N_T_H(RandomTestUtil.nextLong(),
+<<<<<<< HEAD
 			RandomTestUtil.nextLong(), "", RandomTestUtil.randomBoolean());
 
 		_persistence.countByG_N_T_H(0L, 0L, "null",
+=======
+			RandomTestUtil.nextLong(), StringPool.BLANK,
+			RandomTestUtil.randomBoolean());
+
+		_persistence.countByG_N_T_H(0L, 0L, StringPool.NULL,
+>>>>>>> compatible
 			RandomTestUtil.randomBoolean());
 
 		_persistence.countByG_N_T_H(0L, 0L, (String)null,
@@ -485,10 +574,18 @@ public class WikiPagePersistenceTest {
 	@Test
 	public void testCountByN_H_P_S() throws Exception {
 		_persistence.countByN_H_P_S(RandomTestUtil.nextLong(),
+<<<<<<< HEAD
 			RandomTestUtil.randomBoolean(), "", RandomTestUtil.nextInt());
 
 		_persistence.countByN_H_P_S(0L, RandomTestUtil.randomBoolean(), "null",
 			0);
+=======
+			RandomTestUtil.randomBoolean(), StringPool.BLANK,
+			RandomTestUtil.nextInt());
+
+		_persistence.countByN_H_P_S(0L, RandomTestUtil.randomBoolean(),
+			StringPool.NULL, 0);
+>>>>>>> compatible
 
 		_persistence.countByN_H_P_S(0L, RandomTestUtil.randomBoolean(),
 			(String)null, 0);
@@ -497,10 +594,18 @@ public class WikiPagePersistenceTest {
 	@Test
 	public void testCountByN_H_P_NotS() throws Exception {
 		_persistence.countByN_H_P_NotS(RandomTestUtil.nextLong(),
+<<<<<<< HEAD
 			RandomTestUtil.randomBoolean(), "", RandomTestUtil.nextInt());
 
 		_persistence.countByN_H_P_NotS(0L, RandomTestUtil.randomBoolean(),
 			"null", 0);
+=======
+			RandomTestUtil.randomBoolean(), StringPool.BLANK,
+			RandomTestUtil.nextInt());
+
+		_persistence.countByN_H_P_NotS(0L, RandomTestUtil.randomBoolean(),
+			StringPool.NULL, 0);
+>>>>>>> compatible
 
 		_persistence.countByN_H_P_NotS(0L, RandomTestUtil.randomBoolean(),
 			(String)null, 0);
@@ -509,10 +614,18 @@ public class WikiPagePersistenceTest {
 	@Test
 	public void testCountByN_H_R_S() throws Exception {
 		_persistence.countByN_H_R_S(RandomTestUtil.nextLong(),
+<<<<<<< HEAD
 			RandomTestUtil.randomBoolean(), "", RandomTestUtil.nextInt());
 
 		_persistence.countByN_H_R_S(0L, RandomTestUtil.randomBoolean(), "null",
 			0);
+=======
+			RandomTestUtil.randomBoolean(), StringPool.BLANK,
+			RandomTestUtil.nextInt());
+
+		_persistence.countByN_H_R_S(0L, RandomTestUtil.randomBoolean(),
+			StringPool.NULL, 0);
+>>>>>>> compatible
 
 		_persistence.countByN_H_R_S(0L, RandomTestUtil.randomBoolean(),
 			(String)null, 0);
@@ -521,10 +634,18 @@ public class WikiPagePersistenceTest {
 	@Test
 	public void testCountByN_H_R_NotS() throws Exception {
 		_persistence.countByN_H_R_NotS(RandomTestUtil.nextLong(),
+<<<<<<< HEAD
 			RandomTestUtil.randomBoolean(), "", RandomTestUtil.nextInt());
 
 		_persistence.countByN_H_R_NotS(0L, RandomTestUtil.randomBoolean(),
 			"null", 0);
+=======
+			RandomTestUtil.randomBoolean(), StringPool.BLANK,
+			RandomTestUtil.nextInt());
+
+		_persistence.countByN_H_R_NotS(0L, RandomTestUtil.randomBoolean(),
+			StringPool.NULL, 0);
+>>>>>>> compatible
 
 		_persistence.countByN_H_R_NotS(0L, RandomTestUtil.randomBoolean(),
 			(String)null, 0);
@@ -533,11 +654,19 @@ public class WikiPagePersistenceTest {
 	@Test
 	public void testCountByG_N_H_P_S() throws Exception {
 		_persistence.countByG_N_H_P_S(RandomTestUtil.nextLong(),
+<<<<<<< HEAD
 			RandomTestUtil.nextLong(), RandomTestUtil.randomBoolean(), "",
 			RandomTestUtil.nextInt());
 
 		_persistence.countByG_N_H_P_S(0L, 0L, RandomTestUtil.randomBoolean(),
 			"null", 0);
+=======
+			RandomTestUtil.nextLong(), RandomTestUtil.randomBoolean(),
+			StringPool.BLANK, RandomTestUtil.nextInt());
+
+		_persistence.countByG_N_H_P_S(0L, 0L, RandomTestUtil.randomBoolean(),
+			StringPool.NULL, 0);
+>>>>>>> compatible
 
 		_persistence.countByG_N_H_P_S(0L, 0L, RandomTestUtil.randomBoolean(),
 			(String)null, 0);

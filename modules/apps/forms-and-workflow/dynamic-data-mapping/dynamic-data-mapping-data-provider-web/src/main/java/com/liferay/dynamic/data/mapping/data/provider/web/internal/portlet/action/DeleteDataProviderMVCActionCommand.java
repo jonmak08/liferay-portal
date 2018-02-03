@@ -51,7 +51,17 @@ public class DeleteDataProviderMVCActionCommand extends BaseMVCActionCommand {
 			dataProviderInstanceId);
 	}
 
+<<<<<<< HEAD
 	@Reference
+=======
+	@Reference(unbind = "-")
+	protected void setDDMDataProviderInstanceService(
+		DDMDataProviderInstanceService ddmDataProviderInstanceService) {
+
+		_ddmDataProviderInstanceService = ddmDataProviderInstanceService;
+	}
+
+>>>>>>> compatible
 	private DDMDataProviderInstanceService _ddmDataProviderInstanceService;
 
 }

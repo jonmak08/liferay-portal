@@ -20,14 +20,21 @@ import com.liferay.dynamic.data.mapping.annotations.DDMFormLayout;
 import com.liferay.dynamic.data.mapping.annotations.DDMFormLayoutColumn;
 import com.liferay.dynamic.data.mapping.annotations.DDMFormLayoutPage;
 import com.liferay.dynamic.data.mapping.annotations.DDMFormLayoutRow;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.annotations.DDMFormRule;
 import com.liferay.dynamic.data.mapping.form.field.type.DefaultDDMFormFieldTypeSettings;
 import com.liferay.dynamic.data.mapping.model.DDMFormFieldOptions;
 import com.liferay.dynamic.data.mapping.model.LocalizedValue;
+=======
+import com.liferay.dynamic.data.mapping.form.field.type.DefaultDDMFormFieldTypeSettings;
+import com.liferay.dynamic.data.mapping.model.DDMFormFieldOptions;
+import com.liferay.dynamic.data.mapping.model.DDMFormFieldValidation;
+>>>>>>> compatible
 
 /**
  * @author Dylan Rebelak
  */
+<<<<<<< HEAD
 @DDMForm(
 	rules = {
 		@DDMFormRule(
@@ -46,6 +53,14 @@ import com.liferay.dynamic.data.mapping.model.LocalizedValue;
 	value = {
 		@DDMFormLayoutPage(
 			title = "%basic",
+=======
+@DDMForm
+@DDMFormLayout(
+	paginationMode = com.liferay.dynamic.data.mapping.model.DDMFormLayout.SETTINGS_MODE,
+	value = {
+		@DDMFormLayoutPage(
+			title = "basic",
+>>>>>>> compatible
 			value = {
 				@DDMFormLayoutRow(
 					{
@@ -61,14 +76,22 @@ import com.liferay.dynamic.data.mapping.model.LocalizedValue;
 			}
 		),
 		@DDMFormLayoutPage(
+<<<<<<< HEAD
 			title = "%properties",
+=======
+			title = "advanced",
+>>>>>>> compatible
 			value = {
 				@DDMFormLayoutRow(
 					{
 						@DDMFormLayoutColumn(
 							size = 12,
 							value = {
+<<<<<<< HEAD
 								"visibilityExpression", "predefinedValue",
+=======
+								"predefinedValue", "visibilityExpression",
+>>>>>>> compatible
 								"validation", "fieldNamespace", "indexType",
 								"localizable", "readOnly", "dataType", "type",
 								"name", "showLabel", "repeatable", "inline"
@@ -87,6 +110,7 @@ public interface CheckboxMultipleDDMFormFieldTypeSettings
 	public boolean inline();
 
 	@DDMFormField(
+<<<<<<< HEAD
 		dataType = "ddm-options", label = "%options", type = "options"
 	)
 	public DDMFormFieldOptions options();
@@ -101,6 +125,16 @@ public interface CheckboxMultipleDDMFormFieldTypeSettings
 	)
 	@Override
 	public LocalizedValue predefinedValue();
+=======
+		dataType = "ddm-options", label = "%options", required = true,
+		type = "options"
+	)
+	public DDMFormFieldOptions options();
+
+	@DDMFormField(visibilityExpression = "FALSE")
+	@Override
+	public boolean repeatable();
+>>>>>>> compatible
 
 	@DDMFormField(
 		dataType = "boolean", label = "%show-as-a-switcher",
@@ -108,4 +142,11 @@ public interface CheckboxMultipleDDMFormFieldTypeSettings
 	)
 	public boolean showAsSwitcher();
 
+<<<<<<< HEAD
+=======
+	@DDMFormField(visibilityExpression = "FALSE")
+	@Override
+	public DDMFormFieldValidation validation();
+
+>>>>>>> compatible
 }

@@ -25,11 +25,14 @@ body {
 		min-height: 200px;
 	}
 
+<<<<<<< HEAD
 	.main-content-nav {
 		margin-left: -($grid-gutter-width / 2);
 		margin-top: 20px;
 	}
 
+=======
+>>>>>>> compatible
 	.sidenav-container {
 		.sidenav-content {
 			@include sm {
@@ -54,6 +57,7 @@ body {
 	}
 }
 
+<<<<<<< HEAD
 /* ---------- Journal ---------- */
 
 .portlet-boundary_com_liferay_journal_web_portlet_JournalPortlet_ {
@@ -67,6 +71,8 @@ body {
 	}
 }
 
+=======
+>>>>>>> compatible
 /* ---------- Sites ---------- */
 
 .portlet-boundary_com_liferay_site_admin_web_portlet_SiteAdminPortlet_ {
@@ -244,7 +250,11 @@ body {
 		}
 
 		&.selected {
+<<<<<<< HEAD
 			border: 1px map-get($theme-colors, primary) solid;
+=======
+			border: 1px $brand-primary solid;
+>>>>>>> compatible
 		}
 	}
 }

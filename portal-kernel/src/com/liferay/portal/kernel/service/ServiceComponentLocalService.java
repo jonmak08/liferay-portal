@@ -231,9 +231,15 @@ public interface ServiceComponentLocalService extends BaseLocalService,
 		long buildNumber, long buildDate) throws PortalException;
 
 	/**
+<<<<<<< HEAD
 	* @deprecated As of 7.0.0, replaced by {@link
 	#initServiceComponent(ServiceComponentConfiguration,
 	ClassLoader, String, long, long)}
+=======
+	* @deprecated As of 7.0.0, replaced by {@link #initServiceComponent(
+	ServiceComponentConfiguration, ClassLoader, String, long,
+	long)}
+>>>>>>> compatible
 	*/
 	@java.lang.Deprecated
 	public ServiceComponent initServiceComponent(

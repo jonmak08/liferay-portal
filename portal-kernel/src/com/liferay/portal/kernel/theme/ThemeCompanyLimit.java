@@ -60,7 +60,13 @@ public class ThemeCompanyLimit implements Serializable {
 	private boolean _matches(
 		List<ThemeCompanyId> themeCompanyIds, long companyId) {
 
+<<<<<<< HEAD
 		for (ThemeCompanyId themeCompanyId : themeCompanyIds) {
+=======
+		for (int i = 0; i < themeCompanyIds.size(); i++) {
+			ThemeCompanyId themeCompanyId = themeCompanyIds.get(i);
+
+>>>>>>> compatible
 			String themeCompanyIdValue = themeCompanyId.getValue();
 
 			if (themeCompanyId.isPattern()) {

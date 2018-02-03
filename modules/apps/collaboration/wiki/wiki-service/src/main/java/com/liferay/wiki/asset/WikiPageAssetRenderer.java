@@ -16,7 +16,10 @@ package com.liferay.wiki.asset;
 
 import com.liferay.asset.kernel.model.AssetRendererFactory;
 import com.liferay.asset.kernel.model.BaseJSPAssetRenderer;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.exception.PortalException;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Group;
@@ -30,7 +33,11 @@ import com.liferay.portal.kernel.settings.GroupServiceSettingsLocator;
 import com.liferay.portal.kernel.trash.TrashRenderer;
 import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
+<<<<<<< HEAD
 import com.liferay.trash.TrashHelper;
+=======
+import com.liferay.trash.kernel.util.TrashUtil;
+>>>>>>> compatible
 import com.liferay.wiki.configuration.WikiGroupServiceOverriddenConfiguration;
 import com.liferay.wiki.constants.WikiConstants;
 import com.liferay.wiki.constants.WikiPortletKeys;
@@ -55,9 +62,13 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author Julio Camarero
  * @author Sergio González
+<<<<<<< HEAD
  * @deprecated As of 1.7.0, with no direct replacement
  */
 @Deprecated
+=======
+ */
+>>>>>>> compatible
 public class WikiPageAssetRenderer
 	extends BaseJSPAssetRenderer<WikiPage> implements TrashRenderer {
 
@@ -75,6 +86,7 @@ public class WikiPageAssetRenderer
 		}
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 1.6.0, replaced by {@link
 	 *             #WikiPageAssetRenderer(WikiPage, WikiEngineRenderer,
@@ -94,6 +106,13 @@ public class WikiPageAssetRenderer
 		_page = page;
 		_wikiEngineRenderer = wikiEngineRenderer;
 		_trashHelper = trashHelper;
+=======
+	public WikiPageAssetRenderer(
+		WikiPage page, WikiEngineRenderer wikiEngineRenderer) {
+
+		_page = page;
+		_wikiEngineRenderer = wikiEngineRenderer;
+>>>>>>> compatible
 	}
 
 	@Override
@@ -194,11 +213,15 @@ public class WikiPageAssetRenderer
 			return _page.getTitle();
 		}
 
+<<<<<<< HEAD
 		if (_trashHelper == null) {
 			return _page.getTitle();
 		}
 
 		return _trashHelper.getOriginalTitle(_page.getTitle());
+=======
+		return TrashUtil.getOriginalTitle(_page.getTitle());
+>>>>>>> compatible
 	}
 
 	@Override
@@ -318,25 +341,37 @@ public class WikiPageAssetRenderer
 		return _page.getUuid();
 	}
 
+<<<<<<< HEAD
 	public boolean hasDeletePermission(PermissionChecker permissionChecker)
 		throws PortalException {
 
+=======
+	public boolean hasDeletePermission(PermissionChecker permissionChecker) {
+>>>>>>> compatible
 		return WikiPagePermissionChecker.contains(
 			permissionChecker, _page, ActionKeys.DELETE);
 	}
 
 	@Override
+<<<<<<< HEAD
 	public boolean hasEditPermission(PermissionChecker permissionChecker)
 		throws PortalException {
 
+=======
+	public boolean hasEditPermission(PermissionChecker permissionChecker) {
+>>>>>>> compatible
 		return WikiPagePermissionChecker.contains(
 			permissionChecker, _page, ActionKeys.UPDATE);
 	}
 
 	@Override
+<<<<<<< HEAD
 	public boolean hasViewPermission(PermissionChecker permissionChecker)
 		throws PortalException {
 
+=======
+	public boolean hasViewPermission(PermissionChecker permissionChecker) {
+>>>>>>> compatible
 		return WikiPagePermissionChecker.contains(
 			permissionChecker, _page, ActionKeys.VIEW);
 	}
@@ -366,7 +401,10 @@ public class WikiPageAssetRenderer
 		WikiPageAssetRenderer.class);
 
 	private final WikiPage _page;
+<<<<<<< HEAD
 	private final TrashHelper _trashHelper;
+=======
+>>>>>>> compatible
 	private final WikiEngineRenderer _wikiEngineRenderer;
 	private WikiGroupServiceOverriddenConfiguration
 		_wikiGroupServiceOverriddenConfiguration;

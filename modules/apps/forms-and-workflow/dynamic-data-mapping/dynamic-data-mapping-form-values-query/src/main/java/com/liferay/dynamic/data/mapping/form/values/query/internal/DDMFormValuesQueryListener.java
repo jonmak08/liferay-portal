@@ -33,8 +33,13 @@ import com.liferay.dynamic.data.mapping.form.values.query.internal.parser.DDMFor
 import com.liferay.dynamic.data.mapping.form.values.query.internal.parser.DDMFormValuesQueryParser.PredicateOrExpressionContext;
 import com.liferay.dynamic.data.mapping.form.values.query.internal.parser.DDMFormValuesQueryParser.SelectorExpressionContext;
 import com.liferay.dynamic.data.mapping.form.values.query.internal.parser.DDMFormValuesQueryParser.StepTypeContext;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.util.LocaleUtil;
+=======
+import com.liferay.portal.kernel.util.LocaleUtil;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 
 import java.util.ArrayList;

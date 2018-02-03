@@ -1,6 +1,10 @@
 Bundle-Name: Liferay OSGi Utilities
 Bundle-SymbolicName: com.liferay.osgi.util
+<<<<<<< HEAD
 Bundle-Version: 3.2.1
+=======
+Bundle-Version: 3.0.12
+>>>>>>> compatible
 Export-Package:\
 	com.liferay.osgi.util,\
 	com.liferay.osgi.util.service

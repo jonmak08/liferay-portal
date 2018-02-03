@@ -2,7 +2,11 @@
 	<command name="assertNotPartialText" summary="Assert that '${locator1}' does not contain the value '${value1}'">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.AssertTextNotEquals#assertNotPartialText" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 
@@ -12,7 +16,11 @@
 	<command name="assertNotText">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.AssertTextNotEquals#assertNotText" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 
@@ -22,7 +30,11 @@
 	<command name="assertNotValue">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.AssertTextNotEquals#assertNotValue" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 
@@ -32,6 +44,10 @@
 	<command name="assertTextNotEquals">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.AssertTextNotEquals#assertTextNotEquals" />
+=======
+		<super />
+>>>>>>> compatible
 	</command>
 </definition>

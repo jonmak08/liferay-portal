@@ -22,6 +22,10 @@ import com.liferay.portal.kernel.search.Field;
 import com.liferay.portal.kernel.search.SearchContext;
 import com.liferay.portal.kernel.search.Summary;
 import com.liferay.portal.kernel.search.filter.BooleanFilter;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.spring.osgi.OSGiBeanProperties;
+>>>>>>> compatible
 
 import java.util.Locale;
 
@@ -29,12 +33,19 @@ import javax.portlet.PortletRequest;
 import javax.portlet.PortletResponse;
 
 /**
+<<<<<<< HEAD
  * @author     Brian Wing Shun Chan
  * @author     Julio Camarero
  * @deprecated As of 7.0.0, moved to {@link
  *             com.liferay.asset.internal.search.AssetEntryIndexer}
  */
 @Deprecated
+=======
+ * @author Brian Wing Shun Chan
+ * @author Julio Camarero
+ */
+@OSGiBeanProperties
+>>>>>>> compatible
 public class AssetEntryIndexer extends BaseIndexer<AssetEntry> {
 
 	public static final String CLASS_NAME = AssetEntry.class.getName();

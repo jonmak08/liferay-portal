@@ -121,7 +121,11 @@ Format format = FastDateFormatFactoryUtil.getSimpleDateFormat(simpleDateFormatPa
 						}
 					},
 					popover: {
+<<<<<<< HEAD
 						zIndex: Liferay.zIndex.POPOVER
+=======
+						zIndex: Liferay.zIndex.OVERLAY
+>>>>>>> compatible
 					},
 					trigger: '#<%= nameId %>',
 					values: <%= _getHoursJSONArray(minuteInterval, locale) %>

@@ -16,6 +16,7 @@ package com.liferay.portal.portlet.bridge.soy.internal;
 
 import com.liferay.portal.json.JSONFactoryImpl;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.portlet.FriendlyURLMapper;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCCommandCache;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCRenderCommand;
@@ -23,10 +24,31 @@ import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.util.HtmlImpl;
 
 import java.net.URL;
+=======
+import com.liferay.portal.kernel.template.Template;
+import com.liferay.portal.kernel.util.HtmlUtil;
+import com.liferay.portal.kernel.util.ProxyUtil;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.util.HtmlImpl;
+
+import java.io.Writer;
+
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.servlet.http.HttpServletRequest;
+>>>>>>> compatible
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+<<<<<<< HEAD
 import org.junit.runner.RunWith;
 
 import org.mockito.Matchers;
@@ -40,10 +62,15 @@ import org.osgi.framework.FrameworkUtil;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
+=======
+
+import org.osgi.framework.Bundle;
+>>>>>>> compatible
 
 /**
  * @author Marcellus Tavares
  */
+<<<<<<< HEAD
 @PrepareForTest(FrameworkUtil.class)
 @RunWith(PowerMockRunner.class)
 public class SoyPortletHelperTest {
@@ -151,10 +178,91 @@ public class SoyPortletHelperTest {
 
 			}
 		);
+=======
+public class SoyPortletHelperTest {
+
+	@Before
+	public void setUp() {
+		setUpHtmlUtil();
+		setUpJSONFactoryUtil();
+	}
+
+	@Test
+	public void testgetPortletJavaScriptWithBundleWithoutPackageFile()
+		throws Exception {
+
+		String portletJavaScript = getPortletJavaScript(_mockBundle, "View");
+
+		Assert.assertEquals(StringPool.BLANK, portletJavaScript);
+	}
+
+	@Test
+	public void testgetPortletJavaScriptWithBundleWithPackageFile()
+		throws Exception {
+
+		Bundle bundle = getBundleWithPackageFile();
+
+		String portletJavaScript = getPortletJavaScript(bundle, "View");
+
+		Assert.assertNotEquals(StringPool.BLANK, portletJavaScript);
+	}
+
+	@Test
+	public void testgetRequiredModulesWithBundleWithPackageFile()
+		throws Exception {
+
+		Bundle bundle = getBundleWithPackageFile();
+
+		SoyPortletHelper soyPortletHelper = new SoyPortletHelper(bundle);
+
+		Set<String> expectedRequiredModules = new HashSet<>();
+
+		expectedRequiredModules.add("SampleModuleName/View.soy");
+
+		Set<String> actualRequiredModules = soyPortletHelper.getRequiredModules(
+			"View", Collections.<String>emptySet());
+
+		Assert.assertEquals(expectedRequiredModules, actualRequiredModules);
+	}
+
+	@Test
+	public void testTemplateNamespace() throws Exception {
+		String path = "View";
+
+		SoyPortletHelper soyPortletHelper = new SoyPortletHelper(_mockBundle);
+
+		Assert.assertEquals(
+			path.concat(".render"),
+			soyPortletHelper.getTemplateNamespace(path));
+	}
+
+	protected Bundle getBundleWithPackageFile() {
+		Bundle bundle = (Bundle)ProxyUtil.newProxyInstance(
+			Bundle.class.getClassLoader(), new Class<?>[] {Bundle.class},
+			new InvocationHandler() {
+
+				@Override
+				public Object invoke(Object proxy, Method method, Object[] args)
+					throws NoSuchMethodException {
+
+					if (method.equals(
+							Bundle.class.getMethod("getEntry", String.class)) &&
+						"package.json".equals(args[0])) {
+
+						return SoyPortletHelperTest.class.getResource(
+							"dependencies/package.json");
+					}
+
+					return null;
+				}
+
+			});
+>>>>>>> compatible
 
 		return bundle;
 	}
 
+<<<<<<< HEAD
 	private Bundle _mockBundleWithPackageFile() {
 		Bundle bundle = Mockito.mock(Bundle.class);
 
@@ -199,6 +307,72 @@ public class SoyPortletHelperTest {
 		);
 
 		return mvcCommandCache;
+=======
+	protected String getPortletJavaScript(Bundle bundle, String path)
+		throws Exception {
+
+		SoyPortletHelper soyPortletHelper = new SoyPortletHelper(bundle);
+
+		Template template = new MockTemplate();
+
+		String portletJavaScript = soyPortletHelper.getPortletJavaScript(
+			template, path, StringUtil.randomString(),
+			Collections.<String>emptySet());
+
+		return portletJavaScript;
+	}
+
+	protected void setUpHtmlUtil() {
+		HtmlUtil htmlUtil = new HtmlUtil();
+
+		htmlUtil.setHtml(new HtmlImpl());
+	}
+
+	protected void setUpJSONFactoryUtil() {
+		JSONFactoryUtil jsonFactoryUtil = new JSONFactoryUtil();
+
+		jsonFactoryUtil.setJSONFactory(new JSONFactoryImpl());
+	}
+
+	private final Bundle _mockBundle = (Bundle)ProxyUtil.newProxyInstance(
+		Bundle.class.getClassLoader(), new Class<?>[] {Bundle.class},
+		new InvocationHandler() {
+
+			@Override
+			public Object invoke(Object proxy, Method method, Object[] args) {
+				return null;
+			}
+
+		});
+
+	private static class MockTemplate
+		extends HashMap<String, Object> implements Template {
+
+		@Override
+		public void doProcessTemplate(Writer writer) {
+		}
+
+		@Override
+		public Object get(String key) {
+			return super.get(key);
+		}
+
+		@Override
+		public String[] getKeys() {
+			Set<String> keys = keySet();
+
+			return keys.toArray(new String[keys.size()]);
+		}
+
+		@Override
+		public void prepare(HttpServletRequest request) {
+		}
+
+		@Override
+		public void processTemplate(Writer writer) {
+		}
+
+>>>>>>> compatible
 	}
 
 }

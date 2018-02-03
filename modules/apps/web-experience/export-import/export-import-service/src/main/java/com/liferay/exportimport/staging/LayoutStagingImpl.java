@@ -14,11 +14,15 @@
 
 package com.liferay.exportimport.staging;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.exportimport.kernel.staging.LayoutStaging;
 import com.liferay.exportimport.kernel.staging.LayoutStagingUtil;
+=======
+import com.liferay.exportimport.kernel.staging.LayoutStaging;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -30,17 +34,25 @@ import com.liferay.portal.kernel.model.LayoutSetBranch;
 import com.liferay.portal.kernel.model.LayoutSetStagingHandler;
 import com.liferay.portal.kernel.model.LayoutStagingHandler;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.service.LayoutRevisionLocalService;
 import com.liferay.portal.kernel.service.LayoutSetBranchLocalService;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.MapUtil;
+=======
+import com.liferay.portal.kernel.service.LayoutSetBranchLocalService;
+import com.liferay.portal.kernel.util.GetterUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.UnicodeProperties;
 
 import java.lang.reflect.InvocationHandler;
 
+<<<<<<< HEAD
 import java.util.List;
 
+=======
+>>>>>>> compatible
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
@@ -49,7 +61,10 @@ import org.osgi.service.component.annotations.Reference;
  */
 @Component(immediate = true)
 @DoPrivileged
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class LayoutStagingImpl implements LayoutStaging {
 
 	@Override
@@ -186,6 +201,7 @@ public class LayoutStagingImpl implements LayoutStaging {
 		}
 	}
 
+<<<<<<< HEAD
 	@Override
 	public Layout mergeLayoutRevisionIntoLayout(Layout layout) {
 		LayoutStagingHandler layoutStagingHandler = getLayoutStagingHandler(
@@ -300,6 +316,8 @@ public class LayoutStagingImpl implements LayoutStaging {
 		return true;
 	}
 
+=======
+>>>>>>> compatible
 	@Reference(unbind = "-")
 	protected void setLayoutSetBranchLocalService(
 		LayoutSetBranchLocalService layoutSetBranchLocalService) {
@@ -310,9 +328,12 @@ public class LayoutStagingImpl implements LayoutStaging {
 	private static final Log _log = LogFactoryUtil.getLog(
 		LayoutStagingImpl.class);
 
+<<<<<<< HEAD
 	@Reference
 	private LayoutRevisionLocalService _layoutRevisionLocalService;
 
+=======
+>>>>>>> compatible
 	private LayoutSetBranchLocalService _layoutSetBranchLocalService;
 
 }

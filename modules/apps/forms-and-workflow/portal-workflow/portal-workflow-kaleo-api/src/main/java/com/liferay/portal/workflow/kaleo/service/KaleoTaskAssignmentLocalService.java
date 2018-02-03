@@ -74,7 +74,11 @@ public interface KaleoTaskAssignmentLocalService extends BaseLocalService,
 
 	public KaleoTaskAssignment addKaleoTaskAssignment(
 		java.lang.String kaleoClassName, long kaleoClassPK,
+<<<<<<< HEAD
 		long kaleoDefinitionVersionId, Assignment assignment,
+=======
+		long kaleoDefinitionId, Assignment assignment,
+>>>>>>> compatible
 		ServiceContext serviceContext) throws PortalException;
 
 	/**
@@ -88,8 +92,13 @@ public interface KaleoTaskAssignmentLocalService extends BaseLocalService,
 
 	public void deleteCompanyKaleoTaskAssignments(long companyId);
 
+<<<<<<< HEAD
 	public void deleteKaleoDefinitionVersionKaleoTaskAssignments(
 		long kaleoDefinitionVersionId);
+=======
+	public void deleteKaleoDefinitionKaleoTaskAssignments(
+		long kaleoDefinitionId);
+>>>>>>> compatible
 
 	/**
 	* Deletes the kaleo task assignment from the database. Also notifies the appropriate model listeners.

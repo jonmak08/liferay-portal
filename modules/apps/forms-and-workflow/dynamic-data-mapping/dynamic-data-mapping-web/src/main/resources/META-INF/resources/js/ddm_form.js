@@ -3,8 +3,11 @@ AUI.add(
 	function(A) {
 		var AArray = A.Array;
 
+<<<<<<< HEAD
 		var AObject = A.Object;
 
+=======
+>>>>>>> compatible
 		var DateMath = A.DataType.DateMath;
 
 		var Lang = A.Lang;
@@ -37,7 +40,11 @@ AUI.add(
 				'<a title="{label}">{label}</a>' +
 			'</li>';
 
+<<<<<<< HEAD
 		var TPL_PAGES_CONTAINER = '<ul class="lfr-ddm-pages-container nav vertical-scrolling"></ul>';
+=======
+		var TPL_PAGES_CONTAINER = '<ul class="lfr-ddm-pages-container nav"></ul>';
+>>>>>>> compatible
 
 		var TPL_REPEATABLE_ADD = '<a class="icon-plus-sign lfr-ddm-repeatable-add-button" href="javascript:;"></a>';
 
@@ -191,7 +198,11 @@ AUI.add(
 
 				var field = new FieldClass(
 					A.merge(
+<<<<<<< HEAD
 						instance.getAttrs(AObject.keys(DDMPortletSupport.ATTRS)),
+=======
+						instance.getAttrs(A.Object.keys(DDMPortletSupport.ATTRS)),
+>>>>>>> compatible
 						{
 							container: fieldNode,
 							dataType: fieldDefinition.dataType,
@@ -380,6 +391,7 @@ AUI.add(
 						instance.get('container').remove();
 					},
 
+<<<<<<< HEAD
 					addLocaleToLocalizationMap: function(locale) {
 						var instance = this;
 
@@ -410,6 +422,8 @@ AUI.add(
 						}
 					},
 
+=======
+>>>>>>> compatible
 					createField: function(fieldTemplate) {
 						var instance = this;
 
@@ -434,7 +448,11 @@ AUI.add(
 						return field;
 					},
 
+<<<<<<< HEAD
 					getDefaultLocale: function() {
+=======
+					getDefaulLocale: function() {
+>>>>>>> compatible
 						var instance = this;
 
 						var defaultLocale = themeDisplay.getDefaultLanguageId();
@@ -448,6 +466,7 @@ AUI.add(
 						return defaultLocale;
 					},
 
+<<<<<<< HEAD
 					getFieldByNameInFieldDefinition: function(name) {
 						var instance = this;
 
@@ -467,6 +486,8 @@ AUI.add(
 						);
 					},
 
+=======
+>>>>>>> compatible
 					getFieldDefinition: function() {
 						var instance = this;
 
@@ -521,6 +542,7 @@ AUI.add(
 						return instance.get('container').one('.control-label');
 					},
 
+<<<<<<< HEAD
 					getPredefinedValueByLocale: function(locale) {
 						var instance = this;
 
@@ -537,6 +559,8 @@ AUI.add(
 						return predefinedValue;
 					},
 
+=======
+>>>>>>> compatible
 					getRepeatedSiblings: function() {
 						var instance = this;
 
@@ -589,6 +613,7 @@ AUI.add(
 						instance.get('container').remove(true);
 					},
 
+<<<<<<< HEAD
 					removeNotAvailableLocales: function(localizationMap) {
 						var instance = this;
 
@@ -609,6 +634,8 @@ AUI.add(
 						}
 					},
 
+=======
+>>>>>>> compatible
 					renderRepeatableUI: function() {
 						var instance = this;
 
@@ -642,13 +669,21 @@ AUI.add(
 						if (labelNode) {
 							var tipNode = labelNode.one('.taglib-icon-help');
 
+<<<<<<< HEAD
 							if (!A.UA.ie && Lang.isValue(label) && Lang.isNode(labelNode)) {
+=======
+							if (Lang.isValue(label) && Lang.isNode(labelNode)) {
+>>>>>>> compatible
 								labelNode.html(A.Escape.html(label));
 							}
 
 							var fieldDefinition = instance.getFieldDefinition();
 
+<<<<<<< HEAD
 							if (!A.UA.ie && fieldDefinition.required) {
+=======
+							if (fieldDefinition.required) {
+>>>>>>> compatible
 								labelNode.append(TPL_REQUIRED_MARK);
 							}
 
@@ -671,7 +706,11 @@ AUI.add(
 					syncLabelUI: function() {
 						var instance = this;
 
+<<<<<<< HEAD
 						var defaultLocale = instance.getDefaultLocale();
+=======
+						var defaultLocale = instance.getDefaulLocale();
+>>>>>>> compatible
 
 						var fieldDefinition = instance.getFieldDefinition();
 
@@ -761,10 +800,13 @@ AUI.add(
 
 						var value = instance.getValue();
 
+<<<<<<< HEAD
 						if (AObject.keys(localizationMap).length != 0) {
 							this.removeNotAvailableLocales(localizationMap);
 						}
 
+=======
+>>>>>>> compatible
 						if (instance.get('localizable')) {
 							localizationMap[locale] = value;
 						}
@@ -824,7 +866,11 @@ AUI.add(
 						if (tipNode) {
 							var instance = this;
 
+<<<<<<< HEAD
 							var defaultLocale = instance.getDefaultLocale();
+=======
+							var defaultLocale = instance.getDefaulLocale();
+>>>>>>> compatible
 							var fieldDefinition = instance.getFieldDefinition();
 
 							var tipsMap = fieldDefinition.tip;
@@ -832,7 +878,11 @@ AUI.add(
 							if (Lang.isObject(tipsMap)) {
 								var tip = tipsMap[instance.get('displayLocale')] || tipsMap[defaultLocale];
 
+<<<<<<< HEAD
 								tipNode.attr('title', tip);
+=======
+								tipNode.attr('title', A.Escape.html(tip));
+>>>>>>> compatible
 							}
 
 							labelNode.append(tipNode);
@@ -862,6 +912,7 @@ AUI.add(
 
 						var locales = [defaultLocale].concat(availableLocales);
 
+<<<<<<< HEAD
 						if (localizable) {
 							if (locales.indexOf(event.prevVal) > -1) {
 								instance.updateLocalizationMap(event.prevVal);
@@ -870,6 +921,10 @@ AUI.add(
 							if (locales.indexOf(event.newVal) > -1) {
 								instance.addLocaleToLocalizationMap(event.newVal);
 							}
+=======
+						if (localizable && locales.indexOf(event.prevVal) > -1) {
+							instance.updateLocalizationMap(event.prevVal);
+>>>>>>> compatible
 						}
 
 						instance.set('displayLocale', event.newVal);
@@ -978,12 +1033,15 @@ AUI.add(
 						if (Lang.isValue(label) && Lang.isNode(labelNode)) {
 							labelNode.html('&nbsp;' + A.Escape.html(label));
 
+<<<<<<< HEAD
 							var fieldDefinition = instance.getFieldDefinition();
 
 							if (fieldDefinition.required) {
 								labelNode.append(TPL_REQUIRED_MARK);
 							}
 
+=======
+>>>>>>> compatible
 							labelNode.prepend(inputNode);
 						}
 
@@ -1001,6 +1059,7 @@ AUI.add(
 
 		FieldTypes.checkbox = CheckboxField;
 
+<<<<<<< HEAD
 		var ColorField = A.Component.create(
 			{
 				EXTENDS: Field,
@@ -1074,6 +1133,8 @@ AUI.add(
 
 		FieldTypes['ddm-color'] = ColorField;
 
+=======
+>>>>>>> compatible
 		var DateField = A.Component.create(
 			{
 				EXTENDS: Field,
@@ -1293,6 +1354,10 @@ AUI.add(
 						var instance = this;
 
 						instance.setValue('');
+<<<<<<< HEAD
+=======
+
+>>>>>>> compatible
 					},
 
 					_handleSelectButtonClick: function(event) {
@@ -1558,7 +1623,11 @@ AUI.add(
 						instance.after('selectedLayoutChange', instance._afterSelectedLayoutChange);
 						instance.after('selectedLayoutPathChange', instance._afterSelectedLayoutPathChange);
 
+<<<<<<< HEAD
 						container.delegate('click', instance._handleControlButtonsClick, '> .form-group .btn', instance);
+=======
+						container.delegate('click', instance._handleControlButtonsClick, '.btn', instance);
+>>>>>>> compatible
 					},
 
 					getParsedValue: function(value) {
@@ -1739,7 +1808,11 @@ AUI.add(
 								toolbars: {
 									footer: [
 										{
+<<<<<<< HEAD
 											cssClass: 'btn-primary',
+=======
+											cssClass: 'btn-lg btn-primary',
+>>>>>>> compatible
 											disabled: !instance.get('selectedLayout'),
 											label: Liferay.Language.get('select'),
 											on: {
@@ -1747,7 +1820,11 @@ AUI.add(
 											}
 										},
 										{
+<<<<<<< HEAD
 											cssClass: 'btn-link',
+=======
+											cssClass: 'btn-lg btn-link',
+>>>>>>> compatible
 											label: Liferay.Language.get('cancel'),
 											on: {
 												click: A.bind(instance._handleCancelButtonClick, instance)
@@ -1958,7 +2035,11 @@ AUI.add(
 									instance._requestLayouts(parentLayoutId, groupId, privateLayout, start, end, A.rbind('_renderLayoutsFragment', instance, key, 'up'));
 								}
 							}
+<<<<<<< HEAD
 							else if (scrollHeight - (scrollTop + innerHeight) <= 1) {
+=======
+							else if (scrollTop + innerHeight === scrollHeight) {
+>>>>>>> compatible
 								start = end;
 								end = start + delta;
 
@@ -2503,6 +2584,7 @@ AUI.add(
 						return instance.getDocumentLibraryURL('com.liferay.journal.item.selector.criterion.JournalItemSelectorCriterion,com.liferay.item.selector.criteria.image.criterion.ImageItemSelectorCriterion');
 					},
 
+<<<<<<< HEAD
 					getDocumentLibraryURL: function(criteria) {
 						var instance = this;
 
@@ -2538,6 +2620,8 @@ AUI.add(
 						return portletURL.toString();
 					},
 
+=======
+>>>>>>> compatible
 					getValue: function() {
 						var instance = this;
 
@@ -2804,7 +2888,11 @@ AUI.add(
 							value = RadioField.superclass.getValue.apply(instance, arguments);
 						}
 
+<<<<<<< HEAD
 						return value;
+=======
+						return JSON.stringify([value]);
+>>>>>>> compatible
 					},
 
 					setLabel: function() {
@@ -2840,6 +2928,17 @@ AUI.add(
 
 						radioNodes.set('checked', false);
 
+<<<<<<< HEAD
+=======
+						if (Lang.isString(value)) {
+							value = JSON.parse(value);
+						}
+
+						if (value.length) {
+							value = value[0];
+						}
+
+>>>>>>> compatible
 						radioNodes.filter('[value=' + value + ']').set('checked', true);
 					},
 
@@ -2870,6 +2969,7 @@ AUI.add(
 					getValue: function() {
 						var instance = this;
 
+<<<<<<< HEAD
 						var selectedItems = instance.getInputNode().all('option:selected');
 
 						var value;
@@ -2882,6 +2982,9 @@ AUI.add(
 						}
 
 						return value;
+=======
+						return instance.getInputNode().all('option:selected').val();
+>>>>>>> compatible
 					},
 
 					setLabel: function() {
@@ -2961,10 +3064,13 @@ AUI.add(
 						value: false
 					},
 
+<<<<<<< HEAD
 					requestedLocale: {
 						validator: Lang.isString
 					},
 
+=======
+>>>>>>> compatible
 					translationManager: {
 						valueFn: '_valueTranslationManager'
 					}
@@ -3019,10 +3125,13 @@ AUI.add(
 						AArray.invoke(instance.eventHandlers, 'detach');
 						AArray.invoke(instance.get('fields'), 'destroy');
 
+<<<<<<< HEAD
 						if (instance._translationManagerHandle) {
 							instance._translationManagerHandle.detach();
 						}
 
+=======
+>>>>>>> compatible
 						instance.get('container').remove();
 
 						instance.eventHandlers = null;
@@ -3034,12 +3143,15 @@ AUI.add(
 							}
 						);
 
+<<<<<<< HEAD
 						var translationManager = instance.get('translationManager');
 
 						if (translationManager) {
 							translationManager.destroy();
 						}
 
+=======
+>>>>>>> compatible
 						instance.repeatableInstances = null;
 					},
 
@@ -3058,6 +3170,7 @@ AUI.add(
 
 						var fieldContainer = field.get('container');
 
+<<<<<<< HEAD
 						var parentField = field.get('parent');
 
 						var parentNode = fieldContainer.get('parentNode');
@@ -3065,6 +3178,11 @@ AUI.add(
 						var treeName = fieldName + '_' + parentField.get('instanceId');
 
 						var repeatableInstance = instance.repeatableInstances[treeName];
+=======
+						var parentNode = fieldContainer.get('parentNode');
+
+						var repeatableInstance = instance.repeatableInstances[fieldName];
+>>>>>>> compatible
 
 						if (!repeatableInstance) {
 							var ddPlugins = [];
@@ -3101,7 +3219,11 @@ AUI.add(
 									},
 									dropOn: '#' + parentNode.attr('id'),
 									helper: A.Node.create(TPL_REPEATABLE_HELPER),
+<<<<<<< HEAD
 									nodes: '#' + parentNode.attr('id') + ' [data-fieldName=' + fieldName + ']',
+=======
+									nodes: '[data-fieldName=' + fieldName + ']',
+>>>>>>> compatible
 									placeholder: A.Node.create('<div class="form-builder-placeholder"></div>'),
 									sortCondition: function(event) {
 										var dropNode = event.drop.get('node');
@@ -3113,9 +3235,15 @@ AUI.add(
 
 							repeatableInstance.after('drag:align', A.bind(instance._afterRepeatableDragAlign, instance));
 
+<<<<<<< HEAD
 							repeatableInstance.after('drag:end', A.rbind(instance._afterRepeatableDragEnd, instance, parentField));
 
 							instance.repeatableInstances[treeName] = repeatableInstance;
+=======
+							repeatableInstance.after('drag:end', A.rbind(instance._afterRepeatableDragEnd, instance, field.get('parent')));
+
+							instance.repeatableInstances[fieldName] = repeatableInstance;
+>>>>>>> compatible
 						}
 						else {
 							repeatableInstance.add(fieldContainer);
@@ -3124,7 +3252,10 @@ AUI.add(
 						var drag = A.DD.DDM.getDrag(fieldContainer);
 
 						drag.addInvalid('.alloy-editor');
+<<<<<<< HEAD
 						drag.addInvalid('.cke');
+=======
+>>>>>>> compatible
 						drag.addInvalid('.lfr-source-editor');
 					},
 
@@ -3256,6 +3387,7 @@ AUI.add(
 						instance.updateDDMFormInputValue();
 					},
 
+<<<<<<< HEAD
 					_onTranslationManagerRegistered: function(event) {
 						var instance = this;
 
@@ -3279,6 +3411,8 @@ AUI.add(
 						instance.set('translationManager', translationManager);
 					},
 
+=======
+>>>>>>> compatible
 					_valueDisplayLocale: function() {
 						var instance = this;
 
@@ -3312,13 +3446,18 @@ AUI.add(
 					_valueTranslationManager: function() {
 						var instance = this;
 
+<<<<<<< HEAD
 						var translationManagerId = instance.get('portletNamespace') + 'translationManager';
 
 						var translationManager = Liferay.component(translationManagerId);
+=======
+						var translationManager = Liferay.component(instance.get('portletNamespace') + 'translationManager');
+>>>>>>> compatible
 
 						if (!translationManager) {
 							translationManager = new Liferay.TranslationManager(
 								{
+<<<<<<< HEAD
 									defaultLocale: instance.get('requestedLocale') || themeDisplay.getLanguageId()
 								}
 							);
@@ -3327,6 +3466,11 @@ AUI.add(
 								translationManagerId + ':registered',
 								instance._onTranslationManagerRegistered.bind(instance)
 							);
+=======
+									defaultLocale: themeDisplay.getLanguageId()
+								}
+							);
+>>>>>>> compatible
 						}
 
 						translationManager.addTarget(instance);
@@ -3374,6 +3518,10 @@ AUI.add(
 	},
 	'',
 	{
+<<<<<<< HEAD
 		requires: ['aui-base', 'aui-color-picker-popover', 'aui-datatable', 'aui-datatype', 'aui-image-viewer', 'aui-io-request', 'aui-parse-content', 'aui-set', 'aui-sortable-list', 'json', 'liferay-form', 'liferay-item-selector-dialog', 'liferay-layouts-tree', 'liferay-layouts-tree-radio', 'liferay-layouts-tree-selectable', 'liferay-map-base', 'liferay-notice', 'liferay-portlet-url', 'liferay-translation-manager']
+=======
+		requires: ['aui-base', 'aui-datatable', 'aui-datatype', 'aui-image-viewer', 'aui-io-request', 'aui-parse-content', 'aui-set', 'aui-sortable-list', 'json', 'liferay-form', 'liferay-item-selector-dialog', 'liferay-layouts-tree', 'liferay-layouts-tree-radio', 'liferay-layouts-tree-selectable', 'liferay-map-base', 'liferay-notice', 'liferay-portlet-url', 'liferay-translation-manager']
+>>>>>>> compatible
 	}
 );

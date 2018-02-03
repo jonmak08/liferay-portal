@@ -304,11 +304,18 @@ public class PACLAggregateTest extends AutoBalanceTestCase {
 			System.setProperty("catalina.base", ".");
 
 			List<CaptureAppender> captureAppenders = null;
+<<<<<<< HEAD
 			IOException ioException = null;
 
 			String originalTempDirName = System.getProperty(
 				SystemProperties.TMP_DIR);
 
+=======
+
+			String originalTempDirName = System.getProperty(
+				SystemProperties.TMP_DIR);
+
+>>>>>>> compatible
 			Path newTempDirPath = Paths.get(originalTempDirName, "PACL");
 
 			try {
@@ -417,8 +424,16 @@ public class PACLAggregateTest extends AutoBalanceTestCase {
 
 		@Override
 		protected void bridge(final String methodName, final Object argument) {
+<<<<<<< HEAD
 			try {
 				ProcessContext.writeProcessCallable(
+=======
+			ProcessOutputStream processOutputStream =
+				ProcessContext.getProcessOutputStream();
+
+			try {
+				processOutputStream.writeProcessCallable(
+>>>>>>> compatible
 					new ProcessCallable<Serializable>() {
 
 						@Override

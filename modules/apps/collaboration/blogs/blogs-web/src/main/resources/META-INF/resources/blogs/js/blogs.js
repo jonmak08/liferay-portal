@@ -117,6 +117,7 @@ AUI.add(
 						}
 					},
 
+<<<<<<< HEAD
 					updateFriendlyURL: function(title) {
 						var instance = this;
 
@@ -135,6 +136,8 @@ AUI.add(
 						return this.one('#urlOptions').one('input:checked').val() === 'true';
 					},
 
+=======
+>>>>>>> compatible
 					_beforePublishBtnClick: function(event) {
 						var instance = this;
 
@@ -189,12 +192,15 @@ AUI.add(
 							);
 						}
 
+<<<<<<< HEAD
 						var urlOptions = instance.one('#urlOptions');
 
 						eventHandles.push(
 							urlOptions.delegate(STR_CHANGE, instance._onChangeURLOptions, 'input[type="radio"]', instance)
 						);
 
+=======
+>>>>>>> compatible
 						instance._eventHandles = eventHandles;
 					},
 
@@ -299,6 +305,7 @@ AUI.add(
 						instance._oldTitle = entry ? entry.title : STR_BLANK;
 					},
 
+<<<<<<< HEAD
 					_onChangeURLOptions: function() {
 						var instance = this;
 
@@ -320,6 +327,8 @@ AUI.add(
 						}
 					},
 
+=======
+>>>>>>> compatible
 					_removeCaption: function() {
 						var instance = this;
 
@@ -341,12 +350,19 @@ AUI.add(
 						var coverImageCaption = window[instance.ns('coverImageCaptionEditor')].getHTML();
 						var subtitle = window[instance.ns('subtitleEditor')].getHTML();
 						var title = window[instance.ns('titleEditor')].getText();
+<<<<<<< HEAD
 						var urlTitle = instance.one('#urlTitle').val();
+=======
+>>>>>>> compatible
 
 						var form = instance._getPrincipalForm();
 
 						if (draft && ajax) {
+<<<<<<< HEAD
 							var hasData = content !== STR_BLANK && (draft || title !== STR_BLANK);
+=======
+							var hasData = content !== STR_BLANK && title !== STR_BLANK;
+>>>>>>> compatible
 
 							var hasChanged = instance._oldContent !== content || instance._oldSubtitle !== subtitle || instance._oldTitle !== title;
 
@@ -378,7 +394,10 @@ AUI.add(
 										'referringPortletResource': instance.one('#referringPortletResource').val(),
 										'subtitle': subtitle,
 										'title': title,
+<<<<<<< HEAD
 										'urlTitle': urlTitle,
+=======
+>>>>>>> compatible
 										'workflowAction': constants.ACTION_SAVE_DRAFT
 									}
 								);
@@ -417,6 +436,13 @@ AUI.add(
 
 													instance.one('#entryId').val(message.entryId);
 
+<<<<<<< HEAD
+=======
+													if (message.updateRedirect) {
+														instance.one('#redirect').val(message.redirect);
+													}
+
+>>>>>>> compatible
 													if (message.content) {
 														instance._updateContentImages(message.content, message.attributeDataImageId);
 													}

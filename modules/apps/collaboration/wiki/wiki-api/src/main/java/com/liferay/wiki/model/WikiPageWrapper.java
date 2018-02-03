@@ -281,6 +281,7 @@ public class WikiPageWrapper implements WikiPage, ModelWrapper<WikiPage> {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public java.util.List<com.liferay.portal.kernel.repository.model.FileEntry> getAttachmentsFileEntries(
 		java.lang.String[] mimeTypes, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator<com.liferay.portal.kernel.repository.model.FileEntry> obc)
@@ -289,18 +290,23 @@ public class WikiPageWrapper implements WikiPage, ModelWrapper<WikiPage> {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public int getAttachmentsFileEntriesCount()
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return _wikiPage.getAttachmentsFileEntriesCount();
 	}
 
 	@Override
+<<<<<<< HEAD
 	public int getAttachmentsFileEntriesCount(java.lang.String[] mimeTypes)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return _wikiPage.getAttachmentsFileEntriesCount(mimeTypes);
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public long getAttachmentsFolderId() {
 		return _wikiPage.getAttachmentsFolderId();
 	}

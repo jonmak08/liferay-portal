@@ -14,16 +14,28 @@
 
 package com.liferay.users.admin.web.portlet.configuration.icon;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.model.Organization;
 import com.liferay.portal.kernel.portlet.PortletURLFactoryUtil;
 import com.liferay.portal.kernel.portlet.configuration.icon.BasePortletConfigurationIcon;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.portlet.configuration.icon.PortletConfigurationIcon;
+>>>>>>> compatible
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.service.permission.OrganizationPermissionUtil;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.PortalUtil;
+=======
+import com.liferay.portal.kernel.util.Portal;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.users.admin.constants.UsersAdminPortletKeys;
 import com.liferay.users.admin.web.portlet.action.ActionUtil;
@@ -32,11 +44,28 @@ import javax.portlet.PortletRequest;
 import javax.portlet.PortletResponse;
 import javax.portlet.PortletURL;
 
+<<<<<<< HEAD
 /**
  * @author     Pei-Jung Lan
  * @deprecated As of 2.1.0, with no direct replacement
  */
 @Deprecated
+=======
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
+
+/**
+ * @author Pei-Jung Lan
+ */
+@Component(
+	immediate = true,
+	property = {
+		"javax.portlet.name=" + UsersAdminPortletKeys.USERS_ADMIN,
+		"path=/users_admin/view"
+	},
+	service = PortletConfigurationIcon.class
+)
+>>>>>>> compatible
 public class AssignUsersPortletConfigurationIcon
 	extends BasePortletConfigurationIcon {
 
@@ -59,7 +88,11 @@ public class AssignUsersPortletConfigurationIcon
 				"mvcRenderCommandName",
 				"/users_admin/edit_organization_assignments");
 			portletURL.setParameter(
+<<<<<<< HEAD
 				"redirect", PortalUtil.getCurrentURL(portletRequest));
+=======
+				"redirect", _portal.getCurrentURL(portletRequest));
+>>>>>>> compatible
 
 			Organization organization = ActionUtil.getOrganization(
 				portletRequest);
@@ -105,4 +138,10 @@ public class AssignUsersPortletConfigurationIcon
 		return false;
 	}
 
+<<<<<<< HEAD
+=======
+	@Reference
+	private Portal _portal;
+
+>>>>>>> compatible
 }

@@ -15,8 +15,13 @@
 package com.liferay.portal.monitoring.internal.statistics.portal;
 
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
 import com.liferay.portal.monitoring.internal.BaseDataSample;
 import com.liferay.portal.monitoring.internal.MonitorNames;
+=======
+import com.liferay.portal.monitoring.MonitorNames;
+import com.liferay.portal.monitoring.internal.BaseDataSample;
+>>>>>>> compatible
 
 /**
  * @author Rajesh Thiagarajan

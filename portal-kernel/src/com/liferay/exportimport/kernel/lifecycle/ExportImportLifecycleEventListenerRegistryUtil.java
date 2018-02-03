@@ -16,6 +16,10 @@ package com.liferay.exportimport.kernel.lifecycle;
 
 import aQute.bnd.annotation.ProviderType;
 
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.concurrent.ConcurrentHashSet;
+>>>>>>> compatible
 import com.liferay.registry.Registry;
 import com.liferay.registry.RegistryUtil;
 import com.liferay.registry.ServiceReference;
@@ -25,10 +29,15 @@ import com.liferay.registry.ServiceTrackerCustomizer;
 import com.liferay.registry.collections.ServiceRegistrationMap;
 import com.liferay.registry.collections.ServiceRegistrationMapImpl;
 
+<<<<<<< HEAD
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+=======
+import java.util.List;
+import java.util.Set;
+>>>>>>> compatible
 
 /**
  * @author Daniel Kocsis
@@ -121,16 +130,24 @@ public class ExportImportLifecycleEventListenerRegistryUtil {
 		_instance = new ExportImportLifecycleEventListenerRegistryUtil();
 
 	private final Set<ExportImportLifecycleListener>
+<<<<<<< HEAD
 		_asyncExportImportLifecycleListeners = Collections.newSetFromMap(
 			new ConcurrentHashMap<>());
+=======
+		_asyncExportImportLifecycleListeners = new ConcurrentHashSet<>();
+>>>>>>> compatible
 	private final ServiceRegistrationMap<ExportImportLifecycleListener>
 		_serviceRegistrations = new ServiceRegistrationMapImpl<>();
 	private final ServiceTracker
 		<ExportImportLifecycleListener, ExportImportLifecycleListener>
 			_serviceTracker;
 	private final Set<ExportImportLifecycleListener>
+<<<<<<< HEAD
 		_syncExportImportLifecycleListeners = Collections.newSetFromMap(
 			new ConcurrentHashMap<>());
+=======
+		_syncExportImportLifecycleListeners = new ConcurrentHashSet<>();
+>>>>>>> compatible
 
 	private class ExportImportLifecycleListenerServiceTrackerCustomizer
 		implements ServiceTrackerCustomizer
@@ -145,6 +162,7 @@ public class ExportImportLifecycleEventListenerRegistryUtil {
 			ExportImportLifecycleListener exportImportLifecycleListener =
 				registry.getService(serviceReference);
 
+<<<<<<< HEAD
 			if (exportImportLifecycleListener instanceof
 					ProcessAwareExportImportLifecycleListener) {
 
@@ -162,6 +180,8 @@ public class ExportImportLifecycleEventListenerRegistryUtil {
 							exportImportLifecycleListener);
 			}
 
+=======
+>>>>>>> compatible
 			if (exportImportLifecycleListener.isParallel()) {
 				_asyncExportImportLifecycleListeners.add(
 					exportImportLifecycleListener);

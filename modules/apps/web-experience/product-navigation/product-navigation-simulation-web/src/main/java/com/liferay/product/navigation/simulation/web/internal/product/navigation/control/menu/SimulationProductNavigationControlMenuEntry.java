@@ -16,8 +16,11 @@ package com.liferay.product.navigation.simulation.web.internal.product.navigatio
 
 import com.liferay.application.list.PanelApp;
 import com.liferay.application.list.PanelAppRegistry;
+<<<<<<< HEAD
 import com.liferay.application.list.PanelCategory;
 import com.liferay.application.list.constants.PanelCategoryKeys;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.language.Language;
 import com.liferay.portal.kernel.log.Log;
@@ -34,8 +37,13 @@ import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.product.navigation.control.menu.BaseProductNavigationControlMenuEntry;
 import com.liferay.product.navigation.control.menu.ProductNavigationControlMenuEntry;
 import com.liferay.product.navigation.control.menu.constants.ProductNavigationControlMenuCategoryKeys;
+<<<<<<< HEAD
 import com.liferay.product.navigation.simulation.constants.ProductNavigationSimulationConstants;
 import com.liferay.product.navigation.simulation.constants.ProductNavigationSimulationPortletKeys;
+=======
+import com.liferay.product.navigation.simulation.application.list.SimulationPanelCategory;
+import com.liferay.product.navigation.simulation.web.constants.ProductNavigationSimulationPortletKeys;
+>>>>>>> compatible
 import com.liferay.taglib.aui.IconTag;
 import com.liferay.taglib.aui.ScriptTag;
 import com.liferay.taglib.ui.MessageTag;
@@ -170,7 +178,11 @@ public class SimulationProductNavigationControlMenuEntry
 		}
 
 		List<PanelApp> panelApps = _panelAppRegistry.getPanelApps(
+<<<<<<< HEAD
 			ProductNavigationSimulationConstants.SIMULATION_PANEL_CATEGORY_KEY,
+=======
+			SimulationPanelCategory.SIMULATION,
+>>>>>>> compatible
 			themeDisplay.getPermissionChecker(), themeDisplay.getScopeGroup());
 
 		if (panelApps.isEmpty()) {
@@ -180,11 +192,17 @@ public class SimulationProductNavigationControlMenuEntry
 		return super.isShow(request);
 	}
 
+<<<<<<< HEAD
 	@Reference(
 		target = "(panel.category.key=" + PanelCategoryKeys.HIDDEN + ")",
 		unbind = "-"
 	)
 	public void setPanelCategory(PanelCategory panelCategory) {
+=======
+	@Reference(unbind = "-")
+	public void setSimulationPanelCategory(
+		SimulationPanelCategory simulationPanelCategory) {
+>>>>>>> compatible
 	}
 
 	@Reference(unbind = "-")

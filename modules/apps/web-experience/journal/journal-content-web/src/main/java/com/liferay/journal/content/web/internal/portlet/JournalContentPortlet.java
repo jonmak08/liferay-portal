@@ -14,8 +14,13 @@
 
 package com.liferay.journal.content.web.internal.portlet;
 
+<<<<<<< HEAD
 import com.liferay.journal.constants.JournalContentPortletKeys;
 import com.liferay.journal.constants.JournalWebKeys;
+=======
+import com.liferay.journal.constants.JournalWebKeys;
+import com.liferay.journal.content.web.constants.JournalContentPortletKeys;
+>>>>>>> compatible
 import com.liferay.journal.model.JournalArticle;
 import com.liferay.journal.model.JournalArticleDisplay;
 import com.liferay.journal.service.JournalArticleLocalService;
@@ -33,12 +38,18 @@ import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
+<<<<<<< HEAD
 import com.liferay.trash.kernel.service.TrashEntryService;
 
 import java.io.IOException;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
+=======
+
+import java.io.IOException;
+
+>>>>>>> compatible
 import javax.portlet.Portlet;
 import javax.portlet.PortletException;
 import javax.portlet.PortletPreferences;
@@ -161,6 +172,7 @@ public class JournalContentPortlet extends MVCPortlet {
 		super.render(renderRequest, renderResponse);
 	}
 
+<<<<<<< HEAD
 	public void restoreJournalArticle(
 			ActionRequest actionRequest, ActionResponse actionResponse)
 		throws Exception {
@@ -171,6 +183,8 @@ public class JournalContentPortlet extends MVCPortlet {
 			JournalArticle.class.getName(), classPK);
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	public void serveResource(
 			ResourceRequest resourceRequest, ResourceResponse resourceResponse)
@@ -208,28 +222,43 @@ public class JournalContentPortlet extends MVCPortlet {
 		}
 	}
 
+<<<<<<< HEAD
 	@Reference(unbind = "-")
+=======
+	@Reference
+>>>>>>> compatible
 	protected void setExportArticleUtil(ExportArticleUtil exportArticleUtil) {
 		_exportArticleUtil = exportArticleUtil;
 	}
 
+<<<<<<< HEAD
 	@Reference(unbind = "-")
+=======
+	@Reference
+>>>>>>> compatible
 	protected void setJournalContent(JournalContent journalContent) {
 		_journalContent = journalContent;
 	}
 
+<<<<<<< HEAD
 	@Reference(unbind = "-")
+=======
+	@Reference
+>>>>>>> compatible
 	protected void setJournalContentSearchLocal(
 		JournalArticleLocalService journalArticleLocalService) {
 
 		_journalArticleLocalService = journalArticleLocalService;
 	}
 
+<<<<<<< HEAD
 	@Reference(unbind = "-")
 	protected void setTrashEntryService(TrashEntryService trashEntryService) {
 		_trashEntryService = trashEntryService;
 	}
 
+=======
+>>>>>>> compatible
 	protected void unsetExportArticleUtil(ExportArticleUtil exportArticleUtil) {
 		_exportArticleUtil = exportArticleUtil;
 	}
@@ -247,6 +276,9 @@ public class JournalContentPortlet extends MVCPortlet {
 	private ExportArticleUtil _exportArticleUtil;
 	private JournalArticleLocalService _journalArticleLocalService;
 	private JournalContent _journalContent;
+<<<<<<< HEAD
 	private TrashEntryService _trashEntryService;
+=======
+>>>>>>> compatible
 
 }

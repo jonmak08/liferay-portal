@@ -15,7 +15,11 @@
 package com.liferay.twitter.configuration.definition;
 
 import com.liferay.portal.kernel.settings.definition.ConfigurationBeanDeclaration;
+<<<<<<< HEAD
 import com.liferay.twitter.internal.configuration.TwitterGroupServiceConfiguration;
+=======
+import com.liferay.twitter.configuration.TwitterGroupServiceConfiguration;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 

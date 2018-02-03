@@ -196,9 +196,14 @@ public class ProxyFactory {
 
 			if (_log.isWarnEnabled()) {
 				_log.warn(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Skipping ", method.getName(), " because ",
 						_interfaceClassName, " is not registered"));
+=======
+					"Skipping " + method.getName() + " because " +
+						_interfaceClassName + " is not registered");
+>>>>>>> compatible
 			}
 
 			Class<?> returnType = method.getReturnType();

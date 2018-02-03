@@ -14,11 +14,18 @@
 
 package com.liferay.portal.kernel.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
 import com.liferay.petra.memory.PoolAction;
 import com.liferay.petra.memory.SoftReferencePool;
 import com.liferay.portal.kernel.io.OutputStreamWriter;
 import com.liferay.portal.kernel.io.unsync.UnsyncPrintWriter;
+=======
+import com.liferay.portal.kernel.io.OutputStreamWriter;
+import com.liferay.portal.kernel.io.unsync.UnsyncPrintWriter;
+import com.liferay.portal.kernel.memory.PoolAction;
+import com.liferay.portal.kernel.memory.SoftReferencePool;
+>>>>>>> compatible
 
 import java.io.OutputStream;
 import java.io.Writer;
@@ -78,12 +85,20 @@ public class UnsyncPrintWriterPool {
 
 	private static final ThreadLocal<List<UnsyncPrintWriter>>
 		_borrowedUnsyncPrintWritersThreadLocal =
+<<<<<<< HEAD
 			new CentralizedThreadLocal<>(
+=======
+			new AutoResetThreadLocal<>(
+>>>>>>> compatible
 				UnsyncPrintWriterPool.class.getName() +
 					"._borrowedUnsyncPrintWritersThreadLocal",
 				ArrayList::new);
 	private static final ThreadLocal<Boolean> _enabledThreadLocal =
+<<<<<<< HEAD
 		new CentralizedThreadLocal<>(
+=======
+		new AutoResetThreadLocal<>(
+>>>>>>> compatible
 			UnsyncPrintWriterPool.class.getName() + "._enabledThreadLocal",
 			() -> Boolean.FALSE);
 	private static final SoftReferencePool<UnsyncPrintWriter, Writer>

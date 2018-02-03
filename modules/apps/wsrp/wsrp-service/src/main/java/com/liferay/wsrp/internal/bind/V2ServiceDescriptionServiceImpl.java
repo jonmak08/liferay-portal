@@ -24,7 +24,10 @@ import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.util.axis.ServletUtil;
 import com.liferay.wsrp.exception.NoSuchProducerException;
@@ -42,7 +45,10 @@ import java.util.Set;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+<<<<<<< HEAD
 import javax.servlet.http.HttpSession;
+=======
+>>>>>>> compatible
 
 import oasis.names.tc.wsrp.v2.intf.WSRP_v2_ServiceDescription_PortType;
 import oasis.names.tc.wsrp.v2.types.CookieProtocol;
@@ -152,9 +158,14 @@ public class V2ServiceDescriptionServiceImpl
 
 		HttpServletRequest request = ServletUtil.getRequest();
 
+<<<<<<< HEAD
 		HttpSession session = request.getSession();
 
 		ServletContext servletContext = session.getServletContext();
+=======
+		ServletContext servletContext =
+			request.getSession().getServletContext();
+>>>>>>> compatible
 
 		String title = PortalUtil.getPortletTitle(
 			portlet, servletContext, LocaleUtil.getDefault());
@@ -245,9 +256,14 @@ public class V2ServiceDescriptionServiceImpl
 
 		for (String footerPortalCss : portlet.getFooterPortalCss()) {
 			if (!HttpUtil.hasProtocol(footerPortalCss)) {
+<<<<<<< HEAD
 				footerPortalCss = StringBundler.concat(
 					portalPath, footerPortalCss, "?t=",
 					String.valueOf(timestamp));
+=======
+				footerPortalCss =
+					portalPath + footerPortalCss + "?t=" + timestamp;
+>>>>>>> compatible
 			}
 
 			ExtensionHelperUtil.addMessageElement(
@@ -258,9 +274,14 @@ public class V2ServiceDescriptionServiceImpl
 				portlet.getFooterPortalJavaScript()) {
 
 			if (!HttpUtil.hasProtocol(footerPortalJavaScript)) {
+<<<<<<< HEAD
 				footerPortalJavaScript = StringBundler.concat(
 					portalPath, footerPortalJavaScript, "?t=",
 					String.valueOf(timestamp));
+=======
+				footerPortalJavaScript =
+					portalPath + footerPortalJavaScript + "?t=" + timestamp;
+>>>>>>> compatible
 			}
 
 			ExtensionHelperUtil.addMessageElement(
@@ -270,9 +291,14 @@ public class V2ServiceDescriptionServiceImpl
 
 		for (String footerPortletCss : portlet.getFooterPortletCss()) {
 			if (!HttpUtil.hasProtocol(footerPortletCss)) {
+<<<<<<< HEAD
 				footerPortletCss = StringBundler.concat(
 					portletPath, footerPortletCss, "?t=",
 					String.valueOf(timestamp));
+=======
+				footerPortletCss =
+					portletPath + footerPortletCss + "?t=" + timestamp;
+>>>>>>> compatible
 			}
 
 			ExtensionHelperUtil.addMessageElement(
@@ -283,9 +309,14 @@ public class V2ServiceDescriptionServiceImpl
 				portlet.getFooterPortletJavaScript()) {
 
 			if (!HttpUtil.hasProtocol(footerPortletJavaScript)) {
+<<<<<<< HEAD
 				footerPortletJavaScript = StringBundler.concat(
 					portletPath, footerPortletJavaScript, "?t=",
 					String.valueOf(timestamp));
+=======
+				footerPortletJavaScript =
+					portletPath + footerPortletJavaScript + "?t=" + timestamp;
+>>>>>>> compatible
 			}
 
 			ExtensionHelperUtil.addMessageElement(
@@ -295,9 +326,14 @@ public class V2ServiceDescriptionServiceImpl
 
 		for (String headerPortalCss : portlet.getHeaderPortalCss()) {
 			if (!HttpUtil.hasProtocol(headerPortalCss)) {
+<<<<<<< HEAD
 				headerPortalCss = StringBundler.concat(
 					portalPath, headerPortalCss, "?t=",
 					String.valueOf(timestamp));
+=======
+				headerPortalCss =
+					portalPath + headerPortalCss + "?t=" + timestamp;
+>>>>>>> compatible
 			}
 
 			ExtensionHelperUtil.addMessageElement(
@@ -308,9 +344,14 @@ public class V2ServiceDescriptionServiceImpl
 				portlet.getHeaderPortalJavaScript()) {
 
 			if (!HttpUtil.hasProtocol(headerPortalJavaScript)) {
+<<<<<<< HEAD
 				headerPortalJavaScript = StringBundler.concat(
 					portalPath, headerPortalJavaScript, "?t=",
 					String.valueOf(timestamp));
+=======
+				headerPortalJavaScript =
+					portalPath + headerPortalJavaScript + "?t=" + timestamp;
+>>>>>>> compatible
 			}
 
 			ExtensionHelperUtil.addMessageElement(
@@ -320,9 +361,14 @@ public class V2ServiceDescriptionServiceImpl
 
 		for (String headerPortletCss : portlet.getHeaderPortletCss()) {
 			if (!HttpUtil.hasProtocol(headerPortletCss)) {
+<<<<<<< HEAD
 				headerPortletCss = StringBundler.concat(
 					portletPath, headerPortletCss, "?t=",
 					String.valueOf(timestamp));
+=======
+				headerPortletCss =
+					portletPath + headerPortletCss + "?t=" + timestamp;
+>>>>>>> compatible
 			}
 
 			ExtensionHelperUtil.addMessageElement(
@@ -333,9 +379,14 @@ public class V2ServiceDescriptionServiceImpl
 				portlet.getHeaderPortletJavaScript()) {
 
 			if (!HttpUtil.hasProtocol(headerPortletJavaScript)) {
+<<<<<<< HEAD
 				headerPortletJavaScript = StringBundler.concat(
 					portletPath, headerPortletJavaScript, "?t=",
 					String.valueOf(timestamp));
+=======
+				headerPortletJavaScript =
+					portletPath + headerPortletJavaScript + "?t=" + timestamp;
+>>>>>>> compatible
 			}
 
 			ExtensionHelperUtil.addMessageElement(

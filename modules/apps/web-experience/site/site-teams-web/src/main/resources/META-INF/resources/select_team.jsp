@@ -34,6 +34,7 @@ portletURL.setParameter(teamSearch.getCurParam(), String.valueOf(teamSearch.getC
 int teamsCount = TeamLocalServiceUtil.searchCount(scopeGroupId, searchTerms.getKeywords(), searchTerms.getDescription(), new LinkedHashMap<String, Object>());
 
 teamSearch.setTotal(teamsCount);
+<<<<<<< HEAD
 
 List<NavigationItem> navigationItems = new ArrayList<>();
 
@@ -49,6 +50,23 @@ navigationItems.add(navigationItem);
 <clay:navigation-bar
 	items="<%= navigationItems %>"
 />
+=======
+%>
+
+<aui:nav-bar cssClass="collapse-basic-search" markupView="lexicon">
+	<aui:nav cssClass="navbar-nav">
+		<aui:nav-item label="teams" selected="<%= true %>" />
+	</aui:nav>
+
+	<c:if test="<%= (teamsCount > 0) || searchTerms.isSearch() %>">
+		<aui:nav-bar-search>
+			<aui:form action="<%= portletURL %>" name="searchFm">
+				<liferay-ui:input-search markupView="lexicon" />
+			</aui:form>
+		</aui:nav-bar-search>
+	</c:if>
+</aui:nav-bar>
+>>>>>>> compatible
 
 <liferay-frontend:management-bar
 	disabled="<%= (teamsCount <= 0) && !searchTerms.isSearch() %>"
@@ -66,6 +84,7 @@ navigationItems.add(navigationItem);
 				orderColumns='<%= new String[] {"name"} %>'
 				portletURL="<%= PortletURLUtil.clone(portletURL, liferayPortletResponse) %>"
 			/>
+<<<<<<< HEAD
 
 			<c:if test="<%= (teamsCount > 0) || searchTerms.isSearch() %>">
 				<li>
@@ -74,6 +93,8 @@ navigationItems.add(navigationItem);
 					</aui:form>
 				</li>
 			</c:if>
+=======
+>>>>>>> compatible
 		</liferay-frontend:management-bar-filters>
 
 		<liferay-portlet:actionURL name="changeDisplayStyle" varImpl="changeDisplayStyleURL">
@@ -109,6 +130,11 @@ navigationItems.add(navigationItem);
 			data.put("entityid", curTeam.getTeamId());
 			data.put("entityname", curTeam.getName());
 			data.put("teamdescription", curTeam.getDescription());
+<<<<<<< HEAD
+=======
+			data.put("teamid", curTeam.getTeamId());
+			data.put("teamname", curTeam.getName());
+>>>>>>> compatible
 
 			Group group = themeDisplay.getScopeGroup();
 

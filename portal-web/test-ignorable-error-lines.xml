@@ -180,10 +180,24 @@
 			<contains></contains>
 			<matches>.*Unable to process message.*product-app-theme.*</matches>
 		</ignore-error>
+<<<<<<< HEAD
+=======
+		<ignore-error description="LPS-67925">
+			<contains></contains>
+			<matches>.*HotDeployException\: Error registering plugins for opensocial\-portlet.*</matches>
+		</ignore-error>
+>>>>>>> compatible
 		<ignore-error description="LPS-68366">
 			<contains></contains>
 			<matches>.*ServerAdminPortlet\_tabs1\=resources generates exception.*NullPointerException.*</matches>
 		</ignore-error>
+<<<<<<< HEAD
+=======
+		<ignore-error description="LPS-70839">
+			<contains></contains>
+			<matches>.*\[com.liferay.saml.opensaml.integration.internal.bootstrap.OpenSamlBootstrap\([0-9]+\)\].*The activate method has thrown an exception.*</matches>
+		</ignore-error>
+>>>>>>> compatible
 		<ignore-error description="LRQA-14442, temporary workaround until Kiyoshi Lee fixes it">
 			<contains>[org_eclipse_equinox_http_servlet.*Framework Event Dispatcher: Equinox Container:</contains>
 			<matches></matches>
@@ -200,10 +214,13 @@
 			<contains>The activate method has thrown an exception</contains>
 			<matches></matches>
 		</ignore-error>
+<<<<<<< HEAD
 		<ignore-error description="LRQA-34927, temporarily ignore until COMMERCE-210 is fixed">
 			<contains>Invocation to listener threw exception</contains>
 			<matches></matches>
 		</ignore-error>
+=======
+>>>>>>> compatible
 		<ignore-error description="WCM-202">
 			<contains>No score point assigners available</contains>
 			<matches></matches>

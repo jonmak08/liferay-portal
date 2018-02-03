@@ -14,8 +14,14 @@
 
 package com.liferay.portal.kernel.concurrent;
 
-import com.liferay.petra.concurrent.ConcurrentReferenceValueHashMap;
-import com.liferay.petra.memory.FinalizeManager;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.memory.FinalizeAction;
+import com.liferay.portal.kernel.memory.FinalizeManager;
+import com.liferay.portal.kernel.util.ReflectionUtil;
+
+import java.lang.ref.Reference;
+import java.lang.reflect.Field;
 
 import java.util.Collections;
 import java.util.Map;
@@ -34,51 +40,46 @@ public class AsyncBroker<K, V> {
 
 	public NoticeableFuture<V> post(K key) {
 		DefaultNoticeableFuture<V> defaultNoticeableFuture =
-			new DefaultNoticeableFuture<V>() {
-
-				@Override
-				protected void finalize() {
-					cancel(true);
-				}
-
-			};
-
-		NoticeableFuture<V> previousNoticeableFuture = _post(
-			key, defaultNoticeableFuture);
-
-		if (previousNoticeableFuture == null) {
-			return defaultNoticeableFuture;
-		}
-
-		return previousNoticeableFuture;
-	}
-
-	public NoticeableFuture<V> post(K key, boolean[] newMarker) {
-		DefaultNoticeableFuture<V> defaultNoticeableFuture =
 			new DefaultNoticeableFuture<>();
 
-		NoticeableFuture<V> previousNoticeableFuture = _post(
+		NoticeableFuture<V> previousNoticeableFuture = post(
 			key, defaultNoticeableFuture);
 
 		if (previousNoticeableFuture == null) {
-			newMarker[0] = true;
-
 			return defaultNoticeableFuture;
 		}
-
-		newMarker[0] = false;
 
 		return previousNoticeableFuture;
 	}
 
-	/**
-	 * @deprecated As of 7.0.0, replaced by {@link #post(Object, boolean[])}
-	 */
-	@Deprecated
 	public NoticeableFuture<V> post(
 		final K key, final DefaultNoticeableFuture<V> defaultNoticeableFuture) {
 
-		return _post(key, defaultNoticeableFuture);
+		DefaultNoticeableFuture<V> previousDefaultNoticeableFuture =
+			_defaultNoticeableFutures.putIfAbsent(key, defaultNoticeableFuture);
+
+		if (previousDefaultNoticeableFuture != null) {
+			return previousDefaultNoticeableFuture;
+		}
+
+		defaultNoticeableFuture.addFutureListener(
+			new FutureListener<V>() {
+
+				@Override
+				public void complete(Future<V> future) {
+					_defaultNoticeableFutures.remove(
+						key, defaultNoticeableFuture);
+				}
+
+			});
+
+		if (_REFERENT_FIELD != null) {
+			FinalizeManager.register(
+				defaultNoticeableFuture, new CancellationFinalizeAction(key),
+				FinalizeManager.PHANTOM_REFERENCE_FACTORY);
+		}
+
+		return null;
 	}
 
 	public NoticeableFuture<V> take(K key) {
@@ -111,32 +112,59 @@ public class AsyncBroker<K, V> {
 		return true;
 	}
 
-	private NoticeableFuture<V> _post(
-		final K key, final DefaultNoticeableFuture<V> defaultNoticeableFuture) {
+	private static final Field _REFERENT_FIELD;
 
-		DefaultNoticeableFuture<V> previousDefaultNoticeableFuture =
-			_defaultNoticeableFutures.putIfAbsent(key, defaultNoticeableFuture);
+	private static final Log _log = LogFactoryUtil.getLog(AsyncBroker.class);
 
-		if (previousDefaultNoticeableFuture != null) {
-			return previousDefaultNoticeableFuture;
+	static {
+		Field referentField = null;
+
+		try {
+			referentField = ReflectionUtil.getDeclaredField(
+				Reference.class, "referent");
+		}
+		catch (Throwable t) {
+			if (_log.isWarnEnabled()) {
+				_log.warn(
+					"Cancellation of orphaned noticeable futures is disabled " +
+						"because the JVM does not support phantom reference " +
+							"resurrection",
+					t);
+			}
 		}
 
-		defaultNoticeableFuture.addFutureListener(
-			new FutureListener<V>() {
-
-				@Override
-				public void complete(Future<V> future) {
-					_defaultNoticeableFutures.remove(
-						key, defaultNoticeableFuture);
-				}
-
-			});
-
-		return null;
+		_REFERENT_FIELD = referentField;
 	}
 
 	private final ConcurrentMap<K, DefaultNoticeableFuture<V>>
 		_defaultNoticeableFutures = new ConcurrentReferenceValueHashMap<>(
 			FinalizeManager.WEAK_REFERENCE_FACTORY);
+
+	private static class CancellationFinalizeAction implements FinalizeAction {
+
+		public CancellationFinalizeAction(Object key) {
+			_key = key;
+		}
+
+		@Override
+		public void doFinalize(final Reference<?> reference) {
+			try {
+				NoticeableFuture<?> noticeableFuture =
+					(NoticeableFuture<?>)_REFERENT_FIELD.get(reference);
+
+				if (noticeableFuture.cancel(true) && _log.isWarnEnabled()) {
+					_log.warn(
+						"Cancelled orphan noticeable future " +
+							noticeableFuture + " with key " + _key);
+				}
+			}
+			catch (Exception e) {
+				_log.error("Unable to access referent of " + reference, e);
+			}
+		}
+
+		private final Object _key;
+
+	}
 
 }

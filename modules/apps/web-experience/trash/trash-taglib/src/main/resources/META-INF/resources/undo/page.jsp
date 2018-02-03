@@ -17,12 +17,34 @@
 <%@ include file="/init.jsp" %>
 
 <%
+<<<<<<< HEAD
 List<String> classNames = (List<String>)request.getAttribute("liferay-trash:undo:classNames");
 String cmd = (String)request.getAttribute("liferay-trash:undo:cmd");
 String portletURL = (String)request.getAttribute("liferay-trash:undo:portletURL");
 List<Long> restoreTrashEntryIds = (List<Long>)request.getAttribute("liferay-trash:undo:restoreTrashEntryIds");
 List<String> titles = (List<String>)request.getAttribute("liferay-trash:undo:titles");
 int trashedEntriesCount = GetterUtil.getInteger(request.getAttribute("liferay-trash:undo:trashedEntriesCount"));
+=======
+String portletURL = (String)request.getAttribute("liferay-trash:undo:portletURL");
+
+Map<String, String[]> data = (HashMap<String, String[]>)SessionMessages.get(portletRequest, portletDisplay.getId() + SessionMessages.KEY_SUFFIX_DELETE_SUCCESS_DATA);
+
+int trashedEntriesCount = 0;
+
+String[] primaryKeys = new String[0];
+
+Set<String> keys = data.keySet();
+
+for (String key : keys) {
+	if (!key.endsWith("Ids")) {
+		continue;
+	}
+
+	primaryKeys = ArrayUtil.append(primaryKeys, data.get(key));
+
+	trashedEntriesCount = primaryKeys.length;
+}
+>>>>>>> compatible
 %>
 
 <liferay-util:buffer var="alertMessage">
@@ -32,7 +54,11 @@ int trashedEntriesCount = GetterUtil.getInteger(request.getAttribute("liferay-tr
 				<c:when test="<%= themeDisplay.isShowSiteAdministrationIcon() %>">
 
 					<%
+<<<<<<< HEAD
 					PortletURL trashURL = PortletProviderUtil.getPortletURL(request, TrashEntry.class.getName(), PortletProvider.Action.VIEW);
+=======
+					PortletURL trashURL = TrashUtil.getViewURL(request);
+>>>>>>> compatible
 					%>
 
 					<aui:a cssClass="alert-link" href="<%= trashURL.toString() %>" label="the-recycle-bin" />
@@ -43,6 +69,13 @@ int trashedEntriesCount = GetterUtil.getInteger(request.getAttribute("liferay-tr
 			</c:choose>
 		</liferay-util:buffer>
 
+<<<<<<< HEAD
+=======
+		<%
+		String cmd = MapUtil.getString(data, Constants.CMD);
+		%>
+
+>>>>>>> compatible
 		<c:choose>
 			<c:when test="<%= trashedEntriesCount > 1 %>">
 				<c:choose>
@@ -57,20 +90,39 @@ int trashedEntriesCount = GetterUtil.getInteger(request.getAttribute("liferay-tr
 			<c:otherwise>
 
 				<%
+<<<<<<< HEAD
+=======
+				String[] classNames = data.get("deleteEntryClassName");
+
+>>>>>>> compatible
 				String className = null;
 
 				String type = "selected-item";
 
+<<<<<<< HEAD
 				if (ListUtil.isNotEmpty(classNames)) {
 					className = classNames.get(0);
+=======
+				if (ArrayUtil.isNotEmpty(classNames)) {
+					className = classNames[0];
+>>>>>>> compatible
 
 					type = ResourceActionsUtil.getModelResource(request, className);
 				}
 
+<<<<<<< HEAD
 				String title = StringPool.BLANK;
 
 				if (ListUtil.isNotEmpty(titles)) {
 					title = titles.get(0);
+=======
+				String[] titles = data.get("deleteEntryTitle");
+
+				String title = StringPool.BLANK;
+
+				if (ArrayUtil.isNotEmpty(titles)) {
+					title = titles[0];
+>>>>>>> compatible
 				}
 				%>
 
@@ -91,7 +143,24 @@ int trashedEntriesCount = GetterUtil.getInteger(request.getAttribute("liferay-tr
 			</c:otherwise>
 		</c:choose>
 
+<<<<<<< HEAD
 		<aui:input name="restoreTrashEntryIds" type="hidden" value="<%= StringUtil.merge(restoreTrashEntryIds) %>" />
+=======
+		<%
+		for (String key : keys) {
+			if (!key.endsWith("Ids")) {
+				continue;
+			}
+
+			primaryKeys = data.get(key);
+		%>
+
+			<aui:input name="<%= key %>" type="hidden" value="<%= StringUtil.merge(primaryKeys) %>" />
+
+		<%
+		}
+		%>
+>>>>>>> compatible
 
 		<aui:button cssClass="alert-link btn-link trash-undo-button" type="submit" value="undo" />
 	</aui:form>

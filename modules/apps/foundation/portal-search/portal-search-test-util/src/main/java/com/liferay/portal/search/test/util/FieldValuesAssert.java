@@ -20,7 +20,10 @@ import com.liferay.portal.kernel.search.Field;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+<<<<<<< HEAD
 import java.util.function.Predicate;
+=======
+>>>>>>> compatible
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -30,6 +33,7 @@ import java.util.stream.Stream;
 public class FieldValuesAssert {
 
 	public static void assertFieldValues(
+<<<<<<< HEAD
 		Map<String, String> expected, Document document, String message) {
 
 		AssertUtils.assertEquals(
@@ -37,21 +41,32 @@ public class FieldValuesAssert {
 	}
 
 	public static void assertFieldValues(
+=======
+>>>>>>> compatible
 		Map<String, String> expected, String prefix, Document document,
 		String message) {
 
 		AssertUtils.assertEquals(
+<<<<<<< HEAD
 			message, expected,
 			_getFieldValues(document, name -> name.startsWith(prefix)));
 	}
 
 	private static Map<String, String> _getFieldValues(
 		Document document, Predicate<String> predicate) {
+=======
+			message, expected, _getFieldValues(prefix, document));
+	}
+
+	private static Map<String, String> _getFieldValues(
+		String prefix, Document document) {
+>>>>>>> compatible
 
 		Map<String, Field> fieldsMap = document.getFields();
 
 		Set<Entry<String, Field>> entrySet = fieldsMap.entrySet();
 
+<<<<<<< HEAD
 		Stream<Entry<String, Field>> stream = entrySet.stream();
 
 		if (predicate != null) {
@@ -59,6 +74,18 @@ public class FieldValuesAssert {
 		}
 
 		return stream.collect(
+=======
+		Stream<Entry<String, Field>> entries = entrySet.stream();
+
+		Stream<Entry<String, Field>> prefixedEntries = entries.filter(
+			entry -> {
+				String name = entry.getKey();
+
+				return name.startsWith(prefix);
+			});
+
+		return prefixedEntries.collect(
+>>>>>>> compatible
 			Collectors.toMap(
 				Map.Entry::getKey,
 				entry -> {

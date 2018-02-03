@@ -993,6 +993,7 @@ public class DDLRecordUtil {
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns all the ddl records where recordSetId = &#63; and recordSetVersion = &#63;.
 	*
 	* @param recordSetId the record set ID
@@ -1180,6 +1181,8 @@ public class DDLRecordUtil {
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	* Caches the ddl record in the entity cache if it is enabled.
 	*
 	* @param ddlRecord the ddl record

@@ -14,12 +14,21 @@
 
 package com.liferay.aspectj.arquillian.failure;
 
+<<<<<<< HEAD
 import com.liferay.petra.concurrent.NoticeableFuture;
 import com.liferay.petra.process.EchoOutputProcessor;
 import com.liferay.petra.process.OutputProcessor;
 import com.liferay.petra.process.ProcessException;
 import com.liferay.petra.process.ProcessUtil;
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
+=======
+import com.liferay.portal.kernel.concurrent.NoticeableFuture;
+import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
+import com.liferay.portal.kernel.process.OutputProcessor;
+import com.liferay.portal.kernel.process.ProcessException;
+import com.liferay.portal.kernel.process.ProcessUtil;
+import com.liferay.portal.kernel.util.ObjectValuePair;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -31,7 +40,10 @@ import java.io.Reader;
 
 import java.util.ArrayList;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Map.Entry;
+=======
+>>>>>>> compatible
 
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
@@ -50,6 +62,7 @@ public class ArquillianFailureAspect {
 	)
 	public void logTomcatJStack(Exception e1) {
 		try {
+<<<<<<< HEAD
 			NoticeableFuture<Entry<List<String>, String>> jpsNoticeableFuture =
 				ProcessUtil.execute(new StringOutputProcessor(), "jps", "-ml");
 
@@ -58,6 +71,18 @@ public class ArquillianFailureAspect {
 			String pid = null;
 
 			for (String line : entry.getKey()) {
+=======
+			NoticeableFuture<ObjectValuePair<List<String>, String>>
+				jpsNoticeableFuture = ProcessUtil.execute(
+					new StringOutputProcessor(), "jps", "-ml");
+
+			ObjectValuePair<List<String>, String> objectValuePair =
+				jpsNoticeableFuture.get();
+
+			String pid = null;
+
+			for (String line : objectValuePair.getKey()) {
+>>>>>>> compatible
 				if (line.endsWith(_TOMCAT_PROCESS_KEY)) {
 					pid = line.substring(
 						0, line.length() - _TOMCAT_PROCESS_KEY.length());
@@ -66,7 +91,11 @@ public class ArquillianFailureAspect {
 				}
 			}
 
+<<<<<<< HEAD
 			List<String> lines = entry.getKey();
+=======
+			List<String> lines = objectValuePair.getKey();
+>>>>>>> compatible
 
 			StringBundler sb = new StringBundler(lines.size() * 2 + 3);
 
@@ -78,7 +107,11 @@ public class ArquillianFailureAspect {
 			}
 
 			sb.append("errors:\n");
+<<<<<<< HEAD
 			sb.append(entry.getValue());
+=======
+			sb.append(objectValuePair.getValue());
+>>>>>>> compatible
 
 			System.out.println(sb.toString());
 
@@ -88,9 +121,15 @@ public class ArquillianFailureAspect {
 
 			System.out.println("jstack for pid: " + pid);
 
+<<<<<<< HEAD
 			NoticeableFuture<Entry<Void, Void>> jstackNoticeableFuture =
 				ProcessUtil.execute(
 					EchoOutputProcessor.INSTANCE, "jstack", "-l", pid);
+=======
+			NoticeableFuture<ObjectValuePair<Void, Void>>
+				jstackNoticeableFuture = ProcessUtil.execute(
+					ProcessUtil.ECHO_OUTPUT_PROCESSOR, "jstack", "-l", pid);
+>>>>>>> compatible
 
 			jstackNoticeableFuture.get();
 		}

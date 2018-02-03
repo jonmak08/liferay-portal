@@ -14,6 +14,7 @@
 
 package com.liferay.portal.workflow.kaleo.definition.internal.export;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Element;
@@ -25,6 +26,13 @@ import com.liferay.portal.workflow.kaleo.definition.export.NodeExporter;
 
 import java.util.Set;
 
+=======
+import com.liferay.portal.kernel.xml.Element;
+import com.liferay.portal.workflow.kaleo.definition.Node;
+import com.liferay.portal.workflow.kaleo.definition.Task;
+import com.liferay.portal.workflow.kaleo.definition.export.NodeExporter;
+
+>>>>>>> compatible
 import org.osgi.service.component.annotations.Component;
 
 /**
@@ -50,6 +58,7 @@ public class TaskNodeExporter extends BaseNodeExporter implements NodeExporter {
 		exportAssignmentsElement(
 			task.getAssignments(), nodeElement, "assignments");
 
+<<<<<<< HEAD
 		exportTaskForms(task.getTaskForms(), nodeElement, "task-forms");
 
 		exportTimersElement(task, nodeElement, "task-timers", "task-timer");
@@ -107,4 +116,9 @@ public class TaskNodeExporter extends BaseNodeExporter implements NodeExporter {
 		}
 	}
 
+=======
+		exportTimersElement(task, nodeElement, "task-timers", "task-timer");
+	}
+
+>>>>>>> compatible
 }

@@ -14,8 +14,13 @@
 
 package com.liferay.blogs.editor.configuration.internal;
 
+<<<<<<< HEAD
 import com.liferay.blogs.constants.BlogsPortletKeys;
 import com.liferay.blogs.item.selector.criterion.BlogsItemSelectorCriterion;
+=======
+import com.liferay.blogs.item.selector.criterion.BlogsItemSelectorCriterion;
+import com.liferay.blogs.web.constants.BlogsPortletKeys;
+>>>>>>> compatible
 import com.liferay.item.selector.ItemSelector;
 import com.liferay.item.selector.ItemSelectorCriterion;
 import com.liferay.item.selector.ItemSelectorReturnType;
@@ -32,9 +37,13 @@ import com.liferay.portal.kernel.portlet.RequestBackedPortletURLFactory;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PortletKeys;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.util.PropsUtil;
+=======
+import com.liferay.portal.kernel.util.StringBundler;
+>>>>>>> compatible
 import com.liferay.portal.util.PropsValues;
 
 import java.util.ArrayList;
@@ -151,14 +160,21 @@ public class BlogsContentEditorConfigContributor
 		uploadURL.setParameter(
 			ActionRequest.ACTION_NAME, "/blogs/upload_image");
 
+<<<<<<< HEAD
 		String[] extensions = PropsUtil.getArray(
 			PropsKeys.BLOGS_IMAGE_EXTENSIONS);
 
+=======
+>>>>>>> compatible
 		ItemSelectorCriterion uploadItemSelectorCriterion =
 			new UploadItemSelectorCriterion(
 				PortletKeys.BLOGS, uploadURL.toString(),
 				LanguageUtil.get(themeDisplay.getLocale(), "blog-images"),
+<<<<<<< HEAD
 				PropsValues.BLOGS_IMAGE_MAX_SIZE, extensions);
+=======
+				PropsValues.BLOGS_IMAGE_MAX_SIZE);
+>>>>>>> compatible
 
 		List<ItemSelectorReturnType> uploadDesiredItemSelectorReturnTypes =
 			new ArrayList<>();

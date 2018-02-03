@@ -81,7 +81,10 @@ AUI.add(
 									destroyOnHide: true,
 									draggable: false,
 									headerContent: instance._getHeader(instance.get('title')),
+<<<<<<< HEAD
 									resizable: false,
+=======
+>>>>>>> compatible
 									toolbars: false,
 									width: instance.get('width')
 								},

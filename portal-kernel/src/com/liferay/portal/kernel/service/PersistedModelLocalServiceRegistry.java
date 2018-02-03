@@ -27,10 +27,13 @@ public interface PersistedModelLocalServiceRegistry {
 
 	public List<PersistedModelLocalService> getPersistedModelLocalServices();
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public boolean isPermissionedModelLocalService(String className);
 
 	public void register(

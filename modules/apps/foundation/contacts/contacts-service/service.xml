@@ -3,7 +3,11 @@
 
 <service-builder auto-namespace-tables="true" package-path="com.liferay.contacts">
 	<namespace>Contacts</namespace>
+<<<<<<< HEAD
 	<entity local-service="true" name="Entry" remote-service="false">
+=======
+	<entity local-service="true" name="Entry" remote-service="true">
+>>>>>>> compatible
 
 		<!-- PK fields -->
 
@@ -42,8 +46,11 @@
 			<finder-column name="userId" />
 			<finder-column name="emailAddress" />
 		</finder>
+<<<<<<< HEAD
 		<reference entity="Group" package-path="com.liferay.portal" />
 		<reference entity="UserGroup" package-path="com.liferay.portal" />
+=======
+>>>>>>> compatible
 	</entity>
 	<exceptions>
 		<exception>DuplicateEntryEmailAddress</exception>

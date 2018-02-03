@@ -19,7 +19,10 @@ import com.liferay.gradle.plugins.node.internal.util.GradleUtil;
 import com.liferay.gradle.util.Validator;
 
 import groovy.json.JsonOutput;
+<<<<<<< HEAD
 import groovy.json.JsonSlurper;
+=======
+>>>>>>> compatible
 
 import groovy.lang.Writable;
 
@@ -28,16 +31,24 @@ import java.io.IOException;
 
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+<<<<<<< HEAD
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+=======
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+<<<<<<< HEAD
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+=======
+import java.util.List;
+import java.util.Map;
+>>>>>>> compatible
 
 import org.codehaus.groovy.runtime.EncodingGroovyMethods;
 
@@ -46,7 +57,10 @@ import org.gradle.api.logging.Logger;
 import org.gradle.api.tasks.Input;
 import org.gradle.api.tasks.InputDirectory;
 import org.gradle.api.tasks.Optional;
+<<<<<<< HEAD
 import org.gradle.util.GUtil;
+=======
+>>>>>>> compatible
 
 /**
  * @author Andrea Di Giorgi
@@ -55,6 +69,7 @@ public class PublishNodeModuleTask extends ExecuteNpmTask {
 
 	@Override
 	public void executeNode() throws Exception {
+<<<<<<< HEAD
 		Project project = getProject();
 
 		File npmrcFile = _getNpmrcFile();
@@ -85,10 +100,23 @@ public class PublishNodeModuleTask extends ExecuteNpmTask {
 		try {
 			_createNpmrcFile(npmrcFile);
 			_updatePackageJsonFile(packageJsonPath);
+=======
+		File packageJsonFile = _getPackageJsonFile();
+
+		boolean packageJsonExists = packageJsonFile.exists();
+
+		try {
+			_createNpmrcFile();
+
+			if (!packageJsonExists) {
+				_createPackageJsonFile();
+			}
+>>>>>>> compatible
 
 			super.executeNode();
 		}
 		finally {
+<<<<<<< HEAD
 			project.delete(npmrcFile);
 
 			if (packageJsonBackupPath != null) {
@@ -98,6 +126,14 @@ public class PublishNodeModuleTask extends ExecuteNpmTask {
 			}
 			else {
 				Files.delete(packageJsonPath);
+=======
+			Project project = getProject();
+
+			project.delete(_getNpmrcFile());
+
+			if (!packageJsonExists) {
+				project.delete(packageJsonFile);
+>>>>>>> compatible
 			}
 		}
 	}
@@ -166,17 +202,21 @@ public class PublishNodeModuleTask extends ExecuteNpmTask {
 		return GradleUtil.toString(_npmUserName);
 	}
 
+<<<<<<< HEAD
 	@Input
 	public Set<String> getOverriddenPackageJsonKeys() {
 		return _overriddenPackageJsonKeys;
 	}
 
+=======
+>>>>>>> compatible
 	@InputDirectory
 	@Override
 	public File getWorkingDir() {
 		return super.getWorkingDir();
 	}
 
+<<<<<<< HEAD
 	public PublishNodeModuleTask overriddenPackageJsonKeys(
 		Iterable<String> overriddenPackageJsonKeys) {
 
@@ -193,6 +233,8 @@ public class PublishNodeModuleTask extends ExecuteNpmTask {
 			Arrays.asList(overriddenPackageJsonKeys));
 	}
 
+=======
+>>>>>>> compatible
 	public void setModuleAuthor(Object moduleAuthor) {
 		_moduleAuthor = moduleAuthor;
 	}
@@ -245,6 +287,7 @@ public class PublishNodeModuleTask extends ExecuteNpmTask {
 		_npmUserName = npmUserName;
 	}
 
+<<<<<<< HEAD
 	public void setOverriddenPackageJsonKeys(
 		Iterable<String> overriddenPackageJsonKeys) {
 
@@ -259,6 +302,8 @@ public class PublishNodeModuleTask extends ExecuteNpmTask {
 		setOverriddenPackageJsonKeys(Arrays.asList(overriddenPackageJsonKeys));
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	protected List<String> getCompleteArgs() {
 		List<String> completeArgs = super.getCompleteArgs();
@@ -271,13 +316,18 @@ public class PublishNodeModuleTask extends ExecuteNpmTask {
 		return completeArgs;
 	}
 
+<<<<<<< HEAD
 	private void _createNpmrcFile(File npmrcFile) throws IOException {
+=======
+	private void _createNpmrcFile() throws IOException {
+>>>>>>> compatible
 		List<String> npmrcContents = new ArrayList<>(2);
 
 		npmrcContents.add("_auth = " + _getNpmAuth());
 		npmrcContents.add("email = " + getNpmEmailAddress());
 		npmrcContents.add("username = " + getNpmUserName());
 
+<<<<<<< HEAD
 		FileUtil.write(npmrcFile, npmrcContents);
 	}
 
@@ -319,6 +369,61 @@ public class PublishNodeModuleTask extends ExecuteNpmTask {
 		_updatePackageJsonValue(map, "name", getModuleName());
 		_updatePackageJsonValue(map, "repository", getModuleRepository());
 		_updatePackageJsonValue(map, "version", getModuleVersion());
+=======
+		FileUtil.write(_getNpmrcFile(), npmrcContents);
+	}
+
+	private void _createPackageJsonFile() throws IOException {
+		Logger logger = getLogger();
+
+		Map<String, Object> map = new HashMap<>();
+
+		String author = getModuleAuthor();
+
+		if (Validator.isNotNull(author)) {
+			map.put("author", author);
+		}
+
+		String bugsUrl = getModuleBugsUrl();
+
+		if (Validator.isNotNull(bugsUrl)) {
+			map.put("bugs", bugsUrl);
+		}
+
+		String description = getModuleDescription();
+
+		if (Validator.isNotNull(description)) {
+			map.put("description", description);
+		}
+
+		List<String> keywords = getModuleKeywords();
+
+		if (!keywords.isEmpty()) {
+			map.put("keywords", keywords);
+		}
+
+		String license = getModuleLicense();
+
+		if (Validator.isNotNull(license)) {
+			map.put("license", license);
+		}
+
+		String main = getModuleMain();
+
+		if (Validator.isNotNull(main)) {
+			map.put("main", main);
+		}
+
+		map.put("name", getModuleName());
+
+		String repository = getModuleRepository();
+
+		if (Validator.isNotNull(repository)) {
+			map.put("repository", repository);
+		}
+
+		map.put("version", getModuleVersion());
+>>>>>>> compatible
 
 		String json = JsonOutput.toJson(map);
 
@@ -326,6 +431,7 @@ public class PublishNodeModuleTask extends ExecuteNpmTask {
 			logger.info(json);
 		}
 
+<<<<<<< HEAD
 		Files.write(packageJsonPath, json.getBytes(StandardCharsets.UTF_8));
 	}
 
@@ -343,6 +449,28 @@ public class PublishNodeModuleTask extends ExecuteNpmTask {
 		if (!map.containsKey(key) || overriddenPackageJsonKeys.contains(key)) {
 			map.put(key, value);
 		}
+=======
+		File packageJsonFile = _getPackageJsonFile();
+
+		Files.write(
+			packageJsonFile.toPath(), json.getBytes(StandardCharsets.UTF_8));
+	}
+
+	private String _getNpmAuth() {
+		String auth = getNpmUserName() + ":" + getNpmPassword();
+
+		Writable writable = EncodingGroovyMethods.encodeBase64(auth.getBytes());
+
+		return writable.toString();
+	}
+
+	private File _getNpmrcFile() {
+		return new File(getTemporaryDir(), "npmrc");
+	}
+
+	private File _getPackageJsonFile() {
+		return new File(getWorkingDir(), "package.json");
+>>>>>>> compatible
 	}
 
 	private Object _moduleAuthor;
@@ -357,6 +485,9 @@ public class PublishNodeModuleTask extends ExecuteNpmTask {
 	private Object _npmEmailAddress;
 	private Object _npmPassword;
 	private Object _npmUserName;
+<<<<<<< HEAD
 	private final Set<String> _overriddenPackageJsonKeys = new HashSet<>();
+=======
+>>>>>>> compatible
 
 }

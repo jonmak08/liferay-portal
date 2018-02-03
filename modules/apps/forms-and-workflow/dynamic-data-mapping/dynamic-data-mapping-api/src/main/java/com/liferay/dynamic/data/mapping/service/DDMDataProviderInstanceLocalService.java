@@ -193,10 +193,13 @@ public interface DDMDataProviderInstanceLocalService extends BaseLocalService,
 		long dataProviderInstanceId);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+<<<<<<< HEAD
 	public DDMDataProviderInstance fetchDataProviderInstanceByUuid(
 		java.lang.String uuid);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+=======
+>>>>>>> compatible
 	public DDMDataProviderInstance fetchDDMDataProviderInstance(
 		long dataProviderInstanceId);
 
@@ -219,6 +222,7 @@ public interface DDMDataProviderInstanceLocalService extends BaseLocalService,
 		long dataProviderInstanceId) throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+<<<<<<< HEAD
 	public DDMDataProviderInstance getDataProviderInstanceByUuid(
 		java.lang.String uuid) throws PortalException;
 
@@ -235,6 +239,11 @@ public interface DDMDataProviderInstanceLocalService extends BaseLocalService,
 		long[] groupIds, int start, int end,
 		OrderByComparator<DDMDataProviderInstance> orderByComparator);
 
+=======
+	public List<DDMDataProviderInstance> getDataProviderInstances(
+		long[] groupIds);
+
+>>>>>>> compatible
 	/**
 	* Returns the ddm data provider instance with the primary key.
 	*

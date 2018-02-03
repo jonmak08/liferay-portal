@@ -48,11 +48,19 @@ public class KaleoConditionLocalServiceWrapper
 
 	@Override
 	public com.liferay.portal.workflow.kaleo.model.KaleoCondition addKaleoCondition(
+<<<<<<< HEAD
 		long kaleoDefinitionVersionId, long kaleoNodeId,
 		com.liferay.portal.workflow.kaleo.definition.Condition condition,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return _kaleoConditionLocalService.addKaleoCondition(kaleoDefinitionVersionId,
+=======
+		long kaleoDefinitionId, long kaleoNodeId,
+		com.liferay.portal.workflow.kaleo.definition.Condition condition,
+		com.liferay.portal.kernel.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException {
+		return _kaleoConditionLocalService.addKaleoCondition(kaleoDefinitionId,
+>>>>>>> compatible
 			kaleoNodeId, condition, serviceContext);
 	}
 
@@ -100,9 +108,14 @@ public class KaleoConditionLocalServiceWrapper
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void deleteKaleoDefinitionVersionKaleoCondition(
 		long kaleoDefinitionVersionId) {
 		_kaleoConditionLocalService.deleteKaleoDefinitionVersionKaleoCondition(kaleoDefinitionVersionId);
+=======
+	public void deleteKaleoDefinitionKaleoCondition(long kaleoDefinitionId) {
+		_kaleoConditionLocalService.deleteKaleoDefinitionKaleoCondition(kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 	/**

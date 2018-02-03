@@ -133,8 +133,15 @@ public class FileUtil extends com.liferay.gradle.util.FileUtil {
 		return relativePath.replace('\\', '/');
 	}
 
+<<<<<<< HEAD
 	public static boolean hasFiles(
 		FileCollection fileCollection, Spec<File> spec) {
+=======
+	public static boolean hasSourceFiles(Task task, Spec<File> spec) {
+		TaskInputs taskInputs = task.getInputs();
+
+		FileCollection fileCollection = taskInputs.getSourceFiles();
+>>>>>>> compatible
 
 		fileCollection = fileCollection.filter(spec);
 
@@ -145,12 +152,15 @@ public class FileUtil extends com.liferay.gradle.util.FileUtil {
 		return true;
 	}
 
+<<<<<<< HEAD
 	public static boolean hasSourceFiles(Task task, Spec<File> spec) {
 		TaskInputs taskInputs = task.getInputs();
 
 		return hasFiles(taskInputs.getSourceFiles(), spec);
 	}
 
+=======
+>>>>>>> compatible
 	public static FileCollection join(FileCollection... fileCollections) {
 		FileCollection joinedFileCollection = null;
 

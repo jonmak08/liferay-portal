@@ -19,6 +19,10 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.workflow.kaleo.model.KaleoInstanceToken;
 
 import java.io.Externalizable;
@@ -80,8 +84,13 @@ public class KaleoInstanceTokenCacheModel implements CacheModel<KaleoInstanceTok
 		sb.append(createDate);
 		sb.append(", modifiedDate=");
 		sb.append(modifiedDate);
+<<<<<<< HEAD
 		sb.append(", kaleoDefinitionVersionId=");
 		sb.append(kaleoDefinitionVersionId);
+=======
+		sb.append(", kaleoDefinitionId=");
+		sb.append(kaleoDefinitionId);
+>>>>>>> compatible
 		sb.append(", kaleoInstanceId=");
 		sb.append(kaleoInstanceId);
 		sb.append(", parentKaleoInstanceTokenId=");
@@ -113,7 +122,11 @@ public class KaleoInstanceTokenCacheModel implements CacheModel<KaleoInstanceTok
 		kaleoInstanceTokenImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			kaleoInstanceTokenImpl.setUserName("");
+=======
+			kaleoInstanceTokenImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoInstanceTokenImpl.setUserName(userName);
@@ -133,20 +146,32 @@ public class KaleoInstanceTokenCacheModel implements CacheModel<KaleoInstanceTok
 			kaleoInstanceTokenImpl.setModifiedDate(new Date(modifiedDate));
 		}
 
+<<<<<<< HEAD
 		kaleoInstanceTokenImpl.setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
+=======
+		kaleoInstanceTokenImpl.setKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 		kaleoInstanceTokenImpl.setKaleoInstanceId(kaleoInstanceId);
 		kaleoInstanceTokenImpl.setParentKaleoInstanceTokenId(parentKaleoInstanceTokenId);
 		kaleoInstanceTokenImpl.setCurrentKaleoNodeId(currentKaleoNodeId);
 
 		if (currentKaleoNodeName == null) {
+<<<<<<< HEAD
 			kaleoInstanceTokenImpl.setCurrentKaleoNodeName("");
+=======
+			kaleoInstanceTokenImpl.setCurrentKaleoNodeName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoInstanceTokenImpl.setCurrentKaleoNodeName(currentKaleoNodeName);
 		}
 
 		if (className == null) {
+<<<<<<< HEAD
 			kaleoInstanceTokenImpl.setClassName("");
+=======
+			kaleoInstanceTokenImpl.setClassName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoInstanceTokenImpl.setClassName(className);
@@ -180,7 +205,11 @@ public class KaleoInstanceTokenCacheModel implements CacheModel<KaleoInstanceTok
 		createDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
 
+<<<<<<< HEAD
 		kaleoDefinitionVersionId = objectInput.readLong();
+=======
+		kaleoDefinitionId = objectInput.readLong();
+>>>>>>> compatible
 
 		kaleoInstanceId = objectInput.readLong();
 
@@ -208,7 +237,11 @@ public class KaleoInstanceTokenCacheModel implements CacheModel<KaleoInstanceTok
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -217,7 +250,11 @@ public class KaleoInstanceTokenCacheModel implements CacheModel<KaleoInstanceTok
 		objectOutput.writeLong(createDate);
 		objectOutput.writeLong(modifiedDate);
 
+<<<<<<< HEAD
 		objectOutput.writeLong(kaleoDefinitionVersionId);
+=======
+		objectOutput.writeLong(kaleoDefinitionId);
+>>>>>>> compatible
 
 		objectOutput.writeLong(kaleoInstanceId);
 
@@ -226,14 +263,22 @@ public class KaleoInstanceTokenCacheModel implements CacheModel<KaleoInstanceTok
 		objectOutput.writeLong(currentKaleoNodeId);
 
 		if (currentKaleoNodeName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(currentKaleoNodeName);
 		}
 
 		if (className == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(className);
@@ -252,7 +297,11 @@ public class KaleoInstanceTokenCacheModel implements CacheModel<KaleoInstanceTok
 	public String userName;
 	public long createDate;
 	public long modifiedDate;
+<<<<<<< HEAD
 	public long kaleoDefinitionVersionId;
+=======
+	public long kaleoDefinitionId;
+>>>>>>> compatible
 	public long kaleoInstanceId;
 	public long parentKaleoInstanceTokenId;
 	public long currentKaleoNodeId;

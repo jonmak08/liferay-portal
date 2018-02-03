@@ -21,10 +21,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.PageContext;
 
 /**
+<<<<<<< HEAD
  * @author     Julio Camarero
  * @deprecated As of 2.0.0, with no direct replacement
  */
 @Deprecated
+=======
+ * @author Julio Camarero
+ */
+>>>>>>> compatible
 public class FlagsTag extends IncludeTag {
 
 	public void setClassName(String className) {
@@ -39,10 +44,13 @@ public class FlagsTag extends IncludeTag {
 		_contentTitle = contentTitle;
 	}
 
+<<<<<<< HEAD
 	public void setEnabled(boolean enabled) {
 		_enabled = enabled;
 	}
 
+=======
+>>>>>>> compatible
 	public void setLabel(boolean label) {
 		_label = label;
 	}
@@ -67,7 +75,10 @@ public class FlagsTag extends IncludeTag {
 		_className = null;
 		_classPK = 0;
 		_contentTitle = null;
+<<<<<<< HEAD
 		_enabled = true;
+=======
+>>>>>>> compatible
 		_label = true;
 		_message = null;
 		_reportedUserId = 0;
@@ -85,8 +96,11 @@ public class FlagsTag extends IncludeTag {
 			"liferay-flags:flags:classPK", String.valueOf(_classPK));
 		request.setAttribute("liferay-flags:flags:contentTitle", _contentTitle);
 		request.setAttribute(
+<<<<<<< HEAD
 			"liferay-flags:flags:enabled", String.valueOf(_enabled));
 		request.setAttribute(
+=======
+>>>>>>> compatible
 			"liferay-flags:flags:label", String.valueOf(_label));
 		request.setAttribute("liferay-flags:flags:message", _message);
 		request.setAttribute(
@@ -99,7 +113,10 @@ public class FlagsTag extends IncludeTag {
 	private String _className;
 	private long _classPK;
 	private String _contentTitle;
+<<<<<<< HEAD
 	private boolean _enabled = true;
+=======
+>>>>>>> compatible
 	private boolean _label = true;
 	private String _message;
 	private long _reportedUserId;

@@ -29,10 +29,8 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
- * @author     Shuyang Zhou
- * @deprecated As of 7.0.0, with no direct replacement
+ * @author Shuyang Zhou
  */
-@Deprecated
 public class ConcurrentLFUCache<K, V> {
 
 	public ConcurrentLFUCache(int maxSize) {

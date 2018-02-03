@@ -17,7 +17,11 @@ package com.liferay.my.subscriptions.web.internal.util;
 import com.liferay.asset.kernel.AssetRendererFactoryRegistryUtil;
 import com.liferay.asset.kernel.model.AssetRenderer;
 import com.liferay.asset.kernel.model.AssetRendererFactory;
+<<<<<<< HEAD
 import com.liferay.blogs.model.BlogsEntry;
+=======
+import com.liferay.blogs.kernel.model.BlogsEntry;
+>>>>>>> compatible
 import com.liferay.bookmarks.model.BookmarksFolder;
 import com.liferay.document.library.kernel.model.DLFileEntryType;
 import com.liferay.document.library.kernel.model.DLFolder;
@@ -76,7 +80,11 @@ public class MySubscriptionsUtil {
 			ThemeDisplay themeDisplay, String className, long classPK)
 		throws PortalException {
 
+<<<<<<< HEAD
 		if (className.equals(_BLOGS_ENTRY_CLASSNAME)) {
+=======
+		if (className.equals(BlogsEntry.class.getName())) {
+>>>>>>> compatible
 			return PortalUtil.getLayoutFullURL(classPK, PortletKeys.BLOGS);
 		}
 
@@ -140,9 +148,13 @@ public class MySubscriptionsUtil {
 
 		Group group = GroupLocalServiceUtil.fetchGroup(classPK);
 
+<<<<<<< HEAD
 		if (className.equals(BlogsEntry.class.getName()) ||
 			className.equals(_BLOGS_ENTRY_CLASSNAME)) {
 
+=======
+		if (className.equals(BlogsEntry.class.getName())) {
+>>>>>>> compatible
 			title = "Blog at ";
 		}
 		else if (className.equals(BookmarksFolder.class.getName())) {
@@ -244,9 +256,12 @@ public class MySubscriptionsUtil {
 		return assetRendererFactory.getAssetRenderer(classPK);
 	}
 
+<<<<<<< HEAD
 	private static final String _BLOGS_ENTRY_CLASSNAME =
 		"com.liferay.blogs.kernel.model.BlogsEntry";
 
+=======
+>>>>>>> compatible
 	private static final String _KNOWLEDGE_BASE_DISPLAY_PORTLET_ID =
 		"com_liferay_knowledge_base_web_portlet_DisplayPortlet";
 

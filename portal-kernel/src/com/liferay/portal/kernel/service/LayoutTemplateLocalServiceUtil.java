@@ -46,12 +46,15 @@ public class LayoutTemplateLocalServiceUtil {
 		return getService().getContent(layoutTemplateId, standard, themeId);
 	}
 
+<<<<<<< HEAD
 	public static java.lang.String getLangType(
 		java.lang.String layoutTemplateId, boolean standard,
 		java.lang.String themeId) {
 		return getService().getLangType(layoutTemplateId, standard, themeId);
 	}
 
+=======
+>>>>>>> compatible
 	public static com.liferay.portal.kernel.model.LayoutTemplate getLayoutTemplate(
 		java.lang.String layoutTemplateId, boolean standard,
 		java.lang.String themeId) {

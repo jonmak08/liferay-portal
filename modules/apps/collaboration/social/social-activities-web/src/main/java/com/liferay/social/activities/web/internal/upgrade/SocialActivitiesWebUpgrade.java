@@ -18,7 +18,11 @@ import com.liferay.portal.kernel.upgrade.BaseReplacePortletId;
 import com.liferay.portal.kernel.upgrade.DummyUpgradeStep;
 import com.liferay.portal.kernel.upgrade.UpgradeStep;
 import com.liferay.portal.upgrade.registry.UpgradeStepRegistrator;
+<<<<<<< HEAD
 import com.liferay.social.activities.constants.SocialActivitiesPortletKeys;
+=======
+import com.liferay.social.activities.web.constants.SocialActivitiesPortletKeys;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 

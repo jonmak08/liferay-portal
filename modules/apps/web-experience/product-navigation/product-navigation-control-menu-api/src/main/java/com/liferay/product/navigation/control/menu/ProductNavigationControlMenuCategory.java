@@ -19,6 +19,7 @@ import com.liferay.portal.kernel.exception.PortalException;
 import javax.servlet.http.HttpServletRequest;
 
 /**
+<<<<<<< HEAD
  * Provides an interface that defines categories to be used by a
  * <code>product-navigation:control-menu</code> tag instance to render a new
  * Control Menu category. Control Menu categories include Control Menu entries
@@ -32,10 +33,13 @@ import javax.servlet.http.HttpServletRequest;
  * <code>product.navigation.control.menu.category.key</code> property value.
  * </p>
  *
+=======
+>>>>>>> compatible
  * @author Julio Camarero
  */
 public interface ProductNavigationControlMenuCategory {
 
+<<<<<<< HEAD
 	/**
 	 * Returns the Control Menu category's key. This key must be unique in the
 	 * scope of the Control Menu, since it is referred to by Control Menu
@@ -54,6 +58,10 @@ public interface ProductNavigationControlMenuCategory {
 	 *         displayed in the request's context; <code>false</code> otherwise
 	 * @throws PortalException if a portal exception occurred
 	 */
+=======
+	public String getKey();
+
+>>>>>>> compatible
 	public boolean hasAccessPermission(HttpServletRequest request)
 		throws PortalException;
 

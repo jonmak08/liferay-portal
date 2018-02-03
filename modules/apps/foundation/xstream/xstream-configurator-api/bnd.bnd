@@ -1,6 +1,10 @@
 Bundle-Name: Liferay XStream Configurator API
 Bundle-SymbolicName: com.liferay.xstream.configurator.api
+<<<<<<< HEAD
 Bundle-Version: 2.1.2
+=======
+Bundle-Version: 2.1.1
+>>>>>>> compatible
 Export-Package: com.liferay.xstream.configurator
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title:

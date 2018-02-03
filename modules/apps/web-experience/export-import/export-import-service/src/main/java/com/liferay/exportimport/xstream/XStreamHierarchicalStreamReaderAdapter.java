@@ -14,8 +14,11 @@
 
 package com.liferay.exportimport.xstream;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.xstream.XStreamHierarchicalStreamReader;
 
 import com.thoughtworks.xstream.io.HierarchicalStreamReader;
@@ -25,7 +28,10 @@ import java.util.Iterator;
 /**
  * @author Daniel Kocsis
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class XStreamHierarchicalStreamReaderAdapter
 	implements XStreamHierarchicalStreamReader {
 

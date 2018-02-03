@@ -89,11 +89,14 @@ public class MockPortletContainer implements PortletContainer {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void processPublicRenderParameters(
 		HttpServletRequest request, Layout layout, Portlet portlet) {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public void render(
 		HttpServletRequest request, HttpServletResponse response,
 		Portlet portlet) {

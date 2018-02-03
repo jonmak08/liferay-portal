@@ -169,6 +169,10 @@
 		<reference entity="DLFileEntry" package-path="com.liferay.portlet.documentlibrary" />
 		<reference entity="DLFileVersion" package-path="com.liferay.portlet.documentlibrary" />
 		<reference entity="DLFolder" package-path="com.liferay.portlet.documentlibrary" />
+<<<<<<< HEAD
+=======
+		<reference entity="DLSyncEvent" package-path="com.liferay.portlet.documentlibrary" />
+>>>>>>> compatible
 		<reference entity="DLTrash" package-path="com.liferay.portlet.documentlibrary" />
 	</entity>
 	<exceptions>

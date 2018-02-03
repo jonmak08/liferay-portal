@@ -40,8 +40,15 @@ import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.ReflectionUtil;
+import com.liferay.portal.kernel.util.SetUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
@@ -322,7 +329,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append("resourcePrimKey=");
 		msg.append(resourcePrimKey);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -373,7 +384,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append("resourcePrimKey=");
 		msg.append(resourcePrimKey);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -752,7 +767,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_UUID_3);
 			}
 			else {
@@ -840,7 +859,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append("uuid=");
 		msg.append(uuid);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -889,7 +912,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append("uuid=");
 		msg.append(uuid);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -981,7 +1008,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		if (uuid == null) {
 			query.append(_FINDER_COLUMN_UUID_UUID_1);
 		}
+<<<<<<< HEAD
 		else if (uuid.equals("")) {
+=======
+		else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_UUID_UUID_3);
 		}
 		else {
@@ -1117,7 +1148,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_UUID_3);
 			}
 			else {
@@ -1196,7 +1231,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			msg.append(", groupId=");
 			msg.append(groupId);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -1259,7 +1298,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_G_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_G_UUID_3);
 			}
 			else {
@@ -1366,7 +1409,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_G_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_G_UUID_3);
 			}
 			else {
@@ -1565,7 +1612,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_C_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_C_UUID_3);
 			}
 			else {
@@ -1662,7 +1713,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", companyId=");
 		msg.append(companyId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -1718,7 +1773,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", companyId=");
 		msg.append(companyId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -1812,7 +1871,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		if (uuid == null) {
 			query.append(_FINDER_COLUMN_UUID_C_UUID_1);
 		}
+<<<<<<< HEAD
 		else if (uuid.equals("")) {
+=======
+		else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_UUID_C_UUID_3);
 		}
 		else {
@@ -1954,7 +2017,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (uuid == null) {
 				query.append(_FINDER_COLUMN_UUID_C_UUID_1);
 			}
+<<<<<<< HEAD
 			else if (uuid.equals("")) {
+=======
+			else if (uuid.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_UUID_C_UUID_3);
 			}
 			else {
@@ -2213,7 +2280,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append("nodeId=");
 		msg.append(nodeId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -2262,7 +2333,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append("nodeId=");
 		msg.append(nodeId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -2641,7 +2716,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (format == null) {
 				query.append(_FINDER_COLUMN_FORMAT_FORMAT_1);
 			}
+<<<<<<< HEAD
 			else if (format.equals("")) {
+=======
+			else if (format.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_FORMAT_FORMAT_3);
 			}
 			else {
@@ -2729,7 +2808,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append("format=");
 		msg.append(format);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -2778,7 +2861,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append("format=");
 		msg.append(format);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -2870,7 +2957,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		if (format == null) {
 			query.append(_FINDER_COLUMN_FORMAT_FORMAT_1);
 		}
+<<<<<<< HEAD
 		else if (format.equals("")) {
+=======
+		else if (format.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_FORMAT_FORMAT_3);
 		}
 		else {
@@ -3006,7 +3097,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (format == null) {
 				query.append(_FINDER_COLUMN_FORMAT_FORMAT_1);
 			}
+<<<<<<< HEAD
 			else if (format.equals("")) {
+=======
+			else if (format.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_FORMAT_FORMAT_3);
 			}
 			else {
@@ -3282,7 +3377,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", nodeId=");
 		msg.append(nodeId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -3338,7 +3437,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", nodeId=");
 		msg.append(nodeId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -3826,7 +3929,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -3882,7 +3989,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -4286,7 +4397,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (title == null) {
 				query.append(_FINDER_COLUMN_N_T_TITLE_1);
 			}
+<<<<<<< HEAD
 			else if (title.equals("")) {
+=======
+			else if (title.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_N_T_TITLE_3);
 			}
 			else {
@@ -4380,7 +4495,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", title=");
 		msg.append(title);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -4434,7 +4553,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", title=");
 		msg.append(title);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -4530,7 +4653,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		if (title == null) {
 			query.append(_FINDER_COLUMN_N_T_TITLE_1);
 		}
+<<<<<<< HEAD
 		else if (title.equals("")) {
+=======
+		else if (title.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_N_T_TITLE_3);
 		}
 		else {
@@ -4672,7 +4799,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (title == null) {
 				query.append(_FINDER_COLUMN_N_T_TITLE_1);
 			}
+<<<<<<< HEAD
 			else if (title.equals("")) {
+=======
+			else if (title.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_N_T_TITLE_3);
 			}
 			else {
@@ -4949,7 +5080,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", head=");
 		msg.append(head);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -5003,7 +5138,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", head=");
 		msg.append(head);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -5410,7 +5549,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (parentTitle == null) {
 				query.append(_FINDER_COLUMN_N_P_PARENTTITLE_1);
 			}
+<<<<<<< HEAD
 			else if (parentTitle.equals("")) {
+=======
+			else if (parentTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_N_P_PARENTTITLE_3);
 			}
 			else {
@@ -5505,7 +5648,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", parentTitle=");
 		msg.append(parentTitle);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -5561,7 +5708,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", parentTitle=");
 		msg.append(parentTitle);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -5657,7 +5808,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		if (parentTitle == null) {
 			query.append(_FINDER_COLUMN_N_P_PARENTTITLE_1);
 		}
+<<<<<<< HEAD
 		else if (parentTitle.equals("")) {
+=======
+		else if (parentTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_N_P_PARENTTITLE_3);
 		}
 		else {
@@ -5799,7 +5954,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (parentTitle == null) {
 				query.append(_FINDER_COLUMN_N_P_PARENTTITLE_1);
 			}
+<<<<<<< HEAD
 			else if (parentTitle.equals("")) {
+=======
+			else if (parentTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_N_P_PARENTTITLE_3);
 			}
 			else {
@@ -5998,7 +6157,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (redirectTitle == null) {
 				query.append(_FINDER_COLUMN_N_R_REDIRECTTITLE_1);
 			}
+<<<<<<< HEAD
 			else if (redirectTitle.equals("")) {
+=======
+			else if (redirectTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_N_R_REDIRECTTITLE_3);
 			}
 			else {
@@ -6093,7 +6256,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", redirectTitle=");
 		msg.append(redirectTitle);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -6149,7 +6316,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", redirectTitle=");
 		msg.append(redirectTitle);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -6245,7 +6416,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		if (redirectTitle == null) {
 			query.append(_FINDER_COLUMN_N_R_REDIRECTTITLE_1);
 		}
+<<<<<<< HEAD
 		else if (redirectTitle.equals("")) {
+=======
+		else if (redirectTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_N_R_REDIRECTTITLE_3);
 		}
 		else {
@@ -6387,7 +6562,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (redirectTitle == null) {
 				query.append(_FINDER_COLUMN_N_R_REDIRECTTITLE_1);
 			}
+<<<<<<< HEAD
 			else if (redirectTitle.equals("")) {
+=======
+			else if (redirectTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_N_R_REDIRECTTITLE_3);
 			}
 			else {
@@ -6663,7 +6842,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -6717,7 +6900,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -7018,7 +7205,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			msg.append(", version=");
 			msg.append(version);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -7477,7 +7668,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", head=");
 		msg.append(head);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -7538,7 +7733,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", head=");
 		msg.append(head);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -8062,7 +8261,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -8123,7 +8326,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -8645,7 +8852,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", head=");
 		msg.append(head);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -8706,7 +8917,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", head=");
 		msg.append(head);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -9622,7 +9837,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -9683,7 +9902,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -10599,7 +10822,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -10660,7 +10887,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -10974,7 +11205,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			msg.append(", version=");
 			msg.append(version);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -11042,7 +11277,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (title == null) {
 				query.append(_FINDER_COLUMN_N_T_V_TITLE_1);
 			}
+<<<<<<< HEAD
 			else if (title.equals("")) {
+=======
+			else if (title.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_N_T_V_TITLE_3);
 			}
 			else {
@@ -11156,7 +11395,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (title == null) {
 				query.append(_FINDER_COLUMN_N_T_V_TITLE_1);
 			}
+<<<<<<< HEAD
 			else if (title.equals("")) {
+=======
+			else if (title.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_N_T_V_TITLE_3);
 			}
 			else {
@@ -11371,7 +11614,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (title == null) {
 				query.append(_FINDER_COLUMN_N_T_H_TITLE_1);
 			}
+<<<<<<< HEAD
 			else if (title.equals("")) {
+=======
+			else if (title.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_N_T_H_TITLE_3);
 			}
 			else {
@@ -11474,7 +11721,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", head=");
 		msg.append(head);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -11535,7 +11786,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", head=");
 		msg.append(head);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -11634,7 +11889,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		if (title == null) {
 			query.append(_FINDER_COLUMN_N_T_H_TITLE_1);
 		}
+<<<<<<< HEAD
 		else if (title.equals("")) {
+=======
+		else if (title.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_N_T_H_TITLE_3);
 		}
 		else {
@@ -11782,7 +12041,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (title == null) {
 				query.append(_FINDER_COLUMN_N_T_H_TITLE_1);
 			}
+<<<<<<< HEAD
 			else if (title.equals("")) {
+=======
+			else if (title.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_N_T_H_TITLE_3);
 			}
 			else {
@@ -11997,7 +12260,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (title == null) {
 				query.append(_FINDER_COLUMN_N_T_S_TITLE_1);
 			}
+<<<<<<< HEAD
 			else if (title.equals("")) {
+=======
+			else if (title.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_N_T_S_TITLE_3);
 			}
 			else {
@@ -12100,7 +12367,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -12161,7 +12432,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -12259,7 +12534,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		if (title == null) {
 			query.append(_FINDER_COLUMN_N_T_S_TITLE_1);
 		}
+<<<<<<< HEAD
 		else if (title.equals("")) {
+=======
+		else if (title.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_N_T_S_TITLE_3);
 		}
 		else {
@@ -12407,7 +12686,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (title == null) {
 				query.append(_FINDER_COLUMN_N_T_S_TITLE_1);
 			}
+<<<<<<< HEAD
 			else if (title.equals("")) {
+=======
+			else if (title.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_N_T_S_TITLE_3);
 			}
 			else {
@@ -12628,7 +12911,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (parentTitle == null) {
 				query.append(_FINDER_COLUMN_N_H_P_PARENTTITLE_1);
 			}
+<<<<<<< HEAD
 			else if (parentTitle.equals("")) {
+=======
+			else if (parentTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_N_H_P_PARENTTITLE_3);
 			}
 			else {
@@ -12729,7 +13016,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", parentTitle=");
 		msg.append(parentTitle);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -12790,7 +13081,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", parentTitle=");
 		msg.append(parentTitle);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -12891,7 +13186,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		if (parentTitle == null) {
 			query.append(_FINDER_COLUMN_N_H_P_PARENTTITLE_1);
 		}
+<<<<<<< HEAD
 		else if (parentTitle.equals("")) {
+=======
+		else if (parentTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_N_H_P_PARENTTITLE_3);
 		}
 		else {
@@ -13039,7 +13338,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (parentTitle == null) {
 				query.append(_FINDER_COLUMN_N_H_P_PARENTTITLE_1);
 			}
+<<<<<<< HEAD
 			else if (parentTitle.equals("")) {
+=======
+			else if (parentTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_N_H_P_PARENTTITLE_3);
 			}
 			else {
@@ -13258,7 +13561,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (redirectTitle == null) {
 				query.append(_FINDER_COLUMN_N_H_R_REDIRECTTITLE_1);
 			}
+<<<<<<< HEAD
 			else if (redirectTitle.equals("")) {
+=======
+			else if (redirectTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_N_H_R_REDIRECTTITLE_3);
 			}
 			else {
@@ -13359,7 +13666,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", redirectTitle=");
 		msg.append(redirectTitle);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -13420,7 +13731,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", redirectTitle=");
 		msg.append(redirectTitle);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -13521,7 +13836,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		if (redirectTitle == null) {
 			query.append(_FINDER_COLUMN_N_H_R_REDIRECTTITLE_1);
 		}
+<<<<<<< HEAD
 		else if (redirectTitle.equals("")) {
+=======
+		else if (redirectTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_N_H_R_REDIRECTTITLE_3);
 		}
 		else {
@@ -13669,7 +13988,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (redirectTitle == null) {
 				query.append(_FINDER_COLUMN_N_H_R_REDIRECTTITLE_1);
 			}
+<<<<<<< HEAD
 			else if (redirectTitle.equals("")) {
+=======
+			else if (redirectTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_N_H_R_REDIRECTTITLE_3);
 			}
 			else {
@@ -13972,7 +14295,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -14033,7 +14360,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -14535,7 +14866,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -14596,7 +14931,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -15134,7 +15473,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -15200,7 +15543,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -16072,7 +16419,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (title == null) {
 				query.append(_FINDER_COLUMN_G_N_T_H_TITLE_1);
 			}
+<<<<<<< HEAD
 			else if (title.equals("")) {
+=======
+			else if (title.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_N_T_H_TITLE_3);
 			}
 			else {
@@ -16182,7 +16533,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", head=");
 		msg.append(head);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -16249,7 +16604,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", head=");
 		msg.append(head);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -16354,7 +16713,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		if (title == null) {
 			query.append(_FINDER_COLUMN_G_N_T_H_TITLE_1);
 		}
+<<<<<<< HEAD
 		else if (title.equals("")) {
+=======
+		else if (title.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_N_T_H_TITLE_3);
 		}
 		else {
@@ -16550,7 +16913,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		if (title == null) {
 			query.append(_FINDER_COLUMN_G_N_T_H_TITLE_1);
 		}
+<<<<<<< HEAD
 		else if (title.equals("")) {
+=======
+		else if (title.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_N_T_H_TITLE_3);
 		}
 		else {
@@ -16704,7 +17071,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		if (title == null) {
 			query.append(_FINDER_COLUMN_G_N_T_H_TITLE_1);
 		}
+<<<<<<< HEAD
 		else if (title.equals("")) {
+=======
+		else if (title.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_N_T_H_TITLE_3);
 		}
 		else {
@@ -16890,7 +17261,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (title == null) {
 				query.append(_FINDER_COLUMN_G_N_T_H_TITLE_1);
 			}
+<<<<<<< HEAD
 			else if (title.equals("")) {
+=======
+			else if (title.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_N_T_H_TITLE_3);
 			}
 			else {
@@ -16968,7 +17343,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		if (title == null) {
 			query.append(_FINDER_COLUMN_G_N_T_H_TITLE_1);
 		}
+<<<<<<< HEAD
 		else if (title.equals("")) {
+=======
+		else if (title.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_N_T_H_TITLE_3);
 		}
 		else {
@@ -17293,7 +17672,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -17359,7 +17742,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -18234,7 +18621,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (parentTitle == null) {
 				query.append(_FINDER_COLUMN_N_H_P_S_PARENTTITLE_1);
 			}
+<<<<<<< HEAD
 			else if (parentTitle.equals("")) {
+=======
+			else if (parentTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_N_H_P_S_PARENTTITLE_3);
 			}
 			else {
@@ -18344,7 +18735,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -18412,7 +18807,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -18517,7 +18916,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		if (parentTitle == null) {
 			query.append(_FINDER_COLUMN_N_H_P_S_PARENTTITLE_1);
 		}
+<<<<<<< HEAD
 		else if (parentTitle.equals("")) {
+=======
+		else if (parentTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_N_H_P_S_PARENTTITLE_3);
 		}
 		else {
@@ -18673,7 +19076,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (parentTitle == null) {
 				query.append(_FINDER_COLUMN_N_H_P_S_PARENTTITLE_1);
 			}
+<<<<<<< HEAD
 			else if (parentTitle.equals("")) {
+=======
+			else if (parentTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_N_H_P_S_PARENTTITLE_3);
 			}
 			else {
@@ -18885,7 +19292,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (parentTitle == null) {
 				query.append(_FINDER_COLUMN_N_H_P_NOTS_PARENTTITLE_1);
 			}
+<<<<<<< HEAD
 			else if (parentTitle.equals("")) {
+=======
+			else if (parentTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_N_H_P_NOTS_PARENTTITLE_3);
 			}
 			else {
@@ -18995,7 +19406,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -19063,7 +19478,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -19168,7 +19587,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		if (parentTitle == null) {
 			query.append(_FINDER_COLUMN_N_H_P_NOTS_PARENTTITLE_1);
 		}
+<<<<<<< HEAD
 		else if (parentTitle.equals("")) {
+=======
+		else if (parentTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_N_H_P_NOTS_PARENTTITLE_3);
 		}
 		else {
@@ -19324,7 +19747,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (parentTitle == null) {
 				query.append(_FINDER_COLUMN_N_H_P_NOTS_PARENTTITLE_1);
 			}
+<<<<<<< HEAD
 			else if (parentTitle.equals("")) {
+=======
+			else if (parentTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_N_H_P_NOTS_PARENTTITLE_3);
 			}
 			else {
@@ -19556,7 +19983,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (redirectTitle == null) {
 				query.append(_FINDER_COLUMN_N_H_R_S_REDIRECTTITLE_1);
 			}
+<<<<<<< HEAD
 			else if (redirectTitle.equals("")) {
+=======
+			else if (redirectTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_N_H_R_S_REDIRECTTITLE_3);
 			}
 			else {
@@ -19666,7 +20097,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -19734,7 +20169,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -19839,7 +20278,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		if (redirectTitle == null) {
 			query.append(_FINDER_COLUMN_N_H_R_S_REDIRECTTITLE_1);
 		}
+<<<<<<< HEAD
 		else if (redirectTitle.equals("")) {
+=======
+		else if (redirectTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_N_H_R_S_REDIRECTTITLE_3);
 		}
 		else {
@@ -19995,7 +20438,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (redirectTitle == null) {
 				query.append(_FINDER_COLUMN_N_H_R_S_REDIRECTTITLE_1);
 			}
+<<<<<<< HEAD
 			else if (redirectTitle.equals("")) {
+=======
+			else if (redirectTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_N_H_R_S_REDIRECTTITLE_3);
 			}
 			else {
@@ -20207,7 +20654,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (redirectTitle == null) {
 				query.append(_FINDER_COLUMN_N_H_R_NOTS_REDIRECTTITLE_1);
 			}
+<<<<<<< HEAD
 			else if (redirectTitle.equals("")) {
+=======
+			else if (redirectTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_N_H_R_NOTS_REDIRECTTITLE_3);
 			}
 			else {
@@ -20317,7 +20768,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -20385,7 +20840,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -20490,7 +20949,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		if (redirectTitle == null) {
 			query.append(_FINDER_COLUMN_N_H_R_NOTS_REDIRECTTITLE_1);
 		}
+<<<<<<< HEAD
 		else if (redirectTitle.equals("")) {
+=======
+		else if (redirectTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_N_H_R_NOTS_REDIRECTTITLE_3);
 		}
 		else {
@@ -20646,7 +21109,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (redirectTitle == null) {
 				query.append(_FINDER_COLUMN_N_H_R_NOTS_REDIRECTTITLE_1);
 			}
+<<<<<<< HEAD
 			else if (redirectTitle.equals("")) {
+=======
+			else if (redirectTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_N_H_R_NOTS_REDIRECTTITLE_3);
 			}
 			else {
@@ -20890,7 +21357,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (parentTitle == null) {
 				query.append(_FINDER_COLUMN_G_N_H_P_S_PARENTTITLE_1);
 			}
+<<<<<<< HEAD
 			else if (parentTitle.equals("")) {
+=======
+			else if (parentTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_N_H_P_S_PARENTTITLE_3);
 			}
 			else {
@@ -21006,7 +21477,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -21079,7 +21554,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		msg.append(", status=");
 		msg.append(status);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchPageException(msg.toString());
 	}
@@ -21188,7 +21667,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		if (parentTitle == null) {
 			query.append(_FINDER_COLUMN_G_N_H_P_S_PARENTTITLE_1);
 		}
+<<<<<<< HEAD
 		else if (parentTitle.equals("")) {
+=======
+		else if (parentTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_N_H_P_S_PARENTTITLE_3);
 		}
 		else {
@@ -21391,7 +21874,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		if (parentTitle == null) {
 			query.append(_FINDER_COLUMN_G_N_H_P_S_PARENTTITLE_1);
 		}
+<<<<<<< HEAD
 		else if (parentTitle.equals("")) {
+=======
+		else if (parentTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_N_H_P_S_PARENTTITLE_3);
 		}
 		else {
@@ -21552,7 +22039,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		if (parentTitle == null) {
 			query.append(_FINDER_COLUMN_G_N_H_P_S_PARENTTITLE_1);
 		}
+<<<<<<< HEAD
 		else if (parentTitle.equals("")) {
+=======
+		else if (parentTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_N_H_P_S_PARENTTITLE_3);
 		}
 		else {
@@ -21746,7 +22237,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 			if (parentTitle == null) {
 				query.append(_FINDER_COLUMN_G_N_H_P_S_PARENTTITLE_1);
 			}
+<<<<<<< HEAD
 			else if (parentTitle.equals("")) {
+=======
+			else if (parentTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_N_H_P_S_PARENTTITLE_3);
 			}
 			else {
@@ -21829,7 +22324,11 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		if (parentTitle == null) {
 			query.append(_FINDER_COLUMN_G_N_H_P_S_PARENTTITLE_1);
 		}
+<<<<<<< HEAD
 		else if (parentTitle.equals("")) {
+=======
+		else if (parentTitle.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_N_H_P_S_PARENTTITLE_3);
 		}
 		else {
@@ -21892,11 +22391,17 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		setModelClass(WikiPage.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("uuid", "uuid_");
@@ -23361,12 +23866,20 @@ public class WikiPagePersistenceImpl extends BasePersistenceImpl<WikiPage>
 		for (Serializable primaryKey : uncachedPrimaryKeys) {
 			query.append((long)primaryKey);
 
+<<<<<<< HEAD
 			query.append(",");
+=======
+			query.append(StringPool.COMMA);
+>>>>>>> compatible
 		}
 
 		query.setIndex(query.index() - 1);
 
+<<<<<<< HEAD
 		query.append(")");
+=======
+		query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 		String sql = query.toString();
 

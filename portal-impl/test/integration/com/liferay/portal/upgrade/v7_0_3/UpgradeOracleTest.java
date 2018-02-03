@@ -22,7 +22,10 @@ import com.liferay.portal.kernel.model.Release;
 import com.liferay.portal.kernel.service.ReleaseLocalServiceUtil;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.util.ReleaseInfo;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 
 import java.sql.Connection;
@@ -65,9 +68,14 @@ public class UpgradeOracleTest {
 		_upgradeOracle = new UpgradeOracle();
 
 		_db.runSQL(
+<<<<<<< HEAD
 			StringBundler.concat(
 				"alter table ", _TABLE_NAME, " modify ", _FIELD_NAME,
 				" varchar2(300 BYTE)"));
+=======
+			"alter table " + _TABLE_NAME + " modify " + _FIELD_NAME +
+				" varchar2(300 BYTE)");
+>>>>>>> compatible
 	}
 
 	@After
@@ -77,9 +85,14 @@ public class UpgradeOracleTest {
 		}
 
 		_db.runSQL(
+<<<<<<< HEAD
 			StringBundler.concat(
 				"alter table ", _TABLE_NAME, " modify ", _FIELD_NAME,
 				" varchar2(75 CHAR)"));
+=======
+			"alter table " + _TABLE_NAME + " modify " + _FIELD_NAME +
+				" varchar2(75 CHAR)");
+>>>>>>> compatible
 
 		Release release = ReleaseLocalServiceUtil.fetchRelease("portal");
 
@@ -113,10 +126,16 @@ public class UpgradeOracleTest {
 
 		try (Connection connection = DataAccess.getUpgradeOptimizedConnection();
 			PreparedStatement ps = connection.prepareStatement(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"select char_length from user_tab_columns where ",
 					"table_name = '", tableName, "' and column_name = '",
 					columnName, "'"))) {
+=======
+				"select char_length from user_tab_columns where table_name = " +
+					"'" + tableName + "' and column_name = '" + columnName +
+						"'")) {
+>>>>>>> compatible
 
 			ResultSet rs = ps.executeQuery();
 
@@ -131,10 +150,15 @@ public class UpgradeOracleTest {
 
 		try (Connection connection = DataAccess.getUpgradeOptimizedConnection();
 			PreparedStatement ps = connection.prepareStatement(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"select char_used from user_tab_columns where table_name ",
 					"= '", tableName, "' and column_name = '", columnName,
 					"'"))) {
+=======
+				"select char_used from user_tab_columns where table_name = '" +
+					tableName + "' and column_name = '" + columnName + "'")) {
+>>>>>>> compatible
 
 			ResultSet rs = ps.executeQuery();
 

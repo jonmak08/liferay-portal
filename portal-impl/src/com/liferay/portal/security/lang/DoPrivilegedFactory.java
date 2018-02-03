@@ -108,9 +108,14 @@ public class DoPrivilegedFactory
 			Class<?> clazz = bean.getClass();
 
 			_log.debug(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Wrapping calls to bean ", beanName, " of type ",
 					String.valueOf(clazz), " with access controller checking"));
+=======
+				"Wrapping calls to bean " + beanName + " of type " + clazz +
+					" with access controller checking");
+>>>>>>> compatible
 		}
 
 		return wrap(bean);

@@ -222,6 +222,7 @@ public interface KaleoActionModel extends BaseModel<KaleoAction>, GroupedModel,
 	public void setKaleoClassPK(long kaleoClassPK);
 
 	/**
+<<<<<<< HEAD
 	 * Returns the kaleo definition version ID of this kaleo action.
 	 *
 	 * @return the kaleo definition version ID of this kaleo action
@@ -234,6 +235,20 @@ public interface KaleoActionModel extends BaseModel<KaleoAction>, GroupedModel,
 	 * @param kaleoDefinitionVersionId the kaleo definition version ID of this kaleo action
 	 */
 	public void setKaleoDefinitionVersionId(long kaleoDefinitionVersionId);
+=======
+	 * Returns the kaleo definition ID of this kaleo action.
+	 *
+	 * @return the kaleo definition ID of this kaleo action
+	 */
+	public long getKaleoDefinitionId();
+
+	/**
+	 * Sets the kaleo definition ID of this kaleo action.
+	 *
+	 * @param kaleoDefinitionId the kaleo definition ID of this kaleo action
+	 */
+	public void setKaleoDefinitionId(long kaleoDefinitionId);
+>>>>>>> compatible
 
 	/**
 	 * Returns the kaleo node name of this kaleo action.

@@ -29,7 +29,10 @@ import com.liferay.portal.kernel.repository.model.FileShortcut;
 import com.liferay.portal.kernel.repository.model.FileVersion;
 import com.liferay.portal.kernel.repository.model.Folder;
 import com.liferay.portal.kernel.repository.model.RepositoryEntry;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.repository.util.RepositoryUserUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.search.Hits;
 import com.liferay.portal.kernel.search.Query;
 import com.liferay.portal.kernel.search.SearchContext;
@@ -102,8 +105,15 @@ public class BaseRepositoryProxyBean
 		throws PortalException {
 
 		return addFileEntry(
+<<<<<<< HEAD
 			RepositoryUserUtil.getUserId(), folderId, sourceFileName, mimeType,
 			title, description, changeLog, file, serviceContext);
+=======
+			com.liferay.portal.kernel.repository.util.RepositoryUserUtil.
+				getUserId(),
+			folderId, sourceFileName, mimeType, title, description, changeLog,
+			file, serviceContext);
+>>>>>>> compatible
 	}
 
 	/**
@@ -120,8 +130,15 @@ public class BaseRepositoryProxyBean
 		throws PortalException {
 
 		return addFileEntry(
+<<<<<<< HEAD
 			RepositoryUserUtil.getUserId(), folderId, sourceFileName, mimeType,
 			title, description, changeLog, is, size, serviceContext);
+=======
+			com.liferay.portal.kernel.repository.util.RepositoryUserUtil.
+				getUserId(),
+			folderId, sourceFileName, mimeType, title, description, changeLog,
+			is, size, serviceContext);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -160,8 +177,14 @@ public class BaseRepositoryProxyBean
 		throws PortalException {
 
 		return addFolder(
+<<<<<<< HEAD
 			RepositoryUserUtil.getUserId(), parentFolderId, name, description,
 			serviceContext);
+=======
+			com.liferay.portal.kernel.repository.util.RepositoryUserUtil.
+				getUserId(),
+			parentFolderId, name, description, serviceContext);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -262,8 +285,14 @@ public class BaseRepositoryProxyBean
 		throws PortalException {
 
 		return copyFileEntry(
+<<<<<<< HEAD
 			RepositoryUserUtil.getUserId(), groupId, fileEntryId, destFolderId,
 			serviceContext);
+=======
+			com.liferay.portal.kernel.repository.util.RepositoryUserUtil.
+				getUserId(),
+			groupId, fileEntryId, destFolderId, serviceContext);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -354,6 +383,7 @@ public class BaseRepositoryProxyBean
 
 	@Override
 	public List<FileEntry> getFileEntries(
+<<<<<<< HEAD
 			long folderId, String[] mimeTypes, int status, int start, int end,
 			OrderByComparator<FileEntry> obc)
 		throws PortalException {
@@ -364,6 +394,8 @@ public class BaseRepositoryProxyBean
 
 	@Override
 	public List<FileEntry> getFileEntries(
+=======
+>>>>>>> compatible
 			long folderId, String[] mimeTypes, int start, int end,
 			OrderByComparator<FileEntry> obc)
 		throws PortalException {
@@ -430,6 +462,7 @@ public class BaseRepositoryProxyBean
 	}
 
 	@Override
+<<<<<<< HEAD
 	public int getFileEntriesCount(
 			long folderId, String[] mimeTypes, int status)
 		throws PortalException {
@@ -438,6 +471,8 @@ public class BaseRepositoryProxyBean
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public FileEntry getFileEntry(long fileEntryId) throws PortalException {
 		FileEntry fileEntry = _baseRepository.getFileEntry(fileEntryId);
 
@@ -752,8 +787,14 @@ public class BaseRepositoryProxyBean
 		throws PortalException {
 
 		return moveFileEntry(
+<<<<<<< HEAD
 			RepositoryUserUtil.getUserId(), fileEntryId, newFolderId,
 			serviceContext);
+=======
+			com.liferay.portal.kernel.repository.util.RepositoryUserUtil.
+				getUserId(),
+			fileEntryId, newFolderId, serviceContext);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -780,8 +821,14 @@ public class BaseRepositoryProxyBean
 		throws PortalException {
 
 		return moveFolder(
+<<<<<<< HEAD
 			RepositoryUserUtil.getUserId(), folderId, newParentFolderId,
 			serviceContext);
+=======
+			com.liferay.portal.kernel.repository.util.RepositoryUserUtil.
+				getUserId(),
+			folderId, newParentFolderId, serviceContext);
+>>>>>>> compatible
 	}
 
 	@Override

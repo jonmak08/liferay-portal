@@ -14,7 +14,10 @@
 
 package com.liferay.portal.security.permission;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.bean.BeanReference;
 import com.liferay.portal.kernel.exception.NoSuchResourceActionException;
 import com.liferay.portal.kernel.exception.ResourceActionsException;
@@ -39,9 +42,17 @@ import com.liferay.portal.kernel.service.ResourceActionLocalService;
 import com.liferay.portal.kernel.service.ResourceActionLocalServiceUtil;
 import com.liferay.portal.kernel.service.RoleLocalService;
 import com.liferay.portal.kernel.util.ArrayUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ListUtil;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+import com.liferay.portal.kernel.util.ContentTypes;
+import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.ListUtil;
+import com.liferay.portal.kernel.util.LocaleUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.PortletKeys;
 import com.liferay.portal.kernel.util.ResourceBundleLoader;
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
@@ -107,6 +118,7 @@ public class ResourceActionsImpl implements ResourceActions {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void check(Portlet portlet) {
 		String portletName = portlet.getPortletId();
 
@@ -116,6 +128,16 @@ public class ResourceActionsImpl implements ResourceActions {
 	@Override
 	public void check(String portletName) {
 		_check(portletName, getPortletResourceActions(portletName));
+=======
+	public void check(String portletName) {
+		ResourceActionLocalServiceUtil.checkResourceActions(
+			portletName, getPortletResourceActions(portletName));
+
+		for (String modelName : getPortletModelResources(portletName)) {
+			ResourceActionLocalServiceUtil.checkResourceActions(
+				modelName, getModelResourceActions(modelName));
+		}
+>>>>>>> compatible
 	}
 
 	@Override
@@ -282,7 +304,11 @@ public class ResourceActionsImpl implements ResourceActions {
 
 		String value = LanguageUtil.get(locale, key, null);
 
+<<<<<<< HEAD
 		if (value == null) {
+=======
+		if ((value == null) || value.equals(key)) {
+>>>>>>> compatible
 			value = _getResourceBundlesString(locale, key);
 		}
 
@@ -415,10 +441,48 @@ public class ResourceActionsImpl implements ResourceActions {
 	@Override
 	public List<String> getPortletResourceActions(String name) {
 		name = PortletIdCodec.decodePortletName(name);
+<<<<<<< HEAD
 
 		Portlet portlet = portletLocalService.getPortletById(name);
 
 		return _getPortletResourceActions(name, portlet);
+=======
+
+		PortletResourceActionsBag portletResourceActionsBag =
+			_getPortletResourceActionsBag(name);
+
+		Set<String> portletActions =
+			portletResourceActionsBag.getPortletActions();
+
+		if (!portletActions.isEmpty()) {
+			return new ArrayList<>(portletActions);
+		}
+
+		synchronized (this) {
+			portletActions = _getPortletMimeTypeActions(name);
+
+			if (!name.equals(PortletKeys.PORTAL)) {
+				_checkPortletActions(name, portletActions);
+			}
+
+			Set<String> groupDefaultActions =
+				portletResourceActionsBag.getGroupDefaultActions();
+
+			_checkPortletGroupDefaultActions(groupDefaultActions);
+
+			Set<String> guestDefaultActions =
+				portletResourceActionsBag.getGuestDefaultActions();
+
+			_checkPortletGuestDefaultActions(guestDefaultActions);
+
+			Set<String> layoutManagerActions =
+				portletResourceActionsBag.getLayoutManagerActions();
+
+			_checkPortletLayoutManagerActions(layoutManagerActions);
+		}
+
+		return new ArrayList<>(portletActions);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -691,9 +755,15 @@ public class ResourceActionsImpl implements ResourceActions {
 
 				Set<String> portletResources =
 					modelResourceActionsBag.getPortletResources();
+<<<<<<< HEAD
 
 				portletResources.remove(portletName);
 
+=======
+
+				portletResources.remove(portletName);
+
+>>>>>>> compatible
 				if (portletResources.isEmpty()) {
 					_modelResourceActionsBags.remove(modelResource);
 				}
@@ -706,6 +776,7 @@ public class ResourceActionsImpl implements ResourceActions {
 
 	@BeanReference(type = ResourceActionLocalService.class)
 	protected ResourceActionLocalService resourceActionLocalService;
+<<<<<<< HEAD
 
 	@BeanReference(type = RoleLocalService.class)
 	protected RoleLocalService roleLocalService;
@@ -721,6 +792,11 @@ public class ResourceActionsImpl implements ResourceActions {
 				modelName, getModelResourceActions(modelName));
 		}
 	}
+=======
+
+	@BeanReference(type = RoleLocalService.class)
+	protected RoleLocalService roleLocalService;
+>>>>>>> compatible
 
 	private void _checkGuestUnsupportedActions(
 		Set<String> guestUnsupportedActions, Set<String> guestDefaultActions) {
@@ -872,8 +948,13 @@ public class ResourceActionsImpl implements ResourceActions {
 		}
 	}
 
+<<<<<<< HEAD
 	private Set<String> _getPortletMimeTypeActions(
 		String name, Portlet portlet) {
+=======
+	private Set<String> _getPortletMimeTypeActions(String name) {
+		Set<String> actions = new LinkedHashSet<>();
+>>>>>>> compatible
 
 		Set<String> actions = new LinkedHashSet<>();
 
@@ -910,6 +991,7 @@ public class ResourceActionsImpl implements ResourceActions {
 		return actions;
 	}
 
+<<<<<<< HEAD
 	private List<String> _getPortletResourceActions(
 		String name, Portlet portlet) {
 
@@ -949,6 +1031,8 @@ public class ResourceActionsImpl implements ResourceActions {
 		return new ArrayList<>(portletActions);
 	}
 
+=======
+>>>>>>> compatible
 	private PortletResourceActionsBag _getPortletResourceActionsBag(
 		String portletName) {
 
@@ -989,15 +1073,25 @@ public class ResourceActionsImpl implements ResourceActions {
 			return null;
 		}
 
+<<<<<<< HEAD
+=======
+		String languageId = LocaleUtil.toLanguageId(locale);
+
+>>>>>>> compatible
 		for (ResourceBundleLoader resourceBundleLoader :
 				_resourceBundleLoaders) {
 
 			ResourceBundle resourceBundle =
+<<<<<<< HEAD
 				resourceBundleLoader.loadResourceBundle(locale);
+=======
+				resourceBundleLoader.loadResourceBundle(languageId);
+>>>>>>> compatible
 
 			if (resourceBundle == null) {
 				continue;
 			}
+<<<<<<< HEAD
 
 			if (resourceBundle.containsKey(key)) {
 				return ResourceBundleUtil.getString(resourceBundle, key);
@@ -1007,6 +1101,17 @@ public class ResourceActionsImpl implements ResourceActions {
 		return null;
 	}
 
+=======
+
+			if (resourceBundle.containsKey(key)) {
+				return ResourceBundleUtil.getString(resourceBundle, key);
+			}
+		}
+
+		return null;
+	}
+
+>>>>>>> compatible
 	private int[] _getRoleTypes(Group group, String modelResource) {
 		int[] types = RoleConstants.TYPES_REGULAR_AND_SITE;
 
@@ -1085,8 +1190,12 @@ public class ResourceActionsImpl implements ResourceActions {
 		Element rootElement = document.getRootElement();
 
 		for (Element resourceElement : rootElement.elements("resource")) {
+<<<<<<< HEAD
 			String file = StringUtil.trim(
 				resourceElement.attributeValue("file"));
+=======
+			String file = resourceElement.attributeValue("file").trim();
+>>>>>>> compatible
 
 			_read(servletContextName, classLoader, file, portletNames);
 
@@ -1320,6 +1429,7 @@ public class ResourceActionsImpl implements ResourceActions {
 
 		Set<String> groupDefaultActions =
 			modelResourceActionsBag.getGroupDefaultActions();
+<<<<<<< HEAD
 
 		_readGroupDefaultActions(modelResourceElement, groupDefaultActions);
 
@@ -1339,6 +1449,27 @@ public class ResourceActionsImpl implements ResourceActions {
 
 		_readOwnerDefaultActions(modelResourceElement, ownerDefaultActions);
 
+=======
+
+		_readGroupDefaultActions(modelResourceElement, groupDefaultActions);
+
+		Set<String> guestDefaultActions =
+			modelResourceActionsBag.getGuestDefaultActions();
+
+		_readGuestDefaultActions(modelResourceElement, guestDefaultActions);
+
+		Set<String> guestUnsupportedActions =
+			modelResourceActionsBag.getGuestUnsupportedActions();
+
+		_readGuestUnsupportedActions(
+			modelResourceElement, guestUnsupportedActions, guestDefaultActions);
+
+		Set<String> ownerDefaultActions =
+			modelResourceActionsBag.getOwnerDefaultActions();
+
+		_readOwnerDefaultActions(modelResourceElement, ownerDefaultActions);
+
+>>>>>>> compatible
 		return name;
 	}
 
@@ -1375,10 +1506,15 @@ public class ResourceActionsImpl implements ResourceActions {
 			portletResourceActionsBag.getPortletActions();
 
 		_readSupportsActions(portletResourceElement, portletActions);
+<<<<<<< HEAD
 
 		Portlet portlet = portletLocalService.getPortletById(name);
 
 		portletActions.addAll(_getPortletMimeTypeActions(name, portlet));
+=======
+
+		portletActions.addAll(_getPortletMimeTypeActions(name));
+>>>>>>> compatible
 
 		if (!name.equals(PortletKeys.PORTAL)) {
 			_checkPortletActions(name, portletActions);
@@ -1391,6 +1527,7 @@ public class ResourceActionsImpl implements ResourceActions {
 
 		Set<String> groupDefaultActions =
 			portletResourceActionsBag.getGroupDefaultActions();
+<<<<<<< HEAD
 
 		_readGroupDefaultActions(portletResourceElement, groupDefaultActions);
 
@@ -1412,6 +1549,29 @@ public class ResourceActionsImpl implements ResourceActions {
 		_readLayoutManagerActions(
 			portletResourceElement, layoutManagerActions, portletActions);
 
+=======
+
+		_readGroupDefaultActions(portletResourceElement, groupDefaultActions);
+
+		Set<String> guestDefaultActions =
+			portletResourceActionsBag.getGuestDefaultActions();
+
+		_readGuestDefaultActions(portletResourceElement, guestDefaultActions);
+
+		Set<String> guestUnsupportedActions =
+			portletResourceActionsBag.getGuestUnsupportedActions();
+
+		_readGuestUnsupportedActions(
+			portletResourceElement, guestUnsupportedActions,
+			guestDefaultActions);
+
+		Set<String> layoutManagerActions =
+			portletResourceActionsBag.getLayoutManagerActions();
+
+		_readLayoutManagerActions(
+			portletResourceElement, layoutManagerActions, portletActions);
+
+>>>>>>> compatible
 		return name;
 	}
 
@@ -1491,11 +1651,19 @@ public class ResourceActionsImpl implements ResourceActions {
 		public Set<String> getGroupDefaultActions() {
 			return _groupDefaultActions;
 		}
+<<<<<<< HEAD
 
 		public Set<String> getGuestDefaultActions() {
 			return _guestDefaultActions;
 		}
 
+=======
+
+		public Set<String> getGuestDefaultActions() {
+			return _guestDefaultActions;
+		}
+
+>>>>>>> compatible
 		public Set<String> getGuestUnsupportedActions() {
 			return _guestUnsupportedActions;
 		}

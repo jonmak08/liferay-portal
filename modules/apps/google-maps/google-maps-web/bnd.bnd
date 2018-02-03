@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Google Maps Web
 Bundle-SymbolicName: com.liferay.google.maps.web
+<<<<<<< HEAD
 Bundle-Version: 1.0.12
+=======
+Bundle-Version: 1.0.8
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title:
 Web-ContextPath: /google-maps-web

@@ -16,7 +16,10 @@ package com.liferay.mail.reader.internal.util;
 
 import com.liferay.portal.kernel.util.StringPool;
 
+<<<<<<< HEAD
 import java.util.regex.Matcher;
+=======
+>>>>>>> compatible
 import java.util.regex.Pattern;
 
 /**
@@ -30,6 +33,7 @@ public class HtmlContentUtil {
 
 		// Lines
 
+<<<<<<< HEAD
 		Matcher matcher = _bodyTagPattern.matcher(html);
 
 		html = matcher.replaceAll(StringPool.BLANK);
@@ -69,6 +73,27 @@ public class HtmlContentUtil {
 		matcher = _tagPattern.matcher(html);
 
 		return matcher.replaceAll(StringPool.BLANK);
+=======
+		html = _bodyTagPattern.matcher(html).replaceAll(StringPool.BLANK);
+		html = _doctypeTagPattern.matcher(html).replaceAll(StringPool.BLANK);
+		html = _htmlTagPattern.matcher(html).replaceAll(StringPool.BLANK);
+		html = _linkTagPattern.matcher(html).replaceAll(StringPool.BLANK);
+
+		// Blocks
+
+		html = _headTagPattern.matcher(html).replaceAll(StringPool.BLANK);
+		html = _scriptTagPattern.matcher(html).replaceAll(StringPool.BLANK);
+		html = _styleTagPattern.matcher(html).replaceAll(StringPool.BLANK);
+
+		return html;
+	}
+
+	public static String getPlainText(String html) {
+		html = _lineBreakPattern.matcher(html).replaceAll(StringPool.BLANK);
+		html = _tagPattern.matcher(html).replaceAll(StringPool.BLANK);
+
+		return html;
+>>>>>>> compatible
 	}
 
 	private static final Pattern _bodyTagPattern = Pattern.compile(

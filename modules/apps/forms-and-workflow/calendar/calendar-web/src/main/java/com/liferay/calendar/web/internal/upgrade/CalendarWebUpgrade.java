@@ -16,15 +16,21 @@ package com.liferay.calendar.web.internal.upgrade;
 
 import com.liferay.calendar.web.internal.upgrade.v1_0_0.UpgradePortletId;
 import com.liferay.calendar.web.internal.upgrade.v1_0_0.UpgradePortletPreferences;
+<<<<<<< HEAD
 import com.liferay.calendar.web.internal.upgrade.v1_1_0.UpgradePortalPreferences;
 import com.liferay.calendar.web.internal.upgrade.v1_1_1.UpgradeEventsDisplayPortletId;
 import com.liferay.portal.kernel.service.PortletPreferencesLocalService;
 import com.liferay.portal.kernel.service.ResourcePermissionLocalService;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.upgrade.DummyUpgradeStep;
 import com.liferay.portal.upgrade.registry.UpgradeStepRegistrator;
 
 import org.osgi.service.component.annotations.Component;
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.Reference;
+=======
+>>>>>>> compatible
 
 /**
  * @author Marcellus Tavares
@@ -50,6 +56,7 @@ public class CalendarWebUpgrade implements UpgradeStepRegistrator {
 			"com.liferay.calendar.web", "1.0.0", "1.0.1",
 			new com.liferay.calendar.web.internal.upgrade.v1_0_1.
 				UpgradePortletPreferences());
+<<<<<<< HEAD
 
 		registry.register(
 			"com.liferay.calendar.web", "1.0.1", "1.1.0",
@@ -70,4 +77,8 @@ public class CalendarWebUpgrade implements UpgradeStepRegistrator {
 	@Reference
 	private ResourcePermissionLocalService _resourcePermissionLocalService;
 
+=======
+	}
+
+>>>>>>> compatible
 }

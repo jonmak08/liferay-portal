@@ -47,6 +47,7 @@ import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.SystemProperties;
 import com.liferay.portal.kernel.util.TextFormatter;
 import com.liferay.portal.kernel.util.Time;
+import com.liferay.portal.kernel.util.UnsafeConsumer;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.Element;
@@ -66,6 +67,11 @@ import com.liferay.util.ant.DeleteTask;
 import com.liferay.util.ant.ExpandTask;
 import com.liferay.util.ant.UpToDateTask;
 import com.liferay.util.ant.WarTask;
+<<<<<<< HEAD
+=======
+import com.liferay.util.xml.DocUtil;
+import com.liferay.util.xml.XMLUtil;
+>>>>>>> compatible
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -116,6 +122,7 @@ public class BaseDeployer implements AutoDeployer, Deployer {
 			}
 		}
 
+<<<<<<< HEAD
 		try (BaseDeployer baseDeployer = new BaseDeployer(wars, jars)) {
 		}
 		catch (IOException ioe) {
@@ -130,6 +137,16 @@ public class BaseDeployer implements AutoDeployer, Deployer {
 			DeploymentExtension.class, BaseDeployer.class.getClassLoader());
 
 		for (DeploymentExtension deploymentExtension : serviceLoader) {
+=======
+		StreamUtil.cleanUp(new BaseDeployer(wars, jars));
+	}
+
+	public BaseDeployer() {
+		for (DeploymentExtension deploymentExtension : ServiceLoader.load(
+				DeploymentExtension.class,
+				BaseDeployer.class.getClassLoader())) {
+
+>>>>>>> compatible
 			_deploymentExtensions.add(deploymentExtension);
 		}
 	}
@@ -948,7 +965,11 @@ public class BaseDeployer implements AutoDeployer, Deployer {
 			deployDir = jbossPrefix + deployDir;
 		}
 		else if (appServerType.equals(ServerDetector.WILDFLY_ID)) {
+<<<<<<< HEAD
 			deployDir = GetterUtil.getString(wildflyPrefix) + deployDir;
+=======
+			deployDir = wildflyPrefix + deployDir;
+>>>>>>> compatible
 		}
 		else if (appServerType.equals(ServerDetector.GLASSFISH_ID) ||
 				 appServerType.equals(ServerDetector.JETTY_ID) ||
@@ -1659,8 +1680,12 @@ public class BaseDeployer implements AutoDeployer, Deployer {
 		throws Exception {
 
 		FileUtil.write(
+<<<<<<< HEAD
 			StringBundler.concat(destDir, "/", deployDir, ".dodeploy"),
 			StringPool.BLANK);
+=======
+			destDir + "/" + deployDir + ".dodeploy", StringPool.BLANK);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -2232,10 +2257,14 @@ public class BaseDeployer implements AutoDeployer, Deployer {
 		FileUtil.write(webXml, newContent, true);
 
 		if (_log.isDebugEnabled()) {
+<<<<<<< HEAD
 			_log.debug(
 				StringBundler.concat(
 					"Modifying Servlet ", String.valueOf(webXmlVersion), " ",
 					String.valueOf(webXml)));
+=======
+			_log.debug("Modifying Servlet " + webXmlVersion + " " + webXml);
+>>>>>>> compatible
 		}
 	}
 

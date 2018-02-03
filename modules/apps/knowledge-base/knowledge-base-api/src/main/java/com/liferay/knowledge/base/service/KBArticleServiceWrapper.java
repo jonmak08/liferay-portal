@@ -110,6 +110,7 @@ public class KBArticleServiceWrapper implements KBArticleService,
 		return _kbArticleService.fetchLatestKBArticle(resourcePrimKey, status);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public com.liferay.knowledge.base.model.KBArticle fetchLatestKBArticleByUrlTitle(
 		long groupId, long kbFolderId, java.lang.String urlTitle, int status)
@@ -118,6 +119,8 @@ public class KBArticleServiceWrapper implements KBArticleService,
 			kbFolderId, urlTitle, status);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* @deprecated As of 1.1.0, replaced by {@link
 	#getAllDescendantKBArticles(long, long, int,

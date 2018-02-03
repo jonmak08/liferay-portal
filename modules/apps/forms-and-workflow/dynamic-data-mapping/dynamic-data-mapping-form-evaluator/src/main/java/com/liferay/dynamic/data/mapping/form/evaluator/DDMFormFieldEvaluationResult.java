@@ -15,6 +15,7 @@
 package com.liferay.dynamic.data.mapping.form.evaluator;
 
 import com.liferay.portal.kernel.json.JSON;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.MapUtil;
 
@@ -23,6 +24,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+
+import java.util.ArrayList;
+import java.util.List;
+>>>>>>> compatible
 
 /**
  * @author Marcellus Tavares
@@ -34,6 +41,7 @@ public class DDMFormFieldEvaluationResult {
 		_instanceId = instanceId;
 	}
 
+<<<<<<< HEAD
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
@@ -59,6 +67,10 @@ public class DDMFormFieldEvaluationResult {
 
 	public String getErrorMessage() {
 		return MapUtil.getString(_properties, "errorMessage");
+=======
+	public String getErrorMessage() {
+		return _errorMessage;
+>>>>>>> compatible
 	}
 
 	public String getInstanceId() {
@@ -69,10 +81,13 @@ public class DDMFormFieldEvaluationResult {
 		return _name;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 2.1.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	@JSON(name = "nestedFields")
 	public List<DDMFormFieldEvaluationResult>
 		getNestedDDMFormFieldEvaluationResults() {
@@ -80,6 +95,7 @@ public class DDMFormFieldEvaluationResult {
 		return _nestedDDMFormFieldEvaluationResults;
 	}
 
+<<<<<<< HEAD
 	public <T> T getProperty(String name) {
 		return (T)_properties.get(name);
 	}
@@ -119,6 +135,20 @@ public class DDMFormFieldEvaluationResult {
 	 * @deprecated As of 2.1.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+	public boolean isValid() {
+		return _valid;
+	}
+
+	public boolean isVisible() {
+		return _visible;
+	}
+
+	public void setErrorMessage(String errorMessage) {
+		_errorMessage = errorMessage;
+	}
+
+>>>>>>> compatible
 	public void setNestedDDMFormFieldEvaluationResults(
 		List<DDMFormFieldEvaluationResult>
 			nestedDDMFormFieldEvaluationResults) {
@@ -127,6 +157,7 @@ public class DDMFormFieldEvaluationResult {
 			nestedDDMFormFieldEvaluationResults;
 	}
 
+<<<<<<< HEAD
 	public void setProperty(String name, Object value) {
 		_properties.put(name, value);
 	}
@@ -151,10 +182,26 @@ public class DDMFormFieldEvaluationResult {
 		_properties.put("visible", visible);
 	}
 
+=======
+	public void setValid(boolean valid) {
+		_valid = valid;
+	}
+
+	public void setVisible(boolean visible) {
+		_visible = visible;
+	}
+
+	private String _errorMessage = StringPool.BLANK;
+>>>>>>> compatible
 	private final String _instanceId;
 	private final String _name;
 	private List<DDMFormFieldEvaluationResult>
 		_nestedDDMFormFieldEvaluationResults = new ArrayList<>();
+<<<<<<< HEAD
 	private final Map<String, Object> _properties = new HashMap<>();
+=======
+	private boolean _valid = true;
+	private boolean _visible = true;
+>>>>>>> compatible
 
 }

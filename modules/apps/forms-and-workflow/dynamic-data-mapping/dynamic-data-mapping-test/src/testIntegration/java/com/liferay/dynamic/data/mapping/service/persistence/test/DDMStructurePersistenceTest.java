@@ -35,6 +35,10 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.util.IntegerWrapper;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.OrderByComparatorFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.PersistenceTestRule;
@@ -213,27 +217,45 @@ public class DDMStructurePersistenceTest {
 
 	@Test
 	public void testCountByUuid() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByUuid("");
 
 		_persistence.countByUuid("null");
+=======
+		_persistence.countByUuid(StringPool.BLANK);
+
+		_persistence.countByUuid(StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByUuid((String)null);
 	}
 
 	@Test
 	public void testCountByUUID_G() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByUUID_G("", RandomTestUtil.nextLong());
 
 		_persistence.countByUUID_G("null", 0L);
+=======
+		_persistence.countByUUID_G(StringPool.BLANK, RandomTestUtil.nextLong());
+
+		_persistence.countByUUID_G(StringPool.NULL, 0L);
+>>>>>>> compatible
 
 		_persistence.countByUUID_G((String)null, 0L);
 	}
 
 	@Test
 	public void testCountByUuid_C() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByUuid_C("", RandomTestUtil.nextLong());
 
 		_persistence.countByUuid_C("null", 0L);
+=======
+		_persistence.countByUuid_C(StringPool.BLANK, RandomTestUtil.nextLong());
+
+		_persistence.countByUuid_C(StringPool.NULL, 0L);
+>>>>>>> compatible
 
 		_persistence.countByUuid_C((String)null, 0L);
 	}
@@ -266,9 +288,15 @@ public class DDMStructurePersistenceTest {
 
 	@Test
 	public void testCountByStructureKey() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByStructureKey("");
 
 		_persistence.countByStructureKey("null");
+=======
+		_persistence.countByStructureKey(StringPool.BLANK);
+
+		_persistence.countByStructureKey(StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByStructureKey((String)null);
 	}
@@ -306,23 +334,37 @@ public class DDMStructurePersistenceTest {
 	@Test
 	public void testCountByG_C_S() throws Exception {
 		_persistence.countByG_C_S(RandomTestUtil.nextLong(),
+<<<<<<< HEAD
 			RandomTestUtil.nextLong(), "");
 
 		_persistence.countByG_C_S(0L, 0L, "null");
+=======
+			RandomTestUtil.nextLong(), StringPool.BLANK);
+
+		_persistence.countByG_C_S(0L, 0L, StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByG_C_S(0L, 0L, (String)null);
 	}
 
 	@Test
 	public void testCountByG_N_D() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByG_N_D(RandomTestUtil.nextLong(), "", "");
 
 		_persistence.countByG_N_D(0L, "null", "null");
+=======
+		_persistence.countByG_N_D(RandomTestUtil.nextLong(), StringPool.BLANK,
+			StringPool.BLANK);
+
+		_persistence.countByG_N_D(0L, StringPool.NULL, StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByG_N_D(0L, (String)null, (String)null);
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testCountByG_C_N_D() throws Exception {
 		_persistence.countByG_C_N_D(RandomTestUtil.nextLong(),
 			RandomTestUtil.nextLong(), "", "");
@@ -340,6 +382,8 @@ public class DDMStructurePersistenceTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testFindByPrimaryKeyExisting() throws Exception {
 		DDMStructure newDDMStructure = addDDMStructure();
 

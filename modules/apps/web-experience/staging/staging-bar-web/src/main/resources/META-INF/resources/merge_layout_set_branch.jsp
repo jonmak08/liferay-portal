@@ -32,6 +32,7 @@ if (layoutSetBranches.contains(layoutSetBranch)) {
 }
 %>
 
+<<<<<<< HEAD
 <div class="site-pages-variation taglib-header">
 	<a class="icon-monospaced list-unstyled portlet-icon-back text-default" href="<%= HtmlUtil.escapeAttribute(redirect) %>" title="<%= HtmlUtil.escapeAttribute(LanguageUtil.get(resourceBundle, "back")) %>">
 		<liferay-ui:icon
@@ -46,6 +47,14 @@ if (layoutSetBranches.contains(layoutSetBranch)) {
 		</span>
 	</h3>
 </div>
+=======
+<liferay-ui:header
+	backURL="<%= redirect %>"
+	localizeTitle="<%= true %>"
+	showBackURL="<%= true %>"
+	title="merge-site-pages-variation"
+/>
+>>>>>>> compatible
 
 <div id="<portlet:namespace />mergeLayoutSetBranch">
 	<portlet:actionURL name="mergeLayoutSetBranch" var="mergeLayoutSetBranchURL">
@@ -101,6 +110,10 @@ if (layoutSetBranches.contains(layoutSetBranch)) {
 		var layoutSetBranch = AUI.$('#<portlet:namespace />' + layoutSetBranchId);
 
 		var mergeLayoutSetBranchId = layoutSetBranch.attr('data-layoutSetBranchId');
+<<<<<<< HEAD
+=======
+		var mergeLayoutSetBranchName = layoutSetBranch.attr('data-layoutSetBranchName');
+>>>>>>> compatible
 		var mergeLayoutSetBranchMessage = layoutSetBranch.attr('data-layoutSetBranchMessage');
 
 		if (confirm(mergeLayoutSetBranchMessage)) {

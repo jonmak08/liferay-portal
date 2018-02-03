@@ -445,12 +445,16 @@ AUI.add(
 							message = error.message;
 						}
 						else if (errorType === STATUS_CODE.SC_FILE_EXTENSION_EXCEPTION) {
+<<<<<<< HEAD
 							if (instance.get('validExtensions')) {
 								message = Lang.sub(Liferay.Language.get('please-enter-a-file-with-a-valid-extension-x'), [instance.get('validExtensions')]);
 							}
 							else {
 								message = Lang.sub(Liferay.Language.get('please-enter-a-file-with-a-valid-file-type'));
 							}
+=======
+							message = Lang.sub(Liferay.Language.get('please-enter-a-file-with-a-valid-extension-x'), [instance.get('validExtensions')]);
+>>>>>>> compatible
 						}
 						else if (errorType === STATUS_CODE.SC_FILE_NAME_EXCEPTION) {
 							message = Liferay.Language.get('please-enter-a-file-with-a-valid-file-name');

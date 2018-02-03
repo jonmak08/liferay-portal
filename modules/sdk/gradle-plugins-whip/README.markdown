@@ -1,7 +1,12 @@
 # Whip Gradle Plugin
 
+<<<<<<< HEAD
 The Whip Gradle plugin lets you use the [Liferay Whip](https://github.com/liferay/liferay-portal/tree/master/modules/test/whip)
 library to ensure that unit tests fully cover your project's code. See
+=======
+The Whip Gradle plugin allows you to use the [Liferay Whip](https://github.com/liferay/liferay-portal/tree/master/modules/test/whip)
+library in order to ensure that unit tests fully cover your project's code. See
+>>>>>>> compatible
 [here](https://github.com/liferay/liferay-portal/tree/master/modules/sdk/gradle-plugins-whip/samples)
 for a usage sample.
 
@@ -14,7 +19,11 @@ To use the plugin, include it in your build script:
 ```gradle
 buildscript {
 	dependencies {
+<<<<<<< HEAD
 		classpath group: "com.liferay", name: "com.liferay.gradle.plugins.whip", version: "1.0.5"
+=======
+		classpath group: "com.liferay", name: "com.liferay.gradle.plugins.whip", version: "1.0.4"
+>>>>>>> compatible
 	}
 
 	repositories {

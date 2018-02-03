@@ -20,9 +20,15 @@ import com.liferay.asset.kernel.model.BaseAssetRendererFactory;
 import com.liferay.microblogs.constants.MicroblogsPortletKeys;
 import com.liferay.microblogs.model.MicroblogsEntry;
 import com.liferay.microblogs.service.MicroblogsEntryLocalService;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermission;
+=======
+import com.liferay.microblogs.service.permission.MicroblogsEntryPermission;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.security.permission.PermissionChecker;
+>>>>>>> compatible
 
 import javax.servlet.ServletContext;
 
@@ -59,8 +65,12 @@ public class MicroblogsEntryAssetRendererFactory
 			_microblogsEntryLocalService.getMicroblogsEntry(classPK);
 
 		MicroblogsEntryAssetRenderer microblogsEntryAssetRenderer =
+<<<<<<< HEAD
 			new MicroblogsEntryAssetRenderer(
 				microblogsEntry, _microblogsEntryModelResourcePermission);
+=======
+			new MicroblogsEntryAssetRenderer(microblogsEntry);
+>>>>>>> compatible
 
 		microblogsEntryAssetRenderer.setServletContext(_servletContext);
 
@@ -82,7 +92,11 @@ public class MicroblogsEntryAssetRendererFactory
 			PermissionChecker permissionChecker, long classPK, String actionId)
 		throws Exception {
 
+<<<<<<< HEAD
 		return _microblogsEntryModelResourcePermission.contains(
+=======
+		return MicroblogsEntryPermission.contains(
+>>>>>>> compatible
 			permissionChecker, classPK, actionId);
 	}
 
@@ -102,6 +116,7 @@ public class MicroblogsEntryAssetRendererFactory
 	}
 
 	private MicroblogsEntryLocalService _microblogsEntryLocalService;
+<<<<<<< HEAD
 
 	@Reference(
 		target = "(model.class.name=com.liferay.microblogs.model.MicroblogsEntry)"
@@ -109,6 +124,8 @@ public class MicroblogsEntryAssetRendererFactory
 	private ModelResourcePermission<MicroblogsEntry>
 		_microblogsEntryModelResourcePermission;
 
+=======
+>>>>>>> compatible
 	private ServletContext _servletContext;
 
 }

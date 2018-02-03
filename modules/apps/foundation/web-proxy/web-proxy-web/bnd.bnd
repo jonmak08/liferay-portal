@@ -1,4 +1,8 @@
 Bundle-Name: Liferay Web Proxy Web
 Bundle-SymbolicName: com.liferay.web.proxy.web
+<<<<<<< HEAD
 Bundle-Version: 1.0.15
+=======
+Bundle-Version: 1.0.10
+>>>>>>> compatible
 Web-ContextPath: /web-proxy-web

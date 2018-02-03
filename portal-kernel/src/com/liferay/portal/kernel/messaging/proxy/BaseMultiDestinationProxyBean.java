@@ -17,8 +17,13 @@ package com.liferay.portal.kernel.messaging.proxy;
 import com.liferay.portal.kernel.messaging.Message;
 import com.liferay.portal.kernel.messaging.MessageBus;
 import com.liferay.portal.kernel.messaging.MessageBusUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.messaging.sender.SynchronousMessageSender;
 import com.liferay.portal.kernel.util.ServiceProxyFactory;
+=======
+import com.liferay.portal.kernel.messaging.sender.SingleDestinationMessageSenderFactoryUtil;
+import com.liferay.portal.kernel.messaging.sender.SynchronousMessageSender;
+>>>>>>> compatible
 
 /**
  * @author Michael C. Han
@@ -27,6 +32,12 @@ import com.liferay.portal.kernel.util.ServiceProxyFactory;
 public abstract class BaseMultiDestinationProxyBean {
 
 	public void afterPropertiesSet() {
+<<<<<<< HEAD
+=======
+		_synchronousMessageSender =
+			SingleDestinationMessageSenderFactoryUtil.
+				getSynchronousMessageSender(_mode);
+>>>>>>> compatible
 	}
 
 	public abstract String getDestinationName(ProxyRequest proxyRequest);
@@ -64,11 +75,16 @@ public abstract class BaseMultiDestinationProxyBean {
 
 		message.setPayload(proxyRequest);
 
+<<<<<<< HEAD
 		SynchronousMessageSender synchronousMessageSender =
 			_getSynchronousMessageSender();
 
 		ProxyResponse proxyResponse =
 			(ProxyResponse)synchronousMessageSender.send(
+=======
+		ProxyResponse proxyResponse =
+			(ProxyResponse)_synchronousMessageSender.send(
+>>>>>>> compatible
 				getDestinationName(proxyRequest), message);
 
 		if (proxyResponse == null) {
@@ -92,6 +108,7 @@ public abstract class BaseMultiDestinationProxyBean {
 		return message;
 	}
 
+<<<<<<< HEAD
 	private SynchronousMessageSender _getSynchronousMessageSender() {
 		if (_mode == SynchronousMessageSender.Mode.DEFAULT) {
 			return _defaultSynchronousMessageSender;
@@ -112,5 +129,9 @@ public abstract class BaseMultiDestinationProxyBean {
 				"_directSynchronousMessageSender", "(mode=DIRECT)", true);
 
 	private SynchronousMessageSender.Mode _mode;
+=======
+	private SynchronousMessageSender.Mode _mode;
+	private SynchronousMessageSender _synchronousMessageSender;
+>>>>>>> compatible
 
 }

@@ -25,25 +25,46 @@ import com.liferay.document.library.kernel.service.DLAppServiceUtil;
 import com.liferay.document.library.kernel.service.DLFileShortcutLocalServiceUtil;
 import com.liferay.document.library.kernel.service.DLFolderLocalServiceUtil;
 import com.liferay.document.library.kernel.service.DLTrashServiceUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.BaseModel;
 import com.liferay.portal.kernel.model.ClassedModel;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.FileShortcut;
 import com.liferay.portal.kernel.repository.model.Folder;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+=======
+import com.liferay.portal.kernel.security.auth.PrincipalThreadLocal;
+import com.liferay.portal.kernel.security.permission.PermissionChecker;
+import com.liferay.portal.kernel.security.permission.PermissionThreadLocal;
+import com.liferay.portal.kernel.service.ServiceContext;
+import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.PermissionCheckerTestRule;
 import com.liferay.portlet.documentlibrary.util.test.DLAppTestUtil;
 import com.liferay.trash.exception.RestoreEntryException;
 import com.liferay.trash.exception.TrashEntryException;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.portal.security.permission.SimplePermissionChecker;
+import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+import com.liferay.portlet.documentlibrary.util.test.DLAppTestUtil;
+>>>>>>> compatible
 import com.liferay.trash.test.util.BaseTrashHandlerTestCase;
 import com.liferay.trash.test.util.DefaultWhenIsAssetable;
 import com.liferay.trash.test.util.WhenHasGrandParent;
@@ -53,7 +74,13 @@ import com.liferay.trash.test.util.WhenIsMoveableFromTrashBaseModel;
 import com.liferay.trash.test.util.WhenIsRestorableBaseModel;
 import com.liferay.trash.test.util.WhenIsUpdatableBaseModel;
 
+<<<<<<< HEAD
 import org.junit.Assert;
+=======
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+>>>>>>> compatible
 import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
@@ -64,6 +91,10 @@ import org.junit.runner.RunWith;
  * @author Eudaldo Alonso
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class DLFileShortcutTrashHandlerTest
 	extends BaseTrashHandlerTestCase
 	implements WhenHasGrandParent, WhenIsAssetableParentModel,
@@ -75,7 +106,11 @@ public class DLFileShortcutTrashHandlerTest
 	public static final AggregateTestRule aggregateTestRule =
 		new AggregateTestRule(
 			new LiferayIntegrationTestRule(),
+<<<<<<< HEAD
 			PermissionCheckerTestRule.INSTANCE);
+=======
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Override
 	public AssetEntry fetchAssetEntry(ClassedModel classedModel)
@@ -122,6 +157,7 @@ public class DLFileShortcutTrashHandlerTest
 		DLTrashServiceUtil.moveFolderToTrash(primaryKey);
 	}
 
+<<<<<<< HEAD
 	@Test
 	public void testTrashFileEntry() throws Exception {
 		trashFileEntry();
@@ -147,6 +183,27 @@ public class DLFileShortcutTrashHandlerTest
 		catch (com.liferay.trash.kernel.exception.RestoreEntryException ree) {
 			throw new RestoreEntryException();
 		}
+=======
+	@Before
+	@Override
+	public void setUp() throws Exception {
+		super.setUp();
+
+		setUpPermissionThreadLocal();
+		setUpPrincipalThreadLocal();
+	}
+
+	@After
+	public void tearDown() {
+		PermissionThreadLocal.setPermissionChecker(_originalPermissionChecker);
+
+		PrincipalThreadLocal.setName(_originalName);
+	}
+
+	@Test
+	public void testTrashFileEntry() throws Exception {
+		trashFileEntry();
+>>>>>>> compatible
 	}
 
 	@Override
@@ -266,6 +323,37 @@ public class DLFileShortcutTrashHandlerTest
 		DLTrashServiceUtil.moveFileShortcutToTrash(primaryKey);
 	}
 
+<<<<<<< HEAD
+=======
+	protected void setUpPermissionThreadLocal() throws Exception {
+		_originalPermissionChecker =
+			PermissionThreadLocal.getPermissionChecker();
+
+		PermissionThreadLocal.setPermissionChecker(
+			new SimplePermissionChecker() {
+
+				{
+					init(TestPropsValues.getUser());
+				}
+
+				@Override
+				public boolean hasOwnerPermission(
+					long companyId, String name, String primKey, long ownerId,
+					String actionId) {
+
+					return true;
+				}
+
+			});
+	}
+
+	protected void setUpPrincipalThreadLocal() throws Exception {
+		_originalName = PrincipalThreadLocal.getName();
+
+		PrincipalThreadLocal.setName(TestPropsValues.getUserId());
+	}
+
+>>>>>>> compatible
 	protected void trashFileEntry() throws Exception {
 		Group group = GroupTestUtil.addGroup();
 
@@ -310,6 +398,11 @@ public class DLFileShortcutTrashHandlerTest
 			getNotInTrashBaseModelsCount(parentBaseModel));
 	}
 
+<<<<<<< HEAD
+=======
+	private String _originalName;
+	private PermissionChecker _originalPermissionChecker;
+>>>>>>> compatible
 	private final WhenIsAssetable _whenIsAssetable =
 		new DefaultWhenIsAssetable();
 

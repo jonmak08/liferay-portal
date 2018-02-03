@@ -144,6 +144,7 @@ GroupSearch groupSearch = siteItemSelectorViewDisplayContext.getGroupSearch();
 									showCheckbox="<%= false %>"
 								>
 									<liferay-frontend:vertical-card-header>
+<<<<<<< HEAD
 										<div class="row">
 											<h5 class="col text-truncate">
 												<aui:a cssClass="selector-button" data="<%= data %>" href="javascript:;">
@@ -153,6 +154,15 @@ GroupSearch groupSearch = siteItemSelectorViewDisplayContext.getGroupSearch();
 
 											<aui:a cssClass="col-auto" href="<%= groupURLProvider.getGroupURL(group, liferayPortletRequest) %>" target="_blank" />
 										</div>
+=======
+										<h5>
+											<aui:a cssClass="selector-button" data="<%= data %>" href="javascript:;">
+												<%= HtmlUtil.escape(siteItemSelectorViewDisplayContext.getGroupName(group)) %>
+											</aui:a>
+
+											<aui:a href="<%= groupURLProvider.getGroupURL(group, liferayPortletRequest) %>" target="_blank" />
+										</h5>
+>>>>>>> compatible
 									</liferay-frontend:vertical-card-header>
 
 									<c:if test="<%= siteItemSelectorViewDisplayContext.isShowChildSitesLink() %>">
@@ -172,6 +182,7 @@ GroupSearch groupSearch = siteItemSelectorViewDisplayContext.getGroupSearch();
 									showCheckbox="<%= false %>"
 								>
 									<liferay-frontend:vertical-card-header>
+<<<<<<< HEAD
 										<div class="row">
 											<h5 class="col text-truncate">
 												<aui:a cssClass="selector-button" data="<%= data %>" href="javascript:;">
@@ -181,6 +192,15 @@ GroupSearch groupSearch = siteItemSelectorViewDisplayContext.getGroupSearch();
 
 											<aui:a cssClass="col-auto" href="<%= groupURLProvider.getGroupURL(group, liferayPortletRequest) %>" target="_blank" />
 										</div>
+=======
+										<h5>
+											<aui:a cssClass="selector-button" data="<%= data %>" href="javascript:;">
+												<%= HtmlUtil.escape(siteItemSelectorViewDisplayContext.getGroupName(group)) %>
+											</aui:a>
+
+											<aui:a href="<%= groupURLProvider.getGroupURL(group, liferayPortletRequest) %>" target="_blank" />
+										</h5>
+>>>>>>> compatible
 									</liferay-frontend:vertical-card-header>
 
 									<liferay-frontend:vertical-card-footer>

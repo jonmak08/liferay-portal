@@ -15,6 +15,7 @@
 package com.liferay.calendar.upgrade.v1_0_4.test;
 
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
+<<<<<<< HEAD
 import com.liferay.asset.kernel.model.AssetVocabulary;
 import com.liferay.asset.kernel.service.AssetVocabularyLocalServiceUtil;
 import com.liferay.calendar.test.util.CalendarUpgradeTestUtil;
@@ -33,6 +34,16 @@ import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.upgrade.UpgradeProcess;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.calendar.test.util.CalendarUpgradeTestUtil;
+import com.liferay.portal.kernel.dao.orm.EntityCacheUtil;
+import com.liferay.portal.kernel.model.ResourcePermission;
+import com.liferay.portal.kernel.service.ResourcePermissionLocalServiceUtil;
+import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+import com.liferay.portal.kernel.test.util.RandomTestUtil;
+import com.liferay.portal.kernel.test.util.ResourcePermissionTestUtil;
+import com.liferay.portal.kernel.upgrade.UpgradeProcess;
+>>>>>>> compatible
 import com.liferay.portal.model.impl.ResourcePermissionImpl;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 
@@ -71,7 +82,11 @@ public class UpgradeClassNamesTest {
 		_oldResourcePermission = addResourcePermission(
 			companyId, "com.liferay.portlet.calendar", primKey, roleId, scope);
 
+<<<<<<< HEAD
 		_upgradeProcess.upgrade();
+=======
+		_upgradeClassNames.upgrade();
+>>>>>>> compatible
 
 		assertNewResourcePermissionExists();
 
@@ -93,7 +108,11 @@ public class UpgradeClassNamesTest {
 			RandomTestUtil.randomLong(), "com.liferay.portlet.calendar",
 			primKey, roleId, scope);
 
+<<<<<<< HEAD
 		_upgradeProcess.upgrade();
+=======
+		_upgradeClassNames.upgrade();
+>>>>>>> compatible
 
 		assertNewResourcePermissionExists();
 
@@ -115,7 +134,11 @@ public class UpgradeClassNamesTest {
 			companyId, "com.liferay.portlet.calendar",
 			RandomTestUtil.randomString(), roleId, scope);
 
+<<<<<<< HEAD
 		_upgradeProcess.upgrade();
+=======
+		_upgradeClassNames.upgrade();
+>>>>>>> compatible
 
 		assertNewResourcePermissionExists();
 
@@ -137,7 +160,11 @@ public class UpgradeClassNamesTest {
 			companyId, "com.liferay.portlet.calendar", primKey,
 			RandomTestUtil.randomLong(), scope);
 
+<<<<<<< HEAD
 		_upgradeProcess.upgrade();
+=======
+		_upgradeClassNames.upgrade();
+>>>>>>> compatible
 
 		assertNewResourcePermissionExists();
 
@@ -159,13 +186,18 @@ public class UpgradeClassNamesTest {
 			companyId, "com.liferay.portlet.calendar", primKey, roleId,
 			RandomTestUtil.nextInt());
 
+<<<<<<< HEAD
 		_upgradeProcess.upgrade();
+=======
+		_upgradeClassNames.upgrade();
+>>>>>>> compatible
 
 		assertNewResourcePermissionExists();
 
 		assertOldPermissionExists();
 	}
 
+<<<<<<< HEAD
 	@Test
 	public void testUpdateCalEventClassNameIdInVocabularies() throws Exception {
 		_calEventClassName = addClassName(
@@ -204,6 +236,8 @@ public class UpgradeClassNamesTest {
 		return ClassNameLocalServiceUtil.addClassName(className);
 	}
 
+=======
+>>>>>>> compatible
 	protected ResourcePermission addResourcePermission(
 			long companyId, String name, String primKey, long roleId, int scope)
 		throws Exception {
@@ -212,6 +246,7 @@ public class UpgradeClassNamesTest {
 			companyId, name, primKey, roleId, scope);
 	}
 
+<<<<<<< HEAD
 	protected void assertNewClassNameIdExists() {
 		long calBookingClassNameId = ClassNameLocalServiceUtil.getClassNameId(
 			"com.liferay.calendar.model.CalendarBooking");
@@ -230,6 +265,8 @@ public class UpgradeClassNamesTest {
 		Assert.assertTrue(containsNewClassNameId);
 	}
 
+=======
+>>>>>>> compatible
 	protected void assertNewResourcePermissionExists() {
 		EntityCacheUtil.clearCache(ResourcePermissionImpl.class);
 
@@ -261,22 +298,33 @@ public class UpgradeClassNamesTest {
 	}
 
 	protected void setUpUpgradeCalendarResource() {
+<<<<<<< HEAD
 		_upgradeProcess = CalendarUpgradeTestUtil.getServiceUpgradeStep(
+=======
+		_upgradeClassNames = CalendarUpgradeTestUtil.getUpgradeStep(
+>>>>>>> compatible
 			"v1_0_4.UpgradeClassNames");
 	}
 
 	@DeleteAfterTestRun
+<<<<<<< HEAD
 	private AssetVocabulary _assetVocabulary;
 
 	@DeleteAfterTestRun
 	private ClassName _calEventClassName;
 
 	@DeleteAfterTestRun
+=======
+>>>>>>> compatible
 	private ResourcePermission _newResourcePermission;
 
 	@DeleteAfterTestRun
 	private ResourcePermission _oldResourcePermission;
 
+<<<<<<< HEAD
 	private UpgradeProcess _upgradeProcess;
+=======
+	private UpgradeProcess _upgradeClassNames;
+>>>>>>> compatible
 
 }

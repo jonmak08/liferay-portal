@@ -46,8 +46,11 @@ if (ddmStructureId > 0) {
 	}
 }
 
+<<<<<<< HEAD
 String languageId = LanguageUtil.getLanguageId(request);
 
+=======
+>>>>>>> compatible
 if (ddlDisplayContext.isAdminPortlet()) {
 	portletDisplay.setShowBackIcon(true);
 	portletDisplay.setURLBack(redirect);
@@ -76,9 +79,15 @@ if (ddlDisplayContext.isAdminPortlet()) {
 	<liferay-ui:error exception="<%= RecordSetDDMStructureIdException.class %>" message="please-enter-a-valid-definition" />
 	<liferay-ui:error exception="<%= RecordSetNameException.class %>" message="please-enter-a-valid-name" />
 
+<<<<<<< HEAD
 	<liferay-asset:asset-categories-error />
 
 	<liferay-asset:asset-tags-error />
+=======
+	<liferay-ui:asset-categories-error />
+
+	<liferay-ui:asset-tags-error />
+>>>>>>> compatible
 
 	<aui:model-context bean="<%= recordSet %>" model="<%= DDLRecordSet.class %>" />
 
@@ -105,11 +114,15 @@ if (ddlDisplayContext.isAdminPortlet()) {
 				/>
 			</div>
 
+<<<<<<< HEAD
 			<%
 			Group scopeGroup = GroupLocalServiceUtil.getGroup(scopeGroupId);
 			%>
 
 			<c:if test="<%= WorkflowEngineManagerUtil.isDeployed() && (WorkflowHandlerRegistryUtil.getWorkflowHandler(DDLRecord.class.getName()) != null) && !scopeGroup.isLayoutSetPrototype() %>">
+=======
+			<c:if test="<%= WorkflowEngineManagerUtil.isDeployed() && (WorkflowHandlerRegistryUtil.getWorkflowHandler(DDLRecord.class.getName()) != null) %>">
+>>>>>>> compatible
 				<aui:select label="workflow" name="workflowDefinition">
 
 					<%
@@ -135,7 +148,11 @@ if (ddlDisplayContext.isAdminPortlet()) {
 						}
 					%>
 
+<<<<<<< HEAD
 						<aui:option label='<%= HtmlUtil.escape(workflowDefinition.getTitle(languageId)) + " (" + LanguageUtil.format(locale, "version-x", workflowDefinition.getVersion(), false) + ")" %>' selected="<%= selected %>" value="<%= HtmlUtil.escapeAttribute(workflowDefinition.getName()) + StringPool.AT + workflowDefinition.getVersion() %>" />
+=======
+						<aui:option label='<%= HtmlUtil.escape(workflowDefinition.getName()) + " (" + LanguageUtil.format(locale, "version-x", workflowDefinition.getVersion(), false) + ")" %>' selected="<%= selected %>" value="<%= HtmlUtil.escapeAttribute(workflowDefinition.getName()) + StringPool.AT + workflowDefinition.getVersion() %>" />
+>>>>>>> compatible
 
 					<%
 					}
@@ -155,9 +172,15 @@ if (ddlDisplayContext.isAdminPortlet()) {
 	</aui:fieldset-group>
 
 	<aui:button-row>
+<<<<<<< HEAD
 		<aui:button name="saveButton" type="submit" value="save" />
 
 		<aui:button href="<%= redirect %>" name="cancelButton" type="cancel" />
+=======
+		<aui:button cssClass="btn-lg" name="saveButton" type="submit" value="save" />
+
+		<aui:button cssClass="btn-lg" href="<%= redirect %>" name="cancelButton" type="cancel" />
+>>>>>>> compatible
 	</aui:button-row>
 </aui:form>
 

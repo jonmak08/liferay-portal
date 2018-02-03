@@ -14,7 +14,10 @@
 
 package com.liferay.portal.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.Layout;
@@ -28,11 +31,18 @@ import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.PropsKeys;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
@@ -369,6 +379,16 @@ public class PortalImplCanonicalURLTest {
 			sb.append(Http.HTTP_WITH_SLASH);
 		}
 
+<<<<<<< HEAD
+=======
+		if (secure) {
+			sb.append(Http.HTTPS_WITH_SLASH);
+		}
+		else {
+			sb.append(Http.HTTP_WITH_SLASH);
+		}
+
+>>>>>>> compatible
 		sb.append(portalDomain);
 
 		if (port != null) {
@@ -435,8 +455,28 @@ public class PortalImplCanonicalURLTest {
 
 		Company company = CompanyLocalServiceUtil.getCompany(
 			TestPropsValues.getCompanyId());
+<<<<<<< HEAD
 
 		ThemeDisplay themeDisplay = new ThemeDisplay();
+=======
+
+		ThemeDisplay themeDisplay = new ThemeDisplay();
+
+		themeDisplay.setCompany(company);
+		themeDisplay.setLayoutSet(group.getPublicLayoutSet());
+		themeDisplay.setPortalDomain(portalDomain);
+
+		if (secure) {
+			themeDisplay.setPortalURL(Http.HTTPS_WITH_SLASH + portalDomain);
+		}
+		else {
+			themeDisplay.setPortalURL(Http.HTTP_WITH_SLASH + portalDomain);
+		}
+
+		themeDisplay.setSecure(secure);
+		themeDisplay.setServerPort(serverPort);
+		themeDisplay.setSiteGroupId(group.getGroupId());
+>>>>>>> compatible
 
 		themeDisplay.setCompany(company);
 		themeDisplay.setLayoutSet(group.getPublicLayoutSet());
@@ -470,11 +510,14 @@ public class PortalImplCanonicalURLTest {
 		String expectedCanonicalURL = generateURL(
 			expectedPortalDomain, port, StringPool.BLANK,
 			expectedGroupFriendlyURL, expectedLayoutFriendlyURL, secure);
+<<<<<<< HEAD
 
 		TestPropsUtil.set(PropsKeys.LOCALE_PREPEND_FRIENDLY_URL_STYLE, "2");
 
 		String actualCanonicalURL2 = PortalUtil.getCanonicalURL(
 			completeURL, themeDisplay, layout, forceLayoutFriendlyURL);
+=======
+>>>>>>> compatible
 
 		Assert.assertEquals(expectedCanonicalURL, actualCanonicalURL2);
 	}

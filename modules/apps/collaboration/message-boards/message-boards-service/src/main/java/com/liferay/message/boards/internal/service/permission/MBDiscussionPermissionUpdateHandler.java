@@ -14,8 +14,13 @@
 
 package com.liferay.message.boards.internal.service.permission;
 
+<<<<<<< HEAD
 import com.liferay.message.boards.model.MBDiscussion;
 import com.liferay.message.boards.service.MBDiscussionLocalService;
+=======
+import com.liferay.message.boards.kernel.model.MBDiscussion;
+import com.liferay.message.boards.kernel.service.MBDiscussionLocalService;
+>>>>>>> compatible
 import com.liferay.portal.kernel.security.permission.PermissionUpdateHandler;
 import com.liferay.portal.kernel.util.GetterUtil;
 
@@ -29,7 +34,11 @@ import org.osgi.service.component.annotations.Reference;
  */
 @Component(
 	property = {
+<<<<<<< HEAD
 		"model.class.name=com.liferay.message.boards.model.MBDiscussion"
+=======
+		"model.class.name=com.liferay.message.boards.kernel.model.MBDiscussion"
+>>>>>>> compatible
 	},
 	service = PermissionUpdateHandler.class
 )

@@ -19,19 +19,28 @@ import com.liferay.document.library.kernel.model.DLFileShortcut;
 import com.liferay.document.library.kernel.model.DLFileShortcutConstants;
 import com.liferay.document.library.kernel.model.DLFolder;
 import com.liferay.document.library.kernel.model.DLFolderConstants;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.bean.BeanReference;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.dao.orm.Property;
 import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.Repository;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.ResourceConstants;
 import com.liferay.portal.kernel.model.SystemEventConstants;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.repository.model.FileEntry;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.service.RepositoryLocalService;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.permission.ModelPermissions;
 import com.liferay.portal.kernel.systemevent.SystemEvent;
@@ -242,6 +251,7 @@ public class DLFileShortcutLocalServiceImpl
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void deleteRepositoryFileShortcuts(long repositoryId)
 		throws PortalException {
 
@@ -276,6 +286,13 @@ public class DLFileShortcutLocalServiceImpl
 	}
 
 	@Override
+=======
+	public void disableFileShortcuts(long toFileEntryId) {
+		updateFileShortcutsActive(toFileEntryId, false);
+	}
+
+	@Override
+>>>>>>> compatible
 	public void enableFileShortcuts(long toFileEntryId) {
 		updateFileShortcutsActive(toFileEntryId, true);
 	}

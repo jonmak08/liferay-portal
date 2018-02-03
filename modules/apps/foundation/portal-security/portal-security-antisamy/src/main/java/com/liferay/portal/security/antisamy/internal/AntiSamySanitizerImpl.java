@@ -14,14 +14,22 @@
 
 package com.liferay.portal.security.antisamy.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.sanitizer.BaseSanitizer;
 import com.liferay.portal.kernel.sanitizer.SanitizerException;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.CharPool;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.ContentTypes;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 
 import java.io.InputStream;
@@ -57,8 +65,11 @@ public class AntiSamySanitizerImpl extends BaseSanitizer {
 				blacklistItem = blacklistItem.trim();
 
 				if (!blacklistItem.isEmpty()) {
+<<<<<<< HEAD
 					blacklistItem = stripTrailingStar(blacklistItem);
 
+=======
+>>>>>>> compatible
 					_blacklist.add(blacklistItem);
 				}
 			}
@@ -69,8 +80,11 @@ public class AntiSamySanitizerImpl extends BaseSanitizer {
 				whitelistItem = whitelistItem.trim();
 
 				if (!whitelistItem.isEmpty()) {
+<<<<<<< HEAD
 					whitelistItem = stripTrailingStar(whitelistItem);
 
+=======
+>>>>>>> compatible
 					_whitelist.add(whitelistItem);
 				}
 			}
@@ -85,9 +99,13 @@ public class AntiSamySanitizerImpl extends BaseSanitizer {
 		throws SanitizerException {
 
 		if (_log.isDebugEnabled()) {
+<<<<<<< HEAD
 			_log.debug(
 				StringBundler.concat(
 					"Sanitizing ", className, "#", String.valueOf(classPK)));
+=======
+			_log.debug("Sanitizing " + className + "#" + classPK);
+>>>>>>> compatible
 		}
 
 		if (Validator.isNull(content)) {
@@ -122,17 +140,25 @@ public class AntiSamySanitizerImpl extends BaseSanitizer {
 		String classNameAndClassPK = className + StringPool.POUND + classPK;
 
 		for (String blacklistItem : _blacklist) {
+<<<<<<< HEAD
 			if (blacklistItem.equals(StringPool.STAR) ||
 				classNameAndClassPK.startsWith(blacklistItem)) {
 
+=======
+			if (classNameAndClassPK.startsWith(blacklistItem)) {
+>>>>>>> compatible
 				return false;
 			}
 		}
 
 		for (String whitelistItem : _whitelist) {
+<<<<<<< HEAD
 			if (whitelistItem.equals(StringPool.STAR) ||
 				classNameAndClassPK.startsWith(whitelistItem)) {
 
+=======
+			if (classNameAndClassPK.startsWith(whitelistItem)) {
+>>>>>>> compatible
 				return true;
 			}
 		}
@@ -140,6 +166,7 @@ public class AntiSamySanitizerImpl extends BaseSanitizer {
 		return false;
 	}
 
+<<<<<<< HEAD
 	protected String stripTrailingStar(String item) {
 		if (item.equals(StringPool.STAR)) {
 			return item;
@@ -154,6 +181,8 @@ public class AntiSamySanitizerImpl extends BaseSanitizer {
 		return item;
 	}
 
+=======
+>>>>>>> compatible
 	private static final Log _log = LogFactoryUtil.getLog(
 		AntiSamySanitizerImpl.class);
 

@@ -23,10 +23,4 @@ public interface WorkflowCapability extends Capability {
 
 	public int getStatus(FileEntry fileEntry);
 
-	public enum OperationMode {
-
-		FULL, MINIMAL
-
-	}
-
 }

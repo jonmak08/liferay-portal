@@ -336,7 +336,11 @@ public class JournalFolderServiceSoap {
 	}
 
 	/**
+<<<<<<< HEAD
 	* @deprecated As of 4.0.0, replaced by {@link #getSubfolderIds(List, long,
+=======
+	* @deprecated As of 3.3.0, replaced by {@link #getSubfolderIds(List, long,
+>>>>>>> compatible
 	long, boolean)}
 	*/
 	@Deprecated
@@ -441,6 +445,7 @@ public class JournalFolderServiceSoap {
 		}
 	}
 
+<<<<<<< HEAD
 	public static com.liferay.dynamic.data.mapping.model.DDMStructureSoap[] searchDDMStructures(
 		long companyId, long[] groupIds, long folderId, int restrictionType,
 		java.lang.String keywords, int start, int end,
@@ -461,6 +466,8 @@ public class JournalFolderServiceSoap {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	public static void subscribe(long groupId, long folderId)
 		throws RemoteException {
 		try {

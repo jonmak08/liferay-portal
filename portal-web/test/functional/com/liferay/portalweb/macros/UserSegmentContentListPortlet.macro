@@ -42,7 +42,13 @@
 					<execute function="AssertTextEquals" locator1="UserSegmentContentList#SELECTED_ASSETS" value1="${assetType}" />
 				</for>
 
+<<<<<<< HEAD
 				<execute macro="PortletEntry#save" />
+=======
+				<execute macro="Button#clickSave" />
+
+				<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 
 				<execute function="Select" locator1="UserSegmentContentList#SELECT_ASSET_TYPE" value1="Select More Than One..." />
 

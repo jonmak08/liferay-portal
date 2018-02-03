@@ -247,8 +247,10 @@ public class LayoutLocalServiceStagingAdvice implements MethodInterceptor {
 
 		parentLayoutId = layoutLocalServiceHelper.getParentLayoutId(
 			groupId, privateLayout, parentLayoutId);
+
 		String name = nameMap.get(LocaleUtil.getSiteDefault());
 
+<<<<<<< HEAD
 		Map<Locale, String> layoutFriendlyURLMap =
 			layoutLocalServiceHelper.getFriendlyURLMap(
 				groupId, privateLayout, layoutId, name, friendlyURLMap);
@@ -259,6 +261,16 @@ public class LayoutLocalServiceStagingAdvice implements MethodInterceptor {
 		layoutLocalServiceHelper.validate(
 			groupId, privateLayout, layoutId, parentLayoutId, name, type,
 			hidden, layoutFriendlyURLMap, serviceContext);
+=======
+		friendlyURLMap = layoutLocalServiceHelper.getFriendlyURLMap(
+			groupId, privateLayout, layoutId, name, friendlyURLMap);
+
+		String friendlyURL = friendlyURLMap.get(LocaleUtil.getSiteDefault());
+
+		layoutLocalServiceHelper.validate(
+			groupId, privateLayout, layoutId, parentLayoutId, name, type,
+			hidden, friendlyURLMap, serviceContext);
+>>>>>>> compatible
 
 		layoutLocalServiceHelper.validateParentLayoutId(
 			groupId, privateLayout, layoutId, parentLayoutId);
@@ -317,7 +329,11 @@ public class LayoutLocalServiceStagingAdvice implements MethodInterceptor {
 
 		LayoutFriendlyURLLocalServiceUtil.updateLayoutFriendlyURLs(
 			layout.getUserId(), layout.getCompanyId(), layout.getGroupId(),
+<<<<<<< HEAD
 			layout.getPlid(), layout.isPrivateLayout(), layoutFriendlyURLMap,
+=======
+			layout.getPlid(), layout.isPrivateLayout(), friendlyURLMap,
+>>>>>>> compatible
 			serviceContext);
 
 		boolean hasWorkflowTask = StagingUtil.hasWorkflowTask(
@@ -533,6 +549,7 @@ public class LayoutLocalServiceStagingAdvice implements MethodInterceptor {
 
 			if (serviceContext == currentServiceContext) {
 				Map<Layout, Object> proxiedLayouts = objectValuePair.getValue();
+<<<<<<< HEAD
 
 				Object proxiedLayout = proxiedLayouts.get(layout);
 
@@ -545,6 +562,26 @@ public class LayoutLocalServiceStagingAdvice implements MethodInterceptor {
 					new Class<?>[] {Layout.class},
 					new LayoutStagingHandler(layout));
 
+=======
+
+				Object proxiedLayout = proxiedLayouts.get(layout);
+
+				if (proxiedLayout != null) {
+					Layout layoutProxiedLayout = (Layout)proxiedLayout;
+
+					if (layoutProxiedLayout.getMvccVersion() ==
+							layout.getMvccVersion()) {
+
+						return (Layout)proxiedLayout;
+					}
+				}
+
+				proxiedLayout = ProxyUtil.newProxyInstance(
+					ClassLoaderUtil.getPortalClassLoader(),
+					new Class<?>[] {Layout.class},
+					new LayoutStagingHandler(layout));
+
+>>>>>>> compatible
 				proxiedLayouts.put(layout, proxiedLayout);
 
 				return (Layout)proxiedLayout;

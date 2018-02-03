@@ -35,12 +35,6 @@ public interface TemplateHandler {
 	 */
 	public String getClassName();
 
-	/**
-	 * Returns the map of name/value pairs of the objects that should be
-	 * injected into the context.
-	 *
-	 * @return the objects that should be injected into the context
-	 */
 	public Map<String, Object> getCustomContextObjects();
 
 	/**
@@ -156,12 +150,6 @@ public interface TemplateHandler {
 			long classPK, String language, Locale locale)
 		throws Exception;
 
-	/**
-	 * Returns <code>true</code> if the entity is a display template handler.
-	 *
-	 * @return <code>true</code> if the entity is a display template handler;
-	 *         <code>false</code> otherwise
-	 */
 	public boolean isDisplayTemplateHandler();
 
 }

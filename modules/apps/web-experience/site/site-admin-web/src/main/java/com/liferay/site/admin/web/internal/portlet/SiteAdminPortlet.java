@@ -18,7 +18,10 @@ import com.liferay.asset.kernel.exception.AssetCategoryException;
 import com.liferay.asset.kernel.exception.AssetTagException;
 import com.liferay.exportimport.kernel.exception.RemoteExportException;
 import com.liferay.exportimport.kernel.staging.Staging;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.backgroundtask.BackgroundTaskConstants;
 import com.liferay.portal.kernel.backgroundtask.BackgroundTaskManager;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
@@ -86,6 +89,10 @@ import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.PrefsPropsUtil;
 import com.liferay.portal.kernel.util.PropertiesParamUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.UnicodeProperties;
 import com.liferay.portal.kernel.util.WebKeys;
@@ -230,8 +237,14 @@ public class SiteAdminPortlet extends MVCPortlet {
 				SiteAdminPortletKeys.SITE_SETTINGS + "requestProcessed");
 		}
 
+<<<<<<< HEAD
 		PortletURL siteAdministrationURL = getSiteAdministrationURL(
 			actionRequest, group);
+=======
+		PortletURL siteAdministrationURL = portal.getControlPanelPortletURL(
+			actionRequest, group, SiteAdminPortletKeys.SITE_SETTINGS, 0, 0,
+			PortletRequest.RENDER_PHASE);
+>>>>>>> compatible
 
 		siteAdministrationURL.setParameter(
 			"historyKey", getHistoryKey(actionRequest, actionResponse));
@@ -426,6 +439,7 @@ public class SiteAdminPortlet extends MVCPortlet {
 		return roles;
 	}
 
+<<<<<<< HEAD
 	protected PortletURL getSiteAdministrationURL(
 		ActionRequest actionRequest, Group group) {
 
@@ -441,6 +455,8 @@ public class SiteAdminPortlet extends MVCPortlet {
 			actionRequest, group, portletId, 0, 0, PortletRequest.RENDER_PHASE);
 	}
 
+=======
+>>>>>>> compatible
 	protected List<Team> getTeams(PortletRequest portletRequest)
 		throws Exception {
 
@@ -859,6 +875,7 @@ public class SiteAdminPortlet extends MVCPortlet {
 			layoutSetService.updateVirtualHost(
 				stagingGroup.getGroupId(), true, privateVirtualHost);
 
+<<<<<<< HEAD
 			UnicodeProperties stagedGroupTypeSettingsProperties =
 				stagingGroup.getTypeSettingsProperties();
 
@@ -868,6 +885,10 @@ public class SiteAdminPortlet extends MVCPortlet {
 			groupService.updateGroup(
 				stagingGroup.getGroupId(),
 				stagedGroupTypeSettingsProperties.toString());
+=======
+			groupService.updateGroup(
+				stagingGroup.getGroupId(), typeSettingsProperties.toString());
+>>>>>>> compatible
 		}
 
 		liveGroup = groupService.updateGroup(
@@ -929,6 +950,17 @@ public class SiteAdminPortlet extends MVCPortlet {
 				privateLayoutSetPrototypeLinkEnabled);
 		}
 
+<<<<<<< HEAD
+=======
+		// Staging
+
+		if (!privateLayoutSet.isLayoutSetPrototypeLinkActive() &&
+			!publicLayoutSet.isLayoutSetPrototypeLinkActive()) {
+
+			staging.updateStaging(actionRequest, liveGroup);
+		}
+
+>>>>>>> compatible
 		themeDisplay.setSiteGroupId(liveGroup.getGroupId());
 
 		return liveGroup;

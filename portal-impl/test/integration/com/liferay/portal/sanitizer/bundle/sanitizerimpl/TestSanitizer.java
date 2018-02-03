@@ -16,6 +16,10 @@ package com.liferay.portal.sanitizer.bundle.sanitizerimpl;
 
 import com.liferay.portal.kernel.sanitizer.BaseSanitizer;
 import com.liferay.portal.kernel.sanitizer.Sanitizer;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StackTraceUtil;
+>>>>>>> compatible
 
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -38,6 +42,11 @@ public class TestSanitizer extends BaseSanitizer {
 		long companyId, long groupId, long userId, String className,
 		long classPK, String contentType, String[] modes, String content,
 		Map<String, Object> options) {
+<<<<<<< HEAD
+=======
+
+		_atomicReference.set(StackTraceUtil.getCallerKey());
+>>>>>>> compatible
 
 		_atomicBoolean.set(Boolean.TRUE);
 

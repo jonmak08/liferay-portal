@@ -16,8 +16,12 @@ package com.liferay.invitation.invite.members.web.internal.portlet;
 
 import com.liferay.invitation.invite.members.constants.InviteMembersPortletKeys;
 import com.liferay.invitation.invite.members.service.MemberRequestLocalService;
+<<<<<<< HEAD
 import com.liferay.portal.dao.orm.custom.sql.CustomSQLUtil;
 import com.liferay.portal.kernel.dao.orm.CustomSQLParam;
+=======
+import com.liferay.invitation.invite.members.util.InviteMembersUserHelper;
+>>>>>>> compatible
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
@@ -40,10 +44,14 @@ import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.WebKeys;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.comparator.UserFirstNameComparator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 
 import java.util.LinkedHashMap;
+=======
+
+>>>>>>> compatible
 import java.util.List;
 
 import javax.portlet.ActionRequest;
@@ -101,7 +109,11 @@ public class InviteMembersPortlet extends MVCPortlet {
 
 		jsonObject.put(
 			"count",
+<<<<<<< HEAD
 			_getAvailableUsersCount(
+=======
+			_inviteMembersUserHelper.getAvailableUsersCount(
+>>>>>>> compatible
 				themeDisplay.getCompanyId(), themeDisplay.getScopeGroupId(),
 				keywords));
 
@@ -113,7 +125,11 @@ public class InviteMembersPortlet extends MVCPortlet {
 
 		jsonObject.put("options", optionsJSONObject);
 
+<<<<<<< HEAD
 		List<User> users = _getAvailableUsers(
+=======
+		List<User> users = _inviteMembersUserHelper.getAvailableUsers(
+>>>>>>> compatible
 			themeDisplay.getCompanyId(), themeDisplay.getScopeGroupId(),
 			keywords, start, end);
 
@@ -267,6 +283,7 @@ public class InviteMembersPortlet extends MVCPortlet {
 		return StringUtil.split(GetterUtil.getString(value));
 	}
 
+<<<<<<< HEAD
 	@Reference(
 		target = "(&(release.bundle.symbolic.name=com.liferay.invitation.invite.members.service)(release.schema.version=1.0.1))",
 		unbind = "-"
@@ -312,21 +329,60 @@ public class InviteMembersPortlet extends MVCPortlet {
 		return _userLocalService.searchCount(
 			companyId, keywords, WorkflowConstants.STATUS_APPROVED,
 			usersParams);
+=======
+	@Reference(unbind = "-")
+	protected void setGroupLocalService(GroupLocalService groupLocalService) {
+		_groupLocalService = groupLocalService;
+	}
+
+	@Reference(unbind = "-")
+	protected void setInviteMembersUserHelper(
+		InviteMembersUserHelper inviteMembersUserHelper) {
+
+		_inviteMembersUserHelper = inviteMembersUserHelper;
+	}
+
+	@Reference(unbind = "-")
+	protected void setMemberRequestLocalService(
+		MemberRequestLocalService memberRequestLocalService) {
+
+		_memberRequestLocalService = memberRequestLocalService;
+	}
+
+	@Reference(
+		target = "(&(release.bundle.symbolic.name=com.liferay.invitation.invite.members.service)(release.schema.version=1.0.1))",
+		unbind = "-"
+	)
+	protected void setRelease(Release release) {
+	}
+
+	@Reference(unbind = "-")
+	protected void setUserLocalService(UserLocalService userLocalService) {
+		_userLocalService = userLocalService;
+>>>>>>> compatible
 	}
 
 	private static final Log _log = LogFactoryUtil.getLog(
 		InviteMembersPortlet.class);
 
+<<<<<<< HEAD
 	@Reference
 	private GroupLocalService _groupLocalService;
 
 	@Reference
+=======
+	private GroupLocalService _groupLocalService;
+	private InviteMembersUserHelper _inviteMembersUserHelper;
+>>>>>>> compatible
 	private MemberRequestLocalService _memberRequestLocalService;
 
 	@Reference
 	private Portal _portal;
 
+<<<<<<< HEAD
 	@Reference
+=======
+>>>>>>> compatible
 	private UserLocalService _userLocalService;
 
 }

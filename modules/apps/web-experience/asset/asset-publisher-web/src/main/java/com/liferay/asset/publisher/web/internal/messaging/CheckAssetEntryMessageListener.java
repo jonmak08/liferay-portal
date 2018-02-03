@@ -14,8 +14,13 @@
 
 package com.liferay.asset.publisher.web.internal.messaging;
 
+<<<<<<< HEAD
 import com.liferay.asset.publisher.web.configuration.AssetPublisherWebConfiguration;
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
+=======
+import com.liferay.asset.publisher.web.internal.configuration.AssetPublisherWebConfigurationValues;
+import com.liferay.asset.publisher.web.util.AssetPublisherUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.messaging.BaseMessageListener;
 import com.liferay.portal.kernel.messaging.DestinationNames;
 import com.liferay.portal.kernel.messaging.Message;
@@ -27,8 +32,11 @@ import com.liferay.portal.kernel.scheduler.TimeUnit;
 import com.liferay.portal.kernel.scheduler.Trigger;
 import com.liferay.portal.kernel.scheduler.TriggerFactory;
 
+<<<<<<< HEAD
 import java.util.Map;
 
+=======
+>>>>>>> compatible
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
@@ -43,6 +51,7 @@ import org.osgi.service.component.annotations.Reference;
  * @author Roberto Diaz
  * @author Sergio González
  */
+<<<<<<< HEAD
 @Component(
 	configurationPid = "com.liferay.asset.publisher.web.configuration.AssetPublisherWebConfiguration",
 	immediate = true, service = CheckAssetEntryMessageListener.class
@@ -55,13 +64,24 @@ public class CheckAssetEntryMessageListener extends BaseMessageListener {
 			ConfigurableUtil.createConfigurable(
 				AssetPublisherWebConfiguration.class, properties);
 
+=======
+@Component(immediate = true, service = CheckAssetEntryMessageListener.class)
+public class CheckAssetEntryMessageListener extends BaseMessageListener {
+
+	@Activate
+	protected void activate() {
+>>>>>>> compatible
 		Class<?> clazz = getClass();
 
 		String className = clazz.getName();
 
 		Trigger trigger = _triggerFactory.createTrigger(
 			className, className, null, null,
+<<<<<<< HEAD
 			assetPublisherWebConfiguration.checkInterval(), TimeUnit.HOUR);
+=======
+			AssetPublisherWebConfigurationValues.CHECK_INTERVAL, TimeUnit.HOUR);
+>>>>>>> compatible
 
 		SchedulerEntry schedulerEntry = new SchedulerEntryImpl(
 			className, trigger);
@@ -77,6 +97,7 @@ public class CheckAssetEntryMessageListener extends BaseMessageListener {
 
 	@Override
 	protected void doReceive(Message message) throws Exception {
+<<<<<<< HEAD
 		_assetEntriesCheckerUtil.checkAssetEntries();
 	}
 
@@ -85,6 +106,16 @@ public class CheckAssetEntryMessageListener extends BaseMessageListener {
 		AssetEntriesCheckerUtil assetEntriesCheckerUtil) {
 
 		_assetEntriesCheckerUtil = assetEntriesCheckerUtil;
+=======
+		_assetPublisherUtil.checkAssetEntries();
+	}
+
+	@Reference(unbind = "-")
+	protected void setAssetPublisherUtil(
+		AssetPublisherUtil assetPublisherUtil) {
+
+		_assetPublisherUtil = assetPublisherUtil;
+>>>>>>> compatible
 	}
 
 	@Reference(target = ModuleServiceLifecycle.PORTAL_INITIALIZED, unbind = "-")
@@ -99,7 +130,11 @@ public class CheckAssetEntryMessageListener extends BaseMessageListener {
 		_schedulerEngineHelper = schedulerEngineHelper;
 	}
 
+<<<<<<< HEAD
 	private AssetEntriesCheckerUtil _assetEntriesCheckerUtil;
+=======
+	private AssetPublisherUtil _assetPublisherUtil;
+>>>>>>> compatible
 	private SchedulerEngineHelper _schedulerEngineHelper;
 
 	@Reference

@@ -193,8 +193,11 @@ public interface Staging {
 	public List<Layout> getMissingParentLayouts(Layout layout, long liveGroupId)
 		throws PortalException;
 
+<<<<<<< HEAD
 	public Group getPermissionStagingGroup(Group group);
 
+=======
+>>>>>>> compatible
 	public long getRecentLayoutRevisionId(
 			HttpServletRequest request, long layoutSetBranchId, long plid)
 		throws PortalException;
@@ -262,8 +265,11 @@ public interface Staging {
 	public boolean isGroupAccessible(long groupId, long fromGroupId)
 		throws PortalException;
 
+<<<<<<< HEAD
 	public boolean isIncomplete(Layout layout);
 
+=======
+>>>>>>> compatible
 	public boolean isIncomplete(Layout layout, long layoutSetBranchId);
 
 	/**
@@ -440,12 +446,15 @@ public interface Staging {
 			Date lastPublishDate)
 		throws PortalException;
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 4.0.0, replaced by {@link
 	 *             com.liferay.staging.configuration.web.internal.portlet.StagingConfigurationPortlet#editStagingConfiguration(
 	 *             javax.portlet.ActionRequest, javax.portlet.ActionResponse)}
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public void updateStaging(PortletRequest portletRequest, Group liveGroup)
 		throws PortalException;
 

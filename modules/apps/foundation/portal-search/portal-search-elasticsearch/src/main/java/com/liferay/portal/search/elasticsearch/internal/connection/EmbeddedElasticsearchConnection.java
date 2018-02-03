@@ -99,11 +99,17 @@ public class EmbeddedElasticsearchConnection
 		catch (ClassNotFoundException cnfe) {
 			if (_log.isWarnEnabled()) {
 				_log.warn(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Unable to preload ",
 						String.valueOf(ByteBufferUtil.class),
 						" to prevent Netty shutdown concurrent class loading ",
 						"interruption issue"),
+=======
+					"Unable to preload " + ByteBufferUtil.class +
+						" to prevent Netty shutdown concurrent class loading " +
+							"interruption issue",
+>>>>>>> compatible
 					cnfe);
 			}
 		}
@@ -346,7 +352,11 @@ public class EmbeddedElasticsearchConnection
 			sb.append("Remote Elasticsearch connections can be configured in ");
 			sb.append("the Control Panel.");
 
+<<<<<<< HEAD
 			_log.warn(sb.toString());
+=======
+			_log.warn(sb);
+>>>>>>> compatible
 		}
 
 		if (_log.isDebugEnabled()) {
@@ -365,10 +375,16 @@ public class EmbeddedElasticsearchConnection
 			stopWatch.stop();
 
 			_log.debug(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Finished starting ",
 					elasticsearchConfiguration.clusterName(), " in ",
 					String.valueOf(stopWatch.getTime()), " ms"));
+=======
+				"Finished starting " +
+					elasticsearchConfiguration.clusterName() + " in " +
+						stopWatch.getTime() + " ms");
+>>>>>>> compatible
 		}
 
 		return client;
@@ -460,6 +476,7 @@ public class EmbeddedElasticsearchConnection
 
 		if (PortalRunMode.isTestMode()) {
 			settingsBuilder.put("index.refresh_interval", "1ms");
+<<<<<<< HEAD
 			settingsBuilder.put(
 				"index.search.slowlog.threshold.fetch.warn", "-1");
 			settingsBuilder.put(
@@ -468,6 +485,10 @@ public class EmbeddedElasticsearchConnection
 			settingsBuilder.put("index.translog.interval", "1ms");
 			settingsBuilder.put(
 				"monitor.jvm.enabled", Boolean.FALSE.toString());
+=======
+			settingsBuilder.put("index.translog.flush_threshold_ops", "1");
+			settingsBuilder.put("index.translog.interval", "1ms");
+>>>>>>> compatible
 		}
 	}
 
@@ -537,9 +558,13 @@ public class EmbeddedElasticsearchConnection
 
 				if (_log.isInfoEnabled()) {
 					_log.info(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"Discarded ", String.valueOf(runnable), " on ",
 							String.valueOf(threadPoolExecutor)));
+=======
+						"Discarded " + runnable + " on " + threadPoolExecutor);
+>>>>>>> compatible
 				}
 			}
 

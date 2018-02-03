@@ -45,6 +45,7 @@ extend `BaselineTask`. If `true`, the baseline check will fail if the
 ### Changed
 - [LPS-72572]: Update the [Liferay Ant BND] dependency to version 2.0.38.
 
+<<<<<<< HEAD
 ## 1.1.8 - 2017-10-02 [YANKED]
 
 ### Changed
@@ -55,6 +56,8 @@ extend `BaselineTask`. If `true`, the baseline check will fail if the
 ### Changed
 - [LPS-76224]: Update the [Liferay Ant BND] dependency to version 2.0.42.
 
+=======
+>>>>>>> compatible
 [Bnd Builder Gradle Plugin]: https://github.com/bndtools/bnd/tree/master/biz.aQute.bnd.gradle
 [Liferay Ant BND]: https://github.com/liferay/liferay-portal/tree/master/modules/sdk/ant-bnd
 [LPS-69470]: https://issues.liferay.com/browse/LPS-69470
@@ -62,6 +65,10 @@ extend `BaselineTask`. If `true`, the baseline check will fail if the
 [LPS-70379]: https://issues.liferay.com/browse/LPS-70379
 [LPS-71118]: https://issues.liferay.com/browse/LPS-71118
 [LPS-71535]: https://issues.liferay.com/browse/LPS-71535
+<<<<<<< HEAD
 [LPS-71728]: https://issues.liferay.com/browse/LPS-71728
 [LPS-74110]: https://issues.liferay.com/browse/LPS-74110
 [LPS-76224]: https://issues.liferay.com/browse/LPS-76224
+=======
+[LPS-71728]: https://issues.liferay.com/browse/LPS-71728
+>>>>>>> compatible

@@ -88,6 +88,7 @@ portletURL.setParameter("mvcRenderCommandName", "/polls/view");
 
 				<c:choose>
 					<c:when test="<%= question.getExpirationDate() != null %>">
+<<<<<<< HEAD
 						<c:choose>
 							<c:when test="<%= question.getExpirationDate().before(new Date()) %>">
 								<liferay-ui:search-container-column-text
@@ -104,6 +105,13 @@ portletURL.setParameter("mvcRenderCommandName", "/polls/view");
 								/>
 							</c:otherwise>
 						</c:choose>
+=======
+						<liferay-ui:search-container-column-date
+							href="<%= rowURL %>"
+							name="expiration-date"
+							value="<%= question.getExpirationDate() %>"
+						/>
+>>>>>>> compatible
 					</c:when>
 					<c:otherwise>
 						<liferay-ui:search-container-column-text

@@ -30,7 +30,11 @@
 </tr>
 <tr>
 	<td>DRAFT_AUTO_SAVE</td>
+<<<<<<< HEAD
 	<td>//div/small[contains(@id,'saveStatus') and contains(.,'Draft Saved at')]</td>
+=======
+	<td>//div/small[contains(@id,'saveStatus') and contains(.,'Draft saved at')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -89,6 +93,16 @@
 	<td></td>
 </tr>
 <tr>
+	<td>ERROR_3_ALT</td>
+	<td>//div[@class='alert alert-warning']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>ERROR_3_LINK</td>
+	<td>xpath=(//div[contains(@class,'alert') and (contains(@class,'alert-warning'))]/a)</td>
+	<td></td>
+</tr>
+<tr>
 	<td>ERROR_ENTER_VALID_CONTENT</td>
 	<td>//div[contains(@class,'alert-danger') and contains(.,'Please enter valid content')]</td>
 	<td></td>
@@ -110,12 +124,20 @@
 </tr>
 <tr>
 	<td>ERROR_FORM_FIELD_REQUIRED</td>
+<<<<<<< HEAD
 	<td>//div[contains(@class,'has-error')]//div[contains(@class,'help-block')] | //div[contains(@class,'has-error')]//div[contains(@class,'form-feedback-indicator')]</td>
+=======
+	<td>//div[contains(@class,'has-error')]//div[@class='help-block']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>ERROR_SPECIFIC_FORM_FIELD_REQUIRED</td>
+<<<<<<< HEAD
 	<td>//div[contains(@data-fieldname,'${key_fieldName}')]/../../div[contains(@class,'has-error')]//div[contains(@class,'help-block')] | //div[contains(@data-fieldname,'${key_fieldName}')]/../../div[contains(@class,'has-error')]//div[contains(@class,'form-feedback-indicator')]</td>
+=======
+	<td>//div[contains(@data-fieldname,'${key_fieldName}')]/../../div[contains(@class,'has-error')]//div[contains(@class,'help-block')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -195,7 +217,11 @@
 </tr>
 <tr>
 	<td>RECYCLE_BIN_INFO</td>
+<<<<<<< HEAD
 	<td>//span[contains(@class,'taglib-icon-help')]</td>
+=======
+	<td>//div[contains(@class,'tooltip-content')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>

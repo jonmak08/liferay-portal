@@ -22,12 +22,20 @@ import com.liferay.portal.kernel.cache.PortalCacheManagerProvider;
 import com.liferay.portal.kernel.cache.SkipReplicationThreadLocal;
 import com.liferay.portal.kernel.cluster.ClusterExecutor;
 import com.liferay.portal.kernel.cluster.ClusterNode;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 
 import java.util.List;
 import java.util.concurrent.ExecutorService;
+=======
+import com.liferay.portal.kernel.concurrent.ThreadPoolExecutor;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+
+import java.util.List;
+>>>>>>> compatible
 
 import net.sf.ehcache.bootstrap.BootstrapCacheLoader;
 
@@ -39,12 +47,20 @@ public class EhcachePortalCacheBootstrapLoaderAdapter
 
 	public EhcachePortalCacheBootstrapLoaderAdapter(
 		BootstrapCacheLoader bootstrapCacheLoader,
+<<<<<<< HEAD
 		boolean bootstrapAsynchronously, ExecutorService executorService,
+=======
+		boolean bootstrapAsynchronously, ThreadPoolExecutor threadPoolExecutor,
+>>>>>>> compatible
 		ClusterExecutor clusterExecutor) {
 
 		_bootstrapCacheLoader = bootstrapCacheLoader;
 		_bootstrapAsynchronously = bootstrapAsynchronously;
+<<<<<<< HEAD
 		_executorService = executorService;
+=======
+		_threadPoolExecutor = threadPoolExecutor;
+>>>>>>> compatible
 		_clusterExecutor = clusterExecutor;
 	}
 
@@ -62,9 +78,14 @@ public class EhcachePortalCacheBootstrapLoaderAdapter
 		if (clusterNodes.size() == 1) {
 			if (_log.isDebugEnabled()) {
 				_log.debug(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Not loading cache ", portalCacheName, "from cluster ",
 						"because a cluster peer was not found"));
+=======
+					"Not loading cache " + portalCacheName + "from cluster " +
+						"because a cluster peer was not found");
+>>>>>>> compatible
 			}
 
 			return;
@@ -91,7 +112,11 @@ public class EhcachePortalCacheBootstrapLoaderAdapter
 			return;
 		}
 
+<<<<<<< HEAD
 		_executorService.submit(
+=======
+		_threadPoolExecutor.submit(
+>>>>>>> compatible
 			new Runnable() {
 
 				@Override
@@ -122,6 +147,10 @@ public class EhcachePortalCacheBootstrapLoaderAdapter
 	private final boolean _bootstrapAsynchronously;
 	private final BootstrapCacheLoader _bootstrapCacheLoader;
 	private final ClusterExecutor _clusterExecutor;
+<<<<<<< HEAD
 	private final ExecutorService _executorService;
+=======
+	private final ThreadPoolExecutor _threadPoolExecutor;
+>>>>>>> compatible
 
 }

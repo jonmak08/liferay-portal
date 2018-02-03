@@ -14,12 +14,19 @@
 
 package com.liferay.wiki.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.cache.MultiVMPoolUtil;
 import com.liferay.portal.kernel.cache.PortalCache;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.wiki.engine.WikiEngine;
 import com.liferay.wiki.engine.impl.WikiEngineRenderer;
@@ -75,11 +82,17 @@ public class WikiCacheUtil {
 
 		if (_log.isDebugEnabled()) {
 			_log.debug(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"getDisplay for {", String.valueOf(nodeId), ", ", title,
 					", ", String.valueOf(viewPageURL), ", ",
 					String.valueOf(editPageURL), "} takes ",
 					String.valueOf(stopWatch.getTime()), " ms"));
+=======
+				"getDisplay for {" + nodeId + ", " + title + ", " +
+					viewPageURL + ", " + editPageURL + "} takes " +
+						stopWatch.getTime() + " ms");
+>>>>>>> compatible
 		}
 
 		return pageDisplay;
@@ -137,10 +150,15 @@ public class WikiCacheUtil {
 		try {
 			if (_log.isInfoEnabled()) {
 				_log.info(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Get page display for {", String.valueOf(nodeId), ", ",
 						title, ", ", String.valueOf(viewPageURL), ", ",
 						String.valueOf(editPageURL), "}"));
+=======
+					"Get page display for {" + nodeId + ", " + title + ", " +
+						viewPageURL + ", " + editPageURL + "}");
+>>>>>>> compatible
 			}
 
 			return WikiPageLocalServiceUtil.getPageDisplay(
@@ -149,11 +167,16 @@ public class WikiCacheUtil {
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
 				_log.warn(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Unable to get page display for {",
 						String.valueOf(nodeId), ", ", title, ", ",
 						String.valueOf(viewPageURL), ", ",
 						String.valueOf(editPageURL), "}"));
+=======
+					"Unable to get page display for {" + nodeId + ", " + title +
+						", " + viewPageURL + ", " + editPageURL + "}");
+>>>>>>> compatible
 			}
 
 			return null;

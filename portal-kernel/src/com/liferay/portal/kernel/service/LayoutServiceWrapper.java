@@ -67,7 +67,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	<code>layoutUpdateable</code> can be used to specify whether site
 	administrators can modify this page within their site.
 	* @return the layout
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	@Override
 	public com.liferay.portal.kernel.model.Layout addLayout(long groupId,
@@ -120,7 +123,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	<code>layoutUpdateable</code> can be used to specify whether site
 	administrators can modify this page within their site.
 	* @return the layout
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	@Override
 	public com.liferay.portal.kernel.model.Layout addLayout(long groupId,
@@ -150,7 +156,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	* @param privateLayout whether the layout is private to the group
 	* @param layoutId the primary key of the layout
 	* @param serviceContext the service context to be applied
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	@Override
 	public void deleteLayout(long groupId, boolean privateLayout,
@@ -166,7 +175,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	*
 	* @param plid the primary key of the layout
 	* @param serviceContext the service context to be applied
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	@Override
 	public void deleteLayout(long plid, ServiceContext serviceContext)
@@ -195,7 +207,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	* @param startDate the export's start date
 	* @param endDate the export's end date
 	* @return the layouts as a byte array
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	* @deprecated As of 7.0.0, with no direct replacement
 	*/
 	@Deprecated
@@ -221,7 +236,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	* @param startDate the export's start date
 	* @param endDate the export's end date
 	* @return the layout as a byte array
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	* @deprecated As of 7.0.0, with no direct replacement
 	*/
 	@Deprecated
@@ -261,7 +279,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	* @param startDate the export's start date
 	* @param endDate the export's end date
 	* @return the layouts as a File
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	* @deprecated As of 7.0.0, with no direct replacement
 	*/
 	@Deprecated
@@ -345,7 +366,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	* @param startDate the export's start date
 	* @param endDate the export's end date
 	* @return the portlet information as a byte array
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	* @deprecated As of 7.0.0, with no direct replacement
 	*/
 	@Deprecated
@@ -399,7 +423,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	* @param startDate the export's start date
 	* @param endDate the export's end date
 	* @return the portlet information as a file
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	* @deprecated As of 7.0.0, with no direct replacement
 	*/
 	@Deprecated
@@ -461,7 +488,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	*
 	* @param plid the primary key of the layout
 	* @return the ancestor layouts of the layout
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	@Override
 	public java.util.List<com.liferay.portal.kernel.model.Layout> getAncestorLayouts(
@@ -479,7 +509,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	* @param portletId the primary key of the portlet
 	* @return Returns the primary key of the default layout group; {@link
 	LayoutConstants#DEFAULT_PLID} otherwise
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	@Override
 	public long getDefaultPlid(long groupId, long scopeGroupId,
@@ -503,7 +536,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	* @param groupId the primary key of the group
 	* @param privateLayout whether the layout is private to the group
 	* @return the matching layout
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	@Override
 	public com.liferay.portal.kernel.model.Layout getLayoutByUuidAndGroupId(
@@ -522,7 +558,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	* @param languageId the primary key of the language. For more information
 	See {@link Locale}.
 	* @return the layout's name
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	@Override
 	public java.lang.String getLayoutName(long groupId, boolean privateLayout,
@@ -573,11 +612,14 @@ public class LayoutServiceWrapper implements LayoutService,
 	}
 
 	@Override
+<<<<<<< HEAD
 	public int getLayoutsCount(long groupId, boolean privateLayout) {
 		return _layoutService.getLayoutsCount(groupId, privateLayout);
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public int getLayoutsCount(long groupId, boolean privateLayout,
 		long parentLayoutId) {
 		return _layoutService.getLayoutsCount(groupId, privateLayout,
@@ -609,6 +651,7 @@ public class LayoutServiceWrapper implements LayoutService,
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns <code>true</code> if there is a matching layout with the UUID,
 	* group, and privacy.
 	*
@@ -627,6 +670,8 @@ public class LayoutServiceWrapper implements LayoutService,
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	* @deprecated As of 7.0.0, replaced by {@link
 	com.liferay.exportimport.kernel.service.ExportImportService#importLayouts(
 	ExportImportConfiguration, File)}
@@ -664,7 +709,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	used in the map see {@link
 	com.liferay.exportimport.kernel.lar.PortletDataHandlerKeys}.
 	* @param bytes the byte array with the data
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	* @see com.liferay.exportimport.kernel.lar.LayoutImporter
 	* @deprecated As of 7.0.0, with no direct replacement
 	*/
@@ -687,7 +735,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	used in the map see {@link
 	com.liferay.exportimport.kernel.lar.PortletDataHandlerKeys}.
 	* @param file the LAR file with the data
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	* @see com.liferay.exportimport.kernel.lar.LayoutImporter
 	* @deprecated As of 7.0.0, with no direct replacement
 	*/
@@ -710,7 +761,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	used in the map see {@link
 	com.liferay.exportimport.kernel.lar.PortletDataHandlerKeys}.
 	* @param is the input stream
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	* @see com.liferay.exportimport.kernel.lar.LayoutImporter
 	* @deprecated As of 7.0.0, with no direct replacement
 	*/
@@ -791,7 +845,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	used in the map see {@link
 	com.liferay.exportimport.kernel.lar.PortletDataHandlerKeys}.
 	* @param file the LAR file with the data
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	* @deprecated As of 7.0.0, with no direct replacement
 	*/
 	@Deprecated
@@ -817,7 +874,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	used in the map see {@link
 	com.liferay.exportimport.kernel.lar.PortletDataHandlerKeys}.
 	* @param is the input stream
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	* @deprecated As of 7.0.0, with no direct replacement
 	*/
 	@Deprecated
@@ -935,7 +995,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	* @param schedulerStartDate the scheduler start date
 	* @param schedulerEndDate the scheduler end date
 	* @param description the scheduler description
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	* @deprecated As of 7.0.0, replaced by {@link #schedulePublishToLive(long,
 	long, boolean, long[], Map, String, String, Date, Date,
 	String)}
@@ -975,7 +1038,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	* @param schedulerStartDate the scheduler start date
 	* @param schedulerEndDate the scheduler end date
 	* @param description the scheduler description
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	@Override
 	public void schedulePublishToLive(long sourceGroupId, long targetGroupId,
@@ -1002,9 +1068,12 @@ public class LayoutServiceWrapper implements LayoutService,
 	* @param parameterMap the mapping of parameters indicating which
 	information will be used. See {@link
 	com.liferay.exportimport.kernel.lar.PortletDataHandlerKeys}.
+<<<<<<< HEAD
 	* @param scope the scope of the pages
 	* @param startDate the start date
 	* @param endDate the end date
+=======
+>>>>>>> compatible
 	* @param groupName the group name (optionally {@link
 	DestinationNames#LAYOUTS_LOCAL_PUBLISHER}). See {@link
 	DestinationNames}.
@@ -1014,7 +1083,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	* @param schedulerStartDate the scheduler start date
 	* @param schedulerEndDate the scheduler end date
 	* @param description the scheduler description
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	* @deprecated As of 7.0.0, replaced by {@link #schedulePublishToLive(long,
 	long, boolean, long[], Map, String, Date, Date, String,
 	String, Date, Date, String)}
@@ -1062,7 +1134,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	* @param schedulerStartDate the scheduler start date
 	* @param schedulerEndDate the scheduler end date
 	* @param description the scheduler description
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	@Override
 	public void schedulePublishToRemote(long sourceGroupId,
@@ -1093,7 +1168,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	* @param parentLayoutId the primary key of the parent layout
 	* @param layoutIds the primary keys of the layouts
 	* @param serviceContext the service context to be applied
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	@Override
 	public void setLayouts(long groupId, boolean privateLayout,
@@ -1111,7 +1189,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	* @param groupName the group name (optionally {@link
 	DestinationNames#LAYOUTS_LOCAL_PUBLISHER}). See {@link
 	DestinationNames}.
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	@Override
 	public void unschedulePublishToLive(long groupId, java.lang.String jobName,
@@ -1128,7 +1209,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	* @param groupName the group name (optionally {@link
 	DestinationNames#LAYOUTS_LOCAL_PUBLISHER}). See {@link
 	DestinationNames}.
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	@Override
 	public void unschedulePublishToRemote(long groupId,
@@ -1171,7 +1255,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	* @param serviceContext the service context to be applied. Can set the
 	modification date and expando bridge attributes for the layout.
 	* @return the updated layout
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	@Override
 	public com.liferay.portal.kernel.model.Layout updateLayout(long groupId,
@@ -1201,7 +1288,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	See {@link com.liferay.portal.kernel.util.UnicodeProperties
 	#fastLoad(String)}.
 	* @return the updated layout
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	@Override
 	public com.liferay.portal.kernel.model.Layout updateLayout(long groupId,
@@ -1221,7 +1311,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	* @param colorSchemeId the primary key of the layout's new color scheme
 	* @param css the layout's new CSS
 	* @return the updated layout
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	@Override
 	public com.liferay.portal.kernel.model.Layout updateLookAndFeel(
@@ -1244,7 +1337,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	* @param languageId the primary key of the language. For more information
 	see {@link Locale}.
 	* @return the updated layout
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	@Override
 	public com.liferay.portal.kernel.model.Layout updateName(long groupId,
@@ -1263,7 +1359,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	* @param languageId the primary key of the language. For more information
 	see {@link Locale}.
 	* @return the updated layout
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	@Override
 	public com.liferay.portal.kernel.model.Layout updateName(long plid,
@@ -1282,7 +1381,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	* @param parentLayoutId the primary key to be assigned to the parent
 	layout
 	* @return the matching layout
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	@Override
 	public com.liferay.portal.kernel.model.Layout updateParentLayoutId(
@@ -1301,7 +1403,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	* @param plid the primary key of the layout
 	* @param parentPlid the primary key of the parent layout
 	* @return the layout matching the primary key
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	@Override
 	public com.liferay.portal.kernel.model.Layout updateParentLayoutId(
@@ -1317,7 +1422,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	* @param parentPlid the primary key of the parent layout
 	* @param priority the layout's new priority
 	* @return the layout matching the primary key
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	@Override
 	public com.liferay.portal.kernel.model.Layout updateParentLayoutIdAndPriority(
@@ -1336,7 +1444,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	* @param layoutId the primary key of the layout
 	* @param priority the layout's new priority
 	* @return the updated layout
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	@Override
 	public com.liferay.portal.kernel.model.Layout updatePriority(long groupId,
@@ -1357,7 +1468,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	* @param nextLayoutId the primary key of the next layout
 	* @param previousLayoutId the primary key of the previous layout
 	* @return the updated layout
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	@Override
 	public com.liferay.portal.kernel.model.Layout updatePriority(long groupId,
@@ -1374,7 +1488,10 @@ public class LayoutServiceWrapper implements LayoutService,
 	* @param plid the primary key of the layout
 	* @param priority the layout's new priority
 	* @return the updated layout
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	@Override
 	public com.liferay.portal.kernel.model.Layout updatePriority(long plid,

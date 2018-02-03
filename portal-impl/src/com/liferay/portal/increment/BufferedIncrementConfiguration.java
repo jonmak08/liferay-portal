@@ -68,10 +68,16 @@ public class BufferedIncrementConfiguration {
 		if (threadpoolMaxSize < 1) {
 			if (_log.isWarnEnabled()) {
 				_log.warn(
+<<<<<<< HEAD
 					StringBundler.concat(
 						PropsKeys.BUFFERED_INCREMENT_THREADPOOL_MAX_SIZE, "[",
 						configuration, "]=", String.valueOf(threadpoolMaxSize),
 						". Auto reset to 1."));
+=======
+					PropsKeys.BUFFERED_INCREMENT_THREADPOOL_MAX_SIZE + "[" +
+						configuration + "]=" + threadpoolMaxSize +
+							". Auto reset to 1.");
+>>>>>>> compatible
 			}
 
 			threadpoolMaxSize = 1;

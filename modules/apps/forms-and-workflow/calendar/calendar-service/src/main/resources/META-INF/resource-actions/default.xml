@@ -95,6 +95,10 @@
 				<action-key>DELETE</action-key>
 				<action-key>PERMISSIONS</action-key>
 				<action-key>UPDATE</action-key>
+<<<<<<< HEAD
+=======
+				<action-key>VIEW</action-key>
+>>>>>>> compatible
 			</guest-unsupported>
 		</permissions>
 	</model-resource>

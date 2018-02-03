@@ -17,7 +17,10 @@ package com.liferay.ant.bnd.jsp;
 import aQute.bnd.osgi.Builder;
 import aQute.bnd.osgi.Constants;
 import aQute.bnd.osgi.Packages;
+<<<<<<< HEAD
 
+=======
+>>>>>>> compatible
 import aQute.lib.io.IO;
 
 import java.io.InputStream;
@@ -26,6 +29,10 @@ import java.net.URL;
 
 import java.util.HashSet;
 import java.util.Set;
+<<<<<<< HEAD
+=======
+import java.util.regex.Matcher;
+>>>>>>> compatible
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -74,11 +81,19 @@ public class JspAnalyzerPluginTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testImportsWithMultiplesAndStatics() throws Exception {
 		JspAnalyzerPlugin jspAnalyzerPlugin = new JspAnalyzerPlugin();
 
 		URL url = getResource(
 			"dependencies/imports_without_multipackages_and_statics.jsp");
+=======
+	public void testImportsWithMulitplesAndStatics() throws Exception {
+		JspAnalyzerPlugin jspAnalyzerPlugin = new JspAnalyzerPlugin();
+
+		URL url = getResource(
+			"dependencies/imports_without_mutlipackages_and_statics.jsp");
+>>>>>>> compatible
 
 		InputStream inputStream = url.openStream();
 
@@ -106,6 +121,7 @@ public class JspAnalyzerPluginTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testPageImportsWithComments() throws Exception {
 		JspAnalyzerPlugin jspAnalyzerPlugin = new JspAnalyzerPlugin();
 
@@ -136,6 +152,8 @@ public class JspAnalyzerPluginTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testRemoveDuplicateTaglibRequirements() throws Exception {
 		JspAnalyzerPlugin jspAnalyzerPlugin = new JspAnalyzerPlugin();
 

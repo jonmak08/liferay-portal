@@ -84,7 +84,13 @@ public class NotificationsWebUpgrade implements UpgradeStepRegistrator {
 
 		registry.register(
 			"com.liferay.notifications.web", "1.3.0", "2.0.0",
+<<<<<<< HEAD
 			new DummyUpgradeStep());
+=======
+			new com.liferay.notifications.web.internal.upgrade.v2_0_0.
+				UpgradeUserNotificationEvent(
+					_userNotificationEventLocalService));
+>>>>>>> compatible
 
 		UpgradeStep upgradePortletId = new BaseReplacePortletId() {
 

@@ -1,5 +1,9 @@
 Bundle-Name: Liferay Frontend Taglib AUI Form Extension Sample
 Bundle-SymbolicName: com.liferay.frontend.taglib.aui.form.extension.sample
+<<<<<<< HEAD
 Bundle-Version: 1.0.6
+=======
+Bundle-Version: 1.0.5
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Samples

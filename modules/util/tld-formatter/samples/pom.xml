@@ -16,7 +16,11 @@
 			<plugin>
 				<groupId>com.liferay</groupId>
 				<artifactId>com.liferay.tld.formatter</artifactId>
+<<<<<<< HEAD
 				<version>1.0.5</version>
+=======
+				<version>1.0.3</version>
+>>>>>>> compatible
 				<configuration>
 					<baseDirName>src/main</baseDirName>
 				</configuration>

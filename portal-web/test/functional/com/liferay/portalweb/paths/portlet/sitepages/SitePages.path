@@ -41,7 +41,11 @@
 </tr>
 <tr>
 	<td>NAVIGATION_MY_DASHBOARD</td>
+<<<<<<< HEAD
 	<td>//a[contains(@title,'Dashboard')]//a[span/*[name()='svg'][contains(@class,'icon-cog')]]</td>
+=======
+	<td>//a[contains(@title,'Dashboard')]//span/*[name()='svg'][contains(@class,'icon-cog')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -448,11 +452,14 @@
 <tr>
 	<td>SPECIFIC_PAGE_ELLIPSIS</td>
 	<td>//div[contains(.,'${key_page}')]/*[@data-qa-id='pageOptions']</td>
+<<<<<<< HEAD
 	<td></td>
 </tr>
 <tr>
 	<td>PAGE_ELLIPSIS_2</td>
 	<td>xpath=(//*[@data-qa-id='pageOptions'])[2]</td>
+=======
+>>>>>>> compatible
 	<td></td>
 </tr>
 </tbody>

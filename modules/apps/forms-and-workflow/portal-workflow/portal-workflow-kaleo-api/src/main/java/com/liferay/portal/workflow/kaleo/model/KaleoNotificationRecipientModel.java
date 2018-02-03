@@ -194,6 +194,7 @@ public interface KaleoNotificationRecipientModel extends BaseModel<KaleoNotifica
 	public void setModifiedDate(Date modifiedDate);
 
 	/**
+<<<<<<< HEAD
 	 * Returns the kaleo definition version ID of this kaleo notification recipient.
 	 *
 	 * @return the kaleo definition version ID of this kaleo notification recipient
@@ -206,6 +207,20 @@ public interface KaleoNotificationRecipientModel extends BaseModel<KaleoNotifica
 	 * @param kaleoDefinitionVersionId the kaleo definition version ID of this kaleo notification recipient
 	 */
 	public void setKaleoDefinitionVersionId(long kaleoDefinitionVersionId);
+=======
+	 * Returns the kaleo definition ID of this kaleo notification recipient.
+	 *
+	 * @return the kaleo definition ID of this kaleo notification recipient
+	 */
+	public long getKaleoDefinitionId();
+
+	/**
+	 * Sets the kaleo definition ID of this kaleo notification recipient.
+	 *
+	 * @param kaleoDefinitionId the kaleo definition ID of this kaleo notification recipient
+	 */
+	public void setKaleoDefinitionId(long kaleoDefinitionId);
+>>>>>>> compatible
 
 	/**
 	 * Returns the kaleo notification ID of this kaleo notification recipient.

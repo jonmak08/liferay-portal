@@ -36,8 +36,13 @@ import com.liferay.portal.kernel.service.persistence.CompanyProvider;
 import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import com.liferay.portlet.expando.model.impl.ExpandoValueImpl;
 import com.liferay.portlet.expando.model.impl.ExpandoValueModelImpl;
@@ -2253,6 +2258,7 @@ public class ExpandoValuePersistenceImpl extends BasePersistenceImpl<ExpandoValu
 		}
 
 		List<ExpandoValue> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<ExpandoValue>)finderCache.getResult(finderPath,
@@ -2264,6 +2270,19 @@ public class ExpandoValuePersistenceImpl extends BasePersistenceImpl<ExpandoValu
 							(rowId != expandoValue.getRowId())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<ExpandoValue>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (ExpandoValue expandoValue : list) {
+					if ((tableId != expandoValue.getTableId()) ||
+							(rowId != expandoValue.getRowId())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -2799,6 +2818,7 @@ public class ExpandoValuePersistenceImpl extends BasePersistenceImpl<ExpandoValu
 		if (retrieveFromCache) {
 			list = (List<ExpandoValue>)finderCache.getResult(finderPath,
 					finderArgs, this);
+<<<<<<< HEAD
 
 			if ((list != null) && !list.isEmpty()) {
 				for (ExpandoValue expandoValue : list) {
@@ -2806,6 +2826,15 @@ public class ExpandoValuePersistenceImpl extends BasePersistenceImpl<ExpandoValu
 							(classPK != expandoValue.getClassPK())) {
 						list = null;
 
+=======
+
+			if ((list != null) && !list.isEmpty()) {
+				for (ExpandoValue expandoValue : list) {
+					if ((tableId != expandoValue.getTableId()) ||
+							(classPK != expandoValue.getClassPK())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -3562,6 +3591,7 @@ public class ExpandoValuePersistenceImpl extends BasePersistenceImpl<ExpandoValu
 		}
 
 		List<ExpandoValue> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<ExpandoValue>)finderCache.getResult(finderPath,
@@ -3573,6 +3603,19 @@ public class ExpandoValuePersistenceImpl extends BasePersistenceImpl<ExpandoValu
 							(classPK != expandoValue.getClassPK())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<ExpandoValue>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (ExpandoValue expandoValue : list) {
+					if ((classNameId != expandoValue.getClassNameId()) ||
+							(classPK != expandoValue.getClassPK())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -4872,11 +4915,17 @@ public class ExpandoValuePersistenceImpl extends BasePersistenceImpl<ExpandoValu
 		setModelClass(ExpandoValue.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("rowId", "rowId_");

@@ -57,9 +57,15 @@ public class Entity implements Comparable<Entity> {
 	public static EntityColumn getColumn(
 		String name, List<EntityColumn> columnList) {
 
+<<<<<<< HEAD
 		for (EntityColumn entityColumn : columnList) {
 			if (name.equals(entityColumn.getName())) {
 				return entityColumn;
+=======
+		for (EntityColumn col : columnList) {
+			if (name.equals(col.getName())) {
+				return col;
+>>>>>>> compatible
 			}
 		}
 
@@ -78,9 +84,15 @@ public class Entity implements Comparable<Entity> {
 		int index = columnList.indexOf(new EntityColumn(name));
 
 		if (index != -1) {
+<<<<<<< HEAD
 			EntityColumn entityColumn = columnList.get(index);
 
 			if ((type == null) || type.equals(entityColumn.getType())) {
+=======
+			EntityColumn col = columnList.get(index);
+
+			if ((type == null) || type.equals(col.getType())) {
+>>>>>>> compatible
 				return true;
 			}
 		}
@@ -163,8 +175,13 @@ public class Entity implements Comparable<Entity> {
 		}
 
 		if ((_blobList != null) && !_blobList.isEmpty()) {
+<<<<<<< HEAD
 			for (EntityColumn entityColumn : _blobList) {
 				if (!entityColumn.isLazy()) {
+=======
+			for (EntityColumn col : _blobList) {
+				if (!col.isLazy()) {
+>>>>>>> compatible
 					cacheEnabled = false;
 
 					break;
@@ -177,10 +194,15 @@ public class Entity implements Comparable<Entity> {
 		boolean containerModel = false;
 
 		if ((_columnList != null) && !_columnList.isEmpty()) {
+<<<<<<< HEAD
 			for (EntityColumn entityColumn : _columnList) {
 				if (entityColumn.isContainerModel() ||
 					entityColumn.isParentContainerModel()) {
 
+=======
+			for (EntityColumn col : _columnList) {
+				if (col.isContainerModel() || col.isParentContainerModel()) {
+>>>>>>> compatible
 					containerModel = true;
 
 					break;
@@ -236,11 +258,19 @@ public class Entity implements Comparable<Entity> {
 		Iterator<EntityColumn> itr = badNamedColumnsList.iterator();
 
 		while (itr.hasNext()) {
+<<<<<<< HEAD
 			EntityColumn entityColumn = itr.next();
 
 			String name = entityColumn.getName();
 
 			if (name.equals(entityColumn.getDBName())) {
+=======
+			EntityColumn col = itr.next();
+
+			String name = col.getName();
+
+			if (name.equals(col.getDBName())) {
+>>>>>>> compatible
 				itr.remove();
 			}
 		}
@@ -275,6 +305,7 @@ public class Entity implements Comparable<Entity> {
 	}
 
 	public EntityColumn getColumnByMappingTable(String mappingTable) {
+<<<<<<< HEAD
 		for (EntityColumn entityColumn : _columnList) {
 			String entityColumnMappingTable = entityColumn.getMappingTable();
 
@@ -282,6 +313,13 @@ public class Entity implements Comparable<Entity> {
 				entityColumnMappingTable.equals(mappingTable)) {
 
 				return entityColumn;
+=======
+		for (EntityColumn col : _columnList) {
+			if ((col.getMappingTable() != null) &&
+				col.getMappingTable().equals(mappingTable)) {
+
+				return col;
+>>>>>>> compatible
 			}
 		}
 
@@ -297,9 +335,15 @@ public class Entity implements Comparable<Entity> {
 	}
 
 	public EntityColumn getFilterPKColumn() {
+<<<<<<< HEAD
 		for (EntityColumn entityColumn : _columnList) {
 			if (entityColumn.isFilterPrimary()) {
 				return entityColumn;
+=======
+		for (EntityColumn col : _columnList) {
+			if (col.isFilterPrimary()) {
+				return col;
+>>>>>>> compatible
 			}
 		}
 
@@ -363,9 +407,15 @@ public class Entity implements Comparable<Entity> {
 			return _name + "PK";
 		}
 
+<<<<<<< HEAD
 		EntityColumn entityColumn = _getPKColumn();
 
 		return entityColumn.getType();
+=======
+		EntityColumn col = _getPKColumn();
+
+		return col.getType();
+>>>>>>> compatible
 	}
 
 	public String getPKDBName() {
@@ -373,9 +423,15 @@ public class Entity implements Comparable<Entity> {
 			return getVarName() + "PK";
 		}
 
+<<<<<<< HEAD
 		EntityColumn entityColumn = _getPKColumn();
 
 		return entityColumn.getDBName();
+=======
+		EntityColumn col = _getPKColumn();
+
+		return col.getDBName();
+>>>>>>> compatible
 	}
 
 	public List<EntityColumn> getPKList() {
@@ -387,9 +443,15 @@ public class Entity implements Comparable<Entity> {
 			return getVarName() + "PK";
 		}
 
+<<<<<<< HEAD
 		EntityColumn entityColumn = _getPKColumn();
 
 		return entityColumn.getName();
+=======
+		EntityColumn col = _getPKColumn();
+
+		return col.getName();
+>>>>>>> compatible
 	}
 
 	public String getPKVarNames() {
@@ -397,9 +459,15 @@ public class Entity implements Comparable<Entity> {
 			return getVarName() + "PKs";
 		}
 
+<<<<<<< HEAD
 		EntityColumn entityColumn = _getPKColumn();
 
 		return entityColumn.getNames();
+=======
+		EntityColumn col = _getPKColumn();
+
+		return col.getNames();
+>>>>>>> compatible
 	}
 
 	public String getPortletName() {
@@ -486,9 +554,15 @@ public class Entity implements Comparable<Entity> {
 	public boolean hasActionableDynamicQuery() {
 		if (hasColumns() && hasLocalService()) {
 			if (hasCompoundPK()) {
+<<<<<<< HEAD
 				EntityColumn entityColumn = _pkList.get(0);
 
 				return entityColumn.isPrimitiveType();
+=======
+				EntityColumn col = _pkList.get(0);
+
+				return col.isPrimitiveType();
+>>>>>>> compatible
 			}
 			else {
 				return hasPrimitivePK();
@@ -567,8 +641,13 @@ public class Entity implements Comparable<Entity> {
 			return false;
 		}
 
+<<<<<<< HEAD
 		for (EntityColumn entityColumn : _blobList) {
 			if (entityColumn.isLazy()) {
+=======
+		for (EntityColumn col : _blobList) {
+			if (col.isLazy()) {
+>>>>>>> compatible
 				return true;
 			}
 		}
@@ -589,9 +668,15 @@ public class Entity implements Comparable<Entity> {
 			return false;
 		}
 
+<<<<<<< HEAD
 		EntityColumn entityColumn = _getPKColumn();
 
 		if (entityColumn.isPrimitiveType(includeWrappers)) {
+=======
+		EntityColumn col = _getPKColumn();
+
+		if (col.isPrimitiveType(includeWrappers)) {
+>>>>>>> compatible
 			return true;
 		}
 		else {
@@ -701,6 +786,7 @@ public class Entity implements Comparable<Entity> {
 			return false;
 		}
 
+<<<<<<< HEAD
 		EntityColumn entityColumn = _getPKColumn();
 
 		String methodName = entityColumn.getMethodName();
@@ -711,6 +797,16 @@ public class Entity implements Comparable<Entity> {
 				-1) &&
 			(_columnList.indexOf(new EntityColumn("right" + methodName)) !=
 				-1)) {
+=======
+		EntityColumn col = _getPKColumn();
+
+		if ((_columnList.indexOf(
+				new EntityColumn("parent" + col.getMethodName())) != -1) &&
+			(_columnList.indexOf(
+				new EntityColumn("left" + col.getMethodName())) != -1) &&
+			(_columnList.indexOf(
+				new EntityColumn("right" + col.getMethodName())) != -1)) {
+>>>>>>> compatible
 
 			return true;
 		}
@@ -724,8 +820,13 @@ public class Entity implements Comparable<Entity> {
 	}
 
 	public boolean isLocalizedModel() {
+<<<<<<< HEAD
 		for (EntityColumn entityColumn : _columnList) {
 			if (entityColumn.isLocalized()) {
+=======
+		for (EntityColumn col : _columnList) {
+			if (col.isLocalized()) {
+>>>>>>> compatible
 				return true;
 			}
 		}
@@ -757,10 +858,15 @@ public class Entity implements Comparable<Entity> {
 	}
 
 	public boolean isPermissionCheckEnabled(EntityFinder finder) {
+<<<<<<< HEAD
 		String finderName = finder.getName();
 
 		if (_name.equals("Group") || _name.equals("User") ||
 			finderName.equals("UUID_G") || !finder.isCollection() ||
+=======
+		if (_name.equals("Group") || _name.equals("User") ||
+			finder.getName().equals("UUID_G") || !finder.isCollection() ||
+>>>>>>> compatible
 			!hasPrimitivePK() || !_resourceActionModel) {
 
 			return false;
@@ -770,9 +876,15 @@ public class Entity implements Comparable<Entity> {
 			return false;
 		}
 
+<<<<<<< HEAD
 		EntityColumn entityColumn = _getPKColumn();
 
 		return StringUtil.equalsIgnoreCase("long", entityColumn.getType());
+=======
+		EntityColumn col = _getPKColumn();
+
+		return StringUtil.equalsIgnoreCase("long", col.getType());
+>>>>>>> compatible
 	}
 
 	public boolean isPermissionedModel() {

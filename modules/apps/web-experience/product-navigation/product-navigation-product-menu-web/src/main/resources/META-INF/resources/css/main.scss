@@ -4,6 +4,7 @@
 .product-menu {
 	.sidebar-header {
 		line-height: 32px;
+<<<<<<< HEAD
 		padding-bottom: 8px;
 		padding-right: 9px;
 		padding-top: 8px;
@@ -12,6 +13,16 @@
 			padding-bottom: 12px;
 			padding-left: 24px;
 			padding-top: 12px;
+=======
+		padding-bottom: 10px;
+		padding-right: 9px;
+		padding-top: 12px;
+
+		@include sm() {
+			padding-bottom: 16px;
+			padding-left: 24px;
+			padding-top: 16px;
+>>>>>>> compatible
 		}
 
 		.sidenav-close {
@@ -40,10 +51,13 @@
 			overflow: visible;
 			position: static;
 		}
+<<<<<<< HEAD
 
 		.panel-group {
 			border-radius: 0;
 		}
+=======
+>>>>>>> compatible
 	}
 
 	.user-icon {

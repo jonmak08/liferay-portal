@@ -35,9 +35,17 @@ TrashHandler trashHandler = trashDisplayContext.getTrashHandler();
 		<h4><%= HtmlUtil.escape(trashRenderer.getTitle(locale)) %></h4>
 	</div>
 
+<<<<<<< HEAD
 	<clay:navigation-bar
 		items="<%= trashDisplayContext.getInfoPanelNavigationItems() %>"
 	/>
+=======
+	<aui:nav-bar cssClass="navbar-no-collapse" markupView="lexicon">
+		<aui:nav collapsible="<%= false %>" cssClass="navbar-nav">
+			<aui:nav-item label="details" selected="<%= true %>" />
+		</aui:nav>
+	</aui:nav-bar>
+>>>>>>> compatible
 
 	<div class="sidebar-body">
 		<h5><liferay-ui:message key="num-of-items" /></h5>

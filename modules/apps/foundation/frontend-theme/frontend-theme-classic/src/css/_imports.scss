@@ -1,7 +1,21 @@
+<<<<<<< HEAD
 @import "clay_custom";
+=======
+@import "aui_custom";
+>>>>>>> compatible
 
 @import "bourbon";
 
 @import "mixins";
 
+<<<<<<< HEAD
 @import "clay/atlas-variables";
+=======
+@import "aui/lexicon/atlas-variables";
+
+@import "aui/lexicon/bootstrap/mixins";
+
+@import "aui/lexicon/lexicon-base/mixins";
+
+@import "aui/lexicon/atlas-theme/mixins";
+>>>>>>> compatible

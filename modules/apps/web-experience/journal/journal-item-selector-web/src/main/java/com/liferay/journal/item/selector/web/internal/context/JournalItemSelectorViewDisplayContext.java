@@ -14,6 +14,7 @@
 
 package com.liferay.journal.item.selector.web.internal.context;
 
+<<<<<<< HEAD
 import com.liferay.item.selector.ItemSelectorReturnTypeResolver;
 import com.liferay.item.selector.ItemSelectorReturnTypeResolverHandler;
 import com.liferay.journal.constants.JournalPortletKeys;
@@ -25,6 +26,13 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
 import com.liferay.portal.kernel.portlet.PortletURLUtil;
 import com.liferay.portal.kernel.repository.model.FileEntry;
+=======
+import com.liferay.journal.constants.JournalPortletKeys;
+import com.liferay.journal.item.selector.criterion.JournalItemSelectorCriterion;
+import com.liferay.journal.item.selector.web.internal.JournalItemSelectorView;
+import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
+import com.liferay.portal.kernel.portlet.PortletURLUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.repository.model.Folder;
 
 import java.util.Locale;
@@ -43,14 +51,20 @@ public class JournalItemSelectorViewDisplayContext {
 	public JournalItemSelectorViewDisplayContext(
 		JournalItemSelectorCriterion journalItemSelectorCriterion,
 		JournalItemSelectorView journalItemSelectorView,
+<<<<<<< HEAD
 		ItemSelectorReturnTypeResolverHandler
 			itemSelectorReturnTypeResolverHandler,
+=======
+>>>>>>> compatible
 		String itemSelectedEventName, boolean search, PortletURL portletURL) {
 
 		_journalItemSelectorCriterion = journalItemSelectorCriterion;
 		_journalItemSelectorView = journalItemSelectorView;
+<<<<<<< HEAD
 		_itemSelectorReturnTypeResolverHandler =
 			itemSelectorReturnTypeResolverHandler;
+=======
+>>>>>>> compatible
 		_itemSelectedEventName = itemSelectedEventName;
 		_search = search;
 		_portletURL = portletURL;
@@ -64,6 +78,7 @@ public class JournalItemSelectorViewDisplayContext {
 		return _itemSelectedEventName;
 	}
 
+<<<<<<< HEAD
 	public ItemSelectorReturnTypeResolver getItemSelectorReturnTypeResolver() {
 		return _itemSelectorReturnTypeResolverHandler.
 			getItemSelectorReturnTypeResolver(
@@ -76,6 +91,8 @@ public class JournalItemSelectorViewDisplayContext {
 			_journalItemSelectorCriterion.getResourcePrimKey());
 	}
 
+=======
+>>>>>>> compatible
 	public JournalItemSelectorCriterion getJournalItemSelectorCriterion() {
 		return _journalItemSelectorCriterion;
 	}
@@ -89,9 +106,12 @@ public class JournalItemSelectorViewDisplayContext {
 			_portletURL, liferayPortletResponse);
 
 		portletURL.setParameter(
+<<<<<<< HEAD
 			"resourcePrimKey",
 			String.valueOf(_journalItemSelectorCriterion.getResourcePrimKey()));
 		portletURL.setParameter(
+=======
+>>>>>>> compatible
 			"selectedTab", String.valueOf(getTitle(request.getLocale())));
 
 		return portletURL;
@@ -118,8 +138,11 @@ public class JournalItemSelectorViewDisplayContext {
 	}
 
 	private final String _itemSelectedEventName;
+<<<<<<< HEAD
 	private final ItemSelectorReturnTypeResolverHandler
 		_itemSelectorReturnTypeResolverHandler;
+=======
+>>>>>>> compatible
 	private final JournalItemSelectorCriterion _journalItemSelectorCriterion;
 	private final JournalItemSelectorView _journalItemSelectorView;
 	private final PortletURL _portletURL;

@@ -26,6 +26,7 @@ MBMessage message = MBMessageAttachmentsUtil.getMessage(fileEntry.getFileEntryId
 
 <liferay-ui:icon-menu direction="left-side" icon="<%= StringPool.BLANK %>" markupView="lexicon" message="<%= StringPool.BLANK %>" showWhenSingleIcon="<%= true %>">
 	<c:if test="<%= MBCategoryPermission.contains(permissionChecker, scopeGroupId, message.getCategoryId(), ActionKeys.ADD_FILE) %>">
+<<<<<<< HEAD
 		<portlet:actionURL name="/message_boards/edit_message_attachments" var="restoreEntryURL">
 			<portlet:param name="<%= Constants.CMD %>" value="<%= Constants.RESTORE %>" />
 			<portlet:param name="redirect" value="<%= currentURL %>" />
@@ -36,6 +37,27 @@ MBMessage message = MBMessageAttachmentsUtil.getMessage(fileEntry.getFileEntryId
 		<liferay-ui:icon
 			message="restore"
 			url="<%= restoreEntryURL %>"
+=======
+
+		<%
+		TrashEntry trashEntry = TrashEntryLocalServiceUtil.getEntry(DLFileEntry.class.getName(), fileEntry.getFileEntryId());
+		%>
+
+		<portlet:actionURL name="/message_boards/edit_message_attachments" var="restoreEntryURL">
+			<portlet:param name="<%= Constants.CMD %>" value="<%= Constants.RESTORE %>" />
+			<portlet:param name="redirect" value="<%= currentURL %>" />
+			<portlet:param name="trashEntryId" value="<%= String.valueOf(trashEntry.getEntryId()) %>" />
+		</portlet:actionURL>
+
+		<%
+		String taglibOnClick = "Liferay.fire('" + renderResponse.getNamespace() + "checkEntry', {trashEntryId: " + trashEntry.getEntryId() + ", uri: '" + restoreEntryURL.toString() + "'});";
+		%>
+
+		<liferay-ui:icon
+			message="restore"
+			onClick="<%= taglibOnClick %>"
+			url="javascript:;"
+>>>>>>> compatible
 		/>
 
 		<portlet:actionURL name="/message_boards/edit_message_attachments" var="deleteURL">

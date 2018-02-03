@@ -16,7 +16,11 @@ package com.liferay.blogs.item.selector.web.internal.display.context;
 
 import com.liferay.blogs.item.selector.criterion.BlogsItemSelectorCriterion;
 import com.liferay.blogs.item.selector.web.internal.BlogsItemSelectorView;
+<<<<<<< HEAD
 import com.liferay.blogs.service.BlogsEntryLocalService;
+=======
+import com.liferay.blogs.kernel.service.BlogsEntryLocalServiceUtil;
+>>>>>>> compatible
 import com.liferay.item.selector.ItemSelectorReturnTypeResolver;
 import com.liferay.item.selector.ItemSelectorReturnTypeResolverHandler;
 import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
@@ -43,8 +47,12 @@ public class BlogsItemSelectorViewDisplayContext {
 		BlogsItemSelectorView blogsItemSelectorView,
 		ItemSelectorReturnTypeResolverHandler
 			itemSelectorReturnTypeResolverHandler,
+<<<<<<< HEAD
 		String itemSelectedEventName, boolean search, PortletURL portletURL,
 		BlogsEntryLocalService blogsEntryLocalService) {
+=======
+		String itemSelectedEventName, boolean search, PortletURL portletURL) {
+>>>>>>> compatible
 
 		_blogsItemSelectorCriterion = blogsItemSelectorCriterion;
 		_blogsItemSelectorView = blogsItemSelectorView;
@@ -53,11 +61,19 @@ public class BlogsItemSelectorViewDisplayContext {
 		_itemSelectedEventName = itemSelectedEventName;
 		_search = search;
 		_portletURL = portletURL;
+<<<<<<< HEAD
 		_blogsEntryLocalService = blogsEntryLocalService;
 	}
 
 	public Folder fetchAttachmentsFolder(long userId, long groupId) {
 		return _blogsEntryLocalService.fetchAttachmentsFolder(userId, groupId);
+=======
+	}
+
+	public Folder fetchAttachmentsFolder(long userId, long groupId) {
+		return BlogsEntryLocalServiceUtil.fetchAttachmentsFolder(
+			userId, groupId);
+>>>>>>> compatible
 	}
 
 	public BlogsItemSelectorCriterion getBlogsItemSelectorCriterion() {
@@ -109,7 +125,10 @@ public class BlogsItemSelectorViewDisplayContext {
 		return _search;
 	}
 
+<<<<<<< HEAD
 	private final BlogsEntryLocalService _blogsEntryLocalService;
+=======
+>>>>>>> compatible
 	private final BlogsItemSelectorCriterion _blogsItemSelectorCriterion;
 	private final BlogsItemSelectorView _blogsItemSelectorView;
 	private final String _itemSelectedEventName;

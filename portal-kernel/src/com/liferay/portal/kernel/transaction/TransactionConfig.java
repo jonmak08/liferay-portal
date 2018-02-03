@@ -225,6 +225,7 @@ public class TransactionConfig {
 			return this;
 		}
 
+<<<<<<< HEAD
 		private static final Class<?>[] _EMPTY_CLASS_ARRAY = new Class<?>[0];
 
 		private Isolation _isolation = Isolation.DEFAULT;
@@ -233,6 +234,16 @@ public class TransactionConfig {
 		private Propagation _propagation = Propagation.REQUIRED;
 		private boolean _readOnly;
 		private Class<?>[] _rollbackForClasses = _EMPTY_CLASS_ARRAY;
+=======
+		private static final Class<?>[] _emptyClassArray = new Class<?>[0];
+
+		private Isolation _isolation = Isolation.DEFAULT;
+		private Class<?>[] _noRollbackForClasses = _emptyClassArray;
+		private String[] _noRollbackForClassNames = StringPool.EMPTY_ARRAY;
+		private Propagation _propagation = Propagation.REQUIRED;
+		private boolean _readOnly;
+		private Class<?>[] _rollbackForClasses = _emptyClassArray;
+>>>>>>> compatible
 		private String[] _rollbackForClassNames = StringPool.EMPTY_ARRAY;
 		private int _timeout = TransactionDefinition.TIMEOUT_DEFAULT;
 

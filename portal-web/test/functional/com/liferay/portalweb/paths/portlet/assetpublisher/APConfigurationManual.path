@@ -11,6 +11,14 @@
 <tr>
 	<td>ASSET_SELECTION_MANUAL_ASSET_ENTRIES_SELECT</td>
 	<td>//div[contains(@class,'edit-controls')]//a[@title='Select']</td>
+<<<<<<< HEAD
+=======
+	<td></td>
+</tr>
+<tr>
+	<td>ASSET_SELECTION_MANUAL_NONE</td>
+	<td>//div[@class='panel-body']//p</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>

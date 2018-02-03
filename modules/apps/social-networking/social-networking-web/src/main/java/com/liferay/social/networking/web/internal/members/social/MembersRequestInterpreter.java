@@ -31,6 +31,11 @@ import com.liferay.social.kernel.model.SocialRequestFeedEntry;
 import com.liferay.social.kernel.model.SocialRequestInterpreter;
 import com.liferay.social.kernel.service.SocialActivityLocalService;
 import com.liferay.social.networking.constants.SocialNetworkingPortletKeys;
+<<<<<<< HEAD
+=======
+import com.liferay.social.networking.members.social.MembersActivityKeys;
+import com.liferay.social.networking.members.social.MembersRequestKeys;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;

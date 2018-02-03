@@ -141,7 +141,11 @@ public class ReplaceSoyTranslationCommand extends BaseSoyJsCommand {
 		Pattern.compile("\\{\\$\\w+\\}");
 	private static final Pattern _pattern = Pattern.compile(
 		"var (MSG_EXTERNAL_\\d+(?:\\$\\$\\d+)?) = " +
+<<<<<<< HEAD
 			"goog\\.getMsg\\(\\s*'([\\w-\\.,()\\{\\}\\$]+)'" +
+=======
+			"goog\\.getMsg\\(\\s*'([\\w-\\{\\}\\$]+)'" +
+>>>>>>> compatible
 				"\\s*(?:,\\s*\\{([\\s\\S]+?)\\})?\\);");
 
 }

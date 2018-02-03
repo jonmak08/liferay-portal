@@ -17,7 +17,11 @@
 <%@ include file="/init.jsp" %>
 
 <%
+<<<<<<< HEAD
 List<DLFileRank> fileRanks = DLFileRankLocalServiceUtil.getFileRanks(scopeGroupId, user.getUserId());
+=======
+List<DLFileRank> fileRanks = DLAppLocalServiceUtil.getFileRanks(scopeGroupId, user.getUserId());
+>>>>>>> compatible
 %>
 
 <c:choose>

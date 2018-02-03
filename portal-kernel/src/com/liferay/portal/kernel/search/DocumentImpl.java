@@ -21,6 +21,11 @@ import com.liferay.portal.kernel.util.DateFormatFactoryUtil;
 import com.liferay.portal.kernel.util.FastDateFormatFactoryUtil;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.LocaleUtil;
+import com.liferay.portal.kernel.util.LocalizationUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.kernel.util.SetUtil;
@@ -55,6 +60,7 @@ import java.util.Set;
  */
 public class DocumentImpl implements Document {
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, replaced by {@link
 	 *             Field#getLocalizedName(Locale, String)}
@@ -80,6 +86,24 @@ public class DocumentImpl implements Document {
 	@Deprecated
 	public static String getSortableFieldName(String name) {
 		return Field.getSortableFieldName(name);
+=======
+	public static String getLocalizedName(Locale locale, String name) {
+		if (locale == null) {
+			return name;
+		}
+
+		String languageId = LocaleUtil.toLanguageId(locale);
+
+		return getLocalizedName(languageId, name);
+	}
+
+	public static String getLocalizedName(String languageId, String name) {
+		return LocalizationUtil.getLocalizedName(name, languageId);
+	}
+
+	public static String getSortableFieldName(String name) {
+		return name.concat(StringPool.UNDERLINE).concat(_SORTABLE_FIELD_SUFFIX);
+>>>>>>> compatible
 	}
 
 	public static String getSortFieldName(Sort sort, String scoreFieldName) {
@@ -99,7 +123,11 @@ public class DocumentImpl implements Document {
 			return scoreFieldName;
 		}
 
+<<<<<<< HEAD
 		return Field.getSortableFieldName(fieldName);
+=======
+		return getSortableFieldName(fieldName);
+>>>>>>> compatible
 	}
 
 	public static boolean isSortableFieldName(String name) {
@@ -130,14 +158,26 @@ public class DocumentImpl implements Document {
 			return;
 		}
 
+<<<<<<< HEAD
+=======
+		if (_dateFormat == null) {
+			_dateFormat = FastDateFormatFactoryUtil.getSimpleDateFormat(
+				_INDEX_DATE_FORMAT_PATTERN);
+		}
+
+>>>>>>> compatible
 		String[] datesString = new String[values.length];
 		Long[] datesTime = new Long[values.length];
 
 		for (int i = 0; i < values.length; i++) {
+<<<<<<< HEAD
 			Format dateFormat = _getDateFormat();
 
 			datesString[i] = dateFormat.format(values[i]);
 
+=======
+			datesString[i] = _dateFormat.format(values[i]);
+>>>>>>> compatible
 			datesTime[i] = values[i].getTime();
 		}
 
@@ -167,10 +207,14 @@ public class DocumentImpl implements Document {
 		Long[] datesTime = new Long[values.length];
 
 		for (int i = 0; i < values.length; i++) {
+<<<<<<< HEAD
 			Format dateFormat = _getDateFormat();
 
 			datesString[i] = dateFormat.format(values[i]);
 
+=======
+			datesString[i] = _dateFormat.format(values[i]);
+>>>>>>> compatible
 			datesTime[i] = values[i].getTime();
 		}
 
@@ -781,7 +825,23 @@ public class DocumentImpl implements Document {
 		String portletId, String field1, String field2, String field3,
 		String field4) {
 
+<<<<<<< HEAD
 		String uid = Field.getUID(portletId, field1, field2, field3, field4);
+=======
+		String uid = portletId + _UID_PORTLET + field1;
+
+		if (field2 != null) {
+			uid += _UID_FIELD + field2;
+		}
+
+		if (field3 != null) {
+			uid += _UID_FIELD + field3;
+		}
+
+		if (field4 != null) {
+			uid += _UID_FIELD + field4;
+		}
+>>>>>>> compatible
 
 		addKeyword(Field.UID, uid);
 	}
@@ -801,7 +861,11 @@ public class DocumentImpl implements Document {
 			return get(name);
 		}
 
+<<<<<<< HEAD
 		String localizedName = Field.getLocalizedName(locale, name);
+=======
+		String localizedName = getLocalizedName(locale, name);
+>>>>>>> compatible
 
 		Field field = getField(localizedName);
 
@@ -822,12 +886,20 @@ public class DocumentImpl implements Document {
 			return get(name, defaultName);
 		}
 
+<<<<<<< HEAD
 		String localizedName = Field.getLocalizedName(locale, name);
+=======
+		String localizedName = getLocalizedName(locale, name);
+>>>>>>> compatible
 
 		Field field = getField(localizedName);
 
 		if (field == null) {
+<<<<<<< HEAD
 			localizedName = Field.getLocalizedName(locale, defaultName);
+=======
+			localizedName = getLocalizedName(locale, defaultName);
+>>>>>>> compatible
 
 			field = getField(localizedName);
 		}
@@ -1061,7 +1133,11 @@ public class DocumentImpl implements Document {
 			name = name.concat(StringPool.UNDERLINE).concat("Number");
 		}
 
+<<<<<<< HEAD
 		Field field = createField(Field.getSortableFieldName(name), value);
+=======
+		Field field = createField(getSortableFieldName(name), value);
+>>>>>>> compatible
 
 		field.setNumeric(true);
 		field.setNumericClass(clazz);
@@ -1148,8 +1224,12 @@ public class DocumentImpl implements Document {
 				0, _SORTABLE_TEXT_FIELDS_TRUNCATED_LENGTH);
 		}
 
+<<<<<<< HEAD
 		createKeywordField(
 			Field.getSortableFieldName(name), truncatedValue, true);
+=======
+		createKeywordField(getSortableFieldName(name), truncatedValue, true);
+>>>>>>> compatible
 	}
 
 	private void _createSortableTextField(
@@ -1163,6 +1243,7 @@ public class DocumentImpl implements Document {
 			name, typify, Collections.min(Arrays.<String>asList(values)));
 	}
 
+<<<<<<< HEAD
 	private Format _getDateFormat() {
 		if (_dateFormat == null) {
 			_dateFormat = FastDateFormatFactoryUtil.getSimpleDateFormat(
@@ -1172,6 +1253,8 @@ public class DocumentImpl implements Document {
 		return _dateFormat;
 	}
 
+=======
+>>>>>>> compatible
 	private static final String _INDEX_DATE_FORMAT_PATTERN = PropsUtil.get(
 		PropsKeys.INDEX_DATE_FORMAT_PATTERN);
 

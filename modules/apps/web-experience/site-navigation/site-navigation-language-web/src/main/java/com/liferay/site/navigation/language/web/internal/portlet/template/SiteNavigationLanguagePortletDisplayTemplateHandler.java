@@ -14,7 +14,10 @@
 
 package com.liferay.site.navigation.language.web.internal.portlet.template;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.portletdisplaytemplate.BasePortletDisplayTemplateHandler;
@@ -23,9 +26,17 @@ import com.liferay.portal.kernel.template.TemplateHandler;
 import com.liferay.portal.kernel.template.TemplateVariableGroup;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
+<<<<<<< HEAD
 import com.liferay.portlet.display.template.PortletDisplayTemplateConstants;
 import com.liferay.site.navigation.language.constants.SiteNavigationLanguagePortletKeys;
 import com.liferay.site.navigation.language.web.configuration.SiteNavigationLanguageWebTemplateConfiguration;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portlet.display.template.PortletDisplayTemplateConstants;
+import com.liferay.site.navigation.language.web.configuration.SiteNavigationLanguageWebConfigurationValues;
+import com.liferay.site.navigation.language.web.configuration.SiteNavigationLanguageWebTemplateConfiguration;
+import com.liferay.site.navigation.language.web.constants.SiteNavigationLanguagePortletKeys;
+>>>>>>> compatible
 
 import java.util.List;
 import java.util.Locale;
@@ -109,8 +120,13 @@ public class SiteNavigationLanguagePortletDisplayTemplateHandler
 
 	@Override
 	protected String getTemplatesConfigPath() {
+<<<<<<< HEAD
 		return "com/liferay/site/navigation/language/web/portlet/template" +
 			"/dependencies/portlet-display-templates.xml";
+=======
+		return SiteNavigationLanguageWebConfigurationValues.
+			DISPLAY_TEMPLATES_CONFIG;
+>>>>>>> compatible
 	}
 
 	@Reference

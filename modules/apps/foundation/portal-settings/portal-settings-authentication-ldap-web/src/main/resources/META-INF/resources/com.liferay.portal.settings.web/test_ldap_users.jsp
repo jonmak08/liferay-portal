@@ -45,7 +45,15 @@ if (ldapContext == null) {
 
 FullNameDefinition fullNameDefinition = FullNameDefinitionFactory.getInstance(locale);
 
+<<<<<<< HEAD
 if (Validator.isNull(ParamUtil.getString(request, "userMappingScreenName")) || Validator.isNull(ParamUtil.getString(request, "userMappingPassword")) || (Validator.isNull(ParamUtil.getString(request, "userMappingEmailAddress")) && PropsValues.USERS_EMAIL_ADDRESS_REQUIRED) || Validator.isNull(ParamUtil.getString(request, "userMappingFirstName")) || (Validator.isNull(ParamUtil.getString(request, "userMappingLastName")) && fullNameDefinition.isFieldRequired("last-name"))) {
+=======
+if (Validator.isNull(ParamUtil.getString(request, "userMappingScreenName")) ||
+	Validator.isNull(ParamUtil.getString(request, "userMappingPassword")) ||
+	(Validator.isNull(ParamUtil.getString(request, "userMappingEmailAddress")) && PropsValues.USERS_EMAIL_ADDRESS_REQUIRED) ||
+	Validator.isNull(ParamUtil.getString(request, "userMappingFirstName")) ||
+	(Validator.isNull(ParamUtil.getString(request, "userMappingLastName")) && fullNameDefinition.isFieldRequired("last-name"))) {
+>>>>>>> compatible
 %>
 
 	<liferay-ui:message key="please-map-each-of-the-user-properties-screen-name,-password,-email-address,-first-name,-and-last-name-to-an-ldap-attribute" />

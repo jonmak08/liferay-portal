@@ -15,7 +15,11 @@
 package com.liferay.message.boards.web.internal.messaging;
 
 import com.liferay.message.boards.configuration.MBConfiguration;
+<<<<<<< HEAD
 import com.liferay.message.boards.service.MBBanLocalService;
+=======
+import com.liferay.message.boards.kernel.service.MBBanLocalService;
+>>>>>>> compatible
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
 import com.liferay.portal.kernel.messaging.BaseMessageListener;
 import com.liferay.portal.kernel.messaging.DestinationNames;

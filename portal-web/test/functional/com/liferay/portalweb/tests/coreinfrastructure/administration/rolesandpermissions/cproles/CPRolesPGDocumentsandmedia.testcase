@@ -28,7 +28,11 @@
 
 				<execute macro="Site#tearDownCP" />
 
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP" />
+=======
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 
 				<execute macro="DMFolder#tearDownCP" />
 
@@ -38,12 +42,20 @@
 	</tear-down>
 
 	<command name="AddDMDocumentRegRoleDefaultPermissions" priority="5">
+<<<<<<< HEAD
 		<property name="portal.acceptance" value="false" />
+=======
+		<property name="portal.acceptance" value="true" />
+>>>>>>> compatible
 
 		<execute macro="Permissions#setUpRegRolePG">
 			<var name="pageName" value="Documents and Media Page" />
 			<var name="portletName" value="Documents and Media" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="Regrole Name" />
+=======
+			<var name="roleName" value="Regrole Name" />
+>>>>>>> compatible
 			<var name="userEmailAddress" value="userea@liferay.com" />
 			<var name="userFirstName" value="userfn" />
 			<var name="userLastName" value="userln" />
@@ -63,22 +75,37 @@
 	</command>
 
 	<command name="AddDMDocumentRegRoleDefinePermissions" priority="5">
+<<<<<<< HEAD
 		<property name="portal.acceptance" value="false" />
+=======
+		<property name="portal.acceptance" value="true" />
+>>>>>>> compatible
 
 		<execute macro="Permissions#setUpRegRolePG">
 			<var name="pageName" value="Documents and Media Page" />
 			<var name="portletName" value="Documents and Media" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="Regrole Name" />
+=======
+			<var name="roleName" value="Regrole Name" />
+>>>>>>> compatible
 			<var name="userEmailAddress" value="userea@liferay.com" />
 			<var name="userFirstName" value="userfn" />
 			<var name="userLastName" value="userln" />
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Permissions#definePermissionViaJSONAPI">
 			<var name="resourceAction" value="ADD_DOCUMENT" />
 			<var name="resourceName" value="com.liferay.document.library" />
 			<var name="roleTitle" value="Regrole Name" />
+=======
+		<execute macro="Permissions#definePermissionCP">
+			<var name="permissionDefinitionKey" value="SITE_ADMIN_CONTENT_DOCUMENTS_AND_MEDIA_RESOURCE_PERMISSIONS_DOCUMENTS_ADD_DOCUMENT_CHECKBOX" />
+			<var name="permissionDefinitionValue" value="Add Document" />
+			<var name="roleName" value="Regrole Name" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
@@ -100,10 +127,17 @@
 			<var name="userLoginFullName" value="Test Test" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Permissions#removePermissionViaAPI">
 			<var name="resourceAction" value="ADD_DOCUMENT" />
 			<var name="resourceName" value="com.liferay.document.library" />
 			<var name="roleTitle" value="Regrole Name" />
+=======
+		<execute macro="Permissions#removePermissionCP">
+			<var name="permissionDefinitionKey" value="SITE_ADMIN_CONTENT_DOCUMENTS_AND_MEDIA_RESOURCE_PERMISSIONS_DOCUMENTS_ADD_DOCUMENT_CHECKBOX" />
+			<var name="permissionDefinitionValue" value="Add Document" />
+			<var name="roleName" value="Regrole Name" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
@@ -161,7 +195,11 @@
 
 		<execute macro="Role#removePermissionPG">
 			<var name="permissionDefinitionKey" value="INLINE_PERMISSIONS_ADD_DOCUMENT_CHECKBOX" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="Site Member" />
+=======
+			<var name="roleName" value="Site Member" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
@@ -195,7 +233,11 @@
 
 		<execute macro="Role#definePermissionPG">
 			<var name="permissionDefinitionKey" value="INLINE_PERMISSIONS_ADD_DOCUMENT_CHECKBOX" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="Site Member" />
+=======
+			<var name="roleName" value="Site Member" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
@@ -219,7 +261,11 @@
 			<var name="page" value="Public Pages" />
 			<var name="pageName" value="Documents and Media Page" />
 			<var name="portletName" value="Documents and Media" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="Roles Siterole Name" />
+=======
+			<var name="roleName" value="Roles Siterole Name" />
+>>>>>>> compatible
 			<var name="roleType" value="Site" />
 			<var name="siteName" value="Site Name" />
 			<var name="userEmailAddress" value="userea@liferay.com" />
@@ -238,7 +284,11 @@
 
 		<execute macro="Role#removePermissionPG">
 			<var name="permissionDefinitionKey" value="INLINE_PERMISSIONS_ADD_DOCUMENT_CHECKBOX" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="Site Member" />
+=======
+			<var name="roleName" value="Site Member" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
@@ -259,6 +309,7 @@
 			<var name="key_menuItem" value="Basic Document" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="User#logoutAndLoginPG">
 			<var name="userLoginEmailAddress" value="test@liferay.com" />
 			<var name="userLoginFullName" value="Test Test" />
@@ -272,6 +323,13 @@
 		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
+=======
+		<execute macro="Permissions#definePermissionLoginUserCP">
+			<var name="permissionDefinitionKey" value="SITE_ADMIN_CONTENT_DOCUMENTS_AND_MEDIA_RESOURCE_PERMISSIONS_DOCUMENTS_ADD_DOCUMENT_CHECKBOX" />
+			<var name="permissionDefinitionValue" value="Add Document" />
+			<var name="roleName" value="Roles Siterole Name" />
+			<var name="roleType" value="Site" />
+>>>>>>> compatible
 			<var name="userLoginEmailAddress" value="userea@liferay.com" />
 			<var name="userLoginFullName" value="userfn userln" />
 		</execute>
@@ -286,6 +344,7 @@
 			<var name="dmDocumentTitle" value="Document_1.doc" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="User#logoutAndLoginPG">
 			<var name="userLoginEmailAddress" value="test@liferay.com" />
 			<var name="userLoginFullName" value="Test Test" />
@@ -299,6 +358,13 @@
 		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
+=======
+		<execute macro="Permissions#removePermissionLoginUserCP">
+			<var name="permissionDefinitionKey" value="SITE_ADMIN_CONTENT_DOCUMENTS_AND_MEDIA_RESOURCE_PERMISSIONS_DOCUMENTS_ADD_DOCUMENT_CHECKBOX" />
+			<var name="permissionDefinitionValue" value="Add Document" />
+			<var name="roleName" value="Roles Siterole Name" />
+			<var name="roleType" value="Site" />
+>>>>>>> compatible
 			<var name="userLoginEmailAddress" value="userea@liferay.com" />
 			<var name="userLoginFullName" value="userfn userln" />
 		</execute>
@@ -318,12 +384,20 @@
 	</command>
 
 	<command name="DeleteDMFolderRegRoleInline" priority="5">
+<<<<<<< HEAD
+=======
+		<property name="portal.acceptance" value="true" />
+>>>>>>> compatible
 		<property name="testray.component.names" value="Training" />
 
 		<execute macro="Permissions#setUpRegRoleLoginUserPG">
 			<var name="pageName" value="Documents and Media Page" />
 			<var name="portletName" value="Documents and Media" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="Regrole Name" />
+=======
+			<var name="roleName" value="Regrole Name" />
+>>>>>>> compatible
 			<var name="userEmailAddress" value="userea@liferay.com" />
 			<var name="userFirstName" value="userfn" />
 			<var name="userLastName" value="userln" />
@@ -340,26 +414,40 @@
 			<var name="userLoginFullName" value="userfn userln" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="User#logoutAndLoginPG">
 			<var name="userLoginEmailAddress" value="test@liferay.com" />
 			<var name="userLoginFullName" value="Test Test" />
 		</execute>
 
+=======
+>>>>>>> compatible
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="DMDocument#enableActionsMenuOnPortlet" />
 
 		<execute macro="User#logoutAndLoginPG">
 			<var name="userLoginEmailAddress" value="userea@liferay.com" />
 			<var name="userLoginFullName" value="userfn userln" />
+=======
+		<var name="key_dmFolderName" value="DM Folder Name" />
+
+		<execute function="AssertElementNotPresent" locator1="DocumentsAndMedia#ICON_FOLDER_CHECKBOX" />
+
+		<execute macro="User#logoutAndLoginPG">
+			<var name="userLoginEmailAddress" value="test@liferay.com" />
+			<var name="userLoginFullName" value="Test Test" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute function="AssertTextEquals" locator1="DocumentsAndMedia#DESCRIPTIVE_LIST_FOLDER_TITLE" value1="DM Folder Name">
 			<var name="key_dmFolderName" value="DM Folder Name" />
 		</execute>
@@ -376,6 +464,9 @@
 			<var name="userLoginEmailAddress" value="test@liferay.com" />
 			<var name="userLoginFullName" value="Test Test" />
 		</execute>
+=======
+		<execute macro="DMDocument#enableActionsMenuOnPortlet" />
+>>>>>>> compatible
 
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Documents and Media Page" />
@@ -387,7 +478,11 @@
 
 		<execute macro="Role#definePermissionPG">
 			<var name="permissionDefinitionKey" value="CONTENT_PERMISSIONS_DELETE_CHECKBOX" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="Regrole Name" />
+=======
+			<var name="roleName" value="Regrole Name" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="User#logoutAndLoginPG">
@@ -408,6 +503,7 @@
 			<var name="userLoginFullName" value="Test Test" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Documents and Media Page" />
 		</execute>
@@ -438,10 +534,21 @@
 
 		<execute macro="DMDocument#enableActionsMenuOnPortlet" />
 
+=======
+		<execute macro="Permissions#addDMFolderLoginUserPG">
+			<var name="dmFolderDescription" value="DM Folder Description" />
+			<var name="dmFolderName" value="DM Folder Name" />
+			<var name="pageName" value="Documents and Media Page" />
+			<var name="userLoginEmailAddress" value="test@liferay.com" />
+			<var name="userLoginFullName" value="Test Test" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="DMDocument#addPG">
 			<var name="dmDocumentFile" value="Document_1.doc" />
 			<var name="dmDocumentTitle" value="Document_1.doc" />
@@ -458,11 +565,27 @@
 		</execute>
 
 		<execute macro="User#logoutPG" />
+=======
+		<execute macro="DMNavigator#gotoFolderPermissions">
+			<var name="dmFolderName" value="DM Folder Name" />
+		</execute>
+
+		<execute macro="Role#removePermissionPG">
+			<var name="permissionDefinitionKey" value="CONTENT_PERMISSIONS_DELETE_CHECKBOX" />
+			<var name="roleName" value="Regrole Name" />
+		</execute>
+
+		<execute macro="User#logoutAndLoginPG">
+			<var name="userLoginEmailAddress" value="userea@liferay.com" />
+			<var name="userLoginFullName" value="userfn userln" />
+		</execute>
+>>>>>>> compatible
 
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Portlet#changeDisplayStyle">
 			<var name="displayStyle" value="list" />
 		</execute>
@@ -482,6 +605,15 @@
 		</execute>
 
 		<execute macro="Navigator#gotoPage">
+=======
+		<var name="key_dmFolderName" value="DM Folder Name" />
+
+		<execute function="AssertElementNotPresent" locator1="DocumentsAndMedia#ICON_FOLDER_CHECKBOX" />
+	</command>
+
+	<command name="ViewDMFolderGuestInline" priority="4">
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
@@ -504,6 +636,7 @@
 			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Portlet#changeDisplayStyle">
 			<var name="displayStyle" value="descriptive" />
 		</execute>
@@ -511,6 +644,11 @@
 		<var name="key_dmFolderName" value="DM Folder Name" />
 
 		<execute function="AssertClick" locator1="DocumentsAndMedia#DESCRIPTIVE_LIST_FOLDER_TITLE" value1="DM Folder Name" />
+=======
+		<var name="key_dmFolderName" value="DM Folder Name" />
+
+		<execute function="AssertClick" locator1="DocumentsAndMedia#ICON_FOLDER_TITLE" value1="DM Folder Name" />
+>>>>>>> compatible
 
 		<var method="StringUtil#upperCase('DM Folder Name')" name="dmFolderNameUpperCase" />
 
@@ -538,7 +676,11 @@
 
 		<execute macro="Role#removePermissionPG">
 			<var name="permissionDefinitionKey" value="CONTENT_PERMISSIONS_VIEW_CHECKBOX" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="Guest" />
+=======
+			<var name="roleName" value="Guest" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="User#logoutPG" />
@@ -565,7 +707,11 @@
 
 		<execute macro="Role#definePermissionPG">
 			<var name="permissionDefinitionKey" value="CONTENT_PERMISSIONS_VIEW_CHECKBOX" />
+<<<<<<< HEAD
 			<var name="roleTitle" value="Guest" />
+=======
+			<var name="roleName" value="Guest" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="User#logoutPG" />
@@ -574,6 +720,7 @@
 			<var name="pageName" value="Documents and Media Page" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Portlet#changeDisplayStyle">
 			<var name="displayStyle" value="descriptive" />
 		</execute>
@@ -581,6 +728,11 @@
 		<var name="key_dmFolderName" value="DM Folder Name" />
 
 		<execute function="AssertClick" locator1="DocumentsAndMedia#DESCRIPTIVE_LIST_FOLDER_TITLE" value1="DM Folder Name" />
+=======
+		<var name="key_dmFolderName" value="DM Folder Name" />
+
+		<execute function="AssertClick" locator1="DocumentsAndMedia#ICON_FOLDER_TITLE" value1="DM Folder Name" />
+>>>>>>> compatible
 
 		<var method="StringUtil#upperCase('DM Folder Name')" name="dmFolderNameUpperCase" />
 

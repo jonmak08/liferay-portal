@@ -26,6 +26,10 @@ import com.liferay.journal.model.JournalArticleModel;
 import com.liferay.journal.model.JournalArticleSoap;
 
 import com.liferay.portal.kernel.bean.AutoEscapeBeanHandler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.exception.LocaleException;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.NoSuchModelException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.json.JSON;
@@ -37,9 +41,18 @@ import com.liferay.portal.kernel.model.impl.BaseModelImpl;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.LocaleUtil;
+import com.liferay.portal.kernel.util.LocalizationUtil;
+import com.liferay.portal.kernel.util.PortalUtil;
+import com.liferay.portal.kernel.util.ProxyUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 
@@ -51,7 +64,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Map;
+=======
+import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
+>>>>>>> compatible
 
 /**
  * The base model implementation for the JournalArticle service. Represents a row in the &quot;JournalArticle&quot; database table, with each column mapped to a property of this class.
@@ -92,11 +112,20 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 			{ "treePath", Types.VARCHAR },
 			{ "articleId", Types.VARCHAR },
 			{ "version", Types.DOUBLE },
+<<<<<<< HEAD
 			{ "urlTitle", Types.VARCHAR },
 			{ "content", Types.CLOB },
 			{ "DDMStructureKey", Types.VARCHAR },
 			{ "DDMTemplateKey", Types.VARCHAR },
 			{ "defaultLanguageId", Types.VARCHAR },
+=======
+			{ "title", Types.VARCHAR },
+			{ "urlTitle", Types.VARCHAR },
+			{ "description", Types.CLOB },
+			{ "content", Types.CLOB },
+			{ "DDMStructureKey", Types.VARCHAR },
+			{ "DDMTemplateKey", Types.VARCHAR },
+>>>>>>> compatible
 			{ "layoutUuid", Types.VARCHAR },
 			{ "displayDate", Types.TIMESTAMP },
 			{ "expirationDate", Types.TIMESTAMP },
@@ -129,11 +158,20 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 		TABLE_COLUMNS_MAP.put("treePath", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("articleId", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("version", Types.DOUBLE);
+<<<<<<< HEAD
 		TABLE_COLUMNS_MAP.put("urlTitle", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("content", Types.CLOB);
 		TABLE_COLUMNS_MAP.put("DDMStructureKey", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("DDMTemplateKey", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("defaultLanguageId", Types.VARCHAR);
+=======
+		TABLE_COLUMNS_MAP.put("title", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("urlTitle", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("description", Types.CLOB);
+		TABLE_COLUMNS_MAP.put("content", Types.CLOB);
+		TABLE_COLUMNS_MAP.put("DDMStructureKey", Types.VARCHAR);
+		TABLE_COLUMNS_MAP.put("DDMTemplateKey", Types.VARCHAR);
+>>>>>>> compatible
 		TABLE_COLUMNS_MAP.put("layoutUuid", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("displayDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("expirationDate", Types.TIMESTAMP);
@@ -149,7 +187,11 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 		TABLE_COLUMNS_MAP.put("statusDate", Types.TIMESTAMP);
 	}
 
+<<<<<<< HEAD
 	public static final String TABLE_SQL_CREATE = "create table JournalArticle (uuid_ VARCHAR(75) null,id_ LONG not null primary key,resourcePrimKey LONG,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,folderId LONG,classNameId LONG,classPK LONG,treePath STRING null,articleId VARCHAR(75) null,version DOUBLE,urlTitle VARCHAR(150) null,content TEXT null,DDMStructureKey VARCHAR(75) null,DDMTemplateKey VARCHAR(75) null,defaultLanguageId VARCHAR(75) null,layoutUuid VARCHAR(75) null,displayDate DATE null,expirationDate DATE null,reviewDate DATE null,indexable BOOLEAN,smallImage BOOLEAN,smallImageId LONG,smallImageURL STRING null,lastPublishDate DATE null,status INTEGER,statusByUserId LONG,statusByUserName VARCHAR(75) null,statusDate DATE null)";
+=======
+	public static final String TABLE_SQL_CREATE = "create table JournalArticle (uuid_ VARCHAR(75) null,id_ LONG not null primary key,resourcePrimKey LONG,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,folderId LONG,classNameId LONG,classPK LONG,treePath STRING null,articleId VARCHAR(75) null,version DOUBLE,title STRING null,urlTitle VARCHAR(150) null,description TEXT null,content TEXT null,DDMStructureKey VARCHAR(75) null,DDMTemplateKey VARCHAR(75) null,layoutUuid VARCHAR(75) null,displayDate DATE null,expirationDate DATE null,reviewDate DATE null,indexable BOOLEAN,smallImage BOOLEAN,smallImageId LONG,smallImageURL STRING null,lastPublishDate DATE null,status INTEGER,statusByUserId LONG,statusByUserName VARCHAR(75) null,statusDate DATE null)";
+>>>>>>> compatible
 	public static final String TABLE_SQL_DROP = "drop table JournalArticle";
 	public static final String ORDER_BY_JPQL = " ORDER BY journalArticle.articleId ASC, journalArticle.version DESC";
 	public static final String ORDER_BY_SQL = " ORDER BY JournalArticle.articleId ASC, JournalArticle.version DESC";
@@ -212,11 +254,20 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 		model.setTreePath(soapModel.getTreePath());
 		model.setArticleId(soapModel.getArticleId());
 		model.setVersion(soapModel.getVersion());
+<<<<<<< HEAD
 		model.setUrlTitle(soapModel.getUrlTitle());
 		model.setContent(soapModel.getContent());
 		model.setDDMStructureKey(soapModel.getDDMStructureKey());
 		model.setDDMTemplateKey(soapModel.getDDMTemplateKey());
 		model.setDefaultLanguageId(soapModel.getDefaultLanguageId());
+=======
+		model.setTitle(soapModel.getTitle());
+		model.setUrlTitle(soapModel.getUrlTitle());
+		model.setDescription(soapModel.getDescription());
+		model.setContent(soapModel.getContent());
+		model.setDDMStructureKey(soapModel.getDDMStructureKey());
+		model.setDDMTemplateKey(soapModel.getDDMTemplateKey());
+>>>>>>> compatible
 		model.setLayoutUuid(soapModel.getLayoutUuid());
 		model.setDisplayDate(soapModel.getDisplayDate());
 		model.setExpirationDate(soapModel.getExpirationDate());
@@ -309,11 +360,20 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 		attributes.put("treePath", getTreePath());
 		attributes.put("articleId", getArticleId());
 		attributes.put("version", getVersion());
+<<<<<<< HEAD
 		attributes.put("urlTitle", getUrlTitle());
 		attributes.put("content", getContent());
 		attributes.put("DDMStructureKey", getDDMStructureKey());
 		attributes.put("DDMTemplateKey", getDDMTemplateKey());
 		attributes.put("defaultLanguageId", getDefaultLanguageId());
+=======
+		attributes.put("title", getTitle());
+		attributes.put("urlTitle", getUrlTitle());
+		attributes.put("description", getDescription());
+		attributes.put("content", getContent());
+		attributes.put("DDMStructureKey", getDDMStructureKey());
+		attributes.put("DDMTemplateKey", getDDMTemplateKey());
+>>>>>>> compatible
 		attributes.put("layoutUuid", getLayoutUuid());
 		attributes.put("displayDate", getDisplayDate());
 		attributes.put("expirationDate", getExpirationDate());
@@ -426,12 +486,30 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 			setVersion(version);
 		}
 
+<<<<<<< HEAD
+=======
+		String title = (String)attributes.get("title");
+
+		if (title != null) {
+			setTitle(title);
+		}
+
+>>>>>>> compatible
 		String urlTitle = (String)attributes.get("urlTitle");
 
 		if (urlTitle != null) {
 			setUrlTitle(urlTitle);
 		}
 
+<<<<<<< HEAD
+=======
+		String description = (String)attributes.get("description");
+
+		if (description != null) {
+			setDescription(description);
+		}
+
+>>>>>>> compatible
 		String content = (String)attributes.get("content");
 
 		if (content != null) {
@@ -450,12 +528,15 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 			setDDMTemplateKey(DDMTemplateKey);
 		}
 
+<<<<<<< HEAD
 		String defaultLanguageId = (String)attributes.get("defaultLanguageId");
 
 		if (defaultLanguageId != null) {
 			setDefaultLanguageId(defaultLanguageId);
 		}
 
+=======
+>>>>>>> compatible
 		String layoutUuid = (String)attributes.get("layoutUuid");
 
 		if (layoutUuid != null) {
@@ -539,7 +620,11 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 	@Override
 	public String getUuid() {
 		if (_uuid == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _uuid;
@@ -671,7 +756,11 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -687,7 +776,11 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 	@Override
 	public String getUserName() {
 		if (_userName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _userName;
@@ -753,7 +846,11 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 	@Override
 	public String getClassName() {
 		if (getClassNameId() <= 0) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 
 		return PortalUtil.getClassName(getClassNameId());
@@ -820,7 +917,11 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 	@Override
 	public String getTreePath() {
 		if (_treePath == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _treePath;
@@ -836,7 +937,11 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 	@Override
 	public String getArticleId() {
 		if (_articleId == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _articleId;
@@ -883,9 +988,114 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 
 	@JSON
 	@Override
+<<<<<<< HEAD
 	public String getUrlTitle() {
 		if (_urlTitle == null) {
 			return "";
+=======
+	public String getTitle() {
+		if (_title == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _title;
+		}
+	}
+
+	@Override
+	public String getTitle(Locale locale) {
+		String languageId = LocaleUtil.toLanguageId(locale);
+
+		return getTitle(languageId);
+	}
+
+	@Override
+	public String getTitle(Locale locale, boolean useDefault) {
+		String languageId = LocaleUtil.toLanguageId(locale);
+
+		return getTitle(languageId, useDefault);
+	}
+
+	@Override
+	public String getTitle(String languageId) {
+		return LocalizationUtil.getLocalization(getTitle(), languageId);
+	}
+
+	@Override
+	public String getTitle(String languageId, boolean useDefault) {
+		return LocalizationUtil.getLocalization(getTitle(), languageId,
+			useDefault);
+	}
+
+	@Override
+	public String getTitleCurrentLanguageId() {
+		return _titleCurrentLanguageId;
+	}
+
+	@JSON
+	@Override
+	public String getTitleCurrentValue() {
+		Locale locale = getLocale(_titleCurrentLanguageId);
+
+		return getTitle(locale);
+	}
+
+	@Override
+	public Map<Locale, String> getTitleMap() {
+		return LocalizationUtil.getLocalizationMap(getTitle());
+	}
+
+	@Override
+	public void setTitle(String title) {
+		_title = title;
+	}
+
+	@Override
+	public void setTitle(String title, Locale locale) {
+		setTitle(title, locale, LocaleUtil.getSiteDefault());
+	}
+
+	@Override
+	public void setTitle(String title, Locale locale, Locale defaultLocale) {
+		String languageId = LocaleUtil.toLanguageId(locale);
+		String defaultLanguageId = LocaleUtil.toLanguageId(defaultLocale);
+
+		if (Validator.isNotNull(title)) {
+			setTitle(LocalizationUtil.updateLocalization(getTitle(), "Title",
+					title, languageId, defaultLanguageId));
+		}
+		else {
+			setTitle(LocalizationUtil.removeLocalization(getTitle(), "Title",
+					languageId));
+		}
+	}
+
+	@Override
+	public void setTitleCurrentLanguageId(String languageId) {
+		_titleCurrentLanguageId = languageId;
+	}
+
+	@Override
+	public void setTitleMap(Map<Locale, String> titleMap) {
+		setTitleMap(titleMap, LocaleUtil.getSiteDefault());
+	}
+
+	@Override
+	public void setTitleMap(Map<Locale, String> titleMap, Locale defaultLocale) {
+		if (titleMap == null) {
+			return;
+		}
+
+		setTitle(LocalizationUtil.updateLocalization(titleMap, getTitle(),
+				"Title", LocaleUtil.toLanguageId(defaultLocale)));
+	}
+
+	@JSON
+	@Override
+	public String getUrlTitle() {
+		if (_urlTitle == null) {
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _urlTitle;
@@ -909,9 +1119,118 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 
 	@JSON
 	@Override
+<<<<<<< HEAD
 	public String getContent() {
 		if (_content == null) {
 			return "";
+=======
+	public String getDescription() {
+		if (_description == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _description;
+		}
+	}
+
+	@Override
+	public String getDescription(Locale locale) {
+		String languageId = LocaleUtil.toLanguageId(locale);
+
+		return getDescription(languageId);
+	}
+
+	@Override
+	public String getDescription(Locale locale, boolean useDefault) {
+		String languageId = LocaleUtil.toLanguageId(locale);
+
+		return getDescription(languageId, useDefault);
+	}
+
+	@Override
+	public String getDescription(String languageId) {
+		return LocalizationUtil.getLocalization(getDescription(), languageId);
+	}
+
+	@Override
+	public String getDescription(String languageId, boolean useDefault) {
+		return LocalizationUtil.getLocalization(getDescription(), languageId,
+			useDefault);
+	}
+
+	@Override
+	public String getDescriptionCurrentLanguageId() {
+		return _descriptionCurrentLanguageId;
+	}
+
+	@JSON
+	@Override
+	public String getDescriptionCurrentValue() {
+		Locale locale = getLocale(_descriptionCurrentLanguageId);
+
+		return getDescription(locale);
+	}
+
+	@Override
+	public Map<Locale, String> getDescriptionMap() {
+		return LocalizationUtil.getLocalizationMap(getDescription());
+	}
+
+	@Override
+	public void setDescription(String description) {
+		_description = description;
+	}
+
+	@Override
+	public void setDescription(String description, Locale locale) {
+		setDescription(description, locale, LocaleUtil.getSiteDefault());
+	}
+
+	@Override
+	public void setDescription(String description, Locale locale,
+		Locale defaultLocale) {
+		String languageId = LocaleUtil.toLanguageId(locale);
+		String defaultLanguageId = LocaleUtil.toLanguageId(defaultLocale);
+
+		if (Validator.isNotNull(description)) {
+			setDescription(LocalizationUtil.updateLocalization(
+					getDescription(), "Description", description, languageId,
+					defaultLanguageId));
+		}
+		else {
+			setDescription(LocalizationUtil.removeLocalization(
+					getDescription(), "Description", languageId));
+		}
+	}
+
+	@Override
+	public void setDescriptionCurrentLanguageId(String languageId) {
+		_descriptionCurrentLanguageId = languageId;
+	}
+
+	@Override
+	public void setDescriptionMap(Map<Locale, String> descriptionMap) {
+		setDescriptionMap(descriptionMap, LocaleUtil.getSiteDefault());
+	}
+
+	@Override
+	public void setDescriptionMap(Map<Locale, String> descriptionMap,
+		Locale defaultLocale) {
+		if (descriptionMap == null) {
+			return;
+		}
+
+		setDescription(LocalizationUtil.updateLocalization(descriptionMap,
+				getDescription(), "Description",
+				LocaleUtil.toLanguageId(defaultLocale)));
+	}
+
+	@JSON
+	@Override
+	public String getContent() {
+		if (_content == null) {
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _content;
@@ -927,7 +1246,11 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 	@Override
 	public String getDDMStructureKey() {
 		if (_DDMStructureKey == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _DDMStructureKey;
@@ -953,7 +1276,11 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 	@Override
 	public String getDDMTemplateKey() {
 		if (_DDMTemplateKey == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _DDMTemplateKey;
@@ -977,6 +1304,7 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 
 	@JSON
 	@Override
+<<<<<<< HEAD
 	public String getDefaultLanguageId() {
 		if (_defaultLanguageId == null) {
 			return "";
@@ -996,6 +1324,11 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 	public String getLayoutUuid() {
 		if (_layoutUuid == null) {
 			return "";
+=======
+	public String getLayoutUuid() {
+		if (_layoutUuid == null) {
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _layoutUuid;
@@ -1133,7 +1466,11 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 	@Override
 	public String getSmallImageURL() {
 		if (_smallImageURL == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _smallImageURL;
@@ -1198,7 +1535,11 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -1210,7 +1551,11 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 	@Override
 	public String getStatusByUserName() {
 		if (_statusByUserName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _statusByUserName;
@@ -1233,6 +1578,12 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 		_statusDate = statusDate;
 	}
 
+<<<<<<< HEAD
+=======
+	public void setDefaultLanguageId(java.lang.String defaultLanguageId) {
+	}
+
+>>>>>>> compatible
 	public com.liferay.portal.kernel.xml.Document getDocument() {
 		return null;
 	}
@@ -1475,6 +1826,91 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 	}
 
 	@Override
+<<<<<<< HEAD
+=======
+	public String[] getAvailableLanguageIds() {
+		Set<String> availableLanguageIds = new TreeSet<String>();
+
+		Map<Locale, String> titleMap = getTitleMap();
+
+		for (Map.Entry<Locale, String> entry : titleMap.entrySet()) {
+			Locale locale = entry.getKey();
+			String value = entry.getValue();
+
+			if (Validator.isNotNull(value)) {
+				availableLanguageIds.add(LocaleUtil.toLanguageId(locale));
+			}
+		}
+
+		Map<Locale, String> descriptionMap = getDescriptionMap();
+
+		for (Map.Entry<Locale, String> entry : descriptionMap.entrySet()) {
+			Locale locale = entry.getKey();
+			String value = entry.getValue();
+
+			if (Validator.isNotNull(value)) {
+				availableLanguageIds.add(LocaleUtil.toLanguageId(locale));
+			}
+		}
+
+		return availableLanguageIds.toArray(new String[availableLanguageIds.size()]);
+	}
+
+	@Override
+	public String getDefaultLanguageId() {
+		String xml = getTitle();
+
+		if (xml == null) {
+			return StringPool.BLANK;
+		}
+
+		Locale defaultLocale = LocaleUtil.getSiteDefault();
+
+		return LocalizationUtil.getDefaultLanguageId(xml, defaultLocale);
+	}
+
+	@Override
+	public void prepareLocalizedFieldsForImport() throws LocaleException {
+		Locale defaultLocale = LocaleUtil.fromLanguageId(getDefaultLanguageId());
+
+		Locale[] availableLocales = LocaleUtil.fromLanguageIds(getAvailableLanguageIds());
+
+		Locale defaultImportLocale = LocalizationUtil.getDefaultImportLocale(JournalArticle.class.getName(),
+				getPrimaryKey(), defaultLocale, availableLocales);
+
+		prepareLocalizedFieldsForImport(defaultImportLocale);
+	}
+
+	@Override
+	@SuppressWarnings("unused")
+	public void prepareLocalizedFieldsForImport(Locale defaultImportLocale)
+		throws LocaleException {
+		Locale defaultLocale = LocaleUtil.getSiteDefault();
+
+		String modelDefaultLanguageId = getDefaultLanguageId();
+
+		String title = getTitle(defaultLocale);
+
+		if (Validator.isNull(title)) {
+			setTitle(getTitle(modelDefaultLanguageId), defaultLocale);
+		}
+		else {
+			setTitle(getTitle(defaultLocale), defaultLocale, defaultLocale);
+		}
+
+		String description = getDescription(defaultLocale);
+
+		if (Validator.isNull(description)) {
+			setDescription(getDescription(modelDefaultLanguageId), defaultLocale);
+		}
+		else {
+			setDescription(getDescription(defaultLocale), defaultLocale,
+				defaultLocale);
+		}
+	}
+
+	@Override
+>>>>>>> compatible
 	public JournalArticle toEscapedModel() {
 		if (_escapedModel == null) {
 			_escapedModel = (JournalArticle)ProxyUtil.newProxyInstance(_classLoader,
@@ -1503,11 +1939,20 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 		journalArticleImpl.setTreePath(getTreePath());
 		journalArticleImpl.setArticleId(getArticleId());
 		journalArticleImpl.setVersion(getVersion());
+<<<<<<< HEAD
 		journalArticleImpl.setUrlTitle(getUrlTitle());
 		journalArticleImpl.setContent(getContent());
 		journalArticleImpl.setDDMStructureKey(getDDMStructureKey());
 		journalArticleImpl.setDDMTemplateKey(getDDMTemplateKey());
 		journalArticleImpl.setDefaultLanguageId(getDefaultLanguageId());
+=======
+		journalArticleImpl.setTitle(getTitle());
+		journalArticleImpl.setUrlTitle(getUrlTitle());
+		journalArticleImpl.setDescription(getDescription());
+		journalArticleImpl.setContent(getContent());
+		journalArticleImpl.setDDMStructureKey(getDDMStructureKey());
+		journalArticleImpl.setDDMTemplateKey(getDDMTemplateKey());
+>>>>>>> compatible
 		journalArticleImpl.setLayoutUuid(getLayoutUuid());
 		journalArticleImpl.setDisplayDate(getDisplayDate());
 		journalArticleImpl.setExpirationDate(getExpirationDate());
@@ -1657,6 +2102,11 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 
 		journalArticleModelImpl._setOriginalStatus = false;
 
+<<<<<<< HEAD
+=======
+		setDefaultLanguageId(null);
+
+>>>>>>> compatible
 		setDocument(null);
 
 		journalArticleModelImpl._columnBitmask = 0;
@@ -1734,6 +2184,17 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 
 		journalArticleCacheModel.version = getVersion();
 
+<<<<<<< HEAD
+=======
+		journalArticleCacheModel.title = getTitle();
+
+		String title = journalArticleCacheModel.title;
+
+		if ((title != null) && (title.length() == 0)) {
+			journalArticleCacheModel.title = null;
+		}
+
+>>>>>>> compatible
 		journalArticleCacheModel.urlTitle = getUrlTitle();
 
 		String urlTitle = journalArticleCacheModel.urlTitle;
@@ -1742,6 +2203,17 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 			journalArticleCacheModel.urlTitle = null;
 		}
 
+<<<<<<< HEAD
+=======
+		journalArticleCacheModel.description = getDescription();
+
+		String description = journalArticleCacheModel.description;
+
+		if ((description != null) && (description.length() == 0)) {
+			journalArticleCacheModel.description = null;
+		}
+
+>>>>>>> compatible
 		journalArticleCacheModel.content = getContent();
 
 		String content = journalArticleCacheModel.content;
@@ -1766,6 +2238,7 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 			journalArticleCacheModel.DDMTemplateKey = null;
 		}
 
+<<<<<<< HEAD
 		journalArticleCacheModel.defaultLanguageId = getDefaultLanguageId();
 
 		String defaultLanguageId = journalArticleCacheModel.defaultLanguageId;
@@ -1774,6 +2247,8 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 			journalArticleCacheModel.defaultLanguageId = null;
 		}
 
+=======
+>>>>>>> compatible
 		journalArticleCacheModel.layoutUuid = getLayoutUuid();
 
 		String layoutUuid = journalArticleCacheModel.layoutUuid;
@@ -1853,6 +2328,11 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 			journalArticleCacheModel.statusDate = Long.MIN_VALUE;
 		}
 
+<<<<<<< HEAD
+=======
+		journalArticleCacheModel._defaultLanguageId = getDefaultLanguageId();
+
+>>>>>>> compatible
 		journalArticleCacheModel._document = getDocument();
 
 		return journalArticleCacheModel;
@@ -1860,7 +2340,11 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 
 	@Override
 	public String toString() {
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(67);
+=======
+		StringBundler sb = new StringBundler(69);
+>>>>>>> compatible
 
 		sb.append("{uuid=");
 		sb.append(getUuid());
@@ -1892,16 +2376,28 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 		sb.append(getArticleId());
 		sb.append(", version=");
 		sb.append(getVersion());
+<<<<<<< HEAD
 		sb.append(", urlTitle=");
 		sb.append(getUrlTitle());
+=======
+		sb.append(", title=");
+		sb.append(getTitle());
+		sb.append(", urlTitle=");
+		sb.append(getUrlTitle());
+		sb.append(", description=");
+		sb.append(getDescription());
+>>>>>>> compatible
 		sb.append(", content=");
 		sb.append(getContent());
 		sb.append(", DDMStructureKey=");
 		sb.append(getDDMStructureKey());
 		sb.append(", DDMTemplateKey=");
 		sb.append(getDDMTemplateKey());
+<<<<<<< HEAD
 		sb.append(", defaultLanguageId=");
 		sb.append(getDefaultLanguageId());
+=======
+>>>>>>> compatible
 		sb.append(", layoutUuid=");
 		sb.append(getLayoutUuid());
 		sb.append(", displayDate=");
@@ -1935,7 +2431,11 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 
 	@Override
 	public String toXmlString() {
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(103);
+=======
+		StringBundler sb = new StringBundler(106);
+>>>>>>> compatible
 
 		sb.append("<model><model-name>");
 		sb.append("com.liferay.journal.model.JournalArticle");
@@ -2002,10 +2502,24 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 		sb.append(getVersion());
 		sb.append("]]></column-value></column>");
 		sb.append(
+<<<<<<< HEAD
+=======
+			"<column><column-name>title</column-name><column-value><![CDATA[");
+		sb.append(getTitle());
+		sb.append("]]></column-value></column>");
+		sb.append(
+>>>>>>> compatible
 			"<column><column-name>urlTitle</column-name><column-value><![CDATA[");
 		sb.append(getUrlTitle());
 		sb.append("]]></column-value></column>");
 		sb.append(
+<<<<<<< HEAD
+=======
+			"<column><column-name>description</column-name><column-value><![CDATA[");
+		sb.append(getDescription());
+		sb.append("]]></column-value></column>");
+		sb.append(
+>>>>>>> compatible
 			"<column><column-name>content</column-name><column-value><![CDATA[");
 		sb.append(getContent());
 		sb.append("]]></column-value></column>");
@@ -2018,10 +2532,13 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 		sb.append(getDDMTemplateKey());
 		sb.append("]]></column-value></column>");
 		sb.append(
+<<<<<<< HEAD
 			"<column><column-name>defaultLanguageId</column-name><column-value><![CDATA[");
 		sb.append(getDefaultLanguageId());
 		sb.append("]]></column-value></column>");
 		sb.append(
+=======
+>>>>>>> compatible
 			"<column><column-name>layoutUuid</column-name><column-value><![CDATA[");
 		sb.append(getLayoutUuid());
 		sb.append("]]></column-value></column>");
@@ -2117,14 +2634,26 @@ public class JournalArticleModelImpl extends BaseModelImpl<JournalArticle>
 	private double _version;
 	private double _originalVersion;
 	private boolean _setOriginalVersion;
+<<<<<<< HEAD
 	private String _urlTitle;
 	private String _originalUrlTitle;
+=======
+	private String _title;
+	private String _titleCurrentLanguageId;
+	private String _urlTitle;
+	private String _originalUrlTitle;
+	private String _description;
+	private String _descriptionCurrentLanguageId;
+>>>>>>> compatible
 	private String _content;
 	private String _DDMStructureKey;
 	private String _originalDDMStructureKey;
 	private String _DDMTemplateKey;
 	private String _originalDDMTemplateKey;
+<<<<<<< HEAD
 	private String _defaultLanguageId;
+=======
+>>>>>>> compatible
 	private String _layoutUuid;
 	private String _originalLayoutUuid;
 	private Date _displayDate;

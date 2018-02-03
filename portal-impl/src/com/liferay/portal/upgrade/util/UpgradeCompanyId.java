@@ -146,6 +146,7 @@ public abstract class UpgradeCompanyId extends UpgradeProcess {
 		protected List<Long> getCompanyIds(Connection connection)
 			throws SQLException {
 
+<<<<<<< HEAD
 			return getCompanyIds(connection, "Company");
 		}
 
@@ -157,6 +158,12 @@ public abstract class UpgradeCompanyId extends UpgradeProcess {
 
 			try (PreparedStatement ps = connection.prepareStatement(
 					"select distinct companyId from " + tableName);
+=======
+			List<Long> companyIds = new ArrayList<>();
+
+			try (PreparedStatement ps = connection.prepareStatement(
+					"select companyId from Company");
+>>>>>>> compatible
 				ResultSet rs = ps.executeQuery()) {
 
 				while (rs.next()) {
@@ -174,7 +181,11 @@ public abstract class UpgradeCompanyId extends UpgradeProcess {
 				String foreignColumnName)
 			throws SQLException {
 
+<<<<<<< HEAD
 			List<Long> companyIds = getCompanyIds(connection, foreignTableName);
+=======
+			List<Long> companyIds = getCompanyIds(connection);
+>>>>>>> compatible
 
 			if (companyIds.size() == 1) {
 				return String.valueOf(companyIds.get(0));

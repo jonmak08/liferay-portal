@@ -542,7 +542,12 @@ public class DDMStructureLocalServiceUtil {
 	*/
 	public static com.liferay.dynamic.data.mapping.model.DDMStructure fetchStructure(
 		long groupId, long classNameId, java.lang.String structureKey,
+<<<<<<< HEAD
 		boolean includeAncestorStructures) {
+=======
+		boolean includeAncestorStructures)
+		throws com.liferay.portal.kernel.exception.PortalException {
+>>>>>>> compatible
 		return getService()
 				   .fetchStructure(groupId, classNameId, structureKey,
 			includeAncestorStructures);
@@ -967,6 +972,7 @@ public class DDMStructureLocalServiceUtil {
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns an ordered range of all the structures matching the group, class
 	* name ID, name, and description.
 	*
@@ -1001,6 +1007,8 @@ public class DDMStructureLocalServiceUtil {
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	* Returns the number of structures belonging to the group.
 	*
 	* @param groupId the primary key of the group
@@ -1051,6 +1059,7 @@ public class DDMStructureLocalServiceUtil {
 			.revertStructure(userId, structureId, version, serviceContext);
 	}
 
+<<<<<<< HEAD
 	public static java.util.List<com.liferay.dynamic.data.mapping.model.DDMStructure> search(
 		long companyId, long[] groupIds, long classNameId, long classPK,
 		java.lang.String keywords, int start, int end,
@@ -1061,6 +1070,8 @@ public class DDMStructureLocalServiceUtil {
 			start, end, orderByComparator);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns an ordered range of all the structures matching the groups and
 	* class name IDs, and matching the keywords in the structure names and
@@ -1141,6 +1152,7 @@ public class DDMStructureLocalServiceUtil {
 			orderByComparator);
 	}
 
+<<<<<<< HEAD
 	public static int searchCount(long companyId, long[] groupIds,
 		long classNameId, long classPK, java.lang.String keywords)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -1149,6 +1161,8 @@ public class DDMStructureLocalServiceUtil {
 			keywords);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns the number of structures matching the groups and class name IDs,
 	* and matching the keywords in the structure names and descriptions.

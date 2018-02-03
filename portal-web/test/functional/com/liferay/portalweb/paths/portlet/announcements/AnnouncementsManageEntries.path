@@ -21,37 +21,65 @@
 <!--ENTRY_TABLE-->
 <tr>
 	<td>ENTRY_TABLE_TITLE</td>
+<<<<<<< HEAD
 	<td>//tr[contains(.,'${key_entryTitle}')]/td[2]//a</td>
+=======
+	<td>//tr[contains(.,'${key_entryTitle}')]/td[1]//a</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>ENTRY_TABLE_TYPE</td>
+<<<<<<< HEAD
 	<td>//tr[contains(.,'${key_entryTitle}')]/td[3]</td>
+=======
+	<td>//tr[contains(.,'${key_entryTitle}')]/td[2]//a</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>ENTRY_TABLE_MODIFIED_DATE</td>
+<<<<<<< HEAD
 	<td>//tr[contains(.,'${key_entryTitle}')]/td[4]</td>
+=======
+	<td>//tr[contains(.,'${key_entryTitle}')]/td[3]//a</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>ENTRY_TABLE_DISPLAY_DATE</td>
+<<<<<<< HEAD
 	<td>//tr[contains(.,'${key_entryTitle}')]/td[5]</td>
+=======
+	<td>//tr[contains(.,'${key_entryTitle}')]/td[4]//a</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>ENTRY_TABLE_EXPIRATION_DATE</td>
+<<<<<<< HEAD
 	<td>//tr[contains(.,'${key_entryTitle}')]/td[6]</td>
+=======
+	<td>//tr[contains(.,'${key_entryTitle}')]/td[5]//a</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>ENTRY_TABLE_ACTIONS</td>
+<<<<<<< HEAD
 	<td>//tr[contains(.,'${key_entryTitle}')]/td[7]//div/a</td>
+=======
+	<td>//tr[contains(.,'${key_entryTitle}')]/td[6]//div/a</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>ENTRY_TABLE_ACTIONS_GENERIC</td>
+<<<<<<< HEAD
 	<td>//td[7]//div/a</td>
+=======
+	<td>//td[6]//div/a</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 </tbody>

@@ -19,7 +19,11 @@ import com.liferay.portal.kernel.exception.ModelListenerException;
 import com.liferay.portal.kernel.model.BaseModelListener;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.ModelListener;
+<<<<<<< HEAD
 import com.liferay.subscription.service.SubscriptionLocalService;
+=======
+import com.liferay.portal.kernel.service.SubscriptionLocalService;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -42,6 +46,7 @@ public class GroupModelListener extends BaseModelListener<Group> {
 		}
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 4.0.0, with no direct replacement
 	 */
@@ -52,6 +57,15 @@ public class GroupModelListener extends BaseModelListener<Group> {
 	}
 
 	@Reference
+=======
+	@Reference(unbind = "-")
+	protected void setSubscriptionLocalService(
+		SubscriptionLocalService subscriptionLocalService) {
+
+		_subscriptionLocalService = subscriptionLocalService;
+	}
+
+>>>>>>> compatible
 	private SubscriptionLocalService _subscriptionLocalService;
 
 }

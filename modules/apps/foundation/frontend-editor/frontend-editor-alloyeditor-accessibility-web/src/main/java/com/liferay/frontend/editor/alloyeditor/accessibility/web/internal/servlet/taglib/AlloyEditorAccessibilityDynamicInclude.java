@@ -63,8 +63,12 @@ public class AlloyEditorAccessibilityDynamicInclude extends BaseDynamicInclude {
 
 		PrintWriter printWriter = response.getWriter();
 
+<<<<<<< HEAD
 		String content = "<script data-senna-track=\"temporary\" src=\"".concat(
 			themeDisplay.getPortalURL());
+=======
+		String content = "<script src=\"".concat(themeDisplay.getPortalURL());
+>>>>>>> compatible
 
 		printWriter.println(content.concat(_postfix));
 	}

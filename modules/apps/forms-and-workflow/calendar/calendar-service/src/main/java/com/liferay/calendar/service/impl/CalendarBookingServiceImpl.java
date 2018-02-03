@@ -17,8 +17,13 @@ package com.liferay.calendar.service.impl;
 import com.liferay.calendar.constants.CalendarActionKeys;
 import com.liferay.calendar.model.Calendar;
 import com.liferay.calendar.model.CalendarBooking;
+<<<<<<< HEAD
 import com.liferay.calendar.model.CalendarBookingConstants;
 import com.liferay.calendar.service.base.CalendarBookingServiceBaseImpl;
+=======
+import com.liferay.calendar.service.base.CalendarBookingServiceBaseImpl;
+import com.liferay.calendar.service.permission.CalendarPermission;
+>>>>>>> compatible
 import com.liferay.calendar.util.CalendarUtil;
 import com.liferay.calendar.util.JCalendarUtil;
 import com.liferay.calendar.util.RSSUtil;
@@ -26,12 +31,18 @@ import com.liferay.calendar.workflow.CalendarBookingWorkflowConstants;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.security.access.control.AccessControlled;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermission;
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermissionFactory;
+=======
+import com.liferay.portal.kernel.security.access.control.AccessControlled;
+import com.liferay.portal.kernel.security.auth.PrincipalException;
+import com.liferay.portal.kernel.security.permission.ActionKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ListUtil;
@@ -57,8 +68,11 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
+<<<<<<< HEAD
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+=======
+>>>>>>> compatible
 
 /**
  * @author Eduardo Lundgren
@@ -71,11 +85,19 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 	@Override
 	public CalendarBooking addCalendarBooking(
 			long calendarId, long[] childCalendarIds,
+<<<<<<< HEAD
 			long parentCalendarBookingId, long recurringCalendarBookingId,
 			Map<Locale, String> titleMap, Map<Locale, String> descriptionMap,
 			String location, int startTimeYear, int startTimeMonth,
 			int startTimeDay, int startTimeHour, int startTimeMinute,
 			int endTimeYear, int endTimeMonth, int endTimeDay, int endTimeHour,
+=======
+			long parentCalendarBookingId, Map<Locale, String> titleMap,
+			Map<Locale, String> descriptionMap, String location,
+			int startTimeYear, int startTimeMonth, int startTimeDay,
+			int startTimeHour, int startTimeMinute, int endTimeYear,
+			int endTimeMonth, int endTimeDay, int endTimeHour,
+>>>>>>> compatible
 			int endTimeMinute, String timeZoneId, boolean allDay,
 			String recurrence, long firstReminder, String firstReminderType,
 			long secondReminder, String secondReminderType,
@@ -96,9 +118,14 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 			0, 0, timeZone);
 
 		return calendarBookingService.addCalendarBooking(
+<<<<<<< HEAD
 			calendarId, childCalendarIds, parentCalendarBookingId,
 			recurringCalendarBookingId, titleMap, descriptionMap, location,
 			startTimeJCalendar.getTimeInMillis(),
+=======
+			calendarId, childCalendarIds, parentCalendarBookingId, titleMap,
+			descriptionMap, location, startTimeJCalendar.getTimeInMillis(),
+>>>>>>> compatible
 			endTimeJCalendar.getTimeInMillis(), allDay, recurrence,
 			firstReminder, firstReminderType, secondReminder,
 			secondReminderType, serviceContext);
@@ -107,6 +134,7 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 	@Override
 	public CalendarBooking addCalendarBooking(
 			long calendarId, long[] childCalendarIds,
+<<<<<<< HEAD
 			long parentCalendarBookingId, long recurringCalendarBookingId,
 			Map<Locale, String> titleMap, Map<Locale, String> descriptionMap,
 			String location, long startTime, long endTime, boolean allDay,
@@ -164,6 +192,8 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 	@Override
 	public CalendarBooking addCalendarBooking(
 			long calendarId, long[] childCalendarIds,
+=======
+>>>>>>> compatible
 			long parentCalendarBookingId, Map<Locale, String> titleMap,
 			Map<Locale, String> descriptionMap, String location, long startTime,
 			long endTime, boolean allDay, String recurrence, long firstReminder,
@@ -171,9 +201,18 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 			String secondReminderType, ServiceContext serviceContext)
 		throws PortalException {
 
+<<<<<<< HEAD
 		return calendarBookingService.addCalendarBooking(
 			calendarId, childCalendarIds, parentCalendarBookingId,
 			CalendarBookingConstants.RECURRING_CALENDAR_BOOKING_ID_DEFAULT,
+=======
+		CalendarPermission.check(
+			getPermissionChecker(), calendarId,
+			CalendarActionKeys.MANAGE_BOOKINGS);
+
+		return calendarBookingLocalService.addCalendarBooking(
+			getUserId(), calendarId, childCalendarIds, parentCalendarBookingId,
+>>>>>>> compatible
 			titleMap, descriptionMap, location, startTime, endTime, allDay,
 			recurrence, firstReminder, firstReminderType, secondReminder,
 			secondReminderType, serviceContext);
@@ -186,7 +225,11 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 		CalendarBooking calendarBooking =
 			calendarBookingPersistence.findByPrimaryKey(calendarBookingId);
 
+<<<<<<< HEAD
 		_calendarModelResourcePermission.check(
+=======
+		CalendarPermission.check(
+>>>>>>> compatible
 			getPermissionChecker(), calendarBooking.getCalendarId(),
 			CalendarActionKeys.MANAGE_BOOKINGS);
 
@@ -202,6 +245,7 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 		CalendarBooking calendarBooking =
 			calendarBookingPersistence.findByPrimaryKey(calendarBookingId);
 
+<<<<<<< HEAD
 		_calendarModelResourcePermission.check(
 			getPermissionChecker(), calendarBooking.getCalendarId(),
 			CalendarActionKeys.MANAGE_BOOKINGS);
@@ -220,12 +264,19 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 			calendarBookingPersistence.findByPrimaryKey(calendarBookingId);
 
 		_calendarModelResourcePermission.check(
+=======
+		CalendarPermission.check(
+>>>>>>> compatible
 			getPermissionChecker(), calendarBooking.getCalendarId(),
 			CalendarActionKeys.MANAGE_BOOKINGS);
 
 		calendarBookingLocalService.deleteCalendarBookingInstance(
+<<<<<<< HEAD
 			getUserId(), calendarBooking, instanceIndex, allFollowing,
 			deleteRecurringCalendarBookings);
+=======
+			calendarBooking, instanceIndex, allFollowing);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -236,12 +287,20 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 		CalendarBooking calendarBooking =
 			calendarBookingPersistence.findByPrimaryKey(calendarBookingId);
 
+<<<<<<< HEAD
 		_calendarModelResourcePermission.check(
+=======
+		CalendarPermission.check(
+>>>>>>> compatible
 			getPermissionChecker(), calendarBooking.getCalendarId(),
 			CalendarActionKeys.MANAGE_BOOKINGS);
 
 		calendarBookingLocalService.deleteCalendarBookingInstance(
+<<<<<<< HEAD
 			getUserId(), calendarBookingId, startTime, allFollowing);
+=======
+			calendarBookingId, startTime, allFollowing);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -251,7 +310,11 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 		CalendarBooking calendarBooking =
 			calendarBookingPersistence.findByPrimaryKey(calendarBookingId);
 
+<<<<<<< HEAD
 		_calendarModelResourcePermission.check(
+=======
+		CalendarPermission.check(
+>>>>>>> compatible
 			getPermissionChecker(), calendarBooking.getCalendar(),
 			CalendarActionKeys.VIEW_BOOKING_DETAILS);
 
@@ -288,7 +351,11 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 			long calendarId, long parentCalendarBookingId)
 		throws PortalException {
 
+<<<<<<< HEAD
 		_calendarModelResourcePermission.check(
+=======
+		CalendarPermission.check(
+>>>>>>> compatible
 			getPermissionChecker(), calendarId,
 			CalendarActionKeys.MANAGE_BOOKINGS);
 
@@ -388,6 +455,7 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 
 	@Override
 	public List<CalendarBooking> getChildCalendarBookings(
+<<<<<<< HEAD
 			long parentCalendarBookingId,
 			boolean includeStagingCalendarBookings)
 		throws PortalException {
@@ -421,6 +489,8 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 
 	@Override
 	public List<CalendarBooking> getChildCalendarBookings(
+=======
+>>>>>>> compatible
 			long parentCalendarBookingId, int status)
 		throws PortalException {
 
@@ -436,6 +506,7 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public CalendarBooking getLastInstanceCalendarBooking(
 			long calendarBookingId)
 		throws PortalException {
@@ -452,6 +523,8 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public CalendarBooking getNewStartTimeAndDurationCalendarBooking(
 			long calendarBookingId, long offset, long duration)
 		throws PortalException {
@@ -459,7 +532,11 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 		CalendarBooking calendarBooking =
 			calendarBookingPersistence.findByPrimaryKey(calendarBookingId);
 
+<<<<<<< HEAD
 		_calendarModelResourcePermission.check(
+=======
+		CalendarPermission.check(
+>>>>>>> compatible
 			getPermissionChecker(), calendarBooking.getCalendarId(),
 			CalendarActionKeys.MANAGE_BOOKINGS);
 
@@ -485,6 +562,7 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public CalendarBooking invokeTransition(
 			long calendarBookingId, int instanceIndex, int status,
 			boolean updateInstance, boolean allFollowing,
@@ -505,10 +583,13 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 	 */
 	@Deprecated
 	@Override
+=======
+>>>>>>> compatible
 	public void invokeTransition(
 			long calendarBookingId, int status, ServiceContext serviceContext)
 		throws PortalException {
 
+<<<<<<< HEAD
 		invokeTransition(
 			calendarBookingId, 0, status, false, false, serviceContext);
 	}
@@ -530,6 +611,17 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 		return calendarBookingLocalService.invokeTransition(
 			getUserId(), calendarBooking, startTime, status, updateInstance,
 			allFollowing, serviceContext);
+=======
+		CalendarBooking calendarBooking =
+			calendarBookingPersistence.findByPrimaryKey(calendarBookingId);
+
+		CalendarPermission.check(
+			getPermissionChecker(), calendarBooking.getCalendarId(),
+			CalendarActionKeys.MANAGE_BOOKINGS);
+
+		calendarBookingLocalService.updateStatus(
+			getUserId(), calendarBooking, status, serviceContext);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -539,7 +631,11 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 		CalendarBooking calendarBooking =
 			calendarBookingPersistence.findByPrimaryKey(calendarBookingId);
 
+<<<<<<< HEAD
 		_calendarModelResourcePermission.check(
+=======
+		CalendarPermission.check(
+>>>>>>> compatible
 			getPermissionChecker(), calendarBooking.getCalendarId(),
 			CalendarActionKeys.MANAGE_BOOKINGS);
 
@@ -555,7 +651,11 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 		CalendarBooking calendarBooking =
 			calendarBookingPersistence.findByPrimaryKey(calendarBookingId);
 
+<<<<<<< HEAD
 		_calendarModelResourcePermission.check(
+=======
+		CalendarPermission.check(
+>>>>>>> compatible
 			getPermissionChecker(), calendarBooking.getCalendarId(),
 			CalendarActionKeys.MANAGE_BOOKINGS);
 
@@ -647,7 +747,11 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 			ServiceContext serviceContext)
 		throws PortalException {
 
+<<<<<<< HEAD
 		_calendarModelResourcePermission.check(
+=======
+		CalendarPermission.check(
+>>>>>>> compatible
 			getPermissionChecker(), calendarId,
 			CalendarActionKeys.MANAGE_BOOKINGS);
 
@@ -668,7 +772,11 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 			ServiceContext serviceContext)
 		throws PortalException {
 
+<<<<<<< HEAD
 		_calendarModelResourcePermission.check(
+=======
+		CalendarPermission.check(
+>>>>>>> compatible
 			getPermissionChecker(), calendarId,
 			CalendarActionKeys.MANAGE_BOOKINGS);
 
@@ -684,6 +792,7 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 			long calendarBookingId, int instanceIndex, long calendarId,
 			long[] childCalendarIds, Map<Locale, String> titleMap,
 			Map<Locale, String> descriptionMap, String location, long startTime,
+<<<<<<< HEAD
 			long endTime, boolean allDay, boolean allFollowing,
 			long firstReminder, String firstReminderType, long secondReminder,
 			String secondReminderType, ServiceContext serviceContext)
@@ -705,13 +814,19 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 			long calendarBookingId, int instanceIndex, long calendarId,
 			long[] childCalendarIds, Map<Locale, String> titleMap,
 			Map<Locale, String> descriptionMap, String location, long startTime,
+=======
+>>>>>>> compatible
 			long endTime, boolean allDay, String recurrence,
 			boolean allFollowing, long firstReminder, String firstReminderType,
 			long secondReminder, String secondReminderType,
 			ServiceContext serviceContext)
 		throws PortalException {
 
+<<<<<<< HEAD
 		_calendarModelResourcePermission.check(
+=======
+		CalendarPermission.check(
+>>>>>>> compatible
 			getPermissionChecker(), calendarId,
 			CalendarActionKeys.MANAGE_BOOKINGS);
 
@@ -768,7 +883,11 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 			String secondReminderType, ServiceContext serviceContext)
 		throws PortalException {
 
+<<<<<<< HEAD
 		_calendarModelResourcePermission.check(
+=======
+		CalendarPermission.check(
+>>>>>>> compatible
 			getPermissionChecker(), calendarId,
 			CalendarActionKeys.MANAGE_BOOKINGS);
 
@@ -780,6 +899,7 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void updateLastInstanceCalendarBookingRecurrence(
 			long calendarBookingId, String recurrence)
 		throws PortalException {
@@ -796,6 +916,8 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public CalendarBooking updateOffsetAndDuration(
 			long calendarBookingId, long calendarId, long[] childCalendarIds,
 			Map<Locale, String> titleMap, Map<Locale, String> descriptionMap,
@@ -843,6 +965,7 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 			secondReminderType, serviceContext);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public CalendarBooking updateRecurringCalendarBooking(
 			long calendarBookingId, long calendarId, long[] childCalendarIds,
@@ -891,6 +1014,8 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 			serviceContext);
 	}
 
+=======
+>>>>>>> compatible
 	protected String exportToRSS(
 		String name, String description, String type, double version,
 		String displayStyle, String feedURL,
@@ -965,11 +1090,15 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 			CalendarBooking calendarBooking)
 		throws PortalException {
 
+<<<<<<< HEAD
 		_calendarModelResourcePermission.check(
 			getPermissionChecker(), calendarBooking.getCalendarId(),
 			ActionKeys.VIEW);
 
 		if (!_calendarModelResourcePermission.contains(
+=======
+		if (!CalendarPermission.contains(
+>>>>>>> compatible
 				getPermissionChecker(), calendarBooking.getCalendarId(),
 				CalendarActionKeys.VIEW_BOOKING_DETAILS)) {
 
@@ -997,11 +1126,19 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 				continue;
 			}
 
+<<<<<<< HEAD
 			if (!_calendarModelResourcePermission.contains(
 					getPermissionChecker(), calendarBooking.getCalendarId(),
 					CalendarActionKeys.VIEW_BOOKING_DETAILS)) {
 
 				if (!_calendarModelResourcePermission.contains(
+=======
+			if (!CalendarPermission.contains(
+					getPermissionChecker(), calendarBooking.getCalendarId(),
+					CalendarActionKeys.VIEW_BOOKING_DETAILS)) {
+
+				if (!CalendarPermission.contains(
+>>>>>>> compatible
 						getPermissionChecker(), calendarBooking.getCalendarId(),
 						actionId)) {
 
@@ -1017,10 +1154,17 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 	}
 
 	protected boolean isPendingInWorkflow(CalendarBooking calendarBooking)
+<<<<<<< HEAD
 		throws PortalException {
 
 		if (calendarBooking.isPending() &&
 			!_calendarModelResourcePermission.contains(
+=======
+		throws PortalException, PrincipalException {
+
+		if (calendarBooking.isPending() &&
+			!CalendarPermission.contains(
+>>>>>>> compatible
 				getPermissionChecker(), calendarBooking.getCalendarId(),
 				CalendarActionKeys.MANAGE_BOOKINGS)) {
 
@@ -1030,6 +1174,7 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 		return false;
 	}
 
+<<<<<<< HEAD
 	private static final Log _log = LogFactoryUtil.getLog(
 		CalendarBookingServiceImpl.class);
 
@@ -1039,4 +1184,6 @@ public class CalendarBookingServiceImpl extends CalendarBookingServiceBaseImpl {
 				CalendarBookingServiceImpl.class,
 				"_calendarModelResourcePermission", Calendar.class);
 
+=======
+>>>>>>> compatible
 }

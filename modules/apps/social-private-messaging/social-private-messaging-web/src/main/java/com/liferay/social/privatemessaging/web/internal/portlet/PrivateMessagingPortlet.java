@@ -14,14 +14,20 @@
 
 package com.liferay.social.privatemessaging.web.internal.portlet;
 
+<<<<<<< HEAD
 import com.liferay.document.library.configuration.DLConfiguration;
+=======
+>>>>>>> compatible
 import com.liferay.document.library.kernel.exception.FileExtensionException;
 import com.liferay.document.library.kernel.exception.FileNameException;
 import com.liferay.document.library.kernel.exception.FileSizeException;
 import com.liferay.document.library.kernel.util.DLValidator;
 import com.liferay.message.boards.kernel.model.MBMessage;
 import com.liferay.message.boards.kernel.service.MBMessageLocalService;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
 import com.liferay.portal.kernel.exception.NoSuchUserException;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -40,11 +46,21 @@ import com.liferay.portal.kernel.service.UserLocalService;
 import com.liferay.portal.kernel.service.UserNotificationEventLocalService;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.upload.UploadPortletRequest;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ObjectValuePair;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.PrefsPropsUtil;
+import com.liferay.portal.kernel.util.PropsKeys;
+import com.liferay.portal.kernel.util.StreamUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -83,10 +99,14 @@ import org.osgi.service.component.annotations.Reference;
  * @author Peter Fellwock
  */
 @Component(
+<<<<<<< HEAD
 	configurationPid = {
 		"com.liferay.document.library.configuration.DLConfiguration",
 		"com.liferay.social.privatemessaging.configuration.PrivateMessagingConfiguration"
 	},
+=======
+	configurationPid = "com.liferay.social.privatemessaging.configuration.PrivateMessagingConfiguration",
+>>>>>>> compatible
 	configurationPolicy = ConfigurationPolicy.OPTIONAL, immediate = true,
 	property = {
 		"com.liferay.portlet.add-default-resource=true",
@@ -280,6 +300,7 @@ public class PrivateMessagingPortlet extends MVCPortlet {
 			for (ObjectValuePair<String, InputStream> inputStreamOVP :
 					inputStreamOVPs) {
 
+<<<<<<< HEAD
 				try (InputStream inputStream = inputStreamOVP.getValue()) {
 				}
 				catch (IOException ioe) {
@@ -287,6 +308,11 @@ public class PrivateMessagingPortlet extends MVCPortlet {
 						_log.warn(ioe, ioe);
 					}
 				}
+=======
+				InputStream inputStream = inputStreamOVP.getValue();
+
+				StreamUtil.cleanUp(inputStream);
+>>>>>>> compatible
 			}
 		}
 
@@ -320,9 +346,12 @@ public class PrivateMessagingPortlet extends MVCPortlet {
 	@Activate
 	@Modified
 	protected void activate(Map<String, Object> properties) {
+<<<<<<< HEAD
 		_dlConfiguration = ConfigurableUtil.createConfigurable(
 			DLConfiguration.class, properties);
 
+=======
+>>>>>>> compatible
 		_privateMessagingConfiguration = ConfigurableUtil.createConfigurable(
 			PrivateMessagingConfiguration.class, properties);
 	}
@@ -337,20 +366,46 @@ public class PrivateMessagingPortlet extends MVCPortlet {
 				portletRequest,
 				"document-names-must-end-with-one-of-the-following-extensions");
 
+<<<<<<< HEAD
 			String fileExtensions = StringUtil.merge(
 				_dlConfiguration.fileExtensions(), StringPool.COMMA_AND_SPACE);
 
 			message += CharPool.SPACE + fileExtensions;
+=======
+			message +=
+				CharPool.SPACE +
+					StringUtil.merge(
+						PrefsPropsUtil.getStringArray(
+							PropsKeys.DL_FILE_EXTENSIONS, StringPool.COMMA),
+						StringPool.COMMA_AND_SPACE);
+>>>>>>> compatible
 		}
 		else if (key instanceof FileNameException) {
 			message = translate(
 				portletRequest, "please-enter-a-file-with-a-valid-file-name");
 		}
 		else if (key instanceof FileSizeException) {
+<<<<<<< HEAD
 			message = translate(
 				portletRequest,
 				"please-enter-a-file-with-a-valid-file-size-no-larger-than-x",
 				_dlValidator.getMaxAllowableSize() / 1024);
+=======
+			long fileMaxSize = PrefsPropsUtil.getLong(
+				PropsKeys.DL_FILE_MAX_SIZE);
+
+			if (fileMaxSize == 0) {
+				fileMaxSize = PrefsPropsUtil.getLong(
+					PropsKeys.UPLOAD_SERVLET_REQUEST_IMPL_MAX_SIZE);
+			}
+
+			fileMaxSize /= 1024;
+
+			message = translate(
+				portletRequest,
+				"please-enter-a-file-with-a-valid-file-size-no-larger-than-x",
+				fileMaxSize);
+>>>>>>> compatible
 		}
 		else if (key instanceof UserScreenNameException) {
 			message = translate(
@@ -469,8 +524,11 @@ public class PrivateMessagingPortlet extends MVCPortlet {
 	private static final Log _log = LogFactoryUtil.getLog(
 		PrivateMessagingPortlet.class);
 
+<<<<<<< HEAD
 	private volatile DLConfiguration _dlConfiguration;
 
+=======
+>>>>>>> compatible
 	@Reference
 	private DLValidator _dlValidator;
 

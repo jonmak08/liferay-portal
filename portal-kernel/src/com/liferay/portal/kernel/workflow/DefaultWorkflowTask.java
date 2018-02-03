@@ -121,9 +121,15 @@ public class DefaultWorkflowTask implements Serializable, WorkflowTask {
 		WorkflowTaskAssignee workflowTaskAssignee = _workflowTaskAssignees.get(
 			0);
 
+<<<<<<< HEAD
 		String userClassName = User.class.getName();
 
 		if (userClassName.equals(workflowTaskAssignee.getAssigneeClassName())) {
+=======
+		if (User.class.getName().equals(
+				workflowTaskAssignee.getAssigneeClassName())) {
+
+>>>>>>> compatible
 			return true;
 		}
 		else {

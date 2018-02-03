@@ -14,12 +14,19 @@
 
 package com.liferay.dynamic.data.lists.web.internal.exportimport.data.handler;
 
+<<<<<<< HEAD
 import com.liferay.dynamic.data.lists.constants.DDLConstants;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.lists.constants.DDLPortletKeys;
 import com.liferay.dynamic.data.lists.model.DDLRecord;
 import com.liferay.dynamic.data.lists.model.DDLRecordSet;
 import com.liferay.dynamic.data.lists.service.DDLRecordLocalService;
 import com.liferay.dynamic.data.lists.service.DDLRecordSetLocalService;
+<<<<<<< HEAD
+=======
+import com.liferay.dynamic.data.lists.service.permission.DDLPermission;
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.model.DDMStructure;
 import com.liferay.dynamic.data.mapping.model.DDMTemplate;
 import com.liferay.dynamic.data.mapping.service.DDMStructureLocalService;
@@ -137,7 +144,11 @@ public class DDLPortletDataHandler extends BasePortletDataHandler {
 			PortletPreferences portletPreferences)
 		throws Exception {
 
+<<<<<<< HEAD
 		portletDataContext.addPortletPermissions(DDLConstants.RESOURCE_NAME);
+=======
+		portletDataContext.addPortletPermissions(DDLPermission.RESOURCE_NAME);
+>>>>>>> compatible
 
 		Element rootElement = addExportDataRootElement(portletDataContext);
 
@@ -166,7 +177,12 @@ public class DDLPortletDataHandler extends BasePortletDataHandler {
 			PortletPreferences portletPreferences, String data)
 		throws Exception {
 
+<<<<<<< HEAD
 		portletDataContext.importPortletPermissions(DDLConstants.RESOURCE_NAME);
+=======
+		portletDataContext.importPortletPermissions(
+			DDLPermission.RESOURCE_NAME);
+>>>>>>> compatible
 
 		if (portletDataContext.getBooleanParameter(NAMESPACE, "record-sets")) {
 			Element recordSetsElement =

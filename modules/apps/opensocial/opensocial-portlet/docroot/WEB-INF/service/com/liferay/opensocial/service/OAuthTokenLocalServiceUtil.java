@@ -17,6 +17,10 @@ package com.liferay.opensocial.service;
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.portal.kernel.bean.PortletBeanLocatorUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.service.InvokableLocalService;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ReferenceRegistry;
 
 /**
@@ -286,6 +290,15 @@ public class OAuthTokenLocalServiceUtil {
 		return getService().getPersistedModel(primaryKeyObj);
 	}
 
+<<<<<<< HEAD
+=======
+	public static java.lang.Object invokeMethod(java.lang.String name,
+		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
+		throws java.lang.Throwable {
+		return getService().invokeMethod(name, parameterTypes, arguments);
+	}
+
+>>>>>>> compatible
 	/**
 	* Updates the o auth token in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	*
@@ -303,9 +316,22 @@ public class OAuthTokenLocalServiceUtil {
 
 	public static OAuthTokenLocalService getService() {
 		if (_service == null) {
+<<<<<<< HEAD
 			_service = (OAuthTokenLocalService)PortletBeanLocatorUtil.locate(ServletContextUtil.getServletContextName(),
 					OAuthTokenLocalService.class.getName());
 
+=======
+			InvokableLocalService invokableLocalService = (InvokableLocalService)PortletBeanLocatorUtil.locate(ClpSerializer.getServletContextName(),
+					OAuthTokenLocalService.class.getName());
+
+			if (invokableLocalService instanceof OAuthTokenLocalService) {
+				_service = (OAuthTokenLocalService)invokableLocalService;
+			}
+			else {
+				_service = new OAuthTokenLocalServiceClp(invokableLocalService);
+			}
+
+>>>>>>> compatible
 			ReferenceRegistry.registerReference(OAuthTokenLocalServiceUtil.class,
 				"_service");
 		}

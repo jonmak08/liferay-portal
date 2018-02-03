@@ -29,11 +29,16 @@ import com.liferay.portal.kernel.service.ServiceContextFactory;
 import com.liferay.portal.kernel.service.UserService;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.util.ArrayUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
+=======
+import com.liferay.portal.kernel.util.ParamUtil;
+import com.liferay.portal.kernel.util.StringUtil;
+>>>>>>> compatible
 
 import java.io.IOException;
 
@@ -150,6 +155,7 @@ public class PasswordPoliciesAdminPortlet extends MVCPortlet {
 
 			// Add password policy
 
+<<<<<<< HEAD
 			PasswordPolicy passwordPolicy =
 				_passwordPolicyService.addPasswordPolicy(
 					name, description, changeable, changeRequired, minAge,
@@ -161,6 +167,15 @@ public class PasswordPoliciesAdminPortlet extends MVCPortlet {
 					serviceContext);
 
 			passwordPolicyId = passwordPolicy.getPasswordPolicyId();
+=======
+			_passwordPolicyService.addPasswordPolicy(
+				name, description, changeable, changeRequired, minAge,
+				checkSyntax, allowDictionaryWords, minAlphanumeric, minLength,
+				minLowerCase, minNumbers, minSymbols, minUpperCase, regex,
+				history, historyCount, expireable, maxAge, warningTime,
+				graceLimit, lockout, maxFailure, lockoutDuration,
+				resetFailureCount, resetTicketMaxAge, serviceContext);
+>>>>>>> compatible
 		}
 		else {
 
@@ -174,6 +189,7 @@ public class PasswordPoliciesAdminPortlet extends MVCPortlet {
 				graceLimit, lockout, maxFailure, lockoutDuration,
 				resetFailureCount, resetTicketMaxAge, serviceContext);
 		}
+<<<<<<< HEAD
 
 		String redirect = ParamUtil.getString(actionRequest, "redirect");
 
@@ -184,6 +200,8 @@ public class PasswordPoliciesAdminPortlet extends MVCPortlet {
 
 			actionRequest.setAttribute(WebKeys.REDIRECT, redirect);
 		}
+=======
+>>>>>>> compatible
 	}
 
 	public void editPasswordPolicyAssignments(
@@ -281,9 +299,12 @@ public class PasswordPoliciesAdminPortlet extends MVCPortlet {
 		_userService = userService;
 	}
 
+<<<<<<< HEAD
 	@Reference
 	private Http _http;
 
+=======
+>>>>>>> compatible
 	private OrganizationService _organizationService;
 	private PasswordPolicyService _passwordPolicyService;
 	private UserService _userService;

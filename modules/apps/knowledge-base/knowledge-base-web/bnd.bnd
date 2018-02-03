@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Knowledge Base Web
 Bundle-SymbolicName: com.liferay.knowledge.base.web
+<<<<<<< HEAD
 Bundle-Version: 1.0.56
+=======
+Bundle-Version: 1.0.45
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Knowledge Base
 Web-ContextPath: /knowledge-base-web

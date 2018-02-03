@@ -19,6 +19,10 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.workflow.kaleo.model.KaleoCondition;
 
 import java.io.Externalizable;
@@ -80,8 +84,13 @@ public class KaleoConditionCacheModel implements CacheModel<KaleoCondition>,
 		sb.append(createDate);
 		sb.append(", modifiedDate=");
 		sb.append(modifiedDate);
+<<<<<<< HEAD
 		sb.append(", kaleoDefinitionVersionId=");
 		sb.append(kaleoDefinitionVersionId);
+=======
+		sb.append(", kaleoDefinitionId=");
+		sb.append(kaleoDefinitionId);
+>>>>>>> compatible
 		sb.append(", kaleoNodeId=");
 		sb.append(kaleoNodeId);
 		sb.append(", script=");
@@ -105,7 +114,11 @@ public class KaleoConditionCacheModel implements CacheModel<KaleoCondition>,
 		kaleoConditionImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			kaleoConditionImpl.setUserName("");
+=======
+			kaleoConditionImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoConditionImpl.setUserName(userName);
@@ -125,25 +138,41 @@ public class KaleoConditionCacheModel implements CacheModel<KaleoCondition>,
 			kaleoConditionImpl.setModifiedDate(new Date(modifiedDate));
 		}
 
+<<<<<<< HEAD
 		kaleoConditionImpl.setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
 		kaleoConditionImpl.setKaleoNodeId(kaleoNodeId);
 
 		if (script == null) {
 			kaleoConditionImpl.setScript("");
+=======
+		kaleoConditionImpl.setKaleoDefinitionId(kaleoDefinitionId);
+		kaleoConditionImpl.setKaleoNodeId(kaleoNodeId);
+
+		if (script == null) {
+			kaleoConditionImpl.setScript(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoConditionImpl.setScript(script);
 		}
 
 		if (scriptLanguage == null) {
+<<<<<<< HEAD
 			kaleoConditionImpl.setScriptLanguage("");
+=======
+			kaleoConditionImpl.setScriptLanguage(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoConditionImpl.setScriptLanguage(scriptLanguage);
 		}
 
 		if (scriptRequiredContexts == null) {
+<<<<<<< HEAD
 			kaleoConditionImpl.setScriptRequiredContexts("");
+=======
+			kaleoConditionImpl.setScriptRequiredContexts(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoConditionImpl.setScriptRequiredContexts(scriptRequiredContexts);
@@ -167,7 +196,11 @@ public class KaleoConditionCacheModel implements CacheModel<KaleoCondition>,
 		createDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
 
+<<<<<<< HEAD
 		kaleoDefinitionVersionId = objectInput.readLong();
+=======
+		kaleoDefinitionId = objectInput.readLong();
+>>>>>>> compatible
 
 		kaleoNodeId = objectInput.readLong();
 		script = objectInput.readUTF();
@@ -187,7 +220,11 @@ public class KaleoConditionCacheModel implements CacheModel<KaleoCondition>,
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -196,26 +233,42 @@ public class KaleoConditionCacheModel implements CacheModel<KaleoCondition>,
 		objectOutput.writeLong(createDate);
 		objectOutput.writeLong(modifiedDate);
 
+<<<<<<< HEAD
 		objectOutput.writeLong(kaleoDefinitionVersionId);
+=======
+		objectOutput.writeLong(kaleoDefinitionId);
+>>>>>>> compatible
 
 		objectOutput.writeLong(kaleoNodeId);
 
 		if (script == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(script);
 		}
 
 		if (scriptLanguage == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(scriptLanguage);
 		}
 
 		if (scriptRequiredContexts == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(scriptRequiredContexts);
@@ -229,7 +282,11 @@ public class KaleoConditionCacheModel implements CacheModel<KaleoCondition>,
 	public String userName;
 	public long createDate;
 	public long modifiedDate;
+<<<<<<< HEAD
 	public long kaleoDefinitionVersionId;
+=======
+	public long kaleoDefinitionId;
+>>>>>>> compatible
 	public long kaleoNodeId;
 	public String script;
 	public String scriptLanguage;

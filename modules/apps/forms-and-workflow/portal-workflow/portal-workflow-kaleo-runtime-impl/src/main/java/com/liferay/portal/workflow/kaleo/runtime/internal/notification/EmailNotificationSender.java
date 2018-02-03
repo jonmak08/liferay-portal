@@ -16,12 +16,18 @@ package com.liferay.portal.workflow.kaleo.runtime.internal.notification;
 
 import com.liferay.mail.kernel.model.MailMessage;
 import com.liferay.mail.kernel.service.MailService;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.GetterUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.workflow.kaleo.definition.NotificationReceptionType;
 import com.liferay.portal.workflow.kaleo.runtime.ExecutionContext;
+<<<<<<< HEAD
 import com.liferay.portal.workflow.kaleo.runtime.internal.settings.WorkflowGroupServiceSettings;
+=======
+>>>>>>> compatible
 import com.liferay.portal.workflow.kaleo.runtime.notification.BaseNotificationSender;
 import com.liferay.portal.workflow.kaleo.runtime.notification.NotificationRecipient;
 import com.liferay.portal.workflow.kaleo.runtime.notification.NotificationSender;
@@ -71,20 +77,26 @@ public class EmailNotificationSender
 		Map<String, Serializable> workflowContext =
 			executionContext.getWorkflowContext();
 
+<<<<<<< HEAD
 		long companyId = GetterUtil.getLong(
 			workflowContext.get(WorkflowConstants.CONTEXT_COMPANY_ID));
 
 		WorkflowGroupServiceSettings workflowGroupServiceSettings =
 			WorkflowGroupServiceSettings.getInstance(companyId);
 
+=======
+>>>>>>> compatible
 		String fromAddress = (String)workflowContext.get(
 			WorkflowConstants.CONTEXT_NOTIFICATION_SENDER_ADDRESS);
 
 		if (Validator.isNull(fromAddress)) {
+<<<<<<< HEAD
 			fromAddress = workflowGroupServiceSettings.getEmailFromAddress();
 		}
 
 		if (Validator.isNull(fromAddress)) {
+=======
+>>>>>>> compatible
 			fromAddress = _fromAddress;
 		}
 
@@ -92,10 +104,13 @@ public class EmailNotificationSender
 			WorkflowConstants.CONTEXT_NOTIFICATION_SENDER_NAME);
 
 		if (Validator.isNull(fromName)) {
+<<<<<<< HEAD
 			fromName = workflowGroupServiceSettings.getEmailFromName();
 		}
 
 		if (Validator.isNull(fromName)) {
+=======
+>>>>>>> compatible
 			fromName = _fromName;
 		}
 

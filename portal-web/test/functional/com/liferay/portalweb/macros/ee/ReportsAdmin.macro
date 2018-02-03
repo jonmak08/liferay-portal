@@ -9,11 +9,19 @@
 		<execute macro="PortletEntry#inputDescription">
 			<var name="description" value="${reportsDefinitionDescription}" />
 		</execute>
+<<<<<<< HEAD
 
 		<execute function="Select" locator1="ReportsAdminEditReportDefinition#DATA_SOURCE_NAME_SELECT" value1="${dataSource}" />
 
 		<execute function="UploadCommonFile" locator1="ReportsAdminEditReportDefinition#TEMPLATE_FILE_UPLOAD" value1="${templateFile}" />
 
+=======
+
+		<execute function="Select" locator1="ReportsAdminEditReportDefinition#DATA_SOURCE_NAME_SELECT" value1="${dataSource}" />
+
+		<execute function="UploadCommonFile" locator1="ReportsAdminEditReportDefinition#TEMPLATE_FILE_UPLOAD" value1="${templateFile}" />
+
+>>>>>>> compatible
 		<execute macro="PortletEntry#save" />
 	</command>
 
@@ -21,9 +29,15 @@
 		<var name="key_reportsDefinitionName" value="${reportsDefinitionName}" />
 
 		<execute function="Click" locator1="ReportsAdmin#DEFINITIONS_DEFINITION_TABLE_ACTIONS" />
+<<<<<<< HEAD
 
 		<execute function="AssertClick" locator1="ReportsAdmin#DEFINITIONS_DEFINITION_MENULIST_ADD_REPORT" value1="Add Report" />
 
+=======
+
+		<execute function="AssertClick" locator1="ReportsAdmin#DEFINITIONS_DEFINITION_MENULIST_ADD_REPORT" value1="Add Report" />
+
+>>>>>>> compatible
 		<execute function="Select" locator1="ReportsAdminEditReportEntry#REPORT_FORMAT_SELECT" value1="${reportFormat}" />
 
 		<if>
@@ -49,11 +63,19 @@
 		<execute function="Click" locator1="ReportsAdmin#DEFINITIONS_DEFINITION_TABLE_ACTIONS" />
 
 		<execute function="AssertClick" locator1="ReportsAdmin#DEFINITIONS_DEFINITION_MENULIST_ADD_SCHEDULE" value1="Add Schedule" />
+<<<<<<< HEAD
 
 		<execute function="AssertElementPresent" locator1="ReportsAdminEditScheduleEntry#START_DATE_TIME_FIELD" />
 
 		<var method="selenium#getElementValue('//span[contains(@class,\'lfr-input-time\')]/input')" name="time" />
 
+=======
+
+		<execute function="AssertElementPresent" locator1="ReportsAdminEditScheduleEntry#START_DATE_TIME_FIELD" />
+
+		<var method="selenium#getElementValue('//span[contains(@class,\'lfr-input-time\')]/input')" name="time" />
+
+>>>>>>> compatible
 		<var group="3" input="${time}" name="ampm" pattern="([0-9]*):([0-9]*) ([A-Z]*)" />
 		<var group="1" input="${time}" name="hours" pattern="([0-9]*):([0-9]*) ([A-Z]*)" />
 		<var group="2" input="${time}" name="minutes" pattern="([0-9]*):([0-9]*) ([A-Z]*)" />
@@ -92,9 +114,15 @@
 
 		<execute function="Type" locator1="ReportsAdminEditScheduleEntry#EMAIL_NOTIFICATIONS_FIELD" value1="${emailNotificationsAddress}" />
 		<execute function="Type" locator1="ReportsAdminEditScheduleEntry#EMAIL_RECIPIENT_FIELD" value1="${emailRecipientAddress}" />
+<<<<<<< HEAD
 
 		<execute function="AssertClick" locator1="ReportsAdminEditScheduleEntry#SCHEDULE_BUTTON" value1="Schedule" />
 
+=======
+
+		<execute function="AssertClick" locator1="ReportsAdminEditScheduleEntry#SCHEDULE_BUTTON" value1="Schedule" />
+
+>>>>>>> compatible
 		<execute macro="Alert#viewSuccessMessage" />
 
 		<execute function="Pause" locator1="5000" />
@@ -127,7 +155,13 @@
 
 		<execute function="Click" locator1="CKEditor#TOOLBAR_SOURCE_BUTTON" />
 
+<<<<<<< HEAD
 		<execute macro="PortletEntry#save" />
+=======
+		<execute macro="Button#clickSave" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 	</command>
 
 	<command name="configureEmailFrom">
@@ -136,7 +170,13 @@
 		<execute function="Type" locator1="ReportsAdminConfiguration#EMAIL_FROM_NAME_FIELD" value1="${emailFromName}" />
 		<execute function="Type" locator1="ReportsAdminConfiguration#EMAIL_FROM_ADDRESS_FIELD" value1="${emailFromAddress}" />
 
+<<<<<<< HEAD
 		<execute macro="PortletEntry#save" />
+=======
+		<execute macro="Button#clickSave" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 	</command>
 
 	<command name="configureNotificationsEmail">
@@ -150,7 +190,13 @@
 
 		<execute function="Click" locator1="CKEditor#TOOLBAR_SOURCE_BUTTON_2" />
 
+<<<<<<< HEAD
 		<execute macro="PortletEntry#save" />
+=======
+		<execute macro="Button#clickSave" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 	</command>
 
 	<command name="deleteReportEntryFile">
@@ -174,11 +220,19 @@
 		<var name="key_reportsFileName" value="${reportsFileName}" />
 
 		<execute function="AssertTextEquals" locator1="ReportsAdminViewReportEntry#ENTRY_FILE_TABLE_FILE" value1="${reportsFileName}" />
+<<<<<<< HEAD
 
 		<execute function="Click" locator1="ReportsAdminViewReportEntry#ENTRY_FILE_TABLE_ACTIONS" />
 
 		<execute function="AssertClick" locator1="ReportsAdminViewReportEntry#ENTRY_FILE_MENULIST_DELIVER_REPORT" value1="Deliver Report" />
 
+=======
+
+		<execute function="Click" locator1="ReportsAdminViewReportEntry#ENTRY_FILE_TABLE_ACTIONS" />
+
+		<execute function="AssertClick" locator1="ReportsAdminViewReportEntry#ENTRY_FILE_MENULIST_DELIVER_REPORT" value1="Deliver Report" />
+
+>>>>>>> compatible
 		<execute function="AssertTextEquals" locator1="ReportsAdminDeliverReport#REPORT_NAME" value1="Report Name ${reportsFileName}" />
 		<execute function="Type" locator1="ReportsAdminDeliverReport#EMAIL_RECIPIENT_FIELD" value1="${emailRecipientAddress}" />
 
@@ -220,11 +274,19 @@
 
 	<command name="gotoConfiguration">
 		<execute function="Click" locator1="Icon#HEADER_VERTICAL_ELLIPSIS" />
+<<<<<<< HEAD
 
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Configuration">
 			<var name="key_menuItem" value="Configuration" />
 		</execute>
 
+=======
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Configuration">
+			<var name="key_menuItem" value="Configuration" />
+		</execute>
+
+>>>>>>> compatible
 		<execute function="SelectFrame" locator1="IFrame#CONFIGURATION" />
 	</command>
 
@@ -248,7 +310,13 @@
 		<execute function="Type" locator1="ReportsAdminConfiguration#EMAIL_FROM_NAME_FIELD" value1="Joe Bloggs" />
 		<execute function="Type" locator1="ReportsAdminConfiguration#EMAIL_FROM_ADDRESS_FIELD" value1="test@liferay.com" />
 
+<<<<<<< HEAD
 		<execute macro="PortletEntry#save" />
+=======
+		<execute macro="Button#clickSave" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 
 		<execute macro="IFrame#closeFrame" />
 
@@ -275,7 +343,13 @@ Sincerely,<br />
 
 		<execute function="Click" locator1="CKEditor#TOOLBAR_SOURCE_BUTTON" />
 
+<<<<<<< HEAD
 		<execute macro="PortletEntry#save" />
+=======
+		<execute macro="Button#clickSave" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 
 		<execute macro="IFrame#closeFrame" />
 
@@ -302,15 +376,25 @@ Sincerely,<br />
 
 		<execute function="Click" locator1="CKEditor#TOOLBAR_SOURCE_BUTTON_2" />
 
+<<<<<<< HEAD
 		<execute macro="PortletEntry#save" />
+=======
+		<execute macro="Button#clickSave" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 	</command>
 
 	<command name="tearDownDefinitions">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Reports Admin" />
 		</execute>
 
@@ -337,9 +421,13 @@ Sincerely,<br />
 	<command name="tearDownReports">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Reports Admin" />
 		</execute>
 
@@ -362,9 +450,13 @@ Sincerely,<br />
 	<command name="tearDownSources">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Reports Admin" />
 		</execute>
 

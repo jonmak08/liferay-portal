@@ -21,6 +21,10 @@ import com.liferay.journal.service.JournalFolderLocalServiceUtil;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.List;
@@ -70,13 +74,21 @@ public abstract class JournalFolderBaseImpl extends JournalFolderModelImpl
 
 		StringBundler sb = new StringBundler((journalFolders.size() * 2) + 1);
 
+<<<<<<< HEAD
 		sb.append("/");
+=======
+		sb.append(StringPool.SLASH);
+>>>>>>> compatible
 
 		for (int i = journalFolders.size() - 1; i >= 0; i--) {
 			journalFolder = journalFolders.get(i);
 
 			sb.append(journalFolder.getFolderId());
+<<<<<<< HEAD
 			sb.append("/");
+=======
+			sb.append(StringPool.SLASH);
+>>>>>>> compatible
 		}
 
 		return sb.toString();

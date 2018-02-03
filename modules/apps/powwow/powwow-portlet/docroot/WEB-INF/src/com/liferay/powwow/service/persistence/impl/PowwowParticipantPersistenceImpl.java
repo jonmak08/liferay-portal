@@ -34,8 +34,15 @@ import com.liferay.portal.kernel.service.persistence.CompanyProvider;
 import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.ReflectionUtil;
+import com.liferay.portal.kernel.util.SetUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 
 import com.liferay.powwow.exception.NoSuchParticipantException;
@@ -316,7 +323,11 @@ public class PowwowParticipantPersistenceImpl extends BasePersistenceImpl<Powwow
 		msg.append("powwowMeetingId=");
 		msg.append(powwowMeetingId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchParticipantException(msg.toString());
 	}
@@ -368,7 +379,11 @@ public class PowwowParticipantPersistenceImpl extends BasePersistenceImpl<Powwow
 		msg.append("powwowMeetingId=");
 		msg.append(powwowMeetingId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchParticipantException(msg.toString());
 	}
@@ -650,7 +665,11 @@ public class PowwowParticipantPersistenceImpl extends BasePersistenceImpl<Powwow
 			msg.append(", participantUserId=");
 			msg.append(participantUserId);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -889,7 +908,11 @@ public class PowwowParticipantPersistenceImpl extends BasePersistenceImpl<Powwow
 			msg.append(", emailAddress=");
 			msg.append(emailAddress);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -956,7 +979,11 @@ public class PowwowParticipantPersistenceImpl extends BasePersistenceImpl<Powwow
 			if (emailAddress == null) {
 				query.append(_FINDER_COLUMN_PMI_EA_EMAILADDRESS_1);
 			}
+<<<<<<< HEAD
 			else if (emailAddress.equals("")) {
+=======
+			else if (emailAddress.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_PMI_EA_EMAILADDRESS_3);
 			}
 			else {
@@ -1065,7 +1092,11 @@ public class PowwowParticipantPersistenceImpl extends BasePersistenceImpl<Powwow
 			if (emailAddress == null) {
 				query.append(_FINDER_COLUMN_PMI_EA_EMAILADDRESS_1);
 			}
+<<<<<<< HEAD
 			else if (emailAddress.equals("")) {
+=======
+			else if (emailAddress.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_PMI_EA_EMAILADDRESS_3);
 			}
 			else {
@@ -1346,7 +1377,11 @@ public class PowwowParticipantPersistenceImpl extends BasePersistenceImpl<Powwow
 		msg.append(", type=");
 		msg.append(type);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchParticipantException(msg.toString());
 	}
@@ -1402,7 +1437,11 @@ public class PowwowParticipantPersistenceImpl extends BasePersistenceImpl<Powwow
 		msg.append(", type=");
 		msg.append(type);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchParticipantException(msg.toString());
 	}
@@ -1664,11 +1703,17 @@ public class PowwowParticipantPersistenceImpl extends BasePersistenceImpl<Powwow
 		setModelClass(PowwowParticipant.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("type", "type_");
@@ -2266,12 +2311,20 @@ public class PowwowParticipantPersistenceImpl extends BasePersistenceImpl<Powwow
 		for (Serializable primaryKey : uncachedPrimaryKeys) {
 			query.append((long)primaryKey);
 
+<<<<<<< HEAD
 			query.append(",");
+=======
+			query.append(StringPool.COMMA);
+>>>>>>> compatible
 		}
 
 		query.setIndex(query.index() - 1);
 
+<<<<<<< HEAD
 		query.append(")");
+=======
+		query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 		String sql = query.toString();
 

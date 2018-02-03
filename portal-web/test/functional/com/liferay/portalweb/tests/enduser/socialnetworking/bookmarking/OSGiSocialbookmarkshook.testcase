@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 <definition component-name="portal-plugins-osgi">
 	<property name="osgi.app.includes" value="social-bookmarks" />
 	<property name="portal.release" value="true" />
 	<property name="portal.upstream" value="true" />
 	<property name="plugins.deployment.type" value="osgi" />
+=======
+<definition component-name="portal-plugins-osgi" ignore="true">
+	<property name="portal.release" value="true" />
+	<property name="portal.upstream" value="true" />
+	<property name="plugins.deployment.type" value="osgi" />
+	<property name="osgi.app.includes" value="social-bookmarks" />
+>>>>>>> compatible
 	<property name="testray.main.component.name" value="Social Networking" />
 
 	<set-up>

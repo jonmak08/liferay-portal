@@ -21,7 +21,11 @@ import com.liferay.portal.kernel.monitoring.MonitoringControl;
 import com.liferay.portal.kernel.monitoring.PortalMonitoringControl;
 import com.liferay.portal.kernel.monitoring.PortletMonitoringControl;
 import com.liferay.portal.kernel.monitoring.ServiceMonitoringControl;
+<<<<<<< HEAD
 import com.liferay.portal.monitoring.internal.configuration.MonitoringConfiguration;
+=======
+import com.liferay.portal.monitoring.configuration.MonitoringConfiguration;
+>>>>>>> compatible
 
 import java.util.Map;
 import java.util.Set;
@@ -40,7 +44,11 @@ import org.osgi.service.component.annotations.Reference;
  * @author Brian Wing Shun Chan
  */
 @Component(
+<<<<<<< HEAD
 	configurationPid = "com.liferay.portal.monitoring.internal.configuration.MonitoringConfiguration",
+=======
+	configurationPid = "com.liferay.portal.monitoring.configuration.MonitoringConfiguration",
+>>>>>>> compatible
 	enabled = false, immediate = true,
 	property = {
 		"jmx.objectname=com.liferay.portal.monitoring:classification=monitoring_service,name=MonitoringConfigurationManager",

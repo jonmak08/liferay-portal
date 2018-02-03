@@ -1,5 +1,6 @@
 Bundle-Name: Liferay Frontend Editor Simple Web
 Bundle-SymbolicName: com.liferay.frontend.editor.simple.web
+<<<<<<< HEAD
 Bundle-Version: 1.0.10
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Rich Text Editors
@@ -12,3 +13,11 @@ Require-Capability:\
 		filter:="(bundle.symbolic.name=com.liferay.frontend.editor.lang)
 Web-ContextPath: /frontend-editor-simple-web
 -donotcopy: (\.touch|.*_diffs.*|.*.properties)"
+=======
+Bundle-Version: 1.0.7
+Liferay-Releng-Module-Group-Description:
+Liferay-Releng-Module-Group-Title: Rich Text Editors
+Web-ContextPath: /frontend-editor-simple-web
+-donotcopy: (\.touch|.*_diffs.*|.*.properties)
+-includeresource: content=../frontend-editor-lang/src/main/resources/content
+>>>>>>> compatible

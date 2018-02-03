@@ -51,10 +51,13 @@ ${dataFactory.toInsertSQL(ddmTemplateModel)}
 
 			${dataFactory.toInsertSQL(journalArticleModel)}
 
+<<<<<<< HEAD
 			<#assign journalArticleLocalizationModel = dataFactory.newJournalArticleLocalizationModel(journalArticleModel, journalArticleCount, versionCount) />
 
 			${dataFactory.toInsertSQL(journalArticleLocalizationModel)}
 
+=======
+>>>>>>> compatible
 			${dataFactory.toInsertSQL(dataFactory.newDDMTemplateLinkModel(journalArticleModel, ddmTemplateModel.templateId))}
 
 			${dataFactory.toInsertSQL(dataFactory.newDDMStorageLinkModel(journalArticleModel, ddmStructureModel.structureId))}
@@ -64,7 +67,11 @@ ${dataFactory.toInsertSQL(ddmTemplateModel)}
 			<#if versionCount = dataFactory.maxJournalArticleVersionCount>
 				<@insertAssetEntry
 					_categoryAndTag=true
+<<<<<<< HEAD
 					_entry=dataFactory.newObjectValuePair(journalArticleModel, journalArticleLocalizationModel)
+=======
+					_entry=journalArticleModel
+>>>>>>> compatible
 				/>
 			</#if>
 		</#list>

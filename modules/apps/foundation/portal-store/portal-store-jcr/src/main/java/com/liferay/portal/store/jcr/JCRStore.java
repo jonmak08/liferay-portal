@@ -18,7 +18,10 @@ import com.liferay.document.library.kernel.exception.DuplicateFileException;
 import com.liferay.document.library.kernel.exception.NoSuchFileException;
 import com.liferay.document.library.kernel.store.BaseStore;
 import com.liferay.document.library.kernel.store.Store;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
@@ -26,6 +29,10 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.store.jcr.configuration.JCRStoreConfiguration;
@@ -863,7 +870,11 @@ public class JCRStore extends BaseStore {
 			sb.append("\"dl.store.impl\" to use JCR to persist documents. ");
 			sb.append("JCR is deprecated and is not supported.");
 
+<<<<<<< HEAD
 			_log.warn(sb.toString());
+=======
+			_log.warn(sb);
+>>>>>>> compatible
 		}
 
 		_jcrStoreConfiguration = ConfigurableUtil.createConfigurable(

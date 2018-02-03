@@ -40,7 +40,11 @@ String socialBookmarksDisplayStyle = blogsPortletInstanceConfiguration.socialBoo
 		contentId="<%= String.valueOf(entry.getEntryId()) %>"
 		displayStyle="<%= blogsPortletInstanceConfiguration.socialBookmarksDisplayStyle() %>"
 		target="_blank"
+<<<<<<< HEAD
 		title="<%= BlogsEntryUtil.getDisplayTitle(resourceBundle, entry) %>"
+=======
+		title="<%= entry.getTitle() %>"
+>>>>>>> compatible
 		types="<%= blogsPortletInstanceConfiguration.socialBookmarksTypes() %>"
 		url="<%= PortalUtil.getCanonicalURL(bookmarkURL.toString(), themeDisplay, layout) %>"
 	/>

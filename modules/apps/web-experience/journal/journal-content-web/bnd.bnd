@@ -1,5 +1,6 @@
 Bundle-Name: Liferay Journal Content Web
 Bundle-SymbolicName: com.liferay.journal.content.web
+<<<<<<< HEAD
 Bundle-Version: 2.0.4
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Web Content
@@ -10,4 +11,10 @@ Provide-Capability:\
 Require-Capability:\
 	liferay.resource.bundle;\
 		filter:="(bundle.symbolic.name=com.liferay.journal.lang)"
+=======
+Bundle-Version: 1.1.21
+Export-Package: com.liferay.journal.content.web.constants
+Liferay-Releng-Module-Group-Description:
+Liferay-Releng-Module-Group-Title: Web Content
+>>>>>>> compatible
 Web-ContextPath: /journal-content-web

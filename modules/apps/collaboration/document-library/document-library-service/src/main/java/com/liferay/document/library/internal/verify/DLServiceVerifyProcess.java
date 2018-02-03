@@ -19,6 +19,11 @@ import com.liferay.document.library.kernel.exception.DuplicateFileEntryException
 import com.liferay.document.library.kernel.exception.DuplicateFolderNameException;
 import com.liferay.document.library.kernel.model.DLFileEntry;
 import com.liferay.document.library.kernel.model.DLFileEntryMetadata;
+<<<<<<< HEAD
+=======
+import com.liferay.document.library.kernel.model.DLFileEntryType;
+import com.liferay.document.library.kernel.model.DLFileEntryTypeConstants;
+>>>>>>> compatible
 import com.liferay.document.library.kernel.model.DLFileVersion;
 import com.liferay.document.library.kernel.model.DLFolder;
 import com.liferay.document.library.kernel.service.DLAppHelperLocalService;
@@ -31,7 +36,10 @@ import com.liferay.document.library.kernel.store.DLStoreUtil;
 import com.liferay.document.library.kernel.util.DLUtil;
 import com.liferay.document.library.kernel.util.DLValidator;
 import com.liferay.document.library.kernel.util.comparator.DLFileVersionVersionComparator;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.instances.service.PortalInstancesLocalService;
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.Criterion;
@@ -46,10 +54,19 @@ import com.liferay.portal.kernel.repository.model.FileVersion;
 import com.liferay.portal.kernel.repository.model.Folder;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.ListUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.LoggingTimer;
 import com.liferay.portal.kernel.util.MimeTypesUtil;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.LocaleUtil;
+import com.liferay.portal.kernel.util.LoggingTimer;
+import com.liferay.portal.kernel.util.MimeTypesUtil;
+import com.liferay.portal.kernel.util.StreamUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.repository.liferayrepository.model.LiferayFileEntry;
@@ -130,9 +147,14 @@ public class DLServiceVerifyProcess extends VerifyProcess {
 				int size = mismatchedCompanyIdDLFileEntryMetadatas.size();
 
 				_log.debug(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Deleting ", String.valueOf(size),
 						" file entry metadatas with mismatched company IDs"));
+=======
+					"Deleting " + size + " file entry metadatas with " +
+						"mismatched company IDs");
+>>>>>>> compatible
 			}
 
 			for (DLFileEntryMetadata dlFileEntryMetadata :
@@ -159,6 +181,36 @@ public class DLServiceVerifyProcess extends VerifyProcess {
 		}
 	}
 
+<<<<<<< HEAD
+=======
+	protected void checkDLFileEntryType() throws Exception {
+		try (LoggingTimer loggingTimer = new LoggingTimer()) {
+			DLFileEntryType dlFileEntryType =
+				_dlFileEntryTypeLocalService.fetchDLFileEntryType(
+					DLFileEntryTypeConstants.FILE_ENTRY_TYPE_ID_BASIC_DOCUMENT);
+
+			if (dlFileEntryType != null) {
+				return;
+			}
+
+			dlFileEntryType =
+				_dlFileEntryTypeLocalService.createDLFileEntryType(
+					DLFileEntryTypeConstants.FILE_ENTRY_TYPE_ID_BASIC_DOCUMENT);
+
+			dlFileEntryType.setCompanyId(
+				DLFileEntryTypeConstants.COMPANY_ID_BASIC_DOCUMENT);
+			dlFileEntryType.setFileEntryTypeKey(
+				StringUtil.toUpperCase(
+					DLFileEntryTypeConstants.NAME_BASIC_DOCUMENT));
+			dlFileEntryType.setName(
+				DLFileEntryTypeConstants.NAME_BASIC_DOCUMENT,
+				LocaleUtil.getDefault());
+
+			_dlFileEntryTypeLocalService.updateDLFileEntryType(dlFileEntryType);
+		}
+	}
+
+>>>>>>> compatible
 	protected void checkFileVersionMimeTypes(final String[] originalMimeTypes)
 		throws Exception {
 
@@ -189,6 +241,7 @@ public class DLServiceVerifyProcess extends VerifyProcess {
 
 				@Override
 				public void performAction(DLFileVersion dlFileVersion) {
+<<<<<<< HEAD
 					String title = DLUtil.getTitleWithExtension(
 						dlFileVersion.getTitle(), dlFileVersion.getExtension());
 
@@ -231,6 +284,14 @@ public class DLServiceVerifyProcess extends VerifyProcess {
 									pe);
 							}
 						}
+=======
+					InputStream inputStream = null;
+
+					try {
+						inputStream = _dlFileEntryLocalService.getFileAsStream(
+							dlFileVersion.getFileEntryId(),
+							dlFileVersion.getVersion(), false);
+>>>>>>> compatible
 					}
 					catch (Exception e) {
 						if (_log.isWarnEnabled()) {
@@ -256,6 +317,47 @@ public class DLServiceVerifyProcess extends VerifyProcess {
 								_log.warn(sb.toString(), e);
 							}
 						}
+<<<<<<< HEAD
+=======
+
+						return;
+					}
+
+					String title = DLUtil.getTitleWithExtension(
+						dlFileVersion.getTitle(), dlFileVersion.getExtension());
+
+					String mimeType = getMimeType(inputStream, title);
+
+					if (mimeType.equals(dlFileVersion.getMimeType())) {
+						return;
+					}
+
+					dlFileVersion.setMimeType(mimeType);
+
+					_dlFileVersionLocalService.updateDLFileVersion(
+						dlFileVersion);
+
+					try {
+						DLFileEntry dlFileEntry = dlFileVersion.getFileEntry();
+
+						if (Objects.equals(
+								dlFileEntry.getVersion(),
+								dlFileVersion.getVersion())) {
+
+							dlFileEntry.setMimeType(mimeType);
+
+							_dlFileEntryLocalService.updateDLFileEntry(
+								dlFileEntry);
+						}
+					}
+					catch (PortalException pe) {
+						if (_log.isWarnEnabled()) {
+							_log.warn(
+								"Unable to get file entry " +
+									dlFileVersion.getFileEntryId(),
+								pe);
+						}
+>>>>>>> compatible
 					}
 				}
 
@@ -265,10 +367,15 @@ public class DLServiceVerifyProcess extends VerifyProcess {
 			long count = actionableDynamicQuery.performCount();
 
 			_log.debug(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Processing ", String.valueOf(count),
 					" file versions with mime types: ",
 					StringUtil.merge(originalMimeTypes, StringPool.COMMA)));
+=======
+				"Processing " + count + " file versions with mime types: " +
+					StringUtil.merge(originalMimeTypes, StringPool.COMMA));
+>>>>>>> compatible
 		}
 
 		actionableDynamicQuery.performActions();
@@ -425,8 +532,12 @@ public class DLServiceVerifyProcess extends VerifyProcess {
 		}
 
 		if (dlFileVersions.isEmpty()) {
+<<<<<<< HEAD
 			DLStoreUtil.addFile(
 				companyId, dataRepositoryId, name, false, new byte[0]);
+=======
+			DLStoreUtil.addFile(companyId, dataRepositoryId, name, new byte[0]);
+>>>>>>> compatible
 
 			return;
 		}
@@ -461,10 +572,16 @@ public class DLServiceVerifyProcess extends VerifyProcess {
 				catch (Exception e) {
 					if (_log.isWarnEnabled()) {
 						_log.warn(
+<<<<<<< HEAD
 							StringBundler.concat(
 								"Unable to remove file entry ",
 								String.valueOf(dlFileEntry.getFileEntryId()),
 								": ", e.getMessage()));
+=======
+							"Unable to remove file entry " +
+								dlFileEntry.getFileEntryId() + ": " +
+									e.getMessage());
+>>>>>>> compatible
 					}
 				}
 			}
@@ -487,6 +604,10 @@ public class DLServiceVerifyProcess extends VerifyProcess {
 	protected void doVerify() throws Exception {
 		checkMisversionedDLFileEntries();
 
+<<<<<<< HEAD
+=======
+		checkDLFileEntryType();
+>>>>>>> compatible
 		checkDLFileEntryMetadata();
 		checkMimeTypes();
 		checkTitles();
@@ -496,6 +617,22 @@ public class DLServiceVerifyProcess extends VerifyProcess {
 		updateFolderAssets();
 	}
 
+<<<<<<< HEAD
+=======
+	protected String getMimeType(InputStream inputStream, String title) {
+		String mimeType = null;
+
+		try {
+			mimeType = MimeTypesUtil.getContentType(inputStream, title);
+		}
+		finally {
+			StreamUtil.cleanUp(inputStream);
+		}
+
+		return mimeType;
+	}
+
+>>>>>>> compatible
 	protected void renameDuplicateTitle(DLFileEntry dlFileEntry)
 		throws PortalException {
 
@@ -531,10 +668,15 @@ public class DLServiceVerifyProcess extends VerifyProcess {
 
 		if (_log.isDebugEnabled()) {
 			_log.debug(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Invalid title ", title, " renamed to ", newTitle,
 					" for file entry ",
 					String.valueOf(dlFileEntry.getFileEntryId())));
+=======
+				"Invalid title " + title + " renamed to " + newTitle +
+					" for file entry " + dlFileEntry.getFileEntryId());
+>>>>>>> compatible
 		}
 
 		return renamedDLFileEntry;
@@ -620,7 +762,11 @@ public class DLServiceVerifyProcess extends VerifyProcess {
 	}
 
 	@Reference(
+<<<<<<< HEAD
 		target = "(&(release.bundle.symbolic.name=com.liferay.document.library.service)(release.schema.version=1.0.2))",
+=======
+		target = "(&(release.bundle.symbolic.name=com.liferay.document.library.service)(release.schema.version=1.0.0))",
+>>>>>>> compatible
 		unbind = "-"
 	)
 	protected void setRelease(Release release) {
@@ -665,10 +811,16 @@ public class DLServiceVerifyProcess extends VerifyProcess {
 				catch (Exception e) {
 					if (_log.isWarnEnabled()) {
 						_log.warn(
+<<<<<<< HEAD
 							StringBundler.concat(
 								"Unable to update asset for file entry ",
 								String.valueOf(dlFileEntry.getFileEntryId()),
 								": ", e.getMessage()));
+=======
+							"Unable to update asset for file entry " +
+								dlFileEntry.getFileEntryId() + ": " +
+									e.getMessage());
+>>>>>>> compatible
 					}
 				}
 			}
@@ -700,10 +852,15 @@ public class DLServiceVerifyProcess extends VerifyProcess {
 				catch (Exception e) {
 					if (_log.isWarnEnabled()) {
 						_log.warn(
+<<<<<<< HEAD
 							StringBundler.concat(
 								"Unable to update asset for folder ",
 								String.valueOf(dlFolder.getFolderId()), ": ",
 								e.getMessage()));
+=======
+							"Unable to update asset for folder " +
+								dlFolder.getFolderId() + ": " + e.getMessage());
+>>>>>>> compatible
 					}
 				}
 			}
@@ -732,9 +889,12 @@ public class DLServiceVerifyProcess extends VerifyProcess {
 	private DLValidator _dlValidator;
 
 	@Reference
+<<<<<<< HEAD
 	private Portal _portal;
 
 	@Reference
+=======
+>>>>>>> compatible
 	private PortalInstancesLocalService _portalInstancesLocalService;
 
 }

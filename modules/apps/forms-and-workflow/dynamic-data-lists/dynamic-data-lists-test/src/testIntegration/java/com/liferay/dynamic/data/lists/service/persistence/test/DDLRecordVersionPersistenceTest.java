@@ -35,6 +35,10 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.util.IntegerWrapper;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.OrderByComparatorFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.PersistenceTestRule;
@@ -138,8 +142,11 @@ public class DDLRecordVersionPersistenceTest {
 
 		newDDLRecordVersion.setRecordSetId(RandomTestUtil.nextLong());
 
+<<<<<<< HEAD
 		newDDLRecordVersion.setRecordSetVersion(RandomTestUtil.randomString());
 
+=======
+>>>>>>> compatible
 		newDDLRecordVersion.setRecordId(RandomTestUtil.nextLong());
 
 		newDDLRecordVersion.setVersion(RandomTestUtil.randomString());
@@ -175,8 +182,11 @@ public class DDLRecordVersionPersistenceTest {
 			newDDLRecordVersion.getDDMStorageId());
 		Assert.assertEquals(existingDDLRecordVersion.getRecordSetId(),
 			newDDLRecordVersion.getRecordSetId());
+<<<<<<< HEAD
 		Assert.assertEquals(existingDDLRecordVersion.getRecordSetVersion(),
 			newDDLRecordVersion.getRecordSetVersion());
+=======
+>>>>>>> compatible
 		Assert.assertEquals(existingDDLRecordVersion.getRecordId(),
 			newDDLRecordVersion.getRecordId());
 		Assert.assertEquals(existingDDLRecordVersion.getVersion(),
@@ -202,6 +212,7 @@ public class DDLRecordVersionPersistenceTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testCountByR_R() throws Exception {
 		_persistence.countByR_R(RandomTestUtil.nextLong(), "");
 
@@ -215,6 +226,12 @@ public class DDLRecordVersionPersistenceTest {
 		_persistence.countByR_V(RandomTestUtil.nextLong(), "");
 
 		_persistence.countByR_V(0L, "null");
+=======
+	public void testCountByR_V() throws Exception {
+		_persistence.countByR_V(RandomTestUtil.nextLong(), StringPool.BLANK);
+
+		_persistence.countByR_V(0L, StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByR_V(0L, (String)null);
 	}
@@ -228,6 +245,7 @@ public class DDLRecordVersionPersistenceTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testCountByU_R_R_S() throws Exception {
 		_persistence.countByU_R_R_S(RandomTestUtil.nextLong(),
 			RandomTestUtil.nextLong(), "", RandomTestUtil.nextInt());
@@ -238,6 +256,8 @@ public class DDLRecordVersionPersistenceTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testFindByPrimaryKeyExisting() throws Exception {
 		DDLRecordVersion newDDLRecordVersion = addDDLRecordVersion();
 
@@ -263,10 +283,16 @@ public class DDLRecordVersionPersistenceTest {
 		return OrderByComparatorFactoryUtil.create("DDLRecordVersion",
 			"recordVersionId", true, "groupId", true, "companyId", true,
 			"userId", true, "userName", true, "createDate", true,
+<<<<<<< HEAD
 			"DDMStorageId", true, "recordSetId", true, "recordSetVersion",
 			true, "recordId", true, "version", true, "displayIndex", true,
 			"status", true, "statusByUserId", true, "statusByUserName", true,
 			"statusDate", true);
+=======
+			"DDMStorageId", true, "recordSetId", true, "recordId", true,
+			"version", true, "displayIndex", true, "status", true,
+			"statusByUserId", true, "statusByUserName", true, "statusDate", true);
+>>>>>>> compatible
 	}
 
 	@Test
@@ -499,8 +525,11 @@ public class DDLRecordVersionPersistenceTest {
 
 		ddlRecordVersion.setRecordSetId(RandomTestUtil.nextLong());
 
+<<<<<<< HEAD
 		ddlRecordVersion.setRecordSetVersion(RandomTestUtil.randomString());
 
+=======
+>>>>>>> compatible
 		ddlRecordVersion.setRecordId(RandomTestUtil.nextLong());
 
 		ddlRecordVersion.setVersion(RandomTestUtil.randomString());

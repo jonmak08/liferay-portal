@@ -47,8 +47,11 @@ public class RebaseErrorTopLevelBuild extends TopLevelBuild {
 
 	@Override
 	public String getResult() {
+<<<<<<< HEAD
 		String result = super.getResult();
 
+=======
+>>>>>>> compatible
 		if (_validResult) {
 			return result;
 		}
@@ -70,20 +73,28 @@ public class RebaseErrorTopLevelBuild extends TopLevelBuild {
 				return result;
 			}
 
+<<<<<<< HEAD
 			int retries = 0;
 			long time = System.currentTimeMillis();
+=======
+			long time = System.currentTimeMillis();
+
+>>>>>>> compatible
 			Map<String, String> stopPropertiesTempMap =
 				getStopPropertiesTempMap();
 
 			while (!stopPropertiesTempMap.containsKey(
 						"TOP_LEVEL_GITHUB_COMMENT_ID")) {
 
+<<<<<<< HEAD
 				if (retries > 2) {
 					throw new RuntimeException(
 						"Unable to get TOP_LEVE_GITHUB_COMMENT_ID from stop " +
 							"properties temp map");
 				}
 
+=======
+>>>>>>> compatible
 				if ((System.currentTimeMillis() - time) > (5 * 60 * 1000)) {
 					System.out.println(
 						"No entry exists for TOP_LEVEL_GITHUB_COMMENT_ID in " +
@@ -92,8 +103,11 @@ public class RebaseErrorTopLevelBuild extends TopLevelBuild {
 					return result;
 				}
 
+<<<<<<< HEAD
 				retries++;
 
+=======
+>>>>>>> compatible
 				JenkinsResultsParserUtil.sleep(10 * 1000);
 
 				stopPropertiesTempMap = getStopPropertiesTempMap();
@@ -103,9 +117,13 @@ public class RebaseErrorTopLevelBuild extends TopLevelBuild {
 					getActualCommentTokens(stopPropertiesTempMap),
 					getExpectedCommentTokens())) {
 
+<<<<<<< HEAD
 				setResult("SUCCESS");
 
 				result = super.getResult();
+=======
+				result = "SUCCESS";
+>>>>>>> compatible
 			}
 
 			return result;
@@ -138,7 +156,11 @@ public class RebaseErrorTopLevelBuild extends TopLevelBuild {
 
 		String commentBody = jsonObject.getString("body");
 
+<<<<<<< HEAD
 		Element rootElement = getRootElement(commentBody);
+=======
+		Element rootElement = getElement(commentBody);
+>>>>>>> compatible
 
 		return getCommentTokens(rootElement);
 	}
@@ -167,11 +189,37 @@ public class RebaseErrorTopLevelBuild extends TopLevelBuild {
 		return tokens;
 	}
 
+<<<<<<< HEAD
 	protected List<String> getExpectedCommentTokens() throws IOException {
 		String resource = JenkinsResultsParserUtil.getResourceFileContent(
 			"dependencies/RebaseErrorTopLevelBuildTemplate.html");
 
 		return getCommentTokens(getRootElement(resource));
+=======
+	protected Element getElement(String content) {
+		try {
+			Document document = Dom4JUtil.parse(
+				JenkinsResultsParserUtil.combine("<div>", content, "</div>"));
+
+			return document.getRootElement();
+		}
+		catch (DocumentException de) {
+			throw new RuntimeException("Unable to parse XML", de);
+		}
+	}
+
+	protected List<String> getExpectedCommentTokens() throws IOException {
+		Element rootElement = null;
+
+		Class<?> clazz = getClass();
+
+		String resource = JenkinsResultsParserUtil.readInputStream(
+			clazz.getResourceAsStream("RebaseErrorTopLevelBuildTemplate.html"));
+
+		rootElement = getElement(resource);
+
+		return getCommentTokens(rootElement);
+>>>>>>> compatible
 	}
 
 	protected JSONObject getJSONObjectFromURL(String url) throws IOException {
@@ -209,6 +257,7 @@ public class RebaseErrorTopLevelBuild extends TopLevelBuild {
 		return new JSONObject(sb.toString());
 	}
 
+<<<<<<< HEAD
 	protected Element getRootElement(String content) {
 		try {
 			Document document = Dom4JUtil.parse(
@@ -221,6 +270,8 @@ public class RebaseErrorTopLevelBuild extends TopLevelBuild {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	protected boolean matchCommentTokens(
 		List<String> actualCommentTokens, List<String> expectedCommentTokens) {
 

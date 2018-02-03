@@ -14,8 +14,11 @@
 
 package com.liferay.portal.tools.deploy;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Plugin;
 import com.liferay.portal.kernel.plugin.PluginPackage;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
@@ -23,7 +26,12 @@ import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.PortalUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.PropsKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ServerDetector;
+import com.liferay.portal.kernel.util.StreamUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -32,6 +40,10 @@ import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.UnsecureSAXReaderUtil;
 import com.liferay.portal.tools.ToolDependencies;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.util.PrefsPropsUtil;
+>>>>>>> compatible
 import com.liferay.portal.util.PropsValues;
 
 import java.io.File;
@@ -64,6 +76,7 @@ public class PortletDeployer extends BaseDeployer {
 			}
 		}
 
+<<<<<<< HEAD
 		try (PortletDeployer portletDeployer = new PortletDeployer(
 				wars, jars)) {
 		}
@@ -72,6 +85,9 @@ public class PortletDeployer extends BaseDeployer {
 				_log.warn(ioe, ioe);
 			}
 		}
+=======
+		StreamUtil.cleanUp(new PortletDeployer(wars, jars));
+>>>>>>> compatible
 	}
 
 	public PortletDeployer() {

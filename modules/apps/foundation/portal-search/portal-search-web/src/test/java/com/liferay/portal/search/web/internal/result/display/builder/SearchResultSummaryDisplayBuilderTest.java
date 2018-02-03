@@ -37,7 +37,10 @@ import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.LocaleThreadLocal;
 import com.liferay.portal.kernel.util.Props;
 import com.liferay.portal.kernel.util.PropsUtil;
+<<<<<<< HEAD
 import com.liferay.portal.search.internal.summary.SummaryBuilderFactoryImpl;
+=======
+>>>>>>> compatible
 import com.liferay.portal.search.test.SearchTestUtil;
 import com.liferay.portal.search.web.internal.display.context.PortletURLFactory;
 import com.liferay.portal.search.web.internal.display.context.SearchResultPreferences;
@@ -45,6 +48,11 @@ import com.liferay.portal.search.web.internal.result.display.context.SearchResul
 
 import java.util.Locale;
 
+<<<<<<< HEAD
+=======
+import javax.portlet.PortletRequest;
+import javax.portlet.PortletResponse;
+>>>>>>> compatible
 import javax.portlet.PortletURL;
 
 import org.junit.Assert;
@@ -111,6 +119,7 @@ public class SearchResultSummaryDisplayBuilderTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testResultIsTemporarilyUnavailable() throws Exception {
 		ruinAssetRendererFactoryLookup();
 
@@ -128,6 +137,8 @@ public class SearchResultSummaryDisplayBuilderTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testTagsURLDownloadAndUserPortraitFromResult()
 		throws Exception {
 
@@ -313,15 +324,25 @@ public class SearchResultSummaryDisplayBuilderTest {
 		return document;
 	}
 
+<<<<<<< HEAD
 	protected Indexer<?> createIndexer() throws Exception {
 		Indexer<?> indexer = Mockito.mock(Indexer.class);
+=======
+	protected Indexer createIndexer() throws Exception {
+		Indexer indexer = Mockito.mock(Indexer.class);
+>>>>>>> compatible
 
 		Mockito.doReturn(
 			new Summary(Locale.US, null, null)
 		).when(
 			indexer
 		).getSummary(
+<<<<<<< HEAD
 			Mockito.any(), Mockito.anyString(), Mockito.any(), Mockito.any()
+=======
+			Mockito.<Document>any(), Mockito.anyString(),
+			Mockito.<PortletRequest>any(), Mockito.<PortletResponse>any()
+>>>>>>> compatible
 		);
 
 		return indexer;
@@ -349,8 +370,11 @@ public class SearchResultSummaryDisplayBuilderTest {
 			Mockito.mock(SearchResultPreferences.class));
 		searchResultSummaryDisplayBuilder.setSearchResultViewURLSupplier(
 			Mockito.mock(SearchResultViewURLSupplier.class));
+<<<<<<< HEAD
 		searchResultSummaryDisplayBuilder.setSummaryBuilderFactory(
 			new SummaryBuilderFactoryImpl());
+=======
+>>>>>>> compatible
 		searchResultSummaryDisplayBuilder.setThemeDisplay(themeDisplay);
 
 		return searchResultSummaryDisplayBuilder;
@@ -366,6 +390,7 @@ public class SearchResultSummaryDisplayBuilderTest {
 		return themeDisplay;
 	}
 
+<<<<<<< HEAD
 	protected void ruinAssetRendererFactoryLookup() {
 		Mockito.doThrow(
 			RuntimeException.class
@@ -376,6 +401,8 @@ public class SearchResultSummaryDisplayBuilderTest {
 		);
 	}
 
+=======
+>>>>>>> compatible
 	protected void setUpAssetRenderer() throws Exception {
 		Mockito.doReturn(
 			SearchTestUtil.SUMMARY_CONTENT

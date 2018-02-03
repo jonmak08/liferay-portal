@@ -14,6 +14,7 @@
 
 package com.liferay.dynamic.data.mapping.data.provider.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.data.provider.DDMDataProvider;
 import com.liferay.dynamic.data.mapping.data.provider.web.internal.constants.DDMDataProviderPortletKeys;
 import com.liferay.dynamic.data.mapping.data.provider.web.internal.util.DDMDataProviderPortletUtil;
@@ -25,11 +26,17 @@ import com.liferay.dynamic.data.mapping.storage.DDMFormFieldValue;
 import com.liferay.dynamic.data.mapping.storage.DDMFormValues;
 import com.liferay.dynamic.data.mapping.util.DDMFormFactory;
 import com.liferay.portal.kernel.exception.PortalException;
+=======
+import com.liferay.dynamic.data.mapping.data.provider.web.internal.constants.DDMDataProviderPortletKeys;
+import com.liferay.dynamic.data.mapping.model.DDMDataProviderInstance;
+import com.liferay.dynamic.data.mapping.storage.DDMFormValues;
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCActionCommand;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.ServiceContextFactory;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ParamUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.WebKeys;
 
@@ -42,11 +49,18 @@ import java.util.Set;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
+=======
+import com.liferay.portal.kernel.util.WebKeys;
+
+>>>>>>> compatible
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 
 import org.osgi.service.component.annotations.Component;
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.Reference;
+=======
+>>>>>>> compatible
 
 /**
  * @author Leonardo Barros
@@ -78,6 +92,7 @@ public class UpdateDataProviderMVCActionCommand
 		DDMFormValues ddmFormValues = getDDMFormValues(
 			actionRequest, actionResponse);
 
+<<<<<<< HEAD
 		restorePasswordDDMFormFieldValues(
 			dataProviderInstanceId, ddmFormValues);
 
@@ -85,12 +100,19 @@ public class UpdateDataProviderMVCActionCommand
 			DDMDataProviderInstance.class.getName(), actionRequest);
 
 		ddmDataProviderInstanceService.updateDataProviderInstance(
+=======
+		ServiceContext serviceContext = ServiceContextFactory.getInstance(
+			DDMDataProviderInstance.class.getName(), actionRequest);
+
+		getDDMDataProviderInstanceService().updateDataProviderInstance(
+>>>>>>> compatible
 			dataProviderInstanceId,
 			getLocalizedMap(themeDisplay.getLocale(), name),
 			getLocalizedMap(themeDisplay.getLocale(), description),
 			ddmFormValues, serviceContext);
 	}
 
+<<<<<<< HEAD
 	protected Optional<DDMFormFieldValue> findStoredDDMFormFieldValue(
 		String name, String instanceId, DDMFormValues storedDDMFormValues) {
 
@@ -232,4 +254,6 @@ public class UpdateDataProviderMVCActionCommand
 	@Reference
 	protected DDMFormValuesJSONDeserializer ddmFormValuesJSONDeserializer;
 
+=======
+>>>>>>> compatible
 }

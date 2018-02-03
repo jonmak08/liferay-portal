@@ -1,10 +1,13 @@
 @import "bourbon";
 @import "mixins";
 
+<<<<<<< HEAD
 .color-cell-editor-hidden {
 	display: none;
 }
 
+=======
+>>>>>>> compatible
 .portlet-document-library, .portlet-dynamic-data-mapping {
 	.field-labels-inline {
 		clear: both;
@@ -194,6 +197,7 @@
 
 textarea.script {
 	min-height: 200px !important;
+<<<<<<< HEAD
 }
 
 .vertical-scrolling.nav {
@@ -204,4 +208,6 @@ textarea.script {
 	li {
 		width: 100%;
 	}
+=======
+>>>>>>> compatible
 }

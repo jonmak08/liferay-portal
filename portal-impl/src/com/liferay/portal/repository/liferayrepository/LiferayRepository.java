@@ -634,6 +634,7 @@ public class LiferayRepository
 			int end, OrderByComparator<?> obc)
 		throws PortalException {
 
+<<<<<<< HEAD
 		long userId = UserConstants.USER_ID_DEFAULT;
 
 		if (includeOwner) {
@@ -642,6 +643,10 @@ public class LiferayRepository
 
 		QueryDefinition<Object> queryDefinition = new QueryDefinition<>(
 			status, userId, includeOwner, start, end,
+=======
+		QueryDefinition<Object> queryDefinition = new QueryDefinition<>(
+			status, PrincipalThreadLocal.getUserId(), true, start, end,
+>>>>>>> compatible
 			(OrderByComparator<Object>)obc);
 
 		List<Object> dlFoldersAndDLFileEntriesAndDLFileShortcuts =
@@ -680,6 +685,7 @@ public class LiferayRepository
 			boolean includeMountFolders)
 		throws PortalException {
 
+<<<<<<< HEAD
 		return getFoldersAndFileEntriesAndFileShortcutsCount(
 			folderId, status, mimeTypes, includeMountFolders, true);
 	}
@@ -698,6 +704,10 @@ public class LiferayRepository
 
 		QueryDefinition<Object> queryDefinition = new QueryDefinition<>(
 			status, userId, includeOwner);
+=======
+		QueryDefinition<Object> queryDefinition = new QueryDefinition<>(
+			status, PrincipalThreadLocal.getUserId(), true);
+>>>>>>> compatible
 
 		return dlFolderService.getFoldersAndFileEntriesAndFileShortcutsCount(
 			getGroupId(), toFolderId(folderId), mimeTypes, includeMountFolders,

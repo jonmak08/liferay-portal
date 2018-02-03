@@ -38,12 +38,19 @@ runGradleTest {
 
 		String[] inputDirFileNames = inputDir.list()
 
+<<<<<<< HEAD
 		assert inputDirFileNames.length == 4
+=======
+		assert inputDirFileNames.length == 3
+>>>>>>> compatible
 
 		assert inputDirFileNames.contains("Dockerfile")
 		assert inputDirFileNames.contains("sample-api-1.0.0.jar")
 		assert inputDirFileNames.contains("sample-service-1.0.0.jar")
+<<<<<<< HEAD
 		assert inputDirFileNames.contains("sample-war-1.0.0.war")
+=======
+>>>>>>> compatible
 	}
 
 	finalizedBy removeAppDockerImageTasks
@@ -84,8 +91,11 @@ project(":sample-test") {
 		testCompile group: "junit", name: "junit", version: "4.12"
 		testCompile project(":sample-service")
 	}
+<<<<<<< HEAD
 }
 
 project(":sample-war") {
 	apply plugin: "war"
+=======
+>>>>>>> compatible
 }

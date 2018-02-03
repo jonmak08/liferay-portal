@@ -110,6 +110,7 @@ public class RatingsStatsUtil {
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns all the ratings statses where classNameId = &#63; and classPK = any &#63;.
 	*
 	* <p>
@@ -189,6 +190,8 @@ public class RatingsStatsUtil {
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	* Returns the ratings stats where classNameId = &#63; and classPK = &#63; or throws a {@link NoSuchStatsException} if it could not be found.
 	*
 	* @param classNameId the class name ID
@@ -250,6 +253,7 @@ public class RatingsStatsUtil {
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns the number of ratings statses where classNameId = &#63; and classPK = any &#63;.
 	*
 	* @param classNameId the class name ID
@@ -261,6 +265,8 @@ public class RatingsStatsUtil {
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	* Caches the ratings stats in the entity cache if it is enabled.
 	*
 	* @param ratingsStats the ratings stats

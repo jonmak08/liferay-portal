@@ -12,6 +12,7 @@
 
 		<execute macro="User#firstLoginPG" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -19,6 +20,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Message Boards Page" />
 		</execute>
 
@@ -30,9 +34,13 @@
 			<var name="portletName" value="Message Boards" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -43,9 +51,13 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -55,9 +67,13 @@
 			<var name="userScreenName" value="usersn" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -69,6 +85,7 @@
 
 	<tear-down>
 		<var method="TestPropsUtil#get('test.portal.instance')" name="testPortalInstance" />
+<<<<<<< HEAD
 
 		<if>
 			<equals arg1="${testPortalInstance}" arg2="true" />
@@ -86,6 +103,25 @@
 
 				<execute macro="NotificationsPortlet#tearDownUserDeliveries" />
 
+=======
+
+		<if>
+			<equals arg1="${testPortalInstance}" arg2="true" />
+			<then>
+				<execute macro="PortalInstances#tearDownCP" />
+			</then>
+			<else>
+				<execute macro="MessageboardsCategory#tearDownCP" />
+
+				<execute macro="MessageboardsThread#tearDownCP" />
+
+				<execute macro="Notifications#tearDownUnreadNotifications" />
+
+				<execute macro="Page#tearDownPG" />
+
+				<execute macro="NotificationsPortlet#tearDownUserDeliveries" />
+
+>>>>>>> compatible
 				<execute macro="User#tearDownCP" />
 			</else>
 		</if>
@@ -137,6 +173,7 @@
 
 		<execute macro="Notifications#gotoNotifications" />
 
+<<<<<<< HEAD
 		<execute macro="Notifications#goToFilterValues">
 			<var name="filterValue" value="Read" />
 		</execute>
@@ -146,6 +183,13 @@
 		<execute macro="Notifications#goToFilterValues">
 			<var name="filterValue" value="Unread" />
 		</execute>
+=======
+		<execute macro="Notifications#goToReadFilter" />
+
+		<execute macro="Notifications#viewDefaultContent" />
+
+		<execute macro="Notifications#goToUnreadFilter" />
+>>>>>>> compatible
 
 		<execute macro="Notifications#viewNewContent">
 			<var name="assetType" value="message boards message" />
@@ -169,12 +213,17 @@
 			<var name="activePanel" value="Notifications" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="Notifications" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="Notifications" />
+>>>>>>> compatible
 		</execute>
 
 		<execute function="Check#checkAll" locator1="Checkbox#SELECT_ALL" />

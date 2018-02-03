@@ -23,6 +23,7 @@ public interface KBArchive {
 
 	public Collection<Folder> getFolders();
 
+<<<<<<< HEAD
 	public interface File extends Resource {
 
 		public String getContent();
@@ -30,11 +31,23 @@ public interface KBArchive {
 	}
 
 	public interface Folder extends Resource {
+=======
+	public interface File {
+
+		public String getContent();
+
+		public String getName();
+
+	}
+
+	public interface Folder {
+>>>>>>> compatible
 
 		public Collection<File> getFiles();
 
 		public File getIntroFile();
 
+<<<<<<< HEAD
 		public File getParentFolderIntroFile();
 
 	}
@@ -43,6 +56,12 @@ public interface KBArchive {
 
 		public String getName();
 
+=======
+		public String getName();
+
+		public File getParentFolderIntroFile();
+
+>>>>>>> compatible
 	}
 
 }

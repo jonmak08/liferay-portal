@@ -2,6 +2,10 @@
 	<command name="scrollBy">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.ScrollBy#scrollBy" />
+=======
+		<super />
+>>>>>>> compatible
 	</command>
 </definition>

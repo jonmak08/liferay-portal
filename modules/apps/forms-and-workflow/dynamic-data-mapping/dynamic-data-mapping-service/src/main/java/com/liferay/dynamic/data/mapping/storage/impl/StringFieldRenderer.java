@@ -14,18 +14,29 @@
 
 package com.liferay.dynamic.data.mapping.storage.impl;
 
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.internal.util.DDMImpl;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.model.DDMFormField;
 import com.liferay.dynamic.data.mapping.model.DDMFormFieldOptions;
 import com.liferay.dynamic.data.mapping.model.DDMStructure;
 import com.liferay.dynamic.data.mapping.model.LocalizedValue;
 import com.liferay.dynamic.data.mapping.storage.BaseFieldRenderer;
 import com.liferay.dynamic.data.mapping.storage.Field;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.dynamic.data.mapping.util.impl.DDMImpl;
+import com.liferay.portal.kernel.json.JSONArray;
+import com.liferay.portal.kernel.json.JSONFactoryUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 
@@ -53,6 +64,7 @@ public class StringFieldRenderer extends BaseFieldRenderer {
 				continue;
 			}
 
+<<<<<<< HEAD
 			if (fieldType.equals(DDMImpl.TYPE_SELECT)) {
 				valueString = handleSelectFieldValue(
 					field, valueString, locale);
@@ -60,6 +72,12 @@ public class StringFieldRenderer extends BaseFieldRenderer {
 			else if (fieldType.equals(DDMImpl.TYPE_RADIO)) {
 				return handleRadioFieldValue(
 					field, String.valueOf(value), locale);
+=======
+			if (fieldType.equals(DDMImpl.TYPE_RADIO) ||
+				fieldType.equals(DDMImpl.TYPE_SELECT)) {
+
+				valueString = handleJSON(field, valueString, locale);
+>>>>>>> compatible
 			}
 
 			values.add(valueString);
@@ -80,6 +98,7 @@ public class StringFieldRenderer extends BaseFieldRenderer {
 
 		String fieldType = getFieldType(field);
 
+<<<<<<< HEAD
 		String valueString = String.valueOf(value);
 
 		if (fieldType.equals(DDMImpl.TYPE_SELECT)) {
@@ -90,6 +109,15 @@ public class StringFieldRenderer extends BaseFieldRenderer {
 		}
 
 		return valueString;
+=======
+		if (fieldType.equals(DDMImpl.TYPE_RADIO) ||
+			fieldType.equals(DDMImpl.TYPE_SELECT)) {
+
+			return handleJSON(field, String.valueOf(value), locale);
+		}
+
+		return String.valueOf(value);
+>>>>>>> compatible
 	}
 
 	protected LocalizedValue getFieldOptionLabel(
@@ -113,6 +141,7 @@ public class StringFieldRenderer extends BaseFieldRenderer {
 		return ddmStructure.getFieldType(field.getName());
 	}
 
+<<<<<<< HEAD
 	protected String handleRadioFieldValue(
 			Field field, String value, Locale locale)
 		throws Exception {
@@ -132,6 +161,9 @@ public class StringFieldRenderer extends BaseFieldRenderer {
 
 	protected String handleSelectFieldValue(
 			Field field, String json, Locale locale)
+=======
+	protected String handleJSON(Field field, String json, Locale locale)
+>>>>>>> compatible
 		throws Exception {
 
 		JSONArray jsonArray = JSONFactoryUtil.createJSONArray(json);

@@ -29,6 +29,10 @@ import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.workflow.kaleo.model.KaleoLog;
 import com.liferay.portal.workflow.kaleo.model.KaleoLogModel;
 
@@ -72,7 +76,11 @@ public class KaleoLogModelImpl extends BaseModelImpl<KaleoLog>
 			{ "modifiedDate", Types.TIMESTAMP },
 			{ "kaleoClassName", Types.VARCHAR },
 			{ "kaleoClassPK", Types.BIGINT },
+<<<<<<< HEAD
 			{ "kaleoDefinitionVersionId", Types.BIGINT },
+=======
+			{ "kaleoDefinitionId", Types.BIGINT },
+>>>>>>> compatible
 			{ "kaleoInstanceId", Types.BIGINT },
 			{ "kaleoInstanceTokenId", Types.BIGINT },
 			{ "kaleoTaskInstanceTokenId", Types.BIGINT },
@@ -106,7 +114,11 @@ public class KaleoLogModelImpl extends BaseModelImpl<KaleoLog>
 		TABLE_COLUMNS_MAP.put("modifiedDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("kaleoClassName", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("kaleoClassPK", Types.BIGINT);
+<<<<<<< HEAD
 		TABLE_COLUMNS_MAP.put("kaleoDefinitionVersionId", Types.BIGINT);
+=======
+		TABLE_COLUMNS_MAP.put("kaleoDefinitionId", Types.BIGINT);
+>>>>>>> compatible
 		TABLE_COLUMNS_MAP.put("kaleoInstanceId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("kaleoInstanceTokenId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("kaleoTaskInstanceTokenId", Types.BIGINT);
@@ -129,7 +141,11 @@ public class KaleoLogModelImpl extends BaseModelImpl<KaleoLog>
 		TABLE_COLUMNS_MAP.put("workflowContext", Types.CLOB);
 	}
 
+<<<<<<< HEAD
 	public static final String TABLE_SQL_CREATE = "create table KaleoLog (kaleoLogId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(200) null,createDate DATE null,modifiedDate DATE null,kaleoClassName VARCHAR(200) null,kaleoClassPK LONG,kaleoDefinitionVersionId LONG,kaleoInstanceId LONG,kaleoInstanceTokenId LONG,kaleoTaskInstanceTokenId LONG,kaleoNodeName VARCHAR(200) null,terminalKaleoNode BOOLEAN,kaleoActionId LONG,kaleoActionName VARCHAR(200) null,kaleoActionDescription STRING null,previousKaleoNodeId LONG,previousKaleoNodeName VARCHAR(200) null,previousAssigneeClassName VARCHAR(200) null,previousAssigneeClassPK LONG,currentAssigneeClassName VARCHAR(200) null,currentAssigneeClassPK LONG,type_ VARCHAR(50) null,comment_ TEXT null,startDate DATE null,endDate DATE null,duration LONG,workflowContext TEXT null)";
+=======
+	public static final String TABLE_SQL_CREATE = "create table KaleoLog (kaleoLogId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(200) null,createDate DATE null,modifiedDate DATE null,kaleoClassName VARCHAR(200) null,kaleoClassPK LONG,kaleoDefinitionId LONG,kaleoInstanceId LONG,kaleoInstanceTokenId LONG,kaleoTaskInstanceTokenId LONG,kaleoNodeName VARCHAR(200) null,terminalKaleoNode BOOLEAN,kaleoActionId LONG,kaleoActionName VARCHAR(200) null,kaleoActionDescription STRING null,previousKaleoNodeId LONG,previousKaleoNodeName VARCHAR(200) null,previousAssigneeClassName VARCHAR(200) null,previousAssigneeClassPK LONG,currentAssigneeClassName VARCHAR(200) null,currentAssigneeClassPK LONG,type_ VARCHAR(50) null,comment_ TEXT null,startDate DATE null,endDate DATE null,duration LONG,workflowContext TEXT null)";
+>>>>>>> compatible
 	public static final String TABLE_SQL_DROP = "drop table KaleoLog";
 	public static final String ORDER_BY_JPQL = " ORDER BY kaleoLog.kaleoLogId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY KaleoLog.kaleoLogId ASC";
@@ -148,7 +164,11 @@ public class KaleoLogModelImpl extends BaseModelImpl<KaleoLog>
 	public static final long COMPANYID_COLUMN_BITMASK = 1L;
 	public static final long KALEOCLASSNAME_COLUMN_BITMASK = 2L;
 	public static final long KALEOCLASSPK_COLUMN_BITMASK = 4L;
+<<<<<<< HEAD
 	public static final long KALEODEFINITIONVERSIONID_COLUMN_BITMASK = 8L;
+=======
+	public static final long KALEODEFINITIONID_COLUMN_BITMASK = 8L;
+>>>>>>> compatible
 	public static final long KALEOINSTANCEID_COLUMN_BITMASK = 16L;
 	public static final long KALEOINSTANCETOKENID_COLUMN_BITMASK = 32L;
 	public static final long KALEOTASKINSTANCETOKENID_COLUMN_BITMASK = 64L;
@@ -203,7 +223,11 @@ public class KaleoLogModelImpl extends BaseModelImpl<KaleoLog>
 		attributes.put("modifiedDate", getModifiedDate());
 		attributes.put("kaleoClassName", getKaleoClassName());
 		attributes.put("kaleoClassPK", getKaleoClassPK());
+<<<<<<< HEAD
 		attributes.put("kaleoDefinitionVersionId", getKaleoDefinitionVersionId());
+=======
+		attributes.put("kaleoDefinitionId", getKaleoDefinitionId());
+>>>>>>> compatible
 		attributes.put("kaleoInstanceId", getKaleoInstanceId());
 		attributes.put("kaleoInstanceTokenId", getKaleoInstanceTokenId());
 		attributes.put("kaleoTaskInstanceTokenId", getKaleoTaskInstanceTokenId());
@@ -288,11 +312,18 @@ public class KaleoLogModelImpl extends BaseModelImpl<KaleoLog>
 			setKaleoClassPK(kaleoClassPK);
 		}
 
+<<<<<<< HEAD
 		Long kaleoDefinitionVersionId = (Long)attributes.get(
 				"kaleoDefinitionVersionId");
 
 		if (kaleoDefinitionVersionId != null) {
 			setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
+=======
+		Long kaleoDefinitionId = (Long)attributes.get("kaleoDefinitionId");
+
+		if (kaleoDefinitionId != null) {
+			setKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 		}
 
 		Long kaleoInstanceId = (Long)attributes.get("kaleoInstanceId");
@@ -485,7 +516,11 @@ public class KaleoLogModelImpl extends BaseModelImpl<KaleoLog>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -496,7 +531,11 @@ public class KaleoLogModelImpl extends BaseModelImpl<KaleoLog>
 	@Override
 	public String getUserName() {
 		if (_userName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _userName;
@@ -537,7 +576,11 @@ public class KaleoLogModelImpl extends BaseModelImpl<KaleoLog>
 	@Override
 	public String getKaleoClassName() {
 		if (_kaleoClassName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _kaleoClassName;
@@ -582,6 +625,7 @@ public class KaleoLogModelImpl extends BaseModelImpl<KaleoLog>
 	}
 
 	@Override
+<<<<<<< HEAD
 	public long getKaleoDefinitionVersionId() {
 		return _kaleoDefinitionVersionId;
 	}
@@ -601,6 +645,27 @@ public class KaleoLogModelImpl extends BaseModelImpl<KaleoLog>
 
 	public long getOriginalKaleoDefinitionVersionId() {
 		return _originalKaleoDefinitionVersionId;
+=======
+	public long getKaleoDefinitionId() {
+		return _kaleoDefinitionId;
+	}
+
+	@Override
+	public void setKaleoDefinitionId(long kaleoDefinitionId) {
+		_columnBitmask |= KALEODEFINITIONID_COLUMN_BITMASK;
+
+		if (!_setOriginalKaleoDefinitionId) {
+			_setOriginalKaleoDefinitionId = true;
+
+			_originalKaleoDefinitionId = _kaleoDefinitionId;
+		}
+
+		_kaleoDefinitionId = kaleoDefinitionId;
+	}
+
+	public long getOriginalKaleoDefinitionId() {
+		return _originalKaleoDefinitionId;
+>>>>>>> compatible
 	}
 
 	@Override
@@ -672,7 +737,11 @@ public class KaleoLogModelImpl extends BaseModelImpl<KaleoLog>
 	@Override
 	public String getKaleoNodeName() {
 		if (_kaleoNodeName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _kaleoNodeName;
@@ -712,7 +781,11 @@ public class KaleoLogModelImpl extends BaseModelImpl<KaleoLog>
 	@Override
 	public String getKaleoActionName() {
 		if (_kaleoActionName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _kaleoActionName;
@@ -727,7 +800,11 @@ public class KaleoLogModelImpl extends BaseModelImpl<KaleoLog>
 	@Override
 	public String getKaleoActionDescription() {
 		if (_kaleoActionDescription == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _kaleoActionDescription;
@@ -752,7 +829,11 @@ public class KaleoLogModelImpl extends BaseModelImpl<KaleoLog>
 	@Override
 	public String getPreviousKaleoNodeName() {
 		if (_previousKaleoNodeName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _previousKaleoNodeName;
@@ -767,7 +848,11 @@ public class KaleoLogModelImpl extends BaseModelImpl<KaleoLog>
 	@Override
 	public String getPreviousAssigneeClassName() {
 		if (_previousAssigneeClassName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _previousAssigneeClassName;
@@ -792,7 +877,11 @@ public class KaleoLogModelImpl extends BaseModelImpl<KaleoLog>
 	@Override
 	public String getCurrentAssigneeClassName() {
 		if (_currentAssigneeClassName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _currentAssigneeClassName;
@@ -817,7 +906,11 @@ public class KaleoLogModelImpl extends BaseModelImpl<KaleoLog>
 	@Override
 	public String getType() {
 		if (_type == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _type;
@@ -842,7 +935,11 @@ public class KaleoLogModelImpl extends BaseModelImpl<KaleoLog>
 	@Override
 	public String getComment() {
 		if (_comment == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _comment;
@@ -887,7 +984,11 @@ public class KaleoLogModelImpl extends BaseModelImpl<KaleoLog>
 	@Override
 	public String getWorkflowContext() {
 		if (_workflowContext == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _workflowContext;
@@ -939,7 +1040,11 @@ public class KaleoLogModelImpl extends BaseModelImpl<KaleoLog>
 		kaleoLogImpl.setModifiedDate(getModifiedDate());
 		kaleoLogImpl.setKaleoClassName(getKaleoClassName());
 		kaleoLogImpl.setKaleoClassPK(getKaleoClassPK());
+<<<<<<< HEAD
 		kaleoLogImpl.setKaleoDefinitionVersionId(getKaleoDefinitionVersionId());
+=======
+		kaleoLogImpl.setKaleoDefinitionId(getKaleoDefinitionId());
+>>>>>>> compatible
 		kaleoLogImpl.setKaleoInstanceId(getKaleoInstanceId());
 		kaleoLogImpl.setKaleoInstanceTokenId(getKaleoInstanceTokenId());
 		kaleoLogImpl.setKaleoTaskInstanceTokenId(getKaleoTaskInstanceTokenId());
@@ -1040,9 +1145,15 @@ public class KaleoLogModelImpl extends BaseModelImpl<KaleoLog>
 
 		kaleoLogModelImpl._setOriginalKaleoClassPK = false;
 
+<<<<<<< HEAD
 		kaleoLogModelImpl._originalKaleoDefinitionVersionId = kaleoLogModelImpl._kaleoDefinitionVersionId;
 
 		kaleoLogModelImpl._setOriginalKaleoDefinitionVersionId = false;
+=======
+		kaleoLogModelImpl._originalKaleoDefinitionId = kaleoLogModelImpl._kaleoDefinitionId;
+
+		kaleoLogModelImpl._setOriginalKaleoDefinitionId = false;
+>>>>>>> compatible
 
 		kaleoLogModelImpl._originalKaleoInstanceId = kaleoLogModelImpl._kaleoInstanceId;
 
@@ -1109,7 +1220,11 @@ public class KaleoLogModelImpl extends BaseModelImpl<KaleoLog>
 
 		kaleoLogCacheModel.kaleoClassPK = getKaleoClassPK();
 
+<<<<<<< HEAD
 		kaleoLogCacheModel.kaleoDefinitionVersionId = getKaleoDefinitionVersionId();
+=======
+		kaleoLogCacheModel.kaleoDefinitionId = getKaleoDefinitionId();
+>>>>>>> compatible
 
 		kaleoLogCacheModel.kaleoInstanceId = getKaleoInstanceId();
 
@@ -1248,8 +1363,13 @@ public class KaleoLogModelImpl extends BaseModelImpl<KaleoLog>
 		sb.append(getKaleoClassName());
 		sb.append(", kaleoClassPK=");
 		sb.append(getKaleoClassPK());
+<<<<<<< HEAD
 		sb.append(", kaleoDefinitionVersionId=");
 		sb.append(getKaleoDefinitionVersionId());
+=======
+		sb.append(", kaleoDefinitionId=");
+		sb.append(getKaleoDefinitionId());
+>>>>>>> compatible
 		sb.append(", kaleoInstanceId=");
 		sb.append(getKaleoInstanceId());
 		sb.append(", kaleoInstanceTokenId=");
@@ -1340,8 +1460,13 @@ public class KaleoLogModelImpl extends BaseModelImpl<KaleoLog>
 		sb.append(getKaleoClassPK());
 		sb.append("]]></column-value></column>");
 		sb.append(
+<<<<<<< HEAD
 			"<column><column-name>kaleoDefinitionVersionId</column-name><column-value><![CDATA[");
 		sb.append(getKaleoDefinitionVersionId());
+=======
+			"<column><column-name>kaleoDefinitionId</column-name><column-value><![CDATA[");
+		sb.append(getKaleoDefinitionId());
+>>>>>>> compatible
 		sb.append("]]></column-value></column>");
 		sb.append(
 			"<column><column-name>kaleoInstanceId</column-name><column-value><![CDATA[");
@@ -1448,9 +1573,15 @@ public class KaleoLogModelImpl extends BaseModelImpl<KaleoLog>
 	private long _kaleoClassPK;
 	private long _originalKaleoClassPK;
 	private boolean _setOriginalKaleoClassPK;
+<<<<<<< HEAD
 	private long _kaleoDefinitionVersionId;
 	private long _originalKaleoDefinitionVersionId;
 	private boolean _setOriginalKaleoDefinitionVersionId;
+=======
+	private long _kaleoDefinitionId;
+	private long _originalKaleoDefinitionId;
+	private boolean _setOriginalKaleoDefinitionId;
+>>>>>>> compatible
 	private long _kaleoInstanceId;
 	private long _originalKaleoInstanceId;
 	private boolean _setOriginalKaleoInstanceId;

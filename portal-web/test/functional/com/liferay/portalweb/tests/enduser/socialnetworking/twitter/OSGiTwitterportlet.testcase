@@ -9,6 +9,7 @@
 	<set-up>
 		<execute macro="User#firstLoginPG" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -16,12 +17,19 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Test Page" />
 		</execute>
 	</set-up>
 
 	<tear-down>
+<<<<<<< HEAD
 		<execute macro="Page#tearDownCP" />
+=======
+		<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 	</tear-down>
 
 	<command name="TwitterPortletSmoke" priority="4">
@@ -63,9 +71,13 @@
 			<var name="portletName" value="Activities" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="System Settings" />
 		</execute>
 
@@ -83,7 +95,11 @@
 
 		<execute macro="UserBar#gotoProfile" />
 
+<<<<<<< HEAD
 		<execute function="Pause" locator1="3000" />
+=======
+		<execute function="Pause" locator1="60000" />
+>>>>>>> compatible
 
 		<execute function="Refresh" />
 

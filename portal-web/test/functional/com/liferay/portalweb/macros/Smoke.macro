@@ -3,6 +3,7 @@
 	<var name="userLastName" value="Test" />
 
 	<command name="runSmoke" summary-ignore="true">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -10,15 +11,38 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
+>>>>>>> compatible
 			<var name="pageName" value="Test Page1" />
+			<var name="pageTemplateName" value="${pageTemplateName}" />
+			<var name="sitePageType" value="${pageType}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
+>>>>>>> compatible
 			<var name="pageName" value="Test Page2" />
+			<var name="pageTemplateName" value="${pageTemplateName}" />
+			<var name="sitePageType" value="${pageType}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+			<var name="defaultURL" value="${defaultURL}" />
+			<var name="nodePort" value="${nodePort}" />
+>>>>>>> compatible
 			<var name="pageName" value="Test Page3" />
+			<var name="pageTemplateName" value="${pageTemplateName}" />
+			<var name="sitePageType" value="${pageType}" />
 		</execute>
 
 		<var name="pageName" value="Test Page1" />
@@ -63,9 +87,13 @@
 		<task macro-summary="ProductMenu#gotoSitesContent">
 			<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 			<execute macro="ProductMenu#gotoPortlet">
 				<var name="category" value="Content" />
 				<var name="panel" value="Site Administration" />
+=======
+			<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 				<var name="portlet" value="${portlet}" />
 			</execute>
 
@@ -76,17 +104,32 @@
 
 		<var name="webContentContent" value="Web Content Content" />
 		<var name="webContentTitle" value="Web Content Title" />
+<<<<<<< HEAD
 
 		<task summary="Add a web content article with '${webContentTitle}' as the title and '${webContentContent}' as the content">
 			<execute macro="WebContentNavigator#gotoAddCP" />
 
+=======
+
+		<task summary="Add a web content article with '${webContentTitle}' as the title and '${webContentContent}' as the content">
+			<execute macro="WebContentNavigator#gotoAddCP" />
+
+			<execute function="Pause" locator1="30000" />
+
+>>>>>>> compatible
 			<execute macro="WebContent#addCP">
 				<var name="webContentContent" value="${webContentContent}" />
 				<var name="webContentTitle" value="${webContentTitle}" />
 			</execute>
+<<<<<<< HEAD
 
 			<execute macro="PortletEntry#publish" />
 
+=======
+
+			<execute macro="PortletEntry#publish" />
+
+>>>>>>> compatible
 			<execute macro="WebContent#viewTitle">
 				<var name="webContentTitle" value="${webContentTitle}" />
 			</execute>

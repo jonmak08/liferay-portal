@@ -26,9 +26,17 @@ List<Organization> organizations = (List<Organization>)request.getAttribute(Site
 			<h4><liferay-ui:message key="organizations" /></h4>
 		</div>
 
+<<<<<<< HEAD
 		<clay:navigation-bar
 			items="<%= siteMembershipsDisplayContext.getInfoPanelNavigationItems() %>"
 		/>
+=======
+		<aui:nav-bar cssClass="navbar-no-collapse" markupView="lexicon">
+			<aui:nav collapsible="<%= false %>" cssClass="navbar-nav">
+				<aui:nav-item label="details" selected="<%= true %>" />
+			</aui:nav>
+		</aui:nav-bar>
+>>>>>>> compatible
 
 		<div class="sidebar-body">
 			<h5><liferay-ui:message key="num-of-organizations" /></h5>
@@ -77,9 +85,17 @@ List<Organization> organizations = (List<Organization>)request.getAttribute(Site
 			</c:if>
 		</div>
 
+<<<<<<< HEAD
 		<clay:navigation-bar
 			items="<%= siteMembershipsDisplayContext.getInfoPanelNavigationItems() %>"
 		/>
+=======
+		<aui:nav-bar cssClass="navbar-no-collapse" markupView="lexicon">
+			<aui:nav collapsible="<%= false %>" cssClass="navbar-nav">
+				<aui:nav-item label="details" selected="<%= true %>" />
+			</aui:nav>
+		</aui:nav-bar>
+>>>>>>> compatible
 
 		<div class="sidebar-body">
 			<h5><liferay-ui:message key="num-of-users" /></h5>
@@ -130,9 +146,17 @@ List<Organization> organizations = (List<Organization>)request.getAttribute(Site
 			<h4><liferay-ui:message arguments="<%= organizations.size() %>" key="x-items-are-selected" /></h4>
 		</div>
 
+<<<<<<< HEAD
 		<clay:navigation-bar
 			items="<%= siteMembershipsDisplayContext.getInfoPanelNavigationItems() %>"
 		/>
+=======
+		<aui:nav-bar cssClass="navbar-no-collapse" markupView="lexicon">
+			<aui:nav collapsible="<%= false %>" cssClass="navbar-nav">
+				<aui:nav-item label="details" selected="<%= true %>" />
+			</aui:nav>
+		</aui:nav-bar>
+>>>>>>> compatible
 
 		<div class="sidebar-body">
 			<h5><liferay-ui:message arguments="<%= organizations.size() %>" key="x-items-are-selected" /></h5>

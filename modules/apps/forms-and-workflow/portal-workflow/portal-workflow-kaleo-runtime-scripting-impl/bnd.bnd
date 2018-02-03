@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Portal Workflow Kaleo Runtime Scripting Implementation
 Bundle-SymbolicName: com.liferay.portal.workflow.kaleo.runtime.scripting.impl
+<<<<<<< HEAD
 Bundle-Version: 1.0.6
+=======
+Bundle-Version: 1.0.4
+>>>>>>> compatible
 DynamicImport-Package: *
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Kaleo Workflow Engine

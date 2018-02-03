@@ -17,7 +17,11 @@
 <%@ include file="/init.jsp" %>
 
 <%
+<<<<<<< HEAD
 User selUser = (User)request.getAttribute(UsersAdminWebKeys.SELECTED_USER);
+=======
+User selUser = (User)request.getAttribute("user.selUser");
+>>>>>>> compatible
 
 List<AnnouncementsDelivery> deliveries = null;
 

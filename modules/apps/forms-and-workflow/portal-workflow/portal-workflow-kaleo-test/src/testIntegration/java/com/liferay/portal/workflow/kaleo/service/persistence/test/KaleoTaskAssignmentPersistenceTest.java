@@ -28,6 +28,10 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.util.IntegerWrapper;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.OrderByComparatorFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.PersistenceTestRule;
@@ -137,7 +141,11 @@ public class KaleoTaskAssignmentPersistenceTest {
 
 		newKaleoTaskAssignment.setKaleoClassPK(RandomTestUtil.nextLong());
 
+<<<<<<< HEAD
 		newKaleoTaskAssignment.setKaleoDefinitionVersionId(RandomTestUtil.nextLong());
+=======
+		newKaleoTaskAssignment.setKaleoDefinitionId(RandomTestUtil.nextLong());
+>>>>>>> compatible
 
 		newKaleoTaskAssignment.setKaleoNodeId(RandomTestUtil.nextLong());
 
@@ -177,8 +185,13 @@ public class KaleoTaskAssignmentPersistenceTest {
 			newKaleoTaskAssignment.getKaleoClassName());
 		Assert.assertEquals(existingKaleoTaskAssignment.getKaleoClassPK(),
 			newKaleoTaskAssignment.getKaleoClassPK());
+<<<<<<< HEAD
 		Assert.assertEquals(existingKaleoTaskAssignment.getKaleoDefinitionVersionId(),
 			newKaleoTaskAssignment.getKaleoDefinitionVersionId());
+=======
+		Assert.assertEquals(existingKaleoTaskAssignment.getKaleoDefinitionId(),
+			newKaleoTaskAssignment.getKaleoDefinitionId());
+>>>>>>> compatible
 		Assert.assertEquals(existingKaleoTaskAssignment.getKaleoNodeId(),
 			newKaleoTaskAssignment.getKaleoNodeId());
 		Assert.assertEquals(existingKaleoTaskAssignment.getAssigneeClassName(),
@@ -203,26 +216,46 @@ public class KaleoTaskAssignmentPersistenceTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testCountByKaleoDefinitionVersionId() throws Exception {
 		_persistence.countByKaleoDefinitionVersionId(RandomTestUtil.nextLong());
 
 		_persistence.countByKaleoDefinitionVersionId(0L);
+=======
+	public void testCountByKaleoDefinitionId() throws Exception {
+		_persistence.countByKaleoDefinitionId(RandomTestUtil.nextLong());
+
+		_persistence.countByKaleoDefinitionId(0L);
+>>>>>>> compatible
 	}
 
 	@Test
 	public void testCountByKCN_KCPK() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByKCN_KCPK("", RandomTestUtil.nextLong());
 
 		_persistence.countByKCN_KCPK("null", 0L);
+=======
+		_persistence.countByKCN_KCPK(StringPool.BLANK, RandomTestUtil.nextLong());
+
+		_persistence.countByKCN_KCPK(StringPool.NULL, 0L);
+>>>>>>> compatible
 
 		_persistence.countByKCN_KCPK((String)null, 0L);
 	}
 
 	@Test
 	public void testCountByKCN_KCPK_ACN() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByKCN_KCPK_ACN("", RandomTestUtil.nextLong(), "");
 
 		_persistence.countByKCN_KCPK_ACN("null", 0L, "null");
+=======
+		_persistence.countByKCN_KCPK_ACN(StringPool.BLANK,
+			RandomTestUtil.nextLong(), StringPool.BLANK);
+
+		_persistence.countByKCN_KCPK_ACN(StringPool.NULL, 0L, StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByKCN_KCPK_ACN((String)null, 0L, (String)null);
 	}
@@ -254,7 +287,11 @@ public class KaleoTaskAssignmentPersistenceTest {
 			"kaleoTaskAssignmentId", true, "groupId", true, "companyId", true,
 			"userId", true, "userName", true, "createDate", true,
 			"modifiedDate", true, "kaleoClassName", true, "kaleoClassPK", true,
+<<<<<<< HEAD
 			"kaleoDefinitionVersionId", true, "kaleoNodeId", true,
+=======
+			"kaleoDefinitionId", true, "kaleoNodeId", true,
+>>>>>>> compatible
 			"assigneeClassName", true, "assigneeClassPK", true,
 			"assigneeActionId", true, "assigneeScriptLanguage", true,
 			"assigneeScriptRequiredContexts", true);
@@ -478,7 +515,11 @@ public class KaleoTaskAssignmentPersistenceTest {
 
 		kaleoTaskAssignment.setKaleoClassPK(RandomTestUtil.nextLong());
 
+<<<<<<< HEAD
 		kaleoTaskAssignment.setKaleoDefinitionVersionId(RandomTestUtil.nextLong());
+=======
+		kaleoTaskAssignment.setKaleoDefinitionId(RandomTestUtil.nextLong());
+>>>>>>> compatible
 
 		kaleoTaskAssignment.setKaleoNodeId(RandomTestUtil.nextLong());
 

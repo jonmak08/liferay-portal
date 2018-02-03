@@ -128,7 +128,11 @@ public class FacetDiscounterTest {
 		FacetCollector facetCollector = facet.getFacetCollector();
 
 		AssertUtils.assertEquals(
+<<<<<<< HEAD
 			_FIELD_NAME, frequencies,
+=======
+			_fieldName, frequencies,
+>>>>>>> compatible
 			_toMap(facetCollector.getTermCollectors()));
 	}
 
@@ -136,11 +140,19 @@ public class FacetDiscounterTest {
 		Document document = Mockito.mock(Document.class);
 
 		Mockito.doReturn(
+<<<<<<< HEAD
 			new Field(_FIELD_NAME, term)
 		).when(
 			document
 		).getField(
 			_FIELD_NAME
+=======
+			new Field(_fieldName, term)
+		).when(
+			document
+		).getField(
+			_fieldName
+>>>>>>> compatible
 		);
 
 		return document;
@@ -150,11 +162,19 @@ public class FacetDiscounterTest {
 		Document document = Mockito.mock(Document.class);
 
 		Mockito.doReturn(
+<<<<<<< HEAD
 			new Field(_FIELD_NAME, terms)
 		).when(
 			document
 		).getField(
 			_FIELD_NAME
+=======
+			new Field(_fieldName, terms)
+		).when(
+			document
+		).getField(
+			_fieldName
+>>>>>>> compatible
 		);
 
 		return document;
@@ -164,7 +184,11 @@ public class FacetDiscounterTest {
 		TermCollector... termCollectors) {
 
 		return new SimpleFacetCollector(
+<<<<<<< HEAD
 			_FIELD_NAME, Arrays.asList(termCollectors));
+=======
+			_fieldName, Arrays.asList(termCollectors));
+>>>>>>> compatible
 	}
 
 	private void _discount(
@@ -189,11 +213,19 @@ public class FacetDiscounterTest {
 	}
 
 	private void _populate(Facet facet, TermCollector... termCollectors) {
+<<<<<<< HEAD
 		facet.setFieldName(_FIELD_NAME);
+=======
+		facet.setFieldName(_fieldName);
+>>>>>>> compatible
 
 		facet.setFacetCollector(_createFacetCollector(termCollectors));
 	}
 
+<<<<<<< HEAD
 	private static final String _FIELD_NAME = RandomTestUtil.randomString();
+=======
+	private static final String _fieldName = RandomTestUtil.randomString();
+>>>>>>> compatible
 
 }

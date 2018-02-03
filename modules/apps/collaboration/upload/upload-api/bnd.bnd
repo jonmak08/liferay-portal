@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Upload API
 Bundle-SymbolicName: com.liferay.upload.api
+<<<<<<< HEAD
 Bundle-Version: 1.1.0
+=======
+Bundle-Version: 1.0.2
+>>>>>>> compatible
 Export-Package: com.liferay.upload
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Upload

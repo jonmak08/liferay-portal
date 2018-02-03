@@ -20,7 +20,10 @@ import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.workflow.kaleo.definition.AddressRecipient;
+<<<<<<< HEAD
 import com.liferay.portal.workflow.kaleo.definition.NotificationReceptionType;
+=======
+>>>>>>> compatible
 import com.liferay.portal.workflow.kaleo.definition.Recipient;
 import com.liferay.portal.workflow.kaleo.definition.RecipientType;
 import com.liferay.portal.workflow.kaleo.definition.RoleRecipient;
@@ -42,7 +45,11 @@ public class KaleoNotificationRecipientLocalServiceImpl
 
 	@Override
 	public KaleoNotificationRecipient addKaleoNotificationRecipient(
+<<<<<<< HEAD
 			long kaleoDefinitionVersionId, long kaleoNotificationId,
+=======
+			long kaleoDefinitionId, long kaleoNotificationId,
+>>>>>>> compatible
 			Recipient recipient, ServiceContext serviceContext)
 		throws PortalException {
 
@@ -60,6 +67,7 @@ public class KaleoNotificationRecipientLocalServiceImpl
 		kaleoNotificationRecipient.setUserName(user.getFullName());
 		kaleoNotificationRecipient.setCreateDate(now);
 		kaleoNotificationRecipient.setModifiedDate(now);
+<<<<<<< HEAD
 		kaleoNotificationRecipient.setKaleoDefinitionVersionId(
 			kaleoDefinitionVersionId);
 		kaleoNotificationRecipient.setKaleoNotificationId(kaleoNotificationId);
@@ -69,6 +77,12 @@ public class KaleoNotificationRecipientLocalServiceImpl
 
 		kaleoNotificationRecipient.setNotificationReceptionType(
 			notificationReceptionType.getValue());
+=======
+		kaleoNotificationRecipient.setKaleoDefinitionId(kaleoDefinitionId);
+		kaleoNotificationRecipient.setKaleoNotificationId(kaleoNotificationId);
+		kaleoNotificationRecipient.setNotificationReceptionType(
+			recipient.getNotificationReceptionType().getValue());
+>>>>>>> compatible
 
 		setRecipient(kaleoNotificationRecipient, recipient, serviceContext);
 
@@ -84,11 +98,19 @@ public class KaleoNotificationRecipientLocalServiceImpl
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void deleteKaleoDefinitionVersionKaleoNotificationRecipients(
 		long kaleoDefinitionVersionId) {
 
 		kaleoNotificationRecipientPersistence.removeByKaleoDefinitionVersionId(
 			kaleoDefinitionVersionId);
+=======
+	public void deleteKaleoDefinitionKaleoNotificationRecipients(
+		long kaleoDefinitionId) {
+
+		kaleoNotificationRecipientPersistence.removeByKaleoDefinitionId(
+			kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 	@Override

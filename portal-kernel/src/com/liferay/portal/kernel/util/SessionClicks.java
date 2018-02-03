@@ -84,10 +84,16 @@ public class SessionClicks {
 
 			if (_log.isWarnEnabled()) {
 				_log.warn(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Session clicks has attempted to exceed the maximum ",
 						"size allowed for keys or values with {key=", key,
 						", value=", value, "}"));
+=======
+					"Session clicks has attempted to exceed the maximum size " +
+						"allowed for keys or values with {key=" + key +
+							", value=" + value + "}");
+>>>>>>> compatible
 			}
 
 			return;
@@ -106,10 +112,16 @@ public class SessionClicks {
 				else {
 					if (_log.isWarnEnabled()) {
 						_log.warn(
+<<<<<<< HEAD
 							StringBundler.concat(
 								"Session clicks has attempted to exceed the ",
 								"maximum number of allowed values with {key=",
 								key, ", value=", value, "}"));
+=======
+							"Session clicks has attempted to exceed the " +
+								"maximum number of allowed values with {key=" +
+									key + ", value=" + value + "}");
+>>>>>>> compatible
 					}
 				}
 

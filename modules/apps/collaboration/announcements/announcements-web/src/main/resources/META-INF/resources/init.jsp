@@ -25,8 +25,12 @@ taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %><%@
 taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %><%@
 taglib uri="http://liferay.com/tld/util" prefix="liferay-util" %>
 
+<<<<<<< HEAD
 <%@ page import="com.liferay.announcements.constants.AnnouncementsPortletKeys" %><%@
 page import="com.liferay.announcements.kernel.exception.EntryContentException" %><%@
+=======
+<%@ page import="com.liferay.announcements.kernel.exception.EntryContentException" %><%@
+>>>>>>> compatible
 page import="com.liferay.announcements.kernel.exception.EntryDisplayDateException" %><%@
 page import="com.liferay.announcements.kernel.exception.EntryExpirationDateException" %><%@
 page import="com.liferay.announcements.kernel.exception.EntryTitleException" %><%@
@@ -39,6 +43,7 @@ page import="com.liferay.announcements.kernel.model.AnnouncementsFlagConstants" 
 page import="com.liferay.announcements.kernel.service.AnnouncementsEntryLocalServiceUtil" %><%@
 page import="com.liferay.announcements.kernel.service.AnnouncementsFlagLocalServiceUtil" %><%@
 page import="com.liferay.announcements.kernel.util.AnnouncementsUtil" %><%@
+<<<<<<< HEAD
 page import="com.liferay.announcements.web.constants.AnnouncementsWebKeys" %><%@
 page import="com.liferay.announcements.web.internal.display.context.AnnouncementsAdminViewDisplayContext" %><%@
 page import="com.liferay.announcements.web.internal.display.context.AnnouncementsDisplayContext" %><%@
@@ -51,6 +56,16 @@ page import="com.liferay.portal.kernel.bean.BeanParamUtil" %><%@
 page import="com.liferay.portal.kernel.dao.search.SearchContainer" %><%@
 page import="com.liferay.portal.kernel.language.LanguageUtil" %><%@
 page import="com.liferay.portal.kernel.language.UnicodeLanguageUtil" %><%@
+=======
+page import="com.liferay.announcements.web.constants.AnnouncementsPortletKeys" %><%@
+page import="com.liferay.announcements.web.constants.AnnouncementsWebKeys" %><%@
+page import="com.liferay.announcements.web.internal.display.context.AnnouncementsDisplayContext" %><%@
+page import="com.liferay.announcements.web.internal.display.context.DefaultAnnouncementsDisplayContext" %><%@
+page import="com.liferay.announcements.web.internal.display.context.util.AnnouncementsRequestHelper" %><%@
+page import="com.liferay.portal.kernel.bean.BeanParamUtil" %><%@
+page import="com.liferay.portal.kernel.dao.search.SearchContainer" %><%@
+page import="com.liferay.portal.kernel.language.LanguageUtil" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.model.Group" %><%@
 page import="com.liferay.portal.kernel.model.Organization" %><%@
 page import="com.liferay.portal.kernel.model.Role" %><%@
@@ -65,8 +80,11 @@ page import="com.liferay.portal.kernel.service.RoleLocalServiceUtil" %><%@
 page import="com.liferay.portal.kernel.service.UserGroupLocalServiceUtil" %><%@
 page import="com.liferay.portal.kernel.service.UserLocalServiceUtil" %><%@
 page import="com.liferay.portal.kernel.service.permission.PortalPermissionUtil" %><%@
+<<<<<<< HEAD
 page import="com.liferay.portal.kernel.service.permission.PortletPermissionUtil" %><%@
 page import="com.liferay.portal.kernel.servlet.HttpHeaders" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.util.Constants" %><%@
 page import="com.liferay.portal.kernel.util.GetterUtil" %><%@
 page import="com.liferay.portal.kernel.util.HtmlUtil" %><%@
@@ -74,6 +92,10 @@ page import="com.liferay.portal.kernel.util.KeyValuePair" %><%@
 page import="com.liferay.portal.kernel.util.ParamUtil" %><%@
 page import="com.liferay.portal.kernel.util.PortalUtil" %><%@
 page import="com.liferay.portal.kernel.util.PropsUtil" %><%@
+<<<<<<< HEAD
+=======
+page import="com.liferay.portal.kernel.util.StringPool" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.util.StringUtil" %><%@
 page import="com.liferay.portal.kernel.util.Time" %><%@
 page import="com.liferay.portal.kernel.util.Validator" %><%@
@@ -86,7 +108,12 @@ page import="com.liferay.taglib.search.ResultRow" %>
 page import="java.util.LinkedHashMap" %><%@
 page import="java.util.List" %>
 
+<<<<<<< HEAD
 <%@ page import="javax.portlet.PortletURL" %>
+=======
+<%@ page import="javax.portlet.PortletURL" %><%@
+page import="javax.portlet.WindowState" %>
+>>>>>>> compatible
 
 <liferay-frontend:defineObjects />
 

@@ -12,16 +12,27 @@
 				<execute function="AssertClick" locator1="Blogs#ADD_BLOGS_ENTRY" value1="Add Blog Entry" />
 			</then>
 			<else>
+<<<<<<< HEAD
 				<execute macro="LexiconEntry#gotoAdd" />
+=======
+				<execute function="Click" locator1="Button#PLUS" />
+>>>>>>> compatible
 			</else>
 		</if>
 
 		<execute function="AssertVisible" locator1="BlogsEntry#ENTRY_COVER_IMAGE_SELECT_FILE" />
 	</command>
+<<<<<<< HEAD
 
 	<command name="gotoBlogsEntriesPermissionsCP">
 		<execute function="Click" locator1="Icon#HEADER_VERTICAL_ELLIPSIS" />
 
+=======
+
+	<command name="gotoBlogsEntriesPermissionsCP">
+		<execute function="Click" locator1="Icon#HEADER_VERTICAL_ELLIPSIS" />
+
+>>>>>>> compatible
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Entries Permissions">
 			<var name="key_menuItem" value="Entries Permissions" />
 		</execute>
@@ -73,11 +84,22 @@
 
 	<command name="gotoConfigurationSetupRSSPG">
 		<execute function="AssertClick" locator1="Configuration#NAVIGATION_RSS" value1="RSS" />
+<<<<<<< HEAD
+=======
+	</command>
+
+	<command name="gotoContentTab">
+		<execute function="AssertClick" locator1="BlogsEditEntry#CONTENT_TAB" value1="Content" />
+>>>>>>> compatible
 	</command>
 
 	<command name="gotoDraftCP">
 		<execute macro="Portlet#changeDisplayStyle">
+<<<<<<< HEAD
 			<var name="displayStyle" value="descriptive" />
+=======
+			<var name="displayStyle" value="Descriptive" />
+>>>>>>> compatible
 		</execute>
 
 		<var name="key_entryTitle" value="${entryTitle}" />
@@ -97,7 +119,11 @@
 
 	<command name="gotoEditCP">
 		<execute macro="Portlet#changeDisplayStyle">
+<<<<<<< HEAD
 			<var name="displayStyle" value="descriptive" />
+=======
+			<var name="displayStyle" value="Descriptive" />
+>>>>>>> compatible
 		</execute>
 
 		<var name="key_entryTitle" value="${entryTitle}" />
@@ -111,9 +137,13 @@
 		</execute>
 
 		<execute function="AssertElementPresent" locator1="Icon#BACK" />
+<<<<<<< HEAD
 		<execute function="AssertVisible" locator1="AlloyEditor#EDITOR">
 			<var name="key_editor" value="title" />
 		</execute>
+=======
+		<execute function="AssertVisible" locator1="AlloyEditor#TITLE_FIELD" />
+>>>>>>> compatible
 	</command>
 
 	<command name="gotoEditPG">
@@ -121,6 +151,7 @@
 
 		<execute function="AssertTextEquals" locator1="BlogsEntry#TITLE" value1="${entryTitle}" />
 
+<<<<<<< HEAD
 		<if>
 			<condition function="IsElementPresent" locator1="Button#EDIT_PENCIL" />
 			<then>
@@ -130,13 +161,20 @@
 				<execute macro="PortletEntry#clickEditFromEllipsis" />
 			</else>
 		</if>
+=======
+		<execute macro="PortletEntry#clickEditFromEllipsis" />
+>>>>>>> compatible
 
 		<execute function="AssertVisible" locator1="BlogsEntry#ENTRY_COVER_IMAGE_SELECT_FILE" />
 	</command>
 
 	<command name="gotoEntryCP">
 		<execute macro="Portlet#changeDisplayStyle">
+<<<<<<< HEAD
 			<var name="displayStyle" value="descriptive" />
+=======
+			<var name="displayStyle" value="Descriptive" />
+>>>>>>> compatible
 		</execute>
 
 		<var name="key_entryTitle" value="${entryTitle}" />
@@ -193,7 +231,11 @@
 
 	<command name="moveToRecycleBinCP">
 		<execute macro="Portlet#changeDisplayStyle">
+<<<<<<< HEAD
 			<var name="displayStyle" value="descriptive" />
+=======
+			<var name="displayStyle" value="Descriptive" />
+>>>>>>> compatible
 		</execute>
 
 		<var name="key_entryTitle" value="${entryTitle}" />

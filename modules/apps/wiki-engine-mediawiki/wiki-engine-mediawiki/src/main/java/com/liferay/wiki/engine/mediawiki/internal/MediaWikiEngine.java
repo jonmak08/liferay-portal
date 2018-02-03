@@ -14,7 +14,10 @@
 
 package com.liferay.wiki.engine.mediawiki.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.function.UnsafeConsumer;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -24,10 +27,18 @@ import com.liferay.portal.kernel.util.ResourceBundleLoader;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.SystemProperties;
+<<<<<<< HEAD
 import com.liferay.portal.language.LanguageResources;
 import com.liferay.wiki.configuration.WikiGroupServiceConfiguration;
 import com.liferay.wiki.engine.BaseWikiEngine;
 import com.liferay.wiki.engine.WikiEngine;
+=======
+import com.liferay.portal.kernel.util.UnsafeConsumer;
+import com.liferay.portal.language.LanguageResources;
+import com.liferay.wiki.configuration.WikiGroupServiceConfiguration;
+import com.liferay.wiki.engine.WikiEngine;
+import com.liferay.wiki.engine.input.editor.common.BaseInputEditorWikiEngine;
+>>>>>>> compatible
 import com.liferay.wiki.engine.mediawiki.internal.matchers.DirectTagMatcher;
 import com.liferay.wiki.engine.mediawiki.internal.matchers.DirectURLMatcher;
 import com.liferay.wiki.engine.mediawiki.internal.matchers.EditURLMatcher;
@@ -77,7 +88,11 @@ import org.osgi.service.component.annotations.Reference;
  * @author Jonathan Potter
  */
 @Component(service = WikiEngine.class)
+<<<<<<< HEAD
 public class MediaWikiEngine extends BaseWikiEngine {
+=======
+public class MediaWikiEngine extends BaseInputEditorWikiEngine {
+>>>>>>> compatible
 
 	@Override
 	public String convert(
@@ -179,11 +194,14 @@ public class MediaWikiEngine extends BaseWikiEngine {
 	}
 
 	@Override
+<<<<<<< HEAD
 	protected ServletContext getEditPageServletContext() {
 		return _wikiEngineInputEditorServletContext;
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	protected ServletContext getHelpPageServletContext() {
 		return _servletContext;
 	}
@@ -356,12 +374,15 @@ public class MediaWikiEngine extends BaseWikiEngine {
 
 	private ResourceBundleLoader _resourceBundleLoader;
 	private ServletContext _servletContext;
+<<<<<<< HEAD
 
 	@Reference(
 		target = "(osgi.web.symbolicname=com.liferay.wiki.engine.input.editor.common)"
 	)
 	private ServletContext _wikiEngineInputEditorServletContext;
 
+=======
+>>>>>>> compatible
 	private WikiGroupServiceConfiguration _wikiGroupServiceConfiguration;
 	private WikiPageLocalService _wikiPageLocalService;
 

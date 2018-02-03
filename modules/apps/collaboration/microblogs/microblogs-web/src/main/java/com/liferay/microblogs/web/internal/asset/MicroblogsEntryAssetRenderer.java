@@ -17,6 +17,10 @@ package com.liferay.microblogs.web.internal.asset;
 import com.liferay.asset.kernel.model.BaseJSPAssetRenderer;
 import com.liferay.microblogs.constants.MicroblogsPortletKeys;
 import com.liferay.microblogs.model.MicroblogsEntry;
+<<<<<<< HEAD
+=======
+import com.liferay.microblogs.service.permission.MicroblogsEntryPermission;
+>>>>>>> compatible
 import com.liferay.microblogs.web.internal.util.WebKeys;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.User;
@@ -25,7 +29,10 @@ import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
 import com.liferay.portal.kernel.portlet.PortletURLFactoryUtil;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermission;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.PortalUtil;
@@ -45,12 +52,17 @@ import javax.servlet.http.HttpServletResponse;
 public class MicroblogsEntryAssetRenderer
 	extends BaseJSPAssetRenderer<MicroblogsEntry> {
 
+<<<<<<< HEAD
 	public MicroblogsEntryAssetRenderer(
 		MicroblogsEntry entry,
 		ModelResourcePermission<MicroblogsEntry> modelResourcePermission) {
 
 		_entry = entry;
 		_microblogsEntryModelResourcePermission = modelResourcePermission;
+=======
+	public MicroblogsEntryAssetRenderer(MicroblogsEntry entry) {
+		_entry = entry;
+>>>>>>> compatible
 	}
 
 	@Override
@@ -163,7 +175,11 @@ public class MicroblogsEntryAssetRenderer
 	@Override
 	public boolean hasViewPermission(PermissionChecker permissionChecker) {
 		try {
+<<<<<<< HEAD
 			return _microblogsEntryModelResourcePermission.contains(
+=======
+			return MicroblogsEntryPermission.contains(
+>>>>>>> compatible
 				permissionChecker, _entry, ActionKeys.VIEW);
 		}
 		catch (Exception e) {
@@ -184,7 +200,10 @@ public class MicroblogsEntryAssetRenderer
 	}
 
 	private final MicroblogsEntry _entry;
+<<<<<<< HEAD
 	private final ModelResourcePermission<MicroblogsEntry>
 		_microblogsEntryModelResourcePermission;
+=======
+>>>>>>> compatible
 
 }

@@ -14,8 +14,11 @@
 
 package com.liferay.portal.service.impl;
 
+<<<<<<< HEAD
 import com.liferay.petra.encryptor.Encryptor;
 import com.liferay.petra.encryptor.EncryptorException;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.bean.BeanReference;
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
@@ -59,6 +62,10 @@ import com.liferay.portal.kernel.search.Hits;
 import com.liferay.portal.kernel.search.SearchContext;
 import com.liferay.portal.kernel.search.SearchEngineHelperUtil;
 import com.liferay.portal.kernel.search.SearchException;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.search.facet.AssetEntriesFacet;
+>>>>>>> compatible
 import com.liferay.portal.kernel.search.facet.Facet;
 import com.liferay.portal.kernel.search.facet.ScopeFacet;
 import com.liferay.portal.kernel.search.facet.faceted.searcher.FacetedSearcher;
@@ -95,6 +102,11 @@ import com.liferay.registry.RegistryUtil;
 import com.liferay.registry.ServiceReference;
 import com.liferay.registry.ServiceTracker;
 import com.liferay.registry.ServiceTrackerCustomizer;
+<<<<<<< HEAD
+=======
+import com.liferay.util.Encryptor;
+import com.liferay.util.EncryptorException;
+>>>>>>> compatible
 
 import java.io.File;
 import java.io.IOException;
@@ -801,8 +813,15 @@ public class CompanyLocalServiceImpl extends CompanyLocalServiceBaseImpl {
 		SearchContext searchContext = createSearchContext(
 			companyId, userId, portletId, groupId, keywords, start, end);
 
+<<<<<<< HEAD
 		addScopeFacet(searchContext);
 
+=======
+		addAssetEntriesFacet(searchContext);
+
+		addScopeFacet(searchContext);
+
+>>>>>>> compatible
 		try {
 			return facetedSearcher.search(searchContext);
 		}
@@ -1277,6 +1296,14 @@ public class CompanyLocalServiceImpl extends CompanyLocalServiceBaseImpl {
 	}
 
 	protected void addAssetEntriesFacet(SearchContext searchContext) {
+<<<<<<< HEAD
+=======
+		Facet assetEntriesFacet = new AssetEntriesFacet(searchContext);
+
+		assetEntriesFacet.setStatic(true);
+
+		searchContext.addFacet(assetEntriesFacet);
+>>>>>>> compatible
 	}
 
 	protected void addScopeFacet(SearchContext searchContext) {

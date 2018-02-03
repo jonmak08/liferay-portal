@@ -282,6 +282,7 @@ public @interface OSGiBeanProperties {
 
 		private Class<?> _getTypeClass() {
 			if (this == Type.BOOLEAN) {
+<<<<<<< HEAD
 				return Boolean.class;
 			}
 			else if (this == Type.BYTE) {
@@ -307,6 +308,33 @@ public @interface OSGiBeanProperties {
 			}
 			else if (this == Type.STRING) {
 				return String.class;
+=======
+				return java.lang.Boolean.class;
+			}
+			else if (this == Type.BYTE) {
+				return java.lang.Byte.class;
+			}
+			else if (this == Type.CHARACTER) {
+				return java.lang.Character.class;
+			}
+			else if (this == Type.DOUBLE) {
+				return java.lang.Double.class;
+			}
+			else if (this == Type.FLOAT) {
+				return java.lang.Float.class;
+			}
+			else if (this == Type.INTEGER) {
+				return java.lang.Integer.class;
+			}
+			else if (this == Type.LONG) {
+				return java.lang.Long.class;
+			}
+			else if (this == Type.SHORT) {
+				return java.lang.Short.class;
+			}
+			else if (this == Type.STRING) {
+				return java.lang.String.class;
+>>>>>>> compatible
 			}
 
 			return null;
@@ -317,9 +345,13 @@ public @interface OSGiBeanProperties {
 				return GetterUtil.getBoolean(value);
 			}
 			else if (this == Type.BYTE) {
+<<<<<<< HEAD
 				Byte byteValue = Byte.valueOf(value);
 
 				return byteValue.byteValue();
+=======
+				return new java.lang.Byte(value).byteValue();
+>>>>>>> compatible
 			}
 			else if (this == Type.CHARACTER) {
 				return value.charAt(0);

@@ -45,6 +45,7 @@ public class IndexableAdvice
 			return;
 		}
 
+<<<<<<< HEAD
 		if (CompanyThreadLocal.isDeleteInProcess() ||
 			IndexWriterHelperUtil.isIndexReadOnly()) {
 
@@ -57,6 +58,10 @@ public class IndexableAdvice
 					_log.debug("Skip indexing because the index is read only");
 				}
 			}
+=======
+		if (IndexWriterHelperUtil.isIndexReadOnly() ||
+			CompanyThreadLocal.isDeleteInProcess()) {
+>>>>>>> compatible
 
 			return;
 		}
@@ -86,6 +91,7 @@ public class IndexableAdvice
 		if (indexer == null) {
 			serviceBeanAopCacheManager.removeMethodInterceptor(
 				methodInvocation, this);
+<<<<<<< HEAD
 
 			return;
 		}
@@ -96,6 +102,8 @@ public class IndexableAdvice
 					"Skipping indexing read only index for " +
 						indexer.getClassName());
 			}
+=======
+>>>>>>> compatible
 
 			return;
 		}

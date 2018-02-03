@@ -14,8 +14,11 @@
 
 package com.liferay.message.boards.internal.pop;
 
+<<<<<<< HEAD
 import com.liferay.message.boards.internal.util.MBMailMessage;
 import com.liferay.message.boards.internal.util.MBMailUtil;
+=======
+>>>>>>> compatible
 import com.liferay.message.boards.kernel.model.MBCategory;
 import com.liferay.message.boards.kernel.model.MBCategoryConstants;
 import com.liferay.message.boards.kernel.model.MBMessage;
@@ -23,7 +26,10 @@ import com.liferay.message.boards.kernel.model.MBMessageConstants;
 import com.liferay.message.boards.kernel.service.MBCategoryLocalService;
 import com.liferay.message.boards.kernel.service.MBMessageLocalService;
 import com.liferay.message.boards.kernel.service.MBMessageService;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Company;
@@ -37,11 +43,16 @@ import com.liferay.portal.kernel.service.CompanyLocalService;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.UserLocalService;
 import com.liferay.portal.kernel.util.ArrayUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.ObjectValuePair;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.PrefsPropsUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.security.permission.PermissionCheckerUtil;
@@ -49,6 +60,15 @@ import com.liferay.portal.util.PropsValues;
 import com.liferay.portlet.messageboards.util.MBUtil;
 
 import java.io.IOException;
+=======
+import com.liferay.portal.kernel.util.StreamUtil;
+import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.security.permission.PermissionCheckerUtil;
+import com.liferay.portal.util.PropsValues;
+import com.liferay.portlet.messageboards.util.MBMailMessage;
+import com.liferay.portlet.messageboards.util.MBUtil;
+
+>>>>>>> compatible
 import java.io.InputStream;
 
 import java.util.List;
@@ -134,9 +154,13 @@ public class MessageListenerImpl implements MessageListener {
 			stopWatch.start();
 
 			if (_log.isDebugEnabled()) {
+<<<<<<< HEAD
 				_log.debug(
 					StringBundler.concat(
 						"Deliver message from ", from, " to ", recipient));
+=======
+				_log.debug("Deliver message from " + from + " to " + recipient);
+>>>>>>> compatible
 			}
 
 			String messageIdString = getMessageIdString(recipient, message);
@@ -197,7 +221,11 @@ public class MessageListenerImpl implements MessageListener {
 
 			MBMailMessage mbMailMessage = new MBMailMessage();
 
+<<<<<<< HEAD
 			MBMailUtil.collectPartContent(message, mbMailMessage);
+=======
+			MBUtil.collectPartContent(message, mbMailMessage);
+>>>>>>> compatible
 
 			inputStreamOVPs = mbMailMessage.getInputStreamOVPs();
 
@@ -253,6 +281,7 @@ public class MessageListenerImpl implements MessageListener {
 				for (ObjectValuePair<String, InputStream> inputStreamOVP :
 						inputStreamOVPs) {
 
+<<<<<<< HEAD
 					try (InputStream inputStream = inputStreamOVP.getValue()) {
 					}
 					catch (IOException ioe) {
@@ -260,6 +289,11 @@ public class MessageListenerImpl implements MessageListener {
 							_log.warn(ioe, ioe);
 						}
 					}
+=======
+					InputStream inputStream = inputStreamOVP.getValue();
+
+					StreamUtil.cleanUp(inputStream);
+>>>>>>> compatible
 				}
 			}
 

@@ -26,7 +26,10 @@ import com.liferay.portal.kernel.module.configuration.ConfigurationException;
 import com.liferay.portal.kernel.security.auth.PrincipalException;
 import com.liferay.portal.kernel.theme.PortletDisplay;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.HtmlUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.KeyValuePair;
 import com.liferay.portal.kernel.util.KeyValuePairComparator;
 import com.liferay.portal.kernel.util.ListUtil;
@@ -152,6 +155,11 @@ public class AssetCategoriesNavigationDisplayContext {
 					AssetVocabularyLocalServiceUtil.fetchAssetVocabulary(
 						assetVocabularyId);
 
+<<<<<<< HEAD
+=======
+				assetVocabulary = assetVocabulary.toEscapedModel();
+
+>>>>>>> compatible
 				availableVocabularNames.add(
 					new KeyValuePair(
 						String.valueOf(assetVocabularyId),
@@ -171,6 +179,11 @@ public class AssetCategoriesNavigationDisplayContext {
 				AssetVocabularyLocalServiceUtil.fetchAssetVocabulary(
 					assetVocabularyId);
 
+<<<<<<< HEAD
+=======
+			assetVocabulary = assetVocabulary.toEscapedModel();
+
+>>>>>>> compatible
 			currentVocabularNames.add(
 				new KeyValuePair(
 					String.valueOf(assetVocabularyId),
@@ -239,8 +252,12 @@ public class AssetCategoriesNavigationDisplayContext {
 		ThemeDisplay themeDisplay = (ThemeDisplay)_request.getAttribute(
 			WebKeys.THEME_DISPLAY);
 
+<<<<<<< HEAD
 		String title = HtmlUtil.escape(
 			assetVocabulary.getTitle(themeDisplay.getLanguageId()));
+=======
+		String title = assetVocabulary.getTitle(themeDisplay.getLanguageId());
+>>>>>>> compatible
 
 		if (assetVocabulary.getGroupId() == themeDisplay.getCompanyGroupId()) {
 			title += " (" + LanguageUtil.get(_request, "global") + ")";

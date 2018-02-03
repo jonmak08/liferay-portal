@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Trash Test Utilities
 Bundle-SymbolicName: com.liferay.trash.test.util
+<<<<<<< HEAD
 Bundle-Version: 1.1.0
+=======
+Bundle-Version: 1.0.4
+>>>>>>> compatible
 Export-Package: com.liferay.trash.test.util
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Recycle Bin

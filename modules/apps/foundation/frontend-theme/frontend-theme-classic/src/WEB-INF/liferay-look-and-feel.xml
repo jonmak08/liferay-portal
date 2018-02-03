@@ -3,7 +3,11 @@
 
 <look-and-feel>
 	<compatibility>
+<<<<<<< HEAD
 		<version>7.1.0+</version>
+=======
+		<version>7.0.0+</version>
+>>>>>>> compatible
 	</compatibility>
 	<theme id="classic" name="Classic">
 		<template-extension>ftl</template-extension>

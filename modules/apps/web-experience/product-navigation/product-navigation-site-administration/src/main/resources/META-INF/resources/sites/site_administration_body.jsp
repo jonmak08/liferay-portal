@@ -52,10 +52,15 @@ SiteAdministrationPanelCategoryDisplayContext siteAdministrationPanelCategoryDis
 
 					<%
 					}
+<<<<<<< HEAD
 					catch (RemoteExportException | SystemException e) {
 						if (e instanceof SystemException) {
 							_log.error(e, e);
 						}
+=======
+					catch (SystemException se) {
+						_log.error(se, se);
+>>>>>>> compatible
 					%>
 
 						<aui:a data="<%= data %>" href="" id="remoteLiveLink" label="<%= siteAdministrationPanelCategoryDisplayContext.getLiveGroupLabel() %>" />
@@ -63,7 +68,11 @@ SiteAdministrationPanelCategoryDisplayContext siteAdministrationPanelCategoryDis
 						<aui:script use="aui-tooltip">
 							new A.Tooltip(
 								{
+<<<<<<< HEAD
 									bodyContent: Liferay.Language.get('the-connection-to-the-remote-live-site-cannot-be-established-due-to-a-network-problem'),
+=======
+									bodyContent: Liferay.Language.get('an-unexpected-error-occurred'),
+>>>>>>> compatible
 									position: 'right',
 									trigger: A.one('#<portlet:namespace />remoteLiveLink'),
 									visible: false,

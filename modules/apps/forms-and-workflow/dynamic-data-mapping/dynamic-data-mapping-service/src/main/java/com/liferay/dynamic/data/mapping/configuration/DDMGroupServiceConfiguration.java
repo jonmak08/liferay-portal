@@ -33,14 +33,22 @@ public interface DDMGroupServiceConfiguration {
 
 	@Meta.AD(
 		deflt = ".gif|.jpeg|.jpg|.png",
+<<<<<<< HEAD
 		description = "small-image-extensions-description",
 		name = "small-image-extensions", required = false
+=======
+		description = "small-image-extensions-description", required = false
+>>>>>>> compatible
 	)
 	public String[] smallImageExtensions();
 
 	@Meta.AD(
 		deflt = "51200", description = "small-image-max-size-description",
+<<<<<<< HEAD
 		name = "small-image-max-size", required = false
+=======
+		required = false
+>>>>>>> compatible
 	)
 	public int smallImageMaxSize();
 

@@ -16,9 +16,12 @@ package com.liferay.portal.service.impl;
 
 import com.liferay.admin.kernel.util.PortalMyAccountApplicationType;
 import com.liferay.expando.kernel.model.CustomAttributesDisplay;
+<<<<<<< HEAD
 import com.liferay.petra.content.ContentUtil;
 import com.liferay.petra.lang.ClassLoaderPool;
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.application.type.ApplicationType;
 import com.liferay.portal.kernel.cluster.Clusterable;
 import com.liferay.portal.kernel.configuration.Configuration;
@@ -74,7 +77,10 @@ import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.PortletKeys;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
@@ -95,6 +101,7 @@ import com.liferay.portal.util.PropsValues;
 import com.liferay.portal.util.WebAppPool;
 import com.liferay.portlet.PortletBagFactory;
 import com.liferay.portlet.UndeployedPortlet;
+<<<<<<< HEAD
 import com.liferay.portlet.extra.config.ExtraPortletAppConfig;
 import com.liferay.portlet.extra.config.ExtraPortletAppConfigRegistry;
 import com.liferay.registry.Filter;
@@ -103,6 +110,9 @@ import com.liferay.registry.RegistryUtil;
 import com.liferay.registry.ServiceReference;
 import com.liferay.registry.ServiceTracker;
 import com.liferay.registry.ServiceTrackerCustomizer;
+=======
+import com.liferay.util.ContentUtil;
+>>>>>>> compatible
 
 import java.net.URL;
 
@@ -120,7 +130,10 @@ import java.util.Objects;
 import java.util.Properties;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+<<<<<<< HEAD
 import java.util.concurrent.atomic.AtomicReference;
+=======
+>>>>>>> compatible
 import java.util.function.Consumer;
 
 import javax.portlet.PortletMode;
@@ -164,6 +177,7 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void afterPropertiesSet() {
 		super.afterPropertiesSet();
 
@@ -179,6 +193,8 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public void checkPortlet(Portlet portlet) throws PortalException {
 		initPortletDefaultPermissions(portlet);
 
@@ -332,8 +348,11 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 
 		_checkValidPortletId(portlet.getPortletId());
 
+<<<<<<< HEAD
 		ResourceActionsUtil.check(portlet);
 
+=======
+>>>>>>> compatible
 		_portletsMap.put(portlet.getPortletId(), portlet);
 
 		if (eagerDestroy) {
@@ -344,6 +363,11 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 
 		clearCache();
 
+<<<<<<< HEAD
+=======
+		ResourceActionsUtil.check(portlet.getPortletId());
+
+>>>>>>> compatible
 		PortletCategory portletCategory = (PortletCategory)WebAppPool.get(
 			portlet.getCompanyId(), WebKeys.PORTLET_CATEGORY);
 
@@ -746,8 +770,11 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 
 			Set<String> servletURLPatterns = readWebXML(xmls[4]);
 
+<<<<<<< HEAD
 			_readWebXML(xmls[4], portletApp.getServletContextName());
 
+=======
+>>>>>>> compatible
 			Map<String, Portlet> portletsMap = readPortletXML(
 				StringPool.BLANK, servletContext, xmls[0], servletURLPatterns,
 				pluginPackage);
@@ -782,10 +809,16 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 					!liferayPortletIds.contains(portletId)) {
 
 					_log.warn(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"Portlet with the name ", portletId,
 							" is described in portlet.xml but does not have a ",
 							"matching entry in liferay-portlet.xml"));
+=======
+						"Portlet with the name " + portletId +
+							" is described in portlet.xml but does not have " +
+								"a matching entry in liferay-portlet.xml");
+>>>>>>> compatible
 				}
 			}
 
@@ -850,8 +883,11 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 
 		try {
 			Set<String> servletURLPatterns = readWebXML(xmls[3]);
+<<<<<<< HEAD
 
 			_readWebXML(xmls[3], servletContextName);
+=======
+>>>>>>> compatible
 
 			portletsMap = readPortletXML(
 				servletContextName, servletContext, xmls[0], servletURLPatterns,
@@ -889,10 +925,16 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 				!liferayPortletIds.contains(portletId)) {
 
 				_log.warn(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Portlet with the name ", portletId,
 						" is described in portlet.xml but does not have a ",
 						"matching entry in liferay-portlet.xml"));
+=======
+					"Portlet with the name " + portletId +
+						" is described in portlet.xml but does not have a " +
+							"matching entry in liferay-portlet.xml");
+>>>>>>> compatible
 			}
 		}
 
@@ -901,10 +943,16 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 		for (String portletId : liferayPortletIds) {
 			if (_log.isWarnEnabled() && !portletsMap.containsKey(portletId)) {
 				_log.warn(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Portlet with the name ", portletId,
 						" is described in liferay-portlet.xml but does not ",
 						"have a matching entry in portlet.xml"));
+=======
+					"Portlet with the name " + portletId +
+						" is described in liferay-portlet.xml but does not " +
+							"have a matching entry in portlet.xml");
+>>>>>>> compatible
 			}
 		}
 
@@ -1310,6 +1358,13 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 				continue;
 			}
 
+<<<<<<< HEAD
+=======
+			if (resourceBlockLocalService.isSupported(modelResource)) {
+				continue;
+			}
+
+>>>>>>> compatible
 			resourceLocalService.addResources(
 				portlet.getCompanyId(), 0, 0, modelResource, modelResource,
 				false, false, true);
@@ -2129,11 +2184,17 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 			// LPS-32878
 
 			throw new PortletIdException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Portlet ID ", portletId, " has more than ",
 					String.valueOf(
 						PortletIdCodec.PORTLET_INSTANCE_KEY_MAX_LENGTH),
 					" characters"));
+=======
+				"Portlet ID " + portletId + " has more than " +
+					PortletIdCodec.PORTLET_INSTANCE_KEY_MAX_LENGTH +
+						" characters");
+>>>>>>> compatible
 		}
 
 		if (_log.isDebugEnabled()) {
@@ -2763,6 +2824,7 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 		}
 	}
 
+<<<<<<< HEAD
 	private boolean _isCustomPortletMode(String portletModeName) {
 		return PortalUtil.isCustomPortletMode(new PortletMode(portletModeName));
 	}
@@ -2799,6 +2861,8 @@ public class PortletLocalServiceImpl extends PortletLocalServiceBaseImpl {
 			servletContextName, extraPortletAppConfig);
 	}
 
+=======
+>>>>>>> compatible
 	private static final Log _log = LogFactoryUtil.getLog(
 		PortletLocalServiceImpl.class);
 

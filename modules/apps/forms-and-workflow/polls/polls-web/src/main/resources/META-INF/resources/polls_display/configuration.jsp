@@ -72,7 +72,12 @@ if (scopeGroupId != themeDisplay.getCompanyGroupId()) {
 	</div>
 
 	<aui:button-row>
+<<<<<<< HEAD
 		<aui:button disabled="<%= questions.isEmpty() %>" type="submit" />
 		<aui:button type="cancel" />
+=======
+		<aui:button cssClass="btn-lg" disabled="<%= questions.isEmpty() %>" type="submit" />
+		<aui:button cssClass="btn-lg" type="cancel" />
+>>>>>>> compatible
 	</aui:button-row>
 </aui:form>

@@ -30,7 +30,10 @@ import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
@@ -476,10 +479,16 @@ public class LiferayPortlet extends GenericPortlet {
 
 			if (!portletApp.isWARFile()) {
 				_log.error(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Disabling paths for portlet ", getPortletName(),
 						" because root path is configured to have access to ",
 						"all portal paths"));
+=======
+					"Disabling paths for portlet " + getPortletName() +
+						" because root path is configured to have access to " +
+							"all portal paths");
+>>>>>>> compatible
 
 				validPaths = new HashSet<>();
 

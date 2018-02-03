@@ -16,13 +16,12 @@ package com.liferay.portal.search.solr.filter;
 
 import com.liferay.portal.kernel.search.filter.DateRangeTermFilter;
 
-import org.apache.lucene.search.Query;
-
 /**
  * @author Michael C. Han
  */
 public interface DateRangeTermFilterTranslator {
 
-	public Query translate(DateRangeTermFilter dateRangeTermFilter);
+	public org.apache.lucene.search.Query translate(
+		DateRangeTermFilter dateRangeTermFilter);
 
 }

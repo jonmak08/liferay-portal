@@ -2,7 +2,11 @@
 	<command name="clickAt">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Uncheck#clickAt" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 
@@ -33,13 +37,21 @@
 	<command name="uncheckNoError">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Uncheck#uncheckNoError" />
+=======
+		<super />
+>>>>>>> compatible
 	</command>
 
 	<command name="uncheckToggleSwitch">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Uncheck#uncheckToggleSwitch" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 
@@ -49,6 +61,10 @@
 	<command name="uncheckToggleSwitchNoErrorNoAssert">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Uncheck#uncheckToggleSwitchNoErrorNoAssert" />
+=======
+		<super />
+>>>>>>> compatible
 	</command>
 </definition>

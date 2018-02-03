@@ -14,8 +14,13 @@
 
 package com.liferay.portal.search;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.Contact;
 import com.liferay.portal.kernel.model.Organization;
+=======
+import com.liferay.message.boards.kernel.model.MBMessage;
+import com.liferay.message.boards.kernel.model.MBThread;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.model.UserGroup;
 import com.liferay.portal.kernel.search.Indexer;
@@ -41,6 +46,7 @@ public class IndexerRegistryUtilTest {
 
 	@Test
 	public void testGetIndexerByIndexerClassName() throws Exception {
+<<<<<<< HEAD
 		Indexer<Contact> contactIndexer = IndexerRegistryUtil.getIndexer(
 			ContactIndexer.class.getName());
 
@@ -50,6 +56,17 @@ public class IndexerRegistryUtilTest {
 			IndexerRegistryUtil.getIndexer(OrganizationIndexer.class.getName());
 
 		Assert.assertNotNull(organizationIndexer);
+=======
+		Indexer<MBMessage> mbMessageIndexer = IndexerRegistryUtil.getIndexer(
+			MBMessageIndexer.class.getName());
+
+		Assert.assertNotNull(mbMessageIndexer);
+
+		Indexer<MBThread> mbThreadIndexer = IndexerRegistryUtil.getIndexer(
+			MBThreadIndexer.class.getName());
+
+		Assert.assertNotNull(mbThreadIndexer);
+>>>>>>> compatible
 	}
 
 	@Test

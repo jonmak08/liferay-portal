@@ -19,7 +19,10 @@ import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.search.solr.query.FuzzyQueryTranslator;
 
 import org.apache.lucene.index.Term;
+<<<<<<< HEAD
 import org.apache.lucene.search.Query;
+=======
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 
@@ -30,7 +33,11 @@ import org.osgi.service.component.annotations.Component;
 public class FuzzyQueryTranslatorImpl implements FuzzyQueryTranslator {
 
 	@Override
+<<<<<<< HEAD
 	public Query translate(FuzzyQuery fuzzyQuery) {
+=======
+	public org.apache.lucene.search.Query translate(FuzzyQuery fuzzyQuery) {
+>>>>>>> compatible
 		Term term = new Term(fuzzyQuery.getField(), fuzzyQuery.getValue());
 
 		int maxEdits = GetterUtil.getInteger(fuzzyQuery.getMaxEdits());

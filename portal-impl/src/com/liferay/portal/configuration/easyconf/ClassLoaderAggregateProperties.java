@@ -25,7 +25,10 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.ReflectionUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 
 import java.lang.reflect.Field;
@@ -187,10 +190,15 @@ public class ClassLoaderAggregateProperties extends AggregatedProperties {
 
 				if (_log.isDebugEnabled()) {
 					_log.debug(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"File ", String.valueOf(url),
 							" will be reloaded every ", String.valueOf(delay),
 							" seconds"));
+=======
+						"File " + url + " will be reloaded every " + delay +
+							" seconds");
+>>>>>>> compatible
 				}
 
 				long milliseconds = delay.longValue() * 1000;
@@ -368,10 +376,15 @@ public class ClassLoaderAggregateProperties extends AggregatedProperties {
 
 				if (_log.isDebugEnabled()) {
 					_log.debug(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"Resource ", String.valueOf(url),
 							" will be reloaded every ", String.valueOf(delay),
 							" seconds"));
+=======
+						"Resource " + url + " will be reloaded every " + delay +
+							" seconds");
+>>>>>>> compatible
 				}
 
 				long milliseconds = delay.longValue() * 1000;

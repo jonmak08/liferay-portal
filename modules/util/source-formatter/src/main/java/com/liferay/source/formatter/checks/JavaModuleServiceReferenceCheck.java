@@ -34,33 +34,57 @@ public class JavaModuleServiceReferenceCheck extends BaseFileCheck {
 	protected String doProcess(
 		String fileName, String absolutePath, String content) {
 
+<<<<<<< HEAD
 		String packageName = JavaSourceUtil.getPackageName(content);
 
 		int pos = packageName.indexOf(".service.");
+=======
+		String packagePath = JavaSourceUtil.getPackagePath(content);
+
+		int pos = packagePath.indexOf(".service.");
+>>>>>>> compatible
 
 		if (pos == -1) {
 			return content;
 		}
 
+<<<<<<< HEAD
 		String servicePackageName = packageName.substring(0, pos + 8);
 
 		_checkServiceReferences(
 			fileName, content, packageName, servicePackageName);
+=======
+		String servicePackagePath = packagePath.substring(0, pos + 8);
+
+		_checkServiceReferences(
+			fileName, content, packagePath, servicePackagePath);
+>>>>>>> compatible
 
 		return content;
 	}
 
 	private void _checkServiceReferences(
+<<<<<<< HEAD
 		String fileName, String content, String packageName,
 		String servicePackageName) {
+=======
+		String fileName, String content, String packagePath,
+		String servicePackagePath) {
+>>>>>>> compatible
 
 		Matcher matcher = _serviceReferencePattern.matcher(content);
 
 		while (matcher.find()) {
 			String className = _getFullClassName(
+<<<<<<< HEAD
 				content, matcher.group(1), packageName);
 
 			if (className.startsWith(servicePackageName)) {
+=======
+				content, matcher.group(1), packagePath);
+
+			if (className.startsWith(servicePackagePath)) {
+>>>>>>> compatible
 				addMessage(
 					fileName, "Use @BeanReference instead of @ServiceReference",
 					getLineCount(content, matcher.start()));
@@ -69,7 +93,11 @@ public class JavaModuleServiceReferenceCheck extends BaseFileCheck {
 	}
 
 	private String _getFullClassName(
+<<<<<<< HEAD
 		String content, String className, String packageName) {
+=======
+		String content, String className, String packagePath) {
+>>>>>>> compatible
 
 		if (className.contains(StringPool.PERIOD)) {
 			return className;
@@ -83,7 +111,11 @@ public class JavaModuleServiceReferenceCheck extends BaseFileCheck {
 			return matcher.group(1);
 		}
 
+<<<<<<< HEAD
 		return packageName + StringPool.PERIOD + className;
+=======
+		return packagePath + StringPool.PERIOD + className;
+>>>>>>> compatible
 	}
 
 	private final Pattern _serviceReferencePattern = Pattern.compile(

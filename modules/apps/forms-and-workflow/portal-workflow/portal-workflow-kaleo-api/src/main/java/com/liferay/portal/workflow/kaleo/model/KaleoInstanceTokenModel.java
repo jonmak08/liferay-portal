@@ -193,6 +193,7 @@ public interface KaleoInstanceTokenModel extends BaseModel<KaleoInstanceToken>,
 	public void setModifiedDate(Date modifiedDate);
 
 	/**
+<<<<<<< HEAD
 	 * Returns the kaleo definition version ID of this kaleo instance token.
 	 *
 	 * @return the kaleo definition version ID of this kaleo instance token
@@ -205,6 +206,20 @@ public interface KaleoInstanceTokenModel extends BaseModel<KaleoInstanceToken>,
 	 * @param kaleoDefinitionVersionId the kaleo definition version ID of this kaleo instance token
 	 */
 	public void setKaleoDefinitionVersionId(long kaleoDefinitionVersionId);
+=======
+	 * Returns the kaleo definition ID of this kaleo instance token.
+	 *
+	 * @return the kaleo definition ID of this kaleo instance token
+	 */
+	public long getKaleoDefinitionId();
+
+	/**
+	 * Sets the kaleo definition ID of this kaleo instance token.
+	 *
+	 * @param kaleoDefinitionId the kaleo definition ID of this kaleo instance token
+	 */
+	public void setKaleoDefinitionId(long kaleoDefinitionId);
+>>>>>>> compatible
 
 	/**
 	 * Returns the kaleo instance ID of this kaleo instance token.

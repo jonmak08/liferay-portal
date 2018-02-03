@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Portal Security Auth Verifier
 Bundle-SymbolicName: com.liferay.portal.security.auth.verifier
+<<<<<<< HEAD
 Bundle-Version: 2.1.8
+=======
+Bundle-Version: 2.1.3
+>>>>>>> compatible
 Export-Package:\
 	com.liferay.portal.security.auth.verifier.basic.auth.header,\
 	com.liferay.portal.security.auth.verifier.digest.authentication,\

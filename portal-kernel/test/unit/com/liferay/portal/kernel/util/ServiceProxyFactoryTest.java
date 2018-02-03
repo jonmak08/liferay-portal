@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.memory.FinalizeAction;
 import com.liferay.petra.memory.FinalizeManager;
 import com.liferay.portal.kernel.test.CaptureHandler;
@@ -24,6 +25,13 @@ import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.CodeCoverageAssertor;
 import com.liferay.portal.kernel.test.rule.NewEnv;
 import com.liferay.portal.kernel.test.rule.NewEnvTestRule;
+=======
+import com.liferay.portal.kernel.memory.FinalizeAction;
+import com.liferay.portal.kernel.memory.FinalizeManager;
+import com.liferay.portal.kernel.test.GCUtil;
+import com.liferay.portal.kernel.test.ReflectionTestUtil;
+import com.liferay.portal.kernel.test.rule.CodeCoverageAssertor;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.rule.TimeoutTestRule;
 import com.liferay.registry.BasicRegistryImpl;
 import com.liferay.registry.Registry;
@@ -39,23 +47,35 @@ import java.lang.reflect.Method;
 
 import java.util.Collection;
 import java.util.Collections;
+<<<<<<< HEAD
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CopyOnWriteArrayList;
+=======
+import java.util.Map;
+import java.util.concurrent.Callable;
+>>>>>>> compatible
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
+<<<<<<< HEAD
 import java.util.logging.Level;
 import java.util.logging.LogRecord;
+=======
+>>>>>>> compatible
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
+<<<<<<< HEAD
+=======
+import org.junit.rules.TestRule;
+>>>>>>> compatible
 
 /**
  * @author Tina Tian
@@ -63,29 +83,41 @@ import org.junit.Test;
 public class ServiceProxyFactoryTest {
 
 	@ClassRule
+<<<<<<< HEAD
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
 		new AggregateTestRule(
 			CodeCoverageAssertor.INSTANCE, NewEnvTestRule.INSTANCE,
 			TimeoutTestRule.INSTANCE);
+=======
+	public static final CodeCoverageAssertor codeCoverageAssertor =
+		CodeCoverageAssertor.INSTANCE;
+>>>>>>> compatible
 
 	@Before
 	public void setUp() {
 		RegistryUtil.setRegistry(new BasicRegistryImpl());
 	}
 
+<<<<<<< HEAD
 	@NewEnv(type = NewEnv.Type.CLASSLOADER)
+=======
+>>>>>>> compatible
 	@Test
 	public void testBlockingProxy() throws Exception {
 		_testBlockingProxy(false);
 	}
 
+<<<<<<< HEAD
 	@NewEnv(type = NewEnv.Type.CLASSLOADER)
+=======
+>>>>>>> compatible
 	@Test
 	public void testBlockingProxyWithProxyService() throws Exception {
 		_testBlockingProxy(true);
 	}
 
+<<<<<<< HEAD
 	@NewEnv(type = NewEnv.Type.CLASSLOADER)
 	@Test
 	public void testBlockingProxyWithTimeout() throws InterruptedException {
@@ -100,6 +132,8 @@ public class ServiceProxyFactoryTest {
 		_testBlockingProxyWithTimeout("filter.string");
 	}
 
+=======
+>>>>>>> compatible
 	@Test
 	public void testCloseServiceTrackerFinalizeAction() throws Exception {
 		TestServiceUtil testServiceUtil = new TestServiceUtil();
@@ -110,6 +144,7 @@ public class ServiceProxyFactoryTest {
 
 		FinalizeAction finalizeAction = null;
 
+<<<<<<< HEAD
 		Map<Object, FinalizeAction> finalizeActions =
 			ReflectionTestUtil.getFieldValue(
 				FinalizeManager.class, "_finalizeActions");
@@ -119,6 +154,16 @@ public class ServiceProxyFactoryTest {
 
 			Reference<?> reference = ReflectionTestUtil.getFieldValue(
 				entry.getKey(), "_reference");
+=======
+		Map<Reference<?>, FinalizeAction> finalizeActions =
+			ReflectionTestUtil.getFieldValue(
+				FinalizeManager.class, "_finalizeActions");
+
+		for (Map.Entry<Reference<?>, FinalizeAction> entry :
+				finalizeActions.entrySet()) {
+
+			Reference<?> reference = entry.getKey();
+>>>>>>> compatible
 
 			if (!(reference instanceof PhantomReference<?>)) {
 				continue;
@@ -322,6 +367,12 @@ public class ServiceProxyFactoryTest {
 		serviceRegistration.unregister();
 	}
 
+<<<<<<< HEAD
+=======
+	@Rule
+	public final TestRule testRule = TimeoutTestRule.INSTANCE;
+
+>>>>>>> compatible
 	public static class TestServiceImpl implements TestService {
 
 		@Override
@@ -345,10 +396,13 @@ public class ServiceProxyFactoryTest {
 	}
 
 	private void _testBlockingProxy(boolean proxyService) throws Exception {
+<<<<<<< HEAD
 		System.setProperty(
 			ServiceProxyFactory.class.getName() + ".timeout",
 			Long.toString(Long.MAX_VALUE));
 
+=======
+>>>>>>> compatible
 		final TestService testService =
 			ServiceProxyFactory.newServiceTrackedInstance(
 				TestService.class, TestServiceUtil.class, "testService", true);
@@ -414,6 +468,7 @@ public class ServiceProxyFactoryTest {
 		serviceRegistration.unregister();
 	}
 
+<<<<<<< HEAD
 	private void _testBlockingProxyWithTimeout(String filterString)
 		throws InterruptedException {
 
@@ -480,6 +535,8 @@ public class ServiceProxyFactoryTest {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	private void _testNonBlockingProxy(boolean filterEnabled) throws Exception {
 		TestService testService = null;
 

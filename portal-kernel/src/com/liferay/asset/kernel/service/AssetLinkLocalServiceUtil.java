@@ -363,6 +363,7 @@ public class AssetLinkLocalServiceUtil {
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns all the asset links of an AssetEntry.
 	*
 	* @param classNameId AssetEntry's classNameId
@@ -375,6 +376,8 @@ public class AssetLinkLocalServiceUtil {
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	* Returns the OSGi service identifier.
 	*
 	* @return the OSGi service identifier

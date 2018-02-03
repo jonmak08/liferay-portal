@@ -1,7 +1,15 @@
+<<<<<<< HEAD
 apply plugin: "com.liferay.osgi.portal.compat.defaults.plugin"
 
 dependencies {
 	testCompile group: "com.liferay", name: "com.liferay.petra.lang", version: "1.0.0"
+=======
+import com.liferay.gradle.util.StringUtil
+
+task deployFiles(type: Copy)
+
+dependencies {
+>>>>>>> compatible
 	testCompile group: "com.liferay.portal", name: "com.liferay.portal.kernel", version: "2.0.0"
 }
 
@@ -9,10 +17,17 @@ deploy {
 	deleteAllActions()
 
 	dependsOn = []
+<<<<<<< HEAD
 	finalizedBy importFiles
 }
 
 importFiles {
+=======
+	finalizedBy deployFiles
+}
+
+deployFiles {
+>>>>>>> compatible
 	from processResources
 
 	into {
@@ -20,6 +35,39 @@ importFiles {
 	}
 }
 
+<<<<<<< HEAD
 transformImportedFiles {
 	enabled = false
+=======
+Properties importedFilesProperties = new Properties()
+
+File importedFilesPropertiesFile = file("imported-files.properties")
+
+importedFilesPropertiesFile.withInputStream {
+	importedFilesProperties.load it
+}
+
+importedFilesProperties.each {
+	String dependencyNotation, String dependencyIncludes ->
+
+	String dependencySuffix = dependencyNotation.replaceAll(/[\.|:](\w)/) {
+		String s = it[1]
+
+		s.toUpperCase()
+	}
+
+	Configuration dependencyConfiguration = configurations.create("importedFiles" + StringUtil.capitalize(dependencySuffix))
+
+	dependencyConfiguration.transitive = false
+
+	dependencies.add dependencyConfiguration.name, dependencyNotation
+
+	processResources {
+		from {
+			zipTree(dependencyConfiguration.singleFile)
+		} {
+			include dependencyIncludes.tokenize(",")
+		}
+	}
+>>>>>>> compatible
 }

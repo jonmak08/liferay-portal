@@ -17,8 +17,11 @@ package com.liferay.exportimport.lar;
 import static com.liferay.exportimport.kernel.lar.StagedModelType.REFERRER_CLASS_NAME_ALL;
 import static com.liferay.exportimport.kernel.lar.StagedModelType.REFERRER_CLASS_NAME_ANY;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.lar.ExportImportPathUtil;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.exportimport.kernel.lar.PortletDataHandlerKeys;
@@ -46,7 +49,10 @@ import org.xml.sax.XMLReader;
 /**
  * @author Zsolt Berentey
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class DeletionSystemEventImporter {
 
 	public static DeletionSystemEventImporter getInstance() {

@@ -1,8 +1,12 @@
 <definition>
 	<command name="addForm">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Forms" />
 		</execute>
 
@@ -26,6 +30,7 @@
 			<var name="fieldValue" value="Text Field" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Form#closeSidebar" />
 
 		<execute macro="Form#save" />
@@ -36,11 +41,18 @@
 			<var name="portlet" value="Forms" />
 		</execute>
 
+=======
+		<execute macro="FormFields#save" />
+
+		<execute macro="Form#save" />
+
+>>>>>>> compatible
 		<execute macro="FormsAdmin#viewForm">
 			<var name="formDescription" value="Form Description" />
 			<var name="formName" value="Form Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -48,6 +60,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Form Page" />
 		</execute>
 
@@ -92,9 +107,13 @@
 	</command>
 
 	<command name="addOrganization">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -107,9 +126,13 @@
 	<command name="addWCStructureAndTemplate">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Web Content" />
 		</execute>
 
@@ -134,9 +157,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Web Content" />
 		</execute>
 
@@ -152,6 +179,7 @@
 			<var name="structureName" value="WC Structure Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="WebContentTemplates#save" />
 
 		<execute macro="Navigator#openURL" />
@@ -159,6 +187,13 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="PortletEntry#save" />
+
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Web Content" />
 		</execute>
 
@@ -187,9 +222,13 @@
 	<command name="approveWorkflow">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Web Content" />
 		</execute>
 
@@ -199,12 +238,17 @@
 			<var name="workflowTask" value="Review" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="My Workflow Tasks" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#viewTaskAssignedToMyRoles">
@@ -213,12 +257,17 @@
 			<var name="workflowTask" value="Review" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="My Submissions" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Submissions" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#viewMySubmissions">
@@ -228,12 +277,17 @@
 			<var name="workflowTask" value="Review" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="My Workflow Tasks" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#assignToMeTaskByActions">
@@ -244,9 +298,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Web Content" />
 		</execute>
 
@@ -256,12 +314,17 @@
 			<var name="workflowTask" value="Review" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="My Workflow Tasks" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#approveTaskByActions">
@@ -272,9 +335,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Web Content" />
 		</execute>
 
@@ -293,12 +360,17 @@
 			<var name="webContentTitle" value="WC Workflow Title" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="My Submissions" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Submissions" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#gotoViewCompletedAssetViaMySubmissions">
@@ -312,9 +384,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Blogs" />
 		</execute>
 
@@ -325,9 +401,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Blogs" />
 		</execute>
 
@@ -336,12 +416,17 @@
 			<var name="entryTitle" value="Blogs Workflow Title" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="My Workflow Tasks" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#viewTaskAssignedToMyRoles">
@@ -350,12 +435,17 @@
 			<var name="workflowTask" value="Review" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="My Submissions" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Submissions" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#viewMySubmissions">
@@ -365,12 +455,17 @@
 			<var name="workflowTask" value="Review" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="My Workflow Tasks" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#assignToMeTaskByActions">
@@ -381,9 +476,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Blogs" />
 		</execute>
 
@@ -392,12 +491,17 @@
 			<var name="entryTitle" value="Blogs Workflow Title" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="My Workflow Tasks" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#approveTaskByActions">
@@ -408,9 +512,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Blogs" />
 		</execute>
 
@@ -419,7 +527,11 @@
 		</execute>
 
 		<execute macro="Portlet#changeDisplayStyle">
+<<<<<<< HEAD
 			<var name="displayStyle" value="icon" />
+=======
+			<var name="displayStyle" value="Icon" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="BlogsNavigator#gotoEntryCP">
@@ -465,9 +577,13 @@
 	<command name="publishWCDraft">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Web Content" />
 		</execute>
 
@@ -503,9 +619,13 @@
 	<command name="reindexSearches">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Server Administration" />
 		</execute>
 
@@ -657,9 +777,13 @@
 			<var name="pageName" value="Document" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Portlet#changeDisplayStyle">
 			<var name="displayStyle" value="descriptive" />
 		</execute>
+=======
+		<execute macro="DMPortlet#setDescriptiveView" />
+>>>>>>> compatible
 
 		<execute macro="DMDocument#enableActionsMenuOnPortlet" />
 
@@ -688,9 +812,13 @@
 	</command>
 
 	<command name="ViewDroolsAppManager">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Apps" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelApps">
+>>>>>>> compatible
 			<var name="portlet" value="App Manager" />
 		</execute>
 
@@ -856,9 +984,13 @@
 			<var name="pageName" value="Document" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Portlet#changeDisplayStyle">
 			<var name="displayStyle" value="descriptive" />
 		</execute>
+=======
+		<execute macro="DMPortlet#setDescriptiveView" />
+>>>>>>> compatible
 
 		<execute macro="DMDocument#viewPG">
 			<var name="dmDocumentTitle" value="Document1" />

@@ -14,8 +14,11 @@
 
 package com.liferay.websocket.whiteboard.internal;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
 
+=======
+>>>>>>> compatible
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
@@ -107,10 +110,15 @@ public class WebSocketEndpointTracker
 
 				_logService.log(
 					LogService.LOG_ERROR,
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Unable to register WebSocket endpoint ",
 						String.valueOf(endpoint.getClass()), " for path ",
 						path),
+=======
+					"Unable to register WebSocket endpoint " +
+						endpoint.getClass() + " for path " + path,
+>>>>>>> compatible
 					ie);
 			}
 		}
@@ -132,10 +140,15 @@ public class WebSocketEndpointTracker
 
 				_logService.log(
 					LogService.LOG_ERROR,
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Unable to register WebSocket endpoint ",
 						String.valueOf(endpoint.getClass()), " for path ",
 						path),
+=======
+					"Unable to register WebSocket endpoint " +
+						endpoint.getClass() + " for path " + path,
+>>>>>>> compatible
 					de);
 
 				return null;

@@ -1,12 +1,20 @@
+<<<<<<< HEAD
 @import "taglib/add_menu";
 @import "taglib/alert";
+=======
+@import "taglib/alert";
+@import "taglib/asset_metadata";
+>>>>>>> compatible
 @import "taglib/app_view_common";
 @import "taglib/app_view_entry";
 @import "taglib/app_view_search_entry";
 @import "taglib/app_view_toolbar";
 @import "taglib/asset_categories_summary";
 @import "taglib/asset_links";
+<<<<<<< HEAD
 @import "taglib/asset_metadata";
+=======
+>>>>>>> compatible
 @import "taglib/calendar";
 @import "taglib/captcha";
 @import "taglib/categorization_filter";
@@ -17,7 +25,10 @@
 @import "taglib/discussion";
 @import "taglib/drop_here_info";
 @import "taglib/empty_result_message";
+<<<<<<< HEAD
 @import "taglib/field_wrapper";
+=======
+>>>>>>> compatible
 @import "taglib/flags";
 @import "taglib/form_navigator";
 @import "taglib/header";
@@ -28,9 +39,17 @@
 @import "taglib/input_date";
 @import "taglib/input_localized";
 @import "taglib/input_move_boxes";
+<<<<<<< HEAD
 @import "taglib/input_repeat";
 @import "taglib/input_search";
 @import "taglib/input_time";
+=======
+@import "taglib/input_search";
+@import "taglib/input_time";
+@import "taglib/field_wrapper";
+@import "taglib/input_permissions";
+@import "taglib/input_repeat";
+>>>>>>> compatible
 @import "taglib/logo_selector";
 @import "taglib/management_bar";
 @import "taglib/map";

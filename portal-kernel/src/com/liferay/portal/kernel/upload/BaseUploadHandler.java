@@ -32,6 +32,10 @@ import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StreamUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.WebKeys;
 
@@ -148,6 +152,11 @@ public abstract class BaseUploadHandler implements UploadHandler {
 
 		JSONObject imageJSONObject = JSONFactoryUtil.createJSONObject();
 
+<<<<<<< HEAD
+=======
+		InputStream inputStream = null;
+
+>>>>>>> compatible
 		try {
 			imageJSONObject.put(
 				"attributeDataImageId",
@@ -167,6 +176,7 @@ public abstract class BaseUploadHandler implements UploadHandler {
 			String uniqueFileName = getUniqueFileName(
 				themeDisplay, fileName, folderId);
 
+<<<<<<< HEAD
 			try (InputStream inputStream =
 					uploadPortletRequest.getFileAsStream(parameterName)) {
 
@@ -185,10 +195,34 @@ public abstract class BaseUploadHandler implements UploadHandler {
 
 				return imageJSONObject;
 			}
+=======
+			inputStream = uploadPortletRequest.getFileAsStream(parameterName);
+
+			FileEntry fileEntry = addFileEntry(
+				themeDisplay.getUserId(), themeDisplay.getScopeGroupId(),
+				folderId, uniqueFileName, contentType, inputStream, size,
+				getServiceContext(uploadPortletRequest));
+
+			imageJSONObject.put("fileEntryId", fileEntry.getFileEntryId());
+			imageJSONObject.put("groupId", fileEntry.getGroupId());
+			imageJSONObject.put("title", fileEntry.getTitle());
+
+			imageJSONObject.put("type", "document");
+			imageJSONObject.put("url", getURL(fileEntry, themeDisplay));
+			imageJSONObject.put("uuid", fileEntry.getUuid());
+
+			return imageJSONObject;
+>>>>>>> compatible
 		}
 		catch (IOException ioe) {
 			throw new SystemException(ioe);
 		}
+<<<<<<< HEAD
+=======
+		finally {
+			StreamUtil.cleanUp(inputStream);
+		}
+>>>>>>> compatible
 	}
 
 	protected abstract String getParameterName();

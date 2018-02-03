@@ -14,6 +14,7 @@
 
 package com.liferay.layout.admin.web.internal.display.context;
 
+<<<<<<< HEAD
 import com.liferay.exportimport.kernel.staging.LayoutStagingUtil;
 import com.liferay.exportimport.kernel.staging.StagingUtil;
 import com.liferay.frontend.taglib.clay.servlet.taglib.util.NavigationItem;
@@ -69,11 +70,38 @@ import java.util.Locale;
 import java.util.Objects;
 
 import javax.portlet.ActionRequest;
+=======
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.model.Group;
+import com.liferay.portal.kernel.model.Layout;
+import com.liferay.portal.kernel.model.LayoutConstants;
+import com.liferay.portal.kernel.model.Organization;
+import com.liferay.portal.kernel.model.RoleConstants;
+import com.liferay.portal.kernel.model.User;
+import com.liferay.portal.kernel.model.UserGroup;
+import com.liferay.portal.kernel.portlet.LiferayPortletRequest;
+import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
+import com.liferay.portal.kernel.service.OrganizationLocalServiceUtil;
+import com.liferay.portal.kernel.service.RoleLocalServiceUtil;
+import com.liferay.portal.kernel.service.UserGroupLocalServiceUtil;
+import com.liferay.portal.kernel.service.UserLocalServiceUtil;
+import com.liferay.portal.kernel.util.ParamUtil;
+import com.liferay.portal.kernel.util.PortalUtil;
+import com.liferay.portal.kernel.util.UnicodeProperties;
+import com.liferay.portal.util.LayoutDescription;
+import com.liferay.portal.util.LayoutListUtil;
+import com.liferay.portal.util.PropsValues;
+import com.liferay.portlet.layoutsadmin.display.context.GroupDisplayContextHelper;
+
+import java.util.List;
+
+>>>>>>> compatible
 import javax.portlet.PortletURL;
 
 /**
  * @author Eudaldo Alonso
  */
+<<<<<<< HEAD
 public class LayoutsAdminDisplayContext {
 
 	public LayoutsAdminDisplayContext(
@@ -85,10 +113,21 @@ public class LayoutsAdminDisplayContext {
 
 		_themeDisplay = (ThemeDisplay)liferayPortletRequest.getAttribute(
 			WebKeys.THEME_DISPLAY);
+=======
+public class LayoutsAdminDisplayContext extends BaseLayoutDisplayContext {
+
+	public LayoutsAdminDisplayContext(
+			LiferayPortletRequest liferayPortletRequest,
+			LiferayPortletResponse liferayPortletResponse)
+		throws PortalException {
+
+		super(liferayPortletRequest, liferayPortletResponse);
+>>>>>>> compatible
 
 		_groupDisplayContextHelper = new GroupDisplayContextHelper(
 			PortalUtil.getHttpServletRequest(liferayPortletRequest));
 
+<<<<<<< HEAD
 		_liferayPortletRequest.setAttribute(
 			WebKeys.LAYOUT_DESCRIPTIONS, getLayoutDescriptions());
 	}
@@ -233,6 +272,32 @@ public class LayoutsAdminDisplayContext {
 
 	public String getEditLayoutURL(Layout layout) throws PortalException {
 		return PortalUtil.getLayoutFullURL(layout, _themeDisplay);
+=======
+		this.liferayPortletRequest.setAttribute(
+			com.liferay.portal.kernel.util.WebKeys.LAYOUT_DESCRIPTIONS,
+			getLayoutDescriptions());
+	}
+
+	@Override
+	public PortletURL getAddLayoutURL(long selPlid, Boolean privateLayout) {
+		PortletURL addLayoutURL = super.getAddLayoutURL(selPlid, privateLayout);
+
+		addLayoutURL.setParameter(
+			"backURL",
+			PortalUtil.getCurrentURL(
+				PortalUtil.getHttpServletRequest(liferayPortletRequest)));
+
+		return addLayoutURL;
+	}
+
+	public PortletURL getEditLayoutURL() {
+		PortletURL editLayoutURL = super.getEditLayoutURL(
+			getSelPlid(), isPrivateLayout());
+
+		editLayoutURL.setParameter("redirect", getRedirect());
+
+		return editLayoutURL;
+>>>>>>> compatible
 	}
 
 	public Group getGroup() {
@@ -247,6 +312,7 @@ public class LayoutsAdminDisplayContext {
 		return _groupDisplayContextHelper.getGroupTypeSettings();
 	}
 
+<<<<<<< HEAD
 	public JSONArray getLayoutColumnsJSONArray() throws Exception {
 		JSONArray layoutColumnsJSONArray = _getLayoutColumnsJSONArray();
 
@@ -257,6 +323,8 @@ public class LayoutsAdminDisplayContext {
 		return layoutColumnsJSONArray;
 	}
 
+=======
+>>>>>>> compatible
 	public List<LayoutDescription> getLayoutDescriptions() {
 		if (_layoutDescriptions != null) {
 			return _layoutDescriptions;
@@ -264,11 +332,19 @@ public class LayoutsAdminDisplayContext {
 
 		_layoutDescriptions = LayoutListUtil.getLayoutDescriptions(
 			getGroupId(), isPrivateLayout(), getRootNodeName(),
+<<<<<<< HEAD
 			_themeDisplay.getLocale());
+=======
+			themeDisplay.getLocale());
+>>>>>>> compatible
 
 		return _layoutDescriptions;
 	}
 
+<<<<<<< HEAD
+=======
+	@Override
+>>>>>>> compatible
 	public Long getLayoutId() {
 		if (_layoutId != null) {
 			return _layoutId;
@@ -285,6 +361,7 @@ public class LayoutsAdminDisplayContext {
 		return _layoutId;
 	}
 
+<<<<<<< HEAD
 	public SearchContainer getLayoutsSearchContainer() throws PortalException {
 		if (_layoutsSearchContainer != null) {
 			return _layoutsSearchContainer;
@@ -335,6 +412,9 @@ public class LayoutsAdminDisplayContext {
 		return _layoutsSearchContainer;
 	}
 
+=======
+	@Override
+>>>>>>> compatible
 	public Group getLiveGroup() {
 		return _groupDisplayContextHelper.getLiveGroup();
 	}
@@ -343,6 +423,7 @@ public class LayoutsAdminDisplayContext {
 		return _groupDisplayContextHelper.getLiveGroupId();
 	}
 
+<<<<<<< HEAD
 	public String getNavigation() {
 		if (_navigation != null) {
 			return _navigation;
@@ -448,6 +529,21 @@ public class LayoutsAdminDisplayContext {
 			"selPlid", String.valueOf(layout.getPlid()));
 
 		return orphanPortletsURL.toString();
+=======
+	public Organization getOrganization() {
+		if (_organization != null) {
+			return _organization;
+		}
+
+		Group liveGroup = getLiveGroup();
+
+		if (liveGroup.isOrganization()) {
+			_organization = OrganizationLocalServiceUtil.fetchOrganization(
+				liveGroup.getOrganizationId());
+		}
+
+		return _organization;
+>>>>>>> compatible
 	}
 
 	public String getPagesName() {
@@ -482,6 +578,7 @@ public class LayoutsAdminDisplayContext {
 		return _pagesName;
 	}
 
+<<<<<<< HEAD
 	public String getPath(Layout layout, Locale locale) throws PortalException {
 		List<Layout> layouts = layout.getAncestors();
 
@@ -518,18 +615,28 @@ public class LayoutsAdminDisplayContext {
 		return portletURL;
 	}
 
+=======
+>>>>>>> compatible
 	public String getRedirect() {
 		if (_redirect != null) {
 			return _redirect;
 		}
 
+<<<<<<< HEAD
 		_redirect = ParamUtil.getString(_liferayPortletRequest, "redirect");
+=======
+		_redirect = ParamUtil.getString(liferayPortletRequest, "redirect");
+>>>>>>> compatible
 
 		return _redirect;
 	}
 
 	public PortletURL getRedirectURL() {
+<<<<<<< HEAD
 		PortletURL portletURL = _liferayPortletResponse.createRenderURL();
+=======
+		PortletURL portletURL = liferayPortletResponse.createRenderURL();
+>>>>>>> compatible
 
 		portletURL.setParameter("mvcPath", "/view.jsp");
 		portletURL.setParameter("redirect", getRedirect());
@@ -538,6 +645,7 @@ public class LayoutsAdminDisplayContext {
 		return portletURL;
 	}
 
+<<<<<<< HEAD
 	public String getRootNodeName() {
 		if (_rootNodeName != null) {
 			return _rootNodeName;
@@ -587,10 +695,17 @@ public class LayoutsAdminDisplayContext {
 		return selectLayoutPageTemplateEntryURL.toString();
 	}
 
+=======
+	@Override
+>>>>>>> compatible
 	public Group getSelGroup() {
 		return _groupDisplayContextHelper.getSelGroup();
 	}
 
+<<<<<<< HEAD
+=======
+	@Override
+>>>>>>> compatible
 	public long getSelGroupId() {
 		Group selGroup = getSelGroup();
 
@@ -601,6 +716,7 @@ public class LayoutsAdminDisplayContext {
 		return 0;
 	}
 
+<<<<<<< HEAD
 	public Layout getSelLayout() {
 		if (_selLayout != null) {
 			return _selLayout;
@@ -641,6 +757,23 @@ public class LayoutsAdminDisplayContext {
 		return _selPlid;
 	}
 
+=======
+	public User getSelUser() {
+		if (_selUser != null) {
+			return _selUser;
+		}
+
+		Group liveGroup = getLiveGroup();
+
+		if (liveGroup.isUser()) {
+			_selUser = UserLocalServiceUtil.fetchUser(liveGroup.getClassPK());
+		}
+
+		return _selUser;
+	}
+
+	@Override
+>>>>>>> compatible
 	public Group getStagingGroup() {
 		return _groupDisplayContextHelper.getStagingGroup();
 	}
@@ -649,6 +782,7 @@ public class LayoutsAdminDisplayContext {
 		return _groupDisplayContextHelper.getStagingGroupId();
 	}
 
+<<<<<<< HEAD
 	public String getTabs1() {
 		if (_tabs1 != null) {
 			return _tabs1;
@@ -728,19 +862,54 @@ public class LayoutsAdminDisplayContext {
 	public boolean isPrivatePages() {
 		if (Objects.equals(getNavigation(), "private-pages")) {
 			return true;
+=======
+	public UserGroup getUserGroup() {
+		if (_userGroup != null) {
+			return _userGroup;
+		}
+
+		Group liveGroup = getLiveGroup();
+
+		if (liveGroup.isUserGroup()) {
+			_userGroup = UserGroupLocalServiceUtil.fetchUserGroup(
+				liveGroup.getClassPK());
+		}
+
+		return _userGroup;
+	}
+
+	protected boolean hasPowerUserRole() {
+		try {
+			User selUser = getSelUser();
+
+			return RoleLocalServiceUtil.hasUserRole(
+				selUser.getUserId(), themeDisplay.getCompanyId(),
+				RoleConstants.POWER_USER, true);
+		}
+		catch (Exception e) {
+>>>>>>> compatible
 		}
 
 		return false;
 	}
 
+<<<<<<< HEAD
 	public boolean isPublicPages() {
 		if (Objects.equals(getNavigation(), "public-pages")) {
+=======
+	protected boolean isPrivateLayoutsModifiable() {
+		if ((!PropsValues.LAYOUT_USER_PRIVATE_LAYOUTS_POWER_USER_REQUIRED ||
+			 hasPowerUserRole()) &&
+			PropsValues.LAYOUT_USER_PRIVATE_LAYOUTS_ENABLED) {
+
+>>>>>>> compatible
 			return true;
 		}
 
 		return false;
 	}
 
+<<<<<<< HEAD
 	public boolean isShowAddRootLayoutButton() throws PortalException {
 		return GroupPermissionUtil.contains(
 			_themeDisplay.getPermissionChecker(), getSelGroup(),
@@ -1048,5 +1217,26 @@ public class LayoutsAdminDisplayContext {
 	private Long _selPlid;
 	private String _tabs1;
 	private final ThemeDisplay _themeDisplay;
+=======
+	protected boolean isPublicLayoutsModifiable() {
+		if ((!PropsValues.LAYOUT_USER_PUBLIC_LAYOUTS_POWER_USER_REQUIRED ||
+			 hasPowerUserRole()) &&
+			PropsValues.LAYOUT_USER_PUBLIC_LAYOUTS_ENABLED) {
+
+			return true;
+		}
+
+		return false;
+	}
+
+	private final GroupDisplayContextHelper _groupDisplayContextHelper;
+	private List<LayoutDescription> _layoutDescriptions;
+	private Long _layoutId;
+	private Organization _organization;
+	private String _pagesName;
+	private String _redirect;
+	private User _selUser;
+	private UserGroup _userGroup;
+>>>>>>> compatible
 
 }

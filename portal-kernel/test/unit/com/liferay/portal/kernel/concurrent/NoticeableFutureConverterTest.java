@@ -114,19 +114,20 @@ public class NoticeableFutureConverterTest {
 
 			};
 
-		TestFutureListener<Object> testFutureListener =
-			new TestFutureListener<>();
+		RecordedFutureListener<Object> recordedFutureListener =
+			new RecordedFutureListener<>();
 
 		Assert.assertTrue(
-			noticeableFutureConverter.addFutureListener(testFutureListener));
+			noticeableFutureConverter.addFutureListener(
+				recordedFutureListener));
 
 		_defaultNoticeableFuture.set(new Object());
 
-		Assert.assertEquals(1, testFutureListener.getCount());
+		Assert.assertEquals(1, recordedFutureListener.getCount());
 		Assert.assertSame(
 			ReflectionTestUtil.getFieldValue(
 				noticeableFutureConverter, "_defaultNoticeableFuture"),
-			testFutureListener.getFuture());
+			recordedFutureListener.getFuture());
 
 		try {
 			noticeableFutureConverter.get();
@@ -166,21 +167,22 @@ public class NoticeableFutureConverterTest {
 		NoticeableFuture<Object> noticeableFutureConverter =
 			new NopNoticeableFutureConverter(_defaultNoticeableFuture);
 
-		TestFutureListener<Object> testFutureListener =
-			new TestFutureListener<>();
+		RecordedFutureListener<Object> recordedFutureListener =
+			new RecordedFutureListener<>();
 
 		Assert.assertTrue(
-			noticeableFutureConverter.addFutureListener(testFutureListener));
+			noticeableFutureConverter.addFutureListener(
+				recordedFutureListener));
 
 		Exception exception = new Exception();
 
 		_defaultNoticeableFuture.setException(exception);
 
-		Assert.assertEquals(1, testFutureListener.getCount());
+		Assert.assertEquals(1, recordedFutureListener.getCount());
 		Assert.assertSame(
 			ReflectionTestUtil.getFieldValue(
 				noticeableFutureConverter, "_defaultNoticeableFuture"),
-			testFutureListener.getFuture());
+			recordedFutureListener.getFuture());
 
 		try {
 			noticeableFutureConverter.get();
@@ -206,17 +208,21 @@ public class NoticeableFutureConverterTest {
 		NoticeableFuture<Object> noticeableFutureConverter =
 			new NopNoticeableFutureConverter(_defaultNoticeableFuture);
 
-		TestFutureListener<Object> testFutureListener =
-			new TestFutureListener<>();
+		RecordedFutureListener<Object> recordedFutureListener =
+			new RecordedFutureListener<>();
 
 		Assert.assertTrue(
-			noticeableFutureConverter.addFutureListener(testFutureListener));
+			noticeableFutureConverter.addFutureListener(
+				recordedFutureListener));
 		Assert.assertFalse(
-			noticeableFutureConverter.addFutureListener(testFutureListener));
+			noticeableFutureConverter.addFutureListener(
+				recordedFutureListener));
 		Assert.assertTrue(
-			noticeableFutureConverter.removeFutureListener(testFutureListener));
+			noticeableFutureConverter.removeFutureListener(
+				recordedFutureListener));
 		Assert.assertFalse(
-			noticeableFutureConverter.removeFutureListener(testFutureListener));
+			noticeableFutureConverter.removeFutureListener(
+				recordedFutureListener));
 	}
 
 	@Test(timeout = 10000)

@@ -14,11 +14,18 @@
 
 package com.liferay.tld.formatter;
 
+<<<<<<< HEAD
 import com.liferay.petra.xml.Dom4jUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.tools.ArgumentsUtil;
 import com.liferay.portal.xml.SAXReaderFactory;
+<<<<<<< HEAD
+=======
+import com.liferay.util.xml.Dom4jUtil;
+>>>>>>> compatible
 
 import java.io.IOException;
 

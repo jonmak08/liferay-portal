@@ -33,7 +33,10 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Tuple;
@@ -42,7 +45,10 @@ import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
 import com.liferay.portal.kernel.xml.Namespace;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
+<<<<<<< HEAD
 import com.liferay.portal.spring.extender.service.ServiceReference;
+=======
+>>>>>>> compatible
 import com.liferay.wsrp.constants.WSRPPortletKeys;
 import com.liferay.wsrp.exception.NoSuchConsumerPortletException;
 import com.liferay.wsrp.exception.WSRPConsumerPortletHandleException;
@@ -56,8 +62,11 @@ import com.liferay.wsrp.util.ExtensionHelperUtil;
 import com.liferay.wsrp.util.LocalizedStringUtil;
 import com.liferay.wsrp.util.WSRPConsumerManager;
 import com.liferay.wsrp.util.WSRPConsumerManagerFactory;
+<<<<<<< HEAD
 import com.liferay.wsrp.util.WSRPURLUtil;
 import com.liferay.wsrp.util.WebKeys;
+=======
+>>>>>>> compatible
 
 import java.util.Date;
 import java.util.HashSet;
@@ -415,10 +424,14 @@ public class WSRPConsumerPortletLocalServiceImpl
 				mimeTypePortletModes.add(portletMode);
 			}
 
+<<<<<<< HEAD
 			Map<String, Set<String>> portletPortletModes =
 				portlet.getPortletModes();
 
 			portletPortletModes.put(
+=======
+			portlet.getPortletModes().put(
+>>>>>>> compatible
 				markupType.getMimeType(), mimeTypePortletModes);
 
 			Set<String> mimeTypeWindowStates = new HashSet<>();
@@ -433,10 +446,14 @@ public class WSRPConsumerPortletLocalServiceImpl
 				mimeTypeWindowStates.add(windowState);
 			}
 
+<<<<<<< HEAD
 			Map<String, Set<String>> portletWindowStates =
 				portlet.getWindowStates();
 
 			portletWindowStates.put(
+=======
+			portlet.getWindowStates().put(
+>>>>>>> compatible
 				markupType.getMimeType(), mimeTypeWindowStates);
 		}
 
@@ -609,6 +626,7 @@ public class WSRPConsumerPortletLocalServiceImpl
 		return portletId;
 	}
 
+<<<<<<< HEAD
 	protected String getProxyURL(long companyId, String url) {
 		String wsrpAuth = null;
 
@@ -629,6 +647,10 @@ public class WSRPConsumerPortletLocalServiceImpl
 		sb.append(URLCodec.encodeURL(wsrpAuth));
 
 		return sb.toString();
+=======
+	protected String getProxyURL(String url) {
+		return "/proxy?url=" + URLCodec.encodeURL(url);
+>>>>>>> compatible
 	}
 
 	protected com.liferay.portal.kernel.xml.QName getQName(QName qName) {
@@ -662,6 +684,7 @@ public class WSRPConsumerPortletLocalServiceImpl
 			portlet.setCssClassWrapper(value);
 		}
 		else if (name.equals("footer-portal-css")) {
+<<<<<<< HEAD
 			List<String> footerPortalCss = portlet.getFooterPortalCss();
 
 			footerPortalCss.add(getProxyURL(portlet.getCompanyId(), value));
@@ -708,6 +731,30 @@ public class WSRPConsumerPortletLocalServiceImpl
 
 			headerPortletJavaScript.add(
 				getProxyURL(portlet.getCompanyId(), value));
+=======
+			portlet.getFooterPortalCss().add(getProxyURL(value));
+		}
+		else if (name.equals("footer-portal-javascript")) {
+			portlet.getFooterPortalJavaScript().add(getProxyURL(value));
+		}
+		else if (name.equals("footer-portlet-css")) {
+			portlet.getFooterPortletCss().add(getProxyURL(value));
+		}
+		else if (name.equals("footer-portlet-javascript")) {
+			portlet.getFooterPortletJavaScript().add(getProxyURL(value));
+		}
+		else if (name.equals("header-portal-css")) {
+			portlet.getHeaderPortalCss().add(getProxyURL(value));
+		}
+		else if (name.equals("header-portal-javascript")) {
+			portlet.getHeaderPortalJavaScript().add(getProxyURL(value));
+		}
+		else if (name.equals("header-portlet-css")) {
+			portlet.getHeaderPortletCss().add(getProxyURL(value));
+		}
+		else if (name.equals("header-portlet-javascript")) {
+			portlet.getHeaderPortletJavaScript().add(getProxyURL(value));
+>>>>>>> compatible
 		}
 	}
 
@@ -745,7 +792,10 @@ public class WSRPConsumerPortletLocalServiceImpl
 	private final Map<Long, Tuple> _failedWSRPConsumerPortlets =
 		new ConcurrentHashMap<>();
 
+<<<<<<< HEAD
 	@ServiceReference(type = WSRPURLUtil.class)
 	private WSRPURLUtil _wsrpUrlUtil;
 
+=======
+>>>>>>> compatible
 }

@@ -14,8 +14,11 @@
 
 package com.liferay.dynamic.data.mapping.io;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.model.DDMForm;
 import com.liferay.dynamic.data.mapping.storage.DDMFormValues;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -23,7 +26,10 @@ import com.liferay.portal.kernel.exception.PortalException;
 /**
  * @author Marcellus Tavares
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public interface DDMFormValuesJSONDeserializer {
 
 	public DDMFormValues deserialize(

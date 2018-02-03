@@ -18,8 +18,11 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Role;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.DefaultWorkflowDefinition;
 import com.liferay.portal.kernel.workflow.DefaultWorkflowInstance;
@@ -34,18 +37,27 @@ import com.liferay.portal.workflow.kaleo.KaleoWorkflowModelConverter;
 import com.liferay.portal.workflow.kaleo.definition.export.DefinitionExporter;
 import com.liferay.portal.workflow.kaleo.definition.util.KaleoLogUtil;
 import com.liferay.portal.workflow.kaleo.model.KaleoDefinition;
+<<<<<<< HEAD
 import com.liferay.portal.workflow.kaleo.model.KaleoDefinitionVersion;
 import com.liferay.portal.workflow.kaleo.model.KaleoInstance;
 import com.liferay.portal.workflow.kaleo.model.KaleoInstanceToken;
 import com.liferay.portal.workflow.kaleo.model.KaleoLog;
 import com.liferay.portal.workflow.kaleo.model.KaleoNode;
 import com.liferay.portal.workflow.kaleo.model.KaleoTask;
+=======
+import com.liferay.portal.workflow.kaleo.model.KaleoInstance;
+import com.liferay.portal.workflow.kaleo.model.KaleoInstanceToken;
+import com.liferay.portal.workflow.kaleo.model.KaleoLog;
+>>>>>>> compatible
 import com.liferay.portal.workflow.kaleo.model.KaleoTaskInstanceToken;
 import com.liferay.portal.workflow.kaleo.runtime.integration.impl.internal.util.LazyWorkflowTaskAssigneeList;
 import com.liferay.portal.workflow.kaleo.runtime.integration.impl.internal.util.WorkflowTaskAssigneesSupplier;
 import com.liferay.portal.workflow.kaleo.runtime.util.WorkflowContextUtil;
 import com.liferay.portal.workflow.kaleo.service.KaleoDefinitionLocalService;
+<<<<<<< HEAD
 import com.liferay.portal.workflow.kaleo.service.KaleoDefinitionVersionLocalService;
+=======
+>>>>>>> compatible
 import com.liferay.portal.workflow.kaleo.service.KaleoTaskAssignmentInstanceLocalService;
 
 import java.io.Serializable;
@@ -103,6 +115,7 @@ public class KaleoWorkflowModelConverterImpl
 
 		defaultWorkflowDefinition.setContent(content);
 
+<<<<<<< HEAD
 		defaultWorkflowDefinition.setDescription(
 			kaleoDefinition.getDescription());
 		defaultWorkflowDefinition.setModifiedDate(
@@ -110,12 +123,17 @@ public class KaleoWorkflowModelConverterImpl
 		defaultWorkflowDefinition.setName(kaleoDefinition.getName());
 		defaultWorkflowDefinition.setTitle(kaleoDefinition.getTitle());
 		defaultWorkflowDefinition.setUserId(kaleoDefinition.getUserId());
+=======
+		defaultWorkflowDefinition.setName(kaleoDefinition.getName());
+		defaultWorkflowDefinition.setTitle(kaleoDefinition.getTitle());
+>>>>>>> compatible
 		defaultWorkflowDefinition.setVersion(kaleoDefinition.getVersion());
 
 		return defaultWorkflowDefinition;
 	}
 
 	@Override
+<<<<<<< HEAD
 	public WorkflowDefinition toWorkflowDefinition(
 			KaleoDefinitionVersion kaleoDefinitionVersion)
 		throws PortalException {
@@ -163,6 +181,8 @@ public class KaleoWorkflowModelConverterImpl
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public WorkflowInstance toWorkflowInstance(
 			KaleoInstance kaleoInstance, KaleoInstanceToken kaleoInstanceToken)
 		throws PortalException {
@@ -181,10 +201,15 @@ public class KaleoWorkflowModelConverterImpl
 
 		defaultWorkflowInstance.setEndDate(kaleoInstance.getCompletionDate());
 		defaultWorkflowInstance.setStartDate(kaleoInstance.getCreateDate());
+<<<<<<< HEAD
 
 		KaleoNode currentKaleoNode = kaleoInstanceToken.getCurrentKaleoNode();
 
 		defaultWorkflowInstance.setState(currentKaleoNode.getName());
+=======
+		defaultWorkflowInstance.setState(
+			kaleoInstanceToken.getCurrentKaleoNode().getName());
+>>>>>>> compatible
 
 		if (workflowContext != null) {
 			defaultWorkflowInstance.setWorkflowContext(workflowContext);
@@ -264,6 +289,7 @@ public class KaleoWorkflowModelConverterImpl
 			kaleoTaskInstanceToken.getCreateDate());
 		defaultWorkflowTask.setCompletionDate(
 			kaleoTaskInstanceToken.getCompletionDate());
+<<<<<<< HEAD
 
 		KaleoTask kaleoTask = kaleoTaskInstanceToken.getKaleoTask();
 
@@ -271,6 +297,13 @@ public class KaleoWorkflowModelConverterImpl
 
 		defaultWorkflowTask.setDueDate(kaleoTaskInstanceToken.getDueDate());
 		defaultWorkflowTask.setName(kaleoTask.getName());
+=======
+		defaultWorkflowTask.setDescription(
+			kaleoTaskInstanceToken.getKaleoTask().getDescription());
+		defaultWorkflowTask.setDueDate(kaleoTaskInstanceToken.getDueDate());
+		defaultWorkflowTask.setName(
+			kaleoTaskInstanceToken.getKaleoTask().getName());
+>>>>>>> compatible
 
 		if (workflowContext != null) {
 			defaultWorkflowTask.setOptionalAttributes(workflowContext);
@@ -287,7 +320,11 @@ public class KaleoWorkflowModelConverterImpl
 		KaleoInstance kaleoInstance = kaleoInstanceToken.getKaleoInstance();
 
 		defaultWorkflowTask.setWorkflowDefinitionId(
+<<<<<<< HEAD
 			kaleoInstance.getKaleoDefinitionVersionId());
+=======
+			kaleoInstance.getKaleoDefinitionId());
+>>>>>>> compatible
 		defaultWorkflowTask.setWorkflowDefinitionName(
 			kaleoInstance.getKaleoDefinitionName());
 		defaultWorkflowTask.setWorkflowDefinitionVersion(
@@ -308,12 +345,15 @@ public class KaleoWorkflowModelConverterImpl
 		return defaultWorkflowTask;
 	}
 
+<<<<<<< HEAD
 	protected int getVersion(String version) {
 		int[] versionParts = StringUtil.split(version, StringPool.PERIOD, 0);
 
 		return versionParts[0];
 	}
 
+=======
+>>>>>>> compatible
 	private static final Log _log = LogFactoryUtil.getLog(
 		KaleoWorkflowModelConverterImpl.class);
 
@@ -324,10 +364,13 @@ public class KaleoWorkflowModelConverterImpl
 	private KaleoDefinitionLocalService _kaleoDefinitionLocalService;
 
 	@Reference
+<<<<<<< HEAD
 	private KaleoDefinitionVersionLocalService
 		_kaleoDefinitionVersionLocalService;
 
 	@Reference
+=======
+>>>>>>> compatible
 	private KaleoTaskAssignmentInstanceLocalService
 		_kaleoTaskAssignmentInstanceLocalService;
 

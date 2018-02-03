@@ -61,7 +61,10 @@ public class StringMethodsCheck extends BaseFileCheck {
 			if (isJavaSource(content, matcher.start())) {
 				addMessage(
 					fileName, "Use StringUtil." + methodName,
+<<<<<<< HEAD
 					"string_methods.markdown",
+=======
+>>>>>>> compatible
 					getLineCount(content, matcher.start()));
 			}
 		}

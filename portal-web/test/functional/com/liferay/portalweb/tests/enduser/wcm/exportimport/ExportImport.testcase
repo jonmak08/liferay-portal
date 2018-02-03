@@ -23,7 +23,11 @@
 					<var name="userLoginFullName" value="Test Test" />
 				</execute>
 
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP" />
+=======
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 
 				<execute macro="Site#tearDownCP" />
 			</else>
@@ -31,11 +35,19 @@
 	</tear-down>
 
 	<command name="EditExportTemplate" priority="4">
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<property name="test.name.skip.portal.instance" value="ExportImport#EditExportTemplate" />
+
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Blogs" />
 		</execute>
 
@@ -46,9 +58,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Web Content" />
 		</execute>
 
@@ -67,9 +83,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Publishing" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesPublishing">
+>>>>>>> compatible
 			<var name="portlet" value="Export" />
 		</execute>
 
@@ -98,9 +118,13 @@
 
 		<execute macro="LAR#downloadLar" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -117,9 +141,13 @@
 			<var name="site" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Web Content" />
 		</execute>
 
@@ -134,9 +162,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Publishing" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesPublishing">
+>>>>>>> compatible
 			<var name="portlet" value="Export" />
 		</execute>
 
@@ -163,7 +195,11 @@
 			<var name="larFileName" value="Edited Export Template Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<var method="RegexUtil#replace('Edited Export Template Name', '([a-zA-z0-9_.-]*)[(0-9KB)]*', '1')" name="larFile" />
+=======
+		<var group="1" input="Edited Export Template Name" name="larFile" pattern="([a-zA-z0-9_.-]*)[(0-9KB)]*" />
+>>>>>>> compatible
 
 		<execute function="AssertTextEquals#assertPartialText" locator1="SitePagesExport#CURRENT_AND_PREVIOUS_STATUS" value1="Successful" />
 
@@ -178,6 +214,7 @@
 
 		<execute macro="ProductMenu#gotoSite">
 			<var name="site" value="Site Name" />
+<<<<<<< HEAD
 		</execute>
 
 		<execute macro="ProductMenu#gotoPortlet">
@@ -186,6 +223,14 @@
 			<var name="portlet" value="Blogs" />
 		</execute>
 
+=======
+		</execute>
+
+		<execute macro="ProductMenu#gotoSitesContent">
+			<var name="portlet" value="Blogs" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="BlogsNavigator#gotoEntryCP">
 			<var name="entryTitle" value="Blogs Entry Title" />
 		</execute>
@@ -197,9 +242,13 @@
 	</command>
 
 	<command name="ExportImportDDLViaGlobal" priority="5">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -207,6 +256,7 @@
 			<var name="siteName" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -215,15 +265,28 @@
 
 		<execute macro="SitePages#addPublicPage">
 			<var name="pageName" value="Test Page" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+			<var name="portlet" value="Sites" />
+		</execute>
+
+		<execute macro="Page#add">
+			<var name="pageName" value="Test Page" />
+			<var name="siteName" value="Site Name" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="ProductMenu#gotoSite">
 			<var name="site" value="Global" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -244,9 +307,13 @@
 			<var name="site" value="Global" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -275,6 +342,7 @@
 
 		<execute macro="PortletEntry#publish" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoSite">
 			<var name="site" value="Global" />
 		</execute>
@@ -282,6 +350,17 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+			<var name="portlet" value="Sites" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoSite">
+			<var name="site" value="Global" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -294,9 +373,13 @@
 			<var name="site" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -311,9 +394,13 @@
 			<var name="site" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 
@@ -329,6 +416,7 @@
 	</command>
 
 	<command name="ExportImportPortletWithADT" priority="3">
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
@@ -353,6 +441,22 @@
 		</execute>
 
 		<execute macro="Navigator#gotoPage">
+=======
+		<property name="test.name.skip.portal.instance" value="ExportImport#ExportImportPortletWithADT" />
+
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+			<var name="portlet" value="Application Display Template" />
+		</execute>
+
+		<execute macro="ApplicationDisplayTemplates#addCP">
+			<var name="adtFile" value="adt_blogs_basic.ftl" />
+			<var name="adtType" value="Blogs" />
+		</execute>
+
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Test Page Name" />
 		</execute>
 
@@ -370,7 +474,11 @@
 		</execute>
 
 		<execute macro="ApplicationDisplayTemplates#selectPortletADT">
+<<<<<<< HEAD
 			<var name="templateName" value="Blogs Test ADT" />
+=======
+			<var name="adtType" value="Blogs" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Navigator#gotoPage">
@@ -390,15 +498,23 @@
 
 		<echo message="value name ${valueName}" />
 
+<<<<<<< HEAD
 		<var method="RegexUtil#replace('${valueName}', '([a-zA-z0-9_.-]*)[(0-9KB)]*', '1')" name="larFileName" />
+=======
+		<var group="1" input="${valueName}" name="larFileName" pattern="([a-zA-z0-9_.-]*)[(0-9KB)]*" />
+>>>>>>> compatible
 
 		<echo message="file name ${larFileName}" />
 
 		<execute macro="LAR#downloadLar" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -410,6 +526,7 @@
 			<var name="larFileName" value="${larFileName}" />
 			<var name="siteName" value="Site Name" />
 		</execute>
+<<<<<<< HEAD
 
 		<execute macro="Navigator#gotoSitePage">
 			<var name="pageName" value="Test Page Name" />
@@ -447,6 +564,38 @@
 			<var name="privateLayout" value="true" />
 		</execute>
 
+=======
+
+		<execute macro="Navigator#gotoSitePage">
+			<var name="pageName" value="Test Page Name" />
+			<var name="siteName" value="Site Name" />
+		</execute>
+
+		<var name="key_entryTitle" value="Blogs Entry Title" />
+
+		<execute function="AssertElementNotPresent" locator1="Link#EDIT" value1="Edit" />
+		<execute function="AssertElementNotPresent" locator1="Link#MOVE_TO_THE_RECYCLING_BIN" value1="Move to the Recycle Bin" />
+	</command>
+
+	<command name="ExportImportPrivatePage" priority="5">
+		<property name="portal.acceptance" value="true" />
+		<property name="testray.component.names" value="Training" />
+
+		<execute macro="Page#add">
+			<var name="pageName" value="Private Page" />
+			<var name="sitePagePrivacy" value="Private" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoSitesPublishing">
+			<var name="portlet" value="Export" />
+		</execute>
+
+		<execute macro="LAR#exportSiteCP">
+			<var name="larFileName" value="ExportPrivatePage" />
+			<var name="privateLayout" value="true" />
+		</execute>
+
+>>>>>>> compatible
 		<var name="key_larFileName" value="${larFileName}" />
 
 		<execute function="AssertTextEquals#assertPartialText" locator1="SitePagesExport#CURRENT_AND_PREVIOUS_STATUS" value1="Successful" />
@@ -455,15 +604,23 @@
 
 		<echo message="value name ${valueName}" />
 
+<<<<<<< HEAD
 		<var method="RegexUtil#replace('${valueName}', '([a-zA-z0-9_.-]*)[(0-9k)]*', '1')" name="larFileName" />
+=======
+		<var group="1" input="${valueName}"  name="larFileName" pattern="([a-zA-z0-9_.-]*)[(0-9k)]*" />
+>>>>>>> compatible
 
 		<echo message="lar file name ${larFileName}" />
 
 		<execute macro="LAR#downloadLar" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -477,13 +634,20 @@
 			<var name="siteName" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#gotoPrivateSitePage">
 			<var name="pageName" value="Private Page" />
 			<var name="siteName" value="Site Name" />
+=======
+		<execute macro="Navigator#gotoPage">
+			<var name="pageName" value="Private Page" />
+			<var name="sitePagePrivacy" value="true" />
+>>>>>>> compatible
 		</execute>
 	</command>
 
 	<command name="ExportImportSampleLARPortlet" priority="5">
+<<<<<<< HEAD
 		<property name="portal.acceptance" value="quarantine" />
 		<property name="portlet.plugins.includes" value="sample-lar-portlet" />
 
@@ -494,6 +658,12 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<property name="portal.acceptance" value="true" />
+		<property name="portlet.plugins.includes" value="sample-lar-portlet" />
+
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Test Page Name" />
 		</execute>
 
@@ -512,6 +682,10 @@
 		<echo message="Booking Number ${bookingNumber}" />
 
 		<execute macro="SampleLARPortlet#viewSampleBookingNumber">
+<<<<<<< HEAD
+=======
+			<var name="${bookingNumber}" value="${bookingNumber}" />
+>>>>>>> compatible
 			<var name="bookingNumber" value="${bookingNumber}" />
 		</execute>
 
@@ -519,9 +693,13 @@
 			<var name="larFileName" value="SampleLARPortlet.lar" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -529,6 +707,7 @@
 			<var name="siteName" value="Test Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -537,6 +716,15 @@
 
 		<execute macro="SitePages#addPublicPage">
 			<var name="pageName" value="Test Site Page" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+			<var name="portlet" value="Sites" />
+		</execute>
+
+		<execute macro="Page#add">
+			<var name="pageName" value="Test Site Page" />
+			<var name="siteName" value="Test Site Name" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Navigator#gotoSitePage">
@@ -558,6 +746,7 @@
 		</execute>
 
 		<execute macro="SampleLARPortlet#viewSampleBookingNumber">
+<<<<<<< HEAD
 			<var name="bookingNumber" value="${bookingNumber}" />
 		</execute>
 	</command>
@@ -617,21 +806,37 @@
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
 			<var name="portlet" value="Site Pages" />
+=======
+			<var name="${bookingNumber}" value="${bookingNumber}" />
+			<var name="bookingNumber" value="${bookingNumber}" />
+>>>>>>> compatible
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="SitePages#addPublicPage">
 			<var name="pageName" value="Test Page" />
 		</execute>
+=======
+	<command name="ExportImportSmoke" priority="5">
+		<property name="portal.acceptance" value="true" />
+		<property name="testray.component.names" value="Training" />
+
+		<execute macro="User#firstLoginPG" />
+>>>>>>> compatible
 
 		<execute macro="Page#changeCurrentTheme">
 			<var name="themeName" value="User Profile" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="LAR#configureExportSiteCP">
 			<var name="uncheckLogo" value="true" />
 			<var name="uncheckSitePagesSettings" value="true" />
 			<var name="uncheckSiteTemplateSettings" value="true" />
 		</execute>
+=======
+		<execute function="AssertClick" locator1="SitePagesExport#EXPORT_BUTTON" value1="Export" />
+>>>>>>> compatible
 
 		<execute function="AssertClick" locator1="SitePagesExport#EXPORT_BUTTON" value1="Export" />
 
@@ -641,15 +846,23 @@
 
 		<echo message="value name ${valueName}" />
 
+<<<<<<< HEAD
 		<var method="RegexUtil#replace('${valueName}', '([a-zA-z0-9_.-]*)[(0-9KB)]*', '1')" name="larFileName" />
+=======
+		<var group="1" input="${valueName}"  name="larFileName" pattern="([a-zA-z0-9_.-]*)[(0-9KB)]*" />
+>>>>>>> compatible
 
 		<echo message="file name ${larFileName}" />
 
 		<execute macro="LAR#downloadLar" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -674,15 +887,23 @@
 	</command>
 
 	<command name="ExportImportValidation" priority="5">
+<<<<<<< HEAD
 		<property name="portal.acceptance" value="pending" />
+=======
+		<property name="portal.acceptance" value="true" />
+>>>>>>> compatible
 		<property name="test.name.skip.portal.instance" value="ExportImport#ExportImportValidation" />
 		<property name="testray.component.names" value="Training" />
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Documents and Media" />
 		</execute>
 
@@ -694,9 +915,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Blogs" />
 		</execute>
 
@@ -707,9 +932,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Blogs" />
 		</execute>
 
@@ -717,9 +946,13 @@
 			<var name="entryTitle" value="Blogs Entry Title" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute function="Click#pauseClickAt" locator1="AlloyEditor#EDITOR">
 			<var name="key_editor" value="content" />
 		</execute>
+=======
+		<execute function="Click#pauseClickAt" locator1="AlloyEditor#CONTENT_FIELD" />
+>>>>>>> compatible
 
 		<execute function="Click" locator1="AlloyEditor#CONTENT_ADD_BUTTON" />
 
@@ -744,15 +977,23 @@
 
 		<echo message="value name ${valueName}" />
 
+<<<<<<< HEAD
 		<var method="RegexUtil#replace('${valueName}', '([a-zA-z0-9_.-]*)[(0-9KB)]*', '1')" name="larFileName" />
+=======
+		<var group="1" input="${valueName}" name="larFileName" pattern="([a-zA-z0-9_.-]*)[(0-9KB)]*" />
+>>>>>>> compatible
 
 		<echo message="file name ${larFileName}" />
 
 		<execute macro="LAR#downloadLar" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Documents and Media" />
 		</execute>
 
@@ -760,9 +1001,13 @@
 			<var name="dmDocumentTitle" value="DM Document Title" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -780,9 +1025,13 @@
 	<command name="ExportImportWithExportTemplate" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Publishing" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesPublishing">
+>>>>>>> compatible
 			<var name="portlet" value="Export" />
 		</execute>
 
@@ -816,9 +1065,13 @@
 
 		<execute macro="LAR#downloadLar" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -832,6 +1085,7 @@
 		</execute>
 	</command>
 
+<<<<<<< HEAD
 	<!-- LRQA-26034 -->
 
 	<!--command name="ExportImportWSRPUnitConverter" priority="3">
@@ -940,14 +1194,17 @@
 			<var name="pageName" value="WSRP Page" />
 			<var name="siteName" value="Site Name" />
 		</execute>
+=======
+	<command name="ImportCorruptedFile" priority="5">
+		<property name="portal.acceptance" value="true" />
 
-		<execute macro="WSRP#wsrpUnitConverterConvertPG">
-			<var name="initialUnit" value="Inch" />
-			<var name="initialValue" value="12" />
-			<var name="targetUnit" value="Foot" />
-			<var name="targetValue" value="1.0" />
-			<var name="unitType" value="Length" />
+		<execute macro="Navigator#openURL" />
+>>>>>>> compatible
+
+		<execute macro="ProductMenu#gotoSitesContent">
+			<var name="portlet" value="Bookmarks" />
 		</execute>
+<<<<<<< HEAD
 	</command-->
 
 	<command name="ImportCorruptedFile" priority="5">
@@ -960,6 +1217,10 @@
 			<var name="panel" value="Site Administration" />
 			<var name="portlet" value="Bookmarks" />
 		</execute>
+=======
+
+		<execute function="AssertTextEquals" locator1="Portlet#HEADER" value1="Bookmarks" />
+>>>>>>> compatible
 
 		<execute function="AssertTextEquals" locator1="Portlet#HEADER" value1="Bookmarks" />
 

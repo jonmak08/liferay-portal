@@ -40,6 +40,7 @@ portletDisplay.setURLBack(backURL);
 renderResponse.setTitle((role == null) ? LanguageUtil.get(request, "new-role") : role.getTitle(locale));
 %>
 
+<<<<<<< HEAD
 <liferay-util:include page="/edit_role_tabs.jsp" servletContext="<%= application %>" />
 
 <c:if test="<%= role != null %>">
@@ -53,11 +54,14 @@ renderResponse.setTitle((role == null) ? LanguageUtil.get(request, "new-role") :
 	</c:choose>
 </c:if>
 
+=======
+>>>>>>> compatible
 <portlet:actionURL name="editRole" var="editRoleURL">
 	<portlet:param name="mvcPath" value="/edit_role.jsp" />
 	<portlet:param name="backURL" value="<%= backURL %>" />
 </portlet:actionURL>
 
+<<<<<<< HEAD
 <portlet:renderURL var="editRoleRenderURL">
 	<portlet:param name="mvcPath" value="/edit_role.jsp" />
 	<portlet:param name="tabs1" value="details" />
@@ -67,6 +71,10 @@ renderResponse.setTitle((role == null) ? LanguageUtil.get(request, "new-role") :
 
 <aui:form action="<%= editRoleURL %>" cssClass="container-fluid-1280" method="post" name="fm">
 	<aui:input name="redirect" type="hidden" value="<%= editRoleRenderURL %>" />
+=======
+<aui:form action="<%= editRoleURL %>" cssClass="container-fluid-1280" method="post" name="fm">
+	<aui:input name="redirect" type="hidden" value="<%= redirect %>" />
+>>>>>>> compatible
 	<aui:input name="roleId" type="hidden" value="<%= roleId %>" />
 
 	<liferay-ui:error exception="<%= DuplicateRoleException.class %>" message="please-enter-a-unique-name" />
@@ -104,6 +112,7 @@ renderResponse.setTitle((role == null) ? LanguageUtil.get(request, "new-role") :
 				</c:otherwise>
 			</c:choose>
 
+<<<<<<< HEAD
 			<aui:input autoFocus="<%= windowState.equals(WindowState.MAXIMIZED) %>" name="title">
 				<c:if test="<%= (role == null) || !role.isSystem() %>">
 					<aui:validator name="required" />
@@ -112,6 +121,25 @@ renderResponse.setTitle((role == null) ? LanguageUtil.get(request, "new-role") :
 
 			<aui:input name="description" />
 
+=======
+			<c:choose>
+				<c:when test="<%= (role != null) && role.isSystem() %>">
+					<aui:input name="name" type="hidden" value="<%= roleName %>" />
+				</c:when>
+				<c:otherwise>
+					<aui:input autoFocus="<%= windowState.equals(WindowState.MAXIMIZED) %>" label='<%= (role != null) ? "new-name" : "name" %>' name="name" />
+				</c:otherwise>
+			</c:choose>
+
+			<aui:input name="title" />
+
+			<aui:input name="description" />
+
+			<c:if test="<%= (role != null) && roleName.equals(RoleConstants.SITE_ADMINISTRATOR) %>">
+				<aui:input helpMessage="allow-subsite-management-help" label="allow-subsite-management" name="manageSubgroups" type="toggle-switch" value="<%= ResourcePermissionLocalServiceUtil.hasResourcePermission(company.getCompanyId(), Group.class.getName(), ResourceConstants.SCOPE_GROUP_TEMPLATE, String.valueOf(GroupConstants.DEFAULT_PARENT_GROUP_ID), roleId, ActionKeys.MANAGE_SUBGROUPS) %>" />
+			</c:if>
+
+>>>>>>> compatible
 			<c:if test="<%= role != null %>">
 
 				<%
@@ -149,6 +177,7 @@ renderResponse.setTitle((role == null) ? LanguageUtil.get(request, "new-role") :
 				</c:if>
 			</c:if>
 
+<<<<<<< HEAD
 			<c:choose>
 				<c:when test="<%= (role != null) && role.isSystem() %>">
 					<aui:input name="name" type="hidden" value="<%= roleName %>" />
@@ -185,11 +214,29 @@ renderResponse.setTitle((role == null) ? LanguageUtil.get(request, "new-role") :
 				<aui:button type="submit" />
 
 				<aui:button href="<%= backURL %>" type="cancel" />
+=======
+			<aui:fieldset-group markupView="lexicon">
+				<aui:fieldset>
+					<liferay-expando:custom-attribute-list
+						className="<%= Role.class.getName() %>"
+						classPK="<%= (role != null) ? role.getRoleId() : 0 %>"
+						editable="<%= true %>"
+						label="<%= true %>"
+					/>
+				</aui:fieldset>
+			</aui:fieldset-group>
+
+			<aui:button-row>
+				<aui:button cssClass="btn-lg" type="submit" />
+
+				<aui:button cssClass="btn-lg" href="<%= redirect %>" type="cancel" />
+>>>>>>> compatible
 			</aui:button-row>
 		</aui:fieldset>
 	</aui:fieldset-group>
 </aui:form>
 
+<<<<<<< HEAD
 <c:if test="<%= role == null %>">
 	<aui:script sandbox="<%= true %>">
 		var form = $(document.<portlet:namespace />fm);
@@ -207,3 +254,8 @@ renderResponse.setTitle((role == null) ? LanguageUtil.get(request, "new-role") :
 		titleInput.on('input', onTitleInput);
 	</aui:script>
 </c:if>
+=======
+<%
+PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, ((role == null) ? "add-role" : "edit")), currentURL);
+%>
+>>>>>>> compatible

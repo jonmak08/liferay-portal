@@ -73,7 +73,11 @@ public class LoadBalancerUtil {
 				StringBuilder sb = new StringBuilder();
 
 				for (JenkinsMaster jenkinsMaster : jenkinsMasters) {
+<<<<<<< HEAD
 					sb.append(jenkinsMaster.getName());
+=======
+					sb.append(jenkinsMaster.getMasterName());
+>>>>>>> compatible
 					sb.append(" : ");
 					sb.append(jenkinsMaster.getAvailableSlavesCount());
 					sb.append("\n");
@@ -84,7 +88,11 @@ public class LoadBalancerUtil {
 				sb = new StringBuilder();
 
 				sb.append("\nMost available master ");
+<<<<<<< HEAD
 				sb.append(mostAvailableJenkinsMaster.getName());
+=======
+				sb.append(mostAvailableJenkinsMaster.getMasterName());
+>>>>>>> compatible
 				sb.append(" has ");
 				sb.append(mostAvailableJenkinsMaster.getAvailableSlavesCount());
 				sb.append(" available slaves.");
@@ -103,7 +111,11 @@ public class LoadBalancerUtil {
 
 				mostAvailableJenkinsMaster.addRecentBatch(invokedBatchSize);
 
+<<<<<<< HEAD
 				return "http://" + mostAvailableJenkinsMaster.getName();
+=======
+				return "http://" + mostAvailableJenkinsMaster.getMasterName();
+>>>>>>> compatible
 			}
 			catch (Exception e) {
 				if (retries < _MAX_RETRIES) {
@@ -196,7 +208,11 @@ public class LoadBalancerUtil {
 			allJenkinsMasters.size());
 
 		for (JenkinsMaster jenkinsMaster : allJenkinsMasters) {
+<<<<<<< HEAD
 			if (blacklist.contains(jenkinsMaster.getName())) {
+=======
+			if (blacklist.contains(jenkinsMaster.getMasterName())) {
+>>>>>>> compatible
 				continue;
 			}
 
@@ -240,7 +256,11 @@ public class LoadBalancerUtil {
 			return 0;
 		}
 
+<<<<<<< HEAD
 		return _nextUpdateTimestampMap.get(masterPrefix);
+=======
+		else return _nextUpdateTimestampMap.get(masterPrefix);
+>>>>>>> compatible
 	}
 
 	private static void _setNextUpdateTimestamp(

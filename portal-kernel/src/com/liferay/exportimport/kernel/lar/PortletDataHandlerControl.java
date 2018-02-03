@@ -14,8 +14,11 @@
 
 package com.liferay.exportimport.kernel.lar;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
@@ -26,7 +29,10 @@ import java.util.Locale;
 /**
  * @author Raymond Augé
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class PortletDataHandlerControl {
 
 	public static String getNamespacedControlName(
@@ -94,8 +100,12 @@ public class PortletDataHandlerControl {
 
 	public String getHelpMessage(Locale locale, String action) {
 		String helpMessage = LanguageUtil.get(
+<<<<<<< HEAD
 			locale, StringBundler.concat(action, "-", _controlLabel, "-help"),
 			StringPool.BLANK);
+=======
+			locale, action + "-" + _controlLabel + "-help", StringPool.BLANK);
+>>>>>>> compatible
 
 		if (Validator.isNull(helpMessage)) {
 			helpMessage = LanguageUtil.get(

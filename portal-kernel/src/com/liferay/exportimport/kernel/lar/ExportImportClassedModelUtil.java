@@ -19,10 +19,13 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.portal.kernel.model.ClassedModel;
 import com.liferay.portal.kernel.model.ResourcedModel;
 import com.liferay.portal.kernel.model.StagedModel;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 
 import java.io.Serializable;
+=======
+>>>>>>> compatible
 
 /**
  * @author Mate Thurzo
@@ -44,6 +47,7 @@ public class ExportImportClassedModelUtil {
 		return modelClassName;
 	}
 
+<<<<<<< HEAD
 	public static long getClassNameId(ClassedModel classedModel) {
 		if (classedModel instanceof StagedModel) {
 			StagedModel stagedModel = (StagedModel)classedModel;
@@ -58,6 +62,16 @@ public class ExportImportClassedModelUtil {
 
 	public static long getClassPK(ClassedModel classedModel) {
 		return GetterUtil.getLong(getPrimaryKeyObj(classedModel));
+=======
+	public static long getClassPK(ClassedModel classedModel) {
+		if (classedModel instanceof ResourcedModel) {
+			ResourcedModel resourcedModel = (ResourcedModel)classedModel;
+
+			return resourcedModel.getResourcePrimKey();
+		}
+
+		return (Long)classedModel.getPrimaryKeyObj();
+>>>>>>> compatible
 	}
 
 	public static String getClassSimpleName(ClassedModel classedModel) {
@@ -76,6 +90,7 @@ public class ExportImportClassedModelUtil {
 		return modelClassSimpleName;
 	}
 
+<<<<<<< HEAD
 	public static Serializable getPrimaryKeyObj(ClassedModel classedModel) {
 		if (classedModel instanceof ResourcedModel) {
 			ResourcedModel resourcedModel = (ResourcedModel)classedModel;
@@ -86,4 +101,6 @@ public class ExportImportClassedModelUtil {
 		return classedModel.getPrimaryKeyObj();
 	}
 
+=======
+>>>>>>> compatible
 }

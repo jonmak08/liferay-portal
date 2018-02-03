@@ -50,8 +50,12 @@ public class SourceFormatterTest {
 
 		List<String> modifiedFileNames = sourceFormatter.getModifiedFileNames();
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			modifiedFileNames.toString(), modifiedFileNames.isEmpty());
+=======
+		Assert.assertTrue(modifiedFileNames.isEmpty());
+>>>>>>> compatible
 	}
 
 	@Rule

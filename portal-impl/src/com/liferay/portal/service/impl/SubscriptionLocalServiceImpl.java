@@ -14,10 +14,23 @@
 
 package com.liferay.portal.service.impl;
 
+import com.liferay.asset.kernel.model.AssetEntry;
 import com.liferay.portal.kernel.exception.PortalException;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.Subscription;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.service.base.SubscriptionLocalServiceBaseImpl;
+=======
+import com.liferay.portal.kernel.json.JSONFactoryUtil;
+import com.liferay.portal.kernel.json.JSONObject;
+import com.liferay.portal.kernel.model.Subscription;
+import com.liferay.portal.kernel.model.SubscriptionConstants;
+import com.liferay.portal.kernel.model.User;
+import com.liferay.portal.kernel.social.SocialActivityManagerUtil;
+import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.service.base.SubscriptionLocalServiceBaseImpl;
+import com.liferay.social.kernel.model.SocialActivityConstants;
+>>>>>>> compatible
 
 import java.util.List;
 
@@ -95,10 +108,68 @@ public class SubscriptionLocalServiceImpl
 			String frequency)
 		throws PortalException {
 
+<<<<<<< HEAD
 		throw new UnsupportedOperationException(
 			"This class is deprecate and replaced by " +
 				"com.liferay.subscription.service.impl." +
 					"SubscriptionLocalServiceImpl");
+=======
+		// Subscription
+
+		User user = userPersistence.findByPrimaryKey(userId);
+		long classNameId = classNameLocalService.getClassNameId(className);
+
+		Subscription subscription = subscriptionPersistence.fetchByC_U_C_C(
+			user.getCompanyId(), userId, classNameId, classPK);
+
+		if (subscription == null) {
+			long subscriptionId = counterLocalService.increment();
+
+			subscription = subscriptionPersistence.create(subscriptionId);
+
+			subscription.setGroupId(groupId);
+			subscription.setCompanyId(user.getCompanyId());
+			subscription.setUserId(user.getUserId());
+			subscription.setUserName(user.getFullName());
+			subscription.setClassNameId(classNameId);
+			subscription.setClassPK(classPK);
+			subscription.setFrequency(frequency);
+
+			subscriptionPersistence.update(subscription);
+		}
+
+		if (groupId > 0) {
+
+			// Asset
+
+			AssetEntry assetEntry = null;
+
+			try {
+				assetEntry = assetEntryLocalService.getEntry(
+					className, classPK);
+			}
+			catch (Exception e) {
+				assetEntry = assetEntryLocalService.updateEntry(
+					userId, groupId, subscription.getCreateDate(),
+					subscription.getModifiedDate(), className, classPK, null, 0,
+					null, null, true, false, null, null, null, null, null,
+					String.valueOf(groupId), null, null, null, null, 0, 0,
+					null);
+			}
+
+			// Social
+
+			JSONObject extraDataJSONObject = JSONFactoryUtil.createJSONObject();
+
+			extraDataJSONObject.put("title", assetEntry.getTitle());
+
+			SocialActivityManagerUtil.addActivity(
+				userId, assetEntry, SocialActivityConstants.TYPE_SUBSCRIBE,
+				extraDataJSONObject.toString(), 0);
+		}
+
+		return subscription;
+>>>>>>> compatible
 	}
 
 	/**
@@ -147,10 +218,34 @@ public class SubscriptionLocalServiceImpl
 	public Subscription deleteSubscription(Subscription subscription)
 		throws PortalException {
 
+<<<<<<< HEAD
 		throw new UnsupportedOperationException(
 			"This class is deprecate and replaced by " +
 				"com.liferay.subscription.service.impl." +
 					"SubscriptionLocalServiceImpl");
+=======
+		// Subscription
+
+		subscriptionPersistence.remove(subscription);
+
+		// Social
+
+		AssetEntry assetEntry = assetEntryPersistence.fetchByC_C(
+			subscription.getClassNameId(), subscription.getClassPK());
+
+		if (assetEntry != null) {
+			JSONObject extraDataJSONObject = JSONFactoryUtil.createJSONObject();
+
+			extraDataJSONObject.put("title", assetEntry.getTitle());
+
+			SocialActivityManagerUtil.addActivity(
+				subscription.getUserId(), subscription,
+				SocialActivityConstants.TYPE_UNSUBSCRIBE,
+				extraDataJSONObject.toString(), 0);
+		}
+
+		return subscription;
+>>>>>>> compatible
 	}
 
 	/**

@@ -33,6 +33,10 @@ import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
 import com.liferay.portal.kernel.service.LayoutLocalServiceUtil;
 import com.liferay.portal.kernel.service.OrganizationLocalServiceUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.service.ResourceLocalServiceUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.ResourcePermissionLocalServiceUtil;
 import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.service.permission.GroupPermissionUtil;
@@ -136,6 +140,7 @@ public class LayoutPermissionImpl
 		CacheKey cacheKey = new CacheKey(
 			layout.getPlid(), layout.getMvccVersion(), checkViewableGroup,
 			actionId);
+<<<<<<< HEAD
 
 		Boolean contains = (Boolean)permissionChecksMap.get(cacheKey);
 
@@ -143,6 +148,15 @@ public class LayoutPermissionImpl
 			contains = _contains(
 				permissionChecker, layout, checkViewableGroup, actionId);
 
+=======
+
+		Boolean contains = (Boolean)permissionChecksMap.get(cacheKey);
+
+		if (contains == null) {
+			contains = _contains(
+				permissionChecker, layout, checkViewableGroup, actionId);
+
+>>>>>>> compatible
 			permissionChecksMap.put(cacheKey, contains);
 		}
 
@@ -264,6 +278,49 @@ public class LayoutPermissionImpl
 			return true;
 		}
 
+<<<<<<< HEAD
+		if (GroupPermissionUtil.contains(
+				permissionChecker, group, ActionKeys.MANAGE_LAYOUTS)) {
+=======
+			if (layout.isPrivateLayout()) {
+				addGuestPermission = false;
+
+				if (group.isUser() || group.isUserGroup()) {
+					addGroupPermission = false;
+				}
+			}
+>>>>>>> compatible
+
+			return true;
+		}
+
+<<<<<<< HEAD
+		User user = permissionChecker.getUser();
+
+		if (!user.isDefaultUser() && !group.isUser()) {
+
+			// This is new way of doing an ownership check without having to
+			// have a userId field on the model. When the instance model was
+			// first created, we set the user's userId as the ownerId of the
+			// individual scope ResourcePermission of the Owner Role. Therefore,
+			// ownership can be determined by obtaining the Owner role
+			// ResourcePermission for the current instance model and testing it
+			// with the hasOwnerPermission call.
+
+			ResourcePermission resourcePermission =
+				ResourcePermissionLocalServiceUtil.getResourcePermission(
+					layout.getCompanyId(), Layout.class.getName(),
+					ResourceConstants.SCOPE_INDIVIDUAL,
+					String.valueOf(layout.getPlid()),
+					permissionChecker.getOwnerRoleId());
+
+=======
+		if (permissionChecker.hasPermission(
+				group, Layout.class.getName(), layout.getPlid(), actionId)) {
+
+			return true;
+		}
+
 		if (GroupPermissionUtil.contains(
 				permissionChecker, group, ActionKeys.MANAGE_LAYOUTS)) {
 
@@ -289,6 +346,7 @@ public class LayoutPermissionImpl
 					String.valueOf(layout.getPlid()),
 					permissionChecker.getOwnerRoleId());
 
+>>>>>>> compatible
 			if (permissionChecker.hasOwnerPermission(
 					layout.getCompanyId(), Layout.class.getName(),
 					String.valueOf(layout.getPlid()),

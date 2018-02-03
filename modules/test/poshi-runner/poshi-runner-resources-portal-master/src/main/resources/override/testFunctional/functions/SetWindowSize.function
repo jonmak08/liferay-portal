@@ -2,6 +2,10 @@
 	<command name="setWindowSize">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.SetWindowSize#setWindowSize" />
+=======
+		<super />
+>>>>>>> compatible
 	</command>
 </definition>

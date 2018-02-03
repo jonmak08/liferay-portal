@@ -14,6 +14,7 @@
 
 package com.liferay.mobile.device.rules.service.impl;
 
+<<<<<<< HEAD
 import com.liferay.mobile.device.rules.constants.MDRConstants;
 import com.liferay.mobile.device.rules.model.MDRRuleGroup;
 import com.liferay.mobile.device.rules.service.base.MDRRuleGroupServiceBaseImpl;
@@ -24,6 +25,15 @@ import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermi
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermissionFactory;
 import com.liferay.portal.kernel.security.permission.resource.PortletResourcePermission;
 import com.liferay.portal.kernel.security.permission.resource.PortletResourcePermissionFactory;
+=======
+import com.liferay.mobile.device.rules.model.MDRRuleGroup;
+import com.liferay.mobile.device.rules.service.base.MDRRuleGroupServiceBaseImpl;
+import com.liferay.mobile.device.rules.service.permission.MDRPermission;
+import com.liferay.mobile.device.rules.service.permission.MDRRuleGroupPermission;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.security.permission.ActionKeys;
+import com.liferay.portal.kernel.security.permission.PermissionChecker;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.ServiceContext;
 
 import java.util.List;
@@ -41,7 +51,11 @@ public class MDRRuleGroupServiceImpl extends MDRRuleGroupServiceBaseImpl {
 			Map<Locale, String> descriptionMap, ServiceContext serviceContext)
 		throws PortalException {
 
+<<<<<<< HEAD
 		_portletResourcePermission.check(
+=======
+		MDRPermission.check(
+>>>>>>> compatible
 			getPermissionChecker(), groupId, ActionKeys.ADD_RULE_GROUP);
 
 		return mdrRuleGroupLocalService.addRuleGroup(
@@ -57,10 +71,17 @@ public class MDRRuleGroupServiceImpl extends MDRRuleGroupServiceBaseImpl {
 
 		MDRRuleGroup ruleGroup = getRuleGroup(ruleGroupId);
 
+<<<<<<< HEAD
 		_mdrRuleGroupModelResourcePermission.check(
 			permissionChecker, ruleGroup, ActionKeys.VIEW);
 
 		_portletResourcePermission.check(
+=======
+		MDRRuleGroupPermission.check(
+			permissionChecker, ruleGroup, ActionKeys.VIEW);
+
+		MDRPermission.check(
+>>>>>>> compatible
 			permissionChecker, groupId, ActionKeys.ADD_RULE_GROUP);
 
 		return mdrRuleGroupLocalService.copyRuleGroup(
@@ -72,7 +93,11 @@ public class MDRRuleGroupServiceImpl extends MDRRuleGroupServiceBaseImpl {
 		MDRRuleGroup ruleGroup = mdrRuleGroupPersistence.findByPrimaryKey(
 			ruleGroupId);
 
+<<<<<<< HEAD
 		_mdrRuleGroupModelResourcePermission.check(
+=======
+		MDRRuleGroupPermission.check(
+>>>>>>> compatible
 			getPermissionChecker(), ruleGroup, ActionKeys.DELETE);
 
 		mdrRuleGroupLocalService.deleteRuleGroup(ruleGroup);
@@ -86,7 +111,11 @@ public class MDRRuleGroupServiceImpl extends MDRRuleGroupServiceBaseImpl {
 			ruleGroupId);
 
 		if (ruleGroup != null) {
+<<<<<<< HEAD
 			_mdrRuleGroupModelResourcePermission.check(
+=======
+			MDRRuleGroupPermission.check(
+>>>>>>> compatible
 				getPermissionChecker(), ruleGroup, ActionKeys.VIEW);
 		}
 
@@ -98,7 +127,11 @@ public class MDRRuleGroupServiceImpl extends MDRRuleGroupServiceBaseImpl {
 		MDRRuleGroup ruleGroup = mdrRuleGroupPersistence.findByPrimaryKey(
 			ruleGroupId);
 
+<<<<<<< HEAD
 		_mdrRuleGroupModelResourcePermission.check(
+=======
+		MDRRuleGroupPermission.check(
+>>>>>>> compatible
 			getPermissionChecker(), ruleGroup, ActionKeys.VIEW);
 
 		return ruleGroup;
@@ -126,13 +159,18 @@ public class MDRRuleGroupServiceImpl extends MDRRuleGroupServiceBaseImpl {
 		MDRRuleGroup ruleGroup = mdrRuleGroupPersistence.findByPrimaryKey(
 			ruleGroupId);
 
+<<<<<<< HEAD
 		_mdrRuleGroupModelResourcePermission.check(
+=======
+		MDRRuleGroupPermission.check(
+>>>>>>> compatible
 			getPermissionChecker(), ruleGroup, ActionKeys.UPDATE);
 
 		return mdrRuleGroupLocalService.updateRuleGroup(
 			ruleGroupId, nameMap, descriptionMap, serviceContext);
 	}
 
+<<<<<<< HEAD
 	private static volatile ModelResourcePermission<MDRRuleGroup>
 		_mdrRuleGroupModelResourcePermission =
 			ModelResourcePermissionFactory.getInstance(
@@ -144,4 +182,6 @@ public class MDRRuleGroupServiceImpl extends MDRRuleGroupServiceBaseImpl {
 				MDRRuleGroupServiceImpl.class, "_portletResourcePermission",
 				MDRConstants.RESOURCE_NAME);
 
+=======
+>>>>>>> compatible
 }

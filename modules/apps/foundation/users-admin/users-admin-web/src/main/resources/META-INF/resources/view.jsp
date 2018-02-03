@@ -42,6 +42,11 @@ request.setAttribute("view.jsp-portletURL", portletURL);
 
 request.setAttribute("view.jsp-usersListView", usersListView);
 
+<<<<<<< HEAD
+=======
+long organizationGroupId = 0;
+
+>>>>>>> compatible
 int inactiveUsersCount = 0;
 int usersCount = 0;
 
@@ -81,11 +86,24 @@ else {
 
 		<%
 		request.setAttribute("view.jsp-backURL", backURL);
+<<<<<<< HEAD
 		request.setAttribute("view.jsp-organization", organization);
 		request.setAttribute("view.jsp-organizationId", organizationId);
 		request.setAttribute("view.jsp-portletURL", portletURL);
 		request.setAttribute("view.jsp-toolbarItem", toolbarItem);
 		request.setAttribute("view.jsp-usersListView", usersListView);
+=======
+		request.setAttribute("view.jsp-inactiveUsersCount", inactiveUsersCount);
+		request.setAttribute("view.jsp-organization", organization);
+		request.setAttribute("view.jsp-organizationGroupId", organizationGroupId);
+		request.setAttribute("view.jsp-organizationId", organizationId);
+		request.setAttribute("view.jsp-portletURL", portletURL);
+		request.setAttribute("view.jsp-status", status);
+		request.setAttribute("view.jsp-toolbarItem", toolbarItem);
+		request.setAttribute("view.jsp-usersCount", usersCount);
+		request.setAttribute("view.jsp-usersListView", usersListView);
+		request.setAttribute("view.jsp-viewUsersRedirect", viewUsersRedirect);
+>>>>>>> compatible
 		%>
 
 		<liferay-util:include page="/view_tree.jsp" servletContext="<%= application %>" />
@@ -237,6 +255,7 @@ else {
 
 		location.href = Liferay.Util.addParams('<portlet:namespace />status=' + status.value, '<%= HtmlUtil.escapeJS(showUsersURL.toString()) %>');
 	}
+<<<<<<< HEAD
 
 	Liferay.provide(
 		window,
@@ -291,4 +310,6 @@ else {
 		},
 		['liferay-item-selector-dialog', 'liferay-portlet-url']
 	);
+=======
+>>>>>>> compatible
 </aui:script>

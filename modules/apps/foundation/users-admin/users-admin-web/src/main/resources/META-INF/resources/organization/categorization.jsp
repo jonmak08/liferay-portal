@@ -24,6 +24,7 @@ Organization organization = OrganizationServiceUtil.fetchOrganization(organizati
 
 <aui:model-context bean="<%= organization %>" model="<%= Organization.class %>" />
 
+<<<<<<< HEAD
 <liferay-ui:error-marker key="<%= WebKeys.ERROR_SECTION %>" value="categorization" />
 
 <liferay-asset:asset-categories-error />
@@ -34,4 +35,14 @@ Organization organization = OrganizationServiceUtil.fetchOrganization(organizati
 	<liferay-asset:asset-categories-selector className="<%= Organization.class.getName() %>" classPK="<%= (organization != null) ? organization.getPrimaryKey() : 0 %>" />
 
 	<liferay-asset:asset-tags-selector className="<%= Organization.class.getName() %>" classPK="<%= (organization != null) ? organization.getPrimaryKey() : 0 %>" />
+=======
+<liferay-ui:asset-categories-error />
+
+<liferay-ui:asset-tags-error />
+
+<aui:fieldset>
+	<aui:input name="categories" type="assetCategories" />
+
+	<aui:input name="tags" type="assetTags" />
+>>>>>>> compatible
 </aui:fieldset>

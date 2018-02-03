@@ -16,7 +16,13 @@ package com.liferay.portal.workflow.kaleo.model.impl;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.service.ServiceContext;
+<<<<<<< HEAD
 import com.liferay.portal.workflow.kaleo.model.KaleoInstanceToken;
+=======
+import com.liferay.portal.workflow.kaleo.model.KaleoDefinition;
+import com.liferay.portal.workflow.kaleo.model.KaleoInstanceToken;
+import com.liferay.portal.workflow.kaleo.service.KaleoDefinitionLocalServiceUtil;
+>>>>>>> compatible
 import com.liferay.portal.workflow.kaleo.service.KaleoInstanceTokenLocalServiceUtil;
 
 import java.io.Serializable;
@@ -32,6 +38,15 @@ public class KaleoInstanceImpl extends KaleoInstanceBaseImpl {
 	}
 
 	@Override
+<<<<<<< HEAD
+=======
+	public KaleoDefinition getKaleoDefinition() throws PortalException {
+		return KaleoDefinitionLocalServiceUtil.getKaleoDefinition(
+			getKaleoDefinitionId());
+	}
+
+	@Override
+>>>>>>> compatible
 	public KaleoInstanceToken getRootKaleoInstanceToken(
 			Map<String, Serializable> workflowContext,
 			ServiceContext serviceContext)

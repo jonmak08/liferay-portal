@@ -14,15 +14,23 @@
 
 package com.liferay.portal.search.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.executor.PortalExecutorManager;
 import com.liferay.portal.kernel.backgroundtask.BackgroundTaskThreadLocal;
+=======
+import com.liferay.portal.kernel.concurrent.ThreadPoolExecutor;
+import com.liferay.portal.kernel.executor.PortalExecutorManager;
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.search.IndexWriterHelperUtil;
 import com.liferay.portal.kernel.search.Indexer;
 import com.liferay.portal.kernel.search.IndexerRegistryUtil;
 import com.liferay.portal.kernel.search.SearchEngineHelperUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.util.PropsValues;
 
@@ -31,7 +39,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.Callable;
+<<<<<<< HEAD
 import java.util.concurrent.ExecutorService;
+=======
+>>>>>>> compatible
 import java.util.concurrent.FutureTask;
 
 import org.apache.commons.lang.time.StopWatch;
@@ -93,7 +104,11 @@ public class SearchEngineInitializer implements Runnable {
 		catch (InterruptedException ie) {
 		}
 
+<<<<<<< HEAD
 		ExecutorService executorService =
+=======
+		ThreadPoolExecutor threadPoolExecutor =
+>>>>>>> compatible
 			_portalExecutorManager.getPortalExecutor(
 				SearchEngineInitializer.class.getName());
 
@@ -106,8 +121,11 @@ public class SearchEngineInitializer implements Runnable {
 
 			SearchEngineHelperUtil.initialize(_companyId);
 
+<<<<<<< HEAD
 			long backgroundTaskId =
 				BackgroundTaskThreadLocal.getBackgroundTaskId();
+=======
+>>>>>>> compatible
 			List<FutureTask<Void>> futureTasks = new ArrayList<>();
 			Set<String> searchEngineIds = new HashSet<>();
 
@@ -125,9 +143,12 @@ public class SearchEngineInitializer implements Runnable {
 
 						@Override
 						public Void call() throws Exception {
+<<<<<<< HEAD
 							BackgroundTaskThreadLocal.setBackgroundTaskId(
 								backgroundTaskId);
 
+=======
+>>>>>>> compatible
 							reindex(indexer);
 
 							return null;
@@ -135,7 +156,11 @@ public class SearchEngineInitializer implements Runnable {
 
 					});
 
+<<<<<<< HEAD
 				executorService.submit(futureTask);
+=======
+				threadPoolExecutor.submit(futureTask);
+>>>>>>> compatible
 
 				futureTasks.add(futureTask);
 			}
@@ -176,11 +201,16 @@ public class SearchEngineInitializer implements Runnable {
 
 		if (_log.isInfoEnabled()) {
 			_log.info(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Reindexing with ", String.valueOf(indexer.getClass()),
 					" completed in ",
 					String.valueOf(stopWatch.getTime() / Time.SECOND),
 					" seconds"));
+=======
+				"Reindexing with " + indexer.getClass() + " completed in " +
+					(stopWatch.getTime() / Time.SECOND) + " seconds");
+>>>>>>> compatible
 		}
 	}
 

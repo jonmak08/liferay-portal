@@ -149,8 +149,13 @@ public class UpgradeImageGallery extends UpgradeProcess {
 
 		sb.append("insert into DLFileVersion (fileVersionId, groupId, ");
 		sb.append("companyId, userId, userName, createDate, modifiedDate, ");
+<<<<<<< HEAD
 		sb.append("repositoryId, folderId, fileEntryId, extension, mimeType, ");
 		sb.append("title, description, changeLog, extraSettings, ");
+=======
+		sb.append("repositoryId, folderId, fileEntryId, extension, ");
+		sb.append("mimeType, title, description, changeLog, extraSettings, ");
+>>>>>>> compatible
 		sb.append("fileEntryTypeId, version, size_, status, statusByUserId, ");
 		sb.append("statusByUserName, statusDate) values (?, ?, ?, ?, ?, ?, ");
 		sb.append("?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -865,10 +870,16 @@ public class UpgradeImageGallery extends UpgradeProcess {
 		throws Exception {
 
 		try (PreparedStatement ps = connection.prepareStatement(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"select folderId from DLFolder where groupId = ",
 					String.valueOf(groupId), " and parentFolderId = ",
 					String.valueOf(parentFolderId), " and name = ?"))) {
+=======
+				"select folderId from DLFolder where groupId = " + groupId +
+					" and parentFolderId = " + parentFolderId +
+						" and name = ?")) {
+>>>>>>> compatible
 
 			ps.setString(1, name);
 
@@ -877,10 +888,15 @@ public class UpgradeImageGallery extends UpgradeProcess {
 					long newFolderId = rs.getLong("folderId");
 
 					runSQL(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"update IGImage set folderId = ",
 							String.valueOf(newFolderId), " where folderId = ",
 							String.valueOf(folderId)));
+=======
+						"update IGImage set folderId = " + newFolderId +
+							" where folderId = " + folderId);
+>>>>>>> compatible
 
 					folderIds.put(folderId, newFolderId);
 
@@ -949,11 +965,17 @@ public class UpgradeImageGallery extends UpgradeProcess {
 				dlBitwiseValues, igActionIds);
 
 			runSQL(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"update ResourcePermission set name = '", dlResourceName,
 					"', actionIds = ", String.valueOf(dlActionIdsLong),
 					" where name = '", igResourceName, "' and actionIds = ",
 					String.valueOf(i)));
+=======
+				"update ResourcePermission set name = '" + dlResourceName +
+					"', actionIds = " + dlActionIdsLong + " where name = '" +
+						igResourceName + "' and actionIds = " + i);
+>>>>>>> compatible
 		}
 	}
 

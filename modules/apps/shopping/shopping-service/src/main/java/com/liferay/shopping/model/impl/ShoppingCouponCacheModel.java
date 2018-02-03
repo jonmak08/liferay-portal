@@ -19,6 +19,10 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import com.liferay.shopping.model.ShoppingCoupon;
 
@@ -118,7 +122,11 @@ public class ShoppingCouponCacheModel implements CacheModel<ShoppingCoupon>,
 		shoppingCouponImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			shoppingCouponImpl.setUserName("");
+=======
+			shoppingCouponImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			shoppingCouponImpl.setUserName(userName);
@@ -139,21 +147,33 @@ public class ShoppingCouponCacheModel implements CacheModel<ShoppingCoupon>,
 		}
 
 		if (code == null) {
+<<<<<<< HEAD
 			shoppingCouponImpl.setCode("");
+=======
+			shoppingCouponImpl.setCode(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			shoppingCouponImpl.setCode(code);
 		}
 
 		if (name == null) {
+<<<<<<< HEAD
 			shoppingCouponImpl.setName("");
+=======
+			shoppingCouponImpl.setName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			shoppingCouponImpl.setName(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			shoppingCouponImpl.setDescription("");
+=======
+			shoppingCouponImpl.setDescription(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			shoppingCouponImpl.setDescription(description);
@@ -176,14 +196,22 @@ public class ShoppingCouponCacheModel implements CacheModel<ShoppingCoupon>,
 		shoppingCouponImpl.setActive(active);
 
 		if (limitCategories == null) {
+<<<<<<< HEAD
 			shoppingCouponImpl.setLimitCategories("");
+=======
+			shoppingCouponImpl.setLimitCategories(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			shoppingCouponImpl.setLimitCategories(limitCategories);
 		}
 
 		if (limitSkus == null) {
+<<<<<<< HEAD
 			shoppingCouponImpl.setLimitSkus("");
+=======
+			shoppingCouponImpl.setLimitSkus(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			shoppingCouponImpl.setLimitSkus(limitSkus);
@@ -193,7 +221,11 @@ public class ShoppingCouponCacheModel implements CacheModel<ShoppingCoupon>,
 		shoppingCouponImpl.setDiscount(discount);
 
 		if (discountType == null) {
+<<<<<<< HEAD
 			shoppingCouponImpl.setDiscountType("");
+=======
+			shoppingCouponImpl.setDiscountType(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			shoppingCouponImpl.setDiscountType(discountType);
@@ -244,7 +276,11 @@ public class ShoppingCouponCacheModel implements CacheModel<ShoppingCoupon>,
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -254,21 +290,33 @@ public class ShoppingCouponCacheModel implements CacheModel<ShoppingCoupon>,
 		objectOutput.writeLong(modifiedDate);
 
 		if (code == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(code);
 		}
 
 		if (name == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(description);
@@ -280,14 +328,22 @@ public class ShoppingCouponCacheModel implements CacheModel<ShoppingCoupon>,
 		objectOutput.writeBoolean(active);
 
 		if (limitCategories == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(limitCategories);
 		}
 
 		if (limitSkus == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(limitSkus);
@@ -298,7 +354,11 @@ public class ShoppingCouponCacheModel implements CacheModel<ShoppingCoupon>,
 		objectOutput.writeDouble(discount);
 
 		if (discountType == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(discountType);

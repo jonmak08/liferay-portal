@@ -17,10 +17,15 @@ package com.liferay.asset.publisher.web.util;
 import com.liferay.asset.kernel.AssetRendererFactoryRegistryUtil;
 import com.liferay.asset.kernel.model.AssetEntry;
 import com.liferay.asset.kernel.model.AssetRendererFactory;
+<<<<<<< HEAD
 import com.liferay.asset.publisher.web.constants.AssetPublisherWebKeys;
 import com.liferay.asset.publisher.web.display.context.AssetEntryResult;
 import com.liferay.asset.publisher.web.display.context.AssetPublisherDisplayContext;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.asset.publisher.web.display.context.AssetEntryResult;
+import com.liferay.asset.publisher.web.display.context.AssetPublisherDisplayContext;
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.search.SearchContainer;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.model.Layout;
@@ -31,6 +36,10 @@ import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.rss.util.RSSUtil;
@@ -181,7 +190,11 @@ public class AssetRSSUtil {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 2.0.0, replaced by {@link
+=======
+	 * @deprecated As of 1.3.0, replaced by {@link
+>>>>>>> compatible
 	 *             #getAssetEntries(PortletRequest, PortletResponse,
 	 *             PortletPreferences)}
 	 */
@@ -205,6 +218,7 @@ public class AssetRSSUtil {
 
 		SearchContainer searchContainer = new SearchContainer();
 
+<<<<<<< HEAD
 		AssetPublisherCustomizer assetPublisherCustomizer =
 			(AssetPublisherCustomizer)portletRequest.getAttribute(
 				AssetPublisherWebKeys.ASSET_PUBLISHER_CUSTOMIZER);
@@ -213,6 +227,11 @@ public class AssetRSSUtil {
 			new AssetPublisherDisplayContext(
 				assetPublisherCustomizer, portletRequest, portletResponse,
 				portletPreferences);
+=======
+		AssetPublisherDisplayContext assetPublisherDisplayContext =
+			new AssetPublisherDisplayContext(
+				portletRequest, portletResponse, portletPreferences);
+>>>>>>> compatible
 
 		searchContainer.setDelta(assetPublisherDisplayContext.getRSSDelta());
 

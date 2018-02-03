@@ -117,7 +117,11 @@ public class ColorUtil {
 					Character characterValue = Character.valueOf(c[i]);
 
 					hexArray[i] = GetterUtil.getInteger(
+<<<<<<< HEAD
 						characterValue.toString());
+=======
+						Character.valueOf(c[i]).toString());
+>>>>>>> compatible
 				}
 			}
 		}

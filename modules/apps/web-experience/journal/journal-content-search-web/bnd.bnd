@@ -1,5 +1,6 @@
 Bundle-Name: Liferay Journal Content Search Web
 Bundle-SymbolicName: com.liferay.journal.content.search.web
+<<<<<<< HEAD
 Bundle-Version: 1.0.15
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Web Content
@@ -10,4 +11,9 @@ Provide-Capability:\
 Require-Capability:\
 	liferay.resource.bundle;\
 		filter:="(bundle.symbolic.name=com.liferay.journal.lang)"
+=======
+Bundle-Version: 1.0.10
+Liferay-Releng-Module-Group-Description:
+Liferay-Releng-Module-Group-Title: Web Content
+>>>>>>> compatible
 Web-ContextPath: /journal-content-search-web

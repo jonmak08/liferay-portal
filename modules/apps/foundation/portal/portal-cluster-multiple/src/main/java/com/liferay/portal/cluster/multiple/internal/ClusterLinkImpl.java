@@ -14,11 +14,19 @@
 
 package com.liferay.portal.cluster.multiple.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.executor.PortalExecutorManager;
+=======
+import com.liferay.portal.cluster.multiple.internal.constants.ClusterPropsKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.cluster.Address;
 import com.liferay.portal.kernel.cluster.ClusterInvokeThreadLocal;
 import com.liferay.portal.kernel.cluster.ClusterLink;
 import com.liferay.portal.kernel.cluster.Priority;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.executor.PortalExecutorManager;
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.messaging.Message;
@@ -26,7 +34,10 @@ import com.liferay.portal.kernel.messaging.MessageBus;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.Props;
 import com.liferay.portal.kernel.util.PropsKeys;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 
 import java.util.ArrayList;
@@ -88,18 +99,27 @@ public class ClusterLinkImpl implements ClusterLink {
 	}
 
 	@Activate
+<<<<<<< HEAD
 	protected void activate() {
+=======
+	protected void activate(Map<String, Object> properties) {
+>>>>>>> compatible
 		_enabled = GetterUtil.getBoolean(
 			_props.get(PropsKeys.CLUSTER_LINK_ENABLED));
 
 		if (_enabled) {
 			initialize(
+<<<<<<< HEAD
 				getChannelSettings(
 					PropsKeys.CLUSTER_LINK_CHANNEL_LOGIC_NAME_TRANSPORT),
 				getChannelSettings(
 					PropsKeys.CLUSTER_LINK_CHANNEL_PROPERTIES_TRANSPORT),
 				getChannelSettings(
 					PropsKeys.CLUSTER_LINK_CHANNEL_NAME_TRANSPORT));
+=======
+				getChannelPropertiesStrings(properties),
+				getChannelNames(properties));
+>>>>>>> compatible
 		}
 	}
 
@@ -132,14 +152,20 @@ public class ClusterLinkImpl implements ClusterLink {
 
 		if (_log.isDebugEnabled()) {
 			_log.debug(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Select channel number ", String.valueOf(channelIndex),
 					" for priority ", String.valueOf(priority)));
+=======
+				"Select channel number " + channelIndex + " for priority " +
+					priority);
+>>>>>>> compatible
 		}
 
 		return _clusterChannels.get(channelIndex);
 	}
 
+<<<<<<< HEAD
 	protected Map<String, String> getChannelSettings(String propertyPrefix) {
 		Map<String, String> channelSettings = new HashMap<>();
 
@@ -152,6 +178,74 @@ public class ClusterLinkImpl implements ClusterLink {
 		}
 
 		return channelSettings;
+=======
+	protected Map<String, String> getChannelNames(
+		Map<String, Object> properties) {
+
+		Map<String, String> channelNames = new HashMap<>();
+
+		int prefixLength =
+			ClusterPropsKeys.CHANNEL_NAME_TRANSPORT_PREFIX.length();
+
+		for (Entry<String, Object> entry : properties.entrySet()) {
+			String key = entry.getKey();
+
+			if (key.startsWith(
+					ClusterPropsKeys.CHANNEL_NAME_TRANSPORT_PREFIX)) {
+
+				channelNames.put(
+					key.substring(prefixLength + 1), (String)entry.getValue());
+			}
+		}
+
+		if (channelNames.isEmpty()) {
+			Properties channelNameProperties = _props.getProperties(
+				PropsKeys.CLUSTER_LINK_CHANNEL_NAME_TRANSPORT, true);
+
+			for (Map.Entry<Object, Object> entry :
+					channelNameProperties.entrySet()) {
+
+				channelNames.put(
+					(String)entry.getKey(), (String)entry.getValue());
+			}
+		}
+
+		return channelNames;
+	}
+
+	protected Map<String, String> getChannelPropertiesStrings(
+		Map<String, Object> properties) {
+
+		Map<String, String> channelPropertiesStrings = new HashMap<>();
+
+		int prefixLength =
+			ClusterPropsKeys.CHANNEL_PROPERTIES_TRANSPORT_PREFIX.length();
+
+		for (Entry<String, Object> entry : properties.entrySet()) {
+			String key = entry.getKey();
+
+			if (key.startsWith(
+					ClusterPropsKeys.CHANNEL_PROPERTIES_TRANSPORT_PREFIX)) {
+
+				channelPropertiesStrings.put(
+					key.substring(prefixLength + 1), (String)entry.getValue());
+			}
+		}
+
+		if (channelPropertiesStrings.isEmpty()) {
+			Properties channelProperties = _props.getProperties(
+				PropsKeys.CLUSTER_LINK_CHANNEL_PROPERTIES_TRANSPORT, true);
+
+			for (Map.Entry<Object, Object> entry :
+					channelProperties.entrySet()) {
+
+				channelPropertiesStrings.put(
+					(String)entry.getKey(), (String)entry.getValue());
+			}
+		}
+
+		return channelPropertiesStrings;
+>>>>>>> compatible
 	}
 
 	protected ExecutorService getExecutorService() {
@@ -163,7 +257,10 @@ public class ClusterLinkImpl implements ClusterLink {
 	}
 
 	protected void initChannels(
+<<<<<<< HEAD
 			Map<String, String> channelLogicNames,
+=======
+>>>>>>> compatible
 			Map<String, String> channelPropertiesStrings,
 			Map<String, String> channelNames)
 		throws Exception {
@@ -186,7 +283,10 @@ public class ClusterLinkImpl implements ClusterLink {
 		for (String key : keys) {
 			String channelPropertiesString = channelPropertiesStrings.get(key);
 			String channelName = channelNames.get(key);
+<<<<<<< HEAD
 			String channelLogicName = channelLogicNames.get(key);
+=======
+>>>>>>> compatible
 
 			if (Validator.isNull(channelPropertiesString) ||
 				Validator.isNull(channelName)) {
@@ -198,8 +298,12 @@ public class ClusterLinkImpl implements ClusterLink {
 
 			ClusterChannel clusterChannel =
 				_clusterChannelFactory.createClusterChannel(
+<<<<<<< HEAD
 					channelLogicName, channelPropertiesString, channelName,
 					clusterReceiver);
+=======
+					channelPropertiesString, channelName, clusterReceiver);
+>>>>>>> compatible
 
 			_clusterChannels.add(clusterChannel);
 
@@ -209,7 +313,10 @@ public class ClusterLinkImpl implements ClusterLink {
 	}
 
 	protected void initialize(
+<<<<<<< HEAD
 		Map<String, String> channelLogicNames,
+=======
+>>>>>>> compatible
 		Map<String, String> channelPropertiesStrings,
 		Map<String, String> channelNames) {
 
@@ -217,8 +324,12 @@ public class ClusterLinkImpl implements ClusterLink {
 			ClusterLinkImpl.class.getName());
 
 		try {
+<<<<<<< HEAD
 			initChannels(
 				channelLogicNames, channelPropertiesStrings, channelNames);
+=======
+			initChannels(channelPropertiesStrings, channelNames);
+>>>>>>> compatible
 		}
 		catch (Exception e) {
 			_log.error("Unable to initialize channels", e);
@@ -237,9 +348,14 @@ public class ClusterLinkImpl implements ClusterLink {
 		if (Validator.isNotNull(destinationName)) {
 			if (_log.isDebugEnabled()) {
 				_log.debug(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Sending local cluster link message ",
 						String.valueOf(message), " to ", destinationName));
+=======
+					"Sending local cluster link message " + message + " to " +
+						destinationName);
+>>>>>>> compatible
 			}
 
 			ClusterInvokeThreadLocal.setEnabled(false);

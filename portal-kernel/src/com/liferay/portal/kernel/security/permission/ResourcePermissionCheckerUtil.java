@@ -14,7 +14,10 @@
 
 package com.liferay.portal.kernel.security.permission;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.resource.PortletResourcePermission;
+=======
+>>>>>>> compatible
 import com.liferay.registry.collections.ServiceTrackerCollections;
 import com.liferay.registry.collections.ServiceTrackerMap;
 
@@ -27,6 +30,7 @@ public class ResourcePermissionCheckerUtil {
 		PermissionChecker permissionChecker, String className, long classPK,
 		String actionId) {
 
+<<<<<<< HEAD
 		PortletResourcePermission portletResourcePermission =
 			_portletPermissions.getService(className);
 
@@ -37,11 +41,16 @@ public class ResourcePermissionCheckerUtil {
 
 		ResourcePermissionChecker resourcePermissionChecker =
 			_resourcePermissionCheckers.getService(className);
+=======
+		ResourcePermissionChecker resourcePermissionChecker =
+			_serviceTrackerMap.getService(className);
+>>>>>>> compatible
 
 		if (resourcePermissionChecker == null) {
 			return null;
 		}
 
+<<<<<<< HEAD
 		return resourcePermissionChecker.checkResource(
 			permissionChecker, classPK, actionId);
 	}
@@ -53,5 +62,20 @@ public class ResourcePermissionCheckerUtil {
 		_resourcePermissionCheckers =
 			ServiceTrackerCollections.openSingleValueMap(
 				ResourcePermissionChecker.class, "resource.name");
+=======
+		Boolean resource = resourcePermissionChecker.checkResource(
+			permissionChecker, classPK, actionId);
+
+		if (resource != null) {
+			return resource.booleanValue();
+		}
+
+		return null;
+	}
+
+	private static final ServiceTrackerMap<String, ResourcePermissionChecker>
+		_serviceTrackerMap = ServiceTrackerCollections.openSingleValueMap(
+			ResourcePermissionChecker.class, "resource.name");
+>>>>>>> compatible
 
 }

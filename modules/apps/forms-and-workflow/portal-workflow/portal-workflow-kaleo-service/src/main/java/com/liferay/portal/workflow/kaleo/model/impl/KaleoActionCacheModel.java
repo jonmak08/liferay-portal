@@ -19,6 +19,10 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.workflow.kaleo.model.KaleoAction;
 
 import java.io.Externalizable;
@@ -84,8 +88,13 @@ public class KaleoActionCacheModel implements CacheModel<KaleoAction>,
 		sb.append(kaleoClassName);
 		sb.append(", kaleoClassPK=");
 		sb.append(kaleoClassPK);
+<<<<<<< HEAD
 		sb.append(", kaleoDefinitionVersionId=");
 		sb.append(kaleoDefinitionVersionId);
+=======
+		sb.append(", kaleoDefinitionId=");
+		sb.append(kaleoDefinitionId);
+>>>>>>> compatible
 		sb.append(", kaleoNodeName=");
 		sb.append(kaleoNodeName);
 		sb.append(", name=");
@@ -117,7 +126,11 @@ public class KaleoActionCacheModel implements CacheModel<KaleoAction>,
 		kaleoActionImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			kaleoActionImpl.setUserName("");
+=======
+			kaleoActionImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoActionImpl.setUserName(userName);
@@ -138,59 +151,94 @@ public class KaleoActionCacheModel implements CacheModel<KaleoAction>,
 		}
 
 		if (kaleoClassName == null) {
+<<<<<<< HEAD
 			kaleoActionImpl.setKaleoClassName("");
+=======
+			kaleoActionImpl.setKaleoClassName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoActionImpl.setKaleoClassName(kaleoClassName);
 		}
 
 		kaleoActionImpl.setKaleoClassPK(kaleoClassPK);
+<<<<<<< HEAD
 		kaleoActionImpl.setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
 
 		if (kaleoNodeName == null) {
 			kaleoActionImpl.setKaleoNodeName("");
+=======
+		kaleoActionImpl.setKaleoDefinitionId(kaleoDefinitionId);
+
+		if (kaleoNodeName == null) {
+			kaleoActionImpl.setKaleoNodeName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoActionImpl.setKaleoNodeName(kaleoNodeName);
 		}
 
 		if (name == null) {
+<<<<<<< HEAD
 			kaleoActionImpl.setName("");
+=======
+			kaleoActionImpl.setName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoActionImpl.setName(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			kaleoActionImpl.setDescription("");
+=======
+			kaleoActionImpl.setDescription(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoActionImpl.setDescription(description);
 		}
 
 		if (executionType == null) {
+<<<<<<< HEAD
 			kaleoActionImpl.setExecutionType("");
+=======
+			kaleoActionImpl.setExecutionType(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoActionImpl.setExecutionType(executionType);
 		}
 
 		if (script == null) {
+<<<<<<< HEAD
 			kaleoActionImpl.setScript("");
+=======
+			kaleoActionImpl.setScript(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoActionImpl.setScript(script);
 		}
 
 		if (scriptLanguage == null) {
+<<<<<<< HEAD
 			kaleoActionImpl.setScriptLanguage("");
+=======
+			kaleoActionImpl.setScriptLanguage(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoActionImpl.setScriptLanguage(scriptLanguage);
 		}
 
 		if (scriptRequiredContexts == null) {
+<<<<<<< HEAD
 			kaleoActionImpl.setScriptRequiredContexts("");
+=======
+			kaleoActionImpl.setScriptRequiredContexts(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoActionImpl.setScriptRequiredContexts(scriptRequiredContexts);
@@ -219,7 +267,11 @@ public class KaleoActionCacheModel implements CacheModel<KaleoAction>,
 
 		kaleoClassPK = objectInput.readLong();
 
+<<<<<<< HEAD
 		kaleoDefinitionVersionId = objectInput.readLong();
+=======
+		kaleoDefinitionId = objectInput.readLong();
+>>>>>>> compatible
 		kaleoNodeName = objectInput.readUTF();
 		name = objectInput.readUTF();
 		description = objectInput.readUTF();
@@ -243,7 +295,11 @@ public class KaleoActionCacheModel implements CacheModel<KaleoAction>,
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -253,7 +309,11 @@ public class KaleoActionCacheModel implements CacheModel<KaleoAction>,
 		objectOutput.writeLong(modifiedDate);
 
 		if (kaleoClassName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(kaleoClassName);
@@ -261,52 +321,83 @@ public class KaleoActionCacheModel implements CacheModel<KaleoAction>,
 
 		objectOutput.writeLong(kaleoClassPK);
 
+<<<<<<< HEAD
 		objectOutput.writeLong(kaleoDefinitionVersionId);
 
 		if (kaleoNodeName == null) {
 			objectOutput.writeUTF("");
+=======
+		objectOutput.writeLong(kaleoDefinitionId);
+
+		if (kaleoNodeName == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(kaleoNodeName);
 		}
 
 		if (name == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(description);
 		}
 
 		if (executionType == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(executionType);
 		}
 
 		if (script == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(script);
 		}
 
 		if (scriptLanguage == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(scriptLanguage);
 		}
 
 		if (scriptRequiredContexts == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(scriptRequiredContexts);
@@ -324,7 +415,11 @@ public class KaleoActionCacheModel implements CacheModel<KaleoAction>,
 	public long modifiedDate;
 	public String kaleoClassName;
 	public long kaleoClassPK;
+<<<<<<< HEAD
 	public long kaleoDefinitionVersionId;
+=======
+	public long kaleoDefinitionId;
+>>>>>>> compatible
 	public String kaleoNodeName;
 	public String name;
 	public String description;

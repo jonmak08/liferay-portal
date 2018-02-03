@@ -14,10 +14,17 @@
 
 package com.liferay.petra.mail;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.ArrayUtil;
+import com.liferay.portal.kernel.util.CharPool;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 
 import java.util.ArrayList;
@@ -50,9 +57,13 @@ public class InternetAddressUtil {
 	}
 
 	public static boolean isValid(String emailAddress) {
+<<<<<<< HEAD
 		EmailValidator emailValidator = EmailValidator.getInstance();
 
 		return emailValidator.isValid(emailAddress);
+=======
+		return EmailValidator.getInstance().isValid(emailAddress);
+>>>>>>> compatible
 	}
 
 	public static InternetAddress[] removeEntry(

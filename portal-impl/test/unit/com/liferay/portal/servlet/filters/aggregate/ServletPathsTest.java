@@ -124,6 +124,7 @@ public class ServletPathsTest {
 		ServletPaths servletPaths5 = servletPaths4.down("test2");
 
 		Assert.assertEquals("test1/test2", servletPaths5.getResourcePath());
+<<<<<<< HEAD
 
 		ServletPaths servletPaths6 = servletPaths1.down(
 			"/test2?extraparameters");
@@ -137,6 +138,8 @@ public class ServletPathsTest {
 		ServletPaths servletPaths8 = servletPaths1.down("./test2");
 
 		Assert.assertEquals("/test1/test2", servletPaths8.getResourcePath());
+=======
+>>>>>>> compatible
 	}
 
 	@Test

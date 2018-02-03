@@ -28,9 +28,13 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.search.BaseIndexer;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.search.BooleanQuery;
 import com.liferay.portal.kernel.search.Document;
 import com.liferay.portal.kernel.search.DocumentImpl;
+=======
+import com.liferay.portal.kernel.search.Document;
+>>>>>>> compatible
 import com.liferay.portal.kernel.search.Field;
 import com.liferay.portal.kernel.search.IndexWriterHelper;
 import com.liferay.portal.kernel.search.Indexer;
@@ -42,12 +46,19 @@ import com.liferay.portal.kernel.search.filter.BooleanFilter;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.service.ClassNameLocalService;
 import com.liferay.portal.kernel.util.GetterUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.LocalizationUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.trash.TrashHelper;
+=======
+import com.liferay.portal.kernel.util.LocaleUtil;
+import com.liferay.portal.kernel.util.LocalizationUtil;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.trash.kernel.util.TrashUtil;
+>>>>>>> compatible
 
 import java.util.Locale;
 
@@ -117,6 +128,7 @@ public class CalendarBookingIndexer extends BaseIndexer<CalendarBooking> {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void postProcessContextBooleanFilter(
 			BooleanFilter contextBooleanFilter, SearchContext searchContext)
 		throws Exception {
@@ -136,6 +148,8 @@ public class CalendarBookingIndexer extends BaseIndexer<CalendarBooking> {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	protected void doDelete(CalendarBooking calendarBooking) throws Exception {
 		deleteDocument(
 			calendarBooking.getCompanyId(),
@@ -157,6 +171,13 @@ public class CalendarBookingIndexer extends BaseIndexer<CalendarBooking> {
 
 		String defaultLanguageId = LocaleUtil.toLanguageId(defaultLocale);
 
+<<<<<<< HEAD
+=======
+		String descriptionDefaultLanguageId =
+			LocalizationUtil.getDefaultLanguageId(
+				calendarBooking.getDescription());
+
+>>>>>>> compatible
 		String[] descriptionLanguageIds = getLanguageIds(
 			defaultLanguageId, calendarBooking.getDescription());
 
@@ -164,22 +185,48 @@ public class CalendarBookingIndexer extends BaseIndexer<CalendarBooking> {
 			String description = calendarBooking.getDescription(
 				descriptionLanguageId);
 
+<<<<<<< HEAD
 			document.addText(
 				LocalizationUtil.getLocalizedName(
 					Field.DESCRIPTION, descriptionLanguageId),
+=======
+			if (descriptionLanguageId.equals(descriptionDefaultLanguageId)) {
+				document.addText(Field.DESCRIPTION, description);
+			}
+
+			document.addText(
+				Field.DESCRIPTION.concat(StringPool.UNDERLINE).concat(
+					descriptionLanguageId),
+>>>>>>> compatible
 				description);
 		}
 
 		document.addKeyword(Field.RELATED_ENTRY, true);
 
+<<<<<<< HEAD
+=======
+		String titleDefaultLanguageId = LocalizationUtil.getDefaultLanguageId(
+			calendarBooking.getTitle());
+
+>>>>>>> compatible
 		String[] titleLanguageIds = getLanguageIds(
 			defaultLanguageId, calendarBooking.getTitle());
 
 		for (String titleLanguageId : titleLanguageIds) {
 			String title = calendarBooking.getTitle(titleLanguageId);
 
+<<<<<<< HEAD
 			document.addText(
 				LocalizationUtil.getLocalizedName(Field.TITLE, titleLanguageId),
+=======
+			if (titleLanguageId.equals(titleDefaultLanguageId)) {
+				document.addText(Field.TITLE, title);
+			}
+
+			document.addText(
+				Field.TITLE.concat(StringPool.UNDERLINE).concat(
+					titleLanguageId),
+>>>>>>> compatible
 				title);
 		}
 
@@ -190,8 +237,12 @@ public class CalendarBookingIndexer extends BaseIndexer<CalendarBooking> {
 			calendarBooking.getCalendarBookingId());
 
 		if (calendarBooking.isInTrash()) {
+<<<<<<< HEAD
 			calendarBookingId = _trashHelper.getOriginalTitle(
 				calendarBookingId);
+=======
+			calendarBookingId = TrashUtil.getOriginalTitle(calendarBookingId);
+>>>>>>> compatible
 		}
 
 		document.addKeyword("calendarBookingId", calendarBookingId);
@@ -209,6 +260,7 @@ public class CalendarBookingIndexer extends BaseIndexer<CalendarBooking> {
 		Document document, Locale locale, String snippet,
 		PortletRequest portletRequest, PortletResponse portletResponse) {
 
+<<<<<<< HEAD
 		Locale snippetLocale = getSnippetLocale(document, locale);
 
 		Locale defaultLocale = LocaleUtil.fromLanguageId(
@@ -249,6 +301,10 @@ public class CalendarBookingIndexer extends BaseIndexer<CalendarBooking> {
 		description = HtmlUtil.extractText(description);
 
 		Summary summary = new Summary(snippetLocale, title, description);
+=======
+		Summary summary = createSummary(
+			document, Field.TITLE, Field.DESCRIPTION);
+>>>>>>> compatible
 
 		summary.setMaxContentLength(200);
 
@@ -260,8 +316,12 @@ public class CalendarBookingIndexer extends BaseIndexer<CalendarBooking> {
 		int status = calendarBooking.getStatus();
 
 		if ((status == CalendarBookingWorkflowConstants.STATUS_APPROVED) ||
+<<<<<<< HEAD
 			(status == CalendarBookingWorkflowConstants.STATUS_MAYBE) ||
 			(status == CalendarBookingWorkflowConstants.STATUS_IN_TRASH)) {
+=======
+			(status == CalendarBookingWorkflowConstants.STATUS_MAYBE)) {
+>>>>>>> compatible
 
 			Document document = getDocument(calendarBooking);
 
@@ -269,7 +329,13 @@ public class CalendarBookingIndexer extends BaseIndexer<CalendarBooking> {
 				getSearchEngineId(), calendarBooking.getCompanyId(), document,
 				isCommitImmediately());
 		}
+<<<<<<< HEAD
 		else if (status == CalendarBookingWorkflowConstants.STATUS_DENIED) {
+=======
+		else if ((status == CalendarBookingWorkflowConstants.STATUS_DENIED) ||
+				 (status == CalendarBookingWorkflowConstants.STATUS_IN_TRASH)) {
+
+>>>>>>> compatible
 			doDelete(calendarBooking);
 		}
 	}
@@ -318,8 +384,12 @@ public class CalendarBookingIndexer extends BaseIndexer<CalendarBooking> {
 
 					int[] statuses = {
 						CalendarBookingWorkflowConstants.STATUS_APPROVED,
+<<<<<<< HEAD
 						CalendarBookingWorkflowConstants.STATUS_MAYBE,
 						CalendarBookingWorkflowConstants.STATUS_IN_TRASH
+=======
+						CalendarBookingWorkflowConstants.STATUS_MAYBE
+>>>>>>> compatible
 					};
 
 					dynamicQuery.add(statusProperty.in(statuses));
@@ -376,7 +446,10 @@ public class CalendarBookingIndexer extends BaseIndexer<CalendarBooking> {
 	@Reference
 	private IndexWriterHelper _indexWriterHelper;
 
+<<<<<<< HEAD
 	@Reference
 	private TrashHelper _trashHelper;
 
+=======
+>>>>>>> compatible
 }

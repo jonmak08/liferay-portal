@@ -114,6 +114,7 @@ public class PortletContainerUtil {
 		ActionResult actionResult = portletContainer.processAction(
 			request, response, portlet);
 
+<<<<<<< HEAD
 		String location = actionResult.getLocation();
 
 		if (Validator.isNull(location) ||
@@ -126,6 +127,16 @@ public class PortletContainerUtil {
 			}
 		}
 
+=======
+		List<Event> events = actionResult.getEvents();
+
+		if (!events.isEmpty()) {
+			_processEvents(request, response, events);
+		}
+
+		String location = actionResult.getLocation();
+
+>>>>>>> compatible
 		if (Validator.isNotNull(location)) {
 			try {
 				response.sendRedirect(location);
@@ -157,6 +168,7 @@ public class PortletContainerUtil {
 		getPortletContainer().processPublicRenderParameters(request, layout);
 	}
 
+<<<<<<< HEAD
 	public static void processPublicRenderParameters(
 		HttpServletRequest request, Layout layout, Portlet portlet) {
 
@@ -164,6 +176,8 @@ public class PortletContainerUtil {
 			request, layout, portlet);
 	}
 
+=======
+>>>>>>> compatible
 	public static void render(
 			HttpServletRequest request, HttpServletResponse response,
 			Portlet portlet)

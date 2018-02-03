@@ -19,7 +19,10 @@
 <%
 boolean showIconLabel = ((Boolean)request.getAttribute("view.jsp-showIconLabel")).booleanValue();
 
+<<<<<<< HEAD
 AssetEntry assetEntry = (AssetEntry)request.getAttribute("view.jsp-assetEntry");
+=======
+>>>>>>> compatible
 AssetRenderer<?> assetRenderer = (AssetRenderer<?>)request.getAttribute("view.jsp-assetRenderer");
 
 boolean showEditURL = ParamUtil.getBoolean(request, "showEditURL", true);
@@ -44,6 +47,7 @@ if (showEditURL && assetRenderer.hasEditPermission(permissionChecker)) {
 
 	editPortletURL = assetRenderer.getURLEdit(liferayPortletRequest, liferayPortletResponse, LiferayWindowState.POP_UP, redirectURL);
 }
+<<<<<<< HEAD
 
 List<AssetEntryAction> assetEntryActions = assetPublisherDisplayContext.getAssetEntryActions(assetEntry.getClassName());
 %>
@@ -101,5 +105,34 @@ List<AssetEntryAction> assetEntryActions = assetPublisherDisplayContext.getAsset
 
 			</c:if>
 		</liferay-ui:icon-menu>
+=======
+%>
+
+<c:if test="<%= editPortletURL != null %>">
+	<div class="pull-right">
+
+		<%
+		editPortletURL.setParameter("hideDefaultSuccessMessage", Boolean.TRUE.toString());
+		editPortletURL.setParameter("showHeader", Boolean.FALSE.toString());
+
+		Map<String, Object> data = new HashMap<String, Object>();
+
+		data.put("destroyOnHide", true);
+		data.put("id", HtmlUtil.escape(portletDisplay.getNamespace()) + "editAsset");
+		data.put("title", LanguageUtil.format(request, "edit-x", HtmlUtil.escape(assetRenderer.getTitle(locale)), false));
+		%>
+
+		<liferay-ui:icon
+			cssClass="asset-actions icon-monospaced visible-interaction"
+			data="<%= data %>"
+			icon="pencil"
+			label="<%= false %>"
+			markupView="lexicon"
+			message='<%= showIconLabel ? LanguageUtil.format(request, "edit-x-x", new Object[] {"hide-accessible", HtmlUtil.escape(assetRenderer.getTitle(locale))}, false) : LanguageUtil.format(request, "edit-x", HtmlUtil.escape(assetRenderer.getTitle(locale)), false) %>'
+			method="get"
+			url="<%= editPortletURL.toString() %>"
+			useDialog="<%= true %>"
+		/>
+>>>>>>> compatible
 	</div>
 </c:if>

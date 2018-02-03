@@ -14,8 +14,13 @@
 
 package com.liferay.portal.kernel.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.memory.EqualityWeakReference;
 import com.liferay.portal.kernel.exception.LoggedExceptionInInitializerError;
+=======
+import com.liferay.portal.kernel.exception.LoggedExceptionInInitializerError;
+import com.liferay.portal.kernel.memory.EqualityWeakReference;
+>>>>>>> compatible
 
 import java.io.IOException;
 
@@ -83,6 +88,7 @@ public class AggregateClassLoader extends ClassLoader {
 			return;
 		}
 
+<<<<<<< HEAD
 		if (classLoader instanceof AggregateClassLoader) {
 			ClassLoader classLoaderParent = classLoader.getParent();
 
@@ -101,6 +107,24 @@ public class AggregateClassLoader extends ClassLoader {
 		}
 
 		_classLoaderReferences.add(new EqualityWeakReference<>(classLoader));
+=======
+		if ((classLoader instanceof AggregateClassLoader) &&
+			classLoader.getParent().equals(getParent())) {
+
+			AggregateClassLoader aggregateClassLoader =
+				(AggregateClassLoader)classLoader;
+
+			for (ClassLoader curClassLoader :
+					aggregateClassLoader.getClassLoaders()) {
+
+				addClassLoader(curClassLoader);
+			}
+		}
+		else {
+			_classLoaderReferences.add(
+				new EqualityWeakReference<>(classLoader));
+		}
+>>>>>>> compatible
 	}
 
 	public void addClassLoader(ClassLoader... classLoaders) {

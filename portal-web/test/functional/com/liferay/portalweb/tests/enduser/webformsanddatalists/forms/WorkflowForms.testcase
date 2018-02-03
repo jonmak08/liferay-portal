@@ -1,8 +1,13 @@
 <definition component-name="portal-workflow">
+<<<<<<< HEAD
 	<property name="custom.properties" value="minifier.enabled=true" />
 	<property name="portal.release" value="true" />
 	<property name="portal.upstream" value="true" />
 	<property name="testray.component.names" value="Dynamic Data Lists,Workflow,Forms" />
+=======
+	<property name="portal.release" value="true" />
+	<property name="portal.upstream" value="true" />
+>>>>>>> compatible
 	<property name="testray.main.component.name" value="Workflow" />
 
 	<set-up>
@@ -29,15 +34,23 @@
 			<else>
 				<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 				<execute macro="ProductMenu#gotoPortlet">
 					<var name="category" value="Content" />
 					<var name="panel" value="Site Administration" />
+=======
+				<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 					<var name="portlet" value="Forms" />
 				</execute>
 
 				<execute macro="FormsAdmin#teardownForms" />
 
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP" />
+=======
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 			</else>
 		</if>
 	</tear-down>
@@ -47,9 +60,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Forms" />
 		</execute>
 
@@ -67,7 +84,11 @@
 			<var name="fieldValue" value="Text Field" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Form#closeSidebar" />
+=======
+		<execute macro="FormFields#save" />
+>>>>>>> compatible
 
 		<execute macro="FormsAdminNavigator#gotoSettings" />
 
@@ -77,19 +98,33 @@
 
 		<execute macro="Form#save" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Forms" />
 		</execute>
 
 		<execute macro="FormsAdminNavigator#gotoEditFormByName" />
 
+<<<<<<< HEAD
 		<execute macro="Form#publishForm" />
 
 		<execute macro="FormsAdminNavigator#openPublishURL">
 			<var name="publishFormURL" value="${publishedFormPublicURL}" />
 		</execute>
+=======
+		<execute macro="FormsAdminNavigator#gotoPublish" />
+
+		<execute macro="Form#clickPublishSwitcher" />
+
+		<execute macro="Button#clickConfirm" />
+
+		<execute macro="FormsAdminNavigator#openPublishURL" />
+>>>>>>> compatible
 
 		<execute macro="FormFields#editText">
 			<var name="fieldName" value="TextField" />
@@ -102,9 +137,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Forms" />
 		</execute>
 
@@ -116,12 +155,17 @@
 			<var name="workflowStatus" value="Pending" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="My Workflow Tasks" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#assignToMeTaskByDetails">
@@ -142,12 +186,17 @@
 			<var name="workflowTask" value="Review" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="My Workflow Tasks" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#approveTaskByActions">
@@ -162,9 +211,13 @@
 			<var name="workflowTask" value="Review" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Forms" />
 		</execute>
 
@@ -180,11 +233,19 @@
 	<command name="ViewDateAssetDetails" priority="5">
 		<description message="This is a use case LPS-61197." />
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<property name="portal.acceptance" value="true" />
+
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Forms" />
 		</execute>
 
@@ -202,6 +263,7 @@
 			<var name="fieldValue" value="Date" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Form#closeSidebar" />
 
 		<execute macro="Form#save" />
@@ -209,6 +271,13 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="FormFields#save" />
+
+		<execute macro="Form#save" />
+
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Forms" />
 		</execute>
 
@@ -222,6 +291,7 @@
 
 		<execute macro="Form#save" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -229,6 +299,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Form Page" />
 		</execute>
 
@@ -265,12 +338,17 @@
 
 		<execute macro="Alert#viewSuccessMessage" />
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="My Workflow Tasks" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#assignToMeTaskByDetails">
@@ -298,12 +376,17 @@
 			<var name="fieldName" value="Date" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="My Workflow Tasks" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#approveTaskByActions">
@@ -319,14 +402,22 @@
 		</execute>
 	</command>
 
+<<<<<<< HEAD
 	<command name="ViewEntryWithConditionalVisibilityFromSelectAndRadio" priority="5">
+=======
+	<command name="ViewEntryWithConditionalVisibilityFromSelectAndRadio" priority="3">
+>>>>>>> compatible
 		<description message="This is a use case for LPS-65270." />
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Forms" />
 		</execute>
 
@@ -349,7 +440,11 @@
 			<var name="optionValue" value="Select 1" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Form#closeSidebar" />
+=======
+		<execute macro="FormFields#save" />
+>>>>>>> compatible
 
 		<execute macro="Form#gotoAddField">
 			<var name="fieldType" value="Text Field" />
@@ -359,7 +454,18 @@
 			<var name="fieldValue" value="Text One" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Form#closeSidebar" />
+=======
+		<execute macro="FormFields#enableAdvancedOptions" />
+
+		<execute macro="FormFields#editText">
+			<var name="fieldName" value="visibility" />
+			<var name="fieldValue" value="equals(Select, &quot;Select1&quot;)" />
+		</execute>
+
+		<execute macro="FormFields#save" />
+>>>>>>> compatible
 
 		<execute macro="Form#gotoAddField">
 			<var name="fieldType" value="Single Selection" />
@@ -374,7 +480,11 @@
 			<var name="optionValue" value="Option 1" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Form#closeSidebar" />
+=======
+		<execute macro="FormFields#save" />
+>>>>>>> compatible
 
 		<execute macro="Form#gotoAddField">
 			<var name="fieldType" value="Text Field" />
@@ -384,6 +494,7 @@
 			<var name="fieldValue" value="Text Two" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Form#closeSidebar" />
 
 		<execute macro="FormsAdminNavigator#gotoRules" />
@@ -425,6 +536,16 @@
 		<execute macro="FormRules#save" />
 
 		<execute macro="FormsAdminNavigator#gotoFormBuilder" />
+=======
+		<execute macro="FormFields#enableAdvancedOptions" />
+
+		<execute macro="FormFields#editText">
+			<var name="fieldName" value="visibility" />
+			<var name="fieldValue" value="equals(Radio, &quot;Option1&quot;)" />
+		</execute>
+
+		<execute macro="FormFields#save" />
+>>>>>>> compatible
 
 		<execute macro="FormsAdminNavigator#gotoSettings" />
 
@@ -434,6 +555,7 @@
 
 		<execute macro="Form#save" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -441,6 +563,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Form Page" />
 		</execute>
 
@@ -499,12 +624,17 @@
 
 		<execute macro="Alert#viewSuccessMessage" />
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="My Workflow Tasks" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#assignToMeTaskByDetails">
@@ -551,12 +681,17 @@
 			<var name="fieldValue" value="Text Two Input" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="My Workflow Tasks" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#approveTaskByActions">
@@ -567,9 +702,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Forms" />
 		</execute>
 

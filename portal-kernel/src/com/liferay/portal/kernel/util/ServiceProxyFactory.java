@@ -14,10 +14,15 @@
 
 package com.liferay.portal.kernel.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.memory.FinalizeAction;
 import com.liferay.petra.memory.FinalizeManager;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+=======
+import com.liferay.portal.kernel.memory.FinalizeAction;
+import com.liferay.portal.kernel.memory.FinalizeManager;
+>>>>>>> compatible
 import com.liferay.registry.Registry;
 import com.liferay.registry.RegistryUtil;
 import com.liferay.registry.ServiceTracker;
@@ -30,7 +35,10 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 
+<<<<<<< HEAD
 import java.util.concurrent.TimeUnit;
+=======
+>>>>>>> compatible
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -141,8 +149,12 @@ public class ServiceProxyFactory {
 
 			T awaitService = (T)ProxyUtil.newProxyInstance(
 				serviceClass.getClassLoader(), new Class<?>[] {serviceClass},
+<<<<<<< HEAD
 				new AwaitServiceInvocationHandler(
 					serviceClass, filterString, field, realServiceSet, lock));
+=======
+				new AwaitServiceInvocationHandler(field, realServiceSet, lock));
+>>>>>>> compatible
 
 			field.set(declaringInstance, awaitService);
 
@@ -210,6 +222,7 @@ public class ServiceProxyFactory {
 		return serviceTracker;
 	}
 
+<<<<<<< HEAD
 	private static final long _TIMEOUT = GetterUtil.getLong(
 		System.getProperty(ServiceProxyFactory.class.getName() + ".timeout"),
 		60000);
@@ -217,6 +230,8 @@ public class ServiceProxyFactory {
 	private static final Log _log = LogFactoryUtil.getLog(
 		ServiceProxyFactory.class);
 
+=======
+>>>>>>> compatible
 	private static class AwaitServiceInvocationHandler
 		implements InvocationHandler {
 
@@ -236,6 +251,7 @@ public class ServiceProxyFactory {
 						return method.invoke(service, arguments);
 					}
 
+<<<<<<< HEAD
 					if (!_realServiceSet.await(
 							_TIMEOUT, TimeUnit.MILLISECONDS)) {
 
@@ -264,6 +280,9 @@ public class ServiceProxyFactory {
 
 						_log.error(sb.toString());
 					}
+=======
+					_realServiceSet.await();
+>>>>>>> compatible
 				}
 				finally {
 					_lock.unlock();
@@ -272,21 +291,31 @@ public class ServiceProxyFactory {
 		}
 
 		private AwaitServiceInvocationHandler(
+<<<<<<< HEAD
 			Class<?> serviceClass, String filterString, Field field,
 			Condition realServiceSet, Lock lock) {
 
 			_serviceClass = serviceClass;
 			_filterString = filterString;
+=======
+			Field field, Condition realServiceSet, Lock lock) {
+
+>>>>>>> compatible
 			_field = field;
 			_realServiceSet = realServiceSet;
 			_lock = lock;
 		}
 
 		private final Field _field;
+<<<<<<< HEAD
 		private final String _filterString;
 		private final Lock _lock;
 		private final Condition _realServiceSet;
 		private final Class<?> _serviceClass;
+=======
+		private final Lock _lock;
+		private final Condition _realServiceSet;
+>>>>>>> compatible
 
 	}
 

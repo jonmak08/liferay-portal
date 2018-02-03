@@ -16,11 +16,16 @@ package com.liferay.petra.json.web.service.client;
 
 import aQute.bnd.annotation.ProviderType;
 
+<<<<<<< HEAD
 import com.fasterxml.jackson.databind.Module;
 
 import java.security.KeyStore;
 
 import java.util.List;
+=======
+import java.security.KeyStore;
+
+>>>>>>> compatible
 import java.util.Map;
 
 /**
@@ -33,12 +38,17 @@ public interface JSONWebServiceClient {
 	public void destroy();
 
 	public String doDelete(String url, Map<String, String> parameters)
+<<<<<<< HEAD
 		throws JSONWebServiceInvocationException,
 			   JSONWebServiceTransportException;
+=======
+		throws JSONWebServiceTransportException;
+>>>>>>> compatible
 
 	public String doDelete(
 			String url, Map<String, String> parameters,
 			Map<String, String> headers)
+<<<<<<< HEAD
 		throws JSONWebServiceInvocationException,
 			   JSONWebServiceTransportException;
 
@@ -49,10 +59,17 @@ public interface JSONWebServiceClient {
 	public String doGet(String url, Map<String, String> parameters)
 		throws JSONWebServiceInvocationException,
 			   JSONWebServiceTransportException;
+=======
+		throws JSONWebServiceTransportException;
+
+	public String doGet(String url, Map<String, String> parameters)
+		throws JSONWebServiceTransportException;
+>>>>>>> compatible
 
 	public String doGet(
 			String url, Map<String, String> parameters,
 			Map<String, String> headers)
+<<<<<<< HEAD
 		throws JSONWebServiceInvocationException,
 			   JSONWebServiceTransportException;
 
@@ -82,10 +99,17 @@ public interface JSONWebServiceClient {
 	public String doPost(String url, Map<String, String> parameters)
 		throws JSONWebServiceInvocationException,
 			   JSONWebServiceTransportException;
+=======
+		throws JSONWebServiceTransportException;
+
+	public String doPost(String url, Map<String, String> parameters)
+		throws JSONWebServiceTransportException;
+>>>>>>> compatible
 
 	public String doPost(
 			String url, Map<String, String> parameters,
 			Map<String, String> headers)
+<<<<<<< HEAD
 		throws JSONWebServiceInvocationException,
 			   JSONWebServiceTransportException;
 
@@ -116,16 +140,33 @@ public interface JSONWebServiceClient {
 	public String doPut(String url, Map<String, String> parameters)
 		throws JSONWebServiceInvocationException,
 			   JSONWebServiceTransportException;
+=======
+		throws JSONWebServiceTransportException;
+
+	public String doPostAsJSON(String url, String json)
+		throws JSONWebServiceTransportException;
+
+	public String doPostAsJSON(
+			String url, String json, Map<String, String> headers)
+		throws JSONWebServiceTransportException;
+
+	public String doPut(String url, Map<String, String> parameters)
+		throws JSONWebServiceTransportException;
+>>>>>>> compatible
 
 	public String doPut(
 			String url, Map<String, String> parameters,
 			Map<String, String> headers)
+<<<<<<< HEAD
 		throws JSONWebServiceInvocationException,
 			   JSONWebServiceTransportException;
 
 	public String doPut(String url, String... parametersArray)
 		throws JSONWebServiceInvocationException,
 			   JSONWebServiceTransportException;
+=======
+		throws JSONWebServiceTransportException;
+>>>>>>> compatible
 
 	public String getHostName();
 
@@ -133,8 +174,11 @@ public interface JSONWebServiceClient {
 
 	public String getProtocol();
 
+<<<<<<< HEAD
 	public void registerModule(Module module);
 
+=======
+>>>>>>> compatible
 	public void resetHttpClient();
 
 	public void setHostName(String hostName);
@@ -145,6 +189,7 @@ public interface JSONWebServiceClient {
 
 	public void setLogin(String login);
 
+<<<<<<< HEAD
 	public void setOAuthAccessSecret(String oAuthAccessSecret);
 
 	public void setOAuthAccessToken(String oAuthAccessToken);
@@ -153,6 +198,8 @@ public interface JSONWebServiceClient {
 
 	public void setOAuthConsumerSecret(String oAuthConsumerSecret);
 
+=======
+>>>>>>> compatible
 	public void setPassword(String password);
 
 	public void setProtocol(String protocol);

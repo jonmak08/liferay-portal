@@ -21,6 +21,7 @@
 - [LPS-74368]: Remove all dependency exclusions from the `jspCTool`
 configuration's `com.liferay.jasper.jspc` default dependency.
 
+<<<<<<< HEAD
 ## 2.0.3 - 2017-11-30
 
 ### Fixed
@@ -32,3 +33,9 @@ changed after applying the plugin.
 [LPS-71048]: https://issues.liferay.com/browse/LPS-71048
 [LPS-74368]: https://issues.liferay.com/browse/LPS-74368
 [LPS-76202]: https://issues.liferay.com/browse/LPS-76202
+=======
+[LPS-67573]: https://issues.liferay.com/browse/LPS-67573
+[LPS-70677]: https://issues.liferay.com/browse/LPS-70677
+[LPS-71048]: https://issues.liferay.com/browse/LPS-71048
+[LPS-74368]: https://issues.liferay.com/browse/LPS-74368
+>>>>>>> compatible

@@ -104,8 +104,12 @@ public class MetaInfoCacheServletResponseTest {
 		Set<Header> cookieHeaders = headers.get(HttpHeaders.SET_COOKIE);
 
 		Assert.assertEquals(cookieHeaders.toString(), 1, cookieHeaders.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			cookieHeaders.toString(), cookieHeaders.contains(cookieHeader1));
+=======
+		Assert.assertTrue(cookieHeaders.contains(cookieHeader1));
+>>>>>>> compatible
 
 		Assert.assertEquals(cookies.toString(), 1, cookies.size());
 		Assert.assertEquals(cookie1, cookies.get(0));
@@ -115,16 +119,24 @@ public class MetaInfoCacheServletResponseTest {
 
 		Assert.assertEquals(
 			setCookieHeaders.toString(), 1, setCookieHeaders.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			setCookieHeaders.toString(),
 			setCookieHeaders.contains(cookieHeader1.toString()));
+=======
+		Assert.assertTrue(setCookieHeaders.contains(cookieHeader1.toString()));
+>>>>>>> compatible
 
 		Assert.assertEquals(
 			cookieHeader1.toString(),
 			metaInfoCacheServletResponse.getHeader(HttpHeaders.SET_COOKIE));
+<<<<<<< HEAD
 		Assert.assertTrue(
 			headerNames.toString(),
 			headerNames.contains(HttpHeaders.SET_COOKIE));
+=======
+		Assert.assertTrue(headerNames.contains(HttpHeaders.SET_COOKIE));
+>>>>>>> compatible
 
 		// Second add
 
@@ -142,8 +154,12 @@ public class MetaInfoCacheServletResponseTest {
 		cookieHeaders = headers.get(HttpHeaders.SET_COOKIE);
 
 		Assert.assertEquals(cookieHeaders.toString(), 2, cookieHeaders.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			cookieHeaders.toString(), cookieHeaders.contains(cookieHeader2));
+=======
+		Assert.assertTrue(cookieHeaders.contains(cookieHeader2));
+>>>>>>> compatible
 
 		Assert.assertEquals(cookies.toString(), 2, cookies.size());
 		Assert.assertEquals(cookie2, cookies.get(1));
@@ -153,9 +169,13 @@ public class MetaInfoCacheServletResponseTest {
 
 		Assert.assertEquals(
 			setCookieHeaders.toString(), 2, setCookieHeaders.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			setCookieHeaders.toString(),
 			setCookieHeaders.contains(cookieHeader2.toString()));
+=======
+		Assert.assertTrue(setCookieHeaders.contains(cookieHeader2.toString()));
+>>>>>>> compatible
 	}
 
 	@Test
@@ -192,8 +212,12 @@ public class MetaInfoCacheServletResponseTest {
 		Set<Header> dateHeaders1 = headers.get("date1");
 
 		Assert.assertEquals(dateHeaders1.toString(), 1, dateHeaders1.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			dateHeaders1.toString(), dateHeaders1.contains(new Header(1L)));
+=======
+		Assert.assertTrue(dateHeaders1.contains(new Header(1L)));
+>>>>>>> compatible
 
 		Assert.assertEquals(
 			objectValuePairs.toString(), 1, objectValuePairs.size());
@@ -211,8 +235,12 @@ public class MetaInfoCacheServletResponseTest {
 		dateHeaders1 = headers.get("date1");
 
 		Assert.assertEquals(dateHeaders1.toString(), 2, dateHeaders1.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			dateHeaders1.toString(), dateHeaders1.contains(new Header(2L)));
+=======
+		Assert.assertTrue(dateHeaders1.contains(new Header(2L)));
+>>>>>>> compatible
 
 		Assert.assertEquals(
 			objectValuePairs.toString(), 2, objectValuePairs.size());
@@ -230,8 +258,12 @@ public class MetaInfoCacheServletResponseTest {
 		Set<Header> dateHeaders2 = headers.get("date2");
 
 		Assert.assertEquals(dateHeaders2.toString(), 1, dateHeaders2.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			dateHeaders2.toString(), dateHeaders2.contains(new Header(1L)));
+=======
+		Assert.assertTrue(dateHeaders2.contains(new Header(1L)));
+>>>>>>> compatible
 
 		Assert.assertEquals(
 			objectValuePairs.toString(), 3, objectValuePairs.size());
@@ -297,8 +329,12 @@ public class MetaInfoCacheServletResponseTest {
 		Set<Header> headers1 = headers.get("name1");
 
 		Assert.assertEquals(headers1.toString(), 1, headers1.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			headers1.toString(), headers1.contains(new Header("value1")));
+=======
+		Assert.assertTrue(headers1.contains(new Header("value1")));
+>>>>>>> compatible
 
 		Assert.assertEquals(
 			objectValuePairs.toString(), 1, objectValuePairs.size());
@@ -316,8 +352,12 @@ public class MetaInfoCacheServletResponseTest {
 		headers1 = headers.get("name1");
 
 		Assert.assertEquals(headers1.toString(), 2, headers1.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			headers1.toString(), headers1.contains(new Header("value2")));
+=======
+		Assert.assertTrue(headers1.contains(new Header("value2")));
+>>>>>>> compatible
 
 		Assert.assertEquals(
 			objectValuePairs.toString(), 2, objectValuePairs.size());
@@ -335,8 +375,12 @@ public class MetaInfoCacheServletResponseTest {
 		Set<Header> headers2 = headers.get("name2");
 
 		Assert.assertEquals(headers2.toString(), 1, headers2.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			headers2.toString(), headers2.contains(new Header("value1")));
+=======
+		Assert.assertTrue(headers2.contains(new Header("value1")));
+>>>>>>> compatible
 
 		Assert.assertEquals(
 			objectValuePairs.toString(), 3, objectValuePairs.size());
@@ -379,8 +423,12 @@ public class MetaInfoCacheServletResponseTest {
 		Set<Header> intHeaders1 = headers.get("name1");
 
 		Assert.assertEquals(intHeaders1.toString(), 1, intHeaders1.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			intHeaders1.toString(), intHeaders1.contains(new Header(1)));
+=======
+		Assert.assertTrue(intHeaders1.contains(new Header(1)));
+>>>>>>> compatible
 
 		Assert.assertEquals(
 			objectValuePairs.toString(), 1, objectValuePairs.size());
@@ -398,8 +446,12 @@ public class MetaInfoCacheServletResponseTest {
 		intHeaders1 = headers.get("name1");
 
 		Assert.assertEquals(intHeaders1.toString(), 2, intHeaders1.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			intHeaders1.toString(), intHeaders1.contains(new Header(2)));
+=======
+		Assert.assertTrue(intHeaders1.contains(new Header(2)));
+>>>>>>> compatible
 
 		Assert.assertEquals(
 			objectValuePairs.toString(), 2, objectValuePairs.size());
@@ -417,8 +469,12 @@ public class MetaInfoCacheServletResponseTest {
 		Set<Header> intHeaders2 = headers.get("name2");
 
 		Assert.assertEquals(intHeaders2.toString(), 1, intHeaders2.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			intHeaders2.toString(), intHeaders2.contains(new Header(1)));
+=======
+		Assert.assertTrue(intHeaders2.contains(new Header(1)));
+>>>>>>> compatible
 
 		Assert.assertEquals(
 			objectValuePairs.toString(), 3, objectValuePairs.size());
@@ -556,16 +612,25 @@ public class MetaInfoCacheServletResponseTest {
 		Set<Header> headers1 = headers.get("name1");
 
 		Assert.assertEquals(headers1.toString(), 2, headers1.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			headers1.toString(), headers1.contains(new Header("value1")));
 		Assert.assertTrue(
 			headers1.toString(), headers1.contains(new Header("value2")));
+=======
+		Assert.assertTrue(headers1.contains(new Header("value1")));
+		Assert.assertTrue(headers1.contains(new Header("value2")));
+>>>>>>> compatible
 
 		Set<Header> headers2 = headers.get("name2");
 
 		Assert.assertEquals(headers2.toString(), 1, headers2.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			headers2.toString(), headers2.contains(new Header("value1")));
+=======
+		Assert.assertTrue(headers2.contains(new Header("value1")));
+>>>>>>> compatible
 
 		outerMetaInfoCacheServletResponse.finishResponse(false);
 
@@ -576,16 +641,25 @@ public class MetaInfoCacheServletResponseTest {
 		headers1 = headers.get("name1");
 
 		Assert.assertEquals(headers1.toString(), 2, headers1.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			headers1.toString(), headers1.contains(new Header("value1")));
 		Assert.assertTrue(
 			headers1.toString(), headers1.contains(new Header("value2")));
+=======
+		Assert.assertTrue(headers1.contains(new Header("value1")));
+		Assert.assertTrue(headers1.contains(new Header("value2")));
+>>>>>>> compatible
 
 		headers2 = headers.get("name2");
 
 		Assert.assertEquals(headers2.toString(), 1, headers2.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			headers2.toString(), headers2.contains(new Header("value1")));
+=======
+		Assert.assertTrue(headers2.contains(new Header("value1")));
+>>>>>>> compatible
 
 		// Send redirect
 
@@ -1406,8 +1480,12 @@ public class MetaInfoCacheServletResponseTest {
 		Set<Header> dateHeaders1 = headers.get("date1");
 
 		Assert.assertEquals(dateHeaders1.toString(), 1, dateHeaders1.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			dateHeaders1.toString(), dateHeaders1.contains(new Header(1L)));
+=======
+		Assert.assertTrue(dateHeaders1.contains(new Header(1L)));
+>>>>>>> compatible
 
 		Assert.assertEquals(
 			objectValuePairs.toString(), 1, objectValuePairs.size());
@@ -1425,8 +1503,12 @@ public class MetaInfoCacheServletResponseTest {
 		dateHeaders1 = headers.get("date1");
 
 		Assert.assertEquals(dateHeaders1.toString(), 1, dateHeaders1.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			dateHeaders1.toString(), dateHeaders1.contains(new Header(2L)));
+=======
+		Assert.assertTrue(dateHeaders1.contains(new Header(2L)));
+>>>>>>> compatible
 
 		Assert.assertEquals(
 			objectValuePairs.toString(), 2, objectValuePairs.size());
@@ -1444,8 +1526,12 @@ public class MetaInfoCacheServletResponseTest {
 		Set<Header> dateHeaders2 = headers.get("date2");
 
 		Assert.assertEquals(dateHeaders2.toString(), 1, dateHeaders2.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			dateHeaders2.toString(), dateHeaders2.contains(new Header(1L)));
+=======
+		Assert.assertTrue(dateHeaders2.contains(new Header(1L)));
+>>>>>>> compatible
 
 		Assert.assertEquals(
 			objectValuePairs.toString(), 3, objectValuePairs.size());
@@ -1588,8 +1674,12 @@ public class MetaInfoCacheServletResponseTest {
 		Set<Header> headers1 = headers.get("name1");
 
 		Assert.assertEquals(headers1.toString(), 1, headers1.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			headers1.toString(), headers1.contains(new Header("value1")));
+=======
+		Assert.assertTrue(headers1.contains(new Header("value1")));
+>>>>>>> compatible
 
 		Assert.assertEquals(
 			objectValuePairs.toString(), 1, objectValuePairs.size());
@@ -1607,8 +1697,12 @@ public class MetaInfoCacheServletResponseTest {
 		headers1 = headers.get("name1");
 
 		Assert.assertEquals(headers1.toString(), 1, headers1.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			headers1.toString(), headers1.contains(new Header("value2")));
+=======
+		Assert.assertTrue(headers1.contains(new Header("value2")));
+>>>>>>> compatible
 
 		Assert.assertEquals(
 			objectValuePairs.toString(), 2, objectValuePairs.size());
@@ -1626,8 +1720,12 @@ public class MetaInfoCacheServletResponseTest {
 		Set<Header> headers2 = headers.get("name2");
 
 		Assert.assertEquals(headers2.toString(), 1, headers2.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			headers2.toString(), headers2.contains(new Header("value1")));
+=======
+		Assert.assertTrue(headers2.contains(new Header("value1")));
+>>>>>>> compatible
 
 		Assert.assertEquals(
 			objectValuePairs.toString(), 3, objectValuePairs.size());
@@ -1670,8 +1768,12 @@ public class MetaInfoCacheServletResponseTest {
 		Set<Header> intHeaders1 = headers.get("name1");
 
 		Assert.assertEquals(intHeaders1.toString(), 1, intHeaders1.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			intHeaders1.toString(), intHeaders1.contains(new Header(1)));
+=======
+		Assert.assertTrue(intHeaders1.contains(new Header(1)));
+>>>>>>> compatible
 
 		Assert.assertEquals(
 			objectValuePairs.toString(), 1, objectValuePairs.size());
@@ -1689,8 +1791,12 @@ public class MetaInfoCacheServletResponseTest {
 		intHeaders1 = headers.get("name1");
 
 		Assert.assertEquals(intHeaders1.toString(), 1, intHeaders1.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			intHeaders1.toString(), intHeaders1.contains(new Header(2)));
+=======
+		Assert.assertTrue(intHeaders1.contains(new Header(2)));
+>>>>>>> compatible
 
 		Assert.assertEquals(
 			objectValuePairs.toString(), 2, objectValuePairs.size());
@@ -1708,8 +1814,12 @@ public class MetaInfoCacheServletResponseTest {
 		Set<Header> intHeaders2 = headers.get("name2");
 
 		Assert.assertEquals(intHeaders2.toString(), 1, intHeaders2.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			intHeaders2.toString(), intHeaders2.contains(new Header(1)));
+=======
+		Assert.assertTrue(intHeaders2.contains(new Header(1)));
+>>>>>>> compatible
 
 		Assert.assertEquals(
 			objectValuePairs.toString(), 3, objectValuePairs.size());

@@ -68,11 +68,21 @@ MBCategoryDisplay categoryDisplay = new MBCategoryDisplayImpl(scopeGroupId, cate
 				/>
 
 				<liferay-ui:search-container-row
+<<<<<<< HEAD
 					className="com.liferay.message.boards.model.MBStatsUser"
 					keyProperty="statsUserId"
 					modelVar="statsUser"
 				>
 					<%@ include file="/message_boards/top_posters_user_display.jspf" %>
+=======
+					className="com.liferay.message.boards.kernel.model.MBStatsUser"
+					keyProperty="statsUserId"
+					modelVar="statsUser"
+				>
+					<liferay-ui:search-container-column-jsp
+						path="/message_boards/top_posters_user_display.jsp"
+					/>
+>>>>>>> compatible
 				</liferay-ui:search-container-row>
 
 				<liferay-ui:search-iterator displayStyle="descriptive" markupView="lexicon" />

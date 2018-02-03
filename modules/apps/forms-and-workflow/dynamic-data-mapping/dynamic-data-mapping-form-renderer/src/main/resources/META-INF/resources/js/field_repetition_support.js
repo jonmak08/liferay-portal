@@ -1,6 +1,7 @@
 AUI.add(
 	'liferay-ddm-form-renderer-field-repetition',
 	function(A) {
+<<<<<<< HEAD
 		var AObject = A.Object;
 
 		var Lang = A.Lang;
@@ -11,6 +12,14 @@ AUI.add(
 
 		var FieldTypes = Renderer.FieldTypes;
 
+=======
+		var Renderer = Liferay.DDM.Renderer;
+
+		var FieldTypes = Renderer.FieldTypes;
+
+		var Util = Renderer.Util;
+
+>>>>>>> compatible
 		var SELECTOR_REPEAT_BUTTONS = '.lfr-ddm-form-field-repeatable-add-button, .lfr-ddm-form-field-repeatable-delete-button';
 
 		var TPL_REPEATABLE_ADD = '<a class="icon-plus-sign lfr-ddm-form-field-repeatable-add-button" href="javascript:;"></a>';
@@ -29,7 +38,10 @@ AUI.add(
 			},
 
 			repeatedIndex: {
+<<<<<<< HEAD
 				state: true,
+=======
+>>>>>>> compatible
 				value: 0
 			},
 
@@ -44,6 +56,10 @@ AUI.add(
 
 				if (instance.get('repeatable')) {
 					instance._eventHandlers.push(
+<<<<<<< HEAD
+=======
+						instance.after('repeatedIndexChange', instance._afterRepeatableIndexChange),
+>>>>>>> compatible
 						instance.after('render', instance._afterRepeatableFieldRender)
 					);
 				}
@@ -52,6 +68,7 @@ AUI.add(
 			destructor: function() {
 				var instance = this;
 
+<<<<<<< HEAD
 				instance._removeCurrentFieldFromRepetitionList();
 
 				instance._syncOtherRepeatableFields();
@@ -110,6 +127,17 @@ AUI.add(
 				var fieldClassName = fieldType.get('className');
 
 				return AObject.getValue(window, fieldClassName.split('.'));
+=======
+				var repetitions = instance.get('repetitions');
+
+				var index = repetitions.indexOf(instance);
+
+				if (index > -1) {
+					repetitions.splice(index, 1);
+				}
+
+				repetitions.forEach(A.bind('_syncRepeatableField', instance));
+>>>>>>> compatible
 			},
 
 			getRepeatedSiblings: function() {
@@ -128,7 +156,10 @@ AUI.add(
 				var instance = this;
 
 				instance.renderRepeatableUI();
+<<<<<<< HEAD
 
+=======
+>>>>>>> compatible
 				instance.syncRepeatablelUI();
 			},
 
@@ -145,6 +176,7 @@ AUI.add(
 			repeat: function() {
 				var instance = this;
 
+<<<<<<< HEAD
 				var copiedField = instance.copy();
 
 				var repetitions = instance.getRepeatedSiblings();
@@ -168,6 +200,52 @@ AUI.add(
 				).forEach(A.bind('_syncRepeatableField', instance));
 
 				return copiedField;
+=======
+				var repetitions = instance.get('repetitions');
+				var type = instance.get('type');
+
+				var fieldType = FieldTypes.get(type);
+				var settings = fieldType.get('settings');
+
+				var config = settings.fields.reduce(
+					function(prev, item) {
+						prev[item.name] = instance.get(item.name);
+
+						return prev;
+					},
+					{}
+				);
+
+				var fieldClass = Util.getFieldClass(type);
+
+				var field = new fieldClass(
+					A.merge(
+						config,
+						{
+							enableEvaluations: instance.get('enableEvaluations'),
+							locale: instance.get('locale'),
+							parent: instance.get('parent'),
+							portletNamespace: instance.get('portletNamespace'),
+							repeatedIndex: instance.getRepeatedSiblings().length,
+							repetitions: repetitions,
+							type: type,
+							visible: instance.get('visible')
+						}
+					)
+				).render();
+
+				var index = repetitions.indexOf(instance) + 1;
+
+				repetitions.splice(index, 0, field);
+
+				var container = instance.get('container');
+
+				container.insert(field.get('container'), 'after');
+
+				repetitions.forEach(A.bind('_syncRepeatableField', instance));
+
+				return field;
+>>>>>>> compatible
 			},
 
 			syncRepeatablelUI: function() {
@@ -196,6 +274,15 @@ AUI.add(
 				}
 			},
 
+<<<<<<< HEAD
+=======
+			_afterRepeatableIndexChange: function() {
+				var instance = this;
+
+				instance.render();
+			},
+
+>>>>>>> compatible
 			_handleToolbarClick: function(event) {
 				var instance = this;
 
@@ -211,6 +298,7 @@ AUI.add(
 				event.stopPropagation();
 			},
 
+<<<<<<< HEAD
 			_removeCurrentFieldFromRepetitionList: function() {
 				var instance = this;
 
@@ -280,6 +368,19 @@ AUI.add(
 				}
 
 				config.value = config.context.value = value;
+=======
+			_syncRepeatableField: function(field) {
+				var instance = this;
+
+				var repeatedSiblings = instance.getRepeatedSiblings();
+
+				var value = field.getValue();
+
+				field.set('repeatedIndex', repeatedSiblings.indexOf(field));
+				field.set('repetitions', repeatedSiblings);
+
+				field.setValue(value);
+>>>>>>> compatible
 			},
 
 			_valueRepetitions: function() {

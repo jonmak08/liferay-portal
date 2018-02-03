@@ -32,6 +32,7 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
 )
 public interface SystemLDAPConfiguration extends CompanyScopedConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(deflt = "0", name = "company-id", required = false)
 	@Override
 	public long companyId();
@@ -58,10 +59,30 @@ public interface SystemLDAPConfiguration extends CompanyScopedConfiguration {
 		deflt = "1000", description = "range-size-help", name = "range-size",
 		required = false
 	)
+=======
+	@Meta.AD(deflt = "0", required = false)
+	@Override
+	public long companyId();
+
+	@Meta.AD(deflt = "com.sun.jndi.ldap.LdapCtxFactory", required = false)
+	public String factoryInitial();
+
+	@Meta.AD(
+		deflt = "follow", optionValues = {"follow", "ignore", "throws"},
+		required = false
+	)
+	public String referral();
+
+	@Meta.AD(deflt = "1000", description = "page-size-help", required = false)
+	public int pageSize();
+
+	@Meta.AD(deflt = "1000", description = "range-size-help", required = false)
+>>>>>>> compatible
 	public int rangeSize();
 
 	@Meta.AD(
 		deflt = "com.sun.jndi.ldap.connect.pool=true|com.sun.jndi.ldap.connect.timeout=500|com.sun.jndi.ldap.read.timeout=15000",
+<<<<<<< HEAD
 		name = "connection-properties", required = false
 	)
 	public String[] connectionProperties();
@@ -105,6 +126,31 @@ public interface SystemLDAPConfiguration extends CompanyScopedConfiguration {
 		deflt = "retry limit", name = "error-user-lockout-keywords",
 		required = false
 	)
+=======
+		required = false
+	)
+	public String[] connectionProperties();
+
+	@Meta.AD(deflt = "age", required = false)
+	public String[] errorPasswordAgeKeywords();
+
+	@Meta.AD(deflt = "expired", required = false)
+	public String[] errorPasswordExpiredKeywords();
+
+	@Meta.AD(deflt = "history", required = false)
+	public String[] errorPasswordHistoryKeywords();
+
+	@Meta.AD(deflt = "not allowed to change", required = false)
+	public String[] errorPasswordNotChangeableKeywords();
+
+	@Meta.AD(deflt = "syntax", required = false)
+	public String[] errorPasswordSyntaxKeywords();
+
+	@Meta.AD(deflt = "trivial", required = false)
+	public String[] errorPasswordTrivialTextKeywords();
+
+	@Meta.AD(deflt = "retry limit", required = false)
+>>>>>>> compatible
 	public String[] errorUserLockoutKeywords();
 
 }

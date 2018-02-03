@@ -14,7 +14,11 @@
 
 package com.liferay.blogs.web.internal.display.context;
 
+<<<<<<< HEAD
 import com.liferay.blogs.web.internal.configuration.BlogsPortletInstanceConfiguration;
+=======
+import com.liferay.blogs.web.configuration.BlogsPortletInstanceConfiguration;
+>>>>>>> compatible
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.WebKeys;
 

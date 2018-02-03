@@ -139,12 +139,20 @@ public class StagedAssetLinkImpl implements StagedAssetLink {
 
 	@Override
 	public Class<?> getModelClass() {
+<<<<<<< HEAD
 		return _assetLink.getModelClass();
+=======
+		return StagedAssetLink.class;
+>>>>>>> compatible
 	}
 
 	@Override
 	public String getModelClassName() {
+<<<<<<< HEAD
 		return _assetLink.getModelClassName();
+=======
+		return StagedAssetLink.class.getName();
+>>>>>>> compatible
 	}
 
 	@Override

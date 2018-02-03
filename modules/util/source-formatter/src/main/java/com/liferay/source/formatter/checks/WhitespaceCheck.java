@@ -14,9 +14,15 @@
 
 package com.liferay.source.formatter.checks;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
+=======
+import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
+import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
@@ -128,7 +134,10 @@ public class WhitespaceCheck extends BaseFileCheck {
 			linePart = formatIncorrectSyntax(linePart, "( ", "(", false);
 			linePart = formatIncorrectSyntax(linePart, "){", ") {", false);
 			linePart = formatIncorrectSyntax(linePart, "]{", "] {", false);
+<<<<<<< HEAD
 			linePart = formatIncorrectSyntax(linePart, "(\\.\\.\\.( ?))\\w");
+=======
+>>>>>>> compatible
 			linePart = formatIncorrectSyntax(linePart, "\\w(( ?)=)");
 			linePart = formatIncorrectSyntax(linePart, "(=( ?))\\w");
 			linePart = formatIncorrectSyntax(linePart, "for \\(.*(( ?):)");
@@ -254,6 +263,7 @@ public class WhitespaceCheck extends BaseFileCheck {
 		return _allowLeadingSpaces;
 	}
 
+<<<<<<< HEAD
 	protected boolean isAllowTrailingEmptyLines(String fileName) {
 		return false;
 	}
@@ -262,6 +272,10 @@ public class WhitespaceCheck extends BaseFileCheck {
 		String trimmedLine = StringUtil.trim(line);
 
 		if (trimmedLine.length() == 0) {
+=======
+	protected String trimLine(String fileName, String line) {
+		if (line.trim().length() == 0) {
+>>>>>>> compatible
 			return StringPool.BLANK;
 		}
 
@@ -300,10 +314,13 @@ public class WhitespaceCheck extends BaseFileCheck {
 			}
 		}
 
+<<<<<<< HEAD
 		if (isAllowTrailingEmptyLines(fileName) && content.endsWith("\n")) {
 			return sb.toString();
 		}
 
+=======
+>>>>>>> compatible
 		content = sb.toString();
 
 		if (content.endsWith("\n")) {

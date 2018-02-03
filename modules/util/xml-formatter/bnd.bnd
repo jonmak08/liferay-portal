@@ -1,6 +1,10 @@
 Bundle-Name: Liferay XML Formatter
 Bundle-SymbolicName: com.liferay.xml.formatter
+<<<<<<< HEAD
 Bundle-Version: 1.0.6
+=======
+Bundle-Version: 1.0.4
+>>>>>>> compatible
 Import-Package:\
 	!org.apache.maven.plugin.*,\
 	!org.apache.tools.ant.*,\
@@ -8,7 +12,10 @@ Import-Package:\
 	*
 Main-Class: com.liferay.xml.formatter.XMLFormatter
 -includeresource:\
+<<<<<<< HEAD
 	@com.liferay.petra.xml-[0-9]*.jar!/com/liferay/petra/xml/Dom4jUtil.class,\
+=======
+>>>>>>> compatible
 	@com.liferay.portal.kernel-[0-9]*.jar!/com/liferay/portal/kernel/io/unsync/UnsyncByteArrayInputStream.class,\
 	@com.liferay.portal.kernel-[0-9]*.jar!/com/liferay/portal/kernel/io/unsync/UnsyncByteArrayOutputStream.class,\
 	@com.liferay.portal.kernel-[0-9]*.jar!/com/liferay/portal/kernel/io/unsync/UnsyncStringReader.class,\
@@ -33,4 +40,9 @@ Main-Class: com.liferay.xml.formatter.XMLFormatter
 	@com.liferay.portal.kernel-[0-9]*.jar!/com/liferay/portal/kernel/util/StringUtil.class,\
 	@com.liferay.portal.kernel-[0-9]*.jar!/com/liferay/portal/kernel/util/SystemEnv.class,\
 	@com.liferay.portal.kernel-[0-9]*.jar!/com/liferay/portal/kernel/util/SystemProperties.class,\
+<<<<<<< HEAD
 	@com.liferay.portal.kernel-[0-9]*.jar!/com/liferay/portal/kernel/util/Validator.class
+=======
+	@com.liferay.portal.kernel-[0-9]*.jar!/com/liferay/portal/kernel/util/Validator.class,\
+	@com.liferay.util.java-[0-9]*.jar!/com/liferay/util/xml/Dom4jUtil.class
+>>>>>>> compatible

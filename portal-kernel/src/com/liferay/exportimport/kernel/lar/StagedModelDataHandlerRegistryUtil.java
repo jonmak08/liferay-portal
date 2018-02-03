@@ -132,8 +132,12 @@ public class StagedModelDataHandlerRegistryUtil {
 		ServiceRegistration<StagedModelDataHandler<?>> serviceRegistration =
 			registry.registerService(
 				(Class<StagedModelDataHandler<?>>)(Class<?>)
+<<<<<<< HEAD
 					StagedModelDataHandler.class,
 				stagedModelDataHandler);
+=======
+					StagedModelDataHandler.class, stagedModelDataHandler);
+>>>>>>> compatible
 
 		_serviceRegistrations.put(stagedModelDataHandler, serviceRegistration);
 	}

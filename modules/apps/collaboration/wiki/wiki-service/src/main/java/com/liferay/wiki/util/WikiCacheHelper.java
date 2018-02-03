@@ -14,12 +14,19 @@
 
 package com.liferay.wiki.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.cache.MultiVMPool;
 import com.liferay.portal.kernel.cache.PortalCache;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.wiki.engine.WikiEngine;
 import com.liferay.wiki.engine.impl.WikiEngineRenderer;
@@ -89,11 +96,17 @@ public class WikiCacheHelper {
 
 		if (_log.isDebugEnabled()) {
 			_log.debug(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"getDisplay for {", String.valueOf(nodeId), ", ", title,
 					", ", String.valueOf(viewPageURL), ", ",
 					String.valueOf(editPageURLSupplier.get()), "} takes ",
 					String.valueOf(stopWatch.getTime()), " ms"));
+=======
+				"getDisplay for {" + nodeId + ", " + title + ", " +
+					viewPageURL + ", " + editPageURLSupplier.get() +
+						"} takes " + stopWatch.getTime() + " ms");
+>>>>>>> compatible
 		}
 
 		return pageDisplay;
@@ -170,10 +183,15 @@ public class WikiCacheHelper {
 		try {
 			if (_log.isInfoEnabled()) {
 				_log.info(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Get page display for {", String.valueOf(nodeId), ", ",
 						title, ", ", String.valueOf(viewPageURL), ", ",
 						String.valueOf(editPageURL), "}"));
+=======
+					"Get page display for {" + nodeId + ", " + title + ", " +
+						viewPageURL + ", " + editPageURL + "}");
+>>>>>>> compatible
 			}
 
 			return WikiPageLocalServiceUtil.getPageDisplay(
@@ -182,11 +200,16 @@ public class WikiCacheHelper {
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
 				_log.warn(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Unable to get page display for {",
 						String.valueOf(nodeId), ", ", title, ", ",
 						String.valueOf(viewPageURL), ", ",
 						String.valueOf(editPageURL), "}"));
+=======
+					"Unable to get page display for {" + nodeId + ", " + title +
+						", " + viewPageURL + ", " + editPageURL + "}");
+>>>>>>> compatible
 			}
 
 			return null;

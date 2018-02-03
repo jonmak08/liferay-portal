@@ -66,8 +66,13 @@ public class KaleoInstanceTokenLocalServiceImpl
 		kaleoInstanceToken.setUserName(user.getFullName());
 		kaleoInstanceToken.setCreateDate(now);
 		kaleoInstanceToken.setModifiedDate(now);
+<<<<<<< HEAD
 		kaleoInstanceToken.setKaleoDefinitionVersionId(
 			parentKaleoInstanceToken.getKaleoDefinitionVersionId());
+=======
+		kaleoInstanceToken.setKaleoDefinitionId(
+			parentKaleoInstanceToken.getKaleoDefinitionId());
+>>>>>>> compatible
 		kaleoInstanceToken.setKaleoInstanceId(
 			parentKaleoInstanceToken.getKaleoInstanceId());
 		kaleoInstanceToken.setParentKaleoInstanceTokenId(
@@ -120,11 +125,19 @@ public class KaleoInstanceTokenLocalServiceImpl
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void deleteKaleoDefinitionVersionKaleoInstanceTokens(
 		long kaleoDefinitionVersionId) {
 
 		kaleoInstanceTokenPersistence.removeByKaleoDefinitionVersionId(
 			kaleoDefinitionVersionId);
+=======
+	public void deleteKaleoDefinitionKaleoInstanceTokens(
+		long kaleoDefinitionId) {
+
+		kaleoInstanceTokenPersistence.removeByKaleoDefinitionId(
+			kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -205,8 +218,13 @@ public class KaleoInstanceTokenLocalServiceImpl
 		kaleoInstanceToken.setUserName(user.getFullName());
 		kaleoInstanceToken.setCreateDate(now);
 		kaleoInstanceToken.setModifiedDate(now);
+<<<<<<< HEAD
 		kaleoInstanceToken.setKaleoDefinitionVersionId(
 			kaleoInstance.getKaleoDefinitionVersionId());
+=======
+		kaleoInstanceToken.setKaleoDefinitionId(
+			kaleoInstance.getKaleoDefinitionId());
+>>>>>>> compatible
 		kaleoInstanceToken.setKaleoInstanceId(
 			kaleoInstance.getKaleoInstanceId());
 		kaleoInstanceToken.setParentKaleoInstanceTokenId(

@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Product Navigation Product Menu Theme Contributor
 Bundle-SymbolicName: com.liferay.product.navigation.product.menu.theme.contributor
+<<<<<<< HEAD
 Bundle-Version: 2.0.8
+=======
+Bundle-Version: 2.0.7
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Product Navigation
 Liferay-Theme-Contributor-Type: product-navigation-product-menu

@@ -33,7 +33,11 @@ public class StagingAdvicesThreadLocal {
 	}
 
 	private static final ThreadLocal<Boolean> _enabled =
+<<<<<<< HEAD
 		new CentralizedThreadLocal<>(
+=======
+		new AutoResetThreadLocal<>(
+>>>>>>> compatible
 			StagingAdvicesThreadLocal.class + "._enabled", () -> Boolean.TRUE);
 
 }

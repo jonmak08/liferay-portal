@@ -38,7 +38,11 @@
 
 				<execute macro="Workflow#tearDownWorkflowDefinitionsViaWorkflowCP" />
 
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP" />
+=======
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 			</else>
 		</if>
 	</tear-down>
@@ -46,9 +50,13 @@
 	<command name="AddFieldSetWithDocumentsAndMediaField" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -107,9 +115,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -121,9 +133,13 @@
 	<command name="AddProcessWithNewFieldSetAndWorkflowViaSourceTab" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -193,9 +209,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -207,9 +227,13 @@
 	<command name="DeactivateAndActivateWorkflowDefinition" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -250,10 +274,15 @@
 
 		<execute macro="KaleoFormsAdmin#viewNoUnpublishedWorkflowDefinitions" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
 			<var name="portlet" value="Workflow" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+			<var name="portlet" value="Workflow Definition" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#reactivateInactiveWorkflowDefinition">
@@ -262,9 +291,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -287,9 +320,15 @@
 		<var name="key_workflowDefinitionTitle" value="Single Approver" />
 
 		<execute function="AssertTextEquals" locator1="KaleoFormsAdminEditProcess#WORKFLOW_TABLE_TITLE" value1="Single Approver" />
+<<<<<<< HEAD
 
 		<var name="key_rowEntry" value="Single Approver" />
 
+=======
+
+		<var name="key_rowEntry" value="Single Approver" />
+
+>>>>>>> compatible
 		<execute function="AssertElementPresent" locator1="Icon#ROW_VERTICAL_ELLIPSIS" />
 
 		<execute macro="KaleoFormsAdmin#viewNoUnpublishedWorkflowDefinitions" />
@@ -298,9 +337,13 @@
 	<command name="DeactivateAndDeleteWorkflowDefinition" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -356,10 +399,15 @@
 
 		<execute macro="KaleoFormsAdmin#viewNoUnpublishedWorkflowDefinitions" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
 			<var name="portlet" value="Workflow" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+			<var name="portlet" value="Workflow Definition" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#deleteWorkflowDefinition">
@@ -368,9 +416,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -394,10 +446,15 @@
 
 		<execute macro="KaleoFormsAdmin#viewNoUnpublishedWorkflowDefinitions" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
 			<var name="portlet" value="Workflow" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+			<var name="portlet" value="Workflow Definition" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#reactivateInactiveWorkflowDefinition">
@@ -405,17 +462,25 @@
 		</execute>
 	</command>
 
+<<<<<<< HEAD
 	<!-- LPS-68693 -->
 
 	<!-- <command name="DeleteCreateFormViaDDL" priority="3">
+=======
+	<command name="DeleteCreateFormViaDDL" priority="3">
+>>>>>>> compatible
 		<var name="kfFieldSetName" value="${kfFieldSetName}" />
 		<var name="kfProcessName" value="Kaleo Forms Process" />
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -474,9 +539,13 @@
 			<var name="kfProcessName" value="${kfProcessName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -484,9 +553,13 @@
 			<var name="kfProcessName" value="${kfProcessName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -497,9 +570,13 @@
 			<var name="workflowTask" value="created" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -510,9 +587,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -540,18 +621,28 @@
 			<var name="kfProcessName" value="${kfProcessName}" />
 			<var name="workflowTask" value="create" />
 		</execute>
+<<<<<<< HEAD
 	</command> -->
 
 	<!-- LPS-68693 -->
 
 	<!-- <command name="DeleteCreateFormViaKaleoFormsAdmin" priority="4">
+=======
+	</command>
+
+	<command name="DeleteCreateFormViaKaleoFormsAdmin" priority="4">
+>>>>>>> compatible
 		<var name="kfProcessName" value="Kaleo Forms Process" />
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -610,9 +701,13 @@
 			<var name="kfProcessName" value="${kfProcessName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -620,9 +715,13 @@
 			<var name="kfProcessName" value="${kfProcessName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -633,9 +732,13 @@
 			<var name="workflowTask" value="created" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -645,16 +748,24 @@
 		</execute>
 	</command> -->
 
+<<<<<<< HEAD
 	<!-- LPS-68693 -->
 
 	<!-- <command name="DeleteEditFormViaKaleoFormsAdmin" priority="3">
+=======
+	<command name="DeleteEditFormViaKaleoFormsAdmin" priority="3">
+>>>>>>> compatible
 		<var name="kfProcessName" value="Kaleo Forms Process" />
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -677,6 +788,11 @@
 			<var name="fieldFieldLabel" value="Text" />
 			<var name="fieldName" value="Text" />
 		</execute>
+<<<<<<< HEAD
+=======
+
+		<execute macro="KaleoFormsAdmin#saveFieldSet" />
+>>>>>>> compatible
 
 		<execute macro="KaleoFormsAdmin#saveFieldSet" />
 
@@ -713,9 +829,13 @@
 			<var name="kfProcessName" value="${kfProcessName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -723,9 +843,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -734,6 +858,7 @@
 			<var name="kfFormNameNew" value="New Assigned Form" />
 			<var name="kfProcessName" value="${kfProcessName}" />
 			<var name="workflowTask" value="created" />
+<<<<<<< HEAD
 		</execute>
 
 		<execute macro="ProductMenu#gotoPortlet">
@@ -745,9 +870,12 @@
 		<execute macro="KaleoFormsAdmin#deleteForm">
 			<var name="kfFieldSetName" value="${kfFieldSetName}" />
 			<var name="kfFormName" value="Created Task Form" />
+=======
+>>>>>>> compatible
 		</execute>
 	</command> -->
 
+<<<<<<< HEAD
 	<command name="DeleteFieldSet" priority="4">
 		<execute macro="Navigator#openURL" />
 
@@ -755,8 +883,22 @@
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
 			<var name="portlet" value="Kaleo Forms Admin" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
+		<execute macro="KaleoFormsAdmin#deleteForm">
+			<var name="kfFieldSetName" value="${kfFieldSetName}" />
+			<var name="kfFormName" value="Created Task Form" />
+>>>>>>> compatible
+		</execute>
+	</command>
+
+	<command name="DeleteFieldSet" priority="4">
+		<execute macro="Navigator#openURL" />
+
+<<<<<<< HEAD
 		<execute macro="KaleoFormsAdmin#addFieldSet">
 			<var name="kfFieldSetName" value="New Kaleo Field Set" />
 			<var name="kfProcessName" value="Kaleo Forms Process" />
@@ -773,24 +915,52 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+			<var name="portlet" value="Kaleo Forms Admin" />
+		</execute>
+
+		<execute macro="KaleoFormsAdmin#addFieldSet">
+			<var name="kfFieldSetName" value="New Kaleo Field Set" />
+			<var name="kfProcessName" value="Kaleo Forms Process" />
+		</execute>
+
+		<execute macro="DynamicDataMapping#addField">
+			<var name="field" value="Boolean" />
+			<var name="fieldFieldLabel" value="Boolean" />
+			<var name="fieldName" value="Boolean" />
+		</execute>
+
+		<execute macro="KaleoFormsAdmin#saveFieldSet" />
+
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
 		<execute macro="KaleoFormsAdmin#deleteFieldSet" />
 	</command>
 
+<<<<<<< HEAD
 	<!-- LPS-68693 -->
 
 	<!-- <command name="DeleteForm" priority="4">
+=======
+	<command name="DeleteForm" priority="4">
+>>>>>>> compatible
 		<var name="kfFieldSetName" value="${kfFieldSetName}" />
 		<var name="kfProcessDescription" value="Kaleo Forms Process Description" />
 		<var name="kfProcessName" value="Kaleo Forms Process" />
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -853,9 +1023,13 @@
 			<var name="kfProcessName" value="${kfProcessName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -866,9 +1040,13 @@
 			<var name="workflowTask" value="created" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -879,9 +1057,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -914,9 +1096,13 @@
 	<command name="DeleteProcess" priority="5">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -975,9 +1161,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -993,9 +1183,13 @@
 	<command name="DeleteProcessRecords" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -1054,9 +1248,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -1072,6 +1270,7 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
@@ -1092,12 +1291,29 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+		</execute>
+
+		<execute macro="Workflow#viewDefaultMyWorkflowTasksCP" />
+
+		<execute macro="ProductMenu#gotoSitesContent">
+			<var name="portlet" value="Kaleo Forms Admin" />
+		</execute>
+
+		<execute macro="KaleoFormsAdmin#submitNewProcess">
+			<var name="kfProcessName" value="Kaleo Forms Process" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="KaleoFormsAdmin#populateFieldText">
 			<var name="fieldName" value="Text" />
 			<var name="kfProcessFieldData" value="One" />
 		</execute>
 
 		<execute macro="KaleoFormsAdmin#saveProcessRecord" />
+<<<<<<< HEAD
 
 		<execute macro="Navigator#openURL" />
 
@@ -1105,6 +1321,11 @@
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="My Workflow Tasks" />
+=======
+
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#assignToMeTaskByActions">
@@ -1119,9 +1340,13 @@
 			<var name="workflowTask" value="Review" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -1138,9 +1363,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -1170,9 +1399,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -1202,9 +1435,13 @@
 	<command name="EditCreateTaskForm" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -1276,9 +1513,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -1324,9 +1565,13 @@
 	<command name="EditFieldSetViaAddProcess" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -1399,9 +1644,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -1414,9 +1663,13 @@
 		<description message="This is a use case for LPS-49037." />
 
 		<for list="Field1,Field2,Field3,Field4,Field5,Field6" param="kfFieldSetName">
+<<<<<<< HEAD
 			<execute macro="ProductMenu#gotoPortlet">
 				<var name="category" value="Content" />
 				<var name="panel" value="Site Administration" />
+=======
+			<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 				<var name="portlet" value="Kaleo Forms Admin" />
 			</execute>
 
@@ -1436,9 +1689,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -1484,9 +1741,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -1524,9 +1785,13 @@
 	<command name="EditProcessForms" priority="5">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -1585,9 +1850,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -1622,9 +1891,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -1655,9 +1928,13 @@
 	<command name="EditProcessNewDetails" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -1716,9 +1993,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -1743,9 +2024,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process Edited" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -1763,9 +2048,13 @@
 		<execute macro="Navigator#openURL" />
 
 		<for list="Field1,Field2,Field3,Field4,Field5,Field6" param="kfFieldSetName">
+<<<<<<< HEAD
 			<execute macro="ProductMenu#gotoPortlet">
 				<var name="category" value="Content" />
 				<var name="panel" value="Site Administration" />
+=======
+			<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 				<var name="portlet" value="Kaleo Forms Admin" />
 			</execute>
 
@@ -1783,9 +2072,13 @@
 			<execute macro="KaleoFormsAdmin#saveFieldSet" />
 		</for>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -1844,9 +2137,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -1901,9 +2198,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -1925,9 +2226,13 @@
 	<command name="EditProcessNewWorkflowViaSourceTab" priority="5">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -1986,9 +2291,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -2043,9 +2352,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -2098,9 +2411,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -2131,9 +2448,13 @@
 	<command name="EditSingleApproverWorkflowViaSourceTabViaAddProcess" priority="5">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -2205,9 +2526,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -2219,9 +2544,13 @@
 	<command name="EditSingleApproverWorkflowViaViewTabViaAddProcess" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -2311,9 +2640,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -2323,10 +2656,15 @@
 	</command>
 
 	<command name="EditUploadedWorkflowViaViewTabViaAddProcess" priority="4">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
 			<var name="portlet" value="Workflow" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+			<var name="portlet" value="Workflow Definition" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#uploadDefinition">
@@ -2342,9 +2680,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -2434,9 +2776,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -2450,9 +2796,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -2511,9 +2861,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -2529,6 +2883,7 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
@@ -2545,6 +2900,18 @@
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+		</execute>
+
+		<execute macro="Workflow#viewDefaultMyWorkflowTasksCP" />
+
+		<execute macro="ProductMenu#gotoSitesContent">
+			<var name="portlet" value="Kaleo Forms Admin" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="KaleoFormsAdmin#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
@@ -2556,12 +2923,17 @@
 
 		<execute macro="KaleoFormsAdmin#saveProcessRecord" />
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="My Workflow Tasks" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#assignToMeTaskByActions">
@@ -2576,6 +2948,7 @@
 			<var name="workflowTask" value="Review" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
@@ -2586,6 +2959,16 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+			<var name="portlet" value="Kaleo Forms Admin" />
+		</execute>
+
+		<execute macro="KaleoFormsAdmin#submitNewProcess">
+			<var name="kfProcessName" value="Kaleo Forms Process" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="KaleoFormsAdmin#populateFieldText">
 			<var name="fieldName" value="Text" />
 			<var name="kfProcessFieldData" value="Two" />
@@ -2595,9 +2978,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -2605,9 +2992,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -2622,9 +3013,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -2683,9 +3078,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -2701,6 +3100,7 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
@@ -2714,6 +3114,15 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+		</execute>
+
+		<execute macro="Workflow#viewDefaultMyWorkflowTasksCP" />
+
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -2727,6 +3136,7 @@
 		</execute>
 
 		<execute macro="KaleoFormsAdmin#saveProcessRecord" />
+<<<<<<< HEAD
 
 		<execute macro="Navigator#openURL" />
 
@@ -2734,6 +3144,11 @@
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="My Workflow Tasks" />
+=======
+
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#assignToMeTaskByActions">
@@ -2748,9 +3163,13 @@
 			<var name="workflowTask" value="Review" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -2767,9 +3186,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -2777,9 +3200,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -2794,9 +3221,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -2855,9 +3286,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -2873,6 +3308,7 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
@@ -2889,6 +3325,18 @@
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+		</execute>
+
+		<execute macro="Workflow#viewDefaultMyWorkflowTasksCP" />
+
+		<execute macro="ProductMenu#gotoSitesContent">
+			<var name="portlet" value="Kaleo Forms Admin" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="KaleoFormsAdmin#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
@@ -2900,12 +3348,17 @@
 
 		<execute macro="KaleoFormsAdmin#saveProcessRecord" />
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="My Workflow Tasks" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#assignToMeTaskByActions">
@@ -2920,6 +3373,7 @@
 			<var name="workflowTask" value="Review" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
@@ -2930,6 +3384,16 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+			<var name="portlet" value="Kaleo Forms Admin" />
+		</execute>
+
+		<execute macro="KaleoFormsAdmin#submitNewProcess">
+			<var name="kfProcessName" value="Kaleo Forms Process" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="KaleoFormsAdmin#populateFieldText">
 			<var name="fieldName" value="Text" />
 			<var name="kfProcessFieldData" value="Two" />
@@ -2939,9 +3403,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -2949,9 +3417,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -2967,9 +3439,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -3028,9 +3504,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -3046,19 +3526,28 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="My Workflow Tasks" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#viewDefaultMyWorkflowTasksCP" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -3072,6 +3561,7 @@
 		</execute>
 
 		<execute macro="KaleoFormsAdmin#saveProcessRecord" />
+<<<<<<< HEAD
 
 		<execute macro="Navigator#openURL" />
 
@@ -3079,6 +3569,11 @@
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="My Workflow Tasks" />
+=======
+
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#assignToMeTaskByActions">
@@ -3093,9 +3588,13 @@
 			<var name="workflowTask" value="Review" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -3112,9 +3611,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -3122,9 +3625,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -3138,9 +3645,13 @@
 	<command name="SearchProcessRecords" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -3199,9 +3710,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -3217,6 +3732,7 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
@@ -3233,6 +3749,18 @@
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+		</execute>
+
+		<execute macro="Workflow#viewDefaultMyWorkflowTasksCP" />
+
+		<execute macro="ProductMenu#gotoSitesContent">
+			<var name="portlet" value="Kaleo Forms Admin" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="KaleoFormsAdmin#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
@@ -3243,6 +3771,7 @@
 		</execute>
 
 		<execute macro="KaleoFormsAdmin#saveProcessRecord" />
+<<<<<<< HEAD
 
 		<execute macro="Navigator#openURL" />
 
@@ -3250,6 +3779,11 @@
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="My Workflow Tasks" />
+=======
+
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#assignToMeTaskByActions">
@@ -3264,9 +3798,13 @@
 			<var name="workflowTask" value="Review" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -3283,9 +3821,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -3347,9 +3889,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -3422,9 +3968,13 @@
 	<command name="ViewErrorMessageUponSavingBlankFieldSet" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -3450,9 +4000,13 @@
 	<command name="ViewFieldSetCreateHeaderTitle" priority="2">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -3490,9 +4044,13 @@
 	<command name="ViewFieldSetParentDefinitionIframeTitle" priority="2">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -3511,9 +4069,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -3552,9 +4114,13 @@
 	<command name="ViewProcessRecordDetails" priority="3">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -3613,9 +4179,13 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -3631,6 +4201,7 @@
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
@@ -3647,6 +4218,18 @@
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+		</execute>
+
+		<execute macro="Workflow#viewDefaultMyWorkflowTasksCP" />
+
+		<execute macro="ProductMenu#gotoSitesContent">
+			<var name="portlet" value="Kaleo Forms Admin" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="KaleoFormsAdmin#submitNewProcess">
 			<var name="kfProcessName" value="Kaleo Forms Process" />
 		</execute>
@@ -3658,12 +4241,17 @@
 
 		<execute macro="KaleoFormsAdmin#saveProcessRecord" />
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="My Workflow Tasks" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="My Workflow Tasks" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#assignToMeTaskByActions">
@@ -3678,9 +4266,13 @@
 			<var name="workflowTask" value="Review" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -3697,9 +4289,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -3742,9 +4338,13 @@
 		<execute macro="Navigator#openURL" />
 
 		<for list="Field1,Field2,Field3,Field4,Field5,Field6" param="kfFieldSetName">
+<<<<<<< HEAD
 			<execute macro="ProductMenu#gotoPortlet">
 				<var name="category" value="Content" />
 				<var name="panel" value="Site Administration" />
+=======
+			<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 				<var name="portlet" value="Kaleo Forms Admin" />
 			</execute>
 
@@ -3762,9 +4362,13 @@
 			<execute macro="KaleoFormsAdmin#saveFieldSet" />
 		</for>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -3832,9 +4436,13 @@
 	<command name="ViewUnpublishedWorkflowDefinitionsMenulist" priority="2">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 

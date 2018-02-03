@@ -43,13 +43,21 @@
 				</div>
 
 				<div class="flex-item-expand hidden-sm hidden-xs lfr-device-item text-center" data-device="autosize">
+<<<<<<< HEAD
 					<aui:icon cssClass="icon icon-monospaced" image="autosize" markupView="lexicon" />
+=======
+					<aui:icon cssClass="icon icon-monospaced" image="full-size" markupView="lexicon" />
+>>>>>>> compatible
 
 					<small><%= LanguageUtil.get(resourceBundle, "autosize") %></small>
 				</div>
 
 				<div class="flex-item-expand hidden-sm hidden-xs lfr-device-item text-center" data-device="custom">
+<<<<<<< HEAD
 					<aui:icon cssClass="icon icon-monospaced" image="custom-size" markupView="lexicon" />
+=======
+					<aui:icon cssClass="icon icon-monospaced" image="cog" markupView="lexicon" />
+>>>>>>> compatible
 
 					<small><liferay-ui:message key="custom" /></small>
 				</div>

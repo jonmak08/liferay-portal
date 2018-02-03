@@ -17,11 +17,17 @@
 <%@ include file="/init.jsp" %>
 
 <%
+<<<<<<< HEAD
 UserDisplayContext userDisplayContext = new UserDisplayContext(request, initDisplayContext);
 
 User selUser = userDisplayContext.getSelectedUser();
 
 List<Organization> organizations = userDisplayContext.getOrganizations();
+=======
+User selUser = (User)request.getAttribute("user.selUser");
+
+List<Organization> organizations = (List<Organization>)request.getAttribute("user.organizations");
+>>>>>>> compatible
 
 String organizationIdsString = ParamUtil.getString(request, "organizationsSearchContainerPrimaryKeys");
 
@@ -104,7 +110,11 @@ currentURLObj.setParameter("historyKey", renderResponse.getNamespace() + "organi
 		cssClass="modify-link"
 		id="selectOrganizationLink"
 		label="<%= true %>"
+<<<<<<< HEAD
 		linkCssClass="btn btn-primary"
+=======
+		linkCssClass="btn btn-default btn-lg"
+>>>>>>> compatible
 		message="select"
 		method="get"
 		url="javascript:;"

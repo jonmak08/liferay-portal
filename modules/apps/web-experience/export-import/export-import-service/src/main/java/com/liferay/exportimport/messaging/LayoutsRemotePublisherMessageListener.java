@@ -26,6 +26,10 @@ import com.liferay.portal.kernel.messaging.Destination;
 import com.liferay.portal.kernel.messaging.DestinationNames;
 import com.liferay.portal.kernel.messaging.Message;
 import com.liferay.portal.kernel.messaging.MessageStatus;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.messaging.sender.SingleDestinationMessageSenderFactory;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Release;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.security.auth.CompanyThreadLocal;
@@ -61,7 +65,11 @@ public class LayoutsRemotePublisherMessageListener
 
 	@Activate
 	protected void activate(ComponentContext componentContext) {
+<<<<<<< HEAD
 		initialize(componentContext);
+=======
+		initialize(componentContext, _singleDestinationMessageSenderFactory);
+>>>>>>> compatible
 	}
 
 	@Deactivate
@@ -133,11 +141,14 @@ public class LayoutsRemotePublisherMessageListener
 		}
 	}
 
+<<<<<<< HEAD
 	@Override
 	protected Destination getDestination() {
 		return _destination;
 	}
 
+=======
+>>>>>>> compatible
 	@Reference(
 		target = "(destination.name=" + DestinationNames.LAYOUTS_REMOTE_PUBLISHER + ")",
 		unbind = "-"
@@ -145,6 +156,18 @@ public class LayoutsRemotePublisherMessageListener
 	protected void setDestination(Destination destination) {
 	}
 
+<<<<<<< HEAD
+=======
+	/**
+	 * @deprecated As of 3.2.0
+	 */
+	@Deprecated
+	protected void setExportImportConfigurationLocalService(
+		ExportImportConfigurationLocalService
+			exportImportConfigurationLocalService) {
+	}
+
+>>>>>>> compatible
 	@Reference(
 		target = "(&(release.bundle.symbolic.name=com.liferay.exportimport.service)(release.schema.version=1.0.0))",
 		unbind = "-"
@@ -152,6 +175,7 @@ public class LayoutsRemotePublisherMessageListener
 	protected void setRelease(Release release) {
 	}
 
+<<<<<<< HEAD
 	private static final Log _log = LogFactoryUtil.getLog(
 		LayoutsRemotePublisherMessageListener.class);
 
@@ -160,11 +184,30 @@ public class LayoutsRemotePublisherMessageListener
 	)
 	private Destination _destination;
 
+=======
+	/**
+	 * @deprecated As of 3.2.0
+	 */
+	@Deprecated
+	protected void setUserLocalService(UserLocalService userLocalService) {
+	}
+
+	private static final Log _log = LogFactoryUtil.getLog(
+		LayoutsRemotePublisherMessageListener.class);
+
+>>>>>>> compatible
 	@Reference
 	private ExportImportConfigurationLocalService
 		_exportImportConfigurationLocalService;
 
 	@Reference
+<<<<<<< HEAD
+=======
+	private SingleDestinationMessageSenderFactory
+		_singleDestinationMessageSenderFactory;
+
+	@Reference
+>>>>>>> compatible
 	private Staging _staging;
 
 	@Reference

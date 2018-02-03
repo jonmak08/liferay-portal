@@ -31,4 +31,11 @@ String userName = GetterUtil.getString((String)request.getAttribute("liferay-ui:
 if (author) {
 	imageCssClass += " author";
 }
+<<<<<<< HEAD
+=======
+
+if (Validator.isNull(url) && (userDisplay != null)) {
+	url = userDisplay.getDisplayURL(themeDisplay);
+}
+>>>>>>> compatible
 %>

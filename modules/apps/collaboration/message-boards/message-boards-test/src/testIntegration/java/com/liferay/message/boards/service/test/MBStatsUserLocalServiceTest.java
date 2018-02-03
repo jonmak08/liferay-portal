@@ -17,10 +17,16 @@ package com.liferay.message.boards.service.test;
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
 import com.liferay.message.boards.kernel.model.MBCategoryConstants;
 import com.liferay.message.boards.kernel.model.MBMessage;
+<<<<<<< HEAD
 import com.liferay.message.boards.kernel.service.MBMessageLocalServiceUtil;
 import com.liferay.message.boards.model.MBStatsUser;
 import com.liferay.message.boards.service.MBStatsUserLocalServiceUtil;
 import com.liferay.message.boards.test.util.MBTestUtil;
+=======
+import com.liferay.message.boards.kernel.model.MBStatsUser;
+import com.liferay.message.boards.kernel.service.MBMessageLocalServiceUtil;
+import com.liferay.message.boards.kernel.service.MBStatsUserLocalServiceUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
@@ -31,6 +37,10 @@ import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+<<<<<<< HEAD
+=======
+import com.liferay.portlet.messageboards.util.test.MBTestUtil;
+>>>>>>> compatible
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -165,7 +175,12 @@ public class MBStatsUserLocalServiceTest {
 				_group.getGroupId(), TestPropsValues.getUserId());
 
 		_message = MBTestUtil.addMessageWithWorkflow(
+<<<<<<< HEAD
 			_group.getGroupId(), MBCategoryConstants.DEFAULT_PARENT_CATEGORY_ID,
+=======
+			TestPropsValues.getUserId(), _group.getGroupId(),
+			MBCategoryConstants.DEFAULT_PARENT_CATEGORY_ID,
+>>>>>>> compatible
 			RandomTestUtil.randomString(), RandomTestUtil.randomString(),
 			approved, serviceContext);
 	}

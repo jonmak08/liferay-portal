@@ -189,7 +189,11 @@ public class WSDLBuilderPlugin implements Plugin<Project> {
 
 	private Task _addTaskBuildWSDLGenerate(
 		BuildWSDLTask buildWSDLTask, FileCollection classpath, File inputFile,
+<<<<<<< HEAD
 		final File destinationDir, boolean deleteDestinationDir) {
+=======
+		final File destinationDir) {
+>>>>>>> compatible
 
 		Project project = buildWSDLTask.getProject();
 
@@ -207,6 +211,7 @@ public class WSDLBuilderPlugin implements Plugin<Project> {
 
 		javaExec.args(FileUtil.getAbsolutePath(inputFile));
 
+<<<<<<< HEAD
 		if (deleteDestinationDir) {
 			javaExec.doFirst(
 				new Action<Task>() {
@@ -220,6 +225,19 @@ public class WSDLBuilderPlugin implements Plugin<Project> {
 
 				});
 		}
+=======
+		javaExec.doFirst(
+			new Action<Task>() {
+
+				@Override
+				public void execute(Task task) {
+					Project project = task.getProject();
+
+					project.delete(destinationDir);
+				}
+
+			});
+>>>>>>> compatible
 
 		javaExec.setClasspath(classpath);
 		javaExec.setMain("org.apache.axis.wsdl.WSDL2Java");
@@ -285,8 +303,12 @@ public class WSDLBuilderPlugin implements Plugin<Project> {
 			File tmpSrcDir = new File(tmpDir, "src");
 
 			Task generateTask = _addTaskBuildWSDLGenerate(
+<<<<<<< HEAD
 				buildWSDLTask, wsdlBuilderConfiguration, inputFile, tmpSrcDir,
 				true);
+=======
+				buildWSDLTask, wsdlBuilderConfiguration, inputFile, tmpSrcDir);
+>>>>>>> compatible
 
 			Task compileTask = _addTaskBuildWSDLCompile(
 				buildWSDLTask, wsdlBuilderConfiguration, inputFile, tmpDir,
@@ -304,7 +326,11 @@ public class WSDLBuilderPlugin implements Plugin<Project> {
 		else {
 			Task generateTask = _addTaskBuildWSDLGenerate(
 				buildWSDLTask, wsdlBuilderConfiguration, inputFile,
+<<<<<<< HEAD
 				buildWSDLTask.getDestinationDir(), false);
+=======
+				buildWSDLTask.getDestinationDir());
+>>>>>>> compatible
 
 			buildWSDLTask.dependsOn(generateTask);
 		}

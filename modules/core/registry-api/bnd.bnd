@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Registry API
 Bundle-SymbolicName: com.liferay.registry.api
+<<<<<<< HEAD
 Bundle-Version: 1.2.1
+=======
+Bundle-Version: 1.2.0
+>>>>>>> compatible
 Export-Package:\
 	com.liferay.registry,\
 	com.liferay.registry.collections,\

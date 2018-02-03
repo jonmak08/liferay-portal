@@ -5,7 +5,11 @@ clean {
 }
 
 dependencies {
+<<<<<<< HEAD
 	provided group: "com.liferay", name: "javax.servlet.jsp", version: "2.3.3-b02.LIFERAY-PATCHED-7"
+=======
+	provided group: "com.liferay", name: "javax.servlet.jsp", version: "2.3.3-b02.LIFERAY-PATCHED-6"
+>>>>>>> compatible
 }
 
 deploy {

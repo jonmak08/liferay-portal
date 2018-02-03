@@ -23,8 +23,13 @@ import com.liferay.portal.kernel.servlet.taglib.DynamicInclude;
 import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
 import com.liferay.portal.monitoring.internal.configuration.MonitoringConfiguration;
 import com.liferay.portal.monitoring.internal.constants.MonitoringWebKeys;
+=======
+import com.liferay.portal.monitoring.configuration.MonitoringConfiguration;
+import com.liferay.portal.monitoring.constants.MonitoringWebKeys;
+>>>>>>> compatible
 import com.liferay.portal.monitoring.internal.statistics.portal.PortalRequestDataSample;
 
 import java.io.IOException;
@@ -44,7 +49,11 @@ import org.osgi.service.component.annotations.Modified;
  * @author Michael C. Han
  */
 @Component(
+<<<<<<< HEAD
 	configurationPid = "com.liferay.portal.monitoring.internal.configuration.MonitoringConfiguration",
+=======
+	configurationPid = "com.liferay.portal.monitoring.configuration.MonitoringConfiguration",
+>>>>>>> compatible
 	enabled = false, immediate = true, service = DynamicInclude.class
 )
 public class MonitoringBottomDynamicInclude extends BaseDynamicInclude {

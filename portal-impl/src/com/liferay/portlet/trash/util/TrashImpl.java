@@ -15,7 +15,10 @@
 package com.liferay.portlet.trash.util;
 
 import com.liferay.document.library.kernel.store.DLStoreUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.log.Log;
@@ -32,11 +35,20 @@ import com.liferay.portal.kernel.search.Field;
 import com.liferay.portal.kernel.search.Hits;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.service.permission.PortletPermissionUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.trash.TrashHandler;
 import com.liferay.portal.kernel.trash.TrashHandlerRegistryUtil;
 import com.liferay.portal.kernel.trash.TrashRenderer;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.ArrayUtil;
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.FastDateFormatFactoryUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -51,11 +63,19 @@ import com.liferay.portal.kernel.util.UnicodeProperties;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.util.PropsValues;
+<<<<<<< HEAD
+=======
+import com.liferay.portlet.trash.model.impl.TrashEntryImpl;
+>>>>>>> compatible
 import com.liferay.trash.kernel.model.TrashEntry;
 import com.liferay.trash.kernel.model.TrashVersion;
 import com.liferay.trash.kernel.service.TrashEntryLocalServiceUtil;
 import com.liferay.trash.kernel.service.TrashVersionLocalServiceUtil;
 import com.liferay.trash.kernel.util.Trash;
+<<<<<<< HEAD
+=======
+import com.liferay.trash.kernel.util.TrashUtil;
+>>>>>>> compatible
 import com.liferay.trash.kernel.util.comparator.EntryCreateDateComparator;
 import com.liferay.trash.kernel.util.comparator.EntryTypeComparator;
 import com.liferay.trash.kernel.util.comparator.EntryUserNameComparator;
@@ -142,7 +162,38 @@ public class TrashImpl implements Trash {
 		ActionRequest actionRequest, List<TrashedModel> trashedModels,
 		String cmd) {
 
+<<<<<<< HEAD
 		Map<String, Object> data = new HashMap<>();
+=======
+		ThemeDisplay themeDisplay = (ThemeDisplay)actionRequest.getAttribute(
+			WebKeys.THEME_DISPLAY);
+
+		List<String> classNames = new ArrayList<>();
+		List<Long> restoreTrashEntryIds = new ArrayList<>();
+		List<String> titles = new ArrayList<>();
+
+		for (int i = 0; i < trashedModels.size(); i++) {
+			try {
+				TrashedModel trashedModel = trashedModels.get(i);
+
+				TrashEntry trashEntry = trashedModel.getTrashEntry();
+
+				TrashHandler trashHandler = trashedModel.getTrashHandler();
+
+				TrashRenderer trashRenderer = trashHandler.getTrashRenderer(
+					trashedModel.getTrashEntryClassPK());
+
+				classNames.add(trashRenderer.getClassName());
+
+				restoreTrashEntryIds.add(trashEntry.getEntryId());
+				titles.add(trashRenderer.getTitle(themeDisplay.getLocale()));
+			}
+			catch (Exception e) {
+			}
+		}
+
+		Map<String, String[]> data = new HashMap<>();
+>>>>>>> compatible
 
 		data.put(Constants.CMD, new String[] {cmd});
 		data.put("trashedModels", trashedModels);
@@ -223,7 +274,11 @@ public class TrashImpl implements Trash {
 
 					Date removedDate = document.getDate(Field.REMOVED_DATE);
 
+<<<<<<< HEAD
 					entry = TrashEntryLocalServiceUtil.createTrashEntry(0);
+=======
+					entry = new TrashEntryImpl();
+>>>>>>> compatible
 
 					entry.setUserName(userName);
 					entry.setCreateDate(removedDate);
@@ -341,10 +396,16 @@ public class TrashImpl implements Trash {
 
 		sb.append(
 			StringUtil.replace(
+<<<<<<< HEAD
 				format.format(new Date()),
 				new char[] {CharPool.SLASH, CharPool.COLON},
 				new char[] {CharPool.PERIOD, CharPool.PERIOD}));
 
+=======
+				dateFormatDateTime.format(new Date()),
+				new char[] {CharPool.SLASH, CharPool.COLON},
+				new char[] {CharPool.PERIOD, CharPool.PERIOD}));
+>>>>>>> compatible
 		sb.append(StringPool.CLOSE_PARENTHESIS);
 
 		if (trashRenderer != null) {
@@ -416,11 +477,16 @@ public class TrashImpl implements Trash {
 			return null;
 		}
 
+<<<<<<< HEAD
 		ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
 			WebKeys.THEME_DISPLAY);
 
 		PortletURL portletURL = PortletProviderUtil.getPortletURL(
 			request, TrashEntry.class.getName(), PortletProvider.Action.VIEW);
+=======
+		PortletURL portletURL = PortalUtil.getControlPanelPortletURL(
+			request, portletId, PortletRequest.RENDER_PHASE);
+>>>>>>> compatible
 
 		portletURL.setParameter("mvcPath", "/view_content.jsp");
 		portletURL.setParameter("redirect", themeDisplay.getURLCurrent());
@@ -446,8 +512,32 @@ public class TrashImpl implements Trash {
 	public PortletURL getViewURL(HttpServletRequest request)
 		throws PortalException {
 
+<<<<<<< HEAD
 		return PortletProviderUtil.getPortletURL(
 			request, TrashEntry.class.getName(), PortletProvider.Action.VIEW);
+=======
+		ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
+			WebKeys.THEME_DISPLAY);
+
+		String portletId = PortletProviderUtil.getPortletId(
+			TrashEntry.class.getName(), PortletProvider.Action.VIEW);
+
+		if (!themeDisplay.isSignedIn() ||
+			!isTrashEnabled(themeDisplay.getScopeGroupId()) ||
+			!PortletPermissionUtil.hasControlPanelAccessPermission(
+				themeDisplay.getPermissionChecker(),
+				themeDisplay.getScopeGroupId(), portletId)) {
+
+			return null;
+		}
+
+		PortletURL portletURL = PortalUtil.getControlPanelPortletURL(
+			request, portletId, PortletRequest.RENDER_PHASE);
+
+		portletURL.setParameter("redirect", themeDisplay.getURLCurrent());
+
+		return portletURL;
+>>>>>>> compatible
 	}
 
 	@Override

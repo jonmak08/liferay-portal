@@ -14,6 +14,7 @@
 
 package com.liferay.css.builder;
 
+<<<<<<< HEAD
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.Parameters;
 
@@ -27,10 +28,16 @@ import java.util.List;
  * @author Andrea Di Giorgi
  */
 @Parameters(separators = " =")
+=======
+/**
+ * @author Andrea Di Giorgi
+ */
+>>>>>>> compatible
 public class CSSBuilderArgs {
 
 	public static final boolean APPEND_CSS_IMPORT_TIMESTAMPS = true;
 
+<<<<<<< HEAD
 	public static final String BASE_DIR_NAME = "src/META-INF/resources";
 
 	public static final String DIR_NAME = "/";
@@ -40,11 +47,17 @@ public class CSSBuilderArgs {
 	 */
 	@Deprecated
 	public static final String DOCROOT_DIR_NAME = BASE_DIR_NAME;
+=======
+	public static final String DIR_NAME = "/";
+
+	public static final String DOCROOT_DIR_NAME = "src/META-INF/resources";
+>>>>>>> compatible
 
 	public static final String OUTPUT_DIR_NAME = ".sass-cache/";
 
 	public static final int PRECISION = 9;
 
+<<<<<<< HEAD
 	public File getBaseDir() {
 		return _baseDir;
 	}
@@ -63,25 +76,42 @@ public class CSSBuilderArgs {
 
 	public File getImportDir() {
 		return _importDir;
+=======
+	public String[] getDirNames() {
+		return _dirNames;
+	}
+
+	public String getDocrootDirName() {
+		return _docrootDirName;
+>>>>>>> compatible
 	}
 
 	public String getOutputDirName() {
 		return _outputDirName;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 2.1.0, replaced by {@link #getImportDir()}
 	 */
 	@Deprecated
 	public File getPortalCommonPath() {
 		return getImportDir();
+=======
+	public String getPortalCommonPath() {
+		return _portalCommonPath;
+>>>>>>> compatible
 	}
 
 	public int getPrecision() {
 		return _precision;
 	}
 
+<<<<<<< HEAD
 	public List<String> getRtlExcludedPathRegexps() {
+=======
+	public String[] getRtlExcludedPathRegexps() {
+>>>>>>> compatible
 		return _rtlExcludedPathRegexps;
 	}
 
@@ -103,15 +133,19 @@ public class CSSBuilderArgs {
 		_appendCssImportTimestamps = appendCssImportTimestamps;
 	}
 
+<<<<<<< HEAD
 	public void setBaseDir(File baseDir) {
 		_baseDir = baseDir;
 	}
 
+=======
+>>>>>>> compatible
 	public void setDirNames(String dirNames) {
 		setDirNames(_split(dirNames));
 	}
 
 	public void setDirNames(String[] dirNames) {
+<<<<<<< HEAD
 		_dirNames = Arrays.asList(dirNames);
 	}
 
@@ -121,32 +155,48 @@ public class CSSBuilderArgs {
 	@Deprecated
 	public void setDocrootDir(File docrootDir) {
 		setBaseDir(docrootDir);
+=======
+		_dirNames = dirNames;
+	}
+
+	public void setDocrootDirName(String docrootDirName) {
+		_docrootDirName = docrootDirName;
+>>>>>>> compatible
 	}
 
 	public void setGenerateSourceMap(boolean generateSourceMap) {
 		_generateSourceMap = generateSourceMap;
 	}
 
+<<<<<<< HEAD
 	public void setImportDir(File importDir) {
 		_importDir = importDir;
 	}
 
+=======
+>>>>>>> compatible
 	public void setOutputDirName(String outputDirName) {
 		_outputDirName = outputDirName;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 2.1.0, replaced by {@link #setImportDir(File)}
 	 */
 	@Deprecated
 	public void setPortalCommonPath(File portalCommonPath) {
 		setImportDir(portalCommonPath);
+=======
+	public void setPortalCommonPath(String portalCommonPath) {
+		_portalCommonPath = portalCommonPath;
+>>>>>>> compatible
 	}
 
 	public void setPrecision(int precision) {
 		_precision = precision;
 	}
 
+<<<<<<< HEAD
 	public void setRtlExcludedPathRegexps(List<String> rtlExcludedPathRegexps) {
 		_rtlExcludedPathRegexps = rtlExcludedPathRegexps;
 	}
@@ -154,20 +204,32 @@ public class CSSBuilderArgs {
 	public void setRtlExcludedPathRegexps(String rtlExcludedPathRegexps) {
 		setRtlExcludedPathRegexps(
 			Arrays.asList(_split(rtlExcludedPathRegexps)));
+=======
+	public void setRtlExcludedPathRegexps(String rtlExcludedPathRegexps) {
+		setRtlExcludedPathRegexps(_split(rtlExcludedPathRegexps));
+	}
+
+	public void setRtlExcludedPathRegexps(String[] rtlExcludedPathRegexps) {
+		_rtlExcludedPathRegexps = rtlExcludedPathRegexps;
+>>>>>>> compatible
 	}
 
 	public void setSassCompilerClassName(String sassCompilerClassName) {
 		_sassCompilerClassName = sassCompilerClassName;
 	}
 
+<<<<<<< HEAD
 	protected boolean isHelp() {
 		return _help;
 	}
 
+=======
+>>>>>>> compatible
 	private String[] _split(String s) {
 		return s.split(",");
 	}
 
+<<<<<<< HEAD
 	@Parameter(
 		arity = 1,
 		description = "Whether to append the current timestamp to the URLs in the @import CSS at-rules.",
@@ -234,5 +296,16 @@ public class CSSBuilderArgs {
 		names = {"compiler", "sass.compiler.class.name"}
 	)
 	private String _sassCompilerClassName = "jni";
+=======
+	private boolean _appendCssImportTimestamps = APPEND_CSS_IMPORT_TIMESTAMPS;
+	private String[] _dirNames = {DIR_NAME};
+	private String _docrootDirName = DOCROOT_DIR_NAME;
+	private boolean _generateSourceMap;
+	private String _outputDirName = OUTPUT_DIR_NAME;
+	private String _portalCommonPath;
+	private int _precision = PRECISION;
+	private String[] _rtlExcludedPathRegexps = new String[0];
+	private String _sassCompilerClassName;
+>>>>>>> compatible
 
 }

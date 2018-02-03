@@ -54,10 +54,17 @@ public class SelectTag extends BaseSelectTag implements BodyTag {
 	@Override
 	public void addValidatorTag(
 		String validatorName, ValidatorTag validatorTag) {
+<<<<<<< HEAD
 
 		super.addValidatorTag(validatorName, validatorTag);
 	}
 
+=======
+
+		super.addValidatorTag(validatorName, validatorTag);
+	}
+
+>>>>>>> compatible
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
@@ -99,6 +106,7 @@ public class SelectTag extends BaseSelectTag implements BodyTag {
 	@Override
 	public Class<?> getModel() {
 		Class<?> model = super.getModel();
+<<<<<<< HEAD
 
 		if (model == null) {
 			model = (Class<?>)pageContext.getAttribute(
@@ -115,6 +123,24 @@ public class SelectTag extends BaseSelectTag implements BodyTag {
 			return;
 		}
 
+=======
+
+		if (model == null) {
+			model = (Class<?>)pageContext.getAttribute(
+				"aui:model-context:model");
+		}
+
+		return model;
+	}
+
+	protected void addModelValidatorTags() {
+		Class<?> model = getModel();
+
+		if (model == null) {
+			return;
+		}
+
+>>>>>>> compatible
 		List<Tuple> modelValidators = ModelHintsUtil.getValidators(
 			model.getName(), getField());
 
@@ -214,11 +240,14 @@ public class SelectTag extends BaseSelectTag implements BodyTag {
 		setNamespacedAttribute(request, "model", model);
 		setNamespacedAttribute(request, "title", String.valueOf(title));
 		setNamespacedAttribute(request, "value", value);
+<<<<<<< HEAD
 
 		if (Validator.isNotNull(bodyContent)) {
 			setNamespacedAttribute(
 				request, "bodyContent", bodyContent.getString());
 		}
+=======
+>>>>>>> compatible
 
 		Map<String, ValidatorTag> validatorTags = getValidatorTags();
 

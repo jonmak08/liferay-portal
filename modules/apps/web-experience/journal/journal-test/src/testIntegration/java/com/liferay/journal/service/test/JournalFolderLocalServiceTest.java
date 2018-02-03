@@ -23,6 +23,11 @@ import com.liferay.journal.test.util.JournalTestUtil;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
@@ -40,12 +45,22 @@ import org.junit.runner.RunWith;
  * @author Michael C. Han
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class JournalFolderLocalServiceTest {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Before
 	public void setUp() throws Exception {
@@ -71,7 +86,11 @@ public class JournalFolderLocalServiceTest {
 			JournalFolderLocalServiceUtil.getNoAssetFolders();
 
 		Assert.assertEquals(folders.toString(), 1, folders.size());
+<<<<<<< HEAD
 		Assert.assertEquals(folders.toString(), folder, folders.get(0));
+=======
+		Assert.assertEquals(folder, folders.get(0));
+>>>>>>> compatible
 	}
 
 	@DeleteAfterTestRun

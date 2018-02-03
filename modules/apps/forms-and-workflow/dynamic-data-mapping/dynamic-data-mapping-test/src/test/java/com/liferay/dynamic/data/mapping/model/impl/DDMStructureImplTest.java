@@ -20,7 +20,10 @@ import com.liferay.dynamic.data.mapping.model.DDMFormField;
 import com.liferay.dynamic.data.mapping.model.DDMStructure;
 import com.liferay.dynamic.data.mapping.model.LocalizedValue;
 import com.liferay.portal.kernel.util.LocaleUtil;
+<<<<<<< HEAD
 import com.liferay.portal.util.PropsValues;
+=======
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -33,16 +36,20 @@ import java.util.Set;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+<<<<<<< HEAD
 import org.junit.runner.RunWith;
 
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.core.classloader.annotations.SuppressStaticInitializationFor;
 import org.powermock.modules.junit4.PowerMockRunner;
+=======
+>>>>>>> compatible
 
 /**
  * @author Miguel Angelo Caldas Gallindo
  * @author Marcellus Tavares
  */
+<<<<<<< HEAD
 @PrepareForTest(PropsValues.class)
 @RunWith(PowerMockRunner.class)
 @SuppressStaticInitializationFor(
@@ -51,6 +58,8 @@ import org.powermock.modules.junit4.PowerMockRunner;
 		"com.liferay.portal.util.PropsValues"
 	}
 )
+=======
+>>>>>>> compatible
 public class DDMStructureImplTest extends BaseDDMTestCase {
 
 	@Before
@@ -67,7 +76,11 @@ public class DDMStructureImplTest extends BaseDDMTestCase {
 		setUpJSONFactoryUtil();
 		setUpLanguageUtil();
 		setUpLocaleUtil();
+<<<<<<< HEAD
 		setUpPropsValues();
+=======
+		setUpPropsUtil();
+>>>>>>> compatible
 		setUpSAXReaderUtil();
 	}
 
@@ -91,9 +104,13 @@ public class DDMStructureImplTest extends BaseDDMTestCase {
 			Locale actualAvailableLocale = LocaleUtil.fromLanguageId(
 				actualAvailableLanguageId);
 
+<<<<<<< HEAD
 			Assert.assertTrue(
 				availableLocales.toString(),
 				availableLocales.contains(actualAvailableLocale));
+=======
+			Assert.assertTrue(availableLocales.contains(actualAvailableLocale));
+>>>>>>> compatible
 		}
 	}
 
@@ -118,12 +135,17 @@ public class DDMStructureImplTest extends BaseDDMTestCase {
 		Assert.assertEquals(
 			actualChildrenFieldNames.toString(), 2,
 			actualChildrenFieldNames.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			actualChildrenFieldNames.toString(),
 			actualChildrenFieldNames.contains("child1Field1"));
 		Assert.assertTrue(
 			actualChildrenFieldNames.toString(),
 			actualChildrenFieldNames.contains("child2Field1"));
+=======
+		Assert.assertTrue(actualChildrenFieldNames.contains("child1Field1"));
+		Assert.assertTrue(actualChildrenFieldNames.contains("child2Field1"));
+>>>>>>> compatible
 	}
 
 	@Test

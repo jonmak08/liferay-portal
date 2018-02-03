@@ -38,10 +38,15 @@ import java.util.List;
  * @see KaleoDefinitionServiceUtil
  * @see com.liferay.portal.workflow.kaleo.service.base.KaleoDefinitionServiceBaseImpl
  * @see com.liferay.portal.workflow.kaleo.service.impl.KaleoDefinitionServiceImpl
+<<<<<<< HEAD
  * @deprecated As of 2.0.0, with no direct replacement
  * @generated
  */
 @Deprecated
+=======
+ * @generated
+ */
+>>>>>>> compatible
 @AccessControlled
 @JSONWebService
 @OSGiBeanProperties(property =  {
@@ -55,6 +60,7 @@ public interface KaleoDefinitionService extends BaseService {
 	 *
 	 * Never modify or reference this interface directly. Always use {@link KaleoDefinitionServiceUtil} to access the kaleo definition remote service. Add custom service methods to {@link com.liferay.portal.workflow.kaleo.service.impl.KaleoDefinitionServiceImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
 	 */
+<<<<<<< HEAD
 
 	/**
 	* @deprecated As of 2.0.0, with no direct replacement
@@ -67,6 +73,11 @@ public interface KaleoDefinitionService extends BaseService {
 	* @deprecated As of 2.0.0, with no direct replacement
 	*/
 	@java.lang.Deprecated
+=======
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<KaleoDefinition> getKaleoDefinitions(int start, int end);
+
+>>>>>>> compatible
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<KaleoDefinition> getKaleoDefinitions(long companyId, int start,
 		int end);

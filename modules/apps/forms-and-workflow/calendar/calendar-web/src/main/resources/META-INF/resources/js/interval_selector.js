@@ -77,10 +77,17 @@ AUI.add(
 						var instance = this;
 
 						instance.eventHandlers.push(
+<<<<<<< HEAD
 							instance.get('endDatePicker').after(EVENT_SELECTION_CHANGE, instance._onEndDatePickerSelectionChange, instance),
 							instance.get('endTimePicker').after(EVENT_SELECTION_CHANGE, instance._onEndTimePickerSelectionChange, instance),
 							instance.get('startDatePicker').after(EVENT_SELECTION_CHANGE, instance._onStartDatePickerSelectionChange, instance),
 							instance.get('startTimePicker').after(EVENT_SELECTION_CHANGE, instance._onStartTimePickerSelectionChange, instance)
+=======
+							instance.get('endDatePicker').on(EVENT_SELECTION_CHANGE, instance._onEndDatePickerSelectionChange, instance),
+							instance.get('endTimePicker').on(EVENT_SELECTION_CHANGE, instance._onEndTimePickerSelectionChange, instance),
+							instance.get('startDatePicker').on(EVENT_SELECTION_CHANGE, instance._onStartDatePickerSelectionChange, instance),
+							instance.get('startTimePicker').on(EVENT_SELECTION_CHANGE, instance._onStartTimePickerSelectionChange, instance)
+>>>>>>> compatible
 						);
 					},
 
@@ -181,7 +188,12 @@ AUI.add(
 
 						var endDate = instance._endDate;
 
+<<<<<<< HEAD
 						endDate.setMonth(endDateObj.getMonth(), endDateObj.getDate());
+=======
+						endDate.setDate(endDateObj.getDate());
+						endDate.setMonth(endDateObj.getMonth());
+>>>>>>> compatible
 						endDate.setYear(endDateObj.getFullYear());
 					},
 
@@ -223,7 +235,12 @@ AUI.add(
 
 						var startDate = instance._startDate;
 
+<<<<<<< HEAD
 						startDate.setMonth(startDateObj.getMonth(), startDateObj.getDate());
+=======
+						startDate.setDate(startDateObj.getDate());
+						startDate.setMonth(startDateObj.getMonth());
+>>>>>>> compatible
 						startDate.setYear(startDateObj.getFullYear());
 					},
 

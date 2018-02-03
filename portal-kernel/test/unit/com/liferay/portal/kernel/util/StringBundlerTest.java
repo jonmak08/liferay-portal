@@ -27,7 +27,10 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.StringWriter;
 
+<<<<<<< HEAD
 import java.lang.ref.Reference;
+=======
+>>>>>>> compatible
 import java.lang.reflect.Field;
 
 import org.junit.Assert;
@@ -417,6 +420,7 @@ public class StringBundlerTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testConcat() {
 		Assert.assertSame("test1", StringBundler.concat("test1"));
 		Assert.assertSame(
@@ -431,6 +435,8 @@ public class StringBundlerTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testConstructor() {
 		StringBundler sb = new StringBundler();
 
@@ -773,9 +779,14 @@ public class StringBundlerTest {
 				ReflectionTestUtil.getFieldValue(
 					StringBundler.class, "_THREAD_LOCAL_BUFFER_LIMIT"));
 
+<<<<<<< HEAD
 			ThreadLocal<Reference<Object>> threadLocal =
 				ReflectionTestUtil.getFieldValue(
 					StringBundler.class, "_unsafeStringBuilderThreadLocal");
+=======
+			ThreadLocal<Object> threadLocal = ReflectionTestUtil.getFieldValue(
+				StringBundler.class, "_unsafeStringBuilderThreadLocal");
+>>>>>>> compatible
 
 			Assert.assertNotNull(threadLocal);
 
@@ -790,9 +801,13 @@ public class StringBundlerTest {
 
 			Assert.assertEquals("1234", sb.toString());
 
+<<<<<<< HEAD
 			Reference<Object> reference = threadLocal.get();
 
 			Object unsafeStringBuilder = reference.get();
+=======
+			Object unsafeStringBuilder = threadLocal.get();
+>>>>>>> compatible
 
 			Field countField = ReflectionTestUtil.getField(
 				unsafeStringBuilder.getClass(), "_count");
@@ -803,21 +818,29 @@ public class StringBundlerTest {
 			sb.append("5");
 
 			Assert.assertEquals("12345", sb.toString());
+<<<<<<< HEAD
 
 			reference = threadLocal.get();
 
 			Assert.assertSame(unsafeStringBuilder, reference.get());
 
+=======
+			Assert.assertSame(unsafeStringBuilder, threadLocal.get());
+>>>>>>> compatible
 			Assert.assertEquals(5, countField.get(unsafeStringBuilder));
 
 			sb.append("6");
 
 			Assert.assertEquals("123456", sb.toString());
+<<<<<<< HEAD
 
 			reference = threadLocal.get();
 
 			Assert.assertSame(unsafeStringBuilder, reference.get());
 
+=======
+			Assert.assertSame(unsafeStringBuilder, threadLocal.get());
+>>>>>>> compatible
 			Assert.assertEquals(6, countField.get(unsafeStringBuilder));
 		}
 		finally {

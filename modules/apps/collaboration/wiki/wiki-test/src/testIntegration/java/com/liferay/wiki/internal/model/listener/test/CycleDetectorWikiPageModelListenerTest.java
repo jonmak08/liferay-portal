@@ -15,13 +15,24 @@
 package com.liferay.wiki.internal.model.listener.test;
 
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
+=======
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+import com.liferay.portal.kernel.test.util.GroupTestUtil;
+import com.liferay.portal.kernel.test.util.TestPropsValues;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.service.test.ServiceTestUtil;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.wiki.model.WikiNode;
@@ -41,12 +52,22 @@ import org.junit.runner.RunWith;
  * @author Tomas Polesovsky
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class CycleDetectorWikiPageModelListenerTest {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Before
 	public void setUp() throws Exception {
@@ -78,7 +99,11 @@ public class CycleDetectorWikiPageModelListenerTest {
 
 			wikiPage2.setParentTitle("Title3");
 
+<<<<<<< HEAD
 			wikiPage2 = WikiPageLocalServiceUtil.updateWikiPage(wikiPage2);
+=======
+			WikiPageLocalServiceUtil.updateWikiPage(wikiPage2);
+>>>>>>> compatible
 
 			wikiPage3.setParentTitle("Title1");
 
@@ -98,11 +123,19 @@ public class CycleDetectorWikiPageModelListenerTest {
 		try {
 			wikiPage3.setParentTitle("Other");
 
+<<<<<<< HEAD
 			wikiPage3 = WikiPageLocalServiceUtil.updateWikiPage(wikiPage3);
 
 			wikiPage1.setTitle("Other");
 
 			wikiPage1 = WikiPageLocalServiceUtil.updateWikiPage(wikiPage1);
+=======
+			WikiPageLocalServiceUtil.updateWikiPage(wikiPage3);
+
+			wikiPage1.setTitle("Other");
+
+			WikiPageLocalServiceUtil.updateWikiPage(wikiPage1);
+>>>>>>> compatible
 
 			Assert.fail();
 		}
@@ -168,7 +201,11 @@ public class CycleDetectorWikiPageModelListenerTest {
 
 			wikiPage1.setTitle("Other Title");
 
+<<<<<<< HEAD
 			wikiPage1 = WikiPageLocalServiceUtil.updateWikiPage(wikiPage1);
+=======
+			WikiPageLocalServiceUtil.updateWikiPage(wikiPage1);
+>>>>>>> compatible
 
 			Assert.fail();
 		}

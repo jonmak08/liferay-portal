@@ -14,12 +14,18 @@
 
 package com.liferay.exportimport.kernel.lar;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
 /**
  * @author Raymond Augé
  */
 @ProviderType
+=======
+/**
+ * @author Raymond Augé
+ */
+>>>>>>> compatible
 public class PortletDataHandlerKeys {
 
 	/**

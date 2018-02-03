@@ -19,7 +19,10 @@ import com.liferay.dynamic.data.mapping.model.DDMStructureConstants;
 import com.liferay.dynamic.data.mapping.model.impl.DDMStructureImpl;
 import com.liferay.dynamic.data.mapping.service.permission.DDMStructurePermission;
 import com.liferay.dynamic.data.mapping.service.persistence.DDMStructureFinder;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.dao.orm.custom.sql.CustomSQLUtil;
 import com.liferay.portal.kernel.dao.orm.QueryPos;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
@@ -31,6 +34,10 @@ import com.liferay.portal.kernel.security.permission.InlineSQLHelperUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
@@ -46,6 +53,7 @@ import java.util.List;
 public class DDMStructureFinderImpl
 	extends DDMStructureFinderBaseImpl implements DDMStructureFinder {
 
+<<<<<<< HEAD
 	public static final String COUNT_BY_C_G_C_C_N_D =
 		DDMStructureFinder.class.getName() + ".countByC_G_C_C_N_D";
 
@@ -55,11 +63,17 @@ public class DDMStructureFinderImpl
 	public static final String FIND_BY_C_G_C_C_N_D =
 		DDMStructureFinder.class.getName() + ".findByC_G_C_C_N_D";
 
+=======
+	public static final String COUNT_BY_C_G_C_N_D_S_T_S =
+		DDMStructureFinder.class.getName() + ".countByC_G_C_N_D_S_T_S";
+
+>>>>>>> compatible
 	public static final String FIND_BY_C_G_C_N_D_S_T_R =
 		DDMStructureFinder.class.getName() + ".findByC_G_C_N_D_S_T_S";
 
 	@Override
 	public int countByKeywords(
+<<<<<<< HEAD
 		long companyId, long[] groupIds, long classNameId, long classPK,
 		String keywords) {
 
@@ -82,6 +96,8 @@ public class DDMStructureFinderImpl
 
 	@Override
 	public int countByKeywords(
+=======
+>>>>>>> compatible
 		long companyId, long[] groupIds, long classNameId, String keywords,
 		int status) {
 
@@ -144,6 +160,7 @@ public class DDMStructureFinderImpl
 		long companyId, long[] groupIds, long classNameId, String keywords,
 		int status) {
 
+<<<<<<< HEAD
 		return filterCountByKeywords(
 			companyId, groupIds, classNameId, keywords,
 			DDMStructureConstants.TYPE_DEFAULT, status);
@@ -154,6 +171,8 @@ public class DDMStructureFinderImpl
 		long companyId, long[] groupIds, long classNameId, String keywords,
 		int type, int status) {
 
+=======
+>>>>>>> compatible
 		String[] names = null;
 		String[] descriptions = null;
 		boolean andOperator = false;
@@ -211,7 +230,11 @@ public class DDMStructureFinderImpl
 	@Override
 	public List<DDMStructure> filterFindByKeywords(
 		long companyId, long[] groupIds, long classNameId, String keywords,
+<<<<<<< HEAD
 		int type, int status, int start, int end,
+=======
+		int status, int start, int end,
+>>>>>>> compatible
 		OrderByComparator<DDMStructure> orderByComparator) {
 
 		String[] names = null;
@@ -227,6 +250,7 @@ public class DDMStructureFinderImpl
 		}
 
 		return filterFindByC_G_C_N_D_S_T_S(
+<<<<<<< HEAD
 			companyId, groupIds, classNameId, names, descriptions, null, type,
 			status, andOperator, start, end, orderByComparator);
 	}
@@ -240,6 +264,10 @@ public class DDMStructureFinderImpl
 		return filterFindByKeywords(
 			companyId, groupIds, classNameId, keywords,
 			DDMStructureConstants.TYPE_DEFAULT, status, start, end,
+=======
+			companyId, groupIds, classNameId, names, descriptions, null,
+			DDMStructureConstants.TYPE_DEFAULT, status, andOperator, start, end,
+>>>>>>> compatible
 			orderByComparator);
 	}
 
@@ -286,6 +314,7 @@ public class DDMStructureFinderImpl
 
 	@Override
 	public List<DDMStructure> findByKeywords(
+<<<<<<< HEAD
 		long companyId, long[] groupIds, long classNameId, long classPK,
 		String keywords, int start, int end,
 		OrderByComparator<DDMStructure> orderByComparator) {
@@ -309,6 +338,8 @@ public class DDMStructureFinderImpl
 
 	@Override
 	public List<DDMStructure> findByKeywords(
+=======
+>>>>>>> compatible
 		long companyId, long[] groupIds, long classNameId, String keywords,
 		int status, int start, int end,
 		OrderByComparator<DDMStructure> orderByComparator) {
@@ -372,6 +403,7 @@ public class DDMStructureFinderImpl
 			type, status, andOperator, start, end, orderByComparator, false);
 	}
 
+<<<<<<< HEAD
 	protected int doCountByC_G_C_C_N_D(
 		long companyId, long[] groupIds, long classNameId, long classPK,
 		String[] names, String[] descriptions, boolean andOperator) {
@@ -435,6 +467,8 @@ public class DDMStructureFinderImpl
 		}
 	}
 
+=======
+>>>>>>> compatible
 	protected int doCountByC_G_C_N_D_S_T_S(
 		long companyId, long[] groupIds, long classNameId, String[] names,
 		String[] descriptions, String storageType, int type, int status,
@@ -515,6 +549,7 @@ public class DDMStructureFinderImpl
 		}
 	}
 
+<<<<<<< HEAD
 	protected List<DDMStructure> doFindByC_G_C_C_N_D(
 		long companyId, long[] groupIds, long classNameId, long classPK,
 		String[] names, String[] descriptions, boolean andOperator, int start,
@@ -572,6 +607,8 @@ public class DDMStructureFinderImpl
 		}
 	}
 
+=======
+>>>>>>> compatible
 	protected List<DDMStructure> doFindByC_G_C_N_D_S_T_S(
 		long companyId, long[] groupIds, long classNameId, String[] names,
 		String[] descriptions, String storageType, int type, int status,

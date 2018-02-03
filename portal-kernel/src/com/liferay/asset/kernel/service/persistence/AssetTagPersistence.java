@@ -678,6 +678,7 @@ public interface AssetTagPersistence extends BasePersistence<AssetTag> {
 	public int filterCountByGroupId(long[] groupIds);
 
 	/**
+<<<<<<< HEAD
 	* Returns all the asset tags where name = &#63;.
 	*
 	* @param name the name
@@ -880,6 +881,8 @@ public interface AssetTagPersistence extends BasePersistence<AssetTag> {
 	public int countByName(java.lang.String[] names);
 
 	/**
+=======
+>>>>>>> compatible
 	* Returns the asset tag where groupId = &#63; and name = &#63; or throws a {@link NoSuchTagException} if it could not be found.
 	*
 	* @param groupId the group ID

@@ -14,6 +14,7 @@
 
 package com.liferay.message.boards.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.captcha.configuration.CaptchaConfiguration;
 import com.liferay.captcha.util.CaptchaUtil;
 import com.liferay.message.boards.constants.MBPortletKeys;
@@ -31,6 +32,23 @@ import com.liferay.portal.kernel.captcha.CaptchaConfigurationException;
 import com.liferay.portal.kernel.captcha.CaptchaTextException;
 import com.liferay.portal.kernel.model.TrashedModel;
 import com.liferay.portal.kernel.module.configuration.ConfigurationProvider;
+=======
+import com.liferay.captcha.util.CaptchaUtil;
+import com.liferay.message.boards.kernel.exception.CategoryNameException;
+import com.liferay.message.boards.kernel.exception.MailingListEmailAddressException;
+import com.liferay.message.boards.kernel.exception.MailingListInServerNameException;
+import com.liferay.message.boards.kernel.exception.MailingListInUserNameException;
+import com.liferay.message.boards.kernel.exception.MailingListOutEmailAddressException;
+import com.liferay.message.boards.kernel.exception.MailingListOutServerNameException;
+import com.liferay.message.boards.kernel.exception.MailingListOutUserNameException;
+import com.liferay.message.boards.kernel.exception.NoSuchCategoryException;
+import com.liferay.message.boards.kernel.model.MBCategory;
+import com.liferay.message.boards.kernel.service.MBCategoryService;
+import com.liferay.message.boards.web.constants.MBPortletKeys;
+import com.liferay.portal.kernel.captcha.CaptchaConfigurationException;
+import com.liferay.portal.kernel.captcha.CaptchaTextException;
+import com.liferay.portal.kernel.model.TrashedModel;
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.bridges.mvc.BaseMVCActionCommand;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCActionCommand;
 import com.liferay.portal.kernel.security.auth.PrincipalException;
@@ -42,12 +60,21 @@ import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.WebKeys;
+<<<<<<< HEAD
 import com.liferay.trash.service.TrashEntryService;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+=======
+import com.liferay.portal.util.PropsValues;
+import com.liferay.trash.kernel.service.TrashEntryService;
+import com.liferay.trash.kernel.util.TrashUtil;
+
+import java.util.ArrayList;
+import java.util.List;
+>>>>>>> compatible
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
@@ -104,11 +131,17 @@ public class EditCategoryMVCActionCommand extends BaseMVCActionCommand {
 		}
 
 		if (moveToTrash && !trashedModels.isEmpty()) {
+<<<<<<< HEAD
 			Map<String, Object> data = new HashMap<>();
 
 			data.put("trashedModels", trashedModels);
 
 			addDeleteSuccessData(actionRequest, data);
+=======
+			TrashUtil.addTrashSessionMessages(actionRequest, trashedModels);
+
+			hideDefaultSuccessMessage(actionRequest);
+>>>>>>> compatible
 		}
 	}
 
@@ -157,6 +190,7 @@ public class EditCategoryMVCActionCommand extends BaseMVCActionCommand {
 		}
 	}
 
+<<<<<<< HEAD
 	protected CaptchaConfiguration getCaptchaConfiguration()
 		throws CaptchaConfigurationException {
 
@@ -169,6 +203,8 @@ public class EditCategoryMVCActionCommand extends BaseMVCActionCommand {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	protected void restoreTrashEntries(ActionRequest actionRequest)
 		throws Exception {
 
@@ -258,10 +294,17 @@ public class EditCategoryMVCActionCommand extends BaseMVCActionCommand {
 		ServiceContext serviceContext = ServiceContextFactory.getInstance(
 			MBCategory.class.getName(), actionRequest);
 
+<<<<<<< HEAD
 		CaptchaConfiguration captchaConfiguration = getCaptchaConfiguration();
 
 		if (categoryId <= 0) {
 			if (captchaConfiguration.messageBoardsEditMessageCaptchaEnabled()) {
+=======
+		if (categoryId <= 0) {
+			if (PropsValues.
+					CAPTCHA_CHECK_PORTLET_MESSAGE_BOARDS_EDIT_CATEGORY) {
+
+>>>>>>> compatible
 				CaptchaUtil.check(actionRequest);
 			}
 
@@ -288,9 +331,12 @@ public class EditCategoryMVCActionCommand extends BaseMVCActionCommand {
 		}
 	}
 
+<<<<<<< HEAD
 	@Reference
 	private ConfigurationProvider _configurationProvider;
 
+=======
+>>>>>>> compatible
 	private MBCategoryService _mbCategoryService;
 	private TrashEntryService _trashEntryService;
 

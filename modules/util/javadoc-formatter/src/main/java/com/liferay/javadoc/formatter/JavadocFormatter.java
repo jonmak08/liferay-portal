@@ -14,10 +14,16 @@
 
 package com.liferay.javadoc.formatter;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.petra.xml.Dom4jUtil;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
+=======
+import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
+import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
@@ -29,6 +35,10 @@ import com.liferay.portal.tools.JavaImportsFormatter;
 import com.liferay.portal.tools.ToolsUtil;
 import com.liferay.portal.xml.SAXReaderFactory;
 import com.liferay.util.xml.Dom4jDocUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.util.xml.Dom4jUtil;
+>>>>>>> compatible
 import com.liferay.util.xml.XMLSafeReader;
 
 import com.thoughtworks.qdox.JavaProjectBuilder;
@@ -44,7 +54,10 @@ import com.thoughtworks.qdox.model.JavaMethod;
 import com.thoughtworks.qdox.model.JavaModel;
 import com.thoughtworks.qdox.model.JavaParameter;
 import com.thoughtworks.qdox.model.JavaType;
+<<<<<<< HEAD
 import com.thoughtworks.qdox.model.JavaTypeVariable;
+=======
+>>>>>>> compatible
 import com.thoughtworks.qdox.model.expression.AnnotationValue;
 
 import java.io.BufferedReader;
@@ -205,8 +218,14 @@ public class JavadocFormatter {
 				sb.append(limit);
 
 				if (limit.contains(".")) {
+<<<<<<< HEAD
 					sb.append(" Specify limit filename without package path ");
 					sb.append("or file type suffix.");
+=======
+					sb.append(
+						" Specify limit filename without package path or ");
+					sb.append("file type suffix.");
+>>>>>>> compatible
 				}
 
 				System.out.println(sb.toString());
@@ -315,8 +334,11 @@ public class JavadocFormatter {
 			_addDocletElements(parentElement, javaClass, "author");
 		}
 
+<<<<<<< HEAD
 		_addParamElements(
 			parentElement, javaClass, javaClass.getTagsByName("param"));
+=======
+>>>>>>> compatible
 		_addDocletElements(parentElement, javaClass, "version");
 		_addDocletElements(parentElement, javaClass, "see");
 		_addDocletElements(parentElement, javaClass, "since");
@@ -822,18 +844,31 @@ public class JavadocFormatter {
 	}
 
 	private void _addParamElement(
+<<<<<<< HEAD
 			Element executableElement, String parameterName,
 			String parameterValue, List<DocletTag> paramDocletTags)
 		throws Exception {
 
+=======
+			Element executableElement, JavaParameter javaParameter,
+			List<DocletTag> paramDocletTags)
+		throws Exception {
+
+		String name = javaParameter.getName();
+
+>>>>>>> compatible
 		String value = null;
 
 		for (DocletTag paramDocletTag : paramDocletTags) {
 			String curValue = paramDocletTag.getValue();
 
+<<<<<<< HEAD
 			if (curValue.equals(parameterName) ||
 				curValue.startsWith(parameterName + " ")) {
 
+=======
+			if (curValue.equals(name) || curValue.startsWith(name + " ")) {
+>>>>>>> compatible
 				value = curValue;
 
 				break;
@@ -842,6 +877,7 @@ public class JavadocFormatter {
 
 		Element paramElement = executableElement.addElement("param");
 
+<<<<<<< HEAD
 		Dom4jDocUtil.add(paramElement, "name", parameterName);
 
 		if (parameterValue != null) {
@@ -850,6 +886,13 @@ public class JavadocFormatter {
 
 		if (value != null) {
 			value = value.substring(parameterName.length());
+=======
+		Dom4jDocUtil.add(paramElement, "name", name);
+		Dom4jDocUtil.add(paramElement, "type", _getTypeValue(javaParameter));
+
+		if (value != null) {
+			value = value.substring(name.length());
+>>>>>>> compatible
 
 			Dom4jDocUtil.add(paramElement, "required", true);
 		}
@@ -865,6 +908,7 @@ public class JavadocFormatter {
 	}
 
 	private void _addParamElements(
+<<<<<<< HEAD
 			Element classElement, JavaClass javaClass,
 			List<DocletTag> paramDocletTags)
 		throws Exception {
@@ -879,6 +923,8 @@ public class JavadocFormatter {
 	}
 
 	private void _addParamElements(
+=======
+>>>>>>> compatible
 			Element executableElement, JavaExecutable javaExecutable,
 			List<DocletTag> paramDocletTags)
 		throws Exception {
@@ -886,9 +932,13 @@ public class JavadocFormatter {
 		List<JavaParameter> javaParameters = javaExecutable.getParameters();
 
 		for (JavaParameter javaParameter : javaParameters) {
+<<<<<<< HEAD
 			_addParamElement(
 				executableElement, javaParameter.getName(),
 				_getTypeValue(javaParameter), paramDocletTags);
+=======
+			_addParamElement(executableElement, javaParameter, paramDocletTags);
+>>>>>>> compatible
 		}
 	}
 
@@ -1165,8 +1215,12 @@ public class JavadocFormatter {
 		// Wrap special constants in code tags
 
 		text = text.replaceAll(
+<<<<<<< HEAD
 			"(?i)(?<!<code>|\\{@code |\\w)(null|false|true)(?!\\w)",
 			"<code>$1</code>");
+=======
+			"(?i)(?<!<code>|\\w)(null|false|true)(?!\\w)", "<code>$1</code>");
+>>>>>>> compatible
 
 		return text;
 	}
@@ -1434,7 +1488,11 @@ public class JavadocFormatter {
 			Element rootElement, JavaClass javaClass, String indent)
 		throws Exception {
 
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(8);
+=======
+		StringBundler sb = new StringBundler();
+>>>>>>> compatible
 
 		sb.append(indent);
 		sb.append("/**\n");
@@ -1451,14 +1509,22 @@ public class JavadocFormatter {
 		String docletTags = _addDocletTags(
 			rootElement,
 			new String[] {
+<<<<<<< HEAD
 				"author", "version", "param", "see", "since", "serial",
 				"deprecated", "review"
+=======
+				"author", "version", "see", "since", "serial", "deprecated",
+				"review"
+>>>>>>> compatible
 			},
 			indent + " * ", _hasPublicModifier(javaClass));
 
 		if (Validator.isNotNull(docletTags)) {
 			if (_initializeMissingJavadocs || Validator.isNotNull(comment)) {
+<<<<<<< HEAD
 				sb.append(indent);
+=======
+>>>>>>> compatible
 				sb.append(" *\n");
 			}
 
@@ -1610,7 +1676,11 @@ public class JavadocFormatter {
 			return null;
 		}
 
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(8);
+=======
+		StringBundler sb = new StringBundler();
+>>>>>>> compatible
 
 		sb.append(indent);
 		sb.append("/**\n");
@@ -1683,7 +1753,11 @@ public class JavadocFormatter {
 			return null;
 		}
 
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(8);
+=======
+		StringBundler sb = new StringBundler();
+>>>>>>> compatible
 
 		sb.append(indent);
 		sb.append("/**\n");
@@ -1737,6 +1811,7 @@ public class JavadocFormatter {
 
 			List<String> modifiers = javaClass.getModifiers();
 
+<<<<<<< HEAD
 			if (modifiers.isEmpty()) {
 				return _getAdjustedLineNumber(
 					javaModel.getLineNumber(), javaModel);
@@ -1745,14 +1820,22 @@ public class JavadocFormatter {
 			String modifier = modifiers.get(0);
 
 			for (int i = javaClass.getLineNumber() - 1; i < lines.length; i++) {
+=======
+			String modifier = modifiers.get(0);
+
+			for (int i = javaClass.getLineNumber(); i < lines.length; i++) {
+>>>>>>> compatible
 				String line = StringUtil.trim(lines[i - 1]);
 
 				if (line.startsWith(modifier + StringPool.SPACE)) {
 					return _getAdjustedLineNumber(i, javaModel);
 				}
 			}
+<<<<<<< HEAD
 
 			return -1;
+=======
+>>>>>>> compatible
 		}
 
 		if (javaModel instanceof JavaField) {
@@ -1894,8 +1977,13 @@ public class JavadocFormatter {
 			return false;
 		}
 
+<<<<<<< HEAD
 		for (JavaAnnotation javaAnnotation : annotations) {
 			JavaClass javaClass = javaAnnotation.getType();
+=======
+		for (int i = 0; i < annotations.size(); i++) {
+			JavaClass javaClass = annotations.get(i).getType();
+>>>>>>> compatible
 
 			if (annotationName.equals(javaClass.getName())) {
 				return true;
@@ -2237,6 +2325,7 @@ public class JavadocFormatter {
 		}
 
 		System.out.println(
+<<<<<<< HEAD
 			StringBundler.concat(
 				"Updating ", String.valueOf(_languagePropertiesFile), " key ",
 				key));
@@ -2306,6 +2395,9 @@ public class JavadocFormatter {
 		}
 
 		return sb.toString();
+=======
+			"Updating " + _languagePropertiesFile + " key " + key);
+>>>>>>> compatible
 	}
 
 	private String _wrapText(String text, int indentLength, String exclude) {
@@ -2325,7 +2417,11 @@ public class JavadocFormatter {
 		while (matcher.find()) {
 			String wrapped = _formatInlines(matcher.group());
 
+<<<<<<< HEAD
 			wrapped = _wrap(wrapped, 80 - indentLength);
+=======
+			wrapped = StringUtil.wrap(wrapped, 80 - indentLength, "\n");
+>>>>>>> compatible
 
 			matcher.appendReplacement(sb, wrapped);
 		}
@@ -2346,7 +2442,11 @@ public class JavadocFormatter {
 		}
 		else {
 			text = _formatInlines(text);
+<<<<<<< HEAD
 			text = _wrap(text, 80 - indentLength);
+=======
+			text = StringUtil.wrap(text, 80 - indentLength, "\n");
+>>>>>>> compatible
 		}
 
 		text = text.replaceAll("(?m)^", indent);

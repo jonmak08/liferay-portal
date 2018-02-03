@@ -14,6 +14,10 @@
 
 package com.liferay.asset.kernel.model;
 
+<<<<<<< HEAD
+=======
+import com.liferay.asset.kernel.NoSuchClassTypeException;
+>>>>>>> compatible
 import com.liferay.asset.kernel.service.AssetEntryLocalServiceUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.language.LanguageUtil;
@@ -35,6 +39,10 @@ import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 
 import java.util.ArrayList;
+<<<<<<< HEAD
+=======
+import java.util.Collections;
+>>>>>>> compatible
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -421,4 +429,25 @@ public abstract class BaseAssetRendererFactory<T>
 	private boolean _selectable = true;
 	private boolean _supportsClassTypes;
 
+<<<<<<< HEAD
+=======
+	private static class NullClassTypeReader implements ClassTypeReader {
+
+		@Override
+		public List<ClassType> getAvailableClassTypes(
+			long[] groupIds, Locale locale) {
+
+			return Collections.emptyList();
+		}
+
+		@Override
+		public ClassType getClassType(long classTypeId, Locale locale)
+			throws PortalException {
+
+			throw new NoSuchClassTypeException();
+		}
+
+	}
+
+>>>>>>> compatible
 }

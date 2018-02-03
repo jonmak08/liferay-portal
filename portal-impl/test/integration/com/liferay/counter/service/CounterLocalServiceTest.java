@@ -36,7 +36,10 @@ import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.test.rule.HypersonicServerTestRule;
+<<<<<<< HEAD
 import com.liferay.portal.test.rule.Inject;
+=======
+>>>>>>> compatible
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.util.InitUtil;
 import com.liferay.portal.util.PropsValues;

@@ -2,8 +2,13 @@
 
 To avoid ClassCastExceptions, we want to use
 
+<<<<<<< HEAD
 `PortalUtil.getLiferayPortletRequest(renderRequest)` or
 `PortalUtil.getLiferayPortletResponse(renderResponse)`
+=======
+```PortalUtil.getLiferayPortletRequest(renderRequest)``` or
+```PortalUtil.getLiferayPortletResponse(renderResponse)```
+>>>>>>> compatible
 
 ### Example
 

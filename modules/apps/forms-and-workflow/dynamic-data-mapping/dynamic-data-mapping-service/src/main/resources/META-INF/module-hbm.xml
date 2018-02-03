@@ -5,10 +5,13 @@
 	<import class="com.liferay.dynamic.data.mapping.model.DDMContent" />
 	<import class="com.liferay.dynamic.data.mapping.model.DDMDataProviderInstance" />
 	<import class="com.liferay.dynamic.data.mapping.model.DDMDataProviderInstanceLink" />
+<<<<<<< HEAD
 	<import class="com.liferay.dynamic.data.mapping.model.DDMFormInstance" />
 	<import class="com.liferay.dynamic.data.mapping.model.DDMFormInstanceRecord" />
 	<import class="com.liferay.dynamic.data.mapping.model.DDMFormInstanceRecordVersion" />
 	<import class="com.liferay.dynamic.data.mapping.model.DDMFormInstanceVersion" />
+=======
+>>>>>>> compatible
 	<import class="com.liferay.dynamic.data.mapping.model.DDMStorageLink" />
 	<import class="com.liferay.dynamic.data.mapping.model.DDMStructure" />
 	<import class="com.liferay.dynamic.data.mapping.model.DDMStructureLayout" />
@@ -56,6 +59,7 @@
 		<property name="dataProviderInstanceId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="structureId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 	</class>
+<<<<<<< HEAD
 	<class name="com.liferay.dynamic.data.mapping.model.impl.DDMFormInstanceImpl" table="DDMFormInstance">
 		<id name="formInstanceId" type="long">
 			<generator class="assigned" />
@@ -134,6 +138,8 @@
 		<property name="statusByUserName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
 		<property name="statusDate" type="org.hibernate.type.TimestampType" />
 	</class>
+=======
+>>>>>>> compatible
 	<class name="com.liferay.dynamic.data.mapping.model.impl.DDMStorageLinkImpl" table="DDMStorageLink">
 		<id name="storageLinkId" type="long">
 			<generator class="assigned" />
@@ -143,7 +149,10 @@
 		<property name="classNameId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="classPK" type="com.liferay.portal.dao.orm.hibernate.LongType" />
 		<property name="structureId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+<<<<<<< HEAD
 		<property name="structureVersionId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+=======
+>>>>>>> compatible
 	</class>
 	<class name="com.liferay.dynamic.data.mapping.model.impl.DDMStructureImpl" table="DDMStructure">
 		<id name="structureId" type="long">

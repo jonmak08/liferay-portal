@@ -14,6 +14,7 @@
 
 package com.liferay.asset.entry.query.processor.custom.user.attributes.internal;
 
+<<<<<<< HEAD
 import com.liferay.asset.kernel.model.AssetCategory;
 import com.liferay.asset.kernel.service.AssetCategoryLocalService;
 import com.liferay.asset.kernel.service.persistence.AssetEntryQuery;
@@ -35,6 +36,27 @@ import java.util.List;
 
 import javax.portlet.PortletPreferences;
 
+=======
+import com.liferay.asset.kernel.service.persistence.AssetEntryQuery;
+import com.liferay.asset.kernel.util.AssetEntryQueryProcessor;
+import com.liferay.asset.kernel.util.BaseJSPAssetEntryQueryProcessor;
+import com.liferay.asset.publisher.web.constants.AssetPublisherPortletKeys;
+import com.liferay.asset.publisher.web.util.AssetPublisherUtil;
+import com.liferay.portal.kernel.language.LanguageUtil;
+import com.liferay.portal.kernel.model.User;
+import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.ResourceBundleUtil;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
+
+import java.util.Locale;
+import java.util.ResourceBundle;
+
+import javax.portlet.PortletPreferences;
+
+import javax.servlet.ServletContext;
+
+>>>>>>> compatible
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
@@ -49,7 +71,24 @@ import org.osgi.service.component.annotations.Reference;
 	service = AssetEntryQueryProcessor.class
 )
 public class CustomUserAttributesAssetEntryQueryProcessor
+<<<<<<< HEAD
 	implements AssetEntryQueryProcessor {
+=======
+	extends BaseJSPAssetEntryQueryProcessor {
+
+	@Override
+	public String getJspPath() {
+		return "/custom_user_attributes.jsp";
+	}
+
+	@Override
+	public String getTitle(Locale locale) {
+		ResourceBundle resourceBundle = ResourceBundleUtil.getBundle(
+			"content.Language", locale, getClass());
+
+		return LanguageUtil.get(resourceBundle, "custom-user-attributes");
+	}
+>>>>>>> compatible
 
 	@Override
 	public void processAssetEntryQuery(
@@ -60,6 +99,7 @@ public class CustomUserAttributesAssetEntryQueryProcessor
 		String customUserAttributes = GetterUtil.getString(
 			preferences.getValue("customUserAttributes", StringPool.BLANK));
 
+<<<<<<< HEAD
 		_addUserAttributes(
 			user, StringUtil.split(customUserAttributes), assetEntryQuery);
 	}
@@ -113,4 +153,19 @@ public class CustomUserAttributesAssetEntryQueryProcessor
 	@Reference
 	private GroupLocalService _groupLocalService;
 
+=======
+		AssetPublisherUtil.addUserAttributes(
+			user, StringUtil.split(customUserAttributes), assetEntryQuery);
+	}
+
+	@Override
+	@Reference(
+		target = "(osgi.web.symbolicname=com.liferay.asset.entry.query.processor.custom.user.attributes)",
+		unbind = "-"
+	)
+	public void setServletContext(ServletContext servletContext) {
+		super.setServletContext(servletContext);
+	}
+
+>>>>>>> compatible
 }

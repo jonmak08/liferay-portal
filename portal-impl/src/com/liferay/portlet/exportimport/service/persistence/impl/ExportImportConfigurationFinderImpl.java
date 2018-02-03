@@ -14,8 +14,11 @@
 
 package com.liferay.portlet.exportimport.service.persistence.impl;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.model.ExportImportConfiguration;
 import com.liferay.exportimport.kernel.service.persistence.ExportImportConfigurationFinder;
 import com.liferay.portal.kernel.dao.orm.QueryDefinition;
@@ -39,7 +42,10 @@ import java.util.List;
 /**
  * @author Daniel Kocsis
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class ExportImportConfigurationFinderImpl
 	extends ExportImportConfigurationFinderBaseImpl
 	implements ExportImportConfigurationFinder {

@@ -749,7 +749,11 @@ public class PowwowParticipantUtil {
 
 	public static PowwowParticipantPersistence getPersistence() {
 		if (_persistence == null) {
+<<<<<<< HEAD
 			_persistence = (PowwowParticipantPersistence)PortletBeanLocatorUtil.locate(com.liferay.powwow.service.ServletContextUtil.getServletContextName(),
+=======
+			_persistence = (PowwowParticipantPersistence)PortletBeanLocatorUtil.locate(com.liferay.powwow.service.ClpSerializer.getServletContextName(),
+>>>>>>> compatible
 					PowwowParticipantPersistence.class.getName());
 
 			ReferenceRegistry.registerReference(PowwowParticipantUtil.class,

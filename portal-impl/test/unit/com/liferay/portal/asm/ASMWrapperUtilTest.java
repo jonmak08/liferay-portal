@@ -21,7 +21,10 @@ import com.liferay.portal.kernel.test.rule.NewEnv;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.PredicateFilter;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.test.aspects.ReflectionUtilAdvice;
 import com.liferay.portal.test.rule.AdviseWith;
 import com.liferay.portal.test.rule.AspectJNewEnvTestRule;
@@ -119,9 +122,14 @@ public class ASMWrapperUtilTest {
 		Package pkg = TestDelegate.class.getPackage();
 
 		Assert.assertEquals(
+<<<<<<< HEAD
 			StringBundler.concat(
 				pkg.getName(), ".", TestInterface.class.getSimpleName(),
 				"ASMWrapper"),
+=======
+			pkg.getName() + "." + TestInterface.class.getSimpleName() +
+				"ASMWrapper",
+>>>>>>> compatible
 			asmWrapperClass.getName());
 
 		Assert.assertSame(Object.class, asmWrapperClass.getSuperclass());
@@ -135,9 +143,14 @@ public class ASMWrapperUtilTest {
 		Assert.assertEquals(0, asmWrapper.hashCode());
 		Assert.assertEquals("test", asmWrapper.toString());
 		Assert.assertEquals(
+<<<<<<< HEAD
 			StringBundler.concat(
 				"Expected: ", Arrays.toString(expectedMethods), ", actual: ",
 				Arrays.toString(actualMethods)),
+=======
+			"Expected: " + Arrays.toString(expectedMethods) + ", actual: " +
+				Arrays.toString(actualMethods),
+>>>>>>> compatible
 			expectedMethods.length, actualMethods.length);
 
 		for (int i = 0; i < expectedMethods.length; i++) {
@@ -283,6 +296,7 @@ public class ASMWrapperUtilTest {
 
 	private void _assertEquals(Method expectedMethod, Method actualMethod) {
 		Assert.assertEquals(
+<<<<<<< HEAD
 			StringBundler.concat(
 				"Expected:", String.valueOf(expectedMethod), ", actual: ",
 				String.valueOf(actualMethod)),
@@ -308,6 +322,23 @@ public class ASMWrapperUtilTest {
 			StringBundler.concat(
 				"Expected:", String.valueOf(expectedMethod), ", actual: ",
 				String.valueOf(actualMethod)),
+=======
+			"Expected:" + expectedMethod + ", actual: " + actualMethod,
+			expectedMethod.getModifiers() - Modifier.ABSTRACT,
+			actualMethod.getModifiers());
+		Assert.assertSame(
+			"Expected:" + expectedMethod + ", actual: " + actualMethod,
+			expectedMethod.getReturnType(), actualMethod.getReturnType());
+		Assert.assertEquals(
+			"Expected:" + expectedMethod + ", actual: " + actualMethod,
+			expectedMethod.getName(), actualMethod.getName());
+		Assert.assertArrayEquals(
+			"Expected:" + expectedMethod + ", actual: " + actualMethod,
+			expectedMethod.getParameterTypes(),
+			actualMethod.getParameterTypes());
+		Assert.assertArrayEquals(
+			"Expected:" + expectedMethod + ", actual: " + actualMethod,
+>>>>>>> compatible
 			expectedMethod.getExceptionTypes(),
 			actualMethod.getExceptionTypes());
 	}

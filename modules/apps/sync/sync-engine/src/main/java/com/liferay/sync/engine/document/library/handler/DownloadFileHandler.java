@@ -33,7 +33,10 @@ import com.liferay.sync.engine.util.IODeltaUtil;
 import com.liferay.sync.engine.util.MSOfficeFileUtil;
 import com.liferay.sync.engine.util.StreamUtil;
 
+<<<<<<< HEAD
 import java.io.IOException;
+=======
+>>>>>>> compatible
 import java.io.InputStream;
 import java.io.OutputStream;
 
@@ -129,7 +132,11 @@ public class DownloadFileHandler extends BaseHandler {
 				FileEventUtil.downloadFile(getSyncAccountId(), syncFile, false);
 			}
 			else {
+<<<<<<< HEAD
 				handleException(syncFile);
+=======
+				SyncFileService.deleteSyncFile(syncFile);
+>>>>>>> compatible
 			}
 
 			return;
@@ -177,11 +184,15 @@ public class DownloadFileHandler extends BaseHandler {
 			return true;
 		}
 
+<<<<<<< HEAD
 		removeEvent();
 
 		handleException(syncFile);
 
 		return true;
+=======
+		return super.handlePortalException(exception);
+>>>>>>> compatible
 	}
 
 	protected void copyFile(
@@ -369,6 +380,7 @@ public class DownloadFileHandler extends BaseHandler {
 		}
 	}
 
+<<<<<<< HEAD
 	protected void handleException(SyncFile syncFile) {
 		syncFile.setState(SyncFile.STATE_ERROR);
 		syncFile.setUiEvent(SyncFile.UI_EVENT_DOWNLOAD_EXCEPTION);
@@ -387,6 +399,8 @@ public class DownloadFileHandler extends BaseHandler {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	protected boolean isUnsynced(SyncFile syncFile) {
 		if (syncFile != null) {
 			syncFile = SyncFileService.fetchSyncFile(syncFile.getSyncFileId());

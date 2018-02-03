@@ -19,6 +19,10 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import com.liferay.shopping.model.ShoppingCategory;
 
@@ -102,7 +106,11 @@ public class ShoppingCategoryCacheModel implements CacheModel<ShoppingCategory>,
 		shoppingCategoryImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			shoppingCategoryImpl.setUserName("");
+=======
+			shoppingCategoryImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			shoppingCategoryImpl.setUserName(userName);
@@ -125,14 +133,22 @@ public class ShoppingCategoryCacheModel implements CacheModel<ShoppingCategory>,
 		shoppingCategoryImpl.setParentCategoryId(parentCategoryId);
 
 		if (name == null) {
+<<<<<<< HEAD
 			shoppingCategoryImpl.setName("");
+=======
+			shoppingCategoryImpl.setName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			shoppingCategoryImpl.setName(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			shoppingCategoryImpl.setDescription("");
+=======
+			shoppingCategoryImpl.setDescription(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			shoppingCategoryImpl.setDescription(description);
@@ -173,7 +189,11 @@ public class ShoppingCategoryCacheModel implements CacheModel<ShoppingCategory>,
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -185,14 +205,22 @@ public class ShoppingCategoryCacheModel implements CacheModel<ShoppingCategory>,
 		objectOutput.writeLong(parentCategoryId);
 
 		if (name == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(description);

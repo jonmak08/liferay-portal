@@ -59,11 +59,19 @@ if (WebFormUtil.getTableRowsCount(company.getCompanyId(), databaseTableName) > 0
 						<liferay-ui:error key="successURLInvalid" message="please-enter-a-valid-url" />
 
 						<aui:field-wrapper cssClass="lfr-input-text-container" label="title">
+<<<<<<< HEAD
 							<liferay-ui:input-localized cssClass="lfr-input-text" name="title" xml="<%= titleXml %>" />
 						</aui:field-wrapper>
 
 						<aui:field-wrapper cssClass="lfr-textarea-container" label="description">
 							<liferay-ui:input-localized cssClass="lfr-input-text" name="description" type="textarea" xml="<%= descriptionXml %>" />
+=======
+							<liferay-ui:input-localized cssClass="form-control lfr-input-text" name="title" xml="<%= titleXml %>" />
+						</aui:field-wrapper>
+
+						<aui:field-wrapper cssClass="lfr-textarea-container" label="description">
+							<liferay-ui:input-localized cssClass="form-control lfr-input-text" name="description" type="textarea" xml="<%= descriptionXml %>" />
+>>>>>>> compatible
 						</aui:field-wrapper>
 
 						<aui:input name="preferences--requireCaptcha--" type="checkbox" value="<%= requireCaptcha %>" />
@@ -190,7 +198,11 @@ if (WebFormUtil.getTableRowsCount(company.getCompanyId(), databaseTableName) > 0
 	</div>
 
 	<aui:button-row>
+<<<<<<< HEAD
 		<aui:button type="submit" />
+=======
+		<aui:button cssClass="btn-lg" type="submit" />
+>>>>>>> compatible
 	</aui:button-row>
 </aui:form>
 

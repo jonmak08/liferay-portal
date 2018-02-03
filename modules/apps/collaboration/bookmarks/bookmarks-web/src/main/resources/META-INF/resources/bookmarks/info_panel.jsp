@@ -49,7 +49,11 @@ if (ListUtil.isEmpty(folders) && ListUtil.isEmpty(entries)) {
 		%>
 
 		<div class="sidebar-header">
+<<<<<<< HEAD
 			<ul class="sidebar-actions">
+=======
+			<ul class="sidebar-header-actions">
+>>>>>>> compatible
 				<li>
 					<liferay-util:include page="/bookmarks/subscribe.jsp" servletContext="<%= application %>" />
 				</li>
@@ -58,6 +62,7 @@ if (ListUtil.isEmpty(folders) && ListUtil.isEmpty(entries)) {
 				</li>
 			</ul>
 
+<<<<<<< HEAD
 			<h4 class="sidebar-title"><%= (folder != null) ? HtmlUtil.escape(folder.getName()) : LanguageUtil.get(request, "home") %></h4>
 
 			<h5 class="sidebar-subtitle">
@@ -67,11 +72,23 @@ if (ListUtil.isEmpty(folders) && ListUtil.isEmpty(entries)) {
 
 		<aui:nav-bar cssClass="navbar-no-collapse" markupView="lexicon">
 			<aui:nav collapsible="<%= false %>" cssClass="navbar-nav">
+=======
+			<h4><%= (folder != null) ? HtmlUtil.escape(folder.getName()) : LanguageUtil.get(request, "home") %></h4>
+
+			<div>
+				<liferay-ui:message key="folder" />
+			</div>
+		</div>
+
+		<aui:nav-bar>
+			<aui:nav cssClass="navbar-nav">
+>>>>>>> compatible
 				<aui:nav-item label="details" selected="<%= true %>" />
 			</aui:nav>
 		</aui:nav-bar>
 
 		<div class="sidebar-body">
+<<<<<<< HEAD
 			<dl class="sidebar-block">
 				<dt class="sidebar-dt">
 					<liferay-ui:message key="num-of-items" />
@@ -98,6 +115,29 @@ if (ListUtil.isEmpty(folders) && ListUtil.isEmpty(entries)) {
 					</dd>
 				</c:if>
 			</dl>
+=======
+			<h5><liferay-ui:message key="num-of-items" /></h5>
+
+			<%
+			long folderId = BookmarksFolderConstants.DEFAULT_PARENT_FOLDER_ID;
+
+			if (folder != null) {
+				folderId = folder.getFolderId();
+			}
+			%>
+
+			<p>
+				<%= BookmarksFolderServiceUtil.getFoldersAndEntriesCount(scopeGroupId, folderId, WorkflowConstants.STATUS_APPROVED) %>
+			</p>
+
+			<c:if test="<%= folder != null %>">
+				<h5><liferay-ui:message key="created" /></h5>
+
+				<p>
+					<%= HtmlUtil.escape(folder.getUserName()) %>
+				</p>
+			</c:if>
+>>>>>>> compatible
 		</div>
 	</c:when>
 	<c:when test="<%= ListUtil.isEmpty(folders) && ListUtil.isNotEmpty(entries) && (entries.size() == 1) %>">
@@ -109,7 +149,11 @@ if (ListUtil.isEmpty(folders) && ListUtil.isEmpty(entries)) {
 		%>
 
 		<div class="sidebar-header">
+<<<<<<< HEAD
 			<ul class="sidebar-actions">
+=======
+			<ul class="sidebar-header-actions">
+>>>>>>> compatible
 				<li>
 					<liferay-util:include page="/bookmarks/subscribe.jsp" servletContext="<%= application %>" />
 				</li>
@@ -118,6 +162,7 @@ if (ListUtil.isEmpty(folders) && ListUtil.isEmpty(entries)) {
 				</li>
 			</ul>
 
+<<<<<<< HEAD
 			<h4 class="sidebar-title"><%= HtmlUtil.escape(entry.getName()) %></h4>
 
 			<h5>
@@ -127,11 +172,23 @@ if (ListUtil.isEmpty(folders) && ListUtil.isEmpty(entries)) {
 
 		<aui:nav-bar cssClass="navbar-no-collapse" markupView="lexicon">
 			<aui:nav collapsible="<%= false %>" cssClass="navbar-nav">
+=======
+			<h4><%= HtmlUtil.escape(entry.getName()) %></h4>
+
+			<div>
+				<liferay-ui:message key="entry" />
+			</div>
+		</div>
+
+		<aui:nav-bar>
+			<aui:nav cssClass="navbar-nav">
+>>>>>>> compatible
 				<aui:nav-item label="details" selected="<%= true %>" />
 			</aui:nav>
 		</aui:nav-bar>
 
 		<div class="sidebar-body">
+<<<<<<< HEAD
 			<dl class="sidebar-block">
 				<dt class="sidebar-dt">
 					<liferay-ui:message key="created" />
@@ -165,13 +222,48 @@ if (ListUtil.isEmpty(folders) && ListUtil.isEmpty(entries)) {
 
 			<div class="lfr-asset-categories sidebar-block">
 				<liferay-asset:asset-categories-summary
+=======
+			<h5><liferay-ui:message key="created" /></h5>
+
+			<p>
+				<%= HtmlUtil.escape(entry.getUserName()) %>
+			</p>
+
+			<c:if test="<%= Validator.isNotNull(entry.getDescription()) %>">
+				<h5><liferay-ui:message key="description" /></h5>
+
+				<p>
+					<%= HtmlUtil.escape(entry.getDescription()) %>
+				</p>
+			</c:if>
+
+			<h5><liferay-ui:message key="url" /></h5>
+
+			<p>
+				<%= HtmlUtil.escape(entry.getUrl()) %>
+			</p>
+
+			<h5><liferay-ui:message key="visits" /></h5>
+
+			<p>
+				<%= entry.getVisits() %>
+			</p>
+
+			<div class="lfr-asset-categories">
+				<liferay-ui:asset-categories-summary
+>>>>>>> compatible
 					className="<%= BookmarksEntry.class.getName() %>"
 					classPK="<%= entry.getEntryId() %>"
 				/>
 			</div>
 
+<<<<<<< HEAD
 			<div class="lfr-asset-tags sidebar-block">
 				<liferay-asset:asset-tags-summary
+=======
+			<div class="lfr-asset-tags">
+				<liferay-ui:asset-tags-summary
+>>>>>>> compatible
 					className="<%= BookmarksEntry.class.getName() %>"
 					classPK="<%= entry.getEntryId() %>"
 					message="tags"
@@ -200,7 +292,11 @@ if (ListUtil.isEmpty(folders) && ListUtil.isEmpty(entries)) {
 				%>
 
 				<div class="entry-links">
+<<<<<<< HEAD
 					<liferay-asset:asset-links
+=======
+					<liferay-ui:asset-links
+>>>>>>> compatible
 						assetEntryId="<%= layoutAssetEntry.getEntryId() %>"
 					/>
 				</div>
@@ -209,11 +305,19 @@ if (ListUtil.isEmpty(folders) && ListUtil.isEmpty(entries)) {
 	</c:when>
 	<c:otherwise>
 		<div class="sidebar-header">
+<<<<<<< HEAD
 			<h4 class="sidebar-title"><liferay-ui:message arguments="<%= folders.size() + entries.size() %>" key="x-items-are-selected" /></h4>
 		</div>
 
 		<aui:nav-bar cssClass="navbar-no-collapse" markupView="lexicon">
 			<aui:nav collapsible="<%= false %>" cssClass="navbar-nav">
+=======
+			<h4><liferay-ui:message arguments="<%= folders.size() + entries.size() %>" key="x-items-are-selected" /></h4>
+		</div>
+
+		<aui:nav-bar>
+			<aui:nav cssClass="navbar-nav">
+>>>>>>> compatible
 				<aui:nav-item label="details" selected="<%= true %>" />
 			</aui:nav>
 		</aui:nav-bar>

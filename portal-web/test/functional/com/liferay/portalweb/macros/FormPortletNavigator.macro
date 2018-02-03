@@ -4,7 +4,11 @@
 	</command>
 
 	<command name="gotoSelectForm">
+<<<<<<< HEAD
 		<execute function="AssertClick" locator1="FormPortlet#SELECT_FORM" value1="Select Form" />
+=======
+		<execute function="AssertClick#pauseMakeVisibleAssertTextEqualsClickAt" locator1="FormPortlet#SELECT_FORM" value1="Select Form" />
+>>>>>>> compatible
 
 		<execute function="SelectFrame" locator1="IFrame#DIALOG" />
 	</command>

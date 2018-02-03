@@ -21,6 +21,7 @@ import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.exportimport.kernel.lar.PortletDataException;
 import com.liferay.exportimport.kernel.lar.StagedModelModifiedDateComparator;
 import com.liferay.exportimport.staged.model.repository.StagedModelRepository;
+<<<<<<< HEAD
 import com.liferay.exportimport.staged.model.repository.StagedModelRepositoryHelper;
 import com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
@@ -30,6 +31,14 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.trash.TrashHandler;
 import com.liferay.portal.kernel.trash.TrashHandlerRegistryUtil;
+=======
+import com.liferay.exportimport.staged.model.repository.base.BaseStagedModelRepository;
+import com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery;
+import com.liferay.portal.kernel.dao.orm.QueryUtil;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.service.ServiceContext;
+import com.liferay.portal.kernel.trash.TrashHandler;
+>>>>>>> compatible
 
 import java.util.List;
 
@@ -38,7 +47,10 @@ import org.osgi.service.component.annotations.Reference;
 
 /**
  * @author Daniel Kocsis
+<<<<<<< HEAD
  * @author Mate Thurzo
+=======
+>>>>>>> compatible
  */
 @Component(
 	immediate = true,
@@ -46,7 +58,11 @@ import org.osgi.service.component.annotations.Reference;
 	service = StagedModelRepository.class
 )
 public class BookmarksEntryStagedModelRepository
+<<<<<<< HEAD
 	implements StagedModelRepository<BookmarksEntry> {
+=======
+	extends BaseStagedModelRepository<BookmarksEntry> {
+>>>>>>> compatible
 
 	@Override
 	public BookmarksEntry addStagedModel(
@@ -100,6 +116,7 @@ public class BookmarksEntryStagedModelRepository
 	}
 
 	@Override
+<<<<<<< HEAD
 	public BookmarksEntry fetchMissingReference(String uuid, long groupId) {
 		return
 			(BookmarksEntry)_stagedModelRepositoryHelper.fetchMissingReference(
@@ -107,6 +124,8 @@ public class BookmarksEntryStagedModelRepository
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public BookmarksEntry fetchStagedModelByUuidAndGroupId(
 		String uuid, long groupId) {
 
@@ -146,14 +165,22 @@ public class BookmarksEntryStagedModelRepository
 				bookmarksEntry.getUuid(), portletDataContext.getScopeGroupId());
 
 		if ((existingBookmarksEntry == null) ||
+<<<<<<< HEAD
 			!_stagedModelRepositoryHelper.isStagedModelInTrash(
 				existingBookmarksEntry)) {
+=======
+			!isStagedModelInTrash(existingBookmarksEntry)) {
+>>>>>>> compatible
 
 			return;
 		}
 
+<<<<<<< HEAD
 		TrashHandler trashHandler = TrashHandlerRegistryUtil.getTrashHandler(
 			BookmarksEntry.class.getName());
+=======
+		TrashHandler trashHandler = existingBookmarksEntry.getTrashHandler();
+>>>>>>> compatible
 
 		try {
 			if (trashHandler.isRestorable(
@@ -201,6 +228,7 @@ public class BookmarksEntryStagedModelRepository
 		_bookmarksEntryLocalService = bookmarksEntryLocalService;
 	}
 
+<<<<<<< HEAD
 	private static final Log _log = LogFactoryUtil.getLog(
 		BookmarksEntryStagedModelRepository.class);
 
@@ -209,4 +237,8 @@ public class BookmarksEntryStagedModelRepository
 	@Reference
 	private StagedModelRepositoryHelper _stagedModelRepositoryHelper;
 
+=======
+	private BookmarksEntryLocalService _bookmarksEntryLocalService;
+
+>>>>>>> compatible
 }

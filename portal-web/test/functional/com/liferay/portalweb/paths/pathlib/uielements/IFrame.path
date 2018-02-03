@@ -114,13 +114,25 @@
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
+=======
+	<td>SELECT_ASSIGN_TO</td>
+	<td>//iframe[contains(@id,'assignToDialog_iframe')]</td>
+	<td></td>
+</tr>
+<tr>
+>>>>>>> compatible
 	<td>SELECT_MEDIA_TYPE</td>
 	<td>//iframe[contains(@id,'selectFileEntryType_iframe')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>SELECT_TAG</td>
+<<<<<<< HEAD
 	<td>//iframe[contains(@id,'selectTag_iframe')]</td>
+=======
+	<td>//iframe[contains(@id,'AssetTagsSelectorPortlet')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>

@@ -21,10 +21,15 @@ import com.liferay.portal.kernel.workflow.WorkflowConstants;
  */
 public class JournalArticleConstants {
 
+<<<<<<< HEAD
 	public static final int[] ASSET_ENTRY_CREATION_STATUSES = {
 		WorkflowConstants.STATUS_APPROVED, WorkflowConstants.STATUS_EXPIRED,
 		WorkflowConstants.STATUS_SCHEDULED
 	};
+=======
+	public static final int[] ASSET_ENTRY_CREATION_STATUSES =
+		{WorkflowConstants.STATUS_APPROVED, WorkflowConstants.STATUS_EXPIRED};
+>>>>>>> compatible
 
 	public static final String CANONICAL_URL_SEPARATOR = "/-/";
 
@@ -34,6 +39,7 @@ public class JournalArticleConstants {
 
 	public static final String DISPLAY_PAGE = "display-page";
 
+<<<<<<< HEAD
 	public static final int NOTIFICATION_TYPE_MOVE_ENTRY_FROM_FOLDER = 2;
 
 	public static final int NOTIFICATION_TYPE_MOVE_ENTRY_FROM_TRASH = 4;
@@ -42,6 +48,8 @@ public class JournalArticleConstants {
 
 	public static final int NOTIFICATION_TYPE_MOVE_ENTRY_TO_TRASH = 5;
 
+=======
+>>>>>>> compatible
 	public static final String PORTLET = "portlet";
 
 	public static final String STAND_ALONE = "stand-alone";

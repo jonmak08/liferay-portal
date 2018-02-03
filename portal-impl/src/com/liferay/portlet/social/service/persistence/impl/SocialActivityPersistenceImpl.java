@@ -32,6 +32,7 @@ import com.liferay.portal.kernel.service.persistence.CompanyProvider;
 import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -704,6 +705,7 @@ public class SocialActivityPersistenceImpl extends BasePersistenceImpl<SocialAct
 		}
 
 		List<SocialActivity> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<SocialActivity>)finderCache.getResult(finderPath,
@@ -714,6 +716,18 @@ public class SocialActivityPersistenceImpl extends BasePersistenceImpl<SocialAct
 					if ((companyId != socialActivity.getCompanyId())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<SocialActivity>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (SocialActivity socialActivity : list) {
+					if ((companyId != socialActivity.getCompanyId())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -1210,11 +1224,19 @@ public class SocialActivityPersistenceImpl extends BasePersistenceImpl<SocialAct
 		}
 
 		List<SocialActivity> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<SocialActivity>)finderCache.getResult(finderPath,
 					finderArgs, this);
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<SocialActivity>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+>>>>>>> compatible
 			if ((list != null) && !list.isEmpty()) {
 				for (SocialActivity socialActivity : list) {
 					if ((userId != socialActivity.getUserId())) {
@@ -2450,11 +2472,19 @@ public class SocialActivityPersistenceImpl extends BasePersistenceImpl<SocialAct
 		}
 
 		List<SocialActivity> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<SocialActivity>)finderCache.getResult(finderPath,
 					finderArgs, this);
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<SocialActivity>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+>>>>>>> compatible
 			if ((list != null) && !list.isEmpty()) {
 				for (SocialActivity socialActivity : list) {
 					if ((classNameId != socialActivity.getClassNameId())) {
@@ -2969,12 +2999,21 @@ public class SocialActivityPersistenceImpl extends BasePersistenceImpl<SocialAct
 		if (retrieveFromCache) {
 			list = (List<SocialActivity>)finderCache.getResult(finderPath,
 					finderArgs, this);
+<<<<<<< HEAD
 
 			if ((list != null) && !list.isEmpty()) {
 				for (SocialActivity socialActivity : list) {
 					if ((receiverUserId != socialActivity.getReceiverUserId())) {
 						list = null;
 
+=======
+
+			if ((list != null) && !list.isEmpty()) {
+				for (SocialActivity socialActivity : list) {
+					if ((receiverUserId != socialActivity.getReceiverUserId())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -4041,6 +4080,7 @@ public class SocialActivityPersistenceImpl extends BasePersistenceImpl<SocialAct
 		}
 
 		List<SocialActivity> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<SocialActivity>)finderCache.getResult(finderPath,
@@ -4053,6 +4093,20 @@ public class SocialActivityPersistenceImpl extends BasePersistenceImpl<SocialAct
 							(classPK != socialActivity.getClassPK())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<SocialActivity>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (SocialActivity socialActivity : list) {
+					if ((mirrorActivityId != socialActivity.getMirrorActivityId()) ||
+							(classNameId != socialActivity.getClassNameId()) ||
+							(classPK != socialActivity.getClassPK())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -4639,6 +4693,7 @@ public class SocialActivityPersistenceImpl extends BasePersistenceImpl<SocialAct
 		}
 
 		List<SocialActivity> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<SocialActivity>)finderCache.getResult(finderPath,
@@ -4651,6 +4706,20 @@ public class SocialActivityPersistenceImpl extends BasePersistenceImpl<SocialAct
 							(type != socialActivity.getType())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<SocialActivity>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (SocialActivity socialActivity : list) {
+					if ((classNameId != socialActivity.getClassNameId()) ||
+							(classPK != socialActivity.getClassPK()) ||
+							(type != socialActivity.getType())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -6161,11 +6230,17 @@ public class SocialActivityPersistenceImpl extends BasePersistenceImpl<SocialAct
 		setModelClass(SocialActivity.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("type", "type_");

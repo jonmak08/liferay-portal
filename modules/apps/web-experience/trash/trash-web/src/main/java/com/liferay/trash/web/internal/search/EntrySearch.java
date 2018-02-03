@@ -25,10 +25,15 @@ import com.liferay.portal.kernel.portlet.PortletProviderUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Validator;
+<<<<<<< HEAD
 import com.liferay.trash.model.TrashEntry;
 import com.liferay.trash.util.comparator.EntryCreateDateComparator;
 import com.liferay.trash.util.comparator.EntryTypeComparator;
 import com.liferay.trash.util.comparator.EntryUserNameComparator;
+=======
+import com.liferay.trash.kernel.model.TrashEntry;
+import com.liferay.trash.kernel.util.TrashUtil;
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -102,7 +107,11 @@ public class EntrySearch extends SearchContainer<TrashEntry> {
 			}
 
 			OrderByComparator<TrashEntry> orderByComparator =
+<<<<<<< HEAD
 				_getEntryOrderByComparator(orderByCol, orderByType);
+=======
+				TrashUtil.getEntryOrderByComparator(orderByCol, orderByType);
+>>>>>>> compatible
 
 			setOrderableHeaders(orderableHeaders);
 			setOrderByCol(orderByCol);
@@ -114,6 +123,7 @@ public class EntrySearch extends SearchContainer<TrashEntry> {
 		}
 	}
 
+<<<<<<< HEAD
 	private OrderByComparator<TrashEntry> _getEntryOrderByComparator(
 		String orderByCol, String orderByType) {
 
@@ -138,6 +148,8 @@ public class EntrySearch extends SearchContainer<TrashEntry> {
 		return orderByComparator;
 	}
 
+=======
+>>>>>>> compatible
 	private static final Log _log = LogFactoryUtil.getLog(EntrySearch.class);
 
 }

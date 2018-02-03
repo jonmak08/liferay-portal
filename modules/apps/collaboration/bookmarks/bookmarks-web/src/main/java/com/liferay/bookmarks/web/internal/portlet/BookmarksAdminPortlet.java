@@ -17,6 +17,7 @@ package com.liferay.bookmarks.web.internal.portlet;
 import com.liferay.bookmarks.constants.BookmarksPortletKeys;
 import com.liferay.portal.kernel.model.Release;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
+<<<<<<< HEAD
 import com.liferay.trash.TrashHelper;
 import com.liferay.trash.util.TrashWebKeys;
 
@@ -26,6 +27,10 @@ import javax.portlet.Portlet;
 import javax.portlet.PortletException;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
+=======
+
+import javax.portlet.Portlet;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -60,6 +65,7 @@ import org.osgi.service.component.annotations.Reference;
 )
 public class BookmarksAdminPortlet extends MVCPortlet {
 
+<<<<<<< HEAD
 	@Override
 	public void render(
 			RenderRequest renderRequest, RenderResponse renderResponse)
@@ -70,6 +76,8 @@ public class BookmarksAdminPortlet extends MVCPortlet {
 		super.render(renderRequest, renderResponse);
 	}
 
+=======
+>>>>>>> compatible
 	@Reference(
 		target = "(&(release.bundle.symbolic.name=com.liferay.bookmarks.web)(release.schema.version=1.0.0))",
 		unbind = "-"
@@ -77,7 +85,10 @@ public class BookmarksAdminPortlet extends MVCPortlet {
 	protected void setRelease(Release release) {
 	}
 
+<<<<<<< HEAD
 	@Reference
 	private TrashHelper _trashHelper;
 
+=======
+>>>>>>> compatible
 }

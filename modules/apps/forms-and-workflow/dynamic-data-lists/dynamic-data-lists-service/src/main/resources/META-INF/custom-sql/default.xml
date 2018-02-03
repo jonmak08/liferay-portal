@@ -9,7 +9,7 @@
 				DDLRecord
 			INNER JOIN
 				DDLRecordVersion ON
-					DDLRecordVersion.recordId = DDLRecord.recordId
+					(DDLRecordVersion.recordId = DDLRecord.recordId)
 			WHERE
 				(DDLRecordVersion.status = ?) AND
 				(DDLRecord.recordSetId = ?)
@@ -23,10 +23,10 @@
 				DDLRecord
 			INNER JOIN
 				DDLRecordVersion ON
-					DDLRecordVersion.recordId = DDLRecord.recordId
+					(DDLRecordVersion.recordId = DDLRecord.recordId)
 			INNER JOIN
 				DDLRecordSet ON
-					DDLRecordSet.recordSetId = DDLRecord.recordSetId
+					(DDLRecordSet.recordSetId = DDLRecord.recordSetId)
 			WHERE
 				(DDLRecordVersion.status = ?) AND
 				(DDLRecordSet.scope = ?) AND
@@ -41,7 +41,7 @@
 				DDLRecord
 			INNER JOIN
 				DDLRecordVersion ON
-					DDLRecordVersion.recordId = DDLRecord.recordId
+					(DDLRecordVersion.recordId = DDLRecord.recordId)
 			WHERE
 				(DDLRecordVersion.status = ?) AND
 				(DDLRecord.recordSetId = ?)
@@ -57,10 +57,10 @@
 				DDLRecord
 			INNER JOIN
 				DDLRecordVersion ON
-					DDLRecordVersion.recordId = DDLRecord.recordId
+					(DDLRecordVersion.recordId = DDLRecord.recordId)
 			INNER JOIN
 				DDLRecordSet ON
-					DDLRecordSet.recordSetId = DDLRecord.recordSetId
+					(DDLRecordSet.recordSetId = DDLRecord.recordSetId)
 			WHERE
 				(DDLRecordVersion.status = ?) AND
 				(DDLRecordSet.scope = ?) AND
@@ -90,24 +90,15 @@
 			SELECT
 				{DDLRecordSet.*}
 			FROM
+				DDLRecordSet
+			WHERE
+				(DDLRecordSet.companyId = ?) AND
+				(DDLRecordSet.groupId = ?) AND
+				(DDLRecordSet.scope = ?) AND
 				(
-					SELECT
-						DISTINCT DDLRecordSet.recordSetId
-					FROM
-						DDLRecordSet
-					WHERE
-						(DDLRecordSet.companyId = ?) AND
-						(DDLRecordSet.groupId = ?) AND
-						(DDLRecordSet.scope = ?) AND
-						(
-							(lower(DDLRecordSet.name) LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
-							(DDLRecordSet.description LIKE ? [$AND_OR_NULL_CHECK$])
-						)
+					(lower(DDLRecordSet.name) LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
+					(DDLRecordSet.description LIKE ? [$AND_OR_NULL_CHECK$])
 				)
-				TEMP_TABLE
-					INNER JOIN
-						DDLRecordSet ON
-							TEMP_TABLE.recordSetId = DDLRecordSet.recordSetId
 			ORDER BY
 				DDLRecordSet.recordSetId DESC
 		]]>

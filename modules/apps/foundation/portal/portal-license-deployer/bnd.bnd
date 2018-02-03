@@ -1,5 +1,9 @@
 Bundle-Name: Liferay Portal License Deployer
 Bundle-SymbolicName: com.liferay.portal.license.deployer
+<<<<<<< HEAD
 Bundle-Version: 1.0.7
+=======
+Bundle-Version: 1.0.6
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title:

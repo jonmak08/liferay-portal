@@ -15,12 +15,20 @@
 package com.liferay.blogs.demo.data.creator.internal;
 
 import com.liferay.blogs.demo.data.creator.BlogsEntryDemoDataCreator;
+<<<<<<< HEAD
 import com.liferay.blogs.model.BlogsEntry;
 import com.liferay.petra.string.CharPool;
+=======
+import com.liferay.blogs.kernel.model.BlogsEntry;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.security.RandomUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
 

@@ -31,11 +31,16 @@ import com.liferay.portal.kernel.util.ReferenceRegistry;
  * @see AssetTagStatsLocalService
  * @see com.liferay.portlet.asset.service.base.AssetTagStatsLocalServiceBaseImpl
  * @see com.liferay.portlet.asset.service.impl.AssetTagStatsLocalServiceImpl
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, replaced by {@link
 com.liferay.asset.tag.stats.service.impl.AssetTagStatsLocalServiceImpl}
  * @generated
  */
 @Deprecated
+=======
+ * @generated
+ */
+>>>>>>> compatible
 @ProviderType
 public class AssetTagStatsLocalServiceUtil {
 	/*

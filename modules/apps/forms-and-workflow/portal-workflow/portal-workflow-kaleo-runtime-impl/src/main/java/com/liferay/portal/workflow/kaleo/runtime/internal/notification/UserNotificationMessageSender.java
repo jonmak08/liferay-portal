@@ -14,17 +14,34 @@
 
 package com.liferay.portal.workflow.kaleo.runtime.internal.notification;
 
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.json.JSONFactory;
+>>>>>>> compatible
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.model.UserNotificationDeliveryConstants;
 import com.liferay.portal.kernel.service.UserNotificationEventLocalService;
 import com.liferay.portal.kernel.util.PortletKeys;
+<<<<<<< HEAD
 import com.liferay.portal.workflow.kaleo.definition.NotificationReceptionType;
 import com.liferay.portal.workflow.kaleo.runtime.ExecutionContext;
 import com.liferay.portal.workflow.kaleo.runtime.internal.util.NotificationMessageHelper;
+=======
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.portal.workflow.kaleo.definition.NotificationReceptionType;
+import com.liferay.portal.workflow.kaleo.model.KaleoInstanceToken;
+import com.liferay.portal.workflow.kaleo.model.KaleoTaskInstanceToken;
+import com.liferay.portal.workflow.kaleo.runtime.ExecutionContext;
+>>>>>>> compatible
 import com.liferay.portal.workflow.kaleo.runtime.notification.BaseNotificationSender;
 import com.liferay.portal.workflow.kaleo.runtime.notification.NotificationRecipient;
 import com.liferay.portal.workflow.kaleo.runtime.notification.NotificationSender;
 
+<<<<<<< HEAD
+=======
+import java.io.Serializable;
+
+>>>>>>> compatible
 import java.util.Map;
 import java.util.Set;
 
@@ -44,6 +61,7 @@ public class UserNotificationMessageSender
 	@Override
 	protected void doSendNotification(
 			Map<NotificationReceptionType, Set<NotificationRecipient>>
+<<<<<<< HEAD
 				notificationRecipients,
 			String defaultSubject, String notificationMessage,
 			ExecutionContext executionContext)
@@ -52,6 +70,14 @@ public class UserNotificationMessageSender
 		JSONObject jsonObject =
 			_notificationMessageHelper.createMessageJSONObject(
 				notificationMessage, executionContext);
+=======
+				notificationRecipients, String defaultSubject,
+			String notificationMessage, ExecutionContext executionContext)
+		throws Exception {
+
+		JSONObject jsonObject = populateJSONObject(
+			notificationMessage, executionContext);
+>>>>>>> compatible
 
 		for (Map.Entry<NotificationReceptionType, Set<NotificationRecipient>>
 				entry : notificationRecipients.entrySet()) {
@@ -71,8 +97,70 @@ public class UserNotificationMessageSender
 		}
 	}
 
+<<<<<<< HEAD
 	@Reference
 	private NotificationMessageHelper _notificationMessageHelper;
+=======
+	protected JSONObject populateJSONObject(
+		String notificationMessage, ExecutionContext executionContext) {
+
+		JSONObject jsonObject = _jsonFactory.createJSONObject();
+
+		Map<String, Serializable> workflowContext =
+			executionContext.getWorkflowContext();
+
+		jsonObject.put(
+			WorkflowConstants.CONTEXT_COMPANY_ID,
+			String.valueOf(
+				workflowContext.get(WorkflowConstants.CONTEXT_COMPANY_ID)));
+		jsonObject.put(
+			WorkflowConstants.CONTEXT_ENTRY_CLASS_NAME,
+			(String)workflowContext.get(
+				WorkflowConstants.CONTEXT_ENTRY_CLASS_NAME));
+		jsonObject.put(
+			WorkflowConstants.CONTEXT_ENTRY_CLASS_PK,
+			String.valueOf(
+				workflowContext.get(WorkflowConstants.CONTEXT_ENTRY_CLASS_PK)));
+		jsonObject.put(
+			WorkflowConstants.CONTEXT_ENTRY_TYPE,
+			(String)workflowContext.get(WorkflowConstants.CONTEXT_ENTRY_TYPE));
+		jsonObject.put(
+			WorkflowConstants.CONTEXT_GROUP_ID,
+			String.valueOf(
+				workflowContext.get(WorkflowConstants.CONTEXT_GROUP_ID)));
+
+		KaleoInstanceToken kaleoInstanceToken =
+			executionContext.getKaleoInstanceToken();
+
+		long userId = kaleoInstanceToken.getUserId();
+
+		KaleoTaskInstanceToken kaleoTaskInstanceToken =
+			executionContext.getKaleoTaskInstanceToken();
+
+		if (kaleoTaskInstanceToken != null) {
+			userId = kaleoTaskInstanceToken.getUserId();
+		}
+
+		jsonObject.put(
+			WorkflowConstants.CONTEXT_USER_ID, String.valueOf(userId));
+
+		jsonObject.put("notificationMessage", notificationMessage);
+
+		jsonObject.put(
+			"workflowInstanceId", kaleoInstanceToken.getKaleoInstanceId());
+
+		if (kaleoTaskInstanceToken != null) {
+			jsonObject.put(
+				"workflowTaskId",
+				kaleoTaskInstanceToken.getKaleoTaskInstanceTokenId());
+		}
+
+		return jsonObject;
+	}
+
+	@Reference
+	private JSONFactory _jsonFactory;
+>>>>>>> compatible
 
 	@Reference
 	private UserNotificationEventLocalService

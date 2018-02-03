@@ -8,7 +8,11 @@ AUI.add(
 				iconCssClass: 'code'
 			},
 			true: {
+<<<<<<< HEAD
 				iconCssClass: 'text-editor'
+=======
+				iconCssClass: 'format'
+>>>>>>> compatible
 			}
 		};
 
@@ -98,6 +102,7 @@ AUI.add(
 								mode: 'html',
 								on: {
 									themeSwitched: function(event) {
+<<<<<<< HEAD
 										var editorSwitchTheme = instance._editorSwitchTheme;
 
 										var nextTheme = event.themes[event.nextThemeIndex];
@@ -105,6 +110,9 @@ AUI.add(
 										editorSwitchTheme.one('.lexicon-icon').replace(nextTheme.icon);
 
 										editorSwitchTheme.setAttribute('data-title', nextTheme.tooltip);
+=======
+										instance._editorSwitchTheme.one('.lexicon-icon').replace(event.themes[event.nextThemeIndex].icon);
+>>>>>>> compatible
 									}
 								},
 								value: host.getHTML()
@@ -319,7 +327,10 @@ AUI.add(
 						instance._isVisible = editorWrapper.hasClass(CSS_SHOW_SOURCE);
 
 						editorSwitch.one('.lexicon-icon').replace(instance._getEditorStateLexiconIcon());
+<<<<<<< HEAD
 						editorSwitch.setAttribute('data-title', instance._isVisible ? Liferay.Language.get('text-view') : Liferay.Language.get('code-view'));
+=======
+>>>>>>> compatible
 
 						instance._refreshTooltip();
 

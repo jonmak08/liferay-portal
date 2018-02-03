@@ -33,7 +33,10 @@ page import="com.liferay.exportimport.kernel.lar.ExportImportHelperUtil" %><%@
 page import="com.liferay.exportimport.kernel.lar.PortletDataHandler" %><%@
 page import="com.liferay.exportimport.kernel.staging.StagingConstants" %><%@
 page import="com.liferay.exportimport.kernel.staging.StagingUtil" %><%@
+<<<<<<< HEAD
 page import="com.liferay.petra.string.StringPool" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.backgroundtask.BackgroundTask" %><%@
 page import="com.liferay.portal.kernel.backgroundtask.BackgroundTaskConstants" %><%@
 page import="com.liferay.portal.kernel.backgroundtask.BackgroundTaskManagerUtil" %><%@
@@ -63,14 +66,22 @@ page import="com.liferay.portal.kernel.util.MapUtil" %><%@
 page import="com.liferay.portal.kernel.util.ParamUtil" %><%@
 page import="com.liferay.portal.kernel.util.PortalUtil" %><%@
 page import="com.liferay.portal.kernel.util.PortletKeys" %><%@
+<<<<<<< HEAD
+=======
+page import="com.liferay.portal.kernel.util.StringPool" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.util.StringUtil" %><%@
 page import="com.liferay.portal.kernel.util.UnicodeProperties" %><%@
 page import="com.liferay.portal.kernel.util.Validator" %><%@
 page import="com.liferay.portal.kernel.util.WebKeys" %><%@
 page import="com.liferay.portal.kernel.util.comparator.PortletTitleComparator" %><%@
 page import="com.liferay.portal.util.PropsValues" %><%@
+<<<<<<< HEAD
 page import="com.liferay.portlet.layoutsadmin.display.context.GroupDisplayContextHelper" %><%@
 page import="com.liferay.trash.service.TrashEntryLocalServiceUtil" %>
+=======
+page import="com.liferay.portlet.layoutsadmin.display.context.GroupDisplayContextHelper" %>
+>>>>>>> compatible
 
 <%@ page import="java.util.HashSet" %><%@
 page import="java.util.List" %><%@

@@ -13,6 +13,11 @@
 
 	<div id="${navbarId}">
 		<ul aria-label="<@liferay.language key="site-pages" />" class="nav nav-tabs navbar-site" role="menubar">
+<<<<<<< HEAD
+=======
+			<h1 class="hide-accessible"><@liferay.language key="navigation" /></h1>
+
+>>>>>>> compatible
 			<#assign navItems = entries />
 
 			<#list navItems as navItem>
@@ -23,9 +28,15 @@
 						nav_item_attr_has_popup = ""
 						nav_item_attr_selected = ""
 						nav_item_caret = ""
+<<<<<<< HEAD
 						nav_item_css_class = "lfr-nav-item nav-item"
 						nav_item_href_link = ""
 						nav_item_link_css_class = "nav-link"
+=======
+						nav_item_css_class = "lfr-nav-item"
+						nav_item_href_link = ""
+						nav_item_link_css_class = ""
+>>>>>>> compatible
 					/>
 
 					<#if showChildren>
@@ -33,7 +44,11 @@
 						<#assign nav_item_caret = '<span class="lfr-nav-child-toggle"><i class="icon-caret-down"></i></span>' />
 						<#assign
 							nav_item_css_class = "${nav_item_css_class} dropdown"
+<<<<<<< HEAD
 							nav_item_link_css_class = "${nav_item_link_css_class} dropdown-toggle"
+=======
+							nav_item_link_css_class = "dropdown-toggle"
+>>>>>>> compatible
 						/>
 					</#if>
 
@@ -69,7 +84,11 @@
 									</#if>
 
 									<li class="${nav_child_css_class}" id="layout_${childNavigationItem.getLayoutId()}" ${nav_child_attr_selected} role="presentation">
+<<<<<<< HEAD
 										<a aria-labelledby="layout_${childNavigationItem.getLayoutId()}" class="dropdown-item" href="${childNavigationItem.getURL()}" ${childNavigationItem.getTarget()} role="menuitem">${childNavigationItem.getName()}</a>
+=======
+										<a aria-labelledby="layout_${childNavigationItem.getLayoutId()}" href="${childNavigationItem.getURL()}" ${childNavigationItem.getTarget()} role="menuitem">${childNavigationItem.getName()}</a>
+>>>>>>> compatible
 									</li>
 								</#list>
 							</ul>

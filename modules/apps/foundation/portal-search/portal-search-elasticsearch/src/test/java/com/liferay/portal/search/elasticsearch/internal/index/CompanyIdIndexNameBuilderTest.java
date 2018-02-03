@@ -14,9 +14,14 @@
 
 package com.liferay.portal.search.elasticsearch.internal.index;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.json.JSONFactoryImpl;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
+=======
+import com.liferay.portal.kernel.test.util.RandomTestUtil;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.search.elasticsearch.internal.connection.ElasticsearchFixture;
 
@@ -118,7 +123,10 @@ public class CompanyIdIndexNameBuilderTest {
 		CompanyIndexFactory companyIndexFactory = new CompanyIndexFactory() {
 			{
 				indexNameBuilder = companyIdIndexNameBuilder;
+<<<<<<< HEAD
 				jsonFactory = new JSONFactoryImpl();
+=======
+>>>>>>> compatible
 			}
 		};
 

@@ -377,6 +377,12 @@ public abstract class PowwowParticipantServiceBaseImpl extends BaseServiceImpl
 	}
 
 	public void afterPropertiesSet() {
+<<<<<<< HEAD
+=======
+		Class<?> clazz = getClass();
+
+		_classLoader = clazz.getClassLoader();
+>>>>>>> compatible
 	}
 
 	public void destroy() {
@@ -392,6 +398,30 @@ public abstract class PowwowParticipantServiceBaseImpl extends BaseServiceImpl
 		return PowwowParticipantService.class.getName();
 	}
 
+<<<<<<< HEAD
+=======
+	@Override
+	public Object invokeMethod(String name, String[] parameterTypes,
+		Object[] arguments) throws Throwable {
+		Thread currentThread = Thread.currentThread();
+
+		ClassLoader contextClassLoader = currentThread.getContextClassLoader();
+
+		if (contextClassLoader != _classLoader) {
+			currentThread.setContextClassLoader(_classLoader);
+		}
+
+		try {
+			return _clpInvoker.invokeMethod(name, parameterTypes, arguments);
+		}
+		finally {
+			if (contextClassLoader != _classLoader) {
+				currentThread.setContextClassLoader(contextClassLoader);
+			}
+		}
+	}
+
+>>>>>>> compatible
 	protected Class<?> getModelClass() {
 		return PowwowParticipant.class;
 	}
@@ -458,4 +488,9 @@ public abstract class PowwowParticipantServiceBaseImpl extends BaseServiceImpl
 	protected com.liferay.portal.kernel.service.UserService userService;
 	@BeanReference(type = UserPersistence.class)
 	protected UserPersistence userPersistence;
+<<<<<<< HEAD
+=======
+	private ClassLoader _classLoader;
+	private PowwowParticipantServiceClpInvoker _clpInvoker = new PowwowParticipantServiceClpInvoker();
+>>>>>>> compatible
 }

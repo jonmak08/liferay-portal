@@ -22,6 +22,7 @@ import com.liferay.registry.collections.ServiceTrackerList;
  */
 public class SettingsLocatorHelperUtil {
 
+<<<<<<< HEAD
 	public static Settings getCompanyConfigurationBeanSettings(
 		long companyId, String configurationPid, Settings parentSettings) {
 
@@ -29,6 +30,8 @@ public class SettingsLocatorHelperUtil {
 			companyId, configurationPid, parentSettings);
 	}
 
+=======
+>>>>>>> compatible
 	public static Settings getCompanyPortletPreferencesSettings(
 		long companyId, String settingsId, Settings parentSettings) {
 
@@ -36,6 +39,7 @@ public class SettingsLocatorHelperUtil {
 			companyId, settingsId, parentSettings);
 	}
 
+<<<<<<< HEAD
 	public static Settings getGroupConfigurationBeanSettings(
 		long groupId, String configurationPid, Settings parentSettings) {
 
@@ -51,6 +55,8 @@ public class SettingsLocatorHelperUtil {
 				portletId, configurationPid, parentSettings);
 	}
 
+=======
+>>>>>>> compatible
 	public static SettingsLocatorHelper getSettingsLocatorHelper() {
 		return _settingsLocatorHelpers.get(0);
 	}

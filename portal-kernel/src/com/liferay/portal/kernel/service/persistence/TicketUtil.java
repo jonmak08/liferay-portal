@@ -352,6 +352,7 @@ public class TicketUtil {
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns all the tickets where companyId = &#63; and classNameId = &#63; and classPK = &#63; and type = &#63;.
 	*
 	* @param companyId the company ID
@@ -559,6 +560,8 @@ public class TicketUtil {
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	* Caches the ticket in the entity cache if it is enabled.
 	*
 	* @param ticket the ticket

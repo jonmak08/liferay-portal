@@ -14,14 +14,24 @@
 
 package com.liferay.chat.internal.poller;
 
+<<<<<<< HEAD
 import com.liferay.chat.constants.ChatPortletKeys;
 import com.liferay.chat.internal.configuration.ChatGroupServiceConfiguration;
 import com.liferay.chat.internal.util.ChatConstants;
+=======
+import com.liferay.chat.configuration.ChatGroupServiceConfiguration;
+import com.liferay.chat.constants.ChatPortletKeys;
+>>>>>>> compatible
 import com.liferay.chat.model.Entry;
 import com.liferay.chat.model.Status;
 import com.liferay.chat.service.EntryLocalServiceUtil;
 import com.liferay.chat.service.StatusLocalServiceUtil;
+<<<<<<< HEAD
 import com.liferay.chat.util.BuddyFinder;
+=======
+import com.liferay.chat.util.BuddyFinderUtil;
+import com.liferay.chat.util.ChatConstants;
+>>>>>>> compatible
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
 import com.liferay.portal.kernel.exception.NoSuchLayoutSetException;
 import com.liferay.portal.kernel.exception.NoSuchUserException;
@@ -48,10 +58,15 @@ import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Time;
 
 import java.util.Collections;
+<<<<<<< HEAD
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+=======
+import java.util.List;
+import java.util.Map;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
@@ -103,10 +118,13 @@ public class ChatPollerProcessor extends BasePollerProcessor {
 
 	@Override
 	protected void doSend(PollerRequest pollerRequest) throws Exception {
+<<<<<<< HEAD
 		if (pollerRequest.isStartPolling()) {
 			_processedEntryIds.clear();
 		}
 
+=======
+>>>>>>> compatible
 		addEntry(pollerRequest);
 		updateStatus(pollerRequest);
 	}
@@ -115,7 +133,11 @@ public class ChatPollerProcessor extends BasePollerProcessor {
 			PollerRequest pollerRequest, PollerResponse pollerResponse)
 		throws Exception {
 
+<<<<<<< HEAD
 		List<Object[]> buddies = _buddyFinder.getBuddies(
+=======
+		List<Object[]> buddies = BuddyFinderUtil.getBuddies(
+>>>>>>> compatible
 			pollerRequest.getCompanyId(), pollerRequest.getUserId());
 
 		JSONArray buddiesJSONArray = JSONFactoryUtil.createJSONArray();
@@ -195,10 +217,13 @@ public class ChatPollerProcessor extends BasePollerProcessor {
 			PollerRequest pollerRequest, PollerResponse pollerResponse)
 		throws Exception {
 
+<<<<<<< HEAD
 		JSONArray entriesJSONArray = JSONFactoryUtil.createJSONArray();
 
 		boolean hasProcessedEntry = false;
 
+=======
+>>>>>>> compatible
 		Status status = StatusLocalServiceUtil.getUserStatus(
 			pollerRequest.getUserId());
 
@@ -216,11 +241,17 @@ public class ChatPollerProcessor extends BasePollerProcessor {
 
 		Collections.reverse(entries);
 
+<<<<<<< HEAD
 		for (Entry entry : entries) {
 			hasProcessedEntry = _processedEntryIds.contains(entry.getEntryId());
 
 			_processedEntryIds.add(entry.getEntryId());
 
+=======
+		JSONArray entriesJSONArray = JSONFactoryUtil.createJSONArray();
+
+		for (Entry entry : entries) {
+>>>>>>> compatible
 			JSONObject entryJSONObject = JSONFactoryUtil.createJSONObject();
 
 			entryJSONObject.put("createDate", entry.getCreateDate());
@@ -257,7 +288,11 @@ public class ChatPollerProcessor extends BasePollerProcessor {
 
 		pollerResponse.setParameter("entries", entriesJSONArray);
 
+<<<<<<< HEAD
 		if (!entries.isEmpty() && !hasProcessedEntry) {
+=======
+		if (!entries.isEmpty()) {
+>>>>>>> compatible
 			pollerResponse.setParameter(
 				PollerResponse.POLLER_HINT_HIGH_CONNECTIVITY,
 				Boolean.TRUE.toString());
@@ -318,9 +353,12 @@ public class ChatPollerProcessor extends BasePollerProcessor {
 	private static final Log _log = LogFactoryUtil.getLog(
 		ChatPollerProcessor.class);
 
+<<<<<<< HEAD
 	@Reference
 	private BuddyFinder _buddyFinder;
 
+=======
+>>>>>>> compatible
 	private ChatGroupServiceConfiguration _chatGroupServiceConfiguration;
 
 	@Reference
@@ -331,7 +369,10 @@ public class ChatPollerProcessor extends BasePollerProcessor {
 	@Reference
 	private Portal _portal;
 
+<<<<<<< HEAD
 	private final Set<Long> _processedEntryIds = new HashSet<>();
+=======
+>>>>>>> compatible
 	private UserLocalService _userLocalService;
 
 }

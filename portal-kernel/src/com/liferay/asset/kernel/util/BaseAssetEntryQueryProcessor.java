@@ -14,6 +14,7 @@
 
 package com.liferay.asset.kernel.util;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringPool;
 
 import java.io.IOException;
@@ -35,6 +36,14 @@ public abstract class BaseAssetEntryQueryProcessor
 	 * @deprecated As of 7.0.0
 	 */
 	@Deprecated
+=======
+/**
+ * @author Julio Camarero
+ */
+public abstract class BaseAssetEntryQueryProcessor
+	implements AssetEntryQueryProcessor {
+
+>>>>>>> compatible
 	@Override
 	public String getKey() {
 		Class<?> clazz = getClass();
@@ -42,6 +51,7 @@ public abstract class BaseAssetEntryQueryProcessor
 		return clazz.getSimpleName();
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0
 	 */
@@ -62,4 +72,6 @@ public abstract class BaseAssetEntryQueryProcessor
 		throws IOException {
 	}
 
+=======
+>>>>>>> compatible
 }

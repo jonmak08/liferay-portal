@@ -14,7 +14,10 @@
 
 package com.liferay.site.teams.web.internal.display.context;
 
+<<<<<<< HEAD
 import com.liferay.frontend.taglib.clay.servlet.taglib.util.NavigationItem;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.search.EmptyOnClickRowChecker;
 import com.liferay.portal.kernel.dao.search.SearchContainer;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -36,7 +39,10 @@ import com.liferay.site.teams.web.internal.constants.SiteTeamsPortletKeys;
 import com.liferay.site.teams.web.internal.search.TeamSearch;
 import com.liferay.users.admin.kernel.util.UsersAdminUtil;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+>>>>>>> compatible
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Objects;
@@ -78,6 +84,7 @@ public class SiteTeamsDisplayContext {
 		return _displayStyle;
 	}
 
+<<<<<<< HEAD
 	public List<NavigationItem> getNavigationItems() {
 		List<NavigationItem> navigationItems = new ArrayList<>();
 
@@ -96,6 +103,8 @@ public class SiteTeamsDisplayContext {
 		return navigationItems;
 	}
 
+=======
+>>>>>>> compatible
 	public String getOrderByCol() {
 		if (Validator.isNotNull(_orderByCol)) {
 			return _orderByCol;

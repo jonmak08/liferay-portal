@@ -87,10 +87,17 @@ public class TaskQueueTest {
 		taskQueue.drainTo(set);
 
 		Assert.assertEquals(set.toString(), 4, set.size());
+<<<<<<< HEAD
 		Assert.assertTrue(set.toString(), set.contains(object1));
 		Assert.assertTrue(set.toString(), set.contains(object2));
 		Assert.assertTrue(set.toString(), set.contains(object3));
 		Assert.assertTrue(set.toString(), set.contains(object4));
+=======
+		Assert.assertTrue(set.contains(object1));
+		Assert.assertTrue(set.contains(object2));
+		Assert.assertTrue(set.contains(object3));
+		Assert.assertTrue(set.contains(object4));
+>>>>>>> compatible
 
 		object1 = new Object();
 		object2 = new Object();

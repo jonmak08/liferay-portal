@@ -340,11 +340,19 @@ public class ChannelHubManagerImpl implements ChannelHubManager {
 		throws ChannelException {
 
 		ChannelHub channelHub = fetchChannelHub(companyId);
+<<<<<<< HEAD
 
 		if (channelHub != null) {
 			channelHub.sendNotificationEvent(userId, notificationEvent);
 		}
 
+=======
+
+		if (channelHub != null) {
+			channelHub.sendNotificationEvent(userId, notificationEvent);
+		}
+
+>>>>>>> compatible
 		if (!ClusterExecutorUtil.isEnabled() ||
 			!ClusterInvokeThreadLocal.isEnabled()) {
 

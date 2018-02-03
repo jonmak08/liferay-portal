@@ -199,6 +199,7 @@ public class LiferaySettingsPlugin implements Plugin<Settings> {
 						return FileVisitResult.SKIP_SUBTREE;
 					}
 
+<<<<<<< HEAD
 					String dirName = String.valueOf(dirPath.getFileName());
 
 					if (dirName.equals("build") ||
@@ -207,6 +208,8 @@ public class LiferaySettingsPlugin implements Plugin<Settings> {
 						return FileVisitResult.SKIP_SUBTREE;
 					}
 
+=======
+>>>>>>> compatible
 					ProjectDirType projectDirType = _getProjectDirType(dirPath);
 
 					if (projectDirType == ProjectDirType.UNKNOWN) {

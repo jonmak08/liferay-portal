@@ -80,8 +80,13 @@ public class ScriptNotificationRecipientBuilder
 
 			for (Role role : roles) {
 				_roleNotificationRecipientBuilder.addRoleRecipientAddresses(
+<<<<<<< HEAD
 					notificationRecipients, role, notificationReceptionType,
 					executionContext);
+=======
+					notificationRecipients, role.getRoleId(), role.getType(),
+					notificationReceptionType, executionContext);
+>>>>>>> compatible
 			}
 		}
 	}

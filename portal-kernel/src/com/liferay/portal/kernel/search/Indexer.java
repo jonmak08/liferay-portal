@@ -66,6 +66,7 @@ public interface Indexer<T> {
 
 	public String getSearchEngineId();
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, replaced by {@link
 	 *             com.liferay.portal.sort.SortFieldBuilder}
@@ -78,6 +79,10 @@ public interface Indexer<T> {
 	 *             com.liferay.portal.sort.SortFieldBuilder}
 	 */
 	@Deprecated
+=======
+	public String getSortField(String orderByCol);
+
+>>>>>>> compatible
 	public String getSortField(String orderByCol, int sortType);
 
 	/**
@@ -127,6 +132,7 @@ public interface Indexer<T> {
 
 	public boolean isVisible(long classPK, int status) throws Exception;
 
+<<<<<<< HEAD
 	/**
 	 * @param      classPK
 	 * @param      status
@@ -136,6 +142,8 @@ public interface Indexer<T> {
 	 *             RelatedEntryIndexer.isVisibleRelatedEntry(long, int)}
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public boolean isVisibleRelatedEntry(long classPK, int status)
 		throws Exception;
 

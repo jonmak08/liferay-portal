@@ -65,7 +65,11 @@ public class KaleoTransitionWrapper implements KaleoTransition,
 		attributes.put("userName", getUserName());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
+<<<<<<< HEAD
 		attributes.put("kaleoDefinitionVersionId", getKaleoDefinitionVersionId());
+=======
+		attributes.put("kaleoDefinitionId", getKaleoDefinitionId());
+>>>>>>> compatible
 		attributes.put("kaleoNodeId", getKaleoNodeId());
 		attributes.put("name", getName());
 		attributes.put("description", getDescription());
@@ -122,11 +126,18 @@ public class KaleoTransitionWrapper implements KaleoTransition,
 			setModifiedDate(modifiedDate);
 		}
 
+<<<<<<< HEAD
 		Long kaleoDefinitionVersionId = (Long)attributes.get(
 				"kaleoDefinitionVersionId");
 
 		if (kaleoDefinitionVersionId != null) {
 			setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
+=======
+		Long kaleoDefinitionId = (Long)attributes.get("kaleoDefinitionId");
+
+		if (kaleoDefinitionId != null) {
+			setKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 		}
 
 		Long kaleoNodeId = (Long)attributes.get("kaleoNodeId");
@@ -246,6 +257,7 @@ public class KaleoTransitionWrapper implements KaleoTransition,
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns the kaleo definition version ID of this kaleo transition.
 	*
 	* @return the kaleo definition version ID of this kaleo transition
@@ -253,6 +265,15 @@ public class KaleoTransitionWrapper implements KaleoTransition,
 	@Override
 	public long getKaleoDefinitionVersionId() {
 		return _kaleoTransition.getKaleoDefinitionVersionId();
+=======
+	* Returns the kaleo definition ID of this kaleo transition.
+	*
+	* @return the kaleo definition ID of this kaleo transition
+	*/
+	@Override
+	public long getKaleoDefinitionId() {
+		return _kaleoTransition.getKaleoDefinitionId();
+>>>>>>> compatible
 	}
 
 	/**
@@ -499,6 +520,7 @@ public class KaleoTransitionWrapper implements KaleoTransition,
 	}
 
 	/**
+<<<<<<< HEAD
 	* Sets the kaleo definition version ID of this kaleo transition.
 	*
 	* @param kaleoDefinitionVersionId the kaleo definition version ID of this kaleo transition
@@ -506,6 +528,15 @@ public class KaleoTransitionWrapper implements KaleoTransition,
 	@Override
 	public void setKaleoDefinitionVersionId(long kaleoDefinitionVersionId) {
 		_kaleoTransition.setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
+=======
+	* Sets the kaleo definition ID of this kaleo transition.
+	*
+	* @param kaleoDefinitionId the kaleo definition ID of this kaleo transition
+	*/
+	@Override
+	public void setKaleoDefinitionId(long kaleoDefinitionId) {
+		_kaleoTransition.setKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 	/**

@@ -48,7 +48,11 @@ public enum SearchScope {
 		new HashMap<>();
 
 	static {
+<<<<<<< HEAD
 		for (SearchScope searchScope : values()) {
+=======
+		for (SearchScope searchScope : SearchScope.values()) {
+>>>>>>> compatible
 			_searchScopes.put(searchScope._parameterString, searchScope);
 		}
 	}

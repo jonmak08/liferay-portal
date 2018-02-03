@@ -16,7 +16,10 @@ package com.liferay.portal.language.extender.internal;
 
 import com.liferay.osgi.felix.util.AbstractExtender;
 import com.liferay.portal.kernel.module.framework.ModuleServiceLifecycle;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 
 import java.util.List;
 
@@ -52,9 +55,13 @@ public class LanguageExtender extends AbstractExtender {
 
 	@Override
 	protected void debug(Bundle bundle, String s) {
+<<<<<<< HEAD
 		_logger.log(
 			Logger.LOG_DEBUG,
 			StringBundler.concat("[", String.valueOf(bundle), "] ", s));
+=======
+		_logger.log(Logger.LOG_DEBUG, "[" + bundle + "] " + s);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -84,9 +91,13 @@ public class LanguageExtender extends AbstractExtender {
 
 	@Override
 	protected void warn(Bundle bundle, String s, Throwable throwable) {
+<<<<<<< HEAD
 		_logger.log(
 			Logger.LOG_WARNING,
 			StringBundler.concat("[", String.valueOf(bundle), "] ", s));
+=======
+		_logger.log(Logger.LOG_WARNING, "[" + bundle + "] " + s);
+>>>>>>> compatible
 	}
 
 	private Logger _logger;

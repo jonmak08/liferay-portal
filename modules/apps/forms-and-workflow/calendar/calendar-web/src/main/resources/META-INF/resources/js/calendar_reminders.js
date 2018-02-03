@@ -6,7 +6,13 @@ AUI.add(
 		var STR_BLANK = '';
 
 		var TPL_REMINDER_SECTION = '<div class="calendar-portlet-reminder-section form-inline">' +
+<<<<<<< HEAD
 				'<input <tpl if="!disabled">checked="checked"</tpl> class="calendar-portlet-reminder-check" id="{portletNamespace}reminder{i}" name="{portletNamespace}reminder{i}" type="checkbox" />' +
+=======
+				'<label class="checkbox">' +
+					'<input <tpl if="!disabled">checked="checked"</tpl> class="calendar-portlet-reminder-check" id="{portletNamespace}reminder{i}" name="{portletNamespace}reminder{i}" type="checkbox" />' +
+				'</label>' +
+>>>>>>> compatible
 				'<label class="reminder-type" for="{portletNamespace}reminder{i}">' +
 					'<input id="{portletNamespace}reminderType{i}" name="{portletNamespace}reminderType{i}" type="hidden" value="email" />' +
 					'{email}' +
@@ -77,7 +83,11 @@ AUI.add(
 						var target = event.target;
 
 						var checked = target.get('checked');
+<<<<<<< HEAD
 						var elements = target.siblings('input[type=text],select');
+=======
+						var elements = target.ancestor().siblings('input[type=text],select');
+>>>>>>> compatible
 
 						elements.set('disabled', !checked);
 

@@ -14,7 +14,10 @@
 
 package com.liferay.taglib.util;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.theme.PortletDisplay;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Validator;

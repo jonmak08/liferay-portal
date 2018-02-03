@@ -82,7 +82,11 @@
 <!--USER_TABLE-->
 <tr>
 	<td>USER_TABLE_CHECKBOX</td>
+<<<<<<< HEAD
 	<td>//tr[contains(.,'${key_userScreenName}')]/td[1]//input</td>
+=======
+	<td>//tr[contains(.,'${key_userScreenName}')]/td//input</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>

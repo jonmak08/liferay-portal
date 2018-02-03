@@ -49,11 +49,20 @@ public class JournalArticleSoap implements Serializable {
 		soapModel.setTreePath(model.getTreePath());
 		soapModel.setArticleId(model.getArticleId());
 		soapModel.setVersion(model.getVersion());
+<<<<<<< HEAD
 		soapModel.setUrlTitle(model.getUrlTitle());
 		soapModel.setContent(model.getContent());
 		soapModel.setDDMStructureKey(model.getDDMStructureKey());
 		soapModel.setDDMTemplateKey(model.getDDMTemplateKey());
 		soapModel.setDefaultLanguageId(model.getDefaultLanguageId());
+=======
+		soapModel.setTitle(model.getTitle());
+		soapModel.setUrlTitle(model.getUrlTitle());
+		soapModel.setDescription(model.getDescription());
+		soapModel.setContent(model.getContent());
+		soapModel.setDDMStructureKey(model.getDDMStructureKey());
+		soapModel.setDDMTemplateKey(model.getDDMTemplateKey());
+>>>>>>> compatible
 		soapModel.setLayoutUuid(model.getLayoutUuid());
 		soapModel.setDisplayDate(model.getDisplayDate());
 		soapModel.setExpirationDate(model.getExpirationDate());
@@ -239,6 +248,17 @@ public class JournalArticleSoap implements Serializable {
 		_version = version;
 	}
 
+<<<<<<< HEAD
+=======
+	public String getTitle() {
+		return _title;
+	}
+
+	public void setTitle(String title) {
+		_title = title;
+	}
+
+>>>>>>> compatible
 	public String getUrlTitle() {
 		return _urlTitle;
 	}
@@ -247,6 +267,17 @@ public class JournalArticleSoap implements Serializable {
 		_urlTitle = urlTitle;
 	}
 
+<<<<<<< HEAD
+=======
+	public String getDescription() {
+		return _description;
+	}
+
+	public void setDescription(String description) {
+		_description = description;
+	}
+
+>>>>>>> compatible
 	public String getContent() {
 		return _content;
 	}
@@ -271,6 +302,7 @@ public class JournalArticleSoap implements Serializable {
 		_DDMTemplateKey = DDMTemplateKey;
 	}
 
+<<<<<<< HEAD
 	public String getDefaultLanguageId() {
 		return _defaultLanguageId;
 	}
@@ -279,6 +311,8 @@ public class JournalArticleSoap implements Serializable {
 		_defaultLanguageId = defaultLanguageId;
 	}
 
+=======
+>>>>>>> compatible
 	public String getLayoutUuid() {
 		return _layoutUuid;
 	}
@@ -406,11 +440,20 @@ public class JournalArticleSoap implements Serializable {
 	private String _treePath;
 	private String _articleId;
 	private double _version;
+<<<<<<< HEAD
 	private String _urlTitle;
 	private String _content;
 	private String _DDMStructureKey;
 	private String _DDMTemplateKey;
 	private String _defaultLanguageId;
+=======
+	private String _title;
+	private String _urlTitle;
+	private String _description;
+	private String _content;
+	private String _DDMStructureKey;
+	private String _DDMTemplateKey;
+>>>>>>> compatible
 	private String _layoutUuid;
 	private Date _displayDate;
 	private Date _expirationDate;

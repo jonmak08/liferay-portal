@@ -21,6 +21,10 @@ import com.liferay.mail.reader.model.Folder;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -100,7 +104,11 @@ public class FolderCacheModel implements CacheModel<Folder>, Externalizable {
 		folderImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			folderImpl.setUserName("");
+=======
+			folderImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			folderImpl.setUserName(userName);
@@ -123,14 +131,22 @@ public class FolderCacheModel implements CacheModel<Folder>, Externalizable {
 		folderImpl.setAccountId(accountId);
 
 		if (fullName == null) {
+<<<<<<< HEAD
 			folderImpl.setFullName("");
+=======
+			folderImpl.setFullName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			folderImpl.setFullName(fullName);
 		}
 
 		if (displayName == null) {
+<<<<<<< HEAD
 			folderImpl.setDisplayName("");
+=======
+			folderImpl.setDisplayName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			folderImpl.setDisplayName(displayName);
@@ -171,7 +187,11 @@ public class FolderCacheModel implements CacheModel<Folder>, Externalizable {
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -183,14 +203,22 @@ public class FolderCacheModel implements CacheModel<Folder>, Externalizable {
 		objectOutput.writeLong(accountId);
 
 		if (fullName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(fullName);
 		}
 
 		if (displayName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(displayName);

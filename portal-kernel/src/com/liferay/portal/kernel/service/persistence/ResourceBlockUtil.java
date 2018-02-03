@@ -35,10 +35,15 @@ import java.util.List;
  * @author Brian Wing Shun Chan
  * @see ResourceBlockPersistence
  * @see com.liferay.portal.service.persistence.impl.ResourceBlockPersistenceImpl
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, with no direct replacement
  * @generated
  */
 @Deprecated
+=======
+ * @generated
+ */
+>>>>>>> compatible
 @ProviderType
 public class ResourceBlockUtil {
 	/*

@@ -48,6 +48,7 @@ renderResponse.setTitle(LanguageUtil.get(request, "removed-attachments"));
 		<portlet:param name="nodeId" value="<%= String.valueOf(node.getPrimaryKey()) %>" />
 	</portlet:actionURL>
 
+<<<<<<< HEAD
 	<%
 	String trashEntriesMaxAgeTimeDescription = LanguageUtil.getTimeDescription(locale, trashHelper.getMaxAge(themeDisplay.getScopeGroup()) * Time.MINUTE, true);
 	%>
@@ -56,6 +57,12 @@ renderResponse.setTitle(LanguageUtil.get(request, "removed-attachments"));
 		confirmMessage="are-you-sure-you-want-to-remove-the-attachments-for-this-wiki-node"
 		emptyMessage="remove-the-attachments-for-this-wiki-node"
 		infoMessage='<%= LanguageUtil.format(request, "attachments-that-have-been-removed-for-more-than-x-will-be-automatically-deleted", trashEntriesMaxAgeTimeDescription, false) %>'
+=======
+	<liferay-trash:empty
+		confirmMessage="are-you-sure-you-want-to-remove-the-attachments-for-this-wiki-node"
+		emptyMessage="remove-the-attachments-for-this-wiki-node"
+		infoMessage="attachments-that-have-been-removed-for-more-than-x-will-be-automatically-deleted"
+>>>>>>> compatible
 		portletURL="<%= emptyTrashURL.toString() %>"
 		totalEntries="<%= attachmentsFileEntries.size() %>"
 	/>
@@ -77,4 +84,27 @@ renderResponse.setTitle(LanguageUtil.get(request, "removed-attachments"));
 	%>
 
 	<%@ include file="/wiki/attachments_list.jspf" %>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+
+<portlet:actionURL name="/wiki/edit_page_attachment" var="checkEntryURL">
+	<portlet:param name="<%= Constants.CMD %>" value="<%= Constants.CHECK %>" />
+</portlet:actionURL>
+
+<portlet:renderURL var="duplicateEntryURL" windowState="<%= LiferayWindowState.EXCLUSIVE.toString() %>">
+	<portlet:param name="mvcRenderCommandName" value="/wiki/restore_entry" />
+	<portlet:param name="redirect" value="<%= currentURL %>" />
+</portlet:renderURL>
+
+<aui:script use="liferay-restore-entry">
+	new Liferay.RestoreEntry(
+		{
+			checkEntryURL: '<%= checkEntryURL.toString() %>',
+			duplicateEntryURL: '<%= duplicateEntryURL.toString() %>',
+			namespace: '<portlet:namespace />'
+		}
+	);
+</aui:script>
+>>>>>>> compatible

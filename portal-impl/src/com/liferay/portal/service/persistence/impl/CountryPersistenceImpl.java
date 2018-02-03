@@ -32,8 +32,13 @@ import com.liferay.portal.kernel.model.Country;
 import com.liferay.portal.kernel.service.persistence.CountryPersistence;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.model.impl.CountryImpl;
 import com.liferay.portal.model.impl.CountryModelImpl;
 
@@ -878,11 +883,19 @@ public class CountryPersistenceImpl extends BasePersistenceImpl<Country>
 		}
 
 		List<Country> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<Country>)finderCache.getResult(finderPath, finderArgs,
 					this);
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<Country>)finderCache.getResult(finderPath, finderArgs,
+					this);
+
+>>>>>>> compatible
 			if ((list != null) && !list.isEmpty()) {
 				for (Country country : list) {
 					if ((active != country.getActive())) {
@@ -1282,11 +1295,17 @@ public class CountryPersistenceImpl extends BasePersistenceImpl<Country>
 		setModelClass(Country.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("number", "number_");

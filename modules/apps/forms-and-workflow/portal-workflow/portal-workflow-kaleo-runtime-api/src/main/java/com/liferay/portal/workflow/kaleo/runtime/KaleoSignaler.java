@@ -14,15 +14,21 @@
 
 package com.liferay.portal.workflow.kaleo.runtime;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.workflow.kaleo.model.KaleoNode;
 
 /**
  * @author Michael C. Han
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public interface KaleoSignaler {
 
 	public void signalEntry(

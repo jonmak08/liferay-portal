@@ -1,6 +1,7 @@
 AUI.add(
 	'liferay-ddm-form-field-select',
 	function(A) {
+<<<<<<< HEAD
 		var CSS_ACTIVE = A.getClassName('active');
 
 		var CSS_DROP_CHOSEN = A.getClassName('drop', 'chosen');
@@ -23,6 +24,8 @@ AUI.add(
 
 		var CSS_SELECT_TRIGGER_ACTION = A.getClassName('select', 'field', 'trigger');
 
+=======
+>>>>>>> compatible
 		var Lang = A.Lang;
 
 		var TPL_OPTION = '<option>{label}</option>';
@@ -30,16 +33,36 @@ AUI.add(
 		var SelectField = A.Component.create(
 			{
 				ATTRS: {
+<<<<<<< HEAD
+=======
+					dataSourceOptions: {
+						value: []
+					},
+
+>>>>>>> compatible
 					dataSourceType: {
 						value: 'manual'
 					},
 
+<<<<<<< HEAD
 					multiple: {
 						state: true,
+=======
+					dataProviderURL: {
+						valueFn: '_valueDataProviderURL'
+					},
+
+					ddmDataProviderInstanceId: {
+						value: 0
+					},
+
+					multiple: {
+>>>>>>> compatible
 						value: false
 					},
 
 					options: {
+<<<<<<< HEAD
 						getter: '_getOptions',
 						state: true,
 						validator: Array.isArray,
@@ -48,6 +71,8 @@ AUI.add(
 
 					predefinedValue: {
 						state: true,
+=======
+>>>>>>> compatible
 						validator: Array.isArray,
 						value: []
 					},
@@ -55,6 +80,7 @@ AUI.add(
 					strings: {
 						value: {
 							chooseAnOption: Liferay.Language.get('choose-an-option'),
+<<<<<<< HEAD
 							chooseOptions: Liferay.Language.get('choose-options'),
 							dynamicallyLoadedData: Liferay.Language.get('dynamically-loaded-data'),
 							emptyList: Liferay.Language.get('empty-list'),
@@ -66,25 +92,39 @@ AUI.add(
 						value: []
 					},
 
+=======
+							dynamicallyLoadedData: Liferay.Language.get('dynamically-loaded-data')
+						}
+					},
+
+>>>>>>> compatible
 					type: {
 						value: 'select'
 					},
 
 					value: {
+<<<<<<< HEAD
 						state: true,
+=======
+						setter: '_setValue',
+>>>>>>> compatible
 						value: []
 					}
 				},
 
+<<<<<<< HEAD
 				AUGMENTS: [
 					Liferay.DDM.Field.SelectFieldSearchSupport
 				],
 
+=======
+>>>>>>> compatible
 				EXTENDS: Liferay.DDM.Renderer.Field,
 
 				NAME: 'liferay-ddm-form-field-select',
 
 				prototype: {
+<<<<<<< HEAD
 					initializer: function() {
 						var instance = this;
 
@@ -140,11 +180,47 @@ AUI.add(
 						var arrowSelect = container.one('.' + CSS_SELECT_ARROW_DOWN);
 
 						arrowSelect.focus();
+=======
+					getContextValue: function() {
+						var instance = this;
+
+						var value = instance._getContextValue();
+
+						return value[0] || '';
+					},
+
+					getOptions: function() {
+						var instance = this;
+
+						var options = instance.get('options');
+
+						if (instance.get('dataSourceType') !== 'manual') {
+							options = instance.get('dataSourceOptions');
+						}
+
+						return A.map(
+							options,
+							function(item) {
+								var label = item.label;
+
+								if (Lang.isObject(label)) {
+									label = label[instance.get('locale')];
+								}
+
+								return {
+									label: label,
+									status: instance._getOptionStatus(item),
+									value: item.value
+								};
+							}
+						);
+>>>>>>> compatible
 					},
 
 					getTemplateContext: function() {
 						var instance = this;
 
+<<<<<<< HEAD
 						var soyIncDom = window.DDMSelect.render.Soy.toIncDom;
 
 						return A.merge(
@@ -158,10 +234,20 @@ AUI.add(
 								selectSearchIcon: soyIncDom(Liferay.Util.getLexiconIconTpl('search', 'icon-monospaced')),
 								strings: instance.get('strings'),
 								value: instance.getValue()
+=======
+						return A.merge(
+							SelectField.superclass.getTemplateContext.apply(instance, arguments),
+							{
+								multiple: instance.get('multiple') ? 'multiple' : '',
+								options: instance.getOptions(),
+								strings: instance.get('strings'),
+								value: instance.getContextValue()
+>>>>>>> compatible
 							}
 						);
 					},
 
+<<<<<<< HEAD
 					getValue: function() {
 						var instance = this;
 
@@ -179,6 +265,8 @@ AUI.add(
 						instance._open = true;
 					},
 
+=======
+>>>>>>> compatible
 					render: function() {
 						var instance = this;
 
@@ -186,6 +274,7 @@ AUI.add(
 
 						SelectField.superclass.render.apply(instance, arguments);
 
+<<<<<<< HEAD
 						if (dataSourceType !== 'manual' && instance.get('builder')) {
 							var inputNode = instance.getInputNode();
 
@@ -438,6 +527,129 @@ AUI.add(
 						for (var i = 0; i < value.length; i++) {
 							instance._selectDOMOption(optionNode, value[i]);
 						}
+=======
+						if (dataSourceType !== 'manual') {
+							if (instance.get('builder')) {
+								var inputNode = instance.getInputNode();
+
+								var strings = instance.get('strings');
+
+								inputNode.attr('disabled', true);
+
+								inputNode.html(
+									Lang.sub(
+										TPL_OPTION,
+										{
+											label: strings.dynamicallyLoadedData
+										}
+									)
+								);
+							}
+							else {
+								var container = instance.get('container');
+
+								instance._getDataSourceData(
+									function(options) {
+										instance.set('dataSourceOptions', options);
+
+										container.html(instance.getTemplate());
+
+										if (instance.get('repeatable')) {
+											instance.renderRepeatable();
+										}
+									}
+								);
+							}
+						}
+
+						return instance;
+					},
+
+					_getContextValue: function() {
+						var instance = this;
+
+						var value = SelectField.superclass.getContextValue.apply(instance, arguments);
+
+						if (!Array.isArray(value)) {
+							try {
+								value = JSON.parse(value);
+							}
+							catch (e) {
+								value = [value];
+							}
+						}
+
+						return value;
+					},
+
+					_getDataSourceData: function(callback) {
+						var instance = this;
+
+						A.io.request(
+							instance.get('dataProviderURL'),
+							{
+								data: {
+									ddmDataProviderInstanceId: instance.get('ddmDataProviderInstanceId')
+								},
+								dataType: 'JSON',
+								method: 'GET',
+								on: {
+									failure: function() {
+										callback.call(instance, null);
+									},
+									success: function() {
+										var result = this.get('responseData');
+
+										callback.call(instance, result);
+									}
+								}
+							}
+						);
+					},
+
+					_getOptionStatus: function(option) {
+						var instance = this;
+
+						var status = '';
+
+						var value = instance._getContextValue();
+
+						if (value.indexOf(option.value) > -1) {
+							status = 'selected';
+						}
+
+						return status;
+					},
+
+					_renderErrorMessage: function() {
+						var instance = this;
+
+						SelectField.superclass._renderErrorMessage.apply(instance, arguments);
+
+						var container = instance.get('container');
+
+						var inputGroup = container.one('.input-select-wrapper');
+
+						inputGroup.insert(container.one('.help-block'), 'after');
+					},
+
+					_setValue: function(val) {
+						return val || [];
+					},
+
+					_valueDataProviderURL: function() {
+						var instance = this;
+
+						var dataProviderURL;
+
+						var form = instance.getRoot();
+
+						if (form) {
+							dataProviderURL = form.get('dataProviderURL');
+						}
+
+						return dataProviderURL;
+>>>>>>> compatible
 					}
 				}
 			}
@@ -447,6 +659,10 @@ AUI.add(
 	},
 	'',
 	{
+<<<<<<< HEAD
 		requires: ['aui-tooltip', 'liferay-ddm-form-field-select', 'liferay-ddm-form-field-select-search-support', 'liferay-ddm-form-renderer-field']
+=======
+		requires: ['liferay-ddm-form-renderer-field']
+>>>>>>> compatible
 	}
 );

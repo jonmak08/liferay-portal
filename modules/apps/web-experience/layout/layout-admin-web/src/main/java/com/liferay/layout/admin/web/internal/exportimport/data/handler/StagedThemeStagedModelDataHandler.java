@@ -14,11 +14,18 @@
 
 package com.liferay.layout.admin.web.internal.exportimport.data.handler;
 
+<<<<<<< HEAD
 import com.liferay.exportimport.data.handler.base.BaseStagedModelDataHandler;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.exportimport.kernel.lar.PortletDataException;
 import com.liferay.exportimport.kernel.lar.PortletDataHandlerKeys;
 import com.liferay.exportimport.kernel.lar.StagedModelDataHandler;
+=======
+import com.liferay.exportimport.kernel.lar.PortletDataContext;
+import com.liferay.exportimport.kernel.lar.PortletDataHandlerKeys;
+import com.liferay.exportimport.kernel.lar.StagedModelDataHandler;
+import com.liferay.exportimport.lar.BaseStagedModelDataHandler;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Theme;
 import com.liferay.portal.kernel.model.adapter.StagedTheme;
 import com.liferay.portal.kernel.service.ThemeLocalService;
@@ -27,7 +34,10 @@ import com.liferay.portal.kernel.xml.Element;
 
 import java.util.Collections;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Map;
+=======
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -68,6 +78,7 @@ public class StagedThemeStagedModelDataHandler
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void importMissingReference(
 			PortletDataContext portletDataContext, Element referenceElement)
 		throws PortletDataException {
@@ -90,6 +101,8 @@ public class StagedThemeStagedModelDataHandler
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public boolean validateReference(
 		PortletDataContext portletDataContext, Element referenceElement) {
 

@@ -14,7 +14,11 @@
 
 package com.liferay.portal.spring.extender.service;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

@@ -59,9 +59,14 @@ public class JavaConstructorParameterOrder extends BaseJavaTermCheck {
 			String parameterName = parameter.getParameterName();
 
 			Pattern pattern = Pattern.compile(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"\\{\n([\\s\\S]*?)(_", parameterName, " =[ \t\n]+",
 					parameterName, ";)"));
+=======
+				"\\{\n([\\s\\S]*?)(_" + parameterName + " =[ \t\n]+" +
+					parameterName + ";)");
+>>>>>>> compatible
 
 			Matcher matcher = pattern.matcher(javaTerm.getContent());
 

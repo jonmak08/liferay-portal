@@ -31,8 +31,15 @@ import com.liferay.portal.kernel.service.persistence.CompanyProvider;
 import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.ReflectionUtil;
+import com.liferay.portal.kernel.util.SetUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.security.wedeploy.auth.exception.NoSuchTokenException;
 import com.liferay.portal.security.wedeploy.auth.model.WeDeployAuthToken;
@@ -127,7 +134,11 @@ public class WeDeployAuthTokenPersistenceImpl extends BasePersistenceImpl<WeDepl
 			msg.append(", type=");
 			msg.append(type);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -190,7 +201,11 @@ public class WeDeployAuthTokenPersistenceImpl extends BasePersistenceImpl<WeDepl
 			if (token == null) {
 				query.append(_FINDER_COLUMN_T_T_TOKEN_1);
 			}
+<<<<<<< HEAD
 			else if (token.equals("")) {
+=======
+			else if (token.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_T_T_TOKEN_3);
 			}
 			else {
@@ -308,7 +323,11 @@ public class WeDeployAuthTokenPersistenceImpl extends BasePersistenceImpl<WeDepl
 			if (token == null) {
 				query.append(_FINDER_COLUMN_T_T_TOKEN_1);
 			}
+<<<<<<< HEAD
 			else if (token.equals("")) {
+=======
+			else if (token.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_T_T_TOKEN_3);
 			}
 			else {
@@ -405,7 +424,11 @@ public class WeDeployAuthTokenPersistenceImpl extends BasePersistenceImpl<WeDepl
 			msg.append(", type=");
 			msg.append(type);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -472,7 +495,11 @@ public class WeDeployAuthTokenPersistenceImpl extends BasePersistenceImpl<WeDepl
 			if (clientId == null) {
 				query.append(_FINDER_COLUMN_CI_T_T_CLIENTID_1);
 			}
+<<<<<<< HEAD
 			else if (clientId.equals("")) {
+=======
+			else if (clientId.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_CI_T_T_CLIENTID_3);
 			}
 			else {
@@ -486,7 +513,11 @@ public class WeDeployAuthTokenPersistenceImpl extends BasePersistenceImpl<WeDepl
 			if (token == null) {
 				query.append(_FINDER_COLUMN_CI_T_T_TOKEN_1);
 			}
+<<<<<<< HEAD
 			else if (token.equals("")) {
+=======
+			else if (token.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_CI_T_T_TOKEN_3);
 			}
 			else {
@@ -612,7 +643,11 @@ public class WeDeployAuthTokenPersistenceImpl extends BasePersistenceImpl<WeDepl
 			if (clientId == null) {
 				query.append(_FINDER_COLUMN_CI_T_T_CLIENTID_1);
 			}
+<<<<<<< HEAD
 			else if (clientId.equals("")) {
+=======
+			else if (clientId.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_CI_T_T_CLIENTID_3);
 			}
 			else {
@@ -626,7 +661,11 @@ public class WeDeployAuthTokenPersistenceImpl extends BasePersistenceImpl<WeDepl
 			if (token == null) {
 				query.append(_FINDER_COLUMN_CI_T_T_TOKEN_1);
 			}
+<<<<<<< HEAD
 			else if (token.equals("")) {
+=======
+			else if (token.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_CI_T_T_TOKEN_3);
 			}
 			else {
@@ -687,11 +726,17 @@ public class WeDeployAuthTokenPersistenceImpl extends BasePersistenceImpl<WeDepl
 		setModelClass(WeDeployAuthToken.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("type", "type_");
@@ -1226,12 +1271,20 @@ public class WeDeployAuthTokenPersistenceImpl extends BasePersistenceImpl<WeDepl
 		for (Serializable primaryKey : uncachedPrimaryKeys) {
 			query.append((long)primaryKey);
 
+<<<<<<< HEAD
 			query.append(",");
+=======
+			query.append(StringPool.COMMA);
+>>>>>>> compatible
 		}
 
 		query.setIndex(query.index() - 1);
 
+<<<<<<< HEAD
 		query.append(")");
+=======
+		query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 		String sql = query.toString();
 

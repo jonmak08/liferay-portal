@@ -14,6 +14,10 @@
 
 package com.liferay.wsrp.internal.bind;
 
+<<<<<<< HEAD
+=======
+import com.liferay.petra.encryptor.Encryptor;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.NoSuchLayoutException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
@@ -30,7 +34,10 @@ import com.liferay.portal.kernel.servlet.HttpHeaders;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.Base64;
 import com.liferay.portal.kernel.util.ContentTypes;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.DigesterUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
@@ -317,10 +324,15 @@ public class V2MarkupServiceImpl
 		String contentType = response.getContentType();
 
 		if (itemBinary != null) {
+<<<<<<< HEAD
 			String lowerCaseContentType = StringUtil.toLowerCase(contentType);
 
 			if (Validator.isNotNull(lowerCaseContentType) &&
 				lowerCaseContentType.startsWith("text")) {
+=======
+			if (Validator.isNotNull(contentType) &&
+				StringUtil.toLowerCase(contentType).startsWith("text")) {
+>>>>>>> compatible
 
 				String content = new String(itemBinary);
 
@@ -593,7 +605,12 @@ public class V2MarkupServiceImpl
 
 		if (Validator.isNotNull(opaqueValue)) {
 			opaqueValue = new String(
+<<<<<<< HEAD
 				Base64.decodeFromURL(opaqueValue), StringPool.UTF8);
+=======
+				Base64.decode(Base64.fromURLSafe(opaqueValue)),
+				StringPool.UTF8);
+>>>>>>> compatible
 		}
 
 		Map<String, String[]> parameterMap = HttpUtil.parameterMapFromString(
@@ -723,7 +740,11 @@ public class V2MarkupServiceImpl
 
 		sb.append(StringPool.QUESTION);
 
+<<<<<<< HEAD
 		String propertiesAuthenticatonTokenSharedSecret = DigesterUtil.digest(
+=======
+		String propertiesAuthenticatonTokenSharedSecret = Encryptor.digest(
+>>>>>>> compatible
 			PropsUtil.get(PropsKeys.AUTH_TOKEN_SHARED_SECRET));
 
 		sb.append("p_auth_secret=");
@@ -772,7 +793,12 @@ public class V2MarkupServiceImpl
 			sb.append(StringPool.AMPERSAND);
 
 			opaqueValue = new String(
+<<<<<<< HEAD
 				Base64.decodeFromURL(opaqueValue), StringPool.UTF8);
+=======
+				Base64.decode(Base64.fromURLSafe(opaqueValue)),
+				StringPool.UTF8);
+>>>>>>> compatible
 
 			sb.append(opaqueValue);
 		}

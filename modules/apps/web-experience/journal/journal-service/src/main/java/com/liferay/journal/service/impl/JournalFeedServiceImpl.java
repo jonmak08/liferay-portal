@@ -57,34 +57,55 @@ public class JournalFeedServiceImpl extends JournalFeedServiceBaseImpl {
 
 	@Override
 	public void deleteFeed(long groupId, String feedId) throws PortalException {
+<<<<<<< HEAD
 		JournalFeed feed = journalFeedPersistence.findByG_F(groupId, feedId);
 
 		JournalFeedPermission.check(
 			getPermissionChecker(), feed, ActionKeys.DELETE);
 
 		journalFeedLocalService.deleteFeed(feed);
+=======
+		JournalFeedPermission.check(
+			getPermissionChecker(), groupId, feedId, ActionKeys.DELETE);
+
+		journalFeedLocalService.deleteFeed(groupId, feedId);
+>>>>>>> compatible
 	}
 
 	@Override
 	public JournalFeed getFeed(long feedId) throws PortalException {
+<<<<<<< HEAD
 		JournalFeed feed = journalFeedLocalService.getFeed(feedId);
 
 		JournalFeedPermission.check(
 			getPermissionChecker(), feed, ActionKeys.VIEW);
 
 		return feed;
+=======
+		JournalFeedPermission.check(
+			getPermissionChecker(), feedId, ActionKeys.VIEW);
+
+		return journalFeedLocalService.getFeed(feedId);
+>>>>>>> compatible
 	}
 
 	@Override
 	public JournalFeed getFeed(long groupId, String feedId)
 		throws PortalException {
 
+<<<<<<< HEAD
 		JournalFeed feed = journalFeedPersistence.findByG_F(groupId, feedId);
 
 		JournalFeedPermission.check(
 			getPermissionChecker(), feed, ActionKeys.VIEW);
 
 		return feed;
+=======
+		JournalFeedPermission.check(
+			getPermissionChecker(), groupId, feedId, ActionKeys.VIEW);
+
+		return journalFeedLocalService.getFeed(groupId, feedId);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -97,10 +118,15 @@ public class JournalFeedServiceImpl extends JournalFeedServiceBaseImpl {
 			double feedVersion, ServiceContext serviceContext)
 		throws PortalException {
 
+<<<<<<< HEAD
 		JournalFeed feed = journalFeedPersistence.findByG_F(groupId, feedId);
 
 		JournalFeedPermission.check(
 			getPermissionChecker(), feed, ActionKeys.UPDATE);
+=======
+		JournalFeedPermission.check(
+			getPermissionChecker(), groupId, feedId, ActionKeys.UPDATE);
+>>>>>>> compatible
 
 		return journalFeedLocalService.updateFeed(
 			groupId, feedId, name, description, ddmStructureKey, ddmTemplateKey,

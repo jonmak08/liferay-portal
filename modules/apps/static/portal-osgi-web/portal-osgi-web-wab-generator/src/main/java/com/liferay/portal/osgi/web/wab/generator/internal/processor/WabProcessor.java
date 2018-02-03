@@ -27,11 +27,19 @@ import aQute.bnd.osgi.Resource;
 import aQute.bnd.version.Version;
 
 import com.liferay.ant.bnd.jsp.JspAnalyzerPlugin;
+<<<<<<< HEAD
+=======
+import com.liferay.petra.xml.XMLUtil;
+>>>>>>> compatible
 import com.liferay.portal.events.GlobalStartupAction;
 import com.liferay.portal.kernel.deploy.auto.AutoDeployException;
 import com.liferay.portal.kernel.deploy.auto.AutoDeployListener;
 import com.liferay.portal.kernel.deploy.auto.context.AutoDeploymentContext;
 import com.liferay.portal.kernel.deploy.hot.DependencyManagementThreadLocal;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.io.FileFilter;
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.plugin.PluginPackage;
@@ -256,7 +264,11 @@ public class WabProcessor {
 		throws IOException {
 
 		try {
+<<<<<<< HEAD
 			FileUtil.write(file, document.formattedString("  "));
+=======
+			FileUtil.write(file, XMLUtil.formatXML(document));
+>>>>>>> compatible
 		}
 		catch (Exception e) {
 			throw new IOException(e);
@@ -325,9 +337,14 @@ public class WabProcessor {
 	}
 
 	protected String getVersionedServicePackageName(String partialPackageName) {
+<<<<<<< HEAD
 		return StringBundler.concat(
 			_servicePackageName, partialPackageName, ";version=",
 			_bundleVersion);
+=======
+		return _servicePackageName + partialPackageName + ";version=" +
+			_bundleVersion;
+>>>>>>> compatible
 	}
 
 	protected String getWebContextPath() {
@@ -449,8 +466,11 @@ public class WabProcessor {
 		processDefaultServletPackages();
 		processTLDDependencies(analyzer);
 
+<<<<<<< HEAD
 		processPortalListenerClassesDependencies(analyzer);
 
+=======
+>>>>>>> compatible
 		Path pluginPath = _pluginDir.toPath();
 
 		processXMLDependencies(
@@ -709,6 +729,7 @@ public class WabProcessor {
 		}
 	}
 
+<<<<<<< HEAD
 	protected void processPortalListenerClassesDependencies(Analyzer analyzer) {
 		File file = new File(_pluginDir, "WEB-INF/web.xml");
 
@@ -744,6 +765,8 @@ public class WabProcessor {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	protected void processPropertiesDependencies(
 		Analyzer analyzer, File file, String[] knownPropertyKeys) {
 
@@ -848,9 +871,15 @@ public class WabProcessor {
 			_servicePackageName = rootElement.attributeValue("package-path");
 
 			String[] partialPackageNames = {
+<<<<<<< HEAD
 				"", ".exception", ".model", ".model.impl", ".service",
 				".service.base", ".service.http", ".service.impl",
 				".service.persistence", ".service.persistence.impl"
+=======
+				"", ".model", ".model.impl", ".service", ".service.base",
+				".service.http", ".service.impl", ".service.persistence",
+				".service.persistence.impl"
+>>>>>>> compatible
 			};
 
 			for (String partialPackageName : partialPackageNames) {
@@ -878,6 +907,7 @@ public class WabProcessor {
 			return;
 		}
 
+<<<<<<< HEAD
 		File[] files = dir.listFiles(
 			(File file) -> {
 				if (!file.isFile()) {
@@ -892,6 +922,9 @@ public class WabProcessor {
 
 				return false;
 			});
+=======
+		File[] files = dir.listFiles(new FileFilter(".*\\.tld"));
+>>>>>>> compatible
 
 		for (File file : files) {
 			String content = FileUtil.read(file);
@@ -1196,7 +1229,11 @@ public class WabProcessor {
 				text = text.substring(1);
 			}
 
+<<<<<<< HEAD
 			value = StringBundler.concat("!", text, "/*,", value);
+=======
+			value = "!" + text + "/*," + value;
+>>>>>>> compatible
 		}
 
 		analyzer.setProperty("-jsp", value);

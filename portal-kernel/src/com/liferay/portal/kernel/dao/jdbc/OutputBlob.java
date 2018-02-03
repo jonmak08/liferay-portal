@@ -14,7 +14,7 @@
 
 package com.liferay.portal.kernel.dao.jdbc;
 
-import com.liferay.portal.kernel.internal.dao.jdbc.LimitedInputStream;
+import com.liferay.portal.kernel.io.LimitedInputStream;
 
 import java.io.IOException;
 import java.io.InputStream;

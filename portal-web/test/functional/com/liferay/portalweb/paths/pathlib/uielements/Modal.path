@@ -10,7 +10,11 @@
 <tbody>
 <tr>
 	<td>HEADER</td>
+<<<<<<< HEAD
 	<td>//div[contains(@class,'modal-dialog')]//div[contains(@*,'modal-header')]</td>
+=======
+	<td>//div[contains(@class,'modal-dialog')]//div[contains(@class,'modal-header')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -20,7 +24,11 @@
 </tr>
 <tr>
 	<td>BODY</td>
+<<<<<<< HEAD
 	<td>//div[contains(@class,'modal-dialog')]//*[contains(@class,'modal-body')]</td>
+=======
+	<td>//div[contains(@class,'modal-dialog')]//div[contains(@class,'modal-body')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 </tbody>

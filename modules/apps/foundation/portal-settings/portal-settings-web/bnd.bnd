@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Portal Settings Web
 Bundle-SymbolicName: com.liferay.portal.settings.web
+<<<<<<< HEAD
 Bundle-Version: 1.2.4
+=======
+Bundle-Version: 1.2.1
+>>>>>>> compatible
 Export-Package:\
 	com.liferay.portal.settings.web.constants,\
 	com.liferay.portal.settings.web.portlet.action

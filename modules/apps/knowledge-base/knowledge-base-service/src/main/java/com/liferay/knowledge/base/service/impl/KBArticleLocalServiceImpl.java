@@ -43,7 +43,10 @@ import com.liferay.knowledge.base.service.util.KnowledgeBaseConstants;
 import com.liferay.knowledge.base.util.KnowledgeBaseUtil;
 import com.liferay.knowledge.base.util.comparator.KBArticlePriorityComparator;
 import com.liferay.knowledge.base.util.comparator.KBArticleVersionComparator;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.bean.BeanPropertiesUtil;
 import com.liferay.portal.kernel.bean.BeanReference;
 import com.liferay.portal.kernel.dao.orm.Conjunction;
@@ -64,6 +67,10 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.ModelHintsUtil;
 import com.liferay.portal.kernel.model.ResourceConstants;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.model.Subscription;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.SystemEventConstants;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.module.configuration.ConfigurationException;
@@ -74,15 +81,25 @@ import com.liferay.portal.kernel.search.IndexWriterHelper;
 import com.liferay.portal.kernel.search.Indexer;
 import com.liferay.portal.kernel.search.IndexerRegistry;
 import com.liferay.portal.kernel.service.ServiceContext;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.settings.GroupServiceSettingsLocator;
 import com.liferay.portal.kernel.systemevent.SystemEvent;
 import com.liferay.portal.kernel.systemevent.SystemEventHierarchyEntryThreadLocal;
 import com.liferay.portal.kernel.util.ArrayUtil;
+=======
+import com.liferay.portal.kernel.systemevent.SystemEvent;
+import com.liferay.portal.kernel.systemevent.SystemEventHierarchyEntryThreadLocal;
+import com.liferay.portal.kernel.util.ArrayUtil;
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.SubscriptionSender;
@@ -93,8 +110,11 @@ import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.kernel.workflow.WorkflowHandlerRegistryUtil;
 import com.liferay.portal.kernel.workflow.WorkflowThreadLocal;
 import com.liferay.portal.spring.extender.service.ServiceReference;
+<<<<<<< HEAD
 import com.liferay.subscription.model.Subscription;
 import com.liferay.subscription.service.SubscriptionLocalService;
+=======
+>>>>>>> compatible
 
 import java.io.InputStream;
 import java.io.Serializable;
@@ -666,10 +686,16 @@ public class KBArticleLocalServiceImpl extends KBArticleLocalServiceBaseImpl {
 
 		if (kbArticle == null) {
 			throw new NoSuchArticleException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"No KBArticle exists with the key {groupId=",
 					String.valueOf(groupId), ", kbFolderId=",
 					String.valueOf(kbFolderId), ", urlTitle=", urlTitle, "}"));
+=======
+				"No KBArticle exists with the key {groupId=" + groupId +
+					", kbFolderId=" + kbFolderId + ", urlTitle=" + urlTitle +
+						"}");
+>>>>>>> compatible
 		}
 
 		return kbArticle;
@@ -688,10 +714,16 @@ public class KBArticleLocalServiceImpl extends KBArticleLocalServiceBaseImpl {
 
 		if (kbArticle == null) {
 			throw new NoSuchArticleException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"No KBArticle with the key {groupId=",
 					String.valueOf(groupId), ", urlTitle=", urlTitle,
 					"} found in a folder with URL title ", kbFolderUrlTitle));
+=======
+				"No KBArticle with the key {groupId=" + groupId +
+					", urlTitle=" + urlTitle + "} found in a folder with URL " +
+						"title " + kbFolderUrlTitle);
+>>>>>>> compatible
 		}
 
 		return kbArticle;
@@ -837,11 +869,17 @@ public class KBArticleLocalServiceImpl extends KBArticleLocalServiceBaseImpl {
 
 		if (latestKBArticle == null) {
 			throw new NoSuchArticleException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"No KBArticle exists with the key {groupId=",
 					String.valueOf(groupId), ", kbFolderId=",
 					String.valueOf(kbFolderId), ", urlTitle=", urlTitle,
 					", status=", String.valueOf(status), "}"));
+=======
+				"No KBArticle exists with the key {groupId=" + groupId +
+					", kbFolderId=" + kbFolderId + ", urlTitle=" + urlTitle +
+						", status=" + status + "}");
+>>>>>>> compatible
 		}
 
 		return latestKBArticle;
@@ -1629,9 +1667,14 @@ public class KBArticleLocalServiceImpl extends KBArticleLocalServiceBaseImpl {
 			long groupId)
 		throws ConfigurationException {
 
+<<<<<<< HEAD
 		return configurationProvider.getConfiguration(
 			KBGroupServiceConfiguration.class,
 			new GroupServiceSettingsLocator(groupId, KBConstants.SERVICE_NAME));
+=======
+		return configurationProvider.getGroupConfiguration(
+			KBGroupServiceConfiguration.class, groupId);
+>>>>>>> compatible
 	}
 
 	protected double getPriority(long groupId, long parentResourcePrimKey)
@@ -2075,9 +2118,12 @@ public class KBArticleLocalServiceImpl extends KBArticleLocalServiceBaseImpl {
 	@BeanReference(type = PortletFileRepository.class)
 	protected PortletFileRepository portletFileRepository;
 
+<<<<<<< HEAD
 	@ServiceReference(type = SubscriptionLocalService.class)
 	protected SubscriptionLocalService subscriptionLocalService;
 
+=======
+>>>>>>> compatible
 	private static final int[] _STATUSES =
 		{WorkflowConstants.STATUS_APPROVED, WorkflowConstants.STATUS_PENDING};
 

@@ -30,7 +30,10 @@ page import="com.liferay.portal.kernel.model.User" %><%@
 page import="com.liferay.portal.kernel.service.UserLocalServiceUtil" %><%@
 page import="com.liferay.portal.kernel.util.OrderByComparator" %><%@
 page import="com.liferay.portal.kernel.util.ParamUtil" %><%@
+<<<<<<< HEAD
 page import="com.liferay.portal.kernel.util.PortalUtil" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.util.ResourceBundleLoader" %><%@
 page import="com.liferay.portal.kernel.util.StringPool" %><%@
 page import="com.liferay.portal.kernel.util.WebKeys" %><%@

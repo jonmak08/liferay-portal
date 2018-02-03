@@ -17,17 +17,28 @@ package com.liferay.dynamic.data.mapping.type.text.internal;
 import com.liferay.dynamic.data.mapping.form.field.type.BaseDDMFormFieldRenderer;
 import com.liferay.dynamic.data.mapping.form.field.type.DDMFormFieldRenderer;
 import com.liferay.dynamic.data.mapping.model.DDMFormField;
+<<<<<<< HEAD
+=======
+import com.liferay.dynamic.data.mapping.model.LocalizedValue;
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.render.DDMFormFieldRenderingContext;
 import com.liferay.portal.kernel.template.Template;
 import com.liferay.portal.kernel.template.TemplateConstants;
 import com.liferay.portal.kernel.template.TemplateResource;
 
+<<<<<<< HEAD
+=======
+import java.util.Locale;
+>>>>>>> compatible
 import java.util.Map;
 
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.Reference;
+=======
+>>>>>>> compatible
 
 /**
  * @author Marcellus Tavares
@@ -45,7 +56,11 @@ public class TextDDMFormFieldRenderer extends BaseDDMFormFieldRenderer {
 
 	@Override
 	public String getTemplateNamespace() {
+<<<<<<< HEAD
 		return "DDMText.render";
+=======
+		return "ddm.text";
+>>>>>>> compatible
 	}
 
 	@Override
@@ -68,6 +83,7 @@ public class TextDDMFormFieldRenderer extends BaseDDMFormFieldRenderer {
 		Template template, DDMFormField ddmFormField,
 		DDMFormFieldRenderingContext ddmFormFieldRenderingContext) {
 
+<<<<<<< HEAD
 		Map<String, Object> parameters =
 			textDDMFormFieldTemplateContextContributor.getParameters(
 				ddmFormField, ddmFormFieldRenderingContext);
@@ -78,6 +94,22 @@ public class TextDDMFormFieldRenderer extends BaseDDMFormFieldRenderer {
 	@Reference
 	protected TextDDMFormFieldTemplateContextContributor
 		textDDMFormFieldTemplateContextContributor;
+=======
+		template.put("displayStyle", ddmFormField.getProperty("displayStyle"));
+
+		LocalizedValue placeholder = (LocalizedValue)ddmFormField.getProperty(
+			"placeholder");
+
+		Locale locale = ddmFormFieldRenderingContext.getLocale();
+
+		template.put("placeholder", getValueString(placeholder, locale));
+
+		LocalizedValue tooltip = (LocalizedValue)ddmFormField.getProperty(
+			"tooltip");
+
+		template.put("tooltip", getValueString(tooltip, locale));
+	}
+>>>>>>> compatible
 
 	private TemplateResource _templateResource;
 

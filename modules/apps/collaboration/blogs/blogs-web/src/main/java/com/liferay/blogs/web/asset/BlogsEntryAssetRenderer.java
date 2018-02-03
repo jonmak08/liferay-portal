@@ -16,12 +16,17 @@ package com.liferay.blogs.web.asset;
 
 import com.liferay.asset.kernel.model.AssetRendererFactory;
 import com.liferay.asset.kernel.model.BaseJSPAssetRenderer;
+<<<<<<< HEAD
 import com.liferay.asset.util.AssetHelper;
 import com.liferay.blogs.constants.BlogsPortletKeys;
 import com.liferay.blogs.model.BlogsEntry;
 import com.liferay.blogs.web.internal.security.permission.resource.BlogsEntryPermission;
 import com.liferay.blogs.web.internal.util.BlogsEntryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
+=======
+import com.liferay.blogs.kernel.model.BlogsEntry;
+import com.liferay.blogs.web.constants.BlogsPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.portlet.LiferayPortletRequest;
 import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
@@ -29,20 +34,34 @@ import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
 import com.liferay.portal.kernel.trash.TrashRenderer;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.AggregateResourceBundleLoader;
 import com.liferay.portal.kernel.util.ClassResourceBundleLoader;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.ResourceBundleLoader;
+=======
+import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.HtmlUtil;
+import com.liferay.portal.kernel.util.PortalUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.util.PropsValues;
+<<<<<<< HEAD
 
 import java.util.Date;
 import java.util.Locale;
 import java.util.ResourceBundle;
+=======
+import com.liferay.portlet.asset.util.AssetUtil;
+import com.liferay.portlet.blogs.service.permission.BlogsEntryPermission;
+
+import java.util.Date;
+import java.util.Locale;
+>>>>>>> compatible
 
 import javax.portlet.PortletRequest;
 import javax.portlet.PortletResponse;
@@ -61,6 +80,7 @@ import javax.servlet.http.HttpServletResponse;
 public class BlogsEntryAssetRenderer
 	extends BaseJSPAssetRenderer<BlogsEntry> implements TrashRenderer {
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 1.0.0, replaced by {@link
 	 *             #BlogsEntryAssetRenderer(BlogsEntry, ResourceBundleLoader)}
@@ -79,6 +99,10 @@ public class BlogsEntryAssetRenderer
 
 		_entry = entry;
 		_resourceBundleLoader = resourceBundleLoader;
+=======
+	public BlogsEntryAssetRenderer(BlogsEntry entry) {
+		_entry = entry;
+>>>>>>> compatible
 	}
 
 	@Override
@@ -149,13 +173,21 @@ public class BlogsEntryAssetRenderer
 	public String getSummary(
 		PortletRequest portletRequest, PortletResponse portletResponse) {
 
+<<<<<<< HEAD
 		int abstractLength = AssetHelper.ASSET_ENTRY_ABSTRACT_LENGTH;
+=======
+		int abstractLength = AssetUtil.ASSET_ENTRY_ABSTRACT_LENGTH;
+>>>>>>> compatible
 
 		if (portletRequest != null) {
 			abstractLength = GetterUtil.getInteger(
 				portletRequest.getAttribute(
 					WebKeys.ASSET_ENTRY_ABSTRACT_LENGTH),
+<<<<<<< HEAD
 				AssetHelper.ASSET_ENTRY_ABSTRACT_LENGTH);
+=======
+				AssetUtil.ASSET_ENTRY_ABSTRACT_LENGTH);
+>>>>>>> compatible
 		}
 
 		String summary = _entry.getDescription();
@@ -170,10 +202,14 @@ public class BlogsEntryAssetRenderer
 
 	@Override
 	public String getTitle(Locale locale) {
+<<<<<<< HEAD
 		ResourceBundle resourceBundle =
 			_resourceBundleLoader.loadResourceBundle(locale);
 
 		return BlogsEntryUtil.getDisplayTitle(resourceBundle, _entry);
+=======
+		return _entry.getTitle();
+>>>>>>> compatible
 	}
 
 	@Override
@@ -249,25 +285,37 @@ public class BlogsEntryAssetRenderer
 		return _entry.getUuid();
 	}
 
+<<<<<<< HEAD
 	public boolean hasDeletePermission(PermissionChecker permissionChecker)
 		throws PortalException {
 
+=======
+	public boolean hasDeletePermission(PermissionChecker permissionChecker) {
+>>>>>>> compatible
 		return BlogsEntryPermission.contains(
 			permissionChecker, _entry, ActionKeys.DELETE);
 	}
 
 	@Override
+<<<<<<< HEAD
 	public boolean hasEditPermission(PermissionChecker permissionChecker)
 		throws PortalException {
 
+=======
+	public boolean hasEditPermission(PermissionChecker permissionChecker) {
+>>>>>>> compatible
 		return BlogsEntryPermission.contains(
 			permissionChecker, _entry, ActionKeys.UPDATE);
 	}
 
 	@Override
+<<<<<<< HEAD
 	public boolean hasViewPermission(PermissionChecker permissionChecker)
 		throws PortalException {
 
+=======
+	public boolean hasViewPermission(PermissionChecker permissionChecker) {
+>>>>>>> compatible
 		return BlogsEntryPermission.contains(
 			permissionChecker, _entry, ActionKeys.VIEW);
 	}
@@ -289,6 +337,9 @@ public class BlogsEntryAssetRenderer
 	}
 
 	private final BlogsEntry _entry;
+<<<<<<< HEAD
 	private final ResourceBundleLoader _resourceBundleLoader;
+=======
+>>>>>>> compatible
 
 }

@@ -23,12 +23,18 @@ import com.liferay.message.boards.kernel.model.MBMessage;
 import com.liferay.message.boards.kernel.model.MBMessageConstants;
 import com.liferay.message.boards.kernel.model.MBStatsUser;
 import com.liferay.message.boards.kernel.model.MBThread;
+<<<<<<< HEAD
 import com.liferay.message.boards.kernel.model.MBThreadConstants;
 import com.liferay.message.boards.kernel.service.MBCategoryLocalServiceUtil;
 import com.liferay.message.boards.kernel.service.MBMessageLocalServiceUtil;
 import com.liferay.message.boards.kernel.service.MBThreadLocalServiceUtil;
 import com.liferay.petra.mail.JavaMailUtil;
 import com.liferay.petra.string.CharPool;
+=======
+import com.liferay.message.boards.kernel.service.MBCategoryLocalServiceUtil;
+import com.liferay.message.boards.kernel.service.MBMessageLocalServiceUtil;
+import com.liferay.message.boards.kernel.service.MBThreadLocalServiceUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.log.Log;
@@ -117,10 +123,13 @@ public class MBUtil {
 
 	public static final String MESSAGE_POP_PORTLET_PREFIX = "mb_message.";
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static void collectMultipartContent(
 			MimeMultipart multipart, MBMailMessage collector)
 		throws Exception {
@@ -925,17 +934,28 @@ public class MBUtil {
 		String editorName = PropsUtil.get(BB_CODE_EDITOR_WYSIWYG_IMPL_KEY);
 
 		if (editorName.equals("bbcode")) {
+<<<<<<< HEAD
 			editorName = "alloyeditor_bbcode";
 
 			if (_log.isWarnEnabled()) {
 				_log.warn(
 					"Replacing unsupported BBCode editor with AlloyEditor " +
 						"BBCode");
+=======
+			editorName = "ckeditor_bbcode";
+
+			if (_log.isWarnEnabled()) {
+				_log.warn(
+					"Replacing unsupported BBCode editor with CKEditor BBCode");
+>>>>>>> compatible
 			}
 		}
 
 		if (messageFormat.equals("bbcode") &&
+<<<<<<< HEAD
 			!editorName.equals("alloyeditor_bbcode") &&
+=======
+>>>>>>> compatible
 			!editorName.equals("ckeditor_bbcode")) {
 
 			return false;
@@ -1182,11 +1202,14 @@ public class MBUtil {
 		}
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, replaced by {@link
 	 *             com.liferay.message.boards.web.internal.util.MBUserRankUtil}
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	private static boolean _isEntityRank(
 			long companyId, MBStatsUser statsUser, String entityType,
 			String entityValue)

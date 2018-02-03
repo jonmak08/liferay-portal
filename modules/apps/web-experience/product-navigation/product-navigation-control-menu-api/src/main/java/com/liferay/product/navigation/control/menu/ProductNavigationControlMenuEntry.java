@@ -25,6 +25,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+<<<<<<< HEAD
  * Provides an interface that defines entries to be used by a
  * <code>product-navigation:control-menu</code> tag instance to render a new
  * Control Menu entry. Control Menu entries are included within Control Menu
@@ -39,10 +40,13 @@ import javax.servlet.http.HttpServletResponse;
  * <code>product.navigation.control.menu.category.key</code> property value.
  * </p>
  *
+=======
+>>>>>>> compatible
  * @author Julio Camarero
  */
 public interface ProductNavigationControlMenuEntry {
 
+<<<<<<< HEAD
 	/**
 	 * Returns the data to be injected as the <code>data</code> attribute of the
 	 * <code>liferay-ui:icon</code> tag instance for the Control Menu entry.
@@ -140,10 +144,29 @@ public interface ProductNavigationControlMenuEntry {
 	 *         rendered; <code>false</code> otherwise
 	 * @throws IOException if an IO exception occurred
 	 */
+=======
+	public Map<String, Object> getData(HttpServletRequest request);
+
+	public String getIcon(HttpServletRequest request);
+
+	public String getIconCssClass(HttpServletRequest request);
+
+	public String getKey();
+
+	public String getLabel(Locale locale);
+
+	public String getLinkCssClass(HttpServletRequest request);
+
+	public String getMarkupView(HttpServletRequest request);
+
+	public String getURL(HttpServletRequest request);
+
+>>>>>>> compatible
 	public boolean includeBody(
 			HttpServletRequest request, HttpServletResponse response)
 		throws IOException;
 
+<<<<<<< HEAD
 	/**
 	 * Returns <code>true</code> if the Control Menu entry icon's HTML should be
 	 * rendered.
@@ -154,10 +177,13 @@ public interface ProductNavigationControlMenuEntry {
 	 *         rendered; <code>false</code> otherwise
 	 * @throws IOException if an IO exception occurred
 	 */
+=======
+>>>>>>> compatible
 	public boolean includeIcon(
 			HttpServletRequest request, HttpServletResponse response)
 		throws IOException;
 
+<<<<<<< HEAD
 	/**
 	 * Returns <code>true</code> if the Control Menu entry should be displayed
 	 * in the request's context.
@@ -177,6 +203,10 @@ public interface ProductNavigationControlMenuEntry {
 	 *         dialog window; <code>false</code> if it should open in the
 	 *         current window
 	 */
+=======
+	public boolean isShow(HttpServletRequest request) throws PortalException;
+
+>>>>>>> compatible
 	public boolean isUseDialog();
 
 }

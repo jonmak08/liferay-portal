@@ -22,7 +22,6 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.messaging.BaseMessageListener;
 import com.liferay.portal.kernel.messaging.Message;
-import com.liferay.portal.kernel.util.StringBundler;
 
 /**
  * @author Shuyang Zhou
@@ -51,10 +50,8 @@ public class ClusterBridgeMessageListener extends BaseMessageListener {
 		else {
 			if (_log.isInfoEnabled()) {
 				_log.info(
-					StringBundler.concat(
-						"Bridging cluster link unicast message ",
-						String.valueOf(message), " to ",
-						String.valueOf(address)));
+					"Bridging cluster link unicast message " + message +
+						" to " + address);
 			}
 
 			ClusterLinkUtil.sendUnicastMessage(address, message, _priority);

@@ -14,9 +14,15 @@
 
 package com.liferay.push.notifications.sender.microsoft.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
+=======
+import com.liferay.portal.kernel.json.JSONFactoryUtil;
+import com.liferay.portal.kernel.json.JSONObject;
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.push.notifications.constants.PushNotificationsConstants;
 import com.liferay.push.notifications.sender.PushNotificationsSender;
@@ -25,7 +31,10 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.jboss.aerogear.windows.mpns.MPNS;
+<<<<<<< HEAD
 import org.jboss.aerogear.windows.mpns.MpnsNotificationBuilder;
+=======
+>>>>>>> compatible
 import org.jboss.aerogear.windows.mpns.MpnsService;
 import org.jboss.aerogear.windows.mpns.MpnsServiceBuilder;
 import org.jboss.aerogear.windows.mpns.notifications.TileNotification;
@@ -99,10 +108,14 @@ public class MicrosoftPushNotificationsSender
 	protected TileNotification buildTileNotification(
 		String from, String body, String attributes) {
 
+<<<<<<< HEAD
 		MpnsNotificationBuilder mpnsNotificationBuilder =
 			MPNS.newNotification();
 
 		TileNotification.Builder builder = mpnsNotificationBuilder.tile();
+=======
+		TileNotification.Builder builder = MPNS.newNotification().tile();
+>>>>>>> compatible
 
 		builder.backContent(body);
 		builder.backTitle(from);
@@ -116,10 +129,14 @@ public class MicrosoftPushNotificationsSender
 	protected ToastNotification buildToastNotification(
 		String from, String body, String attributes) {
 
+<<<<<<< HEAD
 		MpnsNotificationBuilder mpnsNotificationBuilder =
 			MPNS.newNotification();
 
 		ToastNotification.Builder builder = mpnsNotificationBuilder.toast();
+=======
+		ToastNotification.Builder builder = MPNS.newNotification().toast();
+>>>>>>> compatible
 
 		builder.parameter(attributes);
 		builder.subtitle(body);

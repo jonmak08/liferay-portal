@@ -4,6 +4,7 @@ import EventScreen from './EventScreen.es';
 import Uri from 'metal-uri/src/Uri';
 import utils from 'senna/src/utils/utils';
 
+<<<<<<< HEAD
 /**
  * ActionURLScreen
  *
@@ -16,12 +17,16 @@ class ActionURLScreen extends EventScreen {
 	 * @inheritDoc
 	 * @review
 	 */
+=======
+class ActionURLScreen extends EventScreen {
+>>>>>>> compatible
 	constructor() {
 		super();
 
 		this.httpMethod = 'POST';
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @inheritDoc
 	 * When an action request (form submission) redirects, we make
@@ -29,6 +34,8 @@ class ActionURLScreen extends EventScreen {
 	 * @return {!String} The request path
 	 * @review
 	 */
+=======
+>>>>>>> compatible
 	getRequestPath() {
 		var request = this.getRequest();
 

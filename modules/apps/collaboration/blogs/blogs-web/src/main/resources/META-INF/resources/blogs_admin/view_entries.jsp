@@ -66,6 +66,7 @@ if (cur > 0) {
 String keywords = ParamUtil.getString(request, "keywords");
 %>
 
+<<<<<<< HEAD
 <%
 int entriesTotal = 0;
 List<BlogsEntry> entriesResults = null;
@@ -148,6 +149,9 @@ entriesSearchContainer.setResults(entriesResults);
 
 <liferay-frontend:management-bar
 	disabled="<%= entriesSearchContainer.getTotal() <= 0 %>"
+=======
+<liferay-frontend:management-bar
+>>>>>>> compatible
 	includeCheckBox="<%= true %>"
 	searchContainerId="blogEntries"
 >
@@ -177,7 +181,11 @@ entriesSearchContainer.setResults(entriesResults);
 	</c:if>
 
 	<liferay-frontend:management-bar-action-buttons>
+<<<<<<< HEAD
 		<liferay-frontend:management-bar-button href='<%= "javascript:" + renderResponse.getNamespace() + "deleteEntries();" %>' icon='<%= trashHelper.isTrashEnabled(scopeGroupId) ? "trash" : "times" %>' label='<%= trashHelper.isTrashEnabled(scopeGroupId) ? "recycle-bin" : "delete" %>' />
+=======
+		<liferay-frontend:management-bar-button href='<%= "javascript:" + renderResponse.getNamespace() + "deleteEntries();" %>' icon='<%= TrashUtil.isTrashEnabled(scopeGroupId) ? "trash" : "times" %>' label='<%= TrashUtil.isTrashEnabled(scopeGroupId) ? "recycle-bin" : "delete" %>' />
+>>>>>>> compatible
 	</liferay-frontend:management-bar-action-buttons>
 </liferay-frontend:management-bar>
 
@@ -195,13 +203,18 @@ entriesSearchContainer.setResults(entriesResults);
 		<aui:input name="redirect" type="hidden" value="<%= portletURL.toString() %>" />
 		<aui:input name="deleteEntryIds" type="hidden" />
 
+<<<<<<< HEAD
 		<liferay-asset:categorization-filter
+=======
+		<liferay-ui:categorization-filter
+>>>>>>> compatible
 			assetType="entries"
 			portletURL="<%= portletURL %>"
 		/>
 
 		<liferay-ui:search-container
 			id="blogEntries"
+<<<<<<< HEAD
 			rowChecker="<%= new EmptyOnClickRowChecker(renderResponse) %>"
 			searchContainer="<%= entriesSearchContainer %>"
 		>
@@ -214,6 +227,26 @@ entriesSearchContainer.setResults(entriesResults);
 				<liferay-portlet:renderURL varImpl="rowURL">
 					<portlet:param name="mvcRenderCommandName" value="/blogs/edit_entry" />
 					<portlet:param name="redirect" value="<%= entriesSearchContainer.getIteratorURL().toString() %>" />
+=======
+			orderByComparator="<%= BlogsUtil.getOrderByComparator(orderByCol, orderByType) %>"
+			rowChecker="<%= new EmptyOnClickRowChecker(renderResponse) %>"
+			searchContainer='<%= new SearchContainer(renderRequest, PortletURLUtil.clone(portletURL, liferayPortletResponse), null, "no-entries-were-found") %>'
+		>
+			<liferay-ui:search-container-results>
+				<%@ include file="/blogs_admin/entry_search_results.jspf" %>
+			</liferay-ui:search-container-results>
+
+			<liferay-ui:search-container-row
+				className="com.liferay.blogs.kernel.model.BlogsEntry"
+				escapedModel="<%= true %>"
+				keyProperty="entryId"
+				modelVar="entry"
+				rowIdProperty="urlTitle"
+			>
+				<liferay-portlet:renderURL varImpl="rowURL">
+					<portlet:param name="mvcRenderCommandName" value="/blogs/edit_entry" />
+					<portlet:param name="redirect" value="<%= searchContainer.getIteratorURL().toString() %>" />
+>>>>>>> compatible
 					<portlet:param name="entryId" value="<%= String.valueOf(entry.getEntryId()) %>" />
 				</liferay-portlet:renderURL>
 
@@ -238,18 +271,30 @@ entriesSearchContainer.setResults(entriesResults);
 
 <aui:script>
 	function <portlet:namespace />deleteEntries() {
+<<<<<<< HEAD
 		if (<%= trashHelper.isTrashEnabled(scopeGroupId) %> || confirm('<%= UnicodeLanguageUtil.get(request, "are-you-sure-you-want-to-delete-the-selected-entries") %>')) {
 			var form = AUI.$(document.<portlet:namespace />fm);
 
 			form.attr('method', 'post');
 			form.fm('<%= Constants.CMD %>').val('<%= trashHelper.isTrashEnabled(scopeGroupId) ? Constants.MOVE_TO_TRASH : Constants.DELETE %>');
+=======
+		if (<%= TrashUtil.isTrashEnabled(scopeGroupId) %> || confirm('<%= UnicodeLanguageUtil.get(request, "are-you-sure-you-want-to-delete-the-selected-entries") %>')) {
+			var form = AUI.$(document.<portlet:namespace />fm);
+
+			form.attr('method', 'post');
+			form.fm('<%= Constants.CMD %>').val('<%= TrashUtil.isTrashEnabled(scopeGroupId) ? Constants.MOVE_TO_TRASH : Constants.DELETE %>');
+>>>>>>> compatible
 			form.fm('deleteEntryIds').val(Liferay.Util.listCheckedExcept(form, '<portlet:namespace />allRowIds'));
 
 			submitForm(form, '<portlet:actionURL name="/blogs/edit_entry" />');
 		}
 	}
+<<<<<<< HEAD
 </aui:script>
 
 <%!
 private static Log _log = LogFactoryUtil.getLog("com_liferay_blogs_web.blogs_admin.view_entries_jsp");
 %>
+=======
+</aui:script>
+>>>>>>> compatible

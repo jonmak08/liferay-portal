@@ -16,12 +16,16 @@ package com.liferay.message.boards.internal.exportimport.data.handler;
 
 import com.liferay.document.library.kernel.model.DLFileEntry;
 import com.liferay.document.library.kernel.model.DLFolderConstants;
+<<<<<<< HEAD
 import com.liferay.exportimport.data.handler.base.BaseStagedModelDataHandler;
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.lar.ExportImportPathUtil;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.exportimport.kernel.lar.StagedModelDataHandler;
 import com.liferay.exportimport.kernel.lar.StagedModelDataHandlerUtil;
 import com.liferay.exportimport.kernel.lar.StagedModelModifiedDateComparator;
+<<<<<<< HEAD
 import com.liferay.message.boards.kernel.model.MBCategory;
 import com.liferay.message.boards.kernel.model.MBCategoryConstants;
 import com.liferay.message.boards.kernel.model.MBMessage;
@@ -30,6 +34,17 @@ import com.liferay.message.boards.kernel.service.MBMessageLocalService;
 import com.liferay.message.boards.kernel.service.MBThreadLocalService;
 import com.liferay.message.boards.model.MBDiscussion;
 import com.liferay.message.boards.service.MBDiscussionLocalService;
+=======
+import com.liferay.exportimport.lar.BaseStagedModelDataHandler;
+import com.liferay.message.boards.kernel.model.MBCategory;
+import com.liferay.message.boards.kernel.model.MBCategoryConstants;
+import com.liferay.message.boards.kernel.model.MBDiscussion;
+import com.liferay.message.boards.kernel.model.MBMessage;
+import com.liferay.message.boards.kernel.model.MBThread;
+import com.liferay.message.boards.kernel.service.MBDiscussionLocalService;
+import com.liferay.message.boards.kernel.service.MBMessageLocalService;
+import com.liferay.message.boards.kernel.service.MBThreadLocalService;
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
@@ -38,17 +53,27 @@ import com.liferay.portal.kernel.portletfilerepository.PortletFileRepositoryUtil
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.trash.TrashHandler;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.trash.TrashHandlerRegistryUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.kernel.util.ObjectValuePair;
+=======
+import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.MapUtil;
+import com.liferay.portal.kernel.util.ObjectValuePair;
+import com.liferay.portal.kernel.util.StreamUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portlet.documentlibrary.lar.FileEntryUtil;
 import com.liferay.ratings.kernel.model.RatingsEntry;
 import com.liferay.ratings.kernel.service.RatingsEntryLocalService;
 
+<<<<<<< HEAD
 import java.io.IOException;
+=======
+>>>>>>> compatible
 import java.io.InputStream;
 
 import java.util.ArrayList;
@@ -434,6 +459,7 @@ public class MBMessageStagedModelDataHandler
 			for (ObjectValuePair<String, InputStream> inputStreamOVP :
 					inputStreamOVPs) {
 
+<<<<<<< HEAD
 				try (InputStream inputStream = inputStreamOVP.getValue()) {
 				}
 				catch (IOException ioe) {
@@ -441,6 +467,11 @@ public class MBMessageStagedModelDataHandler
 						_log.warn(ioe, ioe);
 					}
 				}
+=======
+				InputStream inputStream = inputStreamOVP.getValue();
+
+				StreamUtil.cleanUp(inputStream);
+>>>>>>> compatible
 			}
 		}
 	}
@@ -460,9 +491,13 @@ public class MBMessageStagedModelDataHandler
 		}
 
 		if (existingMessage.isInTrash()) {
+<<<<<<< HEAD
 			TrashHandler trashHandler =
 				TrashHandlerRegistryUtil.getTrashHandler(
 					MBMessage.class.getName());
+=======
+			TrashHandler trashHandler = existingMessage.getTrashHandler();
+>>>>>>> compatible
 
 			if (trashHandler.isRestorable(existingMessage.getMessageId())) {
 				trashHandler.restoreTrashEntry(
@@ -473,9 +508,13 @@ public class MBMessageStagedModelDataHandler
 		if (existingMessage.isInTrashContainer()) {
 			MBThread existingThread = existingMessage.getThread();
 
+<<<<<<< HEAD
 			TrashHandler trashHandler =
 				TrashHandlerRegistryUtil.getTrashHandler(
 					MBThread.class.getName());
+=======
+			TrashHandler trashHandler = existingThread.getTrashHandler();
+>>>>>>> compatible
 
 			if (trashHandler.isRestorable(existingThread.getThreadId())) {
 				trashHandler.restoreTrashEntry(

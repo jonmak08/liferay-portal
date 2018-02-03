@@ -109,6 +109,7 @@ public interface DLFileEntryLocalService extends BaseLocalService,
 		throws PortalException;
 
 	public DLFileEntry checkOutFileEntry(long userId, long fileEntryId,
+<<<<<<< HEAD
 		long fileEntryTypeId, ServiceContext serviceContext)
 		throws PortalException;
 
@@ -117,6 +118,8 @@ public interface DLFileEntryLocalService extends BaseLocalService,
 		ServiceContext serviceContext) throws PortalException;
 
 	public DLFileEntry checkOutFileEntry(long userId, long fileEntryId,
+=======
+>>>>>>> compatible
 		ServiceContext serviceContext) throws PortalException;
 
 	public DLFileEntry checkOutFileEntry(long userId, long fileEntryId,
@@ -192,9 +195,12 @@ public interface DLFileEntryLocalService extends BaseLocalService,
 	public PersistedModel deletePersistedModel(PersistedModel persistedModel)
 		throws PortalException;
 
+<<<<<<< HEAD
 	public void deleteRepositoryFileEntries(long repositoryId)
 		throws PortalException;
 
+=======
+>>>>>>> compatible
 	public void deleteRepositoryFileEntries(long repositoryId, long folderId)
 		throws PortalException;
 

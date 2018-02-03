@@ -14,8 +14,11 @@
 
 package com.liferay.exportimport.lar;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.internal.util.ExportImportPermissionUtil;
 import com.liferay.exportimport.kernel.lar.ExportImportPathUtil;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
@@ -59,7 +62,10 @@ import java.util.Set;
  * @author Zsigmond Rab
  * @author Douglas Wong
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class PermissionImporter {
 
 	public static PermissionImporter getInstance() {

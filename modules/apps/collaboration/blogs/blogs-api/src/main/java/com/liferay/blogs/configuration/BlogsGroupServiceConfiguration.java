@@ -32,28 +32,48 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
 )
 public interface BlogsGroupServiceConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(deflt = "true", name = "enable-rss", required = false)
+=======
+	@Meta.AD(deflt = "true", required = false)
+>>>>>>> compatible
 	public boolean enableRss();
 
 	@Meta.AD(
 		deflt = "${server-property://com.liferay.portal/search.container.page.default.delta}",
+<<<<<<< HEAD
 		name = "rss-delta", required = false
+=======
+		required = false
+>>>>>>> compatible
 	)
 	public String rssDelta();
 
 	@Meta.AD(
 		deflt = "${server-property://com.liferay.portal/rss.feed.display.style.default}",
+<<<<<<< HEAD
 		name = "rss-display-style", required = false
+=======
+		required = false
+>>>>>>> compatible
 	)
 	public String rssDisplayStyle();
 
 	@Meta.AD(
 		deflt = "${server-property://com.liferay.portal/rss.feed.type.default}",
+<<<<<<< HEAD
 		name = "rss-feed-type", required = false
 	)
 	public String rssFeedType();
 
 	@Meta.AD(deflt = "300", name = "small-image-width", required = false)
+=======
+		required = false
+	)
+	public String rssFeedType();
+
+	@Meta.AD(deflt = "300", required = false)
+>>>>>>> compatible
 	public int smallImageWidth();
 
 }

@@ -14,10 +14,17 @@
 
 package com.liferay.journal.content.web.internal.portlet;
 
+<<<<<<< HEAD
 import com.liferay.journal.constants.JournalContentPortletKeys;
 import com.liferay.journal.model.JournalArticle;
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.portlet.DisplayInformationProvider;
+=======
+import com.liferay.journal.content.web.constants.JournalContentPortletKeys;
+import com.liferay.journal.model.JournalArticle;
+import com.liferay.portal.kernel.portlet.DisplayInformationProvider;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import javax.portlet.PortletPreferences;
 

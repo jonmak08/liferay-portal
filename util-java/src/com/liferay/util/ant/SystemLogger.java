@@ -14,11 +14,8 @@
 
 package com.liferay.util.ant;
 
-import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
-import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
 import com.liferay.portal.kernel.util.StringBundler;
-
-import java.io.IOException;
+import com.liferay.portal.kernel.util.StringUtil;
 
 import org.apache.tools.ant.BuildEvent;
 import org.apache.tools.ant.DefaultLogger;
@@ -40,6 +37,7 @@ public class SystemLogger extends DefaultLogger {
 
 		StringBundler sb = new StringBundler();
 
+<<<<<<< HEAD
 		try (UnsyncBufferedReader unsyncBufferedReader =
 				new UnsyncBufferedReader(
 					new UnsyncStringReader(event.getMessage()))) {
@@ -52,16 +50,19 @@ public class SystemLogger extends DefaultLogger {
 				if (!first) {
 					sb.append(StringUtils.LINE_SEP);
 				}
+=======
+		boolean first = true;
+>>>>>>> compatible
 
-				first = false;
-
-				sb.append("  ");
-				sb.append(line);
-
-				line = unsyncBufferedReader.readLine();
+		for (String line : StringUtil.splitLines(event.getMessage())) {
+			if (!first) {
+				sb.append(StringUtils.LINE_SEP);
 			}
-		}
-		catch (IOException ioe) {
+
+			first = false;
+
+			sb.append("  ");
+			sb.append(line);
 		}
 
 		String msg = sb.toString();

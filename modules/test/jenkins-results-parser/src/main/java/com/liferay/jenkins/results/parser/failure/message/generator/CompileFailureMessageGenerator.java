@@ -16,6 +16,11 @@ package com.liferay.jenkins.results.parser.failure.message.generator;
 
 import com.liferay.jenkins.results.parser.Build;
 
+<<<<<<< HEAD
+=======
+import java.util.Hashtable;
+
+>>>>>>> compatible
 import org.dom4j.Element;
 
 /**
@@ -25,6 +30,7 @@ public class CompileFailureMessageGenerator
 	extends BaseFailureMessageGenerator {
 
 	@Override
+<<<<<<< HEAD
 	public Element getMessageElement(Build build) {
 		String consoleText = build.getConsoleText();
 
@@ -32,15 +38,37 @@ public class CompileFailureMessageGenerator
 
 		if (end == -1) {
 			end = consoleText.indexOf("compileJava FAILED");
+=======
+	public String getMessage(
+		String buildURL, String consoleOutput, Hashtable<?, ?> properties) {
+
+		return null;
+	}
+
+	@Override
+	public Element getMessageElement(Build build) {
+		String consoleOutput = build.getConsoleText();
+
+		int end = consoleOutput.indexOf("Compile failed;");
+
+		if (end == -1) {
+			end = consoleOutput.indexOf("compileJava FAILED");
+>>>>>>> compatible
 		}
 
 		if (end == -1) {
 			return null;
 		}
 
+<<<<<<< HEAD
 		end = consoleText.lastIndexOf("\n", end);
 
 		return getConsoleTextSnippetElement(consoleText, true, end);
+=======
+		end = consoleOutput.lastIndexOf("\n", end);
+
+		return getConsoleOutputSnippetElement(consoleOutput, true, end);
+>>>>>>> compatible
 	}
 
 }

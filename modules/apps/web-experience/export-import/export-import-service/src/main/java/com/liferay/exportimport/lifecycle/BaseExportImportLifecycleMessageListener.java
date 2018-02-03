@@ -14,8 +14,11 @@
 
 package com.liferay.exportimport.lifecycle;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.lifecycle.ExportImportLifecycleEvent;
 import com.liferay.exportimport.kernel.lifecycle.ExportImportLifecycleListener;
 import com.liferay.portal.kernel.log.Log;
@@ -28,7 +31,10 @@ import java.util.Set;
 /**
  * @author Daniel Kocsis
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public abstract class BaseExportImportLifecycleMessageListener
 	extends BaseMessageListener {
 

@@ -62,11 +62,19 @@ boolean skipEditorLoading = GetterUtil.getBoolean((String)request.getAttribute("
 		long javaScriptLastModified = PortalWebResourcesUtil.getLastModified(PortalWebResourceConstants.RESOURCE_TYPE_EDITOR_TINYMCEEDITOR);
 		%>
 
+<<<<<<< HEAD
 		<script data-senna-track="temporary" src="<%= HtmlUtil.escape(PortalUtil.getStaticResourceURL(request, themeDisplay.getCDNHost() + PortalWebResourcesUtil.getContextPath(PortalWebResourceConstants.RESOURCE_TYPE_EDITOR_TINYMCEEDITOR) + "/tiny_mce/tinymce.min.js", javaScriptLastModified)) %>" type="text/javascript"></script>
 
 		<liferay-util:dynamic-include key='<%= "com.liferay.frontend.editor.tinymce.web#" + editorName + "#additionalResources" %>' />
 
 		<script data-senna-track="temporary" type="text/javascript">
+=======
+		<script src="<%= HtmlUtil.escape(PortalUtil.getStaticResourceURL(request, themeDisplay.getCDNHost() + PortalWebResourcesUtil.getContextPath(PortalWebResourceConstants.RESOURCE_TYPE_EDITOR_TINYMCEEDITOR) + "/tiny_mce/tinymce.min.js", javaScriptLastModified)) %>" type="text/javascript"></script>
+
+		<liferay-util:dynamic-include key='<%= "com.liferay.frontend.editor.tinymce.web#" + editorName + "#additionalResources" %>' />
+
+		<script type="text/javascript">
+>>>>>>> compatible
 			Liferay.namespace('EDITORS')['<%= editorName %>'] = true;
 		</script>
 	</liferay-util:html-top>
@@ -259,11 +267,15 @@ name = HtmlUtil.escapeJS(name);
 
 	var destroyInstance = function(event) {
 		if (event.portletId === '<%= portletId %>') {
+<<<<<<< HEAD
 			try {
 				window['<%= name %>'].destroy();
 			}
 			catch (e) {
 			}
+=======
+			window['<%= name %>'].destroy();
+>>>>>>> compatible
 
 			Liferay.detach('destroyPortlet', destroyInstance);
 		}

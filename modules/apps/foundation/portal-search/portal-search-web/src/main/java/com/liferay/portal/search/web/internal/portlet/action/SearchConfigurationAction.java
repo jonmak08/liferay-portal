@@ -22,7 +22,11 @@ import com.liferay.portal.kernel.portlet.DefaultConfigurationAction;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.search.web.constants.SearchPortletKeys;
 import com.liferay.portal.search.web.facet.SearchFacet;
+<<<<<<< HEAD
 import com.liferay.portal.search.web.internal.facet.SearchFacetTracker;
+=======
+import com.liferay.portal.search.web.facet.util.SearchFacetTracker;
+>>>>>>> compatible
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
@@ -59,7 +63,11 @@ public class SearchConfigurationAction extends DefaultConfigurationAction {
 
 		JSONArray facetsJSONArray = JSONFactoryUtil.createJSONArray();
 
+<<<<<<< HEAD
 		for (SearchFacet searchFacet : searchFacetTracker.getSearchFacets()) {
+=======
+		for (SearchFacet searchFacet : SearchFacetTracker.getSearchFacets()) {
+>>>>>>> compatible
 			JSONObject facetJSONObject = JSONFactoryUtil.createJSONObject();
 
 			facetJSONObject.put("className", searchFacet.getFacetClassName());
@@ -99,7 +107,10 @@ public class SearchConfigurationAction extends DefaultConfigurationAction {
 		super.setServletContext(servletContext);
 	}
 
+<<<<<<< HEAD
 	@Reference
 	protected SearchFacetTracker searchFacetTracker;
 
+=======
+>>>>>>> compatible
 }

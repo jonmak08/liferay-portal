@@ -26,11 +26,17 @@ taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %><%@
 taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %><%@
 taglib uri="http://liferay.com/tld/util" prefix="liferay-util" %>
 
+<<<<<<< HEAD
 <%@ page import="com.liferay.captcha.configuration.CaptchaConfiguration" %><%@
 page import="com.liferay.login.web.internal.portlet.util.LoginUtil" %><%@
 page import="com.liferay.login.web.internal.servlet.taglib.include.NavigationPageIncludeUtil" %><%@
 page import="com.liferay.petra.content.ContentUtil" %><%@
 page import="com.liferay.petra.string.StringPool" %><%@
+=======
+<%@ page import="com.liferay.login.web.internal.portlet.util.LoginUtil" %><%@
+page import="com.liferay.login.web.internal.servlet.taglib.include.NavigationPageIncludeUtil" %><%@
+page import="com.liferay.petra.content.ContentUtil" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.bean.BeanParamUtil" %><%@
 page import="com.liferay.portal.kernel.captcha.CaptchaConfigurationException" %><%@
 page import="com.liferay.portal.kernel.captcha.CaptchaTextException" %><%@
@@ -68,7 +74,10 @@ page import="com.liferay.portal.kernel.language.UnicodeLanguageUtil" %><%@
 page import="com.liferay.portal.kernel.model.CompanyConstants" %><%@
 page import="com.liferay.portal.kernel.model.Contact" %><%@
 page import="com.liferay.portal.kernel.model.User" %><%@
+<<<<<<< HEAD
 page import="com.liferay.portal.kernel.module.configuration.ConfigurationProviderUtil" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.portlet.LiferayWindowState" %><%@
 page import="com.liferay.portal.kernel.security.auth.AuthException" %><%@
 page import="com.liferay.portal.kernel.security.auth.FullNameDefinition" %><%@
@@ -88,6 +97,10 @@ page import="com.liferay.portal.kernel.util.PortalUtil" %><%@
 page import="com.liferay.portal.kernel.util.PortletKeys" %><%@
 page import="com.liferay.portal.kernel.util.PrefsPropsUtil" %><%@
 page import="com.liferay.portal.kernel.util.PropsKeys" %><%@
+<<<<<<< HEAD
+=======
+page import="com.liferay.portal.kernel.util.StringPool" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.util.TextFormatter" %><%@
 page import="com.liferay.portal.kernel.util.Validator" %><%@
 page import="com.liferay.portal.kernel.util.WebKeys" %><%@
@@ -108,8 +121,11 @@ page import="java.util.Date" %>
 
 <%
 String authType = portletPreferences.getValue("authType", StringPool.BLANK);
+<<<<<<< HEAD
 
 CaptchaConfiguration captchaConfiguration = (CaptchaConfiguration)ConfigurationProviderUtil.getSystemConfiguration(CaptchaConfiguration.class);
+=======
+>>>>>>> compatible
 %>
 
 <%@ include file="/init-ext.jsp" %>

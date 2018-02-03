@@ -23,15 +23,19 @@ import java.util.List;
  */
 public interface DDMDataProvider {
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 2.1.0, replaced by {@link #getData(
 	 *             DDMDataProviderRequest)}
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public List<KeyValuePair> getData(
 			DDMDataProviderContext ddmDataProviderContext)
 		throws DDMDataProviderException;
 
+<<<<<<< HEAD
 	public default DDMDataProviderResponse getData(
 			DDMDataProviderRequest ddmDataProviderRequest)
 		throws DDMDataProviderException {
@@ -46,6 +50,8 @@ public interface DDMDataProvider {
 		return DDMDataProviderResponse.of(defaultDDMDataProviderResponseOutput);
 	}
 
+=======
+>>>>>>> compatible
 	public Class<?> getSettings();
 
 }

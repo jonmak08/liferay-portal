@@ -14,7 +14,10 @@
 
 package com.liferay.portal.kernel.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
 import com.liferay.portal.kernel.log.Log;
@@ -119,13 +122,21 @@ public class UnicodeProperties extends HashMap<String, String> {
 			_log.error("Invalid property on line " + line);
 		}
 		else {
+<<<<<<< HEAD
 			String value = StringUtil.trim(line.substring(pos + 1));
+=======
+			String value = line.substring(pos + 1).trim();
+>>>>>>> compatible
 
 			if (_safe) {
 				value = _decode(value);
 			}
 
+<<<<<<< HEAD
 			setProperty(StringUtil.trim(line.substring(0, pos)), value);
+=======
+			setProperty(line.substring(0, pos).trim(), value);
+>>>>>>> compatible
 		}
 	}
 

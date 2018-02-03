@@ -19,7 +19,14 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.ResourceConstants;
 import com.liferay.portal.kernel.security.permission.ResourceActionsUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.service.ResourcePermissionLocalServiceUtil;
+=======
+import com.liferay.portal.kernel.service.ResourceBlockLocalServiceUtil;
+import com.liferay.portal.kernel.service.ResourceBlockPermissionLocalServiceUtil;
+import com.liferay.portal.kernel.service.ResourcePermissionLocalServiceUtil;
+import com.liferay.portal.kernel.util.GetterUtil;
+>>>>>>> compatible
 
 import java.util.HashMap;
 import java.util.List;
@@ -69,10 +76,24 @@ public class ExportImportPermissionUtil {
 			List<String> actionIds)
 		throws PortalException {
 
+<<<<<<< HEAD
 		return ResourcePermissionLocalServiceUtil.
 			getAvailableResourcePermissionActionIds(
 				companyId, className, ResourceConstants.SCOPE_INDIVIDUAL,
 				primKey, actionIds);
+=======
+		if (ResourceBlockLocalServiceUtil.isSupported(className)) {
+			return ResourceBlockPermissionLocalServiceUtil.
+				getAvailableResourceBlockPermissionActionIds(
+					className, GetterUtil.getLong(primKey), actionIds);
+		}
+		else {
+			return ResourcePermissionLocalServiceUtil.
+				getAvailableResourcePermissionActionIds(
+					companyId, className, ResourceConstants.SCOPE_INDIVIDUAL,
+					primKey, actionIds);
+		}
+>>>>>>> compatible
 	}
 
 	public static String getTeamRoleName(String roleName) {
@@ -129,9 +150,22 @@ public class ExportImportPermissionUtil {
 			return;
 		}
 
+<<<<<<< HEAD
 		ResourcePermissionLocalServiceUtil.setResourcePermissions(
 			companyId, resourceName, ResourceConstants.SCOPE_INDIVIDUAL,
 			resourcePK, roleIdsToActionIds);
+=======
+		if (ResourceBlockLocalServiceUtil.isSupported(resourceName)) {
+			ResourceBlockLocalServiceUtil.setIndividualScopePermissions(
+				companyId, groupId, resourceName,
+				GetterUtil.getLong(resourcePK), roleIdsToActionIds);
+		}
+		else {
+			ResourcePermissionLocalServiceUtil.setResourcePermissions(
+				companyId, resourceName, ResourceConstants.SCOPE_INDIVIDUAL,
+				resourcePK, roleIdsToActionIds);
+		}
+>>>>>>> compatible
 	}
 
 	private static final Log _log = LogFactoryUtil.getLog(

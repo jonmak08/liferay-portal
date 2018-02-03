@@ -49,6 +49,10 @@ import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.DocumentException;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.util.PrefsPropsUtil;
+>>>>>>> compatible
 import com.liferay.portal.util.PropsValues;
 
 import java.io.IOException;

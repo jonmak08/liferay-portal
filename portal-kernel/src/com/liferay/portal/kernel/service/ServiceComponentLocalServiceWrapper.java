@@ -276,9 +276,15 @@ public class ServiceComponentLocalServiceWrapper
 	}
 
 	/**
+<<<<<<< HEAD
 	* @deprecated As of 7.0.0, replaced by {@link
 	#initServiceComponent(ServiceComponentConfiguration,
 	ClassLoader, String, long, long)}
+=======
+	* @deprecated As of 7.0.0, replaced by {@link #initServiceComponent(
+	ServiceComponentConfiguration, ClassLoader, String, long,
+	long)}
+>>>>>>> compatible
 	*/
 	@Deprecated
 	@Override

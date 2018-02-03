@@ -14,17 +14,27 @@
 
 package com.liferay.bookmarks.internal.exportimport.data.handler;
 
+<<<<<<< HEAD
 import com.liferay.bookmarks.constants.BookmarksConstants;
 import com.liferay.bookmarks.constants.BookmarksPortletKeys;
 import com.liferay.bookmarks.model.BookmarksEntry;
 import com.liferay.bookmarks.model.BookmarksFolder;
+=======
+import com.liferay.bookmarks.constants.BookmarksPortletKeys;
+import com.liferay.bookmarks.model.BookmarksEntry;
+import com.liferay.bookmarks.model.BookmarksFolder;
+import com.liferay.bookmarks.service.permission.BookmarksResourcePermissionChecker;
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.lar.BasePortletDataHandler;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.exportimport.kernel.lar.PortletDataHandler;
 import com.liferay.exportimport.kernel.lar.PortletDataHandlerBoolean;
 import com.liferay.exportimport.kernel.lar.StagedModelDataHandlerUtil;
 import com.liferay.exportimport.kernel.lar.StagedModelType;
+<<<<<<< HEAD
 import com.liferay.exportimport.portlet.data.handler.helper.PortletDataHandlerHelper;
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.staged.model.repository.StagedModelRepository;
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery;
@@ -66,6 +76,7 @@ public class BookmarksPortletDataHandler extends BasePortletDataHandler {
 		return SCHEMA_VERSION;
 	}
 
+<<<<<<< HEAD
 	@Override
 	public String getServiceName() {
 		return BookmarksConstants.SERVICE_NAME;
@@ -77,6 +88,8 @@ public class BookmarksPortletDataHandler extends BasePortletDataHandler {
 			schemaVersion, getSchemaVersion());
 	}
 
+=======
+>>>>>>> compatible
 	@Activate
 	protected void activate() {
 		setDataPortletPreferences("rootFolderId");
@@ -123,7 +136,11 @@ public class BookmarksPortletDataHandler extends BasePortletDataHandler {
 		}
 
 		portletDataContext.addPortletPermissions(
+<<<<<<< HEAD
 			BookmarksConstants.RESOURCE_NAME);
+=======
+			BookmarksResourcePermissionChecker.RESOURCE_NAME);
+>>>>>>> compatible
 
 		rootElement.addAttribute(
 			"group-id", String.valueOf(portletDataContext.getScopeGroupId()));
@@ -154,7 +171,11 @@ public class BookmarksPortletDataHandler extends BasePortletDataHandler {
 		}
 
 		portletDataContext.importPortletPermissions(
+<<<<<<< HEAD
 			BookmarksConstants.RESOURCE_NAME);
+=======
+			BookmarksResourcePermissionChecker.RESOURCE_NAME);
+>>>>>>> compatible
 
 		Element foldersElement = portletDataContext.getImportDataGroupElement(
 			BookmarksFolder.class);
@@ -232,7 +253,10 @@ public class BookmarksPortletDataHandler extends BasePortletDataHandler {
 	private StagedModelRepository<BookmarksFolder>
 		_bookmarksFolderStagedModelRepository;
 
+<<<<<<< HEAD
 	@Reference
 	private PortletDataHandlerHelper _portletDataHandlerHelper;
 
+=======
+>>>>>>> compatible
 }

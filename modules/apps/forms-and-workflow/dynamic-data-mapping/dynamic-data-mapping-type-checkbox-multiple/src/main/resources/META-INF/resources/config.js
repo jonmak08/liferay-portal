@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
  * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
  *
@@ -13,11 +14,20 @@
  */
 
 ;(function() {
+=======
+;(function() {
+	var LiferayAUI = Liferay.AUI;
+
+>>>>>>> compatible
 	AUI().applyConfig(
 		{
 			groups: {
 				'field-checkbox-multiple': {
 					base: MODULE_PATH + '/',
+<<<<<<< HEAD
+=======
+					filter: LiferayAUI.getFilterConfig(),
+>>>>>>> compatible
 					combine: Liferay.AUI.getCombine(),
 					modules: {
 						'liferay-ddm-form-field-checkbox-multiple': {
@@ -28,6 +38,18 @@
 							requires: [
 								'liferay-ddm-form-renderer-field'
 							]
+<<<<<<< HEAD
+=======
+						},
+						'liferay-ddm-form-field-checkbox-multiple-template': {
+							condition: {
+								trigger: 'liferay-ddm-form-renderer'
+							},
+							path: 'checkbox-multiple.soy.js',
+							requires: [
+								'soyutils'
+							]
+>>>>>>> compatible
 						}
 					},
 					root: MODULE_PATH + '/'

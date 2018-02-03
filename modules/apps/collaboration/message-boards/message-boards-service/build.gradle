@@ -1,6 +1,7 @@
 sourceCompatibility = "1.8"
 targetCompatibility = "1.8"
 
+<<<<<<< HEAD
 buildService {
 	apiDir = "../message-boards-api/src/main/java"
 	testDir = "../message-boards-test/src/testIntegration/java"
@@ -19,12 +20,24 @@ dependencies {
 	provided group: "com.liferay", name: "com.liferay.xstream.configurator.api", version: "2.0.0"
 	provided group: "com.liferay.portal", name: "com.liferay.portal.impl", version: "default"
 	provided group: "com.liferay.portal", name: "com.liferay.portal.kernel", version: "default"
+=======
+dependencies {
+	provided group: "biz.aQute.bnd", name: "biz.aQute.bndlib", version: "3.1.0"
+	provided group: "com.liferay", name: "com.liferay.exportimport.api", version: "2.0.0"
+	provided group: "com.liferay", name: "com.liferay.exportimport.service", version: "3.0.0"
+	provided group: "com.liferay", name: "com.liferay.xstream.configurator.api", version: "2.0.0"
+	provided group: "com.liferay.portal", name: "com.liferay.portal.impl", version: "2.0.0"
+	provided group: "com.liferay.portal", name: "com.liferay.portal.kernel", version: "2.0.0"
+>>>>>>> compatible
 	provided group: "commons-lang", name: "commons-lang", version: "2.6"
 	provided group: "javax.mail", name: "mail", version: "1.4"
 	provided group: "javax.portlet", name: "portlet-api", version: "2.0"
 	provided group: "javax.servlet", name: "javax.servlet-api", version: "3.0.1"
 	provided group: "org.osgi", name: "org.osgi.service.component.annotations", version: "1.3.0"
+<<<<<<< HEAD
 	provided project(":apps:collaboration:message-boards:message-boards-api")
 	provided project(":apps:collaboration:subscription:subscription-api")
 	provided project(":apps:web-experience:export-import:export-import-service")
+=======
+>>>>>>> compatible
 }

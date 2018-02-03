@@ -16,7 +16,6 @@ package com.liferay.portal.kernel.upgrade.util;
 
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedWriter;
 import com.liferay.portal.kernel.util.FileUtil;
-import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 
 import java.io.FileWriter;
@@ -36,8 +35,7 @@ public class ValueMapperUtil {
 
 		try (UnsyncBufferedWriter unsyncBufferedWriter =
 				new UnsyncBufferedWriter(
-					new FileWriter(
-						StringBundler.concat(tmpDir, "/", fileName, ".txt")))) {
+					new FileWriter(tmpDir + "/" + fileName + ".txt"))) {
 
 			Iterator<Object> itr = valueMapper.iterator();
 

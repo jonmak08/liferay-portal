@@ -45,7 +45,11 @@ DLPortletInstanceSettingsHelper dlPortletInstanceSettingsHelper = new DLPortletI
 
 					<aui:input label="show-search" name="preferences--showFoldersSearch--" type="checkbox" value="<%= dlPortletInstanceSettings.isShowFoldersSearch() %>" />
 
+<<<<<<< HEAD
 					<aui:input label="show-related-assets" name="preferences--enableRelatedAssets--" type="checkbox" value="<%= dlPortletInstanceSettings.isEnableRelatedAssets() %>" />
+=======
+					<aui:input name="preferences--enableRelatedAssets--" type="checkbox" value="<%= dlPortletInstanceSettings.isEnableRelatedAssets() %>" />
+>>>>>>> compatible
 
 					<aui:select label="maximum-entries-to-display" name="preferences--entriesPerPage--">
 
@@ -106,7 +110,11 @@ DLPortletInstanceSettingsHelper dlPortletInstanceSettingsHelper = new DLPortletI
 
 				<aui:fieldset collapsible="<%= true %>" id="documentLibraryDocumentsRatingsPanel" label="ratings">
 					<aui:input name="preferences--enableRatings--" type="checkbox" value="<%= dlPortletInstanceSettings.isEnableRatings() %>" />
+<<<<<<< HEAD
 					<aui:input label="enable-ratings-for-comments" name="preferences--enableCommentRatings--" type="checkbox" value="<%= dlPortletInstanceSettings.isEnableCommentRatings() %>" />
+=======
+					<aui:input name="preferences--enableCommentRatings--" type="checkbox" value="<%= dlPortletInstanceSettings.isEnableCommentRatings() %>" />
+>>>>>>> compatible
 				</aui:fieldset>
 
 				<aui:script>
@@ -128,7 +136,10 @@ DLPortletInstanceSettingsHelper dlPortletInstanceSettingsHelper = new DLPortletI
 										<portlet:param name="mvcRenderCommandName" value="/document_library/select_folder" />
 										<portlet:param name="folderId" value="<%= String.valueOf(rootFolderId) %>" />
 										<portlet:param name="ignoreRootFolder" value="<%= Boolean.TRUE.toString() %>" />
+<<<<<<< HEAD
 										<portlet:param name="showMountFolder" value="<%= Boolean.FALSE.toString() %>" />
+=======
+>>>>>>> compatible
 									</liferay-portlet:renderURL>
 
 									uri: '<%= HtmlUtil.escapeJS(selectFolderURL.toString()) %>'
@@ -170,7 +181,11 @@ DLPortletInstanceSettingsHelper dlPortletInstanceSettingsHelper = new DLPortletI
 	</div>
 
 	<aui:button-row>
+<<<<<<< HEAD
 		<aui:button type="submit" />
+=======
+		<aui:button cssClass="btn-lg" type="submit" />
+>>>>>>> compatible
 	</aui:button-row>
 </aui:form>
 

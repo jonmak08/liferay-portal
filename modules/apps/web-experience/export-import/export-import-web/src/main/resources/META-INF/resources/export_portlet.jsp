@@ -89,7 +89,11 @@ portletURL.setParameter("portletResource", portletResource);
 				<div class="container-fluid-1280">
 					<aui:fieldset-group markupView="lexicon">
 						<aui:fieldset>
+<<<<<<< HEAD
 							<aui:input label="export-the-selected-data-to-the-given-lar-file-name" name="exportFileName" required="<%= true %>" showRequiredLabel="<%= false %>" size="50" value="<%= ExportImportHelperUtil.getPortletExportFileName(selPortlet) %>" />
+=======
+							<aui:input label="export-the-selected-data-to-the-given-lar-file-name" name="exportFileName" required="<%= true %>" showRequiredLabel="<%= false %>" size="50" value='<%= StringUtil.replace(selPortlet.getDisplayName(), ' ', '_') + "-" + Time.getShortTimestamp() + ".portlet.lar" %>' />
+>>>>>>> compatible
 						</aui:fieldset>
 
 						<%
@@ -435,9 +439,15 @@ portletURL.setParameter("portletResource", portletResource);
 			</div>
 
 			<aui:button-row>
+<<<<<<< HEAD
 				<aui:button type="submit" value="export" />
 
 				<aui:button href="<%= currentURL %>" type="cancel" />
+=======
+				<aui:button cssClass="btn-lg" type="submit" value="export" />
+
+				<aui:button cssClass="btn-lg" href="<%= currentURL %>" type="cancel" />
+>>>>>>> compatible
 			</aui:button-row>
 
 			<aui:script use="aui-base">
@@ -470,7 +480,11 @@ portletURL.setParameter("portletResource", portletResource);
 	</c:when>
 </c:choose>
 
+<<<<<<< HEAD
 <aui:script use="liferay-export-import-export-import">
+=======
+<aui:script use="liferay-export-import">
+>>>>>>> compatible
 	<liferay-portlet:resourceURL copyCurrentRenderParameters="<%= false %>" id="exportImport" var="exportProcessesURL">
 		<portlet:param name="<%= Constants.CMD %>" value="<%= Constants.EXPORT %>" />
 		<portlet:param name="tabs2" value="export" />

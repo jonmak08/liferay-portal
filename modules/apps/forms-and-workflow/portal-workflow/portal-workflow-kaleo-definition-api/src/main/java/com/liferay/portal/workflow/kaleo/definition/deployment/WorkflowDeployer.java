@@ -24,16 +24,20 @@ import com.liferay.portal.workflow.kaleo.definition.Definition;
  */
 public interface WorkflowDeployer {
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 1.0.0, replaced by {@link #deploy(String, String,
 	 *             Definition, ServiceContext)}
 	 * @review
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public WorkflowDefinition deploy(
 			String title, Definition definition, ServiceContext serviceContext)
 		throws PortalException;
 
+<<<<<<< HEAD
 	public default WorkflowDefinition deploy(
 			String title, String name, Definition definition,
 			ServiceContext serviceContext)
@@ -42,4 +46,6 @@ public interface WorkflowDeployer {
 		throw new UnsupportedOperationException();
 	}
 
+=======
+>>>>>>> compatible
 }

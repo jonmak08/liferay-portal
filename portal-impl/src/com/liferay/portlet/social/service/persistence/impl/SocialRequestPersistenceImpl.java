@@ -32,6 +32,7 @@ import com.liferay.portal.kernel.service.persistence.CompanyProvider;
 import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.Validator;
@@ -2092,12 +2093,21 @@ public class SocialRequestPersistenceImpl extends BasePersistenceImpl<SocialRequ
 		if (retrieveFromCache) {
 			list = (List<SocialRequest>)finderCache.getResult(finderPath,
 					finderArgs, this);
+<<<<<<< HEAD
 
 			if ((list != null) && !list.isEmpty()) {
 				for (SocialRequest socialRequest : list) {
 					if ((userId != socialRequest.getUserId())) {
 						list = null;
 
+=======
+
+			if ((list != null) && !list.isEmpty()) {
+				for (SocialRequest socialRequest : list) {
+					if ((userId != socialRequest.getUserId())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -2599,11 +2609,19 @@ public class SocialRequestPersistenceImpl extends BasePersistenceImpl<SocialRequ
 		}
 
 		List<SocialRequest> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<SocialRequest>)finderCache.getResult(finderPath,
 					finderArgs, this);
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<SocialRequest>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+>>>>>>> compatible
 			if ((list != null) && !list.isEmpty()) {
 				for (SocialRequest socialRequest : list) {
 					if ((receiverUserId != socialRequest.getReceiverUserId())) {
@@ -3118,6 +3136,7 @@ public class SocialRequestPersistenceImpl extends BasePersistenceImpl<SocialRequ
 		if (retrieveFromCache) {
 			list = (List<SocialRequest>)finderCache.getResult(finderPath,
 					finderArgs, this);
+<<<<<<< HEAD
 
 			if ((list != null) && !list.isEmpty()) {
 				for (SocialRequest socialRequest : list) {
@@ -3125,6 +3144,15 @@ public class SocialRequestPersistenceImpl extends BasePersistenceImpl<SocialRequ
 							(status != socialRequest.getStatus())) {
 						list = null;
 
+=======
+
+			if ((list != null) && !list.isEmpty()) {
+				for (SocialRequest socialRequest : list) {
+					if ((userId != socialRequest.getUserId()) ||
+							(status != socialRequest.getStatus())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -3661,6 +3689,7 @@ public class SocialRequestPersistenceImpl extends BasePersistenceImpl<SocialRequ
 		if (retrieveFromCache) {
 			list = (List<SocialRequest>)finderCache.getResult(finderPath,
 					finderArgs, this);
+<<<<<<< HEAD
 
 			if ((list != null) && !list.isEmpty()) {
 				for (SocialRequest socialRequest : list) {
@@ -3668,6 +3697,15 @@ public class SocialRequestPersistenceImpl extends BasePersistenceImpl<SocialRequ
 							(classPK != socialRequest.getClassPK())) {
 						list = null;
 
+=======
+
+			if ((list != null) && !list.isEmpty()) {
+				for (SocialRequest socialRequest : list) {
+					if ((classNameId != socialRequest.getClassNameId()) ||
+							(classPK != socialRequest.getClassPK())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -5079,6 +5117,7 @@ public class SocialRequestPersistenceImpl extends BasePersistenceImpl<SocialRequ
 		if (retrieveFromCache) {
 			list = (List<SocialRequest>)finderCache.getResult(finderPath,
 					finderArgs, this);
+<<<<<<< HEAD
 
 			if ((list != null) && !list.isEmpty()) {
 				for (SocialRequest socialRequest : list) {
@@ -5089,6 +5128,18 @@ public class SocialRequestPersistenceImpl extends BasePersistenceImpl<SocialRequ
 							(status != socialRequest.getStatus())) {
 						list = null;
 
+=======
+
+			if ((list != null) && !list.isEmpty()) {
+				for (SocialRequest socialRequest : list) {
+					if ((userId != socialRequest.getUserId()) ||
+							(classNameId != socialRequest.getClassNameId()) ||
+							(classPK != socialRequest.getClassPK()) ||
+							(type != socialRequest.getType()) ||
+							(status != socialRequest.getStatus())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -6274,11 +6325,17 @@ public class SocialRequestPersistenceImpl extends BasePersistenceImpl<SocialRequ
 		setModelClass(SocialRequest.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("uuid", "uuid_");

@@ -14,6 +14,7 @@
 
 package com.liferay.wiki.internal.exportimport.data.handler;
 
+<<<<<<< HEAD
 import com.liferay.exportimport.data.handler.base.BaseStagedModelDataHandler;
 import com.liferay.exportimport.kernel.lar.ExportImportPathUtil;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
@@ -23,6 +24,16 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.trash.TrashHandler;
 import com.liferay.portal.kernel.trash.TrashHandlerRegistryUtil;
+=======
+import com.liferay.exportimport.kernel.lar.ExportImportPathUtil;
+import com.liferay.exportimport.kernel.lar.PortletDataContext;
+import com.liferay.exportimport.kernel.lar.StagedModelDataHandler;
+import com.liferay.exportimport.lar.BaseStagedModelDataHandler;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.service.ServiceContext;
+import com.liferay.portal.kernel.trash.TrashHandler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.wiki.configuration.WikiGroupServiceConfiguration;
 import com.liferay.wiki.model.WikiNode;
@@ -201,8 +212,12 @@ public class WikiNodeStagedModelDataHandler
 			return;
 		}
 
+<<<<<<< HEAD
 		TrashHandler trashHandler = TrashHandlerRegistryUtil.getTrashHandler(
 			WikiNode.class.getName());
+=======
+		TrashHandler trashHandler = existingNode.getTrashHandler();
+>>>>>>> compatible
 
 		if (trashHandler.isRestorable(existingNode.getNodeId())) {
 			trashHandler.restoreTrashEntry(userId, existingNode.getNodeId());

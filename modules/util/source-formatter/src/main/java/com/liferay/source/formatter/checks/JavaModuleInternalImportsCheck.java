@@ -44,9 +44,15 @@ public class JavaModuleInternalImportsCheck extends BaseFileCheck {
 			return content;
 		}
 
+<<<<<<< HEAD
 		String packageName = JavaSourceUtil.getPackageName(content);
 
 		if (!packageName.startsWith("com.liferay")) {
+=======
+		String packagePath = JavaSourceUtil.getPackagePath(content);
+
+		if (!packagePath.startsWith("com.liferay")) {
+>>>>>>> compatible
 			return content;
 		}
 

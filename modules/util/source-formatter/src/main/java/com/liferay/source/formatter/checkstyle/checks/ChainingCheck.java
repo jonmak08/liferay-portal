@@ -17,6 +17,10 @@ package com.liferay.source.formatter.checkstyle.checks;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.source.formatter.checkstyle.util.DetailASTUtil;
 
+<<<<<<< HEAD
+=======
+import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
+>>>>>>> compatible
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.FileContents;
 import com.puppycrawl.tools.checkstyle.api.FileText;
@@ -25,12 +29,19 @@ import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Set;
+=======
+>>>>>>> compatible
 
 /**
  * @author Hugo Huijser
  */
+<<<<<<< HEAD
 public class ChainingCheck extends BaseCheck {
+=======
+public class ChainingCheck extends AbstractCheck {
+>>>>>>> compatible
 
 	@Override
 	public int[] getDefaultTokens() {
@@ -50,7 +61,11 @@ public class ChainingCheck extends BaseCheck {
 	}
 
 	@Override
+<<<<<<< HEAD
 	protected void doVisitToken(DetailAST detailAST) {
+=======
+	public void visitToken(DetailAST detailAST) {
+>>>>>>> compatible
 		List<DetailAST> methodCallASTList = DetailASTUtil.getAllChildTokens(
 			detailAST, true, TokenTypes.METHOD_CALL);
 
@@ -69,10 +84,13 @@ public class ChainingCheck extends BaseCheck {
 				}
 			}
 
+<<<<<<< HEAD
 			if (_isInsideAnonymousClassVariableDefinition(methodCallAST)) {
 				continue;
 			}
 
+=======
+>>>>>>> compatible
 			List<String> chainedMethodNames = _getChainedMethodNames(
 				methodCallAST);
 
@@ -80,6 +98,7 @@ public class ChainingCheck extends BaseCheck {
 				continue;
 			}
 
+<<<<<<< HEAD
 			_checkMethodName(
 				chainedMethodNames, "getClass", methodCallAST, detailAST);
 
@@ -87,6 +106,8 @@ public class ChainingCheck extends BaseCheck {
 				continue;
 			}
 
+=======
+>>>>>>> compatible
 			if (_isAllowedChainingMethodCall(
 					detailAST, methodCallAST, chainedMethodNames)) {
 
@@ -95,6 +116,16 @@ public class ChainingCheck extends BaseCheck {
 				continue;
 			}
 
+<<<<<<< HEAD
+=======
+			_checkMethodName(
+				chainedMethodNames, "getClass", methodCallAST, detailAST);
+
+			if (chainedMethodNames.size() == 2) {
+				continue;
+			}
+
+>>>>>>> compatible
 			int concatsCount = Collections.frequency(
 				chainedMethodNames, "concat");
 
@@ -121,19 +152,32 @@ public class ChainingCheck extends BaseCheck {
 		String firstMethodName = chainedMethodNames.get(0);
 
 		if (firstMethodName.equals(methodName) &&
+<<<<<<< HEAD
 			!_isInsideConstructorThisCall(methodCallAST, detailAST) &&
 			!DetailASTUtil.hasParentWithTokenType(
 				methodCallAST, TokenTypes.SUPER_CTOR_CALL)) {
+=======
+			!_isInsideConstructorThisCall(methodCallAST, detailAST)) {
+>>>>>>> compatible
 
 			log(methodCallAST.getLineNo(), _MSG_AVOID_CHAINING, methodName);
 		}
 	}
 
 	private void _checkStyling(DetailAST methodCallAST) {
+<<<<<<< HEAD
 		for (int i = DetailASTUtil.getStartLine(methodCallAST) + 1;
 			 i <= DetailASTUtil.getEndLine(methodCallAST); i++) {
 
 			String line = StringUtil.trim(getLine(i - 1));
+=======
+		FileContents fileContents = getFileContents();
+
+		for (int i = DetailASTUtil.getStartLine(methodCallAST) + 1;
+			 i <= DetailASTUtil.getEndLine(methodCallAST); i++) {
+
+			String line = StringUtil.trim(fileContents.getLine(i - 1));
+>>>>>>> compatible
 
 			if (line.startsWith(").")) {
 				return;
@@ -167,6 +211,7 @@ public class ChainingCheck extends BaseCheck {
 		}
 	}
 
+<<<<<<< HEAD
 	private DetailAST _getOuterMethodCallAST(DetailAST detailAST) {
 		while (true) {
 			if ((detailAST.getType() != TokenTypes.DOT) &&
@@ -219,12 +264,67 @@ public class ChainingCheck extends BaseCheck {
 
 			detailAST = childAST;
 		}
+=======
+	private DetailAST _getClassAST(DetailAST detailAST) {
+		DetailAST parentAST = detailAST.getParent();
+
+		while (true) {
+			if (parentAST.getParent() == null) {
+				break;
+			}
+
+			return parentAST.getParent();
+		}
+
+		return null;
+	}
+
+	private String _getVariableType(DetailAST detailAST, String variableName) {
+		List<DetailAST> definitionASTList = new ArrayList<>();
+
+		if (variableName.matches("_[a-z].*")) {
+			definitionASTList = DetailASTUtil.getAllChildTokens(
+				_getClassAST(detailAST), true, TokenTypes.PARAMETER_DEF,
+				TokenTypes.VARIABLE_DEF);
+		}
+		else if (variableName.matches("[a-z].*")) {
+			definitionASTList = DetailASTUtil.getAllChildTokens(
+				detailAST, true, TokenTypes.PARAMETER_DEF,
+				TokenTypes.VARIABLE_DEF);
+		}
+
+		for (DetailAST definitionAST : definitionASTList) {
+			DetailAST nameAST = definitionAST.findFirstToken(TokenTypes.IDENT);
+
+			if (nameAST == null) {
+				continue;
+			}
+
+			String name = nameAST.getText();
+
+			if (name.equals(variableName)) {
+				DetailAST typeAST = definitionAST.findFirstToken(
+					TokenTypes.TYPE);
+
+				nameAST = typeAST.findFirstToken(TokenTypes.IDENT);
+
+				if (nameAST == null) {
+					return null;
+				}
+
+				return nameAST.getText();
+			}
+		}
+
+		return null;
+>>>>>>> compatible
 	}
 
 	private boolean _isAllowedChainingMethodCall(
 		DetailAST detailAST, DetailAST methodCallAST,
 		List<String> chainedMethodNames) {
 
+<<<<<<< HEAD
 		if (_isInsideConstructorThisCall(methodCallAST, detailAST) ||
 			DetailASTUtil.hasParentWithTokenType(
 				methodCallAST, TokenTypes.SUPER_CTOR_CALL)) {
@@ -232,6 +332,8 @@ public class ChainingCheck extends BaseCheck {
 			return true;
 		}
 
+=======
+>>>>>>> compatible
 		for (String allowedMethodName : _allowedMethodNames) {
 			if (chainedMethodNames.contains(allowedMethodName)) {
 				return true;
@@ -254,6 +356,7 @@ public class ChainingCheck extends BaseCheck {
 			return false;
 		}
 
+<<<<<<< HEAD
 		DetailAST nameAST = null;
 
 		DetailAST firstChild = dotAST.getFirstChild();
@@ -264,6 +367,9 @@ public class ChainingCheck extends BaseCheck {
 		else {
 			nameAST = dotAST.findFirstToken(TokenTypes.IDENT);
 		}
+=======
+		DetailAST nameAST = dotAST.findFirstToken(TokenTypes.IDENT);
+>>>>>>> compatible
 
 		String classOrVariableName = nameAST.getText();
 
@@ -273,6 +379,7 @@ public class ChainingCheck extends BaseCheck {
 			}
 		}
 
+<<<<<<< HEAD
 		Set<String> variableTypeNames = DetailASTUtil.getVariableTypeNames(
 			detailAST, classOrVariableName);
 
@@ -318,6 +425,16 @@ public class ChainingCheck extends BaseCheck {
 			}
 
 			parentAST = parentAST.getParent();
+=======
+		String variableType = _getVariableType(detailAST, classOrVariableName);
+
+		if (variableType != null) {
+			for (String allowedVariableTypeName : _allowedVariableTypeNames) {
+				if (variableType.matches(allowedVariableTypeName)) {
+					return true;
+				}
+			}
+>>>>>>> compatible
 		}
 
 		return false;

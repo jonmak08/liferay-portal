@@ -23,24 +23,38 @@ import com.liferay.exportimport.kernel.lar.PortletDataHandlerControl;
 import com.liferay.exportimport.kernel.lar.StagedModelDataHandlerUtil;
 import com.liferay.exportimport.kernel.lar.StagedModelType;
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.dao.orm.Conjunction;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.dao.orm.Property;
 import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
+=======
+import com.liferay.portal.kernel.dao.orm.DynamicQuery;
+import com.liferay.portal.kernel.dao.orm.Property;
+import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.Role;
 import com.liferay.portal.kernel.model.Team;
 import com.liferay.portal.kernel.module.framework.ModuleServiceLifecycle;
 import com.liferay.portal.kernel.service.RoleLocalService;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.service.UserLocalService;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.roles.admin.constants.RolesAdminPortletKeys;
 
+<<<<<<< HEAD
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+=======
+import java.util.List;
+>>>>>>> compatible
 
 import javax.portlet.PortletPreferences;
 
@@ -186,6 +200,7 @@ public class RolesAdminPortletDataHandler extends BasePortletDataHandler {
 						"classNameId");
 
 					dynamicQuery.add(classNameIdProperty.ne(classNameId));
+<<<<<<< HEAD
 
 					if (!portletDataContext.getBooleanParameter(
 							NAMESPACE, "system-roles")) {
@@ -202,6 +217,8 @@ public class RolesAdminPortletDataHandler extends BasePortletDataHandler {
 
 						dynamicQuery.add(conjunction);
 					}
+=======
+>>>>>>> compatible
 				}
 
 			});
@@ -212,6 +229,7 @@ public class RolesAdminPortletDataHandler extends BasePortletDataHandler {
 				(ActionableDynamicQuery.PerformActionMethod<Role>)
 					actionableDynamicQuery.getPerformActionMethod();
 
+<<<<<<< HEAD
 		ActionableDynamicQuery.PerformActionMethod<Role>
 			performActionMethodWrapper =
 				new RoleExportActionableDynamicQueryPerformActionMethod(
@@ -219,6 +237,31 @@ public class RolesAdminPortletDataHandler extends BasePortletDataHandler {
 
 		actionableDynamicQuery.setPerformActionMethod(
 			performActionMethodWrapper);
+=======
+		actionableDynamicQuery.setPerformActionMethod(
+			new ActionableDynamicQuery.PerformActionMethod<Role>() {
+
+				@Override
+				public void performAction(Role role) throws PortalException {
+					if (!export) {
+						return;
+					}
+
+					long defaultUserId = _userLocalService.getDefaultUserId(
+						portletDataContext.getCompanyId());
+
+					if (!portletDataContext.getBooleanParameter(
+							NAMESPACE, "system-roles") &&
+						(role.getUserId() == defaultUserId)) {
+
+						return;
+					}
+
+					performActionMethod.performAction(role);
+				}
+
+			});
+>>>>>>> compatible
 
 		return actionableDynamicQuery;
 	}
@@ -229,6 +272,7 @@ public class RolesAdminPortletDataHandler extends BasePortletDataHandler {
 	}
 
 	@Reference(unbind = "-")
+<<<<<<< HEAD
 	protected void setPortal(Portal portal) {
 		Collections.addAll(
 			_allSystemRoleNames, portal.getSystemOrganizationRoles());
@@ -237,10 +281,21 @@ public class RolesAdminPortletDataHandler extends BasePortletDataHandler {
 	}
 
 	private final Set<String> _allSystemRoleNames = new HashSet<>();
+=======
+	protected void setRoleLocalService(RoleLocalService roleLocalService) {
+		_roleLocalService = roleLocalService;
+	}
+
+	@Reference(unbind = "-")
+	protected void setUserLocalService(UserLocalService userLocalService) {
+		_userLocalService = userLocalService;
+	}
+>>>>>>> compatible
 
 	@Reference
 	private Portal _portal;
 
+<<<<<<< HEAD
 	@Reference
 	private RoleLocalService _roleLocalService;
 
@@ -279,5 +334,9 @@ public class RolesAdminPortletDataHandler extends BasePortletDataHandler {
 		private final PortletDataContext _portletDataContext;
 
 	}
+=======
+	private RoleLocalService _roleLocalService;
+	private UserLocalService _userLocalService;
+>>>>>>> compatible
 
 }

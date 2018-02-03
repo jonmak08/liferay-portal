@@ -14,7 +14,10 @@
 
 package com.liferay.portal.struts;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.LayoutPermissionException;
 import com.liferay.portal.kernel.exception.PortletActiveException;
 import com.liferay.portal.kernel.exception.UserActiveException;
@@ -49,6 +52,10 @@ import com.liferay.portal.kernel.servlet.HttpMethods;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.struts.LastPath;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.JavaConstants;
@@ -680,6 +687,7 @@ public class PortalRequestProcessor extends TilesRequestProcessor {
 		if ((remoteUser != null) || (user != null)) {
 
 			// Authenticated users can always log out
+<<<<<<< HEAD
 
 			if (path.equals(_PATH_PORTAL_LOGOUT)) {
 				return path;
@@ -701,6 +709,23 @@ public class PortalRequestProcessor extends TilesRequestProcessor {
 
 			// Authenticated users can always agree to terms of use
 
+=======
+
+			if (path.equals(_PATH_PORTAL_LOGOUT)) {
+				return path;
+			}
+
+			// Authenticated users can always extend or confirm their session
+
+			if (path.equals(_PATH_PORTAL_EXPIRE_SESSION) ||
+				path.equals(_PATH_PORTAL_EXTEND_SESSION)) {
+
+				return path;
+			}
+
+			// Authenticated users can always agree to terms of use
+
+>>>>>>> compatible
 			if (path.equals(_PATH_PORTAL_UPDATE_TERMS_OF_USE)) {
 				return path;
 			}

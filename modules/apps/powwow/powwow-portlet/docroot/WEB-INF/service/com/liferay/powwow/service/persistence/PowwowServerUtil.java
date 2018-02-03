@@ -441,7 +441,11 @@ public class PowwowServerUtil {
 
 	public static PowwowServerPersistence getPersistence() {
 		if (_persistence == null) {
+<<<<<<< HEAD
 			_persistence = (PowwowServerPersistence)PortletBeanLocatorUtil.locate(com.liferay.powwow.service.ServletContextUtil.getServletContextName(),
+=======
+			_persistence = (PowwowServerPersistence)PortletBeanLocatorUtil.locate(com.liferay.powwow.service.ClpSerializer.getServletContextName(),
+>>>>>>> compatible
 					PowwowServerPersistence.class.getName());
 
 			ReferenceRegistry.registerReference(PowwowServerUtil.class,

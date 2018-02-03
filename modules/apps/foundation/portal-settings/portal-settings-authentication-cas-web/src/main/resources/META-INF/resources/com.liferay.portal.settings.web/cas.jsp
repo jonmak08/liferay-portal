@@ -59,7 +59,11 @@ String noSuchUserRedirectURL = casConfiguration.noSuchUserRedirectURL();
 	<aui:input cssClass="lfr-input-text-container" helpMessage="cas-no-such-user-redirect-url-help" label="no-such-user-redirect-url" name='<%= PortalSettingsCASConstants.FORM_PARAMETER_NAMESPACE + "noSuchUserRedirectURL" %>' type="text" value="<%= noSuchUserRedirectURL %>" />
 
 	<aui:button-row>
+<<<<<<< HEAD
 		<aui:button onClick='<%= renderResponse.getNamespace() + "testCasSettings();" %>' value="test-cas-configuration" />
+=======
+		<aui:button cssClass="btn-lg" onClick='<%= renderResponse.getNamespace() + "testCasSettings();" %>' value="test-cas-configuration" />
+>>>>>>> compatible
 
 		<portlet:actionURL name="/portal_settings/cas_delete" var="resetValuesURL">
 			<portlet:param name="tabs1" value="cas" />
@@ -69,7 +73,11 @@ String noSuchUserRedirectURL = casConfiguration.noSuchUserRedirectURL();
 		String taglibOnClick = "if (confirm('" + UnicodeLanguageUtil.get(request, "are-you-sure-you-want-to-reset-the-configured-values") + "')) {submitForm(document.hrefFm, '" + resetValuesURL.toString() + "');}";
 		%>
 
+<<<<<<< HEAD
 		<aui:button onClick="<%= taglibOnClick %>" value="reset-values" />
+=======
+		<aui:button cssClass="btn-lg" onClick="<%= taglibOnClick %>" value="reset-values" />
+>>>>>>> compatible
 	</aui:button-row>
 </aui:fieldset>
 

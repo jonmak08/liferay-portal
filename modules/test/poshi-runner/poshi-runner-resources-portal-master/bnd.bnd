@@ -1,3 +1,7 @@
 Bundle-Name: Liferay Poshi Runner Resources Portal Master
 Bundle-SymbolicName: com.liferay.poshi.runner.resources.portal.master
+<<<<<<< HEAD
 Bundle-Version: 1.0.5
+=======
+Bundle-Version: 1.0.4
+>>>>>>> compatible

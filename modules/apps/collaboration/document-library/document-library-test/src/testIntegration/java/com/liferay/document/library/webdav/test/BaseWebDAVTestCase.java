@@ -14,9 +14,16 @@
 
 package com.liferay.document.library.webdav.test;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.servlet.HttpHeaders;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
+=======
+import com.liferay.document.library.web.webdav.DLWebDAVStorageImpl;
+import com.liferay.portal.kernel.servlet.HttpHeaders;
+import com.liferay.portal.kernel.test.util.TestPropsValues;
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -26,7 +33,10 @@ import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.webdav.WebDAVStorage;
 import com.liferay.portal.kernel.webdav.WebDAVUtil;
 import com.liferay.portal.kernel.webdav.methods.Method;
+<<<<<<< HEAD
 import com.liferay.portal.test.rule.Inject;
+=======
+>>>>>>> compatible
 import com.liferay.portal.webdav.WebDAVServlet;
 
 import java.util.HashMap;
@@ -59,6 +69,15 @@ public class BaseWebDAVTestCase {
 	public Tuple service(
 		String method, String path, Map<String, String> headers, byte[] data) {
 
+<<<<<<< HEAD
+=======
+		WebDAVStorage webDAVStorage = new DLWebDAVStorageImpl();
+
+		webDAVStorage.setToken("document_library");
+
+		WebDAVUtil.addStorage(webDAVStorage);
+
+>>>>>>> compatible
 		WebDAVServlet webDAVServlet = new WebDAVServlet();
 
 		String requestURI =
@@ -340,9 +359,12 @@ public class BaseWebDAVTestCase {
 
 	private static final String _SERVLET_PATH = "";
 
+<<<<<<< HEAD
 	@Inject
 	private static WebDAVStorage _webDAVStorage;
 
+=======
+>>>>>>> compatible
 	static {
 		StringBundler sb = new StringBundler(8);
 

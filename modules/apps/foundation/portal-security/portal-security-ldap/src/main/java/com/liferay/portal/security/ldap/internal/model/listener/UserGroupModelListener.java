@@ -20,7 +20,10 @@ import com.liferay.portal.kernel.model.BaseModelListener;
 import com.liferay.portal.kernel.model.ModelListener;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.model.UserGroup;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.security.exportimport.UserExporter;
 import com.liferay.portal.security.exportimport.UserOperation;
 import com.liferay.portal.security.ldap.internal.UserImportTransactionThreadLocal;
@@ -89,10 +92,16 @@ public class UserGroupModelListener extends BaseModelListener<UserGroup> {
 		if (_log.isDebugEnabled()) {
 			if (_log.isDebugEnabled()) {
 				_log.debug(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Exporting user ", String.valueOf(userId),
 						" to user group ", String.valueOf(userGroupId),
 						" with user operation ", userOperation.name()));
+=======
+					"Exporting user " + userId + " to user group " +
+						userGroupId + " with user operation " +
+							userOperation.name());
+>>>>>>> compatible
 			}
 		}
 	}

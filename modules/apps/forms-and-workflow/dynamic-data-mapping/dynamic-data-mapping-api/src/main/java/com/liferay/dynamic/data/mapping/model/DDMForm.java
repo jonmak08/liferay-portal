@@ -42,6 +42,7 @@ public class DDMForm implements Serializable {
 		for (DDMFormField ddmFormField : ddmForm._ddmFormFields) {
 			addDDMFormField(new DDMFormField(ddmFormField));
 		}
+<<<<<<< HEAD
 
 		for (DDMFormRule ddmFormRule : ddmForm._ddmFormRules) {
 			addDDMFormRule(new DDMFormRule(ddmFormRule));
@@ -49,6 +50,8 @@ public class DDMForm implements Serializable {
 
 		_ddmFormSuccessPageSettings = new DDMFormSuccessPageSettings(
 			ddmForm.getDDMFormSuccessPageSettings());
+=======
+>>>>>>> compatible
 	}
 
 	public void addAvailableLocale(Locale locale) {
@@ -61,10 +64,13 @@ public class DDMForm implements Serializable {
 		_ddmFormFields.add(ddmFormField);
 	}
 
+<<<<<<< HEAD
 	public void addDDMFormRule(DDMFormRule ddmFormRule) {
 		_ddmFormRules.add(ddmFormRule);
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
@@ -79,11 +85,15 @@ public class DDMForm implements Serializable {
 
 		if (Objects.equals(_availableLocales, ddmForm._availableLocales) &&
 			Objects.equals(_defaultLocale, ddmForm._defaultLocale) &&
+<<<<<<< HEAD
 			Objects.equals(_ddmFormFields, ddmForm._ddmFormFields) &&
 			Objects.equals(_ddmFormRules, ddmForm._ddmFormRules) &&
 			Objects.equals(
 				_ddmFormSuccessPageSettings,
 				ddmForm._ddmFormSuccessPageSettings)) {
+=======
+			Objects.equals(_ddmFormFields, ddmForm._ddmFormFields)) {
+>>>>>>> compatible
 
 			return true;
 		}
@@ -116,6 +126,7 @@ public class DDMForm implements Serializable {
 		return ddmFormFieldsMap;
 	}
 
+<<<<<<< HEAD
 	public List<DDMFormRule> getDDMFormRules() {
 		return _ddmFormRules;
 	}
@@ -124,6 +135,8 @@ public class DDMForm implements Serializable {
 		return _ddmFormSuccessPageSettings;
 	}
 
+=======
+>>>>>>> compatible
 	public Locale getDefaultLocale() {
 		return _defaultLocale;
 	}
@@ -134,11 +147,15 @@ public class DDMForm implements Serializable {
 
 		hash = HashUtil.hash(hash, _defaultLocale);
 
+<<<<<<< HEAD
 		hash = HashUtil.hash(hash, _ddmFormFields);
 
 		hash = HashUtil.hash(hash, _ddmFormRules);
 
 		return HashUtil.hash(hash, _ddmFormSuccessPageSettings);
+=======
+		return HashUtil.hash(hash, _ddmFormFields);
+>>>>>>> compatible
 	}
 
 	public void setAvailableLocales(Set<Locale> availableLocales) {
@@ -153,6 +170,7 @@ public class DDMForm implements Serializable {
 		_ddmFormFields = ddmFormFields;
 	}
 
+<<<<<<< HEAD
 	public void setDDMFormRules(List<DDMFormRule> ddmFormRules) {
 		_ddmFormRules = ddmFormRules;
 	}
@@ -164,15 +182,20 @@ public class DDMForm implements Serializable {
 			ddmFormSuccessPageSettings);
 	}
 
+=======
+>>>>>>> compatible
 	public void setDefaultLocale(Locale defaultLocale) {
 		_defaultLocale = defaultLocale;
 	}
 
 	private Set<Locale> _availableLocales = new LinkedHashSet<>();
 	private List<DDMFormField> _ddmFormFields = new ArrayList<>();
+<<<<<<< HEAD
 	private List<DDMFormRule> _ddmFormRules = new ArrayList<>();
 	private DDMFormSuccessPageSettings _ddmFormSuccessPageSettings =
 		new DDMFormSuccessPageSettings();
+=======
+>>>>>>> compatible
 	private Locale _defaultLocale;
 
 }

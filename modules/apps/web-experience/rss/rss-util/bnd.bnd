@@ -1,6 +1,10 @@
 Bundle-Name: Liferay RSS Utilities
 Bundle-SymbolicName: com.liferay.rss.util
+<<<<<<< HEAD
 Bundle-Version: 1.0.12
+=======
+Bundle-Version: 1.0.10
+>>>>>>> compatible
 Export-Package: com.liferay.rss.util
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title:

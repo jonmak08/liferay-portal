@@ -2560,6 +2560,7 @@ public class GroupUtil {
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns all the groups where companyId = &#63; and treePath LIKE &#63; and site = &#63;.
 	*
 	* @param companyId the company ID
@@ -2757,6 +2758,8 @@ public class GroupUtil {
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	* Returns all the groups where groupId &gt; &#63; and companyId = &#63; and classNameId = &#63; and parentGroupId = &#63;.
 	*
 	* @param groupId the group ID

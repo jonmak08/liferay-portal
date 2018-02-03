@@ -50,6 +50,11 @@ if (group != null) {
 }
 %>
 
+<<<<<<< HEAD
+=======
+<liferay-util:include page="/navigation.jsp" servletContext="<%= application %>" />
+
+>>>>>>> compatible
 <liferay-util:include page="/toolbar.jsp" servletContext="<%= application %>">
 	<liferay-util:param name="searchContainerId" value="sites" />
 </liferay-util:include>

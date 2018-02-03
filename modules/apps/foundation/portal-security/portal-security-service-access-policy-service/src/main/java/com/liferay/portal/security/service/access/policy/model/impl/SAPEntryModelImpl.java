@@ -36,6 +36,10 @@ import com.liferay.portal.kernel.util.LocalizationUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.security.service.access.policy.model.SAPEntry;
 import com.liferay.portal.security.service.access.policy.model.SAPEntryModel;
@@ -318,7 +322,11 @@ public class SAPEntryModelImpl extends BaseModelImpl<SAPEntry>
 	@Override
 	public String getUuid() {
 		if (_uuid == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _uuid;
@@ -391,7 +399,11 @@ public class SAPEntryModelImpl extends BaseModelImpl<SAPEntry>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -403,7 +415,11 @@ public class SAPEntryModelImpl extends BaseModelImpl<SAPEntry>
 	@Override
 	public String getUserName() {
 		if (_userName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _userName;
@@ -447,7 +463,11 @@ public class SAPEntryModelImpl extends BaseModelImpl<SAPEntry>
 	@Override
 	public String getAllowedServiceSignatures() {
 		if (_allowedServiceSignatures == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _allowedServiceSignatures;
@@ -509,7 +529,11 @@ public class SAPEntryModelImpl extends BaseModelImpl<SAPEntry>
 	@Override
 	public String getName() {
 		if (_name == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _name;
@@ -535,7 +559,11 @@ public class SAPEntryModelImpl extends BaseModelImpl<SAPEntry>
 	@Override
 	public String getTitle() {
 		if (_title == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _title;
@@ -676,7 +704,11 @@ public class SAPEntryModelImpl extends BaseModelImpl<SAPEntry>
 		String xml = getTitle();
 
 		if (xml == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 
 		Locale defaultLocale = LocaleUtil.getDefault();

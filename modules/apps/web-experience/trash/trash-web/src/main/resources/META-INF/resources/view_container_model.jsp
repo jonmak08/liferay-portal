@@ -19,7 +19,11 @@
 <%
 TrashContainerModelDisplayContext trashContainerModelDisplayContext = new TrashContainerModelDisplayContext(liferayPortletRequest, liferayPortletResponse);
 
+<<<<<<< HEAD
 trashUtil.addContainerModelBreadcrumbEntries(request, liferayPortletResponse, trashContainerModelDisplayContext.getContainerModelClassName(), trashContainerModelDisplayContext.getContainerModelId(), trashContainerModelDisplayContext.getContainerURL());
+=======
+TrashUtil.addContainerModelBreadcrumbEntries(request, liferayPortletResponse, trashContainerModelDisplayContext.getContainerModelClassName(), trashContainerModelDisplayContext.getContainerModelId(), trashContainerModelDisplayContext.getContainerURL());
+>>>>>>> compatible
 
 portletDisplay.setShowBackIcon(trashContainerModelDisplayContext.isShowBackIcon());
 portletDisplay.setURLBack(trashContainerModelDisplayContext.getBackURL());
@@ -45,7 +49,11 @@ renderResponse.setTitle(LanguageUtil.format(request, "select-x", trashContainerM
 		data.put("redirect", trashContainerModelDisplayContext.getRedirect());
 		%>
 
+<<<<<<< HEAD
 		<aui:button cssClass="selector-button" data="<%= data %>" value='<%= LanguageUtil.format(request, "choose-this-x", trashContainerModelDisplayContext.getContainerModelName()) %>' />
+=======
+		<aui:button cssClass="btn-lg selector-button" data="<%= data %>" value='<%= LanguageUtil.format(request, "choose-this-x", trashContainerModelDisplayContext.getContainerModelName()) %>' />
+>>>>>>> compatible
 	</aui:button-row>
 
 	<liferay-ui:search-container

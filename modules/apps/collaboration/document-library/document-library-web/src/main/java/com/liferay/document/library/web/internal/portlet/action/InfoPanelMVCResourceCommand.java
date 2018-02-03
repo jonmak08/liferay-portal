@@ -14,9 +14,13 @@
 
 package com.liferay.document.library.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.document.library.constants.DLPortletKeys;
 import com.liferay.document.library.web.internal.constants.DLWebKeys;
 import com.liferay.document.library.web.internal.util.DLTrashUtil;
+=======
+import com.liferay.document.library.web.constants.DLPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.bridges.mvc.BaseMVCResourceCommand;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCResourceCommand;
 import com.liferay.portal.kernel.util.WebKeys;
@@ -25,7 +29,10 @@ import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
 
 import org.osgi.service.component.annotations.Component;
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.Reference;
+=======
+>>>>>>> compatible
 
 /**
  * @author Sergio González
@@ -55,15 +62,21 @@ public class InfoPanelMVCResourceCommand extends BaseMVCResourceCommand {
 		resourceRequest.setAttribute(
 			WebKeys.DOCUMENT_LIBRARY_FOLDERS,
 			ActionUtil.getFolders(resourceRequest));
+<<<<<<< HEAD
 		resourceRequest.setAttribute(
 			DLWebKeys.DOCUMENT_LIBRARY_TRASH_UTIL, _dlTrashUtil);
+=======
+>>>>>>> compatible
 
 		include(
 			resourceRequest, resourceResponse,
 			"/document_library/info_panel.jsp");
 	}
 
+<<<<<<< HEAD
 	@Reference
 	private DLTrashUtil _dlTrashUtil;
 
+=======
+>>>>>>> compatible
 }

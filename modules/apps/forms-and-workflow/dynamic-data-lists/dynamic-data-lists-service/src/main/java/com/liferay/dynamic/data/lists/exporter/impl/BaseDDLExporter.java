@@ -31,11 +31,17 @@ import java.util.List;
 import java.util.Locale;
 
 /**
+<<<<<<< HEAD
  * @author     Marcellus Tavares
  * @author     Manuel de la Peña
  * @deprecated As of 1.1.0, with no direct replacement
  */
 @Deprecated
+=======
+ * @author Marcellus Tavares
+ * @author Manuel de la Peña
+ */
+>>>>>>> compatible
 @ProviderType
 public abstract class BaseDDLExporter implements DDLExporter {
 

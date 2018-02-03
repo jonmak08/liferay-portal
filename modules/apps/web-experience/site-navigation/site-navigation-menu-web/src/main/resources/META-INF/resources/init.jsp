@@ -24,14 +24,28 @@ taglib uri="http://liferay.com/tld/site-navigation" prefix="liferay-site-navigat
 taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %><%@
 taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 
+<<<<<<< HEAD
 <%@ page import="com.liferay.petra.string.StringPool" %><%@
 page import="com.liferay.portal.kernel.language.LanguageUtil" %><%@
+=======
+<%@ page import="com.liferay.portal.kernel.language.LanguageUtil" %><%@
+page import="com.liferay.portal.kernel.model.Layout" %><%@
+page import="com.liferay.portal.kernel.service.LayoutLocalServiceUtil" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.theme.NavItem" %><%@
 page import="com.liferay.portal.kernel.util.Constants" %><%@
 page import="com.liferay.portal.kernel.util.HtmlUtil" %><%@
 page import="com.liferay.portal.kernel.util.ParamUtil" %><%@
+<<<<<<< HEAD
 page import="com.liferay.site.navigation.menu.web.internal.display.context.SiteNavigationMenuDisplayContext" %>
 
+=======
+page import="com.liferay.portal.util.LayoutDescription" %><%@
+page import="com.liferay.site.navigation.menu.web.internal.display.context.SiteNavigationMenuDisplayContext" %>
+
+<%@ page import="java.util.Objects" %>
+
+>>>>>>> compatible
 <liferay-frontend:defineObjects />
 
 <liferay-theme:defineObjects />

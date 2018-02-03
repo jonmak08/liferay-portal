@@ -33,6 +33,7 @@ import com.liferay.portal.security.ldap.configuration.CompanyScopedConfiguration
 )
 public interface LDAPAuthConfiguration extends CompanyScopedConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(deflt = "0", name = "company-id", required = false)
 	@Override
 	public long companyId();
@@ -41,23 +42,44 @@ public interface LDAPAuthConfiguration extends CompanyScopedConfiguration {
 	public boolean enabled();
 
 	@Meta.AD(deflt = "false", name = "required", required = false)
+=======
+	@Meta.AD(deflt = "0", required = false)
+	@Override
+	public long companyId();
+
+	@Meta.AD(deflt = "false", required = false)
+	public boolean enabled();
+
+	@Meta.AD(deflt = "false", required = false)
+>>>>>>> compatible
 	public boolean required();
 
 	@Meta.AD(
 		deflt = "false", description = "password-policy-enabled-help",
+<<<<<<< HEAD
 		name = "password-policy-enabled", required = false
+=======
+		required = false
+>>>>>>> compatible
 	)
 	public boolean passwordPolicyEnabled();
 
 	@Meta.AD(
+<<<<<<< HEAD
 		deflt = "bind", description = "method-help", name = "method",
+=======
+		deflt = "bind", description = "method-help",
+>>>>>>> compatible
 		optionValues = {"bind", "password-compare"}, required = false
 	)
 	public String method();
 
 	@Meta.AD(
 		deflt = "NONE", description = "password-encryption-algorithm-help",
+<<<<<<< HEAD
 		name = "password-encryption-algorithm",
+=======
+>>>>>>> compatible
 		optionValues = {
 			"BCRYPT", "MD2", "MD5", "NONE", "SHA", "SHA-256", "SHA-384", "SSHA",
 			"UFC-CRYPT"

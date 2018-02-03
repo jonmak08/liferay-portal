@@ -33,8 +33,15 @@ import com.liferay.portal.kernel.service.persistence.CompanyProvider;
 import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.ReflectionUtil;
+import com.liferay.portal.kernel.util.SetUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.spring.extender.service.ServiceReference;
 
@@ -306,7 +313,11 @@ public class ShoppingOrderPersistenceImpl extends BasePersistenceImpl<ShoppingOr
 		msg.append("groupId=");
 		msg.append(groupId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchOrderException(msg.toString());
 	}
@@ -357,7 +368,11 @@ public class ShoppingOrderPersistenceImpl extends BasePersistenceImpl<ShoppingOr
 		msg.append("groupId=");
 		msg.append(groupId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchOrderException(msg.toString());
 	}
@@ -987,7 +1002,11 @@ public class ShoppingOrderPersistenceImpl extends BasePersistenceImpl<ShoppingOr
 			msg.append("number=");
 			msg.append(number);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -1046,7 +1065,11 @@ public class ShoppingOrderPersistenceImpl extends BasePersistenceImpl<ShoppingOr
 			if (number == null) {
 				query.append(_FINDER_COLUMN_NUMBER_NUMBER_1);
 			}
+<<<<<<< HEAD
 			else if (number.equals("")) {
+=======
+			else if (number.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_NUMBER_NUMBER_3);
 			}
 			else {
@@ -1146,7 +1169,11 @@ public class ShoppingOrderPersistenceImpl extends BasePersistenceImpl<ShoppingOr
 			if (number == null) {
 				query.append(_FINDER_COLUMN_NUMBER_NUMBER_1);
 			}
+<<<<<<< HEAD
 			else if (number.equals("")) {
+=======
+			else if (number.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_NUMBER_NUMBER_3);
 			}
 			else {
@@ -1220,7 +1247,11 @@ public class ShoppingOrderPersistenceImpl extends BasePersistenceImpl<ShoppingOr
 			msg.append("ppTxnId=");
 			msg.append(ppTxnId);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -1280,7 +1311,11 @@ public class ShoppingOrderPersistenceImpl extends BasePersistenceImpl<ShoppingOr
 			if (ppTxnId == null) {
 				query.append(_FINDER_COLUMN_PPTXNID_PPTXNID_1);
 			}
+<<<<<<< HEAD
 			else if (ppTxnId.equals("")) {
+=======
+			else if (ppTxnId.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_PPTXNID_PPTXNID_3);
 			}
 			else {
@@ -1392,7 +1427,11 @@ public class ShoppingOrderPersistenceImpl extends BasePersistenceImpl<ShoppingOr
 			if (ppTxnId == null) {
 				query.append(_FINDER_COLUMN_PPTXNID_PPTXNID_1);
 			}
+<<<<<<< HEAD
 			else if (ppTxnId.equals("")) {
+=======
+			else if (ppTxnId.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_PPTXNID_PPTXNID_3);
 			}
 			else {
@@ -1608,7 +1647,11 @@ public class ShoppingOrderPersistenceImpl extends BasePersistenceImpl<ShoppingOr
 			if (ppPaymentStatus == null) {
 				query.append(_FINDER_COLUMN_G_U_PPPS_PPPAYMENTSTATUS_1);
 			}
+<<<<<<< HEAD
 			else if (ppPaymentStatus.equals("")) {
+=======
+			else if (ppPaymentStatus.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_U_PPPS_PPPAYMENTSTATUS_3);
 			}
 			else {
@@ -1710,7 +1753,11 @@ public class ShoppingOrderPersistenceImpl extends BasePersistenceImpl<ShoppingOr
 		msg.append(", ppPaymentStatus=");
 		msg.append(ppPaymentStatus);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchOrderException(msg.toString());
 	}
@@ -1773,7 +1820,11 @@ public class ShoppingOrderPersistenceImpl extends BasePersistenceImpl<ShoppingOr
 		msg.append(", ppPaymentStatus=");
 		msg.append(ppPaymentStatus);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchOrderException(msg.toString());
 	}
@@ -1876,7 +1927,11 @@ public class ShoppingOrderPersistenceImpl extends BasePersistenceImpl<ShoppingOr
 		if (ppPaymentStatus == null) {
 			query.append(_FINDER_COLUMN_G_U_PPPS_PPPAYMENTSTATUS_1);
 		}
+<<<<<<< HEAD
 		else if (ppPaymentStatus.equals("")) {
+=======
+		else if (ppPaymentStatus.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_U_PPPS_PPPAYMENTSTATUS_3);
 		}
 		else {
@@ -2065,7 +2120,11 @@ public class ShoppingOrderPersistenceImpl extends BasePersistenceImpl<ShoppingOr
 		if (ppPaymentStatus == null) {
 			query.append(_FINDER_COLUMN_G_U_PPPS_PPPAYMENTSTATUS_1);
 		}
+<<<<<<< HEAD
 		else if (ppPaymentStatus.equals("")) {
+=======
+		else if (ppPaymentStatus.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_U_PPPS_PPPAYMENTSTATUS_3);
 		}
 		else {
@@ -2215,7 +2274,11 @@ public class ShoppingOrderPersistenceImpl extends BasePersistenceImpl<ShoppingOr
 		if (ppPaymentStatus == null) {
 			query.append(_FINDER_COLUMN_G_U_PPPS_PPPAYMENTSTATUS_1);
 		}
+<<<<<<< HEAD
 		else if (ppPaymentStatus.equals("")) {
+=======
+		else if (ppPaymentStatus.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_U_PPPS_PPPAYMENTSTATUS_3);
 		}
 		else {
@@ -2394,7 +2457,11 @@ public class ShoppingOrderPersistenceImpl extends BasePersistenceImpl<ShoppingOr
 			if (ppPaymentStatus == null) {
 				query.append(_FINDER_COLUMN_G_U_PPPS_PPPAYMENTSTATUS_1);
 			}
+<<<<<<< HEAD
 			else if (ppPaymentStatus.equals("")) {
+=======
+			else if (ppPaymentStatus.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_G_U_PPPS_PPPAYMENTSTATUS_3);
 			}
 			else {
@@ -2467,7 +2534,11 @@ public class ShoppingOrderPersistenceImpl extends BasePersistenceImpl<ShoppingOr
 		if (ppPaymentStatus == null) {
 			query.append(_FINDER_COLUMN_G_U_PPPS_PPPAYMENTSTATUS_1);
 		}
+<<<<<<< HEAD
 		else if (ppPaymentStatus.equals("")) {
+=======
+		else if (ppPaymentStatus.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 			query.append(_FINDER_COLUMN_G_U_PPPS_PPPAYMENTSTATUS_3);
 		}
 		else {
@@ -2522,11 +2593,17 @@ public class ShoppingOrderPersistenceImpl extends BasePersistenceImpl<ShoppingOr
 		setModelClass(ShoppingOrder.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("number", "number_");
@@ -3132,12 +3209,20 @@ public class ShoppingOrderPersistenceImpl extends BasePersistenceImpl<ShoppingOr
 		for (Serializable primaryKey : uncachedPrimaryKeys) {
 			query.append((long)primaryKey);
 
+<<<<<<< HEAD
 			query.append(",");
+=======
+			query.append(StringPool.COMMA);
+>>>>>>> compatible
 		}
 
 		query.setIndex(query.index() - 1);
 
+<<<<<<< HEAD
 		query.append(")");
+=======
+		query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 		String sql = query.toString();
 

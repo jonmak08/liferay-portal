@@ -8,6 +8,7 @@
 ### Fixed
 - [LPS-70060]: Fix compatibility issue with Gradle 3.3.
 
+<<<<<<< HEAD
 ## 2.0.1 - 2017-10-16
 
 ### Fixed
@@ -17,3 +18,7 @@ if the property `buildLibs` is `false`.
 [LPS-67573]: https://issues.liferay.com/browse/LPS-67573
 [LPS-70060]: https://issues.liferay.com/browse/LPS-70060
 [LPS-75273]: https://issues.liferay.com/browse/LPS-75273
+=======
+[LPS-67573]: https://issues.liferay.com/browse/LPS-67573
+[LPS-70060]: https://issues.liferay.com/browse/LPS-70060
+>>>>>>> compatible

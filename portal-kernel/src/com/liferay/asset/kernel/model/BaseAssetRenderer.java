@@ -270,11 +270,14 @@ public abstract class BaseAssetRenderer<T> implements AssetRenderer<T> {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public String getUrlTitle(Locale locale) {
 		return getUrlTitle();
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public String getURLView(
 			LiferayPortletResponse liferayPortletResponse,
 			WindowState windowState)

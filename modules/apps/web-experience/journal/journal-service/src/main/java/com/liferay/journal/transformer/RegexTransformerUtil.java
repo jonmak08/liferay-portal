@@ -16,7 +16,10 @@ package com.liferay.journal.transformer;
 
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.util.PropsUtil;
 
@@ -53,9 +56,14 @@ public class RegexTransformerUtil {
 
 			if (_log.isInfoEnabled()) {
 				_log.info(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Pattern ", regex, " will be replaced with ",
 						replacement));
+=======
+					"Pattern " + regex + " will be replaced with " +
+						replacement);
+>>>>>>> compatible
 			}
 
 			_patterns.add(Pattern.compile(regex));

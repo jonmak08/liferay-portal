@@ -21,8 +21,11 @@ import com.liferay.portal.workflow.kaleo.definition.AddressRecipient;
 import com.liferay.portal.workflow.kaleo.definition.Assignment;
 import com.liferay.portal.workflow.kaleo.definition.AssignmentType;
 import com.liferay.portal.workflow.kaleo.definition.DelayDuration;
+<<<<<<< HEAD
 import com.liferay.portal.workflow.kaleo.definition.DurationScale;
 import com.liferay.portal.workflow.kaleo.definition.ExecutionType;
+=======
+>>>>>>> compatible
 import com.liferay.portal.workflow.kaleo.definition.Node;
 import com.liferay.portal.workflow.kaleo.definition.Notification;
 import com.liferay.portal.workflow.kaleo.definition.NotificationReceptionType;
@@ -35,7 +38,10 @@ import com.liferay.portal.workflow.kaleo.definition.RoleRecipient;
 import com.liferay.portal.workflow.kaleo.definition.ScriptAssignment;
 import com.liferay.portal.workflow.kaleo.definition.ScriptLanguage;
 import com.liferay.portal.workflow.kaleo.definition.ScriptRecipient;
+<<<<<<< HEAD
 import com.liferay.portal.workflow.kaleo.definition.TemplateLanguage;
+=======
+>>>>>>> compatible
 import com.liferay.portal.workflow.kaleo.definition.Timer;
 import com.liferay.portal.workflow.kaleo.definition.Transition;
 import com.liferay.portal.workflow.kaleo.definition.UserAssignment;
@@ -96,10 +102,15 @@ public abstract class BaseNodeExporter implements NodeExporter {
 		addTextElement(
 			delayElement, "duration",
 			String.valueOf(delayDuration.getDuration()));
+<<<<<<< HEAD
 
 		DurationScale durationScale = delayDuration.getDurationScale();
 
 		addTextElement(delayElement, "scale", durationScale.getValue());
+=======
+		addTextElement(
+			delayElement, "scale", delayDuration.getDurationScale().getValue());
+>>>>>>> compatible
 	}
 
 	protected void addTextElement(
@@ -123,10 +134,16 @@ public abstract class BaseNodeExporter implements NodeExporter {
 				actionElement, "description", action.getDescription());
 		}
 
+<<<<<<< HEAD
 		ScriptLanguage scriptLanguage = action.getScriptLanguage();
 
 		populateScriptingElement(
 			actionElement, action.getScript(), scriptLanguage.getValue(),
+=======
+		populateScriptingElement(
+			actionElement, action.getScript(),
+			action.getScriptLanguage().getValue(),
+>>>>>>> compatible
 			action.getScriptRequiredContexts());
 
 		if (action.getPriority() > 0) {
@@ -135,10 +152,16 @@ public abstract class BaseNodeExporter implements NodeExporter {
 				String.valueOf(action.getPriority()));
 		}
 
+<<<<<<< HEAD
 		ExecutionType executionType = action.getExecutionType();
 
 		addTextElement(
 			actionElement, "execution-type", executionType.getValue());
+=======
+		addTextElement(
+			actionElement, "execution-type",
+			action.getExecutionType().getValue());
+>>>>>>> compatible
 	}
 
 	protected void exportActionsElement(
@@ -216,12 +239,18 @@ public abstract class BaseNodeExporter implements NodeExporter {
 				ScriptAssignment scriptAssignment =
 					(ScriptAssignment)assignment;
 
+<<<<<<< HEAD
 				ScriptLanguage scriptLanguage =
 					scriptAssignment.getScriptLanguage();
 
 				populateScriptingElement(
 					scriptedAssignmentElement, scriptAssignment.getScript(),
 					scriptLanguage.getValue(),
+=======
+				populateScriptingElement(
+					scriptedAssignmentElement, scriptAssignment.getScript(),
+					scriptAssignment.getScriptLanguage().getValue(),
+>>>>>>> compatible
 					scriptAssignment.getScriptRequiredContexts());
 			}
 			else if (assignmentType.equals(AssignmentType.USER)) {
@@ -250,12 +279,18 @@ public abstract class BaseNodeExporter implements NodeExporter {
 
 		addCDataElement(
 			notificationElement, "template", notification.getTemplate());
+<<<<<<< HEAD
 
 		TemplateLanguage templateLanguage = notification.getTemplateLanguage();
 
 		addTextElement(
 			notificationElement, "template-language",
 			templateLanguage.getValue());
+=======
+		addTextElement(
+			notificationElement, "template-language",
+			notification.getTemplateLanguage().getValue());
+>>>>>>> compatible
 
 		Set<NotificationType> notificationTypes =
 			notification.getNotificationTypes();
@@ -280,10 +315,16 @@ public abstract class BaseNodeExporter implements NodeExporter {
 				notificationElement, recipients, notificationReceptionType);
 		}
 
+<<<<<<< HEAD
 		ExecutionType executionType = notification.getExecutionType();
 
 		addTextElement(
 			notificationElement, "execution-type", executionType.getValue());
+=======
+		addTextElement(
+			notificationElement, "execution-type",
+			notification.getExecutionType().getValue());
+>>>>>>> compatible
 	}
 
 	protected void exportRecipientsElement(
@@ -430,10 +471,16 @@ public abstract class BaseNodeExporter implements NodeExporter {
 			Element transition = transitionsElement.addElement("transition");
 
 			addTextElement(transition, "name", outgoingTransition.getName());
+<<<<<<< HEAD
 
 			Node targetNode = outgoingTransition.getTargetNode();
 
 			addTextElement(transition, "target", targetNode.getName());
+=======
+			addTextElement(
+				transition, "target",
+				outgoingTransition.getTargetNode().getName());
+>>>>>>> compatible
 
 			if (outgoingTransition.isDefault()) {
 				addTextElement(

@@ -26,12 +26,21 @@ public class JavaDataAccessConnectionCheck extends BaseFileCheck {
 	protected String doProcess(
 		String fileName, String absolutePath, String content) {
 
+<<<<<<< HEAD
 		String packageName = JavaSourceUtil.getPackageName(content);
 
 		if (packageName.startsWith("com.liferay.portal.kernel.upgrade") ||
 			packageName.startsWith("com.liferay.portal.kernel.verify") ||
 			packageName.startsWith("com.liferay.portal.upgrade") ||
 			packageName.startsWith("com.liferay.portal.verify")) {
+=======
+		String packagePath = JavaSourceUtil.getPackagePath(content);
+
+		if (packagePath.startsWith("com.liferay.portal.kernel.upgrade") ||
+			packagePath.startsWith("com.liferay.portal.kernel.verify") ||
+			packagePath.startsWith("com.liferay.portal.upgrade") ||
+			packagePath.startsWith("com.liferay.portal.verify")) {
+>>>>>>> compatible
 
 			content = StringUtil.replace(
 				content, "DataAccess.getConnection",

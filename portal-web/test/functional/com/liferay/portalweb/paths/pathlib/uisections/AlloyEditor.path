@@ -24,12 +24,23 @@
 	<td></td>
 </tr>
 <tr>
+	<td>TITLE_FIELD_LOCALIZED</td>
+	<td>//div[contains(@id,'titleEditor') and contains(@aria-label,'${key_localizedText}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NAME_FIELD</td>
+	<td>//div[contains(@id,'nameEditor') and contains(@aria-label,'Rich Text Editor')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>SUBTITLE_FIELD</td>
 	<td>//div[contains(@id,'subtitleEditor') and contains(@aria-label,'Rich Text Editor')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>CONTENT_FIELD</td>
+<<<<<<< HEAD
 	<td>//div[(contains(@id,'body') or contains(@id,'content') or contains(@id,'HTML')) and contains(@class,'alloy-editor-container')]//div[contains(@class,'alloy-editor-placeholder')]</td>
 	<td></td>
 </tr>
@@ -41,6 +52,19 @@
 <tr>
 	<td>CONTENT_FIELD_LOCALIZED</td>
 	<td>//div[contains(@id,'contentEditor') and contains(@title,'${key_localizedText}')]</td>
+=======
+	<td>//div[contains(@class,'alloy-editor-container')]//div[(contains(@data-placeholder,'Write your content here...') or contains(@data-placeholder,'Content')) and contains(@title,'Rich Text Editor')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>CONTENT_FIELD_LOCALIZED</td>
+	<td>//div[contains(@id,'contentEditor') and contains(@title,'${key_localizedText}')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>CONTENT_FIELD_LOCALIZED_1</td>
+	<td>//div[contains(@class,'alloy-editor-container')]//div[(contains(@data-placeholder,'Escriba su comentario aquí...') or contains(@data-placeholder,'Content')) and contains(@title,'Editor de texto enriquecido')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -49,6 +73,7 @@
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 	<td>CONTENT_FIELD_ITALIC</td>
 	<td>//div[contains(@class,'alloy-editor-container')]//div[(contains(@data-placeholder,'Write your content here...') or contains(@data-placeholder,'Content')) and contains(@title,'Rich Text Editor')]//em[contains(.,'${key_italicContent}')]</td>
 	<td></td>
@@ -81,6 +106,10 @@
 <tr>
 	<td>TITLE_FIELD_LOCALIZED</td>
 	<td>//div[contains(@id,'titleEditor') and contains(@aria-label,'${key_localizedText}')]</td>
+=======
+	<td>DESCRIPTION_FIELD</td>
+	<td>//div[contains(@id,'descriptionEditor') and contains(@aria-label,'Rich Text Editor')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -133,7 +162,11 @@
 </tr>
 <tr>
 	<td>TEXT_FORMATTING_STYLE_DROPDOWN</td>
+<<<<<<< HEAD
 	<td>//button[contains(@class,'ae-toolbar-element') and contains(.,'${key_styleFormat}')]</td>
+=======
+	<td>//button[contains(@class,'ae-toolbar-element') and contains(@data-reactid,'${key_styleFormat}')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -166,8 +199,27 @@
 	<td></td>
 	<td></td>
 </tr>
+<!--TRACKBACK-->
+<tr>
+	<td>TRACKBACKS_TO_SEND</td>
+	<td>//input[contains(@id,'trackbacks')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td></td>
+	<td></td>
+	<td></td>
+</tr>
 <!--CONTENT_EDITOR-->
 <tr>
+<<<<<<< HEAD
+=======
+	<td>CONTENT_EDITOR_SWITCH_ACE_EDITOR</td>
+	<td>//button[contains(@id,'EditorSwitch')]/span/*[name()='svg'][contains(@class,'icon-code')]</td>
+	<td></td>
+</tr>
+<tr>
+>>>>>>> compatible
 	<td>CONTENT_EDITOR_SWITCH_ABC</td>
 	<td>//button[contains(@id,'contentEditorSwitch') and contains(.,'abc')]</td>
 	<td></td>

@@ -19,7 +19,11 @@ import com.liferay.asset.kernel.model.AssetRenderer;
 import com.liferay.asset.kernel.model.AssetRendererFactory;
 import com.liferay.asset.kernel.model.BaseAssetRendererFactory;
 import com.liferay.asset.kernel.service.AssetEntryLocalService;
+<<<<<<< HEAD
 import com.liferay.layout.admin.constants.LayoutAdminPortletKeys;
+=======
+import com.liferay.layout.admin.web.internal.constants.LayoutAdminPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.Layout;
 import com.liferay.portal.kernel.model.User;
@@ -38,7 +42,11 @@ import org.osgi.service.component.annotations.Reference;
  */
 @Component(
 	immediate = true,
+<<<<<<< HEAD
 	property = {"javax.portlet.name=" + LayoutAdminPortletKeys.GROUP_PAGES},
+=======
+	property = {"javax.portlet.name=" + LayoutAdminPortletKeys.LAYOUT_ADMIN},
+>>>>>>> compatible
 	service = AssetRendererFactory.class
 )
 public class LayoutAssetRendererFactory
@@ -49,7 +57,11 @@ public class LayoutAssetRendererFactory
 	public LayoutAssetRendererFactory() {
 		setClassName(Layout.class.getName());
 		setSelectable(false);
+<<<<<<< HEAD
 		setPortletId(LayoutAdminPortletKeys.GROUP_PAGES);
+=======
+		setPortletId(LayoutAdminPortletKeys.LAYOUT_ADMIN);
+>>>>>>> compatible
 	}
 
 	@Override

@@ -22,11 +22,14 @@ import com.liferay.portal.kernel.util.StringPool;
 public class PropertiesServiceKeysCheck extends BaseFileCheck {
 
 	@Override
+<<<<<<< HEAD
 	public boolean isPortalCheck() {
 		return true;
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	protected String doProcess(
 			String fileName, String absolutePath, String content)
 		throws Exception {

@@ -16,10 +16,14 @@
 					</h3>
 				</div>
 
+<<<<<<< HEAD
 				<@displayPages
 					depth=1
 					pages=entry.getChildren()
 				/>
+=======
+				<@displayPages pages=entry.getChildren() />
+>>>>>>> compatible
 			</@liferay_aui.col>
 		</#list>
 	</@liferay_aui.row>
@@ -43,10 +47,14 @@
 
 					>${page.getName(locale)}</a>
 
+<<<<<<< HEAD
 					<@displayPages
 						depth=depth + 1
 						pages=page.getChildren()
 					/>
+=======
+					<@displayPages pages=page.getChildren() />
+>>>>>>> compatible
 				</li>
 			</#list>
 		</ul>

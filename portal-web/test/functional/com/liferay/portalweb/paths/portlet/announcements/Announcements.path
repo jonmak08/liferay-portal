@@ -20,6 +20,7 @@
 </tr>
 <!--NAVIGATION-->
 <tr>
+<<<<<<< HEAD
 	<td>NAVIGATION_ENTRIES_READ</td>
 	<td>//ul[contains(@class,'nav') and contains(@class,'nav-tabs')]/li/a[contains(.,'Read')]</td>
 	<td></td>
@@ -27,6 +28,15 @@
 <tr>
 	<td>NAVIGATION_ENTRIES_UNREAD</td>
 	<td>//ul[contains(@class,'nav') and contains(@class,'nav-tabs')]/li/a[contains(.,'Unread')]</td>
+=======
+	<td>NAVIGATION_ENTRIES_NEW</td>
+	<td>//ul[contains(@class,'nav') and contains(@class,'nav-tabs')]/li/a[contains(.,'New')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>NAVIGATION_ENTRIES_PREVIOUS</td>
+	<td>//ul[contains(@class,'nav') and contains(@class,'nav-tabs')]/li/a[contains(.,'Previous')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>

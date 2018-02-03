@@ -1,6 +1,14 @@
 Bundle-Name: Liferay Blogs Web
 Bundle-SymbolicName: com.liferay.blogs.web
+<<<<<<< HEAD
 Bundle-Version: 2.0.3
+=======
+Bundle-Version: 1.1.26
+Export-Package:\
+	com.liferay.blogs.web.asset,\
+	com.liferay.blogs.web.constants,\
+	com.liferay.blogs.web.social
+>>>>>>> compatible
 Liferay-JS-Config: /META-INF/resources/blogs/js/config.js
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Blogs

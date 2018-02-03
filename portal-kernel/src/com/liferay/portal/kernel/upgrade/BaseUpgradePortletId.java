@@ -26,6 +26,10 @@ import com.liferay.portal.kernel.service.permission.PortletPermissionUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.LoggingTimer;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.UnicodeProperties;
 
@@ -85,7 +89,13 @@ public abstract class BaseUpgradePortletId extends UpgradeProcess {
 
 			String typeSettingId = entry.getKey();
 
+<<<<<<< HEAD
 			if (!LayoutTypePortletConstants.hasPortletIds(typeSettingId)) {
+=======
+			if (!LayoutTypePortletConstants.isLayoutTemplateColumnName(
+					typeSettingId)) {
+
+>>>>>>> compatible
 				continue;
 			}
 
@@ -118,7 +128,12 @@ public abstract class BaseUpgradePortletId extends UpgradeProcess {
 
 			String portletIdsString = StringUtil.merge(portletIds);
 
+<<<<<<< HEAD
 			typeSettingsProperties.setProperty(typeSettingId, portletIdsString);
+=======
+			typeSettingsProperties.setProperty(
+				typeSettingId, portletIdsString.concat(StringPool.COMMA));
+>>>>>>> compatible
 		}
 
 		return typeSettingsProperties.toString();
@@ -400,9 +415,14 @@ public abstract class BaseUpgradePortletId extends UpgradeProcess {
 		throws Exception {
 
 		runSQL(
+<<<<<<< HEAD
 			StringBundler.concat(
 				"update Portlet set portletId = '", newRootPortletId,
 				"' where portletId = '", oldRootPortletId, "'"));
+=======
+			"update Portlet set portletId = '" + newRootPortletId +
+				"' where portletId = '" + oldRootPortletId + "'");
+>>>>>>> compatible
 	}
 
 	protected void updateResourceAction(String oldName, String newName)
@@ -422,9 +442,14 @@ public abstract class BaseUpgradePortletId extends UpgradeProcess {
 
 		if (actionIds.isEmpty()) {
 			runSQL(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"update ResourceAction set name = '", newName,
 					"' where name = '", oldName, "'"));
+=======
+				"update ResourceAction set name = '" + newName +
+					"' where name = '" + oldName + "'");
+>>>>>>> compatible
 		}
 		else {
 			StringBundler sb = new StringBundler(5 + 3 * actionIds.size());
@@ -516,6 +541,7 @@ public abstract class BaseUpgradePortletId extends UpgradeProcess {
 
 		if (updateName) {
 			runSQL(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"update ResourcePermission set primKey = '",
 					newRootPortletId, "' where primKey = '", oldRootPortletId,
@@ -525,6 +551,15 @@ public abstract class BaseUpgradePortletId extends UpgradeProcess {
 				StringBundler.concat(
 					"update ResourcePermission set name = '", newRootPortletId,
 					"' where name = '", oldRootPortletId, "'"));
+=======
+				"update ResourcePermission set primKey = '" + newRootPortletId +
+					"' where primKey = '" + oldRootPortletId + "' and name = " +
+						"'" + oldRootPortletId + "'");
+
+			runSQL(
+				"update ResourcePermission set name = '" + newRootPortletId +
+					"' where name = '" + oldRootPortletId + "'");
+>>>>>>> compatible
 		}
 	}
 
@@ -533,9 +568,14 @@ public abstract class BaseUpgradePortletId extends UpgradeProcess {
 		throws Exception {
 
 		runSQL(
+<<<<<<< HEAD
 			StringBundler.concat(
 				"update UserNotificationDelivery set portletId = '",
 				newPortletId, "' where portletId = '", oldPortletId, "'"));
+=======
+			"update UserNotificationDelivery set portletId = '" + newPortletId +
+				"' where portletId = '" + oldPortletId + "'");
+>>>>>>> compatible
 	}
 
 	protected void updateUserNotificationEvent(
@@ -543,9 +583,14 @@ public abstract class BaseUpgradePortletId extends UpgradeProcess {
 		throws Exception {
 
 		runSQL(
+<<<<<<< HEAD
 			StringBundler.concat(
 				"update UserNotificationEvent set type_ = '", newPortletId,
 				"' where type_ = '", oldPortletId, "'"));
+=======
+			"update UserNotificationEvent set type_ = '" + newPortletId +
+				"' where type_ = '" + oldPortletId + "'");
+>>>>>>> compatible
 	}
 
 	protected void upgradeInstanceablePortletIds() throws Exception {

@@ -58,10 +58,17 @@ if (!searchTerms.isSearch() && hasAssignMembersPermission) {
 
 LinkedHashMap<String, Object> userGroupParams = new LinkedHashMap<String, Object>();
 
+<<<<<<< HEAD
 userGroupParams.put(UserGroupFinderConstants.PARAM_KEY_USER_GROUPS_GROUPS, Long.valueOf(siteMembershipsDisplayContext.getGroupId()));
 
 if (role != null) {
 	userGroupParams.put(UserGroupFinderConstants.PARAM_KEY_USER_GROUP_GROUP_ROLE, new Long[] {Long.valueOf(roleId), Long.valueOf(siteMembershipsDisplayContext.getGroupId())});
+=======
+userGroupParams.put("userGroupsGroups", Long.valueOf(siteMembershipsDisplayContext.getGroupId()));
+
+if (role != null) {
+	userGroupParams.put("userGroupGroupRole", new Long[] {Long.valueOf(roleId), Long.valueOf(siteMembershipsDisplayContext.getGroupId())});
+>>>>>>> compatible
 }
 
 int userGroupsCount = UserGroupLocalServiceUtil.searchCount(company.getCompanyId(), searchTerms.getKeywords(), userGroupParams);
@@ -73,10 +80,16 @@ List<UserGroup> userGroups = UserGroupLocalServiceUtil.search(company.getCompany
 userGroupSearch.setResults(userGroups);
 %>
 
+<<<<<<< HEAD
 <clay:navigation-bar
 	inverted="<%= true %>"
 	items="<%= siteMembershipsDisplayContext.getViewNavigationItems() %>"
 />
+=======
+<liferay-util:include page="/navigation_bar.jsp" servletContext="<%= application %>">
+	<liferay-util:param name="searchEnabled" value="<%= String.valueOf((userGroupsCount > 0) || searchTerms.isSearch()) %>" />
+</liferay-util:include>
+>>>>>>> compatible
 
 <liferay-frontend:management-bar
 	disabled='<%= (userGroupsCount <= 0) && Objects.equals(navigation, "all") %>'
@@ -127,6 +140,7 @@ userGroupSearch.setResults(userGroups);
 			orderColumns='<%= new String[] {"name", "description"} %>'
 			portletURL="<%= PortletURLUtil.clone(viewUserGroupsURL, renderResponse) %>"
 		/>
+<<<<<<< HEAD
 
 		<c:if test="<%= (userGroupsCount > 0) || searchTerms.isSearch() %>">
 			<li>
@@ -135,6 +149,8 @@ userGroupSearch.setResults(userGroups);
 				</aui:form>
 			</li>
 		</c:if>
+=======
+>>>>>>> compatible
 	</liferay-frontend:management-bar-filters>
 
 	<liferay-frontend:management-bar-action-buttons>
@@ -316,7 +332,11 @@ userGroupSearch.setResults(userGroups);
 					},
 					eventName: '<portlet:namespace />selectSiteRole',
 					title: '<liferay-ui:message key="select-site-role" />',
+<<<<<<< HEAD
 					uri: '<portlet:renderURL windowState="<%= LiferayWindowState.POP_UP.toString() %>"><portlet:param name="mvcPath" value="/select_site_role.jsp" /><portlet:param name="groupId" value="<%= String.valueOf(siteMembershipsDisplayContext.getGroupId()) %>" /></portlet:renderURL>'
+=======
+					uri: '<portlet:renderURL windowState="<%= LiferayWindowState.POP_UP.toString() %>"><portlet:param name="mvcPath" value="/select_site_role.jsp" /></portlet:renderURL>'
+>>>>>>> compatible
 				},
 				function(event) {
 					var uri = '<%= viewRoleURL %>';

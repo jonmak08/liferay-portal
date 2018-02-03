@@ -19,19 +19,29 @@ import com.liferay.mail.kernel.model.FileAttachment;
 import com.liferay.mail.kernel.model.MailMessage;
 import com.liferay.mail.kernel.model.SMTPAccount;
 import com.liferay.mail.kernel.service.MailServiceUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.log.LogUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.InfrastructureUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 
@@ -87,9 +97,13 @@ public class MailEngine {
 		if (_log.isDebugEnabled()) {
 			session.setDebug(true);
 
+<<<<<<< HEAD
 			Properties sessionProperties = session.getProperties();
 
 			sessionProperties.list(System.out);
+=======
+			session.getProperties().list(System.out);
+>>>>>>> compatible
 		}
 
 		return session;
@@ -112,9 +126,13 @@ public class MailEngine {
 		if (_log.isDebugEnabled()) {
 			session.setDebug(true);
 
+<<<<<<< HEAD
 			Properties properties = session.getProperties();
 
 			properties.list(System.out);
+=======
+			session.getProperties().list(System.out);
+>>>>>>> compatible
 		}
 
 		return session;
@@ -227,10 +245,15 @@ public class MailEngine {
 					}
 
 					_log.debug(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"Attachment ", String.valueOf(i), " file ",
 							file.getAbsolutePath(), " and file name ",
 							fileAttachment.getFileName()));
+=======
+						"Attachment " + i + " file " + file.getAbsolutePath() +
+							" and file name " + fileAttachment.getFileName());
+>>>>>>> compatible
 				}
 			}
 		}
@@ -318,7 +341,13 @@ public class MailEngine {
 					messageMultipart.addBodyPart(bodyPart);
 				}
 
+<<<<<<< HEAD
 				for (FileAttachment fileAttachment : fileAttachments) {
+=======
+				for (int i = 0; i < fileAttachments.size(); i++) {
+					FileAttachment fileAttachment = fileAttachments.get(i);
+
+>>>>>>> compatible
 					File file = fileAttachment.getFile();
 
 					if (file == null) {
@@ -634,14 +663,23 @@ public class MailEngine {
 			if (me.getNextException() instanceof SocketException) {
 				if (_log.isWarnEnabled()) {
 					_log.warn(
+<<<<<<< HEAD
 						"Unable to connect to a valid mail server. Please " +
 							"make sure one is properly configured: " +
+=======
+						"Failed to connect to a valid mail server. Please " +
+							"make sure one is properly configured. " +
+>>>>>>> compatible
 								me.getMessage());
 				}
 			}
 			else {
+<<<<<<< HEAD
 				LogUtil.log(
 					_log, me, "Unable to send message: " + me.getMessage());
+=======
+				LogUtil.log(_log, me);
+>>>>>>> compatible
 			}
 
 			if (_isThrowsExceptionOnFailure()) {

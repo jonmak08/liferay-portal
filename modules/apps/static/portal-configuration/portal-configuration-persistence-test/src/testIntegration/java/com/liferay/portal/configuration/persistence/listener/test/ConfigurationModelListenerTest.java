@@ -15,13 +15,20 @@
 package com.liferay.portal.configuration.persistence.listener.test;
 
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
+<<<<<<< HEAD
 import com.liferay.osgi.util.service.OSGiServiceUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.configuration.persistence.listener.ConfigurationModelListener;
 import com.liferay.portal.configuration.persistence.listener.ConfigurationModelListenerException;
 import com.liferay.portal.kernel.test.ReflectionTestUtil;
 import com.liferay.portal.kernel.util.HashMapDictionary;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.osgi.util.test.OSGiServiceUtil;
+>>>>>>> compatible
 
 import java.io.IOException;
 

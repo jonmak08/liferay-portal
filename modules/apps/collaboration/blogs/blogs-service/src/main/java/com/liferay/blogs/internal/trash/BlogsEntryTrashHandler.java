@@ -14,20 +14,32 @@
 
 package com.liferay.blogs.internal.trash;
 
+<<<<<<< HEAD
 import com.liferay.blogs.model.BlogsEntry;
 import com.liferay.blogs.service.BlogsEntryLocalService;
+=======
+import com.liferay.blogs.kernel.model.BlogsEntry;
+import com.liferay.blogs.kernel.service.BlogsEntryLocalService;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.LayoutConstants;
 import com.liferay.portal.kernel.portlet.PortletProvider;
 import com.liferay.portal.kernel.portlet.PortletProviderUtil;
 import com.liferay.portal.kernel.portlet.PortletURLFactoryUtil;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermission;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.trash.BaseTrashHandler;
 import com.liferay.portal.kernel.trash.TrashHandler;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.WebKeys;
+<<<<<<< HEAD
+=======
+import com.liferay.portlet.blogs.service.permission.BlogsEntryPermission;
+>>>>>>> compatible
 
 import javax.portlet.PortletRequest;
 import javax.portlet.PortletURL;
@@ -41,7 +53,11 @@ import org.osgi.service.component.annotations.Reference;
  * @author Zsolt Berentey
  */
 @Component(
+<<<<<<< HEAD
 	property = {"model.class.name=com.liferay.blogs.model.BlogsEntry"},
+=======
+	property = {"model.class.name=com.liferay.blogs.kernel.model.BlogsEntry"},
+>>>>>>> compatible
 	service = TrashHandler.class
 )
 public class BlogsEntryTrashHandler extends BaseTrashHandler {
@@ -142,7 +158,11 @@ public class BlogsEntryTrashHandler extends BaseTrashHandler {
 			PermissionChecker permissionChecker, long classPK, String actionId)
 		throws PortalException {
 
+<<<<<<< HEAD
 		return _blogsEntryFolderModelResourcePermission.contains(
+=======
+		return BlogsEntryPermission.contains(
+>>>>>>> compatible
 			permissionChecker, classPK, actionId);
 	}
 
@@ -153,10 +173,13 @@ public class BlogsEntryTrashHandler extends BaseTrashHandler {
 		_blogsEntryLocalService = blogsEntryLocalService;
 	}
 
+<<<<<<< HEAD
 	@Reference(target = "(model.class.name=com.liferay.blogs.model.BlogsEntry)")
 	private ModelResourcePermission<BlogsEntry>
 		_blogsEntryFolderModelResourcePermission;
 
+=======
+>>>>>>> compatible
 	private BlogsEntryLocalService _blogsEntryLocalService;
 
 	@Reference

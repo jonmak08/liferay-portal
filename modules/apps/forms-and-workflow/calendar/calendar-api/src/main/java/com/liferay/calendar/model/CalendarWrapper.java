@@ -67,6 +67,10 @@ public class CalendarWrapper implements Calendar, ModelWrapper<Calendar> {
 		attributes.put("userName", getUserName());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
+<<<<<<< HEAD
+=======
+		attributes.put("resourceBlockId", getResourceBlockId());
+>>>>>>> compatible
 		attributes.put("calendarResourceId", getCalendarResourceId());
 		attributes.put("name", getName());
 		attributes.put("description", getDescription());
@@ -130,6 +134,15 @@ public class CalendarWrapper implements Calendar, ModelWrapper<Calendar> {
 			setModifiedDate(modifiedDate);
 		}
 
+<<<<<<< HEAD
+=======
+		Long resourceBlockId = (Long)attributes.get("resourceBlockId");
+
+		if (resourceBlockId != null) {
+			setResourceBlockId(resourceBlockId);
+		}
+
+>>>>>>> compatible
 		Long calendarResourceId = (Long)attributes.get("calendarResourceId");
 
 		if (calendarResourceId != null) {
@@ -496,6 +509,19 @@ public class CalendarWrapper implements Calendar, ModelWrapper<Calendar> {
 		return _calendar.getPrimaryKeyObj();
 	}
 
+<<<<<<< HEAD
+=======
+	/**
+	* Returns the resource block ID of this calendar.
+	*
+	* @return the resource block ID of this calendar
+	*/
+	@Override
+	public long getResourceBlockId() {
+		return _calendar.getResourceBlockId();
+	}
+
+>>>>>>> compatible
 	@Override
 	public java.util.TimeZone getTimeZone() {
 		return _calendar.getTimeZone();
@@ -896,6 +922,19 @@ public class CalendarWrapper implements Calendar, ModelWrapper<Calendar> {
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	* Sets the resource block ID of this calendar.
+	*
+	* @param resourceBlockId the resource block ID of this calendar
+	*/
+	@Override
+	public void setResourceBlockId(long resourceBlockId) {
+		_calendar.setResourceBlockId(resourceBlockId);
+	}
+
+	/**
+>>>>>>> compatible
 	* Sets the time zone ID of this calendar.
 	*
 	* @param timeZoneId the time zone ID of this calendar

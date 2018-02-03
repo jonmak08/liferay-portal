@@ -22,8 +22,13 @@
 				{DDMDataProviderInstance.*}
 			FROM
 				(
+<<<<<<< HEAD
 					SELECT
 						DISTINCT DDMDataProviderInstance.dataProviderInstanceId
+=======
+					SELECT DISTINCT
+						DDMDataProviderInstance.dataProviderInstanceId
+>>>>>>> compatible
 					FROM
 						DDMDataProviderInstance
 					WHERE
@@ -35,13 +40,19 @@
 						)
 				)
 				TEMP_TABLE
+<<<<<<< HEAD
 			INNER JOIN
 				DDMDataProviderInstance ON
 					TEMP_TABLE.dataProviderInstanceId = DDMDataProviderInstance.dataProviderInstanceId
+=======
+					INNER JOIN DDMDataProviderInstance ON
+						TEMP_TABLE.dataProviderInstanceId = DDMDataProviderInstance.dataProviderInstanceId
+>>>>>>> compatible
 			ORDER BY
 				DDMDataProviderInstance.dataProviderInstanceId DESC
 		]]>
 	</sql>
+<<<<<<< HEAD
 	<sql id="com.liferay.dynamic.data.mapping.service.persistence.DDMFormInstanceFinder.countByC_G_N_D">
 		<![CDATA[
 			SELECT
@@ -133,6 +144,8 @@
 				)
 		]]>
 	</sql>
+=======
+>>>>>>> compatible
 	<sql id="com.liferay.dynamic.data.mapping.service.persistence.DDMStructureFinder.countByC_G_C_N_D_S_T_S">
 		<![CDATA[
 			SELECT
@@ -147,14 +160,19 @@
 					(lower(CAST_TEXT(DDMStructure.name)) LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
 					(DDMStructure.description LIKE ? [$AND_OR_NULL_CHECK$])
 				) AND
+<<<<<<< HEAD
 				(
 					(storageType = ?) OR
 					(? IS NULL)
 				) AND
+=======
+				(storageType = ? OR ? IS NULL) AND
+>>>>>>> compatible
 				(type_ = ?)
 				[$STATUS$]
 		]]>
 	</sql>
+<<<<<<< HEAD
 	<sql id="com.liferay.dynamic.data.mapping.service.persistence.DDMStructureFinder.findByC_G_C_C_N_D">
 		<![CDATA[
 			SELECT
@@ -177,14 +195,21 @@
 				DDMStructure.structureId DESC
 		]]>
 	</sql>
+=======
+>>>>>>> compatible
 	<sql id="com.liferay.dynamic.data.mapping.service.persistence.DDMStructureFinder.findByC_G_C_N_D_S_T_S">
 		<![CDATA[
 			SELECT
 				{DDMStructure.*}
 			FROM
 				(
+<<<<<<< HEAD
 					SELECT
 						DISTINCT DDMStructure.structureId
+=======
+					SELECT DISTINCT
+						DDMStructure.structureId
+>>>>>>> compatible
 					FROM
 						DDMStructure
 					WHERE
@@ -195,21 +220,31 @@
 							(lower(CAST_TEXT(DDMStructure.name)) LIKE ? [$AND_OR_NULL_CHECK$]) [$AND_OR_CONNECTOR$]
 							(DDMStructure.description LIKE ? [$AND_OR_NULL_CHECK$])
 						) AND
+<<<<<<< HEAD
 						(
 							(DDMStructure.storageType = ?) OR
 							(? IS NULL)
 						) AND
+=======
+						(DDMStructure.storageType = ? OR ? IS NULL) AND
+>>>>>>> compatible
 						(DDMStructure.type_ = ?)
 						[$STATUS$]
 				)
 				TEMP_TABLE
+<<<<<<< HEAD
 			INNER JOIN
 				DDMStructure ON
 					TEMP_TABLE.structureId = DDMStructure.structureId
+=======
+					INNER JOIN DDMStructure ON
+						TEMP_TABLE.structureId = DDMStructure.structureId
+>>>>>>> compatible
 			ORDER BY
 				DDMStructure.structureId DESC
 		]]>
 	</sql>
+<<<<<<< HEAD
 	<sql id="com.liferay.dynamic.data.mapping.service.persistence.DDMStructureLinkFinder.countByC_C_N_D">
 		<![CDATA[
 			SELECT
@@ -248,6 +283,8 @@
 				DDMStructureLink.structureLinkId DESC
 		]]>
 	</sql>
+=======
+>>>>>>> compatible
 	<sql id="com.liferay.dynamic.data.mapping.service.persistence.DDMTemplateFinder.countByG_C_SC_S">
 		<![CDATA[
 			SELECT
@@ -259,6 +296,7 @@
 				(DDMTemplate.classNameId = ?) AND
 				(
 					(DDMTemplate.classPK = 0) OR
+<<<<<<< HEAD
 					(
 						DDMTemplate.classPK IN
 							(
@@ -270,6 +308,16 @@
 									DDMStructure.classNameId = ?
 							)
 					)
+=======
+					(DDMTemplate.classPK IN (
+						SELECT
+							DDMStructure.structureId
+						FROM
+							DDMStructure
+						WHERE
+							(DDMStructure.classNameId = ?)
+					))
+>>>>>>> compatible
 				)
 				[$STATUS$]
 		]]>
@@ -307,6 +355,7 @@
 				(classNameId = ?) AND
 				(
 					(classPK = 0) OR
+<<<<<<< HEAD
 					(
 						classPK IN
 							(
@@ -318,6 +367,16 @@
 									DDMStructure.classNameId = ?
 							)
 					)
+=======
+					(classPK IN (
+						SELECT
+							DDMStructure.structureId
+						FROM
+							DDMStructure
+						WHERE
+							(DDMStructure.classNameId = ?)
+					))
+>>>>>>> compatible
 				)
 				[$STATUS$]
 			ORDER BY
@@ -330,8 +389,13 @@
 				{DDMTemplate.*}
 			FROM
 				(
+<<<<<<< HEAD
 					SELECT
 						DISTINCT DDMTemplate.templateId
+=======
+					SELECT DISTINCT
+						DDMTemplate.templateId
+>>>>>>> compatible
 					FROM
 						DDMTemplate
 					WHERE
@@ -350,9 +414,14 @@
 						[$STATUS$]
 				)
 				TEMP_TABLE
+<<<<<<< HEAD
 			INNER JOIN
 				DDMTemplate ON
 					TEMP_TABLE.templateId = DDMTemplate.templateId
+=======
+					INNER JOIN DDMTemplate ON
+						TEMP_TABLE.templateId = DDMTemplate.templateId
+>>>>>>> compatible
 			ORDER BY
 				DDMTemplate.templateId DESC
 		]]>

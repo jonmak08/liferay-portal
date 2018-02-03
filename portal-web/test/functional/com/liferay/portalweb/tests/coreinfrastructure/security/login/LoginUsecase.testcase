@@ -69,6 +69,7 @@
 
 		<execute function="AssertElementPresent" locator1="UserBar#USER_SIGN_IN" value1="Sign In" />
 	</command>
+<<<<<<< HEAD
 
 	<command name="SessionTimeoutRedirectOnExpire" priority="5">
 		<description message="This is a use case for LPS-75977." />
@@ -105,4 +106,6 @@
 
 		<execute function="AssertTextEquals#assertText" locator1="HelloWorld#PORTLET_TITLE" value1="Hello World" />
 	</command>
+=======
+>>>>>>> compatible
 </definition>

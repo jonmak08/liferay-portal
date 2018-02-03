@@ -530,6 +530,7 @@ public class AssetEntryLocalServiceWrapper implements AssetEntryLocalService,
 	}
 
 	@Override
+<<<<<<< HEAD
 	public double getEntryPriority(long classNameId, long classPK) {
 		return _assetEntryLocalService.getEntryPriority(classNameId, classPK);
 	}
@@ -540,6 +541,8 @@ public class AssetEntryLocalServiceWrapper implements AssetEntryLocalService,
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public java.util.List<com.liferay.asset.kernel.model.AssetEntry> getGroupEntries(
 		long groupId) {
 		return _assetEntryLocalService.getGroupEntries(groupId);
@@ -947,6 +950,14 @@ public class AssetEntryLocalServiceWrapper implements AssetEntryLocalService,
 			classTypePK, categoryIds, tagNames);
 	}
 
+<<<<<<< HEAD
+=======
+	/**
+	* @deprecated As of 7.0.0, replaced by {@link #validate(long, String, long,
+	long, long[], String[])}
+	*/
+	@Deprecated
+>>>>>>> compatible
 	@Override
 	public void validate(long groupId, java.lang.String className,
 		long classTypePK, long[] categoryIds, java.lang.String[] tagNames)

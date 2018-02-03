@@ -99,7 +99,10 @@ public interface LayoutService extends BaseService {
 	<code>layoutUpdateable</code> can be used to specify whether site
 	administrators can modify this page within their site.
 	* @return the layout
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	public Layout addLayout(long groupId, boolean privateLayout,
 		long parentLayoutId, Map<Locale, java.lang.String> localeNamesMap,
@@ -144,7 +147,10 @@ public interface LayoutService extends BaseService {
 	<code>layoutUpdateable</code> can be used to specify whether site
 	administrators can modify this page within their site.
 	* @return the layout
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	public Layout addLayout(long groupId, boolean privateLayout,
 		long parentLayoutId, java.lang.String name, java.lang.String title,
@@ -165,7 +171,10 @@ public interface LayoutService extends BaseService {
 	* @param privateLayout whether the layout is private to the group
 	* @param layoutId the primary key of the layout
 	* @param serviceContext the service context to be applied
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	public void deleteLayout(long groupId, boolean privateLayout,
 		long layoutId, ServiceContext serviceContext) throws PortalException;
@@ -176,7 +185,10 @@ public interface LayoutService extends BaseService {
 	*
 	* @param plid the primary key of the layout
 	* @param serviceContext the service context to be applied
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	public void deleteLayout(long plid, ServiceContext serviceContext)
 		throws PortalException;
@@ -198,7 +210,10 @@ public interface LayoutService extends BaseService {
 	* @param startDate the export's start date
 	* @param endDate the export's end date
 	* @return the layouts as a byte array
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	* @deprecated As of 7.0.0, with no direct replacement
 	*/
 	@java.lang.Deprecated
@@ -219,7 +234,10 @@ public interface LayoutService extends BaseService {
 	* @param startDate the export's start date
 	* @param endDate the export's end date
 	* @return the layout as a byte array
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	* @deprecated As of 7.0.0, with no direct replacement
 	*/
 	@java.lang.Deprecated
@@ -251,7 +269,10 @@ public interface LayoutService extends BaseService {
 	* @param startDate the export's start date
 	* @param endDate the export's end date
 	* @return the layouts as a File
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	* @deprecated As of 7.0.0, with no direct replacement
 	*/
 	@java.lang.Deprecated
@@ -311,7 +332,10 @@ public interface LayoutService extends BaseService {
 	* @param startDate the export's start date
 	* @param endDate the export's end date
 	* @return the portlet information as a byte array
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	* @deprecated As of 7.0.0, with no direct replacement
 	*/
 	@java.lang.Deprecated
@@ -352,7 +376,10 @@ public interface LayoutService extends BaseService {
 	* @param startDate the export's start date
 	* @param endDate the export's end date
 	* @return the portlet information as a file
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	* @deprecated As of 7.0.0, with no direct replacement
 	*/
 	@java.lang.Deprecated
@@ -392,7 +419,10 @@ public interface LayoutService extends BaseService {
 	*
 	* @param plid the primary key of the layout
 	* @return the ancestor layouts of the layout
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<Layout> getAncestorLayouts(long plid) throws PortalException;
@@ -407,7 +437,10 @@ public interface LayoutService extends BaseService {
 	* @param portletId the primary key of the portlet
 	* @return Returns the primary key of the default layout group; {@link
 	LayoutConstants#DEFAULT_PLID} otherwise
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public long getDefaultPlid(long groupId, long scopeGroupId,
@@ -426,7 +459,10 @@ public interface LayoutService extends BaseService {
 	* @param groupId the primary key of the group
 	* @param privateLayout whether the layout is private to the group
 	* @return the matching layout
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public Layout getLayoutByUuidAndGroupId(java.lang.String uuid,
@@ -441,7 +477,10 @@ public interface LayoutService extends BaseService {
 	* @param languageId the primary key of the language. For more information
 	See {@link Locale}.
 	* @return the layout's name
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public java.lang.String getLayoutName(long groupId, boolean privateLayout,
@@ -475,9 +514,12 @@ public interface LayoutService extends BaseService {
 		throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+<<<<<<< HEAD
 	public int getLayoutsCount(long groupId, boolean privateLayout);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+=======
+>>>>>>> compatible
 	public int getLayoutsCount(long groupId, boolean privateLayout,
 		long parentLayoutId);
 
@@ -497,6 +539,7 @@ public interface LayoutService extends BaseService {
 		java.lang.String folderName) throws PortalException;
 
 	/**
+<<<<<<< HEAD
 	* Returns <code>true</code> if there is a matching layout with the UUID,
 	* group, and privacy.
 	*
@@ -512,6 +555,8 @@ public interface LayoutService extends BaseService {
 		boolean privateLayout) throws PortalException;
 
 	/**
+=======
+>>>>>>> compatible
 	* @deprecated As of 7.0.0, replaced by {@link
 	com.liferay.exportimport.kernel.service.ExportImportService#importLayouts(
 	ExportImportConfiguration, File)}
@@ -541,7 +586,10 @@ public interface LayoutService extends BaseService {
 	used in the map see {@link
 	com.liferay.exportimport.kernel.lar.PortletDataHandlerKeys}.
 	* @param bytes the byte array with the data
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	* @see com.liferay.exportimport.kernel.lar.LayoutImporter
 	* @deprecated As of 7.0.0, with no direct replacement
 	*/
@@ -560,7 +608,10 @@ public interface LayoutService extends BaseService {
 	used in the map see {@link
 	com.liferay.exportimport.kernel.lar.PortletDataHandlerKeys}.
 	* @param file the LAR file with the data
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	* @see com.liferay.exportimport.kernel.lar.LayoutImporter
 	* @deprecated As of 7.0.0, with no direct replacement
 	*/
@@ -579,7 +630,10 @@ public interface LayoutService extends BaseService {
 	used in the map see {@link
 	com.liferay.exportimport.kernel.lar.PortletDataHandlerKeys}.
 	* @param is the input stream
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	* @see com.liferay.exportimport.kernel.lar.LayoutImporter
 	* @deprecated As of 7.0.0, with no direct replacement
 	*/
@@ -638,7 +692,10 @@ public interface LayoutService extends BaseService {
 	used in the map see {@link
 	com.liferay.exportimport.kernel.lar.PortletDataHandlerKeys}.
 	* @param file the LAR file with the data
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	* @deprecated As of 7.0.0, with no direct replacement
 	*/
 	@java.lang.Deprecated
@@ -659,7 +716,10 @@ public interface LayoutService extends BaseService {
 	used in the map see {@link
 	com.liferay.exportimport.kernel.lar.PortletDataHandlerKeys}.
 	* @param is the input stream
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	* @deprecated As of 7.0.0, with no direct replacement
 	*/
 	@java.lang.Deprecated
@@ -744,7 +804,10 @@ public interface LayoutService extends BaseService {
 	* @param schedulerStartDate the scheduler start date
 	* @param schedulerEndDate the scheduler end date
 	* @param description the scheduler description
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	* @deprecated As of 7.0.0, replaced by {@link #schedulePublishToLive(long,
 	long, boolean, long[], Map, String, String, Date, Date,
 	String)}
@@ -777,7 +840,10 @@ public interface LayoutService extends BaseService {
 	* @param schedulerStartDate the scheduler start date
 	* @param schedulerEndDate the scheduler end date
 	* @param description the scheduler description
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	public void schedulePublishToLive(long sourceGroupId, long targetGroupId,
 		boolean privateLayout, long[] layoutIds,
@@ -798,9 +864,12 @@ public interface LayoutService extends BaseService {
 	* @param parameterMap the mapping of parameters indicating which
 	information will be used. See {@link
 	com.liferay.exportimport.kernel.lar.PortletDataHandlerKeys}.
+<<<<<<< HEAD
 	* @param scope the scope of the pages
 	* @param startDate the start date
 	* @param endDate the end date
+=======
+>>>>>>> compatible
 	* @param groupName the group name (optionally {@link
 	DestinationNames#LAYOUTS_LOCAL_PUBLISHER}). See {@link
 	DestinationNames}.
@@ -810,7 +879,10 @@ public interface LayoutService extends BaseService {
 	* @param schedulerStartDate the scheduler start date
 	* @param schedulerEndDate the scheduler end date
 	* @param description the scheduler description
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	* @deprecated As of 7.0.0, replaced by {@link #schedulePublishToLive(long,
 	long, boolean, long[], Map, String, Date, Date, String,
 	String, Date, Date, String)}
@@ -851,7 +923,10 @@ public interface LayoutService extends BaseService {
 	* @param schedulerStartDate the scheduler start date
 	* @param schedulerEndDate the scheduler end date
 	* @param description the scheduler description
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	public void schedulePublishToRemote(long sourceGroupId,
 		boolean privateLayout,
@@ -873,7 +948,10 @@ public interface LayoutService extends BaseService {
 	* @param parentLayoutId the primary key of the parent layout
 	* @param layoutIds the primary keys of the layouts
 	* @param serviceContext the service context to be applied
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	public void setLayouts(long groupId, boolean privateLayout,
 		long parentLayoutId, long[] layoutIds, ServiceContext serviceContext)
@@ -887,7 +965,10 @@ public interface LayoutService extends BaseService {
 	* @param groupName the group name (optionally {@link
 	DestinationNames#LAYOUTS_LOCAL_PUBLISHER}). See {@link
 	DestinationNames}.
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	public void unschedulePublishToLive(long groupId, java.lang.String jobName,
 		java.lang.String groupName) throws PortalException;
@@ -900,7 +981,10 @@ public interface LayoutService extends BaseService {
 	* @param groupName the group name (optionally {@link
 	DestinationNames#LAYOUTS_LOCAL_PUBLISHER}). See {@link
 	DestinationNames}.
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	public void unschedulePublishToRemote(long groupId,
 		java.lang.String jobName, java.lang.String groupName)
@@ -936,7 +1020,10 @@ public interface LayoutService extends BaseService {
 	* @param serviceContext the service context to be applied. Can set the
 	modification date and expando bridge attributes for the layout.
 	* @return the updated layout
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	public Layout updateLayout(long groupId, boolean privateLayout,
 		long layoutId, long parentLayoutId,
@@ -959,7 +1046,10 @@ public interface LayoutService extends BaseService {
 	See {@link com.liferay.portal.kernel.util.UnicodeProperties
 	#fastLoad(String)}.
 	* @return the updated layout
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	public Layout updateLayout(long groupId, boolean privateLayout,
 		long layoutId, java.lang.String typeSettings) throws PortalException;
@@ -974,7 +1064,10 @@ public interface LayoutService extends BaseService {
 	* @param colorSchemeId the primary key of the layout's new color scheme
 	* @param css the layout's new CSS
 	* @return the updated layout
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	public Layout updateLookAndFeel(long groupId, boolean privateLayout,
 		long layoutId, java.lang.String themeId,
@@ -992,7 +1085,10 @@ public interface LayoutService extends BaseService {
 	* @param languageId the primary key of the language. For more information
 	see {@link Locale}.
 	* @return the updated layout
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	public Layout updateName(long groupId, boolean privateLayout,
 		long layoutId, java.lang.String name, java.lang.String languageId)
@@ -1006,7 +1102,10 @@ public interface LayoutService extends BaseService {
 	* @param languageId the primary key of the language. For more information
 	see {@link Locale}.
 	* @return the updated layout
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	public Layout updateName(long plid, java.lang.String name,
 		java.lang.String languageId) throws PortalException;
@@ -1021,7 +1120,10 @@ public interface LayoutService extends BaseService {
 	* @param parentLayoutId the primary key to be assigned to the parent
 	layout
 	* @return the matching layout
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	public Layout updateParentLayoutId(long groupId, boolean privateLayout,
 		long layoutId, long parentLayoutId) throws PortalException;
@@ -1035,7 +1137,10 @@ public interface LayoutService extends BaseService {
 	* @param plid the primary key of the layout
 	* @param parentPlid the primary key of the parent layout
 	* @return the layout matching the primary key
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	public Layout updateParentLayoutId(long plid, long parentPlid)
 		throws PortalException;
@@ -1047,7 +1152,10 @@ public interface LayoutService extends BaseService {
 	* @param parentPlid the primary key of the parent layout
 	* @param priority the layout's new priority
 	* @return the layout matching the primary key
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	public Layout updateParentLayoutIdAndPriority(long plid, long parentPlid,
 		int priority) throws PortalException;
@@ -1061,7 +1169,10 @@ public interface LayoutService extends BaseService {
 	* @param layoutId the primary key of the layout
 	* @param priority the layout's new priority
 	* @return the updated layout
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	public Layout updatePriority(long groupId, boolean privateLayout,
 		long layoutId, int priority) throws PortalException;
@@ -1077,7 +1188,10 @@ public interface LayoutService extends BaseService {
 	* @param nextLayoutId the primary key of the next layout
 	* @param previousLayoutId the primary key of the previous layout
 	* @return the updated layout
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	public Layout updatePriority(long groupId, boolean privateLayout,
 		long layoutId, long nextLayoutId, long previousLayoutId)
@@ -1089,7 +1203,10 @@ public interface LayoutService extends BaseService {
 	* @param plid the primary key of the layout
 	* @param priority the layout's new priority
 	* @return the updated layout
+<<<<<<< HEAD
 	* @throws PortalException if a portal exception occurred
+=======
+>>>>>>> compatible
 	*/
 	public Layout updatePriority(long plid, int priority)
 		throws PortalException;

@@ -16,8 +16,13 @@ package com.liferay.message.boards.internal.workflow;
 
 import com.liferay.asset.kernel.AssetRendererFactoryRegistryUtil;
 import com.liferay.asset.kernel.model.AssetRendererFactory;
+<<<<<<< HEAD
 import com.liferay.message.boards.kernel.service.MBMessageLocalService;
 import com.liferay.message.boards.model.MBDiscussion;
+=======
+import com.liferay.message.boards.kernel.model.MBDiscussion;
+import com.liferay.message.boards.kernel.service.MBMessageLocalService;
+>>>>>>> compatible
 import com.liferay.portal.kernel.security.permission.ResourceActionsUtil;
 import com.liferay.portal.kernel.workflow.WorkflowHandler;
 
@@ -30,7 +35,11 @@ import org.osgi.service.component.annotations.Reference;
  * @author Jorge Ferrer
  */
 @Component(
+<<<<<<< HEAD
 	property = {"model.class.name=com.liferay.message.boards.model.MBDiscussion"},
+=======
+	property = {"model.class.name=com.liferay.message.boards.kernel.model.MBDiscussion"},
+>>>>>>> compatible
 	service = WorkflowHandler.class
 )
 public class MBDiscussionWorkflowHandler extends MBMessageWorkflowHandler {

@@ -14,7 +14,11 @@
 
 package com.liferay.portal.kernel.io.unsync;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringBundler;
 
 import java.io.IOException;

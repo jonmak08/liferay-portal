@@ -32,7 +32,11 @@ public class AsyncInvokeThreadLocal {
 	}
 
 	private static final ThreadLocal<Boolean> _enabled =
+<<<<<<< HEAD
 		new CentralizedThreadLocal<>(
+=======
+		new AutoResetThreadLocal<>(
+>>>>>>> compatible
 			AsyncInvokeThreadLocal.class + "._enabled", () -> Boolean.FALSE);
 
 }

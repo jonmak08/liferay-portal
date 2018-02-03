@@ -359,10 +359,15 @@ public abstract class BaseStoreTestCase {
 
 		Set<String> fileNamesSet = SetUtil.fromArray(fileNames);
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			fileNamesSet.toString(), fileNamesSet.contains(fileName1));
 		Assert.assertTrue(
 			fileNamesSet.toString(), fileNamesSet.contains(fileName2));
+=======
+		Assert.assertTrue(fileNamesSet.contains(fileName1));
+		Assert.assertTrue(fileNamesSet.contains(fileName2));
+>>>>>>> compatible
 	}
 
 	@Test
@@ -384,10 +389,15 @@ public abstract class BaseStoreTestCase {
 
 		Set<String> fileNamesSet = SetUtil.fromArray(fileNames);
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			fileNamesSet.toString(), fileNamesSet.contains(fileName1));
 		Assert.assertTrue(
 			fileNamesSet.toString(), fileNamesSet.contains(fileName2));
+=======
+		Assert.assertTrue(fileNamesSet.contains(fileName1));
+		Assert.assertTrue(fileNamesSet.contains(fileName2));
+>>>>>>> compatible
 	}
 
 	@Test
@@ -416,10 +426,15 @@ public abstract class BaseStoreTestCase {
 
 		Set<String> fileNamesSet = SetUtil.fromArray(fileNames);
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			fileNamesSet.toString(), fileNamesSet.contains(fileName1));
 		Assert.assertTrue(
 			fileNamesSet.toString(), fileNamesSet.contains(fileName2));
+=======
+		Assert.assertTrue(fileNamesSet.contains(fileName1));
+		Assert.assertTrue(fileNamesSet.contains(fileName2));
+>>>>>>> compatible
 
 		fileNames = store.getFileNames(companyId, repositoryId, subdirName);
 
@@ -464,10 +479,15 @@ public abstract class BaseStoreTestCase {
 
 		Set<String> fileNamesSet = SetUtil.fromArray(fileNames);
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			fileNamesSet.toString(), fileNamesSet.contains(fileName1));
 		Assert.assertTrue(
 			fileNamesSet.toString(), fileNamesSet.contains(fileName2));
+=======
+		Assert.assertTrue(fileNamesSet.contains(fileName1));
+		Assert.assertTrue(fileNamesSet.contains(fileName2));
+>>>>>>> compatible
 	}
 
 	@Test

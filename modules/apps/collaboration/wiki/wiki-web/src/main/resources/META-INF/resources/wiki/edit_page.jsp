@@ -29,6 +29,7 @@ String title = BeanParamUtil.getString(wikiPage, request, "title");
 boolean editTitle = ParamUtil.getBoolean(request, "editTitle");
 
 String selectedFormat = BeanParamUtil.getString(wikiPage, request, "format", wikiGroupServiceOverriddenConfiguration.defaultFormat());
+<<<<<<< HEAD
 
 Collection<String> formats = wikiEngineRenderer.getFormats();
 
@@ -40,12 +41,18 @@ if (!formats.contains(selectedFormat)) {
 	}
 }
 
+=======
+>>>>>>> compatible
 String parentTitle = BeanParamUtil.getString(wikiPage, request, "parentTitle");
 
 boolean editable = false;
 
 if (wikiPage != null) {
+<<<<<<< HEAD
 	if (WikiPagePermission.contains(permissionChecker, wikiPage, ActionKeys.UPDATE)) {
+=======
+	if (WikiPagePermissionChecker.contains(permissionChecker, wikiPage, ActionKeys.UPDATE)) {
+>>>>>>> compatible
 		editable = true;
 	}
 }
@@ -132,8 +139,13 @@ if (portletTitleBasedNavigation) {
 	<portlet:param name="mvcRenderCommandName" value="/wiki/edit_page" />
 </portlet:renderURL>
 
+<<<<<<< HEAD
 <div <%= portletTitleBasedNavigation ? "class=\"container-fluid-1280\"" : StringPool.BLANK %> id='<%= renderResponse.getNamespace() + "wikiEditPageContainer" %>'>
 	<aui:form action="<%= editPageActionURL %>" method="post" name="fm">
+=======
+<div <%= portletTitleBasedNavigation ? "class=\"container-fluid-1280\"" : StringPool.BLANK %>>
+	<aui:form action="<%= editPageActionURL %>" method="post" name="fm" onSubmit='<%= "event.preventDefault(); " + renderResponse.getNamespace() + "savePage();" %>'>
+>>>>>>> compatible
 		<aui:input name="<%= Constants.CMD %>" type="hidden" />
 		<aui:input name="redirect" type="hidden" value="<%= redirect %>" />
 		<aui:input name="editTitle" type="hidden" value="<%= editTitle %>" />
@@ -156,9 +168,15 @@ if (portletTitleBasedNavigation) {
 		<liferay-ui:error exception="<%= PageTitleException.class %>" message="please-enter-a-valid-title" />
 		<liferay-ui:error exception="<%= PageVersionException.class %>" message="another-user-has-made-changes-since-you-started-editing-please-copy-your-changes-and-try-again" />
 
+<<<<<<< HEAD
 		<liferay-asset:asset-categories-error />
 
 		<liferay-asset:asset-tags-error />
+=======
+		<liferay-ui:asset-categories-error />
+
+		<liferay-ui:asset-tags-error />
+>>>>>>> compatible
 
 		<aui:model-context bean="<%= ((wikiPage != null) && !wikiPage.isNew()) ? wikiPage : templatePage %>" model="<%= WikiPage.class %>" />
 
@@ -240,9 +258,15 @@ if (portletTitleBasedNavigation) {
 						</div>
 					</aui:fieldset>
 
+<<<<<<< HEAD
 					<c:if test="<%= ((wikiPage != null) && (wikiPage.getPageId() > 0)) || ((templatePage != null) && WikiNodePermission.contains(permissionChecker, node, ActionKeys.ADD_ATTACHMENT)) %>">
 						<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="attachments">
 							<c:if test="<%= !wikiPage.isNew() && WikiNodePermission.contains(permissionChecker, node, ActionKeys.ADD_ATTACHMENT) %>">
+=======
+					<c:if test="<%= ((wikiPage != null) && (wikiPage.getPageId() > 0)) || ((templatePage != null) && WikiNodePermissionChecker.contains(permissionChecker, node.getNodeId(), ActionKeys.ADD_ATTACHMENT)) %>">
+						<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="attachments">
+							<c:if test="<%= !wikiPage.isNew() && WikiNodePermissionChecker.contains(permissionChecker, node.getNodeId(), ActionKeys.ADD_ATTACHMENT) %>">
+>>>>>>> compatible
 								<liferay-util:include page="/wiki/edit_page_attachment.jsp" servletContext="<%= application %>" />
 							</c:if>
 
@@ -274,6 +298,7 @@ if (portletTitleBasedNavigation) {
 					%>
 
 					<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="categorization">
+<<<<<<< HEAD
 						<liferay-asset:asset-categories-selector className="<%= WikiPage.class.getName() %>" classPK="<%= classPK %>" />
 
 						<liferay-asset:asset-tags-selector className="<%= WikiPage.class.getName() %>" classPK="<%= classPK %>" />
@@ -281,6 +306,15 @@ if (portletTitleBasedNavigation) {
 
 					<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="related-assets">
 						<liferay-asset:input-asset-links
+=======
+						<aui:input classPK="<%= classPK %>" name="categories" type="assetCategories" />
+
+						<aui:input classPK="<%= classPK %>" name="tags" type="assetTags" />
+					</aui:fieldset>
+
+					<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="related-assets">
+						<liferay-ui:input-asset-links
+>>>>>>> compatible
 							assetEntryId="<%= assetEntryId %>"
 							className="<%= WikiPage.class.getName() %>"
 							classPK="<%= classPK %>"
@@ -294,6 +328,13 @@ if (portletTitleBasedNavigation) {
 							<aui:model-context bean="<%= new WikiPageImpl() %>" model="<%= WikiPage.class %>" />
 						</c:if>
 
+<<<<<<< HEAD
+=======
+						<%
+						Collection<String> formats = wikiEngineRenderer.getFormats();
+						%>
+
+>>>>>>> compatible
 						<c:choose>
 							<c:when test="<%= !formats.isEmpty() %>">
 								<aui:select changesContext="<%= true %>" name="format">
@@ -379,17 +420,26 @@ if (portletTitleBasedNavigation) {
 				%>
 
 				<aui:button-row>
+<<<<<<< HEAD
 					<aui:button disabled="<%= pending %>" name="publishButton" primary="<%= true %>" value="<%= publishButtonLabel %>" />
 
 					<aui:button name="saveButton" primary="<%= false %>" type="submit" value="<%= saveButtonLabel %>" />
 
 					<aui:button href="<%= redirect %>" type="cancel" />
+=======
+					<aui:button cssClass="btn-lg" disabled="<%= pending %>" name="publishButton" onClick='<%= renderResponse.getNamespace() + "publishPage();" %>' primary="<%= true %>" value="<%= publishButtonLabel %>" />
+
+					<aui:button cssClass="btn-lg" name="saveButton" primary="<%= false %>" type="submit" value="<%= saveButtonLabel %>" />
+
+					<aui:button cssClass="btn-lg" href="<%= redirect %>" type="cancel" />
+>>>>>>> compatible
 				</aui:button-row>
 			</c:otherwise>
 		</c:choose>
 	</aui:form>
 </div>
 
+<<<<<<< HEAD
 <aui:script require="wiki-web/wiki/js/WikiPortlet.es">
 	new wikiWebWikiJsWikiPortletEs.default(
 		{
@@ -402,10 +452,84 @@ if (portletTitleBasedNavigation) {
 			namespace: '<portlet:namespace />',
 			renderUrl: '<%= editPageRenderURL %>',
 			rootNode: '#<portlet:namespace />wikiEditPageContainer'
+=======
+<aui:script sandbox="<%= true %>">
+	var form = $(document.<portlet:namespace />fm);
+
+	var formatSelect = form.fm('format');
+
+	var currentFormat = formatSelect.find('option:selected').text().trim();
+
+	var currentIndex = formatSelect.prop('selectedIndex');
+
+	formatSelect.on(
+		'change',
+		function(event) {
+			var newFormat = formatSelect.find('option:selected').text().trim();
+
+			var confirmMessage = '<%= UnicodeLanguageUtil.get(request, "you-may-lose-formatting-when-switching-from-x-to-x") %>';
+
+			confirmMessage = _.sub(confirmMessage, currentFormat, newFormat);
+
+			if (!confirm(confirmMessage)) {
+				formatSelect.prop('selectedIndex', currentIndex);
+
+				return;
+			}
+
+			var titleEditor = window.<portlet:namespace />titleEditor;
+
+			if (titleEditor) {
+				form.fm('title').val(titleEditor.getText());
+			}
+
+			var contentEditor = window.<portlet:namespace />contentEditor;
+
+			if (contentEditor) {
+				form.fm('content').val(contentEditor.getHTML());
+			}
+
+			form.attr('action', '<%= editPageRenderURL %>');
+
+			submitForm(form, null, null, false);
+>>>>>>> compatible
 		}
 	);
 </aui:script>
 
+<<<<<<< HEAD
+=======
+<aui:script>
+	function <portlet:namespace />publishPage() {
+		var form = AUI.$(document.<portlet:namespace />fm);
+
+		form.fm('workflowAction').val('<%= WorkflowConstants.ACTION_PUBLISH %>');
+
+		<portlet:namespace />savePage();
+	}
+
+	function <portlet:namespace />savePage() {
+		var form = AUI.$(document.<portlet:namespace />fm);
+
+		form.fm('<%= Constants.CMD %>').val('<%= ((wikiPage == null) || wikiPage.isNew()) ? Constants.ADD : Constants.UPDATE %>');
+
+		var titleEditor = window.<portlet:namespace />titleEditor;
+
+		if (titleEditor) {
+			form.fm('title').val(titleEditor.getText());
+		}
+
+		var contentEditor = window.<portlet:namespace />contentEditor;
+
+		if (contentEditor) {
+			form.fm('content').val(contentEditor.getHTML());
+		}
+
+		submitForm(form);
+	}
+</aui:script>
+
+>>>>>>> compatible
 <%
 if ((wikiPage != null) && !wikiPage.isNew()) {
 	PortletURL viewPageURL = wikiURLHelper.getViewPageURL(node, title);

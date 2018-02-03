@@ -27,7 +27,10 @@ import com.liferay.gradle.plugins.defaults.LiferayOSGiDefaultsPlugin;
 import com.liferay.gradle.plugins.defaults.LiferayThemeDefaultsPlugin;
 import com.liferay.gradle.plugins.defaults.internal.util.FileUtil;
 import com.liferay.gradle.plugins.defaults.internal.util.GitUtil;
+<<<<<<< HEAD
 import com.liferay.gradle.plugins.defaults.internal.util.GradlePluginsDefaultsUtil;
+=======
+>>>>>>> compatible
 import com.liferay.gradle.plugins.defaults.internal.util.GradleUtil;
 import com.liferay.gradle.plugins.defaults.tasks.MergeFilesTask;
 import com.liferay.gradle.plugins.defaults.tasks.ReplaceRegexTask;
@@ -76,7 +79,10 @@ import org.gradle.api.specs.Spec;
 import org.gradle.api.tasks.Copy;
 import org.gradle.api.tasks.Delete;
 import org.gradle.api.tasks.TaskContainer;
+<<<<<<< HEAD
 import org.gradle.api.tasks.TaskOutputs;
+=======
+>>>>>>> compatible
 import org.gradle.api.tasks.Upload;
 import org.gradle.util.CollectionUtils;
 import org.gradle.util.GUtil;
@@ -282,6 +288,7 @@ public class LiferayRelengPlugin implements Plugin<Project> {
 		mergeFilesTask.setOutputFile(
 			new File(dir, "artifacts-publish-commands.sh"));
 
+<<<<<<< HEAD
 		TaskOutputs taskOutputs = mergeFilesTask.getOutputs();
 
 		taskOutputs.upToDateWhen(
@@ -294,6 +301,8 @@ public class LiferayRelengPlugin implements Plugin<Project> {
 
 			});
 
+=======
+>>>>>>> compatible
 		return mergeFilesTask;
 	}
 
@@ -321,7 +330,11 @@ public class LiferayRelengPlugin implements Plugin<Project> {
 				public boolean isSatisfiedBy(Task task) {
 					Project project = task.getProject();
 
+<<<<<<< HEAD
 					if (!GradlePluginsDefaultsUtil.isTestProject(project) &&
+=======
+					if (!GradleUtil.isTestProject(project) &&
+>>>>>>> compatible
 						_hasProjectDependencies(project)) {
 
 						return true;
@@ -662,7 +675,11 @@ public class LiferayRelengPlugin implements Plugin<Project> {
 
 					if (GradleUtil.hasStartParameterTask(
 							project, task.getName()) ||
+<<<<<<< HEAD
 						!GradlePluginsDefaultsUtil.isSnapshot(project)) {
+=======
+						!GradleUtil.isSnapshot(project)) {
+>>>>>>> compatible
 
 						return true;
 					}
@@ -687,10 +704,16 @@ public class LiferayRelengPlugin implements Plugin<Project> {
 
 				@Override
 				public boolean isSatisfiedBy(Task task) {
+<<<<<<< HEAD
 					File relengIgnoreDir = GradleUtil.getRootDir(
 						task.getProject(), RELENG_IGNORE_FILE_NAME);
 
 					if (relengIgnoreDir != null) {
+=======
+					if (FileUtil.exists(
+							task.getProject(), RELENG_IGNORE_FILE_NAME)) {
+
+>>>>>>> compatible
 						return false;
 					}
 
@@ -725,7 +748,11 @@ public class LiferayRelengPlugin implements Plugin<Project> {
 	}
 
 	private void _configureTaskPrintStaleArtifactForOSGi(Task task) {
+<<<<<<< HEAD
 		if (GradlePluginsDefaultsUtil.isTestProject(task.getProject())) {
+=======
+		if (GradleUtil.isTestProject(task.getProject())) {
+>>>>>>> compatible
 			task.setEnabled(false);
 		}
 	}
@@ -771,7 +798,11 @@ public class LiferayRelengPlugin implements Plugin<Project> {
 
 		Project project = writeArtifactPublishCommandsTask.getProject();
 
+<<<<<<< HEAD
 		if (GradlePluginsDefaultsUtil.isTestProject(project)) {
+=======
+		if (GradleUtil.isTestProject(project)) {
+>>>>>>> compatible
 			writeArtifactPublishCommandsTask.setEnabled(false);
 		}
 

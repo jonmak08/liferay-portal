@@ -58,7 +58,10 @@ public class CalendarBookingRatingsTest extends BaseRatingsTestCase {
 		return CalendarBookingLocalServiceUtil.addCalendarBooking(
 			TestPropsValues.getUserId(), calendar.getCalendarId(), new long[0],
 			CalendarBookingConstants.PARENT_CALENDAR_BOOKING_ID_DEFAULT,
+<<<<<<< HEAD
 			CalendarBookingConstants.RECURRING_CALENDAR_BOOKING_ID_DEFAULT,
+=======
+>>>>>>> compatible
 			RandomTestUtil.randomLocaleStringMap(),
 			RandomTestUtil.randomLocaleStringMap(),
 			RandomTestUtil.randomString(), startTime,

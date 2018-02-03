@@ -162,6 +162,7 @@ public class LocalRepositoryWrapper implements LocalRepository {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public List<FileEntry> getFileEntries(
 			long folderId, String[] mimeTypes, int status, int start, int end,
 			OrderByComparator<FileEntry> obc)
@@ -172,6 +173,8 @@ public class LocalRepositoryWrapper implements LocalRepository {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public List<RepositoryEntry> getFileEntriesAndFileShortcuts(
 			long folderId, int status, int start, int end)
 		throws PortalException {

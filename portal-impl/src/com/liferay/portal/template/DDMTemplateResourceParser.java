@@ -17,7 +17,10 @@ package com.liferay.portal.template;
 import com.liferay.dynamic.data.mapping.kernel.DDMStructureManagerUtil;
 import com.liferay.dynamic.data.mapping.kernel.DDMTemplate;
 import com.liferay.dynamic.data.mapping.kernel.DDMTemplateManagerUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Group;
@@ -29,7 +32,10 @@ import com.liferay.portal.kernel.template.TemplateException;
 import com.liferay.portal.kernel.template.TemplateResource;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 
 /**
@@ -82,11 +88,17 @@ public class DDMTemplateResourceParser implements TemplateResourceParser {
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Loading {companyId=", String.valueOf(companyId),
 						", groupId=", String.valueOf(groupId), ", classNameId=",
 						String.valueOf(classNameId), ", ddmTemplateKey=",
 						ddmTemplateKey, "}"));
+=======
+					"Loading {companyId=" + companyId + ", groupId=" + groupId +
+						", classNameId=" + classNameId + ", ddmTemplateKey=" +
+							ddmTemplateKey + "}");
+>>>>>>> compatible
 			}
 
 			DDMTemplate ddmTemplate = DDMTemplateManagerUtil.fetchTemplate(

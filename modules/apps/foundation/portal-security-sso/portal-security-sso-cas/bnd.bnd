@@ -1,6 +1,13 @@
 Bundle-Name: Liferay Portal Security SSO CAS
 Bundle-SymbolicName: com.liferay.portal.security.sso.cas
+<<<<<<< HEAD
 Bundle-Version: 4.0.2
+=======
+Bundle-Version: 3.0.14
+Export-Package:\
+	com.liferay.portal.security.sso.cas.configuration,\
+	com.liferay.portal.security.sso.cas.constants
+>>>>>>> compatible
 Import-Package:\
 	!javax.microedition.*,\
 	\

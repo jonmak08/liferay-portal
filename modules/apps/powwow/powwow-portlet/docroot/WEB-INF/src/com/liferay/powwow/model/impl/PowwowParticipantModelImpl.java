@@ -30,6 +30,10 @@ import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import com.liferay.powwow.model.PowwowParticipant;
 import com.liferay.powwow.model.PowwowParticipantModel;
@@ -367,7 +371,11 @@ public class PowwowParticipantModelImpl extends BaseModelImpl<PowwowParticipant>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -379,7 +387,11 @@ public class PowwowParticipantModelImpl extends BaseModelImpl<PowwowParticipant>
 	@Override
 	public String getUserName() {
 		if (_userName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _userName;
@@ -446,7 +458,11 @@ public class PowwowParticipantModelImpl extends BaseModelImpl<PowwowParticipant>
 	@Override
 	public String getName() {
 		if (_name == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _name;
@@ -485,7 +501,11 @@ public class PowwowParticipantModelImpl extends BaseModelImpl<PowwowParticipant>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -501,7 +521,11 @@ public class PowwowParticipantModelImpl extends BaseModelImpl<PowwowParticipant>
 	@Override
 	public String getEmailAddress() {
 		if (_emailAddress == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _emailAddress;

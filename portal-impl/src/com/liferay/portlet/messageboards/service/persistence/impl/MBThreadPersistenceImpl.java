@@ -41,6 +41,7 @@ import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -9593,11 +9594,19 @@ public class MBThreadPersistenceImpl extends BasePersistenceImpl<MBThread>
 			};
 
 		List<MBThread> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<MBThread>)finderCache.getResult(finderPath,
 					finderArgs, this);
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<MBThread>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+>>>>>>> compatible
 			if ((list != null) && !list.isEmpty()) {
 				for (MBThread mbThread : list) {
 					if ((groupId != mbThread.getGroupId()) ||
@@ -10585,6 +10594,7 @@ public class MBThreadPersistenceImpl extends BasePersistenceImpl<MBThread>
 		if (retrieveFromCache) {
 			list = (List<MBThread>)finderCache.getResult(FINDER_PATH_WITH_PAGINATION_FIND_BY_G_C_NOTS,
 					finderArgs, this);
+<<<<<<< HEAD
 
 			if ((list != null) && !list.isEmpty()) {
 				for (MBThread mbThread : list) {
@@ -10594,6 +10604,17 @@ public class MBThreadPersistenceImpl extends BasePersistenceImpl<MBThread>
 							(status == mbThread.getStatus())) {
 						list = null;
 
+=======
+
+			if ((list != null) && !list.isEmpty()) {
+				for (MBThread mbThread : list) {
+					if ((groupId != mbThread.getGroupId()) ||
+							!ArrayUtil.contains(categoryIds,
+								mbThread.getCategoryId()) ||
+							(status == mbThread.getStatus())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -11096,11 +11117,19 @@ public class MBThreadPersistenceImpl extends BasePersistenceImpl<MBThread>
 			};
 
 		List<MBThread> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<MBThread>)finderCache.getResult(finderPath,
 					finderArgs, this);
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<MBThread>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+>>>>>>> compatible
 			if ((list != null) && !list.isEmpty()) {
 				for (MBThread mbThread : list) {
 					if ((groupId != mbThread.getGroupId()) ||
@@ -12920,11 +12949,17 @@ public class MBThreadPersistenceImpl extends BasePersistenceImpl<MBThread>
 		setModelClass(MBThread.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("uuid", "uuid_");

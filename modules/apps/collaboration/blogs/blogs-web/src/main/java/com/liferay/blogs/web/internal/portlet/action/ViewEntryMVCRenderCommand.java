@@ -14,6 +14,7 @@
 
 package com.liferay.blogs.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.blogs.constants.BlogsPortletKeys;
 import com.liferay.blogs.exception.NoSuchEntryException;
 import com.liferay.blogs.model.BlogsEntry;
@@ -21,6 +22,12 @@ import com.liferay.friendly.url.model.FriendlyURLEntry;
 import com.liferay.friendly.url.service.FriendlyURLEntryLocalService;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCRenderCommand;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCRenderConstants;
+=======
+import com.liferay.blogs.kernel.exception.NoSuchEntryException;
+import com.liferay.blogs.kernel.model.BlogsEntry;
+import com.liferay.blogs.web.constants.BlogsPortletKeys;
+import com.liferay.portal.kernel.portlet.bridges.mvc.MVCRenderCommand;
+>>>>>>> compatible
 import com.liferay.portal.kernel.security.auth.PrincipalException;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.util.ParamUtil;
@@ -30,11 +37,17 @@ import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.util.PropsValues;
 
 import javax.portlet.PortletException;
+<<<<<<< HEAD
 import javax.portlet.PortletURL;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
 import javax.servlet.http.HttpServletRequest;
+=======
+import javax.portlet.RenderRequest;
+import javax.portlet.RenderResponse;
+
+>>>>>>> compatible
 import javax.servlet.http.HttpServletResponse;
 
 import org.osgi.service.component.annotations.Component;
@@ -68,6 +81,7 @@ public class ViewEntryMVCRenderCommand implements MVCRenderCommand {
 		}
 
 		try {
+<<<<<<< HEAD
 			BlogsEntry entry = ActionUtil.getEntry(renderRequest);
 
 			FriendlyURLEntry mainFriendlyURLEntry =
@@ -98,6 +112,14 @@ public class ViewEntryMVCRenderCommand implements MVCRenderCommand {
 			request.setAttribute(WebKeys.BLOGS_ENTRY, entry);
 
 			if (PropsValues.BLOGS_PINGBACK_ENABLED) {
+=======
+			ActionUtil.getEntry(renderRequest);
+
+			if (PropsValues.BLOGS_PINGBACK_ENABLED) {
+				BlogsEntry entry = (BlogsEntry)renderRequest.getAttribute(
+					WebKeys.BLOGS_ENTRY);
+
+>>>>>>> compatible
 				if ((entry != null) && entry.isAllowPingbacks()) {
 					HttpServletResponse response =
 						_portal.getHttpServletResponse(renderResponse);
@@ -125,6 +147,7 @@ public class ViewEntryMVCRenderCommand implements MVCRenderCommand {
 		return "/blogs/view_entry.jsp";
 	}
 
+<<<<<<< HEAD
 	@Reference(unbind = "-")
 	protected void setFriendlyURLEntryLocalService(
 		FriendlyURLEntryLocalService friendlyURLEntryLocalService) {
@@ -134,6 +157,8 @@ public class ViewEntryMVCRenderCommand implements MVCRenderCommand {
 
 	private FriendlyURLEntryLocalService _friendlyURLEntryLocalService;
 
+=======
+>>>>>>> compatible
 	@Reference
 	private Portal _portal;
 

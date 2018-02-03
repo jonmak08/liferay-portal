@@ -19,7 +19,10 @@ import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.kernel.webserver.WebServerServletTokenUtil;
 import com.liferay.taglib.ui.MessageTag;
+<<<<<<< HEAD
 import com.liferay.taglib.util.IncludeTag;
+=======
+>>>>>>> compatible
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;

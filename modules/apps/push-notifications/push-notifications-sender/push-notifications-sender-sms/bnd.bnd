@@ -1,5 +1,9 @@
 Bundle-Name: Liferay Push Notifications Sender SMS
 Bundle-SymbolicName: com.liferay.push.notifications.sender.sms
+<<<<<<< HEAD
 Bundle-Version: 1.0.7
+=======
+Bundle-Version: 1.0.5
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title:

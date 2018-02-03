@@ -182,10 +182,14 @@ public interface DLAppLocalService extends BaseLocalService {
 	* @param fileEntryId the primary key of the file entry
 	* @param serviceContext the service context to be applied
 	* @return the file rank
+<<<<<<< HEAD
 	* @deprecated As of 7.0.0, replaced by {@link
 	com.liferay.document.library.file.rank.service.DLFileRankLocalService#addFileRank}
 	*/
 	@java.lang.Deprecated
+=======
+	*/
+>>>>>>> compatible
 	public DLFileRank addFileRank(long repositoryId, long companyId,
 		long userId, long fileEntryId, ServiceContext serviceContext);
 
@@ -247,10 +251,14 @@ public interface DLAppLocalService extends BaseLocalService {
 	* only supported by the Liferay repository.
 	*
 	* @param fileEntryId the primary key of the file entry
+<<<<<<< HEAD
 	* @deprecated As of 7.0.0, replaced by {@link
 	com.liferay.document.library.file.rank.service.DLFileRankLocalService#deleteFileRanksByFileEntryId}
 	*/
 	@java.lang.Deprecated
+=======
+	*/
+>>>>>>> compatible
 	public void deleteFileRanksByFileEntryId(long fileEntryId);
 
 	/**
@@ -258,10 +266,14 @@ public interface DLAppLocalService extends BaseLocalService {
 	* supported by the Liferay repository.
 	*
 	* @param userId the primary key of the user
+<<<<<<< HEAD
 	* @deprecated As of 7.0.0, replaced by {@link
 	com.liferay.document.library.file.rank.service.DLFileRankLocalService#deleteFileRanksByUserId}
 	*/
 	@java.lang.Deprecated
+=======
+	*/
+>>>>>>> compatible
 	public void deleteFileRanksByUserId(long userId);
 
 	/**
@@ -337,10 +349,14 @@ public interface DLAppLocalService extends BaseLocalService {
 	* @param repositoryId the primary key of the repository
 	* @param userId the primary key of the user
 	* @return the file ranks from the user
+<<<<<<< HEAD
 	* @deprecated As of 7.0.0, replaced by {@link
 	com.liferay.document.library.file.rank.service.DLFileRankLocalService#getFileRanks}
 	*/
 	@java.lang.Deprecated
+=======
+	*/
+>>>>>>> compatible
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<DLFileRank> getFileRanks(long repositoryId, long userId);
 
@@ -610,10 +626,14 @@ public interface DLAppLocalService extends BaseLocalService {
 	* @param fileEntryId the primary key of the file rank's file entry
 	* @param serviceContext the service context to be applied
 	* @return the file rank
+<<<<<<< HEAD
 	* @deprecated As of 7.0.0, replaced by {@link
 	com.liferay.document.library.file.rank.service.DLFileRankLocalService#updateFileRank}
 	*/
 	@java.lang.Deprecated
+=======
+	*/
+>>>>>>> compatible
 	public DLFileRank updateFileRank(long repositoryId, long companyId,
 		long userId, long fileEntryId, ServiceContext serviceContext);
 

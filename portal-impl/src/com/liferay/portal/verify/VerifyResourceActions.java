@@ -23,12 +23,21 @@ import com.liferay.portal.kernel.util.StringBundler;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+<<<<<<< HEAD
+=======
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
+>>>>>>> compatible
 /**
  * @author Michael Bowerman
  */
 public class VerifyResourceActions extends VerifyProcess {
 
 	protected void deleteDuplicateBitwiseValuesOnResource() throws Exception {
+<<<<<<< HEAD
 		try (LoggingTimer loggingTimer = new LoggingTimer();
 			PreparedStatement ps1 = connection.prepareStatement(
 				"select name, bitwiseValue, min(resourceActionId) as " +
@@ -68,6 +77,53 @@ public class VerifyResourceActions extends VerifyProcess {
 							rs2.getLong("resourceActionId"));
 					}
 				}
+=======
+		StringBundler sb = new StringBundler(5);
+
+		sb.append("select ra1.resourceActionId, ra1.name, ra1.actionId, ");
+		sb.append("ra1.bitwiseValue from ResourceAction ra1 inner join ");
+		sb.append("ResourceAction ra2 on (ra1.name = ra2.name) and ");
+		sb.append("(ra1.bitwiseValue = ra2.bitwiseValue) and (ra1.actionId ");
+		sb.append("!= ra2.actionId) order by ra1.resourceActionId");
+
+		try (LoggingTimer loggingTimer = new LoggingTimer();
+			PreparedStatement ps = connection.prepareStatement(sb.toString());
+			ResultSet rs = ps.executeQuery()) {
+
+			Map<String, Set<Long>> nameBitwiseValuesPairs = new HashMap<>();
+
+			while (rs.next()) {
+				String name = rs.getString("name");
+
+				Set<Long> bitwiseValues = nameBitwiseValuesPairs.get(name);
+
+				if (bitwiseValues == null) {
+					bitwiseValues = new HashSet<>();
+
+					nameBitwiseValuesPairs.put(name, bitwiseValues);
+				}
+
+				if (bitwiseValues.add(rs.getLong("bitwiseValue"))) {
+					continue;
+				}
+
+				if (_log.isInfoEnabled()) {
+					sb = new StringBundler(7);
+
+					sb.append("Deleting resource action ");
+					sb.append(rs.getString("actionId"));
+					sb.append(" from resource ");
+					sb.append(name);
+					sb.append(" because its bitwise value is the ");
+					sb.append("same as another resource action on ");
+					sb.append("the same resource");
+
+					_log.info(sb.toString());
+				}
+
+				ResourceActionLocalServiceUtil.deleteResourceAction(
+					rs.getLong("resourceActionId"));
+>>>>>>> compatible
 			}
 		}
 	}

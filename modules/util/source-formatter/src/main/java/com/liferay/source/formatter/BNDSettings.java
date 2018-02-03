@@ -14,7 +14,11 @@
 
 package com.liferay.source.formatter;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 
 import java.io.File;
 import java.io.FileInputStream;

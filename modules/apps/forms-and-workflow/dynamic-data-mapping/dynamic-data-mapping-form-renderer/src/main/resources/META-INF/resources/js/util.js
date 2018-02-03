@@ -1,6 +1,16 @@
 AUI.add(
 	'liferay-ddm-form-renderer-util',
 	function(A) {
+<<<<<<< HEAD
+=======
+		var FieldTypes = Liferay.DDM.Renderer.FieldTypes;
+
+		var MAP_DATA_TYPES = {
+			number: 'integer',
+			text: 'string'
+		};
+
+>>>>>>> compatible
 		var VALIDATIONS = {
 			number: [
 				{
@@ -39,7 +49,11 @@ AUI.add(
 					template: '{name}<{parameter}'
 				}
 			],
+<<<<<<< HEAD
 			string: [
+=======
+			text: [
+>>>>>>> compatible
 				{
 					label: Liferay.Language.get('contains'),
 					name: 'contains',
@@ -48,7 +62,11 @@ AUI.add(
 					template: 'contains({name}, "{parameter}")'
 				},
 				{
+<<<<<<< HEAD
 					label: Liferay.Language.get('not-contains'),
+=======
+					label: Liferay.Language.get('does-not-contain'),
+>>>>>>> compatible
 					name: 'notContains',
 					parameterMessage: Liferay.Language.get('this-text'),
 					regex: /^NOT\(contains\((.+), "(.+)"\)\)$/,
@@ -67,6 +85,7 @@ AUI.add(
 					parameterMessage: '',
 					regex: /^isEmailAddress\((.+)\)$/,
 					template: 'isEmailAddress({name})'
+<<<<<<< HEAD
 				},
 				{
 					label: Liferay.Language.get('regular-expression'),
@@ -74,15 +93,20 @@ AUI.add(
 					parameterMessage: Liferay.Language.get('this-text'),
 					regex: /^match\((.+), "(.*)"\)$/,
 					template: 'match({name}, "{parameter}")'
+=======
+>>>>>>> compatible
 				}
 			]
 		};
 
 		var Util = {
+<<<<<<< HEAD
 			compare: function(valueA, valueB) {
 				return _.isEqual(valueA, valueB);
 			},
 
+=======
+>>>>>>> compatible
 			generateInstanceId: function(length) {
 				var instance = this;
 
@@ -97,12 +121,42 @@ AUI.add(
 				return text;
 			},
 
+<<<<<<< HEAD
+=======
+			getDataTypeFromValidation: function(dataType, validation) {
+				var instance = this;
+
+				var expression = validation.expression;
+
+				var validationTypes = instance.getValidations();
+
+				for (var type in validationTypes) {
+					var validations = validationTypes[type];
+
+					for (var i = 0; i < validations.length; i++) {
+						var regex = validations[i].regex;
+
+						if (regex.test(expression)) {
+							dataType = type;
+
+							break;
+						}
+					}
+				}
+
+				dataType = MAP_DATA_TYPES[dataType] || dataType;
+
+				return dataType;
+			},
+
+>>>>>>> compatible
 			getFieldByKey: function(haystack, needle, searchKey) {
 				var instance = this;
 
 				return instance.searchFieldsByKey(haystack, needle, searchKey)[0];
 			},
 
+<<<<<<< HEAD
 			getFieldNameFromQualifiedName: function(qualifiedName) {
 				var instance = this;
 
@@ -111,6 +165,20 @@ AUI.add(
 				if (nestedFieldName.length > 1) {
 					return nestedFieldName[1].split('$')[0];
 				}
+=======
+			getFieldClass: function(type) {
+				var instance = this;
+
+				var fieldType = FieldTypes.get(type);
+
+				var fieldClassName = fieldType.get('className');
+
+				return A.Object.getValue(window, fieldClassName.split('.'));
+			},
+
+			getFieldNameFromQualifiedName: function(qualifiedName) {
+				var instance = this;
+>>>>>>> compatible
 
 				var name = qualifiedName.split('$$')[1];
 
@@ -120,19 +188,27 @@ AUI.add(
 			getInstanceIdFromQualifiedName: function(qualifiedName) {
 				var instance = this;
 
+<<<<<<< HEAD
 				var nestedFieldName = qualifiedName.split('#');
 
 				if (nestedFieldName.length > 1) {
 					return nestedFieldName[1].split('$')[1];
 				}
 
+=======
+>>>>>>> compatible
 				var name = qualifiedName.split('$$')[1];
 
 				return name.split('$')[1];
 			},
 
+<<<<<<< HEAD
 			getValidations: function(selectedType) {
 				return VALIDATIONS[selectedType];
+=======
+			getValidations: function() {
+				return VALIDATIONS;
+>>>>>>> compatible
 			},
 
 			searchFieldsByKey: function(haystack, needle, searchKey) {
@@ -153,7 +229,11 @@ AUI.add(
 						results.push(next);
 					}
 					else {
+<<<<<<< HEAD
 						var children = next.fields || next.nestedFields;
+=======
+						var children = next.fields || next.nestedFields || next.fieldValues || next.nestedFieldValues;
+>>>>>>> compatible
 
 						if (children) {
 							children.forEach(addToQueue);
@@ -169,6 +249,10 @@ AUI.add(
 	},
 	'',
 	{
+<<<<<<< HEAD
 		requires: ['liferay-ddm-form-renderer-types']
+=======
+		requires: ['liferay-ddm-form-renderer-types', 'queue']
+>>>>>>> compatible
 	}
 );

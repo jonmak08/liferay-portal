@@ -15,6 +15,7 @@
 package com.liferay.journal.web.social;
 
 import com.liferay.portal.kernel.module.framework.ModuleServiceLifecycle;
+<<<<<<< HEAD
 
 /**
  * @author Eduardo Garcia
@@ -26,6 +27,34 @@ public class JournalSocialActivityConfigurator {
 	protected void activate() {
 	}
 
+=======
+import com.liferay.portal.kernel.util.FileUtil;
+import com.liferay.social.kernel.util.SocialConfigurationUtil;
+
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
+
+/**
+ * @author Eduardo Garcia
+ */
+@Component(immediate = true, service = JournalSocialActivityConfigurator.class)
+public class JournalSocialActivityConfigurator {
+
+	@Activate
+	protected void activate() throws Exception {
+		Class<?> clazz = getClass();
+
+		String xml = new String(
+			FileUtil.getBytes(
+				getClass(), "/META-INF/social/liferay-social.xml"));
+
+		SocialConfigurationUtil.read(
+			clazz.getClassLoader(), new String[] {xml});
+	}
+
+	@Reference(target = ModuleServiceLifecycle.PORTAL_INITIALIZED, unbind = "-")
+>>>>>>> compatible
 	protected void setModuleServiceLifecycle(
 		ModuleServiceLifecycle moduleServiceLifecycle) {
 	}

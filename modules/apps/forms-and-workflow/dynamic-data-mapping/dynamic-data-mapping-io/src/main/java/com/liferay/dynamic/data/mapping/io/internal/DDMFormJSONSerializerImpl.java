@@ -22,9 +22,14 @@ import com.liferay.dynamic.data.mapping.io.DDMFormJSONSerializer;
 import com.liferay.dynamic.data.mapping.model.DDMForm;
 import com.liferay.dynamic.data.mapping.model.DDMFormField;
 import com.liferay.dynamic.data.mapping.model.DDMFormFieldOptions;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.model.DDMFormFieldValidation;
 import com.liferay.dynamic.data.mapping.model.DDMFormRule;
 import com.liferay.dynamic.data.mapping.model.DDMFormSuccessPageSettings;
+=======
+import com.liferay.dynamic.data.mapping.model.DDMFormFieldRule;
+import com.liferay.dynamic.data.mapping.model.DDMFormFieldValidation;
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.model.LocalizedValue;
 import com.liferay.dynamic.data.mapping.util.DDMFormFactory;
 import com.liferay.portal.kernel.json.JSONArray;
@@ -55,9 +60,12 @@ public class DDMFormJSONSerializerImpl implements DDMFormJSONSerializer {
 		addAvailableLanguageIds(jsonObject, ddmForm.getAvailableLocales());
 		addDefaultLanguageId(jsonObject, ddmForm.getDefaultLocale());
 		addFields(jsonObject, ddmForm.getDDMFormFields());
+<<<<<<< HEAD
 		addRules(jsonObject, ddmForm.getDDMFormRules());
 		addSuccessPageSettings(
 			jsonObject, ddmForm.getDDMFormSuccessPageSettings());
+=======
+>>>>>>> compatible
 
 		return jsonObject.toString();
 	}
@@ -87,6 +95,19 @@ public class DDMFormJSONSerializerImpl implements DDMFormJSONSerializer {
 		jsonObject.put("fields", fieldsToJSONArray(ddmFormFields));
 	}
 
+<<<<<<< HEAD
+=======
+	protected void addFormFieldRules(
+		JSONObject jsonObject, List<DDMFormFieldRule> ddmFormFieldRules) {
+
+		if (ddmFormFieldRules.isEmpty()) {
+			return;
+		}
+
+		jsonObject.put("rules", rulesToJSONArray(ddmFormFieldRules));
+	}
+
+>>>>>>> compatible
 	protected void addNestedFields(
 		JSONObject jsonObject, List<DDMFormField> nestedDDMFormFields) {
 
@@ -108,6 +129,11 @@ public class DDMFormJSONSerializerImpl implements DDMFormJSONSerializer {
 
 			addProperty(jsonObject, ddmFormField, ddmFormFieldTypeSetting);
 		}
+<<<<<<< HEAD
+=======
+
+		addFormFieldRules(jsonObject, ddmFormField.getDDMFormFieldRules());
+>>>>>>> compatible
 	}
 
 	protected void addProperty(
@@ -136,6 +162,7 @@ public class DDMFormJSONSerializerImpl implements DDMFormJSONSerializer {
 		jsonObject.put(propertyName, propertyValue);
 	}
 
+<<<<<<< HEAD
 	protected void addRules(
 		JSONObject jsonObject, List<DDMFormRule> ddmFormRules) {
 
@@ -153,6 +180,8 @@ public class DDMFormJSONSerializerImpl implements DDMFormJSONSerializer {
 		jsonObject.put("successPage", toJSONObject(ddmFormSuccessPageSettings));
 	}
 
+=======
+>>>>>>> compatible
 	protected JSONArray fieldsToJSONArray(List<DDMFormField> ddmFormFields) {
 		JSONArray jsonArray = _jsonFactory.createJSONArray();
 
@@ -203,6 +232,7 @@ public class DDMFormJSONSerializerImpl implements DDMFormJSONSerializer {
 		return jsonArray;
 	}
 
+<<<<<<< HEAD
 	protected JSONArray ruleActionsToJSONArray(List<String> ruleActions) {
 		JSONArray jsonArray = _jsonFactory.createJSONArray();
 
@@ -218,6 +248,15 @@ public class DDMFormJSONSerializerImpl implements DDMFormJSONSerializer {
 
 		for (DDMFormRule ddmFormRule : ddmFormRules) {
 			jsonArray.put(toJSONObject(ddmFormRule));
+=======
+	protected JSONArray rulesToJSONArray(
+		List<DDMFormFieldRule> ddmFormFieldRules) {
+
+		JSONArray jsonArray = _jsonFactory.createJSONArray();
+
+		for (DDMFormFieldRule ddmFormFieldRule : ddmFormFieldRules) {
+			jsonArray.put(toJSONObject(ddmFormFieldRule));
+>>>>>>> compatible
 		}
 
 		return jsonArray;
@@ -238,9 +277,13 @@ public class DDMFormJSONSerializerImpl implements DDMFormJSONSerializer {
 		else if (Objects.equals(dataType, "ddm-options")) {
 			return optionsToJSONArray((DDMFormFieldOptions)property);
 		}
+<<<<<<< HEAD
 		else if (Objects.equals(
 					ddmFormFieldTypeSetting.getType(), "validation")) {
 
+=======
+		else if (Objects.equals(dataType, "ddm-validation")) {
+>>>>>>> compatible
 			return toJSONObject((DDMFormFieldValidation)property);
 		}
 		else {
@@ -270,6 +313,18 @@ public class DDMFormJSONSerializerImpl implements DDMFormJSONSerializer {
 		return jsonObject;
 	}
 
+<<<<<<< HEAD
+=======
+	protected JSONObject toJSONObject(DDMFormFieldRule ddmFormFieldRule) {
+		JSONObject jsonObject = _jsonFactory.createJSONObject();
+
+		jsonObject.put("expression", ddmFormFieldRule.getExpression());
+		jsonObject.put("type", ddmFormFieldRule.getDDMFormFieldRuleType());
+
+		return jsonObject;
+	}
+
+>>>>>>> compatible
 	protected JSONObject toJSONObject(
 		DDMFormFieldValidation ddmFormFieldValidation) {
 
@@ -286,6 +341,7 @@ public class DDMFormJSONSerializerImpl implements DDMFormJSONSerializer {
 		return jsonObject;
 	}
 
+<<<<<<< HEAD
 	protected JSONObject toJSONObject(DDMFormRule ddmFormRule) {
 		JSONObject jsonObject = _jsonFactory.createJSONObject();
 
@@ -324,6 +380,17 @@ public class DDMFormJSONSerializerImpl implements DDMFormJSONSerializer {
 			return jsonObject;
 		}
 
+=======
+	protected JSONObject toJSONObject(LocalizedValue localizedValue) {
+		Map<Locale, String> values = localizedValue.getValues();
+
+		if (values.isEmpty()) {
+			return null;
+		}
+
+		JSONObject jsonObject = _jsonFactory.createJSONObject();
+
+>>>>>>> compatible
 		for (Locale availableLocale : localizedValue.getAvailableLocales()) {
 			jsonObject.put(
 				LocaleUtil.toLanguageId(availableLocale),

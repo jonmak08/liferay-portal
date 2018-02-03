@@ -103,6 +103,7 @@ if (!inTrash) {
 								String ratingId = PortalUtil.generateRandomKey(request, "taglib_ui_ratings_page_rating");
 							%>
 
+<<<<<<< HEAD
 								<a class="rating-element <%= (i <= yourScoreStars) ? "icon-star" : "icon-star-empty" %>" href="javascript:;"></a>
 
 								<div class="rating-input-container">
@@ -110,6 +111,9 @@ if (!inTrash) {
 
 									<input checked="<%= i == yourScoreStars %>" class="rating-input" id="<%= ratingId %>" name="<portlet:namespace />rating" type="radio" value="<%= i %>">
 								</div>
+=======
+								<span class="rating-element <%= (i <= averageIndex) ? "icon-star" : "icon-star-empty" %>" title="<%= TrashUtil.isInTrash(className, classPK) ? LanguageUtil.get(resourceBundle, "ratings-are-disabled-because-this-entry-is-in-the-recycle-bin") : ((i == 1) ? LanguageUtil.format(request, ((averageNumberOfStars == 1.0) ? "the-average-rating-is-x-star-out-of-x" : "the-average-rating-is-x-stars-out-of-x"), new Object[] {averageNumberOfStars, numberOfStars}, false) : StringPool.BLANK) %>"></span>
+>>>>>>> compatible
 
 							<%
 							}
@@ -130,6 +134,7 @@ if (!inTrash) {
 
 					<liferay-util:whitespace-remover>
 
+<<<<<<< HEAD
 						<%
 						for (int i = 1; i <= numberOfStars; i++) {
 							String message = StringPool.BLANK;
@@ -156,10 +161,57 @@ if (!inTrash) {
 			</div>
 		</c:when>
 		<c:when test="<%= type.equals(RatingsType.LIKE.getValue()) || type.equals(RatingsType.THUMBS.getValue()) %>">
+=======
+							<%
+							int positiveVotes = (int)Math.round(ratingsStats.getTotalScore());
+
+							int negativeVotes = ratingsStats.getTotalEntries() - positiveVotes;
+
+							boolean thumbUp = (yourScore != -1.0) && (yourScore >= 0.5);
+							boolean thumbDown = (yourScore != -1.0) && (yourScore < 0.5);
+							%>
+
+							<c:choose>
+								<c:when test="<%= !themeDisplay.isSignedIn() || TrashUtil.isInTrash(className, classPK) %>">
+
+									<%
+									String thumbsTitle = StringPool.BLANK;
+
+									if (TrashUtil.isInTrash(className, classPK)) {
+										thumbsTitle = LanguageUtil.get(resourceBundle, "ratings-are-disabled-because-this-entry-is-in-the-recycle-bin");
+									}
+									%>
+
+									<span class="glyphicon glyphicon-thumbs-up rating-element rating-thumb-up rating-<%= (thumbUp) ? "on" : "off" %>" title="<%= thumbsTitle %>"><%= positiveVotes %></span>
+
+									<c:if test="<%= type.equals(RatingsType.THUMBS.getValue()) %>">
+										<span class="glyphicon glyphicon-thumbs-down rating-element rating-thumb-down rating-<%= (thumbDown) ? "on" : "off" %>" title="<%= thumbsTitle %>"><%= negativeVotes %></span>
+									</c:if>
+								</c:when>
+								<c:otherwise>
+
+									<%
+									String positiveRatingMessage = null;
+
+									if (type.equals(RatingsType.THUMBS.getValue())) {
+										positiveRatingMessage = (thumbUp) ? "you-have-rated-this-as-good" : "rate-this-as-good";
+									}
+									else {
+										positiveRatingMessage = (thumbUp) ? "unlike-this" : "like-this";
+									}
+									%>
+
+									<a class="glyphicon glyphicon-thumbs-up rating-element rating-thumb-up rating-<%= (thumbUp) ? "on" : "off" %>" href="javascript:;" title="<liferay-ui:message key="<%= positiveRatingMessage %>" />"><%= positiveVotes %></a>
+
+									<c:if test="<%= type.equals(RatingsType.THUMBS.getValue()) %>">
+										<a class="glyphicon glyphicon-thumbs-down rating-element rating-thumb-down rating-<%= (thumbDown) ? "on" : "off" %>" href="javascript:;" title="<liferay-ui:message key='<%= (thumbDown) ? "you-have-rated-this-as-bad" : "rate-this-as-bad" %>' />"><%= negativeVotes %></a>
+									</c:if>
+>>>>>>> compatible
 
 			<%
 			String ratingIdPrefix = "ratingThumb";
 
+<<<<<<< HEAD
 			if (type.equals(RatingsType.LIKE.getValue())) {
 				ratingIdPrefix = "ratingLike";
 			}
@@ -177,6 +229,13 @@ if (!inTrash) {
 						boolean thumbUp = (yourScore != -1.0) && (yourScore >= 0.5);
 						boolean thumbDown = (yourScore != -1.0) && (yourScore < 0.5);
 						%>
+=======
+										<%
+										String ratingId = PortalUtil.generateRandomKey(request, "taglib_ui_ratings_page_rating");
+										%>
+
+										<input class="rating-input" id="<%= ratingId %>" name="<portlet:namespace /><%= ratingIdPrefix %>" type="radio" value="up">
+>>>>>>> compatible
 
 						<c:choose>
 							<c:when test="<%= !themeDisplay.isSignedIn() || !enabled %>">
@@ -184,6 +243,7 @@ if (!inTrash) {
 								<%
 								String thumbsTitle = StringPool.BLANK;
 
+<<<<<<< HEAD
 								if (inTrash) {
 									thumbsTitle = LanguageUtil.get(resourceBundle, "ratings-are-disabled-because-this-entry-is-in-the-recycle-bin");
 								}
@@ -262,4 +322,38 @@ if (!inTrash) {
 			}
 		);
 	</aui:script>
+=======
+											<input class="rating-input" id="<%= ratingId %>" name="<portlet:namespace /><%= ratingIdPrefix %>" type="radio" value="down">
+										</c:if>
+									</div>
+								</c:otherwise>
+							</c:choose>
+						</liferay-util:whitespace-remover>
+					</div>
+				</div>
+			</c:when>
+		</c:choose>
+	</div>
+
+	<c:if test="<%= !TrashUtil.isInTrash(className, classPK) %>">
+		<aui:script position="inline" use="liferay-ratings">
+			Liferay.Ratings.register(
+				{
+					averageScore: <%= MathUtil.format(averageScore, 1, 1) %>,
+					className: '<%= HtmlUtil.escapeJS(className) %>',
+					classPK: '<%= classPK %>',
+					containerId: '<%= randomNamespace %>ratingContainer',
+					namespace: '<%= randomNamespace %>',
+					round: <%= round %>,
+					size: <%= numberOfStars %>,
+					totalEntries: <%= ratingsStats.getTotalEntries() %>,
+					totalScore: <%= ratingsStats.getTotalScore() %>,
+					type: '<%= type %>',
+					uri: '<%= url %>',
+					yourScore: <%= yourScore %>
+				}
+			);
+		</aui:script>
+	</c:if>
+>>>>>>> compatible
 </c:if>

@@ -4,7 +4,10 @@
 <look-and-feel>
 	<compatibility>
 		<version>7.0.0+</version>
+<<<<<<< HEAD
 		<version>7.1.0+</version>
+=======
+>>>>>>> compatible
 	</compatibility>
 	<theme id="[$ID$]" name="[$NAME$]">
 		<template-extension>[$TEMPLATE_EXTENSION$]</template-extension>

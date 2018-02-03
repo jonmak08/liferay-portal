@@ -18,8 +18,11 @@ import com.liferay.portal.kernel.portlet.PortletPreferencesFactoryUtil;
 import com.liferay.portal.kernel.portletdisplaytemplate.PortletDisplayTemplateManager;
 import com.liferay.portal.kernel.upgrade.BaseUpgradePortletPreferences;
 import com.liferay.portal.kernel.util.GetterUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ObjectValuePair;
 import com.liferay.portal.kernel.util.PortalUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 
 import java.sql.PreparedStatement;
@@ -72,6 +75,7 @@ public class UpgradePortletDisplayTemplatePreferences
 		String uuid = displayStyle.substring(DISPLAY_STYLE_PREFIX_6_2.length());
 
 		try (PreparedStatement ps = connection.prepareStatement(
+<<<<<<< HEAD
 				"select groupId, templateKey from DDMTemplate where (groupId " +
 					"= ? or groupId = ?) and uuid_ = ?")) {
 
@@ -80,11 +84,16 @@ public class UpgradePortletDisplayTemplatePreferences
 			ps.setString(3, uuid);
 
 			ObjectValuePair<Long, String> objectValuePair = null;
+=======
+				"select templateKey from DDMTemplate where groupId = ? and " +
+					"uuid_ = ?")) {
+>>>>>>> compatible
 
 			try (ResultSet rs = ps.executeQuery()) {
 				while (rs.next()) {
 					long groupId = rs.getLong("groupId");
 
+<<<<<<< HEAD
 					objectValuePair = new ObjectValuePair<>(
 						groupId, rs.getString("templateKey"));
 
@@ -115,6 +124,15 @@ public class UpgradePortletDisplayTemplatePreferences
 		}
 		else {
 			return objectValuePair.getValue();
+=======
+			try (ResultSet rs = ps.executeQuery()) {
+				while (rs.next()) {
+					return rs.getString("templateKey");
+				}
+
+				return null;
+			}
+>>>>>>> compatible
 		}
 	}
 
@@ -148,7 +166,11 @@ public class UpgradePortletDisplayTemplatePreferences
 			portletPreferences.setValue(
 				"displayStyle",
 				PortletDisplayTemplateManager.DISPLAY_STYLE_PREFIX +
+<<<<<<< HEAD
 					objectValuePair.getValue());
+=======
+					templateKey);
+>>>>>>> compatible
 		}
 	}
 
@@ -174,10 +196,13 @@ public class UpgradePortletDisplayTemplatePreferences
 	protected static final String UPDATE_PORTLET_PREFERENCES_WHERE_CLAUSE =
 		"(preferences like '%" + DISPLAY_STYLE_PREFIX_6_2 + "%')";
 
+<<<<<<< HEAD
 	private static final Long _COMPANY_CLASS_NAME_ID =
 		PortalUtil.getClassNameId("com.liferay.portal.kernel.model.Company");
 
 	private long _companyGroupId = 0L;
 	private final Map<Long, Long> _companyGroupIds = new HashMap<>();
 
+=======
+>>>>>>> compatible
 }

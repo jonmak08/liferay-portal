@@ -20,6 +20,11 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.messaging.BaseMessageStatusMessageListener;
 import com.liferay.portal.kernel.messaging.MessageListener;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.messaging.sender.SingleDestinationMessageSender;
+import com.liferay.portal.kernel.messaging.sender.SingleDestinationMessageSenderFactory;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.CompanyConstants;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.scheduler.messaging.SchedulerEventMessageListenerWrapper;
@@ -51,12 +56,47 @@ import org.osgi.service.component.ComponentContext;
 public abstract class BasePublisherMessageListener
 	extends BaseMessageStatusMessageListener {
 
+<<<<<<< HEAD
 	protected void initialize(ComponentContext componentContext) {
+=======
+	/**
+	 * @deprecated As of 3.2.0, replaced by {@link #initialize(ComponentContext,
+	 *             SingleDestinationMessageSenderFactory))}
+	 */
+	@Deprecated
+	protected void initialize(ComponentContext componentContext) {
+		initialize(componentContext, null);
+	}
+
+	protected void initialize(
+		ComponentContext componentContext,
+		SingleDestinationMessageSenderFactory
+			singleDestinationMessageSenderFactory) {
+
+		if (singleDestinationMessageSenderFactory == null) {
+			throw new IllegalArgumentException(
+				"Single destination message sender factory is null");
+		}
+
+>>>>>>> compatible
 		BundleContext bundleContext = componentContext.getBundleContext();
 
 		Dictionary<String, Object> properties =
 			componentContext.getProperties();
 
+<<<<<<< HEAD
+=======
+		String messageStatusDestinationName = (String)properties.get(
+			"message.status.destination.name");
+
+		SingleDestinationMessageSender singleDestinationMessageSender =
+			singleDestinationMessageSenderFactory.
+				createSingleDestinationMessageSender(
+					messageStatusDestinationName);
+
+		setStatusSender(singleDestinationMessageSender);
+
+>>>>>>> compatible
 		SchedulerEventMessageListenerWrapper
 			schedulerEventMessageListenerWrapper =
 				new SchedulerEventMessageListenerWrapper();
@@ -84,10 +124,14 @@ public abstract class BasePublisherMessageListener
 			permissionChecker = PermissionCheckerFactoryUtil.create(user);
 		}
 		catch (Exception e) {
+<<<<<<< HEAD
 			throw new SystemException(
 				"Unable to initialize thread locals because an error occured " +
 					"when creating a permission checker for user " + userId,
 				e);
+=======
+			throw new SystemException(e);
+>>>>>>> compatible
 		}
 
 		PermissionThreadLocal.setPermissionChecker(permissionChecker);

@@ -265,6 +265,7 @@ public class TicketLocalServiceWrapper implements TicketLocalService,
 		return _ticketLocalService.getTickets(start, end);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public java.util.List<com.liferay.portal.kernel.model.Ticket> getTickets(
 		long companyId, java.lang.String className, long classPK, int type) {
@@ -272,6 +273,8 @@ public class TicketLocalServiceWrapper implements TicketLocalService,
 			type);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns the number of tickets.
 	*
@@ -282,6 +285,7 @@ public class TicketLocalServiceWrapper implements TicketLocalService,
 		return _ticketLocalService.getTicketsCount();
 	}
 
+<<<<<<< HEAD
 	@Override
 	public com.liferay.portal.kernel.model.Ticket updateTicket(long ticketId,
 		java.lang.String className, long classPK, int type,
@@ -291,6 +295,8 @@ public class TicketLocalServiceWrapper implements TicketLocalService,
 			type, extraInfo, expirationDate);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Updates the ticket in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
 	*

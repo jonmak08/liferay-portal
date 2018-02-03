@@ -103,7 +103,11 @@ public class PluginsProjectConfigurator extends BaseProjectConfigurator {
 
 	@Override
 	public String getName() {
+<<<<<<< HEAD
 		return NAME;
+=======
+		return _NAME;
+>>>>>>> compatible
 	}
 
 	@Override
@@ -127,8 +131,11 @@ public class PluginsProjectConfigurator extends BaseProjectConfigurator {
 		return _DEFAULT_ROOT_DIR_PROPERTY_NAME;
 	}
 
+<<<<<<< HEAD
 	protected static final String NAME = "plugins";
 
+=======
+>>>>>>> compatible
 	private Configuration _addRootConfigurationPluginsSDK(
 		final Project project) {
 
@@ -172,7 +179,12 @@ public class PluginsProjectConfigurator extends BaseProjectConfigurator {
 		WorkspaceExtension workspaceExtension) {
 
 		ProjectConfigurator projectConfigurator =
+<<<<<<< HEAD
 			workspaceExtension.propertyMissing(PluginsProjectConfigurator.NAME);
+=======
+			workspaceExtension.propertyMissing(
+				PluginsProjectConfigurator._NAME);
+>>>>>>> compatible
 
 		Collection<File> dirs =
 			(Collection<File>)projectConfigurator.getDefaultRootDirs();
@@ -338,4 +350,9 @@ public class PluginsProjectConfigurator extends BaseProjectConfigurator {
 	private static final String _DEFAULT_ROOT_DIR_PROPERTY_NAME =
 		WorkspacePlugin.PROPERTY_PREFIX + "plugins.sdk.dir";
 
+<<<<<<< HEAD
+=======
+	private static final String _NAME = "plugins";
+
+>>>>>>> compatible
 }

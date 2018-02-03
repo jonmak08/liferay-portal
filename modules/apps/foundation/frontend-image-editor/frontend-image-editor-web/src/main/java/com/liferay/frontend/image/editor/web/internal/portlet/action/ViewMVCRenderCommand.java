@@ -18,7 +18,10 @@ import com.liferay.frontend.image.editor.capability.ImageEditorCapability;
 import com.liferay.frontend.image.editor.web.internal.constants.ImageEditorPortletKeys;
 import com.liferay.frontend.image.editor.web.internal.portlet.tracker.ImageEditorCapabilityTracker;
 import com.liferay.frontend.image.editor.web.internal.portlet.tracker.ImageEditorCapabilityTracker.ImageEditorCapabilityDescriptor;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCRenderCommand;
 import com.liferay.portal.kernel.template.Template;
@@ -27,6 +30,10 @@ import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.ResourceBundleLoader;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.WebKeys;
 
 import java.util.ArrayList;
@@ -98,6 +105,7 @@ public class ViewMVCRenderCommand implements MVCRenderCommand {
 
 		template.put("saveURL", saveURL);
 
+<<<<<<< HEAD
 		Locale locale = themeDisplay.getLocale();
 
 		ResourceBundle resourceBundle =
@@ -105,6 +113,16 @@ public class ViewMVCRenderCommand implements MVCRenderCommand {
 
 		Map<String, Object> strings = new HashMap<>();
 
+=======
+		ResourceBundle resourceBundle =
+			_resourceBundleLoader.loadResourceBundle(
+				themeDisplay.getLanguageId());
+
+		Map<String, Object> strings = new HashMap<>();
+
+		Locale locale = themeDisplay.getLocale();
+
+>>>>>>> compatible
 		strings.put("apply", LanguageUtil.get(locale, "apply"));
 		strings.put("cancel", LanguageUtil.get(locale, "cancel"));
 		strings.put("save", LanguageUtil.get(locale, "save"));

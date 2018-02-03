@@ -21,6 +21,10 @@ import com.liferay.asset.kernel.model.AssetTag;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -98,7 +102,11 @@ public class AssetTagCacheModel implements CacheModel<AssetTag>, Externalizable 
 		AssetTagImpl assetTagImpl = new AssetTagImpl();
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			assetTagImpl.setUuid("");
+=======
+			assetTagImpl.setUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			assetTagImpl.setUuid(uuid);
@@ -175,7 +183,11 @@ public class AssetTagCacheModel implements CacheModel<AssetTag>, Externalizable 
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		if (uuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(uuid);

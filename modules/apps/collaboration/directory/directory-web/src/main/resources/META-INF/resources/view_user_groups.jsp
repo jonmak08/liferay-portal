@@ -34,10 +34,17 @@ if (portletName.equals(PortletKeys.MY_SITES_DIRECTORY)) {
 
 	List<Group> groups = GroupLocalServiceUtil.search(user.getCompanyId(), groupParams, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
 
+<<<<<<< HEAD
 	userGroupParams.put(UserGroupFinderConstants.PARAM_KEY_USER_GROUPS_GROUPS, SitesUtil.filterGroups(groups, PropsValues.MY_SITES_DIRECTORY_SITE_EXCLUDES));
 }
 else if (portletName.equals(PortletKeys.SITE_MEMBERS_DIRECTORY)) {
 	userGroupParams.put(UserGroupFinderConstants.PARAM_KEY_USER_GROUPS_GROUPS, Long.valueOf(themeDisplay.getScopeGroupId()));
+=======
+	userGroupParams.put("userGroupsGroups", SitesUtil.filterGroups(groups, PropsValues.MY_SITES_DIRECTORY_SITE_EXCLUDES));
+}
+else if (portletName.equals(PortletKeys.SITE_MEMBERS_DIRECTORY)) {
+	userGroupParams.put("userGroupsGroups", Long.valueOf(themeDisplay.getScopeGroupId()));
+>>>>>>> compatible
 }
 
 String keywords = searchTerms.getKeywords();

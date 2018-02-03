@@ -3,22 +3,38 @@ import com.liferay.gradle.util.copy.StripPathSegmentsAction
 
 configurations {
 	jQuery
+<<<<<<< HEAD
 	lodash
 }
 
 task buildClay(type: Copy)
 task buildJQuery(type: Copy)
 task buildJQueryPluginsForm
+=======
+	lexicon
+	lodash
+}
+
+task buildJQuery(type: Copy)
+task buildJQueryPluginsForm
+task buildLexicon(type: Copy)
+>>>>>>> compatible
 task buildLiferayAMDLoader(type: Copy)
 task buildLodash(type: Copy)
 task buildSvg4everybody(type: Copy)
 
 String jqueryPluginsFormVersion = "3.51"
+<<<<<<< HEAD
 String jQueryVersion = "3.2.1"
+=======
+String jQueryVersion = "2.1.4"
+String lexiconVersion = "1.0.24"
+>>>>>>> compatible
 String lodashVersion = "3.10.1"
 
 File jsDestinationDir = file("tmp/META-INF/resources")
 
+<<<<<<< HEAD
 buildClay {
 	File clayDestinationDir = new File(jsDestinationDir, "clay")
 
@@ -42,6 +58,8 @@ buildClay {
 	into clayDestinationDir
 }
 
+=======
+>>>>>>> compatible
 buildJQuery {
 	eachFile new StripPathSegmentsAction(6)
 
@@ -74,14 +92,46 @@ buildJQueryPluginsForm {
 	}
 }
 
+<<<<<<< HEAD
+=======
+buildLexicon {
+	File lexiconDestinationDir = new File(jsDestinationDir, "lexicon")
+
+	doFirst {
+		delete lexiconDestinationDir
+	}
+
+	eachFile new StripPathSegmentsAction(7)
+
+	filter {
+		String line ->
+
+		line.replace ".offsetWidth // force reflow", ".offsetWidth.toFixed() // force reflow"
+	}
+
+	from {
+		zipTree(configurations.lexicon.singleFile)
+	}
+
+	include "META-INF/resources/webjars/lexicon/${lexiconVersion}/release/js/"
+	includeEmptyDirs = false
+	into lexiconDestinationDir
+}
+
+>>>>>>> compatible
 buildLiferayAMDLoader {
 	dependsOn npmInstall
 	eachFile new StripPathSegmentsAction(2)
 	from npmInstall.nodeModulesDir
+<<<<<<< HEAD
 
 	include "liferay-amd-loader/dist/loader.js"
 	include "liferay-amd-loader/dist/es6-promise.map"
 
+=======
+	include "liferay-amd-loader/dist/loader.js"
+	include "liferay-amd-loader/dist/es6-promise.map"
+>>>>>>> compatible
 	includeEmptyDirs = false
 	into new File(jsDestinationDir, "loader")
 }
@@ -121,9 +171,15 @@ buildSvg4everybody {
 }
 
 classes {
+<<<<<<< HEAD
 	dependsOn buildClay
 	dependsOn buildJQuery
 	dependsOn buildJQueryPluginsForm
+=======
+	dependsOn buildJQuery
+	dependsOn buildJQueryPluginsForm
+	dependsOn buildLexicon
+>>>>>>> compatible
 	dependsOn buildLiferayAMDLoader
 	dependsOn buildLodash
 	dependsOn buildSvg4everybody
@@ -136,9 +192,16 @@ clean {
 dependencies {
 	jQuery group: "org.webjars.npm", name: "jquery", transitive: false, version: jQueryVersion
 
+<<<<<<< HEAD
 	lodash group: "org.webjars.bower", name: "lodash", transitive: false, version: lodashVersion
 
 	provided group: "com.liferay", name: "com.liferay.petra.lang", version: "1.0.0"
+=======
+	lexicon group: "com.liferay.webjars", name: "com.liferay.webjars.lexicon", transitive: false, version: lexiconVersion
+
+	lodash group: "org.webjars.bower", name: "lodash", transitive: false, version: lodashVersion
+
+>>>>>>> compatible
 	provided group: "com.liferay.portal", name: "com.liferay.portal.impl", version: "2.11.0"
 	provided group: "com.liferay.portal", name: "com.liferay.portal.kernel", version: "2.20.0"
 	provided group: "com.liferay.portal", name: "com.liferay.util.taglib", version: "2.6.0"

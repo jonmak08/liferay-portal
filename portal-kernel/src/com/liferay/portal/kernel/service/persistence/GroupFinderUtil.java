@@ -30,11 +30,14 @@ public class GroupFinderUtil {
 		return getFinder().countByLayouts(companyId, parentGroupId, site);
 	}
 
+<<<<<<< HEAD
 	public static int countByLayouts(long companyId, long parentGroupId,
 		boolean site, java.lang.Boolean active) {
 		return getFinder().countByLayouts(companyId, parentGroupId, site, active);
 	}
 
+=======
+>>>>>>> compatible
 	public static int countByG_U(long groupId, long userId, boolean inherit) {
 		return getFinder().countByG_U(groupId, userId, inherit);
 	}
@@ -49,11 +52,14 @@ public class GroupFinderUtil {
 			names, descriptions, params, andOperator);
 	}
 
+<<<<<<< HEAD
 	public static java.util.List<java.lang.Long> findByActiveGroupIds(
 		long userId) {
 		return getFinder().findByActiveGroupIds(userId);
 	}
 
+=======
+>>>>>>> compatible
 	public static java.util.List<com.liferay.portal.kernel.model.Group> findByCompanyId(
 		long companyId,
 		java.util.LinkedHashMap<java.lang.String, java.lang.Object> params,
@@ -63,6 +69,7 @@ public class GroupFinderUtil {
 	}
 
 	public static java.util.List<com.liferay.portal.kernel.model.Group> findByLayouts(
+<<<<<<< HEAD
 		long companyId, long parentGroupId, boolean site,
 		java.lang.Boolean active, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator<com.liferay.portal.kernel.model.Group> obc) {
@@ -72,6 +79,8 @@ public class GroupFinderUtil {
 	}
 
 	public static java.util.List<com.liferay.portal.kernel.model.Group> findByLayouts(
+=======
+>>>>>>> compatible
 		long companyId, long parentGroupId, boolean site, int start, int end) {
 		return getFinder()
 				   .findByLayouts(companyId, parentGroupId, site, start, end);

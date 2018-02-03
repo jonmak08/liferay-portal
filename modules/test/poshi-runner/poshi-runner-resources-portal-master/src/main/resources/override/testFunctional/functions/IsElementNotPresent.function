@@ -2,12 +2,20 @@
 	<command name="isElementNotPresent">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.IsElementNotPresent#isElementNotPresent" />
+=======
+		<super />
+>>>>>>> compatible
 	</command>
 
 	<command name="isNotVisible">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.IsElementNotPresent#isNotVisible" />
+=======
+		<super />
+>>>>>>> compatible
 	</command>
 </definition>

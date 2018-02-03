@@ -14,7 +14,10 @@
 
 package com.liferay.social.networking.web.internal.summary.portlet;
 
+<<<<<<< HEAD
 import com.liferay.blogs.service.BlogsStatsUserLocalService;
+=======
+>>>>>>> compatible
 import com.liferay.expando.kernel.service.ExpandoValueLocalService;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
@@ -45,6 +48,7 @@ import com.liferay.social.kernel.model.SocialRelationConstants;
 import com.liferay.social.kernel.service.SocialRelationLocalService;
 import com.liferay.social.kernel.service.SocialRequestLocalService;
 import com.liferay.social.networking.constants.SocialNetworkingPortletKeys;
+<<<<<<< HEAD
 import com.liferay.social.networking.service.MeetupsEntryLocalService;
 import com.liferay.social.networking.service.MeetupsRegistrationLocalService;
 import com.liferay.social.networking.service.WallEntryLocalService;
@@ -53,6 +57,13 @@ import com.liferay.social.networking.web.internal.friends.social.FriendsRequestK
 import com.liferay.social.networking.web.internal.members.social.MembersRequestKeys;
 
 import java.io.IOException;
+=======
+import com.liferay.social.networking.friends.social.FriendsRequestKeys;
+import com.liferay.social.networking.members.social.MembersRequestKeys;
+import com.liferay.social.networking.service.MeetupsEntryLocalService;
+import com.liferay.social.networking.service.MeetupsRegistrationLocalService;
+import com.liferay.social.networking.service.WallEntryLocalService;
+>>>>>>> compatible
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -60,9 +71,12 @@ import java.util.List;
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.Portlet;
+<<<<<<< HEAD
 import javax.portlet.PortletException;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
+=======
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -269,6 +283,7 @@ public class SummaryPortlet extends MVCPortlet {
 			group.getClassPK(), new long[] {themeDisplay.getUserId()});
 	}
 
+<<<<<<< HEAD
 	@Override
 	public void render(
 			RenderRequest renderRequest, RenderResponse renderResponse)
@@ -281,6 +296,8 @@ public class SummaryPortlet extends MVCPortlet {
 		super.render(renderRequest, renderResponse);
 	}
 
+=======
+>>>>>>> compatible
 	public void updateSummary(
 			ActionRequest actionRequest, ActionResponse actionResponse)
 		throws Exception {
@@ -334,6 +351,7 @@ public class SummaryPortlet extends MVCPortlet {
 	}
 
 	@Reference(unbind = "-")
+<<<<<<< HEAD
 	protected void setBlogsStatsUserLocalService(
 		BlogsStatsUserLocalService blogsStatsUserLocalService) {
 
@@ -341,6 +359,8 @@ public class SummaryPortlet extends MVCPortlet {
 	}
 
 	@Reference(unbind = "-")
+=======
+>>>>>>> compatible
 	protected void setExpandoValueLocalService(
 		ExpandoValueLocalService expandoValueLocalService) {
 
@@ -398,7 +418,10 @@ public class SummaryPortlet extends MVCPortlet {
 		WallEntryLocalService wallEntryLocalService) {
 	}
 
+<<<<<<< HEAD
 	private BlogsStatsUserLocalService _blogsStatsUserLocalService;
+=======
+>>>>>>> compatible
 	private ExpandoValueLocalService _expandoValueLocalService;
 	private GroupLocalService _groupLocalService;
 	private OrganizationLocalService _organizationLocalService;

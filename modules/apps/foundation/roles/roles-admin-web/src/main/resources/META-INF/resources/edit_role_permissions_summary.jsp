@@ -29,8 +29,12 @@ PortletURL permissionsAllURL = liferayPortletResponse.createRenderURL();
 
 permissionsAllURL.setParameter("mvcPath", "/edit_role_permissions.jsp");
 permissionsAllURL.setParameter(Constants.CMD, Constants.VIEW);
+<<<<<<< HEAD
 permissionsAllURL.setParameter("tabs1", "define-permissions");
 permissionsAllURL.setParameter("tabs2", "roles");
+=======
+permissionsAllURL.setParameter("tabs1", "roles");
+>>>>>>> compatible
 permissionsAllURL.setParameter("backURL", backURL);
 permissionsAllURL.setParameter("roleId", String.valueOf(role.getRoleId()));
 
@@ -151,7 +155,18 @@ for (int i = 0; i < results.size(); i++) {
 		scope = ResourceConstants.SCOPE_GROUP_TEMPLATE;
 	}
 
+<<<<<<< HEAD
 	boolean selected = ResourcePermissionLocalServiceUtil.hasScopeResourcePermission(company.getCompanyId(), curResource, scope, role.getRoleId(), actionId);
+=======
+	boolean selected = false;
+
+	if (ResourceBlockLocalServiceUtil.isSupported(curResource)) {
+		selected = ResourceTypePermissionLocalServiceUtil.hasEitherScopePermission(company.getCompanyId(), curResource, role.getRoleId(), actionId);
+	}
+	else {
+		selected = ResourcePermissionLocalServiceUtil.hasScopeResourcePermission(company.getCompanyId(), curResource, scope, role.getRoleId(), actionId);
+	}
+>>>>>>> compatible
 
 	if (!selected) {
 		continue;
@@ -161,7 +176,11 @@ for (int i = 0; i < results.size(); i++) {
 
 	editPermissionsResourceURL.setParameter("mvcPath", "/view_resources.jsp");
 	editPermissionsResourceURL.setParameter(Constants.CMD, Constants.EDIT);
+<<<<<<< HEAD
 	editPermissionsResourceURL.setParameter("tabs2", "roles");
+=======
+	editPermissionsResourceURL.setParameter("tabs1", "roles");
+>>>>>>> compatible
 	editPermissionsResourceURL.setParameter("roleId", String.valueOf(role.getRoleId()));
 	editPermissionsResourceURL.setParameter("redirect", permissionsAllURL.toString());
 	editPermissionsResourceURL.setParameter("portletResource", curPortletName);
@@ -170,8 +189,12 @@ for (int i = 0; i < results.size(); i++) {
 
 	editPermissionsURL.setParameter("mvcPath", "/edit_role_permissions.jsp");
 	editPermissionsURL.setParameter(Constants.CMD, Constants.EDIT);
+<<<<<<< HEAD
 	editPermissionsURL.setParameter("tabs1", "define-permissions");
 	editPermissionsURL.setParameter("tabs2", "roles");
+=======
+	editPermissionsURL.setParameter("tabs1", "roles");
+>>>>>>> compatible
 	editPermissionsURL.setParameter("roleId", String.valueOf(role.getRoleId()));
 	editPermissionsURL.setParameter("redirect", permissionsAllURL.toString());
 	editPermissionsURL.setParameter("portletResource", curPortletName);

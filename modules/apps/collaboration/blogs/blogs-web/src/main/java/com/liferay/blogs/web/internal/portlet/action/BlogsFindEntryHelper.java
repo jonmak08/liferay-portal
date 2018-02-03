@@ -14,11 +14,18 @@
 
 package com.liferay.blogs.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.blogs.constants.BlogsPortletKeys;
 import com.liferay.blogs.model.BlogsEntry;
 import com.liferay.blogs.service.BlogsEntryLocalService;
 import com.liferay.portal.kernel.portlet.PortletLayoutFinder;
 import com.liferay.portal.kernel.util.Validator;
+=======
+import com.liferay.blogs.kernel.model.BlogsEntry;
+import com.liferay.blogs.kernel.service.BlogsEntryLocalService;
+import com.liferay.blogs.web.constants.BlogsPortletKeys;
+import com.liferay.portal.kernel.portlet.PortletLayoutFinder;
+>>>>>>> compatible
 import com.liferay.portal.struts.BaseFindActionHelper;
 import com.liferay.portal.struts.FindActionHelper;
 
@@ -34,7 +41,11 @@ import org.osgi.service.component.annotations.Reference;
  */
 @Component(
 	immediate = true,
+<<<<<<< HEAD
 	property = "model.class.name=com.liferay.blogs.model.BlogsEntry",
+=======
+	property = "model.class.name=com.liferay.blogs.kernel.model.BlogsEntry",
+>>>>>>> compatible
 	service = FindActionHelper.class
 )
 public class BlogsFindEntryHelper extends BaseFindActionHelper {
@@ -65,6 +76,7 @@ public class BlogsFindEntryHelper extends BaseFindActionHelper {
 
 		BlogsEntry entry = _blogsEntryLocalService.getEntry(primaryKey);
 
+<<<<<<< HEAD
 		if (Validator.isNotNull(entry.getUrlTitle())) {
 			portletURL.setParameter("urlTitle", entry.getUrlTitle());
 		}
@@ -72,6 +84,9 @@ public class BlogsFindEntryHelper extends BaseFindActionHelper {
 			portletURL.setParameter(
 				"entryId", String.valueOf(entry.getEntryId()));
 		}
+=======
+		portletURL.setParameter("urlTitle", entry.getUrlTitle());
+>>>>>>> compatible
 	}
 
 	@Override
@@ -106,7 +121,11 @@ public class BlogsFindEntryHelper extends BaseFindActionHelper {
 	}
 
 	@Reference(
+<<<<<<< HEAD
 		target = "(model.class.name=com.liferay.blogs.model.BlogsEntry)",
+=======
+		target = "(model.class.name=com.liferay.blogs.kernel.model.BlogsEntry)",
+>>>>>>> compatible
 		unbind = "-"
 	)
 	protected void setPortletLayoutFinder(

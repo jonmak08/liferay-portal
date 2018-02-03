@@ -20,7 +20,10 @@ import com.liferay.portal.search.solr.filter.MissingFilterTranslator;
 import org.apache.lucene.search.BooleanClause;
 import org.apache.lucene.search.BooleanQuery;
 import org.apache.lucene.search.MatchAllDocsQuery;
+<<<<<<< HEAD
 import org.apache.lucene.search.Query;
+=======
+>>>>>>> compatible
 import org.apache.lucene.search.TermRangeQuery;
 
 import org.osgi.service.component.annotations.Component;
@@ -32,7 +35,13 @@ import org.osgi.service.component.annotations.Component;
 public class MissingFilterTranslatorImpl implements MissingFilterTranslator {
 
 	@Override
+<<<<<<< HEAD
 	public Query translate(MissingFilter missingFilter) {
+=======
+	public org.apache.lucene.search.Query translate(
+		MissingFilter missingFilter) {
+
+>>>>>>> compatible
 		BooleanQuery booleanQuery = new BooleanQuery();
 
 		MatchAllDocsQuery matchAllDocsQuery = new MatchAllDocsQuery();

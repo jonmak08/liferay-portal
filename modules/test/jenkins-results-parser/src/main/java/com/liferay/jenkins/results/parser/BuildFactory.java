@@ -31,6 +31,7 @@ public class BuildFactory {
 			return new AxisBuild(url, (BatchBuild)parentBuild);
 		}
 
+<<<<<<< HEAD
 		if (url.contains("-source")) {
 			return new SourceBuild(url, parentBuild);
 		}
@@ -39,6 +40,12 @@ public class BuildFactory {
 			return new ValidationBuild(url, (TopLevelBuild)parentBuild);
 		}
 
+=======
+		if (url.contains("-source") || url.contains("-validation")) {
+			return new SourceBuild(url, parentBuild);
+		}
+
+>>>>>>> compatible
 		for (String batchIndicator : _BATCH_INDICATORS) {
 			if (url.contains(batchIndicator)) {
 				return new BatchBuild(url, (TopLevelBuild)parentBuild);

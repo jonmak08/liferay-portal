@@ -14,7 +14,11 @@
 
 package com.liferay.sync.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
+=======
+import com.liferay.portal.kernel.util.AutoResetThreadLocal;
+>>>>>>> compatible
 import com.liferay.sync.model.SyncDevice;
 
 /**
@@ -31,7 +35,11 @@ public class SyncDeviceThreadLocal {
 	}
 
 	private static final ThreadLocal<SyncDevice> _syncDevice =
+<<<<<<< HEAD
 		new CentralizedThreadLocal<>(
+=======
+		new AutoResetThreadLocal<>(
+>>>>>>> compatible
 			SyncDeviceThreadLocal.class + "._syncDevice");
 
 }

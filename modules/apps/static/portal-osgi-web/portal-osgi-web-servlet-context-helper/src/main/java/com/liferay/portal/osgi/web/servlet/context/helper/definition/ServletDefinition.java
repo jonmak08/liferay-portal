@@ -87,7 +87,11 @@ public class ServletDefinition {
 	}
 
 	public void setURLPatterns(List<String> urlPatterns) {
+<<<<<<< HEAD
 		_urlPatterns.addAll(urlPatterns);
+=======
+		_urlPatterns = urlPatterns;
+>>>>>>> compatible
 	}
 
 	private boolean _asyncSupported;
@@ -96,6 +100,10 @@ public class ServletDefinition {
 	private String _jspFile;
 	private String _name;
 	private Servlet _servlet;
+<<<<<<< HEAD
 	private final List<String> _urlPatterns = new ArrayList<>();
+=======
+	private List<String> _urlPatterns = new ArrayList<>();
+>>>>>>> compatible
 
 }

@@ -71,11 +71,14 @@ public class SystemEventLocalServiceUtil {
 		return getService().addSystemEvent(systemEvent);
 	}
 
+<<<<<<< HEAD
 	public static void checkSystemEvents()
 		throws com.liferay.portal.kernel.exception.PortalException {
 		getService().checkSystemEvents();
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Creates a new system event with the primary key. Does not add the system event to the database.
 	*
@@ -298,11 +301,14 @@ public class SystemEventLocalServiceUtil {
 		return getService().updateSystemEvent(systemEvent);
 	}
 
+<<<<<<< HEAD
 	public static boolean validateGroup(long groupId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService().validateGroup(groupId);
 	}
 
+=======
+>>>>>>> compatible
 	public static SystemEventLocalService getService() {
 		if (_service == null) {
 			_service = (SystemEventLocalService)PortalBeanLocatorUtil.locate(SystemEventLocalService.class.getName());

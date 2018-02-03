@@ -17,13 +17,25 @@
 <%@ include file="/init.jsp" %>
 
 <%
+<<<<<<< HEAD
 EditSiteTeamAssignmentsDisplayContext editSiteTeamAssignmentsDisplayContext = new EditSiteTeamAssignmentsDisplayContext(renderRequest, renderResponse, request);
+=======
+String tabs1 = (String)request.getAttribute("edit_team_assignments.jsp-tabs1");
+
+Team team = (Team)request.getAttribute("edit_team_assignments.jsp-team");
+>>>>>>> compatible
 
 String displayStyle = portalPreferences.getValue(SiteTeamsPortletKeys.SITE_TEAMS, "display-style", "icon");
 String orderByCol = ParamUtil.getString(request, "orderByCol", "name");
 String orderByType = ParamUtil.getString(request, "orderByType", "asc");
 
+<<<<<<< HEAD
 SearchContainer userGroupSearchContainer = new UserGroupSearch(renderRequest, editSiteTeamAssignmentsDisplayContext.getEditTeamAssignmentsURL());
+=======
+PortletURL portletURL = (PortletURL)request.getAttribute("edit_team_assignments.jsp-portletURL");
+
+SearchContainer userGroupSearchContainer = new UserGroupSearch(renderRequest, portletURL);
+>>>>>>> compatible
 
 UserGroupDisplayTerms searchTerms = (UserGroupDisplayTerms)userGroupSearchContainer.getSearchTerms();
 
@@ -31,7 +43,11 @@ userGroupSearchContainer.setEmptyResultsMessageCssClass(searchTerms.isSearch() ?
 
 LinkedHashMap<String, Object> userGroupParams = new LinkedHashMap<String, Object>();
 
+<<<<<<< HEAD
 userGroupParams.put(UserGroupFinderConstants.PARAM_KEY_USER_GROUPS_TEAMS, Long.valueOf(editSiteTeamAssignmentsDisplayContext.getTeamId()));
+=======
+userGroupParams.put("userGroupsTeams", Long.valueOf(team.getTeamId()));
+>>>>>>> compatible
 
 int userGroupsCount = UserGroupLocalServiceUtil.searchCount(company.getCompanyId(), searchTerms.getKeywords(), userGroupParams);
 
@@ -44,10 +60,16 @@ userGroupSearchContainer.setResults(userGroups);
 RowChecker rowChecker = new EmptyOnClickRowChecker(renderResponse);
 %>
 
+<<<<<<< HEAD
 <clay:navigation-bar
 	inverted="<%= true %>"
 	items="<%= editSiteTeamAssignmentsDisplayContext.getNavigationItems() %>"
 />
+=======
+<liferay-util:include page="/navigation_bar.jsp" servletContext="<%= application %>">
+	<liferay-util:param name="searchEnabled" value="<%= String.valueOf((userGroupsCount > 0) || searchTerms.isSearch()) %>" />
+</liferay-util:include>
+>>>>>>> compatible
 
 <liferay-frontend:management-bar
 	disabled="<%= userGroupsCount <= 0 %>"
@@ -57,13 +79,18 @@ RowChecker rowChecker = new EmptyOnClickRowChecker(renderResponse);
 	<liferay-frontend:management-bar-filters>
 		<liferay-frontend:management-bar-navigation
 			navigationKeys='<%= new String[] {"all"} %>'
+<<<<<<< HEAD
 			portletURL="<%= editSiteTeamAssignmentsDisplayContext.getEditTeamAssignmentsURL() %>"
+=======
+			portletURL="<%= portletURL %>"
+>>>>>>> compatible
 		/>
 
 		<liferay-frontend:management-bar-sort
 			orderByCol="<%= orderByCol %>"
 			orderByType="<%= orderByType %>"
 			orderColumns='<%= new String[] {"name", "description"} %>'
+<<<<<<< HEAD
 			portletURL="<%= editSiteTeamAssignmentsDisplayContext.getEditTeamAssignmentsURL() %>"
 		/>
 
@@ -76,6 +103,10 @@ RowChecker rowChecker = new EmptyOnClickRowChecker(renderResponse);
 				</aui:form>
 			</li>
 		</c:if>
+=======
+			portletURL="<%= PortletURLUtil.clone(portletURL, renderResponse) %>"
+		/>
+>>>>>>> compatible
 	</liferay-frontend:management-bar-filters>
 
 	<liferay-frontend:management-bar-buttons>
@@ -98,9 +129,15 @@ RowChecker rowChecker = new EmptyOnClickRowChecker(renderResponse);
 <portlet:actionURL name="deleteTeamUserGroups" var="deleteTeamUserGroupsURL" />
 
 <aui:form action="<%= deleteTeamUserGroupsURL %>" cssClass="container-fluid-1280" method="post" name="fm">
+<<<<<<< HEAD
 	<aui:input name="tabs1" type="hidden" value="<%= editSiteTeamAssignmentsDisplayContext.getTabs1() %>" />
 	<aui:input name="redirect" type="hidden" value="<%= currentURL %>" />
 	<aui:input name="teamId" type="hidden" value="<%= String.valueOf(editSiteTeamAssignmentsDisplayContext.getTeamId()) %>" />
+=======
+	<aui:input name="tabs1" type="hidden" value="<%= tabs1 %>" />
+	<aui:input name="redirect" type="hidden" value="<%= currentURL %>" />
+	<aui:input name="teamId" type="hidden" value="<%= String.valueOf(team.getTeamId()) %>" />
+>>>>>>> compatible
 
 	<liferay-ui:search-container
 		emptyResultsMessage="there-are-no-members.-you-can-add-a-member-by-clicking-the-plus-button-on-the-bottom-right-corner"
@@ -130,9 +167,15 @@ RowChecker rowChecker = new EmptyOnClickRowChecker(renderResponse);
 <portlet:actionURL name="addTeamUserGroups" var="addTeamUserGroupsURL" />
 
 <aui:form action="<%= addTeamUserGroupsURL %>" cssClass="hide" name="addTeamUserGroupsFm">
+<<<<<<< HEAD
 	<aui:input name="tabs1" type="hidden" value="<%= editSiteTeamAssignmentsDisplayContext.getTabs1() %>" />
 	<aui:input name="redirect" type="hidden" value="<%= currentURL %>" />
 	<aui:input name="teamId" type="hidden" value="<%= String.valueOf(editSiteTeamAssignmentsDisplayContext.getTeamId()) %>" />
+=======
+	<aui:input name="tabs1" type="hidden" value="<%= tabs1 %>" />
+	<aui:input name="redirect" type="hidden" value="<%= currentURL %>" />
+	<aui:input name="teamId" type="hidden" value="<%= String.valueOf(team.getTeamId()) %>" />
+>>>>>>> compatible
 </aui:form>
 
 <liferay-frontend:add-menu>
@@ -147,7 +190,11 @@ RowChecker rowChecker = new EmptyOnClickRowChecker(renderResponse);
 	<portlet:renderURL var="selectUserGroupURL" windowState="<%= LiferayWindowState.POP_UP.toString() %>">
 		<portlet:param name="mvcPath" value="/select_user_groups.jsp" />
 		<portlet:param name="redirect" value="<%= currentURL %>" />
+<<<<<<< HEAD
 		<portlet:param name="teamId" value="<%= String.valueOf(editSiteTeamAssignmentsDisplayContext.getTeamId()) %>" />
+=======
+		<portlet:param name="teamId" value="<%= String.valueOf(team.getTeamId()) %>" />
+>>>>>>> compatible
 	</portlet:renderURL>
 
 	$('#<portlet:namespace />addUserGroups').on(
@@ -171,7 +218,11 @@ RowChecker rowChecker = new EmptyOnClickRowChecker(renderResponse);
 							}
 						}
 					},
+<<<<<<< HEAD
 					title: '<liferay-ui:message arguments="<%= editSiteTeamAssignmentsDisplayContext.getTeamName() %>" key="add-new-user-group-to-x" />',
+=======
+					title: '<liferay-ui:message arguments="<%= team.getName() %>" key="add-new-user-group-to-x" />',
+>>>>>>> compatible
 					url: '<%= selectUserGroupURL %>'
 				}
 			);

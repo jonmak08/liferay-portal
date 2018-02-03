@@ -21,10 +21,15 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
+<<<<<<< HEAD
  * @author     Shuyang Zhou
  * @deprecated As of 7.0.0, with no direct replacement
  */
 @Deprecated
+=======
+ * @author Shuyang Zhou
+ */
+>>>>>>> compatible
 public class CoalescedPipe<E> {
 
 	public CoalescedPipe() {

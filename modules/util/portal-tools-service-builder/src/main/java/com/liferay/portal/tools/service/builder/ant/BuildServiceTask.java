@@ -76,10 +76,13 @@ public class BuildServiceTask extends Task {
 		_serviceBuilderArgs.setBuildNumberIncrement(buildNumberIncrement);
 	}
 
+<<<<<<< HEAD
 	public void setDatabaseNameMaxLength(int databaseNameMaxLength) {
 		_serviceBuilderArgs.setDatabaseNameMaxLength(databaseNameMaxLength);
 	}
 
+=======
+>>>>>>> compatible
 	public void setHbmFileName(String hbmFileName) {
 		_serviceBuilderArgs.setHbmFileName(hbmFileName);
 	}

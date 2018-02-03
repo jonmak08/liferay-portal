@@ -68,9 +68,17 @@
 	</command>
 
 	<command name="configureFileUploadOverallMaximumFileSize">
+<<<<<<< HEAD
 		<execute function="Type" locator1="ServerAdministrationFileUploads#GENERAL_OVERALL_MAX_FILE_SIZE_FIELD" value1="${maxFileSize}" />
 
 		<execute function="AssertClick" locator1="Button#UPDATE" value1="Update" />
+=======
+		<execute function="AssertClick" locator1="NavBar#FILE_UPLOADS" value1="File Uploads" />
+
+		<execute function="Type" locator1="ServerAdministrationFileUploads#GENERAL_OVERALL_MAX_FILE_SIZE_FIELD" value1="${maxFileSize}" />
+
+		<execute function="AssertClick" locator1="Button#SAVE" value1="Save" />
+>>>>>>> compatible
 
 		<execute function="AssertTextEquals#assertPartialText" locator1="Message#SUCCESS" value1="Your request completed successfully." />
 	</command>
@@ -82,6 +90,7 @@
 		<execute function="Type" locator1="ServerAdministrationMail#INCOMING_PORT" value1="995" />
 		<execute function="Check" locator1="ServerAdministrationMail#INCOMING_SECURE_NETWORK_CONNECTION_CHECKBOX" />
 
+<<<<<<< HEAD
 		<if>
 			<equals arg1="${needsReply}" arg2="true" />
 			<then>
@@ -91,6 +100,9 @@
 				<execute function="Type" locator1="ServerAdministrationMail#INCOMING_USER_NAME" value1="${userName}" />
 			</else>
 		</if>
+=======
+		<execute function="Type" locator1="ServerAdministrationMail#INCOMING_USER_NAME" value1="${userName}" />
+>>>>>>> compatible
 
 		<execute function="Type" locator1="ServerAdministrationMail#INCOMING_PASSWORD" value1="${userPassword}" />
 		<execute function="Type" locator1="ServerAdministrationMail#OUTGOING_SMTP_SERVER" value1="smtp.gmail.com" />
@@ -112,6 +124,21 @@
 		<execute function="AssertClick" locator1="Button#SAVE" value1="Save" />
 
 		<execute function="AssertTextEquals#assertPartialText" locator1="Message#SUCCESS" value1="Your request completed successfully." />
+<<<<<<< HEAD
+=======
+	</command>
+
+	<command name="enableRecaptcha">
+		<execute function="Check" locator1="ServerAdministrationCaptcha#ENABLE_RECAPTCHA_CHECKBOX" />
+
+		<execute function="Type" locator1="ServerAdministrationCaptcha#RECAPTCHA_PUBLIC_KEY" value1="${publicKey}" />
+
+		<execute function="Type" locator1="ServerAdministrationCaptcha#RECAPTCHA_PRIVATE_KEY" value1="${privateKey}" />
+
+		<execute function="AssertClick" locator1="Button#SAVE" value1="Save" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 	</command>
 
 	<command name="executeServerResourcesActions">
@@ -189,9 +216,13 @@
 	</command>
 
 	<command name="tearDownDMFileUploadSettings">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Server Administration" />
 		</execute>
 
@@ -203,9 +234,13 @@
 	</command>
 
 	<command name="tearDownMailServerSettings">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Server Administration" />
 		</execute>
 

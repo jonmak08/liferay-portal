@@ -17,8 +17,12 @@
 <%@ include file="/item/selector/init.jsp" %>
 
 <%
+<<<<<<< HEAD
 WikiAttachmentItemSelectorViewDisplayContext wikiAttachmentItemSelectorViewDisplayContext = (WikiAttachmentItemSelectorViewDisplayContext)request.getAttribute(WikiItemSelectorWebKeys.WIKI_ATTACHMENT_ITEM_SELECTOR_VIEW_DISPLAY_CONTEXT);
 DLMimeTypeDisplayContext dlMimeTypeDisplayContext = (DLMimeTypeDisplayContext)request.getAttribute(WikiItemSelectorWebKeys.DL_MIME_TYPE_DISPLAY_CONTEXT);
+=======
+WikiAttachmentItemSelectorViewDisplayContext wikiAttachmentItemSelectorViewDisplayContext = (WikiAttachmentItemSelectorViewDisplayContext)request.getAttribute(WikiAttachmentItemSelectorView.WIKI_ATTACHMENT_ITEM_SELECTOR_VIEW_DISPLAY_CONTEXT);
+>>>>>>> compatible
 
 int cur = ParamUtil.getInteger(request, SearchContainer.DEFAULT_CUR_PARAM, SearchContainer.DEFAULT_CUR);
 int delta = ParamUtil.getInteger(request, SearchContainer.DEFAULT_DELTA_PARAM, SearchContainer.DEFAULT_DELTA);
@@ -33,16 +37,22 @@ WikiPage wikiPage = wikiAttachmentItemSelectorViewDisplayContext.getWikiPage();
 List portletFileEntries = null;
 int portletFileEntriesCount = 0;
 
+<<<<<<< HEAD
 String[] mimeTypes = wikiAttachmentItemSelectorViewDisplayContext.getMimeTypes();
 
+=======
+>>>>>>> compatible
 if (wikiPage.getAttachmentsFolderId() != DLFolderConstants.DEFAULT_PARENT_FOLDER_ID) {
 	if (wikiAttachmentItemSelectorViewDisplayContext.isSearch()) {
 		SearchContext searchContext = SearchContextFactory.getInstance(request);
 
+<<<<<<< HEAD
 		if (ArrayUtil.isNotEmpty(mimeTypes)) {
 			searchContext.setAttribute("mimeTypes", mimeTypes);
 		}
 
+=======
+>>>>>>> compatible
 		searchContext.setEnd(end);
 		searchContext.setFolderIds(new long[] {wikiPage.getAttachmentsFolderId()});
 		searchContext.setStart(start);
@@ -82,6 +92,7 @@ if (wikiPage.getAttachmentsFolderId() != DLFolderConstants.DEFAULT_PARENT_FOLDER
 
 		OrderByComparator<FileEntry> orderByComparator = DLUtil.getRepositoryModelOrderByComparator(orderByCol, orderByType);
 
+<<<<<<< HEAD
 		if (ArrayUtil.isNotEmpty(mimeTypes)) {
 			portletFileEntries = wikiPage.getAttachmentsFileEntries(mimeTypes, start, end, orderByComparator);
 			portletFileEntriesCount = wikiPage.getAttachmentsFileEntriesCount(mimeTypes);
@@ -90,12 +101,19 @@ if (wikiPage.getAttachmentsFolderId() != DLFolderConstants.DEFAULT_PARENT_FOLDER
 			portletFileEntries = wikiPage.getAttachmentsFileEntries(start, end, orderByComparator);
 			portletFileEntriesCount = wikiPage.getAttachmentsFileEntriesCount();
 		}
+=======
+		portletFileEntries = wikiPage.getAttachmentsFileEntries(start, end, orderByComparator);
+		portletFileEntriesCount = wikiPage.getAttachmentsFileEntriesCount();
+>>>>>>> compatible
 	}
 }
 %>
 
 <liferay-item-selector:repository-entry-browser
+<<<<<<< HEAD
 	dlMimeTypeDisplayContext="<%= dlMimeTypeDisplayContext %>"
+=======
+>>>>>>> compatible
 	emptyResultsMessage='<%= LanguageUtil.get(resourceBundle, "there-are-no-wiki-attachments") %>'
 	itemSelectedEventName="<%= wikiAttachmentItemSelectorViewDisplayContext.getItemSelectedEventName() %>"
 	itemSelectorReturnTypeResolver="<%= wikiAttachmentItemSelectorViewDisplayContext.getItemSelectorReturnTypeResolver() %>"

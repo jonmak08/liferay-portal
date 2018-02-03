@@ -19,12 +19,22 @@ import com.liferay.portal.kernel.model.BaseModel;
 import com.liferay.portal.kernel.model.ClassedModel;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.test.rule.Inject;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.trash.TrashHelper;
+=======
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+import com.liferay.portal.kernel.test.util.RandomTestUtil;
+import com.liferay.portal.kernel.test.util.TestPropsValues;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+import com.liferay.trash.kernel.util.TrashUtil;
+>>>>>>> compatible
 import com.liferay.trash.test.util.BaseTrashHandlerTestCase;
 import com.liferay.trash.test.util.WhenCanBeDuplicatedInTrash;
 import com.liferay.wiki.model.WikiNode;
@@ -38,13 +48,23 @@ import org.junit.runner.RunWith;
  * @author Eudaldo Alonso
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class WikiNodeTrashHandlerTest
 	extends BaseTrashHandlerTestCase implements WhenCanBeDuplicatedInTrash {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Override
 	public String getBaseModelName(ClassedModel classedModel) {
@@ -90,7 +110,11 @@ public class WikiNodeTrashHandlerTest
 	protected String getUniqueTitle(BaseModel<?> baseModel) {
 		WikiNode node = (WikiNode)baseModel;
 
+<<<<<<< HEAD
 		return _trashHelper.getOriginalTitle(node.getName());
+=======
+		return TrashUtil.getOriginalTitle(node.getName());
+>>>>>>> compatible
 	}
 
 	@Override
@@ -101,7 +125,10 @@ public class WikiNodeTrashHandlerTest
 
 	private static final String _NODE_NAME = RandomTestUtil.randomString(75);
 
+<<<<<<< HEAD
 	@Inject
 	private TrashHelper _trashHelper;
 
+=======
+>>>>>>> compatible
 }

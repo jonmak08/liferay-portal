@@ -15,18 +15,27 @@
 package com.liferay.dynamic.data.mapping.test.util;
 
 import com.liferay.dynamic.data.mapping.model.DDMForm;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.model.DDMFormField;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.model.LocalizedValue;
 import com.liferay.dynamic.data.mapping.model.UnlocalizedValue;
 import com.liferay.dynamic.data.mapping.model.Value;
 import com.liferay.dynamic.data.mapping.storage.DDMFormFieldValue;
 import com.liferay.dynamic.data.mapping.storage.DDMFormValues;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.StringUtil;
 
 import java.util.LinkedHashSet;
+<<<<<<< HEAD
 import java.util.List;
+=======
+>>>>>>> compatible
 import java.util.Locale;
 import java.util.Set;
 
@@ -83,6 +92,7 @@ public class DDMFormValuesTestUtil {
 		return ddmFormValues;
 	}
 
+<<<<<<< HEAD
 	public static DDMFormValues createDDMFormValuesWithDefaultFieldValues(
 		DDMForm ddmForm, Set<Locale> availableLocales, Locale defaultLocale) {
 
@@ -100,6 +110,8 @@ public class DDMFormValuesTestUtil {
 		return ddmFormValues;
 	}
 
+=======
+>>>>>>> compatible
 	public static DDMFormFieldValue createLocalizedDDMFormFieldValue(
 		String name, String enValue) {
 

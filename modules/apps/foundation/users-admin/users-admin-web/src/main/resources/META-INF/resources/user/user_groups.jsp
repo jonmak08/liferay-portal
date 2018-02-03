@@ -17,10 +17,15 @@
 <%@ include file="/init.jsp" %>
 
 <%
+<<<<<<< HEAD
 UserDisplayContext userDisplayContext = new UserDisplayContext(request, initDisplayContext);
 
 User selUser = userDisplayContext.getSelectedUser();
 List<UserGroup> userGroups = userDisplayContext.getUserGroups();
+=======
+User selUser = (User)request.getAttribute("user.selUser");
+List<UserGroup> userGroups = (List<UserGroup>)request.getAttribute("user.userGroups");
+>>>>>>> compatible
 
 currentURLObj.setParameter("historyKey", renderResponse.getNamespace() + "userGroups");
 %>
@@ -80,7 +85,11 @@ currentURLObj.setParameter("historyKey", renderResponse.getNamespace() + "userGr
 		cssClass="modify-link"
 		id="openUserGroupsLink"
 		label="<%= true %>"
+<<<<<<< HEAD
 		linkCssClass="btn btn-primary"
+=======
+		linkCssClass="btn btn-default btn-lg"
+>>>>>>> compatible
 		message="select"
 		url="javascript:;"
 	/>

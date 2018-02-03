@@ -1,10 +1,13 @@
 AUI.add(
 	'liferay-ddm-form-field-text',
 	function(A) {
+<<<<<<< HEAD
 		var Renderer = Liferay.DDM.Renderer;
 
 		var Util = Renderer.Util;
 
+=======
+>>>>>>> compatible
 		new A.TooltipDelegate(
 			{
 				position: 'left',
@@ -18,6 +21,7 @@ AUI.add(
 		var TextField = A.Component.create(
 			{
 				ATTRS: {
+<<<<<<< HEAD
 					autocompleteEnabled: {
 						state: true,
 						value: false
@@ -38,6 +42,17 @@ AUI.add(
 
 					placeholder: {
 						state: true,
+=======
+					displayStyle: {
+						value: 'singleline'
+					},
+
+					placeholder: {
+						value: ''
+					},
+
+					tooltip: {
+>>>>>>> compatible
 						value: ''
 					},
 
@@ -51,6 +66,7 @@ AUI.add(
 				NAME: 'liferay-ddm-form-field-text',
 
 				prototype: {
+<<<<<<< HEAD
 					initializer: function() {
 						var instance = this;
 
@@ -89,11 +105,27 @@ AUI.add(
 						return 'input';
 					},
 
+=======
+					getTemplateContext: function() {
+						var instance = this;
+
+						return A.merge(
+							TextField.superclass.getTemplateContext.apply(instance, arguments),
+							{
+								displayStyle: instance.get('displayStyle'),
+								placeholder: instance.getLocalizedValue(instance.get('placeholder')),
+								tooltip: instance.getLocalizedValue(instance.get('tooltip'))
+							}
+						);
+					},
+
+>>>>>>> compatible
 					render: function() {
 						var instance = this;
 
 						TextField.superclass.render.apply(instance, arguments);
 
+<<<<<<< HEAD
 						var autocompleteEnabled = instance.get('autocompleteEnabled');
 
 						if (autocompleteEnabled && instance.get('visible')) {
@@ -103,11 +135,23 @@ AUI.add(
 						if (instance.get('displayStyle') === 'multiline') {
 							instance._setInitialHeight();
 							instance.syncInputHeight();
+=======
+						if (instance.get('displayStyle') === 'multiline') {
+							var textAreaNode = instance.getInputNode();
+
+							if (!textAreaNode.autosize) {
+								textAreaNode.plug(A.Plugin.Autosize);
+								textAreaNode.height(textAreaNode.get('scrollHeight'));
+							}
+
+							textAreaNode.autosize._uiAutoSize();
+>>>>>>> compatible
 						}
 
 						return instance;
 					},
 
+<<<<<<< HEAD
 					showErrorMessage: function() {
 						var instance = this;
 
@@ -200,6 +244,39 @@ AUI.add(
 						var initialHeight = parseInt(initialHeightInPx, 10);
 
 						instance.set('initialHeight', initialHeight);
+=======
+					_renderErrorMessage: function() {
+						var instance = this;
+
+						TextField.superclass._renderErrorMessage.apply(instance, arguments);
+
+						var container = instance.get('container');
+
+						var inputGroup = container.one('.input-group-container');
+
+						inputGroup.insert(container.one('.help-block'), 'after');
+					},
+
+					_showFeedback: function() {
+						var instance = this;
+
+						TextField.superclass._showFeedback.apply(instance, arguments);
+
+						var container = instance.get('container');
+
+						var feedBack = container.one('.form-control-feedback');
+
+						var inputGroupAddOn = container.one('.input-group-addon');
+
+						if (inputGroupAddOn) {
+							feedBack.appendTo(inputGroupAddOn);
+						}
+						else {
+							var inputGroupContainer = container.one('.input-group-container');
+
+							inputGroupContainer.placeAfter(feedBack);
+						}
+>>>>>>> compatible
 					}
 				}
 			}
@@ -209,6 +286,10 @@ AUI.add(
 	},
 	'',
 	{
+<<<<<<< HEAD
 		requires: ['aui-autosize-deprecated', 'aui-tooltip', 'autocomplete', 'autocomplete-filters', 'autocomplete-highlighters', 'autocomplete-highlighters-accentfold', 'liferay-ddm-form-renderer-field']
+=======
+		requires: ['aui-autosize-deprecated', 'aui-tooltip', 'liferay-ddm-form-renderer-field']
+>>>>>>> compatible
 	}
 );

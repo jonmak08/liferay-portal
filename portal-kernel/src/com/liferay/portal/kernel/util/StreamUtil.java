@@ -74,10 +74,13 @@ public class StreamUtil {
 		}
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static void cleanUp(Closeable... closeables) {
 		cleanUp(true, closeables);
 	}

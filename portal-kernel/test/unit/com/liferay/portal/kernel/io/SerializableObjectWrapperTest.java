@@ -14,12 +14,19 @@
 
 package com.liferay.portal.kernel.io;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.ClassLoaderPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
 import com.liferay.portal.kernel.test.CaptureHandler;
 import com.liferay.portal.kernel.test.JDKLoggerTestUtil;
 import com.liferay.portal.kernel.test.rule.CodeCoverageAssertor;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.ClassLoaderPool;
+>>>>>>> compatible
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -45,6 +52,7 @@ public class SerializableObjectWrapperTest {
 
 	@Test
 	public void testEquals() throws Exception {
+<<<<<<< HEAD
 		_testEquals();
 	}
 
@@ -151,6 +159,36 @@ public class SerializableObjectWrapperTest {
 		finally {
 			currentThread.setContextClassLoader(contextClassLoader);
 		}
+=======
+		Assert.assertFalse(
+			_testSerializableObjectWrapper.equals(_TEST_SERIALIZABLE));
+
+		Assert.assertTrue(
+			_testSerializableObjectWrapper.equals(
+				_testSerializableObjectWrapper));
+		Assert.assertTrue(
+			_testSerializableObjectWrapper.equals(
+				new SerializableObjectWrapper(_TEST_SERIALIZABLE)));
+		Assert.assertTrue(
+			_testSerializableObjectWrapper.equals(
+				_getDeserializedObject(_testSerializableObjectWrapper)));
+		Assert.assertTrue(
+			_getDeserializedObject(_testSerializableObjectWrapper).equals(
+				_testSerializableObjectWrapper));
+		Assert.assertTrue(
+			_getDeserializedObject(_testSerializableObjectWrapper).equals(
+				_getDeserializedObject(_testSerializableObjectWrapper)));
+	}
+
+	@Test
+	public void testHashCode() throws Exception {
+		Assert.assertEquals(
+			_testSerializableObjectWrapper.hashCode(),
+			new SerializableObjectWrapper(_TEST_SERIALIZABLE).hashCode());
+		Assert.assertEquals(
+			_testSerializableObjectWrapper.hashCode(),
+			_getDeserializedObject(_testSerializableObjectWrapper).hashCode());
+>>>>>>> compatible
 	}
 
 	@Test
@@ -167,10 +205,14 @@ public class SerializableObjectWrapperTest {
 		Assert.assertEquals(
 			_TEST_SERIALIZABLE,
 			SerializableObjectWrapper.unwrap(_TEST_SERIALIZABLE));
+<<<<<<< HEAD
 	}
 
 	@Test
 	public void testWithBrokenClassLoader() throws Exception {
+=======
+
+>>>>>>> compatible
 		ClassLoaderPool.unregister(ClassLoaderPool.class.getClassLoader());
 
 		Thread currentThread = Thread.currentThread();
@@ -199,14 +241,18 @@ public class SerializableObjectWrapperTest {
 				JDKLoggerTestUtil.configureJDKLogger(
 					SerializableObjectWrapper.class.getName(), Level.ALL)) {
 
+<<<<<<< HEAD
 			// Test unwrap
 
+=======
+>>>>>>> compatible
 			List<LogRecord> logRecords = captureHandler.getLogRecords();
 
 			Assert.assertNull(
 				SerializableObjectWrapper.unwrap(
 					_getDeserializedObject(_testSerializableObjectWrapper)));
 
+<<<<<<< HEAD
 			_assertLogAndClear(logRecords, cnfe);
 
 			// Test equals
@@ -216,6 +262,15 @@ public class SerializableObjectWrapperTest {
 			// Test hash code
 
 			_testHashCode();
+=======
+			Assert.assertEquals(logRecords.toString(), 1, logRecords.size());
+
+			LogRecord logRecord = logRecords.get(0);
+
+			Assert.assertEquals(
+				"Unable to deserialize object", logRecord.getMessage());
+			Assert.assertSame(cnfe, logRecord.getThrown());
+>>>>>>> compatible
 		}
 		finally {
 			currentThread.setContextClassLoader(contextClassLoader);
@@ -231,6 +286,7 @@ public class SerializableObjectWrapperTest {
 			deserializedObject, _getDeserializedObject(deserializedObject));
 	}
 
+<<<<<<< HEAD
 	private void _assertLogAndClear(
 		List<LogRecord> logRecords, ClassNotFoundException cnfe) {
 
@@ -245,6 +301,8 @@ public class SerializableObjectWrapperTest {
 		logRecords.clear();
 	}
 
+=======
+>>>>>>> compatible
 	private SerializableObjectWrapper _getDeserializedObject(
 			SerializableObjectWrapper serializableObjectWrapper)
 		throws Exception {
@@ -266,6 +324,7 @@ public class SerializableObjectWrapperTest {
 		}
 	}
 
+<<<<<<< HEAD
 	private void _testEquals() throws Exception {
 		Assert.assertFalse(
 			_testSerializableObjectWrapper.equals(_TEST_SERIALIZABLE));
@@ -357,6 +416,14 @@ public class SerializableObjectWrapperTest {
 
 	}
 
+=======
+	private static final TestSerializable _TEST_SERIALIZABLE =
+		new TestSerializable("_TEST_SERIALIZABLE");
+
+	private final SerializableObjectWrapper _testSerializableObjectWrapper =
+		new SerializableObjectWrapper(_TEST_SERIALIZABLE);
+
+>>>>>>> compatible
 	private static class TestSerializable implements Serializable {
 
 		@Override

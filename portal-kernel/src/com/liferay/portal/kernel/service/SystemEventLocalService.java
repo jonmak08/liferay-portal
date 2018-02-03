@@ -76,8 +76,11 @@ public interface SystemEventLocalService extends BaseLocalService,
 	@Indexable(type = IndexableType.REINDEX)
 	public SystemEvent addSystemEvent(SystemEvent systemEvent);
 
+<<<<<<< HEAD
 	public void checkSystemEvents() throws PortalException;
 
+=======
+>>>>>>> compatible
 	/**
 	* Creates a new system event with the primary key. Does not add the system event to the database.
 	*
@@ -250,6 +253,9 @@ public interface SystemEventLocalService extends BaseLocalService,
 	*/
 	@Indexable(type = IndexableType.REINDEX)
 	public SystemEvent updateSystemEvent(SystemEvent systemEvent);
+<<<<<<< HEAD
 
 	public boolean validateGroup(long groupId) throws PortalException;
+=======
+>>>>>>> compatible
 }

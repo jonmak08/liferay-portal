@@ -230,7 +230,11 @@ public class FIFOUtilTest {
 				System.setProperty("java.io.tmpdir", oldTmpDirName);
 			}
 
+<<<<<<< HEAD
 			Assert.assertTrue(logRecords.toString(), logRecords.isEmpty());
+=======
+			Assert.assertTrue(logRecords.isEmpty());
+>>>>>>> compatible
 		}
 	}
 

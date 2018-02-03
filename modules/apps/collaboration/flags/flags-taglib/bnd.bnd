@@ -1,13 +1,19 @@
 Bundle-Name: Liferay Flags Taglib
 Bundle-SymbolicName: com.liferay.flags.taglib
+<<<<<<< HEAD
 Bundle-Version: 2.1.0
 Export-Package:\
 	com.liferay.flags.taglib.servlet.taglib,\
 	com.liferay.flags.taglib.servlet.taglib.soy
+=======
+Bundle-Version: 2.0.7
+Export-Package: com.liferay.flags.taglib.servlet.taglib
+>>>>>>> compatible
 Provide-Capability:\
 	osgi.extender;\
 		osgi.extender="jsp.taglib";\
 		uri="http://liferay.com/tld/flags";\
+<<<<<<< HEAD
 		version:Version="${Bundle-Version}",\
 	soy;\
 		type="flags-taglib";\
@@ -15,4 +21,7 @@ Provide-Capability:\
 Require-Capability:\
 	osgi.extender;\
 		filter:="(&(osgi.extender=liferay.js)(version>=1.0)(!(version>=2.0)))"
+=======
+		version:Version="${Bundle-Version}"
+>>>>>>> compatible
 Web-ContextPath: /flags-taglib

@@ -14,7 +14,11 @@
 
 package com.liferay.portal.kernel.deploy.hot;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
+=======
+import com.liferay.portal.kernel.util.AutoResetThreadLocal;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
@@ -41,7 +45,11 @@ public class DependencyManagementThreadLocal {
 					PropsKeys.HOT_DEPLOY_DEPENDENCY_MANAGEMENT_ENABLED),
 				true)) {
 
+<<<<<<< HEAD
 			_enabled = new CentralizedThreadLocal<>(
+=======
+			_enabled = new AutoResetThreadLocal<>(
+>>>>>>> compatible
 				DependencyManagementThreadLocal.class + ".enabled",
 				() -> Boolean.TRUE);
 		}

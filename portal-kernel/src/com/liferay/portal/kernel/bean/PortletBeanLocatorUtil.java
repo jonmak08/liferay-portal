@@ -17,7 +17,10 @@ package com.liferay.portal.kernel.bean;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 
 import java.util.HashMap;
 import java.util.Map;
@@ -61,10 +64,15 @@ public class PortletBeanLocatorUtil {
 		if (_log.isDebugEnabled()) {
 			if (beanLocator != null) {
 				_log.debug(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Setting BeanLocator ",
 						String.valueOf(beanLocator.hashCode()),
 						" for servlet context ", servletContextName));
+=======
+					"Setting BeanLocator " + beanLocator.hashCode() +
+						" for servlet context " + servletContextName);
+>>>>>>> compatible
 			}
 			else {
 				_log.debug(

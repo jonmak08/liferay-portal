@@ -225,7 +225,11 @@ if (!resultRowSplitterEntries.isEmpty()) {
 					}
 				%>
 
+<<<<<<< HEAD
 					<tr class="<%= GetterUtil.getString(row.getClassName()) %> <%= row.getCssClass() %> <%= row.getState() %> <%= rowIsChecked ? "active" : StringPool.BLANK %>" data-qa-id="row" <%= AUIUtil.buildData(data) %>>
+=======
+					<tr class="<%= GetterUtil.getString(row.getClassName()) %> <%= row.getCssClass() %> <%= row.getState() %> <%= rowIsChecked ? "info" : StringPool.BLANK %>" data-qa-id="row" <%= AUIUtil.buildData(data) %>>
+>>>>>>> compatible
 
 						<%
 						for (int j = 0; j < entries.size(); j++) {

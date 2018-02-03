@@ -15,7 +15,10 @@
 package com.liferay.portal.search.elasticsearch.internal.index;
 
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.json.JSONFactory;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.MapUtil;
@@ -171,7 +174,11 @@ public class CompanyIndexFactory implements IndexFactory {
 			indicesAdminClient.prepareCreate(indexName);
 
 		LiferayDocumentTypeFactory liferayDocumentTypeFactory =
+<<<<<<< HEAD
 			new LiferayDocumentTypeFactory(indicesAdminClient, jsonFactory);
+=======
+			new LiferayDocumentTypeFactory(indicesAdminClient);
+>>>>>>> compatible
 
 		addTypeMappings(createIndexRequestBuilder);
 		setSettings(createIndexRequestBuilder, liferayDocumentTypeFactory);
@@ -327,9 +334,12 @@ public class CompanyIndexFactory implements IndexFactory {
 	@Reference
 	protected IndexNameBuilder indexNameBuilder;
 
+<<<<<<< HEAD
 	@Reference
 	protected JSONFactory jsonFactory;
 
+=======
+>>>>>>> compatible
 	private static final String _TYPE_MAPPINGS_PREFIX = "typeMappings.";
 
 	private static final Log _log = LogFactoryUtil.getLog(

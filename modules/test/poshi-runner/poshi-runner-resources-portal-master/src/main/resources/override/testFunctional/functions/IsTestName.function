@@ -2,6 +2,10 @@
 	<command name="isTestName">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.IsTestName#isTestName" />
+=======
+		<super />
+>>>>>>> compatible
 	</command>
 </definition>

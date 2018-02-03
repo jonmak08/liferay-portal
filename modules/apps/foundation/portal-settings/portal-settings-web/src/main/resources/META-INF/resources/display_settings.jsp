@@ -54,8 +54,11 @@
 
 	</aui:select>
 
+<<<<<<< HEAD
 	<div id="<portlet:namespace />languageWarning"></div>
 
+=======
+>>>>>>> compatible
 	<aui:fieldset cssClass="available-languages" label="available-languages">
 
 		<%
@@ -177,6 +180,7 @@
 			<aui:option label='<%= defaultControlPanelThemeId + "(" + LanguageUtil.get(request, "undeployed") + ")" %>' selected="<%= true %>" value="<%= defaultControlPanelThemeId %>" />
 		</c:if>
 	</aui:select>
+<<<<<<< HEAD
 </aui:fieldset>
 
 <aui:script use="aui-base,aui-alert">
@@ -200,3 +204,6 @@
 		);
 	}
 </aui:script>
+=======
+</aui:fieldset>
+>>>>>>> compatible

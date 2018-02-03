@@ -1,6 +1,10 @@
 AUI.add(
 	'liferay-ddm-form-renderer',
 	function(A) {
+<<<<<<< HEAD
+=======
+		var AArray = A.Array;
+>>>>>>> compatible
 		var Renderer = Liferay.DDM.Renderer;
 
 		var TPL_CONTAINER = '<div class="lfr-ddm-form-container"></div>';
@@ -8,10 +12,13 @@ AUI.add(
 		var Form = A.Component.create(
 			{
 				ATTRS: {
+<<<<<<< HEAD
 					builder: {
 						value: {}
 					},
 
+=======
+>>>>>>> compatible
 					container: {
 						setter: A.one,
 						valueFn: '_valueContainer'
@@ -21,27 +28,45 @@ AUI.add(
 						value: ''
 					},
 
+<<<<<<< HEAD
 					enableEvaluations: {
 						value: true
 					},
 
+=======
+>>>>>>> compatible
 					portletNamespace: {
 						value: ''
 					},
 
+<<<<<<< HEAD
+=======
+					readOnlyFields: {
+						value: []
+					},
+
+>>>>>>> compatible
 					strings: {
 						value: {
 							next: Liferay.Language.get('next'),
 							previous: Liferay.Language.get('previous'),
+<<<<<<< HEAD
 							requestErrorMessage: Liferay.Language.get('there-was-an-error-when-trying-to-validate-your-form'),
 							requiredFields: Liferay.Language.get('all-fields-marked-with-x-are-required')
+=======
+							requestErrorMessage: Liferay.Language.get('there-was-an-error-when-trying-to-validate-your-form')
+>>>>>>> compatible
 						}
 					}
 				},
 
 				AUGMENTS: [
+<<<<<<< HEAD
 					Renderer.FormContextSupport,
 					Renderer.FormEvaluationSupport,
+=======
+					Renderer.FormDefinitionSupport,
+>>>>>>> compatible
 					Renderer.FormFeedbackSupport,
 					Renderer.FormPaginationSupport,
 					Renderer.FormTabsSupport,
@@ -82,6 +107,7 @@ AUI.add(
 						(new A.EventHandle(instance._eventHandlers)).detach();
 					},
 
+<<<<<<< HEAD
 					getEvaluationPayload: function() {
 						var instance = this;
 
@@ -116,6 +142,8 @@ AUI.add(
 						return formNode.getData('DDMFormInstanceId');
 					},
 
+=======
+>>>>>>> compatible
 					getFormNode: function() {
 						var instance = this;
 
@@ -134,6 +162,7 @@ AUI.add(
 						return (formNode || container).one('[type="submit"]');
 					},
 
+<<<<<<< HEAD
 					hasFocus: function() {
 						var instance = this;
 
@@ -152,6 +181,8 @@ AUI.add(
 						return hasFocus || container.contains(document.activeElement);
 					},
 
+=======
+>>>>>>> compatible
 					submit: function() {
 						var instance = this;
 
@@ -171,7 +202,19 @@ AUI.add(
 					toJSON: function() {
 						var instance = this;
 
+<<<<<<< HEAD
 						return instance.get('context');
+=======
+						var definition = instance.get('definition');
+
+						var defaultLanguageId = definition.defaultLanguageId;
+
+						return {
+							availableLanguageIds: [defaultLanguageId],
+							defaultLanguageId: defaultLanguageId,
+							fieldValues: AArray.invoke(instance.getImmediateFields(), 'toJSON')
+						};
+>>>>>>> compatible
 					},
 
 					_afterFormRender: function() {
@@ -188,6 +231,7 @@ AUI.add(
 						if (submitButton) {
 							submitButton.attr('disabled', false);
 						}
+<<<<<<< HEAD
 
 						var container = instance.get('container');
 
@@ -197,6 +241,8 @@ AUI.add(
 								containerId: container.get('id')
 							}
 						);
+=======
+>>>>>>> compatible
 					},
 
 					_onLiferaySubmitForm: function(event) {
@@ -236,6 +282,10 @@ AUI.add(
 	},
 	'',
 	{
+<<<<<<< HEAD
 		requires: ['aui-component', 'liferay-ddm-form-renderer-context', 'liferay-ddm-form-renderer-evaluation', 'liferay-ddm-form-renderer-feedback', 'liferay-ddm-form-renderer-nested-fields', 'liferay-ddm-form-renderer-pagination', 'liferay-ddm-form-renderer-tabs', 'liferay-ddm-form-renderer-template', 'liferay-ddm-form-renderer-validation', 'liferay-ddm-soy-template-util']
+=======
+		requires: ['aui-component', 'liferay-ddm-form-renderer-definition', 'liferay-ddm-form-renderer-feedback', 'liferay-ddm-form-renderer-nested-fields', 'liferay-ddm-form-renderer-pagination', 'liferay-ddm-form-renderer-tabs', 'liferay-ddm-form-renderer-template', 'liferay-ddm-form-renderer-validation', 'liferay-ddm-form-soy']
+>>>>>>> compatible
 	}
 );

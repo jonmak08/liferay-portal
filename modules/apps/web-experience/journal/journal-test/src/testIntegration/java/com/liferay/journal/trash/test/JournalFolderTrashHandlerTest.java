@@ -26,6 +26,7 @@ import com.liferay.portal.kernel.model.ClassedModel;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
@@ -35,6 +36,17 @@ import com.liferay.registry.Registry;
 import com.liferay.registry.RegistryUtil;
 import com.liferay.registry.ServiceTracker;
 import com.liferay.trash.TrashHelper;
+=======
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+import com.liferay.portal.kernel.test.util.RandomTestUtil;
+import com.liferay.portal.kernel.test.util.TestPropsValues;
+import com.liferay.portal.kernel.util.PortalRunMode;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.portal.service.test.ServiceTestUtil;
+import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+import com.liferay.trash.kernel.util.TrashUtil;
+>>>>>>> compatible
 import com.liferay.trash.test.util.BaseTrashHandlerTestCase;
 import com.liferay.trash.test.util.DefaultWhenIsAssetable;
 import com.liferay.trash.test.util.DefaultWhenIsIndexableBaseModel;
@@ -49,9 +61,14 @@ import com.liferay.trash.test.util.WhenIsRestorableBaseModel;
 import com.liferay.trash.test.util.WhenIsUpdatableBaseModel;
 import com.liferay.trash.test.util.WhenParentModelIsSameType;
 
+<<<<<<< HEAD
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+=======
+import org.junit.After;
+import org.junit.Before;
+>>>>>>> compatible
 import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.runner.RunWith;
@@ -60,6 +77,10 @@ import org.junit.runner.RunWith;
  * @author Eudaldo Alonso
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class JournalFolderTrashHandlerTest
 	extends BaseTrashHandlerTestCase
 	implements WhenCanBeDuplicatedInTrash, WhenHasGrandParent,
@@ -71,6 +92,7 @@ public class JournalFolderTrashHandlerTest
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
 
 	@BeforeClass
@@ -86,6 +108,11 @@ public class JournalFolderTrashHandlerTest
 	public static void tearDownClass() {
 		_serviceTracker.close();
 	}
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Override
 	public AssetEntry fetchAssetEntry(ClassedModel classedModel)
@@ -158,13 +185,29 @@ public class JournalFolderTrashHandlerTest
 	@Before
 	@Override
 	public void setUp() throws Exception {
+<<<<<<< HEAD
 		ServiceTestUtil.setUser(TestPropsValues.getUser());
 
 		_trashHelper = _serviceTracker.getService();
+=======
+		_testMode = PortalRunMode.isTestMode();
+
+		PortalRunMode.setTestMode(true);
+
+		ServiceTestUtil.setUser(TestPropsValues.getUser());
+>>>>>>> compatible
 
 		super.setUp();
 	}
 
+<<<<<<< HEAD
+=======
+	@After
+	public void tearDown() throws Exception {
+		PortalRunMode.setTestMode(_testMode);
+	}
+
+>>>>>>> compatible
 	@Override
 	public BaseModel<?> updateBaseModel(
 			long primaryKey, ServiceContext serviceContext)
@@ -267,7 +310,11 @@ public class JournalFolderTrashHandlerTest
 
 		String name = folder.getName();
 
+<<<<<<< HEAD
 		return _trashHelper.getOriginalTitle(name);
+=======
+		return TrashUtil.getOriginalTitle(name);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -279,9 +326,13 @@ public class JournalFolderTrashHandlerTest
 
 	private static final int _FOLDER_NAME_MAX_LENGTH = 100;
 
+<<<<<<< HEAD
 	private static ServiceTracker<TrashHelper, TrashHelper> _serviceTracker;
 
 	private TrashHelper _trashHelper;
+=======
+	private boolean _testMode;
+>>>>>>> compatible
 	private final WhenIsAssetable _whenIsAssetable =
 		new DefaultWhenIsAssetable();
 	private final WhenIsIndexableBaseModel _whenIsIndexableBaseModel =

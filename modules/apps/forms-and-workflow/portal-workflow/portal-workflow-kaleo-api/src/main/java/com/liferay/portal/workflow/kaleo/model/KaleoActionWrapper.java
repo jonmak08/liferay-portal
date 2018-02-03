@@ -67,7 +67,11 @@ public class KaleoActionWrapper implements KaleoAction,
 		attributes.put("modifiedDate", getModifiedDate());
 		attributes.put("kaleoClassName", getKaleoClassName());
 		attributes.put("kaleoClassPK", getKaleoClassPK());
+<<<<<<< HEAD
 		attributes.put("kaleoDefinitionVersionId", getKaleoDefinitionVersionId());
+=======
+		attributes.put("kaleoDefinitionId", getKaleoDefinitionId());
+>>>>>>> compatible
 		attributes.put("kaleoNodeName", getKaleoNodeName());
 		attributes.put("name", getName());
 		attributes.put("description", getDescription());
@@ -136,11 +140,18 @@ public class KaleoActionWrapper implements KaleoAction,
 			setKaleoClassPK(kaleoClassPK);
 		}
 
+<<<<<<< HEAD
 		Long kaleoDefinitionVersionId = (Long)attributes.get(
 				"kaleoDefinitionVersionId");
 
 		if (kaleoDefinitionVersionId != null) {
 			setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
+=======
+		Long kaleoDefinitionId = (Long)attributes.get("kaleoDefinitionId");
+
+		if (kaleoDefinitionId != null) {
+			setKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 		}
 
 		String kaleoNodeName = (String)attributes.get("kaleoNodeName");
@@ -289,6 +300,7 @@ public class KaleoActionWrapper implements KaleoAction,
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns the kaleo definition version ID of this kaleo action.
 	*
 	* @return the kaleo definition version ID of this kaleo action
@@ -296,6 +308,15 @@ public class KaleoActionWrapper implements KaleoAction,
 	@Override
 	public long getKaleoDefinitionVersionId() {
 		return _kaleoAction.getKaleoDefinitionVersionId();
+=======
+	* Returns the kaleo definition ID of this kaleo action.
+	*
+	* @return the kaleo definition ID of this kaleo action
+	*/
+	@Override
+	public long getKaleoDefinitionId() {
+		return _kaleoAction.getKaleoDefinitionId();
+>>>>>>> compatible
 	}
 
 	/**
@@ -540,6 +561,7 @@ public class KaleoActionWrapper implements KaleoAction,
 	}
 
 	/**
+<<<<<<< HEAD
 	* Sets the kaleo definition version ID of this kaleo action.
 	*
 	* @param kaleoDefinitionVersionId the kaleo definition version ID of this kaleo action
@@ -547,6 +569,15 @@ public class KaleoActionWrapper implements KaleoAction,
 	@Override
 	public void setKaleoDefinitionVersionId(long kaleoDefinitionVersionId) {
 		_kaleoAction.setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
+=======
+	* Sets the kaleo definition ID of this kaleo action.
+	*
+	* @param kaleoDefinitionId the kaleo definition ID of this kaleo action
+	*/
+	@Override
+	public void setKaleoDefinitionId(long kaleoDefinitionId) {
+		_kaleoAction.setKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 	/**

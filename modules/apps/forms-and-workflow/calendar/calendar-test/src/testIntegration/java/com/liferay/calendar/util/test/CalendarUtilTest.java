@@ -15,6 +15,7 @@
 package com.liferay.calendar.util.test;
 
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
+<<<<<<< HEAD
 import com.liferay.calendar.model.Calendar;
 import com.liferay.calendar.model.CalendarBooking;
 import com.liferay.calendar.recurrence.Recurrence;
@@ -23,6 +24,10 @@ import com.liferay.calendar.service.CalendarBookingLocalServiceUtil;
 import com.liferay.calendar.test.util.CalendarBookingTestUtil;
 import com.liferay.calendar.test.util.CalendarTestUtil;
 import com.liferay.calendar.test.util.RecurrenceTestUtil;
+=======
+import com.liferay.calendar.model.CalendarBooking;
+import com.liferay.calendar.test.util.CalendarBookingTestUtil;
+>>>>>>> compatible
 import com.liferay.calendar.util.CalendarUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.json.JSONArray;
@@ -31,6 +36,7 @@ import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.PermissionCheckerFactoryUtil;
 import com.liferay.portal.kernel.security.permission.PermissionThreadLocal;
 import com.liferay.portal.kernel.service.CompanyLocalServiceUtil;
@@ -39,13 +45,24 @@ import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
+=======
+import com.liferay.portal.kernel.security.permission.PermissionThreadLocal;
+import com.liferay.portal.kernel.service.CompanyLocalServiceUtil;
+import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+import com.liferay.portal.kernel.test.util.GroupTestUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.UserTestUtil;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.TimeZoneUtil;
+<<<<<<< HEAD
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.SynchronousMailTestRule;
+=======
+import com.liferay.portal.security.permission.SimplePermissionChecker;
+import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+>>>>>>> compatible
 
 import java.util.HashSet;
 import java.util.List;
@@ -67,9 +84,14 @@ public class CalendarUtilTest {
 
 	@ClassRule
 	@Rule
+<<<<<<< HEAD
 	public static final AggregateTestRule aggregateTestRule =
 		new AggregateTestRule(
 			new LiferayIntegrationTestRule(), SynchronousMailTestRule.INSTANCE);
+=======
+	public static final LiferayIntegrationTestRule liferayIntegrationTestRuel =
+		new LiferayIntegrationTestRule();
+>>>>>>> compatible
 
 	@Before
 	public void setUp() throws Exception {
@@ -80,7 +102,11 @@ public class CalendarUtilTest {
 		_permissionChecker = PermissionThreadLocal.getPermissionChecker();
 
 		PermissionThreadLocal.setPermissionChecker(
+<<<<<<< HEAD
 			PermissionCheckerFactoryUtil.create(_user));
+=======
+			new SimplePermissionChecker());
+>>>>>>> compatible
 	}
 
 	@After
@@ -89,6 +115,7 @@ public class CalendarUtilTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testToCalendarBookingJSONObjectSendLastInstanceRecurrenceWithAllFollowingInstanceFromChildRecurringInstance()
 		throws Exception {
 
@@ -187,6 +214,8 @@ public class CalendarUtilTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testToCalendarBookingsJSONArray() throws Exception {
 		CalendarBooking approved =
 			CalendarBookingTestUtil.addPublishedCalendarBooking(_user);
@@ -219,6 +248,7 @@ public class CalendarUtilTest {
 			excpectedCalendarBookingIds, actualCalendarBookingIds);
 	}
 
+<<<<<<< HEAD
 	protected void assertRepeatsForever(Recurrence recurrence) {
 		Assert.assertNotNull(recurrence);
 
@@ -237,6 +267,8 @@ public class CalendarUtilTest {
 		return serviceContext;
 	}
 
+=======
+>>>>>>> compatible
 	protected ThemeDisplay createThemeDisplay() throws PortalException {
 		ThemeDisplay themeDisplay = new ThemeDisplay();
 
@@ -257,6 +289,7 @@ public class CalendarUtilTest {
 		return themeDisplay;
 	}
 
+<<<<<<< HEAD
 	protected CalendarBooking getCalendarBookingChildAllFollowingInstnace()
 		throws PortalException {
 
@@ -292,6 +325,8 @@ public class CalendarUtilTest {
 		return calendarBookingInstance;
 	}
 
+=======
+>>>>>>> compatible
 	protected Set<Long> getCalendarBookingIds(JSONArray jsonArray) {
 		Set<Long> calendarBookingIds = new HashSet<>();
 
@@ -328,9 +363,12 @@ public class CalendarUtilTest {
 	private PermissionChecker _permissionChecker;
 
 	@DeleteAfterTestRun
+<<<<<<< HEAD
 	private User _privateUser;
 
 	@DeleteAfterTestRun
+=======
+>>>>>>> compatible
 	private User _user;
 
 }

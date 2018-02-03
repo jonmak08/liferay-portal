@@ -2,7 +2,11 @@
 	<var name="dmDocumentTypeName" value="Basic Document" />
 
 	<command name="gotoAddDocumentType">
+<<<<<<< HEAD
 		<execute macro="LexiconEntry#gotoAdd" />
+=======
+		<execute function="Click" locator1="Button#PLUS" />
+>>>>>>> compatible
 
 		<var name="key_dmDocumentTypeName" value="${dmDocumentTypeName}" />
 
@@ -14,7 +18,11 @@
 	<command name="gotoAddRepositoryCP">
 		<execute function="AssertVisible" locator1="Button#PLUS" />
 
+<<<<<<< HEAD
 		<execute macro="LexiconEntry#gotoAdd" />
+=======
+		<execute function="Click" locator1="Button#PLUS" />
+>>>>>>> compatible
 
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Repository">
 			<var name="key_menuItem" value="Repository" />
@@ -38,9 +46,23 @@
 	</command>
 
 	<command name="gotoDocumentCP">
+<<<<<<< HEAD
 		<execute macro="LexiconEntry#gotoEntry">
 			<var name="rowEntry" value="${dmDocumentTitle}" />
 		</execute>
+=======
+		<var name="key_dmDocumentTitle" value="${dmDocumentTitle}" />
+
+		<if>
+			<condition function="IsElementPresent" locator1="Icon#DISPLAY_STYLE_DESCRIPTIVE_ACTIVE" />
+			<then>
+				<execute function="AssertClick" locator1="DocumentsAndMedia#DESCRIPTIVE_LIST_DOCUMENT_TITLE" value1="${dmDocumentTitle}" />
+			</then>
+			<else>
+				<execute function="AssertClick" locator1="DocumentsAndMedia#ICON_DOCUMENT_TITLE_LINK" value1="${dmDocumentTitle}" />
+			</else>
+		</if>
+>>>>>>> compatible
 	</command>
 
 	<command name="gotoDocumentDetails">
@@ -68,7 +90,15 @@
 	</command>
 
 	<command name="gotoDocumentType">
+<<<<<<< HEAD
 		<execute function="AssertClick" locator1="NavBar#DOCUMENT_TYPES" value1="Document Types" />
+=======
+		<execute function="Click" locator1="Icon#HEADER_VERTICAL_ELLIPSIS" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Document Types">
+			<var name="key_menuItem" value="Document Types" />
+		</execute>
+>>>>>>> compatible
 	</command>
 
 	<command name="gotoDocumentVersion">
@@ -79,6 +109,19 @@
 		</execute>
 	</command>
 
+<<<<<<< HEAD
+=======
+	<command name="gotoEditDocument">
+		<var name="key_dmDocumentTitle" value="${dmDocumentTitle}" />
+
+		<execute function="Click" locator1="DocumentsAndMedia#ICON_DOCUMENT_VERTICAL_ELLIPSIS" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Edit">
+			<var name="key_menuItem" value="Edit" />
+		</execute>
+	</command>
+
+>>>>>>> compatible
 	<command name="gotoFolder">
 		<var name="key_dmFolderName" value="${dmFolderName}" />
 
@@ -104,7 +147,19 @@
 	</command>
 
 	<command name="gotoMetadataSets">
+<<<<<<< HEAD
 		<execute function="AssertClick" locator1="NavBar#METADATA_SETS" value1="Metadata Sets" />
+=======
+		<execute function="Click" locator1="Icon#HEADER_VERTICAL_ELLIPSIS" />
+
+		<execute function="AssertElementPresent" locator1="MenuItem#ANY_MENU_ITEM" value1="Metadata Sets">
+			<var name="key_menuItem" value="Metadata Sets" />
+		</execute>
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Metadata Sets">
+			<var name="key_menuItem" value="Metadata Sets" />
+		</execute>
+>>>>>>> compatible
 	</command>
 
 	<command name="gotoRelatedAssetPG">

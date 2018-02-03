@@ -21,6 +21,10 @@ import com.liferay.marketplace.model.Module;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -88,7 +92,11 @@ public class ModuleCacheModel implements CacheModel<Module>, Externalizable {
 		ModuleImpl moduleImpl = new ModuleImpl();
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			moduleImpl.setUuid("");
+=======
+			moduleImpl.setUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			moduleImpl.setUuid(uuid);
@@ -99,21 +107,33 @@ public class ModuleCacheModel implements CacheModel<Module>, Externalizable {
 		moduleImpl.setAppId(appId);
 
 		if (bundleSymbolicName == null) {
+<<<<<<< HEAD
 			moduleImpl.setBundleSymbolicName("");
+=======
+			moduleImpl.setBundleSymbolicName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			moduleImpl.setBundleSymbolicName(bundleSymbolicName);
 		}
 
 		if (bundleVersion == null) {
+<<<<<<< HEAD
 			moduleImpl.setBundleVersion("");
+=======
+			moduleImpl.setBundleVersion(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			moduleImpl.setBundleVersion(bundleVersion);
 		}
 
 		if (contextName == null) {
+<<<<<<< HEAD
 			moduleImpl.setContextName("");
+=======
+			moduleImpl.setContextName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			moduleImpl.setContextName(contextName);
@@ -142,7 +162,11 @@ public class ModuleCacheModel implements CacheModel<Module>, Externalizable {
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		if (uuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(uuid);
@@ -155,21 +179,33 @@ public class ModuleCacheModel implements CacheModel<Module>, Externalizable {
 		objectOutput.writeLong(appId);
 
 		if (bundleSymbolicName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(bundleSymbolicName);
 		}
 
 		if (bundleVersion == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(bundleVersion);
 		}
 
 		if (contextName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(contextName);

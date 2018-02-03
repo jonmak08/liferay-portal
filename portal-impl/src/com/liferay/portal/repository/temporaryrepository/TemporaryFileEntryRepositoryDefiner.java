@@ -23,7 +23,15 @@ import com.liferay.portal.kernel.repository.capabilities.WorkflowCapability;
 import com.liferay.portal.kernel.repository.registry.BaseRepositoryDefiner;
 import com.liferay.portal.kernel.repository.registry.CapabilityRegistry;
 import com.liferay.portal.kernel.repository.registry.RepositoryFactoryRegistry;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ServiceProxyFactory;
+=======
+import com.liferay.portal.repository.capabilities.LiferayBulkOperationCapability;
+import com.liferay.portal.repository.capabilities.MinimalWorkflowCapability;
+import com.liferay.portal.repository.capabilities.TemporaryFileEntriesCapabilityImpl;
+import com.liferay.portal.repository.capabilities.util.DLFileEntryServiceAdapter;
+import com.liferay.portal.repository.capabilities.util.DLFolderServiceAdapter;
+>>>>>>> compatible
 
 /**
  * @author Iván Zaera
@@ -49,10 +57,20 @@ public class TemporaryFileEntryRepositoryDefiner extends BaseRepositoryDefiner {
 
 		DocumentRepository documentRepository = capabilityRegistry.getTarget();
 
+		DLFileEntryServiceAdapter dlFileEntryServiceAdapter =
+			DLFileEntryServiceAdapter.create(documentRepository);
+
 		capabilityRegistry.addExportedCapability(
 			BulkOperationCapability.class,
+<<<<<<< HEAD
 			_portalCapabilityLocator.getBulkOperationCapability(
 				documentRepository));
+=======
+			new LiferayBulkOperationCapability(
+				documentRepository, dlFileEntryServiceAdapter,
+				DLFolderServiceAdapter.create(documentRepository)));
+
+>>>>>>> compatible
 		capabilityRegistry.addExportedCapability(
 			TemporaryFileEntriesCapability.class,
 			_portalCapabilityLocator.getTemporaryFileEntriesCapability(
@@ -60,8 +78,12 @@ public class TemporaryFileEntryRepositoryDefiner extends BaseRepositoryDefiner {
 
 		capabilityRegistry.addSupportedCapability(
 			WorkflowCapability.class,
+<<<<<<< HEAD
 			_portalCapabilityLocator.getWorkflowCapability(
 				documentRepository, WorkflowCapability.OperationMode.MINIMAL));
+=======
+			new MinimalWorkflowCapability(dlFileEntryServiceAdapter));
+>>>>>>> compatible
 	}
 
 	@Override

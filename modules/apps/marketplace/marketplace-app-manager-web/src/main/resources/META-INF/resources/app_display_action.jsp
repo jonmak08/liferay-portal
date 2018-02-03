@@ -77,7 +77,11 @@ String bundleIds = _getBundleIds(appDisplay);
 			<portlet:param name="bundleIds" value="<%= bundleIds %>" />
 		</portlet:actionURL>
 
+<<<<<<< HEAD
 		<liferay-ui:icon-delete message="uninstall" url="<%= uninstallBundlesURL %>" />
+=======
+		<liferay-ui:icon-delete url="<%= uninstallBundlesURL %>" />
+>>>>>>> compatible
 	</c:if>
 </liferay-ui:icon-menu>
 

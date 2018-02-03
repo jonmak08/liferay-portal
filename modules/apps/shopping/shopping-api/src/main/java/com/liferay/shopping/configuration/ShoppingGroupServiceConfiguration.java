@@ -32,6 +32,7 @@ import com.liferay.portal.kernel.settings.LocalizedValuesMap;
 )
 public interface ShoppingGroupServiceConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(
 		deflt = "visa|mastercard|discover|amex", name = "cc-types",
 		required = false
@@ -39,22 +40,37 @@ public interface ShoppingGroupServiceConfiguration {
 	public String[] ccTypes();
 
 	@Meta.AD(deflt = "USD", name = "currency-id", required = false)
+=======
+	@Meta.AD(deflt = "visa|mastercard|discover|amex", required = false)
+	public String[] ccTypes();
+
+	@Meta.AD(deflt = "USD", required = false)
+>>>>>>> compatible
 	public String currencyId();
 
 	@Meta.AD(
 		deflt = "${server-property://com.liferay.portal/admin.email.from.address}",
+<<<<<<< HEAD
 		name = "email-from-address", required = false
+=======
+		required = false
+>>>>>>> compatible
 	)
 	public String emailFromAddress();
 
 	@Meta.AD(
 		deflt = "${server-property://com.liferay.portal/admin.email.from.name}",
+<<<<<<< HEAD
 		name = "email-from-name", required = false
+=======
+		required = false
+>>>>>>> compatible
 	)
 	public String emailFromName();
 
 	@Meta.AD(
 		deflt = "${resource:com/liferay/shopping/dependencies/email_order_confirmation_body.tmpl}",
+<<<<<<< HEAD
 		name = "email-order-confirmation-body", required = false
 	)
 	public LocalizedValuesMap emailOrderConfirmationBody();
@@ -63,16 +79,28 @@ public interface ShoppingGroupServiceConfiguration {
 		deflt = "true", name = "email-order-confirmation-enabled",
 		required = false
 	)
+=======
+		required = false
+	)
+	public LocalizedValuesMap emailOrderConfirmationBody();
+
+	@Meta.AD(deflt = "true", required = false)
+>>>>>>> compatible
 	public boolean emailOrderConfirmationEnabled();
 
 	@Meta.AD(
 		deflt = "${resource:com/liferay/shopping/dependencies/email_order_confirmation_subject.tmpl}",
+<<<<<<< HEAD
 		name = "email-order-confirmation-subject", required = false
+=======
+		required = false
+>>>>>>> compatible
 	)
 	public LocalizedValuesMap emailOrderConfirmationSubject();
 
 	@Meta.AD(
 		deflt = "${resource:com/liferay/shopping/dependencies/email_order_shipping_body.tmpl}",
+<<<<<<< HEAD
 		name = "email-order-shipping-body", required = false
 	)
 	public LocalizedValuesMap emailOrderShippingBody();
@@ -80,10 +108,18 @@ public interface ShoppingGroupServiceConfiguration {
 	@Meta.AD(
 		deflt = "true", name = "email-order-shipping-enabled", required = false
 	)
+=======
+		required = false
+	)
+	public LocalizedValuesMap emailOrderShippingBody();
+
+	@Meta.AD(deflt = "true", required = false)
+>>>>>>> compatible
 	public boolean emailOrderShippingEnabled();
 
 	@Meta.AD(
 		deflt = "${resource:com/liferay/shopping/dependencies/email_order_shipping_subject.tmpl}",
+<<<<<<< HEAD
 		name = "email-order-shipping-subject", required = false
 	)
 	public LocalizedValuesMap emailOrderShippingSubject();
@@ -110,6 +146,34 @@ public interface ShoppingGroupServiceConfiguration {
 	public double taxRate();
 
 	@Meta.AD(deflt = "CA", name = "tax-state", required = false)
+=======
+		required = false
+	)
+	public LocalizedValuesMap emailOrderShippingSubject();
+
+	@Meta.AD(required = false)
+	public String[] insurance();
+
+	@Meta.AD(deflt = "flat", required = false)
+	public String insuranceFormula();
+
+	@Meta.AD(deflt = "0", required = false)
+	public double minOrder();
+
+	@Meta.AD(deflt = " ", required = false)
+	public String paypalEmailAddress();
+
+	@Meta.AD(required = false)
+	public String[] shipping();
+
+	@Meta.AD(deflt = "flat", required = false)
+	public String shippingFormula();
+
+	@Meta.AD(deflt = "0", required = false)
+	public double taxRate();
+
+	@Meta.AD(deflt = "CA", required = false)
+>>>>>>> compatible
 	public String taxState();
 
 }

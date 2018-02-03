@@ -17,10 +17,8 @@ package com.liferay.portal.kernel.util;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
 
 /**
- * @author     Brian Wing Shun Chan
- * @deprecated As of 7.0.0, with no direct replacement
+ * @author Brian Wing Shun Chan
  */
-@Deprecated
 public class HashCodeFactoryUtil {
 
 	public static HashCode getHashCode() {

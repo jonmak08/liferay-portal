@@ -16,13 +16,17 @@ package com.liferay.source.formatter.parser;
 
 import java.util.ArrayList;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Set;
+=======
+>>>>>>> compatible
 
 /**
  * @author Hugo Huijser
  */
 public class JavaSignature {
 
+<<<<<<< HEAD
 	public void addParameter(
 		String parameterName, String parameterType,
 		Set<String> parameterAnnotations, boolean isFinal) {
@@ -30,6 +34,10 @@ public class JavaSignature {
 		_parameters.add(
 			new JavaParameter(
 				parameterName, parameterType, parameterAnnotations, isFinal));
+=======
+	public void addParameter(String parameterName, String parameterType) {
+		_parameters.add(new JavaParameter(parameterName, parameterType));
+>>>>>>> compatible
 	}
 
 	public List<JavaParameter> getParameters() {

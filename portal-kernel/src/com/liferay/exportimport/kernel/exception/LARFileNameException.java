@@ -14,14 +14,20 @@
 
 package com.liferay.exportimport.kernel.exception;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 
 /**
  * @author Eric Min
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class LARFileNameException extends PortalException {
 
 	public LARFileNameException() {

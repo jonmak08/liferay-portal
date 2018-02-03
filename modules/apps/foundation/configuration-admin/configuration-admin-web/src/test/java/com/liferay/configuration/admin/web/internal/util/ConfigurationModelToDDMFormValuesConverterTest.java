@@ -19,11 +19,18 @@ import com.liferay.dynamic.data.mapping.model.DDMForm;
 import com.liferay.dynamic.data.mapping.model.Value;
 import com.liferay.dynamic.data.mapping.storage.DDMFormFieldValue;
 import com.liferay.dynamic.data.mapping.storage.DDMFormValues;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.configuration.metatype.definitions.ExtendedAttributeDefinition;
 import com.liferay.portal.configuration.metatype.definitions.ExtendedObjectClassDefinition;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.language.LanguageImpl;
 
 import java.util.Dictionary;
@@ -319,6 +326,7 @@ public class ConfigurationModelToDDMFormValuesConverterTest extends Mockito {
 
 	protected DDMForm getDDMForm(ConfigurationModel configurationModel) {
 		ConfigurationModelToDDMFormConverter
+<<<<<<< HEAD
 			configurationModelToDDMFormConverter = spy(
 				new ConfigurationModelToDDMFormConverter(
 					configurationModel, _enLocale, new EmptyResourceBundle()));
@@ -328,6 +336,11 @@ public class ConfigurationModelToDDMFormValuesConverterTest extends Mockito {
 		).when(
 			configurationModelToDDMFormConverter
 		).getConfigurationDDMForm();
+=======
+			configurationModelToDDMFormConverter =
+				new ConfigurationModelToDDMFormConverter(
+					configurationModel, _enLocale, new EmptyResourceBundle());
+>>>>>>> compatible
 
 		return configurationModelToDDMFormConverter.getDDMForm();
 	}

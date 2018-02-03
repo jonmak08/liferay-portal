@@ -35,10 +35,13 @@ public class VerticalCardTag extends CardTag {
 		_header = header;
 	}
 
+<<<<<<< HEAD
 	public void setOnClick(String onClick) {
 		_onClick = onClick;
 	}
 
+=======
+>>>>>>> compatible
 	public void setStickerBottom(String stickerBottom) {
 		_stickerBottom = stickerBottom;
 	}
@@ -56,7 +59,10 @@ public class VerticalCardTag extends CardTag {
 		_backgroundImage = true;
 		_footer = null;
 		_header = null;
+<<<<<<< HEAD
 		_onClick = null;
+=======
+>>>>>>> compatible
 		_stickerBottom = null;
 		_subtitle = null;
 		_title = null;
@@ -75,7 +81,10 @@ public class VerticalCardTag extends CardTag {
 			"liferay-frontend:card:backgroundImage", _backgroundImage);
 		request.setAttribute("liferay-frontend:card:footer", _footer);
 		request.setAttribute("liferay-frontend:card:header", _header);
+<<<<<<< HEAD
 		request.setAttribute("liferay-frontend:card:onClick", _onClick);
+=======
+>>>>>>> compatible
 		request.setAttribute(
 			"liferay-frontend:card:stickerBottom", _stickerBottom);
 		request.setAttribute("liferay-frontend:card:subtitle", _subtitle);
@@ -85,7 +94,10 @@ public class VerticalCardTag extends CardTag {
 	private boolean _backgroundImage = true;
 	private String _footer;
 	private String _header;
+<<<<<<< HEAD
 	private String _onClick;
+=======
+>>>>>>> compatible
 	private String _stickerBottom;
 	private String _subtitle;
 	private String _title;

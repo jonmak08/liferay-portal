@@ -4,7 +4,11 @@
 
 		<execute function="AssertClick" locator1="CustomFields#RESOURCE_TABLE_RESOURCE_LINK" value1="${resourceName}" />
 
+<<<<<<< HEAD
 		<execute macro="LexiconEntry#gotoAdd" />
+=======
+		<execute function="Click" locator1="Button#PLUS" />
+>>>>>>> compatible
 
 		<var method="StringUtil#lowerCase('${customFieldName}')" name="customFieldKey" />
 
@@ -54,9 +58,13 @@
 	</command>
 
 	<command name="tearDownCP">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Custom Fields" />
 		</execute>
 
@@ -80,9 +88,13 @@
 					</then>
 				</while>
 
+<<<<<<< HEAD
 				<execute macro="ProductMenu#gotoPortlet">
 					<var name="category" value="Configuration" />
 					<var name="panel" value="Control Panel" />
+=======
+				<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 					<var name="portlet" value="Custom Fields" />
 				</execute>
 			</then>

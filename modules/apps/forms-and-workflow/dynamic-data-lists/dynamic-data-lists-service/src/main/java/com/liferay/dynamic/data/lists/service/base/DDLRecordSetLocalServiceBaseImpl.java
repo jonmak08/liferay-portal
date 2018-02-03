@@ -22,7 +22,10 @@ import com.liferay.dynamic.data.lists.service.persistence.DDLRecordFinder;
 import com.liferay.dynamic.data.lists.service.persistence.DDLRecordPersistence;
 import com.liferay.dynamic.data.lists.service.persistence.DDLRecordSetFinder;
 import com.liferay.dynamic.data.lists.service.persistence.DDLRecordSetPersistence;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.lists.service.persistence.DDLRecordSetVersionPersistence;
+=======
+>>>>>>> compatible
 
 import com.liferay.exportimport.kernel.lar.ExportImportHelperUtil;
 import com.liferay.exportimport.kernel.lar.ManifestSummary;
@@ -699,6 +702,7 @@ public abstract class DDLRecordSetLocalServiceBaseImpl
 		this.workflowDefinitionLinkPersistence = workflowDefinitionLinkPersistence;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Returns the ddl record set version local service.
 	 *
@@ -737,6 +741,8 @@ public abstract class DDLRecordSetLocalServiceBaseImpl
 		this.ddlRecordSetVersionPersistence = ddlRecordSetVersionPersistence;
 	}
 
+=======
+>>>>>>> compatible
 	public void afterPropertiesSet() {
 		persistedModelLocalServiceRegistry.register("com.liferay.dynamic.data.lists.model.DDLRecordSet",
 			ddlRecordSetLocalService);
@@ -817,10 +823,13 @@ public abstract class DDLRecordSetLocalServiceBaseImpl
 	protected com.liferay.portal.kernel.service.WorkflowDefinitionLinkLocalService workflowDefinitionLinkLocalService;
 	@ServiceReference(type = WorkflowDefinitionLinkPersistence.class)
 	protected WorkflowDefinitionLinkPersistence workflowDefinitionLinkPersistence;
+<<<<<<< HEAD
 	@BeanReference(type = com.liferay.dynamic.data.lists.service.DDLRecordSetVersionLocalService.class)
 	protected com.liferay.dynamic.data.lists.service.DDLRecordSetVersionLocalService ddlRecordSetVersionLocalService;
 	@BeanReference(type = DDLRecordSetVersionPersistence.class)
 	protected DDLRecordSetVersionPersistence ddlRecordSetVersionPersistence;
+=======
+>>>>>>> compatible
 	@ServiceReference(type = PersistedModelLocalServiceRegistry.class)
 	protected PersistedModelLocalServiceRegistry persistedModelLocalServiceRegistry;
 }

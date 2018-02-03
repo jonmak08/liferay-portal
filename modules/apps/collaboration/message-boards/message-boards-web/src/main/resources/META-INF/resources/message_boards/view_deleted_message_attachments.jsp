@@ -50,6 +50,7 @@ iteratorURL.setParameter("messageId", String.valueOf(messageId));
 	<portlet:param name="messageId" value="<%= String.valueOf(message.getMessageId()) %>" />
 </portlet:actionURL>
 
+<<<<<<< HEAD
 <%
 String trashEntriesMaxAgeTimeDescription = LanguageUtil.getTimeDescription(locale, trashHelper.getMaxAge(themeDisplay.getScopeGroup()) * Time.MINUTE, true);
 %>
@@ -58,6 +59,12 @@ String trashEntriesMaxAgeTimeDescription = LanguageUtil.getTimeDescription(local
 	confirmMessage="are-you-sure-you-want-to-remove-the-attachments-for-this-message"
 	emptyMessage="remove-the-attachments-for-this-message"
 	infoMessage='<%= LanguageUtil.format(request, "attachments-that-have-been-removed-for-more-than-x-will-be-automatically-deleted", trashEntriesMaxAgeTimeDescription, false) %>'
+=======
+<liferay-trash:empty
+	confirmMessage="are-you-sure-you-want-to-remove-the-attachments-for-this-message"
+	emptyMessage="remove-the-attachments-for-this-message"
+	infoMessage="attachments-that-have-been-removed-for-more-than-x-will-be-automatically-deleted"
+>>>>>>> compatible
 	portletURL="<%= emptyTrashURL.toString() %>"
 	totalEntries="<%= message.getDeletedAttachmentsFileEntriesCount() %>"
 />
@@ -97,7 +104,11 @@ String trashEntriesMaxAgeTimeDescription = LanguageUtil.getTimeDescription(local
 				icon="<%= assetRenderer.getIconCssClass() %>"
 				label="<%= true %>"
 				markupView="lexicon"
+<<<<<<< HEAD
 				message="<%= trashHelper.getOriginalTitle(fileEntry.getTitle()) %>"
+=======
+				message="<%= TrashUtil.getOriginalTitle(fileEntry.getTitle()) %>"
+>>>>>>> compatible
 			/>
 		</liferay-ui:search-container-column-text>
 
@@ -115,4 +126,27 @@ String trashEntriesMaxAgeTimeDescription = LanguageUtil.getTimeDescription(local
 	</liferay-ui:search-container-row>
 
 	<liferay-ui:search-iterator />
+<<<<<<< HEAD
 </liferay-ui:search-container>
+=======
+</liferay-ui:search-container>
+
+<portlet:actionURL name="/message_boards/edit_message_attachments" var="checkEntryURL">
+	<portlet:param name="<%= Constants.CMD %>" value="<%= Constants.CHECK %>" />
+</portlet:actionURL>
+
+<portlet:renderURL var="duplicateEntryURL" windowState="<%= LiferayWindowState.EXCLUSIVE.toString() %>">
+	<portlet:param name="mvcRenderCommandName" value="/message_boards/restore_entry" />
+	<portlet:param name="redirect" value="<%= currentURL %>" />
+</portlet:renderURL>
+
+<aui:script use="liferay-restore-entry">
+	new Liferay.RestoreEntry(
+	{
+			checkEntryURL: '<%= checkEntryURL.toString() %>',
+			duplicateEntryURL: '<%= duplicateEntryURL.toString() %>',
+			namespace: '<portlet:namespace />'
+		}
+	);
+</aui:script>
+>>>>>>> compatible

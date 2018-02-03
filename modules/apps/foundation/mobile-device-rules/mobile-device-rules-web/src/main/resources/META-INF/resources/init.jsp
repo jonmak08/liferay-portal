@@ -46,6 +46,12 @@ page import="com.liferay.mobile.device.rules.service.MDRRuleGroupInstanceLocalSe
 page import="com.liferay.mobile.device.rules.service.MDRRuleGroupInstanceServiceUtil" %><%@
 page import="com.liferay.mobile.device.rules.service.MDRRuleGroupLocalServiceUtil" %><%@
 page import="com.liferay.mobile.device.rules.service.MDRRuleLocalServiceUtil" %><%@
+<<<<<<< HEAD
+=======
+page import="com.liferay.mobile.device.rules.service.permission.MDRPermission" %><%@
+page import="com.liferay.mobile.device.rules.service.permission.MDRRuleGroupInstancePermission" %><%@
+page import="com.liferay.mobile.device.rules.service.permission.MDRRuleGroupPermission" %><%@
+>>>>>>> compatible
 page import="com.liferay.mobile.device.rules.util.comparator.RuleCreateDateComparator" %><%@
 page import="com.liferay.mobile.device.rules.util.comparator.RuleGroupInstancePriorityComparator" %><%@
 page import="com.liferay.mobile.device.rules.web.internal.constants.MDRWebKeys" %><%@
@@ -54,10 +60,13 @@ page import="com.liferay.mobile.device.rules.web.internal.search.RuleGroupChecke
 page import="com.liferay.mobile.device.rules.web.internal.search.RuleGroupDisplayTerms" %><%@
 page import="com.liferay.mobile.device.rules.web.internal.search.RuleGroupSearch" %><%@
 page import="com.liferay.mobile.device.rules.web.internal.search.RuleGroupSearchTerms" %><%@
+<<<<<<< HEAD
 page import="com.liferay.mobile.device.rules.web.internal.security.permission.resource.MDRPermission" %><%@
 page import="com.liferay.mobile.device.rules.web.internal.security.permission.resource.MDRRuleGroupInstancePermission" %><%@
 page import="com.liferay.mobile.device.rules.web.internal.security.permission.resource.MDRRuleGroupPermission" %><%@
 page import="com.liferay.petra.string.StringPool" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.bean.BeanParamUtil" %><%@
 page import="com.liferay.portal.kernel.dao.orm.QueryUtil" %><%@
 page import="com.liferay.portal.kernel.dao.search.ResultRow" %><%@
@@ -91,6 +100,10 @@ page import="com.liferay.portal.kernel.util.ListUtil" %><%@
 page import="com.liferay.portal.kernel.util.OrderByComparator" %><%@
 page import="com.liferay.portal.kernel.util.ParamUtil" %><%@
 page import="com.liferay.portal.kernel.util.SetUtil" %><%@
+<<<<<<< HEAD
+=======
+page import="com.liferay.portal.kernel.util.StringPool" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.util.StringUtil" %><%@
 page import="com.liferay.portal.kernel.util.UnicodeProperties" %><%@
 page import="com.liferay.portal.kernel.util.Validator" %><%@

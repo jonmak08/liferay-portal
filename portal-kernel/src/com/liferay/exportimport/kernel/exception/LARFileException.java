@@ -14,13 +14,17 @@
 
 package com.liferay.exportimport.kernel.exception;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 
 /**
  * @author Raymond Augé
  */
+<<<<<<< HEAD
 @ProviderType
 public class LARFileException extends PortalException {
 
@@ -55,6 +59,13 @@ public class LARFileException extends PortalException {
 		_type = type;
 	}
 
+=======
+public class LARFileException extends PortalException {
+
+	public LARFileException() {
+	}
+
+>>>>>>> compatible
 	public LARFileException(String msg) {
 		super(msg);
 	}
@@ -67,6 +78,7 @@ public class LARFileException extends PortalException {
 		super(cause);
 	}
 
+<<<<<<< HEAD
 	public int getType() {
 		return _type;
 	}
@@ -77,4 +89,6 @@ public class LARFileException extends PortalException {
 
 	private int _type = TYPE_DEFAULT;
 
+=======
+>>>>>>> compatible
 }

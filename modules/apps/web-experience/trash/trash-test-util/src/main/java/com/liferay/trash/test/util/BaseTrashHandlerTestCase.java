@@ -14,7 +14,10 @@
 
 package com.liferay.trash.test.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.dao.orm.Property;
@@ -40,12 +43,22 @@ import com.liferay.portal.kernel.trash.TrashHandlerRegistryUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.kernel.workflow.WorkflowThreadLocal;
+<<<<<<< HEAD
 import com.liferay.trash.exception.RestoreEntryException;
 import com.liferay.trash.exception.TrashEntryException;
 import com.liferay.trash.model.TrashEntry;
 import com.liferay.trash.service.TrashEntryLocalServiceUtil;
 import com.liferay.trash.service.TrashEntryServiceUtil;
 import com.liferay.trash.service.TrashVersionLocalServiceUtil;
+=======
+import com.liferay.trash.kernel.exception.RestoreEntryException;
+import com.liferay.trash.kernel.exception.TrashEntryException;
+import com.liferay.trash.kernel.model.TrashEntry;
+import com.liferay.trash.kernel.service.TrashEntryLocalServiceUtil;
+import com.liferay.trash.kernel.service.TrashEntryServiceUtil;
+import com.liferay.trash.kernel.service.TrashVersionLocalServiceUtil;
+import com.liferay.trash.kernel.util.TrashUtil;
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.List;
@@ -1493,7 +1506,11 @@ public abstract class BaseTrashHandlerTestCase {
 		String baseModelName = whenCanBeDuplicatedInTrash.getBaseModelName(
 			baseModel);
 
+<<<<<<< HEAD
 		Assert.assertTrue(isValidTrashTitle(baseModelName));
+=======
+		Assert.assertTrue(TrashUtil.isValidTrashTitle(baseModelName));
+>>>>>>> compatible
 
 		BaseModel<?> duplicateBaseModel = addBaseModel(
 			parentBaseModel, serviceContext);
@@ -1513,7 +1530,11 @@ public abstract class BaseTrashHandlerTestCase {
 		String duplicateBaseModelName =
 			whenCanBeDuplicatedInTrash.getBaseModelName(duplicateBaseModel);
 
+<<<<<<< HEAD
 		Assert.assertTrue(isValidTrashTitle(duplicateBaseModelName));
+=======
+		Assert.assertTrue(TrashUtil.isValidTrashTitle(duplicateBaseModelName));
+>>>>>>> compatible
 	}
 
 	@Test
@@ -3520,6 +3541,7 @@ public abstract class BaseTrashHandlerTestCase {
 		return false;
 	}
 
+<<<<<<< HEAD
 	protected boolean isValidTrashTitle(String title) {
 		if (title.startsWith(_TRASH_PREFIX)) {
 			return true;
@@ -3528,6 +3550,8 @@ public abstract class BaseTrashHandlerTestCase {
 		return false;
 	}
 
+=======
+>>>>>>> compatible
 	protected abstract void moveBaseModelToTrash(long primaryKey)
 		throws Exception;
 
@@ -3545,6 +3569,9 @@ public abstract class BaseTrashHandlerTestCase {
 	@DeleteAfterTestRun
 	protected Group group;
 
+<<<<<<< HEAD
 	private static final String _TRASH_PREFIX = StringPool.SLASH;
 
+=======
+>>>>>>> compatible
 }

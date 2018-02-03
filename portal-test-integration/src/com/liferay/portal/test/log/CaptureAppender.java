@@ -15,7 +15,10 @@
 package com.liferay.portal.test.log;
 
 import com.liferay.portal.kernel.util.ReflectionUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 
 import java.io.Closeable;
 
@@ -77,7 +80,11 @@ public class CaptureAppender extends AppenderSkeleton implements Closeable {
 
 	@Override
 	protected void append(LoggingEvent loggingEvent) {
+<<<<<<< HEAD
 		_loggingEvents.add(new PrintableLoggingEvent(loggingEvent));
+=======
+		_loggingEvents.add(loggingEvent);
+>>>>>>> compatible
 	}
 
 	private static final Field _parentField;
@@ -98,6 +105,7 @@ public class CaptureAppender extends AppenderSkeleton implements Closeable {
 		new CopyOnWriteArrayList<>();
 	private final Category _parentCategory;
 
+<<<<<<< HEAD
 	private static class PrintableLoggingEvent extends LoggingEvent {
 
 		@Override
@@ -125,4 +133,6 @@ public class CaptureAppender extends AppenderSkeleton implements Closeable {
 
 	}
 
+=======
+>>>>>>> compatible
 }

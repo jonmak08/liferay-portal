@@ -95,6 +95,7 @@ public class WorkflowDefinitionManagerTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testValidateEmptyNotificationTemplateDefinition()
 		throws Exception {
 
@@ -108,6 +109,8 @@ public class WorkflowDefinitionManagerTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testValidateIncomingTransitionInitialStateDefinition()
 		throws Exception {
 
@@ -433,7 +436,11 @@ public class WorkflowDefinitionManagerTest {
 		ClassLoader classLoader = clazz.getClassLoader();
 
 		return classLoader.getResourceAsStream(
+<<<<<<< HEAD
 			"com/liferay/portal/workflow/kaleo/dependencies/" + name);
+=======
+			"com/liferay/portal/workflow/kaleo/runtime/dependencies/" + name);
+>>>>>>> compatible
 	}
 
 	private BundleContext _bundleContext;

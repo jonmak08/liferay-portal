@@ -14,8 +14,11 @@
 
 package com.liferay.portal.kernel.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 
+=======
+>>>>>>> compatible
 import java.text.NumberFormat;
 
 import java.util.Locale;
@@ -239,7 +242,11 @@ public class TextFormatter {
 	}
 
 	private static String _formatB(String s) {
+<<<<<<< HEAD
 		return StringUtil.removeChar(StringUtil.toLowerCase(s), CharPool.SPACE);
+=======
+		return StringUtil.strip(StringUtil.toLowerCase(s), CharPool.SPACE);
+>>>>>>> compatible
 	}
 
 	private static String _formatC(String s) {
@@ -248,7 +255,11 @@ public class TextFormatter {
 	}
 
 	private static String _formatD(String s) {
+<<<<<<< HEAD
 		return StringUtil.removeChar(s, CharPool.SPACE);
+=======
+		return StringUtil.strip(s, CharPool.SPACE);
+>>>>>>> compatible
 	}
 
 	private static String _formatE(String s) {
@@ -256,7 +267,11 @@ public class TextFormatter {
 	}
 
 	private static String _formatF(String s) {
+<<<<<<< HEAD
 		s = StringUtil.removeChar(s, CharPool.SPACE);
+=======
+		s = StringUtil.strip(s, CharPool.SPACE);
+>>>>>>> compatible
 
 		if (Character.isUpperCase(s.charAt(0))) {
 			s = StringUtil.toLowerCase(s.substring(0, 1)).concat(

@@ -37,8 +37,15 @@ import com.liferay.portal.kernel.service.persistence.CompanyProvider;
 import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.ReflectionUtil;
+import com.liferay.portal.kernel.util.SetUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.spring.extender.service.ServiceReference;
 
@@ -299,7 +306,11 @@ public class AccountPersistenceImpl extends BasePersistenceImpl<Account>
 		msg.append("userId=");
 		msg.append(userId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchAccountException(msg.toString());
 	}
@@ -348,7 +359,11 @@ public class AccountPersistenceImpl extends BasePersistenceImpl<Account>
 		msg.append("userId=");
 		msg.append(userId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchAccountException(msg.toString());
 	}
@@ -625,7 +640,11 @@ public class AccountPersistenceImpl extends BasePersistenceImpl<Account>
 			msg.append(", address=");
 			msg.append(address);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -690,7 +709,11 @@ public class AccountPersistenceImpl extends BasePersistenceImpl<Account>
 			if (address == null) {
 				query.append(_FINDER_COLUMN_U_A_ADDRESS_1);
 			}
+<<<<<<< HEAD
 			else if (address.equals("")) {
+=======
+			else if (address.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_U_A_ADDRESS_3);
 			}
 			else {
@@ -808,7 +831,11 @@ public class AccountPersistenceImpl extends BasePersistenceImpl<Account>
 			if (address == null) {
 				query.append(_FINDER_COLUMN_U_A_ADDRESS_1);
 			}
+<<<<<<< HEAD
 			else if (address.equals("")) {
+=======
+			else if (address.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_U_A_ADDRESS_3);
 			}
 			else {
@@ -860,11 +887,17 @@ public class AccountPersistenceImpl extends BasePersistenceImpl<Account>
 		setModelClass(Account.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("password", "password_");
@@ -1383,12 +1416,20 @@ public class AccountPersistenceImpl extends BasePersistenceImpl<Account>
 		for (Serializable primaryKey : uncachedPrimaryKeys) {
 			query.append((long)primaryKey);
 
+<<<<<<< HEAD
 			query.append(",");
+=======
+			query.append(StringPool.COMMA);
+>>>>>>> compatible
 		}
 
 		query.setIndex(query.index() - 1);
 
+<<<<<<< HEAD
 		query.append(")");
+=======
+		query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 		String sql = query.toString();
 

@@ -14,9 +14,13 @@
 
 package com.liferay.portal.workflow.kaleo.definition;
 
+<<<<<<< HEAD
 import java.util.Collections;
 import java.util.Set;
 import java.util.TreeSet;
+=======
+import java.util.Set;
+>>>>>>> compatible
 
 /**
  * @author Michael C. Han
@@ -27,6 +31,7 @@ public class Task extends Node {
 		super(NodeType.TASK, name, description);
 	}
 
+<<<<<<< HEAD
 	public void addTaskForm(TaskForm taskForm) {
 		_taskForms.add(taskForm);
 	}
@@ -35,19 +40,27 @@ public class Task extends Node {
 		_taskForms.addAll(taskForms);
 	}
 
+=======
+>>>>>>> compatible
 	public Set<Assignment> getAssignments() {
 		return _assignments;
 	}
 
+<<<<<<< HEAD
 	public Set<TaskForm> getTaskForms() {
 		return Collections.unmodifiableSet(_taskForms);
 	}
 
+=======
+>>>>>>> compatible
 	public void setAssignments(Set<Assignment> assignments) {
 		_assignments = assignments;
 	}
 
 	private Set<Assignment> _assignments;
+<<<<<<< HEAD
 	private final Set<TaskForm> _taskForms = new TreeSet<>();
+=======
+>>>>>>> compatible
 
 }

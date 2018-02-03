@@ -463,10 +463,19 @@ public class DDMTemplateLocalServiceUtil {
 	search in the search
 	* @return the matching template, or <code>null</code> if a matching
 	template could not be found
+<<<<<<< HEAD
 	*/
 	public static com.liferay.dynamic.data.mapping.model.DDMTemplate fetchTemplate(
 		long groupId, long classNameId, java.lang.String templateKey,
 		boolean includeAncestorTemplates) {
+=======
+	* @throws PortalException if a portal exception occurred
+	*/
+	public static com.liferay.dynamic.data.mapping.model.DDMTemplate fetchTemplate(
+		long groupId, long classNameId, java.lang.String templateKey,
+		boolean includeAncestorTemplates)
+		throws com.liferay.portal.kernel.exception.PortalException {
+>>>>>>> compatible
 		return getService()
 				   .fetchTemplate(groupId, classNameId, templateKey,
 			includeAncestorTemplates);
@@ -857,6 +866,7 @@ public class DDMTemplateLocalServiceUtil {
 		return getService().getTemplatesCount(groupId, classNameId, classPK);
 	}
 
+<<<<<<< HEAD
 	/**
 	* Returns the number of templates matching the group IDs, class name ID,
 	* and class PK.
@@ -872,6 +882,8 @@ public class DDMTemplateLocalServiceUtil {
 		return getService().getTemplatesCount(groupIds, classNameId, classPK);
 	}
 
+=======
+>>>>>>> compatible
 	public static void revertTemplate(long userId, long templateId,
 		java.lang.String version,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)

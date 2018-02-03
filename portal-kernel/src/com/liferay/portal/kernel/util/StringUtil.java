@@ -14,12 +14,22 @@
 
 package com.liferay.portal.kernel.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.search.highlight.HighlightUtil;
 import com.liferay.portal.kernel.security.RandomUtil;
 
 import java.io.IOException;
 import java.io.InputStream;
+<<<<<<< HEAD
+=======
+import java.io.InputStreamReader;
+>>>>>>> compatible
 
 import java.net.URL;
 
@@ -594,6 +604,7 @@ public class StringUtil {
 	 * that is found in the character array <code>chars</code>. The substring of
 	 * characters returned maintain their original order.
 	 *
+<<<<<<< HEAD
 	 * @param      s the string from which to extract characters
 	 * @param      chars the characters to extract from the string
 	 * @return     the substring of each character instance in string
@@ -603,6 +614,14 @@ public class StringUtil {
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+	 * @param  s the string from which to extract characters
+	 * @param  chars the characters to extract from the string
+	 * @return the substring of each character instance in string <code>s</code>
+	 *         that is found in the character array <code>chars</code>, or an
+	 *         empty string if the given string is <code>null</code>
+	 */
+>>>>>>> compatible
 	public static String extract(String s, char[] chars) {
 		if (s == null) {
 			return StringPool.BLANK;
@@ -2050,9 +2069,13 @@ public class StringUtil {
 				sb.append(delimiter);
 			}
 
+<<<<<<< HEAD
 			String value = String.valueOf(array[i]);
 
 			sb.append(value.trim());
+=======
+			sb.append(String.valueOf(array[i]).trim());
+>>>>>>> compatible
 		}
 
 		return sb.toString();
@@ -2208,6 +2231,7 @@ public class StringUtil {
 	/**
 	 * Pseudorandomly permutes the characters of the string.
 	 *
+<<<<<<< HEAD
 	 * @param      s the string whose characters are to be randomized
 	 * @return     a string of the same length as the string whose characters
 	 *             represent a pseudorandom permutation of the characters of the
@@ -2215,6 +2239,13 @@ public class StringUtil {
 	 * @deprecated As of 7.0.0, replaced by {@link RandomUtil#shuffle(String)}
 	 */
 	@Deprecated
+=======
+	 * @param  s the string whose characters are to be randomized
+	 * @return a string of the same length as the string whose characters
+	 *         represent a pseudorandom permutation of the characters of the
+	 *         string
+	 */
+>>>>>>> compatible
 	public static String randomize(String s) {
 		return RandomUtil.shuffle(s);
 	}
@@ -2278,7 +2309,18 @@ public class StringUtil {
 			while (enu.hasMoreElements()) {
 				URL url = enu.nextElement();
 
+<<<<<<< HEAD
 				try (InputStream is = url.openStream()) {
+=======
+				InputStream is = url.openStream();
+
+				if (is == null) {
+					throw new IOException(
+						"Unable to open resource at " + url.toString());
+				}
+
+				try {
+>>>>>>> compatible
 					String s = read(is);
 
 					if (s != null) {
@@ -2286,6 +2328,7 @@ public class StringUtil {
 						sb.append(StringPool.NEW_LINE);
 					}
 				}
+<<<<<<< HEAD
 			}
 
 			String s = sb.toString();
@@ -2299,10 +2342,29 @@ public class StringUtil {
 					"Unable to open resource in class loader " + name);
 			}
 
+=======
+				finally {
+					StreamUtil.cleanUp(is);
+				}
+			}
+
+			return sb.toString().trim();
+		}
+
+		InputStream is = classLoader.getResourceAsStream(name);
+
+		if (is == null) {
+			throw new IOException(
+				"Unable to open resource in class loader " + name);
+		}
+
+		try {
+>>>>>>> compatible
 			String s = read(is);
 
 			return s;
 		}
+<<<<<<< HEAD
 	}
 
 	public static String read(InputStream is) throws IOException {
@@ -2313,12 +2375,46 @@ public class StringUtil {
 		s = s.replace(CharPool.RETURN, CharPool.NEW_LINE);
 
 		return s.trim();
+=======
+		finally {
+			StreamUtil.cleanUp(is);
+		}
+	}
+
+	public static String read(InputStream is) throws IOException {
+		StringBundler sb = new StringBundler();
+
+		try (UnsyncBufferedReader unsyncBufferedReader =
+				new UnsyncBufferedReader(new InputStreamReader(is))) {
+
+			String line = null;
+
+			while ((line = unsyncBufferedReader.readLine()) != null) {
+				sb.append(line);
+				sb.append(CharPool.NEW_LINE);
+			}
+		}
+
+		return sb.toString().trim();
+>>>>>>> compatible
 	}
 
 	public static void readLines(InputStream is, Collection<String> lines)
 		throws IOException {
 
+<<<<<<< HEAD
 		_splitLines(_read(is), lines);
+=======
+		try (UnsyncBufferedReader unsyncBufferedReader =
+				new UnsyncBufferedReader(new InputStreamReader(is))) {
+
+			String line = null;
+
+			while ((line = unsyncBufferedReader.readLine()) != null) {
+				lines.add(line);
+			}
+		}
+>>>>>>> compatible
 	}
 
 	/**
@@ -3287,6 +3383,7 @@ public class StringUtil {
 
 				String oldValue = s.substring(x + begin.length(), y);
 
+<<<<<<< HEAD
 				StringBundler newValueSB = values.get(oldValue);
 
 				if (newValueSB == null) {
@@ -3294,6 +3391,15 @@ public class StringUtil {
 				}
 				else {
 					sb.append(newValueSB);
+=======
+				StringBundler newValue = values.get(oldValue);
+
+				if (newValue == null) {
+					sb.append(oldValue);
+				}
+				else {
+					sb.append(newValue);
+>>>>>>> compatible
 				}
 
 				pos = y + end.length();
@@ -3306,12 +3412,19 @@ public class StringUtil {
 	/**
 	 * Reverses the order of the characters of the string.
 	 *
+<<<<<<< HEAD
 	 * @param      s the original string
 	 * @return     a string representing the original string with characters in
 	 *             reverse order
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+	 * @param  s the original string
+	 * @return a string representing the original string with characters in
+	 *         reverse order
+	 */
+>>>>>>> compatible
 	public static String reverse(String s) {
 		if (s == null) {
 			return null;
@@ -3343,12 +3456,19 @@ public class StringUtil {
 	 * </pre>
 	 * </p>
 	 *
+<<<<<<< HEAD
 	 * @param      path the original string
 	 * @return     a string representing the original string with all double
 	 *             slashes replaced with single slashes
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+	 * @param  path the original string
+	 * @return a string representing the original string with all double slashes
+	 *         replaced with single slashes
+	 */
+>>>>>>> compatible
 	public static String safePath(String path) {
 		return replace(path, StringPool.DOUBLE_SLASH, StringPool.SLASH);
 	}
@@ -3461,21 +3581,35 @@ public class StringUtil {
 			return null;
 		}
 
+<<<<<<< HEAD
 		if (s.codePointCount(0, s.length()) <= length) {
+=======
+		if (s.length() <= length) {
+>>>>>>> compatible
 			return s;
 		}
 
 		if (length < suffix.length()) {
+<<<<<<< HEAD
 			return s.substring(0, s.offsetByCodePoints(0, length));
+=======
+			return s.substring(0, length);
+>>>>>>> compatible
 		}
 
 		int curLength = length;
 
+<<<<<<< HEAD
 		for (int j = curLength - suffix.length() + 1, offset; j > 0; j--) {
 			offset = s.offsetByCodePoints(0, j);
 
 			if (Character.isWhitespace(s.codePointBefore(offset))) {
 				curLength = j - 1;
+=======
+		for (int j = curLength - suffix.length(); j >= 0; j--) {
+			if (Character.isWhitespace(s.charAt(j))) {
+				curLength = j;
+>>>>>>> compatible
 
 				break;
 			}
@@ -3485,7 +3619,11 @@ public class StringUtil {
 			curLength = length - suffix.length();
 		}
 
+<<<<<<< HEAD
 		String temp = s.substring(0, s.offsetByCodePoints(0, curLength));
+=======
+		String temp = s.substring(0, curLength);
+>>>>>>> compatible
 
 		return temp.concat(suffix);
 	}
@@ -3589,13 +3727,21 @@ public class StringUtil {
 	 */
 	public static String[] split(String s, char delimiter) {
 		if (Validator.isNull(s)) {
+<<<<<<< HEAD
 			return _EMPTY_STRING_ARRAY;
+=======
+			return _emptyStringArray;
+>>>>>>> compatible
 		}
 
 		s = s.trim();
 
 		if (s.length() == 0) {
+<<<<<<< HEAD
 			return _EMPTY_STRING_ARRAY;
+=======
+			return _emptyStringArray;
+>>>>>>> compatible
 		}
 
 		List<String> nodeValues = new ArrayList<>();
@@ -3707,13 +3853,21 @@ public class StringUtil {
 		if (Validator.isNull(s) || (delimiter == null) ||
 			delimiter.equals(StringPool.BLANK)) {
 
+<<<<<<< HEAD
 			return _EMPTY_STRING_ARRAY;
+=======
+			return _emptyStringArray;
+>>>>>>> compatible
 		}
 
 		s = s.trim();
 
 		if (s.equals(delimiter)) {
+<<<<<<< HEAD
 			return _EMPTY_STRING_ARRAY;
+=======
+			return _emptyStringArray;
+>>>>>>> compatible
 		}
 
 		if (delimiter.length() == 1) {
@@ -3762,9 +3916,13 @@ public class StringUtil {
 			boolean value = x;
 
 			try {
+<<<<<<< HEAD
 				Boolean booleanValue = Boolean.valueOf(array[i]);
 
 				value = booleanValue.booleanValue();
+=======
+				value = Boolean.valueOf(array[i]).booleanValue();
+>>>>>>> compatible
 			}
 			catch (Exception e) {
 			}
@@ -3958,16 +4116,57 @@ public class StringUtil {
 	 */
 	public static String[] splitLines(String s) {
 		if (Validator.isNull(s)) {
+<<<<<<< HEAD
 			return _EMPTY_STRING_ARRAY;
+=======
+			return _emptyStringArray;
+>>>>>>> compatible
 		}
 
 		s = s.trim();
 
 		List<String> lines = new ArrayList<>();
 
+<<<<<<< HEAD
 		_splitLines(s, lines);
 
 		return lines.toArray(new String[lines.size()]);
+=======
+		int lastIndex = 0;
+
+		while (true) {
+			int returnIndex = s.indexOf(CharPool.RETURN, lastIndex);
+
+			if (returnIndex == -1) {
+				_split(lines, s, lastIndex, CharPool.NEW_LINE);
+
+				return lines.toArray(new String[lines.size()]);
+			}
+
+			int newLineIndex = s.indexOf(CharPool.NEW_LINE, lastIndex);
+
+			if (newLineIndex == -1) {
+				_split(lines, s, lastIndex, CharPool.RETURN);
+
+				return lines.toArray(new String[lines.size()]);
+			}
+
+			if (newLineIndex < returnIndex) {
+				lines.add(s.substring(lastIndex, newLineIndex));
+
+				lastIndex = newLineIndex + 1;
+			}
+			else {
+				lines.add(s.substring(lastIndex, returnIndex));
+
+				lastIndex = returnIndex + 1;
+
+				if (lastIndex == newLineIndex) {
+					lastIndex++;
+				}
+			}
+		}
+>>>>>>> compatible
 	}
 
 	/**
@@ -4060,6 +4259,7 @@ public class StringUtil {
 	 * </pre>
 	 * </p>
 	 *
+<<<<<<< HEAD
 	 * @param      s the string from which to strip all occurrences of the
 	 *             character
 	 * @param      remove the character to strip from the string
@@ -4071,6 +4271,40 @@ public class StringUtil {
 	@Deprecated
 	public static String strip(String s, char remove) {
 		return removeChar(s, remove);
+=======
+	 * @param  s the string from which to strip all occurrences of the character
+	 * @param  remove the character to strip from the string
+	 * @return a string representing the string <code>s</code> with all
+	 *         occurrences of the specified character removed, or
+	 *         <code>null</code> if <code>s</code> is <code>null</code>
+	 */
+	public static String strip(String s, char remove) {
+		if (s == null) {
+			return null;
+		}
+
+		int x = s.indexOf(remove);
+
+		if (x < 0) {
+			return s;
+		}
+
+		int y = 0;
+
+		StringBundler sb = new StringBundler(s.length());
+
+		while (x >= 0) {
+			sb.append(s.subSequence(y, x));
+
+			y = x + 1;
+
+			x = s.indexOf(remove, y);
+		}
+
+		sb.append(s.substring(y));
+
+		return sb.toString();
+>>>>>>> compatible
 	}
 
 	/**
@@ -4089,6 +4323,7 @@ public class StringUtil {
 	 * </pre>
 	 * </p>
 	 *
+<<<<<<< HEAD
 	 * @param      s the string from which to strip all occurrences the
 	 *             characters
 	 * @param      remove the characters to strip from the string
@@ -4101,6 +4336,20 @@ public class StringUtil {
 	@Deprecated
 	public static String strip(String s, char[] remove) {
 		return removeChars(s, remove);
+=======
+	 * @param  s the string from which to strip all occurrences the characters
+	 * @param  remove the characters to strip from the string
+	 * @return a string representing the string <code>s</code> with all
+	 *         occurrences of the specified characters removed, or
+	 *         <code>null</code> if <code>s</code> is <code>null</code>
+	 */
+	public static String strip(String s, char[] remove) {
+		for (char c : remove) {
+			s = strip(s, c);
+		}
+
+		return s;
+>>>>>>> compatible
 	}
 
 	/**
@@ -4240,7 +4489,11 @@ public class StringUtil {
 			return s;
 		}
 
+<<<<<<< HEAD
 		return s.substring(0, x - 1).concat(s.substring(y + 1));
+=======
+		return s.substring(0, x - 1).concat(s.substring(y + 1, s.length()));
+>>>>>>> compatible
 	}
 
 	/**
@@ -4848,7 +5101,11 @@ public class StringUtil {
 	 *         empty
 	 */
 	public static String unquote(String s) {
+<<<<<<< HEAD
 		if (Validator.isNull(s) || (s.length() == 1)) {
+=======
+		if (Validator.isNull(s)) {
+>>>>>>> compatible
 			return s;
 		}
 
@@ -4897,12 +5154,19 @@ public class StringUtil {
 	/**
 	 * Returns the string value of the object.
 	 *
+<<<<<<< HEAD
 	 * @param      obj the object whose string value is to be returned
 	 * @return     the string value of the object
 	 * @see        String#valueOf(Object obj)
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+	 * @param  obj the object whose string value is to be returned
+	 * @return the string value of the object
+	 * @see    String#valueOf(Object obj)
+	 */
+>>>>>>> compatible
 	public static String valueOf(Object obj) {
 		return String.valueOf(obj);
 	}
@@ -5081,12 +5345,19 @@ public class StringUtil {
 	 * Wraps the text when it exceeds the <code>80</code> column width limit,
 	 * using a {@link StringPool#NEW_LINE} to break each wrapped line.
 	 *
+<<<<<<< HEAD
 	 * @param      text the text to wrap
 	 * @return     the wrapped text following the column width limit, or
 	 *             <code>null</code> if the text is <code>null</code>
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+	 * @param  text the text to wrap
+	 * @return the wrapped text following the column width limit, or
+	 *         <code>null</code> if the text is <code>null</code>
+	 */
+>>>>>>> compatible
 	public static String wrap(String text) {
 		return wrap(text, 80, StringPool.NEW_LINE);
 	}
@@ -5095,6 +5366,7 @@ public class StringUtil {
 	 * Wraps the text when it exceeds the column width limit, using the line
 	 * separator to break each wrapped line.
 	 *
+<<<<<<< HEAD
 	 * @param      text the text to wrap
 	 * @param      width the column width limit for the text
 	 * @param      lineSeparator the string to use in breaking each wrapped line
@@ -5168,6 +5440,23 @@ public class StringUtil {
 		}
 
 		return sb.toString();
+=======
+	 * @param  text the text to wrap
+	 * @param  width the column width limit for the text
+	 * @param  lineSeparator the string to use in breaking each wrapped line
+	 * @return the wrapped text and line separators, following the column width
+	 *         limit, or <code>null</code> if the text is <code>null</code>
+	 */
+	public static String wrap(String text, int width, String lineSeparator) {
+		try {
+			return _wrap(text, width, lineSeparator);
+		}
+		catch (IOException ioe) {
+			_log.error(ioe.getMessage());
+
+			return text;
+		}
+>>>>>>> compatible
 	}
 
 	protected static final char[] HEX_DIGITS = {
@@ -5194,6 +5483,7 @@ public class StringUtil {
 		return Character.isWhitespace(c);
 	}
 
+<<<<<<< HEAD
 	private static String _read(InputStream inputStream) throws IOException {
 		byte[] buffer = new byte[8192];
 		int offset = 0;
@@ -5226,6 +5516,10 @@ public class StringUtil {
 
 	private static void _split(
 		Collection<String> values, String s, int offset, char delimiter) {
+=======
+	private static void _split(
+		List<String> values, String s, int offset, char delimiter) {
+>>>>>>> compatible
 
 		int pos = s.indexOf(delimiter, offset);
 
@@ -5242,6 +5536,7 @@ public class StringUtil {
 		}
 	}
 
+<<<<<<< HEAD
 	private static void _splitLines(String s, Collection<String> lines) {
 		int lastIndex = 0;
 
@@ -5280,6 +5575,77 @@ public class StringUtil {
 	}
 
 	private static final String[] _EMPTY_STRING_ARRAY = new String[0];
+=======
+	private static String _wrap(String text, int width, String lineSeparator)
+		throws IOException {
+
+		if (text == null) {
+			return null;
+		}
+
+		StringBundler sb = new StringBundler();
+
+		for (String s : splitLines(text)) {
+			if (s.length() == 0) {
+				sb.append(lineSeparator);
+
+				continue;
+			}
+
+			int lineLength = 0;
+
+			String[] tokens = s.split(StringPool.SPACE);
+
+			for (String token : tokens) {
+				if ((lineLength + token.length() + 1) > width) {
+					if (lineLength > 0) {
+						sb.append(lineSeparator);
+					}
+
+					if (token.length() > width) {
+						int pos = token.indexOf(CharPool.OPEN_PARENTHESIS);
+
+						if (pos != -1) {
+							sb.append(token.substring(0, pos + 1));
+							sb.append(lineSeparator);
+
+							token = token.substring(pos + 1);
+
+							sb.append(token);
+
+							lineLength = token.length();
+						}
+						else {
+							sb.append(token);
+
+							lineLength = token.length();
+						}
+					}
+					else {
+						sb.append(token);
+
+						lineLength = token.length();
+					}
+				}
+				else {
+					if (lineLength > 0) {
+						sb.append(StringPool.SPACE);
+
+						lineLength++;
+					}
+
+					sb.append(token);
+
+					lineLength += token.length();
+				}
+			}
+
+			sb.append(lineSeparator);
+		}
+
+		return sb.toString();
+	}
+>>>>>>> compatible
 
 	private static final char[] _RANDOM_STRING_CHAR_TABLE = {
 		'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D',
@@ -5289,4 +5655,11 @@ public class StringUtil {
 		'u', 'v', 'w', 'x', 'y', 'z'
 	};
 
+<<<<<<< HEAD
+=======
+	private static final Log _log = LogFactoryUtil.getLog(StringUtil.class);
+
+	private static final String[] _emptyStringArray = new String[0];
+
+>>>>>>> compatible
 }

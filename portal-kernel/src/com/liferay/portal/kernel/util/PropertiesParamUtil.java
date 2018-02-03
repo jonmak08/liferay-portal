@@ -16,8 +16,11 @@ package com.liferay.portal.kernel.util;
 
 import com.liferay.portal.kernel.service.ServiceContext;
 
+<<<<<<< HEAD
 import java.io.Serializable;
 
+=======
+>>>>>>> compatible
 import java.util.Locale;
 import java.util.Map;
 import java.util.Properties;
@@ -449,9 +452,13 @@ public class PropertiesParamUtil {
 
 		UnicodeProperties properties = new UnicodeProperties(true);
 
+<<<<<<< HEAD
 		Map<String, String[]> parameterMap = portletRequest.getParameterMap();
 
 		for (String param : parameterMap.keySet()) {
+=======
+		for (String param : portletRequest.getParameterMap().keySet()) {
+>>>>>>> compatible
 			if (param.startsWith(prefix)) {
 				String key = param.substring(
 					prefix.length(), param.length() - 2);
@@ -472,9 +479,13 @@ public class PropertiesParamUtil {
 
 		UnicodeProperties properties = new UnicodeProperties(true);
 
+<<<<<<< HEAD
 		Map<String, Serializable> attributes = serviceContext.getAttributes();
 
 		for (String param : attributes.keySet()) {
+=======
+		for (String param : serviceContext.getAttributes().keySet()) {
+>>>>>>> compatible
 			if (param.startsWith(prefix)) {
 				String key = param.substring(
 					prefix.length(), param.length() - 2);

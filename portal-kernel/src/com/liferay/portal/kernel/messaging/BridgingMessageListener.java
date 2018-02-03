@@ -18,9 +18,13 @@ import com.liferay.portal.kernel.messaging.sender.SingleDestinationMessageSender
 
 /**
  * @author Michael C. Han
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, with no direct replacement
  */
 @Deprecated
+=======
+ */
+>>>>>>> compatible
 public class BridgingMessageListener implements MessageListener {
 
 	public BridgingMessageListener() {

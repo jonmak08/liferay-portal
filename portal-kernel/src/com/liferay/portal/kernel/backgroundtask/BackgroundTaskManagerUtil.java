@@ -148,8 +148,13 @@ public class BackgroundTaskManagerUtil {
 		return _backgroundTaskManager.getBackgroundTask(backgroundTaskId);
 	}
 
+<<<<<<< HEAD
 	public static List<BackgroundTask> getBackgroundTasks(
 		long groupId, int status) {
+=======
+	public static List<BackgroundTask>
+		getBackgroundTasks(long groupId, int status) {
+>>>>>>> compatible
 
 		return _backgroundTaskManager.getBackgroundTasks(groupId, status);
 	}

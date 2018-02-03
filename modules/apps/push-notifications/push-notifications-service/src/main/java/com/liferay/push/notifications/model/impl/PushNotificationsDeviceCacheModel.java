@@ -19,6 +19,10 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import com.liferay.push.notifications.model.PushNotificationsDevice;
 
@@ -100,14 +104,22 @@ public class PushNotificationsDeviceCacheModel implements CacheModel<PushNotific
 		}
 
 		if (platform == null) {
+<<<<<<< HEAD
 			pushNotificationsDeviceImpl.setPlatform("");
+=======
+			pushNotificationsDeviceImpl.setPlatform(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			pushNotificationsDeviceImpl.setPlatform(platform);
 		}
 
 		if (token == null) {
+<<<<<<< HEAD
 			pushNotificationsDeviceImpl.setToken("");
+=======
+			pushNotificationsDeviceImpl.setToken(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			pushNotificationsDeviceImpl.setToken(token);
@@ -141,14 +153,22 @@ public class PushNotificationsDeviceCacheModel implements CacheModel<PushNotific
 		objectOutput.writeLong(createDate);
 
 		if (platform == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(platform);
 		}
 
 		if (token == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(token);

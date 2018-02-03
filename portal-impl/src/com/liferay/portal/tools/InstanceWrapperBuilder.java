@@ -139,6 +139,7 @@ public class InstanceWrapperBuilder {
 
 				for (TypeVariable typeParameter : typeParameters) {
 					sb.append(typeParameter.getName());
+
 					sb.append(", ");
 				}
 
@@ -208,6 +209,7 @@ public class InstanceWrapperBuilder {
 
 			for (JavaParameter javaParameter : javaParameters) {
 				sb.append(javaParameter.getName());
+
 				sb.append(", ");
 			}
 
@@ -239,10 +241,16 @@ public class InstanceWrapperBuilder {
 		// Write file
 
 		File file = new File(
+<<<<<<< HEAD
 			StringBundler.concat(
 				parentDir, "/",
 				StringUtil.replace(javaPackage.getName(), '.', '/'), "/",
 				javaClass.getName(), "_IW.java"));
+=======
+			parentDir + "/" +
+				StringUtil.replace(javaClass.getPackage().getName(), '.', '/') +
+					"/" + javaClass.getName() + "_IW.java");
+>>>>>>> compatible
 
 		ToolsUtil.writeFile(file, sb.toString(), null);
 	}

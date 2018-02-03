@@ -18,7 +18,10 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 
 import java.util.Enumeration;
+<<<<<<< HEAD
 import java.util.Locale;
+=======
+>>>>>>> compatible
 import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.concurrent.ConcurrentHashMap;
@@ -35,8 +38,13 @@ public class CacheResourceBundleLoader implements ResourceBundleLoader {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public ResourceBundle loadResourceBundle(Locale locale) {
 		ResourceBundle resourceBundle = _resourceBundles.get(locale);
+=======
+	public ResourceBundle loadResourceBundle(String languageId) {
+		ResourceBundle resourceBundle = _resourceBundles.get(languageId);
+>>>>>>> compatible
 
 		if (resourceBundle == _nullResourceBundle) {
 			return null;
@@ -45,7 +53,11 @@ public class CacheResourceBundleLoader implements ResourceBundleLoader {
 		if (resourceBundle == null) {
 			try {
 				resourceBundle = _resourceBundleLoader.loadResourceBundle(
+<<<<<<< HEAD
 					locale);
+=======
+					languageId);
+>>>>>>> compatible
 			}
 			catch (Exception e) {
 				if (_log.isDebugEnabled()) {
@@ -54,16 +66,24 @@ public class CacheResourceBundleLoader implements ResourceBundleLoader {
 			}
 
 			if (resourceBundle == null) {
+<<<<<<< HEAD
 				_resourceBundles.put(locale, _nullResourceBundle);
 			}
 			else {
 				_resourceBundles.put(locale, resourceBundle);
+=======
+				_resourceBundles.put(languageId, _nullResourceBundle);
+			}
+			else {
+				_resourceBundles.put(languageId, resourceBundle);
+>>>>>>> compatible
 			}
 		}
 
 		return resourceBundle;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, replaced by {@link #loadResourceBundle(Locale)}
 	 */
@@ -73,6 +93,8 @@ public class CacheResourceBundleLoader implements ResourceBundleLoader {
 		return ResourceBundleLoader.super.loadResourceBundle(languageId);
 	}
 
+=======
+>>>>>>> compatible
 	private static final Log _log = LogFactoryUtil.getLog(
 		CacheResourceBundleLoader.class);
 
@@ -92,7 +114,11 @@ public class CacheResourceBundleLoader implements ResourceBundleLoader {
 		};
 
 	private final ResourceBundleLoader _resourceBundleLoader;
+<<<<<<< HEAD
 	private final Map<Locale, ResourceBundle> _resourceBundles =
+=======
+	private final Map<String, ResourceBundle> _resourceBundles =
+>>>>>>> compatible
 		new ConcurrentHashMap<>();
 
 }

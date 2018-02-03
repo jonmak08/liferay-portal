@@ -16,7 +16,11 @@
 			<plugin>
 				<groupId>com.liferay</groupId>
 				<artifactId>com.liferay.source.formatter</artifactId>
+<<<<<<< HEAD
 				<version>1.0.538</version>
+=======
+				<version>1.0.453</version>
+>>>>>>> compatible
 				<configuration>
 					<baseDir>src/main</baseDir>
 				</configuration>

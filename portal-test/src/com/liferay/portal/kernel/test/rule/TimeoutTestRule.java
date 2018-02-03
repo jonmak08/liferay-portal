@@ -56,6 +56,10 @@ public class TimeoutTestRule implements TestRule {
 			@Override
 			public void evaluate() throws Throwable {
 				FutureTask<Void> futureTask = new FutureTask<>(
+<<<<<<< HEAD
+=======
+
+>>>>>>> compatible
 					new Callable<Void>() {
 
 						@Override

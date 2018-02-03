@@ -6,8 +6,13 @@
 			groups: {
 				'field-select': {
 					base: MODULE_PATH + '/',
+<<<<<<< HEAD
 					combine: Liferay.AUI.getCombine(),
 					filter: LiferayAUI.getFilterConfig(),
+=======
+					filter: LiferayAUI.getFilterConfig(),
+					combine: Liferay.AUI.getCombine(),
+>>>>>>> compatible
 					modules: {
 						'liferay-ddm-form-field-select': {
 							condition: {
@@ -15,6 +20,7 @@
 							},
 							path: 'select_field.js',
 							requires: [
+<<<<<<< HEAD
 								'aui-tooltip',
 								'liferay-ddm-form-field-select-search-support',
 								'liferay-ddm-form-renderer-field',
@@ -26,6 +32,18 @@
 							requires: [
 								'highlight',
 								'liferay-ddm-soy-template-util'
+=======
+								'liferay-ddm-form-renderer-field'
+							]
+						},
+						'liferay-ddm-form-field-select-template': {
+							condition: {
+								trigger: 'liferay-ddm-form-renderer'
+							},
+							path: 'select.soy.js',
+							requires: [
+								'soyutils'
+>>>>>>> compatible
 							]
 						}
 					},

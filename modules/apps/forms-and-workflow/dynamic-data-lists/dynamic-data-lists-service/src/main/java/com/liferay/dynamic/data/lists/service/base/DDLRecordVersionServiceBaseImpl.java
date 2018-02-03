@@ -16,8 +16,11 @@ package com.liferay.dynamic.data.lists.service.base;
 
 import com.liferay.dynamic.data.lists.model.DDLRecordVersion;
 import com.liferay.dynamic.data.lists.service.DDLRecordVersionService;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.lists.service.persistence.DDLRecordFinder;
 import com.liferay.dynamic.data.lists.service.persistence.DDLRecordPersistence;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.lists.service.persistence.DDLRecordVersionPersistence;
 
 import com.liferay.portal.kernel.bean.BeanReference;
@@ -129,6 +132,7 @@ public abstract class DDLRecordVersionServiceBaseImpl extends BaseServiceImpl
 		this.counterLocalService = counterLocalService;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Returns the ddl record local service.
 	 *
@@ -204,6 +208,8 @@ public abstract class DDLRecordVersionServiceBaseImpl extends BaseServiceImpl
 		this.ddlRecordFinder = ddlRecordFinder;
 	}
 
+=======
+>>>>>>> compatible
 	public void afterPropertiesSet() {
 	}
 
@@ -260,6 +266,7 @@ public abstract class DDLRecordVersionServiceBaseImpl extends BaseServiceImpl
 	protected DDLRecordVersionPersistence ddlRecordVersionPersistence;
 	@ServiceReference(type = com.liferay.counter.kernel.service.CounterLocalService.class)
 	protected com.liferay.counter.kernel.service.CounterLocalService counterLocalService;
+<<<<<<< HEAD
 	@BeanReference(type = com.liferay.dynamic.data.lists.service.DDLRecordLocalService.class)
 	protected com.liferay.dynamic.data.lists.service.DDLRecordLocalService ddlRecordLocalService;
 	@BeanReference(type = com.liferay.dynamic.data.lists.service.DDLRecordService.class)
@@ -268,4 +275,6 @@ public abstract class DDLRecordVersionServiceBaseImpl extends BaseServiceImpl
 	protected DDLRecordPersistence ddlRecordPersistence;
 	@BeanReference(type = DDLRecordFinder.class)
 	protected DDLRecordFinder ddlRecordFinder;
+=======
+>>>>>>> compatible
 }

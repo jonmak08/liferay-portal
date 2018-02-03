@@ -24,9 +24,12 @@ import aQute.bnd.annotation.ProviderType;
 public interface GroupFinder {
 	public int countByLayouts(long companyId, long parentGroupId, boolean site);
 
+<<<<<<< HEAD
 	public int countByLayouts(long companyId, long parentGroupId, boolean site,
 		java.lang.Boolean active);
 
+=======
+>>>>>>> compatible
 	public int countByG_U(long groupId, long userId, boolean inherit);
 
 	public int countByC_C_PG_N_D(long companyId, long[] classNameIds,
@@ -35,8 +38,11 @@ public interface GroupFinder {
 		java.util.LinkedHashMap<java.lang.String, java.lang.Object> params,
 		boolean andOperator);
 
+<<<<<<< HEAD
 	public java.util.List<java.lang.Long> findByActiveGroupIds(long userId);
 
+=======
+>>>>>>> compatible
 	public java.util.List<com.liferay.portal.kernel.model.Group> findByCompanyId(
 		long companyId,
 		java.util.LinkedHashMap<java.lang.String, java.lang.Object> params,
@@ -44,11 +50,14 @@ public interface GroupFinder {
 		com.liferay.portal.kernel.util.OrderByComparator<com.liferay.portal.kernel.model.Group> obc);
 
 	public java.util.List<com.liferay.portal.kernel.model.Group> findByLayouts(
+<<<<<<< HEAD
 		long companyId, long parentGroupId, boolean site,
 		java.lang.Boolean active, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator<com.liferay.portal.kernel.model.Group> obc);
 
 	public java.util.List<com.liferay.portal.kernel.model.Group> findByLayouts(
+=======
+>>>>>>> compatible
 		long companyId, long parentGroupId, boolean site, int start, int end);
 
 	public java.util.List<com.liferay.portal.kernel.model.Group> findByLayouts(

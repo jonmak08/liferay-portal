@@ -108,10 +108,13 @@ public abstract class BaseSQLTransformerLogic implements SQLTransformerLogic {
 			Pattern.CASE_INSENSITIVE);
 	}
 
+<<<<<<< HEAD
 	protected Function<String, String> getLengthFunction() {
 		return (String sql) -> StringUtil.replace(sql, "LENGTH(", "LEN(");
 	}
 
+=======
+>>>>>>> compatible
 	protected Function<String, String> getModFunction() {
 		Pattern pattern = getModPattern();
 

@@ -16,7 +16,11 @@ package com.liferay.portlet.asset.service.persistence.impl;
 
 import com.liferay.asset.kernel.model.AssetCategory;
 import com.liferay.asset.kernel.model.AssetEntry;
+<<<<<<< HEAD
 import com.liferay.asset.kernel.service.AssetCategoryLocalServiceUtil;
+=======
+import com.liferay.asset.kernel.service.persistence.AssetCategoryUtil;
+>>>>>>> compatible
 import com.liferay.asset.kernel.service.persistence.AssetEntryFinder;
 import com.liferay.asset.kernel.service.persistence.AssetEntryQuery;
 import com.liferay.portal.kernel.dao.orm.QueryPos;
@@ -64,9 +68,12 @@ public class AssetEntryFinderImpl
 	public static final String FIND_BY_CLASS_NAME_ID =
 		AssetEntryFinder.class.getName() + ".findByClassNameId";
 
+<<<<<<< HEAD
 	public static final String FIND_PRIORITY_BY_C_C =
 		AssetEntryFinder.class.getName() + ".findPriorityByC_C";
 
+=======
+>>>>>>> compatible
 	@Override
 	public int countEntries(AssetEntryQuery entryQuery) {
 		Session session = null;
@@ -142,6 +149,81 @@ public class AssetEntryFinderImpl
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+	@Override
+	public List<AssetEntry> findByDLFolderC_T(
+		long classNameId, String treePath) {
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			String sql = CustomSQLUtil.get(FIND_BY_CLASS_NAME_ID);
+
+			sql = StringUtil.replace(
+				sql, "[$JOIN$]",
+				CustomSQLUtil.get(DLFolderFinderImpl.JOIN_AE_BY_DL_FOLDER));
+			sql = StringUtil.replace(
+				sql, "[$WHERE$]", "DLFolder.treePath LIKE ? AND");
+
+			SQLQuery q = session.createSynchronizedSQLQuery(sql);
+
+			QueryPos qPos = QueryPos.getInstance(q);
+
+			qPos.add(
+				CustomSQLUtil.keywords(treePath, WildcardMode.TRAILING)[0]);
+			qPos.add(classNameId);
+
+			q.addEntity(AssetEntryImpl.TABLE_NAME, AssetEntryImpl.class);
+
+			return q.list(true);
+		}
+		catch (Exception e) {
+			throw new SystemException(e);
+		}
+		finally {
+			closeSession(session);
+		}
+	}
+
+	@Override
+	public List<AssetEntry> findByDLFileEntryC_T(
+		long classNameId, String treePath) {
+
+		Session session = null;
+
+		try {
+			session = openSession();
+
+			String sql = CustomSQLUtil.get(FIND_BY_CLASS_NAME_ID);
+
+			sql = StringUtil.replace(
+				sql, "[$JOIN$]",
+				CustomSQLUtil.get(
+					DLFileEntryFinderImpl.JOIN_AE_BY_DL_FILE_ENTRY));
+			sql = StringUtil.replace(
+				sql, "[$WHERE$]", "DLFileEntry.treePath LIKE ? AND");
+
+			SQLQuery q = session.createSynchronizedSQLQuery(sql);
+
+			QueryPos qPos = QueryPos.getInstance(q);
+
+			qPos.add(
+				CustomSQLUtil.keywords(treePath, WildcardMode.TRAILING)[0]);
+			qPos.add(classNameId);
+
+			q.addEntity(AssetEntryImpl.TABLE_NAME, AssetEntryImpl.class);
+
+			return q.list(true);
+		}
+		catch (Exception e) {
+			throw new SystemException(e);
+		}
+		finally {
+			closeSession(session);
+		}
+	}
+
 	@Override
 	public List<AssetEntry> findByDLFolderC_T(
 		long classNameId, String treePath) {
@@ -377,9 +459,15 @@ public class AssetEntryFinderImpl
 
 		if (entryQuery.getAnyTagIds().length > 0) {
 			sb.append("INNER JOIN AssetEntries_AssetTags ON ");
+<<<<<<< HEAD
 			sb.append("(AssetEntries_AssetTags.entryId = AssetEntry.entryId) ");
 			sb.append("INNER JOIN AssetTag ON (AssetTag.tagId = ");
 			sb.append("AssetEntries_AssetTags.tagId) ");
+=======
+			sb.append("(AssetEntries_AssetTags.entryId = ");
+			sb.append("AssetEntry.entryId) INNER JOIN AssetTag ON ");
+			sb.append("(AssetTag.tagId = AssetEntries_AssetTags.tagId) ");
+>>>>>>> compatible
 		}
 
 		if (entryQuery.getLinkedAssetEntryId() > 0) {
@@ -391,10 +479,16 @@ public class AssetEntryFinderImpl
 		String orderByCol1 = entryQuery.getOrderByCol1();
 		String orderByCol2 = entryQuery.getOrderByCol2();
 
+<<<<<<< HEAD
 		if (orderByCol1.equals("ratings") || orderByCol2.equals("ratings")) {
 			sb.append(" LEFT JOIN RatingsStats ON (RatingsStats.classNameId ");
 			sb.append("= AssetEntry.classNameId) AND (RatingsStats.classPK = ");
 			sb.append("AssetEntry.classPK)");
+=======
+			sb.append(" LEFT JOIN RatingsStats ON (RatingsStats.classNameId ");
+			sb.append("= AssetEntry.classNameId) AND (RatingsStats.classPK ");
+			sb.append("= AssetEntry.classPK)");
+>>>>>>> compatible
 		}
 
 		sb.append("WHERE ");

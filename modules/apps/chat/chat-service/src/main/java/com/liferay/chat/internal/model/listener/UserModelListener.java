@@ -14,7 +14,11 @@
 
 package com.liferay.chat.internal.model.listener;
 
+<<<<<<< HEAD
 import com.liferay.chat.internal.jabber.JabberUtil;
+=======
+import com.liferay.chat.jabber.JabberUtil;
+>>>>>>> compatible
 import com.liferay.chat.model.Status;
 import com.liferay.chat.service.EntryLocalServiceUtil;
 import com.liferay.chat.service.StatusLocalServiceUtil;

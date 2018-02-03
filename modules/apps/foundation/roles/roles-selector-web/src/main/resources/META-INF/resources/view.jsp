@@ -169,10 +169,17 @@ request.setAttribute("edit_roles.jsp-portletURL", portletURL);
 			String taglibOnClick = renderResponse.getNamespace() + methodName + "('" + portletURL.toString() + "');";
 			%>
 
+<<<<<<< HEAD
 			<aui:button onClick="<%= taglibOnClick %>" primary="<%= true %>" value="update-associations" />
 		</c:if>
 
 		<aui:button type="cancel" />
+=======
+			<aui:button cssClass="btn-lg" onClick="<%= taglibOnClick %>" primary="<%= true %>" value="update-associations" />
+		</c:if>
+
+		<aui:button cssClass="btn-lg" type="cancel" />
+>>>>>>> compatible
 	</aui:button-row>
 </aui:form>
 

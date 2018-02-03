@@ -14,8 +14,13 @@
 
 package com.liferay.portal.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
 import com.liferay.portal.kernel.model.ResourcePermission;
+=======
+import com.liferay.portal.kernel.model.ResourcePermission;
+import com.liferay.portal.kernel.util.InitialThreadLocal;
+>>>>>>> compatible
 
 import java.util.HashMap;
 import java.util.List;
@@ -51,8 +56,14 @@ public class ResourcePermissionsThreadLocal {
 	}
 
 	private static final ThreadLocal<Map<Long, ResourcePermission>>
+<<<<<<< HEAD
 		_resourcePermissions = new CentralizedThreadLocal<>(
 			ResourcePermissionsThreadLocal.class + "._resourcePermissions",
 			() -> null, false);
+=======
+		_resourcePermissions = new InitialThreadLocal<>(
+			ResourcePermissionsThreadLocal.class + "._resourcePermissions",
+			() -> null);
+>>>>>>> compatible
 
 }

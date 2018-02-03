@@ -281,6 +281,7 @@ public interface DDLRecordModel extends BaseModel<DDLRecord>, ShardedModel,
 	public void setRecordSetId(long recordSetId);
 
 	/**
+<<<<<<< HEAD
 	 * Returns the record set version of this ddl record.
 	 *
 	 * @return the record set version of this ddl record
@@ -296,6 +297,8 @@ public interface DDLRecordModel extends BaseModel<DDLRecord>, ShardedModel,
 	public void setRecordSetVersion(String recordSetVersion);
 
 	/**
+=======
+>>>>>>> compatible
 	 * Returns the version of this ddl record.
 	 *
 	 * @return the version of this ddl record

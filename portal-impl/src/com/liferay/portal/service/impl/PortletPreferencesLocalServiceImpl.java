@@ -35,9 +35,12 @@ import com.liferay.portal.kernel.security.auth.PrincipalThreadLocal;
 import com.liferay.portal.kernel.service.ExceptionRetryAcceptor;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.ServiceContextThreadLocal;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.settings.PortletInstanceSettingsLocator;
 import com.liferay.portal.kernel.settings.PortletPreferencesSettings;
 import com.liferay.portal.kernel.settings.Settings;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.spring.aop.Property;
 import com.liferay.portal.kernel.spring.aop.Retry;
 import com.liferay.portal.kernel.spring.aop.Skip;
@@ -48,10 +51,17 @@ import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.service.base.PortletPreferencesLocalServiceBaseImpl;
+<<<<<<< HEAD
 import com.liferay.portlet.exportimport.staging.ProxiedLayoutsThreadLocal;
 import com.liferay.portlet.exportimport.staging.StagingAdvicesThreadLocal;
 
 import java.util.ArrayList;
+=======
+import com.liferay.portlet.PortletPreferencesImpl;
+import com.liferay.portlet.exportimport.staging.ProxiedLayoutsThreadLocal;
+import com.liferay.portlet.exportimport.staging.StagingAdvicesThreadLocal;
+
+>>>>>>> compatible
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -416,9 +426,18 @@ public class PortletPreferencesLocalServiceImpl
 					defaultPreferences);
 		}
 
+<<<<<<< HEAD
 		return PortletPreferencesFactoryUtil.fromXML(
 			companyId, ownerId, ownerType, plid, portletId,
 			portletPreferences.getPreferences());
+=======
+		PortletPreferencesImpl portletPreferencesImpl =
+			(PortletPreferencesImpl)PortletPreferencesFactoryUtil.fromXML(
+				companyId, ownerId, ownerType, plid, portletId,
+				portletPreferences.getPreferences());
+
+		return portletPreferencesImpl;
+>>>>>>> compatible
 	}
 
 	@Override
@@ -453,6 +472,7 @@ public class PortletPreferencesLocalServiceImpl
 		Map<String, javax.portlet.PortletPreferences> portletPreferencesMap =
 			new HashMap<>();
 
+<<<<<<< HEAD
 		List<PortletPreferences> portletPreferencesList = new ArrayList<>();
 
 		portletPreferencesList.addAll(
@@ -464,11 +484,20 @@ public class PortletPreferencesLocalServiceImpl
 			portletPreferencesPersistence.findByO_O_P(
 				PortletKeys.PREFS_OWNER_ID_DEFAULT,
 				PortletKeys.PREFS_OWNER_TYPE_LAYOUT, plid));
+=======
+		List<PortletPreferences> portletPreferencesList =
+			portletPreferencesPersistence.findByO_O_P(
+				PortletKeys.PREFS_OWNER_ID_DEFAULT,
+				PortletKeys.PREFS_OWNER_TYPE_LAYOUT, plid);
+>>>>>>> compatible
 
 		for (Portlet portlet : portlets) {
 			long ownerId = PortletKeys.PREFS_OWNER_ID_DEFAULT;
 			int ownerType = PortletKeys.PREFS_OWNER_TYPE_LAYOUT;
+<<<<<<< HEAD
 			long preferencesPlid = plid;
+=======
+>>>>>>> compatible
 			String portletId = portlet.getPortletId();
 
 			String preferences = portlet.getDefaultPreferences();
@@ -490,8 +519,11 @@ public class PortletPreferencesLocalServiceImpl
 						portletPreferencesList) {
 
 					if (portletId.equals(portletPreferences.getPortletId())) {
+<<<<<<< HEAD
 						ownerId = portletPreferences.getOwnerId();
 						preferencesPlid = portletPreferences.getPlid();
+=======
+>>>>>>> compatible
 						preferences = portletPreferences.getPreferences();
 
 						break;
@@ -502,8 +534,13 @@ public class PortletPreferencesLocalServiceImpl
 			portletPreferencesMap.put(
 				portletId,
 				PortletPreferencesFactoryUtil.strictFromXML(
+<<<<<<< HEAD
 					layout.getCompanyId(), ownerId, ownerType, preferencesPlid,
 					portletId, preferences));
+=======
+					layout.getCompanyId(), ownerId, ownerType, plid, portletId,
+					preferences));
+>>>>>>> compatible
 		}
 
 		return portletPreferencesMap;
@@ -535,9 +572,18 @@ public class PortletPreferencesLocalServiceImpl
 				defaultPreferences);
 		}
 
+<<<<<<< HEAD
 		return PortletPreferencesFactoryUtil.fromXML(
 			companyId, ownerId, ownerType, plid, portletId,
 			portletPreferences.getPreferences());
+=======
+		PortletPreferencesImpl portletPreferencesImpl =
+			(PortletPreferencesImpl)PortletPreferencesFactoryUtil.fromXML(
+				companyId, ownerId, ownerType, plid, portletId,
+				portletPreferences.getPreferences());
+
+		return portletPreferencesImpl;
+>>>>>>> compatible
 	}
 
 	@Override
@@ -603,6 +649,7 @@ public class PortletPreferencesLocalServiceImpl
 		if (plid <= 0) {
 			return null;
 		}
+<<<<<<< HEAD
 
 		LayoutRevision layoutRevision =
 			layoutRevisionPersistence.fetchByPrimaryKey(plid);
@@ -630,11 +677,13 @@ public class PortletPreferencesLocalServiceImpl
 	private javax.portlet.PortletPreferences _getStrictPreferences(
 		long companyId, long ownerId, int ownerType, long plid,
 		String portletId, String defaultPreferences) {
+=======
+>>>>>>> compatible
 
-		PortletPreferences portletPreferences =
-			portletPreferencesPersistence.fetchByO_O_P_P(
-				ownerId, ownerType, plid, portletId);
+		LayoutRevision layoutRevision =
+			layoutRevisionPersistence.fetchByPrimaryKey(plid);
 
+<<<<<<< HEAD
 		if (portletPreferences == null) {
 			return PortletPreferencesFactoryUtil.strictFromXML(
 				companyId, ownerId, ownerType, plid, portletId,
@@ -657,10 +706,28 @@ public class PortletPreferencesLocalServiceImpl
 			return plid;
 		}
 
-		return layoutRevision.getLayoutRevisionId();
+=======
+		if (layoutRevision != null) {
+			return layoutRevision;
+		}
+
+		Layout layout = layoutPersistence.fetchByPrimaryKey(plid);
+
+		if (layout == null) {
+			return null;
+		}
+
+		if (LayoutStagingUtil.isBranchingLayout(layout)) {
+			LayoutStagingHandler layoutStagingHandler =
+				new LayoutStagingHandler(layout);
+
+			return layoutStagingHandler.getLayoutRevision();
+		}
+
+		return null;
 	}
 
-	private long _swapPlidForPreferences(long plid) {
+	private long _swapPlidForPortletPreferences(long plid) {
 		if (!StagingAdvicesThreadLocal.isEnabled()) {
 			return plid;
 		}
@@ -671,9 +738,37 @@ public class PortletPreferencesLocalServiceImpl
 			return plid;
 		}
 
+>>>>>>> compatible
+		return layoutRevision.getLayoutRevisionId();
+	}
+
+	private long _swapPlidForPreferences(long plid) {
+		if (!StagingAdvicesThreadLocal.isEnabled()) {
+			return plid;
+		}
+<<<<<<< HEAD
+
+		LayoutRevision layoutRevision = _getLayoutRevision(plid);
+
+		if (layoutRevision == null) {
+			return plid;
+		}
+
 		User user = userPersistence.fetchByPrimaryKey(
 			PrincipalThreadLocal.getUserId());
 
+=======
+
+		LayoutRevision layoutRevision = _getLayoutRevision(plid);
+
+		if (layoutRevision == null) {
+			return plid;
+		}
+
+		User user = userPersistence.fetchByPrimaryKey(
+			PrincipalThreadLocal.getUserId());
+
+>>>>>>> compatible
 		if ((user == null) || user.isDefaultUser()) {
 			return layoutRevision.getLayoutRevisionId();
 		}

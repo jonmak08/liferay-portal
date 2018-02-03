@@ -40,7 +40,13 @@ import org.dom4j.tree.DefaultElement;
 public class Dom4JUtil {
 
 	public static void addToElement(Element element, Object... items) {
+<<<<<<< HEAD
 		for (Object item : items) {
+=======
+		for (int i = 0; i < items.length; i++) {
+			Object item = items[i];
+
+>>>>>>> compatible
 			if (item == null) {
 				continue;
 			}
@@ -63,14 +69,19 @@ public class Dom4JUtil {
 	}
 
 	public static String format(Element element) throws IOException {
+<<<<<<< HEAD
 		Node node = element;
 
 		return format(node, true);
+=======
+		return format(element, true);
+>>>>>>> compatible
 	}
 
 	public static String format(Element element, boolean pretty)
 		throws IOException {
 
+<<<<<<< HEAD
 		Node node = element;
 
 		return format(node, pretty);
@@ -81,6 +92,8 @@ public class Dom4JUtil {
 	}
 
 	public static String format(Node node, boolean pretty) throws IOException {
+=======
+>>>>>>> compatible
 		Writer writer = new CharArrayWriter();
 
 		OutputFormat outputFormat = OutputFormat.createPrettyPrint();
@@ -97,7 +110,11 @@ public class Dom4JUtil {
 			xmlWriter = new XMLWriter(writer);
 		}
 
+<<<<<<< HEAD
 		xmlWriter.write(node);
+=======
+		xmlWriter.write(element);
+>>>>>>> compatible
 
 		return writer.toString();
 	}

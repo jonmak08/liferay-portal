@@ -25,6 +25,7 @@ import com.liferay.portal.kernel.messaging.MessageBus;
 import com.liferay.portal.kernel.messaging.MessageBusException;
 import com.liferay.portal.kernel.messaging.sender.SynchronousMessageSender;
 import com.liferay.portal.kernel.security.SecureRandomUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.Validator;
 
@@ -39,6 +40,15 @@ import org.osgi.service.component.annotations.Reference;
  * @author Michael C. Han
  */
 @Component(property = {"mode=DEFAULT", "timeout=10000"})
+=======
+import com.liferay.portal.kernel.util.Validator;
+
+import java.util.UUID;
+
+/**
+ * @author Michael C. Han
+ */
+>>>>>>> compatible
 public class DefaultSynchronousMessageSender
 	implements SynchronousMessageSender {
 
@@ -105,9 +115,26 @@ public class DefaultSynchronousMessageSender
 		return synchronousMessageListener.send();
 	}
 
+<<<<<<< HEAD
 	@Activate
 	protected void activate(Map<String, Object> properties) {
 		_timeout = GetterUtil.getLong(properties.get("timeout"), 10000);
+=======
+	public void setEntityCache(EntityCache entityCache) {
+		_entityCache = entityCache;
+	}
+
+	public void setFinderCache(FinderCache finderCache) {
+		_finderCache = finderCache;
+	}
+
+	public void setMessageBus(MessageBus messageBus) {
+		_messageBus = messageBus;
+	}
+
+	public void setTimeout(long timeout) {
+		_timeout = timeout;
+>>>>>>> compatible
 	}
 
 	protected String generateUUID() {
@@ -120,6 +147,7 @@ public class DefaultSynchronousMessageSender
 	private static final Log _log = LogFactoryUtil.getLog(
 		DefaultSynchronousMessageSender.class);
 
+<<<<<<< HEAD
 	@Reference
 	private EntityCache _entityCache;
 
@@ -129,6 +157,11 @@ public class DefaultSynchronousMessageSender
 	@Reference
 	private MessageBus _messageBus;
 
+=======
+	private EntityCache _entityCache;
+	private FinderCache _finderCache;
+	private MessageBus _messageBus;
+>>>>>>> compatible
 	private long _timeout;
 
 }

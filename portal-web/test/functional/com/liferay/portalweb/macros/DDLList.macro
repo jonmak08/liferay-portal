@@ -4,7 +4,11 @@
 	<var name="ddlListName" value="List Name" />
 
 	<command name="addCP">
+<<<<<<< HEAD
 		<execute macro="LexiconEntry#gotoAdd" />
+=======
+		<execute function="Click" locator1="Button#PLUS" />
+>>>>>>> compatible
 
 		<execute function="Type#clickAtType" locator1="TextInput#NAME" value1="${ddlListName}" />
 
@@ -82,7 +86,11 @@
 	</command>
 
 	<command name="clickSave">
+<<<<<<< HEAD
 		<execute macro="Button#clickSave" />
+=======
+		<execute function="AssertClick" locator1="DDL#SAVE_BUTTON" value1="Save" />
+>>>>>>> compatible
 	</command>
 
 	<command name="deleteCP">
@@ -129,6 +137,7 @@
 	</command>
 
 	<command name="editPermissions">
+<<<<<<< HEAD
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="${ddlListName}" />
 		</execute>
@@ -140,6 +149,19 @@
 		</execute>
 	</command>
 
+=======
+		<execute function="Type" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${ddlListName}" />
+
+		<execute function="Click" locator1="Icon#BASIC_SEARCH" />
+
+		<execute function="Click#waitForMenuToggleJSClick" locator1="Icon#BODY_VERTICAL_ELLIPSIS" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Permissions">
+			<var name="key_menuItem" value="Permissions" />
+		</execute>
+	</command>
+
+>>>>>>> compatible
 	<command name="editViaDDLDisplayPG">
 		<execute function="Click" locator1="DDL#PORTLET_ACTIONS_EDIT_LIST" value1="Edit List" />
 
@@ -196,9 +218,13 @@
 	<command name="tearDownCP">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Dynamic Data Lists" />
 		</execute>
 

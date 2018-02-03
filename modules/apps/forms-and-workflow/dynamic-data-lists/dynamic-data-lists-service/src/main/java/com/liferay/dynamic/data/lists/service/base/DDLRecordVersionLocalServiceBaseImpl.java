@@ -18,8 +18,11 @@ import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.dynamic.data.lists.model.DDLRecordVersion;
 import com.liferay.dynamic.data.lists.service.DDLRecordVersionLocalService;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.lists.service.persistence.DDLRecordFinder;
 import com.liferay.dynamic.data.lists.service.persistence.DDLRecordPersistence;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.lists.service.persistence.DDLRecordVersionPersistence;
 
 import com.liferay.portal.kernel.bean.BeanReference;
@@ -374,6 +377,7 @@ public abstract class DDLRecordVersionLocalServiceBaseImpl
 		this.counterLocalService = counterLocalService;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Returns the ddl record local service.
 	 *
@@ -430,6 +434,8 @@ public abstract class DDLRecordVersionLocalServiceBaseImpl
 		this.ddlRecordFinder = ddlRecordFinder;
 	}
 
+=======
+>>>>>>> compatible
 	public void afterPropertiesSet() {
 		persistedModelLocalServiceRegistry.register("com.liferay.dynamic.data.lists.model.DDLRecordVersion",
 			ddlRecordVersionLocalService);
@@ -488,12 +494,15 @@ public abstract class DDLRecordVersionLocalServiceBaseImpl
 	protected DDLRecordVersionPersistence ddlRecordVersionPersistence;
 	@ServiceReference(type = com.liferay.counter.kernel.service.CounterLocalService.class)
 	protected com.liferay.counter.kernel.service.CounterLocalService counterLocalService;
+<<<<<<< HEAD
 	@BeanReference(type = com.liferay.dynamic.data.lists.service.DDLRecordLocalService.class)
 	protected com.liferay.dynamic.data.lists.service.DDLRecordLocalService ddlRecordLocalService;
 	@BeanReference(type = DDLRecordPersistence.class)
 	protected DDLRecordPersistence ddlRecordPersistence;
 	@BeanReference(type = DDLRecordFinder.class)
 	protected DDLRecordFinder ddlRecordFinder;
+=======
+>>>>>>> compatible
 	@ServiceReference(type = PersistedModelLocalServiceRegistry.class)
 	protected PersistedModelLocalServiceRegistry persistedModelLocalServiceRegistry;
 }

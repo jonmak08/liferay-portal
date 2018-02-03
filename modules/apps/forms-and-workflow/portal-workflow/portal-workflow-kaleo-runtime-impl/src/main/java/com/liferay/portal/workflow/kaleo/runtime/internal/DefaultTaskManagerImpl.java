@@ -14,17 +14,24 @@
 
 package com.liferay.portal.workflow.kaleo.runtime.internal;
 
+<<<<<<< HEAD
 import com.liferay.osgi.util.ServiceTrackerFactory;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+=======
+import com.liferay.portal.kernel.exception.PortalException;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Role;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.Transactional;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.kernel.workflow.WorkflowException;
@@ -36,6 +43,7 @@ import com.liferay.portal.workflow.kaleo.model.KaleoInstance;
 import com.liferay.portal.workflow.kaleo.model.KaleoNode;
 import com.liferay.portal.workflow.kaleo.model.KaleoTask;
 import com.liferay.portal.workflow.kaleo.model.KaleoTaskAssignmentInstance;
+<<<<<<< HEAD
 import com.liferay.portal.workflow.kaleo.model.KaleoTaskForm;
 import com.liferay.portal.workflow.kaleo.model.KaleoTaskInstanceToken;
 import com.liferay.portal.workflow.kaleo.model.KaleoTransition;
@@ -43,18 +51,30 @@ import com.liferay.portal.workflow.kaleo.runtime.ExecutionContext;
 import com.liferay.portal.workflow.kaleo.runtime.TaskManager;
 import com.liferay.portal.workflow.kaleo.runtime.action.KaleoActionExecutor;
 import com.liferay.portal.workflow.kaleo.runtime.form.FormDefinitionRetriever;
+=======
+import com.liferay.portal.workflow.kaleo.model.KaleoTaskInstanceToken;
+import com.liferay.portal.workflow.kaleo.runtime.ExecutionContext;
+import com.liferay.portal.workflow.kaleo.runtime.TaskManager;
+import com.liferay.portal.workflow.kaleo.runtime.action.KaleoActionExecutor;
+>>>>>>> compatible
 import com.liferay.portal.workflow.kaleo.runtime.notification.NotificationHelper;
 import com.liferay.portal.workflow.kaleo.runtime.util.WorkflowContextUtil;
 
 import java.io.Serializable;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+>>>>>>> compatible
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+<<<<<<< HEAD
 import org.osgi.util.tracker.ServiceTracker;
 
+=======
+>>>>>>> compatible
 /**
  * @author Michael C. Han
  */
@@ -101,6 +121,7 @@ public class DefaultTaskManagerImpl
 
 	@Override
 	public WorkflowTask completeWorkflowTask(
+<<<<<<< HEAD
 			long workflowTaskInstanceId, long workflowTaskFormId,
 			String formValues, Map<String, Serializable> workflowContext,
 			ServiceContext serviceContext)
@@ -168,6 +189,8 @@ public class DefaultTaskManagerImpl
 
 	@Override
 	public WorkflowTask completeWorkflowTask(
+=======
+>>>>>>> compatible
 			long workflowTaskInstanceId, String transitionName, String comment,
 			Map<String, Serializable> workflowContext,
 			ServiceContext serviceContext)
@@ -184,6 +207,7 @@ public class DefaultTaskManagerImpl
 	}
 
 	@Override
+<<<<<<< HEAD
 	public List<String> getWorkflowTaskFormDefinitions(
 			long workflowTaskInstanceId, ServiceContext serviceContext)
 		throws WorkflowException {
@@ -232,6 +256,8 @@ public class DefaultTaskManagerImpl
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public WorkflowTask updateDueDate(
 			long workflowTaskInstanceId, String comment, Date dueDate,
 			ServiceContext serviceContext)
@@ -363,10 +389,16 @@ public class DefaultTaskManagerImpl
 
 		if (kaleoTaskInstanceToken.isCompleted()) {
 			throw new WorkflowException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Cannot complete an already completed task ",
 					String.valueOf(workflowTaskInstanceId), " for user ",
 					String.valueOf(serviceContext.getUserId())));
+=======
+				"Cannot complete an already completed task " +
+					workflowTaskInstanceId + " for user " +
+						serviceContext.getUserId());
+>>>>>>> compatible
 		}
 
 		serviceContext.setScopeGroupId(kaleoTaskInstanceToken.getGroupId());
@@ -383,10 +415,13 @@ public class DefaultTaskManagerImpl
 			kaleoTaskInstanceToken, workflowContext);
 	}
 
+<<<<<<< HEAD
 	protected FormDefinitionRetriever getFormDefinitionRetriever() {
 		return _serviceTracker.getService();
 	}
 
+=======
+>>>>>>> compatible
 	protected Map<String, Serializable> updateWorkflowContext(
 			Map<String, Serializable> workflowContext,
 			KaleoTaskInstanceToken kaleoTaskInstanceToken)
@@ -418,6 +453,7 @@ public class DefaultTaskManagerImpl
 		return workflowContext;
 	}
 
+<<<<<<< HEAD
 	private static final Log _log = LogFactoryUtil.getLog(
 		DefaultTaskManagerImpl.class);
 
@@ -425,6 +461,8 @@ public class DefaultTaskManagerImpl
 		<FormDefinitionRetriever, FormDefinitionRetriever> _serviceTracker =
 			ServiceTrackerFactory.open(FormDefinitionRetriever.class);
 
+=======
+>>>>>>> compatible
 	@ServiceReference(type = KaleoActionExecutor.class)
 	private KaleoActionExecutor _kaleoActionExecutor;
 

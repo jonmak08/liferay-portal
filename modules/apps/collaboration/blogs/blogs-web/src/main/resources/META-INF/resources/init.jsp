@@ -18,29 +18,41 @@
 
 <%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
 
+<<<<<<< HEAD
 <%@ taglib uri="http://liferay.com/tld/asset" prefix="liferay-asset" %><%@
 taglib uri="http://liferay.com/tld/aui" prefix="aui" %><%@
 taglib uri="http://liferay.com/tld/comment" prefix="liferay-comment" %><%@
+=======
+<%@ taglib uri="http://liferay.com/tld/aui" prefix="aui" %><%@
+>>>>>>> compatible
 taglib uri="http://liferay.com/tld/ddm" prefix="liferay-ddm" %><%@
 taglib uri="http://liferay.com/tld/expando" prefix="liferay-expando" %><%@
 taglib uri="http://liferay.com/tld/flags" prefix="liferay-flags" %><%@
 taglib uri="http://liferay.com/tld/frontend" prefix="liferay-frontend" %><%@
 taglib uri="http://liferay.com/tld/item-selector" prefix="liferay-item-selector" %><%@
 taglib uri="http://liferay.com/tld/portlet" prefix="liferay-portlet" %><%@
+<<<<<<< HEAD
 taglib uri="http://liferay.com/tld/reading-time" prefix="liferay-reading-time" %><%@
+=======
+>>>>>>> compatible
 taglib uri="http://liferay.com/tld/security" prefix="liferay-security" %><%@
 taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %><%@
 taglib uri="http://liferay.com/tld/trash" prefix="liferay-trash" %><%@
 taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %><%@
 taglib uri="http://liferay.com/tld/util" prefix="liferay-util" %>
 
+<<<<<<< HEAD
 <%@ page import="com.liferay.asset.constants.AssetWebKeys" %><%@
 page import="com.liferay.asset.kernel.model.AssetEntry" %><%@
+=======
+<%@ page import="com.liferay.asset.kernel.model.AssetEntry" %><%@
+>>>>>>> compatible
 page import="com.liferay.asset.kernel.model.AssetRenderer" %><%@
 page import="com.liferay.asset.kernel.model.AssetTag" %><%@
 page import="com.liferay.asset.kernel.service.AssetEntryLocalServiceUtil" %><%@
 page import="com.liferay.asset.kernel.service.AssetEntryServiceUtil" %><%@
 page import="com.liferay.asset.kernel.service.AssetTagLocalServiceUtil" %><%@
+<<<<<<< HEAD
 page import="com.liferay.asset.util.AssetHelper" %><%@
 page import="com.liferay.blogs.configuration.BlogsGroupServiceOverriddenConfiguration" %><%@
 page import="com.liferay.blogs.constants.BlogsConstants" %><%@
@@ -66,12 +78,34 @@ page import="com.liferay.blogs.web.internal.display.context.BlogsPortletInstance
 page import="com.liferay.blogs.web.internal.security.permission.resource.BlogsEntryPermission" %><%@
 page import="com.liferay.blogs.web.internal.security.permission.resource.BlogsPermission" %><%@
 page import="com.liferay.blogs.web.internal.util.BlogsEntryUtil" %><%@
+=======
+page import="com.liferay.blogs.configuration.BlogsGroupServiceOverriddenConfiguration" %><%@
+page import="com.liferay.blogs.kernel.exception.EntryContentException" %><%@
+page import="com.liferay.blogs.kernel.exception.EntryCoverImageCropException" %><%@
+page import="com.liferay.blogs.kernel.exception.EntryDescriptionException" %><%@
+page import="com.liferay.blogs.kernel.exception.EntrySmallImageNameException" %><%@
+page import="com.liferay.blogs.kernel.exception.EntrySmallImageScaleException" %><%@
+page import="com.liferay.blogs.kernel.exception.EntryTitleException" %><%@
+page import="com.liferay.blogs.kernel.exception.NoSuchEntryException" %><%@
+page import="com.liferay.blogs.kernel.model.BlogsEntry" %><%@
+page import="com.liferay.blogs.kernel.service.BlogsEntryLocalServiceUtil" %><%@
+page import="com.liferay.blogs.kernel.service.BlogsEntryServiceUtil" %><%@
+page import="com.liferay.blogs.kernel.util.comparator.EntryModifiedDateComparator" %><%@
+page import="com.liferay.blogs.web.configuration.BlogsPortletInstanceConfiguration" %><%@
+page import="com.liferay.blogs.web.constants.BlogsPortletKeys" %><%@
+page import="com.liferay.blogs.web.constants.BlogsWebKeys" %><%@
+page import="com.liferay.blogs.web.internal.BlogsItemSelectorHelper" %><%@
+page import="com.liferay.blogs.web.internal.display.context.BlogsPortletInstanceSettingsHelper" %><%@
+>>>>>>> compatible
 page import="com.liferay.document.library.display.context.DLMimeTypeDisplayContext" %><%@
 page import="com.liferay.document.library.kernel.exception.FileSizeException" %><%@
 page import="com.liferay.document.library.kernel.service.DLAppLocalServiceUtil" %><%@
 page import="com.liferay.document.library.kernel.util.DLUtil" %><%@
+<<<<<<< HEAD
 page import="com.liferay.friendly.url.exception.DuplicateFriendlyURLEntryException" %><%@
 page import="com.liferay.petra.string.StringPool" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.bean.BeanParamUtil" %><%@
 page import="com.liferay.portal.kernel.comment.CommentManagerUtil" %><%@
 page import="com.liferay.portal.kernel.comment.Discussion" %><%@
@@ -113,13 +147,20 @@ page import="com.liferay.portal.kernel.service.GroupLocalServiceUtil" %><%@
 page import="com.liferay.portal.kernel.service.OrganizationLocalServiceUtil" %><%@
 page import="com.liferay.portal.kernel.service.PortletLocalServiceUtil" %><%@
 page import="com.liferay.portal.kernel.service.ServiceContextFunction" %><%@
+<<<<<<< HEAD
+=======
+page import="com.liferay.portal.kernel.service.SubscriptionLocalServiceUtil" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.service.WorkflowDefinitionLinkLocalServiceUtil" %><%@
 page import="com.liferay.portal.kernel.settings.GroupServiceSettingsLocator" %><%@
 page import="com.liferay.portal.kernel.settings.ParameterMapSettingsLocator" %><%@
 page import="com.liferay.portal.kernel.settings.PortletInstanceSettingsLocator" %><%@
 page import="com.liferay.portal.kernel.upload.LiferayFileItemException" %><%@
 page import="com.liferay.portal.kernel.upload.UploadRequestSizeException" %><%@
+<<<<<<< HEAD
 page import="com.liferay.portal.kernel.upload.UploadServletRequestConfigurationHelperUtil" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.util.Constants" %><%@
 page import="com.liferay.portal.kernel.util.FastDateFormatFactoryUtil" %><%@
 page import="com.liferay.portal.kernel.util.GetterUtil" %><%@
@@ -133,6 +174,10 @@ page import="com.liferay.portal.kernel.util.PropsKeys" %><%@
 page import="com.liferay.portal.kernel.util.PropsUtil" %><%@
 page import="com.liferay.portal.kernel.util.RSSUtil" %><%@
 page import="com.liferay.portal.kernel.util.StringBundler" %><%@
+<<<<<<< HEAD
+=======
+page import="com.liferay.portal.kernel.util.StringPool" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.util.StringUtil" %><%@
 page import="com.liferay.portal.kernel.util.TextFormatter" %><%@
 page import="com.liferay.portal.kernel.util.URLCodec" %><%@
@@ -142,17 +187,31 @@ page import="com.liferay.portal.kernel.util.WebKeys" %><%@
 page import="com.liferay.portal.kernel.workflow.WorkflowConstants" %><%@
 page import="com.liferay.portal.upload.LiferayFileItem" %><%@
 page import="com.liferay.portal.util.PropsValues" %><%@
+<<<<<<< HEAD
 page import="com.liferay.ratings.kernel.model.RatingsEntry" %><%@
 page import="com.liferay.ratings.kernel.model.RatingsStats" %><%@
 page import="com.liferay.ratings.kernel.service.RatingsEntryLocalServiceUtil" %><%@
 page import="com.liferay.ratings.kernel.service.RatingsStatsLocalServiceUtil" %><%@
 page import="com.liferay.subscription.service.SubscriptionLocalServiceUtil" %><%@
 page import="com.liferay.taglib.search.ResultRow" %>
+=======
+page import="com.liferay.portlet.asset.util.AssetUtil" %><%@
+page import="com.liferay.portlet.blogs.BlogsGroupServiceSettings" %><%@
+page import="com.liferay.portlet.blogs.constants.BlogsConstants" %><%@
+page import="com.liferay.portlet.blogs.service.permission.BlogsEntryPermission" %><%@
+page import="com.liferay.portlet.blogs.service.permission.BlogsPermission" %><%@
+page import="com.liferay.portlet.blogs.util.BlogsUtil" %><%@
+page import="com.liferay.taglib.search.ResultRow" %><%@
+page import="com.liferay.trash.kernel.util.TrashUtil" %>
+>>>>>>> compatible
 
 <%@ page import="java.text.Format" %>
 
 <%@ page import="java.util.ArrayList" %><%@
+<<<<<<< HEAD
 page import="java.util.Collections" %><%@
+=======
+>>>>>>> compatible
 page import="java.util.Date" %><%@
 page import="java.util.HashMap" %><%@
 page import="java.util.List" %><%@
@@ -165,6 +224,7 @@ page import="javax.portlet.WindowState" %>
 
 <liferay-theme:defineObjects />
 
+<<<<<<< HEAD
 <liferay-trash:defineObjects />
 
 <portlet:defineObjects />
@@ -172,6 +232,11 @@ page import="javax.portlet.WindowState" %>
 <%
 AssetHelper assetHelper = (AssetHelper)request.getAttribute(AssetWebKeys.ASSET_HELPER);
 
+=======
+<portlet:defineObjects />
+
+<%
+>>>>>>> compatible
 PortalPreferences portalPreferences = PortletPreferencesFactoryUtil.getPortalPreferences(liferayPortletRequest);
 
 Format dateFormatDate = FastDateFormatFactoryUtil.getDate(locale, timeZone);

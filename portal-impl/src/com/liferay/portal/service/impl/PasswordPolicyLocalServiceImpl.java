@@ -14,7 +14,10 @@
 
 package com.liferay.portal.service.impl;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.cache.thread.local.ThreadLocalCachable;
 import com.liferay.portal.kernel.exception.DuplicatePasswordPolicyException;
 import com.liferay.portal.kernel.exception.PasswordPolicyNameException;
@@ -233,6 +236,7 @@ public class PasswordPolicyLocalServiceImpl
 		return passwordPolicyPersistence.findByC_DP(companyId, true);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public PasswordPolicy getPasswordPolicy(
 			long companyId, boolean defaultPolicy)
@@ -241,6 +245,8 @@ public class PasswordPolicyLocalServiceImpl
 		return passwordPolicyPersistence.findByC_DP(companyId, defaultPolicy);
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	public PasswordPolicy getPasswordPolicy(
 			long companyId, long[] organizationIds)

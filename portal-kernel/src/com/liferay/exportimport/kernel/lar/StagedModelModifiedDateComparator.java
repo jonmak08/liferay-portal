@@ -14,8 +14,11 @@
 
 package com.liferay.exportimport.kernel.lar;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.StagedModel;
 import com.liferay.portal.kernel.util.DateUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
@@ -23,7 +26,10 @@ import com.liferay.portal.kernel.util.OrderByComparator;
 /**
  * @author Daniel Kocsis
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class StagedModelModifiedDateComparator<T extends StagedModel>
 	extends OrderByComparator<T> {
 

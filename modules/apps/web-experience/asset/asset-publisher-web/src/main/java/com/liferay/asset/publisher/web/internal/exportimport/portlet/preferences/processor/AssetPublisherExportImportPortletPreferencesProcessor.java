@@ -22,9 +22,14 @@ import com.liferay.asset.kernel.model.AssetVocabulary;
 import com.liferay.asset.kernel.service.AssetCategoryLocalService;
 import com.liferay.asset.kernel.service.AssetVocabularyLocalService;
 import com.liferay.asset.kernel.service.persistence.AssetEntryQuery;
+<<<<<<< HEAD
 import com.liferay.asset.publisher.web.configuration.AssetPublisherWebConfiguration;
 import com.liferay.asset.publisher.web.constants.AssetPublisherPortletKeys;
 import com.liferay.asset.publisher.web.internal.util.AssetPublisherWebUtil;
+=======
+import com.liferay.asset.publisher.web.constants.AssetPublisherPortletKeys;
+import com.liferay.asset.publisher.web.internal.configuration.AssetPublisherWebConfigurationValues;
+>>>>>>> compatible
 import com.liferay.asset.publisher.web.util.AssetPublisherUtil;
 import com.liferay.document.library.kernel.model.DLFileEntry;
 import com.liferay.document.library.kernel.model.DLFileEntryType;
@@ -35,18 +40,27 @@ import com.liferay.dynamic.data.mapping.service.DDMStructureLocalService;
 import com.liferay.dynamic.data.mapping.util.DDMIndexer;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.exportimport.kernel.lar.PortletDataException;
+<<<<<<< HEAD
 import com.liferay.exportimport.kernel.lar.PortletDataHandlerKeys;
 import com.liferay.exportimport.kernel.lar.StagedModelDataHandler;
 import com.liferay.exportimport.kernel.lar.StagedModelDataHandlerRegistryUtil;
 import com.liferay.exportimport.kernel.lar.StagedModelDataHandlerUtil;
 import com.liferay.exportimport.kernel.staging.MergeLayoutPrototypesThreadLocal;
+=======
+import com.liferay.exportimport.kernel.lar.StagedModelDataHandler;
+import com.liferay.exportimport.kernel.lar.StagedModelDataHandlerRegistryUtil;
+import com.liferay.exportimport.kernel.lar.StagedModelDataHandlerUtil;
+>>>>>>> compatible
 import com.liferay.exportimport.portlet.preferences.processor.Capability;
 import com.liferay.exportimport.portlet.preferences.processor.ExportImportPortletPreferencesProcessor;
 import com.liferay.exportimport.portlet.preferences.processor.base.BaseExportImportPortletPreferencesProcessor;
 import com.liferay.exportimport.portlet.preferences.processor.capability.ReferencedStagedModelImporterCapability;
 import com.liferay.journal.model.JournalArticle;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.NoSuchGroupException;
 import com.liferay.portal.kernel.exception.NoSuchLayoutException;
@@ -59,6 +73,10 @@ import com.liferay.portal.kernel.model.Organization;
 import com.liferay.portal.kernel.model.Portlet;
 import com.liferay.portal.kernel.model.StagedModel;
 import com.liferay.portal.kernel.model.UserConstants;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.model.adapter.StagedGroup;
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.PortletPreferencesFactoryUtil;
 import com.liferay.portal.kernel.search.BaseModelSearchResult;
 import com.liferay.portal.kernel.security.auth.PrincipalException;
@@ -74,12 +92,19 @@ import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.TimeZoneUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Element;
+<<<<<<< HEAD
 import com.liferay.site.model.adapter.StagedGroup;
+=======
+>>>>>>> compatible
 
 import java.io.Serializable;
 
@@ -91,9 +116,13 @@ import java.util.Map;
 
 import javax.portlet.PortletPreferences;
 
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Modified;
+=======
+import org.osgi.service.component.annotations.Component;
+>>>>>>> compatible
 import org.osgi.service.component.annotations.Reference;
 
 /**
@@ -107,7 +136,10 @@ import org.osgi.service.component.annotations.Reference;
  * @author Mate Thurzo
  */
 @Component(
+<<<<<<< HEAD
 	configurationPid = "com.liferay.asset.publisher.web.configuration.AssetPublisherWebConfiguration",
+=======
+>>>>>>> compatible
 	immediate = true,
 	property = {
 		"javax.portlet.name=" + AssetPublisherPortletKeys.ASSET_PUBLISHER
@@ -140,6 +172,7 @@ public class AssetPublisherExportImportPortletPreferencesProcessor
 		throws PortletDataException {
 
 		try {
+<<<<<<< HEAD
 			if (MapUtil.getBoolean(
 					portletDataContext.getParameterMap(),
 					PortletDataHandlerKeys.PORTLET_DATA) &&
@@ -147,6 +180,9 @@ public class AssetPublisherExportImportPortletPreferencesProcessor
 
 				exportAssetObjects(portletDataContext, portletPreferences);
 			}
+=======
+			exportAssetObjects(portletDataContext, portletPreferences);
+>>>>>>> compatible
 
 			return updateExportPortletPreferences(
 				portletDataContext, portletDataContext.getPortletId(),
@@ -177,6 +213,7 @@ public class AssetPublisherExportImportPortletPreferencesProcessor
 		}
 	}
 
+<<<<<<< HEAD
 	@Activate
 	@Modified
 	protected void activate(Map<String, Object> properties) {
@@ -184,6 +221,8 @@ public class AssetPublisherExportImportPortletPreferencesProcessor
 			AssetPublisherWebConfiguration.class, properties);
 	}
 
+=======
+>>>>>>> compatible
 	protected void exportAssetObjects(
 			PortletDataContext portletDataContext,
 			PortletPreferences portletPreferences)
@@ -194,17 +233,32 @@ public class AssetPublisherExportImportPortletPreferencesProcessor
 		Layout layout = _layoutLocalService.getLayout(
 			portletDataContext.getPlid());
 
+<<<<<<< HEAD
+=======
+		long[] groupIds = AssetPublisherUtil.getGroupIds(
+			portletPreferences, portletDataContext.getScopeGroupId(), layout);
+
+>>>>>>> compatible
 		String selectionStyle = portletPreferences.getValue(
 			"selectionStyle", "dynamic");
 
 		if (selectionStyle.equals("dynamic")) {
+<<<<<<< HEAD
 			if (!_assetPublisherWebConfiguration.dynamicExportEnabled()) {
+=======
+			if (!AssetPublisherWebConfigurationValues.DYNAMIC_EXPORT_ENABLED) {
+>>>>>>> compatible
 				return;
 			}
 
 			AssetEntryQuery assetEntryQuery = getAssetEntryQuery(
+<<<<<<< HEAD
 				layout, portletDataContext.getCompanyGroupId(),
 				portletDataContext.getScopeGroupId(), portletPreferences);
+=======
+				layout, portletDataContext.getCompanyGroupId(), groupIds,
+				portletPreferences);
+>>>>>>> compatible
 
 			long assetVocabularyId = GetterUtil.getLong(
 				portletPreferences.getValue("assetVocabularyId", null));
@@ -231,6 +285,7 @@ public class AssetPublisherExportImportPortletPreferencesProcessor
 			assetEntries = baseModelSearchResult.getBaseModels();
 		}
 		else {
+<<<<<<< HEAD
 			if (!_assetPublisherWebConfiguration.manualExportEnabled()) {
 				return;
 			}
@@ -239,6 +294,12 @@ public class AssetPublisherExportImportPortletPreferencesProcessor
 				portletPreferences, portletDataContext.getScopeGroupId(),
 				layout);
 
+=======
+			if (!AssetPublisherWebConfigurationValues.MANUAL_EXPORT_ENABLED) {
+				return;
+			}
+
+>>>>>>> compatible
 			assetEntries = AssetPublisherUtil.getAssetEntries(
 				null, portletPreferences,
 				PermissionThreadLocal.getPermissionChecker(), groupIds, false,
@@ -261,12 +322,20 @@ public class AssetPublisherExportImportPortletPreferencesProcessor
 	}
 
 	protected AssetEntryQuery getAssetEntryQuery(
+<<<<<<< HEAD
 			Layout layout, long companyId, long groupId,
+=======
+			Layout layout, long companyId, long[] groupIds,
+>>>>>>> compatible
 			PortletPreferences portletPreferences)
 		throws Exception {
 
 		AssetEntryQuery assetEntryQuery = AssetPublisherUtil.getAssetEntryQuery(
+<<<<<<< HEAD
 			portletPreferences, groupId, layout, null, null);
+=======
+			portletPreferences, groupIds, null, null);
+>>>>>>> compatible
 
 		long[] classNameIds = AssetPublisherUtil.getClassNameIds(
 			portletPreferences,
@@ -274,9 +343,20 @@ public class AssetPublisherExportImportPortletPreferencesProcessor
 
 		assetEntryQuery.setClassNameIds(classNameIds);
 
+<<<<<<< HEAD
 		assetEntryQuery.setEnablePermissions(false);
 
 		int end = _assetPublisherWebConfiguration.dynamicExportLimit();
+=======
+		long[] classTypeIds = GetterUtil.getLongValues(
+			portletPreferences.getValues("classTypeIds", null));
+
+		assetEntryQuery.setClassTypeIds(classTypeIds);
+
+		assetEntryQuery.setEnablePermissions(false);
+
+		int end = AssetPublisherWebConfigurationValues.DYNAMIC_EXPORT_LIMIT;
+>>>>>>> compatible
 
 		if (end == 0) {
 			end = QueryUtil.ALL_POS;
@@ -285,6 +365,37 @@ public class AssetPublisherExportImportPortletPreferencesProcessor
 		assetEntryQuery.setEnd(end);
 
 		assetEntryQuery.setExcludeZeroViewCount(false);
+<<<<<<< HEAD
+=======
+		assetEntryQuery.setGroupIds(groupIds);
+
+		boolean showOnlyLayoutAssets = GetterUtil.getBoolean(
+			portletPreferences.getValue("showOnlyLayoutAssets", null));
+
+		if (showOnlyLayoutAssets) {
+			assetEntryQuery.setLayout(layout);
+		}
+
+		String orderByCol1 = GetterUtil.getString(
+			portletPreferences.getValue("orderByColumn1", "modifiedDate"));
+
+		assetEntryQuery.setOrderByCol1(orderByCol1);
+
+		String orderByCol2 = GetterUtil.getString(
+			portletPreferences.getValue("orderByColumn2", "title"));
+
+		assetEntryQuery.setOrderByCol2(orderByCol2);
+
+		String orderByType1 = GetterUtil.getString(
+			portletPreferences.getValue("orderByType1", "DESC"));
+
+		assetEntryQuery.setOrderByType1(orderByType1);
+
+		String orderByType2 = GetterUtil.getString(
+			portletPreferences.getValue("orderByType2", "ASC"));
+
+		assetEntryQuery.setOrderByType2(orderByType2);
+>>>>>>> compatible
 
 		int start = 0;
 
@@ -409,7 +520,11 @@ public class AssetPublisherExportImportPortletPreferencesProcessor
 					Group.class);
 
 			groupId = MapUtil.getLong(
+<<<<<<< HEAD
 				groupIds, GetterUtil.getLong(oldValues[1]), groupId);
+=======
+				groupIds, GetterUtil.getLong(oldValues[1]));
+>>>>>>> compatible
 		}
 
 		if (className.equals(AssetCategory.class.getName())) {
@@ -435,6 +550,7 @@ public class AssetPublisherExportImportPortletPreferencesProcessor
 				_ddmStructureLocalService.fetchDDMStructureByUuidAndGroupId(
 					uuid, groupId);
 
+<<<<<<< HEAD
 			if (ddmStructure == null) {
 				Map<String, String> structureUuids =
 					(Map<String, String>)
@@ -449,6 +565,8 @@ public class AssetPublisherExportImportPortletPreferencesProcessor
 						defaultStructureUuid, groupId);
 			}
 
+=======
+>>>>>>> compatible
 			if (ddmStructure != null) {
 				return ddmStructure.getStructureId();
 			}
@@ -726,10 +844,16 @@ public class AssetPublisherExportImportPortletPreferencesProcessor
 		if (Validator.isNull(newPreferencesValue)) {
 			if (_log.isWarnEnabled()) {
 				_log.warn(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Unable to export portlet preferences value for class ",
 						DDMStructure.class.getName(), " with primary key ",
 						String.valueOf(primaryKeyLong)));
+=======
+					"Unable to export portlet preferences value for class " +
+						DDMStructure.class.getName() + " with primary key " +
+							primaryKeyLong);
+>>>>>>> compatible
 			}
 
 			return;
@@ -1227,7 +1351,11 @@ public class AssetPublisherExportImportPortletPreferencesProcessor
 			else if (name.startsWith("queryName") &&
 					 StringUtil.equalsIgnoreCase(value, "assetCategories")) {
 
+<<<<<<< HEAD
 				String index = name.substring(9);
+=======
+				String index = name.substring(9, name.length());
+>>>>>>> compatible
 
 				updateImportPortletPreferencesClassPKs(
 					portletDataContext, portletPreferences,
@@ -1306,16 +1434,25 @@ public class AssetPublisherExportImportPortletPreferencesProcessor
 			if (Validator.isNumber(newValue)) {
 				if (_log.isInfoEnabled()) {
 					_log.info(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"Ignoring group ", newValue, " because it cannot ",
 							"be converted to scope"));
+=======
+						"Ignoring group " + newValue + " because it cannot " +
+							"be converted to scope");
+>>>>>>> compatible
 				}
 
 				continue;
 			}
 
 			try {
+<<<<<<< HEAD
 				if (!assetPublisherWebUtil.isScopeIdSelectable(
+=======
+				if (!AssetPublisherUtil.isScopeIdSelectable(
+>>>>>>> compatible
 						PermissionThreadLocal.getPermissionChecker(), newValue,
 						companyGroupId, layout, false)) {
 
@@ -1327,28 +1464,44 @@ public class AssetPublisherExportImportPortletPreferencesProcessor
 			catch (NoSuchGroupException nsge) {
 				if (_log.isInfoEnabled()) {
 					_log.info(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"Ignoring scope ", newValue, " because the ",
 							"referenced group was not found"),
+=======
+						"Ignoring scope " + newValue + " because the " +
+							"referenced group was not found",
+>>>>>>> compatible
 						nsge);
 				}
 			}
 			catch (NoSuchLayoutException nsle) {
 				if (_log.isInfoEnabled()) {
 					_log.info(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"Ignoring scope ", newValue, " because the ",
 							"referenced layout was not found"),
+=======
+						"Ignoring scope " + newValue + " because the " +
+							"referenced layout was not found",
+>>>>>>> compatible
 						nsle);
 				}
 			}
 			catch (PrincipalException pe) {
 				if (_log.isInfoEnabled()) {
 					_log.info(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"Ignoring scope ", newValue, " because the ",
 							"referenced parent group no longer allows sharing ",
 							"content with child sites"),
+=======
+						"Ignoring scope " + newValue + " because the " +
+							"referenced parent group no longer allows " +
+								"sharing content with child sites",
+>>>>>>> compatible
 						pe);
 				}
 			}
@@ -1359,9 +1512,12 @@ public class AssetPublisherExportImportPortletPreferencesProcessor
 	}
 
 	@Reference
+<<<<<<< HEAD
 	protected AssetPublisherWebUtil assetPublisherWebUtil;
 
 	@Reference
+=======
+>>>>>>> compatible
 	protected Portal portal;
 
 	private static final Log _log = LogFactoryUtil.getLog(
@@ -1372,7 +1528,10 @@ public class AssetPublisherExportImportPortletPreferencesProcessor
 		_assetPublisherPortletDisplayTemplateExportCapability;
 	private AssetPublisherPortletDisplayTemplateImportCapability
 		_assetPublisherPortletDisplayTemplateImportCapability;
+<<<<<<< HEAD
 	private AssetPublisherWebConfiguration _assetPublisherWebConfiguration;
+=======
+>>>>>>> compatible
 	private AssetVocabularyLocalService _assetVocabularyLocalService;
 	private CompanyLocalService _companyLocalService;
 	private DDMStructureLocalService _ddmStructureLocalService;

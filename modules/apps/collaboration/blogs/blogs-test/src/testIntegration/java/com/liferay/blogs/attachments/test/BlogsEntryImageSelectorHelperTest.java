@@ -15,25 +15,44 @@
 package com.liferay.blogs.attachments.test;
 
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
+<<<<<<< HEAD
 import com.liferay.blogs.util.BlogsEntryImageSelectorHelper;
 import com.liferay.document.library.kernel.model.DLFolderConstants;
 import com.liferay.document.library.kernel.service.DLAppLocalServiceUtil;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.document.library.kernel.model.DLFolderConstants;
+import com.liferay.document.library.kernel.service.DLAppLocalServiceUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.servlet.taglib.ui.ImageSelector;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.MimeTypesUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.TempFileEntryUtil;
 import com.liferay.portal.service.test.ServiceTestUtil;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+=======
+import com.liferay.portal.kernel.util.StreamUtil;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.TempFileEntryUtil;
+import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+import com.liferay.portal.test.rule.PermissionCheckerTestRule;
+import com.liferay.portlet.blogs.BlogsEntryImageSelectorHelper;
+>>>>>>> compatible
 
 import java.io.InputStream;
 
@@ -48,18 +67,32 @@ import org.junit.runner.RunWith;
  * @author Roberto Díaz
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class BlogsEntryImageSelectorHelperTest {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			PermissionCheckerTestRule.INSTANCE,
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Before
 	public void setUp() throws Exception {
 		_group = GroupTestUtil.addGroup();
+<<<<<<< HEAD
 
 		ServiceTestUtil.setUser(TestPropsValues.getUser());
+=======
+>>>>>>> compatible
 	}
 
 	@Test
@@ -83,7 +116,15 @@ public class BlogsEntryImageSelectorHelperTest {
 
 	@Test
 	public void testGetImageSelectorWithDLImageFileEntry() throws Exception {
+<<<<<<< HEAD
 		try (InputStream inputStream = getInputStream()) {
+=======
+		InputStream inputStream = null;
+
+		try {
+			inputStream = getInputStream();
+
+>>>>>>> compatible
 			byte[] bytes = FileUtil.getBytes(inputStream);
 
 			ServiceContext serviceContext =
@@ -115,6 +156,12 @@ public class BlogsEntryImageSelectorHelperTest {
 			Assert.assertFalse(
 				blogsEntryImageSelectorHelper.isFileEntryTempFile());
 		}
+<<<<<<< HEAD
+=======
+		finally {
+			StreamUtil.cleanUp(inputStream);
+		}
+>>>>>>> compatible
 	}
 
 	@Test
@@ -140,7 +187,15 @@ public class BlogsEntryImageSelectorHelperTest {
 	public void testGetImageSelectorWithSameDLImageFileEntry()
 		throws Exception {
 
+<<<<<<< HEAD
 		try (InputStream inputStream = getInputStream()) {
+=======
+		InputStream inputStream = null;
+
+		try {
+			inputStream = getInputStream();
+
+>>>>>>> compatible
 			byte[] bytes = FileUtil.getBytes(inputStream);
 
 			ServiceContext serviceContext =
@@ -161,6 +216,12 @@ public class BlogsEntryImageSelectorHelperTest {
 			Assert.assertFalse(
 				blogsEntryImageSelectorHelper.isFileEntryTempFile());
 		}
+<<<<<<< HEAD
+=======
+		finally {
+			StreamUtil.cleanUp(inputStream);
+		}
+>>>>>>> compatible
 	}
 
 	@Test
@@ -175,7 +236,15 @@ public class BlogsEntryImageSelectorHelperTest {
 
 	@Test
 	public void testGetImageSelectorWithTempImageFileEntry() throws Exception {
+<<<<<<< HEAD
 		try (InputStream inputStream = getInputStream()) {
+=======
+		InputStream inputStream = null;
+
+		try {
+			inputStream = getInputStream();
+
+>>>>>>> compatible
 			byte[] bytes = FileUtil.getBytes(inputStream);
 
 			FileEntry tempFileEntry = TempFileEntryUtil.addTempFileEntry(
@@ -204,6 +273,12 @@ public class BlogsEntryImageSelectorHelperTest {
 			Assert.assertTrue(
 				blogsEntryImageSelectorHelper.isFileEntryTempFile());
 		}
+<<<<<<< HEAD
+=======
+		finally {
+			StreamUtil.cleanUp(inputStream);
+		}
+>>>>>>> compatible
 	}
 
 	protected InputStream getInputStream() {

@@ -17,14 +17,13 @@ package com.liferay.portal.search.solr.query;
 import com.liferay.portal.kernel.search.generic.DisMaxQuery;
 import com.liferay.portal.kernel.search.query.QueryVisitor;
 
-import org.apache.lucene.search.Query;
-
 /**
  * @author Michael C. Han
  */
 public interface DisMaxQueryTranslator {
 
-	public Query translate(
-		DisMaxQuery disMaxQuery, QueryVisitor<Query> queryVisitor);
+	public org.apache.lucene.search.Query translate(
+		DisMaxQuery disMaxQuery,
+		QueryVisitor<org.apache.lucene.search.Query> queryVisitor);
 
 }

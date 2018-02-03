@@ -22,6 +22,12 @@ AUI.add(
 				p_l_reset: null,
 				p_p_auth: null,
 				p_p_cacheability: null,
+<<<<<<< HEAD
+=======
+				p_p_col_count: null,
+				p_p_col_id: null,
+				p_p_col_pos: null,
+>>>>>>> compatible
 				p_p_i_id: null,
 				p_p_id: null,
 				p_p_isolated: null,

@@ -14,7 +14,11 @@
 
 package com.liferay.configuration.admin.web.internal.portlet.configuration.icon;
 
+<<<<<<< HEAD
 import com.liferay.configuration.admin.constants.ConfigurationAdminPortletKeys;
+=======
+import com.liferay.configuration.admin.web.internal.constants.ConfigurationAdminPortletKeys;
+>>>>>>> compatible
 import com.liferay.configuration.admin.web.internal.constants.ConfigurationAdminWebKeys;
 import com.liferay.configuration.admin.web.internal.model.ConfigurationModel;
 import com.liferay.configuration.admin.web.internal.util.ConfigurationModelIterator;
@@ -55,7 +59,12 @@ public class ExportFactoryInstancesIcon extends BasePortletConfigurationIcon {
 			WebKeys.THEME_DISPLAY);
 
 		ResourceBundle resourceBundle =
+<<<<<<< HEAD
 			_resourceBundleLoader.loadResourceBundle(themeDisplay.getLocale());
+=======
+			_resourceBundleLoader.loadResourceBundle(
+				themeDisplay.getLanguageId());
+>>>>>>> compatible
 
 		return LanguageUtil.get(resourceBundle, "export-entries");
 	}

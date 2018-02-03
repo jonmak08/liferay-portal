@@ -17,7 +17,11 @@
 <%@ include file="/init.jsp" %>
 
 <%
+<<<<<<< HEAD
 User selUser = PortalUtil.getSelectedUser(request);
+=======
+User selUser = (User)request.getAttribute("user.selUser");
+>>>>>>> compatible
 
 List<LayoutSetPrototype> layoutSetPrototypes = LayoutSetPrototypeServiceUtil.search(company.getCompanyId(), Boolean.TRUE, null);
 

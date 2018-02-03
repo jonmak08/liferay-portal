@@ -19,6 +19,7 @@
  * modification, are permitted provided that the following conditions are met:
  *
  * 1. Redistributions of source code must retain the above copyright
+<<<<<<< HEAD
  *    notice, this list of conditions and the following disclaimer.
  *
  * 2. Redistributions in binary form must reproduce the above copyright
@@ -28,6 +29,17 @@
  * 3. Neither the name of the University nor the names of its contributors
  *    may be used to endorse or promote products derived from this software
  *    without specific prior written permission.
+=======
+ *	  notice, this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *	  notice, this list of conditions and the following disclaimer in the
+ *	  documentation and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of the University nor the names of its contributors
+ *	  may be used to endorse or promote products derived from this software
+ *	  without specific prior written permission.
+>>>>>>> compatible
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS ``AS
  * IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
@@ -44,7 +56,12 @@
 
 package com.liferay.portal.kernel.cal;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.HashUtil;
+=======
+import com.liferay.portal.kernel.util.HashCode;
+import com.liferay.portal.kernel.util.HashCodeFactoryUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringBundler;
 
 import java.io.Serializable;
@@ -70,6 +87,7 @@ public class DayAndPosition implements Cloneable, Serializable {
 	 *         <code>false</code> otherwise
 	 */
 	public static boolean isValidDayOfWeek(int d) {
+<<<<<<< HEAD
 		if ((d == NO_WEEKDAY) || (d == Calendar.SUNDAY) ||
 			(d == Calendar.MONDAY) || (d == Calendar.TUESDAY) ||
 			(d == Calendar.WEDNESDAY) || (d == Calendar.THURSDAY) ||
@@ -79,6 +97,23 @@ public class DayAndPosition implements Cloneable, Serializable {
 		}
 
 		return false;
+=======
+		switch (d) {
+
+			case NO_WEEKDAY :
+			case Calendar.SUNDAY :
+			case Calendar.MONDAY :
+			case Calendar.TUESDAY :
+			case Calendar.WEDNESDAY :
+			case Calendar.THURSDAY :
+			case Calendar.FRIDAY :
+			case Calendar.SATURDAY :
+				return true;
+
+			default :
+				return false;
+		}
+>>>>>>> compatible
 	}
 
 	/**
@@ -197,9 +232,18 @@ public class DayAndPosition implements Cloneable, Serializable {
 	 */
 	@Override
 	public int hashCode() {
+<<<<<<< HEAD
 		int hashCode = HashUtil.hash(0, _day);
 
 		return HashUtil.hash(hashCode, _position);
+=======
+		HashCode hashCode = HashCodeFactoryUtil.getHashCode();
+
+		hashCode.append(_day);
+		hashCode.append(_position);
+
+		return hashCode.toHashCode();
+>>>>>>> compatible
 	}
 
 	/**

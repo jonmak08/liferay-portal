@@ -23,13 +23,20 @@ import com.liferay.calendar.model.Calendar;
 import com.liferay.calendar.model.CalendarBooking;
 import com.liferay.calendar.model.CalendarResource;
 import com.liferay.calendar.service.CalendarBookingLocalService;
+<<<<<<< HEAD
+=======
+import com.liferay.calendar.service.permission.CalendarPermission;
+>>>>>>> compatible
 import com.liferay.calendar.util.CalendarResourceUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.portlet.LiferayPortletRequest;
 import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermission;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.Portal;
@@ -73,8 +80,12 @@ public class CalendarBookingAssetRendererFactory
 			_calendarBookingLocalService.getCalendarBooking(classPK);
 
 		CalendarBookingAssetRenderer calendarBookingAssetRenderer =
+<<<<<<< HEAD
 			new CalendarBookingAssetRenderer(
 				calendarBooking, _calendarModelResourcePermission);
+=======
+			new CalendarBookingAssetRenderer(calendarBooking);
+>>>>>>> compatible
 
 		calendarBookingAssetRenderer.setAssetRendererType(type);
 		calendarBookingAssetRenderer.setServletContext(_servletContext);
@@ -148,7 +159,11 @@ public class CalendarBookingAssetRendererFactory
 
 		Calendar calendar = calendarResource.getDefaultCalendar();
 
+<<<<<<< HEAD
 		return _calendarModelResourcePermission.contains(
+=======
+		return CalendarPermission.contains(
+>>>>>>> compatible
 			permissionChecker, calendar.getCalendarId(),
 			CalendarActionKeys.MANAGE_BOOKINGS);
 	}
@@ -167,7 +182,11 @@ public class CalendarBookingAssetRendererFactory
 			actionId = CalendarActionKeys.MANAGE_BOOKINGS;
 		}
 
+<<<<<<< HEAD
 		return _calendarModelResourcePermission.contains(
+=======
+		return CalendarPermission.contains(
+>>>>>>> compatible
 			permissionChecker, calendarBooking.getCalendarId(), actionId);
 	}
 
@@ -188,11 +207,14 @@ public class CalendarBookingAssetRendererFactory
 
 	private CalendarBookingLocalService _calendarBookingLocalService;
 
+<<<<<<< HEAD
 	@Reference(
 		target = "(model.class.name=com.liferay.calendar.model.Calendar)"
 	)
 	private ModelResourcePermission<Calendar> _calendarModelResourcePermission;
 
+=======
+>>>>>>> compatible
 	@Reference
 	private Portal _portal;
 

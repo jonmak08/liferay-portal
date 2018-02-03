@@ -21,6 +21,10 @@ import com.liferay.calendar.model.CalendarNotificationTemplate;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -108,7 +112,11 @@ public class CalendarNotificationTemplateCacheModel implements CacheModel<Calend
 		CalendarNotificationTemplateImpl calendarNotificationTemplateImpl = new CalendarNotificationTemplateImpl();
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			calendarNotificationTemplateImpl.setUuid("");
+=======
+			calendarNotificationTemplateImpl.setUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			calendarNotificationTemplateImpl.setUuid(uuid);
@@ -120,7 +128,11 @@ public class CalendarNotificationTemplateCacheModel implements CacheModel<Calend
 		calendarNotificationTemplateImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			calendarNotificationTemplateImpl.setUserName("");
+=======
+			calendarNotificationTemplateImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			calendarNotificationTemplateImpl.setUserName(userName);
@@ -144,35 +156,55 @@ public class CalendarNotificationTemplateCacheModel implements CacheModel<Calend
 		calendarNotificationTemplateImpl.setCalendarId(calendarId);
 
 		if (notificationType == null) {
+<<<<<<< HEAD
 			calendarNotificationTemplateImpl.setNotificationType("");
+=======
+			calendarNotificationTemplateImpl.setNotificationType(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			calendarNotificationTemplateImpl.setNotificationType(notificationType);
 		}
 
 		if (notificationTypeSettings == null) {
+<<<<<<< HEAD
 			calendarNotificationTemplateImpl.setNotificationTypeSettings("");
+=======
+			calendarNotificationTemplateImpl.setNotificationTypeSettings(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			calendarNotificationTemplateImpl.setNotificationTypeSettings(notificationTypeSettings);
 		}
 
 		if (notificationTemplateType == null) {
+<<<<<<< HEAD
 			calendarNotificationTemplateImpl.setNotificationTemplateType("");
+=======
+			calendarNotificationTemplateImpl.setNotificationTemplateType(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			calendarNotificationTemplateImpl.setNotificationTemplateType(notificationTemplateType);
 		}
 
 		if (subject == null) {
+<<<<<<< HEAD
 			calendarNotificationTemplateImpl.setSubject("");
+=======
+			calendarNotificationTemplateImpl.setSubject(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			calendarNotificationTemplateImpl.setSubject(subject);
 		}
 
 		if (body == null) {
+<<<<<<< HEAD
 			calendarNotificationTemplateImpl.setBody("");
+=======
+			calendarNotificationTemplateImpl.setBody(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			calendarNotificationTemplateImpl.setBody(body);
@@ -219,7 +251,11 @@ public class CalendarNotificationTemplateCacheModel implements CacheModel<Calend
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		if (uuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(uuid);
@@ -234,7 +270,11 @@ public class CalendarNotificationTemplateCacheModel implements CacheModel<Calend
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -246,35 +286,55 @@ public class CalendarNotificationTemplateCacheModel implements CacheModel<Calend
 		objectOutput.writeLong(calendarId);
 
 		if (notificationType == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(notificationType);
 		}
 
 		if (notificationTypeSettings == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(notificationTypeSettings);
 		}
 
 		if (notificationTemplateType == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(notificationTemplateType);
 		}
 
 		if (subject == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(subject);
 		}
 
 		if (body == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(body);

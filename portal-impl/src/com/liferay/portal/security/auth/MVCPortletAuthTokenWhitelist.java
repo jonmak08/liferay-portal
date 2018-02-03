@@ -14,6 +14,10 @@
 
 package com.liferay.portal.security.auth;
 
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.concurrent.ConcurrentHashSet;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Portlet;
 import com.liferay.portal.kernel.portlet.LiferayPortletURL;
 import com.liferay.portal.kernel.portlet.PortletIdCodec;
@@ -24,7 +28,10 @@ import com.liferay.portal.kernel.security.auth.BaseAuthTokenWhitelist;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.PortalUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
@@ -38,11 +45,17 @@ import com.liferay.registry.util.StringPlus;
 
 import java.util.ArrayList;
 import java.util.Collection;
+<<<<<<< HEAD
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+=======
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+>>>>>>> compatible
 
 import javax.portlet.ActionRequest;
 import javax.portlet.PortletRequest;
@@ -214,9 +227,14 @@ public class MVCPortletAuthTokenWhitelist extends BaseAuthTokenWhitelist {
 
 		ServiceTracker<Object, Object> serviceTracker = registry.trackServices(
 			registry.getFilter(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"(&(&(", whitelistName, "=*)(javax.portlet.name=*))",
 					"(objectClass=", serviceClass.getName(), "))")),
+=======
+				"(&(&(" + whitelistName + "=*)(javax.portlet.name=*))" +
+					"(objectClass=" + serviceClass.getName() + "))"),
+>>>>>>> compatible
 			new TokenWhitelistTrackerCustomizer(whiteList));
 
 		serviceTracker.open();
@@ -254,6 +272,7 @@ public class MVCPortletAuthTokenWhitelist extends BaseAuthTokenWhitelist {
 		return true;
 	}
 
+<<<<<<< HEAD
 	private final Set<String> _portletCSRFWhitelist = Collections.newSetFromMap(
 		new ConcurrentHashMap<>());
 	private final Set<String> _portletInvocationWhitelistAction =
@@ -262,6 +281,15 @@ public class MVCPortletAuthTokenWhitelist extends BaseAuthTokenWhitelist {
 		Collections.newSetFromMap(new ConcurrentHashMap<>());
 	private final Set<String> _portletInvocationWhitelistResource =
 		Collections.newSetFromMap(new ConcurrentHashMap<>());
+=======
+	private final Set<String> _portletCSRFWhitelist = new ConcurrentHashSet<>();
+	private final Set<String> _portletInvocationWhitelistAction =
+		new ConcurrentHashSet<>();
+	private final Set<String> _portletInvocationWhitelistRender =
+		new ConcurrentHashSet<>();
+	private final Set<String> _portletInvocationWhitelistResource =
+		new ConcurrentHashSet<>();
+>>>>>>> compatible
 
 	private class TokenWhitelistTrackerCustomizer
 		implements ServiceTrackerCustomizer<Object, Object> {

@@ -292,6 +292,7 @@ ExpandoBridge expandoBridge = ExpandoBridgeFactoryUtil.getExpandoBridge(company.
 								</c:when>
 							</c:choose>
 						</c:when>
+<<<<<<< HEAD
 						<c:when test="<%= type == ExpandoColumnConstants.GEOLOCATION %>">
 
 							<%
@@ -349,6 +350,8 @@ ExpandoBridge expandoBridge = ExpandoBridgeFactoryUtil.getExpandoBridge(company.
 
 							<aui:input name='<%= "ExpandoAttribute--" + name + "--" %>' type="hidden" value="<%= HtmlUtil.escape(value.toString()) %>" />
 						</c:when>
+=======
+>>>>>>> compatible
 						<c:when test="<%= type == ExpandoColumnConstants.INTEGER_ARRAY %>">
 
 							<%
@@ -743,9 +746,12 @@ ExpandoBridge expandoBridge = ExpandoBridgeFactoryUtil.getExpandoBridge(company.
 				else if (type == ExpandoColumnConstants.FLOAT_ARRAY) {
 					sb.append(StringUtil.merge((float[])value));
 				}
+<<<<<<< HEAD
 				else if (type == ExpandoColumnConstants.GEOLOCATION) {
 					sb.append(value.toString());
 				}
+=======
+>>>>>>> compatible
 				else if (type == ExpandoColumnConstants.INTEGER) {
 					sb.append((Integer)value);
 				}
@@ -783,11 +789,16 @@ ExpandoBridge expandoBridge = ExpandoBridgeFactoryUtil.getExpandoBridge(company.
 				}
 				%>
 
+<<<<<<< HEAD
 				<c:if test="<%= (type != ExpandoColumnConstants.GEOLOCATION) && (editable || Validator.isNotNull(sb.toString())) %>">
+=======
+				<c:if test="<%= editable || Validator.isNotNull(sb.toString()) %>">
+>>>>>>> compatible
 					<aui:field-wrapper label="<%= label ? localizedName : StringPool.BLANK %>">
 						<span id="<%= randomNamespace %><%= HtmlUtil.getAUICompatibleId(name) %>"><%= HtmlUtil.escape(sb.toString()) %></span>
 					</aui:field-wrapper>
 				</c:if>
+<<<<<<< HEAD
 
 				<c:if test="<%= (type == ExpandoColumnConstants.GEOLOCATION) && (editable || Validator.isNotNull(sb.toString())) %>">
 
@@ -808,6 +819,8 @@ ExpandoBridge expandoBridge = ExpandoBridgeFactoryUtil.getExpandoBridge(company.
 						/>
 					</div>
 				</c:if>
+=======
+>>>>>>> compatible
 			</c:otherwise>
 		</c:choose>
 	</c:if>

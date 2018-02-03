@@ -14,6 +14,7 @@
 
 package com.liferay.users.admin.web.portlet;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.security.auth.PrincipalException;
@@ -30,6 +31,11 @@ import javax.portlet.Portlet;
 import javax.portlet.PortletException;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
+=======
+import com.liferay.users.admin.constants.UsersAdminPortletKeys;
+
+import javax.portlet.Portlet;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 
@@ -61,6 +67,7 @@ import org.osgi.service.component.annotations.Component;
 	service = Portlet.class
 )
 public class MyOrganizationsPortlet extends UsersAdminPortlet {
+<<<<<<< HEAD
 
 	@Override
 	protected void doDispatch(
@@ -100,4 +107,6 @@ public class MyOrganizationsPortlet extends UsersAdminPortlet {
 	private static final Log _log = LogFactoryUtil.getLog(
 		MyOrganizationsPortlet.class);
 
+=======
+>>>>>>> compatible
 }

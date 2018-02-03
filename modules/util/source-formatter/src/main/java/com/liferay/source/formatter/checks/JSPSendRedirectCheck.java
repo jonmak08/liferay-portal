@@ -20,11 +20,14 @@ package com.liferay.source.formatter.checks;
 public class JSPSendRedirectCheck extends BaseFileCheck {
 
 	@Override
+<<<<<<< HEAD
 	public boolean isPortalCheck() {
 		return true;
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	protected String doProcess(
 		String fileName, String absolutePath, String content) {
 
@@ -36,8 +39,13 @@ public class JSPSendRedirectCheck extends BaseFileCheck {
 
 		if (pos != -1) {
 			addMessage(
+<<<<<<< HEAD
 				fileName, "Do not use sendRedirect in jsp",
 				"jsp_send_redirect.markdown", getLineCount(content, pos));
+=======
+				fileName, "Do not use sendRedirect in jsp, see LPS-47179",
+				getLineCount(content, pos));
+>>>>>>> compatible
 		}
 
 		return content;

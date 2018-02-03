@@ -41,6 +41,10 @@ import com.liferay.portal.kernel.util.LocalizationUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 
 import java.io.Serializable;
@@ -339,7 +343,11 @@ public class MDRRuleModelImpl extends BaseModelImpl<MDRRule>
 	@Override
 	public String getUuid() {
 		if (_uuid == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _uuid;
@@ -435,7 +443,11 @@ public class MDRRuleModelImpl extends BaseModelImpl<MDRRule>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -447,7 +459,11 @@ public class MDRRuleModelImpl extends BaseModelImpl<MDRRule>
 	@Override
 	public String getUserName() {
 		if (_userName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _userName;
@@ -516,7 +532,11 @@ public class MDRRuleModelImpl extends BaseModelImpl<MDRRule>
 	@Override
 	public String getName() {
 		if (_name == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _name;
@@ -615,7 +635,11 @@ public class MDRRuleModelImpl extends BaseModelImpl<MDRRule>
 	@Override
 	public String getDescription() {
 		if (_description == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _description;
@@ -718,7 +742,11 @@ public class MDRRuleModelImpl extends BaseModelImpl<MDRRule>
 	@Override
 	public String getType() {
 		if (_type == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _type;
@@ -734,7 +762,11 @@ public class MDRRuleModelImpl extends BaseModelImpl<MDRRule>
 	@Override
 	public String getTypeSettings() {
 		if (_typeSettings == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _typeSettings;
@@ -814,7 +846,11 @@ public class MDRRuleModelImpl extends BaseModelImpl<MDRRule>
 		String xml = getName();
 
 		if (xml == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 
 		Locale defaultLocale = LocaleUtil.getSiteDefault();

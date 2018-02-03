@@ -19,6 +19,7 @@ import com.liferay.asset.kernel.model.AssetTagDisplay;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.json.JSONArray;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.security.auth.PrincipalException;
@@ -26,10 +27,18 @@ import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.util.Autocomplete;
+=======
+import com.liferay.portal.kernel.security.permission.ActionKeys;
+import com.liferay.portal.kernel.service.ServiceContext;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portlet.asset.service.base.AssetTagServiceBaseImpl;
+<<<<<<< HEAD
+=======
+import com.liferay.portlet.asset.service.permission.AssetTagPermission;
+>>>>>>> compatible
 import com.liferay.portlet.asset.service.permission.AssetTagsPermission;
 import com.liferay.portlet.asset.util.comparator.AssetTagNameComparator;
 import com.liferay.util.dao.orm.CustomSQLUtil;
@@ -91,15 +100,23 @@ public class AssetTagServiceImpl extends AssetTagServiceBaseImpl {
 
 	@Override
 	public List<AssetTag> getGroupTags(long groupId) {
+<<<<<<< HEAD
 		return sanitize(assetTagPersistence.findByGroupId(groupId));
+=======
+		return assetTagPersistence.findByGroupId(groupId);
+>>>>>>> compatible
 	}
 
 	@Override
 	public List<AssetTag> getGroupTags(
 		long groupId, int start, int end, OrderByComparator<AssetTag> obc) {
 
+<<<<<<< HEAD
 		return sanitize(
 			assetTagPersistence.findByGroupId(groupId, start, end, obc));
+=======
+		return assetTagPersistence.findByGroupId(groupId, start, end, obc);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -130,15 +147,25 @@ public class AssetTagServiceImpl extends AssetTagServiceBaseImpl {
 
 	@Override
 	public AssetTag getTag(long tagId) throws PortalException {
+<<<<<<< HEAD
 		return sanitize(assetTagLocalService.getTag(tagId));
+=======
+		return assetTagLocalService.getTag(tagId);
+>>>>>>> compatible
 	}
 
 	@Override
 	public List<AssetTag> getTags(long groupId, long classNameId, String name) {
+<<<<<<< HEAD
 		return sanitize(
 			assetTagFinder.findByG_C_N(
 				groupId, classNameId, name, QueryUtil.ALL_POS,
 				QueryUtil.ALL_POS, null));
+=======
+		return assetTagFinder.findByG_C_N(
+			groupId, classNameId, name, QueryUtil.ALL_POS, QueryUtil.ALL_POS,
+			null);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -146,9 +173,14 @@ public class AssetTagServiceImpl extends AssetTagServiceBaseImpl {
 		long groupId, long classNameId, String name, int start, int end,
 		OrderByComparator<AssetTag> obc) {
 
+<<<<<<< HEAD
 		return sanitize(
 			assetTagFinder.findByG_C_N(
 				groupId, classNameId, name, start, end, obc));
+=======
+		return assetTagFinder.findByG_C_N(
+			groupId, classNameId, name, start, end, obc);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -180,17 +212,29 @@ public class AssetTagServiceImpl extends AssetTagServiceBaseImpl {
 		OrderByComparator<AssetTag> obc) {
 
 		if (Validator.isNull(name)) {
+<<<<<<< HEAD
 			return sanitize(
 				assetTagPersistence.findByGroupId(groupIds, start, end, obc));
 		}
 
 		return sanitize(
 			assetTagPersistence.findByG_LikeN(groupIds, name, start, end, obc));
+=======
+			return assetTagPersistence.findByGroupId(groupIds, start, end, obc);
+		}
+
+		return assetTagPersistence.findByG_LikeN(
+			groupIds, name, start, end, obc);
+>>>>>>> compatible
 	}
 
 	@Override
 	public List<AssetTag> getTags(String className, long classPK) {
+<<<<<<< HEAD
 		return sanitize(assetTagLocalService.getTags(className, classPK));
+=======
+		return assetTagLocalService.getTags(className, classPK);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -216,6 +260,12 @@ public class AssetTagServiceImpl extends AssetTagServiceBaseImpl {
 
 	@Override
 	public void mergeTags(long fromTagId, long toTagId) throws PortalException {
+<<<<<<< HEAD
+=======
+		AssetTagPermission.check(
+			getPermissionChecker(), toTagId, ActionKeys.UPDATE);
+
+>>>>>>> compatible
 		assetTagLocalService.mergeTags(fromTagId, toTagId);
 	}
 
@@ -249,6 +299,7 @@ public class AssetTagServiceImpl extends AssetTagServiceBaseImpl {
 			getUserId(), tagId, name, serviceContext);
 	}
 
+<<<<<<< HEAD
 	protected AssetTag sanitize(AssetTag tag) {
 		if (tag == null) {
 			return null;
@@ -285,4 +336,6 @@ public class AssetTagServiceImpl extends AssetTagServiceBaseImpl {
 	private static final Log _log = LogFactoryUtil.getLog(
 		AssetTagServiceImpl.class);
 
+=======
+>>>>>>> compatible
 }

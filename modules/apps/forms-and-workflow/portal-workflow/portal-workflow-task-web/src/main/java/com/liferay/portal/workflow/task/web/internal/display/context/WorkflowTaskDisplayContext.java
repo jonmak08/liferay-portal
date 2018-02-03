@@ -18,7 +18,10 @@ import com.liferay.asset.kernel.AssetRendererFactoryRegistryUtil;
 import com.liferay.asset.kernel.model.AssetEntry;
 import com.liferay.asset.kernel.model.AssetRenderer;
 import com.liferay.asset.kernel.model.AssetRendererFactory;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.dao.search.DisplayTerms;
 import com.liferay.portal.kernel.dao.search.ResultRow;
@@ -42,11 +45,18 @@ import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.FastDateFormatFactoryUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HtmlUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.LocaleUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.PortletKeys;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
@@ -72,7 +82,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Locale;
+=======
+>>>>>>> compatible
 import java.util.Map;
 import java.util.Objects;
 
@@ -536,6 +549,7 @@ public class WorkflowTaskDisplayContext {
 		};
 	}
 
+<<<<<<< HEAD
 	public Locale getTaskContentLocale() {
 		String languageId = LanguageUtil.getLanguageId(_request);
 
@@ -546,6 +560,8 @@ public class WorkflowTaskDisplayContext {
 		return _workflowTaskRequestHelper.getLocale();
 	}
 
+=======
+>>>>>>> compatible
 	public String getTaskContentTitle(WorkflowTask workflowTask)
 		throws PortalException {
 
@@ -554,7 +570,12 @@ public class WorkflowTaskDisplayContext {
 		long classPK = getWorkflowContextEntryClassPK(workflowTask);
 
 		return HtmlUtil.escape(
+<<<<<<< HEAD
 			workflowHandler.getTitle(classPK, getTaskContentLocale()));
+=======
+			workflowHandler.getTitle(
+				classPK, _workflowTaskRequestHelper.getLocale()));
+>>>>>>> compatible
 	}
 
 	public String getTaskInitiallyAssignedMessageArguments(
@@ -930,7 +951,11 @@ public class WorkflowTaskDisplayContext {
 		return StringPool.BLANK;
 	}
 
+<<<<<<< HEAD
 	protected String[] getAssetType(String keywords) {
+=======
+	protected String getAssetType(String keywords) {
+>>>>>>> compatible
 		for (WorkflowHandler<?> workflowHandler :
 				getSearchableAssetsWorkflowHandlers()) {
 
@@ -938,11 +963,19 @@ public class WorkflowTaskDisplayContext {
 				_workflowTaskRequestHelper.getLocale());
 
 			if (StringUtil.equalsIgnoreCase(keywords, assetType)) {
+<<<<<<< HEAD
 				return new String[] {workflowHandler.getClassName()};
 			}
 		}
 
 		return null;
+=======
+				return workflowHandler.getClassName();
+			}
+		}
+
+		return StringPool.BLANK;
+>>>>>>> compatible
 	}
 
 	protected Boolean getCompleted() {
@@ -1036,17 +1069,29 @@ public class WorkflowTaskDisplayContext {
 		int total = WorkflowTaskManagerUtil.searchCount(
 			_workflowTaskRequestHelper.getCompanyId(),
 			_workflowTaskRequestHelper.getUserId(), searchTerms.getKeywords(),
+<<<<<<< HEAD
 			getAssetType(searchTerms.getKeywords()), getCompleted(),
 			searchByUserRoles);
+=======
+			getAssetType(searchTerms.getKeywords()), null, null, null,
+			getCompleted(), searchByUserRoles, false);
+>>>>>>> compatible
 
 		searchContainer.setTotal(total);
 
 		List<WorkflowTask> results = WorkflowTaskManagerUtil.search(
 			_workflowTaskRequestHelper.getCompanyId(),
 			_workflowTaskRequestHelper.getUserId(), searchTerms.getKeywords(),
+<<<<<<< HEAD
 			getAssetType(searchTerms.getKeywords()), getCompleted(),
 			searchByUserRoles, searchContainer.getStart(),
 			searchContainer.getEnd(), searchContainer.getOrderByComparator());
+=======
+			getAssetType(searchTerms.getKeywords()), null, null, null,
+			getCompleted(), searchByUserRoles, false,
+			searchContainer.getStart(), searchContainer.getEnd(),
+			searchContainer.getOrderByComparator());
+>>>>>>> compatible
 
 		searchContainer.setResults(results);
 

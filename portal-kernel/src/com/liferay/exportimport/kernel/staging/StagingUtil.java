@@ -288,10 +288,13 @@ public class StagingUtil {
 		return _staging.getMissingParentLayouts(layout, liveGroupId);
 	}
 
+<<<<<<< HEAD
 	public static Group getPermissionStagingGroup(Group group) {
 		return _staging.getPermissionStagingGroup(group);
 	}
 
+=======
+>>>>>>> compatible
 	public static long getRecentLayoutRevisionId(
 			HttpServletRequest request, long layoutSetBranchId, long plid)
 		throws PortalException {
@@ -411,10 +414,13 @@ public class StagingUtil {
 		return _staging.isGroupAccessible(groupId, fromGroupId);
 	}
 
+<<<<<<< HEAD
 	public static boolean isIncomplete(Layout layout) {
 		return _staging.isIncomplete(layout);
 	}
 
+=======
+>>>>>>> compatible
 	public static boolean isIncomplete(Layout layout, long layoutSetBranchId) {
 		return _staging.isIncomplete(layout, layoutSetBranchId);
 	}
@@ -717,12 +723,15 @@ public class StagingUtil {
 			portletId, portletPreferences, lastPublishDate);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 4.0.0, replaced by {@link
 	 *             com.liferay.staging.configuration.web.internal.portlet.StagingConfigurationPortlet#editStagingConfiguration(
 	 *             javax.portlet.ActionRequest, javax.portlet.ActionResponse)}
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static void updateStaging(
 			PortletRequest portletRequest, Group liveGroup)
 		throws PortalException {

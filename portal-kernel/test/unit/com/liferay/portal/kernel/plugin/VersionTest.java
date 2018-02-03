@@ -166,7 +166,11 @@ public class VersionTest {
 
 		Assert.assertTrue(
 			first + " is not later than " + second,
+<<<<<<< HEAD
 			firstVersion.isLaterVersionThan(second));
+=======
+			firstVersion.isLaterVersionThan(second.toString()));
+>>>>>>> compatible
 	}
 
 	protected void assertNotIncludes(String first, String second) {

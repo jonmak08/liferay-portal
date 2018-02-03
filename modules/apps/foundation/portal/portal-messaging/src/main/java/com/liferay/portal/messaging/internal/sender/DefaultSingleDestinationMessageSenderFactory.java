@@ -14,6 +14,11 @@
 
 package com.liferay.portal.messaging.internal.sender;
 
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.dao.orm.EntityCache;
+import com.liferay.portal.kernel.dao.orm.FinderCache;
+>>>>>>> compatible
 import com.liferay.portal.kernel.messaging.MessageBus;
 import com.liferay.portal.kernel.messaging.sender.SingleDestinationMessageSender;
 import com.liferay.portal.kernel.messaging.sender.SingleDestinationMessageSenderFactory;
@@ -25,6 +30,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+<<<<<<< HEAD
+=======
+import org.osgi.service.component.annotations.Activate;
+>>>>>>> compatible
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
@@ -33,12 +42,20 @@ import org.osgi.service.component.annotations.ReferencePolicyOption;
 
 /**
  * @author Michael C. Han
+<<<<<<< HEAD
  * @deprecated As of 4.0.0, with no direct replacement
  */
 @Component(
 	immediate = true, service = SingleDestinationMessageSenderFactory.class
 )
 @Deprecated
+=======
+ */
+@Component(
+	immediate = true, property = {"timeout=10000"},
+	service = SingleDestinationMessageSenderFactory.class
+)
+>>>>>>> compatible
 public class DefaultSingleDestinationMessageSenderFactory
 	implements SingleDestinationMessageSenderFactory {
 
@@ -112,6 +129,35 @@ public class DefaultSingleDestinationMessageSenderFactory
 		return _synchronousMessageSenders.get(mode);
 	}
 
+<<<<<<< HEAD
+=======
+	@Activate
+	protected void activate(Map<String, Object> properties) {
+		long timeout = GetterUtil.getLong(properties.get("timeout"), 10000);
+
+		DefaultSynchronousMessageSender defaultSynchronousMessageSender =
+			new DefaultSynchronousMessageSender();
+
+		defaultSynchronousMessageSender.setEntityCache(_entityCache);
+		defaultSynchronousMessageSender.setFinderCache(_finderCache);
+		defaultSynchronousMessageSender.setMessageBus(_messageBus);
+		defaultSynchronousMessageSender.setTimeout(timeout);
+
+		_synchronousMessageSenders.put(
+			SynchronousMessageSender.Mode.DEFAULT,
+			defaultSynchronousMessageSender);
+
+		DirectSynchronousMessageSender directSynchronousMessageSender =
+			new DirectSynchronousMessageSender();
+
+		directSynchronousMessageSender.setMessageBus(_messageBus);
+
+		_synchronousMessageSenders.put(
+			SynchronousMessageSender.Mode.DIRECT,
+			directSynchronousMessageSender);
+	}
+
+>>>>>>> compatible
 	protected SynchronousMessageSender.Mode getMode(
 		Map<String, Object> properties) {
 
@@ -121,12 +167,29 @@ public class DefaultSingleDestinationMessageSenderFactory
 	}
 
 	@Reference(unbind = "-")
+<<<<<<< HEAD
+=======
+	protected void setEntityCache(EntityCache entityCache) {
+		_entityCache = entityCache;
+	}
+
+	@Reference(unbind = "-")
+	protected void setFinderCache(FinderCache finderCache) {
+		_finderCache = finderCache;
+	}
+
+	@Reference(unbind = "-")
+>>>>>>> compatible
 	protected void setMessageBus(MessageBus messageBus) {
 		_messageBus = messageBus;
 	}
 
 	@Reference(
+<<<<<<< HEAD
 		cardinality = ReferenceCardinality.MULTIPLE,
+=======
+		cardinality = ReferenceCardinality.OPTIONAL,
+>>>>>>> compatible
 		policy = ReferencePolicy.DYNAMIC,
 		policyOption = ReferencePolicyOption.GREEDY
 	)
@@ -150,6 +213,11 @@ public class DefaultSingleDestinationMessageSenderFactory
 	private final Map<String, DefaultSingleDestinationSynchronousMessageSender>
 		_defaultSingleDestinationSynchronousMessageSenders =
 			new ConcurrentHashMap<>();
+<<<<<<< HEAD
+=======
+	private EntityCache _entityCache;
+	private FinderCache _finderCache;
+>>>>>>> compatible
 	private MessageBus _messageBus;
 	private final Map<SynchronousMessageSender.Mode, SynchronousMessageSender>
 		_synchronousMessageSenders = new HashMap<>();

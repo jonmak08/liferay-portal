@@ -26,11 +26,14 @@
 <tr>
 	<td>ADD_ASSET_TOPPER_TYPE</td>
 	<td>//a[contains(@id,'AssetPublisher')]/span[contains(.,'${key_selectedAsset}')]</td>
+<<<<<<< HEAD
 	<td></td>
 </tr>
 <tr>
 	<td>ASSET_ELLIPSIS_ICON</td>
 	<td>//div[@class='asset-abstract '][//a[normalize-space(./text())='${key_assetTitle}']]//a[span/*[name()='svg'][contains(@class,'icon-ellipsis')]]</td>
+=======
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -188,7 +191,11 @@
 </tr>
 <tr>
 	<td>ASSET_ABSTRACT_BOOKMARK_LIFERAY_LOGO</td>
+<<<<<<< HEAD
 	<td>//a[*[name()='svg'][*[name()='use'][contains(@class,'logo')]]]</td>
+=======
+	<td>//*[name()='svg'][*[name()='use'][contains(@class,'logo')]]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>

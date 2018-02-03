@@ -14,17 +14,24 @@
 
 package com.liferay.portal.workflow.kaleo.runtime.integration.impl.internal;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.uuid.PortalUUID;
+=======
+import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayInputStream;
+import com.liferay.portal.kernel.service.ServiceContext;
+import com.liferay.portal.kernel.util.OrderByComparator;
+>>>>>>> compatible
 import com.liferay.portal.kernel.workflow.WorkflowDefinition;
 import com.liferay.portal.kernel.workflow.WorkflowDefinitionManager;
 import com.liferay.portal.kernel.workflow.WorkflowException;
 import com.liferay.portal.kernel.workflow.comparator.WorkflowComparatorFactory;
 import com.liferay.portal.workflow.kaleo.KaleoWorkflowModelConverter;
+<<<<<<< HEAD
 import com.liferay.portal.workflow.kaleo.definition.Definition;
 import com.liferay.portal.workflow.kaleo.definition.parser.WorkflowModelParser;
 import com.liferay.portal.workflow.kaleo.model.KaleoDefinition;
@@ -34,6 +41,12 @@ import com.liferay.portal.workflow.kaleo.runtime.util.comparator.KaleoDefinition
 import com.liferay.portal.workflow.kaleo.runtime.util.comparator.KaleoDefinitionVersionOrderByComparator;
 import com.liferay.portal.workflow.kaleo.service.KaleoDefinitionLocalService;
 import com.liferay.portal.workflow.kaleo.service.KaleoDefinitionVersionLocalService;
+=======
+import com.liferay.portal.workflow.kaleo.model.KaleoDefinition;
+import com.liferay.portal.workflow.kaleo.runtime.WorkflowEngine;
+import com.liferay.portal.workflow.kaleo.runtime.util.comparator.KaleoDefinitionOrderByComparator;
+import com.liferay.portal.workflow.kaleo.service.KaleoDefinitionLocalService;
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,6 +68,7 @@ import org.osgi.service.component.annotations.ReferencePolicyOption;
 public class WorkflowDefinitionManagerImpl
 	implements WorkflowDefinitionManager {
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 1.0.0, replaced by {@link
 	 *             #deployWorkflowDefinition(long, long, String, String,
@@ -62,11 +76,14 @@ public class WorkflowDefinitionManagerImpl
 	 * @review
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	@Override
 	public WorkflowDefinition deployWorkflowDefinition(
 			long companyId, long userId, String title, byte[] bytes)
 		throws WorkflowException {
 
+<<<<<<< HEAD
 		Definition definition = _workflowModelParser.parse(
 			new UnsyncByteArrayInputStream(bytes));
 
@@ -80,13 +97,19 @@ public class WorkflowDefinitionManagerImpl
 			byte[] bytes)
 		throws WorkflowException {
 
+=======
+>>>>>>> compatible
 		ServiceContext serviceContext = new ServiceContext();
 
 		serviceContext.setCompanyId(companyId);
 		serviceContext.setUserId(userId);
 
 		return _workflowEngine.deployWorkflowDefinition(
+<<<<<<< HEAD
 			title, name, new UnsyncByteArrayInputStream(bytes), serviceContext);
+=======
+			title, new UnsyncByteArrayInputStream(bytes), serviceContext);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -147,10 +170,14 @@ public class WorkflowDefinitionManagerImpl
 						orderByComparator, _kaleoWorkflowModelConverter),
 					serviceContext);
 
+<<<<<<< HEAD
 			int size = kaleoDefinitions.size();
 
 			return toWorkflowDefinitions(
 				kaleoDefinitions.toArray(new KaleoDefinition[size]));
+=======
+			return toWorkflowDefinitions(kaleoDefinitions);
+>>>>>>> compatible
 		}
 		catch (Exception e) {
 			throw new WorkflowException(e);
@@ -168,6 +195,7 @@ public class WorkflowDefinitionManagerImpl
 
 			serviceContext.setCompanyId(companyId);
 
+<<<<<<< HEAD
 			List<KaleoDefinition> kaleoDefinitions = new ArrayList<>();
 
 			KaleoDefinition kaleoDefinition =
@@ -182,23 +210,37 @@ public class WorkflowDefinitionManagerImpl
 
 			return toWorkflowDefinitions(
 				kaleoDefinitions.toArray(new KaleoDefinition[size]));
+=======
+			List<KaleoDefinition> kaleoDefinitions =
+				_kaleoDefinitionLocalService.getKaleoDefinitions(
+					name, true, start, end,
+					KaleoDefinitionOrderByComparator.getOrderByComparator(
+						orderByComparator, _kaleoWorkflowModelConverter),
+					serviceContext);
+
+			return toWorkflowDefinitions(kaleoDefinitions);
+>>>>>>> compatible
 		}
 		catch (Exception e) {
 			throw new WorkflowException(e);
 		}
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 1.0.0, replaced by {@link
 	 *             #getLatestWorkflowDefinition(long, String)}
 	 * @review
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	@Override
 	public WorkflowDefinition getLatestKaleoDefinition(
 			long companyId, String name)
 		throws WorkflowException {
 
+<<<<<<< HEAD
 		return getLatestWorkflowDefinition(companyId, name);
 	}
 
@@ -207,13 +249,19 @@ public class WorkflowDefinitionManagerImpl
 			long companyId, String name)
 		throws WorkflowException {
 
+=======
+>>>>>>> compatible
 		try {
 			ServiceContext serviceContext = new ServiceContext();
 
 			serviceContext.setCompanyId(companyId);
 
 			KaleoDefinition kaleoDefinition =
+<<<<<<< HEAD
 				_kaleoDefinitionLocalService.getKaleoDefinition(
+=======
+				_kaleoDefinitionLocalService.getLatestKaleoDefinition(
+>>>>>>> compatible
 					name, serviceContext);
 
 			return _kaleoWorkflowModelConverter.toWorkflowDefinition(
@@ -225,9 +273,14 @@ public class WorkflowDefinitionManagerImpl
 	}
 
 	@Override
+<<<<<<< HEAD
 	public List<WorkflowDefinition> getLatestWorkflowDefinitions(
 			long companyId, int start, int end,
 			OrderByComparator<WorkflowDefinition> orderByComparator)
+=======
+	public WorkflowDefinition getWorkflowDefinition(
+			long companyId, String name, int version)
+>>>>>>> compatible
 		throws WorkflowException {
 
 		try {
@@ -235,6 +288,7 @@ public class WorkflowDefinitionManagerImpl
 
 			serviceContext.setCompanyId(companyId);
 
+<<<<<<< HEAD
 			List<KaleoDefinition> kaleoDefinitions =
 				_kaleoDefinitionLocalService.getKaleoDefinitions(
 					start, end,
@@ -264,6 +318,14 @@ public class WorkflowDefinitionManagerImpl
 
 			return _kaleoWorkflowModelConverter.toWorkflowDefinition(
 				kaleoDefinitionVersion);
+=======
+			KaleoDefinition kaleoDefinition =
+				_kaleoDefinitionLocalService.getKaleoDefinition(
+					name, version, serviceContext);
+
+			return _kaleoWorkflowModelConverter.toWorkflowDefinition(
+				kaleoDefinition);
+>>>>>>> compatible
 		}
 		catch (Exception e) {
 			throw new WorkflowException(e);
@@ -275,8 +337,17 @@ public class WorkflowDefinitionManagerImpl
 		throws WorkflowException {
 
 		try {
+<<<<<<< HEAD
 			return _kaleoDefinitionVersionLocalService.
 				getKaleoDefinitionVersionsCount(companyId);
+=======
+			ServiceContext serviceContext = new ServiceContext();
+
+			serviceContext.setCompanyId(companyId);
+
+			return _kaleoDefinitionLocalService.getKaleoDefinitionsCount(
+				serviceContext);
+>>>>>>> compatible
 		}
 		catch (Exception e) {
 			throw new WorkflowException(e);
@@ -288,8 +359,17 @@ public class WorkflowDefinitionManagerImpl
 		throws WorkflowException {
 
 		try {
+<<<<<<< HEAD
 			return _kaleoDefinitionVersionLocalService.
 				getKaleoDefinitionVersionsCount(companyId, name);
+=======
+			ServiceContext serviceContext = new ServiceContext();
+
+			serviceContext.setCompanyId(companyId);
+
+			return _kaleoDefinitionLocalService.getKaleoDefinitionsCount(
+				name, serviceContext);
+>>>>>>> compatible
 		}
 		catch (Exception e) {
 			throw new WorkflowException(e);
@@ -307,6 +387,7 @@ public class WorkflowDefinitionManagerImpl
 
 			serviceContext.setCompanyId(companyId);
 
+<<<<<<< HEAD
 			List<KaleoDefinitionVersion> kaleoDefinitionVersions =
 				_kaleoDefinitionVersionLocalService.getKaleoDefinitionVersions(
 					companyId, start, end,
@@ -319,6 +400,16 @@ public class WorkflowDefinitionManagerImpl
 			return toWorkflowDefinitions(
 				kaleoDefinitionVersions.toArray(
 					new KaleoDefinitionVersion[size]));
+=======
+			List<KaleoDefinition> kaleoDefinitions =
+				_kaleoDefinitionLocalService.getKaleoDefinitions(
+					start, end,
+					KaleoDefinitionOrderByComparator.getOrderByComparator(
+						orderByComparator, _kaleoWorkflowModelConverter),
+					serviceContext);
+
+			return toWorkflowDefinitions(kaleoDefinitions);
+>>>>>>> compatible
 		}
 		catch (Exception e) {
 			throw new WorkflowException(e);
@@ -332,6 +423,7 @@ public class WorkflowDefinitionManagerImpl
 		throws WorkflowException {
 
 		try {
+<<<<<<< HEAD
 			List<KaleoDefinitionVersion> kaleoDefinitionVersions =
 				_kaleoDefinitionVersionLocalService.getKaleoDefinitionVersions(
 					companyId, name);
@@ -341,6 +433,20 @@ public class WorkflowDefinitionManagerImpl
 			return toWorkflowDefinitions(
 				kaleoDefinitionVersions.toArray(
 					new KaleoDefinitionVersion[size]));
+=======
+			ServiceContext serviceContext = new ServiceContext();
+
+			serviceContext.setCompanyId(companyId);
+
+			List<KaleoDefinition> kaleoDefinitions =
+				_kaleoDefinitionLocalService.getKaleoDefinitions(
+					name, start, end,
+					KaleoDefinitionOrderByComparator.getOrderByComparator(
+						orderByComparator, _kaleoWorkflowModelConverter),
+					serviceContext);
+
+			return toWorkflowDefinitions(kaleoDefinitions);
+>>>>>>> compatible
 		}
 		catch (Exception e) {
 			throw new WorkflowException(e);
@@ -406,6 +512,7 @@ public class WorkflowDefinitionManagerImpl
 			serviceContext.setUserId(userId);
 
 			KaleoDefinition kaleoDefinition =
+<<<<<<< HEAD
 				_kaleoDefinitionLocalService.getKaleoDefinition(
 					name, serviceContext);
 
@@ -414,6 +521,13 @@ public class WorkflowDefinitionManagerImpl
 			return _workflowEngine.deployWorkflowDefinition(
 				title, name, new UnsyncByteArrayInputStream(content.getBytes()),
 				serviceContext);
+=======
+				_kaleoDefinitionLocalService.updateTitle(
+					name, version, title, serviceContext);
+
+			return _kaleoWorkflowModelConverter.toWorkflowDefinition(
+				kaleoDefinition);
+>>>>>>> compatible
 		}
 		catch (Exception e) {
 			throw new WorkflowException(e);
@@ -428,6 +542,7 @@ public class WorkflowDefinitionManagerImpl
 			new UnsyncByteArrayInputStream(bytes));
 	}
 
+<<<<<<< HEAD
 	protected String getVersion(int version) {
 		return version + StringPool.PERIOD + 0;
 	}
@@ -437,6 +552,13 @@ public class WorkflowDefinitionManagerImpl
 
 		List<WorkflowDefinition> workflowDefinitions = new ArrayList<>(
 			kaleoDefinitions.length);
+=======
+	protected List<WorkflowDefinition> toWorkflowDefinitions(
+		List<KaleoDefinition> kaleoDefinitions) {
+
+		List<WorkflowDefinition> workflowDefinitions = new ArrayList<>(
+			kaleoDefinitions.size());
+>>>>>>> compatible
 
 		for (KaleoDefinition kaleoDefinition : kaleoDefinitions) {
 			WorkflowDefinition workflowDefinition =
@@ -449,6 +571,7 @@ public class WorkflowDefinitionManagerImpl
 		return workflowDefinitions;
 	}
 
+<<<<<<< HEAD
 	protected List<WorkflowDefinition> toWorkflowDefinitions(
 			KaleoDefinitionVersion[] kaleoDefinitionVersions)
 		throws PortalException {
@@ -472,14 +595,19 @@ public class WorkflowDefinitionManagerImpl
 	@Reference
 	protected PortalUUID portalUUID;
 
+=======
+>>>>>>> compatible
 	@Reference
 	private KaleoDefinitionLocalService _kaleoDefinitionLocalService;
 
 	@Reference
+<<<<<<< HEAD
 	private KaleoDefinitionVersionLocalService
 		_kaleoDefinitionVersionLocalService;
 
 	@Reference
+=======
+>>>>>>> compatible
 	private KaleoWorkflowModelConverter _kaleoWorkflowModelConverter;
 
 	@Reference
@@ -492,7 +620,10 @@ public class WorkflowDefinitionManagerImpl
 	)
 	private volatile WorkflowEngine _workflowEngine;
 
+<<<<<<< HEAD
 	@Reference
 	private WorkflowModelParser _workflowModelParser;
 
+=======
+>>>>>>> compatible
 }

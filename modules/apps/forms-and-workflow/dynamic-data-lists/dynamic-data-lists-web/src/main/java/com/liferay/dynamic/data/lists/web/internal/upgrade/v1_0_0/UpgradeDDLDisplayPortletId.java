@@ -15,12 +15,20 @@
 package com.liferay.dynamic.data.lists.web.internal.upgrade.v1_0_0;
 
 import com.liferay.dynamic.data.lists.constants.DDLPortletKeys;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.upgrade.BaseUpgradePortletId;
+=======
+>>>>>>> compatible
 
 /**
  * @author Leonardo Barros
  */
+<<<<<<< HEAD
 public class UpgradeDDLDisplayPortletId extends BaseUpgradePortletId {
+=======
+public class UpgradeDDLDisplayPortletId
+	extends com.liferay.portal.kernel.upgrade.BaseUpgradePortletId {
+>>>>>>> compatible
 
 	@Override
 	protected String[][] getRenamePortletIdsArray() {

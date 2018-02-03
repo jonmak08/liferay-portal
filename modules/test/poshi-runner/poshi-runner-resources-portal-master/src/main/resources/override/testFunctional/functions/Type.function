@@ -2,7 +2,11 @@
 	<command name="clickAtSendKeys">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Type#clickAtSendKeys" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute argument1="1000" selenium="pause" />
 
@@ -14,7 +18,11 @@
 	<command name="clickAtType">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Type#clickAtType" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute argument1="1000" selenium="pause" />
 
@@ -26,7 +34,11 @@
 	<command name="sendKeys">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Type#sendKeys" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 
@@ -36,7 +48,11 @@
 	<command name="sendKeysAceEditor">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Type#sendKeysAceEditor" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 
@@ -46,7 +62,11 @@
 	<command name="sendKeysAceEditorNoMouseOver">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Type#sendKeysAceEditorNoMouseOver" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 
@@ -68,7 +88,11 @@
 	<command name="sendKeysNoWait">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Type#sendKeysNoWait" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 
@@ -78,7 +102,11 @@
 	<command name="type">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Type#type" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 
@@ -88,7 +116,11 @@
 	<command name="typeAceEditor">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Type#typeAceEditor" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 
@@ -98,7 +130,11 @@
 	<command name="typeAceEditorNoMouseOver">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Type#typeAceEditorNoMouseOver" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 
@@ -108,7 +144,11 @@
 	<command name="typeCKEditor">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Type#typeCKEditor" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 
@@ -118,7 +158,11 @@
 	<command name="typeCKEditorWaitForCKEditor">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Type#typeCKEditorWaitForCKEditor" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute argument1="1000" selenium="pause" />
 
@@ -130,7 +174,11 @@
 	<command name="typeClickAt">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Type#typeClickAt" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 
@@ -140,7 +188,11 @@
 	<command name="typeEditor">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Type#typeEditor" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 
@@ -176,7 +228,11 @@
 	<command name="typeWaitForCKEditor">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Type#typeWaitForCKEditor" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 

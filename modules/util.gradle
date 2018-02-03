@@ -1,6 +1,9 @@
 import com.liferay.gradle.plugins.change.log.builder.BuildChangeLogTask
 import com.liferay.gradle.plugins.defaults.tasks.CopyIvyDependenciesTask
+<<<<<<< HEAD
 import com.liferay.gradle.plugins.source.formatter.FormatSourceTask
+=======
+>>>>>>> compatible
 import com.liferay.gradle.plugins.util.PortalTools
 import com.liferay.gradle.util.FileUtil
 import com.liferay.gradle.util.StringUtil
@@ -11,6 +14,7 @@ buildscript {
 	apply from: file("build-buildscript.gradle"), to: buildscript
 }
 
+<<<<<<< HEAD
 apply plugin: "com.liferay.source.formatter"
 apply plugin: "com.liferay.source.formatter.defaults"
 
@@ -20,6 +24,11 @@ task cleanVersionOverride
 task formatSourceCurrentBranch(type: FormatSourceTask)
 task formatSourceLatestAuthor(type: FormatSourceTask)
 task formatSourceLocalChanges(type: FormatSourceTask)
+=======
+task buildFixPackChangeLog(type: BuildChangeLogTask)
+task cleanReleng
+task cleanVersionOverride
+>>>>>>> compatible
 task printDependencyPath
 task setUpLibs
 task setUpPortalTools
@@ -93,6 +102,7 @@ cleanVersionOverride {
 	}
 }
 
+<<<<<<< HEAD
 formatSourceCurrentBranch {
 	description = "Runs Liferay Source Formatter to format the project files that are added or modified in the current Git branch."
 	formatCurrentBranch = true
@@ -108,6 +118,8 @@ formatSourceLocalChanges {
 	formatLocalChanges = true
 }
 
+=======
+>>>>>>> compatible
 printDependencyPath {
 	doLast {
 		assert project.properties["dependencyNotation"] : "Please provide a value for the '-PdependencyNotation' property"
@@ -193,12 +205,15 @@ wrapperSubrepo {
 	scriptFile = new File(wrapperDir, "gradlew")
 }
 
+<<<<<<< HEAD
 tasks.withType(FormatSourceTask) {
 	baseDirName = "../"
 	group = "formatting"
 	showStatusUpdates = true
 }
 
+=======
+>>>>>>> compatible
 _createSetUpLibTasks(libDependenciesMap)
 _createSetUpPortalToolTasks()
 

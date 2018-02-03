@@ -76,8 +76,12 @@ public class RecentSitesItemSelectorView
 	public String getTitle(Locale locale) {
 		ResourceBundle resourceBundle = _portal.getResourceBundle(locale);
 
+<<<<<<< HEAD
 		return ResourceBundleUtil.getString(
 			resourceBundle, "recent[site-item-selector]");
+=======
+		return ResourceBundleUtil.getString(resourceBundle, "recent");
+>>>>>>> compatible
 	}
 
 	@Override

@@ -14,7 +14,11 @@
 
 package com.liferay.chat.service.impl;
 
+<<<<<<< HEAD
 import com.liferay.chat.internal.jabber.JabberUtil;
+=======
+import com.liferay.chat.jabber.JabberUtil;
+>>>>>>> compatible
 import com.liferay.chat.model.Entry;
 import com.liferay.chat.model.EntryConstants;
 import com.liferay.chat.model.Status;

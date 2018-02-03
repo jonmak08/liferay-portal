@@ -20,11 +20,14 @@ import com.liferay.document.library.kernel.util.DLPreviewableProcessor;
 import com.liferay.document.library.kernel.util.DLUtil;
 import com.liferay.document.library.kernel.util.VideoProcessor;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
+<<<<<<< HEAD
 import com.liferay.petra.log4j.Log4JUtil;
 import com.liferay.petra.process.ProcessCallable;
 import com.liferay.petra.process.ProcessChannel;
 import com.liferay.petra.process.ProcessException;
 import com.liferay.petra.process.ProcessExecutor;
+=======
+>>>>>>> compatible
 import com.liferay.portal.fabric.InputResource;
 import com.liferay.portal.fabric.OutputResource;
 import com.liferay.portal.kernel.exception.SystemException;
@@ -52,6 +55,10 @@ import com.liferay.portal.repository.liferayrepository.model.LiferayFileVersion;
 import com.liferay.portal.util.PortalClassPathUtil;
 import com.liferay.portal.util.PropsUtil;
 import com.liferay.portal.util.PropsValues;
+<<<<<<< HEAD
+=======
+import com.liferay.util.log4j.Log4JUtil;
+>>>>>>> compatible
 
 import java.awt.image.RenderedImage;
 
@@ -317,6 +324,16 @@ public class VideoProcessorImpl
 		}
 	}
 
+	private static void _destroyHangingThread() {
+		for (Thread thread : ThreadUtil.getThreads()) {
+			if ((thread != null) && !thread.isDaemon() &&
+				!StringUtil.equalsIgnoreCase(thread.getName(), "main")) {
+
+				System.exit(-1);
+			}
+		}
+	}
+
 	private void _generateThumbnailXuggler(
 			FileVersion fileVersion, File file, int height, int width)
 		throws Exception {
@@ -522,8 +539,13 @@ public class VideoProcessorImpl
 							PropsKeys.XUGGLER_FFPRESET, true));
 
 				ProcessChannel<String> processChannel =
+<<<<<<< HEAD
 					_processExecutor.execute(
 						PortalClassPathUtil.getPortalProcessConfig(),
+=======
+					ProcessExecutorUtil.execute(
+						ClassPathUtil.getPortalProcessConfig(),
+>>>>>>> compatible
 						processCallable);
 
 				Future<String> future =
@@ -693,7 +715,11 @@ public class VideoProcessorImpl
 				throw new ProcessException(e);
 			}
 			finally {
+<<<<<<< HEAD
 				DestroyHangingThreadHelper._destroyHangingThread();
+=======
+				_destroyHangingThread();
+>>>>>>> compatible
 			}
 
 			return StringPool.BLANK;
@@ -766,7 +792,11 @@ public class VideoProcessorImpl
 				throw new ProcessException(e);
 			}
 			finally {
+<<<<<<< HEAD
 				DestroyHangingThreadHelper._destroyHangingThread();
+=======
+				_destroyHangingThread();
+>>>>>>> compatible
 			}
 
 			return StringPool.BLANK;

@@ -37,7 +37,10 @@ import com.liferay.portal.kernel.test.rule.NewEnv;
 import com.liferay.portal.kernel.util.KeyValuePair;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtilAdvice;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.ThreadLocalDistributor;
 import com.liferay.portal.kernel.util.WebKeys;
@@ -147,7 +150,11 @@ public class SPIAgentSerializableTest {
 				SPIAgentSerializable.extractDistributedRequestAttributes(
 					mockHttpServletRequest, Direction.DUPLEX);
 
+<<<<<<< HEAD
 			Assert.assertTrue(logRecords.toString(), logRecords.isEmpty());
+=======
+			Assert.assertTrue(logRecords.isEmpty());
+>>>>>>> compatible
 			Assert.assertEquals(
 				distributedRequestAttributes.toString(), 1,
 				distributedRequestAttributes.size());
@@ -168,10 +175,16 @@ public class SPIAgentSerializableTest {
 			LogRecord logRecord = logRecords.get(0);
 
 			Assert.assertEquals(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Nonserializable distributed request attribute name ",
 					distributedNonserializable, " with value ",
 					distributedNonserializable),
+=======
+				"Nonserializable distributed request attribute name " +
+					distributedNonserializable + " with value " +
+						distributedNonserializable,
+>>>>>>> compatible
 				logRecord.getMessage());
 
 			Assert.assertEquals(
@@ -194,10 +207,16 @@ public class SPIAgentSerializableTest {
 			logRecord = logRecords.get(0);
 
 			Assert.assertEquals(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Nonserializable distributed request attribute name ",
 					distributedNonserializable, " with value ",
 					distributedNonserializable),
+=======
+				"Nonserializable distributed request attribute name " +
+					distributedNonserializable + " with value " +
+						distributedNonserializable,
+>>>>>>> compatible
 				logRecord.getMessage());
 
 			logRecord = logRecords.get(1);
@@ -340,7 +359,11 @@ public class SPIAgentSerializableTest {
 				SPIAgentSerializable.extractSessionAttributes(
 					mockHttpServletRequest);
 
+<<<<<<< HEAD
 			Assert.assertTrue(logRecords.toString(), logRecords.isEmpty());
+=======
+			Assert.assertTrue(logRecords.isEmpty());
+>>>>>>> compatible
 			Assert.assertEquals(
 				sessionAttributes.toString(), 2, sessionAttributes.size());
 			Assert.assertEquals(
@@ -362,7 +385,11 @@ public class SPIAgentSerializableTest {
 
 			Assert.assertNull(
 				mockHttpServletRequest.getAttribute(WebKeys.PORTLET_SESSION));
+<<<<<<< HEAD
 			Assert.assertTrue(logRecords.toString(), logRecords.isEmpty());
+=======
+			Assert.assertTrue(logRecords.isEmpty());
+>>>>>>> compatible
 			Assert.assertEquals(
 				sessionAttributes.toString(), 2, sessionAttributes.size());
 			Assert.assertEquals(
@@ -402,7 +429,11 @@ public class SPIAgentSerializableTest {
 
 			Assert.assertNull(
 				mockHttpServletRequest.getAttribute(WebKeys.PORTLET_SESSION));
+<<<<<<< HEAD
 			Assert.assertTrue(logRecords.toString(), logRecords.isEmpty());
+=======
+			Assert.assertTrue(logRecords.isEmpty());
+>>>>>>> compatible
 			Assert.assertEquals(
 				sessionAttributes.toString(), 2, sessionAttributes.size());
 			Assert.assertEquals(
@@ -433,10 +464,16 @@ public class SPIAgentSerializableTest {
 			LogRecord logRecord = logRecords.get(0);
 
 			Assert.assertEquals(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Nonserializable session attribute name ",
 					nonserializableAttribute, " with value ",
 					nonserializableAttribute),
+=======
+				"Nonserializable session attribute name " +
+					nonserializableAttribute + " with value " +
+						nonserializableAttribute,
+>>>>>>> compatible
 				logRecord.getMessage());
 
 			Assert.assertEquals(
@@ -465,19 +502,31 @@ public class SPIAgentSerializableTest {
 			logRecord = logRecords.get(0);
 
 			Assert.assertEquals(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Nonserializable session attribute name ",
 					nonserializableAttribute, " with value ",
 					nonserializableAttribute),
+=======
+				"Nonserializable session attribute name " +
+					nonserializableAttribute + " with value " +
+						nonserializableAttribute,
+>>>>>>> compatible
 				logRecord.getMessage());
 
 			logRecord = logRecords.get(1);
 
 			Assert.assertEquals(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Nonserializable session attribute name ",
 					nonserializableAttribute, " with value ",
 					nonserializableAttribute),
+=======
+				"Nonserializable session attribute name " +
+					nonserializableAttribute + " with value " +
+						nonserializableAttribute,
+>>>>>>> compatible
 				logRecord.getMessage());
 
 			Assert.assertEquals(

@@ -30,6 +30,10 @@ long messageId = message.getMessageId();
 long categoryId = message.getCategoryId();
 
 MBMessage curParentMessage = null;
+<<<<<<< HEAD
+=======
+String parentAuthor = null;
+>>>>>>> compatible
 
 String body = StringPool.BLANK;
 boolean quote = false;

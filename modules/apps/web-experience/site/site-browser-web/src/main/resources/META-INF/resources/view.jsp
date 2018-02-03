@@ -24,12 +24,54 @@ String target = ParamUtil.getString(request, "target");
 
 User selUser = PortalUtil.getSelectedUser(request);
 
+<<<<<<< HEAD
 GroupSearch groupSearch = siteBrowserDisplayContext.getGroupSearch();
 %>
 
 <clay:navigation-bar
 	items="<%= siteBrowserDisplayContext.getNavigationItems() %>"
 />
+=======
+String type = siteBrowserDisplayContext.getType();
+String[] types = siteBrowserDisplayContext.getTypes();
+
+GroupSearch groupSearch = siteBrowserDisplayContext.getGroupSearch();
+%>
+
+<aui:nav-bar cssClass="collapse-basic-search" markupView="lexicon">
+	<aui:nav cssClass="navbar-nav">
+		<c:choose>
+			<c:when test="<%= types.length == 1 %>">
+				<aui:nav-item label="sites" selected="<%= true %>" />
+			</c:when>
+			<c:when test="<%= types.length > 1 %>">
+
+				<%
+				for (String curType : types) {
+					PortletURL portletURL = siteBrowserDisplayContext.getPortletURL();
+
+					portletURL.setParameter("type", curType);
+				%>
+
+					<aui:nav-item href="<%= portletURL.toString() %>" label="<%= curType %>" selected="<%= curType.equals(type) %>" />
+
+				<%
+				}
+				%>
+
+			</c:when>
+		</c:choose>
+	</aui:nav>
+
+	<c:if test='<%= !type.equals("parent-sites") %>'>
+		<aui:nav-bar-search>
+			<aui:form action="<%= siteBrowserDisplayContext.getPortletURL() %>" name="searchFm">
+				<liferay-ui:input-search markupView="lexicon" />
+			</aui:form>
+		</aui:nav-bar-search>
+	</c:if>
+</aui:nav-bar>
+>>>>>>> compatible
 
 <liferay-frontend:management-bar>
 	<liferay-frontend:management-bar-buttons>
@@ -45,6 +87,7 @@ GroupSearch groupSearch = siteBrowserDisplayContext.getGroupSearch();
 				orderColumns='<%= new String[] {"name", "type"} %>'
 				portletURL="<%= siteBrowserDisplayContext.getPortletURL() %>"
 			/>
+<<<<<<< HEAD
 
 			<c:if test='<%= !Objects.equals(siteBrowserDisplayContext.getType(), "parent-sites") %>'>
 				<li>
@@ -53,6 +96,8 @@ GroupSearch groupSearch = siteBrowserDisplayContext.getGroupSearch();
 					</aui:form>
 				</li>
 			</c:if>
+=======
+>>>>>>> compatible
 		</liferay-frontend:management-bar-filters>
 
 		<liferay-portlet:actionURL name="changeDisplayStyle" varImpl="changeDisplayStyleURL">
@@ -85,6 +130,11 @@ GroupSearch groupSearch = siteBrowserDisplayContext.getGroupSearch();
 
 			data.put("entityid", group.getGroupId());
 			data.put("entityname", group.getDescriptiveName(locale));
+<<<<<<< HEAD
+=======
+			data.put("groupdescriptivename", group.getDescriptiveName(locale));
+			data.put("groupid", group.getGroupId());
+>>>>>>> compatible
 			data.put("grouptarget", target);
 			data.put("grouptype", LanguageUtil.get(request, group.getTypeLabel()));
 			data.put("url", group.getDisplayURL(themeDisplay));

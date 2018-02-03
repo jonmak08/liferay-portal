@@ -14,6 +14,7 @@
 
 package com.liferay.portal.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.test.CaptureHandler;
 import com.liferay.portal.kernel.test.JDKLoggerTestUtil;
@@ -21,14 +22,22 @@ import com.liferay.portal.kernel.test.randomizerbumpers.NumericStringRandomizerB
 import com.liferay.portal.kernel.test.rule.CodeCoverageAssertor;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.util.Http;
+=======
+import com.liferay.portal.kernel.test.CaptureHandler;
+import com.liferay.portal.kernel.test.JDKLoggerTestUtil;
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.URLCodec;
 
+<<<<<<< HEAD
 import java.lang.reflect.Method;
 
 import java.util.Arrays;
+=======
+>>>>>>> compatible
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,6 +55,12 @@ import org.powermock.api.mockito.PowerMockito;
 /**
  * @author Miguel Pastor
  */
+<<<<<<< HEAD
+=======
+@PowerMockIgnore({"javax.net.ssl.*", "javax.xml.datatype.*"})
+@PrepareForTest(PortalUtil.class)
+@RunWith(PowerMockRunner.class)
+>>>>>>> compatible
 public class HttpImplTest extends PowerMockito {
 
 	@ClassRule
@@ -266,11 +281,17 @@ public class HttpImplTest extends PowerMockito {
 			"Actual parameter map size: " + actualParameterMap.size(),
 			expectedParameterMap.size(), actualParameterMap.size());
 
+<<<<<<< HEAD
 		for (Map.Entry<String, String[]> entry :
 				actualParameterMap.entrySet()) {
 
 			Assert.assertArrayEquals(
 				expectedParameterMap.get(entry.getKey()), entry.getValue());
+=======
+		for (String key : actualParameterMap.keySet()) {
+			Assert.assertArrayEquals(
+				expectedParameterMap.get(key), actualParameterMap.get(key));
+>>>>>>> compatible
 		}
 	}
 
@@ -335,6 +356,50 @@ public class HttpImplTest extends PowerMockito {
 		catch (IllegalArgumentException iae) {
 			Assert.assertEquals("Unable to handle URI: ;x=y", iae.getMessage());
 		}
+<<<<<<< HEAD
+=======
+	}
+
+	@Test
+	public void testRemoveProtocol() {
+		Assert.assertEquals(
+			"#^&://abc.com", _httpImpl.removeProtocol("#^&://abc.com"));
+		Assert.assertEquals(
+			"^&://abc.com", _httpImpl.removeProtocol("/^&://abc.com"));
+		Assert.assertEquals(
+			"ftp.foo.com", _httpImpl.removeProtocol("ftp://ftp.foo.com"));
+		Assert.assertEquals(
+			"foo.com", _httpImpl.removeProtocol("http://///foo.com"));
+		Assert.assertEquals("foo.com", _httpImpl.removeProtocol("////foo.com"));
+		Assert.assertEquals(
+			"foo.com", _httpImpl.removeProtocol("http://http://foo.com"));
+		Assert.assertEquals(
+			"www.google.com", _httpImpl.removeProtocol("/\\www.google.com"));
+		Assert.assertEquals(
+			"www.google.com",
+			_httpImpl.removeProtocol("/\\//\\/www.google.com"));
+		Assert.assertEquals(
+			"/path/name", _httpImpl.removeProtocol("/path/name"));
+		Assert.assertEquals(
+			"./path/name", _httpImpl.removeProtocol("./path/name"));
+		Assert.assertEquals(
+			"../path/name", _httpImpl.removeProtocol("../path/name"));
+		Assert.assertEquals(
+			"foo.com?redirect=http%3A%2F%2Ffoo2.com",
+			_httpImpl.removeProtocol(
+				"http://foo.com?redirect=http%3A%2F%2Ffoo2.com"));
+		Assert.assertEquals(
+			"www.google.com/://localhost",
+			_httpImpl.removeProtocol("http://www.google.com/://localhost"));
+	}
+
+	protected void testDecodeURLWithInvalidURLEncoding(String url) {
+		_testDecodeURL(url, "Invalid URL encoding " + url);
+	}
+
+	protected void testDecodeURLWithNotHexChars(String url) {
+		_testDecodeURL(url, "is not a hex char");
+>>>>>>> compatible
 	}
 
 	@Test
@@ -549,7 +614,11 @@ public class HttpImplTest extends PowerMockito {
 
 			String message = logRecord.getMessage();
 
+<<<<<<< HEAD
 			Assert.assertTrue(message, message.contains(expectedMessage));
+=======
+			Assert.assertTrue(message.contains(expectedMessage));
+>>>>>>> compatible
 		}
 	}
 

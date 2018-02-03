@@ -26,12 +26,20 @@ import org.osgi.service.component.annotations.Component;
 @Component(
 	immediate = true,
 	property = {
+<<<<<<< HEAD
 		"ddm.form.field.type.data.domain=boolean",
+=======
+>>>>>>> compatible
 		"ddm.form.field.type.display.order:Integer=6",
 		"ddm.form.field.type.icon=check-circle",
 		"ddm.form.field.type.js.class.name=Liferay.DDM.Field.Checkbox",
 		"ddm.form.field.type.js.module=liferay-ddm-form-field-checkbox",
+<<<<<<< HEAD
 		"ddm.form.field.type.name=checkbox", "ddm.form.field.type.system=true"
+=======
+		"ddm.form.field.type.label=checkbox-field-type-label",
+		"ddm.form.field.type.name=checkbox"
+>>>>>>> compatible
 	},
 	service = DDMFormFieldType.class
 )

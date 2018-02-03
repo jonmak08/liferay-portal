@@ -47,8 +47,14 @@ public class ThirdPartyThreadLocalRegistry {
 	}
 
 	private static final ThreadLocal<Set<ThreadLocal<?>>> _threadLocalSet =
+<<<<<<< HEAD
 		new CentralizedThreadLocal<>(
 			ThirdPartyThreadLocalRegistry.class + "._threadLocalSet",
 			HashSet::new, false);
+=======
+		new InitialThreadLocal<>(
+			ThirdPartyThreadLocalRegistry.class + "._threadLocalSet",
+			HashSet::new);
+>>>>>>> compatible
 
 }

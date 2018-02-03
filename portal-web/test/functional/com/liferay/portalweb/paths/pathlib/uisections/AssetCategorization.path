@@ -99,18 +99,31 @@
 	<td></td>
 </tr>
 <tr>
+	<td>CATEGORIES_CATEGORY_CHECKBOX_CHECKED</td>
+	<td>//li[contains(@id,'category') and contains(.,'${key_categoryName}')]/div[contains(@class,'checked')]//span[contains(@class,'tree-node-checkbox')]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>CATEGORIES_CLOSE_BUTTON</td>
 	<td>//button[contains(@class,'btn-default close')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>TAG</td>
+<<<<<<< HEAD
 	<td>//div[contains(@class,'tagselector')]//span[@class='textboxlistentry-text'][contains(.,'${key_tagName}')]</td>
+=======
+	<td>//div[contains(@class,'lfr-tags-selector-content')]//span[contains(@class,'textboxlistentry-text') and contains(.,'${key_tagName}')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>TAG_CHECKBOX</td>
+<<<<<<< HEAD
 	<td>//tr[contains(.,'${key_tagName}')]//input[@type='checkbox']</td>
+=======
+	<td>//div[contains(.,'${key_tagName}')]//input[@type='checkbox']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -135,11 +148,14 @@
 </tr>
 <tr>
 	<td>TAG_AUTOCOMPLETE</td>
+<<<<<<< HEAD
 	<td>//div[contains(@class,'autocomplete-results-content')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>TAG_AUTOCOMPLETE_SPECIFIC</td>
+=======
+>>>>>>> compatible
 	<td>//div[contains(@class,'autocomplete-results-content')]//li[.='${key_tagName}']</td>
 	<td></td>
 </tr>

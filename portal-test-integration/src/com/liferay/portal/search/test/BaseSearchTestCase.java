@@ -41,7 +41,10 @@ import com.liferay.portal.kernel.test.util.UserTestUtil;
 import com.liferay.portal.kernel.trash.TrashHandler;
 import com.liferay.portal.kernel.trash.TrashHandlerRegistryUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.kernel.workflow.WorkflowThreadLocal;
@@ -621,9 +624,15 @@ public abstract class BaseSearchTestCase {
 		String keyword6 = getSearchKeywords() + 6;
 		String keyword7 = getSearchKeywords() + 7;
 
+<<<<<<< HEAD
 		String combinedKeywords = StringBundler.concat(
 			keyword1, " ", keyword2, " ", keyword3, " ", keyword4, " ",
 			keyword5, " ", keyword6, " ", keyword7);
+=======
+		String combinedKeywords =
+			keyword1 + " " + keyword2 + " " + keyword3 + " " + keyword4 + " " +
+				keyword5 + " " + keyword6 + " " + keyword7;
+>>>>>>> compatible
 
 		searchContext.setKeywords(combinedKeywords);
 
@@ -642,24 +651,36 @@ public abstract class BaseSearchTestCase {
 		searchContext = SearchContextTestUtil.getSearchContext(
 			group.getGroupId());
 
+<<<<<<< HEAD
 		searchContext.setKeywords(
 			StringBundler.concat("\"", keyword1, " ", keyword2, "\""));
+=======
+		searchContext.setKeywords("\"" + keyword1 + " " + keyword2 + "\"");
+>>>>>>> compatible
 
 		assertBaseModelsCount(initialBaseModelsSearchCount + 1, searchContext);
 
 		searchContext = SearchContextTestUtil.getSearchContext(
 			group.getGroupId());
 
+<<<<<<< HEAD
 		searchContext.setKeywords(
 			StringBundler.concat("\"", keyword2, " ", keyword1, "\""));
+=======
+		searchContext.setKeywords("\"" + keyword2 + " " + keyword1 + "\"");
+>>>>>>> compatible
 
 		assertBaseModelsCount(initialBaseModelsSearchCount, searchContext);
 
 		searchContext = SearchContextTestUtil.getSearchContext(
 			group.getGroupId());
 
+<<<<<<< HEAD
 		searchContext.setKeywords(
 			StringBundler.concat("\"", keyword2, " ", keyword4, "\""));
+=======
+		searchContext.setKeywords("\"" + keyword2 + " " + keyword4 + "\"");
+>>>>>>> compatible
 
 		assertBaseModelsCount(initialBaseModelsSearchCount, searchContext);
 
@@ -667,8 +688,12 @@ public abstract class BaseSearchTestCase {
 			group.getGroupId());
 
 		searchContext.setKeywords(
+<<<<<<< HEAD
 			StringBundler.concat(
 				keyword1, " \"", keyword2, " ", keyword3, "\""));
+=======
+			keyword1 + " \"" + keyword2 + " " + keyword3 + "\"");
+>>>>>>> compatible
 
 		assertBaseModelsCount(initialBaseModelsSearchCount + 1, searchContext);
 
@@ -676,16 +701,26 @@ public abstract class BaseSearchTestCase {
 			group.getGroupId());
 
 		searchContext.setKeywords(
+<<<<<<< HEAD
 			StringBundler.concat(
 				RandomTestUtil.randomString(), " \"", keyword2, " ", keyword3,
 				"\" ", keyword5));
+=======
+			RandomTestUtil.randomString() + " \"" + keyword2 + " " + keyword3 +
+				"\" " + keyword5);
+>>>>>>> compatible
 
 		assertBaseModelsCount(initialBaseModelsSearchCount + 1, searchContext);
 
 		searchContext.setKeywords(
+<<<<<<< HEAD
 			StringBundler.concat(
 				RandomTestUtil.randomString(), " \"", keyword2, " ", keyword5,
 				"\" ", RandomTestUtil.randomString()));
+=======
+			RandomTestUtil.randomString() + " \"" + keyword2 + " " + keyword5 +
+				"\" " + RandomTestUtil.randomString());
+>>>>>>> compatible
 
 		assertBaseModelsCount(initialBaseModelsSearchCount, searchContext);
 	}

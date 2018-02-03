@@ -18,7 +18,10 @@ import com.liferay.item.selector.BaseItemSelectorCriterion;
 
 /**
  * @author Iván Zaera
+<<<<<<< HEAD
  * @author Roberto Díaz
+=======
+>>>>>>> compatible
  */
 public class WikiAttachmentItemSelectorCriterion
 	extends BaseItemSelectorCriterion {
@@ -27,6 +30,7 @@ public class WikiAttachmentItemSelectorCriterion
 	}
 
 	public WikiAttachmentItemSelectorCriterion(long wikiPageResourceId) {
+<<<<<<< HEAD
 		this(wikiPageResourceId, new String[0]);
 	}
 
@@ -39,21 +43,30 @@ public class WikiAttachmentItemSelectorCriterion
 
 	public String[] getMimeTypes() {
 		return _mimeTypes;
+=======
+		_wikiPageResourceId = wikiPageResourceId;
+>>>>>>> compatible
 	}
 
 	public long getWikiPageResourceId() {
 		return _wikiPageResourceId;
 	}
 
+<<<<<<< HEAD
 	public void setMimeTypes(String[] mimeTypes) {
 		_mimeTypes = mimeTypes;
 	}
 
+=======
+>>>>>>> compatible
 	public void setWikiPageResourceId(long wikiPageResourceId) {
 		_wikiPageResourceId = wikiPageResourceId;
 	}
 
+<<<<<<< HEAD
 	private String[] _mimeTypes;
+=======
+>>>>>>> compatible
 	private long _wikiPageResourceId;
 
 }

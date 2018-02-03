@@ -41,11 +41,16 @@ import java.util.Date;
  * @see MBDiscussion
  * @see com.liferay.portlet.messageboards.model.impl.MBDiscussionImpl
  * @see com.liferay.portlet.messageboards.model.impl.MBDiscussionModelImpl
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, replaced by {@link
             com.liferay.message.boards.model.impl.MBDiscussionImpl}
  * @generated
  */
 @Deprecated
+=======
+ * @generated
+ */
+>>>>>>> compatible
 @ProviderType
 public interface MBDiscussionModel extends AttachedModel, BaseModel<MBDiscussion>,
 	ShardedModel, StagedGroupedModel {

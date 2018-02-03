@@ -14,9 +14,12 @@
 
 package com.liferay.site.navigation.taglib.internal.servlet;
 
+<<<<<<< HEAD
 import com.liferay.site.navigation.type.SiteNavigationMenuItemType;
 import com.liferay.site.navigation.type.SiteNavigationMenuItemTypeRegistry;
 
+=======
+>>>>>>> compatible
 import javax.servlet.ServletContext;
 
 import org.osgi.service.component.annotations.Activate;
@@ -40,6 +43,7 @@ public class ServletContextUtil {
 		return _instance._getServletContext();
 	}
 
+<<<<<<< HEAD
 	public static final SiteNavigationMenuItemType
 		getSiteNavigationMenuItemType(String type) {
 
@@ -50,6 +54,8 @@ public class ServletContextUtil {
 			type);
 	}
 
+=======
+>>>>>>> compatible
 	@Activate
 	protected void activate() {
 		_instance = this;
@@ -72,18 +78,24 @@ public class ServletContextUtil {
 		return _servletContext;
 	}
 
+<<<<<<< HEAD
 	private SiteNavigationMenuItemTypeRegistry
 		_getSiteNavigationMenuItemTypeRegistry() {
 
 		return _siteNavigationMenuItemTypeRegistry;
 	}
 
+=======
+>>>>>>> compatible
 	private static ServletContextUtil _instance;
 
 	private ServletContext _servletContext;
 
+<<<<<<< HEAD
 	@Reference
 	private SiteNavigationMenuItemTypeRegistry
 		_siteNavigationMenuItemTypeRegistry;
 
+=======
+>>>>>>> compatible
 }

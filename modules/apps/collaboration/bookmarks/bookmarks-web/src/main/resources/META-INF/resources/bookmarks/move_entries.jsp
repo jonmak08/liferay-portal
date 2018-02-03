@@ -27,7 +27,11 @@ List<BookmarksFolder> invalidMoveFolders = new ArrayList<BookmarksFolder>();
 List<BookmarksFolder> validMoveFolders = new ArrayList<BookmarksFolder>();
 
 for (BookmarksFolder curFolder : folders) {
+<<<<<<< HEAD
 	boolean movePermission = BookmarksFolderPermission.contains(permissionChecker, curFolder, ActionKeys.UPDATE);
+=======
+	boolean movePermission = BookmarksFolderPermissionChecker.contains(permissionChecker, curFolder, ActionKeys.UPDATE);
+>>>>>>> compatible
 
 	if (movePermission) {
 		validMoveFolders.add(curFolder);
@@ -54,7 +58,11 @@ List<BookmarksEntry> validMoveEntries = new ArrayList<BookmarksEntry>();
 List<BookmarksEntry> invalidMoveEntries = new ArrayList<BookmarksEntry>();
 
 for (BookmarksEntry curEntry : entries) {
+<<<<<<< HEAD
 	boolean movePermission = BookmarksEntryPermission.contains(permissionChecker, curEntry, ActionKeys.UPDATE);
+=======
+	boolean movePermission = BookmarksEntryPermissionChecker.contains(permissionChecker, curEntry, ActionKeys.UPDATE);
+>>>>>>> compatible
 
 	if (movePermission) {
 		validMoveEntries.add(curEntry);
@@ -251,9 +259,15 @@ if (portletTitleBasedNavigation) {
 		</aui:fieldset-group>
 
 		<aui:button-row>
+<<<<<<< HEAD
 			<aui:button type="submit" value="move" />
 
 			<aui:button href="<%= redirect %>" type="cancel" />
+=======
+			<aui:button cssClass="btn-lg" type="submit" value="move" />
+
+			<aui:button cssClass="btn-lg" href="<%= redirect %>" type="cancel" />
+>>>>>>> compatible
 		</aui:button-row>
 	</aui:form>
 </div>

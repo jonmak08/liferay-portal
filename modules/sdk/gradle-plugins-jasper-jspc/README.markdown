@@ -16,7 +16,11 @@ To use the plugin, include it in your build script:
 ```gradle
 buildscript {
 	dependencies {
+<<<<<<< HEAD
 		classpath group: "com.liferay", name: "com.liferay.gradle.plugins.jasper.jspc", version: "2.0.3"
+=======
+		classpath group: "com.liferay", name: "com.liferay.gradle.plugins.jasper.jspc", version: "2.0.2"
+>>>>>>> compatible
 	}
 
 	repositories {

@@ -24,6 +24,10 @@ import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.exception.LoggedExceptionInInitializerError;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -143,9 +147,14 @@ public class ClassLoaderComponentConfiguration extends ComponentConfiguration {
 				else {
 					if (_log.isWarnEnabled()) {
 						_log.warn(
+<<<<<<< HEAD
 							StringBundler.concat(
 								"Unable to decode part \"", encoded,
 								"\" from \"", s, "\", preserve it literally"));
+=======
+							"Unable to decode part \"" + encoded +
+								"\" from \"" + s + "\", preserve it literally");
+>>>>>>> compatible
 					}
 
 					sb.append(s.substring(openUnderLine, index + 1));
@@ -159,7 +168,11 @@ public class ClassLoaderComponentConfiguration extends ComponentConfiguration {
 			position = index + 1;
 		}
 
+<<<<<<< HEAD
 		sb.append(s.substring(position));
+=======
+		sb.append(s.substring(position, s.length()));
+>>>>>>> compatible
 
 		return sb.toString();
 	}
@@ -221,9 +234,14 @@ public class ClassLoaderComponentConfiguration extends ComponentConfiguration {
 
 			if (_log.isInfoEnabled()) {
 				_log.info(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Overrode property ", newKey,
 						" with the value from the environment variable ", key));
+=======
+					"Overrode property " + newKey +
+						" with the value from the environment variable " + key);
+>>>>>>> compatible
 			}
 		}
 	}

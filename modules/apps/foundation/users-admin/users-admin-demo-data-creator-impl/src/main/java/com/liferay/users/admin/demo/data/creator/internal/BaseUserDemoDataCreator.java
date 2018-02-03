@@ -14,11 +14,16 @@
 
 package com.liferay.users.admin.demo.data.creator.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.exception.NoSuchUserException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.json.JSONArray;
+=======
+import com.liferay.portal.kernel.exception.NoSuchUserException;
+import com.liferay.portal.kernel.exception.PortalException;
+>>>>>>> compatible
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.log.Log;
@@ -28,10 +33,18 @@ import com.liferay.portal.kernel.model.UserConstants;
 import com.liferay.portal.kernel.security.RandomUtil;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.UserLocalService;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.DateFormatFactoryUtil;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.FriendlyURLNormalizerUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.users.admin.demo.data.creator.UserDemoDataCreator;
@@ -80,9 +93,14 @@ public abstract class BaseUserDemoDataCreator implements UserDemoDataCreator {
 
 			JSONObject rootJSONObject = JSONFactoryUtil.createJSONObject(json);
 
+<<<<<<< HEAD
 			JSONArray jsonArray = rootJSONObject.getJSONArray("results");
 
 			JSONObject userJSONObject = jsonArray.getJSONObject(0);
+=======
+			JSONObject userJSONObject = rootJSONObject.getJSONArray(
+				"results").getJSONObject(0);
+>>>>>>> compatible
 
 			emailAddress = _getEmailAddress(emailAddress, userJSONObject);
 			male = StringUtil.equalsIgnoreCase(

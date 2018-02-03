@@ -273,11 +273,18 @@ public class UserFinderTest {
 			WorkflowConstants.STATUS_APPROVED, _inheritedUserGroupsParams,
 			QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
 
+<<<<<<< HEAD
 		Assert.assertTrue(users.toString(), users.contains(_groupUser));
 		Assert.assertTrue(users.toString(), users.contains(_organizationUser));
 		Assert.assertTrue(users.toString(), users.contains(_userGroupUser));
 		Assert.assertTrue(
 			users.toString(), users.contains(TestPropsValues.getUser()));
+=======
+		Assert.assertTrue(users.contains(_groupUser));
+		Assert.assertTrue(users.contains(_organizationUser));
+		Assert.assertTrue(users.contains(_userGroupUser));
+		Assert.assertTrue(users.contains(TestPropsValues.getUser()));
+>>>>>>> compatible
 		Assert.assertEquals(
 			users.toString(), _inheritedUserGroupsExpectedCount, users.size());
 	}
@@ -297,11 +304,18 @@ public class UserFinderTest {
 			WorkflowConstants.STATUS_APPROVED, _inheritedUserRolesParams,
 			QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
 
+<<<<<<< HEAD
 		Assert.assertTrue(users.toString(), users.contains(_groupUser));
 		Assert.assertTrue(users.toString(), users.contains(_organizationUser));
 		Assert.assertTrue(users.toString(), users.contains(_userGroupUser));
 		Assert.assertTrue(
 			users.toString(), users.contains(TestPropsValues.getUser()));
+=======
+		Assert.assertTrue(users.contains(_groupUser));
+		Assert.assertTrue(users.contains(_organizationUser));
+		Assert.assertTrue(users.contains(_userGroupUser));
+		Assert.assertTrue(users.contains(TestPropsValues.getUser()));
+>>>>>>> compatible
 		Assert.assertEquals(
 			users.toString(), expectedUsers.size() + 2, users.size());
 	}
@@ -325,11 +339,18 @@ public class UserFinderTest {
 			WorkflowConstants.STATUS_APPROVED, _inheritedUserRolesParams,
 			QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
 
+<<<<<<< HEAD
 		Assert.assertTrue(users.toString(), users.contains(_groupUser));
 		Assert.assertTrue(users.toString(), users.contains(_organizationUser));
 		Assert.assertTrue(users.toString(), users.contains(_userGroupUser));
 		Assert.assertTrue(
 			users.toString(), users.contains(TestPropsValues.getUser()));
+=======
+		Assert.assertTrue(users.contains(_groupUser));
+		Assert.assertTrue(users.contains(_organizationUser));
+		Assert.assertTrue(users.contains(_userGroupUser));
+		Assert.assertTrue(users.contains(TestPropsValues.getUser()));
+>>>>>>> compatible
 		Assert.assertEquals(
 			users.toString(), expectedUsers.size() + 2, users.size());
 	}

@@ -14,7 +14,11 @@
 
 package com.liferay.source.formatter.checks;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.TextFormatter;
@@ -77,7 +81,11 @@ public class SessionKeysCheck extends BaseFileCheck {
 
 			x = x + s.length();
 
+<<<<<<< HEAD
 			String substring = StringUtil.trim(match.substring(x));
+=======
+			String substring = match.substring(x).trim();
+>>>>>>> compatible
 
 			String quote = StringPool.BLANK;
 

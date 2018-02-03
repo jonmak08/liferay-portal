@@ -16,7 +16,11 @@ package com.liferay.portal.monitoring.internal.statistics.portal;
 
 import com.liferay.portal.kernel.monitoring.MonitoringException;
 import com.liferay.portal.monitoring.internal.statistics.RequestStatistics;
+<<<<<<< HEAD
 import com.liferay.portal.monitoring.internal.statistics.SummaryStatistics;
+=======
+import com.liferay.portal.monitoring.statistics.SummaryStatistics;
+>>>>>>> compatible
 
 import java.util.Set;
 
@@ -72,10 +76,15 @@ public class ServerSummaryStatistics implements SummaryStatistics {
 		for (CompanyStatistics companyStatistics :
 				_serverStatistics.getCompanyStatisticsSet()) {
 
+<<<<<<< HEAD
 			RequestStatistics requestStatistics =
 				companyStatistics.getRequestStatistics();
 
 			errorCount += requestStatistics.getErrorCount();
+=======
+			errorCount +=
+				companyStatistics.getRequestStatistics().getErrorCount();
+>>>>>>> compatible
 		}
 
 		return errorCount;
@@ -152,10 +161,15 @@ public class ServerSummaryStatistics implements SummaryStatistics {
 		for (CompanyStatistics companyStatistics :
 				_serverStatistics.getCompanyStatisticsSet()) {
 
+<<<<<<< HEAD
 			RequestStatistics requestStatistics =
 				companyStatistics.getRequestStatistics();
 
 			requestCount += requestStatistics.getRequestCount();
+=======
+			requestCount +=
+				companyStatistics.getRequestStatistics().getRequestCount();
+>>>>>>> compatible
 		}
 
 		return requestCount;
@@ -182,10 +196,15 @@ public class ServerSummaryStatistics implements SummaryStatistics {
 		for (CompanyStatistics companyStatistics :
 				_serverStatistics.getCompanyStatisticsSet()) {
 
+<<<<<<< HEAD
 			RequestStatistics requestStatistics =
 				companyStatistics.getRequestStatistics();
 
 			successCount += requestStatistics.getSuccessCount();
+=======
+			successCount +=
+				companyStatistics.getRequestStatistics().getSuccessCount();
+>>>>>>> compatible
 		}
 
 		return successCount;
@@ -212,10 +231,15 @@ public class ServerSummaryStatistics implements SummaryStatistics {
 		for (CompanyStatistics companyStatistics :
 				_serverStatistics.getCompanyStatisticsSet()) {
 
+<<<<<<< HEAD
 			RequestStatistics requestStatistics =
 				companyStatistics.getRequestStatistics();
 
 			timeoutCount += requestStatistics.getTimeoutCount();
+=======
+			timeoutCount +=
+				companyStatistics.getRequestStatistics().getTimeoutCount();
+>>>>>>> compatible
 		}
 
 		return timeoutCount;

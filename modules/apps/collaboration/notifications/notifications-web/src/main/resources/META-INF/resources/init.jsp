@@ -26,15 +26,23 @@ taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 
 <%@ page import="com.liferay.notifications.web.internal.util.NotificationsUtil" %><%@
 page import="com.liferay.notifications.web.internal.util.comparator.PortletIdComparator" %><%@
+<<<<<<< HEAD
 page import="com.liferay.petra.string.StringPool" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.dao.search.EmptyOnClickRowChecker" %><%@
 page import="com.liferay.portal.kernel.dao.search.SearchContainer" %><%@
 page import="com.liferay.portal.kernel.json.JSONFactoryUtil" %><%@
 page import="com.liferay.portal.kernel.json.JSONObject" %><%@
 page import="com.liferay.portal.kernel.language.LanguageUtil" %><%@
 page import="com.liferay.portal.kernel.model.Portlet" %><%@
+<<<<<<< HEAD
 page import="com.liferay.portal.kernel.model.UserNotificationDelivery" %><%@
 page import="com.liferay.portal.kernel.model.UserNotificationDeliveryConstants" %><%@
+=======
+page import="com.liferay.portal.kernel.model.Subscription" %><%@
+page import="com.liferay.portal.kernel.model.UserNotificationDelivery" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.model.UserNotificationEvent" %><%@
 page import="com.liferay.portal.kernel.notifications.UserNotificationDefinition" %><%@
 page import="com.liferay.portal.kernel.notifications.UserNotificationDeliveryType" %><%@
@@ -43,6 +51,7 @@ page import="com.liferay.portal.kernel.notifications.UserNotificationManagerUtil
 page import="com.liferay.portal.kernel.portlet.PortletURLUtil" %><%@
 page import="com.liferay.portal.kernel.service.PortletLocalServiceUtil" %><%@
 page import="com.liferay.portal.kernel.service.ServiceContextFactory" %><%@
+<<<<<<< HEAD
 page import="com.liferay.portal.kernel.service.UserNotificationDeliveryLocalServiceUtil" %><%@
 page import="com.liferay.portal.kernel.service.UserNotificationEventLocalServiceUtil" %><%@
 page import="com.liferay.portal.kernel.util.FastDateFormatFactoryUtil" %><%@
@@ -53,6 +62,17 @@ page import="com.liferay.portal.kernel.util.Time" %><%@
 page import="com.liferay.portal.kernel.util.WebKeys" %><%@
 page import="com.liferay.subscription.model.Subscription" %><%@
 page import="com.liferay.subscription.service.SubscriptionLocalServiceUtil" %><%@
+=======
+page import="com.liferay.portal.kernel.service.SubscriptionLocalServiceUtil" %><%@
+page import="com.liferay.portal.kernel.service.UserNotificationDeliveryLocalServiceUtil" %><%@
+page import="com.liferay.portal.kernel.util.FastDateFormatFactoryUtil" %><%@
+page import="com.liferay.portal.kernel.util.ParamUtil" %><%@
+page import="com.liferay.portal.kernel.util.PortalUtil" %><%@
+page import="com.liferay.portal.kernel.util.StringPool" %><%@
+page import="com.liferay.portal.kernel.util.StringUtil" %><%@
+page import="com.liferay.portal.kernel.util.Time" %><%@
+page import="com.liferay.portal.kernel.util.WebKeys" %><%@
+>>>>>>> compatible
 page import="com.liferay.taglib.search.ResultRow" %>
 
 <%@ page import="java.text.Format" %>

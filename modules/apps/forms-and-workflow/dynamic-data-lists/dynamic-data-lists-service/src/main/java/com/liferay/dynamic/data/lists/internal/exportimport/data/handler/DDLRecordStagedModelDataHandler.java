@@ -127,6 +127,7 @@ public class DDLRecordStagedModelDataHandler
 	}
 
 	@Override
+<<<<<<< HEAD
 	protected void doImportMissingReference(
 			PortletDataContext portletDataContext, String uuid, long groupId,
 			long recordId)
@@ -142,6 +143,8 @@ public class DDLRecordStagedModelDataHandler
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	protected void doImportStagedModel(
 			PortletDataContext portletDataContext, DDLRecord record)
 		throws Exception {

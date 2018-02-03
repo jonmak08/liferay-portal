@@ -16,14 +16,21 @@ package com.liferay.taglib.theme;
 
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.Portlet;
+<<<<<<< HEAD
 import com.liferay.taglib.util.IncludeTag;
+=======
+>>>>>>> compatible
 
 import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author Miguel Pastor
  */
+<<<<<<< HEAD
 public class PortletMessagesTag extends IncludeTag {
+=======
+public class PortletMessagesTag extends com.liferay.taglib.util.IncludeTag {
+>>>>>>> compatible
 
 	public void setGroup(Group group) {
 		_group = group;

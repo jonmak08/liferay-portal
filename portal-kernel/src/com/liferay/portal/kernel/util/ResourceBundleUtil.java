@@ -14,7 +14,10 @@
 
 package com.liferay.portal.kernel.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.language.UTF8Control;
 
@@ -84,7 +87,12 @@ public class ResourceBundleUtil {
 
 		for (Locale locale : LanguageUtil.getAvailableLocales()) {
 			ResourceBundle resourceBundle =
+<<<<<<< HEAD
 				resourceBundleLoader.loadResourceBundle(locale);
+=======
+				resourceBundleLoader.loadResourceBundle(
+					LocaleUtil.toLanguageId(locale));
+>>>>>>> compatible
 
 			map.put(locale, getString(resourceBundle, key));
 		}
@@ -164,10 +172,13 @@ public class ResourceBundleUtil {
 		return value;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static void loadResourceBundles(
 		Map<String, ResourceBundle> resourceBundles, Locale locale,
 		ResourceBundleLoader resourceBundleLoader) {
@@ -177,10 +188,13 @@ public class ResourceBundleUtil {
 		loadResourceBundles(resourceBundles, languageId, resourceBundleLoader);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static void loadResourceBundles(
 		Map<String, ResourceBundle> resourceBundles, String languageId,
 		ResourceBundleLoader resourceBundleLoader) {

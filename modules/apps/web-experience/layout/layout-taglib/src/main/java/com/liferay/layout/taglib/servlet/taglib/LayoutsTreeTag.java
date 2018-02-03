@@ -19,8 +19,11 @@ import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.model.Layout;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.LayoutConstants;
 import com.liferay.portal.kernel.model.LayoutSetBranch;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.LayoutLocalServiceUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HttpUtil;
@@ -74,10 +77,13 @@ public class LayoutsTreeTag extends IncludeTag {
 		_incomplete = incomplete;
 	}
 
+<<<<<<< HEAD
 	public void setLayoutSetBranch(LayoutSetBranch layoutSetBranch) {
 		_layoutSetBranch = layoutSetBranch;
 	}
 
+=======
+>>>>>>> compatible
 	public void setLinkTemplate(String linkTemplate) {
 		_linkTemplate = linkTemplate;
 	}
@@ -137,7 +143,10 @@ public class LayoutsTreeTag extends IncludeTag {
 		_expandFirstNode = true;
 		_groupId = 0;
 		_incomplete = true;
+<<<<<<< HEAD
 		_layoutSetBranch = null;
+=======
+>>>>>>> compatible
 		_linkTemplate = null;
 		_portletURL = null;
 		_portletURLs = null;
@@ -171,10 +180,13 @@ public class LayoutsTreeTag extends IncludeTag {
 				checkedNodesJSONArray.put(
 					String.valueOf(checkedLayout.getPlid()));
 			}
+<<<<<<< HEAD
 			else if (checkedLayoutId == LayoutConstants.DEFAULT_PLID) {
 				checkedNodesJSONArray.put(
 					String.valueOf(LayoutConstants.DEFAULT_PLID));
 			}
+=======
+>>>>>>> compatible
 		}
 
 		return checkedNodesJSONArray.toString();
@@ -262,8 +274,11 @@ public class LayoutsTreeTag extends IncludeTag {
 			"liferay-layout:layouts-tree:incomplete",
 			String.valueOf(_incomplete));
 		request.setAttribute(
+<<<<<<< HEAD
 			"liferay-layout:layouts-tree:layoutSetBranch", _layoutSetBranch);
 		request.setAttribute(
+=======
+>>>>>>> compatible
 			"liferay-layout:layouts-tree:linkTemplate",
 			String.valueOf(_linkTemplate));
 		request.setAttribute(
@@ -315,7 +330,10 @@ public class LayoutsTreeTag extends IncludeTag {
 	private boolean _expandFirstNode = true;
 	private long _groupId;
 	private boolean _incomplete = true;
+<<<<<<< HEAD
 	private LayoutSetBranch _layoutSetBranch;
+=======
+>>>>>>> compatible
 	private String _linkTemplate;
 	private PortletURL _portletURL;
 	private Map<String, PortletURL> _portletURLs;

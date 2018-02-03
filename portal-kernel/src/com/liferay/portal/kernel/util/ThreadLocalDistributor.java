@@ -117,9 +117,7 @@ public class ThreadLocalDistributor implements Externalizable {
 
 	public void restore() {
 		for (int i = 0; i < _threadLocalValues.length; i++) {
-			ThreadLocal<Serializable> threadLocal = _threadLocals.get(i);
-
-			threadLocal.set(_threadLocalValues[i]);
+			_threadLocals.get(i).set(_threadLocalValues[i]);
 		}
 	}
 

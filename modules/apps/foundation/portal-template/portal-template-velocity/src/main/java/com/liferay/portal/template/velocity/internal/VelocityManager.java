@@ -23,7 +23,11 @@ import com.liferay.portal.kernel.template.TemplateException;
 import com.liferay.portal.kernel.template.TemplateManager;
 import com.liferay.portal.kernel.template.TemplateResource;
 import com.liferay.portal.kernel.template.TemplateResourceLoader;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.ReflectionUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.template.BaseSingleTemplateManager;
 import com.liferay.portal.template.RestrictedTemplate;
@@ -72,7 +76,21 @@ public class VelocityManager extends BaseSingleTemplateManager {
 
 		contextObjects.put(themeName, velocityTaglib);
 
+<<<<<<< HEAD
 		contextObjects.put("velocityTaglib_layoutIcon", _layoutIconMethod);
+=======
+		try {
+			Class<?> clazz = VelocityTaglib.class;
+
+			Method method = clazz.getMethod(
+				"layoutIcon", new Class<?>[] {Layout.class});
+
+			contextObjects.put("velocityTaglib_layoutIcon", method);
+		}
+		catch (Exception e) {
+			ReflectionUtil.throwException(e);
+		}
+>>>>>>> compatible
 
 		// Legacy support
 
@@ -155,9 +173,14 @@ public class VelocityManager extends BaseSingleTemplateManager {
 				VelocityEngine.RESOURCE_LOADER, "liferay");
 
 			extendedProperties.setProperty(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"liferay.", VelocityEngine.RESOURCE_LOADER, ".",
 					VelocityTemplateResourceLoader.class.getName()),
+=======
+				"liferay." + VelocityEngine.RESOURCE_LOADER + "." +
+					VelocityTemplateResourceLoader.class.getName(),
+>>>>>>> compatible
 				templateResourceLoader);
 
 			boolean cacheEnabled = false;
@@ -280,6 +303,7 @@ public class VelocityManager extends BaseSingleTemplateManager {
 	protected void setSingleVMPool(SingleVMPool singleVMPool) {
 	}
 
+<<<<<<< HEAD
 	private static final Method _layoutIconMethod;
 	private static volatile VelocityEngineConfiguration
 		_velocityEngineConfiguration;
@@ -294,6 +318,11 @@ public class VelocityManager extends BaseSingleTemplateManager {
 		}
 	}
 
+=======
+	private static volatile VelocityEngineConfiguration
+		_velocityEngineConfiguration;
+
+>>>>>>> compatible
 	private VelocityEngine _velocityEngine;
 
 }

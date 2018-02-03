@@ -20,6 +20,10 @@ import com.liferay.portal.kernel.model.Release;
 import com.liferay.portal.kernel.model.UserNotificationDeliveryConstants;
 import com.liferay.portal.kernel.model.UserNotificationEvent;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.service.SubscriptionLocalService;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.UserNotificationDeliveryLocalService;
 import com.liferay.portal.kernel.service.UserNotificationEventLocalService;
 import com.liferay.portal.kernel.servlet.SessionMessages;
@@ -28,7 +32,10 @@ import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.ResourceBundleLoader;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
+<<<<<<< HEAD
 import com.liferay.subscription.service.SubscriptionLocalService;
+=======
+>>>>>>> compatible
 
 import java.io.IOException;
 
@@ -120,7 +127,12 @@ public class NotificationsPortlet extends MVCPortlet {
 			UserNotificationDeliveryConstants.TYPE_WEBSITE, actionRequired);
 
 		ResourceBundle resourceBundle =
+<<<<<<< HEAD
 			_resourceBundleLoader.loadResourceBundle(themeDisplay.getLocale());
+=======
+			_resourceBundleLoader.loadResourceBundle(
+				LanguageUtil.getLanguageId(themeDisplay.getLocale()));
+>>>>>>> compatible
 
 		SessionMessages.add(
 			actionRequest, "requestProcessed",
@@ -274,7 +286,12 @@ public class NotificationsPortlet extends MVCPortlet {
 		}
 
 		ResourceBundle resourceBundle =
+<<<<<<< HEAD
 			_resourceBundleLoader.loadResourceBundle(themeDisplay.getLocale());
+=======
+			_resourceBundleLoader.loadResourceBundle(
+				LanguageUtil.getLanguageId(themeDisplay.getLocale()));
+>>>>>>> compatible
 
 		SessionMessages.add(
 			actionRequest, "requestProcessed",

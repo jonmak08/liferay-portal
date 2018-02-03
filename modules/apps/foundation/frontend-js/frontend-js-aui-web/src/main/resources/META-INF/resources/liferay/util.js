@@ -32,7 +32,10 @@
 
 	var TPL_LEXICON_ICON = '<svg class="lexicon-icon lexicon-icon-{0} {1}" focusable="false" role="image">' +
 			'<use data-href="' + themeDisplay.getPathThemeImages() + '/lexicon/icons.svg#{0}" />' +
+<<<<<<< HEAD
 			'<title>{0}</title>'
+=======
+>>>>>>> compatible
 		'</svg>';
 
 	var Window = {
@@ -322,6 +325,7 @@
 				else {
 					var portletName = form.data('fm-namespace');
 
+<<<<<<< HEAD
 					var formReadyEventName = portletName + 'formReady';
 
 					var formReadyHandler = function(event) {
@@ -336,6 +340,14 @@
 					};
 
 					Liferay.on(formReadyEventName, formReadyHandler);
+=======
+					Liferay.once(
+						portletName + 'formReady',
+						function() {
+							el.focus();
+						}
+					);
+>>>>>>> compatible
 				}
 			}
 		},
@@ -1379,12 +1391,15 @@
 
 			ddmURL.setParameter('scopeTitle', config.title);
 
+<<<<<<< HEAD
 			if ('searchRestriction' in config) {
 				ddmURL.setParameter('searchRestriction', config.searchRestriction);
 				ddmURL.setParameter('searchRestrictionClassNameId', config.searchRestrictionClassNameId);
 				ddmURL.setParameter('searchRestrictionClassPK', config.searchRestrictionClassPK);
 			}
 
+=======
+>>>>>>> compatible
 			if ('showAncestorScopes' in config) {
 				ddmURL.setParameter('showAncestorScopes', config.showAncestorScopes);
 			}

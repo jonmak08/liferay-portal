@@ -51,8 +51,12 @@ List<TrashEntry> trashEntries = (List<TrashEntry>)request.getAttribute(TrashWebK
 								<c:otherwise>
 
 									<%
+<<<<<<< HEAD
 									request.setAttribute("view.jsp-className", trashRenderer.getClassName());
 									request.setAttribute("view.jsp-classPK", String.valueOf(trashRenderer.getClassPK()));
+=======
+									request.setAttribute(TrashWebKeys.TRASH_RENDERER, trashRenderer);
+>>>>>>> compatible
 									%>
 
 									<liferay-util:include page="/view_content_action.jsp" servletContext="<%= application %>" />
@@ -62,10 +66,24 @@ List<TrashEntry> trashEntries = (List<TrashEntry>)request.getAttribute(TrashWebK
 					</ul>
 
 					<h4><%= HtmlUtil.escape(trashRenderer.getTitle(locale)) %></h4>
+<<<<<<< HEAD
+=======
+				</div>
+
+				<aui:nav-bar cssClass="navbar-no-collapse" markupView="lexicon">
+					<aui:nav collapsible="<%= false %>" cssClass="navbar-nav">
+						<aui:nav-item label="details" selected="<%= true %>" />
+					</aui:nav>
+				</aui:nav-bar>
+
+				<div class="sidebar-body">
+					<h5><liferay-ui:message key="type" /></h5>
+>>>>>>> compatible
 
 					<p>
 						<%= ResourceActionsUtil.getModelResource(locale, trashEntry.getClassName()) %>
 					</p>
+<<<<<<< HEAD
 				</div>
 
 				<clay:navigation-bar
@@ -73,6 +91,9 @@ List<TrashEntry> trashEntries = (List<TrashEntry>)request.getAttribute(TrashWebK
 				/>
 
 				<div class="sidebar-body">
+=======
+
+>>>>>>> compatible
 					<h5><liferay-ui:message key="removed-date" /></h5>
 
 					<p>
@@ -91,9 +112,17 @@ List<TrashEntry> trashEntries = (List<TrashEntry>)request.getAttribute(TrashWebK
 					<h4><liferay-ui:message arguments="<%= trashEntries.size() %>" key="x-items-are-selected" /></h4>
 				</div>
 
+<<<<<<< HEAD
 				<clay:navigation-bar
 					items="<%= trashDisplayContext.getInfoPanelNavigationItems() %>"
 				/>
+=======
+				<aui:nav-bar cssClass="navbar-no-collapse" markupView="lexicon">
+					<aui:nav collapsible="<%= false %>" cssClass="navbar-nav">
+						<aui:nav-item label="details" selected="<%= true %>" />
+					</aui:nav>
+				</aui:nav-bar>
+>>>>>>> compatible
 
 				<div class="sidebar-body">
 					<h5><liferay-ui:message key="num-of-items" /></h5>
@@ -110,9 +139,17 @@ List<TrashEntry> trashEntries = (List<TrashEntry>)request.getAttribute(TrashWebK
 			<h4><liferay-ui:message key="home" /></h4>
 		</div>
 
+<<<<<<< HEAD
 		<clay:navigation-bar
 			items="<%= trashDisplayContext.getInfoPanelNavigationItems() %>"
 		/>
+=======
+		<aui:nav-bar cssClass="navbar-no-collapse" markupView="lexicon">
+			<aui:nav collapsible="<%= false %>" cssClass="navbar-nav">
+				<aui:nav-item label="details" selected="<%= true %>" />
+			</aui:nav>
+		</aui:nav-bar>
+>>>>>>> compatible
 
 		<div class="sidebar-body">
 			<h5><liferay-ui:message key="num-of-items" /></h5>

@@ -259,14 +259,21 @@ public class NettyRepository implements Repository<Channel> {
 				if (fileResponse.isFileNotModified()) {
 					if (_log.isDebugEnabled()) {
 						_log.debug(
+<<<<<<< HEAD
 							StringBundler.concat(
 								"Remote file ", String.valueOf(remoteFilePath),
 								" is not modified, use cached local file ",
 								String.valueOf(cachedLocalFilePath)));
+=======
+							"Remote file " + remoteFilePath +
+								" is not modified, use cached local file " +
+									cachedLocalFilePath);
+>>>>>>> compatible
 					}
 
 					return cachedLocalFilePath;
 				}
+<<<<<<< HEAD
 
 				Path targetLocalFilePath = localFilePath;
 
@@ -274,6 +281,15 @@ public class NettyRepository implements Repository<Channel> {
 					Path recheckCacheLocalFilePath = pathMap.get(
 						remoteFilePath);
 
+=======
+
+				Path targetLocalFilePath = localFilePath;
+
+				synchronized (fileResponse) {
+					Path recheckCacheLocalFilePath = pathMap.get(
+						remoteFilePath);
+
+>>>>>>> compatible
 					if (recheckCacheLocalFilePath != null) {
 						targetLocalFilePath = recheckCacheLocalFilePath;
 					}
@@ -296,6 +312,7 @@ public class NettyRepository implements Repository<Channel> {
 					}
 
 					fileResponse.setLocalFile(targetLocalFilePath);
+<<<<<<< HEAD
 				}
 
 				if (_log.isDebugEnabled()) {
@@ -306,6 +323,16 @@ public class NettyRepository implements Repository<Channel> {
 							String.valueOf(targetLocalFilePath)));
 				}
 
+=======
+				}
+
+				if (_log.isDebugEnabled()) {
+					_log.debug(
+						"Fetched remote file " + remoteFilePath + " to " +
+							targetLocalFilePath);
+				}
+
+>>>>>>> compatible
 				return targetLocalFilePath;
 			}
 

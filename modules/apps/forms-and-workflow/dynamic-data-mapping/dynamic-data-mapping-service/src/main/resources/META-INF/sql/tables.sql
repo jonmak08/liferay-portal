@@ -34,6 +34,7 @@ create table DDMDataProviderInstanceLink (
 	structureId LONG
 );
 
+<<<<<<< HEAD
 create table DDMFormInstance (
 	uuid_ VARCHAR(75) null,
 	formInstanceId LONG not null primary key,
@@ -108,14 +109,20 @@ create table DDMFormInstanceVersion (
 	statusDate DATE null
 );
 
+=======
+>>>>>>> compatible
 create table DDMStorageLink (
 	uuid_ VARCHAR(75) null,
 	storageLinkId LONG not null primary key,
 	companyId LONG,
 	classNameId LONG,
 	classPK LONG,
+<<<<<<< HEAD
 	structureId LONG,
 	structureVersionId LONG
+=======
+	structureId LONG
+>>>>>>> compatible
 );
 
 create table DDMStructure (

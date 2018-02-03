@@ -14,6 +14,7 @@
 
 package com.liferay.portal.cluster.multiple.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.concurrent.AbstractNoticeableExecutorService;
 import com.liferay.petra.concurrent.NoticeableExecutorService;
 import com.liferay.petra.concurrent.NoticeableFuture;
@@ -22,6 +23,10 @@ import com.liferay.petra.executor.PortalExecutorManager;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+=======
+import com.liferay.portal.kernel.concurrent.ThreadPoolExecutor;
+import com.liferay.portal.kernel.executor.PortalExecutorManager;
+>>>>>>> compatible
 
 /**
  * @author Michael C. Han
@@ -29,6 +34,7 @@ import java.util.concurrent.TimeUnit;
 public class MockPortalExecutorManager implements PortalExecutorManager {
 
 	@Override
+<<<<<<< HEAD
 	public NoticeableExecutorService getPortalExecutor(String name) {
 		return new MockNoticeableExecutorService();
 	}
@@ -43,6 +49,36 @@ public class MockPortalExecutorManager implements PortalExecutorManager {
 	@Override
 	public NoticeableExecutorService registerPortalExecutor(
 		String name, NoticeableExecutorService threadPoolExecutor) {
+=======
+	public ThreadPoolExecutor getPortalExecutor(String name) {
+		return new ThreadPoolExecutor(0, 1) {
+
+			@Override
+			public void execute(Runnable runnable) {
+				runnable.run();
+			}
+
+		};
+	}
+
+	@Override
+	public ThreadPoolExecutor getPortalExecutor(
+		String name, boolean createIfAbsent) {
+
+		return new ThreadPoolExecutor(0, 1) {
+
+			@Override
+			public void execute(Runnable runnable) {
+				runnable.run();
+			}
+
+		};
+	}
+
+	@Override
+	public ThreadPoolExecutor registerPortalExecutor(
+		String name, ThreadPoolExecutor threadPoolExecutor) {
+>>>>>>> compatible
 
 		return null;
 	}
@@ -55,6 +91,7 @@ public class MockPortalExecutorManager implements PortalExecutorManager {
 	public void shutdown(boolean interrupt) {
 	}
 
+<<<<<<< HEAD
 	private static class MockNoticeableExecutorService
 		extends AbstractNoticeableExecutorService
 		implements NoticeableExecutorService {
@@ -100,4 +137,6 @@ public class MockPortalExecutorManager implements PortalExecutorManager {
 
 	}
 
+=======
+>>>>>>> compatible
 }

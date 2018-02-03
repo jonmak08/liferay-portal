@@ -15,7 +15,11 @@
 package com.liferay.site.navigation.language.web.internal.upgrade.v1_0_0;
 
 import com.liferay.portal.kernel.upgrade.BaseUpgradePortletId;
+<<<<<<< HEAD
 import com.liferay.site.navigation.language.constants.SiteNavigationLanguagePortletKeys;
+=======
+import com.liferay.site.navigation.language.web.constants.SiteNavigationLanguagePortletKeys;
+>>>>>>> compatible
 
 /**
  * @author Eudaldo Alonso

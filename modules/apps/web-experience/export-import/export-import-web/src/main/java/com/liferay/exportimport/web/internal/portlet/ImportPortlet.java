@@ -16,6 +16,7 @@ package com.liferay.exportimport.web.internal.portlet;
 
 import com.liferay.exportimport.constants.ExportImportPortletKeys;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
+<<<<<<< HEAD
 import com.liferay.trash.TrashHelper;
 import com.liferay.trash.util.TrashWebKeys;
 
@@ -28,6 +29,12 @@ import javax.portlet.RenderResponse;
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+=======
+
+import javax.portlet.Portlet;
+
+import org.osgi.service.component.annotations.Component;
+>>>>>>> compatible
 
 /**
  * @author Daniel Kocsis
@@ -38,6 +45,10 @@ import org.osgi.service.component.annotations.Reference;
 		"com.liferay.portlet.add-default-resource=true",
 		"com.liferay.portlet.css-class-wrapper=portlet-export-import",
 		"com.liferay.portlet.display-category=category.hidden",
+<<<<<<< HEAD
+=======
+		"com.liferay.portlet.footer-portlet-javascript=/js/main.js",
+>>>>>>> compatible
 		"com.liferay.portlet.header-portlet-css=/css/main.css",
 		"com.liferay.portlet.icon=/icons/export_import.png",
 		"com.liferay.portlet.preferences-owned-by-group=true",
@@ -59,6 +70,7 @@ import org.osgi.service.component.annotations.Reference;
 	service = Portlet.class
 )
 public class ImportPortlet extends MVCPortlet {
+<<<<<<< HEAD
 
 	@Override
 	public void render(
@@ -73,4 +85,6 @@ public class ImportPortlet extends MVCPortlet {
 	@Reference
 	private TrashHelper _trashHelper;
 
+=======
+>>>>>>> compatible
 }

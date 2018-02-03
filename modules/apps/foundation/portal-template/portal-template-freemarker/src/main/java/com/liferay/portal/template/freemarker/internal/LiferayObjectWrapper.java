@@ -14,8 +14,13 @@
 
 package com.liferay.portal.template.freemarker.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.concurrent.ConcurrentReferenceKeyHashMap;
 import com.liferay.petra.memory.FinalizeManager;
+=======
+import com.liferay.portal.kernel.concurrent.ConcurrentReferenceKeyHashMap;
+import com.liferay.portal.kernel.memory.FinalizeManager;
+>>>>>>> compatible
 import com.liferay.portal.kernel.templateparser.TemplateNode;
 import com.liferay.portal.kernel.util.ReflectionUtil;
 
@@ -97,10 +102,13 @@ public class LiferayObjectWrapper extends DefaultObjectWrapper {
 		String className = clazz.getName();
 
 		if (className.startsWith("com.liferay.")) {
+<<<<<<< HEAD
 			if (object instanceof TemplateNode) {
 				return new LiferayTemplateModel((TemplateNode)object, this);
 			}
 
+=======
+>>>>>>> compatible
 			if (object instanceof Collection) {
 				return _COLLECTION_MODEL_FACTORY.create(object, this);
 			}
@@ -118,6 +126,13 @@ public class LiferayObjectWrapper extends DefaultObjectWrapper {
 			return modelFactory.create(object, this);
 		}
 
+<<<<<<< HEAD
+=======
+		if (object instanceof TemplateNode) {
+			return new LiferayTemplateModel((TemplateNode)object, this);
+		}
+
+>>>>>>> compatible
 		return super.wrap(object);
 	}
 

@@ -139,6 +139,7 @@ public class JournalFolderServiceWrapper implements JournalFolderService,
 	}
 
 	@Override
+<<<<<<< HEAD
 	public java.util.List<java.lang.Object> getFoldersAndArticles(
 		long groupId, long userId, long folderId, int status,
 		java.util.Locale locale, int start, int end,
@@ -148,6 +149,8 @@ public class JournalFolderServiceWrapper implements JournalFolderService,
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public int getFoldersAndArticlesCount(long groupId,
 		java.util.List<java.lang.Long> folderIds, int status) {
 		return _journalFolderService.getFoldersAndArticlesCount(groupId,
@@ -196,7 +199,11 @@ public class JournalFolderServiceWrapper implements JournalFolderService,
 	}
 
 	/**
+<<<<<<< HEAD
 	* @deprecated As of 4.0.0, replaced by {@link #getSubfolderIds(List, long,
+=======
+	* @deprecated As of 3.3.0, replaced by {@link #getSubfolderIds(List, long,
+>>>>>>> compatible
 	long, boolean)}
 	*/
 	@Deprecated
@@ -251,6 +258,7 @@ public class JournalFolderServiceWrapper implements JournalFolderService,
 	}
 
 	@Override
+<<<<<<< HEAD
 	public java.util.List<com.liferay.dynamic.data.mapping.model.DDMStructure> searchDDMStructures(
 		long companyId, long[] groupIds, long folderId, int restrictionType,
 		java.lang.String keywords, int start, int end,
@@ -261,6 +269,8 @@ public class JournalFolderServiceWrapper implements JournalFolderService,
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public void subscribe(long groupId, long folderId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		_journalFolderService.subscribe(groupId, folderId);

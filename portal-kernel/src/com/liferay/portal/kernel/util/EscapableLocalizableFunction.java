@@ -37,7 +37,13 @@ public class EscapableLocalizableFunction implements Serializable {
 	}
 
 	public String getEscapedValue(Locale locale) {
+<<<<<<< HEAD
 		if (Validator.isNull(_escapedValueMap.get(locale))) {
+=======
+		if (_escapedValueMap.isEmpty() ||
+			Validator.isNull(_escapedValueMap.get(locale))) {
+
+>>>>>>> compatible
 			if (_escape) {
 				_escapedValueMap.put(locale, escape(locale));
 			}

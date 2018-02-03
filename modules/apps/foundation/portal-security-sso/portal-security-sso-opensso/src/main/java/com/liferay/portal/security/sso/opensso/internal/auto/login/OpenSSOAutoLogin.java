@@ -14,7 +14,10 @@
 
 package com.liferay.portal.security.sso.opensso.internal.auto.login;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -35,7 +38,11 @@ import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.PrefsPropsUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PwdGenerator;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.security.exportimport.UserImporter;
@@ -150,10 +157,16 @@ public class OpenSSOAutoLogin extends BaseAutoLogin {
 
 		if (_log.isDebugEnabled()) {
 			_log.debug(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Validating user information for ", firstName, " ",
 					lastName, " with screen name ", screenName,
 					" and email address ", emailAddress));
+=======
+				"Validating user information for " + firstName + " " +
+					lastName + " with screen name " + screenName +
+						" and email address " + emailAddress);
+>>>>>>> compatible
 		}
 
 		User user = null;

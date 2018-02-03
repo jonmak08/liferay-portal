@@ -17,6 +17,10 @@ package com.liferay.powwow.service;
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.portal.kernel.bean.PortletBeanLocatorUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.service.InvokableLocalService;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ReferenceRegistry;
 
 /**
@@ -268,6 +272,15 @@ public class PowwowServerLocalServiceUtil {
 		return getService().getPowwowServersCount(providerType, active);
 	}
 
+<<<<<<< HEAD
+=======
+	public static java.lang.Object invokeMethod(java.lang.String name,
+		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
+		throws java.lang.Throwable {
+		return getService().invokeMethod(name, parameterTypes, arguments);
+	}
+
+>>>>>>> compatible
 	public static com.liferay.powwow.model.PowwowServer updatePowwowServer(
 		long powwowServerId, java.lang.String name,
 		java.lang.String providerType, java.lang.String url,
@@ -296,9 +309,22 @@ public class PowwowServerLocalServiceUtil {
 
 	public static PowwowServerLocalService getService() {
 		if (_service == null) {
+<<<<<<< HEAD
 			_service = (PowwowServerLocalService)PortletBeanLocatorUtil.locate(ServletContextUtil.getServletContextName(),
 					PowwowServerLocalService.class.getName());
 
+=======
+			InvokableLocalService invokableLocalService = (InvokableLocalService)PortletBeanLocatorUtil.locate(ClpSerializer.getServletContextName(),
+					PowwowServerLocalService.class.getName());
+
+			if (invokableLocalService instanceof PowwowServerLocalService) {
+				_service = (PowwowServerLocalService)invokableLocalService;
+			}
+			else {
+				_service = new PowwowServerLocalServiceClp(invokableLocalService);
+			}
+
+>>>>>>> compatible
 			ReferenceRegistry.registerReference(PowwowServerLocalServiceUtil.class,
 				"_service");
 		}

@@ -25,9 +25,6 @@ import java.io.InputStream;
  */
 public class ConsumerOutputProcessor implements OutputProcessor<Void, Void> {
 
-	public static final OutputProcessor<Void, Void> INSTANCE =
-		new ConsumerOutputProcessor();
-
 	@Override
 	public Void processStdErr(InputStream stdErrInputStream)
 		throws ProcessException {

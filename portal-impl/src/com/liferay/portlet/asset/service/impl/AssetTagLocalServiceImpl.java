@@ -24,6 +24,7 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.SystemEventConstants;
 import com.liferay.portal.kernel.model.User;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.search.BaseModelSearchResult;
 import com.liferay.portal.kernel.search.Document;
 import com.liferay.portal.kernel.search.Field;
@@ -38,6 +39,9 @@ import com.liferay.portal.kernel.search.SearchException;
 import com.liferay.portal.kernel.search.Sort;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.ServiceContextThreadLocal;
+=======
+import com.liferay.portal.kernel.service.ServiceContext;
+>>>>>>> compatible
 import com.liferay.portal.kernel.systemevent.SystemEvent;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -48,8 +52,11 @@ import com.liferay.portlet.asset.service.base.AssetTagLocalServiceBaseImpl;
 import com.liferay.portlet.asset.util.AssetUtil;
 import com.liferay.portlet.asset.util.comparator.AssetTagNameComparator;
 import com.liferay.social.kernel.util.SocialCounterPeriodUtil;
+<<<<<<< HEAD
 
 import java.io.Serializable;
+=======
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -237,6 +244,13 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 
 		assetTagPersistence.remove(tag);
 
+<<<<<<< HEAD
+=======
+		// Stats
+
+		assetTagStatsLocalService.deleteTagStatsByTagId(tag.getTagId());
+
+>>>>>>> compatible
 		// Indexer
 
 		assetEntryLocalService.reindex(entries);
@@ -728,6 +742,7 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 		return tag;
 	}
 
+<<<<<<< HEAD
 	protected SearchContext buildSearchContext(
 		long companyId, long[] groupIds, String name, int start, int end,
 		Sort sort) {
@@ -758,6 +773,8 @@ public class AssetTagLocalServiceImpl extends AssetTagLocalServiceBaseImpl {
 		return searchContext;
 	}
 
+=======
+>>>>>>> compatible
 	protected String[] getTagNames(List<AssetTag> tags) {
 		return ListUtil.toArray(tags, AssetTag.NAME_ACCESSOR);
 	}

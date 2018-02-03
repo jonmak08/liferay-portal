@@ -29,9 +29,13 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
 )
 public interface SiteNavigationLanguageWebTemplateConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(
 		deflt = "language-icon-ftl", name = "ddm-template-key", required = false
 	)
+=======
+	@Meta.AD(deflt = "language-icon-ftl", required = false)
+>>>>>>> compatible
 	public String ddmTemplateKey();
 
 }

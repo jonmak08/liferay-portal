@@ -33,6 +33,7 @@ public interface FlagsGroupServiceConfiguration {
 
 	@Meta.AD(
 		deflt = "com/liferay/flags/dependencies/email_flag_body.tmpl",
+<<<<<<< HEAD
 		name = "email-body", required = false
 	)
 	public String emailBody();
@@ -40,32 +41,59 @@ public interface FlagsGroupServiceConfiguration {
 	@Meta.AD(
 		deflt = "true", name = "email-entry-added-enabled", required = false
 	)
+=======
+		required = false
+	)
+	public String emailBody();
+
+	@Meta.AD(deflt = "true", required = false)
+>>>>>>> compatible
 	public boolean emailEntryAddedEnabled();
 
 	@Meta.AD(
 		deflt = "${server-property://com.liferay.portal/admin.email.from.address}",
+<<<<<<< HEAD
 		name = "email-from-address", required = false
+=======
+		required = false
+>>>>>>> compatible
 	)
 	public String emailFromAddress();
 
 	@Meta.AD(
 		deflt = "${server-property://com.liferay.portal/admin.email.from.name}",
+<<<<<<< HEAD
 		name = "email-from-name", required = false
+=======
+		required = false
+>>>>>>> compatible
 	)
 	public String emailFromName();
 
 	@Meta.AD(
 		deflt = "com/liferay/flags/dependencies/email_flag_subject.tmpl",
+<<<<<<< HEAD
 		name = "email-subject", required = false
 	)
 	public String emailSubject();
 
 	@Meta.AD(deflt = "false", name = "guest-users-enabled", required = false)
+=======
+		required = false
+	)
+	public String emailSubject();
+
+	@Meta.AD(deflt = "flase", required = false)
+>>>>>>> compatible
 	public boolean guestUsersEnabled();
 
 	@Meta.AD(
 		deflt = "sexual-content|violent-or-repulsive-content|hateful-or-abusive-content|harmful-dangerous-acts|spam|infringes-my-rights",
+<<<<<<< HEAD
 		name = "reasons", required = false
+=======
+		required = false
+>>>>>>> compatible
 	)
 	public String[] reasons();
 

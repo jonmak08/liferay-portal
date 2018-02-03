@@ -18,7 +18,11 @@ import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.document.library.kernel.store.DLStoreUtil;
 import com.liferay.document.library.kernel.store.Store;
+<<<<<<< HEAD
 import com.liferay.marketplace.internal.bundle.BundleManagerUtil;
+=======
+import com.liferay.marketplace.bundle.BundleManagerUtil;
+>>>>>>> compatible
 import com.liferay.marketplace.model.Module;
 import com.liferay.marketplace.service.ModuleLocalServiceUtil;
 import com.liferay.portal.kernel.deploy.DeployManagerUtil;

@@ -30,6 +30,7 @@ Liferay = window.Liferay || {};
 		}
 	);
 
+<<<<<<< HEAD
 	var jqueryInit = $.prototype.init;
 
 	$.prototype.init = function(selector, context, root) {
@@ -66,6 +67,8 @@ Liferay = window.Liferay || {};
 		}
 	);
 
+=======
+>>>>>>> compatible
 	/**
 	 * OPTIONS
 	 *

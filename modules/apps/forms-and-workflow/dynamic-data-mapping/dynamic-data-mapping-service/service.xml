@@ -106,6 +106,7 @@
 			<finder-column name="structureId" />
 		</finder>
 	</entity>
+<<<<<<< HEAD
 	<entity local-service="true" name="DDMFormInstance" remote-service="true" uuid="true">
 
 		<!-- PK fields -->
@@ -300,6 +301,8 @@
 			<finder-column name="status" />
 		</finder>
 	</entity>
+=======
+>>>>>>> compatible
 	<entity local-service="true" name="DDMStorageLink" remote-service="false" uuid="true">
 
 		<!-- PK fields -->
@@ -315,7 +318,10 @@
 		<column name="classNameId" type="long" />
 		<column name="classPK" type="long" />
 		<column name="structureId" type="long" />
+<<<<<<< HEAD
 		<column name="structureVersionId" type="long" />
+=======
+>>>>>>> compatible
 
 		<!-- Finder methods -->
 
@@ -325,6 +331,7 @@
 		<finder name="StructureId" return-type="Collection">
 			<finder-column name="structureId" />
 		</finder>
+<<<<<<< HEAD
 		<finder name="StructureVersionId" return-type="Collection">
 			<finder-column arrayable-operator="OR" name="structureVersionId" />
 		</finder>
@@ -332,6 +339,8 @@
 		<!-- References -->
 
 		<reference entity="DDMStructureVersion" package-path="com.liferay.dynamic.data.mapping" />
+=======
+>>>>>>> compatible
 	</entity>
 	<entity local-service="true" name="DDMStructure" remote-service="true" uuid="true">
 
@@ -402,6 +411,7 @@
 			<finder-column name="name" />
 			<finder-column name="description" />
 		</finder>
+<<<<<<< HEAD
 		<finder db-index="false" name="G_C_N_D" return-type="Collection">
 			<finder-column arrayable-operator="OR" name="groupId" />
 			<finder-column name="classNameId" />
@@ -412,6 +422,11 @@
 		<!-- References -->
 
 		<reference entity="DDMDataProviderInstance" package-path="com.liferay.dynamic.data.mapping" />
+=======
+
+		<!-- References -->
+
+>>>>>>> compatible
 		<reference entity="DDMDataProviderInstanceLink" package-path="com.liferay.dynamic.data.mapping" />
 		<reference entity="DDMStructureLayout" package-path="com.liferay.dynamic.data.mapping" />
 		<reference entity="DDMStructureLink" package-path="com.liferay.dynamic.data.mapping" />
@@ -724,10 +739,13 @@
 		<exception>ContentData</exception>
 		<exception>ContentName</exception>
 		<exception>DataProviderInstanceName</exception>
+<<<<<<< HEAD
 		<exception>FormInstanceName</exception>
 		<exception>FormInstanceRecordGroupId</exception>
 		<exception>FormInstanceSettingsRedirectURL</exception>
 		<exception>FormInstanceStructureId</exception>
+=======
+>>>>>>> compatible
 		<exception>InvalidParentStructure</exception>
 		<exception>InvalidStructureVersion</exception>
 		<exception>InvalidTemplateVersion</exception>

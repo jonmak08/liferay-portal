@@ -14,6 +14,7 @@
 
 package com.liferay.source.formatter.parser;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
@@ -21,6 +22,14 @@ import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.tools.JavaImportsFormatter;
+=======
+import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
+import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
+import com.liferay.portal.kernel.util.CharPool;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.util.Validator;
+>>>>>>> compatible
 import com.liferay.source.formatter.checks.util.JavaSourceUtil;
 import com.liferay.source.formatter.checks.util.SourceUtil;
 
@@ -77,6 +86,7 @@ public class JavaClassParser {
 
 		String className = JavaSourceUtil.getClassName(fileName);
 
+<<<<<<< HEAD
 		Pattern pattern = Pattern.compile(
 			"\n(public\\s+)?(abstract\\s+)?(final\\s+)?@?" +
 				"(class|enum|interface)\\s+" + className);
@@ -107,6 +117,20 @@ public class JavaClassParser {
 		}
 
 		return javaClass;
+=======
+		int x = content.indexOf("\npublic ");
+
+		if (x == -1) {
+			return null;
+		}
+
+		int y = content.lastIndexOf("\n\n", x + 1);
+
+		String classContent = content.substring(y + 2);
+
+		return _parseJavaClass(
+			className, classContent, JavaTerm.ACCESS_MODIFIER_PUBLIC, false);
+>>>>>>> compatible
 	}
 
 	private static String _getClassName(String line) {
@@ -305,17 +329,23 @@ public class JavaClassParser {
 		int javaTermStartPos = -1;
 		int level = 0;
 		int lineCount = 0;
+<<<<<<< HEAD
 		int metadataAnnotationLevel = 0;
 		int metadataBlockCommentLevel = 0;
 
 		boolean insideJavaTerm = false;
 		boolean insideMetadataAnnotation = false;
 		boolean insideMetadataBlockComment = false;
+=======
+
+		boolean insideJavaTerm = false;
+>>>>>>> compatible
 		boolean multiLineComment = false;
 
 		while ((line = unsyncBufferedReader.readLine()) != null) {
 			lineCount++;
 
+<<<<<<< HEAD
 			if (!insideJavaTerm && line.startsWith(indent + "@")) {
 				insideMetadataAnnotation = true;
 
@@ -348,6 +378,8 @@ public class JavaClassParser {
 					line, "/*", "*/");
 			}
 
+=======
+>>>>>>> compatible
 			if (!insideJavaTerm) {
 				if (javaTermStartPos == -1) {
 					if (line.matches(indent + "\\S+.*")) {
@@ -355,9 +387,13 @@ public class JavaClassParser {
 							classContent, lineCount);
 					}
 				}
+<<<<<<< HEAD
 				else if (Validator.isNull(line) && !insideMetadataAnnotation &&
 						 !insideMetadataBlockComment) {
 
+=======
+				else if (Validator.isNull(line)) {
+>>>>>>> compatible
 					javaTermStartPos = -1;
 				}
 			}
@@ -387,8 +423,11 @@ public class JavaClassParser {
 						"((private|protected|public)( .*|$)|static \\{)")) {
 
 				insideJavaTerm = true;
+<<<<<<< HEAD
 				insideMetadataAnnotation = false;
 				insideMetadataBlockComment = false;
+=======
+>>>>>>> compatible
 			}
 
 			if (insideJavaTerm && line.matches(".*[};]") && (level == 1)) {
@@ -409,8 +448,11 @@ public class JavaClassParser {
 				javaClass.addChildJavaTerm(javaTerm);
 
 				insideJavaTerm = false;
+<<<<<<< HEAD
 				insideMetadataAnnotation = false;
 				insideMetadataBlockComment = false;
+=======
+>>>>>>> compatible
 
 				javaTermStartPos = nextLineStartPos;
 			}

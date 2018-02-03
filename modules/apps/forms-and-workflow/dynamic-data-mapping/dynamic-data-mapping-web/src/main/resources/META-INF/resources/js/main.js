@@ -33,8 +33,11 @@ AUI.add(
 
 		var STR_SPACE = ' ';
 
+<<<<<<< HEAD
 		var STR_UNDERSCORE = '_';
 
+=======
+>>>>>>> compatible
 		DEFAULTS_FORM_VALIDATOR.STRINGS.structureFieldName = Liferay.Language.get('please-enter-only-alphanumeric-characters');
 
 		DEFAULTS_FORM_VALIDATOR.RULES.structureFieldName = function(value) {
@@ -765,7 +768,11 @@ AUI.add(
 				for (var i = 0; i < key.length; i++) {
 					var item = key[i];
 
+<<<<<<< HEAD
 					if (!A.Text.Unicode.test(item, 'L') && !A.Text.Unicode.test(item, 'N') && !A.Text.Unicode.test(item, 'Pd') && item != STR_UNDERSCORE) {
+=======
+					if (!A.Text.Unicode.test(item, 'L') && !A.Text.Unicode.test(item, 'N') && !A.Text.Unicode.test(item, 'Pd')) {
+>>>>>>> compatible
 						key = key.replace(item, STR_SPACE);
 					}
 				}
@@ -800,7 +807,11 @@ AUI.add(
 			},
 
 			validateFieldName: function(fieldName) {
+<<<<<<< HEAD
 				return (/^[\w]+$/).test(fieldName);
+=======
+				return (/^[\w]+$/).test(fieldName) && !Lang.String.contains(fieldName, '_');
+>>>>>>> compatible
 			}
 		};
 
@@ -816,12 +827,15 @@ AUI.add(
 				},
 				{
 					hiddenAttributes: MAP_HIDDEN_FIELD_ATTRS.DEFAULT,
+<<<<<<< HEAD
 					iconClass: 'icon-adjust',
 					label: Liferay.Language.get('color'),
 					type: 'ddm-color'
 				},
 				{
 					hiddenAttributes: MAP_HIDDEN_FIELD_ATTRS.DEFAULT,
+=======
+>>>>>>> compatible
 					iconClass: 'icon-calendar',
 					label: Liferay.Language.get('date'),
 					type: 'ddm-date'

@@ -15,7 +15,10 @@
 package com.liferay.contacts.web.internal.notifications;
 
 import com.liferay.contacts.web.internal.constants.ContactsPortletKeys;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.model.User;
@@ -28,9 +31,16 @@ import com.liferay.portal.kernel.service.UserLocalService;
 import com.liferay.portal.kernel.service.UserNotificationEventLocalService;
 import com.liferay.portal.kernel.util.AggregateResourceBundleLoader;
 import com.liferay.portal.kernel.util.HtmlUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ResourceBundleLoader;
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.LocaleUtil;
+import com.liferay.portal.kernel.util.ResourceBundleLoader;
+import com.liferay.portal.kernel.util.ResourceBundleUtil;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.language.LanguageResources;
 import com.liferay.social.kernel.model.SocialRelationConstants;
@@ -89,7 +99,11 @@ public class ContactsCenterUserNotificationHandler
 
 		ResourceBundle resourceBundle =
 			_resourceBundleLoader.loadResourceBundle(
+<<<<<<< HEAD
 				serviceContext.getLocale());
+=======
+				LocaleUtil.toLanguageId(serviceContext.getLocale()));
+>>>>>>> compatible
 
 		String title = StringPool.BLANK;
 
@@ -187,9 +201,14 @@ public class ContactsCenterUserNotificationHandler
 			String userDisplayURL = user.getDisplayURL(
 				serviceContext.getThemeDisplay());
 
+<<<<<<< HEAD
 			return StringBundler.concat(
 				"<a href=\"", userDisplayURL, "\">", HtmlUtil.escape(userName),
 				"</a>");
+=======
+			return "<a href=\"" + userDisplayURL + "\">" +
+				HtmlUtil.escape(userName) + "</a>";
+>>>>>>> compatible
 		}
 		catch (Exception e) {
 			return StringPool.BLANK;

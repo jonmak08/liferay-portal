@@ -39,7 +39,10 @@ import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.util.ClassLoaderUtil;
 import com.liferay.portal.kernel.util.InstanceFactory;
 import com.liferay.portal.kernel.util.StackTraceUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 
@@ -168,10 +171,15 @@ public class BackgroundTaskMessageListener extends BaseMessageListener {
 		finally {
 			if (_log.isDebugEnabled()) {
 				_log.debug(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Completing background task ",
 						String.valueOf(backgroundTaskId), " with status: ",
 						String.valueOf(status)));
+=======
+					"Completing background task " + backgroundTaskId +
+						" with status: " + status);
+>>>>>>> compatible
 			}
 
 			_backgroundTaskManager.amendBackgroundTask(
@@ -214,12 +222,15 @@ public class BackgroundTaskMessageListener extends BaseMessageListener {
 				_backgroundTaskExecutorRegistry.getBackgroundTaskExecutor(
 					backgroundTask.getTaskExecutorClassName());
 
+<<<<<<< HEAD
 			if (backgroundTaskExecutor == null) {
 				throw new IllegalStateException(
 					"Unknown background task executor " +
 						backgroundTask.getTaskExecutorClassName());
 			}
 
+=======
+>>>>>>> compatible
 			backgroundTaskExecutor = backgroundTaskExecutor.clone();
 		}
 		else {
@@ -236,10 +247,17 @@ public class BackgroundTaskMessageListener extends BaseMessageListener {
 						classLoader, backgroundTask.getTaskExecutorClassName());
 			}
 			catch (Exception e) {
+<<<<<<< HEAD
 				throw new IllegalStateException(
 					"Cannot instantiate BackgroundTaskExecutor: " +
 						backgroundTask.getTaskExecutorClassName(),
 					e);
+=======
+				if (_log.isDebugEnabled()) {
+					_log.debug(
+						"Unable to create new background task executor", e);
+				}
+>>>>>>> compatible
 			}
 		}
 

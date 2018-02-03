@@ -14,7 +14,10 @@
 
 package com.liferay.portal.scheduler.multiple.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.cluster.BaseClusterMasterTokenTransitionListener;
 import com.liferay.portal.kernel.cluster.ClusterExecutor;
 import com.liferay.portal.kernel.cluster.ClusterMasterExecutor;
@@ -44,6 +47,11 @@ import com.liferay.portal.kernel.util.ObjectValuePair;
 import com.liferay.portal.kernel.util.Props;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.scheduler.SchedulerClusterInvokingThreadLocal;
+>>>>>>> compatible
 
 import java.util.Date;
 import java.util.Iterator;
@@ -308,9 +316,12 @@ public class ClusterSchedulerEngine
 
 		try {
 			if (storageType == StorageType.MEMORY_CLUSTERED) {
+<<<<<<< HEAD
 				String groupName = trigger.getGroupName();
 				String jobName = trigger.getJobName();
 
+=======
+>>>>>>> compatible
 				if (_clusterMasterExecutor.isMaster()) {
 					_schedulerEngine.schedule(
 						trigger, description, destinationName, message,
@@ -322,8 +333,13 @@ public class ClusterSchedulerEngine
 
 						schedulerResponse.setDescription(description);
 						schedulerResponse.setDestinationName(destinationName);
+<<<<<<< HEAD
 						schedulerResponse.setGroupName(groupName);
 						schedulerResponse.setJobName(jobName);
+=======
+						schedulerResponse.setGroupName(trigger.getGroupName());
+						schedulerResponse.setJobName(trigger.getJobName());
+>>>>>>> compatible
 						schedulerResponse.setMessage(message);
 						schedulerResponse.setStorageType(storageType);
 						schedulerResponse.setTrigger(trigger);
@@ -333,6 +349,7 @@ public class ClusterSchedulerEngine
 							getOSGiServiceIdentifier());
 					}
 				}
+<<<<<<< HEAD
 				else {
 					ObjectValuePair<SchedulerResponse, TriggerState>
 						objectValuePair = _memoryClusteredJobs.get(
@@ -368,6 +385,8 @@ public class ClusterSchedulerEngine
 						}
 					}
 				}
+=======
+>>>>>>> compatible
 			}
 			else {
 				_schedulerEngine.schedule(
@@ -533,6 +552,7 @@ public class ClusterSchedulerEngine
 		setClusterableThreadLocal(storageType);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public void validateTrigger(Trigger trigger, StorageType storageType)
 		throws SchedulerException {
@@ -540,6 +560,8 @@ public class ClusterSchedulerEngine
 		_schedulerEngine.validateTrigger(trigger, storageType);
 	}
 
+=======
+>>>>>>> compatible
 	protected void addMemoryClusteredJob(SchedulerResponse schedulerResponse) {
 		String jobName = schedulerResponse.getJobName();
 		String groupName = schedulerResponse.getGroupName();
@@ -597,17 +619,45 @@ public class ClusterSchedulerEngine
 				return;
 			}
 			catch (Exception e) {
+<<<<<<< HEAD
 				StringBundler sb = new StringBundler(5);
+=======
+				StringBundler sb = new StringBundler(7);
+>>>>>>> compatible
 
 				sb.append(
 					"Unable to load memory clustered jobs from master in ");
 				sb.append(_callMasterTimeout);
 				sb.append(" seconds, you might need to increase value set to ");
+<<<<<<< HEAD
 				sb.append("\"clusterable.advice.call.master.timeout\", will ");
 				sb.append("retry again");
 
 				_log.error(sb.toString(), e);
 			}
+=======
+				sb.append("\"clusterable.advice.call.master.timeout\", ");
+				sb.append("will retry in ");
+				sb.append(_callMasterTimeout);
+				sb.append(" seconds");
+
+				_log.error(sb.toString(), e);
+			}
+
+			try {
+				Thread.sleep(_callMasterTimeout);
+			}
+			catch (InterruptedException ie) {
+				if (_log.isWarnEnabled()) {
+					_log.warn(
+						"Give up the master call retry waiting due to " +
+							"interruption",
+						ie);
+				}
+
+				return;
+			}
+>>>>>>> compatible
 		}
 	}
 
@@ -661,6 +711,12 @@ public class ClusterSchedulerEngine
 
 		ClusterableContextThreadLocal.putThreadLocalContext(
 			PLUGIN_READY, pluginReady);
+<<<<<<< HEAD
+=======
+		ClusterableContextThreadLocal.putThreadLocalContext(
+			SCHEDULER_CLUSTER_INVOKING,
+			SchedulerClusterInvokingThreadLocal.isEnabled());
+>>>>>>> compatible
 	}
 
 	protected void setClusterExecutor(ClusterExecutor clusterExecutor) {
@@ -709,6 +765,12 @@ public class ClusterSchedulerEngine
 
 	protected static final String PORTAL_READY = "portal.ready";
 
+<<<<<<< HEAD
+=======
+	protected static final String SCHEDULER_CLUSTER_INVOKING =
+		"scheduler.cluster.invoking";
+
+>>>>>>> compatible
 	private static void _addMemoryClusteredJob(
 			SchedulerResponse schedulerResponse, String osgiServiceIdentifier)
 		throws Exception {

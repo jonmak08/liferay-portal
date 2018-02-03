@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 sourceCompatibility = "1.8"
 targetCompatibility = "1.8"
 
+=======
+>>>>>>> compatible
 dependencies {
 	provided group: "com.liferay.portal", name: "com.liferay.portal.kernel", version: "2.0.0"
 }

@@ -48,7 +48,10 @@ import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.ResourceBundleLoader;
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
@@ -331,8 +334,14 @@ public class PortletHotDeployListener extends BaseHotDeployListener {
 			_log.info("Unregistering portlets for " + servletContextName);
 		}
 
+<<<<<<< HEAD
 		for (Portlet portlet : portlets) {
 			_destroyPortlet(servletContext, portlet, portletIds);
+=======
+			for (Portlet portlet : portlets) {
+				_destroyPortlet(servletContext, portlet, portletIds);
+			}
+>>>>>>> compatible
 		}
 
 		ServletContextPool.remove(servletContextName);
@@ -525,8 +534,11 @@ public class PortletHotDeployListener extends BaseHotDeployListener {
 			Set<String> portletIds)
 		throws Exception {
 
+<<<<<<< HEAD
 		portlet.unsetReady();
 
+=======
+>>>>>>> compatible
 		PortletApp portletApp = portlet.getPortletApp();
 
 		Set<PortletFilter> portletFilters = portletApp.getPortletFilters();

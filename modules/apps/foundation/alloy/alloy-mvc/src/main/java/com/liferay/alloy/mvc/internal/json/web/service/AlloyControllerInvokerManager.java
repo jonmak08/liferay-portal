@@ -16,22 +16,34 @@ package com.liferay.alloy.mvc.internal.json.web.service;
 
 import com.liferay.alloy.mvc.AlloyController;
 import com.liferay.alloy.mvc.AlloyPortlet;
+<<<<<<< HEAD
 import com.liferay.alloy.mvc.json.web.service.AlloyControllerInvoker;
 import com.liferay.alloy.mvc.json.web.service.BaseAlloyControllerInvokerImpl;
 import com.liferay.alloy.mvc.json.web.service.JSONWebServiceMethod;
 import com.liferay.petra.string.CharPool;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.alloy.mvc.json.web.service.JSONWebServiceMethod;
+>>>>>>> compatible
 import com.liferay.portal.kernel.json.JSONSerializable;
 import com.liferay.portal.kernel.jsonwebservice.JSONWebServiceActionsManagerUtil;
 import com.liferay.portal.kernel.model.Portlet;
 import com.liferay.portal.kernel.portlet.LiferayPortletConfig;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ArrayUtil;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 
@@ -72,6 +84,7 @@ public class AlloyControllerInvokerManager {
 			StringPool.SLASH + portletContext.getPortletContextName();
 	}
 
+<<<<<<< HEAD
 	public JSONSerializable invokeAlloyController(
 			String controller, String lifecycle, String action,
 			Object[] parameters)
@@ -90,6 +103,8 @@ public class AlloyControllerInvokerManager {
 			lifecycle, parameters);
 	}
 
+=======
+>>>>>>> compatible
 	public void registerController(
 		ThemeDisplay themeDisplay, AlloyPortlet alloyPortlet, Portlet portlet,
 		String controller, Class<? extends AlloyController> controllerClass) {
@@ -184,10 +199,17 @@ public class AlloyControllerInvokerManager {
 					generateAlloyControllerInvokerClassData(
 						controllerClass, alloyControllerInvokerClassName);
 
+<<<<<<< HEAD
 				final String fileName = StringBundler.concat(
 					PropsUtil.get(PropsKeys.LIFERAY_HOME), "/data/alloy/",
 					getClassBinaryName(alloyControllerInvokerClassName),
 					".class");
+=======
+				final String fileName =
+					PropsUtil.get(PropsKeys.LIFERAY_HOME) + "/data/alloy/" +
+						getClassBinaryName(alloyControllerInvokerClassName) +
+							".class";
+>>>>>>> compatible
 
 				ClassLoader customClassLoader = new ClassLoader(classLoader) {
 

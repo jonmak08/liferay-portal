@@ -1,5 +1,8 @@
 .info-bar-container {
+<<<<<<< HEAD
 	background-color: #F5F7F8;
+=======
+>>>>>>> compatible
 	border-bottom: 1px solid #EDF0F2;
 	min-height: 47px;
 
@@ -32,14 +35,19 @@
 		left: 50%;
 		margin-top: 16px;
 		position: absolute;
+<<<<<<< HEAD
 		text-align: center;
 		transform: translate(-50%);
 		width: 100%;
+=======
+		transform: translate(-50%);
+>>>>>>> compatible
 
 		@include sm() {
 			margin-top: 20px;
 		}
 	}
+<<<<<<< HEAD
 
 	&.affix {
 		min-height: 35px;
@@ -49,4 +57,6 @@
 			margin-top: 5px;
 		}
 	}
+=======
+>>>>>>> compatible
 }

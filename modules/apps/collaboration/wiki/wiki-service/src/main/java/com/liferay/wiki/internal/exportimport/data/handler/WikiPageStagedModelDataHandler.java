@@ -16,12 +16,19 @@ package com.liferay.wiki.internal.exportimport.data.handler;
 
 import com.liferay.document.library.kernel.exception.NoSuchFileException;
 import com.liferay.document.library.kernel.model.DLFileEntry;
+<<<<<<< HEAD
 import com.liferay.exportimport.data.handler.base.BaseStagedModelDataHandler;
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.lar.ExportImportPathUtil;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.exportimport.kernel.lar.StagedModelDataHandler;
 import com.liferay.exportimport.kernel.lar.StagedModelDataHandlerUtil;
 import com.liferay.exportimport.kernel.lar.StagedModelModifiedDateComparator;
+<<<<<<< HEAD
+=======
+import com.liferay.exportimport.lar.BaseStagedModelDataHandler;
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
@@ -30,9 +37,15 @@ import com.liferay.portal.kernel.portletfilerepository.PortletFileRepositoryUtil
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.trash.TrashHandler;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.trash.TrashHandlerRegistryUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.MapUtil;
+=======
+import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.MapUtil;
+import com.liferay.portal.kernel.util.StreamUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.kernel.xml.Element;
@@ -268,12 +281,15 @@ public class WikiPageStagedModelDataHandler
 					serviceContext);
 			}
 			else {
+<<<<<<< HEAD
 				_wikiPageLocalService.updateAsset(
 					userId, existingPage, serviceContext.getAssetCategoryIds(),
 					serviceContext.getAssetTagNames(),
 					serviceContext.getAssetLinkEntryIds(),
 					serviceContext.getAssetPriority());
 
+=======
+>>>>>>> compatible
 				importedPage = existingPage;
 			}
 		}
@@ -299,10 +315,40 @@ public class WikiPageStagedModelDataHandler
 				FileEntry fileEntry =
 					(FileEntry)portletDataContext.getZipEntryAsObject(path);
 
+<<<<<<< HEAD
 				String binPath = attachmentElement.attributeValue("bin-path");
 
 				try (InputStream inputStream = _getPageAttachmentInputStream(
 						binPath, portletDataContext, fileEntry)) {
+=======
+				InputStream inputStream = null;
+
+				try {
+					String binPath = attachmentElement.attributeValue(
+						"bin-path");
+
+					if (Validator.isNull(binPath) &&
+						portletDataContext.isPerformDirectBinaryImport()) {
+
+						try {
+							inputStream = FileEntryUtil.getContentStream(
+								fileEntry);
+						}
+						catch (NoSuchFileException nsfe) {
+
+							// LPS-52675
+
+							if (_log.isDebugEnabled()) {
+								_log.debug(nsfe, nsfe);
+							}
+						}
+					}
+					else {
+						inputStream =
+							portletDataContext.getZipEntryAsInputStream(
+								binPath);
+					}
+>>>>>>> compatible
 
 					if (inputStream == null) {
 						if (_log.isWarnEnabled()) {
@@ -319,6 +365,12 @@ public class WikiPageStagedModelDataHandler
 						importedPage.getTitle(), fileEntry.getTitle(),
 						inputStream, null);
 				}
+<<<<<<< HEAD
+=======
+				finally {
+					StreamUtil.cleanUp(inputStream);
+				}
+>>>>>>> compatible
 			}
 		}
 
@@ -345,8 +397,12 @@ public class WikiPageStagedModelDataHandler
 			return;
 		}
 
+<<<<<<< HEAD
 		TrashHandler trashHandler = TrashHandlerRegistryUtil.getTrashHandler(
 			WikiPage.class.getName());
+=======
+		TrashHandler trashHandler = existingPage.getTrashHandler();
+>>>>>>> compatible
 
 		if (trashHandler.isRestorable(existingPage.getResourcePrimKey())) {
 			trashHandler.restoreTrashEntry(
@@ -377,6 +433,7 @@ public class WikiPageStagedModelDataHandler
 		_wikiPageResourceLocalService = wikiPageResourceLocalService;
 	}
 
+<<<<<<< HEAD
 	private InputStream _getPageAttachmentInputStream(
 			String binPath, PortletDataContext portletDataContext,
 			FileEntry fileEntry)
@@ -403,6 +460,8 @@ public class WikiPageStagedModelDataHandler
 		return portletDataContext.getZipEntryAsInputStream(binPath);
 	}
 
+=======
+>>>>>>> compatible
 	private static final Log _log = LogFactoryUtil.getLog(
 		WikiPageStagedModelDataHandler.class);
 

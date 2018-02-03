@@ -17,7 +17,10 @@ package com.liferay.portal.security.auth.http;
 import com.liferay.portal.kernel.security.auth.http.HttpAuthorizationHeader;
 import com.liferay.portal.kernel.util.Base64;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -84,10 +87,16 @@ public class HttpAuthorizationHeaderTest {
 
 		Assert.assertEquals(
 			httpAuthorizationHeader.toString(),
+<<<<<<< HEAD
 			StringBundler.concat(
 				"Digest nonce=\"", nonce, "\", realm=\"PortalRealm\", ",
 				"response=\"", response, "\", uri=\"/url\", ",
 				"username=\"test@liferay.com\""));
+=======
+			"Digest nonce=\"" + nonce + "\", realm=\"PortalRealm\", " +
+				"response=\"" + response + "\", uri=\"/url\", " +
+					"username=\"test@liferay.com\"");
+>>>>>>> compatible
 	}
 
 	@Test
@@ -106,9 +115,14 @@ public class HttpAuthorizationHeaderTest {
 
 		Assert.assertEquals(
 			httpAuthorizationHeader.toString(),
+<<<<<<< HEAD
 			StringBundler.concat(
 				"Digest nonce=\"", nonce, "\", realm=\"", Portal.PORTAL_REALM,
 				"\""));
+=======
+			"Digest nonce=\"" + nonce + "\", realm=\"" + Portal.PORTAL_REALM +
+				"\"");
+>>>>>>> compatible
 	}
 
 }

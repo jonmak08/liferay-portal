@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Portal Store S3
 Bundle-SymbolicName: com.liferay.portal.store.s3
+<<<<<<< HEAD
 Bundle-Version: 2.0.19
+=======
+Bundle-Version: 2.0.12
+>>>>>>> compatible
 Import-Package:\
 	!com.sun.org.apache.xerces.internal.jaxp,\
 	!com.sun.org.apache.xml.internal.dtm,\

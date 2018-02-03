@@ -30,7 +30,11 @@ public class JSPEmptyLinesCheck extends EmptyLinesCheck {
 	protected String doProcess(
 		String fileName, String absolutePath, String content) {
 
+<<<<<<< HEAD
 		content = fixMissingEmptyLines(absolutePath, content);
+=======
+		content = fixMissingEmptyLines(content);
+>>>>>>> compatible
 
 		content = fixRedundantEmptyLines(content);
 

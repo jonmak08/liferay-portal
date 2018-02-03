@@ -35,7 +35,10 @@ import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.util.FileImpl;
 import com.liferay.registry.BasicRegistryImpl;
+<<<<<<< HEAD
 import com.liferay.registry.Registry;
+=======
+>>>>>>> compatible
 import com.liferay.registry.RegistryUtil;
 
 import java.io.Serializable;
@@ -56,8 +59,14 @@ public class IntrabandProxyInstallationUtilTest {
 
 	@ClassRule
 	@Rule
+<<<<<<< HEAD
 	public static final CodeCoverageAssertor codeCoverageAssertor =
 		CodeCoverageAssertor.INSTANCE;
+=======
+	public static final AggregateTestRule aggregateTestRule =
+		new AggregateTestRule(
+			AspectJNewEnvTestRule.INSTANCE, CodeCoverageAssertor.INSTANCE);
+>>>>>>> compatible
 
 	@Before
 	public void setUp() {
@@ -102,6 +111,7 @@ public class IntrabandProxyInstallationUtilTest {
 				IntrabandProxyUtil.getStubClass(TestClass.class, "skeletonId"));
 
 		RegistryUtil.setRegistry(new BasicRegistryImpl());
+<<<<<<< HEAD
 
 		Registry registry = RegistryUtil.getRegistry();
 
@@ -111,6 +121,8 @@ public class IntrabandProxyInstallationUtilTest {
 				IntrabandProxyInstallationUtilTest.class.getClassLoader(),
 				new Class<?>[] {PortalExecutorManager.class},
 				new PortalExecutorManagerInvocationHandler()));
+=======
+>>>>>>> compatible
 	}
 
 	@Test

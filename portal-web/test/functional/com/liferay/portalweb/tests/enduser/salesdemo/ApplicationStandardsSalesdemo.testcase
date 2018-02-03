@@ -18,12 +18,17 @@
 				<execute macro="PortalInstances#tearDownCP" />
 			</then>
 			<else>
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP" />
+=======
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 			</else>
 		</if>
 	</tear-down>
 
 	<command name="WebProxyDemo" priority="4">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -43,6 +48,12 @@
 
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Web Proxy Page" />
+=======
+		<execute macro="Page#add">
+			<var name="columnName" value="1 Column" />
+			<var name="pageName" value="Web Proxy Page" />
+			<var name="sitePageType" value="Empty Page" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Portlet#addPG">

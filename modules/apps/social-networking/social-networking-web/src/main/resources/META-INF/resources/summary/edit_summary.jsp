@@ -24,7 +24,11 @@ String aboutMe = HtmlUtil.escape(ExpandoValueLocalServiceUtil.getData(themeDispl
 
 <portlet:actionURL name="updateSummary" var="updateSummaryURL" />
 
+<<<<<<< HEAD
 <aui:form action="<%= updateSummaryURL %>" method="post" name="fm">
+=======
+<aui:form action="<%= updateSummaryURL %>" method="post" name="<portlet:namespace />fm">
+>>>>>>> compatible
 	<aui:input name="redirect" type="hidden" value="<%= redirectURL %>" />
 
 	<aui:model-context bean="<%= user2.getContact() %>" model="<%= Contact.class %>" />
@@ -38,8 +42,14 @@ String aboutMe = HtmlUtil.escape(ExpandoValueLocalServiceUtil.getData(themeDispl
 	<aui:input label="about-me" name="aboutMe" type="textarea" value="<%= aboutMe %>" />
 
 	<aui:button-row>
+<<<<<<< HEAD
 		<aui:button type="submit" />
 
 		<aui:button href="<%= redirectURL %>" value="cancel" />
+=======
+		<aui:button cssClass="btn-lg" type="submit" />
+
+		<aui:button cssClass="btn-lg" href="<%= redirectURL %>" value="cancel" />
+>>>>>>> compatible
 	</aui:button-row>
 </aui:form>

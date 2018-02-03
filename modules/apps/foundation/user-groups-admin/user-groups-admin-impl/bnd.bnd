@@ -1,6 +1,10 @@
 Bundle-Name: Liferay User Groups Admin Implementation
 Bundle-SymbolicName: com.liferay.user.groups.admin.impl
+<<<<<<< HEAD
 Bundle-Version: 1.0.9
+=======
+Bundle-Version: 1.0.7
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title:
 -dsannotations-options: inherit

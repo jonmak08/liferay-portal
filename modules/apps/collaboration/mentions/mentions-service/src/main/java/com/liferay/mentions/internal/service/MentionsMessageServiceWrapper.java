@@ -120,7 +120,11 @@ public class MentionsMessageServiceWrapper
 		}
 
 		_mentionsNotifier.notify(
+<<<<<<< HEAD
 			userId, message.getGroupId(), title, content,
+=======
+			message.getUserId(), message.getGroupId(), title, content,
+>>>>>>> compatible
 			message.getModelClassName(), message.getMessageId(),
 			subjectLocalizedValuesMap, bodyLocalizedValuesMap, serviceContext);
 

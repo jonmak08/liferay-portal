@@ -1,4 +1,8 @@
 <definition component-name="portal-security">
+<<<<<<< HEAD
+=======
+	<property name="captcha.max.challenges" value="0" />
+>>>>>>> compatible
 	<property name="portal.upstream" value="true" />
 	<property name="test.assert.warning.exceptions" value="true" />
 	<property name="testray.main.component.name" value="Security" />
@@ -18,15 +22,22 @@
 			<else>
 				<execute macro="User#firstLoginPG" />
 
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP" />
+=======
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 			</else>
 		</if>
 	</tear-down>
 
 	<command name="ViewCaptchaEnabled" priority="4">
+<<<<<<< HEAD
 		<property name="osgi.module.configuration.file.names" value="com.liferay.captcha.configuration.CaptchaConfiguration.config" />
 		<property name="osgi.module.configurations" value="maxChallenges=&quot;0&quot;" />
 
+=======
+>>>>>>> compatible
 		<execute macro="SignInNavigator#gotoCreateAccount" />
 
 		<execute macro="User#viewCaptchaPG">
@@ -42,6 +53,7 @@
 
 		<execute macro="User#firstLoginPG" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
@@ -78,6 +90,19 @@
 
 		<execute macro="SystemSettings#saveConfiguration" />
 
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+			<var name="portlet" value="Server Administration" />
+		</execute>
+
+		<execute function="AssertClick" locator1="NavBar#CAPTCHA" value1="CAPTCHA" />
+
+		<execute macro="ServerAdministration#enableRecaptcha">
+			<var name="privateKey" value="${recaptchaPrivateKey}" />
+			<var name="publicKey" value="${recaptchaPublicKey}" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="User#logoutPG" />
 
 		<execute macro="SignInNavigator#gotoCreateAccount" />

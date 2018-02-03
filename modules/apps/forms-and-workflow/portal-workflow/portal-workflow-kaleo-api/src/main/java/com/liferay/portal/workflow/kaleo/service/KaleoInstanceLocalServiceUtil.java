@@ -54,15 +54,24 @@ public class KaleoInstanceLocalServiceUtil {
 	}
 
 	public static com.liferay.portal.workflow.kaleo.model.KaleoInstance addKaleoInstance(
+<<<<<<< HEAD
 		long kaleoDefinitionVersionId, java.lang.String kaleoDefinitionName,
+=======
+		long kaleoDefinitionId, java.lang.String kaleoDefinitionName,
+>>>>>>> compatible
 		int kaleoDefinitionVersion,
 		java.util.Map<java.lang.String, java.io.Serializable> workflowContext,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService()
+<<<<<<< HEAD
 				   .addKaleoInstance(kaleoDefinitionVersionId,
 			kaleoDefinitionName, kaleoDefinitionVersion, workflowContext,
 			serviceContext);
+=======
+				   .addKaleoInstance(kaleoDefinitionId, kaleoDefinitionName,
+			kaleoDefinitionVersion, workflowContext, serviceContext);
+>>>>>>> compatible
 	}
 
 	public static com.liferay.portal.workflow.kaleo.model.KaleoInstance completeKaleoInstance(
@@ -86,10 +95,16 @@ public class KaleoInstanceLocalServiceUtil {
 		getService().deleteCompanyKaleoInstances(companyId);
 	}
 
+<<<<<<< HEAD
 	public static void deleteKaleoDefinitionVersionKaleoInstances(
 		long kaleoDefinitionVersionId) {
 		getService()
 			.deleteKaleoDefinitionVersionKaleoInstances(kaleoDefinitionVersionId);
+=======
+	public static void deleteKaleoDefinitionKaleoInstances(
+		long kaleoDefinitionId) {
+		getService().deleteKaleoDefinitionKaleoInstances(kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 	/**
@@ -286,10 +301,16 @@ public class KaleoInstanceLocalServiceUtil {
 		return getService().getKaleoInstancesCount();
 	}
 
+<<<<<<< HEAD
 	public static int getKaleoInstancesCount(long kaleoDefinitionVersionId,
 		boolean completed) {
 		return getService()
 				   .getKaleoInstancesCount(kaleoDefinitionVersionId, completed);
+=======
+	public static int getKaleoInstancesCount(long kaleoDefinitionId,
+		boolean completed) {
+		return getService().getKaleoInstancesCount(kaleoDefinitionId, completed);
+>>>>>>> compatible
 	}
 
 	public static int getKaleoInstancesCount(java.lang.Long userId,

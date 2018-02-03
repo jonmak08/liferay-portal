@@ -214,6 +214,23 @@ public interface CalendarModel extends BaseModel<Calendar>, LocalizedModel,
 	public void setModifiedDate(Date modifiedDate);
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Returns the resource block ID of this calendar.
+	 *
+	 * @return the resource block ID of this calendar
+	 */
+	public long getResourceBlockId();
+
+	/**
+	 * Sets the resource block ID of this calendar.
+	 *
+	 * @param resourceBlockId the resource block ID of this calendar
+	 */
+	public void setResourceBlockId(long resourceBlockId);
+
+	/**
+>>>>>>> compatible
 	 * Returns the calendar resource ID of this calendar.
 	 *
 	 * @return the calendar resource ID of this calendar

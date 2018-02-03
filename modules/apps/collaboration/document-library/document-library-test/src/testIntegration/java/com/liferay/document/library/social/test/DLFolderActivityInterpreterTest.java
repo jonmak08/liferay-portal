@@ -18,16 +18,30 @@ import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
 import com.liferay.document.library.kernel.model.DLFolderConstants;
 import com.liferay.document.library.kernel.service.DLAppServiceUtil;
 import com.liferay.document.library.kernel.service.DLTrashServiceUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.repository.model.Folder;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+=======
+import com.liferay.document.library.web.social.DLFolderActivityInterpreter;
+import com.liferay.portal.kernel.repository.model.Folder;
+import com.liferay.portal.kernel.service.ServiceContext;
+import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.service.test.ServiceTestUtil;
+<<<<<<< HEAD
 import com.liferay.portal.test.rule.Inject;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.social.activity.test.util.BaseSocialActivityInterpreterTestCase;
+=======
+import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+import com.liferay.portlet.social.test.BaseSocialActivityInterpreterTestCase;
+>>>>>>> compatible
 import com.liferay.social.kernel.model.SocialActivityConstants;
 import com.liferay.social.kernel.model.SocialActivityInterpreter;
 
@@ -40,13 +54,23 @@ import org.junit.runner.RunWith;
  * @author Zsolt Berentey
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class DLFolderActivityInterpreterTest
 	extends BaseSocialActivityInterpreterTestCase {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Before
 	@Override
@@ -74,7 +98,11 @@ public class DLFolderActivityInterpreterTest
 
 	@Override
 	protected SocialActivityInterpreter getActivityInterpreter() {
+<<<<<<< HEAD
 		return _socialActivityInterpreter;
+=======
+		return new DLFolderActivityInterpreter();
+>>>>>>> compatible
 	}
 
 	@Override
@@ -102,11 +130,14 @@ public class DLFolderActivityInterpreterTest
 		DLTrashServiceUtil.restoreFolderFromTrash(_folder.getFolderId());
 	}
 
+<<<<<<< HEAD
 	@Inject(
 		filter = "model.class.name=com.liferay.document.library.kernel.model.DLFolder"
 	)
 	private static SocialActivityInterpreter _socialActivityInterpreter;
 
+=======
+>>>>>>> compatible
 	private Folder _folder;
 
 }

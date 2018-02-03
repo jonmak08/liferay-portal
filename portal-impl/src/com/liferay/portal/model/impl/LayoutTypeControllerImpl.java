@@ -21,7 +21,10 @@ import com.liferay.portal.kernel.model.Layout;
 import com.liferay.portal.kernel.model.LayoutConstants;
 import com.liferay.portal.kernel.model.LayoutTypeController;
 import com.liferay.portal.kernel.servlet.DirectRequestDispatcherFactoryUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.servlet.TransferHeadersHelperUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
@@ -129,9 +132,14 @@ public class LayoutTypeControllerImpl implements LayoutTypeController {
 			WebKeys.CTX);
 
 		RequestDispatcher requestDispatcher =
+<<<<<<< HEAD
 			TransferHeadersHelperUtil.getTransferHeadersRequestDispatcher(
 				DirectRequestDispatcherFactoryUtil.getRequestDispatcher(
 					servletContext, getEditPage()));
+=======
+			DirectRequestDispatcherFactoryUtil.getRequestDispatcher(
+				servletContext, getEditPage());
+>>>>>>> compatible
 
 		UnsyncStringWriter unsyncStringWriter = new UnsyncStringWriter();
 
@@ -157,9 +165,14 @@ public class LayoutTypeControllerImpl implements LayoutTypeController {
 		String path = getViewPath(portletId);
 
 		RequestDispatcher requestDispatcher =
+<<<<<<< HEAD
 			TransferHeadersHelperUtil.getTransferHeadersRequestDispatcher(
 				DirectRequestDispatcherFactoryUtil.getRequestDispatcher(
 					servletContext, path));
+=======
+			DirectRequestDispatcherFactoryUtil.getRequestDispatcher(
+				servletContext, path);
+>>>>>>> compatible
 
 		UnsyncStringWriter unsyncStringWriter = new UnsyncStringWriter();
 

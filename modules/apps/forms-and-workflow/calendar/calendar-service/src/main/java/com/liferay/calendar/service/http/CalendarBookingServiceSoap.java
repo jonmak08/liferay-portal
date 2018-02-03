@@ -71,6 +71,7 @@ import java.util.Map;
 public class CalendarBookingServiceSoap {
 	public static com.liferay.calendar.model.CalendarBookingSoap addCalendarBooking(
 		long calendarId, long[] childCalendarIds, long parentCalendarBookingId,
+<<<<<<< HEAD
 		long recurringCalendarBookingId,
 		java.lang.String[] titleMapLanguageIds,
 		java.lang.String[] titleMapValues,
@@ -152,6 +153,8 @@ public class CalendarBookingServiceSoap {
 	@Deprecated
 	public static com.liferay.calendar.model.CalendarBookingSoap addCalendarBooking(
 		long calendarId, long[] childCalendarIds, long parentCalendarBookingId,
+=======
+>>>>>>> compatible
 		java.lang.String[] titleMapLanguageIds,
 		java.lang.String[] titleMapValues,
 		java.lang.String[] descriptionMapLanguageIds,
@@ -189,10 +192,13 @@ public class CalendarBookingServiceSoap {
 		}
 	}
 
+<<<<<<< HEAD
 	/**
 	* @deprecated As of 2.2.0
 	*/
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static com.liferay.calendar.model.CalendarBookingSoap addCalendarBooking(
 		long calendarId, long[] childCalendarIds, long parentCalendarBookingId,
 		java.lang.String[] titleMapLanguageIds,
@@ -254,6 +260,7 @@ public class CalendarBookingServiceSoap {
 	}
 
 	public static void deleteCalendarBookingInstance(long calendarBookingId,
+<<<<<<< HEAD
 		int instanceIndex, boolean allFollowing,
 		boolean deleteRecurringCalendarBookings) throws RemoteException {
 		try {
@@ -268,6 +275,8 @@ public class CalendarBookingServiceSoap {
 	}
 
 	public static void deleteCalendarBookingInstance(long calendarBookingId,
+=======
+>>>>>>> compatible
 		long startTime, boolean allFollowing) throws RemoteException {
 		try {
 			CalendarBookingServiceUtil.deleteCalendarBookingInstance(calendarBookingId,
@@ -421,6 +430,7 @@ public class CalendarBookingServiceSoap {
 	}
 
 	public static com.liferay.calendar.model.CalendarBookingSoap[] getChildCalendarBookings(
+<<<<<<< HEAD
 		long parentCalendarBookingId, boolean includeStagingCalendarBookings)
 		throws RemoteException {
 		try {
@@ -438,6 +448,8 @@ public class CalendarBookingServiceSoap {
 	}
 
 	public static com.liferay.calendar.model.CalendarBookingSoap[] getChildCalendarBookings(
+=======
+>>>>>>> compatible
 		long parentCalendarBookingId, int status) throws RemoteException {
 		try {
 			java.util.List<com.liferay.calendar.model.CalendarBooking> returnValue =
@@ -453,6 +465,7 @@ public class CalendarBookingServiceSoap {
 		}
 	}
 
+<<<<<<< HEAD
 	public static com.liferay.calendar.model.CalendarBookingSoap getLastInstanceCalendarBooking(
 		long calendarBookingId) throws RemoteException {
 		try {
@@ -467,6 +480,8 @@ public class CalendarBookingServiceSoap {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	public static com.liferay.calendar.model.CalendarBookingSoap getNewStartTimeAndDurationCalendarBooking(
 		long calendarBookingId, long offset, long duration)
 		throws RemoteException {
@@ -497,6 +512,7 @@ public class CalendarBookingServiceSoap {
 		}
 	}
 
+<<<<<<< HEAD
 	public static com.liferay.calendar.model.CalendarBookingSoap invokeTransition(
 		long calendarBookingId, int instanceIndex, int status,
 		boolean updateInstance, boolean allFollowing,
@@ -521,6 +537,8 @@ public class CalendarBookingServiceSoap {
 	long, boolean, boolean, ServiceContext)}
 	*/
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static void invokeTransition(long calendarBookingId, int status,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws RemoteException {
@@ -535,6 +553,7 @@ public class CalendarBookingServiceSoap {
 		}
 	}
 
+<<<<<<< HEAD
 	public static com.liferay.calendar.model.CalendarBookingSoap invokeTransition(
 		long calendarBookingId, long startTime, int status,
 		boolean updateInstance, boolean allFollowing,
@@ -554,6 +573,8 @@ public class CalendarBookingServiceSoap {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	public static com.liferay.calendar.model.CalendarBookingSoap moveCalendarBookingToTrash(
 		long calendarBookingId) throws RemoteException {
 		try {
@@ -744,6 +765,7 @@ public class CalendarBookingServiceSoap {
 		java.lang.String[] titleMapValues,
 		java.lang.String[] descriptionMapLanguageIds,
 		java.lang.String[] descriptionMapValues, java.lang.String location,
+<<<<<<< HEAD
 		long startTime, long endTime, boolean allDay, boolean allFollowing,
 		long firstReminder, java.lang.String firstReminderType,
 		long secondReminder, java.lang.String secondReminderType,
@@ -776,6 +798,8 @@ public class CalendarBookingServiceSoap {
 		java.lang.String[] titleMapValues,
 		java.lang.String[] descriptionMapLanguageIds,
 		java.lang.String[] descriptionMapValues, java.lang.String location,
+=======
+>>>>>>> compatible
 		long startTime, long endTime, boolean allDay,
 		java.lang.String recurrence, boolean allFollowing, long firstReminder,
 		java.lang.String firstReminderType, long secondReminder,
@@ -874,6 +898,7 @@ public class CalendarBookingServiceSoap {
 		}
 	}
 
+<<<<<<< HEAD
 	public static void updateLastInstanceCalendarBookingRecurrence(
 		long calendarBookingId, java.lang.String recurrence)
 		throws RemoteException {
@@ -888,6 +913,8 @@ public class CalendarBookingServiceSoap {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	public static com.liferay.calendar.model.CalendarBookingSoap updateOffsetAndDuration(
 		long calendarBookingId, long calendarId, long[] childCalendarIds,
 		java.lang.String[] titleMapLanguageIds,
@@ -954,6 +981,7 @@ public class CalendarBookingServiceSoap {
 		}
 	}
 
+<<<<<<< HEAD
 	public static com.liferay.calendar.model.CalendarBookingSoap updateRecurringCalendarBooking(
 		long calendarBookingId, long calendarId, long[] childCalendarIds,
 		java.lang.String[] titleMapLanguageIds,
@@ -1026,5 +1054,7 @@ public class CalendarBookingServiceSoap {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	private static Log _log = LogFactoryUtil.getLog(CalendarBookingServiceSoap.class);
 }

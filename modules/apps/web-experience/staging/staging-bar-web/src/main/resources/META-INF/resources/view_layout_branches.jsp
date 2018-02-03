@@ -58,7 +58,11 @@ request.setAttribute("view_layout_branches.jsp-currenttLayoutBranchId", String.v
 		</liferay-portlet:renderURL>
 
 		<aui:button-row>
+<<<<<<< HEAD
 			<aui:button href="<%= addLayoutBranchURL %>" name="addRootLayoutBranch" value="add-page-variation" />
+=======
+			<aui:button cssClass="btn-lg" href="<%= addLayoutBranchURL %>" name="addRootLayoutBranch" value="add-page-variation" />
+>>>>>>> compatible
 		</aui:button-row>
 	</c:if>
 

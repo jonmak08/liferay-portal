@@ -34,14 +34,18 @@ public class JavaClass extends BaseJavaTerm {
 		_childJavaTerms.add(javaTerm);
 	}
 
+<<<<<<< HEAD
 	public void addImport(String importName) {
 		_imports.add(importName);
 	}
 
+=======
+>>>>>>> compatible
 	public List<JavaTerm> getChildJavaTerms() {
 		return _childJavaTerms;
 	}
 
+<<<<<<< HEAD
 	public List<String> getImports() {
 		return _imports;
 	}
@@ -57,5 +61,8 @@ public class JavaClass extends BaseJavaTerm {
 	private final List<JavaTerm> _childJavaTerms = new ArrayList<>();
 	private List<String> _imports = new ArrayList<>();
 	private String _packageName;
+=======
+	private final List<JavaTerm> _childJavaTerms = new ArrayList<>();
+>>>>>>> compatible
 
 }

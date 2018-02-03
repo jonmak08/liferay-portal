@@ -862,6 +862,7 @@ public class AssetTagUtil {
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns all the asset tags where name = &#63;.
 	*
 	* @param name the name
@@ -1097,6 +1098,8 @@ public class AssetTagUtil {
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	* Returns the asset tag where groupId = &#63; and name = &#63; or throws a {@link NoSuchTagException} if it could not be found.
 	*
 	* @param groupId the group ID

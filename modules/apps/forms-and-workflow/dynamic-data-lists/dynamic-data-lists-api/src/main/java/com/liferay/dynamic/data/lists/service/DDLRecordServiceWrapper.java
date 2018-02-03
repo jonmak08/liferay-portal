@@ -172,6 +172,7 @@ public class DDLRecordServiceWrapper implements DDLRecordService,
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns all the records matching the record set ID
 	*
 	* @param recordSetId the record's record set ID
@@ -186,6 +187,8 @@ public class DDLRecordServiceWrapper implements DDLRecordService,
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	* Reverts the record to a given version.
 	*
 	* @param recordId the primary key of the record

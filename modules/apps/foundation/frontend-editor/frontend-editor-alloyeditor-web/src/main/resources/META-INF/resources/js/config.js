@@ -5,14 +5,21 @@
 				alloyeditor: {
 					base: MODULE_PATH + '/js/',
 					combine: Liferay.AUI.getCombine(),
+<<<<<<< HEAD
 					filter: Liferay.AUI.getFilterConfig(),
+=======
+>>>>>>> compatible
 					modules: {
 						'liferay-alloy-editor': {
 							path: 'alloyeditor.js',
 							requires: [
 								'aui-component',
+<<<<<<< HEAD
 								'liferay-portlet-base',
 								'timers'
+=======
+								'liferay-portlet-base'
+>>>>>>> compatible
 							]
 						},
 						'liferay-alloy-editor-source': {
@@ -23,6 +30,7 @@
 								'liferay-source-editor',
 								'plugin'
 							]
+<<<<<<< HEAD
 						},
 						'liferay-editor-image-uploader': {
 							path: 'editor_image_uploader.js',
@@ -32,6 +40,8 @@
 								'aui-progressbar',
 								'uploader'
 							]
+=======
+>>>>>>> compatible
 						}
 					},
 					root: MODULE_PATH + '/js/'

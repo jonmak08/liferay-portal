@@ -15,8 +15,13 @@
 package com.liferay.portal.monitoring.internal.statistics.service;
 
 import com.liferay.portal.kernel.monitoring.MethodSignature;
+<<<<<<< HEAD
 import com.liferay.portal.monitoring.internal.BaseDataSample;
 import com.liferay.portal.monitoring.internal.MonitorNames;
+=======
+import com.liferay.portal.monitoring.MonitorNames;
+import com.liferay.portal.monitoring.internal.BaseDataSample;
+>>>>>>> compatible
 
 /**
  * @author Michael C. Han

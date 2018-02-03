@@ -43,7 +43,11 @@ public class AsyncBrokerTest {
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
 		new AggregateTestRule(
+<<<<<<< HEAD
 			CodeCoverageAssertor.INSTANCE, NewEnvTestRule.INSTANCE);
+=======
+			AspectJNewEnvTestRule.INSTANCE, CodeCoverageAssertor.INSTANCE);
+>>>>>>> compatible
 
 	@After
 	public void tearDown() {
@@ -96,7 +100,89 @@ public class AsyncBrokerTest {
 		ReflectionTestUtil.invoke(
 			FinalizeManager.class, "_pollingCleanup", new Class<?>[0]);
 
+<<<<<<< HEAD
 		Assert.assertTrue(completedMarker.get());
+=======
+			String toString = noticeableFuture.toString();
+
+			noticeableFuture = null;
+
+			GCUtil.gc(true);
+
+			ReflectionTestUtil.invoke(
+				FinalizeManager.class, "_pollingCleanup", new Class<?>[0]);
+
+			List<LogRecord> logRecords = captureHandler.getLogRecords();
+
+			Assert.assertEquals(logRecords.toString(), 1, logRecords.size());
+
+			LogRecord logRecord = logRecords.get(0);
+
+			Assert.assertEquals(
+				"Cancelled orphan noticeable future " + toString +
+					" with key " + _KEY,
+				logRecord.getMessage());
+		}
+	}
+
+	@NewEnv(type = NewEnv.Type.CLASSLOADER)
+	@Test
+	public void testOrphanCancellationNotSupported() throws Exception {
+		System.setProperty(_THREAD_ENABLED_KEY, StringPool.FALSE);
+
+		try (CaptureHandler captureHandler =
+				JDKLoggerTestUtil.configureJDKLogger(
+					AsyncBroker.class.getName(), Level.SEVERE)) {
+
+			AsyncBroker<String, String> asyncBroker = new AsyncBroker<>();
+
+			asyncBroker.post(_KEY);
+
+			GCUtil.gc(true);
+
+			Field field = ReflectionTestUtil.getFieldValue(
+				AsyncBroker.class, "_REFERENT_FIELD");
+
+			field.setAccessible(false);
+
+			ReflectionTestUtil.invoke(
+				FinalizeManager.class, "_pollingCleanup", new Class<?>[0]);
+
+			List<LogRecord> logRecords = captureHandler.getLogRecords();
+
+			Assert.assertEquals(logRecords.toString(), 1, logRecords.size());
+
+			LogRecord logRecord = logRecords.get(0);
+
+			String message = logRecord.getMessage();
+
+			Assert.assertTrue(
+				message.startsWith("Unable to access referent of "));
+
+			Throwable throwable = logRecord.getThrown();
+
+			Assert.assertSame(
+				IllegalAccessException.class, throwable.getClass());
+		}
+	}
+
+	@AdviseWith(adviceClasses = ReflectionUtilAdvice.class)
+	@NewEnv(type = NewEnv.Type.CLASSLOADER)
+	@Test
+	public void testPhantomReferenceResurrectionNotSupportedWithLog()
+		throws ClassNotFoundException {
+
+		testPhantomReferenceResurrectionNotSupported(true);
+	}
+
+	@AdviseWith(adviceClasses = ReflectionUtilAdvice.class)
+	@NewEnv(type = NewEnv.Type.CLASSLOADER)
+	@Test
+	public void testPhantomReferenceResurrectionNotSupportedWithoutLog()
+		throws ClassNotFoundException {
+
+		testPhantomReferenceResurrectionNotSupported(false);
+>>>>>>> compatible
 	}
 
 	@Test
@@ -124,7 +210,11 @@ public class AsyncBrokerTest {
 
 		boolean[] newMarker = new boolean[1];
 
+<<<<<<< HEAD
 		noticeableFuture = asyncBroker.post(_KEY, newMarker);
+=======
+			Assert.assertEquals(logRecords.toString(), 1, logRecords.size());
+>>>>>>> compatible
 
 		Assert.assertNotNull(noticeableFuture);
 
@@ -161,9 +251,13 @@ public class AsyncBrokerTest {
 			ReflectionTestUtil.getFieldValue(
 				asyncBroker, "_defaultNoticeableFutures");
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			defaultNoticeableFutures.toString(),
 			defaultNoticeableFutures.isEmpty());
+=======
+		Assert.assertTrue(defaultNoticeableFutures.isEmpty());
+>>>>>>> compatible
 
 		Assert.assertNull(asyncBroker.take(_KEY));
 
@@ -228,9 +322,13 @@ public class AsyncBrokerTest {
 			ReflectionTestUtil.getFieldValue(
 				asyncBroker, "_defaultNoticeableFutures");
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			defaultNoticeableFutures.toString(),
 			defaultNoticeableFutures.isEmpty());
+=======
+		Assert.assertTrue(defaultNoticeableFutures.isEmpty());
+>>>>>>> compatible
 
 		Assert.assertFalse(asyncBroker.takeWithResult(_KEY, _VALUE));
 
@@ -248,6 +346,57 @@ public class AsyncBrokerTest {
 		Assert.assertFalse(asyncBroker.takeWithResult(_KEY, _VALUE));
 	}
 
+<<<<<<< HEAD
+=======
+	protected void testPhantomReferenceResurrectionNotSupported(boolean withLog)
+		throws ClassNotFoundException {
+
+		Throwable throwable = new Throwable();
+
+		ReflectionUtilAdvice.setDeclaredFieldThrowable(throwable);
+
+		Level level = Level.OFF;
+
+		if (withLog) {
+			level = Level.WARNING;
+		}
+
+		try (CaptureHandler captureHandler =
+				JDKLoggerTestUtil.configureJDKLogger(
+					AsyncBroker.class.getName(), level)) {
+
+			Class.forName(
+				AsyncBroker.class.getName(), true,
+				AsyncBroker.class.getClassLoader());
+
+			List<LogRecord> logRecords = captureHandler.getLogRecords();
+
+			if (withLog) {
+				Assert.assertEquals(
+					logRecords.toString(), 1, logRecords.size());
+
+				LogRecord logRecord = logRecords.get(0);
+
+				Assert.assertEquals(
+					"Cancellation of orphaned noticeable futures is disabled " +
+						"because the JVM does not support phantom reference " +
+							"resurrection",
+					logRecord.getMessage());
+				Assert.assertSame(throwable, logRecord.getThrown());
+			}
+			else {
+				Assert.assertTrue(logRecords.isEmpty());
+			}
+
+			ReflectionUtilAdvice.setDeclaredFieldThrowable(null);
+
+			Assert.assertNull(
+				ReflectionTestUtil.getFieldValue(
+					AsyncBroker.class, "_REFERENT_FIELD"));
+		}
+	}
+
+>>>>>>> compatible
 	private static final String _KEY = "testKey";
 
 	private static final String _THREAD_ENABLED_KEY =

@@ -14,7 +14,10 @@
 
 package com.liferay.dynamic.data.lists.service.permission;
 
+<<<<<<< HEAD
 import com.liferay.dynamic.data.lists.constants.DDLConstants;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.util.DDMStructurePermissionSupport;
 import com.liferay.dynamic.data.mapping.util.DDMTemplatePermissionSupport;
 
@@ -33,12 +36,20 @@ public class DDLDDMPermissionSupport
 
 	@Override
 	public String getResourceName() {
+<<<<<<< HEAD
 		return DDLConstants.RESOURCE_NAME;
+=======
+		return DDLPermission.RESOURCE_NAME;
+>>>>>>> compatible
 	}
 
 	@Override
 	public String getResourceName(long classNameId) {
+<<<<<<< HEAD
 		return DDLConstants.RESOURCE_NAME;
+=======
+		return DDLPermission.RESOURCE_NAME;
+>>>>>>> compatible
 	}
 
 }

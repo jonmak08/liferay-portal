@@ -154,6 +154,7 @@ cache digest.
 - [LPS-73472]: Remove spurious files before recreating symbolic links in the
 `.bin` directories of `node_modules`.
 
+<<<<<<< HEAD
 ## 3.1.1 - 2017-09-18
 
 ### Added
@@ -193,6 +194,8 @@ exhausted.
 
 *No changes.*
 
+=======
+>>>>>>> compatible
 [LPS-66906]: https://issues.liferay.com/browse/LPS-66906
 [LPS-67023]: https://issues.liferay.com/browse/LPS-67023
 [LPS-67573]: https://issues.liferay.com/browse/LPS-67573
@@ -209,9 +212,13 @@ exhausted.
 [LPS-72152]: https://issues.liferay.com/browse/LPS-72152
 [LPS-72340]: https://issues.liferay.com/browse/LPS-72340
 [LPS-73070]: https://issues.liferay.com/browse/LPS-73070
+<<<<<<< HEAD
 [LPS-73472]: https://issues.liferay.com/browse/LPS-73472
 [LPS-74770]: https://issues.liferay.com/browse/LPS-74770
 [LPS-74904]: https://issues.liferay.com/browse/LPS-74904
 [LPS-74933]: https://issues.liferay.com/browse/LPS-74933
 [LPS-75175]: https://issues.liferay.com/browse/LPS-75175
 [LPS-75965]: https://issues.liferay.com/browse/LPS-75965
+=======
+[LPS-73472]: https://issues.liferay.com/browse/LPS-73472
+>>>>>>> compatible

@@ -1,4 +1,5 @@
 <definition>
+<<<<<<< HEAD
 	<command name="getFileContent" returns="fileContent">
 		<var method="TestPropsUtil#get('test.base.dir.name')" name="baseDir" />
 		<var method="TestPropsUtil#get('test.dependencies.dir.name')" name="dependenciesDir" />
@@ -11,6 +12,8 @@
 		<return name="fileContent" value="${fileContent}" />
 	</command>
 
+=======
+>>>>>>> compatible
 	<command name="getSiteName" returns="siteName">
 		<var method="TestPropsUtil#get('test.name.skip.portal.instance')" name="testNameSkipPortalInstance" />
 		<var method="TestPropsUtil#get('test.portal.instance')" name="testPortalInstance" />

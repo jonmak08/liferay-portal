@@ -14,7 +14,11 @@
 
 package com.liferay.source.formatter.checks.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.tools.ToolsUtil;
@@ -36,7 +40,11 @@ public class JavaSourceUtil extends SourceUtil {
 		return fileName.substring(x + 1, y);
 	}
 
+<<<<<<< HEAD
 	public static String getPackageName(String content) {
+=======
+	public static String getPackagePath(String content) {
+>>>>>>> compatible
 		Matcher matcher = _packagePattern.matcher(content);
 
 		if (matcher.find()) {

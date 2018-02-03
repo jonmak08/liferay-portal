@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Frontend Taglib Soy
 Bundle-SymbolicName: com.liferay.frontend.taglib.soy
+<<<<<<< HEAD
 Bundle-Version: 1.1.0
+=======
+Bundle-Version: 1.0.8
+>>>>>>> compatible
 Export-Package: com.liferay.frontend.taglib.soy.servlet.taglib
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Frontend Infrastructure
@@ -9,4 +13,10 @@ Provide-Capability:\
 		osgi.extender="jsp.taglib";\
 		uri="http://liferay.com/tld/soy";\
 		version:Version="${Bundle-Version}"
+<<<<<<< HEAD
+=======
+Require-Capability:\
+	soy;\
+		filter:="(type=metal)"
+>>>>>>> compatible
 Web-ContextPath: /frontend-taglib-soy

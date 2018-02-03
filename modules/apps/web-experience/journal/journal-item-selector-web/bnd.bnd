@@ -1,5 +1,6 @@
 Bundle-Name: Liferay Journal Item Selector Web
 Bundle-SymbolicName: com.liferay.journal.item.selector.web
+<<<<<<< HEAD
 Bundle-Version: 1.0.5
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Web Content
@@ -10,4 +11,9 @@ Provide-Capability:\
 Require-Capability:\
 	liferay.resource.bundle;\
 		filter:="(bundle.symbolic.name=com.liferay.journal.lang)"
+=======
+Bundle-Version: 1.0.4
+Liferay-Releng-Module-Group-Description:
+Liferay-Releng-Module-Group-Title: Web Content
+>>>>>>> compatible
 Web-ContextPath: /journal-item-selector-web

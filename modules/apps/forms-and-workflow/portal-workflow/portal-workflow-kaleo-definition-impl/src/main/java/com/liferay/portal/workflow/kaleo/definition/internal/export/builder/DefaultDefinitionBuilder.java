@@ -57,7 +57,11 @@ public class DefaultDefinitionBuilder implements DefinitionBuilder {
 
 		KaleoDefinition kaleoDefinition =
 			_kaleoDefinitionLocalService.getKaleoDefinition(
+<<<<<<< HEAD
 				name, serviceContext);
+=======
+				name, version, serviceContext);
+>>>>>>> compatible
 
 		return doBuildDefinition(kaleoDefinition);
 	}
@@ -70,7 +74,11 @@ public class DefaultDefinitionBuilder implements DefinitionBuilder {
 			kaleoDefinition.getContent(), kaleoDefinition.getVersion());
 
 		List<KaleoNode> kaleoNodes =
+<<<<<<< HEAD
 			_kaleoNodeLocalService.getKaleoDefinitionVersionKaleoNodes(
+=======
+			_kaleoNodeLocalService.getKaleoDefinitionKaleoNodes(
+>>>>>>> compatible
 				kaleoDefinition.getKaleoDefinitionId());
 
 		for (KaleoNode kaleoNode : kaleoNodes) {
@@ -83,9 +91,14 @@ public class DefaultDefinitionBuilder implements DefinitionBuilder {
 		}
 
 		List<KaleoTransition> kaleoTransitions =
+<<<<<<< HEAD
 			_kaleoTransitionLocalService.
 				getKaleoDefinitionVersionKaleoTransitions(
 					kaleoDefinition.getKaleoDefinitionId());
+=======
+			_kaleoTransitionLocalService.getKaleoDefinitionKaleoTransitions(
+				kaleoDefinition.getKaleoDefinitionId());
+>>>>>>> compatible
 
 		for (KaleoTransition kaleoTransition : kaleoTransitions) {
 			String sourceNodeName = kaleoTransition.getSourceKaleoNodeName();

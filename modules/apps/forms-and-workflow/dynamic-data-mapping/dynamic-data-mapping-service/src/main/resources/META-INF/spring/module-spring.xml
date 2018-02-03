@@ -9,6 +9,7 @@
 	<bean class="com.liferay.dynamic.data.mapping.service.persistence.impl.DDMDataProviderInstanceFinderImpl" id="com.liferay.dynamic.data.mapping.service.persistence.DDMDataProviderInstanceFinder" parent="basePersistence" />
 	<bean class="com.liferay.dynamic.data.mapping.service.impl.DDMDataProviderInstanceLinkLocalServiceImpl" id="com.liferay.dynamic.data.mapping.service.DDMDataProviderInstanceLinkLocalService" />
 	<bean class="com.liferay.dynamic.data.mapping.service.persistence.impl.DDMDataProviderInstanceLinkPersistenceImpl" id="com.liferay.dynamic.data.mapping.service.persistence.DDMDataProviderInstanceLinkPersistence" parent="basePersistence" />
+<<<<<<< HEAD
 	<bean class="com.liferay.dynamic.data.mapping.service.impl.DDMFormInstanceLocalServiceImpl" id="com.liferay.dynamic.data.mapping.service.DDMFormInstanceLocalService" />
 	<bean class="com.liferay.dynamic.data.mapping.service.impl.DDMFormInstanceServiceImpl" id="com.liferay.dynamic.data.mapping.service.DDMFormInstanceService" />
 	<bean class="com.liferay.dynamic.data.mapping.service.persistence.impl.DDMFormInstancePersistenceImpl" id="com.liferay.dynamic.data.mapping.service.persistence.DDMFormInstancePersistence" parent="basePersistence" />
@@ -23,6 +24,8 @@
 	<bean class="com.liferay.dynamic.data.mapping.service.impl.DDMFormInstanceVersionLocalServiceImpl" id="com.liferay.dynamic.data.mapping.service.DDMFormInstanceVersionLocalService" />
 	<bean class="com.liferay.dynamic.data.mapping.service.impl.DDMFormInstanceVersionServiceImpl" id="com.liferay.dynamic.data.mapping.service.DDMFormInstanceVersionService" />
 	<bean class="com.liferay.dynamic.data.mapping.service.persistence.impl.DDMFormInstanceVersionPersistenceImpl" id="com.liferay.dynamic.data.mapping.service.persistence.DDMFormInstanceVersionPersistence" parent="basePersistence" />
+=======
+>>>>>>> compatible
 	<bean class="com.liferay.dynamic.data.mapping.service.impl.DDMStorageLinkLocalServiceImpl" id="com.liferay.dynamic.data.mapping.service.DDMStorageLinkLocalService" />
 	<bean class="com.liferay.dynamic.data.mapping.service.persistence.impl.DDMStorageLinkPersistenceImpl" id="com.liferay.dynamic.data.mapping.service.persistence.DDMStorageLinkPersistence" parent="basePersistence" />
 	<bean class="com.liferay.dynamic.data.mapping.service.impl.DDMStructureLocalServiceImpl" id="com.liferay.dynamic.data.mapping.service.DDMStructureLocalService" />
@@ -33,7 +36,10 @@
 	<bean class="com.liferay.dynamic.data.mapping.service.persistence.impl.DDMStructureLayoutPersistenceImpl" id="com.liferay.dynamic.data.mapping.service.persistence.DDMStructureLayoutPersistence" parent="basePersistence" />
 	<bean class="com.liferay.dynamic.data.mapping.service.impl.DDMStructureLinkLocalServiceImpl" id="com.liferay.dynamic.data.mapping.service.DDMStructureLinkLocalService" />
 	<bean class="com.liferay.dynamic.data.mapping.service.persistence.impl.DDMStructureLinkPersistenceImpl" id="com.liferay.dynamic.data.mapping.service.persistence.DDMStructureLinkPersistence" parent="basePersistence" />
+<<<<<<< HEAD
 	<bean class="com.liferay.dynamic.data.mapping.service.persistence.impl.DDMStructureLinkFinderImpl" id="com.liferay.dynamic.data.mapping.service.persistence.DDMStructureLinkFinder" parent="basePersistence" />
+=======
+>>>>>>> compatible
 	<bean class="com.liferay.dynamic.data.mapping.service.impl.DDMStructureVersionLocalServiceImpl" id="com.liferay.dynamic.data.mapping.service.DDMStructureVersionLocalService" />
 	<bean class="com.liferay.dynamic.data.mapping.service.impl.DDMStructureVersionServiceImpl" id="com.liferay.dynamic.data.mapping.service.DDMStructureVersionService" />
 	<bean class="com.liferay.dynamic.data.mapping.service.persistence.impl.DDMStructureVersionPersistenceImpl" id="com.liferay.dynamic.data.mapping.service.persistence.DDMStructureVersionPersistence" parent="basePersistence" />

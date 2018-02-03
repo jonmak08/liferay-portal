@@ -103,6 +103,7 @@ public class DefaultMBListDisplayContext implements MBListDisplayContext {
 			return true;
 		}
 
+<<<<<<< HEAD
 		String mvcRenderCommandName = ParamUtil.getString(
 			_request, "mvcRenderCommandName");
 
@@ -110,6 +111,8 @@ public class DefaultMBListDisplayContext implements MBListDisplayContext {
 			return true;
 		}
 
+=======
+>>>>>>> compatible
 		return false;
 	}
 

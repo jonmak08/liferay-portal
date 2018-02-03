@@ -17,15 +17,22 @@ package com.liferay.asset.browser.web.internal.display.context;
 import com.liferay.asset.browser.web.internal.configuration.AssetBrowserWebConfigurationValues;
 import com.liferay.asset.browser.web.internal.constants.AssetBrowserPortletKeys;
 import com.liferay.asset.browser.web.internal.search.AssetBrowserSearch;
+<<<<<<< HEAD
 import com.liferay.asset.constants.AssetWebKeys;
+=======
+>>>>>>> compatible
 import com.liferay.asset.kernel.AssetRendererFactoryRegistryUtil;
 import com.liferay.asset.kernel.model.AssetEntry;
 import com.liferay.asset.kernel.model.AssetRendererFactory;
 import com.liferay.asset.kernel.service.AssetEntryLocalServiceUtil;
+<<<<<<< HEAD
 import com.liferay.asset.util.AssetHelper;
 import com.liferay.frontend.taglib.clay.servlet.taglib.util.NavigationItem;
 import com.liferay.frontend.taglib.servlet.taglib.ManagementBarFilterItem;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.frontend.taglib.servlet.taglib.ManagementBarFilterItem;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.model.Group;
@@ -39,14 +46,26 @@ import com.liferay.portal.kernel.search.Hits;
 import com.liferay.portal.kernel.search.Sort;
 import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.ArrayUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
+<<<<<<< HEAD
+=======
+import com.liferay.portlet.asset.util.AssetUtil;
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,9 +88,12 @@ public class AssetBrowserDisplayContext {
 		_request = PortalUtil.getHttpServletRequest(renderRequest);
 		_renderRequest = renderRequest;
 		_renderResponse = renderResponse;
+<<<<<<< HEAD
 
 		_assetHelper = (AssetHelper)renderRequest.getAttribute(
 			AssetWebKeys.ASSET_HELPER);
+=======
+>>>>>>> compatible
 	}
 
 	public String getAddButtonLabel() {
@@ -113,13 +135,21 @@ public class AssetBrowserDisplayContext {
 		if (assetRendererFactory.isSupportsClassTypes() &&
 			(getSubtypeSelectionId() > 0)) {
 
+<<<<<<< HEAD
 			addPortletURL = _assetHelper.getAddPortletURL(
+=======
+			addPortletURL = AssetUtil.getAddPortletURL(
+>>>>>>> compatible
 				liferayPortletRequest, liferayPortletResponse, groupId,
 				getTypeSelection(), getSubtypeSelectionId(), null, null,
 				getPortletURL().toString());
 		}
 		else {
+<<<<<<< HEAD
 			addPortletURL = _assetHelper.getAddPortletURL(
+=======
+			addPortletURL = AssetUtil.getAddPortletURL(
+>>>>>>> compatible
 				liferayPortletRequest, liferayPortletResponse, groupId,
 				getTypeSelection(), 0, null, null, getPortletURL().toString());
 		}
@@ -196,7 +226,11 @@ public class AssetBrowserDisplayContext {
 				getStatuses(), assetBrowserSearch.getStart(),
 				assetBrowserSearch.getEnd(), sort);
 
+<<<<<<< HEAD
 			List<AssetEntry> assetEntries = _assetHelper.getAssetEntries(hits);
+=======
+			List<AssetEntry> assetEntries = AssetUtil.getAssetEntries(hits);
+>>>>>>> compatible
 
 			assetBrowserSearch.setResults(assetEntries);
 		}
@@ -242,7 +276,11 @@ public class AssetBrowserDisplayContext {
 		return _eventName;
 	}
 
+<<<<<<< HEAD
 	public long[] getFilterGroupIds() throws PortalException {
+=======
+	public long[] getFilterGroupIds() {
+>>>>>>> compatible
 		long[] filterGroupIds = getSelectedGroupIds();
 
 		if (getGroupId() > 0) {
@@ -293,6 +331,7 @@ public class AssetBrowserDisplayContext {
 		List<ManagementBarFilterItem> managementBarFilterItems =
 			new ArrayList<>();
 
+<<<<<<< HEAD
 		String label = LanguageUtil.get(_request, "all");
 
 		PortletURL groupURL = getPortletURL();
@@ -327,6 +366,40 @@ public class AssetBrowserDisplayContext {
 
 			managementBarFilterItem = new ManagementBarFilterItem(
 				active, label, groupURL.toString());
+=======
+		long[] selectedGroupIds = ArrayUtil.append(
+			new long[] {0}, getSelectedGroupIds());
+
+		for (long curGroupId : selectedGroupIds) {
+			Group curGroup = GroupLocalServiceUtil.fetchGroup(curGroupId);
+
+			if ((curGroup == null) && (curGroupId > 0)) {
+				continue;
+			}
+
+			boolean active = false;
+
+			if (getGroupId() == curGroupId) {
+				active = true;
+			}
+
+			String label = StringPool.BLANK;
+
+			if (curGroup != null) {
+				label = HtmlUtil.escape(
+					curGroup.getDescriptiveName(themeDisplay.getLocale()));
+			}
+			else {
+				label = LanguageUtil.get(_request, "all");
+			}
+
+			PortletURL groupURL = getPortletURL();
+
+			groupURL.setParameter("groupId", String.valueOf(curGroupId));
+
+			ManagementBarFilterItem managementBarFilterItem =
+				new ManagementBarFilterItem(active, label, groupURL.toString());
+>>>>>>> compatible
 
 			managementBarFilterItems.add(managementBarFilterItem);
 		}
@@ -347,6 +420,7 @@ public class AssetBrowserDisplayContext {
 		return group.getDescriptiveName(themeDisplay.getLocale());
 	}
 
+<<<<<<< HEAD
 	public List<NavigationItem> getNavigationItems() throws PortalException {
 		List<NavigationItem> navigationItems = new ArrayList<>();
 
@@ -365,6 +439,8 @@ public class AssetBrowserDisplayContext {
 		return navigationItems;
 	}
 
+=======
+>>>>>>> compatible
 	public String getOrderByCol() {
 		if (Validator.isNotNull(_orderByCol)) {
 			return _orderByCol;
@@ -394,6 +470,7 @@ public class AssetBrowserDisplayContext {
 		return new String[] {"modified-date", "title"};
 	}
 
+<<<<<<< HEAD
 	public PortletURL getPortletURL() throws PortalException {
 		PortletURL portletURL = _renderResponse.createRenderURL();
 
@@ -406,6 +483,14 @@ public class AssetBrowserDisplayContext {
 				"selectedGroupId", String.valueOf(selectedGroupId));
 		}
 
+=======
+	public PortletURL getPortletURL() {
+		PortletURL portletURL = _renderResponse.createRenderURL();
+
+		portletURL.setParameter("groupId", String.valueOf(getGroupId()));
+		portletURL.setParameter(
+			"selectedGroupIds", StringUtil.merge(getSelectedGroupIds()));
+>>>>>>> compatible
 		portletURL.setParameter(
 			"refererAssetEntryId", String.valueOf(getRefererAssetEntryId()));
 		portletURL.setParameter("typeSelection", getTypeSelection());
@@ -436,6 +521,7 @@ public class AssetBrowserDisplayContext {
 		return _refererAssetEntryId;
 	}
 
+<<<<<<< HEAD
 	public long[] getSelectedGroupIds() throws PortalException {
 		long[] selectedGroupIds = StringUtil.split(
 			ParamUtil.getString(_request, "selectedGroupIds"), 0L);
@@ -452,6 +538,13 @@ public class AssetBrowserDisplayContext {
 		return PortalUtil.getSharedContentSiteGroupIds(
 			themeDisplay.getCompanyId(), selectedGroupId,
 			themeDisplay.getUserId());
+=======
+	public long[] getSelectedGroupIds() {
+		long[] selectedGroupIds = StringUtil.split(
+			ParamUtil.getString(_request, "selectedGroupIds"), 0L);
+
+		return selectedGroupIds;
+>>>>>>> compatible
 	}
 
 	public int[] getStatuses() {
@@ -477,7 +570,11 @@ public class AssetBrowserDisplayContext {
 		return _subtypeSelectionId;
 	}
 
+<<<<<<< HEAD
 	public int getTotal() throws PortalException {
+=======
+	public int getTotal() {
+>>>>>>> compatible
 		return getTotal(getFilterGroupIds());
 	}
 
@@ -515,7 +612,11 @@ public class AssetBrowserDisplayContext {
 		return _typeSelection;
 	}
 
+<<<<<<< HEAD
 	public boolean isDisabledManagementBar() throws PortalException {
+=======
+	public boolean isDisabledManagementBar() {
+>>>>>>> compatible
 		if (getTotal(getSelectedGroupIds()) > 0) {
 			return false;
 		}
@@ -547,7 +648,10 @@ public class AssetBrowserDisplayContext {
 		return _showScheduled;
 	}
 
+<<<<<<< HEAD
 	private final AssetHelper _assetHelper;
+=======
+>>>>>>> compatible
 	private AssetRendererFactory _assetRendererFactory;
 	private String _displayStyle;
 	private String _eventName;

@@ -18,8 +18,12 @@
 
 <%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
 
+<<<<<<< HEAD
 <%@ taglib uri="http://liferay.com/tld/asset" prefix="liferay-asset" %><%@
 taglib uri="http://liferay.com/tld/aui" prefix="aui" %><%@
+=======
+<%@ taglib uri="http://liferay.com/tld/aui" prefix="aui" %><%@
+>>>>>>> compatible
 taglib uri="http://liferay.com/tld/expando" prefix="liferay-expando" %><%@
 taglib uri="http://liferay.com/tld/frontend" prefix="liferay-frontend" %><%@
 taglib uri="http://liferay.com/tld/portlet" prefix="liferay-portlet" %><%@
@@ -39,7 +43,11 @@ page import="com.liferay.asset.kernel.service.AssetCategoryLocalServiceUtil" %><
 page import="com.liferay.asset.kernel.service.AssetEntryServiceUtil" %><%@
 page import="com.liferay.asset.kernel.service.AssetVocabularyLocalServiceUtil" %><%@
 page import="com.liferay.asset.kernel.service.persistence.AssetEntryQuery" %><%@
+<<<<<<< HEAD
 page import="com.liferay.blogs.model.BlogsEntry" %><%@
+=======
+page import="com.liferay.blogs.kernel.model.BlogsEntry" %><%@
+>>>>>>> compatible
 page import="com.liferay.document.library.display.context.DLMimeTypeDisplayContext" %><%@
 page import="com.liferay.document.library.kernel.exception.DuplicateFileException" %><%@
 page import="com.liferay.document.library.kernel.exception.FileNameException" %><%@
@@ -50,7 +58,10 @@ page import="com.liferay.knowledge.base.configuration.KBGroupServiceConfiguratio
 page import="com.liferay.knowledge.base.constants.KBActionKeys" %><%@
 page import="com.liferay.knowledge.base.constants.KBArticleConstants" %><%@
 page import="com.liferay.knowledge.base.constants.KBCommentConstants" %><%@
+<<<<<<< HEAD
 page import="com.liferay.knowledge.base.constants.KBConstants" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.knowledge.base.constants.KBFolderConstants" %><%@
 page import="com.liferay.knowledge.base.constants.KBPortletKeys" %><%@
 page import="com.liferay.knowledge.base.exception.DuplicateKBFolderNameException" %><%@
@@ -93,6 +104,7 @@ page import="com.liferay.knowledge.base.service.util.KnowledgeBaseConstants" %><
 page import="com.liferay.knowledge.base.util.KnowledgeBaseUtil" %><%@
 page import="com.liferay.knowledge.base.util.comparator.KBArticlePriorityComparator" %><%@
 page import="com.liferay.knowledge.base.util.comparator.KBObjectsTitleComparator" %><%@
+<<<<<<< HEAD
 page import="com.liferay.knowledge.base.web.internal.KBUtil" %><%@
 page import="com.liferay.knowledge.base.web.internal.application.dao.search.KBCommentResultRowSplitter" %><%@
 page import="com.liferay.knowledge.base.web.internal.application.dao.search.KBResultRowSplitter" %><%@
@@ -100,6 +112,15 @@ page import="com.liferay.knowledge.base.web.internal.configuration.KBArticlePort
 page import="com.liferay.knowledge.base.web.internal.configuration.KBDisplayPortletInstanceConfiguration" %><%@
 page import="com.liferay.knowledge.base.web.internal.configuration.KBSearchPortletInstanceConfiguration" %><%@
 page import="com.liferay.knowledge.base.web.internal.configuration.KBSectionPortletInstanceConfiguration" %><%@
+=======
+page import="com.liferay.knowledge.base.web.configuration.KBArticlePortletInstanceConfiguration" %><%@
+page import="com.liferay.knowledge.base.web.configuration.KBDisplayPortletInstanceConfiguration" %><%@
+page import="com.liferay.knowledge.base.web.configuration.KBSearchPortletInstanceConfiguration" %><%@
+page import="com.liferay.knowledge.base.web.configuration.KBSectionPortletInstanceConfiguration" %><%@
+page import="com.liferay.knowledge.base.web.internal.KBUtil" %><%@
+page import="com.liferay.knowledge.base.web.internal.application.dao.search.KBCommentResultRowSplitter" %><%@
+page import="com.liferay.knowledge.base.web.internal.application.dao.search.KBResultRowSplitter" %><%@
+>>>>>>> compatible
 page import="com.liferay.knowledge.base.web.internal.constants.KBWebKeys" %><%@
 page import="com.liferay.knowledge.base.web.internal.display.context.KBAdminViewDisplayContext" %><%@
 page import="com.liferay.knowledge.base.web.internal.display.context.KBNavigationDisplayContext" %><%@
@@ -118,6 +139,10 @@ page import="com.liferay.portal.kernel.bean.BeanPropertiesUtil" %><%@
 page import="com.liferay.portal.kernel.dao.orm.QueryUtil" %><%@
 page import="com.liferay.portal.kernel.dao.search.RowChecker" %><%@
 page import="com.liferay.portal.kernel.dao.search.SearchContainer" %><%@
+<<<<<<< HEAD
+=======
+page import="com.liferay.portal.kernel.exception.NoSuchSubscriptionException" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.exception.PortalException" %><%@
 page import="com.liferay.portal.kernel.language.LanguageUtil" %><%@
 page import="com.liferay.portal.kernel.language.UnicodeLanguageUtil" %><%@
@@ -146,15 +171,23 @@ page import="com.liferay.portal.kernel.security.permission.ActionKeys" %><%@
 page import="com.liferay.portal.kernel.service.ClassNameLocalServiceUtil" %><%@
 page import="com.liferay.portal.kernel.service.PortletLocalServiceUtil" %><%@
 page import="com.liferay.portal.kernel.service.ServiceContext" %><%@
+<<<<<<< HEAD
+=======
+page import="com.liferay.portal.kernel.service.SubscriptionLocalServiceUtil" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.service.TicketLocalServiceUtil" %><%@
 page import="com.liferay.portal.kernel.service.WorkflowDefinitionLinkLocalServiceUtil" %><%@
 page import="com.liferay.portal.kernel.service.permission.GroupPermissionUtil" %><%@
 page import="com.liferay.portal.kernel.service.permission.PortletPermissionUtil" %><%@
 page import="com.liferay.portal.kernel.servlet.HttpHeaders" %><%@
 page import="com.liferay.portal.kernel.servlet.SessionMessages" %><%@
+<<<<<<< HEAD
 page import="com.liferay.portal.kernel.settings.GroupServiceSettingsLocator" %><%@
 page import="com.liferay.portal.kernel.upload.UploadRequestSizeException" %><%@
 page import="com.liferay.portal.kernel.upload.UploadServletRequestConfigurationHelperUtil" %><%@
+=======
+page import="com.liferay.portal.kernel.upload.UploadRequestSizeException" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.util.ArrayUtil" %><%@
 page import="com.liferay.portal.kernel.util.Constants" %><%@
 page import="com.liferay.portal.kernel.util.FastDateFormatConstants" %><%@
@@ -166,6 +199,10 @@ page import="com.liferay.portal.kernel.util.OrderByComparator" %><%@
 page import="com.liferay.portal.kernel.util.OrderByComparatorFactoryUtil" %><%@
 page import="com.liferay.portal.kernel.util.ParamUtil" %><%@
 page import="com.liferay.portal.kernel.util.PortalUtil" %><%@
+<<<<<<< HEAD
+=======
+page import="com.liferay.portal.kernel.util.PrefsPropsUtil" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.util.PropsKeys" %><%@
 page import="com.liferay.portal.kernel.util.PropsUtil" %><%@
 page import="com.liferay.portal.kernel.util.StringBundler" %><%@
@@ -179,8 +216,11 @@ page import="com.liferay.portal.kernel.util.WebKeys" %><%@
 page import="com.liferay.portal.kernel.workflow.WorkflowConstants" %><%@
 page import="com.liferay.ratings.kernel.RatingsType" %><%@
 page import="com.liferay.ratings.kernel.definition.PortletRatingsDefinitionUtil" %><%@
+<<<<<<< HEAD
 page import="com.liferay.subscription.exception.NoSuchSubscriptionException" %><%@
 page import="com.liferay.subscription.service.SubscriptionLocalServiceUtil" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.taglib.search.ResultRow" %><%@
 page import="com.liferay.wiki.model.WikiPage" %>
 
@@ -216,7 +256,11 @@ String rootPortletId = portletDisplay.getRootPortletId();
 
 String templatePath = portletConfig.getInitParameter("template-path");
 
+<<<<<<< HEAD
 KBGroupServiceConfiguration kbGroupServiceConfiguration = ConfigurationProviderUtil.getConfiguration(KBGroupServiceConfiguration.class, new GroupServiceSettingsLocator(themeDisplay.getScopeGroupId(), KBConstants.SERVICE_NAME));
+=======
+KBGroupServiceConfiguration kbGroupServiceConfiguration = ConfigurationProviderUtil.getGroupConfiguration(KBGroupServiceConfiguration.class, themeDisplay.getScopeGroupId());
+>>>>>>> compatible
 
 KBSectionPortletInstanceConfiguration kbSectionPortletInstanceConfiguration = portletDisplay.getPortletInstanceConfiguration(KBSectionPortletInstanceConfiguration.class);
 

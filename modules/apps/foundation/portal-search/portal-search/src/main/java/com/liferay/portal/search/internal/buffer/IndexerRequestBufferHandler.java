@@ -41,11 +41,17 @@ public class IndexerRequestBufferHandler {
 		throws Exception {
 
 		if (!BufferOverflowThreadLocal.isOverflowMode()) {
+<<<<<<< HEAD
 			int maxBufferSize = _indexerRegistryConfiguration.maxBufferSize();
 
 			indexerRequestBuffer.add(
 				indexerRequest, _indexerRequestBufferOverflowHandler,
 				maxBufferSize);
+=======
+			indexerRequestBuffer.add(
+				indexerRequest, _indexerRequestBufferOverflowHandler,
+				_indexerRegistryConfiguration.maxBufferSize());
+>>>>>>> compatible
 		}
 		else {
 			indexerRequest.execute();

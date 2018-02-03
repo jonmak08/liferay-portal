@@ -20,7 +20,10 @@ import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.security.access.control.AccessControlled;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.push.notifications.constants.PushNotificationsActionKeys;
 import com.liferay.push.notifications.model.PushNotificationsDevice;
 import com.liferay.push.notifications.service.base.PushNotificationsDeviceServiceBaseImpl;
@@ -102,9 +105,14 @@ public class PushNotificationsDeviceServiceImpl
 			}
 			else if (_log.isInfoEnabled()) {
 				_log.info(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Device found with token ", token,
 						" does not belong to user ", String.valueOf(userId)));
+=======
+					"Device found with token " + token +
+						" does not belong to user " + userId);
+>>>>>>> compatible
 			}
 		}
 

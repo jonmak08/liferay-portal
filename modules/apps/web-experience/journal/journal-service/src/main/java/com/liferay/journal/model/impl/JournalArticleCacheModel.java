@@ -21,6 +21,10 @@ import com.liferay.journal.model.JournalArticle;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -65,7 +69,11 @@ public class JournalArticleCacheModel implements CacheModel<JournalArticle>,
 
 	@Override
 	public String toString() {
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(67);
+=======
+		StringBundler sb = new StringBundler(69);
+>>>>>>> compatible
 
 		sb.append("{uuid=");
 		sb.append(uuid);
@@ -97,16 +105,28 @@ public class JournalArticleCacheModel implements CacheModel<JournalArticle>,
 		sb.append(articleId);
 		sb.append(", version=");
 		sb.append(version);
+<<<<<<< HEAD
 		sb.append(", urlTitle=");
 		sb.append(urlTitle);
+=======
+		sb.append(", title=");
+		sb.append(title);
+		sb.append(", urlTitle=");
+		sb.append(urlTitle);
+		sb.append(", description=");
+		sb.append(description);
+>>>>>>> compatible
 		sb.append(", content=");
 		sb.append(content);
 		sb.append(", DDMStructureKey=");
 		sb.append(DDMStructureKey);
 		sb.append(", DDMTemplateKey=");
 		sb.append(DDMTemplateKey);
+<<<<<<< HEAD
 		sb.append(", defaultLanguageId=");
 		sb.append(defaultLanguageId);
+=======
+>>>>>>> compatible
 		sb.append(", layoutUuid=");
 		sb.append(layoutUuid);
 		sb.append(", displayDate=");
@@ -143,7 +163,11 @@ public class JournalArticleCacheModel implements CacheModel<JournalArticle>,
 		JournalArticleImpl journalArticleImpl = new JournalArticleImpl();
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			journalArticleImpl.setUuid("");
+=======
+			journalArticleImpl.setUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalArticleImpl.setUuid(uuid);
@@ -156,7 +180,11 @@ public class JournalArticleCacheModel implements CacheModel<JournalArticle>,
 		journalArticleImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			journalArticleImpl.setUserName("");
+=======
+			journalArticleImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalArticleImpl.setUserName(userName);
@@ -181,14 +209,22 @@ public class JournalArticleCacheModel implements CacheModel<JournalArticle>,
 		journalArticleImpl.setClassPK(classPK);
 
 		if (treePath == null) {
+<<<<<<< HEAD
 			journalArticleImpl.setTreePath("");
+=======
+			journalArticleImpl.setTreePath(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalArticleImpl.setTreePath(treePath);
 		}
 
 		if (articleId == null) {
+<<<<<<< HEAD
 			journalArticleImpl.setArticleId("");
+=======
+			journalArticleImpl.setArticleId(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalArticleImpl.setArticleId(articleId);
@@ -196,34 +232,67 @@ public class JournalArticleCacheModel implements CacheModel<JournalArticle>,
 
 		journalArticleImpl.setVersion(version);
 
+<<<<<<< HEAD
 		if (urlTitle == null) {
 			journalArticleImpl.setUrlTitle("");
+=======
+		if (title == null) {
+			journalArticleImpl.setTitle(StringPool.BLANK);
+		}
+		else {
+			journalArticleImpl.setTitle(title);
+		}
+
+		if (urlTitle == null) {
+			journalArticleImpl.setUrlTitle(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalArticleImpl.setUrlTitle(urlTitle);
 		}
 
+<<<<<<< HEAD
 		if (content == null) {
 			journalArticleImpl.setContent("");
+=======
+		if (description == null) {
+			journalArticleImpl.setDescription(StringPool.BLANK);
+		}
+		else {
+			journalArticleImpl.setDescription(description);
+		}
+
+		if (content == null) {
+			journalArticleImpl.setContent(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalArticleImpl.setContent(content);
 		}
 
 		if (DDMStructureKey == null) {
+<<<<<<< HEAD
 			journalArticleImpl.setDDMStructureKey("");
+=======
+			journalArticleImpl.setDDMStructureKey(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalArticleImpl.setDDMStructureKey(DDMStructureKey);
 		}
 
 		if (DDMTemplateKey == null) {
+<<<<<<< HEAD
 			journalArticleImpl.setDDMTemplateKey("");
+=======
+			journalArticleImpl.setDDMTemplateKey(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalArticleImpl.setDDMTemplateKey(DDMTemplateKey);
 		}
 
+<<<<<<< HEAD
 		if (defaultLanguageId == null) {
 			journalArticleImpl.setDefaultLanguageId("");
 		}
@@ -233,6 +302,10 @@ public class JournalArticleCacheModel implements CacheModel<JournalArticle>,
 
 		if (layoutUuid == null) {
 			journalArticleImpl.setLayoutUuid("");
+=======
+		if (layoutUuid == null) {
+			journalArticleImpl.setLayoutUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalArticleImpl.setLayoutUuid(layoutUuid);
@@ -264,7 +337,11 @@ public class JournalArticleCacheModel implements CacheModel<JournalArticle>,
 		journalArticleImpl.setSmallImageId(smallImageId);
 
 		if (smallImageURL == null) {
+<<<<<<< HEAD
 			journalArticleImpl.setSmallImageURL("");
+=======
+			journalArticleImpl.setSmallImageURL(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalArticleImpl.setSmallImageURL(smallImageURL);
@@ -281,7 +358,11 @@ public class JournalArticleCacheModel implements CacheModel<JournalArticle>,
 		journalArticleImpl.setStatusByUserId(statusByUserId);
 
 		if (statusByUserName == null) {
+<<<<<<< HEAD
 			journalArticleImpl.setStatusByUserName("");
+=======
+			journalArticleImpl.setStatusByUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			journalArticleImpl.setStatusByUserName(statusByUserName);
@@ -296,6 +377,11 @@ public class JournalArticleCacheModel implements CacheModel<JournalArticle>,
 
 		journalArticleImpl.resetOriginalValues();
 
+<<<<<<< HEAD
+=======
+		journalArticleImpl.setDefaultLanguageId(_defaultLanguageId);
+
+>>>>>>> compatible
 		journalArticleImpl.setDocument(_document);
 
 		return journalArticleImpl;
@@ -328,11 +414,20 @@ public class JournalArticleCacheModel implements CacheModel<JournalArticle>,
 		articleId = objectInput.readUTF();
 
 		version = objectInput.readDouble();
+<<<<<<< HEAD
 		urlTitle = objectInput.readUTF();
 		content = objectInput.readUTF();
 		DDMStructureKey = objectInput.readUTF();
 		DDMTemplateKey = objectInput.readUTF();
 		defaultLanguageId = objectInput.readUTF();
+=======
+		title = objectInput.readUTF();
+		urlTitle = objectInput.readUTF();
+		description = objectInput.readUTF();
+		content = objectInput.readUTF();
+		DDMStructureKey = objectInput.readUTF();
+		DDMTemplateKey = objectInput.readUTF();
+>>>>>>> compatible
 		layoutUuid = objectInput.readUTF();
 		displayDate = objectInput.readLong();
 		expirationDate = objectInput.readLong();
@@ -352,6 +447,10 @@ public class JournalArticleCacheModel implements CacheModel<JournalArticle>,
 		statusByUserName = objectInput.readUTF();
 		statusDate = objectInput.readLong();
 
+<<<<<<< HEAD
+=======
+		_defaultLanguageId = (java.lang.String)objectInput.readObject();
+>>>>>>> compatible
 		_document = (com.liferay.portal.kernel.xml.Document)objectInput.readObject();
 	}
 
@@ -359,7 +458,11 @@ public class JournalArticleCacheModel implements CacheModel<JournalArticle>,
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		if (uuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(uuid);
@@ -376,7 +479,11 @@ public class JournalArticleCacheModel implements CacheModel<JournalArticle>,
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -392,14 +499,22 @@ public class JournalArticleCacheModel implements CacheModel<JournalArticle>,
 		objectOutput.writeLong(classPK);
 
 		if (treePath == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(treePath);
 		}
 
 		if (articleId == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(articleId);
@@ -407,34 +522,67 @@ public class JournalArticleCacheModel implements CacheModel<JournalArticle>,
 
 		objectOutput.writeDouble(version);
 
+<<<<<<< HEAD
 		if (urlTitle == null) {
 			objectOutput.writeUTF("");
+=======
+		if (title == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(title);
+		}
+
+		if (urlTitle == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(urlTitle);
 		}
 
+<<<<<<< HEAD
 		if (content == null) {
 			objectOutput.writeUTF("");
+=======
+		if (description == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+		}
+		else {
+			objectOutput.writeUTF(description);
+		}
+
+		if (content == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(content);
 		}
 
 		if (DDMStructureKey == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(DDMStructureKey);
 		}
 
 		if (DDMTemplateKey == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(DDMTemplateKey);
 		}
 
+<<<<<<< HEAD
 		if (defaultLanguageId == null) {
 			objectOutput.writeUTF("");
 		}
@@ -444,6 +592,10 @@ public class JournalArticleCacheModel implements CacheModel<JournalArticle>,
 
 		if (layoutUuid == null) {
 			objectOutput.writeUTF("");
+=======
+		if (layoutUuid == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(layoutUuid);
@@ -460,7 +612,11 @@ public class JournalArticleCacheModel implements CacheModel<JournalArticle>,
 		objectOutput.writeLong(smallImageId);
 
 		if (smallImageURL == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(smallImageURL);
@@ -473,7 +629,11 @@ public class JournalArticleCacheModel implements CacheModel<JournalArticle>,
 		objectOutput.writeLong(statusByUserId);
 
 		if (statusByUserName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(statusByUserName);
@@ -481,6 +641,10 @@ public class JournalArticleCacheModel implements CacheModel<JournalArticle>,
 
 		objectOutput.writeLong(statusDate);
 
+<<<<<<< HEAD
+=======
+		objectOutput.writeObject(_defaultLanguageId);
+>>>>>>> compatible
 		objectOutput.writeObject(_document);
 	}
 
@@ -499,11 +663,20 @@ public class JournalArticleCacheModel implements CacheModel<JournalArticle>,
 	public String treePath;
 	public String articleId;
 	public double version;
+<<<<<<< HEAD
 	public String urlTitle;
 	public String content;
 	public String DDMStructureKey;
 	public String DDMTemplateKey;
 	public String defaultLanguageId;
+=======
+	public String title;
+	public String urlTitle;
+	public String description;
+	public String content;
+	public String DDMStructureKey;
+	public String DDMTemplateKey;
+>>>>>>> compatible
 	public String layoutUuid;
 	public long displayDate;
 	public long expirationDate;
@@ -517,5 +690,9 @@ public class JournalArticleCacheModel implements CacheModel<JournalArticle>,
 	public long statusByUserId;
 	public String statusByUserName;
 	public long statusDate;
+<<<<<<< HEAD
+=======
+	public java.lang.String _defaultLanguageId;
+>>>>>>> compatible
 	public com.liferay.portal.kernel.xml.Document _document;
 }

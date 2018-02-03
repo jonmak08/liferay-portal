@@ -19,11 +19,16 @@ import com.liferay.portal.kernel.util.HashUtil;
 import java.util.Objects;
 
 /**
+<<<<<<< HEAD
  * @author     Roberto Díaz
  * @deprecated As of 7.0.0, replaced by {@link
  *             com.liferay.asset.publisher.web.util.AssetQueryRule}
  */
 @Deprecated
+=======
+ * @author Roberto Díaz
+ */
+>>>>>>> compatible
 public class AssetQueryRule {
 
 	public AssetQueryRule(

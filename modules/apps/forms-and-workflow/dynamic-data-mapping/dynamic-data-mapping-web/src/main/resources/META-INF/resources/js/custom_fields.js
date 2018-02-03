@@ -3,8 +3,11 @@ AUI.add(
 	function(A) {
 		var AArray = A.Array;
 
+<<<<<<< HEAD
 		var AEscape = A.Escape;
 
+=======
+>>>>>>> compatible
 		var FormBuilderTextField = A.FormBuilderTextField;
 		var FormBuilderTypes = A.FormBuilderField.types;
 
@@ -32,8 +35,11 @@ AUI.add(
 
 		var STR_SPACE = ' ';
 
+<<<<<<< HEAD
 		var TPL_COLOR = '<input class="field form-control" type="text" value="' + A.Escape.html(Liferay.Language.get('color')) + '" readonly="readonly">';
 
+=======
+>>>>>>> compatible
 		var TPL_GEOLOCATION = '<div class="field-labels-inline">' +
 				'<img src="' + themeDisplay.getPathThemeImages() + '/common/geolocation.png" title="' + A.Escape.html(Liferay.Language.get('geolocate')) + '" />' +
 			'<div>';
@@ -64,6 +70,7 @@ AUI.add(
 				'<input class="field form-control" type="text" value="" disabled>' +
 			'</div>';
 
+<<<<<<< HEAD
 		CSS_RADIO = A.getClassName('radio'),
 		CSS_FIELD = A.getClassName('field'),
 		CSS_FIELD_CHOICE = A.getClassName('field', 'choice'),
@@ -78,6 +85,8 @@ AUI.add(
 			[CSS_FIELD, CSS_FIELD_CHOICE, CSS_FIELD_RADIO, CSS_FORM_BUILDER_FIELD_NODE].join(' ') +
 			'" name="{name}" type="radio" value="{value}" {checked} {disabled} />{label}</label></div>';
 
+=======
+>>>>>>> compatible
 		var UNIQUE_FIELD_NAMES_MAP = Liferay.FormBuilder.UNIQUE_FIELD_NAMES_MAP;
 
 		var UNLOCALIZABLE_FIELD_ATTRS = Liferay.FormBuilder.UNLOCALIZABLE_FIELD_ATTRS;
@@ -100,7 +109,11 @@ AUI.add(
 			return !duplicate;
 		};
 
+<<<<<<< HEAD
 		DEFAULTS_FORM_VALIDATOR.STRINGS.structureFieldName = Liferay.Language.get('please-enter-only-alphanumeric-characters-or-underscore');
+=======
+		DEFAULTS_FORM_VALIDATOR.STRINGS.structureFieldName = Liferay.Language.get('please-enter-only-alphanumeric-characters');
+>>>>>>> compatible
 
 		DEFAULTS_FORM_VALIDATOR.RULES.structureFieldName = function(value) {
 			return LiferayFormBuilderUtil.validateFieldName(value);
@@ -125,6 +138,7 @@ AUI.add(
 			);
 		};
 
+<<<<<<< HEAD
 		var ColorCellEditor = A.Component.create(
 			{
 				EXTENDS: A.BaseCellEditor,
@@ -207,6 +221,8 @@ AUI.add(
 			}
 		);
 
+=======
+>>>>>>> compatible
 		var DLFileEntryCellEditor = A.Component.create(
 			{
 				EXTENDS: A.BaseCellEditor,
@@ -566,7 +582,10 @@ AUI.add(
 		Liferay.FormBuilder.CUSTOM_CELL_EDITORS = {};
 
 		var customCellEditors = [
+<<<<<<< HEAD
 			ColorCellEditor,
+=======
+>>>>>>> compatible
 			DLFileEntryCellEditor,
 			LinkToPageCellEditor
 		];
@@ -981,6 +1000,7 @@ AUI.add(
 						value = A.Object.getValue(localizationMap, [defaultLocale, attribute]);
 
 						if (!isValue(value)) {
+<<<<<<< HEAD
 							for (var localizationMapLocale in localizationMap) {
 								value = A.Object.getValue(localizationMap, [localizationMapLocale, attribute]);
 
@@ -991,6 +1011,8 @@ AUI.add(
 						}
 
 						if (!isValue(value)) {
+=======
+>>>>>>> compatible
 							value = STR_BLANK;
 						}
 					}
@@ -1114,6 +1136,7 @@ AUI.add(
 			);
 		};
 
+<<<<<<< HEAD
 		var DDMColorField = A.Component.create(
 			{
 				ATTRS: {
@@ -1164,6 +1187,8 @@ AUI.add(
 			}
 		);
 
+=======
+>>>>>>> compatible
 		var DDMDateField = A.Component.create(
 			{
 				ATTRS: {
@@ -1186,11 +1211,16 @@ AUI.add(
 
 						DDMDateField.superclass.renderUI.apply(instance, arguments);
 
+<<<<<<< HEAD
 						instance.datePicker = new A.DatePickerDeprecated(
+=======
+						instance.datePicker = new A.DatePicker(
+>>>>>>> compatible
 							{
 								calendar: {
 									locale: Liferay.ThemeDisplay.getLanguageId()
 								},
+<<<<<<< HEAD
 								on: {
 									selectionChange: function(event) {
 										var date = event.newSelection;
@@ -1199,6 +1229,9 @@ AUI.add(
 									}
 								},
 								trigger: instance.get('templateNode').one('input')
+=======
+								trigger: instance.get('templateNode')
+>>>>>>> compatible
 							}
 						).render();
 
@@ -1231,13 +1264,20 @@ AUI.add(
 												inputFormatter: function(val) {
 													var instance = this;
 
+<<<<<<< HEAD
 													var value = val;
 
 													if (Array.isArray(val)) {
+=======
+													var value = STR_BLANK;
+
+													if (val && val.length) {
+>>>>>>> compatible
 														value = instance.formatDate(val[0]);
 													}
 
 													return value;
+<<<<<<< HEAD
 												},
 
 												outputFormatter: function(val) {
@@ -1250,6 +1290,8 @@ AUI.add(
 													}
 
 													return val;
+=======
+>>>>>>> compatible
 												}
 											}
 										),
@@ -1528,6 +1570,7 @@ AUI.add(
 			}
 		);
 
+<<<<<<< HEAD
 		var DDMRadioField = A.Component.create(
 			{
 				ATTRS: {
@@ -1594,6 +1637,8 @@ AUI.add(
 			}
 		);
 
+=======
+>>>>>>> compatible
 		var DDMSeparatorField = A.Component.create(
 			{
 				ATTRS: {
@@ -1759,7 +1804,10 @@ AUI.add(
 		);
 
 		var plugins = [
+<<<<<<< HEAD
 			DDMColorField,
+=======
+>>>>>>> compatible
 			DDMDateField,
 			DDMDecimalField,
 			DDMDocumentLibraryField,
@@ -1770,7 +1818,10 @@ AUI.add(
 			DDMLinkToPageField,
 			DDMNumberField,
 			DDMParagraphField,
+<<<<<<< HEAD
 			DDMRadioField,
+=======
+>>>>>>> compatible
 			DDMSeparatorField,
 			DDMHTMLTextField,
 			DDMTextAreaField
@@ -1778,12 +1829,20 @@ AUI.add(
 
 		plugins.forEach(
 			function(item, index) {
+<<<<<<< HEAD
 				FormBuilderTypes[item.OVERRIDE_TYPE || item.NAME] = item;
+=======
+				FormBuilderTypes[item.NAME] = item;
+>>>>>>> compatible
 			}
 		);
 	},
 	'',
 	{
+<<<<<<< HEAD
 		requires: ['aui-color-picker-popover', 'liferay-item-selector-dialog', 'liferay-portlet-dynamic-data-mapping']
+=======
+		requires: ['liferay-item-selector-dialog', 'liferay-portlet-dynamic-data-mapping']
+>>>>>>> compatible
 	}
 );

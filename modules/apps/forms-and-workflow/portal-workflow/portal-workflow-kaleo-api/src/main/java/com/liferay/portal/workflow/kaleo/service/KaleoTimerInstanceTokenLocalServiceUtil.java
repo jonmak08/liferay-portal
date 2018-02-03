@@ -292,11 +292,19 @@ public class KaleoTimerInstanceTokenLocalServiceUtil {
 	}
 
 	public static java.util.List<com.liferay.portal.workflow.kaleo.model.KaleoTimerInstanceToken> getKaleoTimerInstanceTokens(
+<<<<<<< HEAD
 		long kaleoInstanceTokenId, boolean blocking, boolean completed,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext) {
 		return getService()
 				   .getKaleoTimerInstanceTokens(kaleoInstanceTokenId, blocking,
 			completed, serviceContext);
+=======
+		long kaleoInstanceTokenId, boolean completed, boolean blocking,
+		com.liferay.portal.kernel.service.ServiceContext serviceContext) {
+		return getService()
+				   .getKaleoTimerInstanceTokens(kaleoInstanceTokenId,
+			completed, blocking, serviceContext);
+>>>>>>> compatible
 	}
 
 	/**
@@ -309,11 +317,19 @@ public class KaleoTimerInstanceTokenLocalServiceUtil {
 	}
 
 	public static int getKaleoTimerInstanceTokensCount(
+<<<<<<< HEAD
 		long kaleoInstanceTokenId, boolean blocking, boolean completed,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext) {
 		return getService()
 				   .getKaleoTimerInstanceTokensCount(kaleoInstanceTokenId,
 			blocking, completed, serviceContext);
+=======
+		long kaleoInstanceTokenId, boolean completed, boolean blocking,
+		com.liferay.portal.kernel.service.ServiceContext serviceContext) {
+		return getService()
+				   .getKaleoTimerInstanceTokensCount(kaleoInstanceTokenId,
+			completed, blocking, serviceContext);
+>>>>>>> compatible
 	}
 
 	/**

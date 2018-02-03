@@ -128,6 +128,7 @@ public class StagingConfigurationPortlet extends MVCPortlet {
 		if (stagingType == StagingConstants.TYPE_LOCAL_STAGING) {
 			stagedGroup = liveGroup.hasStagingGroup();
 
+<<<<<<< HEAD
 			try {
 				_stagingLocalService.enableLocalStaging(
 					themeDisplay.getUserId(), liveGroup, branchingPublic,
@@ -136,6 +137,11 @@ public class StagingConfigurationPortlet extends MVCPortlet {
 			catch (Exception e) {
 				SessionErrors.add(actionRequest, Exception.class, e);
 			}
+=======
+			_stagingLocalService.enableLocalStaging(
+				themeDisplay.getUserId(), liveGroup, branchingPublic,
+				branchingPrivate, serviceContext);
+>>>>>>> compatible
 		}
 		else if (stagingType == StagingConstants.TYPE_REMOTE_STAGING) {
 			String remoteAddress = ParamUtil.getString(

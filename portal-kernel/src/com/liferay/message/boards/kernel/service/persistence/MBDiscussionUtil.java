@@ -36,11 +36,16 @@ import java.util.List;
  * @author Brian Wing Shun Chan
  * @see MBDiscussionPersistence
  * @see com.liferay.portlet.messageboards.service.persistence.impl.MBDiscussionPersistenceImpl
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, replaced by {@link
 com.liferay.message.boards.model.impl.MBDiscussionImpl}
  * @generated
  */
 @Deprecated
+=======
+ * @generated
+ */
+>>>>>>> compatible
 @ProviderType
 public class MBDiscussionUtil {
 	/*

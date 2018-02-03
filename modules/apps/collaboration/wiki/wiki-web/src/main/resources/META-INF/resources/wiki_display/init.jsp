@@ -18,7 +18,11 @@
 
 <%@ page import="com.liferay.wiki.configuration.WikiGroupServiceConfiguration" %><%@
 page import="com.liferay.wiki.exception.NoSuchNodeException" %><%@
+<<<<<<< HEAD
 page import="com.liferay.wiki.web.internal.util.WikiWebComponentProvider" %>
+=======
+page import="com.liferay.wiki.web.util.WikiWebComponentProvider" %>
+>>>>>>> compatible
 
 <%
 WikiWebComponentProvider wikiWebComponentProvider = WikiWebComponentProvider.getWikiWebComponentProvider();

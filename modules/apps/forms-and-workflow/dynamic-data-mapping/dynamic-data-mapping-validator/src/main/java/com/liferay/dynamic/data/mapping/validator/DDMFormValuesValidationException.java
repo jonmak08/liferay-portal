@@ -131,6 +131,7 @@ public class DDMFormValuesValidationException extends StorageException {
 			_fieldName = fieldName;
 		}
 
+<<<<<<< HEAD
 		public MustSetValidValue(String fieldName, Throwable cause) {
 			super(
 				String.format("Invalid value set for field name %s", fieldName),
@@ -139,6 +140,8 @@ public class DDMFormValuesValidationException extends StorageException {
 			_fieldName = fieldName;
 		}
 
+=======
+>>>>>>> compatible
 		public String getFieldName() {
 			return _fieldName;
 		}
@@ -147,10 +150,13 @@ public class DDMFormValuesValidationException extends StorageException {
 
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 2.2.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static class MustSetValidValues
 		extends DDMFormValuesValidationException {
 

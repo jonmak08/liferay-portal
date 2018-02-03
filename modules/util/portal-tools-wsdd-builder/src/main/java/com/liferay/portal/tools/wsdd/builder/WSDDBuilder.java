@@ -15,7 +15,10 @@
 package com.liferay.portal.tools.wsdd.builder;
 
 import com.liferay.portal.kernel.util.GetterUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.tools.ArgumentsUtil;
@@ -119,8 +122,12 @@ public class WSDDBuilder {
 				_createServiceWSDD(entityName);
 
 				WSDDMerger.merge(
+<<<<<<< HEAD
 					StringBundler.concat(
 						_outputPath, "/", entityName, "Service_deploy.wsdd"),
+=======
+					_outputPath + "/" + entityName + "Service_deploy.wsdd",
+>>>>>>> compatible
 					_serverConfigFileName);
 			}
 		}
@@ -147,8 +154,13 @@ public class WSDDBuilder {
 	}
 
 	private void _createServiceWSDD(String entityName) throws Exception {
+<<<<<<< HEAD
 		String className = StringBundler.concat(
 			_packagePath, ".service.http.", entityName, "ServiceSoap");
+=======
+		String className =
+			_packagePath + ".service.http." + entityName + "ServiceSoap";
+>>>>>>> compatible
 
 		String serviceName = StringUtil.replace(_portletShortName, ' ', '_');
 
@@ -162,6 +174,7 @@ public class WSDDBuilder {
 			className, _classPath, serviceName);
 
 		_writeFile(
+<<<<<<< HEAD
 			new File(
 				StringBundler.concat(
 					_outputPath, "/", entityName, "Service_deploy.wsdd")),
@@ -171,6 +184,13 @@ public class WSDDBuilder {
 			new File(
 				StringBundler.concat(
 					_outputPath, "/", entityName, "Service_undeploy.wsdd")),
+=======
+			new File(_outputPath + "/" + entityName + "Service_deploy.wsdd"),
+			wsdds[0]);
+
+		_writeFile(
+			new File(_outputPath + "/" + entityName + "Service_undeploy.wsdd"),
+>>>>>>> compatible
 			wsdds[1]);
 	}
 

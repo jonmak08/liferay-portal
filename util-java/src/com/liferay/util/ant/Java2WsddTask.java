@@ -21,6 +21,10 @@ import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.SystemProperties;
 import com.liferay.portal.kernel.util.Validator;
+<<<<<<< HEAD
+=======
+import com.liferay.util.xml.Dom4jUtil;
+>>>>>>> compatible
 import com.liferay.util.xml.XMLSafeReader;
 
 import java.io.File;
@@ -130,9 +134,13 @@ public class Java2WsddTask {
 			packagePath, CharPool.PERIOD, CharPool.SLASH);
 
 		File deployFile = new File(
+<<<<<<< HEAD
 			StringBundler.concat(
 				String.valueOf(tempDir), "/", packagePathWithSlashes,
 				"/deploy.wsdd"));
+=======
+			tempDir + "/" + packagePathWithSlashes + "/deploy.wsdd");
+>>>>>>> compatible
 
 		String deployContent = new String(
 			Files.readAllBytes(deployFile.toPath()));
@@ -146,9 +154,13 @@ public class Java2WsddTask {
 		deployContent = _format(deployContent);
 
 		File undeployFile = new File(
+<<<<<<< HEAD
 			StringBundler.concat(
 				String.valueOf(tempDir), "/", packagePathWithSlashes,
 				"/undeploy.wsdd"));
+=======
+			tempDir + "/" + packagePathWithSlashes + "/undeploy.wsdd");
+>>>>>>> compatible
 
 		String undeployContent = new String(
 			Files.readAllBytes(undeployFile.toPath()));

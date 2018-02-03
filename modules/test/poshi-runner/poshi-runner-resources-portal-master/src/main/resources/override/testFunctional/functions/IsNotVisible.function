@@ -2,6 +2,10 @@
 	<command name="isNotVisible">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.IsNotVisible#isNotVisible" />
+=======
+		<super />
+>>>>>>> compatible
 	</command>
 </definition>

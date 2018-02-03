@@ -73,9 +73,14 @@ public interface KaleoNotificationRecipientLocalService extends BaseLocalService
 		KaleoNotificationRecipient kaleoNotificationRecipient);
 
 	public KaleoNotificationRecipient addKaleoNotificationRecipient(
+<<<<<<< HEAD
 		long kaleoDefinitionVersionId, long kaleoNotificationId,
 		Recipient recipient, ServiceContext serviceContext)
 		throws PortalException;
+=======
+		long kaleoDefinitionId, long kaleoNotificationId, Recipient recipient,
+		ServiceContext serviceContext) throws PortalException;
+>>>>>>> compatible
 
 	/**
 	* Creates a new kaleo notification recipient with the primary key. Does not add the kaleo notification recipient to the database.
@@ -88,8 +93,13 @@ public interface KaleoNotificationRecipientLocalService extends BaseLocalService
 
 	public void deleteCompanyKaleoNotificationRecipients(long companyId);
 
+<<<<<<< HEAD
 	public void deleteKaleoDefinitionVersionKaleoNotificationRecipients(
 		long kaleoDefinitionVersionId);
+=======
+	public void deleteKaleoDefinitionKaleoNotificationRecipients(
+		long kaleoDefinitionId);
+>>>>>>> compatible
 
 	/**
 	* Deletes the kaleo notification recipient from the database. Also notifies the appropriate model listeners.

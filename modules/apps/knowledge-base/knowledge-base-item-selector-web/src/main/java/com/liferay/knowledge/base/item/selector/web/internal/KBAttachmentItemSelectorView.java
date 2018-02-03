@@ -14,18 +14,28 @@
 
 package com.liferay.knowledge.base.item.selector.web.internal;
 
+<<<<<<< HEAD
 import com.liferay.document.library.display.context.DLMimeTypeDisplayContext;
+=======
+>>>>>>> compatible
 import com.liferay.item.selector.ItemSelectorReturnType;
 import com.liferay.item.selector.ItemSelectorReturnTypeResolverHandler;
 import com.liferay.item.selector.ItemSelectorView;
 import com.liferay.item.selector.criteria.FileEntryItemSelectorReturnType;
 import com.liferay.item.selector.criteria.URLItemSelectorReturnType;
 import com.liferay.knowledge.base.item.selector.criterion.KBAttachmentItemSelectorCriterion;
+<<<<<<< HEAD
 import com.liferay.knowledge.base.item.selector.web.internal.constants.KBItemSelectorWebKeys;
+=======
+>>>>>>> compatible
 import com.liferay.knowledge.base.item.selector.web.internal.display.context.KBAttachmentItemSelectorViewDisplayContext;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.AggregateResourceBundleLoader;
 import com.liferay.portal.kernel.util.ListUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.LocaleUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ResourceBundleLoader;
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
 import com.liferay.portal.language.LanguageResources;
@@ -47,9 +57,12 @@ import javax.servlet.ServletResponse;
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
 import org.osgi.service.component.annotations.ReferencePolicyOption;
+=======
+>>>>>>> compatible
 
 /**
  * @author Roberto Díaz
@@ -58,6 +71,13 @@ import org.osgi.service.component.annotations.ReferencePolicyOption;
 public class KBAttachmentItemSelectorView
 	implements ItemSelectorView<KBAttachmentItemSelectorCriterion> {
 
+<<<<<<< HEAD
+=======
+	public static final String
+		KB_ATTACHMENT_ITEM_SELECTOR_VIEW_DISPLAY_CONTEXT =
+			"KB_ATTACHMENT_ITEM_SELECTOR_VIEW_DISPLAY_CONTEXT";
+
+>>>>>>> compatible
 	@Override
 	public Class<KBAttachmentItemSelectorCriterion>
 		getItemSelectorCriterionClass() {
@@ -77,7 +97,12 @@ public class KBAttachmentItemSelectorView
 	@Override
 	public String getTitle(Locale locale) {
 		ResourceBundle resourceBundle =
+<<<<<<< HEAD
 			_resourceBundleLoader.loadResourceBundle(locale);
+=======
+			_resourceBundleLoader.loadResourceBundle(
+				LocaleUtil.toLanguageId(locale));
+>>>>>>> compatible
 
 		return ResourceBundleUtil.getString(
 			resourceBundle, "article-attachments");
@@ -108,6 +133,7 @@ public class KBAttachmentItemSelectorView
 					itemSelectedEventName, search, portletURL);
 
 		request.setAttribute(
+<<<<<<< HEAD
 			KBItemSelectorWebKeys.
 				KB_ATTACHMENT_ITEM_SELECTOR_VIEW_DISPLAY_CONTEXT,
 			kbAttachmentItemSelectorViewDisplayContext);
@@ -116,6 +142,11 @@ public class KBAttachmentItemSelectorView
 			KBItemSelectorWebKeys.DL_MIME_TYPE_DISPLAY_CONTEXT,
 			_dlMimeTypeDisplayContext);
 
+=======
+			KB_ATTACHMENT_ITEM_SELECTOR_VIEW_DISPLAY_CONTEXT,
+			kbAttachmentItemSelectorViewDisplayContext);
+
+>>>>>>> compatible
 		ServletContext servletContext = getServletContext();
 
 		RequestDispatcher requestDispatcher =
@@ -124,6 +155,7 @@ public class KBAttachmentItemSelectorView
 		requestDispatcher.include(request, response);
 	}
 
+<<<<<<< HEAD
 	@Reference(
 		cardinality = ReferenceCardinality.OPTIONAL,
 		policy = ReferencePolicy.DYNAMIC,
@@ -135,6 +167,8 @@ public class KBAttachmentItemSelectorView
 		_dlMimeTypeDisplayContext = dlMimeTypeDisplayContext;
 	}
 
+=======
+>>>>>>> compatible
 	@Reference(unbind = "-")
 	public void setItemSelectorReturnTypeResolverHandler(
 		ItemSelectorReturnTypeResolverHandler
@@ -152,12 +186,15 @@ public class KBAttachmentItemSelectorView
 		_servletContext = servletContext;
 	}
 
+<<<<<<< HEAD
 	public void unsetDLMimeTypeDisplayContext(
 		DLMimeTypeDisplayContext dlMimeTypeDisplayContext) {
 
 		_dlMimeTypeDisplayContext = null;
 	}
 
+=======
+>>>>>>> compatible
 	@Reference(
 		target = "(bundle.symbolic.name=com.liferay.knowledge.base.item.selector.web)",
 		unbind = "-"
@@ -177,7 +214,10 @@ public class KBAttachmentItemSelectorView
 					new URLItemSelectorReturnType()
 				}));
 
+<<<<<<< HEAD
 	private DLMimeTypeDisplayContext _dlMimeTypeDisplayContext;
+=======
+>>>>>>> compatible
 	private ItemSelectorReturnTypeResolverHandler
 		_itemSelectorReturnTypeResolverHandler;
 	private ResourceBundleLoader _resourceBundleLoader;

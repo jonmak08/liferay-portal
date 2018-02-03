@@ -9,6 +9,7 @@
 		</content>
 		<orderEntry type="inheritedJdk" />
 		<orderEntry type="sourceFolder" forTests="false" />
+<<<<<<< HEAD
 		<orderEntry type="module" module-name="petra-concurrent" scope="PROVIDED" />
 		<orderEntry type="module" module-name="petra-content" scope="PROVIDED" />
 		<orderEntry type="module" module-name="petra-encryptor" scope="PROVIDED" />
@@ -26,6 +27,9 @@
 		<orderEntry type="module" module-name="petra-xml" scope="PROVIDED" />
 		<orderEntry type="module" module-name="portal-kernel" scope="PROVIDED" />
 		<orderEntry type="module" module-name="registry-api" scope="PROVIDED" />
+=======
+		<orderEntry type="module" module-name="portal-kernel" scope="PROVIDED" />
+>>>>>>> compatible
 		<orderEntry type="module" module-name="util-java" />
 		<orderEntry type="library" scope="PROVIDED" name="development" level="project" />
 		<orderEntry type="library" scope="PROVIDED" name="global" level="project" />

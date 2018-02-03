@@ -14,6 +14,14 @@
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
+=======
+	<td>ADVANCED_FIELD_SETTINGS_TOGGLE</td>
+	<td>//button[contains(@class,'settings-toggler')]</td>
+	<td></td>
+</tr>
+<tr>
+>>>>>>> compatible
 	<td>FIELD_ADD</td>
 	<td>//div[contains(@class,'form-field-repeatable-toolbar')]//a[contains(@class,'add-button')]</td>
 	<td></td>
@@ -30,7 +38,16 @@
 </tr>
 <tr>
 	<td>FIELD_NAME</td>
+<<<<<<< HEAD
 	<td>//div[contains(@class,'key-value-editor')]</td>
+=======
+	<td>//div[@class='key-value-editor']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>FIELD_NAME_PLACEHOLDER</td>
+	<td>//div[contains(@class,'key-value-editor')]/span[contains(@class, 'output')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -39,6 +56,14 @@
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
+=======
+	<td>FIELD_NAME_EDIT_DONE</td>
+	<td>//div[contains(@class,'key-value-editor')]/a[contains(@class,'done')]</td>
+	<td></td>
+</tr>
+<tr>
+>>>>>>> compatible
 	<td></td>
 	<td></td>
 	<td></td>
@@ -61,7 +86,11 @@
 </tr>
 <tr>
 	<td>CHECKBOX_LABEL</td>
+<<<<<<< HEAD
 	<td>//div[contains(@data-fieldname,'${key_fieldName}')]//label[contains(.,'${key_fieldLabel}')]</td>
+=======
+	<td>//input[@type='checkbox' and contains(@id,'${key_fieldName}')]/../../label</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -82,7 +111,11 @@
 </tr>
 <tr>
 	<td>REPEATABLE_HELP_TEXT</td>
+<<<<<<< HEAD
 	<td>//div[contains(@class,'form-field-container')][${key_repeatableFieldNumber}]//div[contains(@data-fieldname,'${key_fieldName}')]//p[@class='liferay-ddm-form-field-tip'] | //div[contains(@class,'form-field-container')][${key_repeatableFieldNumber}]//div[contains(@data-fieldname,'${key_fieldName}')]/span</td>
+=======
+	<td>//div[contains(@class,'form-field-container')][${key_repeatableFieldNumber}]//div[contains(@data-fieldname,'${key_fieldName}')]//p[@class='liferay-ddm-form-field-tip']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -93,12 +126,16 @@
 <!--HELP TEXT-->
 <tr>
 	<td>HELP_TEXT</td>
+<<<<<<< HEAD
 	<td>//div[contains(@data-fieldname,'${key_fieldName}')]//p[@class='liferay-ddm-form-field-tip'] | //div[contains(@data-fieldname,'${key_fieldName}')]/span</td>
 	<td></td>
 </tr>
 <tr>
 	<td>HELP_TEXT_INPUT_FIELD</td>
 	<td>//input[@type='text' and contains(@id,'${key_fieldName}')]</td>
+=======
+	<td>//div[contains(@data-fieldname,'${key_fieldName}')]//p[@class='liferay-ddm-form-field-tip']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -108,6 +145,7 @@
 </tr>
 <!--OPTIONS-->
 <tr>
+<<<<<<< HEAD
 	<td>OPTIONS_DELETE_ROW_BUTTON</td>
 	<td>//div[@class='options']//div[contains(@class,'form-field-container')][${key_rowNumber}]//button[contains(@class,'close-modal')]</td>
 	<td></td>
@@ -120,6 +158,15 @@
 <tr>
 	<td>OPTIONS_DRAG_ICON_2</td>
 	<td>//div[@class='options']//div[contains(@class,'form-field-container')][${key_rowNumber2}]//div[contains(@class,'drag-handle')]</td>
+=======
+	<td>OPTIONS_ADD_ROW_BUTTON</td>
+	<td>//button[contains(@class,'add-row')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>OPTIONS_DELETE_ROW_BUTTON</td>
+	<td>//button[contains(@class,'delete-row')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -133,6 +180,7 @@
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 	<td>OPTIONS_OPTION_VALUE_FIELD_VISIBLE</td>
 	<td>//div[@class='options']//div[@hidden='hidden']/following-sibling::div[contains(@class,'form-field-container')][${key_rowNumber}]//input</td>
 	<td></td>
@@ -140,6 +188,15 @@
 <tr>
 	<td>OPTIONS_OPTION_NAME_FIELD</td>
 	<td>//div[@class='options']//div[contains(@class,'form-field-container')][${key_rowNumber}]//div[contains(@class, 'key-value-editor')]</td>
+=======
+	<td>OPTIONS_OPTION_NAME_FIELD</td>
+	<td>//div[@class='options']//div[contains(@class,'form-field-container')][${key_rowNumber}]//div[@class='key-value-editor']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>OPTIONS_OPTION_NAME_FIELD_PLACEHOLDER</td>
+	<td>//div[@class='options']//div[contains(@class,'form-field-container')][${key_rowNumber}]//div[contains(@class,'key-value-editor')]/span[contains(@class, 'output')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -148,6 +205,7 @@
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 	<td>OPTIONS_LABEL</td>
 	<td>//div[contains(@data-fieldname,'${key_fieldName}')]/span[contains(.,'${key_fieldLabel}')]</td>
 	<td></td>
@@ -171,6 +229,15 @@
 <tr>
 	<td>GRID_RADIO_OPTIONS</td>
 	<td>//div[contains(@class,'field-grid')]//tr[@name='${key_optionRowName}']//input[@value='${key_categoryColumnName}']</td>
+=======
+	<td>OPTIONS_OPTION_NAME_FIELD_EDIT_DONE</td>
+	<td>//div[@class='options']//div[contains(@class,'form-field-container')][${key_rowNumber}]//div[contains(@class,'key-value-editor')]/a[contains(@class,'done')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>OPTIONS_LABEL</td>
+	<td>//div[contains(@data-fieldname,'${key_fieldName}')]/span[contains(.,'${key_fieldLabel}')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -185,6 +252,7 @@
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 	<td>RADIO_OPTION_CHECKED</td>
 	<td>//label[contains(@class,'${key_radioOption}')]/input[@type='radio' and @checked="" and contains(@name,'${key_fieldName}')]</td>
 	<td></td>
@@ -192,6 +260,10 @@
 <tr>
 	<td>RADIO_LABEL</td>
 	<td>//div[contains(@data-fieldname,'${key_fieldName}')]//label</td>
+=======
+	<td>RADIO_LABEL</td>
+	<td>//div[contains(@data-fieldname,'${key_fieldName}')]/label</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -227,12 +299,20 @@
 </tr>
 <tr>
 	<td>TEXT_FIELD_2</td>
+<<<<<<< HEAD
 	<td>xpath=(//input[@type='text' and contains(@id,'${key_fieldName}')])[2]</td>
+=======
+	<td>//div[contains(@class,'ddm-form')][2]//input[@type='text' and contains(@id,'${key_fieldName}')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>TEXT_FIELD_LINE_OPTION</td>
+<<<<<<< HEAD
 	<td>//div[contains(@class,'radio-options')]//input[contains(@id,'${key_textFieldLineOption}')] | //div[contains(@class,'check')]//input[contains(@id,'${key_textFieldLineOption}')]</td>
+=======
+	<td>//div[contains(@class,'radio-options')]//input[contains(@id,'${key_textFieldLineOption}')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -258,7 +338,11 @@
 <!--PARAGRAPH-->
 <tr>
 	<td>PARAGRAPH_BODY_TEXT_CONTENT</td>
+<<<<<<< HEAD
 	<td>//div[contains(@class,'paragraph') and contains(@data-fieldname,'${key_fieldName}')]//div</td>
+=======
+	<td>//div[contains(@class,'paragraph') and contains(@data-fieldname,'${key_fieldName}')]//p</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -276,6 +360,7 @@
 	<td></td>
 	<td></td>
 </tr>
+<<<<<<< HEAD
 <!--PASSWORD-->
 <tr>
 	<td>PASSWORD_FIELD</td>
@@ -316,6 +401,12 @@
 <tr>
 	<td>SELECT_FIELD_MULTIPLE_OPTION_REMOVE</td>
 	<td>//div[contains(@data-fieldname,'${key_fieldName}')]//span[contains(.,'${key_selectOption}')]//a</td>
+=======
+<!--SELECT-->
+<tr>
+	<td>SELECT_FIELD</td>
+	<td>//div[contains(@data-fieldname,'${key_fieldName}')]//select</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -324,11 +415,14 @@
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
 	<td>SELECT_OPTIONS_OPTION_VALUE_FIELD_VISIBLE</td>
 	<td>//div[@class='options']/div[${key_rowNumber}]//input</td>
 	<td></td>
 </tr>
 <tr>
+=======
+>>>>>>> compatible
 	<td>SELECT_LABEL</td>
 	<td>//div[contains(@data-fieldname,'${key_fieldName}')]//label</td>
 	<td></td>
@@ -346,12 +440,16 @@
 </tr>
 <tr>
 	<td>SWITCHER_LABEL</td>
+<<<<<<< HEAD
 	<td>//div[contains(@data-fieldname,'${key_fieldName}')]//label[contains(.,'${key_fieldLabel}')]</td>
 	<td></td>
 </tr>
 <tr>
 	<td>SWITCHER_OPTION</td>
 	<td>//div[contains(@data-fieldname,'${key_fieldName}')]//label[contains(@class,'${key_switcherOption}')]//span[@class='toggle-switch-bar']</td>
+=======
+	<td>//div[contains(@data-fieldname,'${key_fieldName}')]//label</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <!--VALIDATION-->
@@ -401,6 +499,7 @@
 	<td></td>
 	<td></td>
 </tr>
+<<<<<<< HEAD
 <!--AUTOCOMPLETE-->
 <tr>
 	<td>AUTOCOMPLETE_LIST</td>
@@ -438,6 +537,8 @@
 	<td>//div[contains(@data-fieldname,'${key_fieldName}')]//a[@download='${key_uploadFileName}']</td>
 	<td></td>
 </tr>
+=======
+>>>>>>> compatible
 </tbody>
 </table>
 </body>

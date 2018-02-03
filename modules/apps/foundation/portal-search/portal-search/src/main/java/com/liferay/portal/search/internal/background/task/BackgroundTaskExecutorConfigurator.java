@@ -14,8 +14,13 @@
 
 package com.liferay.portal.search.internal.background.task;
 
+<<<<<<< HEAD
 import com.liferay.petra.executor.PortalExecutorManager;
 import com.liferay.portal.kernel.backgroundtask.BackgroundTaskExecutor;
+=======
+import com.liferay.portal.kernel.backgroundtask.BackgroundTaskExecutor;
+import com.liferay.portal.kernel.executor.PortalExecutorManager;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.HashMapDictionary;
 
 import java.util.Dictionary;

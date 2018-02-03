@@ -28,24 +28,35 @@ public class PortletDataException extends PortalException {
 
 	public static final int DEFAULT = 1;
 
+<<<<<<< HEAD
 	public static final int DELETE_PORTLET_DATA = 10;
 
 	public static final int END_DATE_IS_MISSING_START_DATE = 1;
 
 	public static final int EXPORT_PORTLET_DATA = 11;
 
+=======
+	public static final int END_DATE_IS_MISSING_START_DATE = 1;
+
+>>>>>>> compatible
 	public static final int FUTURE_END_DATE = 2;
 
 	public static final int FUTURE_START_DATE = 3;
 
+<<<<<<< HEAD
 	public static final int IMPORT_PORTLET_DATA = 12;
 
+=======
+>>>>>>> compatible
 	public static final int INVALID_GROUP = 4;
 
 	public static final int MISSING_DEPENDENCY = 5;
 
+<<<<<<< HEAD
 	public static final int PREPARE_MANIFEST_SUMMARY = 13;
 
+=======
+>>>>>>> compatible
 	public static final int START_DATE_AFTER_END_DATE = 6;
 
 	public static final int START_DATE_IS_MISSING_END_DATE = 7;
@@ -61,12 +72,15 @@ public class PortletDataException extends PortalException {
 		_type = type;
 	}
 
+<<<<<<< HEAD
 	public PortletDataException(int type, Throwable cause) {
 		super(cause);
 
 		_type = type;
 	}
 
+=======
+>>>>>>> compatible
 	public PortletDataException(String msg) {
 		super(msg);
 	}
@@ -79,10 +93,13 @@ public class PortletDataException extends PortalException {
 		super(cause);
 	}
 
+<<<<<<< HEAD
 	public String getPortletId() {
 		return _portletId;
 	}
 
+=======
+>>>>>>> compatible
 	public StagedModel getStagedModel() {
 		return _stagedModel;
 	}
@@ -103,10 +120,13 @@ public class PortletDataException extends PortalException {
 		return _type;
 	}
 
+<<<<<<< HEAD
 	public void setPortletId(String portletId) {
 		_portletId = portletId;
 	}
 
+=======
+>>>>>>> compatible
 	public void setStagedModel(StagedModel stagedModel) {
 		_stagedModel = stagedModel;
 	}
@@ -127,7 +147,10 @@ public class PortletDataException extends PortalException {
 		_type = type;
 	}
 
+<<<<<<< HEAD
 	private String _portletId = StringPool.BLANK;
+=======
+>>>>>>> compatible
 	private StagedModel _stagedModel;
 	private String _stagedModelClassName = StringPool.BLANK;
 	private String _stagedModelClassPK = StringPool.BLANK;

@@ -30,10 +30,18 @@ public class BaseDLDisplayContextFactory
 	extends BaseDisplayContextFactory implements DLDisplayContextFactory {
 
 	@Override
+<<<<<<< HEAD
 	public DLEditFileEntryDisplayContext getDLEditFileEntryDisplayContext(
 		DLEditFileEntryDisplayContext parentDLEditFileEntryDisplayContext,
 		HttpServletRequest request, HttpServletResponse response,
 		DLFileEntryType dlFileEntryType) {
+=======
+	public DLEditFileEntryDisplayContext
+		getDLEditFileEntryDisplayContext(
+			DLEditFileEntryDisplayContext parentDLEditFileEntryDisplayContext,
+			HttpServletRequest request, HttpServletResponse response,
+			DLFileEntryType dlFileEntryType) {
+>>>>>>> compatible
 
 		return parentDLEditFileEntryDisplayContext;
 	}
@@ -57,10 +65,19 @@ public class BaseDLDisplayContextFactory
 	}
 
 	@Override
+<<<<<<< HEAD
 	public DLViewFileVersionDisplayContext getDLViewFileVersionDisplayContext(
 		DLViewFileVersionDisplayContext parentDLViewFileVersionDisplayContext,
 		HttpServletRequest request, HttpServletResponse response,
 		FileVersion fileVersion) {
+=======
+	public DLViewFileVersionDisplayContext
+		getDLViewFileVersionDisplayContext(
+			DLViewFileVersionDisplayContext
+				parentDLViewFileVersionDisplayContext,
+			HttpServletRequest request, HttpServletResponse response,
+			FileVersion fileVersion) {
+>>>>>>> compatible
 
 		return parentDLViewFileVersionDisplayContext;
 	}

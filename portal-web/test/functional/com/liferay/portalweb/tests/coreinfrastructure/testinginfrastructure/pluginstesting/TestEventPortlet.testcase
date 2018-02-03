@@ -9,6 +9,7 @@
 	</set-up>
 
 	<tear-down>
+<<<<<<< HEAD
 		<execute macro="Page#tearDownCP" />
 	</tear-down>
 
@@ -24,6 +25,13 @@
 		</execute>
 
 		<execute macro="Navigator#gotoPage">
+=======
+		<execute macro="Page#tearDownPG" />
+	</tear-down>
+
+	<command name="ViewEvent" priority="4">
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Test Event Page" />
 		</execute>
 

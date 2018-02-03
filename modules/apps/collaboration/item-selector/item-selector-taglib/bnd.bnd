@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Item Selector Taglib
 Bundle-SymbolicName: com.liferay.item.selector.taglib
+<<<<<<< HEAD
 Bundle-Version: 1.2.0
+=======
+Bundle-Version: 1.1.8
+>>>>>>> compatible
 Export-Package:\
 	com.liferay.item.selector.taglib,\
 	com.liferay.item.selector.taglib.servlet.taglib

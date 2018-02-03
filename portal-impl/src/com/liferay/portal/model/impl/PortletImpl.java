@@ -18,7 +18,10 @@ import com.liferay.asset.kernel.model.AssetRendererFactory;
 import com.liferay.expando.kernel.model.CustomAttributesDisplay;
 import com.liferay.exportimport.kernel.lar.PortletDataHandler;
 import com.liferay.exportimport.kernel.lar.StagedModelDataHandler;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.application.type.ApplicationType;
 import com.liferay.portal.kernel.atom.AtomCollectionAdapter;
 import com.liferay.portal.kernel.log.Log;
@@ -63,7 +66,10 @@ import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.ServiceProxyFactory;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
@@ -303,6 +309,7 @@ public class PortletImpl extends PortletBaseImpl {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Constructs a portlet with the specified parameters.
 	 *
 	 * @deprecated As of 7.0.0, with no direct replacement
@@ -399,6 +406,8 @@ public class PortletImpl extends PortletBaseImpl {
 	}
 
 	/**
+=======
+>>>>>>> compatible
 	 * Adds an application type.
 	 *
 	 * @param applicationType an application type

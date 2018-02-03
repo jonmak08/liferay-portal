@@ -863,14 +863,22 @@ public class UserFinderImpl extends UserFinderBaseImpl implements UserFinder {
 
 	protected String getColumnNames(OrderByComparator obc) {
 		if (obc == null) {
+<<<<<<< HEAD
 			return "DISTINCT User_.userId AS userId";
+=======
+			return "User_.userId AS userId";
+>>>>>>> compatible
 		}
 
 		String[] orderByFields = obc.getOrderByFields();
 
 		StringBundler sb = new StringBundler(orderByFields.length * 4 + 1);
 
+<<<<<<< HEAD
 		sb.append("DISTINCT User_.userId AS userId");
+=======
+		sb.append("User_.userId AS userId");
+>>>>>>> compatible
 
 		for (String field : orderByFields) {
 			sb.append(", User_.");

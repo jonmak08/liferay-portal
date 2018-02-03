@@ -14,6 +14,7 @@
 
 package com.liferay.portal.workflow.kaleo.runtime.integration.impl.internal.test;
 
+<<<<<<< HEAD
 import com.liferay.blogs.model.BlogsEntry;
 import com.liferay.blogs.service.BlogsEntryLocalServiceUtil;
 import com.liferay.document.library.kernel.model.DLFileEntry;
@@ -25,6 +26,10 @@ import com.liferay.document.library.kernel.service.DLAppServiceUtil;
 import com.liferay.document.library.kernel.service.DLFileEntryLocalServiceUtil;
 import com.liferay.document.library.kernel.service.DLFileEntryTypeLocalServiceUtil;
 import com.liferay.document.library.kernel.service.DLFolderLocalServiceUtil;
+=======
+import com.liferay.blogs.kernel.model.BlogsEntry;
+import com.liferay.blogs.kernel.service.BlogsEntryLocalServiceUtil;
+>>>>>>> compatible
 import com.liferay.dynamic.data.lists.model.DDLRecord;
 import com.liferay.dynamic.data.lists.model.DDLRecordConstants;
 import com.liferay.dynamic.data.lists.model.DDLRecordSet;
@@ -42,23 +47,33 @@ import com.liferay.dynamic.data.mapping.test.util.DDMFormValuesTestUtil;
 import com.liferay.dynamic.data.mapping.test.util.DDMStructureTestHelper;
 import com.liferay.dynamic.data.mapping.test.util.DDMStructureTestUtil;
 import com.liferay.dynamic.data.mapping.test.util.DDMTemplateTestUtil;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.util.DDMBeanTranslatorUtil;
+=======
+>>>>>>> compatible
 import com.liferay.journal.model.JournalArticle;
 import com.liferay.journal.model.JournalFolder;
 import com.liferay.journal.model.JournalFolderConstants;
 import com.liferay.journal.service.JournalArticleLocalServiceUtil;
 import com.liferay.journal.service.JournalFolderLocalServiceUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.Organization;
 import com.liferay.portal.kernel.model.OrganizationConstants;
+=======
+import com.liferay.portal.kernel.dao.orm.QueryUtil;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.model.Group;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Role;
 import com.liferay.portal.kernel.model.RoleConstants;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.model.UserNotificationDeliveryConstants;
 import com.liferay.portal.kernel.model.UserNotificationEvent;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.WorkflowInstanceLink;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.FileVersion;
@@ -68,36 +83,56 @@ import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.security.permission.PermissionCheckerFactoryUtil;
 import com.liferay.portal.kernel.security.permission.PermissionThreadLocal;
 import com.liferay.portal.kernel.service.OrganizationLocalServiceUtil;
+=======
+import com.liferay.portal.kernel.security.permission.PermissionChecker;
+import com.liferay.portal.kernel.security.permission.PermissionCheckerFactoryUtil;
+import com.liferay.portal.kernel.security.permission.PermissionThreadLocal;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.RoleLocalServiceUtil;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.UserGroupRoleLocalServiceUtil;
 import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.service.UserNotificationEventLocalServiceUtil;
 import com.liferay.portal.kernel.service.WorkflowDefinitionLinkLocalServiceUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.service.WorkflowInstanceLinkLocalServiceUtil;
 import com.liferay.portal.kernel.settings.LocalizedValuesMap;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.test.util.UserTestUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.LocalizationUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
+=======
+import com.liferay.portal.kernel.util.LocaleUtil;
+import com.liferay.portal.kernel.util.PortalUtil;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.workflow.WorkflowDefinitionManagerUtil;
 import com.liferay.portal.kernel.workflow.WorkflowException;
 import com.liferay.portal.kernel.workflow.WorkflowInstance;
 import com.liferay.portal.kernel.workflow.WorkflowInstanceManagerUtil;
 import com.liferay.portal.kernel.workflow.WorkflowTask;
 import com.liferay.portal.kernel.workflow.WorkflowTaskManagerUtil;
+<<<<<<< HEAD
 import com.liferay.portal.security.permission.SimplePermissionChecker;
 import com.liferay.portal.test.log.CaptureAppender;
 import com.liferay.portal.test.log.Log4JLoggerTestUtil;
 import com.liferay.portal.test.randomizerbumpers.TikaSafeRandomizerBumper;
+=======
+import com.liferay.portal.test.log.CaptureAppender;
+import com.liferay.portal.test.log.Log4JLoggerTestUtil;
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -125,14 +160,22 @@ public abstract class BaseWorkflowTaskManagerTestCase {
 		serviceContext = ServiceContextTestUtil.getServiceContext(
 			group.getGroupId());
 
+<<<<<<< HEAD
 		setUpPermissionThreadLocal();
 		setUpPrincipalThreadLocal();
 		setUpUsers();
 		setUpWorkflow();
+=======
+		_originalPermissionChecker =
+			PermissionThreadLocal.getPermissionChecker();
+
+		setUpUsers();
+>>>>>>> compatible
 	}
 
 	@After
 	public void tearDown() throws PortalException {
+<<<<<<< HEAD
 		PermissionThreadLocal.setPermissionChecker(_permissionChecker);
 
 		PrincipalThreadLocal.setName(_name);
@@ -144,12 +187,16 @@ public abstract class BaseWorkflowTaskManagerTestCase {
 
 		activateWorkflow(
 			groupId, className, classPK, typePK, "Single Approver", 1);
+=======
+		PermissionThreadLocal.setPermissionChecker(_originalPermissionChecker);
+>>>>>>> compatible
 	}
 
 	protected void activateSingleApproverWorkflow(
 			String className, long classPK, long typePK)
 		throws PortalException {
 
+<<<<<<< HEAD
 		activateWorkflow(
 			group.getGroupId(), className, classPK, typePK, "Single Approver",
 			1);
@@ -164,6 +211,9 @@ public abstract class BaseWorkflowTaskManagerTestCase {
 			adminUser.getUserId(), TestPropsValues.getCompanyId(), groupId,
 			className, classPK, typePK, workflowDefinitionName,
 			workflowDefinitionVersion);
+=======
+		activateWorkflow(className, classPK, typePK, "Single Approver", 1);
+>>>>>>> compatible
 	}
 
 	protected void activateWorkflow(
@@ -171,26 +221,39 @@ public abstract class BaseWorkflowTaskManagerTestCase {
 			String workflowDefinitionName, int workflowDefinitionVersion)
 		throws PortalException {
 
+<<<<<<< HEAD
 		activateWorkflow(
+=======
+		WorkflowDefinitionLinkLocalServiceUtil.updateWorkflowDefinitionLink(
+			adminUser.getUserId(), TestPropsValues.getCompanyId(),
+>>>>>>> compatible
 			group.getGroupId(), className, classPK, typePK,
 			workflowDefinitionName, workflowDefinitionVersion);
 	}
 
 	protected BlogsEntry addBlogsEntry() throws PortalException {
+<<<<<<< HEAD
 		return addBlogsEntry(adminUser);
 	}
 
 	protected BlogsEntry addBlogsEntry(User user) throws PortalException {
+=======
+>>>>>>> compatible
 		try (CaptureAppender captureAppender =
 				Log4JLoggerTestUtil.configureLog4JLogger(
 					_MAIL_ENGINE_CLASS_NAME, Level.OFF)) {
 
 			return BlogsEntryLocalServiceUtil.addEntry(
+<<<<<<< HEAD
 				user.getUserId(), StringUtil.randomString(),
+=======
+				adminUser.getUserId(), StringUtil.randomString(),
+>>>>>>> compatible
 				StringUtil.randomString(), new Date(), serviceContext);
 		}
 	}
 
+<<<<<<< HEAD
 	protected DLFileEntryType addFileEntryType() throws Exception {
 		LocalizedValuesMap localizedValuesMap = new LocalizedValuesMap(
 			"defaultValue");
@@ -263,6 +326,8 @@ public abstract class BaseWorkflowTaskManagerTestCase {
 		return folder;
 	}
 
+=======
+>>>>>>> compatible
 	protected JournalArticle addJournalArticle(long folderId) throws Exception {
 		DDMStructure ddmStructure = DDMStructureTestUtil.addStructure(
 			group.getGroupId(), JournalArticle.class.getName());
@@ -374,13 +439,18 @@ public abstract class BaseWorkflowTaskManagerTestCase {
 	protected void assignWorkflowTaskToUser(User user, User assigneeUser)
 		throws Exception {
 
+<<<<<<< HEAD
 		assignWorkflowTaskToUser(user, assigneeUser, null, null, 0);
+=======
+		assignWorkflowTaskToUser(user, assigneeUser, null);
+>>>>>>> compatible
 	}
 
 	protected void assignWorkflowTaskToUser(
 			User user, User assigneeUser, String taskName)
 		throws Exception {
 
+<<<<<<< HEAD
 		assignWorkflowTaskToUser(user, assigneeUser, taskName, null, 0);
 	}
 
@@ -389,12 +459,18 @@ public abstract class BaseWorkflowTaskManagerTestCase {
 			long classPK)
 		throws Exception {
 
+=======
+>>>>>>> compatible
 		try (CaptureAppender captureAppender =
 				Log4JLoggerTestUtil.configureLog4JLogger(
 					_MAIL_ENGINE_CLASS_NAME, Level.OFF)) {
 
+<<<<<<< HEAD
 			WorkflowTask workflowTask = getWorkflowTask(
 				user, taskName, false, className, classPK);
+=======
+			WorkflowTask workflowTask = getWorkflowTask(taskName, false);
+>>>>>>> compatible
 
 			PermissionChecker userPermissionChecker =
 				PermissionCheckerFactoryUtil.create(user);
@@ -430,6 +506,7 @@ public abstract class BaseWorkflowTaskManagerTestCase {
 		}
 	}
 
+<<<<<<< HEAD
 	protected void completeWorkflowTask(User user, String transition)
 		throws Exception {
 
@@ -446,14 +523,40 @@ public abstract class BaseWorkflowTaskManagerTestCase {
 	protected void completeWorkflowTask(
 			User user, String transition, String taskName, String className,
 			long classPK)
+=======
+	protected void checkWorkflowInstance(String className, long classPK)
+		throws WorkflowException {
+
+		List<WorkflowInstance> workflowInstances =
+			WorkflowInstanceManagerUtil.getWorkflowInstances(
+				adminUser.getCompanyId(), adminUser.getUserId(), className,
+				classPK, true, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
+
+		Assert.assertEquals(
+			workflowInstances.toString(), 1, workflowInstances.size());
+	}
+
+	protected void completeWorkflowTask(User user, String transition)
+		throws Exception {
+
+		completeWorkflowTask(user, transition, null);
+	}
+
+	protected void completeWorkflowTask(
+			User user, String transition, String taskName)
+>>>>>>> compatible
 		throws Exception {
 
 		try (CaptureAppender captureAppender =
 				Log4JLoggerTestUtil.configureLog4JLogger(
 					_MAIL_ENGINE_CLASS_NAME, Level.OFF)) {
 
+<<<<<<< HEAD
 			WorkflowTask workflowTask = getWorkflowTask(
 				user, taskName, false, className, classPK);
+=======
+			WorkflowTask workflowTask = getWorkflowTask(taskName, false);
+>>>>>>> compatible
 
 			PermissionChecker userPermissionChecker =
 				PermissionCheckerFactoryUtil.create(user);
@@ -481,6 +584,7 @@ public abstract class BaseWorkflowTaskManagerTestCase {
 	}
 
 	protected void createJoinXorWorkflow() throws Exception {
+<<<<<<< HEAD
 		try (CaptureAppender captureAppender =
 				Log4JLoggerTestUtil.configureLog4JLogger(
 					_PROXY_MESSAGE_LISTENER_CLASS_NAME, Level.OFF)) {
@@ -546,6 +650,18 @@ public abstract class BaseWorkflowTaskManagerTestCase {
 
 		_users.add(user);
 
+=======
+		String content = read("join-xor-definition.xml");
+
+		WorkflowDefinitionManagerUtil.deployWorkflowDefinition(
+			adminUser.getCompanyId(), adminUser.getUserId(), "Join Xor",
+			content.getBytes());
+	}
+
+	protected User createUser(String roleName) throws Exception {
+		User user = UserTestUtil.addUser(group.getGroupId());
+
+>>>>>>> compatible
 		Role role = RoleLocalServiceUtil.getRole(
 			TestPropsValues.getCompanyId(), roleName);
 
@@ -560,6 +676,7 @@ public abstract class BaseWorkflowTaskManagerTestCase {
 	}
 
 	protected void deactivateWorkflow(
+<<<<<<< HEAD
 			long groupId, String className, long classPK, long typePK)
 		throws PortalException {
 
@@ -667,14 +784,45 @@ public abstract class BaseWorkflowTaskManagerTestCase {
 					continue;
 				}
 
+=======
+			String className, long classPK, long typePK)
+		throws PortalException {
+
+		WorkflowDefinitionLinkLocalServiceUtil.updateWorkflowDefinitionLink(
+			adminUser.getUserId(), TestPropsValues.getCompanyId(),
+			group.getGroupId(), className, classPK, typePK, null);
+	}
+
+	protected String getBasePath() {
+		return "com/liferay/portal/workflow/kaleo/runtime/dependencies/";
+	}
+
+	protected WorkflowTask getWorkflowTask() throws WorkflowException {
+		return getWorkflowTask(null, false);
+	}
+
+	protected WorkflowTask getWorkflowTask(String taskName, boolean completed)
+		throws WorkflowException {
+
+		List<WorkflowTask> workflowTasks =
+			WorkflowTaskManagerUtil.getWorkflowTasksBySubmittingUser(
+				adminUser.getCompanyId(), adminUser.getUserId(), completed,
+				QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
+
+		for (WorkflowTask workflowTask : workflowTasks) {
+			if (Objects.equals(taskName, workflowTask.getName())) {
+>>>>>>> compatible
 				return workflowTask;
 			}
 		}
 
+<<<<<<< HEAD
 		Assert.assertNull(taskName);
 
 		Assert.assertNull(className);
 
+=======
+>>>>>>> compatible
 		Assert.assertEquals(workflowTasks.toString(), 1, workflowTasks.size());
 
 		return workflowTasks.get(0);
@@ -687,6 +835,7 @@ public abstract class BaseWorkflowTaskManagerTestCase {
 			clazz.getClassLoader(), getBasePath() + fileName);
 	}
 
+<<<<<<< HEAD
 	protected int searchCount(String keywords) throws Exception {
 		return WorkflowTaskManagerUtil.searchCount(
 			adminUser.getCompanyId(), adminUser.getUserId(), keywords, null,
@@ -801,6 +950,23 @@ public abstract class BaseWorkflowTaskManagerTestCase {
 	protected static final String SCRIPTED_SINGLE_APPROVER =
 		"Scripted Single Approver";
 
+=======
+	protected void setUpUsers() throws Exception {
+		adminUser = createUser(RoleConstants.ADMINISTRATOR);
+
+		_users.add(adminUser);
+
+		portalContentReviewerUser = createUser(
+			RoleConstants.PORTAL_CONTENT_REVIEWER);
+
+		_users.add(portalContentReviewerUser);
+
+		siteAdminUser = createUser(RoleConstants.SITE_ADMINISTRATOR);
+
+		_users.add(siteAdminUser);
+	}
+
+>>>>>>> compatible
 	protected User adminUser;
 
 	@DeleteAfterTestRun
@@ -813,6 +979,7 @@ public abstract class BaseWorkflowTaskManagerTestCase {
 	private static final String _MAIL_ENGINE_CLASS_NAME =
 		"com.liferay.util.mail.MailEngine";
 
+<<<<<<< HEAD
 	private static final String _PROXY_MESSAGE_LISTENER_CLASS_NAME =
 		"com.liferay.portal.kernel.messaging.proxy.ProxyMessageListener";
 
@@ -834,6 +1001,9 @@ public abstract class BaseWorkflowTaskManagerTestCase {
 	private final List<Organization> _organizations = new ArrayList<>();
 
 	private PermissionChecker _permissionChecker;
+=======
+	private PermissionChecker _originalPermissionChecker;
+>>>>>>> compatible
 
 	@DeleteAfterTestRun
 	private final List<User> _users = new ArrayList<>();

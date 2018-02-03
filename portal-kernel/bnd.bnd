@@ -1,12 +1,18 @@
 Bundle-Name: ${manifest.bundle.name}
 Bundle-SymbolicName: ${manifest.bundle.symbolic.name}
+<<<<<<< HEAD
 Bundle-Version: 2.62.0
 Export-Package:\
 	!com.liferay.portal.kernel.internal.*,\
+=======
+Bundle-Version: 2.46.1
+Export-Package:\
+>>>>>>> compatible
 	!com.liferay.portal.kernel.test.*,\
 	\
 	com.liferay.*
 Import-Package: *
+<<<<<<< HEAD
 Include-Resource:\
 	classes,\
 	@../tmp/lib-pre/com.liferay.portal.kernel.blogs.compat.jar,\
@@ -17,3 +23,7 @@ Include-Resource:\
 	@../tmp/lib-pre/com.liferay.portal.kernel.nio.compat.jar,\
 	@../tmp/lib-pre/com.liferay.portal.kernel.util.compat.jar
 -baseline: *;file=${project.dir}/.bnd/ant-baseline-cache/com.liferay.portal.kernel-2.61.0.jar
+=======
+Include-Resource: classes
+-baseline: *;file=${project.dir}/.bnd/ant-baseline-cache/com.liferay.portal.kernel-2.46.0.jar
+>>>>>>> compatible

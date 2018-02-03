@@ -42,25 +42,49 @@ import com.amazonaws.services.s3.transfer.TransferManager;
 import com.amazonaws.services.s3.transfer.TransferManagerConfiguration;
 import com.amazonaws.services.s3.transfer.Upload;
 
+<<<<<<< HEAD
 import com.liferay.document.library.kernel.exception.AccessDeniedException;
+=======
+>>>>>>> compatible
 import com.liferay.document.library.kernel.exception.DuplicateFileException;
 import com.liferay.document.library.kernel.exception.NoSuchFileException;
 import com.liferay.document.library.kernel.store.BaseStore;
 import com.liferay.document.library.kernel.store.Store;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
 import com.liferay.portal.kernel.concurrent.ThreadPoolExecutor;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.messaging.BaseMessageListener;
+import com.liferay.portal.kernel.messaging.DestinationNames;
+import com.liferay.portal.kernel.messaging.Message;
+import com.liferay.portal.kernel.scheduler.SchedulerEngineHelper;
+import com.liferay.portal.kernel.scheduler.SchedulerEntry;
+import com.liferay.portal.kernel.scheduler.SchedulerEntryImpl;
+import com.liferay.portal.kernel.scheduler.TimeUnit;
+import com.liferay.portal.kernel.scheduler.Trigger;
+import com.liferay.portal.kernel.scheduler.TriggerFactory;
+import com.liferay.portal.kernel.util.CharPool;
+import com.liferay.portal.kernel.util.FileUtil;
+import com.liferay.portal.kernel.util.StreamUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.store.s3.configuration.S3StoreConfiguration;
 
 import java.io.File;
+<<<<<<< HEAD
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -68,6 +92,19 @@ import java.io.InputStream;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+=======
+import java.io.IOException;
+import java.io.InputStream;
+
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.temporal.ChronoUnit;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+>>>>>>> compatible
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -159,10 +196,13 @@ public class S3Store extends BaseStore {
 		}
 	}
 
+<<<<<<< HEAD
 	public String getBucketName() {
 		return _bucketName;
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	public File getFile(
 			long companyId, long repositoryId, String fileName,
@@ -190,6 +230,7 @@ public class S3Store extends BaseStore {
 			String versionLabel)
 		throws PortalException {
 
+<<<<<<< HEAD
 		File file = getFile(companyId, repositoryId, fileName, versionLabel);
 
 		try {
@@ -198,6 +239,12 @@ public class S3Store extends BaseStore {
 		catch (FileNotFoundException fnfe) {
 			throw new SystemException(fnfe);
 		}
+=======
+		S3Object s3Object = getS3Object(
+			companyId, repositoryId, fileName, versionLabel);
+
+		return s3Object.getObjectContent();
+>>>>>>> compatible
 	}
 
 	@Override
@@ -258,10 +305,13 @@ public class S3Store extends BaseStore {
 		return objectMetadata.getContentLength();
 	}
 
+<<<<<<< HEAD
 	public TransferManager getTransferManager() {
 		return _transferManager;
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	public boolean hasDirectory(
 		long companyId, long repositoryId, String dirName) {
@@ -274,6 +324,7 @@ public class S3Store extends BaseStore {
 		long companyId, long repositoryId, String fileName,
 		String versionLabel) {
 
+<<<<<<< HEAD
 		try {
 			if (Validator.isNull(versionLabel)) {
 				versionLabel = getHeadVersionLabel(
@@ -291,6 +342,15 @@ public class S3Store extends BaseStore {
 			}
 
 			throw transform(ace);
+=======
+		S3Object s3Object = null;
+
+		try {
+			s3Object = getS3Object(
+				companyId, repositoryId, fileName, versionLabel);
+
+			return true;
+>>>>>>> compatible
 		}
 		catch (NoSuchFileException nsfe) {
 
@@ -302,6 +362,21 @@ public class S3Store extends BaseStore {
 
 			return false;
 		}
+<<<<<<< HEAD
+=======
+		finally {
+			try {
+				if (s3Object != null) {
+					s3Object.close();
+				}
+			}
+			catch (IOException ioe) {
+				if (_log.isWarnEnabled()) {
+					_log.warn("Uanble to to close S3 object", ioe);
+				}
+			}
+		}
+>>>>>>> compatible
 	}
 
 	@Override
@@ -377,6 +452,11 @@ public class S3Store extends BaseStore {
 			throw new SystemException(ioe);
 		}
 		finally {
+<<<<<<< HEAD
+=======
+			StreamUtil.cleanUp(is);
+
+>>>>>>> compatible
 			FileUtil.delete(file);
 		}
 	}
@@ -407,6 +487,15 @@ public class S3Store extends BaseStore {
 					iae);
 			}
 		}
+<<<<<<< HEAD
+=======
+
+		_abortedMultipartUploadCleaner = new AbortedMultipartUploadCleaner(
+			_bucketName, _transferManager, _triggerFactory,
+			_schedulerEngineHelper);
+
+		_abortedMultipartUploadCleaner.start();
+>>>>>>> compatible
 	}
 
 	protected void configureProxySettings(
@@ -446,6 +535,11 @@ public class S3Store extends BaseStore {
 		_awsCredentialsProvider = null;
 		_bucketName = null;
 		_s3StoreConfiguration = null;
+<<<<<<< HEAD
+=======
+
+		_abortedMultipartUploadCleaner.stop();
+>>>>>>> compatible
 	}
 
 	protected void deleteObjects(String prefix) {
@@ -690,9 +784,14 @@ public class S3Store extends BaseStore {
 
 		if (!newS3ObjectSummaries.isEmpty()) {
 			throw new DuplicateFileException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Duplicate S3 object found when moving files from ",
 					oldPrefix, " to ", newPrefix));
+=======
+				"Duplicate S3 object found when moving files from " +
+					oldPrefix + " to " + newPrefix);
+>>>>>>> compatible
 		}
 
 		List<S3ObjectSummary> oldS3ObjectSummaries = getS3ObjectSummaries(
@@ -772,11 +871,15 @@ public class S3Store extends BaseStore {
 			StringBundler sb = new StringBundler(11);
 
 			sb.append("{errorCode=");
+<<<<<<< HEAD
 
 			String errorCode = amazonServiceException.getErrorCode();
 
 			sb.append(errorCode);
 
+=======
+			sb.append(amazonServiceException.getErrorCode());
+>>>>>>> compatible
 			sb.append(", errorType=");
 			sb.append(amazonServiceException.getErrorType());
 			sb.append(", message=");
@@ -787,10 +890,13 @@ public class S3Store extends BaseStore {
 			sb.append(amazonServiceException.getStatusCode());
 			sb.append("}");
 
+<<<<<<< HEAD
 			if (errorCode.equals("AccessDenied")) {
 				return new AccessDeniedException(sb.toString());
 			}
 
+=======
+>>>>>>> compatible
 			return new SystemException(sb.toString());
 		}
 		else {
@@ -815,7 +921,81 @@ public class S3Store extends BaseStore {
 	private String _bucketName;
 	private S3FileCache _s3FileCache;
 	private S3KeyTransformer _s3KeyTransformer;
+<<<<<<< HEAD
 	private StorageClass _storageClass;
 	private TransferManager _transferManager;
 
+=======
+
+	@Reference(unbind = "-")
+	private volatile SchedulerEngineHelper _schedulerEngineHelper;
+
+	private StorageClass _storageClass;
+	private TransferManager _transferManager;
+
+	@Reference(unbind = "-")
+	private volatile TriggerFactory _triggerFactory;
+
+	private static class AbortedMultipartUploadCleaner
+		extends BaseMessageListener {
+
+		public AbortedMultipartUploadCleaner(
+			String bucketName, TransferManager transferManager,
+			TriggerFactory triggerFactory,
+			SchedulerEngineHelper schedulerEngineHelper) {
+
+			_bucketName = bucketName;
+			_transferManager = transferManager;
+			_triggerFactory = triggerFactory;
+			_schedulerEngineHelper = schedulerEngineHelper;
+		}
+
+		public void start() {
+			Class<?> clazz = getClass();
+
+			String className = clazz.getName();
+
+			Trigger trigger = _triggerFactory.createTrigger(
+				className, className, null, null, 1, TimeUnit.DAY);
+
+			SchedulerEntry schedulerEntry = new SchedulerEntryImpl(
+				className, trigger);
+
+			_schedulerEngineHelper.register(
+				this, schedulerEntry, DestinationNames.SCHEDULER_DISPATCH);
+		}
+
+		public void stop() {
+			_schedulerEngineHelper.unregister(this);
+		}
+
+		@Override
+		protected void doReceive(Message message) throws Exception {
+			_transferManager.abortMultipartUploads(
+				_bucketName, _computeStartDate());
+		}
+
+		private Date _computeStartDate() {
+			Date date = new Date();
+
+			LocalDateTime localDateTime = LocalDateTime.ofInstant(
+				date.toInstant(), ZoneId.systemDefault());
+
+			LocalDateTime previousDayLocalDateTime = localDateTime.minus(
+				1, ChronoUnit.DAYS);
+
+			ZonedDateTime zonedDateTime = previousDayLocalDateTime.atZone(
+				ZoneId.systemDefault());
+
+			return Date.from(zonedDateTime.toInstant());
+		}
+
+		private String _bucketName;
+		private final SchedulerEngineHelper _schedulerEngineHelper;
+		private TransferManager _transferManager;
+		private volatile TriggerFactory _triggerFactory;
+
+	}
+
+>>>>>>> compatible
 }

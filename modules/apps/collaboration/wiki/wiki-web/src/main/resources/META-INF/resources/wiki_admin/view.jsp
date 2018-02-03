@@ -100,7 +100,11 @@ int nodesCount = WikiNodeServiceUtil.getNodesCount(scopeGroupId);
 			label="info"
 		/>
 
+<<<<<<< HEAD
 		<liferay-frontend:management-bar-button href='<%= "javascript:" + renderResponse.getNamespace() + "deleteNodes();" %>' icon='<%= trashHelper.isTrashEnabled(scopeGroupId) ? "trash" : "times" %>' label='<%= trashHelper.isTrashEnabled(scopeGroupId) ? "recycle-bin" : "delete" %>' />
+=======
+		<liferay-frontend:management-bar-button href='<%= "javascript:" + renderResponse.getNamespace() + "deleteNodes();" %>' icon='<%= TrashUtil.isTrashEnabled(scopeGroupId) ? "trash" : "times" %>' label='<%= TrashUtil.isTrashEnabled(scopeGroupId) ? "recycle-bin" : "delete" %>' />
+>>>>>>> compatible
 	</liferay-frontend:management-bar-action-buttons>
 </liferay-frontend:management-bar>
 
@@ -120,6 +124,7 @@ int nodesCount = WikiNodeServiceUtil.getNodesCount(scopeGroupId);
 	</liferay-frontend:sidebar-panel>
 
 	<div class="sidenav-content">
+<<<<<<< HEAD
 
 		<%
 		PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "wiki"), portletURL.toString());
@@ -132,6 +137,8 @@ int nodesCount = WikiNodeServiceUtil.getNodesCount(scopeGroupId);
 			showParentGroups="<%= false %>"
 		/>
 
+=======
+>>>>>>> compatible
 		<liferay-trash:undo
 			portletURL="<%= restoreTrashEntriesURL %>"
 		/>
@@ -185,6 +192,7 @@ int nodesCount = WikiNodeServiceUtil.getNodesCount(scopeGroupId);
 							/>
 
 							<liferay-ui:search-container-column-text colspan="<%= 2 %>">
+<<<<<<< HEAD
 
 								<%
 								Date lastPostDate = node.getLastPostDate();
@@ -196,6 +204,8 @@ int nodesCount = WikiNodeServiceUtil.getNodesCount(scopeGroupId);
 									</h5>
 								</c:if>
 
+=======
+>>>>>>> compatible
 								<h4>
 									<aui:a href="<%= rowURL.toString() %>">
 										<%= HtmlUtil.escape(node.getName()) %>
@@ -243,7 +253,11 @@ int nodesCount = WikiNodeServiceUtil.getNodesCount(scopeGroupId);
 </div>
 
 <%
+<<<<<<< HEAD
 boolean showAddNodeButton = WikiResourcePermission.contains(permissionChecker, scopeGroupId, ActionKeys.ADD_NODE);
+=======
+boolean showAddNodeButton = WikiResourcePermissionChecker.contains(permissionChecker, scopeGroupId, ActionKeys.ADD_NODE);
+>>>>>>> compatible
 %>
 
 <c:if test="<%= showAddNodeButton %>">
@@ -263,11 +277,19 @@ boolean showAddNodeButton = WikiResourcePermission.contains(permissionChecker, s
 
 <aui:script>
 	function <portlet:namespace />deleteNodes() {
+<<<<<<< HEAD
 		if (<%= trashHelper.isTrashEnabled(scopeGroupId) %> || confirm(' <%= UnicodeLanguageUtil.get(request, "are-you-sure-you-want-to-delete-the-selected-entries") %>')) {
 			var form = AUI.$(document.<portlet:namespace />fm);
 
 			form.attr('method', 'post');
 			form.fm('<%= Constants.CMD %>').val('<%= trashHelper.isTrashEnabled(scopeGroupId) ? Constants.MOVE_TO_TRASH : Constants.DELETE %>');
+=======
+		if (<%= TrashUtil.isTrashEnabled(scopeGroupId) %> || confirm(' <%= UnicodeLanguageUtil.get(request, "are-you-sure-you-want-to-delete-the-selected-entries") %>')) {
+			var form = AUI.$(document.<portlet:namespace />fm);
+
+			form.attr('method', 'post');
+			form.fm('<%= Constants.CMD %>').val('<%= TrashUtil.isTrashEnabled(scopeGroupId) ? Constants.MOVE_TO_TRASH : Constants.DELETE %>');
+>>>>>>> compatible
 
 			submitForm(form, '<portlet:actionURL name="/wiki/edit_node" />');
 		}

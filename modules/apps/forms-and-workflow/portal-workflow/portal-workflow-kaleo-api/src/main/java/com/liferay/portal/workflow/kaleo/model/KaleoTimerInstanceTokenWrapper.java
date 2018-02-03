@@ -69,7 +69,11 @@ public class KaleoTimerInstanceTokenWrapper implements KaleoTimerInstanceToken,
 		attributes.put("modifiedDate", getModifiedDate());
 		attributes.put("kaleoClassName", getKaleoClassName());
 		attributes.put("kaleoClassPK", getKaleoClassPK());
+<<<<<<< HEAD
 		attributes.put("kaleoDefinitionVersionId", getKaleoDefinitionVersionId());
+=======
+		attributes.put("kaleoDefinitionId", getKaleoDefinitionId());
+>>>>>>> compatible
 		attributes.put("kaleoInstanceId", getKaleoInstanceId());
 		attributes.put("kaleoInstanceTokenId", getKaleoInstanceTokenId());
 		attributes.put("kaleoTaskInstanceTokenId", getKaleoTaskInstanceTokenId());
@@ -141,11 +145,18 @@ public class KaleoTimerInstanceTokenWrapper implements KaleoTimerInstanceToken,
 			setKaleoClassPK(kaleoClassPK);
 		}
 
+<<<<<<< HEAD
 		Long kaleoDefinitionVersionId = (Long)attributes.get(
 				"kaleoDefinitionVersionId");
 
 		if (kaleoDefinitionVersionId != null) {
 			setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
+=======
+		Long kaleoDefinitionId = (Long)attributes.get("kaleoDefinitionId");
+
+		if (kaleoDefinitionId != null) {
+			setKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 		}
 
 		Long kaleoInstanceId = (Long)attributes.get("kaleoInstanceId");
@@ -326,6 +337,7 @@ public class KaleoTimerInstanceTokenWrapper implements KaleoTimerInstanceToken,
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns the kaleo definition version ID of this kaleo timer instance token.
 	*
 	* @return the kaleo definition version ID of this kaleo timer instance token
@@ -333,6 +345,15 @@ public class KaleoTimerInstanceTokenWrapper implements KaleoTimerInstanceToken,
 	@Override
 	public long getKaleoDefinitionVersionId() {
 		return _kaleoTimerInstanceToken.getKaleoDefinitionVersionId();
+=======
+	* Returns the kaleo definition ID of this kaleo timer instance token.
+	*
+	* @return the kaleo definition ID of this kaleo timer instance token
+	*/
+	@Override
+	public long getKaleoDefinitionId() {
+		return _kaleoTimerInstanceToken.getKaleoDefinitionId();
+>>>>>>> compatible
 	}
 
 	/**
@@ -644,6 +665,7 @@ public class KaleoTimerInstanceTokenWrapper implements KaleoTimerInstanceToken,
 	}
 
 	/**
+<<<<<<< HEAD
 	* Sets the kaleo definition version ID of this kaleo timer instance token.
 	*
 	* @param kaleoDefinitionVersionId the kaleo definition version ID of this kaleo timer instance token
@@ -651,6 +673,15 @@ public class KaleoTimerInstanceTokenWrapper implements KaleoTimerInstanceToken,
 	@Override
 	public void setKaleoDefinitionVersionId(long kaleoDefinitionVersionId) {
 		_kaleoTimerInstanceToken.setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
+=======
+	* Sets the kaleo definition ID of this kaleo timer instance token.
+	*
+	* @param kaleoDefinitionId the kaleo definition ID of this kaleo timer instance token
+	*/
+	@Override
+	public void setKaleoDefinitionId(long kaleoDefinitionId) {
+		_kaleoTimerInstanceToken.setKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 	/**

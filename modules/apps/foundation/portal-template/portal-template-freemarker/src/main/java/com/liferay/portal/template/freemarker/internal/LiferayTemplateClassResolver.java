@@ -14,15 +14,24 @@
 
 package com.liferay.portal.template.freemarker.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
+=======
+import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
+import com.liferay.portal.kernel.concurrent.ConcurrentHashSet;
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.AggregateClassLoader;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.ClassLoaderUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.template.freemarker.configuration.FreeMarkerEngineConfiguration;
 
@@ -34,11 +43,17 @@ import freemarker.template.TemplateException;
 import freemarker.template.utility.Execute;
 import freemarker.template.utility.ObjectConstructor;
 
+<<<<<<< HEAD
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+=======
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+>>>>>>> compatible
 
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
@@ -72,9 +87,14 @@ public class LiferayTemplateClassResolver implements TemplateClassResolver {
 			className.equals(ObjectConstructor.class.getName())) {
 
 			throw new TemplateException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Instantiating ", className, " is not allowed in the ",
 					"template for security reasons"),
+=======
+				"Instantiating " + className + " is not allowed in the " +
+					"template for security reasons",
+>>>>>>> compatible
 				environment);
 		}
 
@@ -84,9 +104,14 @@ public class LiferayTemplateClassResolver implements TemplateClassResolver {
 		for (String restrictedClassName : restrictedClassNames) {
 			if (match(restrictedClassName, className)) {
 				throw new TemplateException(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Instantiating ", className, " is not allowed in the ",
 						"template for security reasons"),
+=======
+					"Instantiating " + className + " is not allowed in the " +
+						"template for security reasons",
+>>>>>>> compatible
 					environment);
 			}
 		}
@@ -126,9 +151,14 @@ public class LiferayTemplateClassResolver implements TemplateClassResolver {
 		}
 
 		throw new TemplateException(
+<<<<<<< HEAD
 			StringBundler.concat(
 				"Instantiating ", className, " is not allowed in the template ",
 				"for security reasons"),
+=======
+			"Instantiating " + className + " is not allowed in the template " +
+				"for security reasons",
+>>>>>>> compatible
 			environment);
 	}
 
@@ -242,9 +272,14 @@ public class LiferayTemplateClassResolver implements TemplateClassResolver {
 				Bundle bundle = bundleContext.getBundle();
 
 				_log.warn(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Bundle ", bundle.getSymbolicName(),
 						" does not export ", allowedClassName));
+=======
+					"Bundle " + bundle.getSymbolicName() + " does not export " +
+						allowedClassName);
+>>>>>>> compatible
 			}
 		}
 
@@ -298,13 +333,21 @@ public class LiferayTemplateClassResolver implements TemplateClassResolver {
 	private static final Log _log = LogFactoryUtil.getLog(
 		LiferayTemplateClassResolver.class);
 
+<<<<<<< HEAD
 	private final Set<Bundle> _bundles = Collections.newSetFromMap(
 		new ConcurrentHashMap<>());
+=======
+	private final Set<Bundle> _bundles = new ConcurrentHashSet<>();
+>>>>>>> compatible
 	private BundleTracker<ClassLoader> _classLoaderBundleTracker;
 	private volatile FreeMarkerEngineConfiguration
 		_freemarkerEngineConfiguration;
 	private final Set<ClassLoader> _wwhitelistedClassLoaders =
+<<<<<<< HEAD
 		Collections.newSetFromMap(new ConcurrentHashMap<>());
+=======
+		new ConcurrentHashSet<>();
+>>>>>>> compatible
 
 	private class ClassLoaderBundleTrackerCustomizer
 		implements BundleTrackerCustomizer<ClassLoader> {

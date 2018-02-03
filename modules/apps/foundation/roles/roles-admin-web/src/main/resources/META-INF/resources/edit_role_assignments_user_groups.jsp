@@ -50,7 +50,11 @@ if (tabs3.equals("available")) {
 	LinkedHashMap<String, Object> userGroupParams = new LinkedHashMap<String, Object>();
 
 	if (tabs3.equals("current")) {
+<<<<<<< HEAD
 		userGroupParams.put(UserGroupFinderConstants.PARAM_KEY_USER_GROUPS_ROLES, Long.valueOf(role.getRoleId()));
+=======
+		userGroupParams.put("userGroupsRoles", Long.valueOf(role.getRoleId()));
+>>>>>>> compatible
 	}
 	%>
 

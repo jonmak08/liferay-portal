@@ -68,6 +68,10 @@ public class CalendarResourceWrapper implements CalendarResource,
 		attributes.put("userName", getUserName());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
+<<<<<<< HEAD
+=======
+		attributes.put("resourceBlockId", getResourceBlockId());
+>>>>>>> compatible
 		attributes.put("classNameId", getClassNameId());
 		attributes.put("classPK", getClassPK());
 		attributes.put("classUuid", getClassUuid());
@@ -130,6 +134,15 @@ public class CalendarResourceWrapper implements CalendarResource,
 			setModifiedDate(modifiedDate);
 		}
 
+<<<<<<< HEAD
+=======
+		Long resourceBlockId = (Long)attributes.get("resourceBlockId");
+
+		if (resourceBlockId != null) {
+			setResourceBlockId(resourceBlockId);
+		}
+
+>>>>>>> compatible
 		Long classNameId = (Long)attributes.get("classNameId");
 
 		if (classNameId != null) {
@@ -509,6 +522,19 @@ public class CalendarResourceWrapper implements CalendarResource,
 		return _calendarResource.getPrimaryKeyObj();
 	}
 
+<<<<<<< HEAD
+=======
+	/**
+	* Returns the resource block ID of this calendar resource.
+	*
+	* @return the resource block ID of this calendar resource
+	*/
+	@Override
+	public long getResourceBlockId() {
+		return _calendarResource.getResourceBlockId();
+	}
+
+>>>>>>> compatible
 	@Override
 	public java.util.TimeZone getTimeZone()
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -901,6 +927,19 @@ public class CalendarResourceWrapper implements CalendarResource,
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	* Sets the resource block ID of this calendar resource.
+	*
+	* @param resourceBlockId the resource block ID of this calendar resource
+	*/
+	@Override
+	public void setResourceBlockId(long resourceBlockId) {
+		_calendarResource.setResourceBlockId(resourceBlockId);
+	}
+
+	/**
+>>>>>>> compatible
 	* Sets the user ID of this calendar resource.
 	*
 	* @param userId the user ID of this calendar resource

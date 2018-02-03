@@ -14,7 +14,10 @@
 
 package com.liferay.util.dao.orm;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.configuration.Configuration;
 import com.liferay.portal.kernel.configuration.ConfigurationFactoryUtil;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
@@ -710,7 +713,11 @@ public class CustomSQL {
 			oldSqlSB.append(" [$AND_OR_CONNECTOR$]");
 		}
 
+<<<<<<< HEAD
 		StringBundler newSqlSB = new StringBundler(values.length * 6 + 2);
+=======
+		StringBundler newSql = new StringBundler(values.length * 6 + 2);
+>>>>>>> compatible
 
 		newSqlSB.append(StringPool.OPEN_PARENTHESIS);
 

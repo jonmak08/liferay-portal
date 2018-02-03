@@ -16,9 +16,12 @@ package com.liferay.portal.configuration.metatype.annotations;
 
 import aQute.bnd.annotation.xml.XMLAttribute;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 
+=======
+>>>>>>> compatible
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -57,10 +60,13 @@ public @interface ExtendedObjectClassDefinition {
 			return _value.equals(value);
 		}
 
+<<<<<<< HEAD
 		public String getDelimiterString() {
 			return StringBundler.concat(_SEPARATOR, name(), _SEPARATOR);
 		}
 
+=======
+>>>>>>> compatible
 		public String getValue() {
 			return _value;
 		}
@@ -74,8 +80,11 @@ public @interface ExtendedObjectClassDefinition {
 			_value = value;
 		}
 
+<<<<<<< HEAD
 		private static final String _SEPARATOR = StringPool.DOUBLE_UNDERLINE;
 
+=======
+>>>>>>> compatible
 		private final String _value;
 
 	}

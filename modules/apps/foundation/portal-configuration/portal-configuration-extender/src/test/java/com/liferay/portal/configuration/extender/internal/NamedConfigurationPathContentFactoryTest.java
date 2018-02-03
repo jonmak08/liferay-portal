@@ -14,6 +14,12 @@
 
 package com.liferay.portal.configuration.extender.internal;
 
+<<<<<<< HEAD
+=======
+import com.liferay.portal.configuration.extender.BundleStorage;
+import com.liferay.portal.configuration.extender.NamedConfigurationContent;
+import com.liferay.portal.configuration.extender.NamedConfigurationContentFactory;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 
 import java.io.File;

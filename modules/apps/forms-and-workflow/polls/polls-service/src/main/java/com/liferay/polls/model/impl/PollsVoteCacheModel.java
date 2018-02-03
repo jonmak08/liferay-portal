@@ -21,6 +21,10 @@ import com.liferay.polls.model.PollsVote;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -101,7 +105,11 @@ public class PollsVoteCacheModel implements CacheModel<PollsVote>,
 		PollsVoteImpl pollsVoteImpl = new PollsVoteImpl();
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			pollsVoteImpl.setUuid("");
+=======
+			pollsVoteImpl.setUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			pollsVoteImpl.setUuid(uuid);
@@ -113,7 +121,11 @@ public class PollsVoteCacheModel implements CacheModel<PollsVote>,
 		pollsVoteImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			pollsVoteImpl.setUserName("");
+=======
+			pollsVoteImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			pollsVoteImpl.setUserName(userName);
@@ -181,7 +193,11 @@ public class PollsVoteCacheModel implements CacheModel<PollsVote>,
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		if (uuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(uuid);
@@ -196,7 +212,11 @@ public class PollsVoteCacheModel implements CacheModel<PollsVote>,
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);

@@ -44,7 +44,11 @@ import org.xml.sax.helpers.DefaultHandler;
 /**
  * @author Tomas Polesovsky
  */
+<<<<<<< HEAD
 @JVMArgsLine("-Dattached=true -Xmx7m")
+=======
+@JVMArgsLine("-Dattached=true -Xmx5m")
+>>>>>>> compatible
 @NewEnv(type = NewEnv.Type.JVM)
 public class SecureXMLFactoryProviderImplTest {
 

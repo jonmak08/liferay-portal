@@ -63,7 +63,11 @@ public class JspCPlugin implements Plugin<Project> {
 		final CompileJSPTask generateJSPJavaTask = _addTaskGenerateJSPJava(
 			project, jspCConfiguration, jspCToolConfiguration);
 
+<<<<<<< HEAD
 		final JavaCompile compileJSPTask = _addTaskCompileJSP(
+=======
+		_addTaskCompileJSP(
+>>>>>>> compatible
 			generateJSPJavaTask, jspCConfiguration, jspCToolConfiguration);
 
 		project.afterEvaluate(
@@ -72,7 +76,10 @@ public class JspCPlugin implements Plugin<Project> {
 				@Override
 				public void execute(Project project) {
 					_addDependenciesJspC(project);
+<<<<<<< HEAD
 					_configureTaskCompileJSP(compileJSPTask);
+=======
+>>>>>>> compatible
 				}
 
 			});
@@ -148,6 +155,10 @@ public class JspCPlugin implements Plugin<Project> {
 
 		javaCompile.setClasspath(jspCToolConfiguration.plus(jspCConfiguration));
 		javaCompile.setDescription("Compile JSP files to check for errors.");
+<<<<<<< HEAD
+=======
+		javaCompile.setDestinationDir(javaCompile.getTemporaryDir());
+>>>>>>> compatible
 		javaCompile.setGroup(JavaBasePlugin.VERIFICATION_GROUP);
 		javaCompile.setSource(generateJSPJavaTask.getOutputs());
 
@@ -164,6 +175,7 @@ public class JspCPlugin implements Plugin<Project> {
 		compileJSPTask.setClasspath(jspCToolConfiguration);
 		compileJSPTask.setDescription(
 			"Compiles JSP files to Java source files to check for errors.");
+<<<<<<< HEAD
 
 		compileJSPTask.setDestinationDir(
 			new Callable<File>() {
@@ -177,6 +189,10 @@ public class JspCPlugin implements Plugin<Project> {
 
 			});
 
+=======
+		compileJSPTask.setDestinationDir(
+			new File(project.getBuildDir(), "jspc"));
+>>>>>>> compatible
 		compileJSPTask.setJspCClasspath(jspCConfiguration);
 
 		compileJSPTask.setWebAppDir(
@@ -209,12 +225,15 @@ public class JspCPlugin implements Plugin<Project> {
 		return compileJSPTask;
 	}
 
+<<<<<<< HEAD
 	private void _configureTaskCompileJSP(JavaCompile compileJSPTask) {
 		if (compileJSPTask.getDestinationDir() == null) {
 			compileJSPTask.setDestinationDir(compileJSPTask.getTemporaryDir());
 		}
 	}
 
+=======
+>>>>>>> compatible
 	private void _configureTaskGenerateJSPJavaForWarPlugin(
 		final CompileJSPTask compileJSPTask) {
 

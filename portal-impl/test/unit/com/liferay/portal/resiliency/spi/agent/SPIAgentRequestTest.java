@@ -354,9 +354,13 @@ public class SPIAgentRequestTest {
 		populatedRegularParameters =
 			uploadServletRequestImpl.getRegularParameterMap();
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			populatedFileParameters.toString(),
 			populatedFileParameters.isEmpty());
+=======
+		Assert.assertTrue(populatedFileParameters.isEmpty());
+>>>>>>> compatible
 		Assert.assertEquals(
 			populatedRegularParameters.toString(), 1,
 			populatedRegularParameters.size());
@@ -576,6 +580,7 @@ public class SPIAgentRequestTest {
 
 		Assert.assertEquals(
 			parameterNames.toString(), 3, parameterNames.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			parameterNames.toString(),
 			parameterNames.contains(_PARAMETER_NAME_1));
@@ -585,6 +590,11 @@ public class SPIAgentRequestTest {
 		Assert.assertTrue(
 			parameterNames.toString(),
 			parameterNames.contains(_PARAMETER_NAME_3));
+=======
+		Assert.assertTrue(parameterNames.contains(_PARAMETER_NAME_1));
+		Assert.assertTrue(parameterNames.contains(_PARAMETER_NAME_2));
+		Assert.assertTrue(parameterNames.contains(_PARAMETER_NAME_3));
+>>>>>>> compatible
 
 		parameter1 = populatedHttpServletRequest.getParameterValues(
 			_PARAMETER_NAME_1);
@@ -642,12 +652,17 @@ public class SPIAgentRequestTest {
 
 		Assert.assertEquals(
 			attributeNames.toString(), 2, attributeNames.size());
+<<<<<<< HEAD
 		Assert.assertTrue(
 			attributeNames.toString(),
 			attributeNames.contains(_SESSION_ATTRIBUTE_NAME_1));
 		Assert.assertTrue(
 			attributeNames.toString(),
 			attributeNames.contains(_SESSION_ATTRIBUTE_NAME_2));
+=======
+		Assert.assertTrue(attributeNames.contains(_SESSION_ATTRIBUTE_NAME_1));
+		Assert.assertTrue(attributeNames.contains(_SESSION_ATTRIBUTE_NAME_2));
+>>>>>>> compatible
 
 		Assert.assertEquals(
 			_SESSION_ATTRIBUTE_VALUE_1,

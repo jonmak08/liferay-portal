@@ -14,12 +14,15 @@
 
 package com.liferay.portal.kernel.security.permission;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermission;
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermissionHelper;
 import com.liferay.portal.kernel.security.permission.resource.PortletResourcePermission;
+=======
+>>>>>>> compatible
 import com.liferay.registry.collections.ServiceTrackerCollections;
 import com.liferay.registry.collections.ServiceTrackerMap;
 
@@ -32,6 +35,7 @@ public class BaseModelPermissionCheckerUtil {
 		PermissionChecker permissionChecker, long groupId, String className,
 		long classPK, String actionId) {
 
+<<<<<<< HEAD
 		ModelResourcePermission<?> modelResourcePermission =
 			_modelPermissions.getService(className);
 
@@ -61,6 +65,10 @@ public class BaseModelPermissionCheckerUtil {
 
 		BaseModelPermissionChecker baseModelPermissionChecker =
 			_baseModelPermissionCheckers.getService(className);
+=======
+		BaseModelPermissionChecker baseModelPermissionChecker =
+			_serviceTrackerMap.getService(className);
+>>>>>>> compatible
 
 		if (baseModelPermissionChecker == null) {
 			return null;
@@ -77,6 +85,7 @@ public class BaseModelPermissionCheckerUtil {
 		return true;
 	}
 
+<<<<<<< HEAD
 	private static final Log _log = LogFactoryUtil.getLog(
 		BaseModelPermissionCheckerUtil.class);
 
@@ -87,5 +96,10 @@ public class BaseModelPermissionCheckerUtil {
 	private static final ServiceTrackerMap<String, ModelResourcePermission>
 		_modelPermissions = ServiceTrackerCollections.openSingleValueMap(
 			ModelResourcePermission.class, "model.class.name");
+=======
+	private static final ServiceTrackerMap<String, BaseModelPermissionChecker>
+		_serviceTrackerMap = ServiceTrackerCollections.openSingleValueMap(
+			BaseModelPermissionChecker.class, "model.class.name");
+>>>>>>> compatible
 
 }

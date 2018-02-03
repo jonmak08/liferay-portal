@@ -29,7 +29,11 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
 )
 public interface RequestParameterAutoLoginConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(deflt = "false", name = "enabled", required = false)
+=======
+	@Meta.AD(deflt = "false", required = false)
+>>>>>>> compatible
 	public boolean enabled();
 
 }

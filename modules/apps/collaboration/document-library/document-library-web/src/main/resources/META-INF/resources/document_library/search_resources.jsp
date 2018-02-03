@@ -19,6 +19,11 @@
 <%
 String redirect = ParamUtil.getString(request, "redirect");
 
+<<<<<<< HEAD
+=======
+long breadcrumbsFolderId = ParamUtil.getLong(request, "breadcrumbsFolderId");
+
+>>>>>>> compatible
 long repositoryId = ParamUtil.getLong(request, "repositoryId");
 
 if (repositoryId == 0) {
@@ -52,6 +57,7 @@ PortletURL portletURL = liferayPortletResponse.createRenderURL();
 
 portletURL.setParameter("mvcRenderCommandName", "/document_library/search");
 portletURL.setParameter("redirect", redirect);
+<<<<<<< HEAD
 portletURL.setParameter("searchFolderId", String.valueOf(searchFolderId));
 portletURL.setParameter("keywords", keywords);
 
@@ -61,6 +67,13 @@ entriesChecker.setCssClass("entry-selector");
 entriesChecker.setRememberCheckBoxStateURLRegex("^(?!.*" + liferayPortletResponse.getNamespace() + "redirect).*(folderId=" + String.valueOf(folderId) + ")");
 
 SearchContainer dlSearchContainer = new SearchContainer(liferayPortletRequest, portletURL, null, null);
+=======
+portletURL.setParameter("breadcrumbsFolderId", String.valueOf(breadcrumbsFolderId));
+portletURL.setParameter("searchFolderId", String.valueOf(searchFolderId));
+portletURL.setParameter("keywords", keywords);
+
+SearchContainer searchContainer = new SearchContainer(liferayPortletRequest, portletURL, null, null);
+>>>>>>> compatible
 %>
 
 <aui:input name="repositoryId" type="hidden" value="<%= repositoryId %>" />
@@ -131,6 +144,7 @@ SearchContainer dlSearchContainer = new SearchContainer(liferayPortletRequest, p
 	</liferay-portlet:renderURL>
 
 	<div class="document-container" id="<portlet:namespace />entriesContainer">
+<<<<<<< HEAD
 
 		<%
 		try {
@@ -195,17 +209,77 @@ SearchContainer dlSearchContainer = new SearchContainer(liferayPortletRequest, p
 					modelVar="result"
 				>
 					<%@ include file="/document_library/cast_result.jspf" %>
+=======
+		<aui:form action="<%= searchURL %>" method="get" name="fm">
+			<liferay-portlet:renderURLParams varImpl="searchURL" />
+			<aui:input name="redirect" type="hidden" value="<%= redirect %>" />
+			<aui:input name="breadcrumbsFolderId" type="hidden" value="<%= breadcrumbsFolderId %>" />
+			<aui:input name="searchFolderId" type="hidden" value="<%= searchFolderId %>" />
+
+			<%
+			try {
+				SearchContext searchContext = SearchContextFactory.getInstance(request);
+
+				searchContext.setAttribute("paginationType", "regular");
+				searchContext.setAttribute("searchRepositoryId", searchRepositoryId);
+				searchContext.setEnd(searchContainer.getEnd());
+				searchContext.setFolderIds(new long[] {searchFolderId});
+				searchContext.setIncludeDiscussions(true);
+				searchContext.setKeywords(keywords);
+
+				QueryConfig queryConfig = new QueryConfig();
+
+				queryConfig.setSearchSubfolders(true);
+
+				searchContext.setQueryConfig(queryConfig);
+
+				searchContext.setStart(searchContainer.getStart());
+
+				Hits hits = DLAppServiceUtil.search(searchRepositoryId, searchContext);
+
+				searchContainer.setTotal(hits.getLength());
+
+				List<SearchResult> searchResults = SearchResultUtil.getSearchResults(hits, locale);
+
+				for (int i = 0; i < searchResults.size(); i++) {
+					SearchResult searchResult = searchResults.get(i);
+
+					Summary summary = searchResult.getSummary();
+
+					FileEntry fileEntry = null;
+					Folder curFolder = null;
+
+					String className = searchResult.getClassName();
+
+					if (className.equals(DLFileEntry.class.getName()) || FileEntry.class.isAssignableFrom(Class.forName(className))) {
+						fileEntry = DLAppLocalServiceUtil.getFileEntry(searchResult.getClassPK());
+					}
+					else if (className.equals(DLFolder.class.getName())) {
+						curFolder = DLAppLocalServiceUtil.getFolder(searchResult.getClassPK());
+					}
+			%>
+>>>>>>> compatible
 
 					<c:choose>
 						<c:when test="<%= (fileEntry != null) && DLFileEntryPermission.contains(permissionChecker, fileEntry, ActionKeys.VIEW) %>">
 
 							<%
+<<<<<<< HEAD
+=======
+							PortletURL tempRowURL = liferayPortletResponse.createRenderURL();
+
+							tempRowURL.setParameter("mvcRenderCommandName", "/document_library/view_file_entry");
+							tempRowURL.setParameter("redirect", HttpUtil.removeParameter(currentURL, liferayPortletResponse.getNamespace() + "ajax"));
+							tempRowURL.setParameter("fileEntryId", String.valueOf(fileEntry.getFileEntryId()));
+
+>>>>>>> compatible
 							FileVersion latestFileVersion = fileEntry.getFileVersion();
 
 							if ((user.getUserId() == fileEntry.getUserId()) || permissionChecker.isContentReviewer(user.getCompanyId(), scopeGroupId) || DLFileEntryPermission.contains(permissionChecker, fileEntry, ActionKeys.UPDATE)) {
 								latestFileVersion = fileEntry.getLatestFileVersion();
 							}
 
+<<<<<<< HEAD
 							if ((dlSearchContainer.getRowChecker() == null) && (DLFileEntryPermission.contains(permissionChecker, fileEntry, ActionKeys.DELETE) || DLFileEntryPermission.contains(permissionChecker, fileEntry, ActionKeys.UPDATE))) {
 								dlSearchContainer.setRowChecker(entriesChecker);
 							}
@@ -246,11 +320,33 @@ SearchContainer dlSearchContainer = new SearchContainer(liferayPortletRequest, p
 
 							<liferay-ui:search-container-column-jsp
 								path="/document_library/file_entry_action.jsp"
+=======
+							request.setAttribute("info_panel.jsp-fileEntry", fileEntry);
+							%>
+
+							<liferay-ui:app-view-search-entry
+								actionJsp="/document_library/file_entry_action.jsp"
+								actionJspServletContext="<%= application %>"
+								commentRelatedSearchResults="<%= searchResult.getCommentRelatedSearchResults() %>"
+								containerName="<%= DLUtil.getAbsolutePath(liferayPortletRequest, fileEntry.getFolderId()) %>"
+								cssClass='<%= MathUtil.isEven(i) ? "alt" : StringPool.BLANK %>'
+								description="<%= ((summary != null) && Validator.isNotNull(summary.getContent())) ? summary.getContent() : fileEntry.getDescription() %>"
+								locked="<%= fileEntry.isCheckedOut() %>"
+								queryTerms="<%= hits.getQueryTerms() %>"
+								rowCheckerId="<%= String.valueOf(fileEntry.getFileEntryId()) %>"
+								rowCheckerName="<%= FileEntry.class.getSimpleName() %>"
+								showCheckbox="<%= DLFileEntryPermission.contains(permissionChecker, fileEntry, ActionKeys.DELETE) || DLFileEntryPermission.contains(permissionChecker, fileEntry, ActionKeys.UPDATE) %>"
+								status="<%= latestFileVersion.getStatus() %>"
+								thumbnailSrc="<%= DLUtil.getThumbnailSrc(fileEntry, themeDisplay) %>"
+								title="<%= ((summary != null) && Validator.isNotNull(summary.getTitle())) ? summary.getTitle() : fileEntry.getTitle() %>"
+								url="<%= tempRowURL.toString() %>"
+>>>>>>> compatible
 							/>
 						</c:when>
 						<c:when test="<%= (curFolder != null) && DLFolderPermission.contains(permissionChecker, curFolder, ActionKeys.VIEW) %>">
 
 							<%
+<<<<<<< HEAD
 							if ((dlSearchContainer.getRowChecker() == null) && (DLFolderPermission.contains(permissionChecker, curFolder, ActionKeys.DELETE) || DLFolderPermission.contains(permissionChecker, curFolder, ActionKeys.UPDATE))) {
 								dlSearchContainer.setRowChecker(entriesChecker);
 							}
@@ -270,6 +366,44 @@ SearchContainer dlSearchContainer = new SearchContainer(liferayPortletRequest, p
 
 							<liferay-ui:search-container-column-jsp
 								path="/document_library/folder_action.jsp"
+=======
+							int status = WorkflowConstants.STATUS_APPROVED;
+
+							if (permissionChecker.isContentReviewer(user.getCompanyId(), curFolder.getGroupId())) {
+								status = WorkflowConstants.STATUS_ANY;
+							}
+
+							String folderImage = "folder_empty_document";
+
+							if (PropsValues.DL_FOLDER_ICON_CHECK_COUNT && (DLAppServiceUtil.getFoldersAndFileEntriesAndFileShortcutsCount(curFolder.getRepositoryId(), curFolder.getFolderId(), status, true) > 0)) {
+								folderImage = "folder_full_document";
+							}
+
+							PortletURL tempRowURL = liferayPortletResponse.createRenderURL();
+
+							tempRowURL.setParameter("mvcRenderCommandName", "/document_library/view_folder");
+							tempRowURL.setParameter("redirect", HttpUtil.removeParameter(currentURL, liferayPortletResponse.getNamespace() + "ajax"));
+							tempRowURL.setParameter("folderId", String.valueOf(curFolder.getFolderId()));
+
+							request.setAttribute("info_panel.jsp-folder", curFolder);
+
+							request.setAttribute("view.jsp-repositoryId", String.valueOf(curFolder.getRepositoryId()));
+							%>
+
+							<liferay-ui:app-view-search-entry
+								actionJsp="/document_library/folder_action.jsp"
+								actionJspServletContext="<%= application %>"
+								containerName="<%= DLUtil.getAbsolutePath(liferayPortletRequest, curFolder.getParentFolderId()) %>"
+								cssClass='<%= MathUtil.isEven(i) ? "alt" : StringPool.BLANK %>'
+								description="<%= ((summary != null) && Validator.isNotNull(summary.getContent())) ? summary.getContent() : curFolder.getDescription() %>"
+								queryTerms="<%= hits.getQueryTerms() %>"
+								rowCheckerId="<%= String.valueOf(curFolder.getFolderId()) %>"
+								rowCheckerName="<%= Folder.class.getSimpleName() %>"
+								showCheckbox="<%= DLFolderPermission.contains(permissionChecker, curFolder, ActionKeys.DELETE) || DLFolderPermission.contains(permissionChecker, curFolder, ActionKeys.UPDATE) %>"
+								thumbnailSrc='<%= themeDisplay.getPathThemeImages() + "/file_system/large/" + folderImage + ".png" %>'
+								title="<%= ((summary != null) && Validator.isNotNull(summary.getTitle())) ? summary.getTitle() : curFolder.getName() %>"
+								url="<%= tempRowURL.toString() %>"
+>>>>>>> compatible
 							/>
 						</c:when>
 						<c:otherwise>
@@ -278,6 +412,7 @@ SearchContainer dlSearchContainer = new SearchContainer(liferayPortletRequest, p
 							</div>
 						</c:otherwise>
 					</c:choose>
+<<<<<<< HEAD
 				</liferay-ui:search-container-row>
 
 				<liferay-ui:search-iterator displayStyle="descriptive" markupView="lexicon" searchContainer="<%= dlSearchContainer %>" />
@@ -291,6 +426,29 @@ SearchContainer dlSearchContainer = new SearchContainer(liferayPortletRequest, p
 		%>
 
 	</div>
+=======
+
+				<%
+				}
+				%>
+
+				<c:if test="<%= searchResults.isEmpty() %>">
+					<div class="alert alert-info">
+						<liferay-ui:message arguments='<%= "<strong>" + HtmlUtil.escape(keywords) + "</strong>" %>' key="no-documents-were-found-that-matched-the-keywords-x" translateArguments="<%= false %>" />
+					</div>
+				</c:if>
+
+			<%
+			}
+			catch (Exception e) {
+				_log.error(e, e);
+			}
+			%>
+
+		</aui:form>
+	</div>
+
+>>>>>>> compatible
 </liferay-util:buffer>
 
 <c:choose>
@@ -385,6 +543,13 @@ SearchContainer dlSearchContainer = new SearchContainer(liferayPortletRequest, p
 request.setAttribute("view.jsp-folderId", String.valueOf(folderId));
 %>
 
+<<<<<<< HEAD
+=======
+<div class="document-entries-pagination">
+	<liferay-ui:search-paginator searchContainer="<%= searchContainer %>" />
+</div>
+
+>>>>>>> compatible
 <%!
 private static Log _log = LogFactoryUtil.getLog("com_liferay_document_library_web.document_library.search_resources_jsp");
 %>

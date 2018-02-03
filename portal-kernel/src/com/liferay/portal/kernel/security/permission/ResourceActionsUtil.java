@@ -33,10 +33,13 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class ResourceActionsUtil {
 
+<<<<<<< HEAD
 	public static void check(Portlet portlet) {
 		getResourceActions().check(portlet);
 	}
 
+=======
+>>>>>>> compatible
 	public static void check(String portletName) {
 		getResourceActions().check(portletName);
 	}

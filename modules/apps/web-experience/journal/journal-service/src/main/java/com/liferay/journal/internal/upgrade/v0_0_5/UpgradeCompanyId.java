@@ -22,6 +22,7 @@ import com.liferay.portal.kernel.upgrade.BaseUpgradeCompanyId;
 public class UpgradeCompanyId extends BaseUpgradeCompanyId {
 
 	@Override
+<<<<<<< HEAD
 	protected void doUpgrade() throws Exception {
 		super.doUpgrade();
 
@@ -31,6 +32,8 @@ public class UpgradeCompanyId extends BaseUpgradeCompanyId {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	protected TableUpdater[] getTableUpdaters() {
 		return new TableUpdater[] {
 			new TableUpdater("JournalArticleImage", "Group_", "groupId"),

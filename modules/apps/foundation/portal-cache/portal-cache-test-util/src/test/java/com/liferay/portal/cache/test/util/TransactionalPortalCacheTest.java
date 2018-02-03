@@ -1161,11 +1161,14 @@ public class TransactionalPortalCacheTest {
 	private static class TestTrasactionStatus implements TransactionStatus {
 
 		@Override
+<<<<<<< HEAD
 		public Object getPlatformTransactionManager() {
 			return null;
 		}
 
 		@Override
+=======
+>>>>>>> compatible
 		public boolean isCompleted() {
 			return _completed;
 		}

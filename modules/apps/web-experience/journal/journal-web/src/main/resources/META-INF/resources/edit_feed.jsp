@@ -74,7 +74,11 @@ if ((ddmStructure == null) && Validator.isNotNull(ddmTemplateKey)) {
 String ddmRendererTemplateKey = ParamUtil.getString(request, "ddmRendererTemplateKey");
 
 if (Validator.isNull(ddmRendererTemplateKey) && (feed != null)) {
+<<<<<<< HEAD
 	ddmRendererTemplateKey = feed.getDDMRendererTemplateKey();
+=======
+	ddmRendererTemplateKey = feed.getDDMTemplateKey();
+>>>>>>> compatible
 }
 
 String contentField = BeanParamUtil.getString(feed, request, "contentField");
@@ -186,6 +190,7 @@ renderResponse.setTitle((feed == null) ? LanguageUtil.get(request, "new-feed") :
 					<aui:input name="ddmTemplateKey" type="hidden" value="<%= ddmTemplateKey %>" />
 				</c:when>
 				<c:otherwise>
+<<<<<<< HEAD
 					<aui:select label="template" name="ddmTemplateKey" showEmptyOption="<%= true %>">
 
 						<%
@@ -199,6 +204,33 @@ renderResponse.setTitle((feed == null) ? LanguageUtil.get(request, "new-feed") :
 						%>
 
 					</aui:select>
+=======
+					<aui:field-wrapper label="template">
+						<liferay-ui:table-iterator
+							list="<%= ddmTemplates %>"
+							listType="com.liferay.dynamic.data.mapping.model.DDMTemplate"
+							rowLength="3"
+							rowPadding="30"
+						>
+
+							<%
+							boolean templateChecked = false;
+
+							if (ddmTemplateKey.equals(tableIteratorObj.getTemplateKey())) {
+								templateChecked = true;
+							}
+							%>
+
+							<aui:input checked="<%= templateChecked %>" label="<%= HtmlUtil.escape(tableIteratorObj.getName(locale)) %>" name="ddmTemplateKey" type="radio" value="<%= tableIteratorObj.getTemplateKey() %>" />
+
+							<c:if test="<%= tableIteratorObj.isSmallImage() %>">
+								<br />
+
+								<img alt="" hspace="0" src="<%= HtmlUtil.escapeAttribute(tableIteratorObj.getTemplateImageURL(themeDisplay)) %>" vspace="0" />
+							</c:if>
+						</liferay-ui:table-iterator>
+					</aui:field-wrapper>
+>>>>>>> compatible
 				</c:otherwise>
 			</c:choose>
 		</aui:fieldset>
@@ -306,10 +338,17 @@ renderResponse.setTitle((feed == null) ? LanguageUtil.get(request, "new-feed") :
 		%>
 
 		<c:if test="<%= hasSavePermission %>">
+<<<<<<< HEAD
 			<aui:button type="submit" />
 		</c:if>
 
 		<aui:button href="<%= redirect %>" type="cancel" />
+=======
+			<aui:button cssClass="btn-lg" type="submit" />
+		</c:if>
+
+		<aui:button cssClass="btn-lg" href="<%= redirect %>" type="cancel" />
+>>>>>>> compatible
 	</aui:button-row>
 </aui:form>
 
@@ -389,9 +428,14 @@ renderResponse.setTitle((feed == null) ? LanguageUtil.get(request, "new-feed") :
 			var renderedWebContent = '<%= JournalFeedConstants.RENDERED_WEB_CONTENT %>';
 
 			if (selectedFeedItemOption.data('contentfield') === renderedWebContent) {
+<<<<<<< HEAD
 				ddmRendererTemplateKeyValue = contentFieldValue;
 
 				contentFieldValue = renderedWebContent;
+=======
+				contentFieldValue = renderedWebContent;
+				ddmRendererTemplateKeyValue = contentFieldValue;
+>>>>>>> compatible
 			}
 
 			form.fm('contentField').val(contentFieldValue);

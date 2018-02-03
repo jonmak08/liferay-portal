@@ -14,7 +14,10 @@
 
 package com.liferay.source.formatter.checks;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.source.formatter.parser.JavaClass;
 import com.liferay.source.formatter.parser.JavaTerm;
 
@@ -83,6 +86,7 @@ public class JavaTestMethodAnnotationsCheck extends BaseJavaTermCheck {
 		if (javaTerm.hasAnnotation(annotation)) {
 			if (!matcher.find()) {
 				addMessage(
+<<<<<<< HEAD
 					fileName, "Incorrect method name '" + methodName + "'",
 					"test_method_naming.markdown");
 			}
@@ -90,15 +94,31 @@ public class JavaTestMethodAnnotationsCheck extends BaseJavaTermCheck {
 				addMessage(
 					fileName, "Incorrect method type for '" + methodName + "'",
 					"test_method_naming.markdown");
+=======
+					fileName,
+					"Incorrect method name '" + methodName +
+						"', see LPS-36303");
+			}
+			else if (javaTerm.isStatic() != staticRequired) {
+				addMessage(
+					fileName,
+					"Incorrect method type for '" + methodName +
+						"', see LPS-36303");
+>>>>>>> compatible
 			}
 		}
 		else if (matcher.find() && !javaTerm.hasAnnotation("Override")) {
 			addMessage(
 				fileName,
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Annotation @", annotation, " required for '", methodName,
 					"'"),
 				"test_method_naming.markdown");
+=======
+				"Annotation @" + annotation + " required for '" + methodName +
+					"', see LPS-36303");
+>>>>>>> compatible
 		}
 	}
 

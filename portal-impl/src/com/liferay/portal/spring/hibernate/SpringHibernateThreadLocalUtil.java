@@ -14,7 +14,12 @@
 
 package com.liferay.portal.spring.hibernate;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
+=======
+import com.liferay.portal.kernel.util.CentralizedThreadLocal;
+import com.liferay.portal.kernel.util.InitialThreadLocal;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ReflectionUtil;
 
 import java.lang.reflect.Field;
@@ -104,9 +109,14 @@ public class SpringHibernateThreadLocalUtil {
 
 			ThreadLocal<?> resourcesThreadLocal = null;
 
+<<<<<<< HEAD
 			for (Field field :
 					ReflectionUtil.getDeclaredFields(
 						TransactionSynchronizationManager.class)) {
+=======
+			for (Field field : ReflectionUtil.getDeclaredFields(
+					TransactionSynchronizationManager.class)) {
+>>>>>>> compatible
 
 				if (Modifier.isStatic(field.getModifiers()) &&
 					ThreadLocal.class.isAssignableFrom(field.getType())) {
@@ -117,9 +127,14 @@ public class SpringHibernateThreadLocalUtil {
 					Object value = threadLocal.get();
 
 					if (threadLocal instanceof NamedThreadLocal) {
+<<<<<<< HEAD
 						threadLocal = new CentralizedThreadLocal<>(
 							(String)nameField.get(threadLocal), () -> null,
 							false);
+=======
+						threadLocal = new InitialThreadLocal<>(
+							(String)nameField.get(threadLocal), () -> null);
+>>>>>>> compatible
 					}
 					else {
 						threadLocal = new CentralizedThreadLocal<>(false);

@@ -255,6 +255,7 @@ public interface DDMStructureLinkLocalService extends BaseLocalService,
 		long classPK);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+<<<<<<< HEAD
 	public List<DDMStructureLink> getStructureLinks(long classNameId,
 		long classPK, int start, int end);
 
@@ -262,10 +263,13 @@ public interface DDMStructureLinkLocalService extends BaseLocalService,
 	public int getStructureLinksCount(long classNameId, long classPK);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+=======
+>>>>>>> compatible
 	public List<DDMStructure> getStructureLinkStructures(long classNameId,
 		long classPK) throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+<<<<<<< HEAD
 	public List<DDMStructure> getStructureLinkStructures(long classNameId,
 		long classPK, int start, int end) throws PortalException;
 
@@ -289,6 +293,8 @@ public interface DDMStructureLinkLocalService extends BaseLocalService,
 		java.lang.String keywords);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+=======
+>>>>>>> compatible
 	public DDMStructureLink getUniqueStructureLink(long classNameId,
 		long classPK) throws PortalException;
 

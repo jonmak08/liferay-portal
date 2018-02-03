@@ -15,7 +15,10 @@
 package com.liferay.dynamic.data.mapping.util;
 
 import com.liferay.dynamic.data.mapping.BaseDDMTestCase;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.internal.util.FieldsToDDMFormValuesConverterImpl;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.model.DDMForm;
 import com.liferay.dynamic.data.mapping.model.DDMFormField;
 import com.liferay.dynamic.data.mapping.model.DDMStructure;
@@ -25,23 +28,35 @@ import com.liferay.dynamic.data.mapping.storage.DDMFormFieldValue;
 import com.liferay.dynamic.data.mapping.storage.DDMFormValues;
 import com.liferay.dynamic.data.mapping.storage.Field;
 import com.liferay.dynamic.data.mapping.storage.Fields;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.util.PropsValues;
+=======
+import com.liferay.dynamic.data.mapping.util.impl.FieldsToDDMFormValuesConverterImpl;
+import com.liferay.portal.kernel.util.LocaleUtil;
+>>>>>>> compatible
 
 import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+<<<<<<< HEAD
 import org.junit.runner.RunWith;
 
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.core.classloader.annotations.SuppressStaticInitializationFor;
 import org.powermock.modules.junit4.PowerMockRunner;
+=======
+
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.core.classloader.annotations.SuppressStaticInitializationFor;
+>>>>>>> compatible
 
 /**
  * @author Marcellus Tavares
  */
+<<<<<<< HEAD
 @PrepareForTest(
 	{DDMStructureLocalServiceUtil.class, LocaleUtil.class, PropsValues.class}
 )
@@ -52,6 +67,11 @@ import org.powermock.modules.junit4.PowerMockRunner;
 		"com.liferay.portal.kernel.xml.SAXReaderUtil",
 		"com.liferay.portal.util.PropsValues"
 	}
+=======
+@PrepareForTest({DDMStructureLocalServiceUtil.class, LocaleUtil.class})
+@SuppressStaticInitializationFor(
+	"com.liferay.dynamic.data.mapping.service.DDMStructureLocalServiceUtil"
+>>>>>>> compatible
 )
 public class FieldsToDDMFormValuesConverterTest extends BaseDDMTestCase {
 
@@ -68,7 +88,11 @@ public class FieldsToDDMFormValuesConverterTest extends BaseDDMTestCase {
 		setUpJSONFactoryUtil();
 		setUpLanguageUtil();
 		setUpLocaleUtil();
+<<<<<<< HEAD
 		setUpPropsValues();
+=======
+		setUpPropsUtil();
+>>>>>>> compatible
 		setUpSAXReaderUtil();
 	}
 

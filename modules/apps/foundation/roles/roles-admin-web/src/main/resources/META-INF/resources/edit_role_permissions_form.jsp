@@ -17,7 +17,12 @@
 <%@ include file="/init.jsp" %>
 
 <%
+<<<<<<< HEAD
 String tabs3 = ParamUtil.getString(request, "tabs3", "current");
+=======
+String tabs1 = "roles";
+String tabs2 = ParamUtil.getString(request, "tabs2", "current");
+>>>>>>> compatible
 
 String redirect = ParamUtil.getString(request, "redirect");
 
@@ -57,7 +62,11 @@ if (Validator.isNotNull(portletResource)) {
 </portlet:actionURL>
 
 <aui:form action="<%= editRolePermissionsURL %>" method="post" name="fm">
+<<<<<<< HEAD
 	<aui:input name="tabs3" type="hidden" value="<%= tabs3 %>" />
+=======
+	<aui:input name="tabs2" type="hidden" value="<%= tabs2 %>" />
+>>>>>>> compatible
 	<aui:input name="redirect" type="hidden" />
 	<aui:input name="roleId" type="hidden" value="<%= role.getRoleId() %>" />
 	<aui:input name="portletResource" type="hidden" value="<%= portletResource %>" />
@@ -206,7 +215,11 @@ if (Validator.isNotNull(portletResource)) {
 	</c:if>
 
 	<div class="form-group">
+<<<<<<< HEAD
 		<aui:button onClick='<%= liferayPortletResponse.getNamespace() + "updateActions();" %>' value="save" />
+=======
+		<aui:button cssClass="btn-lg" onClick='<%= liferayPortletResponse.getNamespace() + "updateActions();" %>' value="save" />
+>>>>>>> compatible
 	</div>
 </aui:form>
 
@@ -217,5 +230,21 @@ definePermissionsURL.setParameter("mvcPath", "/edit_role_permissions.jsp");
 definePermissionsURL.setParameter(Constants.CMD, Constants.VIEW);
 definePermissionsURL.setParameter("redirect", backURL);
 definePermissionsURL.setParameter("roleId", String.valueOf(role.getRoleId()));
+<<<<<<< HEAD
 definePermissionsURL.setParameter("tabs1", "define-permissions");
+=======
+
+PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "define-permissions"), definePermissionsURL.toString());
+
+if (Validator.isNotNull(portletResource)) {
+	PortletURL resourceURL = liferayPortletResponse.createRenderURL();
+
+	resourceURL.setParameter("mvcPath", "/edit_role.jsp");
+	resourceURL.setParameter(Constants.CMD, Constants.EDIT);
+	resourceURL.setParameter("tabs1", tabs1);
+	resourceURL.setParameter("portletResource", portletResource);
+
+	PortalUtil.addPortletBreadcrumbEntry(request, portletResourceLabel, resourceURL.toString());
+}
+>>>>>>> compatible
 %>

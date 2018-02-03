@@ -54,7 +54,10 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.transaction.TransactionCommitCallbackUtil;
 import com.liferay.portal.kernel.transaction.Transactional;
 import com.liferay.portal.kernel.util.ListUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.model.impl.ResourceBlockImpl;
 import com.liferay.portal.security.permission.PermissionCacheUtil;
 import com.liferay.portal.service.base.ResourceBlockLocalServiceBaseImpl;
@@ -490,6 +493,14 @@ public class ResourceBlockLocalServiceImpl
 							resourceBlockPermissionLocalService.
 								deleteResourceBlockPermissions(resourceBlockId);
 						}
+<<<<<<< HEAD
+=======
+
+						PermissionCacheUtil.clearResourceBlockCache(
+							resourceBlock.getCompanyId(),
+							resourceBlock.getGroupId(),
+							resourceBlock.getName());
+>>>>>>> compatible
 					}
 				}
 
@@ -752,6 +763,12 @@ public class ResourceBlockLocalServiceImpl
 			PermissionThreadLocal.setFlushResourceBlockEnabled(
 				companyId, groupId, name, flushResourceBlockEnabled);
 
+<<<<<<< HEAD
+=======
+			PermissionCacheUtil.clearResourceBlockCache(
+				companyId, groupId, name);
+
+>>>>>>> compatible
 			PermissionCacheUtil.clearResourcePermissionCache(
 				ResourceConstants.SCOPE_INDIVIDUAL, name,
 				String.valueOf(primKey));

@@ -25,9 +25,16 @@ taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %><%@
 taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 
 <%@ page import="com.liferay.journal.content.search.web.configuration.JournalContentSearchPortletInstanceConfiguration" %><%@
+<<<<<<< HEAD
 page import="com.liferay.journal.content.search.web.internal.display.context.JournalContentSearchDisplayContext" %><%@
 page import="com.liferay.journal.service.JournalContentSearchLocalServiceUtil" %><%@
 page import="com.liferay.petra.string.StringPool" %><%@
+=======
+page import="com.liferay.journal.content.search.web.internal.util.ContentHits" %><%@
+page import="com.liferay.journal.model.JournalArticle" %><%@
+page import="com.liferay.journal.service.JournalContentSearchLocalServiceUtil" %><%@
+page import="com.liferay.portal.kernel.dao.search.SearchContainer" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.language.LanguageUtil" %><%@
 page import="com.liferay.portal.kernel.log.Log" %><%@
 page import="com.liferay.portal.kernel.log.LogFactoryUtil" %><%@
@@ -35,6 +42,7 @@ page import="com.liferay.portal.kernel.model.Layout" %><%@
 page import="com.liferay.portal.kernel.portlet.PortletURLFactoryUtil" %><%@
 page import="com.liferay.portal.kernel.portlet.PortletURLUtil" %><%@
 page import="com.liferay.portal.kernel.search.Field" %><%@
+<<<<<<< HEAD
 page import="com.liferay.portal.kernel.service.LayoutLocalServiceUtil" %><%@
 page import="com.liferay.portal.kernel.util.Constants" %><%@
 page import="com.liferay.portal.kernel.util.GetterUtil" %><%@
@@ -44,6 +52,26 @@ page import="com.liferay.portal.kernel.util.PortalUtil" %><%@
 page import="com.liferay.portal.kernel.util.StringUtil" %><%@
 page import="com.liferay.portal.kernel.util.Validator" %><%@
 page import="com.liferay.portal.search.summary.Summary" %>
+=======
+page import="com.liferay.portal.kernel.search.Hits" %><%@
+page import="com.liferay.portal.kernel.search.Indexer" %><%@
+page import="com.liferay.portal.kernel.search.IndexerRegistryUtil" %><%@
+page import="com.liferay.portal.kernel.search.SearchContext" %><%@
+page import="com.liferay.portal.kernel.search.SearchContextFactory" %><%@
+page import="com.liferay.portal.kernel.search.Summary" %><%@
+page import="com.liferay.portal.kernel.service.LayoutLocalServiceUtil" %><%@
+page import="com.liferay.portal.kernel.util.Constants" %><%@
+page import="com.liferay.portal.kernel.util.GetterUtil" %><%@
+page import="com.liferay.portal.kernel.util.HtmlUtil" %><%@
+page import="com.liferay.portal.kernel.util.ListUtil" %><%@
+page import="com.liferay.portal.kernel.util.LocaleUtil" %><%@
+page import="com.liferay.portal.kernel.util.ParamUtil" %><%@
+page import="com.liferay.portal.kernel.util.PortalUtil" %><%@
+page import="com.liferay.portal.kernel.util.StringPool" %><%@
+page import="com.liferay.portal.kernel.util.StringUtil" %><%@
+page import="com.liferay.portal.kernel.util.Validator" %><%@
+page import="com.liferay.portal.util.PropsValues" %>
+>>>>>>> compatible
 
 <%@ page import="java.util.List" %><%@
 page import="java.util.Locale" %>
@@ -60,8 +88,11 @@ page import="javax.portlet.WindowState" %>
 
 <%
 JournalContentSearchPortletInstanceConfiguration journalContentSearchPortletInstanceConfiguration = portletDisplay.getPortletInstanceConfiguration(JournalContentSearchPortletInstanceConfiguration.class);
+<<<<<<< HEAD
 
 JournalContentSearchDisplayContext journalContentSearchDisplayContext = new JournalContentSearchDisplayContext(request, liferayPortletRequest, liferayPortletResponse, journalContentSearchPortletInstanceConfiguration);
+=======
+>>>>>>> compatible
 %>
 
 <%@ include file="/init-ext.jsp" %>

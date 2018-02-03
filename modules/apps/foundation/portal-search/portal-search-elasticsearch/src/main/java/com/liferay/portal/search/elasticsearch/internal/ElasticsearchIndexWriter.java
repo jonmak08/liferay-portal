@@ -24,7 +24,10 @@ import com.liferay.portal.kernel.search.SearchContext;
 import com.liferay.portal.kernel.search.SearchException;
 import com.liferay.portal.kernel.search.suggest.SpellCheckIndexWriter;
 import com.liferay.portal.kernel.util.PortalRunMode;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.search.elasticsearch.connection.ElasticsearchConnectionManager;
 import com.liferay.portal.search.elasticsearch.document.ElasticsearchUpdateDocumentCommand;
 import com.liferay.portal.search.elasticsearch.index.IndexNameBuilder;
@@ -127,9 +130,14 @@ public class ElasticsearchIndexWriter extends BaseIndexWriter {
 		catch (IndexNotFoundException infe) {
 			if (_log.isInfoEnabled()) {
 				_log.info(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"No index found while attempting to delete ", uid,
 						" in index ", indexName));
+=======
+					"No index found while attempting to delete " + uid +
+						" in index " + indexName);
+>>>>>>> compatible
 			}
 		}
 		catch (Exception e) {
@@ -177,6 +185,11 @@ public class ElasticsearchIndexWriter extends BaseIndexWriter {
 			SearchContext searchContext, String className)
 		throws SearchException {
 
+<<<<<<< HEAD
+=======
+		SearchResponseScroller searchResponseScroller = null;
+
+>>>>>>> compatible
 		try {
 			Client client = elasticsearchConnectionManager.getClient();
 
@@ -191,6 +204,7 @@ public class ElasticsearchIndexWriter extends BaseIndexWriter {
 			boolQueryBuilder.filter(termQueryBuilder);
 			boolQueryBuilder.must(matchAllQueryBuilder);
 
+<<<<<<< HEAD
 			SearchResponseScroller searchResponseScroller =
 				new SearchResponseScroller(
 					client, searchContext, indexNameBuilder, boolQueryBuilder,
@@ -204,21 +218,45 @@ public class ElasticsearchIndexWriter extends BaseIndexWriter {
 			finally {
 				searchResponseScroller.close();
 			}
+=======
+			searchResponseScroller = new SearchResponseScroller(
+				client, searchContext, indexNameBuilder, boolQueryBuilder,
+				TimeValue.timeValueSeconds(30), DocumentTypes.LIFERAY);
+
+			searchResponseScroller.prepare();
+
+			searchResponseScroller.scroll(_searchHitsProcessor);
+>>>>>>> compatible
 		}
 		catch (IndexNotFoundException infe) {
 			if (_log.isInfoEnabled()) {
 				_log.info(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"No index found while attempting to delete documents ",
 						"for ", className, " in index ",
 						indexNameBuilder.getIndexName(
 							searchContext.getCompanyId())));
+=======
+					"No index found while attempting to delete documents for " +
+						className + " in index " +
+							indexNameBuilder.getIndexName(
+								searchContext.getCompanyId()));
+>>>>>>> compatible
 			}
 		}
 		catch (Exception e) {
 			throw new SearchException(
 				"Unable to delete data for entity " + className, e);
 		}
+<<<<<<< HEAD
+=======
+		finally {
+			if (searchResponseScroller != null) {
+				searchResponseScroller.close();
+			}
+		}
+>>>>>>> compatible
 	}
 
 	@Override

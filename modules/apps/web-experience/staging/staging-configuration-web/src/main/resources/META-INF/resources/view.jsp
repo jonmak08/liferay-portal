@@ -138,12 +138,15 @@ BackgroundTask lastCompletedInitialPublicationBackgroundTask = BackgroundTaskMan
 					</div>
 				</c:if>
 
+<<<<<<< HEAD
 				<liferay-ui:error exception="<%= Exception.class %>">
 					<liferay-ui:message key="an-unexpected-error-occurred-with-the-initial-staging-publication" />
 
 					<%= errorException.toString() %>
 				</liferay-ui:error>
 
+=======
+>>>>>>> compatible
 				<liferay-ui:error exception="<%= LocaleException.class %>">
 
 					<%
@@ -240,7 +243,11 @@ BackgroundTask lastCompletedInitialPublicationBackgroundTask = BackgroundTaskMan
 										%>
 
 										<li class="flex-container list-group-item">
+<<<<<<< HEAD
 											<span class="flex-item-center staging-configuration-control-label">
+=======
+											<span class="flex-item-center staging-configuration-control-label <%= branchingPublic ? "staging-configuration-control-label-bold" : StringPool.BLANK %>">
+>>>>>>> compatible
 												<liferay-ui:message key="enabled-on-public-pages" />
 											</span>
 											<span class="staging-configuration-control-toggle">
@@ -253,7 +260,11 @@ BackgroundTask lastCompletedInitialPublicationBackgroundTask = BackgroundTaskMan
 										%>
 
 										<li class="flex-container list-group-item">
+<<<<<<< HEAD
 											<span class="flex-item-center staging-configuration-control-label">
+=======
+											<span class="flex-item-center staging-configuration-control-label <%= branchingPrivate ? "staging-configuration-control-label-bold" : StringPool.BLANK %>">
+>>>>>>> compatible
 												<liferay-ui:message key="enabled-on-private-pages" />
 											</span>
 											<span class="staging-configuration-control-toggle">
@@ -265,6 +276,7 @@ BackgroundTask lastCompletedInitialPublicationBackgroundTask = BackgroundTaskMan
 							</c:if>
 
 							<aui:fieldset collapsible="<%= true %>" helpMessage="staged-portlets-help" label="staged-content">
+<<<<<<< HEAD
 								<div id="<portlet:namespace />trashWarning">
 									<c:if test="<%= TrashEntryLocalServiceUtil.getEntriesCount(liveGroup.getGroupId()) > 0 %>">
 										<div class="alert alert-warning">
@@ -273,6 +285,8 @@ BackgroundTask lastCompletedInitialPublicationBackgroundTask = BackgroundTaskMan
 									</c:if>
 								</div>
 
+=======
+>>>>>>> compatible
 								<p class="staging-configuration-help-label">
 									<liferay-ui:message key="staged-portlets-alert" />
 								</p>
@@ -310,7 +324,11 @@ BackgroundTask lastCompletedInitialPublicationBackgroundTask = BackgroundTaskMan
 									%>
 
 										<li class="flex-container list-group-item">
+<<<<<<< HEAD
 											<span class="flex-item-center staging-configuration-control-label">
+=======
+											<span class="flex-item-center staging-configuration-control-label <%= staged ? "staging-configuration-control-label-bold" : StringPool.BLANK %>">
+>>>>>>> compatible
 												<liferay-ui:message key="<%= PortalUtil.getPortletTitle(curPortlet, application, locale) %>" />
 											</span>
 											<span class="staging-configuration-control-toggle">
@@ -330,7 +348,10 @@ BackgroundTask lastCompletedInitialPublicationBackgroundTask = BackgroundTaskMan
 					<aui:script sandbox="<%= true %>">
 						var remoteStagingOptions = $('#<portlet:namespace />remoteStagingOptions');
 						var stagedPortlets = $('#<portlet:namespace />stagedPortlets');
+<<<<<<< HEAD
 						var trashWarning = $('#<portlet:namespace />trashWarning');
+=======
+>>>>>>> compatible
 
 						var stagingTypes = $('#<portlet:namespace />stagingTypes');
 
@@ -343,14 +364,21 @@ BackgroundTask lastCompletedInitialPublicationBackgroundTask = BackgroundTaskMan
 								stagedPortlets.toggleClass('hide', value == '<%= StagingConstants.TYPE_NOT_STAGED %>');
 
 								remoteStagingOptions.toggleClass('hide', value != '<%= StagingConstants.TYPE_REMOTE_STAGING %>');
+<<<<<<< HEAD
 
 								trashWarning.toggleClass('hide', value != '<%= StagingConstants.TYPE_LOCAL_STAGING %>');
+=======
+>>>>>>> compatible
 							}
 						);
 					</aui:script>
 
 					<aui:button-row>
+<<<<<<< HEAD
 						<aui:button type="submit" />
+=======
+						<aui:button cssClass="btn-lg" type="submit" />
+>>>>>>> compatible
 					</aui:button-row>
 				</c:if>
 			</aui:form>

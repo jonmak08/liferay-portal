@@ -14,8 +14,11 @@
 
 package com.liferay.exportimport.kernel.controller;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.lar.MissingReferences;
 import com.liferay.exportimport.kernel.model.ExportImportConfiguration;
 
@@ -24,7 +27,10 @@ import java.io.File;
 /**
  * @author Daniel Kocsis
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public interface ImportController extends ExportImportController {
 
 	public void importDataDeletions(

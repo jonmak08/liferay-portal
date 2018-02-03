@@ -15,7 +15,10 @@
 package com.liferay.dynamic.data.mapping.validator.internal;
 
 import com.liferay.dynamic.data.mapping.expression.internal.DDMExpressionFactoryImpl;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.form.field.type.DDMFormFieldTypeServicesTracker;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.model.DDMForm;
 import com.liferay.dynamic.data.mapping.model.DDMFormField;
 import com.liferay.dynamic.data.mapping.model.DDMFormFieldOptions;
@@ -33,9 +36,15 @@ import com.liferay.dynamic.data.mapping.validator.DDMFormValuesValidationExcepti
 import com.liferay.dynamic.data.mapping.validator.DDMFormValuesValidationException.MustSetValidValue;
 import com.liferay.dynamic.data.mapping.validator.DDMFormValuesValidationException.MustSetValidValuesSize;
 import com.liferay.dynamic.data.mapping.validator.DDMFormValuesValidationException.RequiredValue;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.json.JSONFactoryImpl;
 import com.liferay.portal.kernel.util.LocaleUtil;
+=======
+import com.liferay.portal.json.JSONFactoryImpl;
+import com.liferay.portal.kernel.util.LocaleUtil;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 
 import java.util.List;
@@ -44,14 +53,21 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+<<<<<<< HEAD
 import org.powermock.api.mockito.PowerMockito;
+=======
+>>>>>>> compatible
 import org.powermock.modules.junit4.PowerMockRunner;
 
 /**
  * @author Marcellus Tavares
  */
 @RunWith(PowerMockRunner.class)
+<<<<<<< HEAD
 public class DDMFormValuesValidatorTest extends PowerMockito {
+=======
+public class DDMFormValuesValidatorTest {
+>>>>>>> compatible
 
 	@Before
 	public void setUp() throws Exception {
@@ -59,6 +75,7 @@ public class DDMFormValuesValidatorTest extends PowerMockito {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testValidationWithAutocompleteText() throws Exception {
 		DDMForm ddmForm = DDMFormTestUtil.createDDMForm();
 
@@ -86,6 +103,8 @@ public class DDMFormValuesValidatorTest extends PowerMockito {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testValidationWithInvalidFieldName() throws Exception {
 		DDMForm ddmForm = DDMFormTestUtil.createDDMForm("firstName");
 
@@ -362,6 +381,49 @@ public class DDMFormValuesValidatorTest extends PowerMockito {
 		_ddmFormValuesValidatorImpl.validate(ddmFormValues);
 	}
 
+<<<<<<< HEAD
+=======
+	@Test(expected = MustSetValidValue.class)
+	public void testValidationWithNonrequiredSelectAndInvalidLocalizedValue()
+		throws Exception {
+
+		DDMForm ddmForm = DDMFormTestUtil.createDDMForm();
+
+		DDMFormField ddmFormField = new DDMFormField("option", "select");
+
+		ddmFormField.setDataType("string");
+		ddmFormField.setRequired(false);
+
+		DDMFormFieldOptions ddmFormFieldOptions = new DDMFormFieldOptions();
+
+		ddmFormFieldOptions.addOptionLabel("A", LocaleUtil.US, "Option A");
+		ddmFormFieldOptions.addOptionLabel("B", LocaleUtil.US, "Option B");
+
+		ddmFormField.setDDMFormFieldOptions(ddmFormFieldOptions);
+
+		ddmFormField.setLocalizable(true);
+
+		ddmForm.addDDMFormField(ddmFormField);
+
+		DDMFormValues ddmFormValues = DDMFormValuesTestUtil.createDDMFormValues(
+			ddmForm);
+
+		ddmFormValues.addAvailableLocale(LocaleUtil.BRAZIL);
+
+		String instanceId = StringUtil.randomString();
+
+		LocalizedValue localizedValue =
+			DDMFormValuesTestUtil.createLocalizedValue(
+				"[\"\"]", "[\"C\"]", LocaleUtil.US);
+
+		ddmFormValues.addDDMFormFieldValue(
+			DDMFormValuesTestUtil.createDDMFormFieldValue(
+				instanceId, "option", localizedValue));
+
+		_ddmFormValuesValidatorImpl.validate(ddmFormValues);
+	}
+
+>>>>>>> compatible
 	@Test(expected = NullPointerException.class)
 	public void testValidationWithoutDDMFormReference() throws Exception {
 		DDMFormValues ddmFormValues = new DDMFormValues(null);
@@ -514,6 +576,43 @@ public class DDMFormValuesValidatorTest extends PowerMockito {
 		_ddmFormValuesValidatorImpl.validate(ddmFormValues);
 	}
 
+<<<<<<< HEAD
+=======
+	@Test(expected = MustSetValidValue.class)
+	public void testValidationWithRequiredSelectAndEmptyDefaultLocaleValue()
+		throws Exception {
+
+		DDMForm ddmForm = DDMFormTestUtil.createDDMForm();
+
+		DDMFormField ddmFormField = new DDMFormField("option", "select");
+
+		ddmFormField.setDataType("string");
+		ddmFormField.setRequired(true);
+
+		DDMFormFieldOptions ddmFormFieldOptions = new DDMFormFieldOptions();
+
+		ddmFormFieldOptions.addOptionLabel("A", LocaleUtil.US, "Option A");
+		ddmFormFieldOptions.addOptionLabel("B", LocaleUtil.US, "Option B");
+
+		ddmFormField.setDDMFormFieldOptions(ddmFormFieldOptions);
+
+		ddmFormField.setLocalizable(false);
+
+		ddmForm.addDDMFormField(ddmFormField);
+
+		DDMFormValues ddmFormValues = DDMFormValuesTestUtil.createDDMFormValues(
+			ddmForm);
+
+		String instanceId = StringUtil.randomString();
+
+		ddmFormValues.addDDMFormFieldValue(
+			DDMFormValuesTestUtil.createDDMFormFieldValue(
+				instanceId, "option", new UnlocalizedValue("[\"\"]")));
+
+		_ddmFormValuesValidatorImpl.validate(ddmFormValues);
+	}
+
+>>>>>>> compatible
 	@Test(expected = MustNotSetValue.class)
 	public void testValidationWithSeparatorField() throws Exception {
 		DDMForm ddmForm = DDMFormTestUtil.createDDMForm();
@@ -662,6 +761,40 @@ public class DDMFormValuesValidatorTest extends PowerMockito {
 		_ddmFormValuesValidatorImpl.validate(ddmFormValues);
 	}
 
+<<<<<<< HEAD
+=======
+	@Test(expected = MustSetValidValue.class)
+	public void testValidationWithWrongValueSetForSelect() throws Exception {
+		DDMForm ddmForm = DDMFormTestUtil.createDDMForm();
+
+		DDMFormField ddmFormField = new DDMFormField("option", "select");
+
+		ddmFormField.setDataType("string");
+
+		DDMFormFieldOptions ddmFormFieldOptions = new DDMFormFieldOptions();
+
+		ddmFormFieldOptions.addOptionLabel("A", LocaleUtil.US, "Option A");
+		ddmFormFieldOptions.addOptionLabel("B", LocaleUtil.US, "Option B");
+
+		ddmFormField.setDDMFormFieldOptions(ddmFormFieldOptions);
+
+		ddmFormField.setLocalizable(false);
+
+		ddmForm.addDDMFormField(ddmFormField);
+
+		DDMFormValues ddmFormValues = DDMFormValuesTestUtil.createDDMFormValues(
+			ddmForm);
+
+		String instanceId = StringUtil.randomString();
+
+		ddmFormValues.addDDMFormFieldValue(
+			DDMFormValuesTestUtil.createDDMFormFieldValue(
+				instanceId, "option", new UnlocalizedValue("[\"Invalid\"]")));
+
+		_ddmFormValuesValidatorImpl.validate(ddmFormValues);
+	}
+
+>>>>>>> compatible
 	@Test(expected = MustSetValidValuesSize.class)
 	public void testValidationWithWrongValuesForNonRepeatableField()
 		throws Exception {
@@ -706,6 +839,7 @@ public class DDMFormValuesValidatorTest extends PowerMockito {
 			new DDMExpressionFactoryImpl());
 
 		_ddmFormValuesValidatorImpl.setJSONFactory(new JSONFactoryImpl());
+<<<<<<< HEAD
 
 		field(
 			DDMFormValuesValidatorImpl.class, "_ddmFormFieldTypeServicesTracker"
@@ -713,6 +847,8 @@ public class DDMFormValuesValidatorTest extends PowerMockito {
 			_ddmFormValuesValidatorImpl,
 			mock(DDMFormFieldTypeServicesTracker.class)
 		);
+=======
+>>>>>>> compatible
 	}
 
 	private final DDMFormValuesValidatorImpl _ddmFormValuesValidatorImpl =

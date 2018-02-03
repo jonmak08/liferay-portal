@@ -70,7 +70,11 @@ public class TranslationManagerTag extends TemplateRendererTag {
 
 		putValue("pathThemeImages", themeDisplay.getPathThemeImages());
 
+<<<<<<< HEAD
 		setTemplateNamespace("liferay.frontend.TranslationManager.render");
+=======
+		setTemplateNamespace("TranslationManager.render");
+>>>>>>> compatible
 
 		return super.doStartTag();
 	}
@@ -91,6 +95,7 @@ public class TranslationManagerTag extends TemplateRendererTag {
 		putValue("changeableDefaultLanguage", changeableDefaultLanguage);
 	}
 
+<<<<<<< HEAD
 	public void setCssClass(String cssClass) {
 		putValue("elementClasses", cssClass);
 	}
@@ -104,6 +109,21 @@ public class TranslationManagerTag extends TemplateRendererTag {
 	}
 
 	public void setId(String id) {
+=======
+	public void setCssClass(java.lang.String cssClass) {
+		putValue("elementClasses", cssClass);
+	}
+
+	public void setDefaultLanguageId(java.lang.String defaultLanguageId) {
+		putValue("defaultLocale", defaultLanguageId);
+	}
+
+	public void setEditingLanguageId(java.lang.String editingLanguageId) {
+		putValue("editingLanguageId", editingLanguageId);
+	}
+
+	public void setId(java.lang.String id) {
+>>>>>>> compatible
 		putValue("id", id);
 	}
 

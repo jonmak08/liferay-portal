@@ -281,8 +281,11 @@ public interface PropsKeys {
 
 	public static final String CACHE_CONTENT_THRESHOLD_SIZE = "cache.content.threshold.size";
 
+<<<<<<< HEAD
 	public static final String CACHE_FILTER_INCLUDE_USER_AGENT = "cache.filter.include.user.agent";
 
+=======
+>>>>>>> compatible
 	public static final String CALENDAR_EMAIL_EVENT_REMINDER_BODY = "calendar.email.event.reminder.body";
 
 	public static final String CALENDAR_EMAIL_EVENT_REMINDER_ENABLED = "calendar.email.event.reminder.enabled";
@@ -303,6 +306,7 @@ public interface PropsKeys {
 
 	public static final String CALENDAR_PUBLISH_TO_LIVE_BY_DEFAULT = "calendar.publish.to.live.by.default";
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
@@ -409,6 +413,42 @@ public interface PropsKeys {
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+	public static final String CAPTCHA_CHECK_PORTAL_CREATE_ACCOUNT = "captcha.check.portal.create_account";
+
+	public static final String CAPTCHA_CHECK_PORTAL_SEND_PASSWORD = "captcha.check.portal.send_password";
+
+	public static final String CAPTCHA_CHECK_PORTLET_MESSAGE_BOARDS_EDIT_CATEGORY = "captcha.check.portlet.message_boards.edit_category";
+
+	public static final String CAPTCHA_CHECK_PORTLET_MESSAGE_BOARDS_EDIT_MESSAGE = "captcha.check.portlet.message_boards.edit_message";
+
+	public static final String CAPTCHA_ENGINE_IMPL = "captcha.engine.impl";
+
+	public static final String CAPTCHA_ENGINE_RECAPTCHA_KEY_PRIVATE = "captcha.engine.recaptcha.key.private";
+
+	public static final String CAPTCHA_ENGINE_RECAPTCHA_KEY_PUBLIC = "captcha.engine.recaptcha.key.public";
+
+	public static final String CAPTCHA_ENGINE_RECAPTCHA_URL_NOSCRIPT = "captcha.engine.recaptcha.url.noscript";
+
+	public static final String CAPTCHA_ENGINE_RECAPTCHA_URL_SCRIPT = "captcha.engine.recaptcha.url.script";
+
+	public static final String CAPTCHA_ENGINE_RECAPTCHA_URL_VERIFY = "captcha.engine.recaptcha.url.verify";
+
+	public static final String CAPTCHA_ENGINE_SIMPLECAPTCHA_BACKGROUND_PRODUCERS = "captcha.engine.simplecaptcha.background.producers";
+
+	public static final String CAPTCHA_ENGINE_SIMPLECAPTCHA_GIMPY_RENDERERS = "captcha.engine.simplecaptcha.gimpy.renderers";
+
+	public static final String CAPTCHA_ENGINE_SIMPLECAPTCHA_HEIGHT = "captcha.engine.simplecaptcha.height";
+
+	public static final String CAPTCHA_ENGINE_SIMPLECAPTCHA_NOISE_PRODUCERS = "captcha.engine.simplecaptcha.noise.producers";
+
+	public static final String CAPTCHA_ENGINE_SIMPLECAPTCHA_TEXT_PRODUCERS = "captcha.engine.simplecaptcha.text.producers";
+
+	public static final String CAPTCHA_ENGINE_SIMPLECAPTCHA_WIDTH = "captcha.engine.simplecaptcha.width";
+
+	public static final String CAPTCHA_ENGINE_SIMPLECAPTCHA_WORD_RENDERERS = "captcha.engine.simplecaptcha.word.renderers";
+
+>>>>>>> compatible
 	public static final String CAPTCHA_MAX_CHALLENGES = "captcha.max.challenges";
 
 	public static final String CAS_AUTH_ENABLED = "cas.auth.enabled";
@@ -437,10 +477,13 @@ public interface PropsKeys {
 
 	public static final String CLUSTER_LINK_AUTODETECT_ADDRESS = "cluster.link.autodetect.address";
 
+<<<<<<< HEAD
 	public static final String CLUSTER_LINK_CHANNEL_LOGIC_NAME_CONTROL = "cluster.link.channel.logic.name.control";
 
 	public static final String CLUSTER_LINK_CHANNEL_LOGIC_NAME_TRANSPORT = "cluster.link.channel.logic.name.transport";
 
+=======
+>>>>>>> compatible
 	public static final String CLUSTER_LINK_CHANNEL_NAME_CONTROL = "cluster.link.channel.name.control";
 
 	public static final String CLUSTER_LINK_CHANNEL_NAME_TRANSPORT = "cluster.link.channel.name.transport";
@@ -737,10 +780,13 @@ public interface PropsKeys {
 
 	public static final String DL_FILE_ENTRY_PREVIEW_VIDEO_WIDTH = "dl.file.entry.preview.video.width";
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static final String DL_FILE_ENTRY_PREVIEWABLE_PROCESSOR_MAX_SIZE = "dl.file.entry.previewable.processor.max.size";
 
 	public static final String DL_FILE_ENTRY_PROCESSORS = "dl.file.entry.processors";
@@ -767,10 +813,13 @@ public interface PropsKeys {
 
 	public static final String DL_FILE_ENTRY_VERSION_POLICY = "dl.file.entry.version.policy";
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static final String DL_FILE_EXTENSIONS = "dl.file.extensions";
 
 	public static final String DL_FILE_EXTENSIONS_STRICT_CHECK = "dl.file.extensions.strict.check";
@@ -787,6 +836,7 @@ public interface PropsKeys {
 
 	public static final String DL_FILE_INDEXING_MAX_SIZE = "dl.file.indexing.max.size";
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
@@ -803,6 +853,12 @@ public interface PropsKeys {
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+	public static final String DL_FILE_MAX_SIZE = "dl.file.max.size";
+
+	public static final String DL_FILE_RANK_ENABLED = "dl.file.rank.enabled";
+
+>>>>>>> compatible
 	public static final String DL_FILE_RANK_MAX_SIZE = "dl.file.rank.max.size";
 
 	public static final String DL_FOLDER_COLUMNS = "dl.folder.columns";
@@ -968,8 +1024,11 @@ public interface PropsKeys {
 
 	public static final String HIBERNATE_JDBC_BATCH_SIZE = "hibernate.jdbc.batch_size";
 
+<<<<<<< HEAD
 	public static final String HIBERNATE_SESSION_FACTORY_IMPORTED_CLASS_NAME_REGEXP = "hibernate.session.factory.imported.class.name.regexp";
 
+=======
+>>>>>>> compatible
 	public static final String HOT_DEPLOY_DEPENDENCY_MANAGEMENT_ENABLED = "hot.deploy.dependency.management.enabled";
 
 	public static final String HOT_DEPLOY_LISTENERS = "hot.deploy.listeners";
@@ -1100,6 +1159,7 @@ public interface PropsKeys {
 
 	public static final String INTRABAND_WELDER_SOCKET_TCP_NO_DELAY = "intraband.welder.socket.tcp.no.delay";
 
+<<<<<<< HEAD
 	public static final String INVOKER_FILTER_CHAIN_ENABLED = "invoker.filter.chain.cache.enabled";
 
 	/**
@@ -1107,6 +1167,8 @@ public interface PropsKeys {
 	 *             #INVOKER_FILTER_CHAIN_ENABLED}
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static final String INVOKER_FILTER_CHAIN_SIZE = "invoker.filter.chain.cache.size";
 
 	public static final String INVOKER_FILTER_URI_MAX_LENGTH = "invoker.filter.uri.max.length";
@@ -1147,6 +1209,7 @@ public interface PropsKeys {
 
 	public static final String JNDI_ENVIRONMENT = "jndi.environment.";
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
@@ -1157,6 +1220,10 @@ public interface PropsKeys {
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+	public static final String JOURNAL_IMAGE_EXTENSIONS = "journal.image.extensions";
+
+>>>>>>> compatible
 	public static final String JOURNAL_IMAGE_SMALL_MAX_SIZE = "journal.image.small.max.size";
 
 	public static final String JSON_SERVICE_AUTH_TOKEN_ENABLED = "json.service.auth.token.enabled";
@@ -1225,10 +1292,13 @@ public interface PropsKeys {
 
 	public static final String LAYOUT_PARALLEL_RENDER_ENABLE = "layout.parallel.render.enable";
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static final String LAYOUT_PARALLEL_RENDER_THREAD_POOL_ALLOW_CORE_THREAD_TIMEOUT = "layout.parallel.render.thread.pool.allow.core.thread.timeout";
 
 	public static final String LAYOUT_PARALLEL_RENDER_THREAD_POOL_CORE_THREAD_COUNT = "layout.parallel.render.thread.pool.core.thread.count";
@@ -1505,6 +1575,7 @@ public interface PropsKeys {
 
 	public static final String MINIFIER_ENABLED = "minifier.enabled";
 
+<<<<<<< HEAD
 	public static final String MINIFIER_INLINE_CONTENT_CACHE_ENABLED = "minifier.inline.content.cache.enabled";
 
 	/**
@@ -1512,6 +1583,8 @@ public interface PropsKeys {
 	 *             #MINIFIER_INLINE_CONTENT_CACHE_ENABLED}
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static final String MINIFIER_INLINE_CONTENT_CACHE_SIZE = "minifier.inline.content.cache.size";
 
 	public static final String MINIFIER_INLINE_CONTENT_CACHE_SKIP_CSS = "minifier.inline.content.cache.skip.css";
@@ -1656,16 +1729,20 @@ public interface PropsKeys {
 
 	public static final String OPEN_SSO_SERVICE_URL = "open.sso.service.url";
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static final String OPENOFFICE_CACHE_ENABLED = "openoffice.cache.enabled";
 
 	public static final String OPENOFFICE_CONVERSION_SOURCE_EXTENSIONS = "openoffice.conversion.source.extensions";
 
 	public static final String OPENOFFICE_CONVERSION_TARGET_EXTENSIONS = "openoffice.conversion.target.extensions";
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
@@ -1682,6 +1759,12 @@ public interface PropsKeys {
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+	public static final String OPENOFFICE_SERVER_ENABLED = "openoffice.server.enabled";
+
+	public static final String OPENOFFICE_SERVER_HOST = "openoffice.server.host";
+
+>>>>>>> compatible
 	public static final String OPENOFFICE_SERVER_PORT = "openoffice.server.port";
 
 	public static final String ORGANIZATIONS_ASSIGNMENT_STRICT = "organizations.assignment.strict";
@@ -2188,6 +2271,7 @@ public interface PropsKeys {
 
 	public static final String SHOPPING_EMAIL_ORDER_SHIPPING_SUBJECT = "shopping.email.order.shipping.subject";
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
@@ -2210,6 +2294,14 @@ public interface PropsKeys {
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+	public static final String SHOPPING_IMAGE_EXTENSIONS = "shopping.image.extensions";
+
+	public static final String SHOPPING_IMAGE_LARGE_MAX_SIZE = "shopping.image.large.max.size";
+
+	public static final String SHOPPING_IMAGE_MEDIUM_MAX_SIZE = "shopping.image.medium.max.size";
+
+>>>>>>> compatible
 	public static final String SHOPPING_IMAGE_SMALL_MAX_SIZE = "shopping.image.small.max.size";
 
 	public static final String SHOPPING_INSURANCE = "shopping.insurance";
@@ -2362,10 +2454,13 @@ public interface PropsKeys {
 
 	public static final String STAGING_REMOTE_TRANSFER_BUFFER_SIZE = "staging.remote.transfer.buffer.size";
 
+<<<<<<< HEAD
 	public static final String STAGING_SYSTEM_EVENT_CHECK_INTERVAL = "staging.system.event.check.interval";
 
 	public static final String STAGING_SYSTEM_EVENT_MAX_AGE = "staging.system.event.max.age";
 
+=======
+>>>>>>> compatible
 	public static final String STRIP_CSS_SASS_ENABLED = "strip.css.sass.enabled";
 
 	public static final String STRIP_IGNORE_PATHS = "strip.ignore.paths";
@@ -2461,6 +2556,7 @@ public interface PropsKeys {
 
 	public static final String UPGRADE_PROCESSES = "upgrade.processes";
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
@@ -2471,6 +2567,10 @@ public interface PropsKeys {
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+	public static final String UPLOAD_SERVLET_REQUEST_IMPL_MAX_SIZE = "com.liferay.portal.upload.UploadServletRequestImpl.max.size";
+
+>>>>>>> compatible
 	public static final String UPLOAD_SERVLET_REQUEST_IMPL_TEMP_DIR = "com.liferay.portal.upload.UploadServletRequestImpl.temp.dir";
 
 	public static final String USER_GROUPS_COPY_LAYOUTS_TO_USER_PERSONAL_SITE = "user.groups.copy.layouts.to.user.personal.site";
@@ -2521,6 +2621,7 @@ public interface PropsKeys {
 
 	public static final String USERS_FULL_NAME_VALIDATOR = "users.full.name.validator";
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
@@ -2549,6 +2650,16 @@ public interface PropsKeys {
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+	public static final String USERS_IMAGE_CHECK_TOKEN = "users.image.check.token";
+
+	public static final String USERS_IMAGE_DEFAULT_USE_INITIALS = "users.image.default.use.initials";
+
+	public static final String USERS_IMAGE_MAX_HEIGHT = "users.image.max.height";
+
+	public static final String USERS_IMAGE_MAX_SIZE = "users.image.max.size";
+
+>>>>>>> compatible
 	public static final String USERS_IMAGE_MAX_WIDTH = "users.image.max.width";
 
 	public static final String USERS_LIST_VIEWS = "users.list.views";
@@ -2589,8 +2700,11 @@ public interface PropsKeys {
 
 	public static final String VALUE_OBJECT_FINDER_CACHE_ENABLED = "value.object.finder.cache.enabled";
 
+<<<<<<< HEAD
 	public static final String VALUE_OBJECT_FINDER_CACHE_LIST_THRESHOLD = "value.object.finder.cache.list.threshold";
 
+=======
+>>>>>>> compatible
 	public static final String VALUE_OBJECT_FINDER_THREAD_LOCAL_CACHE_MAX_SIZE = "value.object.finder.thread.local.cache.max.size";
 
 	public static final String VALUE_OBJECT_LISTENER = "value.object.listener.";
@@ -2661,10 +2775,13 @@ public interface PropsKeys {
 
 	public static final String WIDGET_SERVLET_MAPPING = "widget.servlet.mapping";
 
+<<<<<<< HEAD
 	public static final String WORKFLOW_EMAIL_FROM_ADDRESS = "workflow.email.from.address";
 
 	public static final String WORKFLOW_EMAIL_FROM_NAME = "workflow.email.from.name";
 
+=======
+>>>>>>> compatible
 	public static final String XML_SECURITY_ENABLED = "xml.security.enabled";
 
 	public static final String XML_SITEMAP_INDEX_ENABLED = "xml.sitemap.index.enabled";
@@ -2695,6 +2812,9 @@ public interface PropsKeys {
 
 	public static final String YUI_COMPRESSOR_JS_VERBOSE = "yui.compressor.js.verbose";
 
+<<<<<<< HEAD
 	public static final String ZIP_FILE_NAME_ENCODING = "zip.file.name.encoding";
 
+=======
+>>>>>>> compatible
 }

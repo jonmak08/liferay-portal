@@ -19,6 +19,10 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import com.liferay.sync.model.SyncDLObject;
 
@@ -137,7 +141,11 @@ public class SyncDLObjectCacheModel implements CacheModel<SyncDLObject>,
 		syncDLObjectImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			syncDLObjectImpl.setUserName("");
+=======
+			syncDLObjectImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			syncDLObjectImpl.setUserName(userName);
@@ -149,56 +157,88 @@ public class SyncDLObjectCacheModel implements CacheModel<SyncDLObject>,
 		syncDLObjectImpl.setParentFolderId(parentFolderId);
 
 		if (treePath == null) {
+<<<<<<< HEAD
 			syncDLObjectImpl.setTreePath("");
+=======
+			syncDLObjectImpl.setTreePath(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			syncDLObjectImpl.setTreePath(treePath);
 		}
 
 		if (name == null) {
+<<<<<<< HEAD
 			syncDLObjectImpl.setName("");
+=======
+			syncDLObjectImpl.setName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			syncDLObjectImpl.setName(name);
 		}
 
 		if (extension == null) {
+<<<<<<< HEAD
 			syncDLObjectImpl.setExtension("");
+=======
+			syncDLObjectImpl.setExtension(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			syncDLObjectImpl.setExtension(extension);
 		}
 
 		if (mimeType == null) {
+<<<<<<< HEAD
 			syncDLObjectImpl.setMimeType("");
+=======
+			syncDLObjectImpl.setMimeType(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			syncDLObjectImpl.setMimeType(mimeType);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			syncDLObjectImpl.setDescription("");
+=======
+			syncDLObjectImpl.setDescription(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			syncDLObjectImpl.setDescription(description);
 		}
 
 		if (changeLog == null) {
+<<<<<<< HEAD
 			syncDLObjectImpl.setChangeLog("");
+=======
+			syncDLObjectImpl.setChangeLog(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			syncDLObjectImpl.setChangeLog(changeLog);
 		}
 
 		if (extraSettings == null) {
+<<<<<<< HEAD
 			syncDLObjectImpl.setExtraSettings("");
+=======
+			syncDLObjectImpl.setExtraSettings(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			syncDLObjectImpl.setExtraSettings(extraSettings);
 		}
 
 		if (version == null) {
+<<<<<<< HEAD
 			syncDLObjectImpl.setVersion("");
+=======
+			syncDLObjectImpl.setVersion(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			syncDLObjectImpl.setVersion(version);
@@ -208,21 +248,33 @@ public class SyncDLObjectCacheModel implements CacheModel<SyncDLObject>,
 		syncDLObjectImpl.setSize(size);
 
 		if (checksum == null) {
+<<<<<<< HEAD
 			syncDLObjectImpl.setChecksum("");
+=======
+			syncDLObjectImpl.setChecksum(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			syncDLObjectImpl.setChecksum(checksum);
 		}
 
 		if (event == null) {
+<<<<<<< HEAD
 			syncDLObjectImpl.setEvent("");
+=======
+			syncDLObjectImpl.setEvent(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			syncDLObjectImpl.setEvent(event);
 		}
 
 		if (lanTokenKey == null) {
+<<<<<<< HEAD
 			syncDLObjectImpl.setLanTokenKey("");
+=======
+			syncDLObjectImpl.setLanTokenKey(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			syncDLObjectImpl.setLanTokenKey(lanTokenKey);
@@ -246,14 +298,22 @@ public class SyncDLObjectCacheModel implements CacheModel<SyncDLObject>,
 		syncDLObjectImpl.setLockUserId(lockUserId);
 
 		if (lockUserName == null) {
+<<<<<<< HEAD
 			syncDLObjectImpl.setLockUserName("");
+=======
+			syncDLObjectImpl.setLockUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			syncDLObjectImpl.setLockUserName(lockUserName);
 		}
 
 		if (type == null) {
+<<<<<<< HEAD
 			syncDLObjectImpl.setType("");
+=======
+			syncDLObjectImpl.setType(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			syncDLObjectImpl.setType(type);
@@ -262,7 +322,11 @@ public class SyncDLObjectCacheModel implements CacheModel<SyncDLObject>,
 		syncDLObjectImpl.setTypePK(typePK);
 
 		if (typeUuid == null) {
+<<<<<<< HEAD
 			syncDLObjectImpl.setTypeUuid("");
+=======
+			syncDLObjectImpl.setTypeUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			syncDLObjectImpl.setTypeUuid(typeUuid);
@@ -325,7 +389,11 @@ public class SyncDLObjectCacheModel implements CacheModel<SyncDLObject>,
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -340,56 +408,88 @@ public class SyncDLObjectCacheModel implements CacheModel<SyncDLObject>,
 		objectOutput.writeLong(parentFolderId);
 
 		if (treePath == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(treePath);
 		}
 
 		if (name == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(name);
 		}
 
 		if (extension == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(extension);
 		}
 
 		if (mimeType == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(mimeType);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(description);
 		}
 
 		if (changeLog == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(changeLog);
 		}
 
 		if (extraSettings == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(extraSettings);
 		}
 
 		if (version == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(version);
@@ -400,21 +500,33 @@ public class SyncDLObjectCacheModel implements CacheModel<SyncDLObject>,
 		objectOutput.writeLong(size);
 
 		if (checksum == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(checksum);
 		}
 
 		if (event == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(event);
 		}
 
 		if (lanTokenKey == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(lanTokenKey);
@@ -426,14 +538,22 @@ public class SyncDLObjectCacheModel implements CacheModel<SyncDLObject>,
 		objectOutput.writeLong(lockUserId);
 
 		if (lockUserName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(lockUserName);
 		}
 
 		if (type == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(type);
@@ -442,7 +562,11 @@ public class SyncDLObjectCacheModel implements CacheModel<SyncDLObject>,
 		objectOutput.writeLong(typePK);
 
 		if (typeUuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(typeUuid);

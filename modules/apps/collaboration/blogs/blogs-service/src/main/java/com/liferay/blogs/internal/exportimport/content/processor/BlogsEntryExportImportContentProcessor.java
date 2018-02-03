@@ -15,6 +15,7 @@
 package com.liferay.blogs.internal.exportimport.content.processor;
 
 import com.liferay.exportimport.content.processor.ExportImportContentProcessor;
+<<<<<<< HEAD
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -30,12 +31,26 @@ import org.osgi.service.component.annotations.Reference;
  */
 @Component(
 	property = {"model.class.name=com.liferay.blogs.model.BlogsEntry"},
+=======
+import com.liferay.exportimport.content.processor.base.BaseTextExportImportContentProcessor;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+
+import org.osgi.service.component.annotations.Component;
+
+/**
+ * @author Gergely Mathe
+ */
+@Component(
+	property = {"model.class.name=com.liferay.blogs.kernel.model.BlogsEntry"},
+>>>>>>> compatible
 	service = {
 		BlogsEntryExportImportContentProcessor.class,
 		ExportImportContentProcessor.class
 	}
 )
 public class BlogsEntryExportImportContentProcessor
+<<<<<<< HEAD
 	implements ExportImportContentProcessor<String> {
 
 	@Override
@@ -101,5 +116,11 @@ public class BlogsEntryExportImportContentProcessor
 	@Reference(target = "(content.processor.type=LayoutReferences)")
 	private ExportImportContentProcessor<String>
 		_layoutReferencesExportImportContentProcessor;
+=======
+	extends BaseTextExportImportContentProcessor {
+
+	private static final Log _log = LogFactoryUtil.getLog(
+		BlogsEntryExportImportContentProcessor.class);
+>>>>>>> compatible
 
 }

@@ -18,10 +18,14 @@ import com.liferay.portal.kernel.exception.PortalException;
 
 /**
  * @author Brian Wing Shun Chan
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, replaced by {@link
  *             com.liferay.message.boards.exception.MailingListOutServerNameException}
  */
 @Deprecated
+=======
+ */
+>>>>>>> compatible
 public class MailingListOutServerNameException extends PortalException {
 
 	public MailingListOutServerNameException() {

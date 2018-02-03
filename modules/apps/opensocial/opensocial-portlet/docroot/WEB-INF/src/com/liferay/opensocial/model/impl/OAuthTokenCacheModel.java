@@ -21,6 +21,10 @@ import com.liferay.opensocial.model.OAuthToken;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -109,7 +113,11 @@ public class OAuthTokenCacheModel implements CacheModel<OAuthToken>,
 		oAuthTokenImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			oAuthTokenImpl.setUserName("");
+=======
+			oAuthTokenImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			oAuthTokenImpl.setUserName(userName);
@@ -130,14 +138,22 @@ public class OAuthTokenCacheModel implements CacheModel<OAuthToken>,
 		}
 
 		if (gadgetKey == null) {
+<<<<<<< HEAD
 			oAuthTokenImpl.setGadgetKey("");
+=======
+			oAuthTokenImpl.setGadgetKey(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			oAuthTokenImpl.setGadgetKey(gadgetKey);
 		}
 
 		if (serviceName == null) {
+<<<<<<< HEAD
 			oAuthTokenImpl.setServiceName("");
+=======
+			oAuthTokenImpl.setServiceName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			oAuthTokenImpl.setServiceName(serviceName);
@@ -146,28 +162,44 @@ public class OAuthTokenCacheModel implements CacheModel<OAuthToken>,
 		oAuthTokenImpl.setModuleId(moduleId);
 
 		if (accessToken == null) {
+<<<<<<< HEAD
 			oAuthTokenImpl.setAccessToken("");
+=======
+			oAuthTokenImpl.setAccessToken(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			oAuthTokenImpl.setAccessToken(accessToken);
 		}
 
 		if (tokenName == null) {
+<<<<<<< HEAD
 			oAuthTokenImpl.setTokenName("");
+=======
+			oAuthTokenImpl.setTokenName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			oAuthTokenImpl.setTokenName(tokenName);
 		}
 
 		if (tokenSecret == null) {
+<<<<<<< HEAD
 			oAuthTokenImpl.setTokenSecret("");
+=======
+			oAuthTokenImpl.setTokenSecret(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			oAuthTokenImpl.setTokenSecret(tokenSecret);
 		}
 
 		if (sessionHandle == null) {
+<<<<<<< HEAD
 			oAuthTokenImpl.setSessionHandle("");
+=======
+			oAuthTokenImpl.setSessionHandle(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			oAuthTokenImpl.setSessionHandle(sessionHandle);
@@ -212,7 +244,11 @@ public class OAuthTokenCacheModel implements CacheModel<OAuthToken>,
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -222,14 +258,22 @@ public class OAuthTokenCacheModel implements CacheModel<OAuthToken>,
 		objectOutput.writeLong(modifiedDate);
 
 		if (gadgetKey == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(gadgetKey);
 		}
 
 		if (serviceName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(serviceName);
@@ -238,28 +282,44 @@ public class OAuthTokenCacheModel implements CacheModel<OAuthToken>,
 		objectOutput.writeLong(moduleId);
 
 		if (accessToken == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(accessToken);
 		}
 
 		if (tokenName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(tokenName);
 		}
 
 		if (tokenSecret == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(tokenSecret);
 		}
 
 		if (sessionHandle == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(sessionHandle);

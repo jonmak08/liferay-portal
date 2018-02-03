@@ -4,6 +4,7 @@
 			<condition function="IsElementPresent" locator1="Icon#HEADER_VERTICAL_ELLIPSIS" />
 			<then>
 				<execute macro="KaleoFormsNavigator#gotoManageFieldSets" />
+<<<<<<< HEAD
 
 				<execute macro="LexiconEntry#gotoAdd" />
 
@@ -19,15 +20,38 @@
 
 				<execute function="AssertClick" locator1="KaleoFormsAdminEditProcess#ADD_FIELD_SET_BUTTON" value1="Add Field Set" />
 
+=======
+
+				<execute function="Click" locator1="Button#PLUS" />
+
+				<execute function="AssertElementPresent" locator1="DDMEditStructure#NAME_FIELD" />
+
+				<execute function="Click" locator1="DDMEditStructure#NAME_FIELD" />
+
+				<execute function="Type" locator1="DDMEditStructure#NAME_FIELD" value1="${kfFieldSetName}" />
+			</then>
+			<else>
+				<execute macro="KaleoFormsAdmin#viewNewProcessProgressBar">
+					<var name="kfProgressName" value="Fields" />
+					<var name="kfProgressStep" value="2" />
+				</execute>
+
+				<execute function="AssertClick" locator1="KaleoFormsAdminEditProcess#ADD_FIELD_SET_BUTTON" value1="Add Field Set" />
+
+>>>>>>> compatible
 				<var name="key_iframeTitle" value="Field Set" />
 
 				<execute function="AssertTextEquals" locator1="IFrame#IFRAME_TITLE" value1="New Field Set" />
 
 				<execute function="SelectFrame" locator1="IFrame#DIALOG" />
 
+<<<<<<< HEAD
 				<execute macro="PortletEntry#inputName">
 					<var name="name" value="${kfFieldSetName}" />
 				</execute>
+=======
+				<execute function="Type" locator1="DDMEditStructure#NAME_FIELD" value1="${kfFieldSetName}" />
+>>>>>>> compatible
 			</else>
 		</if>
 	</command>
@@ -35,6 +59,7 @@
 	<command name="addForm">
 		<execute function="SelectFrame" locator1="DDMEditStructure#IFRAME" />
 
+<<<<<<< HEAD
 		<execute macro="LexiconEntry#gotoAdd" />
 
 		<execute function="Click" locator1="DDMEditStructure#NAME_FIELD" />
@@ -42,6 +67,15 @@
 		<execute macro="PortletEntry#inputName">
 			<var name="name" value="${kfFormName}" />
 		</execute>
+=======
+		<execute function="Click" locator1="Button#PLUS" />
+
+		<execute function="AssertElementPresent" locator1="DDMEditStructure#NAME_FIELD" />
+
+		<execute function="Click" locator1="DDMEditStructure#NAME_FIELD" />
+
+		<execute function="Type" locator1="DDMEditStructure#NAME_FIELD" value1="${kfFormName}" />
+>>>>>>> compatible
 
 		<for list="Fieldset,Paragraph,Separator" param="field">
 			<execute macro="DynamicDataMapping#viewCanAddField">
@@ -53,7 +87,11 @@
 	<command name="addProcess">
 		<execute function="AssertTextEquals" locator1="Portlet#HEADER" value1="Kaleo Forms Admin" />
 
+<<<<<<< HEAD
 		<execute macro="LexiconEntry#gotoAdd" />
+=======
+		<execute function="Click" locator1="Button#PLUS" />
+>>>>>>> compatible
 	</command>
 
 	<command name="addProcessDetails">
@@ -63,11 +101,19 @@
 		</execute>
 
 		<execute function="AssertTextEquals" locator1="KaleoFormsAdminEditProcess#NEXT_BUTTON_INACTIVE" value1="Next" />
+<<<<<<< HEAD
 
 		<var name="key_fieldName" value="name" />
 
 		<execute function="Type" locator1="FormFields#TEXT_FIELD" value1="${kfProcessName}" />
 
+=======
+
+		<var name="key_fieldName" value="name" />
+
+		<execute function="Type" locator1="FormFields#TEXT_FIELD" value1="${kfProcessName}" />
+
+>>>>>>> compatible
 		<execute macro="FormFields#editTextMultiline">
 			<var name="fieldName" value="description" />
 			<var name="fieldValue" value="${kfProcessDescription}" />
@@ -211,6 +257,7 @@
 		</if>
 
 		<var name="key_rowEntry" value="${workflowDefinitionTitle}" />
+<<<<<<< HEAD
 
 		<execute function="Click" locator1="Icon#ROW_VERTICAL_ELLIPSIS" />
 
@@ -218,6 +265,15 @@
 			<var name="key_menuItem" value="Choose" />
 		</execute>
 
+=======
+
+		<execute function="Click" locator1="Icon#ROW_VERTICAL_ELLIPSIS" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Choose">
+			<var name="key_menuItem" value="Choose" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="KaleoFormsAdmin#viewSelectedWorkflow">
 			<var name="edit" value="${edit}" />
 			<var name="workflowDefinitionTitle" value="${workflowDefinitionTitle}" />
@@ -266,9 +322,15 @@
 			<var name="kfFieldSetName" value="${kfFieldSetName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="${kfFormName}" />
 		</execute>
+=======
+		<execute function="Type" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${kfFormName}" />
+
+		<execute function="Click" locator1="Icon#BASIC_SEARCH" />
+>>>>>>> compatible
 
 		<var name="key_rowEntry" value="${kfFormName}" />
 
@@ -349,6 +411,7 @@
 		</execute>
 
 		<var name="key_rowEntry" value="${kfFieldSetName}" />
+<<<<<<< HEAD
 
 		<execute function="Click" locator1="Icon#ROW_VERTICAL_ELLIPSIS" />
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Edit">
@@ -364,6 +427,21 @@
 		<execute macro="PortletEntry#inputName">
 			<var name="name" value="${kfFieldSetNameEdit}" />
 		</execute>
+=======
+
+		<execute function="Click" locator1="Icon#ROW_VERTICAL_ELLIPSIS" />
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Edit">
+			<var name="key_menuItem" value="Edit" />
+		</execute>
+
+		<var name="key_iframeTitle" value="Field Set" />
+
+		<execute function="AssertTextEquals" locator1="IFrame#IFRAME_TITLE" value1="Edit Field Set" />
+
+		<execute function="SelectFrame" locator1="IFrame#DIALOG" />
+
+		<execute function="Type" locator1="DDMEditStructure#NAME_FIELD" value1="${kfFieldSetNameEdit}" />
+>>>>>>> compatible
 	</command>
 
 	<command name="editFieldSetPagination">
@@ -371,8 +449,13 @@
 
 		<var name="key_paginationNumber" value="${paginationNumber}" />
 
+<<<<<<< HEAD
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="${paginationNumber} Entries">
 			<var name="key_menuItem" value="${paginationNumber} Entries" />
+=======
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="${paginationNumber}">
+			<var name="key_menuItem" value="${paginationNumber}" />
+>>>>>>> compatible
 		</execute>
 
 		<execute function="AssertTextEquals" locator1="KaleoFormsAdminEditProcess#FIELD_SET_PAGINATION_SELECTOR_BUTTON" value1="${paginationNumber} Entries" />
@@ -393,9 +476,13 @@
 
 		<execute function="SelectFrame" locator1="IFrame#DIALOG" />
 
+<<<<<<< HEAD
 		<execute macro="PortletEntry#inputName">
 			<var name="name" value="${kfFormNameEdit}" />
 		</execute>
+=======
+		<execute function="Type" locator1="DDMEditStructure#NAME_FIELD" value1="${kfFormNameEdit}" />
+>>>>>>> compatible
 
 		<for list="Fieldset,Paragraph,Separator" param="field">
 			<execute macro="DynamicDataMapping#viewCanAddField">
@@ -453,6 +540,7 @@
 		</execute>
 
 		<var name="key_rowEntry" value="${workflowDefinitionTitle}" />
+<<<<<<< HEAD
 
 		<execute function="Click" locator1="Icon#ROW_VERTICAL_ELLIPSIS" />
 
@@ -462,6 +550,17 @@
 
 		<execute function="SelectFrame" locator1="IFrame#DIALOG" />
 
+=======
+
+		<execute function="Click" locator1="Icon#ROW_VERTICAL_ELLIPSIS" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Edit">
+			<var name="key_menuItem" value="Edit" />
+		</execute>
+
+		<execute function="SelectFrame" locator1="IFrame#DIALOG" />
+
+>>>>>>> compatible
 		<execute macro="PortletEntry#inputTitle">
 			<var name="title" value="${workflowDefinitionTitleEdit}" />
 		</execute>
@@ -627,12 +726,17 @@
 	<command name="saveAsDraftWorkflow">
 		<execute macro="DynamicDataMapping#selectDynamicDataMappingFrame" />
 
+<<<<<<< HEAD
 		<execute function="AssertClick" locator1="KaleoDesigner#SAVE_BUTTON" value1="Save" />
+=======
+		<execute function="AssertClick" locator1="Button#SAVE_AS_DRAFT" value1="Save as Draft" />
+>>>>>>> compatible
 
 		<execute macro="Alert#viewSuccessMessage" />
 	</command>
 
 	<command name="saveFieldSet">
+<<<<<<< HEAD
 		<execute macro="PortletEntry#save" />
 
 		<execute function="SelectFrame" value1="relative=top" />
@@ -668,6 +772,47 @@
 		<execute macro="DynamicDataMapping#selectDynamicDataMappingFrame" />
 
 		<execute macro="PortletEntry#save" />
+=======
+		<execute function="AssertClick" locator1="KaleoFormsAdminEditProcess#SAVE_BUTTON" value1="Save" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+
+		<execute function="SelectFrame" value1="relative=top" />
+
+		<if>
+			<condition function="IsElementPresent" locator1="IFrame#DIALOG" />
+			<then>
+				<execute function="Click" locator1="Icon#CLOSE" />
+			</then>
+		</if>
+	</command>
+
+	<command name="saveForm">
+		<execute macro="DynamicDataMapping#selectDynamicDataMappingFrame" />
+
+		<if>
+			<or>
+				<equals arg1="${workflowTask}" arg2="review" />
+				<equals arg1="${workflowTask}" arg2="update" />
+			</or>
+			<then>
+				<execute function="AssertClick" locator1="KaleoFormsAdminEditProcessForm#SAVE_BUTTON" value1="Save" />
+			</then>
+			<else>
+				<execute macro="Button#clickSave" />
+			</else>
+		</if>
+
+		<execute macro="Alert#viewSuccessMessage" />
+	</command>
+
+	<command name="saveFormEdit">
+		<execute macro="DynamicDataMapping#selectDynamicDataMappingFrame" />
+
+		<execute function="AssertClick" locator1="KaleoFormsAdminEditProcessForm#SAVE_BUTTON" value1="Save" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 
 		<execute function="SelectFrame" value1="relative=top" />
 
@@ -693,9 +838,14 @@
 	</command>
 
 	<command name="searchProcessRecords">
+<<<<<<< HEAD
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="${kfProcessSearchData}" />
 		</execute>
+=======
+		<execute function="Type" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${kfProcessSearchData}" />
+		<execute function="Click" locator1="Icon#BASIC_SEARCH" />
+>>>>>>> compatible
 	</command>
 
 	<command name="submitNewProcess">
@@ -703,15 +853,23 @@
 			<var name="kfProcessName" value="${kfProcessName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="LexiconEntry#gotoAdd" />
+=======
+		<execute function="Click" locator1="Button#PLUS" />
+>>>>>>> compatible
 	</command>
 
 	<command name="tearDownProcess">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 
@@ -723,6 +881,7 @@
 		</while>
 
 		<execute function="AssertTextEquals" locator1="Message#EMPTY_INFO" value1="No processes were found." />
+<<<<<<< HEAD
 	</command>
 
 	<command name="unassignForm">
@@ -741,6 +900,26 @@
 		</execute>
 	</command>
 
+=======
+	</command>
+
+	<command name="unassignForm">
+		<execute macro="KaleoFormsAdmin#gotoProgressStep">
+			<var name="kfProgressName" value="Forms" />
+		</execute>
+
+		<var name="key_rowEntry" value="${workflowTask}" />
+
+		<execute function="Click" locator1="Icon#ROW_VERTICAL_ELLIPSIS" />
+
+		<var name="key_workflowTask" value="${workflowTask}" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Unassign Form">
+			<var name="key_menuItem" value="Unassign Form" />
+		</execute>
+	</command>
+
+>>>>>>> compatible
 	<command name="viewDeletedFormNotPresent">
 		<var name="key_kfFormName" value="${kfFormName}" />
 
@@ -845,11 +1024,19 @@
 			<var name="kfProgressName" value="Details" />
 			<var name="kfProgressStep" value="1" />
 		</execute>
+<<<<<<< HEAD
 
 		<var name="key_fieldName" value="name" />
 
 		<execute function="AssertTextEquals" locator1="FormFields#TEXT_FIELD" value1="${kfProcessName}" />
 
+=======
+
+		<var name="key_fieldName" value="name" />
+
+		<execute function="AssertTextEquals" locator1="FormFields#TEXT_FIELD" value1="${kfProcessName}" />
+
+>>>>>>> compatible
 		<var name="key_fieldName" value="description" />
 
 		<execute function="AssertTextEquals" locator1="FormFields#TEXT_MULTILINE_FIELD" value1="${kfProcessDescription}" />

@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.search.suggest;
 
+import com.liferay.portal.kernel.search.DocumentImpl;
 import com.liferay.portal.kernel.search.Field;
 import com.liferay.portal.kernel.search.SearchContext;
 import com.liferay.portal.kernel.search.SearchException;
@@ -24,10 +25,7 @@ import java.util.Map;
 
 /**
  * @author Michael C. Han
- * @deprecated As of 7.0.0, moved to {@link
- *             com.liferay.portal.search.suggest.BaseQuerySuggester}
  */
-@Deprecated
 public abstract class BaseQuerySuggester implements QuerySuggester {
 
 	@Override
@@ -37,7 +35,7 @@ public abstract class BaseQuerySuggester implements QuerySuggester {
 		Map<String, List<String>> suggestions = spellCheckKeywords(
 			searchContext, 1);
 
-		String localizedFieldName = Field.getLocalizedName(
+		String localizedFieldName = DocumentImpl.getLocalizedName(
 			searchContext.getLanguageId(), Field.SPELL_CHECK_WORD);
 
 		List<String> keywords = TokenizerUtil.tokenize(

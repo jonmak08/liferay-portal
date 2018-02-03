@@ -14,12 +14,18 @@
 
 package com.liferay.portal.test.rule;
 
+<<<<<<< HEAD
 import com.liferay.petra.log4j.Log4JUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.process.ClassPathUtil;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.BaseTestRule;
 import com.liferay.portal.kernel.test.rule.BaseTestRule.StatementWrapper;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.rule.TimeoutTestRule;
 import com.liferay.portal.kernel.test.rule.callback.CompanyProviderTestCallback;
 import com.liferay.portal.kernel.test.rule.callback.DeleteAfterTestRunTestCallback;
@@ -36,8 +42,13 @@ import com.liferay.portal.test.rule.callback.MainServletTestCallback;
 import com.liferay.portal.test.rule.callback.SybaseDumpTransactionLogTestCallback;
 import com.liferay.portal.test.rule.callback.UniqueStringRandomizerBumperTestCallback;
 import com.liferay.portal.util.InitUtil;
+<<<<<<< HEAD
 import com.liferay.portal.util.PortalClassPathUtil;
 import com.liferay.portal.util.PropsUtil;
+=======
+import com.liferay.portal.util.PropsUtil;
+import com.liferay.util.log4j.Log4JUtil;
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -76,7 +87,10 @@ public class LiferayIntegrationTestRule extends AggregateTestRule {
 		testRules.add(_destinationAwaitTestRule);
 		testRules.add(_companyProviderTestRule);
 		testRules.add(_deleteAfterTestRunTestRule);
+<<<<<<< HEAD
 		testRules.add(SynchronousDestinationTestRule.INSTANCE);
+=======
+>>>>>>> compatible
 		testRules.add(_injectTestRule);
 
 		return testRules.toArray(new TestRule[testRules.size()]);
@@ -129,8 +143,11 @@ public class LiferayIntegrationTestRule extends AggregateTestRule {
 
 							ClassPathUtil.initializeClassPaths(
 								new MockServletContext());
+<<<<<<< HEAD
 							PortalClassPathUtil.initializeClassPaths(
 								new MockServletContext());
+=======
+>>>>>>> compatible
 
 							InitUtil.initWithSpring(
 								configLocations, true, true);

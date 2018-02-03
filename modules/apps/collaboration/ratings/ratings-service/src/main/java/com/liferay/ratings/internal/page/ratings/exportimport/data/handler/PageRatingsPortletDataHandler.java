@@ -19,12 +19,18 @@ import com.liferay.exportimport.kernel.lar.ExportImportHelper;
 import com.liferay.exportimport.kernel.lar.ExportImportProcessCallbackRegistry;
 import com.liferay.exportimport.kernel.lar.ManifestSummary;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
+<<<<<<< HEAD
 import com.liferay.exportimport.kernel.lar.PortletDataContextFactory;
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.lar.PortletDataHandler;
 import com.liferay.exportimport.kernel.lar.PortletDataHandlerBoolean;
 import com.liferay.exportimport.kernel.lar.StagedModelDataHandlerUtil;
 import com.liferay.exportimport.kernel.lar.StagedModelType;
+<<<<<<< HEAD
 import com.liferay.exportimport.kernel.staging.MergeLayoutPrototypesThreadLocal;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery;
 import com.liferay.portal.kernel.exception.NoSuchModelException;
@@ -91,8 +97,12 @@ public class PageRatingsPortletDataHandler extends BasePortletDataHandler {
 		Element rootElement = addExportDataRootElement(portletDataContext);
 
 		if (!portletDataContext.getBooleanParameter(
+<<<<<<< HEAD
 				NAMESPACE, "ratings-entries") ||
 			MergeLayoutPrototypesThreadLocal.isInProgress()) {
+=======
+				NAMESPACE, "ratings-entries")) {
+>>>>>>> compatible
 
 			return getExportDataRootElementString(rootElement);
 		}
@@ -111,6 +121,7 @@ public class PageRatingsPortletDataHandler extends BasePortletDataHandler {
 			PortletPreferences portletPreferences, String data)
 		throws Exception {
 
+<<<<<<< HEAD
 		PortletDataContext clonedPortletDataContext =
 			_portletDataContextFactory.clonePortletDataContext(
 				portletDataContext);
@@ -118,6 +129,11 @@ public class PageRatingsPortletDataHandler extends BasePortletDataHandler {
 		_exportImportProcessCallbackRegistry.registerCallback(
 			portletDataContext.getExportImportProcessId(),
 			new ImportRatingsCallable(clonedPortletDataContext));
+=======
+		_exportImportProcessCallbackRegistry.registerCallback(
+			portletDataContext.getExportImportProcessId(),
+			new ImportRatingsCallable(portletDataContext));
+>>>>>>> compatible
 
 		return null;
 	}
@@ -249,8 +265,11 @@ public class PageRatingsPortletDataHandler extends BasePortletDataHandler {
 					manifestSummary.addModelDeletionCount(
 						stagedModelType, modelDeletionCount);
 
+<<<<<<< HEAD
 					manifestSummary.addModelAdditionCount(stagedModelType, 0);
 
+=======
+>>>>>>> compatible
 					return manifestSummary.getModelAdditionCount(
 						stagedModelType);
 				}
@@ -277,9 +296,12 @@ public class PageRatingsPortletDataHandler extends BasePortletDataHandler {
 	private ExportImportProcessCallbackRegistry
 		_exportImportProcessCallbackRegistry;
 
+<<<<<<< HEAD
 	@Reference
 	private PortletDataContextFactory _portletDataContextFactory;
 
+=======
+>>>>>>> compatible
 	private RatingsEntryLocalService _ratingsEntryLocalService;
 
 	private static class ImportRatingsCallable implements Callable<Void> {

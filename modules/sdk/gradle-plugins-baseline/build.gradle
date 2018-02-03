@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 apply plugin: "com.gradle.plugin-publish"
+=======
+>>>>>>> compatible
 apply plugin: "org.ysb33r.gradletest"
 
 task copyGradleTestDependencies(type: Copy)
@@ -12,7 +15,11 @@ copyGradleTestDependencies {
 }
 
 dependencies {
+<<<<<<< HEAD
 	compile group: "com.liferay", name: "com.liferay.ant.bnd", version: "2.0.42"
+=======
+	compile group: "com.liferay", name: "com.liferay.ant.bnd", version: "2.0.39"
+>>>>>>> compatible
 	compile group: "com.liferay", name: "com.liferay.gradle.util", version: "1.0.29"
 
 	compileOnly fileTree(builtBy: [rootProject.tasks.extractGradleApi25], dir: new File(rootProject.buildDir, "gradle-2.5"))
@@ -30,8 +37,11 @@ installGradleTestSmokeSample100 {
 	dir = "src/gradleTest/smoke/dependencies/sample-100"
 	startParameter.systemPropertiesArgs = ["maven.repo.local": userMavenRepoLocalDir.absolutePath]
 	tasks = ["install"]
+<<<<<<< HEAD
 }
 
 pluginBundle {
 	tags = ["baseline", "bnd", "bundle", "java", "osgi", "semantic", "semver", "versioning"]
+=======
+>>>>>>> compatible
 }

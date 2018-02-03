@@ -37,7 +37,11 @@ Folder folder = (Folder)request.getAttribute(WebKeys.DOCUMENT_LIBRARY_FOLDER);
 		<aui:col cssClass="lfr-asset-column lfr-asset-column-details" width="<%= 100 %>">
 			<c:if test="<%= Validator.isNotNull(folder.getDescription()) %>">
 				<div class="lfr-asset-description">
+<<<<<<< HEAD
 					<%= HtmlUtil.replaceNewLine(HtmlUtil.escape(folder.getDescription())) %>
+=======
+					<%= HtmlUtil.escape(folder.getDescription()) %>
+>>>>>>> compatible
 				</div>
 			</c:if>
 

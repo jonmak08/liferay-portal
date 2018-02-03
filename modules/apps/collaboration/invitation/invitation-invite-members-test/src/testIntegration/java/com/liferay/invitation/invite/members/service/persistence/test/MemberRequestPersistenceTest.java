@@ -35,6 +35,10 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.util.IntegerWrapper;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.OrderByComparatorFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.PersistenceTestRule;
@@ -180,9 +184,15 @@ public class MemberRequestPersistenceTest {
 
 	@Test
 	public void testCountByKey() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByKey("");
 
 		_persistence.countByKey("null");
+=======
+		_persistence.countByKey(StringPool.BLANK);
+
+		_persistence.countByKey(StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByKey((String)null);
 	}

@@ -112,6 +112,7 @@ public class KBArticleServiceUtil {
 		return getService().fetchLatestKBArticle(resourcePrimKey, status);
 	}
 
+<<<<<<< HEAD
 	public static com.liferay.knowledge.base.model.KBArticle fetchLatestKBArticleByUrlTitle(
 		long groupId, long kbFolderId, java.lang.String urlTitle, int status)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -120,6 +121,8 @@ public class KBArticleServiceUtil {
 			urlTitle, status);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* @deprecated As of 1.1.0, replaced by {@link
 	#getAllDescendantKBArticles(long, long, int,

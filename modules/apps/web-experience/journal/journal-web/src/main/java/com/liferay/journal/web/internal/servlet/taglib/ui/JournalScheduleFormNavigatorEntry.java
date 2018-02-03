@@ -22,7 +22,10 @@ import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.ServiceContextThreadLocal;
 import com.liferay.portal.kernel.servlet.taglib.ui.FormNavigatorEntry;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+<<<<<<< HEAD
 import com.liferay.portal.util.PropsValues;
+=======
+>>>>>>> compatible
 
 import javax.servlet.ServletContext;
 
@@ -46,10 +49,13 @@ public class JournalScheduleFormNavigatorEntry
 
 	@Override
 	public boolean isVisible(User user, JournalArticle article) {
+<<<<<<< HEAD
 		if (!PropsValues.SCHEDULER_ENABLED) {
 			return false;
 		}
 
+=======
+>>>>>>> compatible
 		ServiceContext serviceContext =
 			ServiceContextThreadLocal.getServiceContext();
 

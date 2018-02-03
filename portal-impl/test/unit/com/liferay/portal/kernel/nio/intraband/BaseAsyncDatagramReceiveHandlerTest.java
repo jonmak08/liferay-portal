@@ -18,9 +18,16 @@ import com.liferay.petra.executor.PortalExecutorManager;
 import com.liferay.portal.kernel.test.CaptureHandler;
 import com.liferay.portal.kernel.test.JDKLoggerTestUtil;
 import com.liferay.portal.kernel.test.rule.CodeCoverageAssertor;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.registry.BasicRegistryImpl;
 import com.liferay.registry.Registry;
+=======
+import com.liferay.portal.kernel.test.rule.NewEnv;
+import com.liferay.portal.test.rule.AdviseWith;
+import com.liferay.portal.test.rule.AspectJNewEnvTestRule;
+import com.liferay.registry.BasicRegistryImpl;
+>>>>>>> compatible
 import com.liferay.registry.RegistryUtil;
 
 import java.util.List;
@@ -40,12 +47,19 @@ public class BaseAsyncDatagramReceiveHandlerTest {
 
 	@ClassRule
 	@Rule
+<<<<<<< HEAD
 	public static final CodeCoverageAssertor codeCoverageAssertor =
 		CodeCoverageAssertor.INSTANCE;
+=======
+	public static final AggregateTestRule aggregateTestRule =
+		new AggregateTestRule(
+			AspectJNewEnvTestRule.INSTANCE, CodeCoverageAssertor.INSTANCE);
+>>>>>>> compatible
 
 	@Before
 	public void setUp() {
 		RegistryUtil.setRegistry(new BasicRegistryImpl());
+<<<<<<< HEAD
 
 		Registry registry = RegistryUtil.getRegistry();
 
@@ -55,6 +69,8 @@ public class BaseAsyncDatagramReceiveHandlerTest {
 				BaseAsyncDatagramReceiveHandlerTest.class.getClassLoader(),
 				new Class<?>[] {PortalExecutorManager.class},
 				new PortalExecutorManagerInvocationHandler()));
+=======
+>>>>>>> compatible
 	}
 
 	@Test

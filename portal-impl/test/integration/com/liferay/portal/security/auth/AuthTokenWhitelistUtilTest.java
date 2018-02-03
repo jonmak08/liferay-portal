@@ -70,7 +70,10 @@ public class AuthTokenWhitelistUtilTest {
 			AuthTokenWhitelistUtil.getPortletCSRFWhitelistActions();
 
 		Assert.assertTrue(
+<<<<<<< HEAD
 			portletCSRFWhitelistActions.toString(),
+=======
+>>>>>>> compatible
 			portletCSRFWhitelistActions.contains(
 				TestAuthTokenIgnoreActions.TEST_AUTH_TOKEN_IGNORE_ACTION_URL));
 	}
@@ -88,7 +91,10 @@ public class AuthTokenWhitelistUtilTest {
 				PropsValues.AUTH_TOKEN_IGNORE_ACTIONS) {
 
 			Assert.assertTrue(
+<<<<<<< HEAD
 				portletCSRFWhitelistActions.toString(),
+=======
+>>>>>>> compatible
 				portletCSRFWhitelistActions.contains(authTokenIgnoreAction));
 		}
 	}
@@ -103,7 +109,10 @@ public class AuthTokenWhitelistUtilTest {
 			AuthTokenWhitelistUtil.getPortletCSRFWhitelist();
 
 		Assert.assertTrue(
+<<<<<<< HEAD
 			portletCSRFWhitelist.toString(),
+=======
+>>>>>>> compatible
 			portletCSRFWhitelist.contains(
 				TestAuthTokenIgnorePortlets.
 					TEST_AUTH_TOKEN_IGNORE_PORTLETS_URL));
@@ -122,7 +131,10 @@ public class AuthTokenWhitelistUtilTest {
 				PropsValues.AUTH_TOKEN_IGNORE_PORTLETS) {
 
 			Assert.assertTrue(
+<<<<<<< HEAD
 				portletCSRFWhitelist.toString(),
+=======
+>>>>>>> compatible
 				portletCSRFWhitelist.contains(authTokenIgnoreAction));
 		}
 	}
@@ -140,9 +152,13 @@ public class AuthTokenWhitelistUtilTest {
 			TestPortalAddDefaultResourceCheckWhitelistActions.
 				TEST_PORTLET_ADD_DEFAULT_RESOURCE_CHECK_WHITELIST_ACTIONS_URL;
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			portletInvocationWhitelistActions.toString(),
 			portletInvocationWhitelistActions.contains(action));
+=======
+		Assert.assertTrue(portletInvocationWhitelistActions.contains(action));
+>>>>>>> compatible
 	}
 
 	/**
@@ -159,7 +175,10 @@ public class AuthTokenWhitelistUtilTest {
 
 		for (String action : actions) {
 			Assert.assertTrue(
+<<<<<<< HEAD
 				portletInvocationWhitelistActions.toString(),
+=======
+>>>>>>> compatible
 				portletInvocationWhitelistActions.contains(action));
 		}
 	}
@@ -177,9 +196,13 @@ public class AuthTokenWhitelistUtilTest {
 			TestPortalAddDefaultResourceCheckWhitelist.
 				TEST_PORTLET_ADD_DEFAULT_RESOURCE_CHECK_WHITELIST_URL;
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			portletInvocationWhitelist.toString(),
 			portletInvocationWhitelist.contains(action));
+=======
+		Assert.assertTrue(portletInvocationWhitelist.contains(action));
+>>>>>>> compatible
 	}
 
 	/**
@@ -195,9 +218,13 @@ public class AuthTokenWhitelistUtilTest {
 			PropsValues.PORTLET_ADD_DEFAULT_RESOURCE_CHECK_WHITELIST;
 
 		for (String action : actions) {
+<<<<<<< HEAD
 			Assert.assertTrue(
 				portletInvocationWhitelist.toString(),
 				portletInvocationWhitelist.contains(action));
+=======
+			Assert.assertTrue(portletInvocationWhitelist.contains(action));
+>>>>>>> compatible
 		}
 	}
 

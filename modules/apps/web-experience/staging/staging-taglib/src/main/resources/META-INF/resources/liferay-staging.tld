@@ -10,12 +10,20 @@
 	<short-name>liferay-staging</short-name>
 	<uri>http://liferay.com/tld/staging</uri>
 	<tag>
+<<<<<<< HEAD
 		<description>Renders the UI section for an <![CDATA[<code>ExportImportConfiguration</code>]]> object's basic information.</description>
+=======
+		<description>Renders the UI section for an <![CDATA[<code>exportImportConfiguration</code>]]> object's basic information.</description>
+>>>>>>> compatible
 		<name>configuration-header</name>
 		<tag-class>com.liferay.staging.taglib.servlet.taglib.ConfigurationHeaderTag</tag-class>
 		<body-content>JSP</body-content>
 		<attribute>
+<<<<<<< HEAD
 			<description>The Export/Import Configuration UI to display.</description>
+=======
+			<description>The <![CDATA[<code>exportImportConfiguration</code>]]> UI to display.</description>
+>>>>>>> compatible
 			<name>exportImportConfiguration</name>
 			<required>true</required>
 			<rtexprvalue>true</rtexprvalue>
@@ -47,7 +55,11 @@
 			<type>boolean</type>
 		</attribute>
 		<attribute>
+<<<<<<< HEAD
 			<description>The ID of the export/import configuration. If the ID is valid, the content settings are used from the corresponding configuration.</description>
+=======
+			<description>The ID of the <![CDATA[<code>exportImportConfiguration</code>]]>. If the <![CDATA[<code>exportImportConfigurationId</code>]]> is valid, the content settings are used from the corresponding <![CDATA[<code>exportImportConfiguration</code>]]>.</description>
+>>>>>>> compatible
 			<name>exportImportConfigurationId</name>
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
@@ -61,7 +73,11 @@
 			<type>boolean</type>
 		</attribute>
 		<attribute>
+<<<<<<< HEAD
 			<description>The staging type to be used. The possible values for the staging type are <![CDATA[<code>publish_to_live</code>]]> or <![CDATA[<code>publish_to_remote</code>]]>.</description>
+=======
+			<description>The type of staging to be used. The possible values for the staging type are <![CDATA[<code>publish_to_live</code>]]> or <![CDATA[<code>publish_to_remote</code>]]>.</description>
+>>>>>>> compatible
 			<name>type</name>
 			<required>true</required>
 			<rtexprvalue>true</rtexprvalue>
@@ -99,7 +115,11 @@
 			<type>boolean</type>
 		</attribute>
 		<attribute>
+<<<<<<< HEAD
 			<description>The ID of the export/import configuration. If the ID is valid, the content settings are used from the corresponding configuration.</description>
+=======
+			<description>The ID of the <![CDATA[<code>exportImportConfiguration</code>]]>. If the <![CDATA[<code>exportImportConfigurationId</code>]]> is valid, the content settings are used from the corresponding <![CDATA[<code>exportImportConfiguration</code>]]>.</description>
+>>>>>>> compatible
 			<name>exportImportConfigurationId</name>
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
@@ -107,6 +127,7 @@
 		</attribute>
 	</tag>
 	<tag>
+<<<<<<< HEAD
 		<description>Displays the group name suffixed with <![CDATA[<code>(Staging)</code>]]> (e.g., Test (Staging)). This is useful for distinguishing a site as a staged group.</description>
 		<name>descriptive-name</name>
 		<tag-class>com.liferay.staging.taglib.servlet.taglib.DescriptiveNameTag</tag-class>
@@ -118,6 +139,8 @@
 		</attribute>
 	</tag>
 	<tag>
+=======
+>>>>>>> compatible
 		<description>Renders a <![CDATA[<code>Navbar</code>]]> containing a staging menu with page versioning information, if available.</description>
 		<name>menu</name>
 		<tag-class>com.liferay.staging.taglib.servlet.taglib.MenuTag</tag-class>
@@ -182,7 +205,11 @@
 			<type>boolean</type>
 		</attribute>
 		<attribute>
+<<<<<<< HEAD
 			<description>The ID of the export/import configuration. If the ID is valid, the content settings are used from the corresponding configuration.</description>
+=======
+			<description>The ID of the <![CDATA[<code>exportImportConfiguration</code>]]>. If the <![CDATA[<code>exportImportConfigurationId</code>]]> is valid, the content settings are used from the corresponding <![CDATA[<code>exportImportConfiguration</code>]]>.</description>
+>>>>>>> compatible
 			<name>exportImportConfigurationId</name>
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
@@ -215,7 +242,11 @@
 			<type>boolean</type>
 		</attribute>
 		<attribute>
+<<<<<<< HEAD
 			<description>The ID of the export/import configuration. If the ID is valid, the content settings are used from the corresponding configuration.</description>
+=======
+			<description>The ID of the <![CDATA[<code>exportImportConfiguration</code>]]>. If the <![CDATA[<code>exportImportConfigurationId</code>]]> is valid, the content settings are used from the corresponding <![CDATA[<code>exportImportConfiguration</code>]]>.</description>
+>>>>>>> compatible
 			<name>exportImportConfigurationId</name>
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
@@ -255,7 +286,11 @@
 			<type>boolean</type>
 		</attribute>
 		<attribute>
+<<<<<<< HEAD
 			<description>The ID of the export/import configuration. If the ID is valid, the content settings are used from the corresponding configuration.</description>
+=======
+			<description>The ID of the <![CDATA[<code>exportImportConfiguration</code>]]>. If the <![CDATA[<code>exportImportConfigurationId</code>]]> is valid, the content settings are used from the corresponding <![CDATA[<code>exportImportConfiguration</code>]]>.</description>
+>>>>>>> compatible
 			<name>exportImportConfigurationId</name>
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>
@@ -288,7 +323,11 @@
 			<type>boolean</type>
 		</attribute>
 		<attribute>
+<<<<<<< HEAD
 			<description>The ID of the export/import configuration. If the ID is valid, the content settings are used from the corresponding configuration.</description>
+=======
+			<description>The ID of the <![CDATA[<code>exportImportConfiguration</code>]]>. If the <![CDATA[<code>exportImportConfigurationId</code>]]> is valid, the content settings are used from the corresponding <![CDATA[<code>exportImportConfiguration</code>]]>.</description>
+>>>>>>> compatible
 			<name>exportImportConfigurationId</name>
 			<required>false</required>
 			<rtexprvalue>true</rtexprvalue>

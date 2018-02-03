@@ -18,12 +18,16 @@ import com.liferay.portal.kernel.exception.NoSuchLayoutException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.Group;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Layout;
 import com.liferay.portal.kernel.model.LayoutConstants;
 import com.liferay.portal.kernel.model.LayoutTypePortlet;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
 import com.liferay.portal.kernel.service.LayoutLocalServiceUtil;
 import com.liferay.portal.kernel.service.permission.LayoutPermissionUtil;
@@ -40,6 +44,15 @@ import java.util.List;
 
 import javax.portlet.PortletPreferences;
 
+=======
+import com.liferay.portal.kernel.service.LayoutLocalServiceUtil;
+import com.liferay.portal.kernel.service.permission.LayoutPermissionUtil;
+import com.liferay.portal.kernel.theme.ThemeDisplay;
+import com.liferay.portal.kernel.util.PortalUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.sites.kernel.util.SitesUtil;
+
+>>>>>>> compatible
 /**
  * @author Adolfo Pérez
  */
@@ -126,10 +139,14 @@ public abstract class BasePortletLayoutFinder implements PortletLayoutFinder {
 		throws PortalException {
 
 		for (String portletId : portletIds) {
+<<<<<<< HEAD
 			ObjectValuePair<Long, String> plidAndPortletIdObjectValuePair =
 				_getPlidPortletIdObjectValuePair(groupId, portletId);
 
 			long plid = plidAndPortletIdObjectValuePair.getKey();
+=======
+			long plid = PortalUtil.getPlidFromPortletId(groupId, portletId);
+>>>>>>> compatible
 
 			if (plid == LayoutConstants.DEFAULT_PLID) {
 				continue;
@@ -143,9 +160,18 @@ public abstract class BasePortletLayoutFinder implements PortletLayoutFinder {
 				continue;
 			}
 
+<<<<<<< HEAD
 			return new Object[] {
 				plid, plidAndPortletIdObjectValuePair.getValue()
 			};
+=======
+			LayoutTypePortlet layoutTypePortlet =
+				(LayoutTypePortlet)layout.getLayoutType();
+
+			portletId = getPortletId(layoutTypePortlet, portletId);
+
+			return new Object[] {plid, portletId};
+>>>>>>> compatible
 		}
 
 		return null;
@@ -163,7 +189,11 @@ public abstract class BasePortletLayoutFinder implements PortletLayoutFinder {
 			}
 		}
 
+<<<<<<< HEAD
 		return null;
+=======
+		return portletId;
+>>>>>>> compatible
 	}
 
 	protected abstract String[] getPortletIds();
@@ -190,6 +220,7 @@ public abstract class BasePortletLayoutFinder implements PortletLayoutFinder {
 
 	}
 
+<<<<<<< HEAD
 	private ObjectValuePair<Long, String> _getPlidPortletIdObjectValuePair(
 			long groupId, long scopeGroupId, String portletId)
 		throws PortalException {
@@ -270,6 +301,8 @@ public abstract class BasePortletLayoutFinder implements PortletLayoutFinder {
 		return scopeGroup.getGroupId();
 	}
 
+=======
+>>>>>>> compatible
 	private static final Log _log = LogFactoryUtil.getLog(
 		BasePortletLayoutFinder.class);
 

@@ -14,7 +14,11 @@
 
 package com.liferay.source.formatter.checks;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -145,6 +149,26 @@ public abstract class BaseFileCheck
 		}
 	}
 
+<<<<<<< HEAD
+=======
+	protected String getLine(String content, int lineCount) {
+		int nextLineStartPos = getLineStartPos(content, lineCount);
+
+		if (nextLineStartPos == -1) {
+			return null;
+		}
+
+		int nextLineEndPos = content.indexOf(
+			CharPool.NEW_LINE, nextLineStartPos);
+
+		if (nextLineEndPos == -1) {
+			return content.substring(nextLineStartPos);
+		}
+
+		return content.substring(nextLineStartPos, nextLineEndPos);
+	}
+
+>>>>>>> compatible
 	protected int getLineLength(String line) {
 		int lineLength = 0;
 
@@ -172,10 +196,33 @@ public abstract class BaseFileCheck
 		return lineLength;
 	}
 
+<<<<<<< HEAD
+=======
+	protected int getLineStartPos(String content, int lineCount) {
+		int x = 0;
+
+		for (int i = 1; i < lineCount; i++) {
+			x = content.indexOf(CharPool.NEW_LINE, x + 1);
+
+			if (x == -1) {
+				return x;
+			}
+		}
+
+		return x + 1;
+	}
+
+>>>>>>> compatible
 	protected void putBNDSettings(BNDSettings bndSettings) {
 		_bndSettingsMap.put(bndSettings.getFileLocation(), bndSettings);
 	}
 
+<<<<<<< HEAD
+=======
+	protected static final String RUN_OUTSIDE_PORTAL_EXCLUDES =
+		"run.outside.portal.excludes";
+
+>>>>>>> compatible
 	private final Map<String, BNDSettings> _bndSettingsMap =
 		new ConcurrentHashMap<>();
 

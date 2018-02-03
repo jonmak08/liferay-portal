@@ -56,7 +56,11 @@ public class JSONWebServiceTrackerTest {
 
 		String body = StringUtil.read(url.openStream());
 
+<<<<<<< HEAD
 		Assert.assertTrue(body, body.contains("test"));
+=======
+		Assert.assertTrue(body.contains("test"));
+>>>>>>> compatible
 	}
 
 	@Test

@@ -15,9 +15,14 @@
 package com.liferay.blogs.demo.data.creator.internal;
 
 import com.liferay.blogs.demo.data.creator.BlogsEntryDemoDataCreator;
+<<<<<<< HEAD
 import com.liferay.blogs.model.BlogsEntry;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.blogs.kernel.model.BlogsEntry;
+import com.liferay.portal.kernel.exception.PortalException;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 
 import java.io.IOException;
@@ -75,9 +80,15 @@ public class CreativeCommonsBlogsEntryDemoDataCreatorImpl
 	private String _getRandomContent(int index) throws IOException {
 		Class<?> clazz = getClass();
 
+<<<<<<< HEAD
 		String titlePath = StringBundler.concat(
 			"com/liferay/blogs/demo/data/creator/internal/dependencies",
 			"/creative/commons/content_", String.valueOf(index), ".txt");
+=======
+		String titlePath =
+			"com/liferay/blogs/demo/data/creator/internal/dependencies" +
+				"/creative/commons/content_" + index + ".txt";
+>>>>>>> compatible
 
 		return StringUtil.read(clazz.getClassLoader(), titlePath, false);
 	}
@@ -85,9 +96,15 @@ public class CreativeCommonsBlogsEntryDemoDataCreatorImpl
 	private String _getRandomSubtitle(int index) throws IOException {
 		Class<?> clazz = getClass();
 
+<<<<<<< HEAD
 		String titlePath = StringBundler.concat(
 			"com/liferay/blogs/demo/data/creator/internal/dependencies",
 			"/creative/commons/subtitle_", String.valueOf(index), ".txt");
+=======
+		String titlePath =
+			"com/liferay/blogs/demo/data/creator/internal/dependencies" +
+				"/creative/commons/subtitle_" + index + ".txt";
+>>>>>>> compatible
 
 		return StringUtil.read(clazz.getClassLoader(), titlePath, false);
 	}
@@ -95,9 +112,15 @@ public class CreativeCommonsBlogsEntryDemoDataCreatorImpl
 	private String _getRandomTitle(int index) throws IOException {
 		Class<?> clazz = getClass();
 
+<<<<<<< HEAD
 		String titlePath = StringBundler.concat(
 			"com/liferay/blogs/demo/data/creator/internal/dependencies",
 			"/creative/commons/title_", String.valueOf(index), ".txt");
+=======
+		String titlePath =
+			"com/liferay/blogs/demo/data/creator/internal/dependencies" +
+				"/creative/commons/title_" + index + ".txt";
+>>>>>>> compatible
 
 		return StringUtil.read(clazz.getClassLoader(), titlePath, false);
 	}

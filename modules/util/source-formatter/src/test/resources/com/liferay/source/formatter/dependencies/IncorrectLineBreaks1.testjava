@@ -147,6 +147,7 @@ public class IncorrectLineBreaks1 {
 		}
 	}
 
+<<<<<<< HEAD
 	protected String[][] getTwoDimensionalArray() {
 		return new String[][] {
 			new String[] {
@@ -159,6 +160,8 @@ public class IncorrectLineBreaks1 {
 			}};
 	}
 
+=======
+>>>>>>> compatible
 	private static final String[] _NUMBERS = {
 		"One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine",
 		"Ten"

@@ -61,7 +61,11 @@
 				<portlet:param name="mvcRenderCommandName" value="/login/login" />
 			</portlet:actionURL>
 
+<<<<<<< HEAD
 			<aui:form action="<%= loginURL %>" autocomplete='<%= PropsValues.COMPANY_SECURITY_LOGIN_FORM_AUTOCOMPLETE ? "on" : "off" %>' cssClass="sign-in-form" method="post" name="<%= formName %>" onSubmit="event.preventDefault();" validateOnBlur="<%= false %>">
+=======
+			<aui:form action="<%= loginURL %>" autocomplete='<%= PropsValues.COMPANY_SECURITY_LOGIN_FORM_AUTOCOMPLETE ? "on" : "off" %>' cssClass="sign-in-form" method="post" name="<%= formName %>" onSubmit="event.preventDefault();">
+>>>>>>> compatible
 				<aui:input name="saveLastPath" type="hidden" value="<%= false %>" />
 				<aui:input name="redirect" type="hidden" value="<%= redirect %>" />
 				<aui:input name="doActionAfterLogin" type="hidden" value="<%= portletName.equals(PortletKeys.FAST_LOGIN) ? true : false %>" />
@@ -128,6 +132,7 @@
 					UserLockoutException.PasswordPolicyLockout ule = (UserLockoutException.PasswordPolicyLockout)errorException;
 					%>
 
+<<<<<<< HEAD
 					<c:choose>
 						<c:when test="<%= ule.passwordPolicy.isRequireUnlock() %>">
 							<liferay-ui:message key="this-account-is-locked" />
@@ -136,6 +141,9 @@
 							<liferay-ui:message arguments="<%= ule.user.getUnlockDate() %>" key="this-account-is-locked-until-x" translateArguments="<%= false %>" />
 						</c:otherwise>
 					</c:choose>
+=======
+					<liferay-ui:message arguments="<%= ule.user.getUnlockDate() %>" key="this-account-is-locked-until-x" translateArguments="<%= false %>" />
+>>>>>>> compatible
 				</liferay-ui:error>
 
 				<liferay-ui:error exception="<%= UserPasswordException.class %>" message="authentication-failed" />
@@ -175,7 +183,11 @@
 				</aui:fieldset>
 
 				<aui:button-row>
+<<<<<<< HEAD
 					<aui:button type="submit" value="sign-in" />
+=======
+					<aui:button cssClass="btn-lg" type="submit" value="sign-in" />
+>>>>>>> compatible
 				</aui:button-row>
 			</aui:form>
 

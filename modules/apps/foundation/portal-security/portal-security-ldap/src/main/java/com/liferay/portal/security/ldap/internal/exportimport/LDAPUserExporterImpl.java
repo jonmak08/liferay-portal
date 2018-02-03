@@ -22,7 +22,10 @@ import com.liferay.portal.kernel.model.UserGroup;
 import com.liferay.portal.kernel.security.ldap.LDAPSettings;
 import com.liferay.portal.kernel.service.UserGroupLocalService;
 import com.liferay.portal.kernel.service.UserLocalService;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.security.exportimport.UserExporter;
@@ -152,9 +155,14 @@ public class LDAPUserExporterImpl implements UserExporter {
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Finished exporting contact ", String.valueOf(contact),
 						" in ", String.valueOf(stopWatch.getTime()), "ms"));
+=======
+					"Finished exporting contact " + contact + " in " +
+						stopWatch.getTime() + "ms");
+>>>>>>> compatible
 			}
 		}
 	}
@@ -174,9 +182,13 @@ public class LDAPUserExporterImpl implements UserExporter {
 			stopWatch.start();
 
 			_log.debug(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Exporting user ", String.valueOf(user), " in user group ",
 					String.valueOf(userGroupId)));
+=======
+				"Exporting user " + user + " in user group " + userGroupId);
+>>>>>>> compatible
 		}
 
 		if (!_ldapSettings.isExportEnabled(companyId) ||
@@ -266,10 +278,15 @@ public class LDAPUserExporterImpl implements UserExporter {
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Finished exporting user ", String.valueOf(user),
 						" in user group ", String.valueOf(userGroupId), " in ",
 						String.valueOf(stopWatch.getTime()), "ms"));
+=======
+					"Finished exporting user " + user + " in user group " +
+						userGroupId + " in " + stopWatch.getTime() + "ms");
+>>>>>>> compatible
 			}
 		}
 	}

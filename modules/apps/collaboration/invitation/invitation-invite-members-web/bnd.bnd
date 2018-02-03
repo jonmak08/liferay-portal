@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Invitation Invite Members Web
 Bundle-SymbolicName: com.liferay.invitation.invite.members.web
+<<<<<<< HEAD
 Bundle-Version: 1.0.27
+=======
+Bundle-Version: 1.0.14
+>>>>>>> compatible
 Liferay-JS-Config: /META-INF/resources/invite_members/js/config.js
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title:

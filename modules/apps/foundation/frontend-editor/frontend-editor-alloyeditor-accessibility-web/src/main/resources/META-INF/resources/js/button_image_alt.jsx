@@ -30,7 +30,11 @@
 
 				return {
 					element: image,
+<<<<<<< HEAD
 					imageAlt: image ? image.getAttribute('alt') : ''
+=======
+					imageAlt: image.getAttribute('alt')
+>>>>>>> compatible
 				};
 			},
 

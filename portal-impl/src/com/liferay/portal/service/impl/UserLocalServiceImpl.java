@@ -14,6 +14,7 @@
 
 package com.liferay.portal.service.impl;
 
+<<<<<<< HEAD
 import com.liferay.mail.kernel.model.MailMessage;
 import com.liferay.mail.kernel.service.MailService;
 import com.liferay.mail.kernel.template.MailTemplate;
@@ -22,6 +23,10 @@ import com.liferay.mail.kernel.template.MailTemplateContextBuilder;
 import com.liferay.mail.kernel.template.MailTemplateFactoryUtil;
 import com.liferay.petra.encryptor.Encryptor;
 import com.liferay.petra.encryptor.EncryptorException;
+=======
+import com.liferay.mail.kernel.service.MailService;
+import com.liferay.message.boards.kernel.model.MBMessage;
+>>>>>>> compatible
 import com.liferay.portal.kernel.bean.BeanReference;
 import com.liferay.portal.kernel.cache.PortalCache;
 import com.liferay.portal.kernel.cache.PortalCacheMapSynchronizeUtil;
@@ -85,7 +90,10 @@ import com.liferay.portal.kernel.search.SearchContext;
 import com.liferay.portal.kernel.search.SearchException;
 import com.liferay.portal.kernel.search.Sort;
 import com.liferay.portal.kernel.security.auth.Authenticator;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.auth.CompanyThreadLocal;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.security.auth.EmailAddressGenerator;
 import com.liferay.portal.kernel.security.auth.EmailAddressValidator;
 import com.liferay.portal.kernel.security.auth.FullNameDefinition;
@@ -128,6 +136,7 @@ import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.util.SubscriptionSender;
 import com.liferay.portal.kernel.util.UnicodeProperties;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
@@ -154,10 +163,17 @@ import com.liferay.registry.dependency.ServiceDependencyListener;
 import com.liferay.registry.dependency.ServiceDependencyManager;
 import com.liferay.social.kernel.model.SocialRelation;
 import com.liferay.social.kernel.model.SocialRelationConstants;
+<<<<<<< HEAD
 import com.liferay.users.admin.kernel.file.uploads.UserFileUploadsSettings;
 import com.liferay.users.admin.kernel.util.UsersAdminUtil;
 
 import java.io.IOException;
+=======
+import com.liferay.users.admin.kernel.util.UsersAdminUtil;
+import com.liferay.util.Encryptor;
+import com.liferay.util.EncryptorException;
+
+>>>>>>> compatible
 import java.io.Serializable;
 
 import java.util.ArrayList;
@@ -833,6 +849,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Adds the users to the user group.
 	 *
 	 * @param userGroupId the primary key of the user group
@@ -860,6 +877,35 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 	 * Adds the users to the user group.
 	 *
 	 * @param userGroupId the primary key of the user group
+=======
+	 * Adds the users to the user group.
+	 *
+	 * @param userGroupId the primary key of the user group
+	 * @param users the users
+	 */
+	@Override
+	public void addUserGroupUsers(long userGroupId, List<User> users)
+		throws PortalException {
+
+		List<Long> userIds = new ArrayList<>();
+
+		for (User user : users) {
+			userIds.add(user.getUserId());
+		}
+
+		try {
+			addUserGroupUsers(userGroupId, ArrayUtil.toLongArray(userIds));
+		}
+		catch (PortalException pe) {
+			throw new SystemException(pe);
+		}
+	}
+
+	/**
+	 * Adds the users to the user group.
+	 *
+	 * @param userGroupId the primary key of the user group
+>>>>>>> compatible
 	 * @param userIds the primary keys of the users
 	 */
 	@Override
@@ -2997,9 +3043,13 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 				userLocalService.updateUser(user);
 			}
 
+<<<<<<< HEAD
 			Date passwordModifiedDate = user.getPasswordModifiedDate();
 
 			long timeModified = passwordModifiedDate.getTime();
+=======
+			long timeModified = user.getPasswordModifiedDate().getTime();
+>>>>>>> compatible
 
 			long passwordExpiresOn =
 				(passwordPolicy.getMaxAge() * 1000) + timeModified;
@@ -4934,10 +4984,17 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 				String[] errorPasswordHistoryKeywords =
 					LDAPSettingsUtil.getErrorPasswordHistoryKeywords(
 						user.getCompanyId());
+<<<<<<< HEAD
 
 				for (String errorPasswordHistoryKeyword :
 						errorPasswordHistoryKeywords) {
 
+=======
+
+				for (String errorPasswordHistoryKeyword :
+						errorPasswordHistoryKeywords) {
+
+>>>>>>> compatible
 					if (msg.contains(errorPasswordHistoryKeyword)) {
 						throw new UserPasswordException.MustNotBeRecentlyUsed(
 							userId);
@@ -5248,6 +5305,10 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 		screenName = getLogin(screenName);
 		emailAddress = StringUtil.toLowerCase(StringUtil.trim(emailAddress));
 		openId = StringUtil.trim(openId);
+<<<<<<< HEAD
+=======
+		String oldFullName = user.getFullName();
+>>>>>>> compatible
 		facebookSn = StringUtil.toLowerCase(StringUtil.trim(facebookSn));
 		jabberSn = StringUtil.toLowerCase(StringUtil.trim(jabberSn));
 		skypeSn = StringUtil.toLowerCase(StringUtil.trim(skypeSn));
@@ -5947,9 +6008,13 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 		int failedLoginAttempts = user.getFailedLoginAttempts();
 
 		if (failedLoginAttempts > 0) {
+<<<<<<< HEAD
 			Date lastFailedLoginDate = user.getLastFailedLoginDate();
 
 			long failedLoginTime = lastFailedLoginDate.getTime();
+=======
+			long failedLoginTime = user.getLastFailedLoginDate().getTime();
+>>>>>>> compatible
 
 			long elapsedTime = now.getTime() - failedLoginTime;
 
@@ -5968,9 +6033,13 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 		// Reset lockout
 
 		if (user.isLockout()) {
+<<<<<<< HEAD
 			Date lockoutDate = user.getLockoutDate();
 
 			long lockoutTime = lockoutDate.getTime();
+=======
+			long lockoutTime = user.getLockoutDate().getTime();
+>>>>>>> compatible
 
 			long elapsedTime = now.getTime() - lockoutTime;
 
@@ -6165,6 +6234,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 				if ((usersOrgsCount == null) ||
 					(GetterUtil.getLong(usersOrgsCount) != 0)) {
+<<<<<<< HEAD
 
 					return true;
 				}
@@ -6174,6 +6244,17 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 					 !key.equals("usersRoles") && !key.equals("usersTeams") &&
 					 !key.equals("usersUserGroups")) {
 
+=======
+
+					return true;
+				}
+			}
+			else if (!key.equals("usersGroups") && !key.equals("usersOrgs") &&
+					 !key.equals("usersOrgsCount") &&
+					 !key.equals("usersRoles") && !key.equals("usersTeams") &&
+					 !key.equals("usersUserGroups")) {
+
+>>>>>>> compatible
 				return true;
 			}
 		}
@@ -6298,6 +6379,21 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 		}
 	}
 
+<<<<<<< HEAD
+=======
+	protected void reindex(final List<User> users) throws SearchException {
+		Indexer<User> indexer = IndexerRegistryUtil.nullSafeGetIndexer(
+			User.class);
+
+		try {
+			indexer.reindex(users);
+		}
+		catch (SearchException se) {
+			throw new SystemException(se);
+		}
+	}
+
+>>>>>>> compatible
 	protected void reindex(long userId) throws SearchException {
 		Indexer<User> indexer = IndexerRegistryUtil.nullSafeGetIndexer(
 			User.class);
@@ -6842,11 +6938,17 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 
 		if ((user != null) && (user.getUserId() != userId)) {
 			throw new DuplicateGoogleUserIdException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"New user ", String.valueOf(userId),
 					" conflicts with existing user ", String.valueOf(userId),
 					" who is already associated with Google user ID ",
 					googleUserId));
+=======
+				"New user " + userId + " conflicts with existing user " +
+					userId + " who is already associated with Google user ID " +
+						googleUserId);
+>>>>>>> compatible
 		}
 	}
 
@@ -6991,6 +7093,7 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 		return user;
 	}
 
+<<<<<<< HEAD
 	private void _checkPasswordReset(
 		PasswordPolicy passwordPolicy, long[] userIds) {
 
@@ -7067,6 +7170,8 @@ public class UserLocalServiceImpl extends UserLocalServiceBaseImpl {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	private static final Log _log = LogFactoryUtil.getLog(
 		UserLocalServiceImpl.class);
 

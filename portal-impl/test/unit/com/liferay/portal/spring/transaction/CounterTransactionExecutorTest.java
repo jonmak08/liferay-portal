@@ -51,7 +51,11 @@ public class CounterTransactionExecutorTest {
 			new RecordPlatformTransactionManager(_transactionStatus);
 
 		TransactionAttributeAdapter transactionAttributeAdapter =
+<<<<<<< HEAD
 			_newTransactionAttributeAdapter(t -> false);
+=======
+			_newTransactionAttributeAdapter((t) -> false);
+>>>>>>> compatible
 
 		_transactionExecutor.execute(
 			recordPlatformTransactionManager, transactionAttributeAdapter,
@@ -67,7 +71,11 @@ public class CounterTransactionExecutorTest {
 			new RecordPlatformTransactionManager(_transactionStatus);
 
 		TransactionAttributeAdapter transactionAttributeAdapter =
+<<<<<<< HEAD
 			_newTransactionAttributeAdapter(t -> false);
+=======
+			_newTransactionAttributeAdapter((t) -> false);
+>>>>>>> compatible
 
 		try {
 			_transactionExecutor.execute(
@@ -102,7 +110,11 @@ public class CounterTransactionExecutorTest {
 			};
 
 		TransactionAttributeAdapter transactionAttributeAdapter =
+<<<<<<< HEAD
 			_newTransactionAttributeAdapter(t -> false);
+=======
+			_newTransactionAttributeAdapter((t) -> false);
+>>>>>>> compatible
 
 		try {
 			_transactionExecutor.execute(
@@ -141,7 +153,11 @@ public class CounterTransactionExecutorTest {
 			};
 
 		TransactionAttributeAdapter transactionAttributeAdapter =
+<<<<<<< HEAD
 			_newTransactionAttributeAdapter(t -> false);
+=======
+			_newTransactionAttributeAdapter((t) -> false);
+>>>>>>> compatible
 
 		try {
 			_transactionExecutor.execute(
@@ -164,7 +180,11 @@ public class CounterTransactionExecutorTest {
 			new RecordPlatformTransactionManager(_transactionStatus);
 
 		TransactionAttributeAdapter transactionAttributeAdapter =
+<<<<<<< HEAD
 			_newTransactionAttributeAdapter(t -> t == appException);
+=======
+			_newTransactionAttributeAdapter((t) -> t == appException);
+>>>>>>> compatible
 
 		try {
 			_transactionExecutor.execute(
@@ -199,7 +219,11 @@ public class CounterTransactionExecutorTest {
 			};
 
 		TransactionAttributeAdapter transactionAttributeAdapter =
+<<<<<<< HEAD
 			_newTransactionAttributeAdapter(t -> t == appException);
+=======
+			_newTransactionAttributeAdapter((t) -> t == appException);
+>>>>>>> compatible
 
 		try {
 			_transactionExecutor.execute(

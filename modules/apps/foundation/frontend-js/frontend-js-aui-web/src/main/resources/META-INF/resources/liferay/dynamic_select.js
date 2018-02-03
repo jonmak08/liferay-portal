@@ -107,13 +107,21 @@ AUI.add(
 				var selectId = options.selectId;
 				var selectNullable = options.selectNullable !== false;
 				var selectSort = options.selectSort;
+<<<<<<< HEAD
 
 				var selectVal = A.Array(options.selectVal);
+=======
+				var selectVal = options.selectVal;
+>>>>>>> compatible
 
 				var selectOptions = [];
 
 				if (selectNullable) {
+<<<<<<< HEAD
 					selectOptions.push('<option selected value="0"></option>');
+=======
+					selectOptions.push('<option value="0"></option>');
+>>>>>>> compatible
 				}
 
 				list.forEach(
@@ -121,6 +129,7 @@ AUI.add(
 						var key = item[selectId];
 						var value = item[selectDesc];
 
+<<<<<<< HEAD
 						var selected = '';
 
 						if (selectVal.indexOf(key) > -1) {
@@ -128,6 +137,9 @@ AUI.add(
 						}
 
 						selectOptions.push('<option ' + selected + ' value="' + key + '">' + value + '</option>');
+=======
+						selectOptions.push('<option value="' + key + '">' + value + '</option>');
+>>>>>>> compatible
 					}
 				);
 
@@ -138,7 +150,11 @@ AUI.add(
 				selectOptions = selectOptions.join('');
 
 				if (select) {
+<<<<<<< HEAD
 					select.empty().append(selectOptions);
+=======
+					select.empty().append(selectOptions).val(selectVal);
+>>>>>>> compatible
 				}
 			}
 		};

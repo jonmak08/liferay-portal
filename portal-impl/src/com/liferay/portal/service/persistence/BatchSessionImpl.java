@@ -19,6 +19,10 @@ import com.liferay.portal.kernel.dao.orm.ORMException;
 import com.liferay.portal.kernel.dao.orm.Session;
 import com.liferay.portal.kernel.model.BaseModel;
 import com.liferay.portal.kernel.service.persistence.BatchSession;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.InitialThreadLocal;
+>>>>>>> compatible
 
 /**
  * @author     Raymond Augé
@@ -67,7 +71,12 @@ public class BatchSessionImpl implements BatchSession {
 	}
 
 	private static final ThreadLocal<Boolean> _enabled =
+<<<<<<< HEAD
 		new CentralizedThreadLocal<>(
 			BatchSessionImpl.class + "._enabled", () -> Boolean.FALSE, false);
+=======
+		new InitialThreadLocal<>(
+			BatchSessionImpl.class + "._enabled", () -> Boolean.FALSE);
+>>>>>>> compatible
 
 }

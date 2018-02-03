@@ -34,6 +34,14 @@
 	<td>//tr[contains(.,'${key_userScreenName}')]/td[4]</td>
 	<td></td>
 </tr>
+<<<<<<< HEAD
+=======
+<tr>
+	<td>BANNED_USERS_TABLE_UNBAN_THIS_USER</td>
+	<td>//tr[contains(.,'${key_userScreenName}')]/td[5]//span/a/i[contains(@class,'icon-ok-sign')]</td>
+	<td></td>
+</tr>
+>>>>>>> compatible
 </tbody>
 </table>
 </body>

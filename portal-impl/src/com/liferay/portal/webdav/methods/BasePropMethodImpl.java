@@ -34,6 +34,10 @@ import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.Namespace;
 import com.liferay.portal.kernel.xml.QName;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.util.xml.DocUtil;
+>>>>>>> compatible
 
 import java.util.Arrays;
 import java.util.Date;

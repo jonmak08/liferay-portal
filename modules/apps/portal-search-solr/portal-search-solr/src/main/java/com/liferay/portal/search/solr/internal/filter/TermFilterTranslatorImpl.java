@@ -18,7 +18,6 @@ import com.liferay.portal.kernel.search.filter.TermFilter;
 import com.liferay.portal.search.solr.filter.TermFilterTranslator;
 
 import org.apache.lucene.index.Term;
-import org.apache.lucene.search.Query;
 import org.apache.lucene.search.TermQuery;
 
 import org.osgi.service.component.annotations.Component;
@@ -30,7 +29,7 @@ import org.osgi.service.component.annotations.Component;
 public class TermFilterTranslatorImpl implements TermFilterTranslator {
 
 	@Override
-	public Query translate(TermFilter termFilter) {
+	public org.apache.lucene.search.Query translate(TermFilter termFilter) {
 		Term term = new Term(termFilter.getField(), termFilter.getValue());
 
 		TermQuery termQuery = new TermQuery(term);

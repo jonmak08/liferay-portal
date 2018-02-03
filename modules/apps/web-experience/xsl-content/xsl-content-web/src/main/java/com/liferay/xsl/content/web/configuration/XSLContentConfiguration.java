@@ -30,31 +30,51 @@ public interface XSLContentConfiguration {
 
 	@Meta.AD(
 		deflt = "@portlet_context_url@", id = "valid.url.prefixes",
+<<<<<<< HEAD
 		name = "valid-url-prefixes", required = false
+=======
+		required = false
+>>>>>>> compatible
 	)
 	public String validUrlPrefixes();
 
 	@Meta.AD(
 		deflt = "false", id = "xml.doctype.declaration.allowed",
+<<<<<<< HEAD
 		name = "xml-doctype-declaration-allowed", required = false
+=======
+		required = false
+>>>>>>> compatible
 	)
 	public boolean xmlDoctypeDeclarationAllowed();
 
 	@Meta.AD(
 		deflt = "false", id = "xml.external.general.entities.allowed",
+<<<<<<< HEAD
 		name = "xml-external-general-entities-allowed", required = false
+=======
+		required = false
+>>>>>>> compatible
 	)
 	public boolean xmlExternalGeneralEntitiesAllowed();
 
 	@Meta.AD(
 		deflt = "false", id = "xml.external.parameter.entities.allowed",
+<<<<<<< HEAD
 		name = "xml-external-parameter-entities-allowed", required = false
+=======
+		required = false
+>>>>>>> compatible
 	)
 	public boolean xmlExternalParameterEntitiesAllowed();
 
 	@Meta.AD(
+<<<<<<< HEAD
 		deflt = "true", id = "xsl.secure.processing.enabled",
 		name = "xsl-secure-processing-enabled", required = false
+=======
+		deflt = "true", id = "xsl.secure.processing.enabled", required = false
+>>>>>>> compatible
 	)
 	public boolean xslSecureProcessingEnabled();
 

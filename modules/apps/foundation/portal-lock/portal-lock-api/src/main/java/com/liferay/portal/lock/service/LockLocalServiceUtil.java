@@ -318,6 +318,7 @@ public class LockLocalServiceUtil {
 	}
 
 	public static com.liferay.portal.lock.model.Lock lock(long userId,
+<<<<<<< HEAD
 		java.lang.String className, long key, java.lang.String owner,
 		boolean inheritable, long expirationTime, boolean renew)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -327,6 +328,8 @@ public class LockLocalServiceUtil {
 	}
 
 	public static com.liferay.portal.lock.model.Lock lock(long userId,
+=======
+>>>>>>> compatible
 		java.lang.String className, java.lang.String key,
 		java.lang.String owner, boolean inheritable, long expirationTime)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -335,6 +338,7 @@ public class LockLocalServiceUtil {
 			expirationTime);
 	}
 
+<<<<<<< HEAD
 	public static com.liferay.portal.lock.model.Lock lock(long userId,
 		java.lang.String className, java.lang.String key,
 		java.lang.String owner, boolean inheritable, long expirationTime,
@@ -345,6 +349,8 @@ public class LockLocalServiceUtil {
 			expirationTime, renew);
 	}
 
+=======
+>>>>>>> compatible
 	public static com.liferay.portal.lock.model.Lock lock(
 		java.lang.String className, java.lang.String key, java.lang.String owner) {
 		return getService().lock(className, key, owner);

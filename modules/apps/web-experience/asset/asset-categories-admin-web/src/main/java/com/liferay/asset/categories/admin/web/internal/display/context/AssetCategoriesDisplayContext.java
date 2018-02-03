@@ -14,10 +14,14 @@
 
 package com.liferay.asset.categories.admin.web.internal.display.context;
 
+<<<<<<< HEAD
 import com.liferay.asset.categories.admin.web.configuration.AssetCategoriesAdminWebConfiguration;
 import com.liferay.asset.categories.admin.web.constants.AssetCategoriesAdminDisplayStyleKeys;
 import com.liferay.asset.categories.admin.web.internal.constants.AssetCategoriesAdminPortletKeys;
 import com.liferay.asset.categories.admin.web.internal.constants.AssetCategoriesAdminWebKeys;
+=======
+import com.liferay.asset.categories.admin.web.internal.constants.AssetCategoriesAdminPortletKeys;
+>>>>>>> compatible
 import com.liferay.asset.kernel.AssetRendererFactoryRegistryUtil;
 import com.liferay.asset.kernel.model.AssetCategory;
 import com.liferay.asset.kernel.model.AssetCategoryConstants;
@@ -32,8 +36,11 @@ import com.liferay.asset.kernel.service.AssetCategoryServiceUtil;
 import com.liferay.asset.kernel.service.AssetVocabularyLocalServiceUtil;
 import com.liferay.asset.kernel.service.AssetVocabularyServiceUtil;
 import com.liferay.exportimport.kernel.staging.permission.StagingPermissionUtil;
+<<<<<<< HEAD
 import com.liferay.frontend.taglib.clay.servlet.taglib.util.NavigationItem;
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.bean.BeanParamUtil;
 import com.liferay.portal.kernel.dao.search.EmptyOnClickRowChecker;
 import com.liferay.portal.kernel.dao.search.SearchContainer;
@@ -42,29 +49,42 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.portlet.LiferayWindowState;
 import com.liferay.portal.kernel.portlet.PortalPreferences;
 import com.liferay.portal.kernel.portlet.PortletPreferencesFactoryUtil;
 import com.liferay.portal.kernel.portlet.PortletProvider;
 import com.liferay.portal.kernel.portlet.PortletProviderUtil;
+=======
+import com.liferay.portal.kernel.portlet.PortalPreferences;
+import com.liferay.portal.kernel.portlet.PortletPreferencesFactoryUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.PortletURLUtil;
 import com.liferay.portal.kernel.search.Sort;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.security.permission.ResourceActionsUtil;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ListUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringUtil;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portlet.asset.service.permission.AssetCategoriesPermission;
 import com.liferay.portlet.asset.service.permission.AssetCategoryPermission;
 import com.liferay.portlet.asset.service.permission.AssetVocabularyPermission;
 import com.liferay.portlet.asset.util.comparator.AssetCategoryCreateDateComparator;
+<<<<<<< HEAD
 import com.liferay.portlet.asset.util.comparator.AssetCategoryLeftCategoryIdComparator;
 import com.liferay.portlet.asset.util.comparator.AssetVocabularyCreateDateComparator;
 
@@ -72,6 +92,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
+=======
+import com.liferay.portlet.asset.util.comparator.AssetVocabularyCreateDateComparator;
+
+import java.util.List;
+import java.util.Locale;
+>>>>>>> compatible
 
 import javax.portlet.PortletURL;
 import javax.portlet.RenderRequest;
@@ -91,6 +117,7 @@ public class AssetCategoriesDisplayContext {
 		_renderRequest = renderRequest;
 		_renderResponse = renderResponse;
 		_request = request;
+<<<<<<< HEAD
 
 		_assetCategoriesAdminWebConfiguration =
 			(AssetCategoriesAdminWebConfiguration)_request.getAttribute(
@@ -133,6 +160,8 @@ public class AssetCategoriesDisplayContext {
 		portletURL.setWindowState(LiferayWindowState.POP_UP);
 
 		return portletURL.toString();
+=======
+>>>>>>> compatible
 	}
 
 	public String getAssetType(AssetVocabulary vocabulary)
@@ -204,6 +233,7 @@ public class AssetCategoriesDisplayContext {
 		return sb.toString();
 	}
 
+<<<<<<< HEAD
 	public List<NavigationItem> getAssetVocabulariesNavigationItems() {
 		List<NavigationItem> navigationItems = new ArrayList<>();
 
@@ -223,6 +253,8 @@ public class AssetCategoriesDisplayContext {
 		return navigationItems;
 	}
 
+=======
+>>>>>>> compatible
 	public String getCategoriesRedirect() {
 		String redirect = ParamUtil.getString(_request, "redirect");
 
@@ -317,6 +349,7 @@ public class AssetCategoriesDisplayContext {
 		long scopeGroupId = themeDisplay.getScopeGroupId();
 
 		if (Validator.isNotNull(getKeywords())) {
+<<<<<<< HEAD
 			AssetCategoryDisplay assetCategoryDisplay = null;
 
 			Sort sort = null;
@@ -329,6 +362,11 @@ public class AssetCategoriesDisplayContext {
 			}
 
 			assetCategoryDisplay =
+=======
+			Sort sort = new Sort("createDate", Sort.LONG_TYPE, orderByAsc);
+
+			AssetCategoryDisplay assetCategoryDisplay =
+>>>>>>> compatible
 				AssetCategoryServiceUtil.searchCategoriesDisplay(
 					new long[] {scopeGroupId}, getKeywords(),
 					new long[] {getVocabularyId()}, new long[0],
@@ -341,6 +379,7 @@ public class AssetCategoriesDisplayContext {
 
 			categories = assetCategoryDisplay.getCategories();
 		}
+<<<<<<< HEAD
 		else if (isFlattenedNavigationAllowed()) {
 			AssetCategory category = getCategory();
 
@@ -369,6 +408,8 @@ public class AssetCategoriesDisplayContext {
 
 			categoriesSearchContainer.setTotal(categoriesCount);
 		}
+=======
+>>>>>>> compatible
 		else {
 			categoriesCount =
 				AssetCategoryServiceUtil.getVocabularyCategoriesCount(
@@ -432,10 +473,13 @@ public class AssetCategoriesDisplayContext {
 	}
 
 	public String getDisplayStyle() {
+<<<<<<< HEAD
 		if (isFlattenedNavigationAllowed()) {
 			_displayStyle = "list";
 		}
 
+=======
+>>>>>>> compatible
 		if (Validator.isNotNull(_displayStyle)) {
 			return _displayStyle;
 		}
@@ -450,6 +494,7 @@ public class AssetCategoriesDisplayContext {
 		return _displayStyle;
 	}
 
+<<<<<<< HEAD
 	public String[] getDisplayViews() {
 		if (isFlattenedNavigationAllowed()) {
 			return new String[] {"list"};
@@ -458,6 +503,8 @@ public class AssetCategoriesDisplayContext {
 		return new String[] {"icon", "descriptive", "list"};
 	}
 
+=======
+>>>>>>> compatible
 	public String getEditCategoryRedirect() throws PortalException {
 		PortletURL backURL = _renderResponse.createRenderURL();
 
@@ -487,6 +534,7 @@ public class AssetCategoriesDisplayContext {
 
 		iteratorURL.setParameter("mvcPath", "/view_categories.jsp");
 		iteratorURL.setParameter("redirect", currentURL.toString());
+<<<<<<< HEAD
 		iteratorURL.setParameter("navigation", getNavigation());
 
 		if (!isFlattenedNavigationAllowed()) {
@@ -494,6 +542,9 @@ public class AssetCategoriesDisplayContext {
 				"categoryId", String.valueOf(getCategoryId()));
 		}
 
+=======
+		iteratorURL.setParameter("categoryId", String.valueOf(getCategoryId()));
+>>>>>>> compatible
 		iteratorURL.setParameter(
 			"vocabularyId", String.valueOf(getVocabularyId()));
 		iteratorURL.setParameter("displayStyle", getDisplayStyle());
@@ -512,6 +563,7 @@ public class AssetCategoriesDisplayContext {
 		return _keywords;
 	}
 
+<<<<<<< HEAD
 	public String getNavigation() {
 		if (_navigation != null) {
 			return _navigation;
@@ -522,14 +574,20 @@ public class AssetCategoriesDisplayContext {
 		return _navigation;
 	}
 
+=======
+>>>>>>> compatible
 	public String getOrderByCol() {
 		if (Validator.isNotNull(_orderByCol)) {
 			return _orderByCol;
 		}
 
 		_orderByCol = ParamUtil.getString(
+<<<<<<< HEAD
 			_request, "orderByCol",
 			isFlattenedNavigationAllowed() ? "path" : "create-date");
+=======
+			_request, "orderByCol", "create-date");
+>>>>>>> compatible
 
 		return _orderByCol;
 	}
@@ -544,6 +602,7 @@ public class AssetCategoriesDisplayContext {
 		return _orderByType;
 	}
 
+<<<<<<< HEAD
 	public String[] getOrderColumns() {
 		if (isFlattenedNavigationAllowed()) {
 			return new String[] {"path"};
@@ -584,6 +643,8 @@ public class AssetCategoriesDisplayContext {
 		return _selectCategoryURL;
 	}
 
+=======
+>>>>>>> compatible
 	public SearchContainer getVocabulariesSearchContainer()
 		throws PortalException {
 
@@ -766,9 +827,13 @@ public class AssetCategoriesDisplayContext {
 		SearchContainer categoriesSearchContainer =
 			getCategoriesSearchContainer();
 
+<<<<<<< HEAD
 		if (!isFlattenedNavigationAllowed() &&
 			(categoriesSearchContainer.getTotal() <= 0)) {
 
+=======
+		if (categoriesSearchContainer.getTotal() <= 0) {
+>>>>>>> compatible
 			return true;
 		}
 
@@ -788,6 +853,7 @@ public class AssetCategoriesDisplayContext {
 		return false;
 	}
 
+<<<<<<< HEAD
 	public boolean isFlattenedNavigationAllowed() {
 		if (StringUtil.equals(
 				_assetCategoriesAdminWebConfiguration.
@@ -820,6 +886,8 @@ public class AssetCategoriesDisplayContext {
 		return false;
 	}
 
+=======
+>>>>>>> compatible
 	public boolean isShowCategoriesAddButton() {
 		ThemeDisplay themeDisplay = (ThemeDisplay)_request.getAttribute(
 			WebKeys.THEME_DISPLAY);
@@ -885,20 +953,29 @@ public class AssetCategoriesDisplayContext {
 	private static final Log _log = LogFactoryUtil.getLog(
 		AssetCategoriesDisplayContext.class);
 
+<<<<<<< HEAD
 	private final AssetCategoriesAdminWebConfiguration
 		_assetCategoriesAdminWebConfiguration;
+=======
+>>>>>>> compatible
 	private SearchContainer _categoriesSearchContainer;
 	private AssetCategory _category;
 	private Long _categoryId;
 	private String _displayStyle;
 	private String _keywords;
+<<<<<<< HEAD
 	private String _navigation;
+=======
+>>>>>>> compatible
 	private String _orderByCol;
 	private String _orderByType;
 	private final RenderRequest _renderRequest;
 	private final RenderResponse _renderResponse;
 	private final HttpServletRequest _request;
+<<<<<<< HEAD
 	private String _selectCategoryURL;
+=======
+>>>>>>> compatible
 	private SearchContainer _vocabulariesSearchContainer;
 	private AssetVocabulary _vocabulary;
 	private Long _vocabularyId;

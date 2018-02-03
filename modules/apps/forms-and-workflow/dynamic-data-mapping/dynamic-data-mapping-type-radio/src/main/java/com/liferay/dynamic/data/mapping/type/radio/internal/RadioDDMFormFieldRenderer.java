@@ -18,10 +18,18 @@ import com.liferay.dynamic.data.mapping.form.field.type.BaseDDMFormFieldRenderer
 import com.liferay.dynamic.data.mapping.form.field.type.DDMFormFieldRenderer;
 import com.liferay.dynamic.data.mapping.model.DDMFormField;
 import com.liferay.dynamic.data.mapping.render.DDMFormFieldRenderingContext;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.json.JSONFactory;
+>>>>>>> compatible
 import com.liferay.portal.kernel.template.Template;
 import com.liferay.portal.kernel.template.TemplateConstants;
 import com.liferay.portal.kernel.template.TemplateResource;
 
+<<<<<<< HEAD
+=======
+import java.util.List;
+>>>>>>> compatible
 import java.util.Map;
 
 import org.osgi.service.component.annotations.Activate;
@@ -44,7 +52,11 @@ public class RadioDDMFormFieldRenderer extends BaseDDMFormFieldRenderer {
 
 	@Override
 	public String getTemplateNamespace() {
+<<<<<<< HEAD
 		return "DDMRadio.render";
+=======
+		return "ddm.radio";
+>>>>>>> compatible
 	}
 
 	@Override
@@ -58,6 +70,31 @@ public class RadioDDMFormFieldRenderer extends BaseDDMFormFieldRenderer {
 			"/META-INF/resources/radio.soy");
 	}
 
+<<<<<<< HEAD
+=======
+	protected List<Object> getOptions(
+		DDMFormField ddmFormField,
+		DDMFormFieldRenderingContext ddmFormFieldRenderingContext) {
+
+		RadioDDMFormFieldContextHelper radioDDMFormFieldContextHelper =
+			new RadioDDMFormFieldContextHelper(
+				jsonFactory, ddmFormField.getDDMFormFieldOptions(),
+				ddmFormFieldRenderingContext.getValue(),
+				ddmFormField.getPredefinedValue(),
+				ddmFormFieldRenderingContext.getLocale());
+
+		return radioDDMFormFieldContextHelper.getOptions();
+	}
+
+	@Override
+	protected void populateOptionalContext(
+		Template template, DDMFormField ddmFormField,
+		DDMFormFieldRenderingContext ddmFormFieldRenderingContext) {
+
+		template.put("inline", ddmFormField.getProperty("inline"));
+	}
+
+>>>>>>> compatible
 	@Override
 	protected void populateRequiredContext(
 		Template template, DDMFormField ddmFormField,
@@ -66,6 +103,7 @@ public class RadioDDMFormFieldRenderer extends BaseDDMFormFieldRenderer {
 		super.populateRequiredContext(
 			template, ddmFormField, ddmFormFieldRenderingContext);
 
+<<<<<<< HEAD
 		Map<String, Object> parameters =
 			radioDDMFormFieldTemplateContextContributor.getParameters(
 				ddmFormField, ddmFormFieldRenderingContext);
@@ -76,6 +114,14 @@ public class RadioDDMFormFieldRenderer extends BaseDDMFormFieldRenderer {
 	@Reference
 	protected RadioDDMFormFieldTemplateContextContributor
 		radioDDMFormFieldTemplateContextContributor;
+=======
+		template.put(
+			"options", getOptions(ddmFormField, ddmFormFieldRenderingContext));
+	}
+
+	@Reference
+	protected JSONFactory jsonFactory;
+>>>>>>> compatible
 
 	private TemplateResource _templateResource;
 

@@ -14,12 +14,18 @@
 
 package com.liferay.exportimport.web.constants;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
 /**
  * @author Daniel Kocsis
  */
 @ProviderType
+=======
+/**
+ * @author Daniel Kocsis
+ */
+>>>>>>> compatible
 public class ExportImportWebKeys {
 
 	public static final String EXPORT_IMPORT_CONFIGURATION_ID =

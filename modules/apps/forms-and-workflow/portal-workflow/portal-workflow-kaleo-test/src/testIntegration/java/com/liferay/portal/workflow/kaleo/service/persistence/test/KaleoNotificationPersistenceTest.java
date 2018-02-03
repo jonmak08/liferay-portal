@@ -28,6 +28,10 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.util.IntegerWrapper;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.OrderByComparatorFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.PersistenceTestRule;
@@ -137,7 +141,11 @@ public class KaleoNotificationPersistenceTest {
 
 		newKaleoNotification.setKaleoClassPK(RandomTestUtil.nextLong());
 
+<<<<<<< HEAD
 		newKaleoNotification.setKaleoDefinitionVersionId(RandomTestUtil.nextLong());
+=======
+		newKaleoNotification.setKaleoDefinitionId(RandomTestUtil.nextLong());
+>>>>>>> compatible
 
 		newKaleoNotification.setKaleoNodeName(RandomTestUtil.randomString());
 
@@ -177,8 +185,13 @@ public class KaleoNotificationPersistenceTest {
 			newKaleoNotification.getKaleoClassName());
 		Assert.assertEquals(existingKaleoNotification.getKaleoClassPK(),
 			newKaleoNotification.getKaleoClassPK());
+<<<<<<< HEAD
 		Assert.assertEquals(existingKaleoNotification.getKaleoDefinitionVersionId(),
 			newKaleoNotification.getKaleoDefinitionVersionId());
+=======
+		Assert.assertEquals(existingKaleoNotification.getKaleoDefinitionId(),
+			newKaleoNotification.getKaleoDefinitionId());
+>>>>>>> compatible
 		Assert.assertEquals(existingKaleoNotification.getKaleoNodeName(),
 			newKaleoNotification.getKaleoNodeName());
 		Assert.assertEquals(existingKaleoNotification.getName(),
@@ -203,26 +216,46 @@ public class KaleoNotificationPersistenceTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testCountByKaleoDefinitionVersionId() throws Exception {
 		_persistence.countByKaleoDefinitionVersionId(RandomTestUtil.nextLong());
 
 		_persistence.countByKaleoDefinitionVersionId(0L);
+=======
+	public void testCountByKaleoDefinitionId() throws Exception {
+		_persistence.countByKaleoDefinitionId(RandomTestUtil.nextLong());
+
+		_persistence.countByKaleoDefinitionId(0L);
+>>>>>>> compatible
 	}
 
 	@Test
 	public void testCountByKCN_KCPK() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByKCN_KCPK("", RandomTestUtil.nextLong());
 
 		_persistence.countByKCN_KCPK("null", 0L);
+=======
+		_persistence.countByKCN_KCPK(StringPool.BLANK, RandomTestUtil.nextLong());
+
+		_persistence.countByKCN_KCPK(StringPool.NULL, 0L);
+>>>>>>> compatible
 
 		_persistence.countByKCN_KCPK((String)null, 0L);
 	}
 
 	@Test
 	public void testCountByKCN_KCPK_ET() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByKCN_KCPK_ET("", RandomTestUtil.nextLong(), "");
 
 		_persistence.countByKCN_KCPK_ET("null", 0L, "null");
+=======
+		_persistence.countByKCN_KCPK_ET(StringPool.BLANK,
+			RandomTestUtil.nextLong(), StringPool.BLANK);
+
+		_persistence.countByKCN_KCPK_ET(StringPool.NULL, 0L, StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByKCN_KCPK_ET((String)null, 0L, (String)null);
 	}
@@ -254,9 +287,15 @@ public class KaleoNotificationPersistenceTest {
 			"kaleoNotificationId", true, "groupId", true, "companyId", true,
 			"userId", true, "userName", true, "createDate", true,
 			"modifiedDate", true, "kaleoClassName", true, "kaleoClassPK", true,
+<<<<<<< HEAD
 			"kaleoDefinitionVersionId", true, "kaleoNodeName", true, "name",
 			true, "description", true, "executionType", true,
 			"templateLanguage", true, "notificationTypes", true);
+=======
+			"kaleoDefinitionId", true, "kaleoNodeName", true, "name", true,
+			"description", true, "executionType", true, "templateLanguage",
+			true, "notificationTypes", true);
+>>>>>>> compatible
 	}
 
 	@Test
@@ -475,7 +514,11 @@ public class KaleoNotificationPersistenceTest {
 
 		kaleoNotification.setKaleoClassPK(RandomTestUtil.nextLong());
 
+<<<<<<< HEAD
 		kaleoNotification.setKaleoDefinitionVersionId(RandomTestUtil.nextLong());
+=======
+		kaleoNotification.setKaleoDefinitionId(RandomTestUtil.nextLong());
+>>>>>>> compatible
 
 		kaleoNotification.setKaleoNodeName(RandomTestUtil.randomString());
 

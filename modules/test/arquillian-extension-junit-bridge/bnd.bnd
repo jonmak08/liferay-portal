@@ -1,3 +1,7 @@
 Bundle-Name: Liferay Arquillian Extension JUnit Bridge
 Bundle-SymbolicName: com.liferay.arquillian.extension.junit.bridge
+<<<<<<< HEAD
 Bundle-Version: 1.0.9
+=======
+Bundle-Version: 1.0.8
+>>>>>>> compatible

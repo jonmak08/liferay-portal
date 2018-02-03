@@ -83,6 +83,7 @@ public class DDMDataProviderInstanceServiceImpl
 	}
 
 	@Override
+<<<<<<< HEAD
 	public DDMDataProviderInstance fetchDataProviderInstanceByUuid(String uuid)
 		throws PortalException {
 
@@ -102,6 +103,8 @@ public class DDMDataProviderInstanceServiceImpl
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public DDMDataProviderInstance getDataProviderInstance(
 			long dataProviderInstanceId)
 		throws PortalException {
@@ -114,6 +117,7 @@ public class DDMDataProviderInstanceServiceImpl
 	}
 
 	@Override
+<<<<<<< HEAD
 	public DDMDataProviderInstance getDataProviderInstanceByUuid(String uuid)
 		throws PortalException {
 
@@ -130,6 +134,8 @@ public class DDMDataProviderInstanceServiceImpl
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public List<DDMDataProviderInstance> search(
 		long companyId, long[] groupIds, String keywords, int start, int end,
 		OrderByComparator<DDMDataProviderInstance> orderByComparator) {

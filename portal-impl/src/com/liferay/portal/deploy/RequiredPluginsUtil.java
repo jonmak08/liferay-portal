@@ -109,10 +109,15 @@ public class RequiredPluginsUtil {
 					PortalClassLoaderUtil.getClassLoader();
 
 				InputStream inputStream = classLoader.getResourceAsStream(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"com/liferay/portal/deploy/dependencies/plugins",
 						String.valueOf(i + 1), "/",
 						levelRequiredDeploymentWARFileNames[j]));
+=======
+					"com/liferay/portal/deploy/dependencies/plugins" + (i + 1) +
+						"/" + levelRequiredDeploymentWARFileNames[j]);
+>>>>>>> compatible
 
 				AutoDeployDir autoDeployDir = AutoDeployUtil.getDir(
 					AutoDeployDir.DEFAULT_NAME);

@@ -14,9 +14,14 @@
 
 package com.liferay.portal.tools;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
@@ -198,6 +203,7 @@ public class GitUtil {
 
 		List<String> fileNames = new ArrayList<>();
 
+<<<<<<< HEAD
 		UnsyncBufferedReader unsyncBufferedReader = getGitCommandReader(
 			"git rev-parse HEAD");
 
@@ -208,10 +214,18 @@ public class GitUtil {
 				"git diff --diff-filter=AM --name-only ", commitId, " ",
 				latestCommitId));
 
+=======
+>>>>>>> compatible
 		String line = null;
 
 		int gitLevel = getGitLevel(baseDirName);
 
+<<<<<<< HEAD
+=======
+		UnsyncBufferedReader unsyncBufferedReader = getGitCommandReader(
+			"git diff --diff-filter=AM --name-only " + commitId);
+
+>>>>>>> compatible
 		while ((line = unsyncBufferedReader.readLine()) != null) {
 			if (StringUtil.count(line, CharPool.SLASH) >= gitLevel) {
 				fileNames.add(getFileName(line, gitLevel));

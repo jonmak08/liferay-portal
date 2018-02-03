@@ -15,14 +15,22 @@
 package com.liferay.frontend.taglib.servlet.taglib;
 
 import com.liferay.frontend.taglib.internal.servlet.ServletContextUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.ArrayUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.taglib.util.IncludeTag;
 
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+=======
+import java.util.List;
+>>>>>>> compatible
 
 import javax.portlet.PortletURL;
 
@@ -52,6 +60,7 @@ public class ManagementBarNavigationTag extends IncludeTag implements BodyTag {
 		_label = label;
 	}
 
+<<<<<<< HEAD
 	public void setNavigationKeys(Map<String, String> navigationKeys) {
 		_navigationKeys = navigationKeys;
 	}
@@ -60,6 +69,10 @@ public class ManagementBarNavigationTag extends IncludeTag implements BodyTag {
 		for (String navigationKey : navigationKeys) {
 			_navigationKeys.put(navigationKey, navigationKey);
 		}
+=======
+	public void setNavigationKeys(String[] navigationKeys) {
+		_navigationKeys = navigationKeys;
+>>>>>>> compatible
 	}
 
 	public void setNavigationParam(String navigationParam) {
@@ -82,7 +95,11 @@ public class ManagementBarNavigationTag extends IncludeTag implements BodyTag {
 		_disabled = null;
 		_managementBarFilterItems = new ArrayList<>();
 		_label = null;
+<<<<<<< HEAD
 		_navigationKeys = new LinkedHashMap<>();
+=======
+		_navigationKeys = null;
+>>>>>>> compatible
 		_navigationParam = "navigation";
 		_portletURL = null;
 	}
@@ -131,6 +148,7 @@ public class ManagementBarNavigationTag extends IncludeTag implements BodyTag {
 
 		String navigationKey = ParamUtil.getString(request, _navigationParam);
 
+<<<<<<< HEAD
 		for (Map.Entry<String, String> entry : _navigationKeys.entrySet()) {
 			String label = entry.getKey();
 			String value = entry.getValue();
@@ -148,6 +166,24 @@ public class ManagementBarNavigationTag extends IncludeTag implements BodyTag {
 					active, label, _portletURL.toString());
 
 			_managementBarFilterItems.add(managementBarFilterItem);
+=======
+		if (ArrayUtil.isNotEmpty(_navigationKeys)) {
+			for (String curNavigationKey : _navigationKeys) {
+				_portletURL.setParameter(_navigationParam, curNavigationKey);
+
+				boolean active = curNavigationKey.equals(navigationKey);
+
+				if (active && Validator.isNull(_label)) {
+					_label = curNavigationKey;
+				}
+
+				ManagementBarFilterItem managementBarFilterItem =
+					new ManagementBarFilterItem(
+						active, curNavigationKey, _portletURL.toString());
+
+				_managementBarFilterItems.add(managementBarFilterItem);
+			}
+>>>>>>> compatible
 		}
 
 		request.setAttribute(
@@ -184,7 +220,11 @@ public class ManagementBarNavigationTag extends IncludeTag implements BodyTag {
 	private String _label;
 	private List<ManagementBarFilterItem> _managementBarFilterItems =
 		new ArrayList<>();
+<<<<<<< HEAD
 	private Map<String, String> _navigationKeys = new LinkedHashMap<>();
+=======
+	private String[] _navigationKeys;
+>>>>>>> compatible
 	private String _navigationParam = "navigation";
 	private PortletURL _portletURL;
 

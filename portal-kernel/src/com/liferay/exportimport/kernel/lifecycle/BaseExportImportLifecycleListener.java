@@ -56,11 +56,17 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
+<<<<<<< HEAD
  * @author     Daniel Kocsis
  * @author     Mate Thurzo
  * @deprecated As of 7.0.0
  */
 @Deprecated
+=======
+ * @author Daniel Kocsis
+ * @author Mate Thurzo
+ */
+>>>>>>> compatible
 public abstract class BaseExportImportLifecycleListener
 	implements ExportImportLifecycleListener {
 

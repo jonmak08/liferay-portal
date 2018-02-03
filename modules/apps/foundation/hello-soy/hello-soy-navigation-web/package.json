@@ -5,8 +5,16 @@
 	},
 	"devDependencies": {
 		"liferay-module-config-generator": "^1.2.1",
+<<<<<<< HEAD
 		"metal-cli": "^4.2.0"
 	},
 	"name": "hello-soy-navigation-web",
 	"version": "1.0.3"
 }
+=======
+		"metal-cli": "^4.0.1"
+	},
+	"name": "hello-soy-navigation-web",
+	"version": "1.0.2"
+}
+>>>>>>> compatible

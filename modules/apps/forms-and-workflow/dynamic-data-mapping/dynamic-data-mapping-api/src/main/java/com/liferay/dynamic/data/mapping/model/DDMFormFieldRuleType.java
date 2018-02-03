@@ -17,10 +17,15 @@ package com.liferay.dynamic.data.mapping.model;
 import java.io.Serializable;
 
 /**
+<<<<<<< HEAD
  * @author     Leonardo Barros
  * @deprecated As of 3.5.0, with no direct replacement
  */
 @Deprecated
+=======
+ * @author Leonardo Barros
+ */
+>>>>>>> compatible
 public enum DDMFormFieldRuleType implements Serializable {
 
 	DATA_PROVIDER("DATA_PROVIDER"), READ_ONLY("READ_ONLY"), VALUE("VALUE"),

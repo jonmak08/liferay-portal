@@ -14,15 +14,23 @@
 
 package com.liferay.frontend.taglib.servlet.taglib;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.language.LanguageConstants;
 import com.liferay.portal.kernel.language.LanguageUtil;
+=======
+import com.liferay.portal.kernel.exception.PortalException;
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.taglib.util.LexiconUtil;
 
@@ -66,6 +74,7 @@ public class UserVerticalCardTag extends VerticalCardTag {
 			"liferay-frontend:card:colorCssClass",
 			LexiconUtil.getUserColorCssClass(user));
 
+<<<<<<< HEAD
 		if (user != null) {
 			if ((user.getPortraitId() > 0) ||
 				LanguageConstants.VALUE_IMAGE.equals(
@@ -89,6 +98,23 @@ public class UserVerticalCardTag extends VerticalCardTag {
 					if (_log.isDebugEnabled()) {
 						_log.debug(pe, pe);
 					}
+=======
+		if ((user != null) && (user.getPortraitId() > 0)) {
+			ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
+				WebKeys.THEME_DISPLAY);
+
+			try {
+				request.setAttribute(
+					"liferay-frontend:card:portraitURL",
+					user.getPortraitURL(themeDisplay));
+			}
+			catch (PortalException pe) {
+
+				// LPS-52675
+
+				if (_log.isDebugEnabled()) {
+					_log.debug(pe, pe);
+>>>>>>> compatible
 				}
 			}
 		}

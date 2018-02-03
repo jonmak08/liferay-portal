@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Portal Workflow Kaleo Runtime API
 Bundle-SymbolicName: com.liferay.portal.workflow.kaleo.runtime.api
+<<<<<<< HEAD
 Bundle-Version: 2.3.0
+=======
+Bundle-Version: 2.2.2
+>>>>>>> compatible
 Export-Package:\
 	com.liferay.portal.workflow.kaleo.runtime,\
 	com.liferay.portal.workflow.kaleo.runtime.action,\
@@ -9,7 +13,10 @@ Export-Package:\
 	com.liferay.portal.workflow.kaleo.runtime.calendar,\
 	com.liferay.portal.workflow.kaleo.runtime.condition,\
 	com.liferay.portal.workflow.kaleo.runtime.constants,\
+<<<<<<< HEAD
 	com.liferay.portal.workflow.kaleo.runtime.form,\
+=======
+>>>>>>> compatible
 	com.liferay.portal.workflow.kaleo.runtime.graph,\
 	com.liferay.portal.workflow.kaleo.runtime.manager,\
 	com.liferay.portal.workflow.kaleo.runtime.node,\

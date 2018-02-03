@@ -56,7 +56,10 @@ public class NodeDefaultsPlugin extends BaseDefaultsPlugin<NodePlugin> {
 		NodeExtension nodeExtension = GradleUtil.getExtension(
 			project, NodeExtension.class);
 
+<<<<<<< HEAD
 		nodeExtension.setGlobal(true);
+=======
+>>>>>>> compatible
 		nodeExtension.setNodeVersion(_NODE_VERSION);
 
 		String npmArgs = GradleUtil.getProperty(
@@ -204,7 +207,11 @@ public class NodeDefaultsPlugin extends BaseDefaultsPlugin<NodePlugin> {
 		executeNodeTask.args(key + value);
 	}
 
+<<<<<<< HEAD
 	private static final String _NODE_VERSION = "8.9.0";
+=======
+	private static final String _NODE_VERSION = "6.6.0";
+>>>>>>> compatible
 
 	private static final String _SASS_BINARY_SITE_ARG = "--sass-binary-site=";
 

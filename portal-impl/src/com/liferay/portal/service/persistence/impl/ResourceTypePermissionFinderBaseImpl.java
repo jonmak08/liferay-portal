@@ -21,10 +21,15 @@ import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 
 /**
  * @author Brian Wing Shun Chan
+<<<<<<< HEAD
  * @deprecated
  * @generated
  */
 @Deprecated
+=======
+ * @generated
+ */
+>>>>>>> compatible
 public class ResourceTypePermissionFinderBaseImpl extends BasePersistenceImpl<ResourceTypePermission> {
 	public ResourceTypePermissionFinderBaseImpl() {
 		setModelClass(ResourceTypePermission.class);

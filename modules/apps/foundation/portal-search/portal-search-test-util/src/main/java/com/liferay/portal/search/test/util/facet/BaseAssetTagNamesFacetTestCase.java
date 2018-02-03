@@ -15,6 +15,7 @@
 package com.liferay.portal.search.test.util.facet;
 
 import com.liferay.portal.kernel.search.Field;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.search.internal.facet.tag.AssetTagNamesFacet;
 import com.liferay.portal.search.test.util.indexing.QueryContributor;
@@ -22,12 +23,22 @@ import com.liferay.portal.search.test.util.indexing.QueryContributors;
 
 import java.util.Arrays;
 import java.util.List;
+=======
+import com.liferay.portal.kernel.search.SearchContext;
+import com.liferay.portal.kernel.search.facet.Facet;
+import com.liferay.portal.kernel.test.util.RandomTestUtil;
+import com.liferay.portal.search.internal.facet.tag.AssetTagNamesFacet;
+import com.liferay.portal.search.test.util.indexing.QueryContributors;
+
+import java.util.Arrays;
+>>>>>>> compatible
 
 /**
  * @author André de Oliveira
  */
 public abstract class BaseAssetTagNamesFacetTestCase extends BaseFacetTestCase {
 
+<<<<<<< HEAD
 	protected void assertFacet(
 			QueryContributor queryContributor, List<String> expectedTerms)
 		throws Exception {
@@ -35,6 +46,11 @@ public abstract class BaseAssetTagNamesFacetTestCase extends BaseFacetTestCase {
 		assertFacet(
 			searchContext -> initFacet(new AssetTagNamesFacet(searchContext)),
 			queryContributor, expectedTerms);
+=======
+	@Override
+	protected Facet createFacet(SearchContext searchContext) {
+		return new AssetTagNamesFacet(searchContext);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -60,9 +76,13 @@ public abstract class BaseAssetTagNamesFacetTestCase extends BaseFacetTestCase {
 		addDocument("Green-Blue Tag", "Red Tag");
 		addDocument("Tag");
 
+<<<<<<< HEAD
 		assertFacet(
 			QueryContributors.dummy(),
 			Arrays.asList("Green-Blue Tag=2", "Red Tag=1", "Tag=1"));
+=======
+		assertFacet(Arrays.asList("Green-Blue Tag=2", "Red Tag=1", "Tag=1"));
+>>>>>>> compatible
 	}
 
 }

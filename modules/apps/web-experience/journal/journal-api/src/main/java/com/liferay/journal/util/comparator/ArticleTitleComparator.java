@@ -20,6 +20,7 @@ import com.liferay.portal.kernel.util.StringUtil;
 
 /**
  * @author Brian Wing Shun Chan
+<<<<<<< HEAD
  * @deprecated As of 3.0.0, with no direct replacement
  */
 @Deprecated
@@ -30,6 +31,14 @@ public class ArticleTitleComparator extends OrderByComparator<JournalArticle> {
 
 	public static final String ORDER_BY_DESC =
 		"JournalArticleLocalization.title DESC";
+=======
+ */
+public class ArticleTitleComparator extends OrderByComparator<JournalArticle> {
+
+	public static final String ORDER_BY_ASC = "title ASC";
+
+	public static final String ORDER_BY_DESC = "title DESC";
+>>>>>>> compatible
 
 	public static final String[] ORDER_BY_FIELDS = {"title"};
 

@@ -19,7 +19,10 @@ import com.liferay.document.library.kernel.exception.NoSuchFileException;
 import com.liferay.document.library.kernel.store.BaseStore;
 import com.liferay.document.library.kernel.store.Store;
 import com.liferay.document.library.kernel.util.DLUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
 import com.liferay.portal.convert.documentlibrary.FileSystemStoreRootDirException;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -28,7 +31,11 @@ import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.store.file.system.configuration.FileSystemStoreConfiguration;
 
@@ -384,9 +391,14 @@ public class FileSystemStore extends BaseStore {
 
 		if (!renamed) {
 			throw new SystemException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"File name directory was not renamed from ",
 					fileNameDir.getPath(), " to ", newFileNameDir.getPath()));
+=======
+				"File name directory was not renamed from " +
+					fileNameDir.getPath() + " to " + newFileNameDir.getPath());
+>>>>>>> compatible
 		}
 
 		deleteEmptyAncestors(companyId, repositoryId, parentFile);
@@ -423,9 +435,14 @@ public class FileSystemStore extends BaseStore {
 
 		if (!renamed) {
 			throw new SystemException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"File name directory was not renamed from ",
 					fileNameDir.getPath(), " to ", newFileNameDir.getPath()));
+=======
+				"File name directory was not renamed from " +
+					fileNameDir.getPath() + " to " + newFileNameDir.getPath());
+>>>>>>> compatible
 		}
 
 		deleteEmptyAncestors(companyId, repositoryId, parentFile);
@@ -480,10 +497,16 @@ public class FileSystemStore extends BaseStore {
 
 		if (!renamed) {
 			throw new SystemException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"File name version file was not renamed from ",
 					fromFileNameVersionFile.getPath(), " to ",
 					toFileNameVersionFile.getPath()));
+=======
+				"File name version file was not renamed from " +
+					fromFileNameVersionFile.getPath() + " to " +
+						toFileNameVersionFile.getPath());
+>>>>>>> compatible
 		}
 	}
 

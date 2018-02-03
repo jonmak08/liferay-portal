@@ -22,8 +22,11 @@ import com.liferay.dynamic.data.lists.service.DDLRecordLocalServiceUtil;
 import com.liferay.dynamic.data.mapping.model.DDMForm;
 import com.liferay.dynamic.data.mapping.model.DDMFormField;
 import com.liferay.dynamic.data.mapping.model.DDMStructure;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.model.LocalizedValue;
 import com.liferay.dynamic.data.mapping.model.Value;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.storage.DDMFormFieldValue;
 import com.liferay.dynamic.data.mapping.storage.DDMFormValues;
 import com.liferay.dynamic.data.mapping.storage.StorageType;
@@ -40,6 +43,11 @@ import com.liferay.portal.kernel.search.SearchEngineHelperUtil;
 import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.test.util.SearchContextTestUtil;
@@ -51,11 +59,14 @@ import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.PermissionCheckerTestRule;
 
+<<<<<<< HEAD
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
+=======
+>>>>>>> compatible
 import org.junit.Assert;
 import org.junit.Assume;
 import org.junit.Before;
@@ -69,6 +80,10 @@ import org.junit.runner.RunWith;
  * @author André de Oliveira
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class DDLRecordSearchTest {
 
 	@ClassRule
@@ -76,7 +91,12 @@ public class DDLRecordSearchTest {
 	public static final AggregateTestRule aggregateTestRule =
 		new AggregateTestRule(
 			new LiferayIntegrationTestRule(),
+<<<<<<< HEAD
 			PermissionCheckerTestRule.INSTANCE);
+=======
+			PermissionCheckerTestRule.INSTANCE,
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Before
 	public void setUp() throws Exception {
@@ -107,7 +127,11 @@ public class DDLRecordSearchTest {
 				PortalUtil.getClassNameId(DDLRecordSet.class), group);
 
 		DDMStructure ddmStructure = ddmStructureTestHelper.addStructure(
+<<<<<<< HEAD
 			createDDMForm(LocaleUtil.US), StorageType.JSON.toString());
+=======
+			createDDMForm(), StorageType.JSON.toString());
+>>>>>>> compatible
 
 		DDLRecordSet recordSet = recordSetTestHelper.addRecordSet(ddmStructure);
 
@@ -116,6 +140,7 @@ public class DDLRecordSearchTest {
 		DDLRecordTestHelper recordTestHelper = new DDLRecordTestHelper(
 			group, recordSet);
 
+<<<<<<< HEAD
 		DDMFormValues ddmFormValues = createDDMFormValues(LocaleUtil.US);
 
 		Map<Locale, String> values = new HashMap<>();
@@ -133,6 +158,18 @@ public class DDLRecordSearchTest {
 
 		DDMFormFieldValue descriptionDDMFormFieldValue =
 			createLocalizedDDMFormFieldValue("description", values);
+=======
+		DDMFormValues ddmFormValues = createDDMFormValues();
+
+		DDMFormFieldValue nameDDMFormFieldValue =
+			createLocalizedDDMFormFieldValue("name", "Joe Bloggs");
+
+		ddmFormValues.addDDMFormFieldValue(nameDDMFormFieldValue);
+
+		DDMFormFieldValue descriptionDDMFormFieldValue =
+			createLocalizedDDMFormFieldValue(
+				"description", "Simple description");
+>>>>>>> compatible
 
 		ddmFormValues.addDDMFormFieldValue(descriptionDDMFormFieldValue);
 
@@ -186,6 +223,7 @@ public class DDLRecordSearchTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testLocales() throws Exception {
 		long companyId = TestPropsValues.getCompanyId();
 
@@ -257,6 +295,8 @@ public class DDLRecordSearchTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testPunctuationInExactPhrase() throws Exception {
 		addRecord("Joe? Bloggs!");
 		addRecord("Joe! Bloggs?");
@@ -353,6 +393,7 @@ public class DDLRecordSearchTest {
 		return searchContext;
 	}
 
+<<<<<<< HEAD
 	protected void addRecord(Map<Locale, String> name) throws Exception {
 		Map<Locale, String> description = new HashMap<>();
 
@@ -372,6 +413,14 @@ public class DDLRecordSearchTest {
 		name.keySet().toArray(locales);
 
 		DDMFormValues ddmFormValues = createDDMFormValues(locales);
+=======
+	protected void addRecord(String name) throws Exception {
+		addRecord(name, RandomTestUtil.randomString());
+	}
+
+	protected void addRecord(String name, String description) throws Exception {
+		DDMFormValues ddmFormValues = createDDMFormValues();
+>>>>>>> compatible
 
 		DDMFormFieldValue nameDDMFormFieldValue =
 			createLocalizedDDMFormFieldValue("name", name);
@@ -387,6 +436,7 @@ public class DDLRecordSearchTest {
 			ddmFormValues, WorkflowConstants.ACTION_PUBLISH);
 	}
 
+<<<<<<< HEAD
 	protected void addRecord(String name) throws Exception {
 		Map<Locale, String> nameMap = new HashMap<>();
 
@@ -407,6 +457,8 @@ public class DDLRecordSearchTest {
 		addRecord(nameMap, descriptionMap);
 	}
 
+=======
+>>>>>>> compatible
 	protected DDLRecordSet addRecordSet() throws Exception {
 		DDLRecordSetTestHelper recordSetTestHelper = new DDLRecordSetTestHelper(
 			_group);
@@ -416,7 +468,11 @@ public class DDLRecordSearchTest {
 				PortalUtil.getClassNameId(DDLRecordSet.class), _group);
 
 		DDMStructure ddmStructure = ddmStructureTestHelper.addStructure(
+<<<<<<< HEAD
 			createDDMForm(LocaleUtil.US), StorageType.JSON.toString());
+=======
+			createDDMForm(), StorageType.JSON.toString());
+>>>>>>> compatible
 
 		return recordSetTestHelper.addRecordSet(ddmStructure);
 	}
@@ -429,9 +485,16 @@ public class DDLRecordSearchTest {
 		Assert.assertEquals(hits.toString(), length, hits.getLength());
 	}
 
+<<<<<<< HEAD
 	protected DDMForm createDDMForm(Locale... locales) {
 		DDMForm ddmForm = DDMFormTestUtil.createDDMForm(
 			DDMFormTestUtil.createAvailableLocales(locales), locales[0]);
+=======
+	protected DDMForm createDDMForm() {
+		DDMForm ddmForm = DDMFormTestUtil.createDDMForm(
+			DDMFormTestUtil.createAvailableLocales(LocaleUtil.US),
+			LocaleUtil.US);
+>>>>>>> compatible
 
 		DDMFormField nameDDMFormField = DDMFormTestUtil.createTextDDMFormField(
 			"name", true, false, false);
@@ -451,15 +514,20 @@ public class DDLRecordSearchTest {
 		return ddmForm;
 	}
 
+<<<<<<< HEAD
 	protected DDMFormValues createDDMFormValues(Locale... locales)
 		throws Exception {
 
+=======
+	protected DDMFormValues createDDMFormValues() throws Exception {
+>>>>>>> compatible
 		DDLRecordSet recordSet = _recordTestHelper.getRecordSet();
 
 		DDMStructure ddmStructure = recordSet.getDDMStructure();
 
 		return DDMFormValuesTestUtil.createDDMFormValues(
 			ddmStructure.getDDMForm(),
+<<<<<<< HEAD
 			DDMFormValuesTestUtil.createAvailableLocales(locales), locales[0]);
 	}
 
@@ -474,6 +542,17 @@ public class DDLRecordSearchTest {
 
 		return DDMFormValuesTestUtil.createDDMFormFieldValue(
 			name, localizedValue);
+=======
+			DDMFormValuesTestUtil.createAvailableLocales(LocaleUtil.US),
+			LocaleUtil.US);
+	}
+
+	protected DDMFormFieldValue createLocalizedDDMFormFieldValue(
+		String name, String enValue) {
+
+		return DDMFormValuesTestUtil.createLocalizedDDMFormFieldValue(
+			name, enValue);
+>>>>>>> compatible
 	}
 
 	protected boolean isExactPhraseQueryImplementedForSearchEngine() {

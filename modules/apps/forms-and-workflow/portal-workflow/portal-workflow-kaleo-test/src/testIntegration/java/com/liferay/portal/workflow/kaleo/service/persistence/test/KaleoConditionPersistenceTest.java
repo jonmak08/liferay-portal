@@ -134,7 +134,11 @@ public class KaleoConditionPersistenceTest {
 
 		newKaleoCondition.setModifiedDate(RandomTestUtil.nextDate());
 
+<<<<<<< HEAD
 		newKaleoCondition.setKaleoDefinitionVersionId(RandomTestUtil.nextLong());
+=======
+		newKaleoCondition.setKaleoDefinitionId(RandomTestUtil.nextLong());
+>>>>>>> compatible
 
 		newKaleoCondition.setKaleoNodeId(RandomTestUtil.nextLong());
 
@@ -164,8 +168,13 @@ public class KaleoConditionPersistenceTest {
 		Assert.assertEquals(Time.getShortTimestamp(
 				existingKaleoCondition.getModifiedDate()),
 			Time.getShortTimestamp(newKaleoCondition.getModifiedDate()));
+<<<<<<< HEAD
 		Assert.assertEquals(existingKaleoCondition.getKaleoDefinitionVersionId(),
 			newKaleoCondition.getKaleoDefinitionVersionId());
+=======
+		Assert.assertEquals(existingKaleoCondition.getKaleoDefinitionId(),
+			newKaleoCondition.getKaleoDefinitionId());
+>>>>>>> compatible
 		Assert.assertEquals(existingKaleoCondition.getKaleoNodeId(),
 			newKaleoCondition.getKaleoNodeId());
 		Assert.assertEquals(existingKaleoCondition.getScript(),
@@ -184,10 +193,17 @@ public class KaleoConditionPersistenceTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testCountByKaleoDefinitionVersionId() throws Exception {
 		_persistence.countByKaleoDefinitionVersionId(RandomTestUtil.nextLong());
 
 		_persistence.countByKaleoDefinitionVersionId(0L);
+=======
+	public void testCountByKaleoDefinitionId() throws Exception {
+		_persistence.countByKaleoDefinitionId(RandomTestUtil.nextLong());
+
+		_persistence.countByKaleoDefinitionId(0L);
+>>>>>>> compatible
 	}
 
 	@Test
@@ -223,9 +239,14 @@ public class KaleoConditionPersistenceTest {
 		return OrderByComparatorFactoryUtil.create("KaleoCondition",
 			"kaleoConditionId", true, "groupId", true, "companyId", true,
 			"userId", true, "userName", true, "createDate", true,
+<<<<<<< HEAD
 			"modifiedDate", true, "kaleoDefinitionVersionId", true,
 			"kaleoNodeId", true, "scriptLanguage", true,
 			"scriptRequiredContexts", true);
+=======
+			"modifiedDate", true, "kaleoDefinitionId", true, "kaleoNodeId",
+			true, "scriptLanguage", true, "scriptRequiredContexts", true);
+>>>>>>> compatible
 	}
 
 	@Test
@@ -453,7 +474,11 @@ public class KaleoConditionPersistenceTest {
 
 		kaleoCondition.setModifiedDate(RandomTestUtil.nextDate());
 
+<<<<<<< HEAD
 		kaleoCondition.setKaleoDefinitionVersionId(RandomTestUtil.nextLong());
+=======
+		kaleoCondition.setKaleoDefinitionId(RandomTestUtil.nextLong());
+>>>>>>> compatible
 
 		kaleoCondition.setKaleoNodeId(RandomTestUtil.nextLong());
 

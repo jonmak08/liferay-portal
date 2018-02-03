@@ -473,9 +473,13 @@ public class DLFileEntryLocalServiceImpl
 		DLFileVersion dlFileVersion =
 			dlFileVersionLocalService.getLatestFileVersion(fileEntryId, false);
 
+<<<<<<< HEAD
 		DLFileVersion oldDLFileVersion = dlFileVersion;
 
 		long oldDLFileVersionId = dlFileVersion.getFileVersionId();
+=======
+		long dlFileVersionId = dlFileVersion.getFileVersionId();
+>>>>>>> compatible
 
 		serviceContext.setUserId(userId);
 
@@ -552,12 +556,19 @@ public class DLFileEntryLocalServiceImpl
 
 			serviceContext.setAttribute("validateDDMFormValues", Boolean.FALSE);
 
+<<<<<<< HEAD
 			if (fileEntryTypeId == oldDLFileVersion.getFileEntryTypeId()) {
 				copyFileEntryMetadata(
 					dlFileEntry.getCompanyId(), fileEntryTypeId, fileEntryId,
 					oldDLFileVersionId, dlFileVersion.getFileVersionId(),
 					serviceContext);
 			}
+=======
+			copyFileEntryMetadata(
+				dlFileEntry.getCompanyId(), dlFileVersion.getFileEntryTypeId(),
+				fileEntryId, dlFileVersionId, dlFileVersion.getFileVersionId(),
+				serviceContext);
+>>>>>>> compatible
 
 			serviceContext.setAttribute("validateDDMFormValues", Boolean.TRUE);
 		}

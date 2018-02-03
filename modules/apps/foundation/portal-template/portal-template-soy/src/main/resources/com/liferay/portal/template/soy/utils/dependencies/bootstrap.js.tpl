@@ -12,6 +12,7 @@ Liferay.Loader.require.apply(
 						Liferay.component('$ID', null);
 					}
 				);
+<<<<<<< HEAD
 			},
 			function(error) {
 				console.error('Unable to load ' + $MODULES);
@@ -23,6 +24,8 @@ Liferay.Loader.require.apply(
 						modules: $MODULES
 					}
 				);
+=======
+>>>>>>> compatible
 			}
 		]
 	)

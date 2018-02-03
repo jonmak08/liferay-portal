@@ -33,7 +33,10 @@ import com.liferay.portal.kernel.transaction.Transactional;
 
 import java.io.Serializable;
 
+<<<<<<< HEAD
 import java.util.List;
+=======
+>>>>>>> compatible
 import java.util.Locale;
 import java.util.Map;
 
@@ -167,6 +170,7 @@ public interface DDLRecordService extends BaseService {
 	public DDLRecord getRecord(long recordId) throws PortalException;
 
 	/**
+<<<<<<< HEAD
 	* Returns all the records matching the record set ID
 	*
 	* @param recordSetId the record's record set ID
@@ -178,6 +182,8 @@ public interface DDLRecordService extends BaseService {
 		throws PortalException;
 
 	/**
+=======
+>>>>>>> compatible
 	* Reverts the record to a given version.
 	*
 	* @param recordId the primary key of the record

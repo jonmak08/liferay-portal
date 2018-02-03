@@ -22,7 +22,11 @@ import org.osgi.service.component.annotations.Reference;
 
 /**
  * @author Eudaldo Alonso
+<<<<<<< HEAD
  * @deprecated As of 2.0.0, moved to {@link
+=======
+ * @deprecated As of 1.9.0, moved to {@link
+>>>>>>> compatible
  *             com.liferay.journal.web.internal.dynamic.data.mapping.util.JournalSelectStructuresDDMDisplay}
  */
 @Deprecated

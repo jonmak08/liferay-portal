@@ -39,7 +39,11 @@ import org.osgi.service.component.annotations.Modified;
  */
 @Component(
 	configurationPid = "com.liferay.portal.mobile.device.detection.fiftyonedegrees.configuration.FiftyOneDegreesConfiguration",
+<<<<<<< HEAD
 	enabled = false, immediate = true, property = {"service.ranking:Integer=1"},
+=======
+	immediate = true, property = {"service.ranking:Integer=1"},
+>>>>>>> compatible
 	service = DataFileProvider.class
 )
 public class FiftyOneDegreesDataFileProvider implements DataFileProvider {

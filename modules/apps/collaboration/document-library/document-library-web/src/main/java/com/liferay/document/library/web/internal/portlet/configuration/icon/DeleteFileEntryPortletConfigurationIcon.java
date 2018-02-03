@@ -14,8 +14,13 @@
 
 package com.liferay.document.library.web.internal.portlet.configuration.icon;
 
+<<<<<<< HEAD
 import com.liferay.document.library.constants.DLPortletKeys;
 import com.liferay.document.library.kernel.model.DLFolderConstants;
+=======
+import com.liferay.document.library.kernel.model.DLFolderConstants;
+import com.liferay.document.library.web.constants.DLPortletKeys;
+>>>>>>> compatible
 import com.liferay.document.library.web.internal.display.context.logic.FileEntryDisplayContextHelper;
 import com.liferay.document.library.web.internal.portlet.action.ActionUtil;
 import com.liferay.document.library.web.internal.util.DLTrashUtil;
@@ -166,7 +171,11 @@ public class DeleteFileEntryPortletConfigurationIcon
 
 	protected boolean isTrashEnabled(long groupId, long repositoryId) {
 		try {
+<<<<<<< HEAD
 			return _dlTrashUtil.isTrashEnabled(groupId, repositoryId);
+=======
+			return DLTrashUtil.isTrashEnabled(groupId, repositoryId);
+>>>>>>> compatible
 		}
 		catch (PortalException pe) {
 			throw new RuntimeException(pe);
@@ -174,9 +183,12 @@ public class DeleteFileEntryPortletConfigurationIcon
 	}
 
 	@Reference
+<<<<<<< HEAD
 	private DLTrashUtil _dlTrashUtil;
 
 	@Reference
+=======
+>>>>>>> compatible
 	private Portal _portal;
 
 }

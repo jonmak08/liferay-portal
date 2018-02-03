@@ -14,8 +14,11 @@
 
 package com.liferay.exportimport.lar;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.lar.ManifestSummary;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.exportimport.kernel.lar.PortletDataContextFactory;
@@ -28,7 +31,10 @@ import com.liferay.portal.kernel.model.Layout;
 import com.liferay.portal.kernel.security.auth.CompanyThreadLocal;
 import com.liferay.portal.kernel.service.GroupLocalService;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ArrayUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.kernel.xml.Document;
@@ -38,7 +44,10 @@ import com.liferay.portal.kernel.zip.ZipReader;
 import com.liferay.portal.kernel.zip.ZipWriter;
 
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.Arrays;
+=======
+>>>>>>> compatible
 import java.util.Collections;
 import java.util.Date;
 import java.util.Map;
@@ -50,7 +59,10 @@ import org.osgi.service.component.annotations.Reference;
  * @author Mate Thurzo
  */
 @Component(immediate = true)
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class PortletDataContextFactoryImpl
 	implements PortletDataContextFactory {
 
@@ -71,6 +83,7 @@ public class PortletDataContextFactoryImpl
 		clonePortletDataContext.setDataStrategy(
 			portletDataContext.getDataStrategy());
 		clonePortletDataContext.setEndDate(portletDataContext.getEndDate());
+<<<<<<< HEAD
 		clonePortletDataContext.setExportDataRootElement(
 			portletDataContext.getExportDataRootElement());
 		clonePortletDataContext.setGroupId(portletDataContext.getGroupId());
@@ -83,6 +96,9 @@ public class PortletDataContextFactoryImpl
 			clonePortletDataContext.setLayoutIds(
 				Arrays.copyOf(layoutIds, layoutIds.length));
 		}
+=======
+		clonePortletDataContext.setGroupId(portletDataContext.getGroupId());
+>>>>>>> compatible
 
 		ManifestSummary manifestSummary =
 			portletDataContext.getManifestSummary();
@@ -114,8 +130,11 @@ public class PortletDataContextFactoryImpl
 			portletDataContext.getUserIdStrategy());
 		clonePortletDataContext.setUserPersonalSiteGroupId(
 			portletDataContext.getUserPersonalSiteGroupId());
+<<<<<<< HEAD
 		clonePortletDataContext.setZipReader(portletDataContext.getZipReader());
 		clonePortletDataContext.setZipWriter(portletDataContext.getZipWriter());
+=======
+>>>>>>> compatible
 
 		return clonePortletDataContext;
 	}

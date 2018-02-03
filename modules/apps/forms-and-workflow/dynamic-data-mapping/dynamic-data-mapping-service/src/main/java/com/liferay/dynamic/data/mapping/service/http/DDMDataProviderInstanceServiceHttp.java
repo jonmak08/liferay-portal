@@ -155,6 +155,7 @@ public class DDMDataProviderInstanceServiceHttp {
 		}
 	}
 
+<<<<<<< HEAD
 	public static com.liferay.dynamic.data.mapping.model.DDMDataProviderInstance fetchDataProviderInstanceByUuid(
 		HttpPrincipal httpPrincipal, java.lang.String uuid)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -187,13 +188,19 @@ public class DDMDataProviderInstanceServiceHttp {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	public static com.liferay.dynamic.data.mapping.model.DDMDataProviderInstance getDataProviderInstance(
 		HttpPrincipal httpPrincipal, long dataProviderInstanceId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		try {
 			MethodKey methodKey = new MethodKey(DDMDataProviderInstanceServiceUtil.class,
 					"getDataProviderInstance",
+<<<<<<< HEAD
 					_getDataProviderInstanceParameterTypes4);
+=======
+					_getDataProviderInstanceParameterTypes3);
+>>>>>>> compatible
 
 			MethodHandler methodHandler = new MethodHandler(methodKey,
 					dataProviderInstanceId);
@@ -220,6 +227,7 @@ public class DDMDataProviderInstanceServiceHttp {
 		}
 	}
 
+<<<<<<< HEAD
 	public static com.liferay.dynamic.data.mapping.model.DDMDataProviderInstance getDataProviderInstanceByUuid(
 		HttpPrincipal httpPrincipal, java.lang.String uuid)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -252,13 +260,19 @@ public class DDMDataProviderInstanceServiceHttp {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	public static java.util.List<com.liferay.dynamic.data.mapping.model.DDMDataProviderInstance> search(
 		HttpPrincipal httpPrincipal, long companyId, long[] groupIds,
 		java.lang.String keywords, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator<com.liferay.dynamic.data.mapping.model.DDMDataProviderInstance> orderByComparator) {
 		try {
 			MethodKey methodKey = new MethodKey(DDMDataProviderInstanceServiceUtil.class,
+<<<<<<< HEAD
 					"search", _searchParameterTypes6);
+=======
+					"search", _searchParameterTypes4);
+>>>>>>> compatible
 
 			MethodHandler methodHandler = new MethodHandler(methodKey,
 					companyId, groupIds, keywords, start, end, orderByComparator);
@@ -288,7 +302,11 @@ public class DDMDataProviderInstanceServiceHttp {
 		com.liferay.portal.kernel.util.OrderByComparator<com.liferay.dynamic.data.mapping.model.DDMDataProviderInstance> orderByComparator) {
 		try {
 			MethodKey methodKey = new MethodKey(DDMDataProviderInstanceServiceUtil.class,
+<<<<<<< HEAD
 					"search", _searchParameterTypes7);
+=======
+					"search", _searchParameterTypes5);
+>>>>>>> compatible
 
 			MethodHandler methodHandler = new MethodHandler(methodKey,
 					companyId, groupIds, name, description, andOperator, start,
@@ -316,7 +334,11 @@ public class DDMDataProviderInstanceServiceHttp {
 		long[] groupIds, java.lang.String keywords) {
 		try {
 			MethodKey methodKey = new MethodKey(DDMDataProviderInstanceServiceUtil.class,
+<<<<<<< HEAD
 					"searchCount", _searchCountParameterTypes8);
+=======
+					"searchCount", _searchCountParameterTypes6);
+>>>>>>> compatible
 
 			MethodHandler methodHandler = new MethodHandler(methodKey,
 					companyId, groupIds, keywords);
@@ -344,7 +366,11 @@ public class DDMDataProviderInstanceServiceHttp {
 		boolean andOperator) {
 		try {
 			MethodKey methodKey = new MethodKey(DDMDataProviderInstanceServiceUtil.class,
+<<<<<<< HEAD
 					"searchCount", _searchCountParameterTypes9);
+=======
+					"searchCount", _searchCountParameterTypes7);
+>>>>>>> compatible
 
 			MethodHandler methodHandler = new MethodHandler(methodKey,
 					companyId, groupIds, name, description, andOperator);
@@ -377,7 +403,11 @@ public class DDMDataProviderInstanceServiceHttp {
 		try {
 			MethodKey methodKey = new MethodKey(DDMDataProviderInstanceServiceUtil.class,
 					"updateDataProviderInstance",
+<<<<<<< HEAD
 					_updateDataProviderInstanceParameterTypes10);
+=======
+					_updateDataProviderInstanceParameterTypes8);
+>>>>>>> compatible
 
 			MethodHandler methodHandler = new MethodHandler(methodKey,
 					dataProviderInstanceId, nameMap, descriptionMap,
@@ -418,6 +448,7 @@ public class DDMDataProviderInstanceServiceHttp {
 	private static final Class<?>[] _fetchDataProviderInstanceParameterTypes2 = new Class[] {
 			long.class
 		};
+<<<<<<< HEAD
 	private static final Class<?>[] _fetchDataProviderInstanceByUuidParameterTypes3 =
 		new Class[] { java.lang.String.class };
 	private static final Class<?>[] _getDataProviderInstanceParameterTypes4 = new Class[] {
@@ -430,10 +461,21 @@ public class DDMDataProviderInstanceServiceHttp {
 			int.class, com.liferay.portal.kernel.util.OrderByComparator.class
 		};
 	private static final Class<?>[] _searchParameterTypes7 = new Class[] {
+=======
+	private static final Class<?>[] _getDataProviderInstanceParameterTypes3 = new Class[] {
+			long.class
+		};
+	private static final Class<?>[] _searchParameterTypes4 = new Class[] {
+			long.class, long[].class, java.lang.String.class, int.class,
+			int.class, com.liferay.portal.kernel.util.OrderByComparator.class
+		};
+	private static final Class<?>[] _searchParameterTypes5 = new Class[] {
+>>>>>>> compatible
 			long.class, long[].class, java.lang.String.class,
 			java.lang.String.class, boolean.class, int.class, int.class,
 			com.liferay.portal.kernel.util.OrderByComparator.class
 		};
+<<<<<<< HEAD
 	private static final Class<?>[] _searchCountParameterTypes8 = new Class[] {
 			long.class, long[].class, java.lang.String.class
 		};
@@ -442,6 +484,16 @@ public class DDMDataProviderInstanceServiceHttp {
 			java.lang.String.class, boolean.class
 		};
 	private static final Class<?>[] _updateDataProviderInstanceParameterTypes10 = new Class[] {
+=======
+	private static final Class<?>[] _searchCountParameterTypes6 = new Class[] {
+			long.class, long[].class, java.lang.String.class
+		};
+	private static final Class<?>[] _searchCountParameterTypes7 = new Class[] {
+			long.class, long[].class, java.lang.String.class,
+			java.lang.String.class, boolean.class
+		};
+	private static final Class<?>[] _updateDataProviderInstanceParameterTypes8 = new Class[] {
+>>>>>>> compatible
 			long.class, java.util.Map.class, java.util.Map.class,
 			com.liferay.dynamic.data.mapping.storage.DDMFormValues.class,
 			com.liferay.portal.kernel.service.ServiceContext.class

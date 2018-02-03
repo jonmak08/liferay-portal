@@ -103,8 +103,13 @@ public interface KaleoTaskInstanceTokenLocalService extends BaseLocalService,
 
 	public void deleteCompanyKaleoTaskInstanceTokens(long companyId);
 
+<<<<<<< HEAD
 	public void deleteKaleoDefinitionVersionKaleoTaskInstanceTokens(
 		long kaleoDefinitionVersionId);
+=======
+	public void deleteKaleoDefinitionKaleoTaskInstanceTokens(
+		long kaleoDefinitionId);
+>>>>>>> compatible
 
 	public void deleteKaleoInstanceKaleoTaskInstanceTokens(long kaleoInstanceId);
 
@@ -315,10 +320,13 @@ public interface KaleoTaskInstanceTokenLocalService extends BaseLocalService,
 		java.lang.Boolean completed, ServiceContext serviceContext);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+<<<<<<< HEAD
 	public boolean hasPendingKaleoTaskForms(long kaleoTaskInstanceTokenId)
 		throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+=======
+>>>>>>> compatible
 	public List<KaleoTaskInstanceToken> search(java.lang.String keywords,
 		java.lang.Boolean completed, java.lang.Boolean searchByUserRoles,
 		int start, int end,
@@ -334,6 +342,7 @@ public interface KaleoTaskInstanceTokenLocalService extends BaseLocalService,
 		ServiceContext serviceContext);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+<<<<<<< HEAD
 	public List<KaleoTaskInstanceToken> search(java.lang.String assetTitle,
 		java.lang.String taskName, java.lang.String[] assetTypes,
 		java.lang.Long[] assetPrimaryKeys, Date dueDateGT, Date dueDateLT,
@@ -343,6 +352,8 @@ public interface KaleoTaskInstanceTokenLocalService extends BaseLocalService,
 		ServiceContext serviceContext);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+=======
+>>>>>>> compatible
 	public List<KaleoTaskInstanceToken> search(java.lang.String keywords,
 		java.lang.String[] assetTypes, java.lang.Boolean completed,
 		java.lang.Boolean searchByUserRoles, int start, int end,
@@ -350,6 +361,17 @@ public interface KaleoTaskInstanceTokenLocalService extends BaseLocalService,
 		ServiceContext serviceContext);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+<<<<<<< HEAD
+=======
+	public List<KaleoTaskInstanceToken> search(java.lang.String taskName,
+		java.lang.String[] assetTypes, java.lang.Long[] assetPrimaryKeys,
+		Date dueDateGT, Date dueDateLT, java.lang.Boolean completed,
+		java.lang.Boolean searchByUserRoles, boolean andOperator, int start,
+		int end, OrderByComparator<KaleoTaskInstanceToken> orderByComparator,
+		ServiceContext serviceContext);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+>>>>>>> compatible
 	public int searchCount(java.lang.String keywords,
 		java.lang.Boolean completed, java.lang.Boolean searchByUserRoles,
 		ServiceContext serviceContext);
@@ -362,6 +384,7 @@ public interface KaleoTaskInstanceTokenLocalService extends BaseLocalService,
 		ServiceContext serviceContext);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+<<<<<<< HEAD
 	public int searchCount(java.lang.String assetTitle,
 		java.lang.String taskName, java.lang.String[] assetTypes,
 		java.lang.Long[] assetPrimaryKeys, Date dueDateGT, Date dueDateLT,
@@ -369,10 +392,22 @@ public interface KaleoTaskInstanceTokenLocalService extends BaseLocalService,
 		boolean andOperator, ServiceContext serviceContext);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+=======
+>>>>>>> compatible
 	public int searchCount(java.lang.String keywords,
 		java.lang.String[] assetTypes, java.lang.Boolean completed,
 		java.lang.Boolean searchByUserRoles, ServiceContext serviceContext);
 
+<<<<<<< HEAD
+=======
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public int searchCount(java.lang.String taskName,
+		java.lang.String[] assetTypes, java.lang.Long[] assetPrimaryKeys,
+		Date dueDateGT, Date dueDateLT, java.lang.Boolean completed,
+		java.lang.Boolean searchByUserRoles, boolean andOperator,
+		ServiceContext serviceContext);
+
+>>>>>>> compatible
 	public KaleoTaskInstanceToken updateDueDate(long kaleoTaskInstanceTokenId,
 		Date dueDate, ServiceContext serviceContext) throws PortalException;
 

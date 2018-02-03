@@ -1,5 +1,13 @@
 @import "mixins";
 
+<<<<<<< HEAD
+=======
+.portal-popup.dialog-iframe-popup #main-content,
+.portal-popup.dialog-iframe-popup > #wrapper {
+	overflow-x: hidden;
+}
+
+>>>>>>> compatible
 .portlet-dynamic-data-mapping-data-provider {
 	.btn-action {
 		height: 64px;
@@ -8,7 +16,11 @@
 	}
 
 	.form {
+<<<<<<< HEAD
 		padding: 0 20px;
+=======
+		padding: 25px 20px;
+>>>>>>> compatible
 
 		.form-group {
 			margin-bottom: 50px;

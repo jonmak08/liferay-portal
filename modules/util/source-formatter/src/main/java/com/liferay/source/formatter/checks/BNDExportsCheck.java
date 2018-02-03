@@ -14,13 +14,18 @@
 
 package com.liferay.source.formatter.checks;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.util.ArrayUtil;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.source.formatter.checks.util.BNDSourceUtil;
+<<<<<<< HEAD
 import com.liferay.source.formatter.util.FileUtil;
 
 import java.io.File;
@@ -28,6 +33,9 @@ import java.io.FileFilter;
 
 import java.util.ArrayList;
 import java.util.List;
+=======
+
+>>>>>>> compatible
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -41,6 +49,7 @@ public class BNDExportsCheck extends BaseFileCheck {
 		return true;
 	}
 
+<<<<<<< HEAD
 	public void setAllowedExportPackageDirName(
 		String allowedExportPackageDirName) {
 
@@ -59,11 +68,22 @@ public class BNDExportsCheck extends BaseFileCheck {
 		}
 
 		if (!absolutePath.contains("/testIntegration/")) {
+=======
+	@Override
+	protected String doProcess(
+		String fileName, String absolutePath, String content) {
+
+		if (fileName.endsWith("/bnd.bnd") &&
+			!absolutePath.contains("/testIntegration/") &&
+			!absolutePath.contains("/third-party/")) {
+
+>>>>>>> compatible
 			_checkExports(
 				fileName, content, _exportContentsPattern, "-exportcontents");
 			_checkExports(fileName, content, _exportsPattern, "Export-Package");
 		}
 
+<<<<<<< HEAD
 		if (absolutePath.contains("/modules/apps/")) {
 			_checkExportPackage(fileName, absolutePath, content);
 		}
@@ -180,6 +200,11 @@ public class BNDExportsCheck extends BaseFileCheck {
 		}
 	}
 
+=======
+		return content;
+	}
+
+>>>>>>> compatible
 	private void _checkExports(
 		String fileName, String content, Pattern pattern,
 		String definitionKey) {
@@ -231,8 +256,11 @@ public class BNDExportsCheck extends BaseFileCheck {
 		}
 	}
 
+<<<<<<< HEAD
 	private final List<String> _allowedExportPackageDirNames =
 		new ArrayList<>();
+=======
+>>>>>>> compatible
 	private final Pattern _apiOrServiceBundleSymbolicNamePattern =
 		Pattern.compile("\\.(api|service)$");
 	private final Pattern _exportContentsPattern = Pattern.compile(

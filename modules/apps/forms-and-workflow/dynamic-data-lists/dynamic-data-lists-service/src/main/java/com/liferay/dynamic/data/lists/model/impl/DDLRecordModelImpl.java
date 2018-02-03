@@ -37,6 +37,10 @@ import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Serializable;
 
@@ -84,7 +88,10 @@ public class DDLRecordModelImpl extends BaseModelImpl<DDLRecord>
 			{ "modifiedDate", Types.TIMESTAMP },
 			{ "DDMStorageId", Types.BIGINT },
 			{ "recordSetId", Types.BIGINT },
+<<<<<<< HEAD
 			{ "recordSetVersion", Types.VARCHAR },
+=======
+>>>>>>> compatible
 			{ "version", Types.VARCHAR },
 			{ "displayIndex", Types.INTEGER },
 			{ "lastPublishDate", Types.TIMESTAMP }
@@ -104,13 +111,20 @@ public class DDLRecordModelImpl extends BaseModelImpl<DDLRecord>
 		TABLE_COLUMNS_MAP.put("modifiedDate", Types.TIMESTAMP);
 		TABLE_COLUMNS_MAP.put("DDMStorageId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("recordSetId", Types.BIGINT);
+<<<<<<< HEAD
 		TABLE_COLUMNS_MAP.put("recordSetVersion", Types.VARCHAR);
+=======
+>>>>>>> compatible
 		TABLE_COLUMNS_MAP.put("version", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("displayIndex", Types.INTEGER);
 		TABLE_COLUMNS_MAP.put("lastPublishDate", Types.TIMESTAMP);
 	}
 
+<<<<<<< HEAD
 	public static final String TABLE_SQL_CREATE = "create table DDLRecord (uuid_ VARCHAR(75) null,recordId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,versionUserId LONG,versionUserName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,DDMStorageId LONG,recordSetId LONG,recordSetVersion VARCHAR(75) null,version VARCHAR(75) null,displayIndex INTEGER,lastPublishDate DATE null)";
+=======
+	public static final String TABLE_SQL_CREATE = "create table DDLRecord (uuid_ VARCHAR(75) null,recordId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,versionUserId LONG,versionUserName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,DDMStorageId LONG,recordSetId LONG,version VARCHAR(75) null,displayIndex INTEGER,lastPublishDate DATE null)";
+>>>>>>> compatible
 	public static final String TABLE_SQL_DROP = "drop table DDLRecord";
 	public static final String ORDER_BY_JPQL = " ORDER BY ddlRecord.recordId ASC";
 	public static final String ORDER_BY_SQL = " ORDER BY DDLRecord.recordId ASC";
@@ -129,10 +143,16 @@ public class DDLRecordModelImpl extends BaseModelImpl<DDLRecord>
 	public static final long COMPANYID_COLUMN_BITMASK = 1L;
 	public static final long GROUPID_COLUMN_BITMASK = 2L;
 	public static final long RECORDSETID_COLUMN_BITMASK = 4L;
+<<<<<<< HEAD
 	public static final long RECORDSETVERSION_COLUMN_BITMASK = 8L;
 	public static final long USERID_COLUMN_BITMASK = 16L;
 	public static final long UUID_COLUMN_BITMASK = 32L;
 	public static final long RECORDID_COLUMN_BITMASK = 64L;
+=======
+	public static final long USERID_COLUMN_BITMASK = 8L;
+	public static final long UUID_COLUMN_BITMASK = 16L;
+	public static final long RECORDID_COLUMN_BITMASK = 32L;
+>>>>>>> compatible
 
 	/**
 	 * Converts the soap model instance into a normal model instance.
@@ -159,7 +179,10 @@ public class DDLRecordModelImpl extends BaseModelImpl<DDLRecord>
 		model.setModifiedDate(soapModel.getModifiedDate());
 		model.setDDMStorageId(soapModel.getDDMStorageId());
 		model.setRecordSetId(soapModel.getRecordSetId());
+<<<<<<< HEAD
 		model.setRecordSetVersion(soapModel.getRecordSetVersion());
+=======
+>>>>>>> compatible
 		model.setVersion(soapModel.getVersion());
 		model.setDisplayIndex(soapModel.getDisplayIndex());
 		model.setLastPublishDate(soapModel.getLastPublishDate());
@@ -239,7 +262,10 @@ public class DDLRecordModelImpl extends BaseModelImpl<DDLRecord>
 		attributes.put("modifiedDate", getModifiedDate());
 		attributes.put("DDMStorageId", getDDMStorageId());
 		attributes.put("recordSetId", getRecordSetId());
+<<<<<<< HEAD
 		attributes.put("recordSetVersion", getRecordSetVersion());
+=======
+>>>>>>> compatible
 		attributes.put("version", getVersion());
 		attributes.put("displayIndex", getDisplayIndex());
 		attributes.put("lastPublishDate", getLastPublishDate());
@@ -324,12 +350,15 @@ public class DDLRecordModelImpl extends BaseModelImpl<DDLRecord>
 			setRecordSetId(recordSetId);
 		}
 
+<<<<<<< HEAD
 		String recordSetVersion = (String)attributes.get("recordSetVersion");
 
 		if (recordSetVersion != null) {
 			setRecordSetVersion(recordSetVersion);
 		}
 
+=======
+>>>>>>> compatible
 		String version = (String)attributes.get("version");
 
 		if (version != null) {
@@ -353,7 +382,11 @@ public class DDLRecordModelImpl extends BaseModelImpl<DDLRecord>
 	@Override
 	public String getUuid() {
 		if (_uuid == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _uuid;
@@ -457,7 +490,11 @@ public class DDLRecordModelImpl extends BaseModelImpl<DDLRecord>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -473,7 +510,11 @@ public class DDLRecordModelImpl extends BaseModelImpl<DDLRecord>
 	@Override
 	public String getUserName() {
 		if (_userName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _userName;
@@ -504,7 +545,11 @@ public class DDLRecordModelImpl extends BaseModelImpl<DDLRecord>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -516,7 +561,11 @@ public class DDLRecordModelImpl extends BaseModelImpl<DDLRecord>
 	@Override
 	public String getVersionUserName() {
 		if (_versionUserName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _versionUserName;
@@ -592,6 +641,7 @@ public class DDLRecordModelImpl extends BaseModelImpl<DDLRecord>
 
 	@JSON
 	@Override
+<<<<<<< HEAD
 	public String getRecordSetVersion() {
 		if (_recordSetVersion == null) {
 			return "";
@@ -621,6 +671,11 @@ public class DDLRecordModelImpl extends BaseModelImpl<DDLRecord>
 	public String getVersion() {
 		if (_version == null) {
 			return "";
+=======
+	public String getVersion() {
+		if (_version == null) {
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _version;
@@ -703,7 +758,10 @@ public class DDLRecordModelImpl extends BaseModelImpl<DDLRecord>
 		ddlRecordImpl.setModifiedDate(getModifiedDate());
 		ddlRecordImpl.setDDMStorageId(getDDMStorageId());
 		ddlRecordImpl.setRecordSetId(getRecordSetId());
+<<<<<<< HEAD
 		ddlRecordImpl.setRecordSetVersion(getRecordSetVersion());
+=======
+>>>>>>> compatible
 		ddlRecordImpl.setVersion(getVersion());
 		ddlRecordImpl.setDisplayIndex(getDisplayIndex());
 		ddlRecordImpl.setLastPublishDate(getLastPublishDate());
@@ -789,8 +847,11 @@ public class DDLRecordModelImpl extends BaseModelImpl<DDLRecord>
 
 		ddlRecordModelImpl._setOriginalRecordSetId = false;
 
+<<<<<<< HEAD
 		ddlRecordModelImpl._originalRecordSetVersion = ddlRecordModelImpl._recordSetVersion;
 
+=======
+>>>>>>> compatible
 		ddlRecordModelImpl._columnBitmask = 0;
 	}
 
@@ -854,6 +915,7 @@ public class DDLRecordModelImpl extends BaseModelImpl<DDLRecord>
 
 		ddlRecordCacheModel.recordSetId = getRecordSetId();
 
+<<<<<<< HEAD
 		ddlRecordCacheModel.recordSetVersion = getRecordSetVersion();
 
 		String recordSetVersion = ddlRecordCacheModel.recordSetVersion;
@@ -862,6 +924,8 @@ public class DDLRecordModelImpl extends BaseModelImpl<DDLRecord>
 			ddlRecordCacheModel.recordSetVersion = null;
 		}
 
+=======
+>>>>>>> compatible
 		ddlRecordCacheModel.version = getVersion();
 
 		String version = ddlRecordCacheModel.version;
@@ -886,7 +950,11 @@ public class DDLRecordModelImpl extends BaseModelImpl<DDLRecord>
 
 	@Override
 	public String toString() {
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(33);
+=======
+		StringBundler sb = new StringBundler(31);
+>>>>>>> compatible
 
 		sb.append("{uuid=");
 		sb.append(getUuid());
@@ -912,8 +980,11 @@ public class DDLRecordModelImpl extends BaseModelImpl<DDLRecord>
 		sb.append(getDDMStorageId());
 		sb.append(", recordSetId=");
 		sb.append(getRecordSetId());
+<<<<<<< HEAD
 		sb.append(", recordSetVersion=");
 		sb.append(getRecordSetVersion());
+=======
+>>>>>>> compatible
 		sb.append(", version=");
 		sb.append(getVersion());
 		sb.append(", displayIndex=");
@@ -927,7 +998,11 @@ public class DDLRecordModelImpl extends BaseModelImpl<DDLRecord>
 
 	@Override
 	public String toXmlString() {
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(52);
+=======
+		StringBundler sb = new StringBundler(49);
+>>>>>>> compatible
 
 		sb.append("<model><model-name>");
 		sb.append("com.liferay.dynamic.data.lists.model.DDLRecord");
@@ -982,10 +1057,13 @@ public class DDLRecordModelImpl extends BaseModelImpl<DDLRecord>
 		sb.append(getRecordSetId());
 		sb.append("]]></column-value></column>");
 		sb.append(
+<<<<<<< HEAD
 			"<column><column-name>recordSetVersion</column-name><column-value><![CDATA[");
 		sb.append(getRecordSetVersion());
 		sb.append("]]></column-value></column>");
 		sb.append(
+=======
+>>>>>>> compatible
 			"<column><column-name>version</column-name><column-value><![CDATA[");
 		sb.append(getVersion());
 		sb.append("]]></column-value></column>");
@@ -1029,8 +1107,11 @@ public class DDLRecordModelImpl extends BaseModelImpl<DDLRecord>
 	private long _recordSetId;
 	private long _originalRecordSetId;
 	private boolean _setOriginalRecordSetId;
+<<<<<<< HEAD
 	private String _recordSetVersion;
 	private String _originalRecordSetVersion;
+=======
+>>>>>>> compatible
 	private String _version;
 	private int _displayIndex;
 	private Date _lastPublishDate;

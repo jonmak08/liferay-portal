@@ -38,6 +38,10 @@ import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.model.impl.UserGroupRoleImpl;
 import com.liferay.portal.model.impl.UserGroupRoleModelImpl;
 
@@ -691,6 +695,7 @@ public class UserGroupRolePersistenceImpl extends BasePersistenceImpl<UserGroupR
 		}
 
 		List<UserGroupRole> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<UserGroupRole>)finderCache.getResult(finderPath,
@@ -701,6 +706,18 @@ public class UserGroupRolePersistenceImpl extends BasePersistenceImpl<UserGroupR
 					if ((groupId != userGroupRole.getGroupId())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<UserGroupRole>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (UserGroupRole userGroupRole : list) {
+					if ((groupId != userGroupRole.getGroupId())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -1711,6 +1728,7 @@ public class UserGroupRolePersistenceImpl extends BasePersistenceImpl<UserGroupR
 		}
 
 		List<UserGroupRole> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<UserGroupRole>)finderCache.getResult(finderPath,
@@ -1722,6 +1740,19 @@ public class UserGroupRolePersistenceImpl extends BasePersistenceImpl<UserGroupR
 							(groupId != userGroupRole.getGroupId())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<UserGroupRole>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (UserGroupRole userGroupRole : list) {
+					if ((userId != userGroupRole.getUserId()) ||
+							(groupId != userGroupRole.getGroupId())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -2898,6 +2929,7 @@ public class UserGroupRolePersistenceImpl extends BasePersistenceImpl<UserGroupR
 		}
 
 		finderCache.clearCache(FINDER_CLASS_NAME_LIST_WITH_PAGINATION);
+<<<<<<< HEAD
 
 		if (!UserGroupRoleModelImpl.COLUMN_BITMASK_ENABLED) {
 			finderCache.clearCache(FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION);
@@ -2940,6 +2972,50 @@ public class UserGroupRolePersistenceImpl extends BasePersistenceImpl<UserGroupR
 			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_G_R,
 				args);
 
+=======
+
+		if (!UserGroupRoleModelImpl.COLUMN_BITMASK_ENABLED) {
+			finderCache.clearCache(FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION);
+		}
+		else
+		 if (isNew) {
+			Object[] args = new Object[] { userGroupRoleModelImpl.getUserId() };
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_USERID, args);
+			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_USERID,
+				args);
+
+			args = new Object[] { userGroupRoleModelImpl.getGroupId() };
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_GROUPID, args);
+			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_GROUPID,
+				args);
+
+			args = new Object[] { userGroupRoleModelImpl.getRoleId() };
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_ROLEID, args);
+			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_ROLEID,
+				args);
+
+			args = new Object[] {
+					userGroupRoleModelImpl.getUserId(),
+					userGroupRoleModelImpl.getGroupId()
+				};
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_U_G, args);
+			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_U_G,
+				args);
+
+			args = new Object[] {
+					userGroupRoleModelImpl.getGroupId(),
+					userGroupRoleModelImpl.getRoleId()
+				};
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_G_R, args);
+			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_G_R,
+				args);
+
+>>>>>>> compatible
 			finderCache.removeResult(FINDER_PATH_COUNT_ALL, FINDER_ARGS_EMPTY);
 			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_ALL,
 				FINDER_ARGS_EMPTY);
@@ -3376,11 +3452,14 @@ public class UserGroupRolePersistenceImpl extends BasePersistenceImpl<UserGroupR
 	}
 
 	@Override
+<<<<<<< HEAD
 	public Set<String> getCompoundPKColumnNames() {
 		return _compoundPKColumnNames;
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	protected Map<String, Integer> getTableColumnsMap() {
 		return UserGroupRoleModelImpl.TABLE_COLUMNS_MAP;
 	}
@@ -3410,7 +3489,10 @@ public class UserGroupRolePersistenceImpl extends BasePersistenceImpl<UserGroupR
 	private static final String _NO_SUCH_ENTITY_WITH_PRIMARY_KEY = "No UserGroupRole exists with the primary key ";
 	private static final String _NO_SUCH_ENTITY_WITH_KEY = "No UserGroupRole exists with the key {";
 	private static final Log _log = LogFactoryUtil.getLog(UserGroupRolePersistenceImpl.class);
+<<<<<<< HEAD
 	private static final Set<String> _compoundPKColumnNames = SetUtil.fromArray(new String[] {
 				"userId", "groupId", "roleId"
 			});
+=======
+>>>>>>> compatible
 }

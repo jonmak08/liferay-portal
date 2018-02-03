@@ -3,12 +3,21 @@
 /**
  * Image Editor Crop Component
  *
+<<<<<<< HEAD
  * @param ref
  */
 {template .render}
 	<div id="{$ref}">
 		{call ImageEditorCropHandles.render data="all"}
 			{param ref: $ref + 'CropHandles' /}
+=======
+ * @param key
+ */
+{template .render}
+	<div id="{$key}">
+		{call ImageEditorCropHandles.render data="all"}
+			{param key: $key + 'CropHandles' /}
+>>>>>>> compatible
 		{/call}
 	</div>
 {/template}

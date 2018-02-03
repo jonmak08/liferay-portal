@@ -145,10 +145,13 @@ public class DummyVelocityTaglib implements VelocityTaglib {
 		return null;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	@Override
 	public DiscussionTag getDiscussionTag() {
 		return null;
@@ -164,10 +167,13 @@ public class DummyVelocityTaglib implements VelocityTaglib {
 		return null;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	@Override
 	public MySitesTag getMySitesTag() {
 		return null;

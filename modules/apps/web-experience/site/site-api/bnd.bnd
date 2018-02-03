@@ -1,5 +1,6 @@
 Bundle-Name: Liferay Site API
 Bundle-SymbolicName: com.liferay.site.api
+<<<<<<< HEAD
 Bundle-Version: 2.2.0
 Export-Package:\
 	com.liferay.site.constants,\
@@ -8,6 +9,11 @@ Export-Package:\
 	com.liferay.site.model.adapter,\
 	com.liferay.site.service,\
 	com.liferay.site.service.persistence,\
+=======
+Bundle-Version: 2.1.9
+Export-Package:\
+	com.liferay.site.constants,\
+>>>>>>> compatible
 	com.liferay.site.util
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Site Management

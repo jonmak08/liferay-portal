@@ -746,6 +746,10 @@ public class ServicePreAction extends Action {
 
 		themeDisplay.setCDNHost(cdnHost);
 		themeDisplay.setCDNDynamicResourcesHost(dynamicResourcesCDNHost);
+<<<<<<< HEAD
+=======
+		themeDisplay.setFacebookCanvasPageURL(facebookCanvasPageURL);
+>>>>>>> compatible
 		themeDisplay.setPortalDomain(_getPortalDomain(portalURL));
 		themeDisplay.setPortalURL(portalURL);
 		themeDisplay.setRefererPlid(refererPlid);
@@ -1529,7 +1533,12 @@ public class ServicePreAction extends Action {
 		boolean hasViewLayoutPermission = false;
 
 		if (hasAccessPermission(
+<<<<<<< HEAD
 				permissionChecker, layout, doAsGroupId, false)) {
+=======
+				permissionChecker, layout, doAsGroupId, false) ||
+			hasViewStagingPermission) {
+>>>>>>> compatible
 
 			hasViewLayoutPermission = true;
 		}
@@ -1538,8 +1547,14 @@ public class ServicePreAction extends Action {
 
 		for (Layout curLayout : layouts) {
 			if (!curLayout.isHidden() &&
+<<<<<<< HEAD
 				hasAccessPermission(
 					permissionChecker, curLayout, doAsGroupId, false)) {
+=======
+				(hasAccessPermission(
+					permissionChecker, curLayout, doAsGroupId, false) ||
+				 hasViewStagingPermission)) {
+>>>>>>> compatible
 
 				if (accessibleLayouts.isEmpty() && !hasViewLayoutPermission) {
 					layout = curLayout;
@@ -1664,6 +1679,7 @@ public class ServicePreAction extends Action {
 			if (!requestURI.startsWith(_PATH_PROXY)) {
 				requestURI = _PATH_PROXY.concat(requestURI);
 			}
+<<<<<<< HEAD
 
 			if (!mainPath.startsWith(_PATH_PROXY)) {
 				mainPath = _PATH_PROXY.concat(mainPath);
@@ -1673,6 +1689,17 @@ public class ServicePreAction extends Action {
 		if (requestURI.startsWith(mainPath) &&
 			requestURI.startsWith(_PATH_PORTAL_LOGIN, mainPath.length())) {
 
+=======
+
+			if (!mainPath.startsWith(_PATH_PROXY)) {
+				mainPath = _PATH_PROXY.concat(mainPath);
+			}
+		}
+
+		if (requestURI.startsWith(mainPath) &&
+			requestURI.startsWith(_PATH_PORTAL_LOGIN, mainPath.length())) {
+
+>>>>>>> compatible
 			return true;
 		}
 

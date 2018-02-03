@@ -23,6 +23,7 @@ String title = (String)request.getAttribute("liferay-ui:input-resource:title");
 String url = (String)request.getAttribute("liferay-ui:input-resource:url");
 %>
 
+<<<<<<< HEAD
 <input class="form-control form-text lfr-input-resource <%= cssClass %>" <%= Validator.isNotNull(id) ? "id=\"" + namespace + id + "\"" : StringPool.BLANK %> onClick="this.select();" readonly="true" <%= Validator.isNotNull(title) ? "title=\"" + LanguageUtil.get(resourceBundle, title) + "\"" : StringPool.BLANK %> type="text" value="<%= HtmlUtil.escapeAttribute(url) %>" />
 
 <aui:script>
@@ -35,3 +36,6 @@ String url = (String)request.getAttribute("liferay-ui:input-resource:url");
 		}
 	);
 </aui:script>
+=======
+<input class="form-control form-text lfr-input-resource <%= cssClass %>" <%= Validator.isNotNull(id) ? "id=\"" + namespace + id + "\"" : StringPool.BLANK %> onClick="this.select();" readonly="true" <%= Validator.isNotNull(title) ? "title=\"" + LanguageUtil.get(resourceBundle, title) + "\"" : StringPool.BLANK %> type="text" value="<%= HtmlUtil.escapeAttribute(url) %>" />
+>>>>>>> compatible

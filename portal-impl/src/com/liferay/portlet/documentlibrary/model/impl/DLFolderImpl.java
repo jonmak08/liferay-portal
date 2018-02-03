@@ -20,12 +20,19 @@ import com.liferay.document.library.kernel.model.DLFolderConstants;
 import com.liferay.document.library.kernel.service.DLFolderLocalServiceUtil;
 import com.liferay.document.library.kernel.service.DLFolderServiceUtil;
 import com.liferay.exportimport.kernel.lar.StagedModelType;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Repository;
 import com.liferay.portal.kernel.service.RepositoryLocalServiceUtil;
+=======
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.model.Repository;
+import com.liferay.portal.kernel.service.RepositoryLocalServiceUtil;
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 
@@ -128,7 +135,17 @@ public class DLFolderImpl extends DLFolderBaseImpl {
 
 	@Override
 	public boolean hasInheritableLock() {
+<<<<<<< HEAD
 		return DLFolderLocalServiceUtil.hasInheritableLock(getFolderId());
+=======
+		try {
+			return DLFolderLocalServiceUtil.hasInheritableLock(getFolderId());
+		}
+		catch (Exception e) {
+		}
+
+		return false;
+>>>>>>> compatible
 	}
 
 	@Override

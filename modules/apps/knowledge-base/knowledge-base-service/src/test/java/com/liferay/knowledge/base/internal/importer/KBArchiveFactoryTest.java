@@ -15,10 +15,15 @@
 package com.liferay.knowledge.base.internal.importer;
 
 import com.liferay.knowledge.base.configuration.KBGroupServiceConfiguration;
+<<<<<<< HEAD
 import com.liferay.knowledge.base.constants.KBConstants;
 import com.liferay.knowledge.base.exception.KBArticleImportException;
 import com.liferay.portal.kernel.module.configuration.ConfigurationProvider;
 import com.liferay.portal.kernel.settings.GroupServiceSettingsLocator;
+=======
+import com.liferay.knowledge.base.exception.KBArticleImportException;
+import com.liferay.portal.kernel.module.configuration.ConfigurationProvider;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.zip.ZipReader;
 
@@ -30,6 +35,7 @@ import java.util.Iterator;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+<<<<<<< HEAD
 import org.junit.runner.RunWith;
 
 import org.mockito.Mockito;
@@ -39,18 +45,26 @@ import org.powermock.api.mockito.PowerMockito;
 import org.powermock.api.mockito.expectation.ConstructorExpectationSetup;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
+=======
+
+import org.mockito.Mockito;
+>>>>>>> compatible
 
 /**
  * @author Adolfo Pérez
  */
+<<<<<<< HEAD
 @PrepareForTest({GroupServiceSettingsLocator.class, KBArchiveFactory.class})
 @RunWith(PowerMockRunner.class)
+=======
+>>>>>>> compatible
 public class KBArchiveFactoryTest {
 
 	@Before
 	public void setUp() throws Exception {
 		_kbArchiveFactory.setConfigurationProvider(_configurationProvider);
 
+<<<<<<< HEAD
 		ConstructorExpectationSetup<GroupServiceSettingsLocator>
 			groupServiceSettingsLocatorConstructorExpectationSetup =
 				PowerMockito.whenNew(GroupServiceSettingsLocator.class);
@@ -68,6 +82,11 @@ public class KBArchiveFactoryTest {
 		Mockito.when(
 			_configurationProvider.getConfiguration(
 				KBGroupServiceConfiguration.class, _groupServiceSettingsLocator)
+=======
+		Mockito.when(
+			_configurationProvider.getGroupConfiguration(
+				Mockito.any(Class.class), Mockito.any(long.class))
+>>>>>>> compatible
 		).thenReturn(
 			_kbGroupServiceConfiguration
 		);
@@ -98,7 +117,11 @@ public class KBArchiveFactoryTest {
 
 		Collection<KBArchive.Folder> folders = kbArchive.getFolders();
 
+<<<<<<< HEAD
 		Assert.assertTrue(folders.toString(), folders.isEmpty());
+=======
+		Assert.assertTrue(folders.isEmpty());
+>>>>>>> compatible
 	}
 
 	@Test
@@ -226,13 +249,20 @@ public class KBArchiveFactoryTest {
 
 		Collection<KBArchive.Folder> folders = kbArchive.getFolders();
 
+<<<<<<< HEAD
 		Assert.assertTrue(folders.toString(), folders.isEmpty());
+=======
+		Assert.assertTrue(folders.isEmpty());
+>>>>>>> compatible
 	}
 
 	private final ConfigurationProvider _configurationProvider = Mockito.mock(
 		ConfigurationProvider.class);
+<<<<<<< HEAD
 	private final GroupServiceSettingsLocator _groupServiceSettingsLocator =
 		Mockito.mock(GroupServiceSettingsLocator.class);
+=======
+>>>>>>> compatible
 	private final KBArchiveFactory _kbArchiveFactory = new KBArchiveFactory();
 	private final KBGroupServiceConfiguration _kbGroupServiceConfiguration =
 		Mockito.mock(KBGroupServiceConfiguration.class);

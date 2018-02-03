@@ -38,27 +38,42 @@ import javax.servlet.ServletResponse;
 public class TestItemSelectorView
 	implements ItemSelectorView<TestItemSelectorCriterion> {
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public Class<TestItemSelectorCriterion> getItemSelectorCriterionClass() {
 		return TestItemSelectorCriterion.class;
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public List<ItemSelectorReturnType> getSupportedItemSelectorReturnTypes() {
 		return _supportedItemSelectorReturnTypes;
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public String getTitle(Locale locale) {
 		return "Test View";
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public boolean isShowSearch() {
 		return false;
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public boolean isVisible(ThemeDisplay themeDisplay) {
 		return true;
 	}

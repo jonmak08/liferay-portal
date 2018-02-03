@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {namespace DDMOptions}
 
 /**
@@ -18,6 +19,20 @@
 	{@param visible: bool}
 
 	<div class="form-group{$visible ? '' : ' hide'} liferay-ddm-form-field-options" data-fieldname="{$name}">
+=======
+{namespace ddm}
+
+/**
+ * Prints the DDM form options field.
+ *
+ * @param label
+ * @param name
+ * @param required
+ * @param showLabel
+ */
+{template .options}
+	<div class="form-group liferay-ddm-form-field-options" data-fieldname="{$name}">
+>>>>>>> compatible
 		{if $showLabel}
 			<label class="control-label">
 				{$label}
@@ -28,10 +43,14 @@
 			</label>
 		{/if}
 
+<<<<<<< HEAD
 		<input
 			name="{$name}"
 			type="hidden"
 		/>
+=======
+		<input name="{$name}" type="hidden" />
+>>>>>>> compatible
 
 		<div class="options"></div>
 	</div>

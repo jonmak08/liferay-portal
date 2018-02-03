@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Trash Web
 Bundle-SymbolicName: com.liferay.trash.web
+<<<<<<< HEAD
 Bundle-Version: 1.0.25
+=======
+Bundle-Version: 1.0.20
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Recycle Bin
 Web-ContextPath: /trash-web

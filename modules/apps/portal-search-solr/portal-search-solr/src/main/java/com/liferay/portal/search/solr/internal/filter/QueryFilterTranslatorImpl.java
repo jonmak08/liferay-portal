@@ -18,8 +18,6 @@ import com.liferay.portal.kernel.search.filter.QueryFilter;
 import com.liferay.portal.search.solr.filter.QueryFilterTranslator;
 import com.liferay.portal.search.solr.query.LuceneQueryConverter;
 
-import org.apache.lucene.search.Query;
-
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
@@ -30,7 +28,7 @@ import org.osgi.service.component.annotations.Reference;
 public class QueryFilterTranslatorImpl implements QueryFilterTranslator {
 
 	@Override
-	public Query translate(QueryFilter queryFilter) {
+	public org.apache.lucene.search.Query translate(QueryFilter queryFilter) {
 		return _luceneQueryConverter.convert(queryFilter.getQuery());
 	}
 

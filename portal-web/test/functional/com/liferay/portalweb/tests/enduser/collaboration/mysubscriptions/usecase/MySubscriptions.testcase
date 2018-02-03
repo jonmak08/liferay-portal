@@ -12,6 +12,7 @@
 
 		<execute macro="User#firstLoginPG" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -19,6 +20,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="My Subscriptions Page" />
 		</execute>
 
@@ -40,12 +44,17 @@
 				<execute macro="PortalInstances#tearDownCP" />
 			</then>
 			<else>
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP" />
+=======
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 			</else>
 		</if>
 	</tear-down>
 
 	<command name="SubscribeAndUnsubscribetoBookmarksRootFolder">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -53,6 +62,9 @@
 		</execute>
 
 		<execute macro="SitePages#addPublicPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Bookmarks Page" />
 		</execute>
 
@@ -76,9 +88,13 @@
 			<var name="assetType" value="Bookmarks Folder" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Subscriptions#unsubscribeViaMySubscriptions">
 			<var name="rowNumber" value="1" />
 		</execute>
+=======
+		<execute macro="Subscriptions#unsubscribeViaMySubscriptions" />
+>>>>>>> compatible
 
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="My Subscriptions Page" />

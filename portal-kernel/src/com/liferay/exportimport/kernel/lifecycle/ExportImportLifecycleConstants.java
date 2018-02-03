@@ -14,12 +14,18 @@
 
 package com.liferay.exportimport.kernel.lifecycle;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
 /**
  * @author Daniel Kocsis
  */
 @ProviderType
+=======
+/**
+ * @author Daniel Kocsis
+ */
+>>>>>>> compatible
 public interface ExportImportLifecycleConstants {
 
 	public static final int EVENT_LAYOUT_EXPORT_FAILED = 1;

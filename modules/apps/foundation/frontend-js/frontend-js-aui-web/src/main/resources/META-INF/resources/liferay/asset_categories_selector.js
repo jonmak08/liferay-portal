@@ -57,6 +57,10 @@ AUI.add(
 		 * maxEntries {Number}: The maximum number of entries that will be loaded. The default value is -1, which will load all categories.
 		 * moreResultsLabel {String}: The localized label for link "Load more results".
 		 * portalModelResource {boolean}: Whether the asset model is on the portal level.
+<<<<<<< HEAD
+=======
+		 * vocabularyGroupDescriptiveNames (string): The groupDescriptiveNames of the vocabularies.
+>>>>>>> compatible
 		 */
 
 		var AssetCategoriesSelector = A.Component.create(
@@ -120,6 +124,22 @@ AUI.add(
 						value: Liferay.Language.get('select-categories')
 					},
 
+<<<<<<< HEAD
+=======
+					vocabularyGroupDescriptiveNames: {
+						setter: function(value) {
+							var instance = this;
+
+							if (Lang.isString(value) && value) {
+								value = value.split(',');
+							}
+
+							return value;
+						},
+						value: []
+					},
+
+>>>>>>> compatible
 					vocabularyGroupIds: {
 						setter: function(value) {
 							var instance = this;
@@ -266,13 +286,20 @@ AUI.add(
 						return output;
 					},
 
+<<<<<<< HEAD
 					_formatRequestData: function(groupId, parentVocabularyId, treeNode) {
+=======
+					_formatRequestData: function(treeNode) {
+>>>>>>> compatible
 						var instance = this;
 
 						var data = {};
 
 						data.p_auth = Liferay.authToken;
+<<<<<<< HEAD
 						data.scopeGroupId = groupId;
+=======
+>>>>>>> compatible
 
 						var assetId = instance._getTreeNodeAssetId(treeNode);
 						var assetType = instance._getTreeNodeAssetType(treeNode);
@@ -280,10 +307,13 @@ AUI.add(
 						if (Lang.isValue(assetId)) {
 							if (assetType == 'category') {
 								data.categoryId = assetId;
+<<<<<<< HEAD
 
 								if (parentVocabularyId) {
 									data.vocabularyId = parentVocabularyId;
 								}
+=======
+>>>>>>> compatible
 							}
 							else {
 								data.vocabularyId = assetId;
@@ -310,10 +340,13 @@ AUI.add(
 										'$childrenCount = /assetcategory/get-vocabulary-root-categories-count': {
 											'@groupId': '$vocabularies.groupId',
 											'@vocabularyId': '$vocabularies.vocabularyId'
+<<<<<<< HEAD
 										},
 
 										'$group[descriptiveName] = /group/get-group': {
 											'@groupId': '$vocabularies.groupId'
+=======
+>>>>>>> compatible
 										}
 									}
 								},
@@ -335,10 +368,13 @@ AUI.add(
 										'$childrenCount = /assetcategory/get-vocabulary-root-categories-count': {
 											'groupId': '$vocabularies.groupId',
 											'@vocabularyId': '$vocabularies.vocabularyId'
+<<<<<<< HEAD
 										},
 
 										'$group[descriptiveName] = /group/get-group': {
 											'@groupId': '$vocabularies.groupId'
+=======
+>>>>>>> compatible
 										}
 									}
 								},
@@ -686,6 +722,10 @@ AUI.add(
 					_vocabulariesIterator: function(item, index) {
 						var instance = this;
 
+<<<<<<< HEAD
+=======
+						var groupDescriptiveNames = instance.get('vocabularyGroupDescriptiveNames');
+>>>>>>> compatible
 						var popup = instance._popup;
 						var vocabularyId = item.vocabularyId;
 						var vocabularyTitle = LString.escapeHTML(item.titleCurrentValue);
@@ -693,8 +733,19 @@ AUI.add(
 						if (item.groupId == themeDisplay.getCompanyGroupId()) {
 							vocabularyTitle += ' (' + Liferay.Language.get('global') + ')';
 						}
+<<<<<<< HEAD
 						else {
 							vocabularyTitle += ' (' + item.group.descriptiveName + ')';
+=======
+						else if (groupDescriptiveNames.length > 0) {
+							var vocabularyGroupIds = instance.get('vocabularyGroupIds');
+
+							var groupDescriptiveName = groupDescriptiveNames[vocabularyGroupIds.indexOf(item.groupId)];
+
+							if (groupDescriptiveName) {
+								vocabularyTitle += ' (' + groupDescriptiveName + ')';
+							}
+>>>>>>> compatible
 						}
 
 						var treeId = 'vocabulary' + vocabularyId;
@@ -713,7 +764,11 @@ AUI.add(
 								children: [vocabularyRootNode],
 								io: {
 									cfg: {
+<<<<<<< HEAD
 										data: A.bind('_formatRequestData', instance, item.groupId, vocabularyId),
+=======
+										data: A.bind('_formatRequestData', instance),
+>>>>>>> compatible
 										on: {
 											success: function(event) {
 												var treeViews = instance.TREEVIEWS;

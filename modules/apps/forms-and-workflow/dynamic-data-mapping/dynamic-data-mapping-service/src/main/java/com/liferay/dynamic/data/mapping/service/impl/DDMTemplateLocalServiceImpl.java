@@ -30,7 +30,10 @@ import com.liferay.dynamic.data.mapping.model.DDMTemplateVersion;
 import com.liferay.dynamic.data.mapping.service.base.DDMTemplateLocalServiceBaseImpl;
 import com.liferay.dynamic.data.mapping.service.permission.DDMTemplatePermission;
 import com.liferay.dynamic.data.mapping.util.DDMXML;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.petra.xml.XMLUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
@@ -53,7 +56,11 @@ import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.PortalUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
@@ -281,7 +288,11 @@ public class DDMTemplateLocalServiceImpl
 
 		String resourceName =
 			DDMTemplatePermission.getTemplateModelResourceName(
+<<<<<<< HEAD
 				template.getResourceClassName());
+=======
+				template.getResourceClassNameId());
+>>>>>>> compatible
 
 		resourceLocalService.addResources(
 			template.getCompanyId(), template.getGroupId(),
@@ -303,7 +314,11 @@ public class DDMTemplateLocalServiceImpl
 
 		String resourceName =
 			DDMTemplatePermission.getTemplateModelResourceName(
+<<<<<<< HEAD
 				template.getResourceClassName());
+=======
+				template.getResourceClassNameId());
+>>>>>>> compatible
 
 		resourceLocalService.addModelResources(
 			template.getCompanyId(), template.getGroupId(),
@@ -421,7 +436,11 @@ public class DDMTemplateLocalServiceImpl
 
 		String resourceName =
 			DDMTemplatePermission.getTemplateModelResourceName(
+<<<<<<< HEAD
 				template.getResourceClassName());
+=======
+				template.getResourceClassNameId());
+>>>>>>> compatible
 
 		resourceLocalService.deleteResource(
 			template.getCompanyId(), resourceName,
@@ -523,11 +542,21 @@ public class DDMTemplateLocalServiceImpl
 	 *         search in the search
 	 * @return the matching template, or <code>null</code> if a matching
 	 *         template could not be found
+<<<<<<< HEAD
 	 */
 	@Override
 	public DDMTemplate fetchTemplate(
 		long groupId, long classNameId, String templateKey,
 		boolean includeAncestorTemplates) {
+=======
+	 * @throws PortalException if a portal exception occurred
+	 */
+	@Override
+	public DDMTemplate fetchTemplate(
+			long groupId, long classNameId, String templateKey,
+			boolean includeAncestorTemplates)
+		throws PortalException {
+>>>>>>> compatible
 
 		templateKey = StringUtil.toUpperCase(StringUtil.trim(templateKey));
 
@@ -898,6 +927,7 @@ public class DDMTemplateLocalServiceImpl
 			groupId, classNameId, classPK);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Returns the number of templates matching the group IDs, class name ID,
 	 * and class PK.
@@ -916,6 +946,8 @@ public class DDMTemplateLocalServiceImpl
 			groupIds, classNameId, classPK);
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	public void revertTemplate(
 			long userId, long templateId, String version,
@@ -1627,6 +1659,7 @@ public class DDMTemplateLocalServiceImpl
 	}
 
 	protected void validate(
+<<<<<<< HEAD
 			long groupId, Map<Locale, String> nameMap, String script)
 		throws PortalException {
 
@@ -1638,12 +1671,18 @@ public class DDMTemplateLocalServiceImpl
 	}
 
 	protected void validate(
+=======
+>>>>>>> compatible
 			long groupId, Map<Locale, String> nameMap, String script,
 			boolean smallImage, String smallImageURL, File smallImageFile,
 			byte[] smallImageBytes)
 		throws PortalException {
 
+<<<<<<< HEAD
 		validate(groupId, nameMap, script);
+=======
+		validate(nameMap, script);
+>>>>>>> compatible
 
 		if (!smallImage || Validator.isNotNull(smallImageURL) ||
 			(smallImageFile == null) || (smallImageBytes == null)) {
@@ -1681,6 +1720,7 @@ public class DDMTemplateLocalServiceImpl
 			(smallImageBytes.length > smallImageMaxSize)) {
 
 			throw new TemplateSmallImageSizeException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Image ", smallImageName, " has ",
 					String.valueOf(smallImageBytes.length),
@@ -1697,6 +1737,28 @@ public class DDMTemplateLocalServiceImpl
 		if (Validator.isNull(name)) {
 			name = nameMap.get(LocaleUtil.getSiteDefault());
 		}
+=======
+				"Image " + smallImageName + " has " + smallImageBytes.length +
+					" bytes and exceeds the maximum size of " +
+						smallImageMaxSize);
+		}
+	}
+
+	protected void validate(Map<Locale, String> nameMap, String script)
+		throws PortalException {
+
+		validateName(nameMap);
+
+		if (Validator.isNull(script)) {
+			throw new TemplateScriptException("Script is null");
+		}
+	}
+
+	protected void validateName(Map<Locale, String> nameMap)
+		throws PortalException {
+
+		String name = nameMap.get(LocaleUtil.getSiteDefault());
+>>>>>>> compatible
 
 		if (Validator.isNull(name)) {
 			throw new TemplateNameException("Name is null");

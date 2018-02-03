@@ -32,7 +32,10 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.service.ServiceContext;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Time;
@@ -129,6 +132,7 @@ public class NotificationUtil {
 
 	public static void notifyCalendarBookingRecipients(
 			CalendarBooking calendarBooking, NotificationType notificationType,
+<<<<<<< HEAD
 			NotificationTemplateType notificationTemplateType, User senderUser)
 		throws Exception {
 
@@ -141,12 +145,16 @@ public class NotificationUtil {
 			CalendarBooking calendarBooking, NotificationType notificationType,
 			NotificationTemplateType notificationTemplateType, User senderUser,
 			ServiceContext serviceContext)
+=======
+			NotificationTemplateType notificationTemplateType, User sender)
+>>>>>>> compatible
 		throws Exception {
 
 		NotificationSender notificationSender =
 			NotificationSenderFactory.getNotificationSender(
 				notificationType.toString());
 
+<<<<<<< HEAD
 		if (notificationTemplateType == NotificationTemplateType.DECLINE) {
 			User recipientUser = senderUser;
 
@@ -159,10 +167,24 @@ public class NotificationUtil {
 
 			NotificationRecipient notificationRecipient =
 				new NotificationRecipient(recipientUser);
+=======
+		List<NotificationRecipient> notificationRecipients =
+			_getNotificationRecipients(calendarBooking);
+
+		for (NotificationRecipient notificationRecipient :
+				notificationRecipients) {
+
+			User user = notificationRecipient.getUser();
+
+			if (user.equals(sender)) {
+				continue;
+			}
+>>>>>>> compatible
 
 			NotificationTemplateContext notificationTemplateContext =
 				NotificationTemplateContextFactory.getInstance(
 					notificationType, notificationTemplateType, calendarBooking,
+<<<<<<< HEAD
 					recipientUser, serviceContext);
 
 			notificationSender.sendNotification(
@@ -192,6 +214,14 @@ public class NotificationUtil {
 					notificationRecipient, notificationTemplateContext);
 			}
 		}
+=======
+					user);
+
+			notificationSender.sendNotification(
+				sender.getEmailAddress(), sender.getFullName(),
+				notificationRecipient, notificationTemplateContext);
+		}
+>>>>>>> compatible
 	}
 
 	public static void notifyCalendarBookingReminders(
@@ -259,11 +289,15 @@ public class NotificationUtil {
 
 		Set<User> users = new HashSet<>();
 
+<<<<<<< HEAD
 		if (calendarBooking.isMasterBooking()) {
 			users.add(
 				UserLocalServiceUtil.fetchUser(calendarBooking.getUserId()));
 		}
 
+=======
+		users.add(UserLocalServiceUtil.fetchUser(calendarBooking.getUserId()));
+>>>>>>> compatible
 		users.add(UserLocalServiceUtil.fetchUser(calendarResource.getUserId()));
 
 		for (User user : users) {
@@ -290,9 +324,13 @@ public class NotificationUtil {
 
 		long intervalEnd = intervalStart + _CHECK_INTERVAL;
 
+<<<<<<< HEAD
 		if ((intervalStart > 0) && (intervalStart <= deltaTime) &&
 			(deltaTime < intervalEnd)) {
 
+=======
+		if ((intervalStart <= deltaTime) && (deltaTime < intervalEnd)) {
+>>>>>>> compatible
 			return true;
 		}
 

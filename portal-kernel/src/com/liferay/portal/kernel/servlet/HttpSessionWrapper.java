@@ -18,7 +18,6 @@ import java.util.Enumeration;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpSessionContext;
 
 /**
  * @author Brian Wing Shun Chan
@@ -80,7 +79,7 @@ public class HttpSessionWrapper implements HttpSession {
 	 */
 	@Deprecated
 	@Override
-	public HttpSessionContext getSessionContext() {
+	public javax.servlet.http.HttpSessionContext getSessionContext() {
 		return _session.getSessionContext();
 	}
 

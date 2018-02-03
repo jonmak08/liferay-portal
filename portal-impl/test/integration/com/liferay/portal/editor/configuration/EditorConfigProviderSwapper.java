@@ -42,7 +42,11 @@ public class EditorConfigProviderSwapper implements Closeable {
 					String editorName) {
 
 					super.visitEditorContributors(
+<<<<<<< HEAD
 						editorConfigContributor -> {
+=======
+						(editorConfigContributor) -> {
+>>>>>>> compatible
 							if (classes.contains(
 									editorConfigContributor.getClass())) {
 

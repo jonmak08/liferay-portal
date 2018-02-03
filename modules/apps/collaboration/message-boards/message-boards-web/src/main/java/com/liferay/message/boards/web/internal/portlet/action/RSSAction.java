@@ -15,14 +15,21 @@
 package com.liferay.message.boards.web.internal.portlet.action;
 
 import com.liferay.message.boards.kernel.service.MBMessageService;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.search.SearchContainer;
 import com.liferay.portal.kernel.model.LayoutConstants;
 import com.liferay.portal.kernel.struts.StrutsAction;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.RSSUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.struts.BaseRSSStrutsAction;
@@ -64,27 +71,47 @@ public class RSSAction extends BaseRSSStrutsAction {
 		String displayStyle = ParamUtil.getString(
 			request, "displayStyle", RSSUtil.DISPLAY_STYLE_DEFAULT);
 
+<<<<<<< HEAD
 		String entryURL = StringBundler.concat(
 			themeDisplay.getPortalURL(), themeDisplay.getPathMain(),
 			"/message_boards/find_message?p_l_id=", String.valueOf(plid));
+=======
+		String entryURL =
+			themeDisplay.getPortalURL() + themeDisplay.getPathMain() +
+				"/message_boards/find_message?p_l_id=" + plid;
+>>>>>>> compatible
 
 		String rss = StringPool.BLANK;
 
 		if (threadId > 0) {
+<<<<<<< HEAD
 			String feedURL = StringBundler.concat(
 				themeDisplay.getPortalURL(), themeDisplay.getPathMain(),
 				"/message_boards/find_thread?p_l_id=", String.valueOf(plid),
 				"&threadId=", String.valueOf(threadId));
+=======
+			String feedURL =
+				themeDisplay.getPortalURL() + themeDisplay.getPathMain() +
+					"/message_boards/find_thread?p_l_id=" + plid +
+						"&threadId=" + threadId;
+>>>>>>> compatible
 
 			rss = _mbMessageService.getThreadMessagesRSS(
 				threadId, WorkflowConstants.STATUS_APPROVED, max, type, version,
 				displayStyle, feedURL, entryURL, themeDisplay);
 		}
 		else if (categoryId > 0) {
+<<<<<<< HEAD
 			String feedURL = StringBundler.concat(
 				themeDisplay.getPortalURL(), themeDisplay.getPathMain(),
 				"/message_boards/find_category?p_l_id=", String.valueOf(plid),
 				"&mbCategoryId=", String.valueOf(categoryId));
+=======
+			String feedURL =
+				themeDisplay.getPortalURL() + themeDisplay.getPathMain() +
+					"/message_boards/find_category?p_l_id=" + plid +
+						"&mbCategoryId=" + categoryId;
+>>>>>>> compatible
 
 			rss = _mbMessageService.getCategoryMessagesRSS(
 				groupId, categoryId, WorkflowConstants.STATUS_APPROVED, max,
@@ -99,6 +126,7 @@ public class RSSAction extends BaseRSSStrutsAction {
 			if (mvcRenderCommandName.equals(
 					"/message_boards/view_recent_posts")) {
 
+<<<<<<< HEAD
 				feedURL = StringBundler.concat(
 					themeDisplay.getPortalURL(), themeDisplay.getPathMain(),
 					"/message_boards/find_recent_posts?p_l_id=",
@@ -110,6 +138,17 @@ public class RSSAction extends BaseRSSStrutsAction {
 					"/message_boards/find_category?p_l_id=",
 					String.valueOf(plid), "&mbCategoryId=",
 					String.valueOf(categoryId));
+=======
+				feedURL =
+					themeDisplay.getPortalURL() + themeDisplay.getPathMain() +
+						"/message_boards/find_recent_posts?p_l_id=" + plid;
+			}
+			else {
+				feedURL =
+					themeDisplay.getPortalURL() + themeDisplay.getPathMain() +
+						"/message_boards/find_category?p_l_id=" + plid +
+							"&mbCategoryId=" + categoryId;
+>>>>>>> compatible
 			}
 
 			if (userId > 0) {

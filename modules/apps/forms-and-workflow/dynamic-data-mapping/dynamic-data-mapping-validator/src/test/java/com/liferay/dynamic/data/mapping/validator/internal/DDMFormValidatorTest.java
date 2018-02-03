@@ -19,8 +19,11 @@ import com.liferay.dynamic.data.mapping.model.DDMForm;
 import com.liferay.dynamic.data.mapping.model.DDMFormField;
 import com.liferay.dynamic.data.mapping.model.DDMFormFieldOptions;
 import com.liferay.dynamic.data.mapping.model.DDMFormFieldType;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.model.DDMFormFieldValidation;
 import com.liferay.dynamic.data.mapping.model.DDMFormRule;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.model.LocalizedValue;
 import com.liferay.dynamic.data.mapping.test.util.DDMFormTestUtil;
 import com.liferay.dynamic.data.mapping.validator.DDMFormValidationException.MustNotDuplicateFieldName;
@@ -33,15 +36,22 @@ import com.liferay.dynamic.data.mapping.validator.DDMFormValidationException.Mus
 import com.liferay.dynamic.data.mapping.validator.DDMFormValidationException.MustSetValidCharactersForFieldName;
 import com.liferay.dynamic.data.mapping.validator.DDMFormValidationException.MustSetValidCharactersForFieldType;
 import com.liferay.dynamic.data.mapping.validator.DDMFormValidationException.MustSetValidDefaultLocaleForProperty;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.validator.DDMFormValidationException.MustSetValidFormRuleExpression;
 import com.liferay.dynamic.data.mapping.validator.DDMFormValidationException.MustSetValidIndexType;
 import com.liferay.dynamic.data.mapping.validator.DDMFormValidationException.MustSetValidValidationExpression;
+=======
+import com.liferay.dynamic.data.mapping.validator.DDMFormValidationException.MustSetValidIndexType;
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.validator.DDMFormValidationException.MustSetValidVisibilityExpression;
 import com.liferay.portal.bean.BeanPropertiesImpl;
 import com.liferay.portal.kernel.bean.BeanPropertiesUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 
+<<<<<<< HEAD
 import java.util.Arrays;
+=======
+>>>>>>> compatible
 import java.util.Locale;
 import java.util.Set;
 
@@ -141,6 +151,7 @@ public class DDMFormValidatorTest {
 		_ddmFormValidatorImpl.validate(ddmForm);
 	}
 
+<<<<<<< HEAD
 	@Test
 	public void testFormRuleEmptyCondition() throws Exception {
 		DDMForm ddmForm = DDMFormTestUtil.createDDMForm("Name");
@@ -150,6 +161,8 @@ public class DDMFormValidatorTest {
 		_ddmFormValidatorImpl.validate(ddmForm);
 	}
 
+=======
+>>>>>>> compatible
 	@Test(expected = MustSetValidIndexType.class)
 	public void testInvalidFieldIndexType() throws Exception {
 		DDMForm ddmForm = DDMFormTestUtil.createDDMForm(
@@ -190,6 +203,7 @@ public class DDMFormValidatorTest {
 		_ddmFormValidatorImpl.validate(ddmForm);
 	}
 
+<<<<<<< HEAD
 	@Test(expected = MustSetValidValidationExpression.class)
 	public void testInvalidFieldValidationExpression() throws Exception {
 		DDMForm ddmForm = DDMFormTestUtil.createDDMForm(
@@ -210,6 +224,8 @@ public class DDMFormValidatorTest {
 		_ddmFormValidatorImpl.validate(ddmForm);
 	}
 
+=======
+>>>>>>> compatible
 	@Test(expected = MustSetValidVisibilityExpression.class)
 	public void testInvalidFieldVisibilityExpression() throws Exception {
 		DDMForm ddmForm = DDMFormTestUtil.createDDMForm(
@@ -225,6 +241,7 @@ public class DDMFormValidatorTest {
 		_ddmFormValidatorImpl.validate(ddmForm);
 	}
 
+<<<<<<< HEAD
 	@Test(expected = MustSetValidFormRuleExpression.class)
 	public void testInvalidFormRuleAction() throws Exception {
 		DDMForm ddmForm = DDMFormTestUtil.createDDMForm("Name");
@@ -243,6 +260,8 @@ public class DDMFormValidatorTest {
 		_ddmFormValidatorImpl.validate(ddmForm);
 	}
 
+=======
+>>>>>>> compatible
 	@Test(expected = MustSetFieldsForForm.class)
 	public void testNoFieldsSetForForm() throws Exception {
 		DDMForm ddmForm = DDMFormTestUtil.createDDMForm(
@@ -266,6 +285,7 @@ public class DDMFormValidatorTest {
 		_ddmFormValidatorImpl.validate(ddmForm);
 	}
 
+<<<<<<< HEAD
 	@Test(expected = MustSetOptionsForField.class)
 	public void testNoOptionsSetForMultipleCheckbox() throws Exception {
 		DDMForm ddmForm = DDMFormTestUtil.createDDMForm(
@@ -281,6 +301,8 @@ public class DDMFormValidatorTest {
 		_ddmFormValidatorImpl.validate(ddmForm);
 	}
 
+=======
+>>>>>>> compatible
 	@Test(expected = MustSetAvailableLocales.class)
 	public void testNullAvailableLocales() throws Exception {
 		DDMForm ddmForm = new DDMForm();
@@ -300,6 +322,7 @@ public class DDMFormValidatorTest {
 		_ddmFormValidatorImpl.validate(ddmForm);
 	}
 
+<<<<<<< HEAD
 	@Test
 	public void testOptionsSetForMultipleCheckbox() throws Exception {
 		DDMForm ddmForm = DDMFormTestUtil.createDDMForm(
@@ -321,6 +344,8 @@ public class DDMFormValidatorTest {
 		_ddmFormValidatorImpl.validate(ddmForm);
 	}
 
+=======
+>>>>>>> compatible
 	@Test(expected = MustSetValidCharactersForFieldName.class)
 	public void testSpaceInFieldName() throws Exception {
 		DDMForm ddmForm = DDMFormTestUtil.createDDMForm(
@@ -367,6 +392,7 @@ public class DDMFormValidatorTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testValidFieldValidationExpression() throws Exception {
 		DDMForm ddmForm = DDMFormTestUtil.createDDMForm(
 			createAvailableLocales(LocaleUtil.US), LocaleUtil.US);
@@ -387,6 +413,8 @@ public class DDMFormValidatorTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testValidFieldVisibilityExpression() throws Exception {
 		DDMForm ddmForm = DDMFormTestUtil.createDDMForm(
 			createAvailableLocales(LocaleUtil.US), LocaleUtil.US);

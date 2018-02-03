@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Frontend JS Node Shims
 Bundle-SymbolicName: com.liferay.frontend.js.node.shims
+<<<<<<< HEAD
 Bundle-Version: 1.0.3
+=======
+Bundle-Version: 1.0.2
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Frontend Infrastructure
 Web-ContextPath: /frontend-js-node-shims

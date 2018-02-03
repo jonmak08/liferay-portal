@@ -19,7 +19,11 @@
 <%
 String keywords = ParamUtil.getString(request, "keywords");
 
+<<<<<<< HEAD
 PortletURL portletURL = trashDisplayContext.getPortletURL();
+=======
+PortletURL portletURL = renderResponse.createRenderURL();
+>>>>>>> compatible
 
 boolean approximate = false;
 
@@ -39,6 +43,7 @@ if (Validator.isNotNull(searchTerms.getKeywords())) {
 	trashEntries = baseModelSearchResult.getBaseModels();
 }
 else {
+<<<<<<< HEAD
 	TrashEntryList trashEntryList = null;
 
 	if (Objects.equals(trashDisplayContext.getNavigation(), "all")) {
@@ -51,6 +56,13 @@ else {
 	entrySearch.setTotal(trashEntryList.getCount());
 
 	trashEntries = trashEntryList.getOriginalTrashEntries();
+=======
+	TrashEntryList trashEntryList = TrashEntryServiceUtil.getEntries(themeDisplay.getScopeGroupId(), entrySearch.getStart(), entrySearch.getEnd(), entrySearch.getOrderByComparator());
+
+	entrySearch.setTotal(trashEntryList.getCount());
+
+	trashEntries = TrashEntryImpl.toModels(trashEntryList.getArray());
+>>>>>>> compatible
 
 	approximate = trashEntryList.isApproximate();
 }
@@ -76,10 +88,14 @@ if (Validator.isNotNull(keywords)) {
 request.setAttribute("view.jsp-recycleBinEntrySearch", entrySearch);
 %>
 
+<<<<<<< HEAD
 <clay:navigation-bar
 	inverted="<%= true %>"
 	items="<%= trashDisplayContext.getNavigationItems() %>"
 />
+=======
+<liferay-util:include page="/navigation.jsp" servletContext="<%= application %>" />
+>>>>>>> compatible
 
 <liferay-util:include page="/toolbar.jsp" servletContext="<%= application %>" />
 
@@ -165,7 +181,11 @@ request.setAttribute("view.jsp-recycleBinEntrySearch", entrySearch);
 				searchContainer="<%= entrySearch %>"
 			>
 				<liferay-ui:search-container-row
+<<<<<<< HEAD
 					className="com.liferay.trash.model.TrashEntry"
+=======
+					className="com.liferay.trash.kernel.model.TrashEntry"
+>>>>>>> compatible
 					keyProperty="entryId"
 					modelVar="trashEntry"
 					rowVar="row"
@@ -203,8 +223,12 @@ request.setAttribute("view.jsp-recycleBinEntrySearch", entrySearch);
 						actionPath = "/entry_action.jsp";
 					}
 					else {
+<<<<<<< HEAD
 						request.setAttribute("view.jsp-className", trashRenderer.getClassName());
 						request.setAttribute("view.jsp-classPK", String.valueOf(trashRenderer.getClassPK()));
+=======
+						request.setAttribute(TrashWebKeys.TRASH_RENDERER, trashRenderer);
+>>>>>>> compatible
 					}
 					%>
 

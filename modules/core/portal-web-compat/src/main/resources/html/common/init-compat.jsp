@@ -14,6 +14,7 @@
  */
 --%>
 
+<<<<<<< HEAD
 <%@ page import="com.liferay.asset.kernel.AssetRendererFactoryRegistryUtil" %><%@
 page import="com.liferay.asset.kernel.model.AssetCategory" %><%@
 page import="com.liferay.asset.kernel.model.AssetEntry" %><%@
@@ -44,3 +45,6 @@ page import="com.liferay.trash.kernel.model.TrashEntry" %><%@
 page import="com.liferay.trash.kernel.util.TrashUtil" %>
 
 <%@ page import="java.util.Iterator" %>
+=======
+<%@ page import="com.liferay.expando.kernel.model.ExpandoBridge" %>
+>>>>>>> compatible

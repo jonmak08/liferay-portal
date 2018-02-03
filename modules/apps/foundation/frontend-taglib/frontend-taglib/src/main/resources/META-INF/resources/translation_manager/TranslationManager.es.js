@@ -13,7 +13,10 @@ import templates from './TranslationManager.soy';
  *
  * This class adds functionallity to manage existing language options, and
  * create new ones.
+<<<<<<< HEAD
  * @review
+=======
+>>>>>>> compatible
  */
 class TranslationManager extends Component {
 	/**
@@ -30,8 +33,13 @@ class TranslationManager extends Component {
 	/**
 	 * Add a language to the available locales list and set it as the
 	 * current editing language.
+<<<<<<< HEAD
 	 * @param  {MouseEvent} event
 	 * @review
+=======
+	 *
+	 * @param  {MouseEvent} event
+>>>>>>> compatible
 	 */
 	addLocale(event) {
 		let localeId = event.delegateTarget.getAttribute('data-locale-id');
@@ -47,8 +55,13 @@ class TranslationManager extends Component {
 
 	/**
 	 * Registers another EventTarget as a bubble target.
+<<<<<<< HEAD
 	 * @param  {!Object} target YUI component where events will be emited to
 	 * @review
+=======
+	 *
+	 * @param  {!Object} target YUI component where events will be emited to
+>>>>>>> compatible
 	 */
 	addTarget(target) {
 		this.compatibilityEventProxy_.addTarget(target);
@@ -56,8 +69,13 @@ class TranslationManager extends Component {
 
 	/**
 	 * Change the default language.
+<<<<<<< HEAD
 	 * @param  {MouseEvent} event
 	 * @review
+=======
+	 *
+	 * @param  {MouseEvent} event
+>>>>>>> compatible
 	 */
 	changeDefaultLocale(event) {
 		let localeId = event.delegateTarget.getAttribute('data-locale-id');
@@ -69,8 +87,13 @@ class TranslationManager extends Component {
 
 	/**
 	 * Change current editing language.
+<<<<<<< HEAD
 	 * @param  {MouseEvent} event
 	 * @review
+=======
+	 *
+	 * @param  {MouseEvent} event
+>>>>>>> compatible
 	 */
 	changeLocale(event) {
 		let localeId = event.delegateTarget.getAttribute('data-locale-id');
@@ -80,8 +103,13 @@ class TranslationManager extends Component {
 
 	/**
 	 * Returns a property.
+<<<<<<< HEAD
 	 * @param  {String} attr Name of the attribute wanted to get
 	 * @review
+=======
+	 *
+	 * @param  {String} attr Name of the attribute wanted to get
+>>>>>>> compatible
 	 */
 	get(attr) {
 		return this[attr];
@@ -90,8 +118,13 @@ class TranslationManager extends Component {
 	/**
 	 * Remove a language from the available locales list and reset the current
 	 * editing language to default if removed one was selected.
+<<<<<<< HEAD
 	 * @param  {MouseEvent} event
 	 * @review
+=======
+	 *
+	 * @param  {MouseEvent} event
+>>>>>>> compatible
 	 */
 	removeAvailableLocale(event) {
 		let localeId = event.delegateTarget.getAttribute('data-locale-id');
@@ -116,8 +149,13 @@ class TranslationManager extends Component {
 
 	/**
 	 * Set the current editing locale to the default locale.
+<<<<<<< HEAD
 	 * @private
 	 * @review
+=======
+	 *
+	 * @private
+>>>>>>> compatible
 	 */
 	resetEditingLocale_() {
 		this.editingLocale = this.defaultLocale;
@@ -126,12 +164,19 @@ class TranslationManager extends Component {
 	/**
 	 * Configuration to emit yui-based events to maintain
 	 * backwards compatibility.
+<<<<<<< HEAD
 	 * @private
 	 * @review
 	 */
 	startCompatibility_() {
 		this.destroy = this.dispose;
 
+=======
+	 *
+	 * @private
+	 */
+	startCompatibility_() {
+>>>>>>> compatible
 		this.compatibilityEventProxy_ = new CompatibilityEventProxy(
 			{
 				host: this,
@@ -145,14 +190,22 @@ class TranslationManager extends Component {
 /**
  * State definition.
  * @ignore
+<<<<<<< HEAD
  * @review
  * @static
  * @type {!Object}
+=======
+ * @type {!Object}
+ * @static
+>>>>>>> compatible
  */
 TranslationManager.STATE = {
 	/**
 	 * Current editing language key.
+<<<<<<< HEAD
 	 * @review
+=======
+>>>>>>> compatible
 	 * @type {String}
 	 */
 	editingLocale: {
@@ -161,7 +214,10 @@ TranslationManager.STATE = {
 
 	/**
 	 * List of available languages keys.
+<<<<<<< HEAD
 	 * @review
+=======
+>>>>>>> compatible
 	 * @type {Array.<String>}
 	 */
 	availableLocales: {
@@ -170,7 +226,10 @@ TranslationManager.STATE = {
 
 	/**
 	 * Indicates if the default language is editable or not.
+<<<<<<< HEAD
 	 * @review
+=======
+>>>>>>> compatible
 	 * @type {Boolean}
 	 */
 	changeableDefaultLanguage: {
@@ -179,7 +238,10 @@ TranslationManager.STATE = {
 
 	/**
 	 * Default language key.
+<<<<<<< HEAD
 	 * @review
+=======
+>>>>>>> compatible
 	 * @type {String}
 	 */
 	defaultLocale: {
@@ -188,7 +250,10 @@ TranslationManager.STATE = {
 
 	/**
 	 * Map of all languages
+<<<<<<< HEAD
 	 * @review
+=======
+>>>>>>> compatible
 	 * @type {Object}
 	 */
 	locales: {
@@ -196,6 +261,10 @@ TranslationManager.STATE = {
 	}
 };
 
+<<<<<<< HEAD
+=======
+// Register component
+>>>>>>> compatible
 Soy.register(TranslationManager, templates);
 
 export default TranslationManager;

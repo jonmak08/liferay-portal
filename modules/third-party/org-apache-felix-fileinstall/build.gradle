@@ -22,7 +22,10 @@ patch {
 	}
 
 	fileNames "org/apache/felix/fileinstall/internal/DirectoryWatcher.java"
+<<<<<<< HEAD
 	fileNames "OSGI-INF/metatype/metatype.xml"
+=======
+>>>>>>> compatible
 
 	originalLibModuleName = "org.apache.felix.fileinstall"
 }

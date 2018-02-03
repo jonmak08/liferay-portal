@@ -1,3 +1,7 @@
 Bundle-Name: Liferay Users Admin Demo
 Bundle-SymbolicName: com.liferay.users.admin.demo
+<<<<<<< HEAD
 Bundle-Version: 1.0.7
+=======
+Bundle-Version: 1.0.5
+>>>>>>> compatible

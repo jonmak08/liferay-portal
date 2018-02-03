@@ -395,9 +395,12 @@ public interface GroupLocalService extends BaseLocalService,
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ActionableDynamicQuery getActionableDynamicQuery();
 
+<<<<<<< HEAD
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<java.lang.Long> getActiveGroupIds(long userId);
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns all the active or inactive groups associated with the company.
 	*
@@ -546,10 +549,13 @@ public interface GroupLocalService extends BaseLocalService,
 	public List<Group> getGroups(long companyId, long parentGroupId,
 		boolean site, boolean inheritContent);
 
+<<<<<<< HEAD
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<Group> getGroups(long companyId, java.lang.String treePath,
 		boolean site);
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns all the groups that are direct children of the parent group with
 	* the matching className.
@@ -677,6 +683,7 @@ public interface GroupLocalService extends BaseLocalService,
 	* @param companyId the primary key of the company
 	* @param parentGroupId the primary key of the parent group
 	* @param site whether the group is to be associated with a main site
+<<<<<<< HEAD
 	* @param active whether to return only active groups, or only inactive
 	groups
 	* @param start the lower bound of the range of groups to return
@@ -708,6 +715,8 @@ public interface GroupLocalService extends BaseLocalService,
 	* @param companyId the primary key of the company
 	* @param parentGroupId the primary key of the parent group
 	* @param site whether the group is to be associated with a main site
+=======
+>>>>>>> compatible
 	* @param start the lower bound of the range of groups to return
 	* @param end the upper bound of the range of groups to return (not
 	inclusive)
@@ -734,6 +743,7 @@ public interface GroupLocalService extends BaseLocalService,
 		boolean site);
 
 	/**
+<<<<<<< HEAD
 	* Returns the number of groups that are children or the parent group and
 	* that have at least one layout
 	*
@@ -749,6 +759,8 @@ public interface GroupLocalService extends BaseLocalService,
 		boolean site, boolean active);
 
 	/**
+=======
+>>>>>>> compatible
 	* Returns all live groups.
 	*
 	* @return all live groups

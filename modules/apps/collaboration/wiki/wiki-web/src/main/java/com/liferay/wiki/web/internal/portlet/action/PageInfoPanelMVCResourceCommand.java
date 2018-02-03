@@ -16,8 +16,11 @@ package com.liferay.wiki.web.internal.portlet.action;
 
 import com.liferay.portal.kernel.portlet.bridges.mvc.BaseMVCResourceCommand;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCResourceCommand;
+<<<<<<< HEAD
 import com.liferay.trash.TrashHelper;
 import com.liferay.trash.util.TrashWebKeys;
+=======
+>>>>>>> compatible
 import com.liferay.wiki.constants.WikiPortletKeys;
 import com.liferay.wiki.constants.WikiWebKeys;
 import com.liferay.wiki.engine.impl.WikiEngineRenderer;
@@ -46,7 +49,10 @@ public class PageInfoPanelMVCResourceCommand extends BaseMVCResourceCommand {
 			ResourceRequest resourceRequest, ResourceResponse resourceResponse)
 		throws Exception {
 
+<<<<<<< HEAD
 		resourceRequest.setAttribute(TrashWebKeys.TRASH_HELPER, _trashHelper);
+=======
+>>>>>>> compatible
 		resourceRequest.setAttribute(
 			WikiWebKeys.WIKI_ENGINE_RENDERER, _wikiEngineRenderer);
 		resourceRequest.setAttribute(
@@ -66,9 +72,12 @@ public class PageInfoPanelMVCResourceCommand extends BaseMVCResourceCommand {
 		_wikiEngineRenderer = wikiEngineRenderer;
 	}
 
+<<<<<<< HEAD
 	@Reference
 	private TrashHelper _trashHelper;
 
+=======
+>>>>>>> compatible
 	private WikiEngineRenderer _wikiEngineRenderer;
 
 }

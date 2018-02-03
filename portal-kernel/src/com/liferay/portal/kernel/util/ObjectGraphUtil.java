@@ -36,7 +36,11 @@ public class ObjectGraphUtil {
 		queue.offer(object);
 
 		Set<Object> visitedObjects = Collections.newSetFromMap(
+<<<<<<< HEAD
 			new IdentityHashMap<>());
+=======
+			new IdentityHashMap<Object, Boolean>());
+>>>>>>> compatible
 
 		while ((object = queue.poll()) != null) {
 			if (!visitedObjects.add(object)) {

@@ -40,11 +40,16 @@ import java.util.Date;
  * @see TrashEntry
  * @see com.liferay.portlet.trash.model.impl.TrashEntryImpl
  * @see com.liferay.portlet.trash.model.impl.TrashEntryModelImpl
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, replaced by {@link
            com.liferay.trash.model.impl.TrashEntryImpl}
  * @generated
  */
 @Deprecated
+=======
+ * @generated
+ */
+>>>>>>> compatible
 @ProviderType
 public interface TrashEntryModel extends AttachedModel, BaseModel<TrashEntry>,
 	ShardedModel {

@@ -36,6 +36,7 @@ import org.junit.Test;
 public abstract class BaseStringQueryTestCase extends BaseIndexingTestCase {
 
 	@Test
+<<<<<<< HEAD
 	public void testBooleanOperatorAnd() throws Exception {
 		addDocuments("java eclipse", "java liferay", "java liferay eclipse");
 
@@ -89,10 +90,25 @@ public abstract class BaseStringQueryTestCase extends BaseIndexingTestCase {
 		addDocuments("alpha bravo", "alpha charlie", "charlie delta");
 
 		assertSearch("alpha OR NOT bravo", Arrays.asList("alpha charlie"));
+=======
+	public void testAnd() throws Exception {
+		addDocument("description", "java eclipse");
+		addDocument("description", "java liferay");
+		addDocument("description", "java liferay eclipse");
+
+		assertSearch(
+			"java AND eclipse", "description",
+			Arrays.asList("java eclipse", "java liferay eclipse"));
+
+		assertSearch(
+			"eclipse AND liferay", "description",
+			Arrays.asList("java liferay eclipse"));
+>>>>>>> compatible
 	}
 
 	@Test
 	public void testField() throws Exception {
+<<<<<<< HEAD
 		addDocuments("java", "eclipse", "liferay");
 
 		assertSearch(
@@ -152,18 +168,53 @@ public abstract class BaseStringQueryTestCase extends BaseIndexingTestCase {
 	}
 
 	protected Void doAssertSearch(String query, List<String> expectedValues)
+=======
+		addDocument("title", "java");
+		addDocument("title", "eclipse");
+		addDocument("title", "liferay");
+
+		assertSearch(
+			"title:(java OR eclipse)", "title",
+			Arrays.asList("java", "eclipse"));
+
+		assertSearch(
+			"description:(java OR eclipse)", "title", Collections.emptyList());
+	}
+
+	protected void addDocument(String fieldName, String... fieldValues)
+		throws Exception {
+
+		addDocument(DocumentCreationHelpers.singleText(fieldName, fieldValues));
+	}
+
+	protected void assertSearch(
+			String query, String fieldName, List<String> expectedValues)
+>>>>>>> compatible
 		throws Exception {
 
 		SearchContext searchContext = createSearchContext();
 
 		StringQuery stringQuery = _createStringQuery(query, searchContext);
 
+<<<<<<< HEAD
 		Hits hits = search(searchContext, stringQuery);
 
 		DocumentsAssert.assertValues(
 			query, hits.getDocs(), _FIELD_NAME, expectedValues);
 
 		return null;
+=======
+		IdempotentRetryAssert.retryAssert(
+			5, TimeUnit.SECONDS,
+			() -> {
+				Hits hits = search(searchContext, stringQuery);
+
+				DocumentsAssert.assertValues(
+					query, hits.getDocs(), fieldName, expectedValues);
+
+				return null;
+			});
+>>>>>>> compatible
 	}
 
 	private StringQuery _createStringQuery(
@@ -176,6 +227,9 @@ public abstract class BaseStringQueryTestCase extends BaseIndexingTestCase {
 		return stringQuery;
 	}
 
+<<<<<<< HEAD
 	private static final String _FIELD_NAME = "title";
 
+=======
+>>>>>>> compatible
 }

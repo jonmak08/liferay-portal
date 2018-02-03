@@ -37,6 +37,7 @@ public class SybaseDumpTransactionLogTestCallback
 		new SybaseDumpTransactionLogTestCallback();
 
 	@Override
+<<<<<<< HEAD
 	public void afterMethod(Description description, Void v, Object target)
 		throws Exception {
 
@@ -48,6 +49,8 @@ public class SybaseDumpTransactionLogTestCallback
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public Void beforeClass(Description description) throws SQLException {
 		SybaseDumpTransactionLog sybaseDumpTransactionLog =
 			description.getAnnotation(SybaseDumpTransactionLog.class);
@@ -79,6 +82,7 @@ public class SybaseDumpTransactionLogTestCallback
 
 			if (ArrayUtil.contains(sybaseDumps, SybaseDump.METHOD)) {
 				_dumpTransactionLog();
+<<<<<<< HEAD
 
 				_thread = new Thread(
 					() -> {
@@ -101,6 +105,8 @@ public class SybaseDumpTransactionLogTestCallback
 				_thread.setDaemon(true);
 
 				_thread.start();
+=======
+>>>>>>> compatible
 			}
 		}
 
@@ -125,6 +131,9 @@ public class SybaseDumpTransactionLogTestCallback
 		}
 	}
 
+<<<<<<< HEAD
 	private Thread _thread;
 
+=======
+>>>>>>> compatible
 }

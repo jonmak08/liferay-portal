@@ -14,6 +14,10 @@
 
 package com.liferay.portal.test.rule.callback;
 
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.messaging.DestinationNames;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.rule.callback.SynchronousDestinationTestCallback;
 import com.liferay.portal.test.mail.MailServiceTestUtil;
 
@@ -32,6 +36,11 @@ public class SynchronousMailTestCallback
 	public void afterClass(Description description, SyncHandler syncHandler)
 		throws Exception {
 
+<<<<<<< HEAD
+=======
+		super.afterClass(description, syncHandler);
+
+>>>>>>> compatible
 		MailServiceTestUtil.stop();
 	}
 
@@ -39,6 +48,11 @@ public class SynchronousMailTestCallback
 	public void afterMethod(
 		Description description, SyncHandler syncHandler, Object target) {
 
+<<<<<<< HEAD
+=======
+		super.afterMethod(description, syncHandler, target);
+
+>>>>>>> compatible
 		MailServiceTestUtil.clearMessages();
 	}
 
@@ -46,7 +60,15 @@ public class SynchronousMailTestCallback
 	public SyncHandler beforeClass(Description description) throws Throwable {
 		MailServiceTestUtil.start();
 
+<<<<<<< HEAD
 		return null;
+=======
+		SyncHandler syncHandler = super.beforeClass(description);
+
+		syncHandler.replaceDestination(DestinationNames.MAIL);
+
+		return syncHandler;
+>>>>>>> compatible
 	}
 
 	private SynchronousMailTestCallback() {

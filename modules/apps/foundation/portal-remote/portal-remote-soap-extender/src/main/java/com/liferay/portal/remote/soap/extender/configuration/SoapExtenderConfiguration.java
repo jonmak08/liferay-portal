@@ -31,6 +31,7 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
 )
 public interface SoapExtenderConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(name = "context-paths", required = false)
 	public String[] contextPaths();
 
@@ -41,6 +42,18 @@ public interface SoapExtenderConfiguration {
 	public String[] jaxWsServiceFilterStrings();
 
 	@Meta.AD(name = "soap-descriptor-builder", required = false)
+=======
+	@Meta.AD(required = false)
+	public String[] contextPaths();
+
+	@Meta.AD(name = "jax.ws.handler.filters", required = false)
+	public String[] jaxWsHandlerFilterStrings();
+
+	@Meta.AD(name = "jax.ws.service.filters", required = false)
+	public String[] jaxWsServiceFilterStrings();
+
+	@Meta.AD(name = "soap.descriptor.builder", required = false)
+>>>>>>> compatible
 	public String soapDescriptorBuilderFilter();
 
 }

@@ -25,12 +25,19 @@ import com.liferay.document.library.kernel.service.DLFileVersionLocalService;
 import com.liferay.document.library.kernel.service.DLFileVersionService;
 import com.liferay.document.library.kernel.service.DLFolderLocalService;
 import com.liferay.document.library.kernel.service.DLFolderService;
+<<<<<<< HEAD
 import com.liferay.petra.function.UnsafeSupplier;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.service.RepositoryLocalService;
 import com.liferay.portal.kernel.service.RepositoryService;
 import com.liferay.portal.kernel.service.ResourceLocalService;
 import com.liferay.portal.kernel.systemevent.SystemEventHierarchyEntryThreadLocal;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.UnsafeRunnable;
+>>>>>>> compatible
 import com.liferay.portal.repository.liferayrepository.LiferayRepository;
 
 /**
@@ -65,54 +72,74 @@ public class TemporaryFileEntryRepository extends LiferayRepository {
 
 	@Override
 	public void deleteAll() {
+<<<<<<< HEAD
 		_runWithoutSystemEvents(
 			() -> {
 				super.deleteAll();
 
 				return null;
 			});
+=======
+		_runWithoutSystemEvents(super::deleteAll);
+>>>>>>> compatible
 	}
 
 	@Override
 	public void deleteFileEntry(long fileEntryId) throws PortalException {
+<<<<<<< HEAD
 		_runWithoutSystemEvents(
 			() -> {
 				super.deleteFileEntry(fileEntryId);
 
 				return null;
 			});
+=======
+		_runWithoutSystemEvents(() -> super.deleteFileEntry(fileEntryId));
+>>>>>>> compatible
 	}
 
 	@Override
 	public void deleteFileEntry(long folderId, String title)
 		throws PortalException {
 
+<<<<<<< HEAD
 		_runWithoutSystemEvents(
 			() -> {
 				super.deleteFileEntry(folderId, title);
 
 				return null;
 			});
+=======
+		_runWithoutSystemEvents(() -> super.deleteFileEntry(folderId, title));
+>>>>>>> compatible
 	}
 
 	@Override
 	public void deleteFileShortcut(long fileShortcutId) throws PortalException {
+<<<<<<< HEAD
 		_runWithoutSystemEvents(
 			() -> {
 				super.deleteFileShortcut(fileShortcutId);
 
 				return null;
 			});
+=======
+		_runWithoutSystemEvents(() -> super.deleteFileShortcut(fileShortcutId));
+>>>>>>> compatible
 	}
 
 	@Override
 	public void deleteFileShortcuts(long toFileEntryId) throws PortalException {
+<<<<<<< HEAD
 		_runWithoutSystemEvents(
 			() -> {
 				super.deleteFileShortcuts(toFileEntryId);
 
 				return null;
 			});
+=======
+		_runWithoutSystemEvents(() -> super.deleteFileShortcuts(toFileEntryId));
+>>>>>>> compatible
 	}
 
 	@Override
@@ -120,27 +147,36 @@ public class TemporaryFileEntryRepository extends LiferayRepository {
 		throws PortalException {
 
 		_runWithoutSystemEvents(
+<<<<<<< HEAD
 			() -> {
 				super.deleteFileVersion(fileEntryId, version);
 
 				return null;
 			});
+=======
+			() -> super.deleteFileVersion(fileEntryId, version));
+>>>>>>> compatible
 	}
 
 	@Override
 	public void deleteFolder(long folderId) throws PortalException {
+<<<<<<< HEAD
 		_runWithoutSystemEvents(
 			() -> {
 				super.deleteFolder(folderId);
 
 				return null;
 			});
+=======
+		_runWithoutSystemEvents(() -> super.deleteFolder(folderId));
+>>>>>>> compatible
 	}
 
 	@Override
 	public void deleteFolder(long parentFolderId, String name)
 		throws PortalException {
 
+<<<<<<< HEAD
 		_runWithoutSystemEvents(
 			() -> {
 				super.deleteFolder(parentFolderId, name);
@@ -151,12 +187,23 @@ public class TemporaryFileEntryRepository extends LiferayRepository {
 
 	private <T extends Throwable> void _runWithoutSystemEvents(
 			UnsafeSupplier<Void, T> unsafeSupplier)
+=======
+		_runWithoutSystemEvents(() -> super.deleteFolder(parentFolderId, name));
+	}
+
+	private <T extends Throwable> void _runWithoutSystemEvents(
+			UnsafeRunnable<T> unsafeRunnable)
+>>>>>>> compatible
 		throws T {
 
 		SystemEventHierarchyEntryThreadLocal.push(DLFileEntry.class);
 
 		try {
+<<<<<<< HEAD
 			unsafeSupplier.get();
+=======
+			unsafeRunnable.run();
+>>>>>>> compatible
 		}
 		finally {
 			SystemEventHierarchyEntryThreadLocal.pop(DLFileEntry.class);

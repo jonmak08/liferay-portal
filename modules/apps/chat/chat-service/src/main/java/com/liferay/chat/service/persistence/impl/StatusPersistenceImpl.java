@@ -33,8 +33,15 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.ReflectionUtil;
+import com.liferay.portal.kernel.util.SetUtil;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.spring.extender.service.ServiceReference;
 
 import java.io.Serializable;
@@ -112,7 +119,11 @@ public class StatusPersistenceImpl extends BasePersistenceImpl<Status>
 			msg.append("userId=");
 			msg.append(userId);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -500,7 +511,11 @@ public class StatusPersistenceImpl extends BasePersistenceImpl<Status>
 		msg.append("modifiedDate=");
 		msg.append(modifiedDate);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchStatusException(msg.toString());
 	}
@@ -550,7 +565,11 @@ public class StatusPersistenceImpl extends BasePersistenceImpl<Status>
 		msg.append("modifiedDate=");
 		msg.append(modifiedDate);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchStatusException(msg.toString());
 	}
@@ -1000,7 +1019,11 @@ public class StatusPersistenceImpl extends BasePersistenceImpl<Status>
 		msg.append("online=");
 		msg.append(online);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchStatusException(msg.toString());
 	}
@@ -1049,7 +1072,11 @@ public class StatusPersistenceImpl extends BasePersistenceImpl<Status>
 		msg.append("online=");
 		msg.append(online);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchStatusException(msg.toString());
 	}
@@ -1520,7 +1547,11 @@ public class StatusPersistenceImpl extends BasePersistenceImpl<Status>
 		msg.append(", online=");
 		msg.append(online);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchStatusException(msg.toString());
 	}
@@ -1575,7 +1606,11 @@ public class StatusPersistenceImpl extends BasePersistenceImpl<Status>
 		msg.append(", online=");
 		msg.append(online);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchStatusException(msg.toString());
 	}
@@ -1835,11 +1870,17 @@ public class StatusPersistenceImpl extends BasePersistenceImpl<Status>
 		setModelClass(Status.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("online", "online_");
@@ -2358,12 +2399,20 @@ public class StatusPersistenceImpl extends BasePersistenceImpl<Status>
 		for (Serializable primaryKey : uncachedPrimaryKeys) {
 			query.append((long)primaryKey);
 
+<<<<<<< HEAD
 			query.append(",");
+=======
+			query.append(StringPool.COMMA);
+>>>>>>> compatible
 		}
 
 		query.setIndex(query.index() - 1);
 
+<<<<<<< HEAD
 		query.append(")");
+=======
+		query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 		String sql = query.toString();
 

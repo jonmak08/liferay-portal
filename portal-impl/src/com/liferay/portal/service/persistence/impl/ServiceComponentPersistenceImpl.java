@@ -32,8 +32,13 @@ import com.liferay.portal.kernel.model.ServiceComponent;
 import com.liferay.portal.kernel.service.persistence.ServiceComponentPersistence;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.model.impl.ServiceComponentImpl;
 import com.liferay.portal.model.impl.ServiceComponentModelImpl;
 
@@ -204,6 +209,7 @@ public class ServiceComponentPersistenceImpl extends BasePersistenceImpl<Service
 		if (retrieveFromCache) {
 			list = (List<ServiceComponent>)finderCache.getResult(finderPath,
 					finderArgs, this);
+<<<<<<< HEAD
 
 			if ((list != null) && !list.isEmpty()) {
 				for (ServiceComponent serviceComponent : list) {
@@ -211,6 +217,15 @@ public class ServiceComponentPersistenceImpl extends BasePersistenceImpl<Service
 								serviceComponent.getBuildNamespace())) {
 						list = null;
 
+=======
+
+			if ((list != null) && !list.isEmpty()) {
+				for (ServiceComponent serviceComponent : list) {
+					if (!Objects.equals(buildNamespace,
+								serviceComponent.getBuildNamespace())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -915,11 +930,17 @@ public class ServiceComponentPersistenceImpl extends BasePersistenceImpl<Service
 		setModelClass(ServiceComponent.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("data", "data_");

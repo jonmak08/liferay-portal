@@ -14,7 +14,11 @@
 
 package com.liferay.mentions.web.internal.editor.configuration;
 
+<<<<<<< HEAD
 import com.liferay.message.boards.constants.MBPortletKeys;
+=======
+import com.liferay.message.boards.web.constants.MBPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.editor.configuration.EditorConfigContributor;
 
 import org.osgi.service.component.annotations.Component;
@@ -25,8 +29,13 @@ import org.osgi.service.component.annotations.Component;
 @Component(
 	property = {
 		"editor.config.key=bodyEditor", "editor.config.key=replyMBEditor",
+<<<<<<< HEAD
 		"editor.name=alloyeditor", "editor.name=alloyeditor_bbcode",
 		"editor.name=ckeditor", "editor.name=ckeditor_bbcode",
+=======
+		"editor.name=alloyeditor", "editor.name=ckeditor",
+		"editor.name=ckeditor_bbcode",
+>>>>>>> compatible
 		"javax.portlet.name=" + MBPortletKeys.MESSAGE_BOARDS,
 		"javax.portlet.name=" + MBPortletKeys.MESSAGE_BOARDS_ADMIN,
 		"service.ranking:Integer=10"

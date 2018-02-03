@@ -32,6 +32,7 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
 )
 public interface XSLContentPortletInstanceConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(
 		deflt = "@portlet_context_url@/example.xml", name = "xml-url",
 		required = false
@@ -42,6 +43,12 @@ public interface XSLContentPortletInstanceConfiguration {
 		deflt = "@portlet_context_url@/example.xsl", name = "xsl-url",
 		required = false
 	)
+=======
+	@Meta.AD(deflt = "@portlet_context_url@/example.xml", required = false)
+	public String xmlUrl();
+
+	@Meta.AD(deflt = "@portlet_context_url@/example.xsl", required = false)
+>>>>>>> compatible
 	public String xslUrl();
 
 }

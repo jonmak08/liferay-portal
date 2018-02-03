@@ -73,6 +73,7 @@ public interface DDMDataProviderInstanceService extends BaseService {
 		long dataProviderInstanceId) throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+<<<<<<< HEAD
 	public DDMDataProviderInstance fetchDataProviderInstanceByUuid(
 		java.lang.String uuid) throws PortalException;
 
@@ -84,6 +85,11 @@ public interface DDMDataProviderInstanceService extends BaseService {
 	public DDMDataProviderInstance getDataProviderInstanceByUuid(
 		java.lang.String uuid) throws PortalException;
 
+=======
+	public DDMDataProviderInstance getDataProviderInstance(
+		long dataProviderInstanceId) throws PortalException;
+
+>>>>>>> compatible
 	/**
 	* Returns the OSGi service identifier.
 	*

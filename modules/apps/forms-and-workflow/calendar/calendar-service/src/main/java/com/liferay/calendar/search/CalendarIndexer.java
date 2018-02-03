@@ -19,6 +19,10 @@ import com.liferay.calendar.model.CalendarBooking;
 import com.liferay.calendar.model.CalendarResource;
 import com.liferay.calendar.service.CalendarBookingLocalService;
 import com.liferay.calendar.service.CalendarLocalService;
+<<<<<<< HEAD
+=======
+import com.liferay.calendar.service.permission.CalendarPermission;
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.IndexableActionableDynamicQuery;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -37,7 +41,10 @@ import com.liferay.portal.kernel.search.Summary;
 import com.liferay.portal.kernel.search.filter.BooleanFilter;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermission;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 
@@ -80,7 +87,11 @@ public class CalendarIndexer extends BaseIndexer<Calendar> {
 			long entryClassPK, String actionId)
 		throws Exception {
 
+<<<<<<< HEAD
 		return _calendarModelResourcePermission.contains(
+=======
+		return CalendarPermission.contains(
+>>>>>>> compatible
 			permissionChecker, entryClassPK, ActionKeys.VIEW);
 	}
 
@@ -232,12 +243,15 @@ public class CalendarIndexer extends BaseIndexer<Calendar> {
 
 	private CalendarBookingLocalService _calendarBookingLocalService;
 	private CalendarLocalService _calendarLocalService;
+<<<<<<< HEAD
 
 	@Reference(
 		target = "(model.class.name=com.liferay.calendar.model.Calendar)"
 	)
 	private ModelResourcePermission<Calendar> _calendarModelResourcePermission;
 
+=======
+>>>>>>> compatible
 	private IndexerRegistry _indexerRegistry;
 
 	@Reference

@@ -318,9 +318,12 @@ public interface RoleLocalService extends BaseLocalService,
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ActionableDynamicQuery getActionableDynamicQuery();
 
+<<<<<<< HEAD
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public int getAssigneesTotal(long roleId) throws PortalException;
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns the default role for the group with the primary key.
 	*
@@ -395,10 +398,13 @@ public interface RoleLocalService extends BaseLocalService,
 	public PersistedModel getPersistedModel(Serializable primaryKeyObj)
 		throws PortalException;
 
+<<<<<<< HEAD
 	/**
 	* @deprecated As of 7.0.0, with no direct replacement
 	*/
 	@java.lang.Deprecated
+=======
+>>>>>>> compatible
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<Role> getResourceBlockRoles(long resourceBlockId,
 		java.lang.String className, java.lang.String actionId);

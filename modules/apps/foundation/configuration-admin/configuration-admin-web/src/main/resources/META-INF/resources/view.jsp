@@ -30,12 +30,17 @@ portletURL.setParameter("configurationCategory", configurationCategory);
 
 String keywords = renderRequest.getParameter("keywords");
 
+<<<<<<< HEAD
 if (keywords != null) {
+=======
+if (Validator.isNotNull(keywords)) {
+>>>>>>> compatible
 	portletDisplay.setShowBackIcon(true);
 	portletDisplay.setURLBack(redirect);
 
 	renderResponse.setTitle(LanguageUtil.get(request, "search-results"));
 }
+<<<<<<< HEAD
 
 List<NavigationItem> navigationItems = new ArrayList<>();
 
@@ -79,6 +84,46 @@ if (configurationCategories != null) {
 		</li>
 	</liferay-frontend:management-bar-filters>
 </liferay-frontend:management-bar>
+=======
+%>
+
+<aui:nav-bar cssClass="collapse-basic-search" markupView="lexicon">
+	<c:if test="<%= configurationCategories != null %>">
+		<aui:nav cssClass="navbar-nav">
+
+			<%
+			for (String curConfigurationCategory : configurationCategories) {
+			%>
+
+				<portlet:renderURL var="configurationCategoryURL">
+					<portlet:param name="configurationCategory" value="<%= curConfigurationCategory %>" />
+				</portlet:renderURL>
+
+				<aui:nav-item
+					href="<%= configurationCategoryURL %>"
+					label="<%= curConfigurationCategory %>"
+					selected="<%= curConfigurationCategory.equals(configurationCategory) %>"
+				/>
+
+			<%
+			}
+			%>
+
+		</aui:nav>
+	</c:if>
+
+	<aui:nav-bar-search>
+		<portlet:renderURL var="searchURL">
+			<portlet:param name="mvcRenderCommandName" value="/search" />
+			<portlet:param name="redirect" value="<%= currentURL %>" />
+		</portlet:renderURL>
+
+		<aui:form action="<%= searchURL %>" name="searchFm">
+			<liferay-ui:input-search autoFocus="<%= true %>" markupView="lexicon" />
+		</aui:form>
+	</aui:nav-bar-search>
+</aui:nav-bar>
+>>>>>>> compatible
 
 <div class="container-fluid-1280">
 	<liferay-ui:search-container
@@ -116,7 +161,11 @@ if (configurationCategories != null) {
 				<%
 				ResourceBundleLoader resourceBundleLoader = resourceBundleLoaderProvider.getResourceBundleLoader(configurationModel.getBundleSymbolicName());
 
+<<<<<<< HEAD
 				ResourceBundle componentResourceBundle = resourceBundleLoader.loadResourceBundle(PortalUtil.getLocale(request));
+=======
+				ResourceBundle componentResourceBundle = resourceBundleLoader.loadResourceBundle(LanguageUtil.getLanguageId(request));
+>>>>>>> compatible
 
 				String configurationModelName = (componentResourceBundle != null) ? LanguageUtil.get(componentResourceBundle, configurationModel.getName()) : configurationModel.getName();
 				%>
@@ -197,7 +246,11 @@ if (configurationCategories != null) {
 
 								<liferay-ui:icon
 									message="export"
+<<<<<<< HEAD
 									method="get"
+=======
+									method="post"
+>>>>>>> compatible
 									url="<%= exportURL %>"
 								/>
 							</c:if>

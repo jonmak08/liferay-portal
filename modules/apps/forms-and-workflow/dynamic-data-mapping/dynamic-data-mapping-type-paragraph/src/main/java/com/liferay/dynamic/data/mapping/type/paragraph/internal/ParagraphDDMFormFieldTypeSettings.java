@@ -20,7 +20,10 @@ import com.liferay.dynamic.data.mapping.annotations.DDMFormLayout;
 import com.liferay.dynamic.data.mapping.annotations.DDMFormLayoutColumn;
 import com.liferay.dynamic.data.mapping.annotations.DDMFormLayoutPage;
 import com.liferay.dynamic.data.mapping.annotations.DDMFormLayoutRow;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.annotations.DDMFormRule;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.form.field.type.DefaultDDMFormFieldTypeSettings;
 import com.liferay.dynamic.data.mapping.model.DDMFormFieldValidation;
 import com.liferay.dynamic.data.mapping.model.LocalizedValue;
@@ -28,6 +31,7 @@ import com.liferay.dynamic.data.mapping.model.LocalizedValue;
 /**
  * @author Bruno Basto
  */
+<<<<<<< HEAD
 @DDMForm(
 	rules = {
 		@DDMFormRule(
@@ -48,6 +52,14 @@ import com.liferay.dynamic.data.mapping.model.LocalizedValue;
 	value = {
 		@DDMFormLayoutPage(
 			title = "%basic",
+=======
+@DDMForm
+@DDMFormLayout(
+	paginationMode = com.liferay.dynamic.data.mapping.model.DDMFormLayout.SETTINGS_MODE,
+	value = {
+		@DDMFormLayoutPage(
+			title = "basic",
+>>>>>>> compatible
 			value = {
 				@DDMFormLayoutRow(
 					{
@@ -60,7 +72,11 @@ import com.liferay.dynamic.data.mapping.model.LocalizedValue;
 			}
 		),
 		@DDMFormLayoutPage(
+<<<<<<< HEAD
 			title = "%properties",
+=======
+			title = "advanced",
+>>>>>>> compatible
 			value = {
 				@DDMFormLayoutRow(
 					{
@@ -82,16 +98,23 @@ import com.liferay.dynamic.data.mapping.model.LocalizedValue;
 public interface ParagraphDDMFormFieldTypeSettings
 	extends DefaultDDMFormFieldTypeSettings {
 
+<<<<<<< HEAD
 	@DDMFormField(predefinedValue = "")
 	public String dataType();
 
 	@DDMFormField(
 		label = "%title", properties = {"placeholder=%enter-a-title"},
 		type = "key_value"
+=======
+	@DDMFormField(
+		label = "%title", properties = {"placeholder=%enter-a-title"},
+		required = true, type = "key-value"
+>>>>>>> compatible
 	)
 	@Override
 	public LocalizedValue label();
 
+<<<<<<< HEAD
 	@DDMFormField(
 		dataType = "string", label = "%body-text",
 		properties = {"placeholder=%enter-body-text"}, type = "editor"
@@ -99,6 +122,39 @@ public interface ParagraphDDMFormFieldTypeSettings
 	public String text();
 
 	@DDMFormField(dataType = "string", type = "validation")
+=======
+	@DDMFormField(visibilityExpression = "FALSE")
+	@Override
+	public LocalizedValue predefinedValue();
+
+	@DDMFormField(visibilityExpression = "FALSE")
+	@Override
+	public boolean repeatable();
+
+	@DDMFormField(visibilityExpression = "FALSE")
+	@Override
+	public boolean required();
+
+	@DDMFormField(visibilityExpression = "FALSE")
+	@Override
+	public boolean showLabel();
+
+	@DDMFormField(
+		dataType = "string", label = "%body-text",
+		properties = {"placeholder=%enter-body-text"}, required = true,
+		type = "editor"
+	)
+	public String text();
+
+	@DDMFormField(visibilityExpression = "FALSE")
+	@Override
+	public LocalizedValue tip();
+
+	@DDMFormField(
+		dataType = "ddm-validation", type = "validation",
+		visibilityExpression = "FALSE"
+	)
+>>>>>>> compatible
 	@Override
 	public DDMFormFieldValidation validation();
 

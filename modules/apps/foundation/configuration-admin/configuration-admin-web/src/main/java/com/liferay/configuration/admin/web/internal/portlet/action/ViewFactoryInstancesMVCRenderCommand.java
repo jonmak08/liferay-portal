@@ -14,7 +14,11 @@
 
 package com.liferay.configuration.admin.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.configuration.admin.constants.ConfigurationAdminPortletKeys;
+=======
+import com.liferay.configuration.admin.web.internal.constants.ConfigurationAdminPortletKeys;
+>>>>>>> compatible
 import com.liferay.configuration.admin.web.internal.constants.ConfigurationAdminWebKeys;
 import com.liferay.configuration.admin.web.internal.model.ConfigurationModel;
 import com.liferay.configuration.admin.web.internal.util.ConfigurationModelIterator;
@@ -27,7 +31,10 @@ import com.liferay.portal.kernel.util.WebKeys;
 
 import java.io.IOException;
 
+<<<<<<< HEAD
 import java.util.HashMap;
+=======
+>>>>>>> compatible
 import java.util.List;
 import java.util.Map;
 
@@ -37,9 +44,12 @@ import javax.portlet.RenderResponse;
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
 import org.osgi.service.component.annotations.ReferencePolicyOption;
+=======
+>>>>>>> compatible
 
 /**
  * @author Jorge Ferrer
@@ -48,8 +58,12 @@ import org.osgi.service.component.annotations.ReferencePolicyOption;
 	immediate = true,
 	property = {
 		"javax.portlet.name=" + ConfigurationAdminPortletKeys.SYSTEM_SETTINGS,
+<<<<<<< HEAD
 		"mvc.command.name=/view_factory_instances",
 		"service.ranking:Integer=" + Integer.MAX_VALUE
+=======
+		"mvc.command.name=/view_factory_instances"
+>>>>>>> compatible
 	},
 	service = MVCRenderCommand.class
 )
@@ -60,6 +74,7 @@ public class ViewFactoryInstancesMVCRenderCommand implements MVCRenderCommand {
 			RenderRequest renderRequest, RenderResponse renderResponse)
 		throws PortletException {
 
+<<<<<<< HEAD
 		String factoryPid = ParamUtil.getString(renderRequest, "factoryPid");
 
 		MVCRenderCommand customRenderCommand = _renderCommands.get(factoryPid);
@@ -68,6 +83,8 @@ public class ViewFactoryInstancesMVCRenderCommand implements MVCRenderCommand {
 			return customRenderCommand.render(renderRequest, renderResponse);
 		}
 
+=======
+>>>>>>> compatible
 		ThemeDisplay themeDisplay = (ThemeDisplay)renderRequest.getAttribute(
 			WebKeys.THEME_DISPLAY);
 
@@ -75,6 +92,11 @@ public class ViewFactoryInstancesMVCRenderCommand implements MVCRenderCommand {
 			_configurationModelRetriever.getConfigurationModels(
 				themeDisplay.getLanguageId());
 
+<<<<<<< HEAD
+=======
+		String factoryPid = ParamUtil.getString(renderRequest, "factoryPid");
+
+>>>>>>> compatible
 		try {
 			ConfigurationModel factoryConfigurationModel =
 				configurationModels.get(factoryPid);
@@ -102,6 +124,7 @@ public class ViewFactoryInstancesMVCRenderCommand implements MVCRenderCommand {
 		}
 	}
 
+<<<<<<< HEAD
 	@Reference(
 		cardinality = ReferenceCardinality.MULTIPLE,
 		policy = ReferencePolicy.DYNAMIC,
@@ -128,6 +151,11 @@ public class ViewFactoryInstancesMVCRenderCommand implements MVCRenderCommand {
 	private final Map<String, MVCRenderCommand> _renderCommands =
 		new HashMap<>();
 
+=======
+	@Reference
+	private ConfigurationModelRetriever _configurationModelRetriever;
+
+>>>>>>> compatible
 	@Reference
 	private ResourceBundleLoaderProvider _resourceBundleLoaderProvider;
 

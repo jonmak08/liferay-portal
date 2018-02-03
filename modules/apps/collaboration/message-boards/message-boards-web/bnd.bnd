@@ -1,10 +1,19 @@
 Bundle-Name: Liferay Message Boards Web
 Bundle-SymbolicName: com.liferay.message.boards.web
+<<<<<<< HEAD
 Bundle-Version: 2.0.0
 Import-Package:\
 	com.liferay.message.boards.util,\
 	\
 	*
+=======
+Bundle-Version: 1.2.27
+Export-Package:\
+	com.liferay.message.boards.web.constants,\
+	com.liferay.message.boards.web.exportimport.data.handler,\
+	com.liferay.message.boards.web.social,\
+	com.liferay.message.boards.web.trash
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Message Boards
 Web-ContextPath: /message-boards-web

@@ -16,16 +16,20 @@ AUI.add(
 		var Field = A.Component.create(
 			{
 				ATTRS: {
+<<<<<<< HEAD
 					autoFocus: {
 						value: false
 					},
 
+=======
+>>>>>>> compatible
 					container: {
 						setter: A.one,
 						valueFn: '_valueContainer'
 					},
 
 					dataType: {
+<<<<<<< HEAD
 						value: 'string'
 					},
 
@@ -34,21 +38,51 @@ AUI.add(
 						value: ''
 					},
 
+=======
+						getter: '_getDataType',
+						value: 'string'
+					},
+
+					fieldNamespace: {
+						value: ''
+					},
+
+					indexType: {
+						value: 'keyword'
+					},
+
+>>>>>>> compatible
 					instanceId: {
 						valueFn: '_valueInstanceId'
 					},
 
 					label: {
+<<<<<<< HEAD
 						state: true,
+=======
+						getter: '_getLabel',
+>>>>>>> compatible
 						value: ''
 					},
 
 					locale: {
+<<<<<<< HEAD
 						value: themeDisplay.getLanguageId()
 					},
 
 					name: {
 						state: true,
+=======
+						value: themeDisplay.getDefaultLanguageId()
+					},
+
+					localizable: {
+						setter: A.DataType.Boolean.parse,
+						value: true
+					},
+
+					name: {
+>>>>>>> compatible
 						value: ''
 					},
 
@@ -61,6 +95,7 @@ AUI.add(
 					},
 
 					predefinedValue: {
+<<<<<<< HEAD
 						value: ''
 					},
 
@@ -70,22 +105,44 @@ AUI.add(
 					},
 
 					rendered: {
+=======
+						valueFn: '_getDefaultValue'
+					},
+
+					readOnly: {
+						getter: '_getReadOnly',
+						value: false
+					},
+
+					required: {
+						setter: A.DataType.Boolean.parse,
+>>>>>>> compatible
 						value: false
 					},
 
 					showLabel: {
+<<<<<<< HEAD
 						state: true,
 						value: true
 					},
 
 					startedFilling: {
 						value: false
+=======
+						setter: A.DataType.Boolean.parse,
+						value: true
+					},
+
+					tip: {
+						value: ''
+>>>>>>> compatible
 					},
 
 					type: {
 						value: ''
 					},
 
+<<<<<<< HEAD
 					validation: {
 						value: {
 							errorMessage: '',
@@ -102,16 +159,27 @@ AUI.add(
 					visible: {
 						state: true,
 						value: true
+=======
+					value: {
+						valueFn: '_getDefaultValue'
+>>>>>>> compatible
 					}
 				},
 
 				AUGMENTS: [
+<<<<<<< HEAD
 					Renderer.FieldContextSupport,
 					Renderer.FieldEvaluationSupport,
+=======
+>>>>>>> compatible
 					Renderer.FieldEventsSupport,
 					Renderer.FieldFeedbackSupport,
 					Renderer.FieldRepetitionSupport,
 					Renderer.FieldValidationSupport,
+<<<<<<< HEAD
+=======
+					Renderer.FieldVisibilitySupport,
+>>>>>>> compatible
 					Renderer.NestedFieldsSupport
 				],
 
@@ -120,6 +188,18 @@ AUI.add(
 				NAME: 'liferay-ddm-form-renderer-field',
 
 				prototype: {
+<<<<<<< HEAD
+=======
+					initializer: function() {
+						var instance = this;
+
+						instance._eventHandlers = [
+							instance.after('localizableChange', instance._afterLocalizableChange),
+							instance.after('valueChange', instance._afterValueChange)
+						];
+					},
+
+>>>>>>> compatible
 					destructor: function() {
 						var instance = this;
 
@@ -136,8 +216,11 @@ AUI.add(
 						}
 
 						(new A.EventHandle(instance._eventHandlers)).detach();
+<<<<<<< HEAD
 
 						instance.set('rendered', false);
+=======
+>>>>>>> compatible
 					},
 
 					fetchContainer: function() {
@@ -148,7 +231,11 @@ AUI.add(
 						var container = instance._getContainerByInstanceId(instanceId);
 
 						if (!container) {
+<<<<<<< HEAD
 							var name = instance.get('fieldName');
+=======
+							var name = instance.get('name');
+>>>>>>> compatible
 
 							var repeatedIndex = instance.get('repeatedIndex');
 
@@ -161,7 +248,11 @@ AUI.add(
 					focus: function() {
 						var instance = this;
 
+<<<<<<< HEAD
 						instance.scrollIntoView();
+=======
+						instance.get('container').scrollIntoView();
+>>>>>>> compatible
 
 						instance.getInputNode().focus();
 					},
@@ -184,6 +275,23 @@ AUI.add(
 						).join('');
 					},
 
+<<<<<<< HEAD
+=======
+					getContextValue: function() {
+						var instance = this;
+
+						var predefinedValue = instance.get('predefinedValue');
+
+						var value = instance.getLocalizedValue(instance.get('value'));
+
+						if (!value && predefinedValue && !instance.get('readOnly')) {
+							value = instance.getLocalizedValue(predefinedValue);
+						}
+
+						return value;
+					},
+
+>>>>>>> compatible
 					getInputNode: function() {
 						var instance = this;
 
@@ -198,13 +306,49 @@ AUI.add(
 						return '[name="' + qualifiedName + '"]';
 					},
 
+<<<<<<< HEAD
+=======
+					getLabel: function() {
+						var instance = this;
+
+						var label = instance.get('label');
+						var locale = instance.get('locale');
+
+						if (Lang.isObject(label) && locale in label) {
+							label = label[locale];
+						}
+
+						return label || instance.get('name');
+					},
+
+					getLabelNode: function() {
+						var instance = this;
+
+						return instance.get('container').one('label');
+					},
+
+					getLocalizedValue: function(localizedValue) {
+						var instance = this;
+
+						if (Lang.isObject(localizedValue) && !Array.isArray(localizedValue)) {
+							localizedValue = localizedValue[instance.get('locale')];
+						}
+
+						return localizedValue;
+					},
+
+>>>>>>> compatible
 					getQualifiedName: function() {
 						var instance = this;
 
 						return [
 							instance.get('portletNamespace'),
 							'ddm$$',
+<<<<<<< HEAD
 							instance.get('fieldName'),
+=======
+							instance.get('name'),
+>>>>>>> compatible
 							'$',
 							instance.get('instanceId'),
 							'$',
@@ -214,6 +358,7 @@ AUI.add(
 						].join('');
 					},
 
+<<<<<<< HEAD
 					getTemplate: function() {
 						var instance = this;
 
@@ -224,16 +369,64 @@ AUI.add(
 						new renderer(instance.getTemplateContext(), container);
 
 						return container.firstChild.outerHTML;
+=======
+					getSerializedValue: function() {
+						var instance = this;
+
+						var serializedValue;
+
+						if (instance.get('localizable')) {
+							serializedValue = {};
+
+							serializedValue[instance.get('locale')] = instance.getValue();
+						}
+						else {
+							serializedValue = instance.getValue();
+						}
+
+						return serializedValue;
+					},
+
+					getTemplate: function() {
+						var instance = this;
+
+						var renderer = instance.getTemplateRenderer();
+
+						return renderer(instance.getTemplateContext());
+>>>>>>> compatible
 					},
 
 					getTemplateContext: function() {
 						var instance = this;
 
+<<<<<<< HEAD
 						return A.merge(
 							instance.get('context'),
 							{
 								name: instance.getQualifiedName(),
 								value: instance.get('value')
+=======
+						var context = {};
+
+						var fieldType = FieldTypes.get(instance.get('type'));
+
+						A.each(
+							fieldType.get('settings').fields,
+							function(item, index) {
+								context[item.name] = instance.get(item.name);
+							}
+						);
+
+						return A.merge(
+							context,
+							{
+								childElementsHTML: instance.getChildElementsHTML(),
+								label: instance.getLabel(),
+								name: instance.getQualifiedName(),
+								readOnly: instance.get('readOnly'),
+								tip: instance.getLocalizedValue(instance.get('tip')),
+								value: instance.getContextValue() || ''
+>>>>>>> compatible
 							}
 						);
 					},
@@ -262,6 +455,7 @@ AUI.add(
 						return Lang.String.unescapeHTML(inputNode.val());
 					},
 
+<<<<<<< HEAD
 					hasFocus: function() {
 						var instance = this;
 
@@ -270,6 +464,8 @@ AUI.add(
 						return container.contains(document.activeElement);
 					},
 
+=======
+>>>>>>> compatible
 					render: function(target) {
 						var instance = this;
 
@@ -281,7 +477,11 @@ AUI.add(
 							container.appendTo(target);
 						}
 
+<<<<<<< HEAD
 						container.setContent(instance.getTemplate());
+=======
+						container.html(instance.getTemplate());
+>>>>>>> compatible
 
 						instance.eachField(
 							function(field) {
@@ -291,6 +491,7 @@ AUI.add(
 
 						instance.fire('render');
 
+<<<<<<< HEAD
 						instance.set('rendered', true);
 
 						return instance;
@@ -302,6 +503,11 @@ AUI.add(
 						instance.get('container').scrollIntoView(false);
 					},
 
+=======
+						return instance;
+					},
+
+>>>>>>> compatible
 					setValue: function(value) {
 						var instance = this;
 
@@ -311,6 +517,7 @@ AUI.add(
 					toJSON: function() {
 						var instance = this;
 
+<<<<<<< HEAD
 						var context = instance.get('context');
 
 						context.value = instance.getValue();
@@ -318,6 +525,21 @@ AUI.add(
 						context.nestedFields = AArray.invoke(instance.getImmediateFields(), 'toJSON');
 
 						return context;
+=======
+						var fieldJSON = {
+							instanceId: instance.get('instanceId'),
+							name: instance.get('name'),
+							value: instance.getSerializedValue()
+						};
+
+						var fields = instance.getImmediateFields();
+
+						if (fields.length > 0) {
+							fieldJSON.nestedFieldValues = AArray.invoke(fields, 'toJSON');
+						}
+
+						return fieldJSON;
+>>>>>>> compatible
 					},
 
 					updateContainer: function() {
@@ -326,12 +548,31 @@ AUI.add(
 						instance.set('container', instance._valueContainer());
 					},
 
+<<<<<<< HEAD
+=======
+					_afterLocalizableChange: function() {
+						var instance = this;
+
+						instance.set('value', instance._getDefaultValue());
+					},
+
+					_afterValueChange: function() {
+						var instance = this;
+
+						instance.setValue(instance.getContextValue());
+					},
+
+>>>>>>> compatible
 					_createContainer: function() {
 						var instance = this;
 
 						var visible = instance.get('visible');
 
+<<<<<<< HEAD
 						return A.Node.create(
+=======
+						var container = A.Node.create(
+>>>>>>> compatible
 							Lang.sub(
 								TPL_FORM_FIELD_CONTAINER,
 								{
@@ -339,6 +580,13 @@ AUI.add(
 								}
 							)
 						);
+<<<<<<< HEAD
+=======
+
+						container.html(instance.getTemplate());
+
+						return container;
+>>>>>>> compatible
 					},
 
 					_getContainerByInstanceId: function(instanceId) {
@@ -381,9 +629,69 @@ AUI.add(
 						return container;
 					},
 
+<<<<<<< HEAD
 					_setParent: function(val) {
 						var instance = this;
 
+=======
+					_getDataType: function(dataType) {
+						var instance = this;
+
+						var validation = instance.get('validation');
+
+						if (validation) {
+							dataType = Util.getDataTypeFromValidation(dataType, validation);
+						}
+
+						return dataType;
+					},
+
+					_getDefaultValue: function() {
+						var instance = this;
+
+						var value = '';
+
+						if (instance.get('localizable')) {
+							value = instance.get('predefinedValue');
+
+							if (!Lang.isObject(value)) {
+								value = {};
+
+								value[instance.get('locale')] = '';
+							}
+						}
+
+						return value;
+					},
+
+					_getReadOnly: function(readOnly) {
+						var instance = this;
+
+						var form = instance.getRoot();
+
+						if (form && !readOnly) {
+							var readOnlyFields = form.get('readOnlyFields');
+
+							var name = instance.get('name');
+
+							readOnly = readOnlyFields.indexOf(name) > -1;
+						}
+
+						return readOnly;
+					},
+
+					_setParent: function(val) {
+						var instance = this;
+
+						var fields = val.get('fields');
+
+						var name = instance.get('name');
+
+						if (fields && !val.getField(name)) {
+							fields.push(instance);
+						}
+
+>>>>>>> compatible
 						instance.addTarget(val);
 					},
 
@@ -402,6 +710,7 @@ AUI.add(
 					_valueInstanceId: function() {
 						var instance = this;
 
+<<<<<<< HEAD
 						var instanceId;
 
 						var name = instance.get('name');
@@ -414,6 +723,9 @@ AUI.add(
 						}
 
 						return instanceId;
+=======
+						return Util.generateInstanceId(8);
+>>>>>>> compatible
 					}
 				}
 			}
@@ -423,6 +735,10 @@ AUI.add(
 	},
 	'',
 	{
+<<<<<<< HEAD
 		requires: ['aui-datatype', 'aui-node', 'liferay-ddm-form-renderer', 'liferay-ddm-form-renderer-field-context-support', 'liferay-ddm-form-renderer-field-evaluation', 'liferay-ddm-form-renderer-field-events', 'liferay-ddm-form-renderer-field-feedback', 'liferay-ddm-form-renderer-field-repetition', 'liferay-ddm-form-renderer-field-validation', 'liferay-ddm-form-renderer-nested-fields', 'liferay-ddm-form-renderer-types', 'liferay-ddm-form-renderer-util']
+=======
+		requires: ['aui-datatype', 'aui-node', 'liferay-ddm-form-renderer', 'liferay-ddm-form-renderer-field-events', 'liferay-ddm-form-renderer-field-feedback', 'liferay-ddm-form-renderer-field-repetition', 'liferay-ddm-form-renderer-field-validation', 'liferay-ddm-form-renderer-field-visibility', 'liferay-ddm-form-renderer-nested-fields', 'liferay-ddm-form-renderer-types', 'liferay-ddm-form-renderer-util']
+>>>>>>> compatible
 	}
 );

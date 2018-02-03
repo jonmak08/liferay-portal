@@ -137,11 +137,17 @@ public class MBThreadIndexer extends BaseIndexer<MBThread> {
 			document.addKeyword("discussion", true);
 		}
 
+<<<<<<< HEAD
 		Date lastPostDate = mbThread.getLastPostDate();
 
 		document.addKeyword("lastPostDate", lastPostDate.getTime());
 
 		document.addKeyword(
+=======
+		document.addKeyword(
+			"lastPostDate", mbThread.getLastPostDate().getTime());
+		document.addKeyword(
+>>>>>>> compatible
 			"participantUserIds", mbThread.getParticipantUserIds());
 
 		return document;

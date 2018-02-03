@@ -1,12 +1,20 @@
 <definition>
 	<var name="formName" value="Created Form Name" />
+<<<<<<< HEAD
 	<var name="rowIndexNumber" value="1" />
 
 	<command name="gotoAddDataProvider">
+=======
+
+	<command name="gotoAddDataProvider">
+		<execute function="SelectFrame" locator1="IFrame#DIALOG" />
+
+>>>>>>> compatible
 		<execute function="Click" locator1="FormsAdmin#DATA_PROVIDER_PLUS_BUTTON" />
 	</command>
 
 	<command name="gotoAddForm">
+<<<<<<< HEAD
 		<execute macro="LexiconEntry#gotoAdd" />
 	</command>
 
@@ -19,6 +27,9 @@
 				<execute function="Click" locator1="Button#LEAVE" />
 			</then>
 		</if>
+=======
+		<execute function="Click" locator1="Button#PLUS" />
+>>>>>>> compatible
 	</command>
 
 	<command name="gotoDataProviders">
@@ -30,6 +41,7 @@
 	</command>
 
 	<command name="gotoDeleteField">
+<<<<<<< HEAD
 		<toggle name="LPS-75355">
 			<on>
 				<execute macro="FormsAdminNavigator#gotoEditField">
@@ -76,11 +88,31 @@
 		<execute function="Click" locator1="Form#FIELD_BODY_DUPLICATE" />
 
 		<execute function="AssertElementPresent" locator1="Form#SIDEBAR_BASIC_TAB" />
+=======
+		<var name="key_fieldName" value="${fieldName}" />
+
+		<execute function="MouseOver" locator1="Form#FIELD_LABEL" />
+
+		<execute function="Click" locator1="Form#FIELD_ELLIPSIS" />
+
+		<execute function="Click" locator1="Form#FIELD_DELETE_BUTTON" />
+	</command>
+
+	<command name="gotoEdit">
+		<var name="key_rowEntry" value="${formName}" />
+
+		<execute function="Click#waitForMenuToggleJSClick" locator1="Icon#ROW_VERTICAL_ELLIPSIS" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Edit">
+			<var name="key_menuItem" value="Edit" />
+		</execute>
+>>>>>>> compatible
 	</command>
 
 	<command name="gotoEditField">
 		<var name="key_fieldName" value="${fieldName}" />
 
+<<<<<<< HEAD
 		<execute function="Click" locator1="Form#FIELD_BODY" />
 
 		<execute function="AssertElementPresent" locator1="Form#SIDEBAR_BASIC_TAB" />
@@ -134,6 +166,35 @@
 		<execute function="AssertClick" locator1="NavBar#ASSET_TITLE" value1="Rules" />
 	</command>
 
+=======
+		<execute function="MouseOver" locator1="Form#FIELD_LABEL" />
+
+		<execute function="Click" locator1="Form#FIELD_ELLIPSIS" />
+
+		<execute function="Click" locator1="Form#FIELD_EDIT_BUTTON" />
+	</command>
+
+	<command name="gotoEditFormByName">
+		<var name="key_formName" value="${formName}" />
+
+		<execute function="AssertClick" locator1="FormsAdmin#FORMS_TABLE_NAME" value1="${formName}" />
+	</command>
+
+	<command name="gotoPreviewForm">
+		<execute function="AssertClick" locator1="Message#INFO_LINK" value1="Click here to preview the form in a new window." />
+	</command>
+
+	<command name="gotoPublish">
+		<execute function="AssertElementPresent" locator1="Form#NAME_FIELD" />
+
+		<execute function="Click" locator1="Icon#HEADER_VERTICAL_ELLIPSIS" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Publish">
+			<var name="key_menuItem" value="Publish" />
+		</execute>
+	</command>
+
+>>>>>>> compatible
 	<command name="gotoSettings">
 		<execute function="AssertElementPresent" locator1="Form#NAME_FIELD" />
 
@@ -145,11 +206,19 @@
 	</command>
 
 	<command name="gotoView">
+<<<<<<< HEAD
 		<var name="key_rowIndexNumber" value="${rowIndexNumber}" />
 
 		<execute function="AssertElementPresent" locator1="Icon#ROW_VERTICAL_ELLIPSIS_N" />
 
 		<execute function="Click#waitForMenuToggleJSClick" locator1="Icon#ROW_VERTICAL_ELLIPSIS_N" />
+=======
+		<execute function="AssertElementPresent" locator1="Icon#BODY_VERTICAL_ELLIPSIS" />
+
+		<execute function="Click#waitForMenuToggleJSClick" locator1="Icon#BODY_VERTICAL_ELLIPSIS" />
+
+		<var name="key_formName" value="${formName}" />
+>>>>>>> compatible
 
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="View">
 			<var name="key_menuItem" value="View" />
@@ -161,15 +230,28 @@
 
 		<execute function="Click#waitForMenuToggleJSClick" locator1="Icon#BODY_VERTICAL_ELLIPSIS" />
 
+<<<<<<< HEAD
+=======
+		<var name="key_formName" value="${formName}" />
+
+>>>>>>> compatible
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="View Entries">
 			<var name="key_menuItem" value="View Entries" />
 		</execute>
 	</command>
 
 	<command name="gotoViewEntriesViaIcon">
+<<<<<<< HEAD
 		<execute function="Click#waitForMenuToggleJSClick" locator1="Icon#ROW_VERTICAL_ELLIPSIS">
 			<var name="key_rowEntry" value="${formName}" />
 		</execute>
+=======
+		<var name="key_rowEntry" value="${formName}" />
+
+		<execute function="Click#waitForMenuToggleJSClick" locator1="Icon#ROW_VERTICAL_ELLIPSIS" />
+
+		<var name="key_formName" value="${formName}" />
+>>>>>>> compatible
 
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="View Entries">
 			<var name="key_menuItem" value="View Entries" />
@@ -177,9 +259,13 @@
 	</command>
 
 	<command name="openPublishURL">
+<<<<<<< HEAD
 		<execute macro="FormsAdminNavigator#gotoPublishCopyURLLink" />
 
 		<var method="selenium#getElementValue(Form#PUBLISH_FORM_PUBLIC_URL)" name="publishFormURL" />
+=======
+		<var locator="Form#PUBLISH_FORM_PUBLIC_URL" name="publishFormURL" />
+>>>>>>> compatible
 
 		<execute macro="Navigator#openSpecificURL">
 			<var name="url" value="${publishFormURL}" />

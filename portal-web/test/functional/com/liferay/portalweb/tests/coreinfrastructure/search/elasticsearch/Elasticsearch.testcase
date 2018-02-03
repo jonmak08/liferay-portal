@@ -22,12 +22,20 @@
 
 				<execute macro="DMDocument#tearDownCP" />
 
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP" />
+=======
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 			</else>
 		</if>
 	</tear-down>
 
+<<<<<<< HEAD
 	<command name="AssertConfigFileValuesPropogateToModule" priority="5">
+=======
+	<command name="AssertConfigFileValuesPropogateToModule" priority="4">
+>>>>>>> compatible
 		<property name="osgi.module.configuration.file.names" value="com.liferay.portal.search.elasticsearch.configuration.ElasticsearchConfiguration.config" />
 		<property name="osgi.module.configurations" value="operationMode=&quot;EMBEDDED&quot;
 clientTransportIgnoreClusterName=&quot;false&quot;
@@ -52,26 +60,43 @@ networkHost=&quot;&quot;
 transportAddresses=&quot;localhost:9300&quot;
 clusterName=&quot;LiferayElasticsearchCluster1&quot;
 discoveryZenPingUnicastHostsPort=&quot;9300-9400&quot;" />
+<<<<<<< HEAD
 		<property name="portal.acceptance" value="true" />
+=======
+>>>>>>> compatible
 
 		<execute macro="Navigator#openSpecificURL">
 			<var name="url" value="http://localhost:9200" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Elasticsearch#viewClusterStatus">
 			<var name="clusterStatus" value="&quot;cluster_name&quot; : &quot;LiferayElasticsearchCluster1&quot;" />
 		</execute>
+=======
+		<!-- LRQA-28998 -->
+
+		<!--<execute macro="Elasticsearch#viewClusterStatus">
+			<var name="clusterStatus" value="&quot;cluster_name&quot; : &quot;LiferayElasticsearchCluster1&quot;" />
+		</execute>-->
+>>>>>>> compatible
 	</command>
 
 	<command name="AssertIndexOnStartupViaRemote" priority="5">
 		<description message="This test asserts that index on startup works consistently on remote Elasticsearch." />
 
+<<<<<<< HEAD
 		<property name="portal.acceptance" value="true" />
 		<property name="remote.elasticsearch.enabled" value="true" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Users" />
 			<var name="panel" value="Control Panel" />
+=======
+		<property name="remote.elasticsearch.enabled" value="true" />
+
+		<execute macro="ProductMenu#gotoControlPanelUsers">
+>>>>>>> compatible
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
@@ -83,12 +108,19 @@ discoveryZenPingUnicastHostsPort=&quot;9300-9400&quot;" />
 		</execute>
 	</command>
 
+<<<<<<< HEAD
 	<command name="AssertSystemSettingsPropogateToModule" priority="5">
 		<property name="test.name.skip.portal.instance" value="Elasticsearch#AssertSystemSettingsPropogateToModule" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+	<command ignore="true" name="AssertSystemSettingsPropogateToModule" priority="4">
+		<property name="test.name.skip.portal.instance" value="Elasticsearch#AssertSystemSettingsPropogateToModule" />
+
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="System Settings" />
 		</execute>
 
@@ -117,6 +149,7 @@ discoveryZenPingUnicastHostsPort=&quot;9300-9400&quot;" />
 			<var name="clusterStatus" value="&quot;cluster_name&quot; : &quot;LiferayElasticsearchCluster1&quot;" />
 		</execute>-->
 	</command>
+<<<<<<< HEAD
 
 	<command name="ElasticsearchRemoteClusterSmokeTest" priority="5">
 		<property name="remote.elasticsearch.cluster.size" value="2" />
@@ -186,4 +219,6 @@ discoveryZenPingUnicastHostsPort=&quot;9300-9400&quot;" />
 			<var name="searchAssetType" value="Message Boards Message" />
 		</execute>
 	</command>
+=======
+>>>>>>> compatible
 </definition>

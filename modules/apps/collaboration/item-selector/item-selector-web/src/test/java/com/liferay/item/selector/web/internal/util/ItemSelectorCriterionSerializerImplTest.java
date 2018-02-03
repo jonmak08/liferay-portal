@@ -122,7 +122,11 @@ public class ItemSelectorCriterionSerializerImplTest {
 	}
 
 	private String _assert(String expected, String json) {
+<<<<<<< HEAD
 		Assert.assertTrue(json, json.contains(expected));
+=======
+		Assert.assertTrue(json.contains(expected));
+>>>>>>> compatible
 
 		return json.replaceAll(Pattern.quote(expected), "");
 	}

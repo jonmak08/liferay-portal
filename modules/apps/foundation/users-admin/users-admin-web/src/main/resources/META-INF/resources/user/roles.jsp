@@ -17,6 +17,7 @@
 <%@ include file="/init.jsp" %>
 
 <%
+<<<<<<< HEAD
 UserDisplayContext userDisplayContext = new UserDisplayContext(request, initDisplayContext);
 
 User selUser = userDisplayContext.getSelectedUser();
@@ -28,6 +29,17 @@ List<UserGroupRole> organizationRoles = userDisplayContext.getOrganizationRoles(
 List<UserGroupRole> siteRoles = userDisplayContext.getSiteRoles();
 List<UserGroupGroupRole> inheritedSiteRoles = userDisplayContext.getInheritedSiteRoles();
 List<Group> roleGroups = userDisplayContext.getRoleGroups();
+=======
+User selUser = (User)request.getAttribute("user.selUser");
+List<Group> groups = (List<Group>)request.getAttribute("user.groups");
+List<Organization> organizations = (List<Organization>)request.getAttribute("user.organizations");
+Long[] organizationIds = UsersAdminUtil.getOrganizationIds(organizations);
+List<Role> roles = (List<Role>)request.getAttribute("user.roles");
+List<UserGroupRole> organizationRoles = (List<UserGroupRole>)request.getAttribute("user.organizationRoles");
+List<UserGroupRole> siteRoles = (List<UserGroupRole>)request.getAttribute("user.siteRoles");
+List<UserGroupGroupRole> inheritedSiteRoles = (List<UserGroupGroupRole>)request.getAttribute("user.inheritedSiteRoles");
+List<Group> roleGroups = (List<Group>)request.getAttribute("user.roleGroups");
+>>>>>>> compatible
 
 currentURLObj.setParameter("historyKey", renderResponse.getNamespace() + "roles");
 
@@ -98,7 +110,11 @@ String organizationRoleSyncEntitiesEventName = liferayPortletResponse.getNamespa
 		cssClass="modify-link"
 		id="selectRegularRoleLink"
 		label="<%= true %>"
+<<<<<<< HEAD
 		linkCssClass="btn btn-primary"
+=======
+		linkCssClass="btn btn-default btn-lg"
+>>>>>>> compatible
 		message="select"
 		method="get"
 		url="javascript:;"
@@ -339,7 +355,11 @@ String organizationRoleSyncEntitiesEventName = liferayPortletResponse.getNamespa
 		cssClass="modify-link"
 		id="selectOrganizationRoleLink"
 		label="<%= true %>"
+<<<<<<< HEAD
 		linkCssClass="btn btn-primary"
+=======
+		linkCssClass="btn btn-default btn-lg"
+>>>>>>> compatible
 		message="select"
 		method="get"
 		url="javascript:;"
@@ -425,11 +445,16 @@ String organizationRoleSyncEntitiesEventName = liferayPortletResponse.getNamespa
 				<liferay-ui:search-container-column-text
 					cssClass="table-cell-content"
 					name="site"
+<<<<<<< HEAD
 				>
 					<liferay-staging:descriptive-name
 						group="<%= userGroupRole.getGroup() %>"
 					/>
 				</liferay-ui:search-container-column-text>
+=======
+					value="<%= HtmlUtil.escape(userGroupRole.getGroup().getDescriptiveName(locale)) %>"
+				/>
+>>>>>>> compatible
 
 				<%
 				boolean membershipProtected = false;
@@ -461,7 +486,11 @@ String organizationRoleSyncEntitiesEventName = liferayPortletResponse.getNamespa
 				cssClass="modify-link"
 				id="selectSiteRoleLink"
 				label="<%= true %>"
+<<<<<<< HEAD
 				linkCssClass="btn btn-primary"
+=======
+				linkCssClass="btn btn-default btn-lg"
+>>>>>>> compatible
 				message="select"
 				method="get"
 				url="javascript:;"
@@ -606,11 +635,16 @@ String organizationRoleSyncEntitiesEventName = liferayPortletResponse.getNamespa
 			<liferay-ui:search-container-column-text
 				cssClass="table-cell-content"
 				name="site"
+<<<<<<< HEAD
 			>
 				<liferay-staging:descriptive-name
 					group="<%= userGroupGroupRole.getGroup() %>"
 				/>
 			</liferay-ui:search-container-column-text>
+=======
+				value="<%= HtmlUtil.escape(userGroupGroupRole.getGroup().getDescriptiveName(locale)) %>"
+			/>
+>>>>>>> compatible
 
 			<liferay-ui:search-container-column-text
 				cssClass="table-cell-content"

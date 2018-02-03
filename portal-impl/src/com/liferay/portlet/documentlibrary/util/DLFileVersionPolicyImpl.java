@@ -33,6 +33,10 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.DigesterUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StreamUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.util.PropsValues;
@@ -189,10 +193,17 @@ public class DLFileVersionPolicyImpl implements DLFileVersionPolicy {
 
 		// Checksum
 
+<<<<<<< HEAD
+=======
+		InputStream lastInputStream = null;
+		InputStream latestInputStream = null;
+
+>>>>>>> compatible
 		try {
 			String lastChecksum = lastDLFileVersion.getChecksum();
 
 			if (Validator.isNull(lastChecksum)) {
+<<<<<<< HEAD
 				try (InputStream lastInputStream = DLStoreUtil.getFileAsStream(
 						dlFileEntry.getCompanyId(),
 						dlFileEntry.getDataRepositoryId(),
@@ -201,12 +212,21 @@ public class DLFileVersionPolicyImpl implements DLFileVersionPolicy {
 
 					lastChecksum = DigesterUtil.digestBase64(lastInputStream);
 				}
+=======
+				lastInputStream = DLStoreUtil.getFileAsStream(
+					dlFileEntry.getCompanyId(),
+					dlFileEntry.getDataRepositoryId(), dlFileEntry.getName(),
+					lastDLFileVersion.getVersion());
+
+				lastChecksum = DigesterUtil.digestBase64(lastInputStream);
+>>>>>>> compatible
 
 				lastDLFileVersion.setChecksum(lastChecksum);
 
 				dlFileVersionPersistence.update(lastDLFileVersion);
 			}
 
+<<<<<<< HEAD
 			try (InputStream latestInputStream = DLStoreUtil.getFileAsStream(
 					dlFileEntry.getCompanyId(),
 					dlFileEntry.getDataRepositoryId(), dlFileEntry.getName(),
@@ -222,6 +242,21 @@ public class DLFileVersionPolicyImpl implements DLFileVersionPolicy {
 				latestDLFileVersion.setChecksum(latestChecksum);
 			}
 
+=======
+			latestInputStream = DLStoreUtil.getFileAsStream(
+				dlFileEntry.getCompanyId(), dlFileEntry.getDataRepositoryId(),
+				dlFileEntry.getName(), latestDLFileVersion.getVersion());
+
+			String latestChecksum = DigesterUtil.digestBase64(
+				latestInputStream);
+
+			if (lastChecksum.equals(latestChecksum)) {
+				return true;
+			}
+
+			latestDLFileVersion.setChecksum(latestChecksum);
+
+>>>>>>> compatible
 			dlFileVersionPersistence.update(latestDLFileVersion);
 		}
 		catch (Exception e) {
@@ -229,6 +264,13 @@ public class DLFileVersionPolicyImpl implements DLFileVersionPolicy {
 				_log.warn(e, e);
 			}
 		}
+<<<<<<< HEAD
+=======
+		finally {
+			StreamUtil.cleanUp(lastInputStream);
+			StreamUtil.cleanUp(latestInputStream);
+		}
+>>>>>>> compatible
 
 		return false;
 	}

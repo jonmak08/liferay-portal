@@ -14,10 +14,16 @@
 
 package com.liferay.blogs.web.internal.upload;
 
+<<<<<<< HEAD
 import com.liferay.blogs.exception.EntryImageNameException;
 import com.liferay.blogs.exception.EntryImageSizeException;
 import com.liferay.item.selector.ItemSelectorUploadResponseHandler;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.blogs.kernel.exception.EntryImageNameException;
+import com.liferay.blogs.kernel.exception.EntryImageSizeException;
+import com.liferay.item.selector.ItemSelectorUploadResponseHandler;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
@@ -25,6 +31,10 @@ import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.servlet.ServletResponseConstants;
 import com.liferay.portal.kernel.upload.UploadPortletRequest;
 import com.liferay.portal.kernel.util.PropsKeys;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.util.PrefsPropsUtil;
 import com.liferay.upload.UploadResponseHandler;

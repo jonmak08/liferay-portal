@@ -27,11 +27,16 @@ import com.liferay.portal.kernel.util.Accessor;
  * @see MBDiscussionModel
  * @see com.liferay.portlet.messageboards.model.impl.MBDiscussionImpl
  * @see com.liferay.portlet.messageboards.model.impl.MBDiscussionModelImpl
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, replaced by {@link
 com.liferay.message.boards.model.impl.MBDiscussionImpl}
  * @generated
  */
 @Deprecated
+=======
+ * @generated
+ */
+>>>>>>> compatible
 @ImplementationClassName("com.liferay.portlet.messageboards.model.impl.MBDiscussionImpl")
 @ProviderType
 public interface MBDiscussion extends MBDiscussionModel, PersistedModel {

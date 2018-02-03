@@ -14,8 +14,11 @@
 
 package com.liferay.portal.resiliency.service;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.ClassLoaderPool;
 import com.liferay.portal.internal.resiliency.service.ServiceMethodProcessCallable;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.module.framework.service.IdentifiableOSGiServiceInvokerUtil;
 import com.liferay.portal.kernel.nio.intraband.rpc.IntrabandRPCUtil;
 import com.liferay.portal.kernel.resiliency.spi.SPI;

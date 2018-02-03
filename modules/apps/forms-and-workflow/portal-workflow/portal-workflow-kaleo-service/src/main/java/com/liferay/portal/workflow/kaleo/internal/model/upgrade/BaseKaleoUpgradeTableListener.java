@@ -47,9 +47,14 @@ public class BaseKaleoUpgradeTableListener extends BaseUpgradeTableListener {
 			con = DataAccess.getUpgradeOptimizedConnection();
 
 			ps = con.prepareStatement(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"select ", keyColumnName, ", ", valueColumnName, " from ",
 					tableName));
+=======
+				"select " + keyColumnName + ", " + valueColumnName + " from " +
+					tableName);
+>>>>>>> compatible
 
 			rs = ps.executeQuery();
 
@@ -59,9 +64,14 @@ public class BaseKaleoUpgradeTableListener extends BaseUpgradeTableListener {
 
 				if (_log.isDebugEnabled()) {
 					_log.debug(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"{", keyColumnName, "=", String.valueOf(key), ", ",
 							valueColumnName, "=", String.valueOf(value), "}"));
+=======
+						"{" + keyColumnName + "=" + key + ", " +
+							valueColumnName + "=" + value + "}");
+>>>>>>> compatible
 				}
 
 				keyValueMap.put(key, value);

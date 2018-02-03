@@ -14,12 +14,15 @@
 
 package com.liferay.source.formatter.checks;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.source.formatter.util.FileUtil;
 
 import java.io.File;
 
+=======
+>>>>>>> compatible
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -30,6 +33,7 @@ public class GradleVersionCheck extends BaseFileCheck {
 
 	@Override
 	protected String doProcess(
+<<<<<<< HEAD
 			String fileName, String absolutePath, String content)
 		throws Exception {
 
@@ -47,10 +51,16 @@ public class GradleVersionCheck extends BaseFileCheck {
 					fileName, content, matcher.group(1), name, version);
 			}
 		}
+=======
+		String fileName, String absolutePath, String content) {
+
+		_checkDefaultVersion(fileName, content);
+>>>>>>> compatible
 
 		return content;
 	}
 
+<<<<<<< HEAD
 	private void _checkDefaultVersion(
 		String fileName, String content, String name, String version, int pos) {
 
@@ -113,5 +123,27 @@ public class GradleVersionCheck extends BaseFileCheck {
 		"-conditionalpackage:(.*[^\\\\])(\n|\\Z)", Pattern.DOTALL);
 	private final Pattern _versionPattern = Pattern.compile(
 		"\n\t*(.* name: \"(.*?)\", version: \"(.*?)\")");
+=======
+	private void _checkDefaultVersion(String fileName, String content) {
+		Matcher matcher = _defaultVersionPattern.matcher(content);
+
+		while (matcher.find()) {
+			String name = matcher.group(1);
+
+			if (!name.equals("com.liferay.portal.impl") &&
+				!name.equals("com.liferay.portal.kernel") &&
+				!name.equals("com.liferay.util.bridges") &&
+				!name.equals("com.liferay.util.taglib")) {
+
+				addMessage(
+					fileName, "Do not use 'default' version for '" + name + "'",
+					getLineCount(content, matcher.start()));
+			}
+		}
+	}
+
+	private final Pattern _defaultVersionPattern = Pattern.compile(
+		"name: \"(.*?)\", version: \"default\"");
+>>>>>>> compatible
 
 }

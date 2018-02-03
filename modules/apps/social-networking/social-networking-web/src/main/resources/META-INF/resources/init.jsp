@@ -24,13 +24,22 @@ taglib uri="http://liferay.com/tld/portlet" prefix="liferay-portlet" %><%@
 taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %><%@
 taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 
+<<<<<<< HEAD
 <%@ page import="com.liferay.blogs.model.BlogsEntry" %><%@
 page import="com.liferay.blogs.service.BlogsStatsUserLocalService" %><%@
+=======
+<%@ page import="com.liferay.blogs.kernel.model.BlogsEntry" %><%@
+page import="com.liferay.blogs.kernel.service.BlogsStatsUserLocalServiceUtil" %><%@
+>>>>>>> compatible
 page import="com.liferay.expando.kernel.service.ExpandoValueLocalServiceUtil" %><%@
 page import="com.liferay.ip.geocoder.IPGeocoder" %><%@
 page import="com.liferay.ip.geocoder.IPInfo" %><%@
 page import="com.liferay.message.boards.kernel.model.MBMessage" %><%@
+<<<<<<< HEAD
 page import="com.liferay.message.boards.service.MBStatsUserLocalServiceUtil" %><%@
+=======
+page import="com.liferay.message.boards.kernel.service.MBStatsUserLocalServiceUtil" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.dao.search.SearchContainer" %><%@
 page import="com.liferay.portal.kernel.exception.NoSuchUserException" %><%@
 page import="com.liferay.portal.kernel.language.LanguageUtil" %><%@
@@ -71,6 +80,11 @@ page import="com.liferay.social.kernel.service.SocialRequestLocalServiceUtil" %>
 page import="com.liferay.social.networking.constants.SocialNetworkingPortletKeys" %><%@
 page import="com.liferay.social.networking.exception.NoSuchMeetupsEntryException" %><%@
 page import="com.liferay.social.networking.exception.NoSuchMeetupsRegistrationException" %><%@
+<<<<<<< HEAD
+=======
+page import="com.liferay.social.networking.friends.social.FriendsRequestKeys" %><%@
+page import="com.liferay.social.networking.members.social.MembersRequestKeys" %><%@
+>>>>>>> compatible
 page import="com.liferay.social.networking.model.MeetupsEntry" %><%@
 page import="com.liferay.social.networking.model.MeetupsRegistration" %><%@
 page import="com.liferay.social.networking.model.WallEntry" %><%@
@@ -78,9 +92,13 @@ page import="com.liferay.social.networking.service.MeetupsEntryLocalServiceUtil"
 page import="com.liferay.social.networking.service.MeetupsRegistrationLocalServiceUtil" %><%@
 page import="com.liferay.social.networking.service.WallEntryLocalServiceUtil" %><%@
 page import="com.liferay.social.networking.web.internal.constants.SocialNetworkingWebKeys" %><%@
+<<<<<<< HEAD
 page import="com.liferay.social.networking.web.internal.friends.social.FriendsRequestKeys" %><%@
 page import="com.liferay.social.networking.web.internal.meetups.util.MeetupsConstants" %><%@
 page import="com.liferay.social.networking.web.internal.members.social.MembersRequestKeys" %><%@
+=======
+page import="com.liferay.social.networking.web.internal.meetups.util.MeetupsConstants" %><%@
+>>>>>>> compatible
 page import="com.liferay.social.networking.web.internal.util.WallUtil" %><%@
 page import="com.liferay.taglib.search.ResultRow" %>
 

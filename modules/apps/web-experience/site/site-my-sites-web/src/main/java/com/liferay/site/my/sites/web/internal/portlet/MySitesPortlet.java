@@ -32,7 +32,11 @@ import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.liveusers.LiveUsers;
+<<<<<<< HEAD
 import com.liferay.site.my.sites.web.internal.constants.MySitesPortletKeys;
+=======
+import com.liferay.site.my.sites.web.constants.MySitesPortletKeys;
+>>>>>>> compatible
 
 import java.util.HashSet;
 import java.util.Set;

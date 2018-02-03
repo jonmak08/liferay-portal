@@ -23,12 +23,20 @@ taglib uri="http://liferay.com/tld/portlet" prefix="liferay-portlet" %><%@
 taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %><%@
 taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %>
 
+<<<<<<< HEAD
 <%@ page import="com.liferay.blogs.model.BlogsEntry" %><%@
 page import="com.liferay.blogs.model.BlogsStatsUser" %><%@
 page import="com.liferay.blogs.service.BlogsEntryLocalServiceUtil" %><%@
 page import="com.liferay.blogs.service.BlogsStatsUserLocalServiceUtil" %><%@
 page import="com.liferay.blogs.util.comparator.StatsUserLastPostDateComparator" %><%@
 page import="com.liferay.petra.string.StringPool" %><%@
+=======
+<%@ page import="com.liferay.blogs.kernel.model.BlogsEntry" %><%@
+page import="com.liferay.blogs.kernel.model.BlogsStatsUser" %><%@
+page import="com.liferay.blogs.kernel.service.BlogsEntryLocalServiceUtil" %><%@
+page import="com.liferay.blogs.kernel.service.BlogsStatsUserLocalServiceUtil" %><%@
+page import="com.liferay.blogs.kernel.util.comparator.StatsUserLastPostDateComparator" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.dao.orm.QueryDefinition" %><%@
 page import="com.liferay.portal.kernel.dao.search.SearchContainer" %><%@
 page import="com.liferay.portal.kernel.model.Group" %><%@
@@ -46,6 +54,10 @@ page import="com.liferay.portal.kernel.util.GetterUtil" %><%@
 page import="com.liferay.portal.kernel.util.HtmlUtil" %><%@
 page import="com.liferay.portal.kernel.util.PortalUtil" %><%@
 page import="com.liferay.portal.kernel.util.StringBundler" %><%@
+<<<<<<< HEAD
+=======
+page import="com.liferay.portal.kernel.util.StringPool" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.util.WebKeys" %><%@
 page import="com.liferay.portal.kernel.workflow.WorkflowConstants" %><%@
 page import="com.liferay.ratings.kernel.RatingsType" %><%@

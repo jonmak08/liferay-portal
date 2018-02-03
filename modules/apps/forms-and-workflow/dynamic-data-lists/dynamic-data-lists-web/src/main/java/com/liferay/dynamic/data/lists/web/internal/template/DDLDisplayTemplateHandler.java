@@ -202,7 +202,11 @@ public class DDLDisplayTemplateHandler extends BaseDDMTemplateHandler {
 	private Portal _portal;
 
 	@Reference(
+<<<<<<< HEAD
 		target = "(&(release.bundle.symbolic.name=com.liferay.dynamic.data.lists.service)(release.schema.version=1.2.1))"
+=======
+		target = "(&(release.bundle.symbolic.name=com.liferay.dynamic.data.lists.service)(release.schema.version=1.0.0))"
+>>>>>>> compatible
 	)
 	private Release _release;
 

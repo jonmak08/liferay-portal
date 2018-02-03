@@ -54,7 +54,11 @@ public class DDMFormLayoutJSONDeserializerImpl
 			jsonObject.getString("defaultLanguageId"), ddmFormLayout);
 		setDDMFormLayoutPages(jsonObject.getJSONArray("pages"), ddmFormLayout);
 		setDDMFormLayoutPageTitlesDefaultLocale(ddmFormLayout);
+<<<<<<< HEAD
 		setDDMFormLayoutPaginationMode(
+=======
+		_setDDMFormLayoutPaginationMode(
+>>>>>>> compatible
 			jsonObject.getString("paginationMode"), ddmFormLayout);
 
 		return ddmFormLayout;
@@ -149,6 +153,7 @@ public class DDMFormLayoutJSONDeserializerImpl
 		return ddmFormLayoutRows;
 	}
 
+<<<<<<< HEAD
 	protected LocalizedValue getDescription(JSONObject jsonObject) {
 		if (jsonObject == null) {
 			return null;
@@ -169,6 +174,8 @@ public class DDMFormLayoutJSONDeserializerImpl
 		return description;
 	}
 
+=======
+>>>>>>> compatible
 	protected LocalizedValue getTitle(JSONObject jsonObject) {
 		if (jsonObject == null) {
 			return null;
@@ -209,7 +216,11 @@ public class DDMFormLayoutJSONDeserializerImpl
 	protected void setDDMFormLayoutPageDescription(
 		JSONObject jsonObject, DDMFormLayoutPage ddmFormLayoutPage) {
 
+<<<<<<< HEAD
 		LocalizedValue description = getDescription(jsonObject);
+=======
+		LocalizedValue description = _getDescription(jsonObject);
+>>>>>>> compatible
 
 		if (description == null) {
 			return;
@@ -260,12 +271,15 @@ public class DDMFormLayoutJSONDeserializerImpl
 		}
 	}
 
+<<<<<<< HEAD
 	protected void setDDMFormLayoutPaginationMode(
 		String paginationMode, DDMFormLayout ddmFormLayout) {
 
 		ddmFormLayout.setPaginationMode(paginationMode);
 	}
 
+=======
+>>>>>>> compatible
 	protected void setDDMFormLayoutRowColumns(
 		JSONArray jsonArray, DDMFormLayoutRow ddmFormLayoutRow) {
 
@@ -280,6 +294,35 @@ public class DDMFormLayoutJSONDeserializerImpl
 		_jsonFactory = jsonFactory;
 	}
 
+<<<<<<< HEAD
+=======
+	private LocalizedValue _getDescription(JSONObject jsonObject) {
+		if (jsonObject == null) {
+			return null;
+		}
+
+		LocalizedValue description = new LocalizedValue();
+
+		Iterator<String> itr = jsonObject.keys();
+
+		while (itr.hasNext()) {
+			String languageId = itr.next();
+
+			description.addString(
+				LocaleUtil.fromLanguageId(languageId),
+				jsonObject.getString(languageId));
+		}
+
+		return description;
+	}
+
+	private void _setDDMFormLayoutPaginationMode(
+		String paginationMode, DDMFormLayout ddmFormLayout) {
+
+		ddmFormLayout.setPaginationMode(paginationMode);
+	}
+
+>>>>>>> compatible
 	private JSONFactory _jsonFactory;
 
 }

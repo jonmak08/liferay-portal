@@ -59,8 +59,14 @@ public class SectionTag extends IncludeTag {
 			_sectionSelected = Boolean.valueOf(_tabsTag.getSectionSelected());
 			String sectionScroll = namespace + sectionParam + "TabsScroll";
 
+<<<<<<< HEAD
 			String sectionRedirectParams = StringBundler.concat(
 				"&scroll=", sectionScroll, "&", sectionParam, "=", sectionName);
+=======
+			String sectionRedirectParams =
+				"&scroll=" + sectionScroll + "&" + sectionParam + "=" +
+					sectionName;
+>>>>>>> compatible
 
 			_tabsTag.incrementSection();
 

@@ -32,7 +32,10 @@ import com.liferay.portal.kernel.util.GroupThreadLocal;
 import com.liferay.portal.kernel.util.LocaleThreadLocal;
 import com.liferay.portal.kernel.util.NamedThreadFactory;
 import com.liferay.portal.kernel.util.PortalClassLoaderUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.registry.Registry;
 import com.liferay.registry.RegistryUtil;
@@ -173,19 +176,29 @@ public abstract class BaseAsyncDestination extends BaseDestination {
 
 		if (threadPoolExecutor.isShutdown()) {
 			throw new IllegalStateException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Destination ", getName(), " is shutdown and cannot ",
 					"receive more messages"));
+=======
+				"Destination " + getName() + " is shutdown and cannot " +
+					"receive more messages");
+>>>>>>> compatible
 		}
 
 		populateMessageFromThreadLocals(message);
 
 		if (_log.isDebugEnabled()) {
 			_log.debug(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Sending message ", String.valueOf(message),
 					" from destination ", getName(), " to message listeners ",
 					String.valueOf(messageListeners)));
+=======
+				"Sending message " + message + " from destination " +
+					getName() + " to message listeners " + messageListeners);
+>>>>>>> compatible
 		}
 
 		dispatch(messageListeners, message);
@@ -195,10 +208,13 @@ public abstract class BaseAsyncDestination extends BaseDestination {
 		_maximumQueueSize = maximumQueueSize;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public void setRejectedExecutionHandler(
 		RejectedExecutionHandler rejectedExecutionHandler) {
 
@@ -223,10 +239,13 @@ public abstract class BaseAsyncDestination extends BaseDestination {
 		}
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	protected RejectedExecutionHandler createRejectionExecutionHandler() {
 		return new RejectedExecutionHandler() {
 
@@ -241,11 +260,17 @@ public abstract class BaseAsyncDestination extends BaseDestination {
 				MessageRunnable messageRunnable = (MessageRunnable)runnable;
 
 				_log.warn(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Discarding message ",
 						String.valueOf(messageRunnable.getMessage()),
 						" because it exceeds the maximum queue size of ",
 						String.valueOf(_maximumQueueSize)));
+=======
+					"Discarding message " + messageRunnable.getMessage() +
+						" because it exceeds the maximum queue size of " +
+							_maximumQueueSize);
+>>>>>>> compatible
 			}
 
 		};
@@ -254,10 +279,13 @@ public abstract class BaseAsyncDestination extends BaseDestination {
 	protected abstract void dispatch(
 		Set<MessageListener> messageListeners, Message message);
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	protected ThreadPoolExecutor getThreadPoolExecutor() {
 		return _threadPoolExecutor;
 	}

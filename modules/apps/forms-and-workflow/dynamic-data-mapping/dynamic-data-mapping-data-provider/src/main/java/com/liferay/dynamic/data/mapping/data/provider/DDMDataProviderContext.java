@@ -29,20 +29,26 @@ public class DDMDataProviderContext {
 		_ddmFormValues = ddmFormValues;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 2.1.0, replaced by {@link
 	 *             DDMDataProviderRequest#queryString(Map)}
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public void addParameters(Map<String, String> parameters) {
 		_parameters.putAll(parameters);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 2.1.0, replaced by {@link
 	 *             DDMDataProviderRequest#getParameters()}
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public Map<String, String> getParameters() {
 		return _parameters;
 	}

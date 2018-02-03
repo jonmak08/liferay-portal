@@ -48,7 +48,11 @@ import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HtmlUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringPool;
+=======
+import com.liferay.portal.kernel.util.StringUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 
@@ -112,9 +116,18 @@ public class KBArticleIndexer extends BaseIndexer<KBArticle> {
 	public Hits search(SearchContext searchContext) throws SearchException {
 		Hits hits = super.search(searchContext);
 
+<<<<<<< HEAD
 		String[] queryTerms = ArrayUtil.append(
 			GetterUtil.getStringValues(hits.getQueryTerms()),
 			KnowledgeBaseUtil.splitKeywords(searchContext.getKeywords()));
+=======
+		String[] queryTerms = hits.getQueryTerms();
+
+		String keywords = searchContext.getKeywords();
+
+		queryTerms = ArrayUtil.append(
+			queryTerms, KnowledgeBaseUtil.splitKeywords(keywords));
+>>>>>>> compatible
 
 		hits.setQueryTerms(queryTerms);
 
@@ -147,13 +160,18 @@ public class KBArticleIndexer extends BaseIndexer<KBArticle> {
 		Document document, Locale locale, String snippet,
 		PortletRequest portletRequest, PortletResponse portletResponse) {
 
+<<<<<<< HEAD
 		String prefix = Field.SNIPPET + StringPool.UNDERLINE;
 
 		String title = document.get(prefix + Field.TITLE, Field.TITLE);
+=======
+		String title = document.get(Field.TITLE);
+>>>>>>> compatible
 
 		String content = snippet;
 
 		if (Validator.isNull(snippet)) {
+<<<<<<< HEAD
 			content = document.get(
 				prefix + Field.DESCRIPTION, Field.DESCRIPTION);
 
@@ -167,6 +185,16 @@ public class KBArticleIndexer extends BaseIndexer<KBArticle> {
 		summary.setMaxContentLength(200);
 
 		return summary;
+=======
+			content = document.get(Field.DESCRIPTION);
+
+			if (Validator.isNull(content)) {
+				content = StringUtil.shorten(document.get(Field.CONTENT), 200);
+			}
+		}
+
+		return new Summary(title, content);
+>>>>>>> compatible
 	}
 
 	@Override

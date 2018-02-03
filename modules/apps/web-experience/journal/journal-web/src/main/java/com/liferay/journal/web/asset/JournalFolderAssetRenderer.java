@@ -29,7 +29,11 @@ import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
 import com.liferay.portal.kernel.trash.TrashRenderer;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.WebKeys;
+<<<<<<< HEAD
 import com.liferay.trash.TrashHelper;
+=======
+import com.liferay.trash.kernel.util.TrashUtil;
+>>>>>>> compatible
 
 import java.util.Date;
 import java.util.Locale;
@@ -49,6 +53,7 @@ public class JournalFolderAssetRenderer
 
 	public static final String TYPE = "folder";
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 2.0.0, replaced by {@link
 	 *             #JournalFolderAssetRenderer(JournalFolder, TrashHelper)}}
@@ -63,6 +68,10 @@ public class JournalFolderAssetRenderer
 
 		_folder = folder;
 		_trashHelper = trashHelper;
+=======
+	public JournalFolderAssetRenderer(JournalFolder folder) {
+		_folder = folder;
+>>>>>>> compatible
 	}
 
 	@Override
@@ -81,7 +90,11 @@ public class JournalFolderAssetRenderer
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 1.4.0, with no direct replacement
+=======
+	 * @deprecated As of 1.3.0, with no direct replacement
+>>>>>>> compatible
 	 */
 	@Deprecated
 	@Override
@@ -128,11 +141,15 @@ public class JournalFolderAssetRenderer
 
 	@Override
 	public String getTitle(Locale locale) {
+<<<<<<< HEAD
 		if (_trashHelper == null) {
 			return _folder.getName();
 		}
 
 		return _trashHelper.getOriginalTitle(_folder.getName());
+=======
+		return TrashUtil.getOriginalTitle(_folder.getName());
+>>>>>>> compatible
 	}
 
 	@Override
@@ -225,6 +242,9 @@ public class JournalFolderAssetRenderer
 	}
 
 	private final JournalFolder _folder;
+<<<<<<< HEAD
 	private final TrashHelper _trashHelper;
+=======
+>>>>>>> compatible
 
 }

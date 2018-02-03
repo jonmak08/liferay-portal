@@ -422,7 +422,11 @@
 						'destroy',
 						function() {
 							if (callback) {
+<<<<<<< HEAD
 								callback(linkUrl, selectedItem);
+=======
+								callback(linkUrl);
+>>>>>>> compatible
 							}
 						}
 					);

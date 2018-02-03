@@ -14,11 +14,18 @@
 
 package com.liferay.blogs.internal.xstream.configurator;
 
+<<<<<<< HEAD
 import com.liferay.blogs.model.impl.BlogsEntryImpl;
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.xstream.XStreamAlias;
 import com.liferay.exportimport.kernel.xstream.XStreamConverter;
 import com.liferay.exportimport.kernel.xstream.XStreamType;
 import com.liferay.portal.kernel.util.ListUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portlet.blogs.model.impl.BlogsEntryImpl;
+>>>>>>> compatible
 import com.liferay.xstream.configurator.XStreamConfigurator;
 
 import java.util.List;

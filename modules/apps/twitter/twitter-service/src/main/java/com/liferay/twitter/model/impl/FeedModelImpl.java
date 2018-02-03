@@ -29,6 +29,10 @@ import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import com.liferay.twitter.model.Feed;
 import com.liferay.twitter.model.FeedModel;
@@ -265,7 +269,11 @@ public class FeedModelImpl extends BaseModelImpl<Feed> implements FeedModel {
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -280,7 +288,11 @@ public class FeedModelImpl extends BaseModelImpl<Feed> implements FeedModel {
 	@Override
 	public String getUserName() {
 		if (_userName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _userName;
@@ -336,7 +348,11 @@ public class FeedModelImpl extends BaseModelImpl<Feed> implements FeedModel {
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -347,7 +363,11 @@ public class FeedModelImpl extends BaseModelImpl<Feed> implements FeedModel {
 	@Override
 	public String getTwitterScreenName() {
 		if (_twitterScreenName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _twitterScreenName;

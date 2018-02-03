@@ -31,18 +31,26 @@ public class PortletConstants {
 
 	/**
 	 * Facebook integration method for FBML.
+<<<<<<< HEAD
 	 *
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+	 */
+>>>>>>> compatible
 	public static final String FACEBOOK_INTEGRATION_FBML = "fbml";
 
 	/**
 	 * Facebook integration method for IFrame.
+<<<<<<< HEAD
 	 *
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+	 */
+>>>>>>> compatible
 	public static final String FACEBOOK_INTEGRATION_IFRAME = "iframe";
 
 	/**
@@ -159,7 +167,11 @@ public class PortletConstants {
 	 * @param      portletId the portlet ID
 	 * @return     the instance ID of the portlet
 	 * @deprecated As of 7.0.0, replaced by {@link
+<<<<<<< HEAD
 	 *             PortletIdCodec#decodeInstanceId(String)}
+=======
+	 *             PortletIdCodec#decodeInstanceId(java.lang.String)}
+>>>>>>> compatible
 	 */
 	@Deprecated
 	public static String getInstanceId(String portletId) {
@@ -172,7 +184,11 @@ public class PortletConstants {
 	 * @param      portletId the portlet ID
 	 * @return     the root portlet ID of the portlet
 	 * @deprecated As of 7.0.0, replaced by {@link
+<<<<<<< HEAD
 	 *             PortletIdCodec#decodePortletName(String)}
+=======
+	 *             PortletIdCodec#decodePortletName(java.lang.String)}
+>>>>>>> compatible
 	 */
 	@Deprecated
 	public static String getRootPortletId(String portletId) {
@@ -186,7 +202,11 @@ public class PortletConstants {
 	 * @param      portletId the portlet ID
 	 * @return     the user ID of the portlet
 	 * @deprecated As of 7.0.0, replaced by {@link
+<<<<<<< HEAD
 	 *             PortletIdCodec#decodeUserId(String)}
+=======
+	 *             PortletIdCodec#decodeUserId(java.lang.String)}
+>>>>>>> compatible
 	 */
 	@Deprecated
 	public static long getUserId(String portletId) {
@@ -212,7 +232,11 @@ public class PortletConstants {
 	 * @return     <code>true</code> if the portlet ID contains an instance ID;
 	 *             <code>false</code> otherwise
 	 * @deprecated As of 7.0.0, replaced by {@link
+<<<<<<< HEAD
 	 *             PortletIdCodec#hasInstanceId(String)}
+=======
+	 *             PortletIdCodec#hasInstanceId(java.lang.String)}
+>>>>>>> compatible
 	 */
 	@Deprecated
 	public static boolean hasInstanceId(String portletId) {
@@ -226,7 +250,11 @@ public class PortletConstants {
 	 * @return     <code>true</code> if the portlet ID contains a user ID;
 	 *             <code>false</code> otherwise
 	 * @deprecated As of 7.0.0, replaced by {@link
+<<<<<<< HEAD
 	 *             PortletIdCodec#hasUserId(String)}
+=======
+	 *             PortletIdCodec#hasUserId(java.lang.String)}
+>>>>>>> compatible
 	 */
 	@Deprecated
 	public static boolean hasUserId(String portletId) {

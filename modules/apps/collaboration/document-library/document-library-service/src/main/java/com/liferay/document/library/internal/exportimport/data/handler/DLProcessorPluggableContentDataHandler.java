@@ -67,7 +67,11 @@ public class DLProcessorPluggableContentDataHandler
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @see com.liferay.document.library.web.internal.lar.DLPortletDataHandler#NAMESPACE
+=======
+	 * @see com.liferay.document.library.web.lar.DLPortletDataHandler#NAMESPACE
+>>>>>>> compatible
 	 */
 	private static final String _DL_PORTLET_DATA_HANDLER_NAMESPACE =
 		"document_library";

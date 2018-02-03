@@ -106,6 +106,12 @@ public class LiferayProcessorCapability
 		return new LiferayProcessorRepositoryWrapper(repository, this);
 	}
 
+	public enum ResourceGenerationStrategy {
+
+		ALWAYS_GENERATE, REUSE
+
+	}
+
 	protected void registerDLProcessorCallback(
 		final FileEntry fileEntry, final FileVersion fileVersion) {
 

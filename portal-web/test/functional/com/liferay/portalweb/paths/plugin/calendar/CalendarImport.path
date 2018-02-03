@@ -15,7 +15,11 @@
 </tr>
 <tr>
 	<td>FILE_FIELD</td>
+<<<<<<< HEAD
 	<td>//input[contains(@id,'_file')]</td>
+=======
+	<td>//input[contains(@id,'_CalendarPortlet_file')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>

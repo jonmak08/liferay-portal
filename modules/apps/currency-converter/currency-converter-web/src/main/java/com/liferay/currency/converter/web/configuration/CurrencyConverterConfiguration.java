@@ -29,7 +29,11 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
 )
 public interface CurrencyConverterConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(deflt = "GBP|CNY|EUR|JPY|USD", name = "symbols", required = false)
+=======
+	@Meta.AD(deflt = "GBP|CNY|EUR|JPY|USD", required = false)
+>>>>>>> compatible
 	public String[] symbols();
 
 }

@@ -53,11 +53,16 @@ import java.util.List;
  * @see TrashEntryLocalServiceUtil
  * @see com.liferay.portlet.trash.service.base.TrashEntryLocalServiceBaseImpl
  * @see com.liferay.portlet.trash.service.impl.TrashEntryLocalServiceImpl
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, replaced by {@link
            com.liferay.trash.service.impl.TrashEntryLocalServiceImpl}
  * @generated
  */
 @Deprecated
+=======
+ * @generated
+ */
+>>>>>>> compatible
 @ProviderType
 @Transactional(isolation = Isolation.PORTAL, rollbackFor =  {
 	PortalException.class, SystemException.class})
@@ -68,6 +73,7 @@ public interface TrashEntryLocalService extends BaseLocalService,
 	 *
 	 * Never modify or reference this interface directly. Always use {@link TrashEntryLocalServiceUtil} to access the trash entry local service. Add custom service methods to {@link com.liferay.portlet.trash.service.impl.TrashEntryLocalServiceImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
 	 */
+<<<<<<< HEAD
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ActionableDynamicQuery getActionableDynamicQuery();
 
@@ -105,6 +111,8 @@ public interface TrashEntryLocalService extends BaseLocalService,
 	*/
 	@Indexable(type = IndexableType.REINDEX)
 	public TrashEntry addTrashEntry(TrashEntry trashEntry);
+=======
+>>>>>>> compatible
 
 	/**
 	* Moves an entry to trash.
@@ -130,6 +138,7 @@ public interface TrashEntryLocalService extends BaseLocalService,
 		UnicodeProperties typeSettingsProperties) throws PortalException;
 
 	/**
+<<<<<<< HEAD
 	* Creates a new trash entry with the primary key. Does not add the trash entry to the database.
 	*
 	* @param entryId the primary key for the new trash entry
@@ -150,6 +159,27 @@ public interface TrashEntryLocalService extends BaseLocalService,
 	public TrashEntry deleteEntry(java.lang.String className, long classPK);
 
 	public void deleteEntries(long groupId, boolean deleteTrashedModels);
+=======
+	* Adds the trash entry to the database. Also notifies the appropriate model listeners.
+	*
+	* @param trashEntry the trash entry
+	* @return the trash entry that was added
+	*/
+	@Indexable(type = IndexableType.REINDEX)
+	public TrashEntry addTrashEntry(TrashEntry trashEntry);
+
+	public void checkEntries() throws PortalException;
+
+	/**
+	* Creates a new trash entry with the primary key. Does not add the trash entry to the database.
+	*
+	* @param entryId the primary key for the new trash entry
+	* @return the new trash entry
+	*/
+	public TrashEntry createTrashEntry(long entryId);
+
+	public void deleteEntries(long groupId);
+>>>>>>> compatible
 
 	/**
 	* Deletes the trash entry with the primary key.
@@ -160,6 +190,7 @@ public interface TrashEntryLocalService extends BaseLocalService,
 	public TrashEntry deleteEntry(long entryId);
 
 	/**
+<<<<<<< HEAD
 	* Deletes the trash entry from the database. Also notifies the appropriate model listeners.
 	*
 	* @param trashEntry the trash entry
@@ -262,6 +293,46 @@ public interface TrashEntryLocalService extends BaseLocalService,
 	* @return the OSGi service identifier
 	*/
 	public java.lang.String getOSGiServiceIdentifier();
+=======
+	* Deletes the trash entry with the entity class name and primary key.
+	*
+	* @param className the class name of entity
+	* @param classPK the primary key of the entry
+	* @return the trash entry with the entity class name and primary key
+	*/
+	public TrashEntry deleteEntry(java.lang.String className, long classPK);
+
+	@Indexable(type = IndexableType.DELETE)
+	public TrashEntry deleteEntry(TrashEntry trashEntry);
+
+	/**
+	* @throws PortalException
+	*/
+	@Override
+	public PersistedModel deletePersistedModel(PersistedModel persistedModel)
+		throws PortalException;
+
+	/**
+	* Deletes the trash entry with the primary key from the database. Also notifies the appropriate model listeners.
+	*
+	* @param entryId the primary key of the trash entry
+	* @return the trash entry that was removed
+	* @throws PortalException if a trash entry with the primary key could not be found
+	*/
+	@Indexable(type = IndexableType.DELETE)
+	public TrashEntry deleteTrashEntry(long entryId) throws PortalException;
+
+	/**
+	* Deletes the trash entry from the database. Also notifies the appropriate model listeners.
+	*
+	* @param trashEntry the trash entry
+	* @return the trash entry that was removed
+	*/
+	@Indexable(type = IndexableType.DELETE)
+	public TrashEntry deleteTrashEntry(TrashEntry trashEntry);
+
+	public DynamicQuery dynamicQuery();
+>>>>>>> compatible
 
 	/**
 	* Performs a dynamic query on the database and returns the matching rows.
@@ -303,6 +374,52 @@ public interface TrashEntryLocalService extends BaseLocalService,
 		int end, OrderByComparator<T> orderByComparator);
 
 	/**
+<<<<<<< HEAD
+=======
+	* Returns the number of rows matching the dynamic query.
+	*
+	* @param dynamicQuery the dynamic query
+	* @return the number of rows matching the dynamic query
+	*/
+	public long dynamicQueryCount(DynamicQuery dynamicQuery);
+
+	/**
+	* Returns the number of rows matching the dynamic query.
+	*
+	* @param dynamicQuery the dynamic query
+	* @param projection the projection to apply to the query
+	* @return the number of rows matching the dynamic query
+	*/
+	public long dynamicQueryCount(DynamicQuery dynamicQuery,
+		Projection projection);
+
+	/**
+	* Returns the trash entry with the primary key.
+	*
+	* @param entryId the primary key of the entry
+	* @return the trash entry with the primary key
+	*/
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public TrashEntry fetchEntry(long entryId);
+
+	/**
+	* Returns the trash entry with the entity class name and primary key.
+	*
+	* @param className the class name of the entity
+	* @param classPK the primary key of the entity
+	* @return the trash entry with the entity class name and primary key
+	*/
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public TrashEntry fetchEntry(java.lang.String className, long classPK);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public TrashEntry fetchTrashEntry(long entryId);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public ActionableDynamicQuery getActionableDynamicQuery();
+
+	/**
+>>>>>>> compatible
 	* Returns the trash entries with the matching group ID.
 	*
 	* @param groupId the primary key of the group
@@ -343,6 +460,53 @@ public interface TrashEntryLocalService extends BaseLocalService,
 	public List<TrashEntry> getEntries(long groupId, java.lang.String className);
 
 	/**
+<<<<<<< HEAD
+=======
+	* Returns the number of trash entries with the group ID.
+	*
+	* @param groupId the primary key of the group
+	* @return the number of matching trash entries
+	*/
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public int getEntriesCount(long groupId);
+
+	/**
+	* Returns the trash entry with the primary key.
+	*
+	* @param entryId the primary key of the trash entry
+	* @return the trash entry with the primary key
+	*/
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public TrashEntry getEntry(long entryId) throws PortalException;
+
+	/**
+	* Returns the entry with the entity class name and primary key.
+	*
+	* @param className the class name of the entity
+	* @param classPK the primary key of the entity
+	* @return the trash entry with the entity class name and primary key
+	*/
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public TrashEntry getEntry(java.lang.String className, long classPK)
+		throws PortalException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public IndexableActionableDynamicQuery getIndexableActionableDynamicQuery();
+
+	/**
+	* Returns the OSGi service identifier.
+	*
+	* @return the OSGi service identifier
+	*/
+	public java.lang.String getOSGiServiceIdentifier();
+
+	@Override
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public PersistedModel getPersistedModel(Serializable primaryKeyObj)
+		throws PortalException;
+
+	/**
+>>>>>>> compatible
 	* Returns a range of all the trash entries.
 	*
 	* <p>
@@ -357,6 +521,7 @@ public interface TrashEntryLocalService extends BaseLocalService,
 	public List<TrashEntry> getTrashEntries(int start, int end);
 
 	/**
+<<<<<<< HEAD
 	* Returns the number of rows matching the dynamic query.
 	*
 	* @param dynamicQuery the dynamic query
@@ -377,4 +542,40 @@ public interface TrashEntryLocalService extends BaseLocalService,
 	public void checkEntries() throws PortalException;
 
 	public void deleteEntries(long groupId);
+=======
+	* Returns the number of trash entries.
+	*
+	* @return the number of trash entries
+	*/
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public int getTrashEntriesCount();
+
+	/**
+	* Returns the trash entry with the primary key.
+	*
+	* @param entryId the primary key of the trash entry
+	* @return the trash entry
+	* @throws PortalException if a trash entry with the primary key could not be found
+	*/
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public TrashEntry getTrashEntry(long entryId) throws PortalException;
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public Hits search(long companyId, long groupId, long userId,
+		java.lang.String keywords, int start, int end, Sort sort);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public BaseModelSearchResult<TrashEntry> searchTrashEntries(
+		long companyId, long groupId, long userId, java.lang.String keywords,
+		int start, int end, Sort sort);
+
+	/**
+	* Updates the trash entry in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
+	*
+	* @param trashEntry the trash entry
+	* @return the trash entry that was updated
+	*/
+	@Indexable(type = IndexableType.REINDEX)
+	public TrashEntry updateTrashEntry(TrashEntry trashEntry);
+>>>>>>> compatible
 }

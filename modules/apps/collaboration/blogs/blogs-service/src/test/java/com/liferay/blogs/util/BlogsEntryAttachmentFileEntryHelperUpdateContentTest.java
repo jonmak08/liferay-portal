@@ -14,14 +14,23 @@
 
 package com.liferay.blogs.util;
 
+<<<<<<< HEAD
 import com.liferay.blogs.internal.util.BlogsEntryAttachmentFileEntryReferenceAdapter;
 import com.liferay.blogs.test.util.BlogsTestUtil;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.blogs.test.util.BlogsTestUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.portletfilerepository.PortletFileRepositoryUtil;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portlet.blogs.BlogsEntryAttachmentFileEntryHelper;
+>>>>>>> compatible
 import com.liferay.portlet.blogs.BlogsEntryAttachmentFileEntryReference;
 
 import java.util.ArrayList;
@@ -63,7 +72,11 @@ public class BlogsEntryAttachmentFileEntryHelperUpdateContentTest
 		long tempFileEntryId = RandomTestUtil.randomLong();
 
 		_blogsEntryAttachmentFileEntryReferences.add(
+<<<<<<< HEAD
 			new BlogsEntryAttachmentFileEntryReferenceAdapter(
+=======
+			new BlogsEntryAttachmentFileEntryReference(
+>>>>>>> compatible
 				tempFileEntryId, _fileEntry));
 
 		_tempFileEntryImgTag =
@@ -75,7 +88,11 @@ public class BlogsEntryAttachmentFileEntryHelperUpdateContentTest
 	public void testUpdateContentWithEmptyBlogsEntryAttachmentFileEntryReferences()
 		throws Exception {
 
+<<<<<<< HEAD
 		String content = BlogsEntryAttachmentFileEntryUtil.updateContent(
+=======
+		String content = _blogsEntryAttachmentFileEntryHelper.updateContent(
+>>>>>>> compatible
 			populateContentWithSingleImgTag(_tempFileEntryImgTag),
 			Collections.<BlogsEntryAttachmentFileEntryReference>emptyList());
 
@@ -87,7 +104,11 @@ public class BlogsEntryAttachmentFileEntryHelperUpdateContentTest
 
 	@Test
 	public void testUpdateContentWithMultipleImgTags() throws Exception {
+<<<<<<< HEAD
 		String content = BlogsEntryAttachmentFileEntryUtil.updateContent(
+=======
+		String content = _blogsEntryAttachmentFileEntryHelper.updateContent(
+>>>>>>> compatible
 			populateContentWithMultipleImgTags(_tempFileEntryImgTag),
 			_blogsEntryAttachmentFileEntryReferences);
 
@@ -99,7 +120,11 @@ public class BlogsEntryAttachmentFileEntryHelperUpdateContentTest
 
 	@Test
 	public void testUpdateContentWithoutImgTag() throws Exception {
+<<<<<<< HEAD
 		String content = BlogsEntryAttachmentFileEntryUtil.updateContent(
+=======
+		String content = _blogsEntryAttachmentFileEntryHelper.updateContent(
+>>>>>>> compatible
 			populateContentWithSingleImgTag(StringPool.BLANK),
 			_blogsEntryAttachmentFileEntryReferences);
 
@@ -111,7 +136,11 @@ public class BlogsEntryAttachmentFileEntryHelperUpdateContentTest
 
 	@Test
 	public void testUpdateContentWithSingleImgTag() throws Exception {
+<<<<<<< HEAD
 		String content = BlogsEntryAttachmentFileEntryUtil.updateContent(
+=======
+		String content = _blogsEntryAttachmentFileEntryHelper.updateContent(
+>>>>>>> compatible
 			populateContentWithSingleImgTag(_tempFileEntryImgTag),
 			_blogsEntryAttachmentFileEntryReferences);
 
@@ -147,6 +176,12 @@ public class BlogsEntryAttachmentFileEntryHelperUpdateContentTest
 	private static final String _TEMP_FILE_ENTRY_IMAGE_URL =
 		"www.liferay.com/temp_logo";
 
+<<<<<<< HEAD
+=======
+	private final BlogsEntryAttachmentFileEntryHelper
+		_blogsEntryAttachmentFileEntryHelper =
+			new BlogsEntryAttachmentFileEntryHelper();
+>>>>>>> compatible
 	private final List<BlogsEntryAttachmentFileEntryReference>
 		_blogsEntryAttachmentFileEntryReferences = new ArrayList<>();
 

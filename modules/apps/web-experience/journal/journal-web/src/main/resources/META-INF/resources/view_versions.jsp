@@ -20,10 +20,19 @@
 SearchContainer articleSearchContainer = journalDisplayContext.getSearchContainer(true);
 
 String displayStyle = journalDisplayContext.getDisplayStyle();
+<<<<<<< HEAD
+=======
+
+String searchContainerId = ParamUtil.getString(request, "searchContainerId");
+>>>>>>> compatible
 %>
 
 <liferay-ui:search-container
 	emptyResultsMessage="no-web-content-was-found"
+<<<<<<< HEAD
+=======
+	id="<%= searchContainerId %>"
+>>>>>>> compatible
 	searchContainer="<%= articleSearchContainer %>"
 >
 	<liferay-ui:search-container-row

@@ -1,5 +1,9 @@
 Bundle-Name: Liferay Ratings Service
 Bundle-SymbolicName: com.liferay.ratings.service
+<<<<<<< HEAD
 Bundle-Version: 1.0.11
+=======
+Bundle-Version: 1.0.10
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Ratings

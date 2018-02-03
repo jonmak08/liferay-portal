@@ -16,10 +16,13 @@
 
 <%@ include file="/init.jsp" %>
 
+<<<<<<< HEAD
 <%
 String redirect = ParamUtil.getString(request, "redirect");
 %>
 
+=======
+>>>>>>> compatible
 <liferay-frontend:management-bar>
 	<liferay-frontend:management-bar-buttons>
 		<liferay-frontend:management-bar-sidenav-toggler-button
@@ -43,6 +46,7 @@ String redirect = ParamUtil.getString(request, "redirect");
 			navigationKeys='<%= new String[] {"all"} %>'
 			portletURL="<%= trashDisplayContext.getPortletURL() %>"
 		/>
+<<<<<<< HEAD
 
 		<li>
 			<liferay-portlet:renderURL varImpl="searchURL" />
@@ -56,5 +60,7 @@ String redirect = ParamUtil.getString(request, "redirect");
 				<liferay-ui:input-search autoFocus="<%= windowState.equals(WindowState.MAXIMIZED) %>" markupView="lexicon" placeholder='<%= LanguageUtil.get(request, "search") %>' />
 			</aui:form>
 		</li>
+=======
+>>>>>>> compatible
 	</liferay-frontend:management-bar-filters>
 </liferay-frontend:management-bar>

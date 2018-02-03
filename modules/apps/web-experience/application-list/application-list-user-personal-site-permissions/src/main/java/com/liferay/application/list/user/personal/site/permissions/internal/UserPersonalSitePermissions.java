@@ -32,7 +32,10 @@ import com.liferay.portal.kernel.service.GroupLocalService;
 import com.liferay.portal.kernel.service.PortletLocalService;
 import com.liferay.portal.kernel.service.ResourcePermissionLocalService;
 import com.liferay.portal.kernel.service.RoleLocalService;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 
 import java.util.List;
@@ -76,10 +79,16 @@ public class UserPersonalSitePermissions {
 			}
 			catch (PortalException pe) {
 				_log.error(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Unable to initialize user personal site permissions ",
 						"for portlet ", portlet.getPortletId(), " in company ",
 						String.valueOf(companyId)),
+=======
+					"Unable to initialize user personal site permissions for " +
+						"portlet " + portlet.getPortletId() + " in company " +
+							companyId,
+>>>>>>> compatible
 					pe);
 			}
 		}
@@ -107,10 +116,16 @@ public class UserPersonalSitePermissions {
 			}
 			catch (PortalException pe) {
 				_log.error(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Unable to initialize user personal site permissions ",
 						"for portlet ", portlet.getPortletId(), " in company ",
 						String.valueOf(companyId)),
+=======
+					"Unable to initialize user personal site permissions for " +
+						"portlet " + portlet.getPortletId() + " in company " +
+							companyId,
+>>>>>>> compatible
 					pe);
 			}
 		}
@@ -120,10 +135,17 @@ public class UserPersonalSitePermissions {
 	protected void activate(BundleContext bundleContext) {
 		_bundleContext = bundleContext;
 
+<<<<<<< HEAD
 		String filter = StringBundler.concat(
 			"(&(objectClass=", PanelApp.class.getName(), ")",
 			"(panel.category.key=", PanelCategoryKeys.SITE_ADMINISTRATION,
 			"*))");
+=======
+		String filter =
+			"(&(objectClass=" + PanelApp.class.getName() + ")" +
+				"(panel.category.key=" + PanelCategoryKeys.SITE_ADMINISTRATION +
+					"*))";
+>>>>>>> compatible
 
 		_serviceTracker = ServiceTrackerFactory.open(
 			bundleContext, filter, new PanelAppServiceTrackerCustomizer());
@@ -262,9 +284,14 @@ public class UserPersonalSitePermissions {
 					Class<?> panelAppClass = panelApp.getClass();
 
 					_log.error(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"Unable to get portlet ", panelApp.getPortletId(),
 							" for panel app ", panelAppClass.getName()));
+=======
+						"Unable to get portlet " + panelApp.getPortletId() +
+							" for panel app " + panelAppClass.getName());
+>>>>>>> compatible
 
 					return panelApp;
 				}

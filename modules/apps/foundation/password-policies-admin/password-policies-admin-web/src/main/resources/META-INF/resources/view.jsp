@@ -17,6 +17,7 @@
 <%@ include file="/init.jsp" %>
 
 <%
+<<<<<<< HEAD
 String displayStyle = ParamUtil.getString(request, "displayStyle");
 
 if (Validator.isNull(displayStyle)) {
@@ -27,6 +28,9 @@ else {
 
 	request.setAttribute(WebKeys.SINGLE_PAGE_APPLICATION_CLEAR_CACHE, Boolean.TRUE);
 }
+=======
+String displayStyle = ParamUtil.getString(request, "displayStyle", "list");
+>>>>>>> compatible
 
 PortletURL portletURL = renderResponse.createRenderURL();
 
@@ -48,10 +52,31 @@ portletDisplay.setDescription(description);
 PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "password-policies"), null);
 %>
 
+<<<<<<< HEAD
 <clay:navigation-bar
 	inverted="<%= true %>"
 	items="<%= passwordPolicyDisplayContext.getViewPasswordPoliciesNavigationItems() %>"
 />
+=======
+<aui:nav-bar cssClass="collapse-basic-search" markupView="lexicon">
+	<aui:nav cssClass="navbar-nav">
+		<aui:nav-item label="password-policies" selected="<%= true %>" />
+	</aui:nav>
+
+	<c:if test="<%= !passwordPolicyEnabled %>">
+
+		<%
+		PortletURL searchURL = renderResponse.createRenderURL();
+		%>
+
+		<aui:nav-bar-search searchContainer="<%= searchContainer %>">
+			<aui:form action="<%= searchURL %>" name="searchFm">
+				<liferay-ui:input-search autoFocus="<%= windowState.equals(WindowState.MAXIMIZED) %>" markupView="lexicon" />
+			</aui:form>
+		</aui:nav-bar-search>
+	</c:if>
+</aui:nav-bar>
+>>>>>>> compatible
 
 <liferay-frontend:management-bar
 	includeCheckBox="<%= true %>"
@@ -69,6 +94,7 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "passwor
 			orderColumns='<%= new String[] {"name"} %>'
 			portletURL="<%= portletURL %>"
 		/>
+<<<<<<< HEAD
 
 		<c:if test="<%= !passwordPolicyEnabled %>">
 
@@ -82,11 +108,17 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "passwor
 				</aui:form>
 			</li>
 		</c:if>
+=======
+>>>>>>> compatible
 	</liferay-frontend:management-bar-filters>
 
 	<liferay-frontend:management-bar-buttons>
 		<liferay-frontend:management-bar-display-buttons
+<<<<<<< HEAD
 			displayViews='<%= new String[] {"descriptive", "icon", "list"} %>'
+=======
+			displayViews='<%= new String[] {"list"} %>'
+>>>>>>> compatible
 			portletURL="<%= renderResponse.createRenderURL() %>"
 			selectedDisplayStyle="<%= displayStyle %>"
 		/>
@@ -143,15 +175,43 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "passwor
 				modelVar="passwordPolicy"
 			>
 				<portlet:renderURL var="rowURL">
+<<<<<<< HEAD
 					<portlet:param name="mvcPath" value="/edit_password_policy.jsp" />
+=======
+					<portlet:param name="mvcPath" value="/edit_password_policy_assignments.jsp" />
+>>>>>>> compatible
 					<portlet:param name="redirect" value="<%= passwordPolicySearchContainer.getIteratorURL().toString() %>" />
 					<portlet:param name="passwordPolicyId" value="<%= String.valueOf(passwordPolicy.getPasswordPolicyId()) %>" />
 				</portlet:renderURL>
 
+<<<<<<< HEAD
 				<%@ include file="/search_columns.jspf" %>
 			</liferay-ui:search-container-row>
 
 			<liferay-ui:search-iterator displayStyle="<%= displayStyle %>" markupView="lexicon" searchContainer="<%= passwordPolicySearchContainer %>" />
+=======
+				<liferay-ui:search-container-column-text
+					cssClass="table-cell-content"
+					href="<%= rowURL %>"
+					name="name"
+					property="name"
+				/>
+
+				<liferay-ui:search-container-column-text
+					cssClass="table-cell-content"
+					href="<%= rowURL %>"
+					name="description"
+					orderable="<%= true %>"
+					property="description"
+				/>
+
+				<liferay-ui:search-container-column-jsp
+					path="/password_policy_action.jsp"
+				/>
+			</liferay-ui:search-container-row>
+
+			<liferay-ui:search-iterator markupView="lexicon" searchContainer="<%= passwordPolicySearchContainer %>" />
+>>>>>>> compatible
 		</liferay-ui:search-container>
 	</c:if>
 </aui:form>

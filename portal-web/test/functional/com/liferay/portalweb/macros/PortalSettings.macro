@@ -9,6 +9,7 @@
 		<execute function="Type" locator1="PortalSettingsAuthentication#LDAP_SERVER_SERVER_NAME" value1="${LDAPServerName}" />
 
 		<execute function="Click" locator1="PortalSettingsAuthentication#LDAP_SERVER_DEFAULT_VALUES_APACHE_DIRECTORY_SERVER_RADIO" />
+<<<<<<< HEAD
 
 		<execute macro="Button#clickSave" />
 	</command>
@@ -51,6 +52,42 @@
 		<execute function="Confirm" value1="Existing ratings data values will be adapted to match the new ratings type even though it may not be accurate. Do you want to continue?" />
 
 		<execute function="AssertSelectedLabel" locator1="Select#BLOGS_RATING" value1="${ratingType}" />
+=======
+
+		<execute function="AssertClick" locator1="PortalSettingsAuthentication#LDAP_SERVER_RESET_VALUES_BUTTON" value1="Reset Values" />
+
+		<execute macro="Button#clickSave" />
+	</command>
+
+	<command name="configureAudienceTargetingAnalytics">
+		<execute macro="Panel#expandPanel">
+			<var name="panelHeading" value="Audience Targeting Analytics" />
+		</execute>
+
+		<if>
+			<isset var="enableAnalyticsList" />
+			<then>
+				<for list="${enableAnalyticsList}" param="enableAnalytics">
+					<execute function="Check#checkToggleSwitch" locator1="ToggleSwitch#ANY_TOGGLE_SWITCH">
+						<var name="key_toggleSwitchLabel" value="${enableAnalytics}" />
+					</execute>
+				</for>
+			</then>
+		</if>
+
+		<if>
+			<isset var="disableAnalyticsList" />
+			<then>
+				<for list="${disableAnalyticsList}" param="disableAnalytics">
+					<execute function="Uncheck#uncheckToggleSwitch" locator1="ToggleSwitch#ANY_TOGGLE_SWITCH">
+						<var name="key_toggleSwitchLabel" value="${disableAnalytics}" />
+					</execute>
+				</for>
+			</then>
+		</if>
+
+		<execute macro="PortletEntry#save" />
+>>>>>>> compatible
 	</command>
 
 	<command name="configureContentSharingAcrossSitesCP">
@@ -63,7 +100,13 @@
 			<then>
 				<execute function="Check" locator1="PortalSettingsContentSharing#CONTENT_SHARING_CHECKBOX" />
 
+<<<<<<< HEAD
 				<execute macro="PortletEntry#save" />
+=======
+				<execute macro="Button#clickSave" />
+
+				<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 
 				<execute macro="Panel#expandPanel">
 					<var name="panelHeading" value="Content Sharing" />
@@ -76,7 +119,13 @@
 				<then>
 					<execute function="Uncheck#clickAt" locator1="PortalSettingsContentSharing#CONTENT_SHARING_CHECKBOX" />
 
+<<<<<<< HEAD
 					<execute macro="PortletEntry#save" />
+=======
+					<execute macro="Button#clickSave" />
+
+					<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 
 					<execute macro="Panel#expandPanel">
 						<var name="panelHeading" value="Content Sharing" />
@@ -98,7 +147,13 @@
 			<then>
 				<execute function="Select" locator1="PortalSettingsContentSharing#CONTENT_SHARING_SELECTOR" value1="Enabled by Default" />
 
+<<<<<<< HEAD
 				<execute macro="PortletEntry#save" />
+=======
+				<execute macro="Button#clickSave" />
+
+				<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 
 				<execute macro="Panel#expandPanel">
 					<var name="panelHeading" value="Content Sharing" />
@@ -111,7 +166,13 @@
 				<then>
 					<execute function="Select" locator1="PortalSettingsContentSharing#CONTENT_SHARING_SELECTOR" value1="Disabled by Default" />
 
+<<<<<<< HEAD
 					<execute macro="PortletEntry#save" />
+=======
+					<execute macro="Button#clickSave" />
+
+					<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 
 					<execute macro="Panel#expandPanel">
 						<var name="panelHeading" value="Content Sharing" />
@@ -125,7 +186,13 @@
 				<then>
 					<execute function="Select" locator1="PortalSettingsContentSharing#CONTENT_SHARING_SELECTOR" value1="Disabled" />
 
+<<<<<<< HEAD
 					<execute macro="PortletEntry#save" />
+=======
+					<execute macro="Button#clickSave" />
+
+					<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 
 					<execute macro="Panel#expandPanel">
 						<var name="panelHeading" value="Content Sharing" />
@@ -232,6 +299,7 @@
 		</execute>
 
 		<execute function="AssertClick" locator1="NavTab#CAS" value1="CAS" />
+<<<<<<< HEAD
 
 		<execute function="Check" locator1="PortalSettingsAuthentication#AUTHENTICATION_CAS_ENABLED_CHECKBOX" />
 		<execute function="Type" locator1="PortalSettingsAuthentication#AUTHENTICATION_CAS_LOGIN_URL_FIELD" value1="${casLoginURL}" />
@@ -243,6 +311,19 @@
 
 		<execute function="AssertElementNotPresent" locator1="//span[.='Unreachable']" />
 
+=======
+
+		<execute function="Check" locator1="PortalSettingsAuthentication#AUTHENTICATION_CAS_ENABLED_CHECKBOX" />
+		<execute function="Type" locator1="PortalSettingsAuthentication#AUTHENTICATION_CAS_LOGIN_URL_FIELD" value1="${casLoginURL}" />
+		<execute function="Type" locator1="PortalSettingsAuthentication#AUTHENTICATION_CAS_LOGOUT_URL_FIELD" value1="${casLogoutURL}" />
+		<execute function="Type" locator1="PortalSettingsAuthentication#AUTHENTICATION_CAS_SERVER_URL_FIELD" value1="${casServerURL}" />
+		<execute function="Type" locator1="PortalSettingsAuthentication#AUTHENTICATION_CAS_SERVICE_URL_FIELD" value1="${casServiceURL}" />
+
+		<execute function="AssertClick" locator1="PortalSettingsAuthentication#AUTHENTICATION_CAS_TEST_CAS_CONFIGURATION_BUTTON" value1="Test CAS Configuration" />
+
+		<execute function="AssertElementNotPresent" locator1="//span[.='Unreachable']" />
+
+>>>>>>> compatible
 		<execute function="Click" locator1="Icon#CLOSE" />
 
 		<execute macro="PortletEntry#save" />
@@ -302,9 +383,15 @@
 		<execute macro="Panel#expandPanel">
 			<var name="panelHeading" value="Users" />
 		</execute>
+<<<<<<< HEAD
 
 		<execute function="AssertClick" locator1="NavTab#DEFAULT_USER_ASSOCIATIONS" value1="Default User Associations" />
 
+=======
+
+		<execute function="AssertClick" locator1="NavTab#DEFAULT_USER_ASSOCIATIONS" value1="Default User Associations" />
+
+>>>>>>> compatible
 		<execute function="AssertTextEquals" locator1="PortalSettingsUsers#DEFAULT_USER_ASSOCIATIONS_ORGANIZATION_SITES_FIELD" value1="${orgName}" />
 	</command>
 
@@ -317,7 +404,11 @@
 
 		<execute function="AssertTextEquals#assertPartialText" locator1="PortalSettingsUsers#DEFAULT_USER_ASSOCIATIONS_ROLES_HEADER" value1="Roles" />
 
+<<<<<<< HEAD
 		<execute function="Type" locator1="PortalSettingsUsers#DEFAULT_USER_ASSOCIATIONS_ROLES_FIELD" value1="${roleTitle}" />
+=======
+		<execute function="Type" locator1="PortalSettingsUsers#DEFAULT_USER_ASSOCIATIONS_ROLES_FIELD" value1="${roleName}" />
+>>>>>>> compatible
 
 		<execute macro="PortletEntry#save" />
 
@@ -327,7 +418,11 @@
 
 		<execute function="AssertClick" locator1="NavTab#DEFAULT_USER_ASSOCIATIONS" value1="Default User Associations" />
 
+<<<<<<< HEAD
 		<execute function="Type#clickAtType" locator1="PortalSettingsUsers#DEFAULT_USER_ASSOCIATIONS_ROLES_FIELD" value1="${roleTitle}" />
+=======
+		<execute function="Type#clickAtType" locator1="PortalSettingsUsers#DEFAULT_USER_ASSOCIATIONS_ROLES_FIELD" value1="${roleName}" />
+>>>>>>> compatible
 	</command>
 
 	<command name="editConfigurationUsersDefaultUserAssociationsSitesCP">
@@ -510,9 +605,13 @@
 	</command>
 
 	<command name="tearDownAuthenticationCP">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Instance Settings" />
 		</execute>
 
@@ -539,9 +638,13 @@
 	</command>
 
 	<command name="tearDownCP">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Instance Settings" />
 		</execute>
 
@@ -614,11 +717,19 @@
 		<execute function="AssertTextEquals#assertPartialText" locator1="PortalSettingsAuthentication#AUTHENTICATION_CAS_LOGOUT_URL_HEADER" value1="Logout URL" />
 		<execute function="AssertTextEquals" locator1="PortalSettingsAuthentication#AUTHENTICATION_CAS_LOGOUT_URL_FIELD" value1="https://localhost:8443/cas-web/logout" />
 		<execute function="AssertTextEquals#assertPartialText" locator1="PortalSettingsAuthentication#AUTHENTICATION_CAS_SERVER_NAME_HEADER" value1="Server Name" />
+<<<<<<< HEAD
 		<execute function="AssertTextEquals" locator1="PortalSettingsAuthentication#AUTHENTICATION_CAS_SERVER_NAME_FIELD" value1="http://localhost:8080" />
 		<execute function="AssertTextEquals#assertPartialText" locator1="PortalSettingsAuthentication#AUTHENTICATION_CAS_SERVER_URL_HEADER" value1="Server URL" />
 		<execute function="AssertTextEquals" locator1="PortalSettingsAuthentication#AUTHENTICATION_CAS_SERVER_URL_FIELD" value1="https://localhost:8443/cas-web" />
 		<execute function="AssertTextEquals#assertPartialText" locator1="PortalSettingsAuthentication#AUTHENTICATION_CAS_SERVICE_URL_HEADER" value1="Service URL" />
 		<execute function="AssertTextEquals" locator1="PortalSettingsAuthentication#AUTHENTICATION_CAS_SERVICE_URL_FIELD" value1="" />
+=======
+		<execute function="AssertTextEquals" locator1="PortalSettingsAuthentication#AUTHENTICATION_CAS_SERVER_NAME_FIELD" value1="https://localhost:8080" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="PortalSettingsAuthentication#AUTHENTICATION_CAS_SERVER_URL_HEADER" value1="Server URL" />
+		<execute function="AssertTextEquals" locator1="PortalSettingsAuthentication#AUTHENTICATION_CAS_SERVER_URL_FIELD" value1="https://localhost:8443/cas-web/" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="PortalSettingsAuthentication#AUTHENTICATION_CAS_SERVICE_URL_HEADER" value1="Service URL" />
+		<execute function="AssertTextEquals" locator1="PortalSettingsAuthentication#AUTHENTICATION_CAS_SERVICE_URL_FIELD" value1="https://localhost:8080" />
+>>>>>>> compatible
 		<execute function="AssertTextEquals#assertPartialText" locator1="PortalSettingsAuthentication#AUTHENTICATION_CAS_NO_SUCH_USER_REDIRECT_URL_HEADER" value1="No Such User Redirect URL" />
 		<execute function="AssertTextEquals" locator1="PortalSettingsAuthentication#AUTHENTICATION_CAS_NO_SUCH_USER_REDIRECT_URL_FIELD" value1="http://localhost:8080" />
 		<execute function="AssertElementPresent" locator1="PortalSettingsAuthentication#AUTHENTICATION_CAS_TEST_CAS_CONFIGURATION_BUTTON" value1="Test CAS Configuration" />
@@ -653,6 +764,11 @@
 
 		<execute function="Click" locator1="PortalSettingsAuthentication#LDAP_SERVER_DEFAULT_VALUES_MICROSOFT_ACTIVE_DIRECTORY_SERVER_RADIO" />
 
+<<<<<<< HEAD
+=======
+		<execute function="AssertClick" locator1="PortalSettingsAuthentication#LDAP_SERVER_RESET_VALUES_BUTTON" value1="Reset Values" />
+
+>>>>>>> compatible
 		<execute function="AssertTextEquals#assertPartialText" locator1="PortalSettingsAuthentication#LDAP_SERVER_CONNECTION_BASE_PROVIDER_URL_HEADER" value1="Base Provider URL" />
 		<execute function="AssertTextEquals" locator1="PortalSettingsAuthentication#LDAP_SERVER_CONNECTION_BASE_PROVIDER_URL_FIELD" value1="ldap://localhost:389" />
 		<execute function="AssertTextEquals#assertPartialText" locator1="PortalSettingsAuthentication#LDAP_SERVER_CONNECTION_BASE_DN_HEADER" value1="Base DN" />
@@ -737,7 +853,11 @@
 
 		<execute function="AssertClick" locator1="NavTab#DEFAULT_USER_ASSOCIATIONS" value1="Default User Associations" />
 
+<<<<<<< HEAD
 		<execute function="Type#clickAtType" locator1="PortalSettingsUsers#DEFAULT_USER_ASSOCIATIONS_ROLES_FIELD" value1="${roleTitle}" />
+=======
+		<execute function="Type#clickAtType" locator1="PortalSettingsUsers#DEFAULT_USER_ASSOCIATIONS_ROLES_FIELD" value1="${roleName}" />
+>>>>>>> compatible
 	</command>
 
 	<command name="viewConfigurationUsersDefaultUserAssociationsSitesCP">
@@ -762,7 +882,11 @@
 
 	<command name="viewCurrentDefaultPortalLanguageCP">
 		<execute macro="Navigator#gotoNavTab">
+<<<<<<< HEAD
 			<var name="navTab" value="Miscellaneous" />
+=======
+			<var name="navTab" value="${navTab}" />
+>>>>>>> compatible
 		</execute>
 
 		<execute function="AssertSelectedLabel" locator1="PortalSettingsDisplaySettings#DEFAULT_LANGUAGE_SELECT" value1="${defaultPortalLanguage}" />

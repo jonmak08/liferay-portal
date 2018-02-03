@@ -465,6 +465,7 @@
 		<fieldType class="solr.PointType" dimension="2" name="point" subFieldSuffix="_d" />
 	</types>
 	<fields>
+<<<<<<< HEAD
 		<copyField dest="all" source="assetTagNames" />
 		<copyField dest="all" source="assetCategoryTitle" />
 		<copyField dest="all" source="comments" />
@@ -484,6 +485,10 @@
 		<copyField dest="assetTagNames.raw" source="assetTagNames" />
 		<field indexed="true" multiValued="false" name="_version_" stored="true" type="long" />
 		<field indexed="true" multiValued="true" name="all" stored="false" type="text" />
+=======
+		<copyField dest="assetTagNames.raw" source="assetTagNames" />
+		<field indexed="true" multiValued="false" name="_version_" stored="true" type="long" />
+>>>>>>> compatible
 		<field indexed="true" multiValued="true" name="ancestorOrganizationIds" stored="true" type="string" />
 		<field indexed="true" name="articleId" stored="true" type="string_keyword_lowercase" />
 		<field docValues="true" indexed="true" name="assetCategoryId" stored="true" type="string" />
@@ -519,7 +524,10 @@
 		<field indexed="true" name="fileEntryTypeId" stored="true" type="string" />
 		<field indexed="true" name="firstName" stored="true" type="text_lowercase" />
 		<field docValues="true" indexed="true" name="folderId" stored="true" type="string" />
+<<<<<<< HEAD
 		<field indexed="true" name="fullName" stored="true" termPositions="true" termVectors="true" type="text" />
+=======
+>>>>>>> compatible
 		<field indexed="true" name="geoLocation" stored="true" type="location" />
 		<field docValues="true" indexed="true" multiValued="true" name="groupId" stored="true" type="string" />
 		<field indexed="true" multiValued="true" name="groupIds" stored="true" type="string" />
@@ -542,7 +550,10 @@
 		<field indexed="true" multiValued="true" name="parentCategoryIds" stored="true" type="string" />
 		<field indexed="true" name="path" stored="true" type="string" />
 		<field indexed="true" name="portletId" stored="true" type="string" />
+<<<<<<< HEAD
 		<field docValues="true" indexed="true" name="priority" stored="true" type="double" />
+=======
+>>>>>>> compatible
 		<field docValues="true" indexed="true" name="publishDate" stored="true" type="string" />
 		<field indexed="true" name="readCount" stored="true" type="string" />
 		<field indexed="true" name="recordSetId" stored="true" type="string" />
@@ -578,7 +589,10 @@
 		<dynamicField docValues="true" indexed="true" multiValued="false" name="*Number_sortable" stored="true" type="double" />
 		<dynamicField docValues="true" indexed="true" multiValued="false" name="*String_sortable" stored="true" type="string" />
 		<dynamicField docValues="true" indexed="true" multiValued="false" name="*_sortable" stored="true" type="string" />
+<<<<<<< HEAD
 		<dynamicField indexed="true" multiValued="false" name="*_geolocation" stored="true" type="location" />
+=======
+>>>>>>> compatible
 		<dynamicField indexed="true" multiValued="true" name="assetCategoryTitles*" stored="true" termPositions="true" termVectors="true" type="text" />
 		<dynamicField indexed="true" multiValued="true" name="ddm__keyword__*" stored="true" type="string" />
 		<dynamicField indexed="true" multiValued="true" name="expando__keyword__*" stored="true" type="string_keyword_lowercase" />
@@ -682,5 +696,9 @@
 		<dynamicField docValues="true" indexed="true" multiValued="true" name="*" stored="true" type="string" />
 	</fields>
 	<uniqueKey>uid</uniqueKey>
+<<<<<<< HEAD
+=======
+	<defaultSearchField>content</defaultSearchField>
+>>>>>>> compatible
 	<solrQueryParser defaultOperator="OR" />
 </schema>

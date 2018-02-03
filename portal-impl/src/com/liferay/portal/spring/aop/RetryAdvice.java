@@ -19,7 +19,10 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.service.RetryAcceptor;
 import com.liferay.portal.kernel.spring.aop.Property;
 import com.liferay.portal.kernel.spring.aop.Retry;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.util.PropsValues;
 
 import java.lang.annotation.Annotation;
@@ -93,10 +96,15 @@ public class RetryAdvice extends AnnotationChainableMethodAdvice<Retry> {
 					}
 
 					_log.warn(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"Retry on ", String.valueOf(methodInvocation),
 							" for ", number, " more times due to result ",
 							String.valueOf(returnValue)));
+=======
+						"Retry on " + methodInvocation + " for " + number +
+							" more times due to result " + returnValue);
+>>>>>>> compatible
 				}
 			}
 			catch (Throwable t) {
@@ -114,10 +122,15 @@ public class RetryAdvice extends AnnotationChainableMethodAdvice<Retry> {
 					}
 
 					_log.warn(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"Retry on ", String.valueOf(methodInvocation),
 							" for ", number, " more times due to exception ",
 							String.valueOf(throwable)),
+=======
+						"Retry on " + methodInvocation + " for " + number +
+							" more times due to exception " + throwable,
+>>>>>>> compatible
 						throwable);
 				}
 			}
@@ -128,12 +141,18 @@ public class RetryAdvice extends AnnotationChainableMethodAdvice<Retry> {
 		if (throwable != null) {
 			if (_log.isWarnEnabled()) {
 				_log.warn(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Give up retrying on ",
 						String.valueOf(methodInvocation), " after ",
 						String.valueOf(totalRetries),
 						" retries and rethrow last retry's exception ",
 						String.valueOf(throwable)),
+=======
+					"Give up retrying on " + methodInvocation + " after " +
+						totalRetries + " retries and rethrow last retry's " +
+							"exception " + throwable,
+>>>>>>> compatible
 					throwable);
 			}
 
@@ -142,11 +161,17 @@ public class RetryAdvice extends AnnotationChainableMethodAdvice<Retry> {
 
 		if (_log.isWarnEnabled()) {
 			_log.warn(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Give up retrying on ", String.valueOf(methodInvocation),
 					" after ", String.valueOf(totalRetries),
 					" retries and returning the last retry's result ",
 					String.valueOf(returnValue)));
+=======
+				"Give up retrying on " + methodInvocation + " after " +
+					totalRetries + " retries and returning the last retry's " +
+						"result " + returnValue);
+>>>>>>> compatible
 		}
 
 		return returnValue;

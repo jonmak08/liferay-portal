@@ -29,10 +29,15 @@ import groovy.lang.Closure;
 import java.io.File;
 
 import java.net.MalformedURLException;
+<<<<<<< HEAD
 import java.net.URI;
 import java.net.URL;
 
 import java.util.Collections;
+=======
+import java.net.URL;
+
+>>>>>>> compatible
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -334,9 +339,12 @@ public class RootProjectConfigurator implements Plugin<Project> {
 
 				@Override
 				public void execute(Task task) {
+<<<<<<< HEAD
 					Logger logger = download.getLogger();
 					Project project = download.getProject();
 
+=======
+>>>>>>> compatible
 					if (workspaceExtension.isBundleTokenDownload()) {
 						String token = FileUtil.read(
 							createTokenTask.getTokenFile());
@@ -346,6 +354,7 @@ public class RootProjectConfigurator implements Plugin<Project> {
 						download.header(
 							HttpHeaders.AUTHORIZATION, "Bearer " + token);
 					}
+<<<<<<< HEAD
 
 					for (Object src : _getSrcList(download)) {
 						File file = null;
@@ -379,6 +388,8 @@ public class RootProjectConfigurator implements Plugin<Project> {
 										" cannot be the same");
 						}
 					}
+=======
+>>>>>>> compatible
 				}
 
 			});
@@ -402,10 +413,26 @@ public class RootProjectConfigurator implements Plugin<Project> {
 
 					download.dest(destinationDir);
 
+<<<<<<< HEAD
 					List<?> srcList = _getSrcList(download);
 
 					if (!srcList.isEmpty()) {
 						return;
+=======
+					Object src = download.getSrc();
+
+					if (src != null) {
+						if (src instanceof List<?>) {
+							List<?> srcList = (List<?>)src;
+
+							if (!srcList.isEmpty()) {
+								return;
+							}
+						}
+						else {
+							return;
+						}
+>>>>>>> compatible
 					}
 
 					String bundleUrl = workspaceExtension.getBundleUrl();
@@ -606,6 +633,7 @@ public class RootProjectConfigurator implements Plugin<Project> {
 			});
 	}
 
+<<<<<<< HEAD
 	private List<?> _getSrcList(Download download) {
 		Object src = download.getSrc();
 
@@ -620,6 +648,8 @@ public class RootProjectConfigurator implements Plugin<Project> {
 		return Collections.singletonList(src);
 	}
 
+=======
+>>>>>>> compatible
 	private static final boolean _DEFAULT_REPOSITORY_ENABLED = true;
 
 	private boolean _defaultRepositoryEnabled;

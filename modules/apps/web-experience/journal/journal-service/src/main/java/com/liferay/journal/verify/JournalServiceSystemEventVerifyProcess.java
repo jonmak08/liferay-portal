@@ -30,7 +30,10 @@ import com.liferay.portal.kernel.model.SystemEventConstants;
 import com.liferay.portal.kernel.service.SystemEventLocalService;
 import com.liferay.portal.kernel.util.LoggingTimer;
 import com.liferay.portal.kernel.util.PortalUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.verify.VerifyProcess;
 
 import java.util.List;
@@ -41,7 +44,11 @@ import java.util.List;
 public class JournalServiceSystemEventVerifyProcess extends VerifyProcess {
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 4.0.0
+=======
+	 * @deprecated As of 3.3.0
+>>>>>>> compatible
 	 */
 	@Deprecated
 	public JournalServiceSystemEventVerifyProcess() {
@@ -67,7 +74,11 @@ public class JournalServiceSystemEventVerifyProcess extends VerifyProcess {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 4.0.0
+=======
+	 * @deprecated As of 3.3.0
+>>>>>>> compatible
 	 */
 	@Deprecated
 	protected void setJournalArticleLocalService(
@@ -75,7 +86,11 @@ public class JournalServiceSystemEventVerifyProcess extends VerifyProcess {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 4.0.0
+=======
+	 * @deprecated As of 3.3.0
+>>>>>>> compatible
 	 */
 	@Deprecated
 	protected void setJournalArticleResourceLocalService(
@@ -83,7 +98,11 @@ public class JournalServiceSystemEventVerifyProcess extends VerifyProcess {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 4.0.0
+=======
+	 * @deprecated As of 3.3.0
+>>>>>>> compatible
 	 */
 	@Deprecated
 	protected void setSystemEventLocalService(
@@ -110,9 +129,14 @@ public class JournalServiceSystemEventVerifyProcess extends VerifyProcess {
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Processing ", String.valueOf(systemEvents.size()),
 						" delete system events for journal articles"));
+=======
+					"Processing " + systemEvents.size() + " delete system " +
+						"events for journal articles");
+>>>>>>> compatible
 			}
 
 			for (SystemEvent systemEvent : systemEvents) {

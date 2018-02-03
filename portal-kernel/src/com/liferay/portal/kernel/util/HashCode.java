@@ -15,10 +15,8 @@
 package com.liferay.portal.kernel.util;
 
 /**
- * @author     Brian Wing Shun Chan
- * @deprecated As of 7.0.0, with no direct replacement
+ * @author Brian Wing Shun Chan
  */
-@Deprecated
 public interface HashCode {
 
 	public HashCode append(boolean value);

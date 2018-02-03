@@ -21,6 +21,7 @@ import com.liferay.dynamic.data.lists.exporter.DDLExporter;
 import com.liferay.dynamic.data.lists.exporter.DDLExporterFactory;
 import com.liferay.dynamic.data.lists.helper.DDLRecordSetTestHelper;
 import com.liferay.dynamic.data.lists.helper.DDLRecordTestHelper;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.lists.model.DDLRecord;
 import com.liferay.dynamic.data.lists.model.DDLRecordSet;
 import com.liferay.dynamic.data.lists.model.DDLRecordVersion;
@@ -30,28 +31,47 @@ import com.liferay.dynamic.data.mapping.model.DDMFormFieldOptions;
 import com.liferay.dynamic.data.mapping.model.DDMStructure;
 import com.liferay.dynamic.data.mapping.model.LocalizedValue;
 import com.liferay.dynamic.data.mapping.model.UnlocalizedValue;
+=======
+import com.liferay.dynamic.data.lists.model.DDLRecordSet;
+import com.liferay.dynamic.data.mapping.model.DDMForm;
+import com.liferay.dynamic.data.mapping.model.DDMFormField;
+import com.liferay.dynamic.data.mapping.model.DDMFormFieldOptions;
+import com.liferay.dynamic.data.mapping.model.LocalizedValue;
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.model.Value;
 import com.liferay.dynamic.data.mapping.storage.DDMFormValues;
 import com.liferay.dynamic.data.mapping.test.util.DDMFormTestUtil;
 import com.liferay.dynamic.data.mapping.test.util.DDMFormValuesTestUtil;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.test.util.DDMStructureTestHelper;
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.Layout;
 import com.liferay.portal.kernel.repository.model.FileEntry;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.security.permission.PermissionThreadLocal;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+=======
+import com.liferay.portal.kernel.service.ServiceContext;
+import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.util.ContentTypes;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -76,16 +96,33 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 
 import java.util.Date;
+=======
+import com.liferay.portal.kernel.util.FileUtil;
+import com.liferay.portal.kernel.util.LocaleUtil;
+import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.portal.test.randomizerbumpers.TikaSafeRandomizerBumper;
+import com.liferay.portal.test.rule.Inject;
+import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+import com.liferay.portal.test.rule.PermissionCheckerTestRule;
+import com.liferay.portal.util.test.LayoutTestUtil;
+
+import java.io.File;
+
+>>>>>>> compatible
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
+<<<<<<< HEAD
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 
+=======
+>>>>>>> compatible
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -98,12 +135,23 @@ import org.junit.runner.RunWith;
  * @author Renato Rego
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class DDLExporterTest {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			PermissionCheckerTestRule.INSTANCE,
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Before
 	public void setUp() throws Exception {
@@ -111,17 +159,27 @@ public class DDLExporterTest {
 		_defaultLocale = Locale.US;
 		_group = GroupTestUtil.addGroup();
 
+<<<<<<< HEAD
 		_originalPermissionChecker =
 			PermissionThreadLocal.getPermissionChecker();
 
 		setUpDDMFormFieldDataTypes();
 		setUpDDMFormFieldValues();
 		setUpPermissionChecker();
+=======
+		setUpDDMFormFieldDataTypes();
+		setUpDDMFormFieldValues();
+>>>>>>> compatible
 	}
 
 	@After
 	public void tearDown() throws Exception {
+<<<<<<< HEAD
 		PermissionThreadLocal.setPermissionChecker(_originalPermissionChecker);
+=======
+		FileUtil.delete("record-set.xml");
+		FileUtil.delete("record-set.csv");
+>>>>>>> compatible
 	}
 
 	@Test
@@ -144,6 +202,7 @@ public class DDLExporterTest {
 		DDLRecordTestHelper recordTestHelper = new DDLRecordTestHelper(
 			_group, recordSet);
 
+<<<<<<< HEAD
 		DDLRecord record = recordTestHelper.addRecord(
 			ddmFormValues, WorkflowConstants.ACTION_PUBLISH);
 
@@ -377,10 +436,16 @@ public class DDLExporterTest {
 
 		DDLRecordVersion recordVersion0 = record0.getRecordVersion();
 
+=======
+		recordTestHelper.addRecord(
+			ddmFormValues, WorkflowConstants.ACTION_PUBLISH);
+
+>>>>>>> compatible
 		DDLExporter ddlExporter = _ddlExporterFactory.getDDLExporter("csv");
 
 		byte[] bytes = ddlExporter.export(recordSet.getRecordSetId());
 
+<<<<<<< HEAD
 		try (ByteArrayInputStream byteArrayInputStream =
 				new ByteArrayInputStream(bytes);
 			BufferedReader bufferedReader = new BufferedReader(
@@ -526,6 +591,16 @@ public class DDLExporterTest {
 			Assert.assertEquals(
 				recordVersion.getUserName(), cell.getStringCellValue());
 		}
+=======
+		File file = new File("record-set.csv");
+
+		FileUtil.write(file, bytes);
+
+		String expectedFileContent = read("test-record-set-export.csv");
+		String actualFileContent = FileUtil.read(file);
+
+		Assert.assertEquals(expectedFileContent, actualFileContent);
+>>>>>>> compatible
 	}
 
 	@Test
@@ -548,15 +623,22 @@ public class DDLExporterTest {
 		DDLRecordTestHelper recordTestHelper = new DDLRecordTestHelper(
 			_group, recordSet);
 
+<<<<<<< HEAD
 		DDLRecord record = recordTestHelper.addRecord(
 			ddmFormValues, WorkflowConstants.ACTION_PUBLISH);
 
 		DDLRecordVersion recordVersion = record.getRecordVersion();
 
+=======
+		recordTestHelper.addRecord(
+			ddmFormValues, WorkflowConstants.ACTION_PUBLISH);
+
+>>>>>>> compatible
 		DDLExporter ddlExporter = _ddlExporterFactory.getDDLExporter("xml");
 
 		byte[] bytes = ddlExporter.export(recordSet.getRecordSetId());
 
+<<<<<<< HEAD
 		Document document = SAXReaderUtil.createDocument();
 
 		Element rootElement = document.addElement("root");
@@ -600,6 +682,16 @@ public class DDLExporterTest {
 		Element valueElement = fieldElement.addElement("value");
 
 		valueElement.addText(String.valueOf(value));
+=======
+		File file = new File("record-set.xml");
+
+		FileUtil.write(file, bytes);
+
+		String expectedFileContent = read("test-record-set-export.xml");
+		String actualFileContent = FileUtil.read(file);
+
+		Assert.assertEquals(expectedFileContent, actualFileContent);
+>>>>>>> compatible
 	}
 
 	protected DDMFormField createDDMFormField(
@@ -699,6 +791,7 @@ public class DDLExporterTest {
 		return jsonArray.toString();
 	}
 
+<<<<<<< HEAD
 	protected String formatDate(Date date) {
 		DateTimeFormatter dateTimeFormatter =
 			DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT);
@@ -709,6 +802,14 @@ public class DDLExporterTest {
 			date.toInstant(), ZoneId.systemDefault());
 
 		return dateTimeFormatter.format(localDateTime);
+=======
+	protected String read(String fileName) throws Exception {
+		Class<?> clazz = getClass();
+
+		return StringUtil.read(
+			clazz.getClassLoader(),
+			"com/liferay/dynamic/data/lists/dependencies/" + fileName);
+>>>>>>> compatible
 	}
 
 	protected void setDDMFormFieldOptions(
@@ -763,7 +864,11 @@ public class DDLExporterTest {
 		_fieldValues.put(
 			DDMFormFieldType.LINK_TO_PAGE, createLinkToPageDDMFormFieldValue());
 		_fieldValues.put(DDMFormFieldType.NUMBER, "3");
+<<<<<<< HEAD
 		_fieldValues.put(DDMFormFieldType.RADIO, "Value 1");
+=======
+		_fieldValues.put(DDMFormFieldType.RADIO, createListDDMFormFieldValue());
+>>>>>>> compatible
 		_fieldValues.put(
 			DDMFormFieldType.SELECT, createListDDMFormFieldValue());
 		_fieldValues.put(DDMFormFieldType.TEXT, "Text content");
@@ -773,6 +878,7 @@ public class DDLExporterTest {
 		return _fieldValues;
 	}
 
+<<<<<<< HEAD
 	protected void setUpPermissionChecker() throws Exception {
 		PermissionThreadLocal.setPermissionChecker(
 			new SimplePermissionChecker() {
@@ -792,6 +898,8 @@ public class DDLExporterTest {
 			});
 	}
 
+=======
+>>>>>>> compatible
 	@Inject
 	private static DDLExporterFactory _ddlExporterFactory;
 
@@ -803,8 +911,11 @@ public class DDLExporterTest {
 	@DeleteAfterTestRun
 	private Group _group;
 
+<<<<<<< HEAD
 	private PermissionChecker _originalPermissionChecker;
 
+=======
+>>>>>>> compatible
 	private enum DDMFormFieldType {
 
 		CHECKBOX("checkbox"), DATE("ddm-date"), DECIMAL("ddm-decimal"),

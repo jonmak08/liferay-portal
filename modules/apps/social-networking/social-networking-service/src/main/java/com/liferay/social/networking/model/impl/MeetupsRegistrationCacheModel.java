@@ -19,6 +19,10 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import com.liferay.social.networking.model.MeetupsRegistration;
 
@@ -99,7 +103,11 @@ public class MeetupsRegistrationCacheModel implements CacheModel<MeetupsRegistra
 		meetupsRegistrationImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			meetupsRegistrationImpl.setUserName("");
+=======
+			meetupsRegistrationImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			meetupsRegistrationImpl.setUserName(userName);
@@ -123,7 +131,11 @@ public class MeetupsRegistrationCacheModel implements CacheModel<MeetupsRegistra
 		meetupsRegistrationImpl.setStatus(status);
 
 		if (comments == null) {
+<<<<<<< HEAD
 			meetupsRegistrationImpl.setComments("");
+=======
+			meetupsRegistrationImpl.setComments(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			meetupsRegistrationImpl.setComments(comments);
@@ -161,7 +173,11 @@ public class MeetupsRegistrationCacheModel implements CacheModel<MeetupsRegistra
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -175,7 +191,11 @@ public class MeetupsRegistrationCacheModel implements CacheModel<MeetupsRegistra
 		objectOutput.writeInt(status);
 
 		if (comments == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(comments);

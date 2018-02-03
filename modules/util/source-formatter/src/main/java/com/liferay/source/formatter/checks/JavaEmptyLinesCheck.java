@@ -28,7 +28,11 @@ public class JavaEmptyLinesCheck extends EmptyLinesCheck {
 	protected String doProcess(
 		String fileName, String absolutePath, String content) {
 
+<<<<<<< HEAD
 		content = fixMissingEmptyLines(absolutePath, content);
+=======
+		content = fixMissingEmptyLines(content);
+>>>>>>> compatible
 
 		content = fixRedundantEmptyLines(content);
 
@@ -38,6 +42,7 @@ public class JavaEmptyLinesCheck extends EmptyLinesCheck {
 
 		content = _fixRedundantEmptyLineInLambdaExpression(content);
 
+<<<<<<< HEAD
 		content = _fixIncorrectEmptyLineInsideStatement(content);
 
 		return content;
@@ -110,6 +115,11 @@ public class JavaEmptyLinesCheck extends EmptyLinesCheck {
 		}
 	}
 
+=======
+		return content;
+	}
+
+>>>>>>> compatible
 	private String _fixRedundantEmptyLineInLambdaExpression(String content) {
 		Matcher matcher = _redundantEmptyLinePattern.matcher(content);
 

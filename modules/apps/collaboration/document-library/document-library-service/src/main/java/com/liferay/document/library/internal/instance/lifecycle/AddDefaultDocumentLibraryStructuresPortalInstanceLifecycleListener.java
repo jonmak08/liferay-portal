@@ -30,14 +30,20 @@ import com.liferay.dynamic.data.mapping.storage.StorageType;
 import com.liferay.dynamic.data.mapping.util.DDM;
 import com.liferay.dynamic.data.mapping.util.DDMBeanTranslator;
 import com.liferay.dynamic.data.mapping.util.DefaultDDMStructureHelper;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
 import com.liferay.portal.instance.lifecycle.BasePortalInstanceLifecycleListener;
 import com.liferay.portal.instance.lifecycle.PortalInstanceLifecycleListener;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.metadata.RawMetadataProcessorUtil;
 import com.liferay.portal.kernel.model.Company;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.CompanyConstants;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.module.framework.ModuleServiceLifecycle;
 import com.liferay.portal.kernel.service.GroupLocalService;
@@ -45,10 +51,16 @@ import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.UserLocalService;
 import com.liferay.portal.kernel.upgrade.util.UpgradeProcessUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
+=======
+import com.liferay.portal.kernel.util.Portal;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.UnsecureSAXReaderUtil;
@@ -183,8 +195,11 @@ public class AddDefaultDocumentLibraryStructuresPortalInstanceLifecycleListener
 			long userId, long groupId, ServiceContext serviceContext)
 		throws Exception {
 
+<<<<<<< HEAD
 		_addBasicDocumentDLFileEntryType();
 
+=======
+>>>>>>> compatible
 		List<String> ddmStructureNames = new ArrayList<>();
 
 		addDLFileEntryType(
@@ -408,6 +423,7 @@ public class AddDefaultDocumentLibraryStructuresPortalInstanceLifecycleListener
 		_userLocalService = userLocalService;
 	}
 
+<<<<<<< HEAD
 	private void _addBasicDocumentDLFileEntryType() throws Exception {
 		DLFileEntryType dlFileEntryType =
 			_dlFileEntryTypeLocalService.fetchDLFileEntryType(
@@ -431,6 +447,8 @@ public class AddDefaultDocumentLibraryStructuresPortalInstanceLifecycleListener
 		_dlFileEntryTypeLocalService.updateDLFileEntryType(dlFileEntryType);
 	}
 
+=======
+>>>>>>> compatible
 	private DDM _ddm;
 	private DDMBeanTranslator _ddmBeanTranslator;
 	private DDMFormXSDDeserializer _ddmFormXSDDeserializer;

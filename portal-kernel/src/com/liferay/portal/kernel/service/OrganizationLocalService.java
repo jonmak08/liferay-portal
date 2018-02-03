@@ -458,10 +458,13 @@ public interface OrganizationLocalService extends BaseLocalService,
 	public List<Organization> getOrganizations(long companyId,
 		long parentOrganizationId, int start, int end);
 
+<<<<<<< HEAD
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<Organization> getOrganizations(long companyId,
 		java.lang.String treePath);
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns the organizations with the primary keys.
 	*
@@ -473,6 +476,7 @@ public interface OrganizationLocalService extends BaseLocalService,
 		throws PortalException;
 
 	/**
+<<<<<<< HEAD
 	* Returns all the organizations and users belonging to the parent
 	* organization.
 	*
@@ -509,6 +513,8 @@ public interface OrganizationLocalService extends BaseLocalService,
 		long parentOrganizationId, int status);
 
 	/**
+=======
+>>>>>>> compatible
 	* Returns the number of organizations.
 	*
 	* @return the number of organizations
@@ -1108,6 +1114,7 @@ public interface OrganizationLocalService extends BaseLocalService,
 		boolean andSearch, int start, int end, Sort sort)
 		throws PortalException;
 
+<<<<<<< HEAD
 	/**
 	* Returns the organizations and users that match the keywords specified for
 	* them and belong to the parent organization.
@@ -1154,6 +1161,8 @@ public interface OrganizationLocalService extends BaseLocalService,
 		LinkedHashMap<java.lang.String, java.lang.Object> params)
 		throws PortalException;
 
+=======
+>>>>>>> compatible
 	public void setGroupOrganizations(long groupId, long[] organizationIds);
 
 	public void setUserOrganizations(long userId, long[] organizationIds);

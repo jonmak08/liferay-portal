@@ -15,6 +15,7 @@
 package com.liferay.users.admin.web.servlet.taglib.ui;
 
 import com.liferay.portal.kernel.servlet.taglib.ui.FormNavigatorConstants;
+<<<<<<< HEAD
 
 /**
  * @author Pei-Jung Lan
@@ -22,6 +23,19 @@ import com.liferay.portal.kernel.servlet.taglib.ui.FormNavigatorConstants;
  * 		   com.liferay.users.admin.web.internal.servlet.taglib.ui.navigation.user.entry.UserOrganizationsScreenNavigationEntry}
  */
 @Deprecated
+=======
+import com.liferay.portal.kernel.servlet.taglib.ui.FormNavigatorEntry;
+
+import org.osgi.service.component.annotations.Component;
+
+/**
+ * @author Pei-Jung Lan
+ */
+@Component(
+	property = {"form.navigator.entry.order:Integer=60"},
+	service = FormNavigatorEntry.class
+)
+>>>>>>> compatible
 public class UserOrganizationsFormNavigatorEntry
 	extends BaseUserFormNavigatorEntry {
 

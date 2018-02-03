@@ -214,10 +214,16 @@ public class WSRPConsumerManager {
 			for (PropertyDescription propertyDescription :
 					propertyDescriptions) {
 
+<<<<<<< HEAD
 				QName qName = propertyDescription.getName();
 
 				_propertyDescriptions.put(
 					qName.toString(), propertyDescription);
+=======
+				_propertyDescriptions.put(
+					propertyDescription.getName().toString(),
+					propertyDescription);
+>>>>>>> compatible
 			}
 		}
 

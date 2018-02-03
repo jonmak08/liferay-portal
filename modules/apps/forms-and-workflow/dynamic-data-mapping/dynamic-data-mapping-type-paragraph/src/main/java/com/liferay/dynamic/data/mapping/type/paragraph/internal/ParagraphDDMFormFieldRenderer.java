@@ -27,7 +27,10 @@ import java.util.Map;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.Reference;
+=======
+>>>>>>> compatible
 
 /**
  * @author Renato Rego
@@ -45,7 +48,11 @@ public class ParagraphDDMFormFieldRenderer extends BaseDDMFormFieldRenderer {
 
 	@Override
 	public String getTemplateNamespace() {
+<<<<<<< HEAD
 		return "DDMParagraph.render";
+=======
+		return "ddm.paragraph";
+>>>>>>> compatible
 	}
 
 	@Override
@@ -69,6 +76,7 @@ public class ParagraphDDMFormFieldRenderer extends BaseDDMFormFieldRenderer {
 		Template template, DDMFormField ddmFormField,
 		DDMFormFieldRenderingContext ddmFormFieldRenderingContext) {
 
+<<<<<<< HEAD
 		Map<String, Object> parameters =
 			paragraphDDMFormFieldTemplateContextContributor.getParameters(
 				ddmFormField, ddmFormFieldRenderingContext);
@@ -80,6 +88,11 @@ public class ParagraphDDMFormFieldRenderer extends BaseDDMFormFieldRenderer {
 	protected ParagraphDDMFormFieldTemplateContextContributor
 		paragraphDDMFormFieldTemplateContextContributor;
 
+=======
+		template.put("text", ddmFormField.getProperty("text"));
+	}
+
+>>>>>>> compatible
 	private TemplateResource _templateResource;
 
 }

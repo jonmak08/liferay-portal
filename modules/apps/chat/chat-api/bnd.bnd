@@ -1,5 +1,6 @@
 Bundle-Name: Liferay Chat API
 Bundle-SymbolicName: com.liferay.chat.api
+<<<<<<< HEAD
 Bundle-Version: 1.1.1
 Export-Package:\
 	com.liferay.chat.constants,\
@@ -9,4 +10,13 @@ Export-Package:\
 	com.liferay.chat.service,\
 	com.liferay.chat.service.persistence,\
 	com.liferay.chat.util,\
+=======
+Bundle-Version: 1.0.5
+Export-Package:\
+	com.liferay.chat.constants,\
+	com.liferay.chat.exception,\
+	com.liferay.chat.model,\
+	com.liferay.chat.service,\
+	com.liferay.chat.service.persistence,\
+>>>>>>> compatible
 	com.liferay.chat.util.comparator

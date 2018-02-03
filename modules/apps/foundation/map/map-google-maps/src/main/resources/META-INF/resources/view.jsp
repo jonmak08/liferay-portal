@@ -21,7 +21,10 @@ String namespace = AUIUtil.getNamespace(liferayPortletRequest, liferayPortletRes
 
 String protocol = HttpUtil.getProtocol(request);
 
+<<<<<<< HEAD
 String bootstrapRequire = (String)request.getAttribute("liferay-map:map:bootstrapRequire");
+=======
+>>>>>>> compatible
 boolean geolocation = GetterUtil.getBoolean(request.getAttribute("liferay-map:map:geolocation"));
 double latitude = (Double)request.getAttribute("liferay-map:map:latitude");
 double longitude = (Double)request.getAttribute("liferay-map:map:longitude");
@@ -51,6 +54,7 @@ name = namespace + name;
 	<script src="<%= apiURL %>" type="text/javascript"></script>
 </liferay-util:html-top>
 
+<<<<<<< HEAD
 <aui:script require="<%= bootstrapRequire %>">
 	var MapControls = Liferay.MapBase.CONTROLS;
 
@@ -82,17 +86,57 @@ name = namespace + name;
 				}
 			}
 		</c:if>
+=======
+<div class="lfr-map" id="<%= name %>Map"></div>
+
+<aui:script use="liferay-map-google-maps">
+	var MapControls = Liferay.MapBase.CONTROLS;
+
+	var mapConfig = {
+	boundingBox: '#<%= name %>Map',
+
+	<c:if test="<%= geolocation %>">
+		<c:choose>
+			<c:when test="<%= BrowserSnifferUtil.isMobile(request) %>">
+				controls: [MapControls.HOME, MapControls.SEARCH],
+			</c:when>
+			<c:otherwise>
+				controls: [MapControls.HOME, MapControls.PAN, MapControls.SEARCH, MapControls.TYPE, MapControls.ZOOM],
+			</c:otherwise>
+		</c:choose>
+	</c:if>
+
+	<c:if test="<%= Validator.isNotNull(points) %>">
+		data: <%= points %>,
+	</c:if>
+
+	geolocation: <%= geolocation %>
+
+	<c:if test="<%= Validator.isNotNull(latitude) && Validator.isNotNull(longitude) %>">
+		, position: {
+			location: {
+				lat: <%= latitude %>,
+				lng: <%= longitude %>
+			}
+		}
+	</c:if>
+>>>>>>> compatible
 	};
 
 	var destroyMap = function(event, map) {
 		if (event.portletId === '<%= portletDisplay.getId() %>') {
+<<<<<<< HEAD
 			map.destructor();
+=======
+			map.destroy();
+>>>>>>> compatible
 
 			Liferay.detach('destroyPortlet', destroyMap);
 		}
 	};
 
 	var createMap = function() {
+<<<<<<< HEAD
 		var map = new MapGoogleMaps.default(mapConfig);
 
 		Liferay.MapBase.register('<%= name %>', map);
@@ -103,6 +147,13 @@ name = namespace + name;
 				destroyMap(event, map);
 			}
 		);
+=======
+		var map = new Liferay['GoogleMap'](mapConfig).render();
+
+		Liferay.MapBase.register('<%= name %>', map);
+
+		Liferay.on('destroyPortlet', A.rbind(destroyMap, destroyMap, map));
+>>>>>>> compatible
 	};
 
 	if (Liferay.Maps.gmapsReady) {

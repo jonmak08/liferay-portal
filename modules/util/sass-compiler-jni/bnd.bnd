@@ -1,4 +1,8 @@
 Bundle-Name: Liferay Sass Compiler JNI
 Bundle-SymbolicName: com.liferay.sass.compiler.jni
+<<<<<<< HEAD
 Bundle-Version: 2.0.8
+=======
+Bundle-Version: 2.0.7
+>>>>>>> compatible
 Main-Class: com.liferay.sass.compiler.jni.internal.SassCompiler

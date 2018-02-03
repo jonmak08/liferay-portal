@@ -458,7 +458,12 @@ public interface DDMStructureLocalService extends BaseLocalService,
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public DDMStructure fetchStructure(long groupId, long classNameId,
+<<<<<<< HEAD
 		java.lang.String structureKey, boolean includeAncestorStructures);
+=======
+		java.lang.String structureKey, boolean includeAncestorStructures)
+		throws PortalException;
+>>>>>>> compatible
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ActionableDynamicQuery getActionableDynamicQuery();
@@ -825,6 +830,7 @@ public interface DDMStructureLocalService extends BaseLocalService,
 		int start, int end);
 
 	/**
+<<<<<<< HEAD
 	* Returns an ordered range of all the structures matching the group, class
 	* name ID, name, and description.
 	*
@@ -855,6 +861,8 @@ public interface DDMStructureLocalService extends BaseLocalService,
 		int end, OrderByComparator<DDMStructure> orderByComparator);
 
 	/**
+=======
+>>>>>>> compatible
 	* Returns the number of structures belonging to the group.
 	*
 	* @param groupId the primary key of the group
@@ -893,12 +901,15 @@ public interface DDMStructureLocalService extends BaseLocalService,
 		java.lang.String version, ServiceContext serviceContext)
 		throws PortalException;
 
+<<<<<<< HEAD
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<DDMStructure> search(long companyId, long[] groupIds,
 		long classNameId, long classPK, java.lang.String keywords, int start,
 		int end, OrderByComparator<DDMStructure> orderByComparator)
 		throws PortalException;
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns an ordered range of all the structures matching the groups and
 	* class name IDs, and matching the keywords in the structure names and
@@ -970,10 +981,13 @@ public interface DDMStructureLocalService extends BaseLocalService,
 		boolean andOperator, int start, int end,
 		OrderByComparator<DDMStructure> orderByComparator);
 
+<<<<<<< HEAD
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public int searchCount(long companyId, long[] groupIds, long classNameId,
 		long classPK, java.lang.String keywords) throws PortalException;
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns the number of structures matching the groups and class name IDs,
 	* and matching the keywords in the structure names and descriptions.

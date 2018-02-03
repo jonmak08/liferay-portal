@@ -31,6 +31,7 @@ if (dataJSONObject.has("values")) {
 		values[i] = valuesJSONArray.getString(i);
 	}
 }
+<<<<<<< HEAD
 
 AssetEntriesSearchFacetDisplayBuilder assetEntriesSearchFacetDisplayBuilder = new AssetEntriesSearchFacetDisplayBuilder();
 
@@ -43,6 +44,8 @@ assetEntriesSearchFacetDisplayBuilder.setParameterName(facet.getFieldId());
 assetEntriesSearchFacetDisplayBuilder.setParameterValue(fieldParam);
 
 AssetEntriesSearchFacetDisplayContext assetEntriesSearchFacetDisplayContext = assetEntriesSearchFacetDisplayBuilder.build();
+=======
+>>>>>>> compatible
 %>
 
 <div class="panel panel-default">
@@ -62,6 +65,7 @@ AssetEntriesSearchFacetDisplayContext assetEntriesSearchFacetDisplayContext = as
 				</li>
 
 				<%
+<<<<<<< HEAD
 				for (AssetEntriesSearchFacetTermDisplayContext assetEntriesSearchFacetTermDisplayContext : assetEntriesSearchFacetDisplayContext.getTermDisplayContexts()) {
 				%>
 
@@ -71,6 +75,40 @@ AssetEntriesSearchFacetDisplayContext assetEntriesSearchFacetDisplayContext = as
 
 							<c:if test="<%= assetEntriesSearchFacetTermDisplayContext.isFrequencyVisible() %>">
 								<span class="frequency">(<%= assetEntriesSearchFacetTermDisplayContext.getFrequency() %>)</span>
+=======
+				List<String> assetTypes = new SortedArrayList<String>(new ModelResourceComparator(locale));
+
+				for (String className : values) {
+					if (assetTypes.contains(className) || !ArrayUtil.contains(values, className)) {
+						continue;
+					}
+
+					assetTypes.add(className);
+				}
+
+				for (String assetType : assetTypes) {
+					TermCollector termCollector = facetCollector.getTermCollector(assetType);
+
+					int frequency = 0;
+
+					if (termCollector != null) {
+						frequency = termCollector.getFrequency();
+					}
+
+					if (frequencyThreshold > frequency) {
+						continue;
+					}
+
+					AssetRendererFactory<?> assetRendererFactory = AssetRendererFactoryRegistryUtil.getAssetRendererFactoryByClassName(assetType);
+				%>
+
+					<li class="facet-value">
+						<a class="<%= fieldParam.equals(termCollector.getTerm()) ? "text-primary" : "text-default" %>" data-value="<%= HtmlUtil.escapeAttribute(assetType) %>" href="javascript:;">
+							<%= assetRendererFactory.getTypeName(locale) %>
+
+							<c:if test="<%= showAssetCount %>">
+								<span class="frequency">(<%= frequency %>)</span>
+>>>>>>> compatible
 							</c:if>
 						</a>
 					</li>

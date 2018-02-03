@@ -103,6 +103,7 @@ public class ReleaseInfo {
 
 	public static final int RELEASE_7_0_4_BUILD_NUMBER = 7004;
 
+<<<<<<< HEAD
 	public static final int RELEASE_7_0_5_BUILD_NUMBER = 7005;
 
 	public static final int RELEASE_7_0_10_BUILD_NUMBER = 7010;
@@ -111,6 +112,10 @@ public class ReleaseInfo {
 
 	public static final int RELEASE_7_1_10_BUILD_NUMBER = 7110;
 
+=======
+	public static final int RELEASE_7_0_10_BUILD_NUMBER = 7010;
+
+>>>>>>> compatible
 	public static final Date getBuildDate() {
 		DateFormat df = DateFormat.getDateInstance(DateFormat.LONG);
 
@@ -135,10 +140,17 @@ public class ReleaseInfo {
 
 	public static final String getReleaseInfo() {
 		if (_releaseInfo == null) {
+<<<<<<< HEAD
 			_releaseInfo = StringBundler.concat(
 				_RELEASE_INFO_PREFIX, _NAME, " ", _VERSION_DISPLAY_NAME, " (",
 				_CODE_NAME, " / Build ", _BUILD, " / ", _DATE, ")",
 				_RELEASE_INFO_SUFFIX);
+=======
+			_releaseInfo =
+				_RELEASE_INFO_PREFIX + _NAME + " " + _VERSION_DISPLAY_NAME +
+					" (" + _CODE_NAME + " / Build " + _BUILD + " / " + _DATE +
+						")" + _RELEASE_INFO_SUFFIX;
+>>>>>>> compatible
 		}
 
 		return _releaseInfo;
@@ -160,6 +172,7 @@ public class ReleaseInfo {
 		return _VERSION;
 	}
 
+<<<<<<< HEAD
 	private static final String _BUILD = "7100";
 
 	private static final int _BUILD_NUMBER = GetterUtil.getInteger(_BUILD);
@@ -167,6 +180,15 @@ public class ReleaseInfo {
 	private static final String _CODE_NAME = "Judson";
 
 	private static final String _DATE = "September 15, 2017";
+=======
+	private static final String _BUILD = "7004";
+
+	private static final int _BUILD_NUMBER = GetterUtil.getInteger(_BUILD);
+
+	private static final String _CODE_NAME = "Wilberforce";
+
+	private static final String _DATE = "October 23, 2017";
+>>>>>>> compatible
 
 	private static final String _NAME = "Liferay Community Edition Portal";
 
@@ -180,9 +202,15 @@ public class ReleaseInfo {
 
 	private static final String _VENDOR = "Liferay, Inc.";
 
+<<<<<<< HEAD
 	private static final String _VERSION = "7.1.0";
 
 	private static final String _VERSION_DISPLAY_NAME = "7.1.0 CE";
+=======
+	private static final String _VERSION = "7.0.4";
+
+	private static final String _VERSION_DISPLAY_NAME = "7.0.4 GA5";
+>>>>>>> compatible
 
 	private static String _releaseInfo;
 	private static String _serverInfo;

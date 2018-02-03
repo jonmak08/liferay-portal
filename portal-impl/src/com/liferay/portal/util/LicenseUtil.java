@@ -14,8 +14,11 @@
 
 package com.liferay.portal.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.encryptor.Encryptor;
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.json.JSONObjectImpl;
 import com.liferay.portal.kernel.cluster.ClusterExecutorUtil;
 import com.liferay.portal.kernel.cluster.ClusterNode;
@@ -29,6 +32,10 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.Base64;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ClassLoaderUtil;
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.ContentTypes;
@@ -40,10 +47,17 @@ import com.liferay.portal.kernel.util.MethodKey;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.ReleaseInfo;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.util.Validator;
+import com.liferay.util.Encryptor;
+>>>>>>> compatible
 
 import java.io.File;
 import java.io.InputStream;
@@ -325,9 +339,14 @@ public class LicenseUtil {
 			if (Validator.isNotNull(_PROXY_URL)) {
 				if (_log.isInfoEnabled()) {
 					_log.info(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"Using proxy ", _PROXY_URL, StringPool.COLON,
 							String.valueOf(_PROXY_PORT)));
+=======
+						"Using proxy " + _PROXY_URL + StringPool.COLON +
+							_PROXY_PORT);
+>>>>>>> compatible
 				}
 
 				proxyHttpHost = new HttpHost(_PROXY_URL, _PROXY_PORT);
@@ -468,9 +487,13 @@ public class LicenseUtil {
 
 		jsonObject.put("key", _encryptedSymmetricKey);
 
+<<<<<<< HEAD
 		String jsonObjectString = jsonObject.toString();
 
 		return jsonObjectString.getBytes(StringPool.UTF8);
+=======
+		return jsonObject.toString().getBytes(StringPool.UTF8);
+>>>>>>> compatible
 	}
 
 	private static Set<String> _getIPAddresses() {

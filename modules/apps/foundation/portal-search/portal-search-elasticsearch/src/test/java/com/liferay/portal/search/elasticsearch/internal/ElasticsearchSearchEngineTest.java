@@ -14,7 +14,10 @@
 
 package com.liferay.portal.search.elasticsearch.internal;
 
+<<<<<<< HEAD
 import com.liferay.portal.json.JSONFactoryImpl;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.search.elasticsearch.connection.ElasticsearchConnection;
 import com.liferay.portal.search.elasticsearch.connection.ElasticsearchConnectionManager;
@@ -67,7 +70,10 @@ public class ElasticsearchSearchEngineTest {
 		return new CompanyIndexFactory() {
 			{
 				indexNameBuilder = createIndexNameBuilder();
+<<<<<<< HEAD
 				jsonFactory = new JSONFactoryImpl();
+=======
+>>>>>>> compatible
 			}
 		};
 	}

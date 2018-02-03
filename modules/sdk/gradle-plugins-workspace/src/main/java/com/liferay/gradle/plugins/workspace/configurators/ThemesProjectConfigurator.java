@@ -16,6 +16,7 @@ package com.liferay.gradle.plugins.workspace.configurators;
 
 import com.liferay.gradle.plugins.LiferayThemePlugin;
 import com.liferay.gradle.plugins.extensions.LiferayExtension;
+<<<<<<< HEAD
 import com.liferay.gradle.plugins.theme.builder.BuildThemeTask;
 import com.liferay.gradle.plugins.theme.builder.ThemeBuilderPlugin;
 import com.liferay.gradle.plugins.workspace.ProjectConfigurator;
@@ -25,6 +26,11 @@ import com.liferay.gradle.plugins.workspace.internal.util.GradleUtil;
 
 import groovy.json.JsonSlurper;
 
+=======
+import com.liferay.gradle.plugins.workspace.WorkspaceExtension;
+import com.liferay.gradle.plugins.workspace.internal.util.GradleUtil;
+
+>>>>>>> compatible
 import groovy.lang.Closure;
 
 import java.io.File;
@@ -37,7 +43,10 @@ import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 
 import java.util.HashSet;
+<<<<<<< HEAD
 import java.util.Map;
+=======
+>>>>>>> compatible
 import java.util.Set;
 
 import org.gradle.api.Project;
@@ -48,7 +57,10 @@ import org.gradle.api.initialization.Settings;
 import org.gradle.api.plugins.BasePlugin;
 import org.gradle.api.plugins.BasePluginConvention;
 import org.gradle.api.plugins.ExtensionAware;
+<<<<<<< HEAD
 import org.gradle.api.plugins.WarPluginConvention;
+=======
+>>>>>>> compatible
 import org.gradle.api.tasks.Copy;
 
 /**
@@ -59,10 +71,13 @@ public class ThemesProjectConfigurator extends BaseProjectConfigurator {
 
 	public ThemesProjectConfigurator(Settings settings) {
 		super(settings);
+<<<<<<< HEAD
 
 		_javaBuild = GradleUtil.getProperty(
 			settings, WorkspacePlugin.PROPERTY_PREFIX + NAME + ".java.build",
 			_JAVA_BUILD);
+=======
+>>>>>>> compatible
 	}
 
 	@Override
@@ -70,6 +85,7 @@ public class ThemesProjectConfigurator extends BaseProjectConfigurator {
 		WorkspaceExtension workspaceExtension = GradleUtil.getExtension(
 			(ExtensionAware)project.getGradle(), WorkspaceExtension.class);
 
+<<<<<<< HEAD
 		if (isJavaBuild()) {
 			ProjectConfigurator projectConfigurator =
 				workspaceExtension.propertyMissing(
@@ -92,10 +108,21 @@ public class ThemesProjectConfigurator extends BaseProjectConfigurator {
 
 			_configureRootTaskDistBundle(assembleTask);
 		}
+=======
+		GradleUtil.applyPlugin(project, LiferayThemePlugin.class);
+
+		_configureLiferay(project, workspaceExtension);
+
+		Task assembleTask = GradleUtil.getTask(
+			project, BasePlugin.ASSEMBLE_TASK_NAME);
+
+		_configureRootTaskDistBundle(assembleTask);
+>>>>>>> compatible
 	}
 
 	@Override
 	public String getName() {
+<<<<<<< HEAD
 		return NAME;
 	}
 
@@ -105,6 +132,9 @@ public class ThemesProjectConfigurator extends BaseProjectConfigurator {
 
 	public void setJavaBuild(boolean javaBuild) {
 		_javaBuild = javaBuild;
+=======
+		return _NAME;
+>>>>>>> compatible
 	}
 
 	@Override
@@ -145,8 +175,11 @@ public class ThemesProjectConfigurator extends BaseProjectConfigurator {
 		return projectDirs;
 	}
 
+<<<<<<< HEAD
 	protected static final String NAME = "themes";
 
+=======
+>>>>>>> compatible
 	private void _configureLiferay(
 		Project project, WorkspaceExtension workspaceExtension) {
 
@@ -184,6 +217,7 @@ public class ThemesProjectConfigurator extends BaseProjectConfigurator {
 			});
 	}
 
+<<<<<<< HEAD
 	private void _configureTaskBuildTheme(Project project) {
 		File packageJsonFile = project.file("package.json");
 
@@ -221,6 +255,8 @@ public class ThemesProjectConfigurator extends BaseProjectConfigurator {
 		warPluginConvention.setWebAppDirName("src");
 	}
 
+=======
+>>>>>>> compatible
 	private File _getWarFile(Project project) {
 		BasePluginConvention basePluginConvention = GradleUtil.getConvention(
 			project, BasePluginConvention.class);
@@ -229,8 +265,12 @@ public class ThemesProjectConfigurator extends BaseProjectConfigurator {
 			"dist/" + basePluginConvention.getArchivesBaseName() + ".war");
 	}
 
+<<<<<<< HEAD
 	private static final boolean _JAVA_BUILD = false;
 
 	private boolean _javaBuild;
+=======
+	private static final String _NAME = "themes";
+>>>>>>> compatible
 
 }

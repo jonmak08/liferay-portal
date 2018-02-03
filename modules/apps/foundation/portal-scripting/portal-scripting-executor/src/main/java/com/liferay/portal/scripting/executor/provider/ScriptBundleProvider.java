@@ -20,10 +20,14 @@ import org.osgi.framework.Bundle;
 
 /**
  * @author Michael C. Han
+<<<<<<< HEAD
  * @deprecated As of 3.0.0, replaced by {@link
  *             com.liferay.portal.scripting.ScriptBundleProvider}
  */
 @Deprecated
+=======
+ */
+>>>>>>> compatible
 @ProviderType
 public interface ScriptBundleProvider {
 

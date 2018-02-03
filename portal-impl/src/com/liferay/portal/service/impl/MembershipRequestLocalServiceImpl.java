@@ -14,6 +14,7 @@
 
 package com.liferay.portal.service.impl;
 
+<<<<<<< HEAD
 import com.liferay.mail.kernel.model.MailMessage;
 import com.liferay.mail.kernel.service.MailService;
 import com.liferay.mail.kernel.template.MailTemplate;
@@ -21,11 +22,16 @@ import com.liferay.mail.kernel.template.MailTemplateContext;
 import com.liferay.mail.kernel.template.MailTemplateContextBuilder;
 import com.liferay.mail.kernel.template.MailTemplateFactoryUtil;
 import com.liferay.portal.kernel.bean.BeanReference;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.MembershipRequestCommentsException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.language.LanguageUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.Company;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.MembershipRequest;
 import com.liferay.portal.kernel.model.MembershipRequestConstants;
@@ -38,22 +44,34 @@ import com.liferay.portal.kernel.model.UserGroupRole;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.ResourceActionsUtil;
 import com.liferay.portal.kernel.service.ServiceContext;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.EscapableLocalizableFunction;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.PortalUtil;
+=======
+import com.liferay.portal.kernel.util.Function;
+import com.liferay.portal.kernel.util.ListUtil;
+import com.liferay.portal.kernel.util.OrderByComparator;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.PropsKeys;
+import com.liferay.portal.kernel.util.SubscriptionSender;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.service.base.MembershipRequestLocalServiceBaseImpl;
 import com.liferay.portal.util.PrefsPropsUtil;
 import com.liferay.portal.util.ResourcePermissionUtil;
 
+<<<<<<< HEAD
 import java.io.IOException;
+=======
+import java.io.Serializable;
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 
 import javax.mail.internet.InternetAddress;
@@ -341,6 +359,7 @@ public class MembershipRequestLocalServiceImpl
 			statusKey = "pending";
 		}
 
+<<<<<<< HEAD
 		Company company = companyLocalService.getCompany(user.getCompanyId());
 
 		String portalURL = company.getPortalURL(0);
@@ -387,6 +406,37 @@ public class MembershipRequestLocalServiceImpl
 		_sendNotificationEmail(
 			fromAddress, fromName, toAddress, user, subject, body,
 			membershipRequest, mailTemplateContext);
+=======
+		SubscriptionSender subscriptionSender = new SubscriptionSender();
+
+		subscriptionSender.setBody(body);
+		subscriptionSender.setCompanyId(membershipRequest.getCompanyId());
+		subscriptionSender.setContextAttributes(
+			"[$COMMENTS$]", membershipRequest.getComments(),
+			"[$REPLY_COMMENTS$]", membershipRequest.getReplyComments(),
+			"[$REQUEST_USER_ADDRESS$]", requestUser.getEmailAddress(),
+			"[$REQUEST_USER_NAME$]", requestUser.getFullName(),
+			"[$USER_ADDRESS$]", user.getEmailAddress(), "[$USER_NAME$]",
+			user.getFullName());
+		subscriptionSender.setFrom(fromAddress, fromName);
+		subscriptionSender.setHtmlFormat(true);
+
+		StatusKeySerializableFunction statusKeySerializableFunction =
+			new StatusKeySerializableFunction(statusKey);
+
+		subscriptionSender.setLocalizedContextAttribute(
+			"[$STATUS$]", statusKeySerializableFunction);
+
+		subscriptionSender.setMailId(
+			"membership_request", membershipRequest.getMembershipRequestId());
+		subscriptionSender.setScopeGroupId(membershipRequest.getGroupId());
+		subscriptionSender.setServiceContext(serviceContext);
+		subscriptionSender.setSubject(subject);
+
+		subscriptionSender.addRuntimeSubscribers(toAddress, toName);
+
+		subscriptionSender.flushNotificationsAsync();
+>>>>>>> compatible
 	}
 
 	protected void notifyGroupAdministrators(
@@ -410,6 +460,7 @@ public class MembershipRequestLocalServiceImpl
 		}
 	}
 
+<<<<<<< HEAD
 	@BeanReference(type = MailService.class)
 	protected MailService mailService;
 
@@ -448,6 +499,22 @@ public class MembershipRequestLocalServiceImpl
 		catch (IOException ioe) {
 			throw new SystemException(ioe);
 		}
+=======
+	private static class StatusKeySerializableFunction
+		implements Function<Locale, String>, Serializable {
+
+		public StatusKeySerializableFunction(String statusKey) {
+			_statusKey = statusKey;
+		}
+
+		@Override
+		public String apply(Locale locale) {
+			return LanguageUtil.get(locale, _statusKey);
+		}
+
+		private final String _statusKey;
+
+>>>>>>> compatible
 	}
 
 }

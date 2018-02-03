@@ -18,11 +18,16 @@ import com.liferay.gradle.util.Validator;
 
 import java.io.File;
 
+<<<<<<< HEAD
 import java.util.Map;
 import java.util.regex.Pattern;
 
 import org.dm.gradle.plugins.bundle.BundleExtension;
 
+=======
+import java.util.regex.Pattern;
+
+>>>>>>> compatible
 import org.gradle.api.Action;
 import org.gradle.api.Project;
 import org.gradle.api.artifacts.dsl.RepositoryHandler;
@@ -43,10 +48,13 @@ public class GradlePluginsDefaultsUtil {
 	public static final String[] JSON_VERSION_FILE_NAMES =
 		{"npm-shrinkwrap.json", "package-lock.json", "package.json"};
 
+<<<<<<< HEAD
 	public static final String SNAPSHOT_PROPERTY_NAME = "snapshot";
 
 	public static final String SNAPSHOT_VERSION_SUFFIX = "-SNAPSHOT";
 
+=======
+>>>>>>> compatible
 	public static final String TMP_MAVEN_REPOSITORY_DIR_NAME = ".m2-tmp";
 
 	public static final Pattern jsonVersionPattern = Pattern.compile(
@@ -135,6 +143,7 @@ public class GradlePluginsDefaultsUtil {
 		}
 	}
 
+<<<<<<< HEAD
 	public static String getBundleInstruction(Project project, String key) {
 		Map<String, String> bundleInstructions = getBundleInstructions(project);
 
@@ -226,4 +235,6 @@ public class GradlePluginsDefaultsUtil {
 
 	private static final String _TEST_PROJECT_SUFFIX = "-test";
 
+=======
+>>>>>>> compatible
 }

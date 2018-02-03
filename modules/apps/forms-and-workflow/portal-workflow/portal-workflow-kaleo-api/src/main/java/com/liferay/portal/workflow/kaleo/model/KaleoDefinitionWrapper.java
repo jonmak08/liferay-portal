@@ -71,6 +71,10 @@ public class KaleoDefinitionWrapper implements KaleoDefinition,
 		attributes.put("content", getContent());
 		attributes.put("version", getVersion());
 		attributes.put("active", getActive());
+<<<<<<< HEAD
+=======
+		attributes.put("startKaleoNodeId", getStartKaleoNodeId());
+>>>>>>> compatible
 
 		return attributes;
 	}
@@ -154,6 +158,15 @@ public class KaleoDefinitionWrapper implements KaleoDefinition,
 		if (active != null) {
 			setActive(active);
 		}
+<<<<<<< HEAD
+=======
+
+		Long startKaleoNodeId = (Long)attributes.get("startKaleoNodeId");
+
+		if (startKaleoNodeId != null) {
+			setStartKaleoNodeId(startKaleoNodeId);
+		}
+>>>>>>> compatible
 	}
 
 	@Override
@@ -252,9 +265,15 @@ public class KaleoDefinitionWrapper implements KaleoDefinition,
 	}
 
 	@Override
+<<<<<<< HEAD
 	public java.util.List<KaleoDefinitionVersion> getKaleoDefinitionVersions()
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return _kaleoDefinition.getKaleoDefinitionVersions();
+=======
+	public KaleoNode getKaleoStartNode()
+		throws com.liferay.portal.kernel.exception.PortalException {
+		return _kaleoDefinition.getKaleoStartNode();
+>>>>>>> compatible
 	}
 
 	/**
@@ -293,6 +312,19 @@ public class KaleoDefinitionWrapper implements KaleoDefinition,
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	* Returns the start kaleo node ID of this kaleo definition.
+	*
+	* @return the start kaleo node ID of this kaleo definition
+	*/
+	@Override
+	public long getStartKaleoNodeId() {
+		return _kaleoDefinition.getStartKaleoNodeId();
+	}
+
+	/**
+>>>>>>> compatible
 	* Returns the title of this kaleo definition.
 	*
 	* @return the title of this kaleo definition
@@ -414,6 +446,14 @@ public class KaleoDefinitionWrapper implements KaleoDefinition,
 		return _kaleoDefinition.hashCode();
 	}
 
+<<<<<<< HEAD
+=======
+	@Override
+	public boolean hasIncompleteKaleoInstances() {
+		return _kaleoDefinition.hasIncompleteKaleoInstances();
+	}
+
+>>>>>>> compatible
 	/**
 	* Returns <code>true</code> if this kaleo definition is active.
 	*
@@ -589,6 +629,19 @@ public class KaleoDefinitionWrapper implements KaleoDefinition,
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	* Sets the start kaleo node ID of this kaleo definition.
+	*
+	* @param startKaleoNodeId the start kaleo node ID of this kaleo definition
+	*/
+	@Override
+	public void setStartKaleoNodeId(long startKaleoNodeId) {
+		_kaleoDefinition.setStartKaleoNodeId(startKaleoNodeId);
+	}
+
+	/**
+>>>>>>> compatible
 	* Sets the title of this kaleo definition.
 	*
 	* @param title the title of this kaleo definition

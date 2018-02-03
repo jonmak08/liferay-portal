@@ -30,6 +30,10 @@ import com.liferay.portal.kernel.trash.BaseTrashHandler;
 import com.liferay.portal.kernel.trash.TrashHandler;
 import com.liferay.portlet.messageboards.service.permission.MBMessagePermission;
 import com.liferay.portlet.messageboards.util.MBMessageAttachmentsUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.trash.kernel.model.TrashEntry;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -76,8 +80,15 @@ public class MBMessageTrashHandler extends BaseTrashHandler {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public TrashedModel getTrashedModel(long classPK) {
 		return _mbMessageLocalService.fetchMBMessage(classPK);
+=======
+	public TrashEntry getTrashEntry(long classPK) throws PortalException {
+		MBMessage message = _mbMessageLocalService.getMessage(classPK);
+
+		return message.getTrashEntry();
+>>>>>>> compatible
 	}
 
 	@Override
@@ -86,6 +97,23 @@ public class MBMessageTrashHandler extends BaseTrashHandler {
 	}
 
 	@Override
+<<<<<<< HEAD
+=======
+	public boolean isInTrash(long classPK) throws PortalException {
+		MBMessage message = _mbMessageLocalService.getMessage(classPK);
+
+		return message.isInTrash();
+	}
+
+	@Override
+	public boolean isInTrashContainer(long classPK) throws PortalException {
+		MBMessage message = _mbMessageLocalService.getMessage(classPK);
+
+		return message.isInTrashContainer();
+	}
+
+	@Override
+>>>>>>> compatible
 	public void restoreRelatedTrashEntry(String className, long classPK)
 		throws PortalException {
 

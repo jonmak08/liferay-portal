@@ -416,6 +416,7 @@ public class PortletDisplayTemplateImpl implements PortletDisplayTemplate {
 		PortletResponse portletResponse = (PortletResponse)request.getAttribute(
 			JavaConstants.JAVAX_PORTLET_RESPONSE);
 
+<<<<<<< HEAD
 		if ((portletRequest != null) && (portletResponse != null)) {
 			PortletURL currentURL = PortletURLUtil.getCurrent(
 				_portal.getLiferayPortletRequest(portletRequest),
@@ -425,6 +426,14 @@ public class PortletDisplayTemplateImpl implements PortletDisplayTemplate {
 				PortletDisplayTemplateConstants.CURRENT_URL,
 				currentURL.toString());
 		}
+=======
+		PortletURL currentURL = PortletURLUtil.getCurrent(
+			_portal.getLiferayPortletRequest(portletRequest),
+			_portal.getLiferayPortletResponse(portletResponse));
+
+		contextObjects.put(
+			PortletDisplayTemplateConstants.CURRENT_URL, currentURL.toString());
+>>>>>>> compatible
 
 		contextObjects.put(PortletDisplayTemplateConstants.ENTRIES, entries);
 

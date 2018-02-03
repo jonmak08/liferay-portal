@@ -7,19 +7,26 @@
 	</set-up>
 
 	<tear-down>
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoSite">
 			<var name="portletName" value="Sites" />
 		</execute>
 
 		<execute macro="Site#tearDownCP" />
 
+=======
+>>>>>>> compatible
 		<execute macro="BlogsEntry#tearDownCP" />
 
 		<execute macro="BookmarksFolder#tearDownCP" />
 
 		<execute macro="WikiPage#tearDownCP" />
 
+<<<<<<< HEAD
 		<execute macro="Page#tearDownCP" />
+=======
+		<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 
 		<execute macro="DMFolder#tearDownCP" />
 

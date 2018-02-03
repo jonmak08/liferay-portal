@@ -14,10 +14,16 @@
 
 package com.liferay.portal.tools.deploy;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Plugin;
 import com.liferay.portal.kernel.plugin.PluginPackage;
+=======
+import com.liferay.portal.kernel.model.Plugin;
+import com.liferay.portal.kernel.plugin.PluginPackage;
+import com.liferay.portal.kernel.util.StreamUtil;
+>>>>>>> compatible
 import com.liferay.portal.tools.ToolDependencies;
 
 import java.io.File;
@@ -46,6 +52,7 @@ public class HookDeployer extends BaseDeployer {
 			}
 		}
 
+<<<<<<< HEAD
 		try (HookDeployer hookDeployer = new HookDeployer(wars, jars)) {
 		}
 		catch (IOException ioe) {
@@ -53,6 +60,9 @@ public class HookDeployer extends BaseDeployer {
 				_log.warn(ioe, ioe);
 			}
 		}
+=======
+		StreamUtil.cleanUp(new HookDeployer(wars, jars));
+>>>>>>> compatible
 	}
 
 	public HookDeployer() {

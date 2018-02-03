@@ -15,12 +15,18 @@
 package com.liferay.gradle.plugins.test.integration;
 
 import com.liferay.gradle.plugins.test.integration.internal.util.GradleUtil;
+<<<<<<< HEAD
 import com.liferay.gradle.plugins.test.integration.internal.util.ReflectionUtil;
 
 import java.io.File;
 
 import java.lang.reflect.Method;
 
+=======
+
+import java.io.File;
+
+>>>>>>> compatible
 import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedHashSet;
@@ -29,7 +35,10 @@ import java.util.Set;
 import java.util.concurrent.Callable;
 
 import org.gradle.api.Action;
+<<<<<<< HEAD
 import org.gradle.api.GradleException;
+=======
+>>>>>>> compatible
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
 import org.gradle.api.Task;
@@ -37,7 +46,10 @@ import org.gradle.api.artifacts.Configuration;
 import org.gradle.api.file.FileCollection;
 import org.gradle.api.file.SourceDirectorySet;
 import org.gradle.api.internal.ConventionMapping;
+<<<<<<< HEAD
 import org.gradle.api.invocation.Gradle;
+=======
+>>>>>>> compatible
 import org.gradle.api.plugins.JavaBasePlugin;
 import org.gradle.api.plugins.JavaPlugin;
 import org.gradle.api.plugins.PluginContainer;
@@ -51,7 +63,10 @@ import org.gradle.plugins.ide.eclipse.model.EclipseModel;
 import org.gradle.plugins.ide.idea.IdeaPlugin;
 import org.gradle.plugins.ide.idea.model.IdeaModel;
 import org.gradle.plugins.ide.idea.model.IdeaModule;
+<<<<<<< HEAD
 import org.gradle.util.VersionNumber;
+=======
+>>>>>>> compatible
 
 /**
  * @author Andrea Di Giorgi
@@ -148,6 +163,7 @@ public class TestIntegrationBasePlugin implements Plugin<Project> {
 
 			});
 
+<<<<<<< HEAD
 		final SourceSetOutput sourceSetOutput =
 			testIntegrationSourceSet.getOutput();
 
@@ -208,6 +224,21 @@ public class TestIntegrationBasePlugin implements Plugin<Project> {
 
 				});
 		}
+=======
+		conventionMapping.map(
+			"testClassesDir",
+			new Callable<File>() {
+
+				@Override
+				public File call() throws Exception {
+					SourceSetOutput sourceSetOutput =
+						testIntegrationSourceSet.getOutput();
+
+					return sourceSetOutput.getClassesDir();
+				}
+
+			});
+>>>>>>> compatible
 
 		project.afterEvaluate(
 			new Action<Project>() {

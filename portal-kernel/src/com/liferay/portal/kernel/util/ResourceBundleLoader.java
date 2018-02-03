@@ -14,14 +14,18 @@
 
 package com.liferay.portal.kernel.util;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
 import java.util.Locale;
+=======
+>>>>>>> compatible
 import java.util.ResourceBundle;
 
 /**
  * @author Carlos Sierra Andrés
  */
+<<<<<<< HEAD
 @FunctionalInterface
 @ProviderType
 public interface ResourceBundleLoader {
@@ -35,5 +39,10 @@ public interface ResourceBundleLoader {
 	public default ResourceBundle loadResourceBundle(String languageId) {
 		return loadResourceBundle(LocaleUtil.fromLanguageId(languageId));
 	}
+=======
+public interface ResourceBundleLoader {
+
+	public ResourceBundle loadResourceBundle(String languageId);
+>>>>>>> compatible
 
 }

@@ -36,16 +36,26 @@ public class JavaImportsCheck extends BaseFileCheck {
 		ImportsFormatter importsFormatter = new JavaImportsFormatter();
 
 		String className = JavaSourceUtil.getClassName(fileName);
+<<<<<<< HEAD
 		String packageName = JavaSourceUtil.getPackageName(content);
 
 		content = importsFormatter.format(content, packageName, className);
+=======
+		String packagePath = JavaSourceUtil.getPackagePath(content);
+
+		content = importsFormatter.format(content, packagePath, className);
+>>>>>>> compatible
 
 		content = StringUtil.replace(content, ";\n/**", ";\n\n/**");
 
 		Matcher matcher = _importMethodPattern.matcher(content);
 
 		while (matcher.find()) {
+<<<<<<< HEAD
 			StringBundler sb = new StringBundler(5);
+=======
+			StringBundler sb = new StringBundler();
+>>>>>>> compatible
 
 			sb.append("Do not import method '");
 			sb.append(matcher.group(1));
@@ -54,8 +64,12 @@ public class JavaImportsCheck extends BaseFileCheck {
 			sb.append("' instead");
 
 			addMessage(
+<<<<<<< HEAD
 				fileName, sb.toString(), "imports.markdown",
 				getLineCount(content, matcher.end()));
+=======
+				fileName, sb.toString(), getLineCount(content, matcher.end()));
+>>>>>>> compatible
 		}
 
 		return content;

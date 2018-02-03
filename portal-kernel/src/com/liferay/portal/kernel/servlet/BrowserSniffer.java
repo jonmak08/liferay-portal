@@ -40,6 +40,7 @@ public interface BrowserSniffer {
 
 	public BrowserMetadata getBrowserMetadata(HttpServletRequest request);
 
+<<<<<<< HEAD
 	/**
 	 * Returns the browser's version number as a float. This differs from {@link
 	 * BrowserSniffer#getVersion(HttpServletRequest)}, which returns the version
@@ -88,6 +89,12 @@ public interface BrowserSniffer {
 	 * @param  request the servlet request
 	 * @return a String containing the version number
 	 */
+=======
+	public float getMajorVersion(HttpServletRequest request);
+
+	public String getRevision(HttpServletRequest request);
+
+>>>>>>> compatible
 	public String getVersion(HttpServletRequest request);
 
 	public boolean isAir(HttpServletRequest request);

@@ -14,12 +14,18 @@
 
 package com.liferay.message.boards.comment.internal;
 
+<<<<<<< HEAD
 import com.liferay.comment.constants.CommentConstants;
 import com.liferay.message.boards.kernel.model.MBCategoryConstants;
+=======
+import com.liferay.message.boards.kernel.model.MBCategoryConstants;
+import com.liferay.message.boards.kernel.model.MBDiscussion;
+>>>>>>> compatible
 import com.liferay.message.boards.kernel.model.MBMessage;
 import com.liferay.message.boards.kernel.model.MBMessageDisplay;
 import com.liferay.message.boards.kernel.model.MBThread;
 import com.liferay.message.boards.kernel.model.MBTreeWalker;
+<<<<<<< HEAD
 import com.liferay.message.boards.kernel.service.MBMessageLocalService;
 import com.liferay.message.boards.kernel.service.MBThreadLocalService;
 import com.liferay.message.boards.kernel.util.comparator.MessageThreadComparator;
@@ -27,6 +33,14 @@ import com.liferay.message.boards.model.MBDiscussion;
 import com.liferay.message.boards.service.MBDiscussionLocalService;
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.comment.Comment;
+=======
+import com.liferay.message.boards.kernel.service.MBDiscussionLocalService;
+import com.liferay.message.boards.kernel.service.MBMessageLocalService;
+import com.liferay.message.boards.kernel.service.MBThreadLocalService;
+import com.liferay.message.boards.kernel.util.comparator.MessageThreadComparator;
+import com.liferay.portal.kernel.comment.Comment;
+import com.liferay.portal.kernel.comment.CommentConstants;
+>>>>>>> compatible
 import com.liferay.portal.kernel.comment.CommentManager;
 import com.liferay.portal.kernel.comment.Discussion;
 import com.liferay.portal.kernel.comment.DiscussionComment;
@@ -36,9 +50,15 @@ import com.liferay.portal.kernel.comment.DuplicateCommentException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.service.ServiceContext;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.Function;
 import com.liferay.portal.kernel.util.Portal;
+=======
+import com.liferay.portal.kernel.util.Function;
+import com.liferay.portal.kernel.util.Portal;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.ratings.kernel.model.RatingsEntry;
 import com.liferay.ratings.kernel.model.RatingsStats;
@@ -48,7 +68,10 @@ import com.liferay.ratings.kernel.service.RatingsStatsLocalService;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Map;
+=======
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -179,6 +202,7 @@ public class MBCommentManagerImpl implements CommentManager {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public DiscussionComment fetchDiscussionComment(long userId, long commentId)
 		throws PortalException {
 
@@ -198,6 +222,8 @@ public class MBCommentManagerImpl implements CommentManager {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public int getCommentsCount(String className, long classPK) {
 		long classNameId = _portal.getClassNameId(className);
 
@@ -216,16 +242,45 @@ public class MBCommentManagerImpl implements CommentManager {
 				userId, groupId, className, classPK,
 				WorkflowConstants.STATUS_ANY, new MessageThreadComparator());
 
+<<<<<<< HEAD
 		DiscussionComment rootDiscussionComment = getDiscussionComment(
 			userId, messageDisplay);
 
+=======
+>>>>>>> compatible
 		MBTreeWalker treeWalker = messageDisplay.getTreeWalker();
 
 		List<MBMessage> messages = treeWalker.getMessages();
 
+<<<<<<< HEAD
 		return new MBDiscussionImpl(
 			rootDiscussionComment, messageDisplay.isDiscussionMaxComments(),
 			messages.size() - 1);
+=======
+		List<RatingsEntry> ratingsEntries = Collections.emptyList();
+		List<RatingsStats> ratingsStats = Collections.emptyList();
+
+		if (messages.size() > 1) {
+			List<Long> classPKs = new ArrayList<>();
+
+			for (MBMessage curMessage : messages) {
+				if (!curMessage.isRoot()) {
+					classPKs.add(curMessage.getMessageId());
+				}
+			}
+
+			ratingsEntries = _ratingsEntryLocalService.getEntries(
+				userId, CommentConstants.getDiscussionClassName(), classPKs);
+			ratingsStats = _ratingsStatsLocalService.getStats(
+				CommentConstants.getDiscussionClassName(), classPKs);
+		}
+
+		DiscussionComment rootDiscussionComment = new MBDiscussionCommentImpl(
+			treeWalker.getRoot(), treeWalker, ratingsEntries, ratingsStats);
+
+		return new MBDiscussionImpl(
+			rootDiscussionComment, messageDisplay.isDiscussionMaxComments());
+>>>>>>> compatible
 	}
 
 	@Override
@@ -339,6 +394,7 @@ public class MBCommentManagerImpl implements CommentManager {
 		return message.getMessageId();
 	}
 
+<<<<<<< HEAD
 	protected DiscussionComment getDiscussionComment(
 		long userId, MBMessageDisplay messageDisplay) {
 
@@ -383,6 +439,8 @@ public class MBCommentManagerImpl implements CommentManager {
 			treeWalker.getRoot(), treeWalker, ratingsEntries, ratingsStats);
 	}
 
+=======
+>>>>>>> compatible
 	@Reference(unbind = "-")
 	protected void setMBThreadLocalService(
 		MBThreadLocalService mbThreadLocalService) {

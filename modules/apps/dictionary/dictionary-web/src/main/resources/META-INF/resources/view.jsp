@@ -24,7 +24,11 @@
 		<aui:option label="thesaurus" value="http://thesaurus.reference.com/browse/" />
 	</aui:select>
 
+<<<<<<< HEAD
 	<aui:button type="submit" value="find" />
+=======
+	<aui:button cssClass="btn-lg" type="submit" value="find" />
+>>>>>>> compatible
 </aui:form>
 
 <aui:script>

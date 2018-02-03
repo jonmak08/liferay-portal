@@ -18,6 +18,10 @@
 
 <%
 String tabs2 = ParamUtil.getString(request, "tabs2", "users");
+<<<<<<< HEAD
+=======
+String tabs3 = ParamUtil.getString(request, "tabs3", "available");
+>>>>>>> compatible
 
 int cur = ParamUtil.getInteger(request, SearchContainer.DEFAULT_CUR_PARAM);
 
@@ -27,6 +31,7 @@ long roleId = ParamUtil.getLong(request, "roleId");
 
 Role role = RoleServiceUtil.fetchRole(roleId);
 
+<<<<<<< HEAD
 String displayStyle = ParamUtil.getString(request, "displayStyle");
 
 if (Validator.isNull(displayStyle)) {
@@ -38,6 +43,9 @@ else {
 	request.setAttribute(WebKeys.SINGLE_PAGE_APPLICATION_CLEAR_CACHE, Boolean.TRUE);
 }
 
+=======
+String displayStyle = ParamUtil.getString(request, "displayStyle", "list");
+>>>>>>> compatible
 String eventName = ParamUtil.getString(request, "eventName", liferayPortletResponse.getNamespace() + "selectAssignees");
 String orderByCol = ParamUtil.getString(request, "orderByCol", "name");
 String orderByType = ParamUtil.getString(request, "orderByType", "asc");
@@ -68,12 +76,42 @@ request.setAttribute("edit_role_assignments.jsp-portletURL", portletURL);
 	<aui:nav cssClass="navbar-nav">
 
 		<%
+<<<<<<< HEAD
 		PortletURL usersPortletURL = PortletURLUtil.clone(portletURL, renderResponse);
 
 		usersPortletURL.setParameter("tabs2", "users");
 		%>
 
 		<aui:nav-item href="<%= portletURL.toString() %>" label="<%= tabs2 %>" selected="<%= true %>" />
+=======
+		portletURL.setParameter("tabs2", "users");
+		%>
+
+		<aui:nav-item href="<%= portletURL.toString() %>" label="users" selected='<%= tabs2.equals("users") %>' />
+
+		<%
+		portletURL.setParameter("tabs2", "sites");
+		%>
+
+		<aui:nav-item href="<%= portletURL.toString() %>" label="sites" selected='<%= tabs2.equals("sites") %>' />
+
+		<%
+		portletURL.setParameter("tabs2", "organizations");
+		%>
+
+		<aui:nav-item href="<%= portletURL.toString() %>" label="organizations" selected='<%= tabs2.equals("organizations") %>' />
+
+		<%
+		portletURL.setParameter("tabs2", "user-groups");
+		%>
+
+		<aui:nav-item href="<%= portletURL.toString() %>" label="user-groups" selected='<%= tabs2.equals("user-groups") %>' />
+
+		<%
+		portletURL.setParameter("tabs2", tabs2);
+		%>
+
+>>>>>>> compatible
 	</aui:nav>
 
 	<aui:nav-bar-search>
@@ -89,7 +127,11 @@ request.setAttribute("edit_role_assignments.jsp-portletURL", portletURL);
 
 <aui:form action="<%= portletURL.toString() %>" cssClass="container-fluid-1280" method="post" name="fm">
 	<aui:input name="tabs2" type="hidden" value="<%= tabs2 %>" />
+<<<<<<< HEAD
 	<aui:input name="tabs3" type="hidden" value="available" />
+=======
+	<aui:input name="tabs3" type="hidden" value="<%= tabs3 %>" />
+>>>>>>> compatible
 	<aui:input name="redirect" type="hidden" value="<%= currentURL %>" />
 	<aui:input name="roleId" type="hidden" value="<%= role.getRoleId() %>" />
 

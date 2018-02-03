@@ -14,8 +14,11 @@
 
 package com.liferay.asset.kernel.model;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.portlet.LiferayPortletRequest;
 import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
@@ -35,7 +38,10 @@ import javax.portlet.WindowState;
  * @author Jorge Ferrer
  * @author Juan Fernández
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public interface AssetRenderer<T> extends Renderer {
 
 	public static final String TEMPLATE_ABSTRACT = "abstract";
@@ -121,8 +127,11 @@ public interface AssetRenderer<T> extends Renderer {
 
 	public String getUrlTitle();
 
+<<<<<<< HEAD
 	public String getUrlTitle(Locale locale);
 
+=======
+>>>>>>> compatible
 	public String getURLView(
 			LiferayPortletResponse liferayPortletResponse,
 			WindowState windowState)

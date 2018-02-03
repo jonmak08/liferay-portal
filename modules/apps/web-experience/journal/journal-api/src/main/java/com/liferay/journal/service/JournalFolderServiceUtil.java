@@ -134,6 +134,7 @@ public class JournalFolderServiceUtil {
 			start, end, obc);
 	}
 
+<<<<<<< HEAD
 	public static java.util.List<java.lang.Object> getFoldersAndArticles(
 		long groupId, long userId, long folderId, int status,
 		java.util.Locale locale, int start, int end,
@@ -143,6 +144,8 @@ public class JournalFolderServiceUtil {
 			locale, start, end, obc);
 	}
 
+=======
+>>>>>>> compatible
 	public static int getFoldersAndArticlesCount(long groupId,
 		java.util.List<java.lang.Long> folderIds, int status) {
 		return getService()
@@ -183,7 +186,11 @@ public class JournalFolderServiceUtil {
 	}
 
 	/**
+<<<<<<< HEAD
 	* @deprecated As of 4.0.0, replaced by {@link #getSubfolderIds(List, long,
+=======
+	* @deprecated As of 3.3.0, replaced by {@link #getSubfolderIds(List, long,
+>>>>>>> compatible
 	long, boolean)}
 	*/
 	@Deprecated
@@ -229,6 +236,7 @@ public class JournalFolderServiceUtil {
 		getService().restoreFolderFromTrash(folderId);
 	}
 
+<<<<<<< HEAD
 	public static java.util.List<com.liferay.dynamic.data.mapping.model.DDMStructure> searchDDMStructures(
 		long companyId, long[] groupIds, long folderId, int restrictionType,
 		java.lang.String keywords, int start, int end,
@@ -239,6 +247,8 @@ public class JournalFolderServiceUtil {
 			restrictionType, keywords, start, end, obc);
 	}
 
+=======
+>>>>>>> compatible
 	public static void subscribe(long groupId, long folderId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		getService().subscribe(groupId, folderId);

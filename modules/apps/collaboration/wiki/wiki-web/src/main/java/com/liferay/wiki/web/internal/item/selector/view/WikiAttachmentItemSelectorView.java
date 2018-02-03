@@ -14,7 +14,10 @@
 
 package com.liferay.wiki.web.internal.item.selector.view;
 
+<<<<<<< HEAD
 import com.liferay.document.library.display.context.DLMimeTypeDisplayContext;
+=======
+>>>>>>> compatible
 import com.liferay.item.selector.ItemSelectorReturnType;
 import com.liferay.item.selector.ItemSelectorReturnTypeResolverHandler;
 import com.liferay.item.selector.ItemSelectorView;
@@ -22,9 +25,13 @@ import com.liferay.item.selector.criteria.FileEntryItemSelectorReturnType;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ListUtil;
+<<<<<<< HEAD
 import com.liferay.wiki.item.selector.constants.WikiItemSelectorViewConstants;
 import com.liferay.wiki.item.selector.criterion.WikiAttachmentItemSelectorCriterion;
 import com.liferay.wiki.web.internal.item.selector.constants.WikiItemSelectorWebKeys;
+=======
+import com.liferay.wiki.item.selector.criterion.WikiAttachmentItemSelectorCriterion;
+>>>>>>> compatible
 import com.liferay.wiki.web.internal.item.selector.view.display.context.WikiAttachmentItemSelectorViewDisplayContext;
 
 import java.io.IOException;
@@ -43,6 +50,7 @@ import javax.servlet.ServletResponse;
 
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
 import org.osgi.service.component.annotations.ReferencePolicyOption;
@@ -59,6 +67,20 @@ import org.osgi.service.component.annotations.ReferencePolicyOption;
 public class WikiAttachmentItemSelectorView
 	implements ItemSelectorView<WikiAttachmentItemSelectorCriterion> {
 
+=======
+
+/**
+ * @author Iván Zaera
+ */
+@Component
+public class WikiAttachmentItemSelectorView
+	implements ItemSelectorView<WikiAttachmentItemSelectorCriterion> {
+
+	public static final String
+		WIKI_ATTACHMENT_ITEM_SELECTOR_VIEW_DISPLAY_CONTEXT =
+			"WIKI_ATTACHMENT_ITEM_SELECTOR_VIEW_DISPLAY_CONTEXT";
+
+>>>>>>> compatible
 	@Override
 	public Class<WikiAttachmentItemSelectorCriterion>
 		getItemSelectorCriterionClass() {
@@ -106,6 +128,7 @@ public class WikiAttachmentItemSelectorView
 					itemSelectedEventName, search, portletURL);
 
 		request.setAttribute(
+<<<<<<< HEAD
 			WikiItemSelectorWebKeys.
 				WIKI_ATTACHMENT_ITEM_SELECTOR_VIEW_DISPLAY_CONTEXT,
 			wikiAttachmentItemSelectorViewDisplayContext);
@@ -114,6 +137,11 @@ public class WikiAttachmentItemSelectorView
 			WikiItemSelectorWebKeys.DL_MIME_TYPE_DISPLAY_CONTEXT,
 			_dlMimeTypeDisplayContext);
 
+=======
+			WIKI_ATTACHMENT_ITEM_SELECTOR_VIEW_DISPLAY_CONTEXT,
+			wikiAttachmentItemSelectorViewDisplayContext);
+
+>>>>>>> compatible
 		ServletContext servletContext = getServletContext();
 
 		RequestDispatcher requestDispatcher =
@@ -123,6 +151,7 @@ public class WikiAttachmentItemSelectorView
 		requestDispatcher.include(request, response);
 	}
 
+<<<<<<< HEAD
 	@Reference(
 		cardinality = ReferenceCardinality.OPTIONAL,
 		policy = ReferencePolicy.DYNAMIC,
@@ -134,6 +163,8 @@ public class WikiAttachmentItemSelectorView
 		_dlMimeTypeDisplayContext = dlMimeTypeDisplayContext;
 	}
 
+=======
+>>>>>>> compatible
 	@Reference(unbind = "-")
 	public void setItemSelectorReturnTypeResolverHandler(
 		ItemSelectorReturnTypeResolverHandler
@@ -150,12 +181,15 @@ public class WikiAttachmentItemSelectorView
 		_servletContext = servletContext;
 	}
 
+<<<<<<< HEAD
 	public void unsetDLMimeTypeDisplayContext(
 		DLMimeTypeDisplayContext dlMimeTypeDisplayContext) {
 
 		_dlMimeTypeDisplayContext = null;
 	}
 
+=======
+>>>>>>> compatible
 	private static final List<ItemSelectorReturnType>
 		_supportedItemSelectorReturnTypes = Collections.unmodifiableList(
 			ListUtil.fromArray(
@@ -163,7 +197,10 @@ public class WikiAttachmentItemSelectorView
 					new FileEntryItemSelectorReturnType()
 				}));
 
+<<<<<<< HEAD
 	private DLMimeTypeDisplayContext _dlMimeTypeDisplayContext;
+=======
+>>>>>>> compatible
 	private ItemSelectorReturnTypeResolverHandler
 		_itemSelectorReturnTypeResolverHandler;
 	private ServletContext _servletContext;

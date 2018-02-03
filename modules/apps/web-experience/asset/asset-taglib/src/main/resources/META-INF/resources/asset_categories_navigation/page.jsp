@@ -48,13 +48,22 @@ PortletURL portletURL = renderResponse.createRenderURL();
 	for (int i = 0; i < vocabularies.size(); i++) {
 		AssetVocabulary vocabulary = vocabularies.get(i);
 
+<<<<<<< HEAD
+=======
+		vocabulary = vocabulary.toEscapedModel();
+
+>>>>>>> compatible
 		String vocabularyNavigation = _buildVocabularyNavigation(vocabulary, categoryId, portletURL, themeDisplay);
 
 		if (Validator.isNotNull(vocabularyNavigation)) {
 			hidePortletWhenEmpty = false;
 	%>
 
+<<<<<<< HEAD
 			<liferay-ui:panel collapsible="<%= false %>" extended="<%= true %>" markupView="lexicon" persistState="<%= true %>" title="<%= HtmlUtil.escape(vocabulary.getUnambiguousTitle(vocabularies, themeDisplay.getSiteGroupId(), themeDisplay.getLocale())) %>">
+=======
+			<liferay-ui:panel collapsible="<%= false %>" extended="<%= true %>" markupView="lexicon" persistState="<%= true %>" title="<%= vocabulary.getUnambiguousTitle(vocabularies, themeDisplay.getSiteGroupId(), themeDisplay.getLocale()) %>">
+>>>>>>> compatible
 				<%= vocabularyNavigation %>
 			</liferay-ui:panel>
 
@@ -78,7 +87,11 @@ if (hidePortletWhenEmpty) {
 }
 
 if (categoryId > 0) {
+<<<<<<< HEAD
 	AssetCategoryUtil.addPortletBreadcrumbEntries(categoryId, request, portletURL, false);
+=======
+	AssetUtil.addPortletBreadcrumbEntries(categoryId, request, portletURL, false);
+>>>>>>> compatible
 }
 %>
 
@@ -123,6 +136,13 @@ private void _buildCategoriesNavigation(List<AssetCategory> categories, long cat
 	String originalPortletURLString = portletURL.toString();
 
 	for (AssetCategory category : categories) {
+<<<<<<< HEAD
+=======
+		category = category.toEscapedModel();
+
+		String title = category.getTitle(themeDisplay.getLocale());
+
+>>>>>>> compatible
 		List<AssetCategory> categoriesChildren = AssetCategoryServiceUtil.getChildCategories(category.getCategoryId(), QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
 
 		sb.append("<li class=\"tree-node\"><span>");
@@ -139,7 +159,11 @@ private void _buildCategoriesNavigation(List<AssetCategory> categories, long cat
 		}
 
 		sb.append("\">");
+<<<<<<< HEAD
 		sb.append(HtmlUtil.escape(category.getTitle(themeDisplay.getLocale())));
+=======
+		sb.append(title);
+>>>>>>> compatible
 		sb.append("</a>");
 		sb.append("</span>");
 

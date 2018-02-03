@@ -16,8 +16,13 @@ package com.liferay.rss.web.internal.portlet;
 
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
+<<<<<<< HEAD
 import com.liferay.rss.constants.RSSPortletKeys;
 import com.liferay.rss.web.internal.configuration.RSSWebCacheConfiguration;
+=======
+import com.liferay.rss.web.configuration.RSSWebCacheConfiguration;
+import com.liferay.rss.web.constants.RSSPortletKeys;
+>>>>>>> compatible
 
 import java.io.IOException;
 
@@ -37,6 +42,7 @@ import org.osgi.service.component.annotations.Modified;
  * @author Eudaldo Alonso
  */
 @Component(
+<<<<<<< HEAD
 	configurationPid = "com.liferay.rss.web.internal.configuration.RSSWebCacheConfiguration",
 	configurationPolicy = ConfigurationPolicy.OPTIONAL, immediate = true,
 	property = {
@@ -46,6 +52,13 @@ import org.osgi.service.component.annotations.Modified;
 		"com.liferay.portlet.css-class-wrapper=portlet-rss",
 		"com.liferay.portlet.display-category=category.news",
 		"com.liferay.portlet.header-portlet-css=/css/main.css",
+=======
+	configurationPid = "com.liferay.rss.web.configuration.RSSWebCacheConfiguration",
+	configurationPolicy = ConfigurationPolicy.OPTIONAL, immediate = true,
+	property = {
+		"com.liferay.portlet.css-class-wrapper=portlet-rss",
+		"com.liferay.portlet.display-category=category.news",
+>>>>>>> compatible
 		"com.liferay.portlet.icon=/icons/rss.png",
 		"com.liferay.portlet.instanceable=true",
 		"com.liferay.portlet.preferences-owned-by-group=true",

@@ -80,6 +80,7 @@
 			},
 			isMozilla: function() {
 				return <%= browserMetadata.isMozilla() %>;
+<<<<<<< HEAD
 			},
 			isOpera: function() {
 				return <%= browserMetadata.isOpera() %>;
@@ -87,6 +88,15 @@
 			isRtf: function() {
 				return <%= browserMetadata.isRtf(version) %>;
 			},
+=======
+			},
+			isOpera: function() {
+				return <%= browserMetadata.isOpera() %>;
+			},
+			isRtf: function() {
+				return <%= browserMetadata.isRtf(version) %>;
+			},
+>>>>>>> compatible
 			isSafari: function() {
 				return <%= browserMetadata.isSafari() %>;
 			},
@@ -141,7 +151,11 @@
 		Liferay.PropsValues = {
 			JAVASCRIPT_SINGLE_PAGE_APPLICATION_TIMEOUT: <%= PrefsPropsUtil.getInteger(themeDisplay.getCompanyId(), PropsKeys.JAVASCRIPT_SINGLE_PAGE_APPLICATION_TIMEOUT, PropsValues.JAVASCRIPT_SINGLE_PAGE_APPLICATION_TIMEOUT) %>,
 			NTLM_AUTH_ENABLED: <%= PrefsPropsUtil.getBoolean(themeDisplay.getCompanyId(), PropsKeys.NTLM_AUTH_ENABLED, PropsValues.NTLM_AUTH_ENABLED) %>,
+<<<<<<< HEAD
 			UPLOAD_SERVLET_REQUEST_IMPL_MAX_SIZE: <%= UploadServletRequestConfigurationHelperUtil.getMaxSize() %>
+=======
+			UPLOAD_SERVLET_REQUEST_IMPL_MAX_SIZE: <%= PrefsPropsUtil.getLong(PropsKeys.UPLOAD_SERVLET_REQUEST_IMPL_MAX_SIZE, PropsValues.UPLOAD_SERVLET_REQUEST_IMPL_MAX_SIZE) %>
+>>>>>>> compatible
 		};
 
 		Liferay.ThemeDisplay = {
@@ -169,6 +183,7 @@
 
 				getLayoutRelativeURL: function() {
 					return '<%= PortalUtil.getLayoutRelativeURL(layout, themeDisplay) %>';
+<<<<<<< HEAD
 				},
 				getLayoutURL: function() {
 					return '<%= PortalUtil.getLayoutURL(layout, themeDisplay) %>';
@@ -185,6 +200,24 @@
 				isVirtualLayout: function() {
 					return <%= (layout instanceof VirtualLayout) %>;
 				},
+=======
+				},
+				getLayoutURL: function() {
+					return '<%= PortalUtil.getLayoutURL(layout, themeDisplay) %>';
+				},
+				getParentLayoutId: function() {
+					return '<%= layout.getParentLayoutId() %>';
+				},
+				isControlPanel: function() {
+					return <%= layout.isTypeControlPanel() %>;
+				},
+				isPrivateLayout: function() {
+					return '<%= layout.isPrivateLayout() %>';
+				},
+				isVirtualLayout: function() {
+					return <%= (layout instanceof VirtualLayout) %>;
+				},
+>>>>>>> compatible
 			</c:if>
 
 			getBCP47LanguageId: function() {
@@ -368,6 +401,32 @@
 </script>
 
 <c:if test="<%= PortalWebResourcesUtil.getPortalWebResources(PortalWebResourceConstants.RESOURCE_TYPE_JS_LOADER_MODULES) != null %>">
+<<<<<<< HEAD
+=======
+
+	<%
+	long jsLoaderModulesLastModified = PortalWebResourcesUtil.getLastModified(PortalWebResourceConstants.RESOURCE_TYPE_JS_LOADER_MODULES);
+	%>
+
+	<script src="<%= HtmlUtil.escape(themeDisplay.getCDNDynamicResourcesHost() + PortalWebResourcesUtil.getContextPath(PortalWebResourceConstants.RESOURCE_TYPE_JS_LOADER_MODULES) + "/js_loader_modules?t=" + jsLoaderModulesLastModified) %>" type="text/javascript"></script>
+</c:if>
+
+<c:choose>
+	<c:when test="<%= themeDisplay.isThemeJsFastLoad() %>">
+		<c:choose>
+			<c:when test="<%= themeDisplay.isThemeJsBarebone() %>">
+				<script src="<%= HtmlUtil.escape(PortalUtil.getStaticResourceURL(request, themeDisplay.getCDNDynamicResourcesHost() + themeDisplay.getPathJavaScript() + "/barebone.jsp", "minifierBundleId=javascript.barebone.files", jsLastModified)) %>" type="text/javascript"></script>
+			</c:when>
+			<c:otherwise>
+				<script src="<%= HtmlUtil.escape(PortalUtil.getStaticResourceURL(request, themeDisplay.getCDNDynamicResourcesHost() + themeDisplay.getPathJavaScript() + "/everything.jsp", "minifierBundleId=javascript.everything.files", jsLastModified)) %>" type="text/javascript"></script>
+			</c:otherwise>
+		</c:choose>
+	</c:when>
+	<c:otherwise>
+
+		<%
+		String path = themeDisplay.getCDNHost().concat(themeDisplay.getPathJavaScript());
+>>>>>>> compatible
 
 	<%
 	long jsLoaderModulesLastModified = PortalWebResourcesUtil.getLastModified(PortalWebResourceConstants.RESOURCE_TYPE_JS_LOADER_MODULES);
@@ -378,6 +437,21 @@
 
 <liferay-util:dynamic-include key="/html/common/themes/top_js.jspf#resources" />
 
+<<<<<<< HEAD
+<c:if test="<%= PortalWebResourcesUtil.getPortalWebResources(PortalWebResourceConstants.RESOURCE_TYPE_JS_BUNDLE_CONFIG) != null %>">
+=======
+			<script data-senna-track="permanent" src="<%= HtmlUtil.escape(PortalUtil.getStaticResourceURL(request, path + "/" + javaScriptFile, "minifierType=", jsLastModified)) %>" type="text/javascript"></script>
+>>>>>>> compatible
+
+	<%
+	long jsBundleConfigLastModified = PortalWebResourcesUtil.getLastModified(PortalWebResourceConstants.RESOURCE_TYPE_JS_BUNDLE_CONFIG);
+	%>
+
+	<script src="<%= HtmlUtil.escape(themeDisplay.getCDNDynamicResourcesHost() + PortalWebResourcesUtil.getContextPath(PortalWebResourceConstants.RESOURCE_TYPE_JS_BUNDLE_CONFIG) + "/js_bundle_config?t=" + jsBundleConfigLastModified) %>" type="text/javascript"></script>
+</c:if>
+
+<<<<<<< HEAD
+=======
 <c:if test="<%= PortalWebResourcesUtil.getPortalWebResources(PortalWebResourceConstants.RESOURCE_TYPE_JS_BUNDLE_CONFIG) != null %>">
 
 	<%
@@ -387,6 +461,7 @@
 	<script src="<%= HtmlUtil.escape(themeDisplay.getCDNDynamicResourcesHost() + PortalWebResourcesUtil.getContextPath(PortalWebResourceConstants.RESOURCE_TYPE_JS_BUNDLE_CONFIG) + "/js_bundle_config?t=" + jsBundleConfigLastModified) %>" type="text/javascript"></script>
 </c:if>
 
+>>>>>>> compatible
 <script data-senna-track="temporary" type="text/javascript">
 	// <![CDATA[
 		<c:if test="<%= layoutTypePortlet != null %>">

@@ -19,9 +19,12 @@ package com.liferay.social.networking.web.internal.constants;
  */
 public interface SocialNetworkingWebKeys {
 
+<<<<<<< HEAD
 	public static final String BLOGS_STATS_USER_LOCAL_SERVICE =
 		"BLOGS_STATS_USER_LOCAL_SERVICE";
 
+=======
+>>>>>>> compatible
 	public static final String IP_GEOCODER = "IP_GEOCODER";
 
 }

@@ -123,7 +123,10 @@ public class WeDeployAuthTokenLocalServiceImpl
 		return weDeployAuthToken;
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public WeDeployAuthToken getWeDeployAuthToken(String token, int type)
 		throws PortalException {
 

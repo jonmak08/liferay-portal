@@ -56,5 +56,9 @@ OrderDisplayTerms displayTerms = (OrderDisplayTerms)searchContainer.getDisplayTe
 </aui:fieldset>
 
 <aui:button-row>
+<<<<<<< HEAD
 	<aui:button type="submit" value="search" />
+=======
+	<aui:button cssClass="btn-lg" type="submit" value="search" />
+>>>>>>> compatible
 </aui:button-row>

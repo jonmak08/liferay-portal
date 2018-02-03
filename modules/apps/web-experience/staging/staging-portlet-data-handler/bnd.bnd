@@ -1,5 +1,10 @@
 Bundle-Name: Liferay Staging Portlet Data Handler
 Bundle-SymbolicName: com.liferay.staging.portlet.data.handler
+<<<<<<< HEAD
 Bundle-Version: 3.0.1
+=======
+Bundle-Version: 2.0.3
+Export-Package: com.liferay.staging.portlet.data.handler
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Data Management

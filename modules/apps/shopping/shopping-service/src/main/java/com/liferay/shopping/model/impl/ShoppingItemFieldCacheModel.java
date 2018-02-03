@@ -19,6 +19,10 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import com.liferay.shopping.model.ShoppingItemField;
 
@@ -91,21 +95,33 @@ public class ShoppingItemFieldCacheModel implements CacheModel<ShoppingItemField
 		shoppingItemFieldImpl.setItemId(itemId);
 
 		if (name == null) {
+<<<<<<< HEAD
 			shoppingItemFieldImpl.setName("");
+=======
+			shoppingItemFieldImpl.setName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			shoppingItemFieldImpl.setName(name);
 		}
 
 		if (values == null) {
+<<<<<<< HEAD
 			shoppingItemFieldImpl.setValues("");
+=======
+			shoppingItemFieldImpl.setValues(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			shoppingItemFieldImpl.setValues(values);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			shoppingItemFieldImpl.setDescription("");
+=======
+			shoppingItemFieldImpl.setDescription(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			shoppingItemFieldImpl.setDescription(description);
@@ -138,21 +154,33 @@ public class ShoppingItemFieldCacheModel implements CacheModel<ShoppingItemField
 		objectOutput.writeLong(itemId);
 
 		if (name == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(name);
 		}
 
 		if (values == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(values);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(description);

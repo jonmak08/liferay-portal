@@ -17,7 +17,10 @@ package com.liferay.knowledge.base.internal.upgrade.v1_3_4;
 import com.liferay.knowledge.base.constants.KBActionKeys;
 import com.liferay.portal.kernel.dao.jdbc.DataAccess;
 import com.liferay.portal.kernel.upgrade.UpgradeProcess;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -36,10 +39,16 @@ public class UpgradeResourceAction extends UpgradeProcess {
 					KBActionKeys.VIEW_SUGGESTIONS + "'");
 
 			runSQL(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"update ResourceAction set actionId = '",
 					KBActionKeys.VIEW_SUGGESTIONS, "' where actionId = '",
 					_ACTION_ID_VIEW_KB_FEEDBACK, "'"));
+=======
+				"update ResourceAction set actionId = '" +
+					KBActionKeys.VIEW_SUGGESTIONS + "' where actionId = '" +
+						_ACTION_ID_VIEW_KB_FEEDBACK + "'");
+>>>>>>> compatible
 		}
 	}
 

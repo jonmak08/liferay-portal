@@ -17,12 +17,29 @@ package com.liferay.dynamic.data.mapping.type.select.internal;
 import com.liferay.dynamic.data.mapping.form.field.type.BaseDDMFormFieldRenderer;
 import com.liferay.dynamic.data.mapping.form.field.type.DDMFormFieldRenderer;
 import com.liferay.dynamic.data.mapping.model.DDMFormField;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.render.DDMFormFieldRenderingContext;
 import com.liferay.portal.kernel.template.Template;
 import com.liferay.portal.kernel.template.TemplateConstants;
 import com.liferay.portal.kernel.template.TemplateResource;
 
 import java.util.Map;
+=======
+import com.liferay.dynamic.data.mapping.model.DDMFormFieldOptions;
+import com.liferay.dynamic.data.mapping.render.DDMFormFieldRenderingContext;
+import com.liferay.portal.kernel.json.JSONFactory;
+import com.liferay.portal.kernel.language.LanguageUtil;
+import com.liferay.portal.kernel.template.Template;
+import com.liferay.portal.kernel.template.TemplateConstants;
+import com.liferay.portal.kernel.template.TemplateResource;
+import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.StringPool;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
@@ -44,7 +61,11 @@ public class SelectDDMFormFieldRenderer extends BaseDDMFormFieldRenderer {
 
 	@Override
 	public String getTemplateNamespace() {
+<<<<<<< HEAD
 		return "DDMSelect.render";
+=======
+		return "ddm.select";
+>>>>>>> compatible
 	}
 
 	@Override
@@ -58,6 +79,36 @@ public class SelectDDMFormFieldRenderer extends BaseDDMFormFieldRenderer {
 			"/META-INF/resources/select.soy");
 	}
 
+<<<<<<< HEAD
+=======
+	protected DDMFormFieldOptions getDDMFormFieldOptions(
+		DDMFormField ddmFormField) {
+
+		String dataSourceType = GetterUtil.getString(
+			ddmFormField.getProperty("dataSourceType"), "manual");
+
+		if (Objects.equals(dataSourceType, "manual")) {
+			return ddmFormField.getDDMFormFieldOptions();
+		}
+
+		return new DDMFormFieldOptions();
+	}
+
+	protected List<Object> getOptions(
+		DDMFormField ddmFormField,
+		DDMFormFieldRenderingContext ddmFormFieldRenderingContext) {
+
+		SelectDDMFormFieldContextHelper selectDDMFormFieldContextHelper =
+			new SelectDDMFormFieldContextHelper(
+				jsonFactory, getDDMFormFieldOptions(ddmFormField),
+				ddmFormFieldRenderingContext.getValue(),
+				ddmFormField.getPredefinedValue(),
+				ddmFormFieldRenderingContext.getLocale());
+
+		return selectDDMFormFieldContextHelper.getOptions();
+	}
+
+>>>>>>> compatible
 	@Override
 	protected void populateRequiredContext(
 		Template template, DDMFormField ddmFormField,
@@ -66,6 +117,7 @@ public class SelectDDMFormFieldRenderer extends BaseDDMFormFieldRenderer {
 		super.populateRequiredContext(
 			template, ddmFormField, ddmFormFieldRenderingContext);
 
+<<<<<<< HEAD
 		Map<String, Object> parameters =
 			selectDDMFormFieldTemplateContextContributor.getParameters(
 				ddmFormField, ddmFormFieldRenderingContext);
@@ -76,6 +128,28 @@ public class SelectDDMFormFieldRenderer extends BaseDDMFormFieldRenderer {
 	@Reference
 	protected SelectDDMFormFieldTemplateContextContributor
 		selectDDMFormFieldTemplateContextContributor;
+=======
+		template.put(
+			"multiple",
+			ddmFormField.isMultiple() ? "multiple" : StringPool.BLANK);
+		template.put(
+			"options", getOptions(ddmFormField, ddmFormFieldRenderingContext));
+
+		Map<String, String> stringsMap = new HashMap<>();
+
+		stringsMap.put(
+			"chooseAnOption",
+			LanguageUtil.get(
+				ddmFormFieldRenderingContext.getLocale(), "choose-an-option"));
+
+		template.put("strings", stringsMap);
+
+		template.put("value", ddmFormFieldRenderingContext.getValue());
+	}
+
+	@Reference
+	protected JSONFactory jsonFactory;
+>>>>>>> compatible
 
 	private TemplateResource _templateResource;
 

@@ -19,6 +19,7 @@
 <%
 String title = ParamUtil.getString(request, "title", wikiGroupServiceConfiguration.frontPageName());
 
+<<<<<<< HEAD
 String portletId = PortletProviderUtil.getPortletId(WikiPage.class.getName(), PortletProvider.Action.VIEW);
 
 PortletURL viewURL = liferayPortletResponse.createRenderURL(portletId);
@@ -26,6 +27,11 @@ PortletURL viewURL = liferayPortletResponse.createRenderURL(portletId);
 viewURL.setParameter("mvcRenderCommandName", "/wiki/view_page");
 
 List<MenuItem> menuItems = MenuItem.fromWikiNode(selNodeId, depth, viewURL);
+=======
+PortletURL portletURL = renderResponse.createRenderURL();
+
+List<MenuItem> menuItems = MenuItem.fromWikiNode(selNodeId, depth, portletURL);
+>>>>>>> compatible
 %>
 
 <c:choose>

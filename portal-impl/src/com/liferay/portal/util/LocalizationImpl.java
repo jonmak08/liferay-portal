@@ -41,6 +41,11 @@ import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Document;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.language.LanguageResources;
+<<<<<<< HEAD
+=======
+import com.liferay.util.ContentUtil;
+import com.liferay.util.xml.XMLUtil;
+>>>>>>> compatible
 
 import java.util.Collection;
 import java.util.HashMap;

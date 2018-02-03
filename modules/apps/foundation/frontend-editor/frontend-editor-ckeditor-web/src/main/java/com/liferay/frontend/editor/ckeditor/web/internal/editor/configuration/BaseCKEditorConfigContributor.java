@@ -52,7 +52,11 @@ public class BaseCKEditorConfigContributor extends BaseEditorConfigContributor {
 			HtmlUtil.escape(
 				PortalUtil.getStaticResourceURL(
 					themeDisplay.getRequest(),
+<<<<<<< HEAD
 					themeDisplay.getPathThemeCss() + "/clay.css")));
+=======
+					themeDisplay.getPathThemeCss() + "/aui.css")));
+>>>>>>> compatible
 		jsonArray.put(
 			HtmlUtil.escape(
 				PortalUtil.getStaticResourceURL(

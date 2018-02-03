@@ -61,8 +61,12 @@ public class KaleoLogLocalServiceImpl extends KaleoLogLocalServiceBaseImpl {
 
 		kaleoLog.setKaleoClassName(kaleoAction.getKaleoClassName());
 		kaleoLog.setKaleoClassPK(kaleoAction.getKaleoClassPK());
+<<<<<<< HEAD
 		kaleoLog.setKaleoDefinitionVersionId(
 			kaleoAction.getKaleoDefinitionVersionId());
+=======
+		kaleoLog.setKaleoDefinitionId(kaleoAction.getKaleoDefinitionId());
+>>>>>>> compatible
 		kaleoLog.setKaleoNodeName(kaleoAction.getKaleoNodeName());
 		kaleoLog.setComment(comment);
 		kaleoLog.setStartDate(new Date(startTime));
@@ -85,8 +89,12 @@ public class KaleoLogLocalServiceImpl extends KaleoLogLocalServiceBaseImpl {
 
 		kaleoLog.setKaleoClassName(KaleoNode.class.getName());
 		kaleoLog.setKaleoClassPK(targetKaleoNode.getKaleoNodeId());
+<<<<<<< HEAD
 		kaleoLog.setKaleoDefinitionVersionId(
 			targetKaleoNode.getKaleoDefinitionVersionId());
+=======
+		kaleoLog.setKaleoDefinitionId(targetKaleoNode.getKaleoDefinitionId());
+>>>>>>> compatible
 		kaleoLog.setKaleoNodeName(targetKaleoNode.getName());
 		kaleoLog.setTerminalKaleoNode(targetKaleoNode.isTerminal());
 
@@ -113,8 +121,13 @@ public class KaleoLogLocalServiceImpl extends KaleoLogLocalServiceBaseImpl {
 
 		kaleoLog.setKaleoClassName(KaleoNode.class.getName());
 		kaleoLog.setKaleoClassPK(departingKaleoNode.getKaleoNodeId());
+<<<<<<< HEAD
 		kaleoLog.setKaleoDefinitionVersionId(
 			departingKaleoNode.getKaleoDefinitionVersionId());
+=======
+		kaleoLog.setKaleoDefinitionId(
+			departingKaleoNode.getKaleoDefinitionId());
+>>>>>>> compatible
 		kaleoLog.setKaleoNodeName(departingKaleoNode.getName());
 		kaleoLog.setEndDate(kaleoLog.getCreateDate());
 
@@ -159,8 +172,12 @@ public class KaleoLogLocalServiceImpl extends KaleoLogLocalServiceBaseImpl {
 
 		kaleoLog.setKaleoClassName(KaleoNode.class.getName());
 		kaleoLog.setKaleoClassPK(currentKaleoNode.getKaleoNodeId());
+<<<<<<< HEAD
 		kaleoLog.setKaleoDefinitionVersionId(
 			currentKaleoNode.getKaleoDefinitionVersionId());
+=======
+		kaleoLog.setKaleoDefinitionId(currentKaleoNode.getKaleoDefinitionId());
+>>>>>>> compatible
 		kaleoLog.setKaleoNodeName(currentKaleoNode.getName());
 
 		if (previousKaleoTaskAssignmentInstances != null) {
@@ -217,8 +234,12 @@ public class KaleoLogLocalServiceImpl extends KaleoLogLocalServiceBaseImpl {
 
 		kaleoLog.setKaleoClassName(KaleoNode.class.getName());
 		kaleoLog.setKaleoClassPK(currentKaleoNode.getKaleoNodeId());
+<<<<<<< HEAD
 		kaleoLog.setKaleoDefinitionVersionId(
 			currentKaleoNode.getKaleoDefinitionVersionId());
+=======
+		kaleoLog.setKaleoDefinitionId(currentKaleoNode.getKaleoDefinitionId());
+>>>>>>> compatible
 		kaleoLog.setKaleoNodeName(currentKaleoNode.getName());
 
 		List<KaleoTaskAssignmentInstance> kaleoTaskAssignmentInstances =
@@ -335,11 +356,16 @@ public class KaleoLogLocalServiceImpl extends KaleoLogLocalServiceBaseImpl {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void deleteKaleoDefinitionVersionKaleoLogs(
 		long kaleoDefinitionVersionId) {
 
 		kaleoLogPersistence.removeByKaleoDefinitionVersionId(
 			kaleoDefinitionVersionId);
+=======
+	public void deleteKaleoDefinitionKaleoLogs(long kaleoDefinitionId) {
+		kaleoLogPersistence.removeByKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -479,8 +505,13 @@ public class KaleoLogLocalServiceImpl extends KaleoLogLocalServiceBaseImpl {
 		kaleoLog.setUserName(user.getFullName());
 		kaleoLog.setCreateDate(now);
 		kaleoLog.setModifiedDate(now);
+<<<<<<< HEAD
 		kaleoLog.setKaleoDefinitionVersionId(
 			kaleoInstanceToken.getKaleoDefinitionVersionId());
+=======
+		kaleoLog.setKaleoDefinitionId(
+			kaleoInstanceToken.getKaleoDefinitionId());
+>>>>>>> compatible
 		kaleoLog.setKaleoInstanceId(kaleoInstanceToken.getKaleoInstanceId());
 		kaleoLog.setKaleoInstanceTokenId(
 			kaleoInstanceToken.getKaleoInstanceTokenId());

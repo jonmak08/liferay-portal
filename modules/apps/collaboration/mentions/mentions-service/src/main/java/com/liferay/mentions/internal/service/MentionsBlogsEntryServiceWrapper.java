@@ -14,9 +14,15 @@
 
 package com.liferay.mentions.internal.service;
 
+<<<<<<< HEAD
 import com.liferay.blogs.model.BlogsEntry;
 import com.liferay.blogs.service.BlogsEntryLocalService;
 import com.liferay.blogs.service.BlogsEntryLocalServiceWrapper;
+=======
+import com.liferay.blogs.kernel.model.BlogsEntry;
+import com.liferay.blogs.kernel.service.BlogsEntryLocalService;
+import com.liferay.blogs.kernel.service.BlogsEntryLocalServiceWrapper;
+>>>>>>> compatible
 import com.liferay.mentions.configuration.MentionsGroupServiceConfiguration;
 import com.liferay.mentions.util.MentionsNotifier;
 import com.liferay.mentions.util.MentionsUtil;
@@ -90,8 +96,13 @@ public class MentionsBlogsEntryServiceWrapper
 				MentionsGroupServiceConfiguration.class, entry.getCompanyId());
 
 		_mentionsNotifier.notify(
+<<<<<<< HEAD
 			userId, entry.getGroupId(), entry.getTitle(), entry.getContent(),
 			BlogsEntry.class.getName(), entry.getEntryId(),
+=======
+			entry.getUserId(), entry.getGroupId(), entry.getTitle(),
+			entry.getContent(), BlogsEntry.class.getName(), entry.getEntryId(),
+>>>>>>> compatible
 			mentionsGroupServiceConfiguration.assetEntryMentionEmailSubject(),
 			mentionsGroupServiceConfiguration.assetEntryMentionEmailBody(),
 			serviceContext);

@@ -15,6 +15,10 @@
 package com.liferay.bookmarks.asset;
 
 import com.liferay.asset.kernel.model.AssetRenderer;
+<<<<<<< HEAD
+=======
+import com.liferay.asset.kernel.model.AssetRendererFactory;
+>>>>>>> compatible
 import com.liferay.asset.kernel.model.BaseAssetRendererFactory;
 import com.liferay.bookmarks.constants.BookmarksPortletKeys;
 import com.liferay.bookmarks.model.BookmarksFolder;
@@ -24,7 +28,10 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
 import com.liferay.portal.kernel.portlet.LiferayPortletURL;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
+<<<<<<< HEAD
 import com.liferay.trash.TrashHelper;
+=======
+>>>>>>> compatible
 
 import javax.portlet.PortletRequest;
 import javax.portlet.PortletURL;
@@ -33,13 +40,26 @@ import javax.portlet.WindowStateException;
 
 import javax.servlet.ServletContext;
 
+<<<<<<< HEAD
+=======
+import org.osgi.service.component.annotations.Component;
+>>>>>>> compatible
 import org.osgi.service.component.annotations.Reference;
 
 /**
  * @author Alexander Chow
+<<<<<<< HEAD
  * @deprecated As of 1.2.0, with no direct replacement
  */
 @Deprecated
+=======
+ */
+@Component(
+	immediate = true,
+	property = {"javax.portlet.name=" + BookmarksPortletKeys.BOOKMARKS},
+	service = AssetRendererFactory.class
+)
+>>>>>>> compatible
 public class BookmarksFolderAssetRendererFactory
 	extends BaseAssetRendererFactory<BookmarksFolder> {
 
@@ -61,7 +81,11 @@ public class BookmarksFolderAssetRendererFactory
 			classPK);
 
 		BookmarksFolderAssetRenderer bookmarksFolderAssetRenderer =
+<<<<<<< HEAD
 			new BookmarksFolderAssetRenderer(folder, _trashHelper);
+=======
+			new BookmarksFolderAssetRenderer(folder);
+>>>>>>> compatible
 
 		bookmarksFolderAssetRenderer.setAssetRendererType(type);
 		bookmarksFolderAssetRenderer.setServletContext(_servletContext);
@@ -132,7 +156,10 @@ public class BookmarksFolderAssetRendererFactory
 	private BookmarksFolderLocalService _bookmarksFolderLocalService;
 	private ServletContext _servletContext;
 
+<<<<<<< HEAD
 	@Reference
 	private TrashHelper _trashHelper;
 
+=======
+>>>>>>> compatible
 }

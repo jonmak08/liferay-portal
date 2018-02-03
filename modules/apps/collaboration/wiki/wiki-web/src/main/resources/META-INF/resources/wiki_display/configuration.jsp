@@ -114,6 +114,10 @@ boolean nodeInGroup = false;
 	</div>
 
 	<aui:button-row>
+<<<<<<< HEAD
 		<aui:button disabled="<%= nodes.isEmpty() %>" type="submit" />
+=======
+		<aui:button cssClass="btn-lg" disabled="<%= nodes.isEmpty() %>" type="submit" />
+>>>>>>> compatible
 	</aui:button-row>
 </aui:form>

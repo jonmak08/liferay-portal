@@ -131,8 +131,11 @@ public class InputPermissionsParamsTagUtil {
 			sb.append(renderResponse.getNamespace());
 			sb.append("inputPermissionsViewRole=");
 			sb.append(URLCodec.encodeURL(inputPermissionsViewRole));
+<<<<<<< HEAD
 
 			JspWriter jspWriter = pageContext.getOut();
+=======
+>>>>>>> compatible
 
 			jspWriter.print(sb.toString());
 		}

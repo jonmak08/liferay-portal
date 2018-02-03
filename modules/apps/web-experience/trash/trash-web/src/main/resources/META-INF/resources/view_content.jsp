@@ -34,7 +34,11 @@ String trashHandlerContainerModelClassName = trashHandler.getContainerModelClass
 containerModelURL.setParameter("mvcPath", "/view_content.jsp");
 containerModelURL.setParameter("classNameId", String.valueOf(PortalUtil.getClassNameId(trashHandlerContainerModelClassName)));
 
+<<<<<<< HEAD
 trashUtil.addBaseModelBreadcrumbEntries(request, liferayPortletResponse, trashDisplayContext.getClassName(), classPK, containerModelURL);
+=======
+TrashUtil.addBaseModelBreadcrumbEntries(request, liferayPortletResponse, trashDisplayContext.getClassName(), classPK, containerModelURL);
+>>>>>>> compatible
 
 portletDisplay.setShowBackIcon(true);
 portletDisplay.setURLBack(redirect);
@@ -48,10 +52,14 @@ renderResponse.setTitle(trashRenderer.getTitle(locale));
 
 <c:choose>
 	<c:when test="<%= trashHandler.isContainerModel() %>">
+<<<<<<< HEAD
 		<clay:navigation-bar
 			inverted="<%= true %>"
 			items="<%= trashDisplayContext.getNavigationItems() %>"
 		/>
+=======
+		<liferay-util:include page="/navigation.jsp" servletContext="<%= application %>" />
+>>>>>>> compatible
 
 		<liferay-util:include page="/view_content_toolbar.jsp" servletContext="<%= application %>" />
 
@@ -90,6 +98,7 @@ renderResponse.setTitle(trashRenderer.getTitle(locale));
 					total="<%= trashHandler.getTrashModelsCount(classPK) %>"
 				>
 					<liferay-ui:search-container-results
+<<<<<<< HEAD
 						results="<%= trashHandler.getTrashModelTrashedModels(classPK, searchContainer.getStart(), searchContainer.getEnd(), searchContainer.getOrderByComparator()) %>"
 					/>
 
@@ -104,6 +113,18 @@ renderResponse.setTitle(trashRenderer.getTitle(locale));
 						TrashHandler curTrashHandler = TrashHandlerRegistryUtil.getTrashHandler(modelClassName);
 
 						TrashRenderer curTrashRenderer = curTrashHandler.getTrashRenderer(curTrashedModel.getTrashEntryClassPK());
+=======
+						results="<%= trashHandler.getTrashModelTrashRenderers(classPK, searchContainer.getStart(), searchContainer.getEnd(), searchContainer.getOrderByComparator()) %>"
+					/>
+
+					<liferay-ui:search-container-row
+						className="com.liferay.portal.kernel.trash.TrashRenderer"
+						modelVar="curTrashRenderer"
+					>
+
+						<%
+						TrashHandler curTrashHandler = TrashHandlerRegistryUtil.getTrashHandler(curTrashRenderer.getClassName());
+>>>>>>> compatible
 
 						PortletURL rowURL = renderResponse.createRenderURL();
 
@@ -198,7 +219,11 @@ renderResponse.setTitle(trashRenderer.getTitle(locale));
 		<div class="container-fluid-1280">
 			<aui:fieldset-group markupView="lexicon">
 				<aui:fieldset>
+<<<<<<< HEAD
 					<liferay-asset:asset-display
+=======
+					<liferay-ui:asset-display
+>>>>>>> compatible
 						renderer="<%= trashRenderer %>"
 					/>
 				</aui:fieldset>

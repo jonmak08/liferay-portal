@@ -150,6 +150,7 @@ public interface Repository extends DocumentRepository {
 	public int getFileEntriesCount(long folderId, String[] mimeTypes)
 		throws PortalException;
 
+<<<<<<< HEAD
 	public default List<RepositoryEntry>
 			getFoldersAndFileEntriesAndFileShortcuts(
 				long folderId, int status, String[] mimeTypes,
@@ -163,11 +164,16 @@ public interface Repository extends DocumentRepository {
 
 	public List<RepositoryEntry> getFoldersAndFileEntriesAndFileShortcuts(
 			long folderId, int status, String[] mimeTypes,
+=======
+	public List<RepositoryEntry> getFoldersAndFileEntriesAndFileShortcuts(
+			long folderId, int status, String[] mimetypes,
+>>>>>>> compatible
 			boolean includeMountFolders, int start, int end,
 			OrderByComparator<?> obc)
 		throws PortalException;
 
 	public int getFoldersAndFileEntriesAndFileShortcutsCount(
+<<<<<<< HEAD
 			long folderId, int status, String[] mimeTypes,
 			boolean includeMountFolders)
 		throws PortalException;
@@ -181,6 +187,12 @@ public interface Repository extends DocumentRepository {
 			folderId, status, mimeTypes, includeMountFolders);
 	}
 
+=======
+			long folderId, int status, String[] mimetypes,
+			boolean includeMountFolders)
+		throws PortalException;
+
+>>>>>>> compatible
 	public int getFoldersFileEntriesCount(List<Long> folderIds, int status)
 		throws PortalException;
 

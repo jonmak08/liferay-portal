@@ -23,6 +23,7 @@ import com.liferay.asset.kernel.model.AssetTagModel;
 import com.liferay.asset.kernel.model.AssetTagStatsModel;
 import com.liferay.asset.kernel.model.AssetVocabulary;
 import com.liferay.asset.kernel.model.AssetVocabularyModel;
+<<<<<<< HEAD
 import com.liferay.blogs.constants.BlogsPortletKeys;
 import com.liferay.blogs.model.BlogsEntry;
 import com.liferay.blogs.model.BlogsEntryModel;
@@ -34,6 +35,15 @@ import com.liferay.counter.kernel.model.Counter;
 import com.liferay.counter.kernel.model.CounterModel;
 import com.liferay.counter.model.impl.CounterModelImpl;
 import com.liferay.document.library.constants.DLPortletKeys;
+=======
+import com.liferay.blogs.kernel.model.BlogsEntry;
+import com.liferay.blogs.kernel.model.BlogsEntryModel;
+import com.liferay.blogs.kernel.model.BlogsStatsUserModel;
+import com.liferay.blogs.web.constants.BlogsPortletKeys;
+import com.liferay.counter.kernel.model.Counter;
+import com.liferay.counter.kernel.model.CounterModel;
+import com.liferay.counter.model.impl.CounterModelImpl;
+>>>>>>> compatible
 import com.liferay.document.library.kernel.model.DLFileEntry;
 import com.liferay.document.library.kernel.model.DLFileEntryConstants;
 import com.liferay.document.library.kernel.model.DLFileEntryMetadata;
@@ -44,6 +54,10 @@ import com.liferay.document.library.kernel.model.DLFileEntryTypeModel;
 import com.liferay.document.library.kernel.model.DLFileVersionModel;
 import com.liferay.document.library.kernel.model.DLFolder;
 import com.liferay.document.library.kernel.model.DLFolderModel;
+<<<<<<< HEAD
+=======
+import com.liferay.document.library.web.constants.DLPortletKeys;
+>>>>>>> compatible
 import com.liferay.dynamic.data.lists.constants.DDLPortletKeys;
 import com.liferay.dynamic.data.lists.model.DDLRecordConstants;
 import com.liferay.dynamic.data.lists.model.DDLRecordModel;
@@ -78,6 +92,7 @@ import com.liferay.dynamic.data.mapping.model.impl.DDMStructureVersionModelImpl;
 import com.liferay.dynamic.data.mapping.model.impl.DDMTemplateLinkModelImpl;
 import com.liferay.dynamic.data.mapping.model.impl.DDMTemplateModelImpl;
 import com.liferay.dynamic.data.mapping.storage.StorageType;
+<<<<<<< HEAD
 import com.liferay.friendly.url.model.FriendlyURLEntryLocalizationModel;
 import com.liferay.friendly.url.model.FriendlyURLEntryMappingModel;
 import com.liferay.friendly.url.model.FriendlyURLEntryModel;
@@ -92,10 +107,19 @@ import com.liferay.journal.model.JournalArticleModel;
 import com.liferay.journal.model.JournalArticleResourceModel;
 import com.liferay.journal.model.JournalContentSearchModel;
 import com.liferay.journal.model.impl.JournalArticleLocalizationModelImpl;
+=======
+import com.liferay.journal.constants.JournalPortletKeys;
+import com.liferay.journal.model.JournalArticle;
+import com.liferay.journal.model.JournalArticleConstants;
+import com.liferay.journal.model.JournalArticleModel;
+import com.liferay.journal.model.JournalArticleResourceModel;
+import com.liferay.journal.model.JournalContentSearchModel;
+>>>>>>> compatible
 import com.liferay.journal.model.impl.JournalArticleModelImpl;
 import com.liferay.journal.model.impl.JournalArticleResourceModelImpl;
 import com.liferay.journal.model.impl.JournalContentSearchModelImpl;
 import com.liferay.journal.social.JournalActivityKeys;
+<<<<<<< HEAD
 import com.liferay.message.boards.constants.MBPortletKeys;
 import com.liferay.message.boards.kernel.model.MBCategory;
 import com.liferay.message.boards.kernel.model.MBCategoryConstants;
@@ -116,6 +140,23 @@ import com.liferay.message.boards.model.impl.MBStatsUserModelImpl;
 import com.liferay.message.boards.model.impl.MBThreadFlagModelImpl;
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.exception.PortalException;
+=======
+import com.liferay.login.web.constants.LoginPortletKeys;
+import com.liferay.message.boards.kernel.model.MBCategory;
+import com.liferay.message.boards.kernel.model.MBCategoryConstants;
+import com.liferay.message.boards.kernel.model.MBCategoryModel;
+import com.liferay.message.boards.kernel.model.MBDiscussion;
+import com.liferay.message.boards.kernel.model.MBDiscussionModel;
+import com.liferay.message.boards.kernel.model.MBMailingListModel;
+import com.liferay.message.boards.kernel.model.MBMessage;
+import com.liferay.message.boards.kernel.model.MBMessageConstants;
+import com.liferay.message.boards.kernel.model.MBMessageModel;
+import com.liferay.message.boards.kernel.model.MBStatsUserModel;
+import com.liferay.message.boards.kernel.model.MBThread;
+import com.liferay.message.boards.kernel.model.MBThreadFlagModel;
+import com.liferay.message.boards.kernel.model.MBThreadModel;
+import com.liferay.message.boards.web.constants.MBPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.io.OutputStreamWriter;
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedWriter;
@@ -146,6 +187,11 @@ import com.liferay.portal.kernel.model.ResourcePermissionModel;
 import com.liferay.portal.kernel.model.Role;
 import com.liferay.portal.kernel.model.RoleConstants;
 import com.liferay.portal.kernel.model.RoleModel;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.model.SubscriptionConstants;
+import com.liferay.portal.kernel.model.SubscriptionModel;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.model.UserModel;
 import com.liferay.portal.kernel.model.VirtualHostModel;
@@ -156,12 +202,19 @@ import com.liferay.portal.kernel.security.auth.FullNameGeneratorFactory;
 import com.liferay.portal.kernel.service.permission.PortletPermissionUtil;
 import com.liferay.portal.kernel.template.TemplateConstants;
 import com.liferay.portal.kernel.util.ArrayUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ContentTypes;
 import com.liferay.portal.kernel.util.FastDateFormatFactoryUtil;
 import com.liferay.portal.kernel.util.FriendlyURLNormalizerUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.IntegerWrapper;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.LocaleUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ObjectValuePair;
 import com.liferay.portal.kernel.util.PortletKeys;
 import com.liferay.portal.kernel.util.ReflectionUtil;
@@ -185,6 +238,10 @@ import com.liferay.portal.model.impl.PortletPreferencesModelImpl;
 import com.liferay.portal.model.impl.ReleaseModelImpl;
 import com.liferay.portal.model.impl.ResourcePermissionModelImpl;
 import com.liferay.portal.model.impl.RoleModelImpl;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.model.impl.SubscriptionModelImpl;
+>>>>>>> compatible
 import com.liferay.portal.model.impl.UserModelImpl;
 import com.liferay.portal.model.impl.VirtualHostModelImpl;
 import com.liferay.portal.util.PropsValues;
@@ -195,6 +252,12 @@ import com.liferay.portlet.asset.model.impl.AssetEntryModelImpl;
 import com.liferay.portlet.asset.model.impl.AssetTagModelImpl;
 import com.liferay.portlet.asset.model.impl.AssetTagStatsModelImpl;
 import com.liferay.portlet.asset.model.impl.AssetVocabularyModelImpl;
+<<<<<<< HEAD
+=======
+import com.liferay.portlet.blogs.model.impl.BlogsEntryModelImpl;
+import com.liferay.portlet.blogs.model.impl.BlogsStatsUserModelImpl;
+import com.liferay.portlet.blogs.social.BlogsActivityKeys;
+>>>>>>> compatible
 import com.liferay.portlet.documentlibrary.model.impl.DLFileEntryMetadataModelImpl;
 import com.liferay.portlet.documentlibrary.model.impl.DLFileEntryModelImpl;
 import com.liferay.portlet.documentlibrary.model.impl.DLFileEntryTypeModelImpl;
@@ -202,16 +265,27 @@ import com.liferay.portlet.documentlibrary.model.impl.DLFileVersionModelImpl;
 import com.liferay.portlet.documentlibrary.model.impl.DLFolderModelImpl;
 import com.liferay.portlet.documentlibrary.social.DLActivityKeys;
 import com.liferay.portlet.messageboards.model.impl.MBCategoryModelImpl;
+<<<<<<< HEAD
 import com.liferay.portlet.messageboards.model.impl.MBMessageModelImpl;
+=======
+import com.liferay.portlet.messageboards.model.impl.MBDiscussionModelImpl;
+import com.liferay.portlet.messageboards.model.impl.MBMailingListModelImpl;
+import com.liferay.portlet.messageboards.model.impl.MBMessageModelImpl;
+import com.liferay.portlet.messageboards.model.impl.MBStatsUserModelImpl;
+import com.liferay.portlet.messageboards.model.impl.MBThreadFlagModelImpl;
+>>>>>>> compatible
 import com.liferay.portlet.messageboards.model.impl.MBThreadModelImpl;
 import com.liferay.portlet.messageboards.social.MBActivityKeys;
 import com.liferay.portlet.social.model.impl.SocialActivityModelImpl;
 import com.liferay.social.kernel.model.SocialActivity;
 import com.liferay.social.kernel.model.SocialActivityConstants;
 import com.liferay.social.kernel.model.SocialActivityModel;
+<<<<<<< HEAD
 import com.liferay.subscription.model.SubscriptionConstants;
 import com.liferay.subscription.model.SubscriptionModel;
 import com.liferay.subscription.model.impl.SubscriptionModelImpl;
+=======
+>>>>>>> compatible
 import com.liferay.util.SimpleCounter;
 import com.liferay.wiki.constants.WikiPortletKeys;
 import com.liferay.wiki.model.WikiNode;
@@ -861,9 +935,13 @@ public class DataFactory {
 				assetTagModel.setUserName(_SAMPLE_USER_NAME);
 				assetTagModel.setCreateDate(new Date());
 				assetTagModel.setModifiedDate(new Date());
+<<<<<<< HEAD
 				assetTagModel.setName(
 					StringBundler.concat(
 						"TestTag_", String.valueOf(i), "_", String.valueOf(j)));
+=======
+				assetTagModel.setName("TestTag_" + i + "_" + j);
+>>>>>>> compatible
 				assetTagModel.setLastPublishDate(new Date());
 
 				assetTagModels.add(assetTagModel);
@@ -1010,10 +1088,16 @@ public class DataFactory {
 
 		outputDir.mkdirs();
 
+<<<<<<< HEAD
 		String[] csvFileNames = StringUtil.split(
 			properties.getProperty("sample.sql.output.csv.file.names"));
 
 		for (String csvFileName : csvFileNames) {
+=======
+		for (String csvFileName : StringUtil.split(
+				properties.getProperty("sample.sql.output.csv.file.names"))) {
+
+>>>>>>> compatible
 			_csvWriters.put(
 				csvFileName,
 				new UnsyncBufferedWriter(
@@ -1288,6 +1372,26 @@ public class DataFactory {
 			null, dLFolderModel.getName());
 	}
 
+<<<<<<< HEAD
+=======
+	public AssetEntryModel newAssetEntryModel(
+		JournalArticleModel journalArticleModel) {
+
+		long resourcePrimKey = journalArticleModel.getResourcePrimKey();
+
+		String resourceUuid = _journalArticleResourceUUIDs.get(resourcePrimKey);
+
+		return newAssetEntryModel(
+			journalArticleModel.getGroupId(),
+			journalArticleModel.getCreateDate(),
+			journalArticleModel.getModifiedDate(),
+			getClassNameId(JournalArticle.class), resourcePrimKey, resourceUuid,
+			_defaultJournalDDMStructureModel.getStructureId(),
+			journalArticleModel.isIndexable(), true, ContentTypes.TEXT_HTML,
+			journalArticleModel.getTitle());
+	}
+
+>>>>>>> compatible
 	public AssetEntryModel newAssetEntryModel(MBMessageModel mbMessageModel) {
 		long classNameId = 0;
 		boolean visible = false;
@@ -1318,6 +1422,7 @@ public class DataFactory {
 			String.valueOf(mbThreadModel.getRootMessageId()));
 	}
 
+<<<<<<< HEAD
 	public AssetEntryModel newAssetEntryModel(
 		ObjectValuePair<JournalArticleModel, JournalArticleLocalizationModel>
 			objectValuePair) {
@@ -1340,6 +1445,8 @@ public class DataFactory {
 			journalArticleLocalizationModel.getTitle());
 	}
 
+=======
+>>>>>>> compatible
 	public AssetEntryModel newAssetEntryModel(WikiPageModel wikiPageModel) {
 		return newAssetEntryModel(
 			wikiPageModel.getGroupId(), wikiPageModel.getCreateDate(),
@@ -1462,7 +1569,11 @@ public class DataFactory {
 	public DDMStructureLayoutModel newDDLDDMStructureLayoutModel(
 		long groupId, DDMStructureVersionModel ddmStructureVersionModel) {
 
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(3 + _maxDDLCustomFieldCount * 4);
+=======
+		StringBundler sb = new StringBundler(4 + _maxDDLCustomFieldCount * 4);
+>>>>>>> compatible
 
 		sb.append("{\"defaultLanguageId\": \"en_US\", \"pages\": [{\"rows\": ");
 		sb.append("[");
@@ -1493,8 +1604,14 @@ public class DataFactory {
 		sb.append("\"defaultLanguageId\": \"en_US\", \"fields\": [");
 
 		for (int i = 0; i < _maxDDLCustomFieldCount; i++) {
+<<<<<<< HEAD
 			sb.append("{\"dataType\": \"string\", \"indexType\": ");
 			sb.append("\"keyword\", \"label\": {\"en_US\": \"Text");
+=======
+			sb.append(
+				"{\"dataType\": \"string\", \"indexType\": \"keyword\", ");
+			sb.append("\"label\": {\"en_US\": \"Text");
+>>>>>>> compatible
 			sb.append(i);
 			sb.append("\"}, \"name\": \"");
 			sb.append(nextDDLCustomFieldName(groupId, i));
@@ -1515,8 +1632,13 @@ public class DataFactory {
 			"Test DDM Structure", sb.toString());
 	}
 
+<<<<<<< HEAD
 	public List<PortletPreferencesModel> newDDLPortletPreferencesModels(
 		long plid) {
+=======
+	public List<PortletPreferencesModel>
+		newDDLPortletPreferencesModels(long plid) {
+>>>>>>> compatible
 
 		List<PortletPreferencesModel> portletPreferencesModels =
 			new ArrayList<>(3);
@@ -1677,8 +1799,11 @@ public class DataFactory {
 			getClassNameId(JournalArticle.class));
 		ddmStorageLinkModel.setClassPK(journalArticleModel.getId());
 		ddmStorageLinkModel.setStructureId(structureId);
+<<<<<<< HEAD
 		ddmStorageLinkModel.setStructureVersionId(
 			_defaultJournalDDMStructureVersionModel.getStructureVersionId());
+=======
+>>>>>>> compatible
 
 		return ddmStorageLinkModel;
 	}
@@ -1694,8 +1819,11 @@ public class DataFactory {
 		ddmStorageLinkModel.setClassNameId(getClassNameId(DDMContent.class));
 		ddmStorageLinkModel.setClassPK(ddmContentModel.getContentId());
 		ddmStorageLinkModel.setStructureId(structureId);
+<<<<<<< HEAD
 		ddmStorageLinkModel.setStructureVersionId(
 			_defaultDLDDMStructureVersionModel.getStructureVersionId());
+=======
+>>>>>>> compatible
 
 		return ddmStorageLinkModel;
 	}
@@ -1844,6 +1972,7 @@ public class DataFactory {
 		return dlFolderModels;
 	}
 
+<<<<<<< HEAD
 	public FriendlyURLEntryLocalizationModel
 		newFriendlyURLEntryLocalizationModel(
 			FriendlyURLEntryModel friendlyURLEntryModel,
@@ -1913,6 +2042,8 @@ public class DataFactory {
 		return friendlyURLEntryModel;
 	}
 
+=======
+>>>>>>> compatible
 	public GroupModel newGroupModel(UserModel userModel) throws Exception {
 		return newGroupModel(
 			_counter.get(), getClassNameId(User.class), userModel.getUserId(),
@@ -1923,6 +2054,7 @@ public class DataFactory {
 		return new IntegerWrapper();
 	}
 
+<<<<<<< HEAD
 	public JournalArticleLocalizationModel newJournalArticleLocalizationModel(
 		JournalArticleModel journalArticleModel, int articleIndex,
 		int versionIndex) {
@@ -1954,6 +2086,11 @@ public class DataFactory {
 			JournalArticleResourceModel journalArticleResourceModel,
 			int articleIndex, int versionIndex)
 		throws PortalException {
+=======
+	public JournalArticleModel newJournalArticleModel(
+		JournalArticleResourceModel journalArticleResourceModel,
+		int articleIndex, int versionIndex) {
+>>>>>>> compatible
 
 		JournalArticleModel journalArticleModel = new JournalArticleModelImpl();
 
@@ -1983,10 +2120,27 @@ public class DataFactory {
 
 		String urlTitle = sb.toString();
 
+<<<<<<< HEAD
 		journalArticleModel.setUrlTitle(urlTitle);
 
 		journalArticleModel.setContent(_journalArticleContent);
 		journalArticleModel.setDefaultLanguageId("en_US");
+=======
+		sb = new StringBundler(4);
+
+		sb.append("<?xml version=\"1.0\"?><root available-locales=\"en_US\" ");
+		sb.append("default-locale=\"en_US\"><Title language-id=\"en_US\">");
+		sb.append(urlTitle);
+		sb.append("</Title></root>");
+
+		String title = sb.toString();
+
+		journalArticleModel.setTitle(title);
+
+		journalArticleModel.setUrlTitle(urlTitle);
+
+		journalArticleModel.setContent(_journalArticleContent);
+>>>>>>> compatible
 		journalArticleModel.setDDMStructureKey(
 			_defaultJournalDDMStructureModel.getStructureKey());
 		journalArticleModel.setDDMTemplateKey(
@@ -2038,8 +2192,13 @@ public class DataFactory {
 		return journalContentSearchModel;
 	}
 
+<<<<<<< HEAD
 	public List<PortletPreferencesModel> newJournalPortletPreferencesModels(
 		long plid) {
+=======
+	public List<PortletPreferencesModel>
+		newJournalPortletPreferencesModels(long plid) {
+>>>>>>> compatible
 
 		return Collections.singletonList(
 			newPortletPreferencesModel(
@@ -2050,6 +2209,7 @@ public class DataFactory {
 	public LayoutFriendlyURLModel newLayoutFriendlyURLModel(
 		LayoutModel layoutModel) {
 
+<<<<<<< HEAD
 		LayoutFriendlyURLModel layoutFriendlyURLEntryModel =
 			new LayoutFriendlyURLModelImpl();
 
@@ -2068,6 +2228,25 @@ public class DataFactory {
 		layoutFriendlyURLEntryModel.setLastPublishDate(new Date());
 
 		return layoutFriendlyURLEntryModel;
+=======
+		LayoutFriendlyURLModel layoutFriendlyURLModel =
+			new LayoutFriendlyURLModelImpl();
+
+		layoutFriendlyURLModel.setUuid(SequentialUUID.generate());
+		layoutFriendlyURLModel.setLayoutFriendlyURLId(_counter.get());
+		layoutFriendlyURLModel.setGroupId(layoutModel.getGroupId());
+		layoutFriendlyURLModel.setCompanyId(_companyId);
+		layoutFriendlyURLModel.setUserId(_sampleUserId);
+		layoutFriendlyURLModel.setUserName(_SAMPLE_USER_NAME);
+		layoutFriendlyURLModel.setCreateDate(new Date());
+		layoutFriendlyURLModel.setModifiedDate(new Date());
+		layoutFriendlyURLModel.setPlid(layoutModel.getPlid());
+		layoutFriendlyURLModel.setFriendlyURL(layoutModel.getFriendlyURL());
+		layoutFriendlyURLModel.setLanguageId("en_US");
+		layoutFriendlyURLModel.setLastPublishDate(new Date());
+
+		return layoutFriendlyURLModel;
+>>>>>>> compatible
 	}
 
 	public LayoutModel newLayoutModel(
@@ -2310,10 +2489,13 @@ public class DataFactory {
 		return mbThreadModels;
 	}
 
+<<<<<<< HEAD
 	public <K, V> ObjectValuePair<K, V> newObjectValuePair(K key, V value) {
 		return new ObjectValuePair<>(key, value);
 	}
 
+=======
+>>>>>>> compatible
 	public PortletPreferencesModel newPortletPreferencesModel(
 			long plid, long groupId, String portletId, int currentIndex)
 		throws Exception {
@@ -2437,8 +2619,12 @@ public class DataFactory {
 
 		layoutModels.add(
 			newLayoutModel(
+<<<<<<< HEAD
 				groupId, "welcome",
 				"com_liferay_login_web_portlet_LoginPortlet,",
+=======
+				groupId, "welcome", LoginPortletKeys.LOGIN + ",",
+>>>>>>> compatible
 				"com_liferay_hello_world_web_portlet_HelloWorldPortlet,"));
 		layoutModels.add(
 			newLayoutModel(groupId, "blogs", "", BlogsPortletKeys.BLOGS + ","));
@@ -3113,7 +3299,10 @@ public class DataFactory {
 		blogsEntryModel.setContent("This is test blog " + index + ".");
 		blogsEntryModel.setDisplayDate(new Date());
 		blogsEntryModel.setLastPublishDate(new Date());
+<<<<<<< HEAD
 		blogsEntryModel.setStatusByUserId(_sampleUserId);
+=======
+>>>>>>> compatible
 		blogsEntryModel.setStatusDate(new Date());
 
 		return blogsEntryModel;

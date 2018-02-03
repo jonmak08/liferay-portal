@@ -1,10 +1,14 @@
 <definition>
 	<command name="_clickAddPortlet">
+<<<<<<< HEAD
 		<execute function="MouseOver" locator1="ControlMenuAddPanel#ADD_PORTLET_DRAG_LINK" />
 
 		<execute function="MouseOver" locator1="ControlMenuAddPanel#ADD_PORTLET_LINK" />
 
 		<execute function="Click" locator1="ControlMenuAddPanel#ADD_PORTLET_LINK" value1="Add" />
+=======
+		<execute function="AssertClick#pauseMakeVisibleAssertTextEqualsClickAt" locator1="ControlMenuAddPanel#ADD_PORTLET_LINK" value1="Add" />
+>>>>>>> compatible
 	</command>
 
 	<command name="_mobileClickAddPortlet">
@@ -192,6 +196,7 @@
 	</command>
 
 	<command name="changeDisplayStyle">
+<<<<<<< HEAD
 		<if>
 			<condition function="IsElementNotPresent" locator1="Icon#DISPLAY_STYLE_ACTIVE">
 				<var method="StringUtil#toLowerCase('${displayStyle}')" name="key_displayStyle" />
@@ -225,6 +230,24 @@
 		</execute>
 
 		<execute function="Select" locator1="Portlet#APPLICATION_DECORATOR_SELECT" value1="${applicationDecorator}" />
+=======
+		<var method="StringUtil#upperCase('${displayStyle}')" name="displayStyle" />
+
+		<if>
+			<condition function="IsElementNotPresent" locator1="Icon#DISPLAY_STYLE_${displayStyle}_ACTIVE" />
+			<then>
+				<execute function="Click" locator1="Icon#DISPLAY_STYLE_${displayStyle}" />
+			</then>
+		</if>
+
+		<execute function="AssertElementPresent" locator1="Icon#DISPLAY_STYLE_${displayStyle}_ACTIVE" />
+	</command>
+
+	<command name="clickPortletPlusIconPG">
+		<execute function="Click#makeVisibleClickAt" locator1="Portlet#ICON_PLUS_SIGN">
+			<var name="key_portletName" value="${portletName}" />
+		</execute>
+>>>>>>> compatible
 	</command>
 
 	<command name="configureCustomStylesViaLookandfeelPG">
@@ -241,6 +264,7 @@
 		</execute>
 
 		<execute function="Type" locator1="Portlet#BORDER_WIDTH_TOP_INPUT" value1="20" />
+<<<<<<< HEAD
 	</command>
 
 	<command name="configureCustomTitleViaLookandfeelPG">
@@ -253,14 +277,32 @@
 		<execute function="Check#checkToggleSwitch" locator1="ToggleSwitch#USE_CUSTOM_TITLE" />
 
 		<execute function="Type" locator1="TextInput#CUSTOM_TITLE" value1="${portletName} Custom" />
+=======
+
+		<execute function="AssertClick" locator1="Button#SAVE" value1="Save" />
+	</command>
+
+	<command name="configureCustomTitleViaLookandfeelPG">
+		<execute function="Check#checkToggleSwitch" locator1="ToggleSwitch#USE_CUSTOM_TITLE" />
+
+		<execute function="Type" locator1="Portlet#CONFIGURATION_CUSTOM_TITLE_FIELD" value1="${portletName} Custom" />
+
+		<execute function="AssertClick" locator1="Button#SAVE" value1="Save" />
+
+		<execute function="AssertTextEquals#assertPartialText" locator1="Message#SUCCESS" value1="Your request processed successfully." />
+>>>>>>> compatible
 	</command>
 
 	<command name="deletePG">
 		<var name="key_portletName" value="${portletName}" />
 
+<<<<<<< HEAD
 		<execute function="MouseOver#mouseOverNotVisible" locator1="Portlet#SPECIFIC_ELLIPSIS_ICON" />
 
 		<execute function="Click" locator1="Portlet#SPECIFIC_ELLIPSIS_ICON" />
+=======
+		<execute function="Click#makeVisibleClickAt" locator1="Portlet#SPECIFIC_ELLIPSIS_ICON" />
+>>>>>>> compatible
 
 		<execute function="AssertClickNoError" locator1="MenuItem#ANY_MENU_ITEM" value1="Remove">
 			<var name="key_menuItem" value="Remove" />
@@ -274,12 +316,16 @@
 
 		<execute function="AssertTextEquals" locator1="Home#PAGE_COLUMN_PORTLET_COLUMN_${columnNumberFrom}_PORTLET_TITLE" value1="${portletName}" />
 		<execute function="DragAndDrop#dragAndDropPortletToObject" locator1="Home#PAGE_COLUMN_PORTLET_COLUMN_${columnNumberFrom}_PORTLET_HEADER" locator2="Home#PAGE_COLUMN_${columnNumberTo}" value1="${portletName}" />
+<<<<<<< HEAD
 		<execute function="AssertTextEquals" locator1="Home#PAGE_COLUMN_PORTLET_COLUMN_${columnNumberTo}_PORTLET_TITLE" value1="${portletName}" />
+=======
+>>>>>>> compatible
 		<execute function="AssertTextEquals" locator1="Home#PAGE_COLUMN_PORTLET_COLUMN_${columnNumberTo}_PORTLET_TITLE" value1="${portletName}" />
 	</command>
 
 	<command name="expandTree">
 		<while>
+<<<<<<< HEAD
 			<condition function="IsElementPresent" locator1="Treeview#NODE_COLLAPSED" />
 			<then>
 				<execute function="Click" locator1="Treeview#NODE_COLLAPSED" />
@@ -287,6 +333,15 @@
 		</while>
 
 		<execute function="AssertElementNotPresent" locator1="Treeview#NODE_COLLAPSED" />
+=======
+			<condition function="IsElementPresent" locator1="Treeview#GLYPHICON_PLUS" />
+			<then>
+				<execute function="Click" locator1="Treeview#GLYPHICON_PLUS" />
+			</then>
+		</while>
+
+		<execute function="AssertElementNotPresent" locator1="Treeview#GLYPHICON_PLUS" />
+>>>>>>> compatible
 	</command>
 
 	<command name="gotoPortletOptions">
@@ -295,6 +350,7 @@
 			<then>
 				<var name="key_portletName" value="${portletName}" />
 
+<<<<<<< HEAD
 				<execute function="MouseOver#mouseOverNotVisible" locator1="Portlet#SPECIFIC_BORDERLESS_ELLIPSIS_ICON" />
 
 				<execute function="Click" locator1="Portlet#SPECIFIC_BORDERLESS_ELLIPSIS_ICON" />
@@ -303,6 +359,12 @@
 				<execute function="MouseOver#mouseOverNotVisible" locator1="Portlet#OPTIONS_ICON" />
 
 				<execute function="Click" locator1="Portlet#OPTIONS_ICON" />
+=======
+				<execute function="Click#makeVisibleClickAt" locator1="Portlet#SPECIFIC_BORDERLESS_ELLIPSIS_ICON" />
+			</then>
+			<else>
+				<execute function="Click#makeVisibleClickAt" locator1="Portlet#OPTIONS_ICON" />
+>>>>>>> compatible
 			</else>
 		</if>
 
@@ -322,6 +384,7 @@
 
 	<command name="selectApplicationDecorator">
 		<execute function="Select" locator1="Select#APPLICATION_DECORATORS" value1="${decorator}" />
+<<<<<<< HEAD
 	</command>
 
 	<command name="selectTreeNode">
@@ -329,6 +392,17 @@
 			<var name="key_nodeName" value="${nodeName}" />
 		</execute>
 
+=======
+
+		<execute macro="PortletEntry#save" />
+	</command>
+
+	<command name="selectTreeNode">
+		<execute function="AssertClick#assertPartialTextClickAt" locator1="Treeview#NODE_UNSELECTED" value1="${nodeName}">
+			<var name="key_nodeName" value="${nodeName}" />
+		</execute>
+
+>>>>>>> compatible
 		<execute function="AssertElementPresent" locator1="Treeview#NODE_SELECTED">
 			<var name="key_nodeName" value="${nodeName}" />
 		</execute>
@@ -385,8 +459,15 @@
 	</command>
 
 	<command name="viewApplicationDecorator">
+<<<<<<< HEAD
 		<execute function="AssertElementPresent" locator1="Portlet#PORTLET_BORDER_DECORATOR">
 			<var method="StringUtil#lowerCase('${decorator}')" name="key_decorator" />
+=======
+		<var method="StringUtil#lowerCase('${decorator}')" name="decorator" />
+
+		<execute function="AssertElementPresent" locator1="Portlet#PORTLET_BORDER_DECORATOR">
+			<var name="key_decorator" value="${decorator}" />
+>>>>>>> compatible
 		</execute>
 	</command>
 
@@ -440,9 +521,15 @@
 	</command>
 
 	<command name="viewDefaultDisplayStyle">
+<<<<<<< HEAD
 		<execute function="AssertElementPresent" locator1="Icon#DISPLAY_STYLE_ACTIVE">
 			<var name="key_displayStyle" value="${displayStyle}" />
 		</execute>
+=======
+		<var method="StringUtil#upperCase('${displayStyle}')" name="displayStyleUppercase" />
+
+		<execute function="AssertElementPresent" locator1="Icon#DISPLAY_STYLE_${displayStyleUppercase}_ACTIVE" />
+>>>>>>> compatible
 	</command>
 
 	<command name="viewDisplayStyles">
@@ -477,7 +564,11 @@
 	</command>
 
 	<command name="viewEmptyMessage">
+<<<<<<< HEAD
 		<execute function="AssertTextEquals#assertPartialText" locator1="Message#EMPTY_INFO" value1="${message}" />
+=======
+		<execute function="AssertTextEquals" locator1="Message#EMPTY_INFO" value1="There are no results." />
+>>>>>>> compatible
 	</command>
 
 	<command name="viewNoPortletsPresentPG">
@@ -515,9 +606,13 @@
 	</command>
 
 	<command name="viewPortletOptionsMenulist">
+<<<<<<< HEAD
 		<execute function="MouseOver#mouseOverNotVisible" locator1="Portlet#OPTIONS_ICON" />
 
 		<execute function="Click" locator1="Portlet#OPTIONS_ICON" />
+=======
+		<execute function="Click#makeVisibleClickAt" locator1="Portlet#OPTIONS_ICON" />
+>>>>>>> compatible
 
 		<execute function="AssertTextEquals" locator1="MenuItem#ANY_MENU_ITEM" value1="Look and Feel Configuration">
 			<var name="key_menuItem" value="Look and Feel Configuration" />
@@ -554,9 +649,12 @@
 		<var name="key_portletName" value="${portletName}" />
 
 		<execute function="AssertTextEquals" locator1="Portlet#TITLE" value1="${portletName}" />
+<<<<<<< HEAD
 	</command>
 
 	<command name="viewUndeployMessage">
 		<execute function="AssertTextEquals#assertPartialText" locator1="Portlet#PORTLET_CONTENT" value1="This portlet has been undeployed." />
+=======
+>>>>>>> compatible
 	</command>
 </definition>

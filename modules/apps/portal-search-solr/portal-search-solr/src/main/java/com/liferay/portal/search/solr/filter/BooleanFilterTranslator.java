@@ -17,14 +17,13 @@ package com.liferay.portal.search.solr.filter;
 import com.liferay.portal.kernel.search.filter.BooleanFilter;
 import com.liferay.portal.kernel.search.filter.FilterVisitor;
 
-import org.apache.lucene.search.Query;
-
 /**
  * @author Michael C. Han
  */
 public interface BooleanFilterTranslator {
 
-	public Query translate(
-		BooleanFilter booleanFilter, FilterVisitor<Query> filterVisitor);
+	public org.apache.lucene.search.Query translate(
+		BooleanFilter booleanFilter,
+		FilterVisitor<org.apache.lucene.search.Query> filterVisitor);
 
 }

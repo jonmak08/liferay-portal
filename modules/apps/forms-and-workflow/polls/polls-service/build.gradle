@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 sourceCompatibility = "1.8"
 targetCompatibility = "1.8"
 
+=======
+>>>>>>> compatible
 buildService {
 	apiDir = "../polls-api/src/main/java"
 	testDir = "../polls-test/src/testIntegration/java"

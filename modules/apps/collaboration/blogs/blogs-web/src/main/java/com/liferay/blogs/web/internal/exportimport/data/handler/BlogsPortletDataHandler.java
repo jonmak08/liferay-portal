@@ -14,11 +14,18 @@
 
 package com.liferay.blogs.web.internal.exportimport.data.handler;
 
+<<<<<<< HEAD
 import com.liferay.blogs.constants.BlogsConstants;
 import com.liferay.blogs.constants.BlogsPortletKeys;
 import com.liferay.blogs.model.BlogsEntry;
 import com.liferay.blogs.service.BlogsEntryLocalService;
 import com.liferay.blogs.service.BlogsStatsUserLocalService;
+=======
+import com.liferay.blogs.kernel.model.BlogsEntry;
+import com.liferay.blogs.kernel.service.BlogsEntryLocalService;
+import com.liferay.blogs.kernel.service.BlogsStatsUserLocalService;
+import com.liferay.blogs.web.constants.BlogsPortletKeys;
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.lar.BasePortletDataHandler;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.exportimport.kernel.lar.PortletDataHandler;
@@ -29,6 +36,11 @@ import com.liferay.exportimport.kernel.lar.StagedModelType;
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.util.PropsValues;
+<<<<<<< HEAD
+=======
+import com.liferay.portlet.blogs.constants.BlogsConstants;
+import com.liferay.portlet.blogs.service.permission.BlogsPermission;
+>>>>>>> compatible
 
 import java.util.List;
 
@@ -115,7 +127,11 @@ public class BlogsPortletDataHandler extends BasePortletDataHandler {
 			return getExportDataRootElementString(rootElement);
 		}
 
+<<<<<<< HEAD
 		portletDataContext.addPortletPermissions(BlogsConstants.RESOURCE_NAME);
+=======
+		portletDataContext.addPortletPermissions(BlogsPermission.RESOURCE_NAME);
+>>>>>>> compatible
 
 		rootElement.addAttribute(
 			"group-id", String.valueOf(portletDataContext.getScopeGroupId()));
@@ -140,7 +156,11 @@ public class BlogsPortletDataHandler extends BasePortletDataHandler {
 		}
 
 		portletDataContext.importPortletPermissions(
+<<<<<<< HEAD
 			BlogsConstants.RESOURCE_NAME);
+=======
+			BlogsPermission.RESOURCE_NAME);
+>>>>>>> compatible
 
 		Element entriesElement = portletDataContext.getImportDataGroupElement(
 			BlogsEntry.class);

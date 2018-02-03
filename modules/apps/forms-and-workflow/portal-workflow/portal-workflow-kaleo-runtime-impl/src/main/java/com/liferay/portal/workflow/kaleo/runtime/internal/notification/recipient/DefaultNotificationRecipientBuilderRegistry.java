@@ -39,8 +39,13 @@ public class DefaultNotificationRecipientBuilderRegistry
 	implements NotificationRecipientBuilderRegistry {
 
 	@Override
+<<<<<<< HEAD
 	public NotificationRecipientBuilder getNotificationRecipientBuilder(
 		RecipientType recipientType) {
+=======
+	public NotificationRecipientBuilder
+		getNotificationRecipientBuilder(RecipientType recipientType) {
+>>>>>>> compatible
 
 		NotificationRecipientBuilder notificationRecipientBuilder =
 			_notificationRecipientBuilders.get(recipientType);

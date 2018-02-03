@@ -16,6 +16,10 @@ package com.liferay.portal.kernel.model;
 
 import com.liferay.portal.kernel.bean.ClassLoaderBeanHandler;
 import com.liferay.portal.kernel.util.ProxyUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.ReflectionUtil;
+>>>>>>> compatible
 import com.liferay.registry.Filter;
 import com.liferay.registry.Registry;
 import com.liferay.registry.RegistryUtil;
@@ -25,8 +29,11 @@ import com.liferay.registry.ServiceTracker;
 import com.liferay.registry.ServiceTrackerCustomizer;
 
 import java.lang.reflect.InvocationHandler;
+<<<<<<< HEAD
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+=======
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.List;
@@ -177,6 +184,7 @@ public class ModelListenerRegistrationUtil {
 			}
 		}
 
+<<<<<<< HEAD
 		private Class<?> _getGenericSuperType(Class<?> clazz) {
 			try {
 				ParameterizedType parameterizedType =
@@ -194,6 +202,8 @@ public class ModelListenerRegistrationUtil {
 			return null;
 		}
 
+=======
+>>>>>>> compatible
 		private Class<?> _getModelClass(ModelListener<?> modelListener) {
 			Class<?> clazz = modelListener.getClass();
 
@@ -211,7 +221,11 @@ public class ModelListenerRegistrationUtil {
 				}
 			}
 
+<<<<<<< HEAD
 			return _getGenericSuperType(clazz);
+=======
+			return ReflectionUtil.getGenericSuperType(clazz);
+>>>>>>> compatible
 		}
 
 	}

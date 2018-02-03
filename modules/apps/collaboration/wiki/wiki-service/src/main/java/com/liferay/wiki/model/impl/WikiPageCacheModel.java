@@ -19,6 +19,10 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import com.liferay.wiki.model.WikiPage;
 
@@ -124,7 +128,11 @@ public class WikiPageCacheModel implements CacheModel<WikiPage>, Externalizable 
 		WikiPageImpl wikiPageImpl = new WikiPageImpl();
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			wikiPageImpl.setUuid("");
+=======
+			wikiPageImpl.setUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			wikiPageImpl.setUuid(uuid);
@@ -137,7 +145,11 @@ public class WikiPageCacheModel implements CacheModel<WikiPage>, Externalizable 
 		wikiPageImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			wikiPageImpl.setUserName("");
+=======
+			wikiPageImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			wikiPageImpl.setUserName(userName);
@@ -160,7 +172,11 @@ public class WikiPageCacheModel implements CacheModel<WikiPage>, Externalizable 
 		wikiPageImpl.setNodeId(nodeId);
 
 		if (title == null) {
+<<<<<<< HEAD
 			wikiPageImpl.setTitle("");
+=======
+			wikiPageImpl.setTitle(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			wikiPageImpl.setTitle(title);
@@ -170,21 +186,33 @@ public class WikiPageCacheModel implements CacheModel<WikiPage>, Externalizable 
 		wikiPageImpl.setMinorEdit(minorEdit);
 
 		if (content == null) {
+<<<<<<< HEAD
 			wikiPageImpl.setContent("");
+=======
+			wikiPageImpl.setContent(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			wikiPageImpl.setContent(content);
 		}
 
 		if (summary == null) {
+<<<<<<< HEAD
 			wikiPageImpl.setSummary("");
+=======
+			wikiPageImpl.setSummary(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			wikiPageImpl.setSummary(summary);
 		}
 
 		if (format == null) {
+<<<<<<< HEAD
 			wikiPageImpl.setFormat("");
+=======
+			wikiPageImpl.setFormat(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			wikiPageImpl.setFormat(format);
@@ -193,14 +221,22 @@ public class WikiPageCacheModel implements CacheModel<WikiPage>, Externalizable 
 		wikiPageImpl.setHead(head);
 
 		if (parentTitle == null) {
+<<<<<<< HEAD
 			wikiPageImpl.setParentTitle("");
+=======
+			wikiPageImpl.setParentTitle(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			wikiPageImpl.setParentTitle(parentTitle);
 		}
 
 		if (redirectTitle == null) {
+<<<<<<< HEAD
 			wikiPageImpl.setRedirectTitle("");
+=======
+			wikiPageImpl.setRedirectTitle(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			wikiPageImpl.setRedirectTitle(redirectTitle);
@@ -217,7 +253,11 @@ public class WikiPageCacheModel implements CacheModel<WikiPage>, Externalizable 
 		wikiPageImpl.setStatusByUserId(statusByUserId);
 
 		if (statusByUserName == null) {
+<<<<<<< HEAD
 			wikiPageImpl.setStatusByUserName("");
+=======
+			wikiPageImpl.setStatusByUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			wikiPageImpl.setStatusByUserName(statusByUserName);
@@ -278,7 +318,11 @@ public class WikiPageCacheModel implements CacheModel<WikiPage>, Externalizable 
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		if (uuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(uuid);
@@ -295,7 +339,11 @@ public class WikiPageCacheModel implements CacheModel<WikiPage>, Externalizable 
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -307,7 +355,11 @@ public class WikiPageCacheModel implements CacheModel<WikiPage>, Externalizable 
 		objectOutput.writeLong(nodeId);
 
 		if (title == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(title);
@@ -318,21 +370,33 @@ public class WikiPageCacheModel implements CacheModel<WikiPage>, Externalizable 
 		objectOutput.writeBoolean(minorEdit);
 
 		if (content == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(content);
 		}
 
 		if (summary == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(summary);
 		}
 
 		if (format == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(format);
@@ -341,14 +405,22 @@ public class WikiPageCacheModel implements CacheModel<WikiPage>, Externalizable 
 		objectOutput.writeBoolean(head);
 
 		if (parentTitle == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(parentTitle);
 		}
 
 		if (redirectTitle == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(redirectTitle);
@@ -361,7 +433,11 @@ public class WikiPageCacheModel implements CacheModel<WikiPage>, Externalizable 
 		objectOutput.writeLong(statusByUserId);
 
 		if (statusByUserName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(statusByUserName);

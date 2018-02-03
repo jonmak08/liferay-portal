@@ -2,7 +2,11 @@
 	<command name="sikuliRightMouseDown">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.SikuliRightMouseDown#sikuliRightMouseDown" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute argument1="1000" selenium="pause" />
 

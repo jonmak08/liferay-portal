@@ -29,6 +29,7 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
 )
 public interface AmazonRankingsConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(name = "amazon-access-key-id", required = false)
 	public String amazonAccessKeyId();
 
@@ -41,6 +42,19 @@ public interface AmazonRankingsConfiguration {
 	@Meta.AD(
 		deflt = "0066620996|0131412752|0201633612|0310241448", name = "isbns",
 		required = false
+=======
+	@Meta.AD(required = false)
+	public String amazonAccessKeyId();
+
+	@Meta.AD(required = false)
+	public String amazonAssociateTag();
+
+	@Meta.AD(required = false)
+	public String amazonSecretAccessKey();
+
+	@Meta.AD(
+		deflt = "0066620996|0131412752|0201633612|0310241448", required = false
+>>>>>>> compatible
 	)
 	public String[] isbns();
 

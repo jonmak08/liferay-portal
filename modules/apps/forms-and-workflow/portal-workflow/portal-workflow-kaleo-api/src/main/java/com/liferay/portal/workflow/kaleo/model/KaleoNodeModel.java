@@ -193,6 +193,7 @@ public interface KaleoNodeModel extends BaseModel<KaleoNode>, GroupedModel,
 	public void setModifiedDate(Date modifiedDate);
 
 	/**
+<<<<<<< HEAD
 	 * Returns the kaleo definition version ID of this kaleo node.
 	 *
 	 * @return the kaleo definition version ID of this kaleo node
@@ -205,6 +206,20 @@ public interface KaleoNodeModel extends BaseModel<KaleoNode>, GroupedModel,
 	 * @param kaleoDefinitionVersionId the kaleo definition version ID of this kaleo node
 	 */
 	public void setKaleoDefinitionVersionId(long kaleoDefinitionVersionId);
+=======
+	 * Returns the kaleo definition ID of this kaleo node.
+	 *
+	 * @return the kaleo definition ID of this kaleo node
+	 */
+	public long getKaleoDefinitionId();
+
+	/**
+	 * Sets the kaleo definition ID of this kaleo node.
+	 *
+	 * @param kaleoDefinitionId the kaleo definition ID of this kaleo node
+	 */
+	public void setKaleoDefinitionId(long kaleoDefinitionId);
+>>>>>>> compatible
 
 	/**
 	 * Returns the name of this kaleo node.

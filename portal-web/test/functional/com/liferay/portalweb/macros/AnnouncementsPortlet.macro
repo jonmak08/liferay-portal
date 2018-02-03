@@ -10,13 +10,26 @@
 
 		<execute function="Select" locator1="Configuration#MAXIMUM_ITEMS_TO_DISPLAY_SELECT" value1="5" />
 
+<<<<<<< HEAD
 		<execute macro="PortletEntry#save" />
+=======
+		<execute macro="Button#clickSave" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 
 		<execute function="SelectFrameTop" />
 	</command>
 
+<<<<<<< HEAD
 	<command name="configurePaginationCP">
 		<execute function="Click" locator1="Dropdown#ENTRIES" />
+=======
+	<command name="configurePaginationManageEntriesPG">
+		<execute function="Select" locator1="AnnouncementsManageEntries#DISTRIBUTION_SCOPE_SELECT" value1="${distributionScope}" />
+
+		<execute function="Click" locator1="Button#ITEMS_PER_PAGE" />
+>>>>>>> compatible
 
 		<var name="key_itemsPerPage" value="${itemsPerPage}" />
 

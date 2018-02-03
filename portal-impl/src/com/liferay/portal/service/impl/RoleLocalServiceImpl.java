@@ -16,15 +16,21 @@ package com.liferay.portal.service.impl;
 
 import com.liferay.admin.kernel.util.PortalMyAccountApplicationType;
 import com.liferay.exportimport.kernel.lar.ExportImportThreadLocal;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.cache.thread.local.Lifecycle;
 import com.liferay.portal.kernel.cache.thread.local.ThreadLocalCachable;
 import com.liferay.portal.kernel.cache.thread.local.ThreadLocalCache;
 import com.liferay.portal.kernel.cache.thread.local.ThreadLocalCacheManager;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.dao.orm.ProjectionFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.Property;
 import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.DuplicateRoleException;
 import com.liferay.portal.kernel.exception.NoSuchRoleException;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -36,8 +42,15 @@ import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.Layout;
 import com.liferay.portal.kernel.model.ResourceAction;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.ResourceConstants;
 import com.liferay.portal.kernel.model.ResourcePermission;
+=======
+import com.liferay.portal.kernel.model.ResourceBlockPermission;
+import com.liferay.portal.kernel.model.ResourceConstants;
+import com.liferay.portal.kernel.model.ResourcePermission;
+import com.liferay.portal.kernel.model.ResourceTypePermission;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Role;
 import com.liferay.portal.kernel.model.RoleConstants;
 import com.liferay.portal.kernel.model.SystemEventConstants;
@@ -54,7 +67,10 @@ import com.liferay.portal.kernel.security.permission.PermissionThreadLocal;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.spring.aop.Skip;
 import com.liferay.portal.kernel.systemevent.SystemEvent;
+import com.liferay.portal.kernel.transaction.Isolation;
 import com.liferay.portal.kernel.transaction.Propagation;
+import com.liferay.portal.kernel.transaction.TransactionConfig;
+import com.liferay.portal.kernel.transaction.TransactionInvokerUtil;
 import com.liferay.portal.kernel.transaction.Transactional;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -81,6 +97,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.Callable;
 
 /**
  * Provides the local service for accessing, adding, checking, deleting, and
@@ -219,6 +236,8 @@ public class RoleLocalServiceImpl extends RoleLocalServiceBaseImpl {
 	 * @param roles the roles
 	 * @see   com.liferay.portal.kernel.service.persistence.UserPersistence#addRoles(
 	 *        long, List)
+<<<<<<< HEAD
+=======
 	 */
 	@Override
 	public void addUserRoles(long userId, List<Role> roles)
@@ -237,6 +256,26 @@ public class RoleLocalServiceImpl extends RoleLocalServiceBaseImpl {
 	 * @param roleIds the primary keys of the roles
 	 * @see   com.liferay.portal.kernel.service.persistence.UserPersistence#addRoles(
 	 *        long, long[])
+>>>>>>> compatible
+	 */
+	@Override
+	public void addUserRoles(long userId, List<Role> roles)
+		throws PortalException {
+
+		userPersistence.addRoles(userId, roles);
+
+		reindex(userId);
+	}
+
+<<<<<<< HEAD
+	/**
+	 * Adds the roles to the user. The user is reindexed after the roles are
+	 * added.
+	 *
+	 * @param userId the primary key of the user
+	 * @param roleIds the primary keys of the roles
+	 * @see   com.liferay.portal.kernel.service.persistence.UserPersistence#addRoles(
+	 *        long, long[])
 	 */
 	@Override
 	public void addUserRoles(long userId, long[] roleIds)
@@ -245,6 +284,18 @@ public class RoleLocalServiceImpl extends RoleLocalServiceBaseImpl {
 		userPersistence.addRoles(userId, roleIds);
 
 		reindex(userId);
+=======
+	@Override
+	public void afterPropertiesSet() {
+		super.afterPropertiesSet();
+
+		TransactionConfig.Builder builder = new TransactionConfig.Builder();
+
+		builder.setIsolation(Isolation.READ_COMMITTED);
+		builder.setPropagation(Propagation.REQUIRES_NEW);
+
+		_transactionConfig = builder.build();
+>>>>>>> compatible
 	}
 
 	/**
@@ -424,6 +475,36 @@ public class RoleLocalServiceImpl extends RoleLocalServiceBaseImpl {
 
 		// Resources
 
+<<<<<<< HEAD
+=======
+		List<ResourceBlockPermission> resourceBlockPermissions =
+			resourceBlockPermissionPersistence.findByRoleId(role.getRoleId());
+
+		try {
+			TransactionInvokerUtil.invoke(
+				_transactionConfig,
+				new Callable<Void>() {
+
+					@Override
+					public Void call() {
+						for (ResourceBlockPermission resourceBlockPermission :
+								resourceBlockPermissions) {
+
+							resourceBlockPermissionLocalService.
+								deleteResourceBlockPermission(
+									resourceBlockPermission);
+						}
+
+						return null;
+					}
+
+				});
+		}
+		catch (Throwable t) {
+			throw new PortalException(t);
+		}
+
+>>>>>>> compatible
 		List<ResourcePermission> resourcePermissions =
 			resourcePermissionPersistence.findByRoleId(role.getRoleId());
 
@@ -461,6 +542,7 @@ public class RoleLocalServiceImpl extends RoleLocalServiceBaseImpl {
 
 		return role;
 	}
+<<<<<<< HEAD
 
 	/**
 	 * Removes the role from the user. The user is reindexed after the role is
@@ -477,6 +559,24 @@ public class RoleLocalServiceImpl extends RoleLocalServiceBaseImpl {
 
 		userPersistence.removeRole(userId, roleId);
 
+=======
+
+	/**
+	 * Removes the role from the user. The user is reindexed after the role is
+	 * removed.
+	 *
+	 * @param userId the primary key of the user
+	 * @param roleId the primary key of the role
+	 * @see   com.liferay.portal.kernel.service.persistence.UserPersistence#removeRole(
+	 *        long, long)
+	 */
+	@Override
+	public void deleteUserRole(long userId, long roleId)
+		throws PortalException {
+
+		userPersistence.removeRole(userId, roleId);
+
+>>>>>>> compatible
 		reindex(userId);
 	}
 
@@ -723,10 +823,13 @@ public class RoleLocalServiceImpl extends RoleLocalServiceBaseImpl {
 			teamGroupId);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	@Override
 	public List<Role> getResourceBlockRoles(
 		long resourceBlockId, String className, String actionId) {
@@ -1702,5 +1805,6 @@ public class RoleLocalServiceImpl extends RoleLocalServiceBaseImpl {
 		RoleLocalServiceImpl.class);
 
 	private final Map<String, Role> _systemRolesMap = new HashMap<>();
+	private TransactionConfig _transactionConfig;
 
 }

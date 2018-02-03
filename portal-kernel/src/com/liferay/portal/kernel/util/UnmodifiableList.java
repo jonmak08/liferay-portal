@@ -26,7 +26,11 @@ import java.util.ListIterator;
  * This is a read-only wrapper around any <code>List</code>. Query operations
  * will "read through" to the specified list. Attempts to modify the list
  * directly or via its iterator will result in a
+<<<<<<< HEAD
  * <code>UnsupportedOperationException</code>.
+=======
+ * <code>java.lang.UnsupportedOperationException</code>.
+>>>>>>> compatible
  * </p>
  *
  * @author     Alexander Chow

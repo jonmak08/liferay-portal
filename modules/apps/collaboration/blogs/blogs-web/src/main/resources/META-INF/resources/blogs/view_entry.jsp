@@ -37,6 +37,7 @@ AssetEntry assetEntry = AssetEntryLocalServiceUtil.getEntry(BlogsEntry.class.get
 
 AssetEntryServiceUtil.incrementViewCounter(assetEntry);
 
+<<<<<<< HEAD
 assetHelper.addLayoutTags(request, AssetTagLocalServiceUtil.getTags(BlogsEntry.class.getName(), entry.getEntryId()));
 
 RatingsEntry ratingsEntry = null;
@@ -45,6 +46,9 @@ RatingsStats ratingsStats = RatingsStatsLocalServiceUtil.fetchStats(BlogsEntry.c
 if (ratingsStats != null) {
 	ratingsEntry = RatingsEntryLocalServiceUtil.fetchEntry(themeDisplay.getUserId(), BlogsEntry.class.getName(), entry.getEntryId());
 }
+=======
+AssetUtil.addLayoutTags(request, AssetTagLocalServiceUtil.getTags(BlogsEntry.class.getName(), entry.getEntryId()));
+>>>>>>> compatible
 
 request.setAttribute(WebKeys.LAYOUT_ASSET_ENTRY, assetEntry);
 
@@ -52,16 +56,23 @@ request.setAttribute("view_entry_content.jsp-entry", entry);
 
 request.setAttribute("view_entry_content.jsp-assetEntry", assetEntry);
 
+<<<<<<< HEAD
 request.setAttribute("view_entry_content.jsp-ratingsEntry", ratingsEntry);
 request.setAttribute("view_entry_content.jsp-ratingsStats", ratingsStats);
 
+=======
+>>>>>>> compatible
 portletDisplay.setShowBackIcon(true);
 portletDisplay.setURLBack(redirect);
 
 boolean portletTitleBasedNavigation = GetterUtil.getBoolean(portletConfig.getInitParameter("portlet-title-based-navigation"));
 
 if (portletTitleBasedNavigation) {
+<<<<<<< HEAD
 	renderResponse.setTitle(BlogsEntryUtil.getDisplayTitle(resourceBundle, entry));
+=======
+	renderResponse.setTitle(entry.getTitle());
+>>>>>>> compatible
 }
 %>
 
@@ -94,7 +105,10 @@ if (portletTitleBasedNavigation) {
 							<aui:col cssClass="entry-navigation-item" md="4" sm="6">
 								<portlet:renderURL var="previousEntryURL">
 									<portlet:param name="mvcRenderCommandName" value="/blogs/view_entry" />
+<<<<<<< HEAD
 									<portlet:param name="redirect" value="<%= redirect %>" />
+=======
+>>>>>>> compatible
 									<portlet:param name="urlTitle" value="<%= previousEntry.getUrlTitle() %>" />
 								</portlet:renderURL>
 
@@ -107,7 +121,11 @@ if (portletTitleBasedNavigation) {
 								%>
 
 								<c:if test="<%= Validator.isNotNull(smallImageURL) %>">
+<<<<<<< HEAD
 									<aui:a href="<%= previousEntryURL %>" title="<%= HtmlUtil.escape(BlogsEntryUtil.getDisplayTitle(resourceBundle, previousEntry)) %>">
+=======
+									<aui:a href="<%= previousEntryURL %>" title="<%= HtmlUtil.escape(previousEntry.getTitle()) %>">
+>>>>>>> compatible
 										<span class="small-image visible-lg-block visible-md-block" style="background-image: url(<%= HtmlUtil.escape(smallImageURL) %>)"></span>
 									</aui:a>
 								</c:if>
@@ -118,16 +136,23 @@ if (portletTitleBasedNavigation) {
 										<span> - </span>
 										<span class="hide-accessible"><liferay-ui:message key="published-date" /></span>
 										<%= dateFormatDate.format(previousEntry.getDisplayDate()) %>
+<<<<<<< HEAD
 
 										<c:if test="<%= blogsPortletInstanceConfiguration.enableReadingTime() %>">
 											<liferay-reading-time:reading-time model="<%= previousEntry %>" />
 										</c:if>
+=======
+>>>>>>> compatible
 									</small>
 								</div>
 
 								<div class="entry-content">
 									<h4>
+<<<<<<< HEAD
 										<aui:a href="<%= previousEntryURL %>" title="<%= HtmlUtil.escape(BlogsEntryUtil.getDisplayTitle(resourceBundle, previousEntry)) %>"><%= HtmlUtil.escape(BlogsEntryUtil.getDisplayTitle(resourceBundle, previousEntry)) %></aui:a>
+=======
+										<aui:a href="<%= previousEntryURL %>" title="<%= HtmlUtil.escape(previousEntry.getTitle()) %>"><%= HtmlUtil.escape(previousEntry.getTitle()) %></aui:a>
+>>>>>>> compatible
 									</h4>
 
 									<p class="entry-content-body visible-lg-block">
@@ -141,7 +166,10 @@ if (portletTitleBasedNavigation) {
 							<aui:col cssClass="entry-navigation-item" md="4" sm="6">
 								<portlet:renderURL var="nextEntryURL">
 									<portlet:param name="mvcRenderCommandName" value="/blogs/view_entry" />
+<<<<<<< HEAD
 									<portlet:param name="redirect" value="<%= redirect %>" />
+=======
+>>>>>>> compatible
 									<portlet:param name="urlTitle" value="<%= nextEntry.getUrlTitle() %>" />
 								</portlet:renderURL>
 
@@ -154,7 +182,11 @@ if (portletTitleBasedNavigation) {
 								%>
 
 								<c:if test="<%= Validator.isNotNull(smallImageURL) %>">
+<<<<<<< HEAD
 									<aui:a href="<%= nextEntryURL %>" title="<%= HtmlUtil.escape(BlogsEntryUtil.getDisplayTitle(resourceBundle, nextEntry)) %>">
+=======
+									<aui:a href="<%= nextEntryURL %>" title="<%= HtmlUtil.escape(nextEntry.getTitle()) %>">
+>>>>>>> compatible
 										<span class="small-image visible-lg-block visible-md-block" style="background-image: url(<%= HtmlUtil.escape(smallImageURL) %>)"></span>
 									</aui:a>
 								</c:if>
@@ -165,16 +197,23 @@ if (portletTitleBasedNavigation) {
 										<span> - </span>
 										<span class="hide-accessible"><liferay-ui:message key="published-date" /></span>
 										<%= dateFormatDate.format(nextEntry.getDisplayDate()) %>
+<<<<<<< HEAD
 
 										<c:if test="<%= blogsPortletInstanceConfiguration.enableReadingTime() %>">
 											<liferay-reading-time:reading-time model="<%= nextEntry %>" />
 										</c:if>
+=======
+>>>>>>> compatible
 									</small>
 								</div>
 
 								<div class="entry-content">
 									<h4>
+<<<<<<< HEAD
 										<aui:a href="<%= nextEntryURL %>" title="<%= HtmlUtil.escape(BlogsEntryUtil.getDisplayTitle(resourceBundle, nextEntry)) %>"><%= HtmlUtil.escape(BlogsEntryUtil.getDisplayTitle(resourceBundle, nextEntry)) %></aui:a>
+=======
+										<aui:a href="<%= nextEntryURL %>" title="<%= HtmlUtil.escape(nextEntry.getTitle()) %>"><%= HtmlUtil.escape(nextEntry.getTitle()) %></aui:a>
+>>>>>>> compatible
 									</h4>
 
 									<p class="visible-lg-block">
@@ -199,6 +238,7 @@ if (portletTitleBasedNavigation) {
 
 				<c:if test="<%= discussion != null %>">
 					<h2>
+<<<<<<< HEAD
 						<strong><liferay-ui:message arguments="<%= discussion.getDiscussionCommentsCount() %>" key='<%= discussion.getDiscussionCommentsCount() == 1 ? "x-comment" : "x-comments" %>' /></strong>
 					</h2>
 
@@ -207,6 +247,16 @@ if (portletTitleBasedNavigation) {
 					</c:if>
 
 					<liferay-comment:discussion
+=======
+						<strong><liferay-ui:message arguments="<%= CommentManagerUtil.getCommentsCount(BlogsEntry.class.getName(), entry.getEntryId()) %>" key="x-comments" /></strong>
+					</h2>
+
+					<c:if test="<%= PropsValues.BLOGS_TRACKBACK_ENABLED && entry.isAllowTrackbacks() %>">
+						<aui:input inlineLabel="left" name="trackbackURL" type="resource" value='<%= PortalUtil.getLayoutFullURL(themeDisplay.getLayout(), themeDisplay, false) + Portal.FRIENDLY_URL_SEPARATOR + "blogs/trackback/" + entry.getUrlTitle() %>' />
+					</c:if>
+
+					<liferay-ui:discussion
+>>>>>>> compatible
 						className="<%= BlogsEntry.class.getName() %>"
 						classPK="<%= entry.getEntryId() %>"
 						discussion="<%= discussion %>"
@@ -222,6 +272,7 @@ if (portletTitleBasedNavigation) {
 </div>
 
 <%
+<<<<<<< HEAD
 PortalUtil.setPageTitle(BlogsEntryUtil.getDisplayTitle(resourceBundle, entry), request);
 PortalUtil.setPageSubtitle(entry.getSubtitle(), request);
 
@@ -232,12 +283,21 @@ if (Validator.isNull(description)) {
 }
 
 PortalUtil.setPageDescription(description, request);
+=======
+PortalUtil.setPageTitle(entry.getTitle(), request);
+PortalUtil.setPageSubtitle(entry.getSubtitle(), request);
+PortalUtil.setPageDescription(entry.getDescription(), request);
+>>>>>>> compatible
 
 List<AssetTag> assetTags = AssetTagLocalServiceUtil.getTags(BlogsEntry.class.getName(), entry.getEntryId());
 
 PortalUtil.setPageKeywords(ListUtil.toString(assetTags, AssetTag.NAME_ACCESSOR), request);
 
+<<<<<<< HEAD
 PortalUtil.addPortletBreadcrumbEntry(request, BlogsEntryUtil.getDisplayTitle(resourceBundle, entry), currentURL);
+=======
+PortalUtil.addPortletBreadcrumbEntry(request, entry.getTitle(), currentURL);
+>>>>>>> compatible
 %>
 
 <liferay-util:dynamic-include key="com.liferay.blogs.web#/blogs/view_entry.jsp#post" />

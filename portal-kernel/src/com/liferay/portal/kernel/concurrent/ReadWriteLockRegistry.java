@@ -28,12 +28,10 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * only one {@link ReadWriteLock} exists per key.
  * </p>
  *
- * @author     Shuyang Zhou
- * @see        ReadWriteLock
- * @see        ReadWriteLockKey
- * @deprecated As of 7.0.0, with no direct replacement
+ * @author Shuyang Zhou
+ * @see    ReadWriteLock
+ * @see    ReadWriteLockKey
  */
-@Deprecated
 public class ReadWriteLockRegistry {
 
 	public Lock acquireLock(ReadWriteLockKey<?> readWriteLockKey) {

@@ -17,7 +17,10 @@ package com.liferay.document.library.web.internal.display.context;
 import com.liferay.document.library.web.internal.display.context.logic.DLPortletInstanceSettingsHelper;
 import com.liferay.document.library.web.internal.display.context.logic.UIItemsBuilder;
 import com.liferay.document.library.web.internal.display.context.util.IGRequestHelper;
+<<<<<<< HEAD
 import com.liferay.document.library.web.internal.util.DLTrashUtil;
+=======
+>>>>>>> compatible
 import com.liferay.image.gallery.display.kernel.display.context.IGViewFileVersionDisplayContext;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.repository.model.FileShortcut;
@@ -27,7 +30,10 @@ import com.liferay.portal.kernel.servlet.taglib.ui.MenuItem;
 
 import java.util.ArrayList;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.ResourceBundle;
+=======
+>>>>>>> compatible
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -41,6 +47,7 @@ public class DefaultIGViewFileVersionDisplayContext
 
 	public DefaultIGViewFileVersionDisplayContext(
 			HttpServletRequest request, HttpServletResponse response,
+<<<<<<< HEAD
 			FileShortcut fileShortcut, ResourceBundle resourceBundle,
 			DLTrashUtil dlTrashUtil)
 		throws PortalException {
@@ -48,12 +55,30 @@ public class DefaultIGViewFileVersionDisplayContext
 		this(
 			request, response, fileShortcut.getFileVersion(), fileShortcut,
 			resourceBundle, dlTrashUtil);
+=======
+			FileShortcut fileShortcut)
+		throws PortalException {
+
+		this(request, response, fileShortcut.getFileVersion(), fileShortcut);
+>>>>>>> compatible
 	}
 
 	public DefaultIGViewFileVersionDisplayContext(
 			HttpServletRequest request, HttpServletResponse response,
+<<<<<<< HEAD
 			FileVersion fileVersion, FileShortcut fileShortcut,
 			ResourceBundle resourceBundle, DLTrashUtil dlTrashUtil)
+=======
+			FileVersion fileVersion)
+		throws PortalException {
+
+		this(request, response, fileVersion, null);
+	}
+
+	public DefaultIGViewFileVersionDisplayContext(
+			HttpServletRequest request, HttpServletResponse response,
+			FileVersion fileVersion, FileShortcut fileShortcut)
+>>>>>>> compatible
 		throws PortalException {
 
 		_igRequestHelper = new IGRequestHelper(request);
@@ -62,6 +87,7 @@ public class DefaultIGViewFileVersionDisplayContext
 			_igRequestHelper);
 
 		if (fileShortcut == null) {
+<<<<<<< HEAD
 			_uiItemsBuilder = new UIItemsBuilder(
 				request, fileVersion, resourceBundle, dlTrashUtil);
 		}
@@ -80,6 +106,15 @@ public class DefaultIGViewFileVersionDisplayContext
 		this(request, response, fileVersion, null, resourceBundle, dlTrashUtil);
 	}
 
+=======
+			_uiItemsBuilder = new UIItemsBuilder(request, fileVersion);
+		}
+		else {
+			_uiItemsBuilder = new UIItemsBuilder(request, fileShortcut);
+		}
+	}
+
+>>>>>>> compatible
 	@Override
 	public Menu getMenu() throws PortalException {
 		Menu menu = new Menu();

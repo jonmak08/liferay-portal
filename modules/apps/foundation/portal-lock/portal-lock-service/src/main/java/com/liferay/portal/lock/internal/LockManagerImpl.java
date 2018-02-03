@@ -140,6 +140,7 @@ public class LockManagerImpl implements LockManager {
 			boolean inheritable, long expirationTime)
 		throws PortalException {
 
+<<<<<<< HEAD
 		return lock(
 			userId, className, key, owner, inheritable, expirationTime, true);
 	}
@@ -155,6 +156,13 @@ public class LockManagerImpl implements LockManager {
 				_lockLocalService.lock(
 					userId, className, key, owner, inheritable, expirationTime,
 					renew));
+=======
+		try {
+			return new LockImpl(
+				_lockLocalService.lock(
+					userId, className, key, owner, inheritable,
+					expirationTime));
+>>>>>>> compatible
 		}
 		catch (PortalException pe) {
 			throw translate(pe);
@@ -167,6 +175,7 @@ public class LockManagerImpl implements LockManager {
 			boolean inheritable, long expirationTime)
 		throws PortalException {
 
+<<<<<<< HEAD
 		return lock(
 			userId, className, key, owner, inheritable, expirationTime, true);
 	}
@@ -182,6 +191,13 @@ public class LockManagerImpl implements LockManager {
 				_lockLocalService.lock(
 					userId, className, key, owner, inheritable, expirationTime,
 					renew));
+=======
+		try {
+			return new LockImpl(
+				_lockLocalService.lock(
+					userId, className, key, owner, inheritable,
+					expirationTime));
+>>>>>>> compatible
 		}
 		catch (PortalException pe) {
 			throw translate(pe);

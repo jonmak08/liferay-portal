@@ -2,7 +2,11 @@
 	<command name="scrollWebElementIntoView">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.ScrollWebElementIntoView#scrollWebElementIntoView" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 

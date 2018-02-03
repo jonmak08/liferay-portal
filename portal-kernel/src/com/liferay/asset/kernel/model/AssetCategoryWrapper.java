@@ -389,12 +389,15 @@ public class AssetCategoryWrapper implements AssetCategory,
 		return _assetCategory.getPath(locale);
 	}
 
+<<<<<<< HEAD
 	@Override
 	public java.lang.String getPath(java.util.Locale locale, boolean reverse)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return _assetCategory.getPath(locale, reverse);
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* Returns the primary key of this asset category.
 	*

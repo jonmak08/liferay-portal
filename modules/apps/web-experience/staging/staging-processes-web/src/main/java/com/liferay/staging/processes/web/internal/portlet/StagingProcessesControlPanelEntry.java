@@ -52,6 +52,7 @@ public class StagingProcessesControlPanelEntry extends BaseControlPanelEntry {
 			return true;
 		}
 
+<<<<<<< HEAD
 		if (!group.isStaged() && !group.hasLocalOrRemoteStagingGroup()) {
 			if (!GroupPermissionUtil.contains(
 					permissionChecker, group, ActionKeys.MANAGE_STAGING) ||
@@ -62,6 +63,8 @@ public class StagingProcessesControlPanelEntry extends BaseControlPanelEntry {
 			}
 		}
 
+=======
+>>>>>>> compatible
 		if (!GroupPermissionUtil.contains(
 				permissionChecker, group, ActionKeys.VIEW_STAGING)) {
 

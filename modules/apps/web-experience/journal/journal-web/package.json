@@ -1,5 +1,6 @@
 {
 	"dependencies": {
+<<<<<<< HEAD
 		"metal": "^2.5.18",
 		"metal-dom": "^2.5.18",
 		"metal-soy": "^2.4.5",
@@ -12,3 +13,14 @@
 	"name": "journal-web",
 	"version": "2.0.0"
 }
+=======
+		"metal-components": "1.0.0-rc.19"
+	},
+	"devDependencies": {
+		"liferay-module-config-generator": "^1.2.1",
+		"metal-cli": "^4.0.1"
+	},
+	"name": "journal-web",
+	"version": "1.9.11"
+}
+>>>>>>> compatible

@@ -9,10 +9,15 @@
 
 		<execute macro="User#firstLoginPG" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
 			<var name="portlet" value="Workflow" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+			<var name="portlet" value="Workflow Definition" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Workflow#uploadDefinition">
@@ -24,9 +29,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Kaleo Forms Admin" />
 		</execute>
 	</set-up>
@@ -46,7 +55,11 @@
 
 				<execute macro="KaleoFormsAdmin#deleteFieldSet" />
 
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP" />
+=======
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 
 				<execute macro="Workflow#tearDownWorkflowDefinitionsViaWorkflowCP" />
 			</else>

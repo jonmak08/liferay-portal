@@ -5,4 +5,11 @@
 	<category name="com.liferay.portal.spring.extender">
 		<priority value="WARN" />
 	</category>
+<<<<<<< HEAD
+=======
+
+	<category name="com.liferay.portal.spring.extender.internal.context.ModuleApplicationContextExtender">
+		<priority value="INFO" />
+	</category>
+>>>>>>> compatible
 </log4j:configuration>

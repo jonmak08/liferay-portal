@@ -37,7 +37,10 @@ import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.tools.ToolDependencies;
 import com.liferay.portal.util.PropsImpl;
 import com.liferay.registry.Registry;
@@ -174,10 +177,15 @@ public class TableMapperTest {
 
 			Assert.assertSame(RuntimeException.class, cause.getClass());
 			Assert.assertEquals(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Unique key violation for left primary key ",
 					String.valueOf(leftPrimaryKey), " and right primary key ",
 					String.valueOf(rightPrimaryKey)),
+=======
+				"Unique key violation for left primary key " + leftPrimaryKey +
+					" and right primary key " + rightPrimaryKey,
+>>>>>>> compatible
 				cause.getMessage());
 		}
 
@@ -245,10 +253,15 @@ public class TableMapperTest {
 
 			Assert.assertSame(RuntimeException.class, cause.getClass());
 			Assert.assertEquals(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Unique key violation for left primary key ",
 					String.valueOf(leftPrimaryKey), " and right primary key ",
 					String.valueOf(rightPrimaryKey)),
+=======
+				"Unique key violation for left primary key " + leftPrimaryKey +
+					" and right primary key " + rightPrimaryKey,
+>>>>>>> compatible
 				cause.getMessage());
 		}
 
@@ -363,8 +376,12 @@ public class TableMapperTest {
 			clazz.getName());
 
 		Assert.assertEquals(
+<<<<<<< HEAD
 			StringBundler.concat(
 				TableMapper.class.getName(), "-", _TABLE_NAME, "-LeftToRight"),
+=======
+			TableMapper.class.getName() + "-" + _TABLE_NAME + "-LeftToRight",
+>>>>>>> compatible
 			leftToRightPortalCache.getPortalCacheName());
 
 		Assert.assertSame(
@@ -382,8 +399,12 @@ public class TableMapperTest {
 			clazz.getName());
 
 		Assert.assertEquals(
+<<<<<<< HEAD
 			StringBundler.concat(
 				TableMapper.class.getName(), "-", _TABLE_NAME, "-RightToLeft"),
+=======
+			TableMapper.class.getName() + "-" + _TABLE_NAME + "-RightToLeft",
+>>>>>>> compatible
 			rightToLeftPortalCache.getPortalCacheName());
 	}
 
@@ -1481,7 +1502,11 @@ public class TableMapperTest {
 		Map<String, TableMapper<?, ?>> tableMappers =
 			TableMapperFactory.tableMappers;
 
+<<<<<<< HEAD
 		Assert.assertTrue(tableMappers.toString(), tableMappers.isEmpty());
+=======
+		Assert.assertTrue(tableMappers.isEmpty());
+>>>>>>> compatible
 
 		// Create
 
@@ -1521,11 +1546,19 @@ public class TableMapperTest {
 
 		TableMapperFactory.removeTableMapper(_TABLE_NAME);
 
+<<<<<<< HEAD
 		Assert.assertTrue(tableMappers.toString(), tableMappers.isEmpty());
 
 		TableMapperFactory.removeTableMapper(_TABLE_NAME);
 
 		Assert.assertTrue(tableMappers.toString(), tableMappers.isEmpty());
+=======
+		Assert.assertTrue(tableMappers.isEmpty());
+
+		TableMapperFactory.removeTableMapper(_TABLE_NAME);
+
+		Assert.assertTrue(tableMappers.isEmpty());
+>>>>>>> compatible
 	}
 
 	@Test
@@ -1569,38 +1602,62 @@ public class TableMapperTest {
 					tableMapper.getReverseTableMapper(),
 					"leftToRightPortalCache"),
 				portalCaches.get(
+<<<<<<< HEAD
 					StringBundler.concat(
 						TableMapper.class.getName(), "-", _TABLE_NAME,
 						"-LeftToRight")));
+=======
+					TableMapper.class.getName() + "-" + _TABLE_NAME +
+						"-LeftToRight"));
+>>>>>>> compatible
 			Assert.assertSame(
 				ReflectionTestUtil.getFieldValue(
 					tableMapper.getReverseTableMapper(),
 					"rightToLeftPortalCache"),
 				portalCaches.get(
+<<<<<<< HEAD
 					StringBundler.concat(
 						TableMapper.class.getName(), "-", _TABLE_NAME,
 						"-RightToLeft")));
+=======
+					TableMapper.class.getName() + "-" + _TABLE_NAME +
+						"-RightToLeft"));
+>>>>>>> compatible
 		}
 		else {
 			Assert.assertSame(
 				ReflectionTestUtil.getFieldValue(
 					tableMapper, "leftToRightPortalCache"),
 				portalCaches.get(
+<<<<<<< HEAD
 					StringBundler.concat(
 						TableMapper.class.getName(), "-", _TABLE_NAME,
 						"-LeftToRight")));
+=======
+					TableMapper.class.getName() + "-" + _TABLE_NAME +
+						"-LeftToRight"));
+>>>>>>> compatible
 			Assert.assertSame(
 				ReflectionTestUtil.getFieldValue(
 					tableMapper, "rightToLeftPortalCache"),
 				portalCaches.get(
+<<<<<<< HEAD
 					StringBundler.concat(
 						TableMapper.class.getName(), "-", _TABLE_NAME,
 						"-RightToLeft")));
+=======
+					TableMapper.class.getName() + "-" + _TABLE_NAME +
+						"-RightToLeft"));
+>>>>>>> compatible
 		}
 
 		tableMapper.destroy();
 
+<<<<<<< HEAD
 		Assert.assertTrue(portalCaches.toString(), portalCaches.isEmpty());
+=======
+		Assert.assertTrue(portalCaches.isEmpty());
+>>>>>>> compatible
 	}
 
 	private static final String _COMPANY_COLUMN_NAME = "companyId";
@@ -1799,10 +1856,16 @@ public class TableMapperTest {
 
 			Assert.assertSame(_dataSource, dataSource);
 			Assert.assertEquals(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"INSERT INTO ", _TABLE_NAME, " (", _COMPANY_COLUMN_NAME,
 					", ", _LEFT_COLUMN_NAME, ", ", _RIGHT_COLUMN_NAME,
 					") VALUES (?, ?, ?)"),
+=======
+				"INSERT INTO " + _TABLE_NAME + " (" + _COMPANY_COLUMN_NAME +
+					", " + _LEFT_COLUMN_NAME + ", " + _RIGHT_COLUMN_NAME +
+						") VALUES (?, ?, ?)",
+>>>>>>> compatible
 				sql);
 			Assert.assertArrayEquals(
 				new ParamSetter[] {
@@ -1832,11 +1895,17 @@ public class TableMapperTest {
 			}
 			else if (ArrayUtil.contains(rightPrimaryKeys, rightPrimaryKey)) {
 				throw new RuntimeException(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Unique key violation for left primary key ",
 						String.valueOf(leftPrimaryKey),
 						" and right primary key ",
 						String.valueOf(rightPrimaryKey)));
+=======
+					"Unique key violation for left primary key " +
+						leftPrimaryKey + " and right primary key " +
+							rightPrimaryKey);
+>>>>>>> compatible
 			}
 			else {
 				rightPrimaryKeys = ArrayUtil.append(
@@ -1906,9 +1975,14 @@ public class TableMapperTest {
 
 			Assert.assertSame(_dataSource, dataSource);
 			Assert.assertEquals(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"DELETE FROM ", _TABLE_NAME, " WHERE ", _LEFT_COLUMN_NAME,
 					" = ?"),
+=======
+				"DELETE FROM " + _TABLE_NAME + " WHERE " + _LEFT_COLUMN_NAME +
+					" = ?",
+>>>>>>> compatible
 				sql);
 			Assert.assertArrayEquals(
 				new ParamSetter[] {ParamSetter.BIGINT}, paramSetters);
@@ -1949,9 +2023,14 @@ public class TableMapperTest {
 
 			Assert.assertSame(_dataSource, dataSource);
 			Assert.assertEquals(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"DELETE FROM ", _TABLE_NAME, " WHERE ", _LEFT_COLUMN_NAME,
 					" = ? AND ", _RIGHT_COLUMN_NAME, " = ?"),
+=======
+				"DELETE FROM " + _TABLE_NAME + " WHERE " + _LEFT_COLUMN_NAME +
+					" = ? AND " + _RIGHT_COLUMN_NAME + " = ?",
+>>>>>>> compatible
 				sql);
 			Assert.assertArrayEquals(
 				new ParamSetter[] {ParamSetter.BIGINT, ParamSetter.BIGINT},
@@ -2005,9 +2084,14 @@ public class TableMapperTest {
 
 			Assert.assertSame(_dataSource, dataSource);
 			Assert.assertEquals(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"DELETE FROM ", _TABLE_NAME, " WHERE ", _RIGHT_COLUMN_NAME,
 					" = ?"),
+=======
+				"DELETE FROM " + _TABLE_NAME + " WHERE " + _RIGHT_COLUMN_NAME +
+					" = ?",
+>>>>>>> compatible
 				sql);
 			Assert.assertArrayEquals(
 				new ParamSetter[] {ParamSetter.BIGINT}, paramSetters);
@@ -2059,9 +2143,14 @@ public class TableMapperTest {
 
 			Assert.assertSame(_dataSource, dataSource);
 			Assert.assertEquals(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"SELECT ", _LEFT_COLUMN_NAME, " FROM ", _TABLE_NAME,
 					" WHERE ", _RIGHT_COLUMN_NAME, " = ?"),
+=======
+				"SELECT " + _LEFT_COLUMN_NAME + " FROM " + _TABLE_NAME +
+					" WHERE " + _RIGHT_COLUMN_NAME + " = ?",
+>>>>>>> compatible
 				sql);
 			Assert.assertArrayEquals(
 				new ParamSetter[] {ParamSetter.BIGINT}, paramSetters);
@@ -2109,9 +2198,14 @@ public class TableMapperTest {
 
 			Assert.assertSame(_dataSource, dataSource);
 			Assert.assertEquals(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"SELECT ", _RIGHT_COLUMN_NAME, " FROM ", _TABLE_NAME,
 					" WHERE ", _LEFT_COLUMN_NAME, " = ?"),
+=======
+				"SELECT " + _RIGHT_COLUMN_NAME + " FROM " + _TABLE_NAME +
+					" WHERE " + _LEFT_COLUMN_NAME + " = ?",
+>>>>>>> compatible
 				sql);
 			Assert.assertArrayEquals(
 				new ParamSetter[] {ParamSetter.BIGINT}, paramSetters);

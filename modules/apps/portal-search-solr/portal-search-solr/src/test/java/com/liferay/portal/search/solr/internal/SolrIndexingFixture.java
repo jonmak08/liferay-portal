@@ -16,9 +16,12 @@ package com.liferay.portal.search.solr.internal;
 
 import com.liferay.portal.kernel.search.IndexSearcher;
 import com.liferay.portal.kernel.search.IndexWriter;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.util.Digester;
 import com.liferay.portal.kernel.util.Localization;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Props;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.search.solr.connection.SolrClientManager;
@@ -55,12 +58,16 @@ import com.liferay.portal.search.solr.internal.query.TermQueryTranslatorImpl;
 import com.liferay.portal.search.solr.internal.query.TermRangeQueryTranslatorImpl;
 import com.liferay.portal.search.solr.internal.query.WildcardQueryTranslatorImpl;
 import com.liferay.portal.search.solr.internal.stats.DefaultStatsTranslator;
+<<<<<<< HEAD
 import com.liferay.portal.search.solr.internal.suggest.NGramHolderBuilderImpl;
 import com.liferay.portal.search.solr.internal.suggest.NGramQueryBuilderImpl;
 import com.liferay.portal.search.test.util.indexing.IndexingFixture;
 import com.liferay.portal.util.LocalizationImpl;
 
 import java.nio.ByteBuffer;
+=======
+import com.liferay.portal.search.test.util.indexing.IndexingFixture;
+>>>>>>> compatible
 
 import java.util.HashMap;
 import java.util.Map;
@@ -152,6 +159,7 @@ public class SolrIndexingFixture implements IndexingFixture {
 		};
 	}
 
+<<<<<<< HEAD
 	protected Digester createDigester() {
 		Digester digester = Mockito.mock(Digester.class);
 
@@ -166,6 +174,8 @@ public class SolrIndexingFixture implements IndexingFixture {
 		return digester;
 	}
 
+=======
+>>>>>>> compatible
 	protected IndexSearcher createIndexSearcher(
 		final SolrClientManager solrClientManager) {
 
@@ -176,7 +186,10 @@ public class SolrIndexingFixture implements IndexingFixture {
 				setFacetProcessor(new DefaultFacetProcessor());
 				setFilterTranslator(createSolrFilterTranslator());
 				setGroupByTranslator(new DefaultGroupByTranslator());
+<<<<<<< HEAD
 				setQuerySuggester(createSolrQuerySuggester(solrClientManager));
+=======
+>>>>>>> compatible
 				setQueryTranslator(createSolrQueryTranslator());
 				setSolrClientManager(solrClientManager);
 				setStatsTranslator(new DefaultStatsTranslator());
@@ -189,12 +202,23 @@ public class SolrIndexingFixture implements IndexingFixture {
 	protected IndexWriter createIndexWriter(
 		final SolrClientManager solrClientManager) {
 
+<<<<<<< HEAD
 		final SolrUpdateDocumentCommand solrUpdateDocumentCommand =
 			createSolrUpdateDocumentCommand(solrClientManager);
+=======
+		final SolrUpdateDocumentCommand updateDocumentCommand =
+			new SolrUpdateDocumentCommandImpl() {
+				{
+					setSolrClientManager(solrClientManager);
+					setSolrDocumentFactory(new DefaultSolrDocumentFactory());
+				}
+			};
+>>>>>>> compatible
 
 		return new SolrIndexWriter() {
 			{
 				setSolrClientManager(solrClientManager);
+<<<<<<< HEAD
 				setSolrUpdateDocumentCommand(solrUpdateDocumentCommand);
 				setSpellCheckIndexWriter(
 					createSolrSpellCheckIndexWriter(
@@ -207,6 +231,9 @@ public class SolrIndexingFixture implements IndexingFixture {
 		return new NGramQueryBuilderImpl() {
 			{
 				setNGramHolderBuilder(new NGramHolderBuilderImpl());
+=======
+				setSolrUpdateDocumentCommand(updateDocumentCommand);
+>>>>>>> compatible
 			}
 		};
 	}
@@ -235,6 +262,7 @@ public class SolrIndexingFixture implements IndexingFixture {
 		return properties;
 	}
 
+<<<<<<< HEAD
 	protected SolrQuerySuggester createSolrQuerySuggester(
 		SolrClientManager solrClientManager) {
 
@@ -277,6 +305,10 @@ public class SolrIndexingFixture implements IndexingFixture {
 	private IndexSearcher _indexSearcher;
 	private IndexWriter _indexWriter;
 	private final Localization _localization = new LocalizationImpl();
+=======
+	private IndexSearcher _indexSearcher;
+	private IndexWriter _indexWriter;
+>>>>>>> compatible
 	private final Map<String, Object> _properties;
 
 }

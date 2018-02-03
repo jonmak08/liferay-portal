@@ -14,16 +14,25 @@
 
 package com.liferay.portal.kernel.security.auth;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.NoSuchListTypeException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.ListType;
 import com.liferay.portal.kernel.model.UserConstants;
 import com.liferay.portal.kernel.service.ListTypeServiceUtil;
+=======
+import com.liferay.portal.kernel.model.UserConstants;
+import com.liferay.portal.kernel.service.ListTypeServiceUtil;
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
@@ -171,9 +180,14 @@ public class DefaultFullNameGenerator implements FullNameGenerator {
 
 		if (prefixId != 0) {
 			try {
+<<<<<<< HEAD
 				ListType listType = ListTypeServiceUtil.getListType(suffixId);
 
 				String prefix = listType.getName();
+=======
+				String prefix = ListTypeServiceUtil.getListType(
+					prefixId).getName();
+>>>>>>> compatible
 
 				prefix = LanguageUtil.get(locale, prefix);
 
@@ -191,9 +205,14 @@ public class DefaultFullNameGenerator implements FullNameGenerator {
 
 		if (suffixId != 0) {
 			try {
+<<<<<<< HEAD
 				ListType listType = ListTypeServiceUtil.getListType(suffixId);
 
 				String suffix = listType.getName();
+=======
+				String suffix = ListTypeServiceUtil.getListType(
+					suffixId).getName();
+>>>>>>> compatible
 
 				suffix = LanguageUtil.get(locale, suffix);
 

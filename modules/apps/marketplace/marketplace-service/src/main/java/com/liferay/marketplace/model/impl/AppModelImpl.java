@@ -37,6 +37,10 @@ import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Serializable;
 
@@ -330,7 +334,11 @@ public class AppModelImpl extends BaseModelImpl<App> implements AppModel {
 	@Override
 	public String getUuid() {
 		if (_uuid == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _uuid;
@@ -403,7 +411,11 @@ public class AppModelImpl extends BaseModelImpl<App> implements AppModel {
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -415,7 +427,11 @@ public class AppModelImpl extends BaseModelImpl<App> implements AppModel {
 	@Override
 	public String getUserName() {
 		if (_userName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _userName;
@@ -482,7 +498,11 @@ public class AppModelImpl extends BaseModelImpl<App> implements AppModel {
 	@Override
 	public String getTitle() {
 		if (_title == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _title;
@@ -498,7 +518,11 @@ public class AppModelImpl extends BaseModelImpl<App> implements AppModel {
 	@Override
 	public String getDescription() {
 		if (_description == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _description;
@@ -514,7 +538,11 @@ public class AppModelImpl extends BaseModelImpl<App> implements AppModel {
 	@Override
 	public String getCategory() {
 		if (_category == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _category;
@@ -540,7 +568,11 @@ public class AppModelImpl extends BaseModelImpl<App> implements AppModel {
 	@Override
 	public String getIconURL() {
 		if (_iconURL == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _iconURL;
@@ -556,7 +588,11 @@ public class AppModelImpl extends BaseModelImpl<App> implements AppModel {
 	@Override
 	public String getVersion() {
 		if (_version == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _version;

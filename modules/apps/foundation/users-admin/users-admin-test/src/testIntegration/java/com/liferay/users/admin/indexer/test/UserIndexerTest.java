@@ -15,13 +15,17 @@
 package com.liferay.users.admin.indexer.test;
 
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.search.Document;
 import com.liferay.portal.kernel.search.Field;
 import com.liferay.portal.kernel.search.Hits;
 import com.liferay.portal.kernel.search.Indexer;
 import com.liferay.portal.kernel.search.IndexerRegistry;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.search.QueryConfig;
 import com.liferay.portal.kernel.search.SearchContext;
 import com.liferay.portal.kernel.search.SearchException;
@@ -30,11 +34,23 @@ import com.liferay.portal.kernel.search.highlight.HighlightUtil;
 import com.liferay.portal.kernel.service.UserLocalService;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+=======
+import com.liferay.portal.kernel.search.SearchContext;
+import com.liferay.portal.kernel.service.UserLocalService;
+import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.test.util.UserTestUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.test.rule.Inject;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
@@ -43,12 +59,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Optional;
 import java.util.stream.Stream;
+=======
+>>>>>>> compatible
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.ClassRule;
+<<<<<<< HEAD
+=======
+import org.junit.Ignore;
+>>>>>>> compatible
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -56,13 +79,25 @@ import org.junit.runner.RunWith;
 /**
  * @author André de Oliveira
  */
+<<<<<<< HEAD
 @RunWith(Arquillian.class)
+=======
+@Ignore
+@RunWith(Arquillian.class)
+@Sync
+>>>>>>> compatible
 public class UserIndexerTest {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Before
 	public void setUp() throws Exception {
@@ -301,6 +336,7 @@ public class UserIndexerTest {
 		Assert.assertEquals("open4life", actualUser.getScreenName());
 	}
 
+<<<<<<< HEAD
 	@Test
 	public void testSummaryHighlight() throws Exception {
 		_expectedUser = UserTestUtil.addUser();
@@ -336,6 +372,8 @@ public class UserIndexerTest {
 				HighlightUtil.HIGHLIGHT_TAG_CLOSE));
 	}
 
+=======
+>>>>>>> compatible
 	protected void assertLength(Hits hits, int length) {
 		Assert.assertEquals(hits.toString(), length, hits.getLength());
 	}
@@ -385,7 +423,11 @@ public class UserIndexerTest {
 
 		List<User> actualUsers = assertSearch(hits, user);
 
+<<<<<<< HEAD
 		return getUser(actualUsers, user.getUserId());
+=======
+		return findByUserId(actualUsers, user.getUserId());
+>>>>>>> compatible
 	}
 
 	protected User assertSearchOneUser(String keywords, User user)
@@ -393,6 +435,7 @@ public class UserIndexerTest {
 
 		List<User> actualUsers = assertSearch(keywords, user);
 
+<<<<<<< HEAD
 		return getUser(actualUsers, user.getUserId());
 	}
 
@@ -428,6 +471,19 @@ public class UserIndexerTest {
 		).findAny();
 
 		return optional.get();
+=======
+		return findByUserId(actualUsers, user.getUserId());
+	}
+
+	protected User findByUserId(List<User> users, long userId) {
+		for (User user : users) {
+			if (user.getUserId() == userId) {
+				return user;
+			}
+		}
+
+		return null;
+>>>>>>> compatible
 	}
 
 	protected List<String> getScreenNames(List<User> users) {
@@ -455,6 +511,7 @@ public class UserIndexerTest {
 		return _userLocalService.getUser(userId);
 	}
 
+<<<<<<< HEAD
 	protected User getUser(List<User> users, long userId) {
 		for (User user : users) {
 			if (user.getUserId() == userId) {
@@ -465,6 +522,8 @@ public class UserIndexerTest {
 		return null;
 	}
 
+=======
+>>>>>>> compatible
 	protected List<User> getUsers(Hits hits) throws Exception {
 		Document[] documents = hits.getDocs();
 

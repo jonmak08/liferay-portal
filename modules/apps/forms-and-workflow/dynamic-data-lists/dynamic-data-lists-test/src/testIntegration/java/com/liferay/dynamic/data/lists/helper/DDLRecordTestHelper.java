@@ -90,6 +90,7 @@ public class DDLRecordTestHelper {
 		return _recordSet;
 	}
 
+<<<<<<< HEAD
 	public DDLRecord updateRecord(
 			long recordId, boolean majorVersion, int displayIndex,
 			DDMFormValues ddmFormValues, int workflowAction)
@@ -103,6 +104,8 @@ public class DDLRecordTestHelper {
 			ddmFormValues, serviceContext);
 	}
 
+=======
+>>>>>>> compatible
 	protected DDMFormFieldValue createLocalizedDDMFormFieldValue(
 		String name, String enValue) {
 

@@ -27,6 +27,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+<<<<<<< HEAD
  * @author     Jorge Ferrer
  * @deprecated As of 7.0.0, replaced by {@link
  *             com.liferay.asset.util.AssetEntryQueryProcessor}
@@ -50,6 +51,16 @@ public interface AssetEntryQueryProcessor {
 	 * @deprecated As of 7.0.0
 	 */
 	@Deprecated
+=======
+ * @author Jorge Ferrer
+ */
+public interface AssetEntryQueryProcessor {
+
+	public String getKey();
+
+	public String getTitle(Locale locale);
+
+>>>>>>> compatible
 	public void include(
 			HttpServletRequest request, HttpServletResponse response)
 		throws IOException;

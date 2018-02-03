@@ -17,7 +17,10 @@ package com.liferay.knowledge.base.service.impl;
 import com.liferay.knowledge.base.configuration.KBGroupServiceConfiguration;
 import com.liferay.knowledge.base.constants.AdminActivityKeys;
 import com.liferay.knowledge.base.constants.KBCommentConstants;
+<<<<<<< HEAD
 import com.liferay.knowledge.base.constants.KBConstants;
+=======
+>>>>>>> compatible
 import com.liferay.knowledge.base.exception.KBCommentContentException;
 import com.liferay.knowledge.base.model.KBArticle;
 import com.liferay.knowledge.base.model.KBComment;
@@ -36,9 +39,15 @@ import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.module.configuration.ConfigurationException;
 import com.liferay.portal.kernel.module.configuration.ConfigurationProvider;
 import com.liferay.portal.kernel.service.ServiceContext;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.settings.GroupServiceSettingsLocator;
 import com.liferay.portal.kernel.systemevent.SystemEvent;
 import com.liferay.portal.kernel.util.DateFormatFactoryUtil;
+=======
+import com.liferay.portal.kernel.systemevent.SystemEvent;
+import com.liferay.portal.kernel.util.DateFormatFactoryUtil;
+import com.liferay.portal.kernel.util.Function;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.SubscriptionSender;
@@ -47,6 +56,11 @@ import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.spring.extender.service.ServiceReference;
 import com.liferay.ratings.kernel.model.RatingsEntry;
 
+<<<<<<< HEAD
+=======
+import java.io.Serializable;
+
+>>>>>>> compatible
 import java.text.DateFormat;
 
 import java.util.Date;
@@ -395,9 +409,14 @@ public class KBCommentLocalServiceImpl extends KBCommentLocalServiceBaseImpl {
 			long groupId)
 		throws ConfigurationException {
 
+<<<<<<< HEAD
 		return configurationProvider.getConfiguration(
 			KBGroupServiceConfiguration.class,
 			new GroupServiceSettingsLocator(groupId, KBConstants.SERVICE_NAME));
+=======
+		return configurationProvider.getGroupConfiguration(
+			KBGroupServiceConfiguration.class, groupId);
+>>>>>>> compatible
 	}
 
 	protected int getUserRating(long userId, long classNameId, long classPK)
@@ -484,10 +503,20 @@ public class KBCommentLocalServiceImpl extends KBCommentLocalServiceBaseImpl {
 		subscriptionSender.setCurrentUserId(userId);
 		subscriptionSender.setFrom(fromAddress, fromName);
 		subscriptionSender.setHtmlFormat(true);
+<<<<<<< HEAD
 		subscriptionSender.setLocalizedContextAttributeWithFunction(
 			"[$COMMENT_CREATE_DATE$]",
 			locale -> _getFormattedKBCommentCreateDate(kbComment, locale),
 			false);
+=======
+
+		CreateDateSerializableFunction createDateSerializableFunction =
+			new CreateDateSerializableFunction(kbComment);
+
+		subscriptionSender.setLocalizedContextAttribute(
+			"[$COMMENT_CREATE_DATE$]", createDateSerializableFunction, false);
+
+>>>>>>> compatible
 		subscriptionSender.setMailId("kb_article", kbArticle.getKbArticleId());
 		subscriptionSender.setPortletId(serviceContext.getPortletId());
 		subscriptionSender.setReplyToAddress(fromAddress);
@@ -536,6 +565,7 @@ public class KBCommentLocalServiceImpl extends KBCommentLocalServiceBaseImpl {
 	@ServiceReference(type = ConfigurationProvider.class)
 	protected ConfigurationProvider configurationProvider;
 
+<<<<<<< HEAD
 	private String _getFormattedKBCommentCreateDate(
 		KBComment kbComment, Locale locale) {
 
@@ -546,5 +576,27 @@ public class KBCommentLocalServiceImpl extends KBCommentLocalServiceBaseImpl {
 
 	private static final Log _log = LogFactoryUtil.getLog(
 		KBCommentLocalServiceImpl.class);
+=======
+	private static final Log _log = LogFactoryUtil.getLog(
+		KBCommentLocalServiceImpl.class);
+
+	private static class CreateDateSerializableFunction
+		implements Function<Locale, String>, Serializable {
+
+		public CreateDateSerializableFunction(KBComment statusKey) {
+			_kbComment = statusKey;
+		}
+
+		@Override
+		public String apply(Locale locale) {
+			DateFormat dateFormat = DateFormatFactoryUtil.getDate(locale);
+
+			return dateFormat.format(_kbComment.getCreateDate());
+		}
+
+		private final KBComment _kbComment;
+
+	}
+>>>>>>> compatible
 
 }

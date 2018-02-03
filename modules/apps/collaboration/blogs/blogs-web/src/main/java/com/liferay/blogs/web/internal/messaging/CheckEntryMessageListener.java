@@ -15,7 +15,11 @@
 package com.liferay.blogs.web.internal.messaging;
 
 import com.liferay.blogs.configuration.BlogsConfiguration;
+<<<<<<< HEAD
 import com.liferay.blogs.service.BlogsEntryLocalService;
+=======
+import com.liferay.blogs.kernel.service.BlogsEntryLocalService;
+>>>>>>> compatible
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
 import com.liferay.portal.kernel.messaging.BaseMessageListener;
 import com.liferay.portal.kernel.messaging.DestinationNames;

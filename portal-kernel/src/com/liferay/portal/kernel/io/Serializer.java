@@ -14,17 +14,26 @@
 
 package com.liferay.portal.kernel.io;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
 import com.liferay.petra.lang.ClassLoaderPool;
+=======
+import com.liferay.portal.kernel.memory.SoftReferenceThreadLocal;
+import com.liferay.portal.kernel.util.ClassLoaderPool;
+import com.liferay.portal.kernel.util.GetterUtil;
+>>>>>>> compatible
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.io.Serializable;
 
+<<<<<<< HEAD
 import java.lang.ref.Reference;
 import java.lang.ref.SoftReference;
 
+=======
+>>>>>>> compatible
 import java.nio.ByteBuffer;
 
 import java.util.Arrays;
@@ -71,12 +80,21 @@ import java.util.Arrays;
  * For ordinary Objects, all primary type wrappers are encoded to their raw
  * values with one byte type headers. This is much more efficient than
  * ObjectOutputStream's serialization format for primary type wrappers. Strings
+<<<<<<< HEAD
  * are output in the same way as {@link #writeString(String)}, but also with one
  * byte type headers. Objects are serialized by a new ObjectOutputStream, so no
  * reference handler can be used across Object serialization. This is done
  * intentionally to isolate each object. The Serializer is highly optimized for
  * serializing primary types, but is not as good as ObjectOutputStream for
  * serializing complex objects.
+=======
+ * are output in the same way as {@link #writeString(java.lang.String)}, but
+ * also with one byte type headers. Objects are serialized by a new
+ * ObjectOutputStream, so no reference handler can be used across Object
+ * serialization. This is done intentionally to isolate each object. The
+ * Serializer is highly optimized for serializing primary types, but is not as
+ * good as ObjectOutputStream for serializing complex objects.
+>>>>>>> compatible
  * </p>
  *
  * <p>
@@ -97,7 +115,11 @@ import java.util.Arrays;
 public class Serializer {
 
 	public Serializer() {
+<<<<<<< HEAD
 		BufferQueue bufferQueue = _getBufferQueue();
+=======
+		BufferQueue bufferQueue = bufferQueueThreadLocal.get();
+>>>>>>> compatible
 
 		buffer = bufferQueue.dequeue();
 	}
@@ -106,7 +128,11 @@ public class Serializer {
 		ByteBuffer byteBuffer = ByteBuffer.wrap(Arrays.copyOf(buffer, index));
 
 		if (buffer.length <= THREADLOCAL_BUFFER_SIZE_LIMIT) {
+<<<<<<< HEAD
 			BufferQueue bufferQueue = _getBufferQueue();
+=======
+			BufferQueue bufferQueue = bufferQueueThreadLocal.get();
+>>>>>>> compatible
 
 			bufferQueue.enqueue(buffer);
 		}
@@ -265,7 +291,10 @@ public class Serializer {
 
 			if ((c == 0) || (c > 127)) {
 				asciiCode = false;
+<<<<<<< HEAD
 
+=======
+>>>>>>> compatible
 				break;
 			}
 		}
@@ -308,7 +337,11 @@ public class Serializer {
 		outputStream.write(buffer, 0, index);
 
 		if (buffer.length <= THREADLOCAL_BUFFER_SIZE_LIMIT) {
+<<<<<<< HEAD
 			BufferQueue bufferQueue = _getBufferQueue();
+=======
+			BufferQueue bufferQueue = bufferQueueThreadLocal.get();
+>>>>>>> compatible
 
 			bufferQueue.enqueue(buffer);
 		}
@@ -367,7 +400,11 @@ public class Serializer {
 	 * Technically, we should soften each pooled buffer individually to achieve
 	 * the best garbage collection (GC) interaction. However, that increases
 	 * complexity of pooled buffer access and also burdens the GC's {@link
+<<<<<<< HEAD
 	 * SoftReference} process, hurting performance.
+=======
+	 * java.lang.ref.SoftReference} process, hurting performance.
+>>>>>>> compatible
 	 * </p>
 	 *
 	 * <p>
@@ -377,12 +414,30 @@ public class Serializer {
 	 * likely be released by GC.
 	 * </p>
 	 */
+<<<<<<< HEAD
 	protected static final ThreadLocal<Reference<BufferQueue>>
 		bufferQueueThreadLocal = new CentralizedThreadLocal<>(false);
 
 	static {
 		int threadLocalBufferCountLimit = Integer.getInteger(
 			Serializer.class.getName() + ".thread.local.buffer.count.limit", 0);
+=======
+	protected static final ThreadLocal<BufferQueue> bufferQueueThreadLocal =
+		new SoftReferenceThreadLocal<BufferQueue>() {
+
+			@Override
+			protected BufferQueue initialValue() {
+				return new BufferQueue();
+			}
+
+		};
+
+	static {
+		int threadLocalBufferCountLimit = GetterUtil.getInteger(
+			System.getProperty(
+				Serializer.class.getName() +
+					".thread.local.buffer.count.limit"));
+>>>>>>> compatible
 
 		if (threadLocalBufferCountLimit < THREADLOCAL_BUFFER_COUNT_MIN) {
 			threadLocalBufferCountLimit = THREADLOCAL_BUFFER_COUNT_MIN;
@@ -390,8 +445,15 @@ public class Serializer {
 
 		THREADLOCAL_BUFFER_COUNT_LIMIT = threadLocalBufferCountLimit;
 
+<<<<<<< HEAD
 		int threadLocalBufferSizeLimit = Integer.getInteger(
 			Serializer.class.getName() + ".thread.local.buffer.size.limit", 0);
+=======
+		int threadLocalBufferSizeLimit = GetterUtil.getInteger(
+			System.getProperty(
+				Serializer.class.getName() +
+					".thread.local.buffer.size.limit"));
+>>>>>>> compatible
 
 		if (threadLocalBufferSizeLimit < THREADLOCAL_BUFFER_SIZE_MIN) {
 			threadLocalBufferSizeLimit = THREADLOCAL_BUFFER_SIZE_MIN;
@@ -421,7 +483,12 @@ public class Serializer {
 	 * <p>
 	 * The queue is small enough to simply use a linear scan search for
 	 * maintaining its order. The entire queue data is held by a {@link
+<<<<<<< HEAD
 	 * SoftReference}, so when necessary, GC can release the whole buffer cache.
+=======
+	 * java.lang.ref.SoftReference}, so when necessary, GC can release the whole
+	 * buffer cache.
+>>>>>>> compatible
 	 * </p>
 	 */
 	protected static class BufferQueue {
@@ -527,6 +594,7 @@ public class Serializer {
 
 	}
 
+<<<<<<< HEAD
 	private BufferQueue _getBufferQueue() {
 		Reference<BufferQueue> reference = bufferQueueThreadLocal.get();
 
@@ -545,4 +613,6 @@ public class Serializer {
 		return bufferQueue;
 	}
 
+=======
+>>>>>>> compatible
 }

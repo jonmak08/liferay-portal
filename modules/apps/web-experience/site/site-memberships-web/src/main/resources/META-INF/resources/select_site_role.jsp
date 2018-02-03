@@ -17,7 +17,11 @@
 <%@ include file="/init.jsp" %>
 
 <%
+<<<<<<< HEAD
 long groupId = ParamUtil.getLong(request, "groupId", themeDisplay.getSiteGroupId());
+=======
+long groupId = ParamUtil.getLong(request, "groupId");
+>>>>>>> compatible
 int roleType = ParamUtil.getInteger(request, "roleType", RoleConstants.TYPE_SITE);
 
 String displayStyle = ParamUtil.getString(request, "displayStyle", "list");
@@ -46,9 +50,25 @@ roleSearch.setTotal(rolesCount);
 roleSearch.setResults(ListUtil.subList(roles, roleSearch.getStart(), roleSearch.getEnd()));
 %>
 
+<<<<<<< HEAD
 <clay:navigation-bar
 	items="<%= siteMembershipsDisplayContext.getSiteRolesNavigationItems() %>"
 />
+=======
+<aui:nav-bar cssClass="collapse-basic-search" markupView="lexicon">
+	<aui:nav cssClass="navbar-nav">
+		<aui:nav-item label="site-roles" selected="<%= true %>" />
+	</aui:nav>
+
+	<c:if test="<%= (rolesCount > 0) || Validator.isNotNull(searchTerms.getKeywords()) %>">
+		<aui:nav-bar-search>
+			<aui:form action="<%= portletURL.toString() %>" name="searchFm">
+				<liferay-ui:input-search autoFocus="<%= windowState.equals(WindowState.MAXIMIZED) %>" markupView="lexicon" />
+			</aui:form>
+		</aui:nav-bar-search>
+	</c:if>
+</aui:nav-bar>
+>>>>>>> compatible
 
 <liferay-frontend:management-bar
 	disabled="<%= (rolesCount <= 0) && Validator.isNull(searchTerms.getKeywords()) %>"
@@ -65,6 +85,7 @@ roleSearch.setResults(ListUtil.subList(roles, roleSearch.getStart(), roleSearch.
 			orderColumns='<%= new String[] {"title"} %>'
 			portletURL="<%= PortletURLUtil.clone(portletURL, renderResponse) %>"
 		/>
+<<<<<<< HEAD
 
 		<c:if test="<%= (rolesCount > 0) || Validator.isNotNull(searchTerms.getKeywords()) %>">
 			<li>
@@ -73,6 +94,8 @@ roleSearch.setResults(ListUtil.subList(roles, roleSearch.getStart(), roleSearch.
 				</aui:form>
 			</li>
 		</c:if>
+=======
+>>>>>>> compatible
 	</liferay-frontend:management-bar-filters>
 
 	<liferay-frontend:management-bar-buttons>

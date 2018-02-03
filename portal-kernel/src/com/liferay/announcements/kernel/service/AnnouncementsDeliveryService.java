@@ -57,6 +57,7 @@ public interface AnnouncementsDeliveryService extends BaseService {
 	public java.lang.String getOSGiServiceIdentifier();
 
 	public AnnouncementsDelivery updateDelivery(long userId,
+<<<<<<< HEAD
 		java.lang.String type, boolean email, boolean sms)
 		throws PortalException;
 
@@ -66,6 +67,8 @@ public interface AnnouncementsDeliveryService extends BaseService {
 	*/
 	@java.lang.Deprecated
 	public AnnouncementsDelivery updateDelivery(long userId,
+=======
+>>>>>>> compatible
 		java.lang.String type, boolean email, boolean sms, boolean website)
 		throws PortalException;
 }

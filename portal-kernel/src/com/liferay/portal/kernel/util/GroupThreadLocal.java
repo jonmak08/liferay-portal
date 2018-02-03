@@ -14,7 +14,10 @@
 
 package com.liferay.portal.kernel.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.GroupConstants;
@@ -59,10 +62,17 @@ public class GroupThreadLocal {
 		GroupThreadLocal.class);
 
 	private static final ThreadLocal<Boolean> _deleteInProcess =
+<<<<<<< HEAD
 		new CentralizedThreadLocal<>(
 			GroupThreadLocal.class + "._deleteInProcess", () -> Boolean.FALSE);
 	private static final ThreadLocal<Long> _groupId =
 		new CentralizedThreadLocal<>(
+=======
+		new AutoResetThreadLocal<>(
+			GroupThreadLocal.class + "._deleteInProcess", () -> Boolean.FALSE);
+	private static final ThreadLocal<Long> _groupId =
+		new AutoResetThreadLocal<>(
+>>>>>>> compatible
 			GroupThreadLocal.class + "._groupId",
 			() -> GroupConstants.DEFAULT_LIVE_GROUP_ID);
 

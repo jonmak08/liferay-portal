@@ -115,6 +115,7 @@ renderResponse.setTitle(LanguageUtil.get(request, "feeds"));
 			keyProperty="feedId"
 			modelVar="feed"
 		>
+<<<<<<< HEAD
 
 			<%
 			String editURL = StringPool.BLANK;
@@ -131,6 +132,8 @@ renderResponse.setTitle(LanguageUtil.get(request, "feeds"));
 			}
 			%>
 
+=======
+>>>>>>> compatible
 			<c:choose>
 				<c:when test='<%= displayStyle.equals("descriptive") %>'>
 					<liferay-ui:search-container-column-icon
@@ -142,9 +145,13 @@ renderResponse.setTitle(LanguageUtil.get(request, "feeds"));
 						colspan="<%= 2 %>"
 					>
 						<h5>
+<<<<<<< HEAD
 							<aui:a href="<%= editURL %>">
 								<%= feed.getName() %>
 							</aui:a>
+=======
+							<%= feed.getName() %>
+>>>>>>> compatible
 						</h5>
 
 						<h6 class="text-default">
@@ -175,7 +182,10 @@ renderResponse.setTitle(LanguageUtil.get(request, "feeds"));
 							rowChecker="<%= searchContainer.getRowChecker() %>"
 							subtitle="<%= feed.getDescription() %>"
 							title="<%= feed.getName() %>"
+<<<<<<< HEAD
 							url="<%= editURL %>"
+=======
+>>>>>>> compatible
 						/>
 					</liferay-ui:search-container-column-text>
 				</c:when>
@@ -186,7 +196,10 @@ renderResponse.setTitle(LanguageUtil.get(request, "feeds"));
 					/>
 
 					<liferay-ui:search-container-column-text
+<<<<<<< HEAD
 						href="<%= editURL %>"
+=======
+>>>>>>> compatible
 						name="name"
 						property="name"
 						truncate="<%= true %>"

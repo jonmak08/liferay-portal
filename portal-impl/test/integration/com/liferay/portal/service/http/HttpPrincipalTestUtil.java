@@ -21,7 +21,10 @@ import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.URLCodec;
 
 import java.net.MalformedURLException;
@@ -104,9 +107,15 @@ public class HttpPrincipalTestUtil {
 			String protocol = url.substring(0, pos + 3);
 			String host = url.substring(pos + 3);
 
+<<<<<<< HEAD
 			url = StringBundler.concat(
 				protocol, login, ":", password, "@", host, "/api/axis/",
 				serviceName);
+=======
+			url =
+				protocol + login + ":" + password + "@" + host + "/api/axis/" +
+					serviceName;
+>>>>>>> compatible
 		}
 		else {
 			url += "/api/axis/" + serviceName;

@@ -14,7 +14,10 @@
 
 package com.liferay.portal.upgrade.v6_2_0;
 
+<<<<<<< HEAD
 import com.liferay.petra.xml.XMLUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.jdbc.AutoBatchPreparedStatementUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -36,6 +39,10 @@ import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
 import com.liferay.portal.kernel.xml.XPath;
 import com.liferay.portal.upgrade.v6_2_0.util.JournalFeedTable;
+<<<<<<< HEAD
+=======
+import com.liferay.util.xml.XMLUtil;
+>>>>>>> compatible
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -284,7 +291,11 @@ public class UpgradeJournal extends BaseUpgradePortletPreferences {
 		}
 
 		if (warn && _log.isWarnEnabled()) {
+<<<<<<< HEAD
 			StringBundler sb = new StringBundler(5);
+=======
+			StringBundler sb = new StringBundler();
+>>>>>>> compatible
 
 			sb.append("Unable to get the DDM structure ID for group ");
 			sb.append(groupId);

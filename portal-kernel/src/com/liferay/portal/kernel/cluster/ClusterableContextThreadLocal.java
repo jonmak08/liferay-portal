@@ -14,7 +14,11 @@
 
 package com.liferay.portal.kernel.cluster;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
+=======
+import com.liferay.portal.kernel.util.InitialThreadLocal;
+>>>>>>> compatible
 
 import java.io.Serializable;
 
@@ -42,9 +46,16 @@ public class ClusterableContextThreadLocal {
 
 	private static final ThreadLocal<HashMap<String, Serializable>>
 		_contextThreadLocal =
+<<<<<<< HEAD
 			new CentralizedThreadLocal<>(
 				ClusterableContextThreadLocal.class.getName() +
 					"._contextThreadLocal",
 				HashMap::new);
+=======
+			new InitialThreadLocal<>(
+				ClusterableContextThreadLocal.class.getName() +
+					"._contextThreadLocal",
+				HashMap::new, true);
+>>>>>>> compatible
 
 }

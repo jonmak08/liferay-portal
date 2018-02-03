@@ -667,6 +667,7 @@ public class StripFilter extends BasePortalFilter {
 
 					continue;
 				}
+<<<<<<< HEAD
 				else if (hasMarker(charBuffer, _MARKER_STYLE_OPEN)) {
 					processCSS(
 						request, response, charBuffer, writer,
@@ -691,6 +692,17 @@ public class StripFilter extends BasePortalFilter {
 					processCSS(
 						request, response, charBuffer, writer,
 						_MARKER_STYLE_DATA_SENNA_TRACK_TEMPORARY);
+=======
+				else if (hasMarker(charBuffer, _MARKER_STYLE_OPEN) ||
+						 hasMarker(
+							 charBuffer,
+							 _MARKER_STYLE_DATA_SENNA_TRACK_PERMANENT) ||
+						 hasMarker(
+							 charBuffer,
+							 _MARKER_STYLE_DATA_SENNA_TRACK_TEMPORARY)) {
+
+					processCSS(request, response, charBuffer, writer);
+>>>>>>> compatible
 
 					continue;
 				}
@@ -769,6 +781,10 @@ public class StripFilter extends BasePortalFilter {
 		"[Jj][aA][vV][aA][sS][cC][rR][iI][pP][tT]");
 
 	private final Set<String> _ignorePaths = new HashSet<>();
+<<<<<<< HEAD
 	private final PortalCache<String, String> _minifierCache;
+=======
+	private final ConcurrentLFUCache<String, String> _minifierCache;
+>>>>>>> compatible
 
 }

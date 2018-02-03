@@ -32,8 +32,13 @@ import com.liferay.portal.kernel.service.persistence.CompanyProvider;
 import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import com.liferay.portlet.social.model.impl.SocialActivitySetImpl;
 import com.liferay.portlet.social.model.impl.SocialActivitySetModelImpl;
@@ -3045,6 +3050,7 @@ public class SocialActivitySetPersistenceImpl extends BasePersistenceImpl<Social
 		}
 
 		List<SocialActivitySet> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<SocialActivitySet>)finderCache.getResult(finderPath,
@@ -3058,6 +3064,21 @@ public class SocialActivitySetPersistenceImpl extends BasePersistenceImpl<Social
 							(type != socialActivitySet.getType())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<SocialActivitySet>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (SocialActivitySet socialActivitySet : list) {
+					if ((userId != socialActivitySet.getUserId()) ||
+							(classNameId != socialActivitySet.getClassNameId()) ||
+							(classPK != socialActivitySet.getClassPK()) ||
+							(type != socialActivitySet.getType())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -3542,11 +3563,17 @@ public class SocialActivitySetPersistenceImpl extends BasePersistenceImpl<Social
 		setModelClass(SocialActivitySet.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("type", "type_");
@@ -3770,6 +3797,7 @@ public class SocialActivitySetPersistenceImpl extends BasePersistenceImpl<Social
 		}
 
 		finderCache.clearCache(FINDER_CLASS_NAME_LIST_WITH_PAGINATION);
+<<<<<<< HEAD
 
 		if (!SocialActivitySetModelImpl.COLUMN_BITMASK_ENABLED) {
 			finderCache.clearCache(FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION);
@@ -3782,6 +3810,20 @@ public class SocialActivitySetPersistenceImpl extends BasePersistenceImpl<Social
 			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_GROUPID,
 				args);
 
+=======
+
+		if (!SocialActivitySetModelImpl.COLUMN_BITMASK_ENABLED) {
+			finderCache.clearCache(FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION);
+		}
+		else
+		 if (isNew) {
+			Object[] args = new Object[] { socialActivitySetModelImpl.getGroupId() };
+
+			finderCache.removeResult(FINDER_PATH_COUNT_BY_GROUPID, args);
+			finderCache.removeResult(FINDER_PATH_WITHOUT_PAGINATION_FIND_BY_GROUPID,
+				args);
+
+>>>>>>> compatible
 			args = new Object[] { socialActivitySetModelImpl.getUserId() };
 
 			finderCache.removeResult(FINDER_PATH_COUNT_BY_USERID, args);

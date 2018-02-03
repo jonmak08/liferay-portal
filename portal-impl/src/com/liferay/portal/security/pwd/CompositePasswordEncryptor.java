@@ -96,10 +96,15 @@ public class CompositePasswordEncryptor
 				Class<?> clazz = passwordEncryptor.getClass();
 
 				_log.debug(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Registering ",
 						StringUtil.merge(supportedAlgorithmTypes), " for ",
 						clazz.getName()));
+=======
+					"Registering " + StringUtil.merge(supportedAlgorithmTypes) +
+						" for " + clazz.getName());
+>>>>>>> compatible
 			}
 
 			for (String supportedAlgorithmType : supportedAlgorithmTypes) {

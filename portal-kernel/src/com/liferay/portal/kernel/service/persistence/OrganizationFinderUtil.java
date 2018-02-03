@@ -70,6 +70,7 @@ public class OrganizationFinderUtil {
 			regionId, countryId, params, andOperator);
 	}
 
+<<<<<<< HEAD
 	public static int countO_ByKeywords(long companyId,
 		long parentOrganizationId,
 		java.lang.String parentOrganizationIdComparator,
@@ -122,6 +123,8 @@ public class OrganizationFinderUtil {
 			queryDefinition);
 	}
 
+=======
+>>>>>>> compatible
 	public static java.util.List<com.liferay.portal.kernel.model.Organization> findByKeywords(
 		long companyId, long parentOrganizationId,
 		java.lang.String parentOrganizationIdComparator,
@@ -178,6 +181,7 @@ public class OrganizationFinderUtil {
 			regionId, countryId, params, andOperator, start, end, obc);
 	}
 
+<<<<<<< HEAD
 	public static java.util.List<com.liferay.portal.kernel.model.Organization> findO_ByKeywords(
 		long companyId, long parentOrganizationId,
 		java.lang.String parentOrganizationIdComparator,
@@ -242,6 +246,8 @@ public class OrganizationFinderUtil {
 			queryDefinition);
 	}
 
+=======
+>>>>>>> compatible
 	public static OrganizationFinder getFinder() {
 		if (_finder == null) {
 			_finder = (OrganizationFinder)PortalBeanLocatorUtil.locate(OrganizationFinder.class.getName());

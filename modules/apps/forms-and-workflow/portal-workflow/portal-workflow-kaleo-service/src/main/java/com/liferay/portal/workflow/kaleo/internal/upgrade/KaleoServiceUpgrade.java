@@ -23,18 +23,25 @@ import com.liferay.portal.workflow.kaleo.internal.upgrade.v1_3_0.UpgradeClassNam
 import com.liferay.portal.workflow.kaleo.internal.upgrade.v1_3_0.UpgradeKaleoAction;
 import com.liferay.portal.workflow.kaleo.internal.upgrade.v1_3_0.UpgradeKaleoDefinition;
 import com.liferay.portal.workflow.kaleo.internal.upgrade.v1_3_2.UpgradeKaleoClassNameAndKaleoClassPK;
+<<<<<<< HEAD
 import com.liferay.portal.workflow.kaleo.internal.upgrade.v1_3_3.UpgradeBlogsEntryClassName;
 import com.liferay.portal.workflow.kaleo.internal.upgrade.v1_4_1.UpgradeKaleoDefinitionVersion;
+=======
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 
 /**
  * @author Marcellus Tavares
  */
+<<<<<<< HEAD
 @Component(
 	immediate = true,
 	service = {KaleoServiceUpgrade.class, UpgradeStepRegistrator.class}
 )
+=======
+@Component(immediate = true, service = UpgradeStepRegistrator.class)
+>>>>>>> compatible
 public class KaleoServiceUpgrade implements UpgradeStepRegistrator {
 
 	@Override
@@ -71,6 +78,7 @@ public class KaleoServiceUpgrade implements UpgradeStepRegistrator {
 		registry.register(
 			"com.liferay.portal.workflow.kaleo.service", "1.3.1", "1.3.2",
 			new UpgradeKaleoClassNameAndKaleoClassPK());
+<<<<<<< HEAD
 
 		registry.register(
 			"com.liferay.portal.workflow.kaleo.service", "1.3.2", "1.3.3",
@@ -84,6 +92,8 @@ public class KaleoServiceUpgrade implements UpgradeStepRegistrator {
 		registry.register(
 			"com.liferay.portal.workflow.kaleo.service", "1.4.0", "1.4.1",
 			new UpgradeKaleoDefinitionVersion());
+=======
+>>>>>>> compatible
 	}
 
 }

@@ -174,6 +174,7 @@ public class KBArticleServiceSoap {
 		}
 	}
 
+<<<<<<< HEAD
 	public static com.liferay.knowledge.base.model.KBArticleSoap fetchLatestKBArticleByUrlTitle(
 		long groupId, long kbFolderId, java.lang.String urlTitle, int status)
 		throws RemoteException {
@@ -190,6 +191,8 @@ public class KBArticleServiceSoap {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	/**
 	* @deprecated As of 1.1.0, replaced by {@link
 	#getAllDescendantKBArticles(long, long, int,

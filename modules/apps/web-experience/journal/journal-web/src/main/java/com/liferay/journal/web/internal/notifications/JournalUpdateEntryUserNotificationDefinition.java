@@ -30,10 +30,18 @@ import org.osgi.service.component.annotations.Component;
 	service = UserNotificationDefinition.class
 )
 public class JournalUpdateEntryUserNotificationDefinition
+<<<<<<< HEAD
 	extends BaseJournalUserNotificationDefinition {
 
 	public JournalUpdateEntryUserNotificationDefinition() {
 		super(
+=======
+	extends UserNotificationDefinition {
+
+	public JournalUpdateEntryUserNotificationDefinition() {
+		super(
+			JournalPortletKeys.JOURNAL, 0,
+>>>>>>> compatible
 			UserNotificationDefinition.NOTIFICATION_TYPE_UPDATE_ENTRY,
 			"receive-a-notification-when-someone-updates-web-content-you-are-" +
 				"subscribed-to");

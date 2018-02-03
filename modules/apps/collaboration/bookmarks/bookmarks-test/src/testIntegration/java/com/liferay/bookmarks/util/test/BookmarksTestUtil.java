@@ -149,11 +149,20 @@ public class BookmarksTestUtil {
 		searchContext.setGroupIds(new long[] {groupId});
 		searchContext.setKeywords(keywords);
 
+<<<<<<< HEAD
 		QueryConfig queryConfig = searchContext.getQueryConfig();
+=======
+		QueryConfig queryConfig = new QueryConfig();
+>>>>>>> compatible
 
 		queryConfig.setHighlightEnabled(highlight);
 		queryConfig.setScoreEnabled(score);
 
+<<<<<<< HEAD
+=======
+		searchContext.setQueryConfig(queryConfig);
+
+>>>>>>> compatible
 		return searchContext;
 	}
 

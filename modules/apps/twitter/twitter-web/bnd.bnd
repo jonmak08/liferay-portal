@@ -1,4 +1,8 @@
 Bundle-Name: Liferay Twitter Web
 Bundle-SymbolicName: com.liferay.twitter.web
+<<<<<<< HEAD
 Bundle-Version: 1.0.10
+=======
+Bundle-Version: 1.0.5
+>>>>>>> compatible
 Web-ContextPath: /twitter-web

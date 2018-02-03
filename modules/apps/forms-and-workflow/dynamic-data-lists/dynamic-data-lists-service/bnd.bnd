@@ -1,12 +1,17 @@
 Bundle-Name: Liferay Dynamic Data Lists Service
 Bundle-SymbolicName: com.liferay.dynamic.data.lists.service
+<<<<<<< HEAD
 Bundle-Version: 1.2.0
+=======
+Bundle-Version: 1.1.35
+>>>>>>> compatible
 Export-Package:\
 	com.liferay.dynamic.data.lists.exporter.impl,\
 	com.liferay.dynamic.data.lists.exportimport.staged.model.repository,\
 	com.liferay.dynamic.data.lists.model.impl,\
 	com.liferay.dynamic.data.lists.service.permission,\
 	com.liferay.dynamic.data.lists.workflow
+<<<<<<< HEAD
 Import-Package:\
 	!org.apache.poi.hssf.usermodel.*,\
 	!org.apache.poi.ss.usermodel.*,\
@@ -17,3 +22,9 @@ Liferay-Releng-Module-Group-Title: Dynamic Data Lists
 Liferay-Require-SchemaVersion: 1.2.1
 Liferay-Service: true
 -includeresource: @poi-[0-9]*.jar
+=======
+Liferay-Releng-Module-Group-Description:
+Liferay-Releng-Module-Group-Title: Dynamic Data Lists
+Liferay-Require-SchemaVersion: 1.0.0
+Liferay-Service: true
+>>>>>>> compatible

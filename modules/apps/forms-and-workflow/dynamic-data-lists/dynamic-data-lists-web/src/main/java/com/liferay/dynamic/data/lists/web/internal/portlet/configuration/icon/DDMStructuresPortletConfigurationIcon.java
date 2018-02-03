@@ -16,7 +16,11 @@ package com.liferay.dynamic.data.lists.web.internal.portlet.configuration.icon;
 
 import com.liferay.dynamic.data.lists.constants.DDLActionKeys;
 import com.liferay.dynamic.data.lists.constants.DDLPortletKeys;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.lists.web.internal.security.permission.resource.DDLPermission;
+=======
+import com.liferay.dynamic.data.lists.service.permission.DDLPermission;
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.model.DDMStructure;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.model.Portlet;
@@ -105,7 +109,11 @@ public class DDMStructuresPortletConfigurationIcon
 		}
 
 		return DDLPermission.contains(
+<<<<<<< HEAD
 			themeDisplay.getPermissionChecker(), themeDisplay.getScopeGroup(),
+=======
+			themeDisplay.getPermissionChecker(), themeDisplay.getScopeGroupId(),
+>>>>>>> compatible
 			DDLActionKeys.ADD_RECORD_SET);
 	}
 

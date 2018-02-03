@@ -14,10 +14,16 @@
 
 package com.liferay.document.library.web.internal.portlet.configuration.icon;
 
+<<<<<<< HEAD
 import com.liferay.document.library.constants.DLPortletKeys;
 import com.liferay.document.library.kernel.model.DLFolderConstants;
 import com.liferay.document.library.web.internal.portlet.action.ActionUtil;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.document.library.kernel.model.DLFolderConstants;
+import com.liferay.document.library.web.constants.DLPortletKeys;
+import com.liferay.document.library.web.internal.portlet.action.ActionUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.portlet.LiferayWindowState;
 import com.liferay.portal.kernel.portlet.configuration.icon.BasePortletConfigurationIcon;
@@ -26,8 +32,13 @@ import com.liferay.portal.kernel.repository.model.Folder;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.HtmlUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.util.RepositoryUtil;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.WebKeys;
+>>>>>>> compatible
 import com.liferay.portlet.documentlibrary.service.permission.DLFolderPermission;
 import com.liferay.taglib.security.PermissionsURLTag;
 
@@ -99,6 +110,7 @@ public class FolderPermissionPortletConfigurationIcon
 
 	@Override
 	public boolean isShow(PortletRequest portletRequest) {
+<<<<<<< HEAD
 		try {
 			Folder folder = ActionUtil.getFolder(portletRequest);
 
@@ -120,6 +132,20 @@ public class FolderPermissionPortletConfigurationIcon
 				themeDisplay.getPermissionChecker(),
 				themeDisplay.getScopeGroupId(), folder.getFolderId(),
 				ActionKeys.PERMISSIONS);
+=======
+		ThemeDisplay themeDisplay = (ThemeDisplay)portletRequest.getAttribute(
+			WebKeys.THEME_DISPLAY);
+
+		try {
+			Folder folder = ActionUtil.getFolder(portletRequest);
+
+			if (folder != null) {
+				return DLFolderPermission.contains(
+					themeDisplay.getPermissionChecker(),
+					themeDisplay.getScopeGroupId(), folder.getFolderId(),
+					ActionKeys.PERMISSIONS);
+			}
+>>>>>>> compatible
 		}
 		catch (Exception e) {
 		}

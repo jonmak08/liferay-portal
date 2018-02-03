@@ -21,7 +21,11 @@ String tabs1 = ParamUtil.getString(request, "tabs1", "structures");
 
 String redirect = ParamUtil.getString(request, "redirect");
 
+<<<<<<< HEAD
 long groupId = ParamUtil.getLong(request, "groupId", PortalUtil.getScopeGroupId(request, refererPortletName));
+=======
+long groupId = ParamUtil.getLong(request, "groupId", themeDisplay.getSiteGroupId());
+>>>>>>> compatible
 
 boolean showBackURL = ParamUtil.getBoolean(request, "showBackURL", true);
 
@@ -34,6 +38,7 @@ OrderByComparator<DDMStructure> orderByComparator = DDMUtil.getStructureOrderByC
 structureSearch.setOrderByCol(ddmDisplayContext.getOrderByCol());
 structureSearch.setOrderByComparator(orderByComparator);
 structureSearch.setOrderByType(ddmDisplayContext.getOrderByType());
+<<<<<<< HEAD
 
 if (ddmDisplay.getDescription(locale) != null) {
 	portletDisplay.setDescription(ddmDisplay.getDescription(locale));
@@ -42,6 +47,8 @@ if (ddmDisplay.getDescription(locale) != null) {
 if (ddmDisplay.getTitle(locale) != null) {
 	renderResponse.setTitle(ddmDisplay.getTitle(locale));
 }
+=======
+>>>>>>> compatible
 %>
 
 <c:if test="<%= showBackURL && ddmDisplay.isShowBackURLInTitleBar() %>">
@@ -49,6 +56,11 @@ if (ddmDisplay.getTitle(locale) != null) {
 	<%
 	portletDisplay.setShowBackIcon(true);
 	portletDisplay.setURLBack(ddmDisplay.getViewStructuresBackURL(liferayPortletRequest, liferayPortletResponse));
+<<<<<<< HEAD
+=======
+
+	renderResponse.setTitle(ddmDisplay.getTitle(locale));
+>>>>>>> compatible
 	%>
 
 </c:if>
@@ -82,7 +94,11 @@ if (ddmDisplay.getTitle(locale) != null) {
 	<div class="container-fluid-1280" id="<portlet:namespace />entriesContainer">
 		<liferay-ui:search-container
 			id="ddmStructures"
+<<<<<<< HEAD
 			rowChecker="<%= new DDMStructureRowChecker(renderResponse) %>"
+=======
+			rowChecker="<%= new EmptyOnClickRowChecker(renderResponse) %>"
+>>>>>>> compatible
 			searchContainer="<%= structureSearch %>"
 		>
 			<liferay-ui:search-container-results>

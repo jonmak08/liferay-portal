@@ -1,3 +1,7 @@
 Bundle-Name: Liferay Jenkins Results Parser
 Bundle-SymbolicName: com.liferay.jenkins.results.parser
+<<<<<<< HEAD
 Bundle-Version: 1.0.178
+=======
+Bundle-Version: 1.0.125
+>>>>>>> compatible

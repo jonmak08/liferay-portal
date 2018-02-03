@@ -25,8 +25,16 @@ import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.util.PropsValues;
 
+<<<<<<< HEAD
 import java.sql.ResultSet;
 import java.sql.Statement;
+=======
+import java.sql.DatabaseMetaData;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Types;
+>>>>>>> compatible
 
 /**
  * @author Brian Wing Shun Chan
@@ -37,6 +45,7 @@ public class VerifyMySQL extends VerifyProcess {
 	@Override
 	protected void doVerify() throws Exception {
 		DB db = DBManagerUtil.getDB();
+<<<<<<< HEAD
 
 		if ((db.getDBType() == DBType.MARIADB) ||
 			(db.getDBType() == DBType.MYSQL)) {
@@ -45,6 +54,98 @@ public class VerifyMySQL extends VerifyProcess {
 		}
 	}
 
+=======
+
+		if ((db.getDBType() == DBType.MARIADB) ||
+			(db.getDBType() == DBType.MYSQL)) {
+
+			verifyTableEngine();
+			verifyDatetimePrecision();
+		}
+	}
+
+	protected String getActualColumnType(
+			Statement statement, String tableName, String columnName)
+		throws SQLException {
+
+		StringBundler sb = new StringBundler(5);
+
+		sb.append("show columns from ");
+		sb.append(tableName);
+		sb.append(" like \"");
+		sb.append(columnName);
+		sb.append("\"");
+
+		try (ResultSet rs = statement.executeQuery(sb.toString())) {
+			if (!rs.next()) {
+				throw new IllegalStateException(
+					"Table " + tableName + " does not have column " +
+						columnName);
+			}
+
+			return rs.getString("Type");
+		}
+	}
+
+	protected void verifyDatetimePrecision() throws Exception {
+		DatabaseMetaData databaseMetaData = connection.getMetaData();
+
+		try (LoggingTimer loggingTimer = new LoggingTimer();
+			Statement statement = connection.createStatement();
+			ResultSet rs = databaseMetaData.getTables(null, null, null, null)) {
+
+			while (rs.next()) {
+				verifyDatetimePrecisionForTable(
+					databaseMetaData, statement, rs.getString("TABLE_CAT"),
+					rs.getString("TABLE_SCHEM"), rs.getString("TABLE_NAME"));
+			}
+		}
+	}
+
+	protected void verifyDatetimePrecisionForTable(
+			DatabaseMetaData databaseMetaData, Statement statement,
+			String catalog, String schemaPattern, String tableName)
+		throws SQLException {
+
+		try (ResultSet rs = databaseMetaData.getColumns(
+				catalog, schemaPattern, tableName, null)) {
+
+			while (rs.next()) {
+				if (Types.TIMESTAMP != rs.getInt("DATA_TYPE")) {
+					continue;
+				}
+
+				String columnName = rs.getString("COLUMN_NAME");
+
+				String actualColumnType = getActualColumnType(
+					statement, tableName, columnName);
+
+				if (actualColumnType.equals("datetime(6)")) {
+					continue;
+				}
+
+				StringBundler sb = new StringBundler(5);
+
+				sb.append("ALTER TABLE ");
+				sb.append(tableName);
+				sb.append(" MODIFY ");
+				sb.append(columnName);
+				sb.append(" datetime(6)");
+
+				String sql = sb.toString();
+
+				if (_log.isInfoEnabled()) {
+					_log.info(
+						"Updating table " + tableName + " column " +
+							columnName + " to datetime(6)");
+				}
+
+				statement.executeUpdate(sql);
+			}
+		}
+	}
+
+>>>>>>> compatible
 	protected void verifyTableEngine() throws Exception {
 		try (LoggingTimer loggingTimer = new LoggingTimer();
 			Statement statement = connection.createStatement();
@@ -72,6 +173,7 @@ public class VerifyMySQL extends VerifyProcess {
 
 				if (_log.isInfoEnabled()) {
 					_log.info(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"Updating table ", tableName, " to use engine ",
 							PropsValues.DATABASE_MYSQL_ENGINE));
@@ -81,6 +183,15 @@ public class VerifyMySQL extends VerifyProcess {
 					StringBundler.concat(
 						"alter table ", tableName, " engine ",
 						PropsValues.DATABASE_MYSQL_ENGINE));
+=======
+						"Updating table " + tableName + " to use engine " +
+							PropsValues.DATABASE_MYSQL_ENGINE);
+				}
+
+				statement.executeUpdate(
+					"alter table " + tableName + " engine " +
+						PropsValues.DATABASE_MYSQL_ENGINE);
+>>>>>>> compatible
 			}
 		}
 	}

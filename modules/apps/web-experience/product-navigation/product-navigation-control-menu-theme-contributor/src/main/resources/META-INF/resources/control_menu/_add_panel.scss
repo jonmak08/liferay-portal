@@ -2,7 +2,11 @@
 @import "mixins";
 
 body.open-admin-panel {
+<<<<<<< HEAD
 	&, .control-menu, .affix {
+=======
+	&, .control-menu {
+>>>>>>> compatible
 		@include sm() {
 			padding-right: $admin-panel-width;
 		}
@@ -21,7 +25,11 @@ body.open-admin-panel, body.sidenav-transition {
 	}
 }
 
+<<<<<<< HEAD
 .lfr-add-panel.open-admin-panel.sidenav-menu-slider {
+=======
+.lfr-add-panel.open-admin-panel {
+>>>>>>> compatible
 	visibility: visible;
 	width: $admin-panel-width;
 }

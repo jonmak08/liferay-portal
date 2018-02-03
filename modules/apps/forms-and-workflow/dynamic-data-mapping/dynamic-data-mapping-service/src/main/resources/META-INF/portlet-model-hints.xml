@@ -46,6 +46,7 @@
 		<field name="dataProviderInstanceId" type="long" />
 		<field name="structureId" type="long" />
 	</model>
+<<<<<<< HEAD
 	<model name="com.liferay.dynamic.data.mapping.model.DDMFormInstance">
 		<field name="uuid" type="String" />
 		<field name="formInstanceId" type="long" />
@@ -128,6 +129,8 @@
 		<field name="statusByUserName" type="String" />
 		<field name="statusDate" type="Date" />
 	</model>
+=======
+>>>>>>> compatible
 	<model name="com.liferay.dynamic.data.mapping.model.DDMStorageLink">
 		<field name="uuid" type="String" />
 		<field name="storageLinkId" type="long" />
@@ -135,7 +138,10 @@
 		<field name="classNameId" type="long" />
 		<field name="classPK" type="long" />
 		<field name="structureId" type="long" />
+<<<<<<< HEAD
 		<field name="structureVersionId" type="long" />
+=======
+>>>>>>> compatible
 	</model>
 	<model name="com.liferay.dynamic.data.mapping.model.DDMStructure">
 		<field name="uuid" type="String" />

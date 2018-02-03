@@ -22,12 +22,16 @@ import com.liferay.exportimport.kernel.lar.ExportImportHelperUtil;
 import com.liferay.exportimport.kernel.model.ExportImportConfiguration;
 import com.liferay.exportimport.kernel.service.ExportImportConfigurationLocalServiceUtil;
 import com.liferay.exportimport.kernel.service.ExportImportLocalServiceUtil;
+<<<<<<< HEAD
 import com.liferay.exportimport.kernel.service.StagingLocalServiceUtil;
+=======
+>>>>>>> compatible
 import com.liferay.journal.model.JournalArticle;
 import com.liferay.journal.model.JournalArticleResource;
 import com.liferay.journal.service.JournalArticleLocalServiceUtil;
 import com.liferay.journal.service.JournalArticleResourceLocalServiceUtil;
 import com.liferay.journal.test.util.JournalTestUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.exception.LocaleException;
 import com.liferay.portal.kernel.language.LanguageUtil;
@@ -43,6 +47,18 @@ import com.liferay.portal.kernel.test.util.CompanyTestUtil;
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
+=======
+import com.liferay.portal.kernel.exception.LocaleException;
+import com.liferay.portal.kernel.language.LanguageUtil;
+import com.liferay.portal.kernel.model.Group;
+import com.liferay.portal.kernel.model.User;
+import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+import com.liferay.portal.kernel.test.util.CompanyTestUtil;
+import com.liferay.portal.kernel.test.util.GroupTestUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.util.LocaleThreadLocal;
 import com.liferay.portal.kernel.util.LocaleUtil;
@@ -53,7 +69,10 @@ import java.io.File;
 import java.io.Serializable;
 
 import java.util.Arrays;
+<<<<<<< HEAD
 import java.util.HashMap;
+=======
+>>>>>>> compatible
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -69,7 +88,10 @@ import org.junit.runner.RunWith;
 
 /**
  * @author Daniel Kocsis
+<<<<<<< HEAD
  * @author Mate Thurzo
+=======
+>>>>>>> compatible
  */
 @RunWith(Arquillian.class)
 @Sync(cleanTransaction = true)
@@ -78,7 +100,13 @@ public class StagingLocalizationTest {
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Before
 	public void setUp() throws Exception {
@@ -99,6 +127,7 @@ public class StagingLocalizationTest {
 			TestPropsValues.getCompanyId(), _availableLocales, _defaultLocale);
 	}
 
+<<<<<<< HEAD
 	@Test
 	public void testEnableStagingLocalizedNameBlank() throws Exception {
 		Map<Locale, String> nameMap = _prepareNameMap();
@@ -122,6 +151,8 @@ public class StagingLocalizationTest {
 			nameMap, LocaleUtil.US, LocaleUtil.SPAIN);
 	}
 
+=======
+>>>>>>> compatible
 	@Test(expected = LocaleException.class)
 	public void testRemoveSupportedLocale() throws Exception {
 		testUpdateLocales("es_ES", "de_DE,es_ES", "en_US");
@@ -224,6 +255,7 @@ public class StagingLocalizationTest {
 		}
 	}
 
+<<<<<<< HEAD
 	private Group _addLocalizedGroup(
 			Map<Locale, String> nameMap, ServiceContext serviceContext)
 		throws Exception {
@@ -300,6 +332,8 @@ public class StagingLocalizationTest {
 		return nameMap;
 	}
 
+=======
+>>>>>>> compatible
 	private Set<Locale> _availableLocales;
 	private Locale _defaultLocale;
 	private final List<Locale> _locales = Arrays.asList(

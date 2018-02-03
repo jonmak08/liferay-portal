@@ -157,17 +157,24 @@ if (selContact != null) {
 			<c:if test="<%= selUser != null %>">
 				<c:choose>
 					<c:when test='<%= UsersAdminUtil.hasUpdateFieldPermission(permissionChecker, user, selUser, "portrait") %>'>
+<<<<<<< HEAD
 
 						<%
 						UserFileUploadsConfiguration userFileUploadsConfiguration = (UserFileUploadsConfiguration)request.getAttribute(UserFileUploadsConfiguration.class.getName());
 						%>
 
+=======
+>>>>>>> compatible
 						<liferay-ui:logo-selector
 							currentLogoURL="<%= selUser.getPortraitURL(themeDisplay) %>"
 							defaultLogo="<%= selUser.getPortraitId() == 0 %>"
 							defaultLogoURL="<%= UserConstants.getPortraitURL(themeDisplay.getPathImage(), selUser.isMale(), 0, null) %>"
 							logoDisplaySelector=".user-logo"
+<<<<<<< HEAD
 							maxFileSize="<%= userFileUploadsConfiguration.imageMaxSize() %>"
+=======
+							maxFileSize="<%= PrefsPropsUtil.getLong(PropsKeys.USERS_IMAGE_MAX_SIZE) %>"
+>>>>>>> compatible
 							tempImageFileName="<%= String.valueOf(selUser.getUserId()) %>"
 						/>
 					</c:when>
@@ -228,7 +235,11 @@ if (selContact != null) {
 				String taglibOnClick = renderResponse.getNamespace() + "saveUser('unlock');";
 				%>
 
+<<<<<<< HEAD
 				<aui:button onClick="<%= taglibOnClick %>" value="unlock" />
+=======
+				<aui:button cssClass="btn-lg" onClick="<%= taglibOnClick %>" value="unlock" />
+>>>>>>> compatible
 			</aui:button-row>
 		</c:if>
 	</aui:fieldset>

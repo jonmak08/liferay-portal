@@ -33,19 +33,31 @@ import com.liferay.portal.security.ldap.configuration.CompanyScopedConfiguration
 )
 public interface LDAPExportConfiguration extends CompanyScopedConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(deflt = "0", name = "company-id", required = false)
+=======
+	@Meta.AD(deflt = "0", required = false)
+>>>>>>> compatible
 	@Override
 	public long companyId();
 
 	@Meta.AD(
+<<<<<<< HEAD
 		deflt = "false", description = "export-enabled-help",
 		name = "export-enabled", required = false
+=======
+		deflt = "false", description = "export-enabled-help", required = false
+>>>>>>> compatible
 	)
 	public boolean exportEnabled();
 
 	@Meta.AD(
 		deflt = "true", description = "export-group-enabled-help",
+<<<<<<< HEAD
 		name = "export-group-enabled", required = false
+=======
+		required = false
+>>>>>>> compatible
 	)
 	public boolean exportGroupEnabled();
 

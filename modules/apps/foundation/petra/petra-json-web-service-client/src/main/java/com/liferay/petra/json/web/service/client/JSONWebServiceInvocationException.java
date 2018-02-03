@@ -18,20 +18,36 @@ package com.liferay.petra.json.web.service.client;
  * @author Ivica Cardic
  * @author Igor Beslic
  */
+<<<<<<< HEAD
 public class JSONWebServiceInvocationException extends JSONWebServiceException {
+=======
+public class JSONWebServiceInvocationException extends Exception {
+>>>>>>> compatible
 
 	public JSONWebServiceInvocationException(String message) {
 		super(message);
 	}
 
 	public JSONWebServiceInvocationException(String message, int status) {
+<<<<<<< HEAD
 		super(message, status);
+=======
+		super(message);
+
+		_status = status;
+>>>>>>> compatible
 	}
 
 	public JSONWebServiceInvocationException(
 		String message, int status, Throwable cause) {
 
+<<<<<<< HEAD
 		super(message, status, cause);
+=======
+		super(message, cause);
+
+		_status = status;
+>>>>>>> compatible
 	}
 
 	public JSONWebServiceInvocationException(String message, Throwable cause) {
@@ -42,4 +58,17 @@ public class JSONWebServiceInvocationException extends JSONWebServiceException {
 		super(cause);
 	}
 
+<<<<<<< HEAD
+=======
+	public int getStatus() {
+		return _status;
+	}
+
+	public void setStatus(int status) {
+		_status = status;
+	}
+
+	private int _status;
+
+>>>>>>> compatible
 }

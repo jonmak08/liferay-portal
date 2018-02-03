@@ -85,6 +85,7 @@ public interface JournalArticleService extends BaseService {
 	* @param titleMap the web content article's locales and localized titles
 	* @param descriptionMap the web content article's locales and localized
 	descriptions
+<<<<<<< HEAD
 	* @param friendlyURLMap the web content article's locales and localized
 	friendly URLs
 	* @param content the HTML content wrapped in XML. For more information,
@@ -179,6 +180,8 @@ public interface JournalArticleService extends BaseService {
 	* @param titleMap the web content article's locales and localized titles
 	* @param descriptionMap the web content article's locales and localized
 	descriptions
+=======
+>>>>>>> compatible
 	* @param content the HTML content wrapped in XML. For more information,
 	see the content example in the {@link #updateArticle(long, long,
 	String, double, String, ServiceContext)} description.
@@ -527,7 +530,11 @@ public interface JournalArticleService extends BaseService {
 	* @param languageId the primary key of the language translation to get
 	* @param themeDisplay the theme display
 	* @return the matching web content
+<<<<<<< HEAD
 	* @deprecated As of 4.0.0, replaced by {@link #getArticleContent(long,
+=======
+	* @deprecated As of 3.3.0, replaced by {@link #getArticleContent(long,
+>>>>>>> compatible
 	String, double, String, PortletRequestModel, ThemeDisplay)}
 	*/
 	@java.lang.Deprecated
@@ -563,7 +570,11 @@ public interface JournalArticleService extends BaseService {
 	* @param languageId the primary key of the language translation to get
 	* @param themeDisplay the theme display
 	* @return the matching web content
+<<<<<<< HEAD
 	* @deprecated As of 4.0.0, replaced by {@link #getArticleContent(long,
+=======
+	* @deprecated As of 3.3.0, replaced by {@link #getArticleContent(long,
+>>>>>>> compatible
 	String, String, PortletRequestModel, ThemeDisplay)}
 	*/
 	@java.lang.Deprecated
@@ -1070,7 +1081,11 @@ public interface JournalArticleService extends BaseService {
 	* @param articleId the primary key of the web content article
 	* @param newFolderId the primary key of the web content article's new
 	folder
+<<<<<<< HEAD
 	* @deprecated As of 4.0.0, replaced by {@link #moveArticle(long, String,
+=======
+	* @deprecated As of 3.3.0, replaced by {@link #moveArticle(long, String,
+>>>>>>> compatible
 	long, ServiceContext)}
 	*/
 	@java.lang.Deprecated
@@ -1597,9 +1612,12 @@ public interface JournalArticleService extends BaseService {
 		java.lang.String[] ddmTemplateKeys, Date displayDateGT,
 		Date displayDateLT, int status, Date reviewDate, boolean andOperator);
 
+<<<<<<< HEAD
 	public void subscribe(long groupId, long articleId)
 		throws PortalException;
 
+=======
+>>>>>>> compatible
 	/**
 	* Subscribes the user to changes in elements that belong to the web content
 	* article's DDM structure.
@@ -1611,9 +1629,12 @@ public interface JournalArticleService extends BaseService {
 	public void subscribeStructure(long groupId, long userId,
 		long ddmStructureId) throws PortalException;
 
+<<<<<<< HEAD
 	public void unsubscribe(long groupId, long articleId)
 		throws PortalException;
 
+=======
+>>>>>>> compatible
 	/**
 	* Unsubscribes the user from changes in elements that belong to the web
 	* content article's DDM structure.
@@ -1671,6 +1692,7 @@ public interface JournalArticleService extends BaseService {
 	* @param titleMap the web content article's locales and localized titles
 	* @param descriptionMap the web content article's locales and localized
 	descriptions
+<<<<<<< HEAD
 	* @param friendlyURLMap the web content article's locales and localized
 	friendly URLs
 	* @param content the HTML content wrapped in XML. For more information,
@@ -1765,6 +1787,8 @@ public interface JournalArticleService extends BaseService {
 	* @param titleMap the web content article's locales and localized titles
 	* @param descriptionMap the web content article's locales and localized
 	descriptions
+=======
+>>>>>>> compatible
 	* @param content the HTML content wrapped in XML. For more information,
 	see the content example in the {@link #updateArticle(long, long,
 	String, double, String, ServiceContext)} description.

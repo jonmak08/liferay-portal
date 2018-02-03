@@ -31,7 +31,11 @@ JournalFolder folder = journalDisplayContext.getFolder();
 		<aui:col cssClass="lfr-asset-column lfr-asset-column-details" width="<%= 100 %>">
 			<c:if test="<%= Validator.isNotNull(folder.getDescription()) %>">
 				<div class="lfr-asset-description">
+<<<<<<< HEAD
 					<%= HtmlUtil.replaceNewLine(HtmlUtil.escape(folder.getDescription())) %>
+=======
+					<%= HtmlUtil.escape(folder.getDescription()) %>
+>>>>>>> compatible
 				</div>
 			</c:if>
 
@@ -49,14 +53,23 @@ JournalFolder folder = journalDisplayContext.getFolder();
 				</div>
 			</div>
 
+<<<<<<< HEAD
 			<liferay-expando:custom-attributes-available className="<%= JournalFolder.class.getName() %>">
 				<liferay-expando:custom-attribute-list
+=======
+			<liferay-ui:custom-attributes-available className="<%= JournalFolder.class.getName() %>">
+				<liferay-ui:custom-attribute-list
+>>>>>>> compatible
 					className="<%= JournalFolder.class.getName() %>"
 					classPK="<%= folder.getFolderId() %>"
 					editable="<%= false %>"
 					label="<%= true %>"
 				/>
+<<<<<<< HEAD
 			</liferay-expando:custom-attributes-available>
+=======
+			</liferay-ui:custom-attributes-available>
+>>>>>>> compatible
 		</aui:col>
 	</aui:row>
 </c:if>

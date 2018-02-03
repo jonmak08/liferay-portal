@@ -20,10 +20,15 @@
 String randomNamespace = PortalUtil.generateRandomKey(request, "taglib_ui_repository_entry_browse_page") + StringPool.UNDERLINE;
 
 String displayStyle = GetterUtil.getString(request.getAttribute("liferay-item-selector:repository-entry-browser:displayStyle"));
+<<<<<<< HEAD
 DLMimeTypeDisplayContext dlMimeTypeDisplayContext = (DLMimeTypeDisplayContext)request.getAttribute("liferay-item-selector:repository-entry-browser:dlMimeTypeDisplayContext");
 String emptyResultsMessage = GetterUtil.getString(request.getAttribute("liferay-item-selector:repository-entry-browser:emptyResultsMessage"));
 ItemSelectorReturnType existingFileEntryReturnType = (ItemSelectorReturnType)request.getAttribute("liferay-item-selector:repository-entry-browser:existingFileEntryReturnType");
 List<String> extensions = (List)request.getAttribute("liferay-item-selector:repository-entry-browser:extensions");
+=======
+String emptyResultsMessage = GetterUtil.getString(request.getAttribute("liferay-item-selector:repository-entry-browser:emptyResultsMessage"));
+ItemSelectorReturnType existingFileEntryReturnType = (ItemSelectorReturnType)request.getAttribute("liferay-item-selector:repository-entry-browser:existingFileEntryReturnType");
+>>>>>>> compatible
 String itemSelectedEventName = GetterUtil.getString(request.getAttribute("liferay-item-selector:repository-entry-browser:itemSelectedEventName"));
 ItemSelectorReturnTypeResolver itemSelectorReturnTypeResolver = (ItemSelectorReturnTypeResolver)request.getAttribute("liferay-item-selector:repository-entry-browser:itemSelectorReturnTypeResolver");
 long maxFileSize = GetterUtil.getLong(request.getAttribute("liferay-item-selector:repository-entry-browser:maxFileSize"));
@@ -176,6 +181,7 @@ if (Validator.isNotNull(keywords)) {
 		<liferay-util:buffer var="selectFileHTML">
 			<label class="btn btn-default" for="<%= randomNamespace %>InputFile"><liferay-ui:message key="select-file" /></label>
 
+<<<<<<< HEAD
 			<input accept="<%= ListUtil.isEmpty(extensions) ? "*" : StringUtil.merge(extensions) %>" class="hide" id="<%= randomNamespace %>InputFile" type="file" />
 		</liferay-util:buffer>
 
@@ -188,6 +194,13 @@ if (Validator.isNotNull(keywords)) {
 					<strong><liferay-ui:message arguments="<%= selectFileHTML %>" key="drag-and-drop-to-upload-or-x" /></strong>
 				</c:otherwise>
 			</c:choose>
+=======
+			<input class="hide" id="<%= randomNamespace %>InputFile" type="file" />
+		</liferay-util:buffer>
+
+		<div class="drop-enabled drop-zone no-border">
+			<strong><liferay-ui:message arguments="<%= selectFileHTML %>" key="drag-and-drop-to-upload-or-x" /></strong>
+>>>>>>> compatible
 		</div>
 	</c:if>
 
@@ -231,12 +244,19 @@ if (Validator.isNotNull(keywords)) {
 							String title = DLUtil.getTitleWithExtension(fileEntry);
 
 							JSONObject itemMedatadaJSONObject = ItemSelectorRepositoryEntryBrowserUtil.getItemMetadataJSONObject(fileEntry, locale);
+<<<<<<< HEAD
 
 							String thumbnailSrc = DLUtil.getThumbnailSrc(fileEntry, themeDisplay);
 						%>
 
 							<liferay-ui:search-container-column-text name="title">
 								<a class="item-preview" data-metadata="<%= HtmlUtil.escapeAttribute(itemMedatadaJSONObject.toString()) %>" data-returnType="<%= HtmlUtil.escapeAttribute(ItemSelectorRepositoryEntryBrowserUtil.getItemSelectorReturnTypeClassName(itemSelectorReturnTypeResolver, existingFileEntryReturnType)) %>" data-url="<%= HtmlUtil.escapeAttribute(DLUtil.getPreviewURL(fileEntry, latestFileVersion, themeDisplay, StringPool.BLANK)) %>" data-value="<%= HtmlUtil.escapeAttribute(ItemSelectorRepositoryEntryBrowserUtil.getValue(itemSelectorReturnTypeResolver, existingFileEntryReturnType, fileEntry, themeDisplay)) %>" href="<%= Validator.isNotNull(thumbnailSrc) ? HtmlUtil.escapeHREF(DLUtil.getImagePreviewURL(fileEntry, themeDisplay)) : themeDisplay.getPathThemeImages() + "/file_system/large/default.png" %>" title="<%= HtmlUtil.escapeAttribute(title) %>">
+=======
+						%>
+
+							<liferay-ui:search-container-column-text name="title">
+								<a class="item-preview" data-metadata="<%= HtmlUtil.escapeAttribute(itemMedatadaJSONObject.toString()) %>" data-returnType="<%= HtmlUtil.escapeAttribute(ItemSelectorRepositoryEntryBrowserUtil.getItemSelectorReturnTypeClassName(itemSelectorReturnTypeResolver, existingFileEntryReturnType)) %>" data-url="<%= HtmlUtil.escapeAttribute(DLUtil.getPreviewURL(fileEntry, latestFileVersion, themeDisplay, StringPool.BLANK)) %>" data-value="<%= HtmlUtil.escapeAttribute(ItemSelectorRepositoryEntryBrowserUtil.getValue(itemSelectorReturnTypeResolver, existingFileEntryReturnType, fileEntry, themeDisplay)) %>" href="<%= HtmlUtil.escapeHREF(DLUtil.getImagePreviewURL(fileEntry, themeDisplay)) %>" title="<%= HtmlUtil.escapeAttribute(title) %>">
+>>>>>>> compatible
 
 									<%
 									String iconCssClass = DLUtil.getFileIconCssClass(fileEntry.getExtension());
@@ -349,6 +369,7 @@ if (Validator.isNotNull(keywords)) {
 
 									Map<String, Object> data = new HashMap<String, Object>();
 
+<<<<<<< HEAD
 									String thumbnailSrc = DLUtil.getThumbnailSrc(fileEntry, themeDisplay);
 
 									if (Validator.isNotNull(thumbnailSrc)) {
@@ -358,11 +379,15 @@ if (Validator.isNotNull(keywords)) {
 										data.put("href", themeDisplay.getPathThemeImages() + "/file_system/large/default.png");
 									}
 
+=======
+									data.put("href", DLUtil.getImagePreviewURL(fileEntry, themeDisplay));
+>>>>>>> compatible
 									data.put("metadata", itemMedatadaJSONObject.toString());
 									data.put("returnType", ItemSelectorRepositoryEntryBrowserUtil.getItemSelectorReturnTypeClassName(itemSelectorReturnTypeResolver, existingFileEntryReturnType));
 									data.put("title", title);
 									data.put("url", DLUtil.getPreviewURL(fileEntry, latestFileVersion, themeDisplay, StringPool.BLANK));
 									data.put("value", ItemSelectorRepositoryEntryBrowserUtil.getValue(itemSelectorReturnTypeResolver, existingFileEntryReturnType, fileEntry, themeDisplay));
+<<<<<<< HEAD
 
 									String stickerCssClass = "file-icon-color-0";
 
@@ -374,12 +399,23 @@ if (Validator.isNotNull(keywords)) {
 								%>
 
 									<liferay-ui:search-container-column-text>
+=======
+								%>
+
+									<liferay-ui:search-container-column-text>
+
+										<%
+										String thumbnailSrc = DLUtil.getThumbnailSrc(fileEntry, themeDisplay);
+										%>
+
+>>>>>>> compatible
 										<c:choose>
 											<c:when test="<%= Validator.isNull(thumbnailSrc) %>">
 												<liferay-frontend:icon-vertical-card
 													cssClass="item-preview"
 													data="<%= data %>"
 													icon="documents-and-media"
+<<<<<<< HEAD
 													title="<%= title %>"
 												>
 													<liferay-frontend:vertical-card-sticker-bottom>
@@ -402,6 +438,16 @@ if (Validator.isNotNull(keywords)) {
 														</div>
 													</liferay-frontend:vertical-card-sticker-bottom>
 												</liferay-frontend:vertical-card>
+=======
+												/>
+											</c:when>
+											<c:otherwise>
+												<liferay-frontend:image-card
+													cssClass="item-preview"
+													data="<%= data %>"
+													imageUrl="<%= thumbnailSrc %>"
+												/>
+>>>>>>> compatible
 											</c:otherwise>
 										</c:choose>
 									</liferay-ui:search-container-column-text>
@@ -454,6 +500,7 @@ if (Validator.isNotNull(keywords)) {
 									String title = DLUtil.getTitleWithExtension(fileEntry);
 
 									JSONObject itemMedatadaJSONObject = ItemSelectorRepositoryEntryBrowserUtil.getItemMetadataJSONObject(fileEntry, locale);
+<<<<<<< HEAD
 
 									String thumbnailSrc = DLUtil.getThumbnailSrc(fileEntry, themeDisplay);
 								%>
@@ -480,6 +527,16 @@ if (Validator.isNotNull(keywords)) {
 
 									<liferay-ui:search-container-column-text colspan="<%= 2 %>">
 										<div class="item-preview" data-href="<%= Validator.isNotNull(thumbnailSrc) ? HtmlUtil.escapeHREF(DLUtil.getImagePreviewURL(fileEntry, themeDisplay)) : themeDisplay.getPathThemeImages() + "/file_system/large/default.png" %>" data-metadata="<%= HtmlUtil.escapeAttribute(itemMedatadaJSONObject.toString()) %>" data-returnType="<%= HtmlUtil.escapeAttribute(ItemSelectorRepositoryEntryBrowserUtil.getItemSelectorReturnTypeClassName(itemSelectorReturnTypeResolver, existingFileEntryReturnType)) %>" data-title="<%= HtmlUtil.escapeAttribute(title) %>" data-url="<%= HtmlUtil.escapeAttribute(DLUtil.getPreviewURL(fileEntry, latestFileVersion, themeDisplay, StringPool.BLANK)) %>" data-value="<%= HtmlUtil.escapeAttribute(ItemSelectorRepositoryEntryBrowserUtil.getValue(itemSelectorReturnTypeResolver, existingFileEntryReturnType, fileEntry, themeDisplay)) %>">
+=======
+								%>
+
+									<liferay-ui:search-container-column-image
+										src="<%= DLUtil.getThumbnailSrc(fileEntry, themeDisplay) %>"
+									/>
+
+									<liferay-ui:search-container-column-text colspan="<%= 2 %>">
+										<div class="item-preview" data-href="<%= HtmlUtil.escapeHREF(DLUtil.getImagePreviewURL(fileEntry, themeDisplay)) %>" data-metadata="<%= HtmlUtil.escapeAttribute(itemMedatadaJSONObject.toString()) %>" data-returnType="<%= HtmlUtil.escapeAttribute(ItemSelectorRepositoryEntryBrowserUtil.getItemSelectorReturnTypeClassName(itemSelectorReturnTypeResolver, existingFileEntryReturnType)) %>" data-title="<%= HtmlUtil.escapeAttribute(title) %>" data-url="<%= HtmlUtil.escapeAttribute(DLUtil.getPreviewURL(fileEntry, latestFileVersion, themeDisplay, StringPool.BLANK)) %>" data-value="<%= HtmlUtil.escapeAttribute(ItemSelectorRepositoryEntryBrowserUtil.getValue(itemSelectorReturnTypeResolver, existingFileEntryReturnType, fileEntry, themeDisplay)) %>">
+>>>>>>> compatible
 											<liferay-ui:app-view-entry
 												assetCategoryClassName="<%= DLFileEntry.class.getName() %>"
 												assetCategoryClassPK="<%= fileEntry.getFileEntryId() %>"
@@ -513,7 +570,11 @@ if (Validator.isNotNull(keywords)) {
 			<liferay-ui:search-iterator displayStyle="<%= displayStyle %>" markupView="lexicon" resultRowSplitter="<%= new RepositoryEntryResultRowSplitter() %>" searchContainer="<%= searchContainer %>" />
 		</liferay-ui:search-container>
 
+<<<<<<< HEAD
 		<c:if test="<%= !showSearchInfo && (uploadURL != null) %>">
+=======
+		<c:if test="<%= !showSearchInfo %>">
+>>>>>>> compatible
 			<liferay-ui:drop-here-info message="drop-files-here" />
 		</c:if>
 	</c:if>
@@ -545,8 +606,12 @@ if (Validator.isNotNull(keywords)) {
 					Liferay.Util.getOpener().Liferay.fire('<%= itemSelectedEventName %>', event);
 				}
 			},
+<<<<<<< HEAD
 			rootNode: '#<%= randomNamespace %>ItemSelectorContainer',
 			validExtensions: '<%= ListUtil.isEmpty(extensions) ? "*" : StringUtil.merge(extensions) %>'
+=======
+			rootNode: '#<%= randomNamespace %>ItemSelectorContainer'
+>>>>>>> compatible
 
 			<c:if test="<%= uploadURL != null %>">
 

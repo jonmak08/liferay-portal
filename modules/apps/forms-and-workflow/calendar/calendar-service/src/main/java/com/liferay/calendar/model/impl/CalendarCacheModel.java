@@ -21,6 +21,10 @@ import com.liferay.calendar.model.Calendar;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.io.Externalizable;
 import java.io.IOException;
@@ -64,7 +68,11 @@ public class CalendarCacheModel implements CacheModel<Calendar>, Externalizable 
 
 	@Override
 	public String toString() {
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(35);
+=======
+		StringBundler sb = new StringBundler(37);
+>>>>>>> compatible
 
 		sb.append("{uuid=");
 		sb.append(uuid);
@@ -82,6 +90,11 @@ public class CalendarCacheModel implements CacheModel<Calendar>, Externalizable 
 		sb.append(createDate);
 		sb.append(", modifiedDate=");
 		sb.append(modifiedDate);
+<<<<<<< HEAD
+=======
+		sb.append(", resourceBlockId=");
+		sb.append(resourceBlockId);
+>>>>>>> compatible
 		sb.append(", calendarResourceId=");
 		sb.append(calendarResourceId);
 		sb.append(", name=");
@@ -110,7 +123,11 @@ public class CalendarCacheModel implements CacheModel<Calendar>, Externalizable 
 		CalendarImpl calendarImpl = new CalendarImpl();
 
 		if (uuid == null) {
+<<<<<<< HEAD
 			calendarImpl.setUuid("");
+=======
+			calendarImpl.setUuid(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			calendarImpl.setUuid(uuid);
@@ -122,7 +139,11 @@ public class CalendarCacheModel implements CacheModel<Calendar>, Externalizable 
 		calendarImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			calendarImpl.setUserName("");
+=======
+			calendarImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			calendarImpl.setUserName(userName);
@@ -142,24 +163,40 @@ public class CalendarCacheModel implements CacheModel<Calendar>, Externalizable 
 			calendarImpl.setModifiedDate(new Date(modifiedDate));
 		}
 
+<<<<<<< HEAD
 		calendarImpl.setCalendarResourceId(calendarResourceId);
 
 		if (name == null) {
 			calendarImpl.setName("");
+=======
+		calendarImpl.setResourceBlockId(resourceBlockId);
+		calendarImpl.setCalendarResourceId(calendarResourceId);
+
+		if (name == null) {
+			calendarImpl.setName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			calendarImpl.setName(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			calendarImpl.setDescription("");
+=======
+			calendarImpl.setDescription(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			calendarImpl.setDescription(description);
 		}
 
 		if (timeZoneId == null) {
+<<<<<<< HEAD
 			calendarImpl.setTimeZoneId("");
+=======
+			calendarImpl.setTimeZoneId(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			calendarImpl.setTimeZoneId(timeZoneId);
@@ -197,6 +234,11 @@ public class CalendarCacheModel implements CacheModel<Calendar>, Externalizable 
 		createDate = objectInput.readLong();
 		modifiedDate = objectInput.readLong();
 
+<<<<<<< HEAD
+=======
+		resourceBlockId = objectInput.readLong();
+
+>>>>>>> compatible
 		calendarResourceId = objectInput.readLong();
 		name = objectInput.readUTF();
 		description = objectInput.readUTF();
@@ -216,7 +258,11 @@ public class CalendarCacheModel implements CacheModel<Calendar>, Externalizable 
 	public void writeExternal(ObjectOutput objectOutput)
 		throws IOException {
 		if (uuid == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(uuid);
@@ -231,7 +277,11 @@ public class CalendarCacheModel implements CacheModel<Calendar>, Externalizable 
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -240,24 +290,41 @@ public class CalendarCacheModel implements CacheModel<Calendar>, Externalizable 
 		objectOutput.writeLong(createDate);
 		objectOutput.writeLong(modifiedDate);
 
+<<<<<<< HEAD
 		objectOutput.writeLong(calendarResourceId);
 
 		if (name == null) {
 			objectOutput.writeUTF("");
+=======
+		objectOutput.writeLong(resourceBlockId);
+
+		objectOutput.writeLong(calendarResourceId);
+
+		if (name == null) {
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(name);
 		}
 
 		if (description == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(description);
 		}
 
 		if (timeZoneId == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(timeZoneId);
@@ -281,6 +348,10 @@ public class CalendarCacheModel implements CacheModel<Calendar>, Externalizable 
 	public String userName;
 	public long createDate;
 	public long modifiedDate;
+<<<<<<< HEAD
+=======
+	public long resourceBlockId;
+>>>>>>> compatible
 	public long calendarResourceId;
 	public String name;
 	public String description;

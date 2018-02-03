@@ -20,7 +20,10 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.service.configuration.configurator.ServiceConfigurator;
 import com.liferay.portal.kernel.util.ArrayUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.spring.bean.BeanReferenceRefreshUtil;
 import com.liferay.portal.spring.extender.internal.bean.ApplicationContextServicePublisher;
 import com.liferay.portal.spring.extender.internal.bundle.CompositeResourceLoaderBundle;
@@ -151,10 +154,16 @@ public class ModuleApplicationContextRegistrator {
 		}
 		catch (Exception e) {
 			_log.error(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Unable to refresh ", applicationContext.getDisplayName(),
 					". This may result in memory leaks on multiple ",
 					"redeployments."));
+=======
+				"Unable to refresh " + applicationContext.getDisplayName() +
+					". This may result in memory leaks on multiple " +
+						"redeployments.");
+>>>>>>> compatible
 		}
 	}
 

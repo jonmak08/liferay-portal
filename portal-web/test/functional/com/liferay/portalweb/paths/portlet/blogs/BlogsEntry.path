@@ -135,12 +135,20 @@
 </tr>
 <tr>
 	<td>FLAG_LINK</td>
+<<<<<<< HEAD
 	<td>//div[contains(@class,'taglib-flags')]//button[contains(@class,'btn-link')]</td>
+=======
+	<td>//div[contains(@class,'taglib-flags')]//span[contains(@class,'taglib-text')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>FLAG_MODAL</td>
+<<<<<<< HEAD
 	<td>//section[contains(@class,'modal-body')]/form[contains(@name,'flagsForm')]</td>
+=======
+	<td>//div[contains(@class,'modal-body')]/div/form[contains(@id,'flagsForm')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>

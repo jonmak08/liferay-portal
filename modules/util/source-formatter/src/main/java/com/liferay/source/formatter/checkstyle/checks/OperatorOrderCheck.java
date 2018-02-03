@@ -16,13 +16,21 @@ package com.liferay.source.formatter.checkstyle.checks;
 
 import com.liferay.portal.kernel.util.ArrayUtil;
 
+<<<<<<< HEAD
+=======
+import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
+>>>>>>> compatible
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 
 /**
  * @author Hugo Huijser
  */
+<<<<<<< HEAD
 public class OperatorOrderCheck extends BaseCheck {
+=======
+public class OperatorOrderCheck extends AbstractCheck {
+>>>>>>> compatible
 
 	@Override
 	public int[] getDefaultTokens() {
@@ -33,7 +41,11 @@ public class OperatorOrderCheck extends BaseCheck {
 	}
 
 	@Override
+<<<<<<< HEAD
 	protected void doVisitToken(DetailAST detailAST) {
+=======
+	public void visitToken(DetailAST detailAST) {
+>>>>>>> compatible
 		DetailAST firstChild = detailAST.getFirstChild();
 
 		if (!ArrayUtil.contains(_LITERAL_OR_NUM_TYPES, firstChild.getType())) {

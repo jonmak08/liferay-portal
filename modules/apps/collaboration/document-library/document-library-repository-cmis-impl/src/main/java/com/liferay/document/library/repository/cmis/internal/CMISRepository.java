@@ -33,7 +33,10 @@ import com.liferay.document.library.repository.cmis.internal.model.CMISFileEntry
 import com.liferay.document.library.repository.cmis.internal.model.CMISFileVersion;
 import com.liferay.document.library.repository.cmis.internal.model.CMISFolder;
 import com.liferay.document.library.repository.cmis.search.CMISSearchQueryBuilder;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.NoSuchRepositoryEntryException;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -59,12 +62,20 @@ import com.liferay.portal.kernel.search.QueryConfig;
 import com.liferay.portal.kernel.search.SearchContext;
 import com.liferay.portal.kernel.search.SearchException;
 import com.liferay.portal.kernel.security.auth.PrincipalException;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.security.auth.PrincipalThreadLocal;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.RepositoryEntryLocalServiceUtil;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.kernel.util.Validator;
@@ -584,9 +595,14 @@ public class CMISRepository extends BaseCmisRepository {
 		}
 		catch (CmisObjectNotFoundException confe) {
 			throw new NoSuchFileEntryException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"No CMIS file entry with {folderId=",
 					String.valueOf(folderId), ", title=", title, "}"),
+=======
+				"No CMIS file entry with {folderId=" + folderId + ", title=" +
+					title + "}",
+>>>>>>> compatible
 				confe);
 		}
 		catch (PortalException | SystemException e) {
@@ -599,9 +615,14 @@ public class CMISRepository extends BaseCmisRepository {
 		}
 
 		throw new NoSuchFileEntryException(
+<<<<<<< HEAD
 			StringBundler.concat(
 				"No CMIS file entry with {folderId=", String.valueOf(folderId),
 				", title=", title, "}"));
+=======
+			"No CMIS file entry with {folderId=" + folderId + ", title=" +
+				title + "}");
+>>>>>>> compatible
 	}
 
 	@Override
@@ -694,9 +715,14 @@ public class CMISRepository extends BaseCmisRepository {
 		}
 		catch (CmisObjectNotFoundException confe) {
 			throw new NoSuchFolderException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"No CMIS folder with {parentFolderId=",
 					String.valueOf(parentFolderId), ", name=", name, "}"),
+=======
+				"No CMIS folder with {parentFolderId=" + parentFolderId +
+					", name=" + name + "}",
+>>>>>>> compatible
 				confe);
 		}
 		catch (PortalException | SystemException e) {
@@ -709,9 +735,14 @@ public class CMISRepository extends BaseCmisRepository {
 		}
 
 		throw new NoSuchFolderException(
+<<<<<<< HEAD
 			StringBundler.concat(
 				"No CMIS folder with {parentFolderId=",
 				String.valueOf(parentFolderId), ", name=", name, "}"));
+=======
+			"No CMIS folder with {parentFolderId=" + parentFolderId +
+				", name=" + name + "}");
+>>>>>>> compatible
 	}
 
 	@Override
@@ -965,9 +996,14 @@ public class CMISRepository extends BaseCmisRepository {
 			processException(e);
 
 			throw new RepositoryException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Unable to initialize CMIS session for repository with ",
 					"{repositoryId=", String.valueOf(getRepositoryId()), "}"),
+=======
+				"Unable to initialize CMIS session for repository with " +
+					"{repositoryId=" + getRepositoryId() + "}",
+>>>>>>> compatible
 				e);
 		}
 	}
@@ -2124,10 +2160,15 @@ public class CMISRepository extends BaseCmisRepository {
 	}
 
 	protected void processException(Exception e) throws PortalException {
+<<<<<<< HEAD
 		String message = e.getMessage();
 
 		if ((e instanceof CmisRuntimeException &&
 			 message.contains("authorized")) ||
+=======
+		if ((e instanceof CmisRuntimeException &&
+			 e.getMessage().contains("authorized")) ||
+>>>>>>> compatible
 			(e instanceof CmisPermissionDeniedException)) {
 
 			String login = null;
@@ -2169,9 +2210,47 @@ public class CMISRepository extends BaseCmisRepository {
 			repositoryEntry = getRepositoryEntry(document.getId());
 		}
 
+<<<<<<< HEAD
 		return new CMISFileEntry(
 			this, repositoryEntry.getUuid(),
 			repositoryEntry.getRepositoryEntryId(), document, _lockManager);
+=======
+		FileEntry fileEntry = new CMISFileEntry(
+			this, repositoryEntry.getUuid(),
+			repositoryEntry.getRepositoryEntryId(), document, _lockManager);
+
+		FileVersion fileVersion = null;
+
+		try {
+			fileVersion = fileEntry.getFileVersion();
+		}
+		catch (Exception e) {
+			if (strict) {
+				if (e instanceof CmisObjectNotFoundException) {
+					throw new NoSuchFileVersionException(
+						"No CMIS file version with CMIS file entry {objectId=" +
+							document.getId() + "}",
+						e);
+				}
+				else if (e instanceof SystemException) {
+					throw (SystemException)e;
+				}
+				else {
+					processException(e);
+
+					throw new RepositoryException(e);
+				}
+			}
+			else {
+				_log.error("Unable to update asset", e);
+			}
+		}
+
+		dlAppHelperLocalService.checkAssetEntry(
+			PrincipalThreadLocal.getUserId(), fileEntry, fileVersion);
+
+		return fileEntry;
+>>>>>>> compatible
 	}
 
 	protected FileEntry toFileEntry(String objectId, boolean strict)

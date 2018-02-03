@@ -19,12 +19,19 @@ import com.liferay.dynamic.data.mapping.annotations.DDMFormField;
 import com.liferay.dynamic.data.mapping.model.DDMFormFieldOptions;
 import com.liferay.dynamic.data.mapping.model.DDMFormFieldValidation;
 import com.liferay.dynamic.data.mapping.model.LocalizedValue;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.util.AggregateResourceBundle;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.PortalClassLoaderUtil;
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 
@@ -36,7 +43,10 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.MissingResourceException;
+<<<<<<< HEAD
 import java.util.Objects;
+=======
+>>>>>>> compatible
 import java.util.ResourceBundle;
 import java.util.Set;
 
@@ -84,6 +94,7 @@ public class DDMFormFieldFactoryHelper {
 		ddmFormField.setVisibilityExpression(
 			getDDMFormFieldVisibilityExpression());
 
+<<<<<<< HEAD
 		if (Objects.equals(type, "fieldset")) {
 			com.liferay.dynamic.data.mapping.model.DDMForm nestedDDMForm =
 				_getNestedDDMForm();
@@ -92,6 +103,8 @@ public class DDMFormFieldFactoryHelper {
 				nestedDDMForm.getDDMFormFields());
 		}
 
+=======
+>>>>>>> compatible
 		return ddmFormField;
 	}
 
@@ -152,10 +165,17 @@ public class DDMFormFieldFactoryHelper {
 			return _ddmFormField.dataType();
 		}
 
+<<<<<<< HEAD
 		Class<?> returnType = _getReturnType();
 
 		if (returnType.isAnnotationPresent(DDMForm.class)) {
 			return StringPool.BLANK;
+=======
+		Class<?> returnType = _method.getReturnType();
+
+		if (returnType.isArray()) {
+			returnType = returnType.getComponentType();
+>>>>>>> compatible
 		}
 
 		if (returnType.isAssignableFrom(boolean.class) ||
@@ -264,11 +284,15 @@ public class DDMFormFieldFactoryHelper {
 			return _ddmFormField.type();
 		}
 
+<<<<<<< HEAD
 		Class<?> returnType = _getReturnType();
 
 		if (returnType.isAnnotationPresent(DDMForm.class)) {
 			return "fieldset";
 		}
+=======
+		Class<?> returnType = _method.getReturnType();
+>>>>>>> compatible
 
 		if (returnType.isAssignableFrom(boolean.class) ||
 			returnType.isAssignableFrom(Boolean.class)) {
@@ -425,6 +449,7 @@ public class DDMFormFieldFactoryHelper {
 		_defaultLocale = defaultLocale;
 	}
 
+<<<<<<< HEAD
 	private com.liferay.dynamic.data.mapping.model.DDMForm _getNestedDDMForm() {
 		Class<?> returnType = _getReturnType();
 
@@ -441,6 +466,8 @@ public class DDMFormFieldFactoryHelper {
 		return returnType;
 	}
 
+=======
+>>>>>>> compatible
 	private Set<Locale> _availableLocales;
 	private final DDMFormField _ddmFormField;
 	private Locale _defaultLocale;

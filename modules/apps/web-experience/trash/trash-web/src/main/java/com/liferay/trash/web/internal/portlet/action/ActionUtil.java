@@ -15,8 +15,13 @@
 package com.liferay.trash.web.internal.portlet.action;
 
 import com.liferay.portal.kernel.util.ParamUtil;
+<<<<<<< HEAD
 import com.liferay.trash.model.TrashEntry;
 import com.liferay.trash.service.TrashEntryLocalServiceUtil;
+=======
+import com.liferay.trash.kernel.model.TrashEntry;
+import com.liferay.trash.kernel.service.TrashEntryLocalServiceUtil;
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.List;

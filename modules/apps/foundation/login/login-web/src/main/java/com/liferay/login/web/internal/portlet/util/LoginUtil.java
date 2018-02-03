@@ -14,8 +14,12 @@
 
 package com.liferay.login.web.internal.portlet.util;
 
+<<<<<<< HEAD
 import com.liferay.login.web.internal.constants.LoginPortletKeys;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.login.web.constants.LoginPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.model.Company;
@@ -31,6 +35,10 @@ import com.liferay.portal.kernel.util.CookieKeys;
 import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.util.PropsValues;
@@ -153,11 +161,17 @@ public class LoginUtil {
 		if ((login == null) || login.equals(StringPool.NULL)) {
 			login = CookieKeys.getCookie(request, CookieKeys.LOGIN, false);
 
+<<<<<<< HEAD
 			String authType = company.getAuthType();
 
 			if (PropsValues.COMPANY_LOGIN_PREPOPULATE_DOMAIN &&
 				Validator.isNull(login) &&
 				authType.equals(CompanyConstants.AUTH_TYPE_EA)) {
+=======
+			if (PropsValues.COMPANY_LOGIN_PREPOPULATE_DOMAIN &&
+				Validator.isNull(login) &&
+				company.getAuthType().equals(CompanyConstants.AUTH_TYPE_EA)) {
+>>>>>>> compatible
 
 				login = "@".concat(company.getMx());
 			}

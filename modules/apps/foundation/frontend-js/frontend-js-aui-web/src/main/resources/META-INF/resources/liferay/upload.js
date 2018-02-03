@@ -38,12 +38,20 @@ AUI.add(
 									'</div>',
 									'<div class="card-col-field delete-button-col">',
 										'<a class="delete-button lfr-button" href="javascript:;" id="{id}deleteButton" title="{[ this.strings.deleteFileText ]}">',
+<<<<<<< HEAD
 											'<svg class="lexicon-icon" focusable="false"><use data-href="' + Liferay.ThemeDisplay.getPathThemeImages() + '/lexicon/icons.svg#times" /><title>{[ this.strings.deleteFileText ]}</title></svg>',
+=======
+											'<svg class="lexicon-icon" focusable="false"><use data-href="' + Liferay.ThemeDisplay.getPathThemeImages() + '/lexicon/icons.svg#times" /></svg>',
+>>>>>>> compatible
 										'</a>',
 									'</div>',
 
 									'<a class="cancel-button lfr-button" href="javascript:;" id="{id}cancelButton">',
+<<<<<<< HEAD
 										'<svg class="lexicon-icon" focusable="false"><use data-href="' + Liferay.ThemeDisplay.getPathThemeImages() + '/lexicon/icons.svg#times" /><title>{[ this.strings.cancelFileText ]}</title></svg>',
+=======
+										'<svg class="lexicon-icon" focusable="false"><use data-href="' + Liferay.ThemeDisplay.getPathThemeImages() + '/lexicon/icons.svg#times" /></svg>',
+>>>>>>> compatible
 										'<span class="cancel-button-text">{[ this.strings.cancelFileText ]}</span>',
 									'</a>',
 								'</div>',
@@ -216,11 +224,14 @@ AUI.add(
 						value: true
 					},
 
+<<<<<<< HEAD
 					rootElement: {
 						setter: A.one,
 						value: null
 					},
 
+=======
+>>>>>>> compatible
 					simultaneousUploads: {
 						validator: Lang.isNumber,
 						value: 2
@@ -350,9 +361,13 @@ AUI.add(
 						uploader.on('uploadcomplete', instance._onUploadComplete, instance);
 						uploader.on('uploadprogress', instance._onUploadProgress, instance);
 
+<<<<<<< HEAD
 						var rootElement = instance.get('rootElement');
 
 						var docElement = rootElement ? rootElement : A.getDoc().get('documentElement');
+=======
+						var docElement = A.getDoc().get('documentElement');
+>>>>>>> compatible
 
 						docElement.on('drop', instance._handleDrop, instance);
 

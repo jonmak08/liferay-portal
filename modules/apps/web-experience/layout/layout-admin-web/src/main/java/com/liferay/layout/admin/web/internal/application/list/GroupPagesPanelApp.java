@@ -14,12 +14,28 @@
 
 package com.liferay.layout.admin.web.internal.application.list;
 
+<<<<<<< HEAD
 import com.liferay.application.list.BasePanelApp;
 import com.liferay.application.list.PanelApp;
 import com.liferay.application.list.constants.PanelCategoryKeys;
 import com.liferay.layout.admin.constants.LayoutAdminPortletKeys;
 import com.liferay.portal.kernel.model.Portlet;
 
+=======
+import com.liferay.application.list.BaseJSPPanelApp;
+import com.liferay.application.list.PanelApp;
+import com.liferay.application.list.constants.ApplicationListWebKeys;
+import com.liferay.application.list.constants.PanelCategoryKeys;
+import com.liferay.layout.admin.web.internal.constants.LayoutAdminPortletKeys;
+import com.liferay.portal.kernel.model.Portlet;
+
+import java.io.IOException;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+>>>>>>> compatible
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
@@ -34,7 +50,16 @@ import org.osgi.service.component.annotations.Reference;
 	},
 	service = PanelApp.class
 )
+<<<<<<< HEAD
 public class GroupPagesPanelApp extends BasePanelApp {
+=======
+public class GroupPagesPanelApp extends BaseJSPPanelApp {
+
+	@Override
+	public String getJspPath() {
+		return "/panel/app/layouts_tree.jsp";
+	}
+>>>>>>> compatible
 
 	@Override
 	public String getPortletId() {
@@ -42,6 +67,20 @@ public class GroupPagesPanelApp extends BasePanelApp {
 	}
 
 	@Override
+<<<<<<< HEAD
+=======
+	public boolean include(
+			HttpServletRequest request, HttpServletResponse response)
+		throws IOException {
+
+		request.setAttribute(
+			ApplicationListWebKeys.GROUP_PROVIDER, groupProvider);
+
+		return super.include(request, response);
+	}
+
+	@Override
+>>>>>>> compatible
 	@Reference(
 		target = "(javax.portlet.name=" + LayoutAdminPortletKeys.GROUP_PAGES + ")",
 		unbind = "-"
@@ -50,4 +89,16 @@ public class GroupPagesPanelApp extends BasePanelApp {
 		super.setPortlet(portlet);
 	}
 
+<<<<<<< HEAD
+=======
+	@Override
+	@Reference(
+		target = "(osgi.web.symbolicname=com.liferay.layout.admin.web)",
+		unbind = "-"
+	)
+	public void setServletContext(ServletContext servletContext) {
+		super.setServletContext(servletContext);
+	}
+
+>>>>>>> compatible
 }

@@ -33,9 +33,13 @@ if (Validator.isNotNull(categoryPropertiesIndexesParam)) {
 	categoryPropertiesIndexes = StringUtil.split(categoryPropertiesIndexesParam, 0);
 
 	for (int categoryPropertiesIndex : categoryPropertiesIndexes) {
+<<<<<<< HEAD
 		AssetCategoryProperty assetCategoryProperty = AssetCategoryPropertyLocalServiceUtil.createAssetCategoryProperty(0);
 
 		categoryProperties.add(assetCategoryProperty);
+=======
+		categoryProperties.add(new AssetCategoryPropertyImpl());
+>>>>>>> compatible
 	}
 }
 else {
@@ -52,9 +56,13 @@ else {
 	if (categoryProperties.isEmpty()) {
 		categoryProperties = new ArrayList<AssetCategoryProperty>();
 
+<<<<<<< HEAD
 		AssetCategoryProperty assetCategoryProperty = AssetCategoryPropertyLocalServiceUtil.createAssetCategoryProperty(0);
 
 		categoryProperties.add(assetCategoryProperty);
+=======
+		categoryProperties.add(new AssetCategoryPropertyImpl());
+>>>>>>> compatible
 
 		categoryPropertiesIndexes = new int[] {0};
 	}
@@ -63,6 +71,7 @@ else {
 		categoryPropertiesIndexes = new int[0];
 	}
 }
+<<<<<<< HEAD
 
 String redirect = ParamUtil.getString(request, "redirect", assetCategoriesDisplayContext.getEditCategoryRedirect());
 
@@ -122,6 +131,39 @@ long vocabularyId = ParamUtil.getLong(request, "vocabularyId");
 		<aui:button href="<%= redirect %>" type="cancel" />
 	</aui:button-row>
 </aui:form>
+=======
+%>
+
+<div id="<portlet:namespace />categoryPropertiesId">
+	<p class="text-muted">
+		<liferay-ui:message key="properties-are-a-way-to-add-more-detailed-information-to-a-specific-category" />
+	</p>
+
+	<%
+	for (int i = 0; i < categoryPropertiesIndexes.length; i++) {
+		int categoryPropertiesIndex = categoryPropertiesIndexes[i];
+
+		AssetCategoryProperty categoryProperty = categoryProperties.get(i);
+	%>
+
+		<aui:model-context bean="<%= categoryProperty %>" model="<%= AssetCategoryProperty.class %>" />
+
+		<div class="lfr-form-row lfr-form-row-inline">
+			<div class="row-fields">
+				<aui:input fieldParam='<%= "key" + categoryPropertiesIndex %>' id='<%= "key" + categoryPropertiesIndex %>' name="key" />
+
+				<aui:input fieldParam='<%= "value" + categoryPropertiesIndex %>' id='<%= "value" + categoryPropertiesIndex %>' name="value" />
+			</div>
+		</div>
+
+	<%
+	}
+	%>
+
+</div>
+
+<aui:input name="categoryPropertiesIndexes" type="hidden" value="<%= StringUtil.merge(categoryPropertiesIndexes) %>" />
+>>>>>>> compatible
 
 <aui:script use="liferay-auto-fields">
 	var autoFields = new Liferay.AutoFields(

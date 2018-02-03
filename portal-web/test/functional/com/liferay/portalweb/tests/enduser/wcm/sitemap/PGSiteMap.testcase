@@ -8,9 +8,13 @@
 
 		<execute macro="User#firstLoginPG" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Sites" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+>>>>>>> compatible
 			<var name="portlet" value="Sites" />
 		</execute>
 
@@ -18,6 +22,7 @@
 			<var name="siteName" value="Site Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -31,6 +36,31 @@
 		<execute macro="SitePages#addPrivateChildPage">
 			<var name="childPageName" value="Child Page Name" />
 			<var name="parentPageName" value="Site Page Name" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelSites">
+			<var name="portlet" value="Sites" />
+		</execute>
+
+		<execute macro="Page#add">
+			<var name="pageName" value="Site Page Name" />
+			<var name="siteName" value="Site Name" />
+			<var name="sitePagePrivacy" value="Private" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoControlPanelSites">
+			<var name="portlet" value="Sites" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoControlPanelSites">
+			<var name="portlet" value="Sites" />
+		</execute>
+
+		<execute macro="Page#addChild">
+			<var name="page" value="Private Pages" />
+			<var name="pageName" value="Site Page Name" />
+			<var name="siteChildPageName" value="Child Page Name" />
+			<var name="siteName" value="Site Name" />
+>>>>>>> compatible
 		</execute>
 	</set-up>
 
@@ -51,11 +81,14 @@
 	</tear-down>
 
 	<command name="DisplayPrivatePageWithChildPage" priority="4">
+<<<<<<< HEAD
 		<execute macro="Navigator#gotoPrivateSitePage">
 			<var name="pageName" value="Child Page Name" />
 			<var name="siteName" value="Site Name" />
 		</execute>
 
+=======
+>>>>>>> compatible
 		<execute macro="Portlet#addPG">
 			<var name="portletName" value="Site Map" />
 		</execute>

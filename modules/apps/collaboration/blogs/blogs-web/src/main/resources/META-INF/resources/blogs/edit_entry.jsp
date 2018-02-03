@@ -28,7 +28,10 @@ long entryId = BeanParamUtil.getLong(entry, request, "entryId");
 String title = BeanParamUtil.getString(entry, request, "title");
 String subtitle = BeanParamUtil.getString(entry, request, "subtitle");
 String content = BeanParamUtil.getString(entry, request, "content");
+<<<<<<< HEAD
 String urlTitle = BeanParamUtil.getString(entry, request, "urlTitle");
+=======
+>>>>>>> compatible
 
 String description = BeanParamUtil.getString(entry, request, "description");
 
@@ -50,11 +53,16 @@ portletDisplay.setURLBack(redirect);
 boolean portletTitleBasedNavigation = GetterUtil.getBoolean(portletConfig.getInitParameter("portlet-title-based-navigation"));
 
 if (portletTitleBasedNavigation) {
+<<<<<<< HEAD
 	renderResponse.setTitle((entry != null) ? BlogsEntryUtil.getDisplayTitle(resourceBundle, entry) : LanguageUtil.get(request, "new-blog-entry"));
+=======
+	renderResponse.setTitle((entry != null) ? entry.getTitle() : LanguageUtil.get(request, "new-blog-entry"));
+>>>>>>> compatible
 }
 %>
 
 <liferay-util:buffer var="saveStatus">
+<<<<<<< HEAD
 	<c:choose>
 		<c:when test="<%= entry != null %>">
 			<small class="text-capitalize text-muted" id="<portlet:namespace />saveStatus">
@@ -81,12 +89,30 @@ if (portletTitleBasedNavigation) {
 	<liferay-frontend:info-bar fixed="<%= true %>">
 		<%= saveStatus %>
 		<%= readingTime %>
+=======
+	<small class="text-capitalize text-muted" id="<portlet:namespace />saveStatus">
+		<c:if test="<%= entry != null %>">
+			<aui:workflow-status markupView="lexicon" showHelpMessage="<%= false %>" showIcon="<%= false %>" showLabel="<%= false %>" status="<%= entry.getStatus() %>" />
+
+			<liferay-ui:message arguments="<%= LanguageUtil.getTimeDescription(request, System.currentTimeMillis() - entry.getStatusDate().getTime(), true) %>" key="x-ago" translateArguments="<%= false %>" />
+		</c:if>
+	</small>
+</liferay-util:buffer>
+
+<c:if test="<%= portletTitleBasedNavigation %>">
+	<liferay-frontend:info-bar>
+		<%= saveStatus %>
+>>>>>>> compatible
 	</liferay-frontend:info-bar>
 </c:if>
 
 <portlet:actionURL name="/blogs/edit_entry" var="editEntryURL" />
 
+<<<<<<< HEAD
 <div class="container-fluid-1280 entry-body">
+=======
+<div class="container-fluid-1280">
+>>>>>>> compatible
 	<aui:form action="<%= editEntryURL %>" cssClass="edit-entry" enctype="multipart/form-data" method="post" name="fm" onSubmit="event.preventDefault();">
 		<aui:input name="<%= Constants.CMD %>" type="hidden" />
 		<aui:input name="redirect" type="hidden" value="<%= redirect %>" />
@@ -98,23 +124,33 @@ if (portletTitleBasedNavigation) {
 			<div class="entry-options">
 				<div class="status">
 					<%= saveStatus %>
+<<<<<<< HEAD
 					<%= readingTime %>
+=======
+>>>>>>> compatible
 				</div>
 			</div>
 		</c:if>
 
 		<div class="lfr-form-content">
+<<<<<<< HEAD
 			<liferay-ui:error exception="<%= DuplicateFriendlyURLEntryException.class %>" message="the-url-title-is-already-in-use-please-enter-a-unique-url-title" />
+=======
+>>>>>>> compatible
 			<liferay-ui:error exception="<%= EntryContentException.class %>" message="please-enter-valid-content" />
 			<liferay-ui:error exception="<%= EntryCoverImageCropException.class %>" message="an-error-occurred-while-cropping-the-cover-image" />
 			<liferay-ui:error exception="<%= EntryDescriptionException.class %>" message="please-enter-a-valid-abstract" />
 			<liferay-ui:error exception="<%= EntryTitleException.class %>" message="please-enter-a-valid-title" />
+<<<<<<< HEAD
 			<liferay-ui:error exception="<%= EntryUrlTitleException.class %>" message="please-enter-a-valid-url-title" />
+=======
+>>>>>>> compatible
 
 			<liferay-ui:error exception="<%= LiferayFileItemException.class %>">
 				<liferay-ui:message arguments="<%= TextFormatter.formatStorageSize(LiferayFileItem.THRESHOLD_SIZE, locale) %>" key="please-enter-valid-content-with-valid-content-size-no-larger-than-x" translateArguments="<%= false %>" />
 			</liferay-ui:error>
 
+<<<<<<< HEAD
 			<liferay-ui:error exception="<%= FileSizeException.class %>">
 				<liferay-ui:message arguments="<%= TextFormatter.formatStorageSize(DLValidatorUtil.getMaxAllowableSize(), locale) %>" key="please-enter-a-file-with-a-valid-file-size-no-larger-than-x" translateArguments="<%= false %>" />
 			</liferay-ui:error>
@@ -126,6 +162,32 @@ if (portletTitleBasedNavigation) {
 			<liferay-asset:asset-categories-error />
 
 			<liferay-asset:asset-tags-error />
+=======
+			<%
+			long uploadServletRequestImplMaxSize = PrefsPropsUtil.getLong(PropsKeys.UPLOAD_SERVLET_REQUEST_IMPL_MAX_SIZE);
+			%>
+
+			<liferay-ui:error exception="<%= FileSizeException.class %>">
+
+				<%
+				long fileMaxSize = PrefsPropsUtil.getLong(PropsKeys.DL_FILE_MAX_SIZE);
+
+				if (fileMaxSize == 0) {
+					fileMaxSize = uploadServletRequestImplMaxSize;
+				}
+				%>
+
+				<liferay-ui:message arguments="<%= TextFormatter.formatStorageSize(fileMaxSize, locale) %>" key="please-enter-a-file-with-a-valid-file-size-no-larger-than-x" translateArguments="<%= false %>" />
+			</liferay-ui:error>
+
+			<liferay-ui:error exception="<%= UploadRequestSizeException.class %>">
+				<liferay-ui:message arguments="<%= TextFormatter.formatStorageSize(uploadServletRequestImplMaxSize, locale) %>" key="request-is-larger-than-x-and-could-not-be-processed" translateArguments="<%= false %>" />
+			</liferay-ui:error>
+
+			<liferay-ui:asset-categories-error />
+
+			<liferay-ui:asset-tags-error />
+>>>>>>> compatible
 
 			<aui:model-context bean="<%= entry %>" model="<%= BlogsEntry.class %>" />
 
@@ -159,7 +221,11 @@ if (portletTitleBasedNavigation) {
 					<div class="col-md-8 col-md-offset-2">
 						<div class="entry-title form-group">
 							<h1>
+<<<<<<< HEAD
 								<liferay-ui:input-editor contents="<%= HtmlUtil.escape(title) %>" editorName="alloyeditor" name="titleEditor" onChangeMethod="OnChangeTitle" placeholder="title" showSource="<%= false %>" />
+=======
+								<liferay-ui:input-editor contents="<%= HtmlUtil.escape(title) %>" editorName="alloyeditor" name="titleEditor" placeholder="title" showSource="<%= false %>" />
+>>>>>>> compatible
 							</h1>
 						</div>
 
@@ -182,6 +248,7 @@ if (portletTitleBasedNavigation) {
 				</aui:fieldset>
 
 				<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="categorization">
+<<<<<<< HEAD
 					<liferay-asset:asset-categories-selector className="<%= BlogsEntry.class.getName() %>" classPK="<%= entryId %>" />
 
 					<liferay-asset:asset-tags-selector className="<%= BlogsEntry.class.getName() %>" classPK="<%= entryId %>" />
@@ -189,12 +256,22 @@ if (portletTitleBasedNavigation) {
 
 				<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="related-assets">
 					<liferay-asset:input-asset-links
+=======
+					<aui:input name="categories" type="assetCategories" />
+
+					<aui:input name="tags" type="assetTags" />
+				</aui:fieldset>
+
+				<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="related-assets">
+					<liferay-ui:input-asset-links
+>>>>>>> compatible
 						className="<%= BlogsEntry.class.getName() %>"
 						classPK="<%= entryId %>"
 					/>
 				</aui:fieldset>
 
 				<aui:fieldset collapsed="<%= true %>" collapsible="<%= true %>" label="configuration">
+<<<<<<< HEAD
 
 					<%
 					Portlet portlet = PortletLocalServiceUtil.getPortletById(BlogsPortletKeys.BLOGS);
@@ -230,6 +307,8 @@ if (portletTitleBasedNavigation) {
 						<aui:input cssClass="input-medium" disabled="<%= automaticURL %>" helpMessage='<%= LanguageUtil.format(resourceBundle, "for-example-x", "<em>one-day-in-the-life-of-marion-cotillard</em>") %>' ignoreRequestValue="<%= true %>" label="blog-entry-url" name="urlTitle" prefix="<%= friendlyURLPrefix %>" type="text" value="<%= urlTitle %>" />
 					</div>
 
+=======
+>>>>>>> compatible
 					<div class="clearfix form-group">
 						<label><liferay-ui:message key="abstract" /> <liferay-ui:icon-help message="an-abstract-is-a-brief-summary-of-a-blog-entry" /></label>
 
@@ -372,11 +451,19 @@ if (portletTitleBasedNavigation) {
 				</div>
 			</c:if>
 
+<<<<<<< HEAD
 			<aui:button disabled="<%= pending %>" name="publishButton" type="submit" value="<%= publishButtonLabel %>" />
 
 			<aui:button name="saveButton" primary="<%= false %>" type="submit" value="<%= saveButtonLabel %>" />
 
 			<aui:button href="<%= redirect %>" name="cancelButton" type="cancel" />
+=======
+			<aui:button cssClass="btn-lg" disabled="<%= pending %>" name="publishButton" type="submit" value="<%= publishButtonLabel %>" />
+
+			<aui:button cssClass="btn-lg" name="saveButton" primary="<%= false %>" type="submit" value="<%= saveButtonLabel %>" />
+
+			<aui:button cssClass="btn-lg" href="<%= redirect %>" name="cancelButton" type="cancel" />
+>>>>>>> compatible
 		</aui:button-row>
 	</aui:form>
 </div>
@@ -394,6 +481,7 @@ if (portletTitleBasedNavigation) {
 		}
 	}
 
+<<<<<<< HEAD
 	function <portlet:namespace />OnChangeTitle(title) {
 		var blogs = Liferay.component('<portlet:namespace />Blogs');
 
@@ -402,6 +490,8 @@ if (portletTitleBasedNavigation) {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	<c:if test="<%= (entry != null) && blogsGroupServiceSettings.isEmailEntryUpdatedEnabled() %>">
 		Liferay.Util.toggleBoxes('<portlet:namespace />sendEmailEntryUpdated', '<portlet:namespace />emailEntryUpdatedCommentWrapper');
 	</c:if>
@@ -459,7 +549,11 @@ if (entry != null) {
 	portletURL.setParameter("mvcRenderCommandName", "/blogs/view_entry");
 	portletURL.setParameter("entryId", String.valueOf(entry.getEntryId()));
 
+<<<<<<< HEAD
 	PortalUtil.addPortletBreadcrumbEntry(request, BlogsEntryUtil.getDisplayTitle(resourceBundle, entry), portletURL.toString());
+=======
+	PortalUtil.addPortletBreadcrumbEntry(request, entry.getTitle(), portletURL.toString());
+>>>>>>> compatible
 	PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "edit"), currentURL);
 }
 else {

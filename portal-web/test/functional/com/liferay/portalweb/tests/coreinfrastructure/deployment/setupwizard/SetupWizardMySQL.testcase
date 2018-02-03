@@ -14,7 +14,11 @@
 
 	<command name="MySQLtoMySQLEditedAdministratorUser" priority="4">
 		<execute macro="SetupWizard#viewDefaultPortalNamePG" />
+<<<<<<< HEAD
 		<property name="test.name.skip.portal.instance" value="SetupWizardMySQL#MySQLtoMySQLEditAdministratorUser" />
+=======
+		<property name="test.name.skip.portal.instance" value="SetupWizardMySQL#MySQLtoMySQLEditedAdministratorUser" />
+>>>>>>> compatible
 
 		<execute macro="SetupWizard#configureSampleDataPG">
 			<var name="addSampleData" value="false" />
@@ -78,12 +82,17 @@
 			<var name="userFirstName" value="TestSetupWizardFN" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="Navigator#openURL" />
 
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="My Account" />
 			<var name="panel" value="User" />
 			<var name="portlet" value="Account Settings" />
+=======
+		<execute macro="Page#gotoMyAccount">
+			<var name="portletName" value="Account Settings" />
+>>>>>>> compatible
 		</execute>
 
 		<execute function="AssertTextEquals" locator1="TextInput#EMAIL_ADDRESS" value1="testsetupwizard@liferay.com" />

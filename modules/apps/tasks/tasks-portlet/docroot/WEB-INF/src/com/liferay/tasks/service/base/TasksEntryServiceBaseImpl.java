@@ -16,6 +16,11 @@ package com.liferay.tasks.service.base;
 
 import com.liferay.asset.kernel.service.persistence.AssetEntryPersistence;
 
+<<<<<<< HEAD
+=======
+import com.liferay.message.boards.kernel.service.persistence.MBMessagePersistence;
+
+>>>>>>> compatible
 import com.liferay.portal.kernel.bean.BeanReference;
 import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.dao.db.DBManagerUtil;
@@ -379,6 +384,66 @@ public abstract class TasksEntryServiceBaseImpl extends BaseServiceImpl
 	}
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Returns the message-boards message local service.
+	 *
+	 * @return the message-boards message local service
+	 */
+	public com.liferay.message.boards.kernel.service.MBMessageLocalService getMBMessageLocalService() {
+		return mbMessageLocalService;
+	}
+
+	/**
+	 * Sets the message-boards message local service.
+	 *
+	 * @param mbMessageLocalService the message-boards message local service
+	 */
+	public void setMBMessageLocalService(
+		com.liferay.message.boards.kernel.service.MBMessageLocalService mbMessageLocalService) {
+		this.mbMessageLocalService = mbMessageLocalService;
+	}
+
+	/**
+	 * Returns the message-boards message remote service.
+	 *
+	 * @return the message-boards message remote service
+	 */
+	public com.liferay.message.boards.kernel.service.MBMessageService getMBMessageService() {
+		return mbMessageService;
+	}
+
+	/**
+	 * Sets the message-boards message remote service.
+	 *
+	 * @param mbMessageService the message-boards message remote service
+	 */
+	public void setMBMessageService(
+		com.liferay.message.boards.kernel.service.MBMessageService mbMessageService) {
+		this.mbMessageService = mbMessageService;
+	}
+
+	/**
+	 * Returns the message-boards message persistence.
+	 *
+	 * @return the message-boards message persistence
+	 */
+	public MBMessagePersistence getMBMessagePersistence() {
+		return mbMessagePersistence;
+	}
+
+	/**
+	 * Sets the message-boards message persistence.
+	 *
+	 * @param mbMessagePersistence the message-boards message persistence
+	 */
+	public void setMBMessagePersistence(
+		MBMessagePersistence mbMessagePersistence) {
+		this.mbMessagePersistence = mbMessagePersistence;
+	}
+
+	/**
+>>>>>>> compatible
 	 * Returns the social activity local service.
 	 *
 	 * @return the social activity local service
@@ -436,6 +501,12 @@ public abstract class TasksEntryServiceBaseImpl extends BaseServiceImpl
 	}
 
 	public void afterPropertiesSet() {
+<<<<<<< HEAD
+=======
+		Class<?> clazz = getClass();
+
+		_classLoader = clazz.getClassLoader();
+>>>>>>> compatible
 	}
 
 	public void destroy() {
@@ -451,6 +522,30 @@ public abstract class TasksEntryServiceBaseImpl extends BaseServiceImpl
 		return TasksEntryService.class.getName();
 	}
 
+<<<<<<< HEAD
+=======
+	@Override
+	public Object invokeMethod(String name, String[] parameterTypes,
+		Object[] arguments) throws Throwable {
+		Thread currentThread = Thread.currentThread();
+
+		ClassLoader contextClassLoader = currentThread.getContextClassLoader();
+
+		if (contextClassLoader != _classLoader) {
+			currentThread.setContextClassLoader(_classLoader);
+		}
+
+		try {
+			return _clpInvoker.invokeMethod(name, parameterTypes, arguments);
+		}
+		finally {
+			if (contextClassLoader != _classLoader) {
+				currentThread.setContextClassLoader(contextClassLoader);
+			}
+		}
+	}
+
+>>>>>>> compatible
 	protected Class<?> getModelClass() {
 		return TasksEntry.class;
 	}
@@ -517,10 +612,24 @@ public abstract class TasksEntryServiceBaseImpl extends BaseServiceImpl
 	protected com.liferay.asset.kernel.service.AssetEntryService assetEntryService;
 	@BeanReference(type = AssetEntryPersistence.class)
 	protected AssetEntryPersistence assetEntryPersistence;
+<<<<<<< HEAD
+=======
+	@BeanReference(type = com.liferay.message.boards.kernel.service.MBMessageLocalService.class)
+	protected com.liferay.message.boards.kernel.service.MBMessageLocalService mbMessageLocalService;
+	@BeanReference(type = com.liferay.message.boards.kernel.service.MBMessageService.class)
+	protected com.liferay.message.boards.kernel.service.MBMessageService mbMessageService;
+	@BeanReference(type = MBMessagePersistence.class)
+	protected MBMessagePersistence mbMessagePersistence;
+>>>>>>> compatible
 	@BeanReference(type = com.liferay.social.kernel.service.SocialActivityLocalService.class)
 	protected com.liferay.social.kernel.service.SocialActivityLocalService socialActivityLocalService;
 	@BeanReference(type = com.liferay.social.kernel.service.SocialActivityService.class)
 	protected com.liferay.social.kernel.service.SocialActivityService socialActivityService;
 	@BeanReference(type = SocialActivityPersistence.class)
 	protected SocialActivityPersistence socialActivityPersistence;
+<<<<<<< HEAD
+=======
+	private ClassLoader _classLoader;
+	private TasksEntryServiceClpInvoker _clpInvoker = new TasksEntryServiceClpInvoker();
+>>>>>>> compatible
 }

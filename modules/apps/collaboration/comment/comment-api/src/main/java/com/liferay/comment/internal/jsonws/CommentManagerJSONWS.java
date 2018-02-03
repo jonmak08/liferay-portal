@@ -81,6 +81,7 @@ public class CommentManagerJSONWS extends BaseServiceImpl {
 		_commentManager.deleteComment(commentId);
 	}
 
+<<<<<<< HEAD
 	public List<CommentJSONWS> getComments(long commentId, int start, int end)
 		throws PortalException {
 
@@ -98,6 +99,8 @@ public class CommentManagerJSONWS extends BaseServiceImpl {
 		return getComments(discussionComment, start, end);
 	}
 
+=======
+>>>>>>> compatible
 	public List<CommentJSONWS> getComments(
 			long groupId, String className, long classPK, int start, int end)
 		throws PortalException {
@@ -115,7 +118,41 @@ public class CommentManagerJSONWS extends BaseServiceImpl {
 		DiscussionComment rootDiscussionComment =
 			discussion.getRootDiscussionComment();
 
+<<<<<<< HEAD
 		return getComments(rootDiscussionComment, start, end);
+=======
+		if (start == QueryUtil.ALL_POS) {
+			start = 0;
+		}
+
+		DiscussionCommentIterator threadDiscussionCommentIterator =
+			rootDiscussionComment.getThreadDiscussionCommentIterator(start);
+
+		if (end == QueryUtil.ALL_POS) {
+			return getAllComments(threadDiscussionCommentIterator);
+		}
+
+		int commentsCount = end - start;
+
+		if (commentsCount <= 0) {
+			return Collections.emptyList();
+		}
+
+		List<CommentJSONWS> commentJSONWSs = new ArrayList<>(commentsCount);
+
+		while (threadDiscussionCommentIterator.hasNext() &&
+			   (commentsCount > 0)) {
+
+			CommentJSONWS commentJSONWS = new CommentJSONWS(
+				threadDiscussionCommentIterator.next());
+
+			commentJSONWSs.add(commentJSONWS);
+
+			commentsCount--;
+		}
+
+		return commentJSONWSs;
+>>>>>>> compatible
 	}
 
 	public int getCommentsCount(long groupId, String className, long classPK)
@@ -242,6 +279,7 @@ public class CommentManagerJSONWS extends BaseServiceImpl {
 		return commentJSONWSs;
 	}
 
+<<<<<<< HEAD
 	protected List<CommentJSONWS> getComments(
 		DiscussionComment discussionComment, int start, int end) {
 
@@ -278,6 +316,8 @@ public class CommentManagerJSONWS extends BaseServiceImpl {
 		return commentJSONWSs;
 	}
 
+=======
+>>>>>>> compatible
 	protected long getCompanyId(long groupId) throws PortalException {
 		Group group = _groupLocalService.getGroup(groupId);
 

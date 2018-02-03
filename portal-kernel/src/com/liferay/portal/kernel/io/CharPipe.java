@@ -27,10 +27,15 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
+<<<<<<< HEAD
  * @author     Shuyang Zhou
  * @deprecated As of 7.0.0, with no direct replacement
  */
 @Deprecated
+=======
+ * @author Shuyang Zhou
+ */
+>>>>>>> compatible
 public class CharPipe {
 
 	public CharPipe() {
@@ -363,9 +368,13 @@ public class CharPipe {
 				string = StringPool.NULL;
 			}
 			else {
+<<<<<<< HEAD
 				charSequence = charSequence.subSequence(start, end);
 
 				string = charSequence.toString();
+=======
+				string = charSequence.subSequence(start, end).toString();
+>>>>>>> compatible
 			}
 
 			write(string, 0, string.length());

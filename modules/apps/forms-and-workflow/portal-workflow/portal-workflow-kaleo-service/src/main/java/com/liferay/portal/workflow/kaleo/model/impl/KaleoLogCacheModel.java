@@ -19,6 +19,10 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.workflow.kaleo.model.KaleoLog;
 
 import java.io.Externalizable;
@@ -83,8 +87,13 @@ public class KaleoLogCacheModel implements CacheModel<KaleoLog>, Externalizable 
 		sb.append(kaleoClassName);
 		sb.append(", kaleoClassPK=");
 		sb.append(kaleoClassPK);
+<<<<<<< HEAD
 		sb.append(", kaleoDefinitionVersionId=");
 		sb.append(kaleoDefinitionVersionId);
+=======
+		sb.append(", kaleoDefinitionId=");
+		sb.append(kaleoDefinitionId);
+>>>>>>> compatible
 		sb.append(", kaleoInstanceId=");
 		sb.append(kaleoInstanceId);
 		sb.append(", kaleoInstanceTokenId=");
@@ -140,7 +149,11 @@ public class KaleoLogCacheModel implements CacheModel<KaleoLog>, Externalizable 
 		kaleoLogImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			kaleoLogImpl.setUserName("");
+=======
+			kaleoLogImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoLogImpl.setUserName(userName);
@@ -161,20 +174,32 @@ public class KaleoLogCacheModel implements CacheModel<KaleoLog>, Externalizable 
 		}
 
 		if (kaleoClassName == null) {
+<<<<<<< HEAD
 			kaleoLogImpl.setKaleoClassName("");
+=======
+			kaleoLogImpl.setKaleoClassName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoLogImpl.setKaleoClassName(kaleoClassName);
 		}
 
 		kaleoLogImpl.setKaleoClassPK(kaleoClassPK);
+<<<<<<< HEAD
 		kaleoLogImpl.setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
+=======
+		kaleoLogImpl.setKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 		kaleoLogImpl.setKaleoInstanceId(kaleoInstanceId);
 		kaleoLogImpl.setKaleoInstanceTokenId(kaleoInstanceTokenId);
 		kaleoLogImpl.setKaleoTaskInstanceTokenId(kaleoTaskInstanceTokenId);
 
 		if (kaleoNodeName == null) {
+<<<<<<< HEAD
 			kaleoLogImpl.setKaleoNodeName("");
+=======
+			kaleoLogImpl.setKaleoNodeName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoLogImpl.setKaleoNodeName(kaleoNodeName);
@@ -184,14 +209,22 @@ public class KaleoLogCacheModel implements CacheModel<KaleoLog>, Externalizable 
 		kaleoLogImpl.setKaleoActionId(kaleoActionId);
 
 		if (kaleoActionName == null) {
+<<<<<<< HEAD
 			kaleoLogImpl.setKaleoActionName("");
+=======
+			kaleoLogImpl.setKaleoActionName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoLogImpl.setKaleoActionName(kaleoActionName);
 		}
 
 		if (kaleoActionDescription == null) {
+<<<<<<< HEAD
 			kaleoLogImpl.setKaleoActionDescription("");
+=======
+			kaleoLogImpl.setKaleoActionDescription(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoLogImpl.setKaleoActionDescription(kaleoActionDescription);
@@ -200,14 +233,22 @@ public class KaleoLogCacheModel implements CacheModel<KaleoLog>, Externalizable 
 		kaleoLogImpl.setPreviousKaleoNodeId(previousKaleoNodeId);
 
 		if (previousKaleoNodeName == null) {
+<<<<<<< HEAD
 			kaleoLogImpl.setPreviousKaleoNodeName("");
+=======
+			kaleoLogImpl.setPreviousKaleoNodeName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoLogImpl.setPreviousKaleoNodeName(previousKaleoNodeName);
 		}
 
 		if (previousAssigneeClassName == null) {
+<<<<<<< HEAD
 			kaleoLogImpl.setPreviousAssigneeClassName("");
+=======
+			kaleoLogImpl.setPreviousAssigneeClassName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoLogImpl.setPreviousAssigneeClassName(previousAssigneeClassName);
@@ -216,7 +257,11 @@ public class KaleoLogCacheModel implements CacheModel<KaleoLog>, Externalizable 
 		kaleoLogImpl.setPreviousAssigneeClassPK(previousAssigneeClassPK);
 
 		if (currentAssigneeClassName == null) {
+<<<<<<< HEAD
 			kaleoLogImpl.setCurrentAssigneeClassName("");
+=======
+			kaleoLogImpl.setCurrentAssigneeClassName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoLogImpl.setCurrentAssigneeClassName(currentAssigneeClassName);
@@ -225,14 +270,22 @@ public class KaleoLogCacheModel implements CacheModel<KaleoLog>, Externalizable 
 		kaleoLogImpl.setCurrentAssigneeClassPK(currentAssigneeClassPK);
 
 		if (type == null) {
+<<<<<<< HEAD
 			kaleoLogImpl.setType("");
+=======
+			kaleoLogImpl.setType(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoLogImpl.setType(type);
 		}
 
 		if (comment == null) {
+<<<<<<< HEAD
 			kaleoLogImpl.setComment("");
+=======
+			kaleoLogImpl.setComment(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoLogImpl.setComment(comment);
@@ -255,7 +308,11 @@ public class KaleoLogCacheModel implements CacheModel<KaleoLog>, Externalizable 
 		kaleoLogImpl.setDuration(duration);
 
 		if (workflowContext == null) {
+<<<<<<< HEAD
 			kaleoLogImpl.setWorkflowContext("");
+=======
+			kaleoLogImpl.setWorkflowContext(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			kaleoLogImpl.setWorkflowContext(workflowContext);
@@ -282,7 +339,11 @@ public class KaleoLogCacheModel implements CacheModel<KaleoLog>, Externalizable 
 
 		kaleoClassPK = objectInput.readLong();
 
+<<<<<<< HEAD
 		kaleoDefinitionVersionId = objectInput.readLong();
+=======
+		kaleoDefinitionId = objectInput.readLong();
+>>>>>>> compatible
 
 		kaleoInstanceId = objectInput.readLong();
 
@@ -326,7 +387,11 @@ public class KaleoLogCacheModel implements CacheModel<KaleoLog>, Externalizable 
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -336,7 +401,11 @@ public class KaleoLogCacheModel implements CacheModel<KaleoLog>, Externalizable 
 		objectOutput.writeLong(modifiedDate);
 
 		if (kaleoClassName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(kaleoClassName);
@@ -344,7 +413,11 @@ public class KaleoLogCacheModel implements CacheModel<KaleoLog>, Externalizable 
 
 		objectOutput.writeLong(kaleoClassPK);
 
+<<<<<<< HEAD
 		objectOutput.writeLong(kaleoDefinitionVersionId);
+=======
+		objectOutput.writeLong(kaleoDefinitionId);
+>>>>>>> compatible
 
 		objectOutput.writeLong(kaleoInstanceId);
 
@@ -353,7 +426,11 @@ public class KaleoLogCacheModel implements CacheModel<KaleoLog>, Externalizable 
 		objectOutput.writeLong(kaleoTaskInstanceTokenId);
 
 		if (kaleoNodeName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(kaleoNodeName);
@@ -364,14 +441,22 @@ public class KaleoLogCacheModel implements CacheModel<KaleoLog>, Externalizable 
 		objectOutput.writeLong(kaleoActionId);
 
 		if (kaleoActionName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(kaleoActionName);
 		}
 
 		if (kaleoActionDescription == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(kaleoActionDescription);
@@ -380,14 +465,22 @@ public class KaleoLogCacheModel implements CacheModel<KaleoLog>, Externalizable 
 		objectOutput.writeLong(previousKaleoNodeId);
 
 		if (previousKaleoNodeName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(previousKaleoNodeName);
 		}
 
 		if (previousAssigneeClassName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(previousAssigneeClassName);
@@ -396,7 +489,11 @@ public class KaleoLogCacheModel implements CacheModel<KaleoLog>, Externalizable 
 		objectOutput.writeLong(previousAssigneeClassPK);
 
 		if (currentAssigneeClassName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(currentAssigneeClassName);
@@ -405,14 +502,22 @@ public class KaleoLogCacheModel implements CacheModel<KaleoLog>, Externalizable 
 		objectOutput.writeLong(currentAssigneeClassPK);
 
 		if (type == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(type);
 		}
 
 		if (comment == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(comment);
@@ -424,7 +529,11 @@ public class KaleoLogCacheModel implements CacheModel<KaleoLog>, Externalizable 
 		objectOutput.writeLong(duration);
 
 		if (workflowContext == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(workflowContext);
@@ -440,7 +549,11 @@ public class KaleoLogCacheModel implements CacheModel<KaleoLog>, Externalizable 
 	public long modifiedDate;
 	public String kaleoClassName;
 	public long kaleoClassPK;
+<<<<<<< HEAD
 	public long kaleoDefinitionVersionId;
+=======
+	public long kaleoDefinitionId;
+>>>>>>> compatible
 	public long kaleoInstanceId;
 	public long kaleoInstanceTokenId;
 	public long kaleoTaskInstanceTokenId;

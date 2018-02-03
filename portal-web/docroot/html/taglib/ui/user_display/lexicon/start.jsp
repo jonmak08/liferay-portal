@@ -35,6 +35,7 @@
 				<c:if test="<%= showUserName %>">
 					<div class="nameplate-content">
 						<div class="heading4">
+<<<<<<< HEAD
 
 							<%
 							if (Validator.isNull(url) && (userDisplay != null)) {
@@ -42,6 +43,8 @@
 							}
 							%>
 
+=======
+>>>>>>> compatible
 							<aui:a href="<%= showLink ? url : null %>">
 								<%= (userDisplay != null) ? HtmlUtil.escape(userDisplay.getFullName()) : HtmlUtil.escape(userName) %>
 							</aui:a>

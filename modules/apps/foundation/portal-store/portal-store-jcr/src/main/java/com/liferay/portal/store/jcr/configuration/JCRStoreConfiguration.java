@@ -28,6 +28,7 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
 )
 public interface JCRStoreConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(deflt = "false", name = "initialize-on-startup", required = true)
 	public boolean initializeOnStartup();
 
@@ -73,6 +74,36 @@ public interface JCRStoreConfiguration {
 		deflt = "none", name = "jackrabbit-credentials-password",
 		required = true
 	)
+=======
+	@Meta.AD(deflt = "false", required = true)
+	public boolean initializeOnStartup();
+
+	@Meta.AD(deflt = "true", required = true)
+	public boolean wrapSession();
+
+	@Meta.AD(deflt = "false", required = true)
+	public boolean moveVersionLabels();
+
+	@Meta.AD(deflt = "liferay", required = true)
+	public String workspaceName();
+
+	@Meta.AD(deflt = "documentlibrary", required = true)
+	public String nodeDocumentlibrary();
+
+	@Meta.AD(deflt = "data/jackrabbit", required = true)
+	public String jackrabbitRepositoryRoot();
+
+	@Meta.AD(deflt = "repository.xml", required = true)
+	public String jackrabbitConfigFilePath();
+
+	@Meta.AD(deflt = "home", required = true)
+	public String jackrabbitRepositoryHome();
+
+	@Meta.AD(deflt = "none", required = true)
+	public String jackrabbitCredentialsUsername();
+
+	@Meta.AD(deflt = "none", required = true)
+>>>>>>> compatible
 	public String jackrabbitCredentialsPassword();
 
 }

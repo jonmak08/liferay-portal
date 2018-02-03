@@ -59,6 +59,7 @@ public class DefaultNoticeableFutureTest {
 
 		Assert.assertEquals(0, futureListeners.hashCode());
 
+<<<<<<< HEAD
 		TestFutureListener<Object> testFutureListener1 =
 			new TestFutureListener<>();
 
@@ -89,22 +90,75 @@ public class DefaultNoticeableFutureTest {
 			_defaultNoticeableFuture.removeFutureListener(testFutureListener2));
 		Assert.assertFalse(
 			_defaultNoticeableFuture.removeFutureListener(testFutureListener2));
+=======
+		RecordedFutureListener<Object> recordedFutureListener1 =
+			new RecordedFutureListener<>();
+
+		Assert.assertTrue(
+			_defaultNoticeableFuture.addFutureListener(
+				recordedFutureListener1));
+		Assert.assertEquals(
+			recordedFutureListener1.hashCode(), futureListeners.hashCode());
+
+		RecordedFutureListener<Object> recordedFutureListener2 =
+			new RecordedFutureListener<>();
+
+		Assert.assertTrue(
+			_defaultNoticeableFuture.addFutureListener(
+				recordedFutureListener2));
+		Assert.assertEquals(
+			recordedFutureListener1.hashCode() +
+				recordedFutureListener2.hashCode(),
+			futureListeners.hashCode());
+
+		Assert.assertFalse(
+			_defaultNoticeableFuture.addFutureListener(
+				recordedFutureListener1));
+		Assert.assertFalse(
+			_defaultNoticeableFuture.addFutureListener(
+				recordedFutureListener2));
+		Assert.assertTrue(
+			_defaultNoticeableFuture.removeFutureListener(
+				recordedFutureListener1));
+		Assert.assertFalse(
+			_defaultNoticeableFuture.removeFutureListener(
+				recordedFutureListener1));
+		Assert.assertTrue(
+			_defaultNoticeableFuture.removeFutureListener(
+				recordedFutureListener2));
+		Assert.assertFalse(
+			_defaultNoticeableFuture.removeFutureListener(
+				recordedFutureListener2));
+>>>>>>> compatible
 	}
 
 	@Test
 	public void testCompleteWithException() throws InterruptedException {
+<<<<<<< HEAD
 		TestFutureListener<Object> testFutureListener1 =
 			new TestFutureListener<>();
 
 		Assert.assertTrue(
 			_defaultNoticeableFuture.addFutureListener(testFutureListener1));
+=======
+		RecordedFutureListener<Object> recordedFutureListener1 =
+			new RecordedFutureListener<>();
+
+		Assert.assertTrue(
+			_defaultNoticeableFuture.addFutureListener(
+				recordedFutureListener1));
+>>>>>>> compatible
 
 		Exception exception = new Exception();
 
 		_defaultNoticeableFuture.setException(exception);
 
 		Assert.assertSame(
+<<<<<<< HEAD
 			_defaultNoticeableFuture, testFutureListener1.getFuture());
+=======
+			_defaultNoticeableFuture, recordedFutureListener1.getFuture());
+>>>>>>> compatible
 
 		try {
 			_defaultNoticeableFuture.get();
@@ -115,6 +169,7 @@ public class DefaultNoticeableFutureTest {
 			Assert.assertSame(exception, ee.getCause());
 		}
 
+<<<<<<< HEAD
 		TestFutureListener<Object> testFutureListener2 =
 			new TestFutureListener<>();
 
@@ -122,42 +177,79 @@ public class DefaultNoticeableFutureTest {
 			_defaultNoticeableFuture.addFutureListener(testFutureListener2));
 		Assert.assertSame(
 			_defaultNoticeableFuture, testFutureListener2.getFuture());
+=======
+		RecordedFutureListener<Object> recordedFutureListener2 =
+			new RecordedFutureListener<>();
+
+		Assert.assertTrue(
+			_defaultNoticeableFuture.addFutureListener(
+				recordedFutureListener2));
+		Assert.assertSame(
+			_defaultNoticeableFuture, recordedFutureListener2.getFuture());
+>>>>>>> compatible
 	}
 
 	@Test
 	public void testCompleteWithRaceCondition() {
+<<<<<<< HEAD
 		TestFutureListener<Object> testFutureListener =
 			new TestFutureListener<>();
 
 		Assert.assertTrue(
 			_defaultNoticeableFuture.addFutureListener(testFutureListener));
+=======
+		RecordedFutureListener<Object> recordedFutureListener =
+			new RecordedFutureListener<>();
+
+		Assert.assertTrue(
+			_defaultNoticeableFuture.addFutureListener(recordedFutureListener));
+>>>>>>> compatible
 
 		_defaultNoticeableFuture.done();
 
 		Assert.assertSame(
+<<<<<<< HEAD
 			_defaultNoticeableFuture, testFutureListener.getFuture());
 		Assert.assertEquals(1, testFutureListener.getCount());
+=======
+			_defaultNoticeableFuture, recordedFutureListener.getFuture());
+		Assert.assertEquals(1, recordedFutureListener.getCount());
+>>>>>>> compatible
 
 		Object result = new Object();
 
 		_defaultNoticeableFuture.set(result);
 
+<<<<<<< HEAD
 		Assert.assertEquals(1, testFutureListener.getCount());
+=======
+		Assert.assertEquals(1, recordedFutureListener.getCount());
+>>>>>>> compatible
 	}
 
 	@Test
 	public void testCompleteWithResult() throws Exception {
+<<<<<<< HEAD
 		TestFutureListener<Object> testFutureListener1 =
 			new TestFutureListener<>();
 
 		Assert.assertTrue(
 			_defaultNoticeableFuture.addFutureListener(testFutureListener1));
+=======
+		RecordedFutureListener<Object> recordedFutureListener1 =
+			new RecordedFutureListener<>();
+
+		Assert.assertTrue(
+			_defaultNoticeableFuture.addFutureListener(
+				recordedFutureListener1));
+>>>>>>> compatible
 
 		Object result = new Object();
 
 		_defaultNoticeableFuture.set(result);
 
 		Assert.assertSame(
+<<<<<<< HEAD
 			_defaultNoticeableFuture, testFutureListener1.getFuture());
 		Assert.assertSame(result, _defaultNoticeableFuture.get());
 
@@ -168,6 +260,19 @@ public class DefaultNoticeableFutureTest {
 			_defaultNoticeableFuture.addFutureListener(testFutureListener2));
 		Assert.assertSame(
 			_defaultNoticeableFuture, testFutureListener2.getFuture());
+=======
+			_defaultNoticeableFuture, recordedFutureListener1.getFuture());
+		Assert.assertSame(result, _defaultNoticeableFuture.get());
+
+		RecordedFutureListener<Object> recordedFutureListener2 =
+			new RecordedFutureListener<>();
+
+		Assert.assertTrue(
+			_defaultNoticeableFuture.addFutureListener(
+				recordedFutureListener2));
+		Assert.assertSame(
+			_defaultNoticeableFuture, recordedFutureListener2.getFuture());
+>>>>>>> compatible
 	}
 
 	@Test

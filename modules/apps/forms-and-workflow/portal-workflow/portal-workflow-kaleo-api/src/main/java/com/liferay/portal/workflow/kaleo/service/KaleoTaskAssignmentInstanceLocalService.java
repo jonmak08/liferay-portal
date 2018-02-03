@@ -106,7 +106,11 @@ public interface KaleoTaskAssignmentInstanceLocalService
 
 	public void deleteCompanyKaleoTaskAssignmentInstances(long companyId);
 
+<<<<<<< HEAD
 	public void deleteKaleoDefinitionVersionKaleoTaskAssignmentInstances(
+=======
+	public void deleteKaleoDefinitionKaleoTaskAssignmentInstances(
+>>>>>>> compatible
 		long kaleoDefintionId);
 
 	public void deleteKaleoInstanceKaleoTaskAssignmentInstances(

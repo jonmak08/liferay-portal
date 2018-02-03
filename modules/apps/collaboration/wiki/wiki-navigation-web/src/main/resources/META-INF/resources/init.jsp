@@ -24,9 +24,13 @@ taglib uri="http://liferay.com/tld/theme" prefix="liferay-theme" %><%@
 taglib uri="http://liferay.com/tld/ui" prefix="liferay-ui" %><%@
 taglib uri="http://liferay.com/tld/util" prefix="liferay-util" %>
 
+<<<<<<< HEAD
 <%@ page import="com.liferay.portal.kernel.portlet.PortletProvider" %><%@
 page import="com.liferay.portal.kernel.portlet.PortletProviderUtil" %><%@
 page import="com.liferay.portal.kernel.security.permission.ActionKeys" %><%@
+=======
+<%@ page import="com.liferay.portal.kernel.security.permission.ActionKeys" %><%@
+>>>>>>> compatible
 page import="com.liferay.portal.kernel.service.permission.PortletPermissionUtil" %><%@
 page import="com.liferay.portal.kernel.util.Constants" %><%@
 page import="com.liferay.portal.kernel.util.HtmlUtil" %><%@
@@ -38,12 +42,20 @@ page import="com.liferay.wiki.constants.WikiPortletKeys" %><%@
 page import="com.liferay.wiki.exception.NoSuchNodeException" %><%@
 page import="com.liferay.wiki.model.WikiNode" %><%@
 page import="com.liferay.wiki.model.WikiPage" %><%@
+<<<<<<< HEAD
 page import="com.liferay.wiki.navigation.web.internal.security.permission.resource.WikiPagePermission" %><%@
+=======
+>>>>>>> compatible
 page import="com.liferay.wiki.navigation.web.internal.util.MenuItem" %><%@
 page import="com.liferay.wiki.navigation.web.internal.util.WikiNavigationConstants" %><%@
 page import="com.liferay.wiki.service.WikiNodeLocalServiceUtil" %><%@
 page import="com.liferay.wiki.service.WikiNodeServiceUtil" %><%@
+<<<<<<< HEAD
 page import="com.liferay.wiki.service.WikiPageServiceUtil" %>
+=======
+page import="com.liferay.wiki.service.WikiPageServiceUtil" %><%@
+page import="com.liferay.wiki.service.permission.WikiPagePermissionChecker" %>
+>>>>>>> compatible
 
 <%@ page import="java.util.List" %>
 

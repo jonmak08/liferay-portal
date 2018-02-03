@@ -18,6 +18,10 @@ import com.liferay.jenkins.results.parser.Build;
 import com.liferay.jenkins.results.parser.Dom4JUtil;
 import com.liferay.jenkins.results.parser.TopLevelBuild;
 
+<<<<<<< HEAD
+=======
+import java.util.Hashtable;
+>>>>>>> compatible
 import java.util.Map;
 
 import org.dom4j.Element;
@@ -29,6 +33,46 @@ public class PluginGitIDFailureMessageGenerator
 	extends BaseFailureMessageGenerator {
 
 	@Override
+<<<<<<< HEAD
+=======
+	public String getMessage(
+		String buildURL, String consoleOutput, Hashtable<?, ?> properties) {
+
+		if (!consoleOutput.contains("fatal: Could not parse object")) {
+			return null;
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append("<p>Please update ");
+
+		sb.append("<strong><a href=\"https://github.com/");
+		sb.append(properties.get("github.origin.name"));
+		sb.append("/");
+		sb.append(properties.get("portal.repository"));
+		sb.append("/blob/");
+		sb.append(properties.get("github.sender.branch.name"));
+		sb.append("/git-commit-plugins\">git-commit-plugins</a></strong> to ");
+		sb.append("an existing Git ID from <strong>");
+		sb.append("<a href=\"https://github.com/liferay/");
+		sb.append(properties.get("plugins.repository"));
+		sb.append("/commits/");
+		sb.append(properties.get("plugins.branch.name"));
+		sb.append("\">");
+		sb.append(properties.get("plugins.repository"));
+		sb.append("/");
+		sb.append(properties.get("plugins.branch.name"));
+		sb.append("</a>.</strong></p>");
+
+		int end = consoleOutput.indexOf("merge-test-results:");
+
+		sb.append(getConsoleOutputSnippet(consoleOutput, true, end));
+
+		return sb.toString();
+	}
+
+	@Override
+>>>>>>> compatible
 	public Element getMessageElement(Build build) {
 		String consoleText = build.getConsoleText();
 
@@ -47,7 +91,11 @@ public class PluginGitIDFailureMessageGenerator
 			" to an existing Git ID from ",
 			Dom4JUtil.getNewElement(
 				"strong", null, getPluginsBranchAnchorElement(topLevelBuild)),
+<<<<<<< HEAD
 			".", getConsoleTextSnippetElement(consoleText, true, end));
+=======
+			".", getConsoleOutputSnippetElement(consoleText, true, end));
+>>>>>>> compatible
 
 		return messageElement;
 	}

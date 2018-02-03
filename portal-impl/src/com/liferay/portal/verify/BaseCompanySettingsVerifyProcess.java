@@ -24,10 +24,14 @@ import com.liferay.portal.kernel.settings.Settings;
 import com.liferay.portal.kernel.settings.SettingsDescriptor;
 import com.liferay.portal.kernel.settings.SettingsException;
 import com.liferay.portal.kernel.settings.SettingsFactory;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.HashMapDictionary;
 import com.liferay.portal.kernel.util.LoggingTimer;
 import com.liferay.portal.kernel.util.PrefsPropsUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.LoggingTimer;
+>>>>>>> compatible
 
 import java.io.IOException;
 
@@ -51,6 +55,7 @@ public abstract class BaseCompanySettingsVerifyProcess extends VerifyProcess {
 
 	protected abstract Set<String> getLegacyPropertyKeys();
 
+<<<<<<< HEAD
 	protected Dictionary<String, String> getPropertyValues(long companyId) {
 		Dictionary<String, String> dictionary = new HashMapDictionary<>();
 
@@ -69,6 +74,10 @@ public abstract class BaseCompanySettingsVerifyProcess extends VerifyProcess {
 	protected String[][] getRenamePropertyKeysArray() {
 		return new String[0][0];
 	}
+=======
+	protected abstract Dictionary<String, String> getPropertyValues(
+		long companyId);
+>>>>>>> compatible
 
 	protected abstract SettingsFactory getSettingsFactory();
 
@@ -126,10 +135,15 @@ public abstract class BaseCompanySettingsVerifyProcess extends VerifyProcess {
 
 				if (_log.isInfoEnabled()) {
 					_log.info(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"Removing preference keys ", String.valueOf(keys),
 							" for company ",
 							String.valueOf(company.getCompanyId())));
+=======
+						"Removing preference keys " + keys + " for company " +
+							company.getCompanyId());
+>>>>>>> compatible
 				}
 
 				companyLocalService.removePreferences(

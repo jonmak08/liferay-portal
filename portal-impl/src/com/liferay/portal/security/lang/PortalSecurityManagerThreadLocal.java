@@ -33,7 +33,11 @@ public class PortalSecurityManagerThreadLocal {
 	}
 
 	private static final ThreadLocal<Boolean> _enabled =
+<<<<<<< HEAD
 		new CentralizedThreadLocal<>(
+=======
+		new AutoResetThreadLocal<>(
+>>>>>>> compatible
 			PortalSecurityManagerThreadLocal.class + "._enabled",
 			() -> Boolean.TRUE);
 

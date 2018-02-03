@@ -43,7 +43,11 @@ public abstract class BaseDDMFormFieldTypeSettingsTestCase
 	extends PowerMockito {
 
 	@Before
+<<<<<<< HEAD
 	public void setUp() throws Exception {
+=======
+	public void setUp() {
+>>>>>>> compatible
 		setUpLanguageUtil();
 		setUpPortalClassLoaderUtil();
 		setUpResourceBundleUtil();

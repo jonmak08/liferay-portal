@@ -987,7 +987,11 @@ public class SelectorIntrabandTest {
 			Assert.assertSame(
 				attachment, recordCompletionHandler.getAttachment());
 
+<<<<<<< HEAD
 			Assert.assertTrue(logRecords.toString(), logRecords.isEmpty());
+=======
+			Assert.assertTrue(logRecords.isEmpty());
+>>>>>>> compatible
 		}
 
 		// Callback timeout, completion handler causes NPE

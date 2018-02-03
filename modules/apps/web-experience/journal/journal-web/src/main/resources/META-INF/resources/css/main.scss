@@ -1,4 +1,5 @@
 .portlet-journal {
+<<<<<<< HEAD
 	.article-content-content {
 		img {
 			max-width: 100%;
@@ -24,6 +25,12 @@
 		.alloy-editor-switch {
 			display: none;
 		}
+=======
+	.article-content-description, .article-content-title {
+		.input-localized-content {
+			display: none;
+		}
+>>>>>>> compatible
 	}
 
 	.journal-article-preview {
@@ -34,10 +41,13 @@
 		max-width: 150px;
 		min-width: 150px;
 	}
+<<<<<<< HEAD
 
 	.metadata .lfr-ddm-field-group {
 		margin-bottom: 20px;
 		margin-top: 0;
 		padding: 0;
 	}
+=======
+>>>>>>> compatible
 }

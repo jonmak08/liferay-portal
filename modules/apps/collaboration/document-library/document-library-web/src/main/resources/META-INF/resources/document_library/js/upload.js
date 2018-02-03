@@ -21,6 +21,11 @@ AUI.add(
 
 		var CSS_DISPLAY_ICON = 'display-icon';
 
+<<<<<<< HEAD
+=======
+		var CSS_DOCUMENT_ENTRIES_PAGINATION = 'document-entries-pagination';
+
+>>>>>>> compatible
 		var CSS_ENTRIES_EMPTY = 'entries-empty';
 
 		var CSS_ENTRY_DISPLAY_STYLE = 'entry-display-style';
@@ -69,6 +74,11 @@ AUI.add(
 
 		var SELECTOR_DISPLAY_ICON = STR_DOT + CSS_DISPLAY_ICON;
 
+<<<<<<< HEAD
+=======
+		var SELECTOR_DOCUMENT_ENTRIES_PAGINATION = STR_DOT + CSS_DOCUMENT_ENTRIES_PAGINATION;
+
+>>>>>>> compatible
 		var SELECTOR_ENTRIES_EMPTY = STR_DOT + CSS_ENTRIES_EMPTY;
 
 		var SELECTOR_ENTRY_DISPLAY_STYLE = STR_DOT + CSS_ENTRY_DISPLAY_STYLE;
@@ -897,6 +907,10 @@ AUI.add(
 
 							var entriesContainer = instance.get('entriesContainer');
 
+<<<<<<< HEAD
+=======
+							createNavigationOverlay(entriesContainer.one(SELECTOR_DOCUMENT_ENTRIES_PAGINATION));
+>>>>>>> compatible
 							createNavigationOverlay(entriesContainer.one('.app-view-taglib.lfr-header-row'));
 							createNavigationOverlay(instance.get('.searchcontainer'));
 

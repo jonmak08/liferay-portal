@@ -23,6 +23,10 @@ DDLRecord record = (DDLRecord)request.getAttribute(DDLWebKeys.DYNAMIC_DATA_LISTS
 
 long recordId = BeanParamUtil.getLong(record, request, "recordId");
 
+<<<<<<< HEAD
+=======
+long groupId = BeanParamUtil.getLong(record, request, "groupId", scopeGroupId);
+>>>>>>> compatible
 long recordSetId = BeanParamUtil.getLong(record, request, "recordSetId");
 
 long formDDMTemplateId = ParamUtil.getLong(request, "formDDMTemplateId");
@@ -163,7 +167,11 @@ else {
 		<aui:form action="<%= (record == null) ? addRecordURL : updateRecordURL %>" cssClass="container-fluid-1280" enctype="multipart/form-data" method="post" name="fm">
 			<aui:input name="redirect" type="hidden" value="<%= redirect %>" />
 			<aui:input name="recordId" type="hidden" value="<%= recordId %>" />
+<<<<<<< HEAD
 			<aui:input name="groupId" type="hidden" value="<%= recordSet.getGroupId() %>" />
+=======
+			<aui:input name="groupId" type="hidden" value="<%= groupId %>" />
+>>>>>>> compatible
 			<aui:input name="recordSetId" type="hidden" value="<%= recordSetId %>" />
 			<aui:input name="formDDMTemplateId" type="hidden" value="<%= formDDMTemplateId %>" />
 			<aui:input name="defaultLanguageId" type="hidden" value="<%= defaultLanguageId %>" />
@@ -173,7 +181,20 @@ else {
 			<liferay-ui:error exception="<%= DuplicateFileEntryException.class %>" message="a-file-with-that-name-already-exists" />
 
 			<liferay-ui:error exception="<%= FileSizeException.class %>">
+<<<<<<< HEAD
 				<liferay-ui:message arguments="<%= TextFormatter.formatStorageSize(DLValidatorUtil.getMaxAllowableSize(), locale) %>" key="please-enter-a-file-with-a-valid-file-size-no-larger-than-x" translateArguments="<%= false %>" />
+=======
+
+				<%
+				long fileMaxSize = PrefsPropsUtil.getLong(PropsKeys.DL_FILE_MAX_SIZE);
+
+				if (fileMaxSize == 0) {
+					fileMaxSize = PrefsPropsUtil.getLong(PropsKeys.UPLOAD_SERVLET_REQUEST_IMPL_MAX_SIZE);
+				}
+				%>
+
+				<liferay-ui:message arguments="<%= TextFormatter.formatStorageSize(fileMaxSize, locale) %>" key="please-enter-a-file-with-a-valid-file-size-no-larger-than-x" translateArguments="<%= false %>" />
+>>>>>>> compatible
 			</liferay-ui:error>
 
 			<liferay-ui:error exception="<%= StorageFieldRequiredException.class %>" message="please-fill-out-all-required-fields" />
@@ -259,6 +280,7 @@ else {
 				%>
 
 				<c:if test="<%= ddlDisplayContext.isShowSaveRecordButton() %>">
+<<<<<<< HEAD
 					<aui:button name="saveButton" onClick='<%= renderResponse.getNamespace() + "setWorkflowAction(true);" %>' primary="<%= false %>" type="submit" value="<%= saveButtonLabel %>" />
 				</c:if>
 
@@ -268,6 +290,17 @@ else {
 
 				<c:if test="<%= ddlDisplayContext.isShowCancelButton() %>">
 					<aui:button href="<%= redirect %>" name="cancelButton" type="cancel" />
+=======
+					<aui:button cssClass="btn-lg" name="saveButton" onClick='<%= renderResponse.getNamespace() + "setWorkflowAction(true);" %>' primary="<%= false %>" type="submit" value="<%= saveButtonLabel %>" />
+				</c:if>
+
+				<c:if test="<%= ddlDisplayContext.isShowPublishRecordButton() %>">
+					<aui:button cssClass="btn-lg" disabled="<%= pending %>" name="publishButton" onClick='<%= renderResponse.getNamespace() + "setWorkflowAction(false);" %>' type="submit" value="<%= publishButtonLabel %>" />
+				</c:if>
+
+				<c:if test="<%= ddlDisplayContext.isShowCancelButton() %>">
+					<aui:button cssClass="btn-lg" href="<%= redirect %>" name="cancelButton" type="cancel" />
+>>>>>>> compatible
 				</c:if>
 			</aui:button-row>
 		</aui:form>

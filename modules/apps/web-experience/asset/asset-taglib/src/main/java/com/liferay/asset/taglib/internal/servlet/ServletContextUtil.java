@@ -14,8 +14,11 @@
 
 package com.liferay.asset.taglib.internal.servlet;
 
+<<<<<<< HEAD
 import com.liferay.asset.util.AssetHelper;
 
+=======
+>>>>>>> compatible
 import javax.servlet.ServletContext;
 
 import org.osgi.service.component.annotations.Activate;
@@ -29,10 +32,13 @@ import org.osgi.service.component.annotations.Reference;
 @Component(immediate = true)
 public class ServletContextUtil {
 
+<<<<<<< HEAD
 	public static final AssetHelper getAssetHelper() {
 		return _instance._getAssetHelper();
 	}
 
+=======
+>>>>>>> compatible
 	public static final ServletContext getServletContext() {
 		return _instance._getServletContext();
 	}
@@ -55,19 +61,25 @@ public class ServletContextUtil {
 		_servletContext = servletContext;
 	}
 
+<<<<<<< HEAD
 	private AssetHelper _getAssetHelper() {
 		return _assetHelper;
 	}
 
+=======
+>>>>>>> compatible
 	private ServletContext _getServletContext() {
 		return _servletContext;
 	}
 
 	private static ServletContextUtil _instance;
 
+<<<<<<< HEAD
 	@Reference
 	private AssetHelper _assetHelper;
 
+=======
+>>>>>>> compatible
 	private ServletContext _servletContext;
 
 }

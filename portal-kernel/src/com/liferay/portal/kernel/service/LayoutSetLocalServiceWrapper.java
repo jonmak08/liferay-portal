@@ -198,12 +198,15 @@ public class LayoutSetLocalServiceWrapper implements LayoutSetLocalService,
 
 	@Override
 	public com.liferay.portal.kernel.model.LayoutSet fetchLayoutSet(
+<<<<<<< HEAD
 		long groupId, boolean privateLayout) {
 		return _layoutSetLocalService.fetchLayoutSet(groupId, privateLayout);
 	}
 
 	@Override
 	public com.liferay.portal.kernel.model.LayoutSet fetchLayoutSet(
+=======
+>>>>>>> compatible
 		java.lang.String virtualHostname) {
 		return _layoutSetLocalService.fetchLayoutSet(virtualHostname);
 	}

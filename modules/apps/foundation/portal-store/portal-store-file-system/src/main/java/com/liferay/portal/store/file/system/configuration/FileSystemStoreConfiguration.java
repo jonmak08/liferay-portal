@@ -32,7 +32,11 @@ public interface FileSystemStoreConfiguration {
 	@Meta.AD(
 		deflt = "data/document_library",
 		description = "file-system-store-configuration-root-dir-description",
+<<<<<<< HEAD
 		name = "root-dir", required = false
+=======
+		required = false
+>>>>>>> compatible
 	)
 	public String rootDir();
 

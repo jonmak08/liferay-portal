@@ -14,10 +14,15 @@
 
 package com.liferay.login.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.captcha.configuration.CaptchaConfiguration;
 import com.liferay.captcha.util.CaptchaUtil;
 import com.liferay.login.web.internal.constants.LoginPortletKeys;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.captcha.util.CaptchaUtil;
+import com.liferay.login.web.constants.LoginPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.captcha.CaptchaConfigurationException;
 import com.liferay.portal.kernel.captcha.CaptchaTextException;
 import com.liferay.portal.kernel.exception.CompanyMaxUsersException;
@@ -31,7 +36,10 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.model.User;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.module.configuration.ConfigurationProvider;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.portlet.JSONPortletResponseUtil;
 import com.liferay.portal.kernel.portlet.LiferayWindowState;
 import com.liferay.portal.kernel.portlet.PortletURLFactoryUtil;
@@ -50,8 +58,15 @@ import com.liferay.portal.kernel.util.JavaConstants;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.PropsKeys;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.portal.util.PropsValues;
+>>>>>>> compatible
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
@@ -118,9 +133,13 @@ public class CreateAnonymousAccountMVCActionCommand
 
 		serviceContext.setAttribute("anonymousUser", Boolean.TRUE);
 
+<<<<<<< HEAD
 		CaptchaConfiguration captchaConfiguration = getCaptchaConfiguration();
 
 		if (captchaConfiguration.createAccountCaptchaEnabled()) {
+=======
+		if (PropsValues.CAPTCHA_CHECK_PORTAL_CREATE_ACCOUNT) {
+>>>>>>> compatible
 			CaptchaUtil.check(actionRequest);
 		}
 
@@ -259,6 +278,7 @@ public class CreateAnonymousAccountMVCActionCommand
 		}
 	}
 
+<<<<<<< HEAD
 	protected CaptchaConfiguration getCaptchaConfiguration()
 		throws CaptchaConfigurationException {
 
@@ -271,6 +291,8 @@ public class CreateAnonymousAccountMVCActionCommand
 		}
 	}
 
+=======
+>>>>>>> compatible
 	@Reference(unbind = "-")
 	protected void setUserLocalService(UserLocalService userLocalService) {
 		_userLocalService = userLocalService;
@@ -336,9 +358,12 @@ public class CreateAnonymousAccountMVCActionCommand
 		CreateAnonymousAccountMVCActionCommand.class);
 
 	@Reference
+<<<<<<< HEAD
 	private ConfigurationProvider _configurationProvider;
 
 	@Reference
+=======
+>>>>>>> compatible
 	private Portal _portal;
 
 	private UserLocalService _userLocalService;

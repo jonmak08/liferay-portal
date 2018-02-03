@@ -16,6 +16,10 @@ package com.liferay.portlet.messageboards.service.impl;
 
 import com.liferay.message.boards.kernel.model.MBDiscussion;
 import com.liferay.portal.kernel.exception.PortalException;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.model.User;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portlet.messageboards.service.base.MBDiscussionLocalServiceBaseImpl;
 

@@ -1092,10 +1092,13 @@ public class UserGroupGroupRoleUtil {
 		return getPersistence().countAll();
 	}
 
+<<<<<<< HEAD
 	public static java.util.Set<java.lang.String> getCompoundPKColumnNames() {
 		return getPersistence().getCompoundPKColumnNames();
 	}
 
+=======
+>>>>>>> compatible
 	public static UserGroupGroupRolePersistence getPersistence() {
 		if (_persistence == null) {
 			_persistence = (UserGroupGroupRolePersistence)PortalBeanLocatorUtil.locate(UserGroupGroupRolePersistence.class.getName());

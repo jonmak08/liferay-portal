@@ -14,8 +14,13 @@
 
 package com.liferay.document.library.repository.cmis.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.util.GetterUtil;
+=======
+import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 
 import org.apache.chemistry.opencmis.commons.data.RepositoryInfo;

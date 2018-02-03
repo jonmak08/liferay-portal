@@ -56,6 +56,7 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "user-gr
 
 <liferay-ui:error exception="<%= RequiredUserGroupException.class %>" message="you-cannot-delete-user-groups-that-have-users" />
 
+<<<<<<< HEAD
 <%
 List<NavigationItem> navigationItems = new ArrayList<>();
 
@@ -72,6 +73,19 @@ navigationItems.add(entriesNavigationItem);
 	inverted="<%= true %>"
 	items="<%= navigationItems %>"
 />
+=======
+<aui:nav-bar cssClass="collapse-basic-search" markupView="lexicon">
+	<aui:nav cssClass="navbar-nav">
+		<aui:nav-item label="user-groups" selected="<%= true %>" />
+	</aui:nav>
+
+	<aui:nav-bar-search>
+		<aui:form action="<%= portletURLString %>" name="searchFm">
+			<liferay-ui:input-search markupView="lexicon" />
+		</aui:form>
+	</aui:nav-bar-search>
+</aui:nav-bar>
+>>>>>>> compatible
 
 <liferay-frontend:management-bar
 	includeCheckBox="<%= true %>"
@@ -97,12 +111,15 @@ navigationItems.add(entriesNavigationItem);
 			orderColumns='<%= new String[] {"name"} %>'
 			portletURL="<%= portletURL %>"
 		/>
+<<<<<<< HEAD
 
 		<li>
 			<aui:form action="<%= portletURLString %>" name="searchFm">
 				<liferay-ui:input-search markupView="lexicon" />
 			</aui:form>
 		</li>
+=======
+>>>>>>> compatible
 	</liferay-frontend:management-bar-filters>
 
 	<c:if test="<%= PortalPermissionUtil.contains(permissionChecker, ActionKeys.ADD_USER_GROUP) %>">

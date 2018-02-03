@@ -17,18 +17,37 @@
 <%@ include file="/document_library/init.jsp" %>
 
 <%
+<<<<<<< HEAD
 PortletURL portletURL = renderResponse.createRenderURL();
 
 portletURL.setParameter("mvcRenderCommandName", "/document_library/view_file_entry_types");
+=======
+String redirect = ParamUtil.getString(request, "redirect");
+
+PortletURL portletURL = renderResponse.createRenderURL();
+
+portletURL.setParameter("mvcPath", "/document_library/view_file_entry_types.jsp");
+
+portletDisplay.setShowBackIcon(true);
+portletDisplay.setURLBack(redirect);
+
+renderResponse.setTitle(LanguageUtil.get(request, "document-types"));
+>>>>>>> compatible
 %>
 
 <aui:nav-bar cssClass="collapse-basic-search" markupView="lexicon">
 	<liferay-portlet:renderURL varImpl="searchURL">
+<<<<<<< HEAD
 		<portlet:param name="mvcRenderCommandName" value="/document_library/view_file_entry_types" />
 	</liferay-portlet:renderURL>
 
 	<liferay-util:include page="/document_library/navigation_tabs.jsp" servletContext="<%= application %>" />
 
+=======
+		<portlet:param name="mvcPath" value="/document_library/view_file_entry_types.jsp" />
+	</liferay-portlet:renderURL>
+
+>>>>>>> compatible
 	<aui:nav-bar-search>
 		<aui:form action="<%= searchURL.toString() %>" method="post" name="fm">
 			<liferay-ui:input-search markupView="lexicon" />

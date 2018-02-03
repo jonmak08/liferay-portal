@@ -14,17 +14,29 @@
 
 package com.liferay.rss.web.internal.portlet.template;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.portletdisplaytemplate.BasePortletDisplayTemplateHandler;
 import com.liferay.portal.kernel.template.TemplateHandler;
 import com.liferay.portal.kernel.template.TemplateVariableGroup;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
+<<<<<<< HEAD
 import com.liferay.portlet.display.template.PortletDisplayTemplateConstants;
 import com.liferay.rss.constants.RSSPortletKeys;
 import com.liferay.rss.web.internal.display.context.RSSDisplayContext;
 import com.liferay.rss.web.internal.util.RSSFeed;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portlet.display.template.PortletDisplayTemplateConstants;
+import com.liferay.rss.web.configuration.RSSWebConfigurationValues;
+import com.liferay.rss.web.constants.RSSPortletKeys;
+import com.liferay.rss.web.internal.display.context.RSSDisplayContext;
+import com.liferay.rss.web.util.RSSFeed;
+>>>>>>> compatible
 
 import java.util.List;
 import java.util.Locale;
@@ -91,8 +103,12 @@ public class RSSPortletDisplayTemplateHandler
 
 	@Override
 	protected String getTemplatesConfigPath() {
+<<<<<<< HEAD
 		return "com/liferay/rss/web/portlet/template/dependencies" +
 			"/portlet-display-templates.xml";
+=======
+		return RSSWebConfigurationValues.DISPLAY_TEMPLATES_CONFIG;
+>>>>>>> compatible
 	}
 
 	@Reference

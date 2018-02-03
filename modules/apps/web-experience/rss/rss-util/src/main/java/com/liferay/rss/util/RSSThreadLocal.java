@@ -14,7 +14,11 @@
 
 package com.liferay.rss.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
+=======
+import com.liferay.portal.kernel.util.AutoResetThreadLocal;
+>>>>>>> compatible
 
 /**
  * @author     Shuyang Zhou
@@ -33,7 +37,11 @@ public class RSSThreadLocal {
 	}
 
 	private static final ThreadLocal<Boolean> _exportRSS =
+<<<<<<< HEAD
 		new CentralizedThreadLocal<>(
+=======
+		new AutoResetThreadLocal<>(
+>>>>>>> compatible
 			RSSThreadLocal.class + "._exportRSS", () -> Boolean.FALSE);
 
 }

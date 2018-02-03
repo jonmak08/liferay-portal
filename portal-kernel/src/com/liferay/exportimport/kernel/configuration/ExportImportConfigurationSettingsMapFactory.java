@@ -14,8 +14,11 @@
 
 package com.liferay.exportimport.kernel.configuration;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.lar.ExportImportHelperUtil;
 import com.liferay.exportimport.kernel.staging.StagingUtil;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -50,7 +53,10 @@ import javax.portlet.PortletRequest;
  * @author Akos Thurzo
  * @since  7.0
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class ExportImportConfigurationSettingsMapFactory {
 
 	public static Map<String, Serializable> buildExportLayoutSettingsMap(

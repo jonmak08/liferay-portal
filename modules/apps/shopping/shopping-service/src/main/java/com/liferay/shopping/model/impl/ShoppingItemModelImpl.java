@@ -30,6 +30,10 @@ import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import com.liferay.shopping.model.ShoppingItem;
 import com.liferay.shopping.model.ShoppingItemModel;
@@ -606,7 +610,11 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -618,7 +626,11 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
 	@Override
 	public String getUserName() {
 		if (_userName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _userName;
@@ -685,7 +697,11 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
 	@Override
 	public String getSku() {
 		if (_sku == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _sku;
@@ -711,7 +727,11 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
 	@Override
 	public String getName() {
 		if (_name == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _name;
@@ -727,7 +747,11 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
 	@Override
 	public String getDescription() {
 		if (_description == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _description;
@@ -743,7 +767,11 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
 	@Override
 	public String getProperties() {
 		if (_properties == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _properties;
@@ -776,7 +804,11 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
 	@Override
 	public String getFieldsQuantities() {
 		if (_fieldsQuantities == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _fieldsQuantities;
@@ -983,7 +1015,11 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
 	@Override
 	public String getSmallImageURL() {
 		if (_smallImageURL == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _smallImageURL;
@@ -1039,7 +1075,11 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
 	@Override
 	public String getMediumImageURL() {
 		if (_mediumImageURL == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _mediumImageURL;
@@ -1095,7 +1135,11 @@ public class ShoppingItemModelImpl extends BaseModelImpl<ShoppingItem>
 	@Override
 	public String getLargeImageURL() {
 		if (_largeImageURL == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _largeImageURL;

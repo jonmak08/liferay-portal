@@ -17,7 +17,10 @@ package com.liferay.gradle.plugins.defaults.internal;
 import com.liferay.gradle.plugins.BaseDefaultsPlugin;
 import com.liferay.gradle.plugins.defaults.LiferayOSGiDefaultsPlugin;
 import com.liferay.gradle.plugins.defaults.internal.util.FileUtil;
+<<<<<<< HEAD
 import com.liferay.gradle.plugins.defaults.internal.util.GradlePluginsDefaultsUtil;
+=======
+>>>>>>> compatible
 import com.liferay.gradle.plugins.defaults.internal.util.GradleUtil;
 
 import java.io.File;
@@ -54,10 +57,16 @@ public class MavenDefaultsPlugin extends BaseDefaultsPlugin<MavenPlugin> {
 			public void execute(Task task) {
 				Project project = task.getProject();
 
+<<<<<<< HEAD
 				File relengIgnoreDir = GradleUtil.getRootDir(
 					project, LiferayRelengPlugin.RELENG_IGNORE_FILE_NAME);
 
 				if (relengIgnoreDir != null) {
+=======
+				if (FileUtil.exists(
+						project, LiferayRelengPlugin.RELENG_IGNORE_FILE_NAME)) {
+
+>>>>>>> compatible
 					return;
 				}
 
@@ -68,7 +77,11 @@ public class MavenDefaultsPlugin extends BaseDefaultsPlugin<MavenPlugin> {
 					return;
 				}
 
+<<<<<<< HEAD
 				if (GradlePluginsDefaultsUtil.isSnapshot(project)) {
+=======
+				if (GradleUtil.isSnapshot(project)) {
+>>>>>>> compatible
 					File relengDir = new File(portalRootDir, "modules/.releng");
 
 					if (relengDir.exists()) {

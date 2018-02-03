@@ -14,7 +14,10 @@
 
 package com.liferay.portal.search.web.internal.display.context;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.search.SearchContainer;
 import com.liferay.portal.kernel.language.Language;
 import com.liferay.portal.kernel.model.Group;
@@ -35,12 +38,21 @@ import com.liferay.portal.kernel.util.Html;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.search.summary.SummaryBuilderFactory;
 import com.liferay.portal.search.web.constants.SearchPortletParameterNames;
 import com.liferay.portal.search.web.facet.SearchFacet;
 import com.liferay.portal.search.web.internal.facet.AssetEntriesSearchFacet;
 import com.liferay.portal.search.web.internal.facet.SearchFacetTracker;
+=======
+import com.liferay.portal.kernel.util.PredicateFilter;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.search.web.constants.SearchPortletParameterNames;
+import com.liferay.portal.search.web.facet.SearchFacet;
+import com.liferay.portal.search.web.facet.util.SearchFacetTracker;
+>>>>>>> compatible
 import com.liferay.portal.search.web.internal.portlet.SearchPortletSearchResultPreferences;
 import com.liferay.portal.search.web.internal.search.request.SearchRequestImpl;
 import com.liferay.portal.search.web.internal.search.request.SearchResponseImpl;
@@ -68,17 +80,25 @@ public class SearchDisplayContext {
 			Portal portal, Html html, Language language,
 			FacetedSearcherManager facetedSearcherManager,
 			IndexSearchPropsValues indexSearchPropsValues,
+<<<<<<< HEAD
 			PortletURLFactory portletURLFactory,
 			SummaryBuilderFactory summaryBuilderFactory,
 			SearchFacetTracker searchFacetTracker)
 		throws PortletException {
+=======
+			PortletURLFactory portletURLFactory)
+		throws Exception {
+>>>>>>> compatible
 
 		_renderRequest = renderRequest;
 		_portletPreferences = portletPreferences;
 		_indexSearchPropsValues = indexSearchPropsValues;
 		_portletURLFactory = portletURLFactory;
+<<<<<<< HEAD
 		_summaryBuilderFactory = summaryBuilderFactory;
 		_searchFacetTracker = searchFacetTracker;
+=======
+>>>>>>> compatible
 
 		ThemeDisplaySupplier themeDisplaySupplier =
 			new PortletRequestThemeDisplaySupplier(renderRequest);
@@ -95,16 +115,22 @@ public class SearchDisplayContext {
 
 		if (keywords == null) {
 			_hits = null;
+<<<<<<< HEAD
 			_keywords = null;
 			_queryString = null;
+=======
+>>>>>>> compatible
 			_searchContainer = null;
 			_searchContext = null;
 
 			return;
 		}
 
+<<<<<<< HEAD
 		_keywords = new Keywords(keywords);
 
+=======
+>>>>>>> compatible
 		HttpServletRequest request = portal.getHttpServletRequest(
 			_renderRequest);
 
@@ -117,6 +143,7 @@ public class SearchDisplayContext {
 
 		SearchContext searchContext = SearchContextFactory.getInstance(request);
 
+<<<<<<< HEAD
 		boolean luceneSyntax = isUseAdvancedSearchSyntax();
 
 		if (!luceneSyntax) {
@@ -133,6 +160,8 @@ public class SearchDisplayContext {
 			AssetEntriesSearchFacet.getEntryClassNames(
 				getSearchConfiguration()));
 
+=======
+>>>>>>> compatible
 		SearchRequestImpl searchRequestImpl = new SearchRequestImpl(
 			() -> searchContext, searchContainerOptions -> searchContainer,
 			facetedSearcherManager);
@@ -143,7 +172,10 @@ public class SearchDisplayContext {
 		SearchResponseImpl searchResponseImpl = searchRequestImpl.search();
 
 		_hits = searchResponseImpl.getHits();
+<<<<<<< HEAD
 		_queryString = searchResponseImpl.getQueryString();
+=======
+>>>>>>> compatible
 		_searchContainer = searchResponseImpl.getSearchContainer();
 		_searchContext = searchResponseImpl.getSearchContext();
 	}
@@ -176,8 +208,20 @@ public class SearchDisplayContext {
 		}
 
 		_enabledSearchFacets = ListUtil.filter(
+<<<<<<< HEAD
 			getSearchFacets(),
 			searchFacet -> isDisplayFacet(searchFacet.getClassName()));
+=======
+			SearchFacetTracker.getSearchFacets(),
+			new PredicateFilter<SearchFacet>() {
+
+				@Override
+				public boolean filter(SearchFacet searchFacet) {
+					return isDisplayFacet(searchFacet.getClassName());
+				}
+
+			});
+>>>>>>> compatible
 
 		return _enabledSearchFacets;
 	}
@@ -239,10 +283,13 @@ public class SearchDisplayContext {
 		return _queryIndexingThreshold;
 	}
 
+<<<<<<< HEAD
 	public String getQueryString() {
 		return _queryString;
 	}
 
+=======
+>>>>>>> compatible
 	public int getQuerySuggestionsDisplayThreshold() {
 		if (_querySuggestionsDisplayThreshold != null) {
 			return _querySuggestionsDisplayThreshold;
@@ -303,10 +350,13 @@ public class SearchDisplayContext {
 		return _searchContext;
 	}
 
+<<<<<<< HEAD
 	public List<SearchFacet> getSearchFacets() {
 		return _searchFacetTracker.getSearchFacets();
 	}
 
+=======
+>>>>>>> compatible
 	public SearchResultPreferences getSearchResultPreferences() {
 		return _searchResultPreferences;
 	}
@@ -340,10 +390,13 @@ public class SearchDisplayContext {
 		return _searchScopePreferenceString;
 	}
 
+<<<<<<< HEAD
 	public SummaryBuilderFactory getSummaryBuilderFactory() {
 		return _summaryBuilderFactory;
 	}
 
+=======
+>>>>>>> compatible
 	public boolean isCollatedSpellCheckResultEnabled() {
 		if (_collatedSpellCheckResultEnabled != null) {
 			return _collatedSpellCheckResultEnabled;
@@ -464,7 +517,11 @@ public class SearchDisplayContext {
 	}
 
 	public boolean isShowMenu() {
+<<<<<<< HEAD
 		for (SearchFacet searchFacet : getSearchFacets()) {
+=======
+		for (SearchFacet searchFacet : SearchFacetTracker.getSearchFacets()) {
+>>>>>>> compatible
 			if (isDisplayFacet(searchFacet.getClassName())) {
 				return true;
 			}
@@ -473,6 +530,7 @@ public class SearchDisplayContext {
 		return false;
 	}
 
+<<<<<<< HEAD
 	public boolean isUseAdvancedSearchSyntax() {
 		if (_useAdvancedSearchSyntax != null) {
 			return _useAdvancedSearchSyntax;
@@ -484,6 +542,8 @@ public class SearchDisplayContext {
 		return _useAdvancedSearchSyntax;
 	}
 
+=======
+>>>>>>> compatible
 	public boolean isViewInContext() {
 		return _searchResultPreferences.isViewInContext();
 	}
@@ -506,7 +566,11 @@ public class SearchDisplayContext {
 	}
 
 	protected void contributeSearchSettings(SearchSettings searchSettings) {
+<<<<<<< HEAD
 		searchSettings.setKeywords(_keywords.getKeywords());
+=======
+		searchSettings.setKeywords(getKeywords());
+>>>>>>> compatible
 
 		QueryConfig queryConfig = searchSettings.getQueryConfig();
 
@@ -550,7 +614,11 @@ public class SearchDisplayContext {
 		groupIdOptional.ifPresent(
 			groupId -> {
 				searchSettings.addCondition(
+<<<<<<< HEAD
 					new BooleanClauseImpl<>(
+=======
+					new BooleanClauseImpl(
+>>>>>>> compatible
 						new TermQueryImpl(
 							Field.GROUP_ID, String.valueOf(groupId)),
 						BooleanClauseOccur.MUST));
@@ -607,13 +675,19 @@ public class SearchDisplayContext {
 	private final Hits _hits;
 	private Boolean _includeSystemPortlets;
 	private final IndexSearchPropsValues _indexSearchPropsValues;
+<<<<<<< HEAD
 	private final Keywords _keywords;
+=======
+>>>>>>> compatible
 	private final PortletPreferences _portletPreferences;
 	private final PortletURLFactory _portletURLFactory;
 	private QueryConfig _queryConfig;
 	private Boolean _queryIndexingEnabled;
 	private Integer _queryIndexingThreshold;
+<<<<<<< HEAD
 	private final String _queryString;
+=======
+>>>>>>> compatible
 	private Integer _querySuggestionsDisplayThreshold;
 	private Boolean _querySuggestionsEnabled;
 	private Integer _querySuggestionsMax;
@@ -621,11 +695,17 @@ public class SearchDisplayContext {
 	private String _searchConfiguration;
 	private final SearchContainer<Document> _searchContainer;
 	private final SearchContext _searchContext;
+<<<<<<< HEAD
 	private final SearchFacetTracker _searchFacetTracker;
 	private final SearchResultPreferences _searchResultPreferences;
 	private String _searchScopePreferenceString;
 	private final SummaryBuilderFactory _summaryBuilderFactory;
 	private final ThemeDisplaySupplier _themeDisplaySupplier;
 	private Boolean _useAdvancedSearchSyntax;
+=======
+	private final SearchResultPreferences _searchResultPreferences;
+	private String _searchScopePreferenceString;
+	private final ThemeDisplaySupplier _themeDisplaySupplier;
+>>>>>>> compatible
 
 }

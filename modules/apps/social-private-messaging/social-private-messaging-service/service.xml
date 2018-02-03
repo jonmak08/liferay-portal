@@ -59,5 +59,9 @@
 		<reference entity="Group" package-path="com.liferay.portal" />
 		<reference entity="Layout" package-path="com.liferay.portal" />
 		<reference entity="UserNotificationEvent" package-path="com.liferay.portal" />
+<<<<<<< HEAD
+=======
+		<reference entity="MBMessage" package-path="com.liferay.portlet.messageboards" />
+>>>>>>> compatible
 	</entity>
 </service-builder>

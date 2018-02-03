@@ -14,9 +14,13 @@
 
 package com.liferay.blogs.web.internal.portlet.configuration.icon;
 
+<<<<<<< HEAD
 import com.liferay.blogs.constants.BlogsConstants;
 import com.liferay.blogs.constants.BlogsPortletKeys;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.blogs.web.constants.BlogsPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.portlet.LiferayWindowState;
@@ -24,11 +28,20 @@ import com.liferay.portal.kernel.portlet.configuration.icon.BasePortletConfigura
 import com.liferay.portal.kernel.portlet.configuration.icon.PortletConfigurationIcon;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.resource.PortletResourcePermission;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.AggregateResourceBundle;
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
 import com.liferay.portal.kernel.util.WebKeys;
+=======
+import com.liferay.portal.kernel.theme.ThemeDisplay;
+import com.liferay.portal.kernel.util.AggregateResourceBundle;
+import com.liferay.portal.kernel.util.ResourceBundleUtil;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.portlet.blogs.service.permission.BlogsPermission;
+>>>>>>> compatible
 import com.liferay.taglib.security.PermissionsURLTag;
 
 import java.util.Locale;
@@ -38,7 +51,10 @@ import javax.portlet.PortletRequest;
 import javax.portlet.PortletResponse;
 
 import org.osgi.service.component.annotations.Component;
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.Reference;
+=======
+>>>>>>> compatible
 
 /**
  * @author Sergio González
@@ -110,8 +126,13 @@ public class PermissionsPortletConfigurationIcon
 			themeDisplay.getPermissionChecker();
 
 		try {
+<<<<<<< HEAD
 			if (!_portletResourcePermission.contains(
 					permissionChecker, themeDisplay.getScopeGroup(),
+=======
+			if (!BlogsPermission.contains(
+					permissionChecker, themeDisplay.getScopeGroupId(),
+>>>>>>> compatible
 					ActionKeys.PERMISSIONS)) {
 
 				return false;
@@ -134,7 +155,10 @@ public class PermissionsPortletConfigurationIcon
 		return true;
 	}
 
+<<<<<<< HEAD
 	@Reference(target = "(resource.name=" + BlogsConstants.RESOURCE_NAME + ")")
 	private PortletResourcePermission _portletResourcePermission;
 
+=======
+>>>>>>> compatible
 }

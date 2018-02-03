@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Wiki Service
 Bundle-SymbolicName: com.liferay.wiki.service
+<<<<<<< HEAD
 Bundle-Version: 1.7.0
+=======
+Bundle-Version: 1.6.8
+>>>>>>> compatible
 Export-Package:\
 	com.liferay.wiki.asset,\
 	com.liferay.wiki.engine.impl,\
@@ -56,4 +60,16 @@ Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Wiki
 Liferay-Require-SchemaVersion: 1.0.0
 Liferay-Service: true
+<<<<<<< HEAD
 -includeresource: @biz.aQute.bndlib-[0-9]*.jar!/aQute/bnd/annotation/metatype/*
+=======
+-includeresource:\
+	@../../../../../lib/portal/antlr2.jar,\
+	@../../../../../lib/portal/antlr3.jar,\
+	@../../../../../lib/portal/bnd.jar!/aQute/bnd/annotation/metatype/*,\
+	@../../../../../lib/portal/ecs.jar,\
+	@../../../../../lib/portal/jericho-html.jar,\
+	@../../../../../lib/portal/jrcs-diff.jar,\
+	@../../../../../lib/portal/oro.jar,\
+	@../../../../../lib/portal/stringtemplate.jar
+>>>>>>> compatible

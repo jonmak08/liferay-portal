@@ -14,7 +14,11 @@
 
 package com.liferay.portal.kernel.io;
 
+<<<<<<< HEAD
 import com.liferay.petra.lang.ClassResolverUtil;
+=======
+import com.liferay.portal.kernel.util.ClassResolverUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 
 import java.io.IOException;
@@ -47,9 +51,13 @@ public class ProtectedObjectInputStream extends ObjectInputStream {
 
 		String name = objectStreamClass.getName();
 
+<<<<<<< HEAD
 		Thread thread = Thread.currentThread();
 
 		return ClassResolverUtil.resolve(name, thread.getContextClassLoader());
+=======
+		return ClassResolverUtil.resolveByContextClassLoader(name);
+>>>>>>> compatible
 	}
 
 	@Override

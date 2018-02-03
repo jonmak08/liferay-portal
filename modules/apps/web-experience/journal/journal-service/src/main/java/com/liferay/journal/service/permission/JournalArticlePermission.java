@@ -33,7 +33,10 @@ import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.BaseModelPermissionChecker;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.util.HashUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.workflow.permission.WorkflowPermissionUtil;
 import com.liferay.portal.util.PropsValues;
 
@@ -77,10 +80,13 @@ public class JournalArticlePermission implements BaseModelPermissionChecker {
 		}
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 4.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static void check(
 			PermissionChecker permissionChecker, long groupId, String articleId,
 			double version, String actionId)
@@ -95,10 +101,13 @@ public class JournalArticlePermission implements BaseModelPermissionChecker {
 		}
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 4.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static void check(
 			PermissionChecker permissionChecker, long groupId, String articleId,
 			int status, String actionId)
@@ -113,10 +122,13 @@ public class JournalArticlePermission implements BaseModelPermissionChecker {
 		}
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 4.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static void check(
 			PermissionChecker permissionChecker, long groupId, String articleId,
 			String actionId)
@@ -130,33 +142,56 @@ public class JournalArticlePermission implements BaseModelPermissionChecker {
 	}
 
 	public static boolean contains(
+<<<<<<< HEAD
 		PermissionChecker permissionChecker, JournalArticle article,
 		String actionId) {
+=======
+			PermissionChecker permissionChecker, JournalArticle article,
+			String actionId)
+		throws PortalException {
+>>>>>>> compatible
 
 		Map<Object, Object> permissionChecksMap =
 			permissionChecker.getPermissionChecksMap();
 
+<<<<<<< HEAD
 		PermissionCacheKey permissionCacheKey = new PermissionCacheKey(
 			article.getGroupId(), article.getArticleId(), actionId);
 
 		Boolean contains = (Boolean)permissionChecksMap.get(permissionCacheKey);
+=======
+		CacheKey cacheKey = new CacheKey(
+			article.getGroupId(), article.getArticleId(), actionId);
+
+		Boolean contains = (Boolean)permissionChecksMap.get(cacheKey);
+>>>>>>> compatible
 
 		if (contains == null) {
 			contains = _contains(permissionChecker, article, actionId);
 
+<<<<<<< HEAD
 			permissionChecksMap.put(permissionCacheKey, contains);
+=======
+			permissionChecksMap.put(cacheKey, contains);
+>>>>>>> compatible
 		}
 
 		return contains;
 	}
 
 	public static boolean contains(
+<<<<<<< HEAD
 		PermissionChecker permissionChecker, long classPK, String actionId) {
+=======
+			PermissionChecker permissionChecker, long classPK, String actionId)
+		throws PortalException {
+>>>>>>> compatible
 
 		JournalArticle article = _journalArticleLocalService.fetchLatestArticle(
 			classPK);
 
 		if (article == null) {
+<<<<<<< HEAD
 			article = _journalArticleLocalService.fetchArticle(classPK);
 
 			if (article == null) {
@@ -164,11 +199,15 @@ public class JournalArticlePermission implements BaseModelPermissionChecker {
 
 				return false;
 			}
+=======
+			article = _journalArticleLocalService.getArticle(classPK);
+>>>>>>> compatible
 		}
 
 		return contains(permissionChecker, article, actionId);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 4.0.0, with no direct replacement
 	 */
@@ -237,6 +276,38 @@ public class JournalArticlePermission implements BaseModelPermissionChecker {
 			return false;
 		}
 
+=======
+	public static boolean contains(
+			PermissionChecker permissionChecker, long groupId, String articleId,
+			double version, String actionId)
+		throws PortalException {
+
+		JournalArticle article = _journalArticleLocalService.getArticle(
+			groupId, articleId, version);
+
+		return contains(permissionChecker, article, actionId);
+	}
+
+	public static boolean contains(
+			PermissionChecker permissionChecker, long groupId, String articleId,
+			int status, String actionId)
+		throws PortalException {
+
+		JournalArticle article = _journalArticleLocalService.getLatestArticle(
+			groupId, articleId, status);
+
+		return contains(permissionChecker, article, actionId);
+	}
+
+	public static boolean contains(
+			PermissionChecker permissionChecker, long groupId, String articleId,
+			String actionId)
+		throws PortalException {
+
+		JournalArticle article = _journalArticleLocalService.getArticle(
+			groupId, articleId);
+
+>>>>>>> compatible
 		return contains(permissionChecker, article, actionId);
 	}
 
@@ -271,8 +342,14 @@ public class JournalArticlePermission implements BaseModelPermissionChecker {
 	}
 
 	private static boolean _contains(
+<<<<<<< HEAD
 		PermissionChecker permissionChecker, JournalArticle article,
 		String actionId) {
+=======
+			PermissionChecker permissionChecker, JournalArticle article,
+			String actionId)
+		throws PortalException {
+>>>>>>> compatible
 
 		String portletId = PortletProviderUtil.getPortletId(
 			JournalArticle.class.getName(), PortletProvider.Action.EDIT);
@@ -296,7 +373,12 @@ public class JournalArticlePermission implements BaseModelPermissionChecker {
 		else if (article.isPending()) {
 			hasPermission = WorkflowPermissionUtil.hasPermission(
 				permissionChecker, article.getGroupId(),
+<<<<<<< HEAD
 				JournalArticle.class.getName(), article.getId(), actionId);
+=======
+				JournalArticle.class.getName(), article.getResourcePrimKey(),
+				actionId);
+>>>>>>> compatible
 
 			if (hasPermission != null) {
 				return hasPermission.booleanValue();
@@ -384,7 +466,11 @@ public class JournalArticlePermission implements BaseModelPermissionChecker {
 	private static JournalArticleLocalService _journalArticleLocalService;
 	private static JournalFolderLocalService _journalFolderLocalService;
 
+<<<<<<< HEAD
 	private static class PermissionCacheKey {
+=======
+	private static class CacheKey {
+>>>>>>> compatible
 
 		@Override
 		public boolean equals(Object obj) {
@@ -392,6 +478,7 @@ public class JournalArticlePermission implements BaseModelPermissionChecker {
 				return true;
 			}
 
+<<<<<<< HEAD
 			if (!(obj instanceof PermissionCacheKey)) {
 				return false;
 			}
@@ -401,6 +488,17 @@ public class JournalArticlePermission implements BaseModelPermissionChecker {
 			if ((_groupId == permissionCacheKey._groupId) &&
 				Objects.equals(_articleId, permissionCacheKey._articleId) &&
 				Objects.equals(_actionId, permissionCacheKey._actionId)) {
+=======
+			if (!(obj instanceof CacheKey)) {
+				return false;
+			}
+
+			CacheKey cacheKey = (CacheKey)obj;
+
+			if ((_groupId == cacheKey._groupId) &&
+				Objects.equals(_articleId, cacheKey._articleId) &&
+				Objects.equals(_actionId, cacheKey._actionId)) {
+>>>>>>> compatible
 
 				return true;
 			}
@@ -417,9 +515,13 @@ public class JournalArticlePermission implements BaseModelPermissionChecker {
 			return HashUtil.hash(hash, _actionId);
 		}
 
+<<<<<<< HEAD
 		private PermissionCacheKey(
 			long groupId, String articleId, String actionId) {
 
+=======
+		private CacheKey(long groupId, String articleId, String actionId) {
+>>>>>>> compatible
 			_groupId = groupId;
 			_articleId = articleId;
 			_actionId = actionId;

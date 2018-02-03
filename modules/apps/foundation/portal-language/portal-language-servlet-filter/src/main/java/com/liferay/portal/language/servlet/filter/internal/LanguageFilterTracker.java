@@ -16,7 +16,10 @@ package com.liferay.portal.language.servlet.filter.internal;
 
 import com.liferay.osgi.util.ServiceTrackerFactory;
 import com.liferay.portal.kernel.util.AggregateResourceBundle;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.LocaleUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ResourceBundleLoader;
 import com.liferay.portal.kernel.util.ResourceBundleLoaderUtil;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -26,7 +29,10 @@ import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Locale;
+=======
+>>>>>>> compatible
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -79,7 +85,11 @@ public class LanguageFilterTracker {
 		}
 
 		@Override
+<<<<<<< HEAD
 		public ResourceBundle loadResourceBundle(Locale locale) {
+=======
+		public ResourceBundle loadResourceBundle(String languageId) {
+>>>>>>> compatible
 			ResourceBundleLoader resourceBundleLoader =
 				_serviceTracker.getService();
 
@@ -88,11 +98,16 @@ public class LanguageFilterTracker {
 
 			if (resourceBundleLoader != null) {
 				ResourceBundle resourceBundle =
+<<<<<<< HEAD
 					resourceBundleLoader.loadResourceBundle(locale);
+=======
+					resourceBundleLoader.loadResourceBundle(languageId);
+>>>>>>> compatible
 
 				if (resourceBundle != null) {
 					return new AggregateResourceBundle(
 						resourceBundle,
+<<<<<<< HEAD
 						portalResourceBundleLoader.loadResourceBundle(locale));
 				}
 			}
@@ -107,6 +122,14 @@ public class LanguageFilterTracker {
 		@Deprecated
 		public ResourceBundle loadResourceBundle(String languageId) {
 			return loadResourceBundle(LocaleUtil.fromLanguageId(languageId));
+=======
+						portalResourceBundleLoader.loadResourceBundle(
+							languageId));
+				}
+			}
+
+			return portalResourceBundleLoader.loadResourceBundle(languageId);
+>>>>>>> compatible
 		}
 
 		private final ServiceTracker<ResourceBundleLoader, ResourceBundleLoader>
@@ -131,7 +154,11 @@ public class LanguageFilterTracker {
 
 			Bundle bundle = serviceReference.getBundle();
 
+<<<<<<< HEAD
 			StringBundler filterSB = new StringBundler(17);
+=======
+			StringBundler filterSB = new StringBundler();
+>>>>>>> compatible
 
 			Object contextName = serviceReference.getProperty(
 				HttpWhiteboardConstants.HTTP_WHITEBOARD_CONTEXT_NAME);

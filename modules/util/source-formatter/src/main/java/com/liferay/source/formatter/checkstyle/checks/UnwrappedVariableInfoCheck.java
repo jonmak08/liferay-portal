@@ -14,6 +14,10 @@
 
 package com.liferay.source.formatter.checkstyle.checks;
 
+<<<<<<< HEAD
+=======
+import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
+>>>>>>> compatible
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.FileContents;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
@@ -21,7 +25,11 @@ import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 /**
  * @author Hugo Huijser
  */
+<<<<<<< HEAD
 public class UnwrappedVariableInfoCheck extends BaseCheck {
+=======
+public class UnwrappedVariableInfoCheck extends AbstractCheck {
+>>>>>>> compatible
 
 	@Override
 	public int[] getDefaultTokens() {
@@ -29,7 +37,11 @@ public class UnwrappedVariableInfoCheck extends BaseCheck {
 	}
 
 	@Override
+<<<<<<< HEAD
 	protected void doVisitToken(DetailAST detailAST) {
+=======
+	public void visitToken(DetailAST detailAST) {
+>>>>>>> compatible
 		FileContents fileContents = getFileContents();
 
 		String fileName = fileContents.getFileName();
@@ -38,7 +50,11 @@ public class UnwrappedVariableInfoCheck extends BaseCheck {
 			return;
 		}
 
+<<<<<<< HEAD
 		String line = getLine(detailAST.getLineNo() - 1);
+=======
+		String line = fileContents.getLine(detailAST.getLineNo() - 1);
+>>>>>>> compatible
 
 		if (!line.contains("private static final VariableInfo[]")) {
 			return;

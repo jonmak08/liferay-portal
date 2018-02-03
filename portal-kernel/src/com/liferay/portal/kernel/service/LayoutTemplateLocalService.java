@@ -56,10 +56,13 @@ public interface LayoutTemplateLocalService extends BaseLocalService {
 		boolean standard, java.lang.String themeId);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+<<<<<<< HEAD
 	public java.lang.String getLangType(java.lang.String layoutTemplateId,
 		boolean standard, java.lang.String themeId);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+=======
+>>>>>>> compatible
 	public LayoutTemplate getLayoutTemplate(java.lang.String layoutTemplateId,
 		boolean standard, java.lang.String themeId);
 

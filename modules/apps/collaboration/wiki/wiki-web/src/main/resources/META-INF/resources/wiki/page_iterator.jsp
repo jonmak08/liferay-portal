@@ -250,11 +250,19 @@ for (int i = 0; i < pages.size(); i++) {
 
 <c:if test='<%= navigation.equals("history") && (pages.size() > 1) %>'>
 	<aui:button-row>
+<<<<<<< HEAD
 		<aui:button name="compare" primary="<%= true %>" value="compare-versions" />
 	</aui:button-row>
 </c:if>
 
 <liferay-asset:categorization-filter
+=======
+		<aui:button cssClass="btn-lg" name="compare" primary="<%= true %>" value="compare-versions" />
+	</aui:button-row>
+</c:if>
+
+<liferay-ui:categorization-filter
+>>>>>>> compatible
 	assetType="pages"
 	portletURL="<%= portletURL %>"
 />

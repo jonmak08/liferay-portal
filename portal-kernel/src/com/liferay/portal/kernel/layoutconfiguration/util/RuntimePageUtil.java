@@ -64,6 +64,7 @@ public class RuntimePageUtil {
 
 	public static void processTemplate(
 			HttpServletRequest request, HttpServletResponse response,
+<<<<<<< HEAD
 			String portletId, TemplateResource templateResource,
 			String langType)
 		throws Exception {
@@ -74,12 +75,15 @@ public class RuntimePageUtil {
 
 	public static void processTemplate(
 			HttpServletRequest request, HttpServletResponse response,
+=======
+>>>>>>> compatible
 			TemplateResource templateResource)
 		throws Exception {
 
 		getRuntimePage().processTemplate(request, response, templateResource);
 	}
 
+<<<<<<< HEAD
 	public static void processTemplate(
 			HttpServletRequest request, HttpServletResponse response,
 			TemplateResource templateResource, String langType)
@@ -89,6 +93,8 @@ public class RuntimePageUtil {
 			request, response, templateResource, langType);
 	}
 
+=======
+>>>>>>> compatible
 	public static String processXML(
 			HttpServletRequest request, HttpServletResponse response,
 			String content)

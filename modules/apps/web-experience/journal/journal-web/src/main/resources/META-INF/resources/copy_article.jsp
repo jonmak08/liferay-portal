@@ -62,8 +62,14 @@ renderResponse.setTitle(LanguageUtil.get(request, "web-content"));
 	</aui:fieldset-group>
 
 	<aui:button-row>
+<<<<<<< HEAD
 		<aui:button type="submit" value="copy" />
 
 		<aui:button href="<%= redirect %>" value="cancel" />
+=======
+		<aui:button cssClass="btn-lg" type="submit" value="copy" />
+
+		<aui:button cssClass="btn-lg" href="<%= redirect %>" value="cancel" />
+>>>>>>> compatible
 	</aui:button-row>
 </aui:form>

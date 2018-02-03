@@ -290,8 +290,13 @@ public class JournalTransformerTest {
 		StringBundler sb = new StringBundler(5);
 
 		sb.append("<script type=\"text/javascript\">");
+<<<<<<< HEAD
 		sb.append("Liferay.Service('/assetentry/increment-view-counter',");
 		sb.append("{userId:0, className:'");
+=======
+		sb.append("Liferay.Service.Asset.AssetEntry.incrementViewCounter");
+		sb.append("({userId:0, className:'");
+>>>>>>> compatible
 		sb.append("com.liferay.journal.model.JournalArticle', classPK:1});");
 		sb.append("</script>");
 

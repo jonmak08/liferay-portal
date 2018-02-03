@@ -34,8 +34,11 @@ import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.spring.extender.service.ServiceReference;
 import com.liferay.screens.service.base.ScreensCommentServiceBaseImpl;
 
+<<<<<<< HEAD
 import java.util.Date;
 
+=======
+>>>>>>> compatible
 /**
  * @author Alejandro Hernández Malillos
  */
@@ -185,13 +188,21 @@ public class ScreensCommentServiceImpl extends ScreensCommentServiceBaseImpl {
 	}
 
 	protected Function<String, ServiceContext> createServiceContextFunction() {
+<<<<<<< HEAD
 		return className -> new ServiceContext();
+=======
+		return (className) -> new ServiceContext();
+>>>>>>> compatible
 	}
 
 	protected Function<String, ServiceContext> createServiceContextFunction(
 		int workflowAction) {
 
+<<<<<<< HEAD
 		return className -> {
+=======
+		return (className) -> {
+>>>>>>> compatible
 			ServiceContext serviceContext = new ServiceContext();
 
 			serviceContext.setWorkflowAction(workflowAction);
@@ -208,6 +219,7 @@ public class ScreensCommentServiceImpl extends ScreensCommentServiceBaseImpl {
 
 		jsonObject.put("body", comment.getBody());
 		jsonObject.put("commentId", Long.valueOf(comment.getCommentId()));
+<<<<<<< HEAD
 
 		Date createDate = comment.getCreateDate();
 
@@ -221,6 +233,15 @@ public class ScreensCommentServiceImpl extends ScreensCommentServiceBaseImpl {
 
 		jsonObject.put("modifiedDate", Long.valueOf(modifiedDate.getTime()));
 
+=======
+		jsonObject.put(
+			"createDate", Long.valueOf(comment.getCreateDate().getTime()));
+		jsonObject.put(
+			"deletePermission",
+			discussionPermission.hasDeletePermission(comment.getCommentId()));
+		jsonObject.put(
+			"modifiedDate", Long.valueOf(comment.getModifiedDate().getTime()));
+>>>>>>> compatible
 		jsonObject.put(
 			"updatePermission",
 			discussionPermission.hasUpdatePermission(comment.getCommentId()));

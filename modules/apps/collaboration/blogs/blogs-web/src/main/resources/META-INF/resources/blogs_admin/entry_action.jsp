@@ -44,7 +44,11 @@ portletURL.setParameter("mvcRenderCommandName", "/blogs/view");
 	<c:if test="<%= BlogsEntryPermission.contains(permissionChecker, entry, ActionKeys.PERMISSIONS) %>">
 		<liferay-security:permissionsURL
 			modelResource="<%= BlogsEntry.class.getName() %>"
+<<<<<<< HEAD
 			modelResourceDescription="<%= BlogsEntryUtil.getDisplayTitle(resourceBundle, entry) %>"
+=======
+			modelResourceDescription="<%= entry.getTitle() %>"
+>>>>>>> compatible
 			resourcePrimKey="<%= String.valueOf(entry.getEntryId()) %>"
 			var="permissionsEntryURL"
 			windowState="<%= LiferayWindowState.POP_UP.toString() %>"
@@ -60,11 +64,19 @@ portletURL.setParameter("mvcRenderCommandName", "/blogs/view");
 
 	<c:if test="<%= BlogsEntryPermission.contains(permissionChecker, entry, ActionKeys.DELETE) %>">
 		<portlet:actionURL name="/blogs/edit_entry" var="deleteEntryURL">
+<<<<<<< HEAD
 			<portlet:param name="<%= Constants.CMD %>" value="<%= trashHelper.isTrashEnabled(scopeGroupId) ? Constants.MOVE_TO_TRASH : Constants.DELETE %>" />
+=======
+			<portlet:param name="<%= Constants.CMD %>" value="<%= TrashUtil.isTrashEnabled(scopeGroupId) ? Constants.MOVE_TO_TRASH : Constants.DELETE %>" />
+>>>>>>> compatible
 			<portlet:param name="redirect" value="<%= portletURL.toString() %>" />
 			<portlet:param name="entryId" value="<%= String.valueOf(entry.getEntryId()) %>" />
 		</portlet:actionURL>
 
+<<<<<<< HEAD
 		<liferay-ui:icon-delete trash="<%= trashHelper.isTrashEnabled(scopeGroupId) %>" url="<%= deleteEntryURL %>" />
+=======
+		<liferay-ui:icon-delete trash="<%= TrashUtil.isTrashEnabled(scopeGroupId) %>" url="<%= deleteEntryURL %>" />
+>>>>>>> compatible
 	</c:if>
 </liferay-ui:icon-menu>

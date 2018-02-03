@@ -16,7 +16,12 @@ package com.liferay.exportimport.kernel.lar;
 
 import aQute.bnd.annotation.ProviderType;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.HashUtil;
+=======
+import com.liferay.portal.kernel.util.HashCode;
+import com.liferay.portal.kernel.util.HashCodeFactoryUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.Validator;
@@ -107,9 +112,18 @@ public class StagedModelType {
 
 	@Override
 	public int hashCode() {
+<<<<<<< HEAD
 		int hashCode = HashUtil.hash(0, _classNameId);
 
 		return HashUtil.hash(hashCode, _referrerClassNameId);
+=======
+		HashCode hashCode = HashCodeFactoryUtil.getHashCode();
+
+		hashCode.append(_classNameId);
+		hashCode.append(_referrerClassNameId);
+
+		return hashCode.toHashCode();
+>>>>>>> compatible
 	}
 
 	@Override

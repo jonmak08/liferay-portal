@@ -68,7 +68,11 @@
 
 		${discussionURL.setParameter("javax.portlet.action", "invokeTaglibDiscussion")}
 
+<<<<<<< HEAD
 		<@liferay_comment["discussion"]
+=======
+		<@liferay_ui["discussion"]
+>>>>>>> compatible
 			className=entry.getClassName()
 			classPK=entry.getClassPK()
 			formAction=discussionURL?string
@@ -125,7 +129,11 @@
 			<#if stringUtil.equals(fieldName, "author")>
 				<@liferay.language key="by" /> ${htmlUtil.escape(portalUtil.getUserName(assetRenderer.getUserId(), assetRenderer.getUserName()))}
 			<#elseif stringUtil.equals(fieldName, "categories")>
+<<<<<<< HEAD
 				<@liferay_asset["asset-categories-summary"]
+=======
+				<@liferay_ui["asset-categories-summary"]
+>>>>>>> compatible
 					className=entry.getClassName()
 					classPK=entry.getClassPK()
 					portletURL=renderResponse.createRenderURL()
@@ -141,7 +149,11 @@
 			<#elseif stringUtil.equals(fieldName, "publish-date")>
 				${dateUtil.getDate(entry.getPublishDate(), dateFormat, locale)}
 			<#elseif stringUtil.equals(fieldName, "tags")>
+<<<<<<< HEAD
 				<@liferay_asset["asset-tags-summary"]
+=======
+				<@liferay_ui["asset-tags-summary"]
+>>>>>>> compatible
 					className=entry.getClassName()
 					classPK=entry.getClassPK()
 					portletURL=renderResponse.createRenderURL()
@@ -193,18 +205,33 @@
 
 <#macro getRelatedAssets>
 	<#if getterUtil.getBoolean(enableRelatedAssets)>
+<<<<<<< HEAD
 		<@liferay_asset["asset-links"]
 			assetEntryId=entry.getEntryId()
 			viewInContext=!stringUtil.equals(assetLinkBehavior, "showFullContent")
 		/>
+=======
+		<@liferay_ui["asset-links"] assetEntryId=entry.getEntryId() />
+>>>>>>> compatible
 	</#if>
 </#macro>
 
 <#macro getSocialBookmarks>
+<<<<<<< HEAD
 	<@liferay_ui["social-bookmarks"]
 		displayStyle="${socialBookmarksDisplayStyle}"
 		target="_blank"
 		title=entry.getTitle(locale)
 		url=viewURL
 	/>
+=======
+	<#if getterUtil.getBoolean(enableSocialBookmarks)>
+		<@liferay_ui["social-bookmarks"]
+			displayStyle="${socialBookmarksDisplayStyle}"
+			target="_blank"
+			title=entry.getTitle(locale)
+			url=viewURL
+		/>
+	</#if>
+>>>>>>> compatible
 </#macro>

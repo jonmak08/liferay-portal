@@ -77,6 +77,7 @@ public class LanguageValidatorTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testIsValidKeyUserDefaultPortrait() {
 		Assert.assertTrue(
 			LanguageValidator.isValid(
@@ -141,6 +142,8 @@ public class LanguageValidatorTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testIsValidKeyUserNameFieldNames() {
 		Assert.assertTrue(
 			LanguageValidator.isValid(

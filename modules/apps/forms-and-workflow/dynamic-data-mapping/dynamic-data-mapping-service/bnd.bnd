@@ -1,19 +1,34 @@
 Bundle-Name: Liferay Dynamic Data Mapping Service
 Bundle-SymbolicName: com.liferay.dynamic.data.mapping.service
+<<<<<<< HEAD
 Bundle-Version: 3.0.0
+=======
+Bundle-Version: 2.3.17
+>>>>>>> compatible
 Export-Package:\
 	com.liferay.dynamic.data.mapping.background.task,\
 	com.liferay.dynamic.data.mapping.configuration,\
 	com.liferay.dynamic.data.mapping.exportimport.content.processor,\
+<<<<<<< HEAD
 	com.liferay.dynamic.data.mapping.exportimport.staged.model.repository,\
+=======
+>>>>>>> compatible
 	com.liferay.dynamic.data.mapping.model.impl,\
 	com.liferay.dynamic.data.mapping.search,\
 	com.liferay.dynamic.data.mapping.service.permission,\
 	com.liferay.dynamic.data.mapping.storage.impl,\
 	com.liferay.dynamic.data.mapping.template,\
+<<<<<<< HEAD
+=======
+	com.liferay.dynamic.data.mapping.util.impl,\
+>>>>>>> compatible
 	com.liferay.dynamic.data.mapping.verify,\
 	com.liferay.dynamic.data.mapping.webdav
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Dynamic Data Mapping
+<<<<<<< HEAD
 Liferay-Require-SchemaVersion: 2.0.0
+=======
+Liferay-Require-SchemaVersion: 1.0.2
+>>>>>>> compatible
 Liferay-Service: true

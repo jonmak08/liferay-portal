@@ -17,6 +17,7 @@ package com.liferay.asset.publisher.web.portlet.action;
 import com.liferay.asset.kernel.AssetRendererFactoryRegistryUtil;
 import com.liferay.asset.kernel.exception.AssetTagException;
 import com.liferay.asset.kernel.exception.DuplicateQueryRuleException;
+<<<<<<< HEAD
 import com.liferay.asset.kernel.model.AssetRendererFactory;
 import com.liferay.asset.kernel.service.AssetTagLocalService;
 import com.liferay.asset.publisher.web.configuration.AssetPublisherPortletInstanceConfiguration;
@@ -33,25 +34,44 @@ import com.liferay.exportimport.kernel.staging.Staging;
 import com.liferay.item.selector.ItemSelector;
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
+=======
+import com.liferay.asset.kernel.model.AssetQueryRule;
+import com.liferay.asset.kernel.model.AssetRendererFactory;
+import com.liferay.asset.kernel.service.AssetTagLocalService;
+import com.liferay.asset.publisher.web.constants.AssetPublisherPortletKeys;
+import com.liferay.asset.publisher.web.internal.configuration.AssetPublisherWebConfigurationValues;
+import com.liferay.asset.publisher.web.util.AssetPublisherUtil;
+import com.liferay.exportimport.kernel.staging.LayoutStagingUtil;
+import com.liferay.exportimport.kernel.staging.Staging;
+import com.liferay.petra.content.ContentUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.GroupConstants;
 import com.liferay.portal.kernel.model.Layout;
 import com.liferay.portal.kernel.model.LayoutRevision;
 import com.liferay.portal.kernel.model.LayoutSetBranch;
 import com.liferay.portal.kernel.model.LayoutTypePortletConstants;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.module.configuration.ConfigurationException;
 import com.liferay.portal.kernel.module.configuration.ConfigurationProviderUtil;
 import com.liferay.portal.kernel.portlet.ConfigurationAction;
 import com.liferay.portal.kernel.portlet.DefaultConfigurationAction;
 import com.liferay.portal.kernel.portlet.PortletIdCodec;
+=======
+import com.liferay.portal.kernel.portlet.ConfigurationAction;
+import com.liferay.portal.kernel.portlet.DefaultConfigurationAction;
+>>>>>>> compatible
 import com.liferay.portal.kernel.security.auth.PrincipalException;
 import com.liferay.portal.kernel.service.GroupLocalService;
 import com.liferay.portal.kernel.service.LayoutLocalService;
 import com.liferay.portal.kernel.service.LayoutRevisionLocalService;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.servlet.SessionMessages;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.settings.LocalizedValuesMap;
 import com.liferay.portal.kernel.theme.PortletDisplay;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.Constants;
@@ -59,6 +79,10 @@ import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.UnicodeProperties;
 import com.liferay.portal.kernel.util.Validator;
@@ -67,7 +91,10 @@ import com.liferay.portlet.PortletPreferencesImpl;
 
 import java.util.ArrayList;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Map;
+=======
+>>>>>>> compatible
 import java.util.Objects;
 
 import javax.portlet.ActionRequest;
@@ -78,11 +105,16 @@ import javax.portlet.PortletRequest;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+<<<<<<< HEAD
 import javax.servlet.http.HttpServletResponse;
 
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Modified;
+=======
+
+import org.osgi.service.component.annotations.Component;
+>>>>>>> compatible
 import org.osgi.service.component.annotations.Reference;
 
 /**
@@ -90,7 +122,10 @@ import org.osgi.service.component.annotations.Reference;
  * @author Juan Fernández
  */
 @Component(
+<<<<<<< HEAD
 	configurationPid = "com.liferay.asset.publisher.web.configuration.AssetPublisherWebConfiguration",
+=======
+>>>>>>> compatible
 	immediate = true,
 	property = {
 		"javax.portlet.name=" + AssetPublisherPortletKeys.ASSET_PUBLISHER
@@ -112,6 +147,7 @@ public class AssetPublisherConfigurationAction
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void include(
 			PortletConfig portletConfig, HttpServletRequest request,
 			HttpServletResponse response)
@@ -165,10 +201,19 @@ public class AssetPublisherConfigurationAction
 		LocalizedValuesMap emailAssetEntryAddedBodyMap =
 			assetPublisherPortletInstanceConfiguration.
 				emailAssetEntryAddedBody();
+=======
+	public void postProcess(
+		long companyId, PortletRequest portletRequest,
+		PortletPreferences portletPreferences) {
+
+		String languageId = LocaleUtil.toLanguageId(
+			LocaleUtil.getSiteDefault());
+>>>>>>> compatible
 
 		removeDefaultValue(
 			portletRequest, portletPreferences,
 			"emailAssetEntryAddedBody_" + languageId,
+<<<<<<< HEAD
 			emailAssetEntryAddedBodyMap.get(LocaleUtil.getSiteDefault()));
 
 		LocalizedValuesMap emailAssetEntryAddedSubjectMap =
@@ -179,6 +224,19 @@ public class AssetPublisherConfigurationAction
 			portletRequest, portletPreferences,
 			"emailAssetEntryAddedSubject_" + languageId,
 			emailAssetEntryAddedSubjectMap.get(LocaleUtil.getSiteDefault()));
+=======
+			ContentUtil.get(
+				AssetPublisherConfigurationAction.class.getClassLoader(),
+				AssetPublisherWebConfigurationValues.
+					EMAIL_ASSET_ENTRY_ADDED_BODY));
+		removeDefaultValue(
+			portletRequest, portletPreferences,
+			"emailAssetEntryAddedSubject_" + languageId,
+			ContentUtil.get(
+				AssetPublisherConfigurationAction.class.getClassLoader(),
+				AssetPublisherWebConfigurationValues.
+					EMAIL_ASSET_ENTRY_ADDED_SUBJECT));
+>>>>>>> compatible
 	}
 
 	@Override
@@ -199,6 +257,7 @@ public class AssetPublisherConfigurationAction
 		}
 		else if (cmd.equals(Constants.UPDATE)) {
 			try {
+<<<<<<< HEAD
 				HttpServletRequest request = portal.getHttpServletRequest(
 					actionRequest);
 
@@ -215,6 +274,10 @@ public class AssetPublisherConfigurationAction
 					validateEmail(actionRequest, "emailAssetEntryAdded");
 					validateEmailFrom(actionRequest);
 				}
+=======
+				validateEmail(actionRequest, "emailAssetEntryAdded");
+				validateEmailFrom(actionRequest);
+>>>>>>> compatible
 
 				updateDisplaySettings(actionRequest);
 
@@ -246,7 +309,12 @@ public class AssetPublisherConfigurationAction
 				addScope(actionRequest, preferences);
 			}
 			else if (cmd.equals("add-selection")) {
+<<<<<<< HEAD
 				assetPublisherWebUtil.addSelection(actionRequest, preferences);
+=======
+				AssetPublisherUtil.addSelection(
+					actionRequest, preferences, portletResource);
+>>>>>>> compatible
 			}
 			else if (cmd.equals("move-selection-down")) {
 				moveSelectionDown(actionRequest, preferences);
@@ -300,6 +368,7 @@ public class AssetPublisherConfigurationAction
 		super.setServletContext(servletContext);
 	}
 
+<<<<<<< HEAD
 	@Activate
 	@Modified
 	protected void activate(Map<String, Object> properties) {
@@ -307,6 +376,8 @@ public class AssetPublisherConfigurationAction
 			AssetPublisherWebConfiguration.class, properties);
 	}
 
+=======
+>>>>>>> compatible
 	protected void addScope(
 			ActionRequest actionRequest, PortletPreferences preferences)
 		throws Exception {
@@ -345,9 +416,15 @@ public class AssetPublisherConfigurationAction
 
 		Layout layout = themeDisplay.getLayout();
 
+<<<<<<< HEAD
 		if (!assetPublisherWebUtil.isScopeIdSelectable(
 				themeDisplay.getPermissionChecker(), scopeId,
 				themeDisplay.getCompanyGroupId(), layout, true)) {
+=======
+		if (!AssetPublisherUtil.isScopeIdSelectable(
+				themeDisplay.getPermissionChecker(), scopeId,
+				themeDisplay.getCompanyGroupId(), layout)) {
+>>>>>>> compatible
 
 			throw new PrincipalException();
 		}
@@ -381,7 +458,11 @@ public class AssetPublisherConfigurationAction
 			AssetRendererFactoryRegistryUtil.getAssetRendererFactoryByClassName(
 				className);
 
+<<<<<<< HEAD
 		String assetClassName = assetPublisherWebUtil.getClassName(
+=======
+		String assetClassName = AssetPublisherUtil.getClassName(
+>>>>>>> compatible
 			assetRendererFactory);
 
 		return assetClassName;
@@ -573,11 +654,14 @@ public class AssetPublisherConfigurationAction
 	}
 
 	@Reference(unbind = "-")
+<<<<<<< HEAD
 	protected void setItemSelector(ItemSelector itemSelector) {
 		this.itemSelector = itemSelector;
 	}
 
 	@Reference(unbind = "-")
+=======
+>>>>>>> compatible
 	protected void setLayoutLocalService(
 		LayoutLocalService layoutLocalService) {
 
@@ -703,7 +787,11 @@ public class AssetPublisherConfigurationAction
 
 		String[] extensions = actionRequest.getParameterValues("extensions");
 
+<<<<<<< HEAD
 		if (ArrayUtil.isNotEmpty(extensions) && (extensions.length == 1) &&
+=======
+		if ((extensions.length == 1) &&
+>>>>>>> compatible
 			extensions[0].equals(Boolean.FALSE.toString())) {
 
 			extensions = new String[0];
@@ -795,6 +883,7 @@ public class AssetPublisherConfigurationAction
 		}
 	}
 
+<<<<<<< HEAD
 	@Reference
 	protected AssetPublisherCustomizerRegistry assetPublisherCustomizerRegistry;
 
@@ -806,6 +895,10 @@ public class AssetPublisherConfigurationAction
 	protected AssetTagLocalService assetTagLocalService;
 	protected GroupLocalService groupLocalService;
 	protected ItemSelector itemSelector;
+=======
+	protected AssetTagLocalService assetTagLocalService;
+	protected GroupLocalService groupLocalService;
+>>>>>>> compatible
 	protected LayoutLocalService layoutLocalService;
 	protected LayoutRevisionLocalService layoutRevisionLocalService;
 
@@ -815,6 +908,7 @@ public class AssetPublisherConfigurationAction
 	@Reference
 	protected Staging staging;
 
+<<<<<<< HEAD
 	private AssetPublisherPortletInstanceConfiguration
 			_getAssetPublisherPortletInstanceConfiguration(
 				HttpServletRequest request)
@@ -829,4 +923,6 @@ public class AssetPublisherConfigurationAction
 			AssetPublisherPortletInstanceConfiguration.class);
 	}
 
+=======
+>>>>>>> compatible
 }

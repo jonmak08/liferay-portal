@@ -14,17 +14,26 @@
 
 package com.liferay.document.library.web.internal.exportimport.lifecycle;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.document.library.kernel.model.DLFolder;
 import com.liferay.document.library.kernel.service.DLFileEntryTypeLocalService;
 import com.liferay.document.library.kernel.service.DLFolderLocalService;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
+<<<<<<< HEAD
 import com.liferay.exportimport.kernel.lifecycle.EventAwareExportImportLifecycleListener;
 import com.liferay.exportimport.kernel.lifecycle.ExportImportLifecycleListener;
 import com.liferay.exportimport.kernel.model.ExportImportConfiguration;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.StagedModel;
+=======
+import com.liferay.exportimport.kernel.lifecycle.BaseExportImportLifecycleListener;
+import com.liferay.exportimport.kernel.lifecycle.ExportImportLifecycleListener;
+import com.liferay.portal.kernel.exception.PortalException;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.kernel.util.Validator;
 
@@ -40,15 +49,21 @@ import org.osgi.service.component.annotations.Reference;
  * @author Mate Thurzo
  */
 @Component(service = ExportImportLifecycleListener.class)
+<<<<<<< HEAD
 @ProviderType
 public class CascadeFileEntryTypesExportImportLifecycleListener
 	implements EventAwareExportImportLifecycleListener {
+=======
+public class CascadeFileEntryTypesExportImportLifecycleListener
+	extends BaseExportImportLifecycleListener {
+>>>>>>> compatible
 
 	@Override
 	public boolean isParallel() {
 		return true;
 	}
 
+<<<<<<< HEAD
 	@Override
 	public void onLayoutExportFailed(
 			PortletDataContext portletDataContext, Throwable throwable)
@@ -73,6 +88,32 @@ public class CascadeFileEntryTypesExportImportLifecycleListener
 
 	@Override
 	public void onLayoutImportProcessFinished(
+=======
+	protected DLFolder getProcessableRootFolder(DLFolder dlFolder)
+		throws PortalException {
+
+		long dlFolderId = dlFolder.getFolderId();
+
+		if (_processedFolderIds.contains(dlFolderId)) {
+			return null;
+		}
+
+		_processedFolderIds.add(dlFolderId);
+
+		DLFolder parentFolder = dlFolder.getParentFolder();
+
+		if (Validator.isNull(parentFolder) ||
+			!_importedFolderIds.containsValue(parentFolder.getFolderId())) {
+
+			return dlFolder;
+		}
+
+		return getProcessableRootFolder(parentFolder);
+	}
+
+	@Override
+	protected void onLayoutImportProcessFinished(
+>>>>>>> compatible
 			PortletDataContext portletDataContext)
 		throws Exception {
 
@@ -90,6 +131,7 @@ public class CascadeFileEntryTypesExportImportLifecycleListener
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void onLayoutImportStarted(PortletDataContext portletDataContext)
 		throws Exception {
 	}
@@ -161,6 +203,9 @@ public class CascadeFileEntryTypesExportImportLifecycleListener
 
 	@Override
 	public void onPortletImportProcessFinished(
+=======
+	protected void onPortletImportProcessFinished(
+>>>>>>> compatible
 			PortletDataContext portletDataContext)
 		throws Exception {
 
@@ -177,6 +222,7 @@ public class CascadeFileEntryTypesExportImportLifecycleListener
 		processFolderIds(_importedFolderIds.values());
 	}
 
+<<<<<<< HEAD
 	@Override
 	public void onPortletImportStarted(PortletDataContext portletDataContext)
 		throws Exception {
@@ -266,6 +312,8 @@ public class CascadeFileEntryTypesExportImportLifecycleListener
 		return getProcessableRootFolder(parentFolder);
 	}
 
+=======
+>>>>>>> compatible
 	protected void processFolderIds(Collection<Long> folderIds)
 		throws PortalException {
 

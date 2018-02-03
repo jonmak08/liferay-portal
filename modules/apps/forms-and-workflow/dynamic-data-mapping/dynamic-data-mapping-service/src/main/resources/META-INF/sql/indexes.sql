@@ -11,6 +11,7 @@ create unique index IX_B4E180D9 on DDMDataProviderInstance (uuid_[$COLUMN_LENGTH
 create unique index IX_8C878342 on DDMDataProviderInstanceLink (dataProviderInstanceId, structureId);
 create index IX_CB823541 on DDMDataProviderInstanceLink (structureId);
 
+<<<<<<< HEAD
 create index IX_9E1C31FE on DDMFormInstance (groupId);
 create index IX_E418320 on DDMFormInstance (uuid_[$COLUMN_LENGTH:75$], companyId);
 create unique index IX_AA9051A2 on DDMFormInstance (uuid_[$COLUMN_LENGTH:75$], groupId);
@@ -33,6 +34,10 @@ create unique index IX_AE51CDC8 on DDMFormInstanceVersion (formInstanceId, versi
 create unique index IX_702D1AD5 on DDMStorageLink (classPK);
 create index IX_81776090 on DDMStorageLink (structureId);
 create index IX_14DADA22 on DDMStorageLink (structureVersionId);
+=======
+create unique index IX_702D1AD5 on DDMStorageLink (classPK);
+create index IX_81776090 on DDMStorageLink (structureId);
+>>>>>>> compatible
 create index IX_DB81EB42 on DDMStorageLink (uuid_[$COLUMN_LENGTH:75$], companyId);
 
 create index IX_31817A62 on DDMStructure (classNameId);

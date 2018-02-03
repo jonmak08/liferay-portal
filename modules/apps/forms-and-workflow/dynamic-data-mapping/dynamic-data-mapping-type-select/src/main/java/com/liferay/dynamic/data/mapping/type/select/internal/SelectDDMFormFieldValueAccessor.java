@@ -17,15 +17,21 @@ package com.liferay.dynamic.data.mapping.type.select.internal;
 import com.liferay.dynamic.data.mapping.form.field.type.DDMFormFieldValueAccessor;
 import com.liferay.dynamic.data.mapping.model.Value;
 import com.liferay.dynamic.data.mapping.storage.DDMFormFieldValue;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONException;
 import com.liferay.portal.kernel.json.JSONFactory;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.Validator;
+=======
+>>>>>>> compatible
 
 import java.util.Locale;
 
@@ -47,6 +53,7 @@ public class SelectDDMFormFieldValueAccessor
 	public JSONArray getValue(
 		DDMFormFieldValue ddmFormFieldValue, Locale locale) {
 
+<<<<<<< HEAD
 		Value value = ddmFormFieldValue.getValue();
 
 		return createJSONArray(value.getString(locale));
@@ -83,10 +90,17 @@ public class SelectDDMFormFieldValueAccessor
 			}
 
 			return sb.toString();
+=======
+		try {
+			Value value = ddmFormFieldValue.getValue();
+
+			return jsonFactory.createJSONArray(value.getString(locale));
+>>>>>>> compatible
 		}
 		catch (JSONException jsone) {
 			_log.error("Unable to parse JSON array", jsone);
 
+<<<<<<< HEAD
 			return StringPool.BLANK;
 		}
 	}
@@ -100,6 +114,8 @@ public class SelectDDMFormFieldValueAccessor
 				_log.debug("Unable to parse JSON array", jsone);
 			}
 
+=======
+>>>>>>> compatible
 			return jsonFactory.createJSONArray();
 		}
 	}

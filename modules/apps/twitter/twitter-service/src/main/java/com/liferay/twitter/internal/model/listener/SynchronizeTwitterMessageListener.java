@@ -24,7 +24,11 @@ import com.liferay.portal.kernel.scheduler.SchedulerEntryImpl;
 import com.liferay.portal.kernel.scheduler.TimeUnit;
 import com.liferay.portal.kernel.scheduler.Trigger;
 import com.liferay.portal.kernel.scheduler.TriggerFactory;
+<<<<<<< HEAD
 import com.liferay.twitter.internal.configuration.TwitterGroupServiceConfiguration;
+=======
+import com.liferay.twitter.configuration.TwitterGroupServiceConfiguration;
+>>>>>>> compatible
 import com.liferay.twitter.service.FeedLocalService;
 
 import java.util.Map;

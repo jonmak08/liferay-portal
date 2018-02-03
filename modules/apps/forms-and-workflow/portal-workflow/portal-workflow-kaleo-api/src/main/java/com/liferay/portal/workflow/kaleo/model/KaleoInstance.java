@@ -55,6 +55,12 @@ public interface KaleoInstance extends KaleoInstanceModel, PersistedModel {
 			}
 		};
 
+<<<<<<< HEAD
+=======
+	public KaleoDefinition getKaleoDefinition()
+		throws com.liferay.portal.kernel.exception.PortalException;
+
+>>>>>>> compatible
 	public KaleoInstanceToken getRootKaleoInstanceToken(
 		java.util.Map<java.lang.String, java.io.Serializable> workflowContext,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)

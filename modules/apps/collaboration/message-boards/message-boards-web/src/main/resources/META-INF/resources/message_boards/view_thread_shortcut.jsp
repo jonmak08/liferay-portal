@@ -72,7 +72,13 @@ if (threadFlag != null) {
 
 			String rowHREF = "#" + renderResponse.getNamespace() + "message_" + message.getMessageId();
 
+<<<<<<< HEAD
 			rowHREF = messageURL + rowHREF;
+=======
+			if (!themeDisplay.isFacebook()) {
+				rowHREF = messageURL + rowHREF;
+			}
+>>>>>>> compatible
 
 			boolean readThread = true;
 

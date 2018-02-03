@@ -41,9 +41,15 @@ public class JavaModuleIllegalImportsCheck extends BaseFileCheck {
 	protected String doProcess(
 		String fileName, String absolutePath, String content) {
 
+<<<<<<< HEAD
 		String packageName = JavaSourceUtil.getPackageName(content);
 
 		if (!packageName.startsWith("com.liferay")) {
+=======
+		String packagePath = JavaSourceUtil.getPackagePath(content);
+
+		if (!packagePath.startsWith("com.liferay")) {
+>>>>>>> compatible
 			return content;
 		}
 

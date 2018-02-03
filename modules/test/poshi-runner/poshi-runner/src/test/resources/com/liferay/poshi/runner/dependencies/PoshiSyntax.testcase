@@ -18,27 +18,37 @@
 	</tear-down>
 
 	<command name="AddUser" priority="5">
+<<<<<<< HEAD
 		<var name="specialCharacters" value="&quot;\&quot;" />
+=======
+>>>>>>> compatible
 		<var name="userEmailAddress" value="userea@liferay.com" />
 		<var name="userFirstName" value="userfn" />
 		<var name="userLastName" value="userln" />
 
+<<<<<<< HEAD
 		<execute macro="FormFields#editText">
 			<var name="fieldName" value="label" />
 			<var name="fieldValue" value=",-+!@#$%^*()=_.?/;:{}[]\|" />
 		</execute>
 
+=======
+>>>>>>> compatible
 		<execute macro="ProductMenu#gotoControlPanelUsers">
 			<var name="portlet" value="Users and Organizations" />
 		</execute>
 
+<<<<<<< HEAD
 		<echo message="This is a message." />
 
+=======
+>>>>>>> compatible
 		<for list="${breadcrumbListVisible}" param="breadcrumbName">
 			<var name="key_breadcrumbName" value="${breadcrumbName}" />
 
 			<var method="StringUtil#upperCase('${breadcrumbName}')" name="breadcrumbNameUppercase" />
 
+<<<<<<< HEAD
 			<var method="selenium#getText('Staging#HISTORY_VERSION')" name="historyVersion" />
 
 			<execute function="AssertTextEquals" locator1="Breadcrumb#BREADCRUMB_ENTRY" value1="${breadcrumbNameUppercase}" />
@@ -56,6 +66,9 @@
 					<execute macro="Alert#viewSuccessMessage" />
 				</else>
 			</if>
+=======
+			<execute function="AssertTextEquals" locator1="Breadcrumb#BREADCRUMB_ENTRY" value1="${breadcrumbNameUppercase}" />
+>>>>>>> compatible
 		</for>
 
 		<execute macro="User#addCP">
@@ -79,6 +92,7 @@
 				<execute macro="Alert#viewErrorMessage">
 					<var name="errorMessage" value="A configuration with this ID already exists. Please enter a unique ID." />
 				</execute>
+<<<<<<< HEAD
 
 				<if>
 					<not>
@@ -108,6 +122,11 @@
 						<execute macro="Alert#viewSuccessMessage" />
 					</else>
 				</if>
+=======
+			</then>
+			<else>
+				<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 			</else>
 		</if>
 
@@ -125,6 +144,7 @@
 			</then>
 		</if>
 
+<<<<<<< HEAD
 		<if>
 			<condition function="IsElementPresent" locator1="Blogs#ADD_BLOGS_ENTRY" />
 			<then>
@@ -170,11 +190,14 @@
 			</elseif>
 		</if>
 
+=======
+>>>>>>> compatible
 		<execute macro="TestCase#getSiteName">
 			<return from="siteName" name="siteName" />
 			<var name="siteName" value="${siteName}" />
 		</execute>
 
+<<<<<<< HEAD
 		<var name="testCDATA"><![CDATA['alert(0)'"alert(0)"><img src=x onerror=alert(0)><script>alert(0)</script>]]></var>
 
 		<var name="wikiPageContent"><![CDATA[<p id='demo'>PASS</p>
@@ -213,14 +236,27 @@
 			</then>
 		</while>
 
+=======
+		<var name="wikiPageContent"><![CDATA[<p id='demo'>PASS</p>
+
+<script type='text/javascript'>
+document.getElementById('demo').innerHTML = 'FAIL';
+</script>]]></var>
+
+		<execute macro="Smoke#viewWelcomePage" />
+
+>>>>>>> compatible
 		<execute macro="Smoke#runSmoke" />
 
 		<execute function="AssertElementPresent" locator1="Home#PAGE" value1="Welcome" />
 
+<<<<<<< HEAD
 		<execute function="Type" locator1="DDMField#INTEGER" value1="5">
 			<var name="key_fieldName" value="Integer" />
 		</execute>
 
+=======
+>>>>>>> compatible
 		<execute function="Click" locator1="Home#PAGE" />
 
 		<execute function="Refresh" />
@@ -229,6 +265,7 @@
 
 		<execute function="AssertElementPresent#assertElementPresent" locator1="Home#PAGE" value1="Welcome" />
 	</command>
+<<<<<<< HEAD
 
 	<command name="AddBlogsEntries" priority="4">
 		<description message="Ensure that a user can add multiple Blogs Entries." />
@@ -280,4 +317,6 @@
 			</off>
 		</toggle>
 	</command>
+=======
+>>>>>>> compatible
 </definition>

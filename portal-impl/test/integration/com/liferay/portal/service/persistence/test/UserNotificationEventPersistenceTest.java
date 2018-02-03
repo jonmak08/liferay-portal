@@ -31,6 +31,10 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.util.IntegerWrapper;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.OrderByComparatorFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.PersistenceTestRule;
 import com.liferay.portal.test.rule.TransactionalTestRule;
@@ -198,9 +202,15 @@ public class UserNotificationEventPersistenceTest {
 
 	@Test
 	public void testCountByType() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByType("");
 
 		_persistence.countByType("null");
+=======
+		_persistence.countByType(StringPool.BLANK);
+
+		_persistence.countByType(StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByType((String)null);
 	}
@@ -265,10 +275,18 @@ public class UserNotificationEventPersistenceTest {
 
 	@Test
 	public void testCountByU_T_DT_D() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByU_T_DT_D(RandomTestUtil.nextLong(), "",
 			RandomTestUtil.nextInt(), RandomTestUtil.randomBoolean());
 
 		_persistence.countByU_T_DT_D(0L, "null", 0,
+=======
+		_persistence.countByU_T_DT_D(RandomTestUtil.nextLong(),
+			StringPool.BLANK, RandomTestUtil.nextInt(),
+			RandomTestUtil.randomBoolean());
+
+		_persistence.countByU_T_DT_D(0L, StringPool.NULL, 0,
+>>>>>>> compatible
 			RandomTestUtil.randomBoolean());
 
 		_persistence.countByU_T_DT_D(0L, (String)null, 0,

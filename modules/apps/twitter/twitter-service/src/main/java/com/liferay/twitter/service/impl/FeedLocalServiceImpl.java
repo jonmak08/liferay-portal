@@ -31,10 +31,17 @@ import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.twitter.exception.FeedTwitterScreenNameException;
+<<<<<<< HEAD
 import com.liferay.twitter.internal.util.TimelineProcessorUtil;
 import com.liferay.twitter.model.Feed;
 import com.liferay.twitter.service.base.FeedLocalServiceBaseImpl;
 import com.liferay.twitter.social.TwitterActivityKeys;
+=======
+import com.liferay.twitter.model.Feed;
+import com.liferay.twitter.service.base.FeedLocalServiceBaseImpl;
+import com.liferay.twitter.social.TwitterActivityKeys;
+import com.liferay.twitter.util.TimelineProcessorUtil;
+>>>>>>> compatible
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

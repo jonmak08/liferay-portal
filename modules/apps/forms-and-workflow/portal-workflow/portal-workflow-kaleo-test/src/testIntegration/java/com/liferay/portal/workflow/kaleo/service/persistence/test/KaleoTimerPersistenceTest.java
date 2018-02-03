@@ -29,6 +29,10 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.util.IntegerWrapper;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.OrderByComparatorFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.PersistenceTestRule;
@@ -138,7 +142,11 @@ public class KaleoTimerPersistenceTest {
 
 		newKaleoTimer.setKaleoClassPK(RandomTestUtil.nextLong());
 
+<<<<<<< HEAD
 		newKaleoTimer.setKaleoDefinitionVersionId(RandomTestUtil.nextLong());
+=======
+		newKaleoTimer.setKaleoDefinitionId(RandomTestUtil.nextLong());
+>>>>>>> compatible
 
 		newKaleoTimer.setName(RandomTestUtil.randomString());
 
@@ -178,8 +186,13 @@ public class KaleoTimerPersistenceTest {
 			newKaleoTimer.getKaleoClassName());
 		Assert.assertEquals(existingKaleoTimer.getKaleoClassPK(),
 			newKaleoTimer.getKaleoClassPK());
+<<<<<<< HEAD
 		Assert.assertEquals(existingKaleoTimer.getKaleoDefinitionVersionId(),
 			newKaleoTimer.getKaleoDefinitionVersionId());
+=======
+		Assert.assertEquals(existingKaleoTimer.getKaleoDefinitionId(),
+			newKaleoTimer.getKaleoDefinitionId());
+>>>>>>> compatible
 		Assert.assertEquals(existingKaleoTimer.getName(),
 			newKaleoTimer.getName());
 		Assert.assertEquals(existingKaleoTimer.getBlocking(),
@@ -198,19 +211,32 @@ public class KaleoTimerPersistenceTest {
 
 	@Test
 	public void testCountByKCN_KCPK() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByKCN_KCPK("", RandomTestUtil.nextLong());
 
 		_persistence.countByKCN_KCPK("null", 0L);
+=======
+		_persistence.countByKCN_KCPK(StringPool.BLANK, RandomTestUtil.nextLong());
+
+		_persistence.countByKCN_KCPK(StringPool.NULL, 0L);
+>>>>>>> compatible
 
 		_persistence.countByKCN_KCPK((String)null, 0L);
 	}
 
 	@Test
 	public void testCountByKCN_KCPK_Blocking() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByKCN_KCPK_Blocking("", RandomTestUtil.nextLong(),
 			RandomTestUtil.randomBoolean());
 
 		_persistence.countByKCN_KCPK_Blocking("null", 0L,
+=======
+		_persistence.countByKCN_KCPK_Blocking(StringPool.BLANK,
+			RandomTestUtil.nextLong(), RandomTestUtil.randomBoolean());
+
+		_persistence.countByKCN_KCPK_Blocking(StringPool.NULL, 0L,
+>>>>>>> compatible
 			RandomTestUtil.randomBoolean());
 
 		_persistence.countByKCN_KCPK_Blocking((String)null, 0L,
@@ -243,10 +269,17 @@ public class KaleoTimerPersistenceTest {
 		return OrderByComparatorFactoryUtil.create("KaleoTimer",
 			"kaleoTimerId", true, "groupId", true, "companyId", true, "userId",
 			true, "userName", true, "createDate", true, "modifiedDate", true,
+<<<<<<< HEAD
 			"kaleoClassName", true, "kaleoClassPK", true,
 			"kaleoDefinitionVersionId", true, "name", true, "blocking", true,
 			"description", true, "duration", true, "scale", true,
 			"recurrenceDuration", true, "recurrenceScale", true);
+=======
+			"kaleoClassName", true, "kaleoClassPK", true, "kaleoDefinitionId",
+			true, "name", true, "blocking", true, "description", true,
+			"duration", true, "scale", true, "recurrenceDuration", true,
+			"recurrenceScale", true);
+>>>>>>> compatible
 	}
 
 	@Test
@@ -464,7 +497,11 @@ public class KaleoTimerPersistenceTest {
 
 		kaleoTimer.setKaleoClassPK(RandomTestUtil.nextLong());
 
+<<<<<<< HEAD
 		kaleoTimer.setKaleoDefinitionVersionId(RandomTestUtil.nextLong());
+=======
+		kaleoTimer.setKaleoDefinitionId(RandomTestUtil.nextLong());
+>>>>>>> compatible
 
 		kaleoTimer.setName(RandomTestUtil.randomString());
 

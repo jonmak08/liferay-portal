@@ -1,6 +1,11 @@
 @import "bourbon";
+<<<<<<< HEAD
 @import "mixins";
 @import "variables";
+=======
+@import "variables";
+@import "mixins";
+>>>>>>> compatible
 
 body {
 	&.open #wrapper {
@@ -9,7 +14,11 @@ body {
 		}
 	}
 
+<<<<<<< HEAD
 	&.open .control-menu, &.open .affix {
+=======
+	&.open .control-menu {
+>>>>>>> compatible
 		@include sm() {
 			left: $product-menu-width;
 		}
@@ -402,7 +411,10 @@ body {
 		}
 
 		li.tree-node .tree-node-content .tree-label {
+<<<<<<< HEAD
 			display: block;
+=======
+>>>>>>> compatible
 			padding-right: 20px;
 			width: 100%;
 		}

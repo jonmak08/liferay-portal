@@ -36,10 +36,14 @@ import org.junit.Test;
 
 /**
  * @author Daniel Kocsis
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, replaced by {@link
  *             com.liferay.exportimport.test.util.lar.BaseWorkflowedStagedModelDataHandlerTestCase}
  */
 @Deprecated
+=======
+ */
+>>>>>>> compatible
 public abstract class BaseWorkflowedStagedModelDataHandlerTestCase
 	extends BaseStagedModelDataHandlerTestCase {
 

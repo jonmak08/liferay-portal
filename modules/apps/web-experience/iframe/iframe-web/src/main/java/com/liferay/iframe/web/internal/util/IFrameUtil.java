@@ -14,11 +14,17 @@
 
 package com.liferay.iframe.web.internal.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Group;
+=======
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Layout;
 import com.liferay.portal.kernel.model.Role;
 import com.liferay.portal.kernel.model.User;
@@ -26,7 +32,11 @@ import com.liferay.portal.kernel.service.RoleLocalServiceUtil;
 import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.PortalUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.util.PropsValues;
@@ -90,12 +100,19 @@ public class IFrameUtil {
 
 		Layout layout = themeDisplay.getLayout();
 
+<<<<<<< HEAD
 		Group layoutGroup = layout.getGroup();
 
 		String roleName = PropsValues.IFRAME_PASSWORD_PASSWORD_TOKEN_ROLE;
 
 		if (layout.isPrivateLayout() && layoutGroup.isUser() &&
 			(themeDisplay.getRealUserId() == layoutGroup.getClassPK())) {
+=======
+		String roleName = PropsValues.IFRAME_PASSWORD_PASSWORD_TOKEN_ROLE;
+
+		if (layout.isPrivateLayout() && layout.getGroup().isUser() &&
+			(themeDisplay.getRealUserId() == layout.getGroup().getClassPK())) {
+>>>>>>> compatible
 
 			return true;
 		}
@@ -117,9 +134,14 @@ public class IFrameUtil {
 		catch (Exception e) {
 			if (_log.isWarnEnabled()) {
 				_log.warn(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Error getting role ", roleName,
 						". The password token will be disabled."));
+=======
+					"Error getting role " + roleName + ". The password token " +
+						"will be disabled.");
+>>>>>>> compatible
 			}
 		}
 
@@ -139,10 +161,15 @@ public class IFrameUtil {
 
 		Layout layout = themeDisplay.getLayout();
 
+<<<<<<< HEAD
 		Group layoutGroup = layout.getGroup();
 
 		if (layout.isPrivateLayout() && layoutGroup.isUser() &&
 			(themeDisplay.getRealUserId() != layoutGroup.getClassPK())) {
+=======
+		if (layout.isPrivateLayout() && layout.getGroup().isUser() &&
+			(themeDisplay.getRealUserId() != layout.getGroup().getClassPK())) {
+>>>>>>> compatible
 
 			return false;
 		}

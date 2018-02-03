@@ -71,8 +71,11 @@ public interface JSPackage extends JSBundleObject {
 	 */
 	public String getMainModuleName();
 
+<<<<<<< HEAD
 	public String getResolvedId();
 
+=======
+>>>>>>> compatible
 	/**
 	 * Returns the resource's URL residing in the NPM package.
 	 *

@@ -49,12 +49,15 @@ AssetEntry layoutAssetEntry = AssetEntryLocalServiceUtil.getEntry(CalendarBookin
 		<aui:fieldset markupView="lexicon">
 			<dl class="property-list">
 				<dt>
+<<<<<<< HEAD
 					<liferay-ui:message key="status" />:
 				</dt>
 				<dd>
 					<aui:workflow-status markupView="lexicon" model="<%= CalendarBooking.class %>" showHelpMessage="<%= false %>" showIcon="<%= false %>" showLabel="<%= false %>" status="<%= calendarBooking.getStatus() %>" />
 				</dd>
 				<dt>
+=======
+>>>>>>> compatible
 					<liferay-ui:message key="starts" />:
 				</dt>
 				<dd>
@@ -68,7 +71,11 @@ AssetEntry layoutAssetEntry = AssetEntryLocalServiceUtil.getEntry(CalendarBookin
 				</dd>
 
 				<%
+<<<<<<< HEAD
 				List<CalendarBooking> childCalendarBookings = calendarDisplayContext.getChildCalendarBookings(calendarBooking);
+=======
+				List<CalendarBooking> childCalendarBookings = calendarBooking.getChildCalendarBookings();
+>>>>>>> compatible
 				%>
 
 				<c:if test="<%= !childCalendarBookings.isEmpty() %>">
@@ -100,7 +107,11 @@ AssetEntry layoutAssetEntry = AssetEntryLocalServiceUtil.getEntry(CalendarBookin
 					</dd>
 				</c:if>
 
+<<<<<<< HEAD
 				<c:if test="<%= Validator.isNotNull(calendarBooking.getRecurrence()) %>">
+=======
+				<c:if test="<%= calendarBooking.isRecurring() %>">
+>>>>>>> compatible
 					<dt>
 						<liferay-ui:message key="repeat" />:
 					</dt>
@@ -124,14 +135,22 @@ AssetEntry layoutAssetEntry = AssetEntryLocalServiceUtil.getEntry(CalendarBookin
 			</p>
 
 			<div class="entry-categories">
+<<<<<<< HEAD
 				<liferay-asset:asset-categories-summary
+=======
+				<liferay-ui:asset-categories-summary
+>>>>>>> compatible
 					className="<%= CalendarBooking.class.getName() %>"
 					classPK="<%= calendarBooking.getCalendarBookingId() %>"
 				/>
 			</div>
 
 			<div class="entry-tags">
+<<<<<<< HEAD
 				<liferay-asset:asset-tags-summary
+=======
+				<liferay-ui:asset-tags-summary
+>>>>>>> compatible
 					className="<%= CalendarBooking.class.getName() %>"
 					classPK="<%= calendarBooking.getCalendarBookingId() %>"
 					message="tags"
@@ -139,7 +158,11 @@ AssetEntry layoutAssetEntry = AssetEntryLocalServiceUtil.getEntry(CalendarBookin
 			</div>
 
 			<div class="entry-links">
+<<<<<<< HEAD
 				<liferay-asset:asset-links
+=======
+				<liferay-ui:asset-links
+>>>>>>> compatible
 					assetEntryId="<%= layoutAssetEntry.getEntryId() %>"
 				/>
 			</div>
@@ -158,7 +181,11 @@ AssetEntry layoutAssetEntry = AssetEntryLocalServiceUtil.getEntry(CalendarBookin
 		<c:if test="<%= calendar.isEnableComments() %>">
 			<liferay-ui:panel-container extended="<%= false %>" id="calendarBookingPanelContainer" persistState="<%= true %>">
 				<liferay-ui:panel collapsible="<%= true %>" extended="<%= false %>" id="calendarBookingCommentsPanel" persistState="<%= true %>" title="comments">
+<<<<<<< HEAD
 					<liferay-comment:discussion
+=======
+					<liferay-ui:discussion
+>>>>>>> compatible
 						className="<%= CalendarBooking.class.getName() %>"
 						classPK="<%= calendarBooking.getCalendarBookingId() %>"
 						formName="fm2"
@@ -172,7 +199,11 @@ AssetEntry layoutAssetEntry = AssetEntryLocalServiceUtil.getEntry(CalendarBookin
 
 		<portlet:actionURL name="invokeTransition" var="invokeTransitionURL" />
 
+<<<<<<< HEAD
 		<c:if test="<%= Validator.isNotNull(calendarBooking.getRecurrence()) %>">
+=======
+		<c:if test="<%= calendarBooking.isRecurring() %>">
+>>>>>>> compatible
 			<%@ include file="/calendar_booking_recurrence_language_keys.jspf" %>
 
 			<aui:script use="liferay-calendar-recurrence-util">
@@ -244,10 +275,14 @@ AssetEntry layoutAssetEntry = AssetEntryLocalServiceUtil.getEntry(CalendarBookin
 	<aui:form action="<%= invokeTransitionURL %>" method="post" name="fm">
 		<aui:input name="redirect" type="hidden" value="<%= currentURL %>" />
 		<aui:input name="calendarBookingId" type="hidden" value="<%= calendarBooking.getCalendarBookingId() %>" />
+<<<<<<< HEAD
 		<aui:input name="startTime" type="hidden" value="<%= calendarBooking.getStartTime() %>" />
 		<aui:input name="status" type="hidden" />
 		<aui:input name="updateInstance" type="hidden" value="false" />
 		<aui:input name="allFollowing" type="hidden" value="false" />
+=======
+		<aui:input name="status" type="hidden" />
+>>>>>>> compatible
 
 		<aui:button-row>
 
@@ -276,6 +311,7 @@ AssetEntry layoutAssetEntry = AssetEntryLocalServiceUtil.getEntry(CalendarBookin
 		function <portlet:namespace />invokeTransition(status) {
 			document.<portlet:namespace />fm.<portlet:namespace />status.value = status;
 
+<<<<<<< HEAD
 			if (<%= calendarBooking.isRecurring() %>) {
 				Liferay.RecurrenceUtil.openConfirmationPanel(
 					'invokeTransition',
@@ -297,6 +333,9 @@ AssetEntry layoutAssetEntry = AssetEntryLocalServiceUtil.getEntry(CalendarBookin
 			else {
 				submitForm(document.<portlet:namespace />fm);
 			}
+=======
+			submitForm(document.<portlet:namespace />fm);
+>>>>>>> compatible
 		}
 	</aui:script>
 </div>

@@ -29,6 +29,7 @@ import com.liferay.dynamic.data.mapping.test.util.DDMFormTestUtil;
 import com.liferay.dynamic.data.mapping.test.util.DDMFormValuesTestUtil;
 import com.liferay.osgi.service.tracker.collections.map.ServiceTrackerMap;
 import com.liferay.osgi.service.tracker.collections.map.ServiceTrackerMapFactory;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.json.JSONFactoryImpl;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
@@ -37,6 +38,14 @@ import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.util.LocaleThreadLocal;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.ReflectionUtil;
+=======
+import com.liferay.portal.json.JSONFactoryImpl;
+import com.liferay.portal.kernel.json.JSONFactoryUtil;
+import com.liferay.portal.kernel.util.LocaleThreadLocal;
+import com.liferay.portal.kernel.util.LocaleUtil;
+import com.liferay.portal.kernel.util.ReflectionUtil;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.lang.reflect.Field;
 
@@ -44,8 +53,11 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
+<<<<<<< HEAD
 import javax.servlet.http.HttpServletRequest;
 
+=======
+>>>>>>> compatible
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -75,7 +87,10 @@ public class DDMFormValuesFactoryTest extends PowerMockito {
 		setUpDDMFormValuesFactoryServiceTrackerMap();
 		setUpDDMFormValuesJSONSerializer();
 		setUpJSONFactoryUtil();
+<<<<<<< HEAD
 		setUpLanguageUtil();
+=======
+>>>>>>> compatible
 		setUpLocaleThreadLocal();
 		setUpLocaleUtil();
 	}
@@ -161,6 +176,7 @@ public class DDMFormValuesFactoryTest extends PowerMockito {
 	public void testCreateWithLocalizableFields() throws Exception {
 		DDMForm ddmForm = DDMFormTestUtil.createDDMForm("Title", "Content");
 
+<<<<<<< HEAD
 		Set<Locale> availableLocales = createAvailableLocales(
 			LocaleUtil.BRAZIL, LocaleUtil.US);
 		Locale defaultLocale = LocaleUtil.US;
@@ -170,6 +186,11 @@ public class DDMFormValuesFactoryTest extends PowerMockito {
 
 		DDMFormValues expectedDDMFormValues = createDDMFormValues(
 			ddmForm, availableLocales, defaultLocale);
+=======
+		DDMFormValues expectedDDMFormValues = createDDMFormValues(
+			ddmForm, createAvailableLocales(LocaleUtil.BRAZIL, LocaleUtil.US),
+			LocaleUtil.US);
+>>>>>>> compatible
 
 		expectedDDMFormValues.addDDMFormFieldValue(
 			createDDMFormFieldValue(
@@ -183,6 +204,14 @@ public class DDMFormValuesFactoryTest extends PowerMockito {
 		MockHttpServletRequest mockHttpServletRequest =
 			new MockHttpServletRequest();
 
+<<<<<<< HEAD
+=======
+		mockHttpServletRequest.addParameter(
+			"availableLanguageIds", "en_US,pt_BR");
+		mockHttpServletRequest.addParameter(
+			"defaultLanguageId", LocaleUtil.toLanguageId(LocaleUtil.US));
+
+>>>>>>> compatible
 		// Title
 
 		mockHttpServletRequest.addParameter(
@@ -207,6 +236,7 @@ public class DDMFormValuesFactoryTest extends PowerMockito {
 	public void testCreateWithRepeatableAndLocalizableField() throws Exception {
 		DDMForm ddmForm = DDMFormTestUtil.createDDMForm();
 
+<<<<<<< HEAD
 		Set<Locale> availableLocales = createAvailableLocales(
 			LocaleUtil.BRAZIL, LocaleUtil.US);
 		Locale defaultLocale = LocaleUtil.US;
@@ -214,26 +244,49 @@ public class DDMFormValuesFactoryTest extends PowerMockito {
 		ddmForm.setAvailableLocales(availableLocales);
 		ddmForm.setDefaultLocale(defaultLocale);
 
+=======
+>>>>>>> compatible
 		DDMFormField ddmFormField = DDMFormTestUtil.createTextDDMFormField(
 			"Title", true, true, false);
 
 		ddmForm.addDDMFormField(ddmFormField);
 
 		DDMFormValues expectedDDMFormValues = createDDMFormValues(
+<<<<<<< HEAD
 			ddmForm, availableLocales, defaultLocale);
+=======
+			ddmForm, createAvailableLocales(LocaleUtil.BRAZIL, LocaleUtil.US),
+			LocaleUtil.US);
+>>>>>>> compatible
 
 		expectedDDMFormValues.addDDMFormFieldValue(
 			createDDMFormFieldValue(
 				"wqer", "Title",
+<<<<<<< HEAD
 				createLocalizedValue("Title 1", "Titulo 1", defaultLocale)));
 		expectedDDMFormValues.addDDMFormFieldValue(
 			createDDMFormFieldValue(
 				"fahu", "Title",
 				createLocalizedValue("Title 2", "Titulo 2", defaultLocale)));
+=======
+				createLocalizedValue("Title 1", "Titulo 1", LocaleUtil.US)));
+		expectedDDMFormValues.addDDMFormFieldValue(
+			createDDMFormFieldValue(
+				"fahu", "Title",
+				createLocalizedValue("Title 2", "Titulo 2", LocaleUtil.US)));
+>>>>>>> compatible
 
 		MockHttpServletRequest mockHttpServletRequest =
 			new MockHttpServletRequest();
 
+<<<<<<< HEAD
+=======
+		mockHttpServletRequest.addParameter(
+			"availableLanguageIds", "en_US,pt_BR");
+		mockHttpServletRequest.addParameter(
+			"defaultLanguageId", LocaleUtil.toLanguageId(LocaleUtil.US));
+
+>>>>>>> compatible
 		// Title
 
 		mockHttpServletRequest.addParameter(
@@ -257,6 +310,7 @@ public class DDMFormValuesFactoryTest extends PowerMockito {
 
 		DDMForm ddmForm = DDMFormTestUtil.createDDMForm();
 
+<<<<<<< HEAD
 		Set<Locale> availableLocales = createAvailableLocales(
 			LocaleUtil.BRAZIL, LocaleUtil.US);
 		Locale defaultLocale = LocaleUtil.US;
@@ -264,6 +318,8 @@ public class DDMFormValuesFactoryTest extends PowerMockito {
 		ddmForm.setAvailableLocales(availableLocales);
 		ddmForm.setDefaultLocale(defaultLocale);
 
+=======
+>>>>>>> compatible
 		DDMFormField nameDDMFormField = DDMFormTestUtil.createTextDDMFormField(
 			"Name", true, true, false);
 
@@ -275,36 +331,69 @@ public class DDMFormValuesFactoryTest extends PowerMockito {
 		ddmForm.addDDMFormField(nameDDMFormField);
 
 		DDMFormValues expectedDDMFormValues = createDDMFormValues(
+<<<<<<< HEAD
 			ddmForm, availableLocales, defaultLocale);
 
 		DDMFormFieldValue paulDDMFormFieldValue = createDDMFormFieldValue(
 			"wqer", "Name",
 			createLocalizedValue("Paul", "Paulo", defaultLocale));
+=======
+			ddmForm, createAvailableLocales(LocaleUtil.BRAZIL, LocaleUtil.US),
+			LocaleUtil.US);
+
+		DDMFormFieldValue paulDDMFormFieldValue = createDDMFormFieldValue(
+			"wqer", "Name",
+			createLocalizedValue("Paul", "Paulo", LocaleUtil.US));
+>>>>>>> compatible
 
 		paulDDMFormFieldValue.addNestedDDMFormFieldValue(
 			createDDMFormFieldValue(
 				"gatu", "Phone",
+<<<<<<< HEAD
 				createLocalizedValue("12", "34", defaultLocale)));
 		paulDDMFormFieldValue.addNestedDDMFormFieldValue(
 			createDDMFormFieldValue(
 				"hato", "Phone",
 				createLocalizedValue("56", "78", defaultLocale)));
+=======
+				createLocalizedValue("12", "34", LocaleUtil.US)));
+		paulDDMFormFieldValue.addNestedDDMFormFieldValue(
+			createDDMFormFieldValue(
+				"hato", "Phone",
+				createLocalizedValue("56", "78", LocaleUtil.US)));
+>>>>>>> compatible
 
 		expectedDDMFormValues.addDDMFormFieldValue(paulDDMFormFieldValue);
 
 		DDMFormFieldValue joeDDMFormFieldValue = createDDMFormFieldValue(
+<<<<<<< HEAD
 			"fahu", "Name", createLocalizedValue("Joe", "Joao", defaultLocale));
+=======
+			"fahu", "Name", createLocalizedValue("Joe", "Joao", LocaleUtil.US));
+>>>>>>> compatible
 
 		joeDDMFormFieldValue.addNestedDDMFormFieldValue(
 			createDDMFormFieldValue(
 				"jamh", "Phone",
+<<<<<<< HEAD
 				createLocalizedValue("90", "01", defaultLocale)));
+=======
+				createLocalizedValue("90", "01", LocaleUtil.US)));
+>>>>>>> compatible
 
 		expectedDDMFormValues.addDDMFormFieldValue(joeDDMFormFieldValue);
 
 		MockHttpServletRequest mockHttpServletRequest =
 			new MockHttpServletRequest();
 
+<<<<<<< HEAD
+=======
+		mockHttpServletRequest.addParameter(
+			"availableLanguageIds", "en_US,pt_BR");
+		mockHttpServletRequest.addParameter(
+			"defaultLanguageId", LocaleUtil.toLanguageId(LocaleUtil.US));
+
+>>>>>>> compatible
 		// Name
 
 		mockHttpServletRequest.addParameter("ddm$$Name$wqer$0$$en_US", "Paul");
@@ -339,6 +428,7 @@ public class DDMFormValuesFactoryTest extends PowerMockito {
 
 		DDMForm ddmForm = DDMFormTestUtil.createDDMForm();
 
+<<<<<<< HEAD
 		Set<Locale> availableLocales = createAvailableLocales(
 			LocaleUtil.BRAZIL, LocaleUtil.US);
 		Locale defaultLocale = LocaleUtil.US;
@@ -346,6 +436,8 @@ public class DDMFormValuesFactoryTest extends PowerMockito {
 		ddmForm.setAvailableLocales(availableLocales);
 		ddmForm.setDefaultLocale(defaultLocale);
 
+=======
+>>>>>>> compatible
 		DDMFormField nameDDMFormField = DDMFormTestUtil.createTextDDMFormField(
 			"Name", true, true, false);
 
@@ -362,54 +454,99 @@ public class DDMFormValuesFactoryTest extends PowerMockito {
 		ddmForm.addDDMFormField(nameDDMFormField);
 
 		DDMFormValues expectedDDMFormValues = createDDMFormValues(
+<<<<<<< HEAD
 			ddmForm, availableLocales, defaultLocale);
 
 		DDMFormFieldValue paulDDMFormFieldValue = createDDMFormFieldValue(
 			"wqer", "Name",
 			createLocalizedValue("Paul", "Paulo", defaultLocale));
+=======
+			ddmForm, createAvailableLocales(LocaleUtil.BRAZIL, LocaleUtil.US),
+			LocaleUtil.US);
+
+		DDMFormFieldValue paulDDMFormFieldValue = createDDMFormFieldValue(
+			"wqer", "Name",
+			createLocalizedValue("Paul", "Paulo", LocaleUtil.US));
+>>>>>>> compatible
 
 		paulDDMFormFieldValue.addNestedDDMFormFieldValue(
 			createDDMFormFieldValue(
 				"gatu", "Text1",
 				createLocalizedValue(
+<<<<<<< HEAD
 					"Text1 Paul One", "Text1 Paulo Um", defaultLocale)));
+=======
+					"Text1 Paul One", "Text1 Paulo Um", LocaleUtil.US)));
+>>>>>>> compatible
 		paulDDMFormFieldValue.addNestedDDMFormFieldValue(
 			createDDMFormFieldValue(
 				"hayt", "Text1",
 				createLocalizedValue(
+<<<<<<< HEAD
 					"Text1 Paul Two", "Text1 Paulo Dois", defaultLocale)));
+=======
+					"Text1 Paul Two", "Text1 Paulo Dois", LocaleUtil.US)));
+>>>>>>> compatible
 		paulDDMFormFieldValue.addNestedDDMFormFieldValue(
 			createDDMFormFieldValue(
 				"haby", "Text2",
 				createLocalizedValue(
+<<<<<<< HEAD
 					"Text2 Paul One", "Text2 Paulo Um", defaultLocale)));
+=======
+					"Text2 Paul One", "Text2 Paulo Um", LocaleUtil.US)));
+>>>>>>> compatible
 		paulDDMFormFieldValue.addNestedDDMFormFieldValue(
 			createDDMFormFieldValue(
 				"makp", "Text2",
 				createLocalizedValue(
+<<<<<<< HEAD
 					"Text2 Paul Two", "Text2 Paulo Dois", defaultLocale)));
+=======
+					"Text2 Paul Two", "Text2 Paulo Dois", LocaleUtil.US)));
+>>>>>>> compatible
 
 		expectedDDMFormValues.addDDMFormFieldValue(paulDDMFormFieldValue);
 
 		DDMFormFieldValue joeDDMFormFieldValue = createDDMFormFieldValue(
+<<<<<<< HEAD
 			"fahu", "Name", createLocalizedValue("Joe", "Joao", defaultLocale));
+=======
+			"fahu", "Name", createLocalizedValue("Joe", "Joao", LocaleUtil.US));
+>>>>>>> compatible
 
 		joeDDMFormFieldValue.addNestedDDMFormFieldValue(
 			createDDMFormFieldValue(
 				"banm", "Text1",
 				createLocalizedValue(
+<<<<<<< HEAD
 					"Text1 Joe One", "Text1 Joao Um", defaultLocale)));
+=======
+					"Text1 Joe One", "Text1 Joao Um", LocaleUtil.US)));
+>>>>>>> compatible
 		joeDDMFormFieldValue.addNestedDDMFormFieldValue(
 			createDDMFormFieldValue(
 				"bagj", "Text2",
 				createLocalizedValue(
+<<<<<<< HEAD
 					"Text2 Joe One", "Text2 Joao Um", defaultLocale)));
+=======
+					"Text2 Joe One", "Text2 Joao Um", LocaleUtil.US)));
+>>>>>>> compatible
 
 		expectedDDMFormValues.addDDMFormFieldValue(joeDDMFormFieldValue);
 
 		MockHttpServletRequest mockHttpServletRequest =
 			new MockHttpServletRequest();
 
+<<<<<<< HEAD
+=======
+		mockHttpServletRequest.addParameter(
+			"availableLanguageIds", "en_US,pt_BR");
+		mockHttpServletRequest.addParameter(
+			"defaultLanguageId", LocaleUtil.toLanguageId(LocaleUtil.US));
+
+>>>>>>> compatible
 		// Name
 
 		mockHttpServletRequest.addParameter("ddm$$Name$wqer$0$$en_US", "Paul");
@@ -459,12 +596,15 @@ public class DDMFormValuesFactoryTest extends PowerMockito {
 
 		DDMForm ddmForm = DDMFormTestUtil.createDDMForm();
 
+<<<<<<< HEAD
 		Set<Locale> availableLocales = createAvailableLocales(LocaleUtil.US);
 		Locale defaultLocale = LocaleUtil.US;
 
 		ddmForm.setAvailableLocales(availableLocales);
 		ddmForm.setDefaultLocale(defaultLocale);
 
+=======
+>>>>>>> compatible
 		DDMFormField nameDDMFormField = DDMFormTestUtil.createTextDDMFormField(
 			"Name", false, true, false);
 
@@ -534,8 +674,14 @@ public class DDMFormValuesFactoryTest extends PowerMockito {
 		MockHttpServletRequest mockHttpServletRequest =
 			new MockHttpServletRequest();
 
+<<<<<<< HEAD
 		mockHttpServletRequest.addParameter(
 			"languageId", LocaleUtil.toLanguageId(LocaleUtil.US));
+=======
+		mockHttpServletRequest.addParameter("availableLanguageIds", "en_US");
+		mockHttpServletRequest.addParameter(
+			"defaultLanguageId", LocaleUtil.toLanguageId(LocaleUtil.US));
+>>>>>>> compatible
 
 		// Name
 
@@ -573,6 +719,7 @@ public class DDMFormValuesFactoryTest extends PowerMockito {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testCreateWithRepeatableFieldSetAndNestedCheckbox()
 		throws Exception {
 
@@ -657,6 +804,11 @@ public class DDMFormValuesFactoryTest extends PowerMockito {
 		ddmForm.setAvailableLocales(availableLocales);
 		ddmForm.setDefaultLocale(defaultLocale);
 
+=======
+	public void testCreateWithRepeatableTransientParent() throws Exception {
+		DDMForm ddmForm = DDMFormTestUtil.createDDMForm();
+
+>>>>>>> compatible
 		DDMFormField separatorDDMFormField = DDMFormTestUtil.createDDMFormField(
 			"Separator", "Separator", "ddm-separator", StringPool.BLANK, false,
 			true, false);
@@ -669,7 +821,12 @@ public class DDMFormValuesFactoryTest extends PowerMockito {
 		ddmForm.addDDMFormField(separatorDDMFormField);
 
 		DDMFormValues expectedDDMFormValues = createDDMFormValues(
+<<<<<<< HEAD
 			ddmForm, availableLocales, defaultLocale);
+=======
+			ddmForm, createAvailableLocales(LocaleUtil.BRAZIL, LocaleUtil.US),
+			LocaleUtil.US);
+>>>>>>> compatible
 
 		DDMFormFieldValue separator1DDMFormFieldValue = createDDMFormFieldValue(
 			"wqer", "Separator", null);
@@ -677,7 +834,11 @@ public class DDMFormValuesFactoryTest extends PowerMockito {
 		separator1DDMFormFieldValue.addNestedDDMFormFieldValue(
 			createDDMFormFieldValue(
 				"gatu", "Name",
+<<<<<<< HEAD
 				createLocalizedValue("Joe", "Joao", defaultLocale)));
+=======
+				createLocalizedValue("Joe", "Joao", LocaleUtil.US)));
+>>>>>>> compatible
 
 		expectedDDMFormValues.addDDMFormFieldValue(separator1DDMFormFieldValue);
 
@@ -687,7 +848,11 @@ public class DDMFormValuesFactoryTest extends PowerMockito {
 		separator2DDMFormFieldValue.addNestedDDMFormFieldValue(
 			createDDMFormFieldValue(
 				"hato", "Name",
+<<<<<<< HEAD
 				createLocalizedValue("Paul", "Paulo", defaultLocale)));
+=======
+				createLocalizedValue("Paul", "Paulo", LocaleUtil.US)));
+>>>>>>> compatible
 
 		expectedDDMFormValues.addDDMFormFieldValue(separator2DDMFormFieldValue);
 
@@ -697,13 +862,25 @@ public class DDMFormValuesFactoryTest extends PowerMockito {
 		separator3DDMFormFieldValue.addNestedDDMFormFieldValue(
 			createDDMFormFieldValue(
 				"fahu", "Name",
+<<<<<<< HEAD
 				createLocalizedValue("Claude", "Claudio", defaultLocale)));
+=======
+				createLocalizedValue("Claude", "Claudio", LocaleUtil.US)));
+>>>>>>> compatible
 
 		expectedDDMFormValues.addDDMFormFieldValue(separator3DDMFormFieldValue);
 
 		MockHttpServletRequest mockHttpServletRequest =
 			new MockHttpServletRequest();
 
+<<<<<<< HEAD
+=======
+		mockHttpServletRequest.addParameter(
+			"availableLanguageIds", "en_US,pt_BR");
+		mockHttpServletRequest.addParameter(
+			"defaultLanguageId", LocaleUtil.toLanguageId(LocaleUtil.US));
+
+>>>>>>> compatible
 		// Name
 
 		mockHttpServletRequest.addParameter(
@@ -757,8 +934,13 @@ public class DDMFormValuesFactoryTest extends PowerMockito {
 		MockHttpServletRequest mockHttpServletRequest =
 			new MockHttpServletRequest();
 
+<<<<<<< HEAD
 		mockHttpServletRequest.addParameter(
 			"languageId", LocaleUtil.toLanguageId(LocaleUtil.US));
+=======
+		mockHttpServletRequest.addParameter("availableLanguageIds", "en_US");
+		mockHttpServletRequest.addParameter("defaultLanguageId", "en_US");
+>>>>>>> compatible
 
 		// Name
 
@@ -790,6 +972,14 @@ public class DDMFormValuesFactoryTest extends PowerMockito {
 		MockHttpServletRequest mockHttpServletRequest =
 			new MockHttpServletRequest();
 
+<<<<<<< HEAD
+=======
+		mockHttpServletRequest.addParameter(
+			"availableLanguageIds", LocaleUtil.toLanguageId(LocaleUtil.US));
+		mockHttpServletRequest.addParameter(
+			"defaultLanguageId", LocaleUtil.toLanguageId(LocaleUtil.US));
+
+>>>>>>> compatible
 		DDMFormValues ddmFormValues = _ddmFormValuesFactory.create(
 			mockHttpServletRequest, ddmForm);
 
@@ -838,8 +1028,13 @@ public class DDMFormValuesFactoryTest extends PowerMockito {
 		MockHttpServletRequest mockHttpServletRequest =
 			new MockHttpServletRequest();
 
+<<<<<<< HEAD
 		mockHttpServletRequest.addParameter(
 			"languageId", LocaleUtil.toLanguageId(LocaleUtil.US));
+=======
+		mockHttpServletRequest.addParameter("availableLanguageIds", "en_US");
+		mockHttpServletRequest.addParameter("defaultLanguageId", "en_US");
+>>>>>>> compatible
 
 		// FooBar
 
@@ -910,7 +1105,11 @@ public class DDMFormValuesFactoryTest extends PowerMockito {
 		DDMFormValues ddmFormValues = new DDMFormValues(ddmForm);
 
 		ddmFormValues.setAvailableLocales(availableLocales);
+<<<<<<< HEAD
 		ddmFormValues.setDefaultLocale(defaultLocale);
+=======
+		ddmFormValues.setDefaultLocale(LocaleUtil.US);
+>>>>>>> compatible
 
 		return ddmFormValues;
 	}
@@ -960,6 +1159,7 @@ public class DDMFormValuesFactoryTest extends PowerMockito {
 		jsonFactoryUtil.setJSONFactory(new JSONFactoryImpl());
 	}
 
+<<<<<<< HEAD
 	protected void setUpLanguageUtil() {
 		when(
 			_language.getLanguageId(Matchers.any(HttpServletRequest.class))
@@ -972,6 +1172,8 @@ public class DDMFormValuesFactoryTest extends PowerMockito {
 		languageUtil.setLanguage(_language);
 	}
 
+=======
+>>>>>>> compatible
 	protected void setUpLocaleThreadLocal() {
 		_originalSiteDefaultLocale = LocaleThreadLocal.getSiteDefaultLocale();
 
@@ -1016,10 +1218,13 @@ public class DDMFormValuesFactoryTest extends PowerMockito {
 		new DDMFormValuesFactoryImpl();
 	private final DDMFormValuesJSONSerializer _ddmFormValuesJSONSerializer =
 		new DDMFormValuesJSONSerializerImpl();
+<<<<<<< HEAD
 
 	@Mock
 	private Language _language;
 
+=======
+>>>>>>> compatible
 	private Locale _originalSiteDefaultLocale;
 
 	@Mock

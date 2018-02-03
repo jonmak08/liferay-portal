@@ -200,11 +200,15 @@ name = HtmlUtil.escapeJS(name);
 
 	var destroyInstance = function(event) {
 		if (event.portletId === '<%= portletId %>') {
+<<<<<<< HEAD
 			try {
 				window['<%= name %>'].destroy();
 			}
 			catch (e) {
 			}
+=======
+			window['<%= name %>'].destroy();
+>>>>>>> compatible
 
 			Liferay.detach('destroyPortlet', destroyInstance);
 		}

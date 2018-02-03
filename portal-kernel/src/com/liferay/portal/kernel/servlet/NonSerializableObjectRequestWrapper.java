@@ -19,16 +19,9 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.PropsUtil;
-import com.liferay.portal.kernel.util.ReflectionUtil;
-import com.liferay.portal.kernel.util.StringBundler;
 
 import java.io.NotSerializableException;
 
-import java.lang.reflect.Field;
-
-import java.util.Map;
-
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -104,51 +97,6 @@ public class NonSerializableObjectRequestWrapper
 		}
 
 		super.setAttribute(name, object);
-
-		// See LPS-67818
-
-		_setWebLogicClassLoaderFlag(name);
-	}
-
-	private void _setWebLogicClassLoaderFlag(String attributeName) {
-		ServletRequest servletRequest = getRequest();
-
-		try {
-			Field servletRequestAttributesField =
-				ReflectionUtil.getDeclaredField(
-					servletRequest.getClass(), "attributes");
-
-			Object servletRequestAttributes = servletRequestAttributesField.get(
-				servletRequest);
-
-			Field attributesField = ReflectionUtil.getDeclaredField(
-				servletRequestAttributes.getClass(), "attributes");
-
-			Map<Object, Object> map = (Map<Object, Object>)attributesField.get(
-				servletRequestAttributes);
-
-			Object attribute = map.get(attributeName);
-
-			Field isWebLogicClassLoaderField = ReflectionUtil.getDeclaredField(
-				attribute.getClass(), "isWebLogicClassLoader");
-
-			isWebLogicClassLoaderField.set(attribute, false);
-		}
-		catch (NoSuchFieldException nsfe) {
-			if (_log.isDebugEnabled()) {
-				_log.debug(
-					"Unable to get fields from a Weblogic servlet request");
-			}
-		}
-		catch (Exception e) {
-			if (_log.isDebugEnabled()) {
-				_log.debug(
-					StringBundler.concat(
-						"Unable to set WebLogic class loader flag for ",
-						"attribute ", attributeName, " in servlet request ",
-						String.valueOf(servletRequest)));
-			}
-		}
 	}
 
 	private static final boolean _WEBLOGIC_REQUEST_WRAP_NON_SERIALIZABLE =

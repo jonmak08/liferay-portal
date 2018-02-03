@@ -24,7 +24,10 @@ import com.liferay.dynamic.data.mapping.util.DDMNavigationHelper;
 import com.liferay.journal.configuration.JournalServiceConfiguration;
 import com.liferay.journal.constants.JournalPortletKeys;
 import com.liferay.journal.model.JournalArticle;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -36,6 +39,10 @@ import com.liferay.portal.kernel.template.TemplateConstants;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.SetUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.util.Locale;
 import java.util.Set;
@@ -60,12 +67,20 @@ public class JournalDDMDisplay extends BaseDDMDisplay {
 		return "Liferay.FormBuilder.AVAILABLE_FIELDS.WCM_STRUCTURE";
 	}
 
+<<<<<<< HEAD
+=======
+	@Override
+>>>>>>> compatible
 	public String getConfirmSelectStructureMessage(Locale locale) {
 		return LanguageUtil.get(
 			getResourceBundle(locale),
 			"selecting-a-new-structure-deletes-all-unsaved-content");
 	}
 
+<<<<<<< HEAD
+=======
+	@Override
+>>>>>>> compatible
 	public String getConfirmSelectTemplateMessage(Locale locale) {
 		return LanguageUtil.get(
 			getResourceBundle(locale),

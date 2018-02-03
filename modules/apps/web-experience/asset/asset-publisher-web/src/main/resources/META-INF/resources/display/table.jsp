@@ -101,14 +101,22 @@ request.setAttribute("view.jsp-showIconLabel", false);
 					<td class="metadata-column scope-column table-cell-field" colspan="1">
 						<c:choose>
 							<c:when test='<%= Objects.equals(metadataField, "categories") %>'>
+<<<<<<< HEAD
 								<liferay-asset:asset-categories-summary
+=======
+								<liferay-ui:asset-categories-summary
+>>>>>>> compatible
 									className="<%= assetEntry.getClassName() %>"
 									classPK="<%= assetEntry.getClassPK() %>"
 									portletURL="<%= renderResponse.createRenderURL() %>"
 								/>
 							</c:when>
 							<c:when test='<%= Objects.equals(metadataField, "tags") %>'>
+<<<<<<< HEAD
 								<liferay-asset:asset-tags-summary
+=======
+								<liferay-ui:asset-tags-summary
+>>>>>>> compatible
 									className="<%= assetEntry.getClassName() %>"
 									classPK="<%= assetEntry.getClassPK() %>"
 									portletURL="<%= renderResponse.createRenderURL() %>"

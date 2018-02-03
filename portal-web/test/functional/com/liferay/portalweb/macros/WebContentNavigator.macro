@@ -1,9 +1,13 @@
 <definition>
 	<command name="_openDescriptiveMenulistCP">
 		<if>
+<<<<<<< HEAD
 			<not>
 				<contains string="${webContentTitleEscapeCharacter}" substring="{webContentTitleEscapeCharacter}" />
 			</not>
+=======
+			<isset var="webContentTitleEscapeCharacter" />
+>>>>>>> compatible
 			<then>
 				<var name="key_webContentTitle" value="${webContentTitleEscapeCharacter}" />
 			</then>
@@ -13,7 +17,11 @@
 		</if>
 
 		<execute macro="Portlet#changeDisplayStyle">
+<<<<<<< HEAD
 			<var name="displayStyle" value="descriptive" />
+=======
+			<var name="displayStyle" value="Descriptive" />
+>>>>>>> compatible
 		</execute>
 
 		<execute function="AssertTextEquals#assertPartialText" locator1="WC#ENTRY_DESCRIPTIVE_TITLE" value1="${webContentTitle}" />
@@ -26,13 +34,19 @@
 
 		<execute function="Pause" locator1="3000" />
 
+<<<<<<< HEAD
 		<execute macro="LexiconEntry#gotoAdd" />
+=======
+		<execute function="Click" locator1="Button#PLUS" />
+>>>>>>> compatible
 
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Basic Web Content">
 			<var name="key_menuItem" value="Basic Web Content" />
 		</execute>
 
 		<execute function="AssertVisible" locator1="TextInput#TITLE" />
+<<<<<<< HEAD
+=======
 	</command>
 
 	<command name="gotoAddFeed">
@@ -58,6 +72,40 @@
 
 		<var name="key_structureName" value="${structureName}" />
 
+		<execute function="AssertVisible" locator1="WCD#ADD_STRUCTURED_WEB_CONTENT" value1="${structureName}" />
+
+		<execute function="AssertClick" locator1="WCD#ADD_STRUCTURED_WEB_CONTENT" value1="${structureName}" />
+
+		<execute function="SelectFrame" locator1="IFrame#MODAL_IFRAME" />
+
+		<execute function="AssertVisible" locator1="TextInput#TITLE" />
+>>>>>>> compatible
+	</command>
+
+	<command name="gotoAddFeed">
+		<execute macro="WebContentNavigator#gotoFeeds" />
+
+		<execute macro="LexiconEntry#gotoAdd" />
+	</command>
+
+	<command name="gotoAddPGViaWCD">
+		<execute function="Click#clickNoWaitForVisible" locator1="WCD#ADD_WEB_CONTENT" />
+
+		<if>
+			<not>
+				<contains string="${structureName}" substring="{structureName}" />
+			</not>
+			<then>
+				<var name="structureName" value="${structureName}" />
+			</then>
+			<else>
+				<var name="structureName" value="Basic Web Content" />
+			</else>
+		</if>
+
+		<var name="key_structureName" value="${structureName}" />
+
+<<<<<<< HEAD
 		<execute function="AssertVisible" locator1="WCD#ADD_STRUCTURED_WEB_CONTENT" value1="${structureName}" />
 
 		<execute function="AssertClick" locator1="WCD#ADD_STRUCTURED_WEB_CONTENT" value1="${structureName}" />
@@ -124,6 +172,31 @@
 	<command name="gotoEditFeed">
 		<execute macro="WebContentNavigator#gotoFeeds" />
 
+=======
+		<execute function="Click" locator1="Button#PLUS" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="${structureName}">
+			<var name="key_menuItem" value="${structureName}" />
+		</execute>
+	</command>
+
+	<command name="gotoEditCP">
+		<execute macro="WebContentNavigator#_openDescriptiveMenulistCP">
+			<var name="webContentTitle" value="${webContentTitle}" />
+			<var name="webContentTitleEscapeCharacter" value="${webContentTitleEscapeCharacter}" />
+		</execute>
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Edit">
+			<var name="key_menuItem" value="Edit" />
+		</execute>
+
+		<execute function="AssertElementPresent" locator1="Icon#BACK" />
+	</command>
+
+	<command name="gotoEditFeed">
+		<execute macro="WebContentNavigator#gotoFeeds" />
+
+>>>>>>> compatible
 		<execute macro="LexiconEntry#gotoEntryMenuItem">
 			<var name="menuItem" value="Edit" />
 			<var name="rowEntry" value="${feedName}" />
@@ -131,6 +204,7 @@
 	</command>
 
 	<command name="gotoEditPGViaWCD">
+<<<<<<< HEAD
 		<execute macro="WebContentNavigator#gotoArticleMenuPGViaWCD">
 			<var name="webContentTitle" value="${webContentTitle}" />
 		</execute>
@@ -149,13 +223,39 @@
 			<var name="key_ddlDataDefinitionName" value="${structureName}" />
 		</execute>
 
+=======
+		<execute macro="Portlet#gotoPortletOptions">
+			<var name="portletName" value="Web Content Display" />
+			<var name="portletOption" value="Edit Web Content" />
+		</execute>
+
+		<execute function="SelectFrame" locator1="IFrame#MODAL_IFRAME" />
+
+		<execute function="AssertVisible" locator1="TextInput#TITLE" />
+	</command>
+
+	<command name="gotoEditStructure">
+		<var name="key_ddlDataDefinitionName" value="${structureName}" />
+
+		<execute function="AssertClick" locator1="DDMSelectStructure#DDM_STRUCTURE_TABLE_NAME_LINK" value1="${structureName}" />
+
+>>>>>>> compatible
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
 
 	<command name="gotoEditTemplate">
+<<<<<<< HEAD
 		<execute macro="LexiconEntry#gotoEntryMenuItem">
 			<var name="menuItem" value="Edit" />
 			<var name="rowEntry" value="${templateName}" />
+=======
+		<var name="key_rowEntry" value="${templateName}" />
+
+		<execute function="Click" locator1="Icon#ROW_VERTICAL_ELLIPSIS" />
+
+		<execute function="Click" locator1="MenuItem#ANY_MENU_ITEM" value1="Edit">
+			<var name="key_menuItem" value="Edit" />
+>>>>>>> compatible
 		</execute>
 	</command>
 
@@ -184,6 +284,7 @@
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Structures">
 			<var name="key_menuItem" value="Structures" />
 		</execute>
+<<<<<<< HEAD
 
 		<execute macro="SiteAdmin#viewPortletTitle">
 			<var name="portletTitle" value="Structures" />
@@ -198,6 +299,22 @@
 		</execute>
 
 		<execute macro="SiteAdmin#viewPortletTitle">
+=======
+
+		<execute macro="SiteAdmin#viewPortletTitle">
+			<var name="portletTitle" value="Structures" />
+		</execute>
+	</command>
+
+	<command name="gotoManageTemplates">
+		<execute function="Click" locator1="Icon#HEADER_VERTICAL_ELLIPSIS" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Templates">
+			<var name="key_menuItem" value="Templates" />
+		</execute>
+
+		<execute macro="SiteAdmin#viewPortletTitle">
+>>>>>>> compatible
 			<var name="portletTitle" value="Templates" />
 		</execute>
 	</command>
@@ -213,6 +330,7 @@
 		</execute>
 	</command>
 
+<<<<<<< HEAD
 	<command name="gotoMoreStructuresViaPlusButton">
 		<execute macro="LexiconEntry#gotoAdd" />
 
@@ -235,6 +353,8 @@
 		<execute function="SelectFrame" locator1="IFrame#DIALOG" />
 	</command>
 
+=======
+>>>>>>> compatible
 	<command name="gotoPreviewEntryCP">
 		<execute macro="WebContentNavigator#_openDescriptiveMenulistCP">
 			<var name="webContentTitle" value="${webContentTitle}" />
@@ -256,6 +376,7 @@
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Preview">
 			<var name="key_menuItem" value="Preview" />
 		</execute>
+<<<<<<< HEAD
 	</command>
 
 	<command name="gotoViewSource">
@@ -264,18 +385,25 @@
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="View Source">
 			<var name="key_menuItem" value="View Source" />
 		</execute>
+=======
+>>>>>>> compatible
 	</command>
 
 	<command name="gotoViewStatus">
 		<var name="key_webContentTitle" value="${webContentTitle}" />
 
 		<execute macro="Portlet#changeDisplayStyle">
+<<<<<<< HEAD
 			<var name="displayStyle" value="descriptive" />
+=======
+			<var name="displayStyle" value="Descriptive" />
+>>>>>>> compatible
 		</execute>
 
 		<execute function="AssertElementPresent#pauseAssertVisible" locator1="WC#ENTRY_DESCRIPTIVE_THUMBNAIL" />
 		<execute function="AssertTextEquals" locator1="WC#ENTRY_DESCRIPTIVE_WORKFLOW_STATUS" value1="${webContentStatus}" />
 
+<<<<<<< HEAD
 		<execute macro="WebContentNavigator#gotoEditCP">
 			<var name="webContentTitle" value="${webContentTitle}" />
 		</execute>
@@ -285,5 +413,14 @@
 		<execute function="AssertClick" locator1="DDMSelectTemplate#TEMPLATE_TABLE_NAME_LINK" value1="${templateName}">
 			<var name="key_ddlTemplateName" value="${templateName}" />
 		</execute>
+=======
+		<execute function="AssertClick" locator1="WC#ENTRY_DESCRIPTIVE_TITLE" value1="${webContentTitle}" />
+	</command>
+
+	<command name="gotoViewTemplate">
+		<var name="key_ddlTemplateName" value="${templateName}" />
+
+		<execute function="AssertClick" locator1="DDMSelectTemplate#TEMPLATE_TABLE_NAME_LINK" value1="${templateName}" />
+>>>>>>> compatible
 	</command>
 </definition>

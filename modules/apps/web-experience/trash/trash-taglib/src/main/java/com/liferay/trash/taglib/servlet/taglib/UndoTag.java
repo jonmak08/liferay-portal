@@ -14,6 +14,7 @@
 
 package com.liferay.trash.taglib.servlet.taglib;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.TrashedModel;
 import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.theme.PortletDisplay;
@@ -33,6 +34,17 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+=======
+import com.liferay.portal.kernel.servlet.SessionMessages;
+import com.liferay.portal.kernel.theme.PortletDisplay;
+import com.liferay.portal.kernel.theme.ThemeDisplay;
+import com.liferay.portal.kernel.util.JavaConstants;
+import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.taglib.util.IncludeTag;
+import com.liferay.trash.taglib.servlet.ServletContextUtil;
+
+import java.util.HashMap;
+>>>>>>> compatible
 import java.util.Map;
 
 import javax.portlet.PortletRequest;
@@ -81,6 +93,7 @@ public class UndoTag extends IncludeTag {
 
 	@Override
 	protected String getPage() {
+<<<<<<< HEAD
 		if (ListUtil.isEmpty(_getTrashedModels())) {
 			return null;
 		}
@@ -145,6 +158,8 @@ public class UndoTag extends IncludeTag {
 	}
 
 	private Map<String, Object> _getData() {
+=======
+>>>>>>> compatible
 		ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(
 			WebKeys.THEME_DISPLAY);
 
@@ -161,6 +176,7 @@ public class UndoTag extends IncludeTag {
 			return null;
 		}
 
+<<<<<<< HEAD
 		return (HashMap<String, Object>)SessionMessages.get(
 			portletRequest, key);
 	}
@@ -180,6 +196,27 @@ public class UndoTag extends IncludeTag {
 		}
 
 		return trashedModels;
+=======
+		Map<String, String[]> data =
+			(HashMap<String, String[]>)SessionMessages.get(portletRequest, key);
+
+		if (data == null) {
+			return null;
+		}
+
+		return _PAGE;
+	}
+
+	@Override
+	protected boolean isCleanUpSetAttributes() {
+		return _CLEAN_UP_SET_ATTRIBUTES;
+	}
+
+	@Override
+	protected void setAttributes(HttpServletRequest request) {
+		request.setAttribute("liferay-trash:undo:portletURL", _portletURL);
+		request.setAttribute("liferay-trash:undo:redirect", _redirect);
+>>>>>>> compatible
 	}
 
 	private static final boolean _CLEAN_UP_SET_ATTRIBUTES = true;

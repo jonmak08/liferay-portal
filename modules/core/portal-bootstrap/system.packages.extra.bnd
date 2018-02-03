@@ -347,6 +347,7 @@ Import-Package: !*
 	@../../../portal-kernel/portal-kernel.jar,\
 	@lib/com.liferay.osgi.felix.util.jar,\
 	@lib/com.liferay.osgi.service.tracker.collections.jar,\
+<<<<<<< HEAD
 	@lib/com.liferay.petra.concurrent.jar,\
 	@lib/com.liferay.petra.content.jar,\
 	@lib/com.liferay.petra.encryptor.jar,\
@@ -362,6 +363,8 @@ Import-Package: !*
 	@lib/com.liferay.petra.reflect.jar,\
 	@lib/com.liferay.petra.string.jar,\
 	@lib/com.liferay.petra.xml.jar,\
+=======
+>>>>>>> compatible
 	@lib/com.liferay.registry.api.jar
 -removeheaders:\
 	Private-Package,\

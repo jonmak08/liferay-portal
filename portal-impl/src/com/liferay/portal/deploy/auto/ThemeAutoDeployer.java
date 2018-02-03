@@ -45,11 +45,27 @@ public class ThemeAutoDeployer extends ThemeDeployer implements AutoDeployer {
 				tempDirPaths, "liferay-theme.tld");
 			utilTaglibDTD = DeployUtil.getResourcePath(
 				tempDirPaths, "liferay-util.tld");
+<<<<<<< HEAD
 			unpackWar = PropsValues.AUTO_DEPLOY_UNPACK_WAR;
 			filePattern = StringPool.BLANK;
 			jbossPrefix = PropsValues.AUTO_DEPLOY_JBOSS_PREFIX;
 			tomcatLibDir = PropsValues.AUTO_DEPLOY_TOMCAT_LIB_DIR;
 			wildflyPrefix = PropsValues.AUTO_DEPLOY_WILDFLY_PREFIX;
+=======
+			unpackWar = PrefsPropsUtil.getBoolean(
+				PropsKeys.AUTO_DEPLOY_UNPACK_WAR,
+				PropsValues.AUTO_DEPLOY_UNPACK_WAR);
+			filePattern = StringPool.BLANK;
+			jbossPrefix = PrefsPropsUtil.getString(
+				PropsKeys.AUTO_DEPLOY_JBOSS_PREFIX,
+				PropsValues.AUTO_DEPLOY_JBOSS_PREFIX);
+			tomcatLibDir = PrefsPropsUtil.getString(
+				PropsKeys.AUTO_DEPLOY_TOMCAT_LIB_DIR,
+				PropsValues.AUTO_DEPLOY_TOMCAT_LIB_DIR);
+			wildflyPrefix = PrefsPropsUtil.getString(
+				PropsKeys.AUTO_DEPLOY_WILDFLY_PREFIX,
+				PropsValues.AUTO_DEPLOY_WILDFLY_PREFIX);
+>>>>>>> compatible
 
 			List<String> jars = new ArrayList<>();
 

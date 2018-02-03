@@ -14,7 +14,10 @@
 
 package com.liferay.portal.service.impl;
 
+<<<<<<< HEAD
 import com.liferay.asset.kernel.model.AssetEntry;
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.configuration.ExportImportConfigurationConstants;
 import com.liferay.exportimport.kernel.configuration.ExportImportConfigurationSettingsMapFactory;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
@@ -24,15 +27,21 @@ import com.liferay.exportimport.kernel.lar.PortletDataHandlerKeys;
 import com.liferay.exportimport.kernel.model.ExportImportConfiguration;
 import com.liferay.exportimport.kernel.staging.StagingConstants;
 import com.liferay.exportimport.kernel.staging.StagingUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.backgroundtask.BackgroundTask;
 import com.liferay.portal.kernel.backgroundtask.BackgroundTaskConstants;
 import com.liferay.portal.kernel.backgroundtask.BackgroundTaskManagerUtil;
 import com.liferay.portal.kernel.cache.thread.local.ThreadLocalCachable;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.IndexableActionableDynamicQuery;
 import com.liferay.portal.kernel.dao.orm.Property;
 import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.DuplicateGroupException;
 import com.liferay.portal.kernel.exception.GroupFriendlyURLException;
@@ -66,6 +75,10 @@ import com.liferay.portal.kernel.model.Portlet;
 import com.liferay.portal.kernel.model.ResourceAction;
 import com.liferay.portal.kernel.model.ResourceConstants;
 import com.liferay.portal.kernel.model.ResourcePermission;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.model.ResourceTypePermission;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Role;
 import com.liferay.portal.kernel.model.RoleConstants;
 import com.liferay.portal.kernel.model.User;
@@ -75,9 +88,12 @@ import com.liferay.portal.kernel.model.UserPersonalSite;
 import com.liferay.portal.kernel.model.WorkflowDefinitionLink;
 import com.liferay.portal.kernel.scheduler.SchedulerEngineHelperUtil;
 import com.liferay.portal.kernel.scheduler.StorageType;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.search.Document;
 import com.liferay.portal.kernel.search.Indexer;
 import com.liferay.portal.kernel.search.IndexerRegistryUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.security.auth.CompanyThreadLocal;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.ResourceActionsUtil;
@@ -91,6 +107,10 @@ import com.liferay.portal.kernel.transaction.Transactional;
 import com.liferay.portal.kernel.tree.TreeModelTasksAdapter;
 import com.liferay.portal.kernel.tree.TreePathUtil;
 import com.liferay.portal.kernel.util.ArrayUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.FriendlyURLNormalizerUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -733,9 +753,15 @@ public class GroupLocalServiceImpl extends GroupLocalServiceBaseImpl {
 					group.getGroupId(), false, serviceContext);
 			}
 			catch (NoSuchLayoutSetException nslse) {
+<<<<<<< HEAD
 
 				// LPS-52675
 
+=======
+
+				// LPS-52675
+
+>>>>>>> compatible
 				if (_log.isDebugEnabled()) {
 					_log.debug(nslse, nslse);
 				}
@@ -836,6 +862,13 @@ public class GroupLocalServiceImpl extends GroupLocalServiceBaseImpl {
 					resourcePermission);
 			}
 
+<<<<<<< HEAD
+=======
+			// Trash
+
+			trashEntryLocalService.deleteEntries(group.getGroupId());
+
+>>>>>>> compatible
 			// Workflow
 
 			List<WorkflowHandler<?>> scopeableWorkflowHandlers =
@@ -898,6 +931,7 @@ public class GroupLocalServiceImpl extends GroupLocalServiceBaseImpl {
 					deleteUserGroupGroupRolesByGroupId(group.getGroupId());
 
 				// Resources
+<<<<<<< HEAD
 
 				try {
 					resourceLocalService.deleteResource(
@@ -921,6 +955,20 @@ public class GroupLocalServiceImpl extends GroupLocalServiceBaseImpl {
 
 							return null;
 						});
+=======
+
+				try {
+					resourceLocalService.deleteResource(
+						group.getCompanyId(), Group.class.getName(),
+						ResourceConstants.SCOPE_INDIVIDUAL, group.getGroupId());
+				}
+				catch (Exception e) {
+					if (_log.isWarnEnabled()) {
+						_log.warn(
+							"No resources found for group " +
+								group.getGroupId());
+					}
+>>>>>>> compatible
 				}
 
 				groupPersistence.remove(group);
@@ -1099,6 +1147,19 @@ public class GroupLocalServiceImpl extends GroupLocalServiceBaseImpl {
 	@Override
 	public List<Long> getActiveGroupIds(long userId) {
 		return groupFinder.findByActiveGroupIds(userId);
+	}
+
+	/**
+	 * Returns all the active or inactive groups associated with the company.
+	 *
+	 * @param  companyId the primary key of the company
+	 * @param  active whether to return only active groups, or only inactive
+	 *         groups
+	 * @return the active or inactive groups associated with the company
+	 */
+	@Override
+	public List<Group> getActiveGroups(long companyId, boolean active) {
+		return groupPersistence.findByC_A(companyId, active);
 	}
 
 	/**
@@ -1456,6 +1517,7 @@ public class GroupLocalServiceImpl extends GroupLocalServiceBaseImpl {
 	 * primary keys, they are indexes in the result set. Thus, <code>0</code>
 	 * refers to the first result in the set. Setting both <code>start</code>
 	 * and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full
+<<<<<<< HEAD
 	 * result set.
 	 * </p>
 	 *
@@ -1491,6 +1553,8 @@ public class GroupLocalServiceImpl extends GroupLocalServiceBaseImpl {
 	 * primary keys, they are indexes in the result set. Thus, <code>0</code>
 	 * refers to the first result in the set. Setting both <code>start</code>
 	 * and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full
+=======
+>>>>>>> compatible
 	 * result set.
 	 * </p>
 	 *
@@ -1914,6 +1978,7 @@ public class GroupLocalServiceImpl extends GroupLocalServiceBaseImpl {
 	@Override
 	public List<Group> getUserSitesGroups(long userId) throws PortalException {
 		UserBag userBag = PermissionCacheUtil.getUserBag(userId);
+<<<<<<< HEAD
 
 		if (userBag == null) {
 			User user = userPersistence.findByPrimaryKey(userId);
@@ -1924,6 +1989,18 @@ public class GroupLocalServiceImpl extends GroupLocalServiceBaseImpl {
 			groupParams.put("site", Boolean.TRUE);
 			groupParams.put("usersGroups", userId);
 
+=======
+
+		if (userBag == null) {
+			User user = userPersistence.findByPrimaryKey(userId);
+
+			LinkedHashMap<String, Object> groupParams = new LinkedHashMap<>();
+
+			groupParams.put("inherit", Boolean.TRUE);
+			groupParams.put("site", Boolean.TRUE);
+			groupParams.put("usersGroups", userId);
+
+>>>>>>> compatible
 			return groupFinder.findByCompanyId(
 				user.getCompanyId(), groupParams, QueryUtil.ALL_POS,
 				QueryUtil.ALL_POS, new GroupNameComparator(true));
@@ -3877,17 +3954,35 @@ public class GroupLocalServiceImpl extends GroupLocalServiceBaseImpl {
 			if (resourceAction != null) {
 				Set<Group> rolePermissionsGroups = new HashSet<>();
 
+<<<<<<< HEAD
 				List<ResourcePermission> resourcePermissions =
 					resourcePermissionPersistence.findByC_N_S(
 						companyId, rolePermissions.getName(),
 						rolePermissions.getScope());
+=======
+				if (resourceBlockLocalService.isSupported(
+						rolePermissions.getName())) {
+
+					List<ResourceTypePermission> resourceTypePermissions =
+						resourceTypePermissionPersistence.findByRoleId(
+							rolePermissions.getRoleId());
+>>>>>>> compatible
 
 				for (ResourcePermission resourcePermission :
 						resourcePermissions) {
 
+<<<<<<< HEAD
 					if ((resourcePermission.getRoleId() ==
 							rolePermissions.getRoleId()) &&
 						resourcePermission.hasAction(resourceAction)) {
+=======
+						if ((resourceTypePermission.getCompanyId() ==
+								companyId) &&
+							Objects.equals(
+								rolePermissions.getName(),
+								resourceTypePermission.getName()) &&
+							resourceTypePermission.hasAction(resourceAction)) {
+>>>>>>> compatible
 
 						Group group = groupPersistence.fetchByPrimaryKey(
 							GetterUtil.getLong(
@@ -3898,9 +3993,32 @@ public class GroupLocalServiceImpl extends GroupLocalServiceBaseImpl {
 						}
 					}
 				}
+<<<<<<< HEAD
 
 				groups.retainAll(rolePermissionsGroups);
 			}
+		}
+=======
+				else {
+					List<ResourcePermission> resourcePermissions =
+						resourcePermissionPersistence.findByC_N_S(
+							companyId, rolePermissions.getName(),
+							rolePermissions.getScope());
+
+					for (ResourcePermission resourcePermission :
+							resourcePermissions) {
+
+						if ((resourcePermission.getRoleId() ==
+								rolePermissions.getRoleId()) &&
+							resourcePermission.hasAction(resourceAction)) {
+>>>>>>> compatible
+
+		// Join by Groups_Roles
+
+		Long roleId = (Long)params.remove("groupsRoles");
+
+		if (roleId != null) {
+			groups.retainAll(rolePersistence.getGroups(roleId));
 		}
 
 		// Join by Groups_Roles

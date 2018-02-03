@@ -45,9 +45,7 @@ public class ProtectedPrincipal implements Principal, Serializable {
 
 		ProtectedPrincipal protectedPrincipal = (ProtectedPrincipal)obj;
 
-		String name = protectedPrincipal.getName();
-
-		if (name.equals(_name)) {
+		if (protectedPrincipal.getName().equals(_name)) {
 			return true;
 		}
 		else {

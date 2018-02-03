@@ -3,13 +3,18 @@
 	<var name="userName" value="Test Test" />
 
 	<command name="addCP">
+<<<<<<< HEAD
 		<execute macro="LexiconEntry#gotoAdd" />
+=======
+		<execute function="Click" locator1="Button#PLUS" />
+>>>>>>> compatible
 
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Thread">
 			<var name="key_menuItem" value="Thread" />
 		</execute>
 
 		<execute function="AssertElementPresent" locator1="TextInput#SUBJECT" />
+<<<<<<< HEAD
 
 		<execute function="Type" locator1="TextInput#SUBJECT" value1="${threadSubject}" />
 
@@ -17,12 +22,23 @@
 			<var name="content" value="${threadBody}" />
 			<var name="editor" value="body" />
 		</execute>
+=======
+
+		<execute function="Click" locator1="TextInput#SUBJECT" />
+
+		<execute function="Type" locator1="TextInput#SUBJECT" value1="${threadSubject}" />
+		<execute function="Type#typeCKEditor" locator1="CKEditor#BODY_FIELD" value1="${threadBody}" />
+>>>>>>> compatible
 
 		<execute macro="PortletEntry#publish" />
 	</command>
 
 	<command name="addCPWithAttachment">
+<<<<<<< HEAD
 		<execute macro="LexiconEntry#gotoAdd" />
+=======
+		<execute function="Click" locator1="Button#PLUS" />
+>>>>>>> compatible
 
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Thread">
 			<var name="key_menuItem" value="Thread" />
@@ -31,11 +47,15 @@
 		<execute function="Click" locator1="TextInput#SUBJECT" />
 
 		<execute function="Type" locator1="TextInput#SUBJECT" value1="${threadSubject}" />
+<<<<<<< HEAD
 
 		<execute macro="AlloyEditor#typeEditor">
 			<var name="content" value="${threadBody}" />
 			<var name="editor" value="body" />
 		</execute>
+=======
+		<execute function="Type#typeCKEditor" locator1="CKEditor#BODY_FIELD" value1="${threadBody}" />
+>>>>>>> compatible
 
 		<execute macro="Panel#expandPanel">
 			<var name="panelHeading" value="Attachments" />
@@ -73,14 +93,21 @@
 
 	<command name="addPG">
 		<execute function="AssertClick" locator1="Button#POST_NEW_THREAD" value1="Post New Thread" />
+<<<<<<< HEAD
 
 		<execute function="AssertElementPresent" locator1="TextInput#SUBJECT" />
 
+=======
+
+		<execute function="AssertElementPresent" locator1="TextInput#SUBJECT" />
+
+>>>>>>> compatible
 		<execute function="Type" locator1="TextInput#SUBJECT" value1="${threadSubject}" />
 
 		<if>
 			<isset var="source" />
 			<then>
+<<<<<<< HEAD
 				<execute function="Click" locator1="AlloyEditor#EDITOR">
 					<var name="key_editor" value="body" />
 				</execute>
@@ -94,6 +121,27 @@
 					<var name="content" value="${threadBody}" />
 					<var name="editor" value="body" />
 				</execute>
+=======
+				<execute function="Click" locator1="CKEditor#TOOLBAR_SOURCE_BUTTON" />
+
+				<execute function="Type" locator1="CKEditor#BODY_FIELD_SOURCE_ON" value1="${threadBody}" />
+
+				<execute function="Click" locator1="CKEditor#TOOLBAR_SOURCE_BUTTON" />
+
+				<if>
+					<isset var="fontSize" />
+					<then>
+						<var name="key_fontSize" value="${fontSize}" />
+
+						<execute function="AssertClick" locator1="CKEditor#TOOLBAR_SIZE_BUTTON" value1="Size" />
+
+						<execute function="AssertTextEquals" locator1="CKEditor#TOOLBAR_SIZE_BUTTON_DROPDOWN" value1="${fontSize}" />
+					</then>
+				</if>
+			</then>
+			<else>
+				<execute function="Type#typeCKEditorWaitForCKEditor" locator1="CKEditor#BODY_FIELD" value1="${threadBody}" />
+>>>>>>> compatible
 			</else>
 		</if>
 
@@ -103,6 +151,7 @@
 	<command name="addPGAsAnonymous">
 		<execute function="AssertClick" locator1="Button#POST_NEW_THREAD" value1="Post New Thread" />
 
+<<<<<<< HEAD
 		<execute function="Type" locator1="TextInput#SUBJECT" value1="${threadSubject}" />
 
 		<execute macro="AlloyEditor#typeEditor">
@@ -204,6 +253,95 @@
 			<var name="editor" value="body" />
 		</execute>
 
+=======
+		<execute function="Click" locator1="TextInput#SUBJECT" />
+
+		<execute function="Type" locator1="TextInput#SUBJECT" value1="${threadSubject}" />
+		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="CKEditor#BODY_FIELD" value1="${threadBody}" />
+
+		<execute macro="Panel#expandPanel">
+			<var name="panelHeading" value="More Settings" />
+		</execute>
+
+		<execute function="Check" locator1="Checkbox#ANONYMOUS" />
+
+		<execute macro="PortletEntry#publish" />
+
+		<execute function="AssertTextEquals#assertPartialText" locator1="MessageBoardsThread#THREAD_USERNAME" value1="Anonymous" />
+	</command>
+
+	<command name="addPGAsQuestion">
+		<execute function="AssertClick" locator1="Button#POST_NEW_THREAD" value1="Post New Thread" />
+
+		<execute function="Click" locator1="TextInput#SUBJECT" />
+
+		<execute function="Type" locator1="TextInput#SUBJECT" value1="${threadSubject}" />
+		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="CKEditor#BODY_FIELD" value1="${threadBody}" />
+
+		<execute macro="Panel#expandPanel">
+			<var name="panelHeading" value="More Settings" />
+		</execute>
+
+		<execute function="Check" locator1="Checkbox#MARK_AS_A_QUESTION" />
+
+		<execute macro="PortletEntry#publish" />
+
+		<execute function="Click" locator1="Icon#ANGLE_LEFT_BACK" />
+
+		<execute macro="MessageboardsThread#viewMarkedAsQuestionPG">
+			<var name="threadSubject" value="${threadSubject}" />
+		</execute>
+	</command>
+
+	<command name="addPGWithAttachment">
+		<execute function="AssertClick" locator1="Button#POST_NEW_THREAD" value1="Post New Thread" />
+
+		<execute function="Click" locator1="TextInput#SUBJECT" />
+
+		<execute function="Type" locator1="TextInput#SUBJECT" value1="${threadSubject}" />
+		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="CKEditor#BODY_FIELD" value1="${threadBody}" />
+
+		<execute macro="Panel#expandPanel">
+			<var name="panelHeading" value="Attachments" />
+		</execute>
+
+		<execute function="UploadCommonFile" locator1="MessageBoardsEditMessage#ATTACHMENTS_FILE_FIELD_1" value1="${mbThreadAttachment}" />
+
+		<execute macro="Button#clickPublish" />
+
+		<var name="key_threadSubject" value="${threadSubject}" />
+
+		<execute function="AssertElementPresent" locator1="MessageBoardsThread#THREAD_REPLY_BUTTON" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+	</command>
+
+	<command name="addPGWithPermissions">
+		<execute function="AssertClick" locator1="Button#POST_NEW_THREAD" value1="Post New Thread" />
+
+		<execute function="Click" locator1="TextInput#SUBJECT" />
+
+		<execute function="Type" locator1="TextInput#SUBJECT" value1="${threadSubject}" />
+		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="CKEditor#BODY_FIELD" value1="${threadBody}" />
+
+		<execute macro="Panel#expandPanel">
+			<var name="panelHeading" value="Permissions" />
+		</execute>
+
+		<execute function="Select" locator1="AssetPermissions#VIEWABLE_AS_SELECT" value1="${viewableBySelection}" />
+
+		<execute macro="PortletEntry#publish" />
+	</command>
+
+	<command name="addPGWithPriority">
+		<execute function="AssertClick" locator1="Button#POST_NEW_THREAD" value1="Post New Thread" />
+
+		<execute function="Click" locator1="TextInput#SUBJECT" />
+
+		<execute function="Type" locator1="TextInput#SUBJECT" value1="${threadSubject}" />
+		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="CKEditor#BODY_FIELD" value1="${threadBody}" />
+
+>>>>>>> compatible
 		<execute macro="Panel#expandPanel">
 			<var name="panelHeading" value="More Settings" />
 		</execute>
@@ -216,12 +354,19 @@
 	<command name="addTagPGCmd">
 		<execute function="AssertClick" locator1="Button#POST_NEW_THREAD" value1="Post New Thread" />
 
+<<<<<<< HEAD
 		<execute function="Type" locator1="TextInput#SUBJECT" value1="${threadSubject}" />
 
 		<execute macro="AlloyEditor#typeEditor">
 			<var name="content" value="${threadBody}" />
 			<var name="editor" value="body" />
 		</execute>
+=======
+		<execute function="Click" locator1="TextInput#SUBJECT" />
+
+		<execute function="Type" locator1="TextInput#SUBJECT" value1="${threadSubject}" />
+		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="CKEditor#BODY_FIELD" value1="${threadBody}" />
+>>>>>>> compatible
 
 		<execute function="AssertTextEquals" locator1="TextInput#SUBJECT" value1="${threadSubject}" />
 		<execute function="AssertElementPresent" locator1="CKEditor#BODY_FIELD" />
@@ -244,9 +389,17 @@
 
 				<execute function="AssertClick" locator1="AssetCategorization#TAGS_ADD_BUTTON" value1="Add" />
 
+<<<<<<< HEAD
 				<execute function="AssertElementPresent" locator1="AssetCategorization#TAG" value1="${tagName}">
 					<var name="key_tagName" value="${tagName}" />
 				</execute>
+=======
+				<execute function="Type" locator1="AssetCategorization#TAGS_FIELD" value1="${tagName}" />
+
+				<execute function="AssertClick" locator1="AssetCategorization#TAGS_ADD_BUTTON" value1="Add" />
+
+				<execute function="AssertElementPresent" locator1="AssetCategorization#TAG" value1="${tagName}" />
+>>>>>>> compatible
 			</else>
 		</if>
 
@@ -254,6 +407,7 @@
 	</command>
 
 	<command name="addWithWorkflowCP">
+<<<<<<< HEAD
 		<execute macro="LexiconEntry#gotoAdd" />
 
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Thread">
@@ -271,11 +425,27 @@
 
 		<execute function="Click" locator1="Button#SUBMIT_FOR_PUBLICATION" />
 
+=======
+		<execute function="Click" locator1="Button#PLUS" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Thread">
+			<var name="key_menuItem" value="Thread" />
+		</execute>
+
+		<execute function="Click" locator1="TextInput#SUBJECT" />
+
+		<execute function="Type" locator1="TextInput#SUBJECT" value1="${threadSubject}" />
+		<execute function="Type#typeCKEditor" locator1="CKEditor#BODY_FIELD" value1="${threadBody}" />
+
+		<execute function="Click" locator1="Button#SUBMIT_FOR_PUBLICATION" />
+
+>>>>>>> compatible
 		<execute macro="Alert#viewSuccessMessage" />
 	</command>
 
 	<command name="addWithWorkflowPG">
 		<execute function="AssertClick" locator1="Button#POST_NEW_THREAD" value1="Post New Thread" />
+<<<<<<< HEAD
 
 		<execute function="Type" locator1="TextInput#SUBJECT" value1="${threadSubject}" />
 
@@ -286,6 +456,16 @@
 
 		<execute function="Click" locator1="Button#SUBMIT_FOR_PUBLICATION" />
 
+=======
+
+		<execute function="Click" locator1="TextInput#SUBJECT" />
+
+		<execute function="Type" locator1="TextInput#SUBJECT" value1="${threadSubject}" />
+		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="CKEditor#BODY_FIELD" value1="${threadBody}" />
+
+		<execute function="Click" locator1="Button#SUBMIT_FOR_PUBLICATION" />
+
+>>>>>>> compatible
 		<execute macro="Alert#viewSuccessMessage" />
 	</command>
 
@@ -298,6 +478,7 @@
 			<var name="key_threadReplyBody" value="${threadReplyBody}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute function="Click" locator1="MenuItem#ANY_MENU_ITEM" value1="Ban This User">
 			<var name="key_menuItem" value="Ban This User" />
 		</execute>
@@ -314,6 +495,20 @@
 			<var name="content" value="${threadBody}" />
 			<var name="editor" value="body" />
 		</execute>
+=======
+		<execute function="AssertClick" locator1="MessageBoardsThread#MESSAGE_BAN_THIS_USER" value1="Ban This User" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+	</command>
+
+	<command name="cancelAdd">
+		<execute function="AssertClick" locator1="Button#POST_NEW_THREAD" value1="Post New Thread" />
+
+		<execute function="Click" locator1="TextInput#SUBJECT" />
+
+		<execute function="Type" locator1="TextInput#SUBJECT" value1="${threadSubject}" />
+		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="CKEditor#BODY_FIELD" value1="${threadBody}" />
+>>>>>>> compatible
 
 		<execute function="AssertClick" locator1="Button#CANCEL" value1="Cancel" />
 	</command>
@@ -321,12 +516,19 @@
 	<command name="cancelEdit">
 		<execute macro="PortletEntry#clickEditFromEllipsis" />
 
+<<<<<<< HEAD
 		<execute function="Type" locator1="TextInput#SUBJECT" value1="${threadSubjectEdit}" />
 
 		<execute macro="AlloyEditor#typeEditor">
 			<var name="content" value="${threadBodyEdit}" />
 			<var name="editor" value="body" />
 		</execute>
+=======
+		<execute function="Click" locator1="TextInput#SUBJECT" />
+
+		<execute function="Type" locator1="TextInput#SUBJECT" value1="${threadSubjectEdit}" />
+		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="CKEditor#BODY_FIELD" value1="${threadBodyEdit}" />
+>>>>>>> compatible
 
 		<execute function="AssertClick" locator1="Button#CANCEL" value1="Cancel" />
 	</command>
@@ -362,7 +564,11 @@
 					<var name="panelHeading" value="Attachments" />
 				</execute>
 
+<<<<<<< HEAD
 				<execute function="AssertTextEquals#assertPartialText" locator1="MessageBoardsEditMessage#ATTACHMENTS_NAME" value1="${mbAttachmentFile}" />
+=======
+				<execute function="AssertTextEquals" locator1="MessageBoardsEditMessage#ATTACHMENTS_NAME" value1="${mbAttachmentFile}" />
+>>>>>>> compatible
 
 				<execute function="AssertClick" locator1="MessageBoardsEditMessage#ATTACHMENTS_REMOVE_LINK" value1="Remove" />
 			</then>
@@ -378,6 +584,7 @@
 		<if>
 			<isset var="threadBodyEdit" />
 			<then>
+<<<<<<< HEAD
 				<execute function="Click" locator1="AlloyEditor#EDITOR">
 					<var name="key_editor" value="body" />
 				</execute>
@@ -388,6 +595,9 @@
 					<var name="content" value="${threadBodyEdit}" />
 					<var name="editor" value="body" />
 				</execute>
+=======
+				<execute function="Type#typeCKEditorWaitForCKEditor" locator1="CKEditor#BODY_FIELD" value1="${threadBodyEdit}" />
+>>>>>>> compatible
 			</then>
 		</if>
 
@@ -395,6 +605,12 @@
 	</command>
 
 	<command name="editPG">
+<<<<<<< HEAD
+=======
+		<var name="key_threadSubject" value="${threadSubject}" />
+		<var name="key_userName" value="${userName}" />
+
+>>>>>>> compatible
 		<execute macro="PortletEntry#clickEditFromEllipsis" />
 
 		<if>
@@ -407,10 +623,14 @@
 		<if>
 			<isset var="threadBodyEdit" />
 			<then>
+<<<<<<< HEAD
 				<execute macro="AlloyEditor#typeEditor">
 					<var name="content" value="${threadBodyEdit}" />
 					<var name="editor" value="body" />
 				</execute>
+=======
+				<execute function="Type#typeCKEditorWaitForCKEditor" locator1="CKEditor#BODY_FIELD" value1="${threadBodyEdit}" />
+>>>>>>> compatible
 			</then>
 		</if>
 
@@ -431,7 +651,11 @@
 
 					<execute function="AssertTextEquals" locator1="MessageBoardsThread#TITLE_HEADER" value1="Edit ${threadSubject}" />
 					<execute function="AssertTextEquals#assertPartialText" locator1="MessageBoardsThread#THREAD_USERNAME" value1="${userName}" />
+<<<<<<< HEAD
 					<execute function="AssertTextEquals" locator1="MessageBoardsThread#THREAD_USERNAME" value1="${threadSubject}" />
+=======
+					<execute function="AssertTextEquals" locator1="MessageBoardsThread#THREAD_SUBJECT" value1="${threadSubject}" />
+>>>>>>> compatible
 					<execute function="AssertTextEquals" locator1="MessageBoardsThread#MESSAGE_WORKFLOW_STATUS_1" value1="Draft" />
 					<execute function="AssertTextEquals" locator1="MessageBoardsThread#MESSAGE_BODY_1" value1="${threadBodyEdit}" />
 				</then>
@@ -459,16 +683,25 @@
 		<execute function="AssertTextEquals" locator1="MessageBoards#THREAD_LIST_THREAD" value1="${threadSubject}" />
 
 		<execute function="Click" locator1="MessageBoards#VERTICAL_ELLIPSIS" />
+<<<<<<< HEAD
 
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Edit">
 			<var name="key_menuItem" value="Edit" />
 		</execute>
 
+=======
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Edit">
+			<var name="key_menuItem" value="Edit" />
+		</execute>
+
+>>>>>>> compatible
 		<execute macro="PortletEntry#publish" />
 	</command>
 
 	<command name="flagPG">
 		<execute function="AssertClick" locator1="MessageBoardsThread#MESSAGE_FLAG_1" value1="Flag" />
+<<<<<<< HEAD
 
 		<execute function="AssertTextEquals" locator1="MessageBoardsThread#REPORT_INAPPROPRIATE_CONTENT_HEADER" value1="Report Inappropriate Content" />
 		<execute function="AssertTextEquals" locator1="MessageBoardsThread#REPORT_INAPPROPRIATE_CONTENT_WARNING" value1="You are about to report a violation of our Terms of Use. All reports are strictly confidential." />
@@ -476,6 +709,15 @@
 
 		<execute function="Select" locator1="MessageBoardsThread#REPORT_INAPPROPRIATE_CONTENT_REASON_SELECT" value1="${flagReason}" />
 
+=======
+
+		<execute function="AssertTextEquals" locator1="MessageBoardsThread#REPORT_INAPPROPRIATE_CONTENT_HEADER" value1="Report Inappropriate Content" />
+		<execute function="AssertTextEquals" locator1="MessageBoardsThread#REPORT_INAPPROPRIATE_CONTENT_WARNING" value1="You are about to report a violation of our Terms of Use. All reports are strictly confidential." />
+		<execute function="AssertTextEquals" locator1="MessageBoardsThread#REPORT_INAPPROPRIATE_CONTENT_WARNING_TERMS_OF_USE_LINK" value1="Terms of Use" />
+
+		<execute function="Select" locator1="MessageBoardsThread#REPORT_INAPPROPRIATE_CONTENT_REASON_SELECT" value1="${flagReason}" />
+
+>>>>>>> compatible
 		<execute macro="Button#clickSave" />
 
 		<execute function="AssertTextEquals" locator1="MessageBoardsThread#REPORT_INAPPROPRIATE_CONTENT_SUCCESS_MESSAGE" value1="Although we cannot disclose our final decision, we do review every report and appreciate your effort to make sure Liferay is a safe environment for everyone." />
@@ -484,9 +726,15 @@
 	</command>
 
 	<command name="gotoCP">
+<<<<<<< HEAD
 		<execute function="AssertClick" locator1="MessageBoards#THREAD_LIST_THREAD" value1="${threadSubject}">
 			<var name="key_threadSubject" value="${threadSubject}" />
 		</execute>
+=======
+		<var name="key_threadSubject" value="${threadSubject}" />
+
+		<execute function="AssertClick" locator1="MessageBoards#THREAD_LIST_THREAD" value1="${threadSubject}" />
+>>>>>>> compatible
 	</command>
 
 	<command name="gotoPG">
@@ -517,19 +765,34 @@
 		<var name="key_threadSubject" value="${threadSubject}" />
 
 		<execute function="AssertTextEquals" locator1="MessageBoards#THREAD_LIST_THREAD" value1="${threadSubject}" />
+<<<<<<< HEAD
 
 		<execute function="Click" locator1="MessageBoards#THREAD_LIST_THREAD" value1="${threadSubject}" />
 
 		<execute function="AssertClick" locator1="MessageBoardsThread#THREAD_ACTIONS_LOCK_THREAD" value1="Lock Thread" />
 
+=======
+
+		<execute function="Click" locator1="MessageBoards#THREAD_LIST_THREAD" value1="${threadSubject}" />
+
+		<execute function="AssertClick" locator1="MessageBoardsThread#THREAD_ACTIONS_LOCK_THREAD" value1="Lock Thread" />
+
+>>>>>>> compatible
 		<execute macro="Alert#viewSuccessMessage" />
 	</command>
 
 	<command name="markAsAnswerCP">
+<<<<<<< HEAD
 		<execute function="Click" locator1="MessageBoards#THREAD_REPLY_ACTIONS">
 			<var name="key_threadReplyBody" value="${threadReplyBody}" />
 		</execute>
 
+=======
+		<var name="key_threadReplyBody" value="${threadReplyBody}" />
+
+		<execute function="Click" locator1="MessageBoards#THREAD_REPLY_ACTIONS" />
+
+>>>>>>> compatible
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Mark as an Answer">
 			<var name="key_menuItem" value="Mark as an Answer" />
 		</execute>
@@ -538,6 +801,7 @@
 	</command>
 
 	<command name="markAsAnswerPG">
+<<<<<<< HEAD
 		<execute function="Click" locator1="MessageBoards#THREAD_REPLY_ACTIONS">
 			<var name="key_threadReplyBody" value="${threadReplyBody}" />
 		</execute>
@@ -546,10 +810,21 @@
 			<var name="key_menuItem" value="Mark as an Answer" />
 		</execute>
 
+=======
+		<var name="key_threadReplyBody" value="${threadReplyBody}" />
+
+		<execute function="Click" locator1="MessageBoards#THREAD_REPLY_ACTIONS" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Mark as an Answer">
+			<var name="key_menuItem" value="Mark as an Answer" />
+		</execute>
+
+>>>>>>> compatible
 		<execute function="AssertTextEquals#assertPartialText" locator1="MessageBoardsThread#MESSAGE_ANSWER_1" value1="Answer" />
 	</command>
 
 	<command name="movePG">
+<<<<<<< HEAD
 		<execute function="AssertClick" locator1="MessageBoards#CATEGORY_LIST_CATEGORY" value1="${categoryName1}">
 			<var name="key_categoryName" value="${categoryName1}" />
 		</execute>
@@ -565,6 +840,24 @@
 		<execute function="AssertClick" locator1="Button#SELECT" value1="Select" />
 
 		<execute function="Pause" locator1="5000" />
+=======
+		<var name="key_categoryName" value="${categoryName1}" />
+		<var name="key_threadSubject" value="${threadSubject}" />
+
+		<execute function="AssertClick" locator1="MessageBoards#CATEGORY_LIST_CATEGORY" value1="${categoryName1}" />
+
+		<execute function="Click" locator1="MessageBoards#THREAD_LIST_ACTIONS" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Move">
+			<var name="key_menuItem" value="Move" />
+		</execute>
+
+		<execute function="AssertClick" locator1="Button#SELECT" value1="Select" />
+
+		<execute function="Pause" locator1="5000" />
+
+		<execute function="SelectFrame" locator1="MessageBoardsSelectCategory#IFRAME" />
+>>>>>>> compatible
 
 		<execute function="SelectFrame" locator1="MessageBoardsSelectCategory#IFRAME" />
 
@@ -578,11 +871,15 @@
 				<execute function="AssertElementPresent" locator1="MessageBoardsMoveThread#CATEGORY_FIELD" />
 				<execute function="Check" locator1="Checkbox#ADD_EXPLANATION_POST" />
 				<execute function="Type" locator1="TextInput#SUBJECT" value1="${explanationSubject}" />
+<<<<<<< HEAD
 
 				<execute macro="AlloyEditor#typeEditor">
 					<var name="content" value="${explanationBody}" />
 					<var name="editor" value="body" />
 				</execute>
+=======
+				<execute function="Type#typeCKEditorWaitForCKEditor" locator1="CKEditor#BODY_FIELD" value1="${explanationBody}" />
+>>>>>>> compatible
 			</then>
 		</if>
 
@@ -640,11 +937,15 @@
 				<execute function="Check" locator1="Checkbox#ADD_EXPLANATION_POST" />
 
 				<execute function="Type" locator1="TextInput#SUBJECT" value1="${explanationSubject}" />
+<<<<<<< HEAD
 
 				<execute macro="AlloyEditor#typeEditor">
 					<var name="content" value="${explanationBody}" />
 					<var name="editor" value="body" />
 				</execute>
+=======
+				<execute function="Type#typeCKEditorWaitForCKEditor" locator1="CKEditor#BODY_FIELD" value1="${explanationBody}" />
+>>>>>>> compatible
 			</then>
 		</if>
 
@@ -660,17 +961,46 @@
 			<var name="key_threadSubject" value="${threadSubject}" />
 		</execute>
 
+<<<<<<< HEAD
+=======
+		<execute function="AssertTextEquals" locator1="MessageBoards#THREAD_LIST_THREAD" value1="${threadSubject}" />
+
+>>>>>>> compatible
 		<execute function="Click#waitForMenuToggleJSClick" locator1="Icon#BODY_VERTICAL_ELLIPSIS" />
 
 		<execute macro="PortletEntry#clickMoveToRecycleBin" />
 
 		<execute function="AssertElementPresent" locator1="Message#SUCCESS" />
 		<execute function="AssertTextEquals#assertText" locator1="Message#EMPTY_INFO" value1="There are no threads nor categories." />
+<<<<<<< HEAD
+=======
 	</command>
 
 	<command name="previewAddPG">
 		<execute function="AssertClick" locator1="Button#POST_NEW_THREAD" value1="Post New Thread" />
 
+		<execute function="Click" locator1="TextInput#SUBJECT" />
+
+		<execute function="Type" locator1="TextInput#SUBJECT" value1="${threadSubject}" />
+		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="CKEditor#BODY_FIELD" value1="${threadBody}" />
+
+		<execute function="AssertClick" locator1="Button#PREVIEW" value1="Preview" />
+
+		<var name="key_threadBody" value="${threadBody}" />
+		<var name="key_threadSubject" value="${threadSubject}" />
+
+		<execute function="AssertTextEquals" locator1="MessageBoardsThread#TITLE_HEADER" value1="Edit ${threadSubject}" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="MessageBoardsThread#THREAD_USERNAME" value1="${userName}" />
+		<execute function="AssertTextEquals" locator1="MessageBoardsThread#THREAD_SUBJECT" value1="${threadSubject}" />
+		<execute function="AssertTextEquals" locator1="MessageBoardsThread#MESSAGE_WORKFLOW_STATUS_1" value1="Draft" />
+		<execute function="AssertTextEquals" locator1="MessageBoardsThread#THREAD_BODY" value1="${threadBody}" />
+>>>>>>> compatible
+	</command>
+
+	<command name="previewAddPG">
+		<execute function="AssertClick" locator1="Button#POST_NEW_THREAD" value1="Post New Thread" />
+
+<<<<<<< HEAD
 		<execute function="Type" locator1="TextInput#SUBJECT" value1="${threadSubject}" />
 
 		<execute macro="AlloyEditor#typeEditor">
@@ -688,6 +1018,19 @@
 		<execute function="AssertTextEquals" locator1="MessageBoardsThread#THREAD_SUBJECT" value1="${threadSubject}" />
 		<execute function="AssertTextEquals" locator1="MessageBoardsThread#MESSAGE_WORKFLOW_STATUS_1" value1="Draft" />
 		<execute function="AssertTextEquals" locator1="MessageBoardsThread#THREAD_BODY" value1="${threadBody}" />
+=======
+		<execute function="AssertClick" locator1="MessageBoards#THREAD_LIST_THREAD" value1="${threadSubject}" />
+
+		<execute function="Click#waitForMenuToggleJSClick" locator1="Icon#BODY_VERTICAL_ELLIPSIS" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Quick Reply">
+			<var name="key_menuItem" value="Quick Reply" />
+		</execute>
+
+		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="CKEditor#BODY_FIELD" value1="${threadReplyBody}" />
+
+		<execute macro="PortletEntry#publish" />
+>>>>>>> compatible
 	</command>
 
 	<command name="ratePG">
@@ -712,6 +1055,11 @@
 			<var name="key_threadSubject" value="${threadSubject}" />
 		</execute>
 
+<<<<<<< HEAD
+=======
+		<execute function="Click" locator1="MessageBoards#THREAD_LIST_ACTIONS" />
+
+>>>>>>> compatible
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Permissions">
 			<var name="key_menuItem" value="Permissions" />
 		</execute>
@@ -731,6 +1079,7 @@
 		<if>
 			<equals arg1="${markAsQuestion}" arg2="true" />
 			<then>
+<<<<<<< HEAD
 				<execute function="AssertClick" locator1="MessageBoards#THREAD_TABLE_ADMIN_FLAG" value1="Waiting for an Answer">
 					<var name="key_threadSubject" value="${threadSubject}" />
 				</execute>
@@ -742,6 +1091,16 @@
 		</execute>
 
 		<execute function="Type#typeEditor" locator1="MessageBoardsThread#THREAD_REPLY_EDITOR" value1="${threadReplyBody}" />
+=======
+				<var name="key_threadSubject" value="${threadSubject}" />
+				<execute function="AssertClick" locator1="MessageBoards#THREAD_TABLE_ADMIN_FLAG" value1="Waiting for an Answer" />
+			</then>
+		</if>
+
+		<execute function="Click" locator1="MessageBoardsThread#THREAD_REPLY_BUTTON" />
+
+		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="CKEditor#BODY_FIELD" value1="${threadReplyBody}" />
+>>>>>>> compatible
 
 		<execute macro="PortletEntry#publish" />
 
@@ -759,20 +1118,33 @@
 		<if>
 			<equals arg1="${displayStyle}" arg2="Question" />
 			<then>
+<<<<<<< HEAD
 				<execute function="AssertClick" locator1="MessageBoards#QUESTION_CATEGORY_THREAD_TABLE_QUESTION" value1="${threadSubject}">
 					<var name="key_threadSubject" value="${threadSubject}" />
 				</execute>
+=======
+				<var name="key_threadSubject" value="${threadSubject}" />
+
+				<execute function="AssertClick" locator1="MessageBoards#QUESTION_CATEGORY_THREAD_TABLE_QUESTION" value1="${threadSubject}" />
+>>>>>>> compatible
 			</then>
 			<else>
 				<var name="key_threadSubject" value="${threadSubject}" />
 
+<<<<<<< HEAD
 				<execute function="AssertClick" locator1="MessageBoards#THREAD_LIST_THREAD" value1="${threadSubject}" />
+=======
+				<execute function="AssertTextEquals" locator1="MessageBoards#THREAD_LIST_THREAD" value1="${threadSubject}" />
+
+				<execute function="Click" locator1="MessageBoards#THREAD_LIST_THREAD" value1="${threadSubject}" />
+>>>>>>> compatible
 			</else>
 		</if>
 
 		<if>
 			<isset var="threadReplySpecific" />
 			<then>
+<<<<<<< HEAD
 				<execute function="AssertClick" locator1="MessageBoardsThread#MESSAGE_REPLY_SPECIFIC" value1="Reply">
 					<var name="key_threadBody" value="${threadBody}" />
 				</execute>
@@ -789,6 +1161,18 @@
 		</if>
 
 		<execute function="Type#typeEditor" locator1="MessageBoardsThread#THREAD_REPLY_EDITOR" value1="${threadReplyBody}" />
+=======
+				<var name="key_threadBody" value="${threadBody}" />
+
+				<execute function="AssertClick" locator1="MessageBoardsThread#MESSAGE_REPLY_SPECIFIC" value1="Reply" />
+			</then>
+			<else>
+				<execute function="AssertClick" locator1="MessageBoardsThread#THREAD_REPLY_BUTTON" value1="Reply to Main Thread" />
+			</else>
+		</if>
+
+		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="CKEditor#BODY_FIELD" value1="${threadReplyBody}" />
+>>>>>>> compatible
 
 		<if>
 			<equals arg1="${anonymous}" arg2="true" />
@@ -804,9 +1188,20 @@
 		<if>
 			<equals arg1="${markAsAnswer}" arg2="true" />
 			<then>
+<<<<<<< HEAD
 				<execute macro="MessageboardsThread#markAsAnswerPG">
 					<var name="threadReplyBody" value="${threadReplyBody}" />
 				</execute>
+=======
+				<if>
+					<condition function="IsNotVisible" locator1="MessageBoardsEditMessage#ATTACHMENTS_FILE_FIELD_1" />
+					<then>
+						<execute function="AssertClick" locator1="Panel#ENTRY_ATTACHMENTS" value1="Attachments" />
+					</then>
+				</if>
+
+				<execute function="UploadCommonFile" locator1="MessageBoardsEditMessage#ATTACHMENTS_FILE_FIELD_1" value1="${mbThreadAttachment}" />
+>>>>>>> compatible
 			</then>
 		</if>
 	</command>
@@ -814,6 +1209,7 @@
 	<command name="replyWithAttachmentPG">
 		<var name="key_threadSubject" value="${threadSubject}" />
 
+<<<<<<< HEAD
 		<execute function="AssertClick" locator1="MessageBoards#THREAD_LIST_THREAD" value1="${threadSubject}" />
 
 		<execute function="AssertClick" locator1="MessageBoardsThread#THREAD_REPLY_BUTTON" value1="Reply to Main Thread" />
@@ -821,11 +1217,22 @@
 		<execute function="Type#typeEditor" locator1="MessageBoardsThread#THREAD_REPLY_EDITOR" value1="${threadReplyBody}" />
 
 		<execute function="AssertClick" locator1="Button#ADVANCED_REPLY" value1="Advanced Reply" />
+=======
+		<execute function="Click" locator1="Button#PUBLISH" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 
 		<if>
 			<condition function="IsNotVisible" locator1="MessageBoardsEditMessage#ATTACHMENTS_FILE_FIELD_1" />
 			<then>
+<<<<<<< HEAD
 				<execute function="AssertClick" locator1="Panel#ENTRY_ATTACHMENTS" value1="Attachments" />
+=======
+				<execute macro="MessageboardsThread#markAsAnswerPG">
+					<var name="threadReplyBody" value="${threadReplyBody}" />
+				</execute>
+>>>>>>> compatible
 			</then>
 		</if>
 
@@ -842,6 +1249,7 @@
 		<execute function="AssertTextEquals" locator1="MessageBoards#THREAD_LIST_THREAD" value1="${threadSubject}" />
 
 		<execute function="Click" locator1="MessageBoards#THREAD_LIST_THREAD" value1="${threadSubject}" />
+<<<<<<< HEAD
 
 		<execute function="AssertClick" locator1="MessageBoardsThread#MESSAGE_REPLY_WITH_QUOTE_1" value1="Reply with Quote" />
 
@@ -849,6 +1257,15 @@
 
 		<execute function="Type#sendKeys" locator1="CKEditor#BODY_FIELD_SOURCE_ON_SEND_KEYS" value1="${threadReplyBody}" />
 
+=======
+
+		<execute function="AssertClick" locator1="MessageBoardsThread#MESSAGE_REPLY_WITH_QUOTE_1" value1="Reply with Quote" />
+
+		<execute function="Click" locator1="CKEditor#TOOLBAR_SOURCE_BUTTON" />
+
+		<execute function="Type#sendKeys" locator1="CKEditor#BODY_FIELD_SOURCE_ON_SEND_KEYS" value1="${threadReplyBody}" />
+
+>>>>>>> compatible
 		<execute function="Click" locator1="Button#PUBLISH" />
 
 		<execute macro="Alert#viewSuccessMessage" />
@@ -861,6 +1278,11 @@
 			<var name="key_mbAttachmentFile" value="${mbAttachmentFile}" />
 		</execute>
 
+<<<<<<< HEAD
+=======
+		<execute function="AssertTextEquals" locator1="MessageBoardsRemovedAttachments#ATTACHMENT_TABLE_NAME" value1="${mbAttachmentFile}" />
+
+>>>>>>> compatible
 		<execute function="Click#waitForMenuToggleJSClick" locator1="Icon#BODY_VERTICAL_ELLIPSIS" />
 
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Restore">
@@ -869,6 +1291,24 @@
 
 		<execute macro="Alert#viewSuccessMessage" />
 		<execute function="AssertTextEquals" locator1="Message#INFO" value1="This message does not have file attachments in the Recycle Bin." />
+<<<<<<< HEAD
+=======
+	</command>
+
+	<command name="saveNewThreadAsDraft">
+		<execute function="AssertClick" locator1="Button#POST_NEW_THREAD" value1="Post New Thread" />
+
+		<execute function="AssertElementPresent" locator1="CKEditor#BODY_FIELD" />
+
+		<execute function="Type" locator1="TextInput#SUBJECT" value1="${threadSubject}" />
+		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="CKEditor#BODY_FIELD" value1="${threadBody}" />
+
+		<execute function="AssertClick" locator1="Button#SAVE_AS_DRAFT" value1="Save as Draft" />
+
+		<execute function="AssertTextEquals#assertPartialText" locator1="Portlet#H3_HEADER" value1="Edit" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 	</command>
 
 	<command name="saveNewThreadAsDraft">
@@ -890,6 +1330,7 @@
 		<execute macro="Alert#viewSuccessMessage" />
 	</command>
 
+<<<<<<< HEAD
 	<command name="searchPG">
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="${threadKeyword}" />
@@ -925,25 +1366,65 @@
 			<var name="content" value="${threadSplitReplyBody}" />
 			<var name="editor" value="body" />
 		</execute>
+=======
+		<execute function="Type" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${threadKeyword}" />
+
+		<execute function="AssertClick" locator1="NavBar#BASIC_SEARCH_BUTTON" value1="Search" />
+
+		<execute function="AssertTextEquals" locator1="MessageBoardsSearch#SEARCH_RESULTS_ENTRY_TITLE" value1="${threadSubject}" />
+	</command>
+
+	<command name="splitThreadPG">
+		<var name="key_threadSubject" value="${threadSubject}" />
+		<var name="threadReplyBody" value="${threadReplyBody}" />
+
+		<execute function="Click" locator1="MessageBoards#VERTICAL_ELLIPSIS_REPLY_CARD" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Split Thread">
+			<var name="key_menuItem" value="Split Thread" />
+		</execute>
+
+		<execute function="AssertTextEquals" locator1="Message#INFO" value1="Click OK to create a new thread with the following messages." />
+		<execute function="AssertTextEquals#assertPartialText" locator1="MessageBoardsSplitThread#THREAD_TABLE_SUBJECT" value1="${threadSubject}" />
+
+		<execute function="Type" locator1="TextInput#SUBJECT" value1="${threadSplitSubject}" />
+
+		<execute function="AssertTextEquals" locator1="MessageBoardsSplitThread#ADD_EXPLANATION_POST_LABEL" value1="Add explanation post to the source thread." />
+		<execute function="Check" locator1="MessageBoardsSplitThread#ADD_EXPLANATION_POST_CHECKBOX" />
+
+		<execute function="AssertTextEquals" locator1="Message#INFO_EXPLANATION_POST" value1="The following post will be added in place of the moved message." />
+
+		<execute function="Type" locator1="TextInput#SUBJECT" value1="${threadSplitReplySubject}" />
+		<execute function="Type#typeCKEditorWaitForCKEditor" locator1="CKEditor#BODY_FIELD" value1="${threadSplitReplyBody}" />
+>>>>>>> compatible
 
 		<execute function="AssertClick" locator1="Button#OK" value1="OK" />
 
 		<var name="key_threadBody" value="${threadReplyBody}" />
 
+<<<<<<< HEAD
 		<execute function="AssertTextEquals" locator1="MessageBoardsThread#TITLE_HEADER" value1="${threadSplitSubject}" />
 		<execute function="AssertTextEquals" locator1="MessageBoardsThread#THREAD_BODY" value1="${threadReplyBody}" />
 
 		<var name="key_threadBody" value="${threadSplitReplyBody}" />
 
+=======
+		<execute function="AssertTextEquals" locator1="MessageBoardsThread#TITLE_HEADER" value1="${threadSplitReplySubject}" />
+		<execute function="AssertTextEquals" locator1="MessageBoardsThread#THREAD_BODY" value1="${threadReplyBody}" />
+>>>>>>> compatible
 		<execute function="AssertElementNotPresent" locator1="MessageBoardsThread#THREAD_BODY_2" />
 	</command>
 
 	<command name="tearDownCP">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Message Boards" />
 		</execute>
 
@@ -960,9 +1441,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Recycle Bin" />
 		</execute>
 
@@ -970,6 +1455,7 @@
 	</command>
 
 	<command name="viewAnonymousPostingCheckboxCP">
+<<<<<<< HEAD
 		<execute macro="LexiconEntry#gotoAdd" />
 
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Thread">
@@ -1002,14 +1488,45 @@
 	</command>
 
 	<command name="viewBBCodeNoXSS">
+=======
+		<execute function="Click" locator1="Button#PLUS" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Thread">
+			<var name="key_menuItem" value="Thread" />
+		</execute>
+
+		<execute function="AssertElementPresent" locator1="Checkbox#ANONYMOUS" />
+	</command>
+
+	<command name="viewAnswerPG">
+		<var name="key_threadSubject" value="${threadSubject}" />
+
+		<execute function="AssertTextEquals#assertPartialText" locator1="MessageBoards#THREAD_LIST_ANSWER" value1="Answer" />
+
+		<execute function="AssertClick" locator1="MessageBoards#THREAD_LIST_THREAD" value1="${threadSubject}" />
+
+		<execute function="AssertTextEquals#assertPartialText" locator1="MessageBoardsThread#MESSAGE_ANSWER_1" value1="Answer" />
+
+		<execute function="AssertClick" locator1="MessageBoardsThread#THREAD_CONTROLS_BACK" value1="Back" />
+	</command>
+
+	<command name="viewAsWorkflowAsset">
+>>>>>>> compatible
 		<var name="key_threadBody" value="${threadBody}" />
 		<var name="key_threadSubject" value="${threadSubject}" />
 		<var name="key_userName" value="${userName}" />
 
 		<execute macro="MessageboardsThread#assertAlertNotPresent" />
 
+<<<<<<< HEAD
 		<execute function="AssertTextEquals#assertPartialText" locator1="MessageBoards#THREAD_LIST_LAST_POST" value1="${userName}" />
 		<execute function="AssertTextEquals" locator1="MessageBoardsThread#THREAD_REPLY_SUBJECT" value1="${threadSubject}" />
+=======
+		<execute macro="SiteAdmin#viewPortletTitle">
+			<var name="portletTitle" value="${threadSubject}" />
+		</execute>
+
+>>>>>>> compatible
 		<execute function="AssertTextEquals" locator1="MessageBoardsThread#THREAD_BODY" value1="${threadBody}" />
 	</command>
 
@@ -1021,6 +1538,7 @@
 		<execute function="AssertTextEquals" locator1="MessageBoards#THREAD_LIST_THREAD" value1="${threadSubject}" />
 
 		<execute function="AssertTextEquals#assertPartialText" locator1="MessageBoards#THREAD_LIST_LAST_POST" value1="${userName}" />
+<<<<<<< HEAD
 
 		<var name="key_postsNumber" value="${postsNumber}" />
 
@@ -1028,6 +1546,15 @@
 		<execute function="AssertElementPresent" locator1="MessageBoards#THREAD_LIST_VIEWS" />
 		<execute function="AssertElementPresent" locator1="MessageBoards#THREAD_LIST_ACTIONS" />
 
+=======
+
+		<var name="key_postsNumber" value="${postsNumber}" />
+
+		<execute function="AssertTextEquals#assertPartialText" locator1="MessageBoards#THREAD_LIST_POSTS" value1="${postsNumber}" />
+		<execute function="AssertElementPresent" locator1="MessageBoards#THREAD_LIST_VIEWS" />
+		<execute function="AssertElementPresent" locator1="MessageBoards#THREAD_LIST_ACTIONS" />
+
+>>>>>>> compatible
 		<execute function="AssertClick" locator1="MessageBoards#THREAD_LIST_THREAD" value1="${threadSubject}" />
 
 		<execute function="AssertTextEquals" locator1="Portlet#HEADER" value1="${threadSubject}" />
@@ -1059,7 +1586,10 @@
 
 	<command name="viewDoNotHaveRequiredPermissionsPG">
 		<var name="key_threadSubject" value="${threadSubject}" />
+<<<<<<< HEAD
 		<var name="key_userName" value="${userName}" />
+=======
+>>>>>>> compatible
 
 		<execute macro="Alert#viewRequestFailedToComplete" />
 
@@ -1108,7 +1638,13 @@
 	</command>
 
 	<command name="viewMarkAsQuestionCheckedCP">
+<<<<<<< HEAD
 		<execute macro="LexiconEntry#gotoAdd" />
+=======
+		<var name="key_threadSubject" value="${threadSubject}" />
+
+		<execute function="Click" locator1="Button#PLUS" />
+>>>>>>> compatible
 
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Thread">
 			<var name="key_menuItem" value="Thread" />
@@ -1121,18 +1657,31 @@
 		<execute macro="Panel#expandPanel">
 			<var name="panelHeading" value="More Settings" />
 		</execute>
+<<<<<<< HEAD
 
 		<execute function="AssertChecked" locator1="Checkbox#MARK_AS_A_QUESTION" />
 
+=======
+
+		<execute function="AssertChecked" locator1="Checkbox#MARK_AS_A_QUESTION" />
+
+>>>>>>> compatible
 		<execute function="AssertClick" locator1="Button#CANCEL" value1="Cancel" />
 	</command>
 
 	<command name="viewMarkAsQuestionNotCheckedCP">
+<<<<<<< HEAD
 		<execute macro="LexiconEntry#gotoAdd" />
+=======
+		<var name="key_threadSubject" value="${threadSubject}" />
+
+		<execute function="Click" locator1="Button#PLUS" />
+>>>>>>> compatible
 
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Thread">
 			<var name="key_menuItem" value="Thread" />
 		</execute>
+<<<<<<< HEAD
 
 		<execute function="AssertVisible" locator1="Button#PUBLISH" />
 
@@ -1142,12 +1691,24 @@
 			<var name="panelHeading" value="More Settings" />
 		</execute>
 
+=======
+
+		<execute function="AssertVisible" locator1="Button#PUBLISH" />
+
+		<execute function="Type" locator1="TextInput#SUBJECT" value1="${threadSubject}" />
+
+		<execute macro="Panel#expandPanel">
+			<var name="panelHeading" value="More Settings" />
+		</execute>
+
+>>>>>>> compatible
 		<execute function="AssertNotChecked" locator1="Checkbox#MARK_AS_A_QUESTION" />
 
 		<execute function="AssertClick" locator1="Button#CANCEL" value1="Cancel" />
 	</command>
 
 	<command name="viewMarkedAsQuestionPG">
+<<<<<<< HEAD
 		<execute function="AssertElementPresent" locator1="MessageBoards#THREAD_LIST_QUESTION_MARK_ICON">
 			<var name="key_threadSubject" value="${threadSubject}" />
 		</execute>
@@ -1155,6 +1716,15 @@
 
 	<command name="viewNoAnonymousPostingCheckboxCP">
 		<execute macro="LexiconEntry#gotoAdd" />
+=======
+		<var name="key_threadSubject" value="${threadSubject}" />
+
+		<execute function="AssertElementPresent" locator1="MessageBoards#THREAD_LIST_QUESTION_MARK_ICON" />
+	</command>
+
+	<command name="viewNoAnonymousPostingCheckboxCP">
+		<execute function="Click" locator1="Button#PLUS" />
+>>>>>>> compatible
 
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Thread">
 			<var name="key_menuItem" value="Thread" />
@@ -1199,9 +1769,15 @@
 		<if>
 			<isset var="fontSize" />
 			<then>
+<<<<<<< HEAD
 				<execute function="AssertTextEquals" locator1="MessageBoardsThread#MESSAGE_BODY_STYLE_1" value1="${threadBody}">
 					<var name="key_fontSize" value="${fontSize}" />
 				</execute>
+=======
+				<var name="key_fontSize" value="${fontSize}" />
+
+				<execute function="AssertTextEquals" locator1="MessageBoardsThread#MESSAGE_BODY_STYLE_1" value1="${threadBody}" />
+>>>>>>> compatible
 			</then>
 		</if>
 
@@ -1214,9 +1790,15 @@
 				<execute function="AssertTextEquals#assertPartialText" locator1="MessageBoardsThread#THREAD_USERNAME" value1="${userName}" />
 				<execute function="AssertTextEquals" locator1="MessageBoardsThread#THREAD_SUBJECT" value1="${threadSubject2}" />
 
+<<<<<<< HEAD
 				<execute function="AssertTextEquals#assertPartialText" locator1="MessageBoardsThread#THREAD_BODY" value1="${threadBody2}">
 					<var name="key_threadBody" value="${threadBody2}" />
 				</execute>
+=======
+				<var name="key_threadBody" value="${threadBody2}" />
+
+				<execute function="AssertTextEquals#assertPartialText" locator1="MessageBoardsThread#THREAD_BODY" value1="${threadBody2}" />
+>>>>>>> compatible
 			</then>
 		</if>
 
@@ -1251,9 +1833,15 @@
 		<execute function="AssertTextEquals" locator1="MessageBoards#THREAD_LIST_THREAD" value1="${threadSubject}" />
 
 		<execute function="AssertElementPresent" locator1="MessageBoards#THREAD_LIST_PRIORITY_ICON" />
+<<<<<<< HEAD
 
 		<execute function="AssertClick" locator1="MessageBoards#THREAD_LIST_THREAD" value1="${threadSubject}" />
 
+=======
+
+		<execute function="AssertClick" locator1="MessageBoards#THREAD_LIST_THREAD" value1="${threadSubject}" />
+
+>>>>>>> compatible
 		<execute function="AssertTextEquals" locator1="MessageBoardsThread#THREAD_SUBJECT" value1="${threadSubject}" />
 		<execute function="AssertTextEquals#assertPartialText" locator1="MessageBoardsThread#THREAD_BODY" value1="${threadBody}" />
 	</command>
@@ -1374,6 +1962,35 @@
 				<for list="${threadReplyBodyList}" param="threadReplyBody">
 					<var name="key_threadBody" value="${threadReplyBody}" />
 
+<<<<<<< HEAD
+=======
+				<execute function="AssertElementPresent" locator1="MessageBoardsThread#MESSAGE_ATTACHMENT_IMAGE" />
+			</then>
+		</if>
+	</command>
+
+	<command name="viewReplyWithUpvote">
+		<var name="key_postsNumber" value="${postCount}" />
+		<var name="key_threadBody" value="${threadBody}" />
+		<var name="key_threadSubject" value="${threadSubject}" />
+		<var name="key_userName" value="${userName}" />
+
+		<execute function="AssertTextEquals#assertPartialText" locator1="MessageBoards#THREAD_LIST_POSTS" value1="${postCount} Posts" />
+
+		<execute function="AssertClick" locator1="MessageBoards#THREAD_LIST_THREAD" value1="${threadSubject}" />
+
+		<execute function="AssertTextEquals#assertPartialText" locator1="MessageBoardsThread#THREAD_USERNAME" value1="${userName}" />
+		<execute function="AssertTextEquals" locator1="MessageBoardsThread#MESSAGE_RATING_1_UPVOTE" value1="0" />
+		<execute function="AssertTextEquals" locator1="MessageBoardsThread#THREAD_SUBJECT" value1="${threadSubject}" />
+		<execute function="AssertTextEquals" locator1="MessageBoardsThread#THREAD_BODY" value1="${threadBody}" />
+
+		<if>
+			<isset var="threadReplyBodyList" />
+			<then>
+				<for list="${threadReplyBodyList}" param="threadReplyBody">
+					<var name="key_threadBody" value="${threadReplyBody}" />
+
+>>>>>>> compatible
 					<execute function="AssertTextEquals" locator1="MessageBoardsThread#THREAD_REPLY_SUBJECT" value1="RE: ${threadSubject}" />
 					<execute function="AssertTextEquals#assertPartialText" locator1="MessageBoardsThread#THREAD_BODY" value1="${threadReplyBody}" />
 				</for>
@@ -1385,6 +2002,7 @@
 		<var name="key_threadBody" value="${threadBody}" />
 		<var name="key_threadSubject" value="${threadSubject}" />
 		<var name="key_userName" value="${userName}" />
+<<<<<<< HEAD
 
 		<execute function="AssertTextEquals" locator1="MessageBoards#THREAD_LIST_THREAD" value1="${threadSubject}" />
 		<execute function="AssertTextEquals" locator1="MessageBoards#THREAD_TABLE_POSTS" value1="2 Posts" />
@@ -1399,6 +2017,22 @@
 		<var name="key_threadSubject" value="${threadSubject}" />
 
 		<execute function="AssertTextEquals" locator1="MessageBoardsThread#THREAD_SUBJECT" value1="${threadSubject}" />
+=======
+
+		<execute function="AssertTextEquals" locator1="MessageBoards#THREAD_LIST_THREAD" value1="${threadSubject}" />
+		<execute function="AssertTextEquals" locator1="MessageBoards#THREAD_TABLE_POSTS" value1="2 Posts" />
+
+		<execute function="AssertClick" locator1="MessageBoards#THREAD_LIST_THREAD" value1="${threadSubject}" />
+
+		<execute function="AssertTextEquals" locator1="MessageBoardsThread#TITLE_HEADER" value1="${threadSubject}" />
+		<execute function="AssertTextEquals" locator1="MessageBoardsThread#THREAD_SUBJECT" value1="${threadSubject}" />
+		<execute function="AssertTextEquals" locator1="MessageBoardsThread#THREAD_BODY" value1="${threadBody}" />
+
+		<var name="key_threadBody" value="${threadSplitReplyBody}" />
+		<var name="key_threadSubject" value="Thread Split" />
+
+		<execute function="AssertTextEquals" locator1="MessageBoardsThread#THREAD_SUBJECT" value1="Thread Split" />
+>>>>>>> compatible
 		<execute function="AssertTextEquals#assertPartialText" locator1="MessageBoardsThread#THREAD_BODY" value1="${threadSplitReplyBody}" />
 
 		<execute macro="Navigator#gotoPage">
@@ -1407,6 +2041,7 @@
 
 		<var name="key_postsNumber" value="1" />
 		<var name="key_threadBody" value="${threadReplyBody}" />
+<<<<<<< HEAD
 		<var name="key_threadSubject" value="${threadSplitSubject}" />
 
 		<execute function="AssertTextEquals" locator1="MessageBoards#THREAD_LIST_THREAD" value1="${threadSplitSubject}" />
@@ -1421,6 +2056,18 @@
 		<var name="key_threadBody" value="${threadSplitReplyBody}" />
 		<var name="key_threadSubject" value="${threadSplitReplySubject}" />
 
+=======
+		<var name="key_threadSubject" value="${threadSplitReplySubject}" />
+
+		<execute function="AssertTextEquals" locator1="MessageBoards#THREAD_LIST_THREAD" value1="${threadSplitReplySubject}" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="MessageBoards#THREAD_LIST_POSTS" value1="1" />
+
+		<execute function="AssertClick" locator1="MessageBoards#THREAD_LIST_THREAD" value1="${threadSplitReplySubject}" />
+
+		<execute function="AssertTextEquals" locator1="MessageBoardsThread#TITLE_HEADER" value1="${threadSplitReplySubject}" />
+		<execute function="AssertTextEquals" locator1="MessageBoardsThread#THREAD_SUBJECT" value1="${threadSplitReplySubject}" />
+		<execute function="AssertTextEquals" locator1="MessageBoardsThread#THREAD_BODY" value1="${threadReplyBody}" />
+>>>>>>> compatible
 		<execute function="AssertElementNotPresent" locator1="MessageBoardsThread#THREAD_SUBJECT_2" />
 		<execute function="AssertElementNotPresent" locator1="MessageBoardsThread#THREAD_BODY_2" />
 	</command>
@@ -1492,9 +2139,13 @@
 			</else>
 		</if>
 
+<<<<<<< HEAD
 		<var name="key_userPostNumber" value="${userPostNumber}" />
 
 		<execute function="AssertTextEquals" locator1="MessageBoardsStatistics#TOP_POSTERS_AUTHOR_POSTS" value1="Posts:${userPostNumber}" />
+=======
+		<execute function="AssertTextEquals" locator1="MessageBoardsStatistics#TOP_POSTERS_AUTHOR_POSTS" value1="Posts: ${userPostNumber}" />
+>>>>>>> compatible
 		<execute function="AssertElementPresent" locator1="MessageBoardsStatistics#TOP_POSTERS_AUTHOR_JOIN_DATE" />
 		<execute function="AssertElementPresent" locator1="MessageBoardsStatistics#TOP_POSTERS_AUTHOR_LAST_POST_DATE" />
 		<execute function="AssertElementPresent" locator1="MessageBoardsStatistics#TOP_POSTERS_AUTHOR_ICON" />
@@ -1540,6 +2191,7 @@
 		<var name="key_threadStatus" value="Pending (${workflowTask})" />
 
 		<execute function="AssertTextEquals" locator1="MessageBoards#THREAD_LIST_STATUS" value1="Pending (${workflowTask})" />
+<<<<<<< HEAD
 
 		<execute function="AssertClick" locator1="MessageBoards#NAVIGATION_MY_POSTS" value1="My Posts" />
 
@@ -1562,5 +2214,29 @@
 		<execute function="AssertElementNotPresent" locator1="AP#ASSET_ABSTRACT_TITLE" value1="${threadSubject}">
 			<var name="key_assetTitle" value="${threadSubject}" />
 		</execute>
+=======
+
+		<execute function="AssertClick" locator1="MessageBoards#NAVIGATION_MY_POSTS" value1="My Posts" />
+
+		<execute function="AssertTextEquals" locator1="MessageBoards#THREAD_LIST_THREAD" value1="${threadSubject}" />
+		<execute function="AssertTextEquals" locator1="MessageBoardsThread#MESSAGE_WORKFLOW_STATUS_1" value1="Pending (${workflowTask})" />
+
+		<execute function="AssertClick" locator1="MessageBoards#THREAD_LIST_THREAD" value1="${threadSubject}" />
+
+		<execute function="AssertTextEquals" locator1="MessageBoardsThread#TITLE_HEADER" value1="${threadSubject}" />
+		<execute function="AssertTextEquals#assertPartialText" locator1="MessageBoardsThread#THREAD_USERNAME" value1="${userName}" />
+		<execute function="AssertTextEquals" locator1="MessageBoardsThread#THREAD_SUBJECT" value1="${threadSubject}" />
+		<execute function="AssertTextEquals" locator1="MessageBoardsThread#MESSAGE_WORKFLOW_STATUS_1" value1="Pending" />
+
+		<var name="key_threadBody" value="${threadBody}" />
+
+		<execute function="AssertTextEquals" locator1="MessageBoardsThread#THREAD_BODY" value1="${threadBody}" />
+	</command>
+
+	<command name="viewWithWorkflowPGViaAP">
+		<var name="key_assetTitle" value="${threadSubject}" />
+
+		<execute function="AssertElementNotPresent" locator1="AP#ASSET_ABSTRACT_TITLE" value1="${threadSubject}" />
+>>>>>>> compatible
 	</command>
 </definition>

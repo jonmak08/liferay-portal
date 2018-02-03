@@ -18,11 +18,17 @@ import com.liferay.dynamic.data.mapping.exception.NoSuchStructureLinkException;
 import com.liferay.dynamic.data.mapping.model.DDMStructure;
 import com.liferay.dynamic.data.mapping.model.DDMStructureLink;
 import com.liferay.dynamic.data.mapping.service.base.DDMStructureLinkLocalServiceBaseImpl;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.List;
@@ -133,6 +139,7 @@ public class DDMStructureLinkLocalServiceImpl
 	}
 
 	@Override
+<<<<<<< HEAD
 	public List<DDMStructureLink> getStructureLinks(
 		long classNameId, long classPK, int start, int end) {
 
@@ -146,6 +153,8 @@ public class DDMStructureLinkLocalServiceImpl
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public List<DDMStructure> getStructureLinkStructures(
 			long classNameId, long classPK)
 		throws PortalException {
@@ -163,6 +172,7 @@ public class DDMStructureLinkLocalServiceImpl
 	}
 
 	@Override
+<<<<<<< HEAD
 	public List<DDMStructure> getStructureLinkStructures(
 			long classNameId, long classPK, int start, int end)
 		throws PortalException {
@@ -226,6 +236,8 @@ public class DDMStructureLinkLocalServiceImpl
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public DDMStructureLink getUniqueStructureLink(
 			long classNameId, long classPK)
 		throws PortalException {

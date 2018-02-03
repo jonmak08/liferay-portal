@@ -68,8 +68,13 @@ public class JspReloader {
 		return sb.toString();
 	}
 
+<<<<<<< HEAD
 	private static final String _WORK_DIR = StringBundler.concat(
 		PropsValues.LIFERAY_HOME, File.separator, "work", File.separator);
+=======
+	private static final String _WORK_DIR =
+		PropsValues.LIFERAY_HOME + File.separator + "work" + File.separator;
+>>>>>>> compatible
 
 	private static final Log _log = LogFactoryUtil.getLog(JspReloader.class);
 
@@ -100,10 +105,15 @@ public class JspReloader {
 
 					if (_log.isDebugEnabled()) {
 						_log.debug(
+<<<<<<< HEAD
 							StringBundler.concat(
 								"Removed Jasper work dir ",
 								String.valueOf(file), " on event ",
 								_toString(bundleEvent)));
+=======
+							"Removed Jasper work dir " + file + " on event " +
+								_toString(bundleEvent));
+>>>>>>> compatible
 					}
 				}
 			}

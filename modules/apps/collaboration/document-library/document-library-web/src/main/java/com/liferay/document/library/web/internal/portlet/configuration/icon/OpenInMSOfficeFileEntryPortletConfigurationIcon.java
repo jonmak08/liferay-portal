@@ -14,11 +14,18 @@
 
 package com.liferay.document.library.web.internal.portlet.configuration.icon;
 
+<<<<<<< HEAD
 import com.liferay.document.library.constants.DLPortletKeys;
 import com.liferay.document.library.kernel.util.DLUtil;
 import com.liferay.document.library.web.internal.display.context.logic.UIItemsBuilder;
 import com.liferay.document.library.web.internal.portlet.action.ActionUtil;
 import com.liferay.document.library.web.internal.util.DLTrashUtil;
+=======
+import com.liferay.document.library.kernel.util.DLUtil;
+import com.liferay.document.library.web.constants.DLPortletKeys;
+import com.liferay.document.library.web.internal.display.context.logic.UIItemsBuilder;
+import com.liferay.document.library.web.internal.portlet.action.ActionUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.portlet.configuration.icon.BasePortletConfigurationIcon;
 import com.liferay.portal.kernel.portlet.configuration.icon.PortletConfigurationIcon;
@@ -27,7 +34,11 @@ import com.liferay.portal.kernel.repository.model.FileVersion;
 import com.liferay.portal.kernel.theme.PortletDisplay;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ResourceBundleLoader;
+=======
+import com.liferay.portal.kernel.util.ResourceBundleUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.util.PropsValues;
@@ -58,11 +69,16 @@ public class OpenInMSOfficeFileEntryPortletConfigurationIcon
 
 	@Override
 	public String getMessage(PortletRequest portletRequest) {
+<<<<<<< HEAD
 		ThemeDisplay themeDisplay = (ThemeDisplay)portletRequest.getAttribute(
 			WebKeys.THEME_DISPLAY);
 
 		ResourceBundle resourceBundle =
 			_resourceBundleLoader.loadResourceBundle(themeDisplay.getLocale());
+=======
+		ResourceBundle resourceBundle = ResourceBundleUtil.getBundle(
+			"content.Language", getLocale(portletRequest), getClass());
+>>>>>>> compatible
 
 		return LanguageUtil.get(resourceBundle, "open-in-ms-office");
 	}
@@ -121,6 +137,7 @@ public class OpenInMSOfficeFileEntryPortletConfigurationIcon
 			FileVersion fileVersion = ActionUtil.getFileVersion(
 				portletRequest, fileEntry);
 
+<<<<<<< HEAD
 			ThemeDisplay themeDisplay =
 				(ThemeDisplay)portletRequest.getAttribute(
 					WebKeys.THEME_DISPLAY);
@@ -131,6 +148,10 @@ public class OpenInMSOfficeFileEntryPortletConfigurationIcon
 
 			UIItemsBuilder uiItemsBuilder = new UIItemsBuilder(
 				request, fileVersion, resourceBundle, _dlTrashUtil);
+=======
+			UIItemsBuilder uiItemsBuilder = new UIItemsBuilder(
+				request, fileVersion);
+>>>>>>> compatible
 
 			return uiItemsBuilder.isOpenInMsOfficeActionAvailable();
 		}
@@ -151,6 +172,7 @@ public class OpenInMSOfficeFileEntryPortletConfigurationIcon
 	}
 
 	@Reference
+<<<<<<< HEAD
 	private DLTrashUtil _dlTrashUtil;
 
 	@Reference
@@ -161,4 +183,8 @@ public class OpenInMSOfficeFileEntryPortletConfigurationIcon
 	)
 	private ResourceBundleLoader _resourceBundleLoader;
 
+=======
+	private Portal _portal;
+
+>>>>>>> compatible
 }

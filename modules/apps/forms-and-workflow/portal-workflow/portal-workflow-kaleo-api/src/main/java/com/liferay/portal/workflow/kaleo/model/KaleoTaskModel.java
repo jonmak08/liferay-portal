@@ -193,6 +193,7 @@ public interface KaleoTaskModel extends BaseModel<KaleoTask>, GroupedModel,
 	public void setModifiedDate(Date modifiedDate);
 
 	/**
+<<<<<<< HEAD
 	 * Returns the kaleo definition version ID of this kaleo task.
 	 *
 	 * @return the kaleo definition version ID of this kaleo task
@@ -205,6 +206,20 @@ public interface KaleoTaskModel extends BaseModel<KaleoTask>, GroupedModel,
 	 * @param kaleoDefinitionVersionId the kaleo definition version ID of this kaleo task
 	 */
 	public void setKaleoDefinitionVersionId(long kaleoDefinitionVersionId);
+=======
+	 * Returns the kaleo definition ID of this kaleo task.
+	 *
+	 * @return the kaleo definition ID of this kaleo task
+	 */
+	public long getKaleoDefinitionId();
+
+	/**
+	 * Sets the kaleo definition ID of this kaleo task.
+	 *
+	 * @param kaleoDefinitionId the kaleo definition ID of this kaleo task
+	 */
+	public void setKaleoDefinitionId(long kaleoDefinitionId);
+>>>>>>> compatible
 
 	/**
 	 * Returns the kaleo node ID of this kaleo task.

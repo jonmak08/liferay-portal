@@ -16,9 +16,12 @@ package com.liferay.portal.util;
 
 import aQute.bnd.annotation.ProviderType;
 
+<<<<<<< HEAD
 import com.liferay.petra.memory.FinalizeAction;
 import com.liferay.petra.memory.FinalizeManager;
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.configuration.Filter;
 import com.liferay.portal.kernel.io.unsync.UnsyncByteArrayOutputStream;
 import com.liferay.portal.kernel.io.unsync.UnsyncFilterInputStream;
@@ -69,6 +72,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+<<<<<<< HEAD
 import org.apache.commons.httpclient.HostConfiguration;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpMethod;
@@ -78,6 +82,11 @@ import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHost;
 import org.apache.http.StatusLine;
+=======
+import org.apache.http.Header;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpHost;
+>>>>>>> compatible
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.Credentials;
 import org.apache.http.auth.NTCredentials;
@@ -140,6 +149,7 @@ public class HttpImpl implements Http {
 
 		_poolingHttpClientConnectionManager =
 			new PoolingHttpClientConnectionManager();
+<<<<<<< HEAD
 
 		_poolingHttpClientConnectionManager.setDefaultMaxPerRoute(
 			_MAX_CONNECTIONS_PER_HOST);
@@ -158,6 +168,26 @@ public class HttpImpl implements Http {
 
 		httpClientBuilder.setDefaultRequestConfig(requestConfig);
 
+=======
+
+		_poolingHttpClientConnectionManager.setDefaultMaxPerRoute(
+			_MAX_CONNECTIONS_PER_HOST);
+		_poolingHttpClientConnectionManager.setMaxTotal(_MAX_TOTAL_CONNECTIONS);
+
+		httpClientBuilder.setConnectionManager(
+			_poolingHttpClientConnectionManager);
+
+		RequestConfig.Builder requestConfigBuilder = RequestConfig.custom();
+
+		requestConfigBuilder = requestConfigBuilder.setConnectTimeout(_TIMEOUT);
+		requestConfigBuilder = requestConfigBuilder.setConnectionRequestTimeout(
+			_TIMEOUT);
+
+		RequestConfig requestConfig = requestConfigBuilder.build();
+
+		httpClientBuilder.setDefaultRequestConfig(requestConfig);
+
+>>>>>>> compatible
 		SystemDefaultRoutePlanner systemDefaultRoutePlanner =
 			new SystemDefaultRoutePlanner(ProxySelector.getDefault());
 
@@ -194,12 +224,21 @@ public class HttpImpl implements Http {
 		}
 
 		HttpClientBuilder proxyHttpClientBuilder = HttpClientBuilder.create();
+<<<<<<< HEAD
 
 		proxyHttpClientBuilder.setRoutePlanner(systemDefaultRoutePlanner);
 
 		proxyHttpClientBuilder.setConnectionManager(
 			_poolingHttpClientConnectionManager);
 
+=======
+
+		proxyHttpClientBuilder.setRoutePlanner(systemDefaultRoutePlanner);
+
+		proxyHttpClientBuilder.setConnectionManager(
+			_poolingHttpClientConnectionManager);
+
+>>>>>>> compatible
 		requestConfigBuilder.setProxy(new HttpHost(_PROXY_HOST, _PROXY_PORT));
 		requestConfigBuilder.setProxyPreferredAuthSchemes(_proxyAuthPrefs);
 
@@ -321,9 +360,14 @@ public class HttpImpl implements Http {
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(
+<<<<<<< HEAD
 					StringBundler.concat(
 						toString(), " is waiting on ",
 						String.valueOf(availableConnections), " connections"));
+=======
+					toString() + " is waiting on " + availableConnections +
+						" connections");
+>>>>>>> compatible
 			}
 
 			_poolingHttpClientConnectionManager.closeIdleConnections(
@@ -445,7 +489,13 @@ public class HttpImpl implements Http {
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+<<<<<<< HEAD
 	public HttpClient getClient(HostConfiguration hostConfiguration) {
+=======
+	public org.apache.commons.httpclient.HttpClient getClient(
+		org.apache.commons.httpclient.HostConfiguration hostConfiguration) {
+
+>>>>>>> compatible
 		throw new UnsupportedOperationException();
 	}
 
@@ -520,7 +570,12 @@ public class HttpImpl implements Http {
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+<<<<<<< HEAD
 	public HostConfiguration getHostConfiguration(String location)
+=======
+	public org.apache.commons.httpclient.HostConfiguration getHostConfiguration(
+			String location)
+>>>>>>> compatible
 		throws IOException {
 
 		throw new UnsupportedOperationException();
@@ -964,7 +1019,12 @@ public class HttpImpl implements Http {
 	 */
 	@Deprecated
 	public void proxifyState(
+<<<<<<< HEAD
 		HttpState httpState, HostConfiguration hostConfiguration) {
+=======
+		org.apache.commons.httpclient.HttpState httpState,
+		org.apache.commons.httpclient.HostConfiguration hostConfiguration) {
+>>>>>>> compatible
 	}
 
 	@Override
@@ -1222,8 +1282,62 @@ public class HttpImpl implements Http {
 			return url;
 		}
 
+<<<<<<< HEAD
 		return _shortenURL(url, 0);
 	}
+=======
+		StringBundler sb = new StringBundler();
+
+		String[] params = StringUtil.split(url, CharPool.AMPERSAND);
+
+		for (int i = 0; i < params.length; i++) {
+			String param = params[i];
+
+			if (param.contains("_backURL=") || param.contains("_redirect=") ||
+				param.contains("_returnToFullPageURL=") ||
+				param.startsWith("redirect")) {
+
+				int pos = param.indexOf(CharPool.EQUAL);
+
+				String qName = param.substring(0, pos);
+
+				String redirect = param.substring(pos + 1);
+
+				try {
+					redirect = decodeURL(redirect);
+				}
+				catch (IllegalArgumentException iae) {
+					if (_log.isDebugEnabled()) {
+						_log.debug(
+							"Skipping undecodable parameter " + param, iae);
+					}
+
+					continue;
+				}
+
+				String newURL = shortenURL(redirect, count - 1);
+
+				if (newURL != null) {
+					newURL = URLCodec.encodeURL(newURL);
+
+					sb.append(qName);
+					sb.append(StringPool.EQUAL);
+					sb.append(newURL);
+
+					if (i < (params.length - 1)) {
+						sb.append(StringPool.AMPERSAND);
+					}
+				}
+			}
+			else {
+				sb.append(param);
+
+				if (i < (params.length - 1)) {
+					sb.append(StringPool.AMPERSAND);
+				}
+			}
+		}
+>>>>>>> compatible
 
 	/**
 	 * @deprecated As of 7.0.0, replaced by {@link #shortenURL(String)}
@@ -1400,6 +1514,7 @@ public class HttpImpl implements Http {
 
 	protected RequestConfig.Builder getRequestConfigBuilder(
 		URI uri, int timeout) {
+<<<<<<< HEAD
 
 		if (_log.isDebugEnabled()) {
 			_log.debug("Location is " + uri.toString());
@@ -1464,6 +1579,74 @@ public class HttpImpl implements Http {
 
 		Header[] headers = requestBuilder.getHeaders(name);
 
+=======
+
+		if (_log.isDebugEnabled()) {
+			_log.debug("Location is " + uri.toString());
+		}
+
+		RequestConfig.Builder requestConfigBuilder = RequestConfig.custom();
+
+		if (isProxyHost(uri.getHost())) {
+			HttpHost proxy = new HttpHost(_PROXY_HOST, _PROXY_PORT);
+
+			requestConfigBuilder.setProxy(proxy);
+
+			if (_proxyCredentials != null) {
+				requestConfigBuilder.setProxyPreferredAuthSchemes(
+					_proxyAuthPrefs);
+			}
+		}
+
+		int maxConnectionsPerHost = GetterUtil.getInteger(
+			PropsUtil.get(
+				HttpImpl.class.getName() + ".max.connections.per.host",
+				new Filter(uri.getHost())));
+
+		if ((maxConnectionsPerHost > 0) &&
+			(maxConnectionsPerHost != _MAX_CONNECTIONS_PER_HOST)) {
+
+			HttpRoute httpRoute = new HttpRoute(
+				new HttpHost(uri.getHost(), uri.getPort()));
+
+			_poolingHttpClientConnectionManager.setMaxPerRoute(
+				httpRoute, maxConnectionsPerHost);
+		}
+
+		if (timeout == 0) {
+			timeout = GetterUtil.getInteger(
+				PropsUtil.get(
+					HttpImpl.class.getName() + ".timeout",
+					new Filter(uri.getHost())));
+		}
+
+		if (timeout > 0) {
+			requestConfigBuilder = requestConfigBuilder.setConnectTimeout(
+				timeout);
+
+			requestConfigBuilder =
+				requestConfigBuilder.setConnectionRequestTimeout(timeout);
+		}
+
+		return requestConfigBuilder;
+	}
+
+	/**
+	 * @deprecated As of 7.0.0, with no direct replacement
+	 */
+	@Deprecated
+	protected boolean hasRequestHeader(
+		org.apache.commons.httpclient.HttpMethod httpMethod, String name) {
+
+		throw new UnsupportedOperationException();
+	}
+
+	protected boolean hasRequestHeader(
+		RequestBuilder requestBuilder, String name) {
+
+		Header[] headers = requestBuilder.getHeaders(name);
+
+>>>>>>> compatible
 		if (ArrayUtil.isEmpty(headers)) {
 			return false;
 		}
@@ -1475,8 +1658,18 @@ public class HttpImpl implements Http {
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+<<<<<<< HEAD
+=======
 	protected void processPostMethod(
-		PostMethod postMethod, List<Http.FilePart> fileParts,
+		org.apache.commons.httpclient.methods.PostMethod postMethod,
+		List<Http.FilePart> fileParts, Map<String, String> parts) {
+
+		throw new UnsupportedOperationException();
+	}
+
+>>>>>>> compatible
+	protected void processPostMethod(
+		RequestBuilder requestBuilder, List<Http.FilePart> fileParts,
 		Map<String, String> parts) {
 
 		throw new UnsupportedOperationException();
@@ -1566,6 +1759,7 @@ public class HttpImpl implements Http {
 		basicClientCookie.setDomain(cookie.getDomain());
 
 		int maxAge = cookie.getMaxAge();
+<<<<<<< HEAD
 
 		if (maxAge > 0) {
 			Date expiryDate = new Date(
@@ -1584,6 +1778,26 @@ public class HttpImpl implements Http {
 		return basicClientCookie;
 	}
 
+=======
+
+		if (maxAge > 0) {
+			Date expiryDate = new Date(
+				System.currentTimeMillis() + maxAge * 1000L);
+
+			basicClientCookie.setExpiryDate(expiryDate);
+
+			basicClientCookie.setAttribute(
+				ClientCookie.MAX_AGE_ATTR, Integer.toString(maxAge));
+		}
+
+		basicClientCookie.setPath(cookie.getPath());
+		basicClientCookie.setSecure(cookie.getSecure());
+		basicClientCookie.setVersion(cookie.getVersion());
+
+		return basicClientCookie;
+	}
+
+>>>>>>> compatible
 	protected org.apache.http.cookie.Cookie[] toHttpCookies(Cookie[] cookies) {
 		if (cookies == null) {
 			return null;
@@ -1772,9 +1986,15 @@ public class HttpImpl implements Http {
 
 			RequestConfig.Builder requestConfigBuilder =
 				getRequestConfigBuilder(uri, timeout);
+<<<<<<< HEAD
 
 			RequestConfig requestConfig = requestConfigBuilder.build();
 
+=======
+
+			RequestConfig requestConfig = requestConfigBuilder.build();
+
+>>>>>>> compatible
 			CloseableHttpClient httpClient = getCloseableHttpClient(
 				requestConfig.getProxy());
 
@@ -1888,10 +2108,16 @@ public class HttpImpl implements Http {
 
 			httpEntity = closeableHttpResponse.getEntity();
 
+<<<<<<< HEAD
 			StatusLine statusLine = closeableHttpResponse.getStatusLine();
 
 			response.setResponseCode(statusLine.getStatusCode());
 
+=======
+			response.setResponseCode(
+				closeableHttpResponse.getStatusLine().getStatusCode());
+
+>>>>>>> compatible
 			Header locationHeader = closeableHttpResponse.getFirstHeader(
 				"location");
 
@@ -2026,6 +2252,7 @@ public class HttpImpl implements Http {
 		return false;
 	}
 
+<<<<<<< HEAD
 	private String _shortenURL(String url, int currentLength) {
 		int index = url.indexOf(CharPool.QUESTION);
 
@@ -2109,6 +2336,8 @@ public class HttpImpl implements Http {
 		return sb.toString();
 	}
 
+=======
+>>>>>>> compatible
 	private static final String _DEFAULT_USER_AGENT =
 		"Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv 11.0) like Gecko";
 

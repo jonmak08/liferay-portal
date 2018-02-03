@@ -30,6 +30,7 @@ public class ServiceTrackerUtil {
 		ServiceTrackerCustomizer<SR, TS> serviceTrackerCustomizer) {
 
 		if (filterString != null) {
+<<<<<<< HEAD
 			if (clazz != null) {
 				filterString =
 					"(&(objectClass=" + clazz.getName() + ')' + filterString +
@@ -38,6 +39,12 @@ public class ServiceTrackerUtil {
 
 			try {
 				Filter filter = bundleContext.createFilter(filterString);
+=======
+			try {
+				Filter filter = bundleContext.createFilter(
+					"(&(objectClass=" + clazz.getName() + ")" + filterString +
+						")");
+>>>>>>> compatible
 
 				return new ServiceTracker<>(
 					bundleContext, filter, serviceTrackerCustomizer);
@@ -48,6 +55,7 @@ public class ServiceTrackerUtil {
 				return null;
 			}
 		}
+<<<<<<< HEAD
 
 		if (clazz != null) {
 			return new ServiceTracker<>(
@@ -56,6 +64,12 @@ public class ServiceTrackerUtil {
 
 		throw new IllegalArgumentException(
 			"Filter string and class are both null");
+=======
+		else {
+			return new ServiceTracker<>(
+				bundleContext, clazz, serviceTrackerCustomizer);
+		}
+>>>>>>> compatible
 	}
 
 	public static <T> T throwException(Throwable throwable) {

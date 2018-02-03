@@ -15,7 +15,10 @@
 package com.liferay.dynamic.data.mapping.form.field.type.internal;
 
 import com.liferay.dynamic.data.mapping.form.field.type.DDMFormFieldRenderer;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.form.field.type.DDMFormFieldTemplateContextContributor;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.form.field.type.DDMFormFieldType;
 import com.liferay.dynamic.data.mapping.form.field.type.DDMFormFieldTypeServicesTracker;
 import com.liferay.dynamic.data.mapping.form.field.type.DDMFormFieldValueAccessor;
@@ -29,14 +32,20 @@ import com.liferay.osgi.service.tracker.collections.map.ServiceTrackerMapFactory
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.util.ListUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.MapUtil;
+=======
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+<<<<<<< HEAD
 import java.util.Objects;
+=======
+>>>>>>> compatible
 import java.util.Set;
 
 import org.osgi.framework.BundleContext;
@@ -57,6 +66,7 @@ public class DDMFormFieldTypeServicesTrackerImpl
 	}
 
 	@Override
+<<<<<<< HEAD
 	public DDMFormFieldTemplateContextContributor
 		getDDMFormFieldTemplateContextContributor(String name) {
 
@@ -65,6 +75,8 @@ public class DDMFormFieldTypeServicesTrackerImpl
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public DDMFormFieldType getDDMFormFieldType(String name) {
 		ServiceWrapper<DDMFormFieldType> ddmFormFieldTypeServiceWrapper =
 			_ddmFormFieldTypeServiceTrackerMap.getService(name);
@@ -125,6 +137,7 @@ public class DDMFormFieldTypeServicesTrackerImpl
 	}
 
 	@Override
+<<<<<<< HEAD
 	public List<DDMFormFieldType> getDDMFormFieldTypesByDataDomain(
 		String dataDomain) {
 
@@ -151,6 +164,8 @@ public class DDMFormFieldTypeServicesTrackerImpl
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public <T> DDMFormFieldValueAccessor<T> getDDMFormFieldValueAccessor(
 		String name) {
 
@@ -176,11 +191,14 @@ public class DDMFormFieldTypeServicesTrackerImpl
 				bundleContext, DDMFormFieldRenderer.class,
 				"ddm.form.field.type.name");
 
+<<<<<<< HEAD
 		_ddmFormFieldTemplateContextContributorServiceTrackerMap =
 			ServiceTrackerMapFactory.openSingleValueMap(
 				bundleContext, DDMFormFieldTemplateContextContributor.class,
 				"ddm.form.field.type.name");
 
+=======
+>>>>>>> compatible
 		_ddmFormFieldTypeServiceTrackerMap =
 			ServiceTrackerMapFactory.openSingleValueMap(
 				bundleContext, DDMFormFieldType.class,
@@ -203,8 +221,11 @@ public class DDMFormFieldTypeServicesTrackerImpl
 	protected void deactivate() {
 		_ddmFormFieldRendererServiceTrackerMap.close();
 
+<<<<<<< HEAD
 		_ddmFormFieldTemplateContextContributorServiceTrackerMap.close();
 
+=======
+>>>>>>> compatible
 		_ddmFormFieldTypeServiceTrackerMap.close();
 
 		_ddmFormFieldValueAccessorServiceTrackerMap.close();
@@ -217,8 +238,11 @@ public class DDMFormFieldTypeServicesTrackerImpl
 
 	private ServiceTrackerMap<String, DDMFormFieldRenderer>
 		_ddmFormFieldRendererServiceTrackerMap;
+<<<<<<< HEAD
 	private ServiceTrackerMap<String, DDMFormFieldTemplateContextContributor>
 		_ddmFormFieldTemplateContextContributorServiceTrackerMap;
+=======
+>>>>>>> compatible
 	private ServiceTrackerMap<String, ServiceWrapper<DDMFormFieldType>>
 		_ddmFormFieldTypeServiceTrackerMap;
 	private final Comparator<ServiceWrapper<DDMFormFieldType>>

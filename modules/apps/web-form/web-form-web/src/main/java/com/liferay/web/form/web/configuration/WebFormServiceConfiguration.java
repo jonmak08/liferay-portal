@@ -32,20 +32,32 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
 )
 public interface WebFormServiceConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(deflt = ";", name = "csv-separator", required = false)
 	public String csvSeparator();
 
 	@Meta.AD(deflt = "data/web_form", name = "data-root-dir", required = false)
+=======
+	@Meta.AD(deflt = ";", required = false)
+	public String csvSeparator();
+
+	@Meta.AD(deflt = "data/web_form", required = false)
+>>>>>>> compatible
 	public String dataRootDir();
 
 	@Meta.AD(
 		deflt = "${server-property://com.liferay.portal/admin.email.from.address}",
+<<<<<<< HEAD
 		name = "email-from-address", required = false
+=======
+		required = false
+>>>>>>> compatible
 	)
 	public String emailFromAddress();
 
 	@Meta.AD(
 		deflt = "${server-property://com.liferay.portal/admin.email.from.name}",
+<<<<<<< HEAD
 		name = "email-from-name", required = false
 	)
 	public String emailFromName();
@@ -53,6 +65,13 @@ public interface WebFormServiceConfiguration {
 	@Meta.AD(
 		deflt = "false", name = "validation-script-enable", required = false
 	)
+=======
+		required = false
+	)
+	public String emailFromName();
+
+	@Meta.AD(deflt = "false", required = false)
+>>>>>>> compatible
 	public boolean validationScriptEnable();
 
 }

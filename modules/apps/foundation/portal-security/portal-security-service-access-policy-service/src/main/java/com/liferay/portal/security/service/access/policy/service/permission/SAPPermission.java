@@ -15,6 +15,7 @@
 package com.liferay.portal.security.service.access.policy.service.permission;
 
 import com.liferay.portal.kernel.exception.PortalException;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.security.permission.ResourcePermissionChecker;
 import com.liferay.portal.kernel.security.permission.resource.PortletResourcePermission;
@@ -36,25 +37,58 @@ import org.osgi.service.component.annotations.Reference;
 public class SAPPermission implements ResourcePermissionChecker {
 
 	public static final String RESOURCE_NAME = SAPConstants.RESOURCE_NAME;
+=======
+import com.liferay.portal.kernel.security.auth.PrincipalException;
+import com.liferay.portal.kernel.security.permission.PermissionChecker;
+import com.liferay.portal.kernel.security.permission.ResourcePermissionChecker;
+import com.liferay.portal.security.service.access.policy.constants.SAPConstants;
+
+import org.osgi.service.component.annotations.Component;
+
+/**
+ * @author Tomas Polesovsky
+ */
+@Component(
+	immediate = true,
+	property = {"resource.name=" + SAPPermission.RESOURCE_NAME},
+	service = ResourcePermissionChecker.class
+)
+public class SAPPermission implements ResourcePermissionChecker {
+
+	public static final String RESOURCE_NAME = SAPConstants.SERVICE_NAME;
+>>>>>>> compatible
 
 	public static void check(
 			PermissionChecker permissionChecker, String actionId)
 		throws PortalException {
 
+<<<<<<< HEAD
 		_portletResourcePermission.check(permissionChecker, null, actionId);
+=======
+		if (!contains(permissionChecker, actionId)) {
+			throw new PrincipalException.MustHavePermission(
+				permissionChecker, RESOURCE_NAME, RESOURCE_NAME, actionId);
+		}
+>>>>>>> compatible
 	}
 
 	public static boolean contains(
 		PermissionChecker permissionChecker, String actionId) {
 
+<<<<<<< HEAD
 		return _portletResourcePermission.contains(
 			permissionChecker, null, actionId);
+=======
+		return permissionChecker.hasPermission(
+			0, RESOURCE_NAME, RESOURCE_NAME, actionId);
+>>>>>>> compatible
 	}
 
 	@Override
 	public Boolean checkResource(
 		PermissionChecker permissionChecker, long classPK, String actionId) {
 
+<<<<<<< HEAD
 		return _portletResourcePermission.contains(
 			permissionChecker, null, actionId);
 	}
@@ -71,4 +105,9 @@ public class SAPPermission implements ResourcePermissionChecker {
 
 	private static PortletResourcePermission _portletResourcePermission;
 
+=======
+		return contains(permissionChecker, actionId);
+	}
+
+>>>>>>> compatible
 }

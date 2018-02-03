@@ -19,6 +19,7 @@
  * modification, are permitted provided that the following conditions are met:
  *
  * 1. Redistributions of source code must retain the above copyright
+<<<<<<< HEAD
  *    notice, this list of conditions and the following disclaimer.
  *
  * 2. Redistributions in binary form must reproduce the above copyright
@@ -28,6 +29,17 @@
  * 3. Neither the name of the University nor the names of its contributors
  *    may be used to endorse or promote products derived from this software
  *    without specific prior written permission.
+=======
+ *	  notice, this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *	  notice, this list of conditions and the following disclaimer in the
+ *	  documentation and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of the University nor the names of its contributors
+ *	  may be used to endorse or promote products derived from this software
+ *	  without specific prior written permission.
+>>>>>>> compatible
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS ``AS
  * IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
@@ -238,6 +250,7 @@ public class Recurrence implements Serializable {
 		reduce_constant_length_field(Calendar.MINUTE, dtStart, candidate);
 		reduce_constant_length_field(Calendar.HOUR_OF_DAY, dtStart, candidate);
 
+<<<<<<< HEAD
 		if (minInterval == WEEKLY) {
 			reduce_constant_length_field(
 				Calendar.DAY_OF_WEEK, dtStart, candidate);
@@ -247,6 +260,28 @@ public class Recurrence implements Serializable {
 		}
 		else if (minInterval == YEARLY) {
 			reduce_day_of_year(dtStart, candidate);
+=======
+		switch (minInterval) {
+
+			case DAILY :
+
+				// No more adjustments needed
+
+				break;
+
+			case WEEKLY :
+				reduce_constant_length_field(
+					Calendar.DAY_OF_WEEK, dtStart, candidate);
+				break;
+
+			case MONTHLY :
+				reduce_day_of_month(dtStart, candidate);
+				break;
+
+			case YEARLY :
+				reduce_day_of_year(dtStart, candidate);
+				break;
+>>>>>>> compatible
 		}
 
 		return candidate;
@@ -893,6 +928,7 @@ public class Recurrence implements Serializable {
 	 * @return int
 	 */
 	protected int getRecurrenceCount(Calendar candidate) {
+<<<<<<< HEAD
 		if (frequency == NO_RECURRENCE) {
 			return 0;
 		}
@@ -914,6 +950,34 @@ public class Recurrence implements Serializable {
 		}
 
 		throw new IllegalStateException("bad frequency internally...");
+=======
+		switch (frequency) {
+
+			case NO_RECURRENCE :
+				return 0;
+
+			case DAILY :
+				return (int)(getDayNumber(candidate) - getDayNumber(dtStart));
+
+			case WEEKLY :
+				Calendar tempCand = (Calendar)candidate.clone();
+
+				tempCand.setFirstDayOfWeek(dtStart.getFirstDayOfWeek());
+
+				return (int)(getWeekNumber(tempCand) - getWeekNumber(dtStart));
+
+			case MONTHLY :
+				return
+					(int)(getMonthNumber(candidate) - getMonthNumber(dtStart));
+
+			case YEARLY :
+				return
+					candidate.get(Calendar.YEAR) - dtStart.get(Calendar.YEAR);
+
+			default :
+				throw new IllegalStateException("bad frequency internally...");
+		}
+>>>>>>> compatible
 	}
 
 	/**

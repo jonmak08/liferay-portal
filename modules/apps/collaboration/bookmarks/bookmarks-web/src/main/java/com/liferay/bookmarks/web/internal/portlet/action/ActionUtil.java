@@ -21,7 +21,11 @@ import com.liferay.bookmarks.model.BookmarksFolder;
 import com.liferay.bookmarks.model.BookmarksFolderConstants;
 import com.liferay.bookmarks.service.BookmarksEntryServiceUtil;
 import com.liferay.bookmarks.service.BookmarksFolderServiceUtil;
+<<<<<<< HEAD
 import com.liferay.bookmarks.web.internal.security.permission.resource.BookmarksResourcePermission;
+=======
+import com.liferay.bookmarks.service.permission.BookmarksResourcePermissionChecker;
+>>>>>>> compatible
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ParamUtil;
@@ -113,7 +117,11 @@ public class ActionUtil {
 			}
 		}
 		else {
+<<<<<<< HEAD
 			BookmarksResourcePermission.check(
+=======
+			BookmarksResourcePermissionChecker.check(
+>>>>>>> compatible
 				themeDisplay.getPermissionChecker(),
 				themeDisplay.getScopeGroupId(), ActionKeys.VIEW);
 		}

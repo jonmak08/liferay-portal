@@ -14,10 +14,14 @@
 
 package com.liferay.captcha.recaptcha;
 
+<<<<<<< HEAD
 import com.liferay.captcha.configuration.CaptchaConfiguration;
 import com.liferay.captcha.simplecaptcha.SimpleCaptchaImpl;
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
+=======
+import com.liferay.captcha.simplecaptcha.SimpleCaptchaImpl;
+>>>>>>> compatible
 import com.liferay.portal.kernel.captcha.Captcha;
 import com.liferay.portal.kernel.captcha.CaptchaConfigurationException;
 import com.liferay.portal.kernel.captcha.CaptchaException;
@@ -33,6 +37,7 @@ import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
@@ -41,6 +46,18 @@ import java.io.IOException;
 
 import java.util.Map;
 
+=======
+import com.liferay.portal.kernel.util.PropsKeys;
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.util.PrefsPropsUtil;
+import com.liferay.portal.util.PropsValues;
+
+import java.io.IOException;
+
+>>>>>>> compatible
 import javax.portlet.PortletRequest;
 import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
@@ -49,9 +66,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Modified;
+=======
+import org.osgi.service.component.annotations.Component;
+>>>>>>> compatible
 
 /**
  * @author Tagnaouti Boubker
@@ -60,7 +81,10 @@ import org.osgi.service.component.annotations.Modified;
  * @author Daniel Sanz
  */
 @Component(
+<<<<<<< HEAD
 	configurationPid = "com.liferay.captcha.configuration.CaptchaConfiguration",
+=======
+>>>>>>> compatible
 	immediate = true,
 	property = {
 		"captcha.engine.impl=com.liferay.captcha.recaptcha.ReCaptchaImpl"
@@ -88,6 +112,7 @@ public class ReCaptchaImpl extends SimpleCaptchaImpl {
 		throw new UnsupportedOperationException();
 	}
 
+<<<<<<< HEAD
 	@Activate
 	@Modified
 	@Override
@@ -98,6 +123,8 @@ public class ReCaptchaImpl extends SimpleCaptchaImpl {
 		setCaptchaConfiguration(_captchaConfiguration);
 	}
 
+=======
+>>>>>>> compatible
 	@Override
 	protected boolean validateChallenge(HttpServletRequest request)
 		throws CaptchaException {
@@ -128,11 +155,20 @@ public class ReCaptchaImpl extends SimpleCaptchaImpl {
 
 		Http.Options options = new Http.Options();
 
+<<<<<<< HEAD
 		options.setLocation(_captchaConfiguration.reCaptchaVerifyURL());
 
 		try {
 			options.addPart(
 				"secret", _captchaConfiguration.reCaptchaPrivateKey());
+=======
+		try {
+			options.addPart(
+				"secret",
+				PrefsPropsUtil.getString(
+					PropsKeys.CAPTCHA_ENGINE_RECAPTCHA_KEY_PRIVATE,
+					PropsValues.CAPTCHA_ENGINE_RECAPTCHA_KEY_PRIVATE));
+>>>>>>> compatible
 		}
 		catch (SystemException se) {
 			_log.error(se, se);
@@ -140,6 +176,10 @@ public class ReCaptchaImpl extends SimpleCaptchaImpl {
 
 		options.addPart("remoteip", request.getRemoteAddr());
 		options.addPart("response", reCaptchaResponse);
+<<<<<<< HEAD
+=======
+		options.setLocation(PropsValues.CAPTCHA_ENGINE_RECAPTCHA_URL_VERIFY);
+>>>>>>> compatible
 		options.setPost(true);
 
 		String content = null;
@@ -212,6 +252,9 @@ public class ReCaptchaImpl extends SimpleCaptchaImpl {
 
 	private static final Log _log = LogFactoryUtil.getLog(ReCaptchaImpl.class);
 
+<<<<<<< HEAD
 	private volatile CaptchaConfiguration _captchaConfiguration;
 
+=======
+>>>>>>> compatible
 }

@@ -32,10 +32,15 @@ import org.osgi.util.tracker.ServiceTracker;
  * @see KaleoDefinitionService
  * @see com.liferay.portal.workflow.kaleo.service.base.KaleoDefinitionServiceBaseImpl
  * @see com.liferay.portal.workflow.kaleo.service.impl.KaleoDefinitionServiceImpl
+<<<<<<< HEAD
  * @deprecated As of 2.0.0, with no direct replacement
  * @generated
  */
 @Deprecated
+=======
+ * @generated
+ */
+>>>>>>> compatible
 @ProviderType
 public class KaleoDefinitionServiceUtil {
 	/*
@@ -43,20 +48,26 @@ public class KaleoDefinitionServiceUtil {
 	 *
 	 * Never modify this class directly. Add custom service methods to {@link com.liferay.portal.workflow.kaleo.service.impl.KaleoDefinitionServiceImpl} and rerun ServiceBuilder to regenerate this class.
 	 */
+<<<<<<< HEAD
 
 	/**
 	* @deprecated As of 2.0.0, with no direct replacement
 	*/
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static java.util.List<com.liferay.portal.workflow.kaleo.model.KaleoDefinition> getKaleoDefinitions(
 		int start, int end) {
 		return getService().getKaleoDefinitions(start, end);
 	}
 
+<<<<<<< HEAD
 	/**
 	* @deprecated As of 2.0.0, with no direct replacement
 	*/
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static java.util.List<com.liferay.portal.workflow.kaleo.model.KaleoDefinition> getKaleoDefinitions(
 		long companyId, int start, int end) {
 		return getService().getKaleoDefinitions(companyId, start, end);

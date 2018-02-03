@@ -29,6 +29,10 @@ import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.security.permission.PermissionCheckerFactoryUtil;
 import com.liferay.portal.kernel.security.permission.PermissionThreadLocal;
 import com.liferay.portal.kernel.service.ServiceContext;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.EscapableLocalizableFunction;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Function;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.StringPool;
@@ -61,6 +65,7 @@ public class AdminSubscriptionSender extends SubscriptionSender {
 
 		setContextAttribute("[$ARTICLE_TITLE$]", _kbArticle.getTitle());
 		setContextAttribute("[$ARTICLE_URL$]", kbArticleURL);
+<<<<<<< HEAD
 		setLocalizedContextAttributeWithFunction(
 			"[$ARTICLE_ATTACHMENTS$]", _getEmailKBArticleAttachmentsFunction());
 		setLocalizedContextAttributeWithFunction(
@@ -71,6 +76,22 @@ public class AdminSubscriptionSender extends SubscriptionSender {
 		setLocalizedContextAttributeWithFunction(
 			"[$CATEGORY_TITLE$]",
 			locale -> LanguageUtil.get(locale, "category.kb"));
+=======
+		setLocalizedContextAttribute(
+			"[$ARTICLE_ATTACHMENTS$]",
+			new EscapableLocalizableFunction(
+				_getEmailKBArticleAttachmentsFunction(), true));
+		setLocalizedContextAttribute(
+			"[$ARTICLE_VERSION$]",
+			new EscapableLocalizableFunction(
+				(locale) -> LanguageUtil.format(
+					locale, "version-x",
+					String.valueOf(_kbArticle.getVersion()), false), true));
+		setLocalizedContextAttribute(
+			"[$CATEGORY_TITLE$]",
+			new EscapableLocalizableFunction(
+				(locale) -> LanguageUtil.get(locale, "category.kb"), true));
+>>>>>>> compatible
 	}
 
 	@Override
@@ -149,10 +170,17 @@ public class AdminSubscriptionSender extends SubscriptionSender {
 			_kbArticle.getAttachmentsFileEntries();
 
 		if (attachmentsFileEntries.isEmpty()) {
+<<<<<<< HEAD
 			return locale -> StringPool.BLANK;
 		}
 
 		return locale -> {
+=======
+			return (locale) -> StringPool.BLANK;
+		}
+
+		return (locale) -> {
+>>>>>>> compatible
 			StringBundler sb = new StringBundler(
 				attachmentsFileEntries.size() * 5);
 

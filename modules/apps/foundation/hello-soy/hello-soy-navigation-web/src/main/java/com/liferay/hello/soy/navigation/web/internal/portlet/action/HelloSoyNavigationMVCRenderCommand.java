@@ -16,10 +16,15 @@ package com.liferay.hello.soy.navigation.web.internal.portlet.action;
 
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCRenderCommand;
 import com.liferay.portal.kernel.template.Template;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.ReleaseInfo;
 import com.liferay.portal.kernel.util.WebKeys;
 
 import javax.portlet.ActionRequest;
+=======
+import com.liferay.portal.kernel.util.WebKeys;
+
+>>>>>>> compatible
 import javax.portlet.PortletURL;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
@@ -45,6 +50,7 @@ public class HelloSoyNavigationMVCRenderCommand implements MVCRenderCommand {
 		Template template = (Template)renderRequest.getAttribute(
 			WebKeys.TEMPLATE);
 
+<<<<<<< HEAD
 		PortletURL backURL = renderResponse.createRenderURL();
 
 		backURL.setParameter("mvcRenderCommandName", "View");
@@ -58,6 +64,13 @@ public class HelloSoyNavigationMVCRenderCommand implements MVCRenderCommand {
 		template.put("formURL", formURL.toString());
 
 		template.put("releaseInfo", ReleaseInfo.getReleaseInfo());
+=======
+		PortletURL navigationURL = renderResponse.createRenderURL();
+
+		navigationURL.setParameter("mvcRenderCommandName", "View");
+
+		template.put("navigationURL", navigationURL.toString());
+>>>>>>> compatible
 
 		return "Navigation";
 	}

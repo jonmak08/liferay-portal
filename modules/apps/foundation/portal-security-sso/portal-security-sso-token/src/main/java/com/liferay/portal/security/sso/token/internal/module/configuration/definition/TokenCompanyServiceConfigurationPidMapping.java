@@ -16,7 +16,11 @@ package com.liferay.portal.security.sso.token.internal.module.configuration.defi
 
 import com.liferay.portal.kernel.settings.definition.ConfigurationPidMapping;
 import com.liferay.portal.security.sso.token.configuration.TokenConfiguration;
+<<<<<<< HEAD
 import com.liferay.portal.security.sso.token.internal.constants.TokenConstants;
+=======
+import com.liferay.portal.security.sso.token.constants.TokenConstants;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 

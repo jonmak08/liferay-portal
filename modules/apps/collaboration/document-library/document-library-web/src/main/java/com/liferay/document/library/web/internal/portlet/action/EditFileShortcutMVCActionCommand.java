@@ -14,13 +14,20 @@
 
 package com.liferay.document.library.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.document.library.constants.DLPortletKeys;
+=======
+>>>>>>> compatible
 import com.liferay.document.library.kernel.exception.FileShortcutPermissionException;
 import com.liferay.document.library.kernel.exception.NoSuchFileEntryException;
 import com.liferay.document.library.kernel.exception.NoSuchFileShortcutException;
 import com.liferay.document.library.kernel.model.DLFileShortcutConstants;
 import com.liferay.document.library.kernel.service.DLAppService;
 import com.liferay.document.library.kernel.service.DLTrashService;
+<<<<<<< HEAD
+=======
+import com.liferay.document.library.web.constants.DLPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.TrashedModel;
 import com.liferay.portal.kernel.portlet.bridges.mvc.BaseMVCActionCommand;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCActionCommand;
@@ -31,11 +38,15 @@ import com.liferay.portal.kernel.service.ServiceContextFactory;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.util.Constants;
 import com.liferay.portal.kernel.util.ParamUtil;
+<<<<<<< HEAD
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+=======
+import com.liferay.trash.kernel.util.TrashUtil;
+>>>>>>> compatible
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
@@ -69,6 +80,7 @@ public class EditFileShortcutMVCActionCommand extends BaseMVCActionCommand {
 			FileShortcut fileShortcut = _dlTrashService.moveFileShortcutToTrash(
 				fileShortcutId);
 
+<<<<<<< HEAD
 			if (!(fileShortcut.getModel() instanceof TrashedModel)) {
 				hideDefaultSuccessMessage(actionRequest);
 
@@ -84,6 +96,14 @@ public class EditFileShortcutMVCActionCommand extends BaseMVCActionCommand {
 			data.put("trashedModels", trashedModels);
 
 			addDeleteSuccessData(actionRequest, data);
+=======
+			if (fileShortcut.getModel() instanceof TrashedModel) {
+				TrashUtil.addTrashSessionMessages(
+					actionRequest, (TrashedModel)fileShortcut.getModel());
+			}
+
+			hideDefaultSuccessMessage(actionRequest);
+>>>>>>> compatible
 		}
 		else {
 			_dlAppService.deleteFileShortcut(fileShortcutId);

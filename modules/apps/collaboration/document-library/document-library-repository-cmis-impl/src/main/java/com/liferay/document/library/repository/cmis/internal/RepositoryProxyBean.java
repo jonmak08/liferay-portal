@@ -457,6 +457,7 @@ public class RepositoryProxyBean
 
 	@Override
 	public List<FileEntry> getFileEntries(
+<<<<<<< HEAD
 			long folderId, String[] mimeTypes, int status, int start, int end,
 			OrderByComparator<FileEntry> obc)
 		throws PortalException {
@@ -473,6 +474,8 @@ public class RepositoryProxyBean
 
 	@Override
 	public List<FileEntry> getFileEntries(
+=======
+>>>>>>> compatible
 			long folderId, String[] mimeTypes, int start, int end,
 			OrderByComparator<FileEntry> obc)
 		throws PortalException {
@@ -571,6 +574,7 @@ public class RepositoryProxyBean
 	}
 
 	@Override
+<<<<<<< HEAD
 	public int getFileEntriesCount(
 			long folderId, String[] mimeTypes, int status)
 		throws PortalException {
@@ -583,6 +587,8 @@ public class RepositoryProxyBean
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public FileEntry getFileEntry(long fileEntryId) throws PortalException {
 		try (ContextClassLoaderSetter contextClassLoaderSetter =
 				new ContextClassLoaderSetter(_classLoader)) {

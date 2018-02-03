@@ -30,12 +30,21 @@ import com.liferay.portal.kernel.search.Indexer;
 import com.liferay.portal.kernel.search.Summary;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermission;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.trash.TrashHelper;
 import com.liferay.wiki.model.WikiNode;
 import com.liferay.wiki.service.WikiNodeLocalService;
+=======
+import com.liferay.portal.kernel.util.GetterUtil;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.trash.kernel.util.TrashUtil;
+import com.liferay.wiki.model.WikiNode;
+import com.liferay.wiki.service.WikiNodeLocalService;
+import com.liferay.wiki.service.permission.WikiNodePermissionChecker;
+>>>>>>> compatible
 
 import java.util.Locale;
 
@@ -74,7 +83,11 @@ public class WikiNodeIndexer extends BaseIndexer<WikiNode> {
 
 		WikiNode node = _wikiNodeLocalService.getNode(entryClassPK);
 
+<<<<<<< HEAD
 		return _wikiNodeModelResourcePermission.contains(
+=======
+		return WikiNodePermissionChecker.contains(
+>>>>>>> compatible
 			permissionChecker, node, ActionKeys.VIEW);
 	}
 
@@ -92,7 +105,11 @@ public class WikiNodeIndexer extends BaseIndexer<WikiNode> {
 		String title = wikiNode.getName();
 
 		if (wikiNode.isInTrash()) {
+<<<<<<< HEAD
 			title = _trashHelper.getOriginalTitle(title);
+=======
+			title = TrashUtil.getOriginalTitle(title);
+>>>>>>> compatible
 		}
 
 		document.addText(Field.TITLE, title);
@@ -195,6 +212,7 @@ public class WikiNodeIndexer extends BaseIndexer<WikiNode> {
 	@Reference
 	private IndexWriterHelper _indexWriterHelper;
 
+<<<<<<< HEAD
 	@Reference
 	private TrashHelper _trashHelper;
 
@@ -203,4 +221,8 @@ public class WikiNodeIndexer extends BaseIndexer<WikiNode> {
 	@Reference(target = "(model.class.name=com.liferay.wiki.model.WikiNode)")
 	private ModelResourcePermission<WikiNode> _wikiNodeModelResourcePermission;
 
+=======
+	private WikiNodeLocalService _wikiNodeLocalService;
+
+>>>>>>> compatible
 }

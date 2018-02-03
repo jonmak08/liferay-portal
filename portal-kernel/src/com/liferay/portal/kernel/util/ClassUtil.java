@@ -14,7 +14,10 @@
 
 package com.liferay.portal.kernel.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
 import com.liferay.portal.kernel.log.Log;
@@ -92,12 +95,15 @@ public class ClassUtil {
 
 		while (st.nextToken() != StreamTokenizer.TT_EOF) {
 			if (st.ttype == StreamTokenizer.TT_WORD) {
+<<<<<<< HEAD
 				Matcher matcher = _fullyQualifiedNamePattern.matcher(st.sval);
 
 				if (matcher.find()) {
 					continue;
 				}
 
+=======
+>>>>>>> compatible
 				int firstIndex = st.sval.indexOf('.');
 
 				if (firstIndex >= 0) {
@@ -250,16 +256,24 @@ public class ClassUtil {
 			return false;
 		}
 
+<<<<<<< HEAD
 		String name = a.getName();
 
 		if (name.equals(s)) {
+=======
+		if (a.getName().equals(s)) {
+>>>>>>> compatible
 			return true;
 		}
 
 		for (Class<?> x = a; x != null; x = x.getSuperclass()) {
+<<<<<<< HEAD
 			name = x.getName();
 
 			if (name.equals(s)) {
+=======
+			if (x.getName().equals(s)) {
+>>>>>>> compatible
 				return true;
 			}
 
@@ -282,9 +296,15 @@ public class ClassUtil {
 
 		List<String> tokens = new ArrayList<>();
 
+<<<<<<< HEAD
 		Matcher annotationNameMatcher = _annotationNamePattern.matcher(s);
 		Matcher annotationParametersMatcher =
 			_annotationParametersPattern.matcher(s);
+=======
+		Matcher annotationNameMatcher = _ANNOTATION_NAME_REGEXP.matcher(s);
+		Matcher annotationParametersMatcher =
+			_ANNOTATION_PARAMETERS_REGEXP.matcher(s);
+>>>>>>> compatible
 
 		if (annotationNameMatcher.matches()) {
 			tokens.add(annotationNameMatcher.group(1));
@@ -294,9 +314,13 @@ public class ClassUtil {
 
 			String annotationParameters = StringPool.BLANK;
 
+<<<<<<< HEAD
 			String trimmedString = s.trim();
 
 			if (trimmedString.endsWith(")")) {
+=======
+			if (s.trim().endsWith(")")) {
+>>>>>>> compatible
 				annotationParameters = annotationParametersMatcher.group(3);
 			}
 			else {
@@ -394,10 +418,21 @@ public class ClassUtil {
 		st.wordChars(',', ',');
 	}
 
+<<<<<<< HEAD
+=======
+	private static final Pattern _ANNOTATION_NAME_REGEXP = Pattern.compile(
+		"@(\\w+)\\.?(\\w*)$");
+
+	private static final Pattern _ANNOTATION_PARAMETERS_REGEXP =
+		Pattern.compile(
+			"@(\\w+)\\.?(\\w*)\\({0,1}\\{{0,1}([^)}]+)\\}{0,1}\\){0,1}");
+
+>>>>>>> compatible
 	private static final String _CLASS_EXTENSION = ".class";
 
 	private static final Log _log = LogFactoryUtil.getLog(ClassUtil.class);
 
+<<<<<<< HEAD
 	private static final Pattern _annotationNamePattern = Pattern.compile(
 		"@(\\w+)\\.?(\\w*)$");
 	private static final Pattern _annotationParametersPattern = Pattern.compile(
@@ -405,4 +440,6 @@ public class ClassUtil {
 	private static final Pattern _fullyQualifiedNamePattern = Pattern.compile(
 		"^([a-z]\\w*\\.){2,}([A-Z]\\w*)(\\.|\\Z)");
 
+=======
+>>>>>>> compatible
 }

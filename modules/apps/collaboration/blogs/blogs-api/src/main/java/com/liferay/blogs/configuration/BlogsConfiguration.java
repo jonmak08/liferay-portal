@@ -34,7 +34,11 @@ public interface BlogsConfiguration {
 	 */
 	@Meta.AD(
 		deflt = "com/liferay/blogs/web/template/dependencies/portlet-display-templates.xml",
+<<<<<<< HEAD
 		name = "display-templates-config", required = false
+=======
+		required = false
+>>>>>>> compatible
 	)
 	public String displayTemplatesConfig();
 
@@ -42,14 +46,22 @@ public interface BlogsConfiguration {
 	 * Set the interval in minutes on how often CheckEntryMessageListener will
 	 * run to check for and display blog entries scheduled to display.
 	 */
+<<<<<<< HEAD
 	@Meta.AD(deflt = "1", name = "entry-check-interval", required = false)
+=======
+	@Meta.AD(deflt = "1", required = false)
+>>>>>>> compatible
 	public int entryCheckInterval();
 
 	/**
 	 * Set the interval on which the LinkbackMessageListener will run. The value
 	 * is set in one minute increments.
 	 */
+<<<<<<< HEAD
 	@Meta.AD(deflt = "5", name = "linkback-job-interval", required = false)
+=======
+	@Meta.AD(deflt = "5", required = false)
+>>>>>>> compatible
 	public int linkbackJobInterval();
 
 }

@@ -40,12 +40,17 @@ public class KBArticleUserNameComparator extends OrderByComparator<KBArticle> {
 
 	@Override
 	public int compare(KBArticle kbArticle1, KBArticle kbArticle2) {
+<<<<<<< HEAD
 		String lowerCaseUserName1 = StringUtil.toLowerCase(
 			kbArticle1.getUserName());
 		String lowerCaseUserName2 = StringUtil.toLowerCase(
 			kbArticle2.getUserName());
 
 		int value = lowerCaseUserName1.compareTo(lowerCaseUserName2);
+=======
+		int value = StringUtil.toLowerCase(kbArticle1.getUserName()).compareTo(
+			StringUtil.toLowerCase(kbArticle2.getUserName()));
+>>>>>>> compatible
 
 		if (value == 0) {
 			String title1 = kbArticle1.getTitle();

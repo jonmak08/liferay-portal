@@ -164,6 +164,7 @@ if (forcePost && (portletURL != null)) {
 				<div class="lfr-pagination-config">
 					<div class="lfr-pagination-page-selector">
 
+<<<<<<< HEAD
 						<%
 						String suffix = LanguageUtil.get(resourceBundle, "of") + StringPool.SPACE + numberFormat.format(pages);
 
@@ -191,12 +192,42 @@ if (forcePost && (portletURL != null)) {
 
 								if (pagesIteratorBegin < 1) {
 									pagesIteratorBegin = 1;
+=======
+								<%= cur %>
+							</c:when>
+							<c:otherwise>
+
+								<%
+								String suffix = LanguageUtil.get(resourceBundle, "of") + StringPool.SPACE + numberFormat.format(pages);
+
+								if (type.equals("approximate") || type.equals("more")) {
+									suffix = StringPool.BLANK;
+>>>>>>> compatible
 								}
 
+<<<<<<< HEAD
 								if (pagesIteratorEnd > pages) {
 									pagesIteratorEnd = pages;
 								}
 							}
+=======
+								<liferay-ui:icon-menu
+									cssClass="current-page-menu"
+									direction="down"
+									icon=""
+									message='<%= LanguageUtil.get(resourceBundle, "page") + StringPool.SPACE + cur + StringPool.SPACE + suffix %>'
+									showWhenSingleIcon="<%= true %>"
+								>
+
+									<%
+									int pagesIteratorMax = maxPages;
+									int pagesIteratorBegin = 1;
+									int pagesIteratorEnd = pages;
+
+									if (pages > pagesIteratorMax) {
+										pagesIteratorBegin = cur - pagesIteratorMax;
+										pagesIteratorEnd = cur + pagesIteratorMax;
+>>>>>>> compatible
 
 							for (int i = pagesIteratorBegin; i <= pagesIteratorEnd; i++) {
 							%>
@@ -207,9 +238,21 @@ if (forcePost && (portletURL != null)) {
 									url='<%= url + namespace + curParam + "=" + i + urlAnchor %>'
 								/>
 
+<<<<<<< HEAD
 							<%
 							}
 							%>
+=======
+										<liferay-ui:icon
+											message="<%= String.valueOf(i) %>"
+											onClick='<%= forcePost ? _getOnClick(namespace, curParam, i) : "" %>'
+											url='<%= url + namespace + curParam + "=" + i + urlAnchor %>'
+										/>
+
+									<%
+									}
+									%>
+>>>>>>> compatible
 
 						</liferay-ui:icon-menu>
 					</div>

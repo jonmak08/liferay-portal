@@ -19,6 +19,10 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.admin.kernel.util.PortalMyAccountApplicationType;
 import com.liferay.exportimport.kernel.staging.StagingUtil;
 import com.liferay.mobile.device.rules.kernel.MDRRuleGroupInstance;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.dao.orm.QueryUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.json.JSON;
 import com.liferay.portal.kernel.language.LanguageUtil;
@@ -48,9 +52,14 @@ import com.liferay.portal.kernel.service.LayoutFriendlyURLLocalServiceUtil;
 import com.liferay.portal.kernel.service.LayoutLocalServiceUtil;
 import com.liferay.portal.kernel.service.PortletPreferencesLocalServiceUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.ListUtil;
+=======
+import com.liferay.portal.kernel.util.Http;
+import com.liferay.portal.kernel.util.HttpUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.LocaleThreadLocal;
 import com.liferay.portal.kernel.util.Mergeable;
 import com.liferay.portal.kernel.util.PortalUtil;
@@ -68,7 +77,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+<<<<<<< HEAD
 import java.util.Objects;
+=======
+>>>>>>> compatible
 import java.util.Properties;
 import java.util.TimeZone;
 
@@ -388,10 +400,13 @@ public class ThemeDisplay
 		return _doAsUserLanguageId;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public String getFacebookCanvasPageURL() {
 		return _facebookCanvasPageURL;
 	}
@@ -465,10 +480,22 @@ public class ThemeDisplay
 
 			layout = virtualLayout.getSourceLayout();
 
+<<<<<<< HEAD
 			Group group = layout.getGroup();
 
 			return VirtualLayoutConstants.CANONICAL_URL_SEPARATOR.concat(
 				group.getFriendlyURL()).concat(_getFriendlyURL(layout));
+=======
+			try {
+				Group group = layout.getGroup();
+
+				return VirtualLayoutConstants.CANONICAL_URL_SEPARATOR.concat(
+					group.getFriendlyURL()).concat(_getFriendlyURL(layout));
+			}
+			catch (PortalException pe) {
+				ReflectionUtil.throwException(pe);
+			}
+>>>>>>> compatible
 		}
 
 		return _getFriendlyURL(layout);
@@ -1136,12 +1163,17 @@ public class ThemeDisplay
 		return _ajax;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
 	public boolean isFacebook() {
 		return false;
+=======
+	public boolean isFacebook() {
+		return _facebook;
+>>>>>>> compatible
 	}
 
 	public boolean isFreeformLayout() {
@@ -1205,6 +1237,7 @@ public class ThemeDisplay
 		return _lifecycleResource;
 	}
 
+<<<<<<< HEAD
 	public boolean isPortletEmbedded(
 		long groupId, Layout layout, String portletId) {
 
@@ -1217,6 +1250,8 @@ public class ThemeDisplay
 		return isPortletEmbedded(_layout.getGroupId(), _layout, portletId);
 	}
 
+=======
+>>>>>>> compatible
 	public boolean isSecure() {
 		return _secure;
 	}
@@ -1393,12 +1428,21 @@ public class ThemeDisplay
 		_doAsUserLanguageId = doAsUserLanguageId;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
 	public void setFacebookCanvasPageURL(String facebookCanvasPageURL) {
 		_facebookCanvasPageURL = facebookCanvasPageURL;
+=======
+	public void setFacebookCanvasPageURL(String facebookCanvasPageURL) {
+		_facebookCanvasPageURL = facebookCanvasPageURL;
+
+		if (Validator.isNotNull(facebookCanvasPageURL)) {
+			_facebook = true;
+		}
+>>>>>>> compatible
 	}
 
 	public void setFreeformLayout(boolean freeformLayout) {
@@ -1437,8 +1481,11 @@ public class ThemeDisplay
 
 	public void setLanguageId(String languageId) {
 		_languageId = languageId;
+<<<<<<< HEAD
 
 		_layoutFriendlyURLs = null;
+=======
+>>>>>>> compatible
 	}
 
 	public void setLayout(Layout layout) {
@@ -1485,8 +1532,11 @@ public class ThemeDisplay
 		_locale = locale;
 
 		LocaleThreadLocal.setThemeDisplayLocale(locale);
+<<<<<<< HEAD
 
 		_layoutFriendlyURLs = null;
+=======
+>>>>>>> compatible
 	}
 
 	public void setLookAndFeel(Theme theme, ColorScheme colorScheme) {
@@ -1585,6 +1635,15 @@ public class ThemeDisplay
 	}
 
 	public void setPathImage(String pathImage) {
+<<<<<<< HEAD
+=======
+		if (isFacebook() && !pathImage.startsWith(Http.HTTP_WITH_SLASH) &&
+			!pathImage.startsWith(Http.HTTPS_WITH_SLASH)) {
+
+			pathImage = getPortalURL() + pathImage;
+		}
+
+>>>>>>> compatible
 		_pathImage = pathImage;
 	}
 
@@ -1937,7 +1996,11 @@ public class ThemeDisplay
 
 	private String _getFriendlyURL(Layout layout) {
 		if (_layoutFriendlyURLs == null) {
+<<<<<<< HEAD
 			if (ListUtil.isEmpty(_layouts)) {
+=======
+			if (_layouts == null) {
+>>>>>>> compatible
 				_layoutFriendlyURLs = new HashMap<>();
 			}
 			else {
@@ -1950,7 +2013,11 @@ public class ThemeDisplay
 							_siteGroup,
 							_getFriendlyURLLayouts(
 								layoutManagePagesInitialChildren),
+<<<<<<< HEAD
 							_i18nLanguageId);
+=======
+							_languageId);
+>>>>>>> compatible
 				}
 			}
 		}
@@ -1969,7 +2036,11 @@ public class ThemeDisplay
 	private List<Layout> _getFriendlyURLLayouts(
 		int layoutManagePagesInitialChildren) {
 
+<<<<<<< HEAD
 		if ((layoutManagePagesInitialChildren < 0) ||
+=======
+		if ((layoutManagePagesInitialChildren == QueryUtil.ALL_POS) ||
+>>>>>>> compatible
 			(_layouts.size() <= layoutManagePagesInitialChildren)) {
 
 			return _layouts;
@@ -2011,6 +2082,7 @@ public class ThemeDisplay
 	private long _doAsGroupId;
 	private String _doAsUserId = StringPool.BLANK;
 	private String _doAsUserLanguageId = StringPool.BLANK;
+<<<<<<< HEAD
 
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
@@ -2018,6 +2090,10 @@ public class ThemeDisplay
 	@Deprecated
 	private String _facebookCanvasPageURL;
 
+=======
+	private boolean _facebook;
+	private String _facebookCanvasPageURL;
+>>>>>>> compatible
 	private boolean _freeformLayout;
 	private boolean _i18n;
 	private String _i18nLanguageId;
@@ -2061,8 +2137,11 @@ public class ThemeDisplay
 	private String _portalDomain = StringPool.BLANK;
 	private String _portalURL = StringPool.BLANK;
 	private PortletDisplay _portletDisplay = new PortletDisplay();
+<<<<<<< HEAD
 	private Map<EmbeddedPortletCacheKey, Boolean> _portletEmbeddedMap =
 		new HashMap<>();
+=======
+>>>>>>> compatible
 	private String _ppid = StringPool.BLANK;
 	private String _realCompanyLogo = StringPool.BLANK;
 	private int _realCompanyLogoHeight;
@@ -2121,6 +2200,7 @@ public class ThemeDisplay
 	private User _user;
 	private boolean _widget;
 
+<<<<<<< HEAD
 	private static class EmbeddedPortletCacheKey {
 
 		@Override
@@ -2162,4 +2242,6 @@ public class ThemeDisplay
 
 	}
 
+=======
+>>>>>>> compatible
 }

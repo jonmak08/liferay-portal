@@ -14,15 +14,21 @@
 
 package com.liferay.exportimport.kernel.exception;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.lar.MissingReferences;
 import com.liferay.portal.kernel.exception.PortalException;
 
 /**
  * @author Julio Camarero
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class MissingReferenceException extends PortalException {
 
 	public MissingReferenceException() {

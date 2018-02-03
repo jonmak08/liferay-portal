@@ -325,6 +325,7 @@ public class DDMStructureLinkLocalServiceWrapper
 	}
 
 	@Override
+<<<<<<< HEAD
 	public java.util.List<com.liferay.dynamic.data.mapping.model.DDMStructureLink> getStructureLinks(
 		long classNameId, long classPK, int start, int end) {
 		return _ddmStructureLinkLocalService.getStructureLinks(classNameId,
@@ -338,6 +339,8 @@ public class DDMStructureLinkLocalServiceWrapper
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public java.util.List<com.liferay.dynamic.data.mapping.model.DDMStructure> getStructureLinkStructures(
 		long classNameId, long classPK)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -346,6 +349,7 @@ public class DDMStructureLinkLocalServiceWrapper
 	}
 
 	@Override
+<<<<<<< HEAD
 	public java.util.List<com.liferay.dynamic.data.mapping.model.DDMStructure> getStructureLinkStructures(
 		long classNameId, long classPK, int start, int end)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -387,6 +391,8 @@ public class DDMStructureLinkLocalServiceWrapper
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public com.liferay.dynamic.data.mapping.model.DDMStructureLink getUniqueStructureLink(
 		long classNameId, long classPK)
 		throws com.liferay.portal.kernel.exception.PortalException {

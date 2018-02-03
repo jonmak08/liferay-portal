@@ -15,6 +15,7 @@
 package com.liferay.portal.language;
 
 import com.liferay.portal.kernel.bean.PortalBeanLocatorUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.language.Language;
 import com.liferay.portal.kernel.language.LanguageWrapper;
@@ -27,10 +28,15 @@ import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
 import com.liferay.portal.kernel.test.util.CompanyTestUtil;
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
+=======
+import com.liferay.portal.kernel.language.LanguageWrapper;
+import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+>>>>>>> compatible
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.LocaleThreadLocal;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.WebKeys;
+<<<<<<< HEAD
 import com.liferay.portal.test.rule.Inject;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 
@@ -38,6 +44,11 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
+=======
+import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+
+import java.util.Locale;
+>>>>>>> compatible
 
 import org.apache.struts.mock.MockHttpServletRequest;
 
@@ -55,6 +66,7 @@ import org.junit.runner.RunWith;
 @RunWith(Enclosed.class)
 public class LanguageImplTest {
 
+<<<<<<< HEAD
 	public static final class GetAvailableLocales {
 
 		@ClassRule
@@ -139,6 +151,8 @@ public class LanguageImplTest {
 
 	}
 
+=======
+>>>>>>> compatible
 	public static final class WhenFormattingFromLocale {
 
 		@ClassRule

@@ -47,6 +47,7 @@ categories = ListUtil.sort(categories, new PortletCategoryComparator(locale));
 
 List<Portlet> portlets = new ArrayList<Portlet>();
 
+<<<<<<< HEAD
 for (String portletId : portletCategory.getPortletIds()) {
 	Portlet portlet = PortletLocalServiceUtil.getPortletById(user.getCompanyId(), portletId);
 
@@ -72,6 +73,27 @@ for (String portletId : PortletCategoryUtil.getFirstChildPortletIds(portletCateg
 		ResourceBundle portletResourceBundle = curPortletConfig.getResourceBundle(locale);
 
 		externalPortletCategory = ResourceBundleUtil.getString(portletResourceBundle, portletCategory.getName());
+=======
+Set<String> portletIds = portletCategory.getPortletIds();
+
+String externalPortletCategory = null;
+
+for (String portletId : portletIds) {
+	Portlet portlet = PortletLocalServiceUtil.getPortletById(user.getCompanyId(), portletId);
+
+	if ((portlet != null) && PortletPermissionUtil.contains(permissionChecker, layout, portlet, ActionKeys.ADD_TO_PAGE)) {
+		portlets.add(portlet);
+
+		PortletApp portletApp = portlet.getPortletApp();
+
+		if (portletApp.isWARFile() && Validator.isNull(externalPortletCategory)) {
+			PortletConfig curPortletConfig = PortletConfigFactoryUtil.create(portlet, application);
+
+			ResourceBundle portletResourceBundle = curPortletConfig.getResourceBundle(locale);
+
+			externalPortletCategory = ResourceBundleUtil.getString(portletResourceBundle, portletCategory.getName());
+		}
+>>>>>>> compatible
 	}
 }
 

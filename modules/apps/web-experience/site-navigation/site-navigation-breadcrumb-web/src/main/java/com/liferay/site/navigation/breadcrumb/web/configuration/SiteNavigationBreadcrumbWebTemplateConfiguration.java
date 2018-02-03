@@ -29,10 +29,14 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
 )
 public interface SiteNavigationBreadcrumbWebTemplateConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(
 		deflt = "breadcrumb-horizontal-ftl", name = "ddm-template-key-default",
 		required = false
 	)
+=======
+	@Meta.AD(deflt = "breadcrumb-horizontal-ftl", required = false)
+>>>>>>> compatible
 	public String ddmTemplateKeyDefault();
 
 }

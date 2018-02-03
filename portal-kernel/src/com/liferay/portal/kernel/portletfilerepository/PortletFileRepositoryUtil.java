@@ -221,6 +221,7 @@ public class PortletFileRepositoryUtil {
 			groupId, folderId, obc);
 	}
 
+<<<<<<< HEAD
 	public static List<FileEntry> getPortletFileEntries(
 			long groupId, long folderId, String[] mimeTypes, int status,
 			int start, int end, OrderByComparator<FileEntry> obc)
@@ -230,6 +231,8 @@ public class PortletFileRepositoryUtil {
 			groupId, folderId, mimeTypes, status, start, end, obc);
 	}
 
+=======
+>>>>>>> compatible
 	public static int getPortletFileEntriesCount(long groupId, long folderId)
 		throws PortalException {
 
@@ -245,6 +248,7 @@ public class PortletFileRepositoryUtil {
 			groupId, folderId, status);
 	}
 
+<<<<<<< HEAD
 	public static int getPortletFileEntriesCount(
 			long groupId, long folderId, String[] mimeTypes, int status)
 		throws PortalException {
@@ -253,6 +257,8 @@ public class PortletFileRepositoryUtil {
 			groupId, folderId, mimeTypes, status);
 	}
 
+=======
+>>>>>>> compatible
 	public static FileEntry getPortletFileEntry(long fileEntryId)
 		throws PortalException {
 

@@ -95,12 +95,20 @@
 </tr>
 <tr>
 	<td>SITE_NAME</td>
+<<<<<<< HEAD
 	<td>//a[contains(@class,'logo')]//h1</td>
+=======
+	<td>//div[@id='heading']/span[@class='site-name']</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
 	<td>USER_NAME_HEADER</td>
+<<<<<<< HEAD
 	<td>//a[contains(@title,'Go to')]/h1 | //div[@id='heading']//div[contains(@class,'site-name')]</td>
+=======
+	<td>//div[@id='heading']//span[@class='site-name'] | //div[@id='heading']//div[contains(@class,'site-name')]</td>
+>>>>>>> compatible
 	<td></td>
 </tr>
 <tr>
@@ -139,6 +147,14 @@
 	<td></td>
 </tr>
 <tr>
+<<<<<<< HEAD
+=======
+	<td>ERROR_MESSAGE_ALERT_ERROR</td>
+	<td>//section[@id='content']/h3[contains(@class, 'alert-danger')] | //div[@class='portlet-content']/h3[contains(@class, 'alert-danger')]</td>
+	<td></td>
+</tr>
+<tr>
+>>>>>>> compatible
 	<td>ERROR_MESSAGE_RESOURCE_NOT_FOUND</td>
 	<td>//div[@class='portlet-content']</td>
 	<td></td>
@@ -213,12 +229,20 @@
 <!--PAGE-->
 <tr>
 	<td>PAGE</td>
+<<<<<<< HEAD
 	<td>//div[contains(@id,'navbar')]/ul/li/a[contains(.,'${key_pageName}')]</td>
+=======
+	<td>//div[contains(@class,'navbar')]/ul/li/a[contains(.,'${key_pageName}')]</td>
+>>>>>>> compatible
 	<td>Page</td>
 </tr>
 <tr>
 	<td>PAGE_ACTIVE</td>
+<<<<<<< HEAD
 	<td>//div[contains(@id,'navbar')]/ul//*[contains(@class,'active')][contains(.,'${key_pageName}')]</td>
+=======
+	<td>//div[contains(@class,'navbar')]/ul/li[contains(@class,'active')]/a[contains(.,'${key_pageName}')]</td>
+>>>>>>> compatible
 	<td>Page</td>
 </tr>
 <tr>

@@ -19,7 +19,10 @@ import com.liferay.dynamic.data.mapping.model.DDMStructure;
 import com.liferay.dynamic.data.mapping.model.DDMStructureConstants;
 import com.liferay.dynamic.data.mapping.service.DDMStructureServiceUtil;
 import com.liferay.dynamic.data.mapping.storage.StorageType;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.ResourceConstants;
@@ -40,8 +43,15 @@ import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.test.util.UserTestUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.portal.security.permission.AdvancedPermissionChecker;
+>>>>>>> compatible
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 
 import java.util.List;
@@ -160,6 +170,7 @@ public class DDMStructureServiceTest extends BaseDDMServiceTestCase {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testSearchByType() throws Exception {
 		addStructure(
 			0, _classNameId, null, StringUtil.randomString(), StringPool.BLANK,
@@ -191,6 +202,8 @@ public class DDMStructureServiceTest extends BaseDDMServiceTestCase {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testSearchCount() throws Exception {
 		addStructure(_classNameId, StringUtil.randomString());
 		addStructure(_classNameId, StringUtil.randomString());
@@ -248,6 +261,7 @@ public class DDMStructureServiceTest extends BaseDDMServiceTestCase {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testSearchCountByType() throws Exception {
 		int initialCount = DDMStructureServiceUtil.searchCount(
 			TestPropsValues.getCompanyId(), new long[] {group.getGroupId()},
@@ -269,6 +283,8 @@ public class DDMStructureServiceTest extends BaseDDMServiceTestCase {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testSearchWithSiteAdminPermission() throws Exception {
 		DDMStructure structure = addStructure(
 			_classNameId, StringUtil.randomString());
@@ -345,7 +361,15 @@ public class DDMStructureServiceTest extends BaseDDMServiceTestCase {
 			PermissionThreadLocal.getPermissionChecker();
 
 		PermissionThreadLocal.setPermissionChecker(
+<<<<<<< HEAD
 			PermissionCheckerFactoryUtil.create(_siteAdminUser));
+=======
+			new AdvancedPermissionChecker() {
+				{
+					init(_siteAdminUser);
+				}
+			});
+>>>>>>> compatible
 	}
 
 	protected void setUpPrincipalThreadLocal() throws Exception {

@@ -18,8 +18,12 @@ import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
 import com.liferay.portal.kernel.json.JSONArray;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+=======
+import com.liferay.portal.kernel.util.StreamUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.push.notifications.constants.PushNotificationsConstants;
 import com.liferay.push.notifications.exception.PushNotificationsException;
@@ -33,7 +37,10 @@ import com.notnoop.apns.PayloadBuilder;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+<<<<<<< HEAD
 import java.io.IOException;
+=======
+>>>>>>> compatible
 import java.io.InputStream;
 
 import java.util.ArrayList;
@@ -97,8 +104,23 @@ public class ApplePushNotificationsSender implements PushNotificationsSender {
 
 		ApnsServiceBuilder appleServiceBuilder = APNS.newService();
 
+<<<<<<< HEAD
 		try (InputStream inputStream =
 				_getCertificateInputStream(certificatePath)) {
+=======
+		InputStream inputStream = null;
+
+		try {
+			try {
+				inputStream = new FileInputStream(certificatePath);
+			}
+			catch (FileNotFoundException fnfe) {
+				ClassLoader classLoader =
+					ApplePushNotificationsSender.class.getClassLoader();
+
+				inputStream = classLoader.getResourceAsStream(certificatePath);
+			}
+>>>>>>> compatible
 
 			if (inputStream == null) {
 				throw new IllegalArgumentException(
@@ -107,10 +129,15 @@ public class ApplePushNotificationsSender implements PushNotificationsSender {
 
 			appleServiceBuilder.withCert(inputStream, certificatePassword);
 		}
+<<<<<<< HEAD
 		catch (IOException ioe) {
 			if (_log.isWarnEnabled()) {
 				_log.warn(ioe, ioe);
 			}
+=======
+		finally {
+			StreamUtil.cleanUp(inputStream);
+>>>>>>> compatible
 		}
 
 		appleServiceBuilder.withDelegate(new AppleDelegate());
@@ -207,6 +234,7 @@ public class ApplePushNotificationsSender implements PushNotificationsSender {
 		_apnsService = null;
 	}
 
+<<<<<<< HEAD
 	private InputStream _getCertificateInputStream(String certificatePath) {
 		try {
 			return new FileInputStream(certificatePath);
@@ -222,6 +250,8 @@ public class ApplePushNotificationsSender implements PushNotificationsSender {
 	private static final Log _log = LogFactoryUtil.getLog(
 		ApplePushNotificationsSender.class);
 
+=======
+>>>>>>> compatible
 	private volatile ApnsService _apnsService;
 
 }

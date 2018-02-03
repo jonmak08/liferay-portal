@@ -15,16 +15,22 @@
 package com.liferay.portal.util;
 
 import com.liferay.portal.kernel.exception.PortalException;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.Repository;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.repository.LocalRepository;
 import com.liferay.portal.kernel.repository.RepositoryProviderUtil;
 import com.liferay.portal.kernel.repository.capabilities.RepositoryEventTriggerCapability;
 import com.liferay.portal.kernel.repository.event.RepositoryEventTrigger;
 import com.liferay.portal.kernel.repository.event.RepositoryEventType;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.service.RepositoryLocalServiceUtil;
 import com.liferay.portal.repository.registry.RepositoryClassDefinitionCatalogUtil;
 
 import java.util.Collection;
+=======
+>>>>>>> compatible
 
 /**
  * @author Adolfo Pérez
@@ -40,6 +46,7 @@ public class RepositoryUtil {
 
 		return getRepositoryEventTrigger(localRepository);
 	}
+<<<<<<< HEAD
 
 	public static RepositoryEventTrigger getRepositoryEventTrigger(
 			long repositoryId)
@@ -64,6 +71,17 @@ public class RepositoryUtil {
 				getExternalRepositoryClassNames();
 
 		return externalRepositoryClassNames.contains(repository.getClassName());
+=======
+
+	public static RepositoryEventTrigger getRepositoryEventTrigger(
+			long repositoryId)
+		throws PortalException {
+
+		LocalRepository localRepository =
+			RepositoryProviderUtil.getLocalRepository(repositoryId);
+
+		return getRepositoryEventTrigger(localRepository);
+>>>>>>> compatible
 	}
 
 	protected static RepositoryEventTrigger getRepositoryEventTrigger(

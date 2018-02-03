@@ -300,11 +300,19 @@ renderResponse.setTitle(!configuredPublish ? LanguageUtil.get(request, "new-publ
 		</div>
 
 		<aui:button-row>
+<<<<<<< HEAD
 			<aui:button id="addButton" onClick='<%= renderResponse.getNamespace() + "schedulePublishEvent();" %>' value="add-event" />
 
 			<aui:button id="publishButton" type="submit" value="<%= LanguageUtil.get(request, publishMessageKey) %>" />
 
 			<aui:button href="<%= basePortletURL %>" type="cancel" />
+=======
+			<aui:button cssClass="btn-lg" id="addButton" onClick='<%= renderResponse.getNamespace() + "schedulePublishEvent();" %>' value="add-event" />
+
+			<aui:button cssClass="btn-lg" id="publishButton" type="submit" value="<%= LanguageUtil.get(request, publishMessageKey) %>" />
+
+			<aui:button cssClass="btn-lg" href="<%= basePortletURL %>" type="cancel" />
+>>>>>>> compatible
 		</aui:button-row>
 	</div>
 </aui:form>
@@ -313,8 +321,11 @@ renderResponse.setTitle(!configuredPublish ? LanguageUtil.get(request, "new-publ
 	function <portlet:namespace />publishPages() {
 		var exportImport = Liferay.component('<portlet:namespace />ExportImportComponent');
 
+<<<<<<< HEAD
 		var deletePortletDataBeforeImportingCheckbox = AUI.$('#<portlet:namespace />deletePortletDataBeforeImportingCheckbox');
 
+=======
+>>>>>>> compatible
 		var dateChecker = exportImport.getDateRangeChecker();
 
 		if (dateChecker.validRange) {
@@ -326,12 +337,16 @@ renderResponse.setTitle(!configuredPublish ? LanguageUtil.get(request, "new-publ
 				form.fm('<%= PortletDataHandlerKeys.PORTLET_DATA_CONTROL_DEFAULT %>').val(true);
 			}
 
+<<<<<<< HEAD
 			if (deletePortletDataBeforeImportingCheckbox.length && deletePortletDataBeforeImportingCheckbox[0].checked) {
 				confirm('<%= UnicodeLanguageUtil.get(request, "delete-portlet-data-before-importing-confirmation") %>') && submitForm(form);
 			}
 			else {
 				submitForm(form);
 			}
+=======
+			submitForm(form);
+>>>>>>> compatible
 		}
 		else {
 			exportImport.showNotification(dateChecker);
@@ -348,7 +363,11 @@ renderResponse.setTitle(!configuredPublish ? LanguageUtil.get(request, "new-publ
 	Liferay.Util.toggleRadio('<portlet:namespace />rangeLast', '<portlet:namespace />rangeLastInputs', ['<portlet:namespace />startEndDate']);
 </aui:script>
 
+<<<<<<< HEAD
 <aui:script use="liferay-staging-processes-export-import">
+=======
+<aui:script use="liferay-export-import">
+>>>>>>> compatible
 	var exportImport = new Liferay.ExportImport(
 		{
 			commentsNode: '#<%= PortletDataHandlerKeys.COMMENTS %>',

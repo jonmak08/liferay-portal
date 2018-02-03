@@ -183,7 +183,11 @@ public class SyncDLObjectFinderImpl
 
 		for (int i = 0; i < typePKs.length; i++) {
 			sb.append("CAST_TEXT(");
+<<<<<<< HEAD
 			sb.append(StringUtil.trim(String.valueOf(typePKs[i])));
+=======
+			sb.append(String.valueOf(typePKs[i]).trim());
+>>>>>>> compatible
 			sb.append(StringPool.CLOSE_PARENTHESIS);
 
 			if ((i + 1) != typePKs.length) {

@@ -63,9 +63,14 @@ public class NotificationTemplateRenderer {
 			new String[] {
 				"[$EVENT_END_DATE$]", "[$EVENT_LOCATION$]",
 				"[$EVENT_START_DATE$]", "[$EVENT_TITLE$]", "[$EVENT_URL$]",
+<<<<<<< HEAD
 				"[$INSTANCE_START_TIME$]", "[$FROM_ADDRESS$]", "[$FROM_NAME$]",
 				"[$PORTAL_URL$]", "[$PORTLET_NAME$]", "[$TO_ADDRESS$]",
 				"[$TO_NAME$]"
+=======
+				"[$FROM_ADDRESS$]", "[$FROM_NAME$]", "[$PORTAL_URL$]",
+				"[$PORTLET_NAME$]", "[$TO_ADDRESS$]", "[$TO_NAME$]"
+>>>>>>> compatible
 			},
 			new String[] {
 				GetterUtil.getString(attributes.get("endTime")),
@@ -74,7 +79,10 @@ public class NotificationTemplateRenderer {
 				GetterUtil.getString(attributes.get("startTime")),
 				HtmlUtil.escape(GetterUtil.getString(attributes.get("title"))),
 				GetterUtil.getString(attributes.get("url")),
+<<<<<<< HEAD
 				GetterUtil.getString(attributes.get("instanceStartTime")),
+=======
+>>>>>>> compatible
 				GetterUtil.getString(
 					notificationTemplateContext.getFromAddress()),
 				GetterUtil.getString(notificationTemplateContext.getFromName()),

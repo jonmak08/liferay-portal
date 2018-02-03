@@ -39,12 +39,15 @@ public class PropsInvocationHandler implements InvocationHandler {
 
 				return "true";
 			}
+<<<<<<< HEAD
 
 			if (PropsKeys.VALUE_OBJECT_FINDER_CACHE_LIST_THRESHOLD.equals(
 					key)) {
 
 				return "-1";
 			}
+=======
+>>>>>>> compatible
 		}
 
 		return null;

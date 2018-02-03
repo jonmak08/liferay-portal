@@ -17,6 +17,10 @@ package com.liferay.portal.template.velocity.internal;
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
 import com.liferay.portal.kernel.cache.MultiVMPool;
 import com.liferay.portal.kernel.cache.SingleVMPool;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.concurrent.ConcurrentHashSet;
+>>>>>>> compatible
 import com.liferay.portal.kernel.io.unsync.UnsyncStringWriter;
 import com.liferay.portal.kernel.template.StringTemplateResource;
 import com.liferay.portal.kernel.template.Template;
@@ -46,7 +50,10 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+<<<<<<< HEAD
 import java.util.concurrent.ConcurrentHashMap;
+=======
+>>>>>>> compatible
 import java.util.function.Function;
 
 import javax.servlet.http.HttpServletRequest;
@@ -256,7 +263,11 @@ public class VelocityTemplateTest {
 		catch (TemplateException te) {
 			String message = te.getMessage();
 
+<<<<<<< HEAD
 			Assert.assertTrue(message, message.contains(_WRONG_TEMPLATE_ID));
+=======
+			Assert.assertTrue(message.contains(_WRONG_TEMPLATE_ID));
+>>>>>>> compatible
 		}
 	}
 
@@ -333,8 +344,12 @@ public class VelocityTemplateTest {
 		catch (TemplateException te) {
 			String message = te.getMessage();
 
+<<<<<<< HEAD
 			Assert.assertTrue(
 				message, message.contains(_WRONG_ERROR_TEMPLATE_ID));
+=======
+			Assert.assertTrue(message.contains(_WRONG_ERROR_TEMPLATE_ID));
+>>>>>>> compatible
 		}
 	}
 
@@ -390,7 +405,11 @@ public class VelocityTemplateTest {
 	private static final String _WRONG_TEMPLATE_ID = "WRONG_TEMPLATE_ID";
 
 	private static final Set<ServiceRegistration<?>> _serviceRegistrations =
+<<<<<<< HEAD
 		Collections.newSetFromMap(new ConcurrentHashMap<>());
+=======
+		new ConcurrentHashSet<>();
+>>>>>>> compatible
 	private static MockTemplateResourceLoader _templateResourceLoader;
 
 	private TemplateContextHelper _templateContextHelper;

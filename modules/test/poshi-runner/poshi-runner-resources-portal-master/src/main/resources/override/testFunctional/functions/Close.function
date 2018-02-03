@@ -2,7 +2,11 @@
 	<command name="close">
 		<execute function="WaitForSPARefresh" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Close#close" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 
@@ -14,7 +18,11 @@
 
 		<execute argument1="1000" selenium="pause" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Close#closeAndSelectWindow" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 
@@ -26,7 +34,11 @@
 
 		<execute argument1="1000" selenium="pause" />
 
+<<<<<<< HEAD
 		<execute function="Poshi.Close#closeWindow" />
+=======
+		<super />
+>>>>>>> compatible
 
 		<execute selenium="assertJavaScriptErrors" />
 

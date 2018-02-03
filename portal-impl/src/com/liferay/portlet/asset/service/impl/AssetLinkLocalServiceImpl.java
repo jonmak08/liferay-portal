@@ -38,6 +38,7 @@ import com.liferay.portal.kernel.dao.orm.Session;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.SystemEventConstants;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.model.adapter.ModelAdapterUtil;
@@ -45,6 +46,11 @@ import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portlet.asset.model.impl.AssetLinkImpl;
+=======
+import com.liferay.portal.kernel.model.User;
+import com.liferay.portal.kernel.model.adapter.ModelAdapterUtil;
+import com.liferay.portal.kernel.util.ArrayUtil;
+>>>>>>> compatible
 import com.liferay.portlet.asset.service.base.AssetLinkLocalServiceBaseImpl;
 import com.liferay.util.dao.orm.CustomSQLUtil;
 
@@ -124,6 +130,7 @@ public class AssetLinkLocalServiceImpl extends AssetLinkLocalServiceBaseImpl {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public AssetLink deleteAssetLink(AssetLink assetLink) {
 		AssetLink deletedAssetLink = super.deleteAssetLink(assetLink);
 
@@ -142,21 +149,31 @@ public class AssetLinkLocalServiceImpl extends AssetLinkLocalServiceBaseImpl {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public void deleteGroupLinks(long groupId) {
 		Session session = assetLinkPersistence.openSession();
 
 		try {
+<<<<<<< HEAD
 			String sql = CustomSQLUtil.get(_FIND_BY_ASSET_ENTRY_GROUP_ID);
 
 			SQLQuery sqlQuery = session.createSynchronizedSQLQuery(sql);
 
 			sqlQuery.addEntity("AssetLink", AssetLinkImpl.class);
 
+=======
+			String sql = CustomSQLUtil.get(_DELETE_BY_ASSET_ENTRY_GROUP_ID);
+
+			SQLQuery sqlQuery = session.createSynchronizedSQLQuery(sql);
+
+>>>>>>> compatible
 			QueryPos qPos = QueryPos.getInstance(sqlQuery);
 
 			qPos.add(groupId);
 			qPos.add(groupId);
 
+<<<<<<< HEAD
 			List<AssetLink> assetLinks = sqlQuery.list();
 
 			if (ListUtil.isEmpty(assetLinks)) {
@@ -166,6 +183,9 @@ public class AssetLinkLocalServiceImpl extends AssetLinkLocalServiceBaseImpl {
 			for (AssetLink assetLink : assetLinks) {
 				deleteAssetLink(assetLink);
 			}
+=======
+			sqlQuery.executeUpdate();
+>>>>>>> compatible
 		}
 		finally {
 			assetLinkPersistence.closeSession(session);
@@ -295,6 +315,7 @@ public class AssetLinkLocalServiceImpl extends AssetLinkLocalServiceBaseImpl {
 	@Override
 	public ExportActionableDynamicQuery getExportActionbleDynamicQuery(
 		final PortletDataContext portletDataContext) {
+<<<<<<< HEAD
 
 		final ExportActionableDynamicQuery exportActionableDynamicQuery =
 			new ExportActionableDynamicQuery();
@@ -307,6 +328,20 @@ public class AssetLinkLocalServiceImpl extends AssetLinkLocalServiceBaseImpl {
 					Criterion createDateCriterion =
 						portletDataContext.getDateRangeCriteria("createDate");
 
+=======
+
+		final ExportActionableDynamicQuery exportActionableDynamicQuery =
+			new ExportActionableDynamicQuery();
+
+		exportActionableDynamicQuery.setAddCriteriaMethod(
+			new ActionableDynamicQuery.AddCriteriaMethod() {
+
+				@Override
+				public void addCriteria(DynamicQuery dynamicQuery) {
+					Criterion createDateCriterion =
+						portletDataContext.getDateRangeCriteria("createDate");
+
+>>>>>>> compatible
 					if (createDateCriterion != null) {
 						dynamicQuery.add(createDateCriterion);
 					}
@@ -528,6 +563,7 @@ public class AssetLinkLocalServiceImpl extends AssetLinkLocalServiceBaseImpl {
 		}
 	}
 
+<<<<<<< HEAD
 	protected void addDeletionSystemEvent(AssetLink assetLink) {
 		StagedAssetLink stagedAssetLink = ModelAdapterUtil.adapt(
 			assetLink, AssetLink.class, StagedAssetLink.class);
@@ -552,6 +588,8 @@ public class AssetLinkLocalServiceImpl extends AssetLinkLocalServiceBaseImpl {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	protected List<AssetLink> filterAssetLinks(
 		List<AssetLink> assetLinks, boolean excludeInvisibleLinks) {
 
@@ -575,8 +613,14 @@ public class AssetLinkLocalServiceImpl extends AssetLinkLocalServiceBaseImpl {
 		return assetLinks;
 	}
 
+<<<<<<< HEAD
 	private static final String _FIND_BY_ASSET_ENTRY_GROUP_ID =
 		AssetLinkLocalServiceImpl.class.getName() + ".findByAssetEntryGroupId";
+=======
+	private static final String _DELETE_BY_ASSET_ENTRY_GROUP_ID =
+		AssetLinkLocalServiceImpl.class.getName() +
+			".deleteByAssetEntryGroupId";
+>>>>>>> compatible
 
 	private static final Log _log = LogFactoryUtil.getLog(
 		AssetLinkLocalServiceImpl.class);

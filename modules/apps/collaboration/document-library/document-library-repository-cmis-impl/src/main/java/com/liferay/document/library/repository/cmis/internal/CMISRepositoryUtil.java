@@ -24,12 +24,18 @@ import com.liferay.portal.kernel.util.UnicodeProperties;
 import com.liferay.portal.kernel.util.Validator;
 
 import java.util.HashSet;
+<<<<<<< HEAD
 import java.util.List;
+=======
+>>>>>>> compatible
 import java.util.Map;
 import java.util.Set;
 
 import org.apache.chemistry.opencmis.client.api.OperationContext;
+<<<<<<< HEAD
 import org.apache.chemistry.opencmis.client.api.Repository;
+=======
+>>>>>>> compatible
 import org.apache.chemistry.opencmis.client.api.Session;
 import org.apache.chemistry.opencmis.client.api.SessionFactory;
 import org.apache.chemistry.opencmis.client.runtime.OperationContextImpl;
@@ -51,7 +57,12 @@ public class CMISRepositoryUtil {
 		throws PortalException, RepositoryException {
 
 		if (!typeSettingsProperties.containsKey(typeSettingsKey)) {
+<<<<<<< HEAD
 			Repository cmisRepository = getCMISRepository(parameters);
+=======
+			org.apache.chemistry.opencmis.client.api.Repository cmisRepository =
+				getCMISRepository(parameters);
+>>>>>>> compatible
 
 			typeSettingsProperties.setProperty(
 				typeSettingsKey, cmisRepository.getId());
@@ -111,17 +122,26 @@ public class CMISRepositoryUtil {
 		return value;
 	}
 
+<<<<<<< HEAD
 	protected static Repository getCMISRepository(
 		Map<String, String> parameters) {
+=======
+	protected static org.apache.chemistry.opencmis.client.api.Repository
+		getCMISRepository(Map<String, String> parameters) {
+>>>>>>> compatible
 
 		try (ContextClassLoaderSetter contextClassLoaderSetter =
 				new ContextClassLoaderSetter(
 					CMISRepositoryUtil.class.getClassLoader())) {
 
+<<<<<<< HEAD
 			List<Repository> repositories = _sessionFactory.getRepositories(
 				parameters);
 
 			return repositories.get(0);
+=======
+			return _sessionFactory.getRepositories(parameters).get(0);
+>>>>>>> compatible
 		}
 	}
 

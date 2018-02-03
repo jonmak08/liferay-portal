@@ -35,6 +35,10 @@ import com.liferay.portal.kernel.transaction.Propagation;
 import com.liferay.portal.kernel.util.IntegerWrapper;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.OrderByComparatorFactoryUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Time;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.test.rule.PersistenceTestRule;
@@ -237,27 +241,45 @@ public class DDMTemplatePersistenceTest {
 
 	@Test
 	public void testCountByUuid() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByUuid("");
 
 		_persistence.countByUuid("null");
+=======
+		_persistence.countByUuid(StringPool.BLANK);
+
+		_persistence.countByUuid(StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByUuid((String)null);
 	}
 
 	@Test
 	public void testCountByUUID_G() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByUUID_G("", RandomTestUtil.nextLong());
 
 		_persistence.countByUUID_G("null", 0L);
+=======
+		_persistence.countByUUID_G(StringPool.BLANK, RandomTestUtil.nextLong());
+
+		_persistence.countByUUID_G(StringPool.NULL, 0L);
+>>>>>>> compatible
 
 		_persistence.countByUUID_G((String)null, 0L);
 	}
 
 	@Test
 	public void testCountByUuid_C() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByUuid_C("", RandomTestUtil.nextLong());
 
 		_persistence.countByUuid_C("null", 0L);
+=======
+		_persistence.countByUuid_C(StringPool.BLANK, RandomTestUtil.nextLong());
+
+		_persistence.countByUuid_C(StringPool.NULL, 0L);
+>>>>>>> compatible
 
 		_persistence.countByUuid_C((String)null, 0L);
 	}
@@ -278,27 +300,45 @@ public class DDMTemplatePersistenceTest {
 
 	@Test
 	public void testCountByTemplateKey() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByTemplateKey("");
 
 		_persistence.countByTemplateKey("null");
+=======
+		_persistence.countByTemplateKey(StringPool.BLANK);
+
+		_persistence.countByTemplateKey(StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByTemplateKey((String)null);
 	}
 
 	@Test
 	public void testCountByType() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByType("");
 
 		_persistence.countByType("null");
+=======
+		_persistence.countByType(StringPool.BLANK);
+
+		_persistence.countByType(StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByType((String)null);
 	}
 
 	@Test
 	public void testCountByLanguage() throws Exception {
+<<<<<<< HEAD
 		_persistence.countByLanguage("");
 
 		_persistence.countByLanguage("null");
+=======
+		_persistence.countByLanguage(StringPool.BLANK);
+
+		_persistence.countByLanguage(StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByLanguage((String)null);
 	}
@@ -349,9 +389,15 @@ public class DDMTemplatePersistenceTest {
 	@Test
 	public void testCountByG_C_T() throws Exception {
 		_persistence.countByG_C_T(RandomTestUtil.nextLong(),
+<<<<<<< HEAD
 			RandomTestUtil.nextLong(), "");
 
 		_persistence.countByG_C_T(0L, 0L, "null");
+=======
+			RandomTestUtil.nextLong(), StringPool.BLANK);
+
+		_persistence.countByG_C_T(0L, 0L, StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByG_C_T(0L, 0L, (String)null);
 	}
@@ -359,9 +405,15 @@ public class DDMTemplatePersistenceTest {
 	@Test
 	public void testCountByC_C_T() throws Exception {
 		_persistence.countByC_C_T(RandomTestUtil.nextLong(),
+<<<<<<< HEAD
 			RandomTestUtil.nextLong(), "");
 
 		_persistence.countByC_C_T(0L, 0L, "null");
+=======
+			RandomTestUtil.nextLong(), StringPool.BLANK);
+
+		_persistence.countByC_C_T(0L, 0L, StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByC_C_T(0L, 0L, (String)null);
 	}
@@ -369,9 +421,16 @@ public class DDMTemplatePersistenceTest {
 	@Test
 	public void testCountByG_C_C_T() throws Exception {
 		_persistence.countByG_C_C_T(RandomTestUtil.nextLong(),
+<<<<<<< HEAD
 			RandomTestUtil.nextLong(), RandomTestUtil.nextLong(), "");
 
 		_persistence.countByG_C_C_T(0L, 0L, 0L, "null");
+=======
+			RandomTestUtil.nextLong(), RandomTestUtil.nextLong(),
+			StringPool.BLANK);
+
+		_persistence.countByG_C_C_T(0L, 0L, 0L, StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByG_C_C_T(0L, 0L, 0L, (String)null);
 	}
@@ -379,9 +438,17 @@ public class DDMTemplatePersistenceTest {
 	@Test
 	public void testCountByG_C_C_T_M() throws Exception {
 		_persistence.countByG_C_C_T_M(RandomTestUtil.nextLong(),
+<<<<<<< HEAD
 			RandomTestUtil.nextLong(), RandomTestUtil.nextLong(), "", "");
 
 		_persistence.countByG_C_C_T_M(0L, 0L, 0L, "null", "null");
+=======
+			RandomTestUtil.nextLong(), RandomTestUtil.nextLong(),
+			StringPool.BLANK, StringPool.BLANK);
+
+		_persistence.countByG_C_C_T_M(0L, 0L, 0L, StringPool.NULL,
+			StringPool.NULL);
+>>>>>>> compatible
 
 		_persistence.countByG_C_C_T_M(0L, 0L, 0L, (String)null, (String)null);
 	}

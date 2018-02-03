@@ -19,6 +19,10 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.security.wedeploy.auth.model.WeDeployAuthApp;
 
 import java.io.Externalizable;
@@ -100,7 +104,11 @@ public class WeDeployAuthAppCacheModel implements CacheModel<WeDeployAuthApp>,
 		weDeployAuthAppImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			weDeployAuthAppImpl.setUserName("");
+=======
+			weDeployAuthAppImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			weDeployAuthAppImpl.setUserName(userName);
@@ -121,28 +129,44 @@ public class WeDeployAuthAppCacheModel implements CacheModel<WeDeployAuthApp>,
 		}
 
 		if (name == null) {
+<<<<<<< HEAD
 			weDeployAuthAppImpl.setName("");
+=======
+			weDeployAuthAppImpl.setName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			weDeployAuthAppImpl.setName(name);
 		}
 
 		if (redirectURI == null) {
+<<<<<<< HEAD
 			weDeployAuthAppImpl.setRedirectURI("");
+=======
+			weDeployAuthAppImpl.setRedirectURI(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			weDeployAuthAppImpl.setRedirectURI(redirectURI);
 		}
 
 		if (clientId == null) {
+<<<<<<< HEAD
 			weDeployAuthAppImpl.setClientId("");
+=======
+			weDeployAuthAppImpl.setClientId(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			weDeployAuthAppImpl.setClientId(clientId);
 		}
 
 		if (clientSecret == null) {
+<<<<<<< HEAD
 			weDeployAuthAppImpl.setClientSecret("");
+=======
+			weDeployAuthAppImpl.setClientSecret(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			weDeployAuthAppImpl.setClientSecret(clientSecret);
@@ -179,7 +203,11 @@ public class WeDeployAuthAppCacheModel implements CacheModel<WeDeployAuthApp>,
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -189,28 +217,44 @@ public class WeDeployAuthAppCacheModel implements CacheModel<WeDeployAuthApp>,
 		objectOutput.writeLong(modifiedDate);
 
 		if (name == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(name);
 		}
 
 		if (redirectURI == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(redirectURI);
 		}
 
 		if (clientId == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(clientId);
 		}
 
 		if (clientSecret == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(clientSecret);

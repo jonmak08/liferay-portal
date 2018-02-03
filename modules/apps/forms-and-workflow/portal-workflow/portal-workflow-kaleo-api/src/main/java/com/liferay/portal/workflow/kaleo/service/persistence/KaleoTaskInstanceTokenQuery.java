@@ -37,10 +37,13 @@ public class KaleoTaskInstanceTokenQuery {
 		return _assetPrimaryKeys;
 	}
 
+<<<<<<< HEAD
 	public String getAssetTitle() {
 		return _assetTitle;
 	}
 
+=======
+>>>>>>> compatible
 	public String[] getAssetTypes() {
 		return _assetTypes;
 	}
@@ -117,10 +120,13 @@ public class KaleoTaskInstanceTokenQuery {
 		_assetPrimaryKeys = assetPrimaryKeys;
 	}
 
+<<<<<<< HEAD
 	public void setAssetTitle(String assetTitle) {
 		_assetTitle = assetTitle;
 	}
 
+=======
+>>>>>>> compatible
 	public void setAssetTypes(String[] assetTypes) {
 		_assetTypes = assetTypes;
 	}
@@ -189,7 +195,10 @@ public class KaleoTaskInstanceTokenQuery {
 
 	private boolean _andOperator = true;
 	private Long[] _assetPrimaryKeys;
+<<<<<<< HEAD
 	private String _assetTitle;
+=======
+>>>>>>> compatible
 	private String[] _assetTypes;
 	private String _assigneeClassName;
 	private Long _assigneeClassPK;

@@ -14,6 +14,7 @@
 
 package com.liferay.portal.verify;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.dao.orm.EntityCacheUtil;
 import com.liferay.portal.kernel.dao.orm.FinderCacheUtil;
 import com.liferay.portal.kernel.model.Contact;
@@ -34,6 +35,15 @@ import com.liferay.portal.model.impl.ResourcePermissionImpl;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.verify.model.GroupVerifiableResourcedModel;
 import com.liferay.portal.verify.model.UserVerifiableModel;
+=======
+import com.liferay.portal.kernel.model.Company;
+import com.liferay.portal.kernel.service.CompanyLocalServiceUtil;
+import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+import com.liferay.portal.kernel.test.util.CompanyTestUtil;
+import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+>>>>>>> compatible
 import com.liferay.portal.verify.test.BaseVerifyProcessTestCase;
 
 import org.junit.Assert;
@@ -45,12 +55,19 @@ import org.junit.Test;
  * @author Manuel de la Peña
  * @author Preston Crary
  */
+@Sync
 public class VerifyResourcePermissionsTest extends BaseVerifyProcessTestCase {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Test
 	public void testVerifyGroupResourcedModel() throws Exception {

@@ -14,7 +14,11 @@
 
 package com.liferay.portal.kernel.io;
 
+<<<<<<< HEAD
 import com.liferay.petra.nio.CharsetEncoderUtil;
+=======
+import com.liferay.portal.kernel.nio.charset.CharsetEncoderUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 
 import java.io.IOException;

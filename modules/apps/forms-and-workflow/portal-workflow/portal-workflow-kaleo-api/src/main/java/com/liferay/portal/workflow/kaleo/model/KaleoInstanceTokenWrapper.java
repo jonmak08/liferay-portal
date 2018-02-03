@@ -65,7 +65,11 @@ public class KaleoInstanceTokenWrapper implements KaleoInstanceToken,
 		attributes.put("userName", getUserName());
 		attributes.put("createDate", getCreateDate());
 		attributes.put("modifiedDate", getModifiedDate());
+<<<<<<< HEAD
 		attributes.put("kaleoDefinitionVersionId", getKaleoDefinitionVersionId());
+=======
+		attributes.put("kaleoDefinitionId", getKaleoDefinitionId());
+>>>>>>> compatible
 		attributes.put("kaleoInstanceId", getKaleoInstanceId());
 		attributes.put("parentKaleoInstanceTokenId",
 			getParentKaleoInstanceTokenId());
@@ -123,11 +127,18 @@ public class KaleoInstanceTokenWrapper implements KaleoInstanceToken,
 			setModifiedDate(modifiedDate);
 		}
 
+<<<<<<< HEAD
 		Long kaleoDefinitionVersionId = (Long)attributes.get(
 				"kaleoDefinitionVersionId");
 
 		if (kaleoDefinitionVersionId != null) {
 			setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
+=======
+		Long kaleoDefinitionId = (Long)attributes.get("kaleoDefinitionId");
+
+		if (kaleoDefinitionId != null) {
+			setKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 		}
 
 		Long kaleoInstanceId = (Long)attributes.get("kaleoInstanceId");
@@ -303,6 +314,7 @@ public class KaleoInstanceTokenWrapper implements KaleoInstanceToken,
 	}
 
 	/**
+<<<<<<< HEAD
 	* Returns the kaleo definition version ID of this kaleo instance token.
 	*
 	* @return the kaleo definition version ID of this kaleo instance token
@@ -310,6 +322,15 @@ public class KaleoInstanceTokenWrapper implements KaleoInstanceToken,
 	@Override
 	public long getKaleoDefinitionVersionId() {
 		return _kaleoInstanceToken.getKaleoDefinitionVersionId();
+=======
+	* Returns the kaleo definition ID of this kaleo instance token.
+	*
+	* @return the kaleo definition ID of this kaleo instance token
+	*/
+	@Override
+	public long getKaleoDefinitionId() {
+		return _kaleoInstanceToken.getKaleoDefinitionId();
+>>>>>>> compatible
 	}
 
 	@Override
@@ -567,6 +588,7 @@ public class KaleoInstanceTokenWrapper implements KaleoInstanceToken,
 	}
 
 	/**
+<<<<<<< HEAD
 	* Sets the kaleo definition version ID of this kaleo instance token.
 	*
 	* @param kaleoDefinitionVersionId the kaleo definition version ID of this kaleo instance token
@@ -574,6 +596,15 @@ public class KaleoInstanceTokenWrapper implements KaleoInstanceToken,
 	@Override
 	public void setKaleoDefinitionVersionId(long kaleoDefinitionVersionId) {
 		_kaleoInstanceToken.setKaleoDefinitionVersionId(kaleoDefinitionVersionId);
+=======
+	* Sets the kaleo definition ID of this kaleo instance token.
+	*
+	* @param kaleoDefinitionId the kaleo definition ID of this kaleo instance token
+	*/
+	@Override
+	public void setKaleoDefinitionId(long kaleoDefinitionId) {
+		_kaleoInstanceToken.setKaleoDefinitionId(kaleoDefinitionId);
+>>>>>>> compatible
 	}
 
 	/**

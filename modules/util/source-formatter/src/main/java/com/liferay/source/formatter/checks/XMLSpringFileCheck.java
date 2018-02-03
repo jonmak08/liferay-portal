@@ -33,11 +33,14 @@ import org.dom4j.Element;
 public class XMLSpringFileCheck extends BaseFileCheck {
 
 	@Override
+<<<<<<< HEAD
 	public boolean isPortalCheck() {
 		return true;
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	protected String doProcess(
 			String fileName, String absolutePath, String content)
 		throws Exception {

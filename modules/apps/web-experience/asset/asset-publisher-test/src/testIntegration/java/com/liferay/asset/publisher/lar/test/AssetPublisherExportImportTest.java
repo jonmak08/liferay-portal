@@ -21,12 +21,20 @@ import com.liferay.asset.kernel.model.AssetTag;
 import com.liferay.asset.kernel.model.AssetVocabulary;
 import com.liferay.asset.kernel.service.AssetCategoryLocalServiceUtil;
 import com.liferay.asset.kernel.service.AssetVocabularyLocalServiceUtil;
+<<<<<<< HEAD
 import com.liferay.asset.kernel.service.persistence.AssetEntryQuery;
 import com.liferay.asset.publisher.test.util.AssetPublisherTestUtil;
 import com.liferay.asset.publisher.util.AssetEntryResult;
 import com.liferay.asset.publisher.util.AssetPublisherHelper;
 import com.liferay.asset.publisher.web.constants.AssetPublisherPortletKeys;
 import com.liferay.asset.test.util.AssetTestUtil;
+=======
+import com.liferay.asset.publisher.test.util.AssetPublisherTestUtil;
+import com.liferay.asset.publisher.web.constants.AssetPublisherPortletKeys;
+import com.liferay.asset.publisher.web.display.context.AssetEntryResult;
+import com.liferay.asset.publisher.web.display.context.AssetPublisherDisplayContext;
+import com.liferay.asset.publisher.web.util.AssetPublisherUtil;
+>>>>>>> compatible
 import com.liferay.document.library.kernel.model.DLFileEntry;
 import com.liferay.document.library.kernel.model.DLFileEntryMetadata;
 import com.liferay.document.library.kernel.model.DLFileEntryType;
@@ -40,12 +48,18 @@ import com.liferay.exportimport.kernel.lar.PortletDataHandlerKeys;
 import com.liferay.exportimport.kernel.model.ExportImportConfiguration;
 import com.liferay.exportimport.kernel.service.ExportImportConfigurationLocalServiceUtil;
 import com.liferay.exportimport.kernel.service.ExportImportLocalServiceUtil;
+<<<<<<< HEAD
 import com.liferay.exportimport.test.util.lar.BasePortletExportImportTestCase;
+=======
+>>>>>>> compatible
 import com.liferay.journal.model.JournalArticle;
 import com.liferay.journal.model.JournalArticleConstants;
 import com.liferay.journal.model.JournalFolderConstants;
 import com.liferay.journal.test.util.JournalTestUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.search.SearchContainer;
 import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.model.Group;
@@ -58,22 +72,45 @@ import com.liferay.portal.kernel.service.CompanyLocalServiceUtil;
 import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
 import com.liferay.portal.kernel.service.LayoutLocalServiceUtil;
 import com.liferay.portal.kernel.service.ServiceContext;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+=======
+import com.liferay.portal.kernel.servlet.PortletServlet;
+import com.liferay.portal.kernel.test.rule.AggregateTestRule;
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.theme.ThemeDisplay;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.service.test.ServiceTestUtil;
 import com.liferay.portal.test.rule.Inject;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 import com.liferay.portal.util.test.LayoutTestUtil;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.portal.lar.test.BasePortletExportImportTestCase;
+import com.liferay.portal.service.test.ServiceTestUtil;
+import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+import com.liferay.portal.util.test.LayoutTestUtil;
+import com.liferay.portlet.asset.util.test.AssetTestUtil;
+>>>>>>> compatible
 
 import java.io.Serializable;
 
@@ -85,6 +122,10 @@ import java.util.Locale;
 import java.util.Map;
 
 import javax.portlet.PortletPreferences;
+<<<<<<< HEAD
+=======
+import javax.portlet.PortletRequest;
+>>>>>>> compatible
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -94,7 +135,13 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+<<<<<<< HEAD
 import org.springframework.mock.web.portlet.MockPortletRequest;
+=======
+import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.mock.web.portlet.MockPortletRequest;
+import org.springframework.mock.web.portlet.MockPortletResponse;
+>>>>>>> compatible
 
 /**
  * Tests the export and import behavior of the Asset Publisher bundle with
@@ -103,13 +150,23 @@ import org.springframework.mock.web.portlet.MockPortletRequest;
  * @author Julio Camarero
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class AssetPublisherExportImportTest
 	extends BasePortletExportImportTestCase {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Override
 	public String getPortletId() throws Exception {
@@ -238,7 +295,11 @@ public class AssetPublisherExportImportTest
 		preferenceMap.put(
 			"scopeIds",
 			new String[] {
+<<<<<<< HEAD
 				AssetPublisherHelper.SCOPE_ID_CHILD_GROUP_PREFIX +
+=======
+				AssetPublisherUtil.SCOPE_ID_CHILD_GROUP_PREFIX +
+>>>>>>> compatible
 					childGroup.getGroupId()
 			});
 
@@ -513,7 +574,11 @@ public class AssetPublisherExportImportTest
 		preferenceMap.put(
 			"scopeIds",
 			new String[] {
+<<<<<<< HEAD
 				AssetPublisherHelper.SCOPE_ID_GROUP_PREFIX +
+=======
+				AssetPublisherUtil.SCOPE_ID_GROUP_PREFIX +
+>>>>>>> compatible
 					companyGroup.getGroupId()
 			});
 
@@ -521,7 +586,11 @@ public class AssetPublisherExportImportTest
 			preferenceMap);
 
 		Assert.assertEquals(
+<<<<<<< HEAD
 			AssetPublisherHelper.SCOPE_ID_GROUP_PREFIX +
+=======
+			AssetPublisherUtil.SCOPE_ID_GROUP_PREFIX +
+>>>>>>> compatible
 				companyGroup.getGroupId(),
 			portletPreferences.getValue("scopeIds", null));
 		Assert.assertEquals(null, portletPreferences.getValue("scopeId", null));
@@ -536,7 +605,11 @@ public class AssetPublisherExportImportTest
 		preferenceMap.put(
 			"scopeIds",
 			new String[] {
+<<<<<<< HEAD
 				AssetPublisherHelper.SCOPE_ID_LAYOUT_UUID_PREFIX +
+=======
+				AssetPublisherUtil.SCOPE_ID_LAYOUT_UUID_PREFIX +
+>>>>>>> compatible
 					layout.getUuid()
 			});
 
@@ -544,7 +617,11 @@ public class AssetPublisherExportImportTest
 			preferenceMap);
 
 		Assert.assertEquals(
+<<<<<<< HEAD
 			AssetPublisherHelper.SCOPE_ID_LAYOUT_UUID_PREFIX +
+=======
+			AssetPublisherUtil.SCOPE_ID_LAYOUT_UUID_PREFIX +
+>>>>>>> compatible
 				importedLayout.getUuid(),
 			portletPreferences.getValue("scopeIds", null));
 		Assert.assertEquals(null, portletPreferences.getValue("scopeId", null));
@@ -559,15 +636,23 @@ public class AssetPublisherExportImportTest
 		preferenceMap.put(
 			"scopeIds",
 			new String[] {
+<<<<<<< HEAD
 				AssetPublisherHelper.SCOPE_ID_LAYOUT_PREFIX +
 					layout.getLayoutId()
+=======
+				AssetPublisherUtil.SCOPE_ID_LAYOUT_PREFIX + layout.getLayoutId()
+>>>>>>> compatible
 			});
 
 		PortletPreferences portletPreferences = getImportedPortletPreferences(
 			preferenceMap);
 
 		Assert.assertEquals(
+<<<<<<< HEAD
 			AssetPublisherHelper.SCOPE_ID_LAYOUT_UUID_PREFIX +
+=======
+			AssetPublisherUtil.SCOPE_ID_LAYOUT_UUID_PREFIX +
+>>>>>>> compatible
 				importedLayout.getUuid(),
 			portletPreferences.getValue("scopeIds", null));
 		Assert.assertEquals(null, portletPreferences.getValue("scopeId", null));
@@ -845,11 +930,19 @@ public class AssetPublisherExportImportTest
 		preferenceMap.put(
 			"scopeIds",
 			new String[] {
+<<<<<<< HEAD
 				AssetPublisherHelper.SCOPE_ID_GROUP_PREFIX +
 					companyGroup.getGroupId(),
 				AssetPublisherHelper.SCOPE_ID_LAYOUT_UUID_PREFIX +
 					layout.getUuid(),
 				AssetPublisherHelper.SCOPE_ID_LAYOUT_UUID_PREFIX +
+=======
+				AssetPublisherUtil.SCOPE_ID_GROUP_PREFIX +
+					companyGroup.getGroupId(),
+				AssetPublisherUtil.SCOPE_ID_LAYOUT_UUID_PREFIX +
+					layout.getUuid(),
+				AssetPublisherUtil.SCOPE_ID_LAYOUT_UUID_PREFIX +
+>>>>>>> compatible
 					secondLayout.getUuid()
 			});
 
@@ -865,6 +958,7 @@ public class AssetPublisherExportImportTest
 
 		StringBundler sb = new StringBundler(8);
 
+<<<<<<< HEAD
 		sb.append(AssetPublisherHelper.SCOPE_ID_GROUP_PREFIX);
 		sb.append(companyGroup.getGroupId());
 		sb.append(StringPool.COMMA);
@@ -872,6 +966,15 @@ public class AssetPublisherExportImportTest
 		sb.append(importedLayout.getUuid());
 		sb.append(StringPool.COMMA);
 		sb.append(AssetPublisherHelper.SCOPE_ID_LAYOUT_UUID_PREFIX);
+=======
+		sb.append(AssetPublisherUtil.SCOPE_ID_GROUP_PREFIX);
+		sb.append(companyGroup.getGroupId());
+		sb.append(StringPool.COMMA);
+		sb.append(AssetPublisherUtil.SCOPE_ID_LAYOUT_UUID_PREFIX);
+		sb.append(importedLayout.getUuid());
+		sb.append(StringPool.COMMA);
+		sb.append(AssetPublisherUtil.SCOPE_ID_LAYOUT_UUID_PREFIX);
+>>>>>>> compatible
 		sb.append(importedSecondLayout.getUuid());
 
 		Assert.assertEquals(
@@ -892,9 +995,15 @@ public class AssetPublisherExportImportTest
 		preferenceMap.put(
 			"scopeIds",
 			new String[] {
+<<<<<<< HEAD
 				AssetPublisherHelper.SCOPE_ID_LAYOUT_PREFIX +
 					layout.getLayoutId(),
 				AssetPublisherHelper.SCOPE_ID_LAYOUT_PREFIX +
+=======
+				AssetPublisherUtil.SCOPE_ID_LAYOUT_PREFIX +
+					layout.getLayoutId(),
+				AssetPublisherUtil.SCOPE_ID_LAYOUT_PREFIX +
+>>>>>>> compatible
 					secondLayout.getLayoutId()
 			});
 
@@ -910,10 +1019,17 @@ public class AssetPublisherExportImportTest
 
 		StringBundler sb = new StringBundler(5);
 
+<<<<<<< HEAD
 		sb.append(AssetPublisherHelper.SCOPE_ID_LAYOUT_UUID_PREFIX);
 		sb.append(importedLayout.getUuid());
 		sb.append(StringPool.COMMA);
 		sb.append(AssetPublisherHelper.SCOPE_ID_LAYOUT_UUID_PREFIX);
+=======
+		sb.append(AssetPublisherUtil.SCOPE_ID_LAYOUT_UUID_PREFIX);
+		sb.append(importedLayout.getUuid());
+		sb.append(StringPool.COMMA);
+		sb.append(AssetPublisherUtil.SCOPE_ID_LAYOUT_UUID_PREFIX);
+>>>>>>> compatible
 		sb.append(importedSecondLayout.getUuid());
 
 		Assert.assertEquals(
@@ -1071,7 +1187,11 @@ public class AssetPublisherExportImportTest
 		long[] groupIds = new long[scopeIds.length];
 
 		for (int i = 0; i < scopeIds.length; i++) {
+<<<<<<< HEAD
 			groupIds[i] = _assetPublisherHelper.getGroupIdFromScopeId(
+=======
+			groupIds[i] = AssetPublisherUtil.getGroupIdFromScopeId(
+>>>>>>> compatible
 				scopeIds[i], layout.getGroupId(), layout.isPrivateLayout());
 		}
 
@@ -1097,7 +1217,16 @@ public class AssetPublisherExportImportTest
 				ServiceContextTestUtil.getServiceContext());
 		}
 
+<<<<<<< HEAD
 		String scopeId = _assetPublisherHelper.getScopeId(
+=======
+		PortletRequest portletRequest = new MockPortletRequest();
+
+		MockHttpServletRequest mockHttpServletRequest =
+			new MockHttpServletRequest();
+
+		String scopeId = AssetPublisherUtil.getScopeId(
+>>>>>>> compatible
 			group, group.getGroupId());
 
 		preferenceMap.put("scopeIds", new String[] {scopeId});
@@ -1107,6 +1236,7 @@ public class AssetPublisherExportImportTest
 		PortletPreferences portletPreferences = getImportedPortletPreferences(
 			preferenceMap);
 
+<<<<<<< HEAD
 		Company company = CompanyLocalServiceUtil.getCompany(
 			TestPropsValues.getCompanyId());
 
@@ -1114,17 +1244,45 @@ public class AssetPublisherExportImportTest
 			_assetPublisherHelper.getAssetEntryQuery(
 				portletPreferences, importedGroup.getGroupId(), layout, null,
 				null);
+=======
+		ThemeDisplay themeDisplay = new ThemeDisplay();
+
+		Company company = CompanyLocalServiceUtil.getCompany(
+			TestPropsValues.getCompanyId());
+
+		themeDisplay.setCompany(company);
+
+		themeDisplay.setLayout(importedLayout);
+		themeDisplay.setScopeGroupId(importedGroup.getGroupId());
+		themeDisplay.setUser(TestPropsValues.getUser());
+
+		mockHttpServletRequest.setAttribute(
+			WebKeys.THEME_DISPLAY, themeDisplay);
+
+		portletRequest.setAttribute(
+			PortletServlet.PORTLET_SERVLET_REQUEST, mockHttpServletRequest);
+
+		AssetPublisherDisplayContext assetPublisherDisplayContext =
+			new AssetPublisherDisplayContext(
+				portletRequest, new MockPortletResponse(), portletPreferences);
+>>>>>>> compatible
 
 		SearchContainer<AssetEntry> searchContainer = new SearchContainer<>();
 
 		searchContainer.setTotal(10);
 
 		List<AssetEntryResult> actualAssetEntryResults =
+<<<<<<< HEAD
 			_assetPublisherHelper.getAssetEntryResults(
 				searchContainer, assetEntryQuery, layout, portletPreferences,
 				StringPool.BLANK, null, null, company.getCompanyId(),
 				importedGroup.getGroupId(), TestPropsValues.getUserId(),
 				assetEntryQuery.getClassNameIds(), null);
+=======
+			AssetPublisherUtil.getAssetEntryResults(
+				assetPublisherDisplayContext, searchContainer,
+				portletPreferences);
+>>>>>>> compatible
 
 		List<AssetEntry> actualAssetEntries = new ArrayList<>();
 
@@ -1169,7 +1327,11 @@ public class AssetPublisherExportImportTest
 			assetEntries = addAssetEntries(
 				scopeGroup, 3, assetEntries, serviceContext);
 
+<<<<<<< HEAD
 			String scopeId = _assetPublisherHelper.getScopeId(
+=======
+			String scopeId = AssetPublisherUtil.getScopeId(
+>>>>>>> compatible
 				scopeGroup, group.getGroupId());
 
 			scopeIds = ArrayUtil.append(scopeIds, scopeId);
@@ -1190,7 +1352,11 @@ public class AssetPublisherExportImportTest
 			importedScopeIds, importedLayout);
 
 		List<AssetEntry> actualAssetEntries =
+<<<<<<< HEAD
 			_assetPublisherHelper.getAssetEntries(
+=======
+			AssetPublisherUtil.getAssetEntries(
+>>>>>>> compatible
 				new MockPortletRequest(), importedPortletPreferences,
 				_permissionChecker, selectedGroupIds, false, false);
 
@@ -1253,9 +1419,12 @@ public class AssetPublisherExportImportTest
 		AssetVocabularyLocalServiceUtil.deleteAssetVocabulary(assetVocabulary);
 	}
 
+<<<<<<< HEAD
 	@Inject
 	private AssetPublisherHelper _assetPublisherHelper;
 
+=======
+>>>>>>> compatible
 	private PermissionChecker _permissionChecker;
 
 }

@@ -52,9 +52,14 @@ public class UpgradeKBArticle extends UpgradeProcess {
 		if (hasRows(newTableName)) {
 			if (_log.isWarnEnabled()) {
 				_log.warn(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Not renaming ", oldTableName, " to ", newTableName,
 						" because ", newTableName, " has data"));
+=======
+					"Not renaming " + oldTableName + " to " + newTableName +
+						" because " + newTableName + " has data");
+>>>>>>> compatible
 			}
 
 			return;
@@ -63,9 +68,14 @@ public class UpgradeKBArticle extends UpgradeProcess {
 		if (!hasRows(oldTableName)) {
 			if (_log.isWarnEnabled()) {
 				_log.warn(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Not renaming ", oldTableName, " to ", newTableName,
 						" because ", oldTableName, " has no data"));
+=======
+					"Not renaming " + oldTableName + " to " + newTableName +
+						" because " + oldTableName + " has no data");
+>>>>>>> compatible
 			}
 
 			return;

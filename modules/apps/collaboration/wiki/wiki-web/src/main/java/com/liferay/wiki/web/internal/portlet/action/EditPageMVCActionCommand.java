@@ -35,10 +35,17 @@ import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.struts.StrutsActionPortletURL;
 import com.liferay.portlet.PortletResponseImpl;
 import com.liferay.portlet.PortletURLImpl;
+<<<<<<< HEAD
 import com.liferay.trash.TrashHelper;
 import com.liferay.trash.model.TrashEntry;
 import com.liferay.trash.service.TrashEntryLocalService;
 import com.liferay.trash.service.TrashEntryService;
+=======
+import com.liferay.trash.kernel.model.TrashEntry;
+import com.liferay.trash.kernel.service.TrashEntryLocalService;
+import com.liferay.trash.kernel.service.TrashEntryService;
+import com.liferay.trash.kernel.util.TrashUtil;
+>>>>>>> compatible
 import com.liferay.wiki.configuration.WikiGroupServiceConfiguration;
 import com.liferay.wiki.constants.WikiPortletKeys;
 import com.liferay.wiki.exception.DuplicatePageException;
@@ -53,12 +60,19 @@ import com.liferay.wiki.service.WikiPageLocalService;
 import com.liferay.wiki.service.WikiPageResourceLocalService;
 import com.liferay.wiki.service.WikiPageService;
 import com.liferay.wiki.web.internal.WikiAttachmentsHelper;
+<<<<<<< HEAD
 import com.liferay.wiki.web.internal.util.WikiWebComponentProvider;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+=======
+import com.liferay.wiki.web.util.WikiWebComponentProvider;
+
+import java.util.ArrayList;
+import java.util.List;
+>>>>>>> compatible
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
@@ -137,11 +151,17 @@ public class EditPageMVCActionCommand extends BaseMVCActionCommand {
 		}
 
 		if (moveToTrash && !trashedModels.isEmpty()) {
+<<<<<<< HEAD
 			Map<String, Object> data = new HashMap<>();
 
 			data.put("trashedModels", trashedModels);
 
 			addDeleteSuccessData(actionRequest, data);
+=======
+			TrashUtil.addTrashSessionMessages(actionRequest, trashedModels);
+
+			hideDefaultSuccessMessage(actionRequest);
+>>>>>>> compatible
 		}
 	}
 
@@ -272,8 +292,12 @@ public class EditPageMVCActionCommand extends BaseMVCActionCommand {
 				_wikiPageResourceLocalService.getPageResource(
 					trashEntry.getClassPK());
 
+<<<<<<< HEAD
 			String title = _trashHelper.getOriginalTitle(
 				pageResource.getTitle());
+=======
+			String title = TrashUtil.getOriginalTitle(pageResource.getTitle());
+>>>>>>> compatible
 
 			WikiWebComponentProvider wikiWebComponentProvider =
 				WikiWebComponentProvider.getWikiWebComponentProvider();
@@ -407,10 +431,13 @@ public class EditPageMVCActionCommand extends BaseMVCActionCommand {
 
 	private TrashEntryLocalService _trashEntryLocalService;
 	private TrashEntryService _trashEntryService;
+<<<<<<< HEAD
 
 	@Reference
 	private TrashHelper _trashHelper;
 
+=======
+>>>>>>> compatible
 	private WikiAttachmentsHelper _wikiAttachmentsHelper;
 	private WikiPageLocalService _wikiPageLocalService;
 	private WikiPageResourceLocalService _wikiPageResourceLocalService;

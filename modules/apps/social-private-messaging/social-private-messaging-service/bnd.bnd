@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Social Private Messaging Service
 Bundle-SymbolicName: com.liferay.social.privatemessaging.service
+<<<<<<< HEAD
 Bundle-Version: 2.0.13
+=======
+Bundle-Version: 2.0.9
+>>>>>>> compatible
 Export-Package: com.liferay.social.privatemessaging.util
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Social Private Messaging

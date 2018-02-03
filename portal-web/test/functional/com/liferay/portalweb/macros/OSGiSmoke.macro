@@ -1,8 +1,12 @@
 <definition>
 	<command name="Smoke">
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Apps" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelApps">
+>>>>>>> compatible
 			<var name="portlet" value="App Manager" />
 		</execute>
 
@@ -23,6 +27,7 @@
 			</then>
 		</if>
 
+<<<<<<< HEAD
 		<if>
 			<condition function="IsElementPresent" locator1="AppManager#BREADCRUMB_2_LINK" />
 			<then>
@@ -31,6 +36,11 @@
 				</execute>
 			</then>
 		</if>
+=======
+		<execute function="AssertVisible" locator1="AppManager#BREADCRUMB_2_LINK">
+			<var name="key_breadCrumb" value="Independent Modules" />
+		</execute>
+>>>>>>> compatible
 
 		<var name="key_itemName" value="${appName}" />
 

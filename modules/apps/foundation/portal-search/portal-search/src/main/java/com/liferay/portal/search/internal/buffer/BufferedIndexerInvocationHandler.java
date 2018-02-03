@@ -25,7 +25,10 @@ import com.liferay.portal.kernel.security.auth.CompanyThreadLocal;
 import com.liferay.portal.kernel.service.PersistedModelLocalService;
 import com.liferay.portal.kernel.service.PersistedModelLocalServiceRegistry;
 import com.liferay.portal.kernel.util.MethodKey;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.search.buffer.IndexerRequest;
 import com.liferay.portal.search.buffer.IndexerRequestBuffer;
 import com.liferay.portal.search.buffer.IndexerRequestBufferOverflowHandler;
@@ -103,13 +106,19 @@ public class BufferedIndexerInvocationHandler implements InvocationHandler {
 			return method.invoke(_indexer, args);
 		}
 
+<<<<<<< HEAD
 		if (args[0] instanceof ClassedModel &&
+=======
+		if (args[0] instanceof ResourcedModel &&
+			args[0] instanceof ClassedModel &&
+>>>>>>> compatible
 			Objects.equals(method.getName(), "reindex")) {
 
 			MethodKey methodKey = new MethodKey(
 				Indexer.class, method.getName(), String.class, Long.TYPE);
 
 			ClassedModel classedModel = (ClassedModel)args[0];
+<<<<<<< HEAD
 
 			Long classPK = (Long)classedModel.getPrimaryKeyObj();
 
@@ -122,6 +131,13 @@ public class BufferedIndexerInvocationHandler implements InvocationHandler {
 			bufferRequest(
 				methodKey, classedModel.getModelClassName(), classPK,
 				indexerRequestBuffer);
+=======
+			ResourcedModel resourcedModel = (ResourcedModel)args[0];
+
+			bufferRequest(
+				methodKey, classedModel.getModelClassName(),
+				resourcedModel.getResourcePrimKey(), indexerRequestBuffer);
+>>>>>>> compatible
 		}
 		else if (args[0] instanceof ClassedModel) {
 			MethodKey methodKey = new MethodKey(
@@ -153,10 +169,15 @@ public class BufferedIndexerInvocationHandler implements InvocationHandler {
 			catch (Exception e) {
 				if (_log.isDebugEnabled()) {
 					_log.debug(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"Unable to get resource primary key for class ",
 							className, " with primary key ",
 							String.valueOf(classPK)));
+=======
+						"Unable to get resource primary key for class " +
+							className + " with primary key " + classPK);
+>>>>>>> compatible
 				}
 			}
 
@@ -221,6 +242,7 @@ public class BufferedIndexerInvocationHandler implements InvocationHandler {
 			IndexerRequestBuffer indexerRequestBuffer)
 		throws Exception {
 
+<<<<<<< HEAD
 		if (_indexStatusManager.isIndexReadOnly(className)) {
 			if (_log.isDebugEnabled()) {
 				_log.debug(
@@ -231,6 +253,8 @@ public class BufferedIndexerInvocationHandler implements InvocationHandler {
 			return;
 		}
 
+=======
+>>>>>>> compatible
 		IndexerRequest indexerRequest = new IndexerRequest(
 			methodKey.getMethod(), _indexer, className, classPK);
 

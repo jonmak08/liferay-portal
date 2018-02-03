@@ -15,7 +15,10 @@
 package com.liferay.portal.search.facet.faceted.searcher.test;
 
 import com.liferay.asset.kernel.model.AssetTag;
+<<<<<<< HEAD
 import com.liferay.journal.model.JournalArticle;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.search.Document;
@@ -29,7 +32,10 @@ import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.workflow.WorkflowThreadLocal;
 import com.liferay.portal.search.test.internal.util.UserSearchFixture;
+<<<<<<< HEAD
 import com.liferay.portal.search.test.journal.util.JournalArticleSearchFixture;
+=======
+>>>>>>> compatible
 import com.liferay.portal.search.test.util.AssertUtils;
 import com.liferay.portal.search.test.util.TermCollectorUtil;
 import com.liferay.portal.test.rule.Inject;
@@ -54,13 +60,19 @@ public abstract class BaseFacetedSearcherTestCase {
 	public void setUp() throws Exception {
 		WorkflowThreadLocal.setEnabled(false);
 
+<<<<<<< HEAD
 		setUpJournalArticleSearchFixture();
+=======
+>>>>>>> compatible
 		setUpUserSearchFixture();
 	}
 
 	@After
 	public void tearDown() throws Exception {
+<<<<<<< HEAD
 		journalArticleSearchFixture.tearDown();
+=======
+>>>>>>> compatible
 		userSearchFixture.tearDown();
 	}
 
@@ -136,12 +148,15 @@ public abstract class BaseFacetedSearcherTestCase {
 		return facetedSearcher.search(searchContext);
 	}
 
+<<<<<<< HEAD
 	protected void setUpJournalArticleSearchFixture() throws Exception {
 		journalArticleSearchFixture.setUp();
 
 		_journalArticles = journalArticleSearchFixture.getJournalArticles();
 	}
 
+=======
+>>>>>>> compatible
 	protected void setUpUserSearchFixture() throws Exception {
 		userSearchFixture.setUp();
 
@@ -154,8 +169,11 @@ public abstract class BaseFacetedSearcherTestCase {
 		return userSearchFixture.toMap(user, tags);
 	}
 
+<<<<<<< HEAD
 	protected final JournalArticleSearchFixture journalArticleSearchFixture =
 		new JournalArticleSearchFixture();
+=======
+>>>>>>> compatible
 	protected final UserSearchFixture userSearchFixture =
 		new UserSearchFixture();
 
@@ -169,9 +187,12 @@ public abstract class BaseFacetedSearcherTestCase {
 	private List<Group> _groups;
 
 	@DeleteAfterTestRun
+<<<<<<< HEAD
 	private List<JournalArticle> _journalArticles;
 
 	@DeleteAfterTestRun
+=======
+>>>>>>> compatible
 	private List<User> _users;
 
 }

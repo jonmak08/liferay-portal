@@ -68,6 +68,7 @@ rowURL.setParameter("fileEntryId", String.valueOf(fileEntry.getFileEntryId()));
 	</c:if>
 </h4>
 
+<<<<<<< HEAD
 <span class="h5 text-default">
 	<aui:workflow-status markupView="lexicon" showIcon="<%= false %>" showLabel="<%= false %>" status="<%= latestFileVersion.getStatus() %>" />
 </span>
@@ -84,3 +85,8 @@ rowURL.setParameter("fileEntryId", String.valueOf(fileEntry.getFileEntryId()));
 		<%= HtmlUtil.escape(dlFileEntryType.getName(locale)) %>
 	</span>
 </c:if>
+=======
+<h5 class="text-default">
+	<aui:workflow-status markupView="lexicon" showIcon="<%= false %>" showLabel="<%= false %>" status="<%= latestFileVersion.getStatus() %>" />
+</h5>
+>>>>>>> compatible

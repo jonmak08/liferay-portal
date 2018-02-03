@@ -17,11 +17,22 @@
 <%@ include file="/wiki/init.jsp" %>
 
 <%
+<<<<<<< HEAD
 WikiEngineRenderer wikiEngineRenderer = (WikiEngineRenderer)request.getAttribute(WikiWebKeys.WIKI_ENGINE_RENDERER);
 WikiNode node = (WikiNode)request.getAttribute(WikiWebKeys.WIKI_NODE);
 WikiPage wikiPage = (WikiPage)request.getAttribute(WikiWebKeys.WIKI_PAGE);
 
 List<FileEntry> attachmentsFileEntries = wikiPage.getAttachmentsFileEntries();
+=======
+WikiNode node = (WikiNode)request.getAttribute(WikiWebKeys.WIKI_NODE);
+WikiPage wikiPage = (WikiPage)request.getAttribute(WikiWebKeys.WIKI_PAGE);
+
+List<FileEntry> attachmentsFileEntries = null;
+
+if (wikiPage != null) {
+	attachmentsFileEntries = wikiPage.getAttachmentsFileEntries();
+}
+>>>>>>> compatible
 
 WikiPage initialPage = WikiPageLocalServiceUtil.getPage(wikiPage.getNodeId(), wikiPage.getTitle(), WikiPageConstants.VERSION_DEFAULT);
 
@@ -62,7 +73,11 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "details
 			<liferay-ui:message key="format" />
 		</th>
 		<td class="table-cell">
+<<<<<<< HEAD
 			<%= wikiEngineRenderer.getFormatLabel(wikiPage.getFormat(), themeDisplay.getLocale()) %>
+=======
+			<liferay-ui:message key='<%= "wiki.formats." + wikiPage.getFormat() %>' />
+>>>>>>> compatible
 		</td>
 	</tr>
 	<tr>
@@ -102,7 +117,11 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "details
 		</td>
 	</tr>
 
+<<<<<<< HEAD
 	<c:if test="<%= DocumentConversionUtil.isEnabled() && WikiPagePermission.contains(permissionChecker, wikiPage, ActionKeys.VIEW) %>">
+=======
+	<c:if test="<%= PrefsPropsUtil.getBoolean(PropsKeys.OPENOFFICE_SERVER_ENABLED, GetterUtil.getBoolean(PropsUtil.get(PropsKeys.OPENOFFICE_SERVER_ENABLED)) && WikiPagePermissionChecker.contains(permissionChecker, wikiPage, ActionKeys.VIEW)) %>">
+>>>>>>> compatible
 
 		<%
 		String[] conversions = DocumentConversionUtil.getConversions("html");
@@ -167,14 +186,22 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "details
 		</tr>
 	</c:if>
 
+<<<<<<< HEAD
 	<c:if test="<%= (WikiPagePermission.contains(permissionChecker, wikiPage, ActionKeys.SUBSCRIBE) || WikiNodePermission.contains(permissionChecker, node, ActionKeys.SUBSCRIBE)) && (wikiGroupServiceOverriddenConfiguration.emailPageAddedEnabled() || wikiGroupServiceOverriddenConfiguration.emailPageUpdatedEnabled()) %>">
+=======
+	<c:if test="<%= (WikiPagePermissionChecker.contains(permissionChecker, wikiPage, ActionKeys.SUBSCRIBE) || WikiNodePermissionChecker.contains(permissionChecker, node, ActionKeys.SUBSCRIBE)) && (wikiGroupServiceOverriddenConfiguration.emailPageAddedEnabled() || wikiGroupServiceOverriddenConfiguration.emailPageUpdatedEnabled()) %>">
+>>>>>>> compatible
 		<tr>
 			<th class="table-header">
 				<liferay-ui:message key="email-subscription" />
 			</th>
 			<td>
 				<table class="lfr-table subscription-info">
+<<<<<<< HEAD
 					<c:if test="<%= WikiPagePermission.contains(permissionChecker, wikiPage, ActionKeys.SUBSCRIBE) %>">
+=======
+					<c:if test="<%= WikiPagePermissionChecker.contains(permissionChecker, wikiPage, ActionKeys.SUBSCRIBE) %>">
+>>>>>>> compatible
 						<tr>
 							<c:choose>
 								<c:when test="<%= SubscriptionLocalServiceUtil.isSubscribed(user.getCompanyId(), user.getUserId(), WikiPage.class.getName(), wikiPage.getResourcePrimKey()) %>">
@@ -221,7 +248,11 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "details
 						</tr>
 					</c:if>
 
+<<<<<<< HEAD
 					<c:if test="<%= WikiNodePermission.contains(permissionChecker, node, ActionKeys.SUBSCRIBE) %>">
+=======
+					<c:if test="<%= WikiNodePermissionChecker.contains(permissionChecker, node, ActionKeys.SUBSCRIBE) %>">
+>>>>>>> compatible
 						<tr>
 							<c:choose>
 								<c:when test="<%= SubscriptionLocalServiceUtil.isSubscribed(user.getCompanyId(), user.getUserId(), WikiNode.class.getName(), node.getNodeId()) %>">
@@ -270,14 +301,22 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "details
 		</tr>
 	</c:if>
 
+<<<<<<< HEAD
 	<c:if test="<%= WikiPagePermission.contains(permissionChecker, wikiPage, ActionKeys.PERMISSIONS) || (WikiPagePermission.contains(permissionChecker, wikiPage, ActionKeys.UPDATE) && WikiNodePermission.contains(permissionChecker, wikiPage.getNodeId(), ActionKeys.ADD_PAGE)) || WikiPagePermission.contains(permissionChecker, wikiPage, ActionKeys.DELETE) %>">
+=======
+	<c:if test="<%= WikiPagePermissionChecker.contains(permissionChecker, wikiPage, ActionKeys.PERMISSIONS) || (WikiPagePermissionChecker.contains(permissionChecker, wikiPage, ActionKeys.UPDATE) && WikiNodePermissionChecker.contains(permissionChecker, wikiPage.getNodeId(), ActionKeys.ADD_PAGE)) || WikiPagePermissionChecker.contains(permissionChecker, wikiPage, ActionKeys.DELETE) %>">
+>>>>>>> compatible
 		<tr>
 			<th class="table-header">
 				<liferay-ui:message key="advanced-actions" />
 			</th>
 			<td class="table-cell">
 				<liferay-ui:icon-list>
+<<<<<<< HEAD
 					<c:if test="<%= WikiPagePermission.contains(permissionChecker, wikiPage, ActionKeys.PERMISSIONS) %>">
+=======
+					<c:if test="<%= WikiPagePermissionChecker.contains(permissionChecker, wikiPage, ActionKeys.PERMISSIONS) %>">
+>>>>>>> compatible
 						<liferay-security:permissionsURL
 							modelResource="<%= WikiPage.class.getName() %>"
 							modelResourceDescription="<%= wikiPage.getTitle() %>"
@@ -296,7 +335,11 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "details
 						/>
 					</c:if>
 
+<<<<<<< HEAD
 					<c:if test="<%= WikiPagePermission.contains(permissionChecker, wikiPage, ActionKeys.UPDATE) && WikiNodePermission.contains(permissionChecker, wikiPage.getNodeId(), ActionKeys.ADD_PAGE) %>">
+=======
+					<c:if test="<%= WikiPagePermissionChecker.contains(permissionChecker, wikiPage, ActionKeys.UPDATE) && WikiNodePermissionChecker.contains(permissionChecker, wikiPage.getNodeId(), ActionKeys.ADD_PAGE) %>">
+>>>>>>> compatible
 
 						<%
 						PortletURL copyPageURL = PortletURLUtil.clone(viewPageURL, renderResponse);
@@ -317,7 +360,11 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "details
 						/>
 					</c:if>
 
+<<<<<<< HEAD
 					<c:if test="<%= WikiPagePermission.contains(permissionChecker, wikiPage, ActionKeys.DELETE) && WikiNodePermission.contains(permissionChecker, wikiPage.getNodeId(), ActionKeys.ADD_PAGE) %>">
+=======
+					<c:if test="<%= WikiPagePermissionChecker.contains(permissionChecker, wikiPage.getNodeId(), wikiPage.getTitle(), ActionKeys.DELETE) && WikiNodePermissionChecker.contains(permissionChecker, wikiPage.getNodeId(), ActionKeys.ADD_PAGE) %>">
+>>>>>>> compatible
 
 						<%
 						PortletURL movePageURL = PortletURLUtil.clone(viewPageURL, renderResponse);
@@ -334,7 +381,11 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "details
 						/>
 					</c:if>
 
+<<<<<<< HEAD
 					<c:if test="<%= WikiPagePermission.contains(permissionChecker, wikiPage, ActionKeys.DELETE) %>">
+=======
+					<c:if test="<%= WikiPagePermissionChecker.contains(permissionChecker, wikiPage.getNodeId(), wikiPage.getTitle(), ActionKeys.DELETE) %>">
+>>>>>>> compatible
 
 						<%
 						PortletURL frontPageURL = PortletURLUtil.clone(viewPageURL, renderResponse);
@@ -345,7 +396,11 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "details
 
 						deletePageURL.setParameter(ActionRequest.ACTION_NAME, "/wiki/edit_page");
 
+<<<<<<< HEAD
 						if (trashHelper.isTrashEnabled(scopeGroupId)) {
+=======
+						if (TrashUtil.isTrashEnabled(scopeGroupId)) {
+>>>>>>> compatible
 							deletePageURL.setParameter(Constants.CMD, Constants.MOVE_TO_TRASH);
 						}
 						else {
@@ -355,7 +410,11 @@ PortalUtil.addPortletBreadcrumbEntry(request, LanguageUtil.get(request, "details
 						deletePageURL.setParameter("redirect", frontPageURL.toString());
 						%>
 
+<<<<<<< HEAD
 						<liferay-ui:icon-delete label="<%= true %>" trash="<%= trashHelper.isTrashEnabled(scopeGroupId) %>" url="<%= deletePageURL.toString() %>" />
+=======
+						<liferay-ui:icon-delete label="<%= true %>" trash="<%= TrashUtil.isTrashEnabled(scopeGroupId) %>" url="<%= deletePageURL.toString() %>" />
+>>>>>>> compatible
 					</c:if>
 				</liferay-ui:icon-list>
 			</td>

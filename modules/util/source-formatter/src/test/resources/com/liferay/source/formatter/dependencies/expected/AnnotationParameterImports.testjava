@@ -26,5 +26,9 @@ import org.osgi.service.component.annotations.Component;
 	immediate = true,
 	property = StringPool.UNDERLINE + Constants.SUBSCRIBE_TO_COMMENTS
 )
+<<<<<<< HEAD
 public class AnnotationParameterImports {
+=======
+public class AnnotationParamaterImports {
+>>>>>>> compatible
 }

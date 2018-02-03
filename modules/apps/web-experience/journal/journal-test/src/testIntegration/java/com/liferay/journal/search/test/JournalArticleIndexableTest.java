@@ -16,8 +16,11 @@ package com.liferay.journal.search.test;
 
 import com.liferay.arquillian.extension.junit.bridge.junit.Arquillian;
 import com.liferay.asset.kernel.service.persistence.AssetEntryQuery;
+<<<<<<< HEAD
 import com.liferay.asset.test.util.AssetEntryQueryTestUtil;
 import com.liferay.asset.util.AssetHelper;
+=======
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.model.DDMStructure;
 import com.liferay.journal.model.JournalArticle;
 import com.liferay.journal.model.JournalFolderConstants;
@@ -28,6 +31,11 @@ import com.liferay.portal.kernel.search.Hits;
 import com.liferay.portal.kernel.search.SearchContext;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.test.util.SearchContextTestUtil;
@@ -36,8 +44,14 @@ import com.liferay.portal.kernel.test.util.TestPropsValues;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.service.test.ServiceTestUtil;
+<<<<<<< HEAD
 import com.liferay.portal.test.rule.Inject;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+=======
+import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
+import com.liferay.portlet.asset.service.persistence.test.AssetEntryQueryTestUtil;
+import com.liferay.portlet.asset.util.AssetUtil;
+>>>>>>> compatible
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -50,12 +64,22 @@ import org.junit.runner.RunWith;
  * @author Carlos Sierra
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class JournalArticleIndexableTest {
 
 	@ClassRule
 	@Rule
 	public static final AggregateTestRule aggregateTestRule =
+<<<<<<< HEAD
 		new LiferayIntegrationTestRule();
+=======
+		new AggregateTestRule(
+			new LiferayIntegrationTestRule(),
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Before
 	public void setUp() throws Exception {
@@ -120,16 +144,23 @@ public class JournalArticleIndexableTest {
 			SearchContext searchContext)
 		throws Exception {
 
+<<<<<<< HEAD
 		Hits hits = _assetHelper.search(
+=======
+		Hits hits = AssetUtil.search(
+>>>>>>> compatible
 			searchContext, assetEntryQuery, QueryUtil.ALL_POS,
 			QueryUtil.ALL_POS);
 
 		Assert.assertEquals(hits.toString(), expectedCount, hits.getLength());
 	}
 
+<<<<<<< HEAD
 	@Inject
 	private AssetHelper _assetHelper;
 
+=======
+>>>>>>> compatible
 	@DeleteAfterTestRun
 	private Group _group;
 

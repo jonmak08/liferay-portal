@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Wiki Navigation Web
 Bundle-SymbolicName: com.liferay.wiki.navigation.web
+<<<<<<< HEAD
 Bundle-Version: 2.0.12
+=======
+Bundle-Version: 2.0.7
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title:
 Web-ContextPath: /wiki-navigation-web

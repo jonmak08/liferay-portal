@@ -188,8 +188,16 @@ public class KBArticleServiceImpl extends KBArticleServiceBaseImpl {
 		KBArticle kbArticle = kbArticleLocalService.fetchKBArticleByUrlTitle(
 			groupId, kbFolderId, urlTitle);
 
+<<<<<<< HEAD
 		if ((kbArticle != null) &&
 			KBArticlePermission.contains(
+=======
+		if (kbArticle == null) {
+			return null;
+		}
+
+		if (KBArticlePermission.contains(
+>>>>>>> compatible
 				getPermissionChecker(), kbArticle, ActionKeys.VIEW)) {
 
 			return kbArticle;
@@ -205,6 +213,7 @@ public class KBArticleServiceImpl extends KBArticleServiceBaseImpl {
 		KBArticle kbArticle = kbArticleLocalService.fetchLatestKBArticle(
 			resourcePrimKey, status);
 
+<<<<<<< HEAD
 		if ((kbArticle != null) &&
 			KBArticlePermission.contains(
 				getPermissionChecker(), kbArticle, ActionKeys.VIEW)) {
@@ -232,6 +241,16 @@ public class KBArticleServiceImpl extends KBArticleServiceBaseImpl {
 		}
 
 		return null;
+=======
+		if (kbArticle == null) {
+			return null;
+		}
+
+		KBArticlePermission.check(
+			getPermissionChecker(), kbArticle, KBActionKeys.VIEW);
+
+		return kbArticle;
+>>>>>>> compatible
 	}
 
 	/**

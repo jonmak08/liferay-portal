@@ -237,8 +237,12 @@ public class DDMFormDeepCopyTest extends BaseDDMTestCase {
 
 		Set<Locale> availableLocales = copyDDMForm.getAvailableLocales();
 
+<<<<<<< HEAD
 		Assert.assertFalse(
 			availableLocales.toString(), availableLocales.isEmpty());
+=======
+		Assert.assertFalse(availableLocales.isEmpty());
+>>>>>>> compatible
 		Assert.assertEquals(availableLocales.toArray()[0], LocaleUtil.US);
 	}
 

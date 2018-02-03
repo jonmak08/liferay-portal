@@ -14,6 +14,7 @@
 
 package com.liferay.site.admin.web.internal.portlet;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.site.admin.web.internal.constants.SiteAdminPortletKeys;
 
@@ -21,6 +22,11 @@ import javax.portlet.ActionRequest;
 import javax.portlet.Portlet;
 import javax.portlet.PortletRequest;
 import javax.portlet.PortletURL;
+=======
+import com.liferay.site.admin.web.internal.constants.SiteAdminPortletKeys;
+
+import javax.portlet.Portlet;
+>>>>>>> compatible
 
 import org.osgi.service.component.annotations.Component;
 
@@ -50,6 +56,7 @@ import org.osgi.service.component.annotations.Component;
 	service = Portlet.class
 )
 public class SiteSettingsPortlet extends SiteAdminPortlet {
+<<<<<<< HEAD
 
 	@Override
 	protected PortletURL getSiteAdministrationURL(
@@ -60,4 +67,6 @@ public class SiteSettingsPortlet extends SiteAdminPortlet {
 			PortletRequest.RENDER_PHASE);
 	}
 
+=======
+>>>>>>> compatible
 }

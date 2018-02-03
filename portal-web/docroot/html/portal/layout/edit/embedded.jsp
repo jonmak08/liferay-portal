@@ -27,9 +27,25 @@ if (selLayout != null) {
 %>
 
 <aui:input cssClass="lfr-input-text-container" id="urlEmbedded" label="url" name="TypeSettingsProperties--embeddedLayoutURL--" type="text" value="<%= url %>">
+<<<<<<< HEAD
 	<aui:validator errorMessage="please-enter-a-valid-url" name="required" />
 </aui:input>
 
+=======
+	<aui:validator errorMessage="please-enter-a-valid-url" name="required">
+		function(node) {
+			var select = AUI().one('#<portlet:namespace />template');
+
+			if (!select) {
+				select = AUI().one('#<portlet:namespace />type');
+			}
+
+			return select.val() === 'embedded';
+		}
+	</aui:validator>
+</aui:input>
+
+>>>>>>> compatible
 <aui:script use="liferay-form">
 	var form = Liferay.Form.get('<portlet:namespace />addPageFm');
 

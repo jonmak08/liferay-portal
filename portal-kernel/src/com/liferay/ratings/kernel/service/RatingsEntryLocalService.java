@@ -43,7 +43,10 @@ import com.liferay.ratings.kernel.model.RatingsEntry;
 import java.io.Serializable;
 
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Map;
+=======
+>>>>>>> compatible
 
 /**
  * Provides the local service interface for RatingsEntry. Methods of this
@@ -199,19 +202,25 @@ public interface RatingsEntryLocalService extends BaseLocalService,
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ActionableDynamicQuery getActionableDynamicQuery();
 
+<<<<<<< HEAD
 	/**
 	* @deprecated As of 7.0.0, with no direct replacement
 	*/
 	@java.lang.Deprecated
+=======
+>>>>>>> compatible
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<RatingsEntry> getEntries(long userId,
 		java.lang.String className, List<java.lang.Long> classPKs);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+<<<<<<< HEAD
 	public Map<java.lang.Long, RatingsEntry> getEntries(long userId,
 		java.lang.String className, long[] classPKs);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+=======
+>>>>>>> compatible
 	public List<RatingsEntry> getEntries(java.lang.String className,
 		long classPK);
 

@@ -27,7 +27,11 @@ if (Validator.isNull(id) && (searchContainer != null)) {
 	id = id.concat("PageIterator");
 }
 
+<<<<<<< HEAD
 String markupView = (String)request.getAttribute("liferay-ui:search:markupView");
+=======
+String markupView = (String)request.getAttribute("liferay-ui:search-iterator:markupView");
+>>>>>>> compatible
 String type = (String)request.getAttribute("liferay-ui:search:type");
 
 PortletURL iteratorURL = searchContainer.getIteratorURL();

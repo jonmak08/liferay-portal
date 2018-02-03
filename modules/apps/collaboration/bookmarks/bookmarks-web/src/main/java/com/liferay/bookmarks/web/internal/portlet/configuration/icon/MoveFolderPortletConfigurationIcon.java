@@ -17,12 +17,19 @@ package com.liferay.bookmarks.web.internal.portlet.configuration.icon;
 import com.liferay.bookmarks.constants.BookmarksPortletKeys;
 import com.liferay.bookmarks.model.BookmarksFolder;
 import com.liferay.bookmarks.model.BookmarksFolderConstants;
+<<<<<<< HEAD
+=======
+import com.liferay.bookmarks.service.permission.BookmarksFolderPermissionChecker;
+>>>>>>> compatible
 import com.liferay.bookmarks.web.internal.portlet.action.ActionUtil;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.portlet.configuration.icon.BasePortletConfigurationIcon;
 import com.liferay.portal.kernel.portlet.configuration.icon.PortletConfigurationIcon;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermission;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.WebKeys;
@@ -102,7 +109,11 @@ public class MoveFolderPortletConfigurationIcon
 				(ThemeDisplay)portletRequest.getAttribute(
 					WebKeys.THEME_DISPLAY);
 
+<<<<<<< HEAD
 			if (_bookmarksFolderModelResourcePermission.contains(
+=======
+			if (BookmarksFolderPermissionChecker.contains(
+>>>>>>> compatible
 					themeDisplay.getPermissionChecker(), folder,
 					ActionKeys.UPDATE)) {
 
@@ -115,12 +126,15 @@ public class MoveFolderPortletConfigurationIcon
 		return false;
 	}
 
+<<<<<<< HEAD
 	@Reference(
 		target = "(model.class.name=com.liferay.bookmarks.model.BookmarksFolder)"
 	)
 	private ModelResourcePermission<BookmarksFolder>
 		_bookmarksFolderModelResourcePermission;
 
+=======
+>>>>>>> compatible
 	@Reference
 	private Portal _portal;
 

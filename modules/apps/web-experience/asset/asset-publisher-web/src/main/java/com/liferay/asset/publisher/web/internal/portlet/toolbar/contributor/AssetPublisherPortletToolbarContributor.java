@@ -14,6 +14,7 @@
 
 package com.liferay.asset.publisher.web.internal.portlet.toolbar.contributor;
 
+<<<<<<< HEAD
 import com.liferay.asset.publisher.web.constants.AssetPublisherPortletKeys;
 import com.liferay.asset.publisher.web.constants.AssetPublisherWebKeys;
 import com.liferay.asset.publisher.web.display.context.AssetPublisherDisplayContext;
@@ -21,6 +22,12 @@ import com.liferay.asset.publisher.web.internal.util.AssetPublisherWebUtil;
 import com.liferay.asset.publisher.web.util.AssetPublisherCustomizer;
 import com.liferay.asset.util.AssetHelper;
 import com.liferay.asset.util.AssetPublisherAddItemHolder;
+=======
+import com.liferay.asset.kernel.AssetRendererFactoryRegistryUtil;
+import com.liferay.asset.kernel.model.AssetRendererFactory;
+import com.liferay.asset.publisher.web.constants.AssetPublisherPortletKeys;
+import com.liferay.asset.publisher.web.display.context.AssetPublisherDisplayContext;
+>>>>>>> compatible
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -40,7 +47,11 @@ import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
 import com.liferay.portal.kernel.util.WebKeys;
+<<<<<<< HEAD
 import com.liferay.portal.util.PropsValues;
+=======
+import com.liferay.portlet.asset.util.AssetUtil;
+>>>>>>> compatible
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -82,6 +93,7 @@ public class AssetPublisherPortletToolbarContributor
 		ThemeDisplay themeDisplay = (ThemeDisplay)portletRequest.getAttribute(
 			WebKeys.THEME_DISPLAY);
 
+<<<<<<< HEAD
 		PortletDisplay portletDisplay = themeDisplay.getPortletDisplay();
 
 		AssetPublisherCustomizer assetPublisherCustomizer =
@@ -127,6 +139,56 @@ public class AssetPublisherPortletToolbarContributor
 				URLMenuItem urlMenuItem = _getPortletTitleAddAssetEntryMenuItem(
 					themeDisplay, assetPublisherDisplayContext, groupId,
 					assetPublisherAddItemHolder);
+=======
+		Layout layout = themeDisplay.getLayout();
+		PortletDisplay portletDisplay = themeDisplay.getPortletDisplay();
+
+		String portletName = portletDisplay.getPortletName();
+
+		AssetPublisherDisplayContext assetPublisherDisplayContext =
+			new AssetPublisherDisplayContext(
+				portletRequest, portletResponse,
+				portletRequest.getPreferences());
+
+		if (!assetPublisherDisplayContext.isShowAddContentButton() ||
+			layout.isLayoutPrototypeLinkActive() ||
+			portletName.equals(
+				AssetPublisherPortletKeys.HIGHEST_RATED_ASSETS) ||
+			portletName.equals(AssetPublisherPortletKeys.MOST_VIEWED_ASSETS) ||
+			portletName.equals(AssetPublisherPortletKeys.RELATED_ASSETS)) {
+
+			return;
+		}
+
+		Map<Long, Map<String, PortletURL>> scopeAddPortletURLs =
+			assetPublisherDisplayContext.getScopeAddPortletURLs(1);
+
+		if (MapUtil.isEmpty(scopeAddPortletURLs)) {
+			return;
+		}
+
+		if (scopeAddPortletURLs.size() == 1) {
+			Set<Map.Entry<Long, Map<String, PortletURL>>> entrySet =
+				scopeAddPortletURLs.entrySet();
+
+			Iterator<Map.Entry<Long, Map<String, PortletURL>>> iterator =
+				entrySet.iterator();
+
+			Map.Entry<Long, Map<String, PortletURL>> scopeAddPortletURL =
+				iterator.next();
+
+			long groupId = scopeAddPortletURL.getKey();
+
+			Map<String, PortletURL> addPortletURLs =
+				scopeAddPortletURL.getValue();
+
+			for (Map.Entry<String, PortletURL> entry :
+					addPortletURLs.entrySet()) {
+
+				URLMenuItem urlMenuItem = _getPortletTitleAddAssetEntryMenuItem(
+					themeDisplay, assetPublisherDisplayContext, groupId,
+					entry.getKey(), entry.getValue());
+>>>>>>> compatible
 
 				menuItems.add(urlMenuItem);
 			}
@@ -194,7 +256,11 @@ public class AssetPublisherPortletToolbarContributor
 	private URLMenuItem _getPortletTitleAddAssetEntryMenuItem(
 		ThemeDisplay themeDisplay,
 		AssetPublisherDisplayContext assetPublisherDisplayContext, long groupId,
+<<<<<<< HEAD
 		AssetPublisherAddItemHolder assetPublisherAddItemHolder) {
+=======
+		String className, PortletURL portletURL) {
+>>>>>>> compatible
 
 		URLMenuItem urlMenuItem = new URLMenuItem();
 
@@ -205,7 +271,12 @@ public class AssetPublisherPortletToolbarContributor
 		data.put(
 			"id", HtmlUtil.escape(portletDisplay.getNamespace()) + "editAsset");
 
+<<<<<<< HEAD
 		String message = assetPublisherAddItemHolder.getModelResource();
+=======
+		String message = AssetUtil.getClassNameMessage(
+			className, themeDisplay.getLocale());
+>>>>>>> compatible
 
 		String title = LanguageUtil.format(
 			themeDisplay.getLocale(), "new-x", message, false);
@@ -220,13 +291,22 @@ public class AssetPublisherPortletToolbarContributor
 
 		Group group = _groupLocalService.fetchGroup(groupId);
 
+<<<<<<< HEAD
 		if (!group.isStagedPortlet(
 				assetPublisherAddItemHolder.getPortletId()) &&
+=======
+		AssetRendererFactory<?> assetRendererFactory =
+			AssetRendererFactoryRegistryUtil.getAssetRendererFactoryByClassName(
+				AssetUtil.getClassName(className));
+
+		if (!group.isStagedPortlet(assetRendererFactory.getPortletId()) &&
+>>>>>>> compatible
 			!group.isStagedRemotely()) {
 
 			curGroupId = group.getLiveGroupId();
 		}
 
+<<<<<<< HEAD
 		boolean addDisplayPageParameter =
 			_assetPublisherWebUtil.isDefaultAssetPublisher(
 				themeDisplay.getLayout(), portletDisplay.getId(),
@@ -236,6 +316,16 @@ public class AssetPublisherPortletToolbarContributor
 			curGroupId, themeDisplay.getPlid(),
 			assetPublisherAddItemHolder.getPortletURL(),
 			addDisplayPageParameter, themeDisplay.getLayout());
+=======
+		boolean addDisplayPageParameter = AssetUtil.isDefaultAssetPublisher(
+			themeDisplay.getLayout(), portletDisplay.getId(),
+			assetPublisherDisplayContext.getPortletResource());
+
+		String url = AssetUtil.getAddURLPopUp(
+			curGroupId, themeDisplay.getPlid(), portletURL,
+			assetRendererFactory.getPortletId(), addDisplayPageParameter,
+			themeDisplay.getLayout());
+>>>>>>> compatible
 
 		urlMenuItem.setURL(url);
 
@@ -244,6 +334,7 @@ public class AssetPublisherPortletToolbarContributor
 		return urlMenuItem;
 	}
 
+<<<<<<< HEAD
 	private boolean _isVisible(
 		AssetPublisherDisplayContext assetPublisherDisplayContext,
 		PortletRequest portletRequest) {
@@ -301,6 +392,11 @@ public class AssetPublisherPortletToolbarContributor
 	@Reference
 	private AssetPublisherWebUtil _assetPublisherWebUtil;
 
+=======
+	private static final Log _log = LogFactoryUtil.getLog(
+		AssetPublisherPortletToolbarContributor.class);
+
+>>>>>>> compatible
 	private GroupLocalService _groupLocalService;
 
 	@Reference

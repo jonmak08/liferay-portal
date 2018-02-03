@@ -50,7 +50,11 @@ else {
 %>
 
 <c:choose>
+<<<<<<< HEAD
 	<c:when test="<%= assetEntry.isVisible() || assetRenderer.hasViewPermission(permissionChecker) %>">
+=======
+	<c:when test="<%= assetEntry.isVisible() %>">
+>>>>>>> compatible
 
 		<%
 		String title = assetRenderer.getTitle(locale);
@@ -68,7 +72,10 @@ else {
 		request.setAttribute("view.jsp-title", title);
 
 		request.setAttribute("view.jsp-print", Boolean.valueOf(print));
+<<<<<<< HEAD
 		request.setAttribute("view.jsp-viewInContext", assetPublisherDisplayContext.isAssetLinkBehaviorViewInPortlet());
+=======
+>>>>>>> compatible
 
 		PortalUtil.addPortletBreadcrumbEntry(request, title, currentURL);
 		%>
@@ -89,6 +96,7 @@ else {
 	</c:otherwise>
 </c:choose>
 
+<<<<<<< HEAD
 <aui:script use="aui-base">
 	var portletId = '<%= portletDisplay.getId() %>';
 
@@ -100,4 +108,6 @@ else {
 	);
 </aui:script>
 
+=======
+>>>>>>> compatible
 <liferay-util:dynamic-include key="com.liferay.asset.publisher.web#/view_content.jsp#post" />

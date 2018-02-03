@@ -17,7 +17,13 @@
 <%@ include file="/init.jsp" %>
 
 <%
+<<<<<<< HEAD
 String redirect = currentURL;
+=======
+UserSearch searchContainer = (UserSearch)request.getAttribute("liferay-ui:search:searchContainer");
+
+String redirect = searchContainer.getIteratorURL().toString();
+>>>>>>> compatible
 
 ResultRow row = (ResultRow)request.getAttribute(WebKeys.SEARCH_CONTAINER_RESULT_ROW);
 
@@ -120,6 +126,7 @@ long userId = user2.getUserId();
 			</c:choose>
 		</c:if>
 	</c:if>
+<<<<<<< HEAD
 
 	<%
 	Organization organization = (Organization)request.getAttribute("view.jsp-organization");
@@ -137,4 +144,6 @@ long userId = user2.getUserId();
 			url="<%= removeUserURL %>"
 		/>
 	</c:if>
+=======
+>>>>>>> compatible
 </liferay-ui:icon-menu>

@@ -14,8 +14,17 @@
 
 package com.liferay.journal.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.model.DDMStructure;
 import com.liferay.dynamic.data.mapping.service.DDMStructureServiceUtil;
+=======
+import com.liferay.document.library.kernel.service.DLAppLocalServiceUtil;
+import com.liferay.dynamic.data.mapping.model.DDMStructure;
+import com.liferay.dynamic.data.mapping.service.DDMStructureServiceUtil;
+import com.liferay.dynamic.data.mapping.storage.Field;
+import com.liferay.dynamic.data.mapping.storage.FieldConstants;
+import com.liferay.dynamic.data.mapping.storage.Fields;
+>>>>>>> compatible
 import com.liferay.journal.exception.NoSuchArticleException;
 import com.liferay.journal.model.JournalArticle;
 import com.liferay.journal.model.JournalArticleConstants;
@@ -30,19 +39,38 @@ import com.liferay.journal.service.permission.JournalPermission;
 import com.liferay.journal.util.comparator.ArticleVersionComparator;
 import com.liferay.journal.util.impl.JournalUtil;
 import com.liferay.journal.web.internal.portlet.JournalPortlet;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.diff.CompareVersionsException;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.portlet.PortletRequestModel;
+=======
+import com.liferay.portal.kernel.diff.CompareVersionsException;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.json.JSONFactoryUtil;
+import com.liferay.portal.kernel.json.JSONObject;
+import com.liferay.portal.kernel.language.LanguageUtil;
+import com.liferay.portal.kernel.portlet.PortletRequestModel;
+import com.liferay.portal.kernel.repository.model.FileEntry;
+>>>>>>> compatible
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.ServiceContextFactory;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.FileUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
@@ -53,10 +81,21 @@ import com.liferay.portal.kernel.xml.Node;
 import com.liferay.portal.kernel.xml.SAXReaderUtil;
 import com.liferay.portal.kernel.xml.XPath;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+=======
+import java.io.Serializable;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+>>>>>>> compatible
 import java.util.Set;
 
 import javax.portlet.ActionRequest;
@@ -90,7 +129,12 @@ public class ActionUtil {
 
 		if (index != -1) {
 			sourceArticleId = sourceArticleId.substring(
+<<<<<<< HEAD
 				index + JournalPortlet.VERSION_SEPARATOR.length());
+=======
+				index + JournalPortlet.VERSION_SEPARATOR.length(),
+				sourceArticleId.length());
+>>>>>>> compatible
 		}
 
 		double sourceVersion = GetterUtil.getDouble(sourceArticleId);
@@ -102,7 +146,12 @@ public class ActionUtil {
 
 		if (index != -1) {
 			targetArticleId = targetArticleId.substring(
+<<<<<<< HEAD
 				index + JournalPortlet.VERSION_SEPARATOR.length());
+=======
+				index + JournalPortlet.VERSION_SEPARATOR.length(),
+				targetArticleId.length());
+>>>>>>> compatible
 		}
 
 		double targetVersion = GetterUtil.getDouble(targetArticleId);
@@ -295,10 +344,15 @@ public class ActionUtil {
 					ddmStructure.getGroupId(), DDMStructure.class.getName(),
 					ddmStructure.getStructureId());
 
+<<<<<<< HEAD
 				article.getTitleMap();
 				article.getDescriptionMap();
 
 				article.setNew(true);
+=======
+				article.setNew(true);
+
+>>>>>>> compatible
 				article.setId(0);
 				article.setGroupId(groupId);
 				article.setClassNameId(
@@ -422,6 +476,67 @@ public class ActionUtil {
 		return folders;
 	}
 
+<<<<<<< HEAD
+=======
+	public static Map<String, byte[]> getImages(String content, Fields fields)
+		throws Exception {
+
+		Map<String, byte[]> images = new HashMap<>();
+
+		for (Field field : fields) {
+			String dataType = field.getDataType();
+
+			if (!dataType.equals(FieldConstants.IMAGE)) {
+				continue;
+			}
+
+			Map<Locale, List<Serializable>> valuesMap = field.getValuesMap();
+
+			for (Map.Entry<Locale, List<Serializable>> entry :
+					valuesMap.entrySet()) {
+
+				List<Serializable> values = entry.getValue();
+
+				for (int i = 0; i < values.size(); i++) {
+					JSONObject jsonObject = JSONFactoryUtil.createJSONObject(
+						(String)values.get(i));
+
+					String type = jsonObject.getString("type");
+
+					if (type.equals("document")) {
+						continue;
+					}
+
+					String uuid = jsonObject.getString("uuid");
+					long groupId = jsonObject.getLong("groupId");
+
+					if (Validator.isNotNull(uuid) && (groupId > 0)) {
+						StringBundler sb = new StringBundler(7);
+
+						sb.append(
+							getElementInstanceId(content, field.getName(), i));
+						sb.append(StringPool.UNDERLINE);
+						sb.append(field.getName());
+						sb.append(StringPool.UNDERLINE);
+						sb.append(LanguageUtil.getLanguageId(entry.getKey()));
+
+						FileEntry fileEntry =
+							DLAppLocalServiceUtil.getFileEntryByUuidAndGroupId(
+								uuid, groupId);
+
+						byte[] bytes = FileUtil.getBytes(
+							fileEntry.getContentStream());
+
+						images.put(sb.toString(), bytes);
+					}
+				}
+			}
+		}
+
+		return images;
+	}
+
+>>>>>>> compatible
 	public static JournalArticle getPreviewArticle(
 			PortletRequest portletRequest)
 		throws Exception {

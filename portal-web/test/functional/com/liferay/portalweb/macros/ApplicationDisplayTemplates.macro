@@ -2,11 +2,17 @@
 	<command name="addCP">
 		<var name="key_adtType" value="${adtType}" />
 
+<<<<<<< HEAD
 		<execute macro="Portlet#viewEmptyMessage">
 			<var name="message" value="There are no results." />
 		</execute>
 
 		<execute macro="LexiconEntry#gotoAdd" />
+=======
+		<execute macro="Portlet#viewEmptyMessage" />
+
+		<execute function="Click" locator1="Button#PLUS" />
+>>>>>>> compatible
 
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="${adtType} Template">
 			<var name="key_menuItem" value="${adtType} Template" />
@@ -15,6 +21,7 @@
 		<execute macro="SiteAdmin#viewPortletTitle">
 			<var name="portletTitle" value="New ${adtType} Template" />
 		</execute>
+<<<<<<< HEAD
 
 		<execute macro="PortletEntry#inputName">
 			<var name="name" value="${adtType} Test ADT" />
@@ -24,6 +31,17 @@
 
 		<execute macro="PortletEntry#save" />
 
+=======
+
+		<execute macro="PortletEntry#inputName">
+			<var name="name" value="${adtType} Test ADT" />
+		</execute>
+
+		<execute function="UploadCommonFile" locator1="DDMEditTemplate#SCRIPT_FILE_FIELD" value1="${adtFile}" />
+
+		<execute macro="PortletEntry#save" />
+
+>>>>>>> compatible
 		<execute function="AssertTextEquals" locator1="ApplicationDisplayTemplates#ADT_TABLE_NAME_1" value1="${adtType} Test ADT" />
 	</command>
 
@@ -46,6 +64,7 @@
 		<execute function="SelectFrameTop" value1="relative=top" />
 
 		<execute function="SelectFrame" locator1="ApplicationDisplayTemplates#ADT_IFRAME" />
+<<<<<<< HEAD
 
 		<execute macro="LexiconEntry#gotoAdd" />
 
@@ -58,6 +77,20 @@
 
 		<execute function="Click" locator1="ApplicationDisplayTemplates#RSS_FEEDS" />
 
+=======
+
+		<execute function="Click" locator1="Button#PLUS" />
+
+		<execute function="AssertVisible" locator1="ApplicationDisplayTemplates#RSS_FEEDS" />
+		<execute function="AssertElementPresent" locator1="ApplicationDisplayTemplates#RSS_FEEDS" />
+
+		<execute macro="PortletEntry#inputName">
+			<var name="name" value="RSS Test ADT" />
+		</execute>
+
+		<execute function="Click" locator1="ApplicationDisplayTemplates#RSS_FEEDS" />
+
+>>>>>>> compatible
 		<execute macro="PortletEntry#save" />
 	</command>
 
@@ -94,12 +127,17 @@
 
 		<execute function="SelectFrame" locator1="ApplicationDisplayTemplates#ADT_IFRAME" />
 
+<<<<<<< HEAD
 		<execute macro="LexiconEntry#gotoAdd" />
+=======
+		<execute function="Click" locator1="Button#PLUS" />
+>>>>>>> compatible
 
 		<var name="key_adtType" value="${adtType}" />
 
 		<execute function="AssertVisible" locator1="ApplicationDisplayTemplates#PORTLET_PREFERENCES" />
 		<execute function="AssertElementPresent" locator1="ApplicationDisplayTemplates#PORTLET_PREFERENCES" />
+<<<<<<< HEAD
 
 		<execute macro="PortletEntry#inputName">
 			<var name="name" value="${adtType} Test ADT" />
@@ -109,6 +147,17 @@
 
 		<execute macro="PortletEntry#save" />
 
+=======
+
+		<execute macro="PortletEntry#inputName">
+			<var name="name" value="${adtType} Test ADT" />
+		</execute>
+
+		<execute function="UploadCommonFile" locator1="DDMEditTemplate#SCRIPT_FILE_FIELD" value1="${adtFile}" />
+
+		<execute macro="PortletEntry#save" />
+
+>>>>>>> compatible
 		<execute function="AssertTextEquals" locator1="ApplicationDisplayTemplates#ADT_TABLE_NAME_1" value1="${adtType} Test ADT" />
 
 		<execute function="SelectFrameTop" value1="relative=top" />
@@ -164,9 +213,17 @@
 			</then>
 		</if>
 
+<<<<<<< HEAD
 		<execute function="Select" locator1="Select#DISPLAY_TEMPLATE" value1="${templateName}" />
 
 		<execute macro="PortletEntry#save" />
+=======
+		<execute function="Select" locator1="Select#DISPLAY_TEMPLATE" value1="${adtType} Test ADT" />
+
+		<execute macro="Button#clickSave" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 
 		<execute function="SelectFrameTop" />
 	</command>
@@ -191,7 +248,13 @@
 
 				<execute function="Select" locator1="ApplicationDisplayTemplatesConfiguration#DISPLAY_TEMPLATE_SELECT" value1="${defaultADT}" />
 
+<<<<<<< HEAD
 				<execute macro="PortletEntry#save" />
+=======
+				<execute macro="Button#clickSave" />
+
+				<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 
 				<execute function="SelectFrameTop" locator1="IFrame#DIALOG" value1="relative=top" />
 			</then>
@@ -232,9 +295,13 @@
 			</then>
 		</if>
 
+<<<<<<< HEAD
 		<execute macro="Portlet#viewEmptyMessage">
 			<var name="message" value="There are no results." />
 		</execute>
+=======
+		<execute macro="Portlet#viewEmptyMessage" />
+>>>>>>> compatible
 	</command>
 
 	<command name="viewADTviaPortletPG">

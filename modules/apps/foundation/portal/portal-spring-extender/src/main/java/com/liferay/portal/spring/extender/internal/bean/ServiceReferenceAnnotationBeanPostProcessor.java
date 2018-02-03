@@ -84,6 +84,7 @@ public class ServiceReferenceAnnotationBeanPostProcessor
 				continue;
 			}
 
+<<<<<<< HEAD
 			org.osgi.framework.ServiceReference<?> osgiServiceReference = null;
 
 			try {
@@ -109,6 +110,16 @@ public class ServiceReferenceAnnotationBeanPostProcessor
 
 				ReflectionUtils.makeAccessible(field);
 
+=======
+			Class<?> typeClass = serviceReference.type();
+
+			org.osgi.framework.ServiceReference<?> osgiServiceReference =
+				_bundleContext.getServiceReference(typeClass.getName());
+
+			ReflectionUtils.makeAccessible(field);
+
+			try {
+>>>>>>> compatible
 				field.set(
 					targetBean,
 					_bundleContext.getService(osgiServiceReference));

@@ -173,8 +173,12 @@ public class LiferayThemeDefaultsPlugin implements Plugin<Project> {
 						writeDigestTask.setEnabled(false);
 					}
 
+<<<<<<< HEAD
 					GradlePluginsDefaultsUtil.setProjectSnapshotVersion(
 						project);
+=======
+					GradleUtil.setProjectSnapshotVersion(project);
+>>>>>>> compatible
 
 					// setProjectSnapshotVersion must be called before
 					// configureTaskUploadArchives, because the latter one needs
@@ -281,9 +285,23 @@ public class LiferayThemeDefaultsPlugin implements Plugin<Project> {
 	private PublishNodeModuleTask _addTaskPublishNodeModule(
 		Task zipResourcesImporterArchivesTask) {
 
+<<<<<<< HEAD
 		PublishNodeModuleTask publishNodeModuleTask = GradleUtil.addTask(
 			zipResourcesImporterArchivesTask.getProject(),
 			PUBLISH_NODE_MODULE_TASK_NAME, PublishNodeModuleTask.class);
+=======
+		Project project = zipResourcesImporterArchivesTask.getProject();
+
+		String projectPath = project.getPath();
+
+		if (projectPath.startsWith(":private:")) {
+			return null;
+		}
+
+		PublishNodeModuleTask publishNodeModuleTask = GradleUtil.addTask(
+			project, PUBLISH_NODE_MODULE_TASK_NAME,
+			PublishNodeModuleTask.class);
+>>>>>>> compatible
 
 		publishNodeModuleTask.dependsOn(zipResourcesImporterArchivesTask);
 		publishNodeModuleTask.setDescription(
@@ -697,6 +715,7 @@ public class LiferayThemeDefaultsPlugin implements Plugin<Project> {
 
 			};
 
+<<<<<<< HEAD
 			publishNodeModuleTask.doFirst(action);
 			uploadArchivesTask.doFirst(action);
 		}
@@ -704,6 +723,20 @@ public class LiferayThemeDefaultsPlugin implements Plugin<Project> {
 		uploadArchivesTask.dependsOn(publishNodeModuleTask);
 
 		if (!GradlePluginsDefaultsUtil.isSnapshot(project)) {
+=======
+			if (publishNodeModuleTask != null) {
+				publishNodeModuleTask.doFirst(action);
+			}
+
+			uploadArchivesTask.doFirst(action);
+		}
+
+		if (!GradleUtil.isSnapshot(project)) {
+			if (publishNodeModuleTask != null) {
+				uploadArchivesTask.dependsOn(publishNodeModuleTask);
+			}
+
+>>>>>>> compatible
 			uploadArchivesTask.finalizedBy(updateVersionTask);
 		}
 	}

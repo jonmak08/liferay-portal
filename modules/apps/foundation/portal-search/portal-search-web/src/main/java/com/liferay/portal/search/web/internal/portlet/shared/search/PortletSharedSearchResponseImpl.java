@@ -53,10 +53,13 @@ public class PortletSharedSearchResponseImpl
 		return _searchResponse.getFacet(fieldName);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 1.3.0
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	@Override
 	public String[] getHighlights() {
 		return _searchResponse.getHighlights();

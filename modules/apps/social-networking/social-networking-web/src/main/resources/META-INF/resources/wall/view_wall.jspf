@@ -46,7 +46,11 @@
 			</aui:input>
 
 			<aui:button-row>
+<<<<<<< HEAD
 				<aui:button type="submit" value="post" />
+=======
+				<aui:button cssClass="btn-lg" type="submit" value="post" />
+>>>>>>> compatible
 			</aui:button-row>
 		</aui:form>
 

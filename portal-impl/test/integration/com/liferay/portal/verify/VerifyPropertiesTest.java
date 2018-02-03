@@ -117,10 +117,16 @@ public class VerifyPropertiesTest extends BaseVerifyProcessTestCase {
 			LoggingEvent loggingEvent = loggingEvents.get(0);
 
 			Assert.assertEquals(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"System property \"", migratedSystemKey,
 					"\" was migrated to the portal property \"",
 					migratedSystemKey, "\""),
+=======
+				"System property \"" + migratedSystemKey +
+					"\" was migrated to the portal property \"" +
+						migratedSystemKey + "\"",
+>>>>>>> compatible
 				loggingEvent.getMessage());
 		}
 		finally {
@@ -162,10 +168,16 @@ public class VerifyPropertiesTest extends BaseVerifyProcessTestCase {
 			LoggingEvent loggingEvent = loggingEvents.get(0);
 
 			Assert.assertEquals(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Portal property \"", modularizedPortalKey,
 					"\" was modularized to ", modularizedPortalKey, " as \"",
 					modularizedPortalKey, "\""),
+=======
+				"Portal property \"" + modularizedPortalKey +
+					"\" was modularized to " + modularizedPortalKey + " as \"" +
+						modularizedPortalKey + "\"",
+>>>>>>> compatible
 				loggingEvent.getMessage());
 		}
 		finally {

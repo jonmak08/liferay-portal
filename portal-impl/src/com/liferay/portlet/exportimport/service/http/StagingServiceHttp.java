@@ -116,6 +116,7 @@ public class StagingServiceHttp {
 		}
 	}
 
+<<<<<<< HEAD
 	public static boolean hasRemoteLayout(HttpPrincipal httpPrincipal,
 		java.lang.String uuid, long groupId, boolean privateLayout)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -148,6 +149,8 @@ public class StagingServiceHttp {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	public static void propagateExportImportLifecycleEvent(
 		HttpPrincipal httpPrincipal, int code, int processFlag,
 		java.lang.String processId,
@@ -156,7 +159,11 @@ public class StagingServiceHttp {
 		try {
 			MethodKey methodKey = new MethodKey(StagingServiceUtil.class,
 					"propagateExportImportLifecycleEvent",
+<<<<<<< HEAD
 					_propagateExportImportLifecycleEventParameterTypes3);
+=======
+					_propagateExportImportLifecycleEventParameterTypes2);
+>>>>>>> compatible
 
 			MethodHandler methodHandler = new MethodHandler(methodKey, code,
 					processFlag, processId, arguments);
@@ -187,7 +194,11 @@ public class StagingServiceHttp {
 		try {
 			MethodKey methodKey = new MethodKey(StagingServiceUtil.class,
 					"publishStagingRequest",
+<<<<<<< HEAD
 					_publishStagingRequestParameterTypes4);
+=======
+					_publishStagingRequestParameterTypes3);
+>>>>>>> compatible
 
 			MethodHandler methodHandler = new MethodHandler(methodKey,
 					stagingRequestId, privateLayout, parameterMap);
@@ -221,7 +232,11 @@ public class StagingServiceHttp {
 		try {
 			MethodKey methodKey = new MethodKey(StagingServiceUtil.class,
 					"publishStagingRequest",
+<<<<<<< HEAD
 					_publishStagingRequestParameterTypes5);
+=======
+					_publishStagingRequestParameterTypes4);
+>>>>>>> compatible
 
 			MethodHandler methodHandler = new MethodHandler(methodKey,
 					stagingRequestId, exportImportConfiguration);
@@ -253,7 +268,11 @@ public class StagingServiceHttp {
 		throws com.liferay.portal.kernel.exception.PortalException {
 		try {
 			MethodKey methodKey = new MethodKey(StagingServiceUtil.class,
+<<<<<<< HEAD
 					"updateStagingRequest", _updateStagingRequestParameterTypes6);
+=======
+					"updateStagingRequest", _updateStagingRequestParameterTypes5);
+>>>>>>> compatible
 
 			MethodHandler methodHandler = new MethodHandler(methodKey,
 					stagingRequestId, fileName, bytes);
@@ -284,7 +303,11 @@ public class StagingServiceHttp {
 		try {
 			MethodKey methodKey = new MethodKey(StagingServiceUtil.class,
 					"validateStagingRequest",
+<<<<<<< HEAD
 					_validateStagingRequestParameterTypes7);
+=======
+					_validateStagingRequestParameterTypes6);
+>>>>>>> compatible
 
 			MethodHandler methodHandler = new MethodHandler(methodKey,
 					stagingRequestId, privateLayout, parameterMap);
@@ -318,6 +341,7 @@ public class StagingServiceHttp {
 	private static final Class<?>[] _createStagingRequestParameterTypes1 = new Class[] {
 			long.class, java.lang.String.class
 		};
+<<<<<<< HEAD
 	private static final Class<?>[] _hasRemoteLayoutParameterTypes2 = new Class[] {
 			java.lang.String.class, long.class, boolean.class
 		};
@@ -336,6 +360,23 @@ public class StagingServiceHttp {
 			long.class, java.lang.String.class, byte[].class
 		};
 	private static final Class<?>[] _validateStagingRequestParameterTypes7 = new Class[] {
+=======
+	private static final Class<?>[] _propagateExportImportLifecycleEventParameterTypes2 =
+		new Class[] {
+			int.class, int.class, java.lang.String.class, java.util.List.class
+		};
+	private static final Class<?>[] _publishStagingRequestParameterTypes3 = new Class[] {
+			long.class, boolean.class, java.util.Map.class
+		};
+	private static final Class<?>[] _publishStagingRequestParameterTypes4 = new Class[] {
+			long.class,
+			com.liferay.exportimport.kernel.model.ExportImportConfiguration.class
+		};
+	private static final Class<?>[] _updateStagingRequestParameterTypes5 = new Class[] {
+			long.class, java.lang.String.class, byte[].class
+		};
+	private static final Class<?>[] _validateStagingRequestParameterTypes6 = new Class[] {
+>>>>>>> compatible
 			long.class, boolean.class, java.util.Map.class
 		};
 }

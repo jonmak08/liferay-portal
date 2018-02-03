@@ -19,7 +19,10 @@ import com.liferay.item.selector.ItemSelectorCriterion;
 import com.liferay.item.selector.ItemSelectorReturnType;
 import com.liferay.item.selector.criteria.URLItemSelectorReturnType;
 import com.liferay.item.selector.criteria.image.criterion.ImageItemSelectorCriterion;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.editor.configuration.BaseEditorConfigContributor;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.portlet.RequestBackedPortletURLFactory;
@@ -29,6 +32,10 @@ import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 
 import java.util.Arrays;
@@ -57,7 +64,11 @@ public abstract class BaseTinyMCEEditorConfigContributor
 			HtmlUtil.escape(
 				PortalUtil.getStaticResourceURL(
 					themeDisplay.getRequest(),
+<<<<<<< HEAD
 					themeDisplay.getPathThemeCss() + "/clay.css")));
+=======
+					themeDisplay.getPathThemeCss() + "/aui.css")));
+>>>>>>> compatible
 		sb.append(StringPool.COMMA);
 		sb.append(
 			HtmlUtil.escape(
@@ -149,11 +160,19 @@ public abstract class BaseTinyMCEEditorConfigContributor
 				"liferay-ui:input-editor:showSource"));
 	}
 
+<<<<<<< HEAD
 	private static final String _EXTENDED_VALID_ELEMENTS = StringBundler.concat(
 		"a[name|href|target|title|onclick],img[class|src|border=0",
 		"|alt|title|hspace|vspace|width|height|align|onmouseover",
 		"|onmouseout|name|usemap],hr[class|width|size|noshade],",
 		"font[face|size|color|style],span[class|align|style]");
+=======
+	private static final String _EXTENDED_VALID_ELEMENTS =
+		"a[name|href|target|title|onclick],img[class|src|border=0" +
+			"|alt|title|hspace|vspace|width|height|align|onmouseover" +
+				"|onmouseout|name|usemap],hr[class|width|size|noshade]," +
+					"font[face|size|color|style],span[class|align|style]";
+>>>>>>> compatible
 
 	private static final Map<String, String> _tinyMCELanguages =
 		new HashMap<>();

@@ -65,7 +65,11 @@ public class JavaSourceProcessorTest extends BaseSourceProcessorTestCase {
 
 	@Test
 	public void testDuplicateVariables() throws Exception {
+<<<<<<< HEAD
 		test("DuplicateVariables.testjava", "Duplicate _STRING_2");
+=======
+		test("DuplicateVariables.testjava", "Duplicate _s2");
+>>>>>>> compatible
 	}
 
 	@Test
@@ -185,6 +189,7 @@ public class JavaSourceProcessorTest extends BaseSourceProcessorTestCase {
 				"There should be a line break before 'new " +
 					"Comparator<String>() {'",
 				"There should be a line break after '},'",
+<<<<<<< HEAD
 				"There should be a line break before 'throws'",
 				"There should be a line break after " +
 					"'themeDisplay.getCompanyId(),'",
@@ -194,6 +199,19 @@ public class JavaSourceProcessorTest extends BaseSourceProcessorTestCase {
 			new Integer[] {
 				33, 37, 45, 49, 49, 54, 57, 60, 63, 67, 70, 75, 79, 84, 88, 95,
 				106, 119, 124, 131, 141, 159
+=======
+				"Line starts with '2' tabs, but '3' tabs are expected",
+				"Line starts with '2' tabs, but '3' tabs are expected",
+				"There should be a line break before 'throws'",
+				"There should be a line break after " +
+					"'themeDisplay.getCompanyId(),'",
+				"Line starts with '2' tabs, but '3' tabs are expected",
+				"There should be a line break before 'throws'"
+			},
+			new Integer[] {
+				33, 37, 45, 49, 49, 54, 57, 60, 63, 67, 70, 75, 79, 84, 88, 95,
+				106, 119, 123, 124, 124, 131, 141, 141
+>>>>>>> compatible
 			});
 		test("IncorrectLineBreaks2.testjava");
 	}
@@ -230,16 +248,25 @@ public class JavaSourceProcessorTest extends BaseSourceProcessorTestCase {
 		test(
 			"IncorrectVariableNames1.testjava",
 			new String[] {
+<<<<<<< HEAD
 				"public constant '_TEST_1' of type 'int' must match pattern " +
 					"'^[A-Z0-9][_A-Z0-9]*$'",
+=======
+				"Protected or public constant '_TEST_1' must match " +
+					"pattern '^[a-zA-Z0-9][_a-zA-Z0-9]*$'",
+>>>>>>> compatible
 				"Protected or public non-static field '_test2' must match " +
 					"pattern '^[a-z0-9][_a-zA-Z0-9]*$'"
 			},
 			new Integer[] {22, 28});
 		test(
 			"IncorrectVariableNames2.testjava",
+<<<<<<< HEAD
 			"private constant 'STRING_1' of type 'String' must match pattern " +
 				"'^_[A-Z0-9][_A-Z0-9]*$'",
+=======
+			"Private constant 'STRING_1' must match pattern '^_[_a-zA-Z0-9]*$'",
+>>>>>>> compatible
 			26);
 		test(
 			"IncorrectVariableNames3.testjava",
@@ -269,16 +296,20 @@ public class JavaSourceProcessorTest extends BaseSourceProcessorTestCase {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testJavaParameterAnnotations() throws Exception {
 		test("JavaParameterAnnotations.testjava");
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testJavaTermDividers() throws Exception {
 		test("JavaTermDividers.testjava");
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testJavaTermMetadataIncorrectLineBreaks() throws Exception {
 		test("JavaTermMetadataIncorrectLineBreaks.testjava");
 	}
@@ -294,6 +325,8 @@ public class JavaSourceProcessorTest extends BaseSourceProcessorTestCase {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testLogLevels() throws Exception {
 		test(
 			"Levels.testjava",
@@ -307,7 +340,11 @@ public class JavaSourceProcessorTest extends BaseSourceProcessorTestCase {
 
 	@Test
 	public void testLPS28266() throws Exception {
+<<<<<<< HEAD
 		test("LPS28266.testjava", "Use rs.getInt(1) for count");
+=======
+		test("LPS28266.testjava", "Use rs.getInt(1) for count, see LPS-28266");
+>>>>>>> compatible
 	}
 
 	@Test
@@ -333,9 +370,15 @@ public class JavaSourceProcessorTest extends BaseSourceProcessorTestCase {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testPackageName() throws Exception {
 		test(
 			"PackageName.testjava",
+=======
+	public void testPackagePath() throws Exception {
+		test(
+			"PackagePath.testjava",
+>>>>>>> compatible
 			"The declared package 'com.liferay.source.formatter.hello.world' " +
 				"does not match the expected package");
 	}

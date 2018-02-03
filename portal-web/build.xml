@@ -349,6 +349,7 @@ ${oversize.files.jsp}</fail>
 	<target depends="build-dtd" name="war">
 		<manifest-macro />
 
+<<<<<<< HEAD
 		<if>
 			<istrue value="${build.portal.artifacts.enabled}" />
 			<then>
@@ -366,5 +367,16 @@ ${oversize.files.jsp}</fail>
 				<download-latest-artifact destfile="${war.file}.war" />
 			</else>
 		</if>
+=======
+		<war
+			destfile="${war.file}.war"
+			webxml="docroot/WEB-INF/web.xml"
+		>
+			<fileset dir="docroot" />
+			<metainf dir="${project.dir}/oss-licenses">
+				<exclude name="**/development/**" />
+			</metainf>
+		</war>
+>>>>>>> compatible
 	</target>
 </project>

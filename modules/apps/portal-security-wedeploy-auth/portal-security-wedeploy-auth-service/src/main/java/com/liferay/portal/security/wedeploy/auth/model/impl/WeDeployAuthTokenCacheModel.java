@@ -19,6 +19,10 @@ import aQute.bnd.annotation.ProviderType;
 import com.liferay.portal.kernel.model.CacheModel;
 import com.liferay.portal.kernel.util.HashUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.security.wedeploy.auth.model.WeDeployAuthToken;
 
 import java.io.Externalizable;
@@ -98,7 +102,11 @@ public class WeDeployAuthTokenCacheModel implements CacheModel<WeDeployAuthToken
 		weDeployAuthTokenImpl.setUserId(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			weDeployAuthTokenImpl.setUserName("");
+=======
+			weDeployAuthTokenImpl.setUserName(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			weDeployAuthTokenImpl.setUserName(userName);
@@ -119,14 +127,22 @@ public class WeDeployAuthTokenCacheModel implements CacheModel<WeDeployAuthToken
 		}
 
 		if (clientId == null) {
+<<<<<<< HEAD
 			weDeployAuthTokenImpl.setClientId("");
+=======
+			weDeployAuthTokenImpl.setClientId(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			weDeployAuthTokenImpl.setClientId(clientId);
 		}
 
 		if (token == null) {
+<<<<<<< HEAD
 			weDeployAuthTokenImpl.setToken("");
+=======
+			weDeployAuthTokenImpl.setToken(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			weDeployAuthTokenImpl.setToken(token);
@@ -165,7 +181,11 @@ public class WeDeployAuthTokenCacheModel implements CacheModel<WeDeployAuthToken
 		objectOutput.writeLong(userId);
 
 		if (userName == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(userName);
@@ -175,14 +195,22 @@ public class WeDeployAuthTokenCacheModel implements CacheModel<WeDeployAuthToken
 		objectOutput.writeLong(modifiedDate);
 
 		if (clientId == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(clientId);
 		}
 
 		if (token == null) {
+<<<<<<< HEAD
 			objectOutput.writeUTF("");
+=======
+			objectOutput.writeUTF(StringPool.BLANK);
+>>>>>>> compatible
 		}
 		else {
 			objectOutput.writeUTF(token);

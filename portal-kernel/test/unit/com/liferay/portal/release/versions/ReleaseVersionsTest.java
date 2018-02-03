@@ -78,9 +78,13 @@ public class ReleaseVersionsTest {
 		}
 
 		Assert.assertTrue(
+<<<<<<< HEAD
 			StringBundler.concat(
 				String.valueOf(_portalPath), " and ", String.valueOf(otherPath),
 				" must be different types"),
+=======
+			_portalPath + " and " + otherPath + " must be different types",
+>>>>>>> compatible
 			differentTypes);
 
 		final Set<Path> ignorePaths = new HashSet<>(
@@ -114,11 +118,16 @@ public class ReleaseVersionsTest {
 					if (Files.notExists(otherBndBndPath)) {
 						if (_log.isInfoEnabled()) {
 							_log.info(
+<<<<<<< HEAD
 								StringBundler.concat(
 									"Ignoring ",
 									String.valueOf(bndBndRelativePath),
 									" as it does not exist in ",
 									String.valueOf(otherPath)));
+=======
+								"Ignoring " + bndBndRelativePath +
+									" as it does not exist in " + otherPath);
+>>>>>>> compatible
 						}
 
 						return FileVisitResult.SKIP_SUBTREE;

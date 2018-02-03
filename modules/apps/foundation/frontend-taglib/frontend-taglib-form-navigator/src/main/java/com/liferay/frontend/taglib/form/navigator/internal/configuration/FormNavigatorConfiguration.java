@@ -32,6 +32,7 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
 )
 public interface FormNavigatorConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(name = "form-navigator-id", required = true)
 	public String formNavigatorId();
 
@@ -39,6 +40,12 @@ public interface FormNavigatorConfiguration {
 		description = "form-navigator-entry-keys-help",
 		name = "form-navigator-entry-keys", required = true
 	)
+=======
+	@Meta.AD(required = true)
+	public String formNavigatorId();
+
+	@Meta.AD(description = "form-navigator-entry-keys", required = true)
+>>>>>>> compatible
 	public String[] formNavigatorEntryKeys();
 
 }

@@ -14,10 +14,16 @@
 
 package com.liferay.source.formatter.checks;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
+import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
@@ -69,9 +75,13 @@ public class JavaCombineLinesCheck extends BaseFileCheck {
 					previousLine);
 				String trimmedLine = StringUtil.trimLeading(line);
 
+<<<<<<< HEAD
 				int pos = line.indexOf(StringPool.DOUBLE_SLASH);
 
 				if (((pos == -1) || ToolsUtil.isInsideQuotes(line, pos)) &&
+=======
+				if (!trimmedLine.startsWith(StringPool.DOUBLE_SLASH) &&
+>>>>>>> compatible
 					!trimmedLine.startsWith(StringPool.STAR)) {
 
 					String strippedQuotesLine = stripQuotes(trimmedLine);
@@ -94,9 +104,14 @@ public class JavaCombineLinesCheck extends BaseFileCheck {
 
 							content = StringUtil.replace(
 								content, "\n" + line + "\n",
+<<<<<<< HEAD
 								StringBundler.concat(
 									"\n", line.substring(0, x), "\n", indent,
 									line.substring(x), "\n"));
+=======
+								"\n" + line.substring(0, x) + "\n" + indent +
+									line.substring(x) + "\n");
+>>>>>>> compatible
 
 							return content;
 						}
@@ -150,10 +165,16 @@ public class JavaCombineLinesCheck extends BaseFileCheck {
 
 							content = StringUtil.replace(
 								content, "\n" + previousLine + "\n",
+<<<<<<< HEAD
 								StringBundler.concat(
 									"\n", previousLine.substring(0, x + 1),
 									"\n", indent, previousLine.substring(x + 2),
 									"\n"));
+=======
+								"\n" + previousLine.substring(0, x + 1) + "\n" +
+									indent + previousLine.substring(x + 2) +
+										"\n");
+>>>>>>> compatible
 
 							return content;
 						}
@@ -189,6 +210,7 @@ public class JavaCombineLinesCheck extends BaseFileCheck {
 
 		matcher = _combinedLinesPattern4.matcher(content);
 
+<<<<<<< HEAD
 		content = matcher.replaceAll("$1 $3");
 
 		matcher = _combinedLinesPattern5.matcher(content);
@@ -211,6 +233,9 @@ public class JavaCombineLinesCheck extends BaseFileCheck {
 		}
 
 		return content;
+=======
+		return matcher.replaceAll("$1 $3");
+>>>>>>> compatible
 	}
 
 	private String _getCombinedLinesContent(String content, Pattern pattern) {
@@ -341,6 +366,7 @@ public class JavaCombineLinesCheck extends BaseFileCheck {
 			}
 		}
 
+<<<<<<< HEAD
 		if (numNextLinesRemoveLeadingTab > 0) {
 			int nextLineStartPos = getLineStartPos(content, lineCount + 1);
 
@@ -354,6 +380,8 @@ public class JavaCombineLinesCheck extends BaseFileCheck {
 			}
 		}
 
+=======
+>>>>>>> compatible
 		firstLine = StringUtil.trimTrailing(firstLine);
 
 		return StringUtil.replaceFirst(
@@ -430,6 +458,7 @@ public class JavaCombineLinesCheck extends BaseFileCheck {
 		int previousLineLength = getLineLength(previousLine);
 
 		if ((trimmedLine.length() + previousLineLength) < getMaxLineLength()) {
+<<<<<<< HEAD
 			if (trimmedLine.matches("\\w.*") &&
 				(Validator.isVariableName(trimmedPreviousLine) ||
 				 (trimmedPreviousLine.matches("\\w+\\[.*\\]") &&
@@ -442,6 +471,8 @@ public class JavaCombineLinesCheck extends BaseFileCheck {
 					previousLine, null, false, true, 0);
 			}
 
+=======
+>>>>>>> compatible
 			if (trimmedPreviousLine.startsWith("for ") &&
 				(previousLine.endsWith(StringPool.COLON) ||
 				 previousLine.endsWith(StringPool.SEMICOLON)) &&
@@ -507,9 +538,14 @@ public class JavaCombineLinesCheck extends BaseFileCheck {
 				if (line.endsWith(StringPool.OPEN_CURLY_BRACE)) {
 					addMessage(
 						fileName,
+<<<<<<< HEAD
 						StringBundler.concat(
 							"'", trimmedLine, "' should be added to previous ",
 							"line"),
+=======
+						"'" + trimmedLine + "' should be added to previous " +
+							"line",
+>>>>>>> compatible
 						lineCount);
 
 					return null;
@@ -534,9 +570,14 @@ public class JavaCombineLinesCheck extends BaseFileCheck {
 
 							addMessage(
 								fileName,
+<<<<<<< HEAD
 								StringBundler.concat(
 									"'", trimmedLine, "' should be added to ",
 									"previous line"),
+=======
+								"'" + trimmedLine + "' should be added to " +
+									"previous line",
+>>>>>>> compatible
 								lineCount);
 
 							return null;
@@ -703,6 +744,7 @@ public class JavaCombineLinesCheck extends BaseFileCheck {
 			}
 		}
 
+<<<<<<< HEAD
 		if (trimmedPreviousLine.matches("for \\(\\w+")) {
 			int x = trimmedLine.indexOf(" :");
 
@@ -767,6 +809,8 @@ public class JavaCombineLinesCheck extends BaseFileCheck {
 			}
 		}
 
+=======
+>>>>>>> compatible
 		if (previousLine.endsWith(StringPool.PLUS) &&
 			(lineTabCount == (previousLineTabCount + 1))) {
 
@@ -1006,7 +1050,10 @@ public class JavaCombineLinesCheck extends BaseFileCheck {
 		"(\n\t*(private|protected|public) void)\n\t+(\\w+\\(\\)( \\{)?\n)");
 	private final Pattern _combinedLinesPattern4 = Pattern.compile(
 		"(\n\t*(extends|implements))\n\t+([\\w.]+ \\{\n)");
+<<<<<<< HEAD
 	private final Pattern _combinedLinesPattern5 = Pattern.compile(
 		"(\n\t*(private|protected|public)( .*[^\\{;\n])?)\n\t*(.+ [\\{;]\n)");
+=======
+>>>>>>> compatible
 
 }

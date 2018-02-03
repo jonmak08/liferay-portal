@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Dynamic Data Mapping Type Select
 Bundle-SymbolicName: com.liferay.dynamic.data.mapping.type.select
+<<<<<<< HEAD
 Bundle-Version: 2.0.15
+=======
+Bundle-Version: 2.0.12
+>>>>>>> compatible
 Liferay-JS-Config: /META-INF/resources/config.js
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Dynamic Data Mapping

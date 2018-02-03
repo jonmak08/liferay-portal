@@ -26,6 +26,7 @@
 		<execute function="Type" locator1="TextInput#DESCRIPTION" value1="${structureDescription}" />
 	</command>
 
+<<<<<<< HEAD
 	<command name="addFavoriteStructure">
 		<execute function="AssertTextEquals" locator1="Message#INFO_1" value1="You can add as many as 7 favorites in your quick menu." />
 
@@ -52,6 +53,24 @@
 
 				<execute function="Click" locator1="Translation#LOCALIZATION_NAME" />
 
+=======
+	<command name="addLocalization">
+		<var name="key_localizationName" value="${localization1NameKey}" />
+
+		<execute function="Click" locator1="Translation#LOCALIZATION_NAME" />
+
+		<execute macro="WebContentStructures#addName">
+			<var name="structureName" value="${localization1Name}" />
+		</execute>
+
+		<if>
+			<isset var="localization2NameKey" />
+			<then>
+				<var name="key_localizationName" value="${localization2NameKey}" />
+
+				<execute function="Click" locator1="Translation#LOCALIZATION_NAME" />
+
+>>>>>>> compatible
 				<execute macro="WebContentStructures#addName">
 					<var name="structureName" value="${localization2Name}" />
 				</execute>
@@ -147,6 +166,7 @@
 			</else>
 		</if>
 	</command>
+<<<<<<< HEAD
 
 	<command name="editSubstructureDefaultValuesCP">
 		<var name="key_ddlDataDefinitionName" value="${substructureName}" />
@@ -159,6 +179,20 @@
 
 		<execute function="Click#waitForMenuToggleJSClick" locator1="Icon#ROW_VERTICAL_ELLIPSIS" />
 
+=======
+
+	<command name="editSubstructureDefaultValuesCP">
+		<var name="key_ddlDataDefinitionName" value="${substructureName}" />
+
+		<execute function="Type" locator1="NavBar#BASIC_SEARCH_FIELD" value1="${substructureName}" />
+
+		<execute function="Click" locator1="Icon#BASIC_SEARCH" />
+
+		<var name="key_rowEntry" value="${substructureName}" />
+
+		<execute function="Click#waitForMenuToggleJSClick" locator1="Icon#ROW_VERTICAL_ELLIPSIS" />
+
+>>>>>>> compatible
 		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Edit Default Values">
 			<var name="key_menuItem" value="Edit Default Values" />
 		</execute>
@@ -172,6 +206,7 @@
 
 		<execute macro="Button#clickSave" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
@@ -187,6 +222,12 @@
 		<execute macro="LexiconEntry#gotoEntryMenuItem">
 			<var name="menuItem" value="Edit Default Values" />
 			<var name="rowEntry" value="${substructureName}" />
+=======
+		<execute function="Click#waitForMenuToggleJSClick" locator1="Icon#ROW_VERTICAL_ELLIPSIS" />
+
+		<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Edit Default Values">
+			<var name="key_menuItem" value="Edit Default Values" />
+>>>>>>> compatible
 		</execute>
 
 		<for list="${editSubstructureFieldNames}" param="structureFieldName">
@@ -199,7 +240,13 @@
 	</command>
 
 	<command name="saveCP">
+<<<<<<< HEAD
 		<execute macro="DDLDataDefinition#save" />
+=======
+		<execute function="AssertClick" locator1="DDMEditStructure#SAVE_BUTTON" value1="Save" />
+
+		<execute macro="Alert#viewSuccessMessage" />
+>>>>>>> compatible
 
 		<if>
 			<isset var="addRoleViewPermissions" />
@@ -207,11 +254,19 @@
 				<var name="key_rowEntry" value="${structureName}" />
 
 				<execute function="Click#waitForMenuToggleJSClick" locator1="Icon#ROW_VERTICAL_ELLIPSIS" />
+<<<<<<< HEAD
 
 				<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Permissions">
 					<var name="key_menuItem" value="Permissions" />
 				</execute>
 
+=======
+
+				<execute function="AssertClick" locator1="MenuItem#ANY_MENU_ITEM" value1="Permissions">
+					<var name="key_menuItem" value="Permissions" />
+				</execute>
+
+>>>>>>> compatible
 				<execute function="SelectFrame" locator1="IFrame#DIALOG" />
 
 				<execute macro="PermissionsInline#addOrRemoveViewPermissionFromAllRoles">
@@ -227,17 +282,27 @@
 	<command name="tearDownCP">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Content" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesContent">
+>>>>>>> compatible
 			<var name="portlet" value="Web Content" />
 		</execute>
 
 		<execute macro="WebContentNavigator#gotoManageStructures" />
 
+<<<<<<< HEAD
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="2" />
 		</execute>
+=======
+		<execute function="Type" locator1="NavBar#BASIC_SEARCH_FIELD" value1="2" />
+
+		<execute function="Click" locator1="Icon#BASIC_SEARCH" />
+>>>>>>> compatible
 
 		<while>
 			<condition function="IsElementNotPresent" locator1="Message#EMPTY_INFO" />
@@ -252,9 +317,15 @@
 			</then>
 		</while>
 
+<<<<<<< HEAD
 		<execute macro="Search#searchCP">
 			<var name="searchTerm" value="Structure" />
 		</execute>
+=======
+		<execute function="Type" locator1="NavBar#BASIC_SEARCH_FIELD" value1="Structure" />
+
+		<execute function="Click" locator1="Icon#BASIC_SEARCH" />
+>>>>>>> compatible
 
 		<while>
 			<condition function="IsElementNotPresent" locator1="Message#EMPTY_INFO" />
@@ -269,9 +340,13 @@
 			</then>
 		</while>
 
+<<<<<<< HEAD
 		<execute macro="Portlet#viewEmptyMessage">
 			<var name="message" value="There are no results." />
 		</execute>
+=======
+		<execute macro="Portlet#viewEmptyMessage" />
+>>>>>>> compatible
 	</command>
 
 	<command name="viewCP">
@@ -293,6 +368,7 @@
 
 		<execute function="SelectFrame" value1="relative=top" />
 	</command>
+<<<<<<< HEAD
 
 	<command name="viewFavoriteStructureViaIFrame">
 		<execute function="AssertTextEquals" locator1="WC#ADD_TO_FAVORITES" value1="Add to Favorites (${indexNumber})" />
@@ -333,6 +409,12 @@
 	<command name="viewTableEntryCP">
 		<var name="key_ddlDataDefinitionName" value="${structureName}" />
 
+=======
+
+	<command name="viewTableEntryCP">
+		<var name="key_ddlDataDefinitionName" value="${structureName}" />
+
+>>>>>>> compatible
 		<execute function="AssertTextEquals" locator1="DDMSelectStructure#DDM_STRUCTURE_TABLE_NAME" value1="${structureName}" />
 		<execute function="AssertTextEquals" locator1="DDMSelectStructure#DDM_STRUCTURE_TABLE_DESCRIPTION" value1="${structureDescription}" />
 	</command>

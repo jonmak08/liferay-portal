@@ -15,8 +15,13 @@
 package com.liferay.document.library.repository.cmis.internal;
 
 import com.liferay.portal.kernel.exception.PortalException;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.repository.DocumentRepository;
 import com.liferay.portal.kernel.repository.capabilities.PortalCapabilityLocator;
+=======
+import com.liferay.portal.kernel.language.LanguageUtil;
+import com.liferay.portal.kernel.repository.DocumentRepository;
+>>>>>>> compatible
 import com.liferay.portal.kernel.repository.capabilities.ProcessorCapability;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.FileVersion;
@@ -26,6 +31,10 @@ import com.liferay.portal.kernel.util.CacheResourceBundleLoader;
 import com.liferay.portal.kernel.util.ClassResourceBundleLoader;
 import com.liferay.portal.kernel.util.ResourceBundleLoader;
 import com.liferay.portal.kernel.util.ResourceBundleUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.repository.capabilities.LiferayProcessorCapability;
+>>>>>>> compatible
 
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -40,7 +49,12 @@ public abstract class BaseCMISRepositoryDefiner extends BaseRepositoryDefiner {
 	@Override
 	public String getRepositoryTypeLabel(Locale locale) {
 		ResourceBundle resourceBundle =
+<<<<<<< HEAD
 			_resourceBundleLoader.loadResourceBundle(locale);
+=======
+			_resourceBundleLoader.loadResourceBundle(
+				LanguageUtil.getLanguageId(locale));
+>>>>>>> compatible
 
 		return ResourceBundleUtil.getString(
 			resourceBundle, _MODEL_RESOURCE_NAME_PREFIX + getClassName());
@@ -50,6 +64,7 @@ public abstract class BaseCMISRepositoryDefiner extends BaseRepositoryDefiner {
 	public void registerCapabilities(
 		CapabilityRegistry<DocumentRepository> capabilityRegistry) {
 
+<<<<<<< HEAD
 		DocumentRepository documentRepository = capabilityRegistry.getTarget();
 
 		PortalCapabilityLocator portalCapabilityLocator =
@@ -65,6 +80,14 @@ public abstract class BaseCMISRepositoryDefiner extends BaseRepositoryDefiner {
 
 	protected abstract PortalCapabilityLocator getPortalCapabilityLocator();
 
+=======
+		capabilityRegistry.addSupportedCapability(
+			ProcessorCapability.class,
+			new RefreshingProcessorCapability(
+				new LiferayProcessorCapability()));
+	}
+
+>>>>>>> compatible
 	protected ResourceBundleLoader getResourceBundleLoader() {
 		return _resourceBundleLoader;
 	}

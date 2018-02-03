@@ -1,3 +1,7 @@
 Bundle-Name: Liferay Dictionary Web
 Bundle-SymbolicName: com.liferay.dictionary.web
+<<<<<<< HEAD
 Bundle-Version: 1.0.9
+=======
+Bundle-Version: 1.0.6
+>>>>>>> compatible

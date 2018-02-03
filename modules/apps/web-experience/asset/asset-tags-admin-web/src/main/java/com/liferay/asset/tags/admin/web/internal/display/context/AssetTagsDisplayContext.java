@@ -18,15 +18,21 @@ import com.liferay.asset.kernel.model.AssetTag;
 import com.liferay.asset.kernel.service.AssetEntryLocalServiceUtil;
 import com.liferay.asset.kernel.service.AssetTagLocalServiceUtil;
 import com.liferay.asset.kernel.service.AssetTagServiceUtil;
+<<<<<<< HEAD
 import com.liferay.asset.tags.constants.AssetTagsAdminPortletKeys;
 import com.liferay.frontend.taglib.clay.servlet.taglib.util.NavigationItem;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.asset.tags.admin.web.internal.constants.AssetTagsAdminPortletKeys;
+import com.liferay.exportimport.kernel.staging.permission.StagingPermissionUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.search.EmptyOnClickRowChecker;
 import com.liferay.portal.kernel.dao.search.SearchContainer;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.portlet.PortalPreferences;
 import com.liferay.portal.kernel.portlet.PortletPreferencesFactoryUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.search.BaseModelSearchResult;
 import com.liferay.portal.kernel.search.Field;
 import com.liferay.portal.kernel.search.Sort;
@@ -35,10 +41,22 @@ import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.ParamUtil;
+=======
+import com.liferay.portal.kernel.security.permission.ActionKeys;
+import com.liferay.portal.kernel.security.permission.PermissionChecker;
+import com.liferay.portal.kernel.theme.ThemeDisplay;
+import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ParamUtil;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
+<<<<<<< HEAD
+=======
+import com.liferay.portlet.asset.service.permission.AssetTagPermission;
+>>>>>>> compatible
 import com.liferay.portlet.asset.service.permission.AssetTagsPermission;
 import com.liferay.portlet.asset.util.comparator.AssetTagAssetCountComparator;
 import com.liferay.portlet.asset.util.comparator.AssetTagNameComparator;
@@ -46,7 +64,10 @@ import com.liferay.portlet.asset.util.comparator.AssetTagNameComparator;
 import java.util.ArrayList;
 import java.util.List;
 
+<<<<<<< HEAD
 import javax.portlet.PortletURL;
+=======
+>>>>>>> compatible
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
@@ -112,6 +133,13 @@ public class AssetTagsDisplayContext {
 
 		_keywords = ParamUtil.getString(_request, "keywords", null);
 
+<<<<<<< HEAD
+=======
+		if (Validator.isNotNull(_keywords)) {
+			_keywords = StringUtil.quote(_keywords, StringPool.PERCENT);
+		}
+
+>>>>>>> compatible
 		return _keywords;
 	}
 
@@ -140,6 +168,7 @@ public class AssetTagsDisplayContext {
 		return _mergeTagNames;
 	}
 
+<<<<<<< HEAD
 	public List<NavigationItem> getNavigationItems() {
 		List<NavigationItem> navigationItems = new ArrayList<>();
 
@@ -158,6 +187,8 @@ public class AssetTagsDisplayContext {
 		return navigationItems;
 	}
 
+=======
+>>>>>>> compatible
 	public String getOrderByCol() {
 		if (Validator.isNotNull(_orderByCol)) {
 			return _orderByCol;
@@ -206,7 +237,11 @@ public class AssetTagsDisplayContext {
 		return _tagId;
 	}
 
+<<<<<<< HEAD
 	public SearchContainer getTagsSearchContainer() throws PortalException {
+=======
+	public SearchContainer getTagsSearchContainer() {
+>>>>>>> compatible
 		if (_tagsSearchContainer != null) {
 			return _tagsSearchContainer;
 		}
@@ -230,6 +265,7 @@ public class AssetTagsDisplayContext {
 			tagsSearchContainer.setSearch(true);
 		}
 
+<<<<<<< HEAD
 		tagsSearchContainer.setRowChecker(
 			new EmptyOnClickRowChecker(_renderResponse));
 
@@ -307,6 +343,75 @@ public class AssetTagsDisplayContext {
 		_tagsSearchContainer = tagsSearchContainer;
 
 		return _tagsSearchContainer;
+=======
+		String orderByCol = getOrderByCol();
+
+		tagsSearchContainer.setOrderByCol(orderByCol);
+
+		OrderByComparator<AssetTag> orderByComparator = null;
+
+		boolean orderByAsc = false;
+
+		String orderByType = getOrderByType();
+
+		if (orderByType.equals("asc")) {
+			orderByAsc = true;
+		}
+
+		if (orderByCol.equals("name")) {
+			orderByComparator = new AssetTagNameComparator(orderByAsc);
+		}
+		else if (orderByCol.equals("usages")) {
+			orderByComparator = new AssetTagAssetCountComparator(orderByAsc);
+		}
+
+		tagsSearchContainer.setOrderByComparator(orderByComparator);
+
+		tagsSearchContainer.setOrderByType(orderByType);
+
+		tagsSearchContainer.setRowChecker(
+			new EmptyOnClickRowChecker(_renderResponse));
+
+		ThemeDisplay themeDisplay = (ThemeDisplay)_request.getAttribute(
+			WebKeys.THEME_DISPLAY);
+
+		long scopeGroupId = themeDisplay.getScopeGroupId();
+
+		int tagsCount = AssetTagServiceUtil.getTagsCount(
+			scopeGroupId, keywords);
+
+		tagsSearchContainer.setTotal(tagsCount);
+
+		List<AssetTag> tags = AssetTagServiceUtil.getTags(
+			scopeGroupId, keywords, tagsSearchContainer.getStart(),
+			tagsSearchContainer.getEnd(),
+			tagsSearchContainer.getOrderByComparator());
+
+		tagsSearchContainer.setResults(tags);
+
+		_tagsSearchContainer = tagsSearchContainer;
+
+		return _tagsSearchContainer;
+	}
+
+	public boolean hasPermission(AssetTag tag, String actionId) {
+		ThemeDisplay themeDisplay = (ThemeDisplay)_request.getAttribute(
+			WebKeys.THEME_DISPLAY);
+
+		PermissionChecker permissionChecker =
+			themeDisplay.getPermissionChecker();
+
+		Boolean hasPermission = StagingPermissionUtil.hasPermission(
+			permissionChecker, themeDisplay.getScopeGroupId(),
+			AssetTag.class.getName(), tag.getTagId(),
+			AssetTagsAdminPortletKeys.ASSET_TAGS_ADMIN, actionId);
+
+		if (hasPermission != null) {
+			return hasPermission.booleanValue();
+		}
+
+		return AssetTagPermission.contains(permissionChecker, tag, actionId);
+>>>>>>> compatible
 	}
 
 	public boolean isDisabledTagsManagementBar() throws PortalException {

@@ -17,11 +17,14 @@ package com.liferay.source.formatter.checks;
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
 import com.liferay.portal.kernel.util.StringPool;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.source.formatter.checks.util.JSPSourceUtil;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+=======
+>>>>>>> compatible
 
 /**
  * @author Hugo Huijser
@@ -50,6 +53,7 @@ public class JSPLineBreakCheck extends LineBreakCheck {
 			}
 		}
 
+<<<<<<< HEAD
 		content = _fixRedundantLineBreaks(content);
 
 		return fixRedundantCommaInsideArray(content);
@@ -109,4 +113,9 @@ public class JSPLineBreakCheck extends LineBreakCheck {
 	private final Pattern _redundantLineBreakPattern2 = Pattern.compile(
 		"[\n\t][^/\n\t].*[|&](\n[\t ]*)");
 
+=======
+		return fixRedundantCommaInsideArray(content);
+	}
+
+>>>>>>> compatible
 }

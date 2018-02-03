@@ -134,7 +134,11 @@ public class KaleoTaskPersistenceTest {
 
 		newKaleoTask.setModifiedDate(RandomTestUtil.nextDate());
 
+<<<<<<< HEAD
 		newKaleoTask.setKaleoDefinitionVersionId(RandomTestUtil.nextLong());
+=======
+		newKaleoTask.setKaleoDefinitionId(RandomTestUtil.nextLong());
+>>>>>>> compatible
 
 		newKaleoTask.setKaleoNodeId(RandomTestUtil.nextLong());
 
@@ -162,8 +166,13 @@ public class KaleoTaskPersistenceTest {
 		Assert.assertEquals(Time.getShortTimestamp(
 				existingKaleoTask.getModifiedDate()),
 			Time.getShortTimestamp(newKaleoTask.getModifiedDate()));
+<<<<<<< HEAD
 		Assert.assertEquals(existingKaleoTask.getKaleoDefinitionVersionId(),
 			newKaleoTask.getKaleoDefinitionVersionId());
+=======
+		Assert.assertEquals(existingKaleoTask.getKaleoDefinitionId(),
+			newKaleoTask.getKaleoDefinitionId());
+>>>>>>> compatible
 		Assert.assertEquals(existingKaleoTask.getKaleoNodeId(),
 			newKaleoTask.getKaleoNodeId());
 		Assert.assertEquals(existingKaleoTask.getName(), newKaleoTask.getName());
@@ -179,10 +188,17 @@ public class KaleoTaskPersistenceTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testCountByKaleoDefinitionVersionId() throws Exception {
 		_persistence.countByKaleoDefinitionVersionId(RandomTestUtil.nextLong());
 
 		_persistence.countByKaleoDefinitionVersionId(0L);
+=======
+	public void testCountByKaleoDefinitionId() throws Exception {
+		_persistence.countByKaleoDefinitionId(RandomTestUtil.nextLong());
+
+		_persistence.countByKaleoDefinitionId(0L);
+>>>>>>> compatible
 	}
 
 	@Test
@@ -218,8 +234,13 @@ public class KaleoTaskPersistenceTest {
 		return OrderByComparatorFactoryUtil.create("KaleoTask", "kaleoTaskId",
 			true, "groupId", true, "companyId", true, "userId", true,
 			"userName", true, "createDate", true, "modifiedDate", true,
+<<<<<<< HEAD
 			"kaleoDefinitionVersionId", true, "kaleoNodeId", true, "name",
 			true, "description", true);
+=======
+			"kaleoDefinitionId", true, "kaleoNodeId", true, "name", true,
+			"description", true);
+>>>>>>> compatible
 	}
 
 	@Test
@@ -444,7 +465,11 @@ public class KaleoTaskPersistenceTest {
 
 		kaleoTask.setModifiedDate(RandomTestUtil.nextDate());
 
+<<<<<<< HEAD
 		kaleoTask.setKaleoDefinitionVersionId(RandomTestUtil.nextLong());
+=======
+		kaleoTask.setKaleoDefinitionId(RandomTestUtil.nextLong());
+>>>>>>> compatible
 
 		kaleoTask.setKaleoNodeId(RandomTestUtil.nextLong());
 

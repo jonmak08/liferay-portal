@@ -7,6 +7,7 @@
 					combine: Liferay.AUI.getCombine(),
 					filter: Liferay.AUI.getFilterConfig(),
 					modules: {
+<<<<<<< HEAD
 						'liferay-calendar-container': {
 							path: 'calendar_container.js',
 							requires: [
@@ -22,6 +23,8 @@
 								'aui-base'
 							]
 						},
+=======
+>>>>>>> compatible
 						'liferay-calendar-interval-selector': {
 							path: 'interval_selector.js',
 							requires: [
@@ -74,6 +77,7 @@
 								'aui-base'
 							]
 						},
+<<<<<<< HEAD
 						'liferay-calendar-remote-services': {
 							path: 'remote_services.js',
 							requires: [
@@ -85,6 +89,8 @@
 								'liferay-portlet-url'
 							]
 						},
+=======
+>>>>>>> compatible
 						'liferay-calendar-session-listener': {
 							path: 'session_listener.js',
 							requires: [
@@ -138,12 +144,16 @@
 								'liferay-calendar-recurrence-util',
 								'liferay-calendar-util',
 								'liferay-node',
+<<<<<<< HEAD
 								'liferay-scheduler-event-recorder',
 								'liferay-scheduler-models',
+=======
+>>>>>>> compatible
 								'liferay-store',
 								'promise',
 								'resize-plugin'
 							]
+<<<<<<< HEAD
 						},
 						'liferay-scheduler-event-recorder': {
 							path: 'scheduler_event_recorder.js',
@@ -162,6 +172,8 @@
 								'liferay-calendar-util',
 								'liferay-store'
 							]
+=======
+>>>>>>> compatible
 						}
 					},
 					root: MODULE_PATH + '/js/'

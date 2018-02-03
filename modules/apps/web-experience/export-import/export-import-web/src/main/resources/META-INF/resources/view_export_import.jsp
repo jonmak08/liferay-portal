@@ -18,16 +18,23 @@
 
 <%
 long backgroundTaskId = ParamUtil.getLong(request, "backgroundTaskId");
+<<<<<<< HEAD
 
 portletDisplay.setDescription(LanguageUtil.get(request, "process-details"));
 renderResponse.setTitle(LanguageUtil.get(request, "process-details"));
+=======
+>>>>>>> compatible
 %>
 
 <div class="container-fluid-1280" id="<portlet:namespace />exportImportProcessContainer">
 	<liferay-util:include page="/export_import_process.jsp" servletContext="<%= application %>" />
 </div>
 
+<<<<<<< HEAD
 <aui:script use="liferay-export-import-export-import">
+=======
+<aui:script use="liferay-export-import">
+>>>>>>> compatible
 	<liferay-portlet:resourceURL copyCurrentRenderParameters="<%= false %>" id="exportImport" var="exportImportProcessURL">
 		<portlet:param name="<%= Constants.CMD %>" value="export_import" />
 		<portlet:param name="backgroundTaskId" value="<%= String.valueOf(backgroundTaskId) %>" />

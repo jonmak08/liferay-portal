@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Flags Service
 Bundle-SymbolicName: com.liferay.flags.service
+<<<<<<< HEAD
 Bundle-Version: 2.0.13
+=======
+Bundle-Version: 2.0.12
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title:
 Liferay-Require-SchemaVersion: 2.0.1

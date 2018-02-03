@@ -14,11 +14,15 @@
 
 package com.liferay.wiki.web.internal.portlet.configuration.icon;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.portlet.configuration.icon.BasePortletConfigurationIcon;
 import com.liferay.portal.kernel.portlet.configuration.icon.PortletConfigurationIcon;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermission;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.Constants;
@@ -28,6 +32,18 @@ import com.liferay.trash.TrashHelper;
 import com.liferay.wiki.constants.WikiPortletKeys;
 import com.liferay.wiki.model.WikiNode;
 import com.liferay.wiki.service.WikiNodeService;
+=======
+import com.liferay.portal.kernel.theme.ThemeDisplay;
+import com.liferay.portal.kernel.util.Constants;
+import com.liferay.portal.kernel.util.Portal;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.trash.kernel.util.TrashUtil;
+import com.liferay.wiki.constants.WikiPortletKeys;
+import com.liferay.wiki.model.WikiNode;
+import com.liferay.wiki.service.WikiNodeService;
+import com.liferay.wiki.service.permission.WikiNodePermissionChecker;
+>>>>>>> compatible
 import com.liferay.wiki.web.internal.portlet.action.ActionUtil;
 
 import javax.portlet.ActionRequest;
@@ -123,7 +139,11 @@ public class DeleteNodePortletConfigurationIcon
 		try {
 			WikiNode node = ActionUtil.getNode(portletRequest);
 
+<<<<<<< HEAD
 			if (_wikiNodeModelResourcePermission.contains(
+=======
+			if (WikiNodePermissionChecker.contains(
+>>>>>>> compatible
 					themeDisplay.getPermissionChecker(), node,
 					ActionKeys.DELETE) &&
 				(_wikiNodeService.getNodesCount(
@@ -140,7 +160,11 @@ public class DeleteNodePortletConfigurationIcon
 
 	protected boolean isTrashEnabled(long groupId) {
 		try {
+<<<<<<< HEAD
 			if (_trashHelper.isTrashEnabled(groupId)) {
+=======
+			if (TrashUtil.isTrashEnabled(groupId)) {
+>>>>>>> compatible
 				return true;
 			}
 		}
@@ -158,12 +182,15 @@ public class DeleteNodePortletConfigurationIcon
 	@Reference
 	private Portal _portal;
 
+<<<<<<< HEAD
 	@Reference
 	private TrashHelper _trashHelper;
 
 	@Reference(target = "(model.class.name=com.liferay.wiki.model.WikiNode)")
 	private ModelResourcePermission<WikiNode> _wikiNodeModelResourcePermission;
 
+=======
+>>>>>>> compatible
 	private WikiNodeService _wikiNodeService;
 
 }

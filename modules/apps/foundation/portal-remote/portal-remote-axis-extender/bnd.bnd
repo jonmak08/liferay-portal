@@ -2,7 +2,11 @@ Bundle-Activator: com.liferay.portal.remote.axis.extender.internal.activator.Axi
 Bundle-Name: Liferay Portal Remote Axis Extender
 Bundle-SymbolicName: com.liferay.portal.remote.axis.extender
 Bundle-Version: 1.0.12
+<<<<<<< HEAD
 DynamicImport-Package: com.liferay.portal.kernel.*
+=======
+DynamicImport-Package: com.liferay.*
+>>>>>>> compatible
 Import-Package:\
 	!com.ibm.*,\
 	\

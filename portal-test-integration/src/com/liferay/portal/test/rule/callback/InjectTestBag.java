@@ -204,6 +204,7 @@ public class InjectTestBag {
 
 			if (waitTime >= TestPropsValues.CI_TEST_TIMEOUT_TIME) {
 				throw new IllegalStateException(
+<<<<<<< HEAD
 					StringBundler.concat(
 						"Timed out while waiting for service ", className, " ",
 						filterString));
@@ -212,6 +213,14 @@ public class InjectTestBag {
 			System.out.println(
 				StringBundler.concat(
 					"Waiting for service ", className, " ", filterString));
+=======
+					"Timed out while waiting for service " + className + " " +
+						filterString);
+			}
+
+			System.out.println(
+				"Waiting for service " + className + " " + filterString);
+>>>>>>> compatible
 
 			try {
 				countDownLatch.await(_SLEEP_TIME, TimeUnit.MILLISECONDS);

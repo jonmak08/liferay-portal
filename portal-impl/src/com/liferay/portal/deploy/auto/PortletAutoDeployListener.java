@@ -92,15 +92,22 @@ public class PortletAutoDeployListener extends BaseAutoDeployListener {
 			return true;
 		}
 
+<<<<<<< HEAD
 		String fileName = file.getName();
 
+=======
+>>>>>>> compatible
 		if (!pluginAutoDeployListenerHelper.isExtPlugin() &&
 			!pluginAutoDeployListenerHelper.isHookPlugin() &&
 			!pluginAutoDeployListenerHelper.isMatchingFile(
 				"WEB-INF/liferay-layout-templates.xml") &&
 			!pluginAutoDeployListenerHelper.isThemePlugin() &&
 			!pluginAutoDeployListenerHelper.isWebPlugin() &&
+<<<<<<< HEAD
 			fileName.endsWith(".war")) {
+=======
+			file.getName().endsWith(".war")) {
+>>>>>>> compatible
 
 			_waiDeployer = true;
 

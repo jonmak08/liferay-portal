@@ -14,8 +14,11 @@
 
 package com.liferay.exportimport.lar;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.lar.ExportImportProcessCallbackRegistry;
 import com.liferay.portal.kernel.security.pacl.DoPrivileged;
 
@@ -28,12 +31,19 @@ import org.osgi.service.component.annotations.Component;
  */
 @Component(immediate = true)
 @DoPrivileged
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class ExportImportProcessCallbackRegistryImpl
 	implements ExportImportProcessCallbackRegistry {
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 4.0.0
+=======
+	 * @deprecated As of 3.6.0
+>>>>>>> compatible
 	 */
 	@Deprecated
 	@Override

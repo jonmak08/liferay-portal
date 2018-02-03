@@ -14,7 +14,11 @@
 
 package com.liferay.announcements.web.internal.portlet;
 
+<<<<<<< HEAD
 import com.liferay.announcements.constants.AnnouncementsPortletKeys;
+=======
+import com.liferay.announcements.web.constants.AnnouncementsPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.Release;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 
@@ -31,8 +35,13 @@ import org.osgi.service.component.annotations.Reference;
 	property = {
 		"com.liferay.portlet.css-class-wrapper=portlet-alerts",
 		"com.liferay.portlet.display-category=category.news",
+<<<<<<< HEAD
 		"com.liferay.portlet.header-portlet-css=/announcements/css/main.css",
 		"com.liferay.portlet.icon=/announcements/icons/announcements.png",
+=======
+		"com.liferay.portlet.header-portlet-css=/css/main.css",
+		"com.liferay.portlet.icon=/icons/announcements.png",
+>>>>>>> compatible
 		"com.liferay.portlet.preferences-company-wide=false",
 		"com.liferay.portlet.preferences-owned-by-group=true",
 		"com.liferay.portlet.private-request-attributes=false",

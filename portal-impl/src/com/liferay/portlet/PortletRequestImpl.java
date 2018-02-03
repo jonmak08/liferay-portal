@@ -446,10 +446,13 @@ public abstract class PortletRequestImpl implements LiferayPortletRequest {
 
 	@Override
 	public String getProperty(String name) {
+<<<<<<< HEAD
 		if (name == null) {
 			throw new IllegalArgumentException();
 		}
 
+=======
+>>>>>>> compatible
 		String value = _request.getHeader(name);
 
 		if (value == null) {
@@ -908,8 +911,12 @@ public abstract class PortletRequestImpl implements LiferayPortletRequest {
 		}
 
 		_mergePublicRenderParameters(
+<<<<<<< HEAD
 			dynamicRequest, publicRenderParametersMap, preferences,
 			getLifecycle());
+=======
+			dynamicRequest, publicRenderParametersMap, preferences);
+>>>>>>> compatible
 
 		_processCheckbox(dynamicRequest);
 
@@ -966,7 +973,11 @@ public abstract class PortletRequestImpl implements LiferayPortletRequest {
 	/**
 	 * @deprecated As of 7.0.0, replaced by {@link
 	 *             #_mergePublicRenderParameters(DynamicServletRequest, Map,
+<<<<<<< HEAD
 	 *             PortletPreferences, String)}
+=======
+	 *             PortletPreferences)}
+>>>>>>> compatible
 	 */
 	@Deprecated
 	protected void mergePublicRenderParameters(
@@ -974,12 +985,17 @@ public abstract class PortletRequestImpl implements LiferayPortletRequest {
 		long plid) {
 
 		_mergePublicRenderParameters(
+<<<<<<< HEAD
 			dynamicRequest, Collections.emptyMap(), preferences,
 			getLifecycle());
+=======
+			dynamicRequest, Collections.emptyMap(), preferences);
+>>>>>>> compatible
 	}
 
 	protected String removePortletNamespace(
 		String portletNamespace, String name) {
+<<<<<<< HEAD
 
 		if (name.startsWith(portletNamespace)) {
 			name = name.substring(portletNamespace.length());
@@ -1005,6 +1021,21 @@ public abstract class PortletRequestImpl implements LiferayPortletRequest {
 		Map<String, String[]> publicRenderParametersMap,
 		PortletPreferences preferences, String lifecycle) {
 
+=======
+
+		if (name.startsWith(portletNamespace)) {
+			name = name.substring(portletNamespace.length());
+		}
+
+		return name;
+	}
+
+	private void _mergePublicRenderParameters(
+		DynamicServletRequest dynamicRequest,
+		Map<String, String[]> publicRenderParametersMap,
+		PortletPreferences preferences) {
+
+>>>>>>> compatible
 		Set<PublicRenderParameter> publicRenderParameters =
 			_portlet.getPublicRenderParameters();
 
@@ -1032,6 +1063,7 @@ public abstract class PortletRequestImpl implements LiferayPortletRequest {
 
 				String name = publicRenderParameter.getIdentifier();
 
+<<<<<<< HEAD
 				String[] requestValues = dynamicRequest.getParameterValues(
 					name);
 
@@ -1042,6 +1074,9 @@ public abstract class PortletRequestImpl implements LiferayPortletRequest {
 						name, ArrayUtil.append(requestValues, values));
 				}
 				else {
+=======
+				if (dynamicRequest.getParameter(name) == null) {
+>>>>>>> compatible
 					dynamicRequest.setParameterValues(name, values);
 				}
 			}

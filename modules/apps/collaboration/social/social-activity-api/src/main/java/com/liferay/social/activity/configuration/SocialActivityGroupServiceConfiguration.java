@@ -32,6 +32,7 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
 )
 public interface SocialActivityGroupServiceConfiguration {
 
+<<<<<<< HEAD
 	@Meta.AD(
 		deflt = "0|1|2|3|4|5|10|20|50|100", name = "contribution-increments",
 		required = false
@@ -54,6 +55,18 @@ public interface SocialActivityGroupServiceConfiguration {
 		deflt = "0|1|2|3|4|5|10|20", name = "participation-limit-values",
 		required = false
 	)
+=======
+	@Meta.AD(deflt = "0|1|2|3|4|5|10|20|50|100", required = false)
+	public String[] contributionIncrements();
+
+	@Meta.AD(deflt = "0|1|2|3|4|5|10|20", required = false)
+	public String[] contributionLimitValues();
+
+	@Meta.AD(deflt = "0|1|2|3|4|5|10|20|50|100", required = false)
+	public String[] participationIncrements();
+
+	@Meta.AD(deflt = "0|1|2|3|4|5|10|20", required = false)
+>>>>>>> compatible
 	public String[] participationLimitValues();
 
 }

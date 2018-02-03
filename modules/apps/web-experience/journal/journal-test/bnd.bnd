@@ -2,13 +2,22 @@ Bundle-Name: Liferay Journal Test
 Bundle-SymbolicName: com.liferay.journal.test
 Bundle-Version: 1.0.0
 Import-Package:\
+<<<<<<< HEAD
 	!com.fasterxml.jackson.*,\
 	\
+=======
+>>>>>>> compatible
 	!com.liferay.util.xml,\
 	\
 	!org.junit.experimental.theories,\
 	\
 	*
+<<<<<<< HEAD
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Web Content
 -includeresource: test-classes/integration
+=======
+Include-Resource: test-classes/integration
+Liferay-Releng-Module-Group-Description:
+Liferay-Releng-Module-Group-Title: Web Content
+>>>>>>> compatible

@@ -21,9 +21,13 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Contact;
 import com.liferay.portal.kernel.model.EmailAddress;
 import com.liferay.portal.kernel.model.Group;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.ListType;
 import com.liferay.portal.kernel.model.Organization;
 import com.liferay.portal.kernel.model.Phone;
+=======
+import com.liferay.portal.kernel.model.Organization;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.service.EmailAddressLocalServiceUtil;
 import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
@@ -198,10 +202,15 @@ public class LiferayPersonService implements PersonService {
 				user.getCompanyId(), User.class.getName(), user.getUserId());
 
 		for (EmailAddress emailAddress : emailAddresses) {
+<<<<<<< HEAD
 			ListType listType = emailAddress.getType();
 
 			email = new ListFieldImpl(
 				listType.getName(), emailAddress.getAddress());
+=======
+			email = new ListFieldImpl(
+				emailAddress.getType().getName(), emailAddress.getAddress());
+>>>>>>> compatible
 
 			emails.add(email);
 		}
@@ -247,6 +256,7 @@ public class LiferayPersonService implements PersonService {
 
 		List<ListField> phoneNumbers = new ArrayList<>();
 
+<<<<<<< HEAD
 		List<Phone> liferayPhones = PhoneServiceUtil.getPhones(
 			className, classPK);
 
@@ -255,6 +265,16 @@ public class LiferayPersonService implements PersonService {
 
 			ListField phoneNumber = new ListFieldImpl(
 				listType.getName(), liferayPhone.getNumber());
+=======
+		List<com.liferay.portal.kernel.model.Phone> liferayPhones =
+			PhoneServiceUtil.getPhones(className, classPK);
+
+		for (com.liferay.portal.kernel.model.Phone liferayPhone :
+				liferayPhones) {
+
+			ListField phoneNumber = new ListFieldImpl(
+				liferayPhone.getType().getName(), liferayPhone.getNumber());
+>>>>>>> compatible
 
 			phoneNumbers.add(phoneNumber);
 		}
@@ -350,6 +370,7 @@ public class LiferayPersonService implements PersonService {
 				Long.valueOf(timeZone.getOffset(System.currentTimeMillis())));
 		}
 
+<<<<<<< HEAD
 		String ownerId = securityToken.getOwnerId();
 
 		if (ownerId.equals(person.getId())) {
@@ -359,6 +380,13 @@ public class LiferayPersonService implements PersonService {
 		String viewerId = securityToken.getViewerId();
 
 		if (viewerId.equals(person.getId())) {
+=======
+		if (securityToken.getOwnerId().equals(person.getId())) {
+			person.setIsOwner(true);
+		}
+
+		if (securityToken.getViewerId().equals(person.getId())) {
+>>>>>>> compatible
 			person.setIsViewer(true);
 		}
 

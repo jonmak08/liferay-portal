@@ -30,6 +30,10 @@ import com.liferay.portal.kernel.util.DateUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ProxyUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 
 import com.liferay.social.networking.model.MeetupsEntry;
 import com.liferay.social.networking.model.MeetupsEntryModel;
@@ -324,7 +328,11 @@ public class MeetupsEntryModelImpl extends BaseModelImpl<MeetupsEntry>
 			return user.getUuid();
 		}
 		catch (PortalException pe) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 	}
 
@@ -339,7 +347,11 @@ public class MeetupsEntryModelImpl extends BaseModelImpl<MeetupsEntry>
 	@Override
 	public String getUserName() {
 		if (_userName == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _userName;
@@ -380,7 +392,11 @@ public class MeetupsEntryModelImpl extends BaseModelImpl<MeetupsEntry>
 	@Override
 	public String getTitle() {
 		if (_title == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _title;
@@ -395,7 +411,11 @@ public class MeetupsEntryModelImpl extends BaseModelImpl<MeetupsEntry>
 	@Override
 	public String getDescription() {
 		if (_description == null) {
+<<<<<<< HEAD
 			return "";
+=======
+			return StringPool.BLANK;
+>>>>>>> compatible
 		}
 		else {
 			return _description;

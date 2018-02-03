@@ -139,7 +139,10 @@ public abstract class ResourceLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 *
 	 * @return the resource block local service
 	 */
+<<<<<<< HEAD
 	@SuppressWarnings("deprecation")
+=======
+>>>>>>> compatible
 	public com.liferay.portal.kernel.service.ResourceBlockLocalService getResourceBlockLocalService() {
 		return resourceBlockLocalService;
 	}
@@ -149,7 +152,10 @@ public abstract class ResourceLocalServiceBaseImpl extends BaseLocalServiceImpl
 	 *
 	 * @param resourceBlockLocalService the resource block local service
 	 */
+<<<<<<< HEAD
 	@SuppressWarnings("deprecation")
+=======
+>>>>>>> compatible
 	public void setResourceBlockLocalService(
 		com.liferay.portal.kernel.service.ResourceBlockLocalService resourceBlockLocalService) {
 		this.resourceBlockLocalService = resourceBlockLocalService;
@@ -353,7 +359,10 @@ public abstract class ResourceLocalServiceBaseImpl extends BaseLocalServiceImpl
 	@BeanReference(type = ResourceActionPersistence.class)
 	protected ResourceActionPersistence resourceActionPersistence;
 	@BeanReference(type = com.liferay.portal.kernel.service.ResourceBlockLocalService.class)
+<<<<<<< HEAD
 	@SuppressWarnings("deprecation")
+=======
+>>>>>>> compatible
 	protected com.liferay.portal.kernel.service.ResourceBlockLocalService resourceBlockLocalService;
 	@BeanReference(type = ResourceBlockPersistence.class)
 	protected ResourceBlockPersistence resourceBlockPersistence;

@@ -1,5 +1,9 @@
 Bundle-Name: Liferay Image Uploader Web
 Bundle-SymbolicName: com.liferay.image.uploader.web
+<<<<<<< HEAD
 Bundle-Version: 1.0.18
+=======
+Bundle-Version: 1.0.14
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title:

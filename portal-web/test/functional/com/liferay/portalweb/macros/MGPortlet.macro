@@ -8,6 +8,11 @@
 		<execute function="SelectFrame" locator1="IFrame#CONFIGURATION" />
 
 		<execute function="Check" locator1="Checkbox#SHOW_ACTIONS_CHECKBOX" />
+<<<<<<< HEAD
+=======
+		<execute function="Check" locator1="Checkbox#SHOW_NAVIGATION_LINKS_CHECKBOX" />
+		<execute function="Check" locator1="Checkbox#SHOW_SEARCH_CHECKBOX" />
+>>>>>>> compatible
 
 		<execute macro="PortletEntry#save" />
 	</command>

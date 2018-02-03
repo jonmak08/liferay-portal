@@ -39,9 +39,22 @@ public class JSONContentTypeFilter extends BasePortalFilter {
 			FilterChain filterChain)
 		throws Exception {
 
+<<<<<<< HEAD
 		processFilter(
 			JSONContentTypeFilter.class.getName(), request,
 			new JSONContentTypeResponse(response), filterChain);
+=======
+		if (!BrowserSnifferUtil.isIe(request)) {
+			processFilter(
+				JSONContentTypeFilter.class.getName(), request, response,
+				filterChain);
+		}
+		else {
+			processFilter(
+				JSONContentTypeFilter.class.getName(), request,
+				new JSONContentTypeResponse(response), filterChain);
+		}
+>>>>>>> compatible
 	}
 
 }

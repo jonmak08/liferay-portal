@@ -21,15 +21,22 @@ import com.liferay.dynamic.data.mapping.exception.StructureDefinitionException;
 import com.liferay.dynamic.data.mapping.exception.StructureDuplicateElementException;
 import com.liferay.dynamic.data.mapping.exception.StructureDuplicateStructureKeyException;
 import com.liferay.dynamic.data.mapping.exception.StructureNameException;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.model.DDMDataProviderInstance;
 import com.liferay.dynamic.data.mapping.model.DDMDataProviderInstanceLink;
 import com.liferay.dynamic.data.mapping.model.DDMForm;
 import com.liferay.dynamic.data.mapping.model.DDMFormField;
 import com.liferay.dynamic.data.mapping.model.DDMFormRule;
+=======
+import com.liferay.dynamic.data.mapping.model.DDMDataProviderInstanceLink;
+import com.liferay.dynamic.data.mapping.model.DDMForm;
+import com.liferay.dynamic.data.mapping.model.DDMFormField;
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.model.DDMStructure;
 import com.liferay.dynamic.data.mapping.model.DDMStructureConstants;
 import com.liferay.dynamic.data.mapping.model.DDMTemplate;
 import com.liferay.dynamic.data.mapping.service.DDMDataProviderInstanceLinkLocalServiceUtil;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.service.DDMDataProviderInstanceLocalServiceUtil;
 import com.liferay.dynamic.data.mapping.service.DDMStructureLocalServiceUtil;
 import com.liferay.dynamic.data.mapping.storage.DDMFormValues;
@@ -41,20 +48,37 @@ import com.liferay.dynamic.data.mapping.util.comparator.StructureIdComparator;
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.service.ServiceContext;
+=======
+import com.liferay.dynamic.data.mapping.service.DDMStructureLocalServiceUtil;
+import com.liferay.dynamic.data.mapping.storage.StorageType;
+import com.liferay.dynamic.data.mapping.test.util.DDMFormTestUtil;
+import com.liferay.dynamic.data.mapping.util.DDMUtil;
+import com.liferay.dynamic.data.mapping.util.comparator.StructureIdComparator;
+import com.liferay.portal.kernel.dao.orm.QueryUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
 import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
 import com.liferay.portal.kernel.test.util.TestPropsValues;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
+=======
+import com.liferay.portal.kernel.util.PortalUtil;
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.test.rule.LiferayIntegrationTestRule;
 
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+=======
+import java.util.List;
+>>>>>>> compatible
 import java.util.Map;
 
 import org.junit.Assert;
@@ -153,7 +177,11 @@ public class DDMStructureLocalServiceTest extends BaseDDMServiceTestCase {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testAddStructureWithReferencedDataProviderInstance1()
+=======
+	public void testAddStructureWithReferencedDataProviderInstance()
+>>>>>>> compatible
 		throws Exception {
 
 		DDMForm ddmForm = DDMFormTestUtil.createDDMForm();
@@ -164,8 +192,11 @@ public class DDMStructureLocalServiceTest extends BaseDDMServiceTestCase {
 
 		long ddmDataProviderInstanceId = RandomTestUtil.randomLong();
 
+<<<<<<< HEAD
 		ddmFormField.setProperty("dataSourceType", "data-provider");
 
+=======
+>>>>>>> compatible
 		ddmFormField.setProperty(
 			"ddmDataProviderInstanceId", ddmDataProviderInstanceId);
 
@@ -192,6 +223,7 @@ public class DDMStructureLocalServiceTest extends BaseDDMServiceTestCase {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testAddStructureWithReferencedDataProviderInstance2()
 		throws Exception {
 
@@ -224,6 +256,8 @@ public class DDMStructureLocalServiceTest extends BaseDDMServiceTestCase {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testCopyStructure() throws Exception {
 		DDMStructure structure = addStructure(_classNameId, "Test Structure");
 
@@ -348,8 +382,12 @@ public class DDMStructureLocalServiceTest extends BaseDDMServiceTestCase {
 		List<DDMStructure> structures =
 			DDMStructureLocalServiceUtil.getStructures(structure.getGroupId());
 
+<<<<<<< HEAD
 		Assert.assertTrue(
 			structures.toString(), structures.contains(structure));
+=======
+		Assert.assertTrue(structures.contains(structure));
+>>>>>>> compatible
 	}
 
 	@Test
@@ -553,6 +591,7 @@ public class DDMStructureLocalServiceTest extends BaseDDMServiceTestCase {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testSearchByType() throws Exception {
 		addStructure(
 			0, _classNameId, null, StringUtil.randomString(), StringPool.BLANK,
@@ -584,6 +623,8 @@ public class DDMStructureLocalServiceTest extends BaseDDMServiceTestCase {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testSearchCount() throws Exception {
 		int initialCount = DDMStructureLocalServiceUtil.searchCount(
 			TestPropsValues.getCompanyId(), new long[] {group.getGroupId()},
@@ -618,6 +659,7 @@ public class DDMStructureLocalServiceTest extends BaseDDMServiceTestCase {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testSearchCountByType() throws Exception {
 		int initialCount = DDMStructureLocalServiceUtil.searchCount(
 			TestPropsValues.getCompanyId(), new long[] {group.getGroupId()},
@@ -639,6 +681,8 @@ public class DDMStructureLocalServiceTest extends BaseDDMServiceTestCase {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testUpdateStructureWithReferencedDataProviderInstance()
 		throws Exception {
 
@@ -652,8 +696,11 @@ public class DDMStructureLocalServiceTest extends BaseDDMServiceTestCase {
 
 		long ddmDataProviderInstanceId1 = RandomTestUtil.randomLong();
 
+<<<<<<< HEAD
 		ddmFormField1.setProperty("dataSourceType", "data-provider");
 
+=======
+>>>>>>> compatible
 		ddmFormField1.setProperty(
 			"ddmDataProviderInstanceId", ddmDataProviderInstanceId1);
 
@@ -665,8 +712,11 @@ public class DDMStructureLocalServiceTest extends BaseDDMServiceTestCase {
 
 		long ddmDataProviderInstanceId2 = RandomTestUtil.randomLong();
 
+<<<<<<< HEAD
 		ddmFormField2.setProperty("dataSourceType", "data-provider");
 
+=======
+>>>>>>> compatible
 		ddmFormField2.setProperty(
 			"ddmDataProviderInstanceId", ddmDataProviderInstanceId2);
 
@@ -713,6 +763,7 @@ public class DDMStructureLocalServiceTest extends BaseDDMServiceTestCase {
 			dataProviderInstanceLinks.size());
 	}
 
+<<<<<<< HEAD
 	@Test
 	public void testUpdateStructureWithReferencedDataProviderInstance2()
 		throws Exception {
@@ -789,6 +840,8 @@ public class DDMStructureLocalServiceTest extends BaseDDMServiceTestCase {
 			dataProviderInstanceLinks.size());
 	}
 
+=======
+>>>>>>> compatible
 	@Test(expected = InvalidParentStructureException.class)
 	public void testValidateParentStructure() throws Exception {
 		DDMStructure structure1 = addStructure(
@@ -820,6 +873,7 @@ public class DDMStructureLocalServiceTest extends BaseDDMServiceTestCase {
 			ServiceContextTestUtil.getServiceContext(group.getGroupId()));
 	}
 
+<<<<<<< HEAD
 	protected DDMDataProviderInstance createDDMDataProviderInstance()
 		throws Exception {
 
@@ -841,6 +895,8 @@ public class DDMStructureLocalServiceTest extends BaseDDMServiceTestCase {
 			ddmFormValues, "rest", serviceContext);
 	}
 
+=======
+>>>>>>> compatible
 	protected String getStructureName(DDMStructure structure) {
 		return structure.getName(group.getDefaultLanguageId());
 	}

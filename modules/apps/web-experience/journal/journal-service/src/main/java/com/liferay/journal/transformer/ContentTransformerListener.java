@@ -17,7 +17,10 @@ package com.liferay.journal.transformer;
 import com.liferay.journal.constants.JournalPortletKeys;
 import com.liferay.journal.model.JournalArticle;
 import com.liferay.journal.service.JournalArticleLocalServiceUtil;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.petra.xml.XMLUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -25,7 +28,11 @@ import com.liferay.portal.kernel.templateparser.BaseTransformerListener;
 import com.liferay.portal.kernel.templateparser.TransformerListener;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.HtmlUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Document;
@@ -224,11 +231,20 @@ public class ContentTransformerListener extends BaseTransformerListener {
 	protected String wrapEditInPlaceField(
 		String script, String name, String type, String call) {
 
+<<<<<<< HEAD
 		String field = StringBundler.concat("$", name, ".", call);
 
 		String wrappedField = StringBundler.concat(
 			"<span class=\"journal-content-eip-", type, "\" ",
 			"id=\"journal-content-field-name-", name, "\">", field, "</span>");
+=======
+		String field = "$" + name + "." + call;
+
+		String wrappedField =
+			"<span class=\"journal-content-eip-" + type + "\" " +
+				"id=\"journal-content-field-name-" + name + "\">" + field +
+					"</span>";
+>>>>>>> compatible
 
 		return StringUtil.replace(
 			script, "$editInPlace(" + field + ")", wrappedField);

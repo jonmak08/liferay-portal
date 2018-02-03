@@ -96,9 +96,15 @@ portletDisplay.setURLBack(redirect);
 					</c:if>
 
 					<aui:button-row>
+<<<<<<< HEAD
 						<aui:button type="submit" value="vote[action]" />
 
 						<aui:button href="<%= redirect %>" type="cancel" />
+=======
+						<aui:button cssClass="btn-lg" type="submit" value="vote[action]" />
+
+						<aui:button cssClass="btn-lg" href="<%= redirect %>" type="cancel" />
+>>>>>>> compatible
 					</aui:button-row>
 
 					<%

@@ -14,7 +14,10 @@
 
 package com.liferay.portal.scheduler.quartz.internal;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.db.DB;
 import com.liferay.portal.kernel.dao.db.DBManagerUtil;
 import com.liferay.portal.kernel.dao.db.DBType;
@@ -25,7 +28,10 @@ import com.liferay.portal.kernel.messaging.Message;
 import com.liferay.portal.kernel.messaging.MessageBus;
 import com.liferay.portal.kernel.model.Release;
 import com.liferay.portal.kernel.scheduler.JobState;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.scheduler.JobStateSerializeUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.scheduler.SchedulerEngine;
 import com.liferay.portal.kernel.scheduler.SchedulerEngineHelper;
 import com.liferay.portal.kernel.scheduler.SchedulerException;
@@ -33,13 +39,23 @@ import com.liferay.portal.kernel.scheduler.StorageType;
 import com.liferay.portal.kernel.scheduler.TriggerState;
 import com.liferay.portal.kernel.scheduler.messaging.SchedulerResponse;
 import com.liferay.portal.kernel.service.PortletLocalService;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PortalRunMode;
 import com.liferay.portal.kernel.util.Props;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.ServerDetector;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.Validator;
+=======
+import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.scheduler.JobStateSerializeUtil;
+import com.liferay.portal.scheduler.quartz.QuartzTrigger;
+>>>>>>> compatible
 import com.liferay.portal.scheduler.quartz.internal.job.MessageSenderJob;
 
 import java.util.ArrayList;
@@ -57,7 +73,10 @@ import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
 import org.osgi.service.component.annotations.ReferencePolicyOption;
 
+<<<<<<< HEAD
 import org.quartz.Calendar;
+=======
+>>>>>>> compatible
 import org.quartz.JobBuilder;
 import org.quartz.JobDataMap;
 import org.quartz.JobDetail;
@@ -67,11 +86,17 @@ import org.quartz.ObjectAlreadyExistsException;
 import org.quartz.Scheduler;
 import org.quartz.Trigger;
 import org.quartz.TriggerKey;
+<<<<<<< HEAD
 import org.quartz.TriggerUtils;
 import org.quartz.impl.StdSchedulerFactory;
 import org.quartz.impl.jdbcjobstore.UpdateLockRowSemaphore;
 import org.quartz.impl.matchers.GroupMatcher;
 import org.quartz.spi.OperableTrigger;
+=======
+import org.quartz.impl.StdSchedulerFactory;
+import org.quartz.impl.jdbcjobstore.UpdateLockRowSemaphore;
+import org.quartz.impl.matchers.GroupMatcher;
+>>>>>>> compatible
 
 /**
  * @author Michael C. Han
@@ -128,9 +153,14 @@ public class QuartzSchedulerEngine implements SchedulerEngine {
 		}
 		catch (Exception e) {
 			throw new SchedulerException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Unable to delete job {jobName=", jobName, ", groupName=",
 					groupName, "}"),
+=======
+				"Unable to delete job {jobName=" + jobName + ", groupName=" +
+					groupName + "}",
+>>>>>>> compatible
 				e);
 		}
 	}
@@ -165,9 +195,14 @@ public class QuartzSchedulerEngine implements SchedulerEngine {
 		}
 		catch (Exception e) {
 			throw new SchedulerException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Unable to get job {jobName=", jobName, ", groupName=",
 					groupName, "}"),
+=======
+				"Unable to get job {jobName=" + jobName + ", groupName=" +
+					groupName + "}",
+>>>>>>> compatible
 				e);
 		}
 	}
@@ -284,9 +319,14 @@ public class QuartzSchedulerEngine implements SchedulerEngine {
 		}
 		catch (Exception e) {
 			throw new SchedulerException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Unable to pause job {jobName=", jobName, ", groupName=",
 					groupName, "}"),
+=======
+				"Unable to pause job {jobName=" + jobName + ", groupName=" +
+					groupName + "}",
+>>>>>>> compatible
 				e);
 		}
 	}
@@ -336,9 +376,14 @@ public class QuartzSchedulerEngine implements SchedulerEngine {
 		}
 		catch (Exception e) {
 			throw new SchedulerException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Unable to resume job {jobName=", jobName, ", groupName=",
 					groupName, "}"),
+=======
+				"Unable to resume job {jobName=" + jobName + ", groupName=" +
+					groupName + "}",
+>>>>>>> compatible
 				e);
 		}
 	}
@@ -446,9 +491,14 @@ public class QuartzSchedulerEngine implements SchedulerEngine {
 		}
 		catch (Exception e) {
 			throw new SchedulerException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Unable to suppress error for job {jobName=", jobName,
 					", groupName=", groupName, "}"),
+=======
+				"Unable to suppress error for job {jobName=" + jobName +
+					", groupName=" + groupName + "}",
+>>>>>>> compatible
 				e);
 		}
 	}
@@ -494,9 +544,14 @@ public class QuartzSchedulerEngine implements SchedulerEngine {
 		}
 		catch (Exception e) {
 			throw new SchedulerException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Unable to unschedule job {jobName=", jobName,
 					", groupName=", groupName, "}"),
+=======
+				"Unable to unschedule job {jobName=" + jobName +
+					", groupName=" + groupName + "}",
+>>>>>>> compatible
 				e);
 		}
 	}
@@ -517,6 +572,7 @@ public class QuartzSchedulerEngine implements SchedulerEngine {
 		}
 	}
 
+<<<<<<< HEAD
 	@Override
 	public void validateTrigger(
 			com.liferay.portal.kernel.scheduler.Trigger trigger,
@@ -554,6 +610,8 @@ public class QuartzSchedulerEngine implements SchedulerEngine {
 				quartzTrigger.getKey() + "\" will never fire.");
 	}
 
+=======
+>>>>>>> compatible
 	@Activate
 	protected void activate() {
 		_schedulerEngineEnabled = GetterUtil.getBoolean(

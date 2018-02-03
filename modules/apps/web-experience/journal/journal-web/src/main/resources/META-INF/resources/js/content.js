@@ -11,8 +11,11 @@ AUI.add(
 
 		var STR_DESCRIPTION_INPUT_LOCALIZED = 'descriptionInputLocalized';
 
+<<<<<<< HEAD
 		var STR_FRIENDLY_URL_INPUT_LOCALIZED = 'friendlyURLInputLocalized';
 
+=======
+>>>>>>> compatible
 		var STR_SELECT_STRUCTURE = 'selectStructure';
 
 		var STR_SELECT_TEMPLATE = 'selectTemplate';
@@ -21,6 +24,11 @@ AUI.add(
 
 		var STR_TITLE_INPUT_LOCALIZED = 'titleInputLocalized';
 
+<<<<<<< HEAD
+=======
+		var STR_TRANSLATION_MANAGER = 'translationManager';
+
+>>>>>>> compatible
 		var STR_URLS = 'urls';
 
 		var WIN = A.config.win;
@@ -44,12 +52,15 @@ AUI.add(
 						setter: A.one
 					},
 
+<<<<<<< HEAD
 					friendlyURLInputLocalized: {
 						getter: function(value) {
 							return Liferay.component(value);
 						}
 					},
 
+=======
+>>>>>>> compatible
 					selectStructure: {
 						setter: A.one
 					},
@@ -72,6 +83,12 @@ AUI.add(
 					titleInputLocalized: {
 					},
 
+<<<<<<< HEAD
+=======
+					translationManager: {
+					},
+
+>>>>>>> compatible
 					urls: {
 						validator: Lang.isObject,
 						value: {}
@@ -89,9 +106,12 @@ AUI.add(
 						var instance = this;
 
 						instance._bindUI();
+<<<<<<< HEAD
 
 						instance._bindTranslationManager();
 
+=======
+>>>>>>> compatible
 						instance._renderUI();
 					},
 
@@ -106,16 +126,22 @@ AUI.add(
 
 						var descriptionInputLocalized = instance.get(STR_DESCRIPTION_INPUT_LOCALIZED);
 
+<<<<<<< HEAD
 						var friendlyURLInputLocalized = instance.get(STR_FRIENDLY_URL_INPUT_LOCALIZED);
 
+=======
+>>>>>>> compatible
 						var titleInputLocalized = instance.get(STR_TITLE_INPUT_LOCALIZED);
 
 						var locale = event.locale;
 
 						descriptionInputLocalized.removeInputLanguage(locale);
 
+<<<<<<< HEAD
 						friendlyURLInputLocalized.removeInputLanguage(locale);
 
+=======
+>>>>>>> compatible
 						titleInputLocalized.removeInputLanguage(locale);
 					},
 
@@ -124,8 +150,11 @@ AUI.add(
 
 						var descriptionInputLocalized = instance.get(STR_DESCRIPTION_INPUT_LOCALIZED);
 
+<<<<<<< HEAD
 						var friendlyURLInputLocalized = instance.get(STR_FRIENDLY_URL_INPUT_LOCALIZED);
 
+=======
+>>>>>>> compatible
 						var titleInputLocalized = instance.get(STR_TITLE_INPUT_LOCALIZED);
 
 						var items = descriptionInputLocalized.get('items');
@@ -137,13 +166,17 @@ AUI.add(
 						descriptionInputLocalized.set('selected', selectedIndex);
 						descriptionInputLocalized.selectFlag(editingLocale);
 
+<<<<<<< HEAD
 						friendlyURLInputLocalized.set('selected', selectedIndex);
 						friendlyURLInputLocalized.selectFlag(editingLocale);
 
+=======
+>>>>>>> compatible
 						titleInputLocalized.set('selected', selectedIndex);
 						titleInputLocalized.selectFlag(editingLocale);
 					},
 
+<<<<<<< HEAD
 					_bindTranslationManager: function() {
 						var instance = this;
 
@@ -167,6 +200,8 @@ AUI.add(
 						}
 					},
 
+=======
+>>>>>>> compatible
 					_bindUI: function() {
 						var instance = this;
 
@@ -204,6 +239,20 @@ AUI.add(
 							);
 						}
 
+<<<<<<< HEAD
+=======
+						var translationManager = instance.get(STR_TRANSLATION_MANAGER);
+
+						if (translationManager) {
+							eventHandles.push(
+								translationManager.on('deleteAvailableLocale', instance._afterDeletingAvailableLocale.bind(instance))
+							);
+							eventHandles.push(
+								translationManager.after('editingLocaleChange', instance._afterEditingLocaleChange, instance)
+							);
+						}
+
+>>>>>>> compatible
 						instance._eventHandles = eventHandles;
 					},
 
@@ -270,9 +319,12 @@ AUI.add(
 								mvcPath: '/select_structure.jsp',
 								navigationStartsOn: 'SELECT_STRUCTURE',
 								refererPortletName: ddm.refererPortletName,
+<<<<<<< HEAD
 								searchRestriction: ddm.searchRestriction,
 								searchRestrictionClassNameId: ddm.searchRestrictionClassNameId,
 								searchRestrictionClassPK: ddm.searchRestrictionClassPK,
+=======
+>>>>>>> compatible
 								showAncestorScopes: true,
 								showCacheableInput: true,
 								title: strings.structures

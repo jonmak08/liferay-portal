@@ -62,8 +62,15 @@ String widgetURL = PortalUtil.getWidgetURL(portlet, themeDisplay);
 						</div>
 
 						<liferay-util:buffer var="textAreaContent">
+<<<<<<< HEAD
 							<iframe frameborder="0" height="100%" src="<%= HtmlUtil.escapeAttribute(widgetURL) %>" width="100%"></iframe>
 						</liferay-util:buffer>
+=======
+			<script src="<%= themeDisplay.getPortalURL() %><%= PortalWebResourcesUtil.getContextPath(PortalWebResourceConstants.RESOURCE_TYPE_JS) %>/liferay/widget.js" type="text/javascript"></script>
+			<script type="text/javascript">
+			Liferay.Widget({url: '<%= widgetURL %>'});
+			</script></liferay-util:buffer>
+>>>>>>> compatible
 
 						<aui:field-wrapper label="code">
 							<textarea class="field form-control lfr-textarea" id="<portlet:namespace />widgetScript" onClick="this.select();" readonly="true"><%= HtmlUtil.escape(textAreaContent) %></textarea>
@@ -80,6 +87,13 @@ String widgetURL = PortalUtil.getWidgetURL(portlet, themeDisplay);
 						boolean facebookShowAddAppLink = GetterUtil.getBoolean(portletPreferences.getValue("lfrFacebookShowAddAppLink", null), true);
 
 						String callbackURL = widgetURL;
+<<<<<<< HEAD
+=======
+
+						if (portlet.getFacebookIntegration().equals(PortletConstants.FACEBOOK_INTEGRATION_FBML)) {
+							callbackURL = PortalUtil.getFacebookURL(portlet, facebookCanvasPageURL, themeDisplay);
+						}
+>>>>>>> compatible
 						%>
 
 						<div class="alert alert-info">
@@ -96,7 +110,18 @@ String widgetURL = PortalUtil.getWidgetURL(portlet, themeDisplay);
 							<div class="alert alert-info">
 								<liferay-ui:message key="copy-the-callback-url-and-specify-it-in-facebook" />
 
+<<<<<<< HEAD
 								<liferay-ui:message key="this-application-is-exposed-to-facebook-via-an-iframe" />
+=======
+								<c:choose>
+									<c:when test="<%= portlet.getFacebookIntegration().equals(PortletConstants.FACEBOOK_INTEGRATION_FBML) %>">
+										<liferay-ui:message key="this-application-is-exposed-to-facebook-via-fbml" />
+									</c:when>
+									<c:otherwise>
+										<liferay-ui:message key="this-application-is-exposed-to-facebook-via-an-iframe" />
+									</c:otherwise>
+								</c:choose>
+>>>>>>> compatible
 							</div>
 
 							<aui:input name="callbackURL" type="resource" value="<%= callbackURL %>" />
@@ -139,7 +164,11 @@ String widgetURL = PortalUtil.getWidgetURL(portlet, themeDisplay);
 		</div>
 
 		<aui:button-row>
+<<<<<<< HEAD
 			<aui:button type="submit" />
+=======
+			<aui:button cssClass="btn-lg" type="submit" />
+>>>>>>> compatible
 		</aui:button-row>
 	</aui:form>
 </div>

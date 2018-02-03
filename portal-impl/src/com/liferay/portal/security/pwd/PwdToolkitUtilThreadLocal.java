@@ -30,8 +30,13 @@ public class PwdToolkitUtilThreadLocal {
 	}
 
 	private static final ThreadLocal<Boolean> _validate =
+<<<<<<< HEAD
 		new CentralizedThreadLocal<>(
 			PwdToolkitUtilThreadLocal.class + "._validate", () -> Boolean.TRUE,
 			false);
+=======
+		new InitialThreadLocal<>(
+			PwdToolkitUtilThreadLocal.class + "._validate", () -> Boolean.TRUE);
+>>>>>>> compatible
 
 }

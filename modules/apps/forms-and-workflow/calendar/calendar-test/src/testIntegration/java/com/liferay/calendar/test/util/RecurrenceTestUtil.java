@@ -20,7 +20,10 @@ import com.liferay.calendar.recurrence.Recurrence;
 import com.liferay.portal.kernel.util.TimeZoneUtil;
 
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.Calendar;
+=======
+>>>>>>> compatible
 import java.util.TimeZone;
 
 /**
@@ -32,10 +35,13 @@ public class RecurrenceTestUtil {
 		return getDailyRecurrence(0, TimeZoneUtil.GMT, null);
 	}
 
+<<<<<<< HEAD
 	public static Recurrence getDailyRecurrence(Calendar untilJCalendar) {
 		return getDailyRecurrence(0, TimeZoneUtil.GMT, untilJCalendar);
 	}
 
+=======
+>>>>>>> compatible
 	public static Recurrence getDailyRecurrence(int count) {
 		return getDailyRecurrence(count, TimeZoneUtil.GMT, null);
 	}
@@ -45,24 +51,45 @@ public class RecurrenceTestUtil {
 	}
 
 	public static Recurrence getDailyRecurrence(
+<<<<<<< HEAD
 		int count, TimeZone timeZone, Calendar untilJCalendar) {
+=======
+		int count, TimeZone timeZone, java.util.Calendar untilJCalendar) {
+>>>>>>> compatible
 
 		return getRecurrence(count, Frequency.DAILY, timeZone, untilJCalendar);
 	}
 
+<<<<<<< HEAD
+=======
+	public static Recurrence getDailyRecurrence(
+		java.util.Calendar untilJCalendar) {
+
+		return getDailyRecurrence(0, TimeZoneUtil.GMT, untilJCalendar);
+	}
+
+>>>>>>> compatible
 	public static Recurrence getDailyRecurrence(TimeZone timeZone) {
 		return getDailyRecurrence(0, timeZone, null);
 	}
 
 	public static Recurrence getDailyRecurrence(
+<<<<<<< HEAD
 		TimeZone timeZone, Calendar untilJCalendar) {
+=======
+		TimeZone timeZone, java.util.Calendar untilJCalendar) {
+>>>>>>> compatible
 
 		return getDailyRecurrence(0, timeZone, untilJCalendar);
 	}
 
 	public static Recurrence getRecurrence(
 		int count, Frequency frequency, TimeZone timeZone,
+<<<<<<< HEAD
 		Calendar untilJCalendar) {
+=======
+		java.util.Calendar untilJCalendar) {
+>>>>>>> compatible
 
 		Recurrence recurrence = new Recurrence();
 

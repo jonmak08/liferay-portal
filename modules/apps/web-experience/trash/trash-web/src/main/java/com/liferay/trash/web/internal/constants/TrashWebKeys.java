@@ -20,7 +20,11 @@ package com.liferay.trash.web.internal.constants;
  *
  * @author Jürgen Kappler
  */
+<<<<<<< HEAD
 public class TrashWebKeys extends com.liferay.trash.util.TrashWebKeys {
+=======
+public class TrashWebKeys {
+>>>>>>> compatible
 
 	public static final String TRASH_CONTAINER_MODEL = "TRASH_CONTAINER_MODEL";
 
@@ -30,6 +34,9 @@ public class TrashWebKeys extends com.liferay.trash.util.TrashWebKeys {
 
 	public static final String TRASH_RENDERER = "TRASH_RENDERER";
 
+<<<<<<< HEAD
 	public static final String TRASH_UTIL = "TRASH_UTIL";
 
+=======
+>>>>>>> compatible
 }

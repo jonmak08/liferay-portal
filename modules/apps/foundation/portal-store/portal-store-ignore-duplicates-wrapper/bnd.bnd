@@ -1,5 +1,9 @@
 Bundle-Name: Liferay Portal Store Ignore Duplicates Wrapper
 Bundle-SymbolicName: com.liferay.portal.store.ignore.duplicates.wrapper
+<<<<<<< HEAD
 Bundle-Version: 1.0.3
+=======
+Bundle-Version: 1.0.2
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Data Stores

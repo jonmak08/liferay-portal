@@ -16,9 +16,13 @@ package com.liferay.portal.kernel.model;
 
 /**
  * @author Connor McKay
+<<<<<<< HEAD
  * @deprecated As of 7.0.0, with no direct replacement
  */
 @Deprecated
+=======
+ */
+>>>>>>> compatible
 public interface PermissionedModel extends PersistedModel {
 
 	public long getResourceBlockId();

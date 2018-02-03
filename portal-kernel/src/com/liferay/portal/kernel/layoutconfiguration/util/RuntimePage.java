@@ -14,8 +14,11 @@
 
 package com.liferay.portal.kernel.layoutconfiguration.util;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.layoutconfiguration.util.xml.RuntimeLogic;
 import com.liferay.portal.kernel.template.TemplateResource;
 import com.liferay.portal.kernel.util.StringBundler;
@@ -28,7 +31,10 @@ import javax.servlet.http.HttpServletResponse;
  * @author Raymond Augé
  * @author Shuyang Zhou
  */
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public interface RuntimePage {
 
 	public StringBundler getProcessedTemplate(
@@ -48,6 +54,7 @@ public interface RuntimePage {
 
 	public void processTemplate(
 			HttpServletRequest request, HttpServletResponse response,
+<<<<<<< HEAD
 			String portletId, TemplateResource templateResource,
 			String langType)
 		throws Exception;
@@ -62,6 +69,11 @@ public interface RuntimePage {
 			TemplateResource templateResource, String langType)
 		throws Exception;
 
+=======
+			TemplateResource templateResource)
+		throws Exception;
+
+>>>>>>> compatible
 	public String processXML(
 			HttpServletRequest request, HttpServletResponse response,
 			String content)

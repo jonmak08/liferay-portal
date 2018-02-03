@@ -66,6 +66,7 @@
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 	</tag>
+<<<<<<< HEAD
 	<tag>
 	<description>Creates a component for users to navigate through a set of specified navigation menu items.</description>
 	<name>navigation-menu</name>
@@ -129,4 +130,6 @@
 			<type>long</type>
 		</attribute>
 	</tag>
+=======
+>>>>>>> compatible
 </taglib>

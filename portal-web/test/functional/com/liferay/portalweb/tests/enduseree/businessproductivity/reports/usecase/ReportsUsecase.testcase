@@ -24,7 +24,11 @@
 
 				<execute macro="ServerAdministration#tearDownMailServerSettings" />
 
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP" />
+=======
+				<execute macro="Page#tearDownPG" />
+>>>>>>> compatible
 			</else>
 		</if>
 	</tear-down>
@@ -34,9 +38,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Reports Admin" />
 		</execute>
 
@@ -56,9 +64,13 @@
 	<command name="DownloadReportPG" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Reports Admin" />
 		</execute>
 
@@ -78,6 +90,7 @@
 			<var name="reportsDefinitionName" value="Reports Definition Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -89,6 +102,9 @@
 		</execute>
 
 		<execute macro="Navigator#gotoPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Reports Page" />
 		</execute>
 
@@ -111,9 +127,13 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Reports Admin" />
 		</execute>
 
@@ -147,6 +167,7 @@
 		<description message="This is a use case for LPS-51009." />
 		<property name="test.name.skip.portal.instance" value="ReportsUsecase#ViewReportEmailNewConfiguration" />
 
+<<<<<<< HEAD
 		<var method="TestPropsUtil#get('portal.url')" name="portalURL" />
 
 		<property name="test.smtp.server.enabled" value="true" />
@@ -156,13 +177,35 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<property name="test.name.skip.portal.instance" value="ReportsUsecase#ViewReportEmailNewConfiguration" />
+
+		<var method="TestPropsUtil#get('portal.url')" name="portalURL" />
+
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+			<var name="portlet" value="Server Administration" />
+		</execute>
+
+		<execute macro="ServerAdministration#configureMailServerSettings">
+			<var method="TestPropsUtil#get('email.address.2')" name="userName" />
+			<var method="TestPropsUtil#get('email.password.2')" name="userPassword" />
+		</execute>
+
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Reports Admin" />
 		</execute>
 
 		<execute macro="ReportsAdmin#gotoConfiguration" />
 
 		<execute macro="ReportsAdmin#configureEmailFrom">
+<<<<<<< HEAD
 			<var name="emailFromAddress" value="user1@liferay.com" />
+=======
+			<var method="TestPropsUtil#get('email.address.2')" name="emailFromAddress" />
+>>>>>>> compatible
 			<var name="emailFromName" value="Liferay QA" />
 		</execute>
 
@@ -200,9 +243,13 @@ Thanks,<br/>
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Reports Admin" />
 		</execute>
 
@@ -216,12 +263,18 @@ Thanks,<br/>
 		</execute>
 
 		<execute macro="ReportsAdmin#addReportEntry">
+<<<<<<< HEAD
 			<var name="emailNotificationsAddress" value="user2@liferay.com" />
 			<var name="emailRecipientAddress" value="user3@liferay.com" />
+=======
+			<var method="TestPropsUtil#get('email.address.4')" name="emailNotificationsAddress" />
+			<var method="TestPropsUtil#get('email.address.3')" name="emailRecipientAddress" />
+>>>>>>> compatible
 			<var name="reportFormat" value="pdf" />
 			<var name="reportsDefinitionName" value="Reports Definition Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="MockMock#viewMail">
 			<var name="asset" value="New Report From QA: reports_admin_template_source_sample_class_name.pdf" />
 			<var name="content" value="You have a new" />
@@ -245,6 +298,56 @@ Thanks,<br/>
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute function="Pause" locator1="30000" />
+
+		<execute macro="Gmail#login">
+			<var method="TestPropsUtil#get('email.address.4')" name="userEmailAddress" />
+			<var method="TestPropsUtil#get('email.password.4')" name="userPassword" />
+		</execute>
+
+		<execute macro="Gmail#gotoHtmlMode" />
+
+		<execute macro="Gmail#viewMail">
+			<var name="emailFromUserName" value="Liferay QA" />
+			<var name="gmailAssetType" value="New Report From QA: reports_admin_template_source_sample_class_name.pdf" />
+			<var name="gmailMessageBody" value="You have a new report from your friends in QA." />
+			<var name="gmailMessageTitle" value="New Report From QA: reports_admin_template_source_sample_class_name.pdf" />
+		</execute>
+
+		<execute macro="Gmail#gotoHtmlMode" />
+
+		<execute macro="Gmail#deleteSpecificMail">
+			<var name="gmailMessageTitleList" value="New Report From QA: reports_admin_template_source_sample_class_name.pdf" />
+		</execute>
+
+		<execute macro="Gmail#logoutAndLogin">
+			<var method="TestPropsUtil#get('email.address.3')" name="userEmailAddress" />
+			<var method="TestPropsUtil#get('email.password.3')" name="userPassword" />
+		</execute>
+
+		<execute macro="Gmail#gotoHtmlMode" />
+
+		<execute macro="Gmail#viewMail">
+			<var name="emailFromUserName" value="Liferay QA" />
+			<var name="gmailAssetType" value="New Report From QA: reports_admin_template_source_sample_class_name.pdf" />
+			<var name="gmailMessageAttachment" value="reports_admin_template_source_sample_class_name.pdf" />
+			<var name="gmailMessageBody" value="Please review the attached report from your friends in QA!" />
+			<var name="gmailMessageTitle" value="New Report From QA: reports_admin_template_source_sample_class_name.pdf" />
+		</execute>
+
+		<execute macro="Gmail#gotoHtmlMode" />
+
+		<execute macro="Gmail#deleteSpecificMail">
+			<var name="gmailMessageTitleList" value="New Report From QA: reports_admin_template_source_sample_class_name.pdf" />
+		</execute>
+
+		<execute function="Open" locator1="${portalURL}" />
+
+		<execute macro="Navigator#openURL" />
+
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Reports Admin" />
 		</execute>
 
@@ -254,9 +357,13 @@ Thanks,<br/>
 	<command name="ViewReportPG" priority="4">
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Site Administration" />
+=======
+		<execute macro="ProductMenu#gotoSitesConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="Reports Admin" />
 		</execute>
 
@@ -276,6 +383,7 @@ Thanks,<br/>
 			<var name="reportsDefinitionName" value="Reports Definition Name" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -287,6 +395,9 @@ Thanks,<br/>
 		</execute>
 
 		<execute macro="Navigator#gotoPage">
+=======
+		<execute macro="Page#add">
+>>>>>>> compatible
 			<var name="pageName" value="Reports Page" />
 		</execute>
 

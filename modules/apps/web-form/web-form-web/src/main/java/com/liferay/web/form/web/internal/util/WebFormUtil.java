@@ -220,6 +220,7 @@ public class WebFormUtil {
 
 		sb.append("var fieldsMap = {};\n");
 
+<<<<<<< HEAD
 		for (Map.Entry<String, String> entry : fieldsMap.entrySet()) {
 			sb.append("fieldsMap['");
 			sb.append(entry.getKey());
@@ -227,6 +228,15 @@ public class WebFormUtil {
 
 			String value = StringUtil.replace(
 				entry.getValue(), new String[] {"\r\n", "\r", "\n"},
+=======
+		for (String key : fieldsMap.keySet()) {
+			sb.append("fieldsMap['");
+			sb.append(key);
+			sb.append("'] = '");
+
+			String value = StringUtil.replace(
+				fieldsMap.get(key), new String[] {"\r\n", "\r", "\n"},
+>>>>>>> compatible
 				new String[] {"\\n", "\\n", "\\n"});
 
 			sb.append(HtmlUtil.escapeJS(value));
@@ -237,8 +247,13 @@ public class WebFormUtil {
 		sb.append("function validation(currentFieldValue, fieldsMap) {\n");
 		sb.append(validationScript);
 		sb.append("}\n");
+<<<<<<< HEAD
 		sb.append("internalValidationResult = validation(currentFieldValue, ");
 		sb.append("fieldsMap);");
+=======
+		sb.append("internalValidationResult = ");
+		sb.append("validation(currentFieldValue, fieldsMap);");
+>>>>>>> compatible
 
 		String script = sb.toString();
 
@@ -262,9 +277,15 @@ public class WebFormUtil {
 			}
 		}
 		catch (Exception e) {
+<<<<<<< HEAD
 			String msg = StringBundler.concat(
 				"The following script has execution errors:\n",
 				validationScript, "\n", e.getMessage());
+=======
+			String msg =
+				"The following script has execution errors:\n" +
+					validationScript + "\n" + e.getMessage();
+>>>>>>> compatible
 
 			_log.error(msg);
 

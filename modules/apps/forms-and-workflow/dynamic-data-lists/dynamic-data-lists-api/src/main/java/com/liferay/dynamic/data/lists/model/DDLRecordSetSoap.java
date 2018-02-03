@@ -40,13 +40,19 @@ public class DDLRecordSetSoap implements Serializable {
 		soapModel.setCompanyId(model.getCompanyId());
 		soapModel.setUserId(model.getUserId());
 		soapModel.setUserName(model.getUserName());
+<<<<<<< HEAD
 		soapModel.setVersionUserId(model.getVersionUserId());
 		soapModel.setVersionUserName(model.getVersionUserName());
+=======
+>>>>>>> compatible
 		soapModel.setCreateDate(model.getCreateDate());
 		soapModel.setModifiedDate(model.getModifiedDate());
 		soapModel.setDDMStructureId(model.getDDMStructureId());
 		soapModel.setRecordSetKey(model.getRecordSetKey());
+<<<<<<< HEAD
 		soapModel.setVersion(model.getVersion());
+=======
+>>>>>>> compatible
 		soapModel.setName(model.getName());
 		soapModel.setDescription(model.getDescription());
 		soapModel.setMinDisplayRows(model.getMinDisplayRows());
@@ -153,6 +159,7 @@ public class DDLRecordSetSoap implements Serializable {
 		_userName = userName;
 	}
 
+<<<<<<< HEAD
 	public long getVersionUserId() {
 		return _versionUserId;
 	}
@@ -169,6 +176,8 @@ public class DDLRecordSetSoap implements Serializable {
 		_versionUserName = versionUserName;
 	}
 
+=======
+>>>>>>> compatible
 	public Date getCreateDate() {
 		return _createDate;
 	}
@@ -201,6 +210,7 @@ public class DDLRecordSetSoap implements Serializable {
 		_recordSetKey = recordSetKey;
 	}
 
+<<<<<<< HEAD
 	public String getVersion() {
 		return _version;
 	}
@@ -209,6 +219,8 @@ public class DDLRecordSetSoap implements Serializable {
 		_version = version;
 	}
 
+=======
+>>>>>>> compatible
 	public String getName() {
 		return _name;
 	}
@@ -263,13 +275,19 @@ public class DDLRecordSetSoap implements Serializable {
 	private long _companyId;
 	private long _userId;
 	private String _userName;
+<<<<<<< HEAD
 	private long _versionUserId;
 	private String _versionUserName;
+=======
+>>>>>>> compatible
 	private Date _createDate;
 	private Date _modifiedDate;
 	private long _DDMStructureId;
 	private String _recordSetKey;
+<<<<<<< HEAD
 	private String _version;
+=======
+>>>>>>> compatible
 	private String _name;
 	private String _description;
 	private int _minDisplayRows;

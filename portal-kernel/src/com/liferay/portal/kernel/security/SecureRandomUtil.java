@@ -43,7 +43,11 @@ public class SecureRandomUtil {
 		int index = _index.getAndIncrement();
 
 		if (index < _BUFFER_SIZE) {
+<<<<<<< HEAD
 			return _BYTES[index];
+=======
+			return _bytes[index];
+>>>>>>> compatible
 		}
 
 		return (byte)_reload(index);
@@ -53,7 +57,11 @@ public class SecureRandomUtil {
 		int index = _index.getAndAdd(8);
 
 		if ((index + 7) < _BUFFER_SIZE) {
+<<<<<<< HEAD
 			return BigEndianCodec.getDouble(_BYTES, index);
+=======
+			return BigEndianCodec.getDouble(_bytes, index);
+>>>>>>> compatible
 		}
 
 		return Double.longBitsToDouble(_reload(index));
@@ -63,7 +71,11 @@ public class SecureRandomUtil {
 		int index = _index.getAndAdd(4);
 
 		if ((index + 3) < _BUFFER_SIZE) {
+<<<<<<< HEAD
 			return BigEndianCodec.getFloat(_BYTES, index);
+=======
+			return BigEndianCodec.getFloat(_bytes, index);
+>>>>>>> compatible
 		}
 
 		return Float.intBitsToFloat((int)_reload(index));
@@ -73,7 +85,11 @@ public class SecureRandomUtil {
 		int index = _index.getAndAdd(4);
 
 		if ((index + 3) < _BUFFER_SIZE) {
+<<<<<<< HEAD
 			return BigEndianCodec.getInt(_BYTES, index);
+=======
+			return BigEndianCodec.getInt(_bytes, index);
+>>>>>>> compatible
 		}
 
 		return (int)_reload(index);
@@ -83,7 +99,11 @@ public class SecureRandomUtil {
 		int index = _index.getAndAdd(8);
 
 		if ((index + 7) < _BUFFER_SIZE) {
+<<<<<<< HEAD
 			return BigEndianCodec.getLong(_BYTES, index);
+=======
+			return BigEndianCodec.getLong(_bytes, index);
+>>>>>>> compatible
 		}
 
 		return _reload(index);
@@ -91,7 +111,11 @@ public class SecureRandomUtil {
 
 	private static long _reload(int index) {
 		if (_reloadingFlag.compareAndSet(false, true)) {
+<<<<<<< HEAD
 			_random.nextBytes(_BYTES);
+=======
+			_random.nextBytes(_bytes);
+>>>>>>> compatible
 
 			_gapRandom.setSeed(_random.nextLong());
 
@@ -102,15 +126,25 @@ public class SecureRandomUtil {
 
 		return _gapRandom.nextLong() ^
 			BigEndianCodec.getLong(
+<<<<<<< HEAD
 				_BYTES, Math.abs(index % (_BUFFER_SIZE - 7)));
+=======
+				_bytes, Math.abs(index % (_BUFFER_SIZE - 7)));
+>>>>>>> compatible
 	}
 
 	private static final int _BUFFER_SIZE;
 
+<<<<<<< HEAD
 	private static final byte[] _BYTES;
 
 	private static final int _MIN_BUFFER_SIZE = 1024;
 
+=======
+	private static final int _MIN_BUFFER_SIZE = 1024;
+
+	private static final byte[] _bytes;
+>>>>>>> compatible
 	private static final Random _gapRandom = new Random();
 	private static final AtomicInteger _index = new AtomicInteger();
 	private static final Random _random = new SecureRandom();
@@ -127,9 +161,15 @@ public class SecureRandomUtil {
 
 		_BUFFER_SIZE = bufferSize;
 
+<<<<<<< HEAD
 		_BYTES = new byte[_BUFFER_SIZE];
 
 		_random.nextBytes(_BYTES);
+=======
+		_bytes = new byte[_BUFFER_SIZE];
+
+		_random.nextBytes(_bytes);
+>>>>>>> compatible
 
 		_gapRandom.setSeed(_random.nextLong());
 	}

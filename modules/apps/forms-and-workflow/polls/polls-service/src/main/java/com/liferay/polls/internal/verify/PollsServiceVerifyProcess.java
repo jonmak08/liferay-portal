@@ -20,7 +20,10 @@ import com.liferay.polls.internal.verify.model.PollsVoteVerifiableModel;
 import com.liferay.polls.service.PollsChoiceLocalService;
 import com.liferay.portal.kernel.util.LoggingTimer;
 import com.liferay.portal.verify.VerifyAuditedModel;
+<<<<<<< HEAD
 import com.liferay.portal.verify.VerifyGroupedModel;
+=======
+>>>>>>> compatible
 import com.liferay.portal.verify.VerifyProcess;
 import com.liferay.portal.verify.VerifyResourcePermissions;
 
@@ -40,7 +43,10 @@ public class PollsServiceVerifyProcess extends VerifyProcess {
 	@Override
 	protected void doVerify() throws Exception {
 		verifyAuditedModels();
+<<<<<<< HEAD
 		verifyGroupedModels();
+=======
+>>>>>>> compatible
 		verifyResourcedModels();
 	}
 
@@ -56,6 +62,7 @@ public class PollsServiceVerifyProcess extends VerifyProcess {
 		}
 	}
 
+<<<<<<< HEAD
 	protected void verifyGroupedModels() throws Exception {
 		try (LoggingTimer loggingTimer = new LoggingTimer()) {
 			_verifyGroupedModel.verify(new PollsChoiceVerifiableModel());
@@ -63,6 +70,8 @@ public class PollsServiceVerifyProcess extends VerifyProcess {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	protected void verifyResourcedModels() throws Exception {
 		try (LoggingTimer loggingTimer = new LoggingTimer()) {
 			_verifyResourcePermissions.verify(
@@ -72,8 +81,11 @@ public class PollsServiceVerifyProcess extends VerifyProcess {
 
 	private final VerifyAuditedModel _verifyAuditedModel =
 		new VerifyAuditedModel();
+<<<<<<< HEAD
 	private final VerifyGroupedModel _verifyGroupedModel =
 		new VerifyGroupedModel();
+=======
+>>>>>>> compatible
 	private final VerifyResourcePermissions _verifyResourcePermissions =
 		new VerifyResourcePermissions();
 

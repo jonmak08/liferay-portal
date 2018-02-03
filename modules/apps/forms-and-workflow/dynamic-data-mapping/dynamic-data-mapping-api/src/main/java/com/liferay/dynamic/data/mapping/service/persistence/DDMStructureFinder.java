@@ -23,9 +23,12 @@ import aQute.bnd.annotation.ProviderType;
 @ProviderType
 public interface DDMStructureFinder {
 	public int countByKeywords(long companyId, long[] groupIds,
+<<<<<<< HEAD
 		long classNameId, long classPK, java.lang.String keywords);
 
 	public int countByKeywords(long companyId, long[] groupIds,
+=======
+>>>>>>> compatible
 		long classNameId, java.lang.String keywords, int status);
 
 	public int countByC_G_C_S(long companyId, long[] groupIds,
@@ -43,9 +46,12 @@ public interface DDMStructureFinder {
 	public int filterCountByKeywords(long companyId, long[] groupIds,
 		long classNameId, java.lang.String keywords, int status);
 
+<<<<<<< HEAD
 	public int filterCountByKeywords(long companyId, long[] groupIds,
 		long classNameId, java.lang.String keywords, int type, int status);
 
+=======
+>>>>>>> compatible
 	public int filterCountByC_G_C_S(long companyId, long[] groupIds,
 		long classNameId, int status);
 
@@ -60,11 +66,14 @@ public interface DDMStructureFinder {
 
 	public java.util.List<com.liferay.dynamic.data.mapping.model.DDMStructure> filterFindByKeywords(
 		long companyId, long[] groupIds, long classNameId,
+<<<<<<< HEAD
 		java.lang.String keywords, int type, int status, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator<com.liferay.dynamic.data.mapping.model.DDMStructure> orderByComparator);
 
 	public java.util.List<com.liferay.dynamic.data.mapping.model.DDMStructure> filterFindByKeywords(
 		long companyId, long[] groupIds, long classNameId,
+=======
+>>>>>>> compatible
 		java.lang.String keywords, int status, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator<com.liferay.dynamic.data.mapping.model.DDMStructure> orderByComparator);
 
@@ -88,11 +97,14 @@ public interface DDMStructureFinder {
 		com.liferay.portal.kernel.util.OrderByComparator<com.liferay.dynamic.data.mapping.model.DDMStructure> orderByComparator);
 
 	public java.util.List<com.liferay.dynamic.data.mapping.model.DDMStructure> findByKeywords(
+<<<<<<< HEAD
 		long companyId, long[] groupIds, long classNameId, long classPK,
 		java.lang.String keywords, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator<com.liferay.dynamic.data.mapping.model.DDMStructure> orderByComparator);
 
 	public java.util.List<com.liferay.dynamic.data.mapping.model.DDMStructure> findByKeywords(
+=======
+>>>>>>> compatible
 		long companyId, long[] groupIds, long classNameId,
 		java.lang.String keywords, int status, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator<com.liferay.dynamic.data.mapping.model.DDMStructure> orderByComparator);

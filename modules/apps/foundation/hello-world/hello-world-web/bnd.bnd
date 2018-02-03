@@ -1,3 +1,7 @@
 Bundle-Name: Liferay Hello World Web
 Bundle-SymbolicName: com.liferay.hello.world.web
+<<<<<<< HEAD
 Bundle-Version: 2.0.7
+=======
+Bundle-Version: 2.0.4
+>>>>>>> compatible

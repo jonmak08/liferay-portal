@@ -32,7 +32,11 @@ import com.liferay.portal.kernel.model.SystemEventConstants;
 import com.liferay.portal.kernel.search.Indexable;
 import com.liferay.portal.kernel.search.IndexableType;
 import com.liferay.portal.kernel.service.BaseLocalService;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.service.PersistedModelLocalService;
+=======
+import com.liferay.portal.kernel.service.PermissionedModelLocalService;
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.systemevent.SystemEvent;
 import com.liferay.portal.kernel.transaction.Isolation;
@@ -60,7 +64,11 @@ import java.util.List;
 @Transactional(isolation = Isolation.PORTAL, rollbackFor =  {
 	PortalException.class, SystemException.class})
 public interface BookmarksFolderLocalService extends BaseLocalService,
+<<<<<<< HEAD
 	PersistedModelLocalService {
+=======
+	PermissionedModelLocalService {
+>>>>>>> compatible
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *

@@ -4,9 +4,13 @@
 
 		<!-- Configure IdP (Identity Provider) on http://localhost:8080 with database lportal and saml deployed -->
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="SAML Admin" />
 		</execute>
 
@@ -42,9 +46,13 @@
 
 		<!-- Navigate away from SAML portlet after enabling SAML in order to avoid LPS-65869 -->
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="SAML Admin" />
 		</execute>
 
@@ -63,6 +71,7 @@
 			<var name="syntaxCheckingEnabled" value="${syntaxCheckingEnabled}" />
 			<var name="userEmailAddress" value="test@liferay.com" />
 			<var name="userScreenName" value="${userScreenName}" />
+<<<<<<< HEAD
 		</execute>
 
 		<execute macro="Navigator#openSpecificURL">
@@ -72,6 +81,15 @@
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		</execute>
+
+		<execute macro="Navigator#openSpecificURL">
+			<var name="url" value="${spURL}" />
+		</execute>
+
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="SAML Admin" />
 		</execute>
 
@@ -84,9 +102,13 @@
 			<var name="samlKeyPassword" value="${samlEntityID}" />
 		</execute>
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="SAML Admin" />
 		</execute>
 
@@ -114,17 +136,24 @@
 
 		<execute macro="Navigator#openURL" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Configuration" />
 			<var name="panel" value="Control Panel" />
+=======
+		<execute macro="ProductMenu#gotoControlPanelConfiguration">
+>>>>>>> compatible
 			<var name="portlet" value="SAML Admin" />
 		</execute>
 
 		<execute macro="SAMLNavigation#gotoServiceProviderConnection" />
 
 		<execute macro="SAMLPortlet#addServiceProviderConnection">
+<<<<<<< HEAD
 			<var name="nameIdentifierAttributeName" value="${nameIdentifierAttributeName}" />
 			<var name="nameIdentifierFormat" value="${nameIdentifierFormat}" />
+=======
+>>>>>>> compatible
 			<var name="SPEntityID" value="${samlEntityID}" />
 			<var name="SPMetadataURL" value="${spURL}/c/portal/saml/metadata" />
 			<var name="SPNameID" value="${samlEntityID}" />
@@ -138,7 +167,11 @@
 			<var name="authenticationMethod" value="${authenticationMethod}" />
 			<var name="nodePort" value="${nodePort}" />
 			<var name="password" value="${password}" />
+<<<<<<< HEAD
 			<var name="samlEnabled" value="true" />
+=======
+			<var name="samlEnabled" value="${samlEnabled}" />
+>>>>>>> compatible
 			<var name="specificURL" value="${idpInitiatedSSOURL}" />
 			<var name="syntaxCheckingEnabled" value="${syntaxCheckingEnabled}" />
 			<var name="userEmailAddress" value="${userEmailAddress}" />

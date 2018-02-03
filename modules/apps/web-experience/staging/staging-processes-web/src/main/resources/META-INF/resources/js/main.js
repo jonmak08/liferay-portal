@@ -1,5 +1,9 @@
 AUI.add(
+<<<<<<< HEAD
 	'liferay-staging-processes-export-import',
+=======
+	'liferay-export-import',
+>>>>>>> compatible
 	function(A) {
 		var $ = AUI.$;
 
@@ -19,8 +23,11 @@ AUI.add(
 
 		var STR_EMPTY = '';
 
+<<<<<<< HEAD
 		var STR_HIDE = 'hide';
 
+=======
+>>>>>>> compatible
 		var defaultConfig = {
 			setter: '_setNode'
 		};
@@ -61,8 +68,11 @@ AUI.add(
 						instance._exportLAR = config.exportLAR;
 						instance._layoutsExportTreeOutput = instance.byId(config.pageTreeId + 'Output');
 
+<<<<<<< HEAD
 						instance._nodeInputStates = [];
 
+=======
+>>>>>>> compatible
 						instance._initLabels();
 
 						instance._processesResourceURL = config.processesResourceURL;
@@ -201,6 +211,7 @@ AUI.add(
 												}
 											);
 
+<<<<<<< HEAD
 											var portletId = id.replace(instance.ns('PORTLET_DATA') + '_', '');
 
 											instance._setContentLabels(portletId);
@@ -208,6 +219,9 @@ AUI.add(
 											var contentNode = instance.byId('content_' + portletId);
 
 											instance._storeNodeInputStates(contentNode);
+=======
+											instance._setContentLabels(id.replace(instance.ns('PORTLET_DATA') + '_', ''));
+>>>>>>> compatible
 										}
 									}
 								);
@@ -279,8 +293,11 @@ AUI.add(
 							rangeLink.on(
 								STR_CLICK,
 								function(event) {
+<<<<<<< HEAD
 									instance._preventNameRequiredChecking();
 
+=======
+>>>>>>> compatible
 									instance._updateDateRange();
 								}
 							);
@@ -307,8 +324,11 @@ AUI.add(
 
 						privateLayoutNode.val(privateLayout);
 
+<<<<<<< HEAD
 						instance._preventNameRequiredChecking();
 
+=======
+>>>>>>> compatible
 						instance._reloadForm();
 					},
 
@@ -339,8 +359,11 @@ AUI.add(
 
 															instance._setContentLabels(portletId);
 
+<<<<<<< HEAD
 															instance._storeNodeInputStates(contentNode);
 
+=======
+>>>>>>> compatible
 															contentDialog.hide();
 														}
 													},
@@ -352,8 +375,11 @@ AUI.add(
 														click: function(event) {
 															event.domEvent.preventDefault();
 
+<<<<<<< HEAD
 															instance._restoreNodeInputStates(contentNode);
 
+=======
+>>>>>>> compatible
 															contentDialog.hide();
 														}
 													}
@@ -366,8 +392,11 @@ AUI.add(
 								}
 							);
 
+<<<<<<< HEAD
 							instance._storeNodeInputStates(contentNode);
 
+=======
+>>>>>>> compatible
 							contentNode.setData('contentDialog', contentDialog);
 						}
 
@@ -379,9 +408,15 @@ AUI.add(
 
 						var contentOptionsDialog = instance._contentOptionsDialog;
 
+<<<<<<< HEAD
 						var contentOptionsNode = instance.byId('contentOptions');
 
 						if (!contentOptionsDialog) {
+=======
+						if (!contentOptionsDialog) {
+							var contentOptionsNode = instance.byId('contentOptions');
+
+>>>>>>> compatible
 							contentOptionsNode.show();
 
 							contentOptionsDialog = Liferay.Util.Window.getWindow(
@@ -402,8 +437,11 @@ AUI.add(
 
 															instance._setContentOptionsLabels();
 
+<<<<<<< HEAD
 															instance._storeNodeInputStates(contentOptionsNode);
 
+=======
+>>>>>>> compatible
 															contentOptionsDialog.hide();
 														}
 													},
@@ -415,8 +453,11 @@ AUI.add(
 														click: function(event) {
 															event.domEvent.preventDefault();
 
+<<<<<<< HEAD
 															instance._restoreNodeInputStates(contentOptionsNode);
 
+=======
+>>>>>>> compatible
 															contentOptionsDialog.hide();
 														}
 													}
@@ -429,8 +470,11 @@ AUI.add(
 								}
 							);
 
+<<<<<<< HEAD
 							instance._storeNodeInputStates(contentOptionsNode);
 
+=======
+>>>>>>> compatible
 							instance._contentOptionsDialog = contentOptionsDialog;
 						}
 
@@ -657,6 +701,7 @@ AUI.add(
 						);
 					},
 
+<<<<<<< HEAD
 					_preventNameRequiredChecking: function() {
 						var instance = this;
 
@@ -667,6 +712,8 @@ AUI.add(
 						}
 					},
 
+=======
+>>>>>>> compatible
 					_rangeEndsInPast: function(today) {
 						var instance = this;
 
@@ -818,6 +865,7 @@ AUI.add(
 						}
 					},
 
+<<<<<<< HEAD
 					_restoreNodeCheckedState: function(node, state) {
 						var val = state.value;
 
@@ -871,6 +919,8 @@ AUI.add(
 						);
 					},
 
+=======
+>>>>>>> compatible
 					_scheduleRenderProcess: function() {
 						var instance = this;
 
@@ -890,14 +940,18 @@ AUI.add(
 
 						var inputs = contentNode.all('.field');
 
+<<<<<<< HEAD
 						var portletDataNode = instance.byId('PORTLET_DATA_' + portletId);
 
 						var portletChecked = portletDataNode.attr('checked');
 
+=======
+>>>>>>> compatible
 						var selectedContent = [];
 
 						inputs.each(
 							function(item, index, collection) {
+<<<<<<< HEAD
 								var checked = false;
 
 								if (portletChecked) {
@@ -906,6 +960,9 @@ AUI.add(
 								else {
 									item.attr(STR_CHECKED, false);
 								}
+=======
+								var checked = item.attr(STR_CHECKED);
+>>>>>>> compatible
 
 								if (checked) {
 									selectedContent.push(item.attr('data-name'));
@@ -914,7 +971,11 @@ AUI.add(
 						);
 
 						if (selectedContent.length === 0) {
+<<<<<<< HEAD
 							portletDataNode.attr('checked', false);
+=======
+							instance.byId('PORTLET_DATA_' + portletId).attr('checked', false);
+>>>>>>> compatible
 
 							instance.byId('showChangeContent_' + portletId).hide();
 						}
@@ -995,6 +1056,7 @@ AUI.add(
 						return val;
 					},
 
+<<<<<<< HEAD
 					_storeNodeInputStates: function(node) {
 						var instance = this;
 
@@ -1026,6 +1088,8 @@ AUI.add(
 						);
 					},
 
+=======
+>>>>>>> compatible
 					_updateDateRange: function(event) {
 						var instance = this;
 

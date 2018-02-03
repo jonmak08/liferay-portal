@@ -23,7 +23,11 @@ import com.liferay.opensocial.model.impl.GadgetImpl;
 import com.liferay.opensocial.service.GadgetLocalServiceUtil;
 import com.liferay.opensocial.service.OAuthConsumerLocalServiceUtil;
 import com.liferay.opensocial.util.PortletPropsValues;
+<<<<<<< HEAD
 import com.liferay.petra.lang.CentralizedThreadLocal;
+=======
+import com.liferay.portal.kernel.concurrent.ConcurrentHashSet;
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.Layout;
@@ -34,6 +38,10 @@ import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ArrayUtil;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.AutoResetThreadLocal;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
@@ -47,10 +55,15 @@ import com.liferay.portal.kernel.uuid.PortalUUIDUtil;
 
 import java.io.File;
 
+<<<<<<< HEAD
 import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+=======
+import java.util.Map;
+import java.util.Set;
+>>>>>>> compatible
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
@@ -472,17 +485,31 @@ public class ShindigUtil {
 	@Inject
 	private static ContainerConfig _containerConfig;
 
+<<<<<<< HEAD
 	private static final ThreadLocal<String> _host =
 		new CentralizedThreadLocal<>(
 			ShindigUtil.class + "._host", () -> StringPool.BLANK);
 	private static final Set<String> _ignoreGadgetSpecCache =
 		Collections.newSetFromMap(new ConcurrentHashMap<>());
+=======
+	private static final AutoResetThreadLocal<String> _host =
+		new AutoResetThreadLocal<>(
+			ShindigUtil.class + "._host", StringPool.BLANK);
+	private static final Set<String> _ignoreGadgetSpecCache =
+		new ConcurrentHashSet<>();
+>>>>>>> compatible
 
 	@Inject
 	private static Processor _processor;
 
+<<<<<<< HEAD
 	private static final ThreadLocal<String> _scheme =
 		new CentralizedThreadLocal<>(
 			ShindigUtil.class + "._scheme", () -> StringPool.BLANK);
+=======
+	private static final AutoResetThreadLocal<String> _scheme =
+		new AutoResetThreadLocal<>(
+			ShindigUtil.class + "._scheme", StringPool.BLANK);
+>>>>>>> compatible
 
 }

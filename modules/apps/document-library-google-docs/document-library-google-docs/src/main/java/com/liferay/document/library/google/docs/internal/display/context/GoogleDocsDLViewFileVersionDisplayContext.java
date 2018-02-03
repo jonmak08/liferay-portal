@@ -18,6 +18,10 @@ import com.liferay.document.library.display.context.BaseDLViewFileVersionDisplay
 import com.liferay.document.library.display.context.DLViewFileVersionDisplayContext;
 import com.liferay.document.library.google.docs.internal.util.GoogleDocsConstants;
 import com.liferay.document.library.google.docs.internal.util.GoogleDocsMetadataHelper;
+<<<<<<< HEAD
+=======
+import com.liferay.document.library.google.docs.internal.util.ResourceUtil;
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.kernel.DDMStructure;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.repository.model.FileVersion;
@@ -144,8 +148,13 @@ public class GoogleDocsDLViewFileVersionDisplayContext
 			}
 		}
 
+<<<<<<< HEAD
 		ResourceBundle resourceBundle = ResourceBundleUtil.getBundle(
 			"content.Language", request.getLocale(), getClass());
+=======
+		ResourceBundle resourceBundle = ResourceUtil.getResourceBundle(
+			request.getLocale());
+>>>>>>> compatible
 
 		printWriter.write("<div class=\"alert alert-info\">");
 		printWriter.write(

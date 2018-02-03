@@ -15,7 +15,11 @@
 package com.liferay.item.selector.criteria.upload.criterion;
 
 import com.liferay.item.selector.BaseItemSelectorCriterion;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.upload.UploadServletRequestConfigurationHelperUtil;
+=======
+import com.liferay.portal.util.PropsValues;
+>>>>>>> compatible
 
 /**
  * @author Ambrín Chaudhary
@@ -26,18 +30,30 @@ public class UploadItemSelectorCriterion extends BaseItemSelectorCriterion {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 2.1.0, replaced by {@link
+=======
+	 * @deprecated As of 2.0.0, replaced by {@link
+>>>>>>> compatible
 	 *             #UploadItemSelectorCriterion(String, String, String)}
 	 */
 	@Deprecated
 	public UploadItemSelectorCriterion(String url, String repositoryName) {
 		this(
 			null, url, repositoryName,
+<<<<<<< HEAD
 			UploadServletRequestConfigurationHelperUtil.getMaxSize());
 	}
 
 	/**
 	 * @deprecated As of 2.1.0, replaced by {@link
+=======
+			PropsValues.UPLOAD_SERVLET_REQUEST_IMPL_MAX_SIZE);
+	}
+
+	/**
+	 * @deprecated As of 2.0.0, replaced by {@link
+>>>>>>> compatible
 	 *             #UploadItemSelectorCriterion(String, String, String, long)}
 	 */
 	@Deprecated
@@ -47,6 +63,7 @@ public class UploadItemSelectorCriterion extends BaseItemSelectorCriterion {
 		this(null, url, repositoryName, maxFileSize);
 	}
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 2.1.0, replaced by {@link
 	 *             #UploadItemSelectorCriterion(String, String, String, long,
@@ -60,12 +77,18 @@ public class UploadItemSelectorCriterion extends BaseItemSelectorCriterion {
 		this(null, url, repositoryName, maxFileSize, extensions);
 	}
 
+=======
+>>>>>>> compatible
 	public UploadItemSelectorCriterion(
 		String portletId, String url, String repositoryName) {
 
 		this(
 			portletId, url, repositoryName,
+<<<<<<< HEAD
 			UploadServletRequestConfigurationHelperUtil.getMaxSize());
+=======
+			PropsValues.UPLOAD_SERVLET_REQUEST_IMPL_MAX_SIZE);
+>>>>>>> compatible
 	}
 
 	public UploadItemSelectorCriterion(
@@ -77,6 +100,7 @@ public class UploadItemSelectorCriterion extends BaseItemSelectorCriterion {
 		_maxFileSize = maxFileSize;
 	}
 
+<<<<<<< HEAD
 	public UploadItemSelectorCriterion(
 		String portletId, String url, String repositoryName, long maxFileSize,
 		String[] extensions) {
@@ -92,6 +116,8 @@ public class UploadItemSelectorCriterion extends BaseItemSelectorCriterion {
 		return _extensions;
 	}
 
+=======
+>>>>>>> compatible
 	public long getMaxFileSize() {
 		return _maxFileSize;
 	}
@@ -108,10 +134,13 @@ public class UploadItemSelectorCriterion extends BaseItemSelectorCriterion {
 		return _url;
 	}
 
+<<<<<<< HEAD
 	public void setExtensions(String[] extensions) {
 		_extensions = extensions;
 	}
 
+=======
+>>>>>>> compatible
 	public void setMaxFileSize(long maxFileSize) {
 		_maxFileSize = maxFileSize;
 	}
@@ -128,7 +157,10 @@ public class UploadItemSelectorCriterion extends BaseItemSelectorCriterion {
 		_url = url;
 	}
 
+<<<<<<< HEAD
 	private String[] _extensions;
+=======
+>>>>>>> compatible
 	private long _maxFileSize;
 	private String _portletId;
 	private String _repositoryName;

@@ -21,10 +21,14 @@ import com.liferay.dynamic.data.mapping.model.DDMStructure;
 import com.liferay.dynamic.data.mapping.model.LocalizedValue;
 import com.liferay.dynamic.data.mapping.service.DDMStructureLocalServiceUtil;
 import com.liferay.journal.configuration.JournalServiceConfiguration;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringWriter;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
+=======
+import com.liferay.portal.kernel.io.unsync.UnsyncStringWriter;
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.mobile.device.Device;
@@ -51,6 +55,10 @@ import com.liferay.portal.kernel.util.LocaleUtil;
 import com.liferay.portal.kernel.util.LocalizationUtil;
 import com.liferay.portal.kernel.util.PropertiesUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Attribute;
@@ -66,7 +74,10 @@ import java.io.IOException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+<<<<<<< HEAD
 import java.util.Iterator;
+=======
+>>>>>>> compatible
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -91,7 +102,11 @@ public class JournalTransformer {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 4.0.0, replaced by {@link #JournalTransformer(boolean)}
+=======
+	 * @deprecated As of 3.6.0, replaced by {@link #JournalTransformer(boolean)}
+>>>>>>> compatible
 	 */
 	@Deprecated
 	public JournalTransformer(
@@ -101,7 +116,11 @@ public class JournalTransformer {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * @deprecated As of 4.0.0, replaced by {@link #JournalTransformer(boolean)}
+=======
+	 * @deprecated As of 3.6.0, replaced by {@link #JournalTransformer(boolean)}
+>>>>>>> compatible
 	 */
 	@Deprecated
 	public JournalTransformer(
@@ -327,10 +346,13 @@ public class JournalTransformer {
 
 					HttpServletRequest request = themeDisplay.getRequest();
 
+<<<<<<< HEAD
 					if (request != null) {
 						template.prepare(request);
 					}
 
+=======
+>>>>>>> compatible
 					templateManager.addTaglibSupport(
 						template, request, themeDisplay.getResponse());
 					templateManager.addTaglibTheme(
@@ -532,6 +554,7 @@ public class JournalTransformer {
 
 			Map<String, String> attributes = new HashMap<>();
 
+<<<<<<< HEAD
 			if (type.equals("image")) {
 				JSONObject dataJSONObject = JSONFactoryUtil.createJSONObject(
 					data);
@@ -547,6 +570,8 @@ public class JournalTransformer {
 				}
 			}
 
+=======
+>>>>>>> compatible
 			if (dynamicContentElement != null) {
 				for (Attribute attribute : dynamicContentElement.attributes()) {
 					attributes.put(attribute.getName(), attribute.getValue());

@@ -38,6 +38,7 @@ if (ListUtil.isEmpty(groups)) {
 }
 
 request.removeAttribute(WebKeys.SEARCH_CONTAINER_RESULT_ROW);
+<<<<<<< HEAD
 
 List<NavigationItem> navigationItems = new ArrayList<>();
 
@@ -48,6 +49,8 @@ navigationItem.setHref(currentURL);
 navigationItem.setLabel(LanguageUtil.get(request, "details"));
 
 navigationItems.add(navigationItem);
+=======
+>>>>>>> compatible
 %>
 
 <c:choose>
@@ -63,9 +66,17 @@ navigationItems.add(navigationItem);
 					<h4><liferay-ui:message key="sites" /></h4>
 				</div>
 
+<<<<<<< HEAD
 				<clay:navigation-bar
 					items="<%= navigationItems %>"
 				/>
+=======
+				<aui:nav-bar cssClass="navbar-no-collapse" markupView="lexicon">
+					<aui:nav collapsible="<%= false %>" cssClass="navbar-nav">
+						<aui:nav-item label="details" selected="<%= true %>" />
+					</aui:nav>
+				</aui:nav-bar>
+>>>>>>> compatible
 
 				<div class="sidebar-body">
 					<h5><liferay-ui:message key="num-of-items" /></h5>
@@ -91,9 +102,19 @@ navigationItems.add(navigationItem);
 					<h4><%= HtmlUtil.escape(group.getDescriptiveName()) %></h4>
 				</div>
 
+<<<<<<< HEAD
 				<clay:navigation-bar
 					items="<%= navigationItems %>"
 				/>
+=======
+				<aui:nav-bar cssClass="navbar-no-collapse" markupView="lexicon">
+					<aui:nav collapsible="<%= false %>" cssClass="navbar-nav">
+						<portlet:renderURL var="mainURL" />
+
+						<aui:nav-item href="<%= mainURL.toString() %>" label="details" selected="<%= true %>" />
+					</aui:nav>
+				</aui:nav-bar>
+>>>>>>> compatible
 
 				<div class="sidebar-body">
 					<p>
@@ -174,12 +195,20 @@ navigationItems.add(navigationItem);
 						</p>
 					</c:if>
 
+<<<<<<< HEAD
 					<liferay-asset:asset-categories-summary
+=======
+					<liferay-ui:asset-categories-summary
+>>>>>>> compatible
 						className="<%= Group.class.getName() %>"
 						classPK="<%= group.getGroupId() %>"
 					/>
 
+<<<<<<< HEAD
 					<liferay-asset:asset-tags-summary
+=======
+					<liferay-ui:asset-tags-summary
+>>>>>>> compatible
 						className="<%= Group.class.getName() %>"
 						classPK="<%= group.getGroupId() %>"
 					/>
@@ -192,9 +221,17 @@ navigationItems.add(navigationItem);
 			<h4><liferay-ui:message arguments="<%= groups.size() %>" key="x-items-are-selected" /></h4>
 		</div>
 
+<<<<<<< HEAD
 		<clay:navigation-bar
 			items="<%= navigationItems %>"
 		/>
+=======
+		<aui:nav-bar cssClass="navbar-no-collapse" markupView="lexicon">
+			<aui:nav collapsible="<%= false %>" cssClass="navbar-nav">
+				<aui:nav-item label="details" selected="<%= true %>" />
+			</aui:nav>
+		</aui:nav-bar>
+>>>>>>> compatible
 
 		<div class="sidebar-body">
 			<h5><liferay-ui:message arguments="<%= groups.size() %>" key="x-items-are-selected" /></h5>

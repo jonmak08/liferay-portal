@@ -14,7 +14,10 @@
 
 package com.liferay.portal.template;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.template.TemplateConstants;
@@ -22,8 +25,13 @@ import com.liferay.portal.kernel.template.TemplateException;
 import com.liferay.portal.kernel.template.TemplateResource;
 import com.liferay.portal.kernel.template.URLTemplateResource;
 import com.liferay.portal.kernel.util.ArrayUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.util.CharPool;
+import com.liferay.portal.kernel.util.FileUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
@@ -70,16 +78,28 @@ public abstract class URLResourceParser implements TemplateResourceParser {
 
 		char[] chars = templateId.toCharArray();
 
+<<<<<<< HEAD
 		for (char c : chars) {
+=======
+		for (int i = 0; i < chars.length; i++) {
+			char c = chars[i];
+
+>>>>>>> compatible
 			if ((c == CharPool.PERCENT) || (c == CharPool.POUND) ||
 				(c == CharPool.QUESTION) || (c == CharPool.SEMICOLON)) {
 
 				if (_log.isWarnEnabled()) {
 					_log.warn(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"Unable to load template ", templateId,
 							" because the template name contains one or more ",
 							"special characters: %, #, ?, or ;"));
+=======
+						"Unable to load template " + templateId +
+							" because the template name contains one or more " +
+								"special characters: %, #, ?, or ;");
+>>>>>>> compatible
 				}
 
 				return false;

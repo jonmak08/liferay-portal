@@ -14,7 +14,10 @@
 
 package com.liferay.portal.kernel.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.bean.BeanPropertiesUtil;
 
 import java.io.Serializable;
@@ -77,9 +80,17 @@ public abstract class OrderByComparator<T>
 	}
 
 	public boolean isAscending() {
+<<<<<<< HEAD
 		String orderBy = StringUtil.toUpperCase(getOrderBy());
 
 		if ((orderBy == null) || orderBy.endsWith(_ORDER_BY_DESC)) {
+=======
+		String orderBy = getOrderBy();
+
+		if ((orderBy == null) ||
+			StringUtil.toUpperCase(orderBy).endsWith(_ORDER_BY_DESC)) {
+
+>>>>>>> compatible
 			return false;
 		}
 		else {

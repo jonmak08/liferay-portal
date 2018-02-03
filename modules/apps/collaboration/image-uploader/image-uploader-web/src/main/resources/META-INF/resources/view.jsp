@@ -61,6 +61,7 @@ String randomNamespace = ParamUtil.getString(request, "randomNamespace");
 
 			<div class="dialog-body">
 				<div class="container-fluid-1280">
+<<<<<<< HEAD
 
 					<%
 					DLConfiguration dlConfiguration = ConfigurationProviderUtil.getSystemConfiguration(DLConfiguration.class);
@@ -68,6 +69,10 @@ String randomNamespace = ParamUtil.getString(request, "randomNamespace");
 
 					<liferay-ui:error exception="<%= FileExtensionException.class %>">
 						<liferay-ui:message arguments="<%= StringUtil.merge(dlConfiguration.fileExtensions()) %>" key="please-enter-a-file-with-a-valid-extension-x" translateArguments="<%= false %>" />
+=======
+					<liferay-ui:error exception="<%= FileExtensionException.class %>">
+						<liferay-ui:message arguments="<%= StringUtil.merge(PropsValues.DL_FILE_EXTENSIONS, StringPool.COMMA) %>" key="please-enter-a-file-with-a-valid-extension-x" translateArguments="<%= false %>" />
+>>>>>>> compatible
 					</liferay-ui:error>
 
 					<liferay-ui:error exception="<%= FileSizeException.class %>">
@@ -102,7 +107,11 @@ String randomNamespace = ParamUtil.getString(request, "randomNamespace");
 
 								<aui:input autoFocus="<%= windowState.equals(WindowState.MAXIMIZED) || windowState.equals(LiferayWindowState.POP_UP) %>" cssClass="hide" label="" name="fileName" type="file">
 									<aui:validator name="acceptFiles">
+<<<<<<< HEAD
 										'<%= StringUtil.merge(dlConfiguration.fileExtensions()) %>'
+=======
+										'<%= StringUtil.merge(PrefsPropsUtil.getStringArray(PropsKeys.DL_FILE_EXTENSIONS, StringPool.COMMA)) %>'
+>>>>>>> compatible
 									</aui:validator>
 								</aui:input>
 							</div>
@@ -112,9 +121,15 @@ String randomNamespace = ParamUtil.getString(request, "randomNamespace");
 			</div>
 
 			<aui:button-row>
+<<<<<<< HEAD
 				<aui:button name="submitButton" type="submit" value="done" />
 
 				<aui:button onClick="window.close();" type="cancel" value="close" />
+=======
+				<aui:button cssClass="btn-lg" name="submitButton" type="submit" value="done" />
+
+				<aui:button cssClass="btn-lg" onClick="window.close();" type="cancel" value="close" />
+>>>>>>> compatible
 			</aui:button-row>
 		</aui:form>
 

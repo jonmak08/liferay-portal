@@ -37,6 +37,7 @@ import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.RepositoryPersistence;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.util.ReflectionUtil;
 import com.liferay.portal.kernel.util.SetUtil;
 import com.liferay.portal.kernel.util.StringBundler;
 import com.liferay.portal.kernel.util.Validator;
@@ -1001,6 +1002,7 @@ public class RepositoryPersistenceImpl extends BasePersistenceImpl<Repository>
 		}
 
 		List<Repository> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<Repository>)finderCache.getResult(finderPath,
@@ -1012,6 +1014,19 @@ public class RepositoryPersistenceImpl extends BasePersistenceImpl<Repository>
 							(companyId != repository.getCompanyId())) {
 						list = null;
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<Repository>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+			if ((list != null) && !list.isEmpty()) {
+				for (Repository repository : list) {
+					if (!Objects.equals(uuid, repository.getUuid()) ||
+							(companyId != repository.getCompanyId())) {
+						list = null;
+
+>>>>>>> compatible
 						break;
 					}
 				}
@@ -1576,11 +1591,19 @@ public class RepositoryPersistenceImpl extends BasePersistenceImpl<Repository>
 		}
 
 		List<Repository> list = null;
+<<<<<<< HEAD
 
 		if (retrieveFromCache) {
 			list = (List<Repository>)finderCache.getResult(finderPath,
 					finderArgs, this);
 
+=======
+
+		if (retrieveFromCache) {
+			list = (List<Repository>)finderCache.getResult(finderPath,
+					finderArgs, this);
+
+>>>>>>> compatible
 			if ((list != null) && !list.isEmpty()) {
 				for (Repository repository : list) {
 					if ((groupId != repository.getGroupId())) {
@@ -2291,11 +2314,17 @@ public class RepositoryPersistenceImpl extends BasePersistenceImpl<Repository>
 		setModelClass(Repository.class);
 
 		try {
+<<<<<<< HEAD
 			Field field = BasePersistenceImpl.class.getDeclaredField(
 					"_dbColumnNames");
 
 			field.setAccessible(true);
 
+=======
+			Field field = ReflectionUtil.getDeclaredField(BasePersistenceImpl.class,
+					"_dbColumnNames");
+
+>>>>>>> compatible
 			Map<String, String> dbColumnNames = new HashMap<String, String>();
 
 			dbColumnNames.put("uuid", "uuid_");
@@ -2403,12 +2432,21 @@ public class RepositoryPersistenceImpl extends BasePersistenceImpl<Repository>
 		Object[] args = new Object[] {
 				repositoryModelImpl.getUuid(), repositoryModelImpl.getGroupId()
 			};
+<<<<<<< HEAD
 
 		finderCache.putResult(FINDER_PATH_COUNT_BY_UUID_G, args,
 			Long.valueOf(1), false);
 		finderCache.putResult(FINDER_PATH_FETCH_BY_UUID_G, args,
 			repositoryModelImpl, false);
 
+=======
+
+		finderCache.putResult(FINDER_PATH_COUNT_BY_UUID_G, args,
+			Long.valueOf(1), false);
+		finderCache.putResult(FINDER_PATH_FETCH_BY_UUID_G, args,
+			repositoryModelImpl, false);
+
+>>>>>>> compatible
 		args = new Object[] {
 				repositoryModelImpl.getGroupId(), repositoryModelImpl.getName(),
 				repositoryModelImpl.getPortletId()

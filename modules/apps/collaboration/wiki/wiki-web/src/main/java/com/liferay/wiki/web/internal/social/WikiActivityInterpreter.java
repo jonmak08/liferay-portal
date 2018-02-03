@@ -14,7 +14,10 @@
 
 package com.liferay.wiki.web.internal.social;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.NoSuchModelException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
@@ -22,13 +25,20 @@ import com.liferay.portal.kernel.portletfilerepository.PortletFileRepositoryUtil
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermission;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.util.AggregateResourceBundleLoader;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.ResourceBundleLoader;
 import com.liferay.portal.kernel.util.ResourceBundleLoaderUtil;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.URLCodec;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.social.kernel.model.BaseSocialActivityInterpreter;
@@ -40,6 +50,10 @@ import com.liferay.wiki.model.WikiPage;
 import com.liferay.wiki.model.WikiPageResource;
 import com.liferay.wiki.service.WikiPageLocalService;
 import com.liferay.wiki.service.WikiPageResourceLocalService;
+<<<<<<< HEAD
+=======
+import com.liferay.wiki.service.permission.WikiPagePermissionChecker;
+>>>>>>> compatible
 import com.liferay.wiki.social.WikiActivityKeys;
 
 import org.osgi.service.component.annotations.Component;
@@ -245,7 +259,11 @@ public class WikiActivityInterpreter extends BaseSocialActivityInterpreter {
 			String actionId, ServiceContext serviceContext)
 		throws Exception {
 
+<<<<<<< HEAD
 		if (!_wikiPageModelResourcePermission.contains(
+=======
+		if (!WikiPagePermissionChecker.contains(
+>>>>>>> compatible
 				permissionChecker, activity.getClassPK(), ActionKeys.VIEW)) {
 
 			return false;
@@ -265,7 +283,11 @@ public class WikiActivityInterpreter extends BaseSocialActivityInterpreter {
 				pageResource.getNodeId(), pageResource.getTitle(), version);
 
 			if (!page.isApproved() &&
+<<<<<<< HEAD
 				!_wikiPageModelResourcePermission.contains(
+=======
+				!WikiPagePermissionChecker.contains(
+>>>>>>> compatible
 					permissionChecker, activity.getClassPK(),
 					ActionKeys.UPDATE)) {
 
@@ -308,10 +330,13 @@ public class WikiActivityInterpreter extends BaseSocialActivityInterpreter {
 
 	private ResourceBundleLoader _resourceBundleLoader;
 	private WikiPageLocalService _wikiPageLocalService;
+<<<<<<< HEAD
 
 	@Reference(target = "(model.class.name=com.liferay.wiki.model.WikiPage)")
 	private ModelResourcePermission<WikiPage> _wikiPageModelResourcePermission;
 
+=======
+>>>>>>> compatible
 	private WikiPageResourceLocalService _wikiPageResourceLocalService;
 
 }

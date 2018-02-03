@@ -37,7 +37,10 @@ import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.service.LayoutLocalService;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.MapUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Element;
 
@@ -60,7 +63,10 @@ import org.osgi.service.component.annotations.Reference;
 public class DDMFormValuesExportImportContentProcessor
 	implements ExportImportContentProcessor<DDMFormValues> {
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public DDMFormValues replaceExportContentReferences(
 			PortletDataContext portletDataContext, StagedModel stagedModel,
 			DDMFormValues ddmFormValues, boolean exportReferencedContent,
@@ -82,7 +88,10 @@ public class DDMFormValuesExportImportContentProcessor
 		return ddmFormValues;
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public DDMFormValues replaceImportContentReferences(
 			PortletDataContext portletDataContext, StagedModel stagedModel,
 			DDMFormValues ddmFormValues)
@@ -104,7 +113,12 @@ public class DDMFormValuesExportImportContentProcessor
 
 	@Override
 	public void validateContentReferences(
+<<<<<<< HEAD
 		long groupId, DDMFormValues ddmFormValues) {
+=======
+			long groupId, DDMFormValues ddmFormValues)
+		throws PortalException {
+>>>>>>> compatible
 	}
 
 	@Reference(unbind = "-")
@@ -317,9 +331,14 @@ public class DDMFormValuesExportImportContentProcessor
 				catch (NoSuchFileEntryException nsfee) {
 					if (_log.isWarnEnabled()) {
 						_log.warn(
+<<<<<<< HEAD
 							StringBundler.concat(
 								"Unable to find file entry with uuid ", uuid,
 								" and groupId ", String.valueOf(groupId)),
+=======
+							"Unable to find file entry with uuid " + uuid +
+								" and groupId " + groupId,
+>>>>>>> compatible
 							nsfee);
 					}
 				}

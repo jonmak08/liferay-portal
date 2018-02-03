@@ -14,6 +14,7 @@
 
 package com.liferay.portal.kernel.util;
 
+<<<<<<< HEAD
 import com.liferay.portal.kernel.test.randomizerbumpers.RandomizerBumper;
 import com.liferay.portal.kernel.test.rule.CodeCoverageAssertor;
 import com.liferay.portal.kernel.test.util.RandomTestUtil;
@@ -28,11 +29,18 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
+=======
+import java.util.Arrays;
+import java.util.HashMap;
+>>>>>>> compatible
 import java.util.Map;
 import java.util.Random;
 
 import org.junit.Assert;
+<<<<<<< HEAD
 import org.junit.ClassRule;
+=======
+>>>>>>> compatible
 import org.junit.Test;
 
 /**
@@ -42,6 +50,7 @@ import org.junit.Test;
  */
 public class StringUtilTest {
 
+<<<<<<< HEAD
 	@ClassRule
 	public static final CodeCoverageAssertor codeCoverageAssertor =
 		new CodeCoverageAssertor() {
@@ -66,6 +75,8 @@ public class StringUtilTest {
 
 		};
 
+=======
+>>>>>>> compatible
 	@Test
 	public void testAppendParentheticalSuffixInteger() {
 		Assert.assertEquals(
@@ -308,6 +319,7 @@ public class StringUtilTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testRead() throws Exception {
 		Assert.assertEquals(
 			StringPool.BLANK,
@@ -369,6 +381,8 @@ public class StringUtilTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testRemoveChar() {
 		Assert.assertEquals("abcd", StringUtil.removeChar("a.b.c.d", '.'));
 		Assert.assertEquals("abcd", StringUtil.removeChar(".a.b.c.d.", '.'));
@@ -603,6 +617,7 @@ public class StringUtilTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testShortenStringWith4ByteChars() {
 		int space = CharPool.SPACE;
 
@@ -622,6 +637,8 @@ public class StringUtilTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testSplit() {
 		Assert.assertArrayEquals(
 			new String[] {"Alice", "Bob", "Charlie"},
@@ -713,6 +730,22 @@ public class StringUtilTest {
 	}
 
 	@Test
+<<<<<<< HEAD
+=======
+	public void testStripChar() {
+		Assert.assertEquals("abcd", StringUtil.strip(" a b  c   d", ' '));
+	}
+
+	@Test
+	public void testStripCharArray() {
+		Assert.assertEquals(
+			"HeoWor",
+			StringUtil.strip(
+				"Hello World", new char[] {CharPool.SPACE, 'l', 'd'}));
+	}
+
+	@Test
+>>>>>>> compatible
 	public void testStripParentheticalSuffixInteger() {
 		Assert.assertEquals(
 			"Hello World",
@@ -1073,6 +1106,7 @@ public class StringUtilTest {
 	}
 
 	@Test
+<<<<<<< HEAD
 	public void testUnquote() {
 		Assert.assertEquals(
 			"Hello World", StringUtil.unquote("\"Hello World\""));
@@ -1083,6 +1117,8 @@ public class StringUtilTest {
 	}
 
 	@Test
+=======
+>>>>>>> compatible
 	public void testWildcardMatches() {
 
 		// Exact match in a case sensitive manner

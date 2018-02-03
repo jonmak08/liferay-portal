@@ -38,6 +38,10 @@ import com.liferay.portal.kernel.service.persistence.CompanyProviderWrapper;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.util.OrderByComparator;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.spring.extender.service.ServiceReference;
 
@@ -295,7 +299,11 @@ public class EntryPersistenceImpl extends BasePersistenceImpl<Entry>
 		msg.append("userId=");
 		msg.append(userId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchEntryException(msg.toString());
 	}
@@ -343,7 +351,11 @@ public class EntryPersistenceImpl extends BasePersistenceImpl<Entry>
 		msg.append("userId=");
 		msg.append(userId);
 
+<<<<<<< HEAD
 		msg.append("}");
+=======
+		msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 		throw new NoSuchEntryException(msg.toString());
 	}
@@ -619,7 +631,11 @@ public class EntryPersistenceImpl extends BasePersistenceImpl<Entry>
 			msg.append(", emailAddress=");
 			msg.append(emailAddress);
 
+<<<<<<< HEAD
 			msg.append("}");
+=======
+			msg.append(StringPool.CLOSE_CURLY_BRACE);
+>>>>>>> compatible
 
 			if (_log.isDebugEnabled()) {
 				_log.debug(msg.toString());
@@ -684,7 +700,11 @@ public class EntryPersistenceImpl extends BasePersistenceImpl<Entry>
 			if (emailAddress == null) {
 				query.append(_FINDER_COLUMN_U_EA_EMAILADDRESS_1);
 			}
+<<<<<<< HEAD
 			else if (emailAddress.equals("")) {
+=======
+			else if (emailAddress.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_U_EA_EMAILADDRESS_3);
 			}
 			else {
@@ -802,7 +822,11 @@ public class EntryPersistenceImpl extends BasePersistenceImpl<Entry>
 			if (emailAddress == null) {
 				query.append(_FINDER_COLUMN_U_EA_EMAILADDRESS_1);
 			}
+<<<<<<< HEAD
 			else if (emailAddress.equals("")) {
+=======
+			else if (emailAddress.equals(StringPool.BLANK)) {
+>>>>>>> compatible
 				query.append(_FINDER_COLUMN_U_EA_EMAILADDRESS_3);
 			}
 			else {
@@ -1339,12 +1363,20 @@ public class EntryPersistenceImpl extends BasePersistenceImpl<Entry>
 		for (Serializable primaryKey : uncachedPrimaryKeys) {
 			query.append((long)primaryKey);
 
+<<<<<<< HEAD
 			query.append(",");
+=======
+			query.append(StringPool.COMMA);
+>>>>>>> compatible
 		}
 
 		query.setIndex(query.index() - 1);
 
+<<<<<<< HEAD
 		query.append(")");
+=======
+		query.append(StringPool.CLOSE_PARENTHESIS);
+>>>>>>> compatible
 
 		String sql = query.toString();
 

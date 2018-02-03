@@ -337,12 +337,15 @@ public class MBMessageLocalServiceUtil {
 		getService().emptyMessageAttachments(messageId);
 	}
 
+<<<<<<< HEAD
 	public static com.liferay.message.boards.kernel.model.MBMessage fetchFirstMessage(
 		long threadId, long parentMessageId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService().fetchFirstMessage(threadId, parentMessageId);
 	}
 
+=======
+>>>>>>> compatible
 	public static com.liferay.message.boards.kernel.model.MBMessage fetchMBMessage(
 		long messageId) {
 		return getService().fetchMBMessage(messageId);
@@ -453,12 +456,15 @@ public class MBMessageLocalServiceUtil {
 		return getService().getExportActionableDynamicQuery(portletDataContext);
 	}
 
+<<<<<<< HEAD
 	public static com.liferay.message.boards.kernel.model.MBMessage getFirstMessage(
 		long threadId, long parentMessageId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 		return getService().getFirstMessage(threadId, parentMessageId);
 	}
 
+=======
+>>>>>>> compatible
 	public static java.util.List<com.liferay.message.boards.kernel.model.MBMessage> getGroupMessages(
 		long groupId, int status, int start, int end) {
 		return getService().getGroupMessages(groupId, status, start, end);

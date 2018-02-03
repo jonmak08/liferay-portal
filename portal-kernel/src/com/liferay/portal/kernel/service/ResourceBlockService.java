@@ -35,10 +35,15 @@ import java.util.Map;
  * @see ResourceBlockServiceUtil
  * @see com.liferay.portal.service.base.ResourceBlockServiceBaseImpl
  * @see com.liferay.portal.service.impl.ResourceBlockServiceImpl
+<<<<<<< HEAD
  * @deprecated
  * @generated
  */
 @Deprecated
+=======
+ * @generated
+ */
+>>>>>>> compatible
 @AccessControlled
 @JSONWebService
 @ProviderType

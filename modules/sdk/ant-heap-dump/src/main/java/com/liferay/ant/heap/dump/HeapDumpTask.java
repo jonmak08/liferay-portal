@@ -14,7 +14,7 @@
 
 package com.liferay.ant.heap.dump;
 
-import com.liferay.petra.process.EchoOutputProcessor;
+import com.liferay.portal.kernel.process.ProcessUtil;
 import com.liferay.portal.kernel.util.HeapUtil;
 
 import java.io.File;
@@ -36,7 +36,7 @@ public class HeapDumpTask extends Task {
 
 			Future<?> future = HeapUtil.heapDump(
 				_live, true, dumpFile.getCanonicalPath(),
-				EchoOutputProcessor.INSTANCE);
+				ProcessUtil.ECHO_OUTPUT_PROCESSOR);
 
 			future.get();
 

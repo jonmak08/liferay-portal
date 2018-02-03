@@ -150,13 +150,17 @@ public class IconTag extends BaseIconTag {
 						WebKeys.THEME_DISPLAY);
 
 				String label = getLabel();
+<<<<<<< HEAD
 				String title = GetterUtil.getString(getImage());
+=======
+>>>>>>> compatible
 
 				if (label != null) {
 					ResourceBundle resourceBundle =
 						TagResourceBundleUtil.getResourceBundle(
 							request, themeDisplay.getLocale());
 
+<<<<<<< HEAD
 					title = HtmlUtil.escapeAttribute(
 						LanguageUtil.get(resourceBundle, label));
 
@@ -165,6 +169,11 @@ public class IconTag extends BaseIconTag {
 
 				if (title == null) {
 					title = "Icon";
+=======
+					jspWriter.write(
+						HtmlUtil.escapeAttribute(
+							LanguageUtil.get(resourceBundle, label)));
+>>>>>>> compatible
 				}
 
 				jspWriter.write("\" ");
@@ -184,11 +193,15 @@ public class IconTag extends BaseIconTag {
 				jspWriter.write(src);
 				jspWriter.write(StringPool.POUND);
 				jspWriter.write(GetterUtil.getString(getImage()));
+<<<<<<< HEAD
 				jspWriter.write("\"></use>");
 				jspWriter.write("<title>");
 				jspWriter.write(title);
 				jspWriter.write("</title>");
 				jspWriter.write("</svg>");
+=======
+				jspWriter.write("\" /></svg>");
+>>>>>>> compatible
 			}
 			else {
 				jspWriter.write("<i class=\"icon-");

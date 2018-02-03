@@ -1,6 +1,10 @@
 Bundle-Name: Liferay Mobile Device Rules Service
 Bundle-SymbolicName: com.liferay.mobile.device.rules.service
+<<<<<<< HEAD
 Bundle-Version: 1.3.0
+=======
+Bundle-Version: 1.2.21
+>>>>>>> compatible
 Export-Package:\
 	com.liferay.mobile.device.rules.exportimport.data.handler,\
 	com.liferay.mobile.device.rules.model.impl,\

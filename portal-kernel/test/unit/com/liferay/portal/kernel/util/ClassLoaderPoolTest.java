@@ -38,13 +38,26 @@ public class ClassLoaderPoolTest {
 
 	@Before
 	public void setUp() {
+<<<<<<< HEAD
 		_classLoaders = ReflectionTestUtil.getFieldValue(
 			com.liferay.petra.lang.ClassLoaderPool.class, "_classLoaders");
+=======
+		Class<?> clazz = getClass();
+
+		PortalClassLoaderUtil.setClassLoader(clazz.getClassLoader());
+
+		_classLoaders = ReflectionTestUtil.getFieldValue(
+			ClassLoaderPool.class, "_classLoaders");
+>>>>>>> compatible
 
 		_classLoaders.clear();
 
 		_contextNames = ReflectionTestUtil.getFieldValue(
+<<<<<<< HEAD
 			com.liferay.petra.lang.ClassLoaderPool.class, "_contextNames");
+=======
+			ClassLoaderPool.class, "_contextNames");
+>>>>>>> compatible
 
 		_contextNames.clear();
 	}
@@ -116,6 +129,7 @@ public class ClassLoaderPoolTest {
 		Assert.assertEquals(_CONTEXT_NAME, _contextNames.get(classLoader));
 	}
 
+<<<<<<< HEAD
 	@Test(expected = NullPointerException.class)
 	public void testRegisterWithNullClassLoader() {
 		ClassLoaderPool.register(StringPool.BLANK, null);
@@ -124,20 +138,50 @@ public class ClassLoaderPoolTest {
 	@Test(expected = NullPointerException.class)
 	public void testRegisterWithNullContextName() {
 		ClassLoaderPool.register(null, null);
+=======
+	@Test
+	public void testRegisterWithNullClassLoader() {
+		try {
+			ClassLoaderPool.register(StringPool.BLANK, null);
+
+			Assert.fail();
+		}
+		catch (NullPointerException npe) {
+		}
+	}
+
+	@Test
+	public void testRegisterWithNullContextName() {
+		try {
+			ClassLoaderPool.register(null, null);
+
+			Assert.fail();
+		}
+		catch (NullPointerException npe) {
+		}
+>>>>>>> compatible
 	}
 
 	@Test
 	public void testUnregisterWithInvalidClassLoader() {
 		ClassLoaderPool.unregister(new URLClassLoader(new URL[0]));
 
+<<<<<<< HEAD
 		_assertEmptyMaps();
+=======
+		assertEmptyMaps();
+>>>>>>> compatible
 	}
 
 	@Test
 	public void testUnregisterWithInvalidContextName() {
 		ClassLoaderPool.unregister(_CONTEXT_NAME);
 
+<<<<<<< HEAD
 		_assertEmptyMaps();
+=======
+		assertEmptyMaps();
+>>>>>>> compatible
 	}
 
 	@Test
@@ -148,7 +192,11 @@ public class ClassLoaderPoolTest {
 
 		ClassLoaderPool.unregister(classLoader);
 
+<<<<<<< HEAD
 		_assertEmptyMaps();
+=======
+		assertEmptyMaps();
+>>>>>>> compatible
 	}
 
 	@Test
@@ -159,10 +207,17 @@ public class ClassLoaderPoolTest {
 
 		ClassLoaderPool.unregister(_CONTEXT_NAME);
 
+<<<<<<< HEAD
 		_assertEmptyMaps();
 	}
 
 	private void _assertEmptyMaps() {
+=======
+		assertEmptyMaps();
+	}
+
+	protected void assertEmptyMaps() {
+>>>>>>> compatible
 		Assert.assertTrue(_contextNames.isEmpty());
 		Assert.assertTrue(_classLoaders.isEmpty());
 	}

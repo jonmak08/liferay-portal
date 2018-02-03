@@ -18,6 +18,7 @@ import com.liferay.asset.kernel.model.AssetRenderer;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.Group;
 import com.liferay.portal.kernel.model.Organization;
 import com.liferay.portal.kernel.model.Role;
@@ -25,6 +26,11 @@ import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.service.GroupLocalServiceUtil;
 import com.liferay.portal.kernel.service.OrganizationLocalServiceUtil;
+=======
+import com.liferay.portal.kernel.model.Role;
+import com.liferay.portal.kernel.model.User;
+import com.liferay.portal.kernel.security.permission.PermissionChecker;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
@@ -35,8 +41,11 @@ import com.liferay.portal.kernel.workflow.WorkflowTaskAssignee;
 
 import java.io.Serializable;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
+=======
+>>>>>>> compatible
 import java.util.Map;
 
 /**
@@ -63,7 +72,12 @@ public class WorkflowTaskPermissionChecker {
 			return false;
 		}
 
+<<<<<<< HEAD
 		long[] roleIds = getRoleIds(groupId, permissionChecker);
+=======
+		long[] roleIds = permissionChecker.getRoleIds(
+			permissionChecker.getUserId(), groupId);
+>>>>>>> compatible
 
 		for (WorkflowTaskAssignee workflowTaskAssignee :
 				workflowTask.getWorkflowTaskAssignees()) {
@@ -80,6 +94,7 @@ public class WorkflowTaskPermissionChecker {
 		return false;
 	}
 
+<<<<<<< HEAD
 	protected List<Group> getAncestorGroups(Group group)
 		throws PortalException {
 
@@ -142,6 +157,8 @@ public class WorkflowTaskPermissionChecker {
 		return roleIds;
 	}
 
+=======
+>>>>>>> compatible
 	protected boolean hasAssetViewPermission(
 		WorkflowTask workflowTask, PermissionChecker permissionChecker) {
 

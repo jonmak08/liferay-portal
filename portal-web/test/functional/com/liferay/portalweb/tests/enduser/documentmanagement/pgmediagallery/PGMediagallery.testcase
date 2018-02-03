@@ -11,6 +11,7 @@
 
 		<execute macro="User#firstLoginPG" />
 
+<<<<<<< HEAD
 		<execute macro="ProductMenu#gotoPortlet">
 			<var name="category" value="Navigation" />
 			<var name="panel" value="Site Administration" />
@@ -26,6 +27,18 @@
 			<var name="pageName" value="Media Gallery Page" />
 			<var name="privacy" value="Public" />
 			<var name="sitePageType" value="Empty Page" />
+=======
+		<execute macro="Page#add">
+			<var name="pageName" value="Media Gallery Page" />
+		</execute>
+
+		<execute macro="SitePageNavigator#gotoEditPage">
+			<var name="page" value="Media Gallery Page" />
+		</execute>
+
+		<execute macro="Page#editPageLayoutColumn">
+			<var name="columnName" value="1 Column" />
+>>>>>>> compatible
 		</execute>
 
 		<execute macro="Navigator#gotoPage">
@@ -58,7 +71,11 @@
 					<var name="pageName" value="Media Gallery Page" />
 				</execute>
 
+<<<<<<< HEAD
 				<execute macro="Page#tearDownCP">
+=======
+				<execute macro="Page#tearDownPG">
+>>>>>>> compatible
 					<var name="pageName" value="Media Gallery Page" />
 				</execute>
 			</else>
@@ -247,7 +264,11 @@
 	</command>
 
 	<command name="DeleteFolderDocument" priority="5">
+<<<<<<< HEAD
 		<property name="portal.acceptance" value="false" />
+=======
+		<property name="portal.acceptance" value="true" />
+>>>>>>> compatible
 
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Media Gallery Page" />
@@ -286,7 +307,11 @@
 	</command>
 
 	<command name="EditFolder" priority="5">
+<<<<<<< HEAD
 		<property name="portal.acceptance" value="false" />
+=======
+		<property name="portal.acceptance" value="true" />
+>>>>>>> compatible
 
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Media Gallery Page" />
@@ -318,7 +343,11 @@
 	</command>
 
 	<command name="EditFolderDocument" priority="5">
+<<<<<<< HEAD
 		<property name="portal.acceptance" value="false" />
+=======
+		<property name="portal.acceptance" value="true" />
+>>>>>>> compatible
 
 		<execute macro="Navigator#gotoPage">
 			<var name="pageName" value="Media Gallery Page" />

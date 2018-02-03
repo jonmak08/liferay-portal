@@ -17,10 +17,13 @@
 <%@ include file="/init.jsp" %>
 
 <%
+<<<<<<< HEAD
 String redirect = ParamUtil.getString(request, "redirect");
 
 String backURL = ParamUtil.getString(request, "backURL", redirect);
 
+=======
+>>>>>>> compatible
 Group selGroup = (Group)request.getAttribute(WebKeys.GROUP);
 
 long liveGroupId = layoutsAdminDisplayContext.getLiveGroupId();
@@ -33,6 +36,7 @@ if (selGroup.isLayoutSetPrototype()) {
 	privateLayout = true;
 }
 
+<<<<<<< HEAD
 if (Validator.isNotNull(backURL)) {
 	portletDisplay.setShowBackIcon(true);
 	portletDisplay.setURLBack(backURL);
@@ -46,6 +50,16 @@ renderResponse.setTitle(selGroup.getLayoutRootNodeName(privateLayout, locale));
 </portlet:actionURL>
 
 <aui:form action="<%= editLayoutSetURL %>" cssClass="container-fluid-1280" enctype="multipart/form-data" method="post" name="fm">
+=======
+renderResponse.setTitle(selGroup.getLayoutRootNodeName(privateLayout, locale));
+%>
+
+<portlet:actionURL name="editLayoutSet" var="editLayoutSetURL">
+	<portlet:param name="mvcPath" value="/view.jsp" />
+</portlet:actionURL>
+
+<aui:form action="<%= editLayoutSetURL %>" cssClass="edit-layoutset-form" enctype="multipart/form-data" method="post" name="fm">
+>>>>>>> compatible
 	<aui:input name="redirect" type="hidden" value="<%= redirectURL.toString() %>" />
 	<aui:input name="groupId" type="hidden" value="<%= selGroup.getGroupId() %>" />
 	<aui:input name="liveGroupId" type="hidden" value="<%= liveGroupId %>" />
@@ -59,6 +73,7 @@ renderResponse.setTitle(selGroup.getLayoutRootNodeName(privateLayout, locale));
 		formModelBean="<%= selLayoutSet %>"
 		id="<%= FormNavigatorConstants.FORM_NAVIGATOR_ID_LAYOUT_SET %>"
 		markupView="lexicon"
+<<<<<<< HEAD
 		showButtons="<%= false %>"
 	/>
 
@@ -71,4 +86,8 @@ renderResponse.setTitle(selGroup.getLayoutRootNodeName(privateLayout, locale));
 			</c:if>
 		</aui:button-row>
 	</c:if>
+=======
+		showButtons="<%= GroupPermissionUtil.contains(permissionChecker, selGroup, ActionKeys.MANAGE_LAYOUTS) && SitesUtil.isLayoutSetPrototypeUpdateable(selLayoutSet) %>"
+	/>
+>>>>>>> compatible
 </aui:form>

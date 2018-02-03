@@ -64,7 +64,11 @@ public class StagingPortletConfigurationIcon
 	public String getOnClick(
 		PortletRequest portletRequest, PortletResponse portletResponse) {
 
+<<<<<<< HEAD
 		StringBundler sb = new StringBundler(12);
+=======
+		StringBundler sb = new StringBundler(11);
+>>>>>>> compatible
 
 		sb.append("Liferay.Portlet.openWindow({bodyCssClass: ");
 		sb.append("'dialog-with-footer', namespace: '");

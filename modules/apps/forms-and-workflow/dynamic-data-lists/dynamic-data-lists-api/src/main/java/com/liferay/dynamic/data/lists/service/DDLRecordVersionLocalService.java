@@ -169,6 +169,7 @@ public interface DDLRecordVersionLocalService extends BaseLocalService,
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public DDLRecordVersion fetchDDLRecordVersion(long recordVersionId);
 
+<<<<<<< HEAD
 	/**
 	* Returns the latest record version matching the user, the record set, the
 	* record set version and workflow status.
@@ -183,6 +184,8 @@ public interface DDLRecordVersionLocalService extends BaseLocalService,
 	public DDLRecordVersion fetchLatestRecordVersion(long userId,
 		long recordSetId, java.lang.String recordSetVersion, int status);
 
+=======
+>>>>>>> compatible
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ActionableDynamicQuery getActionableDynamicQuery();
 

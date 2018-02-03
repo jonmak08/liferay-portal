@@ -46,6 +46,7 @@ public class ExportImportServiceUtil {
 		return getService().exportLayoutsAsFile(exportImportConfiguration);
 	}
 
+<<<<<<< HEAD
 	/**
 	* @deprecated As of 7.0.0
 	*/
@@ -59,6 +60,8 @@ public class ExportImportServiceUtil {
 			parameterMap);
 	}
 
+=======
+>>>>>>> compatible
 	public static long exportLayoutsAsFileInBackground(
 		com.liferay.exportimport.kernel.model.ExportImportConfiguration exportImportConfiguration)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -109,6 +112,7 @@ public class ExportImportServiceUtil {
 		getService().importLayouts(exportImportConfiguration, inputStream);
 	}
 
+<<<<<<< HEAD
 	/**
 	* @deprecated As of 7.0.0
 	*/
@@ -122,6 +126,8 @@ public class ExportImportServiceUtil {
 			.importLayouts(userId, groupId, privateLayout, parameterMap, file);
 	}
 
+=======
+>>>>>>> compatible
 	public static long importLayoutsInBackground(
 		com.liferay.exportimport.kernel.model.ExportImportConfiguration exportImportConfiguration,
 		java.io.File file)

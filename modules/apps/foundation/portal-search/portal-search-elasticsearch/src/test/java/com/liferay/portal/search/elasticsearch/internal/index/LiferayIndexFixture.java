@@ -20,9 +20,12 @@ import com.liferay.portal.search.elasticsearch.internal.connection.IndexCreator;
 import com.liferay.portal.search.elasticsearch.internal.connection.IndexName;
 import com.liferay.portal.search.elasticsearch.internal.connection.LiferayIndexCreator;
 
+<<<<<<< HEAD
 import java.util.Map;
 
 import org.elasticsearch.action.index.IndexRequestBuilder;
+=======
+>>>>>>> compatible
 import org.elasticsearch.client.Client;
 
 /**
@@ -35,6 +38,7 @@ public class LiferayIndexFixture {
 		_indexName = indexName;
 	}
 
+<<<<<<< HEAD
 	public void assertAnalyzer(String field, String analyzer) throws Exception {
 		FieldMappingAssert.assertAnalyzer(
 			analyzer, field, LiferayTypeMappingsConstants.LIFERAY_DOCUMENT_TYPE,
@@ -47,6 +51,8 @@ public class LiferayIndexFixture {
 			_index.getName(), _elasticsearchFixture.getIndicesAdminClient());
 	}
 
+=======
+>>>>>>> compatible
 	public Client getClient() {
 		return _elasticsearchFixture.getClient();
 	}
@@ -76,6 +82,7 @@ public class LiferayIndexFixture {
 		return indexCreator.createIndex(_indexName);
 	}
 
+<<<<<<< HEAD
 	protected IndexRequestBuilder getIndexRequestBuilder() {
 		Client client = _elasticsearchFixture.getClient();
 
@@ -92,6 +99,8 @@ public class LiferayIndexFixture {
 		indexRequestBuilder.get();
 	}
 
+=======
+>>>>>>> compatible
 	private final ElasticsearchFixture _elasticsearchFixture;
 	private Index _index;
 	private final IndexName _indexName;

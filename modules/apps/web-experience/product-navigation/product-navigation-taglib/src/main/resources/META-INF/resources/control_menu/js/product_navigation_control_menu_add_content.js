@@ -103,6 +103,10 @@ AUI.add(
 	},
 	'',
 	{
+<<<<<<< HEAD
 		requires: ['aui-parse-content', 'aui-io-request', 'liferay-product-navigation-control-menu', 'liferay-product-navigation-control-menu-add-base', 'liferay-product-navigation-control-menu-add-content-search', 'liferay-store']
+=======
+		requires: ['aui-parse-content', 'aui-io-request', 'liferay-product-navigation-control-menu', 'liferay-product-navigation-control-menu-add-base', 'liferay-product-navigation-control-menu-add-content-search']
+>>>>>>> compatible
 	}
 );

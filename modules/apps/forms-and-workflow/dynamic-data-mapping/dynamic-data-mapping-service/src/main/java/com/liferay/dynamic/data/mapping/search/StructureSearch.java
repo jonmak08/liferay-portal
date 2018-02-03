@@ -43,9 +43,12 @@ public class StructureSearch extends SearchContainer<DDMStructure> {
 		iteratorURL.setParameter(
 			StructureDisplayTerms.NAME, displayTerms.getName());
 		iteratorURL.setParameter(
+<<<<<<< HEAD
 			StructureDisplayTerms.SEARCH_RESTRICTION,
 			String.valueOf(displayTerms.isSearchRestriction()));
 		iteratorURL.setParameter(
+=======
+>>>>>>> compatible
 			StructureDisplayTerms.STORAGE_TYPE, displayTerms.getStorageType());
 	}
 

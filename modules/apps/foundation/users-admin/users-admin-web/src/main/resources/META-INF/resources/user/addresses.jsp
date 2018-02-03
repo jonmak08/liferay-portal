@@ -14,6 +14,7 @@
  */
 --%>
 
+<<<<<<< HEAD
 <%
 User selUser = (User)request.getAttribute(UsersAdminWebKeys.SELECTED_USER);
 
@@ -33,4 +34,6 @@ else {
 }
 %>
 
+=======
+>>>>>>> compatible
 <%@ include file="/common/addresses.jsp" %>

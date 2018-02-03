@@ -1,8 +1,13 @@
 Bundle-Name: Liferay Layout Item Selector API
 Bundle-SymbolicName: com.liferay.layout.item.selector.api
+<<<<<<< HEAD
 Bundle-Version: 1.1.0
 Export-Package:\
 	com.liferay.layout.item.selector.criterion,\
 	com.liferay.layout.item.selector.view
+=======
+Bundle-Version: 1.0.4
+Export-Package: com.liferay.layout.item.selector.criterion
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Site Management

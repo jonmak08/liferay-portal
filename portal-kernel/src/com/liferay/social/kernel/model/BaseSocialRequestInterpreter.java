@@ -21,7 +21,10 @@ import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.HtmlUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.social.kernel.service.persistence.SocialRequestUtil;
 
@@ -56,9 +59,14 @@ public abstract class BaseSocialRequestInterpreter
 
 			String userDisplayURL = user.getDisplayURL(themeDisplay);
 
+<<<<<<< HEAD
 			return StringBundler.concat(
 				"<a href=\"", userDisplayURL, "\">", HtmlUtil.escape(userName),
 				"</a>");
+=======
+			return "<a href=\"" + userDisplayURL + "\">" +
+				HtmlUtil.escape(userName) + "</a>";
+>>>>>>> compatible
 		}
 		catch (Exception e) {
 			return StringPool.BLANK;
@@ -77,9 +85,14 @@ public abstract class BaseSocialRequestInterpreter
 
 			String userDisplayURL = user.getDisplayURL(themeDisplay);
 
+<<<<<<< HEAD
 			return StringBundler.concat(
 				"<a href=\"", userDisplayURL, "\">", HtmlUtil.escape(userName),
 				"</a>");
+=======
+			return "<a href=\"" + userDisplayURL + "\">" +
+				HtmlUtil.escape(userName) + "</a>";
+>>>>>>> compatible
 		}
 		catch (Exception e) {
 			return StringPool.BLANK;

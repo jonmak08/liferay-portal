@@ -1,5 +1,9 @@
 Bundle-Name: Liferay Recent Documents Web
 Bundle-SymbolicName: com.liferay.recent.documents.web
+<<<<<<< HEAD
 Bundle-Version: 2.0.16
+=======
+Bundle-Version: 2.0.10
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Recent Documents

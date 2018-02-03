@@ -14,10 +14,16 @@
 
 package com.liferay.source.formatter.checks;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
 import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.io.unsync.UnsyncBufferedReader;
+import com.liferay.portal.kernel.io.unsync.UnsyncStringReader;
+import com.liferay.portal.kernel.util.CharPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
@@ -82,10 +88,13 @@ public class JavaLongLinesCheck extends BaseFileCheck {
 					continue;
 				}
 
+<<<<<<< HEAD
 				if (trimmedLine.matches("@\\S+")) {
 					continue;
 				}
 
+=======
+>>>>>>> compatible
 				String truncateLongLinesContent = _getTruncateLongLinesContent(
 					content, line, trimmedLine, lineCount);
 
@@ -200,15 +209,24 @@ public class JavaLongLinesCheck extends BaseFileCheck {
 				if (line.endsWith(StringPool.SEMICOLON)) {
 					return StringUtil.replace(
 						content, "\n" + line + "\n",
+<<<<<<< HEAD
 						StringBundler.concat(
 							"\n", firstLine, "\n", secondLine, "\n"));
+=======
+						"\n" + firstLine + "\n" + secondLine + "\n");
+>>>>>>> compatible
 				}
 				else if (Validator.isNotNull(getLine(content, lineCount + 1))) {
 					return StringUtil.replace(
 						content, "\n" + line + "\n",
+<<<<<<< HEAD
 						StringBundler.concat(
 							"\n", firstLine, "\n", secondLine, "\n",
 							StringPool.TAB));
+=======
+						"\n" + firstLine + "\n" + secondLine + "\n" +
+							StringPool.TAB);
+>>>>>>> compatible
 				}
 			}
 		}
@@ -235,8 +253,12 @@ public class JavaLongLinesCheck extends BaseFileCheck {
 
 					return StringUtil.replace(
 						content, "\n" + line + "\n",
+<<<<<<< HEAD
 						StringBundler.concat(
 							"\n", firstLine, "\n", secondLine, "\n"));
+=======
+						"\n" + firstLine + "\n" + secondLine + "\n");
+>>>>>>> compatible
 				}
 			}
 		}
@@ -256,8 +278,12 @@ public class JavaLongLinesCheck extends BaseFileCheck {
 
 				return StringUtil.replace(
 					content, "\n" + line + "\n",
+<<<<<<< HEAD
 					StringBundler.concat(
 						"\n", firstLine, "\n", secondLine, "\n"));
+=======
+					"\n" + firstLine + "\n" + secondLine + "\n");
+>>>>>>> compatible
 			}
 		}
 
@@ -283,8 +309,12 @@ public class JavaLongLinesCheck extends BaseFileCheck {
 
 				return StringUtil.replace(
 					content, "\n" + line + "\n",
+<<<<<<< HEAD
 					StringBundler.concat(
 						"\n", firstLine, "\n", secondLine, "\n"));
+=======
+					"\n" + firstLine + "\n" + secondLine + "\n");
+>>>>>>> compatible
 			}
 		}
 
@@ -308,8 +338,12 @@ public class JavaLongLinesCheck extends BaseFileCheck {
 
 					return StringUtil.replace(
 						content, "\n" + line + "\n",
+<<<<<<< HEAD
 						StringBundler.concat(
 							"\n", firstLine, "\n", secondLine, "\n"));
+=======
+						"\n" + firstLine + "\n" + secondLine + "\n");
+>>>>>>> compatible
 				}
 			}
 			else {
@@ -323,8 +357,12 @@ public class JavaLongLinesCheck extends BaseFileCheck {
 					if (getLineLength(secondLine) <= getMaxLineLength()) {
 						return StringUtil.replace(
 							content, "\n" + line + "\n",
+<<<<<<< HEAD
 							StringBundler.concat(
 								"\n", firstLine, "\n", secondLine, "\n"));
+=======
+							"\n" + firstLine + "\n" + secondLine + "\n");
+>>>>>>> compatible
 					}
 				}
 			}
@@ -335,6 +373,7 @@ public class JavaLongLinesCheck extends BaseFileCheck {
 
 			if (x != -1) {
 				String firstLine = line.substring(0, x + 2);
+<<<<<<< HEAD
 				String secondLine = StringBundler.concat(
 					indent, StringPool.TAB, StringPool.TAB,
 					line.substring(x + 3));
@@ -343,6 +382,15 @@ public class JavaLongLinesCheck extends BaseFileCheck {
 					content, "\n" + line + "\n",
 					StringBundler.concat(
 						"\n", firstLine, "\n", secondLine, "\n\n"));
+=======
+				String secondLine =
+					indent + StringPool.TAB + StringPool.TAB +
+						line.substring(x + 3);
+
+				return StringUtil.replace(
+					content, "\n" + line + "\n",
+					"\n" + firstLine + "\n" + secondLine + "\n\n");
+>>>>>>> compatible
 			}
 		}
 
@@ -358,13 +406,21 @@ public class JavaLongLinesCheck extends BaseFileCheck {
 		if (secondLine.endsWith(") {")) {
 			return StringUtil.replace(
 				content, "\n" + line + "\n",
+<<<<<<< HEAD
 				StringBundler.concat(
 					"\n", firstLine, "\n", secondLine, "\n\n"));
+=======
+				"\n" + firstLine + "\n" + secondLine + "\n\n");
+>>>>>>> compatible
 		}
 
 		return StringUtil.replace(
 			content, "\n" + line + "\n",
+<<<<<<< HEAD
 			StringBundler.concat("\n", firstLine, "\n", secondLine, "\n"));
+=======
+			"\n" + firstLine + "\n" + secondLine + "\n");
+>>>>>>> compatible
 	}
 
 	private boolean _isAnnotationParameter(String content, String line) {

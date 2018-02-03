@@ -1,5 +1,9 @@
 Bundle-Name: Liferay Asset Publisher Layout Prototype
 Bundle-SymbolicName: com.liferay.asset.publisher.layout.prototype
+<<<<<<< HEAD
 Bundle-Version: 1.0.14
+=======
+Bundle-Version: 1.0.7
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Asset

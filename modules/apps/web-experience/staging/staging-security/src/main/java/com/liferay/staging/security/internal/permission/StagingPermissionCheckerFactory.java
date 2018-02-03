@@ -14,25 +14,39 @@
 
 package com.liferay.staging.security.internal.permission;
 
+<<<<<<< HEAD
 import aQute.bnd.annotation.ProviderType;
 
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
 import com.liferay.portal.kernel.security.permission.PermissionCheckerFactory;
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+import com.liferay.portal.kernel.model.User;
+import com.liferay.portal.kernel.security.permission.PermissionChecker;
+import com.liferay.portal.kernel.security.permission.PermissionCheckerFactory;
+import com.liferay.portal.kernel.service.PersistedModelLocalServiceRegistry;
+>>>>>>> compatible
 
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.InvalidSyntaxException;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
+<<<<<<< HEAD
+=======
+import org.osgi.service.component.annotations.Reference;
+>>>>>>> compatible
 import org.osgi.util.tracker.ServiceTracker;
 
 /**
  * @author Tomas Polesovsky
  */
 @Component(immediate = true, property = {"service.ranking:Integer=1000"})
+<<<<<<< HEAD
 @ProviderType
+=======
+>>>>>>> compatible
 public class StagingPermissionCheckerFactory
 	implements PermissionCheckerFactory {
 
@@ -42,7 +56,12 @@ public class StagingPermissionCheckerFactory
 			_serviceTracker.getService();
 
 		return new StagingPermissionChecker(
+<<<<<<< HEAD
 			permissionCheckerFactory.create(user));
+=======
+			permissionCheckerFactory.create(user),
+			_persistedModelLocalServiceRegistry);
+>>>>>>> compatible
 	}
 
 	@Activate
@@ -60,10 +79,21 @@ public class StagingPermissionCheckerFactory
 		_serviceTracker.close();
 	}
 
+<<<<<<< HEAD
 	private static final String _FILTER_STRING = StringBundler.concat(
 		"(&(objectClass=", PermissionCheckerFactory.class.getName(), ")",
 		"(!(component.name=", StagingPermissionCheckerFactory.class.getName(),
 		")))");
+=======
+	private static final String _FILTER_STRING =
+		"(&(objectClass=" + PermissionCheckerFactory.class.getName() + ")" +
+			"(!(component.name=" +
+				StagingPermissionCheckerFactory.class.getName() + ")))";
+
+	@Reference
+	private PersistedModelLocalServiceRegistry
+		_persistedModelLocalServiceRegistry;
+>>>>>>> compatible
 
 	private ServiceTracker<PermissionCheckerFactory, PermissionCheckerFactory>
 		_serviceTracker;

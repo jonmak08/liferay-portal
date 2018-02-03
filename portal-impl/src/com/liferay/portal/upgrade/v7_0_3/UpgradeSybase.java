@@ -50,9 +50,14 @@ public class UpgradeSybase extends UpgradeProcess {
 
 				try {
 					runSQL(
+<<<<<<< HEAD
 						StringBundler.concat(
 							"alter table ", tableName, " modify ", columnName,
 							" varchar(4000)"));
+=======
+						"alter table " + tableName + " modify " + columnName +
+							" varchar(4000)");
+>>>>>>> compatible
 				}
 				catch (SQLException sqle) {
 					if (sqle.getErrorCode() == 1441) {

@@ -218,6 +218,23 @@ public interface CalendarBookingModel extends BaseModel<CalendarBooking>,
 	public void setModifiedDate(Date modifiedDate);
 
 	/**
+<<<<<<< HEAD
+=======
+	 * Returns the resource block ID of this calendar booking.
+	 *
+	 * @return the resource block ID of this calendar booking
+	 */
+	public long getResourceBlockId();
+
+	/**
+	 * Sets the resource block ID of this calendar booking.
+	 *
+	 * @param resourceBlockId the resource block ID of this calendar booking
+	 */
+	public void setResourceBlockId(long resourceBlockId);
+
+	/**
+>>>>>>> compatible
 	 * Returns the calendar ID of this calendar booking.
 	 *
 	 * @return the calendar ID of this calendar booking
@@ -260,6 +277,7 @@ public interface CalendarBookingModel extends BaseModel<CalendarBooking>,
 	public void setParentCalendarBookingId(long parentCalendarBookingId);
 
 	/**
+<<<<<<< HEAD
 	 * Returns the recurring calendar booking ID of this calendar booking.
 	 *
 	 * @return the recurring calendar booking ID of this calendar booking
@@ -274,6 +292,8 @@ public interface CalendarBookingModel extends BaseModel<CalendarBooking>,
 	public void setRecurringCalendarBookingId(long recurringCalendarBookingId);
 
 	/**
+=======
+>>>>>>> compatible
 	 * Returns the v event uid of this calendar booking.
 	 *
 	 * @return the v event uid of this calendar booking

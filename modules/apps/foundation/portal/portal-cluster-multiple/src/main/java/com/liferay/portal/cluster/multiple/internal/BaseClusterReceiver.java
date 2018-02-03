@@ -17,7 +17,10 @@ package com.liferay.portal.cluster.multiple.internal;
 import com.liferay.portal.kernel.cluster.Address;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 
 import java.util.Collections;
 import java.util.List;
@@ -95,10 +98,15 @@ public abstract class BaseClusterReceiver implements ClusterReceiver {
 		}
 		catch (RejectedExecutionException ree) {
 			_log.error(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Unable to handle view update from ",
 					String.valueOf(oldAddresses), " to ",
 					String.valueOf(addresses)),
+=======
+				"Unable to handle view update from " + oldAddresses + " to " +
+					addresses,
+>>>>>>> compatible
 				ree);
 		}
 	}
@@ -133,10 +141,15 @@ public abstract class BaseClusterReceiver implements ClusterReceiver {
 		}
 		catch (RejectedExecutionException ree) {
 			_log.error(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Unable to handle coordinator address update from ",
 					String.valueOf(oldCoordinatorAddress), " to ",
 					String.valueOf(coordinatorAddress)),
+=======
+				"Unable to handle coordinator address update from " +
+					oldCoordinatorAddress + " to " + coordinatorAddress,
+>>>>>>> compatible
 				ree);
 		}
 	}

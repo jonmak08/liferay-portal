@@ -52,7 +52,11 @@ WeDeployAuthApp weDeployAuthApp = WeDeployAuthAppLocalServiceUtil.fetchWeDeployA
 					<portlet:param name="clientId" value="<%= clientId %>" />
 				</portlet:actionURL>
 
+<<<<<<< HEAD
 				<aui:button cssClass="btn-primary" href="<%= allowAuthorizeUserURL %>" value='<%= LanguageUtil.get(request, "allow") %>' />
+=======
+				<aui:button cssClass="btn btn-lg btn-primary" href="<%= allowAuthorizeUserURL %>" value='<%= LanguageUtil.get(request, "allow") %>' />
+>>>>>>> compatible
 
 				<portlet:actionURL name="/wedeploy_auth/authorize_user" var="denyAuthorizeUserURL">
 					<portlet:param name="<%= Constants.CMD %>" value="deny" />
@@ -60,7 +64,11 @@ WeDeployAuthApp weDeployAuthApp = WeDeployAuthAppLocalServiceUtil.fetchWeDeployA
 					<portlet:param name="clientId" value="<%= clientId %>" />
 				</portlet:actionURL>
 
+<<<<<<< HEAD
 				<aui:button cssClass="btn btn-danger" href="<%= denyAuthorizeUserURL %>" value='<%= LanguageUtil.get(request, "deny") %>' />
+=======
+				<aui:button cssClass="btn btn-danger btn-lg" href="<%= denyAuthorizeUserURL %>" value='<%= LanguageUtil.get(request, "deny") %>' />
+>>>>>>> compatible
 			</div>
 		</c:otherwise>
 	</c:choose>

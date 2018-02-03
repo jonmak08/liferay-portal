@@ -14,16 +14,22 @@
 
 package com.liferay.portlet;
 
+<<<<<<< HEAD
 import com.liferay.petra.encryptor.Encryptor;
 import com.liferay.petra.encryptor.EncryptorException;
 import com.liferay.petra.string.CharPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.model.Company;
 import com.liferay.portal.kernel.model.Layout;
 import com.liferay.portal.kernel.model.Portlet;
 import com.liferay.portal.kernel.model.PortletApp;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.model.PortletURLListener;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.PublicRenderParameter;
 import com.liferay.portal.kernel.portlet.FriendlyURLMapper;
 import com.liferay.portal.kernel.portlet.LiferayPortletConfig;
@@ -55,6 +61,12 @@ import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.kernel.xml.QName;
 import com.liferay.portal.security.lang.DoPrivilegedUtil;
 import com.liferay.portal.util.PropsValues;
+<<<<<<< HEAD
+=======
+import com.liferay.portlet.social.util.FacebookUtil;
+import com.liferay.util.Encryptor;
+import com.liferay.util.EncryptorException;
+>>>>>>> compatible
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -415,10 +427,15 @@ public class PortletURLImpl
 			!mappedCacheability.equals(PORTLET)) {
 
 			throw new IllegalArgumentException(
+<<<<<<< HEAD
 				StringBundler.concat(
 					"Cacheability ", cacheability, " is not FULL, ",
 					String.valueOf(FULL), ", PAGE, ", PAGE, ", or PORTLET, ",
 					String.valueOf(PORTLET)));
+=======
+				"Cacheability " + cacheability + " is not FULL, " + FULL +
+					", PAGE, " + PAGE + ", or PORTLET, " + PORTLET);
+>>>>>>> compatible
 		}
 
 		if (_portletRequest instanceof ResourceRequest) {
@@ -718,9 +735,13 @@ public class PortletURLImpl
 			biConsumer.accept("p_p_lifecycle", "2");
 		}
 
+<<<<<<< HEAD
 		if ((_windowStateString != null) &&
 			!_cacheability.equals(ResourceURL.FULL)) {
 
+=======
+		if (_windowStateString != null) {
+>>>>>>> compatible
 			biConsumer.accept("p_p_state", _windowStateString);
 		}
 
@@ -728,9 +749,13 @@ public class PortletURLImpl
 			biConsumer.accept("p_p_state_rcv", "1");
 		}
 
+<<<<<<< HEAD
 		if ((_portletModeString != null) &&
 			!_cacheability.equals(ResourceURL.FULL)) {
 
+=======
+		if (_portletModeString != null) {
+>>>>>>> compatible
 			biConsumer.accept("p_p_mode", _portletModeString);
 		}
 
@@ -761,7 +786,11 @@ public class PortletURLImpl
 
 	/**
 	 * @deprecated As of 7.0.0, replaced by {@link
+<<<<<<< HEAD
 	 *             #PortletURLImpl(HttpServletRequest, String, PortletRequest,
+=======
+	 *             #PortletURLImpl(PortletRequest, String, PortletRequest,
+>>>>>>> compatible
 	 *             Layout, String)}
 	 */
 	@Deprecated
@@ -831,13 +860,29 @@ public class PortletURLImpl
 			sb.append(StringPool.AMPERSAND);
 		}
 		else {
+<<<<<<< HEAD
+=======
+			if (themeDisplay.isFacebook()) {
+				sb.append(FacebookUtil.FACEBOOK_APPS_URL);
+				sb.append(themeDisplay.getFacebookCanvasPageURL());
+			}
+			else {
+>>>>>>> compatible
 
 			// A virtual host URL will contain the complete path. Do not
 			// append the portal URL if the virtual host URL starts with
 			// "http://" or "https://".
 
+<<<<<<< HEAD
 			if (!_layoutFriendlyURL.startsWith(Http.HTTP_WITH_SLASH) &&
 				!_layoutFriendlyURL.startsWith(Http.HTTPS_WITH_SLASH)) {
+=======
+				if (!_layoutFriendlyURL.startsWith(Http.HTTP_WITH_SLASH) &&
+					!_layoutFriendlyURL.startsWith(Http.HTTPS_WITH_SLASH)) {
+
+					sb.append(PortalUtil.getPortalURL(_request, _secure));
+				}
+>>>>>>> compatible
 
 				sb.append(PortalUtil.getPortalURL(_request, _secure));
 			}
@@ -868,9 +913,22 @@ public class PortletURLImpl
 			});
 
 		if (_doAsUserId > 0) {
+<<<<<<< HEAD
 			sb.append("doAsUserId=");
 			sb.append(processValue(key, _doAsUserId));
 			sb.append(StringPool.AMPERSAND);
+=======
+			try {
+				Company company = PortalUtil.getCompany(_request);
+
+				sb.append("doAsUserId=");
+				sb.append(processValue(company.getKeyObj(), _doAsUserId));
+				sb.append(StringPool.AMPERSAND);
+			}
+			catch (Exception e) {
+				_log.error(e);
+			}
+>>>>>>> compatible
 		}
 		else {
 			String doAsUserId = themeDisplay.getDoAsUserId();
@@ -943,6 +1001,16 @@ public class PortletURLImpl
 
 			for (String removedPublicParameter :
 					_removePublicRenderParameters) {
+<<<<<<< HEAD
+=======
+
+				sb.append(URLCodec.encodeURL(removedPublicParameter));
+				sb.append(StringPool.EQUAL);
+				sb.append(removeValue);
+				sb.append(StringPool.AMPERSAND);
+			}
+		}
+>>>>>>> compatible
 
 				sb.append(URLCodec.encodeURL(removedPublicParameter));
 				sb.append(StringPool.EQUAL);
@@ -1014,11 +1082,56 @@ public class PortletURLImpl
 				!_windowStateString.equals(
 					LiferayWindowState.POP_UP.toString())) {
 
+<<<<<<< HEAD
 				sb.setIndex(0);
+=======
+				String lastString = sb.stringAt(sb.index() - 1);
+
+				char lastChar = lastString.charAt(lastString.length() - 1);
+
+				if ((lastChar != CharPool.AMPERSAND) &&
+					(lastChar != CharPool.QUESTION)) {
+
+					sb.append(StringPool.AMPERSAND);
+				}
+>>>>>>> compatible
 
 				sb.append(result);
 				sb.append("#p_");
 				sb.append(URLCodec.encodeURL(_portlet.getPortletId()));
+<<<<<<< HEAD
+=======
+			}
+		}
+
+		String lastString = sb.stringAt(sb.index() - 1);
+
+		char lastChar = lastString.charAt(lastString.length() - 1);
+
+		if ((lastChar == CharPool.AMPERSAND) ||
+			(lastChar == CharPool.QUESTION)) {
+
+			sb.setStringAt(
+				lastString.substring(0, lastString.length() - 1),
+				sb.index() - 1);
+		}
+
+		String result = sb.toString();
+
+		if (themeDisplay.isFacebook()) {
+
+			// Facebook requires the path portion of the URL to end with a slash
+
+			int pos = result.indexOf(CharPool.QUESTION);
+
+			if (pos == -1) {
+				if (!result.endsWith(StringPool.SLASH)) {
+					result += StringPool.SLASH;
+				}
+			}
+			else {
+				String path = result.substring(0, pos);
+>>>>>>> compatible
 
 				result = sb.toString();
 			}
@@ -1197,6 +1310,7 @@ public class PortletURLImpl
 	protected String prependNamespace(String name) {
 		String namespace = getNamespace();
 
+<<<<<<< HEAD
 		if (!name.startsWith(PortletQName.PUBLIC_RENDER_PARAMETER_NAMESPACE) &&
 			!name.startsWith(namespace) &&
 			!PortalUtil.isReservedParameter(name)) {
@@ -1360,15 +1474,22 @@ public class PortletURLImpl
 
 		String namespace = getNamespace();
 
+=======
+>>>>>>> compatible
 		Map<String, String[]> renderParameters = RenderParametersPool.get(
 			_request, _plid, _portlet.getPortletId());
 
 		if (renderParameters == null) {
+<<<<<<< HEAD
 			return portletURLParams;
 		}
 
 		Map<String, String[]> mergedRenderParams = new LinkedHashMap<>(
 			portletURLParams);
+=======
+			return;
+		}
+>>>>>>> compatible
 
 		for (Map.Entry<String, String[]> entry : renderParameters.entrySet()) {
 			String name = entry.getKey();
@@ -1400,7 +1521,147 @@ public class PortletURLImpl
 			}
 		}
 
+<<<<<<< HEAD
 		return mergedRenderParams;
+=======
+	/**
+	 * @deprecated As of 7.0.0, with no direct replacement
+	 */
+	@Deprecated
+	protected String prependNamespace(String name) {
+		String namespace = getNamespace();
+
+		if (!name.startsWith(PortletQName.PUBLIC_RENDER_PARAMETER_NAMESPACE) &&
+			!name.startsWith(namespace) &&
+			!PortalUtil.isReservedParameter(name)) {
+
+			return namespace.concat(name);
+		}
+
+		return name;
+>>>>>>> compatible
+	}
+
+	private static final Log _log = LogFactoryUtil.getLog(PortletURLImpl.class);
+
+<<<<<<< HEAD
+	private static final Map<String, String> _cacheabilities = new HashMap<>();
+
+	static {
+		_cacheabilities.put("FULL", ResourceURL.FULL);
+		_cacheabilities.put("PAGE", ResourceURL.PAGE);
+		_cacheabilities.put("PORTLET", ResourceURL.PORTLET);
+	}
+
+=======
+	protected String processValue(Key key, String value) {
+		if (key == null) {
+			return URLCodec.encodeURL(value);
+		}
+
+		try {
+			return URLCodec.encodeURL(Encryptor.encrypt(key, value));
+		}
+		catch (EncryptorException ee) {
+			return value;
+		}
+	}
+
+	protected void removeParameter(String name) {
+		if (_params.containsKey(name)) {
+			_params.remove(name);
+		}
+	}
+
+	private PortletURLImpl(
+		HttpServletRequest request, Portlet portlet,
+		PortletRequest portletRequest, Layout layout, String lifecycle) {
+
+		if (portlet == null) {
+			throw new NullPointerException("Portlet is null");
+		}
+
+		_request = request;
+		_portlet = portlet;
+		_portletRequest = portletRequest;
+		_layout = layout;
+		_lifecycle = lifecycle;
+		_parametersIncludedInPath = Collections.emptySet();
+		_params = new LinkedHashMap<>();
+		_removePublicRenderParameters = new LinkedHashSet<>();
+		_secure = PortalUtil.isSecure(request);
+		_wsrp = ParamUtil.getBoolean(request, "wsrp");
+
+		if (!portlet.isUndeployedPortlet()) {
+			Set<String> autopropagatedParameters =
+				portlet.getAutopropagatedParameters();
+
+			for (String autopropagatedParameter : autopropagatedParameters) {
+				if (PortalUtil.isReservedParameter(autopropagatedParameter)) {
+					continue;
+				}
+
+				String value = request.getParameter(autopropagatedParameter);
+
+				if (value != null) {
+					setParameter(autopropagatedParameter, value);
+				}
+			}
+
+			PortletApp portletApp = portlet.getPortletApp();
+
+			_escapeXml = MapUtil.getBoolean(
+				portletApp.getContainerRuntimeOptions(),
+				LiferayPortletConfig.RUNTIME_OPTION_ESCAPE_XML,
+				PropsValues.PORTLET_URL_ESCAPE_XML);
+		}
+
+		if (layout != null) {
+			_plid = layout.getPlid();
+		}
+	}
+
+	private PortletURLImpl(
+		HttpServletRequest request, String portletId,
+		PortletRequest portletRequest, Layout layout, String lifecycle) {
+
+		this(
+			request,
+			PortletLocalServiceUtil.getPortletById(
+				PortalUtil.getCompanyId(request), portletId),
+			portletRequest, layout, lifecycle);
+	}
+
+	private void _appendNamespaceAndEncode(StringBundler sb, String name) {
+		String namespace = getNamespace();
+
+		if (!name.startsWith(PortletQName.PUBLIC_RENDER_PARAMETER_NAMESPACE) &&
+			!name.startsWith(namespace) &&
+			!PortalUtil.isReservedParameter(name)) {
+
+			if (_encodedNamespace == null) {
+				_encodedNamespace = URLCodec.encodeURL(namespace);
+			}
+
+			sb.append(_encodedNamespace);
+		}
+
+		sb.append(URLCodec.encodeURL(name));
+	}
+
+	private Key _getKey() {
+		try {
+			if (_encrypt) {
+				Company company = PortalUtil.getCompany(_request);
+
+				return company.getKeyObj();
+			}
+		}
+		catch (Exception e) {
+			_log.error(e);
+		}
+
+		return null;
 	}
 
 	private static final Log _log = LogFactoryUtil.getLog(PortletURLImpl.class);
@@ -1413,6 +1674,7 @@ public class PortletURLImpl
 		_cacheabilities.put("PORTLET", ResourceURL.PORTLET);
 	}
 
+>>>>>>> compatible
 	private boolean _anchor = true;
 	private String _cacheability = ResourceURL.PAGE;
 	private boolean _copyCurrentRenderParameters;

@@ -33,6 +33,11 @@ import com.liferay.portal.kernel.service.UserLocalServiceUtil;
 import com.liferay.portal.kernel.service.persistence.impl.BasePersistenceImpl;
 import com.liferay.portal.kernel.test.rule.AggregateTestRule;
 import com.liferay.portal.kernel.test.rule.DeleteAfterTestRun;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.test.rule.Sync;
+import com.liferay.portal.kernel.test.rule.SynchronousDestinationTestRule;
+>>>>>>> compatible
 import com.liferay.portal.kernel.test.util.GroupTestUtil;
 import com.liferay.portal.kernel.test.util.ServiceContextTestUtil;
 import com.liferay.portal.kernel.test.util.UserTestUtil;
@@ -67,6 +72,10 @@ import org.junit.runner.RunWith;
  * @author Alexander Chow
  */
 @RunWith(Arquillian.class)
+<<<<<<< HEAD
+=======
+@Sync
+>>>>>>> compatible
 public class MBMessageServiceTest {
 
 	@ClassRule
@@ -74,7 +83,12 @@ public class MBMessageServiceTest {
 	public static final AggregateTestRule aggregateTestRule =
 		new AggregateTestRule(
 			new LiferayIntegrationTestRule(),
+<<<<<<< HEAD
 			PermissionCheckerTestRule.INSTANCE);
+=======
+			PermissionCheckerTestRule.INSTANCE,
+			SynchronousDestinationTestRule.INSTANCE);
+>>>>>>> compatible
 
 	@Before
 	public void setUp() throws Exception {
@@ -195,7 +209,11 @@ public class MBMessageServiceTest {
 
 					String message = loggingEvent.getRenderedMessage();
 
+<<<<<<< HEAD
 					StringBundler sb = new StringBundler(2);
+=======
+					StringBundler sb = new StringBundler();
+>>>>>>> compatible
 
 					sb.append("com.liferay.portal.kernel.exception.");
 					sb.append("SystemException:");
@@ -208,10 +226,15 @@ public class MBMessageServiceTest {
 
 					String message = loggingEvent.getRenderedMessage();
 
+<<<<<<< HEAD
 					Assert.assertTrue(
 						message, message.contains("Your server command"));
 					Assert.assertTrue(
 						message,
+=======
+					Assert.assertTrue(message.contains("Your server command"));
+					Assert.assertTrue(
+>>>>>>> compatible
 						message.contains(
 							"encountered a deadlock situation. Please re-run " +
 								"your command."));

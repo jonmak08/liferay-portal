@@ -26,8 +26,11 @@ public interface DLItemSelectorView<T extends ItemSelectorCriterion>
 	public static final String DL_ITEM_SELECTOR_VIEW_DISPLAY_CONTEXT =
 		"DL_ITEM_SELECTOR_VIEW_DISPLAY_CONTEXT";
 
+<<<<<<< HEAD
 	public String[] getExtensions();
 
+=======
+>>>>>>> compatible
 	public String[] getMimeTypes();
 
 }

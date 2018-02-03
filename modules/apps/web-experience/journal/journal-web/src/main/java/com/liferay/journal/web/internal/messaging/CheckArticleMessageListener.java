@@ -14,8 +14,13 @@
 
 package com.liferay.journal.web.internal.messaging;
 
+<<<<<<< HEAD
 import com.liferay.journal.configuration.JournalServiceConfiguration;
 import com.liferay.journal.service.JournalArticleLocalService;
+=======
+import com.liferay.journal.service.JournalArticleLocalService;
+import com.liferay.journal.web.configuration.JournalWebConfiguration;
+>>>>>>> compatible
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
 import com.liferay.portal.kernel.messaging.BaseMessageListener;
 import com.liferay.portal.kernel.messaging.DestinationNames;
@@ -50,9 +55,15 @@ public class CheckArticleMessageListener extends BaseMessageListener {
 
 	@Activate
 	protected void activate(Map<String, Object> properties) {
+<<<<<<< HEAD
 		JournalServiceConfiguration journalServiceConfiguration =
 			ConfigurableUtil.createConfigurable(
 				JournalServiceConfiguration.class, properties);
+=======
+		JournalWebConfiguration journalWebConfiguration =
+			ConfigurableUtil.createConfigurable(
+				JournalWebConfiguration.class, properties);
+>>>>>>> compatible
 
 		Class<?> clazz = getClass();
 
@@ -60,7 +71,11 @@ public class CheckArticleMessageListener extends BaseMessageListener {
 
 		Trigger trigger = _triggerFactory.createTrigger(
 			className, className, null, null,
+<<<<<<< HEAD
 			journalServiceConfiguration.checkInterval(), TimeUnit.MINUTE);
+=======
+			journalWebConfiguration.checkInterval(), TimeUnit.MINUTE);
+>>>>>>> compatible
 
 		SchedulerEntry schedulerEntry = new SchedulerEntryImpl(
 			className, trigger);

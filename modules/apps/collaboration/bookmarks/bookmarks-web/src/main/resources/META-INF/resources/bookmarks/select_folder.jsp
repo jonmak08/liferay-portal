@@ -102,6 +102,11 @@ if (folder != null) {
 
 					data.put("entityid", curFolder.getFolderId());
 					data.put("entityname", curFolder.getName());
+<<<<<<< HEAD
+=======
+					data.put("folderid", curFolder.getFolderId());
+					data.put("name", curFolder.getName());
+>>>>>>> compatible
 					%>
 
 					<aui:button cssClass="selector-button" data="<%= data %>" value="choose" />
@@ -109,7 +114,11 @@ if (folder != null) {
 			</liferay-ui:search-container-row>
 
 			<aui:button-row>
+<<<<<<< HEAD
 				<c:if test="<%= BookmarksFolderPermission.contains(permissionChecker, scopeGroupId, folderId, ActionKeys.ADD_FOLDER) %>">
+=======
+				<c:if test="<%= BookmarksFolderPermissionChecker.contains(permissionChecker, scopeGroupId, folderId, ActionKeys.ADD_FOLDER) %>">
+>>>>>>> compatible
 					<portlet:renderURL var="editFolderURL">
 						<portlet:param name="mvcRenderCommandName" value="/bookmarks/edit_folder" />
 						<portlet:param name="redirect" value="<%= currentURL %>" />
@@ -124,6 +133,11 @@ if (folder != null) {
 
 				data.put("entityid", folderId);
 				data.put("entityname", folderName);
+<<<<<<< HEAD
+=======
+				data.put("folderid", folderId);
+				data.put("name", folderName);
+>>>>>>> compatible
 				%>
 
 				<aui:button cssClass="selector-button" data="<%= data %>" value="choose-this-folder" />

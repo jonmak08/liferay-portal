@@ -14,8 +14,13 @@
 
 package com.liferay.blogs.web.internal;
 
+<<<<<<< HEAD
 import com.liferay.blogs.constants.BlogsPortletKeys;
 import com.liferay.blogs.item.selector.criterion.BlogsItemSelectorCriterion;
+=======
+import com.liferay.blogs.item.selector.criterion.BlogsItemSelectorCriterion;
+import com.liferay.blogs.web.constants.BlogsPortletKeys;
+>>>>>>> compatible
 import com.liferay.item.selector.ItemSelector;
 import com.liferay.item.selector.ItemSelectorReturnType;
 import com.liferay.item.selector.criteria.FileEntryItemSelectorReturnType;
@@ -24,8 +29,11 @@ import com.liferay.item.selector.criteria.upload.criterion.UploadItemSelectorCri
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.portlet.RequestBackedPortletURLFactory;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.util.PropsUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.util.PropsValues;
 
 import java.util.ArrayList;
@@ -84,14 +92,21 @@ public class BlogsItemSelectorHelper {
 		uploadURL.setParameter(
 			ActionRequest.ACTION_NAME, "/blogs/upload_cover_image");
 
+<<<<<<< HEAD
 		String[] extensions = PropsUtil.getArray(
 			PropsKeys.BLOGS_IMAGE_EXTENSIONS);
 
+=======
+>>>>>>> compatible
 		UploadItemSelectorCriterion uploadItemSelectorCriterion =
 			new UploadItemSelectorCriterion(
 				BlogsPortletKeys.BLOGS, uploadURL.toString(),
 				LanguageUtil.get(themeDisplay.getLocale(), "blog-images"),
+<<<<<<< HEAD
 				PropsValues.BLOGS_IMAGE_MAX_SIZE, extensions);
+=======
+				PropsValues.BLOGS_IMAGE_MAX_SIZE);
+>>>>>>> compatible
 
 		uploadItemSelectorCriterion.setDesiredItemSelectorReturnTypes(
 			uploadCriterionDesiredItemSelectorReturnTypes);

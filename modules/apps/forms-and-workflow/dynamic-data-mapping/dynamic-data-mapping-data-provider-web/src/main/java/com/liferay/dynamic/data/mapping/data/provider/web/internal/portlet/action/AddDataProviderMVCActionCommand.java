@@ -62,13 +62,21 @@ public class AddDataProviderMVCActionCommand extends BaseMVCActionCommand {
 		String type = ParamUtil.getString(actionRequest, "type");
 
 		DDMDataProvider ddmDataProvider =
+<<<<<<< HEAD
 			ddmDataProviderTracker.getDDMDataProvider(type);
+=======
+			_ddmDataProviderTracker.getDDMDataProvider(type);
+>>>>>>> compatible
 
 		Class<?> clazz = ddmDataProvider.getSettings();
 
 		DDMForm ddmForm = DDMFormFactory.create(clazz);
 
+<<<<<<< HEAD
 		return ddmFormValuesFactory.create(actionRequest, ddmForm);
+=======
+		return _ddmFormValuesFactory.create(actionRequest, ddmForm);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -90,12 +98,25 @@ public class AddDataProviderMVCActionCommand extends BaseMVCActionCommand {
 		ServiceContext serviceContext = ServiceContextFactory.getInstance(
 			DDMDataProviderInstance.class.getName(), actionRequest);
 
+<<<<<<< HEAD
 		ddmDataProviderInstanceService.addDataProviderInstance(
+=======
+		_ddmDataProviderInstanceService.addDataProviderInstance(
+>>>>>>> compatible
 			groupId, getLocalizedMap(themeDisplay.getLocale(), name),
 			getLocalizedMap(themeDisplay.getLocale(), description),
 			ddmFormValues, type, serviceContext);
 	}
 
+<<<<<<< HEAD
+=======
+	protected DDMDataProviderInstanceService
+		getDDMDataProviderInstanceService() {
+
+		return _ddmDataProviderInstanceService;
+	}
+
+>>>>>>> compatible
 	protected Map<Locale, String> getLocalizedMap(Locale locale, String value) {
 		Map<Locale, String> localizedMap = new HashMap<>();
 
@@ -104,6 +125,7 @@ public class AddDataProviderMVCActionCommand extends BaseMVCActionCommand {
 		return localizedMap;
 	}
 
+<<<<<<< HEAD
 	@Reference
 	protected DDMDataProviderInstanceService ddmDataProviderInstanceService;
 
@@ -112,5 +134,31 @@ public class AddDataProviderMVCActionCommand extends BaseMVCActionCommand {
 
 	@Reference
 	protected DDMFormValuesFactory ddmFormValuesFactory;
+=======
+	@Reference(unbind = "-")
+	protected void setDDMDataProviderInstanceService(
+		DDMDataProviderInstanceService ddmDataProviderInstanceService) {
+
+		_ddmDataProviderInstanceService = ddmDataProviderInstanceService;
+	}
+
+	@Reference(unbind = "-")
+	protected void setDDMDataProviderTracker(
+		DDMDataProviderTracker ddmDataProviderTracker) {
+
+		_ddmDataProviderTracker = ddmDataProviderTracker;
+	}
+
+	@Reference(unbind = "-")
+	protected void setDDMFormValuesFactory(
+		DDMFormValuesFactory ddmFormValuesFactory) {
+
+		_ddmFormValuesFactory = ddmFormValuesFactory;
+	}
+
+	private DDMDataProviderInstanceService _ddmDataProviderInstanceService;
+	private DDMDataProviderTracker _ddmDataProviderTracker;
+	private DDMFormValuesFactory _ddmFormValuesFactory;
+>>>>>>> compatible
 
 }

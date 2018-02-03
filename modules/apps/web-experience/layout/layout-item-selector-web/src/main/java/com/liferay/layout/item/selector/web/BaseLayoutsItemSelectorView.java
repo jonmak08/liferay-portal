@@ -19,11 +19,16 @@ import com.liferay.item.selector.ItemSelectorView;
 import com.liferay.item.selector.criteria.URLItemSelectorReturnType;
 import com.liferay.item.selector.criteria.UUIDItemSelectorReturnType;
 import com.liferay.layout.item.selector.criterion.LayoutItemSelectorCriterion;
+<<<<<<< HEAD
 import com.liferay.layout.item.selector.view.LayoutItemSelectorView;
 import com.liferay.layout.item.selector.web.internal.constants.LayoutsItemSelectorWebKeys;
 import com.liferay.layout.item.selector.web.internal.display.context.LayoutItemSelectorViewDisplayContext;
 import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.ResourceBundleLoader;
+=======
+import com.liferay.layout.item.selector.web.internal.display.context.LayoutItemSelectorViewDisplayContext;
+import com.liferay.portal.kernel.util.ListUtil;
+>>>>>>> compatible
 
 import java.io.IOException;
 
@@ -39,6 +44,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
+<<<<<<< HEAD
 import org.osgi.service.component.annotations.Reference;
 
 /**
@@ -50,6 +56,13 @@ import org.osgi.service.component.annotations.Reference;
 public abstract class BaseLayoutsItemSelectorView
 	implements ItemSelectorView<LayoutItemSelectorCriterion>,
 			   LayoutItemSelectorView {
+=======
+/**
+ * @author Roberto Díaz
+ */
+public abstract class BaseLayoutsItemSelectorView
+	implements ItemSelectorView<LayoutItemSelectorCriterion> {
+>>>>>>> compatible
 
 	public static final String LAYOUT_ITEM_SELECTOR_VIEW_DISPLAY_CONTEXT =
 		"LAYOUT_ITEM_SELECTOR_VIEW_DISPLAY_CONTEXT";
@@ -66,7 +79,10 @@ public abstract class BaseLayoutsItemSelectorView
 		return _supportedItemSelectorReturnTypes;
 	}
 
+<<<<<<< HEAD
 	@Override
+=======
+>>>>>>> compatible
 	public abstract boolean isPrivateLayout();
 
 	@Override
@@ -85,12 +101,19 @@ public abstract class BaseLayoutsItemSelectorView
 			layoutItemSelectorViewDisplayContext =
 				new LayoutItemSelectorViewDisplayContext(
 					(HttpServletRequest)request, layoutItemSelectorCriterion,
+<<<<<<< HEAD
 					itemSelectedEventName, resourceBundleLoader,
 					isPrivateLayout());
 
 		request.setAttribute(
 			LayoutsItemSelectorWebKeys.
 				LAYOUT_ITEM_SELECTOR_VIEW_DISPLAY_CONTEXT,
+=======
+					itemSelectedEventName, isPrivateLayout());
+
+		request.setAttribute(
+			LAYOUT_ITEM_SELECTOR_VIEW_DISPLAY_CONTEXT,
+>>>>>>> compatible
 			layoutItemSelectorViewDisplayContext);
 
 		ServletContext servletContext = getServletContext();
@@ -101,12 +124,15 @@ public abstract class BaseLayoutsItemSelectorView
 		requestDispatcher.include(request, response);
 	}
 
+<<<<<<< HEAD
 	@Reference(
 		target = "(bundle.symbolic.name=com.liferay.layout.admin.web)",
 		unbind = "-"
 	)
 	protected ResourceBundleLoader resourceBundleLoader;
 
+=======
+>>>>>>> compatible
 	private static final List<ItemSelectorReturnType>
 		_supportedItemSelectorReturnTypes = Collections.unmodifiableList(
 			ListUtil.fromArray(

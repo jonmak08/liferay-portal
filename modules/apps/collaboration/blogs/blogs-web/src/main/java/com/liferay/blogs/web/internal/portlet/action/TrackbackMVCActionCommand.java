@@ -14,12 +14,19 @@
 
 package com.liferay.blogs.web.internal.portlet.action;
 
+<<<<<<< HEAD
 import com.liferay.blogs.constants.BlogsPortletKeys;
 import com.liferay.blogs.exception.NoSuchEntryException;
 import com.liferay.blogs.exception.TrackbackValidationException;
 import com.liferay.blogs.model.BlogsEntry;
 import com.liferay.blogs.web.internal.trackback.Trackback;
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.blogs.kernel.exception.NoSuchEntryException;
+import com.liferay.blogs.kernel.exception.TrackbackValidationException;
+import com.liferay.blogs.kernel.model.BlogsEntry;
+import com.liferay.blogs.web.constants.BlogsPortletKeys;
+>>>>>>> compatible
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.portlet.PortletPreferencesFactoryUtil;
@@ -35,8 +42,16 @@ import com.liferay.portal.kernel.util.Http;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.StringBundler;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
+=======
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.portlet.blogs.trackback.Trackback;
+import com.liferay.portlet.blogs.trackback.TrackbackImpl;
+>>>>>>> compatible
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
@@ -64,6 +79,17 @@ import org.osgi.service.component.annotations.Reference;
 )
 public class TrackbackMVCActionCommand extends BaseMVCActionCommand {
 
+<<<<<<< HEAD
+=======
+	public TrackbackMVCActionCommand() {
+		_trackback = new TrackbackImpl();
+	}
+
+	public TrackbackMVCActionCommand(Trackback trackback) {
+		_trackback = trackback;
+	}
+
+>>>>>>> compatible
 	public void addTrackback(
 			ActionRequest actionRequest, ActionResponse actionResponse)
 		throws Exception {
@@ -124,7 +150,11 @@ public class TrackbackMVCActionCommand extends BaseMVCActionCommand {
 		throws Exception {
 
 		try {
+<<<<<<< HEAD
 			return ActionUtil.getEntry(actionRequest);
+=======
+			ActionUtil.getEntry(actionRequest);
+>>>>>>> compatible
 		}
 		catch (PrincipalException pe) {
 			throw new TrackbackValidationException(
@@ -132,6 +162,11 @@ public class TrackbackMVCActionCommand extends BaseMVCActionCommand {
 					"trackbacks",
 				pe);
 		}
+<<<<<<< HEAD
+=======
+
+		return (BlogsEntry)actionRequest.getAttribute(WebKeys.BLOGS_ENTRY);
+>>>>>>> compatible
 	}
 
 	protected boolean isCommentsEnabled(ActionRequest actionRequest)
@@ -184,10 +219,15 @@ public class TrackbackMVCActionCommand extends BaseMVCActionCommand {
 		HttpServletResponse response = _portal.getHttpServletResponse(
 			actionResponse);
 
+<<<<<<< HEAD
 		String s = sb.toString();
 
 		ServletResponseUtil.sendFile(
 			request, response, null, s.getBytes(StringPool.UTF8),
+=======
+		ServletResponseUtil.sendFile(
+			request, response, null, sb.toString().getBytes(StringPool.UTF8),
+>>>>>>> compatible
 			ContentTypes.TEXT_XML_UTF8);
 	}
 
@@ -237,7 +277,11 @@ public class TrackbackMVCActionCommand extends BaseMVCActionCommand {
 	@Reference
 	private Portal _portal;
 
+<<<<<<< HEAD
 	@Reference
 	private Trackback _trackback;
+=======
+	private final Trackback _trackback;
+>>>>>>> compatible
 
 }

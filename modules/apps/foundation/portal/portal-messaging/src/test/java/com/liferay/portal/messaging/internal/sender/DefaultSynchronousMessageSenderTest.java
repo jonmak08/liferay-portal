@@ -26,7 +26,10 @@ import com.liferay.portal.kernel.messaging.MessageBusException;
 import com.liferay.portal.kernel.messaging.MessageListener;
 import com.liferay.portal.kernel.messaging.SerialDestination;
 import com.liferay.portal.kernel.messaging.SynchronousDestination;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.test.ReflectionTestUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portal.messaging.internal.DefaultMessageBus;
 import com.liferay.registry.Registry;
 import com.liferay.registry.RegistryUtil;
@@ -89,6 +92,7 @@ public class DefaultSynchronousMessageSenderTest {
 		_defaultSynchronousMessageSender =
 			new DefaultSynchronousMessageSender();
 
+<<<<<<< HEAD
 		ReflectionTestUtil.setFieldValue(
 			_defaultSynchronousMessageSender, "_entityCache",
 			Mockito.mock(EntityCache.class));
@@ -99,6 +103,14 @@ public class DefaultSynchronousMessageSenderTest {
 			_defaultSynchronousMessageSender, "_messageBus", _messageBus);
 		ReflectionTestUtil.setFieldValue(
 			_defaultSynchronousMessageSender, "_timeout", 10000);
+=======
+		_defaultSynchronousMessageSender.setEntityCache(
+			Mockito.mock(EntityCache.class));
+		_defaultSynchronousMessageSender.setFinderCache(
+			Mockito.mock(FinderCache.class));
+		_defaultSynchronousMessageSender.setMessageBus(_messageBus);
+		_defaultSynchronousMessageSender.setTimeout(10000);
+>>>>>>> compatible
 
 		_portalExecutorManager = Mockito.mock(PortalExecutorManager.class);
 

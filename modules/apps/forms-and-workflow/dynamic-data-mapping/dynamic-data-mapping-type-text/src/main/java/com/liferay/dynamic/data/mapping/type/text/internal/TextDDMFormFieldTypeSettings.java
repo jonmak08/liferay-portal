@@ -20,15 +20,20 @@ import com.liferay.dynamic.data.mapping.annotations.DDMFormLayout;
 import com.liferay.dynamic.data.mapping.annotations.DDMFormLayoutColumn;
 import com.liferay.dynamic.data.mapping.annotations.DDMFormLayoutPage;
 import com.liferay.dynamic.data.mapping.annotations.DDMFormLayoutRow;
+<<<<<<< HEAD
 import com.liferay.dynamic.data.mapping.annotations.DDMFormRule;
 import com.liferay.dynamic.data.mapping.form.field.type.DefaultDDMFormFieldTypeSettings;
 import com.liferay.dynamic.data.mapping.model.DDMFormFieldOptions;
 import com.liferay.dynamic.data.mapping.model.DDMFormFieldValidation;
+=======
+import com.liferay.dynamic.data.mapping.form.field.type.DefaultDDMFormFieldTypeSettings;
+>>>>>>> compatible
 import com.liferay.dynamic.data.mapping.model.LocalizedValue;
 
 /**
  * @author Lino Alves
  */
+<<<<<<< HEAD
 @DDMForm(
 	rules = {
 		@DDMFormRule(
@@ -44,6 +49,14 @@ import com.liferay.dynamic.data.mapping.model.LocalizedValue;
 	value = {
 		@DDMFormLayoutPage(
 			title = "%basic",
+=======
+@DDMForm
+@DDMFormLayout(
+	paginationMode = com.liferay.dynamic.data.mapping.model.DDMFormLayout.SETTINGS_MODE,
+	value = {
+		@DDMFormLayoutPage(
+			title = "basic",
+>>>>>>> compatible
 			value = {
 				@DDMFormLayoutRow(
 					{
@@ -56,13 +69,18 @@ import com.liferay.dynamic.data.mapping.model.LocalizedValue;
 			}
 		),
 		@DDMFormLayoutPage(
+<<<<<<< HEAD
 			title = "%properties",
+=======
+			title = "advanced",
+>>>>>>> compatible
 			value = {
 				@DDMFormLayoutRow(
 					{
 						@DDMFormLayoutColumn(
 							size = 12,
 							value = {
+<<<<<<< HEAD
 								"predefinedValue", "dataSourceType",
 								"ddmDataProviderInstanceId",
 								"ddmDataProviderInstanceOutput", "options",
@@ -70,6 +88,13 @@ import com.liferay.dynamic.data.mapping.model.LocalizedValue;
 								"validation", "fieldNamespace", "indexType",
 								"localizable", "readOnly", "dataType", "type",
 								"name", "showLabel", "repeatable", "tooltip"
+=======
+								"predefinedValue", "placeholder",
+								"visibilityExpression", "validation",
+								"fieldNamespace", "indexType", "localizable",
+								"readOnly", "dataType", "type", "name",
+								"showLabel", "repeatable", "tooltip"
+>>>>>>> compatible
 							}
 						)
 					}
@@ -82,6 +107,7 @@ public interface TextDDMFormFieldTypeSettings
 	extends DefaultDDMFormFieldTypeSettings {
 
 	@DDMFormField(
+<<<<<<< HEAD
 		label = "%create-list",
 		optionLabels = {"%manually", "%from-data-provider"},
 		optionValues = {"manual", "data-provider"},
@@ -117,10 +143,17 @@ public interface TextDDMFormFieldTypeSettings
 		optionValues = {"singleline", "multiline"},
 		predefinedValue = "singleline", properties = {"inline=true"},
 		type = "radio"
+=======
+		label = "%my-text-field-has",
+		optionLabels = {"%a-single-line", "%multiple-lines"},
+		optionValues = {"singleline", "multiline"},
+		properties = {"inline=true"}, type = "radio"
+>>>>>>> compatible
 	)
 	public String displayStyle();
 
 	@DDMFormField(
+<<<<<<< HEAD
 		dataType = "ddm-options", label = "%options",
 		properties = {"showLabel=false", "allowEmptyOptions=true"},
 		required = false, type = "options",
@@ -129,6 +162,8 @@ public interface TextDDMFormFieldTypeSettings
 	public DDMFormFieldOptions options();
 
 	@DDMFormField(
+=======
+>>>>>>> compatible
 		dataType = "string", label = "%placeholder-text",
 		properties = {
 			"placeholder=%enter-placeholder-text",
@@ -141,10 +176,13 @@ public interface TextDDMFormFieldTypeSettings
 	@DDMFormField(visibilityExpression = "FALSE")
 	public LocalizedValue tooltip();
 
+<<<<<<< HEAD
 	@DDMFormField(
 		dataType = "string", label = "%validation", type = "validation"
 	)
 	@Override
 	public DDMFormFieldValidation validation();
 
+=======
+>>>>>>> compatible
 }

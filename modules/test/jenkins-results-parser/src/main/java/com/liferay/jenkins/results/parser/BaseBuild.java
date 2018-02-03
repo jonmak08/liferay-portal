@@ -25,6 +25,7 @@ import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
@@ -32,10 +33,17 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+=======
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
+>>>>>>> compatible
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
+<<<<<<< HEAD
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeoutException;
@@ -47,6 +55,16 @@ import org.apache.commons.lang.StringUtils;
 import org.dom4j.Element;
 
 import org.json.JSONArray;
+=======
+import java.util.concurrent.ExecutorService;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.dom4j.Element;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+>>>>>>> compatible
 import org.json.JSONObject;
 
 /**
@@ -56,10 +74,13 @@ public abstract class BaseBuild implements Build {
 
 	@Override
 	public void addDownstreamBuilds(String... urls) {
+<<<<<<< HEAD
 		final Build thisBuild = this;
 
 		List<Callable<Build>> callables = new ArrayList<>(urls.length);
 
+=======
+>>>>>>> compatible
 		for (String url : urls) {
 			try {
 				url = JenkinsResultsParserUtil.getLocalURL(
@@ -71,6 +92,7 @@ public abstract class BaseBuild implements Build {
 			}
 
 			if (!hasBuildURL(url)) {
+<<<<<<< HEAD
 				final String buildURL = url;
 
 				Callable<Build> callable = new Callable<Build>() {
@@ -94,6 +116,13 @@ public abstract class BaseBuild implements Build {
 
 	public abstract void addTimelineData(BaseBuild.TimelineData timelineData);
 
+=======
+				downstreamBuilds.add(BuildFactory.newBuild(url, this));
+			}
+		}
+	}
+
+>>>>>>> compatible
 	@Override
 	public void archive(final String archiveName) {
 		if (!_status.equals("completed")) {
@@ -109,6 +138,7 @@ public abstract class BaseBuild implements Build {
 		}
 
 		if (downstreamBuilds != null) {
+<<<<<<< HEAD
 			List<Callable<Object>> callables = new ArrayList<>(
 				downstreamBuilds.size());
 
@@ -131,6 +161,35 @@ public abstract class BaseBuild implements Build {
 				callables, getExecutorService());
 
 			parallelExecutor.execute();
+=======
+			ExecutorService executorService = getExecutorService();
+
+			for (final Build downstreamBuild : downstreamBuilds) {
+				if (executorService != null) {
+					Runnable runnable = new Runnable() {
+
+						@Override
+						public void run() {
+							downstreamBuild.archive(archiveName);
+						}
+
+					};
+
+					executorService.execute(runnable);
+				}
+				else {
+					downstreamBuild.archive(archiveName);
+				}
+			}
+
+			if (executorService != null) {
+				executorService.shutdown();
+
+				while (!executorService.isTerminated()) {
+					JenkinsResultsParserUtil.sleep(100);
+				}
+			}
+>>>>>>> compatible
 		}
 
 		try {
@@ -160,7 +219,11 @@ public abstract class BaseBuild implements Build {
 			sb.append("/");
 		}
 
+<<<<<<< HEAD
 		sb.append(_jenkinsMaster.getName());
+=======
+		sb.append(getMaster());
+>>>>>>> compatible
 		sb.append("/");
 		sb.append(getJobName());
 		sb.append("/");
@@ -170,6 +233,7 @@ public abstract class BaseBuild implements Build {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public long getAverageDelayTime() {
 		if (getDownstreamBuildCount(null) == 0) {
 			return 0;
@@ -185,6 +249,8 @@ public abstract class BaseBuild implements Build {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public List<String> getBadBuildURLs() {
 		List<String> badBuildURLs = new ArrayList<>();
 
@@ -312,8 +378,12 @@ public abstract class BaseBuild implements Build {
 		StringBuffer sb = new StringBuffer();
 
 		sb.append("http[s]*:\\/\\/");
+<<<<<<< HEAD
 		sb.append(
 			JenkinsResultsParserUtil.getRegexLiteral(_jenkinsMaster.getName()));
+=======
+		sb.append(JenkinsResultsParserUtil.getRegexLiteral(getMaster()));
+>>>>>>> compatible
 		sb.append("[^\\/]*");
 		sb.append("[\\/]+job[\\/]+");
 
@@ -343,11 +413,16 @@ public abstract class BaseBuild implements Build {
 		String buildURL = getBuildURL();
 
 		if (buildURL != null) {
+<<<<<<< HEAD
 			String status = getStatus();
 
 			JenkinsConsoleTextLoader jenkinsConsoleTextLoader =
 				new JenkinsConsoleTextLoader(
 					getBuildURL(), status.equals("completed"));
+=======
+			JenkinsConsoleTextLoader jenkinsConsoleTextLoader =
+				new JenkinsConsoleTextLoader(getBuildURL());
+>>>>>>> compatible
 
 			String consoleText = jenkinsConsoleTextLoader.getConsoleText();
 
@@ -369,11 +444,14 @@ public abstract class BaseBuild implements Build {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public Long getDelayTime() {
 		return getStartTime() - getInvokedTime();
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public String getDisplayName() {
 		StringBuilder sb = new StringBuilder();
 
@@ -391,30 +469,39 @@ public abstract class BaseBuild implements Build {
 
 	@Override
 	public int getDownstreamBuildCount(String status) {
+<<<<<<< HEAD
 		return getDownstreamBuildCount(null, status);
 	}
 
 	@Override
 	public int getDownstreamBuildCount(String result, String status) {
 		List<Build> downstreamBuilds = getDownstreamBuilds(result, status);
+=======
+		List<Build> downstreamBuilds = getDownstreamBuilds(status);
+>>>>>>> compatible
 
 		return downstreamBuilds.size();
 	}
 
 	@Override
 	public List<Build> getDownstreamBuilds(String status) {
+<<<<<<< HEAD
 		return getDownstreamBuilds(null, status);
 	}
 
 	@Override
 	public List<Build> getDownstreamBuilds(String result, String status) {
 		if ((result == null) && (status == null)) {
+=======
+		if (status == null) {
+>>>>>>> compatible
 			return downstreamBuilds;
 		}
 
 		List<Build> filteredDownstreamBuilds = new ArrayList<>();
 
 		for (Build downstreamBuild : downstreamBuilds) {
+<<<<<<< HEAD
 			if (((status == null) ||
 				 status.equals(downstreamBuild.getStatus())) &&
 				((result == null) ||
@@ -423,6 +510,10 @@ public abstract class BaseBuild implements Build {
 				filteredDownstreamBuilds.add(downstreamBuild);
 
 				continue;
+=======
+			if (status.equals(downstreamBuild.getStatus())) {
+				filteredDownstreamBuilds.add(downstreamBuild);
+>>>>>>> compatible
 			}
 		}
 
@@ -450,8 +541,11 @@ public abstract class BaseBuild implements Build {
 
 		int i = 0;
 
+<<<<<<< HEAD
 		String result = getResult();
 
+=======
+>>>>>>> compatible
 		while (result == null) {
 			if (i == 20) {
 				throw new RuntimeException(
@@ -463,12 +557,20 @@ public abstract class BaseBuild implements Build {
 
 			JenkinsResultsParserUtil.sleep(1000 * 30);
 
+<<<<<<< HEAD
 			result = getResult();
+=======
+			getResult();
+>>>>>>> compatible
 
 			i++;
 		}
 
+<<<<<<< HEAD
 		if (_result.equals("SUCCESS")) {
+=======
+		if (result.equals("SUCCESS")) {
+>>>>>>> compatible
 			return Dom4JUtil.getNewAnchorElement(
 				getBuildURL(), getDisplayName());
 		}
@@ -577,6 +679,7 @@ public abstract class BaseBuild implements Build {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public Long getInvokedTime() {
 		if (invokedTime != null) {
 			return invokedTime;
@@ -588,11 +691,14 @@ public abstract class BaseBuild implements Build {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public String getJDK() {
 		return null;
 	}
 
 	@Override
+<<<<<<< HEAD
 	public JenkinsMaster getJenkinsMaster() {
 		return _jenkinsMaster;
 	}
@@ -623,17 +729,24 @@ public abstract class BaseBuild implements Build {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public String getJobName() {
 		return jobName;
 	}
 
 	@Override
 	public String getJobURL() {
+<<<<<<< HEAD
 		if ((_jenkinsMaster == null) || (jobName == null)) {
+=======
+		if ((master == null) || (jobName == null)) {
+>>>>>>> compatible
 			return null;
 		}
 
 		if (fromArchive) {
+<<<<<<< HEAD
 			return JenkinsResultsParserUtil.combine(
 				"${dependencies.url}/", archiveName, "/",
 				_jenkinsMaster.getName(), "/", jobName);
@@ -641,6 +754,14 @@ public abstract class BaseBuild implements Build {
 
 		String jobURL = JenkinsResultsParserUtil.combine(
 			"https://", _jenkinsMaster.getName(), ".liferay.com/job/", jobName);
+=======
+			return "${dependencies.url}/" + archiveName + "/" + master + "/" +
+				jobName;
+		}
+
+		String jobURL = JenkinsResultsParserUtil.combine(
+			"https://", master, ".liferay.com/job/", jobName);
+>>>>>>> compatible
 
 		try {
 			return JenkinsResultsParserUtil.encode(jobURL);
@@ -662,6 +783,7 @@ public abstract class BaseBuild implements Build {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public int getJobVariantsDownstreamBuildCount(List<String> jobVariants) {
 		List<Build> jobVariantsDownstreamBuilds =
 			getJobVariantsDownstreamBuilds(jobVariants);
@@ -693,6 +815,10 @@ public abstract class BaseBuild implements Build {
 	@Override
 	public Long getLatestStartTimestamp() {
 		Long latestStartTimestamp = getStartTime();
+=======
+	public Long getLatestStartTimestamp() {
+		Long latestStartTimestamp = getStartTimestamp();
+>>>>>>> compatible
 
 		if (latestStartTimestamp == null) {
 			return null;
@@ -715,6 +841,7 @@ public abstract class BaseBuild implements Build {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public Build getLongestDelayedDownstreamBuild() {
 		Build longestDelayedDownstreamBuild = null;
 
@@ -765,6 +892,10 @@ public abstract class BaseBuild implements Build {
 		}
 
 		return longestRunningTest;
+=======
+	public String getMaster() {
+		return master;
+>>>>>>> compatible
 	}
 
 	@Override
@@ -789,19 +920,32 @@ public abstract class BaseBuild implements Build {
 
 	@Override
 	public String getResult() {
+<<<<<<< HEAD
 		if ((_result == null) && (getBuildURL() != null)) {
 			JSONObject resultJSONObject = getBuildJSONObject("result");
 
 			String result = resultJSONObject.optString("result");
+=======
+		if ((result == null) && (getBuildURL() != null)) {
+			JSONObject resultJSONObject = getBuildJSONObject("result");
+
+			result = resultJSONObject.optString("result");
+>>>>>>> compatible
 
 			if (result.equals("")) {
 				result = null;
 			}
+<<<<<<< HEAD
 
 			setResult(result);
 		}
 
 		return _result;
+=======
+		}
+
+		return result;
+>>>>>>> compatible
 	}
 
 	@Override
@@ -810,11 +954,15 @@ public abstract class BaseBuild implements Build {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public Long getStartTime() {
 		if (startTime != null) {
 			return startTime;
 		}
 
+=======
+	public Long getStartTimestamp() {
+>>>>>>> compatible
 		JSONObject buildJSONObject = getBuildJSONObject("timestamp");
 
 		if (buildJSONObject == null) {
@@ -823,11 +971,19 @@ public abstract class BaseBuild implements Build {
 
 		long timestamp = buildJSONObject.getLong("timestamp");
 
+<<<<<<< HEAD
 		if (timestamp != 0) {
 			startTime = timestamp;
 		}
 
 		return startTime;
+=======
+		if (timestamp == 0) {
+			return null;
+		}
+
+		return timestamp;
+>>>>>>> compatible
 	}
 
 	@Override
@@ -924,12 +1080,28 @@ public abstract class BaseBuild implements Build {
 		return JenkinsResultsParserUtil.combine(
 			Integer.toString(getDownstreamBuildCount("starting")),
 			" Starting  ", "/ ",
+<<<<<<< HEAD
 			Integer.toString(getDownstreamBuildCount("missing")), " Missing  ",
 			"/ ", Integer.toString(getDownstreamBuildCount("queued")),
 			" Queued  ", "/ ",
 			Integer.toString(getDownstreamBuildCount("running")), " Running  ",
 			"/ ", Integer.toString(getDownstreamBuildCount("completed")),
 			" Completed  ", "/ ",
+=======
+
+			Integer.toString(getDownstreamBuildCount("missing")), " Missing  ",
+			"/ ",
+
+			Integer.toString(getDownstreamBuildCount("queued")), " Queued  ",
+			"/ ",
+
+			Integer.toString(getDownstreamBuildCount("running")), " Running  ",
+			"/ ",
+
+			Integer.toString(getDownstreamBuildCount("completed")),
+			" Completed  ", "/ ",
+
+>>>>>>> compatible
 			Integer.toString(getDownstreamBuildCount(null)), " Total ");
 	}
 
@@ -957,12 +1129,16 @@ public abstract class BaseBuild implements Build {
 		List<TestResult> testResults = new ArrayList<>();
 
 		for (Build downstreamBuild : getDownstreamBuilds(null)) {
+<<<<<<< HEAD
 			List<TestResult> downstreamTestResults =
 				downstreamBuild.getTestResults(testStatus);
 
 			if (!(downstreamTestResults == null)) {
 				testResults.addAll(downstreamTestResults);
 			}
+=======
+			testResults.addAll(downstreamBuild.getTestResults(testStatus));
+>>>>>>> compatible
 		}
 
 		return testResults;
@@ -982,6 +1158,7 @@ public abstract class BaseBuild implements Build {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public long getTotalDuration() {
 		long totalDuration = getDuration();
 
@@ -1004,6 +1181,8 @@ public abstract class BaseBuild implements Build {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public boolean hasBuildURL(String buildURL) {
 		try {
 			buildURL = JenkinsResultsParserUtil.decode(buildURL);
@@ -1068,6 +1247,7 @@ public abstract class BaseBuild implements Build {
 					topLevelBuild.getBuildURL());
 			}
 
+<<<<<<< HEAD
 			String notificationRecipients =
 				reinvokeRule.getNotificationRecipients();
 
@@ -1082,6 +1262,17 @@ public abstract class BaseBuild implements Build {
 				catch (InterruptedException | IOException |
 					   TimeoutException e) {
 
+=======
+			String notificationList = reinvokeRule.getNotificationList();
+
+			if ((notificationList != null) && !notificationList.isEmpty()) {
+				try {
+					JenkinsResultsParserUtil.sendEmail(
+						message, "jenkins", "Build Reinvoked",
+						reinvokeRule.notificationList);
+				}
+				catch (InterruptedException | IOException e) {
+>>>>>>> compatible
 					throw new RuntimeException(
 						"Unable to send reinvoke notification", e);
 				}
@@ -1141,6 +1332,7 @@ public abstract class BaseBuild implements Build {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void takeSlaveOffline(SlaveOfflineRule slaveOfflineRule) {
 		if ((slaveOfflineRule == null) || fromArchive) {
 			return;
@@ -1202,6 +1394,8 @@ public abstract class BaseBuild implements Build {
 	}
 
 	@Override
+=======
+>>>>>>> compatible
 	public void update() {
 		String status = getStatus();
 
@@ -1236,6 +1430,7 @@ public abstract class BaseBuild implements Build {
 				status = getStatus();
 
 				if (downstreamBuilds != null) {
+<<<<<<< HEAD
 					List<Callable<Object>> callables = new ArrayList<>();
 
 					for (final Build downstreamBuild : downstreamBuilds) {
@@ -1257,6 +1452,35 @@ public abstract class BaseBuild implements Build {
 						new ParallelExecutor<>(callables, getExecutorService());
 
 					parallelExecutor.execute();
+=======
+					ExecutorService executorService = getExecutorService();
+
+					for (final Build downstreamBuild : downstreamBuilds) {
+						if (executorService != null) {
+							Runnable runnable = new Runnable() {
+
+								@Override
+								public void run() {
+									downstreamBuild.update();
+								}
+
+							};
+
+							executorService.execute(runnable);
+						}
+						else {
+							downstreamBuild.update();
+						}
+					}
+
+					if (executorService != null) {
+						executorService.shutdown();
+
+						while (!executorService.isTerminated()) {
+							JenkinsResultsParserUtil.sleep(100);
+						}
+					}
+>>>>>>> compatible
 
 					String result = getResult();
 
@@ -1264,11 +1488,16 @@ public abstract class BaseBuild implements Build {
 							getDownstreamBuildCount("completed")) &&
 						(result != null)) {
 
+<<<<<<< HEAD
 						setResult(result);
+=======
+						setStatus("completed");
+>>>>>>> compatible
 					}
 
 					findDownstreamBuilds();
 
+<<<<<<< HEAD
 					if ((result == null) || result.equals("SUCCESS")) {
 						return;
 					}
@@ -1287,6 +1516,8 @@ public abstract class BaseBuild implements Build {
 						}
 					}
 
+=======
+>>>>>>> compatible
 					if (this instanceof AxisBuild ||
 						this instanceof BatchBuild ||
 						this instanceof TopLevelBuild || fromArchive ||
@@ -1295,6 +1526,7 @@ public abstract class BaseBuild implements Build {
 						return;
 					}
 
+<<<<<<< HEAD
 					for (ReinvokeRule reinvokeRule : reinvokeRules) {
 						if (!reinvokeRule.matches(this)) {
 							continue;
@@ -1303,6 +1535,18 @@ public abstract class BaseBuild implements Build {
 						reinvoke(reinvokeRule);
 
 						break;
+=======
+					if ((result != null) && !result.equals("SUCCESS")) {
+						for (ReinvokeRule reinvokeRule : reinvokeRules) {
+							if (!reinvokeRule.matches(this)) {
+								continue;
+							}
+
+							reinvoke(reinvokeRule);
+
+							break;
+						}
+>>>>>>> compatible
 					}
 				}
 			}
@@ -1325,6 +1569,100 @@ public abstract class BaseBuild implements Build {
 
 	}
 
+<<<<<<< HEAD
+=======
+	protected static List<String> getUpstreamJobFailures(String type) {
+		List<String> upstreamFailures = new ArrayList<>();
+
+		JSONArray failedBatchesJSONArray =
+			upstreamFailuresJobJSONObject.getJSONArray("failedBatches");
+
+		for (int i = 0; i < failedBatchesJSONArray.length(); i++) {
+			JSONObject failedBatchJSONObject =
+				failedBatchesJSONArray.getJSONObject(i);
+
+			JSONArray failedTestsJSONArray = failedBatchJSONObject.getJSONArray(
+				"failedTests");
+
+			String jobVariant = failedBatchJSONObject.getString("jobVariant");
+
+			if (type.equals("build")) {
+				if (failedTestsJSONArray.length() == 0) {
+					upstreamFailures.add(
+						JenkinsResultsParserUtil.combine(
+							jobVariant, ",",
+							failedBatchJSONObject.getString("result")));
+				}
+			}
+			else if (type.equals("test")) {
+				for (int j = 0; j < failedTestsJSONArray.length(); j++) {
+					Object object = failedTestsJSONArray.get(j);
+
+					upstreamFailures.add(
+						JenkinsResultsParserUtil.combine(
+							object.toString(), ",", jobVariant));
+				}
+			}
+		}
+
+		return upstreamFailures;
+	}
+
+	protected static String getUpstreamJobFailuresSHA() {
+		try {
+			return upstreamFailuresJobJSONObject.getString("SHA");
+		}
+		catch (JSONException jsone) {
+			System.out.println(
+				"Unable to get upstream acceptance failure data");
+
+			jsone.printStackTrace();
+
+			return "";
+		}
+	}
+
+	protected static boolean isBuildFailingInUpstreamJob(Build build) {
+		try {
+			List<TestResult> testResults = new ArrayList<>();
+
+			testResults.addAll(build.getTestResults("FAILED"));
+			testResults.addAll(build.getTestResults("REGRESSION"));
+
+			if (testResults.isEmpty()) {
+				String jobVariant = build.getJobVariant();
+				String result = build.getResult();
+
+				if (jobVariant.contains("/")) {
+					int index = jobVariant.lastIndexOf("/");
+
+					jobVariant = jobVariant.substring(0, index);
+				}
+
+				for (String upstreamJobFailure :
+						getUpstreamJobFailures("build")) {
+
+					if (upstreamJobFailure.contains(jobVariant) &&
+						upstreamJobFailure.contains(result)) {
+
+						return true;
+					}
+				}
+			}
+
+			return false;
+		}
+		catch (Exception e) {
+			System.out.println(
+				"Unable to get upstream acceptance failure data.");
+
+			e.printStackTrace();
+
+			return false;
+		}
+	}
+
+>>>>>>> compatible
 	protected static boolean isHighPriorityBuildFailureElement(
 		Element gitHubMessage) {
 
@@ -1346,6 +1684,41 @@ public abstract class BaseBuild implements Build {
 		return false;
 	}
 
+<<<<<<< HEAD
+=======
+	protected static boolean isTestFailingInUpstreamJob(TestResult testResult) {
+		try {
+			for (String failure : getUpstreamJobFailures("test")) {
+				Build axisBuild = testResult.getAxisBuild();
+
+				String jobVariant = axisBuild.getJobVariant();
+
+				if (jobVariant.contains("/")) {
+					int index = jobVariant.lastIndexOf("/");
+
+					jobVariant = jobVariant.substring(0, index);
+				}
+
+				if (failure.contains(jobVariant) &&
+					failure.contains(testResult.getDisplayName())) {
+
+					return true;
+				}
+			}
+
+			return false;
+		}
+		catch (Exception e) {
+			System.out.println(
+				"Unable to get upstream acceptance failure data.");
+
+			e.printStackTrace();
+
+			return false;
+		}
+	}
+
+>>>>>>> compatible
 	protected BaseBuild(String url) {
 		this(url, null);
 	}
@@ -1363,6 +1736,7 @@ public abstract class BaseBuild implements Build {
 		update();
 	}
 
+<<<<<<< HEAD
 	protected void addDownstreamBuildsTimelineData(
 		BaseBuild.TimelineData timelineData) {
 
@@ -1375,6 +1749,8 @@ public abstract class BaseBuild implements Build {
 		}
 	}
 
+=======
+>>>>>>> compatible
 	protected void archiveConsoleLog() {
 		downloadSampleURL(
 			getArchivePath(), true, getBuildURL(), "/consoleText");
@@ -1473,8 +1849,15 @@ public abstract class BaseBuild implements Build {
 	}
 
 	protected void findDownstreamBuilds() {
+<<<<<<< HEAD
 		List<String> foundDownstreamBuildURLs = new ArrayList<>(
 			findDownstreamBuildsInConsoleText());
+=======
+		String consoleText = getConsoleText();
+
+		List<String> foundDownstreamBuildURLs = new ArrayList<>(
+			findDownstreamBuildsInConsoleText(consoleText));
+>>>>>>> compatible
 
 		JSONObject buildJSONObject;
 
@@ -1503,10 +1886,75 @@ public abstract class BaseBuild implements Build {
 		addDownstreamBuilds(
 			foundDownstreamBuildURLs.toArray(
 				new String[foundDownstreamBuildURLs.size()]));
+<<<<<<< HEAD
 	}
 
 	protected List<String> findDownstreamBuildsInConsoleText() {
 		return Collections.emptyList();
+=======
+
+		for (Build downstreamBuild : downstreamBuilds) {
+			BaseBuild downstreamBaseBuild = (BaseBuild)downstreamBuild;
+
+			downstreamBaseBuild.checkForReinvocation(consoleText);
+		}
+	}
+
+	protected List<String> findDownstreamBuildsInConsoleText(
+		String consoleText) {
+
+		List<String> foundDownstreamBuildURLs = new ArrayList<>();
+
+		if ((consoleText == null) || consoleText.isEmpty()) {
+			return foundDownstreamBuildURLs;
+		}
+
+		Set<String> downstreamBuildURLs = new HashSet<>();
+
+		for (Build downstreamBuild : getDownstreamBuilds(null)) {
+			String downstreamBuildURL = downstreamBuild.getBuildURL();
+
+			if (downstreamBuildURL != null) {
+				downstreamBuildURLs.add(downstreamBuildURL);
+			}
+		}
+
+		if (getBuildURL() != null) {
+			int i = consoleText.lastIndexOf("\nstop-current-job:");
+
+			if (i != -1) {
+				consoleText = consoleText.substring(0, i);
+			}
+
+			Matcher downstreamBuildURLMatcher =
+				downstreamBuildURLPattern.matcher(
+					consoleText.substring(_consoleReadCursor));
+
+			_consoleReadCursor = consoleText.length();
+
+			while (downstreamBuildURLMatcher.find()) {
+				String url = downstreamBuildURLMatcher.group("url");
+
+				Pattern reinvocationPattern = Pattern.compile(
+					Pattern.quote(url) + " restarted at (?<url>[^\\s]*)\\.");
+
+				Matcher reinvocationMatcher = reinvocationPattern.matcher(
+					consoleText);
+
+				while (reinvocationMatcher.find()) {
+					url = reinvocationMatcher.group("url");
+				}
+
+				if (!foundDownstreamBuildURLs.contains(url) &&
+					!downstreamBuildURLs.contains(url)) {
+
+					foundDownstreamBuildURLs.add(url);
+				}
+			}
+		}
+
+		return foundDownstreamBuildURLs;
+>>>>>>> compatible
 	}
 
 	protected String getBaseRepositoryType() {
@@ -1628,12 +2076,15 @@ public abstract class BaseBuild implements Build {
 		return jsonObject.getJSONArray("builds");
 	}
 
+<<<<<<< HEAD
 	protected Element getBuildTimeElement() {
 		return Dom4JUtil.getNewElement(
 			"p", null, "Build Time: ",
 			JenkinsResultsParserUtil.toDurationString(getDuration()));
 	}
 
+=======
+>>>>>>> compatible
 	protected int getDownstreamBuildCountByResult(String result) {
 		int count = 0;
 
@@ -1654,6 +2105,7 @@ public abstract class BaseBuild implements Build {
 		return count;
 	}
 
+<<<<<<< HEAD
 	protected Map<Build, Element> getDownstreamBuildMessages(
 		String... results) {
 
@@ -1693,6 +2145,8 @@ public abstract class BaseBuild implements Build {
 		return elementsMap;
 	}
 
+=======
+>>>>>>> compatible
 	protected ExecutorService getExecutorService() {
 		return null;
 	}
@@ -1724,6 +2178,7 @@ public abstract class BaseBuild implements Build {
 		return getGitHubMessageJobResultsElement();
 	}
 
+<<<<<<< HEAD
 	protected String getJenkinsReportBuildInfoCellElementTagName() {
 		return "td";
 	}
@@ -1829,6 +2284,8 @@ public abstract class BaseBuild implements Build {
 		return _JENKINS_REPORT_TIME_ZONE_NAME;
 	}
 
+=======
+>>>>>>> compatible
 	protected Set<String> getJobParameterNames() {
 		JSONObject jsonObject;
 
@@ -1932,10 +2389,16 @@ public abstract class BaseBuild implements Build {
 
 	protected JSONArray getQueueItemsJSONArray() throws IOException {
 		JSONObject jsonObject = JenkinsResultsParserUtil.toJSONObject(
+<<<<<<< HEAD
 			JenkinsResultsParserUtil.combine(
 				"http://", _jenkinsMaster.getName(),
 				"/queue/api/json?tree=items[actions[parameters",
 				"[name,value]],task[name,url]]"),
+=======
+			"http://" + master +
+				"/queue/api/json?tree=items[actions[parameters" +
+					"[name,value]],task[name,url]]",
+>>>>>>> compatible
 			false);
 
 		return jsonObject.getJSONArray("items");
@@ -2038,6 +2501,7 @@ public abstract class BaseBuild implements Build {
 		return null;
 	}
 
+<<<<<<< HEAD
 	protected int getTestCountByStatus(String status) {
 		JSONObject testReportJSONObject = getTestReportJSONObject();
 
@@ -2059,6 +2523,8 @@ public abstract class BaseBuild implements Build {
 		throw new IllegalArgumentException("Invalid status: " + status);
 	}
 
+=======
+>>>>>>> compatible
 	protected boolean isCompareToUpstream() {
 		TopLevelBuild topLevelBuild = getTopLevelBuild();
 
@@ -2138,8 +2604,35 @@ public abstract class BaseBuild implements Build {
 		}
 	}
 
+<<<<<<< HEAD
 	protected void reset() {
 		setResult(null);
+=======
+	protected void loadUpstreamJobFailuresJSONObject() {
+		try {
+			if (getJobName().contains("pullrequest")) {
+				String upstreamJobName =
+					getJobName().replace("pullrequest", "upstream");
+
+				String url = JenkinsResultsParserUtil.getLocalURL(
+					UPSTREAM_FAILURES_JOB_BASE_URL + upstreamJobName +
+						"/builds/latest/test.results.json");
+
+				upstreamFailuresJobJSONObject =
+					JenkinsResultsParserUtil.toJSONObject(url);
+			}
+		}
+		catch (IOException ioe) {
+			System.out.println(
+				"Unable to set upstream acceptance failure data.");
+
+			ioe.printStackTrace();
+		}
+	}
+
+	protected void reset() {
+		result = null;
+>>>>>>> compatible
 
 		badBuildNumbers.add(getBuildNumber());
 
@@ -2152,7 +2645,11 @@ public abstract class BaseBuild implements Build {
 		if (_buildNumber != buildNumber) {
 			_buildNumber = buildNumber;
 
+<<<<<<< HEAD
 			consoleReadCursor = 0;
+=======
+			_consoleReadCursor = 0;
+>>>>>>> compatible
 			_consoleText = null;
 
 			if (_buildNumber == -1) {
@@ -2206,13 +2703,21 @@ public abstract class BaseBuild implements Build {
 		}
 
 		setJobName(matcher.group("jobName"));
+<<<<<<< HEAD
 		setJenkinsMaster(new JenkinsMaster(matcher.group("master")));
+=======
+		master = matcher.group("master");
+>>>>>>> compatible
 
 		_buildNumber = Integer.parseInt(matcher.group("buildNumber"));
 
 		loadParametersFromBuildJSONObject();
 
+<<<<<<< HEAD
 		consoleReadCursor = 0;
+=======
+		_consoleReadCursor = 0;
+>>>>>>> compatible
 
 		setStatus("running");
 	}
@@ -2235,8 +2740,12 @@ public abstract class BaseBuild implements Build {
 			}
 
 			setJobName(invocationURLMatcher.group("jobName"));
+<<<<<<< HEAD
 			setJenkinsMaster(
 				new JenkinsMaster(invocationURLMatcher.group("master")));
+=======
+			master = invocationURLMatcher.group("master");
+>>>>>>> compatible
 
 			loadParametersFromQueryString(invocationURL);
 
@@ -2244,10 +2753,13 @@ public abstract class BaseBuild implements Build {
 		}
 	}
 
+<<<<<<< HEAD
 	protected void setJenkinsMaster(JenkinsMaster jenkinsMaster) {
 		_jenkinsMaster = jenkinsMaster;
 	}
 
+=======
+>>>>>>> compatible
 	protected void setJobName(String jobName) {
 		this.jobName = jobName;
 
@@ -2262,6 +2774,7 @@ public abstract class BaseBuild implements Build {
 		branchName = "master";
 	}
 
+<<<<<<< HEAD
 	protected void setResult(String result) {
 		_result = result;
 
@@ -2278,6 +2791,12 @@ public abstract class BaseBuild implements Build {
 
 	protected void setStatus(String status) {
 		if (_isDifferent(status, _status)) {
+=======
+	protected void setStatus(String status) {
+		if (((status == null) && (_status != null)) ||
+			!status.equals(_status)) {
+
+>>>>>>> compatible
 			_status = status;
 
 			statusModifiedTime = System.currentTimeMillis();
@@ -2288,6 +2807,7 @@ public abstract class BaseBuild implements Build {
 		}
 	}
 
+<<<<<<< HEAD
 	protected String toJenkinsReportDateString(Date date, String timeZoneName) {
 		Properties buildProperties = null;
 
@@ -2303,6 +2823,8 @@ public abstract class BaseBuild implements Build {
 			timeZoneName);
 	}
 
+=======
+>>>>>>> compatible
 	protected void writeArchiveFile(String content, String path)
 		throws IOException {
 
@@ -2341,10 +2863,16 @@ public abstract class BaseBuild implements Build {
 			"buildWithParameters\\?(?<queryString>.*)"));
 	protected static final Pattern jobNamePattern = Pattern.compile(
 		"(?<baseJob>[^\\(]+)\\((?<branchName>[^\\)]+)\\)");
+<<<<<<< HEAD
+=======
+	protected static JSONObject upstreamFailuresJobJSONObject = new JSONObject(
+		"{\"SHA\":\"\",\"failedBatches\":[]}");
+>>>>>>> compatible
 
 	protected String archiveName;
 	protected List<Integer> badBuildNumbers = new ArrayList<>();
 	protected String branchName;
+<<<<<<< HEAD
 	protected int consoleReadCursor;
 	protected List<Build> downstreamBuilds = new ArrayList<>();
 	protected boolean fromArchive;
@@ -2479,6 +3007,19 @@ public abstract class BaseBuild implements Build {
 		return true;
 	}
 
+=======
+	protected List<Build> downstreamBuilds = new ArrayList<>();
+	protected boolean fromArchive;
+	protected String jobName;
+	protected String master;
+	protected List<ReinvokeRule> reinvokeRules =
+		ReinvokeRule.getReinvokeRules();
+	protected String repositoryName;
+	protected String result;
+	protected long statusModifiedTime;
+	protected Element upstreamJobFailureMessageElement;
+
+>>>>>>> compatible
 	private static final FailureMessageGenerator[] _FAILURE_MESSAGE_GENERATORS =
 		{
 			new GenericFailureMessageGenerator()
@@ -2487,6 +3028,7 @@ public abstract class BaseBuild implements Build {
 	private static final String[] _HIGH_PRIORITY_CONTENT_FLAGS =
 		{"compileJSP", "SourceFormatter.format", "Unable to compile JSPs"};
 
+<<<<<<< HEAD
 	private static final String _JENKINS_REPORT_TIME_ZONE_NAME;
 
 	static {
@@ -2510,6 +3052,13 @@ public abstract class BaseBuild implements Build {
 	private Map<String, String> _parameters = new HashMap<>();
 	private final Build _parentBuild;
 	private String _result;
+=======
+	private int _buildNumber = -1;
+	private int _consoleReadCursor;
+	private String _consoleText;
+	private Map<String, String> _parameters = new HashMap<>();
+	private final Build _parentBuild;
+>>>>>>> compatible
 	private String _status;
 
 }

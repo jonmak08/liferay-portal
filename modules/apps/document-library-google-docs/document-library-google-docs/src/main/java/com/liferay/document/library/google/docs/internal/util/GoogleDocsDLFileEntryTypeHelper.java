@@ -32,9 +32,12 @@ import com.liferay.portal.kernel.service.ClassNameLocalService;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.service.UserLocalService;
 import com.liferay.portal.kernel.util.LocaleUtil;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringUtil;
 
 import java.io.IOException;
+=======
+>>>>>>> compatible
 
 import java.util.HashMap;
 import java.util.List;
@@ -79,6 +82,7 @@ public class GoogleDocsDLFileEntryTypeHelper {
 			descriptionMap.put(curLocale, "Google Docs Metadata");
 		}
 
+<<<<<<< HEAD
 		String definition = null;
 
 		try {
@@ -89,6 +93,10 @@ public class GoogleDocsDLFileEntryTypeHelper {
 		catch (IOException ioe) {
 			throw new PortalException(ioe);
 		}
+=======
+		String definition = ResourceUtil.get(
+			this, "dependencies/ddm_structure_google_docs.xml");
+>>>>>>> compatible
 
 		DDMForm ddmForm = _ddmFormXSDDeserializer.deserialize(definition);
 

@@ -24,7 +24,10 @@ import com.liferay.portal.kernel.servlet.PortalWebResourcesUtil;
 import com.liferay.portal.kernel.template.TemplateConstants;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.util.StringBundler;
+=======
+>>>>>>> compatible
 import com.liferay.portal.template.TemplateResourceParser;
 import com.liferay.portal.template.URLResourceParser;
 
@@ -70,9 +73,14 @@ public class FreeMarkerServletResourceParser extends URLResourceParser {
 
 		if (servletContext == null) {
 			_log.error(
+<<<<<<< HEAD
 				StringBundler.concat(
 					name, " is invalid because ", servletContextName,
 					" does not map to a servlet context"));
+=======
+				name + " is invalid because " + servletContextName +
+					" does not map to a servlet context");
+>>>>>>> compatible
 
 			return null;
 		}
@@ -82,9 +90,14 @@ public class FreeMarkerServletResourceParser extends URLResourceParser {
 
 		if (_log.isDebugEnabled()) {
 			_log.debug(
+<<<<<<< HEAD
 				StringBundler.concat(
 					name, " is associated with the servlet context ",
 					servletContextName, " ", String.valueOf(servletContext)));
+=======
+				name + " is associated with the servlet context " +
+					servletContextName + " " + servletContext);
+>>>>>>> compatible
 		}
 
 		URL url = servletContext.getResource(templateName);

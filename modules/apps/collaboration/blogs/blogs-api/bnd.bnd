@@ -1,5 +1,6 @@
 Bundle-Name: Liferay Blogs API
 Bundle-SymbolicName: com.liferay.blogs.api
+<<<<<<< HEAD
 Bundle-Version: 3.2.0
 Export-Package:\
 	com.liferay.blogs.configuration,\
@@ -10,5 +11,11 @@ Export-Package:\
 	com.liferay.blogs.service,\
 	com.liferay.blogs.service.persistence,\
 	com.liferay.blogs.util.comparator
+=======
+Bundle-Version: 3.0.3
+Export-Package:\
+	com.liferay.blogs.configuration,\
+	com.liferay.blogs.configuration.definition
+>>>>>>> compatible
 Liferay-Releng-Module-Group-Description:
 Liferay-Releng-Module-Group-Title: Blogs

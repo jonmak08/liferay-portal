@@ -14,6 +14,7 @@
 
 package com.liferay.dynamic.data.lists.internal.upgrade;
 
+<<<<<<< HEAD
 import com.liferay.counter.kernel.service.CounterLocalService;
 import com.liferay.dynamic.data.lists.internal.upgrade.v1_0_0.UpgradeKernelPackage;
 import com.liferay.dynamic.data.lists.internal.upgrade.v1_0_0.UpgradeLastPublishDate;
@@ -37,6 +38,12 @@ import com.liferay.portal.kernel.service.PortletPreferencesLocalService;
 import com.liferay.portal.kernel.service.ResourceActionLocalService;
 import com.liferay.portal.kernel.service.ResourcePermissionLocalService;
 import com.liferay.portal.kernel.service.UserLocalService;
+=======
+import com.liferay.dynamic.data.lists.internal.upgrade.v1_0_0.UpgradeKernelPackage;
+import com.liferay.dynamic.data.lists.internal.upgrade.v1_0_0.UpgradeLastPublishDate;
+import com.liferay.dynamic.data.lists.internal.upgrade.v1_0_0.UpgradeSchema;
+import com.liferay.dynamic.data.mapping.service.DDMStructureLocalService;
+>>>>>>> compatible
 import com.liferay.portal.upgrade.registry.UpgradeStepRegistrator;
 
 import org.osgi.service.component.annotations.Component;
@@ -45,10 +52,14 @@ import org.osgi.service.component.annotations.Reference;
 /**
  * @author Marcellus Tavares
  */
+<<<<<<< HEAD
 @Component(
 	immediate = true,
 	service = {DDLServiceUpgrade.class, UpgradeStepRegistrator.class}
 )
+=======
+@Component(immediate = true, service = UpgradeStepRegistrator.class)
+>>>>>>> compatible
 public class DDLServiceUpgrade implements UpgradeStepRegistrator {
 
 	@Override
@@ -64,6 +75,7 @@ public class DDLServiceUpgrade implements UpgradeStepRegistrator {
 		registry.register(
 			"com.liferay.dynamic.data.lists.service", "0.0.3", "1.0.0",
 			new UpgradeLastPublishDate());
+<<<<<<< HEAD
 
 		registry.register(
 			"com.liferay.dynamic.data.lists.service", "1.0.0", "1.0.1",
@@ -113,6 +125,8 @@ public class DDLServiceUpgrade implements UpgradeStepRegistrator {
 			"com.liferay.dynamic.data.lists.service", "1.2.0", "1.2.1",
 			new com.liferay.dynamic.data.lists.internal.upgrade.v1_2_1.
 				UpgradeDDLRecord(_ddmFormInstanceRecordLocalService));
+=======
+>>>>>>> compatible
 	}
 
 	@Reference(unbind = "-")
@@ -120,6 +134,7 @@ public class DDLServiceUpgrade implements UpgradeStepRegistrator {
 		DDMStructureLocalService ddmStructureLocalService) {
 	}
 
+<<<<<<< HEAD
 	@Reference
 	private ClassNameLocalService _classNameLocalService;
 
@@ -162,4 +177,6 @@ public class DDLServiceUpgrade implements UpgradeStepRegistrator {
 	@Reference
 	private UserLocalService _userLocalService;
 
+=======
+>>>>>>> compatible
 }

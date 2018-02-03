@@ -22,7 +22,10 @@ import com.liferay.asset.kernel.service.persistence.AssetCategoryFinder;
 import com.liferay.asset.kernel.service.persistence.AssetCategoryPersistence;
 import com.liferay.asset.kernel.service.persistence.AssetEntryFinder;
 import com.liferay.asset.kernel.service.persistence.AssetEntryPersistence;
+<<<<<<< HEAD
 import com.liferay.asset.kernel.service.persistence.AssetLinkFinder;
+=======
+>>>>>>> compatible
 import com.liferay.asset.kernel.service.persistence.AssetLinkPersistence;
 import com.liferay.asset.kernel.service.persistence.AssetTagFinder;
 import com.liferay.asset.kernel.service.persistence.AssetTagPersistence;
@@ -1096,8 +1099,13 @@ public abstract class AssetEntryLocalServiceBaseImpl
 	 *
 	 * @return the asset link finder
 	 */
+<<<<<<< HEAD
 	public AssetLinkFinder getAssetLinkFinder() {
 		return assetLinkFinder;
+=======
+	public com.liferay.asset.kernel.service.AssetTagLocalService getAssetTagLocalService() {
+		return assetTagLocalService;
+>>>>>>> compatible
 	}
 
 	/**
@@ -1105,6 +1113,7 @@ public abstract class AssetEntryLocalServiceBaseImpl
 	 *
 	 * @param assetLinkFinder the asset link finder
 	 */
+<<<<<<< HEAD
 	public void setAssetLinkFinder(AssetLinkFinder assetLinkFinder) {
 		this.assetLinkFinder = assetLinkFinder;
 	}
@@ -1129,6 +1138,14 @@ public abstract class AssetEntryLocalServiceBaseImpl
 	}
 
 	/**
+=======
+	public void setAssetTagLocalService(
+		com.liferay.asset.kernel.service.AssetTagLocalService assetTagLocalService) {
+		this.assetTagLocalService = assetTagLocalService;
+	}
+
+	/**
+>>>>>>> compatible
 	 * Returns the asset tag persistence.
 	 *
 	 * @return the asset tag persistence
@@ -1270,8 +1287,11 @@ public abstract class AssetEntryLocalServiceBaseImpl
 	protected com.liferay.asset.kernel.service.AssetLinkLocalService assetLinkLocalService;
 	@BeanReference(type = AssetLinkPersistence.class)
 	protected AssetLinkPersistence assetLinkPersistence;
+<<<<<<< HEAD
 	@BeanReference(type = AssetLinkFinder.class)
 	protected AssetLinkFinder assetLinkFinder;
+=======
+>>>>>>> compatible
 	@BeanReference(type = com.liferay.asset.kernel.service.AssetTagLocalService.class)
 	protected com.liferay.asset.kernel.service.AssetTagLocalService assetTagLocalService;
 	@BeanReference(type = AssetTagPersistence.class)

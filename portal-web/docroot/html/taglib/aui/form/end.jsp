@@ -32,7 +32,11 @@ String fullName = namespace + HtmlUtil.escapeJS(name);
 <aui:script use="liferay-form">
 	Liferay.Form.register(
 		{
+<<<<<<< HEAD
 			id: '<%= fullName %>'
+=======
+			id: '<%= namespace + HtmlUtil.escapeJS(name) %>'
+>>>>>>> compatible
 
 			<c:if test="<%= validatorTagsMap != null %>">
 				, fieldRules: [
@@ -78,13 +82,18 @@ String fullName = namespace + HtmlUtil.escapeJS(name);
 
 	var onDestroyPortlet = function(event) {
 		if (event.portletId === '<%= portletDisplay.getId() %>') {
+<<<<<<< HEAD
 			delete Liferay.Form._INSTANCES['<%= fullName %>'];
+=======
+			delete Liferay.Form._INSTANCES['<%= namespace + HtmlUtil.escapeJS(name) %>'];
+>>>>>>> compatible
 		}
 	};
 
 	Liferay.on('destroyPortlet', onDestroyPortlet);
 
 	<c:if test="<%= Validator.isNotNull(onSubmit) %>">
+<<<<<<< HEAD
 		A.all('#<%= fullName %> .input-container').removeAttribute('disabled');
 	</c:if>
 
@@ -94,4 +103,10 @@ String fullName = namespace + HtmlUtil.escapeJS(name);
 			formName: '<%= fullName %>'
 		}
 	);
+=======
+		A.all('#<%= namespace + HtmlUtil.escapeJS(name) %> .input-container').removeAttribute('disabled');
+	</c:if>
+
+	Liferay.fire('<portlet:namespace />formReady');
+>>>>>>> compatible
 </aui:script>

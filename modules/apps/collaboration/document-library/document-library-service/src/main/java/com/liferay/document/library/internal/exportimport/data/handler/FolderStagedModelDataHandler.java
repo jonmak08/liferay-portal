@@ -21,14 +21,21 @@ import com.liferay.document.library.kernel.model.DLFolderConstants;
 import com.liferay.document.library.kernel.service.DLAppLocalService;
 import com.liferay.document.library.kernel.service.DLFileEntryTypeLocalService;
 import com.liferay.document.library.kernel.service.DLFolderLocalService;
+<<<<<<< HEAD
 import com.liferay.exportimport.data.handler.base.BaseStagedModelDataHandler;
+=======
+>>>>>>> compatible
 import com.liferay.exportimport.kernel.lar.ExportImportPathUtil;
 import com.liferay.exportimport.kernel.lar.PortletDataContext;
 import com.liferay.exportimport.kernel.lar.PortletDataException;
 import com.liferay.exportimport.kernel.lar.StagedModelDataHandler;
 import com.liferay.exportimport.kernel.lar.StagedModelDataHandlerUtil;
 import com.liferay.exportimport.kernel.lar.StagedModelModifiedDateComparator;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+import com.liferay.exportimport.lar.BaseStagedModelDataHandler;
+>>>>>>> compatible
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.Repository;
@@ -42,12 +49,19 @@ import com.liferay.portal.kernel.trash.TrashHandlerRegistryUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.MapUtil;
 import com.liferay.portal.kernel.util.Portal;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.xml.Element;
 import com.liferay.portal.repository.liferayrepository.model.LiferayFolder;
 import com.liferay.portal.repository.portletrepository.PortletRepository;
+<<<<<<< HEAD
 import com.liferay.portal.util.RepositoryUtil;
+=======
+>>>>>>> compatible
 import com.liferay.portlet.documentlibrary.lar.FileEntryUtil;
 
 import java.util.ArrayList;
@@ -88,6 +102,7 @@ public class FolderStagedModelDataHandler
 
 	@Override
 	public Folder fetchStagedModelByUuidAndGroupId(String uuid, long groupId) {
+<<<<<<< HEAD
 		DLFolder dlFolder = _dlFolderLocalService.fetchFolder(uuid, groupId);
 
 		if (dlFolder != null) {
@@ -95,6 +110,9 @@ public class FolderStagedModelDataHandler
 		}
 
 		return null;
+=======
+		return FolderUtil.fetchByUUID_R(uuid, groupId);
+>>>>>>> compatible
 	}
 
 	@Override
@@ -161,6 +179,7 @@ public class FolderStagedModelDataHandler
 			portletDataContext.addClassedModel(
 				folderElement, folderPath, folder);
 
+<<<<<<< HEAD
 			boolean rootFolder = false;
 
 			if (folder.getFolderId() == repository.getDlFolderId()) {
@@ -170,6 +189,8 @@ public class FolderStagedModelDataHandler
 			folderElement.addAttribute(
 				"rootFolder", String.valueOf(rootFolder));
 
+=======
+>>>>>>> compatible
 			long portletRepositoryClassNameId = _portal.getClassNameId(
 				PortletRepository.class.getName());
 
@@ -216,7 +237,11 @@ public class FolderStagedModelDataHandler
 			(Map<Long, Long>)portletDataContext.getNewPrimaryKeysMap(
 				Folder.class + ".folderIdsAndRepositoryEntryIds");
 
+<<<<<<< HEAD
 		if (RepositoryUtil.isExternalRepository(folder.getRepositoryId())) {
+=======
+		if (!folder.isDefaultRepository()) {
+>>>>>>> compatible
 			Map<Long, Long> repositoryEntryIds =
 				(Map<Long, Long>)portletDataContext.getNewPrimaryKeysMap(
 					RepositoryEntry.class);
@@ -230,6 +255,7 @@ public class FolderStagedModelDataHandler
 
 		long userId = portletDataContext.getUserId(folder.getUserUuid());
 
+<<<<<<< HEAD
 		Map<Long, Long> repositoryIds =
 			(Map<Long, Long>)portletDataContext.getNewPrimaryKeysMap(
 				Repository.class);
@@ -238,6 +264,8 @@ public class FolderStagedModelDataHandler
 			repositoryIds, folder.getRepositoryId(),
 			portletDataContext.getScopeGroupId());
 
+=======
+>>>>>>> compatible
 		Map<Long, Long> folderIds =
 			(Map<Long, Long>)portletDataContext.getNewPrimaryKeysMap(
 				Folder.class);
@@ -250,6 +278,7 @@ public class FolderStagedModelDataHandler
 
 		serviceContext.setUserId(userId);
 
+<<<<<<< HEAD
 		Element folderElement = portletDataContext.getImportDataElement(folder);
 
 		Folder importedFolder = null;
@@ -289,6 +318,34 @@ public class FolderStagedModelDataHandler
 						existingFolder.getFolderId(), parentFolderId, name,
 						folder.getDescription(), serviceContext);
 				}
+=======
+		Folder importedFolder = null;
+
+		if (portletDataContext.isDataStrategyMirror()) {
+			Folder existingFolder = fetchStagedModelByUuidAndGroupId(
+				folder.getUuid(), portletDataContext.getScopeGroupId());
+
+			if (existingFolder == null) {
+				String name = getFolderName(
+					null, portletDataContext.getScopeGroupId(), parentFolderId,
+					folder.getName(), 2);
+
+				serviceContext.setUuid(folder.getUuid());
+
+				importedFolder = _dlAppLocalService.addFolder(
+					userId, portletDataContext.getScopeGroupId(),
+					parentFolderId, name, folder.getDescription(),
+					serviceContext);
+			}
+			else {
+				String name = getFolderName(
+					folder.getUuid(), portletDataContext.getScopeGroupId(),
+					parentFolderId, folder.getName(), 2);
+
+				importedFolder = _dlAppLocalService.updateFolder(
+					existingFolder.getFolderId(), parentFolderId, name,
+					folder.getDescription(), serviceContext);
+>>>>>>> compatible
 			}
 		}
 		else {
@@ -297,10 +354,19 @@ public class FolderStagedModelDataHandler
 				folder.getName(), 2);
 
 			importedFolder = _dlAppLocalService.addFolder(
+<<<<<<< HEAD
 				userId, repositoryId, parentFolderId, name,
 				folder.getDescription(), serviceContext);
 		}
 
+=======
+				userId, portletDataContext.getScopeGroupId(), parentFolderId,
+				name, folder.getDescription(), serviceContext);
+		}
+
+		Element folderElement = portletDataContext.getImportDataElement(folder);
+
+>>>>>>> compatible
 		importFolderFileEntryTypes(
 			portletDataContext, folderElement, folder, importedFolder,
 			serviceContext);
@@ -399,10 +465,16 @@ public class FolderStagedModelDataHandler
 			int count)
 		throws Exception {
 
+<<<<<<< HEAD
 		DLFolder dlFolder = _dlFolderLocalService.fetchFolder(
 			groupId, parentFolderId, name);
 
 		if (dlFolder == null) {
+=======
+		Folder folder = FolderUtil.fetchByR_P_N(groupId, parentFolderId, name);
+
+		if (folder == null) {
+>>>>>>> compatible
 			FileEntry fileEntry = FileEntryUtil.fetchByR_F_T(
 				groupId, parentFolderId, name);
 
@@ -410,7 +482,11 @@ public class FolderStagedModelDataHandler
 				return name;
 			}
 		}
+<<<<<<< HEAD
 		else if (Validator.isNotNull(uuid) && uuid.equals(dlFolder.getUuid())) {
+=======
+		else if (Validator.isNotNull(uuid) && uuid.equals(folder.getUuid())) {
+>>>>>>> compatible
 			return name;
 		}
 

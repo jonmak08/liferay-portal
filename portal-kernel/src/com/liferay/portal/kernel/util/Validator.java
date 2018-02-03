@@ -14,8 +14,11 @@
 
 package com.liferay.portal.kernel.util;
 
+<<<<<<< HEAD
 import com.liferay.petra.string.CharPool;
 
+=======
+>>>>>>> compatible
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -385,9 +388,13 @@ public class Validator {
 			return false;
 		}
 
+<<<<<<< HEAD
 		String trimmedName = name.trim();
 
 		for (char c : trimmedName.toCharArray()) {
+=======
+		for (char c : name.trim().toCharArray()) {
+>>>>>>> compatible
 			if (!isChar(c) && !isDigit(c) && !Character.isWhitespace(c)) {
 				return false;
 			}
@@ -920,6 +927,7 @@ public class Validator {
 			return false;
 		}
 
+<<<<<<< HEAD
 		int sum = 0;
 
 		int length = number.length();
@@ -947,6 +955,39 @@ public class Validator {
 		}
 
 		return false;
+=======
+		number = StringUtil.reverse(number);
+
+		int total = 0;
+
+		for (int i = 0; i < number.length(); i++) {
+			int x = 0;
+
+			if (((i + 1) % 2) == 0) {
+				x = GetterUtil.getInteger(number.substring(i, i + 1)) * 2;
+
+				if (x >= 10) {
+					String s = String.valueOf(x);
+
+					x =
+						GetterUtil.getInteger(s.substring(0, 1)) +
+							GetterUtil.getInteger(s.substring(1, 2));
+				}
+			}
+			else {
+				x = GetterUtil.getInteger(number.substring(i, i + 1));
+			}
+
+			total = total + x;
+		}
+
+		if ((total % 10) == 0) {
+			return true;
+		}
+		else {
+			return false;
+		}
+>>>>>>> compatible
 	}
 
 	/**
@@ -962,9 +1003,13 @@ public class Validator {
 			return false;
 		}
 
+<<<<<<< HEAD
 		String trimmedName = name.trim();
 
 		for (char c : trimmedName.toCharArray()) {
+=======
+		for (char c : name.trim().toCharArray()) {
+>>>>>>> compatible
 			if (!isChar(c) && !Character.isWhitespace(c)) {
 				return false;
 			}
@@ -1272,7 +1317,11 @@ public class Validator {
 	/**
 	 * Returns <code>true</code> if the character is whitespace, meaning it is
 	 * either the <code>null</code> character '0' or whitespace according to
+<<<<<<< HEAD
 	 * {@link Character#isWhitespace(char)}.
+=======
+	 * {@link java.lang.Character#isWhitespace(char)}.
+>>>>>>> compatible
 	 *
 	 * @param  c the character to check
 	 * @return <code>true</code> if the character is whitespace;
@@ -1350,7 +1399,11 @@ public class Validator {
 
 	private static final Pattern _emailAddressPattern = Pattern.compile(
 		"[\\w!#$%&'*+/=?^_`{|}~-]+(?:\\.[\\w!#$%&'*+/=?^_`{|}~-]+)*@" +
+<<<<<<< HEAD
 			"(?:\\w(?:[\\w-]*\\w)?\\.)*\\w(?:[\\w-]*\\w)?");
+=======
+			"(?:[a-zA-Z0-9](?:-*[a-zA-Z0-9])?\\.*)+");
+>>>>>>> compatible
 	private static final Pattern _ipv4AddressPattern;
 	private static final Pattern _ipv6AddressPattern;
 	private static final Pattern _variableNamePattern = Pattern.compile(

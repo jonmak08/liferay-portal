@@ -17,8 +17,11 @@
 <%@ include file="/image_gallery_display/init.jsp" %>
 
 <%
+<<<<<<< HEAD
 String redirect = ParamUtil.getString(request, "redirect");
 
+=======
+>>>>>>> compatible
 Folder folder = (Folder)request.getAttribute(WebKeys.DOCUMENT_LIBRARY_FOLDER);
 
 long folderId = BeanParamUtil.getLong(folder, request, "folderId", rootFolderId);
@@ -72,11 +75,14 @@ List fileEntries = DLAppServiceUtil.getGroupFileEntries(scopeGroupId, 0, folderI
 	PortletURL portletURL = renderResponse.createRenderURL();
 
 	portletURL.setParameter("mvcRenderCommandName", "/image_gallery_display/view");
+<<<<<<< HEAD
 
 	if (Validator.isNotNull(redirect)) {
 		portletURL.setParameter("redirect", redirect);
 	}
 
+=======
+>>>>>>> compatible
 	portletURL.setParameter("topLink", topLink);
 	portletURL.setParameter("folderId", String.valueOf(folderId));
 
@@ -105,7 +111,11 @@ List fileEntries = DLAppServiceUtil.getGroupFileEntries(scopeGroupId, 0, folderI
 
 	<c:choose>
 		<c:when test="<%= useAssetEntryQuery %>">
+<<<<<<< HEAD
 			<liferay-asset:categorization-filter
+=======
+			<liferay-ui:categorization-filter
+>>>>>>> compatible
 				assetType="images"
 				portletURL="<%= portletURL %>"
 			/>

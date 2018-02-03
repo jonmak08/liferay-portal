@@ -14,8 +14,13 @@
 
 package com.liferay.portal.security.pacl.test;
 
+<<<<<<< HEAD
 import com.liferay.document.library.kernel.service.DLFileEntryLocalService;
 import com.liferay.document.library.kernel.service.DLFileEntryLocalServiceUtil;
+=======
+import com.liferay.message.boards.kernel.service.MBMessageLocalService;
+import com.liferay.message.boards.kernel.service.MBMessageLocalServiceUtil;
+>>>>>>> compatible
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.portlet.PortletClassLoaderUtil;
 import com.liferay.portal.kernel.security.pacl.permission.PortalRuntimePermission;
@@ -60,10 +65,17 @@ public class ClassLoaderTest {
 	@Test
 	public void testGet1() throws Exception {
 		try {
+<<<<<<< HEAD
 			DLFileEntryLocalService dlFileEntryLocalService =
 				DLFileEntryLocalServiceUtil.getService();
 
 			Class<?> clazz = dlFileEntryLocalService.getClass();
+=======
+			MBMessageLocalService mbMessageLocalService =
+				MBMessageLocalServiceUtil.getService();
+
+			Class<?> clazz = mbMessageLocalService.getClass();
+>>>>>>> compatible
 
 			clazz.getClassLoader();
 

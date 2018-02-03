@@ -28,7 +28,10 @@ import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.dao.orm.SQLQuery;
 import com.liferay.portal.kernel.dao.orm.Session;
 import com.liferay.portal.kernel.dao.orm.Type;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.dao.orm.WildcardMode;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.log.Log;
@@ -82,10 +85,13 @@ public class DLFolderFinderImpl
 	public static final String FIND_FS_BY_G_F_A =
 		DLFolderFinder.class.getName() + ".findFS_ByG_F_A";
 
+<<<<<<< HEAD
 	/**
 	 * @deprecated As of 7.0.0, with no direct replacement
 	 */
 	@Deprecated
+=======
+>>>>>>> compatible
 	public static final String JOIN_AE_BY_DL_FOLDER =
 		DLFolderFinder.class.getName() + ".joinAE_ByDLFolder";
 
@@ -187,6 +193,7 @@ public class DLFolderFinderImpl
 			qPos.add(
 				PortalUtil.getClassNameId(DLFolderConstants.getClassName()));
 
+<<<<<<< HEAD
 			q.addEntity("DLFolder", DLFolderImpl.class);
 
 			return q.list(true);
@@ -216,6 +223,8 @@ public class DLFolderFinderImpl
 				CustomSQLUtil.keywords(treePath, WildcardMode.TRAILING)[0]);
 			qPos.add(classNameId);
 
+=======
+>>>>>>> compatible
 			q.addEntity("DLFolder", DLFolderImpl.class);
 
 			return q.list(true);

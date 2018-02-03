@@ -25,7 +25,10 @@ import com.liferay.portal.kernel.jsonwebservice.JSONWebService;
 import com.liferay.portal.kernel.security.access.control.AccessControlled;
 import com.liferay.portal.kernel.service.BaseService;
 import com.liferay.portal.kernel.transaction.Isolation;
+<<<<<<< HEAD
 import com.liferay.portal.kernel.transaction.Propagation;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.transaction.Transactional;
 
 import java.io.Serializable;
@@ -68,10 +71,13 @@ public interface StagingService extends BaseService {
 	*/
 	public java.lang.String getOSGiServiceIdentifier();
 
+<<<<<<< HEAD
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public boolean hasRemoteLayout(java.lang.String uuid, long groupId,
 		boolean privateLayout) throws PortalException;
 
+=======
+>>>>>>> compatible
 	public void propagateExportImportLifecycleEvent(int code, int processFlag,
 		java.lang.String processId, List<Serializable> arguments)
 		throws PortalException;

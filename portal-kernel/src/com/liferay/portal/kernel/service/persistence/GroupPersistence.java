@@ -2072,6 +2072,7 @@ public interface GroupPersistence extends BasePersistence<Group> {
 		java.lang.String groupKey);
 
 	/**
+<<<<<<< HEAD
 	* Returns all the groups where companyId = &#63; and treePath LIKE &#63; and site = &#63;.
 	*
 	* @param companyId the company ID
@@ -2233,6 +2234,8 @@ public interface GroupPersistence extends BasePersistence<Group> {
 		boolean site);
 
 	/**
+=======
+>>>>>>> compatible
 	* Returns all the groups where groupId &gt; &#63; and companyId = &#63; and classNameId = &#63; and parentGroupId = &#63;.
 	*
 	* @param groupId the group ID

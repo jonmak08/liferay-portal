@@ -25,10 +25,8 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author     Shuyang Zhou
- * @deprecated As of 7.0.0, with no direct replacement
+ * @author Shuyang Zhou
  */
-@Deprecated
 public class MapBackedSet<E> extends AbstractSet<E> implements Serializable {
 
 	public MapBackedSet(Map<E, Boolean> backedMap) {

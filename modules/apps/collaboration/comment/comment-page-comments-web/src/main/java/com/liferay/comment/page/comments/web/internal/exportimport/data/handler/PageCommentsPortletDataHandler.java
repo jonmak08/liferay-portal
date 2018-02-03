@@ -23,12 +23,19 @@ import com.liferay.exportimport.kernel.lar.PortletDataHandlerBoolean;
 import com.liferay.exportimport.kernel.lar.PortletDataHandlerControl;
 import com.liferay.exportimport.kernel.lar.StagedModelDataHandlerUtil;
 import com.liferay.exportimport.kernel.lar.StagedModelType;
+<<<<<<< HEAD
 import com.liferay.petra.string.StringPool;
+=======
+>>>>>>> compatible
 import com.liferay.portal.kernel.comment.CommentManager;
 import com.liferay.portal.kernel.comment.DiscussionStagingHandler;
 import com.liferay.portal.kernel.dao.orm.ActionableDynamicQuery;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.StagedModel;
+<<<<<<< HEAD
+=======
+import com.liferay.portal.kernel.util.StringPool;
+>>>>>>> compatible
 import com.liferay.portal.kernel.xml.Element;
 
 import java.util.List;
@@ -162,6 +169,10 @@ public class PageCommentsPortletDataHandler extends BasePortletDataHandler {
 		throws Exception {
 
 		_exportImportProcessCallbackRegistry.registerCallback(
+<<<<<<< HEAD
+=======
+			portletDataContext.getExportImportProcessId(),
+>>>>>>> compatible
 			new ImportCommentsCallable(_commentManager, portletDataContext));
 
 		return null;
