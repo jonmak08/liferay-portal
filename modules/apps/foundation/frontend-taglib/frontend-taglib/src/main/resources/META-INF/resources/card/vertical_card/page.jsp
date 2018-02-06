@@ -20,7 +20,6 @@
 
 <aui:a href="<%= url %>">
 	<div class="aspect-ratio <%= imageCSSClass %> <%= backgroundImage ? "aspect-ratio-bg-center aspect-ratio-bg-cover" : StringPool.BLANK %>" style="<%= backgroundImage ? "background-image: url('" + imageUrl + "')" : StringPool.BLANK %>">
-
 		<img alt="" class="<%= backgroundImage ? " sr-only" : StringPool.BLANK %>" src="<%= imageUrl %>" />
 
 		<c:if test="<%= Validator.isNotNull(stickerBottom) %>">
