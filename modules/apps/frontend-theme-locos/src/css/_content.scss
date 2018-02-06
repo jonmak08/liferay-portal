@@ -1,0 +1,91 @@
+#content {
+  margin: 5px 40px 0px 40px;
+  padding: 10px 10px 0px 10px;
+}
+
+#breadcrumbs {
+  height: 20px;
+  width: 100%;
+  font-size: 12px;
+  color: #e5e5d8;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  background: none;
+  ul {
+    content: " > ";
+    text-decoration: none;
+    display: inline-block;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+  }
+  .portlet-title-text {
+    display: none;
+  }
+  .portlet-content {
+    display: inline-block;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+  }
+}
+
+#main-content {
+  .portlet-title-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    max-width: 85%;
+  }
+  .portlet-content {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #333;
+    color: #D7D7D7;
+    padding: 70px;
+    .portlet-body {
+      text-align: center;
+      width: 85%;
+    }
+  }
+  > div:first-child {
+    position: absolute;
+    float: left;
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 2s;
+    animation: slide 0.5s forwards;
+    animation-delay: 2s;
+    .portlet-title-text {
+      font-size: 38px;
+      text-overflow: clip;
+      white-space: normal;
+    }
+    .portlet-content {
+      align-items: flex-start;
+      justify-content: center;
+      border-radius: 2px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      height: 75vh;
+      .portlet-body {
+        text-align: left;
+      }
+    }
+  }
+  .portlet-layout.row {
+    margin-top: 20px;
+  }
+}
+
+.portlet {
+  margin-bottom: 0;
+}
+
+@-webkit-keyframes slide {
+    100% { left: 0; }
+}
+
+@keyframes slide {
+    100% { left: 0; }
+}

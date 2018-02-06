@@ -1,0 +1,31 @@
+.animated {
+  opacity: 1;
+  animation-name: fadeInLeft;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-delay: 200ms;
+}
+
+@-webkit-keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-20px);
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

@@ -1,0 +1,48 @@
+#breadcrumbs {
+  .portlet {
+    background-color: #144d52;
+  }
+  .portlet-content {
+    margin-left: 20px;
+  }
+}
+
+#breadcrumbs, .portlet-breadcrumb {
+  height: 20px;
+  width: 100%;
+  font-size: 12px;
+  color: #FFFFF0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  background: none;
+  ul {
+    display: flex;
+    justify-content: flex-start;
+    text-decoration: none;
+    display: inline-block;
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+  }
+  .portlet-title-text {
+    display: none;
+  }
+  .portlet-content {
+    display: inline-block;
+    border: none;
+    background-color: transparent;
+  }
+}
+
+#wrapper #main-content {
+  .portlet-breadcrumb {
+    .portlet-content {
+      display: inline-block;
+      flex-flow: row wrap;
+      content: " / ";
+      justify-content: flex-start;
+      background-color: transparent;
+      padding: 0px;
+    }
+  }
+}
