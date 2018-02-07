@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+    <dynamic-element name="header" type="text" index-type="keyword">
+        <dynamic-content language-id="en_US"></dynamic-content>
+    </dynamic-element>
+
+    <dynamic-element name="image" type="image" index-type="text" instance-id="flpq">
+        <dynamic-element name="subheader" instance-id="eawz" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Moonshot]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="subtitle" instance-id="" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="summary" instance-id="lfrx" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="LinkToPage8sb9" instance-id="jceh" type="link_to_layout" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-content language-id="en_US" alt="New Lunar Republic Icon" name="new_lunar_republic_icon.png" title="new_lunar_republic_icon.png" type="document" fileEntryId="">new_lunar_republic_icon.png</dynamic-content>
+    </dynamic-element>
+
+    <dynamic-element name="image" type="image" index-type="text" instance-id="tbkn">
+        <dynamic-element name="subheader" instance-id="khqp" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Launch Pad]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="subtitle" instance-id="" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="summary" instance-id="dpid" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="LinkToPage8sb9" instance-id="ucle" type="link_to_layout" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-content language-id="en_US" alt="Kerbal Space Program Icon" name="kerbal_space_program_icon.jpg" title="kerbal_space_program_icon.jpg" type="document" fileEntryId="">kerbal_space_program_icon.jpg</dynamic-content>
+    </dynamic-element>
+
+    <dynamic-element name="image" type="image" index-type="text" instance-id="tbkn">
+        <dynamic-element name="subheader" instance-id="khqp" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Time Travel]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="subtitle" instance-id="" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="summary" instance-id="dpid" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="LinkToPage8sb9" instance-id="ucle" type="link_to_layout" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-content language-id="en_US" alt="Doctor Who Icon" name="doctor_who_icon.jpg" title="doctor_who_icon.jpg" type="document" fileEntryId="">doctor_who_icon.jpg</dynamic-content>
+    </dynamic-element>
+
+    <dynamic-element name="image" type="image" index-type="text" instance-id="tbkn">
+        <dynamic-element name="subheader" instance-id="khqp" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Info Tech]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="subtitle" instance-id="" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="summary" instance-id="dpid" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="LinkToPage8sb9" instance-id="ucle" type="link_to_layout" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-content language-id="en_US" alt="Maurice Moss Icon" name="moss_8bit_icon.jpg" title="moss_8bit_icon.jpg" type="document" fileEntryId="">moss_8bit_icon.jpg</dynamic-content>
+    </dynamic-element>
+</root>

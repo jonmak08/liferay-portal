@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+    <dynamic-element name="header" type="text" index-type="keyword">
+        <dynamic-content language-id="en_US"><![CDATA[Testimonials]]></dynamic-content>
+    </dynamic-element>
+
+    <dynamic-element name="image" type="image" index-type="text" instance-id="">
+        <dynamic-element name="subheader" instance-id="" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Lauren Faust]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="subtitle" instance-id="" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="summary" instance-id="" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur nec sem vel sapien venenatis mattis non vitae augue. Nullam congue commodo lorem vitae facilisis. Suspendisse malesuada id turpis interdum dictum.]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="LinkToPage8sb9" instance-id="" type="link_to_layout" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-content language-id="en_US" alt="Lauren Faust" name="lauren_faust.png" title="lauren_faust.png" type="document" fileEntryId="">lauren_faust.jpg</dynamic-content>
+    </dynamic-element>
+
+    <dynamic-element name="image" type="image" index-type="text" instance-id="">
+        <dynamic-element name="subheader" instance-id="" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Jebediah Kerman]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="subtitle" instance-id="" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="summary" instance-id="" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur nec sem vel sapien venenatis mattis non vitae augue. Nullam congue commodo lorem vitae facilisis. Suspendisse malesuada id turpis interdum dictum.]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="LinkToPage8sb9" instance-id="" type="link_to_layout" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-content language-id="en_US" alt="Jebediah Kerman" name="jebediah_kerman.jpg" title="jebediah_kerman.jpg" type="document" fileEntryId="">jebediah_kerman.png</dynamic-content>
+    </dynamic-element>
+
+    <dynamic-element name="image" type="image" index-type="text" instance-id="">
+        <dynamic-element name="subheader" instance-id="" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[David Tennant]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="subtitle" instance-id="" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="summary" instance-id="" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur nec sem vel sapien venenatis mattis non vitae augue. Nullam congue commodo lorem vitae facilisis. Suspendisse malesuada id turpis interdum dictum.]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="LinkToPage8sb9" instance-id="" type="link_to_layout" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-content language-id="en_US" alt="David Tennant" name="david_tennant.jpg" title="david_tennant.jpg" type="document" fileEntryId="">david_tennant.jpg</dynamic-content>
+    </dynamic-element>
+</root>
