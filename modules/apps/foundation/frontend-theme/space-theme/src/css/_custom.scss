@@ -1,36 +1,18 @@
-/* These inject tags are used for dynamically creating imports for themelet styles, you can place them where ever you like in this file. */
-
-/* inject:imports */
-/* endinject */
-
-/* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
-/*
-    ------------------------
-    ----- 1. Variables -----
-    ------------------------
-*/
-// @import "_navbar";
-//Liferay Media Queries 
 $screen-lg: 1200px !default;
 $screen-lg-min: $screen-lg;
 $screen-lg-desktop: $screen-lg-min;
-
 $screen-md: 992px !default;
 $screen-md-min: $screen-md;
 $screen-desktop: $screen-md-min;
-
 $screen-sm: 768px !default;
 $screen-sm-min: $screen-sm;
 $screen-tablet: $screen-sm-min;
-
 $screen-xs: 480px !default;
 $screen-xs-min: $screen-xs;
 $screen-phone: $screen-xs-min;
-
 $screen-md-max: ($screen-lg-min - 1) !default;
 $screen-sm-max: ($screen-md-min - 1) !default;
 $screen-xs-max: ($screen-sm-min - 1) !default;
-
 $media-query-sizes: (
 	xs: $screen-xs,
 	sm: $screen-sm,
@@ -38,23 +20,18 @@ $media-query-sizes: (
 	lg: $screen-lg
 );
 
-
-
-
-$background: #333b43;
-$background-alt: #f2f2f5;
-$base-color: #0272aa;
+$background: #333B43;
+$background-alt: #F2F2F5;
+$base-color: #0272AA;
 $base-color-hover: darken($base-color, 10%);
-$blue: #3c4251;
-$dark-blue: #333745;
-$grey: #f5f2f5;
+$blue: #3C4251;
+$dark-blue: #20222B;
+$grey: #F5F2F5; 
 $heading: #374054;
-$light-blue: #67aae9;
-$off-black: #20222b;  
-$off-white: #ffffff; 
-$text: #74808a;
-$theme: #20222b;
-
+$light-blue: #67AAE9;
+$off-black: #20222B;  
+$white: #FFFFFF; 
+$text: #74808A;
 
 $xxl-size: 6.2rem;
 $xl-size: 4.8rem;
@@ -63,30 +40,27 @@ $m-size: 1.6rem;
 $s-size: 1.2rem;
 $desktop-breakpoint: 45rem;
 
-
 #wrapper {
-
+    background-color: $background;
+    color: $off-black;
     margin: 0 auto;
     padding:0;
     position:relative;
-    background-color: $background;
-    color: $off-black;
-
+    
         h1 {
-            font-size: $xxl-size;
-            font-family: Helvetica, Arial;
-            font-weight: 1000;
             color: $off-black;
-            width: 300px;
             display: inline-block;
-            vertical-align: middle;
-            margin-top: 10px;
+            font-family: Helvetica, Arial;
+            font-size: $xxl-size;
+            font-weight: 1000;
             margin-bottom: 10px;
-
+            margin-top: 10px;
+            vertical-align: middle;
+            width: 300px;
         }
 
         #heading {
-            background-color: $off-white;
+            background-color: $white;
         }
 
         #navigation {
@@ -96,52 +70,53 @@ $desktop-breakpoint: 45rem;
             .container-fluid {
                 padding-left: 37px;
                 padding-right: 37px;
-                background-color: $off-white;
+                background-color: $white;
                 position: fixed;
                 width: 100%;
                 z-index: 1000;
             }
     
             ul {
-                background-color: $off-white;
-                margin: 0px;
-                padding: 0px;
-                overflow: hidden;
-                width: 100%;
+                background-color: $white;
                 display: inline-block;
-                width: 1193px;
-                vertical-align: middle;
+                margin: 0px;
+                overflow: hidden;
+                padding: 0px;
                 padding-top: 5px;
+                vertical-align: middle;
+                width: 100%;
+                width: 1193px;
     
                 li {
                     float: left;
-                }
-    
-                li a {
-                    display: block;
-                    color: $off-black;
-                    margin: 0px;
-                    padding: 14px 16px;
-                    text-align: center;
-                    font-size: 2.6rem;
-                    text-transform: uppercase;
-                    font-family: Open Sans, Helvetica, Arial;     
-                }
-    
-                li a:hover {
-                    color: $light-blue;
-                    text-decoration: none;
-                }   
+                    a {
+                        color: $off-black;
+                        display: block;
+                        margin: 0px;
+                        padding: 14px 16px;
+                        font-family: Open Sans, Helvetica, Arial;    
+                        font-size: 2.6rem;
+                        text-align: center;
+                        text-transform: uppercase;
+                        &:hover {
+                            color: $light-blue;
+                            text-decoration: none;
+                        }
+                    }
+                }  
             }
+
             @media screen and (max-width: 900px) {
                 h1 {
                     display: block;
                 }
+
                 ul {
                     list-style-type: none;
                     margin: 0;
                     padding: 0;
                     width: 200px;
+
                   li a {
                       display: block;
                       padding: 8px 16px;
@@ -151,42 +126,39 @@ $desktop-breakpoint: 45rem;
             }
         }
 
-
     #content {
-        color: $off-white;
         background-color: $background;
-        border: $theme;
+        border: $dark-blue;
         border-width: 3px;
+        color: $white;
+
         #main-content {
-            //   background-color: red;
-            border: $theme;
+            border: $dark-blue;
             border-width: 3px;
+
             .portlet {
                 background-color: $light-blue;
-                border: $theme;
+                border: $dark-blue;
                 border-width: 3px;
             }
         } 
     }
     
     #footer {
-        background-color: #1f2021;
+        background-color: #1F2021;
         color: $light-blue;
+        height: 70px;
+        font-size: $s-size;
         font-style: inherit;
         font-weight: inherit;
-        font-size: $s-size;
-        height: 70px;
 
         p {
-            padding-left: 80px;
-            padding-top: 15px;
             font-size: 16px;
+            padding-left: 80px;
+            padding-top: 15px;   
         }
-    }
-    
-
-
-    /*------------------------------------------------------------------NAV STYLING----------------------------------------------------------------*/
+    }   
+/*------------------------------------------------------------------NAV STYLING----------------------------------------------------------------*/
     .portlet-content.portlet-content-editable {
         background-color:$grey;
         color: $off-black;
@@ -194,48 +166,41 @@ $desktop-breakpoint: 45rem;
         h2 {
             text-transform: uppercase;
         }
-
     }
+
     .portlet-content {
         background-color: $grey;
         color: $off-black;
-    }
-    
-}
 
+        h2 {
+            text-transform: uppercase;
+            &:hover {
+                color: $light-blue;
+                cursor: pointer;
+            }
+        }
+    }
+}
 
 /*--------------------------------------------------------------------Modal Styling------------------------------------------------------------------- */
-
-.modalBtn {
-    box-sizing: border-box;
-    border-radius: 5px;
-    height: 35px;
-    font-size: 20px;
-}
-
-.modalBtn:hover {
-    background-color: $light-blue;
-    color: $off-white;
-}
-
 .modal {
+    background-color: rgba(0, 0, 0, 0.5);
     display: none;
-    position: fixed;
-    z-index: 1;
+    height: 100%;
     left: 0; 
+    overflow: auto; 
+    position: fixed;
     top: 0; 
     width: 100%;
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1; 
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
+    background-color: #FEFEFE;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    margin: 15% auto; 
+    padding: 20px;
+    width: 80%; 
 }
 
 .close {
@@ -243,13 +208,9 @@ $desktop-breakpoint: 45rem;
     float: right;
     font-size: 28px;
     font-weight: bold;
+    &:hover, &:focus {
+        color: black;
+        cursor: pointer;
+        text-decoration: none;
+    }
 }
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-

@@ -1,9 +1,9 @@
 var modal = document.getElementById('simpleModal');
-var modalBtn = document.getElementsByClassName('modalBtn'); 
+var modalBtn = document.getElementsByClassName('portlet-title-text'); 
 var closeBtn = document.getElementsByClassName('closeBtn')[0];
 
  //converts buttons from an HTMLcollection to an array. This may be ineffecient if there is a way to iterate over HTMLCollection object. 
-const buttonArr = Object.values(modalBtn);
+var buttonArr = Object.values(modalBtn);
 
 
 
@@ -16,14 +16,14 @@ closeBtn.addEventListener('click', closeModal);
 window.addEventListener('click', clickOutside);
 
 function openModal(element) {
-    const content = this.parentNode.cloneNode(true); 
+    var content = this.parentNode.cloneNode(true); 
     document.getElementById("parentContent").appendChild(content);
     modal.style.display = 'block';
 }
 
 
 function closeModal() {
-    const myNode = document.getElementById("parentContent");
+    var myNode = document.getElementById("parentContent");
     while (myNode.firstChild) {
         myNode.removeChild(myNode.firstChild);
     }
@@ -33,7 +33,7 @@ function closeModal() {
 
 function clickOutside(e) {
     if (e.target == modal) {
-        const myNode = document.getElementById("parentContent");
+        var myNode = document.getElementById("parentContent");
         while (myNode.firstChild) {
             myNode.removeChild(myNode.firstChild);
         }
@@ -41,15 +41,3 @@ function clickOutside(e) {
     }
 }
 
-
-
-// window.onscroll = function() {stickyNav()};
-// var navbar = document.getElementById("navbar"); 
-// var sticky = navbar.offsetTop;
-// function stickyNav() {
-//   if (window.pageYOffset >= sticky) {
-//     navbar.classList.add("sticky")
-//   } else {
-//     navbar.classList.remove("sticky");
-//   }
-// }

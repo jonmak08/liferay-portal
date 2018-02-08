@@ -54,20 +54,14 @@
 		</#if>
 
 		<h2 class="portlet-title-text">${portlet_title} portlet title</h2>
-			<!-- Trigger/Open The Modal -->
-			
-
-					<!-- The Modal -->
-
 
 		${portlet_display.writeContent(writer)}
+
 		<div id="simpleModal" class="modal">
-			<!-- Modal content -->
 			<div class="modal-content">
 				<span class="closeBtn">&times;</span>
 				<div id="parentContent"></div>
+			</div>
 		</div>
-	</div>
-	<button class="modalBtn" class="button">READ MORE</button>
 </section>
 
