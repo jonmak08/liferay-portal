@@ -1,0 +1,255 @@
+/* These inject tags are used for dynamically creating imports for themelet styles, you can place them where ever you like in this file. */
+
+/* inject:imports */
+/* endinject */
+
+/* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
+/*
+    ------------------------
+    ----- 1. Variables -----
+    ------------------------
+*/
+// @import "_navbar";
+//Liferay Media Queries 
+$screen-lg: 1200px !default;
+$screen-lg-min: $screen-lg;
+$screen-lg-desktop: $screen-lg-min;
+
+$screen-md: 992px !default;
+$screen-md-min: $screen-md;
+$screen-desktop: $screen-md-min;
+
+$screen-sm: 768px !default;
+$screen-sm-min: $screen-sm;
+$screen-tablet: $screen-sm-min;
+
+$screen-xs: 480px !default;
+$screen-xs-min: $screen-xs;
+$screen-phone: $screen-xs-min;
+
+$screen-md-max: ($screen-lg-min - 1) !default;
+$screen-sm-max: ($screen-md-min - 1) !default;
+$screen-xs-max: ($screen-sm-min - 1) !default;
+
+$media-query-sizes: (
+	xs: $screen-xs,
+	sm: $screen-sm,
+	md: $screen-md,
+	lg: $screen-lg
+);
+
+
+
+
+$background: #333b43;
+$background-alt: #f2f2f5;
+$base-color: #0272aa;
+$base-color-hover: darken($base-color, 10%);
+$blue: #3c4251;
+$dark-blue: #333745;
+$grey: #f5f2f5;
+$heading: #374054;
+$light-blue: #67aae9;
+$off-black: #20222b;  
+$off-white: #ffffff; 
+$text: #74808a;
+$theme: #20222b;
+
+
+$xxl-size: 6.2rem;
+$xl-size: 4.8rem;
+$l-size: 3.2rem;
+$m-size: 1.6rem;
+$s-size: 1.2rem;
+$desktop-breakpoint: 45rem;
+
+
+#wrapper {
+
+    margin: 0 auto;
+    padding:0;
+    position:relative;
+    background-color: $background;
+    color: $off-black;
+
+        h1 {
+            font-size: $xxl-size;
+            font-family: Helvetica, Arial;
+            font-weight: 1000;
+            color: $off-black;
+            width: 300px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-top: 10px;
+            margin-bottom: 10px;
+
+        }
+
+        #heading {
+            background-color: $off-white;
+        }
+
+        #navigation {
+            background-color: $background;
+            height: 100px;
+
+            .container-fluid {
+                padding-left: 37px;
+                padding-right: 37px;
+                background-color: $off-white;
+                position: fixed;
+                width: 100%;
+                z-index: 1000;
+            }
+    
+            ul {
+                background-color: $off-white;
+                margin: 0px;
+                padding: 0px;
+                overflow: hidden;
+                width: 100%;
+                display: inline-block;
+                width: 1193px;
+                vertical-align: middle;
+                padding-top: 5px;
+    
+                li {
+                    float: left;
+                }
+    
+                li a {
+                    display: block;
+                    color: $off-black;
+                    margin: 0px;
+                    padding: 14px 16px;
+                    text-align: center;
+                    font-size: 2.6rem;
+                    text-transform: uppercase;
+                    font-family: Open Sans, Helvetica, Arial;     
+                }
+    
+                li a:hover {
+                    color: $light-blue;
+                    text-decoration: none;
+                }   
+            }
+            @media screen and (max-width: 900px) {
+                h1 {
+                    display: block;
+                }
+                ul {
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+                    width: 200px;
+                  li a {
+                      display: block;
+                      padding: 8px 16px;
+                      text-decoration: none;
+                  }
+                }
+            }
+        }
+
+
+    #content {
+        color: $off-white;
+        background-color: $background;
+        border: $theme;
+        border-width: 3px;
+        #main-content {
+            //   background-color: red;
+            border: $theme;
+            border-width: 3px;
+            .portlet {
+                background-color: $light-blue;
+                border: $theme;
+                border-width: 3px;
+            }
+        } 
+    }
+    
+    #footer {
+        background-color: #1f2021;
+        color: $light-blue;
+        font-style: inherit;
+        font-weight: inherit;
+        font-size: $s-size;
+        height: 70px;
+
+        p {
+            padding-left: 80px;
+            padding-top: 15px;
+            font-size: 16px;
+        }
+    }
+    
+
+
+    /*------------------------------------------------------------------NAV STYLING----------------------------------------------------------------*/
+    .portlet-content.portlet-content-editable {
+        background-color:$grey;
+        color: $off-black;
+
+        h2 {
+            text-transform: uppercase;
+        }
+
+    }
+    .portlet-content {
+        background-color: $grey;
+        color: $off-black;
+    }
+    
+}
+
+
+/*--------------------------------------------------------------------Modal Styling------------------------------------------------------------------- */
+
+.modalBtn {
+    box-sizing: border-box;
+    border-radius: 5px;
+    height: 35px;
+    font-size: 20px;
+}
+
+.modalBtn:hover {
+    background-color: $light-blue;
+    color: $off-white;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0; 
+    top: 0; 
+    width: 100%;
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
