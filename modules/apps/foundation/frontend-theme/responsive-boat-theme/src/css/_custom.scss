@@ -1,0 +1,290 @@
+
+$mobileNavExpandTime: 0.4s;
+$navLinkFadeTime: 0.5s;
+$navBtnPadding: 20px;
+$navBtnHeight: 40px;
+
+/* All styling is nested within #wrapper selector to avoid accidentally styling the liferay menus */
+
+#wrapper {
+	background-attachment: fixed; 		// background stays fixed while scrolling
+	background-color: #A9A9A9; 			// default background when image is not loaded
+	background-image: url("../images/background.jpg");
+	background-position-x: center;
+	background-size: cover;
+	padding: 0; 						// eliminate white spaces on edges of webpage
+	text-align: center; 				// default text-alignment to center all child texts and elements
+
+	#banner {
+		background: rgba(0, 0, 0, 0.5);
+		color: #FFF;
+		padding-bottom: 500px;			// add space below navbar to copy the Wordpress theme
+	}
+
+	/* ---------- NAVIGATION SECTION ---------- */
+
+	#navigation {
+		background: rgba(0, 0, 0, 0.25);
+		position: fixed;
+		text-transform: uppercase;
+		width: 100%;
+		z-index: 1; 					// found that some portlet content overlaps the navigation bar unless z-index is set to 1 or higher
+
+		div.nav-btn {
+			display: none; 				// hide mobile nav-button until screen width is small enough
+		}
+
+		div, ul, .navbar, .portlet {
+			border-width: 0; 			// eliminate unnecessary borders that just make navbar taller (that were set outside of my css)
+		}
+
+		.portlet-topper { 				// restyle portlet topper for navbar
+			border-radius: 4px;
+			bottom: 0;
+			top: unset;
+			width: 200px;
+
+			span {
+				line-height: 32px;
+			}
+		}
+
+		.portlet:hover, .portlet:focus {
+			> .portlet-topper {
+				transform: translateY(100%); // change direction that portlet topper floats
+			}
+		}
+
+		.navbar, .portlet, ul {
+			margin: 0; 					// eliminate unnecessary and pesky margins in navbar (also set outside of my css)
+		}
+
+		.portlet-title-text { display: none; } // hide portlet-title (used to be hidden until I changed it to an h1 in the template)
+
+		ul.nav {
+			float: none;
+			list-style: none; 			// get rid of more unnecessary styling
+
+			li { 						// arrange nav-links horizontally
+				display: inline-block;
+				float: none;
+				padding: 20px 15px;
+
+				a {
+					background: none;
+					color: inherit;
+					display: block;
+					padding: 10px 0;
+					text-decoration: none;
+					transition: color $navLinkFadeTime;
+
+					&:hover {
+						color: #FFDD00;
+						transition: color $navLinkFadeTime;
+					}
+				}
+			}
+		}
+
+		&.scrolled { 					// JS-toggled class that reorganizes navbar links and darkens navbar
+			@include media-query(sm) {	// prevent this from applying to navbar when it's styled for mobile devices
+				background: rgba(0, 0, 0, 0.9);
+
+				ul.nav {
+					padding-right: 15px;
+					text-align: right;
+				}
+			}
+		}
+
+		@include media-query(null, sm) { 	// change navbar look for mobile devices
+			background: rgba(0, 0, 0, 0.75);
+			overflow-y: hidden;
+			position: static;
+			text-align: right;			// align nav button inline-block element to right
+			transition: max-height $mobileNavExpandTime;
+
+			div.nav-btn {
+				background: #808080;
+				border-radius: 4px;
+				cursor: pointer;
+				display: inline-block;	// show nav button (changed from display: none;)
+				font-size: 30px;
+				height: $navBtnHeight;
+				margin: $navBtnPadding 25px;
+				padding: 5px 10px;
+				text-align: center;
+			}
+
+			.portlet {
+				display: none;
+			}
+
+			.portlet-topper { 			// move portlet topper to top of nav links
+				bottom: unset;
+				top: 0;
+			}
+
+			.portlet:hover, .portlet.focus {
+				> .portlet-topper {
+					transform: translateY(0); // prevent nav portlet topper from floating down
+				}
+			}
+
+			ul.nav { 					// restyle nav links for mobile friendly viewing
+				border-top: 1.5px solid #444;
+				margin: 0 15px;
+				padding-bottom: 15px;
+				text-align: left;
+
+				li {
+					border-bottom: 1px solid #FFF;
+					display: block;		// list nav links vertically
+					margin: 0 15px;
+					padding: 5px 0;
+				}
+			}
+
+			&.expand { 					// JS-toggled class for expanding navbar and changing nav button color
+				transition: max-height $mobileNavExpandTime;
+
+				div.nav-btn {
+					background: #D44;
+				}
+			}
+		}
+	}
+
+	/* ---------- HEADING SECTION ---------- */
+
+	#heading {
+		padding-top: 100px; 			// keep header below FIXED navbar
+		width: 100%;
+
+		* {
+			display: inline-block;
+			margin: 0;					// remove unnecessary margins
+		}
+
+		span::first-letter {
+			background: #ffdd00;
+			color: #FFF;
+			padding: 0 5px;
+		}
+
+		@include media-query(null, sm) {
+			padding-top: 20px;			// reposition header to similar position below a STATIC navbar
+		}
+	}
+
+	/* ---------- GENERAL PORTLET RULES ---------- */
+
+	.portlet {
+		margin: 0;						// eliminate margin below each portlet to make them flush with each other
+	}
+
+	.portlet-column {
+		padding: 0;						// allow portlets to stretch entire page width
+	}
+
+	.portlet-content {
+		border-width: 0; 				// make portlets square without borders
+		border-radius: 0;
+
+		h1 {
+			font-weight: bold;
+			margin-top: 0; 				//get rid of vertical gaps between portlets
+			text-transform: uppercase;
+			white-space: initial; 		// make portlet titles wrap to next line instead of cutting off in thinner windows
+		}
+
+		.portlet-title-text::after { 	// add small underline under portlet title
+			background: #ffdd00;
+			content: ' ';
+			display: block;
+			height: 4px;
+			margin: 8px auto 20px auto;
+			width: 40px;
+		}
+
+		.portlet-body {
+			h1 {
+				font-size: 16px;		// make header of portlet body smaller than portlet title
+			}
+
+			p {
+				margin: 40px 0 0 0;
+				opacity: 0;
+				transform: translateY(100px);
+
+				&.visible{				// JS-toggled class for making content appear when scrolling down
+					opacity: unset;
+					transform: unset;
+					transition: all 0.7s ease-out;
+				}
+			}
+		}
+	}
+
+	/* ---------- CONTENT SECTION ---------- */
+
+	#content {
+		&::before {						// add white stripe between heading and content
+			background: #FFF;
+			content: ' ';
+			display: block;
+			height: 150px;
+		}
+
+		.row {
+			margin: 0;					// eliminate unnecessary margins
+		}
+
+		.portlet-decorate {				// make different decorators resemble different content section styles
+			background: #FFF;
+		}
+
+		.portlet-barebone {
+			background: rgba(45, 45, 45, 0.95);
+
+			h1 {
+				color: #FFF;
+			}
+
+			p {
+				color: #808080;
+			}
+		}
+
+		.portlet-borderless {
+			background: rgba(255, 221, 0, 0.7);
+
+			.portlet-title-text::after {
+				background: #444;
+			}
+		}
+
+		.portlet-content {
+			margin: 0 auto; 			// center portlet content
+			padding: 80px 0 40px 0;
+			width: 75%;
+		}
+	}
+
+	/* ---------- FOOTER SECTION ---------- */
+
+	#footer {
+		background: rgba(39, 39, 39, 0.95);
+		color: #696969;
+
+		p {
+			background: #111;
+			margin: 0 100px;
+			padding: 30px 0;
+		}
+
+		a {
+			color: #D3D3D3; 			// Make "Liferay" link lighter than other text
+		}
+	}
+}
