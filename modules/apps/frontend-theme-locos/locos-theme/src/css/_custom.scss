@@ -1,0 +1,29 @@
+@import "bourbon";
+
+@import "_banner";
+@import "_content";
+
+$ivory-color: #E5E5D8;
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: $ivory-color;
+  min-width: 500px;
+}
+
+#wrapper {
+  background: $ivory-color;
+  font-family: $helvetica;
+  min-height: 100%;
+  padding: 0;
+  position: relative;
+
+  #footer {
+    display: none;
+  }
+
+}
