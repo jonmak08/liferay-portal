@@ -21,6 +21,7 @@
 
 		<#if (portlet_configuration_icons?has_content || portlet_title_menus?has_content)>
 			<header class="portlet-topper">test- header class portlet-topper
+
 				<div class="portlet-title-default">
 					<span class="portlet-name-text">${portlet_display_name}</span>
 				</div>
@@ -52,7 +53,6 @@
 				/>
 			</a>
 		</#if>
-
 		<h2 class="portlet-title-text">${portlet_title} portlet title</h2>
 
 		${portlet_display.writeContent(writer)}
@@ -63,5 +63,6 @@
 				<div id="parentContent"></div>
 			</div>
 		</div>
+	</div>
 </section>
 

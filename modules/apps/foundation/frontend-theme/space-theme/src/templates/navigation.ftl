@@ -1,7 +1,12 @@
 
-<nav class="${nav_css_class}" id="navigation" role="navigation"  class="navbar navbar-default navbar-fixed-top">
+<nav class="${nav_css_class}" id="navigation" role="navigation">
+
 	<div class="container-fluid">
-		<h1 class="hide-accessible"><@liferay.language key="navigation" /></h1>
+
+		<h1 class="hide-accessible">
+			<@liferay.language key="navigation" />
+		</h1>
+
 		<h1 class="site-title">
 			<a class="${logo_css_class}" href="${site_default_url}" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
 				<img alt="${logo_description}" height="${site_logo_height}" src="${site_logo}" width="${site_logo_width}" />
@@ -14,7 +19,7 @@
 			</#if> 
 		</h1>
 
-		<ul aria-label="<@liferay.language key="site-pages" />" role="menubar" id="navbar">
+		<ul aria-label="<@liferay.language key="site-pages" />" id="navbar" role="menubar" >
 
 			<#list nav_items as nav_item>
 				<#assign
