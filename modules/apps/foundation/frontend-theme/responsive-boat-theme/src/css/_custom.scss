@@ -2,14 +2,14 @@ $mobileNavExpandTime: 0.4s;
 $navBtnHeight: 40px;
 $navBtnPadding: 20px;
 $navLinkFadeTime: 0.5s;
-$myYellow: #FFDD00;
+$yellow: #FFDD00;
 
-/* All styling is nested within #wrapper selector to avoid accidentally styling the liferay menus */
+// All styling is nested within #wrapper selector to avoid accidentally styling the liferay menus
 
 #wrapper {
 	background-attachment: fixed;
 	background-color: #A9A9A9;
-	background-image: url("../images/background.jpg");
+	background-image: url(@theme_image_path@/background.jpg);
 	background-position-x: center;
 	background-size: cover;
 	padding: 0;
@@ -18,7 +18,7 @@ $myYellow: #FFDD00;
 	#banner {
 		background: rgba(0, 0, 0, 0.5);
 		color: #FFF;
-		padding-bottom: 500px;			// add space below navbar to copy the Wordpress theme
+		padding-bottom: 500px;								// add space below navbar to copy the Wordpress theme
 	}
 
 	/* ---------- Navigation section ---------- */
@@ -28,14 +28,14 @@ $myYellow: #FFDD00;
 		position: fixed;
 		text-transform: uppercase;
 		width: 100%;
-		z-index: 1; 					// found that some portlet content overlaps the navigation bar unless z-index is set to 1 or higher
+		z-index: 1; 										// some portlet content overlaps the navigation bar unless z-index is >= 1
 
 		div.nav-btn {
 			display: none;
 		}
 
 		div, ul, .navbar, .portlet {
-			border-width: 0; 			// eliminate unnecessary borders that just make navbar taller (that were set outside of my css)
+			border-width: 0; 								// eliminate unnecessary borders that just make navbar taller
 		}
 
 		.portlet-topper {
@@ -49,25 +49,25 @@ $myYellow: #FFDD00;
 			}
 		}
 
-		.portlet:hover, .portlet:focus {
+		.portlet:focus, .portlet:hover {
 			.portlet-topper {
-				transform: translateY(100%); // change direction that portlet topper floats
+				transform: translateY(100%); 				// change direction that portlet topper floats
 			}
 		}
 
 		.navbar, .portlet, ul {
-			margin: 0; 					// eliminate unnecessary and pesky margins in navbar (also set outside of my css)
+			margin: 0; 										// eliminate unnecessary and pesky margins in navbar
 		}
 
 		.portlet-title-text {
-			display: none;				// hide portlet-title (used to be hidden until I changed it to an h1 in the template)
+			display: none;									// hide portlet-title
 		}
 
 		ul.nav {
 			float: none;
-			list-style: none; 			// get rid of more unnecessary styling
+			list-style: none; 								// get rid of more unnecessary styling
 
-			li { 						// arrange nav-links horizontally
+			li { 											// arrange nav-links horizontally
 				display: inline-block;
 				float: none;
 				padding: 20px 15px;
@@ -81,15 +81,15 @@ $myYellow: #FFDD00;
 					transition: color $navLinkFadeTime;
 
 					&:hover {
-						color: $myYellow;
+						color: $yellow;
 						transition: color $navLinkFadeTime;
 					}
 				}
 			}
 		}
 
-		@include media-query(sm) {			// prevent this from applying to navbar when it's styled for mobile devices
-			&.scrolled { 					// JS-toggled class that reorganizes navbar links and darkens navbar
+		@include media-query(sm) {							// prevent this from applying to navbar when it's styled for mobile devices
+			&.scrolled { 									// JS-toggled class that reorganizes navbar links and darkens navbar
 				background: rgba(0, 0, 0, 0.9);
 
 				ul.nav {
@@ -99,17 +99,17 @@ $myYellow: #FFDD00;
 			}
 		}
 
-		@include media-query(null, sm) { 	// change navbar look for mobile devices
+		@include media-query(null, sm) { 					// change navbar look for mobile devices
 			background: rgba(0, 0, 0, 0.75);
 			overflow-y: hidden;
 			position: static;
-			text-align: right;			// align nav button inline-block element to right
+			text-align: right;								// align nav button inline-block element to right
 
 			div.nav-btn {
 				background: #808080;
 				border-radius: 4px;
 				cursor: pointer;
-				display: inline-block;	// show nav button
+				display: inline-block;						// show nav button
 				font-size: 30px;
 				height: $navBtnHeight;
 				margin: $navBtnPadding 25px;
@@ -120,8 +120,8 @@ $myYellow: #FFDD00;
 			.portlet {
 				display: none;
 
-				&, &:hover, &:focus {
-					.portlet-topper { 			// move portlet topper to top of nav links
+				&, &:focus, &:hover {
+					.portlet-topper { 						// move portlet topper to top of nav links
 						bottom: unset;
 						top: 0;
 						position: absolute;
@@ -130,7 +130,7 @@ $myYellow: #FFDD00;
 				}
 			}
 
-			ul.nav { 					// restyle nav links for mobile friendly viewing
+			ul.nav { 										// restyle nav links for mobile friendly viewing
 				border-top: 1.5px solid #444;
 				margin: 0 15px;
 				padding-bottom: 15px;
@@ -138,13 +138,13 @@ $myYellow: #FFDD00;
 
 				li {
 					border-bottom: 1px solid #FFF;
-					display: block;		// list nav links vertically
+					display: block;							// list nav links vertically
 					margin: 0 15px;
 					padding: 5px 0;
 				}
 			}
 
-			&.expand div.nav-btn { 		// JS-toggled class for changing nav button color
+			&.expand div.nav-btn { 							// JS-toggled class for changing nav button color
 					background: #D44;
 			}
 		}
@@ -153,7 +153,7 @@ $myYellow: #FFDD00;
 	/* ---------- Heading section ---------- */
 
 	#heading {
-		padding-top: 100px; 			// keep header below FIXED navbar
+		padding-top: 100px; 								// keep header below FIXED navbar
 		width: 100%;
 
 		* {
@@ -162,39 +162,39 @@ $myYellow: #FFDD00;
 		}
 
 		span::first-letter {
-			background: $myYellow;
+			background: $yellow;
 			color: #FFF;
 			padding: 0 5px;
 		}
 
 		@include media-query(null, sm) {
-			padding-top: 20px;			// reposition header to stay below navbar when it expands in mobile view
+			padding-top: 20px;								// reposition header to stay below navbar when it expands in mobile view
 		}
 	}
 
 	/* ---------- General portlet rules ---------- */
 
 	.portlet {
-		margin: 0;						// eliminate margin below each portlet to make them flush with each other
+		margin: 0;											// eliminate margin below each portlet to make them flush with each other
 	}
 
 	.portlet-column {
-		padding: 0;						// allow portlets to stretch entire page width
+		padding: 0;											// allow portlets to stretch entire page width
 	}
 
 	.portlet-content {
 		border-radius: 0;
-		border-width: 0; 				// make portlets square without borders
+		border-width: 0; 									// make portlets square without borders
 
 		h1 {
 			font-weight: bold;
-			margin-top: 0; 				//get rid of vertical gaps between portlets
+			margin-top: 0; 									//get rid of vertical gaps between portlets
 			text-transform: uppercase;
-			white-space: initial; 		// make portlet titles wrap to next line instead of cutting off in thinner windows
+			white-space: initial; 							// make portlet titles wrap to next line instead of cutting off in thinner windows
 		}
 
-		.portlet-title-text::after { 	// add small underline under portlet title
-			background: $myYellow;
+		.portlet-title-text::after { 						// add small underline under portlet title
+			background: $yellow;
 			content: ' ';
 			display: block;
 			height: 4px;
@@ -204,7 +204,7 @@ $myYellow: #FFDD00;
 
 		.portlet-body {
 			h1 {
-				font-size: 16px;		// make header of portlet body smaller than portlet title
+				font-size: 16px;							// make header of portlet body smaller than portlet title
 			}
 
 			p {
@@ -212,7 +212,7 @@ $myYellow: #FFDD00;
 				opacity: 0;
 				transform: translateY(100px);
 
-				&.visible{				// JS-toggled class for making content appear when scrolling down
+				&.visible{									// JS-toggled class for making content appear when scrolling down
 					opacity: unset;
 					transform: unset;
 					transition: all 0.7s ease-out;
@@ -224,7 +224,7 @@ $myYellow: #FFDD00;
 	/* ---------- Content section ---------- */
 
 	#content {
-		&::before {						// add white stripe between heading and content
+		&::before {											// add white stripe between heading and content
 			background: #FFF;
 			content: ' ';
 			display: block;
@@ -232,7 +232,7 @@ $myYellow: #FFDD00;
 		}
 
 		.row {
-			margin: 0;					// eliminate pesky white space next to web page
+			margin: 0;										// eliminate pesky white space next to web page
 		}
 
 		.portlet-decorate {
