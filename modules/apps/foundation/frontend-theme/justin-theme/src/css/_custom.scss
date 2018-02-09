@@ -1,0 +1,412 @@
+$base: 12pt;
+$bold: 700;
+$borderBlack: #202020;
+$grey: #D1D1D1;
+$lightGrey: #F5F5F5;
+$orange: #FF8600;
+
+@include font-face('Merriweather', './aui/lexicon/fonts/Merriweather/Merriweather-Bold', $bold, normal, $asset-pipeline: false, $file-formats: ttf);
+@include font-face('Merriweather', './aui/lexicon/fonts/Merriweather/Merriweather-BoldItalic', $bold, italic, $asset-pipeline: false, $file-formats: ttf);
+@include font-face('Merriweather', './aui/lexicon/fonts/Merriweather/Merriweather-Italic', normal, italic, $asset-pipeline: false, $file-formats: ttf);
+@include font-face('Merriweather', './aui/lexicon/fonts/Merriweather/Merriweather-Regular', normal, normal, $asset-pipeline: false, $file-formats: ttf);
+
+@include font-face('Montserrat', './aui/lexicon/fonts/Montserrat/Montserrat-Bold', $bold, normal, $asset-pipeline: false, $file-formats: ttf);
+@include font-face('Montserrat', './aui/lexicon/fonts/Montserrat/Montserrat-BoldItalic', $bold, italic, $asset-pipeline: false, $file-formats: ttf);
+@include font-face('Montserrat', './aui/lexicon/fonts/Montserrat/Montserrat-Italic', normal, italic, $asset-pipeline: false, $file-formats: ttf);
+@include font-face('Montserrat', './aui/lexicon/fonts/Montserrat/Montserrat-Regular', normal, normal, $asset-pipeline: false, $file-formats: ttf);
+
+%border-props {
+	border: 1px solid $grey;
+}
+
+%form-focus {
+	background-color: #FFF;
+	border-color: $orange;
+	box-shadow: 0 0 5px $orange;
+	outline: none;
+}
+
+%padding-highlight {
+	padding: 2px 4px;
+}
+
+html {
+	height: 100%;
+
+	#wrapper {
+		background-color: $borderBlack;
+		font-family: Merriweather, Georgia, serif;
+		font-size: $base;
+		height: 100%;
+		line-height: 1.75;
+		position: relative;
+
+		::selection {
+			background: $orange;
+			color: #FFF;
+		}
+
+		::-moz-selection {
+			background: $orange;
+			color: #FFF;
+		}
+
+		&:after, &:before {
+			background: inherit;
+			content: '';
+			display: block;
+			left: 0;
+			position: fixed;
+			width: 100%;
+			z-index: 9;
+		}
+
+		&:before {
+			height: 96px;
+			top: 0;
+		}
+
+		&:after {
+			bottom: 0;
+			height: 24px;
+		}
+
+		#subWrapper {
+			background-color: #FFF;
+			padding: 20px;
+		}
+
+		a {
+			color: $orange;
+			text-decoration: underline;
+
+			&:hover {
+				color: $grey;
+				text-decoration: none;
+			}
+		}
+
+		li a {
+			color: $orange;
+			text-decoration: none;
+		}
+
+		#{$all-text-inputs} {
+			background-color: $lightGrey;
+			@extend %border-props;
+			border-radius: 1px;
+			padding-left: 8px;
+
+			&::placeholder, &[value] {
+				font-family: Montserrat, Helvetica, sans serif;
+				font-size: $base - 2pt;
+			}
+
+			&:focus {
+				@extend %form-focus;
+			}
+		}
+
+		#{$all-buttons} {
+			background-color: #FFF;
+			@extend %border-props;
+			border-radius: 3px;
+			color: $orange;
+
+			&:hover {
+				background-color: $lightGrey;
+			}
+		}
+
+		select {
+			background-color: $lightGrey;
+
+			&:focus {
+				@extend %form-focus;
+			}
+		}
+
+		.nav-up {
+			top: -100px;
+		}
+
+		.nav-down {
+			top: 85px;
+		}
+
+		@media (max-width: $screen-xs-max) {
+			background-color: #FFF;
+		}
+
+		/* ---------- Banner ---------- */
+
+		#banner {
+			background-color: #FFF;
+			font-family: Montserrat, Helvetica, sans serif;
+			line-height: 1.5;
+			padding: 20px;
+			padding-bottom: 2px;
+			position: sticky;
+			transition: top 0.2s ease-in-out;
+			z-index: 6;
+
+			.navbar-header {
+				display: inline;
+
+				span {
+					color: $orange;
+					font-size: $base + 32pt;
+					font-weight: $bold;
+				}
+
+				p {
+					color: #000;
+					font-size: $base;
+					font-style: italic;
+					font-weight: normal;
+				}
+
+				.navbar-toggle {
+					font-weight: $bold;
+
+					span {
+						font-size: $base;
+					}
+				}
+
+				.navbar-toggle[aria-expanded=true] {
+					background-color: $orange;
+
+					span {
+						color: #FFF;
+					}
+				}
+			}
+
+			.navbar-collapse.in {
+				overflow: visible;
+			}
+
+			nav {
+				ul {
+					color: #000;
+					list-style: none outside none;
+					margin-bottom: 0;
+					margin-top: 5px;
+
+					li {
+						font-weight: $bold;
+						padding: 10px;
+
+						a {
+							color: #000;
+							font-size: $base;
+							text-decoration: none;
+
+							i {
+								font-size: $base - 4pt;
+							}
+
+							&:hover {
+								color: $orange;
+								text-decoration: none;
+							}
+
+							&[aria-expanded='false'] .icon-chevron-down, &[aria-expanded='true'] .icon-chevron-left {
+								display: none;
+							}
+						}
+
+						ul {
+							overflow: visible;
+							text-align: center;
+
+							li {
+								background-color: #FFF;
+
+								a {
+									color: inherit;
+									font-weight: normal;
+									text-align: left;
+									text-decoration: none;
+
+									&:hover {
+										color: $orange;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+			@media (max-width: $screen-sm-max) {
+				.navbar-header span{
+					font-size: $base + 20pt;
+				}
+			}
+
+			@media (max-width: $screen-xs-max) {
+				.navbar-collapse{
+					background-color: #FFF;
+					position: fixed;
+					width: 80%;
+				}
+
+				.row{
+					padding-bottom: 20px;
+				}
+				.navAnchor {
+					display: inline-block;
+					width: 80%;
+				}
+
+				.navbar-header span {
+					font-size: $base + 12pt;
+				}
+
+				nav ul li a i {
+					font-size: $base;
+				}
+			}
+		}
+
+		/* ---------- Content ---------- */
+
+		#content {
+			display: block;
+			margin: auto;
+			width: 95%;
+
+			h1, h2, h3, h4, h5, h6 {
+				font-family: Merriweather, Georgia, serif;
+				font-weight: $bold;
+			}
+
+			blockquote {
+				border-left: 5px solid #000;
+				color: $gray;
+				font-style: italic;
+			}
+
+			table {
+				font-size: 75%;
+
+				caption {
+					font-style: italic;
+				}
+
+				tbody, tfoot, thead {
+					border-color: inherit;
+					vertical-align: middle;
+				}
+
+				td, th {
+					@extend %border-props;
+					padding: 7px;
+					text-align: left;
+				}
+			}
+
+			ul {
+				list-style: disc;
+			}
+
+			address {
+				font-style: italic;
+			}
+
+			cite {
+				font-style: normal;
+
+				&:before {
+					content: '\2014\00a0';
+				}
+			}
+
+			code {
+				background-color: $grey;
+				font-family: Inconsolata, monospace;
+				@extend %padding-highlight;
+				word-wrap: break-word;
+			}
+
+			ins {
+				background: $orange;
+				color: #FFF;
+				@extend %padding-highlight;
+				text-decoration: none;
+			}
+
+			kbd {
+				color: $grey;
+			}
+
+			pre {
+				background-color: #FFF;
+				@extend %border-props;
+				line-height: 1.313em;
+				max-width: 100%;
+				overflow: auto;
+				padding: 1.75em;
+				white-space: pre-wrap;
+				word-wrap: break-word;
+			}
+
+			var {
+				font-family: Inconsolata, monospace;
+				font-style: italic;
+			}
+
+			figure {
+				margin: 0;
+				overflow: hidden;
+				position: relative;
+				width: 200px;
+
+				img {
+					transition: all 0.3s;
+					width: 100%;
+				}
+
+				figcaption {
+					background-color: #FFF;
+					display: inline-block;
+					height: 30px;
+				}
+
+				&:hover {
+					img {
+						border-color: $orange;
+						@include prefixer(transform, scale(1.1), ('moz', 'webkit'));
+
+						figcaption {
+							color: $orange;
+							font-style: italic;
+						}
+					}
+				}
+			}
+		}
+
+		/* ---------- Footer ---------- */
+
+		#footer {
+			font-family: Montserrat, Helvetica, sans serif;
+
+			ul {
+				list-style: none outside none;
+				text-align: right;
+
+				li {
+					display: inline;
+					margin: 12px;
+
+					div {
+						display: inline;
+					}
+				}
+			}
+		}
+	}
+}

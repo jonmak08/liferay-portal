@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE look-and-feel PUBLIC "-//Liferay//DTD Look and Feel 7.0.0//EN" "http://www.liferay.com/dtd/liferay-look-and-feel_7_0_0.dtd">
+
+<look-and-feel>
+	<compatibility>
+		<version>7.0.4+</version>
+	</compatibility>
+	<theme id="justin" name="justin">
+		<template-extension>ftl</template-extension>
+		<portlet-decorator id="barebone" name="Barebone">
+			<portlet-decorator-css-class>portlet-barebone</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="borderless" name="Borderless">
+			<portlet-decorator-css-class>portlet-borderless</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="decorate" name="Decorate">
+			<default-portlet-decorator>true</default-portlet-decorator>
+			<portlet-decorator-css-class>portlet-decorate</portlet-decorator-css-class>
+		</portlet-decorator>
+		<settings>
+			<setting configurable="true" key="sub-heading" type="textarea" />
+			
+			<setting configurable="true" key="facebook-link" type="text" />
+			<setting configurable="true" key="google-plus-link" type="text" />
+			<setting configurable="true" key="linkedin-link" type="text" />
+			<setting configurable="true" key="twitter-link" type="text" />
+			<setting configurable="true" key="youtube-link" type="text" />
+		</settings>
+	</theme>
+</look-and-feel>
