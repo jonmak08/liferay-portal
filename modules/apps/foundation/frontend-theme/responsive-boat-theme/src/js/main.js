@@ -6,28 +6,31 @@ function myPageJS() {
 	let navBtnDiv = nav.find('div.nav-btn');
 	let portletParagraphs = AUI.$('#content .portlet-body p');
 
-	document.onscroll = _.throttle(function() {
-		// Toggle 'scrolled' class on nav based on scrolled location
-		let hasScrolled = window.scrollY < 140;
+	document.onscroll = _.throttle(
+		function() {
+			// Toggle 'scrolled' class on nav based on scrolled location
+			let hasScrolled = window.scrollY < 140;
 
-		nav.toggleClass('scrolled', !hasScrolled);
+			nav.toggleClass('scrolled', !hasScrolled);
 
-		// Add 'visible' class to make portlet content visible when scrolled to
-		for (let i = 0; i < portletParagraphs.length; i++) {
-			let paragraph = portletParagraphs.eq(i);
+			// Add 'visible' class to make portlet content visible when scrolled to
+			for (let i = 0; i < portletParagraphs.length; i++) {
+				let paragraph = portletParagraphs.eq(i);
 
-			let scrollPositionY = paragraph.get(0).getBoundingClientRect().top;
+				let scrollPositionY = paragraph.get(0).getBoundingClientRect().top;
 
-			let isVisible = scrollPositionY < window.innerHeight;
+				let isVisible = scrollPositionY < window.innerHeight;
 
-			if (isVisible) {
-				paragraph.addClass('visible');
+				if (isVisible) {
+					paragraph.addClass('visible');
 
-				// Remove element from jQuery object so that it's no longer tracked, and to reduce calculations
-				portletParagraphs = portletParagraphs.not(paragraph);
+					// Remove element from jQuery object so that it's no longer tracked, and to reduce calculations
+					portletParagraphs = portletParagraphs.not(paragraph);
+				}
 			}
-		}
-	}, 200);
+		},
+		200
+	);
 
 	navBtnDiv.get(0).onclick = function() {
 		let portletDiv = nav.find('.portlet');
@@ -35,7 +38,7 @@ function myPageJS() {
 		nav.toggleClass('expand');
 
 		portletDiv.slideToggle(
-			700,
+			500,
 			function() {
 				portletDiv.css('display', portletDiv.css('display').replace('none',''));
 			}
