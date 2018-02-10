@@ -15,6 +15,23 @@ $yellow: #FFDD00;
 	padding: 0;
 	text-align: center;
 
+	#sign-in {
+		color: white;
+	    position: fixed;
+	    right: 0;
+	    z-index: 2;
+	    margin: 5px 10px;
+	    border-radius: 4px;
+	    transition: all 0.3s;
+	    text-decoration: none;
+
+	    &:hover {
+	    	color: #333333;
+	    	background: white;
+	    	transition: all 0.3s;
+	    }
+	}
+
 	#banner {
 		background: rgba(0, 0, 0, 0.5);
 		color: #FFF;
@@ -55,8 +72,9 @@ $yellow: #FFDD00;
 			}
 		}
 
-		.navbar, .portlet, ul {
-			margin: 0; 										// eliminate unnecessary and pesky margins in navbar
+		.navbar, .portlet, .portlet-content, ul {			// eliminate unnecessary and pesky margins and padding in navbar
+			margin: 0;
+			padding: 0;
 		}
 
 		.portlet-title-text {
@@ -76,7 +94,7 @@ $yellow: #FFDD00;
 					background: none;
 					color: inherit;
 					display: block;
-					padding: 10px 0;
+					padding: 5px 0;
 					text-decoration: none;
 					transition: color $navLinkFadeTime;
 
@@ -188,7 +206,7 @@ $yellow: #FFDD00;
 
 		h1 {
 			font-weight: bold;
-			margin-top: 0; 									//get rid of vertical gaps between portlets
+			margin: 20px 0; 								//get rid of vertical gaps between portlets
 			text-transform: uppercase;
 			white-space: initial; 							// make portlet titles wrap to next line instead of cutting off in thinner windows
 		}
@@ -198,7 +216,7 @@ $yellow: #FFDD00;
 			content: ' ';
 			display: block;
 			height: 4px;
-			margin: 8px auto 20px auto;
+			margin: 8px auto 0 auto;
 			width: 40px;
 		}
 
@@ -207,8 +225,9 @@ $yellow: #FFDD00;
 				font-size: 16px;							// make header of portlet body smaller than portlet title
 			}
 
-			p {
-				margin: 40px 0 0 0;
+			.journal-content-article > * {
+				padding: 20px 0;
+				margin: 0;
 				opacity: 0;
 				transform: translateY(100px);
 
@@ -224,22 +243,11 @@ $yellow: #FFDD00;
 	/* ---------- Content section ---------- */
 
 	#content {
-		&::before {											// add white stripe between heading and content
-			background: #FFF;
-			content: ' ';
-			display: block;
-			height: 150px;
+		.portlet-content {
+			padding: 100px 12.5%;
 		}
 
-		.row {
-			margin: 0;										// eliminate pesky white space next to web page
-		}
-
-		.portlet-decorate {
-			background: #FFF;
-		}
-
-		.portlet-barebone {
+		.portlet-dark {
 			background: rgba(45, 45, 45, 0.95);
 
 			h1 {
@@ -251,7 +259,43 @@ $yellow: #FFDD00;
 			}
 		}
 
-		.portlet-borderless {
+		.portlet-login {
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			border-radius: 15px;
+
+			a, div, label {
+				color: white;
+			}
+
+			a.portlet-icon-back {
+				position: absolute;
+				top: 45px;
+				left: 40px;
+			}
+
+			.portlet-content {
+				padding: 40px 80px;
+				width: 500px;
+			}
+		}
+
+		.portlet-white {
+			background: #FFF;
+
+			&.portlet-static .journal-content-article > * {
+				opacity: 1;
+				transform: translateY(0);
+			}
+
+			.portlet-title-text {
+				display: none;
+			}
+		}
+
+		.portlet-yellow {
 			background: rgba(255, 221, 0, 0.7);
 
 			.portlet-title-text::after {
@@ -259,10 +303,8 @@ $yellow: #FFDD00;
 			}
 		}
 
-		.portlet-content {
-			margin: 0 auto;
-			padding: 80px 0 40px 0;
-			width: 75%;
+		.row {
+			margin: 0;										// eliminate pesky white space next to web page
 		}
 	}
 
@@ -275,7 +317,7 @@ $yellow: #FFDD00;
 		p {
 			background: #111;
 			margin: 0 100px;
-			padding: 30px 0;
+			padding: 50px 0;
 		}
 
 		a {

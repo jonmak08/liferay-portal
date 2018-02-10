@@ -7,15 +7,21 @@
 	</compatibility>
 	<theme id="responsive-boat" name="Responsive Boat">
 		<template-extension>ftl</template-extension>
-		<portlet-decorator id="barebone" name="Barebone">
-			<portlet-decorator-css-class>portlet-barebone</portlet-decorator-css-class>
-		</portlet-decorator>
-		<portlet-decorator id="borderless" name="Borderless">
-			<portlet-decorator-css-class>portlet-borderless</portlet-decorator-css-class>
-		</portlet-decorator>
-		<portlet-decorator id="decorate" name="Decorate">
+		<portlet-decorator id="dark" name="Dark">
 			<default-portlet-decorator>true</default-portlet-decorator>
-			<portlet-decorator-css-class>portlet-decorate</portlet-decorator-css-class>
+			<portlet-decorator-css-class>portlet-dark</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="yellow" name="Yellow">
+			<portlet-decorator-css-class>portlet-yellow</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="white-fade" name="White-Fade">
+			<portlet-decorator-css-class>portlet-white portlet-fade</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="white-push" name="White-Push">
+			<portlet-decorator-css-class>portlet-white portlet-push</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="white-static" name="White-Static">
+			<portlet-decorator-css-class>portlet-white portlet-static visible</portlet-decorator-css-class>
 		</portlet-decorator>
 	</theme>
 </look-and-feel>

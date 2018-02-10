@@ -4,30 +4,38 @@ Liferay.on('allPortletsReady', myPageJS);
 function myPageJS() {
 	let nav = AUI.$('#navigation');
 	let navBtnDiv = nav.find('div.nav-btn');
-	let portletParagraphs = AUI.$('#content .portlet-body p');
+	let portletArticleElements = AUI.$('#content .journal-content-article > *');
+	let visibleArticleParents = portletArticleElements.parent().closest('.visible');
+	let visibleArticleElements = visibleArticleParents.find('.journal-content-article > *');
 
-	document.onscroll = _.throttle(function() {
-		// Toggle 'scrolled' class on nav based on scrolled location
-		let hasScrolled = window.scrollY < 140;
+	// Eliminate portlet article elements that are already visible
+	portletArticleElements = portletArticleElements.not(visibleArticleElements);
 
-		nav.toggleClass('scrolled', !hasScrolled);
+	document.onscroll = _.throttle(
+		function() {
+			// Toggle 'scrolled' class on nav based on scrolled location
+			let hasScrolled = window.scrollY < 140;
 
-		// Add 'visible' class to make portlet content visible when scrolled to
-		for (let i = 0; i < portletParagraphs.length; i++) {
-			let paragraph = portletParagraphs.eq(i);
+			nav.toggleClass('scrolled', !hasScrolled);
 
-			let scrollPositionY = paragraph.get(0).getBoundingClientRect().top;
+			// Add 'visible' class to make portlet content visible when scrolled to
+			for (let i = 0; i < portletArticleElements.length; i++) {
+				let element = portletArticleElements.eq(i);
 
-			let isVisible = scrollPositionY < window.innerHeight;
+				let scrollPositionY = element.get(0).getBoundingClientRect().top;
 
-			if (isVisible) {
-				paragraph.addClass('visible');
+				let isVisible = scrollPositionY < window.innerHeight;
 
-				// Remove element from jQuery object so that it's no longer tracked, and to reduce calculations
-				portletParagraphs = portletParagraphs.not(paragraph);
+				if (isVisible) {
+					element.addClass('visible');
+					
+					// Remove element from jQuery object so that it's no longer tracked, and to reduce calculations
+					portletArticleElements = portletArticleElements.not(element);
+				}
 			}
-		}
-	}, 200);
+		},
+		200
+	);
 
 	navBtnDiv.get(0).onclick = function() {
 		let portletDiv = nav.find('.portlet');
@@ -35,7 +43,7 @@ function myPageJS() {
 		nav.toggleClass('expand');
 
 		portletDiv.slideToggle(
-			700,
+			500,
 			function() {
 				portletDiv.css('display', portletDiv.css('display').replace('none',''));
 			}
