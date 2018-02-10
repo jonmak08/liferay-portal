@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE look-and-feel PUBLIC "-//Liferay//DTD Look and Feel 7.0.0//EN" "http://www.liferay.com/dtd/liferay-look-and-feel_7_0_0.dtd">
+
+<look-and-feel>
+	<compatibility>
+		<version>7.0.4+</version>
+	</compatibility>
+	<theme id="theme-3" name="theme3">
+		<color-scheme id="01" name="Default">
+		 <default-cs>true</default-cs>
+		 <css-class>default</css-class>
+		 <color-scheme-images-path>
+				 ${images-path}/color_schemes/${css-class}
+		 </color-scheme-images-path>
+ </color-scheme>
+ <color-scheme id="02" name="Day">
+		 <css-class>day</css-class>
+ </color-scheme>
+ <color-scheme id="03" name="Night">
+		 <css-class>night</css-class>
+ </color-scheme>
+		<template-extension>ftl</template-extension>
+		<portlet-decorator id="barebone" name="Barebone">
+			<portlet-decorator-css-class>portlet-barebone</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="borderless" name="Borderless">
+			<portlet-decorator-css-class>portlet-borderless</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="decorate" name="Decorate">
+			<default-portlet-decorator>true</default-portlet-decorator>
+			<portlet-decorator-css-class>portlet-decorate</portlet-decorator-css-class>
+		</portlet-decorator>
+		</theme>
+</look-and-feel>

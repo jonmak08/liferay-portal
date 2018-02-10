@@ -1,0 +1,221 @@
+$primary-color: rgb(56, 129, 104);
+
+@font-face {
+    font-family: WorkSans;
+    src: url(Work_Sans/WorkSans-Regular.ttf);
+}
+@font-face {
+    font-family: Lato;
+    src: url(Lato/Lato-Regular.ttf);
+}
+
+html {
+    height: 100%;
+    font-family: WorkSans, Arial, sans-serif;
+
+    h2, h4, p {
+        
+    a {
+        color: #ccc;
+        &:hover {
+            color: black;
+            text-decoration: underline;
+
+        }
+    }
+}
+
+    li {
+        color: #ccc;
+    
+    a {
+
+        &:hover {
+            color: black;
+        }
+    }
+}
+
+    #wrapper {
+        margin: 0;
+        padding: 0;
+        border: 0;
+       
+
+        ::selection {
+            background-color: $primary-color;
+            color: black;
+        }
+
+        ::-moz-selection {
+            background: $primary-color;
+            color: black;
+        }
+    
+        #{$all-text-inputs-active}, #{$all-text-inputs-focus} {
+
+            border: 1px solid black;
+
+        }
+
+        #{$all-buttons} {
+            color: white;
+            background-color: black;
+            border-color: black;
+
+            &:hover {
+                background-color: rgba(0,0,0,0.8);
+
+            }
+        }
+
+        .list-group-item {
+
+            &:hover {
+                color: white;
+                background-color: $primary-color;
+            }
+        }
+
+        .portlet-content.portlet-content-editable {
+            
+            &:hover {
+                color: white;
+                border: 2px solid black;
+                background-color: black;
+                border-radius: 0;
+            }
+        }
+
+        #banner {
+            width: 100%;
+            height: 1000px;
+            background-image: url("../images/Pine_forest_in_Estonia.jpg");
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+            #navigation
+            {
+               background-color: #2D464C;
+               border: 20px;
+               border-color: #2D464C;
+               width: 100%;
+               height: 60px;
+               position: absolute;
+               bottom: 2140px;
+               z-index: 1;
+               display: block;
+
+               .active{
+                background-color: rgb(10, 27, 32);
+                    > a {
+                        color: #FFF;
+                    }
+            }        
+    
+            .dropdown-menu li {
+                background: rgb(25, 55, 70);
+                border-width: 0;
+                margin: 0;
+                position: relative;
+    
+                &:after, &:before {
+                    border-width: 0;
+                }
+    
+                a {
+                    color: #FFF;
+    
+                    &:hover {
+                        background: #000 none repeat scroll 0 0;
+                    }
+                }
+            }
+    
+            li {
+                margin: 0 4px;
+                padding: 15px 10px;
+                position: absolute;
+    
+                &:hover {
+                    background-color: #12272e;
+    
+                    .child-menu {
+                        display: block;
+                        margin-top: 0;
+                    }
+    
+                    a {
+                        color: #FFF;
+                        text-decoration: none;
+                    }
+                }
+            }
+    
+            ul {
+                li {
+                    &:hover {
+                    background-color:rgb(18, 39, 46);
+                        .child-menu {
+                            display: block;
+                            padding: 0;
+                            li {
+                                background-color: $primary-color;
+                                &:hover {
+                                    background-color:rgb(18, 39, 46);
+                                }
+                            }
+                            a {
+                                color: #FFF;
+                                margin: -10px;
+                                text-decoration: none;
+                            }
+                        }
+                    }
+                }
+            }
+    
+            > ul > li {
+                display: inline-block;
+                font-size: 1.2em;
+                position: relative;
+    
+                a {
+                    color: #FFF;
+                    padding: 15px 10px;
+                }
+            }
+         }
+
+        #content {
+            display: block;
+            font-family: Lato, Times, sans-serif;
+            line-height: 1.6;
+            background-color:#AC2631;
+            
+                  }
+
+        #footer {
+            display: block;
+            font-family: Lato, Times, sans-serif;
+            background-color:#AC2631;
+
+
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+/* endinject */
+
+/* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
