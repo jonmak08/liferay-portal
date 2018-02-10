@@ -1,0 +1,321 @@
+$mobileNavExpandTime: 0.4s;
+$navBtnHeight: 40px;
+$navBtnPadding: 20px;
+$navLinkFadeTime: 0.5s;
+$yellow: #FFDD00;
+
+// All styling is nested within #wrapper selector to avoid accidentally styling the liferay menus
+
+#wrapper {
+	background-attachment: fixed;
+	background-color: #A9A9A9;
+	background-image: url(@theme_image_path@/background.jpg);
+	background-position-x: center;
+	background-size: cover;
+	padding: 0;
+	text-align: center;
+
+	#sign-in {
+		color: white;
+	    position: fixed;
+	    right: 0;
+	    z-index: 2;
+	    margin: 5px 10px;
+	    border-radius: 4px;
+	    transition: all 0.3s;
+	    text-decoration: none;
+
+	    &:hover {
+	    	color: #333333;
+	    	background: white;
+	    	transition: all 0.3s;
+	    }
+	}
+
+	#banner {
+		background: rgba(0, 0, 0, 0.5);
+		color: #FFF;
+		padding-bottom: 500px;								// add space below navbar to copy the Wordpress theme
+	}
+
+	/* ---------- Navigation section ---------- */
+
+	#navigation {
+		background: rgba(0, 0, 0, 0.25);
+		position: fixed;
+		text-transform: uppercase;
+		width: 100%;
+		z-index: 1; 										// some portlet content overlaps the navigation bar unless z-index is >= 1
+
+		div.nav-btn {
+			display: none;
+		}
+
+		div, ul, .navbar, .portlet {
+			border-width: 0; 								// eliminate unnecessary borders that just make navbar taller
+		}
+
+		.portlet-topper {
+			border-radius: 4px;
+			bottom: 0;
+			top: unset;
+			width: 200px;
+
+			span {
+				line-height: 32px;
+			}
+		}
+
+		.portlet:focus, .portlet:hover {
+			.portlet-topper {
+				transform: translateY(100%); 				// change direction that portlet topper floats
+			}
+		}
+
+		.navbar, .portlet, .portlet-content, ul {			// eliminate unnecessary and pesky margins and padding in navbar
+			margin: 0;
+			padding: 0;
+		}
+
+		.portlet-title-text {
+			display: none;									// hide portlet-title
+		}
+
+		ul.nav {
+			float: none;
+			list-style: none; 								// get rid of more unnecessary styling
+
+			li { 											// arrange nav-links horizontally
+				display: inline-block;
+				float: none;
+				padding: 20px 15px;
+
+				a {
+					background: none;
+					color: inherit;
+					display: block;
+					padding: 5px 0;
+					text-decoration: none;
+					transition: color $navLinkFadeTime;
+
+					&:hover {
+						color: $yellow;
+						transition: color $navLinkFadeTime;
+					}
+				}
+			}
+		}
+
+		@include media-query(sm) {							// prevent this from applying to navbar when it's styled for mobile devices
+			&.scrolled { 									// JS-toggled class that reorganizes navbar links and darkens navbar
+				background: rgba(0, 0, 0, 0.9);
+
+				ul.nav {
+					padding-right: 15px;
+					text-align: right;
+				}
+			}
+		}
+
+		@include media-query(null, sm) { 					// change navbar look for mobile devices
+			background: rgba(0, 0, 0, 0.75);
+			overflow-y: hidden;
+			position: static;
+			text-align: right;								// align nav button inline-block element to right
+
+			div.nav-btn {
+				background: #808080;
+				border-radius: 4px;
+				cursor: pointer;
+				display: inline-block;						// show nav button
+				font-size: 30px;
+				height: $navBtnHeight;
+				margin: $navBtnPadding 25px;
+				padding: 5px 10px;
+				text-align: center;
+			}
+
+			.portlet {
+				display: none;
+
+				&, &:focus, &:hover {
+					.portlet-topper { 						// move portlet topper to top of nav links
+						bottom: unset;
+						top: 0;
+						position: absolute;
+						transform: translateY(-100%);
+					}
+				}
+			}
+
+			ul.nav { 										// restyle nav links for mobile friendly viewing
+				border-top: 1.5px solid #444;
+				margin: 0 15px;
+				padding-bottom: 15px;
+				text-align: left;
+
+				li {
+					border-bottom: 1px solid #FFF;
+					display: block;							// list nav links vertically
+					margin: 0 15px;
+					padding: 5px 0;
+				}
+			}
+
+			&.expand div.nav-btn { 							// JS-toggled class for changing nav button color
+					background: #D44;
+			}
+		}
+	}
+
+	/* ---------- Heading section ---------- */
+
+	#heading {
+		padding-top: 100px; 								// keep header below FIXED navbar
+		width: 100%;
+
+		* {
+			display: inline-block;
+			margin: 0;
+		}
+
+		span::first-letter {
+			background: $yellow;
+			color: #333333;
+			padding: 0 5px;
+		}
+
+		@include media-query(null, sm) {
+			padding-top: 20px;								// reposition header to stay below navbar when it expands in mobile view
+		}
+	}
+
+	/* ---------- General portlet rules ---------- */
+
+	.portlet {
+		margin: 0;											// eliminate margin below each portlet to make them flush with each other
+	}
+
+	.portlet-column {
+		padding: 0;											// allow portlets to stretch entire page width
+	}
+
+	.portlet-content {
+		border-radius: 0;
+		border-width: 0; 									// make portlets square without borders
+
+		h1 {
+			font-weight: bold;
+			margin-top: 0; 									//get rid of vertical gaps between portlets
+			text-transform: uppercase;
+			white-space: initial; 							// make portlet titles wrap to next line instead of cutting off in thinner windows
+		}
+
+		.portlet-title-text::after { 						// add small underline under portlet title
+			background: $yellow;
+			content: ' ';
+			display: block;
+			height: 4px;
+			margin: 8px auto 20px auto;
+			width: 40px;
+		}
+
+		.portlet-body {
+			h1 {
+				font-size: 16px;							// make header of portlet body smaller than portlet title
+			}
+
+			p {
+				margin: 40px 0 0 0;
+				opacity: 0;
+				transform: translateY(100px);
+
+				&.visible{									// JS-toggled class for making content appear when scrolling down
+					opacity: unset;
+					transform: unset;
+					transition: all 0.7s ease-out;
+				}
+			}
+		}
+	}
+
+	/* ---------- Content section ---------- */
+
+	#content {
+		.portlet-content {
+			padding: 100px 12.5%;
+		}
+
+		.portlet-dark {
+			background: rgba(45, 45, 45, 0.95);
+
+			h1 {
+				color: #FFF;
+			}
+
+			p {
+				color: #808080;
+			}
+		}
+
+		.portlet-login {
+			position: fixed;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			border-radius: 15px;
+
+			a, div, label {
+				color: white;
+			}
+
+			a.portlet-icon-back {
+				position: absolute;
+				top: 45px;
+				left: 40px;
+			}
+
+			.portlet-content {
+				padding: 40px 80px;
+				width: 500px;
+			}
+		}
+
+		.portlet-white-fade, .portlet-white-push, .portlet-white-static {
+			background: #FFF;
+
+			.portlet-title-text {
+				display: none;
+			}
+		}
+
+		.portlet-yellow {
+			background: rgba(255, 221, 0, 0.7);
+
+			.portlet-title-text::after {
+				background: #444;
+			}
+		}
+
+		.row {
+			margin: 0;										// eliminate pesky white space next to web page
+		}
+	}
+
+	/* ---------- Footer section ---------- */
+
+	#footer {
+		background: rgba(39, 39, 39, 0.95);
+		color: #696969;
+
+		p {
+			background: #111;
+			margin: 0 100px;
+			padding: 50px 0;
+		}
+
+		a {
+			color: #D3D3D3;
+		}
+	}
+}
