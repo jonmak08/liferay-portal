@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE look-and-feel PUBLIC "-//Liferay//DTD Look and Feel 7.0.0//EN" "http://www.liferay.com/dtd/liferay-look-and-feel_7_0_0.dtd">
+
+<look-and-feel>
+	<compatibility>
+		<version>7.0.0+</version>
+	</compatibility>
+	<theme id="responsive-boat" name="Responsive Boat">
+		<template-extension>ftl</template-extension>
+		<portlet-decorator id="dark" name="Dark">
+			<portlet-decorator-css-class>portlet-dark</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="yellow" name="Yellow">
+			<portlet-decorator-css-class>portlet-yellow</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="light-fade" name="Light-Fade">
+			<portlet-decorator-css-class>portlet-light portlet-fade</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="light-push" name="Light-Push">
+			<portlet-decorator-css-class>portlet-light portlet-push</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="light" name="Light">
+			<default-portlet-decorator>true</default-portlet-decorator>
+			<portlet-decorator-css-class>portlet-light portlet-boring visible</portlet-decorator-css-class>
+		</portlet-decorator>
+	</theme>
+</look-and-feel>
