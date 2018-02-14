@@ -4,6 +4,23 @@ $navBtnPadding: 20px;
 $navLinkFadeTime: 0.5s;
 $yellow: #FFDD00;
 
+@mixin largeColumn {
+	border-width: 0;
+
+	.portlet {
+		border: 1px solid #D3D3D3;
+		margin-bottom: 30px;
+	}
+
+	.portlet-content {
+		padding: 15px 15px 40px 15px;
+	}
+
+	.portlet-title-text::after {
+		background: #D44;
+	}
+}
+
 // All styling is nested within #wrapper selector to avoid accidentally styling the liferay menus
 
 #wrapper {
@@ -16,26 +33,30 @@ $yellow: #FFDD00;
 	text-align: center;
 
 	#sign-in {
-		color: white;
+		border-radius: 4px;
+		color: #FFF;
+	    margin: 5px 10px;
 	    position: fixed;
 	    right: 0;
-	    z-index: 2;
-	    margin: 5px 10px;
-	    border-radius: 4px;
-	    transition: all 0.3s;
 	    text-decoration: none;
+	    transition: all 0.3s;
+	    z-index: 2;
 
 	    &:hover {
+	    	background: #FFF;
 	    	color: #333333;
-	    	background: white;
 	    	transition: all 0.3s;
 	    }
 	}
 
 	#banner {
 		background: rgba(0, 0, 0, 0.5);
-		color: #FFF;
-		padding-bottom: 500px;								// add space below navbar to copy the Wordpress theme
+		height: 600px;										// add space below navbar to copy the Wordpress theme
+
+		& , a {
+			color: #FFF;
+			text-decoration: none;
+		}
 	}
 
 	/* ---------- Navigation section ---------- */
@@ -59,10 +80,15 @@ $yellow: #FFDD00;
 			border-radius: 4px;
 			bottom: 0;
 			top: unset;
+			left: unset;
 			width: 200px;
 
 			span {
 				line-height: 32px;
+			}
+
+			a {
+				color: #777;
 			}
 		}
 
@@ -82,8 +108,7 @@ $yellow: #FFDD00;
 		}
 
 		ul.nav {
-			float: none;
-			list-style: none; 								// get rid of more unnecessary styling
+			float: none;									// get rid of more unnecessary styling
 
 			li { 											// arrange nav-links horizontally
 				display: inline-block;
@@ -92,16 +117,19 @@ $yellow: #FFDD00;
 
 				a {
 					background: none;
-					color: inherit;
 					display: block;
 					padding: 5px 0;
-					text-decoration: none;
 					transition: color $navLinkFadeTime;
 
 					&:hover {
 						color: $yellow;
 						transition: color $navLinkFadeTime;
 					}
+				}
+
+				ul {
+					background : rgba(0, 0, 0, 0.25);
+					min-width: 100px;
 				}
 			}
 		}
@@ -111,8 +139,30 @@ $yellow: #FFDD00;
 				background: rgba(0, 0, 0, 0.9);
 
 				ul.nav {
-					padding-right: 15px;
+					padding: 0 15px 0 250px;
 					text-align: right;
+
+					li ul {
+						background: rgba(0, 0, 0, 0.9);
+					}
+				}
+
+				& + #heading {
+					position: fixed;
+					z-index: 2;
+					padding: 12px 0 0 12px;
+					width: auto;
+
+					a {
+						font-size: 0.7em;
+						color: #999;
+					}
+
+					span::first-letter {
+						background: none;
+						color: inherit;
+						padding: 0;
+					}
 				}
 			}
 		}
@@ -141,8 +191,8 @@ $yellow: #FFDD00;
 				&, &:focus, &:hover {
 					.portlet-topper { 						// move portlet topper to top of nav links
 						bottom: unset;
-						top: 0;
 						position: absolute;
+						top: 0;
 						transform: translateY(-100%);
 					}
 				}
@@ -151,14 +201,27 @@ $yellow: #FFDD00;
 			ul.nav { 										// restyle nav links for mobile friendly viewing
 				border-top: 1.5px solid #444;
 				margin: 0 15px;
-				padding-bottom: 15px;
+				padding-bottom: 7px;
 				text-align: left;
 
 				li {
+					margin: 0 15px;
+					padding: 7px 0;
+				}
+
+				&> li {
 					border-bottom: 1px solid #FFF;
 					display: block;							// list nav links vertically
-					margin: 0 15px;
-					padding: 5px 0;
+
+					ul {
+						display: block;
+						float: none;
+						position: static
+					}
+
+					a {
+						line-height: unset;
+					}
 				}
 			}
 
@@ -226,9 +289,9 @@ $yellow: #FFDD00;
 			}
 
 			.journal-content-article > * {
-				padding: 20px 0;
 				margin: 0;
 				opacity: 0;
+				padding: 20px 0;
 				transform: translateY(100px);
 
 				&.visible{									// JS-toggled class for making content appear when scrolling down
@@ -242,7 +305,12 @@ $yellow: #FFDD00;
 
 	/* ---------- Content section ---------- */
 
-	#content {
+	#main-content {
+		.portlet-boring .journal-content-article > * {
+			opacity: 1;
+			transform: translateY(0);
+		}
+
 		.portlet-content {
 			padding: 100px 12.5%;
 		}
@@ -260,20 +328,20 @@ $yellow: #FFDD00;
 		}
 
 		.portlet-login {
+			border-radius: 15px;
+			left: 50%;
 			position: fixed;
 			top: 50%;
-			left: 50%;
 			transform: translate(-50%, -50%);
-			border-radius: 15px;
 
 			a, div, label {
-				color: white;
+				color: #FFF;
 			}
 
 			a.portlet-icon-back {
+				left: 40px;
 				position: absolute;
 				top: 45px;
-				left: 40px;
 			}
 
 			.portlet-content {
@@ -282,17 +350,8 @@ $yellow: #FFDD00;
 			}
 		}
 
-		.portlet-white {
+		.portlet-light {
 			background: #FFF;
-
-			&.portlet-static .journal-content-article > * {
-				opacity: 1;
-				transform: translateY(0);
-			}
-
-			.portlet-title-text {
-				display: none;
-			}
 		}
 
 		.portlet-yellow {
@@ -306,6 +365,60 @@ $yellow: #FFDD00;
 		.row {
 			margin: 0;										// eliminate pesky white space next to web page
 		}
+
+		&.columns-2 {
+			background: #FFF;
+			padding: 60px 12.5% 0 12.5%;
+    		text-align: left;
+
+    		.portlet-content {
+				padding: 0 15px;
+			}
+
+    		.portlet-title-text::after {
+				height: 2px;
+				margin: 8px 0 0 0;
+				width: 100px;
+			}
+
+			.portlet-column {
+				padding-top: 40px;
+
+				&#column-1 {
+					border-right: 1px solid rgba(0, 0, 0, 0.1);
+
+					&.col-md-8 {
+	    				@include largeColumn;
+	    				padding: 0 15px 0 0;
+					}
+				}
+
+				&#column-2 {
+					border-left: 1px solid rgba(0, 0, 0, 0.1);
+
+					&.col-md-8 {
+						@include largeColumn;
+		    			padding: 0 0 0 15px;
+					}
+				}
+			}
+
+			h1 {
+				margin: 0;
+			}
+
+			@include media-query(null, sm) {
+				padding: 60px 30px 0 30px;
+
+				#column-1 {
+					padding: 0;
+				}
+
+				#column-2 {
+					border-width: 0px;
+				}
+			}
+		}
 	}
 
 	/* ---------- Footer section ---------- */
@@ -316,8 +429,12 @@ $yellow: #FFDD00;
 
 		p {
 			background: #111;
-			margin: 0 100px;
+			margin: 0 12.5%;
 			padding: 50px 0;
+
+			@include media-query(null, sm) {
+				margin: 0 30px;
+			}
 		}
 
 		a {

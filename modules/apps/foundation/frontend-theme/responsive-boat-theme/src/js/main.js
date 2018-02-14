@@ -4,6 +4,7 @@ Liferay.on('allPortletsReady', myPageJS);
 function myPageJS() {
 	let nav = AUI.$('#navigation');
 	let navBtnDiv = nav.find('div.nav-btn');
+
 	let portletArticleElements = AUI.$('#content .journal-content-article > *');
 	let visibleArticleParents = portletArticleElements.parent().closest('.visible');
 	let visibleArticleElements = visibleArticleParents.find('.journal-content-article > *');
@@ -13,7 +14,7 @@ function myPageJS() {
 
 	document.onscroll = _.throttle(
 		function() {
-			// Toggle 'scrolled' class on nav based on scrolled location
+			// Toggle 'scrolled' class on nav and heading based on scroll location
 			let hasScrolled = window.scrollY < 140;
 
 			nav.toggleClass('scrolled', !hasScrolled);
@@ -43,7 +44,7 @@ function myPageJS() {
 		nav.toggleClass('expand');
 
 		portletDiv.slideToggle(
-			500,
+			300,
 			function() {
 				portletDiv.css('display', portletDiv.css('display').replace('none',''));
 			}
