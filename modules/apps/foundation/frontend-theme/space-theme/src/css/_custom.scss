@@ -19,6 +19,14 @@ $s-size: 1.2rem;
 $xl-size: 4.8rem;
 $xxl-size: 6.2rem;
 
+$bold: bold;
+$title-weight: 1000; 
+
+
+.has-control-menu #wrapper #navigation {
+    top: 64px;
+}
+
 #wrapper {
     background-color: $background;
     color: $off-black;
@@ -31,7 +39,7 @@ $xxl-size: 6.2rem;
             display: inline-block;
             font-family: Helvetica, Arial;
             font-size: $xxl-size;
-            font-weight: 1000;
+            font-weight: $title-weight;
             margin-bottom: 10px;
             margin-top: 10px;
             vertical-align: middle;
@@ -45,6 +53,10 @@ $xxl-size: 6.2rem;
         #navigation {
             background-color: $background;
             height: 100px;
+
+            #hamburger {
+                display: none;
+            }
 
             .container-fluid {
                 background-color: $white;
@@ -67,6 +79,7 @@ $xxl-size: 6.2rem;
     
                 li {
                     float: left;
+                    list-style: none; 
 
                     a {
                         color: $off-black;
@@ -77,6 +90,7 @@ $xxl-size: 6.2rem;
                         font-size: 2.6rem;
                         text-align: center;
                         text-transform: uppercase;
+
                         &:hover {
                             color: $light-blue;
                             text-decoration: none;
@@ -94,13 +108,35 @@ $xxl-size: 6.2rem;
                     list-style-type: none;
                     margin: 0;
                     padding: 0;
-                    width: 200px;
+                    width: 450px; 
 
-                  li a {
-                      display: block;
-                      padding: 8px 16px;
-                      text-decoration: none;
-                  }
+                    li {
+                        width: 350px;
+                    }
+
+                    li a {
+                        display: block;
+                        float: left;
+                        padding: 8px 16px;
+                        text-decoration: none;
+                        
+                    }
+                }
+            }
+
+            @media screen and (max-width: 500px) {
+                h1 {
+                    display: none;
+                }
+
+                ul {
+                    #hamburger {
+                        display: block;
+                    }
+
+                    li {
+                        display: none;
+                    }
                 }
             }
         }
@@ -115,8 +151,8 @@ $xxl-size: 6.2rem;
             border: $dark-blue;
 
             .portlet {
-                background-color: $light-blue;
                 border: $dark-blue;
+                background-color: $light-blue;
             }
         } 
     }
@@ -124,16 +160,16 @@ $xxl-size: 6.2rem;
     #footer {
         background-color: #1F2021;
         color: $light-blue;
-        height: 70px;
         font-size: $s-size;
-
+        height: 70px;
+        
         p {
             font-size: 16px;
             padding-left: 80px;
             padding-top: 15px;   
         }
     }   
-/*-------------------------------------------------------------Nav-----------------------------------------------------------------------------------*/
+   
     .portlet-content.portlet-content-editable {
         background-color:$grey;
         color: $off-black;
@@ -149,6 +185,7 @@ $xxl-size: 6.2rem;
 
         h2 {
             text-transform: uppercase;
+
             &:hover {
                 color: $light-blue;
                 cursor: pointer;
@@ -157,7 +194,6 @@ $xxl-size: 6.2rem;
     }
 }
 
-/*--------------------------------------------------------------------Modal-------------------------------------------------------------------------*/
 .modal {
     background-color: rgba(0, 0, 0, 0.5);
     display: none;
@@ -170,19 +206,24 @@ $xxl-size: 6.2rem;
     z-index: 1; 
 
     .modal-content {
-        background-color: #FEFEFE;
+        background-color: #888;
         border: 1px solid #888;
         margin: 15% auto; 
         padding: 20px;
         width: 80%; 
+
+        span {
+            font-size: 30px; 
+        }
     }
 
     .close {
         color: #AAA;
         float: right;
         font-size: 28px;
-        font-weight: bold;
-        &:hover, &:focus {
+        font-weight: $bold;
+
+        &:focus, &:hover {
             color: black;
             cursor: pointer;
             text-decoration: none;
@@ -190,6 +231,52 @@ $xxl-size: 6.2rem;
     }
 }
 
+.sidenav {
+    background-color: $white;
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 60px;
+    position: fixed;
+    transition: 0.5s;
+    top: 0;
+    width: 0;
+    z-index: 1;
+}
+.sidenav li {
+    background-color: $white;
+    color: $off-black;
+    display: block;
+    font-size: 25px;
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    transition: 0.3s;
 
+    a {
+        color: $off-black;
+        &:hover {
+            color: $light-blue;
+            text-decoration: none;
+        }
+    }
+}
 
+.sidenav .closebtn {
+    float: right;
+    font-size: 36px;
+    margin-left: 50px;
+    margin-right: 25px;
+    padding-top: 55px;
+    right: 25px;
+    top: 0;   
+}
 
+#main {
+    padding: 16px;
+    transition: margin-left .5s;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
