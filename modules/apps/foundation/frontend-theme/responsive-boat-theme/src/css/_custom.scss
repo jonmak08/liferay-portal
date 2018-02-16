@@ -2,7 +2,7 @@ $mobileNavExpandTime: 0.4s;
 $navBtnHeight: 40px;
 $navBtnPadding: 20px;
 $navLinkFadeTime: 0.5s;
-$yellow: #FFDD00;
+$yellow: #FD0;
 
 @mixin largeColumn {
 	border-width: 0;
@@ -13,10 +13,10 @@ $yellow: #FFDD00;
 	}
 
 	.portlet-content {
-		padding: 15px 15px 40px 15px;
+		padding: 15px 15px 40px;
 	}
 
-	.portlet-title-text::after {
+	.portlet-title-text:after {
 		background: #D44;
 	}
 }
@@ -35,25 +35,25 @@ $yellow: #FFDD00;
 	#sign-in {
 		border-radius: 4px;
 		color: #FFF;
-	    margin: 5px 10px;
-	    position: fixed;
-	    right: 0;
-	    text-decoration: none;
-	    transition: all 0.3s;
-	    z-index: 2;
+		margin: 5px 10px;
+		position: fixed;
+		right: 0;
+		text-decoration: none;
+		transition: all 0.3s;
+		z-index: 2;
 
-	    &:hover {
-	    	background: #FFF;
-	    	color: #333333;
-	    	transition: all 0.3s;
-	    }
+		&:hover {
+			background: #FFF;
+			color: #333;
+			transition: all 0.3s;
+		}
 	}
 
 	#banner {
 		background: rgba(0, 0, 0, 0.5);
 		height: 600px;										// add space below navbar to copy the Wordpress theme
 
-		& , a {
+		&, a {
 			color: #FFF;
 			text-decoration: none;
 		}
@@ -167,7 +167,7 @@ $yellow: #FFDD00;
 			}
 		}
 
-		@include media-query(null, sm) { 					// change navbar look for mobile devices
+		@include media-query(null, sm) {					// change navbar look for mobile devices
 			background: rgba(0, 0, 0, 0.75);
 			overflow-y: hidden;
 			position: static;
@@ -254,7 +254,7 @@ $yellow: #FFDD00;
 	}
 
 	/* ---------- General portlet rules ---------- */
-
+#main-content{
 	.portlet {
 		margin: 0;											// eliminate margin below each portlet to make them flush with each other
 	}
@@ -283,26 +283,24 @@ $yellow: #FFDD00;
 			width: 40px;
 		}
 
-		.portlet-body {
-			h1 {
-				font-size: 16px;							// make header of portlet body smaller than portlet title
-			}
+		.portlet-body h1 {
+			font-size: 16px;								// make header of portlet body smaller than portlet title
+		}
 
-			.journal-content-article > * {
-				margin: 0;
-				opacity: 0;
-				padding: 20px 0;
-				transform: translateY(100px);
+		.journal-content-article > * {
+			margin: 0;
+			opacity: 0;
+			padding: 20px 0;
+			transform: translateY(100px);
 
-				&.visible{									// JS-toggled class for making content appear when scrolling down
-					opacity: unset;
-					transform: unset;
-					transition: all 0.7s ease-out;
-				}
+			&.visible{										// JS-toggled class for making content appear when scrolling down
+				opacity: unset;
+				transform: unset;
+				transition: all 0.7s ease-out;
 			}
 		}
 	}
-
+}
 	/* ---------- Content section ---------- */
 
 	#main-content {
@@ -352,6 +350,28 @@ $yellow: #FFDD00;
 
 		.portlet-light {
 			background: #FFF;
+
+			&.portlet-fade {
+				.journal-content-article > * {
+					transform: translate(-100px, 0);
+				}
+
+				img {
+					border: 10px solid #ECECEC;
+				}
+
+				h1, h2, h3, h4, h5, h6 {
+					display: inline-block;
+
+					&::after {
+						background: $yellow;
+						content: " ";
+						height: 2px;
+						width: 75%;
+						display: inline-block;
+					}
+				}
+			}
 		}
 
 		.portlet-yellow {

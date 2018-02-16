@@ -1,0 +1,88 @@
+#wrapper {
+	padding: 0;
+}
+
+/* ---------- Heading section ---------- */
+
+#banner {
+	background: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	width: 100%;
+	z-index: 2;
+
+	.child-menu {
+		background: rgba(0, 0, 0, 0.5);
+		border-width: 0;
+		padding: 0;
+	}
+
+	.navbar, .portlet, .set-title {
+		border-width: 0;
+		margin: 0;
+	}
+
+	.portlet-content {
+		border-width: 0;
+
+		a {
+			color: #FFF;
+			padding: 20px 15px;
+		}
+
+		li:hover a {
+			background: none;
+		}
+	}
+
+	.portlet-topper {
+		border-radius: 4px;
+		bottom: 0;
+		top: unset;
+	}
+
+	.site-title {
+		font-size: 2em;
+		margin: 12px 4px 0;
+		position: unset;
+
+		a {
+			color: #FFF;
+			text-decoration: none;
+		}
+	}
+
+	#heading {
+		display: inline-block;
+	}
+
+	#navigation {
+		float: right;
+	}
+
+	&:hover {
+		.portlet-topper {
+			opacity: 1;
+			transform: translateY(100%);
+		}
+	}
+}
+
+/* ---------- General portlet rules ---------- */
+
+.portlet-barebone {
+	.portlet-title-text {
+		display: none;
+	}
+}
+
+.portlet-column {
+	// padding: 0;
+}
+
+.row {
+	margin: 0;
+}
+
+#content .slides {
+	border-radius: 0;
+}
