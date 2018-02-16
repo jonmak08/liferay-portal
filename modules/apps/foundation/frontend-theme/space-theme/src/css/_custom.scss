@@ -1,0 +1,284 @@
+$background: #333B43;
+$background-alt: #F2F2F5;
+$heading: #374054;
+$text: #74808A;
+
+$base-color: #0272AA;
+$base-color-hover: darken($base-color, 10%);
+$blue: #3C4251;
+$dark-blue: #20222B;
+$grey: #F5F2F5;
+$light-blue: #67AAE9;
+$off-black: #20222B;
+$white: #FFF;
+
+$desktop-breakpoint: 45rem;
+$l-size: 3.2rem;
+$m-size: 1.6rem;
+$s-size: 1.2rem;
+$xl-size: 4.8rem;
+$xxl-size: 6.2rem;
+
+$bold: bold;
+$title-weight: 1000;
+
+.has-control-menu #wrapper #navigation {
+    top: 64px;
+}
+
+#wrapper {
+    background-color: $background;
+    color: $off-black;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+
+        h1 {
+            color: $off-black;
+            display: inline-block;
+            font-family: Helvetica, Arial;
+            font-size: 42px;
+            font-weight: $title-weight;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            vertical-align: middle;
+        }
+
+        #heading {
+            background-color: $white;
+        }
+
+        #navigation {
+            background-color: $background;
+            height: 100px;
+
+            #hamburger {
+                display: none;
+            }
+
+            .container-fluid {
+                background-color: $white;
+                padding-bottom: 10px;
+                padding-left: 0;
+                padding-right: 0;
+                padding-top: 10px;
+                position: fixed;
+                width: 100%;
+                z-index: 2;
+            }
+
+            ul {
+                background-color: $white;
+                display: inline-block;
+                margin: 0;
+                overflow: hidden;
+                padding: 5px;
+                vertical-align: middle;
+
+                li {
+                    float: left;
+                    font-size: 23px;
+                    list-style: none;
+                    text-align: center;
+
+                    ul.child-menu {
+                        background-color: $white;
+                        color: $off-black;
+                        display: none;
+                        position: fixed;
+
+                        li {
+                            float: none;
+
+                            a {
+                                font-size: 17px;
+                                text-transform: lowercase;
+                            }
+                        }
+                    }
+
+                    a {
+                        color: $off-black;
+                        display: block;
+                        font-family: Open Sans, Helvetica, Arial;
+                        font-size: 23px;
+                        margin: 0;
+                        padding: 8px 10px;
+                        text-align: left;
+                        text-transform: uppercase;
+
+                        &:hover {
+                            color: $light-blue;
+                            text-decoration: none;
+                        }
+                    }
+                }
+
+                li:hover .child-menu {
+                    display: block;
+                }
+            }
+
+            @media screen and (max-width: 1090px) {
+                h1 {
+                    display: none;
+                }
+
+                ul {
+                    #hamburger {
+                        display: block;
+                    }
+
+                    li {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+    #content {
+        background-color: $background;
+        border: $dark-blue;
+        border-width: 3px;
+        color: $white;
+
+        #main-content {
+            border: $dark-blue;
+
+            .portlet {
+                background-color: $background;
+                border: $dark-blue;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+        }
+    }
+
+    #footer {
+        background-color: #1F2021;
+        color: $light-blue;
+        font-size: $s-size;
+        height: 70px;
+
+        p {
+            font-size: 16px;
+            padding-left: 80px;
+            padding-top: 15px;
+        }
+    }
+
+    .portlet-content.portlet-content-editable {
+        background-color: $grey;
+        color: $off-black;
+    }
+
+    .portlet-content {
+        background-color: $grey;
+        color: $off-black;
+
+        h2 {
+            &:hover {
+                color: $light-blue;
+                cursor: pointer;
+            }
+        }
+    }
+
+.modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    height: 100%;
+    left: 0;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+
+    .modal-content {
+        background-color: #888;
+        border: 1px solid #888;
+        margin: 15% auto;
+        padding: 20px;
+        width: 80%;
+
+        span {
+            font-size: 30px;
+        }
+    }
+
+    .close {
+        color: #AAA;
+        float: right;
+        font-size: 28px;
+        font-weight: $bold;
+
+        &:focus, &:hover {
+            color: $off-black;
+            cursor: pointer;
+            text-decoration: none;
+        }
+    }
+}
+
+.sidenav {
+    background-color: $white;
+    height: 100%;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 60px;
+    position: fixed;
+    top: 0;
+    transition: 0.5s;
+    width: 0;
+    z-index: 1;
+}
+
+.sidenav li {
+    background-color: $white;
+    color: $off-black;
+    display: block;
+    font-size: 25px;
+    padding: 8px 8px 8px 0;
+    text-decoration: none;
+    transition: 0.3s;
+
+    ul {
+        padding-left: 0;
+    }
+
+    a {
+        color: $off-black;
+
+        &:hover {
+            color: $light-blue;
+            text-decoration: none;
+        }
+    }
+}
+
+.sidenav .closebtn {
+    float: right;
+    font-size: 36px;
+    margin-left: 50px;
+    margin-right: 25px;
+    padding-top: 55px;
+    right: 25px;
+    top: 0;
+}
+
+#main {
+    padding: 16px;
+    transition: margin-left 0.5s;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+}
