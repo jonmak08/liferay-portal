@@ -3,7 +3,7 @@
 		<@liferay.language key="navigation" />
 	</h1>
 
-	<!--<div class="icon-reorder nav-btn"></div>-->
+	<div class="icon-reorder nav-btn"></div>
 	
-	<@liferay.navigation_menu default_preferences=freeMarkerPortletPreferences.getPreferences("portletSetupPortletDecoratorId", "borderless") />
+	<@liferay.navigation_menu default_preferences=freeMarkerPortletPreferences.getPreferences("portletSetupPortletDecoratorId", "barebone") />
 </nav>

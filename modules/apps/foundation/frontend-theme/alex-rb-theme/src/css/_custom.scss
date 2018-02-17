@@ -1,3 +1,6 @@
+$navBtnPadding: 19px;
+$yellow: #FD0;
+
 #wrapper {
 	padding: 0;
 }
@@ -5,15 +8,23 @@
 /* ---------- Heading section ---------- */
 
 #banner {
-	background: rgba(0, 0, 0, 0.5);
+	background: rgba(0, 0, 0, 0.8);
 	position: fixed;
 	width: 100%;
 	z-index: 2;
 
 	.child-menu {
-		background: rgba(0, 0, 0, 0.5);
+		background: rgba(0, 0, 0, 0.8);
 		border-width: 0;
-		padding: 0;
+		padding: 5px 0 5px 10px;
+	}
+
+	.nav > li {
+		padding: 22.5px 10px;
+	}
+
+	.nav-btn {
+		display: none;
 	}
 
 	.navbar, .portlet, .set-title {
@@ -22,27 +33,35 @@
 	}
 
 	.portlet-content {
-		border-width: 0;
-
 		a {
 			color: #FFF;
-			padding: 20px 15px;
+			padding: 5px;
+			text-transform: uppercase;
+			transition: color 0.5s;
+
+			&:hover {
+				color: $yellow;
+			}
 		}
 
 		li:hover a {
 			background: none;
 		}
+
+		.dropdown-menu li {
+			padding: 5px 0;
+		}
 	}
 
 	.portlet-topper {
-		border-radius: 4px;
+		border-radius: 0 0 4px 4px;
 		bottom: 0;
 		top: unset;
 	}
 
 	.site-title {
 		font-size: 2em;
-		margin: 12px 4px 0;
+		margin: 19px 4px 0;
 		position: unset;
 
 		a {
@@ -59,10 +78,95 @@
 		float: right;
 	}
 
-	&:hover {
+	@include media-query(sm) {
+		&:hover {
+			.portlet-topper {
+				opacity: 1;
+				transform: translateY(100%);
+			}
+		}
+	}
+
+	@include media-query(null, sm) {
+		position: static;
+
+		.nav {
+			border-top: 1px solid #444;
+			display: block;
+			margin: 0 15px;
+			padding-bottom: 10px;
+
+			a {
+				border-bottom: 1px solid #FFF;
+				line-height: inherit;
+				margin: 0 10px;
+				padding: 12px 0;
+			}
+
+			li {
+				padding: 0;
+			}
+
+			.dropdown-menu {
+				background: none;
+				box-shadow: none;
+				display: block;
+				float: none;
+				padding: 0 0 0 10px;
+				position: static;
+
+				a {
+					font-size: 0.9em;
+					margin: 0 10px 0 0;
+					padding-left: 15px;
+				}
+
+				li {
+					padding: 0;
+				}
+			}
+		}
+
+		.nav-btn {
+			background: #888;
+			border-radius: 4px;
+			color: #FFF;
+			display: block;
+			font-size: 2em;
+			margin: 0 25px 0 auto;
+			padding: 5px 10px;
+			text-align: right;
+			width: fit-content;
+
+			&.expand {
+				background: #D44;
+			}
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+
+		.portlet {
+			display: none;
+		}
+
+		.portlet-navigation {
+			padding-top: $navBtnPadding;
+		}
+
 		.portlet-topper {
-			opacity: 1;
+			position: absolute;
 			transform: translateY(100%);
+		}
+
+		#heading {
+			position: absolute;
+		}
+
+		#navigation {
+			float: none;
+			padding-top: $navBtnPadding;
 		}
 	}
 }
@@ -70,19 +174,64 @@
 /* ---------- General portlet rules ---------- */
 
 .portlet-barebone {
+	.portlet-content {
+		border-width: 0;
+	}
+
 	.portlet-title-text {
 		display: none;
 	}
 }
 
-.portlet-column {
-	// padding: 0;
-}
-
 .row {
 	margin: 0;
+	padding: 5px;
 }
 
-#content .slides {
-	border-radius: 0;
+/* ---------- Content section ---------- */
+
+#content {
+	padding-top: 100px;
+
+	ul.nav {
+		display: table;
+
+		li {
+			width: auto;
+		}
+
+		.dropdown-menu {
+			float: none;
+			min-width: unset;
+			position: static;
+
+			@include media-query(null, sm) {
+				box-shadow: none;
+				display: block;
+				text-align: center;
+			}
+		}
+	}
+}
+
+/* ---------- Footer section ---------- */
+
+#footer {
+	background: rgba(39, 39, 39, 0.95);
+	color: #696969;
+	text-align: center;
+
+	p {
+		background: #111;
+		margin: 0 12.5%;
+		padding: 50px 0;
+
+		@include media-query(null, sm) {
+			margin: 0 30px;
+		}
+	}
+
+	a {
+		color: #D3D3D3;
+	}
 }

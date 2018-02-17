@@ -38,16 +38,16 @@ function myPageJS() {
 		200
 	);
 
-	// navBtnDiv.get(0).onclick = function() {
-	// 	let portletDiv = nav.find('.portlet');
+	navBtnDiv.get(0).onclick = function() {
+		let portletDiv = nav.find('.portlet');
 
-	// 	nav.toggleClass('expand');
+		$(this).toggleClass('expand');
 
-	// 	portletDiv.slideToggle(
-	// 		300,
-	// 		function() {
-	// 			portletDiv.css('display', portletDiv.css('display').replace('none', ''));
-	// 		}
-	// 	);
-	// };
+		portletDiv.slideToggle(
+			300,
+			function() {
+				portletDiv.css('display', portletDiv.css('display').replace('none', ''));
+			}
+		);
+	};
 }

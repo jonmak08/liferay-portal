@@ -74,6 +74,7 @@
 <@liferay_util["include"] page=bottom_include />
 
 <!-- inject:js -->
+<script src="${javascript_folder}/main.js" type="text/javascript"></script>
 <!-- endinject -->
 
 </body>
