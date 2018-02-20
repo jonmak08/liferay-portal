@@ -46,6 +46,8 @@
 		</#if>
 	</header>
 
+    <p>${custom_text}</p>
+
 	<section id="content">
 		<h1 class="hide-accessible">${the_title}</h1>
 

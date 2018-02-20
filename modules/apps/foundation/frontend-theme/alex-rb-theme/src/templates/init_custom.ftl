@@ -1,0 +1,1 @@
+<#assign custom_text = getterUtil.getString(theme_settings["custom-text"])/>

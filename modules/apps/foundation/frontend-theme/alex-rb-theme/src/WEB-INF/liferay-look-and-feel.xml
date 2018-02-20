@@ -7,6 +7,9 @@
 	</compatibility>
 	<theme id="alex-rb" name="AlexRB">
 		<template-extension>ftl</template-extension>
+		<settings>
+			<setting configurable="true" key="custom-text" type="text" value="Hello Text"/>
+		</settings>
 		<portlet-decorator id="barebone" name="Barebone">
 			<portlet-decorator-css-class>portlet-barebone</portlet-decorator-css-class>
 		</portlet-decorator>
