@@ -18,7 +18,6 @@ $standardborder: 20px 20px;
 $trebuchetfont: Trebuchet MS, sans-serif;
 $worksansfont: WorkSans, Arial, sans-serif;
 
-
 %bottom-content {
     display: block;
     font-family: $latofont;
@@ -159,22 +158,22 @@ html {
                 width: 70px;
 
                 ul {
+                    display: block;
                     font-size: 12px;
                     position: fixed;
-                    right: 145px;
+                    right: 395px;
                     width: 20px;
 
-                    .yui3-dd-drop {
-                        right: 253px;
-                        width: 80px;
+                    .child-menu {
+                        visibility: hidden;
                     }
-                }
 
-                li a {
-                    height: 1px;
-                    display: grid;
-                    width: 116px;
-                }
+                    li a {
+                        height: 1px;
+                        display: grid;
+                        width: 116px;
+                    }
+                }    
 
                 &.hidemobilenav {
                     right: 368px;
@@ -185,10 +184,18 @@ html {
                         visibility: hidden;
                     }
 
+                    .child-menu {
+                        visibility: hidden;
+                    }
+
                     &.togglesmobilenav {
                         right: 314px;
                         
                         li {
+                            visibility: visible;
+                        }
+
+                        .child-menu {
                             visibility: visible;
                         }
                     }
@@ -218,21 +225,30 @@ html {
                     color: #FFF;
                 }
             }        
-    
-            .dropdown-menu li {
-                background: #193746;
-                border-width: 0;
-                margin: 0;
-                position: relative;
-    
-                a {
-                    color: #FFF;
-    
-                    &:hover {
-                        background: #000;
-                    }
+
+            .dropdown {
+
+                &:hover {
+                    background-color: $nav-item-hover;
                 }
-            }
+
+                &.dropdown-toggle {
+
+                }
+
+            } 
+
+            .dropdown-menu {
+                background-color: $nav-item-hover;
+                overflow: visible;
+
+                a {
+
+                    &:hover {
+                        background-color: $nav-item-hover;
+                    }
+                } 
+            }    
     
             li {
                 margin: 0 4px;
@@ -282,17 +298,6 @@ html {
                             }
                         }
                     }
-
-                    @include media-query(null, $screen-xs) {
-
-                        .child-menu { 
-
-                            &:active {
-                                right: 298px;
-                                visibility: visible;
-                            }
-                        }
-                    }
                 }
             }
 
@@ -300,7 +305,7 @@ html {
                 display: inline-block;
                 font-size: 1.2em;
                 font-weight: 550;
-                position: relative;
+                position: sticky;
     
                 a {
                     color: #EEE;

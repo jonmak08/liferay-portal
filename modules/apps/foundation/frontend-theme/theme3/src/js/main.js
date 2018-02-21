@@ -52,7 +52,10 @@ $(window).scroll(function() {
 	$('#navigation').removeClass('hidemobilenav');
 	}
 	});
+});
 
+
+$(document).ready(function () {	
 $('#navigation').on('click', function() {
 $('#navigation').toggleClass ('togglesnav');	
 });
@@ -61,3 +64,12 @@ $('#navigation').on('click', function() {
 $('#navigation').toggleClass ('togglesmobilenav');
 });
 });
+
+
+var clickCount=0;
+$('.dropdown-toggle').on('click', function (){
+	clickCount++;
+	if(clickCount >= 2) {
+		$('[data-toggle="dropdown"]').addClass('disabled');
+		};
+}); 
