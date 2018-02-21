@@ -1,0 +1,335 @@
+@font-face {
+    font-family: Lato;
+    src: url(lato/Lato-Regular.ttf);
+}
+
+@font-face {
+    font-family: WorkSans;
+    src: url(work_sans/WorkSans-Regular.ttf);
+}
+
+$content-background-color: #AC2631;
+$latofont: Lato, Times, sans-serif;
+$primary-color: #4a7488;
+$nav-background-color: #12272E; 
+$nav-color: rgb(45, 70, 76);
+$nav-item-hover: rgba(0, 0, 0, 0.43);
+$standardborder: 20px 20px;
+$trebuchetfont: Trebuchet MS, sans-serif;
+$worksansfont: WorkSans, Arial, sans-serif;
+
+%bottom-content {
+    display: block;
+    font-family: $latofont;
+    line-height: 1.6;
+}
+
+%selectionprops {
+    background-color: $primary-color;
+    color: #000;
+}
+
+html {
+    height: 100%;
+    font-family: $worksansfont;
+
+    h1, h2, h3, h4, h5, h6, p {
+        
+        a {
+            color: #CCC;
+
+            &:hover {
+                color: #000;
+                text-decoration: underline;
+
+                    }
+                }
+            }
+
+    li {
+        color: #CCC;
+    }
+
+    .has-control-menu #wrapper #navigation {
+        top: 65px;
+    }
+
+    #wrapper {
+        border: 0;
+        margin: 0;
+        overflow-x: hidden;
+        padding: 0;
+       
+        ::selection {
+            @extend %selectionprops;    
+        }
+
+        #{$all-text-inputs-active}, #{$all-text-inputs-focus} {
+            border: 1px solid #000;
+        }
+
+        #{$all-buttons} {
+            background-color: #000;
+            border-color: #FFF;
+            border-radius: $standardborder;
+            color: #FFF;
+            left: 2px;
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+        }
+
+        #sign-in {
+            color: #FFF;
+            font-family: $trebuchetfont;
+            left: 3px;
+            position: fixed;
+            z-index: 100;
+        }
+        
+        .alert-info, .portlet-msg-help, .portlet-msg-info, .portlet-msg-progress, .input-group .form-control {
+            border-radius: $standardborder;
+        }
+
+        .list-group-item {
+
+            &:hover {
+                color: #FFF;
+                background-color: $primary-color;
+            }
+        }
+
+        .portlet-topper {
+            border-radius: $standardborder;
+        }
+
+        .portlet-content.portlet-content-editable {
+            border-radius: $standardborder;
+            
+            &:hover {
+                color: #FFF;
+                border: 2px solid #000;
+                background-color: #000;
+                border-radius: 35px 35px;
+
+                .table-striped > tbody > tr:nth-child(odd) {
+                    color: #000
+                }
+            }
+        }
+        
+        #banner {
+            background: url('../images/pine_forest_in_estonia.jpg') center/cover no-repeat fixed;
+            height: 1000px;
+            width: 100%;
+        }
+
+        #navigation {
+            background: linear-gradient(rgba(45, 70, 76, 1), rgba(45, 70, 76, 0.1));
+            height: 105px;
+            position: fixed;
+            width: 100%;
+            z-index: 99;
+
+            /*--------------DesktopNav--------------*/
+
+            @include media-query($screen-md-min, $screen-lg + 2000) {
+
+                &:hover {
+                    height: 125px;
+                }
+
+                &.hidenav  {
+                    top: -5px;
+        
+                    &:hover {
+                        height: 140px;
+                        top: 65px;
+                    }
+                }
+            }
+
+            /*------MobileNav------*/
+
+            @include media-query(null, $screen-xs) {
+                height: 470px;
+                padding: 10px 14px;
+                width: 70px;
+
+                ul {
+                    display: block;
+                    font-size: 12px;
+                    position: fixed;
+                    right: 395px;
+                    width: 20px;
+
+                    .child-menu {
+                        visibility: hidden;
+                    }
+
+                    li a {
+                        height: 1px;
+                        display: grid;
+                        width: 116px;
+                    }
+                }    
+
+                &.hidemobilenav {
+                    right: 368px;
+                    transition-property: right;
+                    transition-duration: .5s;
+
+                    li {
+                        visibility: hidden;
+                    }
+
+                    .child-menu {
+                        visibility: hidden;
+                    }
+
+                    &.togglesmobilenav {
+                        right: 314px;
+                        
+                        li {
+                            visibility: visible;
+                        }
+
+                        .child-menu {
+                            visibility: visible;
+                        }
+                    }
+                }
+            }    
+
+            /*------TabletNav------*/
+
+            @include media-query(($screen-xs-max - 30px), $screen-sm-max) {
+                position: fixed;
+                top: auto !important;
+
+                &.hidenav  {
+                    top: -5px !important;
+
+                    &.togglesnav {
+                        height: 120px;
+                        top: -15px;
+                    }
+                }    
+            }
+                
+            .active {
+                background-color:#0A1B20;
+
+                > a {
+                    color: #FFF;
+                }
+            }        
+
+            .dropdown {
+
+                &:hover {
+                    background-color: $nav-item-hover;
+                }
+
+                &.dropdown-toggle {
+
+                }
+
+            } 
+
+            .dropdown-menu {
+                background-color: $nav-item-hover;
+                overflow: visible;
+
+                a {
+
+                    &:hover {
+                        background-color: $nav-item-hover;
+                    }
+                } 
+            }    
+    
+            li {
+                margin: 0 4px;
+                padding: 15px 10px;
+                position: absolute;
+    
+                &:hover {
+                    background-color: $nav-background-color;
+    
+                    .child-menu {
+                        display: block;
+                        margin-top: 0;
+                    }
+    
+                    a {
+                        color: #FFF;
+                        text-decoration: none;
+                    }
+                }
+            }
+    
+            ul {
+
+                li {
+
+                    .child-menu {
+                        display: block;
+                        padding: 0;
+                        visibility: hidden;
+
+                        li {
+                            list-style: none;
+                        }    
+                    }    
+
+                    &:hover {
+                        background-color: $nav-item-hover;
+
+                        .child-menu {
+                            background-color: $nav-item-hover;
+                            visibility: visible;
+
+                            li {
+                                width: 94px;
+                                right: -3.7px;
+                                top: 53.5px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            > ul > li {
+                display: inline-block;
+                font-size: 1.2em;
+                font-weight: 550;
+                position: sticky;
+    
+                a {
+                    color: #EEE;
+                    padding: 15px 10px;
+                }
+            }
+        }
+
+        #content {
+            @extend %bottom-content;
+            background-color: $content-background-color;
+            z-index: 100;
+        }
+
+        #footer {
+            @extend %bottom-content;
+            background-color: #193746;
+            height: 200px;
+            z-index: 101;
+
+            #powered-by {
+                color: white;
+                font-size: 20px;
+            }
+        }
+    }
+}
