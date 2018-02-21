@@ -1,0 +1,60 @@
+@import "_animation";
+@import "_breadcrumb";
+@import "_gallery";
+@import "_navigation";
+
+@include font-face("Montserrat", "fonts/Montserrat/Montserrat-Bold", bold, $file-formats: ttf);
+
+$ivory: #E5E5D8;
+$lightgray: #D7D7D7;
+$lightblack: #333;
+$turquoise: #144D52;
+
+#wrapper {
+	#main-content {
+		.portlet-title-text {
+			font-family: 'Montserrat', sans-serif;
+			font-weight: bold;
+			margin-bottom: 5px;
+		}
+
+		.portlet-content {
+			align-items: center;
+			background-color: $lightblack;
+			border-width: 0;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			color: $lightgray;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+
+			.portlet-body {
+				text-align: center;
+			}
+		}
+
+		> div:not(:first-child) {
+			margin: 10px 40px 10px 40px;
+		}
+
+		> div:first-child {
+			background: linear-gradient(to bottom, $turquoise 0%, $turquoise 50%, $ivory 50%, $ivory 100%);
+			padding: 10px 40px;
+
+			.portlet-content {
+				visibility: hidden;
+			}
+		}
+	}
+}
+
+.portlet {
+	margin-bottom: 0;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.row {
+	margin-left: 0;
+	margin-right: 0;
+}

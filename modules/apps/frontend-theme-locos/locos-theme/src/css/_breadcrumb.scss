@@ -1,0 +1,59 @@
+@include font-face("Montserrat", "fonts/Montserrat/Montserrat-Medium", normal, $file-formats: ttf);
+
+$lightivory: #FFFFF0;
+$turquoise: #144D52;
+
+#breadcrumbs {
+	.portlet {
+		background-color: $turquoise;
+	}
+
+	.portlet-content {
+		box-shadow: none;
+		margin-left: 20px;
+	}
+}
+
+#breadcrumbs, .portlet-breadcrumb {
+	background: none;
+	color: $lightivory;
+	font-family: 'Montserrat';
+	font-size: 12px;
+	height: 20px;
+	width: 100%;
+
+	ul {
+		background-color: transparent;
+		display: flex;
+		justify-content: flex-start;
+		margin: 0;
+		padding: 0;
+		text-decoration: none;
+	}
+
+	.portlet-title-text {
+		display: none;
+	}
+
+	.portlet-content {
+		background-color: transparent;
+		border: none;
+		display: inline-block;
+	}
+}
+
+#wrapper {
+	#main-content {
+		.portlet-breadcrumb {
+			.portlet-content {
+				background-color: transparent;
+				box-shadow: none;
+				content: " / ";
+				display: inline-block;
+				flex-flow: row wrap;
+				justify-content: flex-start;
+				padding: 0;
+			}
+		}
+	}
+}

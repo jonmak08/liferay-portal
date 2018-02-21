@@ -1,0 +1,142 @@
+@include font-face("Poppins", "fonts/Poppins/Poppins-Regular", normal, $file-formats: ttf);
+
+$lightivory: #FFFFF0;
+$orange: #F28959;
+
+$semibold: 600;
+
+#wrapper {
+	#main-content {
+		.portlet-navigation {
+			.portlet-content {
+				background-color: rgba(51, 51, 51, 0.8);
+				padding: 0;
+			}
+		}
+	}
+}
+
+.portlet-navigation {
+	border-radius: 2px;
+
+	.portlet-title-text {
+		display: none;
+	}
+
+	.portlet-content-container {
+		width: 100%;
+	}
+
+	.navbar {
+		margin: 0;
+	}
+
+	ul {
+		align-content: center;
+		align-items: center;
+		display: flex;
+		flex-flow: row nowrap; 
+		font-size: 20px;
+		justify-content: space-between;
+		margin-top: 0;
+		margin-bottom: 0;
+
+		li {
+			height: 100%;
+
+			a {
+				color: $lightivory;
+				font-family: 'Poppins';
+				font-size: 15px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+
+				&:hover {
+					background-color: $lightivory;
+					color: rgba(51, 51, 51, 1);
+					font-weight: $semibold;
+				}
+			}
+		}
+	}
+}
+
+.background-modaly {
+	background-color: rgba(0,0,0, 0.3);
+	display: none;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 125;
+}
+
+.modaly {
+	background-color: rgba(27,56,58, 0.8);
+	box-shadow: -2px 0px 3px rgba(27,56,58, 0.8);
+	height: 100%;
+	overflow: hidden;
+	position: fixed;
+	right: 0;
+	top: 0;
+	transition: 0.5s;
+	width: 0;
+	z-index: 150;
+
+	.closebtn {
+		font-size: 5vmin;
+		position: absolute;
+		right: 20px;
+		padding: 0;
+		top: 10px;
+	}
+
+	a {
+		color: $lightivory;
+		display: block;
+		font-family: 'Poppins';
+		font-size: 3vmin;
+		padding: 8px;
+		text-decoration: none;
+		transition: 0.3s;
+
+		&:hover {
+			color: $orange;
+		}
+
+		&:focus {
+			color: $orange;
+		}
+	}
+
+	ul {
+		padding: 0;
+	}
+}
+
+.modaly-content {
+	height: 100%;
+	margin-top: 20px;
+	margin-right: 20px;
+	padding: 0;
+	position: relative;
+	text-align: right;
+	top: 10%;
+	width: 100%;
+}
+
+@media screen and (max-height: 450px) {
+	.modaly {
+		a {
+			font-size: 20px
+		}
+
+		.closebtn {
+			font-size: 40px;
+			right: 35px;
+			top: 15px;
+		}
+	}
+}
