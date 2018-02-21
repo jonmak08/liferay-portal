@@ -20,7 +20,7 @@
 
 <@liferay.control_menu />
 
-<div class="container-fluid" id="wrapper">
+<div class="container-fluid ${custom_background_css}" id="wrapper">
 	<header id="banner" role="banner">
 		<div id="heading">
 			<h1 class="site-title">
@@ -45,8 +45,6 @@
 			<#include "${full_templates_path}/navigation.ftl" />
 		</#if>
 	</header>
-
-    <p>${custom_text}</p>
 
 	<section id="content">
 		<h1 class="hide-accessible">${the_title}</h1>
