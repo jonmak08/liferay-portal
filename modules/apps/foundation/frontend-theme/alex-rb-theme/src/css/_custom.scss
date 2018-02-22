@@ -82,7 +82,7 @@ $yellow: #FD0;
 	}
 
 	#navigation {
-		float: right;
+		margin-right: 0;
 	}
 
 	&.large-header {
@@ -187,14 +187,8 @@ $yellow: #FD0;
 
 /* ---------- General portlet rules ---------- */
 
-.portlet-barebone {
-	.portlet-content {
-		border-width: 0;
-	}
-
-	.portlet-title-text {
-		display: none;
-	}
+.portlet-barebone .portlet-content {
+	border-width: 0;
 }
 
 .row {
@@ -205,7 +199,9 @@ $yellow: #FD0;
 /* ---------- Content section ---------- */
 
 #content {
-	margin-top: 100px;
+	@include media-query(sm) {
+		margin-top: 100px;
+	}
 
 	ul.nav {
 		display: table;

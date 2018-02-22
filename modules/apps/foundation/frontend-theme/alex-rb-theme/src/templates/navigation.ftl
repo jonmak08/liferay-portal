@@ -1,4 +1,4 @@
-<nav class="${nav_css_class}" id="navigation" role="navigation">
+<nav class="navbar-right ${nav_css_class}" id="navigation" role="navigation">
 	<h1 class="hide-accessible">
 		<@liferay.language key="navigation" />
 	</h1>
