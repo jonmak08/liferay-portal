@@ -1,6 +1,27 @@
 $navBtnPadding: 19px;
 $yellow: #FD0;
 
+@mixin dropdown-icon {
+	cursor: pointer;
+	padding: 10px 14px;
+	transition: all 0.5s;
+
+	&:hover {
+		background: $yellow;
+		color: #111;
+	}
+
+	&.expand {
+		background: rgba(255, 255, 255, 0.75);
+		color: #111;
+
+		&:hover {
+			background: $yellow;
+			color: #111;
+		}
+	}
+}
+
 #wrapper {
 	padding: 0;
 }
@@ -20,50 +41,35 @@ $yellow: #FD0;
 	width: 100%;
 	z-index: 2;
 
-	.child-menu {
+	.dropdown-menu {
 		background: rgba(0, 0, 0, 0.8);
-		border-width: 0;
-		padding: 5px 0 5px 10px;
+		border-radius: 0;
+		max-height: fit-content;
+		overflow: unset;
 	}
 
-	.nav > li {
-		padding: 22.5px 10px;
-	}
-
-	.nav-btn {
-		display: none;
-	}
-
-	.navbar, .portlet, .set-title {
+	.dropdown-menu, .set-title {
 		border-width: 0;
 		margin: 0;
 	}
 
-	.portlet-content {
-		a {
-			color: #FFF;
-			padding: 5px;
-			text-transform: uppercase;
-			transition: color 0.5s;
+	.grandchild-menu {
+		background: none;
+		position: static;
+	}
 
-			&:hover {
-				color: $yellow;
+	.nav > li {
+		display: inline-block;
+
+		@include media-query(sm) {
+			&:hover > ul {
+				display: block;
 			}
-		}
-
-		li:hover a {
-			background: none;
-		}
-
-		.dropdown-menu li {
-			padding: 5px 0;
 		}
 	}
 
-	.portlet-topper {
-		border-radius: 0 0 4px 4px;
-		bottom: 0;
-		top: unset;
+	.nav-btn {
+		display: none;
 	}
 
 	.site-title {
@@ -82,21 +88,47 @@ $yellow: #FD0;
 	}
 
 	#navigation {
+		float: right;
+		height: fit-content;
 		margin-right: 0;
-	}
 
-	&.large-header {
-		& ~ #content {
-			margin-top: 600px;
-			padding-top: unset;
+		a {
+			color: #FFF;
+			display: inline-block;
+			margin: 22.5px 0;
+			padding: 5px;
+			text-decoration: none;
+			text-transform: uppercase;
+			transition: color 0.5s;
+
+			&:hover {
+				background-color: unset;
+				color: $yellow;
+			}
 		}
-	}
 
-	@include media-query(sm) {
-		&:hover {
-			.portlet-topper {
-				opacity: 1;
-				transform: translateY(100%);
+		li {
+			padding: 0 10px;
+		}
+
+		.icon-angle-down {
+			color: #FFF;
+			display: inline-block;
+			font-size: 1.5em;
+			padding: 0;
+		}
+
+		.dropdown-menu {
+			a {
+				margin: 10px 0;
+			}
+
+			li {
+				overflow-y: auto;
+			}
+
+			.icon-angle-down {
+				@include dropdown-icon;
 			}
 		}
 	}
@@ -104,41 +136,28 @@ $yellow: #FD0;
 	@include media-query(null, sm) {
 		position: static;
 
-		.nav {
-			border-top: 1px solid #444;
-			display: block;
-			margin: 0 15px;
-			padding-bottom: 10px;
+		.dropdown-menu {
+			background: none;
+			box-shadow: none;
+			float: none;
+			margin: 0;
+			padding: 0;
+			position: static;
 
 			a {
-				border-bottom: 1px solid #FFF;
-				line-height: inherit;
-				margin: 0 10px;
-				padding: 12px 0;
+				font-size: 0.9em;
 			}
 
-			li {
-				padding: 0;
+			ul {
+				margin: 0;
 			}
+		}
 
-			.dropdown-menu {
-				background: none;
-				box-shadow: none;
-				display: block;
-				float: none;
-				padding: 0 0 0 10px;
-				position: static;
-
-				a {
-					font-size: 0.9em;
-					margin: 0 10px 0 0;
-					padding-left: 15px;
-				}
-
-				li {
-					padding: 0;
-				}
-			}
+		.nav {
+			border-top: 1px solid #444;
+			display: none;
+			margin: 0 15px;
+			padding: 0 15px 10px;
 		}
 
 		.nav-btn {
@@ -147,7 +166,7 @@ $yellow: #FD0;
 			color: #FFF;
 			display: block;
 			font-size: 2em;
-			margin: 0 25px 0 auto;
+			margin: 0 25px $navBtnPadding auto;
 			padding: 5px 10px;
 			text-align: right;
 			width: fit-content;
@@ -161,19 +180,6 @@ $yellow: #FD0;
 			}
 		}
 
-		.portlet {
-			display: none;
-		}
-
-		.portlet-navigation {
-			padding-top: $navBtnPadding;
-		}
-
-		.portlet-topper {
-			position: absolute;
-			transform: translateY(100%);
-		}
-
 		#heading {
 			position: absolute;
 		}
@@ -181,6 +187,41 @@ $yellow: #FD0;
 		#navigation {
 			float: none;
 			padding-top: $navBtnPadding;
+
+			a {
+				line-height: inherit;
+				margin: 0 0 0 15px;
+				padding: 12px 0;
+			}
+
+			li {
+				border-bottom: 1px solid #FFF;
+				display: block;
+				padding: 0;
+			}
+
+			.dropdown-menu {
+				a {
+					margin: 0;
+					padding-left: 45px;
+				}
+
+				li {
+					border-bottom: 0;
+					border-top: 1px solid #444;
+					overflow-y: unset;
+				}
+
+				.grandchild-menu a {
+					padding-left: 75px;
+				}
+			}
+
+			.icon-angle-down {
+				background: $yellow;
+				
+				@include dropdown-icon;
+			}
 		}
 	}
 }

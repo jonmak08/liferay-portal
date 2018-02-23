@@ -18,10 +18,41 @@
 			"title": "Welcome"
 		},
 		{
-			"friendlyURL": "/about",
-			"name": "About",
-			"title": "About",
-			"layoutTemplateId": "2_columns_iii"
+			"friendlyURL": "/samplepost",
+			"name": "Sample Post",
+			"title": "Sample Post",
+			"layoutTemplateId": "2_columns_iii",
+			"layouts": [
+				{
+					"friendlyURL": "/about/child1",
+					"name": "Child1",
+					"title": "Child1",
+					"layouts": [
+						{
+							"friendlyURL": "/about/child1/grandchild1",
+							"title": "Grandchild1",
+							"name": "Grandchild1"
+						}
+					]
+				},
+				{
+					"friendlyURL": "/about/child2",
+					"name": "Child2",
+					"title": "Child2",
+					"layouts": [
+						{
+							"friendlyURL": "/about/child2/grandchild2",
+							"title": "Grandchild2",
+							"name": "Grandchild2"
+						}
+					]
+				}
+			]
+		},
+		{
+			"friendlyURL": "/shop",
+			"name": "Shop",
+			"title": "Shop"
 		}
 	]
 }
