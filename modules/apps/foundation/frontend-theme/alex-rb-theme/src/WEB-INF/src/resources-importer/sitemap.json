@@ -1,5 +1,6 @@
 {
 	"layoutTemplateId": "1_column",
+	"themeId": "alexrb_WAR_alexrbtheme",
 	"publicPages": [
 		{
 			"columns": [
@@ -10,6 +11,9 @@
 							"portletSetupPortletDecoratorId": "decorate"
                         }
 					},
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+					}
 
 				]
 			],
@@ -24,24 +28,24 @@
 			"layoutTemplateId": "2_columns_iii",
 			"layouts": [
 				{
-					"friendlyURL": "/about/child1",
+					"friendlyURL": "/samplepost/child1",
 					"name": "Child1",
 					"title": "Child1",
 					"layouts": [
 						{
-							"friendlyURL": "/about/child1/grandchild1",
+							"friendlyURL": "/samplepost/child1/grandchild1",
 							"title": "Grandchild1",
 							"name": "Grandchild1"
 						}
 					]
 				},
 				{
-					"friendlyURL": "/about/child2",
+					"friendlyURL": "/samplepost/child2",
 					"name": "Child2",
 					"title": "Child2",
 					"layouts": [
 						{
-							"friendlyURL": "/about/child2/grandchild2",
+							"friendlyURL": "/samplepost/child2/grandchild2",
 							"title": "Grandchild2",
 							"name": "Grandchild2"
 						}
@@ -52,7 +56,21 @@
 		{
 			"friendlyURL": "/shop",
 			"name": "Shop",
-			"title": "Shop"
+			"title": "Shop",
+			"layouts": [
+				{
+					"friendlyURL": "/shop/child3",
+					"name": "Child3",
+					"title": "Child3",
+					"layouts": [
+						{
+							"friendlyURL": "/shop/child3/grandchild3",
+							"name": "Grandchild3",
+							"title": "Grandchild3"
+						}
+					]
+				}
+			]
 		}
 	]
 }

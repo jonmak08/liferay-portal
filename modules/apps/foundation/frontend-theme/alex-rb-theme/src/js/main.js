@@ -3,32 +3,39 @@ Liferay.on('allPortletsReady', myPageJS);
 
 function myPageJS() {
 	let nav = AUI.$('#navigation');
-	let navBtnDiv = nav.find('div.nav-btn');
-	let parentDropdownBtn = nav.find('> ul > li > span.icon-angle-down');
-	let childDropdownBtns = nav.find('.child-menu span.icon-angle-down');
 
-	navBtnDiv.get(0).onclick = function() {
+	let childDropdownBtns = nav.find('.child-menu span.icon-angle-down');
+	let navBtnDiv = nav.find('div.nav-btn');
+	let parentDropdownBtns = nav.find('> ul > li > span.icon-angle-down');
+
+	/*
+		Define max-height of nav so that all overflowing links can be seen and scrolled to
+		on a mobile device.
+	*/
+
+	function handleNavOverflow() {
 		let navUl = nav.find('.nav');
 
-		$(this).toggleClass('expand');
+		let navOffsetTop = navUl.offset().top || nav.outerHeight() + nav.offset().top;
 
-		navUl.slideToggle(
-			300,
-			function() {
-				$(this).css('display', $(this).css('display').replace('none', ''));
-			}
-		);
-	};
+		let maxNavUlHeight = window.innerHeight - navOffsetTop;
 
-	function dropdownClickHandler(target) {
-		let siblingUl = $(target).find('+ ul');
+		navUl.css('max-height', maxNavUlHeight);
+	}
 
-		$(target).toggleClass('expand');
+	handleNavOverflow();
+
+	AUI.$(window).resize(AUI._.debounce(handleNavOverflow, 150));
+
+	function handleDropdownClick(target) {
+		let siblingUl = AUI.$(target).find('+ ul');
+
+		AUI.$(target).toggleClass('expand');
 
 		siblingUl.slideToggle(
 			300,
 			function() {
-				$(this).css('display', $(this).css('display').replace('none', ''));
+				AUI.$(this).css('display', AUI.$(this).css('display').replace('none', ''));
 			}
 		);
 	}
@@ -36,14 +43,22 @@ function myPageJS() {
 	childDropdownBtns.each(
 		function() {
 			this.onclick = function() {
-				dropdownClickHandler(this);
+				handleDropdownClick(this);
 			};
 		}
 	);
 
-	parentDropdownBtn.get(0).onclick = function() {
-		if (window.innerWidth < 768) {
-			dropdownClickHandler(this);
-		}
+	navBtnDiv.get(0).onclick = function() {
+		handleDropdownClick(this);
 	};
+
+	parentDropdownBtns.each(
+		function() {
+			this.onclick = function() {
+				if (window.innerWidth < 768) {
+					handleDropdownClick(this);
+				}
+			};
+		}
+	);
 }

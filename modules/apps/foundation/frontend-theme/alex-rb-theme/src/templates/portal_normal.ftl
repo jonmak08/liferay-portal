@@ -20,7 +20,7 @@
 
 <@liferay.control_menu />
 
-<div class="container-fluid ${custom_background_css}" id="wrapper">
+<div class="container-fluid" id="wrapper">
 	<header id="banner" role="banner">
 		<div id="heading">
 			<h1 class="site-title">
@@ -48,6 +48,13 @@
 
 	<section id="content">
 		<h1 class="hide-accessible">${the_title}</h1>
+
+		<#if include_custom_background>
+			<@liferay_portlet["runtime"]
+				portletProviderAction=portletProviderAction.VIEW
+				portletProviderClassName="MyFreemarkerPortlet"
+			/>
+		</#if>
 
 		<#if selectable>
 			<@liferay_util["include"] page=content_include />
