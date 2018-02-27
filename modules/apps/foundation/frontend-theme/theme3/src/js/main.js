@@ -35,41 +35,41 @@ Liferay.on(
 
 
 $(document).ready(function () {
-$(window).scroll(function() {
-	if($(document).scrollTop() > 950) {
-    	$('#navigation').addClass('hidenav');
-	}
-	else {
-	$('#navigation').removeClass('hidenav');
-	}
+	$(window).scroll(function() {
+		if($(document).scrollTop() > 450) {
+    		$('#navigation').addClass('hidenav');
+		}
+		else {
+			$('#navigation').removeClass('hidenav');
+		}
 	});
 
-$(window).scroll(function() {
-	if($(document).scrollTop() > 600) {
-		$('#navigation').addClass('hidemobilenav');
-	}
-	else {
-	$('#navigation').removeClass('hidemobilenav');
-	}
+	$(window).scroll(function() {
+		if($(document).scrollTop() > 170) {
+			$('#navigation').addClass('hidemobilenav');
+		}
+		else {
+		$('#navigation').removeClass('hidemobilenav');
+		}
 	});
-});
 
+	$('#navigation').on('click', function() {
+		$('#navigation').toggleClass ('togglesnav');	
+	});
 
-$(document).ready(function () {	
-$('#navigation').on('click', function() {
-$('#navigation').toggleClass ('togglesnav');	
-});
+	$('#navigation').on('click', function() {
+		$('#navigation').toggleClass ('togglesmobilenav');
+	});
 
-$('#navigation').on('click', function() {
-$('#navigation').toggleClass ('togglesmobilenav');
-});
-});
-
+	$('ul').on('click', function() {
+		$('ul').toggleClass ('adddisplay');
+	});
 
 var clickCount=0;
-$('.dropdown-toggle').on('click', function (){
-	clickCount++;
-	if(clickCount >= 2) {
-		$('[data-toggle="dropdown"]').addClass('disabled');
-		};
-}); 
+		$('.dropdown-toggle').on('click', function (){
+			clickCount++;
+				if(clickCount >= 2) {
+					$('[data-toggle="dropdown"]').addClass('disabled');
+				};
+		}); 
+});

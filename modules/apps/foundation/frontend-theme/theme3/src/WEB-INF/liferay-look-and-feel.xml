@@ -7,19 +7,6 @@
 		</compatibility>
 		<theme id="theme-3" name="theme3">
 				<template-extension>ftl</template-extension>
-	<layout-templates>
-        <custom>
-          <layout-template id="lodestone"
-						name="lodestone">
-						<template-path>
-							/layouttpl/custom/lodestone-layouttpl/lodestone.tpl
-						</template-path>
-						<thumbnail-path>
-							/layouttpl/custom/lodestone-layouttpl/lodestone.png
-						</thumbnail-path>
-			</layout-template>
-		</custom>
-	</layout-templates>
 				<portlet-decorator id="barebone" name="Barebone">
 						<portlet-decorator-css-class>portlet-barebone</portlet-decorator-css-class>
 				</portlet-decorator>
