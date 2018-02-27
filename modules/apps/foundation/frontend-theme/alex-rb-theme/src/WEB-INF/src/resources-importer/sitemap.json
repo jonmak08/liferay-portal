@@ -8,9 +8,16 @@
 					{
 						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
 						"portletPreferences": {
-							"articleId": "Features",
-							"portletSetupPortletDecoratorId": "barebone"
+							"articleId": "Features.xml",
+							"portletSetupPortletDecoratorId": "white-fade"
                         }
+					},
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "About You.xml",
+							"portletSetupPortletDecoratorId": "dark-fade"
+						}
 					}
 				]
 			],

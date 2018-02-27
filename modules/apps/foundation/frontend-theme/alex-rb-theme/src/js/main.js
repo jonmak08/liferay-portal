@@ -2,6 +2,7 @@
 Liferay.on('allPortletsReady', myPageJS);
 
 function myPageJS() {
+	let hiddenArticleGroups = AUI.$('.portlet-fade .action-group');
 	let nav = AUI.$('#navigation');
 
 	let childDropdownBtns = nav.find('.child-menu span.icon-angle-down');
@@ -61,4 +62,27 @@ function myPageJS() {
 			};
 		}
 	);
+
+	// Add class to make portlet content visible when scrolled to
+	AUI.$(window).scroll(AUI._.throttle(
+		function() {
+			for (let i = 0; i < hiddenArticleGroups.length; i++) {
+				let articleGroup = hiddenArticleGroups.eq(i);
+
+				let scrollPositionY = articleGroup.get(0).getBoundingClientRect().top;
+
+				let hasClassShow = scrollPositionY < window.innerHeight - 100;
+
+				if (hasClassShow){
+					articleGroup.addClass('visible');
+
+					// Remove element from jQuery object to reduce calculations
+					hiddenArticleGroups = hiddenArticleGroups.not(articleGroup);
+
+					i--;
+				}
+			}
+		},
+		200
+	));
 }

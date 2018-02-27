@@ -13,12 +13,21 @@
 		<portlet-decorator id="borderless" name="Borderless">
 			<portlet-decorator-css-class>portlet-borderless</portlet-decorator-css-class>
 		</portlet-decorator>
+		<portlet-decorator id="dark-fade" name="Dark Fade">
+			<portlet-decorator-css-class>portlet-barebone portlet-dark portlet-fade portlet-rb</portlet-decorator-css-class>
+		</portlet-decorator>
 		<portlet-decorator id="decorate" name="Decorate">
 			<default-portlet-decorator>true</default-portlet-decorator>
 			<portlet-decorator-css-class>portlet-decorate</portlet-decorator-css-class>
 		</portlet-decorator>
-		<portlet-decorator id="white-stretch" name="White Stretch">
-			<portlet-decorator-css-class>portlet-white portlet-stretch</portlet-decorator-css-class>
+		<portlet-decorator id="white-fade" name="White Fade">
+			<portlet-decorator-css-class>portlet-barebone portlet-fade portlet-rb portlet-white</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="white-push" name="White Push">
+			<portlet-decorator-css-class>portlet-barebone portlet-push portlet-rb portlet-white</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="white-zoom" name="White Zoom">
+			<portlet-decorator-css-class>portlet-barebone portlet-rb portlet-white portlet-zoom</portlet-decorator-css-class>
 		</portlet-decorator>
 	</theme>
 </look-and-feel>

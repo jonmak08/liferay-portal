@@ -246,8 +246,46 @@ $yellow: #FD0;
 
 /* ---------- General portlet rules ---------- */
 
-.portlet-barebone .portlet-content {
-	border-width: 0;
+.portlet-barebone {
+	.portlet-content {
+		border-width: 0;
+	}
+
+	.portlet-title-text {
+		display: none;
+	}
+}
+
+.portlet-dark {
+	background: rgba(45, 45, 45, 0.95);
+}
+
+.portlet-fade {
+	.action-group {
+		opacity: 0;
+		transition: all 1s;
+	}
+
+	&.portlet-dark .action-group {
+		transform: translateY(100px);
+	}
+
+	&.portlet-white .action-group {
+		transform: translateX(-50px);
+	}
+
+	.action-group.visible {
+		opacity: 1;
+		transform: translate(0, 0);
+	}
+}
+
+.portlet-rb {
+	margin: 0 -20px;
+}
+
+.portlet-white {
+	background: #FFF;
 }
 
 .row {
