@@ -1,7 +1,7 @@
 <style>
 	.about-you-portlet {
 		color: #FFF;
-		padding: 150px 0;
+		padding: 100px 0;
 		text-align: center;
 	}
 
@@ -25,6 +25,7 @@
 	.about-you-portlet p {
 		color: #939393;
 		display: inline-block;
+		margin-bottom: 10px;
 		max-width: 500px;
 		text-align: left;
 	}
@@ -54,5 +55,5 @@
 
 	<p class="action-group">${content.getData()}</p>
 
-	<img class="action-group" data-fileentryid="${image.getAttribute("fileEntryId")}" alt="${image.getAttribute("alt")}" src="${image.getData()}" />
+	<img class="action-group" data-fileentryid="${image.getAttribute("fileEntryId")}" alt="${image.getAttribute("alt")}" src="/documents/87902/0/starman.jpg/84d75b42-c6e8-f405-a61b-c41b1d4e46ae" />
 </div>

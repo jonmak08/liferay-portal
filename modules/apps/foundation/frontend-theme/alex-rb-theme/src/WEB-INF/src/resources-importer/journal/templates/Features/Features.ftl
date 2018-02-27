@@ -43,7 +43,7 @@
 
 <div class='features-portlet'>
 		<span class="action-group">
-			<img data-fileentryid="${image1.getAttribute("fileEntryId")}" alt="${image1.getAttribute("alt")}" src="${image1.getData()}" />
+			<img data-fileentryid="${image1.getAttribute("fileEntryId")}" alt="${image1.getAttribute("alt")}" src="documents/87902/0/DW.jpg/4e7ea455-1004-09ce-414a-70f83479d2e0" />
 			<h4>
 				${image1.header1.getData()}
 				<span class='line'></span>
@@ -53,7 +53,7 @@
 		</span>
 
 		<span class="action-group">
-			<img data-fileentryid="${image2.getAttribute("fileEntryId")}" alt="${image2.getAttribute("alt")}" src="${image2.getData()}" />
+			<img data-fileentryid="${image2.getAttribute("fileEntryId")}" alt="${image2.getAttribute("alt")}" src="/documents/87902/0/KSP.jpg/9d018d61-b678-06a1-0ef6-0b8515908fbf" />
 			<h4>
 				${image2.header2.getData()}
 				<span class='line'></span>
@@ -63,7 +63,7 @@
 		</span>
 
 		<span class="action-group">
-			<img data-fileentryid="${image3.getAttribute("fileEntryId")}" alt="${image3.getAttribute("alt")}" src="${image3.getData()}" />
+			<img data-fileentryid="${image3.getAttribute("fileEntryId")}" alt="${image3.getAttribute("alt")}" src="/documents/87902/0/New+Lunar+Republic.png/d2f3f214-359f-27ab-47f0-ccfaac5129e8" />
 			<h4>
 				${image3.header3.getData()}
 				<span class='line'></span>
@@ -73,7 +73,7 @@
 		</span>
 
 		<span class="action-group">
-			<img data-fileentryid="${image4.getAttribute("fileEntryId")}" alt="${image4.getAttribute("alt")}" src="${image4.getData()}" />
+			<img data-fileentryid="${image4.getAttribute("fileEntryId")}" alt="${image4.getAttribute("alt")}" src="/documents/87902/0/Moss.jpg/0b3df51f-75db-a53c-f475-ea6375159549?t=1519749778374" />
 			<h4>
 				${image4.header4.getData()}
 				<span class='line'></span>
