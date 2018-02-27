@@ -6,15 +6,12 @@
 			"columns": [
 				[
 					{
-						"portletId": "com_liferay_hello_world_web_portlet_HelloWorldPortlet",
-						"portletPreferences": {
-							"portletSetupPortletDecoratorId": "decorate"
-                        }
-					},
-					{
 						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Features",
+							"portletSetupPortletDecoratorId": "barebone"
+                        }
 					}
-
 				]
 			],
 			"friendlyURL": "/home",

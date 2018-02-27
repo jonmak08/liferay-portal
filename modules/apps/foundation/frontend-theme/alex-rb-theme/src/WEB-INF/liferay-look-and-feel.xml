@@ -7,9 +7,6 @@
 	</compatibility>
 	<theme id="alex-rb" name="AlexRB">
 		<template-extension>ftl</template-extension>
-		<settings>
-			<setting configurable="true" key="Include custom background." type="checkbox"/>
-		</settings>
 		<portlet-decorator id="barebone" name="Barebone">
 			<portlet-decorator-css-class>portlet-barebone</portlet-decorator-css-class>
 		</portlet-decorator>
@@ -19,6 +16,9 @@
 		<portlet-decorator id="decorate" name="Decorate">
 			<default-portlet-decorator>true</default-portlet-decorator>
 			<portlet-decorator-css-class>portlet-decorate</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="white-stretch" name="White Stretch">
+			<portlet-decorator-css-class>portlet-white portlet-stretch</portlet-decorator-css-class>
 		</portlet-decorator>
 	</theme>
 </look-and-feel>

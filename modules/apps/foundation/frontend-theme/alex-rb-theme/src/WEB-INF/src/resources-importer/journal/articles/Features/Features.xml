@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root available-locales="en_US" default-locale="en_US">
+    <dynamic-element name="image1" type="image" index-type="text" instance-id="nypu">
+        <dynamic-element name="header1" instance-id="yqvg" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Doctor Who]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="summary1" instance-id="vpuj" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="url1" instance-id="kvmm" type="link_to_layout" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-content language-id="en_US" alt="Doctor Who image description" name="DW.jpg" title="DW.jpg" type="journal" fileEntryId="">/image/journal/article?img_id=64912</dynamic-content>
+    </dynamic-element>
+
+    <dynamic-element name="image2" type="image" index-type="text" instance-id="voyf">
+        <dynamic-element name="header2" instance-id="lwda" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Kerbal Space Program]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="summary2" instance-id="mkpr" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="url2" instance-id="tbzo" type="link_to_layout" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-content language-id="en_US" alt="Kerbal Space Program image description" name="KSP.jpg" title="KSP.jpg" type="journal" fileEntryId="">/image/journal/article?img_id=649134</dynamic-content>
+    </dynamic-element>
+
+    <dynamic-element name="image3" type="image" index-type="text" instance-id="imgf">
+        <dynamic-element name="header3" instance-id="oeeh" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[New Lunar Republic]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="summary3" instance-id="pzaw" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="url3" instance-id="qgcm" type="link_to_layout" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-content language-id="en_US" alt="New Lunar Republic image description" name="New Lunar Republic.png" title="New Lunar Republic.png" type="journal" fileEntryId="">/image/journal/article?img_id=64914</dynamic-content>
+    </dynamic-element>
+
+    <dynamic-element name="image4" type="image" index-type="text" instance-id="fune">
+        <dynamic-element name="header4" instance-id="qpql" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Maurice Moss]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="summary4" instance-id="fgsi" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="url4" instance-id="twwz" type="link_to_layout" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-content language-id="en_US" alt="Moss image description" name="Moss.jpg" title="Moss.jpg" type="journal" fileEntryId="">/image/journal/article?img_id=64915</dynamic-content>
+    </dynamic-element>
+</root>

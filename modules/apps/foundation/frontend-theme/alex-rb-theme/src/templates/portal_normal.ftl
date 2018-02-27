@@ -49,13 +49,6 @@
 	<section id="content">
 		<h1 class="hide-accessible">${the_title}</h1>
 
-		<#if include_custom_background>
-			<@liferay_portlet["runtime"]
-				portletProviderAction=portletProviderAction.VIEW
-				portletProviderClassName="MyFreemarkerPortlet"
-			/>
-		</#if>
-
 		<#if selectable>
 			<@liferay_util["include"] page=content_include />
 		<#else>
