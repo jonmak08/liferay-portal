@@ -1,6 +1,5 @@
 <#assign
 	portlet_display = portletDisplay
-
 	portlet_back_url = htmlUtil.escapeHREF(portlet_display.getURLBack())
 	portlet_content_css_class = "portlet-content"
 	portlet_display_name = htmlUtil.escape(portlet_display.getPortletDisplayName())
@@ -30,7 +29,7 @@
 				<#foreach portletTitleMenu in portlet_title_menus>
 
 					<menu class="portlet-title-menu portlet-topper-toolbar" id="portlet-title-menu_${portlet_id}_${portletTitleMenu_index + 1}" type="toolbar">
-						
+
 						<@liferay_ui["menu"] menu=portletTitleMenu />
 
 					</menu>
@@ -56,27 +55,21 @@
 	<div class="${portlet_content_css_class}">
 
 		<#if portlet_display.isShowBackIcon()>
-			
+
 			<a class="icon-monospaced portlet-icon-back text-default" href="${portlet_back_url}" title="<@liferay.language key="return-to-full-page" />">
-				
+
 				<@liferay_ui["icon"]
 					icon="angle-left"
 					markupView="lexicon"
 				/>
-				
+
 			</a>
 
 		</#if>
 
-		<h2 class="portlet-title-text">${portlet_title} portlet title</h2>
+		<h2 class="portlet-title-text">${portlet_title}</h2>
 
 		${portlet_display.writeContent(writer)}
-
-		<div id="simpleModal" class="modal">
-			<div class="modal-content">
-				<span class="closeBtn">&times;</span>
-				<div id="parentContent"></div>
-			</div>
-		</div>
 	</div>
-</section>  
+
+</section>

@@ -16,9 +16,7 @@
 	<body class="${css_class}">
 
 		<@liferay_ui["quick-access"] contentId="#main-content" />
-
 		<@liferay_util["include"] page=body_top_include />
-
 		<@liferay.control_menu />
 
 		<div class="container-fluid" id="wrapper">
@@ -53,9 +51,9 @@
 					</@>
 				</#if>
 
-				<div class="sidenav" id="mySidenav" >
-					<div id="sideNavContainer">
-						<a class="closebtn" href="#" onclick="closeNav()">&times;</a>
+				<div class="sideNav" id="mySidenav" >
+					<div id="sidenavContainer">
+						<a class="closebtn" href="#">&times;</a>
 					</div>
 				</div>
 			</section>
@@ -71,7 +69,8 @@
 
 		<@liferay_util["include"] page=body_bottom_include />
 		<@liferay_util["include"] page=bottom_include />
-		<script type="text/javascript" src="${javascript_folder}/main.js"></script>
+
+		<script src="${javascript_folder}/main.js" type="text/javascript" ></script>
 	</body>
 
 </html>
