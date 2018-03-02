@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+    <dynamic-element name="content" type="text_area" index-type="keyword" index="0">
+        <dynamic-content language-id="en_US">
+           <![CDATA[
+            <p>Gravitational waves are caused by objects as they accelerate or decelerate through space-time. None other than Einstein predicted the existence of these waves in 1916, but they are so faint that he assumed it would be practically impossible to detect them.</p>
+             <center>
+             <p><img alt="Gravitational Waves" src="[$FILE=waves2.jpg$]" /></p>
+             </center>
+
+
+           ]]>
+        </dynamic-content>
+    </dynamic-element>
+</root>
