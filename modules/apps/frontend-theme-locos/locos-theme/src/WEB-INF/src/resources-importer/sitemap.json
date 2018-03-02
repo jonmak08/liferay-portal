@@ -1,0 +1,110 @@
+{
+	"publicPages": [
+		{
+			"columns": [
+				[
+					"Banner Image.xml",
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Text Block.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "borderless"
+						}
+					},
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Basic Image.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "borderless"
+						}
+					},
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Justified.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "borderless"
+						}
+					},
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Boxes.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "borderless"
+						}
+					},
+					"Company Info.xml",
+					"Footer.xml"
+				]
+			],
+			"friendlyURL": "/home",
+			"layoutTemplateId": "1_column",
+			"name": "Home"
+		},
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet",
+						"portletPreferences": {
+							"portletSetupPortletDecoratorId": "borderless",
+							"portletSetupShowBorders": "true",
+							"portletSetupUseCustomTitle": "true"
+						}
+					}
+				],
+				[
+					"Hang Gliding Over Europe.xml",
+					"Off to the Greek Isles.xml",
+					"Travel with Dog.xml"
+				]
+			],
+			"friendlyURL": "/blog",
+			"layoutTemplateId": "2_columns_ii",
+			"layouts": [
+				{
+					"friendlyURL": "/bloggers",
+					"layoutTemplateId": "1_1_1_column",
+					"name": "Bloggers",
+				}
+			],
+			"name": "Blog"
+		},
+		{
+			"columns": [
+				[
+					"Vision.xml"
+				],
+				[
+					"Vision Description.xml"
+				],
+				[
+					"Culture Description.xml"
+				],
+				[
+					"Culture.xml"
+				]
+			],
+			"friendlyURL": "/About",
+			"layoutTemplateId": "2_2_columns",
+			"layouts": [
+				{
+					"friendlyURL": "/company",
+					"layoutTemplateId": "1_1_1_column",
+					"layouts": [
+						{
+							"friendlyURL": "/vision",
+							"layoutTemplateId": "1_1_1_column",
+							"name": "Vision"
+						}
+					],
+					"name": "Company"
+				}
+			],
+			"name": "About"
+		}
+	]
+}

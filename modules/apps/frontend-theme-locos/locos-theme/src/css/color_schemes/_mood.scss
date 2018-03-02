@@ -1,0 +1,55 @@
+$champagne: #F7E6D5;
+$midnightblue: #00264D;
+$opaquemidnightblue: rgba(0, 28, 57, 0.8);
+$steelteal: #5C748D;
+
+body.mood {
+	background-color: $champagne;
+}
+
+.mood {
+	#banner {
+		background-color: $midnightblue;
+
+		.bars-nav-icon {
+			color: $champagne;
+
+			&:hover  {
+				color: $steelteal;
+			}
+		}
+	}
+
+	#heading .site-title {
+		color: $champagne;
+	}
+
+	#wrapper {
+		background-color: $champagne;
+	}
+
+    #breadcrumbs {
+		background-color: $midnightblue;
+
+		.breadcrumb > .active {
+			color: $champagne;
+		}
+
+    	.portlet {
+    		background-color: $midnightblue;
+    	}
+    }
+
+	.modaly {
+	    background-color: $opaquemidnightblue;
+    	box-shadow: -2px 0 3px $opaquemidnightblue;
+
+    	a {
+    		color: $champagne;
+    	}
+	}
+
+	.single {
+		color: $midnightblue;
+	}
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element index="0" index-type="keyword" name="content" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				<style type="text/css">
+					.portlet-journal-content {
+						background: linear-gradient(rgba(20, 77, 82, 0.9) 0%, rgba(20, 77, 82, 0.9) 50%, #E5E5D8 50%, #E5E5D8 100%);
+						padding: 0 50px;
+					}					.portlet-journal-content ~ .portlet-journal-content {
+						background: #E5E5D8;
+						padding: 0;
+					}
+					#banner-image {
+						box-shadow: 0 10px 20px 0 rgba(0,0,0,0.4);
+					}
+				</style>
+				<div id="banner-image">
+					<img src="[$FILE=bwgirl.jpg$]" alt="BW Girl" />
+				</div>
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+</root>

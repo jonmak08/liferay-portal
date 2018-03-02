@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element index="0" index-type="keyword" name="image" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+			<style type="text/css">
+				.blog-image img {
+					width: 100%;
+				}
+			</style>
+				<img alt="santorini-greece" src="[$FILE=santorinigreece.jpg$]" />
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="0" index-type="keyword" name="title" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				<style type="text/css">
+					.portlet-asset-publisher .portlet-body {
+						border: 1px solid gray;
+						padding: 10px 0;
+					}
+					.asset-abstract a:hover {
+						color: #F28959;
+						text-decoration: none;
+					}
+					.asset-abstract {
+						padding: 0 20px;
+					}
+					.asset-abstract a {
+						color: #333;
+						font-weight: bold;
+					}
+					.blog-title {
+						font-size: 35px;
+						font-weight: 500;
+					}
+				</style>
+				Off to the Greek Isles
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="0" index-type="keyword" name="subtitle" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				<style type="text/css">
+					.blog-subtitle {
+						font-size: 20px;
+						font-style: italic;
+					}
+				</style>
+				Glittering waters...
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="0" index-type="keyword" name="date" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				<style type="text/css">
+					.blog-date {
+						font-style: italic;
+					}
+				</style>
+				November 30, 2017
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="0" index-type="keyword" name="content" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				<style type="text/css">
+					.blog {
+						margin: 0 20px;
+					}
+					hr {
+						border-top: 1px solid #333;
+					}
+				</style>
+				<p class="blog-paragraph">
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non accumsan dolor, ullamcorper pulvinar nulla. Nunc tempus suscipit nunc sed molestie. Aliquam non maximus turpis. Vestibulum varius maximus lacus ut pellentesque. Phasellus rhoncus tellus in arcu hendrerit maximus. Cras eget lacus nec dolor feugiat venenatis id id libero. Quisque varius a lorem sit amet egestas. Mauris in sodales justo, a euismod ipsum. In sagittis posuere augue, nec interdum est molestie at. Suspendisse posuere vitae lacus ac tincidunt. Phasellus vitae sapien nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+					</p>
+					<p>
+						Sed faucibus dictum ullamcorper. Mauris mattis est eros, in convallis nulla porttitor nec. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aenean facilisis risus sit amet placerat varius. Duis id odio id justo sollicitudin ultricies. Vivamus sit amet aliquam mauris. Sed efficitur ante eget ante pulvinar suscipit. Morbi pulvinar, ante at iaculis mattis, lorem tortor pellentesque dolor, eget interdum justo ex vel mi.
+					</p>
+					<p>
+						Suspendisse cursus nibh sit amet mi ultricies venenatis. Vivamus bibendum arcu mi, in blandit nisl placerat sed. Nunc sodales mauris sit amet metus commodo, in molestie nunc volutpat. Quisque consectetur, metus maximus rutrum rutrum, turpis nisi facilisis nibh, eget fringilla tortor enim vitae purus. Aliquam sit amet tempor leo, fringilla iaculis est. Sed congue commodo orci eu suscipit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dui mi, molestie at consequat vel, sodales quis neque. Nulla gravida pharetra consequat. Morbi euismod ultrices diam a luctus. Sed condimentum at eros sed interdum. Pellentesque scelerisque felis metus, quis posuere elit euismod quis. Cras eu ex metus.
+					</p>
+					<p>
+						Sed vehicula felis nisl, quis feugiat lectus dignissim eu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed cursus, risus eu maximus ultricies, lacus diam tristique metus, non tempus nisl risus ut erat. In sed ornare diam. Duis non nisi et eros congue pharetra vitae eu felis. Curabitur tempor enim diam, imperdiet faucibus erat malesuada eget. Morbi porta lacus lorem, vel condimentum mi feugiat lacinia. Fusce molestie justo vitae purus rutrum ullamcorper at eget nisl.
+					</p>
+					<p>
+						Praesent sit amet massa orci. Vivamus aliquam enim in malesuada porttitor. Nulla eget arcu venenatis, laoreet ligula id, pellentesque mauris. Praesent id ligula semper ante semper ullamcorper. Aliquam erat volutpat. Sed ipsum magna, sagittis ut pellentesque cursus, finibus ac nisi. Mauris dolor ante, elementum vel odio non, ultricies suscipit arcu. Nunc euismod eget est eget tincidunt. Sed aliquam enim in nunc aliquam venenatis. Nulla quis purus eu leo molestie maximus eu sagittis dolor. Morbi ultricies sem non congue luctus. Quisque quam lectus, placerat quis convallis in, gravida quis ipsum. Vestibulum facilisis risus ut eros feugiat sagittis. Curabitur tempus neque ut vestibulum semper. Suspendisse id nunc felis. Vestibulum tempor sapien eu est egestas tristique. 
+					</p>
+				</p>
+				<br>
+				<hr>
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+</root>

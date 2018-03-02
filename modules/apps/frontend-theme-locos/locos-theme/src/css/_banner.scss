@@ -1,0 +1,98 @@
+@include font-face("Montserrat", "fonts/Montserrat/Montserrat-Bold", bold, $file-formats: ttf);
+@include font-face("Montserrat Subrayada", "fonts/Montserrat_Subrayada/MontserratSubrayada-Bold", bold, $file-formats: ttf);
+@include font-face("Poppins", "fonts/Poppins/Poppins-Regular", normal, $file-formats: ttf);
+
+$opaquedarkblue: rgba(20, 77, 82, 0.9);
+$darkivory: #5A6E70;
+$gray: #999990;
+$ivory: #E5E5D8;
+$orange: #F28959;
+
+$underline: border-bottom 0.5s ease;
+
+#sign-in {
+    color: $gray;
+    font-family: 'Poppins';
+    font-size: 15px;
+    margin: 20px 20px 25px;
+    order: 3;
+
+    &:hover {
+        @include prefixer(transition, color, moz ms o spec webkit);
+        color: $orange;
+        text-decoration: none;
+    }
+
+    .portlet-title-text {
+        max-width: none;
+        overflow: visible;
+        padding: 10px;
+    }
+}
+
+
+#banner {
+    align-content: center;
+    align-items: flex-end;
+    background-color: $opaquedarkblue;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    padding: 20px;
+    position: sticky;
+    top: 62px;
+    z-index: 10;
+
+    .bars-nav-icon {
+        color: $ivory;
+        font-size: 40px;
+
+        i {
+            font-size: 40px;
+            vertical-align: middle;
+        }
+
+        &:hover {
+            color: $darkivory;
+            cursor: pointer;
+            transition: color 1s;
+        }
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #banner {
+        flex-flow: row nowrap;
+        justify-content: left;
+    }
+}
+
+#heading {
+    display: flex;
+    justify-content: flex-end;
+    text-transform: uppercase;
+
+    h1 {
+        display: flex;
+        margin: 0;
+    }
+
+    .site-title {
+        color: $ivory;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 50px;
+        vertical-align: middle;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+
+#navigation {
+    ul {
+        display: none;
+        list-style: none;
+    }
+}

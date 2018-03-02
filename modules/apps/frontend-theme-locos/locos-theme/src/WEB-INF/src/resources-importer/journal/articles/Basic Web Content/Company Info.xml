@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element index="0" index-type="keyword" name="content" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				<style type="text/css">
+					.icons i {
+						font-size: 15px;
+						padding: 10px;
+					}
+					.company-info {
+						background-color: #333;
+						color: #FFFFFF;
+						padding: 10px 20px;
+						text-align: right;
+					}
+				</style>
+				<div class="company-info">
+					<div class="address">
+						1400 Montefino Avenue<br>
+						Diamond Bar, CA 91765<br>
+						USA<br>
+						+1-877-LIFERAY<br><br>
+					</div>
+					<div class="icons">
+						<i class="icon-facebook"></i>
+						<i class="icon-twitter"></i>
+						<i class="icon-github"></i>
+						<i class="icon-linkedin"></i>
+						<i class="icon-youtube"></i>
+					</div>
+				</div>
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+</root>

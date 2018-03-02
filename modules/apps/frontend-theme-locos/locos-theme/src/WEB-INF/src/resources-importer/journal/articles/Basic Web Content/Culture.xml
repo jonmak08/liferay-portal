@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element index="0" index-type="keyword" name="content" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				<style type="text/css">
+					.culture-image {
+						width: 100%;
+					}
+				</style>
+				<div class="culture-image">
+					<img src="[$FILE=together.jpeg$]" alt="together" />
+				</div>
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+</root>

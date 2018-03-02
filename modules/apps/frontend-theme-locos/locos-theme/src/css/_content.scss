@@ -1,0 +1,26 @@
+@import 'animation';
+@import 'breadcrumb';
+@import 'navigation';
+
+$ivory: #E5E5D8;
+$lightblack: #333;
+$lightgray: #D7D7D7;
+$orange: #F28959;
+$turquoise: #144D52;
+$veryopaqueblack: rgba(0, 0, 0, 0.2);
+
+#wrapper {
+    #main-content {
+        .portlet-title-text {
+            display: none;
+        }
+    }
+
+    .portlet-topper {
+        z-index: 25;
+    }
+}
+
+.portlet {
+    margin-bottom: 0;
+}

@@ -1,0 +1,55 @@
+$alloyorange: #BD5D0B;
+$lemonmeringue: #F5E2BD;
+$opaquealloyorange: rgba(155, 77, 10, 0.8);
+$rawsienna: #CF894D;
+
+body.fall {
+	background-color: $lemonmeringue;
+}
+
+.fall {
+	#banner {
+		background-color: $alloyorange;
+
+		.bars-nav-icon {
+			color: $lemonmeringue;
+
+			&:hover  {
+				color: $rawsienna;
+			}
+		}
+	}
+
+	#heading .site-title {
+		color: $lemonmeringue;
+	}
+
+	#wrapper {
+		background-color: $lemonmeringue;            
+     }
+
+    #breadcrumbs {
+		background-color: $alloyorange;
+
+		.breadcrumb > .active {
+			color: $lemonmeringue;
+		}
+
+    	.portlet {
+    		background-color: $alloyorange;
+    	}
+    }
+
+	.modaly {
+	    background-color: $opaquealloyorange;
+    	box-shadow: -2px 0 3px $opaquealloyorange;
+
+    	a {
+    		color: $lemonmeringue;
+    	}
+	}
+
+	.single {
+		color: $alloyorange;
+	}
+}

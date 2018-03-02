@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element index="0" index-type="keyword" name="content" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				<style type="text/css">
+					.footer {
+						display: flex;
+						justify-content: space-between;
+						padding-top: 10px;
+					}
+					.powered-by, .copyright {
+						font-weight: bold;
+						margin: 0 10px;
+					}
+				</style>
+				<div class="footer">
+					<div class="powered-by">
+						Powered By Liferay
+					</div>
+					<div class="copyright">
+						 © 2018 Liferay Inc.  All Rights Reserved.
+					</div>
+				</div>
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+</root>
