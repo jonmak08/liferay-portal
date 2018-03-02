@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root available-locales="en_US" default-locale="en_US">
+    <dynamic-element name="image1" type="image" index-type="text">
+        <dynamic-element name="header1" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Time Travel]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="summary1" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[[Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.]]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="url1" type="link_to_layout" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-content language-id="en_US" alt="Doctor Who image description" name="DW.jpg" title="DW.jpg" type="journal" fileEntryId=""><![CDATA[/documents/42102/0/DW.jpg/28b87cb2-ebaa-f6bb-356d-bed39927f7a7]]></dynamic-content>
+    </dynamic-element>
+
+    <dynamic-element name="image2" type="image" index-type="text">
+        <dynamic-element name="header2" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Launch Pad]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="summary2" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="url2" type="link_to_layout" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-content language-id="en_US" alt="Kerbal Space Program image description" name="KSP.jpg" title="KSP.jpg" type="journal" fileEntryId=""></dynamic-content>
+    </dynamic-element>
+
+    <dynamic-element name="image3" type="image" index-type="text">
+        <dynamic-element name="header3" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Moonlight]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="summary3" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="url3" type="link_to_layout" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-content language-id="en_US" alt="New Lunar Republic image description" name="New Lunar Republic.png" title="New Lunar Republic.png" type="journal" fileEntryId=""></dynamic-content>
+    </dynamic-element>
+
+    <dynamic-element name="image4" type="image" index-type="text">
+        <dynamic-element name="header4" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Memory IS RAM]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="summary4" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="url4" type="link_to_layout" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-content language-id="en_US" alt="Moss image description" name="Moss.jpg" title="Moss.jpg" type="journal" fileEntryId=""></dynamic-content>
+    </dynamic-element>
+</root>
