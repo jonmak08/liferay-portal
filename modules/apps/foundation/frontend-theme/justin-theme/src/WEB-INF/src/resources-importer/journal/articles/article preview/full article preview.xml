@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element index="0" index-type="keyword" name="image" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				<style type="text/css">
+					.full-article-preview-img {
+						padding: 20px;
+						width: 100%
+					}
+				</style>
+				<img alt="article photo" class="full-article-preview-img" src="[$FILE=article_photo_3.jpg$]" />
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="0" index-type="keyword" name="title" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				<style type="text/css">
+					.full-article-preview-text {
+						background-color: #FFF;
+						margin: 0 2.5%;
+					}
+				</style>
+				<p class="full-article-preview-title">Secret Link Uncovered Between Pure Math and Physics</p>
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="0" index-type="keyword" name="content" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				<style type="text/css">
+					.full-article-preview-text {
+						background-color: #FFF;
+						color: #A9A9A9;
+						font-style: italic;
+						margin: 0 2.5%;
+					}
+				</style>
+				<p class="full-article-preview-content">When Mathematics' most abstract concepts loop around to describe foundational physical truths. </p>
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+</root>

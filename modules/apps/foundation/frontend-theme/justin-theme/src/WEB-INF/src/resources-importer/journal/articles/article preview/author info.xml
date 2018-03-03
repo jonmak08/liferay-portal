@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element index="0" index-type="keyword" name="image" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				<style type="text/css">
+					#author-photo {
+						border-radius: 50%;
+						display: block;
+						max-width: 150px;
+						padding: 20px;
+					}
+				</style>
+				
+				<img alt="author photo" id="author-photo" src="[$FILE=author_photo_1.jpg$]" />
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="0" index-type="keyword" name="title" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				<style type="text/css">
+					.name-decorator {
+						display: block;
+					}
+				</style>
+				<p class="name-decorator">Katia Moskvitch</p>
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="0" index-type="keyword" name="content" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				Contributing Writer. UCLA graduate. 
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+</root>

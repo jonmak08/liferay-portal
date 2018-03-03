@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element index="0" index-type="keyword" name="image" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				<style type="text/css">
+					.article-photo {
+						max-width: 100px;
+						padding-right: 20px;
+					}
+
+					.article-image {
+						float: left;
+					}
+				</style>
+
+				<img class="article-photo" src="[$FILE=article_photo_4.jpg$]" alt="article photo" />
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="0" index-type="keyword" name="title" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				<style type="text/css">
+					.video-preview-text {
+						color: #DCDCDC;
+						float: right;
+						font-size: 12pt;
+					}
+				</style>
+				<p class="video-preview-text">Smart Swarms Seek New Ways to Cooperate</p>
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="0" index-type="keyword" name="content" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+</root>

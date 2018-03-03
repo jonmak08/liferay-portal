@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element index="0" index-type="keyword" name="image" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				<style type="text/css">
+					.article-photo {
+						float: left;
+						max-width: 320px;
+						padding-bottom: 20px;
+					}
+				</style>
+
+				<img class="article-photo" src="[$FILE=article_photo_2.jpg$]" alt="article photo" />
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="0" index-type="keyword" name="title" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				Smart Swarms Seek New Ways to Cooperate
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="0" index-type="keyword" name="content" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				<style type="text/css">
+					.article-preview-text {
+						color: #A9A9A9;
+						font-style: italic;
+					}
+				</style>
+				New algorithms show how swarms of very simple robots can be made to work together as a group.
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+</root>

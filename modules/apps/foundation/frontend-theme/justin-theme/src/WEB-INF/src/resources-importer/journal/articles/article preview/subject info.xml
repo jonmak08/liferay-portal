@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element index="0" index-type="keyword" name="image" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="0" index-type="keyword" name="title" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				<style type="text/css">
+					.mathematics {
+						font-size: 36pt;
+					}
+				</style>
+				<p class="mathematics">Mathematics</p>
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="0" index-type="keyword" name="content" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				<style type="text/css">
+					.mathematics-description {
+						color: #A9A9A9;
+						font-size: 20pt;
+						font-style: italic;
+					}
+				</style>
+				<p class="mathematics-description"> From Fourier transforms to Graphs. Here's what's up in Mathematics. </p>
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+</root>

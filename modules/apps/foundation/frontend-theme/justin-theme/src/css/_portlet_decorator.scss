@@ -1,0 +1,18 @@
+// Use this file, and mixins to customize specific portlets.
+
+.portlet-quanta .portlet-content {
+	//background: #FFF;
+	border: none;
+	border-radius: 2px;
+
+	.lfr-preview-file-image-current-column {
+		padding: 0px;
+	}
+
+	img {
+		height: 100%;
+		object-fit: cover;
+		overflow: hidden;
+		width: 100%;
+	}
+}
