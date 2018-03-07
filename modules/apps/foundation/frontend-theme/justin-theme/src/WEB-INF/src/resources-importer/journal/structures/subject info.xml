@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element dataType="string" fieldNamespace="ddm" indexType="keyword" name="subject" readOnly="false" repeatable="true" required="false" showLabel="true" type="text" width="">
+		<meta-data locale="en_US">
+			<entry name="label"><![CDATA[Subject]]></entry>
+			<entry name="predefinedValue"><![CDATA[]]></entry>
+			<entry name="tip"><![CDATA[]]></entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="string" fieldNamespace="ddm" indexType="text" name="description" readOnly="false" repeatable="true" required="false" showLabel="true" type="text" width="">
+		<meta-data locale="en_US">
+			<entry name="label"><![CDATA[Description]]></entry>
+			<entry name="predefinedValue"><![CDATA[]]></entry>
+			<entry name="tip"><![CDATA[]]></entry>
+		</meta-data>
+	</dynamic-element>
+</root>

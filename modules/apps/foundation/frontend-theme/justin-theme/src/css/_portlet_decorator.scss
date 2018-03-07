@@ -1,0 +1,15 @@
+.portlet-quanta .portlet-content {
+	border-radius: 2px;
+	border-width: 0;
+
+	.lfr-preview-file-image-current-column {
+		padding: 0;
+	}
+
+	img {
+		height: 100%;
+		object-fit: cover;
+		overflow: hidden;
+		width: 100%;
+	}
+}
