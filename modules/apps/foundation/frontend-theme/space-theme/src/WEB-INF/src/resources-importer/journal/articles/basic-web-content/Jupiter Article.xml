@@ -1,16 +1,13 @@
 <?xml version="1.0"?>
-
 <root available-locales="en_US" default-locale="en_US">
     <dynamic-element name="content" type="text_area" index-type="keyword" index="0">
         <dynamic-content language-id="en_US">
            <![CDATA[
+                <p>Jupiter helped revolutionize the way we saw the universe and ourselves in 1610, when Galileo discovered Jupiter's four large moons — Io, Europa, Ganymede and Callisto, now known as the Galilean moons. This was the first time that celestial bodies were seen circling an object other than Earth, major support of the Copernican view that Earth was not the center of the universe.
+                </p>
 
-            <p>Jupiter helped revolutionize the way we saw the universe and ourselves in 1610, when Galileo discovered Jupiter's four large moons — Io, Europa, Ganymede and Callisto, now known as the Galilean moons. This was the first time that celestial bodies were seen circling an object other than Earth, major support of the Copernican view that Earth was not the center of the universe.
-            </p>
-
-            <p>Jupiter is the most massive planet in our solar system, more than twice as massive as all the other planets combined, and had it been about 80 times more massive, it would have actually become a star instead of a planet. Its atmosphere resembles that of the sun, made up mostly of hydrogen and helium, and with four large moons and many smaller moons in orbit around it, Jupiter by itself forms a kind of miniature solar system. All told, the immense volume of Jupiter could hold more than 1,300 Earths.
-            </p>
-            <footer>Info provided by Nasa</footer>             
+                <p>Jupiter is the most massive planet in our solar system, more than twice as massive as all the other planets combined, and had it been about 80 times more massive, it would have actually become a star instead of a planet. Its atmosphere resembles that of the sun, made up mostly of hydrogen and helium, and with four large moons and many smaller moons in orbit around it, Jupiter by itself forms a kind of miniature solar system. All told, the immense volume of Jupiter could hold more than 1,300 Earths.
+                </p>            
            ]]>
         </dynamic-content>
     </dynamic-element>

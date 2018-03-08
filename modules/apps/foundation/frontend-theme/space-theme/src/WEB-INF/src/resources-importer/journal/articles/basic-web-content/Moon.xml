@@ -1,12 +1,9 @@
 <?xml version="1.0"?>
-
 <root available-locales="en_US" default-locale="en_US">
     <dynamic-element name="content" type="text_area" index-type="keyword" index="0">
         <dynamic-content language-id="en_US">
            <![CDATA[
-             <center>
-             <p><img alt="Moon Image" src="[$FILE=moon.jpg$]" /></p>
-             </center>
+                <img alt="Moon Image" src="[$FILE=Moon.jpg$]" />
            ]]>
         </dynamic-content>
     </dynamic-element>

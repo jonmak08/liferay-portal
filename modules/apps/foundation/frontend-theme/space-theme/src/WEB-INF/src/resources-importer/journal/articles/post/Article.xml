@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="Title" type="text_box" index-type="text" instance-id="vdyf">
+		<dynamic-content language-id="en_US"><![CDATA[Why Gravity Waves are important]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Article1" type="text_box" index-type="text" instance-id="psmx">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tortor condimentum lacinia quis vel eros donec. Facilisis gravida neque convallis a cras semper auctor neque vitae. Ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget egestas. Ultricies leo integer malesuada nunc vel risus commodo viverra maecenas. A diam maecenas sed enim ut sem viverra aliquet eget. Diam sollicitudin tempor id eu nisl nunc. Mi bibendum neque egestas congue quisque egestas diam. At erat pellentesque adipiscing commodo elit at imperdiet dui. Urna nunc id cursus metus aliquam. Facilisis gravida neque convallis a cras semper auctor neque. Fermentum dui faucibus in ornare quam viverra. Nulla pellentesque dignissim enim sit amet venenatis. Enim ut sem viverra aliquet eget. Nisl condimentum id venenatis a. Venenatis cras sed felis eget velit aliquet sagittis id consectetur. Purus gravida quis blandit turpis. Vivamus arcu felis bibendum ut tristique et egestas quis ipsum. Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar.</p>
+
+				<p>Feugiat nisl pretium fusce id velit ut tortor pretium. Ipsum consequat nisl vel pretium lectus quam. Mollis nunc sed id semper risus. Sed adipiscing diam donec adipiscing tristique. Egestas sed sed risus pretium quam vulputate dignissim suspendisse. Facilisis gravida neque convallis a cras semper. Semper eget duis at tellus at urna. Vulputate odio ut enim blandit volutpat maecenas. Orci eu lobortis elementum nibh tellus. Sit amet massa vitae tortor. Nulla facilisi etiam dignissim diam quis. Aliquam vestibulum morbi blandit cursus risus at. Sit amet nulla facilisi morbi. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Lorem ipsum dolor sit amet consectetur adipiscing elit duis tristique.</p>
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Separatorevth" type="selection_break" index-type="keyword" instance-id="oezy"/>
+	<dynamic-element name="Comments1" type="text_box" index-type="text" instance-id="vesp">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				Nulla pellentesque dignissim enim sit amet venenatis. Enim ut sem viverra aliquet eget. Nisl condimentum id venenatis a. Venenatis cras sed felis eget velit aliquet sagittis id consectetur. Purus gravida quis blandit turpis. Vivamus arcu felis bibendum ut tristique et egestas quis ipsum. Mauris rhoncus aenean vel elit scelerisque mauris pellentesque pulvinar.
+			]]> 
+		</dynamic-content>
+	</dynamic-element>
+</root>

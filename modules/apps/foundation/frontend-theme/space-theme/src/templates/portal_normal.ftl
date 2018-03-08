@@ -31,9 +31,7 @@
 			</header>
 
 			<#if !is_signed_in>
-
-					<a data-redirect="${is_login_redirect_required?string}" href="${sign_in_url}" id="sign-in" rel="nofollow">${sign_in_text}</a>
-
+				<a data-redirect="${is_login_redirect_required?string}" href="${sign_in_url}" id="sign-in" rel="nofollow">${sign_in_text}</a>
 			</#if>
 
 			<section id="content">
@@ -51,18 +49,18 @@
 					</@>
 				</#if>
 
-				<div class="sideNav" id="mySidenav" >
-					<div id="sidenavContainer">
-						<a class="closebtn" href="#">&times;</a>
+				<div class="side-nav">
+					<div id="side-nav-container">
+						<a class="side-nav-close-button" href="#">&times;</a>
 					</div>
 				</div>
-			</section>
+			</div>
+		</div>
+		</section>
 
 			<footer id="footer" role="contentinfo">
 				<p class="powered-by">
-
 					<@liferay.language key="powered-by" /> <a href="http://www.liferay.com" rel="external">Liferay</a>
-
 				</p>
 			</footer>
 		</div>
@@ -70,7 +68,6 @@
 		<@liferay_util["include"] page=body_bottom_include />
 		<@liferay_util["include"] page=bottom_include />
 
-		<script src="${javascript_folder}/main.js" type="text/javascript" ></script>
 	</body>
 
 </html>

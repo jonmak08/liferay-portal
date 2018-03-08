@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<root available-locales="en_US" default-locale="en_US">
+    <dynamic-element name="content" type="text_area" index-type="keyword" index="0">
+        <dynamic-content language-id="en_US">
+           <![CDATA[
+                <p>Did you know that Jupiter has 67 confirmed moons?! Some of Jupiters moons are close to the same size as Earth itself. The first person to discover Jupiters moons was Galileo in 1610. Galileo discovered the 4 largest moons that Jupiter had. 
+                </p>
+
+                <p>Search through this section to learn more just some of Jupiters many moons
+                </p>            
+           ]]>
+        </dynamic-content>
+    </dynamic-element>
+</root>

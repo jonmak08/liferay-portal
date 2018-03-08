@@ -1,15 +1,12 @@
 <?xml version="1.0"?>
-
 <root available-locales="en_US" default-locale="en_US">
     <dynamic-element name="content" type="text_area" index-type="keyword" index="0">
         <dynamic-content language-id="en_US">
            <![CDATA[
+                <p>A new analysis of data from two lunar missions finds evidence that the Moon’s water is widely distributed across the surface and is not confined to a particular region or type of terrain. The water appears to be present day and night, though it’s not necessarily easily accessible.
+                </p>
 
-            <p>A new analysis of data from two lunar missions finds evidence that the Moon’s water is widely distributed across the surface and is not confined to a particular region or type of terrain. The water appears to be present day and night, though it’s not necessarily easily accessible.
-            </p>
-
-            <p>The findings could help researchers understand the origin of the Moon’s water and how easy it would be to use as a resource. If the Moon has enough water, and if it’s reasonably convenient to access, future explorers might be able to use it as drinking water or to convert it into hydrogen and oxygen for rocket fuel or oxygen to breathe</p>
-            <footer>Info provided by Nasa</footer>             
+                <p>The findings could help researchers understand the origin of the Moon’s water and how easy it would be to use as a resource. If the Moon has enough water, and if it’s reasonably convenient to access, future explorers might be able to use it as drinking water or to convert it into hydrogen and oxygen for rocket fuel or oxygen to breathe</p>         
            ]]>
         </dynamic-content>
     </dynamic-element>

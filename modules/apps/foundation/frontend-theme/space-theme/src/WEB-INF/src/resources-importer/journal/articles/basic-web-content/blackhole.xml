@@ -1,16 +1,10 @@
 <?xml version="1.0"?>
-
 <root available-locales="en_US" default-locale="en_US">
     <dynamic-element name="content" type="text_area" index-type="keyword" index="0">
         <dynamic-content language-id="en_US">
            <![CDATA[
-
-            <p>Black holes are among the strangest things in the universe. They are massive objects – collections of mass – with gravity so strong that nothing can escape, not even light. The most common types of black holes are the stellar-mass and supermassive black holes. Stellar-mass black holes are created when massive stars explode, leaving behind a black hole with the mass of just a few suns. Supermassive black holes exist in the hearts of galaxies and usually contain the mass equivalent of millions of suns.</p>
-             <center>
-             <p><img alt="Black hole image" src="[$FILE=blackhole.jpg$]" /></p>
-             </center>
-
-             
+                <p>Black holes are among the strangest things in the universe. They are massive objects – collections of mass – with gravity so strong that nothing can escape, not even light. The most common types of black holes are the stellar-mass and supermassive black holes. Stellar-mass black holes are created when massive stars explode, leaving behind a black hole with the mass of just a few suns. Supermassive black holes exist in the hearts of galaxies and usually contain the mass equivalent of millions of suns.</p>
+                <img alt="Black hole image" src="[$FILE=Blackhole.jpg$]" />             
            ]]>
         </dynamic-content>
     </dynamic-element>

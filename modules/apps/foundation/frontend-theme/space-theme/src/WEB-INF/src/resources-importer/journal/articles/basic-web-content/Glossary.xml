@@ -1,15 +1,9 @@
 <?xml version="1.0"?>
-
 <root available-locales="en_US" default-locale="en_US">
     <dynamic-element name="content" type="text_area" index-type="keyword" index="0">
         <dynamic-content language-id="en_US">
            <![CDATA[
-            <p>Did you know that Jupiter is the biggest planet in the solar system? Its way way bigger than earth. In fact, it is 11 times larger than Earth.</p>
-             <center>
-             <p><img alt="Planets in Space" src="[$FILE=univ2.jpg$]" /></p>
-             </center>
-
-
+                <p>Glossary allows you to check out the content that is spread all over the site. If you want a place to come where you can quickly look through the portlet content without having to navigative through multiple pages you can just come here.</p>
            ]]>
         </dynamic-content>
     </dynamic-element>

@@ -1,9 +1,11 @@
 <?xml version="1.0"?>
+
 <root available-locales="en_US" default-locale="en_US">
     <dynamic-element name="content" type="text_area" index-type="keyword" index="0">
         <dynamic-content language-id="en_US">
            <![CDATA[
-                <img alt="Ganymede Image" src="[$FILE=Ganymede.jpg$]" />
+                <p>The universe began with the Big Bang, and is estimated to be approximately 13.7 billion years old (plus or minus 130 million years.</p>
+                <img alt="Med Galaxy" src="[$FILE=Size_Of_Universe.jpg$]" />
            ]]>
         </dynamic-content>
     </dynamic-element>

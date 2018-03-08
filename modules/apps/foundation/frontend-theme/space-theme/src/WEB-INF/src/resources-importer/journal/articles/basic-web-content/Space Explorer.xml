@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+    <dynamic-element name="content" type="text_area" index-type="keyword" index="0">
+        <dynamic-content language-id="en_US">
+           <![CDATA[
+                <p>Not everyone can actually go to space and explore around. This site is the next best thing: you can learn all about space and find the latest news, research, images, and information right here. You can explore space with with click of a button!</p>
+                <img alt="Astronaut" src="[$FILE=Astronaut.jpg$]" />
+           ]]>
+        </dynamic-content>
+    </dynamic-element>
+</root>
