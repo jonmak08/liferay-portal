@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element index="0" index-type="keyword" name="image" type="ddm-image">
+		<dynamic-content language-id="en_US">
+			<![CDATA[[$FILE=author_photo_1.jpg$]]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="0" index-type="keyword" name="name" type="text">
+		<dynamic-content language-id="en_US">
+			<![CDATA[Katia Moskvitch]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="0" index-type="keyword" name="bio" type="text">
+		<dynamic-content language-id="en_US">
+			<![CDATA[Contributing Writer. UCLA graduate.]]>
+		</dynamic-content>
+	</dynamic-element>
+</root>

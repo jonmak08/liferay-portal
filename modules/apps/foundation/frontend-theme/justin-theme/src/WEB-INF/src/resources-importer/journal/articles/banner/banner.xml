@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="image" type="ddm-image">
+		<dynamic-content language-id="en_US"><![CDATA[[$FILE=article_photo_1.jpg$]]]></dynamic-content>
+	</dynamic-element>
+</root>

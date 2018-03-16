@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE look-and-feel PUBLIC "-//Liferay//DTD Look and Feel 7.0.0//EN" "http://www.liferay.com/dtd/liferay-look-and-feel_7_0_0.dtd">
+
+<look-and-feel>
+	<compatibility>
+		<version>7.0.4+</version>
+	</compatibility>
+	<theme id="justin" name="justin">
+		<template-extension>ftl</template-extension>
+		<settings>
+			<setting configurable="true" key="sub-heading" type="textarea" />	
+			<setting configurable="true" key="facebook-link" type="text" />
+			<setting configurable="true" key="google-plus-link" type="text" />
+			<setting configurable="true" key="linkedin-link" type="text" />
+			<setting configurable="true" key="twitter-link" type="text" />
+			<setting configurable="true" key="youtube-link" type="text" />
+		</settings>
+		<portlet-decorator id="barebone" name="Barebone">
+			<portlet-decorator-css-class>portlet-barebone</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="borderless" name="Borderless">
+			<portlet-decorator-css-class>portlet-borderless</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="quanta" name="Quanta">
+			<default-portlet-decorator>true</default-portlet-decorator>
+			<portlet-decorator-css-class>portlet-quanta</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="decorate" name="Decorate">
+			<portlet-decorator-css-class>portlet-decorate</portlet-decorator-css-class>
+		</portlet-decorator>
+		<layout-templates>
+			<custom>
+				<layout-template id="home-page" name="home page">
+					<template-path>/layouttpl/custom/home-page-layouttpl/home_page.tpl</template-path>
+					<thumbnail-path>/layouttpl/custom/home-page-layouttpl/home_page.png</thumbnail-path>
+				</layout-template>
+				<layout-template id="article" name="Article">
+					<template-path>/layouttpl/custom/article-layouttpl/article.tpl</template-path>
+					<thumbnail-path>/layouttpl/custom/article-layouttpl/article.png</thumbnail-path>
+				</layout-template>
+				<layout-template id="category" name="category">
+					<template-path>/layouttpl/custom/category-layouttpl/category.tpl</template-path>
+					<thumbnail-path>/layouttpl/custom/category-layouttpl/category.png</thumbnail-path>
+				</layout-template>
+			</custom>
+		</layout-templates>
+	</theme>
+</look-and-feel>

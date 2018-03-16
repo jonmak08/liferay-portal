@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element index="0" index-type="keyword" name="title" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[Quantum Algorithms Struggle Against Old Foe: Clever Computers]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="0" index-type="keyword" name="subtitle" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[The quest for "quantum supremacy" -- unambiguous proof that a quantum computer does something faster than an ordinary computer -- has paradoxically led to a boom in quasi-quantum classical algorithms.]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="0" index-type="keyword" name="content" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[<p class="article-content-paragraph">A popular misconception is that the potential — and the limits — of quantum computing must come from hardware. In the digital age, we’ve gotten used to marking advances in clock speed and memory. Likewise, the 50-qubit quantum machines now coming online from the likes of Intel and IBM have inspired predictions that we are nearing “quantum supremacy” — a nebulous frontier where quantum computers begin to do things beyond the ability of classical machines.</p>
+				
+<p class="article-content-paragraph">But quantum supremacy is not a single, sweeping victory to be sought — a broad Rubicon to be crossed — but rather a drawn-out series of small duels. It will be established problem by problem, quantum algorithm versus classical algorithm. “With quantum computers, progress is not just about speed,” said Michael Bremner, a quantum theorist at the University of Technology Sydney. “It’s much more about the intricacy of the algorithms at play.”</p>
+
+<p class="article-content-paragraph">IN THIS SERIES The Future of Quantum Computing The Era of Quantum Computing Is Here. Outlook: Cloudy Job One for Quantum Computers: Boost Artificial Intelligence Quantum Algorithms Struggle Against Old Foe: Clever Computers The Argument Against Quantum Computers Paradoxically, reports of powerful quantum computations are motivating improvements to classical ones, making it harder for quantum machines to gain an advantage. “Most of the time when people talk about quantum computing, classical computing is dismissed, like something that is past its prime,” said Cristian Calude, a mathematician and computer scientist at the University of Auckland in New Zealand. “But that is not the case. This is an ongoing competition.”</p>
+
+<p class="article-content-paragraph"> And the goalposts are shifting. “When it comes to saying where the supremacy threshold is, it depends on how good the best classical algorithms are,” said John Preskill, a theoretical physicist at the California Institute of Technology. “As they get better, we have to move that boundary.” </p>
+
+<p class="article-content-paragraph">‘It Doesn’t Look So Easy’ Before the dream of a quantum computer took shape in the 1980s, most computer scientists took for granted that classical computing was all there was. The field’s pioneers had convincingly argued that classical computers — epitomized by the mathematical abstraction known as a Turing machine — should be able to compute everything that is computable in the physical universe, from basic arithmetic to stock trades to black hole collisions.</p>
+
+<p class="article-content-paragraph">Classical machines couldn’t necessarily do all these computations efficiently, though. Let’s say you wanted to understand something like the chemical behavior of a molecule. This behavior depends on the behavior of the electrons in the molecule, which exist in a superposition of many classical states. Making things messier, the quantum state of each electron depends on the states of all the others — due to the quantum-mechanical phenomenon known as entanglement. Classically calculating these entangled states in even very simple molecules can become a nightmare of exponentially increasing complexity.</p>
+
+<p class="article-content-paragraph">A quantum computer, by contrast, can deal with the intertwined fates of the electrons under study by superposing and entangling its own quantum bits. This enables the computer to process extraordinary amounts of information. Each single qubit you add doubles the states the system can simultaneously store: Two qubits can store four states, three qubits can store eight states, and so on. Thus, you might need just 50 entangled qubits to model quantum states that would require exponentially many classical bits — 1.125 quadrillion to be exact — to encode.</p>
+
+<p class="article-content-paragraph">A quantum machine could therefore make the classically intractable problem of simulating large quantum-mechanical systems tractable, or so it appeared. “Nature isn’t classical, dammit, and if you want to make a simulation of nature, you’d better make it quantum mechanical,” the physicist Richard Feynman famously quipped in 1981. “And by golly it’s a wonderful problem, because it doesn’t look so easy.”</p>
+
+<p class="article-content-paragraph">It wasn’t, of course.</p>
+
+<p class="article-content-paragraph">Even before anyone began tinkering with quantum hardware, theorists struggled to come up with suitable software. Early on, Feynman and David Deutsch, a physicist at the University of Oxford, learned that they could control quantum information with mathematical operations borrowed from linear algebra, which they called gates. As analogues to classical logic gates, quantum gates manipulate qubits in all sorts of ways — guiding them into a succession of superpositions and entanglements and then measuring their output. By mixing and matching gates to form circuits, the theorists could easily assemble quantum algorithms.</p>]]>
+		</dynamic-content>
+	</dynamic-element>
+</root>

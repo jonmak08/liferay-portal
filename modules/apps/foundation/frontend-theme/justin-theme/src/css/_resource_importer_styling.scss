@@ -1,0 +1,140 @@
+$grey: #D1D1D1;
+$orange: #FF8600;
+
+#wrapper #content {
+	.journal-content-article {
+		.article {
+			.article-subtitle {
+				color: $grey;
+				font-size: 11pt;
+				font-style: italic;
+			}
+		}
+
+		.content-anchor {
+			color: #000;
+			text-decoration: none;
+
+			&:hover {
+				color: $orange;
+			}
+		}
+
+		.article-preview {
+			.article-preview-subject {
+				color: $orange;
+				font-family: Helvetica;
+				font-size: 10pt;
+			}
+
+			.article-preview-wrapper {
+				.article-preview-author {
+					color: $grey;
+					font-size: 9pt;
+					font-style: italic;
+				}
+			}
+		}
+
+		.horizontal-article-preview {
+			.article-preview-image {
+				width: 50%;
+			}
+
+			.article-preview-subject {
+				color: $orange;
+				font-family: Helvetica;
+				font-size: 10pt;
+				letter-spacing: 2px;
+				margin-bottom: -1.7%;
+				margin-left: 52.4%;
+			}
+
+			.article-preview-wrapper {
+				float: right;
+				padding-left: 20px;
+				width: 50%;
+
+				.article-preview-title {
+					font-size: 14pt;
+				}
+
+				.article-preview-author {
+					color: $grey;
+					font-size: 11pt;
+					font-style: italic;
+				}
+
+				.article-preview-text {
+					font-size: 11pt;
+				}
+			}
+		}
+
+		.full-article-preview {
+			.full-article-image {
+				margin-bottom: -10%;
+			}
+
+			.full-article-preview-box {
+				background-color: #FFF;
+				box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+				margin: 0 20%;
+				padding: 2% 5%;
+				position: relative;
+				text-align: center;
+				width: 60%;
+
+				.full-article-preview-subject {
+					color: $orange;
+					font-family: Helvetica;
+					font-size: 10pt;
+					letter-spacing: 2px;
+					padding: 10px;
+				}
+
+				.full-article-preview-author {
+					color: $grey;
+					font-size: 10pt;
+					font-style: italic;
+					padding: 5px;
+				}
+			}
+		}
+
+		.banner-article-preview {
+			.banner-article-preview-subject {
+				color: $orange;
+				font-family: Helvetica;
+				font-size: 7pt;
+				letter-spacing: 2px;
+			}
+
+			.banner-article-preview-subtitle {
+				color: $grey;
+				font-size: 14pt;
+				font-style: italic;
+			}
+		}
+
+		.author {
+			.author-photo {
+				border-radius: 50%;
+				width: 30%;
+			}
+
+			.author-bio {
+				color: $grey;
+				font-style: italic;
+			}
+		}
+
+		.subject-info {
+			.whats-up {
+				color: $orange;
+				font-family: Helvetica;
+				font-size: 11pt;
+			}
+		}
+	}
+}

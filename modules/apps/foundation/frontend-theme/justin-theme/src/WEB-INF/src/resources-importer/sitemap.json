@@ -1,0 +1,257 @@
+{
+	"layoutTemplateId": "home-page",
+	"privatePages": [
+		{
+			"friendlyURL": "/private-pages",
+			"name": "private pages",
+			"title": "private pages"
+		}
+	],
+	"publicPages": [
+		{
+			"columns": [
+				[
+					"banner.xml"
+				],
+				[
+					"full article preview.xml"
+				],
+				[
+					"banner article.xml"
+				],
+				[
+					"article preview.xml"
+				],
+				[
+					"article preview.xml"
+				],
+				[
+					{
+						"portletId": "com_liferay_google_maps_web_portlet_GoogleMapsPortlet",
+						"portletPreferences": {
+							"mapAddress": "1400 Montefino Ave, Diamond Bar, CA 91765"
+						}
+					},
+					{
+						"portletId": "com_liferay_google_maps_web_portlet_GoogleMapsPortlet",
+						"portletPreferences": {
+							"mapAddress": "1400 Montefino Ave, Diamond Bar, CA 91765"
+						}
+					},
+					{
+						"portletId": "com_liferay_google_maps_web_portlet_GoogleMapsPortlet",
+						"portletPreferences": {
+							"mapAddress": "1400 Montefino Ave, Diamond Bar, CA 91765"
+						}
+					}
+				],
+				[
+					"full article preview.xml"
+				],
+				[
+					"horizontal article preview.xml",
+					"horizontal article preview.xml",
+					"horizontal article preview.xml"
+				],
+				[
+					"video preview.xml",
+					"video preview.xml",
+					"video preview.xml"
+				],
+				[
+					{
+						"portletId": "com_liferay_youtube_web_portlet_YouTubePortlet",
+						"portletPreferences": {
+							"url": "https://www.youtube.com/watch?v=wU9M8-qpWbQ",
+							"width": "100%",
+							"height": "100%",
+							"startTime": "1:20"
+						}
+					}
+				],
+				[
+					"video preview.xml",
+					"video preview.xml",
+				],
+				[
+					"article preview.xml"
+				],
+				[
+					"article preview.xml"
+				],
+				[
+					"article preview.xml"
+				],
+				[
+					"full article preview.xml"
+				],
+				[
+					{
+						"portletId": "com_liferay_dynamic_data_lists_form_web_portlet_DDLFormPortlet",
+						"portletPreferences": {
+							"title": "Join our Email list",
+							"fieldLabel": "Email"
+						}
+					}
+				]
+			],
+			"friendlyURL": "/home",
+			"layoutTemplateId": "home-page",
+			"name": "Welcome",
+			"title": "Welcome"
+		},
+		{
+			"columns": [
+				[
+					"banner.xml"
+				],
+				[
+					"author info.xml"
+				],
+				[
+					"article.xml"
+				],
+				[
+					"video preview.xml",
+					"video preview.xml",
+					"video preview.xml"
+				],
+				[
+					"full article preview.xml"
+				],
+				[
+					"article preview.xml",
+				],
+				[
+					"article preview.xml",
+				],
+				[
+					"article preview.xml",
+				],
+				[
+					{
+						"portletId": "com_liferay_dynamic_data_lists_form_web_portlet_DDLFormPortlet",
+						"portletPreferences": {
+							"title": "Join our Email list",
+							"fieldLabel": "Email"
+						}
+					}
+				]
+			],
+			"friendlyURL": "/Article",
+			"layoutTemplateId": "article",
+			"name": "Article",
+			"title": "Article"
+		},
+		{
+			"columns": [
+				[
+					"subject info.xml"
+				],
+				[
+					"horizontal article preview.xml",
+					"horizontal article preview.xml",
+					"horizontal article preview.xml"
+				],
+				[
+					"video preview.xml",
+					"video preview.xml",
+					"video preview.xml"
+				],
+				[
+					"full article preview.xml"
+				],
+				[
+					{
+						"portletId": "com_liferay_dynamic_data_lists_form_web_portlet_DDLFormPortlet",
+						"portletPreferences": {
+							"title": "Join our Email list",
+							"fieldLabel": "Email"
+						}
+					}
+				]
+			],
+			"friendlyURL": "/Mathematics",
+			"layouts": [
+				{
+					"friendlyURL": "/Graph",
+					"name": "Graph",
+					"title":"Graph"
+				},
+				{
+					"friendlyURL": "/Analysis",
+					"name": "Analysis",
+					"title": "Analysis"
+				}
+			],
+			"layoutTemplateId": "category",
+			"name": "Category",
+			"title": "Category"
+		},
+		{
+			"columns":[
+				[
+					"author info.xml"
+				],
+				[
+					"horizontal article preview.xml",
+					"horizontal article preview.xml"
+				],
+				[
+					"video preview.xml",
+					"video preview.xml"
+				],
+				[
+					"full article preview.xml"
+				],
+				[
+					{
+						"portletId": "com_liferay_dynamic_data_lists_form_web_portlet_DDLFormPortlet",
+						"portletPreferences": {
+							"title": "Join our Email list",
+							"fieldLabel": "Email"
+						}
+					}
+				]
+			],
+			"friendlyURL": "/Authors",
+			"layouts": [
+				{
+					"friendlyURL": "/Justin",
+					"layouts": [
+						{
+							"friendlyURL": "/Favorites",
+							"name": "Favorites",
+							"title": "Favorites"
+						},
+						{
+							"friendlyURL": "/Baseball",
+							"name": "Baseball",
+							"title": "Baseball"
+						}
+					],
+					"name": "Justin",
+					"title":"Justin"
+				},
+				{
+					"friendlyURL": "/Katia",
+					"name": "Katia",
+					"title": "Katia"
+				}
+			],
+			"layoutTemplateId": "category",
+			"name": "Authors",
+			"title": "Authors"
+		},
+		{
+			"columns": [
+				[
+					"full article preview.xml"
+				]
+			],
+			"friendlyURL": "/Filler",
+			"name": "filler",
+			"title": "filler"
+		}
+	]
+}

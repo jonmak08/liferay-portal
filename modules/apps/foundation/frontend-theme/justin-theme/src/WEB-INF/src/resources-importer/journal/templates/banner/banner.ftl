@@ -1,0 +1,1 @@
+<img alt="banner" class="banner-image" src="${image.getData()}" />

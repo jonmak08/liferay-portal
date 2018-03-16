@@ -1,0 +1,169 @@
+$border-black: #202020;
+$light-grey: #F5F5F5;
+$grey: #EFEFEF;
+
+%grey-background {
+	background-color: $grey;
+	margin: 0 -10%;
+	padding: 5% 20%;
+}
+
+%grey-border {
+	@media (min-width: $screen-sm-min) {
+		border-left: 2px solid $grey;
+	}
+
+	@media (max-width: $screen-xs-max) {
+		.portlet-content-container {
+			border-top: 2px solid $grey;
+		}
+	}
+}
+
+%image-only {
+	.portlet-journal-content .portlet .portlet-content {
+		.portlet-content-container {
+			margin: 0 -15%;
+			padding: 0;
+
+			@media (min-width: $screen-sm-min) {
+				margin: -10% -15% 0;
+			}
+
+			@media (max-width: $screen-xs-max) {
+				margin: 0 -17%;
+			}
+		}
+
+		.portlet-title-text {
+			display: none;
+		}
+	}
+}
+
+#content {
+	.home-page {
+		.row {
+			.portlet-dropzone {
+				padding: 10;
+			}
+
+			#column-1 {
+				@extend %image-only;
+
+				.portlet-topper {
+					border-radius: 0 0 4px 4px;
+					top: auto;
+				}
+			}
+
+			#column-3 {
+				@media (min-width: $screen-sm-min) {
+					margin-top: -235px;
+
+					.journal-content-article {
+						.banner-article-preview {
+							.banner-article-preview-title {
+								color: #FFF;
+								font-size: 48pt;
+							}
+						}
+					}
+				}
+			}
+
+			.portlet-column {
+				margin-bottom: 30px;
+			}
+
+			#column-6, #column-9 {
+				@extend %grey-border;
+			}
+		}
+
+		.video-row {
+			background-color: $border-black;
+			margin: 0 -10% -10%;
+			padding: 2.5% 10% 15%;
+
+			iframe {
+				width: 100%!important;
+			}
+
+							
+		}
+
+		.grey-row {
+			@extend %grey-background;
+		}
+
+		.triple-row {
+			.portlet-column .portlet-column-content {
+				background-color: #FFF;
+				box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+				padding: 25px;
+			}
+		}
+	}
+
+	.article {
+		.row {
+			.portlet-dropzone {
+				padding: 10;
+			}
+
+			#column-1 {
+				@extend %image-only;
+
+				.portlet-topper {
+					border-radius: 0 0 4px 4px;
+					top: auto;
+				}
+			}
+
+			.portlet-column {
+				margin-bottom: 30px;
+				padding: 30px;
+			}
+		}
+
+		.grey-row {
+			@extend %grey-background;
+		}
+	}
+
+	.category {
+		.row {
+			.portlet-dropzone {
+				padding: 10;
+			}
+
+			.portlet-column {
+				margin-bottom: 30px;
+			}
+
+			#column-3 {
+				@extend %grey-border;
+			}
+		}
+
+		.author {
+			.author-photo {
+				width: 30%;
+			}
+
+			.author-wrapper {
+				float: right;
+			}
+		}
+
+		.grey-row {
+			@extend %grey-background;
+			margin-bottom: 30px;
+		}
+
+		.top-row {
+			padding-top: 200px;
+		}
+	}
+}

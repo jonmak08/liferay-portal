@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="subject" type="text">
+		<dynamic-content language-id="en_US">
+			<![CDATA[QUANTUM COMPUTING]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="title" type="text">
+		<dynamic-content language-id="en_US">
+			<![CDATA[Is Quantum Computing Viable?]]>
+		</dynamic-content>
+	</dynamic-element>
+		<dynamic-element name="subtitle" type="text">
+		<dynamic-content language-id="en_US">
+			<![CDATA[The quest for “quantum supremacy” – unambiguous proof that a quantum computer does something faster than an ordinary computer – has paradoxically led to a boom in quasi-quantum classical algorithms.]]>
+		</dynamic-content>
+	</dynamic-element>
+		<dynamic-element name="content" type="textarea">
+		<dynamic-content language-id="en_US">
+			<![CDATA[A popular misconception is that the potential — and the limits — of quantum computing must come from hardware. In the digital age, we’ve gotten used to marking advances in clock speed and memory. Likewise, the 50-qubit quantum machines now coming online from the likes of Intel and IBM have inspired predictions that we are nearing “quantum supremacy” — a nebulous frontier where quantum computers begin to do things beyond the ability of classical machines...]]>
+		</dynamic-content>
+	</dynamic-element>
+</root>
