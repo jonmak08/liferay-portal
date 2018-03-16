@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<root available-locales="en_US" default-locale="en_US">
+    <dynamic-element name="content" type="text_area" index-type="keyword" index="0">
+        <dynamic-content language-id="en_US">
+           <![CDATA[
+            <p>There is a lot to learn about the solar system. For instace, did you know that: 
+                <ul>
+                    <li>Pluto is smaller than the US</li>
+                    <li>The edge of the solar system is 1,000 miles farther away that Pluto</li>
+                    <li>There are Mars rocks on Earth</li>
+                    <li>Jupiter has the biggest ocean of any planet</li>
+                    <li>Mars as a canyon the size of the United States</li>
+                    <li>The largest planet in the solar system is Jupiter, followed by Saturn, Uranus, Neptune, Earth, Venus, Mars with the smallest being Mercury.</i>
+                    <li>The order of the planets from closest to the Sun outwards is; Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus and finally Neptune.</li>
+                    <li>Mercury is 57,909,227 km from the Sun</li>
+                    <li>Neptune is 4,498,396,441 km from the Sun</li>
+                    <li>Jupiter has a diameter of 139,822 km km</li>
+                    <li>Mars has a diamtere of 	6,779 km</li>
+                    <li>Mars has a diamtere of 	6,779 km</li>
+                </ul>
+            </p>             
+           ]]>
+        </dynamic-content>
+    </dynamic-element>
+</root>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+    <dynamic-element name="content" type="text_area" index-type="keyword" index="0">
+        <dynamic-content language-id="en_US">
+           <![CDATA[
+                <p>The Milky Way contains over 200 billion stars, and enough dust and gas to make billions more. The solar system lies about 30,000 light-years from the galactic center, and about 20 light-years above the plane of the galaxy.</p>
+                <img alt="Andromeda" src="[$FILE=Andromeda.jpg$]" />
+           ]]>
+        </dynamic-content>
+    </dynamic-element>
+</root>

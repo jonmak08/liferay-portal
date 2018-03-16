@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<root available-locales="en_US" default-locale="en_US">
+    <dynamic-element name="content" type="text_area" index-type="keyword" index="0">
+        <dynamic-content language-id="en_US">
+           <![CDATA[
+                <p>Glossary allows you to check out the content that is spread all over the site. If you want a place to come where you can quickly look through the portlet content without having to navigative through multiple pages you can just come here.</p>
+           ]]>
+        </dynamic-content>
+    </dynamic-element>
+</root>

@@ -1,0 +1,381 @@
+{
+	"layoutTemplateId": "1_column",
+	"publicPages": [
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Welcome.xml"
+						}
+					}
+				]
+			],
+			"friendlyURL": "/home",
+			"name": "Welcome",
+			"title": "Welcome"
+        },
+        {
+            "columns": [
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Blackhole.xml"
+						}
+                    },
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Space Explorer.xml" 
+						}
+                    },
+                    {
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Size Of Universe.xml"
+						}
+                    }
+                ], 
+                [
+                    {
+                        "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                        "portletPreferences": {
+                            "articleId": "News.xml"
+                        }
+                    },
+                    {
+                        "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                        "portletPreferences": {
+                            "articleId": "Milkyway.xml"
+                        }
+                    }
+                ],
+                [
+                    {
+                        "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                        "portletPreferences": {
+                            "articleId": "Carter.xml"
+                        }
+                    },
+                    {
+                        "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                        "portletPreferences": {
+                            "articleId": "Gravity Waves.xml"
+                        }
+                    },
+                    {
+                        "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                        "portletPreferences": {
+                            "articleId": "Size Of Planets.xml" 
+                        }
+                    }
+                ]
+            ],
+            "layoutTemplateId": "3_columns",
+			"friendlyURL": "/about",
+			"name": "About",
+			"title": "About"
+        },
+
+		{
+            "columns": [
+                [
+                    {
+                        "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                        "portletPreferences": {
+                            "articleId": "Article.xml"
+                        }
+                    },
+                    {
+                        "portletId": "com_liferay_blogs_web_portlet_BlogsPortlet",
+                        "portletPreferences": {
+                            "articleId": "Planets.xml"
+                        }
+                    }
+                ],
+                [
+                    {
+						"portletId": "com_liferay_youtube_web_portlet_YouTubePortlet",
+						"portletPreferences": {
+                            "url": "https://www.youtube.com/watch?v=i93Z7zljQ7I"
+						}
+					}
+                ]
+            ],
+			"friendlyURL": "/planets",
+			"name": "Planets",
+			"title": "Planets",
+            "layoutTemplateId": "2_columns_ii",
+			"layouts": [
+				{
+                    "columns":[
+                        [
+                            {
+                                "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                                "portletPreferences": {
+                                    "articleId": "Earth Article.xml"
+                                }
+                            }
+                        ],
+                        [
+                            {
+                                "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                                "portletPreferences": {
+                                    "articleId": "Earth.xml"
+                                }
+                            }
+                        ]
+                    ],
+					"friendlyURL": "/planets/earth",
+					"name": "Earth",
+                    "title": "Earth",
+                    "layoutTemplateId": "2_columns_ii",
+					"layouts": [
+						{
+                            "columns":[
+                                [
+                                    {
+                                        "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                                        "portletPreferences": {
+                                            "articleId": "Moon Article.xml"
+                                        }
+                                    }
+                                ],
+                                [
+                                    {
+                                        "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                                        "portletPreferences": {
+                                            "articleId": "Moon.xml"
+                                        }
+                                    }
+                                ]
+                            ],
+							"friendlyURL": "/planets/earth/moon",
+							"title": "Moon",
+                            "name": "Moon",
+                            "layoutTemplateId": "2_columns_ii"
+						}
+					]
+				},
+				{
+                    "columns":[
+                        [
+                            {
+                                "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                                "portletPreferences": {
+                                    "articleId": "Jupiter Article.xml"
+                                }
+                            }
+                        ],
+                        [
+                            {
+                                "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                                "portletPreferences": {
+                                    "articleId": "Jupiter.xml"
+                                }
+                            }
+                        ]
+                    ],
+					"friendlyURL": "/planets/jupiter",
+					"name": "Jupiter",
+                    "title": "Jupiter",
+                    "layoutTemplateId": "2_columns_ii",
+					"layouts": [
+						{
+                            "columns":[
+                                [
+                                    {
+                                        "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                                        "portletPreferences": {
+                                            "articleId": "Jupiter Moons Article.xml"
+                                        }
+                                    }
+                                ],
+                                [
+                                    {
+                                        "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                                        "portletPreferences": {
+                                            "articleId": "Jupiter Moons.xml"
+                                        }
+                                    }
+                                ]
+                            ],
+							"friendlyURL": "/planets/jupiter/jupitermoons",
+							"title": "Jupiter Moons",
+                            "name": "Jupiter Moons",
+                            "layoutTemplateId": "2_columns_ii"
+                        },
+                        {
+                            "columns":[
+                                [
+                                    {
+                                        "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                                        "portletPreferences": {
+                                            "articleId": "Jupiter Moons Article.xml"
+                                        }
+                                    }
+                                ],
+                                [
+                                    {
+                                        "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                                        "portletPreferences": {
+                                            "articleId": "Adrastea.xml"
+                                        }
+                                    }
+                                ]
+                            ],
+							"friendlyURL": "/planets/jupiter/Adrastea",
+							"title": "Adrastea",
+                            "name": "Adrastea",
+                            "layoutTemplateId": "2_columns_ii"
+                        },
+                        {
+                            "columns":[
+                                [
+                                    {
+                                        "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                                        "portletPreferences": {
+                                            "articleId": "Jupiter Moons Article.xml"
+                                        }
+                                    }
+                                ],
+                                [
+                                    {
+                                        "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                                        "portletPreferences": {
+                                            "articleId": "Europa.xml"
+                                        }
+                                    }
+                                ]
+                            ],
+							"friendlyURL": "/planets/jupiter/Europa",
+							"title": "Europa",
+                            "name": "Europa",
+                            "layoutTemplateId": "2_columns_ii"
+                        }, 
+                        {
+                            "columns":[
+                                [
+                                    {
+                                        "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                                        "portletPreferences": {
+                                            "articleId": "Jupiter Moons Article.xml"
+                                        }
+                                    }
+                                ],
+                                [
+                                    {
+                                        "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                                        "portletPreferences": {
+                                            "articleId": "Ganymede.xml"
+                                        }
+                                    }
+                                ]
+                            ],
+							"friendlyURL": "/planets/jupiter/Ganymede",
+							"title": "Ganymede",
+                            "name": "Ganymede",
+                            "layoutTemplateId": "2_columns_ii"
+						}
+					]
+                },
+                {
+                    "columns":[
+                        [
+                            {
+                                "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                                "portletPreferences": {
+                                    "articleId": "Saturn Article.xml"
+                                }
+                            }
+                        ],
+                        [
+                            {
+                                "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                                "portletPreferences": {
+                                    "articleId": "Saturn.xml"
+                                }
+                            }
+                        ]
+                    ],
+					"friendlyURL": "/planets/saturn",
+					"name": "Saturn",
+                    "title": "Saturn",
+                    "layoutTemplateId": "2_columns_ii"
+				}
+			]
+		},
+		{
+            "columns": [
+                [
+                    {
+                        "portletId": "com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet"
+                    }
+                ],
+                [
+                    {
+                        "portletId": "com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet"
+                    }
+                ]
+            ],
+
+			"friendlyURL": "/Assets",
+			"name": "Assets",
+            "title": "Assets",
+            "layoutTemplateId": "2_columns_ii"
+        }, 
+        {
+            "columns": [
+                [
+                    {
+						"portletId": "com_liferay_youtube_web_portlet_YouTubePortlet",
+						"portletPreferences": {
+                            "url": "https://www.youtube.com/watch?v=i93Z7zljQ7I"
+						}
+					}
+                ],
+                [
+                    {
+                        "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                        "portletPreferences": {
+                            "articleId": "Planets Page.xml"
+                        }
+                    }
+                ],
+                [
+                    {
+                        "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                        "portletPreferences": {
+                            "articleId": "Planet Information.xml"
+                        }
+                    }
+                ], 
+                [
+                    {
+                        "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                        "portletPreferences": {
+                            "articleId": "Planets Page.xml"
+                        }
+                    }
+                ],
+                [
+                    {
+                        "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                        "portletPreferences": {
+                            "articleId": "Planet Information.xml"
+                        }
+                    }
+                ]
+            ],
+			"friendlyURL": "/Custom",
+			"name": "Custom",
+            "title": "Custom",
+            "layoutTemplateId": "custom-space-layout"
+        }
+	]
+}
+
+
+

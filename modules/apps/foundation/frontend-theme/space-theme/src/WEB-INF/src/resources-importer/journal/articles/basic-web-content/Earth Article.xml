@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<root available-locales="en_US" default-locale="en_US">
+    <dynamic-element name="content" type="text_area" index-type="keyword" index="0">
+        <dynamic-content language-id="en_US">
+           <![CDATA[
+                <p>Earth is the third planet from the Sun and the fifth largest in the solar system. Just slightly larger than nearby Venus, Earth is the biggest of the terrestrial planets. Our home planet is the only planet in our solar system known to harbor living things. With a radius of 3,959 miles (6,371 kilometers), Earth is the biggest of the terrestrial planets, and the fifth largest planet overall. From an average distance of 93 million miles (150 million kilometers), Earth is exactly one astronomical unit away from the Sun because one astronomical unit (abbreviated as AU), is the distance from the Sun to Earth. This unit provides an easy way to quickly compare planets' distances from the Sun.
+                </p>
+
+                <p>Earth's global ocean, which covers nearly 70 percent of the planet's surface, has an average depth of about 2.5 miles (4 kilometers) and contains 97 percent of Earth's water. Almost all of Earth's volcanoes are hidden under these oceans. Hawaii's Mauna Kea volcano is taller from base to summit than Mount Everest, but most of it is underwater. Earth's longest mountain range is also underwater, at the bottom of the Arctic and Atlantic oceans. It is four times longer than the Andes, Rockies and Himalayas combined.
+                </p>          
+           ]]>
+        </dynamic-content>
+    </dynamic-element>
+</root>
