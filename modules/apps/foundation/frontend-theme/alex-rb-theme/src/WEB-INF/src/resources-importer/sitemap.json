@@ -1,0 +1,101 @@
+{
+	"layoutTemplateId": "1_column",
+	"themeId": "alexrb_WAR_alexrbtheme",
+	"publicPages": [
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Features.xml",
+							"portletSetupPortletDecoratorId": "fade"
+                        }
+					},
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "About You.xml",
+							"portletSetupPortletDecoratorId": "dark-fade"
+						}
+					},
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Your Team.xml",
+							"portletSetupPortletDecoratorId": "push"
+						}
+					},
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Testimonials.xml",
+							"portletSetupPortletDecoratorId": "light-fade"
+						}
+					},
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Latest News.xml",
+							"portletSetupPortletDecoratorId": "zoom"
+						}
+					}
+				]
+			],
+			"friendlyURL": "/home",
+			"name": "Welcome",
+			"title": "Welcome"
+		},
+		{
+			"friendlyURL": "/samplepost",
+			"name": "Sample Post",
+			"title": "Sample Post",
+			"layoutTemplateId": "2_columns_iii",
+			"layouts": [
+				{
+					"friendlyURL": "/samplepost/child1",
+					"name": "Child1",
+					"title": "Child1",
+					"layouts": [
+						{
+							"friendlyURL": "/samplepost/child1/grandchild1",
+							"title": "Grandchild1",
+							"name": "Grandchild1"
+						}
+					]
+				},
+				{
+					"friendlyURL": "/samplepost/child2",
+					"name": "Child2",
+					"title": "Child2",
+					"layouts": [
+						{
+							"friendlyURL": "/samplepost/child2/grandchild2",
+							"title": "Grandchild2",
+							"name": "Grandchild2"
+						}
+					]
+				}
+			]
+		},
+		{
+			"friendlyURL": "/shop",
+			"name": "Shop",
+			"title": "Shop",
+			"layouts": [
+				{
+					"friendlyURL": "/shop/child3",
+					"name": "Child3",
+					"title": "Child3",
+					"layouts": [
+						{
+							"friendlyURL": "/shop/child3/grandchild3",
+							"name": "Grandchild3",
+							"title": "Grandchild3"
+						}
+					]
+				}
+			]
+		}
+	]
+}

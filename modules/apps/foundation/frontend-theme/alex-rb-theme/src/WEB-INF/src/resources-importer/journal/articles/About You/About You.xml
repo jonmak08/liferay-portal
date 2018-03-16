@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+    <dynamic-element name="header" type="text" index-type="keyword">
+        <dynamic-element name="subheader" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Use this section to showcase important details about you.]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-content language-id="en_US"><![CDATA[About You]]></dynamic-content>
+    </dynamic-element>
+
+    <dynamic-element name="content" type="text_box" index-type="text">
+        <dynamic-content language-id="en_US"><![CDATA[
+            In the mid-20th century, after two of the most violent wars in history, mankind turned its gaze upwards to the stars. Instead of to strive against one another, man chose instead to strive against the limits that we had bound ourselves to. And so the Great Space Race began.
+
+            At first the race was to reach space--get outside the earth's atmosphere, and when that had been reached, we shot for the moon. After sending men to the moon, robots to Mars, and probes beyond the reaches of our solar system, it seemed that there was nowhere left to go.
+
+            The Space Program aims to change that. Beyond national boundaries, beyond what anyone can imagine that we can do. The sky is not the limit.
+        ]]></dynamic-content>
+    </dynamic-element>
+
+    <dynamic-element name="image" type="image" index-type="text">
+        <dynamic-content language-id="en_US" alt="Picture of you" name="background.jpg" title="background.jpg" type="document" fileEntryId=""></dynamic-content>
+    </dynamic-element>
+</root>

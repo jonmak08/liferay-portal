@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+    <dynamic-element name="header" type="text" index-type="keyword">
+        <dynamic-content language-id="en_US"><![CDATA[Latest News]]></dynamic-content>
+    </dynamic-element>
+
+    <dynamic-element name="image" type="image" index-type="text" instance-id="">
+        <dynamic-element name="subheader" instance-id="" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Hogwarts Castle]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="subtitle" instance-id="" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="summary" instance-id="" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="LinkToPage8sb9" instance-id="" type="link_to_layout" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-content language-id="en_US" alt="Hogwarts Castle" name="hogwarts_castle.png" title="hogwarts_castle.png" type="document" fileEntryId="">hogwarts_castle.jpg</dynamic-content>
+    </dynamic-element>
+
+    <dynamic-element name="image" type="image" index-type="text" instance-id="">
+        <dynamic-element name="subheader" instance-id="" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Gallifrey]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="subtitle" instance-id="" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="summary" instance-id="" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="LinkToPage8sb9" instance-id="" type="link_to_layout" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-content language-id="en_US" alt="Gallifrey" name="gallifrey.jpg" title="gallifrey.jpg" type="document" fileEntryId="">gallifrey.jpg</dynamic-content>
+    </dynamic-element>
+
+    <dynamic-element name="image" type="image" index-type="text" instance-id="">
+        <dynamic-element name="subheader" instance-id="" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Kerbal Space Center]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="subtitle" instance-id="" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="summary" instance-id="" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="LinkToPage8sb9" instance-id="" type="link_to_layout" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-content language-id="en_US" alt="Kerbal Space Center" name="kerbal_space_center.jpg" title="kerbal_space_center.jpg" type="document" fileEntryId="">kerbal_space_center.jpg</dynamic-content>
+    </dynamic-element>
+
+    <dynamic-element name="image" type="image" index-type="text" instance-id="">
+        <dynamic-element name="subheader" instance-id="" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[Random Buildings]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="subtitle" instance-id="" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="summary" instance-id="" type="text" index-type="keyword">
+            <dynamic-content language-id="en_US"></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-element name="LinkToPage8sb9" instance-id="" type="link_to_layout" index-type="keyword">
+            <dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+        </dynamic-element>
+
+        <dynamic-content language-id="en_US" alt="Random Buildings" name="random_buildings.jpg" title="random_buildings.jpg" type="document" fileEntryId="">random_buildings.jpg</dynamic-content>
+    </dynamic-element>
+</root>
