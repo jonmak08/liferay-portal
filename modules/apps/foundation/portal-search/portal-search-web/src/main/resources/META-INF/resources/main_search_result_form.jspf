@@ -27,9 +27,9 @@
 		<liferay-ui:search-container-column-text
 			colspan="<%= 2 %>"
 		>
-			<h5>
+			<h5 class="flex-row-vertical">
 				<a href="<%= searchResultSummaryDisplayContext.getViewURL() %>">
-					<strong><%= searchResultSummaryDisplayContext.getHighlightedTitle() %></strong>
+					<strong class="search-entry-title"><%= searchResultSummaryDisplayContext.getHighlightedTitle() %></strong>
 				</a>
 
 				<c:if test="<%= searchResultSummaryDisplayContext.isAssetRendererURLDownloadVisible() %>">
