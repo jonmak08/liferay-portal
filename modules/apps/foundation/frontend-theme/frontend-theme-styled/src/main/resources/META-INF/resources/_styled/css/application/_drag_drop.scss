@@ -75,3 +75,9 @@
 .yui3-dd-proxy {
 	z-index: 1110 !important;
 }
+
+.yui3-dd-drop-over {
+	.portlet-dropzone {
+		box-shadow: inset 0px 4px 0px 0px #0B5FFF;
+	}
+}
