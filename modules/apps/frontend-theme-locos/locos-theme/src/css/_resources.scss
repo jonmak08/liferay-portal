@@ -1,0 +1,270 @@
+$facebook-blue: #3B5998;
+$twitter-blue: #0084B4;
+$github-white: #E5E5D8;
+$github-black: #333;
+$youtube-red: #FF0000;
+$linkedin-blue: #0073B1;
+
+
+// Banner Image
+.banner-bg {
+	background: linear-gradient(rgba(20, 77, 82, 0.9) 0%, rgba(20, 77, 82, 0.9) 50%, #E5E5D8 50%, #E5E5D8 100%);
+	padding: 0 50px;
+}
+
+.banner-image {
+	margin: 20px 50px;
+	box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.4);
+}
+
+// Basic Image
+.portlet-journal-content .portlet-content {
+	padding: 0;
+}
+
+.portlet-journal-content img {
+	width: 100%;
+}
+
+.basic-image {
+	padding: 0 50px;
+}
+
+// Boxes
+ul.boxes {
+	background-color: rgb(27, 56, 58);
+	display: flex;
+	flex-flow: row nowrap;
+	font-size: 25px;
+	justify-content: center;
+	list-style: none;
+	margin-bottom: 0;
+	text-align: center;
+}
+
+ul.boxes li {
+	background-color: rgb(27, 56, 58);
+	color: #E5E5D8;
+	padding: 35px;
+	text-align: center;
+}
+
+ul.boxes li:hover {
+	background-color: #E5E5D8;
+	color: rgb(27, 56, 58);
+}
+
+ul.boxes i {
+	border-radius: 2px;
+	font-size: 45px;
+	padding: 10px;
+}
+
+@media only screen and (max-width: 700px) {
+	ul.boxes {
+		flex-flow: row wrap;
+	}
+}
+
+// Company Info
+.company-info {
+	background-color: #333;
+	color: #FFF;
+	padding: 10px 20px;
+	text-align: left;
+}
+
+// Culture Description
+.culture {
+	color: #004447;
+	font-size: 20px;
+	margin: 20px 0;
+	text-align: center;
+}
+
+.culture h2 {
+	font-size: 40px;
+	font-weight: bold;
+}
+
+.portlet-content {
+	padding: 0;
+}
+
+// Culture
+.culture-image {
+	width: 100%;
+}
+
+// Vision Description
+.vision {
+	color: #004447;
+	font-size: 20px;
+	margin: 20px;
+	text-align: center;
+    padding: 30px 10px;
+}
+
+.vision h2 {
+	font-size: 40px;
+	font-weight: bold;
+}
+
+// Vision
+.vision-image {
+	width: 100%;
+}
+
+// Blogger: Hang Gliding Over Europe
+.blog-image img {
+	width: 100%;
+}
+
+// BLogger: Off to the Greek Isles
+.blog-date {
+	font-style: italic;
+}
+
+.blog > p {
+	font-size: 18px;
+}
+
+@media screen only and (min-width: 900px) {
+	.blog {
+		margin-right: 50px;
+	}
+}
+
+.blog-subtitle {
+	font-size: 22px;
+	font-style: italic;
+}
+
+.portlet-asset-publisher .portlet-body {
+	border: 1px solid gray;
+	padding: 10px 0;
+}
+
+.asset-abstract a:hover {
+	color: #F28959;
+	text-decoration: none;
+}
+
+.asset-abstract {
+	padding: 0 20px;
+}
+
+.asset-abstract a {
+	color: #333;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.blog-title {
+	font-size: 40px;
+	font-weight: bold;
+}
+
+.blog {
+	margin: 0 20px;
+}
+
+hr {
+	border-top: 1px solid #333;
+}
+
+// Text-Block
+.text-block {
+	padding: 20px 50px;
+	text-align: center;
+}
+.block-paragraph {
+	color: #808080;
+	font-size: 16px;
+	font-style: italic;
+	margin: 0 auto;
+	max-width: 70%;
+}
+.block-subtitle {
+	color: #999;
+	text-transform: uppercase;
+}
+.block-title {
+	font-weight: bold;
+	margin: 0 auto;
+}
+
+.single {
+	color: #258891; 
+	font-style: italic;
+}
+
+// Justified
+.single {
+	color: #258891; 
+	font-style: italic;
+}
+
+.text-justified {
+	background-color: #FFFFFF;
+	margin: 0 auto;
+	max-width: 70%;
+	padding: 20px 50px;
+	text-align: left;
+}
+
+.justified-paragraph, .justified-title {
+	margin: 0 auto;
+	padding: 10px 0;
+}
+
+// Social
+.social-info {
+	display: flex;
+	justify-content: space-around;
+	padding: 30px;
+}
+
+.social-info i {
+    color: #333;
+	font-size: 40px;
+    text-decoration: none;
+}
+
+i.icon-facebook.facebook:hover {
+    color: $facebook-blue;
+}
+
+i.icon-twitter.twitter:hover {
+    color: $twitter-blue;
+}
+
+i.icon-github.github:hover {
+    color: $github-white;
+    background-color: $github-black;
+}
+
+i.icon-youtube.youtube:hover {
+    color: $youtube-red;
+}
+
+i.icon-linkedin.linkedin:hover {
+    color: $linkedin-blue;
+}
+
+// Footer
+.fine-print {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	.copyright {
+		text-align: right;
+	}
+}
+
+@media screen only and (max-width: 600px) {
+	.fine-print .copyright {
+		text-align: left;
+	}
+}

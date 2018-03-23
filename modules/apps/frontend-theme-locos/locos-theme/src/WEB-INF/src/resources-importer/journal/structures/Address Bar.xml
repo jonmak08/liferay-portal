@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element dataType="html" fieldNamespace="ddm" indexType="keyword" name="address" readOnly="false" repeatable="false" required="false" showLabel="true" type="ddm-text-html" width="small">
+		<meta-data locale="en_US">
+			<entry name="label"><![CDATA[Address]]></entry>
+			<entry name="predefinedValue"><![CDATA[]]></entry>
+			<entry name="tip"><![CDATA[e.g. 1400 Montefino Avenue]]></entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="html" fieldNamespace="ddm" indexType="keyword" name="city" readOnly="false" repeatable="false" required="false" showLabel="true" type="ddm-text-html" width="small">
+		<meta-data locale="en_US">
+			<entry name="label"><![CDATA[City]]></entry>
+			<entry name="predefinedValue"><![CDATA[]]></entry>
+			<entry name="tip"><![CDATA[e.g. Diamond Bar]]></entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="html" fieldNamespace="ddm" indexType="keyword" name="state" readOnly="false" repeatable="false" required="false" showLabel="true" type="ddm-text-html" width="small">
+		<meta-data locale="en_US">
+			<entry name="label"><![CDATA[State]]></entry>
+			<entry name="predefinedValue"><![CDATA[]]></entry>
+			<entry name="tip"><![CDATA[e.g. CA]]></entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="integer" fieldNamespace="ddm" indexType="keyword" name="zip" readOnly="false" repeatable="false" required="false" showLabel="true" type="ddm-integer" width="small">
+		<meta-data locale="en_US">
+			<entry name="label"><![CDATA[Zip Code]]></entry>
+			<entry name="predefinedValue"><![CDATA[]]></entry>
+			<entry name="tip"><![CDATA[e.g. 91765]]></entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="html" fieldNamespace="ddm" indexType="keyword" name="country_name" readOnly="false" repeatable="false" required="false" showLabel="true" type="ddm-text-html" width="small">
+		<meta-data locale="en_US">
+			<entry name="label"><![CDATA[Country Name]]></entry>
+			<entry name="predefinedValue"><![CDATA[]]></entry>
+			<entry name="tip"><![CDATA[e.g. USA]]></entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="integer" fieldNamespace="ddm" indexType="keyword" name="country_code" readOnly="false" repeatable="false" required="false" showLabel="true" type="ddm-integer" width="small">
+		<meta-data locale="en_US">
+			<entry name="label"><![CDATA[Country Code]]></entry>
+			<entry name="predefinedValue"><![CDATA[1]]></entry>
+			<entry name="tip"><![CDATA[e.g. 1 (for US)]]></entry>
+		</meta-data>
+	</dynamic-element>
+	<dynamic-element dataType="integer" fieldNamespace="ddm" indexType="keyword" name="ph_number" readOnly="false" repeatable="false" required="false" showLabel="true" type="ddm-integer" width="small">
+		<meta-data locale="en_US">
+			<entry name="label"><![CDATA[Phone Number]]></entry>
+			<entry name="predefinedValue"><![CDATA[]]></entry>
+			<entry name="tip"><![CDATA[e.g. 9091234567]]></entry>
+		</meta-data>
+	</dynamic-element>
+</root>

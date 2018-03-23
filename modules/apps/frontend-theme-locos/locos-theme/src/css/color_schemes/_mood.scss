@@ -1,0 +1,69 @@
+$champagne: #F7E6D5;
+$midnight-blue: #00264D;
+$opaque-midnight-blue: rgba(0, 28, 57, 0.8);
+$steel-teal: #5C748D;
+
+body.mood {
+	background-color: $champagne;
+}
+
+.mood {
+	#banner {
+		background-color: $midnight-blue;
+
+		.bars-nav-icon {
+			color: $champagne;
+
+			&:hover  {
+				color: $steel-teal;
+			}
+		}
+	}
+
+	#heading .site-title {
+		color: $champagne;
+	}
+
+	#wrapper {
+		background-color: $champagne;
+	}
+
+	#breadcrumbs {
+		background-color: $midnight-blue;
+
+		.breadcrumb > .active {
+			color: $champagne;
+		}
+
+		.portlet {
+			background-color: $midnight-blue;
+		}
+	}
+
+	.modaly {
+		background-color: $opaque-midnight-blue;
+		box-shadow: -2px 0 3px $opaque-midnight-blue;
+
+		a {
+			color: $champagne;
+		}
+	}
+
+	.single {
+		color: $midnight-blue;
+	}
+
+	ul.boxes li {
+		background-color: $midnight-blue;
+    	color: $champagne;
+
+    	&:hover {
+	   		background-color: $champagne;
+	    	color: $midnight-blue;
+    	}
+	}
+
+	ul.boxes {
+		background-color: $champagne;
+	}
+}

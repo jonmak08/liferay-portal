@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element index="0" index-type="keyword" name="title" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				New Locos Design Changes the Meaning of <span class="single">Crazy</span>
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="0" index-type="keyword" name="subtitle" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="0" index-type="keyword" name="content" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				<p class="justified-paragraph">
+					Locos is built to make your work easier and as less as possible, we did our best to make everything clear, fast and easy to be used. Few steps with no time and your dreams will came true with this smart elegant theme, YES it is true and ready for you.
+				</p>
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+</root>

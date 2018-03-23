@@ -1,0 +1,132 @@
+@include font-face("Poppins", "fonts/Poppins/Poppins-Regular", normal, $file-formats: ttf);
+
+@mixin ai ($size: 20px, $indent: 10px) {
+	display: none;
+	font-size: $size;
+	margin-left: $indent;
+}
+
+$black: #333;
+$light-ivory: #FFFFF0;
+$opaque-dark-turquoise: rgba(27, 56, 58, 0.9);
+$opaque-lighter-turquoise: rgba(178, 187, 188, 0.9);
+$opaque-light-turquoise: rgba(145, 159, 160, 0.9);
+$orange: #F28959;
+
+#navigation ul {
+	> li {
+		display: flex;
+		flex-direction: column;
+
+		> ul.child-menu {
+			background-color: $opaque-light-turquoise;
+			order: 2;
+
+			li  {
+				
+				a {
+					@include ai(22px, 15px);
+				}
+
+				i {
+					@include ai(16px);
+				}
+			}
+		}
+
+			ul.grandchild-menu {
+				background-color: $opaque-lighter-turquoise;
+				order: 2;
+
+				li {
+					a {
+						@include ai(19px, 25px);
+					}
+
+					i {
+						@include ai(16px);
+					}
+				}
+			}
+
+		.icon-chevron-up {
+			display: none;
+		}
+
+		.icon-chevron-right, .icon-chevron-up {
+			color: $light-ivory;
+			cursor: pointer;
+			font-size: 16px;
+			margin: 5px;
+			order: 1;
+			padding: 10px;
+			position: absolute;
+			right: 0;
+		}
+
+		.delete-tab {
+			display: none;
+		}
+	}
+}
+
+.modaly {
+	background-color: $opaque-dark-turquoise;
+	box-shadow: -2px 0 3px $opaque-dark-turquoise;
+	display: block;
+	height: 100%;
+	overflow: hidden;
+	position: fixed;
+	right: 0;
+	top: 0;
+	transition: 1.0s;
+	width: 0;
+	z-index: 150;
+
+	.close-btn {
+		font-size: 35px;
+		padding: 0;
+		position: absolute;
+		right: 20px;
+		top: 10px;
+	}
+
+	a {
+		color: $light-ivory;
+		display: block;
+		font-family: 'Poppins';
+		font-size: 25px;
+		padding: 8px 20px;
+		text-decoration: none;
+
+		&:hover, &:focus {
+			color: $orange;
+		}
+	}
+
+	ul {
+		padding: 0;
+	}
+}
+
+.modaly-content {
+	height: 100%;
+	padding: 20px 0px 0px 10px;
+	position: relative;
+	top: 10%;
+	width: 100%;
+}
+
+.nav-show {
+	width: 30%;
+}
+
+.nav-noshow {
+	width: 0;
+}
+
+@media screen and (max-width: 600px) {
+	.nav-show {
+		width: 100%;
+	}
+}

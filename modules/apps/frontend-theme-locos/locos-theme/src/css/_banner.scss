@@ -1,0 +1,93 @@
+@include font-face('Montserrat', 'fonts/Montserrat/Montserrat-Bold', bold, $file-formats: ttf);
+@include font-face('Montserrat Subrayada', 'fonts/Montserrat_Subrayada/MontserratSubrayada-Bold', bold, $file-formats: ttf);
+@include font-face('Poppins', 'fonts/Poppins/Poppins-Regular', normal, $file-formats: ttf);
+
+$dark-ivory: #5A6E70;
+$gray: #999990;
+$ivory: #E5E5D8;
+$opaque-dark-turquoise: rgba(20, 77, 82, 0.9);
+$orange: #F28959;
+
+#sign-in {
+	color: $gray;
+	font-family: 'Poppins';
+	font-size: 15px;
+	margin: 20px 20px 25px;
+	order: 3;
+
+	&:hover {
+		@include prefixer(transition, color, moz ms o spec webkit);
+		color: $orange;
+		text-decoration: none;
+	}
+
+	.portlet-title-text {
+		max-width: none;
+		overflow: visible;
+		padding: 10px;
+	}
+}
+
+#banner {
+	background-color: $opaque-dark-turquoise;
+	display: flex;
+	justify-content: space-between;
+	padding: 20px;
+	position: sticky;
+	top: 0;
+	z-index: 10;
+
+	.site-name {
+		align-self: center;
+		font-size: 35px;
+	}
+
+	.has-control-menu & {
+		top: 62px;
+	}
+
+	.bars-nav-icon {
+		align-self: center;
+		color: $ivory;
+
+		i {
+			font-size: 35px;
+			vertical-align: middle;
+		}
+
+		&:hover {
+			color: $dark-ivory;
+			cursor: pointer;
+			transition: color 1s;
+		}
+	}
+}
+
+#heading {
+	display: flex;
+	justify-content: flex-end;
+	text-transform: uppercase;
+
+	h1 {
+		display: flex;
+		margin: 0;
+	}
+
+	.site-title {
+		color: $ivory;
+		font-family: 'Montserrat', sans-serif;
+		font-size: 50px;
+		vertical-align: middle;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+}
+
+
+#navigation {
+	ul {
+		list-style: none;
+	}
+}

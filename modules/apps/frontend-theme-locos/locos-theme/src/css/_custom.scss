@@ -1,0 +1,40 @@
+@import 'bourbon';
+
+@import 'banner';
+@import 'color_schemes/fall';
+@import 'color_schemes/mood';
+@import 'content';
+@import 'portlet_slide_left';
+@import 'portlet_slide_right';
+
+$ivory: #E5E5D8;
+
+body, html {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: $ivory;
+	min-width: 300px;
+}
+
+#wrapper {
+	background-color: $ivory;
+	font-family: $helvetica;
+	min-height: 100%;
+	padding: 0;
+	position: relative;
+
+	#footer {
+		display: none;
+	}
+
+	.row {
+		margin: 0;
+	}
+
+	.portlet-column {
+		padding: 0;
+	}
+}

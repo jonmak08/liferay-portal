@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element index-type="keyword" name="facebook" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[https://www.facebook.com/]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index-type="keyword" name="twitter" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[https://twitter.com/]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index-type="keyword" name="github" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[https://github.com/]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index-type="keyword" name="linkedin" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[https://www.linkedin.com/]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index-type="keyword" name="youtube" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[https://www.youtube.com/]]>
+		</dynamic-content>
+	</dynamic-element>
+</root>

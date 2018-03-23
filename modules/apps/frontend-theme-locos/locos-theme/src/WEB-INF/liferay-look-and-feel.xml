@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE look-and-feel PUBLIC "-//Liferay//DTD Look and Feel 7.0.0//EN" "http://www.liferay.com/dtd/liferay-look-and-feel_7_0_0.dtd">
+
+<look-and-feel>
+	<compatibility>
+		<version>7.0.0+</version>
+	</compatibility>
+	<theme id="locos" name="locos">
+		<color-scheme id="01" name="Default">
+	        <default-cs>true</default-cs>
+	        <css-class>default</css-class>
+	    </color-scheme>
+	    <color-scheme id="02" name="Fall">
+	        <css-class>fall</css-class>
+	    </color-scheme>
+	    <color-scheme id="03" name="Mood">
+	        <css-class>mood</css-class>
+	    </color-scheme>
+		<template-extension>ftl</template-extension>
+		<settings>
+			<setting configurable="true" key="show_breadcrumbs" type="checkbox" value="false" />
+		</settings>
+		<portlet-decorator id="barebone" name="Barebone">
+			<portlet-decorator-css-class>portlet-barebone</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="borderless" name="Borderless">
+			<portlet-decorator-css-class>portlet-borderless</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="decorate" name="Decorate">
+			<default-portlet-decorator>true</default-portlet-decorator>
+			<portlet-decorator-css-class>portlet-decorate</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="slideLeft" name="slide_left">
+			<portlet-decorator-css-class>portlet-slide-left</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="slideRight" name="slide_right">
+			<portlet-decorator-css-class>portlet-slide-right</portlet-decorator-css-class>
+		</portlet-decorator>
+		<layout-templates>
+			<custom>
+				<layout-template id="home" name="Home">
+					<template-path>/layouttpl/custom/home-layouttpl/home.tpl</template-path>
+					<thumbnail-path>/layouttpl/custom/home-layouttpl/home.png</thumbnail-path>
+				</layout-template>
+			</custom>
+		</layout-templates>
+	</theme>
+</look-and-feel>

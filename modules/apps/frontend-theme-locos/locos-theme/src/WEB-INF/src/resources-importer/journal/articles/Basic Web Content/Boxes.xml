@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element index="0" index-type="keyword" name="content" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				<ul class="boxes" style="padding-left: 0;">
+					<li class="box1">
+						<i class="icon-coffee"></i>
+						<p class="number">3,456</p>
+						<p class="word">coffees consumed</p>
+					</li>
+					<li class="box2">
+						<i class="icon-male"></i>
+						<p class="number">604</p>
+						<p class="word">happy people</p>
+					</li>
+					<li class="box3">
+						<i class="icon-code"></i>
+						<p class="number">20,056</p>
+						<p class="word">lines of code</p>
+					</li>
+					<li class="box4">
+						<i class="icon-cog"></i>
+						<p class="number">22</p>
+						<p class="word">projects online</p>
+					</li>
+				</ul>
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+</root>

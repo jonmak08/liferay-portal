@@ -1,0 +1,19 @@
+@import 'breadcrumb';
+@import 'navigation';
+@import 'resources';
+
+#wrapper {
+	#main-content {
+		.portlet-title-text {
+			display: none;
+		}
+	}
+
+	.portlet-topper {
+		z-index: 25;
+	}
+}
+
+.portlet {
+	margin-bottom: 0;
+}

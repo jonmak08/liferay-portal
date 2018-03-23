@@ -1,0 +1,85 @@
+$alloy-orange: #BD5D0B;
+$lemon-meringue: #F5E2BD;
+$opaque-alloy-orange: rgba(155, 77, 10, 0.8);
+$raw-sienna: #CF894D;
+$opaque-light-alloy-orange: rgba(237, 117, 14, 0.9);
+$opaque-lighter-alloy-orange: rgba(246, 171, 107, 0.9);
+
+body.fall {
+	background-color: $lemon-meringue;
+}
+
+.fall {
+	#banner {
+		background-color: $alloy-orange;
+
+		.bars-nav-icon {
+			color: $lemon-meringue;
+
+			&:hover  {
+				color: $raw-sienna;
+			}
+		}
+	}
+
+	#heading .site-title {
+		color: $lemon-meringue;
+	}
+
+	#wrapper {
+		background-color: $lemon-meringue;            
+	 }
+
+	#breadcrumbs {
+		background-color: $alloy-orange;
+
+		.breadcrumb > .active {
+			color: $lemon-meringue;
+		}
+
+		.portlet {
+			background-color: $alloy-orange;
+		}
+	}
+
+	.modaly {
+		background-color: $opaque-alloy-orange;
+		box-shadow: -2px 0 3px $opaque-alloy-orange;
+
+		a {
+			color: $lemon-meringue;
+		}
+	}
+
+	.single {
+		color: $alloy-orange;
+	}
+
+	ul.boxes li {
+		background-color: $alloy-orange;
+    	color: $lemon-meringue;
+
+    	&:hover {
+	   		background-color: $lemon-meringue;
+	    	color: $alloy-orange;
+    	}
+	}
+
+	ul.boxes {
+		background-color: $lemon-meringue;
+	}
+
+	#navigation ul > li > ul.child-menu {
+		background-color: $opaque-light-alloy-orange;
+		color: $lemon-meringue;
+	}
+
+	#navigation ul > li > ul.grandchild-menu {
+		background-color: $opaque-lighter-alloy-orange;
+		color: $lemon-meringue;
+	}
+
+	.vision {
+		color: $alloy-orange;
+	}
+}

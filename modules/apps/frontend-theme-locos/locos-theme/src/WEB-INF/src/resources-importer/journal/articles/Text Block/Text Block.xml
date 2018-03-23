@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element index="0" index-type="keyword" name="title" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				Our <span class="single">Success</span> Story
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="0" index-type="keyword" name="subtitle" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[Starts from here with these talented people]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="0" index-type="keyword" name="content" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				<p class="block-paragraph">
+					<span class="single"><strong>LOCOS</strong></span> is a Responsive Multi-purpose Liferay Theme built using HTML5/CSS3 features and suitable for creative companies, agencies, and freelancers which need a professional way to showcase their projects, we did our best to make everything clear.
+				</p>
+
+				<div class="learn-more">
+					<a class="button full" href="#" title="Learn More">
+						<span>Learn More</span>
+					</a>
+				</div>
+			]]>
+		</dynamic-content>
+	</dynamic-element>
+</root>

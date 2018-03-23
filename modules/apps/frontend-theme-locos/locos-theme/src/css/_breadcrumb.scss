@@ -1,0 +1,38 @@
+@include font-face("Montserrat", "fonts/Montserrat/Montserrat-Medium", normal, $file-formats: ttf);
+
+$light-ivory: #FFFFF0;
+$turquoise: #144D52;
+
+#breadcrumbs {
+	background: none;
+	color: $light-ivory;
+	font-family: 'Montserrat';
+	font-size: 12px;
+	height: 20px;
+	width: 100%;
+
+	.portlet {
+		background-color: $turquoise;
+	}
+
+	.portlet-body ul {
+		background-color: transparent;
+		display: flex;
+		justify-content: flex-start;
+		margin: 0;
+		padding: 0;
+		text-decoration: none;
+	}
+
+	.portlet-title-text {
+		display: none;
+	}
+
+	.portlet-content {
+		background-color: transparent;
+		border-width: 0;
+		box-shadow: none;
+		display: inline-block;
+		margin-left: 20px;
+	}
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="image" type="ddm-image" index-type="">
+		<dynamic-content alt="together"><![CDATA[[$FILE=together.jpeg$]]]></dynamic-content>
+	</dynamic-element>
+</root>

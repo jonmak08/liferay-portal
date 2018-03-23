@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element index="0" index-type="keyword" name="vision_title" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[Our Culture]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="0" index-type="keyword" name="vision_subtitle" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[To be in fellowship with our co-workers.]]>
+		</dynamic-content>
+	</dynamic-element>
+</root>

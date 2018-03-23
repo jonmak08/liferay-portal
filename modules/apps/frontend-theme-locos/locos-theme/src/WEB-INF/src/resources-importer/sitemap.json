@@ -1,0 +1,160 @@
+{
+	"publicPages": [
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Banner Image.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "slideLeft"
+						}
+					}
+				],
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Text Block.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "slideRight"
+						}
+					}
+				],
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Basic Image.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "slideLeft"
+						}
+					}
+				],
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Justified.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "slideRight"
+						}
+					}
+				],
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Boxes.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "borderless"
+						}
+					}
+				],
+				[
+					"Address Bar.xml"
+				],
+				[
+					"Social.xml"
+				],
+				[
+					"Footer.xml"
+				]
+			],
+			"friendlyURL": "/home",
+			"layoutTemplateId": "home",
+			"name": "Home"
+		},
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet",
+						"portletPreferences": {
+							"portletSetupPortletDecoratorId": "borderless",
+							"portletSetupShowBorders": "true",
+							"portletSetupUseCustomTitle": "true"
+						}
+					}
+				],
+				[
+					"Hang Gliding Over Europe.xml",
+					"Off to the Greek Isles.xml",
+					"Travel with Dog.xml"
+				]
+			],
+			"friendlyURL": "/blog",
+			"layoutTemplateId": "2_columns_ii",
+			"layouts": [
+				{
+					"friendlyURL": "/bloggers",
+					"layoutTemplateId": "1_1_1_column",
+					"name": "Bloggers"
+				}
+			],
+			"name": "Blog"
+		},
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Vision Image.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "slideRight"
+						}
+					}
+				],
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Vision.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "slideRight"
+						}
+					}
+				],
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Culture.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "slideLeft"
+						}
+					}
+				],
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Culture Image.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "slideLeft"
+						}
+					}
+				]
+			],
+			"friendlyURL": "/About",
+			"layoutTemplateId": "2_2_columns",
+			"layouts": [
+				{
+					"friendlyURL": "/company",
+					"layoutTemplateId": "1_1_1_column",
+					"layouts": [
+						{
+							"friendlyURL": "/vision",
+							"layoutTemplateId": "1_1_1_column",
+							"name": "Vision"
+						}
+					],
+					"name": "Company"
+				}
+			],
+			"name": "About"
+		}
+	]
+}

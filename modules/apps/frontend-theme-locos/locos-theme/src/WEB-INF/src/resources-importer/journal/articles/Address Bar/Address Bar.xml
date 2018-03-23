@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element index="0" indexType="keyword" name="address" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[1400 Montefino Avenue]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="0" indexType="keyword" name="city" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[Diamond Bar]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="0" indexType="keyword" name="state" type="text_area">
+		<dynamic-content language-id="en_US">
+			<![CDATA[CA]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="0" indexType="keyword" name="zip" type="integer">
+		<dynamic-content language-id="en_US">
+			<![CDATA[91765]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="0" indexType="keyword" name="country_name" type="integer">
+		<dynamic-content language-id="en_US">
+			<![CDATA[USA]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="0" indexType="keyword" name="country_code" type="integer">
+		<dynamic-content language-id="en_US">
+			<![CDATA[1]]>
+		</dynamic-content>
+	</dynamic-element>
+	<dynamic-element index="0" indexType="keyword" name="ph_number" type="integer">
+		<dynamic-content language-id="en_US">
+			<![CDATA[9091234567]]>
+		</dynamic-content>
+	</dynamic-element>
+</root>
