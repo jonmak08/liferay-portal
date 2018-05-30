@@ -1,0 +1,173 @@
+.portlet-decorate .portlet-content {
+	background: #FFF;
+	border: none;
+}
+
+.portlet-barebone .portlet-content {
+	padding: 0;
+}
+
+.portlet-title-text {
+	color: $nyred-color;
+	font-family: $title-font;
+	font-size: x-large;
+
+	@include textStyle(0.5px, capitalize);
+}
+
+.portlet-content {
+	a {
+
+		.btn,
+		.btn-default,
+		.btn:hover,
+		.btn:focus {
+			color: #FFF !important;
+			font-family: $link-text;
+			font-weight: bold;
+			@include textStyle(2px, uppercase);	
+		}
+	}
+
+	.portlet-body {
+		font-family: $body-font;
+		a {
+			font-family: $body-font;
+			@include textStyle(0, none);
+		}
+	}
+
+	.rating-label .rating a {
+		font-family: "fontawesome-alloy";
+	}
+}
+
+.panel-default {
+	border-color: $brightblue-color;
+	border-radius: 8px 8px 0 0 !important;
+}
+
+.panel-default > .panel-heading {
+	border-color: $brightblue-color;
+}
+
+.panel-default > .panel-heading + .panel-collapse > .panel-body {
+	border: none;
+}
+
+.panel-default > .panel-footer + .panel-collapse > .panel-body {
+	border-bottom-color: $brightblue-color;
+}
+
+/* BLOG styles */
+
+.portlet-blogs {
+	.entry-info, .hide-accessible {
+		font-family: $form-font;
+	}
+
+	.entry-title {
+		font-family: $title-font;
+
+		@include textStyle(0.5px, capitalize);
+
+		h2 {
+
+			width: min-content;
+
+			> a {
+			font-family: $title-font;
+			font-weight: normal !important;
+			color: $owgray-color !important;
+			}
+		}
+	}
+
+	.entry-social {
+		a {
+			color: #65B6F0;
+			transition: $transition;
+		}
+	}
+}
+
+/* FORM styles */
+
+.portlet-forms {
+	h1, h2 {
+		@include textStyle(2px, uppercase);
+	}
+
+	.control-label {
+		font-family: $body-font;
+		letter-spacing: 2px;
+	}
+
+	label, select, input, table {
+		font-family: $form-font;
+	}
+}
+
+.form-control:focus {
+	border-color: #65B6F0;
+	color: #65B6F0;
+}
+
+/* Wiki card styles */
+
+.panel-group .panel-title > a,
+.panel-group .panel-title > span {
+	color: #FFF;
+}
+
+.card .divider, .card-horizontal .divider {
+	background-color: none;
+}
+
+thead:first-child > tr:first-child > th {
+	border-top: 1px solid !important;
+}
+
+/* Remove borders */
+
+.card,
+.card-horizontal,
+.navbar-default,
+.portlet-decorate .portlet-content,
+.taglib-header,
+.list-group {
+	border: none;
+	box-shadow: none;
+}
+
+.divider {
+	display: none;
+}
+
+/* Changes color of links on wiki entry */
+
+.card a, .card-horizontal a {
+	color: #65B6F0;
+}
+
+/* Chat window on bottom */
+
+.chat-panel-window {
+	border: 1px solid rgba(0, 0, 0, 0.2) !important;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+	font: 12px $body-font;
+}
+
+.chat-panel-title {
+	background: $nyred-color !important;
+	border-radius: 4px 4px 0 0;
+	font-family: $nav-font;
+
+	@include textStyle(2px, uppercase);
+}
+
+.chat-settings label {
+	color: $owgray-color;
+	font-size: 12px;
+	font-weight: normal !important;
+}

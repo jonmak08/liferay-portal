@@ -1,0 +1,28 @@
+.portlet-hello-world .portlet-content {
+	align-items: center;
+	background: url(../images/nyxl_banner.png) top;
+	background-position: center;
+	background-repeat: repeat-x;
+	background-size: inherit;
+	box-shadow: $soft-shadow;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	min-height: 390px;
+	text-align: center;
+
+	.portlet-title-text {
+		background: none;
+		color: $nyred-color;
+		font-family: "Helvetica Bold";
+		font-size: 48px;
+		@include textStyle(8px, uppercase);
+		word-spacing: 10px;
+	}
+
+	.portlet-body {
+		color: #EEE;
+		font-family: $form-font;
+		letter-spacing: 3px;
+	}
+}

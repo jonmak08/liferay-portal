@@ -1,0 +1,416 @@
+@import "portlet_decorator";
+
+@import "portlet_hello_world";
+
+@import "header";
+
+body {
+	background-color: $bg-color;
+	font-family: $body-font;
+}
+
+a {
+	transition: 0.3s ease-in-out;
+	// white-space: nowrap;
+}
+
+.container-fluid-1280 .row,
+.portlet {
+	margin: 0;
+}
+
+.btn, .btn-default {
+	@include btnBackground($lightblue-color);
+	font-family: $link-text !important;
+	font-size: 12px;
+	font-weight: bold;
+	transition: $transition;
+
+	@include textStyle(2px !important, uppercase !important);
+}
+
+.btn:hover, .btn:focus {
+	@include btnBackground($brightblue-color);
+	text-shadow: $hard-shadow;
+}
+
+.text-default {
+	color: $owgray-color;
+}
+
+/* Animated Links on Hover */
+
+.portlet-blogs h2 > a::after,
+#_com_liferay_wiki_web_portlet_WikiPortlet_navTag li::after {
+	background: #FFF;
+	content: '';
+	display: block;
+	height: 2px;
+	transition: width 0.3s;
+	width: 0;
+}
+
+/* Red Underline*/
+.portlet-blogs h2 > a::after {
+	background: $nyred-color;
+}
+
+/* Lightblue Underline */
+#_com_liferay_wiki_web_portlet_WikiPortlet_navTag li::after {
+	background: $lightblue-color;
+}
+
+.portlet-blogs h2 > a:hover::after,
+#_com_liferay_wiki_web_portlet_WikiPortlet_navTag li:hover::after {
+	width: 100%;
+}
+
+/* Non animated style when active */
+#_com_liferay_wiki_web_portlet_WikiPortlet_navTag li.active:hover::after {
+	width: 0%;
+}
+
+/* Text Styles */
+
+a {
+	font-family: $link-text;
+}
+
+.portlet-title-text,
+thead,
+.header-title,
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	color: $nyred-color;
+	font-family: $title-font;
+}
+
+.panel-heading {
+	h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+		color: #FFF;
+
+		.text-default {
+			color: $owgray-color;
+		}
+	}
+}
+
+.entry-info,
+label,
+span.control-label,
+.yui3-g [class*="yui3-u"] {
+	font-family: $title-font;
+}
+
+.liferay-rating-vote.thumbrating, .thumbs {
+	color: $lightblue-color;
+}
+
+.alert,
+p,
+.entry-body,
+.message-content,
+.rating-label,
+.stats,
+tbody,
+.text-default {
+	color: $owgray-color;
+	font-family: $body-font;
+}
+
+.alloy-editor-container .alloy-editor.alloy-editor-placeholder.ae-placeholder:not(:focus):not(.form-control),
+fieldset,
+input, 
+select, 
+textarea {
+	font-family: $body-font;
+	color: $owgray-color;
+}
+
+.rating-element {
+	font-family: "fontawesome-alloy" !important;
+}
+
+.glyphicon,
+.thumbrating-content {
+	font-family: 'Glyphicons Halflings' !important;
+}
+
+/* Search bar stylings with white background */
+
+.navbar.collapse-basic-search .basic-search .btn-default {
+	color: $lightgray-color !important;
+
+	:hover {
+		color: #65B6F0 !important;
+	}
+}
+
+.basic-search, .input-group {
+	border: $lightgray-border;
+	border-radius: 3px;
+}
+
+.navbar-default.collapse-basic-search .basic-search .form-control {
+	padding-left: 5%;
+}
+
+/* Sidebar nav Styles */
+
+.sidebar-header {
+	display: flex;
+
+	a {
+		width: 50%;
+
+		svg {
+			float: right;
+		}
+	}
+}
+
+.sidebar-body {
+	a {
+		font-family: $form-font;
+		font-weight: normal;
+
+		@include textStyle(0.5px, capitalize);
+	}
+}
+
+.product-menu .panel-heading .panel-title > .panel-toggler .category-name,
+.product-menu .panel-heading .panel-title > .panel-toggler .user-name,
+.product-menu .panel-heading .panel-title > .panel-toggler .site-name {
+	font-family: $link-text;
+
+	@include textStyle(2px, uppercase);
+}
+
+/* styles when panel is clicked open */
+
+.product-menu .panel-heading .panel-title > .panel-toggler:not(.collapsed) {
+	border-left: 4px solid $brightblue-color !important;
+	text-shadow: $hard-shadow;
+}
+
+#footer {
+	max-width: none;
+	width: 100%;
+
+	div.row {
+		color: #F5F5DC;
+		font-family: $nav-font;
+		text-align: center;
+		width: 100%;
+
+		@include textStyle(1.5px, lowercase);
+	}
+}
+
+.full-width {
+	@include fullwidth();
+}
+
+#wrapper {
+	padding: 0;
+}
+
+#content .row {
+	margin-left: -15px;
+	margin-right: -15px;
+}
+
+.product-menu .panel-group .panel-heading + .panel-collapse.in, .product-menu .panel-group .panel-heading + .panel-collapse.collapsing {
+	border-bottom: 2px solid $brightblue-color !important;
+}
+
+/* Panel Styles */
+
+.panel {
+	border-radius: 8px;
+	color: $owgray-color;
+
+	.panel-heading {
+		background: $nyred-color;
+		border: none;
+		border-radius: 8px 8px 0 0;
+		color: #FFF;
+		font-family: $link-text;
+
+		@include textStyle(2px, uppercase);
+	}
+
+	.panel-default {
+		border-color: none;
+	}
+
+	.text-primary {
+		color: $lightblue-color;
+	}
+}
+
+.card {
+	.panel-heading {
+		background: none;
+
+		h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+			color: $owgray-color;
+			text-transform: none;
+		}
+	}
+}
+
+/* Form styles */
+
+.form-control {
+	:focus {
+		border-color: #65B6F0;
+		color: #65B6F0;
+	}
+}
+
+/* default footer styles */
+
+#footer {
+	background-color: $solid-color;
+	color: #FFF;
+	padding: 40px 20px;
+
+	a {
+		color: #FFF;
+	}
+}
+
+.modify-pages .delete-tab {
+	height: 20px;
+	top: 22px;
+}
+
+.display-style-buttons > .dropdown > .dropdown-menu {
+	&:after, &:before {
+		@include media-query(null, $screen-xs-max) {
+			border-width: 0;
+		}
+	}
+}
+
+@include media-query(null, $screen-sm-max) {
+	.overlay-focused:focus {
+		outline: 0;
+	}
+}
+
+/* Mobile Styles */
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+	#banner, #footer {
+		left: 0;
+		margin: 0;
+		position: inherit;
+		right: 0;
+		width: 100%;
+	}
+
+	.pull-right {
+		float: none !important;
+		text-align: center;
+	}
+
+	.navbar-collapse {
+		box-shadow: none;
+	}
+
+	#_com_liferay_product_navigation_product_menu_web_portlet_ProductMenuPortlet_kwsw__null__null {
+		margin-top: -12%;
+	}
+
+	.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1,
+	.col-xs-2, .col-sm-2, .col-md-2, .col-lg-2,
+	.col-xs-3, .col-sm-3, .col-md-3, .col-lg-3,
+	.col-xs-4, .col-sm-4, .col-md-4, .col-lg-4,
+	.col-xs-5, .col-sm-5, .col-md-5, .col-lg-5,
+	.col-xs-6, .col-sm-6, .col-md-6, .col-lg-6,
+	.col-xs-7, .col-sm-7, .col-md-7, .col-lg-7,
+	.col-xs-8, .col-sm-8, .col-md-8, .col-lg-8,
+	.col-xs-9, .col-sm-9, .col-md-9, .col-lg-9,
+	.col-xs-10, .col-sm-10, .col-md-10, .col-lg-10,
+	.col-xs-11, .col-sm-11, .col-md-11, .col-lg-11,
+	.col-xs-12, .col-sm-12, .col-md-12, .col-lg-12,
+	.container-fluid-1280 {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	/* Margins */
+
+	#banner {
+		padding-top: 5%;
+	}
+
+	.container-fluid-1280,
+	.row,
+	.container-fluid-1280 .row {
+		margin: 0;
+	}
+
+	.portlet-blogs .subscribe {
+		margin-right: 5%;
+	}
+
+	.portlet-blogs .entry-info,
+	.portlet-blogs .hide-accessible,
+	.portlet-blogs .entry-body p,
+	.portlet-blogs .entry-title,
+	.portlet-blogs .entry-footer .entry-social {
+		margin-left: 5%;
+	}
+
+	.list-group-card h4 {
+		margin: 10% 0;
+		margin-left: -10%;
+	}
+
+	.portlet-content {
+		align-content: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.portlet-title-text {
+		max-width: none;
+		text-align: center;
+	}
+
+	.portlet-blogs .cover-image-caption {
+		text-align: left;
+	}
+
+	.portlet-blogs .entry-footer .entry-social {
+		float: none !important;
+	}
+
+	#content .row {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	/* Table Styles */
+
+	table {
+		td {
+			max-width: 200px;
+			overflow: auto;
+		}
+
+		th {
+			border: 1px solid $nyred-color;
+		}
+	}
+
+	.table-bordered > thead > tr > th {
+		border: 1px solid $nyred-color;
+	}
+}
