@@ -75,15 +75,15 @@ $title-font: "Circular";
 	color: #FFF;
 }
 
-@mixin redBackground() {
-	background: $nyred-color;
-	color: #FFF;
-	font-family: sans-serif;
-	letter-spacing: 2px;
-	text-transform: uppercase;
-}
-
 @mixin textStyle($letter-spacing, $text-transform) {
 	letter-spacing: $letter-spacing;
 	text-transform: $text-transform;
+}
+
+@mixin redBackground() {
+	background: $nyred-color;
+	color: #FFF !important;
+	font-family: $link-text;
+	letter-spacing: 2px;
+	text-transform: uppercase;
 }

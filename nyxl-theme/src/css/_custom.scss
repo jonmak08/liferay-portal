@@ -11,7 +11,6 @@ body {
 
 a {
 	transition: 0.3s ease-in-out;
-	// white-space: nowrap;
 }
 
 .container-fluid-1280 .row,
@@ -107,25 +106,25 @@ span.control-label,
 }
 
 .alert,
-p,
+.alloy-editor-container .alloy-editor.alloy-editor-placeholder.ae-placeholder:not(:focus):not(.form-control),
+.chat-panel-window label,
 .entry-body,
+fieldset,
+input, 
 .message-content,
+p,
 .rating-label,
+select, 
 .stats,
+textarea 
 tbody,
 .text-default {
 	color: $owgray-color;
 	font-family: $body-font;
 }
 
-.alloy-editor-container .alloy-editor.alloy-editor-placeholder.ae-placeholder:not(:focus):not(.form-control),
-fieldset,
-input, 
-select, 
-textarea {
-	font-family: $body-font;
-	color: $owgray-color;
-}
+
+
 
 .rating-element {
 	font-family: "fontawesome-alloy" !important;
@@ -231,13 +230,9 @@ textarea {
 	color: $owgray-color;
 
 	.panel-heading {
-		background: $nyred-color;
 		border: none;
 		border-radius: 8px 8px 0 0;
-		color: #FFF;
-		font-family: $link-text;
-
-		@include textStyle(2px, uppercase);
+		@include redBackground();
 	}
 
 	.panel-default {

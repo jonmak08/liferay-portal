@@ -73,7 +73,7 @@
 
 		h2 {
 
-			width: min-content;
+			width: max-content;
 
 			> a {
 			font-family: $title-font;
@@ -150,7 +150,7 @@ thead:first-child > tr:first-child > th {
 	color: #65B6F0;
 }
 
-/* Chat window on bottom */
+/* Messenger Chat window on bottom */
 
 .chat-panel-window {
 	border: 1px solid rgba(0, 0, 0, 0.2) !important;
@@ -159,11 +159,9 @@ thead:first-child > tr:first-child > th {
 }
 
 .chat-panel-title {
-	background: $nyred-color !important;
 	border-radius: 4px 4px 0 0;
-	font-family: $nav-font;
-
-	@include textStyle(2px, uppercase);
+	@include redBackground();
+	background: $nyred-color !important;
 }
 
 .chat-settings label {

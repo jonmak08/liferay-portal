@@ -128,9 +128,7 @@
 	.nav-tabs > li.active > a,
 	.nav-tabs > li.active > a:hover,
 	.nav-tabs > li.active > a:focus {
-		background: $nyred-color;
-		font-family: $link-text;
-		@include textStyle(2px, uppercase);
+		@include redBackground();
 	}
 
 	.nav li > a {
@@ -173,10 +171,6 @@
 	/* NYXL in header */
 
 	#heading .site-name {
-		// background: $nyred-color;
-		// color: #FFF;
-		// font-family: sans-serif;
-
 		@include redBackground();
 		font-size: 150%;
 		margin-left: 8px;
