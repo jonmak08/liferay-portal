@@ -1,0 +1,463 @@
+/* These inject tags are used for dynamically creating imports for themelet styles, you can place them where ever you like in this file. */
+$link-color: #CA9B52;
+$font-color: #111;
+$title-font: "Playfair Display", "Times New Roman", serif;
+
+/* inject:imports */
+
+/* endinject */
+
+/* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
+
+a {
+	color: $font-color;
+	text-decoration: none;
+}
+
+a:visited {
+	color: $font-color;
+	text-decoration: none;
+}
+
+a:focus {
+	color: $font-color;
+	text-decoration: none;
+}
+
+a:hover {
+	color: $link-color;
+	text-decoration: none;
+}
+
+#banner {
+	background-image: url(../images/snow.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 450px;
+
+	.site-title {
+		a.logo {
+			display: none;
+		}
+		color: $font-color;
+		font-size: 100px;
+		font-weight: 100;
+		letter-spacing: 10px;
+		margin: 0;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	width: 100%;
+}
+
+body {
+	background-color: #FFF;
+	font-family: "Open Sans", Helvetica, sans-serif;
+	font-size: 15px;
+}
+
+.btn {
+	margin: 0;
+}
+
+.btn-primary {
+	background-color: $link-color;
+	border-color: $link-color;
+}
+
+.btn-primary:link, .btn-primary:visited, .btn-primary:focus, .btn-primary:hover, .btn-primary:active, .btn-primary:active:focus {
+	background-color: $link-color;
+	border-color: $link-color;
+	outline: none;
+}
+
+.content-container {
+	padding: 41px 7% 0;
+}
+
+.entry-info {
+	font-family: "Playfair Display";
+	font-weight: normal;
+	letter-spacing: 0;
+	line-height: 25px;
+	text-align: center;
+}
+
+.entry-title {
+	font-family: "Playfair Display";
+	font-size: 44px;
+	font-weight: normal;
+
+	h2 {
+		padding-left: 32px;
+	}
+
+	letter-spacing: 0.5px;
+	line-height: 44px;
+	text-align: center;
+}
+
+.site-title {
+	a.logo {
+		display: none;
+	}
+
+	color: $font-color;
+	font-size: 100px;
+	font-weight: 100;
+	letter-spacing: 10px;
+	margin: 0;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+h2 {
+	color: $font-color;
+}
+
+#heading {
+	align-items: center;
+	display: flex;
+	height: 100%;
+	justify-content: center;
+}
+
+.lfr-preview-file-content, .lfr-preview-image-content, .lfr-preview-file-image-container, .lfr-preview-file-image-current-column {
+	height: auto;
+	border: none;
+	background: none;
+	box-shadow: none;
+	padding: 0;
+}
+
+.navbar-form {
+	border: none;
+	margin: 0;
+}
+
+#nav-menu-search-icon2 {
+	padding: 0;
+
+	input {
+		border: none;
+		box-shadow: none;
+		font-size: 18px;
+		padding: 0;
+		text-align: center;
+	}
+
+	input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+		box-shadow: 0 0 0 100px #FFF inset;
+	}
+
+	input:-webkit-autofill:hover, textarea:-webkit-autofill:hover, select:-webkit-autofill:hover {
+		box-shadow: 0 0 0 100px #FFF inset;
+	}
+
+	input:-webkit-autofill:focus, textarea:-webkit-autofill:focus, select:-webkit-autofill:focus, .form-control:focus {
+		box-shadow: 0 0 0 100px #FFF inset;
+	}
+}
+
+p {
+	text-align: justify;
+}
+
+p:first-of-type:first-letter {
+	color: #030303;
+	float: left;
+	font-family: "Playfair Display";
+	font-size: 80px;
+	font-weight: normal;
+	line-height: 65px;
+	margin: 0 12px 0 0;
+	text-align: center;
+}
+
+#navigation {
+	align-items: center;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+	display: flex;
+	justify-content: center;
+	min-height: 60px;
+	padding: 0 11%;
+
+	.customNavLi {
+		display: inline-block;
+		margin: 0 5px;
+		max-width: 250px;
+		overflow: hidden;
+		padding: 20px 0;
+		text-overflow: ellipsis;
+		z-index: 999;
+	}
+
+	.customNavLi:hover {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		max-width: 100%;
+		overflow: visible;
+	}
+
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		// height: 60px;
+		justify-content: center;
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+
+		.child-menu {
+			display: none;
+		}
+
+		li:hover .child-menu {
+			background-color: #FFF;
+			display: block;
+			height: auto;
+
+			li {
+				padding-top: 8px;
+
+				a {
+					white-space: nowrap;
+				}
+			}
+			text-align: center;
+		}
+
+		li a.myNavLinks {
+			font-weight: 600;
+			letter-spacing: 1px;
+			padding: 0 15px;
+			text-decoration: none;
+			text-transform: uppercase;
+			white-space: nowrap;
+
+			:hover, :focus, :visited {
+				color: $link-color;
+				text-decoration: none;
+			}
+		}
+
+		li.selected a {
+			color: $link-color;
+			text-decoration: none;
+		}
+	}
+}
+
+#myCustomNav {
+	background-color: #23282D;
+	font-size: 12px;
+	height: 32px;
+
+	#myHartLogo {
+		background-color: #CCC;
+		border: 4px double #23282D;
+		border-radius: 100px;
+		color: #23282D;
+		display: inline-block;
+		font-family: "Playfair Display";
+		height: 75%;
+		margin-left: 10px;
+		margin-top: 4px;
+		padding: 0 3px;
+	}
+
+	#sign-in {
+		color: #EEE;
+		float: right;
+		height: 100%;
+		margin-right: 10px;
+		padding: 7px;
+	}
+}
+
+.nav-menu-hamburger {
+	min-height: 60px;
+	min-width: 60px;
+}
+
+.nav-menu-hamburger-icon {
+	align-items: center;
+	background-image: url(../images/menu_icon.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 30%;
+	display: flex;
+	justify-content: center;
+	left: 7%;
+	max-height: 60px;
+	min-width: 60px;
+	position: absolute;
+
+	a {
+		padding: 0;
+	}
+}
+
+#nav-menu-search-icon {
+	background-image: url(../images/search_icon.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 25%;
+	cursor: pointer;
+	min-height: 60px;
+	min-width: 60px;
+	position: absolute;
+	right: 7.2%;
+}
+
+#p_p_id_com_liferay_dictionary_web_portlet_DictionaryPortlet_ {
+	.portlet-body {
+		text-align: center;
+	}
+}
+
+.portlet-column {
+	margin-bottom: 40px;
+}
+
+.scheduler-view-day-header-day .scheduler-today-hd {
+	border-bottom: 3px solid $link-color;
+	color: $link-color;
+}
+
+.text-primary {
+	color: $link-color;
+}
+
+.user-icon-color-5 {
+	background-color: $link-color;
+}
+
+#wrapper.container-fluid {
+	padding: 0;
+}
+
+.yui3-skin-sam .calendar-portlet {
+	.yui3-calendar-day.lfr-current-day {
+		background-color: $link-color !important;
+	}
+
+	th.yui3-calendar-weekday, .scheduler-view-agenda-header-extra {
+		color: $link-color;
+	}
+
+	.scheduler-view-agenda-info-biggie, .scheduler-view-agenda-info-label-biggie {
+		color: #111;
+	}
+}
+
+#navigation #portlet_com_liferay_portal_search_web_portlet_SearchPortlet {
+	div, input, fieldset {
+		display: block;
+		height: 60px;
+	}
+
+	.lfr-ddm-field-group {
+		display: none;
+	}
+
+	height: 60px;
+	margin-bottom: 0;
+	overflow: hidden;
+
+	.portlet-content {
+		border: none;
+		height: inherit;
+		outline: none;
+	}
+
+	.portlet-topper {
+		display: none;
+	}
+}
+
+#_com_liferay_portal_search_web_portlet_SearchPortlet_searchContainer {
+	div {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	input {
+		text-align: center;
+	}
+}
+
+#_com_liferay_portal_search_web_portlet_SearchPortlet_facetNavigation {
+	margin-top: 20px;
+}
+
+@media only screen and (max-width: 767px) {
+	#banner {
+		height: 150px;
+
+		.site-title {
+			font-size: 50px;
+		}
+	}
+
+	#navigation {
+		flex-direction: column;
+		text-align: center;
+
+		ul {
+			display: block;
+			height: auto;
+			max-height: 120px;
+			overflow: auto;
+
+			.child-menu {
+				display: block;
+				height: auto;
+
+				li {
+					display: block;
+				}
+			}
+
+			.customNavLi {
+				align-items: center;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				max-width: 400px;
+				padding: 4px 0;
+			}
+		}
+		white-space: nowrap;
+	}
+
+	.sidebar-header {
+		display: flex;
+		flex-direction: row;
+
+		a {
+			width: 50%;
+		}
+
+		svg {
+			float: right;
+		}
+}
+
+	#p_p_id_com_liferay_dictionary_web_portlet_DictionaryPortlet_ {
+		fieldset {
+			display: flex;
+		}
+	}
+}
+
+.portlet-body {
+	img {
+		display: block;
+		margin: auto;
+	}
+}
