@@ -71,7 +71,32 @@
 
 	<footer class="container-fluid-1280" id="footer" role="contentinfo">
 		<div class="row">
-			Built by <a href="http://barrettquan.com" rel="external">Barrett Quan</a>
+			<div class="footer-container">
+				<div class="footer-content">
+					<h1>Column 1</h1>
+					<ul>
+						<li>Contact</li>
+						<li>About</li>
+					</ul>
+				</div>
+
+				<div class="footer-content">
+					<h1>Column 2</h1>
+					<ul>
+						<li>Contact</li>
+						<li>About</li>
+					</ul>
+				</div>
+
+				<div class="footer-content">
+					<h1>Column 3</h1>
+					<ul>
+						<li>Contact</li>
+						<li>About</li>
+					</ul>
+				</div>
+			</div>
+			<div>Built by <a href="http://barrettquan.com" rel="external">Barrett Quan</a><div>
 		</div>
 	</footer>
 </div>

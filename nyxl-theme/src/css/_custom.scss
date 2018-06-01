@@ -1,8 +1,11 @@
+@import "footer";
+
+@import "header";
+
 @import "portlet_decorator";
 
 @import "portlet_hello_world";
 
-@import "header";
 
 body {
 	background-color: $bg-color;
@@ -123,9 +126,6 @@ tbody,
 	font-family: $body-font;
 }
 
-
-
-
 .rating-element {
 	font-family: "fontawesome-alloy" !important;
 }
@@ -197,7 +197,7 @@ tbody,
 	width: 100%;
 
 	div.row {
-		color: #F5F5DC;
+		color: #FFF;
 		font-family: $nav-font;
 		text-align: center;
 		width: 100%;
