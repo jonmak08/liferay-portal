@@ -1,6 +1,40 @@
+.portlet-hello-world {
+	height: 50vh;
+	margin: 5% 0;
+}
+
+.welcome-container {
+	align-content: center;
+	height: inherit;
+	background: url(../images/nyxl-facebook-banner.jpg) top;
+	background-position: center;
+	background-size: cover;
+}
+
+.welcome-content {
+	display: flex;
+	flex-direction: column;
+	height: inherit;
+	justify-content: space-evenly;
+	text-align: center;
+	@include textStyle(6px, uppercase);
+
+	h1 {
+		font-family: "Helvetica Bold";
+		font-size: 6rem;
+		margin: 0;
+	}
+
+	h4 {
+		color: white;
+		font-size: 3rem;
+		margin: 0;
+	}
+}
+
 .portlet-hello-world .portlet-content {
 	align-items: center;
-	background: url(../images/nyxl_banner.png) top;
+	background: url(../images/nyxl-facebook-banner.jpg) top;
 	background-position: center;
 	background-repeat: repeat-x;
 	background-size: inherit;
@@ -27,26 +61,48 @@
 	}
 }
 
-// .full-width::before {
-//     content: '';
-//     background-image: linear-gradient(45deg, #fff 25%, $brightblue-color 25%, $brightblue-color 50%, #fff 50%, #fff 75%, $brightblue-color 75%, $brightblue-color);
-//     background-size: 150px 150px;
-//     animation: barberpole-body-case 2.5s linear infinite;
-//     width: 100%;
-//     height: 50vh;
-//     top: 51%;
-//     position: absolute;
-// 	transform: translateY(-100%);
-//   }
+.barber-animation::before {
+    content: '';
+    background-image: linear-gradient(45deg, $midnightblue-color 25%, $brightblue-color 25%, $brightblue-color 50%, $midnightblue-color 50%, $midnightblue-color 75%, $brightblue-color 75%, $brightblue-color);
+    background-size: 150px 150px;
+    animation: barberpole-body-case 2.5s linear infinite;
+    width: 100%;
+    height: 50vh;
+    top: 51%;
+    position: absolute;
+    transform: translateY(-100%);
+  }
 
-//   .full-width::after {
-//     content: '';
-//     background-image: linear-gradient(45deg, #fff 25%, $brightblue-color 25%, $brightblue-color 50%, #fff 50%, #fff 75%, $brightblue-color 75%, $brightblue-color);
-//     background-size: 150px 150px;
-//     animation: barberpole-body-case 2.5s linear infinite;
-//     width: 100%;
-//     height: 50vh;
-//     top: 50%;
-//     position: absolute;
-//     transform: rotateX(180deg);
-//   }
+  .barber-animation::after {
+    content: '';
+    background-image: linear-gradient(45deg, $midnightblue-color 25%, $brightblue-color 25%, $brightblue-color 50%, $midnightblue-color 50%, $midnightblue-color 75%, $brightblue-color 75%, $brightblue-color);
+    background-size: 150px 150px;
+    animation: barberpole-body-case 2.5s linear infinite;
+    width: 100%;
+    height: 50vh;
+    top: 50%;
+    z-index: -1;
+    position: absolute;
+    transform: rotateX(180deg);
+  }
+
+  @keyframes barberpole-body-case {
+    from {
+        background-position: 0 0
+    }
+
+    to {
+        background-position: 300px 150px
+    }
+}
+
+@media only screen and (max-device-width: 480px) {
+	.welcome-container {
+		h1 {
+			font-size: 4rem;
+		}
+		h4 {
+			font-size: 2rem;
+		}
+	}
+}
