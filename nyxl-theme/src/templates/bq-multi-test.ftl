@@ -42,7 +42,28 @@
                                                 <#else>
                                                     <li class="sub">
                                                 </#if>
-                                                        <a href="${nav_child.getURL()}" ${nav_child.getTarget()}>${nav_child.getName()}</a>
+                                                        <a href="${nav_child.getURL()}" ${nav_child.getTarget()}>${nav_child.getName()}
+                                                            <span>${nav_item.getName()}</span>
+                                                            <#if nav_child.hasChildren()>
+                                                                <span class="lfr-nav-child-toggle"><i class="icon-caret-down"></i></span>
+                                                            </#if>
+                                                        </a>
+
+                                                        <#if nav_child.hasChildren()>
+                                                            <ul class="dropdown-menu child-menu" role="menu">
+                                                                <#list nav_child.getChildren() as nav_grandchild>
+                                                                    <#if nav_child.isSelected()>
+                                                                        <li class="selected grandsub">
+                                                                        </li>
+                                                                    <#else>
+                                                                        <li class="grandsub">
+                                                                    </#if>
+                                                                            <a href="${nav_grandchild.getURL()}" ${nav_grandchild.getTarget()}>${nav_grandchild.getName()}</a>
+                                                                        </li>
+                                                                </#list>
+                                                            </ul>
+                                                        </#if>
+                                                        
                                                     </li>
                                             </#list>
                                         </ul>
