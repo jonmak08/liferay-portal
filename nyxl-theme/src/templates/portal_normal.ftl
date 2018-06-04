@@ -49,7 +49,8 @@
 				</#if>
 			</div>
 
-			<#include "${full_templates_path}/navigation.ftl" />
+			<#--  <#include "${full_templates_path}/navigation.ftl" />  -->
+			<#include "${full_templates_path}/bq-multi-test.ftl" />
 		</div>
 	</header>
 
