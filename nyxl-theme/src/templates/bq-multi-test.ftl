@@ -36,12 +36,17 @@
                                                 max-width: 250px;
                                                 overflow: visible;
                                                 text-align: center;
+                                                transition: 0.2s ease-in-out;
                                                 right: auto;
                                             }
 
                                             li:hover ul.child-menu .grandchild-menu {
-                                                left: 5%;
-                                                margin-top: 3.5%;
+                                                left: 12.5%;
+                                                margin-top: 0%;
+                                            }
+
+                                            .child-menu {
+                                                margin-top: -10%;
                                             }
                                         </style>
                                     <#else>

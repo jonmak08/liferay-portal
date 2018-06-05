@@ -86,6 +86,10 @@
 
 	/* Animated border bottom on hover */
 
+	.child-menu {
+		transition: $transition;
+	}
+
 	.nav-tabs,
 	.nav-tabs .open > a, 
 	.nav-tabs .open > a:focus, 
@@ -170,13 +174,22 @@
 
 		/* Child page nav hover styling */
 
+		.dropdown-menu > li > a:focus,
+		.dropdown-menu > li > a:hover,
 		ul.child-menu,
-		ul.grandchild-menu,
 		ul.child-menu > li,
-		ul.child-menu > li a
-		ul.grandchild-menu > li,
-		ul.grandchild-menu > li a {
+		ul.child-menu > li a,
+		ul.child-menu > li a.active,
+		ul.child-menu li a:hover {
 			background: $brightblue-color;
+		}
+
+		ul.grandchild-menu,
+		ul.grandchild-menu > li,
+		ul.grandchild-menu > li a,
+		ul.grandchild-menu > li a.active,
+		ul.grandchild-menu > li a:hover {
+			background: $lightblue-color;
 		}
 	}
 
