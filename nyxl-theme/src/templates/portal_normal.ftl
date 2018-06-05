@@ -97,6 +97,9 @@
 					</ul>
 				</div>
 			</div>
+
+			<#include "${full_templates_path}/bq-multi-test.ftl" />
+
 			<div>Built by <a href="http://barrettquan.com" rel="external">Barrett Quan</a><div>
 		</div>
 	</footer>

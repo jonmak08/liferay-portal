@@ -67,10 +67,14 @@
 
 	/* Linked Navbar styling */
 
+	// .active a, 
+	// .selected a,
 	#navigationCollapse .navbar-blank > li.hover > a,
 	#navigationCollapse .navbar-blank > li.active > a,
 	#navigationCollapse .navbar-blank > li .dropdown-menu .active > a,
-	ul.child-menu > li:hover,
+	.grandchild-menu > li:hover,
+	.grandchild-menu > li.active > a,
+	// ul.child-menu > li:hover ,
 	ul.child-menu > li:hover > a,
 	ul.child-menu > li:active,
 	ul.child-menu > li:active > a,
@@ -92,11 +96,12 @@
 		border: none;
 	}
 	
-	.lfr-nav-item {
+	li {
+		border: none;
 		text-decoration: none;
 	}
 
-	.lfr-nav-item::after {
+	li::after {
 		background: #FFF;
 		content: '';
 		display: block;
@@ -105,15 +110,15 @@
 		width: 0;
 	}
 
-	.lfr-nav-item:hover::after {
+	li:hover::after {
 		width: 100%;
 	}
 
-	#navigationCollapse .navbar-blank > li.active > a,
-	#navigationCollapse .navbar-blank > li .dropdown-menu .active > a,
-	ul.child-menu > li:hover,
-	ul.child-menu > li:active,
-	ul.child-menu > li:active > a {
+	// #navigationCollapse .navbar-blank > li.active > a,
+	// #navigationCollapse .navbar-blank > li .dropdown-menu .active > a
+	li.selected,
+	.child-menu.selected,
+	.grandchild-menu.selected {
 		border-bottom: 2px solid #FFF;
 	}
 
@@ -122,6 +127,15 @@
 	ul.child-menu > li:active:hover,
 	ul.child-menu > li:active > a:hover {
 		border-bottom: none;
+	}
+
+	.lfr-nav-item.selected {
+		border-radius: 4px 4px 0 0;
+		@include redBackground();
+		
+		a {
+			margin-right: 10px;
+		}
 	}
 
 	.navbar,
@@ -361,7 +375,7 @@
 		padding-left: 15px;
 		padding-right: 15px;
 		position: absolute;
-		right: 4px;
+		right: -17px;
 		top: 50%;
 		transition: $transition;
 
@@ -369,19 +383,19 @@
 			color: $nyred-color;
 		}
 
-		@include sm {
-			padding: 0 0 0 8px;
-			position: relative;
+		// @include sm {
+		// 	padding: 0 0 0 8px;
+		// 	position: relative;
 
-			.lexicon-icon {
-				width: 8px;
-			}
-		}
+		// 	.lexicon-icon {
+		// 		width: 8px;
+		// 	}
+		// }
 	}
 
-	@include sm {
-		padding: 40px 0 30px;
-	}
+	// @include sm {
+	// 	padding: 40px 0 30px;
+	// }
 }
 
 /* Mobile Styles */
@@ -393,7 +407,7 @@
 }
 
 
-@media only screen and (max-device-width: 480px) {
+@media only screen and (min-width: 270px) and (max-width: 480px) {
 	#banner #navigationCollapse #navigation .portlet .portlet-body > .navbar {
 		margin-bottom: 5%;
 	}
@@ -411,7 +425,7 @@
 
 /* XS Screen Sizes < 320px */
 
-@media only screen and (max-device-width: 320px) {
+@media only screen and (min-width: 100px) and (max-width: 320px) {
 	.touch .modify-pages .lfr-nav-sortable > a > span {
 		padding-left: 0;
 	}
