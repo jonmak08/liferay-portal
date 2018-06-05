@@ -9,9 +9,9 @@
 			</div>
 
 			<div class="navbar-right">
-		        <@liferay.navigation_menu default_preferences="${freeMarkerPortletPreferences}" />
+		        <#--  <@liferay.navigation_menu default_preferences="${freeMarkerPortletPreferences}" />  -->
                 <div id="navbar_com_liferay_site_navigation_menu_web_portlet_SiteNavigationMenuPortlet">
-                    <ul class="nav navbar-nav nav-tabs">    
+                    <ul class="nav nav-tabs navbar-site">    
                             <#assign  count = 0 />
                             <#list nav_items as nav_item>
                                 <#assign  count += 1  />
@@ -29,7 +29,7 @@
                                     <#if nav_item.hasChildren()>
                                         <style>
                                             .lfr-nav-item:hover > ul.child-menu,
-                                            ul.child-menu:hover .grandchild-menu {
+                                            ul.child-menu > li:hover > ul.grandchild-menu {
                                                 border-bottom: 2px dotted white;
                                                 display: block;
                                                 max-height: 500px;
@@ -70,7 +70,7 @@
                                                         </a>
 
                                                         <#if nav_child.hasChildren()>
-                                                            <ul class="dropdown-menu child-menu grandchild-menu" role="menu">
+                                                            <ul class="dropdown-menu grandchild-menu" role="menu">
                                                                 <#list nav_child.getChildren() as nav_grandchild>
                                                                     <#if nav_grandchild.isSelected()>
                                                                         <li class="selected nav active grandsub">

@@ -1,5 +1,6 @@
 #banner {
 	background: $midnightblue-color;
+	border-bottom: 5px solid $nyred-color;
 	max-width: none;
 	width: 100%;
 
@@ -67,14 +68,11 @@
 
 	/* Linked Navbar styling */
 
-	// .active a, 
-	// .selected a,
 	#navigationCollapse .navbar-blank > li.hover > a,
 	#navigationCollapse .navbar-blank > li.active > a,
 	#navigationCollapse .navbar-blank > li .dropdown-menu .active > a,
 	.grandchild-menu > li:hover,
 	.grandchild-menu > li.active > a,
-	// ul.child-menu > li:hover ,
 	ul.child-menu > li:hover > a,
 	ul.child-menu > li:active,
 	ul.child-menu > li:active > a,
@@ -114,9 +112,6 @@
 		width: 100%;
 	}
 
-	// #navigationCollapse .navbar-blank > li.active > a,
-	// #navigationCollapse .navbar-blank > li .dropdown-menu .active > a
-	li.selected,
 	.child-menu.selected,
 	.grandchild-menu.selected {
 		border-bottom: 2px solid #FFF;
@@ -131,8 +126,10 @@
 
 	.lfr-nav-item.selected {
 		border-radius: 4px 4px 0 0;
+		margin-bottom: -5px;
+		padding: 10px 0;
 		@include redBackground();
-		
+
 		a {
 			margin-right: 10px;
 		}
@@ -142,6 +139,8 @@
 	.nav-tabs > li.active > a,
 	.nav-tabs > li.active > a:hover,
 	.nav-tabs > li.active > a:focus {
+		line-height: normal;
+		padding: 9px 16px;
 		@include redBackground();
 	}
 
@@ -172,8 +171,11 @@
 		/* Child page nav hover styling */
 
 		ul.child-menu,
+		ul.grandchild-menu,
 		ul.child-menu > li,
-		ul.child-menu > li a {
+		ul.child-menu > li a
+		ul.grandchild-menu > li,
+		ul.grandchild-menu > li a {
 			background: $brightblue-color;
 		}
 	}
@@ -382,20 +384,7 @@
 		&:hover {
 			color: $nyred-color;
 		}
-
-		// @include sm {
-		// 	padding: 0 0 0 8px;
-		// 	position: relative;
-
-		// 	.lexicon-icon {
-		// 		width: 8px;
-		// 	}
-		// }
 	}
-
-	// @include sm {
-	// 	padding: 40px 0 30px;
-	// }
 }
 
 /* Mobile Styles */
@@ -418,9 +407,9 @@
 		flex-direction: column;
 	}
 
-	#banner .lfr-nav-item .lfr-nav-child-toggle {
-		position: relative;
-	}
+	// #banner .lfr-nav-item .lfr-nav-child-toggle {
+	// 	position: relative;
+	// }
 }
 
 /* XS Screen Sizes < 320px */

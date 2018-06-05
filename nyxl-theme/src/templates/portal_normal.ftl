@@ -74,31 +74,23 @@
 		<div class="row">
 			<div class="footer-container">
 				<div class="footer-content">
-					<h1>Column 1</h1>
 					<ul>
-						<li>Contact</li>
-						<li>About</li>
+						<li>facebook</li>
 					</ul>
 				</div>
 
 				<div class="footer-content">
-					<h1>Column 2</h1>
 					<ul>
-						<li>Contact</li>
-						<li>About</li>
+						<li>instagram</li>
 					</ul>
 				</div>
 
 				<div class="footer-content">
-					<h1>Column 3</h1>
 					<ul>
-						<li>Contact</li>
-						<li>About</li>
+						<li>youtube</li>
 					</ul>
 				</div>
 			</div>
-
-			<#include "${full_templates_path}/bq-multi-test.ftl" />
 
 			<div>Built by <a href="http://barrettquan.com" rel="external">Barrett Quan</a><div>
 		</div>
