@@ -67,39 +67,12 @@
 
 /* ---------- Barber Moving Animation ---------- */
 
-.barber-animation::before {
-	animation: barberpole-body-case 2.5s linear infinite;
-	background-image: linear-gradient(45deg, $midnight-blue-color 25%, $bright-blue-color 25%, $bright-blue-color 50%, $midnight-blue-color 50%, $midnight-blue-color 75%, $bright-blue-color 75%, $bright-blue-color);
-	background-size: 150px 150px;
-	content: '';
-	height: 50vh;
-	position: absolute;
-	top: 51%;
-	transform: translateY(-100%);
-	width: 100%;
+.baber-animation::before {
+	@include barberAnimation(translateY(-100%));
 }
 
 .barber-animation::after {
-	animation: barberpole-body-case 2.5s linear infinite;
-	background-image: linear-gradient(45deg, $midnight-blue-color 25%, $bright-blue-color 25%, $bright-blue-color 50%, $midnight-blue-color 50%, $midnight-blue-color 75%, $bright-blue-color 75%, $bright-blue-color);
-	background-size: 150px 150px;
-	content: '';
-	height: 50vh;
-	position: absolute;
-	top: 50%;
-	transform: rotateX(180deg);
-	width: 100%;
-	z-index: -1;
-}
-
-@keyframes barberpole-body-case {
-	from {
-		background-position: 0 0;
-	}
-
-	to {
-		background-position: 300px 150px;
-	}
+	@include barberAnimation(rotateX(180deg));
 }
 
 /* ---------- Mobile Styles ---------- */
