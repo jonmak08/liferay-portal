@@ -23,7 +23,7 @@ a {
 	font-weight: bold;
 
 	@include btnBackground($light-blue-color);
-	
+
 	@include textStyle(2px !important, uppercase !important);
 
 	transition: $transition;
@@ -52,11 +52,13 @@ a {
 }
 
 /* ---------- Red Underline ---------- */
+
 .portlet-blogs h2 > a::after {
 	background: $ny-red-color;
 }
 
 /* ---------- light-blue Underline ---------- */
+
 #_com_liferay_wiki_web_portlet_WikiPortlet_navTag li::after {
 	background: $light-blue-color;
 }
@@ -67,6 +69,7 @@ a {
 }
 
 /* ---------- Non Animated Style When Active ---------- */
+
 #_com_liferay_wiki_web_portlet_WikiPortlet_navTag li.active:hover::after {
 	width: 0%;
 }
