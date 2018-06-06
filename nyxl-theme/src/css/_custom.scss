@@ -26,14 +26,14 @@ a {
 	font-size: 12px;
 	font-weight: bold;
 
-	@include btnBackground($lightblue-color);
+	@include btnBackground($light-blue-color);
 	@include textStyle(2px !important, uppercase !important);
 
 	transition: $transition;
 }
 
 .btn:hover, .btn:focus {
-	@include btnBackground($brightblue-color);
+	@include btnBackground($bright-blue-color);
 	text-shadow: $hard-shadow;
 }
 
@@ -58,9 +58,9 @@ a {
 	background: $ny-red-color;
 }
 
-/* ---------- Lightblue Underline ---------- */
+/* ---------- light-blue Underline ---------- */
 #_com_liferay_wiki_web_portlet_WikiPortlet_navTag li::after {
-	background: $lightblue-color;
+	background: $light-blue-color;
 }
 
 .portlet-blogs h2 > a:hover::after,
@@ -106,7 +106,7 @@ span.control-label,
 }
 
 .liferay-rating-vote.thumbrating, .thumbs {
-	color: $lightblue-color;
+	color: $light-blue-color;
 }
 
 .alert,
@@ -139,7 +139,7 @@ tbody,
 /* ---------- Search Bar Stylings With White Background ---------- */
 
 .navbar.collapse-basic-search .basic-search .btn-default {
-	color: $lightgray-color !important;
+	color: $light-gray-color !important;
 
 	:hover {
 		color: #65B6F0 !important;
@@ -147,7 +147,7 @@ tbody,
 }
 
 .basic-search, .input-group {
-	border: $lightgray-border;
+	border: $light-gray-border;
 	border-radius: 3px;
 }
 
@@ -189,7 +189,7 @@ tbody,
 /* ---------- Product Panel Open Styles---------- */
 
 .product-menu .panel-heading .panel-title > .panel-toggler:not(.collapsed) {
-	border-left: 4px solid $brightblue-color !important;
+	border-left: 4px solid $bright-blue-color !important;
 	text-shadow: $hard-shadow;
 }
 
@@ -221,7 +221,7 @@ tbody,
 }
 
 .product-menu .panel-group .panel-heading + .panel-collapse.in, .product-menu .panel-group .panel-heading + .panel-collapse.collapsing {
-	border-bottom: 2px solid $brightblue-color !important;
+	border-bottom: 2px solid $bright-blue-color !important;
 }
 
 /* ---------- Panel Styles ---------- */
@@ -241,7 +241,7 @@ tbody,
 	}
 
 	.text-primary {
-		color: $lightblue-color;
+		color: $light-blue-color;
 	}
 }
 

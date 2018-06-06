@@ -1,5 +1,5 @@
 #banner {
-	background: $midnightblue-color;
+	background: $midnight-blue-color;
 	border-bottom: 5px solid $ny-red-color;
 	max-width: none;
 	width: 100%;
@@ -13,7 +13,7 @@
 	input:-webkit-autofill:focus,
 	input:-webkit-autofill:active,
 	.form-control:focus {
-		box-shadow: 0 0 0 100px $midnightblue-color inset;
+		box-shadow: 0 0 0 100px $midnight-blue-color inset;
 		-webkit-text-fill-color: #FFF;
 	}
 
@@ -178,7 +178,7 @@
 		ul.child-menu > li a,
 		ul.child-menu > li a.active,
 		ul.child-menu li a:hover {
-			background: $brightblue-color;
+			background: $bright-blue-color;
 		}
 
 		ul.grandchild-menu,
@@ -186,7 +186,7 @@
 		ul.grandchild-menu > li a,
 		ul.grandchild-menu > li a.active,
 		ul.grandchild-menu > li a:hover {
-			background: $lightblue-color;
+			background: $light-blue-color;
 		}
 	}
 

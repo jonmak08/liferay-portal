@@ -1,19 +1,19 @@
 /* ---------- Colors Used For Text And Backgrounds ---------- */
-$brightblue-color: #0F57EA;
-$lightblue-color: #65B6F0;
-$lightgray-border: 2px solid #E3E6E8;
-$lightgray-color: #E3E6E8;
-$lightred-color: #ED5E68;
-$lightmidnight-color: #363B59;
-$midnightblue-color: #171C38;
+$bright-blue-color: #0F57EA;
+$light-blue-color: #65B6F0;
+$light-gray-border: 2px solid #E3E6E8;
+$light-gray-color: #E3E6E8;
+$light-red-color: #ED5E68;
+$light-midnight-color: #363B59;
+$midnight-blue-color: #171C38;
 $ow-gray-color: #484848;
 $ny-red-color: #FC1C26;
 
 /* ---------- Colors That Get Pulled Throughout The Theme ---------- */
 $bg-color: #FFF;
 $bright-color: $ny-red-color;
-$complementary-color: $brightblue-color;
-$solid-color: $midnightblue-color;
+$complementary-color: $bright-blue-color;
+$solid-color: $midnight-blue-color;
 
 @font-face {
 	font-family: "Circular";

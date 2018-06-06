@@ -43,12 +43,12 @@
 }
 
 .panel-default {
-	border-color: $brightblue-color;
+	border-color: $bright-blue-color;
 	border-radius: 8px 8px 0 0 !important;
 }
 
 .panel-default > .panel-heading {
-	border-color: $brightblue-color;
+	border-color: $bright-blue-color;
 }
 
 .panel-default > .panel-heading + .panel-collapse > .panel-body {
@@ -56,7 +56,7 @@
 }
 
 .panel-default > .panel-footer + .panel-collapse > .panel-body {
-	border-bottom-color: $brightblue-color;
+	border-bottom-color: $bright-blue-color;
 }
 
 /* ---------- Blog Styles ---------- */
