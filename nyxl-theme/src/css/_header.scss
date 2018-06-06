@@ -134,9 +134,9 @@
 		padding: 10px 0;
 		@include redBackground();
 
-		a {
-			margin-right: 10px;
-		}
+		// a {
+		// 	margin-right: 10px;
+		// }
 	}
 
 	.navbar,
@@ -390,7 +390,7 @@
 		padding-left: 15px;
 		padding-right: 15px;
 		position: absolute;
-		right: -17px;
+		right: -15px;
 		top: 50%;
 		transition: $transition;
 

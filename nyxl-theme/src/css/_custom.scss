@@ -274,6 +274,18 @@ tbody,
 	a {
 		color: #FFF;
 	}
+
+	li {
+		list-style: none;
+	}
+
+	svg {
+		fill: #FFF;
+		height: 32px;
+		width: 32px;
+		transition: $transition;
+		-webkit-transition: fill 0.3s ease-in-out;
+	}
 }
 
 .modify-pages .delete-tab {

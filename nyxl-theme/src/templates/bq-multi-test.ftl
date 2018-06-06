@@ -28,6 +28,10 @@
                                 <li class="${nav_item_class}">
                                     <#if nav_item.hasChildren()>
                                         <style>
+                                            .lfr-nav-item.selected a {
+                                                margin-right: 15px;
+                                            }
+
                                             .lfr-nav-item:hover > ul.child-menu,
                                             ul.child-menu > li:hover > ul.grandchild-menu {
                                                 border-bottom: 2px dotted white;
@@ -45,8 +49,8 @@
                                                 margin-top: 0%;
                                             }
 
-                                            .child-menu {
-                                                margin-top: -10%;
+                                            .nav-tabs .dropdown-menu {
+                                                margin-top: -8%;
                                             }
                                         </style>
                                     <#else>
