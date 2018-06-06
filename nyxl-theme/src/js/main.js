@@ -10,7 +10,7 @@ AUI().ready(
 );
 
 var addFullWidth = (elem) => {
-	let helloWorldPortlet = document.querySelector(elem);
+	let helloWorldPortlet = document.getElementById(elem);
 
 	if (helloWorldPortlet) {
 		helloWorldPortlet.classList.add('full-width');
@@ -20,15 +20,14 @@ var addFullWidth = (elem) => {
 
 addEventListener('load', addFullWidth('#portlet_com_liferay_hello_world_web_portlet_HelloWorldPortlet'));
 
-// for debugging CSS
-
 // [].forEach.call($$("*"),function(a){a.style.outline="1px solid #"+(~~(Math.random()*(1<<24))).toString(16)})
 
-var banner = document.querySelector('#banner');
-banner.addEventListener('click', function(event) {
-	if (event.target.className === 'icon-caret-down') {
-		event.preventDefault();
-		console.log('you clicked the carot')
-	}
+var banner = document.getElementById('#banner');
 
-})
+if (banner) {
+	banner.addEventListener('click', function(event) {
+		if (event.target.className === 'icon-caret-down') {
+			event.preventDefault();
+		}
+	})
+}
