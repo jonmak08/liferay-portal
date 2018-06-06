@@ -25,7 +25,7 @@
 		<div class="row">
 			<div class="navbar-header" id="heading">
 				<a class="${logo_css_class}" href="${site_default_url}" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
-					<img alt="${logo_description}" height="64" src="${site_logo}" width="64" />
+					<img alt="${logo_description}" src="${site_logo}"/>
 				</a>
 
 				<#if show_site_name>
@@ -37,9 +37,7 @@
 				<#if is_setup_complete>
 					<button aria-controls="navigation" aria-expanded="false" class="collapsed navbar-toggle" data-target="#navigationCollapse" data-toggle="collapse" type="button">
 						<span class="icon-bar"></span>
-
 						<span class="icon-bar"></span>
-
 						<span class="icon-bar"></span>
 					</button>
 
@@ -73,7 +71,6 @@
 	<footer class="container-fluid-1280" id="footer" role="contentinfo">
 		<div class="row">
 			<div class="footer-container">
-
 				<div class="footer-content">
 					<ul>
 						<a href="https://facebook.com/nyxl">
@@ -131,10 +128,7 @@
 						</a>
 					</ul>
 				</div>
-
 			</div>
-
-			<#--  <div><a href="http://barrettquan.com" rel="external">© 2018 Barrett Quan</a><div>  -->
 		</div>
 	</footer>
 </div>
