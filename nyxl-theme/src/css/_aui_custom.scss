@@ -1,7 +1,11 @@
+/* ---------- Border Styles ----------*/
+
+$light-gray-border: 2px solid #E3E6E8;
+
 /* ---------- Colors Used For Text And Backgrounds ---------- */
+
 $bright-blue-color: #0F57EA;
 $light-blue-color: #65B6F0;
-$light-gray-border: 2px solid #E3E6E8;
 $light-gray-color: #E3E6E8;
 $light-red-color: #ED5E68;
 $light-midnight-color: #363B59;
@@ -10,10 +14,13 @@ $ow-gray-color: #484848;
 $ny-red-color: #FC1C26;
 
 /* ---------- Colors That Get Pulled Throughout The Theme ---------- */
+
 $bg-color: #FFF;
-$bright-color: $ny-red-color;
-$complementary-color: $bright-blue-color;
-$solid-color: $midnight-blue-color;
+$accent-color: $ny-red-color;
+$secondary-color: $bright-blue-color;
+$primary-color: $midnight-blue-color;
+
+/* ---------- Font Imports ---------- */
 
 @font-face {
 	font-family: "Circular";
@@ -45,20 +52,20 @@ $solid-color: $midnight-blue-color;
 	src: url("../fonts/Titillium_Web/TitilliumWeb-SemiBold.ttf") format("truetype");
 }
 
-/* ---------- Font Variables ---------- */
+/* ---------- Font Definitions ---------- */
 $body-font: "Titillium Web";
 $form-font: "Open Sans";
 $link-text: sans-serif;
 $nav-font: sans-serif;
 $title-font: "Circular";
 
-/* ---------- Shadow Styles ---------- */
-$box-shadow: 0 10px 6px -6px #777;
-$hard-shadow: 1px 2px 0 rgba(0, 0, 0, 1);
-$text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.3);
-$soft-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px 0;
+/* ---------- Mixin Definitions ---------- */
 
-$transition: 0.2s ease-in-out;
+@mixin btnBackground($color) {
+	background: $color;
+	border: 2px solid $color;
+	color: #FFF;
+}
 
 @mixin fullwidth() {
 	left: 50%;
@@ -70,10 +77,12 @@ $transition: 0.2s ease-in-out;
 	width: 100vw;
 }
 
-@mixin btnBackground($color) {
+@mixin panelBackground($color) {
 	background: $color;
-	border: 2px solid $color;
-	color: #FFF;
+	color: #FFF !important;
+	font-family: $link-text;
+	letter-spacing: 2px;
+	text-transform: uppercase;
 }
 
 @mixin textStyle($letter-spacing, $text-transform) {
@@ -81,10 +90,13 @@ $transition: 0.2s ease-in-out;
 	text-transform: $text-transform;
 }
 
-@mixin redBackground() {
-	background: $ny-red-color;
-	color: #FFF !important;
-	font-family: $link-text;
-	letter-spacing: 2px;
-	text-transform: uppercase;
-}
+/* ---------- Shadow Styles ---------- */
+
+$box-shadow: 0 10px 6px -6px #777;
+$hard-shadow: 1px 2px 0 rgba(0, 0, 0, 1);
+$soft-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px 0;
+$text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.3);
+
+/* ---------- Transition Styles ---------- */
+
+$transition: 0.2s ease-in-out;

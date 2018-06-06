@@ -160,7 +160,7 @@ thead:first-child > tr:first-child > th {
 
 .chat-panel-title {
 	border-radius: 4px 4px 0 0;
-	@include redBackground();
+	@include panelBackground($ny-red-color);
 	background: $ny-red-color !important;
 }
 

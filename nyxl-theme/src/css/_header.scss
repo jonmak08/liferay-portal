@@ -132,7 +132,7 @@
 		border-radius: 4px 4px 0 0;
 		margin-bottom: -5px;
 		padding: 10px 0;
-		@include redBackground();
+		@include panelBackground($ny-red-color);
 
 	}
 
@@ -142,7 +142,7 @@
 	.nav-tabs > li.active > a:focus {
 		line-height: normal;
 		padding: 9px 16px;
-		@include redBackground();
+		@include panelBackground($ny-red-color);
 	}
 
 	.nav li > a {
@@ -201,7 +201,7 @@
 	 /* ---------- NYXL Logo ---------- */
 
 	#heading .site-name {
-		@include redBackground();
+		@include panelBackground($ny-red-color);
 		font-size: 150%;
 		margin-left: 8px;
 		padding: 10px 50px;
@@ -316,7 +316,7 @@
 			top: 0;
 
 			a {
-				color: $complementary-color;
+				color: $secondary-color;
 			}
 		}
 	}

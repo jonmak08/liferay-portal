@@ -233,7 +233,7 @@ tbody,
 	.panel-heading {
 		border-width: 0;;
 		border-radius: 8px 8px 0 0;
-		@include redBackground();
+		@include panelBackground($ny-red-color);
 	}
 
 	.panel-default {
@@ -268,7 +268,7 @@ tbody,
 /* ---------- Footer Styles ---------- */
 
 #footer {
-	background-color: $solid-color;
+	background-color: $primary-color;
 	color: #FFF;
 	padding: 40px 20px;
 
