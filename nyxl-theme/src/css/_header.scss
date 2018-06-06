@@ -1,6 +1,6 @@
 #banner {
 	background: $midnightblue-color;
-	border-bottom: 5px solid $nyred-color;
+	border-bottom: 5px solid $ny-red-color;
 	max-width: none;
 	width: 100%;
 
@@ -21,7 +21,7 @@
 	li > a:focus ,
 	li > a span:focus ,
 	ul:focus {
-		outline-color: $nyred-color;
+		outline-color: $ny-red-color;
 	}
 
 	input {
@@ -392,7 +392,7 @@
 		transition: $transition;
 
 		&:hover {
-			color: $nyred-color;
+			color: $ny-red-color;
 		}
 	}
 }

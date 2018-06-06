@@ -8,7 +8,7 @@
 }
 
 .portlet-title-text {
-	color: $nyred-color;
+	color: $ny-red-color;
 	font-family: $title-font;
 	font-size: x-large;
 
@@ -78,7 +78,7 @@
 			> a {
 			font-family: $title-font;
 			font-weight: normal !important;
-			color: $owgray-color !important;
+			color: $ow-gray-color !important;
 			}
 		}
 	}
@@ -161,11 +161,11 @@ thead:first-child > tr:first-child > th {
 .chat-panel-title {
 	border-radius: 4px 4px 0 0;
 	@include redBackground();
-	background: $nyred-color !important;
+	background: $ny-red-color !important;
 }
 
 .chat-settings label {
-	color: $owgray-color;
+	color: $ow-gray-color;
 	font-size: 12px;
 	font-weight: normal !important;
 }

@@ -22,13 +22,14 @@ a {
 }
 
 .btn, .btn-default {
-	@include btnBackground($lightblue-color);
 	font-family: $link-text !important;
 	font-size: 12px;
 	font-weight: bold;
-	transition: $transition;
 
+	@include btnBackground($lightblue-color);
 	@include textStyle(2px !important, uppercase !important);
+
+	transition: $transition;
 }
 
 .btn:hover, .btn:focus {
@@ -37,7 +38,7 @@ a {
 }
 
 .text-default {
-	color: $owgray-color;
+	color: $ow-gray-color;
 }
 
 /* ---------- Animated Links On Hover ---------- */
@@ -54,7 +55,7 @@ a {
 
 /* ---------- Red Underline ---------- */
 .portlet-blogs h2 > a::after {
-	background: $nyred-color;
+	background: $ny-red-color;
 }
 
 /* ---------- Lightblue Underline ---------- */
@@ -83,7 +84,7 @@ thead,
 .header-title,
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-	color: $nyred-color;
+	color: $ny-red-color;
 	font-family: $title-font;
 }
 
@@ -92,7 +93,7 @@ h1, h2, h3, h4, h5, h6,
 		color: #FFF;
 
 		.text-default {
-			color: $owgray-color;
+			color: $ow-gray-color;
 		}
 	}
 }
@@ -122,7 +123,7 @@ select,
 textarea 
 tbody,
 .text-default {
-	color: $owgray-color;
+	color: $ow-gray-color;
 	font-family: $body-font;
 }
 
@@ -227,7 +228,7 @@ tbody,
 
 .panel {
 	border-radius: 8px;
-	color: $owgray-color;
+	color: $ow-gray-color;
 
 	.panel-heading {
 		border-width: 0;;
@@ -249,7 +250,7 @@ tbody,
 		background: none;
 
 		h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-			color: $owgray-color;
+			color: $ow-gray-color;
 			text-transform: none;
 		}
 	}
@@ -413,11 +414,11 @@ tbody,
 		}
 
 		th {
-			border: 1px solid $nyred-color;
+			border: 1px solid $ny-red-color;
 		}
 	}
 
 	.table-bordered > thead > tr > th {
-		border: 1px solid $nyred-color;
+		border: 1px solid $ny-red-color;
 	}
 }

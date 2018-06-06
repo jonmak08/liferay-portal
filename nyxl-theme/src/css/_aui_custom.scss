@@ -1,3 +1,20 @@
+/* ---------- Colors Used For Text And Backgrounds ---------- */
+$brightblue-color: #0F57EA;
+$lightblue-color: #65B6F0;
+$lightgray-border: 2px solid #E3E6E8;
+$lightgray-color: #E3E6E8;
+$lightred-color: #ED5E68;
+$lightmidnight-color: #363B59;
+$midnightblue-color: #171C38;
+$ow-gray-color: #484848;
+$ny-red-color: #FC1C26;
+
+/* ---------- Colors That Get Pulled Throughout The Theme ---------- */
+$bg-color: #FFF;
+$bright-color: $ny-red-color;
+$complementary-color: $brightblue-color;
+$solid-color: $midnightblue-color;
+
 @font-face {
 	font-family: "Circular";
 	src: url("../fonts/Circular/Circular-Medium.ttf") format("truetype");
@@ -28,36 +45,20 @@
 	src: url("../fonts/Titillium_Web/TitilliumWeb-SemiBold.ttf") format("truetype");
 }
 
-/* ---------- Colors Used For Text And Backgrounds ---------- */
-$brightblue-color: #0F57EA;
-$lightblue-color: #65B6F0;
-$lightgray-border: 2px solid #E3E6E8;
-$lightgray-color: #E3E6E8;
-$lightred-color: #ED5E68;
-$lightmidnight-color: #363B59;
-$midnightblue-color: #171C38;
-$owgray-color: #484848;
-$nyred-color: #FC1C26;
-
-/* ---------- Colors That Get Pulled Throughout The Theme ---------- */
-$bg-color: #FFF;
-$bright-color: $nyred-color;
-$complementary-color: $brightblue-color;
-$solid-color: $midnightblue-color;
-
-/* ---------- Styles For Different Shadows ---------- */
-$box-shadow: 0 10px 6px -6px #777;
-$hard-shadow: 1px 2px 0 rgba(0, 0, 0, 1);
-$text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.3);
-$transition: 0.2s ease-in-out;
-$soft-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px 0;
-
 /* ---------- Font Variables ---------- */
 $body-font: "Titillium Web";
 $form-font: "Open Sans";
 $link-text: sans-serif;
 $nav-font: sans-serif;
 $title-font: "Circular";
+
+/* ---------- Shadow Styles ---------- */
+$box-shadow: 0 10px 6px -6px #777;
+$hard-shadow: 1px 2px 0 rgba(0, 0, 0, 1);
+$text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.3);
+$soft-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px 0;
+
+$transition: 0.2s ease-in-out;
 
 @mixin fullwidth() {
 	left: 50%;
@@ -81,7 +82,7 @@ $title-font: "Circular";
 }
 
 @mixin redBackground() {
-	background: $nyred-color;
+	background: $ny-red-color;
 	color: #FFF !important;
 	font-family: $link-text;
 	letter-spacing: 2px;
