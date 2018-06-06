@@ -129,14 +129,20 @@
 		border-bottom-width: 0;
 	}
 
-	.lfr-nav-item.selected {
-		border-radius: 4px 4px 0 0;
+	.lfr-nav-item {
 
-		@include panelBackground($ny-red-color);
+		> a {
+			transition-delay: 10s;
+		}
 
-		margin-bottom: -5px;
-		padding: 10px 0;
+		&.selected {
+			border-radius: 4px 4px 0 0;
 
+			margin-bottom: -5px;
+			padding: 10px 0;
+
+			@include panelBackground($ny-red-color);
+		}
 	}
 
 	.navbar,

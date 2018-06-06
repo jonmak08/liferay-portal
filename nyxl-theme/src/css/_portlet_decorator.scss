@@ -25,7 +25,7 @@
 			font-family: $link-text;
 			font-weight: bold;
 
-			@include textStyle(2px, uppercase);	
+			@include textStyle(2px, uppercase);
 		}
 	}
 
@@ -74,7 +74,6 @@
 		@include textStyle(0.5px, capitalize);
 
 		h2 {
-
 			width: max-content;
 
 			> a {
@@ -87,7 +86,7 @@
 
 	.entry-social {
 		a {
-			color: #65B6F0;
+			color: $light-blue-color;
 			transition: $transition;
 		}
 	}
@@ -111,8 +110,8 @@
 }
 
 .form-control:focus {
-	border-color: #65B6F0;
-	color: #65B6F0;
+	border-color: $light-blue-color;
+	color: $light-blue-color;
 }
 
 /* ---------- Wiki Card Styles ---------- */
@@ -149,7 +148,7 @@ thead:first-child > tr:first-child > th {
 /* ---------- Changes Color Of Links On Wiki Entry ---------- */
 
 .card a, .card-horizontal a {
-	color: #65B6F0;
+	color: $light-blue-color;
 }
 
 /* ---------- Messenger Chat Window On Bottom ---------- */

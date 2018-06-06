@@ -1,4 +1,3 @@
-
 <#assign VOID = freeMarkerPortletPreferences.setValue("portletSetupPortletDecoratorId", "barebone")>
 
 <div aria-expanded="false" class="collapse navbar-collapse" id="navigationCollapse">
@@ -9,14 +8,14 @@
 			</div>
 
 			<div class="navbar-right">
-		        <#--  <@liferay.navigation_menu default_preferences="${freeMarkerPortletPreferences}" />  -->
+				<#--  <@liferay.navigation_menu default_preferences="${freeMarkerPortletPreferences}" />  -->
                 <div id="navbar_com_liferay_site_navigation_menu_web_portlet_SiteNavigationMenuPortlet">
-                    <ul class="nav nav-tabs navbar-site">    
+                    <ul class="nav nav-tabs navbar-site">
                             <#assign  count = 0 />
                             <#list nav_items as nav_item>
                                 <#assign  count += 1  />
                                 <#assign  nav_item_class = "lfr-nav-item -" + count />
-                        
+
                                 <#if count == 1>
                                     <#assign  nav_item_class = nav_item_class + " first" />
                                 </#if>
@@ -24,37 +23,37 @@
                                 <#if nav_item.isSelected() >
                                     <#assign nav_item_class = nav_item_class + " selected active" />
                                     <#if nav_item.hasChildren()>
-                                        <style>
-                                            .lfr-nav-item.selected a {
-                                                margin-right: 15px;
-                                            }
-                                        </style>
+                                    <style>
+                                    .lfr-nav-item.selected a {
+                                        margin-right: 15px;
+                                    }
+                                    </style>
                                     <#else>
                                     </#if>
                                 </#if>
-                                
+
                                 <li class="${nav_item_class}">
                                     <#if nav_item.hasChildren()>
-                                        <style>
-                                            .lfr-nav-item:hover > ul.child-menu,
-                                            ul.child-menu > li:hover > ul.grandchild-menu {
-                                                display: block;
-                                                max-height: 500px;
-                                                max-width: 250px;
-                                                overflow: visible;
-                                                right: auto;
-                                                text-align: center;
-                                            }
+                                    <style>
+                                    .lfr-nav-item:hover > ul.child-menu,
+                                    ul.child-menu > li:hover > ul.grandchild-menu {
+                                        display: block;
+                                        max-height: 500px;
+                                        max-width: 250px;
+                                        overflow: visible;
+                                        right: auto;
+                                        text-align: center;
+                                    }
 
-                                            li:hover ul.child-menu .grandchild-menu {
-                                                left: 12.5%;
-                                                margin-top: 0%;
-                                            }
+                                    li:hover ul.child-menu .grandchild-menu {
+                                        left: 12.5%;
+                                        margin-top: 0%;
+                                    }
 
-                                            .nav-tabs .dropdown-menu {
-                                                margin-top: -8%;
-                                            }
-                                        </style>
+                                    .nav-tabs .dropdown-menu {
+                                        margin-top: -8%;
+                                    }
+                                    </style>
                                     <#else>
                                     </#if>
 
@@ -66,10 +65,10 @@
                                     </a>
 
                                     <#if nav_item.hasChildren()>
-                                        <ul class="dropdown-menu child-menu" role="menu">
+                                        <ul class="child-menu dropdown-menu" role="menu">
                                             <#list nav_item.getChildren() as nav_child>
                                                 <#if nav_child.isSelected()>
-                                                    <li class="active selected nav">
+                                                    <li class="active nav selected">
                                                 <#else>
                                                     <li class="nav">
                                                 </#if>
@@ -84,7 +83,7 @@
                                                             <ul class="dropdown-menu grandchild-menu" role="menu">
                                                                 <#list nav_child.getChildren() as nav_grandchild>
                                                                     <#if nav_grandchild.isSelected()>
-                                                                        <li class="selected nav active grandsub">
+                                                                        <li class="active grandsub nav selected">
                                                                     <#else>
                                                                         <li class="grandsub nav">
                                                                     </#if>
@@ -99,7 +98,7 @@
                                         </ul>
                                     </#if>
                                 </li>
-                                
+
                             </#list>
                     </ul>
                 </div>

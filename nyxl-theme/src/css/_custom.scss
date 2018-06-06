@@ -170,7 +170,7 @@ tbody,
 	color: $light-gray-color !important;
 
 	:hover {
-		color: #65B6F0 !important;
+		color: $light-blue-color !important;
 	}
 }
 
@@ -299,8 +299,8 @@ tbody,
 
 .form-control {
 	:focus {
-		border-color: #65B6F0;
-		color: #65B6F0;
+		border-color: $light-blue-color;
+		color: $light-blue-color;
 	}
 }
 
@@ -312,7 +312,7 @@ tbody,
 	padding: 40px 20px;
 
 	a {
-		color: #FFF;
+		color: $body-text-color;
 	}
 
 	li {
@@ -320,7 +320,7 @@ tbody,
 	}
 
 	svg {
-		fill: #FFF;
+		fill: $body-text-color;
 		height: 32px;
 		transition: $transition;
 		width: 32px;

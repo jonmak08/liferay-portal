@@ -28,7 +28,7 @@
 	}
 
 	h4 {
-		color: white;
+		color: $body-text-color;
 		font-size: 3rem;
 		margin: 0;
 	}
@@ -94,11 +94,11 @@
 
 @keyframes barberpole-body-case {
 	from {
-		background-position: 0 0
+		background-position: 0 0;
 	}
 
 	to {
-		background-position: 300px 150px
+		background-position: 300px 150px;
 	}
 }
 
