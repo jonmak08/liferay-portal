@@ -130,9 +130,11 @@
 
 	.lfr-nav-item.selected {
 		border-radius: 4px 4px 0 0;
+
+		@include panelBackground($ny-red-color);
+
 		margin-bottom: -5px;
 		padding: 10px 0;
-		@include panelBackground($ny-red-color);
 
 	}
 
@@ -140,13 +142,15 @@
 	.nav-tabs > li.active > a,
 	.nav-tabs > li.active > a:hover,
 	.nav-tabs > li.active > a:focus {
+		@include panelBackground($ny-red-color);
+
 		line-height: normal;
 		padding: 9px 16px;
-		@include panelBackground($ny-red-color);
 	}
 
 	.nav li > a {
 		font-family: $link-text;
+
 		@include textStyle(2px, uppercase);
 	}
 
@@ -201,8 +205,10 @@
 	 /* ---------- NYXL Logo ---------- */
 
 	#heading .site-name {
-		@include panelBackground($ny-red-color);
 		font-size: 150%;
+		
+		@include panelBackground($ny-red-color);
+
 		margin-left: 8px;
 		padding: 10px 50px;
 		vertical-align: middle;

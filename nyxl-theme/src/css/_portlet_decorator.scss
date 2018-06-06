@@ -25,6 +25,7 @@
 			color: $body-text-color !important;
 			font-family: $link-text;
 			font-weight: bold;
+
 			@include textStyle(2px, uppercase);	
 		}
 	}
@@ -33,6 +34,7 @@
 		font-family: $body-font;
 		a {
 			font-family: $body-font;
+
 			@include textStyle(0, none);
 		}
 	}
@@ -159,9 +161,10 @@ thead:first-child > tr:first-child > th {
 }
 
 .chat-panel-title {
-	border-radius: 4px 4px 0 0;
-	@include panelBackground($ny-red-color);
 	background: $ny-red-color !important;
+	border-radius: 4px 4px 0 0;
+	
+	@include panelBackground($ny-red-color);
 }
 
 .chat-settings label {

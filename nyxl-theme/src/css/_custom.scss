@@ -1,11 +1,7 @@
 @import "footer";
-
 @import "header";
-
 @import "portlet_decorator";
-
 @import "portlet_hello_world";
-
 
 body {
 	background-color: $bg-color;
@@ -27,6 +23,7 @@ a {
 	font-weight: bold;
 
 	@include btnBackground($light-blue-color);
+	
 	@include textStyle(2px !important, uppercase !important);
 
 	transition: $transition;
@@ -34,6 +31,7 @@ a {
 
 .btn:hover, .btn:focus {
 	@include btnBackground($bright-blue-color);
+
 	text-shadow: $hard-shadow;
 }
 
@@ -200,15 +198,16 @@ tbody,
 	div.row {
 		color: $body-text-color;
 		font-family: $nav-font;
-		text-align: center;
-		width: 100%;
 
 		@include textStyle(1.5px, lowercase);
+
+		text-align: center;
+		width: 100%;
 	}
 }
 
 .full-width {
-	@include fullwidth();
+	@include fullWidth();
 }
 
 #wrapper {
@@ -233,6 +232,7 @@ tbody,
 	.panel-heading {
 		border-width: 0;;
 		border-radius: 8px 8px 0 0;
+
 		@include panelBackground($ny-red-color);
 	}
 
