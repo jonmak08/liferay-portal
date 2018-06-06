@@ -1,6 +1,6 @@
 .portlet-decorate .portlet-content {
 	background: #FFF;
-	border: none;
+	border-width: 0;;
 }
 
 .portlet-barebone .portlet-content {
@@ -52,14 +52,14 @@
 }
 
 .panel-default > .panel-heading + .panel-collapse > .panel-body {
-	border: none;
+	border-width: 0;;
 }
 
 .panel-default > .panel-footer + .panel-collapse > .panel-body {
 	border-bottom-color: $brightblue-color;
 }
 
-/* BLOG styles */
+/* ---------- Blog Styles ---------- */
 
 .portlet-blogs {
 	.entry-info, .hide-accessible {
@@ -91,7 +91,7 @@
 	}
 }
 
-/* FORM styles */
+/* ---------- Form Styles ---------- */
 
 .portlet-forms {
 	h1, h2 {
@@ -113,7 +113,7 @@
 	color: #65B6F0;
 }
 
-/* Wiki card styles */
+/* ---------- Wiki Card Styles ---------- */
 
 .panel-group .panel-title > a,
 .panel-group .panel-title > span {
@@ -128,7 +128,7 @@ thead:first-child > tr:first-child > th {
 	border-top: 1px solid !important;
 }
 
-/* Remove borders */
+/* ---------- Remove Borders ---------- */
 
 .card,
 .card-horizontal,
@@ -136,7 +136,7 @@ thead:first-child > tr:first-child > th {
 .portlet-decorate .portlet-content,
 .taglib-header,
 .list-group {
-	border: none;
+	border-width: 0;;
 	box-shadow: none;
 }
 
@@ -144,13 +144,13 @@ thead:first-child > tr:first-child > th {
 	display: none;
 }
 
-/* Changes color of links on wiki entry */
+/* ---------- Changes Color Of Links On Wiki Entry ---------- */
 
 .card a, .card-horizontal a {
 	color: #65B6F0;
 }
 
-/* Messenger Chat window on bottom */
+/* ---------- Messenger Chat Window On Bottom ---------- */
 
 .chat-panel-window {
 	border: 1px solid rgba(0, 0, 0, 0.2) !important;

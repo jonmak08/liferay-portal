@@ -28,7 +28,7 @@
 	src: url("../fonts/Titillium_Web/TitilliumWeb-SemiBold.ttf") format("truetype");
 }
 
-/* Colors used for text and backgrounds */
+/* ---------- Colors Used For Text And Backgrounds ---------- */
 $brightblue-color: rgb(15, 87, 234);
 $lightblue-color: #65B6F0;
 $lightgray-border: 2px solid #E3E6E8;
@@ -39,20 +39,20 @@ $midnightblue-color: rgba(23, 28, 56, 1);
 $owgray-color: rgb(72, 72, 72);
 $nyred-color: rgba(252, 28, 38, 1);
 
-/* Colors that get pulled throughout the theme */
+/* ---------- Colors That Get Pulled Throughout The Theme ---------- */
 $bg-color: #FFF;
 $bright-color: $nyred-color;
 $complementary-color: $brightblue-color;
 $solid-color: $midnightblue-color;
 
-/* Styles for different shadows */
+/* ---------- Styles For Different Shadows ---------- */
 $box-shadow: 0 10px 6px -6px #777;
 $hard-shadow: 1px 2px 0 rgba(0, 0, 0, 1);
 $text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.3);
 $transition: 0.2s ease-in-out;
 $soft-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px 0;
 
-/* Font Variables */
+/* ---------- Font Variables ---------- */
 $body-font: "Titillium Web";
 $form-font: "Open Sans";
 $link-text: sans-serif;

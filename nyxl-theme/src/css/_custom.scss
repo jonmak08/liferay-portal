@@ -40,7 +40,7 @@ a {
 	color: $owgray-color;
 }
 
-/* Animated Links on Hover */
+/* ---------- Animated Links On Hover ---------- */
 
 .portlet-blogs h2 > a::after,
 #_com_liferay_wiki_web_portlet_WikiPortlet_navTag li::after {
@@ -52,12 +52,12 @@ a {
 	width: 0;
 }
 
-/* Red Underline*/
+/* ---------- Red Underline ---------- */
 .portlet-blogs h2 > a::after {
 	background: $nyred-color;
 }
 
-/* Lightblue Underline */
+/* ---------- Lightblue Underline ---------- */
 #_com_liferay_wiki_web_portlet_WikiPortlet_navTag li::after {
 	background: $lightblue-color;
 }
@@ -67,12 +67,12 @@ a {
 	width: 100%;
 }
 
-/* Non animated style when active */
+/* ---------- Non Animated Style When Active ---------- */
 #_com_liferay_wiki_web_portlet_WikiPortlet_navTag li.active:hover::after {
 	width: 0%;
 }
 
-/* Text Styles */
+/* ---------- Text Styles ---------- */
 
 a {
 	font-family: $link-text;
@@ -135,7 +135,7 @@ tbody,
 	font-family: 'Glyphicons Halflings' !important;
 }
 
-/* Search bar stylings with white background */
+/* ---------- Search Bar Stylings With White Background ---------- */
 
 .navbar.collapse-basic-search .basic-search .btn-default {
 	color: $lightgray-color !important;
@@ -154,7 +154,7 @@ tbody,
 	padding-left: 5%;
 }
 
-/* Sidebar nav Styles */
+/* ---------- Sidebar Nav Styles ---------- */
 
 .sidebar-header {
 	display: flex;
@@ -185,7 +185,7 @@ tbody,
 	@include textStyle(2px, uppercase);
 }
 
-/* styles when panel is clicked open */
+/* ---------- Product Panel Open Styles---------- */
 
 .product-menu .panel-heading .panel-title > .panel-toggler:not(.collapsed) {
 	border-left: 4px solid $brightblue-color !important;
@@ -223,14 +223,14 @@ tbody,
 	border-bottom: 2px solid $brightblue-color !important;
 }
 
-/* Panel Styles */
+/* ---------- Panel Styles ---------- */
 
 .panel {
 	border-radius: 8px;
 	color: $owgray-color;
 
 	.panel-heading {
-		border: none;
+		border-width: 0;;
 		border-radius: 8px 8px 0 0;
 		@include redBackground();
 	}
@@ -255,7 +255,7 @@ tbody,
 	}
 }
 
-/* Form styles */
+/* ---------- Form Styles ---------- */
 
 .form-control {
 	:focus {
@@ -264,7 +264,7 @@ tbody,
 	}
 }
 
-/* default footer styles */
+/* ---------- Footer Styles ---------- */
 
 #footer {
 	background-color: $solid-color;
@@ -307,7 +307,7 @@ tbody,
 	}
 }
 
-/* Mobile Styles */
+/* ---------- Mobile Styles ---------- */
 
 @media only screen and (min-width: 320px) and (max-width: 480px) {
 	#banner, #footer {
@@ -348,7 +348,7 @@ tbody,
 		padding-right: 0;
 	}
 
-	/* Margins */
+	/* ---------- Margins ---------- */
 
 	#banner {
 		padding-top: 5%;
@@ -404,7 +404,7 @@ tbody,
 		margin-right: 0;
 	}
 
-	/* Table Styles */
+	/* ---------- Table Styles ---------- */
 
 	table {
 		td {

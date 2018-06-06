@@ -66,7 +66,7 @@
 		flex-wrap: wrap;
 	}
 
-	/* Linked Navbar styling */
+	  /* ---------- Navbar List Item Styles ---------- */
 
 	#navigationCollapse .navbar-blank > li.hover > a,
 	#navigationCollapse .navbar-blank > li.active > a,
@@ -84,7 +84,7 @@
 		text-shadow: $hard-shadow;
 	}
 
-	/* Animated border bottom on hover */
+	 /* ---------- Animated Border-bottom On Hover ---------- */
 
 	.child-menu {
 		transition: $transition;
@@ -95,11 +95,11 @@
 	.nav-tabs .open > a:focus, 
 	.nav-tabs .open > a:hover,
 	.nav-tabs > li > a {
-		border: none;
+		border-width: 0;;
 	}
 	
 	li {
-		border: none;
+		border-width: 0;;
 		text-decoration: none;
 	}
 
@@ -134,9 +134,6 @@
 		padding: 10px 0;
 		@include redBackground();
 
-		// a {
-		// 	margin-right: 10px;
-		// }
 	}
 
 	.navbar,
@@ -172,7 +169,7 @@
 			text-overflow: ellipsis;
 		}
 
-		/* Child page nav hover styling */
+		 /* ---------- Child-menu Nav Styles ---------- */
 
 		.dropdown-menu > li > a:focus,
 		.dropdown-menu > li > a:hover,
@@ -201,7 +198,7 @@
 		margin: 12px 0 12px 6px;
 	}
 
-	/* NYXL in header */
+	 /* ---------- NYXL Logo ---------- */
 
 	#heading .site-name {
 		@include redBackground();
@@ -239,7 +236,7 @@
 			}
 		}
 
-		/* Navbar link items */
+		 /* ---------- Navbar List Items ---------- */
 
 		.navbar-blank > li {
 			& > a {
@@ -250,7 +247,7 @@
 		}
 
 		.portlet-content {
-			border: none;
+			border-width: 0;;
 			box-shadow: none;
 		}
 
@@ -278,7 +275,7 @@
 			}
 		}
 
-		/* Search bar styling */
+		 /* ---------- Form/Search Styles ---------- */
 
 		.form-control {
 			background-color: transparent;
@@ -400,7 +397,7 @@
 	}
 }
 
-/* Mobile Styles */
+ /* ---------- Mobile Styles ---------- */
 
 @media only screen and (max-width: 767px) {
 	#banner #navigationCollapse .nav > li > a {
@@ -420,12 +417,9 @@
 		flex-direction: column;
 	}
 
-	// #banner .lfr-nav-item .lfr-nav-child-toggle {
-	// 	position: relative;
-	// }
 }
 
-/* XS Screen Sizes < 320px */
+ /* ---------- XS Screen Sizes < 320px ---------- */
 
 @media only screen and (min-width: 100px) and (max-width: 320px) {
 	.touch .modify-pages .lfr-nav-sortable > a > span {
