@@ -90,7 +90,7 @@ h1, h2, h3, h4, h5, h6,
 
 .panel-heading {
 	h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-		color: #FFF;
+		color: $body-text-color;
 
 		.text-default {
 			color: $ow-gray-color;
@@ -198,7 +198,7 @@ tbody,
 	width: 100%;
 
 	div.row {
-		color: #FFF;
+		color: $body-text-color;
 		font-family: $nav-font;
 		text-align: center;
 		width: 100%;
@@ -269,7 +269,7 @@ tbody,
 
 #footer {
 	background-color: $primary-color;
-	color: #FFF;
+	color: $body-text-color;
 	padding: 40px 20px;
 
 	a {

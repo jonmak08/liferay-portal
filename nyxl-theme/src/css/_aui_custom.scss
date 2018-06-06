@@ -15,10 +15,11 @@ $ny-red-color: #FC1C26;
 
 /* ---------- Colors That Get Pulled Throughout The Theme ---------- */
 
-$bg-color: #FFF;
 $accent-color: $ny-red-color;
-$secondary-color: $bright-blue-color;
+$bg-color: #FFF;
+$body-text-color: #FFF;
 $primary-color: $midnight-blue-color;
+$secondary-color: $bright-blue-color;
 
 /* ---------- Font Imports ---------- */
 
@@ -64,7 +65,7 @@ $title-font: "Circular";
 @mixin btnBackground($color) {
 	background: $color;
 	border: 2px solid $color;
-	color: #FFF;
+	color: $body-text-color;
 }
 
 @mixin fullwidth() {
@@ -79,7 +80,7 @@ $title-font: "Circular";
 
 @mixin panelBackground($color) {
 	background: $color;
-	color: #FFF !important;
+	color: $body-text-color !important;
 	font-family: $link-text;
 	letter-spacing: 2px;
 	text-transform: uppercase;

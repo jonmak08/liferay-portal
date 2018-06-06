@@ -14,7 +14,7 @@
 	input:-webkit-autofill:active,
 	.form-control:focus {
 		box-shadow: 0 0 0 100px $midnight-blue-color inset;
-		-webkit-text-fill-color: #FFF;
+		-webkit-text-fill-color: $body-text-color;
 	}
 
 	li:focus,
@@ -39,7 +39,7 @@
 
 	.sign-in {
 		a {
-			color: #FFF;
+			color: $body-text-color;
 			font-family: $link-text;
 
 			@include textStyle(2px, uppercase);
@@ -78,7 +78,7 @@
 	ul.child-menu > li:active > a,
 	.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, 
 	.nav-tabs > li.active > a:focus {
-		color: #FFF;
+		color: $body-text-color;
 		font-weight: normal;
 		text-decoration: none;
 		text-shadow: $hard-shadow;
@@ -104,7 +104,7 @@
 	}
 
 	li::after {
-		background: #FFF;
+		background: $body-text-color;
 		content: '';
 		display: block;
 		height: 2px;
@@ -118,7 +118,7 @@
 
 	.child-menu.selected,
 	.grandchild-menu.selected {
-		border-bottom: 2px solid #FFF;
+		border-bottom: 2px solid $body-text-color;
 	}
 
 	#navigationCollapse .navbar-blank > li.active > a:hover,
@@ -164,7 +164,7 @@
 		}
 
 		li a {
-			color: #FFF;
+			color: $body-text-color;
 			overflow: hidden;
 			text-overflow: ellipsis;
 		}
@@ -240,7 +240,7 @@
 
 		.navbar-blank > li {
 			& > a {
-				color: #FFF;
+				color: $body-text-color;
 				transition: $transition;
 				white-space: nowrap;
 			}
@@ -281,7 +281,7 @@
 			background-color: transparent;
 			border-bottom-width: 1px;
 			border-color: #FFF;
-			color: #FFF;
+			color: $body-text-color;
 			margin-top: 2px;
 
 			@include media-query(null, $screen-xs-max) {
@@ -290,7 +290,7 @@
 		}
 
 		.form-control::placeholder {
-			color: #FFF;
+			color: $body-text-color;
 
 			@include textStyle(2px, uppercase);
 		}

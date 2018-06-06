@@ -22,7 +22,7 @@
 		.btn-default,
 		.btn:hover,
 		.btn:focus {
-			color: #FFF !important;
+			color: $body-text-color !important;
 			font-family: $link-text;
 			font-weight: bold;
 			@include textStyle(2px, uppercase);	
@@ -117,7 +117,7 @@
 
 .panel-group .panel-title > a,
 .panel-group .panel-title > span {
-	color: #FFF;
+	color: $body-text-color;
 }
 
 .card .divider, .card-horizontal .divider {
