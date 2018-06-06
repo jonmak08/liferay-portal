@@ -5,10 +5,10 @@
 
 .welcome-container {
 	align-content: center;
-	height: inherit;
 	background: url(../images/nyxl-facebook-banner.jpg) top;
 	background-position: center;
 	background-size: cover;
+	height: inherit;
 }
 
 .welcome-content {
@@ -16,10 +16,10 @@
 	flex-direction: column;
 	height: inherit;
 
-	@include textStyle(6px, uppercase);
-
 	justify-content: space-evenly;
 	text-align: center;
+
+	@include textStyle(6px, uppercase);
 
 	h1 {
 		font-family: "Helvetica Bold";
@@ -53,9 +53,9 @@
 		font-family: "Helvetica Bold";
 		font-size: 48px;
 
-		@include textStyle(8px, uppercase);
-
 		word-spacing: 10px;
+
+		@include textStyle(8px, uppercase);
 	}
 
 	.portlet-body {
@@ -68,38 +68,38 @@
 /* ---------- Barber Moving Animation ---------- */
 
 .barber-animation::before {
-    content: '';
-    background-image: linear-gradient(45deg, $midnight-blue-color 25%, $bright-blue-color 25%, $bright-blue-color 50%, $midnight-blue-color 50%, $midnight-blue-color 75%, $bright-blue-color 75%, $bright-blue-color);
-    background-size: 150px 150px;
-    animation: barberpole-body-case 2.5s linear infinite;
-    width: 100%;
-    height: 50vh;
-    top: 51%;
-    position: absolute;
-    transform: translateY(-100%);
-  }
+	animation: barberpole-body-case 2.5s linear infinite;
+	background-image: linear-gradient(45deg, $midnight-blue-color 25%, $bright-blue-color 25%, $bright-blue-color 50%, $midnight-blue-color 50%, $midnight-blue-color 75%, $bright-blue-color 75%, $bright-blue-color);
+	background-size: 150px 150px;
+	content: '';
+	height: 50vh;
+	position: absolute;
+	top: 51%;
+	transform: translateY(-100%);
+	width: 100%;
+}
 
-  .barber-animation::after {
-    content: '';
-    background-image: linear-gradient(45deg, $midnight-blue-color 25%, $bright-blue-color 25%, $bright-blue-color 50%, $midnight-blue-color 50%, $midnight-blue-color 75%, $bright-blue-color 75%, $bright-blue-color);
-    background-size: 150px 150px;
-    animation: barberpole-body-case 2.5s linear infinite;
-    width: 100%;
-    height: 50vh;
-    top: 50%;
-    z-index: -1;
-    position: absolute;
-    transform: rotateX(180deg);
-  }
+.barber-animation::after {
+	animation: barberpole-body-case 2.5s linear infinite;
+	background-image: linear-gradient(45deg, $midnight-blue-color 25%, $bright-blue-color 25%, $bright-blue-color 50%, $midnight-blue-color 50%, $midnight-blue-color 75%, $bright-blue-color 75%, $bright-blue-color);
+	background-size: 150px 150px;
+	content: '';
+	height: 50vh;
+	position: absolute;
+	top: 50%;
+	transform: rotateX(180deg);
+	width: 100%;
+	z-index: -1;
+}
 
-  @keyframes barberpole-body-case {
-    from {
-        background-position: 0 0
-    }
+@keyframes barberpole-body-case {
+	from {
+		background-position: 0 0
+	}
 
-    to {
-        background-position: 300px 150px
-    }
+	to {
+		background-position: 300px 150px
+	}
 }
 
 /* ---------- Mobile Styles ---------- */
@@ -109,6 +109,7 @@
 		h1 {
 			font-size: 4rem;
 		}
+
 		h4 {
 			font-size: 2rem;
 		}

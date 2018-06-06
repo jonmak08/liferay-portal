@@ -17,7 +17,6 @@
 
 .portlet-content {
 	a {
-
 		.btn,
 		.btn-default,
 		.btn:hover,
@@ -32,6 +31,7 @@
 
 	.portlet-body {
 		font-family: $body-font;
+
 		a {
 			font-family: $body-font;
 
@@ -78,9 +78,9 @@
 			width: max-content;
 
 			> a {
-			font-family: $title-font;
-			font-weight: normal !important;
-			color: $ow-gray-color !important;
+				color: $ow-gray-color !important;
+				font-family: $title-font;
+				font-weight: normal !important;
 			}
 		}
 	}

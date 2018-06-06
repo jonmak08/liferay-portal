@@ -18,8 +18,8 @@
 	}
 
 	li:focus,
-	li > a:focus ,
-	li > a span:focus ,
+	li > a:focus,
+	li > a span:focus,
 	ul:focus {
 		outline-color: $ny-red-color;
 	}
@@ -66,7 +66,7 @@
 		flex-wrap: wrap;
 	}
 
-	  /* ---------- Navbar List Item Styles ---------- */
+	/* ---------- Navbar List Item Styles ---------- */
 
 	#navigationCollapse .navbar-blank > li.hover > a,
 	#navigationCollapse .navbar-blank > li.active > a,
@@ -76,7 +76,8 @@
 	ul.child-menu > li:hover > a,
 	ul.child-menu > li:active,
 	ul.child-menu > li:active > a,
-	.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, 
+	.nav-tabs > li.active > a,
+	.nav-tabs > li.active > a:hover,
 	.nav-tabs > li.active > a:focus {
 		color: $body-text-color;
 		font-weight: normal;
@@ -84,20 +85,20 @@
 		text-shadow: $hard-shadow;
 	}
 
-	 /* ---------- Animated Border-bottom On Hover ---------- */
+	/* ---------- Animated Border-bottom On Hover ---------- */
 
 	.child-menu {
 		transition: $transition;
 	}
 
 	.nav-tabs,
-	.nav-tabs .open > a, 
-	.nav-tabs .open > a:focus, 
+	.nav-tabs .open > a,
+	.nav-tabs .open > a:focus,
 	.nav-tabs .open > a:hover,
 	.nav-tabs > li > a {
 		border-width: 0;
 	}
-	
+
 	li {
 		border-width: 0;
 		text-decoration: none;
@@ -139,13 +140,15 @@
 	}
 
 	.navbar,
-	.nav-tabs > li.active > a,
-	.nav-tabs > li.active > a:hover,
-	.nav-tabs > li.active > a:focus {
-		@include panelBackground($ny-red-color);
+	.nav-tabs {
+		> li.active {
+			> a, a:focus, a:hover {
+				@include panelBackground($ny-red-color);
 
-		line-height: normal;
-		padding: 9px 16px;
+				line-height: normal;
+				padding: 9px 16px;
+			}
+		}
 	}
 
 	.nav li > a {
@@ -173,7 +176,7 @@
 			text-overflow: ellipsis;
 		}
 
-		 /* ---------- Child-menu Nav Styles ---------- */
+		/* ---------- Child-menu Nav Styles ---------- */
 
 		.dropdown-menu > li > a:focus,
 		.dropdown-menu > li > a:hover,
@@ -202,16 +205,16 @@
 		margin: 12px 0 12px 6px;
 	}
 
-	 /* ---------- NYXL Logo ---------- */
+	/* ---------- NYXL Logo ---------- */
 
 	#heading .site-name {
 		font-size: 150%;
 
-		@include panelBackground($ny-red-color);
-
 		margin-left: 8px;
 		padding: 10px 50px;
 		vertical-align: middle;
+
+		@include panelBackground($ny-red-color);
 
 		@include sm {
 			letter-spacing: 2px;
@@ -242,7 +245,7 @@
 			}
 		}
 
-		 /* ---------- Navbar List Items ---------- */
+		/* ---------- Navbar List Items ---------- */
 
 		.navbar-blank > li {
 			& > a {
@@ -281,7 +284,7 @@
 			}
 		}
 
-		 /* ---------- Form/Search Styles ---------- */
+		/* ---------- Form/Search Styles ---------- */
 
 		.form-control {
 			background-color: transparent;
@@ -403,7 +406,7 @@
 	}
 }
 
- /* ---------- Mobile Styles ---------- */
+/* ---------- Mobile Styles ---------- */
 
 @media only screen and (max-width: 767px) {
 	#banner #navigationCollapse .nav > li > a {
@@ -411,21 +414,18 @@
 	}
 }
 
-
 @media only screen and (min-width: 270px) and (max-width: 480px) {
 	#banner #navigationCollapse #navigation .portlet .portlet-body > .navbar {
 		margin-bottom: 5%;
 	}
 
-
 	#banner ul.nav.nav-tabs.navbar-site {
 		align-items: flex-start;
 		flex-direction: column;
 	}
-
 }
 
- /* ---------- XS Screen Sizes < 320px ---------- */
+/* ---------- XS Screen Sizes < 320px ---------- */
 
 @media only screen and (min-width: 100px) and (max-width: 320px) {
 	.touch .modify-pages .lfr-nav-sortable > a > span {

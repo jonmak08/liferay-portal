@@ -23,25 +23,27 @@
 
                                 <#if nav_item.isSelected() >
                                     <#assign nav_item_class = nav_item_class + " selected active" />
-                                </#if>
-                                
-                                <li class="${nav_item_class}">
                                     <#if nav_item.hasChildren()>
                                         <style>
                                             .lfr-nav-item.selected a {
                                                 margin-right: 15px;
                                             }
-
+                                        </style>
+                                    <#else>
+                                    </#if>
+                                </#if>
+                                
+                                <li class="${nav_item_class}">
+                                    <#if nav_item.hasChildren()>
+                                        <style>
                                             .lfr-nav-item:hover > ul.child-menu,
                                             ul.child-menu > li:hover > ul.grandchild-menu {
-                                                border-bottom: 2px dotted white;
                                                 display: block;
                                                 max-height: 500px;
                                                 max-width: 250px;
                                                 overflow: visible;
-                                                text-align: center;
-                                                transition: 0.2s ease-in-out;
                                                 right: auto;
+                                                text-align: center;
                                             }
 
                                             li:hover ul.child-menu .grandchild-menu {
