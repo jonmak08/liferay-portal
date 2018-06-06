@@ -17,7 +17,8 @@ a {
 	margin: 0;
 }
 
-.btn, .btn-default {
+.btn,
+.btn-default {
 	font-family: $link-text !important;
 	font-size: 12px;
 	font-weight: bold;
@@ -29,7 +30,8 @@ a {
 	transition: $transition;
 }
 
-.btn:hover, .btn:focus {
+.btn:hover,
+.btn:focus {
 	@include btnBackground($bright-blue-color);
 
 	text-shadow: $hard-shadow;
@@ -71,7 +73,7 @@ a {
 /* ---------- Non Animated Style When Active ---------- */
 
 #_com_liferay_wiki_web_portlet_WikiPortlet_navTag li.active:hover::after {
-	width: 0%;
+	width: 0;
 }
 
 /* ---------- Text Styles ---------- */
@@ -83,14 +85,35 @@ a {
 .portlet-title-text,
 thead,
 .header-title,
-h1, h2, h3, h4, h5, h6,
-.h1, .h2, .h3, .h4, .h5, .h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
 	color: $ny-red-color;
 	font-family: $title-font;
 }
 
 .panel-heading {
-	h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	.h1,
+	.h2,
+	.h3,
+	.h4,
+	.h5,
+	.h6 {
 		color: $body-text-color;
 
 		.text-default {
@@ -106,7 +129,8 @@ span.control-label,
 	font-family: $title-font;
 }
 
-.liferay-rating-vote.thumbrating, .thumbs {
+.liferay-rating-vote.thumbrating,
+.thumbs {
 	color: $light-blue-color;
 }
 
@@ -115,13 +139,13 @@ span.control-label,
 .chat-panel-window label,
 .entry-body,
 fieldset,
-input, 
+input,
 .message-content,
 p,
 .rating-label,
-select, 
+select,
 .stats,
-textarea 
+textarea,
 tbody,
 .text-default {
 	color: $ow-gray-color;
@@ -147,7 +171,8 @@ tbody,
 	}
 }
 
-.basic-search, .input-group {
+.basic-search,
+.input-group {
 	border: $light-gray-border;
 	border-radius: 3px;
 }
@@ -179,19 +204,27 @@ tbody,
 	}
 }
 
-.product-menu .panel-heading .panel-title > .panel-toggler .category-name,
-.product-menu .panel-heading .panel-title > .panel-toggler .user-name,
-.product-menu .panel-heading .panel-title > .panel-toggler .site-name {
-	font-family: $link-text;
-
-	@include textStyle(2px, uppercase);
-}
-
 /* ---------- Product Panel Open Styles---------- */
 
-.product-menu .panel-heading .panel-title > .panel-toggler:not(.collapsed) {
-	border-left: 4px solid $bright-blue-color !important;
-	text-shadow: $hard-shadow;
+.product-menu {
+	.panel-heading {
+		.panel-title {
+			> .panel-toggler {
+				.category-name,
+				.user-name,
+				.site-name {
+					font-family: $link-text;
+
+					@include textStyle(2px, uppercase);
+				}
+
+				&:not(.collapsed) {
+					border-left: 4px solid $bright-blue-color !important;
+					text-shadow: $hard-shadow;
+				}
+			}
+		}
+	}
 }
 
 #footer {
@@ -233,7 +266,7 @@ tbody,
 	color: $ow-gray-color;
 
 	.panel-heading {
-		border-width: 0;;
+		border-width: 0;
 		border-radius: 8px 8px 0 0;
 
 		@include panelBackground($ny-red-color);

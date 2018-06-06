@@ -1,6 +1,6 @@
 .portlet-decorate .portlet-content {
 	background: #FFF;
-	border-width: 0;;
+	border-width: 0;
 }
 
 .portlet-barebone .portlet-content {
@@ -54,7 +54,7 @@
 }
 
 .panel-default > .panel-heading + .panel-collapse > .panel-body {
-	border-width: 0;;
+	border-width: 0;
 }
 
 .panel-default > .panel-footer + .panel-collapse > .panel-body {
@@ -138,7 +138,7 @@ thead:first-child > tr:first-child > th {
 .portlet-decorate .portlet-content,
 .taglib-header,
 .list-group {
-	border-width: 0;;
+	border-width: 0;
 	box-shadow: none;
 }
 
@@ -163,7 +163,7 @@ thead:first-child > tr:first-child > th {
 .chat-panel-title {
 	background: $ny-red-color !important;
 	border-radius: 4px 4px 0 0;
-	
+
 	@include panelBackground($ny-red-color);
 }
 

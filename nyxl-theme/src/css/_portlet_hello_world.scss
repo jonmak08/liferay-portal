@@ -65,6 +65,8 @@
 	}
 }
 
+/* ---------- Barber Moving Animation ---------- */
+
 .barber-animation::before {
     content: '';
     background-image: linear-gradient(45deg, $midnight-blue-color 25%, $bright-blue-color 25%, $bright-blue-color 50%, $midnight-blue-color 50%, $midnight-blue-color 75%, $bright-blue-color 75%, $bright-blue-color);
@@ -99,6 +101,8 @@
         background-position: 300px 150px
     }
 }
+
+/* ---------- Mobile Styles ---------- */
 
 @media only screen and (max-width: 480px) {
 	.welcome-container {

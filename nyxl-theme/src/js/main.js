@@ -20,8 +20,6 @@ var addFullWidth = (elem) => {
 
 addEventListener('load', addFullWidth('#portlet_com_liferay_hello_world_web_portlet_HelloWorldPortlet'));
 
-// [].forEach.call($$("*"),function(a){a.style.outline="1px solid #"+(~~(Math.random()*(1<<24))).toString(16)})
-
 var banner = document.getElementById('#banner');
 
 if (banner) {
