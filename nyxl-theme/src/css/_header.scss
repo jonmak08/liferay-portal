@@ -4,6 +4,10 @@
 	max-width: none;
 	width: 100%;
 
+	@include media-query(null, $screen-xs) {
+		padding-top: 5%;
+	}
+
 	a {
 		font-weight: normal;
 	}
@@ -147,12 +151,13 @@
 
 	.navbar,
 	.nav-tabs {
+		li {
+			padding: 9px 16px;
+		}
+
 		> li.active {
 			> a, a:focus, a:hover {
 				@include panelBackground($ny-red-color);
-
-				line-height: normal;
-				padding: 9px 16px;
 			}
 		}
 	}
@@ -166,6 +171,17 @@
 	.navbar-collapse {
 		@include sm {
 			padding-right: 4px;
+		}
+
+		@include media-query(null, $screen-xs) {
+			box-shadow: none;
+		}
+	}
+
+	.pull-right {
+		@include media-query (null, $screen-xs) {
+			float: none !important;
+			text-align: center;
 		}
 	}
 
@@ -182,7 +198,7 @@
 			text-overflow: ellipsis;
 		}
 
-		/* ---------- Child-menu Nav Styles ---------- */
+/* ---------- Child-menu Nav Styles ---------- */
 
 		.dropdown-menu > li > a:focus,
 		.dropdown-menu > li > a:hover,
@@ -211,7 +227,7 @@
 		margin: 12px 0 12px 6px;
 	}
 
-	/* ---------- NYXL Logo ---------- */
+/* ---------- NYXL Logo ---------- */
 
 	#heading .site-name {
 		font-size: 150%;
@@ -232,7 +248,7 @@
 		@include media-query(null, $screen-xs-max) {
 			font-size: 125%;
 			margin-left: -15px;
-			margin-right: -15px;
+			margin-right: -15px;	
 		}
 
 		#navigation {
@@ -269,8 +285,7 @@
 		@include media-query(null, $screen-xs-max) {
 			.nav > li {
 				> a {
-					border-bottom: 1px solid #E1E1E1;
-				}
+					border-bottom-width:0;				}
 
 				&:last-child > a {
 					border-bottom-width: 0;
@@ -413,12 +428,6 @@
 }
 
 /* ---------- Mobile Styles ---------- */
-
-@media only screen and (max-width: 767px) {
-	#banner #navigationCollapse .nav > li > a {
-		border-bottom-width: 0;
-	}
-}
 
 @media only screen and (min-width: 270px) and (max-width: 480px) {
 	#banner #navigationCollapse #navigation .portlet .portlet-body > .navbar {

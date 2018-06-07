@@ -349,22 +349,11 @@ tbody,
 /* ---------- Mobile Styles ---------- */
 
 @media only screen and (min-width: 320px) and (max-width: 480px) {
-	#banner, #footer {
-		left: 0;
-		margin: 0;
-		position: inherit;
-		right: 0;
-		width: 100%;
-	}
-
 	.pull-right {
 		float: none !important;
 		text-align: center;
 	}
 
-	.navbar-collapse {
-		box-shadow: none;
-	}
 
 	#_com_liferay_product_navigation_product_menu_web_portlet_ProductMenuPortlet_kwsw__null__null {
 		margin-top: -12%;
@@ -424,10 +413,6 @@ tbody,
 	}
 
 	/* ---------- Margins ---------- */
-
-	#banner {
-		padding-top: 5%;
-	}
 
 	.container-fluid-1280,
 	.row,

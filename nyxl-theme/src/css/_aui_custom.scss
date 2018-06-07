@@ -105,7 +105,7 @@ $title-font: "Circular";
 
 @mixin panelBackground($color) {
 	background: $color;
-	color: $body-text-color !important;
+	color: $body-text-color;
 	font-family: $link-text;
 	letter-spacing: 2px;
 	text-transform: uppercase;
