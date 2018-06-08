@@ -1,13 +1,113 @@
-#portlet_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_HcUvPg6i4Toj > .portlet-content > .portlet-content-container > .portlet-body {
-    align-items: center;
+#portlet_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_HcUvPg6i4Toj > .portlet-content {
+    align-items: baseline;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    flex-wrap: column;
 
     @include media-query(null, $screen-xs) {
-        flex-direction: column;
+        align-items: center;
     }
 
-    > div.h2 {
-        display: none;
+    > .portlet-content-container > .portlet-body {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: baseline;
+
+        @include media-query(null, $screen-xs) {
+            flex-direction: column;
+        }
+
+        > div.h2 {
+            display: none;
+        }
+
+        .asset-content {
+            margin-right: 5px;
+        }
     }
+
+    .team-container {
+        border: 10px solid gold;
+        border-radius: 8px;
+        padding: 5%;
+
+        &.DPS {
+            background: linear-gradient(135deg, $ny-red-color, #ebf8e1, $ny-red-color);
+        }
+        &.Support {
+            background: linear-gradient(35deg, #1ee062, #ebf8e1, #1ee062);
+        }
+        &.Tank {
+            background: linear-gradient(135deg, $bright-blue-color, #ebf8e1, $bright-blue-color);
+        }
+    }
+
+    .team-content {
+
+        #Anamo {
+            background-image: url(http://localhost:8080/documents/20142/49774/illios_1.png);
+        }
+
+        #Ark {
+            background-image: url(http://localhost:8080/documents/20142/49774/illios_2.png);
+        }
+
+        #Jjonak {
+            background-image: url(http://localhost:8080/documents/20142/49774/illios_3.png);
+        }
+        #Janus {
+            background-image: url(http://localhost:8080/documents/20142/49774/nepal_1.png);
+        }
+        #Mano {
+            background-image: url(http://localhost:8080/documents/20142/49774/nepal_2.png);
+        }
+        #MekO {
+            background-image: url(http://localhost:8080/documents/20142/49774/nepal_3.png);
+        }
+        #Libero {
+            background-image: url(http://localhost:8080/documents/20142/49774/lijiang_1.jpg);
+        }
+        #Pine {
+            background-image: url(http://localhost:8080/documents/20142/49774/lijiang_2.jpg);
+        }
+        #Saebyeolbe {
+            background-image: url(http://localhost:8080/documents/20142/49774/lijiang_3.jpg);
+        }
+
+        .player-card {
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: bottom;
+            border: 4px solid gold;
+            box-shadow: $box-shadow;
+            margin-top: 10%;
+            max-height: 245px;
+            max-width: 245px;
+        }
+
+        .player-content {
+            height: 150px;
+
+            h1, .player-handle {
+                bottom: 290px;
+                display: inline;
+                margin: 0;
+                position: relative;
+            }
+    
+            h1 {
+                float: right;
+            }
+
+            .player-handle {
+                font-size: 3rem;
+                font-weight: bold;
+                text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
+            }
+        }
+    }
+
+
+    
 }

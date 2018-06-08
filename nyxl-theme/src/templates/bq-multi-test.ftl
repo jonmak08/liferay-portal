@@ -8,7 +8,6 @@
 			</div>
 
 			<div class="navbar-right">
-				<#--  <@liferay.navigation_menu default_preferences="${freeMarkerPortletPreferences}" />  -->
                 <div id="navbar_com_liferay_site_navigation_menu_web_portlet_SiteNavigationMenuPortlet">
                     <ul class="nav nav-tabs navbar-site">
                             <#assign  count = 0 />
@@ -46,7 +45,8 @@
                                     }
 
                                     li:hover ul.child-menu .grandchild-menu {
-                                        left: 12.5%;
+                                        left: 15%;
+                                        top: 85%;
                                         margin-top: 0%;
                                     }
 

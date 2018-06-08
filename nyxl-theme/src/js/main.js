@@ -29,3 +29,31 @@ if (banner) {
 		}
 	})
 }
+
+
+// only works on first elements from the pictures 
+//and has issues when Liferay create <picture> elements
+
+// window.onload = event => {
+// var playerCard = document.getElementById('player-card');
+// playerCard.addEventListener('mouseenter', function (event) {
+// 	var profile = event.target.childNodes[1];
+// 	var profileFull = profile.nextElementSibling;
+// 	console.log('evt', event.target);
+// 	console.log('profile', profile);
+// 	console.log('profileFull', profileFull);
+// 	profile.classList.toggle('hidden');
+// 	profileFull.classList.toggle('hidden');
+// });
+// playerCard.addEventListener('mouseexit', function (event) {
+// 	var profile = event.target.childNodes[1];
+// 	var profileFull = profile.nextElementSibling;
+// 	console.log('evt', event.target);
+// 	console.log('profile', profile);
+// 	console.log('profileFull', profileFull);
+// 	profile.classList.toggle('hidden');
+// 	profileFull.classList.toggle('hidden');
+// });
+
+// }
+
