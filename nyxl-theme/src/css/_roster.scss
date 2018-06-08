@@ -1,0 +1,13 @@
+#portlet_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_HcUvPg6i4Toj > .portlet-content > .portlet-content-container > .portlet-body {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    @include media-query(null, $screen-xs) {
+        flex-direction: column;
+    }
+
+    > div.h2 {
+        display: none;
+    }
+}

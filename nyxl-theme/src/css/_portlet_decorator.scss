@@ -12,10 +12,24 @@
 	font-family: $title-font;
 	font-size: x-large;
 
+	@include media-query(null, $screen-xs) {
+		max-width: none;
+		text-align: center;
+	}
+
 	@include textStyle(0.5px, capitalize);
 }
 
 .portlet-content {
+	@include media-query(null, $screen-xs) {
+		align-content: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
 	a {
 		.btn,
 		.btn-default,
@@ -90,6 +104,34 @@
 			transition: $transition;
 		}
 	}
+
+	.subscribe {
+		@include media-query(null, $screen-xs) {
+			margin-right: 5%;
+		}
+	}
+
+	.entry-info,
+	.hide-accessible,
+	.entry-body p,
+	.entry-title,
+	.entry-footer .entry-social {
+		@include media-query(null, $screen-xs) {
+			margin-left: 5%;
+		}
+	}
+
+	.cover-image-caption {
+		@include media-query (null, $screen-xs) {
+			text-align: left;
+		}
+	}
+
+	.entry-footer .entry-social {
+		@include media-query (null, $screen-xs) {
+			float: none !important;
+		}
+	}
 }
 
 /* ---------- Form Styles ---------- */
@@ -127,6 +169,13 @@
 
 thead:first-child > tr:first-child > th {
 	border-top: 1px solid !important;
+}
+
+.list-group-card h4 {
+	@include media-query(null, $screen-xs) {
+		margin: 10% 0;
+		margin-left: -10%;
+	}
 }
 
 /* ---------- Remove Borders ---------- */

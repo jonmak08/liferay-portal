@@ -20,12 +20,12 @@ var addFullWidth = (elem) => {
 
 addEventListener('load', addFullWidth('#portlet_com_liferay_hello_world_web_portlet_HelloWorldPortlet'));
 
-var banner = document.getElementById('#banner');
+var banner = document.getElementById('banner');
 
 if (banner) {
 	banner.addEventListener('click', function(event) {
 		if (event.target.className === 'icon-caret-down') {
-			event.preventDefault();
+			return event.preventDefault();
 		}
 	})
 }

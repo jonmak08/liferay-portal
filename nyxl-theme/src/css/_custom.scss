@@ -1,3 +1,5 @@
+@import "about_us";
+
 @import "footer";
 
 @import "header";
@@ -5,6 +7,8 @@
 @import "portlet_decorator";
 
 @import "portlet_hello_world";
+
+@import "roster";
 
 body {
 	background-color: $bg-color;
@@ -18,6 +22,14 @@ a {
 .container-fluid-1280 .row,
 .portlet {
 	margin: 0;
+}
+
+.container-fluid-1280,
+.row,
+.container-fluid-1280 .row {
+	@include media-query(null, $screen-xs) {
+		margin: 0;
+	}
 }
 
 .btn,
@@ -230,18 +242,16 @@ tbody,
 	}
 }
 
-#footer {
-	max-width: none;
-	width: 100%;
+#_com_liferay_product_navigation_product_menu_web_portlet_ProductMenuPortlet_sidenavSliderId {
+	@include media-query(null, 320px) {
+		width: -webkit-fill-available;
+	}
+}
 
-	div.row {
-		color: $body-text-color;
-		font-family: $nav-font;
-
-		text-align: center;
-		width: 100%;
-
-		@include textStyle(1.5px, lowercase);
+.lfr-product-menu-panel.sidenav-menu-slider.open,
+.lfr-product-menu-panel.sidenav-menu-slider .sidenav-menu {
+	@include media-query(null, 320px) {
+		width: inherit;
 	}
 }
 
@@ -256,6 +266,11 @@ tbody,
 #content .row {
 	margin-left: -15px;
 	margin-right: -15px;
+
+	@include media-query(null, $screen-xs) {
+		margin-left: 0;
+		margin-right: 0;
+	}
 }
 
 .product-menu .panel-group .panel-heading + .panel-collapse.in, .product-menu .panel-group .panel-heading + .panel-collapse.collapsing {
@@ -288,7 +303,18 @@ tbody,
 	.panel-heading {
 		background: none;
 
-		h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		.h1,
+		.h2,
+		.h3,
+		.h4,
+		.h5,
+		.h6 {
 			color: $ow-gray-color;
 			text-transform: none;
 		}
@@ -301,29 +327,6 @@ tbody,
 	:focus {
 		border-color: $light-blue-color;
 		color: $light-blue-color;
-	}
-}
-
-/* ---------- Footer Styles ---------- */
-
-#footer {
-	background-color: $primary-color;
-	color: $body-text-color;
-	padding: 40px 20px;
-
-	a {
-		color: $body-text-color;
-	}
-
-	li {
-		list-style: none;
-	}
-
-	svg {
-		fill: $body-text-color;
-		height: 32px;
-		transition: $transition;
-		width: 32px;
 	}
 }
 
@@ -346,138 +349,93 @@ tbody,
 	}
 }
 
-/* ---------- Mobile Styles ---------- */
-
-@media only screen and (min-width: 320px) and (max-width: 480px) {
-	.pull-right {
+.pull-right {
+	@include media-query(null, $screen-xs) {
 		float: none !important;
 		text-align: center;
 	}
+}
 
-
-	#_com_liferay_product_navigation_product_menu_web_portlet_ProductMenuPortlet_kwsw__null__null {
+#_com_liferay_product_navigation_product_menu_web_portlet_ProductMenuPortlet_kwsw__null__null {
+	@include media-query(null, $screen-xs) {
 		margin-top: -12%;
 	}
+}
 
-	.col-xs-1,
-	.col-sm-1,
-	.col-md-1,
-	.col-lg-1,
-	.col-xs-2,
-	.col-sm-2,
-	.col-md-2,
-	.col-lg-2,
-	.col-xs-3,
-	.col-sm-3,
-	.col-md-3,
-	.col-lg-3,
-	.col-xs-4,
-	.col-sm-4,
-	.col-md-4,
-	.col-lg-4,
-	.col-xs-5,
-	.col-sm-5,
-	.col-md-5,
-	.col-lg-5,
-	.col-xs-6,
-	.col-sm-6,
-	.col-md-6,
-	.col-lg-6,
-	.col-xs-7,
-	.col-sm-7,
-	.col-md-7,
-	.col-lg-7,
-	.col-xs-8,
-	.col-sm-8,
-	.col-md-8,
-	.col-lg-8,
-	.col-xs-9,
-	.col-sm-9,
-	.col-md-9,
-	.col-lg-9,
-	.col-xs-10,
-	.col-sm-10,
-	.col-md-10,
-	.col-lg-10,
-	.col-xs-11,
-	.col-sm-11,
-	.col-md-11,
-	.col-lg-11,
-	.col-xs-12,
-	.col-sm-12,
-	.col-md-12,
-	.col-lg-12,
-	.container-fluid-1280 {
+.col-xs-1,
+.col-sm-1,
+.col-md-1,
+.col-lg-1,
+.col-xs-2,
+.col-sm-2,
+.col-md-2,
+.col-lg-2,
+.col-xs-3,
+.col-sm-3,
+.col-md-3,
+.col-lg-3,
+.col-xs-4,
+.col-sm-4,
+.col-md-4,
+.col-lg-4,
+.col-xs-5,
+.col-sm-5,
+.col-md-5,
+.col-lg-5,
+.col-xs-6,
+.col-sm-6,
+.col-md-6,
+.col-lg-6,
+.col-xs-7,
+.col-sm-7,
+.col-md-7,
+.col-lg-7,
+.col-xs-8,
+.col-sm-8,
+.col-md-8,
+.col-lg-8,
+.col-xs-9,
+.col-sm-9,
+.col-md-9,
+.col-lg-9,
+.col-xs-10,
+.col-sm-10,
+.col-md-10,
+.col-lg-10,
+.col-xs-11,
+.col-sm-11,
+.col-md-11,
+.col-lg-11,
+.col-xs-12,
+.col-sm-12,
+.col-md-12,
+.col-lg-12,
+.container-fluid-1280 {
+	@include media-query(null, $screen-xs) {
 		padding-left: 0;
 		padding-right: 0;
 	}
+}
 
-	/* ---------- Margins ---------- */
+/* ---------- Table Styles ---------- */
 
-	.container-fluid-1280,
-	.row,
-	.container-fluid-1280 .row {
-		margin: 0;
-	}
-
-	.portlet-blogs .subscribe {
-		margin-right: 5%;
-	}
-
-	.portlet-blogs .entry-info,
-	.portlet-blogs .hide-accessible,
-	.portlet-blogs .entry-body p,
-	.portlet-blogs .entry-title,
-	.portlet-blogs .entry-footer .entry-social {
-		margin-left: 5%;
-	}
-
-	.list-group-card h4 {
-		margin: 10% 0;
-		margin-left: -10%;
-	}
-
-	.portlet-content {
-		align-content: center;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		padding-left: 0;
-		padding-right: 0;
-	}
-
-	.portlet-title-text {
-		max-width: none;
-		text-align: center;
-	}
-
-	.portlet-blogs .cover-image-caption {
-		text-align: left;
-	}
-
-	.portlet-blogs .entry-footer .entry-social {
-		float: none !important;
-	}
-
-	#content .row {
-		margin-left: 0;
-		margin-right: 0;
-	}
-
-	/* ---------- Table Styles ---------- */
-
-	table {
-		td {
+table {
+	td {
+		@include media-query(null, $screen-xs) {
 			max-width: 200px;
 			overflow: auto;
 		}
-
-		th {
-			border: 1px solid $ny-red-color;
-		}
 	}
 
-	.table-bordered > thead > tr > th {
+	th {
+		@include media-query(null, $screen-xs) {
 		border: 1px solid $ny-red-color;
+		}
+	}
+	
+	.table-bordered > thead > tr > th {
+		@include media-query(null, $screen-xs) {
+		border: 1px solid $ny-red-color;
+		}
 	}
 }

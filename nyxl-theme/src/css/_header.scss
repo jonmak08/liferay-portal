@@ -8,6 +8,10 @@
 		padding-top: 5%;
 	}
 
+	#heading {
+		margin-top: 15px;
+	}
+
 	a {
 		font-weight: normal;
 	}
@@ -68,6 +72,11 @@
 		align-items: center;
 		display: flex;
 		flex-wrap: wrap;
+
+		@include media-query(null, $screen-xs) {
+			align-items: flex-start;
+			flex-direction: column;
+		}
 	}
 
 	/* ---------- Navbar List Item Styles ---------- */
@@ -427,23 +436,14 @@
 	}
 }
 
-/* ---------- Mobile Styles ---------- */
-
-@media only screen and (min-width: 270px) and (max-width: 480px) {
-	#banner #navigationCollapse #navigation .portlet .portlet-body > .navbar {
-		margin-bottom: 5%;
-	}
-
-	#banner ul.nav.nav-tabs.navbar-site {
-		align-items: flex-start;
-		flex-direction: column;
+.touch .modify-pages .lfr-nav-sortable > a > span {
+	@include media-query(100px, 320px) {
+		padding-left: 0;
 	}
 }
 
-/* ---------- XS Screen Sizes < 320px ---------- */
-
-@media only screen and (min-width: 100px) and (max-width: 320px) {
-	.touch .modify-pages .lfr-nav-sortable > a > span {
-		padding-left: 0;
+#banner #navigationCollapse #navigation .portlet .portlet-body > .navbar {
+	@include media-query(null, $screen-xs) {
+		margin-bottom: 5%;
 	}
 }
