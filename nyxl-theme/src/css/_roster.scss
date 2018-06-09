@@ -28,9 +28,9 @@
     }
 
     .team-container {
-        border: 10px solid gold;
+        border: 5px solid #000;
         border-radius: 8px;
-        padding: 0 5% 5% 5%;
+        padding: 1%;
 
         &.DPS {
             background: linear-gradient(135deg, $ny-red-color, #ebf8e1, $ny-red-color);
@@ -79,15 +79,19 @@
             background-size: cover;
             background-repeat: no-repeat;
             background-position: bottom;
-            border: 4px solid gold;
+            border: 2px solid #000;
+            border-radius: 3px;
             box-shadow: $box-shadow;
             max-height: 245px;
             max-width: 245px;
+            outline: 2px solid #FFF;
         }
 
         .player-content-top {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
+            margin-top: -50px;
+            padding-left: 20px;
 
             h1, p {
                 margin: 0;
@@ -101,7 +105,7 @@
         }
 
         .player-content-bottom {
-            height: 150px;
+            margin-top: 5%;
         }
     }
 
