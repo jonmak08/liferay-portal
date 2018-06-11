@@ -30,30 +30,23 @@ if (banner) {
 	})
 }
 
+// document.getElementById("portlet_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_HcUvPg6i4Toj").addEventListener('click', function(event) {
+// 	var parent = event.target.parentElement;
 
-// only works on first elements from the pictures 
-//and has issues when Liferay create <picture> elements
+// 	if (event.target.className === 'profile-full') {
+// 		console.log('parent', parent);
+// 		if (parent.nodeName === 'PICTURE') {
+// 			parent = parent.parentElement;
+// 		}
+// 		event.target.classList.toggle('hidden');
+// 		parent.firstElementChild.classList.toggle('hidden');
+// 	}
 
-// window.onload = event => {
-// var playerCard = document.getElementById('player-card');
-// playerCard.addEventListener('mouseenter', function (event) {
-// 	var profile = event.target.childNodes[1];
-// 	var profileFull = profile.nextElementSibling;
-// 	console.log('evt', event.target);
-// 	console.log('profile', profile);
-// 	console.log('profileFull', profileFull);
-// 	profile.classList.toggle('hidden');
-// 	profileFull.classList.toggle('hidden');
-// });
-// playerCard.addEventListener('mouseexit', function (event) {
-// 	var profile = event.target.childNodes[1];
-// 	var profileFull = profile.nextElementSibling;
-// 	console.log('evt', event.target);
-// 	console.log('profile', profile);
-// 	console.log('profileFull', profileFull);
-// 	profile.classList.toggle('hidden');
-// 	profileFull.classList.toggle('hidden');
-// });
-
-// }
-
+// 	if (event.target.className === 'profile') {
+// 		event.target.classList.toggle('hidden');
+// 		if (parent.lastElementChild.nodeName === 'PICTURE') {
+// 			return parent.lastElementChild.childNodes[1].classList.toggle('hidden')
+// 		}
+// 		parent.lastElementChild.classList.toggle('hidden');
+// 	}
+// })

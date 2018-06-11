@@ -28,19 +28,24 @@
     }
 
     .team-container {
-        border: 5px solid #000;
+        border: 8px double #000;
         border-radius: 8px;
-        padding: 1%;
+        padding: 1% 1% 4% 1%;
 
         &.DPS {
             background: linear-gradient(135deg, $ny-red-color, #ebf8e1, $ny-red-color);
         }
         &.Support {
-            background: linear-gradient(35deg, #1ee062, #ebf8e1, #1ee062);
+            background: linear-gradient(135deg, #1ee062, #ebf8e1, #1ee062);
         }
         &.Tank {
             background: linear-gradient(135deg, $bright-blue-color, #ebf8e1, $bright-blue-color);
         }
+
+        img:hover {
+            cursor: pointer;
+        }
+
     }
 
     .team-content {
@@ -98,17 +103,36 @@
             }
 
             .player-handle {
+                font-family: "Helvetica Bold";
                 font-size: 3rem;
                 font-weight: bold;
                 text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
             }
+            
+            .player-number {
+                font-family: "Titillium Web";
+                margin-left: 20px;
+                text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.3);
+            }
         }
-
+        
         .player-content-bottom {
-            margin-top: 5%;
+            margin: 10% -1% -1% 0;
+            padding: 5% 0;
+            text-align: center;
+            
+            .player-name {
+                margin-bottom: 0;
+            }
+
+            .player-position {
+                color: $body-text-color;
+                font-family: $title-font;
+
+                @include textStyle(2px, uppercase);
+
+                text-shadow: $text-shadow;
+            }
         }
     }
-
-
-    
 }
