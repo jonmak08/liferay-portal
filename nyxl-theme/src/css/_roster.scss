@@ -31,6 +31,7 @@
         border: 8px double #000;
         border-radius: 8px;
         padding: 1% 1% 4% 1%;
+        transition: $transition;
 
         &.DPS {
             background: linear-gradient(135deg, $ny-red-color, #ebf8e1, $ny-red-color);
@@ -45,6 +46,10 @@
         img:hover {
             cursor: pointer;
         }
+
+        &:hover {
+            animation: aura 1s ease-in-out infinite alternate;
+         }
 
     }
 
@@ -87,8 +92,8 @@
             border: 2px solid #000;
             border-radius: 3px;
             box-shadow: $box-shadow;
-            max-height: 245px;
-            max-width: 245px;
+            max-height: 240px;
+            max-width: 240px;
             outline: 2px solid #FFF;
         }
 
