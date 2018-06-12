@@ -106,6 +106,9 @@
                 font-family: "Helvetica Bold";
                 font-size: 3rem;
                 font-weight: bold;
+
+                @include textStyle(2px, uppercase);
+
                 text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
             }
             

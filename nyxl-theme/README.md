@@ -1,7 +1,7 @@
 # nyxl-theme
 NYXL styled Liferay Portal Theme
 
-![NYXL Screenshot](/nyxl-theme/src/images/nyxl-theme-screenshot.jpg)
+![NYXL Screenshot](/nyxl-theme/src/images/screenshot.png)
 
 Theme created using Liferay Theme generator.
 
