@@ -2,9 +2,9 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 50vh;
+    // height: 50vh;
+    // width: 100vw;
     position: relative;
-    width: 100vw;
 
     @include media-query (null, $screen-xs) {
         height: 100vh;
@@ -13,6 +13,7 @@
 
 .hero-image-content {
     left: 50%;
+    overflow-x: hidden;
     position: absolute;
     text-align: center;
     top: 50%;

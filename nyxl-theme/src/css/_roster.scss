@@ -2,7 +2,7 @@
     align-items: baseline;
     display: flex;
     flex-direction: column;
-    flex-wrap: column;
+    flex-wrap: wrap;
 
     @include media-query(null, $screen-xs) {
         align-items: center;
@@ -21,15 +21,12 @@
         > div.h2 {
             display: none;
         }
-
-        .asset-content {
-            margin-right: 5px;
-        }
     }
-
+    
     .team-container {
         border: 8px double #000;
         border-radius: 8px;
+        margin-right: 5px;
         padding: 1% 1% 4% 1%;
         transition: $transition;
 

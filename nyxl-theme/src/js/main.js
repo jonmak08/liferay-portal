@@ -34,10 +34,9 @@ if (banner) {
 // 	var parent = event.target.parentElement;
 
 // 	if (event.target.className === 'profile-full') {
-// 		console.log('parent', parent);
-// 		if (parent.nodeName === 'PICTURE') {
-// 			parent = parent.parentElement;
-// 		}
+// 		 if (parent.nodeName === 'PICTURE') {
+// 			 parent = parent.parentElement;
+// 		 }
 // 		event.target.classList.toggle('hidden');
 // 		parent.firstElementChild.classList.toggle('hidden');
 // 	}
@@ -50,3 +49,31 @@ if (banner) {
 // 		parent.lastElementChild.classList.toggle('hidden');
 // 	}
 // })
+
+/* ---------- Doesn't toggle pictures properly ----------
+
+var toggleProfile = function(event, parent, toggleClass) {
+	if (parent.nodeName === 'PICTURE') {
+		parent = parent.parentElement;
+		if(parent.lastElementChild.childNodes[1]) {
+			var imgPath = parent.lastElementChild.childNodes[1];
+		}
+	}
+
+	if (event.target.className === 'profile-full') {
+		parent.firstElementChild.classList.toggle(toggleClass)
+		event.target.classList.toggle(toggleClass);
+	}
+	if (event.target.className === 'profile') {
+		if(imgPath) {
+			imgPath.classList.toggle(toggleClass)
+		}
+		else {
+			parent.lastElementChild.classList.toggle(toggleClass);
+		}
+		event.target.classList.toggle(toggleClass);
+	}
+};
+
+toggleProfile(event, parent, "hidden");
+---------- */
