@@ -8,6 +8,10 @@
         align-items: center;
     }
 
+    .pull-right {
+        display: none;
+    }
+
     > .portlet-content-container > .portlet-body {
         align-items: center;
         display: flex;
@@ -26,19 +30,13 @@
     .team-container {
         border: 8px double #000;
         border-radius: 8px;
+
+        @include pinStripes(50px);
+
+        margin-bottom: 5px;
         margin-right: 5px;
         padding: 1% 1% 4% 1%;
         transition: $transition;
-
-        &.DPS {
-            background: linear-gradient(135deg, $ny-red-color, #ebf8e1, $ny-red-color);
-        }
-        &.Support {
-            background: linear-gradient(135deg, #1ee062, #ebf8e1, #1ee062);
-        }
-        &.Tank {
-            background: linear-gradient(135deg, $bright-blue-color, #ebf8e1, $bright-blue-color);
-        }
 
         img:hover {
             cursor: pointer;
@@ -135,6 +133,22 @@
 
                 text-shadow: $text-shadow;
             }
+
+            &.DPS {
+                background: linear-gradient(135deg, $ny-red-color, #ebf8e1, $ny-red-color);
+            }
+            &.Support {
+                background: linear-gradient(135deg, #1ee062, #ebf8e1, #1ee062);
+            }
+            &.Tank {
+                background: linear-gradient(135deg, $bright-blue-color, #ebf8e1, $bright-blue-color);
+            }
         }
+    }
+}
+
+#portlet_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_HcB8WcEaCwfv {
+    > div.portlet-content {
+       @include pinStripes(150px);
     }
 }

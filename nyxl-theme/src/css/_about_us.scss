@@ -2,12 +2,12 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    // height: 50vh;
-    // width: 100vw;
     position: relative;
 
-    @include media-query (null, $screen-xs) {
-        height: 100vh;
+    img {
+        @include media-query (null, $screen-xs) {
+            height: 100vh;
+        }
     }
 }
 
@@ -22,4 +22,9 @@
     p {
         color: $body-text-color;
     }
+}
+
+#p_p_id_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_HcUvPg6i4Toj_ .portlet-content {
+    border-width: 0;
+    border-style: none;
 }
