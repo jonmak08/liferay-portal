@@ -3,8 +3,11 @@
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-
+    
     img {
+        height: 30vh;
+        width: 100vw;
+
         @include media-query (null, $screen-xs) {
             height: 100vh;
         }
@@ -21,6 +24,10 @@
 
     p {
         color: $body-text-color;
+
+        @include media-query (null, $screen-sm) {
+            font-size: small;
+        }
     }
 }
 
@@ -28,3 +35,20 @@
     border-width: 0;
     border-style: none;
 }
+
+#portlet_com_liferay_journal_content_web_portlet_JournalContentPortlet_INSTANCE_zJZ5qzmxJ6uz{
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+
+    img {
+        padding: 5% 10%;
+    
+        @include media-query(null, $screen-xs) {
+            height: 100vh;
+            object-fit: cover;
+            object-position: 88% -100px;
+            padding: 0;
+        }
+    }
+} 
