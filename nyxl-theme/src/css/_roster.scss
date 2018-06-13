@@ -21,15 +21,12 @@
         @include media-query(null, $screen-xs) {
             flex-direction: column;
         }
-
-        > div.h2 {
-            display: none;
-        }
     }
     
     .team-container {
         border: 7px double #000;
         border-radius: 8px;
+        filter: $silhouette;
 
         @include pinStripes(50px);
 
@@ -141,17 +138,32 @@
                 background-color: $ny-red-color;
             }
             &.Support {
-                background-color: #fdcb6e;
+                background-color: #FDCB6E;
             }
             &.Tank {
-                background-color:#0984e3;
+                background-color:#0984E3;
             }
         }
     }
 }
 
-#portlet_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_HcB8WcEaCwfv {
+#portlet_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_HcB8WcEaCwfv,
+#portlet_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_xBH5bEG4qH4w,
+#portlet_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_tcPLRH9miNHg,
+#portlet_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_20xTg4IHVdzN {
     > div.portlet-content {
        @include pinStripes(150px);
+       
+       margin-bottom: 20px;
+    }
+
+    table > tbody {
+        transition: $transition;
+
+        > tr:hover a {
+            color: $light-blue-color;
+            text-decoration: underline;
+        }
     }
 }
+
