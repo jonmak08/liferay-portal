@@ -1,0 +1,84 @@
+{
+    "layoutTemplateId":"2_columns_ii",
+    "publicPages": [
+        {
+          "friendlyURL": "/home",
+          "layoutTemplateId": "1_column",
+          "name": "Welcome",
+          "title": "Welcome"
+        },
+        {      
+            "friendlyURL": "/roster",
+            "name": "Roster",
+            "title": "Roster",
+            "layouts": [
+                {
+                    "friendlyURL": "/dps",
+                    "name": "DPS",
+                    "title": "DPS",
+                    "layouts": [
+                        {
+                            "friendlyURL": "/libero",
+                            "name": "Libero",
+                            "title": "Libero"
+                        },
+                        {
+                            "friendlyURL": "/pine",
+                            "name": "Pine",
+                            "title": "Pine"
+                        },
+                        {
+                            "friendlyURL": "/saebyeolbe",
+                            "name": "Saebyeolbe",
+                            "title": "Saebyeolbe"
+                        }
+                    ]
+                },
+                {
+                    "friendlyURL": "/support",
+                    "name": "Support",
+                    "title": "Support",
+                    "layouts": [
+                        {
+                            "friendlyURL": "/anamo",
+                            "name": "Anamo",
+                            "title": "Anamo"
+                        },
+                        {
+                            "friendlyURL": "/ark",
+                            "name": "Ark",
+                            "title": "Ark"
+                        },
+                        {
+                            "friendlyURL": "/jjonak",
+                            "name": "Jjonak",
+                            "title": "Jjonak"
+                        }
+                    ]
+                },
+                {
+                    "friendlyURL": "/tank",
+                    "name": "Tank",
+                    "title": "Tank",
+                    "layouts": [
+                        {
+                            "friendlyURL": "/janus",
+                            "name": "Janus",
+                            "title": "Janus"
+                        },
+                        {
+                            "friendlyURL": "/mano",
+                            "name": "Mano",
+                            "title": "Mano"
+                        },
+                        {
+                            "friendlyURL": "/meko",
+                            "name": "MekO",
+                            "title": "MekO"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
