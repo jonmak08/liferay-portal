@@ -10,14 +10,14 @@
                     }
                 },
                 {
-                    "portletID": "portlet_com_liferay_asset_tags_navigation_web_portlet_AssetTagsNavigationPortlet_INSTANCE_iCm1Oo9UoDvn",
+                    "portletID": "com_liferay_asset_tags_navigation_web_portlet_AssetTagsNavigationPortlet_INSTANCE_iCm1Oo9UoDvn",
                     "portletPreferences": {
                         "portletSetupTitle_en_US": "Filter By Position",
                         "portletSetupUseCustomTitle": "true"
                     }
                 },
                 {
-                    "portletID": "portlet_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_HcB8WcEaCwfv",
+                    "portletID": "com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_HcB8WcEaCwfv",
                     "portletPreferences": {
                       "portletSetupPortletDecoratorId": "decorate",
                       "portletSetupTitle_en_US": "Select Team Member",
@@ -25,7 +25,7 @@
                     }
                 },
                 {
-                    "portletID": "portlet_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_HcUvPg6i4Toj",
+                    "portletID": "com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_HcUvPg6i4Toj",
                     "portletPreferences": {
                       "portletSetupPortletDecoratorId": "decorate",
                       "portletSetupTitle_en_US": "NYXL Team Roster",
@@ -33,16 +33,22 @@
                     }
                 },
                 {
-                    "portletID": "portlet_com_liferay_blogs_web_portlet_BlogsPortlet"
+                    "portletID": "com_liferay_blogs_web_portlet_BlogsPortlet"
                 },
                 {
-                    "portletID": "_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_HcUvPg6i4Toj_52630",
+                    "portletID": "com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_HcUvPg6i4Toj_52630",
                     "portletPreferences": {
                         "portletSetupPortletDecoratorId": "barebone"
                     }
                 },
                 {
-                    "portletID": "portlet_com_liferay_journal_content_web_portlet_JournalContentPortlet_INSTANCE_zJZ5qzmxJ6uz",
+                    "portletID": "com_liferay_journal_content_web_portlet_JournalContentPortlet_INSTANCE_zJZ5qzmxJ6uz",
+                    "portletPreferences": {
+                        "portletSetupPortletDecoratorId": "barebone"
+                    }
+                },
+                {
+                    "portletID": "com_liferay_dynamic_data_lists_form_web_portlet_DDLFormPortlet",
                     "portletPreferences": {
                         "portletSetupPortletDecoratorId": "barebone"
                     }
