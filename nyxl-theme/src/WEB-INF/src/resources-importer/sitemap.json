@@ -31,6 +31,21 @@
                       "portletSetupTitle_en_US": "NYXL Team Roster",
                       "portletSetupUseCustomTitle": "true"
                     }
+                },
+                {
+                    "portletID": "portlet_com_liferay_blogs_web_portlet_BlogsPortlet"
+                },
+                {
+                    "portletID": "_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_HcUvPg6i4Toj_52630",
+                    "portletPreferences": {
+                        "portletSetupPortletDecoratorId": "barebone"
+                    }
+                },
+                {
+                    "portletID": "portlet_com_liferay_journal_content_web_portlet_JournalContentPortlet_INSTANCE_zJZ5qzmxJ6uz",
+                    "portletPreferences": {
+                        "portletSetupPortletDecoratorId": "barebone"
+                    }
                 }
         
             ]
