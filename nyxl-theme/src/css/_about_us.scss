@@ -6,6 +6,8 @@
     
     img {
         height: 30vh;
+        object-fit: cover;
+        object-position: top;
         width: 100vw;
 
         @include media-query (null, $screen-xs) {

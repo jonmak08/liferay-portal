@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="number" type="ddm-number" index-type="keyword" instance-id="ewiq">
+		<dynamic-content language-id="en_US"><![CDATA[9]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="image" type="image" index-type="text" instance-id="lqdf">
+		<dynamic-content language-id="en_US" alt="" name="saebyeolbe.png" title="saebyeolbe.png" type="document" fileEntryId=""><![CDATA[/documents/20142/49423/saebyeolbe.png/3884170d-7d3a-19ba-ed9d-10a04df4e807?t=1528216713950]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="imageFull" type="image" index-type="text" instance-id="tkjh">
+		<dynamic-content language-id="en_US" alt="" name="saebyeolbe-full.png" title="saebyeolbe-full.png" type="document" fileEntryId="53891"><![CDATA[/documents/20142/49423/saebyeolbe-full.png/0e960547-bc65-835d-d1c9-a468cb68f203?t=1528486231139]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="handle" type="text" index-type="keyword" instance-id="zuds">
+		<dynamic-content language-id="en_US"><![CDATA[Saebyeolbe]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="position" type="text" index-type="keyword" instance-id="givu">
+		<dynamic-content language-id="en_US"><![CDATA[DPS]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="name" type="text" index-type="keyword" instance-id="eisr">
+		<dynamic-content language-id="en_US"><![CDATA[Jong-ryeol Park]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="link" type="link_to_layout" index-type="keyword" instance-id="cjch">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+</root>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="cityname" type="text" index-type="keyword" instance-id="bhnf">
+		<dynamic-content language-id="en_US"><![CDATA[New York]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="backgroundimage" type="image" index-type="text" instance-id="nwae">
+		<dynamic-content language-id="en_US" alt="" name="nyxl-facebook-banner.jpg" title="nyxl-facebook-banner.jpg" type="document" fileEntryId=""><![CDATA[/documents/20142/0/nyxl-facebook-banner.jpg/59a5b4d0-5864-42cb-ea5c-2137274584c6?t=1527895684452]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="teamname" type="text" index-type="keyword" instance-id="zfyz">
+		<dynamic-content language-id="en_US"><![CDATA[Excelsior]]></dynamic-content>
+	</dynamic-element>
+</root>

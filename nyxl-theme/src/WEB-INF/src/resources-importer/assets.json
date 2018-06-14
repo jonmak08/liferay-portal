@@ -1,0 +1,68 @@
+{
+    "assets": [
+
+        {
+            "name": "Anamo.xml",
+            "tags": [
+                "support"
+            ]
+        },
+
+        {
+            "name": "Ark.xml",
+            "tags": [
+                "support"
+            ]
+        },
+
+        {
+            "name": "Janus.xml",
+            "tags": [
+                "tank"
+            ]
+        },
+
+        {
+            "name": "Jjonak.xml",
+            "tags": [
+                "support"
+            ]
+        },
+
+        {
+            "name": "Libero.xml",
+            "tags": [
+                "dps flex"
+            ]
+        },
+
+        {
+            "name": "Mano.xml",
+            "tags": [
+                "tank"
+            ]
+        },
+
+        {
+            "name": "MekO.xml",
+            "tags": [
+                "flex tank"
+            ]
+        },
+
+        {
+            "name": "Pine.xml",
+            "tags": [
+                "dps flex"
+            ]
+        },
+
+        {
+            "name": "Saebyeolbe.xml",
+            "tags": [
+                "dps"
+            ]
+        }
+
+    ]
+}

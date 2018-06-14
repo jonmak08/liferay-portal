@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="number" type="ddm-number" index-type="keyword" instance-id="dema">
+		<dynamic-content language-id="en_US"><![CDATA[7]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="image" type="image" index-type="text" instance-id="btjk">
+		<dynamic-content language-id="en_US" alt="" name="mano.png" title="mano.png" type="document" fileEntryId=""><![CDATA[/documents/20142/49423/mano.png/04a04a05-3d76-c72a-bad4-c972484d7983?t=1528216713746]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="imageFull" type="image" index-type="text" instance-id="qxnj">
+		<dynamic-content language-id="en_US" alt="" name="mano-full.png" title="mano-full.png" type="document" fileEntryId="53922"><![CDATA[/documents/20142/49423/mano-full.png/b6a60e88-b459-afe4-1549-70cffd09db0b?t=1528486232435]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="handle" type="text" index-type="keyword" instance-id="zifk">
+		<dynamic-content language-id="en_US"><![CDATA[Mano]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="position" type="text" index-type="keyword" instance-id="avxj">
+		<dynamic-content language-id="en_US"><![CDATA[Tank]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="name" type="text" index-type="keyword" instance-id="lgdl">
+		<dynamic-content language-id="en_US"><![CDATA[Dong-gyu Kim]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="link" type="link_to_layout" index-type="keyword" instance-id="htpc">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+</root>

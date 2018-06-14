@@ -448,3 +448,11 @@
 		margin-bottom: 5%;
 	}
 }
+
+.lfr-nav-item > ul.child-menu {
+	height: 0;
+	max-width: 250px;
+	overflow: visible;
+	right: auto;
+	text-align: center;
+}

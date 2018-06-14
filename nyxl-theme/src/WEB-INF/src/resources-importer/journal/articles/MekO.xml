@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="number" type="ddm-number" index-type="keyword" instance-id="szzq">
+		<dynamic-content language-id="en_US"><![CDATA[11]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="image" type="image" index-type="text" instance-id="ayod">
+		<dynamic-content language-id="en_US" alt="" name="meko.png" title="meko.png" type="document" fileEntryId=""><![CDATA[/documents/20142/49423/meko.png/a4a9b08f-4f5f-0c57-bf0e-bbecd04073fc?t=1528216713816]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="imageFull" type="image" index-type="text" instance-id="hruq">
+		<dynamic-content language-id="en_US" alt="" name="meko-full.png" title="meko-full.png" type="document" fileEntryId="53913"><![CDATA[/documents/20142/49423/meko-full.png/dc88ade2-edd5-c715-1cb3-d2387072dbad?t=1528486232387]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="handle" type="text" index-type="keyword" instance-id="kelk">
+		<dynamic-content language-id="en_US"><![CDATA[MekO]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="position" type="text" index-type="keyword" instance-id="eclc">
+		<dynamic-content language-id="en_US"><![CDATA[Tank / Flex]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="name" type="text" index-type="keyword" instance-id="yjbx">
+		<dynamic-content language-id="en_US"><![CDATA[Tae-hong Kim]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="link" type="link_to_layout" index-type="keyword" instance-id="aphd">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+</root>

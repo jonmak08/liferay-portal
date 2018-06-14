@@ -37,11 +37,7 @@
                                     .lfr-nav-item:hover > ul.child-menu,
                                     ul.child-menu > li:hover > ul.grandchild-menu {
                                         display: block;
-                                        max-height: 500px;
-                                        max-width: 250px;
-                                        overflow: visible;
-                                        right: auto;
-                                        text-align: center;
+                                        height: fit-content;
                                     }
 
                                     li:hover ul.child-menu .grandchild-menu {

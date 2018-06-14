@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="number" type="ddm-number" index-type="keyword" instance-id="bkda">
+		<dynamic-content language-id="en_US"><![CDATA[6]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="image" type="image" index-type="text" instance-id="zhbb">
+		<dynamic-content language-id="en_US" alt="" name="jjonak.png" title="jjonak.png" type="document" fileEntryId=""><![CDATA[/documents/20142/49423/jjonak.png/5665c0fe-6eaa-4070-94e3-014885d19a14?t=1528216713592]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="imageFull" type="image" index-type="text" instance-id="irws">
+		<dynamic-content language-id="en_US" alt="" name="jjonak-full.png" title="jjonak-full.png" type="document" fileEntryId="53946"><![CDATA[/documents/20142/49423/jjonak-full.png/351ae0cc-5ea7-53b7-113e-c97af9a7ad37?t=1528486232533]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="handle" type="text" index-type="keyword" instance-id="insc">
+		<dynamic-content language-id="en_US"><![CDATA[Jjonak]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="position" type="text" index-type="keyword" instance-id="rsbq">
+		<dynamic-content language-id="en_US"><![CDATA[Support]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="name" type="text" index-type="keyword" instance-id="irmi">
+		<dynamic-content language-id="en_US"><![CDATA[Seong-hyun Bang]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="link" type="link_to_layout" index-type="keyword" instance-id="egnq">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+</root>
