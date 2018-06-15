@@ -7,11 +7,9 @@
 					{
 						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
 						"portletPreferences": {
-						"articleId": "NYXL Homepage Splash.xml",
-						"groupId": "${groupId}",
-						"portletSetupPortletDecoratorId": "barebone",
-						"portletSetupTitle_en_US": "NYXL Homepage Splash",
-							"portletSetupUseCustomTitle": "true"
+							"articleId": "NYXL Homepage Splash.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
 						}
 					}
 				]
@@ -21,27 +19,167 @@
 			"title": "Welcome",
 			"layoutTemplateId": "1_column"
 		},
-		{      
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_asset_tags_navigation_web_portlet_AssetTagsNavigationPortlet",
+						"portletPreferences": {
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "decorate",
+							"portletSetupTitle_en_US": "Filter By Position",
+							"portletSetupUseCustomTitle": "true"
+						}
+					},
+					{
+						"portletId": "com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet",
+						"portletPreferences": {
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "decorate",
+							"portletSetupTitle_en_US": "Select Team Member",
+							"portletSetupUseCustomTitle": "true"
+						}
+					}
+				],
+				[
+					{
+						"portletId": "com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet",
+						"portletPreferences": {
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "decorate",
+							"portletSetupTitle_en_US": "NYXL Team Roster",
+							"portletSetupUseCustomTitle": "true"
+						}
+					}
+				]
+			],
 			"friendlyURL": "/roster",
 			"name": "Roster",
 			"title": "Roster",
 			"layouts": [
 				{
+					"columns": [
+						[
+							{
+								"portletId": "com_liferay_site_navigation_breadcrumb_web_portlet_SiteNavigationBreadcrumbPortlet",
+								"portletPreferences": {
+									"groupId": "${groupId}",
+									"portletSetupPortletDecoratorId": "barebone"
+								}
+							},
+							{
+								"portletId": "com_liferay_asset_tags_navigation_web_portlet_AssetTagsNavigationPortlet",
+								"portletPreferences": {
+									"groupId": "${groupId}",
+									"portletSetupPortletDecoratorId": "decorate",
+									"portletSetupTitle_en_US": "Filter By Position",
+										"portletSetupUseCustomTitle": "true"
+								}
+							},
+							{
+								"portletId": "com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet",
+								"portletPreferences": {
+									"groupId": "${groupId}",
+									"portletSetupPortletDecoratorId": "decorate",
+									"portletSetupTitle_en_US": "Select Team Member",
+									"portletSetupUseCustomTitle": "true"
+								}
+							}
+						],
+						[
+							{
+								"portletId": "com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet",
+								"portletPreferences": {
+									"groupId": "${groupId}",
+									"portletSetupPortletDecoratorId": "decorate",
+									"portletSetupTitle_en_US": "NYXL DPS Roster",
+									"portletSetupUseCustomTitle": "true"
+								}
+							}
+						]
+					],
 					"friendlyURL": "/dps",
 					"name": "DPS",
 					"title": "DPS",
 					"layouts": [
 						{
+							"columns": [
+								[
+									{
+										"portletId": "com_liferay_site_navigation_breadcrumb_web_portlet_SiteNavigationBreadcrumbPortlet",
+										"portletPreferences": {
+											"groupId": "${groupId}",
+											"portletSetupPortletDecoratorId": "barebone"
+										}
+									}
+								],
+								[
+									{
+										"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+										"portletPreferences": {
+											"articleId": "Libero.xml",
+											"groupId": "${groupId}",
+											"portletSetupPortletDecoratorId": "decorate",
+											"portletSetupTitle_en_US": "Pro Genji",
+											"portletSetupUseCustomTitle": "true"
+										}
+									}
+								]
+							],
 							"friendlyURL": "/libero",
 							"name": "Libero",
 							"title": "Libero"
 						},
 						{
+							"columns": [
+								[
+									{
+										"portletId": "com_liferay_site_navigation_breadcrumb_web_portlet_SiteNavigationBreadcrumbPortlet",
+										"portletPreferences": {
+											"groupId": "${groupId}",
+											"portletSetupPortletDecoratorId": "barebone"
+										}
+									}
+								],
+								[
+									{
+										"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+										"portletPreferences": {
+											"articleId": "Pine.xml",
+											"portletSetupPortletDecoratorId": "decorate",
+											"portletSetupTitle_en_US": "The Big Boss Pine",
+											"portletSetupUseCustomTitle": "true"
+										}
+									}
+								]
+							],
 							"friendlyURL": "/pine",
 							"name": "Pine",
 							"title": "Pine"
 						},
 						{
+							"columns": [
+								[
+									{
+										"portletId": "com_liferay_site_navigation_breadcrumb_web_portlet_SiteNavigationBreadcrumbPortlet",
+										"portletPreferences": {
+											"groupId": "${groupId}",
+											"portletSetupPortletDecoratorId": "barebone"
+										}
+									}
+								],
+								[
+									{
+										"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+										"portletPreferences": {
+											"articleId": "Saebyeolbe.xml",
+											"portletSetupPortletDecoratorId": "decorate",
+											"portletSetupTitle_en_US": "Wholesome Married Man (#1 Tracer in the World)",
+											"portletSetupUseCustomTitle": "true"
+										}
+									}
+								]
+							],
 							"friendlyURL": "/saebyeolbe",
 							"name": "Saebyeolbe",
 							"title": "Saebyeolbe"
@@ -49,6 +187,46 @@
 					]
 				},
 				{
+					"columns": [
+						[
+							{
+								"portletId": "com_liferay_site_navigation_breadcrumb_web_portlet_SiteNavigationBreadcrumbPortlet",
+								"portletPreferences": {
+									"groupId": "${groupId}",
+									"portletSetupPortletDecoratorId": "barebone"
+								}
+							},
+							{
+								"portletId": "com_liferay_asset_tags_navigation_web_portlet_AssetTagsNavigationPortlet",
+								"portletPreferences": {
+									"groupId": "${groupId}",
+									"portletSetupPortletDecoratorId": "decorate",
+									"portletSetupTitle_en_US": "Filter By Position",
+										"portletSetupUseCustomTitle": "true"
+								}
+							},
+							{
+								"portletId": "com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet",
+								"portletPreferences": {
+									"groupId": "${groupId}",
+									"portletSetupPortletDecoratorId": "decorate",
+									"portletSetupTitle_en_US": "Select Team Member",
+									"portletSetupUseCustomTitle": "true"
+								}
+							}
+						],
+						[
+							{
+								"portletId": "com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet",
+								"portletPreferences": {
+									"groupId": "${groupId}",
+									"portletSetupPortletDecoratorId": "decorate",
+									"portletSetupTitle_en_US": "NYXL Support Roster",
+									"portletSetupUseCustomTitle": "true"
+								}
+							}
+						]
+					],
 					"friendlyURL": "/support",
 					"name": "Support",
 					"title": "Support",
@@ -71,6 +249,46 @@
 					]
 				},
 				{
+					"columns": [
+						[
+							{
+								"portletId": "com_liferay_site_navigation_breadcrumb_web_portlet_SiteNavigationBreadcrumbPortlet",
+								"portletPreferences": {
+									"groupId": "${groupId}",
+									"portletSetupPortletDecoratorId": "barebone"
+								}
+							},
+							{
+								"portletId": "com_liferay_asset_tags_navigation_web_portlet_AssetTagsNavigationPortlet",
+								"portletPreferences": {
+									"groupId": "${groupId}",
+									"portletSetupPortletDecoratorId": "decorate",
+									"portletSetupTitle_en_US": "Filter By Position",
+										"portletSetupUseCustomTitle": "true"
+								}
+							},
+							{
+								"portletId": "com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet",
+								"portletPreferences": {
+									"groupId": "${groupId}",
+									"portletSetupPortletDecoratorId": "decorate",
+									"portletSetupTitle_en_US": "Select Team Member",
+									"portletSetupUseCustomTitle": "true"
+								}
+							}
+						],
+						[
+							{
+								"portletId": "com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet",
+								"portletPreferences": {
+									"groupId": "${groupId}",
+									"portletSetupPortletDecoratorId": "decorate",
+									"portletSetupTitle_en_US": "NYXL Tank Roster",
+									"portletSetupUseCustomTitle": "true"
+								}
+							}
+						]
+					],
 					"friendlyURL": "/tank",
 					"name": "Tank",
 					"title": "Tank",
@@ -124,19 +342,27 @@
 			"columns": [
 				[
 					{
-						"portletId": "com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet"
-					}
-				],
-				[
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "About Us Page.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					},
 					{
-						"portletId": "com_liferay_document_library_web_portlet_DLPortlet"
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "OW Team Photo.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
 					}
 				]
 			],
 			"friendlyURL": "about-us",
 			"name": "About Us",
 			"title": "About Us",
-			"layoutTemplateID": "1_column"
+			"layoutTemplateId": "1_column"
 		},
 		{
 			"columns": [

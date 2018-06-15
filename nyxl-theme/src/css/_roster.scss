@@ -24,128 +24,128 @@
         }
     }
     
-    .team-container {
-        border: 7px double #000;
-        border-radius: 8px;
-        filter: $silhouette;
+    // .team-container {
+    //     border: 7px double #000;
+    //     border-radius: 8px;
+    //     filter: $silhouette;
 
-        @include pinStripes(50px);
+    //     @include pinStripes(50px);
 
-        margin-bottom: 8px;
-        margin-right: 8px;
-        padding: 1% 1% 4% 1%;
-        transition: $transition;
+    //     margin-bottom: 8px;
+    //     margin-right: 8px;
+    //     padding: 1% 1% 4% 1%;
+    //     transition: $transition;
 
-        img:hover {
-            cursor: pointer;
-        }
+    //     img:hover {
+    //         cursor: pointer;
+    //     }
 
-        &:hover {
-            animation: aura 1s ease-in-out infinite alternate;
-         }
+    //     &:hover {
+    //         animation: aura 1s ease-in-out infinite alternate;
+    //      }
 
-    }
+    // }
 
-    .team-content {
+    // .team-content {
 
-        #Anamo {
-            background-image: url(http://localhost:8080/documents/20142/49774/illios_1.png);
-        }
+    //     #Anamo {
+    //         background-image: url(http://localhost:8080/documents/20142/49774/illios_1.png);
+    //     }
 
-        #Ark {
-            background-image: url(http://localhost:8080/documents/20142/49774/illios_2.png);
-        }
+    //     #Ark {
+    //         background-image: url(http://localhost:8080/documents/20142/49774/illios_2.png);
+    //     }
 
-        #Jjonak {
-            background-image: url(http://localhost:8080/documents/20142/49774/illios_3.png);
-        }
-        #Janus {
-            background-image: url(http://localhost:8080/documents/20142/49774/nepal_1.png);
-        }
-        #Mano {
-            background-image: url(http://localhost:8080/documents/20142/49774/nepal_2.png);
-        }
-        #MekO {
-            background-image: url(http://localhost:8080/documents/20142/49774/nepal_3.png);
-        }
-        #Libero {
-            background-image: url(http://localhost:8080/documents/20142/49774/lijiang_1.jpg);
-        }
-        #Pine {
-            background-image: url(http://localhost:8080/documents/20142/49774/lijiang_2.jpg);
-        }
-        #Saebyeolbe {
-            background-image: url(http://localhost:8080/documents/20142/49774/lijiang_3.jpg);
-        }
+    //     #Jjonak {
+    //         background-image: url(http://localhost:8080/documents/20142/49774/illios_3.png);
+    //     }
+    //     #Janus {
+    //         background-image: url(http://localhost:8080/documents/20142/49774/nepal_1.png);
+    //     }
+    //     #Mano {
+    //         background-image: url(http://localhost:8080/documents/20142/49774/nepal_2.png);
+    //     }
+    //     #MekO {
+    //         background-image: url(http://localhost:8080/documents/20142/49774/nepal_3.png);
+    //     }
+    //     #Libero {
+    //         background-image: url(http://localhost:8080/documents/20142/49774/lijiang_1.jpg);
+    //     }
+    //     #Pine {
+    //         background-image: url(http://localhost:8080/documents/20142/49774/lijiang_2.jpg);
+    //     }
+    //     #Saebyeolbe {
+    //         background-image: url(http://localhost:8080/documents/20142/49774/lijiang_3.jpg);
+    //     }
 
-        .player-card {
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: bottom;
-            border: 2px solid #000;
-            border-radius: 3px;
-            box-shadow: $box-shadow;
-            max-height: 240px;
-            max-width: 240px;
-            outline: 2px solid #FFF;
-        }
+    //     .player-card {
+    //         background-size: cover;
+    //         background-repeat: no-repeat;
+    //         background-position: bottom;
+    //         border: 2px solid #000;
+    //         border-radius: 3px;
+    //         box-shadow: $box-shadow;
+    //         max-height: 240px;
+    //         max-width: 240px;
+    //         outline: 2px solid #FFF;
+    //     }
 
-        .player-content-top {
-            display: flex;
-            justify-content: flex-start;
-            margin-top: -50px;
-            padding-left: 20px;
+    //     .player-content-top {
+    //         display: flex;
+    //         justify-content: flex-start;
+    //         margin-top: -50px;
+    //         padding-left: 20px;
 
-            h1, p {
-                margin: 0;
-            }
+    //         h1, p {
+    //             margin: 0;
+    //         }
 
-            .player-handle {
-                font-family: "Helvetica Bold";
-                font-size: 3rem;
-                font-weight: bold;
+    //         .player-handle {
+    //             font-family: "Helvetica Bold";
+    //             font-size: 3rem;
+    //             font-weight: bold;
 
-                @include textStyle(2px, uppercase);
+    //             @include textStyle(2px, uppercase);
 
-                text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
-            }
+    //             text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
+    //         }
             
-            .player-number {
-                font-family: "Titillium Web";
-                margin-left: 20px;
-                text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.3);
-            }
-        }
+    //         .player-number {
+    //             font-family: "Titillium Web";
+    //             margin-left: 20px;
+    //             text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.3);
+    //         }
+    //     }
         
-        .player-content-bottom {
-            margin: 10% -1% -1% 0;
-            padding: 5% 0;
-            text-align: center;
+    //     .player-content-bottom {
+    //         margin: 10% -1% -1% 0;
+    //         padding: 5% 0;
+    //         text-align: center;
             
-            .player-name {
-                margin-bottom: 0;
-            }
+    //         .player-name {
+    //             margin-bottom: 0;
+    //         }
 
-            .player-position {
-                color: $body-text-color;
-                font-family: $title-font;
+    //         .player-position {
+    //             color: $body-text-color;
+    //             font-family: $title-font;
 
-                @include textStyle(2px, uppercase);
+    //             @include textStyle(2px, uppercase);
 
-                text-shadow: $text-shadow;
-            }
+    //             text-shadow: $text-shadow;
+    //         }
 
-            &.DPS {
-                background-color: $ny-red-color;
-            }
-            &.Support {
-                background-color: #FDCB6E;
-            }
-            &.Tank {
-                background-color:#0984E3;
-            }
-        }
-    }
+    //         &.DPS {
+    //             background-color: $ny-red-color;
+    //         }
+    //         &.Support {
+    //             background-color: #FDCB6E;
+    //         }
+    //         &.Tank {
+    //             background-color:#0984E3;
+    //         }
+    //     }
+    // }
 }
 
 #portlet_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_HcB8WcEaCwfv,
@@ -164,6 +164,130 @@
         > tr:hover a {
             color: $light-blue-color;
             text-decoration: underline;
+        }
+    }
+}
+
+.team-container {
+    border: 7px double #000;
+    border-radius: 8px;
+    filter: $silhouette;
+
+    @include pinStripes(50px);
+
+    margin-bottom: 8px;
+    margin-right: 8px;
+    padding: 1% 1% 4% 1%;
+    transition: $transition;
+    width: max-content;
+
+    img:hover {
+        cursor: pointer;
+    }
+
+    &:hover {
+        animation: aura 1s ease-in-out infinite alternate;
+     }
+
+}
+
+.team-content {
+
+    #Anamo {
+        background-image: url(http://localhost:8080/documents/20142/49774/illios_1.png);
+    }
+
+    #Ark {
+        background-image: url(http://localhost:8080/documents/20142/49774/illios_2.png);
+    }
+
+    #Jjonak {
+        background-image: url(http://localhost:8080/documents/20142/49774/illios_3.png);
+    }
+    #Janus {
+        background-image: url(http://localhost:8080/documents/20142/49774/nepal_1.png);
+    }
+    #Mano {
+        background-image: url(http://localhost:8080/documents/20142/49774/nepal_2.png);
+    }
+    #MekO {
+        background-image: url(http://localhost:8080/documents/20142/49774/nepal_3.png);
+    }
+    #Libero {
+        background-image: url(http://localhost:8080/documents/20142/49774/lijiang_1.jpg);
+    }
+    #Pine {
+        background-image: url(http://localhost:8080/documents/20142/49774/lijiang_2.jpg);
+    }
+    #Saebyeolbe {
+        background-image: url(http://localhost:8080/documents/20142/49774/lijiang_3.jpg);
+    }
+
+    .player-card {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: bottom;
+        border: 2px solid #000;
+        border-radius: 3px;
+        box-shadow: $box-shadow;
+        max-height: 240px;
+        max-width: 240px;
+        outline: 2px solid #FFF;
+    }
+
+    .player-content-top {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: -50px;
+        padding-left: 20px;
+
+        h1, p {
+            margin: 0;
+        }
+
+        .player-handle {
+            font-family: "Helvetica Bold";
+            font-size: 3rem;
+            font-weight: bold;
+
+            @include textStyle(2px, uppercase);
+
+            text-shadow: -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF, 1px 1px 0 #FFF;
+        }
+        
+        .player-number {
+            font-family: "Titillium Web";
+            margin-left: 20px;
+            text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.3);
+        }
+    }
+    
+    .player-content-bottom {
+        margin: 10% -1% -1% 0;
+        padding: 5% 0;
+        text-align: center;
+        
+        .player-name {
+            margin-bottom: 0;
+        }
+
+        .player-position {
+            color: $body-text-color;
+            font-family: $title-font;
+
+            @include textStyle(2px, uppercase);
+
+            text-shadow: $text-shadow;
+        }
+
+        &.DPS {
+            background-color: $ny-red-color;
+        }
+        &.Support {
+            background-color: #FDCB6E;
+        }
+        &.Tank {
+            background-color:#0984E3;
         }
     }
 }
