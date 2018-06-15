@@ -5,14 +5,21 @@
 			"columns": [
 				[
 					{
-						"portletId": "com_liferay_asset_publisher_web_portlet_JournalContentPortlet_INSTANCE_${groupId}"
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+						"articleId": "NYXL Homepage Splash.xml",
+						"groupId": "${groupId}",
+						"portletSetupPortletDecoratorId": "barebone",
+						"portletSetupTitle_en_US": "NYXL Homepage Splash",
+							"portletSetupUseCustomTitle": "true"
+						}
 					}
 				]
 			],
-		  "friendlyURL": "/home",
-		  "name": "Welcome",
-		  "title": "Welcome",
-		  "layoutTemplateId": "1_column"
+			"friendlyURL": "/home",
+			"name": "Welcome",
+			"title": "Welcome",
+			"layoutTemplateId": "1_column"
 		},
 		{      
 			"friendlyURL": "/roster",
