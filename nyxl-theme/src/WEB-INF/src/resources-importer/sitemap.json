@@ -1,110 +1,148 @@
 {
-    "layoutTemplateId":"2_columns_ii",
-    "publicPages": [
-        {
-            "columns": [
-                ],
-          "friendlyURL": "/home",
-          "name": "Welcome",
-          "title": "Welcome",
-          "layoutTemplateId": "1_column"
-        },
-        {      
-            "friendlyURL": "/roster",
-            "name": "Roster",
-            "title": "Roster",
-            "layouts": [
-                {
-                    "friendlyURL": "/dps",
-                    "name": "DPS",
-                    "title": "DPS",
-                    "layouts": [
-                        {
-                            "friendlyURL": "/libero",
-                            "name": "Libero",
-                            "title": "Libero"
-                        },
-                        {
-                            "friendlyURL": "/pine",
-                            "name": "Pine",
-                            "title": "Pine"
-                        },
-                        {
-                            "friendlyURL": "/saebyeolbe",
-                            "name": "Saebyeolbe",
-                            "title": "Saebyeolbe"
-                        }
-                    ]
-                },
-                {
-                    "friendlyURL": "/support",
-                    "name": "Support",
-                    "title": "Support",
-                    "layouts": [
-                        {
-                            "friendlyURL": "/anamo",
-                            "name": "Anamo",
-                            "title": "Anamo"
-                        },
-                        {
-                            "friendlyURL": "/ark",
-                            "name": "Ark",
-                            "title": "Ark"
-                        },
-                        {
-                            "friendlyURL": "/jjonak",
-                            "name": "Jjonak",
-                            "title": "Jjonak"
-                        }
-                    ]
-                },
-                {
-                    "friendlyURL": "/tank",
-                    "name": "Tank",
-                    "title": "Tank",
-                    "layouts": [
-                        {
-                            "friendlyURL": "/janus",
-                            "name": "Janus",
-                            "title": "Janus"
-                        },
-                        {
-                            "friendlyURL": "/mano",
-                            "name": "Mano",
-                            "title": "Mano"
-                        },
-                        {
-                            "friendlyURL": "/meko",
-                            "name": "MekO",
-                            "title": "MekO"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "friendlyURL": "blogs",
-            "name": "Blogs",
-            "title": "Blogs",
-            "layoutTemplateId": "2_columns_iii"
-        },
-        {
-            "friendlyURL": "wiki",
-            "name": "Wiki",
-            "title": "Wiki",
-            "layoutPrototypeLinkEnabled": "true"
-        },
-        {
-            "friendlyURL": "about-us",
-            "name": "About Us",
-            "title": "About Us",
-            "layoutTemplateID": "1_column"
-        },
-        {
-            "friendlyURL": "connect",
-            "name": "Connect",
-            "title": "Connect",
-            "layoutTemplateID": "1_column"
-        }
-    ]
+	"layoutTemplateId":"2_columns_ii",
+	"publicPages": [
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_asset_publisher_web_portlet_JournalContentPortlet_INSTANCE_${groupId}"
+					}
+				]
+			],
+		  "friendlyURL": "/home",
+		  "name": "Welcome",
+		  "title": "Welcome",
+		  "layoutTemplateId": "1_column"
+		},
+		{      
+			"friendlyURL": "/roster",
+			"name": "Roster",
+			"title": "Roster",
+			"layouts": [
+				{
+					"friendlyURL": "/dps",
+					"name": "DPS",
+					"title": "DPS",
+					"layouts": [
+						{
+							"friendlyURL": "/libero",
+							"name": "Libero",
+							"title": "Libero"
+						},
+						{
+							"friendlyURL": "/pine",
+							"name": "Pine",
+							"title": "Pine"
+						},
+						{
+							"friendlyURL": "/saebyeolbe",
+							"name": "Saebyeolbe",
+							"title": "Saebyeolbe"
+						}
+					]
+				},
+				{
+					"friendlyURL": "/support",
+					"name": "Support",
+					"title": "Support",
+					"layouts": [
+						{
+							"friendlyURL": "/anamo",
+							"name": "Anamo",
+							"title": "Anamo"
+						},
+						{
+							"friendlyURL": "/ark",
+							"name": "Ark",
+							"title": "Ark"
+						},
+						{
+							"friendlyURL": "/jjonak",
+							"name": "Jjonak",
+							"title": "Jjonak"
+						}
+					]
+				},
+				{
+					"friendlyURL": "/tank",
+					"name": "Tank",
+					"title": "Tank",
+					"layouts": [
+						{
+							"friendlyURL": "/janus",
+							"name": "Janus",
+							"title": "Janus"
+						},
+						{
+							"friendlyURL": "/mano",
+							"name": "Mano",
+							"title": "Mano"
+						},
+						{
+							"friendlyURL": "/meko",
+							"name": "MekO",
+							"title": "MekO"
+						}
+					]
+				}
+			]
+		},
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_blogs_web_portlet_BlogsPortlet"
+					}
+				]
+			],
+			"friendlyURL": "blogs",
+			"name": "Blogs",
+			"title": "Blogs",
+			"layoutTemplateId": "2_columns_iii"
+		},
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_wiki_web_portlet_WikiPortlet"
+					}
+				]
+			],
+			"friendlyURL": "wiki",
+			"name": "Wiki",
+			"title": "Wiki",
+			"layoutPrototypeLinkEnabled": "true"
+		},
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet"
+					}
+				],
+				[
+					{
+						"portletId": "com_liferay_document_library_web_portlet_DLPortlet"
+					}
+				]
+			],
+			"friendlyURL": "about-us",
+			"name": "About Us",
+			"title": "About Us",
+			"layoutTemplateID": "1_column"
+		},
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_dynamic_data_lists_form_web_portlet_DDLFormPortlet"
+					}
+				]
+			],
+			"friendlyURL": "connect",
+			"name": "Connect",
+			"title": "Connect",
+			"layoutTemplateID": "1_column"
+		}
+	]
 }
