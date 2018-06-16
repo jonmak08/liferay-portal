@@ -14,65 +14,67 @@
 
 <body class="${css_class}">
 
-<@liferay_ui["quick-access"] contentId="#main-content" />
+	<@liferay_ui["quick-access"] contentId="#main-content" />
 
-<@liferay_util["include"] page=body_top_include />
+	<@liferay_util["include"] page=body_top_include />
 
-<@liferay.control_menu />
+	<@liferay.control_menu />
 
-<div class="container-fluid" id="wrapper">
-	<header id="banner" role="banner">
-			<#if !is_signed_in>
-				<div id="myCustomNav">
-					<a href="${sign_in_url}"<span id="myHartLogo">H</span></a>
-					<a data-redirect="${is_login_redirect_required?string}" href="${sign_in_url}" id="sign-in" rel="nofollow">${sign_in_text}</a>
-				</div>	
-			</#if>
-		<div id="heading">
-			<h1 class="site-title">
-				<a class="${logo_css_class}" href="${site_default_url}" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
-					<img alt="${logo_description}" height="${site_logo_height}" src="${site_logo}" width="${site_logo_width}" />
-				</a>
-
-				<#if show_site_name>
-					<span class="site-name" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
-						${site_name}
-					</span>
-				</#if>
-			</h1>
+	<#if !is_signed_in>
+		<div id="myCustomNav">
+			<a href="${sign_in_url}"<span id="myHartLogo">H</span></a>
+			<a data-redirect="${is_login_redirect_required?string}" href="${sign_in_url}" id="sign-in" rel="nofollow">${sign_in_text}</a>
 		</div>
-	</header>
+	</#if>
 
-	<section id="content">
-		<#if has_navigation && is_setup_complete>
-			<#include "${full_templates_path}/navigation.ftl" />
-		</#if>
-	</section>
+	<div class="container-fluid" id="wrapper">
+		<header id="banner" role="banner">
+			<div id="heading">
+				<h1 class="site-title">
+					<a class="${logo_css_class}" href="${site_default_url}" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
+						<img alt="${logo_description}" height="${site_logo_height}" src="${site_logo}" width="${site_logo_width}" />
+					</a>
 
-	<section class="content-container" id="content">
-		<h1 class="hide-accessible">${the_title}</h1>
+					<#if show_site_name>
+						<span class="site-name" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">${site_name}</span>
+					</#if>
+				</h1>
+			</div>
+		</header>
 
-		<#if selectable>
-			<@liferay_util["include"] page=content_include />
-		<#else>
-			${portletDisplay.recycle()}
+		<section id="content">
+			<#if has_navigation && is_setup_complete>
+				<#include "${full_templates_path}/navigation.ftl" />
+			</#if>
+		</section>
 
-			${portletDisplay.setTitle(the_title)}
+		<section class="content-container" id="content">
+			<h1 class="hide-accessible">
+				${the_title}
+			</h1>
 
-			<@liferay_theme["wrap-portlet"] page="portlet.ftl">
+			<#if selectable>
 				<@liferay_util["include"] page=content_include />
-			</@>
-		</#if>
-	</section>
+			<#else>
+				${portletDisplay.recycle()}
 
-</div>
+				${portletDisplay.setTitle(the_title)}
 
-<@liferay_util["include"] page=body_bottom_include />
+				<@liferay_theme["wrap-portlet"] page="portlet.ftl">
+					<@liferay_util["include"] page=content_include />
+				</@>
+			</#if>
+		</section>
 
-<@liferay_util["include"] page=bottom_include />
+		<#include "${full_templates_path}/footer.ftl" />
+	</div>
 
-<!-- inject:js -->
-<!-- endinject -->
+	<@liferay_util["include"] page=body_bottom_include />
+
+	<@liferay_util["include"] page=bottom_include />
+
+	<!-- inject:js -->
+	<!-- endinject -->
 
 </body>
 

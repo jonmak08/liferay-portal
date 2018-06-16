@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="content" type="text_area" index-type="text" instance-id="zzaw">
+		<dynamic-content language-id="en_US"><![CDATA[<p class="text-center map-of-diamond-bar"><iframe allowfullscreen="" frameborder="0" height="450" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52926.41960380455!2d-117.85014343560634!3d33.995070777376924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c32c8e42f729a9%3A0xea88c028d17dd7a9!2sDiamond+Bar%2C+CA!5e0!3m2!1sen!2sus!4v1529018124938" style="border:0" width="600"></iframe></p>]]></dynamic-content>
+	</dynamic-element>
+</root>

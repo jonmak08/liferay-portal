@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="header_image" type="image" index-type="text" instance-id="pqla">
+		<dynamic-content language-id="en_US" alt="" name="wedding13.jpg" title="wedding13.jpg" type="journal" fileEntryId="" id="53612">/image/journal/article?img_id=53612&amp;t=1528753392577</dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Rating" type="ddm-number" index-type="keyword" instance-id="vibm">
+		<dynamic-content language-id="en_US"><![CDATA[3]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Name" type="text" index-type="keyword" instance-id="unam">
+		<dynamic-content language-id="en_US"><![CDATA[Troll]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Abstract" type="text" index-type="keyword" instance-id="ucah">
+		<dynamic-content language-id="en_US"><![CDATA[Just Average]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Full_Review" type="text" index-type="keyword" instance-id="cczd">
+		<dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis commodo arcu, a vehicula ante commodo in. Cras sodales hendrerit tellus, in porta dui posuere nec. Suspendisse egestas, lectus at rhoncus commodo, metus ex lacinia tellus, ac porttitor nibh urna sit amet lorem. Etiam sit amet leo a turpis commodo consectetur.]]></dynamic-content>
+	</dynamic-element>
+</root>

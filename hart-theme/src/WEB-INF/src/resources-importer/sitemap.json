@@ -1,0 +1,280 @@
+{
+	"layoutTemplateId":"1_column",
+	"publicPages": [
+		{
+			"friendlyURL": "/about",
+			"name": "About",
+			"title": "About",
+			"columns": [
+                [
+                    {
+                        "portletId": "com_liferay_document_library_web_portlet_IGDisplayPortlet",
+                        "portletPreferences": {
+							"displayStyleGroupId": "46645",
+							"displayStyle": "Frontpage Carousel",
+                            "portletSetupPortletDecoratorId": "barebone"
+                        }
+                    },
+                    {
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                        "portletPreferences": {
+                            "articleId": "Landing Page Description.xml",
+                            "groupId": "${groupId}",
+                            "portletSetupPortletDecoratorId": "barebone"
+                        }
+                    }
+				]
+			],
+			"layouts": [
+				{
+					"friendlyURL": "/blog",
+					"name": "Blog",
+					"title": "Blog",
+					"layoutTemplateId": "2_columns_iii",
+					"columns": [
+						[
+							{
+								"portletId": "com_liferay_blogs_web_portlet_BlogsPortlet",
+								"portletPreferences": {
+									"portletSetupPortletDecoratorId": "barebone"
+								}
+							},
+							{
+								"portletId": "com_liferay_site_navigation_breadcrumb_web_portlet_SiteNavigationBreadcrumbPortlet",
+								"portletPreferences": {
+									"portletSetupPortletDecoratorId": "barebone"
+								}
+							}
+						],
+						[
+							{
+								"portletId": "com_liferay_asset_tags_navigation_web_portlet_AssetTagsNavigationPortlet_INSTANCE_5JcxUSygwReX",
+								"portletPreferences": {
+									"portletSetupPortletDecoratorId": "barebone"
+								}
+							}
+						]
+					]
+				},
+				{	
+					"friendlyURL": "/my-reviews",
+					"name": "Reviews",
+					"title": "Reviews",
+					"columns": [
+						[
+							{
+								"portletId": "com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet",
+								"portletPreferences": {
+									"articleId": "My First Review.xml",
+                            		"groupId": "${groupId}",
+									"portletSetupPortletDecoratorId": "barebone"
+								}
+							},
+							{
+								"portletId": "com_liferay_site_navigation_breadcrumb_web_portlet_SiteNavigationBreadcrumbPortlet",
+								"portletPreferences": {
+									"portletSetupPortletDecoratorId": "barebone"
+								}
+							}
+						]
+					]
+				}
+			]
+		},
+		{
+			"friendlyURL": "/portfolio",
+			"name": "Portfolio",
+			"title": "Portfolio",
+			"layouts": [
+				{
+					"friendlyURL": "/baby",
+					"name": "Baby",
+					"title": "Baby",
+					"columns": [
+						[
+							{
+								"portletId": "com_liferay_document_library_web_portlet_IGDisplayPortlet",
+								"portletPreferences": {
+									"portletSetupPortletDecoratorId": "barebone"
+								}
+							},
+							{
+								"portletId": "com_liferay_site_navigation_breadcrumb_web_portlet_SiteNavigationBreadcrumbPortlet",
+								"portletPreferences": {
+									"portletSetupPortletDecoratorId": "barebone"
+								}
+							}
+						]
+					],
+					"layouts": [
+						{
+							"friendlyURL": "/birth",
+							"name": "Birth",
+							"title": "Birth",
+							"columns": [
+								[
+									{
+										"portletId": "com_liferay_document_library_web_portlet_IGDisplayPortlet",
+										"portletPreferences": {
+											"portletSetupPortletDecoratorId": "barebone"
+										}
+									},
+									{
+										"portletId": "com_liferay_site_navigation_breadcrumb_web_portlet_SiteNavigationBreadcrumbPortlet",
+										"portletPreferences": {
+											"portletSetupPortletDecoratorId": "barebone"
+										}
+									}
+								]
+							]
+						}
+					]
+				},
+				{
+					"friendlyURL": "/family",
+					"name": "Family",
+					"title": "Family",
+					"columns": [
+						[
+							{
+								"portletId": "com_liferay_document_library_web_portlet_IGDisplayPortlet",
+								"portletPreferences": {
+									"portletSetupPortletDecoratorId": "barebone"
+								}
+							},
+							{
+								"portletId": "com_liferay_site_navigation_breadcrumb_web_portlet_SiteNavigationBreadcrumbPortlet",
+								"portletPreferences": {
+									"portletSetupPortletDecoratorId": "barebone"
+								}
+							}
+						]
+					]
+				},
+				{
+					"friendlyURL": "/weddings",
+					"name": "Weddings",
+					"title": "Weddings",
+					"columns": [
+						[
+							{
+								"portletId": "com_liferay_document_library_web_portlet_IGDisplayPortlet",
+								"portletPreferences": {
+									"portletSetupPortletDecoratorId": "barebone"
+								}
+							},
+							{
+								"portletId": "com_liferay_site_navigation_breadcrumb_web_portlet_SiteNavigationBreadcrumbPortlet",
+								"portletPreferences": {
+									"portletSetupPortletDecoratorId": "barebone"
+								}
+							}
+						]
+					],
+					"layouts": [
+						{
+							"friendlyURL": "/video",
+							"name": "Video",
+							"title": "Video",
+							"layoutTemplateId": "2_1_2_columns",
+							"columns": [
+								[
+									{
+										"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+										"portletPreferences": {
+											"articleId": "Drone Video 1.xml",
+											"portletSetupPortletDecoratorId": "barebone"
+										}
+									}
+								],
+								[
+									{
+										"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+										"portletPreferences": {
+										"articleId": "Drone Video 2.xml",
+										"portletSetupPortletDecoratorId": "barebone"
+										}
+									}
+								],
+								[
+									{
+										"portletId": "com_liferay_ratings_page_ratings_web_portlet_PageRatingsPortlet",
+										"portletPreferences": {
+											"portletSetupPortletDecoratorId": "barebone"
+										}
+									} 
+								],
+								[
+									{
+										"portletId": "com_liferay_site_navigation_breadcrumb_web_portlet_SiteNavigationBreadcrumbPortlet",
+										"portletPreferences": {
+											"portletSetupPortletDecoratorId": "barebone"
+										}
+									} 
+								]
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"friendlyURL": "/contact",
+			"name": "Contact",
+			"title": "Contact",
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_calendar_web_portlet_CalendarPortlet",
+						"portletPreferences": {
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					},
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Modal.xml",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					},
+					{
+						"portletId": "com_liferay_dynamic_data_lists_form_web_portlet_DDLFormPortlet",
+						"portletPreferences": {
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					},
+					{
+						"portletId": "com_liferay_site_navigation_breadcrumb_web_portlet_SiteNavigationBreadcrumbPortlet",
+						"portletPreferences": {
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					}
+				]
+			],
+			"layouts": [
+				{
+					"friendlyURL": "/map",
+					"name": "Map",
+					"title": "Map",
+					"columns": [
+						[
+							{
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+								"portletPreferences": {
+									"articleId": "Map of Diamond Bar.xml",
+									"portletSetupPortletDecoratorId": "barebone"
+								}
+							},
+							{
+								"portletId": "com_liferay_site_navigation_breadcrumb_web_portlet_SiteNavigationBreadcrumbPortlet",
+								"portletPreferences": {
+									"portletSetupPortletDecoratorId": "barebone"
+								}
+							}
+						]
+					]
+				}
+			]
+		}
+	]
+}

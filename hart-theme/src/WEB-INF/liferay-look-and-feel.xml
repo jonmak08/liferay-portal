@@ -7,6 +7,14 @@
 	</compatibility>
 	<theme id="hart" name="Hart">
 		<template-extension>ftl</template-extension>
+		<layout-templates>
+			<custom>
+				<layout-template id="hart-layout" name="Hart Layout">
+					<template-path>/layouttpl/custom/hart-layout-layouttpl/hart_layout.tpl</template-path>
+					<thumbnail-path>/layouttpl/custom/hart-layout-layouttpl/hart_layout.png</thumbnail-path>
+				</layout-template>
+			</custom>
+		</layout-templates>
 		<portlet-decorator id="barebone" name="Barebone">
 			<portlet-decorator-css-class>portlet-barebone</portlet-decorator-css-class>
 		</portlet-decorator>
