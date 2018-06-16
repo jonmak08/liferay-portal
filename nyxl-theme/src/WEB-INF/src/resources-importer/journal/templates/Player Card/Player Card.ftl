@@ -1,26 +1,20 @@
 <script>
-	window.addEventListener('load', function() {
-		var el = document.querySelector("section.portlet .team-container")
-		
-		el.addEventListener('click', function(event) {
-			var parent = event.target.parentElement;
-		
-			if (event.target.className === 'profile-full') {
-				if (parent.nodeName === 'PICTURE') {
-					parent = parent.parentElement;
-				}
-				event.target.classList.toggle('hidden');
-				parent.firstElementChild.classList.toggle('hidden');
+	document.getElementById("layout-column_column-2").addEventListener('click', function(event) {
+		var parent = event.target.parentElement;
+		if (event.target.className === 'profile-full') {
+			if (parent.nodeName === 'PICTURE') {
+				parent = parent.parentElement;
 			}
-		
-			if (event.target.className === 'profile') {
-				event.target.classList.toggle('hidden');
-				if (parent.lastElementChild.nodeName === 'PICTURE') {
-					return parent.lastElementChild.childNodes[1].classList.toggle('hidden')
-				}
-				parent.lastElementChild.classList.toggle('hidden');
+			event.target.classList.toggle('hidden');
+			parent.firstElementChild.classList.toggle('hidden');
+		}
+		if (event.target.className === 'profile') {
+			event.target.classList.toggle('hidden');
+			if (parent.lastElementChild.nodeName === 'PICTURE') {
+				return parent.lastElementChild.childNodes[1].classList.toggle('hidden')
 			}
-		})
+			parent.lastElementChild.classList.toggle('hidden');
+		}
 	})
 </script>
 

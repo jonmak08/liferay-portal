@@ -43,12 +43,75 @@
 				],
 				[
 					{
-						"portletId": "com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet",
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
 						"portletPreferences": {
+							"articleId": "Libero.xml",
 							"groupId": "${groupId}",
-							"portletSetupPortletDecoratorId": "decorate",
-							"portletSetupTitle_en_US": "NYXL Team Roster",
-							"portletSetupUseCustomTitle": "true"
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					},
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Pine.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					},
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Saebyeolbe.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					},
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Anamo.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					},
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Ark.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					},
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Jjonak.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					},
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Janus.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					},
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Mano.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					},
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "MekO.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
 						}
 					}
 				]
@@ -88,12 +151,27 @@
 						],
 						[
 							{
-								"portletId": "com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet",
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
 								"portletPreferences": {
+									"articleId": "Libero.xml",
 									"groupId": "${groupId}",
-									"portletSetupPortletDecoratorId": "decorate",
-									"portletSetupTitle_en_US": "NYXL DPS Roster",
-									"portletSetupUseCustomTitle": "true"
+									"portletSetupPortletDecoratorId": "barebone"
+								}
+							},
+							{
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+								"portletPreferences": {
+									"articleId": "Pine.xml",
+									"groupId": "${groupId}",
+									"portletSetupPortletDecoratorId": "barebone"
+								}
+							},
+							{
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+								"portletPreferences": {
+									"articleId": "Saebyeolbe.xml",
+									"groupId": "${groupId}",
+									"portletSetupPortletDecoratorId": "barebone"
 								}
 							}
 						]
@@ -217,12 +295,51 @@
 						],
 						[
 							{
-								"portletId": "com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet",
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
 								"portletPreferences": {
+									"articleId": "Anamo.xml",
 									"groupId": "${groupId}",
-									"portletSetupPortletDecoratorId": "decorate",
-									"portletSetupTitle_en_US": "NYXL Support Roster",
-									"portletSetupUseCustomTitle": "true"
+									"portletSetupPortletDecoratorId": "barebone"
+								}
+							},
+							{
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+								"portletPreferences": {
+									"articleId": "Ark.xml",
+									"groupId": "${groupId}",
+									"portletSetupPortletDecoratorId": "barebone"
+								}
+							},
+							{
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+								"portletPreferences": {
+									"articleId": "Jjonak.xml",
+									"groupId": "${groupId}",
+									"portletSetupPortletDecoratorId": "barebone"
+								}
+							},
+							{
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+								"portletPreferences": {
+									"articleId": "Janus.xml",
+									"groupId": "${groupId}",
+									"portletSetupPortletDecoratorId": "barebone"
+								}
+							},
+							{
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+								"portletPreferences": {
+									"articleId": "Mano.xml",
+									"groupId": "${groupId}",
+									"portletSetupPortletDecoratorId": "barebone"
+								}
+							},
+							{
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+								"portletPreferences": {
+									"articleId": "MekO.xml",
+									"groupId": "${groupId}",
+									"portletSetupPortletDecoratorId": "barebone"
 								}
 							}
 						]
@@ -232,16 +349,82 @@
 					"title": "Support",
 					"layouts": [
 						{
+							"columns": [
+								[
+									{
+										"portletId": "com_liferay_site_navigation_breadcrumb_web_portlet_SiteNavigationBreadcrumbPortlet",
+										"portletPreferences": {
+											"groupId": "${groupId}",
+											"portletSetupPortletDecoratorId": "barebone"
+										}
+									}
+								],
+								[
+									{
+										"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+										"portletPreferences": {
+											"articleId": "Anamo.xml",
+											"portletSetupPortletDecoratorId": "decorate",
+											"portletSetupTitle_en_US": "The name that means I am nobody",
+											"portletSetupUseCustomTitle": "true"
+										}
+									}
+								]
+							],
 							"friendlyURL": "/anamo",
 							"name": "Anamo",
 							"title": "Anamo"
 						},
 						{
+							"columns": [
+								[
+									{
+										"portletId": "com_liferay_site_navigation_breadcrumb_web_portlet_SiteNavigationBreadcrumbPortlet",
+										"portletPreferences": {
+											"groupId": "${groupId}",
+											"portletSetupPortletDecoratorId": "barebone"
+										}
+									}
+								],
+								[
+									{
+										"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+										"portletPreferences": {
+											"articleId": "Ark.xml",
+											"portletSetupPortletDecoratorId": "decorate",
+											"portletSetupTitle_en_US": "The League's Premiere Mercy",
+											"portletSetupUseCustomTitle": "true"
+										}
+									}
+								]
+							],
 							"friendlyURL": "/ark",
 							"name": "Ark",
 							"title": "Ark"
 						},
 						{
+							"columns": [
+								[
+									{
+										"portletId": "com_liferay_site_navigation_breadcrumb_web_portlet_SiteNavigationBreadcrumbPortlet",
+										"portletPreferences": {
+											"groupId": "${groupId}",
+											"portletSetupPortletDecoratorId": "barebone"
+										}
+									}
+								],
+								[
+									{
+										"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+										"portletPreferences": {
+											"articleId": "Jjonak.xml",
+											"portletSetupPortletDecoratorId": "decorate",
+											"portletSetupTitle_en_US": "The League's Deadliest Zenyetta",
+											"portletSetupUseCustomTitle": "true"
+										}
+									}
+								]
+							],
 							"friendlyURL": "/jjonak",
 							"name": "Jjonak",
 							"title": "Jjonak"
@@ -279,12 +462,27 @@
 						],
 						[
 							{
-								"portletId": "com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet",
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
 								"portletPreferences": {
+									"articleId": "Janus.xml",
 									"groupId": "${groupId}",
-									"portletSetupPortletDecoratorId": "decorate",
-									"portletSetupTitle_en_US": "NYXL Tank Roster",
-									"portletSetupUseCustomTitle": "true"
+									"portletSetupPortletDecoratorId": "barebone"
+								}
+							},
+							{
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+								"portletPreferences": {
+									"articleId": "Mano.xml",
+									"groupId": "${groupId}",
+									"portletSetupPortletDecoratorId": "barebone"
+								}
+							},
+							{
+								"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+								"portletPreferences": {
+									"articleId": "MekO.xml",
+									"groupId": "${groupId}",
+									"portletSetupPortletDecoratorId": "barebone"
 								}
 							}
 						]
@@ -294,16 +492,82 @@
 					"title": "Tank",
 					"layouts": [
 						{
+							"columns": [
+								[
+									{
+										"portletId": "com_liferay_site_navigation_breadcrumb_web_portlet_SiteNavigationBreadcrumbPortlet",
+										"portletPreferences": {
+											"groupId": "${groupId}",
+											"portletSetupPortletDecoratorId": "barebone"
+										}
+									}
+								],
+								[
+									{
+										"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+										"portletPreferences": {
+											"articleId": "Janus.xml",
+											"portletSetupPortletDecoratorId": "decorate",
+											"portletSetupTitle_en_US": "#1 Source for Anime",
+											"portletSetupUseCustomTitle": "true"
+										}
+									}
+								]
+							],
 							"friendlyURL": "/janus",
 							"name": "Janus",
 							"title": "Janus"
 						},
 						{
+							"columns": [
+								[
+									{
+										"portletId": "com_liferay_site_navigation_breadcrumb_web_portlet_SiteNavigationBreadcrumbPortlet",
+										"portletPreferences": {
+											"groupId": "${groupId}",
+											"portletSetupPortletDecoratorId": "barebone"
+										}
+									}
+								],
+								[
+									{
+										"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+										"portletPreferences": {
+											"articleId": "Mano.xml",
+											"portletSetupPortletDecoratorId": "decorate",
+											"portletSetupTitle_en_US": "NYXL's Most Aggresive Winston",
+											"portletSetupUseCustomTitle": "true"
+										}
+									}
+								]
+							],
 							"friendlyURL": "/mano",
 							"name": "Mano",
 							"title": "Mano"
 						},
 						{
+							"columns": [
+								[
+									{
+										"portletId": "com_liferay_site_navigation_breadcrumb_web_portlet_SiteNavigationBreadcrumbPortlet",
+										"portletPreferences": {
+											"groupId": "${groupId}",
+											"portletSetupPortletDecoratorId": "barebone"
+										}
+									}
+								],
+								[
+									{
+										"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+										"portletPreferences": {
+											"articleId": "MekO.xml",
+											"portletSetupPortletDecoratorId": "decorate",
+											"portletSetupTitle_en_US": "Certified Hypebeast",
+											"portletSetupUseCustomTitle": "true"
+										}
+									}
+								]
+							],
 							"friendlyURL": "/meko",
 							"name": "MekO",
 							"title": "MekO"
