@@ -24,7 +24,7 @@ body::before, body::after {
 }
 
 section.container-fluid-1280 {
-	max-width: max-content;
+	max-width: inherit;
 }
 
 #content {
@@ -40,8 +40,8 @@ section.container-fluid-1280 {
 	position: absolute;
 	top: 51%;
 	transform: translateY(-100%);
-	z-index: -1;
 	width: 50%;
+	z-index: -1;
 }
 
 #content::after {

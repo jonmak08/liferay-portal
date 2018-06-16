@@ -1,6 +1,6 @@
 <style>
     section.container-fluid-1280 {
-        max-width: none;
+        max-width: inherit;
     }
     
     #column-1  {
