@@ -33,7 +33,7 @@ section.container-fluid-1280 {
 
 #content::before {
 	animation: barberpole-body-case 1.5s ease-in-out 10;
-	background-image: linear-gradient(45deg, #171C38 25%, #0f57EA 25%, #0f57EA 50%, #171C38 50%, #171C38 75%, #0f57EA 75%, #0f57EA);
+	background-image: linear-gradient(45deg, #171C38 25%, #0F57EA 25%, #0F57EA 50%, #171C38 50%, #171C38 75%, #0F57EA 75%, #0F57EA);
 	background-size: 150px 150px;
 	content: '';
 	height: 51vh;
@@ -46,7 +46,7 @@ section.container-fluid-1280 {
 
 #content::after {
 	animation: barberpole-body-case 1.5s ease-in-out 10;
-	background-image: linear-gradient(45deg, #171C38 25%, #0f57EA 25%, #0f57EA 50%, #171C38 50%, #171C38 75%, #0f57EA 75%, #0f57EA);
+	background-image: linear-gradient(45deg, #171C38 25%, #0F57EA 25%, #0F57EA 50%, #171C38 50%, #171C38 75%, #0F57EA 75%, #0F57EA);
 	background-size: 150px 150px;
 	content: '';
 	height: 51vh;
