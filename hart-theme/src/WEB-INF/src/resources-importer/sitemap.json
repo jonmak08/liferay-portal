@@ -10,9 +10,10 @@
                     {
                         "portletId": "com_liferay_document_library_web_portlet_IGDisplayPortlet",
                         "portletPreferences": {
-							"displayStyleGroupId": "46645",
-							"displayStyle": "Frontpage Carousel",
-                            "portletSetupPortletDecoratorId": "barebone"
+							"displayStyle": "ddmTemplate_FRONTPAGE-CAROUSEL",
+							"displayStyleGroupId": "${groupId}",
+							"queryName0": "assetTags",
+							"queryValues0": "carousel"
                         }
                     },
                     {
@@ -63,7 +64,7 @@
 					"columns": [
 						[
 							{
-								"portletId": "com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet",
+								"portletId": "com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_nTPfN3XyL2O5",
 								"portletPreferences": {
 									"articleId": "My First Review.xml",
                             		"groupId": "${groupId}",
@@ -85,6 +86,22 @@
 			"friendlyURL": "/portfolio",
 			"name": "Portfolio",
 			"title": "Portfolio",
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_document_library_web_portlet_IGDisplayPortlet",
+						"portletPreferences": {
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					},
+					{
+						"portletId": "com_liferay_site_navigation_breadcrumb_web_portlet_SiteNavigationBreadcrumbPortlet",
+						"portletPreferences": {
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					}
+				]
+			],
 			"layouts": [
 				{
 					"friendlyURL": "/baby",
@@ -237,8 +254,8 @@
 							"portletSetupPortletDecoratorId": "barebone"
 						}
 					},
-					{
-						"portletId": "com_liferay_dynamic_data_lists_form_web_portlet_DDLFormPortlet",
+					{ 
+						"portletId": "com_liferay_dynamic_data_lists_form_web_portlet_DDLFormPortlet_INSTANCE_Be7vz8uRrSYu",
 						"portletPreferences": {
 							"portletSetupPortletDecoratorId": "barebone"
 						}

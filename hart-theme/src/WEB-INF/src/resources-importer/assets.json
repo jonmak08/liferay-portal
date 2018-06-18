@@ -1,0 +1,28 @@
+{
+    "assets": [
+        {
+            "name": "starfish.png",
+            "tags": [
+                "carousel"
+            ]
+        },
+        {
+            "name": "wedding4.jpg",
+            "tags": [
+                "carousel"
+            ]
+        },
+        {
+            "name": "wedding5.jpg",
+            "tags": [
+                "carousel"
+            ]
+        },
+        {
+            "name": "wedding6(1).jpg",
+            "tags": [
+                "carousel"
+            ]
+        }
+    ]
+}

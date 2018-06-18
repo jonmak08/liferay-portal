@@ -480,6 +480,9 @@ p {
 }
 
 #p_p_id_com_liferay_dynamic_data_lists_form_web_portlet_DDLFormPortlet_INSTANCE_Be7vz8uRrSYu_ {
+	background-color: #EFEFEF;
+	margin: 0 25px;
+
 	.lfr-ddm-form-pagination-controls {
 		display: flex;
 		justify-content: center;
@@ -488,6 +491,10 @@ p {
 	.portlet-forms .lfr-ddm-form-field-container {
 		padding: 10px;
 	}
+}
+
+#p_p_id_com_liferay_chat_web_portlet_ChatPortlet_{
+	display: none;
 }
 
 .portlet-body {
@@ -555,6 +562,10 @@ p {
 	}
 }
 
+#portlet_com_liferay_ratings_page_ratings_web_portlet_PageRatingsPortlet {
+	text-align: center;
+}
+
 .progress-bar {
 	background-color: $link-color;
 }
@@ -588,17 +599,23 @@ ul.breadcrumb {
 	width: fit-content;
 }
 
-ul.tag-items.tag-cloud {
-	display: flex;
-	flex-direction: column;
-	text-transform: uppercase;
+#portlet_com_liferay_asset_tags_navigation_web_portlet_AssetTagsNavigationPortlet_INSTANCE_5JcxUSygwReX{
+	margin-top: 150px;
+	
+	ul.tag-items.tag-cloud {
+		display: flex;
+		flex-direction: column;
+		text-transform: uppercase;
 
-	li {
-		background-color: #aaa;
-		border-bottom: 1px solid $white-color;
+		li {
+			background-color: #aaa;
+			border-bottom: 1px solid $white-color;
+			font-size: 15px;
+			text-align: center;
 
-		a:hover, a.tag-selected {
-			color: $white-color;
+			a:hover, a.tag-selected {
+				color: $white-color;
+			}
 		}
 	}
 }
