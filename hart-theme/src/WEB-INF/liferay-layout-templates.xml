@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!DOCTYPE layout-templates PUBLIC "-//Liferay//DTD Layout Templates 7.0.0//EN" "http://www.liferay.com/dtd/liferay-layout-templates_7_0_0.dtd">
+
+<layout-templates>
+	<custom>
+		<layout-template id="hart-layout" name="Hart Layout">
+			<template-path>\layouttpl\custom\hart-layout-layouttpl/hart_layout.tpl</template-path>
+			<thumbnail-path>\layouttpl\custom\hart-layout-layouttpl/hart_layout.png</thumbnail-path>
+		</layout-template>
+	</custom>
+</layout-templates>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="header_image" type="image" index-type="text" instance-id="eusl">
+		<dynamic-content language-id="en_US" alt="" name="wedding6.jpg" title="wedding6.jpg" type="journal" fileEntryId="" id="53808">/image/journal/article?img_id=53808&amp;t=1528757893518</dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Rating" type="ddm-number" index-type="keyword" instance-id="htcu">
+		<dynamic-content language-id="en_US"><![CDATA[1]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Name" type="text" index-type="keyword" instance-id="pnpc">
+		<dynamic-content language-id="en_US"><![CDATA[Skippy]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Abstract" type="text" index-type="keyword" instance-id="rtuf">
+		<dynamic-content language-id="en_US"><![CDATA[Not Worth It]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Full_Review" type="text" index-type="keyword" instance-id="iokt">
+		<dynamic-content language-id="en_US"><![CDATA[The pictures were terrible. The photographer was grumpy all day. It was expensive and I had to wait a really long time to get the pictures back. If I were you I would hire someone else.]]></dynamic-content>
+	</dynamic-element>
+</root>

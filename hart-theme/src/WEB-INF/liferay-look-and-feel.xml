@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE look-and-feel PUBLIC "-//Liferay//DTD Look and Feel 7.0.0//EN" "http://www.liferay.com/dtd/liferay-look-and-feel_7_0_0.dtd">
+
+<look-and-feel>
+	<compatibility>
+		<version>7.0.0+</version>
+	</compatibility>
+	<theme id="hart" name="Hart">
+		<template-extension>ftl</template-extension>
+		<layout-templates>
+			<custom>
+				<layout-template id="hart-layout" name="Hart Layout">
+					<template-path>/layouttpl/custom/hart-layout-layouttpl/hart_layout.tpl</template-path>
+					<thumbnail-path>/layouttpl/custom/hart-layout-layouttpl/hart_layout.png</thumbnail-path>
+				</layout-template>
+			</custom>
+		</layout-templates>
+		<portlet-decorator id="barebone" name="Barebone">
+			<portlet-decorator-css-class>portlet-barebone</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="borderless" name="Borderless">
+			<portlet-decorator-css-class>portlet-borderless</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="decorate" name="Decorate">
+			<default-portlet-decorator>true</default-portlet-decorator>
+			<portlet-decorator-css-class>portlet-decorate</portlet-decorator-css-class>
+		</portlet-decorator>
+	</theme>
+</look-and-feel>

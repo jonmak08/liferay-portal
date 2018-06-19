@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="header_image" type="image" index-type="text" instance-id="xisr">
+		<dynamic-content language-id="en_US" alt="" name="wedding2.jpg" title="wedding2.jpg" type="journal" fileEntryId="" id="53503">/image/journal/article?img_id=53503&amp;t=1528743980877</dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Rating" type="ddm-number" index-type="keyword" instance-id="nlfa">
+		<dynamic-content language-id="en_US"><![CDATA[4]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Name" type="text" index-type="keyword" instance-id="xusk">
+		<dynamic-content language-id="en_US"><![CDATA[Rebecca]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Abstract" type="text" index-type="keyword" instance-id="igkp">
+		<dynamic-content language-id="en_US"><![CDATA[Great Photographer]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Full_Review" type="text" index-type="keyword" instance-id="hwwa">
+		<dynamic-content language-id="en_US"><![CDATA[This lady was on top of her game. She did a great job with all the people involved. Her pictures were amazing. She took a little longer than I expected to get the pictures back to us, which is the only reason for the 4 star rating.]]></dynamic-content>
+	</dynamic-element>
+</root>

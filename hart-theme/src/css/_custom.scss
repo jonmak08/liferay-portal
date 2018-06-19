@@ -1,0 +1,762 @@
+$font-color: #111;
+$footer-color: #29343D;
+$link-color: #CA9B52;
+$sans-serif: "Open Sans", helvetica, sans-serif;
+$serif: "Playfair Display", "Times New Roman", serif;
+$white-color: #FFF;
+
+a, a:visited, a:focus {
+	color: $font-color;
+	text-decoration: none;
+}
+
+a:hover {
+	color: $link-color;
+	text-decoration: none;
+}
+
+a.rating-element, span.rating-element {
+	color: $link-color;
+}
+
+#banner {
+	background-image: url(../images/snow.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 450px;
+	width: 100%;
+
+	.site-title {
+		color: $font-color;
+		font-size: 7vw;
+		font-weight: 100;
+		margin: 0;
+		text-align: center;
+		text-transform: uppercase;
+
+		a.logo {
+			display: none;
+		}
+	}
+}
+
+body {
+	background-color: $white-color;
+	font-family: $sans-serif;
+	font-size: 15px;
+}
+
+.btn-primary {
+	background-color: $link-color;
+	border-color: $link-color;
+}
+
+.btn-primary:link, .btn-primary:visited, .btn-primary:focus, .btn-primary:hover, .btn-primary:active, .btn-primary:active:focus {
+	background-color: $link-color;
+	border-color: $link-color;
+	outline: none;
+}
+
+.calendar-portlet-column-parent > div.row {
+	display: flex;
+
+	.calendar-portlet-column-grid {
+		flex-basis: 100%;
+	}
+}
+
+.content-container {
+	padding: 2% 7% 0;
+}
+
+#ControlMenu > div {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.portlet-forms-display {
+	.ddl-form-name {
+		display: none;
+	}
+
+	 .portlet-forms .required-warning {
+	text-align: center;
+	}
+}
+
+.entry-info {
+	font-family: $serif;
+	font-weight: normal;
+	letter-spacing: 0;
+	line-height: 25px;
+	text-align: center;
+}
+
+.entry-title {
+	font-family: $serif;
+	font-size: 44px;
+	font-weight: normal;
+	letter-spacing: 0.5px;
+	line-height: 44px;
+	text-align: center;
+
+	h2 {
+		padding-left: 32px;
+	}
+}
+
+h2 {
+	color: $font-color;
+}
+
+#hart-footer {
+	background-color: $footer-color;
+	color: $white-color;
+	font-family: $sans-serif;
+
+	a {
+		color: $white-color;
+
+		&:focus, &:visited {
+			color: $white-color;
+		}
+
+		&:hover {
+			color: #ccc;
+		}
+	}
+	
+	.hart-footer-content {
+		padding: 40px 0;
+		margin: auto;
+		width: 86%;
+
+		.hart-footer-contact {
+			display: flex;
+			flex-wrap: wrap;
+			font-size: 16px;
+			justify-content: center;
+			margin: auto;
+
+			.contact-item {
+				padding: 10px;
+			}
+		}
+
+		.hart-footer-nav-group {
+			display: flex;
+			flex-wrap: wrap;
+			font-size: 18px;
+			justify-content: center;
+			margin: auto;
+
+			.hart-footer-nav-item {
+				padding: 10px;
+			}
+		}
+
+		.hart-nav-logo {
+			border: 1px solid $white-color;
+			border-radius: 10px;
+			margin: auto;
+			margin-bottom: 10px;
+			padding: 5px;
+			text-align: center;
+			width: fit-content;
+
+			.hart-nav-logo-description {
+				font-family: $sans-serif;
+				font-size: 12px;
+				padding: 0;
+			}
+			
+			.hart-nav-logo-name {
+				font-family: $serif;
+				text-decoration: underline;
+				font-size: 18px;
+				padding: 0;
+			}
+		}
+	}
+}
+
+.has-control-menu #wrapper {
+	margin-top: 36px!important;
+	padding: 0;
+
+	@media only screen and (min-width: $screen-sm) {
+		.has-control-menu #wrapper {
+			margin-top: 36px!important;
+		}
+	}
+}
+
+#heading {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: center;
+}
+
+.lfr-preview-file-content, .lfr-preview-image-content, .lfr-preview-file-image-container, .lfr-preview-file-image-current-column {
+	background: none;
+	border-width: 0;
+	box-shadow: none;
+	height: auto;
+	padding: 0;
+}
+
+#modal {
+	.modal-body {
+		font-family: $serif;
+		text-indent: 30px;
+
+		h3 {
+			margin: 0 20px;
+		}
+	}	
+
+	.modal-footer .btn-toolbar {
+		display: flex;
+		justify-content: center;
+
+		.btn {
+			background-color: #EFEFEF;
+		}
+	}
+
+	.modal-header {
+		background-color: $link-color;
+		background-image: url(https://s3.freefoto.com/images/9909/12/9909_12_4725_web.jpg);
+		background-position: center;
+		background-size: cover;
+
+		h1 {
+		color: $white-color;
+		text-shadow: 3px 2px #111;
+		}
+	}
+}
+
+#myCustomNav {
+	background-color: $footer-color;
+	font-size: 12px;
+	height: 32px;
+
+	#myHartLogo {
+		background-color: #CCC;
+		border: 4px double $footer-color;
+		border-radius: 100px;
+		color: $footer-color;
+		display: inline-block;
+		font-family: $serif;
+		height: 75%;
+		margin-left: 10px;
+		margin-top: 4px;
+		padding: 0 3px;
+	}
+
+	#sign-in {
+		color: #EEE;
+		float: right;
+		height: 100%;
+		margin-right: 10px;
+		padding: 7px;
+	}
+}
+
+.navbar-form {
+	border: none;
+	margin: 0;
+}
+
+#navigation {
+	align-items: center;
+	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+	display: flex;
+	justify-content: center;
+	min-height: 60px;
+	padding: 0 11%;
+
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+
+		.custom-nav-li {
+			margin: 0 5px;
+			max-width: 100%;
+			overflow: hidden;
+			padding: 20px 0;
+			text-overflow: ellipsis;
+			z-index: 99;
+
+			.child-menu {
+				background-color: $white-color;
+				display: none;
+				height: auto;
+				text-align: center;
+	
+				li {
+					padding: 1px;
+	
+					a:hover {
+						color: $link-color;
+						// text-decoration: none;
+					}
+				}
+			}
+
+			&:hover .child-menu {
+				display: block;
+	
+				li {
+					a {
+						white-space: nowrap;
+					}
+				}
+			}
+
+			.my-nav-links {
+				font-weight: 600;
+				letter-spacing: 1px;
+				padding: 0 15px;
+				text-decoration: none;
+				text-transform: uppercase;
+				white-space: nowrap;
+
+				&:focus, &:hover {
+					color: $link-color;
+					text-decoration: none;
+				}
+			}
+
+			&.selected {
+				> a {
+					color: $link-color;
+				}
+			}
+		}
+
+		.delete-tab {
+			top: 20px;
+		}
+
+		.grandchild-menu {
+			flex-direction: column;
+			font-size: 12px;
+		}
+	}
+}
+
+#navigation #portlet_com_liferay_portal_search_web_portlet_SearchPortlet {
+	height: 60px;
+	margin-bottom: 0;
+	overflow: hidden;
+
+	div, input, fieldset {
+		display: block;
+		height: 60px;
+	}
+
+	.lfr-ddm-field-group {
+		display: none;
+	}
+
+	.portlet-content {
+		border: none;
+		height: inherit;
+		outline: none;
+	}
+
+	.portlet-topper {
+		display: none;
+	}
+}
+
+.nav-menu-hamburger {
+	min-height: 60px;
+	min-width: 60px;
+}
+
+.nav-menu-hamburger-icon {
+	align-items: center;
+	background-image: url(../images/menu_icon.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 30%;
+	display: flex;
+	justify-content: center;
+	left: 7%;
+	max-height: 60px;
+	min-width: 60px;
+	position: absolute;
+
+	a {
+		padding: 0;
+	}
+}
+
+#nav-menu-search-icon {
+	background-image: url(../images/search_icon.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 25%;
+	cursor: pointer;
+	min-height: 60px;
+	min-width: 60px;
+	position: absolute;
+	right: 7.2%;
+}
+
+#nav-menu-search-icon2 {
+	padding: 0;
+	display: none;
+
+	input {
+		border: none;
+		box-shadow: none;
+		font-size: 18px;
+		padding: 0;
+		text-align: center;
+	}
+
+	input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill, input:-webkit-autofill:hover, textarea:-webkit-autofill:hover, select:-webkit-autofill:hover, input:-webkit-autofill:focus, textarea:-webkit-autofill:focus, select:-webkit-autofill:focus, .form-control:focus  {
+		box-shadow: 0 0 0 100px $white-color inset;
+	}
+}
+
+p {
+	text-align: justify;
+
+	&:first-of-type:first-letter {
+		color: #030303;
+		float: left;
+		font-family: $serif;
+		font-size: 80px;
+		font-weight: normal;
+		line-height: 65px;
+		margin: 0 12px 0 0;
+		text-align: center;
+	}
+}
+
+.pagination > li {
+	> a {
+		color: $link-color;
+	}
+
+	&.active > a, &.active:hover > a {
+		background-color: $link-color;
+		border-color: $link-color;
+	}
+}
+
+#panel-manage-site_administration_content {
+	.scope-selector {
+	width: 100%;
+	}
+}
+
+#p_p_id_com_liferay_dictionary_web_portlet_DictionaryPortlet_ {
+	.btn {
+		font-size: 16px;
+		margin: 10px 0;
+		padding: 8px 18px;
+	}
+
+	.portlet-body {
+		text-align: center;
+	}
+}
+
+#p_p_id_com_liferay_site_navigation_language_web_portlet_SiteNavigationLanguagePortlet_ {
+	text-align: center;
+}
+
+#p_p_id_com_liferay_dynamic_data_lists_form_web_portlet_DDLFormPortlet_INSTANCE_Be7vz8uRrSYu_ {
+	background-color: #EFEFEF;
+	margin: 0 25px;
+
+	.lfr-ddm-form-pagination-controls {
+		display: flex;
+		justify-content: center;
+	}
+	
+	.portlet-forms .lfr-ddm-form-field-container {
+		padding: 10px;
+	}
+}
+
+#p_p_id_com_liferay_chat_web_portlet_ChatPortlet_{
+	display: none;
+}
+
+.portlet-body {
+	img {
+		display: block;
+		margin: auto;
+	}
+}
+
+.portlet-column {
+	margin-bottom: 40px;
+}
+
+.portlet-image-gallery-display {
+	.card {
+		border-width: 0;
+		box-shadow: 1px 1px 7px 2px #aaa;
+	}
+
+	.lfr-asset-metadata, .lfr-asset-description, .taglib-header {
+		display: none;
+	}
+}
+
+.portlet-title-text {
+	display: none;
+}
+
+#portlet_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_nTPfN3XyL2O5 {
+	.portlet-body {
+		display: flex;
+		flex-wrap: wrap;
+		margin: auto;
+		max-width: 1500px;
+
+		.asset-full-content {
+			flex-basis: 22%;
+			flex-grow: 1;
+			padding: 2%;
+		}
+	}
+
+	.portlet-title-text {
+		display: none;
+	}
+}
+
+#portlet_com_liferay_blogs_web_portlet_BlogsPortlet {
+	.entry {
+		box-shadow: 1px 1px 7px 2px #aaa;
+		margin-bottom: 80px;
+		padding: 40px;
+
+		a {
+			color: $link-color;
+		}
+
+		.entry-subtitle > h4 {
+			margin-top: 0;
+		}
+
+		.entry-title > h1 {
+			margin: 40px 0 0 0;
+		}
+	}
+}
+
+#portlet_com_liferay_ratings_page_ratings_web_portlet_PageRatingsPortlet {
+	text-align: center;
+}
+
+.progress-bar {
+	background-color: $link-color;
+}
+
+.scheduler-view-day-header-day .scheduler-today-hd {
+	border-bottom: 3px solid $link-color;
+	color: $link-color;
+}
+
+.site-title {
+	color: $font-color;
+	font-size: 100px;
+	font-weight: 100;
+	letter-spacing: 10px;
+	margin: 0;
+	text-align: center;
+	text-transform: uppercase;
+
+	a.logo {
+		display: hidden;
+	}
+}
+
+.text-primary {
+	color: $link-color;
+}
+
+ul.breadcrumb {
+	background-color: $white-color;
+	margin: auto;
+	width: fit-content;
+}
+
+#portlet_com_liferay_asset_tags_navigation_web_portlet_AssetTagsNavigationPortlet_INSTANCE_5JcxUSygwReX{
+	margin-top: 150px;
+	
+	ul.tag-items.tag-cloud {
+		display: flex;
+		flex-direction: column;
+		text-transform: uppercase;
+
+		li {
+			background-color: #aaa;
+			border-bottom: 1px solid $white-color;
+			font-size: 15px;
+			text-align: center;
+
+			a:hover, a.tag-selected {
+				color: $white-color;
+			}
+		}
+	}
+}
+
+.user-icon-color-5 {
+	background-color: $link-color;
+}
+
+#wrapper {
+	padding: 0;
+}
+
+.yui3-skin-sam .calendar-portlet {
+	.yui3-calendar-day.lfr-current-day {
+		background-color: $link-color !important;
+	}
+
+	th.yui3-calendar-weekday, .scheduler-view-agenda-header-extra {
+		color: $link-color;
+	}
+
+	.scheduler-view-agenda-info-biggie, .scheduler-view-agenda-info-label-biggie {
+		color: #111;
+	}
+}
+
+#_com_liferay_portal_search_web_portlet_SearchPortlet_searchContainer {
+	div {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	input {
+		text-align: center;
+	}
+}
+
+#_com_liferay_portal_search_web_portlet_SearchPortlet_facetNavigation {
+	margin-top: 20px;
+}
+
+@media only screen and (max-width: $screen-lg) {
+	#portlet_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_nTPfN3XyL2O5 {
+		.portlet-body {
+			.asset-full-content {
+				flex-basis: 30%;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: $screen-sm) {
+	#banner {
+		height: 200px;
+	}
+
+	.carousel-main-container {
+		.slides {
+			min-height: 200px;
+			max-height: 300px;
+		}
+	}
+
+	#navigation {
+		flex-direction: column;
+		text-align: center;
+		white-space: nowrap;
+
+		ul {
+			display: block;
+			height: auto;
+			max-height: 120px;
+			overflow: auto;
+
+			.child-menu {
+				li {
+					display: block;
+				}
+			}
+
+			li:hover .child-menu {
+				display: none;
+			}
+
+			.custom-nav-li {
+				align-items: center;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				max-width: 400px;
+				padding: 4px 0;
+			}
+		}
+	}
+
+	.sidebar-header {
+		display: flex;
+		flex-direction: row;
+
+		a {
+			width: 50%;
+		}
+
+		svg {
+			float: right;
+		}
+	}
+
+	#portlet_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_nTPfN3XyL2O5 {
+		.portlet-body {
+			.asset-full-content {
+				flex-basis: 44%;
+			}
+		}
+	}
+
+	#p_p_id_com_liferay_dictionary_web_portlet_DictionaryPortlet_ {
+		fieldset {
+			display: flex;
+		}
+	}
+}
+
+@media only screen and (max-width: $screen-xs) {
+	.carousel-main-container {
+		> .slides {
+			height: 200px;
+		}
+	}
+
+	.custom-nav-li {
+		max-width: 250px;
+	}
+
+	#portlet_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_nTPfN3XyL2O5 {
+		.portlet-body {
+			.asset-full-content {
+				flex-basis: 90%;
+			}
+		}
+	}
+}
