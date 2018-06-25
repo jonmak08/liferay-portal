@@ -1,0 +1,90 @@
+.portlet-hello-world {
+	height: 50vh;
+	margin: 5% 0;
+}
+
+.welcome-container {
+	align-content: center;
+	background: url(../images/nyxl-facebook-banner.jpg) top;
+	background-position: center;
+	background-size: cover;
+	height: inherit;
+}
+
+.welcome-content {
+	display: flex;
+	flex-direction: column;
+	height: inherit;
+
+	justify-content: space-evenly;
+	text-align: center;
+
+	@include textStyle(6px, uppercase);
+
+	h1 {
+		font-family: "Helvetica Bold";
+		font-size: 6rem;
+		margin: 0;
+	}
+
+	h4 {
+		color: $body-text-color;
+		font-size: 3rem;
+		margin: 0;
+	}
+}
+
+.portlet-hello-world .portlet-content {
+	align-items: center;
+	background: url(../images/nyxl-facebook-banner.jpg) top;
+	background-position: center;
+	background-repeat: repeat-x;
+	background-size: inherit;
+	box-shadow: $soft-shadow;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	min-height: 390px;
+	text-align: center;
+
+	.portlet-title-text {
+		background: none;
+		color: $ny-red-color;
+		font-family: "Helvetica Bold";
+		font-size: 48px;
+
+		word-spacing: 10px;
+
+		@include textStyle(8px, uppercase);
+	}
+
+	.portlet-body {
+		color: #EEE;
+		font-family: $form-font;
+		letter-spacing: 3px;
+	}
+}
+
+/* ---------- Barber Moving Animation ---------- */
+
+.baber-animation::before {
+	@include barberAnimation(translateY(-100%));
+}
+
+.barber-animation::after {
+	@include barberAnimation(rotateX(180deg));
+}
+
+/* ---------- Mobile Styles ---------- */
+
+@media only screen and (max-width: 480px) {
+	.welcome-container {
+		h1 {
+			font-size: 4rem;
+		}
+
+		h4 {
+			font-size: 2rem;
+		}
+	}
+}

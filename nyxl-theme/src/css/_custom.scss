@@ -1,0 +1,442 @@
+@import "about_us";
+
+@import "footer";
+
+@import "header";
+
+@import "portlet_decorator";
+
+@import "portlet_hello_world";
+
+@import "roster";
+
+body {
+	background-color: $bg-color;
+	font-family: $body-font;
+}
+
+a {
+	transition: 0.3s ease-in-out;
+}
+
+.container-fluid-1280 .row,
+.portlet,
+#content .row {
+	margin: 0;
+}
+
+.container-fluid-1280,
+.row,
+.container-fluid-1280 .row {
+	@include media-query(null, $screen-xs) {
+		margin: 0;
+	}
+}
+
+.btn,
+.btn-default {
+	font-family: $link-text !important;
+	font-size: 12px;
+	font-weight: bold;
+
+	transition: $transition;
+
+	@include btnBackground($light-blue-color);
+
+	@include textStyle(2px !important, uppercase !important);
+}
+
+.btn:hover,
+.btn:focus {
+	@include btnBackground($bright-blue-color);
+
+	text-shadow: $hard-shadow;
+}
+
+.text-default {
+	color: $ow-gray-color;
+}
+
+/* ---------- Animated Links On Hover ---------- */
+
+.portlet-blogs h2 > a::after,
+#_com_liferay_wiki_web_portlet_WikiPortlet_navTag li::after {
+	background: #FFF;
+	content: '';
+	display: block;
+	height: 2px;
+	transition: width 0.3s;
+	width: 0;
+}
+
+/* ---------- Red Underline ---------- */
+
+.portlet-blogs h2 > a::after {
+	background: $ny-red-color;
+}
+
+/* ---------- light-blue Underline ---------- */
+
+#_com_liferay_wiki_web_portlet_WikiPortlet_navTag li::after {
+	background: $light-blue-color;
+}
+
+.portlet-blogs h2 > a:hover::after,
+#_com_liferay_wiki_web_portlet_WikiPortlet_navTag li:hover::after {
+	width: 100%;
+}
+
+/* ---------- Non Animated Style When Active ---------- */
+
+#_com_liferay_wiki_web_portlet_WikiPortlet_navTag li.active:hover::after {
+	width: 0;
+}
+
+/* ---------- Text Styles ---------- */
+
+a {
+	font-family: $link-text;
+}
+
+.portlet-title-text,
+thead,
+.header-title,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+	color: $ny-red-color;
+	font-family: $title-font;
+}
+
+.panel-heading {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	.h1,
+	.h2,
+	.h3,
+	.h4,
+	.h5,
+	.h6 {
+		color: $body-text-color;
+
+		.text-default {
+			color: $ow-gray-color;
+		}
+	}
+}
+
+.entry-info,
+label,
+span.control-label,
+.yui3-g [class*="yui3-u"] {
+	font-family: $title-font;
+}
+
+.liferay-rating-vote.thumbrating,
+.thumbs {
+	color: $light-blue-color;
+}
+
+.alert,
+.alloy-editor-container .alloy-editor.alloy-editor-placeholder.ae-placeholder:not(:focus):not(.form-control),
+.chat-panel-window label,
+.entry-body,
+fieldset,
+input,
+.message-content,
+p,
+.rating-label,
+select,
+.stats,
+textarea,
+tbody,
+.text-default {
+	color: $ow-gray-color;
+	font-family: $body-font;
+}
+
+.rating-element {
+	font-family: "fontawesome-alloy" !important;
+}
+
+.glyphicon,
+.thumbrating-content {
+	font-family: 'Glyphicons Halflings' !important;
+}
+
+/* ---------- Search Bar Stylings With White Background ---------- */
+
+.navbar.collapse-basic-search .basic-search .btn-default {
+	color: $light-gray-color !important;
+
+	:hover {
+		color: $light-blue-color !important;
+	}
+}
+
+.basic-search,
+.input-group {
+	border: $light-gray-border;
+	border-radius: 3px;
+}
+
+.navbar-default.collapse-basic-search .basic-search .form-control {
+	padding-left: 5%;
+}
+
+/* ---------- Sidebar Nav Styles ---------- */
+
+.sidebar-header {
+	display: flex;
+
+	a {
+		width: 50%;
+
+		svg {
+			float: right;
+		}
+	}
+}
+
+.sidebar-body {
+	a {
+		font-family: $form-font;
+		font-weight: normal;
+
+		@include textStyle(0.5px, capitalize);
+	}
+}
+
+/* ---------- Product Panel Open Styles---------- */
+
+.product-menu {
+	.panel-heading {
+		.panel-title {
+			> .panel-toggler {
+				.category-name,
+				.user-name,
+				.site-name {
+					font-family: $link-text;
+
+					@include textStyle(2px, uppercase);
+				}
+
+				&:not(.collapsed) {
+					border-left: 4px solid $bright-blue-color !important;
+					text-shadow: $hard-shadow;
+				}
+			}
+		}
+	}
+}
+
+#_com_liferay_product_navigation_product_menu_web_portlet_ProductMenuPortlet_sidenavSliderId {
+	@include media-query(null, 320px) {
+		width: -webkit-fill-available;
+	}
+}
+
+.lfr-product-menu-panel.sidenav-menu-slider.open,
+.lfr-product-menu-panel.sidenav-menu-slider .sidenav-menu {
+	@include media-query(null, 320px) {
+		width: inherit;
+	}
+}
+
+.full-width {
+	@include fullWidth();
+}
+
+#wrapper {
+	padding: 0;
+}
+
+#content .row {
+	margin-left: -15px;
+	margin-right: -15px;
+
+	@include media-query(null, $screen-xs) {
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+
+.product-menu .panel-group .panel-heading + .panel-collapse.in, .product-menu .panel-group .panel-heading + .panel-collapse.collapsing {
+	border-bottom: 2px solid $bright-blue-color !important;
+}
+
+/* ---------- Panel Styles ---------- */
+
+.panel {
+	border-radius: 8px;
+	color: $ow-gray-color;
+
+	.panel-heading {
+		border-radius: 8px 8px 0 0;
+		border-width: 0;
+
+		@include panelBackground($ny-red-color);
+	}
+
+	.panel-default {
+		border-color: none;
+	}
+
+	.text-primary {
+		color: $light-blue-color;
+	}
+}
+
+.card {
+	.panel-heading {
+		background: none;
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6,
+		.h1,
+		.h2,
+		.h3,
+		.h4,
+		.h5,
+		.h6 {
+			color: $ow-gray-color;
+			text-transform: none;
+		}
+	}
+}
+
+/* ---------- Form Styles ---------- */
+
+.form-control {
+	:focus {
+		border-color: $light-blue-color;
+		color: $light-blue-color;
+	}
+}
+
+.modify-pages .delete-tab {
+	height: 20px;
+	top: 22px;
+}
+
+.display-style-buttons > .dropdown > .dropdown-menu {
+	&:after, &:before {
+		@include media-query(null, $screen-xs-max) {
+			border-width: 0;
+		}
+	}
+}
+
+@include media-query(null, $screen-sm-max) {
+	.overlay-focused:focus {
+		outline: 0;
+	}
+}
+
+.pull-right {
+	@include media-query(null, $screen-xs) {
+		float: none !important;
+		text-align: center;
+	}
+}
+
+#_com_liferay_product_navigation_product_menu_web_portlet_ProductMenuPortlet_kwsw__null__null {
+	@include media-query(null, $screen-xs) {
+		margin-top: -12%;
+	}
+}
+
+.col-xs-1,
+.col-sm-1,
+.col-md-1,
+.col-lg-1,
+.col-xs-2,
+.col-sm-2,
+.col-md-2,
+.col-lg-2,
+.col-xs-3,
+.col-sm-3,
+.col-md-3,
+.col-lg-3,
+.col-xs-4,
+.col-sm-4,
+.col-md-4,
+.col-lg-4,
+.col-xs-5,
+.col-sm-5,
+.col-md-5,
+.col-lg-5,
+.col-xs-6,
+.col-sm-6,
+.col-md-6,
+.col-lg-6,
+.col-xs-7,
+.col-sm-7,
+.col-md-7,
+.col-lg-7,
+.col-xs-8,
+.col-sm-8,
+.col-md-8,
+.col-lg-8,
+.col-xs-9,
+.col-sm-9,
+.col-md-9,
+.col-lg-9,
+.col-xs-10,
+.col-sm-10,
+.col-md-10,
+.col-lg-10,
+.col-xs-11,
+.col-sm-11,
+.col-md-11,
+.col-lg-11,
+.col-xs-12,
+.col-sm-12,
+.col-md-12,
+.col-lg-12,
+.container-fluid-1280 {
+	@include media-query(null, $screen-xs) {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+/* ---------- Table Styles ---------- */
+
+table {
+	td {
+		@include media-query(null, $screen-xs) {
+			max-width: 200px;
+			overflow: auto;
+		}
+	}
+
+	th {
+		@include media-query(null, $screen-xs) {
+		border: 1px solid $ny-red-color;
+		}
+	}
+	
+	.table-bordered > thead > tr > th {
+		@include media-query(null, $screen-xs) {
+		border: 1px solid $ny-red-color;
+		}
+	}
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="number" type="ddm-number" index-type="keyword" instance-id="dehw">
+		<dynamic-content language-id="en_US"><![CDATA[10]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="image" type="image" index-type="text" instance-id="uyzs">
+		<dynamic-content language-id="en_US" alt="" name="libero.png" title="libero.png" type="document" fileEntryId=""><![CDATA[/documents/20142/49423/libero.png/2a12819f-0137-29c9-a1eb-cb4fa3c4ce9a?t=1528216713655]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="imageFull" type="image" index-type="text" instance-id="flwq">
+		<dynamic-content language-id="en_US" alt="" name="libero-full.png" title="libero-full.png" type="document" fileEntryId="53935"><![CDATA[/documents/20142/49423/libero-full.png/ce2b8c7a-f3ae-a207-e62d-78d0367ca214?t=1528486232484]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="handle" type="text" index-type="keyword" instance-id="guls">
+		<dynamic-content language-id="en_US"><![CDATA[Libero]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="position" type="text" index-type="keyword" instance-id="rlwc">
+		<dynamic-content language-id="en_US"><![CDATA[DPS / Flex]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="name" type="text" index-type="keyword" instance-id="nwca">
+		<dynamic-content language-id="en_US"><![CDATA[Hae-seong Kim]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="link" type="link_to_layout" index-type="keyword" instance-id="dycy">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+</root>

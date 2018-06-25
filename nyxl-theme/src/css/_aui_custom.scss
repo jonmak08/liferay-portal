@@ -1,0 +1,143 @@
+/* ---------- Animations ---------- */
+
+@mixin barberAnimation($transform) {
+	animation: barberpole-body-case 0.5s linear 10;
+	background-image: linear-gradient(45deg, $midnight-blue-color 25%, $bright-blue-color 25%, $bright-blue-color 50%, $midnight-blue-color 50%, $midnight-blue-color 75%, $bright-blue-color 75%, $bright-blue-color);
+	background-size: 150px 150px;
+	content: '';
+	height: 50vh;
+	position: absolute;
+	top: 51%;
+	transform: $transform;
+	width: 100%;
+}
+
+@keyframes barberpole-body-case {
+	from {
+		background-position: 0 0;
+	}
+
+	to {
+		background-position: 300px 150px;
+	}
+}
+
+@keyframes aura {
+	from {
+		box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FFDD1B, 0 0 70px #FFDD1B, 0 0 80px #FFDD1B, 0 0 100px #FFDD1B, 0 0 150px #FFDD1B;
+	  }
+	  to {
+		box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FFDD1B, 0 0 35px #FFDD1B, 0 0 40px #FFDD1B, 0 0 50px #FFDD1B, 0 0 75px #FFDD1B;
+	  }
+}
+
+/* ---------- Border Styles ---------- */
+
+$light-gray-border: 2px solid #E3E6E8;
+
+/* ---------- Colors Used For Text And Backgrounds ---------- */
+
+$bright-blue-color: #0F57EA;
+$light-blue-color: #65B6F0;
+$light-gray-color: #E3E6E8;
+$light-red-color: #ED5E68;
+$light-midnight-color: #363B59;
+$midnight-blue-color: #171C38;
+$ow-gray-color: #484848;
+$ny-red-color: #FC1C26;
+
+/* ---------- Colors That Get Pulled Throughout The Theme ---------- */
+
+$accent-color: $ny-red-color;
+$bg-color: #FFF;
+$body-text-color: #FFF;
+$primary-color: $midnight-blue-color;
+$secondary-color: $bright-blue-color;
+
+/* ---------- Font Imports ---------- */
+
+@font-face {
+	font-family: "Circular";
+	src: url("../fonts/Circular/Circular-Medium.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Helvetica Bold";
+	src: url("../fonts/Helvetica/HelveticaLTStd-Comp.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Helvetica Lt";
+	src: url("../fonts/Helvetica/HelveticaLTStd-Light.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Open Sans";
+	src: url("../fonts/Open_Sans/OpenSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Roboto";
+	src: url("../fonts/Roboto/Roboto-Regular.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Titillium Web";
+	src: url("../fonts/Titillium_Web/TitilliumWeb-SemiBold.ttf") format("truetype");
+}
+
+/* ---------- Font Definitions ---------- */
+
+$body-font: "Titillium Web";
+$form-font: "Open Sans";
+$link-text: sans-serif;
+$nav-font: sans-serif;
+$title-font: "Circular";
+
+/* ---------- Mixin Definitions ---------- */
+
+@mixin btnBackground($color) {
+	background: $color;
+	border: 2px solid $color;
+	color: $body-text-color;
+}
+
+@mixin fullWidth() {
+	left: 50%;
+	margin-left: -50vw;
+	margin-right: -50vw;
+	max-width: none;
+	position: relative;
+	right: 50%;
+	width: 100vw;
+}
+
+@mixin panelBackground($color) {
+	background: $color;
+	color: $body-text-color;
+	font-family: $link-text;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
+
+@mixin pinStripes($size) {
+	background-image: linear-gradient(45deg, $midnight-blue-color 25%, $bright-blue-color 25%, $bright-blue-color 50%, $midnight-blue-color 50%, $midnight-blue-color 75%, $bright-blue-color 75%, $bright-blue-color);
+	background-size: $size $size;
+}
+
+@mixin textStyle($letter-spacing, $text-transform) {
+	letter-spacing: $letter-spacing;
+	text-transform: $text-transform;
+}
+
+/* ---------- Shadow Styles ---------- */
+
+$box-shadow: 0 10px 6px -6px #777;
+$hard-shadow: 1px 2px 0 rgba(0, 0, 0, 1);
+$soft-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px 0;
+$silhouette: drop-shadow(5px 6px 10px);
+$text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.3);
+
+/* ---------- Transition Styles ---------- */
+
+$transition: 0.2s ease-in-out;
