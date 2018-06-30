@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="image" type="image" index-type="text" instance-id="vklo">
+		<dynamic-content language-id="en_US" alt="" name="roster-skyline-newyork_3.jpg" title="roster-skyline-newyork_3.jpg" type="document" fileEntryId=""><![CDATA[/documents/20142/0/roster-skyline-newyork_3.jpg/dcd47233-e9af-1f55-0fdc-45c600d33585?t=1526920191762]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="text" type="text" index-type="keyword" instance-id="ecay">
+		<dynamic-content language-id="en_US"><![CDATA[<h1>NEW YORK EXCELSIOR</h1>]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="text" type="text" index-type="keyword" instance-id="rcbm">
+		<dynamic-content language-id="en_US"><![CDATA[<p>Excelsior, meaning 'ever upward' in Latin - is inspired by the everyday heroism of New York, the place where people never give up and always reach for the top. The shorthand NYXL evokes New York at its strongest: the place of bigger buildings, bigger dreams, more hustle and more soul. Colors of midnight and electric blue are inspired by the confident strength and energy of New York City, while the flag logo represents different people, cultures, and ideas coming together to reach new heights.<p>]]></dynamic-content>
+	</dynamic-element>
+</root>

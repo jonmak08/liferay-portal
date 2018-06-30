@@ -1,0 +1,227 @@
+.portlet-decorate .portlet-content {
+	background: #FFF;
+	border-width: 0;
+}
+
+.portlet-barebone .portlet-content {
+	padding: 0;
+}
+
+.portlet-title-text {
+	color: $ny-red-color;
+	font-family: $title-font;
+	font-size: x-large;
+
+	@include media-query(null, $screen-xs) {
+		max-width: none;
+		text-align: center;
+	}
+
+	@include textStyle(0.5px, capitalize);
+}
+
+.portlet-content {
+	@include media-query(null, $screen-xs) {
+		align-content: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	a {
+		.btn,
+		.btn-default,
+		.btn:hover,
+		.btn:focus {
+			color: $body-text-color !important;
+			font-family: $link-text;
+			font-weight: bold;
+
+			@include textStyle(2px, uppercase);
+		}
+	}
+
+	.portlet-body {
+		font-family: $body-font;
+
+		a {
+			font-family: $body-font;
+
+			@include textStyle(0, none);
+		}
+	}
+
+	.rating-label .rating a {
+		font-family: "fontawesome-alloy";
+	}
+}
+
+.panel-default {
+	border-color: $bright-blue-color;
+	border-radius: 8px 8px 0 0 !important;
+}
+
+.panel-default > .panel-heading {
+	border-color: $bright-blue-color;
+}
+
+.panel-default > .panel-heading + .panel-collapse > .panel-body {
+	border-width: 0;
+}
+
+.panel-default > .panel-footer + .panel-collapse > .panel-body {
+	border-bottom-color: $bright-blue-color;
+}
+
+/* ---------- Blog Styles ---------- */
+
+.portlet-blogs {
+	.entry-info, .hide-accessible {
+		font-family: $form-font;
+	}
+
+	.entry-title {
+		font-family: $title-font;
+
+		@include textStyle(0.5px, capitalize);
+
+		h2 {
+			width: max-content;
+
+			> a {
+				color: $ow-gray-color !important;
+				font-family: $title-font;
+				font-weight: normal !important;
+			}
+		}
+	}
+
+	.entry-social {
+		a {
+			color: $light-blue-color;
+			transition: $transition;
+		}
+	}
+
+	.subscribe {
+		@include media-query(null, $screen-xs) {
+			margin-right: 5%;
+		}
+	}
+
+	.entry-info,
+	.hide-accessible,
+	.entry-body p,
+	.entry-title,
+	.entry-footer .entry-social {
+		@include media-query(null, $screen-xs) {
+			margin-left: 5%;
+		}
+	}
+
+	.cover-image-caption {
+		@include media-query (null, $screen-xs) {
+			text-align: left;
+		}
+	}
+
+	.entry-footer .entry-social {
+		@include media-query (null, $screen-xs) {
+			float: none !important;
+		}
+	}
+}
+
+/* ---------- Form Styles ---------- */
+
+.portlet-forms {
+	h1, h2 {
+		@include textStyle(2px, uppercase);
+	}
+
+	.control-label {
+		font-family: $body-font;
+		letter-spacing: 2px;
+	}
+
+	label, select, input, table {
+		font-family: $form-font;
+	}
+}
+
+.form-control:focus {
+	border-color: $light-blue-color;
+	color: $light-blue-color;
+}
+
+#portlet_com_liferay_dynamic_data_lists_form_web_portlet_DDLFormPortlet {
+	margin-bottom: 20px;
+}
+
+
+/* ---------- Wiki Card Styles ---------- */
+
+.panel-group .panel-title > a,
+.panel-group .panel-title > span {
+	color: $body-text-color;
+}
+
+.card .divider, .card-horizontal .divider {
+	background-color: none;
+}
+
+thead:first-child > tr:first-child > th {
+	border-top: 1px solid !important;
+}
+
+.list-group-card h4 {
+	@include media-query(null, $screen-xs) {
+		margin: 10% 0;
+		margin-left: -10%;
+	}
+}
+
+/* ---------- Remove Borders ---------- */
+
+.card,
+.card-horizontal,
+.navbar-default,
+.portlet-decorate .portlet-content,
+.taglib-header,
+.list-group {
+	border-width: 0;
+	box-shadow: none;
+}
+
+.divider {
+	display: none;
+}
+
+/* ---------- Changes Color Of Links On Wiki Entry ---------- */
+
+.card a, .card-horizontal a {
+	color: $light-blue-color;
+}
+
+/* ---------- Messenger Chat Window On Bottom ---------- */
+
+.chat-panel-window {
+	border: 1px solid rgba(0, 0, 0, 0.2) !important;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+	font: 12px $body-font;
+}
+
+.chat-panel-title {
+	background: $ny-red-color !important;
+	border-radius: 4px 4px 0 0;
+
+	@include panelBackground($ny-red-color);
+}
+
+.chat-settings label {
+	color: $ow-gray-color;
+	font-size: 12px;
+	font-weight: normal !important;
+}

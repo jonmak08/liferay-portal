@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="number" type="ddm-number" index-type="keyword" instance-id="clxg">
+		<dynamic-content language-id="en_US"><![CDATA[21]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="image" type="image" index-type="text" instance-id="ysbl">
+		<dynamic-content language-id="en_US" alt="" name="pine.png" title="pine.png" type="document" fileEntryId=""><![CDATA[/documents/20142/49423/pine.png/93752353-ca96-5d1c-6e16-bed114cc47f1?t=1528216713883]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="imageFull" type="image" index-type="text" instance-id="blvl">
+		<dynamic-content language-id="en_US" alt="" name="pine-full.png" title="pine-full.png" type="document" fileEntryId="53904"><![CDATA[/documents/20142/49423/pine-full.png/e84d59a4-49c4-aa87-dc85-9848ff6a9407?t=1528486231198]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="handle" type="text" index-type="keyword" instance-id="oboo">
+		<dynamic-content language-id="en_US"><![CDATA[Pine]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="position" type="text" index-type="keyword" instance-id="ohsg">
+		<dynamic-content language-id="en_US"><![CDATA[DPS / Flex]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="name" type="text" index-type="keyword" instance-id="mvmb">
+		<dynamic-content language-id="en_US"><![CDATA[Do-hyeon Kim]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="link" type="link_to_layout" index-type="keyword" instance-id="uvum">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+</root>

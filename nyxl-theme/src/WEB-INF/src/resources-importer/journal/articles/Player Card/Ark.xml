@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="number" type="ddm-number" index-type="keyword" instance-id="dxmf">
+		<dynamic-content language-id="en_US"><![CDATA[2]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="image" type="image" index-type="text" instance-id="sons">
+		<dynamic-content language-id="en_US" alt="" name="ark.png" title="ark.png" type="document" fileEntryId=""><![CDATA[/documents/20142/49423/ark.png/fd2f8323-0691-799f-ce68-71e329bb7c3c?t=1528216713467]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="imageFull" type="image" index-type="text" instance-id="nqli">
+		<dynamic-content language-id="en_US" alt="" name="ark-full.png" title="ark-full.png" type="document" fileEntryId="53970"><![CDATA[/documents/20142/49423/ark-full.png/5c7849d0-43dd-175f-3267-f486e4d92183?t=1528486233996]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="handle" type="text" index-type="keyword" instance-id="vyvo">
+		<dynamic-content language-id="en_US"><![CDATA[Ark]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="position" type="text" index-type="keyword" instance-id="emfw">
+		<dynamic-content language-id="en_US"><![CDATA[Support]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="name" type="text" index-type="keyword" instance-id="wklv">
+		<dynamic-content language-id="en_US"><![CDATA[Yeon-jun Hong]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="link" type="link_to_layout" index-type="keyword" instance-id="kemq">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+</root>

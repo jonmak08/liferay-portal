@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="number" type="ddm-number" index-type="keyword" instance-id="wdyh">
+		<dynamic-content language-id="en_US"><![CDATA[97]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="image" type="image" index-type="text" instance-id="uzni">
+		<dynamic-content language-id="en_US" alt="" name="anamo.png" title="anamo.png" type="document" fileEntryId=""><![CDATA[/documents/20142/49423/anamo.png/4aa8ae58-a43a-c0cf-6916-56faf6f9f488?t=1528216713072]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="image" type="image" index-type="text" instance-id="bcjl">
+		<dynamic-content language-id="en_US" fileEntryId=""></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="imageFull" type="image" index-type="text" instance-id="ruud">
+		<dynamic-content language-id="en_US" alt="" name="anamo-full.png" title="anamo-full.png" type="journal" fileEntryId="" id="54023">/image/journal/article?img_id=54023&amp;t=1528486281435</dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="handle" type="text" index-type="keyword" instance-id="uobi">
+		<dynamic-content language-id="en_US"><![CDATA[Anamo]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="position" type="text" index-type="keyword" instance-id="wdsw">
+		<dynamic-content language-id="en_US"><![CDATA[Support]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="name" type="text" index-type="keyword" instance-id="zijo">
+		<dynamic-content language-id="en_US"><![CDATA[Tae-sung Jung]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="link" type="link_to_layout" index-type="keyword" instance-id="qmwb">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+</root>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="number" type="ddm-number" index-type="keyword" instance-id="augu">
+		<dynamic-content language-id="en_US"><![CDATA[1]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="image" type="image" index-type="text" instance-id="zgdy">
+		<dynamic-content language-id="en_US" alt="" name="janus.png" title="janus.png" type="document" fileEntryId=""><![CDATA[/documents/20142/49423/janus.png/2e484960-cbd7-5703-4ef0-99226c6d1d99?t=1528216713523]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="imageFull" type="image" index-type="text" instance-id="jekr">
+		<dynamic-content language-id="en_US" alt="" name="janus-full.png" title="janus-full.png" type="document" fileEntryId="53956"><![CDATA[/documents/20142/49423/janus-full.png/d3c01b6e-1b18-0233-2f1b-c8fad5f945dc?t=1528486233953]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="handle" type="text" index-type="keyword" instance-id="eeed">
+		<dynamic-content language-id="en_US"><![CDATA[Janus]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="position" type="text" index-type="keyword" instance-id="pohg">
+		<dynamic-content language-id="en_US"><![CDATA[Tank]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="name" type="text" index-type="keyword" instance-id="rtll">
+		<dynamic-content language-id="en_US"><![CDATA[Jun-hwa Song]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="link" type="link_to_layout" index-type="keyword" instance-id="nren">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+</root>
