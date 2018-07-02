@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="header_image" type="image" index-type="text" instance-id="mbxw">
+		<dynamic-content language-id="en_US" alt="" name="wedding8.jpg" title="wedding8.jpg" type="journal" fileEntryId="" id="53715">/image/journal/article?img_id=53715&amp;t=1528755901319</dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Rating" type="ddm-number" index-type="keyword" instance-id="pqxf">
+		<dynamic-content language-id="en_US"><![CDATA[5]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Name" type="text" index-type="keyword" instance-id="fqgs">
+		<dynamic-content language-id="en_US"><![CDATA[Grace]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Abstract" type="text" index-type="keyword" instance-id="xplv">
+		<dynamic-content language-id="en_US"><![CDATA[Beautiful Pictures]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Full_Review" type="text" index-type="keyword" instance-id="kcha">
+		<dynamic-content language-id="en_US"><![CDATA[The pictures turned out wonderful. I am so pleased with the work that Jewelly did. I highly recommend her.]]></dynamic-content>
+	</dynamic-element>
+</root>

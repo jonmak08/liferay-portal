@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="header_image" type="image" index-type="text" instance-id="ukip">
+		<dynamic-content language-id="en_US" alt="" name="wedding10.jpg" title="wedding10.jpg" type="journal" fileEntryId="" id="53623">/image/journal/article?img_id=53623&amp;t=1528753753645</dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Rating" type="ddm-number" index-type="keyword" instance-id="rmxs">
+		<dynamic-content language-id="en_US"><![CDATA[5]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Name" type="text" index-type="keyword" instance-id="pqzz">
+		<dynamic-content language-id="en_US"><![CDATA[Katrina]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Abstract" type="text" index-type="keyword" instance-id="uyef">
+		<dynamic-content language-id="en_US"><![CDATA[Simply Spectacular]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Full_Review" type="text" index-type="keyword" instance-id="thcb">
+		<dynamic-content language-id="en_US"><![CDATA[So totally thrilled that I had Jewelly shoot my wedding. She was fantastic. Her choice of locations, backgrounds, and positioning were terrific. Her demeanor, her enthusiasm, and her love of weddings made her really fun to have on our big day.]]></dynamic-content>
+	</dynamic-element>
+</root>

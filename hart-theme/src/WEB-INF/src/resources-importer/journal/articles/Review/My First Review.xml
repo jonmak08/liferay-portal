@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="header_image" type="image" index-type="text" instance-id="wddt">
+		<dynamic-content language-id="en_US" alt="" name="wedding11.jpg" title="wedding11.jpg" type="journal" fileEntryId="" id="53446">/image/journal/article?img_id=53446&amp;t=1528736011986</dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Rating" type="ddm-number" index-type="keyword" instance-id="grse">
+		<dynamic-content language-id="en_US"><![CDATA[5.0]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Name" type="text" index-type="keyword" instance-id="dhyt">
+		<dynamic-content language-id="en_US"><![CDATA[Brian]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Abstract" type="text" index-type="keyword" instance-id="hqby">
+		<dynamic-content language-id="en_US"><![CDATA[Absolutely loved this photographer]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Full_Review" type="text" index-type="keyword" instance-id="dpma">
+		<dynamic-content language-id="en_US"><![CDATA[Jewelly was fantastic. She was on time, and well prepared. She was friendly, yet kept everyone on task. She was also very good with the kids.]]></dynamic-content>
+	</dynamic-element>
+</root>
