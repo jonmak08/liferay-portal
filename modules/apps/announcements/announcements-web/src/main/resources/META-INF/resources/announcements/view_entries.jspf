@@ -66,7 +66,7 @@ if ((entriesCount == 0) && portletName.equals(AnnouncementsPortletKeys.ALERTS) &
 				entryId: entryId,
 				value: <%= AnnouncementsFlagConstants.HIDDEN %>
 			},
-			AUI.$.proxy(Liferay.Portlet, 'refresh', '#p_p_id<portlet:namespace />')
+			<portlet:namespace />markEntry.bind(Liferay.Portlet, 'refresh', '#p_p_id<portlet:namespace />')
 		);
 	}
 
@@ -83,7 +83,7 @@ if ((entriesCount == 0) && portletName.equals(AnnouncementsPortletKeys.ALERTS) &
 						{
 							flagId: response.flagId
 						},
-						AUI.$.proxy(Liferay.Portlet, 'refresh', '#p_p_id<portlet:namespace />')
+						<portlet:namespace />unmarkEntry.bind(Liferay.Portlet, 'refresh', '#p_p_id<portlet:namespace />')
 					);
 				}
 		);
