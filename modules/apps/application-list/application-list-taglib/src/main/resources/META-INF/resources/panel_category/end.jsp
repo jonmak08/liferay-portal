@@ -29,18 +29,16 @@
 
 	<c:if test="<%= persistState %>">
 		<aui:script position="auto" use="liferay-store,io-request,parse-content">
-			var collapse = $('#<%= id %>');
+			var collapse = document.getElementById('<%= id %>');
 
-			collapse.on(
-				'hidden.bs.collapse',
-				function(event) {
+			myModal.addEventListener('hidden.bs.modal',
+				function(event){
 					Liferay.Store('<%= PanelCategory.class.getName() %><%= id %>', 'closed');
 				}
 			);
 
-			collapse.on(
-				'shown.bs.collapse',
-				function(event) {
+			myModal.addEventListener('shown.bs.collapse',
+				function(event){
 					Liferay.Store('<%= PanelCategory.class.getName() %><%= id %>', 'open');
 				}
 			);
