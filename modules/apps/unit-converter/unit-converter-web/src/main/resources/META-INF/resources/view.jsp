@@ -246,55 +246,87 @@ UnitConverter unitConverter = UnitConverterUtil.getUnitConverter(type, fromId, t
 	var unitConverterTypes = [lengthArray, areaArray, volumeArray, massArray, temperatureArray];
 
 	var setBox = function(oldBox, newBox) {
-		oldBox.empty();
+		if (oldBox.firstChild) {
+			while (oldBox.firstChild) {
+				oldBox.removeChild(oldBox.firstChild)
+			}
+		}
 
 		var options = _.map(
 			newBox,
 			function(item, index) {
-				return '<option value="' + index + '">' + item + '</option>';
+				var selectOption = document.createElement('option');
+				selectOption.setAttribute('value', index);
+				selectOption.innerHTML = item;
+				oldBox.append(selectOption);
+			}
+		);
+	};
+
+	function setListeners() {
+		var form = document.querySelector('#<portlet:namespace />fm');
+		var formDate = document.querySelector('#<portlet:namespace />formDate');
+		var fromUnit = document.querySelector('#<portlet:namespace />fromUnit');
+		var fromValue = document.querySelector('#<portlet:namespace />fromValue');
+		var toUnit = document.querySelector('#<portlet:namespace />toUnit');
+		var typeSelect = document.querySelector('#<portlet:namespace />type');
+
+		typeSelect.addEventListener(
+			'change',
+			function(event) {
+				var value = typeSelect.value;
+				var unitConverterType = unitConverterTypes[value];
+
+				if (unitConverterType) {
+					setBox(fromUnit, unitConverterType);
+					setBox(toUnit, unitConverterType);
+				}
 			}
 		);
 
-		oldBox.append(options.join(''));
-	};
+		<c:if test="<%= windowState.equals(WindowState.MAXIMIZED) %>">
+			Liferay.Util.focusFormField(fromValue);
+		</c:if>
 
-	var form = $(document.<portlet:namespace />fm);
+		document.querySelector(
+			'#<portlet:namespace />convertButton').addEventListener(
+				'click',
+				function(event) {
+					event.preventDefault();
+					var url = "<%= unitURL %>";
+					var formData = formDate.name + '='+ formDate.value + '&' + fromValue.name + '=' + fromValue.value + '&' + fromUnit.name + '=' + fromUnit.value + '&' + toUnit.name + '=' + toUnit.value + '&' + typeSelect.name + '=' + typeSelect.value;
 
-	var fromUnit = form.fm('fromUnit');
-	var toUnit = form.fm('toUnit');
-
-	var typeSelect = form.fm('type');
-
-	typeSelect.on(
-		'change',
-		function(event) {
-			var value = typeSelect.val();
-
-			var unitConverterType = unitConverterTypes[value];
-
-			if (unitConverterType) {
-				setBox(fromUnit, unitConverterType);
-				setBox(toUnit, unitConverterType);
-			}
-		}
-	);
-
-	<c:if test="<%= windowState.equals(WindowState.MAXIMIZED) %>">
-		Liferay.Util.focusFormField(form.fm('fromValue'));
-	</c:if>
-
-	$('#<portlet:namespace />convertButton').on(
-		'click',
-		function(event) {
-			event.preventDefault();
-
-			form.ajaxSubmit(
-				{
-					success: function(responseData) {
-						form.replaceWith(responseData);
+				fetch(
+					url,
+					{
+						body: formData,
+						credentials: 'include',
+						method: 'POST',
+						headers: {
+							'Accept': 'text/html',
+							'Content-Type': 'application/x-www-form-urlencoded'
+						}
 					}
-				}
-			);
-		}
-	);
+				)
+				.then(
+					function(response) {
+						return response.text();
+					}
+				)
+				.then(
+					function(data) {
+						form.innerHTML = data;
+						setListeners();
+					}
+				)
+				.catch(
+					function(error) {
+						console.log('error', error)
+					}
+				)
+			}
+		)};
+
+	setListeners();
+
 </aui:script>
