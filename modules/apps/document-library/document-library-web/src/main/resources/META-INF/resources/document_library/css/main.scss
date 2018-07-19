@@ -113,6 +113,12 @@
 		clear: both;
 	}
 
+	.sidenav-container.open {
+		.sidenav-content {
+			padding-right: 0 !important;
+		}
+	}
+
 	.sidenav-right {
 		> .btn-group {
 			margin: 20px 0;
