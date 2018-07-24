@@ -119,25 +119,25 @@ navigationURL.setParameter(SearchContainer.DEFAULT_CUR_PARAM, "0");
 
 <aui:script sandbox="<%= true %>">
 	var deleteAllNotifications = function() {
-		var form = AUI.$(document.<portlet:namespace />fm);
+		var form = document.querySelector('#<portlet:namespace />fm');
 
-		form.attr('method', 'post');
+		form.setAttribute('method', 'post');
 
 		submitForm(form, '<portlet:actionURL name="deleteAllNotifications"><portlet:param name="redirect" value="<%= currentURL %>" /></portlet:actionURL>');
 	};
 
 	var markNotificationsAsRead = function() {
-		var form = AUI.$(document.<portlet:namespace />fm);
+		var form = document.querySelector('#<portlet:namespace />fm');
 
-		form.attr('method', 'post');
+		form.setAttribute('method', 'post');
 
 		submitForm(form, '<portlet:actionURL name="markNotificationsAsRead"><portlet:param name="redirect" value="<%= currentURL %>" /></portlet:actionURL>');
 	};
 
 	var markNotificationsAsUnread = function() {
-		var form = AUI.$(document.<portlet:namespace />fm);
+		var form = document.querySelector('#<portlet:namespace />fm');
 
-		form.attr('method', 'post');
+		form.setAttribute('method', 'post');
 
 		submitForm(form, '<portlet:actionURL name="markNotificationsAsUnread"><portlet:param name="redirect" value="<%= currentURL %>" /></portlet:actionURL>');
 	};
@@ -175,7 +175,7 @@ navigationURL.setParameter(SearchContainer.DEFAULT_CUR_PARAM, "0");
 			var currentTarget = event.currentTarget;
 
 			A.io.request(
-				currentTarget.attr('href'),
+				currentTarget.getAttribute('href'),
 				{
 					dataType: 'JSON',
 					on: {
@@ -188,11 +188,11 @@ navigationURL.setParameter(SearchContainer.DEFAULT_CUR_PARAM, "0");
 								if (notificationContainer) {
 									var markAsReadURL = notificationContainer.one('a').attr('href');
 
-									form.attr('method', 'post');
+									form.setAttribute('method', 'post');
 
 									submitForm(form, markAsReadURL);
 
-									notificationContainer.remove();
+									dom.exitDocument(notificationContainer);
 								}
 							}
 							else {
