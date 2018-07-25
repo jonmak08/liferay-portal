@@ -114,6 +114,10 @@
 	}
 
 	.sidenav-right {
+		.sidenav-content {
+			padding-right: 0 !important;
+		}
+
 		> .btn-group {
 			margin: 20px 0;
 		}
