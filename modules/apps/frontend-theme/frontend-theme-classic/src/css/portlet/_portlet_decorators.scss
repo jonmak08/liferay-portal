@@ -8,6 +8,10 @@
 		border: $portlet-decorate-border;
 		border-radius: 0.5rem;
 		padding: 24px;
+
+		@include media-query(null, $screen-xs-max) {
+			padding: 16px;
+		}
 	}
 }
 
