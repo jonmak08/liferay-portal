@@ -114,7 +114,7 @@
 		function(event) {
 			var currentTarget = event.currentTarget;
 
-			var dataDevice = currentTarget.attr('data-device');
+			var dataDevice = currentTarget.getAttribute('data-device');
 
 			var customDeviceContainer = A.one('#<portlet:namespace />customDeviceContainer');
 
