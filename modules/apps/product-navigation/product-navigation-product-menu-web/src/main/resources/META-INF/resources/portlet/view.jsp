@@ -62,16 +62,16 @@ String productMenuState = SessionClicks.get(request, ProductNavigationProductMen
 		}
 	);
 
-	var sidenavSlider = $('#<portlet:namespace />sidenavSliderId');
+	var sidenavSlider = document.querySelector('#<portlet:namespace />sidenavSliderId');
 
-	sidenavSlider.on(
+	sidenavSlider.addEventListener(
 		'closed.lexicon.sidenav',
 		function(event) {
 			Liferay.Store('<%= ProductNavigationProductMenuWebKeys.PRODUCT_NAVIGATION_PRODUCT_MENU_STATE %>', 'closed');
 		}
 	);
 
-	sidenavSlider.on(
+	sidenavSlider.addEventListener(
 		'open.lexicon.sidenav',
 		function(event) {
 			Liferay.Store('<%= ProductNavigationProductMenuWebKeys.PRODUCT_NAVIGATION_PRODUCT_MENU_STATE %>', 'open');
@@ -89,7 +89,7 @@ String productMenuState = SessionClicks.get(request, ProductNavigationProductMen
 				var userCollapseSelector = '#<portlet:namespace /><%= AUIUtil.normalizeId(PanelCategoryKeys.USER) %>Collapse';
 
 				var showUserCollapse = function() {
-					var userCollapse = $(userCollapseSelector);
+					var userCollapse = document.querySelector(userCollapseSelector);
 
 					userCollapse.collapse(
 						{
@@ -101,8 +101,8 @@ String productMenuState = SessionClicks.get(request, ProductNavigationProductMen
 					userCollapse.collapse('show');
 				};
 
-				if ($('body').hasClass('open')) {
-					if ($(userCollapseSelector).hasClass('in')) {
+				if (document.body.classList.contains('open')) {
+					if (userCollapseSelector.classList.contains('in')) {
 						sidenavToggle.sideNavigation('hide');
 					}
 					else {
@@ -112,7 +112,7 @@ String productMenuState = SessionClicks.get(request, ProductNavigationProductMen
 				else {
 					sidenavToggle.sideNavigation('show');
 
-					if (!sidenavToggle.attr('data-url')) {
+					if (!sidenavToggle.getAttribute('data-url')) {
 						showUserCollapse();
 					}
 					else {
@@ -122,7 +122,7 @@ String productMenuState = SessionClicks.get(request, ProductNavigationProductMen
 							showUserCollapse();
 						}
 						else {
-							sidenavSlider.on(
+							sidenavSlider.addEventListener(
 								'urlLoaded.lexicon.sidenav',
 								function(event) {
 									showUserCollapse();
