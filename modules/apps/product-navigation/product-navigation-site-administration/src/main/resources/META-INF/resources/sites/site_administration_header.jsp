@@ -52,7 +52,7 @@ PanelCategory panelCategory = siteAdministrationPanelCategoryDisplayContext.getP
 	%>
 
 	<aui:script sandbox="<%= true %>">
-		$('#<portlet:namespace />manageSitesLink').on(
+		document.querySelector('#<portlet:namespace />manageSitesLink').addEventListener(
 			'click',
 			function(event) {
 				Liferay.Util.selectEntity(
