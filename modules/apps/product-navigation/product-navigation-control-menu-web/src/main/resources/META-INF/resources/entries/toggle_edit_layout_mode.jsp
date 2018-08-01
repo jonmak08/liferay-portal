@@ -61,9 +61,7 @@ if (Objects.equals(mode, Constants.EDIT)) {
 </label>
 
 <aui:script>
-	$('#<portlet:namespace />mode').on(
-		'change',
-		function(event) {
+	document.querySelector('#<portlet:namespace />mode').addEventListener('change', function(event) {
 			if (Liferay.SPA) {
 				Liferay.SPA.app.navigate('<%= redirect %>');
 			}
@@ -72,4 +70,5 @@ if (Objects.equals(mode, Constants.EDIT)) {
 			}
 		}
 	);
+
 </aui:script>
