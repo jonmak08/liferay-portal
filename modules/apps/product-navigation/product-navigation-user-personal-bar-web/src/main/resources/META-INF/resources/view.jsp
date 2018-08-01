@@ -51,9 +51,9 @@
 		</span>
 
 		<aui:script sandbox="<%= true %>">
-			var sidenavUserToggle = $('#<portlet:namespace />sidenavUserToggle');
+			var sidenavUserToggle = document.querySelector('#<portlet:namespace />sidenavUserToggle');
 
-			sidenavUserToggle.on(
+			sidenavUserToggle.addEventListener(
 				'click',
 				function(event) {
 					Liferay.fire('ProductMenu:openUserMenu');
