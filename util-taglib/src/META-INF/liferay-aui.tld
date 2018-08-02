@@ -357,6 +357,12 @@
 			<type>boolean</type>
 		</attribute>
 		<attribute>
+			<description><![CDATA[The id of the field being wrapped.]]></description>
+			<name>fieldId</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
 			<description><![CDATA[Text to display as a help tooltip on mouse over of the component's help icon.]]></description>
 			<name>helpMessage</name>
 			<required>false</required>
