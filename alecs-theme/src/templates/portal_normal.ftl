@@ -10,7 +10,7 @@
 		<@liferay_util["include"] page=top_head_include />
 	</head>
 
-	<body class="${css_class}">
+	<body class="${css_class}" >
 		<@liferay_ui["quick-access"] contentId="#main-content" />
 
 		<@liferay_util["include"] page=body_top_include />
@@ -18,7 +18,7 @@
 		<@liferay.control_menu />
 
 		<div id="wrapper">
-			<header class="navbar navbar-inverse navbar-alec">
+			<header class="navbar navbar-inverse navbar-alec fixed-top  <#if is_signed_in>buffer</#if>">
 				<div class="container-fluid" id="banner" role="banner">
 					<div class="navbar-header" id="heading">
 						<#if has_navigation>
@@ -42,6 +42,12 @@
 					</#if>
 				</div>
 			</header>
+
+				<div class="jumbotron jumbotron-fluid alecs-jumbotron">
+					<#if show_page_title>
+						<h1>${the_title}</h1>
+					</#if>
+				</div>
 
 			<main id="content" role="main">
 				<h1 class="hide-accessible">${the_title}</h1>

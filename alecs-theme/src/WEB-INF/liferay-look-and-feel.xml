@@ -7,6 +7,22 @@
 	</compatibility>
 	<theme id="alecs-theme" name="Alec's Theme">
 		<template-extension>ftl</template-extension>
+		<settings>
+			<setting configurable="true" key="show-header" type="checkbox" value="true" />
+			<setting configurable="true" key="show-footer" type="checkbox" value="true" />
+			<setting configurable="true" key="show-site-name" type="checkbox" value="true" />
+			<setting configurable="true" key="show-page-title" type="checkbox" value="true" />
+			<setting configurable="true" key="facebook-icon" type="checkbox" value="true" />
+			<setting configurable="true" key="facebook-icon-link-url" value="http://www.facebook.com" />
+			<setting configurable="true" key="twitter-icon" type="checkbox" value="true" />
+			<setting configurable="true" key="twitter-icon-link-url" value="http://www.twitter.com" />
+			<setting configurable="true" key="instagram-icon" type="checkbox" value="true" />
+			<setting configurable="true" key="instagram-icon-link-url" value="http://www.instagram.com" />
+			<setting configurable="true" key="linkedin-icon" type="checkbox" value="false" />
+			<setting configurable="true" key="linkedin-icon-link-url" value="http://www.linkedin.com" />
+			<setting configurable="true" key="youtube-icon" type="checkbox" value="false" />
+			<setting configurable="true" key="youtube-icon-link-url" value="http://www.youtube.com" />
+		</settings>
 		<portlet-decorator id="barebone" name="Barebone">
 			<portlet-decorator-css-class>portlet-barebone</portlet-decorator-css-class>
 		</portlet-decorator>
