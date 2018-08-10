@@ -1,19 +1,5 @@
 header {
 
-	.portlet:hover {
-		z-index: 1050;
-	}
-
-	.logo {
-		@include sm {
-			margin: 4px 0;
-		}
-	}
-
-	.navbar-toggle {
-		margin: 10px 15px;
-	}
-
 	a {
 		color: $main-header-color;
 
@@ -25,6 +11,17 @@ header {
 	.form-control:focus {
 		border-color: $main-header-color;
 		color: $main-header-color;
+	}
+
+	.lfr-nav-child-toggle {
+		@include media-query(null, $screen-xs-max) {
+			float: left;
+			padding: 0 10px;
+		}
+	}
+
+	.navbar-toggle {
+		margin: 10px 15px;
 	}
 
 	.navbar-user {
@@ -52,15 +49,12 @@ header {
 		}
 	}
 
-	.lfr-nav-child-toggle {
-		@include media-query(null, $screen-xs-max) {
-			float: left;
-			padding: 0 10px;
-		}
-	}
-
 	.portlet-body > .navbar {
 		margin: 0 15px;
+	}
+
+	.portlet:hover {
+		z-index: 1050;
 	}
 
 	li.open > a:focus {

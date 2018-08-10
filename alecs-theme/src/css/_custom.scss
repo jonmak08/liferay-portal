@@ -59,8 +59,20 @@ body {
 	}
 }
 
+.buffer {
+	top: 56px !important;
+
+	@media (max-width: 576px){
+		top: 49px !important;
+	}
+}
+
 .navbar .container-fluid {
 	display: inline-block !important;
+}
+
+.portlet-body a {
+	color: $main-black-color;
 }
 
 .portlet-layout {
@@ -70,17 +82,5 @@ body {
 		.col-md-12 {
 			padding: 0;
 		}
-	}
-}
-
-.portlet-body a {
-	color: $main-black-color;
-}
-
-.buffer {
-	top: 56px !important;
-
-	@media (max-width: 576px){
-		top: 49px !important;
 	}
 }

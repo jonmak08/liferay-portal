@@ -1,11 +1,11 @@
 #footer {
 	background-color: $main-black-color;
+	bottom: -125px;
 	color: $brand-color-3;
 	min-height: 125px;
 	padding-bottom: 0;
-	width: 100%;
-	bottom: -125px;
 	position: relative;
+	width: 100%;
 
 	#social-networks {
 		text-align: center;
@@ -25,17 +25,12 @@
 		}
 	}
 
-	.navbar-user {
+ 	.navbar-user {
  	 padding: 10px;
   }
 
- .outro {
+ 	.outro {
 	 text-align: center;
-
-	 p {
-		 margin-bottom: 0 !important;
-		 padding-bottom: 1rem;
-	 }
 
 	 a {
 		 font-size: 14px;
@@ -47,9 +42,15 @@
    	width: 65%;
    	border-top: 1px solid;
    }
+
+	 p {
+		 margin-bottom: 0 !important;
+		 padding-bottom: 1rem;
+	 }
+
  }
 
- .user-icon {
+ 	.user-icon {
 	 display: inline-grid;
  }
 
