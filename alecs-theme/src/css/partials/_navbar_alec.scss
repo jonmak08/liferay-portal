@@ -9,6 +9,16 @@
     margin-top: 105px;
 	}
 
+	.icon-bar{
+		background-color: #FFF;
+	}
+
+	.logo {
+		@media (min-width: 576px){
+			margin: 4px 0;
+		}
+	}
+
 	.navbar-nav {
 		li {
 			& > a {
@@ -31,15 +41,5 @@
 		@include sm {
 			margin: 0;
 		}
-	}
-
-	.logo {
-		@include sm {
-			margin: 4px 0;
-		}
-	}
-
-	.icon-bar{
-		background-color: #FFF;
 	}
 }
