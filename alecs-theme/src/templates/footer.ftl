@@ -1,6 +1,10 @@
 <footer id="footer" role="contentinfo">
 	<nav id="navbar-footer">
 		<div class="container-fluid-1280">
+			<div class="nav navbar-left navbar-user text-uppercase">
+				<@liferay.user_personal_bar />
+			</div>
+
 			<div class="nav navbar-right small text-uppercase" role="menubar">
 				<#assign preferencesMap = {"displayDepth": "1", "portletSetupPortletDecoratorId": "barebone"} />
 
