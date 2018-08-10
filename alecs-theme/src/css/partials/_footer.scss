@@ -1,0 +1,36 @@
+#footer {
+	background-color: $main-black-color;
+	color: $brand-color-3;
+	min-height: 125px;
+	padding-bottom: 0;
+	border-top-left-radius: 20px;
+	width: 100%;
+	bottom: 0;
+	position: absolute;
+
+	a {
+		color: $brand-color-3;
+		font-size: 12px;
+
+		&:hover, &:focus, &.active, &.open {
+			color: $secondary-header-color;
+			text-decoration: none;
+		}
+	}
+
+ .outro {
+	 text-align: center;
+
+	 a {
+		 font-size: 14px;
+		 text-decoration-line: underline;
+	 }
+ }
+
+ hr {
+ 	background: white;
+ 	width: 65%;
+ 	border-top: 1px solid;
+ }
+
+}

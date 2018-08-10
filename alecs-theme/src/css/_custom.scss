@@ -1,6 +1,49 @@
-/* These inject tags are used for dynamically creating imports for themelet styles, you can place them where ever you like in this file. */
+@import "partials/fonts";
+@import "partials/footer";
+@import "partials/header";
+@import "partials/layout";
+@import "partials/modules";
 
-/* inject:imports */
-/* endinject */
+@import "partials/aspect_ratio";
+@import "partials/navbar_alec";
 
-/* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
+@import "partials/portlet_asset_publisher";
+@import "partials/portlet_blogs";
+@import "partials/portlet_search";
+@import "portlet_decorator";
+
+body {
+	background-color: $main-bg-color;
+	min-height: 100vh;
+	position: relative;
+}
+
+#wrapper {
+	padding: 0;
+
+	@import "partials/user_icon";
+}
+
+#content {
+ 	display: block;
+ 	position: relative;
+ 	padding-bottom: 125px;
+}
+
+.portlet-layout {
+	&.row {
+		margin: 0;
+
+		.col-md-12 {
+			padding: 0;
+		}
+	}
+}
+
+.portlet-body a {
+	color: $main-black-color;
+}
+
+.navbar .container-fluid {
+	display: inline-block !important;
+}
