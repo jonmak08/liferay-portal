@@ -7,6 +7,14 @@
 	bottom: -125px;
 	position: relative;
 
+	#social-networks {
+		text-align: center;
+
+		a {
+			font-size: 25px;
+		}
+	}
+
 	a {
 		color: $brand-color-3;
 		font-size: 15px;
@@ -24,6 +32,11 @@
  .outro {
 	 text-align: center;
 
+	 p {
+		 margin-bottom: 0 !important;
+		 padding-bottom: 1rem;
+	 }
+
 	 a {
 		 font-size: 14px;
 		 text-decoration-line: underline;
@@ -34,6 +47,10 @@
    	width: 65%;
    	border-top: 1px solid;
    }
+ }
+
+ .user-icon {
+	 display: inline-grid;
  }
 
 }

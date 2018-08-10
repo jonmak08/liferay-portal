@@ -1,7 +1,13 @@
 .navbar-inverse.navbar-alec {
 	background: linear-gradient(to bottom right, #60a0ff, #1f7aff);
 	border-width: 0;
+	box-shadow: 0 5px 24px 2px rgba(0, 0, 0, 0.14);
 	margin-bottom: 0;
+	z-index: 900;
+
+	.has-control-menu .fixed-top {
+    margin-top: 105px;
+	}
 
 	.navbar-nav {
 		li {
