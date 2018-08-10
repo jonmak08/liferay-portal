@@ -8,8 +8,8 @@
 	<theme id="alecs-theme" name="Alec's Theme">
 		<template-extension>ftl</template-extension>
 		<settings>
-			<setting configurable="true" key="show-header" type="checkbox" value="true" />
-			<setting configurable="true" key="show-footer" type="checkbox" value="true" />
+			<setting configurable="false" key="show-header" value="true" />
+			<setting configurable="false" key="show-footer" value="true" />
 			<setting configurable="true" key="show-site-name" type="checkbox" value="true" />
 			<setting configurable="true" key="show-page-title" type="checkbox" value="true" />
 			<setting configurable="true" key="facebook-icon" type="checkbox" value="true" />
