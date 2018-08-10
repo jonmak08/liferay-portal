@@ -29,7 +29,7 @@
 		</div>
 	</#if>
 
-	<#--<div class="nav navbar-right navbar-user">
-		<@liferay.user_personal_bar />-->
-	</div>
+	<#--<div class="nav navbar-left navbar-user">
+		<@liferay.user_personal_bar />
+	</div>-->
 </div>
