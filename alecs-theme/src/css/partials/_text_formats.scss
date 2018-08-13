@@ -3,7 +3,7 @@
 }
 
 a.small.text-uppercase {
-	color: $brand-color-1;
+	color: $brand-purple;
 	font-family: 'open_sanssemibold';
 	font-size: 12px;
 	text-decoration: underline;
@@ -14,9 +14,9 @@ a.small.text-uppercase {
 }
 
 .theme-alert {
-	background-color: $brand-bg-color-3;
+	background-color: $brand-white;
 	border: 1px solid #EDEDED;
-	color: $brand-color-1;
+	color: $brand-purple;
 	font-weight: bold;
 	margin: 30px 0;
 	padding: 25px;

@@ -5,8 +5,8 @@
 	}
 }
 
-.pull-sm-right {
-	@include sm {
+@include sm {
+	.pull-sm-right {
 		float: right !important;
 	}
 }

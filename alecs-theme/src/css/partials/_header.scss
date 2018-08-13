@@ -32,7 +32,7 @@ header {
 				padding: 16px 16px 16px 6px;
 				text-transform: uppercase;
 
-				&:hover, &:focus, &.active, &.open {
+				&.open, &:focus, &:hover, &.active {
 					color: $secondary-header-color;
 					text-decoration: none;
 				}

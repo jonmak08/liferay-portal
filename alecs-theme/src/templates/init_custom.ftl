@@ -14,9 +14,6 @@
 	twitter_icon_link_url = themeDisplay.getThemeSetting("twitter-icon-link-url")
 	youtube_icon = getterUtil.getBoolean(themeDisplay.getThemeSetting("youtube-icon"))
 	youtube_icon_link_url = themeDisplay.getThemeSetting("youtube-icon-link-url")
-/>
-
-<#assign
 	nav_css_right = "ml-auto"
 	nav_collapse = "navbar-expand-md"
 />

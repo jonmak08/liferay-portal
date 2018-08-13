@@ -43,11 +43,11 @@
 				</div>
 			</header>
 
-				<div class="jumbotron jumbotron-fluid alecs-jumbotron">
-					<#if show_page_title>
-						<h1>${the_title}</h1>
-					</#if>
-				</div>
+			<div class="jumbotron jumbotron-fluid alecs-jumbotron">
+				<#if show_page_title>
+					<h1>${the_title}</h1>
+				</#if>
+			</div>
 
 			<main id="content" role="main">
 				<h1 class="hide-accessible">${the_title}</h1>

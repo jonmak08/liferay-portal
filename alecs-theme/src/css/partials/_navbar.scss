@@ -1,15 +1,3 @@
-#navigation {
-	position: relative;
-
-	.portlet {
-		margin: 0;
-
-		&:hover, &.focus {
-			z-index: 1035;
-		}
-	}
-}
-
 #banner {
 	background-color: $background-color-3;
 
@@ -44,6 +32,18 @@
 
 		@include sm {
 			margin-top: 17px;
+		}
+	}
+}
+
+#navigation {
+	position: relative;
+
+	.portlet {
+		margin: 0;
+
+		&:hover, &.focus {
+			z-index: 1035;
 		}
 	}
 }
@@ -119,7 +119,7 @@
 		}
 	}
 
-	#navigationCollapse {
+	.navbar-collapse {
 		&.in, &.collapsing {
 			bottom: 0;
 			height: auto;

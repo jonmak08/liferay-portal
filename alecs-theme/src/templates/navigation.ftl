@@ -1,5 +1,5 @@
 <div aria-expanded="true" class="collapse navbar-collapse" id="navigationCollapse">
-	<nav class="navbar-nav site-navigation navbar-right" id="navigation" data-spy="affix" data-offset-top="0" role="navigation">
+	<nav class="navbar-nav navbar-right site-navigation" id="navigation" role="navigation">
 		<#assign preferencesMap = {"displayDepth": "1", "portletSetupPortletDecoratorId": "barebone"} />
 
 		<@liferay.navigation_menu
@@ -7,7 +7,6 @@
 			instance_id="main_navigation_menu"
 		/>
 
-		<div class="user-area">
-		</div>
+		<div class="user-area" />
 	</nav>
 </div>
