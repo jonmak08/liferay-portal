@@ -1,7 +1,7 @@
 #footer {
 	background-color: $main-black-color;
 	bottom: -125px;
-	color: $brand-color-3;
+	color: $brand-white;
 	min-height: 125px;
 	padding-bottom: 0;
 	position: relative;
@@ -16,7 +16,7 @@
 	}
 
 	a {
-		color: $brand-color-3;
+		color: $brand-white;
 		font-size: 15px;
 
 		&:hover, &:focus, &.active, &.open {

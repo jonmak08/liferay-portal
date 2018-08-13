@@ -15,9 +15,19 @@
 			</div>
 		</div>
 	</nav>
+
 	<#include "${full_templates_path}/social_media.ftl" />
+
 	<div class="outro">
 		<hr />
-		${company_name} <p id="copyright"><small><@liferay.language key="powered-by" /> <a href="http://www.liferay.com" rel="external">Liferay</a></small></p>
+		${company_name}
+		<p id="copyright">
+			<small>
+				<@liferay.language key="powered-by" />
+				<a href="http://www.liferay.com" rel="external">
+					Liferay
+				</a>
+			</small>
+		</p>
 	</div>
 </footer>
