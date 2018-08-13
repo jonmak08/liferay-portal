@@ -1,20 +1,20 @@
 .navbar-inverse.navbar-alec {
-	background: linear-gradient(to bottom right, #60a0ff, #1f7aff);
+	background: linear-gradient(to bottom right, #60A0FF, #1F7AFF);
 	border-width: 0;
 	box-shadow: 0 5px 24px 2px rgba(0, 0, 0, 0.14);
 	margin-bottom: 0;
 	z-index: 900;
 
 	.has-control-menu .fixed-top {
-    margin-top: 105px;
+		margin-top: 105px;
 	}
 
-	.icon-bar{
+	.icon-bar {
 		background-color: #FFF;
 	}
 
 	.logo {
-		@media (min-width: 576px){
+		@media (min-width: 576px) {
 			margin: 4px 0;
 		}
 	}
@@ -26,15 +26,14 @@
 				text-transform: uppercase;
 
 				&:hover, &:focus, &.active, &.open {
-					color: #e5e5e5;
+					color: #E5E5E5;
 				}
 			}
 		}
 
 		& > .open > a, & > .active > a {
-			color: #e5e5e5;
+			color: #E5E5E5;
 		}
-
 	}
 
 	section, .navbar {
