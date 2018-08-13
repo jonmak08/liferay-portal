@@ -1,4 +1,4 @@
-<#if facebook_icon || twitter_icon>
+<#if facebook_icon || instagram_icon || linkedin_icon || twitter_icon || youtube_icon>
 	<aside id="social-networks">
 		<ul class="list-inline">
 			<#if facebook_icon>
