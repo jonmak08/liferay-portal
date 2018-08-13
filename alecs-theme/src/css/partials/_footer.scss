@@ -26,32 +26,31 @@
 	}
 
  	.navbar-user {
- 	 padding: 10px;
+ 		padding: 10px;
   }
 
  	.outro {
-	 text-align: center;
+		text-align: center;
 
-	 a {
-		 font-size: 14px;
-		 text-decoration-line: underline;
-	 }
+		a {
+			font-size: 14px;
+			text-decoration-line: underline;
+	 	}
 
-	 hr {
-   	background: white;
-   	width: 65%;
-   	border-top: 1px solid;
-   }
+	 	hr {
+   		background: white;
+   		width: 65%;
+   		border-top: 1px solid;
+   	}
 
-	 p {
-		 margin-bottom: 0 !important;
-		 padding-bottom: 1rem;
-	 }
+	 	p {
+		 	margin-bottom: 0 !important;
+		 	padding-bottom: 1rem;
+	 	}
+ 	}
 
- }
-
- 	.user-icon {
-	 display: inline-grid;
- }
+	.user-icon {
+		display: inline-grid;
+	}
 
 }
