@@ -1,0 +1,44 @@
+.navbar-inverse.navbar-alec {
+	background: linear-gradient(to bottom right, #60A0FF, #1F7AFF);
+	border-width: 0;
+	box-shadow: 0 5px 24px 2px rgba(0, 0, 0, 0.14);
+	margin-bottom: 0;
+	z-index: 900;
+
+	.has-control-menu .fixed-top {
+		margin-top: 105px;
+	}
+
+	.icon-bar {
+		background-color: #FFF;
+	}
+
+	.logo {
+		@media (min-width: 576px) {
+			margin: 4px 0;
+		}
+	}
+
+	.navbar-nav {
+		li {
+			& > a {
+				font-size: 14px;
+				text-transform: uppercase;
+
+				&:hover, &:focus, &.active, &.open {
+					color: #E5E5E5;
+				}
+			}
+		}
+
+		& > .open > a, & > .active > a {
+			color: #E5E5E5;
+		}
+	}
+
+	section, .navbar {
+		@include sm {
+			margin: 0;
+		}
+	}
+}
