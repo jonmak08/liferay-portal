@@ -6,7 +6,5 @@
 			default_preferences=freeMarkerPortletPreferences.getPreferences(preferencesMap)
 			instance_id="main_navigation_menu"
 		/>
-
-		<div class="user-area" />
 	</nav>
 </div>
