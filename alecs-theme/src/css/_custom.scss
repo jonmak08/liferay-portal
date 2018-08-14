@@ -16,11 +16,6 @@
 body {
 	background-color: $main-bg-color;
 	position: relative;
-	top: 63px;
-
-	@media (max-width: 576px) {
-		top: 55px;
-	}
 }
 
 #content {
@@ -54,14 +49,6 @@ body {
 
 	@media (min-width: 576px) {
 		padding: 3rem 2rem 7rem;
-	}
-}
-
-.buffer {
-	top: 55px !important;
-
-	@media (max-width: 576px) {
-		top: 49px !important;
 	}
 }
 
