@@ -16,10 +16,10 @@
 body {
 	background-color: $main-bg-color;
 	position: relative;
-	top: 64px;
+	top: 63px;
 
 	@media (max-width: 576px) {
-		top: 57px;
+		top: 55px;
 	}
 }
 
@@ -58,11 +58,15 @@ body {
 }
 
 .buffer {
-	top: 56px !important;
+	top: 55px !important;
 
 	@media (max-width: 576px) {
 		top: 49px !important;
 	}
+}
+
+.card-type-asset .card-type-asset-icon {
+	width: initial;
 }
 
 .navbar .container-fluid {
