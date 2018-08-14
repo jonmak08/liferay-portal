@@ -1,4 +1,5 @@
 {
+	"author": "Alec Sloan <alec.sloan@liferay.com> (https://github.com/alecsloan)",
 	"devDependencies": {
 		"gulp": "3.9.1",
 		"liferay-theme-tasks": "8.0.0-alpha.6",
