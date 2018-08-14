@@ -7,6 +7,7 @@
 	linkedin_icon_link_url = themeDisplay.getThemeSetting("linkedin-icon-link-url")
 	show_footer = getterUtil.getBoolean(themeDisplay.getThemeSetting("show-footer"))
 	show_header = getterUtil.getBoolean(themeDisplay.getThemeSetting("show-header"))
+	header_fixed = getterUtil.getBoolean(themeDisplay.getThemeSetting("header-fixed"))
 	show_site_name = getterUtil.getBoolean(themeDisplay.getThemeSetting("show-site-name"))
 	show_header_main_search = getterUtil.getBoolean(themeDisplay.getThemeSetting("show-header-main-search"))
 	show_page_title = getterUtil.getBoolean(themeDisplay.getThemeSetting("show-page-title"))
