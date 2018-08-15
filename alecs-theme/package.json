@@ -19,6 +19,7 @@
 	"name": "alecs-theme",
 	"version": "1.0.0",
 	"dependencies": {
+		"aos": "^2.3.3",
 		"font-awesome": "^4.7.0"
 	}
 }

@@ -49,7 +49,7 @@
 				</#if>
 			</div>
 
-			<main id="content" role="main">
+			<main id="content" role="main" data-aos="fade-down">
 				<h1 class="hide-accessible">${the_title}</h1>
 
 				<#if selectable>
@@ -72,4 +72,16 @@
 
 		<@liferay_util["include"] page=bottom_include />
 	</body>
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+		var prev = "";
+		document.getElementById('content').addEventListener('DOMSubtreeModified', function () {
+			var title = document.getElementById('content').getElementsByClassName('hide-accessible')[0].innerHTML;
+			if (prev != title){
+				prev = title;
+  			AOS.refresh();
+			}
+		}, false);
+  </script>
 </html>
