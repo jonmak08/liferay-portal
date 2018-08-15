@@ -124,9 +124,9 @@ String dueDateWrapperCssClass = dueDateControlGroupCssClass + StringPool.SPACE +
 					</aui:select>
 
 					<aui:field-wrapper>
-						<label class="control-label"><%= LanguageUtil.get(request, "due-date") %></label>
+						<label class="control-label"><liferay-ui:message key="due-date" /></label>
 
-						<a class="field-content" href="javascript:;" id="toggleDueDate" onClick="<%= renderResponse.getNamespace() + "displayInputDate();" %>"><%= dueDateToggleText %></a>
+						<aui:a cssClass="field-content" href="javascript:;" id="toggleDueDate" label="<%= dueDateToggleText %>" onClick="<%= renderResponse.getNamespace() + "displayInputDate();" %>" />
 					</aui:field-wrapper>
 
 					<aui:input id="addDueDate" name="addDueDate" type="hidden" value="<%= addDueDate %>" />
