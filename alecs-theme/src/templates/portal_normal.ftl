@@ -72,16 +72,8 @@
 
 		<@liferay_util["include"] page=bottom_include />
 	</body>
-	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+	<script src="https://cdn.rawgit.com/michalsnik/aos/2.0.4/dist/aos.js">
   <script>
     AOS.init();
-		var prev = "";
-		document.getElementById('content').addEventListener('DOMSubtreeModified', function () {
-			var title = document.getElementById('content').getElementsByClassName('hide-accessible')[0].innerHTML;
-			if (prev != title){
-				prev = title;
-  			AOS.refresh();
-			}
-		}, false);
-  </script>
+	</script>
 </html>

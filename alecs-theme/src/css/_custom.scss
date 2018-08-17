@@ -18,6 +18,10 @@ body {
 	position: relative;
 }
 
+textarea {
+  min-height: 50px;
+}
+
 #content {
 	background-color: #FCFCFC;
 	border-radius: 15px;

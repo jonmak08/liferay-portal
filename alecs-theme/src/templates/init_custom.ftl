@@ -17,4 +17,13 @@
 	youtube_icon_link_url = themeDisplay.getThemeSetting("youtube-icon-link-url")
 	nav_css_right = "ml-auto"
 	nav_collapse = "navbar-expand-md"
+	page_title = ""
 />
+
+<#if pageTitle??>
+	<#assign
+		page_title = pageTitle
+	/>
+</#if>
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
