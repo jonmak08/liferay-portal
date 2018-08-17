@@ -203,3 +203,4 @@
 /WEB-INF
 _sass_cache_*.css
 /node_modules
+package-lock.json
