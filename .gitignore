@@ -29,6 +29,7 @@
 /.sonar
 /.xmlcatalog
 /ActiveMQ
+/alecs-theme/node_modules
 /ant.install.log
 /api
 /app.server.*.properties
