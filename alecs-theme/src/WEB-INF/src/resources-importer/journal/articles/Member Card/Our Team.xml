@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="Name" type="text" index-type="keyword" instance-id="ppxn">
+		<dynamic-element name="Picture" instance-id="vexc" type="image" index-type="text">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="JobTitle" instance-id="qrfj" type="list" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[The Boss]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Jonathan Mak]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Name" type="text" index-type="keyword" instance-id="woku">
+		<dynamic-element name="Picture" instance-id="vvcv" type="image" index-type="text">
+			<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"timmy.png","alt":"","title":"timmy.png","type":"journal","uuid":"51af5056-6632-b8aa-51d5-d16435a58ce0","fileEntryId":"51702","resourcePrimKey":"51501"}]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="JobTitle" instance-id="uumh" type="list" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Front-end Developer]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Timmy Turner]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Name" type="text" index-type="keyword" instance-id="ebht">
+		<dynamic-element name="Picture" instance-id="luyo" type="image" index-type="text">
+			<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"AlecSloan (1).jpg","alt":"","title":"AlecSloan (1).jpg","type":"journal","uuid":"ef4d02a0-3c1a-b6eb-d6d4-a8d3e3e3ecc5","fileEntryId":"51697","resourcePrimKey":"51501"}]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="JobTitle" instance-id="zpmr" type="list" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Intern]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Alec Sloan]]></dynamic-content>
+	</dynamic-element>
+</root>

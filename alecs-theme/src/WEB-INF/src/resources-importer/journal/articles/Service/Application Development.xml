@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="BackgroundColor" type="ddm-color" index-type="keyword" instance-id="mawm">
+		<dynamic-content language-id="en_US"><![CDATA[#2B2B2B]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="FadeInDelay" type="ddm-integer" index-type="keyword" instance-id="oroa">
+		<dynamic-content language-id="en_US"><![CDATA[500]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Title" type="text" index-type="keyword" instance-id="wmgj">
+		<dynamic-element name="TitleColor" instance-id="orag" type="ddm-color" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[#FFFFFF]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Application Development]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Image24jl" type="image" index-type="text" instance-id="iwkw">
+		<dynamic-element name="ImageColumn" instance-id="qzdx" type="radio" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[left]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"application development.jpg","alt":"","title":"application development.jpg","type":"journal","uuid":"4915a0ae-d418-2c8b-76ed-da0c2b48b3c1","fileEntryId":"50960","resourcePrimKey":"50958"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="TextBoxfdx8" type="text_box" index-type="text" instance-id="fizd">
+		<dynamic-content language-id="en_US"><![CDATA[Our developers know it all, from C++ to Java. They have every language in their pokedex.]]></dynamic-content>
+	</dynamic-element>
+</root>

@@ -1,0 +1,121 @@
+{
+    "availableLanguageIds": [
+        "en_US"
+    ],
+    "defaultLanguageId": "en_US",
+    "fields": [
+        {
+            "label": {
+                "en_US": "Name"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "string",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "Name",
+            "readOnly": false,
+            "repeatable": true,
+            "required": true,
+            "showLabel": true,
+            "type": "text",
+            "nestedFields": [
+                {
+                    "label": {
+                        "en_US": "Picture"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "image",
+                    "fieldNamespace": "ddm",
+                    "indexType": "text",
+                    "localizable": true,
+                    "name": "Picture",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "ddm-image"
+                },
+                {
+                    "label": {
+                        "en_US": "Job Title"
+                    },
+                    "options": [
+                        {
+                            "value": "The Boss",
+                            "label": {
+                                "en_US": "The Boss"
+                            }
+                        },
+                        {
+                            "value": "Front-end Developer",
+                            "label": {
+                                "en_US": "Front-end Developer"
+                            }
+                        },
+                        {
+                            "value": "Back-end Developer",
+                            "label": {
+                                "en_US": "Back-end Developer"
+                            }
+                        },
+                        {
+                            "value": "Intern",
+                            "label": {
+                                "en_US": "Intern"
+                            }
+                        },
+                        {
+                            "value": "Customer Support",
+                            "label": {
+                                "en_US": "Customer Support"
+                            }
+                        },
+                        {
+                            "value": "Marketing",
+                            "label": {
+                                "en_US": "Marketing"
+                            }
+                        }
+                    ],
+                    "predefinedValue": {
+                        "en_US": [
+                            ""
+                        ]
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "string",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "multiple": false,
+                    "name": "JobTitle",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "select"
+                }
+            ]
+        }
+    ]
+}
