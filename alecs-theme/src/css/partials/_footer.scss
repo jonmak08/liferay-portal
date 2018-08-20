@@ -1,0 +1,55 @@
+#footer {
+	background-color: $main-black-color;
+	bottom: -125px;
+	color: $brand-white;
+	min-height: 125px;
+	padding-bottom: 0;
+	position: relative;
+	width: 100%;
+
+	#social-networks {
+		text-align: center;
+
+		a {
+			font-size: 25px;
+		}
+	}
+
+	a {
+		color: $brand-white;
+		font-size: 15px;
+
+		&:hover, &:focus, &.active, &.open {
+			color: $secondary-header-color;
+			text-decoration: none;
+		}
+	}
+
+	.navbar-user {
+		padding: 10px;
+	}
+
+	.outro {
+		text-align: center;
+
+		a {
+			font-size: 14px;
+			text-decoration-line: underline;
+		}
+
+		hr {
+			background: #FFF;
+			border-top: 1px solid;
+			width: 65%;
+		}
+
+		p {
+			margin-bottom: 0 !important;
+			padding-bottom: 1rem;
+		}
+	}
+
+	.user-icon {
+		display: inline-grid;
+	}
+}

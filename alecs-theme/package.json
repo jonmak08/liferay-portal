@@ -1,0 +1,25 @@
+{
+	"author": "Alec Sloan <alec.sloan@liferay.com> (https://github.com/alecsloan)",
+	"devDependencies": {
+		"gulp": "3.9.1",
+		"liferay-theme-tasks": "8.0.0-alpha.6",
+		"liferay-theme-deps-7.1": "8.0.0-alpha.6"
+	},
+	"keywords": [
+		"liferay-theme"
+	],
+	"liferayTheme": {
+		"baseTheme": "styled",
+		"screenshot": "",
+		"rubySass": false,
+		"templateLanguage": "ftl",
+		"version": "7.1"
+	},
+	"main": "package.json",
+	"name": "alecs-theme",
+	"version": "1.0.0",
+	"dependencies": {
+		"aos": "^2.3.3",
+		"font-awesome": "^4.7.0"
+	}
+}

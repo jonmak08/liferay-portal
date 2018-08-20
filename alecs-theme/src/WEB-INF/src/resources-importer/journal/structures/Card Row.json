@@ -1,0 +1,32 @@
+{
+    "availableLanguageIds": [
+        "en_US"
+    ],
+    "defaultLanguageId": "en_US",
+    "fields": [
+        {
+            "label": {
+                "en_US": "HTML"
+            },
+            "predefinedValue": {
+                "en_US": "<div class=\"card card-type-asset file-card\"> <div class=\"aspect-ratio card-item-first\"> <div class=\"aspect-ratio-item-center-middle aspect-ratio-item-fluid card-type-asset-icon\" style=\"     padding: 0;     margin: 0; \"><img src=\"https://cdn.shopify.com/s/files/1/0407/0829/products/White_t-shirt_front_1024x1024.jpg\" /></div> </div>  <div class=\"card-body\"> <div class=\"card-row\"> <div class=\"autofit-col autofit-col-expand\"> <div class=\"card-title text-truncate\" title=\"Item 1\">White Shirt</div>  <div class=\"card-subtitle text-truncate\" title=\"Color: Invisible. Size: Medium\">Medium</div>  <div class=\"card-detail\"><span class=\"label label-success\">$20.00</span></div> </div> </div> </div> </div>"
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "html",
+            "fieldNamespace": "ddm",
+            "indexType": "text",
+            "localizable": true,
+            "name": "HTML18zr",
+            "readOnly": false,
+            "repeatable": true,
+            "required": false,
+            "showLabel": true,
+            "type": "ddm-text-html"
+        }
+    ]
+}
