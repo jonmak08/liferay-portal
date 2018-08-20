@@ -19,6 +19,10 @@ header {
 		}
 	}
 
+	li.open > a:focus {
+		@include tab-focus;
+	}
+
 	.navbar-toggle {
 		margin: 10px 15px;
 	}
@@ -39,24 +43,20 @@ header {
 			}
 		}
 
-		.user-icon, .icon-user {
-			display: inline-table;
-		}
-
 		.user-full-name {
 			margin-left: 4px;
 		}
-	}
 
-	.portlet-body > .navbar {
-		margin: 0 15px;
+		.user-icon, .icon-user {
+			display: inline-table;
+		}
 	}
 
 	.portlet:hover {
 		z-index: 1050;
 	}
 
-	li.open > a:focus {
-		@include tab-focus;
+	.portlet-body > .navbar {
+		margin: 0 15px;
 	}
 }

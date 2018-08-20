@@ -6,10 +6,10 @@
     "fields": [
         {
             "label": {
-                "en_US": "HTML"
+                "en_US": "Product"
             },
             "predefinedValue": {
-                "en_US": "<div class=\"card card-type-asset file-card\"> <div class=\"aspect-ratio card-item-first\"> <div class=\"aspect-ratio-item-center-middle aspect-ratio-item-fluid card-type-asset-icon\" style=\"     padding: 0;     margin: 0; \"><img src=\"https://cdn.shopify.com/s/files/1/0407/0829/products/White_t-shirt_front_1024x1024.jpg\" /></div> </div>  <div class=\"card-body\"> <div class=\"card-row\"> <div class=\"autofit-col autofit-col-expand\"> <div class=\"card-title text-truncate\" title=\"Item 1\">White Shirt</div>  <div class=\"card-subtitle text-truncate\" title=\"Color: Invisible. Size: Medium\">Medium</div>  <div class=\"card-detail\"><span class=\"label label-success\">$20.00</span></div> </div> </div> </div> </div>"
+                "en_US": ""
             },
             "style": {
                 "en_US": ""
@@ -17,16 +17,134 @@
             "tip": {
                 "en_US": ""
             },
-            "dataType": "html",
-            "fieldNamespace": "ddm",
-            "indexType": "text",
+            "dataType": "string",
+            "indexType": "keyword",
             "localizable": true,
-            "name": "HTML18zr",
+            "name": "product",
             "readOnly": false,
             "repeatable": true,
-            "required": false,
+            "required": true,
             "showLabel": true,
-            "type": "ddm-text-html"
+            "type": "text",
+            "nestedFields": [
+                {
+                    "label": {
+                        "en_US": "In Stock"
+                    },
+                    "predefinedValue": {
+                        "en_US": false
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "boolean",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "InStock",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "checkbox"
+                },
+                {
+                    "label": {
+                        "en_US": "Image"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "image",
+                    "fieldNamespace": "ddm",
+                    "indexType": "text",
+                    "localizable": true,
+                    "name": "Image",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "ddm-image"
+                },
+                {
+                    "label": {
+                        "en_US": "Subtitle"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "string",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "Subtitle",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "text"
+                },
+                {
+                    "label": {
+                        "en_US": "Price"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "double",
+                    "fieldNamespace": "ddm",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "Price",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "ddm-decimal"
+                },
+                {
+                    "label": {
+                        "en_US": "Purchase Link"
+                    },
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "string",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "PurchaseLink",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "text"
+                }
+            ]
         }
     ]
 }

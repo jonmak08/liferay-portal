@@ -20,11 +20,11 @@
 	+ <code>sitemap.json</code> 	
     + <code>assets.json</code>
     + <code>document_library/</code>
-    	+ <code>documents/</code>
-     + <code>journal/</code>
-     	+ <code>articles/</code>
-        + <code>structures/</code>
-        + <code>templates/</code>
+    	- <code>documents/</code>
+    + <code>journal/</code>
+      - <code>articles/</code>
+      - <code>structures/</code>
+      - <code>templates/</code>
  #### Step 1: Copying the Structures from your Theme
  Just as a heads up, after completing this step, you will only be able to see that a structure has been added to your theme's content area, but your theme will still look naked.
  _If possible_ it is tremendously helpful to use RESTful naming conventions. For example, the way Liferay's Resources Importer works is based off of the names of your structures, templates and web content. A good example of this would be to have a structure named <code>Welcome.json</code>, a template named <code>Welcome.ftl</code> and a web content article named <code>Welcome.xml</code>.

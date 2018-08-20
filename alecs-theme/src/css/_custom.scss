@@ -43,7 +43,6 @@ textarea {
 	border-bottom-left-radius: 10px;
 	border-bottom-right-radius: 10px;
 	margin-bottom: -100px;
-	padding-bottom: 7rem;
 
 	h1 {
 		color: #FFF;
@@ -52,7 +51,7 @@ textarea {
 	}
 
 	@media (min-width: 576px) {
-		padding: 3rem 2rem 7rem;
+		padding: 32px 32px 96px;
 	}
 }
 
@@ -61,7 +60,7 @@ textarea {
 }
 
 .navbar .container-fluid {
-	display: inline-block !important;
+	display: inline-block;
 }
 
 .portlet-body a {
@@ -76,4 +75,16 @@ textarea {
 			padding: 0;
 		}
 	}
+}
+
+.service-row {
+	border-radius: 15px;
+  color: #FFF;
+  margin: 0px 15px;
+  padding: 20px;
+	text-align: center;
+}
+
+.spacing-bottom {
+	margin-bottom: 400px;
 }

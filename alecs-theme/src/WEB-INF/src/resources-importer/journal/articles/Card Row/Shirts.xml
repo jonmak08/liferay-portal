@@ -1,84 +1,127 @@
 <?xml version="1.0"?>
 
 <root available-locales="en_US" default-locale="en_US">
-	<dynamic-element name="HTML18zr" type="text_area" index-type="text" instance-id="zefr">
-		<dynamic-content language-id="en_US"><![CDATA[<div class="card card-type-asset">
-<div class="aspect-ratio card-item-first">
-<div class="aspect-ratio-item-center-middle aspect-ratio-item-fluid card-type-asset-icon" style="     padding: 0;     margin: 0; "><img src="https://cdn.shopify.com/s/files/1/0407/0829/products/White_t-shirt_front_1024x1024.jpg" /></div>
-</div>
-
-<div class="card-body">
-<div class="card-row">
-<div class="autofit-col autofit-col-expand"><a href="//amazon.com" target="_blank"><span class="icon-shopping-cart icon-monospaced pull-right">&nbsp;</span></a>
-
-<div class="card-title text-truncate" title="White Shirt">White Shirt</div>
-
-<div class="card-subtitle text-truncate" title="Size: Medium">Medium</div>
-
-<div class="card-detail"><span class="label label-success"><span class="label-item label-item-expand">$20.00</span> </span></div>
-</div>
-</div>
-</div>
-</div>]]></dynamic-content>
+	<dynamic-element name="product" type="text" index-type="keyword" instance-id="ghga">
+		<dynamic-element name="InStock" instance-id="szpm" type="boolean" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[true]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="Image" instance-id="dypm" type="image" index-type="text">
+			<dynamic-content language-id="en_US">
+				<![CDATA[{"groupId":"20126","name":"white shirt.jpg","alt":"","title":"white shirt.jpg","type":"journal","uuid":"31301054-0864-5a30-02de-c174acad2b64","fileEntryId":"56011","resourcePrimKey":"56009"}]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="Subtitle" instance-id="aoug" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[Size: medium]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="Price" instance-id="uxmr" type="ddm-decimal" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[20.0]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="PurchaseLink" instance-id="ceyv" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[https://amazon.com]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US">
+			<![CDATA[White Shirt]]>
+		</dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="HTML18zr" type="text_area" index-type="text" instance-id="zayk">
-		<dynamic-content language-id="en_US"><![CDATA[<div class="card card-type-asset file-card">
-<div class="aspect-ratio card-item-first">
-<div class="aspect-ratio-item-center-middle aspect-ratio-item-fluid card-type-asset-icon" style="     padding: 0;     margin: 0; "><img src="http://7bridgeswalkshop.com.au/wp-content/uploads/2016/08/MENS-RED-BACK.jpeg" /></div>
-</div>
 
-<div class="card-body">
-<div class="card-row">
-<div class="autofit-col autofit-col-expand"><a href="//amazon.com" target="_blank"><span class="icon-shopping-cart icon-monospaced pull-right">&nbsp;</span></a>
-
-<div class="card-title text-truncate" title="Red Shirt">Red Shirt</div>
-
-<div class="card-subtitle text-truncate" title="Size: Medium">Medium</div>
-
-<div class="card-detail"><span class="label label-danger"><span class="label-item label-item-expand">Out of Stock</span> </span></div>
-</div>
-</div>
-</div>
-</div>]]></dynamic-content>
+	<dynamic-element name="product" type="text" index-type="keyword" instance-id="sooi">
+		<dynamic-element name="InStock" instance-id="xjdu" type="boolean" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="Image" instance-id="dosh" type="image" index-type="text">
+			<dynamic-content language-id="en_US">
+				<![CDATA[{"groupId":"20126","name":"red shirt.jpeg","alt":"","title":"red shirt.jpeg","type":"journal","uuid":"a08d66be-dba2-c214-2765-08c5708d92cd","fileEntryId":"56074","resourcePrimKey":"56009"}]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="Subtitle" instance-id="dmwo" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[Size: Small]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="Price" instance-id="wxwi" type="ddm-decimal" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[35.0]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="PurchaseLink" instance-id="xupn" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[https://amazon.com]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US">
+			<![CDATA[Red Shirt]]>
+		</dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="HTML18zr" type="text_area" index-type="text" instance-id="cxql">
-		<dynamic-content language-id="en_US"><![CDATA[<div class="card card-type-asset file-card">
-<div class="aspect-ratio card-item-first">
-<div class="aspect-ratio-item-center-middle aspect-ratio-item-fluid card-type-asset-icon" style="     padding: 0;     margin: 0; "><img src="https://cdn.shopify.com/s/files/1/1614/2659/products/Royal_1800x.jpg" /></div>
-</div>
 
-<div class="card-body">
-<div class="card-row">
-<div class="autofit-col autofit-col-expand"><a href="//amazon.com" target="_blank"><span class="icon-shopping-cart icon-monospaced pull-right">&nbsp;</span></a>
-
-<div class="card-title text-truncate" title="Blue Shirt">Blue Shirt</div>
-
-<div class="card-subtitle text-truncate" title="Size: Medium">Medium</div>
-
-<div class="card-detail"><span class="label label-success"><span class="label-item label-item-expand">$30.00</span> </span><span class="label label-warning">5 in Stock</span></div>
-</div>
-</div>
-</div>
-</div>]]></dynamic-content>
+	<dynamic-element name="product" type="text" index-type="keyword" instance-id="rwqk">
+		<dynamic-element name="InStock" instance-id="bqzi" type="boolean" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[true]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="Image" instance-id="umjv" type="image" index-type="text">
+			<dynamic-content language-id="en_US">
+				<![CDATA[{"groupId":"20126","name":"blue shirt.jpg","alt":"","title":"blue shirt.jpg","type":"journal","uuid":"c1e13df9-a972-4e19-dd7d-f57b8b95ef94","fileEntryId":"56079","resourcePrimKey":"56009"}]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="Subtitle" instance-id="ehuk" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[Size: Large]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="Price" instance-id="bryx" type="ddm-decimal" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[25.0]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="PurchaseLink" instance-id="rpqt" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[https://amazon.com]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US">
+			<![CDATA[Blue Shirt]]>
+		</dynamic-content>
 	</dynamic-element>
-	<dynamic-element name="HTML18zr" type="text_area" index-type="text" instance-id="ivda">
-		<dynamic-content language-id="en_US"><![CDATA[<div class="card card-type-asset file-card">
-<div class="aspect-ratio card-item-first">
-<div class="aspect-ratio-item-center-middle aspect-ratio-item-fluid card-type-asset-icon" style="     padding: 0;     margin: 0; "><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfBUKn30V21TgpxBBhrtDbsuVVDmSo3CyQ_ttE8jGRStjj_T9Kxw" /></div>
-</div>
 
-<div class="card-body">
-<div class="card-row">
-<div class="autofit-col autofit-col-expand"><a href="//amazon.com" target="_blank"><span class="icon-shopping-cart icon-monospaced pull-right">&nbsp;</span></a>
-
-<div class="card-title text-truncate" title="Black Shirt">Black Shirt</div>
-
-<div class="card-subtitle text-truncate" title="Size: Medium">Medium</div>
-
-<div class="card-detail"><span class="label label-success"><span class="label-item label-item-expand">$25.00</span> </span></div>
-</div>
-</div>
-</div>
-</div>]]></dynamic-content>
+	<dynamic-element name="product" type="text" index-type="keyword" instance-id="gbsp">
+		<dynamic-element name="InStock" instance-id="cgaq" type="boolean" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[true]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="Image" instance-id="tjyi" type="image" index-type="text">
+			<dynamic-content language-id="en_US">
+				<![CDATA[{"groupId":"20126","name":"black shirt.jpg","alt":"","title":"black shirt.jpg","type":"journal","uuid":"c788b132-f241-ddd5-f0c7-b865f03e6c3f","fileEntryId":"56084","resourcePrimKey":"56009"}]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="Subtitle" instance-id="xivn" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[Size: Medium]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="Price" instance-id="nsyg" type="ddm-decimal" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[40.0]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="PurchaseLink" instance-id="djoo" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[https://amazon.com]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US">
+			<![CDATA[Black Shirt]]>
+		</dynamic-content>
 	</dynamic-element>
 </root>
