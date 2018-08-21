@@ -82,14 +82,6 @@
               "groupId": "${groupId}",
               "portletSetupPortletDecoratorId": "decorate"
             }
-          },
-          {
-            "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
-            "portletPreferences": {
-              "articleId": "Shoes.xml",
-              "groupId": "${groupId}",
-              "portletSetupPortletDecoratorId": "decorate"
-            }
           }
         ]
       ],

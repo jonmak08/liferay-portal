@@ -9,9 +9,4 @@
 			}
 		}
 	);
-
-	AOS.init();
-
-	window.addEventListener('DOMContentLoaded', AOS.refresh)
-
 })();

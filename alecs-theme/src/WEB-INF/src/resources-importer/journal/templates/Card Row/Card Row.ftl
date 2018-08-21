@@ -53,7 +53,7 @@
                 <div class="card-detail">
                   <#if getterUtil.getBoolean(cur_product.InStock.getData())>
                     <span class="label label-success">
-                      ${cur_product.Price.getData()?number?string.currency}
+                      ${cur_product.Price.getData()?trim?number?string.currency}
                     </span>
                   <#else>
                     <span class="label label-danger">

@@ -72,8 +72,9 @@
 
 		<@liferay_util["include"] page=bottom_include />
 	</body>
-	<script src="https://cdn.rawgit.com/michalsnik/aos/2.0.4/dist/aos.js">
-  <script>
-    AOS.init();
+	<script src="https://cdn.rawgit.com/michalsnik/aos/2.0.4/dist/aos.js"></script>
+	<script>
+		AOS.init();
+		window.addEventListener('DOMContentLoaded', AOS.refresh)
 	</script>
 </html>
