@@ -50,34 +50,36 @@ kbDisplayPortletInstanceConfiguration = ParameterMapUtil.setParameterMap(KBDispl
 						<aui:fieldset-group markupView="lexicon">
 							<aui:fieldset>
 								<div class="input-append kb-field-wrapper">
-									<aui:field-wrapper label="article-or-folder">
+									<div class="form-group">
+										<aui:field-wrapper label="article-or-folder">
 
-										<%
-										String title = StringPool.BLANK;
+											<%
+											String title = StringPool.BLANK;
 
-										if (resourceClassNameId != kbFolderClassNameId) {
-											KBArticle kbArticle = KBArticleServiceUtil.fetchLatestKBArticle(kbDisplayPortletInstanceConfiguration.resourcePrimKey(), WorkflowConstants.STATUS_APPROVED);
+											if (resourceClassNameId != kbFolderClassNameId) {
+												KBArticle kbArticle = KBArticleServiceUtil.fetchLatestKBArticle(kbDisplayPortletInstanceConfiguration.resourcePrimKey(), WorkflowConstants.STATUS_APPROVED);
 
-											if (kbArticle != null) {
-												title = kbArticle.getTitle();
+												if (kbArticle != null) {
+													title = kbArticle.getTitle();
+												}
 											}
-										}
-										else if (kbDisplayPortletInstanceConfiguration.resourcePrimKey() == KBFolderConstants.DEFAULT_PARENT_FOLDER_ID) {
-											title = LanguageUtil.get(resourceBundle, "home");
-										}
-										else {
-											KBFolder kbFolder = KBFolderServiceUtil.fetchKBFolder(kbDisplayPortletInstanceConfiguration.resourcePrimKey());
-
-											if (kbFolder != null) {
-												title = kbFolder.getName();
+											else if (kbDisplayPortletInstanceConfiguration.resourcePrimKey() == KBFolderConstants.DEFAULT_PARENT_FOLDER_ID) {
+												title = LanguageUtil.get(resourceBundle, "home");
 											}
-										}
-										%>
+											else {
+												KBFolder kbFolder = KBFolderServiceUtil.fetchKBFolder(kbDisplayPortletInstanceConfiguration.resourcePrimKey());
 
-										<liferay-ui:input-resource id="configurationKBObject" url="<%= title %>" />
+												if (kbFolder != null) {
+													title = kbFolder.getName();
+												}
+											}
+											%>
 
-										<aui:button name="selectKBObjectButton" value="select" />
-									</aui:field-wrapper>
+											<liferay-ui:input-resource id="configurationKBObject" url="<%= title %>" />
+										</aui:field-wrapper>
+									</div>
+
+									<aui:button name="selectKBObjectButton" value="select" />
 								</div>
 							</aui:fieldset>
 						</aui:fieldset-group>
