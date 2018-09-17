@@ -202,6 +202,8 @@ AUI.add(
 						formValidator.on('submit', A.bind('_onValidatorSubmit', instance));
 						formValidator.on('submitError', A.bind('_onSubmitError', instance));
 
+						formValidator.set('skipValidationTargetSelectors', ['a[class~=btn-cancel]']);
+
 						formNode.delegate(['blur', 'focus'], A.bind('_onFieldFocusChange', instance), 'button,input,select,textarea');
 						formNode.delegate(['blur', 'input'], A.bind('_onEditorBlur', instance), 'div[contenteditable="true"]');
 
