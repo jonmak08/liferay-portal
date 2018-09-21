@@ -125,8 +125,8 @@ AUI.add(
 							var formValidator = new A.FormValidator(
 								{
 									boundingBox: formNode,
+									skipValidationTargetSelectors: instance.get(''),
 									validateOnBlur: instance.get('validateOnBlur')
-									skipValidationTargetSelectors: instance.get('skipValidationTargetSelectors');
 								}
 							);
 
