@@ -1,69 +1,97 @@
-#wrapper {
-	padding: 0;
-	margin: 0;
+header#banner {
+	align-items: center;
+	background: white;
+	border-bottom: 1px solid black;
+	display: flex;
+	margin-top: -32px;
+	position: fixed;
+	width: 100%;
+	z-index: 2;
 }
 
-#sign-in {
-	text-decoration: none;
-	text-align: right;
+h1.site-title {
+    display: flex;
 }
 
-#navigation {
-	padding: 0;
+img {
+    height: 40px;
+    width: 40px;
 }
 
-#banner {
-	background-color: grey;
-	border-bottom: grey;
-	padding: 10px;
+a {
+    color: #000;
+    text-decoration: none;
+
+	:hover {
+		color: black;
+		text-decoration: none;
+		opacity: 0.8;
+	}
 }
 
-.div.portlet-content {
+a#sign-in {
+    position: fixed;
+    right: 0;
+    margin-right: 30px;
+    padding: 10px;
+}
 
+ul {
+    list-style-type: none;
+
+    li {
+    float:left;
+    }
+
+    a {
+    display: block;
+    padding: 10px;
+    margin-right: 10px;
+    }
+}
+
+.portlet-layout.row {
+    width: 85%;
+    margin: 50px auto;
+}
+
+.portlet-content.portlet-content-editable {
+    padding: 20px;
+}
+
+ /* -----------column-1-------------*/
+
+div#column-1 {
+	margin: 80px auto;
+}
+
+ /* -----------column-2-------------*/
+
+ div#column-2 {
+ .portlet-content.portlet-content-editable {
+    border: 1px solid black;
+    }
+}
+
+ /* -----------column-3-------------*/
+
+ div#column-3 {
+ .portlet-content.portlet-content-editable {
+    border: 1px solid black;
+    }
+}
+
+ /* -----------column-4-------------*/
+
+ div#column-4 {
+ .portlet-content.portlet-content-editable {
+    border: 1px solid black;
+    }
 }
 
 
 
-.h1.site-title {
-	opacity: 0;
-}
+ /* -----------footer-------------*/
 
-#layout_1 {
-	background-color: orange;
-	margin-bottom: 0;
-	min-height: 60px;
-	padding: 8px;
-	padding-top: 80px;
-}
-
-#column-1 {
-	background-color: blue;
-	padding: 5%;
-}
-
-#column-1 .portlet-content.portlet-content-editable {
-	padding: 50px;
-}
-
-#column-2, #column-3, #column-4 {
-	background-color: tomato;
-	padding: 5%;
-}
-
-#column-2 .portlet-content.portlet-content-editable {
-	border: 10px red solid;
-}
-
-#column-3 .portlet-content.portlet-content-editable {
-	border: 10px green solid;
-}
-
-#column-5 {
-	background-color: orange;
-	padding: 20%;
-}
 
 #footer {
-	background-color: grey;
-		padding: 10px;
-}
