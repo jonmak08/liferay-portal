@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="BackgroundColor" type="ddm-color" index-type="keyword" instance-id="mawm">
+		<dynamic-content language-id="en_US"><![CDATA[#2B2B2B]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="FadeInDelay" type="list" index-type="keyword" instance-id="oroa">
+		<dynamic-content language-id="en_US"><![CDATA[500]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Title" type="text" index-type="keyword" instance-id="wmgj">
+		<dynamic-element name="TitleColor" instance-id="orag" type="ddm-color" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[#FFFFFF]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Application Development]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ServiceImage" type="image" index-type="text" instance-id="vfab">
+		<dynamic-element name="ImageColumn" instance-id="titz" type="radio" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[left]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"app development.jpg","alt":"","title":"app development.jpg","type":"journal","uuid":"5965021a-040a-b278-3463-991820660fac","fileEntryId":"56228","resourcePrimKey":"50958"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ServiceDescription" type="text_box" index-type="text" instance-id="tnpp">
+		<dynamic-content language-id="en_US"><![CDATA[Our application development is great!]]></dynamic-content>
+	</dynamic-element>
+</root>

@@ -1,0 +1,237 @@
+{
+    "availableLanguageIds": [
+        "en_US"
+    ],
+    "defaultLanguageId": "en_US",
+    "fields": [
+        {
+            "label": {
+                "en_US": "Background Color"
+            },
+            "predefinedValue": {
+                "en_US": "#2C2C2C"
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": "Select a Predefined color, or set hex/RGB via \"More colors...\""
+            },
+            "dataType": "color",
+            "fieldNamespace": "ddm",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "BackgroundColor",
+            "readOnly": false,
+            "repeatable": false,
+            "required": true,
+            "showLabel": true,
+            "type": "ddm-color"
+        },
+        {
+            "label": {
+                "en_US": "Fade In Delay"
+            },
+            "options": [
+                {
+                    "value": "0",
+                    "label": {
+                        "en_US": "0"
+                    }
+                },
+                {
+                    "value": "500",
+                    "label": {
+                        "en_US": "500"
+                    }
+                },
+                {
+                    "value": "1000",
+                    "label": {
+                        "en_US": "1000"
+                    }
+                },
+                {
+                    "value": "1500",
+                    "label": {
+                        "en_US": "1500"
+                    }
+                },
+                {
+                    "value": "2000",
+                    "label": {
+                        "en_US": "2000"
+                    }
+                },
+                {
+                    "value": "2500",
+                    "label": {
+                        "en_US": "2500"
+                    }
+                },
+                {
+                    "value": "3000",
+                    "label": {
+                        "en_US": "3000"
+                    }
+                }
+            ],
+            "predefinedValue": {
+                "en_US": [
+                    "1000"
+                ]
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": "How long in milliseconds for the animation to transition in/out."
+            },
+            "dataType": "string",
+            "indexType": "keyword",
+            "localizable": true,
+            "multiple": false,
+            "name": "FadeInDelay",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "select"
+        },
+        {
+            "label": {
+                "en_US": "Title"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "string",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "Title",
+            "readOnly": false,
+            "repeatable": false,
+            "required": true,
+            "showLabel": true,
+            "type": "text",
+            "nestedFields": [
+                {
+                    "label": {
+                        "en_US": "Title Color"
+                    },
+                    "predefinedValue": {
+                        "en_US": "#FFFFFF"
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": "Text color for the service's title. (Will be over Background Color)"
+                    },
+                    "dataType": "color",
+                    "fieldNamespace": "ddm",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "TitleColor",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": true,
+                    "showLabel": true,
+                    "type": "ddm-color"
+                }
+            ]
+        },
+        {
+            "label": {
+                "en_US": "Service Image"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "image",
+            "fieldNamespace": "ddm",
+            "indexType": "text",
+            "localizable": true,
+            "name": "ServiceImage",
+            "readOnly": false,
+            "repeatable": false,
+            "required": true,
+            "showLabel": true,
+            "type": "ddm-image",
+            "nestedFields": [
+                {
+                    "label": {
+                        "en_US": "Image Column"
+                    },
+                    "options": [
+                        {
+                            "value": "left",
+                            "label": {
+                                "en_US": "Left"
+                            }
+                        },
+                        {
+                            "value": "right",
+                            "label": {
+                                "en_US": "Right"
+                            }
+                        }
+                    ],
+                    "predefinedValue": {
+                        "en_US": ""
+                    },
+                    "style": {
+                        "en_US": ""
+                    },
+                    "tip": {
+                        "en_US": ""
+                    },
+                    "dataType": "radio",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "ImageColumn",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": true,
+                    "showLabel": true,
+                    "type": "radio"
+                }
+            ]
+        },
+        {
+            "label": {
+                "en_US": "Service Description"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "string",
+            "indexType": "text",
+            "localizable": true,
+            "name": "ServiceDescription",
+            "readOnly": false,
+            "repeatable": false,
+            "required": true,
+            "showLabel": true,
+            "type": "textarea"
+        }
+    ]
+}

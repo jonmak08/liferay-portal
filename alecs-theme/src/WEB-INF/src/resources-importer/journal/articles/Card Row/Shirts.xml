@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="product" type="text" index-type="keyword" instance-id="ghga">
+		<dynamic-element name="InStock" instance-id="szpm" type="boolean" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[true]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="Image" instance-id="dypm" type="image" index-type="text">
+			<dynamic-content language-id="en_US">
+				<![CDATA[{"groupId":"20126","name":"white shirt.jpg","alt":"","title":"white shirt.jpg","type":"journal","uuid":"31301054-0864-5a30-02de-c174acad2b64","fileEntryId":"56011","resourcePrimKey":"56009"}]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="Subtitle" instance-id="aoug" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[Size: medium]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="Price" instance-id="uxmr" type="ddm-decimal" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[20.0]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="PurchaseLink" instance-id="ceyv" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[https://amazon.com]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US">
+			<![CDATA[White Shirt]]>
+		</dynamic-content>
+	</dynamic-element>
+
+	<dynamic-element name="product" type="text" index-type="keyword" instance-id="sooi">
+		<dynamic-element name="InStock" instance-id="xjdu" type="boolean" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="Image" instance-id="dosh" type="image" index-type="text">
+			<dynamic-content language-id="en_US">
+				<![CDATA[{"groupId":"20126","name":"red shirt.jpeg","alt":"","title":"red shirt.jpeg","type":"journal","uuid":"a08d66be-dba2-c214-2765-08c5708d92cd","fileEntryId":"56074","resourcePrimKey":"56009"}]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="Subtitle" instance-id="dmwo" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[Size: Small]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="Price" instance-id="wxwi" type="ddm-decimal" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[35.0]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="PurchaseLink" instance-id="xupn" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[https://amazon.com]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US">
+			<![CDATA[Red Shirt]]>
+		</dynamic-content>
+	</dynamic-element>
+
+	<dynamic-element name="product" type="text" index-type="keyword" instance-id="rwqk">
+		<dynamic-element name="InStock" instance-id="bqzi" type="boolean" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[true]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="Image" instance-id="umjv" type="image" index-type="text">
+			<dynamic-content language-id="en_US">
+				<![CDATA[{"groupId":"20126","name":"blue shirt.jpg","alt":"","title":"blue shirt.jpg","type":"journal","uuid":"c1e13df9-a972-4e19-dd7d-f57b8b95ef94","fileEntryId":"56079","resourcePrimKey":"56009"}]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="Subtitle" instance-id="ehuk" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[Size: Large]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="Price" instance-id="bryx" type="ddm-decimal" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[25.0]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="PurchaseLink" instance-id="rpqt" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[https://amazon.com]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US">
+			<![CDATA[Blue Shirt]]>
+		</dynamic-content>
+	</dynamic-element>
+
+	<dynamic-element name="product" type="text" index-type="keyword" instance-id="gbsp">
+		<dynamic-element name="InStock" instance-id="cgaq" type="boolean" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[true]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="Image" instance-id="tjyi" type="image" index-type="text">
+			<dynamic-content language-id="en_US">
+				<![CDATA[{"groupId":"20126","name":"black shirt.jpg","alt":"","title":"black shirt.jpg","type":"journal","uuid":"c788b132-f241-ddd5-f0c7-b865f03e6c3f","fileEntryId":"56084","resourcePrimKey":"56009"}]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="Subtitle" instance-id="xivn" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[Size: Medium]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="Price" instance-id="nsyg" type="ddm-decimal" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[40.0]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="PurchaseLink" instance-id="djoo" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US">
+				<![CDATA[https://amazon.com]]>
+			</dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US">
+			<![CDATA[Black Shirt]]>
+		</dynamic-content>
+	</dynamic-element>
+</root>

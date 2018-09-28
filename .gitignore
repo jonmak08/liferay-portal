@@ -29,6 +29,7 @@
 /.sonar
 /.xmlcatalog
 /ActiveMQ
+/alecs-theme/node_modules
 /ant.install.log
 /api
 /app.server.*.properties
@@ -202,3 +203,5 @@
 /working.dir.properties
 /WEB-INF
 _sass_cache_*.css
+/node_modules
+package-lock.json

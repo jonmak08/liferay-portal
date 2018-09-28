@@ -1,0 +1,62 @@
+header {
+	a {
+		color: $main-header-color;
+
+		&:hover, &:focus {
+			color: $secondary-header-color;
+		}
+	}
+
+	.form-control:focus {
+		border-color: $main-header-color;
+		color: $main-header-color;
+	}
+
+	.lfr-nav-child-toggle {
+		@include media-query(null, $screen-xs-max) {
+			float: left;
+			padding: 0 10px;
+		}
+	}
+
+	li.open > a:focus {
+		@include tab-focus;
+	}
+
+	.navbar-toggle {
+		margin: 10px 15px;
+	}
+
+	.navbar-user {
+		.user-avatar-link, .sign-in {
+			& > a {
+				color: $main-header-color;
+				display: inline-block;
+				font-size: 12px;
+				padding: 16px 16px 16px 6px;
+				text-transform: uppercase;
+
+				&.open, &:focus, &:hover, &.active {
+					color: $secondary-header-color;
+					text-decoration: none;
+				}
+			}
+		}
+
+		.user-full-name {
+			margin-left: 4px;
+		}
+
+		.user-icon, .icon-user {
+			display: inline-table;
+		}
+	}
+
+	.portlet:hover {
+		z-index: 1050;
+	}
+
+	.portlet-body > .navbar {
+		margin: 0 15px;
+	}
+}

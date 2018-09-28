@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="BackgroundColor" type="ddm-color" index-type="keyword" instance-id="wrbn">
+		<dynamic-content language-id="en_US"><![CDATA[#2b2b2b]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="FadeInDelay" type="list" index-type="keyword" instance-id="roxp">
+		<dynamic-content language-id="en_US"><![CDATA[500]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Title" type="text" index-type="keyword" instance-id="gjfj">
+		<dynamic-element name="TitleColor" instance-id="gjnk" type="ddm-color" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[#FFFFFF]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Web Development]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ServiceImage" type="image" index-type="text" instance-id="mecs">
+		<dynamic-element name="ImageColumn" instance-id="cigs" type="radio" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[left]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"web devleopment.png","alt":"","title":"web devleopment.png","type":"journal","uuid":"60f736b3-9de2-2776-5c5e-cae68ff09817","fileEntryId":"56184","resourcePrimKey":"50821"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ServiceDescription" type="text_box" index-type="text" instance-id="gexg">
+		<dynamic-content language-id="en_US"><![CDATA[Our web development is great!]]></dynamic-content>
+	</dynamic-element>
+</root>

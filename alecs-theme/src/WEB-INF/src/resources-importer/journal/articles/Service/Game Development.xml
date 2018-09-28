@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="BackgroundColor" type="ddm-color" index-type="keyword" instance-id="pyag">
+		<dynamic-content language-id="en_US"><![CDATA[#2B2B2B]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="FadeInDelay" type="list" index-type="keyword" instance-id="zuzv">
+		<dynamic-content language-id="en_US"><![CDATA[500]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Title" type="text" index-type="keyword" instance-id="egph">
+		<dynamic-element name="TitleColor" instance-id="oyfb" type="ddm-color" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[#FFFFFF]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Game Development]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ServiceImage" type="image" index-type="text" instance-id="emvh">
+		<dynamic-element name="ImageColumn" instance-id="alyf" type="radio" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[right]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"game development.jpg","alt":"","title":"game development.jpg","type":"journal","uuid":"a80d2a3d-d2e4-0080-2760-397f42fee536","fileEntryId":"56206","resourcePrimKey":"50897"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ServiceDescription" type="text_box" index-type="text" instance-id="bgrm">
+		<dynamic-content language-id="en_US"><![CDATA[Our game development is great!]]></dynamic-content>
+	</dynamic-element>
+</root>

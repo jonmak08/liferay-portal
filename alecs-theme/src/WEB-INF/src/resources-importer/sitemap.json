@@ -1,0 +1,132 @@
+{
+  "layoutTemplateId":"1_column",
+  "publicPages": [
+    {
+      "columns":
+      [
+        [
+          {
+            "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+            "portletPreferences": {
+              "articleId": "Sample.xml",
+              "groupId": "${groupId}",
+              "portletSetupPortletDecoratorId": "decorate"
+            }
+          }
+        ]
+      ],
+      "friendlyURL": "/welcome",
+      "name": "Welcome",
+      "title": "Welcome",
+      "layoutTemplateId":"1_column"
+    },
+    {
+      "columns":
+      [
+        [
+          {
+            "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+            "portletPreferences": {
+              "articleId": "World Class Service.xml",
+              "groupId": "${groupId}",
+              "portletSetupPortletDecoratorId": "decorate"
+            }
+          },
+          {
+            "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+            "portletPreferences": {
+              "articleId": "Web Development.xml",
+              "groupId": "${groupId}",
+              "portletSetupPortletDecoratorId": "decorate"
+            }
+          },
+          {
+            "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+            "portletPreferences": {
+              "articleId": "Game Development.xml",
+              "groupId": "${groupId}",
+              "portletSetupPortletDecoratorId": "decorate"
+            }
+          },
+          {
+            "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+            "portletPreferences": {
+              "articleId": "Application Development.xml",
+              "groupId": "${groupId}",
+              "portletSetupPortletDecoratorId": "decorate"
+            }
+          }
+        ]
+      ],
+      "friendlyURL": "/services",
+      "name": "Services",
+      "title": "Services",
+      "layoutTemplateId":"1_column"
+    },
+    {
+      "columns":
+      [
+        [
+          {
+            "portletId": "com_liferay_login_web_portlet_LoginPortlet"
+          }
+        ],
+        [
+          {
+            "portletId": "com_liferay_portal_search_web_portlet_SearchPortlet"
+          },
+          {
+            "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+            "portletPreferences": {
+              "articleId": "Shirts.xml",
+              "groupId": "${groupId}",
+              "portletSetupPortletDecoratorId": "decorate"
+            }
+          }
+        ]
+      ],
+      "friendlyURL": "/shop",
+      "name": "Shop",
+      "title": "Shop",
+      "layoutTemplateId": "2_columns_ii"
+    },
+    {
+      "columns":
+      [
+        [
+          {
+            "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+            "portletPreferences": {
+              "articleId": "Our Team.xml",
+              "groupId": "${groupId}",
+              "portletSetupPortletDecoratorId": "decorate"
+            }
+          }
+        ]
+      ],
+      "friendlyURL": "/our-team",
+      "name": "Our Team",
+      "title": "Our Team",
+      "layoutTemplateId":"1_column"
+    },
+    {
+      "columns":
+      [
+        [
+          {
+            "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+            "portletPreferences": {
+              "articleId": "Contact Us.xml",
+              "groupId": "${groupId}",
+              "portletSetupPortletDecoratorId": "decorate"
+            }
+          }
+        ]
+      ],
+      "friendlyURL": "/contact-us",
+      "name": "Contact Us",
+      "title": "Contact Us",
+      "layoutTemplateId":"1_column"
+    }
+  ]
+}

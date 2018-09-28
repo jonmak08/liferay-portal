@@ -1,0 +1,73 @@
+.navbar-inverse.navbar-alec {
+	background: linear-gradient(to bottom right, #60A0FF, #1F7AFF);
+	border-width: 0;
+	box-shadow: 0 5px 24px 2px rgba(0, 0, 0, 0.14);
+	margin-bottom: 0;
+	z-index: 987;
+
+	.has-control-menu .fixed-top {
+		margin-top: 105px;
+	}
+
+	.icon-bar {
+		background-color: #FFF;
+	}
+
+	.logo {
+		@media (min-width: 576px) {
+			margin: 4px 0;
+		}
+	}
+
+	.navbar-nav {
+		li {
+			& > a {
+				font-size: 14px;
+				text-transform: uppercase;
+
+				&:hover, &:focus, &.active, &.open {
+					color: #E5E5E5;
+				}
+			}
+		}
+
+		& > .open > a, & > .active > a {
+			color: #E5E5E5;
+		}
+	}
+
+	section, .navbar {
+		@include sm {
+			margin: 0;
+		}
+	}
+}
+
+.lfr-product-menu-panel.sidenav-menu-slider {
+	z-index: 991;
+}
+
+.fixed {
+	top: 63px;
+
+	@media (max-width: 576px) {
+		top: 55px;
+	}
+
+	.buffer {
+		top: 55px !important;
+
+		@media (max-width: 576px) {
+			top: 49px !important;
+		}
+	}
+
+	.navbar-alec {
+		left: 0;
+		padding-left: inherit;
+		position: fixed;
+		right: 0;
+		top: 0;
+		z-index: 990;
+	}
+}
