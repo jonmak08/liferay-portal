@@ -4,29 +4,25 @@
 /*	border-style: $portlet-decorate-border-style; */
 /*	border-width: $portlet-decorate-border-width; */
 /*	word-wrap: break-word; */
-	padding: 10px;
+	padding: 80px;
     margin: auto;
     border: 1px solid black;
-
-	:hover {
-	background-color: black;
-	}
+    font-weight: heavy;
 }
 
 .portlet-borderless .portlet-content {
 	padding: 120px;
 	background: transparent;
-	color: #FFF;
+	color: white;
 	text-align: center;
-	font-weight: heavy;
 }
 
 
 .portlet-barebone .portlet-content {
-	padding: 10px;
-	background: none;
-	border-color: none;
+	padding: 50px;
+	margin: 80px;
 	border-style: none;
-	border-width: none;
-	margin: auto;
+	border-color: none;
+	border-width: 0;
 }
+

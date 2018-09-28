@@ -1,27 +1,30 @@
-
 @import url("/portlet/_portlet_decorator.scss")
 
+div#wrapper {
+	padding: 0px;
+}
 /* ------------ BANNER ITEMS -------------*/
+
 
 header#banner {
 	align-items: center;
 	background: white;
 	border-bottom: 1px solid black;
 	display: flex;
-	margin-top: -32px;
+	margin-top: -100px;
+
 	
 	opacity: 0.2;
-	-webkit-transition: opacity 0.5s;
 	transition: opacity 0.5s;
 
 	position: fixed;
 	width: 100%;
-	z-index: 2;
+	z-index: 200 !important;
 }
 
 #banner:hover {
-		opacity: 1.0;
-		background: white;
+	opacity: 1.0;
+	background: white;
 }
 
 nav#navigation {
@@ -45,6 +48,7 @@ img {
     width: 40px;
 }
 
+
 /* ------------ LINK EFFECTS -------------*/
 
 a {
@@ -53,11 +57,10 @@ a {
 }
 
 a:hover {
-		color: black;
-		text-decoration: none;
-		opacity: 0.5;
+	color: black;
+	text-decoration: none;
+	opacity: 0.5;
 }
-
 
 a#sign-in {
     position: fixed;
@@ -68,7 +71,12 @@ a#sign-in {
 
 ul {
     list-style-type: none;
+
+    li {
+   	 float:left;
+   	}
 }
+
 
 /* ------------ NAVIGATION ------------------*/
 
@@ -82,20 +90,15 @@ ul {
     }
 }
 
+
 /* ------------ BACKGROUND IMAGE -------------*/
 
-body {
+#column-1 {																	
 	background: url("../images/leaves.jpeg") top center no-repeat;
-	height: 120%;
-	-webkit-background-size: contain; 
-	-moz-background-size: contain;
-	-o-background-size: contain;
-
 	background-attachment: fixed;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: contain;
-}
+	height: 100%;
+
+}																		
 
 
 /* ------------ SCROLL TO TOP BUTTON -------------*/
@@ -103,69 +106,94 @@ body {
 #totopbtn {
 	border-radius: 5px;
     background-color: black;
-    opacity: 0.5;
-    position: fixed;
-    color: #FFF;
+    color: white;
     min-height: 30px;
     min-width: 30px;
+    opacity: 0.5;
+    position: fixed;
 	bottom: 30px;
-	right: 30px;
+	right: 40px;
 }
 
 
- /* -----------column-1-------------*/
+ /* -----------section -------------*/
 
-div#column-1 {
-	margin: 80px auto;
-	padding: 100px;
+.portlet-layout.row {
+    width: 100%;
+    margin: 100px auto;
 }
 
- /* -----------column-2-------------*/
-
- div#column-2 {
-
+div#column-1, {
+	margin: 0 auto;
+	width: 100%;
+	top: -100px;
+	padding: 200px;
 }
 
- /* -----------column-3-------------*/
-
- div#column-3 {
-
+div#column-5 {
+	margin: 100px auto;
+	padding: 10px;
 }
 
-
- /* -----------column-4-------------*/
-
- div#column-4 {
-
+#column-1,
+#column-2,
+#column-3,
+#column-4,
+#column-5 {
+	display: block;
 }
 
+.portlet-title-text {
+	max-width: 100%;
+}
+
+/* this is a test for parallax */
+#content {  
+	position: relative;
+	z-index: 100 !important;
+	margin-bottom:500px;
+	background-color: white;
+}
 
  /* -----------footer-------------*/
 
 #footer {
-    align-items: center;
-    background: #FFFFF4;
-    border-top: 1px solid black;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin: auto;
+	background: #FFFFF5;
+	border-top: 1px solid black;
+	display: flex;
+	flex-wrap: wrap;
+	height: 200px;
+	width: 100%;
+	justify-content: center;
+	position: fixed;   /* this is a test for parallax */
+	bottom: 0;
+	z-index: -1 !important;
+	height: 550px;
 } 
 
-#footer1 {	
-	display: block;
-	margin: auto;
-	padding: 100px;
+#footer ul li {
+	clear: both;
 }
 
-#footer2 {
-	display: block;
-	margin: auto;
+#footer ul li a {
+	color: grey;
+}
+
+#footer ul li a:hover {
+	color: #000;
+}
+
+.infoot {	
+	align-content: left;
+	display: inline-flex;
 	padding: 100px;
+	line-height: 1.6;
 }
 
 #copyright {
-	width: 100%;
-	display: block;
+	background-color: E7E7E7;
+	flex: 0 0 100%;
 	text-align: center;
+	width: 100%;
+
 }
