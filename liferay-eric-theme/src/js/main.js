@@ -34,7 +34,6 @@ Liferay.on(
 	}
 );
 
-function topFunction(){
-	document.body.scrollTop = 0;
-	document.documentElement.scrollTop = 0;
+function scrollUp(){
+	window.scrollTo(100,100);
 }

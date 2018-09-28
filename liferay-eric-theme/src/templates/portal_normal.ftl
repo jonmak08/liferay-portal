@@ -58,12 +58,13 @@
 				<@liferay_util["include"] page=content_include />
 			</@>
 		</#if>
-		<button onclick="topFunction()" id="totopbtn" title="Scroll Back Up">&#8593;</button>
+		<button onclick="scrollUp()" id="totopbtn" name="BigGreyButton">&#8593;</button> 
+										<!--Button takes you to the top!-->
 	</section>
 
 	<footer id="footer" role="contentinfo">
 		 <div>
-		  <div id="footer1">
+		  <div class="infoot">
 			<p class="footer-heading">This is Eric's theme site</p>
 				<ul>
 					<li><a href="/web/guest/home">Home </a></li>
@@ -72,7 +73,7 @@
 				</ul>
 		  </div>
 
-		  <div id=footer2>
+		  <div class="infoot">
 		  	<p class="footer-heading">Other Similar Sites:</p>
 		  		<ul>
 		  			<li><a href="#">Alec's Theme</a> </li>
@@ -98,7 +99,7 @@
 <@liferay_util["include"] page=bottom_include />
 
 <!-- inject:js -->
-2027
+
 <!-- endinject -->
 
 </body>
