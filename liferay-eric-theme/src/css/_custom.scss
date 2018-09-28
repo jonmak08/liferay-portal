@@ -1,0 +1,171 @@
+
+@import url("/portlet/_portlet_decorator.scss")
+
+/* ------------ BANNER ITEMS -------------*/
+
+header#banner {
+	align-items: center;
+	background: white;
+	border-bottom: 1px solid black;
+	display: flex;
+	margin-top: -32px;
+	
+	opacity: 0.2;
+	-webkit-transition: opacity 0.5s;
+	transition: opacity 0.5s;
+
+	position: fixed;
+	width: 100%;
+	z-index: 2;
+}
+
+#banner:hover {
+		opacity: 1.0;
+		background: white;
+}
+
+nav#navigation {
+	margin-left: 15px;
+	margin-right: auto;
+}
+
+div#heading {
+	margin-left: 20%;
+	margin-right: 0;
+}
+
+h1.site-title {
+	margin-left: auto;
+    display: flex;
+}
+
+img {
+	opacity: 1;
+    height: 40px;
+    width: 40px;
+}
+
+/* ------------ LINK EFFECTS -------------*/
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+		color: black;
+		text-decoration: none;
+		opacity: 0.5;
+}
+
+
+a#sign-in {
+    position: fixed;
+    right: 0;
+    margin-right: 30px;
+    padding: 10px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* ------------ NAVIGATION ------------------*/
+
+#navigation ul li {
+    float:left;
+
+    a {
+    display: block;
+    padding: 10px;
+    margin-right: 10px;
+    }
+}
+
+/* ------------ BACKGROUND IMAGE -------------*/
+
+body {
+	background: url("../images/leaves.jpeg") top center no-repeat;
+	height: 120%;
+	-webkit-background-size: contain; 
+	-moz-background-size: contain;
+	-o-background-size: contain;
+
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+
+/* ------------ SCROLL TO TOP BUTTON -------------*/
+
+#totopbtn {
+	border-radius: 5px;
+    background-color: black;
+    opacity: 0.5;
+    position: fixed;
+    color: #FFF;
+    min-height: 30px;
+    min-width: 30px;
+	bottom: 30px;
+	right: 30px;
+}
+
+
+ /* -----------column-1-------------*/
+
+div#column-1 {
+	margin: 80px auto;
+	padding: 100px;
+}
+
+ /* -----------column-2-------------*/
+
+ div#column-2 {
+
+}
+
+ /* -----------column-3-------------*/
+
+ div#column-3 {
+
+}
+
+
+ /* -----------column-4-------------*/
+
+ div#column-4 {
+
+}
+
+
+ /* -----------footer-------------*/
+
+#footer {
+    align-items: center;
+    background: #FFFFF4;
+    border-top: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: auto;
+} 
+
+#footer1 {	
+	display: block;
+	margin: auto;
+	padding: 100px;
+}
+
+#footer2 {
+	display: block;
+	margin: auto;
+	padding: 100px;
+}
+
+#copyright {
+	width: 100%;
+	display: block;
+	text-align: center;
+}

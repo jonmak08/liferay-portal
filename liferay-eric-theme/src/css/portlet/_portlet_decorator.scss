@@ -1,0 +1,32 @@
+.portlet-decorate .portlet-content {
+/*	background: $portlet-decorate-bg; */
+/*	border-color: $portlet-decorate-border-color; */
+/*	border-style: $portlet-decorate-border-style; */
+/*	border-width: $portlet-decorate-border-width; */
+/*	word-wrap: break-word; */
+	padding: 10px;
+    margin: auto;
+    border: 1px solid black;
+
+	:hover {
+	background-color: black;
+	}
+}
+
+.portlet-borderless .portlet-content {
+	padding: 120px;
+	background: transparent;
+	color: #FFF;
+	text-align: center;
+	font-weight: heavy;
+}
+
+
+.portlet-barebone .portlet-content {
+	padding: 10px;
+	background: none;
+	border-color: none;
+	border-style: none;
+	border-width: none;
+	margin: auto;
+}
