@@ -11,7 +11,7 @@ header#banner {
 	background: white;
 	border-bottom: 1px solid black;
 	display: flex;
-	margin-top: -100px;
+	margin-top: -50px;
 
 	
 	opacity: 0.2;
@@ -57,9 +57,9 @@ a {
 }
 
 a:hover {
-	color: black;
-	text-decoration: none;
-	opacity: 0.5;
+    color: black;
+    text-decoration: none;
+    opacity: 0.5;
 }
 
 a#sign-in {
@@ -160,14 +160,14 @@ div#column-5 {
 footer#footer {
 	background: #FFFFF5;
 	border-top: 1px solid black;
-	display: flex;
+	display: grid;
 	flex-wrap: wrap;
 	height: 200px;
     list-style-type: none;
 	width: 100%;
 	justify-content: center;
 	position: fixed;   /* this is a test for parallax */
-	bottom: 0;
+	bottom: -100px;
 	z-index: -1 !important;
 	height: 550px;
 } 
@@ -176,17 +176,9 @@ footer#footer {
 	clear: both;
 }
 
-#footer ul li a {
-	color: grey;
-}
-
-#footer ul li a:hover {
-	color: #000;
-}
-
 .infoot {	
 	align-content: left;
-	display: inline-flex;
+	display: inline-grid;
 	padding: 50px;
 	line-height: 1.6;
 }
@@ -204,6 +196,7 @@ footer#footer {
 }
 
 .social-media-wrapper {
+    display:inline-flex;
 
     h2 {
         color: #FFF;
@@ -211,8 +204,6 @@ footer#footer {
     }
 
     li {
-        border-radius: 6px;
-        clear: left;
         display: inline-flex;
         font-size: 21px;
         float: left;                        
@@ -221,7 +212,7 @@ footer#footer {
 
         a {
             border-radius: 6px;
-            color: #FFF;
+            color: grey;
             padding: 7px 8px;
                 &:hover {
                 text-decoration: none;
@@ -233,6 +224,7 @@ footer#footer {
         display: inline-flex;
         line-height: 1.6rem;
         margin: auto;
+        padding: 0px;
         text-align: left;
         /*it goes here */
     }

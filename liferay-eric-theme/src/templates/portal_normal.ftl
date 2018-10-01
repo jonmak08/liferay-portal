@@ -73,9 +73,6 @@
 				</ul>
 
 	  	<div class="social-media-wrapper">
-					<h2 class="nav-heading">
-					    Follow Us
-					</h2>
 					<ul>
 					    <li>
 					        <div id="facebook"><a class="icon-facebook"
