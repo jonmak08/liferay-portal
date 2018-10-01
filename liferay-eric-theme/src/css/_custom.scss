@@ -157,12 +157,13 @@ div#column-5 {
 
  /* -----------footer-------------*/
 
-#footer {
+footer#footer {
 	background: #FFFFF5;
 	border-top: 1px solid black;
 	display: flex;
 	flex-wrap: wrap;
 	height: 200px;
+    list-style-type: none;
 	width: 100%;
 	justify-content: center;
 	position: fixed;   /* this is a test for parallax */
@@ -186,14 +187,53 @@ div#column-5 {
 .infoot {	
 	align-content: left;
 	display: inline-flex;
-	padding: 100px;
+	padding: 50px;
 	line-height: 1.6;
 }
 
-#copyright {
+.footer-heading {
+	font-weight: bold;
+	color: grey;
+}
+
+#boop {
 	background-color: E7E7E7;
 	flex: 0 0 100%;
 	text-align: center;
 	width: 100%;
+}
 
+.social-media-wrapper {
+
+    h2 {
+        color: #FFF;
+        text-align: center;
+    }
+
+    li {
+        border-radius: 6px;
+        clear: left;
+        display: inline-flex;
+        font-size: 21px;
+        float: left;                        
+        margin-top: 11px;
+        padding: 3px;
+
+        a {
+            border-radius: 6px;
+            color: #FFF;
+            padding: 7px 8px;
+                &:hover {
+                text-decoration: none;
+                }
+        }
+    }
+
+    ul {
+        display: inline-flex;
+        line-height: 1.6rem;
+        margin: auto;
+        text-align: left;
+        /*it goes here */
+    }
 }

@@ -66,16 +66,50 @@
 		 <div>
 		  <div class="infoot">
 			<p class="footer-heading">This is Eric's theme site</p>
-				<ul>
+				<ul class="footer-links">
 					<li><a href="/web/guest/home">Home </a></li>
 					<li><a href="/web/guest/about-us">About Us </a></li>
 					<li><a href="/web/guest/contact-us">Contact Us</a></li>
 				</ul>
+
+	  	<div class="social-media-wrapper">
+					<h2 class="nav-heading">
+					    Follow Us
+					</h2>
+					<ul>
+					    <li>
+					        <div id="facebook"><a class="icon-facebook"
+					        href="#" 
+					        target="_blank"><span class="hide">Facebook</span></a></div>
+					    </li>
+					    <li>
+					        <div id="twitter"><a class="icon-twitter" 
+					        href="#" 
+					        target="_blank"><span class="hide">Twitter</span></a></div>
+					    </li>
+					    <li>
+					        <div id="linked-in"><a class="icon-linkedin"
+					        href="#" 
+					        target="_blank"><span class="hide">LinkedIn</span></a></div>
+					    </li>
+					    <li>
+					        <div id="youtube"><a class="icon-youtube"
+					        href="#" 
+					        target="_blank"><span class="hide">YouTube</span></a></div>
+					    </li>
+					    <li>
+					        <div id="google-plus">
+					        <a class="icon-google-plus"
+					        href="#" 
+					        target="_blank"><span class="hide">Google</span></a></div>
+					    </li>
+					</ul>
+			</div>
 		  </div>
 
 		  <div class="infoot">
 		  	<p class="footer-heading">Other Similar Sites:</p>
-		  		<ul>
+		  		<ul="footer-links">
 		  			<li><a href="#">Alec's Theme</a> </li>
 		  			<li><a href="#">Brian's Dad's Theme</a> </li>
 		  			<li><a href="#">Jon's Theme</a></li>
@@ -85,7 +119,7 @@
 		  		</ul>
 		  </div>
 		 </div>
-	  <div id="copyright">
+	  <div id="boop">
 	  	<p class="powered-by">
 			<@liferay.language key="powered-by" /> <a href="http://www.liferay.com" rel="external">Liferay</a> </p>
 	  	<p>&copy; Eric Ji 2018</p>

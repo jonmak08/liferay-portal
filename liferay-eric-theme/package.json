@@ -15,10 +15,6 @@
 		"version": "7.1"
 	},
 	"main": "package.json",
-<<<<<<< HEAD
 	"name": "liferay-eric-theme",
-=======
-	"name": "my-liferay-theme",
->>>>>>> my-liferay-theme
 	"version": "1.0.0"
 }
