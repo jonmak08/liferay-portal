@@ -1,0 +1,28 @@
+.portlet-decorate .portlet-content {
+/*	background: $portlet-decorate-bg; */
+/*	border-color: $portlet-decorate-border-color; */
+/*	border-style: $portlet-decorate-border-style; */
+/*	border-width: $portlet-decorate-border-width; */
+/*	word-wrap: break-word; */
+	padding: 80px;
+    margin: auto;
+    border: 1px solid black;
+    font-weight: heavy;
+}
+
+.portlet-borderless .portlet-content {
+	padding: 120px;
+	background: transparent;
+	color: white;
+	text-align: center;
+}
+
+
+.portlet-barebone .portlet-content {
+	padding: 50px;
+	margin: 80px;
+	border-style: none;
+	border-color: none;
+	border-width: 0;
+}
+

@@ -1,0 +1,231 @@
+@import url("/portlet/_portlet_decorator.scss")
+
+div#wrapper {
+	padding: 0px;
+}
+/* ------------ BANNER ITEMS -------------*/
+
+
+header#banner {
+	align-items: center;
+	background: white;
+	border-bottom: 1px solid black;
+	display: flex;
+	margin-top: -50px;
+
+	
+	opacity: 0.2;
+	transition: opacity 0.5s;
+
+	position: fixed;
+	width: 100%;
+	z-index: 200 !important;
+}
+
+#banner:hover {
+	opacity: 1.0;
+	background: white;
+}
+
+nav#navigation {
+	margin-left: 15px;
+	margin-right: auto;
+}
+
+div#heading {
+	margin-left: 20%;
+	margin-right: 0;
+}
+
+h1.site-title {
+	margin-left: auto;
+    display: flex;
+}
+
+img {
+	opacity: 1;
+    height: 40px;
+    width: 40px;
+}
+
+
+/* ------------ LINK EFFECTS -------------*/
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+    text-decoration: none;
+    opacity: 0.5;
+}
+
+a#sign-in {
+    position: fixed;
+    right: 0;
+    margin-right: 30px;
+    padding: 10px;
+}
+
+ul {
+    list-style-type: none;
+
+    li {
+   	 float:left;
+   	}
+}
+
+
+/* ------------ NAVIGATION ------------------*/
+
+#navigation ul li {
+    float:left;
+
+    a {
+    display: block;
+    padding: 10px;
+    margin-right: 10px;
+    }
+}
+
+
+/* ------------ BACKGROUND IMAGE -------------*/
+
+#column-1 {																	
+	background: url("../images/leaves.jpeg") top center no-repeat;
+	background-attachment: fixed;
+	height: 100%;
+
+}																		
+
+
+/* ------------ SCROLL TO TOP BUTTON -------------*/
+
+#totopbtn {
+	border-radius: 5px;
+    background-color: black;
+    color: white;
+    min-height: 30px;
+    min-width: 30px;
+    opacity: 0.5;
+    position: fixed;
+	bottom: 30px;
+	right: 40px;
+}
+
+
+ /* -----------section -------------*/
+
+.portlet-layout.row {
+    width: 100%;
+    margin: 100px auto;
+}
+
+div#column-1, {
+	margin: 0 auto;
+	width: 100%;
+	top: -100px;
+	padding: 200px;
+}
+
+div#column-5 {
+	margin: 100px auto;
+	padding: 10px;
+}
+
+#column-1,
+#column-2,
+#column-3,
+#column-4,
+#column-5 {
+	display: block;
+}
+
+.portlet-title-text {
+	max-width: 100%;
+}
+
+/* this is a test for parallax */
+#content {  
+	position: relative;
+	z-index: 100 !important;
+	margin-bottom:500px;
+	background-color: white;
+}
+
+ /* -----------footer-------------*/
+
+footer#footer {
+	background: #FFFFF5;
+	border-top: 1px solid black;
+	display: grid;
+	flex-wrap: wrap;
+	height: 200px;
+    list-style-type: none;
+	width: 100%;
+	justify-content: center;
+	position: fixed;   /* this is a test for parallax */
+	bottom: -100px;
+	z-index: -1 !important;
+	height: 550px;
+} 
+
+#footer ul li {
+	clear: both;
+}
+
+.infoot {	
+	align-content: left;
+	display: inline-grid;
+	padding: 50px;
+	line-height: 1.6;
+}
+
+.footer-heading {
+	font-weight: bold;
+	color: grey;
+}
+
+#boop {
+	background-color: E7E7E7;
+	flex: 0 0 100%;
+	text-align: center;
+	width: 100%;
+}
+
+.social-media-wrapper {
+    display:inline-flex;
+
+    h2 {
+        color: #FFF;
+        text-align: center;
+    }
+
+    li {
+        display: inline-flex;
+        font-size: 21px;
+        float: left;                        
+        margin-top: 11px;
+        padding: 3px;
+
+        a {
+            border-radius: 6px;
+            color: grey;
+            padding: 7px 8px;
+                &:hover {
+                text-decoration: none;
+                }
+        }
+    }
+
+    ul {
+        display: inline-flex;
+        line-height: 1.6rem;
+        margin: auto;
+        padding: 0px;
+        text-align: left;
+        /*it goes here */
+    }
+}
