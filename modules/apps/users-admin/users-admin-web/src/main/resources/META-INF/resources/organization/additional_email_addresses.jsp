@@ -118,15 +118,3 @@ List<EmailAddress> emailAddresses = EmailAddressServiceUtil.getEmailAddresses(Or
 		markupView="lexicon"
 	/>
 </liferay-ui:search-container>
-
-<portlet:renderURL var="editEmailAddressRenderURL" windowState="<%= LiferayWindowState.POP_UP.toString() %>">
-	<portlet:param name="mvcPath" value="/organization/edit_email_address.jsp" />
-</portlet:renderURL>
-
-<aui:script require="users-admin-web/js/contact-information.es as ContactInformation">
-	ContactInformation.registerContactInformationListener(
-		'.modify-email-address-link a',
-		'<%= editEmailAddressRenderURL.toString() %>',
-		390
-	);
-</aui:script>

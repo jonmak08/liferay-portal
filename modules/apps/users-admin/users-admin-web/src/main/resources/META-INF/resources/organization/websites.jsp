@@ -117,15 +117,3 @@ List<Website> websites = WebsiteServiceUtil.getWebsites(Organization.class.getNa
 		markupView="lexicon"
 	/>
 </liferay-ui:search-container>
-
-<portlet:renderURL var="editWebsiteRenderURL" windowState="<%= LiferayWindowState.POP_UP.toString() %>">
-	<portlet:param name="mvcPath" value="/organization/edit_website.jsp" />
-</portlet:renderURL>
-
-<aui:script require="users-admin-web/js/contact-information.es as ContactInformation">
-	ContactInformation.registerContactInformationListener(
-		'.modify-website-link a',
-		'<%= editWebsiteRenderURL.toString() %>',
-		390
-	);
-</aui:script>

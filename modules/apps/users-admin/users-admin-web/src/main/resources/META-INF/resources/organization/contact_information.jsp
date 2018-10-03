@@ -16,6 +16,10 @@
 
 <%@ include file="/init.jsp" %>
 
+<%
+OrganizationScreenNavigationDisplayContext organizationScreenNavigationDisplayContext = (OrganizationScreenNavigationDisplayContext)request.getAttribute(UsersAdminWebKeys.ORGANIZATION_SCREEN_NAVIGATION_DISPLAY_CONTEXT);
+%>
+
 <div class="sheet-section">
 	<liferay-util:include page="/organization/phone_numbers.jsp" servletContext="<%= application %>" />
 </div>
@@ -27,3 +31,35 @@
 <div class="sheet-section">
 	<liferay-util:include page="/organization/websites.jsp" servletContext="<%= application %>" />
 </div>
+
+<portlet:renderURL var="editPhoneRenderURL" windowState="<%= LiferayWindowState.POP_UP.toString() %>">
+	<portlet:param name="mvcPath" value="/organization/edit_phone_number.jsp" />
+</portlet:renderURL>
+
+<portlet:renderURL var="editEmailAddressRenderURL" windowState="<%= LiferayWindowState.POP_UP.toString() %>">
+	<portlet:param name="mvcPath" value="/organization/edit_email_address.jsp" />
+</portlet:renderURL>
+
+<portlet:renderURL var="editWebsiteRenderURL" windowState="<%= LiferayWindowState.POP_UP.toString() %>">
+	<portlet:param name="mvcPath" value="/organization/edit_website.jsp" />
+</portlet:renderURL>
+
+<aui:script require="<%= organizationScreenNavigationDisplayContext.getContactInformationJSRequire() %>">
+	ContactInformation.registerContactInformationListener(
+		'.modify-phone-number-link a',
+		'<%= editPhoneRenderURL.toString() %>',
+		470
+	);
+
+	ContactInformation.registerContactInformationListener(
+		'.modify-email-address-link a',
+		'<%= editEmailAddressRenderURL.toString() %>',
+		390
+	);
+
+	ContactInformation.registerContactInformationListener(
+		'.modify-website-link a',
+		'<%= editWebsiteRenderURL.toString() %>',
+		390
+	);
+</aui:script>

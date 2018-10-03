@@ -124,15 +124,3 @@ List<Phone> phones = PhoneServiceUtil.getPhones(Organization.class.getName(), or
 		markupView="lexicon"
 	/>
 </liferay-ui:search-container>
-
-<portlet:renderURL var="editPhoneRenderURL" windowState="<%= LiferayWindowState.POP_UP.toString() %>">
-	<portlet:param name="mvcPath" value="/organization/edit_phone_number.jsp" />
-</portlet:renderURL>
-
-<aui:script require="users-admin-web/js/contact-information.es as ContactInformation">
-	ContactInformation.registerContactInformationListener(
-		'.modify-phone-number-link a',
-		'<%= editPhoneRenderURL.toString() %>',
-		470
-	);
-</aui:script>
