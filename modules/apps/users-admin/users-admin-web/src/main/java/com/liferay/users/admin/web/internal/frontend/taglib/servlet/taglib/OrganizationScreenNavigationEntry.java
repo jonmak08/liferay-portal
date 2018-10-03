@@ -14,6 +14,7 @@
 
 package com.liferay.users.admin.web.internal.frontend.taglib.servlet.taglib;
 
+import com.liferay.frontend.js.loader.modules.extender.npm.NPMResolver;
 import com.liferay.frontend.taglib.servlet.taglib.ScreenNavigationEntry;
 import com.liferay.frontend.taglib.servlet.taglib.util.JSPRenderer;
 import com.liferay.portal.kernel.exception.PortalException;
@@ -50,13 +51,15 @@ public class OrganizationScreenNavigationEntry
 	implements ScreenNavigationEntry<Organization> {
 
 	public OrganizationScreenNavigationEntry(
-		JSPRenderer jspRenderer, OrganizationService organizationService,
-		Portal portal, PortletURLFactory portletURLFactory, String entryKey,
+		JSPRenderer jspRenderer, NPMResolver npmResolver,
+		OrganizationService organizationService, Portal portal,
+		PortletURLFactory portletURLFactory, String entryKey,
 		String categoryKey, String jspPath, String mvcActionCommandName,
 		boolean showControls,
 		BiFunction<User, Organization, Boolean> isVisibleBiFunction) {
 
 		_jspRenderer = jspRenderer;
+		_npmResolver = npmResolver;
 		_organizationService = organizationService;
 		_portal = portal;
 		_portletURLFactory = portletURLFactory;
@@ -170,6 +173,13 @@ public class OrganizationScreenNavigationEntry
 		organizationScreenNavigationDisplayContext.setEditOrganizationActionURL(
 			editOrganizationActionURL.toString());
 
+		String jsModuleName = _npmResolver.resolveModuleName(
+			"users-admin-web/js/contact-information.es");
+
+		organizationScreenNavigationDisplayContext.
+			setContactInformationJSRequire(
+				jsModuleName + " as ContactInformation");
+
 		request.setAttribute(
 			UsersAdminWebKeys.ORGANIZATION_SCREEN_NAVIGATION_DISPLAY_CONTEXT,
 			organizationScreenNavigationDisplayContext);
@@ -187,6 +197,7 @@ public class OrganizationScreenNavigationEntry
 	private final String _jspPath;
 	private final JSPRenderer _jspRenderer;
 	private final String _mvcActionCommandName;
+	private final NPMResolver _npmResolver;
 	private final OrganizationService _organizationService;
 	private final Portal _portal;
 	private final PortletURLFactory _portletURLFactory;

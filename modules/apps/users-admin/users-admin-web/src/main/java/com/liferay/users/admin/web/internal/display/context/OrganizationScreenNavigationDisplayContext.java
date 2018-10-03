@@ -25,6 +25,10 @@ public class OrganizationScreenNavigationDisplayContext {
 		return _backURL;
 	}
 
+	public String getContactInformationJSRequire() {
+		return _contactInformationJSRequire;
+	}
+
 	public String getEditOrganizationActionURL() {
 		return _editOrganizationActionURL;
 	}
@@ -53,6 +57,12 @@ public class OrganizationScreenNavigationDisplayContext {
 		_backURL = backURL;
 	}
 
+	public void setContactInformationJSRequire(
+		String contactInformationJSRequire) {
+
+		_contactInformationJSRequire = contactInformationJSRequire;
+	}
+
 	public void setEditOrganizationActionURL(String editOrganizationActionURL) {
 		_editOrganizationActionURL = editOrganizationActionURL;
 	}
@@ -78,6 +88,7 @@ public class OrganizationScreenNavigationDisplayContext {
 	}
 
 	private String _backURL;
+	private String _contactInformationJSRequire;
 	private String _editOrganizationActionURL;
 	private String _formLabel;
 	private String _jspPath;
