@@ -42,7 +42,6 @@ import com.liferay.portal.kernel.util.Portal;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.users.admin.constants.UsersAdminPortletKeys;
 import com.liferay.users.admin.kernel.util.UsersAdmin;
-import com.liferay.users.admin.web.internal.constants.UsersAdminWebKeys;
 import com.liferay.users.admin.web.internal.helper.ContactInformationHelper;
 import com.liferay.users.admin.web.internal.helper.EmailAddressContactInformationHelper;
 import com.liferay.users.admin.web.internal.helper.PhoneContactInformationHelper;
@@ -160,7 +159,7 @@ public class UpdateOrganizationContactInformationMVCActionCommand
 		else if (cmd.equals(Constants.EDIT)) {
 			contactInformationHelper.edit(actionRequest);
 		}
-		else if (cmd.equals(UsersAdminWebKeys.CMD_MAKE_PRIMARY)) {
+		else if (cmd.equals("makePrimary")) {
 			contactInformationHelper.makePrimary(entryId);
 		}
 	}
