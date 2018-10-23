@@ -65,8 +65,13 @@ AUI.add(
 
 						instance._moveToolbar.on('click', instance._afterMoveClick, instance);
 
-						instance._leftBox.on('focus', A.rbind('_onSelectFocus', instance, instance._rightBox));
-						instance._rightBox.on('focus', A.rbind('_onSelectFocus', instance, instance._leftBox));
+						instance._leftBox.on('focus', A.rbind('_disableMoveButtons', instance, instance._leftBox));
+						instance._leftBox.after('valuechange', A.rbind('_disableMoveButtons', instance, instance._leftBox));
+
+						instance._rightBox.on('focus', A.rbind('_disableMoveButtons', instance, instance._rightBox));
+						instance._rightBox.after('valuechange', A.rbind('_disableMoveButtons', instance, instance._rightBox));
+
+						instance._disableMoveButtons(null, null);
 					},
 
 					sortBox: function(box) {
@@ -97,15 +102,14 @@ AUI.add(
 						var target = event.domEvent.target;
 						var targetBtn = target.ancestor('.btn', true);
 
-						if (targetBtn) {
-							var cssClass = targetBtn.get('className');
+						if (targetBtn && !targetBtn.attr('disabled')) {
 
 							var from = instance._leftBox;
 							var to = instance._rightBox;
 
 							var sort = !instance.get('rightReorder');
 
-							if (cssClass.indexOf('move-right') !== -1) {
+							if (targetBtn.hasClass('move-right')) {
 								from = instance._rightBox;
 								to = instance._leftBox;
 
@@ -113,7 +117,9 @@ AUI.add(
 							}
 
 							instance._moveItem(from, to, sort);
-							instance._toggleReorderToolbars();
+							instance._afterOrderClick(event, instance._leftBox);
+
+							instance._disableMoveButtons(event, from);
 						}
 					},
 
@@ -121,16 +127,71 @@ AUI.add(
 						var target = event.domEvent.target;
 						var targetBtn = target.ancestor('.btn', true);
 
-						if (targetBtn) {
-							var cssClass = targetBtn.get('className');
+						if (targetBtn && !targetBtn.attr('disabled')) {
 
 							var direction = 1;
 
-							if (cssClass.indexOf('reorder-up') !== -1) {
+							if (targetBtn.hasClass('reorder-up')) {
 								direction = 0;
 							}
 
 							Util.reorder(box, direction);
+
+							if (targetBtn.hasClass('move-left') || targetBtn.hasClass('move-right')) {
+								box.attr('selectedIndex', -1);
+							}
+						}
+
+						this._disableMoveButtons(event, box);
+					},
+
+					_disableMoveButtons: function(event, box) {
+
+						var down = this.get('contentBox').one('.reorder-down');
+						var up = this.get('contentBox').one('.reorder-up');
+						var left = this.get('contentBox').one('.move-right');
+						var right = this.get('contentBox').one('.move-left');
+
+						down.attr('disabled', 'disabled');
+						up.attr('disabled', 'disabled');
+						left.attr('disabled', 'disabled');
+						right.attr('disabled', 'disabled');
+
+						if (box && box.hasClass('left-selector')) {
+
+							this._rightBox.attr('selectedIndex', -1);
+
+							right.removeAttribute('disabled');
+							right.removeClass('disabled');
+
+							if (box.get('length') > 1) {
+								if (box.get('selectedIndex') === box.get('length') - 1) {
+									up.removeAttribute('disabled');
+									up.removeClass('disabled')
+								}
+								else if (box.get('selectedIndex') === 0) {
+									down.removeAttribute('disabled');
+									down.removeClass('disabled');
+								}
+								else if (box.get('selectedIndex') !== -1) {
+									down.removeAttribute('disabled');
+									down.removeClass('disabled');
+									up.removeAttribute('disabled');
+									up.removeClass('disabled');
+								}
+							}
+							else if (box.get('length') !== 1) {
+								right.attr('disabled', 'disabled');
+							}
+						}
+						else if (box && box.hasClass('right-selector')) {
+
+							this._leftBox.attr('selectedIndex', -1);
+
+							if (box.get('selectedIndex') !== -1 && box.get('length') !== 0) {
+								left.removeAttribute('disabled');
+								left.removeClass('disabled');
+							}
 						}
 					},
 
@@ -169,12 +230,6 @@ AUI.add(
 								toBox: to
 							}
 						);
-					},
-
-					_onSelectFocus: function(event, box) {
-						var instance = this;
-
-						box.attr('selectedIndex', '-1');
 					},
 
 					_renderBoxes: function() {
@@ -268,32 +323,6 @@ AUI.add(
 							config_reorder.children[0][1].title = strings.RIGHT_MOVE_DOWN;
 
 							instance._rightReorderToolbar = new A.Toolbar(config_reorder).render(rightColumn);
-						}
-
-						instance._toggleReorderToolbars();
-					},
-
-					_toggleReorderToolbar: function(sideReorderToolbar, sideColumn) {
-						var showReorderToolbar = sideColumn.all('option').size() > 1;
-
-						sideReorderToolbar.toggle(showReorderToolbar);
-					},
-
-					_toggleReorderToolbars: function() {
-						var instance = this;
-
-						var contentBox = instance.get('contentBox');
-
-						if (instance.get('leftReorder')) {
-							var leftColumn = contentBox.one('.left-selector-column');
-
-							instance._toggleReorderToolbar(instance._leftReorderToolbar, leftColumn);
-						}
-
-						if (instance.get('rightReorder')) {
-							var rightColumn = contentBox.one('.right-selector-column');
-
-							instance._toggleReorderToolbar(instance._rightReorderToolbar, rightColumn);
 						}
 					}
 				}
