@@ -139,15 +139,9 @@ String modelName = (String)request.getAttribute("liferay-ui:input-permissions:mo
 						<%
 						for (int i = 0; i < supportedActions.size(); i++) {
 							String action = (String)supportedActions.get(i);
-
-							String tableHeaderCssClass = "table-column-text-center";
-
-							if (action.equals(ActionKeys.VIEW)) {
-								tableHeaderCssClass = tableHeaderCssClass + " hide-accessible";
-							}
 						%>
 
-							<th class="<%= tableHeaderCssClass %>">
+							<th class="table-column-text-center">
 								<%= ResourceActionsUtil.getAction(request, action) %>
 							</th>
 
@@ -212,18 +206,33 @@ String modelName = (String)request.getAttribute("liferay-ui:input-permissions:mo
 							checkboxFieldId = checkboxFieldId + StringPool.UNDERLINE + action;
 						%>
 
-							<%
-							String checkboxHideCssClass = "table-column-text-center";
-
-							if (action.equals(ActionKeys.VIEW)) {
-								checkboxHideCssClass = checkboxHideCssClass + " hide-accessible";
-							}
-							%>
-
-							<td class="<%= checkboxHideCssClass %>">
+							<td class="table-column-text-center">
 								<label class="sr-only" for="<%= checkboxFieldId %>"><liferay-ui:message arguments="<%= new Object[] {ResourceActionsUtil.getAction(request, action), role.getTitle(themeDisplay.getLocale())} %>" key="give-x-permission-to-users-with-role-x" translateArguments="<%= false %>" /></label>
 
-								<input <%= checked ? "checked" : "" %> <%= disabled ? "disabled" : "" %> id="<%= checkboxFieldId %>" name="<%= checkboxFieldName %>" title='<%= LanguageUtil.format(request, "give-x-permission-to-users-with-role-x", new Object[] {ResourceActionsUtil.getAction(request, action), role.getTitle(themeDisplay.getLocale())}, false) %>' type="checkbox" value="<%= action %>" />
+								<c:choose>
+									<c:when test="<%= action.equals(ActionKeys.VIEW) %>">
+										<input
+											id='<%= checkboxFieldId + "_display_only" %>'
+											<%= checked ? "checked" : "" %>
+											disabled
+											name='<%= checkboxFieldName + "_display_only" %>'
+											title='<%= LanguageUtil.format(request, "give-x-permission-to-users-with-role-x", new Object[] {ResourceActionsUtil.getAction(request, action), role.getTitle(themeDisplay.getLocale())}, false) %>'
+											type="checkbox"
+										/>
+
+										<input
+											<%= checked ? "checked" : "" %>
+											class="hide-accessible"
+											id="<%= checkboxFieldId %>"
+											name='<%= checkboxFieldName %>'
+											type="checkbox"
+											value="<%= action %>"
+										/>
+									</c:when>
+									<c:otherwise>
+										<input <%= checked ? "checked" : "" %> <%= disabled ? "disabled" : "" %> id="<%= checkboxFieldId %>" name="<%= checkboxFieldName %>" title='<%= LanguageUtil.format(request, "give-x-permission-to-users-with-role-x", new Object[] {ResourceActionsUtil.getAction(request, action), role.getTitle(themeDisplay.getLocale())}, false) %>' type="checkbox" value="<%= action %>" />
+									</c:otherwise>
+								</c:choose>
 							</td>
 
 						<%
@@ -273,8 +282,13 @@ String modelName = (String)request.getAttribute("liferay-ui:input-permissions:mo
 					checkGroupViewPermissions = true;
 				}
 
-				$('#<%= uniqueNamespace %>guestPermissions_VIEW').prop('checked', checkGuestViewPermissions);
-				$('#<%= uniqueNamespace %>groupPermissions_VIEW').prop('checked', checkGroupViewPermissions);
+				<%= uniqueNamespace %>doUpdateViewValue('<%= uniqueNamespace %>guestPermissions_VIEW', checkGuestViewPermissions);
+				<%= uniqueNamespace %>doUpdateViewValue('<%= uniqueNamespace %>groupPermissions_VIEW', checkGroupViewPermissions);
+			}
+
+			function <%= uniqueNamespace %>doUpdateViewValue(id, checkPermission) {
+				$('#' + id).prop('checked', checkPermission);
+				$('#' + id + '_display_only').prop('checked', checkPermission);
 			}
 		</aui:script>
 	</c:otherwise>
