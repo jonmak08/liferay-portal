@@ -1187,11 +1187,11 @@
 
 				var actionURL = new A.Url(action);
 
-				var authToken = actionURL.getParameter('p_auth');
+				var authToken = actionURL.getParameter('p_auth') || '';
+
+				form.append('<input name="p_auth" type="hidden" value="' + authToken + '" />');
 
 				if (authToken) {
-					form.append('<input name="p_auth" type="hidden" value="' + authToken + '" />');
-
 					actionURL.removeParameter('p_auth');
 
 					action = actionURL.toString();
