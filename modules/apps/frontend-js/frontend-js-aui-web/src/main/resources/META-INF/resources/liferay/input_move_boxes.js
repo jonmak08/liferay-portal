@@ -248,34 +248,32 @@ AUI.add(
 
 						var config_reorder = {
 							children: [
-								[
-									{
-										cssClass: 'reorder-up',
-										icon: 'icon-circle-arrow-up',
-										on: {
-											click: function(event) {
-												event.domEvent.preventDefault();
-											}
-										}
-									},
-									{
-										cssClass: 'reorder-down',
-										icon: 'icon-circle-arrow-down',
-										on: {
-											click: function(event) {
-												event.domEvent.preventDefault();
-											}
+								{
+									cssClass: 'reorder-up',
+									icon: 'icon-circle-arrow-up',
+									on: {
+										click: function(event) {
+											event.domEvent.preventDefault();
 										}
 									}
-								]
+								},
+								{
+									cssClass: 'reorder-down',
+									icon: 'icon-circle-arrow-down',
+									on: {
+										click: function(event) {
+											event.domEvent.preventDefault();
+										}
+									}
+								}
 							]
 						};
 
 						if (instance.get('leftReorder')) {
 							var leftColumn = contentBox.one('.left-selector-column');
 
-							config_reorder.children[0][0].title = strings.LEFT_MOVE_UP;
-							config_reorder.children[0][1].title = strings.LEFT_MOVE_DOWN;
+							config_reorder.children[0].title = strings.LEFT_MOVE_UP;
+							config_reorder.children[1].title = strings.LEFT_MOVE_DOWN;
 
 							instance._leftReorderToolbar = new A.Toolbar(config_reorder).render(leftColumn);
 						}
@@ -283,8 +281,8 @@ AUI.add(
 						if (instance.get('rightReorder')) {
 							var rightColumn = contentBox.one('.right-selector-column');
 
-							config_reorder.children[0][0].title = strings.RIGHT_MOVE_UP;
-							config_reorder.children[0][1].title = strings.RIGHT_MOVE_DOWN;
+							config_reorder.children[0].title = strings.RIGHT_MOVE_UP;
+							config_reorder.children[1].title = strings.RIGHT_MOVE_DOWN;
 
 							instance._rightReorderToolbar = new A.Toolbar(config_reorder).render(rightColumn);
 						}
