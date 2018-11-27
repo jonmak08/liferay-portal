@@ -304,7 +304,7 @@ AUI.add(
 							var btnDisabledLeft = true;
 							var btnDisabledRight = true;
 
-							if (target.get('length') > 0) {
+							if (target.get('length')) {
 								if (target == instance._rightBox) {
 									btnDisabledLeft = false;
 								}
