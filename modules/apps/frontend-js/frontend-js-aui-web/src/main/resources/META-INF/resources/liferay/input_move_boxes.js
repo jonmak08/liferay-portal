@@ -51,25 +51,49 @@ AUI.add(
 					bindUI: function() {
 						var instance = this;
 
+						var leftBox = instance._leftBox;
 						var leftReorderToolbar = instance._leftReorderToolbar;
 
 						if (leftReorderToolbar) {
-							leftReorderToolbar.after('click', A.rbind('_afterOrderClick', instance, instance._leftBox));
+							leftReorderToolbar.after('click', A.rbind('_afterOrderClick', instance, leftBox));
 						}
 
+						var rightBox = instance._rightBox;
 						var rightReorderToolbar = instance._rightReorderToolbar;
 
 						if (rightReorderToolbar) {
-							rightReorderToolbar.after('click', A.rbind('_afterOrderClick', instance, instance._rightBox));
+							rightReorderToolbar.after('click', A.rbind('_afterOrderClick', instance, rightBox));
 						}
 
 						instance._moveToolbar.on('click', instance._afterMoveClick, instance);
 
-						instance._leftBox.after('valuechange', A.bind('_toggleBtnSort', instance));
-						instance._leftBox.on('focus', A.rbind('_onSelectFocus', instance, instance._rightBox));
+						leftBox.on(
+							'change',
+							function(event) {
+								instance._toggleBtnSort(
+									{
+										box: event.currentTarget
+									}
+								);
+							}
+						);
 
-						instance._rightBox.after('valuechange', A.bind('_toggleBtnSort', instance));
-						instance._rightBox.on('focus', A.rbind('_onSelectFocus', instance, instance._leftBox));
+						leftBox.on('focus', A.rbind('_onSelectFocus', instance, rightBox));
+
+						rightBox.on(
+							'change',
+							function(event) {
+								instance._toggleBtnSort(
+									{
+										box: event.currentTarget
+									}
+								);
+							}
+						);
+
+						rightBox.on('focus', A.rbind('_onSelectFocus', instance, leftBox));
+
+						Liferay.on(NAME + ':orderItem', A.bind('_toggleBtnSort', instance));
 					},
 
 					sortBox: function(box) {
@@ -139,6 +163,26 @@ AUI.add(
 						}
 					},
 
+					_getToolbarButtons: function(toolbar, cssClass) {
+						var instance = this;
+
+						var retVal;
+
+						if (toolbar) {
+							var contentBox = toolbar.get('contentBox');
+
+							if (contentBox) {
+								var childNodes = contentBox.all(cssClass);
+
+								if (childNodes) {
+									retVal = childNodes;
+								}
+							}
+						}
+
+						return retVal;
+					},
+
 					_moveItem: function(from, to, sort) {
 						var instance = this;
 
@@ -176,12 +220,12 @@ AUI.add(
 						);
 					},
 
-					_onSelectFocus: function(event, box) {
+					_onSelectFocus: function(event, toBox) {
 						var instance = this;
 
 						instance._toggleBtnMove(event);
 
-						box.attr('selectedIndex', '-1');
+						toBox.attr('selectedIndex', '-1');
 					},
 
 					_orderItem: function(box, direction) {
@@ -305,11 +349,27 @@ AUI.add(
 							var btnDisabledRight = true;
 
 							if (target.get('length')) {
-								if (target == instance._rightBox) {
+								var leftBox = instance._leftBox;
+								var rightBox = instance._rightBox;
+
+								if (target == rightBox) {
 									btnDisabledLeft = false;
+
+									instance._toggleBtnSort(
+										{
+											box: rightBox
+										}
+									);
+
 								}
-								else if (target == instance._leftBox) {
+								else if (target == leftBox) {
 									btnDisabledRight = false;
+
+									instance._toggleBtnSort(
+										{
+											box: leftBox
+										}
+									);
 								}
 							}
 
@@ -318,36 +378,78 @@ AUI.add(
 						}
 					},
 
-					_toggleBtnSort: function(event) {
+					_toggleBtnSort: function(config) {
 						var instance = this;
 
-						var contentBox = instance.get('contentBox');
+						var box = config.box;
 
-						var sortBtnDown = contentBox.one('.reorder-down');
-						var sortBtnUp = contentBox.one('.reorder-up');
+						var length = box.get('length');
+						var selectedIndex = box.get('selectedIndex');
 
-						var currentTarget = event.currentTarget;
+						var optionLength = length - 1;
 
-						if (currentTarget && sortBtnDown && sortBtnUp) {
-							var length = currentTarget.get('length');
-							var selectedIndex = currentTarget.get('selectedIndex');
+						var leftReorder = instance.get('leftReorder');
+						var rightReorder = instance.get('rightReorder');
 
-							var btnDisabledDown = false;
-							var btnDisabledUp = false;
+						var leftReorderToolbar = instance._leftReorderToolbar;
+						var rightReorderToolbar = instance._rightReorderToolbar;
 
-							if (selectedIndex === length - 1) {
-								btnDisabledDown = true;
+						var leftReorderToolbarButtons = instance._getToolbarButtons(leftReorderToolbar, '.btn-toolbar-button');
+						var rightReorderToolbarButtons = instance._getToolbarButtons(rightReorderToolbar, '.btn-toolbar-button');
+
+						var reorderDown;
+						var reorderUp;
+
+						if (box == instance._leftBox) {
+							if (leftReorder) {
+								instance._toggleBtnState(leftReorderToolbarButtons, false);
+
+								instance._toggleBtnState(leftReorderToolbarButtons, !length);
+
+								if (selectedIndex === -1) {
+									instance._toggleBtnState(leftReorderToolbarButtons, true);
+
+								}
+								else if (selectedIndex === 0) {
+									reorderUp = instance._getToolbarButtons(leftReorderToolbar, '.reorder-up');
+
+									instance._toggleBtnState(reorderUp, true);
+								}
+								else if (selectedIndex === optionLength) {
+									reorderDown = instance._getToolbarButtons(leftReorderToolbar, '.reorder-down');
+
+									instance._toggleBtnState(reorderDown, true);
+								}
 							}
-							else if (selectedIndex === 0) {
-								btnDisabledUp = true;
+
+							if (rightReorder) {
+								instance._toggleBtnState(rightReorderToolbarButtons, true);
 							}
-							else if (selectedIndex === -1) {
-								btnDisabledDown = true;
-								btnDisabledUp = true;
+						}
+						else if (box == instance._rightBox) {
+							if (leftReorder) {
+								instance._toggleBtnState(leftReorderToolbarButtons, true);
 							}
 
-							instance._toggleBtnState(sortBtnDown, btnDisabledDown);
-							instance._toggleBtnState(sortBtnUp, btnDisabledUp);
+							if (rightReorder) {
+								instance._toggleBtnState(rightReorderToolbarButtons, false);
+
+								instance._toggleBtnState(rightReorderToolbarButtons, !length);
+
+								if (selectedIndex === -1) {
+									instance._toggleBtnState(rightReorderToolbarButtons, true);
+								}
+								else if (selectedIndex === 0) {
+									reorderUp = instance._getToolbarButtons(rightReorderToolbar, '.reorder-up');
+
+									instance._toggleBtnState(reorderUp, true);
+								}
+								else if (selectedIndex === optionLength) {
+									reorderDown = instance._getToolbarButtons(rightReorderToolbar, '.reorder-down');
+
+									instance._toggleBtnState(reorderDown, true);
+								}
+							}
 						}
 					},
 
