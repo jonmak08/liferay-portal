@@ -1,0 +1,241 @@
+/* These inject tags are used for dynamically creating imports for themelet styles, you can place them where ever you like in this file. */
+
+/* inject:imports */
+/* endinject */
+
+/* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
+
+
+header {
+	position: relative;
+	width: 100%;
+}
+
+@media screen and (min-width: 60rem) {
+	.header-media {
+		max-height: 85vh;
+		overflow: hidden;
+	}
+}
+
+#wrapper {
+	padding-top: 0;	
+}
+
+.container-fluid {
+	padding-right: 0;
+	padding-left: 0; 
+}
+
+.site-branding {
+	bottom: 0;
+	font-family: "Libre Franklin","Helvetica Neue",helvetica,arial,sans-serif;
+	padding-bottom: 2rem;
+	position: absolute;
+	width: 100%;
+
+	.wrap {
+		color: #fff;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 1.25rem;
+		width: 1000px;	
+	}
+}
+
+.site-branding-description {
+	font-weight: 400;
+	margin-bottom: 0;
+	opacity: .8;
+}
+
+.site-name {
+	font-size: 2.50rem;
+	font-weight: 800;
+	letter-spacing: 0.25rem;
+	text-transform: uppercase;
+}
+
+#sign-in {
+	color: #767676;
+	margin-top: 1rem;
+	padding: 10px 25px;
+	position: absolute;
+	right: 0px;
+}
+
+.navigation-top {
+	background: #FFFFFF;
+	border-bottom: 1px solid #eee;
+    border-top: 1px solid #eee;
+	width: 100%;
+
+	.selected {
+		a {
+			color: #767676;
+		}
+	}
+
+	.wrap {
+		background: #FFFFFF;
+		margin-bottom: 0;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 1000px;
+		padding: 23px 0px;
+		position: relative;
+	}
+
+	ul {
+		margin-bottom: 0;
+		padding: 0px;
+	}
+
+	li {
+		display: inline-block;		
+		position: relative;
+		width: max-content;
+	}
+
+	a {
+		color: #222;
+		font-weight: 700;
+		padding: 1rem 1.25rem;
+		text-decoration: none;
+		transition: all .3s ease-in-out;
+	}
+
+	a:hover {
+		color: #767676;
+	}
+}
+
+.navigation-bar, .navigation-bar-container{
+	display: inline-block;
+}
+
+.lexicon-icon-angle-down, {
+    margin-right: 3px;
+    position: absolute;
+    right: 0;
+    top: 8px;
+	width: 9px;
+}
+
+.lexicon-icon-angle-right {
+	margin-top: 5px;
+	margin-right: 15px;
+	position: absolute;
+	right: 0;
+	width: 9px;
+}
+
+.lexicon-icon-arrow-down {
+	display: inline-block;
+	fill: #767676;
+    height: 2em;
+	padding-bottom: 15px;
+    position: relative;
+    vertical-align: middle;
+	width: 25px;
+}
+
+.menu-scroll-down {
+	cursor: pointer;
+	display: inline-block;
+    position: absolute;
+	right: -4rem;
+	top: 1rem;
+}
+
+.child-menu, .nested-child-menu {
+	background: #FFFFFF;
+	border: 1px solid #bbb;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	display: none;
+	min-width: 200px;
+	position: absolute;
+	transition-duration: 0.5s;
+	z-index: 1;
+
+	a {
+		display: block;
+		padding: .75rem 1.25rem;
+		width: 16rem;
+	} 
+}
+
+.nested-child-menu {
+	left: 16rem;
+	top: 0px;
+}
+
+.child-menu a:hover {
+	color: #FFFFFF;
+	background: #767676;
+}
+
+li:hover .child-menu {
+	display: block;
+}
+
+ul li:hover > .nested-child-menu {
+	display: block;
+}
+
+.navigationOffsetTop {
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 2;
+}
+
+.navigationOffsetTop + .container-fluid {
+	padding-top: 60px;
+}
+
+.simplicity-media {
+	height: 100%;
+	left: 0;
+	top: 0;
+	width: 100%;
+}
+
+.portlet-hello-world .portlet-content {
+	background: url(../images/portlet_hello_world/welcome_bg.jpg) bottom left;
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin: auto;
+	max-width: 1000px;
+	min-height: 390px;
+	padding-top: 30px;
+	padding-left: 5rem;
+	padding-right: 5rem;
+
+	.portlet-header {
+		margin-bottom: 0;
+	}
+}
+
+.footer-wrap {
+	margin-left: auto;
+	margin-right: auto;
+	width: 1000px;
+
+	.lexicon-icon {
+		fill: #767676;
+	}	
+
+	li {
+		display: inline-block;
+		margin: 0px 3px;
+	}
+
+	.site-info {
+		a {
+			color: #666;
+			cursor: pointer;
+		}
+	}
+}
