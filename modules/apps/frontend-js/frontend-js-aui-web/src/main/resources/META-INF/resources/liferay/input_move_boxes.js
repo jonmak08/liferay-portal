@@ -140,7 +140,6 @@ AUI.add(
 							}
 
 							instance._moveItem(from, to, sort);
-							instance._toggleReorderToolbars();
 						}
 					},
 
@@ -330,8 +329,6 @@ AUI.add(
 
 							instance._rightReorderToolbar = new A.Toolbar(config_reorder).render(rightColumn);
 						}
-
-						instance._toggleReorderToolbars();
 					},
 
 					_toggleBtnMove: function(event) {
@@ -455,30 +452,6 @@ AUI.add(
 
 					_toggleBtnState: function(btn, state) {
 						Util.toggleDisabled(btn, state);
-					},
-
-					_toggleReorderToolbar: function(sideReorderToolbar, sideColumn) {
-						var showReorderToolbar = sideColumn.all('option').size() > 1;
-
-						sideReorderToolbar.toggle(showReorderToolbar);
-					},
-
-					_toggleReorderToolbars: function() {
-						var instance = this;
-
-						var contentBox = instance.get('contentBox');
-
-						if (instance.get('leftReorder')) {
-							var leftColumn = contentBox.one('.left-selector-column');
-
-							instance._toggleReorderToolbar(instance._leftReorderToolbar, leftColumn);
-						}
-
-						if (instance.get('rightReorder')) {
-							var rightColumn = contentBox.one('.right-selector-column');
-
-							instance._toggleReorderToolbar(instance._rightReorderToolbar, rightColumn);
-						}
 					}
 				}
 			}
