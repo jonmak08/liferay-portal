@@ -465,7 +465,7 @@ AUI.add(
 						var instance = this;
 
 						if (instance._banner) {
-							instance._banner.destroy();
+							instance._destroyBanner();
 						}
 					},
 
