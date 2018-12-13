@@ -64,12 +64,6 @@ List<Organization> parentOrganizations = new ArrayList<Organization>();
 if (parentOrganization != null) {
 	parentOrganizations.add(parentOrganization);
 }
-
-String selectOrganizationMessage = "select";
-
-if (parentOrganizations.size() > 0) {
-	selectOrganizationMessage = "change";
-}
 %>
 
 <h3 class="sheet-subtitle">
@@ -83,7 +77,7 @@ if (parentOrganizations.size() > 0) {
 				id="selectOrganizationLink"
 				label="<%= true %>"
 				linkCssClass="btn btn-secondary btn-sm"
-				message="<%= selectOrganizationMessage %>"
+				message='<%= (parentOrganizations.size() > 0) ? "change" : "select" %>'
 				method="get"
 				url="javascript:;"
 			/>
