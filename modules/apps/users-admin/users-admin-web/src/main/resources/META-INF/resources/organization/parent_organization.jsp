@@ -190,6 +190,9 @@ if (parentOrganizations.size() > 0) {
 	}
 
 	var searchContainer = Liferay.SearchContainer.get('<portlet:namespace />parentOrganizationSearchContainer');
+	var selectOrganizationLink = A.one('#<portlet:namespace />selectOrganizationLink');
+
+	var selectOrganizationLinkText = selectOrganizationLink.one('.taglib-text');
 
 	searchContainer.get('contentBox').delegate(
 		'click',
@@ -199,16 +202,10 @@ if (parentOrganizations.size() > 0) {
 
 			searchContainer.deleteRow(tr, link.getAttribute('data-rowId'));
 
-			var selectOrganizationLink = document.getElementById('<portlet:namespace />selectOrganizationLink');
-
-			var span = selectOrganizationLink.firstElementChild;
-
-			span.textContent = '<%= LanguageUtil.get(request, "select") %>';
+			selectOrganizationLinkText.text('<%= LanguageUtil.get(request, "select") %>');
 		},
 		'.modify-link'
 	);
-
-	var selectOrganizationLink = A.one('#<portlet:namespace />selectOrganizationLink');
 
 	if (selectOrganizationLink) {
 		selectOrganizationLink.on(
@@ -240,11 +237,7 @@ if (parentOrganizations.size() > 0) {
 						searchContainer.addRow(rowColumns, event.entityid);
 						searchContainer.updateDataStore(event.entityid);
 
-						var selectOrganizationLink = document.getElementById('<portlet:namespace />selectOrganizationLink');
-
-						var span = selectOrganizationLink.firstElementChild;
-
-						span.textContent = '<%= LanguageUtil.get(request, "change") %>';
+						selectOrganizationLinkText.text('<%= LanguageUtil.get(request, "change") %>');
 					}
 				);
 			}
