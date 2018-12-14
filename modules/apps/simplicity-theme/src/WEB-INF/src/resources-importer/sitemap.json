@@ -1,0 +1,64 @@
+{
+	"layoutTemplateId": "2_columns_i",
+	"publicPages": [
+	{
+		"friendlyURL": "/home",
+		"name": "Home",
+		"title": "Home"
+	},
+	{
+		"friendlyURL": "/news",
+		"name": "News",
+		"title": "News"
+	},
+	{
+		"friendlyURL": "/about",
+		"name": "About",
+		"title": "About"
+	},
+	{
+		"friendlyURL": "/styles",
+		"name": "Styles",
+		"title": "Styles",
+		"layouts": [
+			{
+				"friendlyURL": "/child-page-1",
+				"name": "Child Page 1",
+				"title": "Child Page 1",
+			},
+			{
+				"friendlyURL": "/child-page-2",
+				"name": "Child Page 2",
+				"title": "Child Page 2",
+				"layouts": [
+					{
+						"friendlyURL": "/nested-child-page-1",
+						"name": "Nested Child Page 1",
+						"title": "Nested Child Page 1",
+					},
+					{
+						"friendlyURL": "/nested-child-page-2",
+						"name": "Nested Child Page 2",
+						"title": "Nested Child Page 2",
+					},
+					{
+						"friendlyURL": "/nested-child-page-3",
+						"name": "Nested Child Page 3",
+						"title": "Nested Child Page 3",
+					},
+				]
+			},
+			{
+				"friendlyURL": "/child-page-3",
+				"name": "Child Page 3",
+				"title": "Child Page 3",
+			}
+		]
+	},
+	{
+		"friendlyURL": "/contact",
+		"name": "Contact",
+		"title": "Contact"
+	},
+	]
+}
