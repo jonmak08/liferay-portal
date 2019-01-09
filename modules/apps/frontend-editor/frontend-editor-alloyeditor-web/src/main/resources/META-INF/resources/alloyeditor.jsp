@@ -164,7 +164,19 @@ name = HtmlUtil.escapeJS(name);
 	};
 
 	var createInstance = function() {
-		document.getElementById('<%= name %>').setAttribute('contenteditable', true);
+		var editorNode = document.getElementById('<%= name %>');
+
+		if (!editorNode) {
+			var editorContainer = A.one('#<%= name %>Container');
+
+			editorContainer.setHTML('');
+
+			editorNode = A.Node.create('<%= HtmlUtil.escapeJS(editor) %>');
+
+			editorContainer.appendChild(editorNode);
+		}
+
+		editorNode.setAttribute('contenteditable', true);
 
 		var editorConfig = <%= Validator.isNotNull(editorConfigJSONObject) %> ? <%= editorConfigJSONObject %> : {};
 
