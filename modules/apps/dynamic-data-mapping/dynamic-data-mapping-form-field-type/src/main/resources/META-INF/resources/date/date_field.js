@@ -3,6 +3,32 @@ AUI.add(
 	function(A) {
 		var isArray = Array.isArray;
 
+		var languageId = Liferay.ThemeDisplay.getLanguageId().replace('_', '-');
+		var dateFormat;
+		var customDateFormat = A.Intl.get('datatype-date-format', 'x', languageId);
+
+		if (customDateFormat) {
+			dateFormat = customDateFormat;
+		}
+		else {
+			dateFormat = Liferay.AUI.getDateFormat();
+		}
+
+		var dateDelimiter = '/';
+		var endDelimiter = false;
+
+		if (dateFormat.indexOf('.') != -1) {
+			dateDelimiter = '.';
+
+			if (dateFormat.lastIndexOf('.') == dateFormat.length - 1) {
+				endDelimiter = true;
+			}
+		}
+
+		if (dateFormat.indexOf('-') != -1) {
+			dateDelimiter = '-';
+		}
+
 		var DateField = A.Component.create(
 			{
 				ATTRS: {
@@ -11,7 +37,7 @@ AUI.add(
 					},
 
 					mask: {
-						value: Liferay.AUI.getDateFormat()
+						value: dateFormat
 					},
 
 					predefinedValue: {
@@ -82,22 +108,26 @@ AUI.add(
 
 						var dateMask = [];
 
-						var items = mask.split('/');
+						var items = mask.split(dateDelimiter);
 
 						items.forEach(
 							function(item, index) {
 								if (item == '%Y') {
 									dateMask.push(/\d/, /\d/, /\d/, /\d/);
 								}
-								else {
+								else if (item) {
 									dateMask.push(/\d/, /\d/);
 								}
 
-								if (index < (items.length - 1)) {
-									dateMask.push('/');
+								if (index < 2) {
+									dateMask.push(dateDelimiter);
 								}
 							}
 						);
+
+						if (endDelimiter) {
+							dateMask.push(dateDelimiter);
+						}
 
 						return dateMask;
 					},

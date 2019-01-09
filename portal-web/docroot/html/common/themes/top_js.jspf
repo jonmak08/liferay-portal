@@ -586,18 +586,40 @@ private static String _getDateFormatPattern(Locale locale) {
 	String dateFormatPattern = _dateFormatPatterns.get(languageId);
 
 	if (dateFormatPattern == null) {
+		boolean endDelimiter = false;
+
+		String delimiterString = StringPool.FORWARD_SLASH;
+
 		SimpleDateFormat simpleDateFormat = (SimpleDateFormat)DateFormat.getDateInstance(DateFormat.SHORT, locale);
 
 		dateFormatPattern = simpleDateFormat.toPattern();
 
-		if (dateFormatPattern.indexOf("y") == 0) {
-			dateFormatPattern = "%Y/%m/%d";
+		for (char dateDelimiter : _DATE_DELIMITERS) {
+			if (dateFormatPattern.indexOf(dateDelimiter) != -1) {
+				delimiterString = String.valueOf(dateDelimiter);
+
+				endDelimiter = dateFormatPattern.endsWith(delimiterString);
+
+				break;
+			}
 		}
-		else if (dateFormatPattern.indexOf("d") == 0) {
-			dateFormatPattern = "%d/%m/%Y";
+
+		int dayOrder = dateFormatPattern.indexOf('d');
+		int monthOrder = dateFormatPattern.indexOf('M');
+		int yearOrder = dateFormatPattern.indexOf('y');
+
+		if ((yearOrder < dayOrder) && (yearOrder < monthOrder)) {
+			dateFormatPattern = StringBundler.concat("%Y", delimiterString, "%m", delimiterString, "%d");
+		}
+		else if (dayOrder < monthOrder) {
+			dateFormatPattern = StringBundler.concat("%d", delimiterString, "%m", delimiterString, "%Y");
 		}
 		else {
-			dateFormatPattern = "%m/%d/%Y";
+			dateFormatPattern = StringBundler.concat("%m", delimiterString, "%d", delimiterString, "%Y");
+		}
+
+		if (endDelimiter) {
+			dateFormatPattern += delimiterString;
 		}
 
 		_dateFormatPatterns.put(languageId, dateFormatPattern);
@@ -629,6 +651,10 @@ private static boolean _isAnalyticsTrackingEnabled(String liferayAnalyticsKey, S
 
 	return false;
 }
+
+private static final char[] _DATE_DELIMITERS = {
+	CharPool.DASH, CharPool.FORWARD_SLASH, CharPool.PERIOD
+};
 
 private static final Map<String, String> _dateFormatPatterns = new ConcurrentHashMap<>();
 %>
