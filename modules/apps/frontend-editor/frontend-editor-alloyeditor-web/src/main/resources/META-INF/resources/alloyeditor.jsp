@@ -164,7 +164,7 @@ name = HtmlUtil.escapeJS(name);
 	};
 
 	var createInstance = function() {
-		var editorNode = document.getElementById('<%= name %>');
+		var editorNode = A.one('#<%= name %>');
 
 		if (!editorNode) {
 			var editorContainer = A.one('#<%= name %>Container');
@@ -176,7 +176,7 @@ name = HtmlUtil.escapeJS(name);
 			editorContainer.appendChild(editorNode);
 		}
 
-		editorNode.setAttribute('contenteditable', true);
+		editorNode.attr('contenteditable', true);
 
 		var editorConfig = <%= Validator.isNotNull(editorConfigJSONObject) %> ? <%= editorConfigJSONObject %> : {};
 
