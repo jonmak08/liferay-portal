@@ -1,0 +1,196 @@
+{
+	"layoutTemplateId": "2_1_2columns",
+	"publicPages": [
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "home header.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					}
+				],
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "home content.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					}
+				],
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "pictures.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					}
+				],
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "main content header.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					}
+				],
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "main content.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					}
+				]
+			],
+			"friendlyURL": "/home",
+			"layoutTemplateId": "2_1_2_columns",
+			"name": "Home",
+			"title": "Home"
+		},
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "news header.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					}
+				],
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "news content.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					}
+				]
+			],
+			"friendlyURL": "/news",
+			"layoutTemplateId": "2_columns_i",
+			"name": "News",
+			"title": "News"
+		},
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "about header.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					}
+				],
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "about content.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					}
+				]
+			],
+			"friendlyURL": "/about",
+			"layoutTemplateId": "2_columns_i",
+			"name": "About",
+			"title": "About"
+		},
+		{
+			"friendlyURL": "/styles",
+			"name": "Styles",
+			"title": "Styles",
+			"layouts": [
+				{
+					"friendlyURL": "/child-page-1",
+					"name": "Child Page 1",
+					"title": "Child Page 1",
+				},
+				{
+					"friendlyURL": "/child-page-2",
+					"name": "Child Page 2",
+					"title": "Child Page 2",
+					"layouts": [
+						{
+							"friendlyURL": "/nested-child-page-1",
+							"name": "Nested Child Page 1",
+							"title": "Nested Child Page 1",
+						},
+						{
+							"friendlyURL": "/nested-child-page-2",
+							"name": "Nested Child Page 2",
+							"title": "Nested Child Page 2",
+						},
+						{
+							"friendlyURL": "/nested-child-page-3",
+							"name": "Nested Child Page 3",
+							"title": "Nested Child Page 3",
+						},
+					]
+				},
+				{
+					"friendlyURL": "/child-page-3",
+					"name": "Child Page 3",
+					"title": "Child Page 3",
+				}
+			]
+		},
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "contact pictures.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					}
+				],
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "contact header.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					}
+				],
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "contact content.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					}
+				]
+			],
+			"friendlyURL": "/contact",
+			"layoutTemplateId": "1_2_1_columns_i",
+			"name": "Contact",
+			"title": "Contact"
+		}
+	]
+}

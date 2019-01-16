@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="TextBoxd4lq" type="text_box" index-type="text" instance-id="likz">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				<div class="main-content-content">
+					<h2>
+						Branding
+					</h2>
+					<p>
+						Our team of talented designers can create a beautiful logo and brand to encapsulate your business purpose and goals.
+					</p>
+
+					<h2>
+						Web Design
+					</h2>
+					<p>
+						Need a website? We’ve got you covered. Our design team will work to transform your brand into a stunning site design.
+					</p>
+
+					<h2>
+						Web Development
+					</h2>
+					<p>
+						We have a large team of developers to bring your vision to life. Whether you need a small brochure site or a custom WordPress site, our brilliant developers have got you covered.
+					</p>
+
+					<h2>
+						Content Strategy
+					</h2>
+					<p>
+						Need help putting together content for your website? We can help. Our team of content strategists will get your site on track.
+					</p>
+
+					<h2>
+						Marketing & SEO
+					</h2>
+					<p>
+						Any good site needs to be found. We can put together marketing campaigns to get you lots of new customers, and attract leads through search engine optimization.
+					</p>
+
+					<h2>
+						Video Production
+					</h2>
+					<p>
+						Putting together a video ad for your business? We can help you shoot, produce, edit, and release it.
+					</p>
+				</div>
+			]]></dynamic-content>
+	</dynamic-element>
+</root>

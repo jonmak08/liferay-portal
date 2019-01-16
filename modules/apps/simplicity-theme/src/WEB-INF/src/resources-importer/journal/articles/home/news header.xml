@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="TextBoxd4lq" type="text_box" index-type="text" instance-id="mvil">
+		<dynamic-content language-id="en_US"><![CDATA[<div class="news-header">
+					<p>
+						Recent News
+					</p>
+				</div>]]></dynamic-content>
+	</dynamic-element>
+</root>

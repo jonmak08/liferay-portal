@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="TextBoxd4lq" type="text_box" index-type="text" instance-id="likz">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				<div class="contact-content">
+					<h2>
+						Location
+					</h2>
+					<p>
+						1400 Montefino Avenue</br>
+						Diamond Bar, CA 91765</br>
+						USA</br>
+					</p>
+
+					<h2>
+						Contact
+					</h2>
+					<p>
+						test@liferay.com</br>
+						1-877-LIFERAY
+					</p>
+				</div>
+			]]></dynamic-content>
+	</dynamic-element>
+</root>

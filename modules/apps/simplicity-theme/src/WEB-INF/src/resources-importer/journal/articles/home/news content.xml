@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="TextBoxd4lq" type="text_box" index-type="text" instance-id="kjci">
+		<dynamic-content language-id="en_US"><![CDATA[<div class="news-content">
+	<time class="news-published">January 11, 2018</time>
+	<h2>
+		Progress and timeline!
+	</h2>
+	<div class="news-thumbnail">
+		<img class="new-thumbnail-image" src="/o/simplicity-theme/images/simplicity_news_thumbnail_02.jpg" />
+	</div>
+	<div class="news-content">
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+	</div>
+
+	<time class="news-published">January 5, 2018</time>
+	<h2>
+		Welcome to our blog!
+	</h2>
+	<div class="news-thumbnail">
+		<img class="new-thumbnail-image" src="/o/simplicity-theme/images/simplicity_news_thumbnail_03.jpg" />
+	</div>
+	<div class="news-content">
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+	</div>
+
+	<time class="news-published">January 1, 2018</time>
+	<h2>
+		Site is under way! Join us for Simplicity!
+	</h2>
+	<div class="news-thumbnail">
+		<img class="new-thumbnail-image" src="/o/simplicity-theme/images/simplicity_news_thumbnail_04.jpg" />
+	</div>
+	<div class="news-content">
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+	</div>
+</div>]]></dynamic-content>
+	</dynamic-element>
+</root>

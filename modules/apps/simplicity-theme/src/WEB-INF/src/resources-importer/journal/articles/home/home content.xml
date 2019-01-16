@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="TextBoxd4lq" type="text_box" index-type="text" instance-id="likz">
+		<dynamic-content language-id="en_US">
+			<![CDATA[
+				<div class="home-content">
+					<h2>
+						Each section of Simplicity’s front page is selected from different pages of your site, via the Customizer.
+					</h2>
+
+					<p>
+						Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI. Efficiently unleash cross-media information without cross-media value.
+
+						Quickly maximize timely deliverables for real-time schemas. Dramatically maintain clicks-and-mortar solutions without functional solutions.
+					</p>
+				</div>
+			]]></dynamic-content>
+	</dynamic-element>
+</root>

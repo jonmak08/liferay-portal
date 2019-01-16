@@ -1,0 +1,31 @@
+{
+    "availableLanguageIds": [
+        "en_US"
+    ],
+    "defaultLanguageId": "en_US",
+    "fields": [
+        {
+            "label": {
+                "en_US": "Text Box"
+            },
+            "predefinedValue": {
+                "en_US": ""
+            },
+            "style": {
+                "en_US": ""
+            },
+            "tip": {
+                "en_US": ""
+            },
+            "dataType": "string",
+            "indexType": "text",
+            "localizable": true,
+            "name": "TextBoxd4lq",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": false,
+            "type": "textarea"
+        }
+    ]
+}
