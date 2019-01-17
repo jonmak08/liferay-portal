@@ -59,11 +59,11 @@ AUI.add(
 					_filterMenu: function(event) {
 						var instance = this;
 
-						instance._menuItems.addClass(CSS_HIDDEN);
+						instance._menuItems.setAttribute('hidden', true);
 
 						event.results.forEach(
 							function(result) {
-								result.raw.node.removeClass(CSS_HIDDEN);
+								result.raw.node.removeAttribute('hidden');
 							}
 						);
 					},
