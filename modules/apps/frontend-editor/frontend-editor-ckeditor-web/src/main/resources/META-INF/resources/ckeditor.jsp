@@ -181,10 +181,10 @@ name = HtmlUtil.escapeJS(name);
 							show: 0
 						},
 						duration: 500,
-						message: '<liferay-ui:message key="invalid-drag-and-drop-action" />',
+						message: '<liferay-ui:message key="your-request-failed-to-complete" />',
 						render: true,
-						title: '<liferay-ui:message key="warning" />',
-						type: 'warning'
+						title: '<liferay-ui:message key="error" />',
+						type: 'danger'
 					}
 				);
 			}
