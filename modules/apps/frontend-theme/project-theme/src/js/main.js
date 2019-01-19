@@ -7,6 +7,7 @@ AUI().ready(
 			signIn.plug(Liferay.SignInModal);
 		}
 	}
+<<<<<<< HEAD
 );
 
 $(document).ready(function() {    
@@ -60,4 +61,6 @@ YUI().use(
       }
     ).render();
   }
+=======
+>>>>>>> c11802cafe84... add project theme feature 1
 );

@@ -15,7 +15,11 @@ header {
 	}
 
 	.text-default {
+<<<<<<< HEAD
 		color: $link-color;
+=======
+		color: #6B6C7E;
+>>>>>>> c11802cafe84... add project theme feature 1
 		font-weight: 600;
 	}
 
@@ -55,8 +59,13 @@ header {
 	}
 
 	.search-input {
+<<<<<<< HEAD
 		font-size: 0.9rem;
 		padding: 0.3rem 2rem 0.3rem 1rem;
+=======
+		font-size: 0.88rem;
+		padding: 0.28rem 2rem 0.28rem 1rem;
+>>>>>>> c11802cafe84... add project theme feature 1
 	}
 
 	.user-avatar-image {
@@ -70,6 +79,7 @@ header {
 			display: none;
 		}
 	}
+<<<<<<< HEAD
 
 	.contact {
 		margin-left: 10%;
@@ -97,6 +107,11 @@ header {
 .portlet-layout {
 	color: $text-color;
 
+=======
+}
+
+.portlet-layout {
+>>>>>>> c11802cafe84... add project theme feature 1
 	.portlet {
 		.management-bar, .navbar-underline {
 			> .container-fluid-max-xl {
@@ -106,7 +121,11 @@ header {
 		}
 
 		.portlet-title-text {
+<<<<<<< HEAD
 			color: $text-color;
+=======
+			color: map-get($theme-colors, secondary);
+>>>>>>> c11802cafe84... add project theme feature 1
 			font-size: 0.875rem;
 			font-weight: 600;
 			line-height: 2.2;
@@ -124,6 +143,7 @@ header {
 
 #footer {
 	background-color: $complementary-color;
+<<<<<<< HEAD
 	color: $link-color;
 	height: 7rem;
 
@@ -908,3 +928,13 @@ hr {
 #myToggler {
 	margin-left: 46%;
 }
+=======
+	color: #FFF;
+	margin-top: 1rem;
+
+	> .container {
+		padding-bottom: 3rem;
+		padding-top: 3rem;
+	}
+}
+>>>>>>> c11802cafe84... add project theme feature 1

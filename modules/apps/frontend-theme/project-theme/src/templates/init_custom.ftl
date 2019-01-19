@@ -9,6 +9,7 @@
 	<#assign portal_content_css_class = "container" />
 <#else>
 	<#assign portal_content_css_class = "" />
+<<<<<<< HEAD
 </#if>
 
 <#assign show_instagram =
@@ -60,3 +61,6 @@ getterUtil.getString(themeDisplay.getThemeSetting("phone-url"))/>
 getterUtil.getBoolean(themeDisplay.getThemeSetting("show-email"))/>
 <#assign email_url =
 getterUtil.getString(themeDisplay.getThemeSetting("email-url"))/>
+=======
+</#if>
+>>>>>>> c11802cafe84... add project theme feature 1
