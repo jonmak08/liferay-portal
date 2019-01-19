@@ -20,6 +20,7 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
 
 /**
  * @author Julien Castelain
+ * @review
  */
 @ExtendedObjectClassDefinition(category = "third-party")
 @Meta.OCD(
@@ -31,9 +32,9 @@ import com.liferay.portal.configuration.metatype.annotations.ExtendedObjectClass
 public interface JSLodashConfiguration {
 
 	/**
-	 * Set this to <code>true</code> to enable lodash usage.
+	 * Set this to <code>true</code> to enable Lodash usage.
 	 *
-	 * @return <code>true</code> if lodash is enabled.
+	 * @return <code>true</code> if Lodash is enabled.
 	 * @review
 	 */
 	@Meta.AD(deflt = "false", name = "enable-lodash", required = false)

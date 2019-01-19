@@ -19,15 +19,12 @@ import com.liferay.item.selector.ItemSelectorCriterion;
 import com.liferay.portal.json.JSONFactoryImpl;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
-import com.liferay.portal.kernel.portlet.LiferayPortletURL;
+import com.liferay.portal.kernel.portlet.PortletURLWrapper;
 import com.liferay.portal.kernel.portlet.RequestBackedPortletURLFactory;
-import com.liferay.portal.kernel.theme.ThemeDisplay;
-import com.liferay.wiki.constants.WikiPortletKeys;
+import com.liferay.portal.kernel.test.ReflectionTestUtil;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.portlet.PortletURL;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -36,7 +33,6 @@ import org.junit.runner.RunWith;
 import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.mockito.internal.util.reflection.Whitebox;
 
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.modules.junit4.PowerMockRunner;
@@ -57,41 +53,22 @@ public class WikiLinksCKEditorEditorConfigContributorTest extends PowerMockito {
 
 		jsonFactoryUtil.setJSONFactory(new JSONFactoryImpl());
 
-		_requestBackedPortletURLFactory = mock(
-			RequestBackedPortletURLFactory.class);
-
-		when(
-			_requestBackedPortletURLFactory.createActionURL(
-				WikiPortletKeys.WIKI)
-		).thenReturn(
-			mock(LiferayPortletURL.class)
-		);
-
 		_inputEditorTaglibAttributes.put(
 			"liferay-ui:input-editor:name", "testEditor");
-
-		PortletURL oneTabItemSelectorPortletURL = mock(PortletURL.class);
-
-		when(
-			oneTabItemSelectorPortletURL.toString()
-		).thenReturn(
-			"oneTabItemSelectorPortletURL"
-		);
 
 		when(
 			_itemSelector.getItemSelectorURL(
 				Matchers.any(RequestBackedPortletURLFactory.class),
 				Matchers.anyString(), Matchers.any(ItemSelectorCriterion.class))
 		).thenReturn(
-			oneTabItemSelectorPortletURL
-		);
+			new PortletURLWrapper(null) {
 
-		PortletURL twoTabsItemSelectorPortletURL = mock(PortletURL.class);
+				@Override
+				public String toString() {
+					return "oneTabItemSelectorPortletURL";
+				}
 
-		when(
-			twoTabsItemSelectorPortletURL.toString()
-		).thenReturn(
-			"twoTabsItemSelectorPortletURL"
+			}
 		);
 
 		when(
@@ -100,13 +77,20 @@ public class WikiLinksCKEditorEditorConfigContributorTest extends PowerMockito {
 				Matchers.anyString(), Matchers.any(ItemSelectorCriterion.class),
 				Matchers.any(ItemSelectorCriterion.class))
 		).thenReturn(
-			twoTabsItemSelectorPortletURL
+			new PortletURLWrapper(null) {
+
+				@Override
+				public String toString() {
+					return "twoTabsItemSelectorPortletURL";
+				}
+
+			}
 		);
 
 		_wikiLinksCKEditorEditorConfigContributor =
 			new WikiLinksCKEditorConfigContributor();
 
-		Whitebox.setInternalState(
+		ReflectionTestUtil.setFieldValue(
 			_wikiLinksCKEditorEditorConfigContributor, "itemSelector",
 			_itemSelector);
 	}
@@ -124,8 +108,7 @@ public class WikiLinksCKEditorEditorConfigContributorTest extends PowerMockito {
 			originalJSONObject.toJSONString());
 
 		_wikiLinksCKEditorEditorConfigContributor.populateConfigJSONObject(
-			jsonObject, _inputEditorTaglibAttributes, _themeDisplay,
-			_requestBackedPortletURLFactory);
+			jsonObject, _inputEditorTaglibAttributes, null, null);
 
 		JSONObject expectedJSONObject = JSONFactoryUtil.createJSONObject();
 
@@ -148,8 +131,7 @@ public class WikiLinksCKEditorEditorConfigContributorTest extends PowerMockito {
 			originalJSONObject.toJSONString());
 
 		_wikiLinksCKEditorEditorConfigContributor.populateConfigJSONObject(
-			jsonObject, _inputEditorTaglibAttributes, _themeDisplay,
-			_requestBackedPortletURLFactory);
+			jsonObject, _inputEditorTaglibAttributes, null, null);
 
 		JSONObject expectedJSONObject = JSONFactoryUtil.createJSONObject();
 
@@ -174,8 +156,7 @@ public class WikiLinksCKEditorEditorConfigContributorTest extends PowerMockito {
 			originalJSONObject.toJSONString());
 
 		_wikiLinksCKEditorEditorConfigContributor.populateConfigJSONObject(
-			jsonObject, _inputEditorTaglibAttributes, _themeDisplay,
-			_requestBackedPortletURLFactory);
+			jsonObject, _inputEditorTaglibAttributes, null, null);
 
 		JSONObject expectedJSONObject = JSONFactoryUtil.createJSONObject();
 
@@ -217,11 +198,6 @@ public class WikiLinksCKEditorEditorConfigContributorTest extends PowerMockito {
 
 	@Mock
 	private ItemSelector _itemSelector;
-
-	private RequestBackedPortletURLFactory _requestBackedPortletURLFactory;
-
-	@Mock
-	private ThemeDisplay _themeDisplay;
 
 	private WikiLinksCKEditorConfigContributor
 		_wikiLinksCKEditorEditorConfigContributor;

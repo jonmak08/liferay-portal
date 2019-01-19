@@ -21,18 +21,17 @@ import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.language.LanguageUtil;
 import com.liferay.portal.kernel.portlet.LiferayPortletURL;
+import com.liferay.portal.kernel.portlet.PortletURLWrapper;
 import com.liferay.portal.kernel.portlet.RequestBackedPortletURLFactory;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
+import com.liferay.portal.kernel.util.ProxyFactory;
 import com.liferay.portal.language.LanguageImpl;
 import com.liferay.registry.BasicRegistryImpl;
 import com.liferay.registry.RegistryUtil;
 import com.liferay.wiki.constants.WikiPortletKeys;
-import com.liferay.wiki.service.WikiPageLocalService;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.portlet.PortletURL;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -65,16 +64,6 @@ public class WikiAttachmentImageHTMLEditorConfigContributorTest
 
 		languageUtil.setLanguage(new LanguageImpl());
 
-		_requestBackedPortletURLFactory = mock(
-			RequestBackedPortletURLFactory.class);
-
-		when(
-			_requestBackedPortletURLFactory.createActionURL(
-				WikiPortletKeys.WIKI)
-		).thenReturn(
-			mock(LiferayPortletURL.class)
-		);
-
 		_inputEditorTaglibAttributes.put(
 			"liferay-ui:input-editor:name", "testEditor");
 	}
@@ -86,21 +75,20 @@ public class WikiAttachmentImageHTMLEditorConfigContributorTest
 		setAllowBrowseDocuments(true);
 		setWikiPageResourcePrimKey(0);
 
-		PortletURL itemSelectorPortletURL = mock(PortletURL.class);
-
-		when(
-			itemSelectorPortletURL.toString()
-		).thenReturn(
-			"itemSelectorPortletURLWithImageUrlSelectionViews"
-		);
-
 		when(
 			_itemSelector.getItemSelectorURL(
 				Mockito.any(RequestBackedPortletURLFactory.class),
 				Mockito.anyString(), Mockito.any(ItemSelectorCriterion.class),
 				Mockito.any(ItemSelectorCriterion.class))
 		).thenReturn(
-			itemSelectorPortletURL
+			new PortletURLWrapper(null) {
+
+				@Override
+				public String toString() {
+					return "itemSelectorPortletURLWithImageUrlSelectionViews";
+				}
+
+			}
 		);
 
 		JSONObject originalJSONObject =
@@ -117,8 +105,7 @@ public class WikiAttachmentImageHTMLEditorConfigContributorTest
 			_itemSelector);
 
 		wikiAttachmentImageHTMLEditorConfigContributor.populateConfigJSONObject(
-			jsonObject, _inputEditorTaglibAttributes, _themeDisplay,
-			_requestBackedPortletURLFactory);
+			jsonObject, _inputEditorTaglibAttributes, null, null);
 
 		JSONObject expectedJSONObject = JSONFactoryUtil.createJSONObject();
 
@@ -141,14 +128,6 @@ public class WikiAttachmentImageHTMLEditorConfigContributorTest
 		setAllowBrowseDocuments(true);
 		setWikiPageResourcePrimKey(1);
 
-		PortletURL itemSelectorPortletURL = mock(PortletURL.class);
-
-		when(
-			itemSelectorPortletURL.toString()
-		).thenReturn(
-			"itemSelectorPortletURLWithWikiImageUrlAndUploadSelectionViews"
-		);
-
 		when(
 			_itemSelector.getItemSelectorURL(
 				Mockito.any(RequestBackedPortletURLFactory.class),
@@ -157,7 +136,24 @@ public class WikiAttachmentImageHTMLEditorConfigContributorTest
 				Mockito.any(ItemSelectorCriterion.class),
 				Mockito.any(ItemSelectorCriterion.class))
 		).thenReturn(
-			itemSelectorPortletURL
+			new PortletURLWrapper(null) {
+
+				@Override
+				public String toString() {
+					return "itemSelectorPortletURLWithWikiImageUrl" +
+						"AndUploadSelectionViews";
+				}
+
+			}
+		);
+
+		RequestBackedPortletURLFactory requestBackedPortletURLFactory = mock(
+			RequestBackedPortletURLFactory.class);
+
+		when(
+			requestBackedPortletURLFactory.createActionURL(WikiPortletKeys.WIKI)
+		).thenReturn(
+			ProxyFactory.newDummyInstance(LiferayPortletURL.class)
 		);
 
 		JSONObject jsonObject = getJSONObjectWithDefaultItemSelectorURL();
@@ -170,8 +166,8 @@ public class WikiAttachmentImageHTMLEditorConfigContributorTest
 			_itemSelector);
 
 		wikiAttachmentImageHTMLEditorConfigContributor.populateConfigJSONObject(
-			jsonObject, _inputEditorTaglibAttributes, _themeDisplay,
-			_requestBackedPortletURLFactory);
+			jsonObject, _inputEditorTaglibAttributes, new ThemeDisplay(),
+			requestBackedPortletURLFactory);
 
 		JSONObject expectedJSONObject = JSONFactoryUtil.createJSONObject();
 
@@ -208,8 +204,7 @@ public class WikiAttachmentImageHTMLEditorConfigContributorTest
 			_itemSelector);
 
 		wikiAttachmentImageHTMLEditorConfigContributor.populateConfigJSONObject(
-			jsonObject, _inputEditorTaglibAttributes, _themeDisplay,
-			_requestBackedPortletURLFactory);
+			jsonObject, _inputEditorTaglibAttributes, null, null);
 
 		JSONObject expectedJSONObject = JSONFactoryUtil.createJSONObject(
 			originalJSONObject.toJSONString());
@@ -241,8 +236,7 @@ public class WikiAttachmentImageHTMLEditorConfigContributorTest
 			_itemSelector);
 
 		wikiAttachmentImageHTMLEditorConfigContributor.populateConfigJSONObject(
-			jsonObject, _inputEditorTaglibAttributes, _themeDisplay,
-			_requestBackedPortletURLFactory);
+			jsonObject, _inputEditorTaglibAttributes, null, null);
 
 		JSONObject expectedJSONObject = JSONFactoryUtil.createJSONObject(
 			originalJSONObject.toJSONString());
@@ -288,13 +282,5 @@ public class WikiAttachmentImageHTMLEditorConfigContributorTest
 
 	@Mock
 	private ItemSelector _itemSelector;
-
-	private RequestBackedPortletURLFactory _requestBackedPortletURLFactory;
-
-	@Mock
-	private ThemeDisplay _themeDisplay;
-
-	@Mock
-	private WikiPageLocalService _wikiPageLocalService;
 
 }

@@ -5,6 +5,7 @@ import CriteriaSidebarItem from './CriteriaSidebarItem.es';
 
 class CriteriaSidebar extends Component {
 	static propTypes = {
+		propertyKey: PropTypes.string,
 		supportedProperties: PropTypes.array,
 		title: PropTypes.string
 	};
@@ -33,7 +34,7 @@ class CriteriaSidebar extends Component {
 	}
 
 	render() {
-		const {supportedProperties, title} = this.props;
+		const {propertyKey, supportedProperties, title} = this.props;
 
 		const {searchValue} = this.state;
 
@@ -57,8 +58,10 @@ class CriteriaSidebar extends Component {
 				<ul className="properties-list">
 					{filteredProperties.length ?
 						filteredProperties.map(
-							({label, name, type}, index) => (
+							({label, name, options, type}, index) => (
 								<CriteriaSidebarItem
+									className={`color--${propertyKey}`}
+									defaultValue={options && options.length ? options[0].value : ''}
 									key={index}
 									label={label}
 									name={name}

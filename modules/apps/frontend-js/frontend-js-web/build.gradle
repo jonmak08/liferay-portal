@@ -2,8 +2,6 @@ import com.liferay.gradle.plugins.node.tasks.NpmRunTask
 import com.liferay.gradle.util.copy.StripPathSegmentsAction
 
 task buildClay(type: Copy)
-task buildJQuery(type: Copy)
-task buildJQueryPluginsForm
 task buildLiferayAMDLoader(type: Copy)
 task buildLodash(type: Copy)
 task buildSvg4everybody(type: Copy)
@@ -31,43 +29,6 @@ buildClay {
 	into clayDestinationDir
 }
 
-buildJQuery {
-	File jqueryDestinationDir = new File(jsDestinationDir, "jquery")
-
-	dependsOn npmInstall
-
-	doFirst {
-		delete jqueryDestinationDir
-	}
-
-	eachFile new StripPathSegmentsAction(2)
-
-	from npmInstall.nodeModulesDir
-	include "jquery/dist/jquery.js"
-	includeEmptyDirs = false
-	into jqueryDestinationDir
-}
-
-buildJQueryPluginsForm {
-	File jQueryPluginsFormJsFile = file("src/main/resources/META-INF/resources/jquery/form.js")
-
-	dependsOn npmInstall
-
-	doLast {
-		String text = file(npmInstall.nodeModulesDir + "/jquery-form/jquery.form.js").text
-
-		text = text.replace("typeof define === 'function'", "false && typeof define === 'function'")
-
-		text = ";(function(jQuery){" + System.getProperty("line.separator") + text + '})(AUI.$);'
-
-		jQueryPluginsFormJsFile.text = text
-	}
-
-	onlyIf {
-		!jQueryPluginsFormJsFile.exists()
-	}
-}
-
 buildLiferayAMDLoader {
 	dependsOn npmInstall
 	eachFile new StripPathSegmentsAction(3)
@@ -78,29 +39,6 @@ buildLiferayAMDLoader {
 
 	includeEmptyDirs = false
 	into new File(jsDestinationDir, "loader")
-}
-
-buildLodash {
-	File lodashDestinationDir = new File(jsDestinationDir, "lodash")
-
-	dependsOn npmInstall
-
-	doFirst {
-		delete lodashDestinationDir
-	}
-
-	eachFile new StripPathSegmentsAction(1)
-
-	filter {
-		String line ->
-
-		line.replace "typeof define == 'function'", "false && typeof define == 'function'"
-	}
-
-	from npmInstall.nodeModulesDir
-	include "lodash/lodash.js"
-	includeEmptyDirs = false
-	into lodashDestinationDir
 }
 
 buildSvg4everybody {
@@ -121,10 +59,7 @@ buildSvg4everybody {
 
 classes {
 	dependsOn buildClay
-	dependsOn buildJQuery
-	dependsOn buildJQueryPluginsForm
 	dependsOn buildLiferayAMDLoader
-	dependsOn buildLodash
 	dependsOn buildSvg4everybody
 	dependsOn npmRunWebpack
 }

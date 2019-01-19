@@ -95,12 +95,12 @@
 </tr>
 <tr>
 	<td>EXPIRE</td>
-	<td>//button[*[name()='svg'][contains(@class,'icon-time')]]</td>
+	<td>//a[@data-title='Expire'] | //a[@title='Expire']</td>
 	<td></td>
 </tr>
 <tr>
 	<td>FLAG</td>
-	<td>//div[@title='Flag']//span[//*[name()='svg'][contains(@class,'lexicon-icon')]]</td>
+	<td>//div[contains(@class,'taglib-flags')]</td>
 	<td></td>
 </tr>
 <tr>
@@ -140,7 +140,7 @@
 </tr>
 <tr>
 	<td>MOVE_TO_RECYCLE_BIN</td>
-	<td>//a[contains(@data-qa-id,'recycle-binButton')]/span[contains(@class,'icon-monospaced')] | //*[*[name()='svg'][contains(@class,'icon-trash')]]</td>
+	<td>//a[contains(@data-qa-id,'recycle-binButton')]/span[contains(@class,'icon-monospaced')] | //*[*[name()='svg'][contains(@class,'icon-trash')] | //a[@data-title='Deactivate']]</td>
 	<td></td>
 </tr>
 <tr>
@@ -207,6 +207,11 @@
 <tr>
 	<td>PAGE_CUSTOMIZATION_ELLIPSIS</td>
 	<td>//*[@data-qa-id='controlMenu']//div[contains(@class,'icon-menu')]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>REMOVE_TAG</td>
+	<td>//span[contains(.,'${key_removeTag}')]//..//i[contains(@class,'icon-remove')]</td>
 	<td></td>
 </tr>
 <tr>

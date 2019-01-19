@@ -69,12 +69,6 @@ definition {
 			searchPortletList = "Type Facet,Search Results,Search Bar"
 		);
 
-		Portlet.dragAndDropPortletToColumnPG(
-			columnNumberFrom = "1",
-			columnNumberTo = "2",
-			portletName = "Search Results"
-		);
-
 		SearchPortlets.configureWidgetParameterNames(
 			keywordsParameterName = "keywordparameter",
 			scopeParameterName = "scopeparameter"
@@ -1959,6 +1953,18 @@ definition {
 	test ViewSearchResultDetails {
 		property portal.acceptance = "true";
 		property test.name.skip.portal.instance = "SearchUsecase#ViewSearchResultDetails";
+
+		ProductMenu.gotoPortlet(
+			category = "Configuration",
+			panel = "Control Panel",
+			portlet = "Search"
+		);
+
+		SearchAdministration.executeSearchActions(
+			actionsDescription = "Reindex all search indexes."
+		);
+
+		Navigator.openURL();
 
 		SearchPortlets.searchEmbedded(searchTerm = "Test Test");
 

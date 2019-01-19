@@ -8,6 +8,10 @@ definition {
 		TestCase.setUpPortalInstance();
 
 		User.firstLoginPG();
+
+		AutoTagging.enableAutoTagging(
+			enableAutoTaggingFor = "System Settings"
+		);
 	}
 
 	tearDown {
@@ -26,22 +30,113 @@ definition {
 	}
 
 	@priority = "4"
+	test AssertAutoTagAfterPublishToLive {
+		property test.name.skip.portal.instance = "DMAutoTagging#AssertAutoTagAfterPublishToLive";
+
+		ProductMenu.gotoPortlet(
+			category = "Sites",
+			panel = "Control Panel",
+			portlet = "Sites"
+		);
+
+		Site.addBlankCP(siteName = "Site Name");
+
+		ProductMenu.gotoPortlet(
+			category = "Build",
+			panel = "Site Administration",
+			portlet = "Pages"
+		);
+
+		SitePages.addPublicPage(
+			pageName = "Documents and Media Page",
+			sitePageType = "Widget Page"
+		);
+
+		SitePages.configurePage(
+			columnName = "1 Column",
+			pageName = "Documents and Media Page",
+			privacy = "Public Pages",
+			sitePageType = "Widget Page"
+		);
+
+		Navigator.gotoSitePage(
+			pageName = "Documents and Media Page",
+			siteName = "Site Name"
+		);
+
+		Portlet.addPG(portletName = "Documents and Media");
+
+		DMDocument.enableActionsMenuOnPortlet();
+
+		ProductMenu.gotoPortlet(
+			category = "Publishing",
+			panel = "Site Administration",
+			portlet = "Staging"
+		);
+
+		Staging.activateStagingCP(siteName = "Site Name");
+
+		Navigator.gotoStagedSitePage(
+			pageName = "Documents and Media Page",
+			siteName = "Site Name"
+		);
+
+		DMDocument.addPG(
+			dmDocumentDescription = "Document Description",
+			dmDocumentFile = "Document_4.jpg",
+			dmDocumentTitle = "Document Title"
+		);
+
+		Navigator.gotoStagedSitePage(
+			pageName = "Documents and Media Page",
+			siteName = "Site Name"
+		);
+
+		DMDocument.viewPG(
+			dmDocumentDescription = "Document Description",
+			dmDocumentTitle = "Document Title"
+		);
+
+		AutoTagging.assertAutoTagPresent(tagName = "carton");
+
+		Staging.gotoPublishToLive();
+
+		Staging.publishToLive();
+
+		ProductMenu.gotoLiveSite();
+
+		Navigator.gotoSitePage(
+			pageName = "Documents and Media Page",
+			siteName = "Site Name"
+		);
+
+		DMDocument.viewPG(
+			dmDocumentDescription = "Document Description",
+			dmDocumentTitle = "Document Title"
+		);
+
+		AutoTagging.assertAutoTagPresent(tagName = "carton");
+	}
+
+	@priority = "4"
 	test ConfigureAutoTaggingPerSite {
 		property test.name.skip.portal.instance = "DMAutoTagging#ConfigureAutoTaggingPerSite";
 
 		ProductMenu.gotoPortlet(
-			category = "Configuration",
+			category = "Sites",
 			panel = "Control Panel",
-			portlet = "System Settings"
+			portlet = "Sites"
 		);
 
-		SystemSettings.gotoConfiguration(
-			configurationCategory = "Assets",
-			configurationName = "Asset Auto Tagging",
-			configurationScope = "System Scope"
+		Site.addBlankCP(siteName = "Site AutoTag Enabled");
+
+		ProductMenu.gotoPortlet(
+			category = "Build",
+			panel = "Site Administration",
+			portlet = "Pages"
 		);
 
-		AutoTagging.enableAutoTagging();
+		SitePages.addPublicPage(pageName = "AutoTag Enabled Site Page");
 
 		ProductMenu.gotoPortlet(
 			category = "Sites",
@@ -49,27 +144,19 @@ definition {
 			portlet = "Sites"
 		);
 
-		Site.addBlankCP(siteName = "Site Enabled");
+		Site.addBlankCP(siteName = "Site AutoTag Disabled");
 
 		ProductMenu.gotoPortlet(
-			category = "Sites",
-			panel = "Control Panel",
-			portlet = "Sites"
+			category = "Build",
+			panel = "Site Administration",
+			portlet = "Pages"
 		);
 
-		Site.addBlankCP(siteName = "Site Disabled");
+		SitePages.addPublicPage(pageName = "AutoTag Disabled Site Page");
 
-		ProductMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "Instance Settings"
-		);
+		AutoTagging.disableAutoTagging(disableAutoTaggingFor = "Site Settings");
 
-		Navigator.gotoNavTab(navTab = "Asset Auto Tagging");
-
-		AutoTagging.disableAutoTagging();
-
-		Navigator.openSiteURL(siteName = "Site Enabled");
+		Navigator.openSiteURL(siteName = "Site AutoTag Enabled");
 
 		ProductMenu.gotoPortlet(
 			category = "Content",
@@ -93,9 +180,9 @@ definition {
 
 		DMDocument.viewCP(dmDocumentTitle = "DM Document JPG");
 
-		AutoTagging.assertAutoTagPresent();
+		AutoTagging.assertAutoTagPresent(tagName = "carton");
 
-		Navigator.openSiteURL(siteName = "Site Disabled");
+		Navigator.openSiteURL(siteName = "Site AutoTag Disabled");
 
 		ProductMenu.gotoPortlet(
 			category = "Content",
@@ -122,24 +209,118 @@ definition {
 		AutoTagging.assertNoAutoTag();
 	}
 
+	@priority = "4"
+	test NoAutoTagForManuallyTaggedImage {
+		property test.name.skip.portal.instance = "DMAutoTagging#RemoveAutoTag";
+
+		ProductMenu.gotoPortlet(
+			category = "Build",
+			panel = "Site Administration",
+			portlet = "Pages"
+		);
+
+		SitePages.addPublicPage(
+			pageName = "Documents and Media Page",
+			sitePageType = "Widget Page"
+		);
+
+		SitePages.configurePage(
+			columnName = "1 Column",
+			pageName = "Documents and Media Page",
+			privacy = "Public Pages",
+			sitePageType = "Widget Page"
+		);
+
+		Navigator.gotoPage(pageName = "Documents and Media Page");
+
+		Portlet.addPG(portletName = "Documents and Media");
+
+		DMDocument.enableActionsMenuOnPortlet();
+
+		Navigator.gotoPage(pageName = "Documents and Media Page");
+
+		LexiconEntry.changeDisplayStyle(displayStyle = "list");
+
+		DMDocument.addPG(
+			dmDocumentDescription = "Document Description",
+			dmDocumentFile = "Document_4.jpg",
+			dmDocumentTitle = "Document Title",
+			tagNameList = "ManualTag,NotAutoTagged"
+		);
+
+		Navigator.gotoPage(pageName = "Documents and Media Page");
+
+		DMDocument.viewPG(
+			dmDocumentDescription = "Document Description",
+			dmDocumentTitle = "Document Title",
+			tagNameList = "manualtag,notautotagged"
+		);
+
+		AutoTagging.assertNoAutoTag(tagName = "carton");
+	}
+
+	@priority = "4"
+	test RemoveAutoTag {
+		property test.name.skip.portal.instance = "DMAutoTagging#RemoveAutoTag";
+
+		ProductMenu.gotoPortlet(
+			category = "Build",
+			panel = "Site Administration",
+			portlet = "Pages"
+		);
+
+		SitePages.addPublicPage(
+			pageName = "Documents and Media Page",
+			sitePageType = "Widget Page"
+		);
+
+		SitePages.configurePage(
+			columnName = "1 Column",
+			pageName = "Documents and Media Page",
+			privacy = "Public Pages",
+			sitePageType = "Widget Page"
+		);
+
+		Navigator.gotoPage(pageName = "Documents and Media Page");
+
+		Portlet.addPG(portletName = "Documents and Media");
+
+		DMDocument.enableActionsMenuOnPortlet();
+
+		Navigator.gotoPage(pageName = "Documents and Media Page");
+
+		LexiconEntry.changeDisplayStyle(displayStyle = "list");
+
+		DMDocument.addPG(
+			dmDocumentFile = "Document_4.jpg",
+			dmDocumentDescription = "Auto Tagged Image Description",
+			dmDocumentTitle = "Auto Tagged Image"
+		);
+
+		DMDocument.viewPG(
+			dmDocumentDescription = "Auto Tagged Image Description",
+			dmDocumentTitle = "Auto Tagged Image",
+			tagNameList = "carton"
+		);
+
+		DMDocument.removeTag(removeTag = "carton");
+
+		Button.clickPublish();
+
+		Navigator.gotoPage(pageName = "Documents and Media Page");
+
+		DMDocument.viewPG(
+			dmDocumentDescription = "Auto Tagged Image Description",
+			dmDocumentTitle = "Auto Tagged Image"
+		);
+
+		AutoTagging.assertNoAutoTag();
+	}
+
 	@priority = "5"
 	test Smoke {
 		property portal.acceptance = "false";
 		property test.name.skip.portal.instance = "DMAutoTagging#Smoke";
-
-		ProductMenu.gotoPortlet(
-			category = "Configuration",
-			panel = "Control Panel",
-			portlet = "System Settings"
-		);
-
-		SystemSettings.gotoConfiguration(
-			configurationCategory = "Assets",
-			configurationName = "Asset Auto Tagging",
-			configurationScope = "System Scope"
-		);
-
-		AutoTagging.enableAutoTagging();
 
 		ProductMenu.gotoPortlet(
 			category = "Content",

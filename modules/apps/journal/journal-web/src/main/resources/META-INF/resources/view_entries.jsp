@@ -135,9 +135,12 @@ String searchContainerId = ParamUtil.getString(request, "searchContainerId");
 							</h6>
 						</liferay-ui:search-container-column-text>
 
-						<liferay-ui:search-container-column-jsp
-							path="/article_action.jsp"
-						/>
+						<liferay-ui:search-container-column-text>
+							<clay:dropdown-actions
+								defaultEventHandler="<%= JournalWebConstants.JOURNAL_ELEMENTS_DEFAULT_EVENT_HANDLER %>"
+								dropdownItems="<%= journalDisplayContext.getArticleActionDropdownItems(curArticle) %>"
+							/>
+						</liferay-ui:search-container-column-text>
 					</c:when>
 					<c:when test='<%= displayStyle.equals("icon") %>'>
 
@@ -146,39 +149,9 @@ String searchContainerId = ParamUtil.getString(request, "searchContainerId");
 						%>
 
 						<liferay-ui:search-container-column-text>
-
-							<%
-							String articleImageURL = curArticle.getArticleImageURL(themeDisplay);
-							%>
-
-							<c:choose>
-								<c:when test="<%= Validator.isNotNull(articleImageURL) %>">
-									<liferay-frontend:vertical-card
-										actionJsp="/article_action.jsp"
-										actionJspServletContext="<%= application %>"
-										imageUrl="<%= HtmlUtil.escape(articleImageURL) %>"
-										resultRow="<%= row %>"
-										rowChecker="<%= articleSearchContainer.getRowChecker() %>"
-										title="<%= title %>"
-										url="<%= editURL %>"
-									>
-										<%@ include file="/article_vertical_card.jspf" %>
-									</liferay-frontend:vertical-card>
-								</c:when>
-								<c:otherwise>
-									<liferay-frontend:icon-vertical-card
-										actionJsp="/article_action.jsp"
-										actionJspServletContext="<%= application %>"
-										icon="web-content"
-										resultRow="<%= row %>"
-										rowChecker="<%= articleSearchContainer.getRowChecker() %>"
-										title="<%= title %>"
-										url="<%= editURL %>"
-									>
-										<%@ include file="/article_vertical_card.jspf" %>
-									</liferay-frontend:icon-vertical-card>
-								</c:otherwise>
-							</c:choose>
+							<clay:vertical-card
+								verticalCard="<%= new JournalArticleVerticalCard(curArticle, renderRequest, renderResponse, articleSearchContainer.getRowChecker(), trashHelper) %>"
+							/>
 						</liferay-ui:search-container-column-text>
 					</c:when>
 					<c:otherwise>
@@ -249,9 +222,12 @@ String searchContainerId = ParamUtil.getString(request, "searchContainerId");
 							value="<%= HtmlUtil.escape(title) %>"
 						/>
 
-						<liferay-ui:search-container-column-jsp
-							path="/article_action.jsp"
-						/>
+						<liferay-ui:search-container-column-text>
+							<clay:dropdown-actions
+								defaultEventHandler="<%= JournalWebConstants.JOURNAL_ELEMENTS_DEFAULT_EVENT_HANDLER %>"
+								dropdownItems="<%= journalDisplayContext.getArticleActionDropdownItems(curArticle) %>"
+							/>
+						</liferay-ui:search-container-column-text>
 					</c:otherwise>
 				</c:choose>
 			</c:when>
@@ -308,9 +284,12 @@ String searchContainerId = ParamUtil.getString(request, "searchContainerId");
 							</h6>
 						</liferay-ui:search-container-column-text>
 
-						<liferay-ui:search-container-column-jsp
-							path="/folder_action.jsp"
-						/>
+						<liferay-ui:search-container-column-text>
+							<clay:dropdown-actions
+								defaultEventHandler="<%= JournalWebConstants.JOURNAL_ELEMENTS_DEFAULT_EVENT_HANDLER %>"
+								dropdownItems="<%= journalDisplayContext.getFolderActionDropdownItems(curFolder) %>"
+							/>
+						</liferay-ui:search-container-column-text>
 					</c:when>
 					<c:when test='<%= displayStyle.equals("icon") %>'>
 
@@ -321,20 +300,9 @@ String searchContainerId = ParamUtil.getString(request, "searchContainerId");
 						<liferay-ui:search-container-column-text
 							colspan="<%= 2 %>"
 						>
-							<liferay-frontend:horizontal-card
-								actionJsp="/folder_action.jsp"
-								actionJspServletContext="<%= application %>"
-								resultRow="<%= row %>"
-								rowChecker="<%= articleSearchContainer.getRowChecker() %>"
-								text="<%= HtmlUtil.escape(curFolder.getName()) %>"
-								url="<%= rowURL.toString() %>"
-							>
-								<liferay-frontend:horizontal-card-col>
-									<liferay-frontend:horizontal-card-icon
-										icon="folder"
-									/>
-								</liferay-frontend:horizontal-card-col>
-							</liferay-frontend:horizontal-card>
+							<clay:horizontal-card
+								horizontalCard="<%= new JournalFolderHorizontalCard(curFolder, journalDisplayContext.getDisplayStyle(), renderRequest, renderResponse, articleSearchContainer.getRowChecker(), trashHelper) %>"
+							/>
 						</liferay-ui:search-container-column-text>
 					</c:when>
 					<c:otherwise>
@@ -387,9 +355,12 @@ String searchContainerId = ParamUtil.getString(request, "searchContainerId");
 							value='<%= LanguageUtil.get(request, "folder") %>'
 						/>
 
-						<liferay-ui:search-container-column-jsp
-							path="/folder_action.jsp"
-						/>
+						<liferay-ui:search-container-column-text>
+							<clay:dropdown-actions
+								defaultEventHandler="<%= JournalWebConstants.JOURNAL_ELEMENTS_DEFAULT_EVENT_HANDLER %>"
+								dropdownItems="<%= journalDisplayContext.getFolderActionDropdownItems(curFolder) %>"
+							/>
+						</liferay-ui:search-container-column-text>
 					</c:otherwise>
 				</c:choose>
 			</c:when>
@@ -403,3 +374,19 @@ String searchContainerId = ParamUtil.getString(request, "searchContainerId");
 		searchContainer="<%= articleSearchContainer %>"
 	/>
 </liferay-ui:search-container>
+
+<aui:script require='<%= npmResolvedPackageName + "/js/ElementsDefaultEventHandler.es as ElementsDefaultEventHandler" %>'>
+	Liferay.component(
+		'<%= JournalWebConstants.JOURNAL_ELEMENTS_DEFAULT_EVENT_HANDLER %>',
+		new ElementsDefaultEventHandler.default(
+			{
+				namespace: '<%= renderResponse.getNamespace() %>',
+				trashEnabled: <%= trashHelper.isTrashEnabled(scopeGroupId) %>
+			}
+		),
+		{
+			destroyOnNavigate: true,
+			portletId: '<%= HtmlUtil.escapeJS(portletDisplay.getId()) %>'
+		}
+	);
+</aui:script>

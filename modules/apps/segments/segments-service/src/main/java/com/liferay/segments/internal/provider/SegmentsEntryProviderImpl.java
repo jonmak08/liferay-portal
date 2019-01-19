@@ -159,8 +159,8 @@ public class SegmentsEntryProviderImpl implements SegmentsEntryProvider {
 		Stream<SegmentsEntry> stream = segmentsEntries.stream();
 
 		return stream.filter(
-			segmentsEntry ->
-				_isMember(className, classPK, context, segmentsEntry)
+			segmentsEntry -> _isMember(
+				className, classPK, context, segmentsEntry)
 		).mapToLong(
 			SegmentsEntry::getSegmentsEntryId
 		).toArray();
@@ -224,7 +224,7 @@ public class SegmentsEntryProviderImpl implements SegmentsEntryProvider {
 
 		Criteria criteria = segmentsEntry.getCriteriaObj();
 
-		if ((criteria == null) || MapUtil.isEmpty(criteria.getCriterionMap())) {
+		if ((criteria == null) || MapUtil.isEmpty(criteria.getCriteria())) {
 			return false;
 		}
 

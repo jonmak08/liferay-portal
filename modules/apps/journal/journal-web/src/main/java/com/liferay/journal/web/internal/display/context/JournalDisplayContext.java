@@ -22,13 +22,11 @@ import com.liferay.asset.kernel.model.AssetRendererFactory;
 import com.liferay.asset.kernel.service.AssetEntryLocalServiceUtil;
 import com.liferay.dynamic.data.mapping.model.DDMStructure;
 import com.liferay.dynamic.data.mapping.service.DDMStructureLocalServiceUtil;
-import com.liferay.exportimport.kernel.lar.StagedModelDataHandler;
-import com.liferay.exportimport.kernel.lar.StagedModelDataHandlerRegistryUtil;
+import com.liferay.frontend.taglib.clay.servlet.taglib.util.DropdownItem;
 import com.liferay.frontend.taglib.clay.servlet.taglib.util.NavigationItem;
 import com.liferay.frontend.taglib.clay.servlet.taglib.util.NavigationItemList;
 import com.liferay.journal.configuration.JournalServiceConfiguration;
 import com.liferay.journal.constants.JournalPortletKeys;
-import com.liferay.journal.constants.JournalWebKeys;
 import com.liferay.journal.model.JournalArticle;
 import com.liferay.journal.model.JournalArticleConstants;
 import com.liferay.journal.model.JournalArticleDisplay;
@@ -48,6 +46,8 @@ import com.liferay.journal.web.internal.portlet.action.ActionUtil;
 import com.liferay.journal.web.internal.search.EntriesChecker;
 import com.liferay.journal.web.internal.search.EntriesMover;
 import com.liferay.journal.web.internal.search.JournalSearcher;
+import com.liferay.journal.web.internal.servlet.taglib.util.JournalArticleActionDropdownItems;
+import com.liferay.journal.web.internal.servlet.taglib.util.JournalFolderActionDropdownItems;
 import com.liferay.journal.web.util.JournalPortletUtil;
 import com.liferay.journal.web.util.JournalUtil;
 import com.liferay.message.boards.model.MBMessage;
@@ -80,9 +80,7 @@ import com.liferay.portal.kernel.search.QueryConfig;
 import com.liferay.portal.kernel.search.SearchContext;
 import com.liferay.portal.kernel.search.SearchContextFactory;
 import com.liferay.portal.kernel.search.Sort;
-import com.liferay.portal.kernel.security.permission.ActionKeys;
 import com.liferay.portal.kernel.security.permission.PermissionChecker;
-import com.liferay.portal.kernel.service.permission.GroupPermissionUtil;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.ArrayUtil;
 import com.liferay.portal.kernel.util.GetterUtil;
@@ -96,8 +94,6 @@ import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
-import com.liferay.staging.StagingGroupHelper;
-import com.liferay.staging.StagingGroupHelperUtil;
 import com.liferay.trash.TrashHelper;
 
 import java.io.Serializable;
@@ -138,8 +134,6 @@ public class JournalDisplayContext {
 				JournalWebConfiguration.class.getName());
 		_portalPreferences = PortletPreferencesFactoryUtil.getPortalPreferences(
 			_request);
-		_resolvedModuleName = (String)_request.getAttribute(
-			JournalWebKeys.RESOLVED_MODULE_NAME);
 		_themeDisplay = (ThemeDisplay)_request.getAttribute(
 			WebKeys.THEME_DISPLAY);
 	}
@@ -189,6 +183,18 @@ public class JournalDisplayContext {
 		return _article;
 	}
 
+	public List<DropdownItem> getArticleActionDropdownItems(
+			JournalArticle article)
+		throws Exception {
+
+		JournalArticleActionDropdownItems articleActionDropdownItems =
+			new JournalArticleActionDropdownItems(
+				article, _liferayPortletRequest, _liferayPortletResponse,
+				_trashHelper);
+
+		return articleActionDropdownItems.getActionDropdownItems();
+	}
+
 	public JournalArticleDisplay getArticleDisplay() throws Exception {
 		if (_articleDisplay != null) {
 			return _articleDisplay;
@@ -214,6 +220,13 @@ public class JournalDisplayContext {
 			_themeDisplay);
 
 		return _articleDisplay;
+	}
+
+	public List<DropdownItem> getArticleInfoPanelDropdownItems(
+			JournalArticle article)
+		throws Exception {
+
+		return getArticleActionDropdownItems(article);
 	}
 
 	public List<Locale> getAvailableArticleLocales() throws PortalException {
@@ -441,6 +454,17 @@ public class JournalDisplayContext {
 		return _folder;
 	}
 
+	public List<DropdownItem> getFolderActionDropdownItems(JournalFolder folder)
+		throws Exception {
+
+		JournalFolderActionDropdownItems folderActionDropdownItems =
+			new JournalFolderActionDropdownItems(
+				folder, _liferayPortletRequest, _liferayPortletResponse,
+				_trashHelper);
+
+		return folderActionDropdownItems.getActionDropdownItems();
+	}
+
 	public long getFolderId() {
 		if (_folderId != null) {
 			return _folderId;
@@ -453,6 +477,18 @@ public class JournalDisplayContext {
 			JournalFolderConstants.DEFAULT_PARENT_FOLDER_ID);
 
 		return _folderId;
+	}
+
+	public List<DropdownItem> getFolderInfoPanelDropdownItems(
+			JournalFolder folder)
+		throws Exception {
+
+		JournalFolderActionDropdownItems folderActionDropdownItems =
+			new JournalFolderActionDropdownItems(
+				folder, _liferayPortletRequest, _liferayPortletResponse,
+				_trashHelper);
+
+		return folderActionDropdownItems.getInfoPanelActionDropdownItems();
 	}
 
 	public JSONArray getFoldersJSONArray() {
@@ -774,10 +810,6 @@ public class JournalDisplayContext {
 		portletURL.setWindowState(LiferayWindowState.POP_UP);
 
 		return portletURL.toString();
-	}
-
-	public String getResolvedModuleName() {
-		return _resolvedModuleName;
 	}
 
 	public int getRestrictionType() {
@@ -1105,7 +1137,7 @@ public class JournalDisplayContext {
 			return "danger";
 		}
 		else if (status == WorkflowConstants.STATUS_IN_TRASH) {
-			return "primary";
+			return "info";
 		}
 		else if (status == WorkflowConstants.STATUS_INACTIVE) {
 			return "secondary";
@@ -1114,10 +1146,10 @@ public class JournalDisplayContext {
 			return "warning";
 		}
 		else if (status == WorkflowConstants.STATUS_PENDING) {
-			return "primary";
+			return "info";
 		}
 		else if (status == WorkflowConstants.STATUS_SCHEDULED) {
-			return "primary";
+			return "info";
 		}
 
 		return "secondary";
@@ -1259,35 +1291,6 @@ public class JournalDisplayContext {
 		return true;
 	}
 
-	public boolean isShowPublishArticleAction(JournalArticle article) {
-		if (article == null) {
-			return false;
-		}
-
-		StagedModelDataHandler<JournalArticle> stagedModelDataHandler =
-			(StagedModelDataHandler<JournalArticle>)
-				StagedModelDataHandlerRegistryUtil.getStagedModelDataHandler(
-					JournalArticle.class.getName());
-
-		if (_isShowPublishAction() &&
-			ArrayUtil.contains(
-				stagedModelDataHandler.getExportableStatuses(),
-				article.getStatus())) {
-
-			return true;
-		}
-
-		return false;
-	}
-
-	public boolean isShowPublishFolderAction(JournalFolder folder) {
-		if (folder == null) {
-			return false;
-		}
-
-		return _isShowPublishAction();
-	}
-
 	protected SearchContext buildSearchContext(
 		long companyId, long groupId, List<Long> folderIds, long classNameId,
 		String ddmStructureKey, String ddmTemplateKey, String keywords,
@@ -1416,40 +1419,6 @@ public class JournalDisplayContext {
 		return jsonArray;
 	}
 
-	private boolean _isShowPublishAction() {
-		PermissionChecker permissionChecker =
-			_themeDisplay.getPermissionChecker();
-
-		long scopeGroupId = _themeDisplay.getScopeGroupId();
-
-		StagingGroupHelper stagingGroupHelper =
-			StagingGroupHelperUtil.getStagingGroupHelper();
-
-		try {
-			if (GroupPermissionUtil.contains(
-					permissionChecker, scopeGroupId,
-					ActionKeys.EXPORT_IMPORT_PORTLET_INFO) &&
-				stagingGroupHelper.isStagingGroup(scopeGroupId) &&
-				stagingGroupHelper.isStagedPortlet(
-					scopeGroupId, JournalPortletKeys.JOURNAL)) {
-
-				return true;
-			}
-
-			return false;
-		}
-		catch (PortalException pe) {
-			if (_log.isDebugEnabled()) {
-				_log.debug(
-					"An exception occured when checking if the publish " +
-						"action should be displayed",
-					pe);
-			}
-
-			return false;
-		}
-	}
-
 	private boolean _isShowViewContentURL(JournalArticle article)
 		throws PortalException {
 
@@ -1504,7 +1473,6 @@ public class JournalDisplayContext {
 	private final PortalPreferences _portalPreferences;
 	private final PortletPreferences _portletPreferences;
 	private final HttpServletRequest _request;
-	private final String _resolvedModuleName;
 	private Integer _restrictionType;
 	private Integer _status;
 	private String _tabs1;

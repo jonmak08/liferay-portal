@@ -30,8 +30,6 @@ Liferay-JS-Resources-Top-Head-Authenticated:\
 	\
 	/liferay/deprecated.js
 Liferay-JS-Resources-Top-Head:\
-	/jquery/jquery.js,\
-	\
 	/clay/popper.js,\
 	\
 	/clay/bootstrap.js,\
@@ -49,9 +47,6 @@ Liferay-JS-Resources-Top-Head:\
 	\
 	/clay/collapsible-search.js,\
 	/clay/side-navigation.js,\
-	\
-	/jquery/fm.js,\
-	/jquery/form.js,\
 	\
 	/misc/svg4everybody.js,\
 	\

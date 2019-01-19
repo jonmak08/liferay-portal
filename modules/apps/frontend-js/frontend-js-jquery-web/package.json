@@ -1,0 +1,7 @@
+{
+	"dependencies": {
+		"jquery": "3.3.1"
+	},
+	"name": "frontend-js-jquery-web",
+	"version": "1.0.0"
+}

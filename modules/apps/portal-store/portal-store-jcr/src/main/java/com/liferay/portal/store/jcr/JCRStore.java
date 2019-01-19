@@ -239,7 +239,8 @@ public class JCRStore extends BaseStore {
 			logFailedDeletion(companyId, repositoryId, dirName, pnfe);
 		}
 		catch (RepositoryException re) {
-			String message = GetterUtil.getString(re.getMessage());
+			String message = StringUtil.toLowerCase(
+				GetterUtil.getString(re.getMessage()));
 
 			if (message.contains("failed to resolve path")) {
 				logFailedDeletion(companyId, repositoryId, dirName, re);
@@ -334,12 +335,11 @@ public class JCRStore extends BaseStore {
 				if (itr.getPosition() == itr.getSize()) {
 					break;
 				}
-				else {
-					if (!StringUtils.equals(
-							JCRConstants.JCR_ROOT_VERSION, version.getName())) {
 
-						versionHistory.removeVersion(version.getName());
-					}
+				if (!StringUtils.equals(
+						JCRConstants.JCR_ROOT_VERSION, version.getName())) {
+
+					versionHistory.removeVersion(version.getName());
 				}
 			}
 
@@ -694,8 +694,12 @@ public class JCRStore extends BaseStore {
 			Node newFileNode = newRepositoryNode.addNode(
 				fileName, JCRConstants.NT_FILE);
 
-			String newContentNodePath = newFileNode.getPath().concat(
-				StringPool.SLASH).concat(JCRConstants.JCR_CONTENT);
+			String newContentNodePath = newFileNode.getPath(
+			).concat(
+				StringPool.SLASH
+			).concat(
+				JCRConstants.JCR_CONTENT
+			);
 
 			session.move(contentNodePath, newContentNodePath);
 
@@ -758,8 +762,12 @@ public class JCRStore extends BaseStore {
 			Node newFileNode = repositoryNode.addNode(
 				newFileName, JCRConstants.NT_FILE);
 
-			String newContentNodePath = newFileNode.getPath().concat(
-				StringPool.SLASH).concat(JCRConstants.JCR_CONTENT);
+			String newContentNodePath = newFileNode.getPath(
+			).concat(
+				StringPool.SLASH
+			).concat(
+				JCRConstants.JCR_CONTENT
+			);
 
 			session.move(contentNodePath, newContentNodePath);
 

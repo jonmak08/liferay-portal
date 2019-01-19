@@ -41,17 +41,26 @@ import javax.portlet.PortletRequest;
 import javax.portlet.PortletResponse;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import org.mockito.Matchers;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
 
 /**
  * @author André de Oliveira
  */
 public class SearchResultUtilJournalArticleTest
 	extends BaseSearchResultUtilTestCase {
+
+	@Before
+	@Override
+	public void setUp() throws Exception {
+		MockitoAnnotations.initMocks(this);
+		super.setUp();
+	}
 
 	@Test
 	public void testJournalArticle() {

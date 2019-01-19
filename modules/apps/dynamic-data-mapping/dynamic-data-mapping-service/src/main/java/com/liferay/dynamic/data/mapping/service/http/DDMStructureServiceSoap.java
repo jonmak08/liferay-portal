@@ -559,6 +559,39 @@ public class DDMStructureServiceSoap {
 		}
 	}
 
+	public static com.liferay.dynamic.data.mapping.model.DDMStructureSoap[] getStructures(
+		long companyId, long[] groupIds, long classNameId, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<com.liferay.dynamic.data.mapping.model.DDMStructure> orderByComparator)
+		throws RemoteException {
+		try {
+			java.util.List<com.liferay.dynamic.data.mapping.model.DDMStructure> returnValue =
+				DDMStructureServiceUtil.getStructures(companyId, groupIds,
+					classNameId, start, end, orderByComparator);
+
+			return com.liferay.dynamic.data.mapping.model.DDMStructureSoap.toSoapModels(returnValue);
+		}
+		catch (Exception e) {
+			_log.error(e, e);
+
+			throw new RemoteException(e.getMessage());
+		}
+	}
+
+	public static int getStructuresCount(long companyId, long[] groupIds,
+		long classNameId) throws RemoteException {
+		try {
+			int returnValue = DDMStructureServiceUtil.getStructuresCount(companyId,
+					groupIds, classNameId);
+
+			return returnValue;
+		}
+		catch (Exception e) {
+			_log.error(e, e);
+
+			throw new RemoteException(e.getMessage());
+		}
+	}
+
 	public static void revertStructure(long structureId, String version,
 		com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws RemoteException {

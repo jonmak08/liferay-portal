@@ -1002,6 +1002,8 @@ public interface PropsKeys {
 
 	public static final String IMAGE_DEFAULT_USER_MALE_PORTRAIT = "image.default.user.male.portrait";
 
+	public static final String IMAGE_DEFAULT_USER_PORTRAIT = "image.default.user.portrait";
+
 	public static final String IMAGE_HOOK_FILE_SYSTEM_ROOT_DIR = "image.hook.file.system.root.dir";
 
 	public static final String IMAGE_HOOK_IMPL = "image.hook.impl";
@@ -2105,6 +2107,9 @@ public interface PropsKeys {
 
 	public static final String SCHEDULER_ENABLED = "scheduler.enabled";
 
+	public static final String SCHEDULER_EVENT_MESSAGE_LISTENER_LOCK_TIMEOUT =
+		"scheduler.event.message.listener.lock.timeout";
+
 	public static final String SCHEDULER_GROUP_NAME_MAX_LENGTH = "scheduler.group.name.max.length";
 
 	public static final String SCHEDULER_JOB_NAME_MAX_LENGTH = "scheduler.job.name.max.length";
@@ -2377,8 +2382,16 @@ public interface PropsKeys {
 
 	public static final String SQL_DATA_MAX_PARAMETERS = "sql.data.max.parameters";
 
+	/**
+	 * @deprecated As of Mueller (7.2.x), with no direct replacement
+	 */
+	@Deprecated
 	public static final String STAGING_DELETE_TEMP_LAR_ON_FAILURE = "staging.delete.temp.lar.on.failure";
 
+	/**
+	 * @deprecated As of Mueller (7.2.x), with no direct replacement
+	 */
+	@Deprecated
 	public static final String STAGING_DELETE_TEMP_LAR_ON_SUCCESS = "staging.delete.temp.lar.on.success";
 
 	public static final String STAGING_DRAFT_EXPORT_IMPORT_CONFIGURATION_CHECK_INTERVAL = "staging.draft.export.import.configuration.check.interval";

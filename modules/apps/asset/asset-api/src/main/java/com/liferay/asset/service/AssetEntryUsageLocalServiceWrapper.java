@@ -203,6 +203,13 @@ public class AssetEntryUsageLocalServiceWrapper
 		return _assetEntryUsageLocalService.fetchAssetEntryUsage(assetEntryUsageId);
 	}
 
+	@Override
+	public com.liferay.asset.model.AssetEntryUsage fetchAssetEntryUsage(
+		long assetEntryId, long classNameId, long classPK, String portletId) {
+		return _assetEntryUsageLocalService.fetchAssetEntryUsage(assetEntryId,
+			classNameId, classPK, portletId);
+	}
+
 	/**
 	* Returns the asset entry usage matching the UUID and group.
 	*
@@ -356,6 +363,12 @@ public class AssetEntryUsageLocalServiceWrapper
 	public int getAssetEntryUsagesCount(long assetEntryId, long classNameId) {
 		return _assetEntryUsageLocalService.getAssetEntryUsagesCount(assetEntryId,
 			classNameId);
+	}
+
+	@Override
+	public int getAssetEntryUsagesCount(long assetEntryId, String portletId) {
+		return _assetEntryUsageLocalService.getAssetEntryUsagesCount(assetEntryId,
+			portletId);
 	}
 
 	@Override

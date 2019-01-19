@@ -28,7 +28,7 @@ import com.liferay.asset.kernel.service.persistence.AssetEntryQuery;
 import com.liferay.asset.publisher.constants.AssetPublisherPortletKeys;
 import com.liferay.asset.publisher.util.AssetEntryResult;
 import com.liferay.asset.publisher.util.AssetPublisherHelper;
-import com.liferay.asset.publisher.web.configuration.AssetPublisherWebConfiguration;
+import com.liferay.asset.publisher.web.internal.configuration.AssetPublisherWebConfiguration;
 import com.liferay.asset.util.AssetHelper;
 import com.liferay.petra.string.StringPool;
 import com.liferay.portal.configuration.metatype.bnd.util.ConfigurableUtil;
@@ -537,7 +537,10 @@ public class AssetPublisherHelperImpl implements AssetPublisherHelper {
 
 		viewFullContentURL.setParameter("type", assetRendererFactory.getType());
 
-		if (Validator.isNotNull(assetRenderer.getUrlTitle())) {
+		String urlTitle = assetRenderer.getUrlTitle(
+			liferayPortletRequest.getLocale());
+
+		if (Validator.isNotNull(urlTitle)) {
 			ThemeDisplay themeDisplay =
 				(ThemeDisplay)liferayPortletRequest.getAttribute(
 					WebKeys.THEME_DISPLAY);
@@ -547,8 +550,7 @@ public class AssetPublisherHelperImpl implements AssetPublisherHelper {
 					"groupId", String.valueOf(assetRenderer.getGroupId()));
 			}
 
-			viewFullContentURL.setParameter(
-				"urlTitle", assetRenderer.getUrlTitle());
+			viewFullContentURL.setParameter("urlTitle", urlTitle);
 		}
 
 		String viewURL = null;

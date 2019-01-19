@@ -637,7 +637,10 @@ definition {
 		);
 
 		if ("${dmRepositoryName}" == "true") {
-			AssertElementNotPresent(locator1 = "Message#CHECKOUT_SUCCESS");
+			AssertTextEquals.assertPartialText(
+				locator1 = "Message#CHECKOUT_SUCCESS",
+				value1 = "You now have an indefinite lock on this document. No one else can edit this document until you unlock it. This lock will never expire."
+			);
 		}
 		else {
 			AssertTextEquals.assertPartialText(
@@ -1117,6 +1120,16 @@ definition {
 		Navigator.openWithAppendToBaseURL(
 			urlAppend = "group/${siteURLKey}/~/control_panel/manage?p_p_id=com_liferay_document_library_web_portlet_DLAdminPortlet"
 		);
+	}
+
+	macro removeTag {
+		Click(locator1 = "Button#EDIT");
+
+		Panel.expandPanel(panel = "Categorization");
+
+		var key_removeTag = "${removeTag}";
+
+		Click(locator1 = "Icon#REMOVE_TAG", value1="${removeTag}");
 	}
 
 	macro revertPG {
@@ -2007,7 +2020,7 @@ definition {
 		if (isSet(dmRepositoryName)) {
 			AssertClick.assertTextClickAtAndPause(
 				locator1 = "DocumentsAndMedia#SEARCH_REPOSITORY_TAB",
-				value1 = "repository ${dmRepositoryName}"
+				value1 = "${dmRepositoryName}"
 			);
 		}
 

@@ -31,14 +31,24 @@
 
 		<!-- Finder methods -->
 
-		<finder name="AssetEntryId" return-type="Collection">
+		<finder name="AssetEntryId" return-type="Collection" where="portletId IS NOT NULL">
 			<finder-column name="assetEntryId" />
 		</finder>
-		<finder name="A_C" return-type="Collection">
+		<finder name="A_C" return-type="Collection" where="portletId IS NOT NULL">
 			<finder-column name="assetEntryId" />
 			<finder-column name="classNameId" />
 		</finder>
+		<finder name="A_P" return-type="Collection">
+			<finder-column name="assetEntryId" />
+			<finder-column name="portletId" />
+		</finder>
 		<finder name="C_C_P" return-type="Collection">
+			<finder-column name="classNameId" />
+			<finder-column name="classPK" />
+			<finder-column name="portletId" />
+		</finder>
+		<finder name="A_C_C_P" return-type="AssetEntryUsage" unique="true">
+			<finder-column name="assetEntryId" />
 			<finder-column name="classNameId" />
 			<finder-column name="classPK" />
 			<finder-column name="portletId" />

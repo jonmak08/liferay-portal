@@ -186,6 +186,10 @@ public interface AssetEntryUsageLocalService extends BaseLocalService,
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public AssetEntryUsage fetchAssetEntryUsage(long assetEntryUsageId);
 
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public AssetEntryUsage fetchAssetEntryUsage(long assetEntryId,
+		long classNameId, long classPK, String portletId);
+
 	/**
 	* Returns the asset entry usage matching the UUID and group.
 	*
@@ -296,6 +300,9 @@ public interface AssetEntryUsageLocalService extends BaseLocalService,
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public int getAssetEntryUsagesCount(long assetEntryId, long classNameId);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public int getAssetEntryUsagesCount(long assetEntryId, String portletId);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ExportActionableDynamicQuery getExportActionableDynamicQuery(

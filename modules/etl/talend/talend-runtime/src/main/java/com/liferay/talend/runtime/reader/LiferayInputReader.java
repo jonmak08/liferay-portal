@@ -71,18 +71,17 @@ public class LiferayInputReader extends LiferayBaseReader<IndexedRecord> {
 
 			return true;
 		}
-		else {
-			String actual = _apioResourceCollection.getResourceActualPage();
-			String last = _apioResourceCollection.getResourceLastPage();
 
-			if (actual.equals(last)) {
-				_hasMore = false;
+		String actual = _apioResourceCollection.getResourceActualPage();
+		String last = _apioResourceCollection.getResourceLastPage();
 
-				return false;
-			}
+		if (actual.equals(last)) {
+			_hasMore = false;
 
-			_hasMore = true;
+			return false;
 		}
+
+		_hasMore = true;
 
 		LiferaySource liferaySource = (LiferaySource)getCurrentSource();
 
@@ -216,6 +215,7 @@ public class LiferayInputReader extends LiferayBaseReader<IndexedRecord> {
 	 *
 	 * @return converter
 	 * @throws IOException
+	 * @review
 	 */
 	protected AvroConverter<Object, IndexedRecord> getConverter()
 		throws IOException {
@@ -235,6 +235,8 @@ public class LiferayInputReader extends LiferayBaseReader<IndexedRecord> {
 
 	/**
 	 * Represents state of this Reader: whether it has more records
+	 *
+	 * @review
 	 */
 	private boolean _hasMore;
 
@@ -242,6 +244,8 @@ public class LiferayInputReader extends LiferayBaseReader<IndexedRecord> {
 
 	/**
 	 * Resource collection members field
+	 *
+	 * @review
 	 */
 	private transient JsonNode _inputRecordsJsonNode;
 
@@ -250,11 +254,15 @@ public class LiferayInputReader extends LiferayBaseReader<IndexedRecord> {
 	/**
 	 * Converts row retrieved from data source to Avro format {@link
 	 * IndexedRecord}
+	 *
+	 * @review
 	 */
 	private AvroConverter _resourceEntityAvroConverter;
 
 	/**
 	 * Represents state of this Reader: whether it was started or not
+	 *
+	 * @review
 	 */
 	private boolean _started;
 

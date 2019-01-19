@@ -14,11 +14,9 @@
 
 package com.liferay.portal.search.test;
 
-import com.liferay.asset.kernel.AssetRendererFactoryRegistryUtil;
-import com.liferay.asset.kernel.model.AssetRenderer;
-import com.liferay.asset.kernel.model.AssetRendererFactory;
 import com.liferay.portal.kernel.comment.Comment;
 import com.liferay.portal.kernel.model.ClassName;
+import com.liferay.portal.kernel.model.ClassNameWrapper;
 import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.search.Document;
 import com.liferay.portal.kernel.search.IndexerRegistry;
@@ -26,9 +24,11 @@ import com.liferay.portal.kernel.search.RelatedSearchResult;
 import com.liferay.portal.kernel.search.SearchResult;
 import com.liferay.portal.kernel.search.result.SearchResultTranslator;
 import com.liferay.portal.kernel.service.ClassNameLocalService;
+import com.liferay.portal.kernel.service.ClassNameLocalServiceWrapper;
 import com.liferay.portal.kernel.test.util.PropsTestUtil;
 import com.liferay.portal.kernel.util.FastDateFormatFactory;
 import com.liferay.portal.kernel.util.FastDateFormatFactoryUtil;
+import com.liferay.portal.kernel.util.ProxyFactory;
 import com.liferay.registry.BasicRegistryImpl;
 import com.liferay.registry.Registry;
 import com.liferay.registry.RegistryUtil;
@@ -39,21 +39,13 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Before;
 
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
-
-import org.powermock.api.mockito.PowerMockito;
-
 /**
  * @author André de Oliveira
  */
-public abstract class BaseSearchResultUtilTestCase extends PowerMockito {
+public abstract class BaseSearchResultUtilTestCase {
 
 	@Before
 	public void setUp() throws Exception {
-		MockitoAnnotations.initMocks(this);
-
 		setUpRegistryUtil();
 
 		setUpClassNameLocalService();
@@ -102,21 +94,28 @@ public abstract class BaseSearchResultUtilTestCase extends PowerMockito {
 
 	protected abstract SearchResultTranslator createSearchResultTranslator();
 
-	protected void setUpClassNameLocalService() throws Exception {
-		ClassName className = Mockito.mock(ClassName.class);
+	protected void setUpClassNameLocalService() {
+		classNameLocalService = new ClassNameLocalServiceWrapper(null) {
 
-		when(
-			classNameLocalService.getClassName(
-				SearchTestUtil.ATTACHMENT_OWNER_CLASS_NAME_ID)
-		).thenReturn(
-			className
-		);
+			@Override
+			public ClassName getClassName(long classNameId) {
+				if (classNameId ==
+						SearchTestUtil.ATTACHMENT_OWNER_CLASS_NAME_ID) {
 
-		when(
-			className.getClassName()
-		).thenReturn(
-			SearchTestUtil.ATTACHMENT_OWNER_CLASS_NAME
-		);
+					return new ClassNameWrapper(null) {
+
+						@Override
+						public String getClassName() {
+							return SearchTestUtil.ATTACHMENT_OWNER_CLASS_NAME;
+						}
+
+					};
+				}
+
+				return null;
+			}
+
+		};
 	}
 
 	protected void setUpFastDateFormatFactoryUtil() {
@@ -124,7 +123,7 @@ public abstract class BaseSearchResultUtilTestCase extends PowerMockito {
 			new FastDateFormatFactoryUtil();
 
 		fastDateFormatFactoryUtil.setFastDateFormatFactory(
-			mock(FastDateFormatFactory.class));
+			ProxyFactory.newDummyInstance(FastDateFormatFactory.class));
 	}
 
 	protected void setUpIndexerRegistry() {
@@ -140,25 +139,13 @@ public abstract class BaseSearchResultUtilTestCase extends PowerMockito {
 
 	protected void setUpRegistryUtil() {
 		RegistryUtil.setRegistry(new BasicRegistryImpl());
-
-		mockStatic(
-			AssetRendererFactoryRegistryUtil.class, Mockito.CALLS_REAL_METHODS);
 	}
 
 	protected void setUpSearchResultTranslator() {
 		searchResultTranslator = createSearchResultTranslator();
 	}
 
-	@Mock
-	@SuppressWarnings("rawtypes")
-	protected AssetRenderer assetRenderer;
-
-	@Mock
-	protected AssetRendererFactory<?> assetRendererFactory;
-
-	@Mock
 	protected ClassNameLocalService classNameLocalService;
-
 	protected SearchResultTranslator searchResultTranslator;
 
 }

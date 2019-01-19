@@ -4495,11 +4495,10 @@ public class GroupLocalServiceImpl extends GroupLocalServiceBaseImpl {
 
 			return groups;
 		}
-		else {
-			joinedGroups.retainAll(groups);
 
-			return joinedGroups;
-		}
+		joinedGroups.retainAll(groups);
+
+		return joinedGroups;
 	}
 
 	protected long[] getClassNameIds() {
@@ -4697,7 +4696,7 @@ public class GroupLocalServiceImpl extends GroupLocalServiceBaseImpl {
 		ClassName className = ClassNameServiceHttp.fetchByClassNameId(
 			httpPrincipal, group.getClassNameId());
 
-		if (Objects.equals(className.getClassName(), Company.class.getName())) {
+		if (Objects.equals(className.getValue(), Company.class.getName())) {
 			return true;
 		}
 

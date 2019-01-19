@@ -14,11 +14,13 @@
 
 package com.liferay.frontend.taglib.servlet.taglib;
 
+import com.liferay.frontend.js.loader.modules.extender.npm.NPMResolvedPackageNameUtil;
 import com.liferay.portal.kernel.portlet.LiferayPortletRequest;
 import com.liferay.portal.kernel.portlet.LiferayPortletResponse;
 import com.liferay.portal.kernel.portlet.PortletURLUtil;
 import com.liferay.portal.kernel.util.JavaConstants;
 import com.liferay.portal.kernel.util.PortalUtil;
+import com.liferay.portal.kernel.util.Validator;
 import com.liferay.taglib.util.TagResourceBundleUtil;
 
 import java.util.Locale;
@@ -68,6 +70,13 @@ public class DefineObjectsTag extends TagSupport {
 
 			pageContext.setAttribute(
 				"windowState", liferayPortletRequest.getWindowState());
+		}
+
+		String npmResolvedPackageName = NPMResolvedPackageNameUtil.get(request);
+
+		if (Validator.isNotNull(npmResolvedPackageName)) {
+			pageContext.setAttribute(
+				"npmResolvedPackageName", npmResolvedPackageName);
 		}
 
 		if (_overrideResourceBundle != null) {

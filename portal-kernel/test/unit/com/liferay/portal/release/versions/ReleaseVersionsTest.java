@@ -241,8 +241,8 @@ public class ReleaseVersionsTest {
 
 			sb.append("). Please ");
 
-			Path updateVersionPath;
-			String updateVersionSeparator;
+			Path updateVersionPath = null;
+			String updateVersionSeparator = null;
 
 			Path gitRepoPath = _getParentFile(dirPath, ".gitrepo");
 

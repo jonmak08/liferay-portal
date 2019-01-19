@@ -27,34 +27,42 @@
 	{@param layoutIndex: number}
 	{@param columns: list<string>}
 
-	{let $layoutsSectionClasses kind="text"}
-		btn
-		{sp}btn-unstyled
-		{sp}container
-		{sp}fragments-editor__draggable-item
-		{sp}layouts-drag-section
-		{sp}sidebar-layouts-section__layout-preview
+	{let $cardClasses kind="text"}
+		card
+		{sp}fragments-editor-sidebar-section__card
+		{sp}fragments-editor__drag-source
+		{sp}fragments-editor__drag-source--sidebar-layout
 	{/let}
 
-	{let $layoutsSectionRowClasses kind="text"}
-		row
-		{sp}sidebar-layouts-section__layout-preview__row
-	{/let}
-
-	<button
-		class="{$layoutsSectionClasses}"
-		data-draggable-item-label="{msg desc=""}layout{/msg}"
+	<div
+		class="{$cardClasses}"
+		data-drag-source-label="{msg desc=""}layout{/msg}"
 		data-layout-index="{$layoutIndex}"
 	>
-		<div class="{$layoutsSectionRowClasses}" role="image">
-			{foreach $column in $columns}
-				{let $sectionColumnClasses kind="text"}
-					col-{$column}
-					{sp}sidebar-layouts-section__layout-preview__column
-				{/let}
+		<div class="fragments-editor__drag-handler"></div>
 
-				<div class="{$sectionColumnClasses}"></div>
-			{/foreach}
+		<div class="card-body">
+			<div class="card-row">
+				<div class="autofit-col autofit-col-expand autofit-row-center">
+					<div class="container sidebar-layouts-section__layout-preview">
+						{let $layoutsSectionRowClasses kind="text"}
+							row
+							{sp}sidebar-layouts-section__layout-preview__row
+						{/let}
+
+						<div class="{$layoutsSectionRowClasses}" role="image">
+							{foreach $column in $columns}
+								{let $sectionColumnClasses kind="text"}
+									col-{$column}
+									{sp}sidebar-layouts-section__layout-preview__column
+								{/let}
+
+								<div class="{$sectionColumnClasses}"></div>
+							{/foreach}
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-	</button>
+	</div>
 {/template}

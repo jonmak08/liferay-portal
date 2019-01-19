@@ -26,7 +26,6 @@ import com.liferay.fragment.service.FragmentEntryServiceUtil;
 import com.liferay.fragment.web.internal.configuration.FragmentPortletConfiguration;
 import com.liferay.fragment.web.internal.constants.FragmentWebKeys;
 import com.liferay.fragment.web.internal.security.permission.resource.FragmentPermission;
-import com.liferay.fragment.web.internal.util.SoyContextFactoryUtil;
 import com.liferay.fragment.web.util.FragmentPortletUtil;
 import com.liferay.frontend.taglib.clay.servlet.taglib.util.DropdownItem;
 import com.liferay.frontend.taglib.clay.servlet.taglib.util.DropdownItemList;
@@ -52,7 +51,8 @@ import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
-import com.liferay.portal.template.soy.utils.SoyContext;
+import com.liferay.portal.template.soy.util.SoyContext;
+import com.liferay.portal.template.soy.util.SoyContextFactoryUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -88,8 +88,6 @@ public class FragmentDisplayContext {
 				FragmentPortletConfiguration.class.getName());
 		_itemSelector = (ItemSelector)_request.getAttribute(
 			FragmentWebKeys.ITEM_SELECTOR);
-		_resolvedModuleName = (String)_request.getAttribute(
-			FragmentWebKeys.RESOLVED_MODULE_NAME);
 		_themeDisplay = (ThemeDisplay)_request.getAttribute(
 			WebKeys.THEME_DISPLAY);
 	}
@@ -445,10 +443,6 @@ public class FragmentDisplayContext {
 		return _jsContent;
 	}
 
-	public String getModuleName() {
-		return _resolvedModuleName;
-	}
-
 	public String getName() {
 		if (Validator.isNotNull(_name)) {
 			return _name;
@@ -481,11 +475,11 @@ public class FragmentDisplayContext {
 				add(
 					navigationItem -> {
 						navigationItem.setActive(
-							Objects.equals(_getTabs1(), "entries"));
+							Objects.equals(_getTabs1(), "fragments"));
 						navigationItem.setHref(
-							_getPortletURL(), "tabs1", "entries");
+							_getPortletURL(), "tabs1", "fragments");
 						navigationItem.setLabel(
-							LanguageUtil.get(_request, "entries"));
+							LanguageUtil.get(_request, "fragments"));
 					});
 
 				add(
@@ -635,7 +629,7 @@ public class FragmentDisplayContext {
 			return _tabs1;
 		}
 
-		_tabs1 = ParamUtil.getString(_request, "tabs1", "entries");
+		_tabs1 = ParamUtil.getString(_request, "tabs1", "fragments");
 
 		return _tabs1;
 	}
@@ -660,7 +654,6 @@ public class FragmentDisplayContext {
 	private final RenderRequest _renderRequest;
 	private final RenderResponse _renderResponse;
 	private final HttpServletRequest _request;
-	private final String _resolvedModuleName;
 	private String _tabs1;
 	private final ThemeDisplay _themeDisplay;
 

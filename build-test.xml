@@ -432,21 +432,27 @@ jdbc.counter.connectionProperties=oracle.jdbc.ReadTimeout=0;oracle.net.CONNECT_T
 		<attribute default="" name="test.batch.name" />
 
 		<sequential>
+			<local name="test.batch.name" />
+
+			<condition else="@{test.batch.name}" property="test.batch.name" value="${env.TEST_BATCH_NAME}">
+				<contains string="@{test.batch.name}" substring="{test.batch.name}" />
+			</condition>
+
 			<var name="java.jdk.bundle.version" unset="true" />
 
 			<if>
-				<contains string="@{test.batch.name}" substring="-jdk7" />
+				<contains string="${test.batch.name}" substring="-jdk7" />
 				<then>
 					<property name="java.jdk.bundle.version" value="1.7" />
 				</then>
 				<elseif>
-					<contains string="@{test.batch.name}" substring="-jdk8" />
+					<contains string="${test.batch.name}" substring="-jdk8" />
 					<then>
 						<property name="java.jdk.bundle.version" value="1.8" />
 					</then>
 				</elseif>
 				<elseif>
-					<contains string="@{test.batch.name}" substring="-open11" />
+					<contains string="${test.batch.name}" substring="-open11" />
 					<then>
 						<property name="java.jdk.bundle.version" value="1.11" />
 					</then>
@@ -11096,6 +11102,10 @@ module.framework.properties.blacklist.portal.profile.names=${blacklist.portal.pr
 	<target name="upgrade-legacy-database">
 		<prepare-database-upgrade-configuration />
 
+		<get-java-jdk-bundle-version test.batch.name="${test.batch.name}" />
+
+		<get-java-jdk-home version="${java.jdk.bundle.version}" />
+
 		<trycatch property="upgrade.error">
 			<try>
 				<if>
@@ -11108,6 +11118,7 @@ module.framework.properties.blacklist.portal.profile.names=${blacklist.portal.pr
 							jar="${liferay.home}/tools/portal-tools-db-upgrade-client/com.liferay.portal.tools.db.upgrade.client.jar"
 							timeout="900000"
 						>
+							<env key="JAVA_HOME" value="${java.jdk.home}" />
 							<env key="WAS_HOME" value="${app.server.dir}" />
 						</java>
 					</then>
@@ -11118,7 +11129,9 @@ module.framework.properties.blacklist.portal.profile.names=${blacklist.portal.pr
 							fork="true"
 							jar="${liferay.home}/tools/portal-tools-db-upgrade-client/com.liferay.portal.tools.db.upgrade.client.jar"
 							timeout="900000"
-						/>
+						>
+							<env key="JAVA_HOME" value="${java.jdk.home}" />
+						</java>
 					</else>
 				</if>
 			</try>

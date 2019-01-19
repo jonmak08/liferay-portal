@@ -196,6 +196,13 @@ public class AssetEntryUsageLocalServiceUtil {
 		return getService().fetchAssetEntryUsage(assetEntryUsageId);
 	}
 
+	public static com.liferay.asset.model.AssetEntryUsage fetchAssetEntryUsage(
+		long assetEntryId, long classNameId, long classPK, String portletId) {
+		return getService()
+				   .fetchAssetEntryUsage(assetEntryId, classNameId, classPK,
+			portletId);
+	}
+
 	/**
 	* Returns the asset entry usage matching the UUID and group.
 	*
@@ -333,6 +340,11 @@ public class AssetEntryUsageLocalServiceUtil {
 	public static int getAssetEntryUsagesCount(long assetEntryId,
 		long classNameId) {
 		return getService().getAssetEntryUsagesCount(assetEntryId, classNameId);
+	}
+
+	public static int getAssetEntryUsagesCount(long assetEntryId,
+		String portletId) {
+		return getService().getAssetEntryUsagesCount(assetEntryId, portletId);
 	}
 
 	public static com.liferay.portal.kernel.dao.orm.ExportActionableDynamicQuery getExportActionableDynamicQuery(

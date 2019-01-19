@@ -20,7 +20,9 @@ import com.liferay.dynamic.data.mapping.model.DDMFormLayout;
 import com.liferay.dynamic.data.mapping.model.DDMStructure;
 import com.liferay.dynamic.data.mapping.security.permission.DDMPermissionSupport;
 import com.liferay.dynamic.data.mapping.service.base.DDMStructureServiceBaseImpl;
+import com.liferay.dynamic.data.mapping.service.persistence.DDMStructureFinder;
 import com.liferay.petra.string.StringPool;
+import com.liferay.portal.kernel.bean.BeanReference;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.log.Log;
@@ -32,6 +34,7 @@ import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermi
 import com.liferay.portal.kernel.security.permission.resource.ModelResourcePermissionFactory;
 import com.liferay.portal.kernel.service.ServiceContext;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.spring.extender.service.ServiceReference;
 
 import java.util.Collections;
@@ -471,6 +474,24 @@ public class DDMStructureServiceImpl extends DDMStructureServiceBaseImpl {
 	}
 
 	@Override
+	public List<DDMStructure> getStructures(
+		long companyId, long[] groupIds, long classNameId, int start, int end,
+		OrderByComparator<DDMStructure> orderByComparator) {
+
+		return ddmStructureFinder.filterFindByC_G_C_S(
+			companyId, groupIds, classNameId, WorkflowConstants.STATUS_ANY,
+			start, end, orderByComparator);
+	}
+
+	@Override
+	public int getStructuresCount(
+		long companyId, long[] groupIds, long classNameId) {
+
+		return _ddmStructureFinder.countByC_G_C_S(
+			companyId, groupIds, classNameId, WorkflowConstants.STATUS_ANY);
+	}
+
+	@Override
 	public void revertStructure(
 			long structureId, String version, ServiceContext serviceContext)
 		throws PortalException {
@@ -896,5 +917,8 @@ public class DDMStructureServiceImpl extends DDMStructureServiceBaseImpl {
 
 	@ServiceReference(type = DDMSearchHelper.class)
 	private DDMSearchHelper _ddmSearchHelper;
+
+	@BeanReference(type = DDMStructureFinder.class)
+	private DDMStructureFinder _ddmStructureFinder;
 
 }

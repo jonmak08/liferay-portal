@@ -21,6 +21,10 @@ import com.liferay.data.engine.model.DEDataDefinition;
  */
 public class DEDataDefinitionRequestBuilder {
 
+	public static DEDataDefinitionCountRequest.Builder countBuilder() {
+		return new DEDataDefinitionCountRequest.Builder();
+	}
+
 	public static DEDataDefinitionDeleteRequest.Builder deleteBuilder() {
 		return new DEDataDefinitionDeleteRequest.Builder();
 	}
@@ -29,10 +33,40 @@ public class DEDataDefinitionRequestBuilder {
 		return new DEDataDefinitionGetRequest.Builder();
 	}
 
+	public static DEDataDefinitionListRequest.Builder listBuilder() {
+		return new DEDataDefinitionListRequest.Builder();
+	}
+
 	public static DEDataDefinitionSaveRequest.Builder saveBuilder(
 		DEDataDefinition deDataDefinition) {
 
 		return new DEDataDefinitionSaveRequest.Builder(deDataDefinition);
+	}
+
+	public static DEDataDefinitionSaveModelPermissionsRequest.Builder
+		saveModelPermissionsBuilder(
+			long companyId, long scopedGroupId, long deDataDefinitionId) {
+
+		return new DEDataDefinitionSaveModelPermissionsRequest.Builder(
+			companyId, scopedGroupId, deDataDefinitionId);
+	}
+
+	public static DEDataDefinitionSavePermissionsRequest.Builder
+		savePermissionsBuilder(
+			long companyId, long scopedGroupId, String... roleNames) {
+
+		return new DEDataDefinitionSavePermissionsRequest.Builder(
+			companyId, scopedGroupId, roleNames);
+	}
+
+	public static DEDataDefinitionSearchRequest.Builder searchBuilder() {
+		return new DEDataDefinitionSearchRequest.Builder();
+	}
+
+	public static DEDataDefinitionSearchCountRequest.Builder
+		searchCountBuilder() {
+
+		return new DEDataDefinitionSearchCountRequest.Builder();
 	}
 
 }

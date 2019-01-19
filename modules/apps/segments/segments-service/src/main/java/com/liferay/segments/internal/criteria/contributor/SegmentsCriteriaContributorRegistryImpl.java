@@ -52,14 +52,6 @@ public class SegmentsCriteriaContributorRegistryImpl
 		List<SegmentsCriteriaContributor> segmentsCriteriaContributors =
 			new ArrayList<>();
 
-		List<SegmentsCriteriaContributor> generalSegmentsCriteriaContributors =
-			_serviceTrackerMap.getService("*");
-
-		if (!ListUtil.isEmpty(generalSegmentsCriteriaContributors)) {
-			segmentsCriteriaContributors.addAll(
-				generalSegmentsCriteriaContributors);
-		}
-
 		if (Validator.isNotNull(className)) {
 			List<SegmentsCriteriaContributor>
 				classNameSegmentsCriteriaContributors =
@@ -69,6 +61,14 @@ public class SegmentsCriteriaContributorRegistryImpl
 				segmentsCriteriaContributors.addAll(
 					classNameSegmentsCriteriaContributors);
 			}
+		}
+
+		List<SegmentsCriteriaContributor> generalSegmentsCriteriaContributors =
+			_serviceTrackerMap.getService("*");
+
+		if (!ListUtil.isEmpty(generalSegmentsCriteriaContributors)) {
+			segmentsCriteriaContributors.addAll(
+				generalSegmentsCriteriaContributors);
 		}
 
 		return segmentsCriteriaContributors;
@@ -85,8 +85,8 @@ public class SegmentsCriteriaContributorRegistryImpl
 			segmentsCriteriaContributors.stream();
 
 		return stream.filter(
-			segmentsCriteriaContributor ->
-				type.equals(segmentsCriteriaContributor.getType())
+			segmentsCriteriaContributor -> type.equals(
+				segmentsCriteriaContributor.getType())
 		).collect(
 			Collectors.toList()
 		);

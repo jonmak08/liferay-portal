@@ -24,6 +24,9 @@ import com.liferay.data.engine.exception.DEDataDefinitionException;
 @ProviderType
 public interface DEDataDefinitionService {
 
+	public DEDataDefinitionCountResponse execute(
+		DEDataDefinitionCountRequest deDataDefinitionCountRequest);
+
 	public DEDataDefinitionDeleteResponse execute(
 			DEDataDefinitionDeleteRequest deDataDefinitionDeleteRequest)
 		throws DEDataDefinitionException;
@@ -32,8 +35,29 @@ public interface DEDataDefinitionService {
 			DEDataDefinitionGetRequest deDataDefinitionGetRequest)
 		throws DEDataDefinitionException;
 
+	public DEDataDefinitionListResponse execute(
+			DEDataDefinitionListRequest deDataDefinitionListRequest)
+		throws DEDataDefinitionException;
+
+	public DEDataDefinitionSaveModelPermissionsResponse execute(
+			DEDataDefinitionSaveModelPermissionsRequest
+				deDataDefinitionSaveModelPermissionsRequest)
+		throws DEDataDefinitionException;
+
+	public DEDataDefinitionSavePermissionsResponse execute(
+			DEDataDefinitionSavePermissionsRequest
+				deDataDefinitionSavePermissionsRequest)
+		throws DEDataDefinitionException;
+
 	public DEDataDefinitionSaveResponse execute(
 			DEDataDefinitionSaveRequest deDataDefinitionSaveRequest)
+		throws DEDataDefinitionException;
+
+	public DEDataDefinitionSearchCountResponse execute(
+		DEDataDefinitionSearchCountRequest deDataDefinitionSearchCountRequest);
+
+	public DEDataDefinitionSearchResponse execute(
+			DEDataDefinitionSearchRequest deDataDefinitionSearchRequest)
 		throws DEDataDefinitionException;
 
 }
