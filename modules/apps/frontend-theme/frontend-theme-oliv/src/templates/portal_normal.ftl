@@ -21,6 +21,8 @@
 <@liferay.control_menu />
 
     <body>
+        <#assign preferences = freeMarkerPortletPreferences.getPreferences({"portletSetupPortletDecoratorId": "barebone", "destination": "/search"}) />
+
         <header class="site-header">
             <div class="top-bar">
                 <nav class="social-navigation">
@@ -52,33 +54,18 @@
                         </li>
                     </ul>
                 </nav>
-                <div class="sidebar-toggle">
-                    <i class="fas fa-plus"></i>
+                <div class="menu-login">
+                    <@liferay.user_personal_bar />
                 </div>
             </div>
             <div class="container">
                 <div class="site-branding">
-                    <h1 class="site-title">Oria Demo</h1>
-                    <h2 class="site-description">Just another Liferay theme by JustFreeThemes</h2>
+                    <h1 class="site-title">${title_text}</h1>
+                    <h2 class="site-description">${description_text}</h2>
                 </div>
             </div>
             <nav id="site-navigation" class="main-navigation" role="navigation">
-                <div class="menu-container">
-                    <ul id="primary-menu" class="menu clearfix">
-                        <li id="menu-item">
-                            <a href="home.asp">Home</a>
-                        </li>
-                        <li id="menu-item">
-                            <a href="home.asp">Sample Page</a>
-                        </li>
-                        <li id="menu-item">
-                            <a href="home.asp">Full Width</a>
-                        </li>
-                        <li id="menu-item">
-                            <a href="home.asp">Dropdown</a>
-                        </li>
-                    </ul>
-                </div>
+                <@liferay.navigation_menu default_preferences="${preferences}" />
             </nav>
         </header>
 
@@ -143,8 +130,24 @@
             </div>
         </div>
 
+        <section class="${portal_content_css_class}" id="content">
+            <h1 class="sr-only">${the_title}</h1>
+
+            <#if selectable>
+                <@liferay_util["include"] page=content_include />
+            <#else>
+                ${portletDisplay.recycle()}
+
+                ${portletDisplay.setTitle(the_title)}
+
+                <@liferay_theme["wrap-portlet"] page="portlet.ftl">
+                    <@liferay_util["include"] page=content_include />
+                </@>
+            </#if>
+        </section>
+
         <div id="content" class="site-content clearfix">
-            <div id="primary" class="content-area fullwidth">
+            <div id="primary" class="site-area fullwidth">
                 <main id="main" class="site-main" role="main">
                     <div class="posts-layout">
                         <article id="post" class="hentry">
@@ -156,7 +159,6 @@
                                             <span class="posted-on">
                                                 <a href="http://oria.madalinm.com/2017/07/27/city-view/" rel="bookmark">
                                                     <time class="entry-date published" datetime="2017-07-27T09:27:52+00:00">July 27, 2017</time>
-                                                    <time class="updated" datetime="2017-07-27T09:32:36+00:00">July 27, 2017</time></a>
                                                 </a>
                                             </span>
                                             <span>/</span>
@@ -182,7 +184,6 @@
                                             <span class="posted-on">
                                                 <a href="http://oria.madalinm.com/2017/07/27/city-view/" rel="bookmark">
                                                     <time class="entry-date published" datetime="2017-07-27T09:27:52+00:00">July 27, 2017</time>
-                                                    <time class="updated" datetime="2017-07-27T09:32:36+00:00">July 27, 2017</time></a>
                                                 </a>
                                             </span>
                                             <span>/</span>
@@ -208,7 +209,6 @@
                                             <span class="posted-on">
                                                 <a href="http://oria.madalinm.com/2017/07/27/city-view/" rel="bookmark">
                                                     <time class="entry-date published" datetime="2017-07-27T09:27:52+00:00">July 27, 2017</time>
-                                                    <time class="updated" datetime="2017-07-27T09:32:36+00:00">July 27, 2017</time></a>
                                                 </a>
                                             </span>
                                             <span>/</span>
@@ -234,7 +234,6 @@
                                             <span class="posted-on">
                                                 <a href="http://oria.madalinm.com/2017/07/27/city-view/" rel="bookmark">
                                                     <time class="entry-date published" datetime="2017-07-27T09:27:52+00:00">July 27, 2017</time>
-                                                    <time class="updated" datetime="2017-07-27T09:32:36+00:00">July 27, 2017</time></a>
                                                 </a>
                                             </span>
                                             <span>/</span>
