@@ -1,0 +1,30 @@
+{
+    "layoutTemplateId": "1_column",
+    "publicPages": [
+        {
+            "columns": [
+                [
+                    {
+                        "portletId": "com_liferay_login_web_portlet_LoginPortlet"
+                    },
+                    {
+                        "portletId":
+                        "com_liferay_site_navigation_menu_web_portlet_SiteNavigationMenuPortlet"
+                    },
+                    {
+                        "portletId":
+                        "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                        "portletPreferences": {
+                            "articleId": "blog.xml",
+                            "groupId": "${groupId}",
+                            "portletSetupPortletDecoratorId": "barebone"
+                        }
+                    }
+                ]
+            ],
+            "friendlyURL": "/blog",
+            "name": "Blog",
+            "title": "Blog"
+        }
+    ]
+}
