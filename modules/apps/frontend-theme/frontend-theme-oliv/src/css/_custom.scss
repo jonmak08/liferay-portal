@@ -16,6 +16,11 @@ body {
 	background-size: cover;
 	position: relative;
 	width: 100%;
+
+	.container {
+		position: relative;
+		z-index: 11;
+	}
 }
 
 .site-header:after {
@@ -26,11 +31,6 @@ body {
 	position: absolute;
 	top: 0;
 	width: 100%;
-}
-
-.site-header .container {
-	position: relative;
-	z-index: 11;
 }
 
 .top-bar {
@@ -48,35 +48,35 @@ body {
 	position: relative;
 	width: 85%;
 	z-index: 12;
-}
 
-.social-navigation ul {
-	margin: 0;
-	padding: 0;
-	text-align: center;
-}
+	ul {
+		margin: 0;
+		padding: 0;
+		text-align: center;
+	}
 
-.social-navigation li {
-	border-right: $border-background;
-	box-sizing: border-box;
-	float: left;
-	line-height: 1;
-	list-style: none;
-	padding-bottom: 15px;
-	padding-top: 15px;
-	position: relative;
-	transition: background-color 0.3s;
-	width: 20%;
-}
+	li {
+		border-right: $border-background;
+		box-sizing: border-box;
+		float: left;
+		line-height: 1;
+		list-style: none;
+		padding-bottom: 15px;
+		padding-top: 15px;
+		position: relative;
+		transition: background-color 0.3s;
+		width: 20%;
+	}
 
-.social-navigation li:hover {
-	background-color: $orange-background;
-}
+	li:hover {
+		background-color: $orange-background;
+	}
 
-.social-navigation li a {
-	color: $white-color;
-	font-size: 20px;
-	text-decoration: none;
+	li a {
+		color: $white-color;
+		font-size: 20px;
+		text-decoration: none;
+	}
 }
 
 .menu-login {
@@ -94,25 +94,25 @@ body {
 	line-height: normal;
 	padding-top: 9px;
 	text-align: center;
-}
 
-#p_p_id_com_liferay_product_navigation_user_personal_bar_web_portlet_ProductNavigationUserPersonalBarPortlet_ .sign-in {
-	color: $white-color;
-	font-size: 15px;
-	text-decoration: none;
+	.sign-in {
+		color: $white-color;
+		font-size: 15px;
+		text-decoration: none;
+	}
 }
 
 #_com_liferay_product_navigation_user_personal_bar_web_portlet_ProductNavigationUserPersonalBarPortlet_sidenavUserToggle {
 	color: $white-color;
 	font-size: 10px;
 	text-decoration: none;
-}
 
-#_com_liferay_product_navigation_user_personal_bar_web_portlet_ProductNavigationUserPersonalBarPortlet_sidenavUserToggle .user-avatar-image {
-}
+	.user-avatar-image {
+	}
 
-#_com_liferay_product_navigation_user_personal_bar_web_portlet_ProductNavigationUserPersonalBarPortlet_sidenavUserToggle .user-full-name {
-	display: none;
+	.user-full-name {
+		display: none;
+	}
 }
 
 .site-branding {
@@ -147,45 +147,44 @@ body {
 	position: relative;
 	width: 100%;
 	z-index: 13;
+
+	li {
+		text-transform: uppercase;
+		transition: background-color 0.3s;
+		z-index: 11;
+	}
+
+	a {
+		border-right: $border-background;
+		color: $white-color;
+		display: block;
+		font-family: $header-font;
+		font-size: 16px;
+		text-decoration: none;
+	}
+
+	li:last-of-type a {
+		border-right: 0;
+	}
+
+	li:hover {
+		background-color: $orange-background;
+	}
 }
 
 #portlet_com_liferay_site_navigation_menu_web_portlet_SiteNavigationMenuPortlet {
 	margin: 0;
-}
 
-#portlet_com_liferay_site_navigation_menu_web_portlet_SiteNavigationMenuPortlet .portlet-content {
-	padding: 0;
-}
+	.portlet-content {
+		padding: 0;
+	}
 
-#portlet_com_liferay_site_navigation_menu_web_portlet_SiteNavigationMenuPortlet .portlet-header {
-	display: none;
-}
+	.portlet-header {
+	}
 
-.main-navigation li {
-	text-transform: uppercase;
-	transition: background-color 0.3s;
-	z-index: 11;
-}
-
-.main-navigation a {
-	border-right: $border-background;
-	color: $white-color;
-	display: block;
-	font-family: $header-font;
-	font-size: 16px;
-	text-decoration: none;
-}
-
-#portlet_com_liferay_site_navigation_menu_web_portlet_SiteNavigationMenuPortlet .nav-link {
-	padding: 25px;
-}
-
-.main-navigation li:last-of-type a {
-	border-right: 0;
-}
-
-.main-navigation li:hover {
-	background-color: $orange-background;
+	.nav-link {
+		padding: 25px;
+	}
 }
 
 .oria-slider {
@@ -242,18 +241,15 @@ body {
 }
 
 .owl-controls {
+	color: $orange-color;
+	display: inline-block;
+	font-size: 25px;
+	line-height: 1;
 	position: absolute;
 	right: 10px;
 	text-align: center;
 	top: -10px;
 	z-index: 99;
-}
-
-.owl-controls {
-	color: $orange-color;
-	display: inline-block;
-	font-size: 25px;
-	line-height: 1;
 	zoom: 1;
 }
 
@@ -268,16 +264,16 @@ body {
 .slide {
 	margin: 15px;
 	position: relative;
-}
 
-.slide img {
-	height: auto;
-	max-width: 100%;
-	transition: opacity 0.5s;
-}
+	img {
+		height: auto;
+		max-width: 100%;
+		transition: opacity 0.5s;
+	}
 
-.slide img:hover {
-	opacity: 0.7;
+	img:hover {
+		opacity: 0.7;
+	}
 }
 
 .slide-title {
@@ -289,19 +285,21 @@ body {
 	right: 0;
 	text-align: center;
 	z-index: 12;
+
+	a {
+		background-color: $orange-color;
+		color: $white-color;
+		display: table;
+		padding: 10px;
+		text-decoration: none;
+		transition: background-color 0.4s;
+	}
 }
 
-.slide-title a {
-	background-color: $orange-color;
-	color: $white-color;
-	display: table;
-	padding: 10px;
-	text-decoration: none;
-	transition: background-color 0.4s;
-}
-
-.portlet-content.portlet-content-editable .portlet-header .portlet-title-text {
-	display: none;
+.portlet-dropzone {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	width: 100%;
 }
 
 .site-area {
@@ -312,27 +310,23 @@ body {
 
 .posts-layout {
 	display: grid;
-	grid-template-columns: 33.33% 33.33% 33.33%;
-	margin: 0 auto 30px;
+	grid-template-columns: 1fr 1fr 1fr;
 	position: relative;
 	width: 100%;
 }
 
-.item-sizer {
+.entry-section {
 	background-color: $white-color;
 	border: $grey-color;
+	font-size: 14px;
+	height: 500px;
 	margin: 15px;
 	padding: 30px;
-}
 
-.entry-thumb {
-	font-size: 14px;
-	margin-bottom: 30px;
-}
-
-.entry-thumb img {
-	height: auto;
-	width: 100%;
+	img {
+		height: auto;
+		width: 100%;
+	}
 }
 
 .read-more {
@@ -365,10 +359,10 @@ body {
 	font-weight: normal;
 	margin: 15px 0;
 	text-align: center;
-}
 
-.entry-title a {
-	color: #1C1C1C;
-	font-size: 28px;
-	text-decoration: none;
+	a {
+		color: #1C1C1C;
+		font-size: 28px;
+		text-decoration: none;
+	}
 }
