@@ -4,7 +4,7 @@
     "appServerPath": "/Users/brianvales/Desktop/liferayPortal/liferay-ce-portal/tomcat-9.0.10",
     "deployPath": "/Users/brianvales/Desktop/liferayPortal/liferay-ce-portal/deploy",
     "url": "http://localhost:8080",
-    "appServerPathPlugin": "/Users/brianvales/Desktop/liferayPortal/real-business-theme/.web_bundle_build",
+    "appServerPathPlugin": "/Users/brianvales/Desktop/liferayPortal/liferay-portal/modules/apps/frontend-theme/real-business-theme/.web_bundle_build",
     "deployed": true,
     "pluginName": "real-business-theme"
   }

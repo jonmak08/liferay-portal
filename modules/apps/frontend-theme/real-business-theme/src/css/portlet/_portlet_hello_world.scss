@@ -1,5 +1,5 @@
 .portlet-hello-world .portlet-content {
-	background: url(../images/portlet_hello_world/welcome_bg.jpg) bottom left;
+	background: url(../images/slider-01.jpg) bottom left;
 	background-size: cover;
 	min-height: 390px;
 	padding-top: 30px;
@@ -13,7 +13,7 @@
 	}
 
 	.portlet-title-text {
-		color: $dark-color;
+		color: $body-bg;
 		font-size: 220%;
 		text-transform: none;
 	}
