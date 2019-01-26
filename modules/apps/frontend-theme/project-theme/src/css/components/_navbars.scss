@@ -8,20 +8,12 @@
 }
 
 .navbar-classic {
-<<<<<<< HEAD
 	background-color: $complementary-color;
 
 	// &.navbar-light {
 		
 		
 	// }
-=======
-	background-color: #FFF;
-
-	&.navbar-light {
-		border-bottom: 1px solid $light-color;
-	}
->>>>>>> c11802cafe84... add project theme feature 1
 
 	.navbar-blank {
 		@include media-query(null, $screen-xs-max) {
@@ -37,11 +29,7 @@
 			top: 0;
 
 			.lfr-icon-item {
-<<<<<<< HEAD
 				color: #bbb;
-=======
-				color: #6B6C7E;
->>>>>>> c11802cafe84... add project theme feature 1
 			}
 		}
 	}
@@ -67,7 +55,6 @@
 	}
 
 	.nav-link {
-<<<<<<< HEAD
 		color: #bbb;
 		font-size: 0.9375rem;
 		font-weight: 600;
@@ -77,10 +64,4 @@
 		color: #eb5937;
 	}
 
-=======
-		color: #6B6C7E;
-		font-size: 0.9375rem;
-		font-weight: 600;
-	}
->>>>>>> c11802cafe84... add project theme feature 1
 }
