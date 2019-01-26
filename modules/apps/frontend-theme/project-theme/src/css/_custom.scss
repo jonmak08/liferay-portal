@@ -8,6 +8,7 @@
 @import "components/widget";
 @import "portlet/portlet_decorators";
 @import "portlet/portlet_hello_world";
+@import url("https://fonts.googleapis.com/css?family=PT+Sans:400,700");
 
 header {
 	.portlet, .field-wrapper, .form-group {
@@ -15,7 +16,7 @@ header {
 	}
 
 	.text-default {
-		color: #6B6C7E;
+		color: $text-color;
 		font-weight: 600;
 	}
 
@@ -73,6 +74,8 @@ header {
 }
 
 .portlet-layout {
+	color: $text-color;
+
 	.portlet {
 		.management-bar, .navbar-underline {
 			> .container-fluid-max-xl {
@@ -80,9 +83,9 @@ header {
 				padding-right: 0;
 			}
 		}
-
+		
 		.portlet-title-text {
-			color: map-get($theme-colors, secondary);
+			color: $text-color;
 			font-size: 0.875rem;
 			font-weight: 600;
 			line-height: 2.2;
@@ -100,11 +103,171 @@ header {
 
 #footer {
 	background-color: $complementary-color;
-	color: #FFF;
+	color: #bbb;
 	margin-top: 1rem;
+	height: 20vh;
 
 	> .container {
 		padding-bottom: 3rem;
 		padding-top: 3rem;
 	}
 }
+
+
+// ------ ADDED CSS -------
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6{
+	font-family: $font-family;
+}
+
+a{
+	color: $link-color;
+}
+
+a:hover{
+	color: $button-color;
+	text-decoration: none;
+}
+
+hr{
+	max-width: 100%;
+	color: lightgrey;
+	height: 5px;
+}
+.btn{
+	color: $light-color;
+	background-color: $button-color;
+	border: round;
+}
+
+.navlogo-wrapper{
+	display: flex;
+	justify-content: space-evenly;
+	background: white;
+	padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+
+
+// /*Top Banner*/
+// #top-banner{
+// 	background-color: $complementary-color;
+// 	color: #bbb;
+// 	min-height: 40px;
+// 	line-height: 40px;
+// 	width: 100%;
+// 	font-size: 13.5px;
+// }
+
+
+// /*Navbar*/
+
+.navbar-light {
+	.navbar-brand {
+	  color: $navbar-light-active-color;
+	}
+  
+	.navbar-nav {
+	  .nav-link {
+		color: $navbar-light-color;
+		font-size: 14px;
+  
+		@include hover-focus {
+		  color: $navbar-light-hover-color;
+		  border-bottom: 3px solid $dark-color;
+		
+		}
+	  }
+	}
+}
+.navbar-light .navbar-nav .show > .nav-link, 
+.navbar-light .navbar-nav .active > .nav-link, 
+.navbar-light .navbar-nav .nav-link.show, 
+.navbar-light .navbar-nav .nav-link.active {
+    color: $bright-color;
+}
+
+.nav-pills .nav-link{
+	@include border-radius(1rem);
+	margin: 0 .25rem 0 .25rem;
+	color: $light-color;
+
+}
+.nav-pills > li.active > a {
+	background-color: $dark-color;
+	color: $complementary-color;
+}
+.nav-pills > li.hover > a {
+	background-color: $dark-color;
+	color: $complementary-color; 
+}
+.lfr-nav-child-toggle{
+	display: none;
+	
+}
+.dropdown-menu{
+	border-top: 3px solid $dark-color;
+}
+.dropdown-item{
+	color: $link-color;
+
+	@include hover-focus{
+		color:$dark-color;
+	}
+}
+
+// Portlet Web Content Setting
+
+.portlet-journal-content .portlet .portlet-header .visible-interaction .lfr-icon-menu  {
+	color: $dark-color;
+}
+
+// Search Icon
+.search{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.search-box{
+	background: #FFF;
+	position: absolute;
+	top: 54px;
+	right: 28.7%;
+	width: 350px;
+	height: 60px;
+	line-height: 60px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	border-top:4px solid #eb5937;
+	display: none;
+  }
+  
+  .search-box:before{
+	content: "";
+	position: absolute;
+	top: -32px;
+	right: 13px;
+	border-left: 12px solid transparent;
+	border-right: 12px solid transparent;
+	border-top: 14px solid transparent;
+	border-bottom: 14px solid #eb5937;
+  }
+  
+  .search-box input[type="text"]{
+	width: 200px;
+	padding: 5px 10px;
+	margin-left: 23px;
+	border: 1px solid #eb5937;
+	outline: none;
+  }
+  
+  .search-box input[type="button"]{
+	width: 80px;
+	padding: 5px 0;
+	background: #eb5937;
+	color: #fff;
+	margin-left: -6px;
+	border: 1px solid #eb5937;
+	outline: none;
+	cursor: pointer;
+  }
+

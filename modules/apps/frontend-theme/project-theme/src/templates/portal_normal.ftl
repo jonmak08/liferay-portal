@@ -20,52 +20,77 @@
 
 <@liferay.control_menu />
 
-<div class="pt-0" id="wrapper">
-	<#if show_header>
-		<header id="banner">
-			<div class="navbar navbar-classic navbar-top py-3">
-				<div class="container user-personal-bar">
-					<div class="align-items-center autofit-row">
-						<a class="${logo_css_class} align-items-center d-md-inline-flex d-sm-none d-none logo-md" href="${site_default_url}" title="<@liferay.language_format arguments="" key="go-to-x" />">
-							<img alt="${logo_description}" class="mr-2" height="56" src="${site_logo}" />
+<#--  WRAPPER  -->
+	<div class="pt-0" id="wrapper">
+		<#if show_header>
+			<header id="banner">
+				<div class="navbar navbar-classic navbar-top py-3">
+					<div class="container user-personal-bar">
+						<div class="align-items-center autofit-row">
 
-							<#if show_site_name>
-								<h1 class="font-weight-bold h2 mb-0 text-dark">${site_name}</h1>
-							</#if>
-						</a>
+							<#assign preferences = freeMarkerPortletPreferences.getPreferences({"portletSetupPortletDecoratorId": "barebone", "destination": "/search"}) />
 
-						<#assign preferences = freeMarkerPortletPreferences.getPreferences({"portletSetupPortletDecoratorId": "barebone", "destination": "/search"}) />
-
-						<div class="autofit-col autofit-col-expand">
-							<#if show_header_search>
-								<div class="justify-content-md-end mr-4 navbar-form" role="search">
-									<@liferay.search_bar default_preferences="${preferences}" />
-								</div>
-							</#if>
-						</div>
-
-						<div class="autofit-col">
-							<@liferay.user_personal_bar />
 						</div>
 					</div>
 				</div>
-			</div>
 
-			<div class="mb-4 navbar navbar-classic navbar-expand-md navbar-light pb-3">
-				<div class="container">
-					<a class="${logo_css_class} align-items-center d-inline-flex d-md-none logo-xs" href="${site_default_url}" rel="nofollow">
+				<#--  SITE LOGO AND TITLE  -->
+				<div class="navlogo-wrapper">
+					<a class="${logo_css_class} align-items-center d-md-inline-flex d-sm-none d-none logo-md" href="${site_default_url}" title="<@liferay.language_format arguments="" key="go-to-x" />">
 						<img alt="${logo_description}" class="mr-2" height="56" src="${site_logo}" />
 
 						<#if show_site_name>
 							<h1 class="font-weight-bold h2 mb-0 text-dark">${site_name}</h1>
 						</#if>
 					</a>
+					<#--  CLOSE SITE LOGO AND TITLE  -->
 
-					<#include "${full_templates_path}/navigation.ftl" />
+					<#--  NAVIGATION  -->
+					<div class="navbar navbar-expand-md navbar-light">
+						<div class="container">
+							<a class="${logo_css_class} d-inline-flex d-md-none logo-xs" href="${site_default_url}" rel="nofollow">
+								<img alt="${logo_description}" class="mr-2" height="56" src="${site_logo}" />
+
+								<#if show_site_name>
+									<h1 class="font-weight-bold h2 mb-0 text-dark">${site_name}</h1>
+								</#if>
+							</a>
+
+							<#include "${full_templates_path}/navigation.ftl" />
+								
+								<#--  SEARCH  -->
+
+								<#--  <div class="autofit-col autofit-col-expand">
+									<#if show_header_search>
+										<div class="justify-content-md-end mr-4 navbar-form" role="search">
+											<@liferay.search_bar default_preferences="${preferences}" />
+										</div>
+									</#if>
+								</div>  -->
+								<#if show_header_search>
+									<a class="search">
+										<svg aria-hidden="true" class="lexicon-icon lexicon-icon-add-column lexicon-icon-search">
+											<use xlink:href="${themeDisplay.getPathThemeImages()}/clay/icons.svg#search" />
+										</svg>
+									</a>
+									<div class="search-box">
+											<input type="text" placeholder=""/>
+											<input type="button" value="Search"/>
+									</div>
+								</#if>
+											
+								<#--  CLOSE SEARCH  -->
+
+
+							<@liferay.user_personal_bar />
+						</div>
+					</div>
 				</div>
-			</div>
-		</header>
-	</#if>
+				<#--  CLOSE NAVIGATION -->
+			</header>
+		</#if>
+
+								
 
 	<section class="${portal_content_css_class}" id="content">
 		<h1 class="sr-only">${the_title}</h1>
@@ -83,6 +108,7 @@
 		</#if>
 	</section>
 
+<#--  FOOTER  -->
 	<#if show_footer>
 		<footer id="footer" role="contentinfo">
 			<div class="container">
@@ -96,12 +122,16 @@
 			</div>
 		</footer>
 	</#if>
+	<#--  CLOSE FOOTER  -->
+
 </div>
+<#--  CLOSE WRAPPER  -->
 
 <@liferay_util["include"] page=body_bottom_include />
 
 <@liferay_util["include"] page=bottom_include />
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </body>
 
-</html>
+</html> 

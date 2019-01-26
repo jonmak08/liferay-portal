@@ -1,0 +1,11 @@
+
+{
+    "layoutTemplateId": "2_columns_ii",
+    "publicPages": [
+      {
+        "friendlyURL": "/my-page",
+        "name": "My Page",
+        "title": "My Page"
+      }
+    ]  
+  }
