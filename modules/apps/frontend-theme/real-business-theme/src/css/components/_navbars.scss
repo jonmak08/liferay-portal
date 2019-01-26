@@ -8,7 +8,7 @@
 }
 
 .navbar-classic {
-	background-color: #FFF;
+	// background-color: #FFF;
 
 	&.navbar-light {
 		border-bottom: 1px solid $light-color;
@@ -54,8 +54,12 @@
 	}
 
 	.nav-link {
-		color: #6B6C7E;
+		color: $complementary-color;
 		font-size: 0.9375rem;
 		font-weight: 600;
 	}
+}
+
+.nav-link.active {
+	color: $complementary-color;
 }

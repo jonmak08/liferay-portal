@@ -1,7 +1,7 @@
 $portlet-header-margin-bottom: map-get($spacers, 5);
 
 $portlet-topper-bg: #F0F5FF;
-$portlet-topper-border: #80ACFF;
+$portlet-topper-border: $complementary-color;
 $portlet-topper-color: map-get($theme-colors, primary);
 $portlet-topper-link-color: map-get($theme-colors, primary);
 $portlet-topper-link-hover-color: map-get($theme-colors, primary);
