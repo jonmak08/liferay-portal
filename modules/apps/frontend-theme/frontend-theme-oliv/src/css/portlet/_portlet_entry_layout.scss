@@ -1,0 +1,63 @@
+.site-area {
+	box-sizing: border-box;
+	padding: 0 15px;
+	width: 100% !important;
+}
+
+.posts-layout {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	position: relative;
+	width: 100%;
+}
+
+.entry-section {
+	background-color: $white-color;
+	border: $grey-color;
+	font-size: 14px;
+	margin: 15px;
+	padding: 30px;
+
+	img {
+		height: auto;
+		width: 100%;
+	}
+}
+
+.read-more {
+	border: 1px solid;
+	color: $orange-color;
+	display: table;
+	margin: 30px auto 0;
+	padding: 5px 10px;
+	text-align: center;
+	transition: all 0.4s;
+}
+
+.read-more:hover {
+	background-color: $orange-color;
+	color: $white-color;
+}
+
+.entry-header {
+	text-align: center;
+}
+
+.entry-data span, .entry-data a {
+	color: #B5BBC5;
+	font-size: 13px;
+	text-decoration: none;
+}
+
+.entry-title {
+	font-family: $header-font;
+	font-weight: normal;
+	margin: 15px 0;
+	text-align: center;
+
+	a {
+		color: #1C1C1C;
+		font-size: 28px;
+		text-decoration: none;
+	}
+}
