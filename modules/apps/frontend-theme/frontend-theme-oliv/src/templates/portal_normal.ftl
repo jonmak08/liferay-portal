@@ -6,9 +6,9 @@
 
 <head>
     <title>${the_title} - ${company_name}</title>
+
     <meta content="initial-scale=1.0, width=device-width" name="viewport" />
-    <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans|Oswald:400,700" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <@liferay_util["include"] page=top_head_include />
 </head>
 
@@ -24,8 +24,8 @@
 
 <div class="pt-0" id="wrapper">
 
-    <div id="page-container">
-        <div id="container-wrap">
+    <div class="page-container">
+        <div class="wrap-container">
 
             <header class="site-header">
                 <div class="top-bar">
@@ -52,20 +52,30 @@
                         <@liferay.user_personal_bar />
                     </div>
                 </div>
-                <div class="container">
+                <div class="site-container">
                     <div class="site-branding">
-                        <h1 class="site-title">${title_text}</h1>
-                        <h2 class="site-description">${description_text}</h2>
+                        <h1 class="site-title">
+                            <#if show_site_logo>
+                                <img alt="${logo_description}" src="${site_logo}" />
+                            </#if>
+                            ${title_text}
+                        </h1>
+                        <h2 class="site-description">
+                            ${description_text}
+                        </h2>
                     </div>
                 </div>
-                <div class="main-navigation" role="navigation">
+                <span class="toggle-navigation" onclick="toggleNav()">&#9776;</span>
+                <div class="main-navigation" id="main-navigation" role="navigation">
                     <div class="nested-navigation">
-                        <@liferay.navigation_menu default_preferences="${preferences}" />
+                        <#if has_navigation && is_setup_complete>
+                            <@liferay.navigation_menu default_preferences="${preferences}" />
+                        </#if>
                     </div>
                 </div>
             </header>
 
-            <section class="${portal_content_css_class}" id="content">
+            <section class="portlet-container" id="content">
                 <h1 class="sr-only">${the_title}</h1>
 
                 <#if selectable>
@@ -81,14 +91,12 @@
                 </#if>
             </section>
 
-            <footer id="footer" role="contentinfo">
-                <div class="container">
-                    <div class="row">
-                        <div class="powered-by">
-                            <@liferay.language key="powered-by" />
+            <footer class="footer" id="footer" role="contentinfo">
+                <div class="col-md-12 text-center">
+                    <div class="powered-by">
+                        <@liferay.language key="powered-by" />
 
-                            <a href="http://www.liferay.com" rel="external" target="_blank">Liferay</a>
-                        </div>
+                        <a href="http://www.liferay.com" rel="external" target="_blank">Liferay</a>
                     </div>
                 </div>
             </footer>
@@ -100,6 +108,17 @@
 <@liferay_util["include"] page=body_bottom_include />
 
 <@liferay_util["include"] page=bottom_include />
+
+<script>
+    function toggleNav() {
+        if (document.getElementById('main-navigation').style.display === 'none') {
+            document.getElementById('main-navigation').style.display = 'block';
+        }
+        else {
+            document.getElementById('main-navigation').style.display = 'none';
+        }
+    }
+</script>
 
 </body>
 

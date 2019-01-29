@@ -8,7 +8,7 @@
 	<theme id="frontend-theme-oliv" name="Oliv">
 		<template-extension>ftl</template-extension>
 		<settings>
-			<setting configurable="true" key="wrap-content" type="checkbox" value="true" />
+			<setting configurable="true" key="show-site-logo" type="checkbox" value="true" />
 			<setting configurable="true" key="title-text" type="text" value="Oria Demo" />
 			<setting configurable="true" key="description-text" type="text" value="Just another Liferay theme by JustFreeThemes" />
 			<setting configurable="true" key="facebook-handle" type="text" />
@@ -16,6 +16,7 @@
 			<setting configurable="true" key="twitter-handle" type="text" />
 			<setting configurable="true" key="linkedin-handle" type="text" />
 			<setting configurable="true" key="pinterest-handle" type="text" />
+			<setting configurable="false" key="show-site-name-supported" value="false" />
   		</settings>
 		<portlet-decorator id="barebone" name="Barebone">
 			<default-portlet-decorator>true</default-portlet-decorator>
