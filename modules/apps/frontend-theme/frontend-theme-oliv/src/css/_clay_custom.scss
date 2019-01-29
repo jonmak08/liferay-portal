@@ -1,17 +1,16 @@
 $header-font: 'Oswald', sans-serif;
 $normal-font: 'Lato', sans-serif;
 
-$beige-color: #F9F6F5;
+$body-color: #F9F6F5;
 $dark-color: #272833;
-$grey-color: 1px solid #E8E8E8;
-$light-color: #E7E7ED;
-$orange-color: #EF997F;
-$white-color: #FFF;
+$border-color: 1px solid #E8E8E8;
+$bright-color: #EF997F;
+$light-color: #FFF;
 
-$border-background: 1px solid rgba(255, 255, 255, 0.2);
-$dark-background: rgba(0, 0, 0, 0.5);
-$orange-background: rgba(239, 153, 127, 0.3);
-$transparent-background: rgba(255, 255, 255, 0.15);
+$border-transparent: 1px solid rgba(255, 255, 255, 0.2);
+$bright-transparent: rgba(239, 153, 127, 0.3);
+$dark-transparent: rgba(0, 0, 0, 0.5);
+$light-transparent: rgba(255, 255, 255, 0.15);
 
 $portlet-decorate-bg: #FFF;
-$portlet-decorate-border: 1px solid $light-color;
+$portlet-decorate-border: 1px solid #E7E7ED;

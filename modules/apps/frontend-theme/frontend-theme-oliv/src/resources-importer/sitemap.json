@@ -5,26 +5,24 @@
             "columns": [
                 [
                     {
-                        "portletId": "com_liferay_login_web_portlet_LoginPortlet"
-                    },
-                    {
-                        "portletId":
-                        "com_liferay_site_navigation_menu_web_portlet_SiteNavigationMenuPortlet"
-                    },
-                    {
-                        "portletId":
-                        "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+                        "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
                         "portletPreferences": {
-                            "articleId": "blog.xml",
+                            "articleId": "warm_hat.xml",
                             "groupId": "${groupId}",
                             "portletSetupPortletDecoratorId": "barebone"
                         }
                     }
                 ]
             ],
-            "friendlyURL": "/blog",
-            "name": "Blog",
-            "title": "Blog"
+            "friendlyURL": "/sample",
+            "name": "Sample",
+            "title": "Sample",
+            "layoutTemplateId": "3_columns",
+        },
+        {
+            "friendlyURL": "/about",
+            "name": "About",
+            "title": "About"
         }
     ]
 }

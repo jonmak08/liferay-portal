@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+    <dynamic-element name="Imageh2jy" type="image" index-type="text" instance-id="vogi">
+        <dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"skate park.jpg","alt":"Skate Park","title":"skate park.jpg","type":"document","uuid":"f0891cfe-b92b-50ae-d55b-c6c06a4cd0e8","fileEntryId":"35874","resourcePrimKey":"35923"}]]></dynamic-content>
+    </dynamic-element>
+    <dynamic-element name="Imageh2jy" type="image" index-type="text" instance-id="jifa">
+        <dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"scene.jpg","alt":"Scene","title":"scene.jpg","type":"document","uuid":"3796d27e-5633-4723-7c34-824b665f903e","fileEntryId":"35866","resourcePrimKey":"35923"}]]></dynamic-content>
+    </dynamic-element>
+    <dynamic-element name="Imageh2jy" type="image" index-type="text" instance-id="kvfo">
+        <dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"teddy.jpg","alt":"Teddy","title":"teddy.jpg","type":"document","uuid":"81d0383e-1af9-2bc4-7a0d-d4788f0f9f65","fileEntryId":"35884","resourcePrimKey":"35923"}]]></dynamic-content>
+    </dynamic-element>
+    <dynamic-element name="Imageh2jy" type="image" index-type="text" instance-id="uveo">
+        <dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"winter hat.jpg","alt":"Winter Hat","title":"winter hat.jpg","type":"document","uuid":"cc62d092-fefe-9c67-a07a-a177c810b2fe","fileEntryId":"35894","resourcePrimKey":"35923"}]]></dynamic-content>
+    </dynamic-element>
+</root>

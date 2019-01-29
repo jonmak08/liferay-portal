@@ -7,3 +7,27 @@
 @import "compat/mixins";
 
 @import "clay/atlas-variables";
+
+@font-face {
+	font-family: "Lato";
+	font-weight: normal;
+	src: url("font-awesome/font/Lato-Regular.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Lato";
+	font-weight: bold;
+	src: url("font-awesome/font/Lato-Bold.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Oswald";
+	font-weight: normal;
+	src: url("font-awesome/font/Oswald-Regular.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Oswald";
+	font-weight: bold;
+	src: url("font-awesome/font/Oswald-Bold.ttf") format("truetype");
+}
