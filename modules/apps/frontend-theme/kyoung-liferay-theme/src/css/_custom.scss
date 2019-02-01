@@ -1,0 +1,349 @@
+@import "components/breadcrumb";
+@import "components/group-item";
+@import "components/info-panel";
+@import "components/navbars";
+@import "components/sidebar";
+@import "components/splitter";
+@import "components/table";
+@import "components/widget";
+@import "portlet/portlet_decorators";
+@import "portlet/portlet_hello_world";
+
+.portlet-layout {
+	.portlet {
+		.h1, .h2, .h3, .h4, .h5, .h6 {
+			color: $dark-color;
+			letter-spacing: 1;
+			text-transform: uppercase;
+		}
+
+		p {
+			color: $dark-color;
+		}
+
+		.portlet-title-text {
+			color: $dark-color;
+			font-weight: 600;
+			line-height: 2;
+			margin-bottom: 0;
+			text-transform: uppercase;
+		}
+	}
+}
+
+/* ---------- Header ---------- */
+
+.site {
+	background-color: $portlet-decorate-bg;
+	color: $dark-color;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 15px;
+	letter-spacing: 0.5px;
+	line-height: 1.5;
+	overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: bold;
+	margin-top: 0;
+}
+
+.mu-logo-area {
+	margin-left: -75%;
+	margin-top: -4%;
+	width: 20%;
+	z-index: 5;
+}
+
+.mu-logo {
+	&:hover, &:focus {
+		color: $light-color;
+	}
+	display: inline-block;
+	font-size: 45px;
+	font-weight: bold;
+	margin-top: 60px;
+
+	> .logo {
+		border: none;
+		max-width: 100%;
+	}
+}
+
+.mu-menu-btn {
+	&:hover, &:focus {
+		border: 2px solid $light-color;
+	}
+
+	&:before {
+		content: '\f0c9';
+		cursor: pointer;
+		display: block;
+		font-family: FontAwesome;
+	}
+	background-color: $bright-color;
+	border: 2px solid $light-color;
+	color: $light-color;
+	cursor: pointer;
+	font-size: 25px;
+	padding: 5px 14px;
+	position: fixed;
+	right: 5%;
+	top: 100px;
+	z-index: 6;
+}
+
+.mu-menu {
+	ul {
+		li {
+			a {
+				&:hover,
+				&:focus {
+					color: $bright-color;
+				}
+			}
+		}
+	}
+}
+
+.canvas {
+	background: url("/o/kyoung-liferay-theme/images/filler.png") center center/cover;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100vw;
+}
+
+.flex {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#home {
+	color: #616161;
+	line-height: 11pt;
+	padding: 70px 0;
+	position: relative;
+}
+
+/* ---------- Corner Menu ---------- */
+
+.mu-menu-close-btn {
+	&:before {
+		content: '\f00d';
+		cursor: pointer;
+		display: block;
+		font-family: FontAwesome;
+		font-size: 50px;
+		height: 48px;
+		position: absolute;
+		right: 15%;
+		top: 55px;
+		width: 48px;
+	}
+}
+
+.company-details {
+	.company-name {
+		font-size: 20px;
+	}
+}
+
+.company-name {
+	color: $light-color;
+	display: inline-block;
+	font-size: 45px;
+	font-weight: bold;
+	letter-spacing: 15px;
+	line-height: 1.35;
+	margin-bottom: 15px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+/* ---------- Menu Overlay ---------- */
+
+.mu-menu-full-overlay {
+	background-color: rgba(0, 0, 0, 1);
+	color: $light-color;
+	height: 100%;
+	left: 0;
+	position: fixed;
+	right: 0;
+	text-align: center;
+	top: 0;
+	visibility: hidden;
+	width: 100%;
+	z-index: 9;
+}
+
+.mu-menu-full-overlay-show {
+	visibility: visible;
+}
+
+.mu-menu-full-overlay-inner {
+	margin-top: 15%;
+}
+
+.mu-menu {
+	ul {
+		li {
+			list-style: none;
+
+			a {
+				color: $light-color;
+				display: inline-block;
+				font-size: 35px;
+				font-weight: bold;
+				line-height: 1.35;
+				text-align: center;
+				text-transform: uppercase;
+			}
+		}
+	}
+}
+
+.user-full-name {
+	font-size: 20px;
+	text-decoration: underline;
+}
+
+.user-avatar-image {
+	display: none;
+}
+
+.sign-in {
+	font-size: 20px;
+	text-decoration: underline;
+}
+
+.navbar-toggler {
+	visibility: hidden;
+}
+
+.navbar-collapse .navbar-nav {
+	flex-direction: column;
+	font-size: 17px;
+	line-height: 1.59;
+	list-style: disc;
+}
+
+#center {
+	display: inline-block;
+	letter-spacing: 10px;
+}
+
+/* ---------- Web Content ---------- */
+
+.main-container {
+	margin-top: 20px;
+}
+
+.btn-group, .button-holder, .portlet-body {
+	button, select, .btn, .btn-default, .btn-primary {
+		background-color: $bright-color;
+		border-color: $light-color;
+		color: $light-color;
+		text-transform: uppercase;
+
+		&:hover {
+			background-color: $light-color;
+			border-color: $bright-color;
+			color: $bright-color;
+			text-transform: uppercase;
+		}
+
+		&:disabled {
+			background-color: $bright-color;
+			border-color: $light-color;
+			color: $light-color;
+			text-transform: uppercase;
+		}
+
+		a {
+			color: $light-color;
+		}
+	}
+}
+
+.portlet-title-text {
+	overflow: visible;
+}
+
+/* ---------- Footer ---------- */
+
+#mu-footer {
+	background-color: $light-color;
+	margin-top: 1rem;
+	background-color: $footer-bg;
+
+	> .container {
+		padding-bottom: 3rem;
+		padding-top: 3rem;
+		text-align: center;
+	}
+
+	a {
+		color: $dark-color;
+	}
+}
+
+/* ---------- Responsive Style ---------- */
+
+@media (max-width: 991px) {
+	.mu-menu-btn {
+		right: 5%;
+	}
+
+	.mu-title-area {
+		padding: 0 50px;
+	}
+}
+
+@media (max-width: 767px) {
+	.mu-logo {
+		margin-top: 25px;
+	}
+
+	.mu-menu-btn {
+		font-size: 20px;
+		padding: 5px 12px;
+		top: 60px;
+	}
+}
+
+@media (max-width: 640px) {
+	.company-name {
+		font-size: 25px;
+	}
+
+	.mu-menu-close-btn {
+		&:before {
+			font-size: 20px;
+			top: 30px;
+		}
+	}
+
+	.mu-menu ul li a {
+		font-size: 20px;
+		font-weight: 300;
+		line-height: 1;
+	}
+
+	.mu-title-area {
+		padding: 0;
+	}
+}
+
+@media (max-width: 480px) {
+	.mu-menu-close-btn {
+		&:before {
+			right: 5%;
+			top: 20px;
+		}
+	}
+}
