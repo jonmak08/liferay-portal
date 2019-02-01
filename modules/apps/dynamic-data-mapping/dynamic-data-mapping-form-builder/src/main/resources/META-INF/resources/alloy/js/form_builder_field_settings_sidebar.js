@@ -266,7 +266,11 @@ AUI.add(
 						else {
 							var previousValue = previousSettingsFormFieldContext.value;
 
-							var previousValueFilter = settingsFormFieldContext.options.filter(option => option.value === previousValue);
+							var previousValueFilter = settingsFormFieldContext.options.filter(
+								function(option) {
+									return option.value === previousValue;
+								}
+							);
 
 							if (!(Object.keys(previousValueFilter).length === 0)) {
 								result = true;
