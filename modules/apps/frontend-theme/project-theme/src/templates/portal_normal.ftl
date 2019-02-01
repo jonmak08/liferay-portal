@@ -21,14 +21,20 @@
 <@liferay.control_menu />
 
 <#--  WRAPPER  -->
-	<div class="pt-0" id="wrapper">
+	<div id="wrapper">
 		<#if show_header>
 			<header id="banner">
+
 				<div class="navbar navbar-classic navbar-top py-3">
 					<div class="container user-personal-bar">
 						<div class="align-items-center autofit-row">
 
-							<#assign preferences = freeMarkerPortletPreferences.getPreferences({"portletSetupPortletDecoratorId": "barebone", "destination": "/search"}) />
+							<#assign 
+								preferences = freeMarkerPortletPreferences.getPreferences(
+									{"portletSetupPortletDecoratorId": "barebone", 
+									"destination": "/search"}
+									)
+							/>
 
 						</div>
 					</div>
@@ -36,20 +42,23 @@
 
 				<#--  SITE LOGO AND TITLE  -->
 				<div class="navlogo-wrapper">
+
 					<a class="${logo_css_class} align-items-center d-md-inline-flex d-sm-none d-none logo-md" href="${site_default_url}" title="<@liferay.language_format arguments="" key="go-to-x" />">
-						<img alt="${logo_description}" class="mr-2" height="56" src="${site_logo}" />
+						<img alt="${logo_description}" class="mr-2" height="" src="${site_logo}" />
 
 						<#if show_site_name>
 							<h1 class="font-weight-bold h2 mb-0 text-dark">${site_name}</h1>
 						</#if>
 					</a>
+
 					<#--  CLOSE SITE LOGO AND TITLE  -->
 
 					<#--  NAVIGATION  -->
-					<div class="navbar navbar-expand-md navbar-light">
+					<div id="portlet-body" class="navbar navbar-expand-lg navbar-light">
 						<div class="container">
+
 							<a class="${logo_css_class} d-inline-flex d-md-none logo-xs" href="${site_default_url}" rel="nofollow">
-								<img alt="${logo_description}" class="mr-2" height="56" src="${site_logo}" />
+								<img alt="${logo_description}" class="mr-2" height="" src="${site_logo}" />
 
 								<#if show_site_name>
 									<h1 class="font-weight-bold h2 mb-0 text-dark">${site_name}</h1>
@@ -59,34 +68,36 @@
 							<#include "${full_templates_path}/navigation.ftl" />
 								
 								<#--  SEARCH  -->
-
-								<#--  <div class="autofit-col autofit-col-expand">
-									<#if show_header_search>
-										<div class="justify-content-md-end mr-4 navbar-form" role="search">
-											<@liferay.search_bar default_preferences="${preferences}" />
-										</div>
-									</#if>
-								</div>  -->
 								<#if show_header_search>
-									<a class="search">
-										<svg aria-hidden="true" class="lexicon-icon lexicon-icon-add-column lexicon-icon-search">
-											<use xlink:href="${themeDisplay.getPathThemeImages()}/clay/icons.svg#search" />
-										</svg>
-									</a>
-									<div class="search-box">
-											<input type="text" placeholder=""/>
-											<input type="button" value="Search"/>
+
+									<div>
+
+									 <i class="search">
+											<svg aria-hidden="true" class="lexicon-icon lexicon-icon-add-column lexicon-icon-search">
+												<use xlink:href="${themeDisplay.getPathThemeImages()}/clay/icons.svg#search" />
+											</svg>
+										</i> 
+
+										<#--  <@liferay.search_bar default_preferences="${preferences}" />  -->
+
+										<div class="search-box">
+												<input type="text" placeholder=""/>
+												<input type="button" value="Search"/>
+										</div>
+
 									</div>
+
 								</#if>
 											
 								<#--  CLOSE SEARCH  -->
 
-
 							<@liferay.user_personal_bar />
 						</div>
 					</div>
+
 				</div>
 				<#--  CLOSE NAVIGATION -->
+
 			</header>
 		</#if>
 
@@ -113,11 +124,17 @@
 		<footer id="footer" role="contentinfo">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-12 text-center text-md-left">
+
+					<div class="col-xs-12 col-md-6 col-sm-6 ">
+						<p>Copyright &copy; David Lui 2019.</p>
+					</div>
+
+					<div class="col-xs-12 col-md-6 col-sm-6 fr footer-links">
 						<@liferay.language key="powered-by" />
 
 						<a class="text-white" href="http://www.liferay.com" rel="external">Liferay</a>
 					</div>
+
 				</div>
 			</div>
 		</footer>
@@ -131,7 +148,6 @@
 
 <@liferay_util["include"] page=bottom_include />
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </body>
 
 </html> 

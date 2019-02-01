@@ -7,7 +7,6 @@ AUI().ready(
 			signIn.plug(Liferay.SignInModal);
 		}
 	}
-<<<<<<< HEAD
 );
 
 $(document).ready(function() {    
@@ -37,18 +36,6 @@ AUI().ready(function (A){
 	buttonNode.on('click', hidePortlet);
 });
 
-// function showHide() {
-// 	var x = document.querySelector(".portlet-forms-display");
-//   if (x.style.display == "none") {
-//     x.style.display = "block";
-//   } else {
-//     x.style.display = "none";
-//   }
-// }
-
-
-
-
 //tooltip function for recent work images
 
 YUI().use(
@@ -61,6 +48,4 @@ YUI().use(
       }
     ).render();
   }
-=======
->>>>>>> c11802cafe84... add project theme feature 1
 );
