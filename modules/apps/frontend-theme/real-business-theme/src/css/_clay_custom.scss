@@ -1,5 +1,4 @@
-$body-bg: #F1F2F5;
-$bright-color: #009999;
+$body-bg: #fff;
 $complementary-color: #009999;
 $dark-color: #272833;
 $light-color: #E7E7ED;
@@ -7,13 +6,4 @@ $light-color: #E7E7ED;
 $portlet-decorate-bg: #FFF;
 $portlet-decorate-border: 1px solid $light-color;
 
-$gray-color: #555;
-
-$ff: "Raleway", Helvetica, sans-serif;
-
-@mixin border-radius($radius) {
-  -webkit-border-radius: $radius;
-     -moz-border-radius: $radius;
-      -ms-border-radius: $radius;
-          border-radius: $radius;
-}
+$midtone-color: #555;

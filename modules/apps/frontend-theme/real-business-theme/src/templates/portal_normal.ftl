@@ -9,6 +9,9 @@
 
 	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
 
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+	crossorigin="anonymous">
+
 	<@liferay_util["include"] page=top_head_include />
 </head>
 
@@ -27,7 +30,14 @@
 				<div class="container user-personal-bar">
 					<div class="align-items-center autofit-row">
 
-						<#assign preferences = freeMarkerPortletPreferences.getPreferences({"portletSetupPortletDecoratorId": "barebone", "destination": "/search"}) />
+						<#assign 
+							preferences = freeMarkerPortletPreferences.getPreferences(
+									{
+										"portletSetupPortletDecoratorId": "barebone",
+										"destination": "/search"
+									}
+							)
+						/>
 
 					</div>
 				</div>
@@ -35,43 +45,39 @@
 
 			<#--  SITE LOGO AND NAME  -->
 			<div class="nav-flex mb-4">
+				<@liferay.user_personal_bar />
 				<a class="${logo_css_class} align-items-center d-md-inline-flex d-sm-none d-none logo-md" href="${site_default_url}" title="<@liferay.language_format arguments="" key="go-to-x" />">
 					<img alt="${logo_description}" class="mr-2" height="56" src="${site_logo}" />
-
-					<#if show_site_name>
-						<h1 class="font-weight-bold h2 mb-0 text-dark">${site_name}</h1>
-					</#if>
 				</a>
 				<#--  SITE LOGO AND NAME END  -->
 
 				<#--  NAVIGATION  -->
-				<div class="navbar navbar-classic navbar-expand-md navbar-light">
+				<div class="navbar navbar-classic navbar-expand-lg navbar-light">
 					<div class="container">
 						<a class="${logo_css_class} d-inline-flex d-md-none logo-xs" href="${site_default_url}" rel="nofollow">
 							<img alt="${logo_description}" class="mr-2" height="56" src="${site_logo}" />
-
-							<#if show_site_name>
-								<h1 class="font-weight-bold h2 mb-0 text-dark">${site_name}</h1>
-							</#if>
 						</a>
 
 						<#include "${full_templates_path}/navigation.ftl" />
+
 						<#if show_header_search>
-							<div class="justify-content-md-end mr-4 navbar-form" role="search">
+							<#--  <div role="search">
 								<@liferay.search_bar default_preferences="${preferences}" />
-								<svg aria-hidden="true" class="lexicon-icon ml-2 lexicon-icon-add-column lexicon-icon-search">
-									<use xlink:href="${themeDisplay.getPathThemeImages()}/clay/icons.svg#search" />
-								</svg>
-							</div>
-						</#if>
-						<@liferay.user_personal_bar />
+							</div>  -->
+							<button onclick="searchToggle()" class="fa fa-search search-btn"></button>				
 					</div>
 				</div>
 			</div>
-
-
 			<#--  NAVIGATION END  -->
 		</header>
+
+		<div>
+			<form id="mySearch">
+				<input type="search" class="search-field" placeholder="Search..." name="s" title="Search for:">
+				<button onclick="searchToggle()" type="submit" class="fa fa-search close-btn" value=""></button>
+			</form>
+		</div>
+		</#if>
 	</#if>
 
 	<section class="${portal_content_css_class}" id="content">
@@ -91,17 +97,68 @@
 	</section>
 
 	<#if show_footer>
-		<footer id="footer" role="contentinfo">
-			<div class="container">
-				<div class="row">
-					<div class="footer-info">
-							<p>COPYRIGHT &copy; all rights reserved</p>
-							<p>Proudly powered by 
-							<a class="text-white" href="http://www.liferay.com" rel="external">Liferay</a> | Brian Vales</p>
-						</div>
+			<!-- FOOTER -->
+			
+		<footer class="footer-wrapper">
+
+			<div class="footer-flex">
+				
+				<div class="footer-logo">
+					<img src="${site_logo}" alt="logo">
+				</div>
+	
+				<div class="footer-layout">
+					<div class="company-info">
+						<h3 class="h3">${site_name}</h3>
+						<p>${site_description}</p>
+					</div>
+
+					<div class="site-navigation">
+						<h3 class="h3">Site Navigation</h3>
+							<div class="footer-nav">
+									<#include "${full_templates_path}/footer.ftl" />
+							</div>
+					</div>
+
+					<div class="footer-social">
+						<h3 class="h3">Stay Connected</h3>
+						<ul id="footer-count" class="carousel-ul">
+							<#if show_facebook>
+								<li class="carousel-social"><a class="fab fa-facebook-f" href="${facebook_url}"></a></li>
+							</#if>
+							<#if show_twitter>
+								<li class="carousel-social"><a class="fab fa-twitter" href="${twitter_url}"></a></li>
+							</#if>
+							<#if show_pinterest>
+								<li class="carousel-social"><a class="fab fa-pinterest-p" href="${pinterest_url}"></a></li>
+							</#if>
+							<#if show_google_plus>
+								<li class="carousel-social"><a class="fab fa-google-plus-g" href="${google_plus_url}"></a></li>
+							</#if>
+							<#if show_skype>
+								<li class="carousel-social"><a class="fab fa-skype" href="${skype_url}"></a></li>
+							</#if>
+							<#if show_instagram>
+								<li class="carousel-social"><a class="fab fa-instagram" href="${instagram_url}"></a></li>
+							</#if>
+							<#if show_youtube>
+								<li class="carousel-social"><a class="fab fa-youtube" href="${youtube_url}"></a></li>
+							</#if>
+							<#if show_linkedin>
+								<li class="carousel-social"><a class="fab fa-linkedin-in" href="${linkedin_url}"></a></li>
+							</#if>
+						</ul>
+					</div>	
+
+				</div>
+	
+				<div class="footer-info">
+					<p><@liferay.language key="COPYRIGHT &copy all rights reserved" /></p>
+					<p><@liferay.language key="powered-by" /> <a class="text-white" href="http://www.liferay.com" rel="external">Liferay</a></p>
 				</div>
 
 			</div>
+
 		</footer>
 	</#if>
 
@@ -111,6 +168,7 @@
 
 <@liferay_util["include"] page=bottom_include />
 
+<script src="/o/real-business-theme/js/scripts.js"></script>
 </body>
 
 </html>

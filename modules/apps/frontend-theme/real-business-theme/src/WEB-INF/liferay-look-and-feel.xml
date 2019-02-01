@@ -12,9 +12,24 @@
 			<setting configurable="true" key="show-header" type="checkbox" value="true" />
 			<setting configurable="true" key="show-header-search" type="checkbox" value="true" />
 			<setting configurable="true" key="show-maximize-minimize-application-links" type="checkbox" value="false" />
-			<setting configurable="false" key="show-site-name-default" value="true" />
-			<setting configurable="false" key="show-site-name-supported" value="true" />
-			<setting configurable="true" key="wrap-content" type="checkbox" value="true" />
+			<setting configurable="true" key="wrap-content" type="checkbox" value="false" />
+			<setting configurable="true" key="site-description" type="text" value="Only think about one thing at a time. Don't get greedy. Take your time. Speed will come later. Let's build some happy little clouds up here. What the devil. Maybe he has a little friend that lives right over here." />
+			<setting configurable="true" key="show-facebook" type="checkbox" value="true" />
+			<setting configurable="true" key="facebook-url" type="text" value="http://www.facebook.com" />
+			<setting configurable="true" key="show-twitter" type="checkbox" value="true" />
+			<setting configurable="true" key="twitter-url" type="text" value="http://www.twitter.com" />
+			<setting configurable="true" key="show-pinterest" type="checkbox" value="true" />
+			<setting configurable="true" key="pinterest-url" type="text" value="http://www.pinterest.com" />
+			<setting configurable="true" key="show-google-plus" type="checkbox" value="true" />
+			<setting configurable="true" key="google-plus-url" type="text" value="https://plus.google.com" />
+			<setting configurable="true" key="show-skype" type="checkbox" value="true" />
+			<setting configurable="true" key="skype-url" type="text" value="http://www.skype.com" />
+			<setting configurable="true" key="show-instagram" type="checkbox" value="true" />
+			<setting configurable="true" key="instagram-url" type="text" value="http://www.instagram.com" />
+			<setting configurable="true" key="show-youtube" type="checkbox" value="true" />
+			<setting configurable="true" key="youtube-url" type="text" value="http://www.youtube.com" />
+			<setting configurable="true" key="show-linkedin" type="checkbox" value="true" />
+			<setting configurable="true" key="linkedin-url" type="text" value="http://www.linkedin.com" />
 		</settings>
 		<roles>
 			<role-name>User</role-name>

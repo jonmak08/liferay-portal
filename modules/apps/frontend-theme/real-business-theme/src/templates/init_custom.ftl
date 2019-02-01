@@ -11,42 +11,45 @@
 	<#assign portal_content_css_class = "" />
 </#if>
 
-<#-------- Secondary Logo -------->
+<#assign site_description =
+getterUtil.getString(themeDisplay.getThemeSetting("site-description"))/>
 
+<#assign show_facebook =
+getterUtil.getBoolean(themeDisplay.getThemeSetting("show-facebook"))/>
+<#assign facebook_url =
+getterUtil.getString(themeDisplay.getThemeSetting("facebook-url"))/>
 
-<#--  <#assign
-	secondaryLogo_css_class = "logo"
-	use_company_secondaryLogo = !layoutSet.isLogo()
-	site_secondaryLogo_height = company_secondaryLogo_height
-	site_secondaryLogo_width = company_secondaryLogo_width
-/>
+<#assign show_twitter =
+getterUtil.getBoolean(themeDisplay.getThemeSetting("show-twitter"))/>
+<#assign twitter_url =
+getterUtil.getString(themeDisplay.getThemeSetting("twitter-url"))/>
 
-<#if (company.getLogoId() == 0) && use_company_logo>
-	<#assign logo_css_class = logo_css_class + " default-logo" />
-<#else>
-	<#assign logo_css_class = logo_css_class + " custom-logo" />
-</#if>  -->
+<#assign show_pinterest =
+getterUtil.getBoolean(themeDisplay.getThemeSetting("show-pinterest"))/>
+<#assign pinterest_url =
+getterUtil.getString(themeDisplay.getThemeSetting("pinterest-url"))/>
 
-<#--  <#if theme_settings["show-site-name-supported"]??>
-	<#assign show_site_name_supported = getterUtil.getBoolean(theme_settings["show-site-name-supported"]!"", true) />
-<#else>
-	<#assign show_site_name_supported = true />
-</#if>
+<#assign show_google_plus =
+getterUtil.getBoolean(themeDisplay.getThemeSetting("show-google-plus"))/>
+<#assign google_plus_url =
+getterUtil.getString(themeDisplay.getThemeSetting("google-plus-url"))/>
 
-<#if theme_settings["show-site-name-default"]??>
-	<#assign show_site_name_default = getterUtil.getBoolean(theme_settings["show-site-name-default"]!"", show_site_name_supported) />
-<#else>
-	<#assign show_site_name_default = show_site_name_supported />
-</#if>
+<#assign show_skype =
+getterUtil.getBoolean(themeDisplay.getThemeSetting("show-skype"))/>
+<#assign skype_url =
+getterUtil.getString(themeDisplay.getThemeSetting("skype-url"))/>
 
-<#assign
-	show_site_name = getterUtil.getBoolean(layoutSet.getSettingsProperty("showSiteName"), show_site_name_default)
+<#assign show_instagram =
+getterUtil.getBoolean(themeDisplay.getThemeSetting("show-instagram"))/>
+<#assign instagram_url =
+getterUtil.getString(themeDisplay.getThemeSetting("instagram-url"))/>
 
-	site_logo = company_logo
+<#assign show_youtube =
+getterUtil.getBoolean(themeDisplay.getThemeSetting("show-youtube"))/>
+<#assign youtube_url =
+getterUtil.getString(themeDisplay.getThemeSetting("youtube-url"))/>
 
-	logo_description = ""
-/>
-
-<#if !show_site_name>
-	<#assign logo_description = htmlUtil.escape(site_name) />
-</#if>  -->
+<#assign show_linkedin =
+getterUtil.getBoolean(themeDisplay.getThemeSetting("show-linkedin"))/>
+<#assign linkedin_url =
+getterUtil.getString(themeDisplay.getThemeSetting("linkedin-url"))/>
