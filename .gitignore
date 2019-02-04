@@ -202,3 +202,4 @@
 /working.dir.properties
 /WEB-INF
 _sass_cache_*.css
+/modules/apps/frontend-theme/real-business-theme/liferay-theme.json

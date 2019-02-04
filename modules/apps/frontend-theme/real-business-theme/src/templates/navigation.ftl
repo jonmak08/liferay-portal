@@ -2,6 +2,46 @@
 	<button aria-controls="navigationCollapse" aria-expanded="false" aria-label="Toggle navigation" class="fa fa-bars navbar-toggler navbar-toggler-right" data-target="#navigationCollapse" data-toggle="collapse" type="button"></button>
 
 	<div aria-expanded="false" class="collapse navbar-collapse" id="navigationCollapse">
-		<@liferay.navigation_menu default_preferences="${preferences}" />
+        <div id="navigation" class="drop" role="navigation">
+            <ul class="nav nav-pills navbar-site">
+                <#list nav_items as nav_item>
+
+                    <#assign
+                        nav_item_attr_has_popup = ""
+                        nav_item_css_class = "lfr-nav-item nav-item dropdown main-nav-link"
+                        nav_item_layout = nav_item.getLayout()
+                    />
+
+                    <#if nav_item.isSelected()>
+                    <#assign
+                        nav_item_attr_has_popup = "aria-haspopup='true'"
+                        nav_item_css_class += " active"
+                    />
+
+                    </#if>
+                    <li class="${nav_item_css_class}">
+                        <a href="${nav_item.getURL()}" class="nav-link">${nav_item.getName()}</a>
+                        <#if nav_item.hasChildren()>
+                            <ul>
+                                <#list nav_item.getChildren() as nav_child>
+                                <li class="lfr-nav-item nav-item dropdown main-nav-link">
+                                    <a href="${nav_child.getURL()}" class="nav-link">${nav_child.getName()}</a>
+                                        <#if nav_child.hasChildren()>
+                                            <ul>
+                                                <#list nav_child.getChildren() as nav_child>
+                                                    <li class="lfr-nav-item nav-item dropdown main-nav-link">
+                                                        <a href="${nav_child.getURL()}" class="nav-link">${nav_child.getName()}</a>
+                                                    </li>
+                                                </#list>
+                                            </ul>
+                                        </#if>
+                                </li>
+                                </#list>
+                            </ul>
+                        </#if>
+                    </li>
+                </#list>
+            </ul>
+        </div>
 	</div>
 </#if>

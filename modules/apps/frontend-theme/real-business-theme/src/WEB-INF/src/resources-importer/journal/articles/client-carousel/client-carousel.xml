@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="BackgroundImage" type="image" index-type="text" instance-id="gjnz">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"parallax_01.jpg","alt":"Client slider background","title":"parallax_01.jpg","type":"journal","uuid":"ae48307c-c823-3877-1d59-011f102527bc","fileEntryId":"96793","resourcePrimKey":"96791"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="CarouselHeader" type="text" index-type="keyword" instance-id="fbog">
+		<dynamic-content language-id="en_US"><![CDATA[What our clients are saying]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ClientImage01" type="image" index-type="text" instance-id="dipd">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"client01.jpg","alt":"Our first client","title":"client01.jpg","type":"journal","uuid":"ca125529-8dcc-f916-552b-743545000a08","fileEntryId":"96798","resourcePrimKey":"96791"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ClientName01h6bb" type="text" index-type="keyword" instance-id="dnwl">
+		<dynamic-content language-id="en_US"><![CDATA[Theodore Giova]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ClientQuote01" type="text" index-type="keyword" instance-id="kolf">
+		<dynamic-content language-id="en_US"><![CDATA[Zip. That easy. We'll put a happy little sky in here. You are only limited by your imagination. Let that brush dance around there and play.]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ClientImage02" type="image" index-type="text" instance-id="cnea">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"client01 (2).jpg","alt":"Our second client","title":"client01 (2).jpg","type":"journal","uuid":"07d6de2c-d743-6db5-189e-8c5b6ddc5bba","fileEntryId":"96803","resourcePrimKey":"96791"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ClientName02" type="text" index-type="keyword" instance-id="csgh">
+		<dynamic-content language-id="en_US"><![CDATA[Bob Ross]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ClientQuote02" type="text" index-type="keyword" instance-id="socw">
+		<dynamic-content language-id="en_US"><![CDATA[Zip. That easy. We'll put a happy little sky in here. You are only limited by your imagination. Let that brush dance around there and play.]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ClientImage03" type="image" index-type="text" instance-id="qtcp">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"client01 (1).jpg","alt":"Our third client","title":"client01 (1).jpg","type":"journal","uuid":"8b6ee0ec-08be-2d74-b33e-868e974320ed","fileEntryId":"96808","resourcePrimKey":"96791"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ClientName03" type="text" index-type="keyword" instance-id="pwdx">
+		<dynamic-content language-id="en_US"><![CDATA[Terry Crews]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ClientQuote03" type="text" index-type="keyword" instance-id="ijya">
+		<dynamic-content language-id="en_US"><![CDATA[Zip. That easy. We'll put a happy little sky in here. You are only limited by your imagination. Let that brush dance around there and play.]]></dynamic-content>
+	</dynamic-element>
+</root>

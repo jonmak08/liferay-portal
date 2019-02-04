@@ -30,7 +30,7 @@
 				<div class="container user-personal-bar">
 					<div class="align-items-center autofit-row">
 
-						<#assign 
+						<#assign
 							preferences = freeMarkerPortletPreferences.getPreferences(
 									{
 										"portletSetupPortletDecoratorId": "barebone",
@@ -44,9 +44,9 @@
 			</div>
 
 			<#--  SITE LOGO AND NAME  -->
-			<div class="nav-flex mb-4">
+			<div class="mb-4 nav-flex">
 				<@liferay.user_personal_bar />
-				<a class="${logo_css_class} align-items-center d-md-inline-flex d-sm-none d-none logo-md" href="${site_default_url}" title="<@liferay.language_format arguments="" key="go-to-x" />">
+				<a class="${logo_css_class} align-items-center d-md-inline-flex d-none d-sm-none logo-md" href="${site_default_url}" title="<@liferay.language_format arguments="" key="go-to-x" />">
 					<img alt="${logo_description}" class="mr-2" height="56" src="${site_logo}" />
 				</a>
 				<#--  SITE LOGO AND NAME END  -->
@@ -60,24 +60,16 @@
 
 						<#include "${full_templates_path}/navigation.ftl" />
 
-						<#if show_header_search>
-							<#--  <div role="search">
-								<@liferay.search_bar default_preferences="${preferences}" />
-							</div>  -->
-							<button onclick="searchToggle()" class="fa fa-search search-btn"></button>				
 					</div>
 				</div>
 			</div>
 			<#--  NAVIGATION END  -->
-		</header>
-
-		<div>
-			<form id="mySearch">
-				<input type="search" class="search-field" placeholder="Search..." name="s" title="Search for:">
-				<button onclick="searchToggle()" type="submit" class="fa fa-search close-btn" value=""></button>
-			</form>
-		</div>
+		<#if show_header_search>
+			<div class="search-margin" role="search">
+				<@liferay.search_bar default_preferences="${preferences}" />
+			</div>
 		</#if>
+		</header>
 	</#if>
 
 	<section class="${portal_content_css_class}" id="content">
@@ -98,15 +90,15 @@
 
 	<#if show_footer>
 			<!-- FOOTER -->
-			
+
 		<footer class="footer-wrapper">
 
 			<div class="footer-flex">
-				
+
 				<div class="footer-logo">
-					<img src="${site_logo}" alt="logo">
+					<img alt="logo" src="${site_logo}">
 				</div>
-	
+
 				<div class="footer-layout">
 					<div class="company-info">
 						<h3 class="h3">${site_name}</h3>
@@ -122,36 +114,36 @@
 
 					<div class="footer-social">
 						<h3 class="h3">Stay Connected</h3>
-						<ul id="footer-count" class="carousel-ul">
+						<ul class="carousel-ul" id="footer-count">
 							<#if show_facebook>
-								<li class="carousel-social"><a class="fab fa-facebook-f" href="${facebook_url}"></a></li>
+								<li class="carousel-social" title="Facebook"><a class="fa-facebook-f fab" href="http://${facebook_url}"></a></li>
 							</#if>
 							<#if show_twitter>
-								<li class="carousel-social"><a class="fab fa-twitter" href="${twitter_url}"></a></li>
+								<li class="carousel-social" title="Twitter"><a class="fa-twitter fab" href="http://${twitter_url}"></a></li>
 							</#if>
 							<#if show_pinterest>
-								<li class="carousel-social"><a class="fab fa-pinterest-p" href="${pinterest_url}"></a></li>
+								<li class="carousel-social" title="Pinterest"><a class="fa-pinterest-p fab" href="http://${pinterest_url}"></a></li>
 							</#if>
 							<#if show_google_plus>
-								<li class="carousel-social"><a class="fab fa-google-plus-g" href="${google_plus_url}"></a></li>
+								<li class="carousel-social" title="Google +"><a class="fa-google-plus-g fab" href="http://${google_plus_url}"></a></li>
 							</#if>
 							<#if show_skype>
-								<li class="carousel-social"><a class="fab fa-skype" href="${skype_url}"></a></li>
+								<li class="carousel-social" title="Skype"><a class="fa-skype fab" href="http://${skype_url}"></a></li>
 							</#if>
 							<#if show_instagram>
-								<li class="carousel-social"><a class="fab fa-instagram" href="${instagram_url}"></a></li>
+								<li class="carousel-social" title="Instagram"><a class="fa-instagram fab" href="http://${instagram_url}"></a></li>
 							</#if>
 							<#if show_youtube>
-								<li class="carousel-social"><a class="fab fa-youtube" href="${youtube_url}"></a></li>
+								<li class="carousel-social" title="Youtube"><a class="fa-youtube fab" href="http://${youtube_url}"></a></li>
 							</#if>
 							<#if show_linkedin>
-								<li class="carousel-social"><a class="fab fa-linkedin-in" href="${linkedin_url}"></a></li>
+								<li class="carousel-social" title="LinkedIn"><a class="fa-linkedin-in fab" href="http://${linkedin_url}"></a></li>
 							</#if>
 						</ul>
-					</div>	
+					</div>
 
 				</div>
-	
+
 				<div class="footer-info">
 					<p><@liferay.language key="COPYRIGHT &copy all rights reserved" /></p>
 					<p><@liferay.language key="powered-by" /> <a class="text-white" href="http://www.liferay.com" rel="external">Liferay</a></p>
@@ -168,7 +160,6 @@
 
 <@liferay_util["include"] page=bottom_include />
 
-<script src="/o/real-business-theme/js/scripts.js"></script>
 </body>
 
 </html>

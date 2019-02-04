@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="ContactHeader" type="text" index-type="keyword" instance-id="smxj">
+		<dynamic-content language-id="en_US"><![CDATA[Get In touch with us]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Name" type="text" index-type="keyword" instance-id="btct">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Email" type="text" index-type="keyword" instance-id="dzsq">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Subject" type="text" index-type="keyword" instance-id="weig">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Message" type="text_box" index-type="text" instance-id="tzwj">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+</root>

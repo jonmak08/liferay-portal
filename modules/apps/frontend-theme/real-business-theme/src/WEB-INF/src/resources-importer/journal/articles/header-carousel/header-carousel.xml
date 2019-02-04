@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="CarouselBG01" type="image" index-type="text" instance-id="ibnt">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"slider-01 (1).jpg","alt":"","title":"slider-01 (1).jpg","type":"document","uuid":"fca378fa-7ebc-b73d-42da-8aa50841fe84","fileEntryId":"117442","resourcePrimKey":"96248"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Logo01" type="image" index-type="text" instance-id="gint">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"bp-green.png","alt":"","title":"bp-green.png","type":"document","uuid":"9876bdd0-a674-e597-2e7d-c83dc6a0becb","fileEntryId":"96255","resourcePrimKey":"96248"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Description01" type="text" index-type="keyword" instance-id="ewjy">
+		<dynamic-content language-id="en_US"><![CDATA[Real Business Theme]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="CarouselBG021" type="image" index-type="text" instance-id="ixrm">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"slider-02.jpg","alt":"","title":"slider-02.jpg","type":"document","uuid":"95a38fbf-c752-7528-867b-14c0c61770e5","fileEntryId":"96260","resourcePrimKey":"96248"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Logo02" type="image" index-type="text" instance-id="gekv">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"bp-green.png","alt":"","title":"bp-green.png","type":"document","uuid":"9876bdd0-a674-e597-2e7d-c83dc6a0becb","fileEntryId":"96255","resourcePrimKey":"96248"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Description02" type="text" index-type="keyword" instance-id="tehc">
+		<dynamic-content language-id="en_US"><![CDATA[Powerful Business, Clean Theme]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="CarouselBG03" type="image" index-type="text" instance-id="ebxj">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"slider-03.jpg","alt":"","title":"slider-03.jpg","type":"document","uuid":"9fd4b84c-9377-0983-b32c-70306efccbfe","fileEntryId":"96270","resourcePrimKey":"96248"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Logo03" type="image" index-type="text" instance-id="bjwe">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"bp-green.png","alt":"","title":"bp-green.png","type":"document","uuid":"9876bdd0-a674-e597-2e7d-c83dc6a0becb","fileEntryId":"96255","resourcePrimKey":"96248"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Description03" type="text" index-type="keyword" instance-id="lntt">
+		<dynamic-content language-id="en_US"><![CDATA[Hello, Business]]></dynamic-content>
+	</dynamic-element>
+</root>

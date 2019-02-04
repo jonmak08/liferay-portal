@@ -1,0 +1,79 @@
+{
+  "layoutTemplateId": "1_column",
+  "publicPages": [
+    {
+      "columns": [
+        [
+          {
+            "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+            "portletPreferences": {
+              "articleId": "header-carousel.xml",
+              "groupId": "${groupId}",
+              "portletSetupPortletDecoratorId": "barebone"
+            }
+          },
+          {
+            "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+            "portletPreferences": {
+              "articleId": "about-descriptor.xml",
+              "groupId": "${groupId}",
+              "portletSetupPortletDecoratorId": "barebone"
+            }
+          },
+          {
+            "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+            "portletPreferences": {
+              "articleId": "client-carousel.xml",
+              "groupId": "${groupId}",
+              "portletSetupPortletDecoratorId": "barebone"
+            }
+          },
+          {
+            "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+            "portletPreferences": {
+              "articleId": "service-section.xml",
+              "groupId": "${groupId}",
+              "portletSetupPortletDecoratorId": "barebone"
+            }
+          },
+          {
+            "portletId": "com_liferay_blogs_web_portlet_BlogsAgreggatorPortlet",
+            "portletPreferences": {
+              "groupId": "${groupId}",
+              "portletSetupPortletDecoratorId": "barebone"
+            }
+          },
+          {
+            "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+            "portletPreferences": {
+              "articleId": "our-team.xml",
+              "groupId": "${groupId}",
+              "portletSetupPortletDecoratorId": "barebone"
+            }
+          },
+            {
+              "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+              "portletPreferences": {
+                "articleId": "contact-form.xml",
+                "groupId": "${groupId}",
+                "portletSetupPortletDecoratorId": "barebone"
+              }
+            }
+        ]
+      ],
+      "friendlyURL": "/home",
+      "name": "Home",
+      "title": "Home"
+    },
+    {
+      "friendlyURL": "/sample01",
+      "name": "Sample 01",
+      "title": "Sample"
+    },
+    {
+      "friendlyURL": "/search",
+      "name": "Search",
+      "title": "Search"
+    }
+  ]
+}
