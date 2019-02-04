@@ -1169,7 +1169,7 @@ AUI.add(
 						if (listCols) {
 							listCols.get('node').forEach(
 								function(element) {
-									if (!element.ancestor('.col-empty') && !element.ancestor('.lfr-initial-col')) {
+									if (!element.ancestor('.col-empty') && !element.ancestor('.lfr-initial-col') && element.ancestor('.col')) {
 										element.ancestor('.col').addClass('col-empty');
 										element.ancestor('.col').empty();
 									}
