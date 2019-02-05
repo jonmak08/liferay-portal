@@ -9,6 +9,8 @@
 
 	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
 
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	
 	<@liferay_util["include"] page=top_head_include />
 </head>
 
@@ -25,7 +27,46 @@
 		<#if show_header>
 			<header id="banner">
 
-				<div class="navbar navbar-classic navbar-top py-3">
+				<div class="navbar navbar-classic navbar-top py-4">
+
+						<div class="contact">
+								<#if show_phone>
+									<li class="contact-info"> <i class="fas fa-phone-square"></i> </a>${phone_url}</li>
+								</#if>
+								<#if show_email>
+									<li class="contact-info"> <i class="fas fa-envelope-square"></i> </a>${email_url}</li>
+								</#if>	
+						</div>
+
+						<div class="social">
+							<ul>
+								<#if show_instagram>
+									<li class="social-icons"> <a class="fab fa-instagram" href ="https://${instagram_url}"> </a></li>
+								</#if>
+								<#if show_instagram>
+									<li class="social-icons"> <a class="fab fa-facebook" href ="https://${facebook_url}"> </a></li>
+								</#if>	
+								<#if show_instagram>
+									<li class="social-icons"> <a class="fab fa-twitter" href ="https://${twitter_url}"> </a></li>
+								</#if>	
+								<#if show_instagram>
+									<li class="social-icons"> <a class="fab fa-google-plus-g" href ="https://${googleplus_url}"> </a></li>
+								</#if>	
+								<#if show_instagram>
+									<li class="social-icons"> <a class="fab fa-linkedin-in" href ="https://${linkedin_url}"> </a></li>
+								</#if>	
+								<#if show_instagram>
+									<li class="social-icons"> <a class="fab fa-youtube" href ="https://${youtube_url}"> </a></li>
+								</#if>	
+								<#if show_instagram>
+									<li class="social-icons"> <a class="fab fa-dribbble" href ="https://${dribbble_url}"> </a></li>
+								</#if>	
+								<#if show_instagram>
+									<li class="social-icons"> <a class="fab fa-github" href ="https://${github_url}"> </a></li>
+								</#if>		
+							<ul>
+						</div>
+
 					<div class="container user-personal-bar">
 						<div class="align-items-center autofit-row">
 
@@ -72,17 +113,14 @@
 
 									<div>
 
-									 <i class="search">
-											<svg aria-hidden="true" class="lexicon-icon lexicon-icon-add-column lexicon-icon-search">
-												<use xlink:href="${themeDisplay.getPathThemeImages()}/clay/icons.svg#search" />
-											</svg>
+										<i class="search">
+												<svg aria-hidden="true" class="lexicon-icon lexicon-icon-add-column lexicon-icon-search">
+													<use xlink:href="${themeDisplay.getPathThemeImages()}/clay/icons.svg#search" />
+												</svg>
 										</i> 
 
-										<#--  <@liferay.search_bar default_preferences="${preferences}" />  -->
-
 										<div class="search-box">
-												<input type="text" placeholder=""/>
-												<input type="button" value="Search"/>
+												<@liferay.search_bar default_preferences="${preferences}" />
 										</div>
 
 									</div>
@@ -92,6 +130,7 @@
 								<#--  CLOSE SEARCH  -->
 
 							<@liferay.user_personal_bar />
+
 						</div>
 					</div>
 
@@ -100,8 +139,6 @@
 
 			</header>
 		</#if>
-
-								
 
 	<section class="${portal_content_css_class}" id="content">
 		<h1 class="sr-only">${the_title}</h1>
@@ -143,6 +180,7 @@
 
 </div>
 <#--  CLOSE WRAPPER  -->
+
 
 <@liferay_util["include"] page=body_bottom_include />
 

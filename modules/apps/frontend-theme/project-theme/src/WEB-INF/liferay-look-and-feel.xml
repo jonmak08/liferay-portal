@@ -14,7 +14,6 @@
 			<setting configurable="true" key="show-maximize-minimize-application-links" type="checkbox" value="false" />
 			<setting configurable="false" key="show-site-name-default" value="true" />
 			<setting configurable="false" key="show-site-name-supported" value="true" />
-<<<<<<< HEAD
 			<setting configurable="true" key="wrap-content" type="checkbox" value="false" />
 			<setting configurable="true" key="Show Instagram" type="checkbox" value="true" />
 			<setting configurable="true" key="instagram-url" type="text" value="www.instagram.com" />
@@ -36,28 +35,18 @@
 			<setting configurable="true" key="phone-url" type="text" value="Call us: 555-555-5555" />
 			<setting configurable="true" key="show-email" type="checkbox" value="true" />
 			<setting configurable="true" key="email-url" type="text" value="Test@liferay.com" />
-=======
-			<setting configurable="true" key="wrap-content" type="checkbox" value="true" />
->>>>>>> c11802cafe84... add project theme feature 1
 		</settings>
 		<roles>
 			<role-name>User</role-name>
 		</roles>
 		<portlet-decorator id="barebone" name="Barebone">
-<<<<<<< HEAD
 			<default-portlet-decorator>true</default-portlet-decorator>
-=======
->>>>>>> c11802cafe84... add project theme feature 1
 			<portlet-decorator-css-class>portlet-barebone</portlet-decorator-css-class>
 		</portlet-decorator>
 		<portlet-decorator id="borderless" name="Borderless">
 			<portlet-decorator-css-class>portlet-borderless</portlet-decorator-css-class>
 		</portlet-decorator>
 		<portlet-decorator id="decorate" name="Decorate">
-<<<<<<< HEAD
-=======
-			<default-portlet-decorator>true</default-portlet-decorator>
->>>>>>> c11802cafe84... add project theme feature 1
 			<portlet-decorator-css-class>portlet-decorate</portlet-decorator-css-class>
 		</portlet-decorator>
 	</theme>
