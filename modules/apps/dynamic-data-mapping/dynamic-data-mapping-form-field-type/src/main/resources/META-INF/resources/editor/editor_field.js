@@ -138,7 +138,15 @@ AUI.add(
 					_hasAlloyEditorFocus: function() {
 						var instance = this;
 
-						return !!A.one(document.activeElement).ancestor('.ae-ui');
+						var hasFocus = false;
+
+						var activeElement = A.one(document.activeElement);
+
+						if (activeElement) {
+							hasFocus = !!activeElement.ancestor('.ae-ui')
+						}
+
+						return hasFocus;
 					},
 
 					_onActionPerformed: function(event) {
