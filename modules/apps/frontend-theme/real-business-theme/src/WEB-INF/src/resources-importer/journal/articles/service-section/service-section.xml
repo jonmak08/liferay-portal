@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="OurServicesHeading" type="text" index-type="keyword" instance-id="wkbf">
+		<dynamic-content language-id="en_US"><![CDATA[Our Services]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ServiceType01" type="text" index-type="keyword" instance-id="asqu">
+		<dynamic-content language-id="en_US"><![CDATA[Technology]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ServiceLink01" type="link_to_layout" index-type="keyword" instance-id="zdap">
+		<dynamic-content language-id="en_US"><![CDATA[14@public@20126]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Service01Description" type="text" index-type="keyword" instance-id="jgss">
+		<dynamic-content language-id="en_US"><![CDATA[Let your heart be your guide. Talk to trees, look at the birds. Whatever it takes. Just go back and put one little more happy tree in there. Just a happy little shadow that lives in there. We start with a vision in our heart, and we put it on canvas. There is immense joy in just watching - watching all the little creatures in nature.]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ServiceType02" type="text" index-type="keyword" instance-id="auhv">
+		<dynamic-content language-id="en_US"><![CDATA[Wordpress]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Service02Description" type="text" index-type="keyword" instance-id="hrfw">
+		<dynamic-content language-id="en_US"><![CDATA[Let your heart be your guide. Talk to trees, look at the birds. Whatever it takes. Just go back and put one little more happy tree in there. Just a happy little shadow that lives in there. We start with a vision in our heart, and we put it on canvas. There is immense joy in just watching - watching all the little creatures in nature.]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ServiceLink02" type="link_to_layout" index-type="keyword" instance-id="skpi">
+		<dynamic-content language-id="en_US"><![CDATA[11@public@20126]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ServiceType03" type="text" index-type="keyword" instance-id="kezf">
+		<dynamic-content language-id="en_US"><![CDATA[Social Media]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Service03Description" type="text" index-type="keyword" instance-id="wdsg">
+		<dynamic-content language-id="en_US"><![CDATA[Let your heart be your guide. Talk to trees, look at the birds. Whatever it takes. Just go back and put one little more happy tree in there. Just a happy little shadow that lives in there. We start with a vision in our heart, and we put it on canvas. There is immense joy in just watching - watching all the little creatures in nature.]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ServiceLink03" type="link_to_layout" index-type="keyword" instance-id="upkc">
+		<dynamic-content language-id="en_US"><![CDATA[17@public@20126]]></dynamic-content>
+	</dynamic-element>
+</root>

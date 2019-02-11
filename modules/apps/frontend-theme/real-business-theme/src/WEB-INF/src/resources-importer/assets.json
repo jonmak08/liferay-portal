@@ -1,0 +1,55 @@
+{
+	"assets": [
+		{
+			"name": "slider_01.jpg"
+		},
+		{
+			"name": "slider_02.jpg"
+		},
+		{
+			"name": "slider_03.jpg"
+		},
+		{
+			"name": "about_01.jpg"
+		},
+		{
+			"name": "blog_01.jpg"
+		},
+		{
+			"name": "blog_02.jpg"
+		},
+		{
+			"name": "blog_03.jpg"
+		},
+		{
+			"name": "bp_green.png"
+		},
+		{
+			"name": "client_01.jpg"
+		},
+		{
+			"name": "client_02.jpg"
+		},
+		{
+			"name": "client_03.jpg"
+		},
+		{
+			"name": "footer_logo.png"
+		},
+		{
+			"name": "parallax_01.jpg"
+		},
+		{
+			"name": "team_01.jpg"
+		},
+		{
+			"name": "team_02.jpg"
+		},
+		{
+			"name": "team_03.jpg"
+		},
+		{
+			"name": "team_04.jpg"
+		}
+	]
+}

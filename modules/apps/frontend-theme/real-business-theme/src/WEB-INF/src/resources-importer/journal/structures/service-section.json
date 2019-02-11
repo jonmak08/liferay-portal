@@ -1,0 +1,241 @@
+{
+  "availableLanguageIds": [
+      "en_US"
+  ],
+  "defaultLanguageId": "en_US",
+  "fields": [
+      {
+          "label": {
+              "en_US": "Our Services Heading"
+          },
+          "predefinedValue": {
+              "en_US": ""
+          },
+          "style": {
+              "en_US": ""
+          },
+          "tip": {
+              "en_US": ""
+          },
+          "dataType": "string",
+          "indexType": "keyword",
+          "localizable": true,
+          "name": "OurServicesHeading",
+          "readOnly": false,
+          "repeatable": false,
+          "required": false,
+          "showLabel": true,
+          "type": "text"
+      },
+      {
+          "label": {
+              "en_US": "Service Type 01"
+          },
+          "predefinedValue": {
+              "en_US": ""
+          },
+          "style": {
+              "en_US": ""
+          },
+          "tip": {
+              "en_US": ""
+          },
+          "dataType": "string",
+          "indexType": "keyword",
+          "localizable": true,
+          "name": "ServiceType01",
+          "readOnly": false,
+          "repeatable": false,
+          "required": false,
+          "showLabel": true,
+          "type": "text"
+      },
+      {
+          "label": {
+              "en_US": "Service Link 01"
+          },
+          "predefinedValue": {
+              "en_US": ""
+          },
+          "style": {
+              "en_US": ""
+          },
+          "tip": {
+              "en_US": ""
+          },
+          "dataType": "link-to-page",
+          "fieldNamespace": "ddm",
+          "indexType": "keyword",
+          "localizable": true,
+          "name": "ServiceLink01",
+          "readOnly": false,
+          "repeatable": false,
+          "required": false,
+          "showLabel": true,
+          "type": "ddm-link-to-page"
+      },
+      {
+          "label": {
+              "en_US": "Service 01 Description"
+          },
+          "predefinedValue": {
+              "en_US": ""
+          },
+          "style": {
+              "en_US": ""
+          },
+          "tip": {
+              "en_US": ""
+          },
+          "dataType": "string",
+          "indexType": "keyword",
+          "localizable": true,
+          "name": "Service01Description",
+          "readOnly": false,
+          "repeatable": false,
+          "required": false,
+          "showLabel": true,
+          "type": "text"
+      },
+      {
+          "label": {
+              "en_US": "Service Type 02"
+          },
+          "predefinedValue": {
+              "en_US": ""
+          },
+          "style": {
+              "en_US": ""
+          },
+          "tip": {
+              "en_US": ""
+          },
+          "dataType": "string",
+          "indexType": "keyword",
+          "localizable": true,
+          "name": "ServiceType02",
+          "readOnly": false,
+          "repeatable": false,
+          "required": false,
+          "showLabel": true,
+          "type": "text"
+      },
+      {
+          "label": {
+              "en_US": "Service 02 Description"
+          },
+          "predefinedValue": {
+              "en_US": ""
+          },
+          "style": {
+              "en_US": ""
+          },
+          "tip": {
+              "en_US": ""
+          },
+          "dataType": "string",
+          "indexType": "keyword",
+          "localizable": true,
+          "name": "Service02Description",
+          "readOnly": false,
+          "repeatable": false,
+          "required": false,
+          "showLabel": true,
+          "type": "text"
+      },
+      {
+          "label": {
+              "en_US": "Service Link 02"
+          },
+          "predefinedValue": {
+              "en_US": ""
+          },
+          "style": {
+              "en_US": ""
+          },
+          "tip": {
+              "en_US": ""
+          },
+          "dataType": "link-to-page",
+          "fieldNamespace": "ddm",
+          "indexType": "keyword",
+          "localizable": true,
+          "name": "ServiceLink02",
+          "readOnly": false,
+          "repeatable": false,
+          "required": false,
+          "showLabel": true,
+          "type": "ddm-link-to-page"
+      },
+      {
+          "label": {
+              "en_US": "Service Type 03"
+          },
+          "predefinedValue": {
+              "en_US": ""
+          },
+          "style": {
+              "en_US": ""
+          },
+          "tip": {
+              "en_US": ""
+          },
+          "dataType": "string",
+          "indexType": "keyword",
+          "localizable": true,
+          "name": "ServiceType03",
+          "readOnly": false,
+          "repeatable": false,
+          "required": false,
+          "showLabel": true,
+          "type": "text"
+      },
+      {
+          "label": {
+              "en_US": "Service 03 Description"
+          },
+          "predefinedValue": {
+              "en_US": ""
+          },
+          "style": {
+              "en_US": ""
+          },
+          "tip": {
+              "en_US": ""
+          },
+          "dataType": "string",
+          "indexType": "keyword",
+          "localizable": true,
+          "name": "Service03Description",
+          "readOnly": false,
+          "repeatable": false,
+          "required": false,
+          "showLabel": true,
+          "type": "text"
+      },
+      {
+          "label": {
+              "en_US": "Service Link 03"
+          },
+          "predefinedValue": {
+              "en_US": ""
+          },
+          "style": {
+              "en_US": ""
+          },
+          "tip": {
+              "en_US": ""
+          },
+          "dataType": "link-to-page",
+          "fieldNamespace": "ddm",
+          "indexType": "keyword",
+          "localizable": true,
+          "name": "ServiceLink03",
+          "readOnly": false,
+          "repeatable": false,
+          "required": false,
+          "showLabel": true,
+          "type": "ddm-link-to-page"
+      }
+  ]
+}

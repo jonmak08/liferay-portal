@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="AboutUsTitle" type="text" index-type="keyword" instance-id="dcxm">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="AboutUsDescription1" type="text_box" index-type="text" instance-id="hyrz">
+		<dynamic-content language-id="en_US"><![CDATA[Now we don't want him to get lonely, so we'll give him a little friend. For the lack of a better word I call them hangy downs. Just let go - and fall like a little waterfall. You're the greatest thing that has ever been or ever will be. You're special. You're so very special. That's what makes life fun. That you can make these decisions. That you can create the world that you want.]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="AboutUsLink" type="link_to_layout" index-type="keyword" instance-id="hdal">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Textd3b7" type="text" index-type="keyword" instance-id="tmrf">
+		<dynamic-content language-id="en_US"><![CDATA[Learn More]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="AboutUsImage" type="image" index-type="text" instance-id="wkmb">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"34000","name":"about_01.jpg","alt":"","title":"about_01.jpg","type":"document","uuid":"edd73cc4-8476-aab8-4a31-24a47eacc3dd","fileEntryId":"34036","resourcePrimKey":"34147"}]]></dynamic-content>
+	</dynamic-element>
+</root>
