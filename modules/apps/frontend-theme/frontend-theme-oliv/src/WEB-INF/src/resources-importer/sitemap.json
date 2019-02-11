@@ -1,0 +1,166 @@
+{
+	"layoutTemplateId": "1_column",
+	"publicPages": [
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "ImageCarousel.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					},
+					{
+						"portletId": "com_liferay_blogs_web_portlet_BlogsPortlet",
+						"portletPreferences": {
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					}
+				]
+			],
+			"friendlyURL": "/home",
+			"name": "Home",
+			"title": "Home"
+		},
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "ImageCarousel.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					}
+				],
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "SamplePage.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					}
+				],
+				[
+					{
+						"portletId": "com_liferay_portal_search_web_search_bar_portlet_SearchBarPortlet"
+					},
+					{
+						"portletId": "com_liferay_portal_search_web_search_results_portlet_SearchResultsPortlet"
+					},
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "RecentPosts.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					},
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "RecentComments.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					},
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Archives.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					},
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "Categories.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					}
+
+				]
+			],
+			"friendlyURL": "/sample-page",
+			"name": "Sample Page",
+			"title": "Sample",
+			"layoutTemplateId": "1_2_columns_ii",
+		},
+		{
+			"columns": [
+				[
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "ImageCarousel.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					},
+					{
+						"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+						"portletPreferences": {
+							"articleId": "FullWidth.xml",
+							"groupId": "${groupId}",
+							"portletSetupPortletDecoratorId": "barebone"
+						}
+					}
+				]
+			],
+			"friendlyURL": "/full-width",
+			"name": "Full Width",
+			"title": "Full Width"
+		},
+		{
+			"friendlyURL": "/dropdown",
+			"layouts": [
+				{
+					"friendlyURL": "/city",
+					"name": "City",
+					"title": "City"
+				},
+				{
+					"friendlyURL": "/people",
+					"name": "People",
+					"title": "People"
+				},
+				{
+					"friendlyURL": "/city-view",
+					"name": "City View",
+					"title": "City View"
+				},
+				{
+					"friendlyURL": "/Winter",
+					"name": "Winter",
+					"title": "Winter"
+				},
+				{
+					"friendlyURL": "/winter",
+					"layouts": [
+						{
+							"friendlyURL": "/Hat",
+							"name": "Hat",
+							"title": "Hat"
+						},
+						{
+							"friendlyURL": "/snow",
+							"name": "Snow",
+							"title": "Snow"
+						}
+					],
+					"name": "Winter",
+					"title": "Winter"
+				}
+			],
+			"name": "Dropdown",
+			"title": "Dropdown"
+		}
+	]
+}

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="SectionHeader" type="text" index-type="keyword" instance-id="koio">
+		<dynamic-content language-id="en_US"><![CDATA[Recent Posts]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="TagName" type="text" index-type="keyword" instance-id="jdqw">
+		<dynamic-element name="TagLink" instance-id="ljxe" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[City View]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="TagName" type="text" index-type="keyword" instance-id="sqkq">
+		<dynamic-element name="TagLink" instance-id="vyya" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Skate Park]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="TagName" type="text" index-type="keyword" instance-id="fqqn">
+		<dynamic-element name="TagLink" instance-id="rimc" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Path]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="TagName" type="text" index-type="keyword" instance-id="qvcw">
+		<dynamic-element name="TagLink" instance-id="zjfi" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Passing by]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="TagName" type="text" index-type="keyword" instance-id="xwtu">
+		<dynamic-element name="TagLink" instance-id="mbnv" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Winter Hat]]></dynamic-content>
+	</dynamic-element>
+</root>

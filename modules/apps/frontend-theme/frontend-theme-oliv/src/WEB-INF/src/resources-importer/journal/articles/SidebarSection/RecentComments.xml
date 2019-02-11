@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="SectionHeader" type="text" index-type="keyword" instance-id="amxc">
+		<dynamic-content language-id="en_US"><![CDATA[Recent Comments]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="TagName" type="text" index-type="keyword" instance-id="cblx">
+		<dynamic-element name="TagLink" instance-id="czgf" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[A WordPress Commenter on Teddy]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="TagName" type="text" index-type="keyword" instance-id="pabh">
+		<dynamic-element name="TagLink" instance-id="enhi" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[A WordPress Commenter on City]]></dynamic-content>
+	</dynamic-element>
+</root>

@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="Header" type="text" index-type="keyword" instance-id="vpdd">
+		<dynamic-content language-id="en_US"><![CDATA[Full Width]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="ArticleHTML" type="text_area" index-type="text" instance-id="ulbh">
+		<dynamic-content language-id="en_US"><![CDATA[<p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words.</p>
+
+<p>If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages. The new common language will be more simple and regular than the existing European languages. It will be as simple as Occidenta<img src="[$FILE=entry.jpg$]" style="float: left;" />l; in fact, it will be Occidental. To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental is. The European languages are members of the same family. Their separate existence is a myth.</p>
+
+<p>For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words. If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages. The new common language will be more simple and regular than the existing European languages.</p>
+
+<p>It will be as simple as Occidental; in fact, it will be Occidental. To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental is. The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators.</p>
+
+<p>To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words. If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages. The new common language will be more simple and regular than the existing European languages. It will be as simple as Occidental; in fact, it will be Occidental. To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental is. The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary.</p>
+
+<p>The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators.</p>
+
+<div class="portlet-msg-info">For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words. Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words. If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages. The new common language will be more simple and regular than the existing European languages.</div>
+
+<p>It will be as simple as Occidental;<em> in fact, it will be Occidental</em>. To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental is.</p>
+
+<ul>
+	<li>The European languages are members of the same family.</li>
+	<li>Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary.</li>
+	<li>The languages only differ in their grammar, their pronunciation and their most common words.</li>
+	<li>Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators.</li>
+</ul>
+
+<p>To achieve this,<strong> it would be necessary to have</strong>&nbsp;uniform grammar, pronunciation and more common words. If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages.</p>
+
+<ol>
+	<li>The new common language will be more simple and regular than the existing European languages.</li>
+	<li>It will be as simple as Occidental; in fact, it will be Occidental.</li>
+</ol>
+
+<p>To an English person, it will seem like simplified <strong>English</strong>, as a skeptical <strong>Cambridge&nbsp;</strong>friend of mine told me what Occidental is. The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary.&nbsp;<strong>Cambridge</strong>&nbsp;friend of mine told me what Occidental is. The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary.</p>]]></dynamic-content>
+	</dynamic-element>
+</root>

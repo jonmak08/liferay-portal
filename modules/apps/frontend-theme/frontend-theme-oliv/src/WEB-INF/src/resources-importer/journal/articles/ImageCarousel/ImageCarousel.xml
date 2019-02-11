@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+    <dynamic-element name="CarouselImage" type="image" index-type="text" instance-id="iqvc">
+        <dynamic-content language-id="en_US"><![CDATA[{"groupId":"33989","name":"path.jpg","alt":"Path","title":"path.jpg","type":"document","uuid":"1b1afe15-4236-c91f-7b7b-b39ee3089638","fileEntryId":"34060","resourcePrimKey":"36087"}]]></dynamic-content>
+    </dynamic-element>
+    <dynamic-element name="CarouselImage" type="image" index-type="text" instance-id="hryi">
+        <dynamic-content language-id="en_US"><![CDATA[{"groupId":"33989","name":"passing_by.jpg","alt":"Passing By","title":"passing_by.jpg","type":"document","uuid":"89b86d38-a644-ed37-4a22-52e8304aacdf","fileEntryId":"34056","resourcePrimKey":"36087"}]]></dynamic-content>
+    </dynamic-element>
+    <dynamic-element name="CarouselImage" type="image" index-type="text" instance-id="nldy">
+        <dynamic-content language-id="en_US"><![CDATA[{"groupId":"33989","name":"city_view.jpg","alt":"City View","title":"city_view.jpg","type":"document","uuid":"1269107d-ef08-b7c2-4112-24f718ef98db","fileEntryId":"34046","resourcePrimKey":"36087"}]]></dynamic-content>
+    </dynamic-element>
+    <dynamic-element name="CarouselImage" type="image" index-type="text" instance-id="sbrl">
+        <dynamic-content language-id="en_US"><![CDATA[{"groupId":"33989","name":"skate_park.jpg","alt":"Skate Park","title":"skate_park.jpg","type":"document","uuid":"47fa37ca-d842-1528-bbc6-671d80d210eb","fileEntryId":"34068","resourcePrimKey":"36087"}]]></dynamic-content>
+    </dynamic-element>
+    <dynamic-element name="CarouselImage" type="image" index-type="text" instance-id="luis">
+        <dynamic-content language-id="en_US"><![CDATA[{"groupId":"33989","name":"teddy.jpg","alt":"Teddy","title":"teddy.jpg","type":"document","uuid":"caacc401-2ac4-0268-48ab-91c0f348fb1c","fileEntryId":"34072","resourcePrimKey":"36087"}]]></dynamic-content>
+    </dynamic-element>
+    <dynamic-element name="CarouselImage" type="image" index-type="text" instance-id="gcpj">
+        <dynamic-content language-id="en_US"><![CDATA[{"groupId":"33989","name":"winter_hat.jpg","alt":"Winter Hat","title":"winter_hat.jpg","type":"document","uuid":"b1f1db41-e2e8-8174-1ef1-dd3571a0d3df","fileEntryId":"34076","resourcePrimKey":"36087"}]]></dynamic-content>
+    </dynamic-element>
+</root>

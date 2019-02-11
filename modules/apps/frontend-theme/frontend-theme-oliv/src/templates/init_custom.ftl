@@ -1,23 +1,17 @@
 <#assign
-	show_site_logo = getterUtil.getBoolean(themeDisplay.getThemeSetting("show-site-logo"))
-	title_text = getterUtil.getString(themeDisplay.getThemeSetting("title-text"))
 	description_text = getterUtil.getString(themeDisplay.getThemeSetting("description-text"))
 	facebook_handle = getterUtil.getString(themeDisplay.getThemeSetting("facebook-handle"))
 	instagram_handle = getterUtil.getString(themeDisplay.getThemeSetting("instagram-handle"))
-	twitter_handle = getterUtil.getString(themeDisplay.getThemeSetting("twitter-handle"))
 	linkedin_handle = getterUtil.getString(themeDisplay.getThemeSetting("linkedin-handle"))
 	pinterest_handle = getterUtil.getString(themeDisplay.getThemeSetting("pinterest-handle"))
+	show_site_logo = getterUtil.getBoolean(themeDisplay.getThemeSetting("show-site-logo"))
+	title_text = getterUtil.getString(themeDisplay.getThemeSetting("title-text"))
+	twitter_handle = getterUtil.getString(themeDisplay.getThemeSetting("twitter-handle"))
+	wrap_content = getterUtil.getBoolean(themeDisplay.getThemeSetting("wrap-content"))
 />
 
-<#assign
-	facebook = "http://facebook.com/${facebook_handle}"
-	instagram = "http://instagram.com/${instagram_handle}"
-	pinterest = "http://pinterest.com/${pinterest_handle}"
-	twitter = "http://twitter.com/${twitter_handle}"
-/>
-
-<#if linkedin_handle?has_content>
-	<#assign linkedin = "http://linkedin.com/in/${linkedin_handle}" />
+<#if wrap_content>
+	<#assign portal_content_css_class = "container" />
 <#else>
-	<#assign linkedin = "http://linkedin.com/" />
+	<#assign portal_content_css_class = "" />
 </#if>

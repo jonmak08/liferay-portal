@@ -20,10 +20,15 @@
 
 <@liferay.control_menu />
 
-<#assign preferences = freeMarkerPortletPreferences.getPreferences({"portletSetupPortletDecoratorId": "barebone"}) />
+<#assign
+    preferences = freeMarkerPortletPreferences.getPreferences(
+        {
+            "portletSetupPortletDecoratorId": "barebone"
+        }
+    )
+/>
 
 <div class="pt-0" id="wrapper">
-
     <div class="page-container">
         <div class="wrap-container">
 
@@ -31,27 +36,45 @@
                 <div class="top-bar">
                     <nav class="social-navigation">
                         <ul id="menu-social">
-                            <li>
-                                <a href="${facebook}" target="_blank"></a>
-                            </li>
-                            <li>
-                                <a href="${instagram}" target="_blank"></a>
-                            </li>
-                            <li>
-                                <a href="${twitter}" target="_blank"></a>
-                            </li>
-                            <li>
-                                <a href="${linkedin}" target="_blank"></a>
-                            </li>
-                            <li>
-                                <a href="${pinterest}" target="_blank"></a>
-                            </li>
+
+                            <#if facebook_handle?has_content>
+                                <li title="@${facebook_handle}">
+                                    <a href="http://facebook.com/${facebook_handle}" target="_blank"></a>
+                                </li>
+                            </#if>
+
+                            <#if instagram_handle?has_content>
+                                <li title="@${instagram_handle}">
+                                    <a href="http://instagram.com/${instagram_handle}" target="_blank"></a>
+                                </li>
+                            </#if>
+
+                            <#if twitter_handle?has_content>
+                                <li title="@${twitter_handle}">
+                                    <a href="http://twitter.com/${twitter_handle}" target="_blank"></a>
+                                </li>
+                            </#if>
+
+                            <#if linkedin_handle?has_content>
+                                <li title="@${linkedin_handle}">
+                                    <a href="http://linkedin.com/in/${linkedin_handle}" target="_blank"></a>
+                                </li>
+                            </#if>
+
+                            <#if pinterest_handle?has_content>
+                                <li title="@${pinterest_handle}">
+                                    <a href="http://pinterest.com/${pinterest_handle}" target="_blank"></a>
+                                </li>
+                            </#if>
+
                         </ul>
                     </nav>
+
                     <div class="menu-login">
                         <@liferay.user_personal_bar />
                     </div>
                 </div>
+
                 <div class="site-container">
                     <div class="site-branding">
                         <h1 class="site-title">
@@ -65,18 +88,21 @@
                         </h2>
                     </div>
                 </div>
-                <span class="toggle-navigation" onclick="toggleNav()">&#9776;</span>
-                <div class="main-navigation" id="main-navigation" role="navigation">
-                    <div class="nested-navigation">
-                        <#if has_navigation && is_setup_complete>
-                            <@liferay.navigation_menu default_preferences="${preferences}" />
-                        </#if>
-                    </div>
+
+                <div class="main-navigation" role="navigation">
+                    <span class="toggle-navigation" id="toggle-navigation">&#9776;</span>
+                    <#if has_navigation && is_setup_complete>
+                        <div class="nested-navigation" id="nested-navigation">
+                            <#include "${full_templates_path}/navigation.ftl" />
+                        </div>
+                    </#if>
                 </div>
             </header>
 
-            <section class="portlet-container" id="content">
-                <h1 class="sr-only">${the_title}</h1>
+            <section class="${portal_content_css_class}" id="content">
+                <h1 class="sr-only">
+                    ${the_title}
+                </h1>
 
                 <#if selectable>
                     <@liferay_util["include"] page=content_include />
@@ -108,17 +134,6 @@
 <@liferay_util["include"] page=body_bottom_include />
 
 <@liferay_util["include"] page=bottom_include />
-
-<script>
-    function toggleNav() {
-        if (document.getElementById('main-navigation').style.display === 'none') {
-            document.getElementById('main-navigation').style.display = 'block';
-        }
-        else {
-            document.getElementById('main-navigation').style.display = 'none';
-        }
-    }
-</script>
 
 </body>
 
