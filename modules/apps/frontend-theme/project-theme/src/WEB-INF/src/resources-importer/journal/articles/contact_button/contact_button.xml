@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="buttonText" type="text" index-type="keyword" instance-id="tdtt">
+		<dynamic-content language-id="en_US"><![CDATA[Toggle Contact Form]]></dynamic-content>
+	</dynamic-element>
+</root>

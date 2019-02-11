@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!DOCTYPE look-and-feel PUBLIC "-//Liferay//DTD Look and Feel 7.0.0//EN" "http://www.liferay.com/dtd/liferay-look-and-feel_7_0_0.dtd">
+
+<look-and-feel>
+	<compatibility>
+		<version>7.1.1+</version>
+	</compatibility>
+	<theme id="project-theme" name="project-theme">
+		<template-extension>ftl</template-extension>
+		<settings>
+			<setting configurable="true" key="show-footer" type="checkbox" value="true" />
+			<setting configurable="true" key="show-header" type="checkbox" value="true" />
+			<setting configurable="true" key="show-header-search" type="checkbox" value="true" />
+			<setting configurable="true" key="show-maximize-minimize-application-links" type="checkbox" value="false" />
+			<setting configurable="false" key="show-site-name-default" value="true" />
+			<setting configurable="false" key="show-site-name-supported" value="true" />
+			<setting configurable="true" key="show-site-description" type="checkbox" value="true" />
+			<setting configurable="true" key="site-description-text" type="text" value="THBusiness WordPress Theme by ThemezHut is a simple light wordpress theme that is best for business websites or blogs. It is created with twitter bootstrap so it can be perfectly viewed on any viewing environment. And it has a full width slider which is made with flexslider.It has a theme options panel. So you can create your website without touching a single line of code." />
+			<setting configurable="true" key="wrap-content" type="checkbox" value="false" />
+			<setting configurable="true" key="show-instagram" type="checkbox" value="true" />
+			<setting configurable="true" key="instagram-url" type="text" value="http://www.instagram.com" />
+			<setting configurable="true" key="show-facebook" type="checkbox" value="true" />
+			<setting configurable="true" key="facebook-url" type="text" value="http://www.facebook.com" />
+			<setting configurable="true" key="show-twitter" type="checkbox" value="true" />
+			<setting configurable="true" key="twitter-url" type="text" value="http://www.twitter.com" />
+			<setting configurable="true" key="show-googleplus" type="checkbox" value="true" />
+			<setting configurable="true" key="googleplus-url" type="text" value="http://www.plus.google.com" />
+			<setting configurable="true" key="show-linkedin" type="checkbox" value="true" />
+			<setting configurable="true" key="linkedin-url" type="text" value="http://www.linkedin.com" />
+			<setting configurable="true" key="show-youtube" type="checkbox" value="true" />
+			<setting configurable="true" key="youtube-url" type="text" value="http://www.youtube.com" />
+			<setting configurable="true" key="show-dribbble" type="checkbox" value="true" />
+			<setting configurable="true" key="dribbble-url" type="text" value="http://www.dribbble.com" />
+			<setting configurable="true" key="show-github" type="checkbox" value="true" />
+			<setting configurable="true" key="github-url" type="text" value="http://www.github.com" />
+			<setting configurable="true" key="show-phone" type="checkbox" value="true" />
+			<setting configurable="true" key="phone-url" type="text" value="Call us: 555-555-5555" />
+			<setting configurable="true" key="show-email" type="checkbox" value="true" />
+			<setting configurable="true" key="email-url" type="text" value="Test@liferay.com" />
+
+			<setting configurable="true" key="show-footer-heading-1" type="checkbox" value="true" />
+			<setting configurable="true" key="footer-heading-1-text" type="text" value="Header 1" />
+
+			<setting configurable="true" key="show-link-1" type="checkbox" value="true" />
+			<setting configurable="true" key="link-1-text" type="text" value="Google" />
+			<setting configurable="true" key="link-1-url" type="text" value="http://www.google.com" />
+			<setting configurable="true" key="show-link-2" type="checkbox" value="true" />
+			<setting configurable="true" key="link-2-text" type="text" value="Google" />
+			<setting configurable="true" key="link-2-url" type="text" value="http://www.google.com" />
+			<setting configurable="true" key="show-link-3" type="checkbox" value="true" />
+			<setting configurable="true" key="link-3-text" type="text" value="Google" />
+			<setting configurable="true" key="link-3-url" type="text" value="http://www.google.com" />
+			<setting configurable="true" key="show-link-4" type="checkbox" value="true" />
+			<setting configurable="true" key="link-4-text" type="text" value="Google" />
+			<setting configurable="true" key="link-4-url" type="text" value="http://www.google.com" />
+			<setting configurable="true" key="show-link-5" type="checkbox" value="true" />
+			<setting configurable="true" key="link-5-text" type="text" value="Google" />
+			<setting configurable="true" key="link-5-url" type="text" value="http://www.google.com" />
+
+			<setting configurable="true" key="show-footer-heading-2" type="checkbox" value="true" />
+			<setting configurable="true" key="footer-heading-2-text" type="text" value="Header 2" />
+
+			<setting configurable="true" key="show-link-6" type="checkbox" value="true" />
+			<setting configurable="true" key="link-6-text" type="text" value="Google" />
+			<setting configurable="true" key="link-6-url" type="text" value="http://www.google.com" />
+			<setting configurable="true" key="show-link-7" type="checkbox" value="true" />
+			<setting configurable="true" key="link-7-text" type="text" value="Google" />
+			<setting configurable="true" key="link-7-url" type="text" value="http://www.google.com" />
+			<setting configurable="true" key="show-link-8" type="checkbox" value="true" />
+			<setting configurable="true" key="link-8-text" type="text" value="Google" />
+			<setting configurable="true" key="link-8-url" type="text" value="http://www.google.com" />
+			<setting configurable="true" key="show-link-9" type="checkbox" value="true" />
+			<setting configurable="true" key="link-9-text" type="text" value="Google" />
+			<setting configurable="true" key="link-9-url" type="text" value="http://www.google.com" />
+			<setting configurable="true" key="show-link-10" type="checkbox" value="true" />
+			<setting configurable="true" key="link-10-text" type="text" value="Google" />
+			<setting configurable="true" key="link-10-url" type="text" value="http://www.google.com" />
+
+		</settings>
+		<roles>
+			<role-name>User</role-name>
+		</roles>
+		<portlet-decorator id="barebone" name="Barebone">
+			<default-portlet-decorator>true</default-portlet-decorator>
+			<portlet-decorator-css-class>portlet-barebone</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="borderless" name="Borderless">
+			<portlet-decorator-css-class>portlet-borderless</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="decorate" name="Decorate">
+			<portlet-decorator-css-class>portlet-decorate</portlet-decorator-css-class>
+		</portlet-decorator>
+	</theme>
+</look-and-feel>

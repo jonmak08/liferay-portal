@@ -1,0 +1,61 @@
+.navbar-top {
+	background-color: #333;
+	height: 40px;
+}
+
+.navbar-blank {
+	flex-wrap: wrap;
+}
+
+.navbar-classic {
+	background-color: $complementary-color;
+
+	.navbar-blank {
+		@include media-query(null, $screen-xs-max) {
+			margin-top: 2rem;
+		}
+	}
+
+	.navbar-form {
+		padding: 0;
+
+		.field-wrapper {
+			right: 0;
+			top: 0;
+
+			.lfr-icon-item {
+				color: #BBB;
+			}
+		}
+	}
+
+	.portlet-search-bar {
+		@include media-breakpoint-down(sm) {
+			width: 100%;
+		}
+	}
+
+	.logo:hover {
+		text-decoration: none;
+	}
+
+	.navbar-nav {
+		.nav-item:not(:last-of-type) {
+			.nav-link {
+				@include lg {
+					margin-right: 16px;
+				}
+			}
+		}
+	}
+
+	.nav-link {
+		color: #BBB;
+		font-size: 0.938rem;
+		font-weight: 600;
+	}
+	
+	.nav-link:hover {
+		color: #EB5937;
+	}
+}

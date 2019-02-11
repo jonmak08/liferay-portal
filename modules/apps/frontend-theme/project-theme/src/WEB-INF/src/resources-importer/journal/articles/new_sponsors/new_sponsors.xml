@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="SponsorImage" type="image" index-type="text" instance-id="skee">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"buddypress_logo.png","alt":"","title":"buddypress_logo.png","type":"document","uuid":"234a4025-f112-ca54-0843-cc1e2892b067","fileEntryId":"128626","resourcePrimKey":"128674"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="SponsorImage" type="image" index-type="text" instance-id="zyhj">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"wordpress_logo.png","alt":"","title":"wordpress_logo.png","type":"document","uuid":"d95997d1-7f77-a72f-5e1d-374ebf76f2bc","fileEntryId":"128638","resourcePrimKey":"128674"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="SponsorImage" type="image" index-type="text" instance-id="iaam">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"bbpress_logo.png","alt":"","title":"bbpress_logo.png","type":"document","uuid":"e2be13be-c9d1-3c4b-037d-6e2c47a9a8ce","fileEntryId":"128650","resourcePrimKey":"128674"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="SponsorImage" type="image" index-type="text" instance-id="pvrn">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"jquery_logo.png","alt":"","title":"jquery_logo.png","type":"document","uuid":"5effb1d8-363c-635e-d2ba-7f97b00e5634","fileEntryId":"128662","resourcePrimKey":"128674"}]]></dynamic-content>
+	</dynamic-element>
+</root>

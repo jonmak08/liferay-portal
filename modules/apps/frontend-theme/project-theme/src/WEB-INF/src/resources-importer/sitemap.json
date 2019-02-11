@@ -1,0 +1,111 @@
+{
+  "layoutTemplateId": "1_column",
+  "publicPages": [
+    {
+      "columns": [
+        [
+          {
+            "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+            "portletPreferences": {
+              "articleId": "new_carousel.xml",
+              "groupId": "${groupId}",
+              "portletSetupPortletDecoratorId": "barebone"
+            }
+          },
+          {
+            "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+            "portletPreferences": {
+              "articleId": "services.xml",
+              "groupId": "${groupId}",
+              "portletSetupPortletDecoratorId": "barebone"
+            }
+          },
+          {
+            "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+            "portletPreferences": {
+              "articleId": "recent_work.xml",
+              "groupId": "${groupId}",
+              "portletSetupPortletDecoratorId": "barebone"
+            }
+          },
+          {
+            "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+            "portletPreferences": {
+              "articleId": "sample_and_client.xml",
+              "groupId": "${groupId}",
+              "portletSetupPortletDecoratorId": "barebone"
+            }
+          },
+          {
+            "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+            "portletPreferences": {
+              "articleId": "new_sponsors.xml",
+              "groupId": "${groupId}",
+              "portletSetupPortletDecoratorId": "barebone"
+            }
+          },
+          {
+            "portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+            "portletPreferences": {
+              "articleId": "contact_button.xml",
+              "groupId": "${groupId}",
+              "portletSetupPortletDecoratorId": "barebone"
+            }
+          },
+          {
+            "portletId": "com_liferay_dynamic_data_mapping_form_web_portlet_DDMFormPortlet",
+            "portletPreferences": {
+                "description" : "Lorem ipsum dolor sit amet, lohtil consectetur adipiscing elit. Vivamus feugiat, augue in sollicitudin blandit, magna purus bibendum justo, quisnic scelerisque ipsum turpis eu dui. Nunc lobortis, augue ac viverra convallis.",
+                "fieldLabel1": "Full Name",
+                "fieldLabel2": "Email",
+                "fieldsEditingDisabled": "true",
+                "fieldType1": "text",
+                "fieldType2": "text",
+                "fieldType3": "textarea",
+                "fieldValue": "Write your short description here",
+                "portletSetupCss": {
+                  "advancedData": {
+                    "customCSSClassName": "make-appointment"
+                  }
+                },
+                "portletSetupShowBorders": "false",
+                "title" : "Seeing your Doctor, made easy"
+            }
+          }
+        ]  
+      ],
+      "friendlyURL": "/home",
+      "name": "Home",
+      "title": "Home"
+    },
+    {
+      "friendlyURL": "/blog",
+      "layouts": [
+        {
+            "friendlyURL": "/child-page-1",
+            "layouts": [
+              {
+                "friendlyURL": "/grandchild-page-1",
+                "name": "Grandchild Page 1",
+                "title": "Grandchild Page 1"
+              }
+            ],
+            "name": "Child Page 1",
+            "title": "Child Page 1"
+        },
+        {
+            "friendlyURL": "/child-page-2",
+            "name": "Child Page 2",
+            "title": "Child Page 2"
+        }
+    ],
+      "name": "Blog",
+      "title": "Blog"
+    },
+    {
+      "friendlyURL": "/search",
+      "name": "Search",
+      "title": "Search"
+    }
+  ]
+}

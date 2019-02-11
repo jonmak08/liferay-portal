@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="Textet19" type="text" index-type="keyword" instance-id="idra">
+		<dynamic-content language-id="en_US"><![CDATA[Regular Updates]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="TextBoxfycv" type="text_box" index-type="text" instance-id="ouhk">
+		<dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, ocurreret urbanitas persequeris ei vis. Cum in laoreet efficiendi, sed harum tantas ut. Nec alia illud dicunt cu, utroque docendi apeirian per eu. Usu cu…]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="FeatureLink" type="link_to_layout" index-type="keyword" instance-id="ximm">
+		<dynamic-content language-id="en_US"><![CDATA[2@public@20126]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Text231a" type="text" index-type="keyword" instance-id="fiio">
+		<dynamic-content language-id="en_US"><![CDATA[Unlimited Support]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="TextBox8kcm" type="text_box" index-type="text" instance-id="qysl">
+		<dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, ocurreret urbanitas persequeris ei vis. Cum in laoreet efficiendi, sed harum tantas ut. Nec alia illud dicunt cu, utroque docendi apeirian per eu. Usu cu…]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="LinkToPagei23k" type="link_to_layout" index-type="keyword" instance-id="fvjo">
+		<dynamic-content language-id="en_US"><![CDATA[15@public@20126]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Text8imc" type="text" index-type="keyword" instance-id="rmyv">
+		<dynamic-content language-id="en_US"><![CDATA[Crafted with Love]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="TextBoxhln4" type="text_box" index-type="text" instance-id="iwmd">
+		<dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, ocurreret urbanitas persequeris ei vis. Cum in laoreet efficiendi, sed harum tantas ut. Nec alia illud dicunt cu, utroque docendi apeirian per eu. Usu cu…]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="LinkToPagec7f8" type="link_to_layout" index-type="keyword" instance-id="kcag">
+		<dynamic-content language-id="en_US"><![CDATA[16@public@20126]]></dynamic-content>
+	</dynamic-element>
+</root>

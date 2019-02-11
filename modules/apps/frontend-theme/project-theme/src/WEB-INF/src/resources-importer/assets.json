@@ -1,0 +1,55 @@
+{
+    "assets": [
+        {
+            "name": "bbpress_logo.png"
+        },
+        {
+            "name": "buddypress_logo.png"
+        },
+        {
+            "name": "carousel_1.png"
+        },
+        {
+            "name": "carousel_2.png"
+        },
+        {
+            "name": "carousel_3.png"
+        },
+        {
+            "name": "carousel_4.png"
+        },
+        {
+            "name": "client_1.jpg"
+        },
+        {
+            "name": "client_2.jpg"
+        },
+        {
+            "name": "client_3.jpg"
+        },
+        {
+            "name": "jquery_logo.png"
+        },
+        {
+            "name": "sample_page.jpg"
+        },
+        {
+            "name": "thbusiness_logo.png"
+        },
+        {
+            "name": "wordpress_logo.png"
+        },
+        {
+            "name": "work_1.jpg"
+        },
+        {
+            "name": "work_2.jpg"
+        },
+        {
+            "name": "work_3.jpg"
+        },
+        {
+            "name": "work_4.jpg"
+        }
+    ]
+}

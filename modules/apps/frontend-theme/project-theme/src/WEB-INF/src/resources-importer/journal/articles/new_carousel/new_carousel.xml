@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="CarouselImage" type="image" index-type="text" instance-id="zuqx">
+		<dynamic-element name="CarouselHeading" instance-id="gtfm" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[An Amazing Wordpress Theme]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="CarouselDescription" instance-id="kvzj" type="text_box" index-type="text">
+			<dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec mollis. Quisque convallis libero in sapien pharetra tincidunt. Aliquam elit ante, malesuada id, tempor eu, gravida id, odio.]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="CarouselButtonText" instance-id="qpkn" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Download Theme Now]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"carousel_1.png","alt":"","title":"carousel_1.png","type":"document","uuid":"b1efa306-a269-cc1d-edb6-65fdb2eefd55","fileEntryId":"133500","resourcePrimKey":"133524"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="CarouselImage" type="image" index-type="text" instance-id="pcsd">
+		<dynamic-element name="CarouselHeading" instance-id="fqtg" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Enjoy Your Freedom]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="CarouselDescription" instance-id="cram" type="text_box" index-type="text">
+			<dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec mollis. Quisque convallis libero in sapien pharetra tincidunt. Aliquam elit ante, malesuada id, tempor eu, gravida id, odio.]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="CarouselButtonText" instance-id="arwb" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Read More]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"carousel_2.png","alt":"","title":"carousel_2.png","type":"document","uuid":"6e7ef990-38c6-e775-3cb2-8baa75a93304","fileEntryId":"133512","resourcePrimKey":"133524"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="CarouselImage" type="image" index-type="text" instance-id="wwqx">
+		<dynamic-element name="CarouselHeading" instance-id="zqgf" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[You Are Note Alone]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="CarouselDescription" instance-id="hutg" type="text_box" index-type="text">
+			<dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec mollis. Quisque convallis libero in sapien pharetra tincidunt. Aliquam elit ante, malesuada id, tempor eu, gravida id, odio.]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="CarouselButtonText" instance-id="gjaw" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Get Free Support]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"carousel_3.png","alt":"","title":"carousel_3.png","type":"document","uuid":"ea69b177-0757-3532-5951-568d729c0731","fileEntryId":"133538","resourcePrimKey":"133524"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="CarouselImage" type="image" index-type="text" instance-id="xvor">
+		<dynamic-element name="CarouselHeading" instance-id="yqdx" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Get Your Job Done Easily]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="CarouselDescription" instance-id="brdl" type="text_box" index-type="text">
+			<dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec mollis. Quisque convallis libero in sapien pharetra tincidunt. Aliquam elit ante, malesuada id, tempor eu, gravida id, odio.]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="CarouselButtonText" instance-id="sssn" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Read More]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"carousel_4.png","alt":"","title":"carousel_4.png","type":"document","uuid":"2eac722c-864a-46b8-4a79-b0d77e453fe1","fileEntryId":"133550","resourcePrimKey":"133524"}]]></dynamic-content>
+	</dynamic-element>
+</root>
