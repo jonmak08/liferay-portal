@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="Imageftca" type="image" index-type="text" instance-id="weas">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"buddypress_logo.png","alt":"","title":"buddypress_logo.png","type":"journal","uuid":"061104ad-ff32-2dc4-07a1-8bbe692af3c6","fileEntryId":"73143","resourcePrimKey":"73141"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Image9548" type="image" index-type="text" instance-id="bawm">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"wordpress-logo-hoz-rgb.png","alt":"","title":"wordpress-logo-hoz-rgb.png","type":"journal","uuid":"5842d5ea-de5a-d2f9-590e-5d84857b2553","fileEntryId":"73148","resourcePrimKey":"73141"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Imagehamb" type="image" index-type="text" instance-id="dcym">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"bbpress-logo.png","alt":"","title":"bbpress-logo.png","type":"journal","uuid":"c9eba49e-0bc7-6dc7-4862-b944f907bd95","fileEntryId":"73153","resourcePrimKey":"73141"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Imageid0o" type="image" index-type="text" instance-id="mdhp">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"jquery-logo.png","alt":"","title":"jquery-logo.png","type":"journal","uuid":"99263a0c-e451-90bb-929e-2142ab0fbbdf","fileEntryId":"73158","resourcePrimKey":"73141"}]]></dynamic-content>
+	</dynamic-element>
+</root>

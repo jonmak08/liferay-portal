@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!DOCTYPE look-and-feel PUBLIC "-//Liferay//DTD Look and Feel 7.0.0//EN" "http://www.liferay.com/dtd/liferay-look-and-feel_7_0_0.dtd">
+
+<look-and-feel>
+	<compatibility>
+		<version>7.1.1+</version>
+	</compatibility>
+	<theme id="project-theme" name="project-theme">
+		<template-extension>ftl</template-extension>
+		<settings>
+			<setting configurable="true" key="show-footer" type="checkbox" value="true" />
+			<setting configurable="true" key="show-header" type="checkbox" value="true" />
+			<setting configurable="true" key="show-header-search" type="checkbox" value="true" />
+			<setting configurable="true" key="show-maximize-minimize-application-links" type="checkbox" value="false" />
+			<setting configurable="false" key="show-site-name-default" value="true" />
+			<setting configurable="false" key="show-site-name-supported" value="true" />
+			<setting configurable="true" key="wrap-content" type="checkbox" value="false" />
+			<setting configurable="true" key="Show Instagram" type="checkbox" value="true" />
+			<setting configurable="true" key="instagram-url" type="text" value="www.instagram.com" />
+			<setting configurable="true" key="show-facebook" type="checkbox" value="true" />
+			<setting configurable="true" key="facebook-url" type="text" value="www.facebook.com" />
+			<setting configurable="true" key="show-twitter" type="checkbox" value="true" />
+			<setting configurable="true" key="twitter-url" type="text" value="www.twitter.com" />
+			<setting configurable="true" key="show-googleplus" type="checkbox" value="true" />
+			<setting configurable="true" key="googleplus-url" type="text" value="www.plus.google.com" />
+			<setting configurable="true" key="show-linkedin" type="checkbox" value="true" />
+			<setting configurable="true" key="linkedin-url" type="text" value="www.linkedin.com" />
+			<setting configurable="true" key="show-youtube" type="checkbox" value="true" />
+			<setting configurable="true" key="youtube-url" type="text" value="www.youtube.com" />
+			<setting configurable="true" key="show-dribbble" type="checkbox" value="true" />
+			<setting configurable="true" key="dribbble-url" type="text" value="www.dribbble.com" />
+			<setting configurable="true" key="show-github" type="checkbox" value="true" />
+			<setting configurable="true" key="github-url" type="text" value="www.github.com" />
+			<setting configurable="true" key="show-phone" type="checkbox" value="true" />
+			<setting configurable="true" key="phone-url" type="text" value="Call us: 555-555-5555" />
+			<setting configurable="true" key="show-email" type="checkbox" value="true" />
+			<setting configurable="true" key="email-url" type="text" value="Test@liferay.com" />
+		</settings>
+		<roles>
+			<role-name>User</role-name>
+		</roles>
+		<portlet-decorator id="barebone" name="Barebone">
+			<default-portlet-decorator>true</default-portlet-decorator>
+			<portlet-decorator-css-class>portlet-barebone</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="borderless" name="Borderless">
+			<portlet-decorator-css-class>portlet-borderless</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="decorate" name="Decorate">
+			<portlet-decorator-css-class>portlet-decorate</portlet-decorator-css-class>
+		</portlet-decorator>
+	</theme>
+</look-and-feel>

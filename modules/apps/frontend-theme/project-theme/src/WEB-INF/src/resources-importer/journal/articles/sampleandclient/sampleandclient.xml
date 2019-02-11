@@ -1,0 +1,47 @@
+
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="Text9tal" type="text" index-type="keyword" instance-id="lptn">
+		<dynamic-content language-id="en_US"><![CDATA[Sample Page]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="SampleImage" type="image" index-type="text" instance-id="cvbr">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"sample-page.jpg","alt":"","title":"sample-page.jpg","type":"journal","uuid":"eb3cb9fa-017d-ce5c-6190-2ba61493d2a7","fileEntryId":"73243","resourcePrimKey":"73241"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="SampleParagraph" type="text_box" index-type="text" instance-id="duyq">
+		<dynamic-content language-id="en_US"><![CDATA[This is an example page. It’s different from a blog post because it will stay in one place and will show up in your site navigation (in most themes). Most people start with an About page that introduces them to potential site visitors. It might…]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="LinkToPagei292" type="link_to_layout" index-type="keyword" instance-id="ntym">
+		<dynamic-content language-id="en_US"><![CDATA[4@public@20126]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Textgcix" type="text" index-type="keyword" instance-id="zros">
+		<dynamic-content language-id="en_US"><![CDATA[What Are Clients Saying?]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Client1Photo" type="image" index-type="text" instance-id="rfix">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"client-1 (1).jpg","alt":"","title":"client-1 (1).jpg","type":"journal","uuid":"e48db5f8-7765-dab3-9f5e-3c3acf2504e2","fileEntryId":"73248","resourcePrimKey":"73241"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Client1Response" type="text_box" index-type="text" instance-id="ozed">
+		<dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec mollis. Quisque convallis libero in sapien pharetra tincidunt.]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Client1SignatureWJobTitle" type="text" index-type="keyword" instance-id="ootr">
+		<dynamic-content language-id="en_US"><![CDATA[Name - Job Title]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Client2Photo" type="image" index-type="text" instance-id="wjcz">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"client-2.jpg","alt":"","title":"client-2.jpg","type":"journal","uuid":"d5caf2bb-a801-90fb-4f70-2a9cd43dcf8d","fileEntryId":"73253","resourcePrimKey":"73241"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Client2Response" type="text_box" index-type="text" instance-id="zqny">
+		<dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec mollis. Quisque convallis libero in sapien pharetra tincidunt.]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Client2SignatureWJobTitle" type="text" index-type="keyword" instance-id="ryup">
+		<dynamic-content language-id="en_US"><![CDATA[Name - Job Title]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Client3Photo" type="image" index-type="text" instance-id="ajeq">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"client-3.jpg","alt":"","title":"client-3.jpg","type":"journal","uuid":"a078941b-ccea-1886-6403-33848e4d207c","fileEntryId":"73258","resourcePrimKey":"73241"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Client3Response" type="text_box" index-type="text" instance-id="pfpk">
+		<dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec mollis. Quisque convallis libero in sapien pharetra tincidunt.]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Client3SignatureWJobTitle" type="text" index-type="keyword" instance-id="howg">
+		<dynamic-content language-id="en_US"><![CDATA[Name - Job Title]]></dynamic-content>
+	</dynamic-element>
+</root>

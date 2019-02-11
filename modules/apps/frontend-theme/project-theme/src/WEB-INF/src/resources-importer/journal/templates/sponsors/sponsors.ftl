@@ -1,0 +1,6 @@
+<div class="row clients container-fluid">
+		<div class="col-md-8 client-spacing">
+			<div class="row">
+        <!-- CLIENT COMPANY #1 -->
+				<div class="col-md-3">
+					<#if Imageftca.getData()?? && Imageftca.getData() != ""> <img alt="${Imageftca.getAttribute("alt")}" data-fileentryid="${Imageftca.getAttribute("fileEntryId")}" src="${Imageftca.getData()}" /> </#if> </div> <!-- CLIENT COMPANY #2 --> <div class="col-md-3"> <#if Image9548.getData()?? && Image9548.getData() != ""> <img alt="${Image9548.getAttribute("alt")}" data-fileentryid="${Image9548.getAttribute("fileEntryId")}" src="${Image9548.getData()}" /> </#if> </div> <!-- CLIENT COMPANY #3 --> <div class="col-md-3"> <#if Imagehamb.getData()?? && Imagehamb.getData() != ""> <img alt="${Imagehamb.getAttribute("alt")}" data-fileentryid="${Imagehamb.getAttribute("fileEntryId")}" src="${Imagehamb.getData()}" /> </#if> </div> <!-- CLIENT COMPANY #4 --> <div class="col-md-3"> <#if Imageid0o.getData()?? && Imageid0o.getData() != ""> <img alt="${Imageid0o.getAttribute("alt")}" data-fileentryid="${Imageid0o.getAttribute("fileEntryId")}" src="${Imageid0o.getData()}" /> </#if> </div> </div> </div> </div>

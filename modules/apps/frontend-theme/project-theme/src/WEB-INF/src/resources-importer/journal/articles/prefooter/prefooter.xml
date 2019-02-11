@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="WebsiteName" type="text" index-type="keyword" instance-id="dcoe">
+		<dynamic-content language-id="en_US"><![CDATA[THBusiness]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="WebsiteDescription" type="text_box" index-type="text" instance-id="izca">
+		<dynamic-content language-id="en_US"><![CDATA[THBusiness WordPress Theme by ThemezHut is a simple light wordpress theme that is best for business websites or blogs. It is created with twitter bootstrap so it can be perfectly viewed on any viewing environment. And it has a full width slider which is made with flexslider.It has a theme options panel. So you can create your website without touching a single line of code.]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="LinksHeading1" type="text" index-type="keyword" instance-id="bycb">
+		<dynamic-content language-id="en_US"><![CDATA[Important Links]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Link1Text" type="text" index-type="keyword" instance-id="ecqf">
+		<dynamic-content language-id="en_US"><![CDATA[Placeholder Link Text]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Link1" type="link_to_layout" index-type="keyword" instance-id="cgsx">
+		<dynamic-content language-id="en_US"><![CDATA[1@public@20126]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Link2Text" type="text" index-type="keyword" instance-id="quuu">
+		<dynamic-content language-id="en_US"><![CDATA[Placeholder Link Text]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Link2" type="link_to_layout" index-type="keyword" instance-id="nmbd">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Link3Text" type="text" index-type="keyword" instance-id="xkrf">
+		<dynamic-content language-id="en_US"><![CDATA[Placeholder Link Text]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Link3" type="link_to_layout" index-type="keyword" instance-id="mjdc">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Link4Text" type="text" index-type="keyword" instance-id="wnak">
+		<dynamic-content language-id="en_US"><![CDATA[Placeholder Link Text]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Link4" type="link_to_layout" index-type="keyword" instance-id="wzxw">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Link5Text" type="text" index-type="keyword" instance-id="nbrl">
+		<dynamic-content language-id="en_US"><![CDATA[Placeholder Link Text]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Link5" type="link_to_layout" index-type="keyword" instance-id="epkl">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="LinksHeading2" type="text" index-type="keyword" instance-id="rksx">
+		<dynamic-content language-id="en_US"><![CDATA[Recent Posts]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Link6Text" type="text" index-type="keyword" instance-id="kdky">
+		<dynamic-content language-id="en_US"><![CDATA[Placeholder Link Text]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Link6" type="link_to_layout" index-type="keyword" instance-id="dwyz">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Link7Text" type="text" index-type="keyword" instance-id="pkun">
+		<dynamic-content language-id="en_US"><![CDATA[Placeholder Link Text]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Link7" type="link_to_layout" index-type="keyword" instance-id="aqqw">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Link8Text" type="text" index-type="keyword" instance-id="yxya">
+		<dynamic-content language-id="en_US"><![CDATA[Placeholder Link Text]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Link8" type="link_to_layout" index-type="keyword" instance-id="nxto">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Link9Text" type="text" index-type="keyword" instance-id="bodl">
+		<dynamic-content language-id="en_US"><![CDATA[Placeholder Link Text]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Link9" type="link_to_layout" index-type="keyword" instance-id="rfxx">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Link10Text" type="text" index-type="keyword" instance-id="azau">
+		<dynamic-content language-id="en_US"><![CDATA[Placeholder Link Text]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Link10" type="link_to_layout" index-type="keyword" instance-id="dmfu">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="TextBoxi9s2" type="text_box" index-type="text" instance-id="viyb">
+		<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+	</dynamic-element>
+</root>

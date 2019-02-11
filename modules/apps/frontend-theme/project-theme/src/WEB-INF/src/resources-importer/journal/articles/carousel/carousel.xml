@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="Image93es" type="image" index-type="text" instance-id="dkam">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"carousel-1.png","alt":"","title":"carousel-1.png","type":"journal","uuid":"8e7f51c2-2fc6-d5ff-874b-8f33f11dd2fe","fileEntryId":"73927","resourcePrimKey":"72447"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Text1uw6" type="text" index-type="keyword" instance-id="pbfe">
+		<dynamic-content language-id="en_US"><![CDATA[An Amazing Liferay Theme]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="TextBoxfdjj" type="text_box" index-type="text" instance-id="zxlb">
+		<dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec mollis. Quisque convallis libero in sapien pharetra tincidunt. Aliquam elit ante, malesuada id, tempor eu, gravida id, odio.]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Imageb0mg" type="image" index-type="text" instance-id="knkk">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"carousel-2.png","alt":"","title":"carousel-2.png","type":"journal","uuid":"e26f6256-13e3-e73b-5832-2893320bb7b6","fileEntryId":"73932","resourcePrimKey":"72447"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Text76sl" type="text" index-type="keyword" instance-id="nlgu">
+		<dynamic-content language-id="en_US"><![CDATA[Enjoy Your Freedom]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="TextBoxf5ho" type="text_box" index-type="text" instance-id="jalj">
+		<dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec mollis. Quisque convallis libero in sapien pharetra tincidunt. Aliquam elit ante, malesuada id, tempor eu, gravida id, odio.]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Image58t6" type="image" index-type="text" instance-id="mbmc">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"carousel-3.png","alt":"","title":"carousel-3.png","type":"journal","uuid":"91581d99-de13-d887-69c2-2c27172179b3","fileEntryId":"73937","resourcePrimKey":"72447"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Textc4iy" type="text" index-type="keyword" instance-id="grdi">
+		<dynamic-content language-id="en_US"><![CDATA[You Are Not Alone]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="TextBox97h9" type="text_box" index-type="text" instance-id="xbnj">
+		<dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec mollis. Quisque convallis libero in sapien pharetra tincidunt. Aliquam elit ante, malesuada id, tempor eu, gravida id, odio.]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Image69up" type="image" index-type="text" instance-id="ymad">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"carousel-4.png","alt":"","title":"carousel-4.png","type":"journal","uuid":"bb739ece-e7f1-b260-887b-80e85f7268e4","fileEntryId":"73942","resourcePrimKey":"72447"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Text9jrx" type="text" index-type="keyword" instance-id="mfcs">
+		<dynamic-content language-id="en_US"><![CDATA[Get Your Job Done Easily]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="TextBox5h5e" type="text_box" index-type="text" instance-id="llet">
+		<dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec mollis. Quisque convallis libero in sapien pharetra tincidunt. Aliquam elit ante, malesuada id, tempor eu, gravida id, odio.]]></dynamic-content>
+	</dynamic-element>
+</root>
