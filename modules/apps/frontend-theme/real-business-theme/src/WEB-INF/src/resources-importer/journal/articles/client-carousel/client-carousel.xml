@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="Heading" type="text" index-type="keyword" instance-id="psoa">
+		<dynamic-element name="ClientImage" instance-id="zdfk" type="image" index-type="text">
+			<dynamic-content language-id="en_US"><![CDATA[{"groupId":"33993","name":"client_01.jpg","alt":"","title":"client_01.jpg","type":"document","uuid":"fe93b143-d31f-d249-1dd0-b0255baedd26","fileEntryId":"34053","resourcePrimKey":"34893"}]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="ClientName" instance-id="osxv" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Boy George]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="ClientQuote" instance-id="sunw" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[This is probably the greatest thing that's ever happened in my life. Here's another little happy bush You want your tree to have some character. Make it special.]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[What Our Clients are saying]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Heading" type="text" index-type="keyword" instance-id="xrbx">
+		<dynamic-element name="ClientImage" instance-id="ohgn" type="image" index-type="text">
+			<dynamic-content language-id="en_US"><![CDATA[{"groupId":"33993","name":"client_02.jpg","alt":"","title":"client_02.jpg","type":"document","uuid":"780c3926-a392-b175-596c-ac510860dc8d","fileEntryId":"34057","resourcePrimKey":"34893"}]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="ClientName" instance-id="ksoq" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Bob Ross]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="ClientQuote" instance-id="xgme" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Let's get crazy. Maybe there's a happy little Evergreen that lives here. Put your feelings into it, your heart, it's your world. Use absolutely no pressure. Just like an angel's wing.]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[They Really Love Us]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Heading" type="text" index-type="keyword" instance-id="dmyt">
+		<dynamic-element name="ClientImage" instance-id="ndbt" type="image" index-type="text">
+			<dynamic-content language-id="en_US"><![CDATA[{"groupId":"33993","name":"client_03.jpg","alt":"","title":"client_03.jpg","type":"document","uuid":"d0d15bd1-5a0e-647e-58ed-8f4afa2cbe1a","fileEntryId":"34061","resourcePrimKey":"34893"}]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="ClientName" instance-id="regh" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Terry Crews]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="ClientQuote" instance-id="svvt" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Making my way downtown walking fast. Faces pass and I'm home bound. Staring blankly ahead just making my way.]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Great Customer Service]]></dynamic-content>
+	</dynamic-element>
+</root>

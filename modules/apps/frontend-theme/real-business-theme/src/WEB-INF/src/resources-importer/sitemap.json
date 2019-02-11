@@ -1,0 +1,113 @@
+{
+	"layoutTemplateId": "1_column",
+	"publicPages": [
+		{
+		"columns": [
+			[
+			{
+				"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+				"portletPreferences": {
+				"articleId": "header-carousel.xml",
+				"groupId": "${groupId}",
+				"portletSetupPortletDecoratorId": "barebone"
+				}
+			},
+			{
+				"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+				"portletPreferences": {
+				"articleId": "about-descriptor.xml",
+				"groupId": "${groupId}",
+				"portletSetupPortletDecoratorId": "barebone"
+				}
+			},
+			{
+				"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+				"portletPreferences": {
+				"articleId": "client-carousel.xml",
+				"groupId": "${groupId}",
+				"portletSetupPortletDecoratorId": "barebone"
+				}
+			},
+			{
+				"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+				"portletPreferences": {
+				"articleId": "service-section.xml",
+				"groupId": "${groupId}",
+				"portletSetupPortletDecoratorId": "barebone"
+				}
+			},
+			{
+				"portletId": "com_liferay_blogs_web_portlet_BlogsAgreggatorPortlet",
+				"portletPreferences": {
+				"groupId": "${groupId}",
+				"portletSetupPortletDecoratorId": "barebone"
+				}
+			},
+			{
+				"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+				"portletPreferences": {
+				"articleId": "our-team.xml",
+				"groupId": "${groupId}",
+				"portletSetupPortletDecoratorId": "barebone"
+				}
+			},
+				{
+				"portletId": "com_liferay_journal_content_web_portlet_JournalContentPortlet",
+				"portletPreferences": {
+					"articleId": "contact-form.xml",
+					"groupId": "${groupId}",
+					"portletSetupPortletDecoratorId": "barebone"
+				}
+				}
+			]
+		],
+		"friendlyURL": "/sample-1",
+		"layouts": [
+			{
+				"friendlyURL": "/child-page-1",
+				"layouts": [
+					{
+						"friendlyURL": "/grandchild-page-1",
+						"name": "Grandchild Page 1",
+						"title": "Grandchild Page 1"
+					}
+				],
+				"name": "Child Page 1",
+				"title": "Child Page 1"
+			},
+			{
+				"friendlyURL": "/child-page-2",
+				"name": "Child Page 2",
+				"title": "Child Page 2"
+			}
+		],
+		"name": "Sample 1",
+		"title": "Sample 1"
+	},
+	{
+		"friendlyURL": "/sample-2",
+		"name": "Sample 2",
+		"title": "Sample 2"
+	},
+	{
+		"columns": [
+			[
+				{
+					"portletId": "com_liferay_blogs_web_portlet_BlogsPortlet",
+					"portletPreferences": {
+						"portletSetupPortletDecoratorId": "barebone"
+					}
+				}
+			]
+		],
+		"friendlyURL": "/blogs",
+		"name": "Blogs",
+		"title": "Blogs"
+	},
+	{
+		"friendlyURL": "/search",
+		"name": "Search",
+		"title": "Search"
+	}
+	]
+  }

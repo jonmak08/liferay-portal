@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="BG" type="image" index-type="text" instance-id="zwur">
+		<dynamic-element name="Logo" instance-id="hfru" type="image" index-type="text">
+			<dynamic-content language-id="en_US"><![CDATA[{"groupId":"33996","name":"bp_green.png","alt":"","title":"bp_green.png","type":"document","uuid":"dfb2c27f-8ea7-3109-11e1-c9239219a2a4","fileEntryId":"34052","resourcePrimKey":"34488"}]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="TagLine" instance-id="gvco" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Real Business Theme]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"33996","name":"slider_01.jpg","alt":"","title":"slider_01.jpg","type":"document","uuid":"adfd3ffe-9c8d-c338-a29e-44f43e098bb6","fileEntryId":"34089","resourcePrimKey":"34488"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="BG" type="image" index-type="text" instance-id="iogk">
+		<dynamic-element name="Logo" instance-id="wrrg" type="image" index-type="text">
+			<dynamic-content language-id="en_US"><![CDATA[{"groupId":"33996","name":"bp_green.png","alt":"","title":"bp_green.png","type":"document","uuid":"dfb2c27f-8ea7-3109-11e1-c9239219a2a4","fileEntryId":"34052","resourcePrimKey":"34488"}]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="TagLine" instance-id="zhgq" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Happy Little Trees]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"33996","name":"slider_02.jpg","alt":"","title":"slider_02.jpg","type":"document","uuid":"dd3ff6a9-05e7-d124-b4d3-1f9392c62138","fileEntryId":"34093","resourcePrimKey":"34488"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="BG" type="image" index-type="text" instance-id="nuot">
+		<dynamic-element name="Logo" instance-id="nxlp" type="image" index-type="text">
+			<dynamic-content language-id="en_US"><![CDATA[{"groupId":"33996","name":"bp_green.png","alt":"","title":"bp_green.png","type":"document","uuid":"dfb2c27f-8ea7-3109-11e1-c9239219a2a4","fileEntryId":"34052","resourcePrimKey":"34488"}]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-element name="TagLine" instance-id="kimr" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Let your imagination be your guide]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"33996","name":"slider_03.jpg","alt":"","title":"slider_03.jpg","type":"document","uuid":"612562ac-7a89-c895-d79e-3e9135702bb1","fileEntryId":"34097","resourcePrimKey":"34488"}]]></dynamic-content>
+	</dynamic-element>
+</root>

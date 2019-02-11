@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="OurTeamHeader" type="text" index-type="keyword" instance-id="hibw">
+		<dynamic-content language-id="en_US"><![CDATA[Meet Our Team]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="TeamMemberImage01" type="image" index-type="text" instance-id="bqxv">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"34502","name":"team_01.jpg","alt":"","title":"team_01.jpg","type":"document","uuid":"a8c181c1-0f7f-6777-4b11-45199b7426d6","fileEntryId":"34647","resourcePrimKey":"41284"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Position01" type="text" index-type="keyword" instance-id="ghpa">
+		<dynamic-content language-id="en_US"><![CDATA[CE0/Director]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Name01" type="text" index-type="keyword" instance-id="chnu">
+		<dynamic-content language-id="en_US"><![CDATA[Zoe Andre]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="TeamMemberImage02" type="image" index-type="text" instance-id="pnhz">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"34502","name":"team_02.jpg","alt":"","title":"team_02.jpg","type":"document","uuid":"5bd3c832-3fb5-f8ee-000a-34ecb9ded1c4","fileEntryId":"34655","resourcePrimKey":"41284"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Position02" type="text" index-type="keyword" instance-id="onfd">
+		<dynamic-content language-id="en_US"><![CDATA[Team Lead]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Name02" type="text" index-type="keyword" instance-id="fosm">
+		<dynamic-content language-id="en_US"><![CDATA[Jon Doe]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="TeamMemberImage03" type="image" index-type="text" instance-id="rtzw">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"34502","name":"team_03.jpg","alt":"","title":"team_03.jpg","type":"document","uuid":"d1795fc6-c010-e249-9dd4-faf568b6516b","fileEntryId":"34663","resourcePrimKey":"41284"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Position03" type="text" index-type="keyword" instance-id="eanp">
+		<dynamic-content language-id="en_US"><![CDATA[CTO]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Name03" type="text" index-type="keyword" instance-id="dgvf">
+		<dynamic-content language-id="en_US"><![CDATA[Ramsey Nikon]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="TeamMemberImage04" type="image" index-type="text" instance-id="ljlq">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"34502","name":"team_04.jpg","alt":"","title":"team_04.jpg","type":"document","uuid":"8c2979cb-591d-d7b6-acfd-433419ec9d53","fileEntryId":"34671","resourcePrimKey":"41284"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Position04" type="text" index-type="keyword" instance-id="rbcb">
+		<dynamic-content language-id="en_US"><![CDATA[HR]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="Name04" type="text" index-type="keyword" instance-id="rxhy">
+		<dynamic-content language-id="en_US"><![CDATA[Ram Shah]]></dynamic-content>
+	</dynamic-element>
+</root>
