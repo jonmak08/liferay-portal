@@ -85,12 +85,20 @@ public class ScreenNavigationTag extends IncludeTag {
 		_fullContainerCssClass = fullContainerCssClass;
 	}
 
+	public void setHeaderContainerCssClass(String headerContainerCssClass) {
+		_headerContainerCssClass = headerContainerCssClass;
+	}
+
 	public void setId(String id) {
 		_id = id;
 	}
 
 	public void setKey(String key) {
 		_key = key;
+	}
+
+	public void setMenubarCssClass(String menubarCssClass) {
+		_menubarCssClass = menubarCssClass;
 	}
 
 	public void setModelBean(Object modelBean) {
@@ -108,6 +116,10 @@ public class ScreenNavigationTag extends IncludeTag {
 		setServletContext(ServletContextUtil.getServletContext());
 	}
 
+	public void setSectionContainerCssClass(String sectionContainerCssClass) {
+		_sectionContainerCssClass = sectionContainerCssClass;
+	}
+
 	public void setPortletURL(PortletURL portletURL) {
 		_portletURL = portletURL;
 	}
@@ -119,10 +131,14 @@ public class ScreenNavigationTag extends IncludeTag {
 		_containerCssClass = "col-md-9";
 		_context = null;
 		_fullContainerCssClass = "col-md-12";
+		_headerContainerCssClass = "container";
 		_id = null;
 		_key = null;
+		_menubarCssClass =
+			"menubar menubar-transparent menubar-vertical-expand-md";
 		_modelBean = null;
 		_navCssClass = "col-md-3";
+		_sectionContainerCssClass = "container";
 		_portletURL = null;
 	}
 
@@ -144,6 +160,9 @@ public class ScreenNavigationTag extends IncludeTag {
 		request.setAttribute(
 			"liferay-frontend:screen-navigation:fullContainerCssClass",
 			_fullContainerCssClass);
+		request.setAttribute(
+			"liferay-frontend:screen-navigation:headerContainerCssClass",
+			_headerContainerCssClass);
 
 		String id = _id;
 
@@ -169,7 +188,13 @@ public class ScreenNavigationTag extends IncludeTag {
 		request.setAttribute("liferay-frontend:screen-navigation:id", id);
 
 		request.setAttribute(
+			"liferay-frontend:screen-navigation:menubarCssClass",
+			_menubarCssClass);
+		request.setAttribute(
 			"liferay-frontend:screen-navigation:navCssClass", _navCssClass);
+		request.setAttribute(
+			"liferay-frontend:screen-navigation:sectionContainerCssClass",
+			_sectionContainerCssClass);
 		request.setAttribute(
 			"liferay-frontend:screen-navigation:portletURL", _portletURL);
 		request.setAttribute(
@@ -270,10 +295,14 @@ public class ScreenNavigationTag extends IncludeTag {
 	private String _containerCssClass = "col-md-9";
 	private Object _context;
 	private String _fullContainerCssClass = "col-md-12";
+	private String _headerContainerCssClass = "container";
 	private String _id;
 	private String _key;
+	private String _menubarCssClass =
+		"menubar menubar-transparent menubar-vertical-expand-md";
 	private Object _modelBean;
 	private String _navCssClass = "col-md-3";
+	private String _sectionContainerCssClass = "container";
 	private PortletURL _portletURL;
 	private List<ScreenNavigationCategory> _screenNavigationCategories;
 
