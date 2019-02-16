@@ -1,0 +1,24 @@
+.portlet-journal-content .portlet-body {
+	.entry-section {
+		background-color: $light-color;
+		border: $border-color;
+		color: #717376;
+		font-size: 14px;
+		margin: 35px auto 45px;
+		max-width: 1170px;
+		padding: 45px 30px;
+
+		.entry-header {
+			text-align: center;
+
+			.entry-title {
+				color: $dark-color;
+				font-family: $header-font;
+				font-size: 28px;
+				font-weight: normal;
+				margin: 15px 0;
+				text-align: center;
+			}
+		}
+	}
+}

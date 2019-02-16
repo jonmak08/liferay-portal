@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="SectionHeader" type="text" index-type="keyword" instance-id="llzz">
+		<dynamic-content language-id="en_US"><![CDATA[Categories]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="TagName" type="text" index-type="keyword" instance-id="puhu">
+		<dynamic-element name="TagLink" instance-id="wocq" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[City]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="TagName" type="text" index-type="keyword" instance-id="xkms">
+		<dynamic-element name="TagLink" instance-id="bsdo" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[City View]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="TagName" type="text" index-type="keyword" instance-id="fdph">
+		<dynamic-element name="TagLink" instance-id="inoc" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Hat]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="TagName" type="text" index-type="keyword" instance-id="dmld">
+		<dynamic-element name="TagLink" instance-id="gnut" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Passing]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="TagName" type="text" index-type="keyword" instance-id="uesj">
+		<dynamic-element name="TagLink" instance-id="fovs" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Path]]></dynamic-content>
+	</dynamic-element>
+</root>
