@@ -1,0 +1,87 @@
+.portlet-blogs .portlet-body {
+	margin: 0 auto 30px;
+	max-width: 1500px;
+
+	form > .input-container {
+		background-color: $light-color;
+		border: $border-color;
+		color: #717376;
+		font-size: 14px;
+		padding: 30px;
+
+		.title, .sub-title {
+			color: $dark-color;
+			font-family: $header-font;
+			font-weight: normal;
+			margin: auto;
+		}
+
+		.cover-image {
+			padding-bottom: 480px;
+		}
+	}
+
+	.blogs-layout {
+		margin: auto;
+		max-width: 1248px;
+
+		.entry-section {
+			background-color: $light-color;
+			border: $border-color;
+			color: #717376;
+			font-size: 14px;
+			height: 100%;
+			padding: 30px;
+
+			.entry-image img {
+				height: 100%;
+			}
+
+			.entry-header {
+				text-align: center;
+
+				.entry-data {
+					margin-top: 10px;
+
+					a, span {
+						color: $tag-color;
+						font-size: 13px;
+						text-decoration: none;
+					}
+				}
+
+				.entry-title {
+					font-family: $header-font;
+					font-weight: normal;
+					margin: 15px auto;
+					text-align: center;
+
+					a {
+						color: $dark-color;
+						font-size: 28px;
+						text-decoration: none;
+					}
+				}
+			}
+
+			.entry-content {
+				margin: 0;
+
+				.read-more {
+					border: 1px solid;
+					color: $bright-color;
+					display: table;
+					margin: 30px auto 0;
+					padding: 5px 10px;
+					text-align: center;
+					transition: all 0.4s;
+
+					&:hover {
+						background-color: $bright-color;
+						color: $light-color;
+					}
+				}
+			}
+		}
+	}
+}

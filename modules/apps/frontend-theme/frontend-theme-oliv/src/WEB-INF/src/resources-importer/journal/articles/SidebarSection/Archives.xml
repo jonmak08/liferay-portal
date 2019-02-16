@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="SectionHeader" type="text" index-type="keyword" instance-id="qlqv">
+		<dynamic-content language-id="en_US"><![CDATA[Archives]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="TagName" type="text" index-type="keyword" instance-id="vzrp">
+		<dynamic-element name="TagLink" instance-id="iicf" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[July 2017]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="TagName" type="text" index-type="keyword" instance-id="mfty">
+		<dynamic-element name="TagLink" instance-id="axkx" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[October 2018]]></dynamic-content>
+	</dynamic-element>
+</root>
