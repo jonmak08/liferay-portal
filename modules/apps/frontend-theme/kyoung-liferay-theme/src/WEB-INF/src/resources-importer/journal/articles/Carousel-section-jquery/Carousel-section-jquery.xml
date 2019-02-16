@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="AppScreenshotSummary" type="text" index-type="keyword" instance-id="mwwr">
+		<dynamic-content language-id="en_US"><![CDATA[Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis unde, ut sapiente et voluptatum facilis consectetur incidunt provident asperiores at necessitatibus nulla sequi voluptas libero quasi explicabo veritatis minima porro.]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="AppScreenshot" type="image" index-type="text" instance-id="xhvx">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"screenshot-01.jpg","alt":"screenshot1","title":"screenshot-01.jpg","type":"journal","uuid":"0ee515d4-10a5-3ff3-13aa-0795769529da","fileEntryId":"79226","resourcePrimKey":"78828"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="AppScreenshot" type="image" index-type="text" instance-id="mfsu">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"screenshot-02.jpg","alt":"screenshot2","title":"screenshot-02.jpg","type":"journal","uuid":"8d1b05d2-af00-fa30-05bb-e79fb3b91373","fileEntryId":"79231","resourcePrimKey":"78828"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="AppScreenshot" type="image" index-type="text" instance-id="lsgy">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"screenshot-03.jpg","alt":"screenshot3","title":"screenshot-03.jpg","type":"journal","uuid":"7b4a79e2-2a74-6b58-cc73-fb3a8b1bb900","fileEntryId":"79236","resourcePrimKey":"78828"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="AppScreenshot" type="image" index-type="text" instance-id="dewl">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"screenshot-04.jpg","alt":"screenshot4","title":"screenshot-04.jpg","type":"journal","uuid":"d6d943f3-8d89-49c7-7736-e90c313ab1b1","fileEntryId":"79241","resourcePrimKey":"78828"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="AppScreenshot" type="image" index-type="text" instance-id="pqzb">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"screenshot-05.jpg","alt":"screenshot5","title":"screenshot-05.jpg","type":"journal","uuid":"55a44757-f026-16ec-d677-9318a19ea264","fileEntryId":"79246","resourcePrimKey":"78828"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="AppScreenshot" type="image" index-type="text" instance-id="eekn">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"screenshot-03.jpg","alt":"screenshot6","title":"screenshot-03.jpg","type":"journal","uuid":"23e73418-9dac-e8f8-56e3-50efa619789c","fileEntryId":"79409","resourcePrimKey":"78828"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="AppScreenshot" type="image" index-type="text" instance-id="bkyk">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"screenshot-04.jpg","alt":"screenshot7","title":"screenshot-04.jpg","type":"journal","uuid":"e3b42c3a-f0a4-c2b8-32c3-a7cc3f81f68e","fileEntryId":"90543","resourcePrimKey":"78828"}]]></dynamic-content>
+	</dynamic-element>
+</root>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="SectionTitle" type="text_area" index-type="text" instance-id="uaxj">
+		<dynamic-content language-id="en_US"><![CDATA[<p>Contact Us</p>]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="SectionSummary" type="text_area" index-type="text" instance-id="mqyu">
+		<dynamic-content language-id="en_US"><![CDATA[<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever</p>]]></dynamic-content>
+	</dynamic-element>
+</root>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="VideoURL" type="text" index-type="keyword" instance-id="tlsl">
+		<dynamic-content language-id="en_US"><![CDATA[https://www.youtube.com/embed/yetFk7QoSck]]></dynamic-content>
+	</dynamic-element>
+</root>

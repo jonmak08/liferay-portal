@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="FAQQuestion" type="text" index-type="keyword" instance-id="dqak">
+		<dynamic-element name="FAQAnswer" instance-id="ftgn" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[What is Liferay App?]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="FAQQuestion" type="text" index-type="keyword" instance-id="vsth">
+		<dynamic-element name="FAQAnswer" instance-id="lxrn" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[How do I setup this App?]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="FAQQuestion" type="text" index-type="keyword" instance-id="ahae">
+		<dynamic-element name="FAQAnswer" instance-id="fjgb" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Does it cost anything to become a member?]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="FAQQuestion" type="text" index-type="keyword" instance-id="esic">
+		<dynamic-element name="FAQAnswer" instance-id="hsoq" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[What is your policy regarding privacy?]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="FAQQuestion" type="text" index-type="keyword" instance-id="mdel">
+		<dynamic-element name="FAQAnswer" instance-id="vpxs" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Are there more help resources available?]]></dynamic-content>
+	</dynamic-element>
+</root>
