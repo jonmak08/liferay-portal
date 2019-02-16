@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="OfficeLocation" type="text" index-type="keyword" instance-id="tdur">
+		<dynamic-content language-id="en_US"><![CDATA[123 Fake Street, Irvine, CA, USA]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="PhoneNumber" type="text" index-type="keyword" instance-id="ikbs">
+		<dynamic-content language-id="en_US"><![CDATA[+1 (949) 999-9999]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="PhoneNumber" type="text" index-type="keyword" instance-id="lsjc">
+		<dynamic-content language-id="en_US"><![CDATA[+1 (949) 999-9494]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="EmailAddress" type="text" index-type="keyword" instance-id="svkc">
+		<dynamic-content language-id="en_US"><![CDATA[contact@liferay.com]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="EmailAddress" type="text" index-type="keyword" instance-id="mtbk">
+		<dynamic-content language-id="en_US"><![CDATA[support@liferay.com]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="SocialMediaLogo" type="text" index-type="keyword" instance-id="ctkc">
+		<dynamic-element name="SocialMediaURL" instance-id="klrj" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[https://www.facebook.com]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[fa-facebook]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="SocialMediaLogo" type="text" index-type="keyword" instance-id="ydqf">
+		<dynamic-element name="SocialMediaURL" instance-id="lnoi" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[https://www.twitter.com]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[fa-twitter]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="SocialMediaLogo" type="text" index-type="keyword" instance-id="qiel">
+		<dynamic-element name="SocialMediaURL" instance-id="cauz" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[https://www.google.com]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[fa-google]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="SocialMediaLogo" type="text" index-type="keyword" instance-id="awxb">
+		<dynamic-element name="SocialMediaURL" instance-id="dmfx" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[https://www.linkedin.com]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[fa-linkedin]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="SocialMediaLogo" type="text" index-type="keyword" instance-id="ubog">
+		<dynamic-element name="SocialMediaURL" instance-id="tjkp" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[https://www.youtube.com]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[fa-youtube]]></dynamic-content>
+	</dynamic-element>
+</root>

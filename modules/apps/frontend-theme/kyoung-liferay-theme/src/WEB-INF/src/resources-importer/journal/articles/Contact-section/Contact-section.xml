@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="ContactSummary" type="text_area" index-type="text" instance-id="nmmv">
+		<dynamic-content language-id="en_US"><![CDATA[<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever</p>]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="OfficeLocation" type="text" index-type="keyword" instance-id="bmmx">
+		<dynamic-content language-id="en_US"><![CDATA[123 Fake Street, Irvine, CA, USA]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="PhoneNumber" type="text" index-type="keyword" instance-id="ifzx">
+		<dynamic-content language-id="en_US"><![CDATA[+1 (949) 999-9999]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="PhoneNumber" type="text" index-type="keyword" instance-id="iwet">
+		<dynamic-content language-id="en_US"><![CDATA[+1 (949) 999-9494]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="EmailAddress" type="text" index-type="keyword" instance-id="mknv">
+		<dynamic-content language-id="en_US"><![CDATA[contact@liferay.com]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="EmailAddress" type="text" index-type="keyword" instance-id="znvl">
+		<dynamic-content language-id="en_US"><![CDATA[support@liferay.com]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="SocialMediaLogo" type="text" index-type="keyword" instance-id="hmtl">
+		<dynamic-element name="SocialMediaURL" instance-id="rhgp" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[https://www.twitter.com]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[fa-twitter]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="SocialMediaLogo" type="text" index-type="keyword" instance-id="ljzw">
+		<dynamic-element name="SocialMediaURL" instance-id="qdbl" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[https://www.facebook.com]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[fa-facebook]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="SocialMediaLogo" type="text" index-type="keyword" instance-id="qchu">
+		<dynamic-element name="SocialMediaURL" instance-id="vynq" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[https://www.google.com]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[fa-google]]></dynamic-content>
+	</dynamic-element>
+</root>

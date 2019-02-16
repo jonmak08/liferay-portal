@@ -1,0 +1,27 @@
+
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="Imagee3k2" type="image" index-type="text" instance-id="ijvw">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"iphone.png","alt":"","title":"iphone.png","type":"journal","uuid":"b70234a6-34ad-7a33-b425-88353e39fc6e","fileEntryId":"68238","resourcePrimKey":"68205"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="WelcomeSummaryTitle" type="text_area" index-type="text" instance-id="tjxd">
+		<dynamic-content language-id="en_US"><![CDATA[<p>Welcome to Liferay</p>]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="WelcomeSummary" type="text_area" index-type="text" instance-id="ytzh">
+		<dynamic-content language-id="en_US"><![CDATA[<p>Welcome Summary - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto nisi, consectetur odit voluptate labore veniam, neque iure cumque aut recusandae iusto. Aliquid quos vel optio dolore consequuntur accusantium autem quaerat!</p>]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="WelcomeDownloadText" type="text" index-type="keyword" instance-id="glrj">
+		<dynamic-element name="WelcomeDownloadLogo" instance-id="ibbg" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[fa-apple]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Apple Store]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="WelcomeDownloadText" type="text" index-type="keyword" instance-id="agpo">
+		<dynamic-element name="WelcomeDownloadLogo" instance-id="ybej" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[fa-android]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Google Play]]></dynamic-content>
+	</dynamic-element>
+</root>
+ 

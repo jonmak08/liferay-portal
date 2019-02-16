@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="AppFeatureSectionSummary" type="text" index-type="keyword" instance-id="unco">
+		<dynamic-content language-id="en_US"><![CDATA[Section Summary - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic at, omnis neque illum accusamus delectus consectetur perspiciatis fugiat ex veniam sit soluta iste, reprehenderit laboriosam!]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="AppFeatureImage" type="image" index-type="text" instance-id="mhan">
+		<dynamic-content language-id="en_US"><![CDATA[{"groupId":"20126","name":"iphone-group.png","alt":"Featured Image","title":"iphone-group.png","type":"journal","uuid":"2abc491c-251b-df53-496a-24b2d0adcb6b","fileEntryId":"69651","resourcePrimKey":"68820"}]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="AppFeatureTitle" type="text_area" index-type="text" instance-id="cehd">
+		<dynamic-element name="Text4pxl" instance-id="raxt" type="text" index-type="keyword">
+			<dynamic-element name="AppFeatureLogoFA" instance-id="ghar" type="text" index-type="keyword">
+				<dynamic-content language-id="en_US"><![CDATA[fa-tablet]]></dynamic-content>
+			</dynamic-element>
+			<dynamic-content language-id="en_US"><![CDATA[App Feature Text 1- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic at, omnis neque illum accusamus delectus consectetur perspiciatis fugiat ex veniam sit soluta iste, reprehenderit laboriosam!]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[<p>App Feature 1</p>]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="AppFeatureTitle" type="text_area" index-type="text" instance-id="dehs">
+		<dynamic-element name="Text4pxl" instance-id="hduq" type="text" index-type="keyword">
+			<dynamic-element name="AppFeatureLogoFA" instance-id="siqa" type="text" index-type="keyword">
+				<dynamic-content language-id="en_US"><![CDATA[fa-address-card]]></dynamic-content>
+			</dynamic-element>
+			<dynamic-content language-id="en_US"><![CDATA[App Feature Text 2- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic at, omnis neque illum accusamus delectus consectetur perspiciatis fugiat ex veniam sit soluta iste, reprehenderit laboriosam!]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[<p>App Feature 2</p>]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="AppFeatureTitle" type="text_area" index-type="text" instance-id="eaew">
+		<dynamic-element name="Text4pxl" instance-id="rfmy" type="text" index-type="keyword">
+			<dynamic-element name="AppFeatureLogoFA" instance-id="tbvf" type="text" index-type="keyword">
+				<dynamic-content language-id="en_US"><![CDATA[fa-tachometer]]></dynamic-content>
+			</dynamic-element>
+			<dynamic-content language-id="en_US"><![CDATA[App Feature Text 3- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic at, omnis neque illum accusamus delectus consectetur perspiciatis fugiat ex veniam sit soluta iste, reprehenderit laboriosam!]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[<p>App Feature 3</p>]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="AppFeatureTitle" type="text_area" index-type="text" instance-id="xhxh">
+		<dynamic-element name="Text4pxl" instance-id="rtql" type="text" index-type="keyword">
+			<dynamic-element name="AppFeatureLogoFA" instance-id="rysw" type="text" index-type="keyword">
+				<dynamic-content language-id="en_US"><![CDATA[fa-map-marker]]></dynamic-content>
+			</dynamic-element>
+			<dynamic-content language-id="en_US"><![CDATA[App Feature Text 4- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic at, omnis neque illum accusamus delectus consectetur perspiciatis fugiat ex veniam sit soluta iste, reprehenderit laboriosam!]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[<p>App Feature 4</p>]]></dynamic-content>
+	</dynamic-element>
+</root>

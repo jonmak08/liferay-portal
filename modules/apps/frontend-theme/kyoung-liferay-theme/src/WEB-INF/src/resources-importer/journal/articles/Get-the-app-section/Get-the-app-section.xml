@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<root available-locales="en_US" default-locale="en_US">
+	<dynamic-element name="GetTheAppSummary" type="text_area" index-type="text" instance-id="llkb">
+		<dynamic-content language-id="en_US"><![CDATA[<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis unde, ut sapiente et voluptatum facilis consectetur incidunt provident asperiores at necessitatibus nulla sequi voluptas libero quasi explicabo veritatis minima porro.</p>]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="GetTheAppButtonText" type="text" index-type="keyword" instance-id="xmtx">
+		<dynamic-element name="GetTheAppButtonLogo" instance-id="jtbo" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[fa fa-apple]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Apple Store]]></dynamic-content>
+	</dynamic-element>
+	<dynamic-element name="GetTheAppButtonText" type="text" index-type="keyword" instance-id="otzf">
+		<dynamic-element name="GetTheAppButtonLogo" instance-id="vwgs" type="text" index-type="keyword">
+			<dynamic-content language-id="en_US"><![CDATA[fa fa-android]]></dynamic-content>
+		</dynamic-element>
+		<dynamic-content language-id="en_US"><![CDATA[Android Store]]></dynamic-content>
+	</dynamic-element>
+</root>

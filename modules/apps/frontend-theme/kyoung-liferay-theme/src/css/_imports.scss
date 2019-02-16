@@ -1,0 +1,31 @@
+@import "clay_custom";
+
+@import "bourbon";
+
+@import "mixins";
+
+@import "compat/mixins";
+
+@import "clay/atlas-variables";
+
+@font-face {
+	font-family: 'Open Sans';
+	font-weight: normal;
+	src: url('font-awesome/font/OpenSans-Regular.ttf')  format('truetype');
+}
+
+@font-face {
+	font-family: 'Open Sans-Bold';
+	font-weight: bold;
+	src: url('font-awesome/font/OpenSans-Bold.ttf')  format('truetype');
+}
+
+@font-face {
+	font-family: 'Open Sans-Italic';
+	src: url('font-awesome/font/OpenSans-Italic.ttf')  format('truetype');
+}
+
+@font-face {
+	font-family: 'Open Sans-Light';
+	src: url('font-awesome/font/OpenSans-Light.ttf')  format('truetype');
+}
