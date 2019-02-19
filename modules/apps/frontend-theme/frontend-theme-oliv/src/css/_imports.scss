@@ -31,3 +31,10 @@
 	font-weight: bold;
 	src: url("font-awesome/font/Oswald-Bold.ttf") format("truetype");
 }
+
+@mixin set-width {
+	width: -moz-max-content;
+	width: -ms-max-content;
+	width: -webkit-max-content;
+	width: max-content;
+}

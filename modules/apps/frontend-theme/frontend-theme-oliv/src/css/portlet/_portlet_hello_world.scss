@@ -4,10 +4,6 @@
 	min-height: 390px;
 	padding-top: 30px;
 
-	@include sm {
-		padding-left: 50px;
-	}
-
 	.portlet-header {
 		margin-bottom: 0;
 	}
@@ -24,5 +20,9 @@
 		@include sm {
 			padding-right: 60%;
 		}
+	}
+
+	@include sm {
+		padding-left: 50px;
 	}
 }

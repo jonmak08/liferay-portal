@@ -31,12 +31,10 @@
 <div class="pt-0" id="wrapper">
     <div class="page-container">
         <div class="wrap-container">
-
             <header class="site-header">
                 <div class="top-bar">
                     <nav class="social-navigation">
                         <ul id="menu-social">
-
                             <#if facebook_handle?has_content>
                                 <li title="@${facebook_handle}">
                                     <a href="http://facebook.com/${facebook_handle}" target="_blank"></a>
@@ -66,7 +64,6 @@
                                     <a href="http://pinterest.com/${pinterest_handle}" target="_blank"></a>
                                 </li>
                             </#if>
-
                         </ul>
                     </nav>
 
@@ -81,8 +78,10 @@
                             <#if show_site_logo>
                                 <img alt="${logo_description}" src="${site_logo}" />
                             </#if>
+
                             ${title_text}
                         </h1>
+
                         <h2 class="site-description">
                             ${description_text}
                         </h2>
@@ -126,7 +125,6 @@
                     </div>
                 </div>
             </footer>
-
         </div>
     </div>
 </div>

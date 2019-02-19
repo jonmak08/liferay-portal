@@ -21,10 +21,11 @@
 				overflow: hidden;
 
 				.slider-wrapper {
+					@include set-width;
+
 					height: 100%;
 					margin-left: 0;
 					white-space: nowrap;
-					width: max-content;
 				}
 			}
 

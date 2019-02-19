@@ -1,8 +1,7 @@
 <div class="slider-container">
     <div class="slider-outer">
-        <div class="slider-inner">
+        <div class="slider-inner" id="slider-inner">
             <div class="slider-wrapper" id="slider-wrapper">
-
                 <#if CarouselImage.getSiblings()?has_content>
                     <#list CarouselImage.getSiblings() as cur_CarouselImage>
                         <#if cur_CarouselImage.getData()?? && cur_CarouselImage.getData() != "">
@@ -18,7 +17,6 @@
                                         </div>
                                     </h3>
                                 </#if>
-
                             </div>
                         </#if>
                     </#list>

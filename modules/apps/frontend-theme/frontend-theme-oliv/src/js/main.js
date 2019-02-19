@@ -11,11 +11,15 @@ YUI().use(
 );
 
 function toggleNav() {
-	if (document.getElementById('nested-navigation').style.display === 'none') {
-		document.getElementById('nested-navigation').style.display = 'block';
-	}
-	else {
-		document.getElementById('nested-navigation').style.display = 'none';
+	var nestedNavigation = document.getElementById('nested-navigation');
+
+	if (nestedNavigation) {
+		if (nestedNavigation.style.display === 'none') {
+			nestedNavigation.style.display = 'block';
+		}
+		else {
+			nestedNavigation.style.display = 'none';
+		}
 	}
 }
 
@@ -25,39 +29,37 @@ document.getElementById('toggle-navigation').onclick = toggleNav;
 	$('#slider-prev').click(
 		function() {
 			let sliderItemWidth = parseInt($('.slider-item').first().css('width'), 10);
+			let marginLeftValue = '0px';
 
-			if (parseInt($('#slider-wrapper').css('marginLeft'), 10) + sliderItemWidth > 0) {
-				$('#slider-wrapper').animate(
-					{marginLeft: 0},
-					'fast'
-				);
+			if (parseInt($('#slider-wrapper').css('marginLeft'), 10) <= -sliderItemWidth) {
+				marginLeftValue = '+=' + sliderItemWidth + 'px';
 			}
-			else if (parseInt($('#slider-wrapper').css('marginLeft'), 10) < 0) {
-				$('#slider-wrapper').animate(
-					{marginLeft: '+=' + sliderItemWidth + 'px'},
-					'fast'
-				);
-			}
+
+			$('#slider-wrapper').animate(
+				{
+					marginLeft: marginLeftValue
+				},
+				'fast'
+			);
 		}
 	);
 
 	$('#slider-next').click(
 		function() {
 			let sliderItemWidth = parseInt($('.slider-item').first().css('width'), 10);
-			let sliderMaxMargin = parseInt($('#slider-wrapper').css('width'), 10) - parseInt($('.slider-inner').css('width'), 10);
+			let sliderMaxMargin = parseInt($('#slider-wrapper').css('width'), 10) - parseInt($('#slider-inner').css('width'), 10);
+			let marginLeftValue = '-' + sliderMaxMargin + 'px';
 
-			if (parseInt($('#slider-wrapper').css('marginLeft'), 10) - sliderItemWidth < -sliderMaxMargin) {
-				$('#slider-wrapper').animate(
-					{marginLeft: '-' + sliderMaxMargin + 'px'},
-					'fast'
-				);
+			if (parseInt($('#slider-wrapper').css('marginLeft'), 10) >= sliderItemWidth - sliderMaxMargin) {
+				marginLeftValue = '-=' + sliderItemWidth + 'px';
 			}
-			else if (parseInt($('#slider-wrapper').css('marginLeft'), 10) > -sliderMaxMargin) {
-				$('#slider-wrapper').animate(
-					{marginLeft: '-=' + sliderItemWidth + 'px'},
-					'fast'
-				);
-			}
+
+			$('#slider-wrapper').animate(
+				{
+					marginLeft: marginLeftValue
+				},
+				'fast'
+			);
 		}
 	);
 })(jQuery);

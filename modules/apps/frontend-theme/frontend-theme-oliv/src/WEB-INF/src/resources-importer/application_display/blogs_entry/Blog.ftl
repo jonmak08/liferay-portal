@@ -2,10 +2,10 @@
     <div class="blogs-layout">
         <div class="row widget-mode-card">
             <#list entries as curBlogEntry>
+                <#assign cardImage = false />
+
                 <#if curBlogEntry.getCoverImageURL(themeDisplay)??>
                     <#assign cardImage = true />
-                <#else>
-                    <#assign cardImage = false />
                 </#if>
 
                 <#assign viewEntryPortletURL = renderResponse.createRenderURL() />
@@ -60,8 +60,11 @@
                                                     <#assign editEntryPortletURL = renderResponse.createRenderURL() />
 
                                                     ${editEntryPortletURL.setWindowState(windowStateFactory.getWindowState("MAXIMIZED"))}
+
                                                     ${editEntryPortletURL.setParameter("mvcRenderCommandName", "/blogs/edit_entry")}
+
                                                     ${editEntryPortletURL.setParameter("redirect", currentURL)}
+
                                                     ${editEntryPortletURL.setParameter("entryId", curBlogEntry.getEntryId()?string)}
 
                                                     <@liferay_ui["icon"]
@@ -85,8 +88,11 @@
                                                     <#assign deleteEntryPortletURL = renderResponse.createActionURL() />
 
                                                     ${deleteEntryPortletURL.setParameter("javax.portlet.action", "/blogs/edit_entry")}
+
                                                     ${deleteEntryPortletURL.setParameter("cmd", trashHelper.isTrashEnabled(themeDisplay.getScopeGroupId())?then("move_to_trash", "delete"))}
+
                                                     ${deleteEntryPortletURL.setParameter("redirect", currentURL)}
+
                                                     ${deleteEntryPortletURL.setParameter("entryId", curBlogEntry.getEntryId()?string)}
 
                                                     <@liferay_ui["icon-delete"]
@@ -111,9 +117,13 @@
                                 <p class="widget-resume">${stringUtil.shorten(htmlUtil.stripHtml(curBlogEntry.getContent()), descriptionLength)}</p>
 
                                 <#if (curBlogEntry.getContent()?length > descriptionLength) >
-                                    <a class="read-more" href="${viewEntryPortletURL.toString()}">Continue reading</a>
+                                    <a class="read-more" href="${viewEntryPortletURL.toString()}">
+                                        <@liferay.language key="continue-reading" />
+                                    </a>
                                 <#else>
-                                    <a class="read-more" href="${viewEntryPortletURL.toString()}">View entry</a>
+                                    <a class="read-more" href="${viewEntryPortletURL.toString()}">
+                                        <@liferay.language key="view-entry" />
+                                    </a>
                                 </#if>
                             </div>
                         </div>

@@ -1,5 +1,4 @@
 <article class="entry" id="post">
-
     <div class="entry-section">
         <header class="entry-header">
             <h1 class="entry-title">
