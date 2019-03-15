@@ -106,7 +106,7 @@ String organizationRoleSyncEntitiesEventName = liferayPortletResponse.getNamespa
 			modelVar="role"
 		>
 			<liferay-ui:search-container-column-text
-				cssClass="table-cell-content"
+				cssClass="table-cell-expand"
 				name="title"
 			>
 				<liferay-ui:icon
@@ -767,7 +767,11 @@ String organizationRoleSyncEntitiesEventName = liferayPortletResponse.getNamespa
 						document.<portlet:namespace />fm.<portlet:namespace />deleteRoleIds.value = <portlet:namespace />deleteRoleIds.join(',');
 					}
 
-					searchContainer.addRow(rowColumns, roleId);
+					var searchRow = searchContainer.addRow(rowColumns, roleId);
+
+					var searchRole = searchRow.one('td');
+
+					searchRole.addClass('table-cell-expand');
 
 					searchContainer.updateDataStore();
 				},
