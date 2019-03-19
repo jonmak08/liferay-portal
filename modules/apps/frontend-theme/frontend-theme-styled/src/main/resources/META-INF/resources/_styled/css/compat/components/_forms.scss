@@ -273,3 +273,13 @@
 		}
 	}
 }
+
+// LPS-91383, LPS-89861
+
+.custom-control-input {
+	z-index: 1;
+}
+
+.form-check-card .custom-control-input {
+	z-index: 2;
+}
