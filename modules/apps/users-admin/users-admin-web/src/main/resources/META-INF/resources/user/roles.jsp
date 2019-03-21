@@ -212,6 +212,7 @@ String organizationRoleSyncEntitiesEventName = liferayPortletResponse.getNamespa
 				%>
 
 				<liferay-ui:search-container-column-text
+					cssClass="table-cell-expand"
 					name="title"
 					value="<%= HtmlUtil.escape(ListUtil.toString(groupRoles, Role.NAME_ACCESSOR)) %>"
 				>
@@ -223,6 +224,7 @@ String organizationRoleSyncEntitiesEventName = liferayPortletResponse.getNamespa
 				</liferay-ui:search-container-column-text>
 
 				<liferay-ui:search-container-column-text
+					cssClass="table-cell-expand"
 					name="group"
 					value="<%= HtmlUtil.escape(group.getDescriptiveName(locale)) %>"
 				/>
@@ -283,7 +285,7 @@ String organizationRoleSyncEntitiesEventName = liferayPortletResponse.getNamespa
 				modelVar="userGroupRole"
 			>
 				<liferay-ui:search-container-column-text
-					cssClass="table-cell-content"
+					cssClass="table-cell-expand"
 					name="title"
 				>
 					<liferay-ui:icon
@@ -294,7 +296,7 @@ String organizationRoleSyncEntitiesEventName = liferayPortletResponse.getNamespa
 				</liferay-ui:search-container-column-text>
 
 				<liferay-ui:search-container-column-text
-					cssClass="table-cell-content"
+					cssClass="table-cell-expand"
 					name="organization"
 					value="<%= HtmlUtil.escape(userGroupRole.getGroup().getDescriptiveName(locale)) %>"
 				/>
@@ -485,7 +487,7 @@ String organizationRoleSyncEntitiesEventName = liferayPortletResponse.getNamespa
 				modelVar="userGroupRole"
 			>
 				<liferay-ui:search-container-column-text
-					cssClass="table-cell-content"
+					cssClass="table-cell-expand"
 					name="title"
 				>
 					<liferay-ui:icon
@@ -496,7 +498,7 @@ String organizationRoleSyncEntitiesEventName = liferayPortletResponse.getNamespa
 				</liferay-ui:search-container-column-text>
 
 				<liferay-ui:search-container-column-text
-					cssClass="table-cell-content"
+					cssClass="table-cell-expand"
 					name="site"
 				>
 					<liferay-staging:descriptive-name
@@ -653,7 +655,7 @@ String organizationRoleSyncEntitiesEventName = liferayPortletResponse.getNamespa
 				modelVar="userGroupGroupRole"
 			>
 				<liferay-ui:search-container-column-text
-					cssClass="table-cell-content"
+					cssClass="table-cell-expand"
 					name="title"
 				>
 					<liferay-ui:icon
@@ -664,7 +666,7 @@ String organizationRoleSyncEntitiesEventName = liferayPortletResponse.getNamespa
 				</liferay-ui:search-container-column-text>
 
 				<liferay-ui:search-container-column-text
-					cssClass="table-cell-content"
+					cssClass="table-cell-expand"
 					name="site"
 				>
 					<liferay-staging:descriptive-name
@@ -673,7 +675,7 @@ String organizationRoleSyncEntitiesEventName = liferayPortletResponse.getNamespa
 				</liferay-ui:search-container-column-text>
 
 				<liferay-ui:search-container-column-text
-					cssClass="table-cell-content"
+					cssClass="table-cell-expand"
 					name="user-group"
 					value="<%= HtmlUtil.escape(userGroupGroupRole.getUserGroup().getName()) %>"
 				/>
@@ -777,11 +779,17 @@ String organizationRoleSyncEntitiesEventName = liferayPortletResponse.getNamespa
 
 					var searchRow = searchContainer.addRow(rowColumns, roleId);
 
-					var searchRole = searchRow.one('td');
+					var contentBox = searchContainer.get('contentBox');
 
-						if (searchRole) {
-							searchRole.addClass('table-cell-expand');
+					var cells = contentBox.all('td, th');
+
+					cells.each(
+						function(item, index, collection) {
+							if (!item.ancestor('tr.lfr-template') && !item.hasClass('lfr-entry-action-column') && !item.one('.modify-link')) {
+								item.addClass('table-cell-expand');
+							}
 						}
+					);
 
 					searchContainer.updateDataStore();
 				},
