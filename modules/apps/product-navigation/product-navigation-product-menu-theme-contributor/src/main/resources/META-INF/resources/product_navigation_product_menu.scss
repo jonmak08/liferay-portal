@@ -39,14 +39,9 @@ body {
 	background-color: $product-menu-body-bg;
 
 	.company-details {
-		float: left;
-		width: calc(100% - 32px);
-
-		@include sm {
-			width: 100%;
-		}
-
 		.company-logo {
+			display: block;
+			float: left;
 			margin-right: 16px;
 			max-height: 32px;
 			max-width: 32px;
@@ -184,6 +179,7 @@ body {
 
 			&:focus, &:hover {
 				color: $product-menu-header-link-hover-color;
+				text-decoration: none;
 			}
 		}
 	}

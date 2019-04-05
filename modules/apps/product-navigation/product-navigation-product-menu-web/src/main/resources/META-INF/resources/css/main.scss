@@ -30,10 +30,10 @@
 		padding: 0;
 		position: absolute;
 		right: 0;
-		top: 55px;
+		top: 48px;
 
 		@include sm() {
-			top: 64px;
+			top: 56px;
 		}
 
 		@include media-query(null, 320px) {

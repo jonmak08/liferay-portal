@@ -75,15 +75,23 @@
 	padding: 0 2px;
 }
 
+.product-menu-toggle {
+	margin-left: 4px;
+	margin-right: 4px;
+	width: 32px;
+}
+
 .control-menu-level-1 {
 	background-color: $control-menu-level-1-bg;
 	color: $control-menu-level-1-color;
 
 	> .container-fluid {
-		padding: 6px 1rem 7px 1rem;
+		padding-bottom: 6px;
+		padding-top: 6px;
 
 		@include sm() {
-			padding: 10px 1.25rem;
+			padding-bottom: 10px;
+			padding-top: 10px;
 		}
 	}
 
@@ -279,13 +287,13 @@
 }
 
 %control-menu-icon-monospaced {
-	height: 35px;
-	line-height: 35px;
-	margin-left: 3px;
-	margin-right: 3px;
+	height: 36px;
+	line-height: 36px;
+	margin-left: 4px;
+	margin-right: 4px;
 	padding: 0;
 	text-align: center;
-	width: 35px;
+	width: 32px;
 }
 
 .tools-control-group {
