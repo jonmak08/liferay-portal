@@ -17,6 +17,7 @@
 			label=escape(label)
 			name="${namespacedFieldName}Color"
 			readonly="readonly"
+			required=required
 			type="text"
 			value=escape(fieldStructure.tip)
 		/>
@@ -26,10 +27,6 @@
 			name=namespacedFieldName
 			type="hidden"
 			value=fieldRawValue
-		>
-			<#if required>
-				<@liferay_aui.validator name="required" />
-			</#if>
-		</@>
+		/>
 	</div>
 </@>
