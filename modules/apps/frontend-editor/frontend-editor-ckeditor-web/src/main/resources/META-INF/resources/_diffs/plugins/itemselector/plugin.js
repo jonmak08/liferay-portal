@@ -415,7 +415,7 @@
 
 									if (instance._isEmptySelection(editor)) {
 										if (IE9AndLater) {
-											var emptySelectionMarkup = '<br />';
+											var emptySelectionMarkup = 'nbsp;';
 
 											var usingAlloyEditor = typeof AlloyEditor == 'undefined';
 
@@ -424,6 +424,24 @@
 											}
 
 											editor.insertHtml(emptySelectionMarkup);
+
+											var selection = editor.getSelection();
+
+											var element = new CKEDITOR.dom.element('br');
+
+											editor.insertElement(element);
+
+											var region = element.getClientRect();
+
+											var eventData = {
+												nativeEvent: {},
+												selectionData: {
+													element: element,
+													region: region
+												}
+											};
+
+											editor.fire('editorInteraction', eventData);
 										}
 										else {
 											editor.execCommand('enter');
