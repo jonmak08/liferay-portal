@@ -188,17 +188,20 @@ AUI.add(
 			getReadOnly: function() {
 				var instance = this;
 
+				var retVal = false;
+
 				if (instance.get('readOnly')) {
-					return true;
+					retVal = true;
+				}
+				else {
+					var form = instance.getForm();
+
+					if (!instance.get('localizable') && form.getDefaultLocale() != instance.get('displayLocale')) {
+						retVal = true;
+					}
 				}
 
-				var form = instance.getForm();
-
-				if (!instance.get('localizable') && form.getDefaultLocale() != instance.get('displayLocale')) {
-					return true;
-				}
-
-				return false;
+				return retVal;
 			},
 
 			_getField: function(fieldNode) {
@@ -959,24 +962,6 @@ AUI.add(
 						);
 					},
 
-					_valueLocalizationMap: function() {
-						var instance = this;
-
-						var instanceId = instance.get('instanceId');
-
-						var values = instance.get('values');
-
-						var fieldValue = instance.getFieldInfo(values, 'instanceId', instanceId);
-
-						var localizationMap = {};
-
-						if (fieldValue && fieldValue.value) {
-							localizationMap = fieldValue.value;
-						}
-
-						return localizationMap;
-					},
-
 					_valueFormNode: function() {
 						var instance = this;
 
@@ -997,6 +982,24 @@ AUI.add(
 						}
 
 						return Liferay.Form.get(formName);
+					},
+
+					_valueLocalizationMap: function() {
+						var instance = this;
+
+						var instanceId = instance.get('instanceId');
+
+						var values = instance.get('values');
+
+						var fieldValue = instance.getFieldInfo(values, 'instanceId', instanceId);
+
+						var localizationMap = {};
+
+						if (fieldValue && fieldValue.value) {
+							localizationMap = fieldValue.value;
+						}
+
+						return localizationMap;
 					}
 				}
 			}
@@ -1067,7 +1070,7 @@ AUI.add(
 						var selectorInput = container.one('.selector-input');
 						var valueField = container.one('.color-value');
 
-						function validateField(formValidator) {
+						function validateField() {
 							var liferayForm = instance.get('liferayForm');
 
 							if (liferayForm) {
@@ -3321,16 +3324,6 @@ AUI.add(
 						}
 					},
 
-					_onDefaultLocaleChanged: function(event) {
-						var instance = this;
-
-						var definition = instance.get('definition');
-
-						definition.defaultLanguageId = event.item.getAttribute('data-value');
-
-						instance.set('definition', definition);
-					},
-
 					destructor: function() {
 						var instance = this;
 
@@ -3371,7 +3364,7 @@ AUI.add(
 						var defaultLocale = instance.getDefaultLocale();
 
 						Object.keys(instance.newRepeatableInstances).forEach(
-							function (x) {
+							function(x) {
 								var field = instance.newRepeatableInstances[x];
 
 								if (!field.get('localizable')) {
@@ -3530,7 +3523,7 @@ AUI.add(
 
 						return {
 							availableLanguageIds: instance.get('availableLanguageIds'),
-							defaultLanguageId: definition.defaultLanguageId || themeDisplay.getDefaultLanguageId(),
+							defaultLanguageId: definition.defaultLanguageId || themeDisplay.getDefaultLanguageId(),
 							fieldValues: fieldValues
 						};
 					},
@@ -3633,6 +3626,16 @@ AUI.add(
 
 							liferayForm.formValidator.set('rules', validatorRules);
 						}
+					},
+
+					_onDefaultLocaleChanged: function(event) {
+						var instance = this;
+
+						var definition = instance.get('definition');
+
+						definition.defaultLanguageId = event.item.getAttribute('data-value');
+
+						instance.set('definition', definition);
 					},
 
 					_onLiferaySubmitForm: function(event) {
