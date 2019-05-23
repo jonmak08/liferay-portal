@@ -331,7 +331,15 @@ AUI.add(
 						validator: Lang.isObject
 					},
 
+					formNode: {
+						valueFn: '_valueFormNode'
+					},
+
 					instanceId: {
+					},
+
+					liferayForm: {
+						valueFn: '_valueLiferayForm'
 					},
 
 					localizable: {
@@ -862,6 +870,16 @@ AUI.add(
 						}
 					},
 
+					_afterFormRegistered: function(event) {
+						var instance = this;
+
+						var formNode = instance.get('formNode');
+
+						if (event.formName === formNode.attr('name')) {
+							instance.set('liferayForm', event.form);
+						}
+					},
+
 					_getLocalizable: function() {
 						var instance = this;
 
@@ -942,6 +960,28 @@ AUI.add(
 						}
 
 						return localizationMap;
+					},
+
+					_valueFormNode: function() {
+						var instance = this;
+
+						var container = instance.get('container');
+
+						return container.ancestor('form', true);
+					},
+
+					_valueLiferayForm: function() {
+						var instance = this;
+
+						var formNode = instance.get('formNode');
+
+						var formName = null;
+
+						if (formNode) {
+							formName = formNode.attr('name');
+						}
+
+						return Liferay.Form.get(formName);
 					}
 				}
 			}
