@@ -380,15 +380,9 @@ AUI.add(
 					initializer: function() {
 						var instance = this;
 
-						instance._bindedOnLocaleChanged = A.bind(
-							'_onLocaleChanged',
-							instance
-						);
+						instance.eventHandlers = [];
 
-						Liferay.on(
-							'inputLocalized:localeChanged',
-							instance._bindedOnLocaleChanged
-						);
+						instance.bindUI();
 					},
 
 					renderUI: function() {
@@ -411,15 +405,36 @@ AUI.add(
 						);
 					},
 
+					bindUI: function() {
+						var instance = this;
+
+						instance.eventHandlers.push(
+							Liferay.on(
+								'inputLocalized:localeChanged',
+								instance._onLocaleChanged,
+								instance
+							)
+						);
+
+						var formNode = instance.get('formNode');
+
+						if (formNode) {
+							instance.eventHandlers.push(
+								Liferay.after(
+									'form:registered',
+									instance._afterFormRegistered,
+									instance
+								)
+							);
+						}
+					},
+
 					destructor: function() {
 						var instance = this;
 
-						if (instance._bindedOnLocaleChanged) {
-							Liferay.detach(
-								'inputLocalized:localeChanged',
-								instance._bindedOnLocaleChanged
-							);
-						}
+						AArray.invoke(instance.eventHandlers, 'detach');
+
+						instance.eventHandlers = null;
 
 						instance.get('container').remove();
 					},
@@ -1052,6 +1067,18 @@ AUI.add(
 						var selectorInput = container.one('.selector-input');
 						var valueField = container.one('.color-value');
 
+						function validateField(formValidator) {
+							var liferayForm = instance.get('liferayForm');
+
+							if (liferayForm) {
+								var formValidator = liferayForm.formValidator;
+
+								if (formValidator) {
+									formValidator.validateField(valueField);
+								}
+							}
+						}
+
 						var colorPicker = new A.ColorPickerPopover(
 							{
 								position: 'bottom',
@@ -1066,6 +1093,19 @@ AUI.add(
 								selectorInput.setStyle('backgroundColor', event.color);
 
 								valueField.val(event.color);
+
+								validateField();
+							}
+						);
+
+						colorPicker.after(
+							'visibleChange',
+							function(event) {
+								var visible = event.newVal;
+
+								if (!visible) {
+									validateField();
+								}
 							}
 						);
 
@@ -1224,6 +1264,8 @@ AUI.add(
 						var titleNode = A.one('#' + instance.getInputName() + 'Title');
 
 						titleNode.val(parsedValue.title || '');
+
+						instance._validateField(titleNode);
 
 						var clearButtonNode = A.one('#' + instance.getInputName() + 'ClearButton');
 
@@ -1401,6 +1443,20 @@ AUI.add(
 						);
 
 						itemSelectorDialog.open();
+					},
+
+					_validateField: function(fieldNode) {
+						var instance = this;
+
+						var liferayForm = instance.get('liferayForm');
+
+						if (liferayForm) {
+							var formValidator = liferayForm.formValidator;
+
+							if (formValidator) {
+								formValidator.validateField(fieldNode);
+							}
+						}
 					}
 				}
 			}
@@ -1429,6 +1485,8 @@ AUI.add(
 						var titleNode = A.one('#' + instance.getInputName() + 'Title');
 
 						titleNode.val(parsedValue.title || '');
+
+						instance._validateField(titleNode);
 
 						var clearButtonNode = A.one('#' + instance.getInputName() + 'ClearButton');
 
@@ -1591,6 +1649,20 @@ AUI.add(
 						var formGroup = container.one('#' + instance.getInputName() + 'FormGroup');
 
 						formGroup.removeClass('has-warning');
+					},
+
+					_validateField: function(fieldNode) {
+						var instance = this;
+
+						var liferayForm = instance.get('liferayForm');
+
+						if (liferayForm) {
+							var formValidator = liferayForm.formValidator;
+
+							if (formValidator) {
+								formValidator.validateField(fieldNode);
+							}
+						}
 					}
 				}
 			}
@@ -1704,6 +1776,8 @@ AUI.add(
 
 							value = '';
 						}
+
+						instance._validateField(layoutNameNode);
 
 						var clearButtonNode = container.one('#' + inputName + 'ClearButton');
 
@@ -2573,6 +2647,20 @@ AUI.add(
 
 							cache.layouts = cachedLayouts;
 						}
+					},
+
+					_validateField: function(fieldNode) {
+						var instance = this;
+
+						var liferayForm = instance.get('liferayForm');
+
+						if (liferayForm) {
+							var formValidator = liferayForm.formValidator;
+
+							if (formValidator) {
+								formValidator.validateField(fieldNode);
+							}
+						}
 					}
 				}
 			}
@@ -2630,6 +2718,8 @@ AUI.add(
 							altNode.val('');
 							titleNode.val('');
 						}
+
+						instance._validateField(titleNode);
 
 						var clearButtonNode = A.one('#' + instance.getInputName() + 'ClearButton');
 
@@ -2805,6 +2895,20 @@ AUI.add(
 						instance.viewer.set('links', previewLinkNode);
 
 						instance.viewer.show();
+					},
+
+					_validateField: function(fieldNode) {
+						var instance = this;
+
+						var liferayForm = instance.get('liferayForm');
+
+						if (liferayForm) {
+							var formValidator = liferayForm.formValidator;
+
+							if (formValidator) {
+								formValidator.validateField(fieldNode);
+							}
+						}
 					}
 				}
 			}
