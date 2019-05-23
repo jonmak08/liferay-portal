@@ -7,6 +7,7 @@
 <@liferay_aui["field-wrapper"]
 	cssClass="form-builder-field"
 	data=data
+	label=escape(label)
 	required=required
 >
 	<div class="form-group">
@@ -14,10 +15,10 @@
 			cssClass="selector-input"
 			helpMessage=escape(fieldStructure.tip)
 			inlineField=true
-			label=escape(label)
+			label=""
 			name="${namespacedFieldName}Color"
 			readonly="readonly"
-			required=required
+			title=escape(label)
 			type="text"
 			value=escape(fieldStructure.tip)
 		/>
@@ -25,6 +26,7 @@
 		<@liferay_aui.input
 			cssClass="color-value"
 			name=namespacedFieldName
+			required=required
 			type="hidden"
 			value=fieldRawValue
 		/>
