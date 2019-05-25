@@ -26,6 +26,7 @@
 	<div class="form-group">
 		<@liferay_aui.input
 			name=namespacedFieldName
+			required=required
 			type="hidden"
 			value=fieldRawValue
 		/>
