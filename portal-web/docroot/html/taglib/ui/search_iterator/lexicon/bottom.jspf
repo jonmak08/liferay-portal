@@ -114,8 +114,8 @@
 					);
 				};
 
-				if (mainContent) {
-					var scrollingContainer = insideIframe ? mainContent._node : window;
+				if (fixedHeader && mainContent) {
+					var scrollingContainer = insideIframe ? mainContent.getDOM() : window;
 					var trDomRect = fixedHeader.previousElementSibling.getBoundingClientRect();
 
 					tableElement = fixedHeader.parentElement.parentElement;
@@ -140,12 +140,16 @@
 					);
 
 					if (insideIframe) {
-						scrollingContainer.querySelector('.button-holder').classList.add('lfr-search-iterator-fixed-header-button-holder');
+						var buttonHolder = scrollingContainer.querySelector('.button-holder')
+
+						if (buttonHolder) {
+							buttonHolder.classList.add('lfr-search-iterator-fixed-header-button-holder');
+						}
 					}
 				}
 
 				if (tableResponsive) {
-					var tableResponsiveNode = tableResponsive._node;
+					var tableResponsiveNode = tableResponsive.getDOM();
 
 					var canResetTransform = true;
 					var currentScrollLeft = tableResponsiveNode.scrollLeft;
@@ -173,9 +177,9 @@
 						tableResponsiveNode,
 						'scroll',
 						function(event) {
-							if (currentScrollLeft != event.target.scrollLeft) {
-								var scrollLeft = event.target.scrollLeft;
+							var scrollLeft = event.target.scrollLeft;
 
+							if (currentScrollLeft != scrollLeft) {
 								if (!Liferay.Util.isPhone()) {
 									var translateXValue = Math.ceil(scrollLeft - tableElement.offsetLeft);
 
