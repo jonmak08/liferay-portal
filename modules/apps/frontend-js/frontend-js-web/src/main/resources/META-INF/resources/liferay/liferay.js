@@ -292,23 +292,23 @@ Liferay = window.Liferay || {};
 		return $.ajax(instance.URL_INVOKE, ioConfig);
 	};
 
-	['get', 'delete', 'post', 'put', 'update'].forEach(function(item) {
-		var methodName = item;
-
-		if (item === 'delete') {
-			methodName = 'del';
-		}
-
-		Service[methodName] = function() {
+	function getHttpMethodFunction(httpMethodName) {
+		return function() {
 			var args = Array.prototype.slice.call(arguments, 0);
 
-			var method = {method: item};
+			var method = {method: httpMethodName};
 
 			args.push(method);
 
 			return Service.apply(Service, args);
 		};
-	});
+	}
+
+	Service.get = getHttpMethodFunction('get');
+	Service.del = getHttpMethodFunction('delete');
+	Service.post = getHttpMethodFunction('post');
+	Service.put = getHttpMethodFunction('put');
+	Service.update = getHttpMethodFunction('update');
 
 	Liferay.Service = Service;
 
