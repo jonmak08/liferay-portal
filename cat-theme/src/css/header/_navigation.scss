@@ -1,0 +1,62 @@
+#navigation {
+    // width:20vw;
+    height:100vh;
+    // background: rgb(77, 100, 230);
+    display: flex;
+    flex-direction: column;
+    border-color: rgba(234,234,234,.5);
+    box-shadow: 0 0 7px -1px rgba(0,0,0,.1);
+
+    .main_logo{
+        display: flex;
+        justify-content: center;
+        height:10%;
+    }
+
+    .nav {
+        height: 80vh;
+        @include flex;
+    
+        &__list {
+            text-align: center;
+    
+            &__item {
+                @include font--main;
+                // position: relative;
+                list-style: none;
+                text-transform: uppercase;
+                font-size: 1.2rem;
+                padding: .5rem 0;
+    
+                & a {
+                    color: #303133;
+                    font-weight: 600;
+                    letter-spacing: .05rem;
+    
+                    &:hover {
+                        color: rgba(48, 49, 51, .5);
+                        text-decoration: none;
+                    }
+                }
+            }
+    
+            .active {
+    
+                & a {
+                        color: rgba(48, 49, 51, .5);
+    
+                    }
+                }
+    
+                .collapsed {
+                    display: none;
+                }
+            }
+        }
+
+    .social {
+        height:10%;
+        background:red;
+    }
+}
+

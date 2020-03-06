@@ -1,13 +1,4 @@
-<div class="mx-1 mx-sm-3 order-md-1 lunar-user">
-	<@liferay.user_personal_bar />
-</div>
-
-<div class="collapse navbar-collapse" id="lunarNav">
-	<nav class="${nav_css_class}" id="navigation" role="navigation">
-<ul aria-label="<@liferay.language" key="site-pages" />" class="menubar menubar-transparent menubar-vertical-expand-md
-" role="menubar">
-
-			<#list nav_items as nav_item>
+<#list nav_items as nav_item>
 				<#assign
 				nav_item_attr_has_popup = ""
 				nav_item_css_class = "nav-item"
@@ -67,10 +58,3 @@
 					</#if>
 				</li>
 			</#list>
-		</ul>
-	</nav>
-
-	<a aria-controls="book-now" class="btn text-white btn-orange order-md-2">
-		<p class="book-now-text mb-0">Book Now</p>
-	</a>
-</div>
