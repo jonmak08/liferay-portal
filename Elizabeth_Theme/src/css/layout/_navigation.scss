@@ -1,0 +1,97 @@
+.theme-header {
+	background-color: $theme-transparent;
+	height: 12vh;
+	max-width: 100%;
+	position: fixed;
+	transition: 500ms ease;
+	width: 100vw;
+	z-index: 1;
+
+	.user-bar {
+		padding: 15px;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+
+	.theme-user {
+		justify-content: flex-end;
+	}
+
+	.theme-user a {
+		color: $theme-main-color;
+	}
+
+	.user-avatar-link .lexicon-icon {
+		color: $theme-main-color;
+	}
+
+	li {
+		padding-top: 15px;
+
+		&.nav-item {
+			a.nav-link {
+				color: $theme-main-light;
+			}
+
+			&:hover {
+				a {
+					color: $theme-main-color;
+				}
+			}
+
+			&.selected {
+				& a.nav-link {
+					color: $theme-main-color;
+				}
+			} 
+		}
+
+		&.selected {
+			& a.nav-link {
+				color: $theme-main-color;
+			}
+		}
+	}
+}
+
+.dropdown {
+	ul.child-menu {
+		display: none;
+		list-style-type: none;
+		margin-top: -10px;
+		padding-inline-start: 0;
+	}
+
+	&:hover {
+		.child-menu {
+			display: block;
+		}
+	}
+}
+
+.navbar-nav {
+	justify-content: center;
+
+	@include media-breakpoint-down(md) {
+		flex-direction: column;
+	}
+}
+
+@include media-breakpoint-down(md) {
+	.mr-auto {
+		display:none;
+	}
+
+	#navbar-logo {
+		display: none;
+	}
+
+	#navigation-link {
+		color: $theme-main-dark;
+		
+		&:hover {
+			color: $theme-main-color;
+		}
+	}
+}

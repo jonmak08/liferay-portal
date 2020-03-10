@@ -1,0 +1,31 @@
+body {
+	overflow-x: hidden;
+
+	&.has-control-menu {
+		header {
+			margin-top: 0;  
+		}
+	}
+
+	.initial-background {
+		background:
+			$theme-default
+			center center
+			fixed
+			url('../images/main_background.jpg');
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	.default-background {
+		background-color: $theme-main-light;
+	}
+
+	h1 {
+		text-transform: uppercase;
+	}
+
+	h5 {
+		text-transform: uppercase;
+	}
+}

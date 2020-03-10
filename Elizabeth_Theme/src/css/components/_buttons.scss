@@ -1,0 +1,19 @@
+.button-main {
+	background-color: $theme-transparent;
+	border: 1px solid $theme-main-color;
+	border-radius: 0;
+	color: $theme-main-light;
+	columns: $theme-main-light;
+	display: inline-block;
+	font-family: Lato, sans-serif;
+	font-weight: 700;
+	line-height: 1.25rem;
+	padding: 6px 10px;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+
+	&:hover {
+		color: $theme-main-color;
+	}
+}

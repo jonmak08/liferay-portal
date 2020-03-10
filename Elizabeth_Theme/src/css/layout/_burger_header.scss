@@ -1,0 +1,60 @@
+.burger {
+	cursor: pointer;
+	display: none;
+	width: 40px;
+	
+	@include media-breakpoint-down(md) {
+		display: block;
+	}
+
+	div {
+		background-color: $theme-main-light;
+		height: 3px;
+		margin: 5px;
+		width: 25px;
+	}
+}
+
+.burger-header {
+    display: none;
+    justify-content: flex-end;
+	position: absolute;
+	width: 100vw;
+
+	@include media-breakpoint-down(md) {
+		display: flex;
+	}
+}
+
+.burger-logo {
+	display:flex;
+	justify-content: center;
+
+	#navbar-logo {
+		display: none;
+		position: absolute;
+		top: 0;
+
+		@include media-breakpoint-down(md) {
+			display: flex;
+		}
+	
+	}
+}
+
+.burger-user {
+    justify-content: flex-end;
+    margin-right: 50px;
+}
+
+.burger-inactive {
+	display: none;
+}
+
+.hide-logo {
+	display: none;
+}
+
+.burger-inactive-header {
+	display: none;
+}

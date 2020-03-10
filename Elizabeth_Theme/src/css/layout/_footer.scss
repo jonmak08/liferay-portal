@@ -1,0 +1,31 @@
+.footer {
+	background-color: $theme-main-dark;
+	color: $theme-main-light;
+	display:flex;
+	justify-content: space-around;
+
+	@include media-breakpoint-down(md) {
+		flex-direction: column;
+	}
+}
+
+.footer-container {
+	padding: 50px;
+	width: 33vw;
+
+	@include media-breakpoint-down(md) {
+		width: 100vw;
+	}
+}
+
+.footer-heading {
+	text-transform: uppercase;
+}
+
+a {
+	color:$theme-main-light;
+
+	&:hover {
+		color: $theme-main-color;
+	}
+}

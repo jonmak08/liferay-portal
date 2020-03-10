@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE look-and-feel PUBLIC "-//Liferay//DTD Look and Feel 7.3.0//EN" "http://www.liferay.com/dtd/liferay-look-and-feel_7_3_0.dtd">
+
+<look-and-feel>
+	<compatibility>
+		<version>7.3.0+</version>
+	</compatibility>
+	<theme id="Elizabeth_Theme" name="Elizabeth_Theme">
+		<template-extension>ftl</template-extension>
+		<settings>
+			<setting configurable="true" key="Welcome Content" type="textarea" value="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non illo, alias animi iusto neque, sint corrupti? Laudantium, dignissimos id excepturi facilis, facere saepe quasi placeat praesentium ipsa sapiente illo molestiae?"/>
+			<setting configurable="true" key="Welcome Header" type="text" value="hamburgues"/>
+			<setting configurable="true" key="Welcome Subheader 1" type="text" value="cafe"/>
+			<setting configurable="true" key="Welcome Subheader 2" type="text" value=" / restaurant"/>
+
+			<setting configurable="true" key="Address" type="text" value="1400 Montefino Ave, Diamond Bar, CA 91765"/>
+			<setting configurable="true" key="Facebook Link" type="text" value="http://www.facebook.com/pages/Liferay/45119213107"/>
+			<setting configurable="true" key="LinkedIn Link" type="text" value="http://www.linkedin.com/company/83609"/>
+  			<setting configurable="true" key="Show Address" type="checkbox" value="true" />
+			<setting configurable="true" key="Show Facebook" type="checkbox" value="true" />
+  			<setting configurable="true" key="Show LinkedIn" type="checkbox" value="true" />
+  			<setting configurable="true" key="Show Twitter" type="checkbox" value="true" />
+			<setting configurable="true" key="Twitter Link" type="text" value="http://www.twitter.com/liferay"/>
+
+			<setting configurable="true" key="latitude" type="text" value="33.997866" />
+			<setting configurable="true" key="longitude" type="text" value="-117.814449" />
+			<setting configurable="true" key="Show Map" type="checkbox" value="true" />
+
+			<setting configurable="true" key="Section One Content" type="textarea" value="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti dolorum, sint corporis nostrum, possimus unde eos vitae eius quasi saepe." />
+			<setting configurable="true" key="Section One Title" type="text" value="ABOUT US" />
+			<setting configurable="true" key="Section Two Content" type="textarea" value="1400 Montefino Ave, Diamond Bar, CA 91765<br/>(877) 543-3729<br/>" />
+			<setting configurable="true" key="Section Two Title" type="text" value="CONTACT" />
+			<setting configurable="true" key="Section Three Content" type="textarea" value="Monday - Thursday 10:00 AM - 11:00 PM <br/>Friday - Sunday 12:00AM - 3:00 AM" />
+			<setting configurable="true" key="Section Three Title" type="text" value="HOURS" />
+  			<setting configurable="true" key="Show Footer" type="checkbox" value="true" />
+		</settings>
+	</theme>
+</look-and-feel>

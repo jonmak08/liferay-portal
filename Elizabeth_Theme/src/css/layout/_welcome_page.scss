@@ -1,0 +1,57 @@
+.welcome-container {
+	background-color: $theme-transparent;
+	color: $theme-main-light;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	justify-content: center;
+	max-width: 100%;
+	width: 100vw;
+}
+
+.welcome-content {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: center;
+}
+
+.description-container {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	width: 40em;
+
+	@include media-breakpoint-down(md) {
+		width: 30em;
+	}
+
+	@include media-breakpoint-down(sm) {
+		width: 20em;
+	}
+}
+
+.theme-color-text {
+	color: $theme-main-color;
+}
+
+.welcome-footer-container {
+	padding-bottom: 75px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.welcome-footer-content {
+	display: flex;
+	justify-content: space-around;
+	max-width: 100%;
+	width: 100%;
+}
+
+.user-content {
+	background-color: $theme-main-light;
+	width: 100%;
+	height: 100%;
+}
