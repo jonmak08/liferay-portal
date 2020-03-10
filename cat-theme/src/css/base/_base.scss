@@ -1,47 +1,146 @@
 *,
 *::after,
 *::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
 }
 
 html {
-  // This defines what 1rem is
-  font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
-  overflow-x: hidden;
+    // This defines what 1rem is
+    font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
+    overflow-x: hidden;
 
-  // @include respond(tab-land) {
-  //   // width < 1200?
-  //   font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
-  // }
+    @include respond(tab-land) { // width < 1200?
+        font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
+    }
 
-  // @include respond(tab-port) {
-  //   // width < 900?
-  //   font-size: 50%; //1 rem = 8px, 8/16 = 50%
-  // }
+    @include respond(tab-port) { // width < 900?
+        font-size: 50%; //1 rem = 8px, 8/16 = 50%
+    }
 
-  // @include respond(big-desktop) {
-  //   font-size: 75%; //1rem = 12, 12/16
-  // }
 }
 
-body, #wrapper {
-  box-sizing: border-box;
-  padding: 0;
-  overflow-x: hidden;
-  background-color: $color-body;
-  -webkit-font-smoothing: antialiased;
-  // @include respond(tab-port) {
-  //   padding: 0;
-  // }
+body {
+    box-sizing: border-box;
+    padding: 0;
+    overflow-x: hidden;
+
+    @include respond(tab-port) {
+        padding: 0;
+    }
+}
+
+.main {
+    transition: .5s;
+}
+
+.title__hr {
+    width: 1%;
+    border-top: 3px solid black;
+    margin: 0 auto;
+    padding-bottom: 5rem;
+
+    @include respond(phone) {
+        width: 3%;
+    }
+}
+
+*:focus {
+    outline: none !important;
 }
 
 h3 {
-  word-break: break-word;
-  font-size: 5rem;
-  font-weight: 700;
-  letter-spacing: .05em;
-  line-height: 1.2;
-  -webkit-font-smoothing: antialiased;
+    word-break: break-word;
+    font-size: 5rem;
+    font-weight: 700;
+    letter-spacing: .05em;
+    line-height: 1.2;
+    -webkit-font-smoothing: antialiased;
+}
+
+@media (min-width: 1800px) {
+    .col-xxl-1 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 8.333333%;
+        flex: 0 0 8.333333%;
+        max-width: 8.333333%;
+    }
+
+    .col-xxl-2 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 16.666667%;
+        flex: 0 0 16.666667%;
+        max-width: 16.666667%;
+    }
+
+    .col-xxl-3 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+
+    .col-xxl-4 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 33.333333%;
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+
+    .col-xxl-5 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 41.666667%;
+        flex: 0 0 41.666667%;
+        max-width: 41.666667%;
+    }
+
+    .col-xxl-6 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .col-xxl-7 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 58.333333%;
+        flex: 0 0 58.333333%;
+        max-width: 58.333333%;
+    }
+
+    .col-xxl-8 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 66.666667%;
+        flex: 0 0 66.666667%;
+        max-width: 66.666667%;
+    }
+
+    .col-xxl-9 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 75%;
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+
+    .col-xxl-10 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 83.333333%;
+        flex: 0 0 83.333333%;
+        max-width: 83.333333%;
+    }
+
+    .col-xxl-11 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 91.666667%;
+        flex: 0 0 91.666667%;
+        max-width: 91.666667%;
+    }
+
+    .col-xxl-12 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
 }

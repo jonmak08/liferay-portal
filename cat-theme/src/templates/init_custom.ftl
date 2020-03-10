@@ -1,5 +1,5 @@
-<#assign site_logo_height = 56 />
-<#assign site_logo_width = 56 />
+<#assign site_logo_height = 50 />
+<#assign site_logo_width = 50 />
 
 
 <#--  <#assign header_css_class = 

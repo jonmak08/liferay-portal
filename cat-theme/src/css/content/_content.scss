@@ -1,0 +1,228 @@
+#content {
+
+    &--main {
+        position: fixed;
+        height:100vh;
+        padding:0;
+        border-color: rgba(234, 234, 234, .5);
+        box-shadow: 0 0 7px -1px rgba(0, 0, 0, .1);
+
+        @include respond(tab-port){
+            height:calc(100vh - $nav-height);
+            position: relative;
+    
+        }
+
+        @include respond(tab-land){
+        position: relative;
+
+        }
+
+       
+
+        .main {
+            padding:0;
+            height:100%;
+            width: 100%;
+
+            overflow:hidden;
+            position: relative;
+
+            &__content {
+
+                &__img {
+                    height:100%;
+                    width:100%;
+                    background-image: url("../images/main_cat.jpg");
+                    background-position: 20% 0;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    opacity: 0.9;
+    
+                    -webkit-transition: all .5s;
+                    -moz-transition: all .5s;
+                    -o-transition: all .5s;
+                    transition: all .5s;
+
+                    @include respond (ipad-pro){
+                        background-position: 30% 0;
+                    }
+    
+                    &:hover {
+                        -ms-transform: scale(1.05);
+                        -moz-transform: scale(1.05);
+                        -webkit-transform: scale(1.05);
+                        -o-transform: scale(1.05);
+                        transform: scale(1.05);
+                        
+                    }
+    
+                    a {
+                        height:100%;
+                        width:100%;
+                        display: block;
+                        cursor: pointer;
+                    }
+                }
+
+                &__overlay {
+                    padding: 0;
+                    height:40%;
+                    position: absolute;
+                    bottom:0;
+
+                    @include respond (phone){
+                        height:40%;
+                    }
+                    
+                }
+
+                &__header{
+                    @include font--main;
+                    height:100%;
+
+                    &__date {
+                        color: $color-primary-header;
+                        font-size: 1.2rem;
+                    }
+
+                    &__title {
+                        color: $color-primary-header;
+                        margin-top: .9rem;
+
+                        @include respond(tab-port){
+                            font-size:3.3rem;
+                        }
+                    }
+
+                    &__desc {
+                        @include font--desc;
+                        font-size: 1.5rem;
+                        color: $color-primary-header;
+                        margin-top: .9rem;
+
+                        @include respond(tab-port){
+                            height: 50px;
+                        }
+
+                        @include respond(phone){
+                            height: 100px;
+                        }
+
+
+                    }
+                }
+            }
+        }
+    }
+
+    &--other {
+        height:100vh;
+        padding:0;
+
+        .other__content {
+            padding:0;
+
+    
+            &__container{
+                padding: 0;
+                display: inline-block;
+                margin-left: 5rem;
+
+
+                @include respond (tab-land){
+
+                    margin-left: 0;
+                    margin-top:2rem;
+                }
+
+                @include respond (ipad-pro){
+                    -webkit-box-flex: 0;
+                    -ms-flex: 0 0 100%;
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                    margin-left: 0;
+                    margin-top:2rem;
+                }
+                
+
+            }
+
+            &__img {
+                height: 50rem;
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+
+                @include respond(big-desktop){
+                    height:25rem;
+                }
+
+                @include respond (tab-land){
+                    height:35rem;
+                }
+
+                    &__container {
+                        width:90%;
+                        height:90%;
+                        overflow: hidden;
+                        position: relative;
+
+                        @include respond(big-desktop){
+                            height:80%;
+                        }
+                    }
+
+                    &__background {
+                        height:100%;
+                        width:100%;
+                        background-image: url("../images/main_cat.jpg");
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        opacity: 0.9;
+                        -webkit-transition: all .5s;
+                        -moz-transition: all .5s;
+                        -o-transition: all .5s;
+                        transition: all .5s;
+
+                        &:hover {
+                            -ms-transform: scale(1.05);
+                            -moz-transform: scale(1.05);
+                            -webkit-transform: scale(1.0540%);
+                            -o-transform: scale(1.05);
+                            transform: scale(1.05);
+                         }
+                    }
+
+            }
+
+
+            &__header {
+                position: relative;
+                left: 5%;
+                margin-top:1.8rem;
+                padding: 0;
+                overflow: hidden;
+                // white-space: nowrap;
+                overflow: hidden;
+                &__date {
+                    
+                    font-size: 1.2rem;
+                }
+
+                &__title {
+                    margin-top: .9rem;
+                    font-size: 2.4rem;
+                    font-weight: 700;
+                }
+
+                &__desc {
+                    width:100%;
+                    height: 5rem;
+                    margin-top:.9rem;
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+}
