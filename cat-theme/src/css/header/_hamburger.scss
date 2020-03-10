@@ -1,0 +1,26 @@
+.hamburger{
+    height:$nav-height;
+}
+
+
+// To hide the checkbox
+#toggle {
+    background:red;
+    color:red;
+    // display: none;
+  }
+  
+  // Styles for the 'open' state, if the checkbox is checked
+  #toggle:checked {
+      .nav__list{
+        background:red;
+        color:red;
+        display: block;
+
+      }
+
+
+    & ~ .nav__list {
+        display: block;
+    }
+  }

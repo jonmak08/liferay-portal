@@ -1,0 +1,129 @@
+#wrapper {
+    padding: 0;
+    // overflow:hidden;
+}
+
+.fixed-wrapper {
+
+    &--nav {
+        height:100vh;
+        padding:0;
+    
+        @include respond(tab-land){
+            height: $nav-height;
+        }
+    }
+
+    &--content {
+        display: auto;
+        padding:0;
+    
+    }
+
+}
+
+#navigation {
+    padding: 0;
+    position: fixed;
+    border-color: rgba(234, 234, 234, .5);
+    box-shadow: 0 0 7px -1px rgba(0, 0, 0, .1);
+    
+    @include respond(tab-land){
+        z-index: 1;
+        background:$color-white;
+    }
+    
+    .logo {
+        display: flex;
+        justify-content: center;
+        // height: 10vh;
+        max-height: 100%;
+
+        @include respond(tab-land){
+            height: $nav-height;
+        }
+    }
+
+    .nav {
+
+    &__list {
+        @include flex(column);
+
+        height: 80vh;
+
+        @include respond(tab-port){
+            
+            display: none;
+        }
+
+        text-align: center;
+
+        &__item {
+
+            @include font--main;
+            list-style: none;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            padding: .5rem 0;
+
+            @include respond(tab-land){
+                display: none;
+            }
+
+            & a {
+                color: #303133;
+                font-weight: 600;
+                letter-spacing: .05rem;
+
+                &:hover {
+                    color: $color-hover-text;
+                    text-decoration: none;
+                }
+            }
+
+
+        }
+
+        .active {
+
+            & a {
+                    color: rgba(48, 49, 51, .5);
+
+                }
+            }
+
+            .collapsed {
+                display: none;
+            }
+        }
+
+    }
+
+    .social {
+        height: 10vh;
+
+        .socialMediaLinks {
+            height:100%;
+        
+            &__list {
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        
+            .lexicon-icon {
+                display: inline-block;
+                fill: $color-black;
+                margin-top: -3px;
+                vertical-align: middle;
+                width: 1.5em;
+
+                &:hover {
+                    color: $color-hover-text;
+                }
+            }
+        
+        }
+    }
+}

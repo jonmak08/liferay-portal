@@ -1,7 +1,20 @@
-/* These inject tags are used for dynamically creating imports for themelet styles, you can place them where ever you like in this file. */
+//***** ABSTRACTS *****//
+@import "abstracts/mixins";
+@import "abstracts/variables";
 
-/* inject:imports */
 
-/* endinject */
+//***** BASE *****//
+@import "base/base";
+@import "base/animations";
+@import "base/typography";
 
-/* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
+
+//***** NAVIGATION *****//
+@import "header/navigation"; 
+@import "header/hamburger"; 
+
+
+
+
+//***** CONTENT *****//
+@import "content/_content"; 
