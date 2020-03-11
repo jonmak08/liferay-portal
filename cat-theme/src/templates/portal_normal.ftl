@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <#include init />
 
 <html class="${root_css_class}" dir="<@liferay.language key="lang.dir" />" lang="${w3c_language_id}">
@@ -13,86 +14,69 @@
 
 <body class="${css_class}">
 
-		<@liferay_ui["quick-access"] contentId="#main-content" />
+<@liferay_ui["quick-access"] contentId="#main-content" />
 
-		<@liferay_util["include"] page=body_top_include />
+<@liferay_util["include"] page=body_top_include />
 
-		<@liferay.control_menu />
+<@liferay.control_menu />
 
+<div class="container-fluid" id="wrapper">
+    <nav id="navigation" class="navigation">
+            <a class="${logo_css_class}" href="${site_default_url}" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
+                <img alt="${logo_description}" height="${site_logo_height}" src="${site_logo}" />
 
-	<div class="container-fluid" id="wrapper">
+                <#if show_site_name>
+                    ${site_name}
+                </#if>
+            </a>
 
-		<div class="row no-gutters">
+        <div id="hamburger" class="hamburger">
+            <button id="hamburger__btn" class="hamburger_btn">
+                <span class="hamburger__span"></span>
+                <span class="hamburger__span"></span>
+                <span class="hamburger__span"></span>
+            </button>
+        </div>
+    </nav>
+    
+    
+    <header id="hero" class="hero">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-2 hero_carousal">
+                </div>
+                <div class="col-8 hero__wrapper">
+                    <div class="hero__category">
+                        <hr/>
+                        <span>Cats</span>
+                    </div>
+                    <h1  class="hero__title"><a>Cats In Space</a></h1>
+                    </h1>
+                    <p class="hero__description"> Sometimes, we need to check the time, wondering when our work or meeting will finish, without getting caught by others.</p>
+                        <div class="btn__main">
+                            <a>
+                                <div class="btn__main__arrow">>
+                                </div>
+                                <span class="btn__main__text">View Case
+                                </span>
+                            </a>
+                        </div>
 
-
-			<!--***** NAVIGATION *****-->
-			<div class="fixed-wrapper--nav col-md-12 col-lg-2">
-				<header id="navigation" class="col-md-12 col-lg-2">
-				<div class="row no-gutters">
-						<section id="main_logo" class="logo col-2 col-sm-2 col-md-2 col-lg-12">
-							<a href="${site_default_url}" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
-								<img alt="${logo_description}" height="${site_logo_height}" src="${site_logo}" width="${site_logo_width}" />
-							</a>
-						</section>
-
-						<#if !is_signed_in>
-							<a data-redirect="${is_login_redirect_required?string}" href="${sign_in_url}" id="sign-in" rel="nofollow">${sign_in_text}</a>
-						</#if>
-
-						<#if has_navigation && is_setup_complete>
-							<#include "${full_templates_path}/navigation.ftl" />
-						</#if>
-					
-					</ul>
-
-						<#include "${full_templates_path}/social.ftl" />
-    				<input class="hamburger d-md-none offset-9" id="toggle" type="checkbox">
-
-				</div>
-				</header>
-			</div>
-
-	<!--***** CONTENT *****-->
-
-			<#include "${full_templates_path}/content.ftl" />
-
-		</div>
-  	</div>
-
-
-
-	<#--  <div class="row">
-      <div class="fixed-wrapper col-2">
-        <header id="navigation" class="col-2">
-			<div class="container-fluid">
-				<div class="row">
-					<section id="main_logo" class="main_logo col-12">
-						<a class="${logo_css_class}" href="${site_default_url}" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
-							<img alt="${logo_description}" height="${site_logo_height}" src="${site_logo}" width="${site_logo_width}" />
-						</a>
-					</section>
-
-
-
-					<section id="social" class="social col-12">
-						<div class="social__wrapper">
-						</div>
-					<section/>
-				</div>
-			</div>
-		</header>
-		</div>  -->
-	
-	<!--***** CONTENT *****-->
-
-
+                </div>
+            </div>
+        </div>
+    </header>
+    <section  id="about">
+    </section>
+    <section id="other_content">
+    </section>
+</div>
 
 <@liferay_util["include"] page=body_bottom_include />
 
 <@liferay_util["include"] page=bottom_include />
 
 <!-- inject:js -->
-
 <!-- endinject -->
 
 </body>

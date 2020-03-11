@@ -1,0 +1,30 @@
+.btn {
+    &__main {
+        @include flex ($justify-content : flex-start);
+        border: .5px solid $color-header-text;
+        border-radius: 4rem;
+        height: 5rem;
+        margin-top: 3rem;
+        width: 17rem;
+        font-size: 1.5rem;
+
+        a {
+            @include flex ($justify-content : flex-start);
+            cursor: pointer;
+        }
+        
+        &__arrow {
+            @include flex;
+            background-color: $color-button-circle;
+            border-radius: 50%;
+            color:$color-button-circle-text;
+            height: 3rem;
+            margin-left: 2rem;
+            width: 3rem;
+        }
+
+        &__text {
+            margin-left: 2rem;
+        }
+    }
+}

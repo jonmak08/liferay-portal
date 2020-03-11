@@ -1,26 +1,136 @@
-.hamburger{
-    height:$nav-height;
-}
+.hamburger {
+  background-color: transparent;
+  height: 64px;
+  width: 64px;
+  margin-top: .5rem;
+  margin-right: 1rem;
+  top: .5rem;
+  right: 0;
+  z-index: 5;
+  display: inline-block;
 
-
-// To hide the checkbox
-#toggle {
-    background:red;
-    color:red;
-    // display: none;
+  @include respond(tab-land){
+      display: inline-block;
+      margin-top: 0;
+      top: 0;
+      z-index: 21;
   }
-  
-  // Styles for the 'open' state, if the checkbox is checked
-  #toggle:checked {
-      .nav__list{
-        background:red;
-        color:red;
-        display: block;
 
+  @include respond(phone){
+      margin: 0 1rem 0 0;
+      width: 50px;
+      height: 50px;
+      position: fixed;
+      bottom: 2rem;
+      right: 1rem;
+      background: white;
+      border-radius: 50%;
+      padding: 3.4rem;
+      top: initial;
+      box-shadow: 1px 1px 15px rgba(18, 18, 18, 0.5);
+  }
+
+  &_btn {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    right: 25%;
+    /* transform: translate(-50%, -50%); */
+    cursor: pointer;
+    background: transparent;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    -webkit-appearance: attachment;
+    transition: margin .2s;
+
+      @include respond(phone){
+          width: 50px;
+          height: 50px;
+      }
+  }
+
+  &__span {
+    background-color: transparent;
+    height: 64px;
+    width: 64px;
+    /* margin-top: .5rem; */
+    /* margin-right: 1rem; */
+    /* top: .5rem; */
+    /* right: 0; */
+    z-index: 5;
+    display: inline-block;
+
+      @include respond(tab-land){
+          background: $color-white;
+          height: 1px;
       }
 
+      @include respond(phone){
+          background: $color-black;
+          height: 1px;
+          width: 30px;
+      }
 
-    & ~ .nav__list {
-        display: block;
-    }
+      &:before {
+          content: "";
+          position: absolute;
+          width: 0;
+          height: 100%;
+          top: 0;
+          right: 0;
+          background: blue;
+          transition: all 0.3s linear;
+      }
+
+      &:nth-child(1){
+          animation: span-first-off 0.5s ease-in-out;
+          animation-fill-mode: forwards;
+          top: 40%;
+      }
+
+      &:nth-child(2){
+          animation: span-second-off 0.5s ease-in-out;
+          animation-fill-mode: forwards;
+          top: 49%;
+      }
+
+      &:nth-child(3){
+          animation: span-third-off 0.5s ease-in-out;
+          animation-fill-mode: forwards;
+          top: 59%;
+      }
   }
+
+  &.on span:nth-child(1) {
+      background: $color-black;
+      animation: span-first-on 0.5s ease-in-out;
+      animation-fill-mode: forwards;
+      top: 50%;
+  }
+
+  &.on span:nth-child(2) {
+      background: $color-black;
+      animation: span-second-on 0.5s ease-in-out;
+      animation-fill-mode: forwards;
+      top: 50%;
+  }
+  
+  &.on span:nth-child(3) {
+      background: $color-black;
+      animation: span-third-on 0.5s ease-in-out;
+      animation-fill-mode: forwards;
+      top: 50%;
+  }
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.main-transform-x {
+  transform: translateX(-100vw);
+}
+.sidenav-transform-x {
+  transform: translateX(0);
+}
