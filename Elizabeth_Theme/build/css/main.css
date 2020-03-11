@@ -3455,6 +3455,7 @@ input.switch:empty ~ .switch-bar .switch-toggle:before {
 /* endinject */
 /* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
 header {
+  background-color: red;
   position: fixed;
   z-index: 1;
   width: 100vw;
@@ -3471,8 +3472,7 @@ header {
     color: #D6A261; }
   header li.nav-item:hover ul.child-menu {
     background-color: rgba(73, 73, 73, 0.349);
-    display: block;
-    margin-top: -10px; }
+    display: block; }
   header li.nav-item.selected {
     background-color: rgba(73, 73, 73, 0.349);
     height: 73px; }
@@ -3517,14 +3517,20 @@ header {
   color: #D6A261; }
 
 .welcome_container {
+  display: flex;
   color: white;
   width: 100vw;
   height: 100vh;
-  text-align: center;
+  flex-direction: column;
+  max-width: 100%;
+  background-color: pink; }
+
+.welcome_content {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column; }
+  flex-direction: column;
+  height: 100vh; }
 
 .description_container {
   display: block;
@@ -3541,27 +3547,19 @@ h {
   font-size: 20px; }
 
 .welcome_footer {
-  background-color: orange;
-  width: 100vw;
   display: flex;
+  width: 100vw;
   justify-content: space-between;
-  align-self: flex-end; }
+  max-width: 100%; }
 
 body {
+  background-color: blue;
   background-image: url(../images/main-background.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   background-color: #464646; }
-  body a.btn-orange {
-    background-color: #dfa356;
-    margin-right: 5px; }
-    body a.btn-orange:hover {
-      color: #D6A261; }
-    @media (max-width: 767.98px) {
-      body a.btn-orange {
-        width: 100%; } }
   body .button-beige {
     display: inline-block;
     padding: 6px 10px;
@@ -3581,74 +3579,5 @@ body {
     @media (max-width: 767.98px) {
       body.has-control-menu header {
         margin-top: 48px; } }
-
-/* These inject tags are used for dynamically creating imports for themelet styles, you can place them where ever you like in this file. */
-/* inject:imports */
-/* endinject */
-/* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
-body a.btn-orange {
-  background-color: #dfa356;
-  margin-right: 5px; }
-  body a.btn-orange:hover {
-    border-color: #FFF; }
-  @media (max-width: 767.98px) {
-    body a.btn-orange {
-      width: 100%; } }
-
-body header {
-  background-color: #415fa7; }
-  body header .lunar-user a {
-    color: #00ccFF; }
-  body header .user-avatar-link .lexicon-icon {
-    color: #415fa7; }
-  body header li.nav-item a.nav-link span {
-    font-size: 1.5em; }
-  body header li.nav-item:hover ul.child-menu {
-    background-color: #415fa7;
-    display: block;
-    margin-top: -10px; }
-  body header li.nav-item.selected {
-    background-color: #FFF;
-    height: 73px; }
-    body header li.nav-item.selected a.nav-link {
-      color: #415fa7;
-      font-weight: bold; }
-      body header li.nav-item.selected a.nav-link:hover {
-        color: #415fa7;
-        font-weight: normal;
-        padding-left: 9.619px;
-        padding-right: 9.619px; }
-  @media (max-width: 767.98px) {
-    body header li.nav-item ul.child-menu {
-      display: block; } }
-
-body #footer {
-  background-color: #415fa7;
-  color: #FFF; }
-  body #footer ul {
-    margin-left: auto;
-    margin-right: auto; }
-    body #footer ul.navbar-nav {
-      width: 410px; }
-      body #footer ul.navbar-nav .nav-item.hover:after {
-        width: auto; }
-      body #footer ul.navbar-nav a {
-        color: #FFF; }
-        @media (max-width: 767.98px) {
-          body #footer ul.navbar-nav a {
-            padding-left: 6px;
-            padding-right: 6px; } }
-  body #footer #socialMediaWrapper ul {
-    width: 192px; }
-    body #footer #socialMediaWrapper ul li a {
-      font-size: 2rem; }
-  body #footer p.powered-by a, body #footer .contact-info-container a {
-    color: #00ccFF; }
-
-body.has-control-menu header {
-  margin-top: 56px; }
-  @media (max-width: 767.98px) {
-    body.has-control-menu header {
-      margin-top: 48px; } }
 
 /*# sourceMappingURL=main.css.map */
