@@ -4,17 +4,20 @@
 
 
 //***** BASE *****//
-@import "base/base";
 @import "base/animations";
+@import "base/base";
+@import "base/buttons";
 @import "base/typography";
+
 
 
 //***** NAVIGATION *****//
 @import "header/navigation"; 
 @import "header/hamburger"; 
-
-
+@import "header/hero"; 
 
 
 //***** CONTENT *****//
-@import "content/_content"; 
+// @import "content/_content"; 
+@import "content/main_content"; 
+@import "content/other_content"; 
