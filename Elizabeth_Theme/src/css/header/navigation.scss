@@ -73,7 +73,7 @@
   //HEADER/NAVBAR
 header {
   //Change the navbar color to be transparent
-  background-color: red;
+  // background-color: rgba(black,0);
   position: fixed;
   //Brings the navbar to the front
   z-index: 1;
@@ -90,7 +90,6 @@ header {
     color: $lunar-resort-blue;
   }
 
-  
 
 
   li.nav-item {

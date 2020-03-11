@@ -11,8 +11,19 @@
 @import 'welcome_page/welcome_page.scss';
 
 body {
-  background-color:blue;
   //BUTTONS
+  a.btn-orange {
+    background-color: $lunar-resort-orange;
+    margin-right: 5px;
+
+    &:hover {
+      color:$theme-main-beige;
+    }
+
+    @include media-breakpoint-down(sm){
+      width: 100%;
+    }
+  }
   // Creates a clear, outlined button
   //a.button-beige{
   .button-beige{
@@ -33,6 +44,10 @@ body {
       color:$theme-main-beige;
     }
   }
+
+  // a.button-beige:hover{
+  //   color:$theme-main-beige;
+  // }
 
   &.has-control-menu {
     header {

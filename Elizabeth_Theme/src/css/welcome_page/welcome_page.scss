@@ -1,74 +1,39 @@
+// // // WELCOME PAGE CSS
+
 // .welcome_container{
-//   // display: block;
+//   display: block;
 //   color: white;
 //   width: 100vw;
 //   height: 100vh;
 //   text-align: center;
-
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   flex-direction: column;
-  
 // }
 
 // .description_container{
-//   display: block;
-//   // display: table-cell;
-//   // vertical-align: middle;
+//   display: inline-block;
 //   width:40em;
 //   text-align: center;
-//   margin-right: auto;
-//   margin-left: auto;
 // }
-
-// .theme-color-text{
-//   color: $theme-main-beige;
-// }
-
-// h{
-//   font-family:Playfair Display, serif;
-//   font-size: 20px;
-// }
-
-// .welcome_footer{
-//   background-color:orange;
-//   width: 100vw;
-//   display:flex;
-//   justify-content: space-between;
-//   align-self: flex-end;
-// }
-
 
 // // WELCOME PAGE CSS
 
 .welcome_container{
-  display: flex;
+  // display: block;
   color: white;
   width: 100vw;
   height: 100vh;
-  flex-direction: column;
-  max-width: 100%;
-  background-color: pink;
-  // max-height: 100%
-  // text-align: center;
-  // justify-content: center;
-  // align-items: center;
+  text-align: center;
 
-  
-}
-
-.welcome_content{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
+  
 }
-
 
 .description_container{
   display: block;
+  // display: table-cell;
+  // vertical-align: middle;
   width:40em;
   text-align: center;
   margin-right: auto;
@@ -85,8 +50,9 @@ h{
 }
 
 .welcome_footer{
-  display:flex;
+  background-color:orange;
   width: 100vw;
+  display:flex;
   justify-content: space-between;
-  max-width: 100%;
+  align-self: flex-end;
 }

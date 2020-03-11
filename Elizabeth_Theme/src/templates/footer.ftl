@@ -65,7 +65,7 @@
   </div>
 
   </div>
- 
+
   <p class="powered-by text-center text-white py-3 mb-0">
     <@liferay.language key="powered-by" /> <a href="http://www.liferay.com" rel="external">Liferay</a>
   </p>
