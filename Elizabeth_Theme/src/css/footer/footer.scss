@@ -1,0 +1,40 @@
+//FOOTER
+#footer {
+    background-color: black;
+    color: $white;
+    ul {
+      margin-left: auto;
+      margin-right: auto;
+
+      &.navbar-nav {
+        width: 410px;
+        .nav-item.hover:after {
+          width: auto;
+        }
+  
+        a {
+          color: $white;
+          @include media-breakpoint-down(sm) {
+            padding-left: 6px;
+            padding-right: 6px;
+          }
+        }
+      }
+    }
+  
+    #socialMediaWrapper ul {
+      width: 192px;
+  
+      li a {
+        font-size: 2rem;
+      }
+    }
+  
+    p.powered-by a, .contact-info-container a {
+        color: $lunar-resort-link-teal;
+    }
+  }
+
+.theme-color-text{
+  color:$theme-main-beige;
+}

@@ -1,0 +1,143 @@
+  // //HEADER/NAVBAR
+  // header {
+  //   //Change the navbar color to be transparent
+  //   // background-color: rgba(black,0) ;
+  //   position: fixed;
+  //   //Brings the navbar to the front
+  //   z-index: 1;
+  //   width: 100vw;
+  //   max-width: 100%;
+
+  //   .lunar-user a {
+  //       color: $lunar-resort-link-teal;
+  //   }
+
+  //   .user-avatar-link .lexicon-icon {
+  //     color: $lunar-resort-blue;
+  //   }
+
+
+
+  //   li.nav-item {
+  //     & a.nav-link{
+  //       color:white;
+  //     }
+  //     & a.nav-link span {
+  //     //font-size: 1.5em;
+  //       font-family:Lato, sans-serif;
+  //     }
+
+  //     &:hover a{
+  //       color:$theme-main-beige;
+  //     }
+
+  //     &:hover ul.child-menu {
+  //       background-color: $theme-main-transparent;
+  //       display: block;
+  //       margin-top: -10px;
+  //     }
+
+  //     &.selected {
+  //       background-color: $theme-main-transparent;
+  //       height: 73px;
+  //       & a.nav-link {
+  //         font-weight: normal;
+  //         color:$theme-main-beige;
+  //         &:hover {
+  //           color: $theme-main-beige;
+  //           font-weight: normal;
+  //           padding-left: 9.619px;
+  //           padding-right: 9.619px;
+  //         }
+  //       }
+  //     }
+
+  //     @include media-breakpoint-down(sm){
+  //       ul.child-menu {
+  //         display: block;
+  //       }
+  //     }    
+  //   }
+
+  //   li.selected{
+  //     & a.nav-link{
+  //       color:$theme-main-beige;
+  //     }
+
+  //   }
+  // }
+
+
+
+
+  //HEADER/NAVBAR
+header {
+  //Change the navbar color to be transparent
+  background-color: red;
+  position: fixed;
+  //Brings the navbar to the front
+  z-index: 1;
+  width: 100vw;
+  max-width: 100%;
+
+
+
+  .lunar-user a {
+      color: $lunar-resort-link-teal;
+  }
+
+  .user-avatar-link .lexicon-icon {
+    color: $lunar-resort-blue;
+  }
+
+  
+
+
+  li.nav-item {
+    & a.nav-link{
+      color:white;
+    }
+    & a.nav-link span {
+    //font-size: 1.5em;
+      font-family:Lato, sans-serif;
+    }
+
+    &:hover a{
+      color:$theme-main-beige;
+    }
+
+    &:hover ul.child-menu {
+      background-color: $theme-main-transparent;
+      display: block;
+      margin-top: -10px;
+    }
+
+    &.selected {
+      background-color: $theme-main-transparent;
+      height: 73px;
+      & a.nav-link {
+        font-weight: normal;
+        color:$theme-main-beige;
+        &:hover {
+          color: $theme-main-beige;
+          font-weight: normal;
+          padding-left: 9.619px;
+          padding-right: 9.619px;
+        }
+      }
+    }
+
+    @include media-breakpoint-down(sm){
+      ul.child-menu {
+        display: block;
+      }
+    }    
+  }
+
+  li.selected{
+    & a.nav-link{
+      color:$theme-main-beige;
+    }
+  }
+}
+

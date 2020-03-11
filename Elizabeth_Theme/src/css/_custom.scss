@@ -1,0 +1,64 @@
+/* These inject tags are used for dynamically creating imports for themelet styles, you can place them where ever you like in this file. */
+
+/* inject:imports */
+
+/* endinject */
+
+/* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
+@import 'colors';
+@import 'header/navigation.scss';
+@import 'footer/footer.scss';
+@import 'welcome_page/welcome_page.scss';
+
+body {
+  background-color:blue;
+  //BUTTONS
+  // Creates a clear, outlined button
+  //a.button-beige{
+  .button-beige{
+    // font-family: Lato, sans-serif;
+    display: inline-block;
+    padding: 6px 10px;
+    background-color: $theme-main-transparent;
+    color:white;
+    border: 1px solid $theme-main-beige;
+    border-radius: 0px;
+    font-weight: 700;
+    line-height: 1.25rem;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    
+    &:hover{
+      color:$theme-main-beige;
+    }
+  }
+
+  &.has-control-menu {
+    header {
+      margin-top: 0px; 
+      //margin-top: 56px; Original code
+      @include media-breakpoint-down(sm){
+        margin-top: 48px;
+      }  
+    }
+  }
+  
+  
+
+
+  //RESPONSIVE BACKGROUND
+  background-image: url(../images/main-background.jpg);
+  background-position: center center;   //Background image is centered vertically and horizontally at all times
+  background-repeat: no-repeat;   //Image doesn't repeat into tile formation
+  background-attachment: fixed; //Fixes the image in the viewport so that it doesn't move when the content height is greater than the image height
+  background-size: cover; //makes the background image rescale based on its container's size
+  background-color:#464646;  //Solid background color that will display while image is loading or if image is not working
+
+
+
+
+
+
+}
+  
