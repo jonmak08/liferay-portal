@@ -76,6 +76,7 @@
 <div class="collapse navbar-collapse" id="lunarNav">
 	<nav class="${nav_css_class}" id="navigation" role="navigation">
 		<ul aria-label="<@liferay.language key="site-pages" />" class="navbar-nav mr-auto" role="menubar">
+		<div> test </div>
 			<#list nav_items as nav_item>
 				<#assign
 				nav_item_attr_has_popup = ""
