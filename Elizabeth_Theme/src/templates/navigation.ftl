@@ -72,7 +72,7 @@
 <div class="mx-1 mx-sm-3 order-md-1 lunar-user">
 	<@liferay.user_personal_bar />
 </div>
-
+ 
 <div class="collapse navbar-collapse" id="lunarNav">
 	<nav class="${nav_css_class}" id="navigation" role="navigation">
 		<ul aria-label="<@liferay.language key="site-pages" />" class="navbar-nav mr-auto" role="menubar">
