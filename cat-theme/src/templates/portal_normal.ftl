@@ -66,9 +66,9 @@
                 <div class="col-2 d-none d-md-block hero_carousal ">
                 </div>
                 <div class="offset-1 col-11 offset-md-0 col-md-8 hero__wrapper">
-                    <div class="hero__category">
-                        <hr/>
-                        <span>Cats</span>
+                    <div class="caption">
+                        <hr class="caption__line caption__line--darkbg"/>
+                        <span class="caption__title">Cats</span>
                     </div>
                     <h1  class="hero__title"><a>Cats In Space</a></h1>
                     </h1>
@@ -86,8 +86,48 @@
             </div>
         </div>
     </header>
-    <section  id="about">
+
+    <section  id="about" class="about">
+        <div class="container">
+            <div class="row">
+                <div class="about__bio offset-lg-0 col-lg-6 offset-md-1 col-md-10 ">
+                    <div class="about__bio__wrapper">
+                        <h2 class="about__bio__header">
+                            Hello I am,
+                            <br/>
+                            Space Cat
+                        </h2>
+                        <p class="about__bio__desc">
+                            Hello, my name is Picatsso. I am a cat. I enjoy the simple things in life such as fish and lasers. Hello, my name is Picatsso. I am a cat. I enjoy the simple things in life such as fish and lasers.Hello, my name is Picatsso. I am a cat. I enjoy the simple things in life such as fish and lasers. 
+                        </p>
+                        <div class="caption caption--signature">
+                            <span class="caption__title caption__title--signature">Picatsso</span>
+                            <hr class="caption__line"/>
+                            <span class="caption__title caption__title--dot">•</span>
+                        </div>
+                        <div class="about__bio__signature">
+                            Space Cat
+                        </div>
+                        <div class="about__bio__years">
+                            <span class="about__bio__years__number">
+                                7
+                            </span>
+                            <span class="about__bio__years__text">
+                                Lives of 
+                                <br/>
+                                Space Experience
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about__img">
+                    <div class="about__img__container">
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
+
     <section id="other_content">
     </section>
 </div>

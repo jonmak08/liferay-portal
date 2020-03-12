@@ -31,6 +31,9 @@
     @if $breakpoint == phone {
         @media only screen and (max-width: 37.5em) { @content };    //600px
     }
+    @if $breakpoint == bootstrap-medium {
+        @media only screen and (max-width: 48em) { @content };     //900px
+    }
     @if $breakpoint == tablet-portrait {
         @media only screen and (max-width: 60em) { @content };     //900px
     }
