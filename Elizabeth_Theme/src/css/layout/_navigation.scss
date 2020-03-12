@@ -1,0 +1,68 @@
+header {
+  background-color: $theme-main-transparent;
+  max-width: 100%;
+  position: fixed;
+  width: 100vw;
+  z-index: 1;
+
+  .lunar-user a {
+    color: $theme-main-beige;
+  }
+
+  .user-avatar-link .lexicon-icon {
+    color: $theme-main-beige;
+  }
+
+  li.nav-item {
+
+    & a.nav-link{
+      color: #ffffff;
+    }
+
+    & a.nav-link span {
+      font-family: Lato, sans-serif;
+    }
+
+    &:hover a {
+      color: $theme-main-beige;
+    }
+
+    &:hover ul.child-menu {
+      background-color: $theme-main-transparent;
+      display: block;
+      margin-top: -10px;
+    }
+
+    &.selected {
+      background-color: $theme-main-transparent;
+      height: 73px;
+
+      & a.nav-link {
+        color: $theme-main-beige;
+        font-weight: normal;
+
+        &:hover {
+          color: $theme-main-beige;
+          font-weight: normal;
+          padding-left: 9.619px;
+          padding-right: 9.619px;
+        }
+      }
+    }
+
+    @include media-breakpoint-down(sm) {
+
+      ul.child-menu {
+        display: block;
+      }
+    }    
+  }
+
+  li.selected {
+
+    & a.nav-link{
+      color: $theme-main-beige;
+    }
+  }
+}
+

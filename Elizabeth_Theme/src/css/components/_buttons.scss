@@ -1,0 +1,19 @@
+.button-beige {
+  background-color: $theme-main-transparent;
+  border: 1px solid $theme-main-beige;
+  border-radius: 0;
+  color: #ffffff;
+  columns: #ffffff;;
+  display: inline-block;
+  font-family: Lato, sans-serif;
+  font-weight: 700;
+  line-height: 1.25rem;
+  padding: 6px 10px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+    
+  &:hover {
+    color: $theme-main-beige;
+  }
+}

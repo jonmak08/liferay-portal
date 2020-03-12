@@ -4,8 +4,8 @@
     "appServerPath": "/home/elizabeth/Desktop/liferay-portal/bundles/tomcat-9.0.17",
     "deployPath": "/home/elizabeth/Desktop/liferay-portal/bundles/deploy",
     "url": "http://localhost:8080",
-    "appServerPathPlugin": "/home/elizabeth/Desktop/liferay-portal/bundles/tomcat-9.0.17/webapps/theme1-theme",
+    "appServerPathPlugin": "/home/elizabeth/Desktop/liferay-portal/bundles/tomcat-9.0.17/webapps/Elizabeth_Theme",
     "deployed": true,
-    "pluginName": "theme1-theme"
+    "pluginName": "Elizabeth_Theme"
   }
 }
