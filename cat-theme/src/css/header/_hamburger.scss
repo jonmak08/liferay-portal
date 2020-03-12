@@ -89,33 +89,20 @@ $transition--length: .8;
 	&:before{
 		transition-delay: .1s;
 	}
-	&__content{
-		position: fixed;
-		top:50%;
-		transform: translate(0%,-50%);
-		width: 100%;
-    	text-align: center;
-		font-size: $font--size--calc;
-		font-weight: 200;
-		cursor: pointer;
-  }
+	
 
   &__list{
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-left: 20rem;
-    transition: opacity 1s ease, transform .3s ease;
-  }
+	opacity: 0;
+}
   
 	&__list-item{
 		position: relative;
 		display: inline-block;
 		transition-delay: $transition--length + s;
-    opacity: 0;
-    color: $font--color;
+		opacity: 0;
+		color: $font--color;
 		transform: translate(0%, 100%);
-		transition: opacity .2s ease, transform .3s ease;
+		transition: ease $transition--length + s;
 		margin-right: 25px;
 		&:before{
 			content: "";
@@ -138,6 +125,7 @@ $transition--length: .8;
 
 //active state
 body.nav-active{
+	$font--size--calc: calc(2vw + 10px);
 	$menu--items--count: 4;
 	.menu-icon{
 		&__line{
@@ -156,23 +144,43 @@ body.nav-active{
 		&:before,&:after{
 			transform: translateX(0%) translateY(0%);
 		}
-		&:after{
-			transition-delay: .1s;
-		}
-		&:before{
-			transition-delay: 0s;
-    }
+		&__content{
+			position: fixed;
+			top:50%;
+			transform: translate(0%,-50%);
+			width: 100%;
+			text-align: center;
+			font-size: $font--size--calc;
+			font-weight: 200;
+			cursor: pointer;
+	
+			@include respond(tablet-landscape){
+				font-size: 4rem;
+			}
+	
+			@include respond(phone){
+				@include flex($align-items: flex-start);
+				}
+			&--right {
+				left:50%;
+			}
+	
+	  }
     &__list{
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      margin-left: 20rem;
-      transition: opacity 1s ease, transform .3s ease;
+		opacity: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		margin-left: 20rem;
+		transition: opacity .2s ease-in;
+
+		@include respond(phone){
+			margin-left:0;
+		}
     }
 		&__list-item{
 			opacity: 1;
 			transform: translateX(0%);
-			transition: opacity .3s ease, transform .3s ease, color .3s ease;
 			@for $i from 0 through $menu--items--count {
 				&:nth-child(#{$i}){
 					transition-delay: $transition--length * $i / 8 + .5 + s;

@@ -42,12 +42,20 @@
     </div>
 
     <nav class="nav">
-        <div class="nav__content">
+        <div class="nav__content col-md-6 col-12">
             <ul class="nav__list">
                 <li class="nav__list-item">Home</li>
                 <li class="nav__list-item">About</li>
                 <li class="nav__list-item">Projects</li>
                 <li class="nav__list-item">Contact</li>
+            </ul>
+        </div>
+            <div class="nav__content nav__content--right col-6 d-none d-md-block">
+            <ul class="nav__list">
+                <li class="nav__list-item">David</li>
+                <li class="nav__list-item">Address</li>
+                <li class="nav__list-item">Email</li>
+                <li class="nav__list-item">Other</li>
             </ul>
         </div>
     </nav>
