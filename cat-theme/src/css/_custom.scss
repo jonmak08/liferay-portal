@@ -7,7 +7,9 @@
 @import "base/animations";
 @import "base/base";
 @import "base/buttons";
+@import "base/captions";
 @import "base/typography";
+
 
 
 
@@ -18,5 +20,4 @@
 
 
 //***** CONTENT *****//
-@import "content/main_content"; 
-@import "content/other_content"; 
+@import "content/about";

@@ -160,7 +160,8 @@ body.nav-active{
 	
 			@include respond(phone){
 				@include flex($align-items: flex-start);
-				}
+			}
+			
 			&--right {
 				left:50%;
 			}

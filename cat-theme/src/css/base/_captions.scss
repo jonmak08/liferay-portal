@@ -1,0 +1,47 @@
+.caption {
+    @include flex($justify-content: flex-start);
+    margin-bottom: 3rem;
+    opacity: 0.8;
+
+    @include respond(tablet-landscape){
+        margin-bottom: 2rem;
+    }
+
+    @include respond(phone){
+        margin-bottom: 1rem;
+    }
+
+    &__line {
+        border: .5px solid $color-black;
+        display: inline-block;
+        width: 4rem;
+
+        &--darkbg {
+            border: .5px solid $color-header-text;
+        }
+    }
+
+    &__title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        letter-spacing: .2rem;
+        line-height: 1.2;
+        margin: 0 2rem;
+        position: relative;
+        text-transform: uppercase;
+
+        &--signature {
+            margin: 0 1rem 0 0;
+            font-size: 1.7rem;
+        }
+
+        &--dot {
+            margin-left: 1rem;
+            font-size: 1.7rem;
+        }
+    }
+
+    &--signature {
+        margin-bottom: 1rem;
+    }
+}
