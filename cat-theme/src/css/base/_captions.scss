@@ -1,14 +1,22 @@
 .caption {
     @include flex($justify-content: flex-start);
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     opacity: 0.8;
-
-    @include respond(tablet-landscape){
-        margin-bottom: 2rem;
-    }
 
     @include respond(phone){
         margin-bottom: 1rem;
+    }
+
+    &--header {
+        margin-bottom: 3rem;
+
+        @include respond(tablet-landscape){
+            margin-bottom: 2rem;
+        }
+    
+        @include respond(phone){
+            margin-bottom: 1rem;
+        }
     }
 
     &__line {
@@ -31,8 +39,9 @@
         text-transform: uppercase;
 
         &--signature {
-            margin: 0 1rem 0 0;
+            color: $color-black-text;
             font-size: 1.7rem;
+            margin: 0 1rem 0 0;
         }
 
         &--dot {

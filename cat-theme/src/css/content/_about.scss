@@ -14,11 +14,6 @@
 
         &__header {
             color: $color-black-text;
-            font-family: "Montserrat", sans-serif;
-            font-size: 4.2rem;
-            font-weight: 800;
-            letter-spacing: 0.01em;
-            margin-bottom: 4rem;
             text-align: right;
 
             @include respond(tablet-portrait) {
@@ -29,6 +24,7 @@
         &__desc {
             margin-bottom: 3rem;
             max-width: 37rem;
+            margin-bottom: 4rem;
 
             @include respond(tablet-portrait) {
                 max-width: 100%;
@@ -61,7 +57,7 @@
         @include flex;
 
         bottom: 0;
-        background: $color-photo-background;
+        background: $color-grey-background;
         left: auto;
         position: absolute;
         right: 0;
@@ -86,6 +82,11 @@
             @include respond(tablet-landscape){
                 background-position-x: 50%;
                 
+            }
+
+            @include respond(phone){
+                height:100%;
+                width:100%;
             }
 
         }
