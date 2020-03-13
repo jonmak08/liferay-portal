@@ -51,14 +51,26 @@ body {
     outline: none !important;
 }
 
-h3 {
-    word-break: break-word;
-    font-size: 5rem;
-    font-weight: 700;
-    letter-spacing: .05em;
-    line-height: 1.2;
-    -webkit-font-smoothing: antialiased;
+h2 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 4.2rem;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+    margin-bottom: 4rem;
 }
+
+h3 {
+    letter-spacing: .25rem;
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+
+    @include respond(tablet-portrait) {
+        font-size: 1.5rem;
+    }
+}
+
+
 
 a {
     text-decoration: none;
@@ -84,6 +96,10 @@ p {
     margin-inline-end: 0px;
     font-size: 1.5rem;
     line-height: 2;
+
+    @include respond(tablet-portrait) {
+        font-size: 1.3rem;
+    }
 }
 
 @media (min-width: 1800px) {

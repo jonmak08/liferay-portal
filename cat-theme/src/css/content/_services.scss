@@ -1,0 +1,52 @@
+.services {
+
+    .container {
+        @include respond(tablet-portrait) {
+            max-width: 100%;
+        }
+    }
+
+    &__wrapper {
+        margin-bottom:7rem;
+
+        @include respond(tablet-portrait) {
+            margin-bottom: 3.5rem;
+        }
+    }
+
+    &__subject {
+
+        &__container {
+            text-align: center;
+            padding: 5rem 4.5rem;
+
+            @include respond(tablet-portrait) {
+                padding: 3rem 2rem;
+            }
+        }
+
+        &__icon {
+            font-size: 7.5rem;
+            position: relative;
+            line-height: 1;
+            margin-bottom: 2rem;
+
+            img {
+                border-style: none;
+                height: 7.5rem;
+                max-width: 100%;
+                vertical-align: middle;
+
+                @include respond(tablet-portrait) {
+                    height:5rem;
+                }
+            }
+        }
+
+        &:nth-child(odd) {
+            background-color: $color-grey-background;
+        }
+    }
+
+
+}

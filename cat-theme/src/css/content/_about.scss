@@ -14,11 +14,6 @@
 
         &__header {
             color: $color-black-text;
-            font-family: "Montserrat", sans-serif;
-            font-size: 4.2rem;
-            font-weight: 800;
-            letter-spacing: 0.01em;
-            margin-bottom: 4rem;
             text-align: right;
 
             @include respond(tablet-portrait) {
@@ -61,7 +56,7 @@
         @include flex;
 
         bottom: 0;
-        background: $color-photo-background;
+        background: $color-grey-background;
         left: auto;
         position: absolute;
         right: 0;
