@@ -73,15 +73,14 @@
                     <h1  class="hero__title"><a>Cats In Space</a></h1>
                     </h1>
                     <p class="hero__description"> Sometimes, we need to check the time, wondering when our work or meeting will finish, without getting caught by others.</p>
-                        <div class="btn__main">
-                            <a>
-                                <div class="btn__main__arrow">&#8658;
-                                </div>
-                                <span class="btn__main__text">View Case
-                                </span>
-                            </a>
-                        </div>
-
+                    <div class="btn__main">
+                        <a>
+                            <div class="btn__main__arrow">&#8658;
+                            </div>
+                            <span class="btn__main__text">View Case
+                            </span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -180,6 +179,25 @@
             </div>
         </section>
 
+        <section id="message" class="message">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="message__img"></div>
+                    <div class="message__text">
+                        <h3>Expand your horizons</h3>
+                        <p>Explore a world of endless possibilities with fellow like minded felines. We help create and a nurture the future leaders of the world.</p>
+                        <div class="btn__main">
+                        <a>
+                            <div class="btn__main__arrow">&#8658;
+                            </div>
+                            <span class="btn__main__text">Learn More
+                            </span>
+                        </a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 </div>
 
