@@ -1,0 +1,63 @@
+.message {
+    position: relative;
+    
+    &__img {
+        background: url('../images/message_cat.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        height:100vh;
+        width: 100%;
+
+        @include respond(tablet-landscape){
+            background-position-x: 30%;
+        }
+    }
+
+    &__text {
+        background-color: rgba(0, 0, 0, 0.42);
+        color: $color-white;
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 50rem;
+        position: absolute;
+        padding: 8rem;
+        right: 8rem;
+
+        @include respond(tablet-landscape) {
+            right: 0;
+            left:50%;
+        }
+
+        @include respond(tablet-portrait) {
+            position: relative;
+            width: auto;
+            max-width: 100%;
+            top: auto;
+            left: 0;
+            right: 0;
+            bottom: 60px;
+            padding: 50px;
+            margin: 0 20px -60px 20px;
+            background-color: #0d0d0d;
+            text-align: center;
+            display: flex;
+            align-items: center;
+        }
+
+        h3 {
+            font-size: 3.5rem;
+        }
+
+        p {
+            margin-bottom: 3rem;
+            margin-left: 7rem;
+
+            @include respond(tablet-portrait) {
+                margin-left: 0;
+            }
+        }
+
+    }
+}
