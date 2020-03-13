@@ -24,6 +24,7 @@
         &__desc {
             margin-bottom: 3rem;
             max-width: 37rem;
+            margin-bottom: 4rem;
 
             @include respond(tablet-portrait) {
                 max-width: 100%;
@@ -81,6 +82,11 @@
             @include respond(tablet-landscape){
                 background-position-x: 50%;
                 
+            }
+
+            @include respond(phone){
+                height:100%;
+                width:100%;
             }
 
         }

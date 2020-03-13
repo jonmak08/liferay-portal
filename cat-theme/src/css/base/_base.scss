@@ -9,15 +9,6 @@
 html {
     font-size: 62.5%; 
     overflow-x: hidden;
-
-    @include respond(tab-land) { 
-        font-size: 56.25%; 
-    }
-
-    @include respond(tab-port) {
-        font-size: 50%;
-    }
-
 }
 
 body {
@@ -55,8 +46,11 @@ h2 {
     font-family: "Montserrat", sans-serif;
     font-size: 4.2rem;
     font-weight: 800;
-    letter-spacing: 0.01em;
-    margin-bottom: 4rem;
+    letter-spacing: 0.01em;    
+
+    @include respond(phone) {
+        font-size: 2.8rem;
+    }
 }
 
 h3 {
@@ -65,8 +59,8 @@ h3 {
     font-weight: 600;
     margin-bottom: 2rem;
 
-    @include respond(tablet-portrait) {
-        font-size: 1.5rem;
+    @include respond(phone) {
+        font-size: 1.8rem;
     }
 }
 

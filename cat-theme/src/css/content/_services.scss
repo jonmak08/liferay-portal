@@ -9,8 +9,12 @@
     &__wrapper {
         margin-bottom:7rem;
 
-        @include respond(tablet-portrait) {
+        @include respond(tablet-landscape) {
             margin-bottom: 3.5rem;
+        }
+
+        @include respond(tablet-portrait) {
+            margin-bottom: 0;
         }
     }
 
@@ -23,6 +27,13 @@
             @include respond(tablet-portrait) {
                 padding: 3rem 2rem;
             }
+
+            @include respond(phone) {
+                box-shadow: 1.5rem 1.5rem 3rem rgba(225, 225, 225, 0.46);
+                margin: 0 1.5rem 2.5rem;
+            }
+
+
         }
 
         &__icon {
@@ -43,10 +54,8 @@
             }
         }
 
-        &:nth-child(odd) {
+        &:nth-child(odd) &__container{
             background-color: $color-grey-background;
         }
     }
-
-
 }

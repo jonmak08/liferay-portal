@@ -65,7 +65,7 @@
             <div class="row">
                 <div class="col-2 d-none d-md-block hero_carousal ">
                 </div>
-                <div class="offset-1 col-11 offset-md-0 col-md-8 hero__wrapper">
+                <div class="col-11 col-md-8 offset-1 offset-md-0 hero__wrapper">
                     <div class="caption caption--header">
                         <hr class="caption__line caption__line--darkbg"/>
                         <span class="caption__title">Cats</span>
@@ -91,7 +91,7 @@
         <section  id="about" class="about">
             <div class="container">
                 <div class="row">
-                    <div class="about__bio offset-lg-0 col-lg-6 offset-md-1 col-md-10">
+                    <div class="about__bio col-lg-6 col-md-10 offset-lg-0 offset-md-1 ">
                         <div class="about__bio__wrapper">
                             <h2 class="about__bio__header">
                                 Hello I am,
@@ -132,7 +132,7 @@
         <section id="services" class="services">
             <div class="container">
                 <div class="row">
-                    <div class="services__wrapper offset-lg-0 col-lg-12 offset-md-1 col-md-10">
+                    <div class="services__wrapper col-lg-12 col-md-10 offset-lg-0 offset-md-1">
                         <div class="offset-1 caption">
                             <span class="caption__title caption__title--dot">•</span>
                             <hr class="caption__line"/>
