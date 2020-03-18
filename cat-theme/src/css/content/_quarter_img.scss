@@ -1,0 +1,27 @@
+.quarter_img_text {
+    background: $color-background-black;
+
+    &__img_wrapper {
+        height: 100vh;
+    }
+
+    &__img {
+        background: url('../images/cat_seen.jpg');
+        background-position: 25% 0;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height:100%;
+    }
+
+    &__text_wrapper {
+        @include flex;
+    }
+
+    &__text {
+        color: $color-header-text;
+
+        @include respond(tablet-portrait) {
+            padding: 3rem;
+        }
+    }
+}

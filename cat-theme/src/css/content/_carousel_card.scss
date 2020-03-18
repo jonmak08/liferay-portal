@@ -1,0 +1,79 @@
+.carousel_card {
+    &__wrapper {
+        background: $color-grey-background;
+        display:flex;
+    
+        @include respond(phone) {
+            display: inline-block;
+        }
+    }
+
+    &__header {
+
+        h2 {
+            padding-left: 3.5rem;
+            position: absolute;
+            top: -7%;        
+
+            @include respond(phone) {
+                padding-left: 0;
+            }
+        }
+    }
+
+    &__container {
+        line-height: 100%;
+        overflow: hidden;
+        padding: 6rem 2rem;
+        padding-right: 3.5rem;
+        position:relative;
+        transform-style: preserve-3d;
+    }
+
+    &__main {
+        left:10%;
+        margin: auto;
+        opacity: 0;
+        position:relative;
+        top:0;
+        transition: transform .5s, opacity .5s, z-index .5s;
+        width:80%;
+        z-index: 1;
+
+        &--top {
+            font-size: 1.8rem;
+            font-style: italic;
+            letter-spacing: .15rem;
+            margin-bottom: 3rem;
+        }
+
+        &--bottom {
+            align-items: center;      
+            display:flex;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__avatar {      
+        background: url('../images/cat_plump.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 50%;
+        height:6rem;
+        width:6rem;
+    }
+
+    &__label {
+        font-size:1.7rem;
+        letter-spacing: .2rem;
+        margin-left: 2rem;
+    }
+
+    .active {
+        opacity: 1;
+        position: relative;
+        z-index:1;
+    }
+}
+

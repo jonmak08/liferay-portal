@@ -4,19 +4,17 @@
         border: .5px solid $color-header-text;
         border-radius: 4rem;
         height: 5rem;
-        width: 17rem;
         font-size: 1.5rem;
         transition: all .5s ease-in-out;
+        width: 17rem;
 
         &:hover {
             transform: scale(1.1) perspective(1px);
         }
 
-
         a {
             @include flex ($justify-content : flex-start);
             cursor: pointer;
-
         }
         
         &__arrow {
@@ -31,9 +29,13 @@
 
         &__text {
             margin-left: 2rem;
+
+            p {
+                font-size: 1.8rem;
+                font-style: italic;
+                letter-spacing: .15rem;
+                margin-bottom: 3rem;
+            }
         }
-
     }
-
-    
 }

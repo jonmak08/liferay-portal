@@ -1,4 +1,4 @@
-.about {
+.text_small_img {
     position: relative;
 
     .container {
@@ -7,12 +7,12 @@
         }
     }
 
-    &__bio {
+    &__header {
+        color: $color-general-text;
         font-weight: 800;
         line-height: 1.2;
-        color: $color-general-text;
 
-        &__header {
+        &__title {
             color: $color-black-text;
             text-align: right;
 
@@ -20,11 +20,10 @@
                 text-align: left;
             }
         }
-        
+
         &__desc {
-            margin-bottom: 3rem;
-            max-width: 37rem;
             margin-bottom: 4rem;
+            max-width: 37rem;
 
             @include respond(tablet-portrait) {
                 max-width: 100%;
@@ -36,28 +35,27 @@
             opacity: 0.7;
         }
 
-        &__years {
+        &__exp {
             @include flex($justify-content: flex-start);
 
             &__number {
                 color: $color-black-text;
-                font-size:12rem;
-                margin-right:2rem;
+                font-size: 12rem;
+                margin-right: 2rem;
             }
 
             &__text {
-                font-weight: 400;
                 font-size: 1.8rem;
+                font-weight: 400;
             }
         }
-        
+
     }
 
     &__img {
         @include flex;
-
-        bottom: 0;
         background: $color-grey-background;
+        bottom: 0;
         left: auto;
         position: absolute;
         right: 0;
@@ -66,27 +64,26 @@
         z-index: -1;
 
         @include respond(tablet-portrait) {
+            height: 100vh;
             position: relative;
             width: 100%;
-            height:100vh;
         }
 
         &__container {
             background: url('../images/cat_img.jpg');
             background-repeat: no-repeat;
             background-size: cover;
-            height:70%;
-            width:80%;
-            
+            height: 70%;
+            width: 80%;
 
-            @include respond(tablet-landscape){
+            @include respond(tablet-landscape) {
                 background-position-x: 50%;
-                
+
             }
 
-            @include respond(phone){
-                height:100%;
-                width:100%;
+            @include respond(phone) {
+                height: 100%;
+                width: 100%;
             }
 
         }

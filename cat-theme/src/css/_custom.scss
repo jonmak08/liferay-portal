@@ -1,25 +1,26 @@
-//***** ABSTRACTS *****//
-@import "abstracts/mixins";
-@import "abstracts/variables";
+/* ---------- ABSTRACTS ---------- */
+@import 'abstracts/mixins';
+@import 'abstracts/variables';
+
+/* ---------- BASE ---------- */
+@import 'base/base';
+@import 'base/buttons';
+@import 'base/captions';
+@import 'base/typography';
+
+/* ---------- NAVIGATION ---------- */
+@import 'header/navigation'; 
+@import 'header/hero'; 
 
 
-//***** BASE *****//
-@import "base/animations";
-@import "base/base";
-@import "base/buttons";
-@import "base/captions";
-@import "base/typography";
+/* ---------- CONTENT ---------- */
+@import 'content/text_small_img';
+@import 'content/small_cards';
+@import 'content/large_img_text';
+@import 'content/_large_cards.scss';
+@import 'content/quarter_img';
+@import 'content/carousel_card';
+@import 'content/multiple_cards';
 
-
-
-
-//***** NAVIGATION *****//
-@import "header/navigation"; 
-@import "header/hamburger"; 
-@import "header/hero"; 
-
-
-//***** CONTENT *****//
-@import "content/about";
-@import "content/services";
-@import "content/message";
+/* ---------- FOOTER ---------- */
+@import 'footer/footer';

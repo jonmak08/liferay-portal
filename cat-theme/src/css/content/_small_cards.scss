@@ -1,4 +1,4 @@
-.services {
+.small_cards {
 
     .container {
         @include respond(tablet-portrait) {
@@ -21,8 +21,8 @@
     &__subject {
 
         &__container {
-            text-align: center;
             padding: 5rem 4.5rem;
+            text-align: center;
 
             @include respond(tablet-portrait) {
                 padding: 3rem 2rem;
@@ -38,9 +38,9 @@
 
         &__icon {
             font-size: 7.5rem;
-            position: relative;
             line-height: 1;
             margin-bottom: 2rem;
+            position: relative;
 
             img {
                 border-style: none;

@@ -1,0 +1,69 @@
+.footer {
+    color: $color-footer-text;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .4rem;
+    line-height: 1.6;
+    font-variant-numeric: proportional-nums;
+    padding: 0 5rem 3rem;
+
+    @include respond(phone) {
+        margin-left: 0;
+        padding: 0 3rem 3rem 1.5rem;
+    }
+
+    &__top {
+        @include flex($justify-content: flex-start);
+        margin-bottom: 1rem;
+    }
+
+    &__bottom {
+        @include flex($justify-content: space-between);
+
+        @include respond(phone) {
+            @include flex(column, flex-start, flex-start);
+        }
+
+        p {
+            display: inline-block;
+            font-size: 1.1rem;
+
+            @include respond(phone) {
+                margin: 0;
+                order: 2;
+            }
+        }
+
+        ul {
+            @include flex($justify-content: flex-start);
+            display: inline-block;
+            list-style: none;
+
+            @include respond(phone) {
+                order: 1;
+            }
+
+            li {
+
+                a{
+                    font-size: 1.1rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    letter-spacing: .4rem;
+                    line-height: 1.6;
+                    font-variant-numeric: proportional-nums;
+                }
+            }
+        }
+    }
+
+    &__phone {
+        margin-bottom: 0;
+        margin-right: 3rem;
+    }
+
+    &__email {
+
+    }
+}

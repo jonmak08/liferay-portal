@@ -1,26 +1,15 @@
-
-// const hero_parallax = document.querySelector('#hero');
-
-// window.addEventListener('scroll', function() {
-//     const scroll = hero_parallax.scrollTop;
-
-//     console.log(scroll);
-//     hero_parallax.style.backgroundSize = `${(100 + scroll/5)  + "%"}`
-//     hero_parallax.style.top =  `${-(scroll/10)  + "%"}`
-// });
-
-
 const app = (() => {
 	let body;
 	let menu_icon;
 	let menu_header;
+	let parallax;
 	
 	const init = () => {
 		body = document.querySelector('body');
 		menu_icon = document.querySelector('.menu-icon');
 		menu_header = document.querySelector('.menu-title');
-
 		menuItems = document.querySelectorAll('.nav__list-item');
+		parallax = document.querySelector(".parallax");
 
 		applyListeners();
 	}
@@ -29,13 +18,18 @@ const app = (() => {
 		menu_icon.addEventListener('click', () => toggleClass(body, 'nav-active'));
 		menu_header.addEventListener('click', () => toggleClass(body, 'nav-active'));
 
+		window.addEventListener('scroll', () => {
+			let offset = window.pageYOffset;
+
+			parallax.style.backgroundPositionY = offset * .08 + 'rem';
+		})
 	}
 	
-	const toggleClass = (element, stringClass) => {
-		if(element.classList.contains(stringClass))
-			element.classList.remove(stringClass);
+	const toggleClass = (element, navClass) => {
+		if(element.classList.contains(navClass))
+			element.classList.remove(navClass);
 		else
-			element.classList.add(stringClass);
+			element.classList.add(navClass);
 	}
 	
 	init();
