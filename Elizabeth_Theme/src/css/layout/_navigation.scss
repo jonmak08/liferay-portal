@@ -1,48 +1,51 @@
 header {
-  background-color: $theme-main-transparent;
+  background-color: #000000;
   max-width: 100%;
   position: fixed;
   width: 100vw;
   z-index: 1;
 
-  .lunar-user a {
-    color: $theme-main-beige;
+  .theme-user a {
+    color: #D6A261;
   }
 
   .user-avatar-link .lexicon-icon {
-    color: $theme-main-beige;
+    color: #D6A261;
   }
 
   li.nav-item {
 
-    & a.nav-link{
+    & a.nav-link {
       color: #ffffff;
+
+      span {
+        font-family: Lato, sans-serif;
+      }
     }
 
-    & a.nav-link span {
-      font-family: Lato, sans-serif;
-    }
+    &:hover {
+      
+      a {
+        color: $theme-main-emphasize-text;
+      }
 
-    &:hover a {
-      color: $theme-main-beige;
-    }
-
-    &:hover ul.child-menu {
-      background-color: $theme-main-transparent;
-      display: block;
-      margin-top: -10px;
+      ul.child-menu {
+        background-color: #00000000;
+        display: block;
+        margin-top: -10px;
+      }
     }
 
     &.selected {
-      background-color: $theme-main-transparent;
+      background-color: #00000000;
       height: 73px;
 
       & a.nav-link {
-        color: $theme-main-beige;
+        color: #D6A261;
         font-weight: normal;
 
         &:hover {
-          color: $theme-main-beige;
+          color: $theme-main-emphasize-text;
           font-weight: normal;
           padding-left: 9.619px;
           padding-right: 9.619px;
@@ -59,10 +62,17 @@ header {
   }
 
   li.selected {
-
     & a.nav-link{
-      color: $theme-main-beige;
+      color: $theme-main-emphasize-text;
     }
   }
 }
 
+.navbar-nav {
+  justify-content: center;
+
+  &.scroll {
+    background-color: #A1572F;
+    color: #eef;
+  }
+}

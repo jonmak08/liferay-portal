@@ -39,5 +39,9 @@
     </div>
 </div>
   
-
+<div class="welcome-discover">
+    CONTENT
+    <button onclick="displayDate()">Date</button>
+    <p id="dateDisplay"></p>
+</div>
 

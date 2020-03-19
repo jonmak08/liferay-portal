@@ -1,8 +1,4 @@
-<div class="mx-1 mx-sm-3 order-md-1 lunar-user">
-	<@liferay.user_personal_bar />
-</div>
-
-<div class="collapse navbar-collapse" id="themeNav">
+<nav class="navbar-nav" id="themeNav">
 	<nav class="${nav_css_class}" id="navigation" role="navigation">
 		<ul aria-label="<@liferay.language key="site-pages" />" class="navbar-nav mr-auto" role="menubar">
 			<#list nav_items as nav_item>
@@ -11,8 +7,8 @@
 				nav_item_css_class = "nav-item"
 				nav_item_layout = nav_item.getLayout()
 				nav_item_caret = ""
+				nav_item_counter = nav_items?size
 				/>
-
 
 				<#if nav_item.isSelected()>
 					<#assign
@@ -30,45 +26,86 @@
 					/>
 				</#if>
 
+				<#if (nav_item_counter >= 3)>
+					<#if (nav_item?counter <= (nav_item_counter/2))>
+						<li class="${nav_item_css_class}" id="layout_${nav_item.getLayoutId()}" role="presentation">
+							<a 
+								aria-labelledby="layout_${nav_item.getLayoutId()}" 
+								class="nav-link" ${nav_item_attr_has_popup} 
+								href="${nav_item.getURL()}" 
+								${nav_item.getTarget()} 
+								role="menuitem"
+							>
+							<span>
+								<@liferay_theme["layout-icon"] layout=nav_item_layout /> 
+								${nav_item.getName()}
 
-				<li class="${nav_item_css_class}" id="layout_${nav_item.getLayoutId()}" role="presentation">
-					<a 
-						aria-labelledby="layout_${nav_item.getLayoutId()}" 
-						class="nav-link" ${nav_item_attr_has_popup} 
-						href="${nav_item.getURL()}" 
-						${nav_item.getTarget()} 
-						role="menuitem"
-					>
-					<span>
-						<@liferay_theme["layout-icon"] layout=nav_item_layout /> 
-						${nav_item.getName()}
-					</span> 
-					${nav_item_caret}
-					</a>
+							</span> 
+							${nav_item_caret}
+							</a>
+							<#if nav_item.hasChildren()>
+								<ul class="child-menu" role="menu">
+									<#list nav_item.getChildren() as nav_child>
+										<#assign
+											nav_child_css_class = "nav-item"
+										/>
 
-					<#if nav_item.hasChildren()>
-						<ul class="child-menu" role="menu">
-							<#list nav_item.getChildren() as nav_child>
-								<#assign
-									nav_child_css_class = "nav-item"
-								/>
+										<#if nav_item.isSelected()>
+											<#assign
+												nav_child_css_class = "nav-item selected"
+											/>
+										</#if>
 
-								<#if nav_item.isSelected()>
+										<li class="${nav_child_css_class}" id="layout_${nav_child.getLayoutId()}" role="presentation">
+											<a aria-labelledby="layout_${nav_child.getLayoutId()}" class="nav-link" href="${nav_child.getURL()}" ${nav_child.getTarget()} role="menuitem">${nav_child.getName()}</a>
+										</li>
+									</#list>
+								</ul>
+							</#if>
+						</li>
+					<#else>
+						<#sep>
+							<a class="${logo_css_class}" href="${site_default_url}" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
+								<img alt="${logo_description}" height="${site_logo_height}" src="${site_logo}" />
+							</a>
+						</#sep>
+						<li class="${nav_item_css_class}" id="layout_${nav_item.getLayoutId()}" role="presentation">
+						<a 
+							aria-labelledby="layout_${nav_item.getLayoutId()}" 
+							class="nav-link" ${nav_item_attr_has_popup} 
+							href="${nav_item.getURL()}" 
+							${nav_item.getTarget()} 
+							role="menuitem"
+						>
+							<span>
+								<@liferay_theme["layout-icon"] layout=nav_item_layout /> 
+								${nav_item.getName()}
+							</span> 
+						${nav_item_caret}
+						</a>
+						<#if nav_item.hasChildren()>
+							<ul class="child-menu" role="menu">
+								<#list nav_item.getChildren() as nav_child>
 									<#assign
-										nav_child_css_class = "nav-item selected"
+										nav_child_css_class = "nav-item"
 									/>
-								</#if>
 
-								<li class="${nav_child_css_class}" id="layout_${nav_child.getLayoutId()}" role="presentation">
-									<a aria-labelledby="layout_${nav_child.getLayoutId()}" class="nav-link" href="${nav_child.getURL()}" ${nav_child.getTarget()} role="menuitem">${nav_child.getName()}</a>
-								</li>
-							</#list>
-						</ul>
+									<#if nav_item.isSelected()>
+										<#assign
+											nav_child_css_class = "nav-item selected"
+										/>
+									</#if>
+
+									<li class="${nav_child_css_class}" id="layout_${nav_child.getLayoutId()}" role="presentation">
+										<a aria-labelledby="layout_${nav_child.getLayoutId()}" class="nav-link" href="${nav_child.getURL()}" ${nav_child.getTarget()} role="menuitem">${nav_child.getName()}</a>
+									</li>
+								</#list>
+							</ul>
+						</#if>
+						</li>
 					</#if>
-				</li>
+				</#if>
 			</#list>
 		</ul>
 	</nav>
-
-</div>
-
+</nav>

@@ -21,28 +21,9 @@
 
 <@liferay.control_menu />
 
-<#--  POSITION OF HEADER FIXED HERE!!!!!!!!  -->
-<header class="${header_css_class}" style="position:fixed">
-
-<#--  <header class="${header_css_class}">  -->
+<header class="header">
 	<div class="container-fluid" id="banner" role="banner">
-		<a class="${logo_css_class}" href="${site_default_url}" title="<@liferay.language_format arguments="${site_name}" key="go-to-x" />">
-			<img alt="${logo_description}" height="${site_logo_height}" src="${site_logo}" />
-			<#if show_site_name>
-				${site_name}
-			</#if>
-		</a>
-
 		<#if has_navigation>
-		  	<button 
-				aria-controls="navigation" 
-				aria-expanded="false" 
-				class="btn-monospaced ml-auto navbar-toggler" 
-				data-target="#themeNav" 
-				data-toggle="collapse" 
-				type="button">
-				<span class="navbar-toggler-icon"></span>
-			</button>
 			<#include "${full_templates_path}/navigation.ftl" />
 		</#if>
 	</div>
@@ -77,7 +58,6 @@
 <@liferay_util["include"] page=body_bottom_include />
 
 <@liferay_util["include"] page=bottom_include />
-
 </body>
 
 </html>

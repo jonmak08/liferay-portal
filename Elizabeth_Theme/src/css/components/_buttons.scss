@@ -1,6 +1,6 @@
 .button-beige {
-  background-color: $theme-main-transparent;
-  border: 1px solid $theme-main-beige;
+  background-color: #00000000;
+  border: 1px solid $theme-main-buttons;
   border-radius: 0;
   color: #ffffff;
   columns: #ffffff;;
@@ -14,6 +14,6 @@
   text-transform: uppercase;
     
   &:hover {
-    color: $theme-main-beige;
+    color: $theme-main-emphasize-text;
   }
 }

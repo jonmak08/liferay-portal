@@ -1,7 +1,6 @@
 <footer id="footer" role="contentinfo">
   <div class="container">
     <div class="row">
-      <#-- FOOTER - About Us Section -->
       <div class="col-sm-4">
         <h5 class="section_footer_heading">
           <span class="theme-color-text">About Us</span>
@@ -11,7 +10,6 @@
           sint corporis nostrum, possimus unde eos vitae eius quasi saepe.
         </div>
       </div>
-      <#--  FOOTER - Contact Info Section  -->
       <div class="col-sm-4">
         <h5 class="section_footer_heading"><span class="theme-color-text">Contact Info</span></h5>
           <div id="contact">
@@ -43,7 +41,6 @@
             </ul>                 
           </div>
       </div>
-      <#--  FOOTER - Opening Hours section  -->
       <div class="col-sm-4">
         <h5 class="section_footer_heading">
           <span class="theme-color-text">
@@ -58,15 +55,4 @@
         </p>
       </div>
     </div>
-
-  <#--  <div class="text-center mx-auto">
-    <div class="nav text-uppercase" role="menubar">
-      <#assign preferencesMap = {"displayDepth": "1", "portletSetupPortletDecoratorId": "barebone"} />
-
-      <@liferay.navigation_menu
-        default_preferences=freeMarkerPortletPreferences.getPreferences(preferencesMap)
-        instance_id="footer_navigation_menu"
-      />
-    </div>
-  </div>  -->
 </footer>
