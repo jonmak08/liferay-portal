@@ -20,7 +20,6 @@
         <@liferay.control_menu />
 
         <div class="container-fluid" id="wrapper">
-
             <#include "${full_templates_path}/header/navigation.ftl" />
 
             <#include "${full_templates_path}/header/hero.ftl" />
