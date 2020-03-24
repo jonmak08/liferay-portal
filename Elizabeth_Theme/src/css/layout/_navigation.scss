@@ -1,60 +1,44 @@
-header {
-  background-color: #000000;
+.theme-header {
+  background-color: #0000;
   max-width: 100%;
   position: fixed;
+  transition: 500ms ease;
   width: 100vw;
   z-index: 1;
 
   .theme-user a {
-    color: #D6A261;
+    color: $theme-main-color;
   }
 
   .user-avatar-link .lexicon-icon {
-    color: #D6A261;
+    color: $theme-main-color;
   }
 
   li.nav-item {
-
-    & a.nav-link {
-      color: #ffffff;
-
-      span {
-        font-family: Lato, sans-serif;
-      }
+    a.nav-link {
+      color: #fff;
     }
 
     &:hover {
-      
       a {
-        color: $theme-main-emphasize-text;
+        color: $theme-main-color;
       }
 
       ul.child-menu {
-        background-color: #00000000;
         display: block;
         margin-top: -10px;
       }
     }
 
     &.selected {
-      background-color: #00000000;
       height: 73px;
 
       & a.nav-link {
-        color: #D6A261;
-        font-weight: normal;
-
-        &:hover {
-          color: $theme-main-emphasize-text;
-          font-weight: normal;
-          padding-left: 9.619px;
-          padding-right: 9.619px;
-        }
+        color: $theme-main-color;
       }
     }
 
     @include media-breakpoint-down(sm) {
-
       ul.child-menu {
         display: block;
       }
@@ -63,16 +47,11 @@ header {
 
   li.selected {
     & a.nav-link{
-      color: $theme-main-emphasize-text;
+      color: $theme-main-color;
     }
   }
 }
 
 .navbar-nav {
   justify-content: center;
-
-  &.scroll {
-    background-color: #A1572F;
-    color: #eef;
-  }
 }

@@ -1,13 +1,16 @@
 <nav class="navbar-nav" id="themeNav">
+
 	<nav class="${nav_css_class}" id="navigation" role="navigation">
+
 		<ul aria-label="<@liferay.language key="site-pages" />" class="navbar-nav mr-auto" role="menubar">
+
 			<#list nav_items as nav_item>
 				<#assign
-				nav_item_attr_has_popup = ""
-				nav_item_css_class = "nav-item"
-				nav_item_layout = nav_item.getLayout()
-				nav_item_caret = ""
-				nav_item_counter = nav_items?size
+					nav_item_attr_has_popup = ""
+					nav_item_css_class = "nav-item"
+					nav_item_layout = nav_item.getLayout()
+					nav_item_caret = ""
+					nav_item_counter = nav_items?size
 				/>
 
 				<#if nav_item.isSelected()>
@@ -33,16 +36,14 @@
 								aria-labelledby="layout_${nav_item.getLayoutId()}" 
 								class="nav-link" ${nav_item_attr_has_popup} 
 								href="${nav_item.getURL()}" 
+								id = "navigation-link"
 								${nav_item.getTarget()} 
 								role="menuitem"
 							>
-							<span>
-								<@liferay_theme["layout-icon"] layout=nav_item_layout /> 
-								${nav_item.getName()}
-
-							</span> 
+							<span><@liferay_theme["layout-icon"] layout=nav_item_layout /> ${nav_item.getName()}</span> 
 							${nav_item_caret}
 							</a>
+
 							<#if nav_item.hasChildren()>
 								<ul class="child-menu" role="menu">
 									<#list nav_item.getChildren() as nav_child>
@@ -57,7 +58,7 @@
 										</#if>
 
 										<li class="${nav_child_css_class}" id="layout_${nav_child.getLayoutId()}" role="presentation">
-											<a aria-labelledby="layout_${nav_child.getLayoutId()}" class="nav-link" href="${nav_child.getURL()}" ${nav_child.getTarget()} role="menuitem">${nav_child.getName()}</a>
+											<a aria-labelledby="layout_${nav_child.getLayoutId()}" class="nav-link" href="${nav_child.getURL()}" id="navigation-link" ${nav_child.getTarget()} role="menuitem">${nav_child.getName()}</a>
 										</li>
 									</#list>
 								</ul>
@@ -69,20 +70,20 @@
 								<img alt="${logo_description}" height="${site_logo_height}" src="${site_logo}" />
 							</a>
 						</#sep>
+
 						<li class="${nav_item_css_class}" id="layout_${nav_item.getLayoutId()}" role="presentation">
 						<a 
 							aria-labelledby="layout_${nav_item.getLayoutId()}" 
 							class="nav-link" ${nav_item_attr_has_popup} 
 							href="${nav_item.getURL()}" 
+							id="navigation-link"
 							${nav_item.getTarget()} 
 							role="menuitem"
 						>
-							<span>
-								<@liferay_theme["layout-icon"] layout=nav_item_layout /> 
-								${nav_item.getName()}
-							</span> 
+						<span><@liferay_theme["layout-icon"] layout=nav_item_layout />${nav_item.getName()}</span> 
 						${nav_item_caret}
 						</a>
+						
 						<#if nav_item.hasChildren()>
 							<ul class="child-menu" role="menu">
 								<#list nav_item.getChildren() as nav_child>
@@ -97,7 +98,7 @@
 									</#if>
 
 									<li class="${nav_child_css_class}" id="layout_${nav_child.getLayoutId()}" role="presentation">
-										<a aria-labelledby="layout_${nav_child.getLayoutId()}" class="nav-link" href="${nav_child.getURL()}" ${nav_child.getTarget()} role="menuitem">${nav_child.getName()}</a>
+										<a aria-labelledby="layout_${nav_child.getLayoutId()}" class="nav-link" href="${nav_child.getURL()}" id="navigation-link" ${nav_child.getTarget()} role="menuitem">${nav_child.getName()}</a>
 									</li>
 								</#list>
 							</ul>
@@ -109,3 +110,7 @@
 		</ul>
 	</nav>
 </nav>
+
+<div class="theme-user">
+	<@liferay.user_personal_bar />
+</div>

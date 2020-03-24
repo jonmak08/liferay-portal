@@ -1,11 +1,10 @@
 @import 'colors';
 @import 'components/buttons';
-
-@import 'layout/navigation';
-@import 'layout/welcome-page';
-@import 'layout/footer';
-
 @import 'components/map';
+@import 'layout/footer';
+@import 'layout/navigation';
+@import 'layout/navigation-scrolled';
+@import 'layout/welcome-page';
 
 body {
   &.has-control-menu {
@@ -18,13 +17,12 @@ body {
       }  
     }
   }
-  
-  //RESPONSIVE BACKGROUND
-  background-attachment: fixed; //Fixes the image in the viewport so that it doesn't move when the content height is greater than the image height
-  background-color: #464646;  //Solid background color that will display while image is loading or if image is not working
-  background-image: url(../images/main-background.jpg);
-  background-position: center center;   //Background image is centered vertically and horizontally at all times
-  background-repeat: no-repeat;   //Image doesn't repeat into tile formation
-  background-size: cover; //makes the background image rescale based on its container's size
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background:
+    url(../images/main-background.jpg)
+    center center
+    fixed
+    #3c3a3a
 }
-  

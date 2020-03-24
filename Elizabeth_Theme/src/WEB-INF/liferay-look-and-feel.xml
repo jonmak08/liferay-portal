@@ -9,7 +9,9 @@
 		<template-extension>ftl</template-extension>
 		<settings>
   			<setting configurable="true" key="show-footer" type="checkbox" value="true" />
-		  <setting configurable="true" key="show-map" type="checkbox" value="true" />
+			<setting configurable="true" key="show-map" type="checkbox" value="true" />
+			<setting configurable="true" key="latitude" type="text" value="33.997866" />
+			<setting configurable="true" key="longitude" type="text" value="-117.814449" />
 		</settings>
 	</theme>
 </look-and-feel>
