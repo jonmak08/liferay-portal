@@ -1,6 +1,4 @@
 <div class="welcome-container">
-
-
     <div class="welcome-content">
         <h5>
             <span class="theme-color-text" >CAFE</span>
@@ -12,7 +10,6 @@
         </h1>
 
         <div class="description-container">
-
             <div>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non illo, alias animi iusto neque, sint corrupti? Laudantium, dignissimos id excepturi facilis, facere saepe quasi placeat praesentium ipsa sapiente illo molestiae?
             </div>
@@ -22,39 +19,31 @@
     </div>
 
     <div class="welcome-footer-container">
-
         <div class="welcome-footer-content">
-
             <div class="welcome-footer-social-media">
-
                 <ul class="nav flex-row mx-auto">
-
                     <li class="mx-2">
-
                         <div id="twitter">
                             <a class="text-white" href="http://www.twitter.com/liferay" target="_blank">
-                            <@clay["icon"] symbol="twitter" />
+                                <@clay["icon"] symbol="twitter" />
                             </a>
                         </div>
                     </li>
 
                     <li class="mx-2">
-
                         <div id="facebook">
-
                             <a class="text-white" href="http://www.facebook.com/pages/Liferay/45119213107" target="_blank">
-                            <@clay["icon"] symbol="social-facebook" />
+                                <@clay["icon"] symbol="social-facebook" />
                             </a>
                         </div>
                     </li>
 
                     <li class="mx-2">
-
                         <div id="linked-in">
                             <a class="text-white"
-                            href="http://www.linkedin.com/company/83609" 
-                            target="_blank"><span class="hide">LinkedIn</span>
-                            <@clay["icon"] symbol="social-linkedin" />
+                                href="http://www.linkedin.com/company/83609" 
+                                target="_blank"><span class="hide">LinkedIn</span>
+                                <@clay["icon"] symbol="social-linkedin" />
                             </a>
                         </div>
                     </li>

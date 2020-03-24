@@ -21,7 +21,6 @@
 <@liferay.control_menu />
 
 <header class="theme-header">
-
 	<div class="container-fluid" id="banner" role="banner">
 		<#if has_navigation>
 			<#include "${full_templates_path}/navigation.ftl" />
@@ -30,7 +29,6 @@
 </header>
 
 <div class="container-fluid mt-0 pt-0 px-0" id="wrapper">
-
 	<section id="content">
 		<#include "${full_templates_path}/welcome_page.ftl" />
 		
