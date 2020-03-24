@@ -1,19 +1,22 @@
-/* ---------- ABSTRACTS ---------- */
+/* ---------- Abstracts ---------- */
+
 @import 'abstracts/mixins';
 @import 'abstracts/variables';
 
-/* ---------- BASE ---------- */
+/* ---------- Base ---------- */
+
 @import 'base/base';
 @import 'base/buttons';
 @import 'base/captions';
 @import 'base/typography';
 
-/* ---------- NAVIGATION ---------- */
+/* ---------- Navigation ---------- */
+
 @import 'header/navigation'; 
 @import 'header/hero'; 
 
+/* ---------- Content ---------- */
 
-/* ---------- CONTENT ---------- */
 @import 'content/text_small_img';
 @import 'content/small_cards';
 @import 'content/large_img_text';
@@ -22,5 +25,6 @@
 @import 'content/carousel_card';
 @import 'content/multiple_cards';
 
-/* ---------- FOOTER ---------- */
+/* ---------- Footer ---------- */
+
 @import 'footer/footer';

@@ -1,11 +1,11 @@
 .btn {
-    &__main {
+    &--main {
         @include flex ($justify-content : flex-start);
-        border: .5px solid $color-header-text;
+        border: 0.5px solid $color-header-text-light;
         border-radius: 4rem;
         height: 5rem;
         font-size: 1.5rem;
-        transition: all .5s ease-in-out;
+        transition: all 0.5s ease-in-out;
         width: 17rem;
 
         &:hover {
@@ -17,23 +17,23 @@
             cursor: pointer;
         }
         
-        &__arrow {
+        &--arrow {
             @include flex;
-            background-color: $color-button-circle;
+            background-color: $color-button-border-light;
             border-radius: 50%;
-            color:$color-button-circle-text;
+            color: $color-button-text-light;
             height: 3rem;
             margin-left: 2rem;
             width: 3rem;
         }
 
-        &__text {
+        &--text {
             margin-left: 2rem;
 
             p {
                 font-size: 1.8rem;
                 font-style: italic;
-                letter-spacing: .15rem;
+                letter-spacing: 0.15rem;
                 margin-bottom: 3rem;
             }
         }

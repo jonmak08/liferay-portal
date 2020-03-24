@@ -1,7 +1,7 @@
-.large_img_text {
+.large-img-text {
     position: relative;
     
-    &__img {
+    &--img {
         background: url('../images/message_cat.jpg');
         background-repeat: no-repeat;
         background-size: cover;
@@ -13,9 +13,9 @@
         }
     }
 
-    &__text {
+    &--text {
         background-color: rgba(0, 0, 0, 0.42);
-        color: $color-white;
+        color: $color-text-light;
         display: flex;
         height: 100%;
         flex-direction: column;

@@ -1,27 +1,31 @@
-@mixin flex($flex-direction: row, $justify-content: center, $align-items: center) {
-    display:flex;
+@mixin flex($align-items: center, $flex-direction: row, $justify-content: center) {
+    align-items: $align-items;
+    display: flex;
     flex-direction: $flex-direction;
     justify-content: $justify-content;
-    align-items: $align-items;
 }
 
-/* ---------- Media Queries ---------- */
+/* ---------- Media queries ---------- */
 
 @mixin respond($breakpoint) {
     @if $breakpoint == phone {
-        @media only screen and (max-width: 37.5em) { @content };    //600px
+        @media only screen and (max-width: 37.5em) { @content }; //600px
     }
+
     @if $breakpoint == tablet-portrait {
-        @media only screen and (max-width: 60em) { @content };     //900px
+        @media only screen and (max-width: 60em) { @content }; //900px
     }
+
     @if $breakpoint == ipad-pro {
-        @media only screen and (width: 64em) { @content };    //1024px
+        @media only screen and (width: 64em) { @content }; //1024px
     }
+
     @if $breakpoint == tablet-landscape {
-        @media only screen and (max-width: 75em) { @content };    //1200px
+        @media only screen and (max-width: 75em) { @content }; //1200px
     }
+
     @if $breakpoint == big-desktop {
-        @media only screen and (min-width: 112.5em) { @content };    //1800
+        @media only screen and (min-width: 112.5em) { @content }; //1800
     }
 }
 

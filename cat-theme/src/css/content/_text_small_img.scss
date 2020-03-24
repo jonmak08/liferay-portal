@@ -1,4 +1,4 @@
-.text_small_img {
+.text-small-img {
     position: relative;
 
     .container {
@@ -7,13 +7,13 @@
         }
     }
 
-    &__header {
-        color: $color-general-text;
+    &--header {
+        color: $color-text-dark;
         font-weight: 800;
         line-height: 1.2;
 
-        &__title {
-            color: $color-black-text;
+        &--title {
+            color: $color-text-black;
             text-align: right;
 
             @include respond(tablet-portrait) {
@@ -21,7 +21,7 @@
             }
         }
 
-        &__desc {
+        &--desc {
             margin-bottom: 4rem;
             max-width: 37rem;
 
@@ -30,31 +30,30 @@
             }
         }
 
-        &__signature {
+        &--signature {
             font-size: 1.4rem;
             opacity: 0.7;
         }
 
-        &__exp {
+        &--exp {
             @include flex($justify-content: flex-start);
 
-            &__number {
-                color: $color-black-text;
+            &--number {
+                color: $color-text-black;
                 font-size: 12rem;
                 margin-right: 2rem;
             }
 
-            &__text {
+            &--text {
                 font-size: 1.8rem;
                 font-weight: 400;
             }
         }
-
     }
 
-    &__img {
+    &--img {
         @include flex;
-        background: $color-grey-background;
+        background: $color-background-grey;
         bottom: 0;
         left: auto;
         position: absolute;
@@ -69,7 +68,7 @@
             width: 100%;
         }
 
-        &__container {
+        &--container {
             background: url('../images/cat_img.jpg');
             background-repeat: no-repeat;
             background-size: cover;
@@ -78,14 +77,12 @@
 
             @include respond(tablet-landscape) {
                 background-position-x: 50%;
-
             }
 
             @include respond(phone) {
                 height: 100%;
                 width: 100%;
             }
-
         }
     }
 }

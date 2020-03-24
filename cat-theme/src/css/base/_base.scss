@@ -29,18 +29,7 @@ body {
 }
 
 .main {
-    transition: .5s;
-}
-
-.title__hr {
-    border-top: 3px solid black;
-    margin: 0 auto;
-    padding-bottom: 5rem;
-    width: 1%;
-
-    @include respond(phone) {
-        width: 3%;
-    }
+    transition: 0.5s;
 }
 
 *:focus {
@@ -76,23 +65,21 @@ h4 {
     margin-bottom: 1rem;
 
     @include respond(tablet-portait){
-        font-size: 2 .5rem;
+        font-size: 2.5rem;
     }
-
 }
-
 
 h5 {
     font-size: 1.3rem;
     font-weight: 600;
-    letter-spacing: .2rem;
+    letter-spacing: 0.2rem;
     margin-bottom: 1rem;
     text-transform: uppercase;
 }
 
 h6 {
     font-size: 1.8rem;
-    font-weight:700;
+    font-weight: 700;
     margin-block-end: 2.33rem;
     margin-block-start: 2.33rem;
     margin-inline-end: 0;
@@ -107,7 +94,7 @@ section {
     margin: 12rem 0;
 
     @include respond(tablet-landscape) {
-        margin:8rem 0;
+        margin: 8rem 0;
     }
 }
 
@@ -123,7 +110,6 @@ p {
     margin-block-start: 1em;
     margin-inline-end: 0rem;
     margin-inline-start: 0rem;
-
 
     @include respond(tablet-portrait) {
         font-size: 1.3rem;

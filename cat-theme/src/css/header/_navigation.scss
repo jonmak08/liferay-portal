@@ -1,19 +1,10 @@
-$background--color:#e6e6e6;
-$icon--color:#1e2023;
-$font--color:#ffffff;
-$font--color--active:#000000;
-$icon--size: 3rem;
-$font--primary:'Fira Sans',
-sans-serif;
-$transition--length: .8;
-
 #navigation {
     align-items: center;
     display: flex;
     position: fixed;
     justify-content: space-between;
     width: 100%;
-    z-index: 2;
+    z-index: 3;
 }
 
 .site-content {
@@ -23,14 +14,14 @@ $transition--length: .8;
     margin-right: auto;
     max-width: 110rem;
 
-    &__headline {
-        color: $font--color;
+    &--headline {
+        color: $color-header-text-light;
         font-size: calc(2vw + 1rem);
         font-weight: 200;
     }
 }
 
-.menu__wrapper {
+.menu--wrapper {
     align-items: center;
     display: flex;
     justify-content: flex-end;
@@ -40,34 +31,34 @@ $transition--length: .8;
 
 .menu-icon {
     cursor: pointer;
-    height: $icon--size;
+    height: $nav-icon-size;
     margin-right: 1rem;
     margin-top: 1rem;
     position: relative;
-    width: $icon--size;
+    width: $nav-icon-size;
     z-index: 2;
 
-    &__line {
-        background-color: $font--color;
+    &--line {
+        background-color: $color-header-text-light;
         display: block;
-        height: .2rem;
-        margin-bottom: .4rem;
-        transition: transform .2s ease, background-color .5s ease;
-        width: $icon--size;
+        height: 0.2rem;
+        margin-bottom: 0.4rem;
+        transition: transform 0.2s ease, background-color 0.5s ease;
+        width: $nav-icon-size;
     }
 
-    &__line-left {
-        width: $icon--size / 2;
+    &--line-left {
+        width: $nav-icon-size / 2;
     }
 
-    &__line-right {
+    &--line-right {
         float: right;
-        width: $icon--size / 2;
+        width: $nav-icon-size / 2;
     }
 }
 
 .menu-title {
-    color: $font--color;
+    color: $color-header-text-light;
     cursor: pointer;
     font-size: 2rem;
     margin-bottom: 1rem;
@@ -76,21 +67,21 @@ $transition--length: .8;
 .nav {
     $height: 100vh;
     $font--size--calc: calc(2vw + 1rem);
-    $transition--easing: cubic-bezier(.77, 0, .175, 1);
+    $transition--easing: cubic-bezier(.77, 0, 0.175, 1);
     $width: 100vw;
 
-    @include flex(row, space-between, center);
+    @include flex(center, row, space-between);
     position: fixed;
     z-index: 2;
 
     &:before,
     &:after {
-        background: rgba(#eaeaea, .2);
+        background: rgba(#eaeaea, 0.2);
         content: '';
         height: $height;
         position: fixed;
         transform: translateX(0%) translateY(-100%);
-        transition: transform $transition--easing $transition--length + s;
+        transition: transform $transition--easing $nav-animation-transition-length + s;
         width: $width;
         z-index: -1;
     }
@@ -101,10 +92,10 @@ $transition--length: .8;
     }
 
     &:before {
-        transition-delay: .1s;
+        transition-delay: 0.1s;
     }
 
-    &__logo {
+    &--logo {
         margin-left: 2rem;
 
         @include respond(phone) {
@@ -112,28 +103,28 @@ $transition--length: .8;
         }
     }
 
-    &__list {
+    &--list {
         opacity: 0;
     }
 
-    &__list-item {
-        color: $font--color;
+    &--list-item {
+        color: $color-header-text-light;
         display: inline-block;
         margin-right: 2.5rem;
         position: relative;
         opacity: 0;
         transform: translate(0%, 100%);
-        transition: ease $transition--length + s;
-        transition-delay: $transition--length + s;
+        transition: ease $nav-animation-transition-length + s;
+        transition-delay: $nav-animation-transition-length + s;
 
         &:before {
-            background: $font--color;
+            background: $color-header-text-light;
             content: '';
-            height: .1rem;
+            height: 0.1rem;
             position: absolute;
             top: 100%;
             transform: translate(0%, 0%);
-            transition: all .3s ease;
+            transition: all 0.3s ease;
             width: 2rem;
             z-index: -1;
         }
@@ -153,16 +144,16 @@ body.nav-active {
 
     .menu-icon {
 
-        &__line {
-            background-color: $font--color;
+        &--line {
+            background-color: $color-header-text-light;
             transform: translateX(0px) rotate(-45deg);
         }
 
-        &__line-left {
+        &--line-left {
             transform: translateX(1px) rotate(45deg);
         }
 
-        &__line-right {
+        &--line-right {
             transform: translateX(-2px) rotate(45deg);
         }
     }
@@ -175,7 +166,7 @@ body.nav-active {
             transform: translateX(0%) translateY(0%);
         }
 
-        &__content {
+        &--content {
             cursor: pointer;
             font-size: $font--size--calc;
             font-weight: 200;
@@ -198,26 +189,26 @@ body.nav-active {
             }
         }
 
-        &__list {
+        &--list {
 			align-items: flex-start;
 			display: flex;
             flex-direction: column;
             opacity: 1;
             margin-left: 20rem;
-            transition: opacity .2s ease-in;
+            transition: opacity 0.2s ease-in;
 
             @include respond(phone) {
                 margin-left: 0;
             }
         }
 
-        &__list-item {
+        &--list-item {
             opacity: 1;
             transform: translateX(0%);
 
             @for $i from 0 through $menu--items--count {
                 &:nth-child(#{$i}) {
-                    transition-delay: $transition--length * $i / 8 + .5 + s;
+                    transition-delay: $nav-animation-transition-length * $i / 8 + 0.5 + s;
                 }
             }
         }

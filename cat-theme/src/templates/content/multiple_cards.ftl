@@ -1,16 +1,16 @@
-<section id="multiple_cards" class="multiple_cards">
+<section id="multiple-cards" class="multiple-cards">
     <div class="container">
         <div class="row">
 
             <div class="card">
-                <div class="card__img"></div>
-                <div class="card__info">
+                <div class="card--img"></div>
+                <div class="card--info">
 
-                    <div class="card__info__icon">
+                    <div class="card--info--icon">
                         <span>+</span>
                     </div>
 
-                    <div class="card__info__desc">
+                    <div class="card--info--desc">
                         <h5>Test Text Here </h5>
                         <a>Website Link</a>
                     </div>

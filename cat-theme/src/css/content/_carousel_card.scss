@@ -1,14 +1,14 @@
-.carousel_card {
-    &__wrapper {
-        background: $color-grey-background;
-        display:flex;
+.carousel-card {
+    &--wrapper {
+        background: $color-background-grey;
+        display: flex;
     
         @include respond(phone) {
             display: inline-block;
         }
     }
 
-    &__header {
+    &--header {
 
         h2 {
             padding-left: 3.5rem;
@@ -21,7 +21,7 @@
         }
     }
 
-    &__container {
+    &--container {
         line-height: 100%;
         overflow: hidden;
         padding: 6rem 2rem;
@@ -30,50 +30,50 @@
         transform-style: preserve-3d;
     }
 
-    &__main {
+    &--main {
         left:10%;
         margin: auto;
         opacity: 0;
         position:relative;
-        top:0;
+        top: 0;
         transition: transform .5s, opacity .5s, z-index .5s;
-        width:80%;
+        width: 80%;
         z-index: 1;
 
         &--top {
             font-size: 1.8rem;
             font-style: italic;
-            letter-spacing: .15rem;
+            letter-spacing: 0.15rem;
             margin-bottom: 3rem;
         }
 
         &--bottom {
             align-items: center;      
-            display:flex;
+            display: flex;
             flex-wrap: wrap;
         }
     }
 
-    &__avatar {      
+    &--avatar {      
         background: url('../images/cat_plump.jpg');
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         border-radius: 50%;
-        height:6rem;
-        width:6rem;
+        height: 6rem;
+        width: 6rem;
     }
 
-    &__label {
-        font-size:1.7rem;
-        letter-spacing: .2rem;
+    &--label {
+        font-size: 1.7rem;
+        letter-spacing: 0.2rem;
         margin-left: 2rem;
     }
 
     .active {
         opacity: 1;
         position: relative;
-        z-index:1;
+        z-index: 1;
     }
 }
 

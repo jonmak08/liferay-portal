@@ -1,13 +1,13 @@
 <footer id="footer" class="footer">
 
-    <div class="footer__top">
+    <div class="footer--top">
 
-        <a class="footer__phone">Phone Number Here</a>
-        <a class="footer__email">Email Here</a>
+        <a class="footer--phone">Phone Number Here</a>
+        <a class="footer--email">Email Here</a>
 
     </div>
 
-    <div class="footer__bottom">
+    <div class="footer--bottom">
 
         <p>@ 2019 Cat Company</p>
 

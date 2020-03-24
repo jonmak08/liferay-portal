@@ -1,24 +1,24 @@
-.quarter_img_text {
+.quarter-img-text {
     background: $color-background-black;
 
-    &__img_wrapper {
+    &--img-wrapper {
         height: 100vh;
     }
 
-    &__img {
+    &--img {
         background: url('../images/cat_seen.jpg');
         background-position: 25% 0;
         background-repeat: no-repeat;
         background-size: cover;
-        height:100%;
+        height: 100%;
     }
 
-    &__text_wrapper {
+    &--text-wrapper {
         @include flex;
     }
 
-    &__text {
-        color: $color-header-text;
+    &--text {
+        color: $color-header-text-light;
 
         @include respond(tablet-portrait) {
             padding: 3rem;

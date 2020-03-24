@@ -13,48 +13,44 @@
 </head>
 
 <body class="${css_class}">
+    <@liferay_ui["quick-access"] contentId="#main-content" />
 
-<@liferay_ui["quick-access"] contentId="#main-content" />
+    <@liferay_util["include"] page=body_top_include />
 
-<@liferay_util["include"] page=body_top_include />
+    <@liferay.control_menu />
 
-<@liferay.control_menu />
+    <div class="container-fluid" id="wrapper">
 
-<div class="container-fluid" id="wrapper">
- 
-	<#include "${full_templates_path}/header/navigation.ftl" />
+        <#include "${full_templates_path}/header/navigation.ftl" />
 
-    <#include "${full_templates_path}/header/hero.ftl" />
+        <#include "${full_templates_path}/header/hero.ftl" />
 
-    <main>
+        <main>
+            <#include "${full_templates_path}/content/text_small_img.ftl" />
 
-        <#include "${full_templates_path}/content/text_small_img.ftl" />
+            <#include "${full_templates_path}/content/small_cards.ftl" />
 
-        <#include "${full_templates_path}/content/small_cards.ftl" />
+            <#include "${full_templates_path}/content/large_img_text.ftl" />
 
-        <#include "${full_templates_path}/content/large_img_text.ftl" />
+            <#include "${full_templates_path}/content/large_cards.ftl" />
 
-        <#include "${full_templates_path}/content/large_cards.ftl" />
+            <#include "${full_templates_path}/content/quarter_img_text.ftl" />
 
-        <#include "${full_templates_path}/content/quarter_img_text.ftl" />
+            <#include "${full_templates_path}/content/carousel_card.ftl" />
 
-        <#include "${full_templates_path}/content/carousel_card.ftl" />
+            <#include "${full_templates_path}/content/multiple_cards.ftl" />
+        </main>
 
-        <#include "${full_templates_path}/content/multiple_cards.ftl" />
+        <#include "${full_templates_path}/footer/footer.ftl" />
+    </div>
 
-    </main>
+    <@liferay_util["include"] page=body_bottom_include />
 
-    <#include "${full_templates_path}/footer/footer.ftl" />
+    <@liferay_util["include"] page=bottom_include />
 
-</div>
-
-<@liferay_util["include"] page=body_bottom_include />
-
-<@liferay_util["include"] page=bottom_include />
-
-<!-- inject:js -->
-<!-- endinject -->
-
+    <!-- inject:js -->
+    
+    <!-- endinject -->
 </body>
 
 </html>
