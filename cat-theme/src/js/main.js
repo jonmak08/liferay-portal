@@ -1,37 +1,40 @@
 const app = (() => {
-	let body;
-	let menu_icon;
-	let menu_header;
-	let parallax;
+	let body = document.querySelector('body');
+	let menuHeader = document.querySelector('.menu-title');
+	let menuIcon = document.querySelector('.menu-icon');
+	let parallax = document.querySelector(".parallax");
 	
-	const init = () => {
-		body = document.querySelector('body');
-		menu_icon = document.querySelector('.menu-icon');
-		menu_header = document.querySelector('.menu-title');
-		menuItems = document.querySelectorAll('.nav__list-item');
-		parallax = document.querySelector(".parallax");
+	applyListeners = () => {
+		menuHeader.addEventListener('click', () => toggleClass(body, 'nav-active'));
+		menuIcon.addEventListener('click', () => toggleClass(body, 'nav-active'));
 
-		applyListeners();
 	}
 	
-	const applyListeners = () => {
-		menu_icon.addEventListener('click', () => toggleClass(body, 'nav-active'));
-		menu_header.addEventListener('click', () => toggleClass(body, 'nav-active'));
-
-		window.addEventListener('scroll', () => {
-			let offset = window.pageYOffset;
-
-			parallax.style.backgroundPositionY = offset * .08 + 'rem';
-		})
-	}
+	const debounce = fn => {
+		let timeout;
 	
-	const toggleClass = (element, navClass) => {
-		if(element.classList.contains(navClass))
-			element.classList.remove(navClass);
-		else
-			element.classList.add(navClass);
-	}
+		return () => {
+			let arguments = arguments;
 	
-	init();
+			if (timeout) {
+				window.cancelAnimationFrame(timeout);
+			}
+	
+			timeout = window.requestAnimationFrame(function () {
+				fn.apply(this, arguments);
+			});
+		}
+	};
+	
+	const ScrollHeadParallax = () => {
+		let offset = window.pageYOffset;
+
+		parallax.style.backgroundPositionY = offset * .08 + 'rem';
+	};
+		
+	window.addEventListener('scroll', function () {
+
+		debounce(ScrollHeadParallax());
+	}, false);
+
 })();
-

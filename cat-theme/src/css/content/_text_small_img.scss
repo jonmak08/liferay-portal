@@ -11,6 +11,8 @@
         color: $color-text-dark;
         font-weight: 800;
         line-height: 1.2;
+        z-index: 1000;
+
 
         &--title {
             color: $color-text-black;
@@ -36,6 +38,7 @@
         }
 
         &--exp {
+
             @include flex($justify-content: flex-start);
 
             &--number {
@@ -52,7 +55,9 @@
     }
 
     &--img {
+
         @include flex;
+        
         background: $color-background-grey;
         bottom: 0;
         left: auto;
@@ -60,7 +65,6 @@
         right: 0;
         top: 0;
         width: calc(50% + 5rem);
-        z-index: -1;
 
         @include respond(tablet-portrait) {
             height: 100vh;

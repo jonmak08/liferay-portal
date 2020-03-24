@@ -14,7 +14,9 @@
     }
 
     &--top {
+
         @include flex($justify-content: flex-start);
+
         margin-bottom: 1rem;
     }
 
@@ -25,7 +27,7 @@
             @include flex(flex-start, flex-start, column);
         }
 
-        p {
+        .copyright {
             display: inline-block;
             font-size: 1.1rem;
 
@@ -36,7 +38,9 @@
         }
 
         ul {
+
             @include flex($justify-content: flex-start);
+            
             display: inline-block;
             list-style: none;
 
@@ -45,7 +49,6 @@
             }
 
             li {
-
                 a{
                     font-size: 1.1rem;
                     font-weight: 700;

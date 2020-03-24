@@ -4,11 +4,13 @@
     position: fixed;
     justify-content: space-between;
     width: 100%;
-    z-index: 3;
+    z-index: 5000;
 }
 
 .site-content {
+
     @include flex;
+
     height: 100vh;
     margin-left: auto;
     margin-right: auto;
@@ -36,7 +38,6 @@
     margin-top: 1rem;
     position: relative;
     width: $nav-icon-size;
-    z-index: 2;
 
     &--line {
         background-color: $color-header-text-light;
@@ -65,25 +66,21 @@
 }
 
 .nav {
-    $height: 100vh;
-    $font--size--calc: calc(2vw + 1rem);
-    $transition--easing: cubic-bezier(.77, 0, 0.175, 1);
-    $width: 100vw;
 
     @include flex(center, row, space-between);
+    
     position: fixed;
-    z-index: 2;
+    z-index: 1000;
 
     &:before,
     &:after {
         background: rgba(#eaeaea, 0.2);
         content: '';
-        height: $height;
+        height: 100vh;
         position: fixed;
         transform: translateX(0%) translateY(-100%);
-        transition: transform $transition--easing $nav-animation-transition-length + s;
-        width: $width;
-        z-index: -1;
+        transition: transform cubic-bezier(.77, 0, 0.175, 1) $nav-animation-transition-length + s;
+        width: 100vw;
     }
 
     &:after {
@@ -126,7 +123,6 @@
             transform: translate(0%, 0%);
             transition: all 0.3s ease;
             width: 2rem;
-            z-index: -1;
         }
 
         &:hover {
@@ -139,8 +135,6 @@
 }
 
 body.nav-active {
-    $font--size--calc: calc(2vw + 1rem);
-    $menu--items--count: 4;
 
     .menu-icon {
 
@@ -163,18 +157,19 @@ body.nav-active {
 
         &:before,
         &:after {
-            transform: translateX(0%) translateY(0%);
+            transform: translateX(0%) translateY(50%);
         }
 
         &--content {
             cursor: pointer;
-            font-size: $font--size--calc;
+            font-size: calc(2vw + 1rem);;
             font-weight: 200;
             position: fixed;
             text-align: center;
             top: 50%;
             transform: translate(0%, -50%);
             width: 100%;
+            z-index:1600;
 
             @include respond(tablet-landscape) {
                 font-size: 4rem;
@@ -206,7 +201,7 @@ body.nav-active {
             opacity: 1;
             transform: translateX(0%);
 
-            @for $i from 0 through $menu--items--count {
+            @for $i from 0 through $nav-items-count {
                 &:nth-child(#{$i}) {
                     transition-delay: $nav-animation-transition-length * $i / 8 + 0.5 + s;
                 }

@@ -2,6 +2,7 @@
 *::after,
 *::before {
     box-sizing: inherit;
+    font-family: "Montserrat", sans-serif;
     margin: 0;
     padding: 0;
     -webkit-box-sizing: antialiased;
@@ -102,7 +103,7 @@ span {
     font-size: 1.5rem;
 }
 
-p {
+.paragraph {
     display: block;
     font-size: 1.5rem;
     line-height: 2;

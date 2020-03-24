@@ -1,6 +1,8 @@
 .btn {
     &--main {
+
         @include flex ($justify-content : flex-start);
+
         border: 0.5px solid $color-header-text-light;
         border-radius: 4rem;
         height: 5rem;
@@ -13,12 +15,16 @@
         }
 
         a {
+
             @include flex ($justify-content : flex-start);
+
             cursor: pointer;
         }
         
         &--arrow {
+
             @include flex;
+            
             background-color: $color-button-border-light;
             border-radius: 50%;
             color: $color-button-text-light;

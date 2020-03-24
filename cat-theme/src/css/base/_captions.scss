@@ -1,5 +1,7 @@
 .caption {
+    
     @include flex($justify-content: flex-start);
+
     margin-bottom: 2rem;
     opacity: 0.8;
 

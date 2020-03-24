@@ -14,7 +14,9 @@
     }
 
     &--text-wrapper {
+
         @include flex;
+        
     }
 
     &--text {

@@ -59,7 +59,9 @@
     }
 
     &--info {
+
         @include flex(center, column, flex-end);
+        
         animation-timing-function: linear;
         bottom :0;
         cursor: pointer;
