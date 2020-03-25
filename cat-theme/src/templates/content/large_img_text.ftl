@@ -1,6 +1,7 @@
 <section class="large-img-text" id="large-img-text" >
     <div class="container-fluid">
         <div class="row">
+    <div class="large-img-text">
             <div class="large-img-text--img"></div>
 
             <div class="large-img-text--text">

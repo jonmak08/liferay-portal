@@ -46,6 +46,11 @@
         margin-bottom: 0.4rem;
         transition: transform 0.2s ease, background-color 0.5s ease;
         width: $nav-icon-size;
+
+        &--dark {
+            background-color: $color-nav-dark;
+            transition: transform 0.2s ease, background-color 0.5s ease;
+        }
     }
 
     &--line-left {
@@ -63,6 +68,11 @@
     cursor: pointer;
     font-size: 2rem;
     margin-bottom: 1rem;
+
+    &--dark {
+        color: $color-nav-dark;
+        transition: 0.5s ease;
+    }
 }
 
 .nav {
@@ -136,6 +146,13 @@
 
 body.nav-active {
 
+    .menu-title {
+        color: $color-header-text-light;
+        cursor: pointer;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
     .menu-icon {
 
         &--line {
@@ -149,6 +166,11 @@ body.nav-active {
 
         &--line-right {
             transform: translateX(-2px) rotate(45deg);
+        }
+
+        &--dark {
+            background-color: $color-nav-dark;
+            transition: transform 0.2s ease, background-color 0.5s ease;
         }
     }
 

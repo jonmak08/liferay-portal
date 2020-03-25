@@ -1,11 +1,14 @@
 .large-img-text {
     position: relative;
+    height:100vh;
+    width:100%;
     
     &--img {
         background: url('../images/message_cat.jpg');
         background-repeat: no-repeat;
         background-size: cover;
-        height:100vh;
+        height:100%;
+        position: absolute;
         width: 100%;
 
         @include respond(tablet-landscape){

@@ -1,11 +1,10 @@
 .hero {
     align-items: center;
-    background: url('../images/hero/cat_hero_compressed.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
     color: $color-header-text-light;
     display: flex;
     height: 100vh;
+    overflow: hidden;
+    position: relative;
     justify-content: center;
 
     @include respond(tablet-landscape){
@@ -14,6 +13,15 @@
 
     @include respond(phone){
         flex-direction: column;
+    }
+
+    &--img {
+        background: url('../images/hero/cat_hero_compressed.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        height:100%;
+        position: absolute;
+        width:100%;
     }
 
     &--wrapper {

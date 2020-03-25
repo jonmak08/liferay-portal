@@ -1,4 +1,6 @@
-<header class="hero parallax" id="hero">
+<header class="dark--background hero" id="hero">
+    <div class="hero--img parallax">
+    </div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-2 d-md-block d-none hero-carousal">
